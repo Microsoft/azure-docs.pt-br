@@ -4,12 +4,12 @@ description: Este artigo fornece informações que ajudam a otimizar o custo e a
 ms.topic: article
 ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: dbf0bb9cae87a51eb6e0a4fb25c700ec6f423ff1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dfac69a055c9b0c75032622caf7fb8502fad3406
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85476250"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92328259"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---manage-cost-and-ownership"></a>Governança da infraestrutura do Azure DevTest Labs – Gerenciar o custo e a propriedade
 O custo e a propriedade são preocupações primárias ao considerar a criação de ambientes de desenvolvimento e teste. Nesta seção, há informações que ajudam você a otimizar o custo e alinhar a propriedade em todo o ambiente.
@@ -34,9 +34,9 @@ Somente os assinantes ativos do Visual Studio (assinaturas padrão, assinaturas 
 
 Se decidir usar a oferta de DevTest, observe que este benefício é exclusivamente para desenvolvimento e teste de seus aplicativos. O uso dentro da assinatura não acarreta um SLA com suporte financeiro, exceto para uso do Azure DevOps e HockeyApp.
 
-## <a name="define-a-role-based-access-across-your-organization"></a>Definir um acesso baseado em função em sua organização
+## <a name="define-role-based-access-across-your-organization"></a>Definir o acesso baseado em função em sua organização
 ### <a name="question"></a>Pergunta
-Como faço para definir o controle de acesso baseado em função para meus ambientes de DevTest Labs e garantir que a TI possa ter controle enquanto os desenvolvedores/teste realizam seu trabalho? 
+Como fazer definir o controle de acesso baseado em função do Azure para meus ambientes do DevTest Labs para garantir que ele possa ser controlado, enquanto os desenvolvedores/testes podem fazer seu trabalho? 
 
 ### <a name="answer"></a>Resposta
 Há um padrão amplo, no entanto, o detalhe depende de sua organização.

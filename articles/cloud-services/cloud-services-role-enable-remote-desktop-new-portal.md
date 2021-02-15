@@ -1,22 +1,24 @@
 ---
 title: Usar o portal para habilitar Área de Trabalho Remota para uma função
-titleSuffix: Azure Cloud Services
 description: Como configurar seu aplicativo de serviço de nuvem do Azure para permitir conexões de área de trabalho remota
-services: cloud-services
-documentationcenter: ''
-author: mmccrory
-ms.service: cloud-services
 ms.topic: article
-ms.date: 11/28/2016
-ms.author: memccror
-ms.openlocfilehash: d65f4b55be317234c10a0e90cfe413d9e38a6a90
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.service: cloud-services
+ms.date: 10/14/2020
+ms.author: tagore
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 8fa0d3c0e29c53e6fe9cb32ddf02168686be1efe
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84696772"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743246"
 ---
-# <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services"></a>Habilitar a conexão de Área de Trabalho Remota para uma função nos Serviços de Nuvem do Azure
+# <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-classic"></a>Habilitar Conexão de Área de Trabalho Remota para uma função nos serviços de nuvem do Azure (clássico)
+
+> [!IMPORTANT]
+> Os [serviços de nuvem do Azure (suporte estendido)](../cloud-services-extended-support/overview.md) são um novo modelo de implantação baseado em Azure Resource Manager para o produto de serviços de nuvem do Azure.Com essa alteração, os serviços de nuvem do Azure em execução no modelo de implantação baseado no Azure Service Manager foram renomeados como serviços de nuvem (clássicos) e todas as novas implantações devem usar os [serviços de nuvem (suporte estendido)](../cloud-services-extended-support/overview.md).
 
 > [!div class="op_single_selector"]
 > * [Azure portal](cloud-services-role-enable-remote-desktop-new-portal.md)
@@ -33,7 +35,7 @@ O Portal do Azure usa a abordagem de Extensão da Área de Trabalho Remota para 
 
 1. Clique em **Serviços de Nuvem**, selecione o nome do serviço de nuvem e depois selecione **Área de Trabalho Remota**.
 
-    ![Área de trabalho remota dos serviços de nuvem](./media/cloud-services-role-enable-remote-desktop-new-portal/CloudServices_Remote_Desktop.png)
+    ![imagem mostra área de trabalho remota dos serviços de nuvem](./media/cloud-services-role-enable-remote-desktop-new-portal/CloudServices_Remote_Desktop.png)
 
 2. Escolha se você quer habilitar a Área de Trabalho Remota para uma função individual ou para todas as funções, e altere o valor do alternador para **Habilitado**.
 
@@ -56,7 +58,7 @@ Após a habilitação da Área de Trabalho Remota nas funções, você poderá i
 2. Selecione uma instância de função com a área de trabalho remota configurada.
 3. Clique em **Conectar** para baixar um arquivo RDP para a instância da função.
 
-    ![Área de trabalho remota dos serviços de nuvem](./media/cloud-services-role-enable-remote-desktop-new-portal/CloudServices_Remote_Desktop_Connect.png)
+    ![Imagem da área de trabalho remota dos serviços de nuvem](./media/cloud-services-role-enable-remote-desktop-new-portal/CloudServices_Remote_Desktop_Connect.png)
 
 4. Clique em **Abrir** e em **Conectar** para iniciar a conexão de Área de Trabalho Remota.
 

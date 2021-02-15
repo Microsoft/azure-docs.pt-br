@@ -16,12 +16,12 @@ ms.date: 06/09/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 118abaef1fd1458057a7dbe28d5cd74ded55fe28
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 75f797c40a276323cea9983c5340d2d854160c83
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85358286"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368470"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Autenticação de passagem do Azure Active Directory: perguntas frequentes
 
@@ -29,19 +29,15 @@ Este artigo aborda perguntas frequentes sobre a Autenticação de Passagem do Az
 
 ## <a name="which-of-the-methods-to-sign-in-to-azure-ad-pass-through-authentication-password-hash-synchronization-and-active-directory-federation-services-ad-fs-should-i-choose"></a>Qual dos métodos para entrar no Azure AD, Autenticação de Passagem, sincronização de hash de senha e Serviços de Federação do Active Directory (AD FS), devo escolher?
 
-Leia [este guia](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn) para uma comparação entre os vários métodos de conexão do Azure AD e como escolher o método de entrada certo para a sua organização.
+Leia [este guia](./choose-ad-authn.md) para uma comparação entre os vários métodos de conexão do Azure AD e como escolher o método de entrada certo para a sua organização.
 
 ## <a name="is-pass-through-authentication-a-free-feature"></a>A Autenticação de Passagem é um recurso gratuito?
 
 A Autenticação de Passagem é um recurso gratuito. Você não precisa de nenhuma edição paga do Azure AD para usá-lo.
 
-## <a name="is-pass-through-authentication-available-in-the-microsoft-azure-germany-cloud-and-the-microsoft-azure-government-cloud"></a>A Autenticação de Passagem está disponível na [nuvem do Microsoft Azure Alemanha](https://www.microsoft.de/cloud-deutschland) e na [nuvem do Microsoft Azure Governamental](https://azure.microsoft.com/features/gov/)?
+## <a name="does-conditional-access-work-with-pass-through-authentication"></a>O [Acesso Condicional](../conditional-access/overview.md) funciona com a Autenticação de Passagem?
 
-Não. A Autenticação de Passagem está disponível apenas na instância mundial do Azure AD.
-
-## <a name="does-conditional-access-work-with-pass-through-authentication"></a>O [Acesso Condicional](../active-directory-conditional-access-azure-portal.md) funciona com a Autenticação de Passagem?
-
-Sim. Todos os recursos de acesso condicional, incluindo a autenticação multifator do Azure, funcionam com a autenticação de passagem.
+Sim. Todos os recursos de acesso condicional, incluindo a autenticação multifator do Azure AD, funcionam com a autenticação de passagem.
 
 ## <a name="does-pass-through-authentication-support-alternate-id-as-the-username-instead-of-userprincipalname"></a>A Autenticação de Passagem dá suporte à "ID alternativa" como nome de usuário, em vez de "userPrincipalName"?
 Sim, a entrada usando um valor não-UPN, como um email alternativo, tem suporte para PTA (autenticação de passagem) e PHS (sincronização de hash de senha). Para obter mais informações sobre a [ID de logon alternativa](../authentication/howto-authentication-use-email-signin.md).
@@ -113,7 +109,7 @@ A comunicação entre cada Agente de Autenticação de Passagem e o Azure AD é 
 
 Enquanto um Agente de Autenticação de Passagem estiver em execução, ele permanecerá ativo e continuamente lidará com solicitações de entrada de usuários. Se você quiser desinstalar um Agente de Autenticação, acesse **Painel de Controle -> Programas -> Programas e Recursos** e desinstale os programas **Agente de Autenticação do Microsoft Azure AD Connect** e o **Atualizador do Agente do Microsoft Azure AD Connect**.
 
-Se você verificar a folha de Autenticação de Passagem no [Centro de administração do Azure Active Directory](https://aad.portal.azure.com) depois de concluir a etapa anterior, verá o agente de autenticação exibido como **Inativo**. Isso é _esperado_. O Agente de Autenticação será descartado automaticamente da lista depois de alguns dias.
+Se você verificar a folha de Autenticação de Passagem no [Centro de administração do Azure Active Directory](https://aad.portal.azure.com) depois de concluir a etapa anterior, verá o agente de autenticação exibido como **Inativo**. Isso é _esperado_. O agente de autenticação é descartado automaticamente da lista após 10 dias.
 
 ## <a name="i-already-use-ad-fs-to-sign-in-to-azure-ad-how-do-i-switch-it-to-pass-through-authentication"></a>Já uso o AD FS para entrar no Azure AD. Como fazer para passar dele para a Autenticação de Passagem?
 
@@ -142,13 +138,9 @@ Para a maioria dos clientes, um total de dois ou três agentes de autenticação
 >[!NOTE]
 >Há um limite do sistema de 40 Agentes de Autenticação por locatário.
 
-## <a name="can-i-install-the-first-pass-through-authentication-agent-on-a-server-other-than-the-one-that-runs-azure-ad-connect"></a>Eu posso instalar o primeiro Agente de Autenticação de Passagem em um servidor diferente daquele que executa o Azure AD Connect?
-
-Não, esse cenário _não_ tem suporte.
-
 ## <a name="why-do-i-need-a-cloud-only-global-administrator-account-to-enable-pass-through-authentication"></a>Por que eu preciso de uma conta de Administrador Global somente em nuvem para habilitar a autenticação de passagem?
 
-É recomendável que você habilitar ou desabilitar a autenticação de passagem usando uma conta de Administrador Global somente em nuvem. Saiba mais sobre como [Adicionar uma conta de administrador global somente em nuvem](../active-directory-users-create-azure-portal.md). Fazendo dessa maneira garante que você não seja bloqueado de seu locatário.
+É recomendável que você habilitar ou desabilitar a autenticação de passagem usando uma conta de Administrador Global somente em nuvem. Saiba mais sobre como [Adicionar uma conta de administrador global somente em nuvem](../fundamentals/add-users-azure-active-directory.md). Fazendo dessa maneira garante que você não seja bloqueado de seu locatário.
 
 ## <a name="how-can-i-disable-pass-through-authentication"></a>Como posso desabilitar a Autenticação de Passagem?
 
@@ -184,4 +176,3 @@ Locatários criados depois de 15 de junho de 2015 têm o comportamento padrão d
 - [Aprofundamento em segurança](how-to-connect-pta-security-deep-dive.md): obtenha informações técnicas avançadas sobre o recurso de Autenticação de passagem.
 - [SSO contínuo do Azure AD](how-to-connect-sso.md): saiba mais sobre esse recurso complementar.
 - [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): use o Fórum do Azure Active Directory para arquivar novas solicitações.
-

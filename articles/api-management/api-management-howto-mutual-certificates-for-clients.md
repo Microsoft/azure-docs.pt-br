@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: apimpm
-ms.openlocfilehash: 19e0d741d959eba704f26e7e8f7b5d311aa77775
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 553b4527796db3e5d0f430afd6c5e614626187e5
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87904847"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988885"
 ---
 # <a name="how-to-secure-apis-using-client-certificate-authentication-in-api-management"></a>Como proteger APIs usando a autenticação de certificado do cliente no Gerenciamento de API
 
@@ -93,9 +93,20 @@ O exemplo a seguir mostra como verificar a impressão digital de um certificado 
 
 > [!TIP]
 > O problema de deadlock de certificado de cliente descrito neste [artigo](https://techcommunity.microsoft.com/t5/Networking-Blog/HTTPS-Client-Certificate-Request-freezes-when-the-Server-is/ba-p/339672) pode se manifestar de várias maneiras, por exemplo, as solicitações Freeze, as solicitações resultam em `403 Forbidden` código de status após o tempo limite `context.Request.Certificate` é `null` . Esse problema geralmente afeta `POST` e `PUT` solicita o tamanho do conteúdo de aproximadamente 60KB ou maior.
-> Para evitar que esse problema ocorra, ative a configuração "negociar certificado de cliente" para os nomes de host desejados na folha "domínios personalizados", conforme mostrado abaixo. Este recurso não está disponível na camada de consumo.
+> Para evitar que esse problema ocorra, ative a configuração "negociar certificado de cliente" para os nomes de host desejados na folha "domínios personalizados", conforme mostrado na primeira imagem deste documento. Este recurso não está disponível na camada de consumo.
 
-![Negociar certificado do cliente](./media/api-management-howto-mutual-certificates-for-clients/negotiate-client-certificate.png)
+## <a name="certificate-validation-in-self-hosted-gateway"></a>Validação de certificado no gateway de hospedagem interna
+
+A imagem de [Gateway autohospedado](self-hosted-gateway-overview.md) do gerenciamento de API padrão não dá suporte à validação de certificados de cliente e servidor usando [certificados raiz de CA](api-management-howto-ca-certificates.md) carregados para uma instância de gerenciamento de API. Os clientes que apresentam um certificado personalizado para o gateway auto-hospedado podem experimentar respostas lentas, pois a validação da CRL (lista de certificados revogados) pode levar muito tempo para expirar no gateway. 
+
+Como solução alternativa ao executar o gateway, você pode configurar o endereço IP PKI para apontar para o endereço localhost (127.0.0.1) em vez da instância de gerenciamento de API. Isso faz com que a validação da CRL falhe rapidamente quando o gateway tenta validar o certificado do cliente. Para configurar o gateway, adicione uma entrada DNS para a instância de gerenciamento de API a ser resolvida para o localhost no `/etc/hosts` arquivo no contêiner. Você pode adicionar essa entrada durante a implantação do gateway:
+ 
+* Para a implantação do Docker – adicione o `--add-host <hostname>:127.0.0.1` parâmetro ao `docker run` comando. Para obter mais informações, consulte [Adicionar entradas ao contêiner hosts de arquivo](https://docs.docker.com/engine/reference/commandline/run/#add-entries-to-container-hosts-file---add-host)
+ 
+* Para a implantação do kubernetes – adicione uma `hostAliases` especificação ao `myGateway.yaml` arquivo de configuração. Para obter mais informações, consulte [adicionando entradas para o Pod/etc/hosts com aliases de host](https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/).
+
+
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

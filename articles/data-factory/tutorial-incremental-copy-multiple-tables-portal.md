@@ -1,6 +1,6 @@
 ---
 title: Copiar incrementalmente várias tabelas usando o portal do Azure
-description: Neste tutorial, você criará um pipeline do Azure Data Factory que copia os dados delta de maneira incremental de várias tabelas em um banco de dados do SQL Server para um banco de dados no Banco de Dados SQL do Azure.
+description: Neste tutorial, você criará um Azure Data Factory com um pipeline que carrega os dados delta de várias tabelas em um banco de dados do SQL Server para um banco de dados no Banco de Dados SQL do Azure.
 services: data-factory
 ms.author: yexu
 author: dearandyxu
@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 06/10/2020
-ms.openlocfilehash: c215c2cb256ab37bcb096c018aefb3a410ab1e4f
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.date: 11/09/2020
+ms.openlocfilehash: f3060a7308d728b31266008d75e18470883e4480
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85251141"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97508587"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-a-database-in-azure-sql-database-using-the-azure-portal"></a>Carregar dados de maneira incremental de várias tabelas no SQL Server para um banco de dados no Banco de Dados SQL do Azure usando o portal do Azure
 
@@ -168,8 +168,8 @@ AS
 
 BEGIN
 
-    UPDATE watermarktable
-    SET [WatermarkValue] = @LastModifiedtime 
+UPDATE watermarktable
+SET [WatermarkValue] = @LastModifiedtime 
 WHERE [TableName] = @TableName
 
 END
@@ -236,7 +236,7 @@ END
 ## <a name="create-a-data-factory"></a>Criar uma data factory
 
 1. Iniciar o navegador da Web **Microsoft Edge** ou **Google Chrome**. Atualmente, a interface do usuário do Data Factory tem suporte apenas nos navegadores da Web Microsoft Edge e Google Chrome.
-2. No menu à esquerda, selecione **Criar um recurso** > **Analytics** > **Data Factory**: 
+2. No menu à esquerda, selecione **Criar um recurso** > **Integração** > **Data Factory**: 
    
    ![Seleção de Data Factory no painel "Novo"](./media/doc-common-process/new-azure-data-factory-menu.png)
 
@@ -249,8 +249,8 @@ END
 4. Selecione a **assinatura** do Azure na qual você deseja criar o data factory. 
 5. Para o **Grupo de Recursos**, execute uma das seguintes etapas:
      
-    - Selecione **Usar existente**e selecione um grupo de recursos existente na lista suspensa. 
-    - Selecione **Criar novo**e insira o nome de um grupo de recursos.   
+    - Selecione **Usar existente** e selecione um grupo de recursos existente na lista suspensa. 
+    - Selecione **Criar novo** e insira o nome de um grupo de recursos.   
     Para saber mais sobre grupos de recursos, consulte [Usando grupos de recursos para gerenciar recursos do Azure](../azure-resource-manager/management/overview.md).  
 6. Selecione **V2** para a **versão**.
 7. Selecione o **local** do data factory. Apenas os locais com suporte são exibidos na lista suspensa. Os armazenamentos de dados (Armazenamento do Azure, Banco de Dados SQL do Azure, etc.) e serviços de computação (HDInsight, etc.) usados pelo data factory podem estar em outras regiões.
@@ -263,7 +263,7 @@ END
 ## <a name="create-self-hosted-integration-runtime"></a>Criar um Integration Runtime auto-hospedado
 Conforme você move dados de um armazenamento de dados em uma rede privada (local) para um armazenamento de dados do Azure, instale um RI (runtime de integração) auto-hospedado em seu ambiente local. O IR auto-hospedado move dados entre sua rede privada e o Azure. 
 
-1. Na página **Vamos começar** da interface do usuário do Azure Data Factory, selecione a [guia Gerenciar](https://docs.microsoft.com/azure/data-factory/author-management-hub) no painel mais à esquerda.
+1. Na página **Vamos começar** da interface do usuário do Azure Data Factory, selecione a [guia Gerenciar](./author-management-hub.md) no painel mais à esquerda.
 
    ![O botão Gerenciar da home page](media/doc-common-process/get-started-page-manage-button.png)
 
@@ -701,5 +701,3 @@ Avance para o tutorial a seguir para saber mais sobre como transformar dados usa
 
 > [!div class="nextstepaction"]
 >[Carregar incrementalmente os dados do Banco de Dados SQL do Azure para o Armazenamento de Blobs do Azure usando a tecnologia Controle de Alterações](tutorial-incremental-copy-change-tracking-feature-portal.md)
-
-

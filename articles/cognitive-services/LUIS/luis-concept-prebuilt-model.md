@@ -3,20 +3,18 @@ title: Modelos predefinidos – LUIS
 titleSuffix: Azure Cognitive Services
 description: Modelos predefinidos fornecem domínios, intenções, enunciados e entidades. Você pode iniciar o aplicativo com um domínio predefinido ou, posteriormente adicionar um domínio relevante ao aplicativo.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/10/2019
-ms.author: diberry
-ms.openlocfilehash: e0b5b95a7524b60a7c3367035a15a7158fa7908a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6642e59c2957b298d54bc587853752b9fce74686
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74280830"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95019136"
 ---
 # <a name="prebuilt-models"></a>Modelos predefinidos
 
@@ -28,13 +26,13 @@ O LUIS fornece três tipos de modelos pré-criados. Cada modelo poderá ser adic
 
 |Tipo de modelo|Includes|
 |--|--|
-|[Domain](luis-reference-prebuilt-domains.md)|Intenções, enunciados, entidades|
+|[Domínio](luis-reference-prebuilt-domains.md)|Intenções, enunciados, entidades|
 |Intenções|Intenções, enunciados|
-|[Entities](luis-reference-prebuilt-entities.md)|Apenas entidades| 
+|[Entidades](luis-reference-prebuilt-entities.md)|Apenas entidades| 
 
 ## <a name="prebuilt-domains"></a>Domínios predefinidos
 
-O Reconhecimento vocal (LUIS) fornece *domínios*pré-criados, que são modelos pré-instalados de [intenções](luis-how-to-add-intents.md) e [entidades](luis-concept-entity-types.md) que funcionam em conjunto para domínios ou categorias comuns de aplicativos cliente. 
+O Reconhecimento vocal (LUIS) fornece *domínios* pré-criados, que são modelos pré-instalados de [intenções](luis-how-to-add-intents.md) e [entidades](luis-concept-entity-types.md) que funcionam em conjunto para domínios ou categorias comuns de aplicativos cliente. 
 
 Os domínios predefinidos são treinados e prontos para serem adicionados ao aplicativo LUIS. As intenções e entidades de um domínio predefinido são totalmente personalizáveis depois de serem adicionadas ao seu aplicativo. 
 
@@ -63,4 +61,4 @@ Quando uma entidade predefinida é incluída em seu aplicativo, suas previsões 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba como [adicionar entidades predefinidas](luis-prebuilt-entities.md) ao aplicativo.
+Saiba como [adicionar entidades predefinidas](./howto-add-prebuilt-models.md) ao aplicativo.

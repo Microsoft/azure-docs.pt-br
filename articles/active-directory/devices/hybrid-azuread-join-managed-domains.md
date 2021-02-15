@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: tutorial
-ms.date: 03/06/2020
+ms.date: 01/26/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4f30202b08328854296b45e0279fc51b25b0a7c
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: d3da63503c80652bc8737f2cb4894e25d8bc6fc0
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87428465"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98893399"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Tutorial: Configurar o ingresso no Azure Active Directory híbrido para os domínios gerenciados
 
@@ -73,9 +73,9 @@ O ingresso no Azure AD híbrido requer que os dispositivos tenham acesso aos seg
 > [!WARNING]
 > Se a sua organização usa servidores proxy que interceptam o tráfego SSL para cenários como prevenção de perda de dados ou restrições de locatário do Azure AD, verifique se o tráfego para 'https://device.login.microsoftonline.com ' foi excluído do TLS de interrupção e inspeção. A falha ao excluir o 'https://device.login.microsoftonline.com ' pode causar interferência com a autenticação de certificado de cliente, causando problemas com o registro de dispositivo e o Acesso Condicional com base no dispositivo.
 
-Se a sua organização exigir acesso à Internet por meio de um proxy de saída, você poderá usar [implementar a WPAD (Descoberta Automática de Proxy Web)](https://docs.microsoft.com/previous-versions/tn-archive/cc995261(v%3dtechnet.10)) para permitir que computadores Windows 10 registrem-se no dispositivo com o Azure AD. Para solucionar problemas encontrados ao configurar e gerenciar a WPAD, veja [Solucionando problemas de detecção automática](/previous-versions/tn-archive/cc302643(v=technet.10)). Em dispositivos Windows 10 anteriores à atualização 1709, o WPAD é a única opção disponível para configurar um proxy para trabalhar com o ingresso no Azure AD Híbrido. 
+Se a sua organização exigir acesso à Internet por meio de um proxy de saída, você poderá usar [implementar a WPAD (Descoberta Automática de Proxy Web)](/previous-versions/tn-archive/cc995261(v=technet.10)) para permitir que computadores Windows 10 registrem-se no dispositivo com o Azure AD. Para solucionar problemas encontrados ao configurar e gerenciar a WPAD, veja [Solucionando problemas de detecção automática](/previous-versions/tn-archive/cc302643(v=technet.10)). Em dispositivos Windows 10 anteriores à atualização 1709, o WPAD é a única opção disponível para configurar um proxy para trabalhar com o ingresso no Azure AD Híbrido. 
 
-Se você não usa a WPAD, pode configurar as definições de proxy WinHTTP no computador com o Windows 10 1709 e versões posteriores. Para obter mais informações, confira [Configurações de proxy WinHTTP implantadas por GPO](https://blogs.technet.microsoft.com/netgeeks/2018/06/19/winhttp-proxy-settings-deployed-by-gpo/).
+Se você não usa a WPAD, pode configurar as definições de proxy WinHTTP no computador com o Windows 10 1709 e versões posteriores. Para obter mais informações, confira [Configurações de proxy WinHTTP implantadas por GPO](/archive/blogs/netgeeks/winhttp-proxy-settings-deployed-by-gpo).
 
 > [!NOTE]
 > Se você definir as configurações de proxy em seu computador usando as configurações de WinHTTP, qualquer computador que não possa se conectar ao proxy configurado não conseguirá se conectar à Internet.
@@ -90,23 +90,21 @@ Para configurar um ingresso no Azure AD híbrido usando o Azure AD Connect:
 
 1. Inicie o Azure AD Connect e selecione **Configurar**.
 
-   ![Bem-Vindo](./media/hybrid-azuread-join-managed-domains/welcome-azure-ad-connect.png)
-
 1. Em **Tarefas adicionais**, selecione **Configurar opções de dispositivo** e, em seguida, **Avançar**.
 
    ![Tarefas adicionais](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-additional-tasks.png)
 
 1. Em **Visão geral**, selecione **Avançar**.
 
-   ![Visão geral](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-overview.png)
-
 1. Em **Conectar o Azure AD**, insira as credenciais de um administrador global para o locatário do Azure AD.  
-
-   ![Conecte-se ao AD do Azure](./media/hybrid-azuread-join-managed-domains/connect-to-azure-ad-username-password.png)
 
 1. Em **Opções do dispositivo**, selecione **Configurar ingresso no Azure AD Híbrido** e, em seguida, selecione **Avançar**.
 
    ![Opções do dispositivo](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-device-options.png)
+
+1. Em **Sistemas operacionais do dispositivo**, selecione os sistemas operacionais que os dispositivos no ambiente do Active Directory usam e selecione **Avançar**.
+
+   ![Sistema operacional do dispositivo](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-device-operating-systems.png)
 
 1. Em **Configuração de SCP**, de cada floresta em que você deseja que o Azure AD Connect configure o SCP, conclua as seguintes etapas e selecione **Avançar**.
 
@@ -116,17 +114,9 @@ Para configurar um ingresso no Azure AD híbrido usando o Azure AD Connect:
 
    ![SCP](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-scp-configuration.png)
 
-1. Em **Sistemas operacionais do dispositivo**, selecione os sistemas operacionais que os dispositivos no ambiente do Active Directory usam e selecione **Avançar**.
-
-   ![Sistema operacional do dispositivo](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-device-operating-systems.png)
-
 1. Em **Pronto para configurar**, selecione **Configurar**.
 
-   ![Pronto para configurar](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-ready-to-configure.png)
-
 1. Em **Configuração completa** selecione **Sair**.
-
-   ![Configuração concluída](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-configuration-complete.png)
 
 ## <a name="enable-windows-down-level-devices"></a>Habilitar dispositivos de nível inferior do Windows
 
@@ -174,13 +164,13 @@ Aqui estão três maneiras de localizar e verificar o estado do dispositivo:
 ### <a name="using-the-azure-portal"></a>Usando o portal do Azure
 
 1. Acesse a página de dispositivos usando um [link direto](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices).
-2. Informações sobre como localizar um dispositivo podem ser encontradas em [Como gerenciar identidades de dispositivo usando o portal do Azure](https://docs.microsoft.com/azure/active-directory/devices/device-management-azure-portal#locate-devices).
+2. Informações sobre como localizar um dispositivo podem ser encontradas em [Como gerenciar identidades de dispositivo usando o portal do Azure](./device-management-azure-portal.md).
 3. Se a coluna **Registrado** indica **Pendente**, o ingresso no Azure AD Híbrido não foi concluído.
 4. Se a coluna **Registrado** contiver uma **data/hora**, o ingresso no Azure AD Híbrido foi concluído.
 
 ### <a name="using-powershell"></a>Usando o PowerShell
 
-Verifique o estado de registro do dispositivo em seu locatário do Azure usando **[Get-MsolDevice](/powershell/module/msonline/get-msoldevice)** . Esse cmdlet está no [módulo do PowerShell do Azure Active Directory](/powershell/azure/active-directory/install-msonlinev1?view=azureadps-2.0).
+Verifique o estado de registro do dispositivo em seu locatário do Azure usando **[Get-MsolDevice](/powershell/module/msonline/get-msoldevice)** . Esse cmdlet está no [módulo do PowerShell do Azure Active Directory](/powershell/azure/active-directory/install-msonlinev1).
 
 Ao usar o cmdlet **Get-MSolDevice** para verificar os detalhes do serviço:
 
@@ -224,7 +214,7 @@ Get-MsolDevice -All -IncludeSystemManagedDevices | where {($_.DeviceTrustType -e
 
 Se estiver com problemas para concluir o ingresso no Azure AD híbrido de dispositivos Windows unidos ao domínio, confira:
 
-- [Solução de problemas de dispositivos usando o comando dsregcmd](https://docs.microsoft.com/azure/active-directory/devices/troubleshoot-device-dsregcmd)
+- [Solução de problemas de dispositivos usando o comando dsregcmd](./troubleshoot-device-dsregcmd.md)
 - [Solução de problemas do Azure Active Directory híbrido ingressado em dispositivos](troubleshoot-hybrid-join-windows-current.md)
 - [Solução de problemas do Azure Active Directory híbrido ingressado em dispositivos de nível inferior](troubleshoot-hybrid-join-windows-legacy.md)
 

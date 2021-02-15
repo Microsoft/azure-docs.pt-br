@@ -1,19 +1,19 @@
 ---
 title: Solução do Azure VMware por CloudSimple-use o Azure AD como fonte de identidade na nuvem privada
 description: Descreve como adicionar o Azure AD como um provedor de identidade em sua nuvem privada do CloudSimple para autenticar usuários que acessam o CloudSimple do Azure
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/15/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: f90f5f4298fcca77e293965ddd377598bcfd1930
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f55a0f52f5e028f9cbf7a9fabbb3c24ad43c3800
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077311"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97898599"
 ---
 # <a name="use-azure-ad-as-an-identity-provider-for-vcenter-on-cloudsimple-private-cloud"></a>Usar o Azure AD como um provedor de identidade para o vCenter na nuvem privada do CloudSimple
 
@@ -41,12 +41,12 @@ Para usar o Azure AD como uma fonte de identidade com o vCenter, você deve conf
 
 Antes de começar, você precisará de acesso à sua assinatura do Azure com privilégios de administrador global.  As etapas a seguir fornecem diretrizes gerais. Os detalhes estão contidos na documentação do Azure.
 
-### <a name="azure-ad"></a>Azure AD
+### <a name="azure-ad"></a>AD do Azure
 
 > [!NOTE]
 > Se você já tiver o Azure AD, poderá ignorar esta seção.
 
-1. Configure o Azure AD em sua assinatura, conforme descrito na [documentação do Azure ad](../active-directory/fundamentals/active-directory-whatis.md).
+1. Configure o Azure AD em sua assinatura, conforme descrito na  [documentação do Azure ad](../active-directory/fundamentals/active-directory-whatis.md).
 2. Habilite Azure Active Directory Premium em sua assinatura, conforme descrito em [inscrever-se para Azure Active Directory Premium](../active-directory/fundamentals/active-directory-get-started-premium.md).
 3. Configure um nome de domínio personalizado e verifique o nome de domínio personalizado conforme descrito em [Adicionar um nome de domínio personalizado para Azure Active Directory](../active-directory/fundamentals/add-custom-domain.md).
     1. Configure um registro DNS no seu registrador de domínio com as informações fornecidas no Azure.
@@ -64,7 +64,7 @@ Opcionalmente, você pode configurar outros recursos do Azure AD.  Eles não sã
 3. Configure o grupo de administradores para gerenciar Azure AD Domain Services conforme descrito em [habilitar Azure Active Directory Domain Services usando o portal do Azure](../active-directory-domain-services/tutorial-create-instance.md).
 4. Atualize as configurações de DNS para seu Azure AD Domain Services conforme descrito em [habilitar Azure Active Directory Domain Services](../active-directory-domain-services/tutorial-create-instance.md).  Se você quiser se conectar ao AD pela Internet, configure o registro DNS para o endereço IP público dos serviços de domínio do Azure AD para o nome de domínio.
 5. Habilitar a sincronização de hash de senha para usuários.  Esta etapa habilita a sincronização de hashes de senha necessários para a autenticação Kerberos e NTLM (NT LAN Manager) para Azure AD Domain Services. Depois que a sincronização de hashes de senha é configurada, os usuários podem entrar no domínio gerenciado com suas credenciais corporativas. Consulte [habilitar a sincronização de hash de senha para Azure Active Directory Domain Services](../active-directory-domain-services/tutorial-create-instance.md).
-    1. Se os usuários somente na nuvem estiverem presentes, eles deverão alterar sua senha usando o <a href="http://myapps.microsoft.com/" target="_blank">painel de acesso do AD do Azure</a> para garantir que os hashes de senha sejam armazenados no formato exigido pelo NTLM ou pelo Kerberos.  Siga as instruções em [habilitar a sincronização de hash de senha para seu domínio gerenciado para contas de usuário somente em nuvem](../active-directory-domain-services/tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds).  Esta etapa deve ser feita para usuários individuais e qualquer novo usuário criado no diretório do AD do Azure usando os cmdlets do PowerShell do portal do Azure ou do Azure AD. Os usuários que precisam de acesso aos serviços de domínio do Azure AD devem usar o <a href="http://myapps.microsoft.com/" target="_blank">painel de acesso do Azure ad</a> e acessar seu perfil para alterar a senha.
+    1. Se os usuários somente na nuvem estiverem presentes, eles deverão alterar sua senha usando o <a href="https://myapps.microsoft.com/" target="_blank">painel de acesso do AD do Azure</a> para garantir que os hashes de senha sejam armazenados no formato exigido pelo NTLM ou pelo Kerberos.  Siga as instruções em [habilitar a sincronização de hash de senha para seu domínio gerenciado para contas de usuário somente em nuvem](../active-directory-domain-services/tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds).  Esta etapa deve ser feita para usuários individuais e qualquer novo usuário criado no diretório do AD do Azure usando os cmdlets do PowerShell do portal do Azure ou do Azure AD. Os usuários que precisam de acesso aos serviços de domínio do Azure AD devem usar o <a href="https://myapps.microsoft.com/" target="_blank">painel de acesso do Azure ad</a> e acessar seu perfil para alterar a senha.
 
         > [!NOTE]
         > Se a sua organização tiver contas de usuário somente na nuvem, todos os usuários que precisarem usar o Azure Active Directory Domain Services deverão alterar suas senhas. Uma conta de usuário somente na nuvem é uma conta que foi criada no diretório do Azure AD usando o portal do Azure ou os cmdlets do Azure AD PowerShell. Essas contas de usuário não são sincronizadas de um diretório local.
@@ -86,19 +86,19 @@ Opcionalmente, você pode configurar outros recursos do Azure AD.  Eles não sã
     | **Opção** | **Descrição** |
     |------------|-----------------|
     | **Nome** | Nome da origem da identidade. |
-    | **DN de base para usuários** | Nome distinto base para os usuários.  Para o Azure AD, use: `OU=AADDC Users,DC=<domain>,DC=<domain suffix>` exemplo: `OU=AADDC Users,DC=cloudsimplecustomer,DC=com` .|
+    | **DN de base para usuários** | Nome distinto base para os usuários.  Para o Azure AD, use: `OU=AADDC Users,DC=<domain>,DC=<domain suffix>`  exemplo: `OU=AADDC Users,DC=cloudsimplecustomer,DC=com` .|
     | **Nome de domínio** | FQDN do domínio, por exemplo, example.com. Não forneça um endereço IP nesta caixa de texto. |
     | **Alias de domínio** | *(opcional)* O nome NetBIOS do domínio. Adicione o nome NetBIOS do domínio Active Directory como um alias da origem de identidade se você estiver usando autenticações SSPI. |
-    | **DN de base para grupos** | O nome distinto base para os grupos. Para o Azure AD, use: `OU=AADDC Users,DC=<domain>,DC=<domain suffix>` exemplo:`OU=AADDC Users,DC=cloudsimplecustomer,DC=com`|
-    | **URL do servidor primário** | Servidor LDAP do controlador de domínio primário para o domínio.<br><br>Use o formato `ldaps://hostname:port`. A porta geralmente é 636 para conexões LDAPs. <br><br>Um certificado que estabelece confiança para o ponto de extremidade LDAPs do servidor Active Directory é necessário quando você usa  `ldaps://`   o na URL LDAP primária ou secundária. |
+    | **DN de base para grupos** | O nome distinto base para os grupos. Para o Azure AD, use: `OU=AADDC Users,DC=<domain>,DC=<domain suffix>`  exemplo: `OU=AADDC Users,DC=cloudsimplecustomer,DC=com`|
+    | **URL do servidor primário** | Servidor LDAP do controlador de domínio primário para o domínio.<br><br>Use o formato `ldaps://hostname:port`. A porta geralmente é 636 para conexões LDAPs. <br><br>Um certificado que estabelece confiança para o ponto de extremidade LDAPs do servidor Active Directory é necessário quando você usa `ldaps://` o na URL LDAP primária ou secundária. |
     | **URL do servidor secundário** | Endereço de um servidor LDAP do controlador de domínio secundário que é usado para failover. |
-    | **Escolher certificado** | Se você quiser usar LDAPs com o servidor LDAP Active Directory ou a origem de identidade do servidor OpenLDAP, um botão escolher certificado será exibido depois que você digitar  `ldaps://`   na caixa de texto URL. Uma URL secundária não é necessária. |
+    | **Escolher certificado** | Se você quiser usar LDAPs com o servidor LDAP Active Directory ou a origem de identidade do servidor OpenLDAP, um botão escolher certificado será exibido depois que você digitar `ldaps://` na caixa de texto URL. Uma URL secundária não é necessária. |
     | **Nome de usuário** | ID de um usuário no domínio que tem um mínimo de acesso somente leitura ao DN base para usuários e grupos. |
     | **Senha** | Senha do usuário que é especificada pelo nome de usuário. |
 
 3. Entre em sua nuvem privada vCenter após os privilégios serem escalados.
 4. Siga as instruções em [Adicionar uma fonte de identidade no vCenter](set-vcenter-identity.md#add-an-identity-source-on-vcenter) usando os valores da etapa anterior para configurar Azure Active Directory como uma origem de identidade.
-5. Adicione usuários/grupos do Azure AD aos grupos do vCenter, conforme descrito no tópico VMware [adicionar membros a um grupo de logon único do vCenter](https://docs.vmware.com/en/VMware-vSphere/5.5/com.vmware.vsphere.security.doc/GUID-CDEA6F32-7581-4615-8572-E0B44C11D80D.html).
+5. Adicione usuários/grupos do Azure AD aos grupos do vCenter, conforme descrito no tópico VMware [adicionar membros a um grupo único de Sign-On do vCenter](https://docs.vmware.com/en/VMware-vSphere/5.5/com.vmware.vsphere.security.doc/GUID-CDEA6F32-7581-4615-8572-E0B44C11D80D.html).
 
 > [!CAUTION]
 > Novos usuários devem ser adicionados somente a *Cloud-Owner-Group*, *Cloud-global-cluster-admin-Group*, *Cloud-Global-Storage-admin-Group*, *Cloud-Global-Network-admin-Group* ou, *Cloud-global-VM-admin-Group*.  Os usuários adicionados ao grupo de *Administradores* serão removidos automaticamente.  Somente contas de serviço devem ser adicionadas ao grupo *Administradores* .

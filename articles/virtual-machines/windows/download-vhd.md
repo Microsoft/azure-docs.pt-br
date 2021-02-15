@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 01/13/2019
 ms.author: cynthn
-ms.openlocfilehash: 5c57ac0fb0ab377f00770e3c9c03a413dcb345bc
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 5e6f7b461d205478d6a3fe3eecbbb933d0533ec9
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87291041"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98200508"
 ---
 # <a name="download-a-windows-vhd-from-azure"></a>Baixar um VHD do Windows Azure
 
@@ -27,7 +27,7 @@ Se você quiser usar o VHD como uma [imagem](tutorial-custom-images.md) para cri
 Para usar o VHD como uma imagem para criar outras VMs, generalizar a VM.
 
 1. Se você ainda não fez isso, entre no [portal do Azure](https://portal.azure.com/).
-2. [Conecte-se à VM](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
+2. [Conecte-se à VM](connect-logon.md). 
 3. Na VM, abra uma janela de prompt de comando como administrador.
 4. Altere o diretório para *%windir%\system32\sysprep* e execute sysprep.exe.
 5. Na caixa de diálogo Ferramenta de Preparação do Sistema, selecione **Entrar na Configuração Inicial pelo Usuário do Sistema (OOBE)** e verifique se a opção **Generalizar** está marcada.
@@ -65,6 +65,6 @@ Para baixar o arquivo VHD, você precisa gerar uma URL de [SAS (assinatura de ac
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba como [carregar um arquivo VHD no Azure](upload-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
-- [Crie discos gerenciados de discos não gerenciados em uma conta de armazenamento](attach-disk-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-- [Gerenciar discos do Azure com o PowerShell](tutorial-manage-data-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+- Saiba como [carregar um arquivo VHD no Azure](upload-generalized-managed.md). 
+- [Crie discos gerenciados de discos não gerenciados em uma conta de armazenamento](attach-disk-ps.md).
+- [Gerenciar discos do Azure com o PowerShell](tutorial-manage-data-disk.md).

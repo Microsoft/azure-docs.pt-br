@@ -1,0 +1,102 @@
+### YamlMime:Landing
+title: Serviços de Comunicação do Azure
+summary: Os Serviços de Comunicação do Azure são um serviço de comunicação baseado em nuvem que permite que você adicione voz, vídeo, chat e telefonia aos seus aplicativos. Observe que os Serviços de Comunicação do Azure estão atualmente em versão prévia pública.
+metadata:
+  title: Serviços de Comunicação do Azure
+  description: Os Serviços de Comunicação do Azure são um serviço de comunicação baseado em nuvem que permite que você adicione voz, vídeo, chat e telefonia aos seus aplicativos. Observe que os Serviços de Comunicação do Azure estão atualmente em versão prévia pública.
+  ms.service: azure-communication-services
+  ms.topic: landing-page
+  author: mikben
+  ms.author: mikben
+  ms.date: 08/10/2020
+  ms.openlocfilehash: 396b32a9f84895532c8c233b5c7ccc3d2ce85c11
+  ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+  ms.translationtype: HT
+  ms.contentlocale: pt-BR
+  ms.lasthandoff: 12/09/2020
+  ms.locfileid: "96937297"
+landingContent:
+- title: Sobre os Serviços de Comunicação do Azure
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que são os Serviços de Comunicação do Azure?
+      url: overview.md
+  - linkListType: concept
+    links:
+    - text: Opções de biblioteca de clientes
+      url: concepts/sdk-options.md
+- title: Introdução
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Criar um recurso dos Serviços de Comunicação
+      url: quickstarts/create-communication-resource.md
+    - text: Criar e gerenciar tokens de acesso do usuário
+      url: quickstarts/access-tokens.md
+  - linkListType: concept
+    links:
+    - text: Arquitetura de cliente e servidor
+      url: concepts/client-and-server-architecture.md
+    - text: Autenticação e autorização
+      url: concepts/authentication.md
+    - text: Manipulação de eventos
+      url: concepts/event-handling.md
+    - text: Notificações
+      url: concepts/notifications.md
+- title: Chamadas de voz e vídeo
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Adicionar chamadas de voz e vídeo ao seu aplicativo
+      url: quickstarts/voice-video-calling/getting-started-with-calling.md
+    - text: Usar a biblioteca de clientes de chamada
+      url: quickstarts/voice-video-calling/calling-client-samples.md
+  - linkListType: concept
+    links:
+    - text: Conceitos de voz e vídeo
+      url: concepts/voice-video-calling/about-call-types.md
+    - text: Visão geral da biblioteca de clientes de chamada
+      url: concepts/voice-video-calling/calling-sdk-features.md
+    - text: Fluxos de chamadas
+      url: concepts/call-flows.md
+- title: Telefonia e SMS
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Obter um número de telefone
+      url: quickstarts/telephony-sms/get-phone-number.md
+    - text: Enviar uma mensagem SMS
+      url: quickstarts/telephony-sms/send.md
+    - text: Manipular eventos de SMS
+      url: quickstarts/telephony-sms/handle-sms-events.md
+  - linkListType: concept
+    links:
+    - text: Conceitos de SMS
+      url: concepts/telephony-sms/concepts.md
+    - text: Visão geral da biblioteca de clientes de SMS
+      url: concepts/telephony-sms/sdk-features.md
+    - text: Descrição geral da chamada
+      url: concepts/voice-video-calling/calling-sdk-features.md
+    - text: Planejar sua solução de telefonia e SMS
+      url: concepts/telephony-sms/plan-solution.md
+- title: Chat
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Adicionar o chat ao aplicativo
+      url: quickstarts/chat/get-started.md
+  - linkListType: concept
+    links:
+    - text: Conceitos de chat
+      url: concepts/chat/concepts.md
+    - text: Visão geral da biblioteca de clientes de chat
+      url: concepts/chat/sdk-features.md
+- title: Exemplos
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Introdução ao exemplo de destaque de Chamadas em Grupo
+      url: samples/calling-hero-sample.md
+    - text: Introdução ao exemplo de destaque de Chat
+      url: samples/chat-hero-sample.md

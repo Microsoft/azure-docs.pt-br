@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 08/23/2018
 tags: connectors
-ms.openlocfilehash: b1df1219590aa94331a4404b1315eb7231c59699
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 097db6683127b410e713be53e6de838cf7734ddc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75445877"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91400716"
 ---
 # <a name="manage-excel-online-data-with-azure-logic-apps"></a>Gerenciar dados do Excel Online com Aplicativos Lógicos do Azure
 
@@ -33,7 +33,7 @@ Se ainda não estiver familiarizado com os aplicativos lógicos, veja [O que é 
 
 * Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/).
 
-* Uma [conta do Office 365](https://www.office.com/) para sua conta corporativa ou conta pessoal Microsoft
+* Uma [conta corporativa ou de estudante](https://www.office.com/) para sua conta corporativa ou conta Microsoft pessoal
 
   Os dados do Excel podem existir como um arquivo CSV (valores separados por vírgulas) em uma pasta de armazenamento, por exemplo, no OneDrive. 
   Você também pode usar o mesmo arquivo CSV com o [conector de arquivo simples](../logic-apps/logic-apps-enterprise-integration-flatfile.md).
@@ -53,7 +53,7 @@ Se ainda não estiver familiarizado com os aplicativos lógicos, veja [O que é 
    > [!NOTE]
    > O designer do aplicativo lógico não pode carregar tabelas que tenham 100 ou mais colunas. Se possível, reduza o número de colunas na tabela selecionada para que o designer possa carregar a tabela.
 
-1. Se solicitado, entre na sua conta do Office 365.
+1. Se solicitado, entre em sua conta corporativa ou de estudante.
 
    Suas credenciais autorizam o aplicativo lógico a criar uma conexão com o Excel Online e acessar seus dados.
 

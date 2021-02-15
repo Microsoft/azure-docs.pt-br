@@ -4,48 +4,44 @@ description: Solucionar problemas de testes na Web no Aplicativo Azure insights.
 ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
-ms.date: 04/28/2020
+ms.date: 11/19/2020
 ms.reviewer: sdash
-ms.openlocfilehash: 0ac8dd189bee1c1d4f5a7a4d0f7de68b085fbc56
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 368c45433247c441631bdf79bfc9caa28a41f1b4
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87318140"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96546736"
 ---
 # <a name="troubleshooting"></a>Solução de problemas
 
 Este artigo o ajudará a solucionar problemas comuns que podem ocorrer ao usar o monitoramento de disponibilidade.
 
-## <a name="ssltls-errors"></a>Erros de SSL/TLS
+## <a name="troubleshooting-report-steps-for-ping-tests"></a>Solucionando problemas de etapas de relatório para testes de ping
 
-|Sintoma/mensagem de erro| Possíveis causas|
-|--------|------|
-|Não foi possível criar o canal seguro SSL/TLS  | Versão do SSL. Somente há suporte para TLS 1,0, 1,1 e 1,2. **Não há suporte para SSLv3.**
-|Camada de registro do TLSv 1.2: alerta (nível: fatal, descrição: MAC de registro inadequado)| Consulte thread do StackExchange para obter [mais informações](https://security.stackexchange.com/questions/39844/getting-ssl-alert-write-fatal-bad-record-mac-during-openssl-handshake).
-|A URL que está falhando é para uma CDN (rede de distribuição de conteúdo) | Isso pode ser causado por uma configuração incorreta na CDN |  
+O relatório de solução de problemas permite que você diagnostique facilmente problemas comuns que causam falha nos **testes de ping** .
 
-### <a name="possible-workaround"></a>Possível solução alternativa
+![Animação de navegação da guia disponibilidade selecionando uma falha nos detalhes da transação de ponta a ponta para exibir o relatório de solução de problemas](./media/troubleshoot-availability/availability-to-troubleshooter.gif)
 
-* Se as URLs que estão enfrentando o problema forem sempre de recursos dependentes, é recomendável desabilitar a **análise de solicitações dependentes** para o teste na Web.
-
-## <a name="test-fails-only-from-certain-locations"></a>O teste falha apenas de determinados locais
-
-|Sintoma/mensagem de erro| Possíveis causas|
-|----|---------|
-|Uma tentativa de conexão falhou porque a parte conectada não respondeu corretamente após um período de tempo  | Os agentes de teste em determinados locais estão sendo bloqueados por um firewall.|
-|    |O redirecionamento de determinados endereços IP está ocorrendo via (balanceadores de carga, gerenciadores de tráfego geográficos, rota expressa do Azure). 
-|    |Se estiver usando o Azure ExpressRoute, há cenários em que os pacotes podem ser descartados em casos em que o [Roteamento Assimétrico ocorre](../../expressroute/expressroute-asymmetric-routing.md).|
-
-## <a name="test-failure-with-a-protocol-violation-error"></a>Falha de teste com um erro de violação de protocolo
-
-|Sintoma/mensagem de erro| Possíveis causas| Possíveis resoluções |
-|----|---------|-----|
-|O servidor confirmou uma violação de protocolo. Seção = ResponseHeader Detail = CR deve ser seguido por LF | Isso ocorre quando cabeçalhos malformados são detectados. Especificamente, alguns cabeçalhos podem não estar usando CRLF para indicar o fim da linha, que viola a especificação de HTTP. Application Insights impõe essa especificação HTTP e falha em respostas com cabeçalhos malformados.| a. Contate o provedor de host/provedor de CDN do site para corrigir os servidores com falha. <br> b. Caso as solicitações com falha sejam recursos (por exemplo, arquivos de estilo, imagens, scripts), você pode considerar desabilitar a análise de solicitações dependentes. Tenha em mente, se você fizer isso, perderá a capacidade de monitorar a disponibilidade desses arquivos).
+1. Na guia disponibilidade do recurso de Application Insights, selecione geral ou um dos testes de disponibilidade.
+2. Em seguida, selecione **com falha** um teste em "analisar" à esquerda ou selecione um dos pontos no gráfico de dispersão.
+3. Na página de detalhes da transação de ponta a ponta, selecione um evento e, em "Resumo do relatório de solução de problemas", selecione **[ir para a etapa]** para ver o relatório de solução de problemas.
 
 > [!NOTE]
-> A URL pode não falhar em navegadores que têm uma validação reduzida dos cabeçalhos HTTP. Consulte esta postagem de blog para obter uma explicação detalhada do problema: http://mehdi.me/a-tale-of-debugging-the-linkedin-api-net-and-http-protocol-violations/  
+>  Se a etapa de reutilização de conexão estiver presente, a resolução de DNS, o estabelecimento de conexão e as etapas de transporte TLS não estarão presentes.
 
+|Etapa | Mensagem de erro | Causa possível |
+|-----|---------------|----------------|
+| Reutilização de conexão | N/D | Geralmente dependente de uma conexão estabelecida anteriormente, o que significa que a etapa de teste da Web é dependente. Portanto, não haveria nenhuma etapa de DNS, conexão ou SSL necessária. |
+| Resolução DNS | O nome remoto não pôde ser resolvido: "sua URL" | O processo de resolução de DNS falhou, provavelmente devido a registros DNS mal configurados ou falhas temporárias do servidor DNS. |
+| Estabelecimento de conexão | Uma tentativa de conexão falhou porque a parte conectada não respondeu corretamente após um período de tempo. | Em geral, isso significa que o servidor não está respondendo à solicitação HTTP. Uma causa comum é que nossos agentes de teste estão sendo bloqueados por um firewall no servidor. Se você quiser testar em uma rede virtual do Azure, adicione a marca de serviço de disponibilidade ao seu ambiente.|
+| Transporte TLS  | O cliente e o servidor não podem se comunicar porque não possuem um algoritmo comum.| Somente há suporte para TLS 1,0, 1,1 e 1,2. Não há suporte para SSL. Essa etapa não valida os certificados SSL e estabelece apenas uma conexão segura. Esta etapa só aparecerá quando ocorrer um erro. |
+| Cabeçalho de resposta de recebimento | Não é possível ler dados da conexão de transporte. A conexão foi encerrada. | O servidor confirmou um erro de protocolo no cabeçalho de resposta. Por exemplo, a conexão fechada pelo servidor quando a resposta não está totalmente. |
+| Recebendo corpo da resposta | Não é possível ler os dados da conexão de transporte: a conexão foi fechada. | O servidor confirmou um erro de protocolo no corpo da resposta. Por exemplo, a conexão fechada pelo servidor quando a resposta não está totalmente lida ou o tamanho da parte está errado no corpo da resposta em bloco. |
+| Redirecionar validação de limite | Esta página da Web tem muitos redirecionamentos. Este loop será encerrado aqui, pois essa solicitação excedeu o limite para redirecionamentos automáticos. | Há um limite de 10 redirecionamentos por teste. |
+| Validação de código de status | `200 - OK` não corresponde ao status esperado `400 - BadRequest` . | o código de status retornado que é contado como êxito. 200 é o código que indica que uma página da Web normal foi retornada. |
+| Validação de conteúdo | O texto necessário ' Hello ' não apareceu na resposta. | A cadeia de caracteres não é uma correspondência exata que diferencia maiúsculas de minúsculas na resposta, por exemplo, a cadeia de caracteres "Welcome!". Ele deve ser uma cadeia de caracteres simples, sem caracteres curinga (por exemplo, um asterisco). Se o conteúdo da página for alterado, talvez seja necessário atualizar a cadeia de caracteres. Somente caracteres em inglês têm suporte com correspondência de conteúdo. |
+  
 ## <a name="common-troubleshooting-questions"></a>Perguntas comuns de solução de problemas
 
 ### <a name="site-looks-okay-but-i-see-test-failures-why-is-application-insights-alerting-me"></a>Site parece certo, mas vejo falhas de teste? Por que Application Insights está me alerta?
@@ -54,7 +50,7 @@ Este artigo o ajudará a solucionar problemas comuns que podem ocorrer ao usar o
 
    * Para reduzir as chances de ruído de blips de rede transitórias, etc., certifique-se de que habilitar novas tentativas para a configuração de falhas de teste esteja marcada. Você também pode testar em mais locais e gerenciar adequadamente o limite de regra de alerta para evitar problemas específicos de local que estão causando alertas desnecessários.
 
-   * Clique em qualquer um dos pontos vermelhos com a experiência de disponibilidade ou qualquer falha de disponibilidade do Gerenciador de pesquisa para ver os detalhes do motivo pelo relatamos a falha. O resultado do teste, juntamente com a telemetria do lado do servidor correlacionado (se habilitado) deve ajudar a entender por que o teste falhou. Causas comuns dos problemas transitórios são problemas de rede ou conexão.
+   * Clique em qualquer um dos pontos vermelhos da experiência da experiência de dispersão de disponibilidade ou em qualquer falha de disponibilidade do Gerenciador de pesquisa para ver os detalhes de por que relatamos a falha. O resultado do teste, juntamente com a telemetria do lado do servidor correlacionado (se habilitado) deve ajudar a entender por que o teste falhou. Causas comuns dos problemas transitórios são problemas de rede ou conexão.
 
    * O tempo limite acabou? Podemos cancelar testes após 2 minutos. Se seu ping ou teste de várias etapas demorar mais do que dois minutos, relataremos como falha. Considere dividir o teste em várias partes que podem ser concluídas em durações menores.
 
@@ -134,4 +130,3 @@ Use a nova experiência de alerta/alertas quase em tempo real caso precise notif
 
 * [Teste na Web de várias etapas](availability-multistep.md)
 * [Testes de ping de URL](monitor-web-app-availability.md)
-

@@ -9,12 +9,12 @@ metadata:
   author: laurenhughes
   ms.author: lahugh
   ms.date: 07/21/2020
-  ms.openlocfilehash: 35138e4e5569ddfa46cb60c742e7ae0b3868c8cd
-  ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+  ms.openlocfilehash: 84d02dba9bc1d45205bc610dc1d155a80179e93e
+  ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 08/04/2020
-  ms.locfileid: "87563323"
+  ms.lasthandoff: 12/10/2020
+  ms.locfileid: "97007646"
 landingContent:
 - title: Sobre o AKS (Serviço de Kubernetes do Azure)
   linkLists:
@@ -26,8 +26,6 @@ landingContent:
     links:
     - text: Principais conceitos do Kubernetes para o AKS
       url: concepts-clusters-workloads.md
-    - text: Arquitetura de linha de base para um cluster do AKS
-      url: /azure/architecture/reference-architectures/containers/aks/secure-baseline-aks/
     - text: Clusters e cargas de trabalho
       url: concepts-clusters-workloads.md
     - text: Acesso e identidade
@@ -50,14 +48,14 @@ landingContent:
       url: kubernetes-walkthrough-portal.md
     - text: Modelo do Resource Manager
       url: kubernetes-walkthrough-rm-template.md
-- title: Desenvolver e depurar aplicativos com o Processo Local com Kubernetes
+- title: Desenvolver e depurar aplicativos com o Bridge to Kubernetes
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Usar o Local Process with Kubernetes com o Visual Studio Code (versão prévia)
-      url: https://code.visualstudio.com/docs/containers/local-process-kubernetes
-    - text: Usar o Local Process with Kubernetes com o Visual Studio (versão prévia)
-      url: /visualstudio/containers/local-process-kubernetes
+    - text: Usar o Bridge to Kubernetes com o Visual Studio Code
+      url: https://code.visualstudio.com/docs/containers/bridge-to-kubernetes
+    - text: Usar o Bridge to Kubernetes com o Visual Studio
+      url: /visualstudio/containers/bridge-to-kubernetes
 - title: Implantar, gerenciar e atualizar aplicativos
   linkLists:
   - linkListType: tutorial
@@ -76,6 +74,20 @@ landingContent:
       url: tutorial-kubernetes-app-update.md
     - text: 7. Atualizar o Kubernetes no AKS
       url: tutorial-kubernetes-upgrade-cluster.md
+- title: Diretrizes para arquitetura
+  linkLists:
+  - linkListType: architecture
+    links:
+    - text: Arquitetura de linha de base para um cluster do AKS
+      url: /azure/architecture/reference-architectures/containers/aks/secure-baseline-aks?WT.mc_id=AKSDOCSPAGE
+    - text: Soluções do AKS
+      url: /azure/architecture/reference-architectures/containers/aks-start-here?WT.mc_id=AKSDOCSPAGE
+    - text: Guia de operações do Dia 2
+      url: /azure/architecture/operator-guides/aks/aks-triage-practices?WT.mc_id=AKSDOCSPAGE
+    - text: Melhores práticas para operadores e desenvolvedores de clusters
+      url: best-practices.md
+    - text: Verificando as práticas recomendadas
+      url: kube-advisor-tool.md
 - title: Desenvolva suas habilidades com o Microsoft Learn
   linkLists:
   - linkListType: learn

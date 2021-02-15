@@ -2,19 +2,19 @@
 title: Visualizar resultados de testes do sistema e implantação - Tradutor Personalizado
 titleSuffix: Azure Cognitive Services
 description: Quando seu treinamento for bem-sucedido, revise os testes do sistema para analisar seus resultados de treinamento. Se você estiver satisfeito com os resultados do treinamento, faça uma solicitação de implantação para o modelo treinado.
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 08/17/2020
-ms.author: swmachan
+ms.author: lajanuar
 ms.topic: conceptual
-ms.openlocfilehash: 04e21e4bcd56506ba27730ebc1f9b0db8dc39615
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: cae2c95e56312c58d396d1e578f4677ce2b14aa2
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88509615"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895927"
 ---
 # <a name="view-system-test-results"></a>Exibir resultados de teste do sistema
 
@@ -70,12 +70,12 @@ Para solicitar uma implantação:
 
 2. Para um modelo treinado com êxito, ela mostra o botão "Implantar", se não for implantado.
 
-    ![Implantar modelo](media/how-to/how-to-deploy-model.png)
+    ![Captura de tela que realça o botão implantar para implantar um modelo.](media/how-to/how-to-deploy-model.png)
 
 3.  Clique em implantar.
 4.  Selecione a região onde você deseja que seu modelo seja **implantado** e clique em Salvar. Você pode selecionar **Implantado** para várias regiões.
 
-    ![Implantar modelo](media/how-to/how-to-deploy-model-regions.png)
+    ![Captura de tela que mostra onde você pode implantar ou Desimplantar um modelo.](media/how-to/how-to-deploy-model-regions.png)
 
 5.  Você pode ver o status do seu modelo na coluna "Status".
 
@@ -90,7 +90,7 @@ Para atualizar configurações de implantação:
 
 2. Para um modelo implantado com êxito, ele mostra um botão **Atualização**.
 
-    ![Implantar modelo](media/how-to/how-to-update-undeploy-model.png)
+    ![Captura de tela que realça o botão de atualização para atualizar as configurações de implantação.](media/how-to/how-to-update-undeploy-model.png)
 
 3.  Selecione **Atualizar**.
 4.  Selecione **Implantado** ou **Não Implantado** para as regiões onde você deseja seu modelo implantado ou não implantando, em seguida, clique em **Salvar**.
@@ -102,6 +102,6 @@ Para atualizar configurações de implantação:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Comece a usar o modelo de tradução personalizado implantado por meio da [API de Tradução de Texto V3 da Microsoft](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl).
+- Comece a usar o modelo de tradução personalizado implantado por meio da [API de Tradução de Texto V3 da Microsoft](../reference/v3-0-translate.md?tabs=curl).
 - Saiba mais [como gerenciar configurações](how-to-manage-settings.md) para compartilhar seu workspace, gerenciar a chave de assinatura.
 - Aprenda [como migrar seu workspace e projeto](how-to-migrate.md) do [Microsoft Translator Hub](https://hub.microsofttranslator.com)

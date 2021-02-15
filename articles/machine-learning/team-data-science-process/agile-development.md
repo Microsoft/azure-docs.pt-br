@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: c097c14406349d973e905fadb806cc159d9b16d8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 113c11b749b42bbaf9e5e40cdf63623288997a92
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76722094"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89440279"
 ---
 # <a name="agile-development-of-data-science-projects"></a>Desenvolvimento do Agile de projetos de ciência de dados
 
@@ -51,7 +51,7 @@ Aqui estão as definições para os tipos de item de trabalho:
   
 - **Tarefa**: tarefas são itens de trabalho atribuíveis que precisam ser feitos para concluir uma história de usuário específica. Por exemplo, as tarefas na história de usuário *obter dados* podem ser:
   - Obter SQL Server credenciais
-  - Carregar dados para SQL Data Warehouse
+  - Carregar dados para o Azure Synapse Analytics
   
 - **Bug**: bugs são problemas no código ou documentos existentes que devem ser corrigidos para concluir uma tarefa. Se os bugs forem causados por itens de trabalho ausentes, eles poderão ser escalados para serem histórias de usuários ou tarefas. 
 
@@ -159,7 +159,7 @@ Os cientistas de dados podem se sentir mais confortáveis usando um modelo ágil
 1. Siga as mesmas etapas para renomear **recursos** para *estágios TDSP*e adicione os seguintes novos tipos de item de trabalho:
    
    - *Noções básicas sobre negócios*
-   - *Aquisição de Dados*
+   - *Aquisição de dados*
    - *Modelagem*
    - *Implantação*
    

@@ -3,12 +3,12 @@ title: Detecção Inteligente no Azure Application Insights | Microsoft Docs
 description: O Application Insights executa uma análise automática profunda de telemetria do seu aplicativo e o avisará sobre possíveis problemas de desempenho.
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.openlocfilehash: 24ed8eefb7e07930cbd123fbe4081d555f0c27c3
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 2b6e9370387bf3bb87555261b3949db2917e9911
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87305866"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186245"
 ---
 # <a name="smart-detection-in-application-insights"></a>Detecção Inteligente no Application Insights
  A Detecção Inteligente avisa automaticamente sobre possíveis problemas de desempenho no seu aplicativo Web. Ele executa uma análise proativa da telemetria que seu aplicativo envia ao [Application Insights](./app-insights-overview.md). Se houver um aumento repentino nas taxas de falha ou nos padrões anormais de desempenho de cliente ou de servidor, você receberá um alerta. Esse recurso não precisa de nenhuma configuração. Ela funciona se o seu aplicativo envia telemetria suficiente.
@@ -55,10 +55,9 @@ Essas ferramentas de diagnóstico ajudam você a inspecionar a telemetria do seu
 
 * [Metrics explorer](../platform/metrics-charts.md)
 * [Gerenciador de pesquisa](./diagnostic-search.md)
-* [Analytics - linguagem de consulta poderosa](../log-query/get-started-portal.md)
+* [Analytics - linguagem de consulta poderosa](../log-query/log-analytics-tutorial.md)
 
 A Detecção Inteligente é totalmente automática. Mas talvez você queira configurar alguns outros alertas?
 
 * [Alertas de métrica configurados manualmente](../platform/alerts-log.md)
-* [Testes de disponibilidade na Web](./monitor-web-app-availability.md) 
-
+* [Testes de disponibilidade na Web](./monitor-web-app-availability.md)

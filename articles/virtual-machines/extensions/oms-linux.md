@@ -9,17 +9,18 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: c7bbf210-7d71-4a37-ba47-9c74567a9ea6
 ms.service: virtual-machines-linux
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/18/2020
 ms.author: akjosh
-ms.openlocfilehash: d24463834a49cdfbdb4599770caf579ae94582d8
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: f75ad90a562a39f940e1006a2e4d9123eff2b47c
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88999811"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202174"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-linux"></a>Extensão da máquina virtual do Log Analytics para Linux
 
@@ -43,7 +44,9 @@ A tabela a seguir fornece um mapeamento da versão da extensão de VM do Log Ana
 
 | Versão da extensão de VM do Linux do Log Analytics | Versão do pacote do agente do Log Analytics | 
 |--------------------------------|--------------------------|
-| 1.13.13 | [1.13.7-0](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.13.7-0) |
+| 1.13.33 | [1.13.33](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.13.33-0) |
+| 1.13.27 | [1.13.27](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.13.27-0) |
+| 1.13.15 | [1.13.9-0](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.13.9-0) |
 | 1.12.25 | [1.12.15-0](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.12.15-0) |
 | 1.11.15 | [1.11.0-9](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.11.0-9) |
 | 1.10.0 | [1.10.0-1](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.10.0-1) |
@@ -109,12 +112,15 @@ O JSON a seguir mostra o esquema para a extensão do Agente do Log Analytics. A 
 | apiVersion | 2018-06-01 |
 | publicador | Microsoft.EnterpriseCloud.Monitoring |
 | type | OmsAgentForLinux |
-| typeHandlerVersion | 1.7 |
+| typeHandlerVersion | 1.13 |
 | workspaceId (por exemplo) | 6f680a37-00c6-41c7-a93f-1437e3462574 |
 | workspaceKey (por exemplo) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |
 
 
 ## <a name="template-deployment"></a>Implantação de modelo
+
+>[!NOTE]
+>Determinados componentes da extensão de VM Log Analytics também são fornecidos na [extensão de VM de diagnóstico](./diagnostics-linux.md). Devido a essa arquitetura, os conflitos podem surgir se ambas as extensões forem instanciadas no mesmo modelo do ARM. Para evitar esses conflitos de tempo de instalação, use a [ `dependsOn` diretiva](../../azure-resource-manager/templates/define-resource-dependency.md#dependson) para garantir que as extensões sejam instaladas sequencialmente. As extensões podem ser instaladas em qualquer ordem.
 
 Extensões de VM do Azure podem ser implantadas com modelos do Azure Resource Manager. Esses modelos são ideais para implantação de uma ou mais máquinas virtuais que exigem configuração pós-implantação, tal como integração aos Logs do Azure Monitor. Um exemplo de modelo do Resource Manager que inclui a extensão de VM do Agente do Log Analytics pode ser encontrado na [Galeria de Início Rápido do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-ubuntu-vm). 
 
@@ -134,7 +140,7 @@ O exemplo a seguir pressupõe que a extensão de VM está aninhada dentro do rec
   "properties": {
     "publisher": "Microsoft.EnterpriseCloud.Monitoring",
     "type": "OmsAgentForLinux",
-    "typeHandlerVersion": "1.7",
+    "typeHandlerVersion": "1.13",
     "settings": {
       "workspaceId": "myWorkspaceId"
     },
@@ -159,7 +165,7 @@ Ao inserir o JSON da extensão na raiz do modelo, o nome do recurso inclui uma r
   "properties": {
     "publisher": "Microsoft.EnterpriseCloud.Monitoring",
     "type": "OmsAgentForLinux",
-    "typeHandlerVersion": "1.7",
+    "typeHandlerVersion": "1.13",
     "settings": {
       "workspaceId": "myWorkspaceId"
     },
@@ -180,7 +186,7 @@ az vm extension set \
   --vm-name myVM \
   --name OmsAgentForLinux \
   --publisher Microsoft.EnterpriseCloud.Monitoring \
-  --version 1.10.1 --protected-settings '{"workspaceKey":"myWorkspaceKey"}' \
+  --protected-settings '{"workspaceKey":"myWorkspaceKey"}' \
   --settings '{"workspaceId":"myWorkspaceId"}'
 ```
 
@@ -211,7 +217,9 @@ A saída de execução da extensão é registrada no seguinte arquivo:
 | 19 | Falha da instalação do pacote OMI | 
 | 20 | Falha da instalação do pacote SCX |
 | 51 | Não há suporte para essa extensão no sistema operacional da VM | |
-| 55 | Não é possível se conectar ao serviço Azure Monitor. Os pacotes necessários estão ausentes ou o gerenciador de pacotes dpkg está bloqueado| Verifique se o sistema tem acesso à Internet ou que um proxy HTTP válido foi fornecido. Além disso, verifique a exatidão da ID do workspace e verifique se os utilitários curl e tar estão instalados. |
+| 52 | Esta extensão falhou devido a uma dependência ausente | Verifique a saída e os logs para obter mais informações sobre qual dependência está faltando. |
+| 53 | Esta extensão falhou devido a parâmetros de configuração ausentes ou errados | Verifique a saída e os logs para obter mais informações sobre o que deu errado. Além disso, verifique a exatidão da ID do espaço de trabalho e verifique se a máquina está conectada à Internet. |
+| 55 | Não é possível se conectar ao serviço Azure Monitor. Os pacotes necessários estão ausentes ou o gerenciador de pacotes dpkg está bloqueado| Verifique se o sistema tem acesso à Internet ou se um proxy HTTP válido foi fornecido. Além disso, verifique a exatidão da ID do espaço de trabalho e verifique se os utilitários de rotação e tar estão instalados. |
 
 Informações adicionais podem ser encontradas no [Guia de solução de problemas do Log Analytics-Agent-for-Linux](../../azure-monitor/platform/vmext-troubleshoot.md).
 

@@ -3,12 +3,12 @@ title: Ofertas de conformidade do backup do Azure
 description: Resumo das ofertas de conformidade para o backup do Azure
 ms.topic: conceptual
 ms.date: 03/16/2020
-ms.openlocfilehash: 8f19896c157645104a392a6f5bb163b8d5729536
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0b175590bc83ad1cd1f47d0111101b967962f3a8
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090987"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97093291"
 ---
 # <a name="azure-backup-compliance-offerings"></a>Ofertas de conformidade do backup do Azure
 
@@ -22,7 +22,7 @@ Você pode encontrar as ofertas de conformidade abaixo para o backup do Azure pa
 * [CSA-Star-Certification](/microsoft-365/compliance/offering-csa-star-certification)
 * [CSA-STAR-Self-Assessment](/microsoft-365/compliance/offering-csa-star-self-assessment)
 * [ISO 20000-1:2011](/microsoft-365/compliance/offering-iso-20000-1-2011)
-* [ISO 22301](/microsoft-365/compliance/offering-iso-22301)
+* [ISO 22301](/compliance/regulatory/offering-iso-22301)
 * [ISO 27001](/microsoft-365/compliance/offering-iso-27017)
 * [ISO 27017](/microsoft-365/compliance/offering-iso-27017)
 * [ISO 27018](/microsoft-365/compliance/offering-iso-27018)
@@ -31,13 +31,13 @@ Você pode encontrar as ofertas de conformidade abaixo para o backup do Azure pa
 
 ## <a name="us-government"></a>Governo dos EUA
 
-* [DoD DISA L2, L4, L5](/microsoft-365/compliance/offering-dod-disa-l2-l4-l5?view=o365-worldwide)
+* [DoD DISA L2, L4, L5](/microsoft-365/compliance/offering-dod-disa-l2-l4-l5)
 * [FedRAMP](/microsoft-365/compliance/offering-fedramp)
 * [FIPS 140-2](/microsoft-365/compliance/offering-fips-140-2)
 
 ## <a name="industry"></a>Setor
 
-* [HIPAA](/microsoft-365/compliance/offering-hipaa-hitech)
+* [HIPAA](/compliance/regulatory/offering-hipaa-hitech)
 * [HITRUST](/microsoft-365/compliance/offering-hitrust)
 * [PCI DSS](/microsoft-365/compliance/offering-pci-dss)
 

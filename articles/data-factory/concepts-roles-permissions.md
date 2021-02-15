@@ -4,18 +4,14 @@ description: Descreve as funções e permissões necessárias para criar Data Fa
 ms.date: 11/5/2018
 ms.topic: conceptual
 ms.service: data-factory
-services: data-factory
-documentationcenter: ''
-ms.workload: data-services
-author: djpmsft
-ms.author: daperlov
-manager: anandsub
-ms.openlocfilehash: 40fa6bce67aa6c5643e4a153da610dce65907b56
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+author: dcstwh
+ms.author: weetok
+ms.openlocfilehash: cec5df9a5046e912ab8542c91bde4344affa0925
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036327"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100364470"
 ---
 # <a name="roles-and-permissions-for-azure-data-factory"></a>Funções e permissões do Azure Data Factory
 
@@ -54,8 +50,13 @@ A função **Colaborador do Data Factory**, no nível do grupo de recursos ou ac
 
 As permissões no Azure Repos e no GitHub são independentes das permissões do Data Factory. Como resultado, um usuário com permissões de repo que é apenas um membro da função Leitor pode editar os recursos filhos do Data Factory e confirmar alterações no repo, mas não pode publicar essas alterações.
 
+
 > [!IMPORTANT]
 > A implantação de modelo do Resource Manager com a função **Colaborador do Data Factory** não eleva as permissões. Por exemplo, se você implantar um modelo que cria uma máquina virtual do Azure e você não tiver permissão para criar máquinas virtuais, a implantação falhará com um erro de autorização.
+
+   No contexto de publicação, a permissão **Microsoft. datafactory/factories/Write** se aplica aos modos a seguir.
+- Essa permissão só é necessária no modo dinâmico quando o cliente modifica os parâmetros globais.
+- Essa permissão sempre é necessária no modo git, uma vez que sempre que o cliente é publicado, o objeto de fábrica com a última ID de confirmação precisa ser atualizado.
 
 ### <a name="custom-scenarios-and-custom-roles"></a>Cenários personalizados e funções personalizadas
 
@@ -89,6 +90,7 @@ Aqui estão alguns exemplos que demonstram o que você pode obter com as funçõ
 - Permitir que um usuário atualize um data factory usando o PowerShell ou o SDK, mas não o portal do Azure.
 
   Atribuir a função interna **Colaborador** no recurso do data factory ao usuário. Essa função permite que o usuário veja os recursos no portal do Azure, mas não permite que ele acesse os botões **Publicar** e **Publicar Tudo**.
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -12,10 +12,10 @@ manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cdb6e85b6d81de3d4b88ba315ddd35bd5b37ae7a
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88165202"
 ---
 # <a name="use-api-connectors-to-customize-and-extend-self-service-sign-up"></a>Usar conectores de API para personalizar e estender a inscrição de autoatendimento 

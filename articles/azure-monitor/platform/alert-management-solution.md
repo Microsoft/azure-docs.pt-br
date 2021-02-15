@@ -6,21 +6,16 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/19/2018
-ms.openlocfilehash: bd30a840327eaf338aec89c12ff8eb5d87c60c56
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: adc29916c6b674531d7b0e8fcdd4e151b4a17bde
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322390"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997249"
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Solução de Gerenciamento de Alertas no Azure Log Analytics
 
 ![Ícone do Gerenciamento de Alertas](media/alert-management-solution/icon.png)
-
-> [!NOTE]
->  O Azure Monitor agora dá suporte a recursos aprimorados para [gerenciar seus alertas em escala](https://aka.ms/azure-alerts-overview), incluindo aqueles gerados por [ferramentas de monitoramento como System Center Operations Manager, Zabbix ou Nagios](https://aka.ms/managing-alerts-other-monitoring-services).
->  
-
 
 A solução de Gerenciamento de Alertas ajuda a analisar todos os alertas em seu repositório do Log Analytics.  Esses alertas podem ser provenientes de várias origens, incluindo aquelas [criadas pelo Log Analytics](./alerts-overview.md) ou [importadas do Nagios ou do Zabbix](../learn/quick-collect-linux-computer.md). A solução também importa alertas de quaisquer [grupos de gerenciamento do System Center Operations Manager conectados](./om-agents.md).
 
@@ -45,11 +40,11 @@ Para obter mais informações sobre como os pacotes de gerenciamento da soluçã
 ### <a name="agents"></a>Agentes
 A tabela a seguir descreve as fontes conectadas que têm suporte dessa solução.
 
-| Fonte Conectada | Suporte | Descrição |
+| Fonte Conectada | Suporte | Description |
 |:--- |:--- |:--- |
-| [Agentes do Windows](agent-windows.md) | Não |Agentes diretos do Windows não geram alertas.  Alertas do Log Analytics podem ser criados de eventos e dados de desempenho coletados de agentes do Windows. |
-| [Agentes do Linux](../learn/quick-collect-linux-computer.md) | Não |Agentes diretos do Linux não geram alertas.  Alertas do Log Analytics podem ser criados de eventos e dados de desempenho coletados de agentes do Linux.  Alertas do Nagios e Zabbix são coletados desses servidores que exigem o agente do Linux. |
-| [Grupo de gerenciamento do System Center Operations Manager](./om-agents.md) |Sim |Os alertas gerados em agentes do System Center Operations Manager são entregues ao grupo de gerenciamento e, em seguida, encaminhados para o Log Analytics.<br><br>Uma conexão direta de agentes do Operations Manager ao Log Analytics não é necessária. Os dados de alerta são encaminhados do grupo de gerenciamento para o repositório do Log Analytics. |
+| [Agentes do Windows](agent-windows.md) | No |Agentes diretos do Windows não geram alertas.  Alertas do Log Analytics podem ser criados de eventos e dados de desempenho coletados de agentes do Windows. |
+| [Agentes do Linux](../learn/quick-collect-linux-computer.md) | No |Agentes diretos do Linux não geram alertas.  Alertas do Log Analytics podem ser criados de eventos e dados de desempenho coletados de agentes do Linux.  Alertas do Nagios e Zabbix são coletados desses servidores que exigem o agente do Linux. |
+| [Grupo de gerenciamento do System Center Operations Manager](./om-agents.md) |Yes |Os alertas gerados em agentes do System Center Operations Manager são entregues ao grupo de gerenciamento e, em seguida, encaminhados para o Log Analytics.<br><br>Uma conexão direta de agentes do Operations Manager ao Log Analytics não é necessária. Os dados de alerta são encaminhados do grupo de gerenciamento para o repositório do Log Analytics. |
 
 
 ### <a name="collection-frequency"></a>Frequência de coleta
@@ -80,7 +75,7 @@ A solução de Gerenciamento de Alertas analisa qualquer registro com um tipo de
 
 A solução importa alertas do System Center Operations Manager e cria um registro correspondente para cada um com um tipo de **Alerta** e um SourceSystem de **OpsManager**.  Esses registros têm as propriedades descritas na tabela a seguir:  
 
-| Propriedade | DESCRIÇÃO |
+| Propriedade | Descrição |
 |:--- |:--- |
 | `Type` |*Alerta* |
 | `SourceSystem` |*OpsManager* |
@@ -120,4 +115,3 @@ A tabela a seguir fornece pesquisas de log de exemplo para os registros de alert
 
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre os [Alertas no Log Analytics](./alerts-overview.md) para obter detalhes sobre como gerar alertas por meio do Log Analytics.
-

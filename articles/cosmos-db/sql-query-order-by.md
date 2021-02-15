@@ -3,17 +3,19 @@ title: Cláusula ORDER BY no Azure Cosmos DB
 description: Saiba mais sobre a cláusula ORDER BY do SQL para Azure Cosmos DB. Use SQL como uma linguagem de consulta JSON Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 06/06/2020
 ms.author: tisande
-ms.openlocfilehash: c4ae66884602989284a427bdc33de7612bd9a8df
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 887dc13eb5e351688718d2a221e69499557b23e5
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84484332"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93338281"
 ---
 # <a name="order-by-clause-in-azure-cosmos-db"></a>Cláusula ORDER BY no Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 A `ORDER BY` cláusula opcional especifica a ordem de classificação dos resultados retornados pela consulta.
 
@@ -45,7 +47,7 @@ ORDER BY <sort_specification>
   
 - `ASC | DESC`  
   
-   Define que os valores na coluna especificada devem ser classificados em ordem crescente ou decrescente. `ASC`classifica do valor mais baixo para o valor mais alto. `DESC`classifica do valor mais alto para o valor mais baixo. `ASC`é a ordem de classificação padrão. Valores nulos são tratados como os menores valores possíveis.  
+   Define que os valores na coluna especificada devem ser classificados em ordem crescente ou decrescente. `ASC` classifica do valor mais baixo para o valor mais alto. `DESC` classifica do valor mais alto para o valor mais baixo. `ASC` é a ordem de classificação padrão. Valores nulos são tratados como os menores valores possíveis.  
   
 ## <a name="remarks"></a>Comentários  
   
@@ -79,7 +81,7 @@ Os resultados são:
     ]
 ```
 
-A consulta a seguir recupera a família `id` s em ordem de data de criação do item. Item `creationDate` é um número que representa o *tempo de época*ou tempo decorrido desde Jan. 1, 1970 em segundos.
+A consulta a seguir recupera a família `id` s em ordem de data de criação do item. Item `creationDate` é um número que representa o *tempo de época* ou tempo decorrido desde Jan. 1, 1970 em segundos.
 
 ```sql
     SELECT f.id, f.creationDate
@@ -102,7 +104,7 @@ Os resultados são:
     ]
 ```
 
-Além disso, você pode ordenar por várias propriedades. Uma consulta que ordena por várias propriedades requer um [índice composto](index-policy.md#composite-indexes). Considere a consulta a seguir:
+Além disso, você pode ordenar por várias propriedades. Uma consulta que ordena por várias propriedades requer um [índice composto](index-policy.md#composite-indexes). Considere a consulta a seguir.
 
 ```sql
     SELECT f.id, f.creationDate

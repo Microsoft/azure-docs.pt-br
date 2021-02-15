@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: criar um pipeline de CI/CD para a linguagem de programação go usando o iniciador DevOps do Azure'
+title: 'Início Rápido: Criar um pipeline de CI/CD para a linguagem de programação Go usando o Azure DevOps Starter'
 description: Com o DevOps Starter, é mais fácil começar a usar o Azure. Ele ajuda a iniciar um aplicativo Web de linguagem de programação Go em um serviço do Azure em algumas etapas rápidas.
 ms.prod: devops
 ms.technology: devops-cicd
@@ -13,16 +13,16 @@ ms.topic: quickstart
 ms.date: 07/09/2018
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 02304758ef89ff7c94d1c3d8f98f6931ab7fd8dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2f968bfd0c3d2884c123b82ccf132d77b117ac9a
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82233118"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589025"
 ---
-# <a name="create-a-cicd-pipeline-for-go-using-azure-devops-starter"></a>Criar um pipeline de CI/CD para usar usando o Azure DevOps Starter
+# <a name="create-a-cicd-pipeline-for-go-using-azure-devops-starter"></a>Criar um pipeline de CI/CD para o Go usando o Azure DevOps Starter
 
-Configure a CI (integração contínua) e o CD (entrega contínua) para seu aplicativo go usando o Azure DevOps Starter. O iniciante do DevOps simplifica a configuração inicial de um pipeline de versão e compilação DevOps do Azure.
+Configure a CI (integração contínua) e a CD (entrega contínua) para seu aplicativo Go usando o Azure DevOps Starter. O DevOps Starter simplifica a configuração inicial de um pipeline de build e lançamento do Azure DevOps.
 
 Caso não tenha uma assinatura do Azure, você pode obter uma gratuita via [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
 
@@ -50,7 +50,7 @@ O DevOps Starter cria um pipeline de CI/CD no Azure Pipelines. É possível cria
 
 1. Insira um nome para o projeto do Azure DevOps. 
 
-1. Selecione a assinatura e o local do Azure, insira um nome para o aplicativo e selecione **Concluído**. Após alguns minutos, o painel inicial do DevOps é exibido no portal do Azure. Um aplicativo de exemplo é configurado em um repositório em sua organização do Azure DevOps, é executado um build, e seu aplicativo é implantado no Azure. 
+1. Selecione a assinatura e o local do Azure, insira um nome para o aplicativo e selecione **Concluído**. Após alguns minutos, o painel do DevOps Starter será exibido no portal do Azure. Um aplicativo de exemplo é configurado em um repositório em sua organização do Azure DevOps, é executado um build, e seu aplicativo é implantado no Azure. 
 
     O painel oferece visibilidade no seu repositório de código, pipeline de CI/CD e aplicativo no Azure. À direita, selecione **Procurar** para exibir o aplicativo em execução.
 
@@ -58,11 +58,11 @@ O DevOps Starter cria um pipeline de CI/CD no Azure Pipelines. É possível cria
 
 ## <a name="commit-your-code-changes-and-execute-the-cicd"></a>Confirmar as alterações de código e executar a CI/CD
 
-O iniciador DevOps cria um repositório git no Azure Repos ou no GitHub. Para exibir o repositório e fazer alterações de código no seu aplicativo, faça o seguinte:
+O DevOps Starter cria um repositório Git no Azure Repos ou no GitHub. Para exibir o repositório e fazer alterações de código no seu aplicativo, faça o seguinte:
 
-1. No início DevOps, à esquerda, selecione o link para sua ramificação mestre. O link abre uma exibição do repositório de Git recém-criado.
+1. No DevOps Starter, à esquerda, selecione o link para a ramificação principal. O link abre uma exibição do repositório de Git recém-criado.
 
-1. Para exibir a URL do clone do repositório, selecione **Clone** no canto superior direito. Você pode clonar seu repositório Git no seu IDE favorito. Nas próximas etapas, você pode usar o navegador da Web para criar e confirmar as alterações de código diretamente no branch mestre.
+1. Para exibir a URL do clone do repositório, selecione **Clone** no canto superior direito. Você pode clonar seu repositório Git no seu IDE favorito. Nas próximas etapas, você pode usar o navegador da Web para criar e confirmar as alterações de código diretamente na ramificação principal.
 
 1. À esquerda, vá até o arquivo *views/index.html*, depois selecione **Editar**.
 
@@ -123,4 +123,4 @@ Quando eles não forem mais necessários, é possível excluir a instância de S
 Para saber mais sobre como modificar os pipelines de build e de lançamento para atender às necessidades de sua equipe, confira:
 
 > [!div class="nextstepaction"]
-> [Definir seu pipeline de CD (implantação contínua) de vários estágios](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
+> [Definir seu pipeline de CD (implantação contínua) de vários estágios](/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)

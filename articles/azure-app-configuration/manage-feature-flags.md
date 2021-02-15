@@ -4,8 +4,7 @@ titleSuffix: Azure App Configuration
 description: Neste tutorial, você aprenderá a gerenciar sinalizadores de recursos separadamente do aplicativo usando a Configuração de Aplicativos do Azure.
 services: azure-app-configuration
 documentationcenter: ''
-author: lisaguthrie
-manager: maiye
+author: AlexandraKemperMS
 editor: ''
 ms.assetid: ''
 ms.service: azure-app-configuration
@@ -13,14 +12,14 @@ ms.workload: tbd
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 04/19/2019
-ms.author: lcozzens
+ms.author: alkemper
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: dd816ebcf2a40e6a0b7febcc3fe5c1006dac20bb
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 0410a1cde12b9ef762d348a286d78b35f7b14bfd
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88209947"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932295"
 ---
 # <a name="tutorial-manage-feature-flags-in-azure-app-configuration"></a>Tutorial: Gerenciar sinalizadores de recurso na Configuração de Aplicativos do Azure
 
@@ -56,6 +55,7 @@ Para adicionar um novo sinalizador de recurso:
     |---|---|
     | Microsoft.Percentage | {"Value": 0-100%} |
     | Microsoft.TimeWindow | {"Start": horário UTC, "End": horário UTC} |
+    | Microsoft.Targeting | { "Audience": blob JSON que define usuários, grupos e percentuais de distribuição. Veja um exemplo no elemento `EnabledFor` [deste arquivo de configurações](https://github.com/microsoft/FeatureManagement-Dotnet/blob/master/examples/FeatureFlagDemo/appsettings.json) }
 
     ![Filtro de sinalizador de recurso](./media/azure-app-configuration-feature-flag-filter.png)
 
@@ -65,7 +65,7 @@ Para alterar o valor de estado de um sinalizador de recursos:
 
 1. Selecione **Gerenciador de Recursos**.
 
-1. À direita de um sinalizador de recursos que você deseja modificar, selecione as reticências ( **...** ) e, em seguida, selecione **Editar**.
+1. À direita de um sinalizador de recursos que você deseja modificar, selecione as reticências (**...**) e, em seguida, selecione **Editar**.
 
 1. Defina um novo estado para o sinalizador de recurso.
 

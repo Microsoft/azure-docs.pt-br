@@ -3,22 +3,24 @@ title: Atualizações de documentação dos serviços de mídia do Azure v3
 description: Para se manter atualizado com as atualizações mais recentes da documentação dos serviços de mídia v3.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 04/20/2020
-ms.author: juliako
-ms.openlocfilehash: 56c6b3732d0a77580c27f6cc8720b414e8e49d23
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: 78879733a35395ae2dc486ab8eb08da544925a8a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87038980"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89255147"
 ---
 # <a name="azure-media-services-v3-documentation-updates"></a>Atualizações de documentação dos serviços de mídia do Azure v3
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 >Seja notificado sobre quando revisitar esta página para atualizações copiando e colando esta URL `https://docs.microsoft.com/api/search/rss?search=%22Azure+Media+Services+v3+documentation+updates%22&locale=en-us` no leitor de feed de RSS.
 

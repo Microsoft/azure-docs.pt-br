@@ -14,17 +14,17 @@ ms.topic: tutorial
 ms.date: 04/20/2018
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 3d52b9a6842c13e9141fd081e10156e3866c163f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ae217352b83617600fd983a747d578f8f28e7ddd
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81254301"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92779230"
 ---
 # <a name="tutorial-set-azure-cdn-caching-rules"></a>Tutorial: Definir regras de cache da CDN do Azure
 
 > [!NOTE] 
-> As regras de cache estão disponíveis apenas para perfis de **CDN Standard do Azure do Verizon** e **CDN Standard do Azure da Akamai**. Para os perfis da **CDN do Azure da Microsoft**, você deve usar o [mecanismo de regras Standard](cdn-standard-rules-engine-reference.md). Para os **perfis da CDN do Azure Premium da Verizon**, você deve usar o [mecanismo de regras Premium da Verizon](cdn-rules-engine.md) no portal **Gerenciar** a fim de obter uma funcionalidade semelhante.
+> As regras de cache estão disponíveis apenas para perfis de **CDN Standard do Azure do Verizon** e **CDN Standard do Azure da Akamai** . Para os perfis da **CDN do Azure da Microsoft** , você deve usar o [mecanismo de regras Standard](cdn-standard-rules-engine-reference.md). Para os **perfis da CDN do Azure Premium da Verizon** , você deve usar o [mecanismo de regras Premium da Verizon](./cdn-verizon-premium-rules-engine.md) no portal **Gerenciar** a fim de obter uma funcionalidade semelhante.
  
 
 Esse artigo descreve como é possível utilizar as regras de cache da CDN (rede de distribuição de conteúdo) do Azure para definir ou modificar o comportamento de expiração do cache padrão globalmente e com condições personalizadas, como um caminho de URL e extensão de arquivo. CDN do Azure fornece dois tipos de regras de cache:
@@ -48,7 +48,7 @@ Antes de concluir as etapas deste tutorial, crie primeiro um perfil CDN e pelo m
 
 1. No [Portal do Azure](https://portal.azure.com), selecione um perfil da CDN e selecione um ponto de extremidade.
 
-2. No painel esquerdo em Configurações, selecione **Regras de cache**.
+2. No painel esquerdo em Configurações, selecione **Regras de cache** .
 
    ![Botão de regras de cache da CDN](./media/cdn-caching-rules/cdn-caching-rules-btn.png)
 
@@ -61,11 +61,11 @@ Antes de concluir as etapas deste tutorial, crie primeiro um perfil CDN e pelo m
 
 Crie uma regra de cache global da seguinte maneira:
 
-1. Em **Regras de cache globais**, defina **Comportamento de cache de cadeia de caracteres de consulta** para **Ignorar cadeias de caracteres**.
+1. Em **Regras de cache globais** , defina **Comportamento de cache de cadeia de caracteres de consulta** para **Ignorar cadeias de caracteres** .
 
-2. Definir **Comportamento do cache** para **Definir se ausente**.
+2. Definir **Comportamento do cache** para **Definir se ausente** .
        
-3. Para **Duração da expiração do cache**, digite 10 no campo **Dias**.
+3. Para **Duração da expiração do cache** , digite 10 no campo **Dias** .
 
     A regra de cache global afeta todos as solicitações para o ponto de extremidade. Essa regra aceita os cabeçalhos de diretivas de cache de origem, se existirem (`Cache-Control` ou `Expires`); caso contrário, se eles não forem especificados, ele define o cache para 10 dias. 
 
@@ -75,9 +75,9 @@ Crie uma regra de cache global da seguinte maneira:
 
 Crie uma regra de cache personalizada da seguinte maneira:
 
-1. Em **Regras de cache personalizadas**, defina **Condição de correspondência** para **Caminho** e **Valor de correspondência** para `/images/*.jpg`.
+1. Em **Regras de cache personalizadas** , defina **Condição de correspondência** para **Caminho** e **Valor de correspondência** para `/images/*.jpg`.
     
-2. Defina o **Comportamento do cache** para **Substituir** e digite 30 no campo **Dias**.
+2. Defina o **Comportamento do cache** para **Substituir** e digite 30 no campo **Dias** .
        
     Essa regra de cache personalizada define uma duração de cache de 30 dias em qualquer `.jpg` arquivo de imagem na pasta `/images` do seu ponto de extremidade. Ele substitui quaisquer cabeçalhos HTTP `Cache-Control` ou `Expires` enviados pelo servidor de origem.
 
@@ -90,15 +90,15 @@ Nas etapas anteriores, você criou regras de cache. Se não deseja mais usar ess
  
 1. Selecione um perfil CDN, em seguida, o ponto de extremidade com as regras de cache que você deseja remover.
 
-2. No painel esquerdo em Configurações, selecione **Regras de cache**.
+2. No painel esquerdo em Configurações, selecione **Regras de cache** .
 
-3. Em **Regras de cache globais**, defina **Comportamento do cache** para **Não definido**.
+3. Em **Regras de cache globais** , defina **Comportamento do cache** para **Não definido** .
  
-4. Em **Regras de cache personalizadas**, marque a caixa de seleção ao lado da regra que deseja excluir.
+4. Em **Regras de cache personalizadas** , marque a caixa de seleção ao lado da regra que deseja excluir.
 
-5. Selecione **Excluir**.
+5. Selecione **Excluir** .
 
-6. Na parte superior da página, selecione **Salvar**.
+6. Na parte superior da página, selecione **Salvar** .
 
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -114,6 +114,3 @@ Avance para o próximo artigo para saber como definir configurações de regra d
 
 > [!div class="nextstepaction"]
 > [Controlar o comportamento de cache da CDN do Azure com regras de cache](cdn-caching-rules.md)
-
-
-

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/16/2020
+ms.date: 10/04/2020
 ms.author: jeedes
-ms.openlocfilehash: d4a478c402346e33a4f27ff2a363de75285b435b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 914858471432979e5516a1f075ed4fcbb8061a5d
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88543830"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96181842"
 ---
 # <a name="tutorial-integrate-oracle-cloud-infrastructure-console-with-azure-active-directory"></a>Tutorial: Integrar o Console da Infraestrutura de Nuvem da Oracle com o Azure Active Directory
 
@@ -25,8 +25,6 @@ Neste tutorial, você aprenderá a integrar o Console da Infraestrutura de Nuvem
 * Controle no Azure AD quem tem acesso ao Console da Infraestrutura de Nuvem da Oracle.
 * Permita que os usuários sejam conectados automaticamente ao Console da Infraestrutura de Nuvem da Oracle com suas contas do Azure AD.
 * Gerenciar suas contas em um local central: o portal do Azure.
-
-Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -40,24 +38,23 @@ Para começar, você precisará dos seguintes itens:
 Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste.
 
 * O Console da Infraestrutura de Nuvem da Oracle é compatível com o SSO iniciado por **SP**.
-* Após configurar o Console da Infraestrutura de Nuvem da Oracle, você poderá impor controles de sessão, que protegem o vazamento e a infiltração de dados confidenciais de sua organização em tempo real. Os controles da sessão são estendidos do Acesso Condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-oracle-cloud-infrastructure-console-from-the-gallery"></a>Adicionar o Console da Infraestrutura de Nuvem da Oracle da galeria
 
 Para configurar a integração do Console da Infraestrutura de Nuvem da Oracle com o Azure AD, você precisará adicionar o Console da Infraestrutura de Nuvem da Oracle à sua lista de aplicativos SaaS gerenciados da galeria.
 
-1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
+1. Entre no portal do Azure usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
 1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory**.
 1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos**.
 1. Para adicionar um novo aplicativo, escolha **Novo aplicativo**.
 1. Na seção **Adicionar da galeria**, digite **Console da Infraestrutura de Nuvem da Oracle** na caixa de pesquisa.
 1. Selecione **Console da Infraestrutura de Nuvem da Oracle** no painel de resultados e adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
+## <a name="configure-and-test-azure-ad-sso"></a>Configurar e testar o SSO do Azure AD
 
 Configure e teste o SSO do Azure AD com o Console da Infraestrutura de Nuvem da Oracle usando um usuário de teste chamado **B. Fernandes**. Para que o SSO funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Console da Infraestrutura de Nuvem da Oracle.
 
-Para configurar e testar o SSO do Azure AD com o Console da Infraestrutura de Nuvem da Oracle, conclua os seguintes blocos de construção:
+Para configurar e testar o SSO do Azure AD com o Console da Infraestrutura de Nuvem da Oracle, realize as seguintes etapas:
 
 1. **[Configure o SSO do Azure AD](#configure-azure-ad-sso)** para permitir que os usuários usem esse recurso.
     1. **[Crie um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** para testar o logon único do Azure AD com Brenda Fernandes.
@@ -70,7 +67,7 @@ Para configurar e testar o SSO do Azure AD com o Console da Infraestrutura de Nu
 
 Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Console da Infraestrutura de Nuvem da Oracle**, localize a seção **Gerenciar** e selecione **Logon único**.
+1. No portal do Azure, na página de integração de aplicativos do **Console da Infraestrutura de Nuvem da Oracle**, localize a seção **Gerenciar** e selecione **Logon único**.
 1. Na página **Escolher um método de logon único**, escolha **SAML**.
 1. Na página **Configurar o Logon Único com SAML**, clique no ícone editar/de caneta da **Configuração Básica de SAML** para editar as configurações.
 
@@ -101,9 +98,9 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. O aplicativo Console da Infraestrutura de Nuvem da Oracle espera as declarações SAML em um formato específico, o que exige a adição de mapeamentos de atributo personalizado à configuração de atributos do token SAML. A captura de tela a seguir mostra a lista de atributos padrão. Clique no ícone **Editar** para abrir a caixa de diálogo Atributos de usuário.
 
-   ![image](common/edit-attribute.png)
+   ![image1](common/edit-attribute.png)
 
-1. Além do indicado acima, o aplicativo Console da Infraestrutura de Nuvem da Oracle espera que mais alguns atributos sejam passados novamente na resposta SAML. Na seção**Atributos e Declarações de Usuário** na caixa de diálogo **Declarações de Grupo (Versão Prévia)** , execute as seguintes etapas:
+1. Além do indicado acima, o aplicativo Console da Infraestrutura de Nuvem da Oracle espera que mais alguns atributos sejam passados novamente na resposta SAML. Na seção **Atributos e Declarações de Usuário** na caixa de diálogo **Declarações de Grupo (Versão Prévia)** , execute as seguintes etapas:
 
    1. Clique na **caneta** ao lado do **Valor do identificador de nome**.
 
@@ -111,9 +108,9 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
  
    1. Clique em **Save** (Salvar).
 
-      ![image](./media/oracle-cloud-tutorial/config07.png)
+      ![image2](./media/oracle-cloud-tutorial/config07.png)
     
-      ![image](./media/oracle-cloud-tutorial/config11.png)
+      ![image3](./media/oracle-cloud-tutorial/config11.png)
 
    1. Clique na **caneta** ao lado de **Grupos retornados na declaração**.
 
@@ -129,13 +126,11 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
    1. Clique em **Save** (Salvar).
 
-      ![image](./media/oracle-cloud-tutorial/config08.png)
+      ![image4](./media/oracle-cloud-tutorial/config08.png)
 
 1. Na seção **Configurar o Console da Infraestrutura de Nuvem da Oracle**, copie as URLs apropriadas de acordo com suas necessidades.
 
    ![Copiar URLs de configuração](common/copy-configuration-urls.png)
-
-
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
@@ -156,15 +151,9 @@ Nesta seção, você permitirá que B. Fernandes use o logon único do Azure per
 1. No portal do Azure, selecione **Aplicativos empresariais** e, em seguida, selecione **Todos os aplicativos**.
 1. Na lista de aplicativos, selecione **Console da Infraestrutura de Nuvem da Oracle**.
 1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e escolha **Usuários e grupos**.
-
-   ![O link “Usuários e grupos”](common/users-groups-blade.png)
-
 1. Escolha **Adicionar usuário** e, em seguida, **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
-
-   ![O link Adicionar Usuário](common/add-assign-user.png)
-
 1. Na caixa de diálogo **Usuários e grupos**, selecione **B. Fernandes** na lista Usuários e, em seguida, clique no botão **Selecionar** na parte inferior da tela.
-1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função**, escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
+1. Se você estiver esperando que uma função seja atribuída aos usuários, escolha-a na lista suspensa **Selecionar uma função**. Se nenhuma função tiver sido configurada para esse aplicativo, você verá a função "Acesso Padrão" selecionada.
 1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
 ## <a name="configure-oracle-cloud-infrastructure-console"></a>Configurar Console da Infraestrutura de Nuvem da Oracle
@@ -173,15 +162,15 @@ Nesta seção, você permitirá que B. Fernandes use o logon único do Azure per
 
 1. Clique no lado esquerdo do menu e clique em **Identidade** e navegue até **Federação**.
 
-   ![Configuração](./media/oracle-cloud-tutorial/config01.png)
+   ![Configuração1](./media/oracle-cloud-tutorial/config01.png)
 
 1. Salve o **arquivo de metadados do Provedor de Serviços** clicando no link **Baixar este documento** e faça o upload para a seção **Configuração Básica do SAML** do portal do Azure e, em seguida, clique em **Adicionar Provedor de Identidade**.
 
-   ![Configuração](./media/oracle-cloud-tutorial/config02.png)
+   ![Configuração2](./media/oracle-cloud-tutorial/config02.png)
 
 1. No item pop-up **Adicionar Provedor de Identidade**, execute as seguintes etapas:
 
-   ![Configuração](./media/oracle-cloud-tutorial/config03.png)
+   ![Configuração3](./media/oracle-cloud-tutorial/config03.png)
 
    1. Na caixa de texto **NOME**, insira seu nome.
 
@@ -193,9 +182,9 @@ Nesta seção, você permitirá que B. Fernandes use o logon único do Azure per
 
    1. Clique em **Continuar** e, na seção **Editar Provedor de Identidade**, execute as seguintes etapas:
 
-      ![Configuração](./media/oracle-cloud-tutorial/config09.png)
+      ![Configuração4](./media/oracle-cloud-tutorial/configure-09.png)
 
-   1. O **GRUPO DE PROVEDOR DE IDENTIDADE** deve ser selecionado como Grupo Personalizado. A ID DO GRUPO deve ser a GUID do grupo do Azure Active Directory. O grupo precisa ser mapeado com o grupo correspondente no campo **GRUPO OCI**.
+   1. O **GRUPO DE PROVEDOR DE IDENTIDADE** deve ser selecionado como ID do Objeto de Grupo do Azure AD. A ID DO GRUPO deve ser a GUID do grupo do Azure Active Directory. O grupo precisa ser mapeado com o grupo correspondente no campo **GRUPO OCI**.
 
    1. Você pode mapear vários grupos de acordo com sua configuração no portal do Azure e sua necessidade de organização. Clique em **+ Adicionar mapeamento** para adicionar quantos grupos conforme necessário.
 
@@ -207,16 +196,10 @@ Nesta seção, você permitirá que B. Fernandes use o logon único do Azure per
 
 ### <a name="test-sso"></a>Testar o SSO
 
-Quando selecionar o bloco do Console da Infraestrutura de Nuvem da Oracle no Painel de Acesso, você será redirecionado para a página de entrada do Console da Infraestrutura de Nuvem da Oracle. Selecione o **PROVEDOR DE IDENTIDADE** no menu suspenso e clique em **Continuar**, conforme mostrado abaixo, para entrar. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando selecionar o bloco do Console da Infraestrutura de Nuvem da Oracle no Painel de Acesso, você será redirecionado para a página de entrada do Console da Infraestrutura de Nuvem da Oracle. Selecione o **PROVEDOR DE IDENTIDADE** no menu suspenso e clique em **Continuar**, conforme mostrado abaixo, para entrar. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
 
 ![Configuração](./media/oracle-cloud-tutorial/config10.png)
 
-## <a name="additional-resources"></a>Recursos adicionais
+## <a name="next-steps"></a>Próximas etapas
 
-- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
-
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
-
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
-- [Como proteger o Console da Infraestrutura de Nuvem da Oracle com visibilidade e controles avançados](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+Após configurar o Console da Infraestrutura de Nuvem da Oracle, você poderá impor controles de sessão, que protegem o vazamento e a infiltração de dados confidenciais de sua organização em tempo real. Os controles da sessão são estendidos do Acesso Condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)

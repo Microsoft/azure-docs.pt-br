@@ -10,17 +10,18 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: 1c4f1951-3613-4a5a-a0af-36b85750c84e
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/16/2020
 ms.author: sedusch
-ms.openlocfilehash: 6b66db639e0b22a7e0c45486465a1fa395aba33d
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: c70de186468eb3efacc82c1d5c8802612475fd4d
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88653504"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98232787"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Implantação de Máquinas Virtuais do Azure para SAP NetWeaver
 
@@ -72,7 +73,7 @@ ms.locfileid: "88653504"
 [2367194]:https://launchpad.support.sap.com/#/notes/2367194
 
 [azure-cli]:../../../cli-install-nodejs.md
-[azure-cli-2]:https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest
+[azure-cli-2]:https://docs.microsoft.com/cli/azure/install-azure-cli
 [azure-portal]:https://portal.azure.com
 [azure-ps]:/powershell/azure/
 [azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
@@ -543,11 +544,11 @@ Como diferentes versões de um sistema operacional ou DBMS têm requisitos de pa
 Você usa diferentes etapas para criar uma imagem privada para Linux em vez de criar uma para o Windows.
 
 ---
-> ![Windows][Logo_Windows] Windows
+> ![Logotipo do Windows.][Logo_Windows] Windows
 >
 > Para preparar uma imagem do Windows que você pode usar para implantar várias máquinas virtuais, as configurações do Windows (como o nome de host e SID do Windows) devem ser abstraídas ou generalizadas na VM local. Você pode usar [sysprep](/previous-versions/windows/it-pro/windows-8.1-and-8/hh825084(v=win.10)) para fazer isso.
 >
-> ![Linux][Logo_Linux] Linux
+> ![Logotipo do Linux.][Logo_Linux] Linux
 >
 > Para preparar uma imagem do Linux que você pode usar para implantar várias máquinas virtuais, algumas configurações do Linux devem ser abstraídas ou generalizadas na VM local. Você pode usar `waagent -deprovision` para fazer isso. Para obter mais informações, confira [Capturar uma máquina virtual Linux em execução no Azure][virtual-machines-linux-capture-image] e [Guia do usuário do agente Linux do Azure][virtual-machines-linux-agent-user-guide-command-line-options].
 >
@@ -683,11 +684,11 @@ Nesse cenário, o Agente de VM **não** é instalado automaticamente durante a i
 Para obter mais informações sobre o Agente de VM do Azure, confira os recursos a seguir.
 
 ---
-> ![Windows][Logo_Windows] Windows
+> ![Logotipo do Windows.][Logo_Windows] Windows
 >
 > [Visão geral do Agente de Máquina Virtual do Azure][virtual-machines-windows-agent-user-guide]
 >
-> ![Linux][Logo_Linux] Linux
+> ![Logotipo do Linux.][Logo_Linux] Linux
 >
 > [Guia do usuário do agente Linux para o Azure][virtual-machines-linux-agent-user-guide]
 >
@@ -911,8 +912,8 @@ Para saber mais sobre as rotas definidas pelo usuário, confira [Rotas definidas
 ### <a name="configure-the-azure-extension-for-sap"></a><a name="d98edcd3-f2a1-49f7-b26a-07448ceb60ca"></a>Configurar a Extensão para SAP do Azure
 
 > [!NOTE]
-> Instrução de suporte geral: sempre abra um incidente com o SAP no componente BC-OP-NT-AZR para Windows ou BC-OP-LNX-AZR se você precisar de suporte para a extensão do Azure para SAP.
-> Há engenheiros de suporte dedicados da Microsoft trabalhando no sistema de suporte SAP para ajudar nossos clientes em conjunto.
+> Instrução de suporte geral:  
+> O suporte para a extensão do Azure para SAP é fornecido por meio de canais de suporte do SAP. Se você precisar de assistência com a extensão do Azure para SAP, abra um caso de suporte com o [suporte do SAP](https://support.sap.com/). 
 
 Quando você tiver preparado a VM conforme descrito em [Cenários de implantação de VMs para SAP no Azure][deployment-guide-3], o agente estará instalado na máquina virtual. A próxima etapa é implantar a Extensão para SAP do Azure, que está disponível no Repositório de extensões do Azure em data centers globais do Azure. Para obter mais informações, confira [Planejamento e implementação de Máquinas Virtuais do Azure para SAP NetWeaver][planning-guide-9.1].
 
@@ -1057,7 +1058,7 @@ A nova extensão de VM para SAP usa uma identidade gerenciada atribuída à VM p
    az login
    ```
 
-1. Siga as etapas em [Configurar identidades gerenciadas para recursos do Azure em uma VM do Azure usando CLI do Azure][qs-configure-cli-windows-vm] artigo para habilitar uma identidade gerenciada atribuída pelo sistema para a VM. Não há suporte para identidades gerenciadas atribuídas pelo usuário pela extensão de VM para SAP. No entanto, você pode habilitar tanto uma identidade atribuída pelo sistema quanto uma de usuário.
+1. Siga as etapas em [Configurar identidades gerenciadas para recursos do Azure em uma VM do Azure usando CLI do Azure][qs-configure-cli-windows-vm] artigo para habilitar uma identidade de System-Assigned gerenciada para a VM. User-Assigned identidades gerenciadas não são suportadas pela extensão de VM para SAP. No entanto, você pode habilitar tanto uma identidade atribuída pelo sistema quanto uma de usuário.
 
    Exemplo:
    ```azurecli
@@ -1069,8 +1070,14 @@ A nova extensão de VM para SAP usa uma identidade gerenciada atribuída à VM p
     Exemplo:
 
     ```azurecli
+    # Azure CLI on Linux
     spID=$(az resource show -g <resource-group-name> -n <vm name> --query identity.principalId --out tsv --resource-type Microsoft.Compute/virtualMachines)
     rgId=$(az group show -g <resource-group-name> --query id --out tsv)
+    az role assignment create --assignee $spID --role 'Reader' --scope $rgId
+
+    # Azure CLI on Windows/PowerShell
+    $spID=az resource show -g <resource-group-name> -n <vm name> --query identity.principalId --out tsv --resource-type Microsoft.Compute/virtualMachines
+    $rgId=az group show -g <resource-group-name> --query id --out tsv
     az role assignment create --assignee $spID --role 'Reader' --scope $rgId
     ```
 
@@ -1078,11 +1085,19 @@ A nova extensão de VM para SAP usa uma identidade gerenciada atribuída à VM p
     Atualmente, a extensão só tem suporte no AzureCloud. O Azure China 21Vianet, o Azure governamental ou qualquer um dos outros ambientes especiais ainda não tem suporte.
 
     ```azurecli
-    # For Linux machines
+    # Azure CLI on Linux
+    ## For Linux machines
     az vm extension set --publisher Microsoft.AzureCAT.AzureEnhancedMonitoring --name MonitorX64Linux --version 1.0 -g <resource-group-name> --vm-name <vm name> --settings '{"system":"SAP"}'
 
-    #For Windows machines
+    ## For Windows machines
     az vm extension set --publisher Microsoft.AzureCAT.AzureEnhancedMonitoring --name MonitorX64Windows --version 1.0 -g <resource-group-name> --vm-name <vm name> --settings '{"system":"SAP"}'
+
+    # Azure CLI on Windows/PowerShell
+    ## For Linux machines
+    az vm extension set --publisher Microsoft.AzureCAT.AzureEnhancedMonitoring --name MonitorX64Linux --version 1.0 -g <resource-group-name> --vm-name <vm name> --settings '{\"system\":\"SAP\"}'
+
+    ## For Windows machines
+    az vm extension set --publisher Microsoft.AzureCAT.AzureEnhancedMonitoring --name MonitorX64Windows --version 1.0 -g <resource-group-name> --vm-name <vm name> --settings '{\"system\":\"SAP\"}'
     ```
 
 ## <a name="checks-and-troubleshooting"></a><a name="564adb4f-5c95-4041-9616-6635e83a810b"></a>Verificações e solução de problemas
@@ -1309,7 +1324,7 @@ Se alguns dos dados de infraestrutura não forem entregues corretamente conforme
 > [!NOTE]
 > Há duas versões da extensão de VM. Este capítulo aborda a extensão de VM padrão. Se você tiver instalado a nova extensão de VM, consulte [o capítulo Solucionando problemas da nova extensão do Azure para SAP][deployment-guide-5.3-new].
 
-#### <a name="windowslogo_windows-azure-performance-counters-do-not-show-up-at-all"></a>![Windows][Logo_Windows] Os contadores de desempenho do Azure não aparecem
+#### <a name="windows-logologo_windows-azure-performance-counters-do-not-show-up-at-all"></a>![Logotipo do Windows.][Logo_Windows] Os contadores de desempenho do Azure não aparecem
 
 O serviço AzureEnhancedMonitoring Windows coleta métricas de desempenho no Azure. Se o serviço não tiver sido instalado corretamente ou não estiver em execução na VM, nenhuma métrica de desempenho poderá ser coletada.
 
@@ -1350,13 +1365,13 @@ O serviço Windows AzureEnhancedMonitoring existe e está habilitado, mas não �
 
 A configuração está incorreta. Reinicie a Extensão para SAP do Azure na VM, conforme descrito em [Configurar a Extensão para SAP do Azure][deployment-guide-4.5].
 
-#### <a name="windowslogo_windows-some-azure-performance-counters-are-missing"></a>![Windows][Logo_Windows] Faltam alguns contadores de desempenho do Azure
+#### <a name="windows-logologo_windows-some-azure-performance-counters-are-missing"></a>![Logotipo do Windows.][Logo_Windows] Faltam alguns contadores de desempenho do Azure
 
 O serviço AzureEnhancedMonitoring Windows coleta métricas de desempenho no Azure. O serviço obtém dados de várias fontes. Alguns dados de configuração são coletados localmente e algumas métricas de desempenho são lidas do Diagnóstico do Azure. Contadores de armazenamento são utilizados de seu logon no nível de assinatura de armazenamento.
 
 Se estiver solucionando problemas usando a Nota SAP [1999351] e isso não resolver o problema, execute novamente o script de configuração `Set-AzVMAEMExtension`. Talvez você precise esperar por uma hora porque os contadores de diagnóstico ou análise de armazenamento podem não ser criados imediatamente depois de terem sido habilitados. Se o problema persistir, abra uma mensagem de suporte ao cliente SAP no componente BC-OP-NT-AZR para Windows ou BC-OP-LNX-AZR para uma máquina virtual Linux.
 
-#### <a name="linuxlogo_linux-azure-performance-counters-do-not-show-up-at-all"></a>![Linux][Logo_Linux] Os contadores de desempenho do Azure não aparecem
+#### <a name="linux-logologo_linux-azure-performance-counters-do-not-show-up-at-all"></a>![Logotipo do Linux.][Logo_Linux] Os contadores de desempenho do Azure não aparecem
 
 Métricas de desempenho no Azure são coletadas por um daemon. Se o daemon não estiver em execução, nenhuma métrica de desempenho poderá ser coletada.
 
@@ -1389,7 +1404,7 @@ Ao executar o azperfli.exe como descrito anteriormente, você pode obter um resu
 As mensagens são causadas pelo fato de que os Managed Disks Standard não estão fornecendo as APIs usadas pela Extensão para SAP do Azure para verificar as estatísticas das Contas de Armazenamento do Azure Standard. Isso não é motivo de preocupação. O motivo para introduzir os dados de coleta para contas de Armazenamento em Disco padrão foi a limitação de entradas e saídas que ocorreram com frequência. Os discos gerenciados evitarão essa limitação limitando o número de discos em uma conta de armazenamento. Portanto, não ter esse tipo de dados não é crítico.
 
 
-#### <a name="linuxlogo_linux-some-azure-performance-counters-are-missing"></a>![Linux][Logo_Linux] Faltam alguns contadores de desempenho do Azure
+#### <a name="linux-logologo_linux-some-azure-performance-counters-are-missing"></a>![Logotipo do Linux.][Logo_Linux] Faltam alguns contadores de desempenho do Azure
 
 Métricas de desempenho no Azure são coletadas por um daemon, que obtém os dados de várias fontes. Alguns dados de configuração são coletados localmente e algumas métricas de desempenho são lidas do Diagnóstico do Azure. Contadores de armazenamento vêm dos logs em sua assinatura de armazenamento.
 
@@ -1402,7 +1417,7 @@ Se estiver solucionando problemas usando a Nota SAP [1999351] e isso não resolv
 > [!NOTE]
 > Há duas versões da extensão de VM. Este capítulo aborda a nova extensão de VM. Se você tiver instalado a extensão de VM padrão, consulte [o capítulo Solucionando problemas da extensão do Azure para SAP][deployment-guide-5.3].
 
-#### <a name="windowslogo_windows-azure-performance-counters-do-not-show-up-at-all"></a>![Windows][Logo_Windows] Os contadores de desempenho do Azure não aparecem
+#### <a name="windows-logologo_windows-azure-performance-counters-do-not-show-up-at-all"></a>![Logotipo do Windows.][Logo_Windows] Os contadores de desempenho do Azure não aparecem
 
 O processo AzureEnhancedMonitoring coleta métricas de desempenho no Azure. Se o processo não estiver em execução em sua VM, nenhuma métrica de desempenho poderá ser coletada.
 
@@ -1416,13 +1431,13 @@ O diretório de instalação C: \\ Packages \\ plugins \\ Microsoft. AzureCAT. A
 
 A extensão não está instalada. Determine se esse é um problema de proxy (conforme descrito anteriormente). Talvez seja necessário reiniciar o computador ou instalar a extensão de VM novamente.
 
-#### <a name="windowslogo_windows-some-azure-performance-counters-are-missing"></a>![Windows][Logo_Windows] Faltam alguns contadores de desempenho do Azure
+#### <a name="windows-logologo_windows-some-azure-performance-counters-are-missing"></a>![Logotipo do Windows.][Logo_Windows] Faltam alguns contadores de desempenho do Azure
 
 O processo do Windows AzureEnhancedMonitoring coleta métricas de desempenho no Azure. O processo obtém dados de várias fontes. Alguns dados de configuração são coletados localmente e algumas métricas de desempenho são lidas de Azure Monitor.
 
 Se a solução de problemas usando o SAP Note [1999351] não resolver o problema, abra uma mensagem de suporte ao cliente do SAP no componente BC-op-NT-AZR para Windows ou BC-op-lnx-AZR para uma máquina virtual Linux. Anexe o arquivo de log C: \\ Packages \\ plugins \\ Microsoft. AzureCAT. AzureEnhancedMonitoring. MonitorX64Windows \\ &lt; versão>\\logapp.txt ao incidente.
 
-#### <a name="linuxlogo_linux-azure-performance-counters-do-not-show-up-at-all"></a>![Linux][Logo_Linux] Os contadores de desempenho do Azure não aparecem
+#### <a name="linux-logologo_linux-azure-performance-counters-do-not-show-up-at-all"></a>![Logotipo do Linux.][Logo_Linux] Os contadores de desempenho do Azure não aparecem
 
 Métricas de desempenho no Azure são coletadas por um daemon. Se o daemon não estiver em execução, nenhuma métrica de desempenho poderá ser coletada.
 
@@ -1436,7 +1451,7 @@ O diretório \\var\\lib\\waagent\\ não tem um subdiretório para a Extensão pa
 
 A extensão não está instalada. Determine se esse é um problema de proxy (conforme descrito anteriormente). Talvez seja necessário reiniciar o computador e/ou instalar a extensão de VM novamente.
 
-#### <a name="linuxlogo_linux-some-azure-performance-counters-are-missing"></a>![Linux][Logo_Linux] Faltam alguns contadores de desempenho do Azure
+#### <a name="linux-logologo_linux-some-azure-performance-counters-are-missing"></a>![Logotipo do Linux.][Logo_Linux] Faltam alguns contadores de desempenho do Azure
 
 Métricas de desempenho no Azure são coletadas por um daemon, que obtém os dados de várias fontes. Alguns dados de configuração são coletados localmente e algumas métricas de desempenho são lidas de Azure Monitor.
 

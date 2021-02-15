@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 1452f380cec711fb224f532ccb02d11c5bbad697
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86255176"
 ---
 # <a name="application-templates-in-azure-api-management"></a>Modelos de aplicativo no Gerenciamento de API do Azure
@@ -36,7 +36,7 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
-##  <a name="application-list"></a><a name="ProductList"></a>Lista de aplicativos  
+##  <a name="application-list"></a><a name="ProductList"></a> Lista de aplicativos  
  O modelo **Lista de aplicativos** permite personalizar o corpo da página de lista de aplicativos no portal do desenvolvedor.  
   
  ![Página de lista de aplicativos modelos do portal do desenvolvedor](./media/api-management-application-templates/APIM-Application-List-Page-Developer-Portal-Templates.png "Página de lista de aplicativos do APIM modelos do portal do desenvolvedor")  
@@ -137,7 +137,7 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 }  
 ```  
   
-##  <a name="application"></a><a name="Application"></a>Aplicativo  
+##  <a name="application"></a><a name="Application"></a> Aplicativo  
  O modelo **Aplicativos** permite personalizar o corpo da página de aplicativos no portal do desenvolvedor.  
   
  ![Página do aplicativo modelos do portal do desenvolvedor](./media/api-management-application-templates/APIM-Application-Page-Developer-Portal-Templates.png "Modelos do portal do desenvolvedor da página do aplicativo APIM")  

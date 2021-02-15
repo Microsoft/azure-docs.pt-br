@@ -15,12 +15,12 @@ ms.custom: mvc
 ms.date: 06/11/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb5355d4c83961d87ad4b880f6b3758b212e74dd
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: b93f45b05e6d7773afc2f750fd1a9a034c01ca1e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89014342"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89178664"
 ---
 # <a name="how-managed-identities-for-azure-resources-work-with-azure-virtual-machines"></a>Como as identidades gerenciadas para recursos do Azure funcionam com máquinas virtuais do Azure
 
@@ -55,7 +55,7 @@ O diagrama abaixo mostra como as identidades de serviço gerenciadas funcionam c
 
 3. O Azure Resource Manager configura a identidade na VM atualizando o ponto de extremidade de identidade do Serviço de Metadados de Instância do Azure com o certificado e a ID do cliente da entidade de serviço.
 
-4. Depois que a máquina virtual ganhar uma identidade, use as informações da entidade de serviço para conceder acesso aos recursos do Microsoft Azure à VM. Para chamar o Azure Resource Manager, use o RBAC (controle de acesso baseado em função) no Azure AD para atribuir a função apropriada à entidade de serviço da VM. Para chamar o Key Vault, conceda o acesso de código para o segredo ou chave específica no Key Vault.
+4. Depois que a máquina virtual ganhar uma identidade, use as informações da entidade de serviço para conceder acesso aos recursos do Microsoft Azure à VM. Para chamar Azure Resource Manager, use o controle de acesso baseado em função do Azure (RBAC do Azure) para atribuir a função apropriada à entidade de serviço da VM. Para chamar o Key Vault, conceda o acesso de código para o segredo ou chave específica no Key Vault.
 
 5. O código que está em execução na VM pode solicitar um token do ponto de extremidade de serviço de Metadados de Instância do Azure, acessível somente a partir da VM: `http://169.254.169.254/metadata/identity/oauth2/token`
     - O parâmetro de recurso especifica o serviço ao qual o token é enviado. Para se autenticar no Azure Resource Manager, use `resource=https://management.azure.com/`.
@@ -73,7 +73,7 @@ O diagrama abaixo mostra como as identidades de serviço gerenciadas funcionam c
 
 3. O Azure Resource Manager recebe uma solicitação para configurar a identidade gerenciada atribuída pelo usuário em uma VM e atualiza o ponto de extremidade de identidade do Serviço de Metadados de Instância do Azure com o certificado e a ID do cliente da entidade de serviço de identidade gerenciada atribuída pelo usuário.
 
-4. Depois que a identidade gerenciada atribuída pelo usuário for criada, use as informações da entidade de serviço para conceder o acesso de identidade aos recursos do Azure. Para chamar o Azure Resource Manager, use RBAC no Azure AD para atribuir a função apropriada à entidade de serviço da identidade atribuída pelo usuário. Para chamar o Key Vault, conceda o acesso de código para o segredo ou chave específica no Key Vault.
+4. Depois que a identidade gerenciada atribuída pelo usuário for criada, use as informações da entidade de serviço para conceder o acesso de identidade aos recursos do Azure. Para chamar Azure Resource Manager, use o RBAC do Azure para atribuir a função apropriada à entidade de serviço da identidade atribuída pelo usuário. Para chamar o Key Vault, conceda o acesso de código para o segredo ou chave específica no Key Vault.
 
    > [!Note]
    > Você também pode executar essa etapa antes da etapa 3.

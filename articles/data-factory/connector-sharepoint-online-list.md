@@ -1,22 +1,17 @@
 ---
 title: Copiar dados da Lista do SharePoint Online usando o Azure Data Factory
 description: Saiba como copiar dados da Lista do SharePoint Online em armazenamentos de dados de coletor com suporte usando uma atividade de cópia em um pipeline do Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: jingwang
-ms.openlocfilehash: f560a01c4ec00649157a9c43aedf0ed6cfc2e050
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 3f05c90ba3c7e6b47009cbb597c56dac8a01427a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83871929"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100393421"
 ---
 # <a name="copy-data-from-sharepoint-online-list-by-using-azure-data-factory"></a>Copiar dados da Lista do SharePoint Online usando o Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -183,6 +178,9 @@ Para a cópia de dados da Lista do SharePoint Online, as propriedades a seguir n
 ]
 ```
 
+> [!NOTE]
+> No Azure Data Factory, não é possível selecionar mais de um tipo de dados de *escolha* para uma origem de lista do SharePoint Online.
+
 ## <a name="data-type-mapping-for-sharepoint-online-list"></a>Mapeamento do tipo de dados para a Lista do SharePoint Online
 
 Ao copiar dados da Lista do SharePoint Online, os seguintes mapeamentos são usados entre o tipo de dados da Lista do SharePoint Online e o tipo de dados provisórios do Azure Data Factory. 
@@ -193,7 +191,7 @@ Ao copiar dados da Lista do SharePoint Online, os seguintes mapeamentos são usa
 | Várias linhas de texto                          | Edm.String                                           | String                                   |
 | Escolha (menu para escolher)                    | Edm.String                                           | String                                   |
 | Número (1, 1,0, 100)                            | Edm.Double                                           | Double                                   |
-| Moeda ($, ¥, €)                              | Edm.Double                                           | Double                                   |
+| Moeda ($, ¥, &euro; )                              | Edm.Double                                           | Double                                   |
 | Data e hora                                   | Edm.DateTime                                         | Datetime                                 |
 | Pesquisa (informações já presentes nesse site)       | Edm.Int32                                            | Int32                                    |
 | Sim/Não (caixa de seleção)                              | Edm.Boolean                                          | Boolean                                  |

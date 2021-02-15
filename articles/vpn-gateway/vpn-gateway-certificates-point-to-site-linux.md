@@ -3,17 +3,17 @@ title: 'Gerar e exportar certificados para ponto a site: Linux: CLI'
 description: Criar um certificado raiz autoassinado, exportar a chave pública e gerar certificados do cliente usando a CLI do Linux (strongSwan).
 titleSuffix: Azure VPN Gateway
 services: vpn-gateway
-author: kumudD
+author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 08/14/2019
+ms.date: 09/02/2020
 ms.author: alzam
-ms.openlocfilehash: c55c304ae71cba396266c83bcaaa727351dcd677
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0be5bb042649b0fe425077b5b3feb3cea728218c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87064629"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89393999"
 ---
 # <a name="generate-and-export-certificates"></a>Gerar e exportar certificados
 

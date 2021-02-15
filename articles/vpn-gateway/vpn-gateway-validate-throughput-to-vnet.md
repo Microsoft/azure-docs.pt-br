@@ -1,21 +1,21 @@
 ---
 title: Validar a taxa de transferência de VPN para um Rede Virtual do Microsoft Azure
-description: A finalidade deste documento é ajudar um usuário a validar a taxa de transferência de rede de seus recursos locais para uma máquina virtual do Azure.
+description: Este artigo ajuda você a validar a taxa de transferência de rede de seus recursos locais para uma máquina virtual do Azure.
 titleSuffix: Azure VPN Gateway
 services: vpn-gateway
 author: cherylmc
 manager: dcscontentpm
 ms.service: vpn-gateway
 ms.topic: troubleshooting
-ms.date: 05/29/2019
+ms.date: 09/02/2020
 ms.author: radwiv
 ms.reviewer: chadmat;genli
-ms.openlocfilehash: 7d19cc4a474324ff3e88ec0c5353a47c157ec715
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2d5b51e8cfbfcb5f771e9da524231f8ddfc40a9e
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86998469"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660926"
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>Como validar a taxa de transferência VPN para uma rede virtual
 
@@ -119,7 +119,7 @@ Baixe o [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-win64.zip). Para
 1. Depois de concluir as etapas anteriores, execute as mesmas etapas com as funções invertidas, de modo que o nó do servidor agora será o nó do cliente e vice-versa.
 
 > [!Note]
-> Iperf não é a única ferramenta. [NTTTCP é uma solução alternativa para teste](https://docs.microsoft.com/azure/virtual-network/virtual-network-bandwidth-testing).
+> Iperf não é a única ferramenta. [NTTTCP é uma solução alternativa para teste](../virtual-network/virtual-network-bandwidth-testing.md).
 
 ## <a name="test-vms-running-windows"></a>Testar VMs que executam o Windows
 
@@ -127,7 +127,7 @@ Baixe o [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-win64.zip). Para
 
 Baixe a versão mais recente do [Latte.exe](https://gallery.technet.microsoft.com/Latte-The-Windows-tool-for-ac33093b)
 
-Considere colocar Latte.exe em uma pasta separada, como`c:\tools`
+Considere colocar Latte.exe em uma pasta separada, como `c:\tools`
 
 ### <a name="allow-latteexe-through-the-windows-firewall"></a>Permitir Latte.exe por meio do firewall do Windows
 
@@ -217,7 +217,7 @@ Fazer a instalação é rápida
 
 > [!Note]
 > Verifique se não há nenhum salto intermediário (por exemplo, dispositivo virtual) durante o teste de taxa de transferência entre a VM e o gateway.
-> Se houver resultados insatisfatórios (em termos de produtividade geral) provenientes dos testes de iPERF/NTTTCP acima, consulte o artigo a seguir para entender os principais fatores por trás das possíveis causas raiz do problema:https://docs.microsoft.com/azure/virtual-network/virtual-network-tcpip-performance-tuning
+> Se houver resultados insatisfatórios (em termos de produtividade geral) provenientes dos testes de iPERF/NTTTCP acima, consulte o artigo a seguir para entender os principais fatores por trás das possíveis causas raiz do problema: https://docs.microsoft.com/azure/virtual-network/virtual-network-tcpip-performance-tuning
 
 Em particular, a análise dos rastreamentos de captura de pacotes (Wireshark/Monitor de Rede) coletados em paralelo do cliente e do servidor durante esses testes ajudará nas avaliações de desempenho inadequado. Esses rastreamentos podem incluir perda de pacotes, alta latência, tamanho de MTU. fragmentação, janela TCP 0, fragmentos fora de ordem e assim por diante.
 
@@ -225,7 +225,7 @@ Em particular, a análise dos rastreamentos de captura de pacotes (Wireshark/Mon
 
 Mesmo que a taxa de transferência geral avaliada com as etapas anteriores (iPERF/NTTTCP/etc.) tenha sido boa, você pode experimentar um pouco de ping de arquivo ao usar o Windows Explorer ou arrastar e soltar por uma sessão RDP. Esse problema normalmente ocorre devido a um ou ambos os seguintes fatores:
 
-* Os aplicativos de cópia de arquivo, como o Windows Explorer e o RDP não usam múltiplos threads ao copiar arquivos. Para obter melhor desempenho, use um aplicativo de cópia de arquivo multi-threaded como o [Richcopy](https://technet.microsoft.com/magazine/2009.04.utilityspotlight.aspx) para copiar arquivos usando 16 ou 32 threads. Para alterar o número de thread para cópia de arquivo em RichCopy, clique em **ação**  >  **copiar opções**  >  **Copiar arquivo**.
+* Os aplicativos de cópia de arquivo, como o Windows Explorer e o RDP não usam múltiplos threads ao copiar arquivos. Para obter melhor desempenho, use um aplicativo de cópia de arquivo multi-threaded como o [Richcopy](/previous-versions/technet-magazine/dd547088(v=msdn.10)) para copiar arquivos usando 16 ou 32 threads. Para alterar o número de thread para cópia de arquivo em RichCopy, clique em **ação**  >  **copiar opções**  >  **Copiar arquivo**.
 
    ![Problemas com cópia de arquivo lenta](./media/vpn-gateway-validate-throughput-to-vnet/Richcopy.png)<br>
 
@@ -233,7 +233,7 @@ Mesmo que a taxa de transferência geral avaliada com as etapas anteriores (iPER
    > Nem todos os trabalhos do aplicativo são iguais, e nem todos os aplicativos/processo utilizam todos os threads. Se você executar o teste, poderá ver alguns threads sendo vazios e não fornecerá resultados precisos da taxa de transferência.
    > Para verificar o desempenho da transferência de arquivos do aplicativo, use vários threads aumentando o número de threads em sucessão ou diminuição para encontrar a taxa de transferência ideal do aplicativo ou transferência de arquivo.
 
-* Velocidade de leitura/gravação de disco de VM insuficiente. Para obter mais informações, consulte [Solução de Problemas de Armazenamento do Azure](../storage/common/storage-e2e-troubleshooting.md).
+* Velocidade de leitura/gravação de disco de VM insuficiente. Para obter mais informações, consulte [Solução de Problemas de Armazenamento do Azure](/previous-versions/azure/storage/common/storage-e2e-troubleshooting).
 
 ## <a name="on-premises-device-external-facing-interface"></a>Interface externa do dispositivo local
 
@@ -253,7 +253,7 @@ Você pode verificar a latência usando as seguintes ferramentas:
 
 * WinMTR
 * TCPTraceroute
-* `ping`e `psping` (essas ferramentas podem fornecer uma boa estimativa de RTT, mas elas não podem ser usadas em todos os casos.)
+* `ping` e `psping` (essas ferramentas podem fornecer uma boa estimativa de RTT, mas elas não podem ser usadas em todos os casos.)
 
 ![Verificar latência](./media/vpn-gateway-validate-throughput-to-vnet/08checkinglatency.png)
 

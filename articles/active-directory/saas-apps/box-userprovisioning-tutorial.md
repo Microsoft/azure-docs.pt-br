@@ -7,15 +7,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/20/2020
 ms.author: jeedes
-ms.openlocfilehash: 76c0f4f021646b4cbf1a09559e085176353a4a3c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
-ms.translationtype: MT
+ms.openlocfilehash: e22738f1fff813e5a928b76f8049e810847fe548
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88525605"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358143"
 ---
 # <a name="tutorial-configure-box-for-automatic-user-provisioning"></a>Tutorial: Configurar o Box para provisionamento automático de usuário
 
@@ -48,7 +48,7 @@ O Azure Active Directory usa um conceito chamado "atribuições" para determinar
 
 Antes de configurar e habilitar o serviço de provisionamento, você precisa decidir quais usuários e/ou grupos do Azure AD representam os usuários que precisam de acesso ao aplicativo Box. Depois de decidir, você pode atribuir esses usuários ao aplicativo Box seguindo estas instruções:
 
-[Atribuir um usuário ou um grupo a um aplicativo empresarial](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+[Atribuir um usuário ou um grupo a um aplicativo empresarial](../manage-apps/assign-user-or-group-access-portal.md)
 
 ## <a name="assign-users-and-groups"></a>Atribuir usuários e grupos
 A guia **Box > Usuários e Grupos** no portal do Azure permite especificar quais usuários e grupos devem ter acesso ao Box. A atribuição de um usuário ou grupo faz com que as seguintes ações ocorram:
@@ -93,17 +93,17 @@ O objetivo desta seção é descrever como habilitar o provisionamento de contas
 
 4. Defina o **Modo de Provisionamento** como **Automático**. 
 
-    ![provisionamento](./media/box-userprovisioning-tutorial/provisioning.png)
+    ![Captura de tela da guia provisionamento para o box em portal do Azure. O modo de provisionamento é definido como automático e autorizar é realçado em credenciais de administrador.](./media/box-userprovisioning-tutorial/provisioning.png)
 
-5. Na seção **Credenciais de Administrador**, clique em **Autorizar** para abrir uma caixa de diálogo de logon do Box em uma nova janela do navegador.
+5. Na seção **Credenciais de Administrador** , clique em **Autorizar** para abrir uma caixa de diálogo de logon do Box em uma nova janela do navegador.
 
-6. Na página **Fazer logon para conceder acesso ao Box**, forneça as credenciais necessárias e clique em **Autorizar**. 
+6. Na página **Fazer logon para conceder acesso ao Box** , forneça as credenciais necessárias e clique em **Autorizar**. 
    
-    ![Habilitar o provisionamento automático de usuários.](./media/box-userprovisioning-tutorial/IC769546.png "Habilitar o provisionamento automático de usuários.")
+    ![Captura de tela da caixa de logon para conceder acesso ao box, mostrando a entrada de email e senha e o botão autorizar.](./media/box-userprovisioning-tutorial/IC769546.png "Habilitar o provisionamento automático de usuários.")
 
 7. Clique em **Conceder acesso ao Box** para autorizar essa operação e retornar ao portal do Azure. 
    
-    ![Habilitar o provisionamento automático de usuários.](./media/box-userprovisioning-tutorial/IC769549.png "Habilitar o provisionamento automático de usuários.")
+    ![Captura de tela da caixa de autorizar acesso no box, mostrando uma mensagem explicativa e o botão conceder acesso à caixa.](./media/box-userprovisioning-tutorial/IC769549.png "Habilitar o provisionamento automático de usuários.")
 
 8. No portal do Azure, clique em **Testar conectividade** para garantir que o Azure AD possa se conectar ao aplicativo Box. Se a conexão falhar, verifique se sua conta do Box tem permissões de Administrador de Equipe e repita a etapa **"Autorizar"**.
 
@@ -113,7 +113,7 @@ O objetivo desta seção é descrever como habilitar o provisionamento de contas
 
 11. Na seção Mapeamentos, selecione **Sincronizar usuários do Azure Active Directory com o Box**.
 
-12. Na seção **Mapeamentos de Atributo**, revise os atributos de usuário que serão sincronizados do Azure AD com o Box. Os atributos selecionados como propriedades **Correspondentes** serão usados para fazer a correspondência entre as contas de usuário no Box para operações de atualização. Selecione o botão Salvar para confirmar as alterações.
+12. Na seção **Mapeamentos de Atributo** , revise os atributos de usuário que serão sincronizados do Azure AD com o Box. Os atributos selecionados como propriedades **Correspondentes** serão usados para fazer a correspondência entre as contas de usuário no Box para operações de atualização. Selecione o botão Salvar para confirmar as alterações.
 
 13. Para habilitar o serviço de provisionamento do Azure AD para o Box, altere o **Status de Provisionamento** para **Ativado** na seção Configurações
 

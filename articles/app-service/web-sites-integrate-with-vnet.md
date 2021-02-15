@@ -7,16 +7,16 @@ ms.topic: article
 ms.date: 08/05/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 399689f3f7d07a6e77128037be6b7439e7bf5184
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 077d200dcaf957f636acecebb441ff99a68eb96f
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88960013"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97963580"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrar seu aplicativo a uma rede virtual do Azure
 
-Este artigo descreve o recurso de Integração VNET do Serviço de Aplicativo do Azure e como configurá-lo com os aplicativos no [Serviço de Aplicativo do Azure](https://go.microsoft.com/fwlink/?LinkId=529714). Com as VNETs ([Redes Virtuais do Azure][VNETOverview]) você pode colocar muitos dos seus recursos do Azure em uma rede não roteável para a Internet. O recurso integração VNet permite que seus aplicativos acessem recursos no ou por meio de uma VNet. A integração VNet não permite que seus aplicativos sejam acessados em particular.
+Este artigo descreve o recurso de Integração VNET do Serviço de Aplicativo do Azure e como configurá-lo com os aplicativos no [Serviço de Aplicativo do Azure](./overview.md). Com as VNETs ([Redes Virtuais do Azure][VNETOverview]) você pode colocar muitos dos seus recursos do Azure em uma rede não roteável para a Internet. O recurso integração VNet permite que seus aplicativos acessem recursos no ou por meio de uma VNet. A integração VNet não permite que seus aplicativos sejam acessados em particular.
 
 O serviço de Azure App tem duas variações no recurso de integração VNet:
 
@@ -54,6 +54,10 @@ Os aplicativos do Serviço de Aplicativo são hospedados em funções de trabalh
 
 Quando a Integração VNET regional está habilitada, o aplicativo faz chamadas de saída à Internet por meio dos mesmos canais como de costume. Os endereços de saída listados no portal de propriedades do aplicativo são os endereços ainda usados pelo seu aplicativo. O que é alterado para o aplicativo são as chamadas aos serviços protegidos pelo ponto de extremidade de serviço ou os endereços RFC 1918 que são incluídos na VNET. Se WEBSITE_VNET_ROUTE_ALL for definido como 1, todo o tráfego de saída poderá ser enviado para a VNET.
 
+> [!NOTE]
+> `WEBSITE_VNET_ROUTE_ALL` Não tem suporte atualmente em contêineres do Windows.
+> 
+
 O recurso dá suporte a apenas uma interface virtual por trabalho. Uma interface virtual por trabalho significa uma Integração VNET regional por Plano do Serviço de Aplicativo. Todos os aplicativos no mesmo Plano do Serviço de Aplicativo podem usar a mesma Integração VNET. Se você precisar que um aplicativo se conecte a uma VNET adicional, precisará criar outro Plano do Serviço de Aplicativo. A interface virtual usada não é um recurso ao qual os clientes têm acesso direto.
 
 Devido à natureza de como essa tecnologia opera, o tráfego usado com a Integração VNET não é exibido no Observador de Rede do Azure nem nos logs de fluxo do NSG.
@@ -72,7 +76,8 @@ A Integração VNET exigida pelo gateway dá suporte à conexão com uma VNET em
 Não é possível usar a Integração VNET exigida pelo gateway:
 
 * Com uma VNET conectada ao Azure ExpressRoute.
-* De um aplicativo Linux
+* De um aplicativo Linux.
+* De um [contêiner do Windows](quickstart-custom-container.md).
 * Para acessar os recursos protegidos pelo ponto de extremidade de serviço.
 * Com um gateway de coexistência que dê suporte ao ExpressRoute e a VPNs ponto a site ou site a site.
 
@@ -80,7 +85,7 @@ Não é possível usar a Integração VNET exigida pelo gateway:
 
 Para criar um gateway:
 
-1. [Crie uma sub-rede de gateway][creategatewaysubnet] na VNET.  
+1. [Crie uma sub-rede de gateway][creategatewaysubnet] na VNET.
 
 1. [Crie o gateway de VPN][creategateway]. Selecione um tipo VPN baseado em rota.
 
@@ -102,8 +107,8 @@ Nenhuma configuração adicional é necessária para que o recurso de Integraç�
 
 > [!NOTE]
 > O recurso de Integração VNET exigida pelo gateway não integra um aplicativo a uma VNET que tenha um gateway do ExpressRoute. Mesmo se o gateway do ExpressRoute estiver configurado no [modo de coexistência][VPNERCoex], a Integração VNET não funcionará. Caso precise acessar recursos por meio de uma conexão do ExpressRoute, use o recurso de Integração VNET regional ou um [Ambiente do Serviço de Aplicativo][ASE], que é executado na sua VNET.
-> 
-> 
+>
+>
 
 ### <a name="peering"></a>Emparelhamento
 
@@ -126,6 +131,12 @@ A interface do usuário da Integração VNET do Plano do Serviço de Aplicativo 
 * **Sincronizar rede**: a operação de rede de sincronização é usada somente para o recurso de Integração VNET dependente de gateway. A execução de uma operação de sincronização de rede verifica se os certificados e as informações de rede são em sincronia. Se você adicionar ou alterar o DNS da VNET, execute uma operação de sincronização de rede. Essa operação reinicia todos os aplicativos que usam essa VNET. Essa operação não funcionará se você estiver usando um aplicativo e uma VNET que pertença a assinaturas diferentes.
 * **Adicionar rotas**: a adição de rotas conduz o tráfego de saída para a VNET.
 
+O IP privado atribuído à instância é exposto por meio da variável de ambiente, **WEBSITE_PRIVATE_IP**. A interface do usuário do console do kudu também mostra a lista de variáveis de ambiente disponíveis para o aplicativo Web. Esse IP é atribuído do intervalo de endereços da sub-rede integrada. Para integração de VNet regional, o valor de WEBSITE_PRIVATE_IP é um IP do intervalo de endereços da sub-rede delegada e para integração VNet exigida pelo gateway, o valor é um IP do intervalo de endereços do pool de endereço ponto a site configurado no gateway de rede virtual. Esse é o IP que será usado pelo aplicativo Web para se conectar aos recursos por meio da rede virtual. 
+
+> [!NOTE]
+> O valor de WEBSITE_PRIVATE_IP é associado à alteração. No entanto, ele será um IP dentro do intervalo de endereços da sub-rede de integração ou do intervalo de endereços de ponto a site, portanto, você precisará permitir o acesso de todo o intervalo de endereços.
+>
+
 ### <a name="gateway-required-vnet-integration-routing"></a>Roteamento da Integração VNET exigida pelo gateway
 As rotas definidas na VNET são usadas para direcionar o tráfego para a VNET do aplicativo. Para enviar o tráfego de saída adicional para a VNET, adicione esses blocos de endereço aqui. Essa funcionalidade só funciona com a Integração VNET exigida pelo gateway. As tabelas de rotas não afetam o tráfego do aplicativo quando você usa a Integração VNET exigida pelo gateway como exigem com a Integração VNET regional.
 
@@ -139,11 +150,16 @@ O recurso de Integração VNET regional não tem nenhum custo adicional para uso
 
 Três custos estão relacionados ao uso do recurso de Integração VNET exigido pelo gateway:
 
-* **Custos do tipo de preço do Plano do serviço de aplicativo**: Os aplicativos precisam estar em um Plano do Serviço de Aplicativo Standard, Premium ou PremiumV2. Para obter mais informações sobre esses custos, confira [Preços do Serviço de Aplicativo][ASPricing].
+* **Cobranças de tipo de preço do plano do serviço de aplicativo**: seus aplicativos precisam estar em um plano do serviço de aplicativo Standard, Premium, PremiumV2 ou PremiumV3. Para obter mais informações sobre esses custos, confira [Preços do Serviço de Aplicativo][ASPricing].
 * **Custos de transferência de dados**: há um custo de saída de dados, mesmo se a VNET está no mesmo datacenter. Esses custos são descritos em [Detalhes de preços da transferência de dados][DataPricing].
 * **Custos do gateway de VPN**: há um custo para o gateway de rede virtual necessário para a VPN ponto a site. Para obter mais informações, confira [Preços do gateway de VPN][VNETPricing].
 
 ## <a name="troubleshooting"></a>Solução de problemas
+
+> [!NOTE]
+> Não há suporte para integração VNET em cenários de Docker Compose no serviço de aplicativo.
+> Azure Functions restrições de acesso serão ignoradas se houver um ponto de extremidade privado presente.
+>
 
 [!INCLUDE [app-service-web-vnet-troubleshooting](../../includes/app-service-web-vnet-troubleshooting.md)]
 
@@ -177,26 +193,27 @@ O suporte do PowerShell para integração VNet regional também está disponíve
 
 ```azurepowershell
 # Parameters
-$sitename="myWebApp"
-$resourcegroupname="myRG"
-$VNetname="myVNet"
-$location="myRegion"
-$integrationsubnetname = "myIntegrationSubnet"
-$subscriptionID = "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
+$sitename = 'myWebApp'
+$resourcegroupname = 'myRG'
+$VNetname = 'myVNet'
+$location = 'myRegion'
+$integrationsubnetname = 'myIntegrationSubnet'
+$subscriptionID = 'aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee'
 
 #Property array with the SubnetID
 $properties = @{
-      "subnetResourceId" = "/subscriptions/"+$subscriptionID+"/resourceGroups/"+$resourcegroupname+"/providers/Microsoft.Network/virtualNetworks/"+$VNetname+"/subnets/"+$integrationsubnetname;
-      }
-      
-#Creation of the VNet integration
-$resourceID = $sitename+"/VirtualNetwork"
-New-AzResource -ResourceName $resourceID `
--Location $location  `
--ResourceGroupName $resourcegroupname `
--ResourceType Microsoft.Web/sites/networkConfig `
--PropertyObject $properties 
+  subnetResourceId = "/subscriptions/$subscriptionID/resourceGroups/$resourcegroupname/providers/Microsoft.Network/virtualNetworks/$VNetname/subnets/$integrationsubnetname"
+}
 
+#Creation of the VNet integration
+$vNetParams = @{
+  ResourceName = "$sitename/VirtualNetwork"
+  Location = $location
+  ResourceGroupName = $resourcegroupname
+  ResourceType = 'Microsoft.Web/sites/networkConfig'
+  PropertyObject = $properties
+}
+New-AzResource @vNetParams
 ```
 
 

@@ -1,14 +1,14 @@
 ---
 title: 'Início Rápido: Sua primeira consulta do portal'
 description: Neste início rápido, você segue etapas necessárias para executar sua primeira consulta no portal do Azure usando o Azure Resource Graph Explorer.
-ms.date: 08/10/2020
+ms.date: 01/27/2021
 ms.topic: quickstart
-ms.openlocfilehash: 4d68366005ad6379669d29fb8264f78d1b8f4972
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: cb62a1ae3a29a7aae793fcee6fd896fe0260dc10
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056373"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98920087"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-resource-graph-explorer"></a>Início Rápido: Executar a primeira consulta do Resource Graph usando o Azure Resource Graph Explorer
 
@@ -51,7 +51,7 @@ O navegador de esquema é uma ótima maneira de descobrir propriedades para uso 
 
 ## <a name="create-a-chart-from-the-resource-graph-query"></a>Criar um gráfico baseado na consulta do Resource Graph
 
-Após executar a última consulta acima, se selecionar a guia **Gráficos**, você receberá uma mensagem informando que "o conjunto de resultados não é compatível com uma visualização em gráfico de pizza". Consultas que listam os resultados não podem ser transformadas em um gráfico, mas consultas que fornecem contagens de recursos podem. Usando a [Consulta de Exemplo – Contar máquinas virtuais por tipo de sistema operacional](./samples/starter.md#count-os), vamos criar uma visualização baseada na consulta do Resource Graph.
+Após executar a consulta anterior, se selecionar a guia **Gráficos**, você receberá uma mensagem informando que "o conjunto de resultados não é compatível com uma visualização em gráfico de pizza". Consultas que listam os resultados não podem ser transformadas em um gráfico, mas consultas que fornecem contagens de recursos podem. Usando a [Consulta de Exemplo – Contar máquinas virtuais por tipo de sistema operacional](./samples/starter.md#count-os), vamos criar uma visualização baseada na consulta do Resource Graph.
 
 1. Na parte **Consulta 1** da janela, insira a seguinte consulta e selecione **Executar Consulta**.
 
@@ -67,7 +67,7 @@ Após executar a última consulta acima, se selecionar a guia **Gráficos**, voc
 
 ## <a name="pin-the-query-visualization-to-a-dashboard"></a>Fixar a visualização da consulta a um painel
 
-Quando você tem resultados de uma consulta que podem ser visualizados, essa visualização de dados pode, então, ser fixada a um de seus painéis. Após executar a consulta acima, siga estas etapas:
+Quando você tem resultados de uma consulta que podem ser visualizados, essa visualização de dados pode, então, ser fixada a um de seus painéis. Após executar a consulta anterior, siga estas etapas:
 
 1. Selecione **Salvar** e forneça o nome "VMs por tipo de SO". Em seguida, selecione **Salvar** na parte inferior do painel direito.
 

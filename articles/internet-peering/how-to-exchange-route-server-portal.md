@@ -8,12 +8,12 @@ ms.service: internet-peering
 ms.topic: how-to
 ms.date: 5/19/2020
 ms.author: derekol
-ms.openlocfilehash: 1eaf7413b01bceacbcbf3640bfe654fdad026672
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7e10cd91eadd338217845b1504e8e9160bccfc98
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84700647"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91537184"
 ---
 # <a name="create-or-modify-an-exchange-peering-with-route-server-in-azure-portal"></a>Criar ou modificar um emparelhamento do Exchange com o servidor de rota no portal do Azure
 
@@ -74,7 +74,7 @@ Como um Provedor de Internet do Exchange, você pode criar uma solicitação de 
 1.  Em **conexão de emparelhamento direto**, preencha os seguintes detalhes de sessão BGP:
 
     > [!div class="mx-imgBorder"]
-    > ![Configurar servidor de rota de emparelhamento direto](./media/setup-exchange-conf-tab-direct-route.png)
+    > ![Captura de tela mostra o painel conexão direta de emparelhamento com detalhes adicionados.](./media/setup-exchange-conf-tab-direct-route.png)
 
 
      * Instalação de emparelhamento, selecione o local físico apropriado para o emparelhamento
@@ -99,19 +99,19 @@ Como um Provedor de Internet do Exchange, você pode criar uma solicitação de 
 1. Selecione **ASNs registradas** na seção Configurações.
 
     > [!div class="mx-imgBorder"]
-    > ![Configurar servidor de rota de emparelhamento direto](./media/setup-exchange-registered-asn.png)
+    > ![Captura de tela mostra o painel de emparelhamento com o item de menu S NS registrado chamado.](./media/setup-exchange-registered-asn.png)
 
 1. Selecione **Adicionar ASN registrado** para criar um novo cliente ASN em sua assinatura do Exchange.
 
     > [!div class="mx-imgBorder"]
-    > ![Configurar servidor de rota de emparelhamento direto](./media/setup-exchange-register-new-asn.png)
+    > ![Captura de tela mostra o painel registrar um S N com nome e as caixas de texto S N.](./media/setup-exchange-register-new-asn.png)
 
 1. Em registrar um ASN, selecione um nome, preencha o cliente ASN e clique em salvar.
 
 1. Em ASNs registrados, haverá uma chave de prefixo associada atribuída a cada ASN. Como um provedor do Exchange, você precisará fornecer essa chave de prefixo ao cliente para que ele possa registrar o serviço de emparelhamento em sua assinatura.
 
     > [!div class="mx-imgBorder"]
-    > ![Configurar servidor de rota de emparelhamento direto](./media/setup-exchange-register-asn-prefixkey.png)
+    > ![Captura de tela mostra o registro de um painel S NS com chaves de prefixo.](./media/setup-exchange-register-asn-prefixkey.png)
 
 
 

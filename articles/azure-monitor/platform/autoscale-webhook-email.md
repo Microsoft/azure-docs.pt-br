@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 04/03/2017
 ms.subservice: autoscale
 ms.openlocfilehash: 3b1f13fd1ce8bedcbe58385d4cee321f1d1405df
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505512"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009000"
 ---
 # <a name="use-autoscale-actions-to-send-email-and-webhook-alert-notifications-in-azure-monitor"></a>Use ações de dimensionamento automático para enviar notificações de alerta por email e webhook no Azure Monitor
 Este artigo mostra como configurar gatilhos para que você possa chamar URLs da web específicas ou enviar emails com base em ações de escala automática no Azure.  
@@ -56,9 +56,9 @@ Ao usar a API REST ou o modelo do Resource Manager, inclua o elemento notificaç
     ]
 ```
 
-| Campo | Obrigatório? | Descrição |
+| Campo | Obrigatório? | Description |
 | --- | --- | --- |
-| operação |sim |o valor deve ser "Scale" |
+| operation |sim |o valor deve ser "Scale" |
 | sendToSubscriptionAdministrator |sim |o valor deve ser "true" ou "false" |
 | sendToSubscriptionCoAdministrators |sim |o valor deve ser "true" ou "false" |
 | customEmails |sim |o valor pode ser null [] ou uma matriz da cadeia de caracteres de emails |
@@ -102,18 +102,18 @@ Quando a notificação de escala automática é gerada, os metadados a seguir s�
 | Campo | Obrigatório? | Descrição |
 | --- | --- | --- |
 | status |sim |O status que indica que uma ação de escala automática foi gerada |
-| operação |sim |Para um aumento de instâncias, será "Escalar Horizontalmente" e para uma diminuição de instâncias, será "Reduzir Horizontalmente" |
+| operation |sim |Para um aumento de instâncias, será "Escalar Horizontalmente" e para uma diminuição de instâncias, será "Reduzir Horizontalmente" |
 | contexto |sim |O contexto de ação de escala automática |
-| timestamp |sim |Carimbo de data/hora de quando a ação de escala automática foi disparada |
-| id |Sim |ID do Gerenciador de Recursos da configuração de autoescala |
+|  timestamp |sim |Carimbo de data/hora de quando a ação de escala automática foi disparada |
+| id |Yes |ID do Gerenciador de Recursos da configuração de autoescala |
 | name |Sim |O nome da configuração de escala automática |
-| detalhes |Sim |Explicação da ação que o serviço de escala automática realizada a alteração na contagem da instância |
-| subscriptionId |Sim |ID da assinatura do recurso de destino que está sendo escalado |
-| resourceGroupName |Sim |Nome do Grupo de Recursos do recurso de destino que está sendo escalado |
-| resourceName |Sim |Nome do recurso de destino que está sendo escalado |
+| detalhes |Yes |Explicação da ação que o serviço de escala automática realizada a alteração na contagem da instância |
+| subscriptionId |Yes |ID da assinatura do recurso de destino que está sendo escalado |
+| resourceGroupName |Yes |Nome do Grupo de Recursos do recurso de destino que está sendo escalado |
+| resourceName |Yes |Nome do recurso de destino que está sendo escalado |
 | resourceType |Sim |Os três valores com suporte: "microsoft.classiccompute/domainnames/slots/roles" - funções de Serviço de Nuvem, "microsoft.compute/virtualmachinescalesets" - Conjuntos de Escala de Máquina Virtual e "Microsoft.Web/serverfarms" - Aplicativo Web |
 | resourceId |Sim |ID do Gerenciador de Recursos do recurso de destino que está sendo dimensionado |
-| portalLink |Sim |Link do portal do Azure para a página de resumo do recurso de destino |
-| oldCapacity |Sim |A atual (antiga) contagem de instância quando Escala Automática adotou uma ação de escala |
-| newCapacity |Sim |A nova contagem de instância para a qual a Escala Automática escalou o recurso |
-| properties |Não |Opcional. Conjunto de pares de <Chave, Valor> (por exemplo, Dicionário <Cadeia de caracteres, Cadeia de caracteres>). O campo de propriedades é opcional. Em uma interface do usuário personalizada ou fluxo de trabalho de aplicativo Lógico, você pode inserir as chaves e valores que podem ser passados usando a carga útil. Uma maneira alternativa de passar as propriedades personalizadas de volta para a chamada de saída do webhook é usar o URI do webhook em si (como parâmetros de consulta) |
+| portalLink |Yes |Link do portal do Azure para a página de resumo do recurso de destino |
+| oldCapacity |Yes |A atual (antiga) contagem de instância quando Escala Automática adotou uma ação de escala |
+| newCapacity |Yes |A nova contagem de instância para a qual a Escala Automática escalou o recurso |
+| properties |No |Opcional. Conjunto de pares de <Chave, Valor> (por exemplo, Dicionário <Cadeia de caracteres, Cadeia de caracteres>). O campo de propriedades é opcional. Em uma interface do usuário personalizada ou fluxo de trabalho de aplicativo Lógico, você pode inserir as chaves e valores que podem ser passados usando a carga útil. Uma maneira alternativa de passar as propriedades personalizadas de volta para a chamada de saída do webhook é usar o URI do webhook em si (como parâmetros de consulta) |

@@ -15,17 +15,19 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0710d41dd44872be550917cbac036d72d052c333
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: e564feadfdb1d3cb6943d76b4b39ba0ec814e0d6
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89019429"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98693623"
 ---
-# <a name="use-media-services-to-deliver-drm-licenses-or-aes-keys"></a>Usar os Serviços de Mídia para fornecer licenças DRM ou chaves AES 
+# <a name="use-media-services-to-deliver-drm-licenses-or-aes-keys"></a>Usar os Serviços de Mídia para fornecer licenças DRM ou chaves AES
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
-> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](../latest/index.yml). Além disso, consulte s [diretrizes de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
+> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](../latest/index.yml). Além disso, consulte s [diretrizes de migração da v2 para a v3](../latest/migrate-v-2-v-3-migration-introduction.md)
 
 Os Serviços de Mídia do Azure permitem criar, codificar, adicionar proteção de conteúdo e transmitir seu conteúdo. Para obter mais informações, consulte [Usar criptografia comum dinâmica PlayReady e/ou Widevine](media-services-protect-with-playready-widevine.md). Alguns clientes desejam usar os Serviços de Mídia somente para fornecer licenças e/ou as chaves e codificar, criptografar e transmitir usando seus servidores locais. Este artigo descreve como você pode usar os Serviços de Mídia para fornecer licenças PlayReady e/ou Widevine, mas fazer o restante com seus servidores locais. 
 
@@ -356,6 +358,6 @@ namespace DeliverDRMLicenses
 ## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 * [Usar a criptografia comum dinâmica PlayReady e/ou Widevine](media-services-protect-with-playready-widevine.md)
 * [Usar criptografia dinâmica AES-128 e o serviço de entrega de chave](media-services-protect-with-aes128.md)

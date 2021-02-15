@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: deli, logicappspm
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: cccc45f182f3ae826440df8bc163080b82226c9f
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: 02d9852f6615c3926a02294e0e7eca50f2fbe9a5
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87172088"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92310028"
 ---
 # <a name="block-connections-created-by-connectors-in-azure-logic-apps"></a>Bloquear conexões criadas por conectores em aplicativos lógicos do Azure
 
@@ -121,7 +121,7 @@ Para bloquear a criação de uma conexão totalmente em um aplicativo lógico, s
 
 1. Em **definição de política**, forneça as informações para a definição de política, com base nas propriedades descritas no exemplo:
 
-   ![Propriedades de definição de política](./media/block-connections-connectors/policy-definition-create-connections-1.png)
+   ![Captura de tela que mostra as propriedades de "definição de política".](./media/block-connections-connectors/policy-definition-create-connections-1.png)
 
    | Propriedade | Obrigatório | Valor | Descrição |
    |----------|----------|-------|-------------|
@@ -155,7 +155,7 @@ Para bloquear a criação de uma conexão totalmente em um aplicativo lógico, s
    | `mode` | `All` | O modo que determina os tipos de recursos que a política avalia. <p><p>Esse cenário define `mode` como `All` , que aplica a política a grupos de recursos do Azure, assinaturas e todos os tipos de recursos. <p><p>Para obter mais informações, consulte [estrutura de definição de política – modo](../governance/policy/concepts/definition-structure.md#mode). |
    | `if` | `{condition-to-evaluate}` | A condição que determina quando impor a regra de política <p><p>Nesse cenário, o `{condition-to-evaluate}` determina se o `api.id` valor em `Microsoft.Web/connections/api.id` corresponde em `*managedApis/{connector-name}` , que especifica um valor curinga (*). <p><p>Para obter mais informações, consulte [estrutura de definição de política – regra de política](../governance/policy/concepts/definition-structure.md#policy-rule). |
    | `field` | `Microsoft.Web/connections/api.id` | O `field` valor a ser comparado com a condição <p><p>Nesse cenário, o `field` usa o [*alias*](../governance/policy/concepts/definition-structure.md#aliases), `Microsoft.Web/connections/api.id` , para acessar o valor na Propriedade do conector, `api.id` . |
-   | `like` | `*managedApis/{connector-name}` | O operador lógico e o valor a ser usado para comparar o `field` valor <p><p>Nesse cenário, o `like` operador e o caractere curinga (*) verificam se a regra funciona independentemente da região e a cadeia de caracteres, `*managedApis/{connector-name}` , é o valor a ser correspondido onde `{connector-name}` é a ID do conector que você deseja bloquear. <p><p>Por exemplo, suponha que você deseja bloquear a criação de conexões para bancos de dados ou plataformas de mídia social: <p><p>Twitter`twitter` <br>Instagram`instagram` <br>Facebook`facebook` <br>Pinterest`pinterest` <br>-SQL Server ou SQL do Azure:`sql` <p><p>Para encontrar essas IDs de conector, consulte [Localizar ID de referência do conector](#connector-reference-ID) anteriormente neste tópico. |
+   | `like` | `*managedApis/{connector-name}` | O operador lógico e o valor a ser usado para comparar o `field` valor <p><p>Nesse cenário, o `like` operador e o caractere curinga (*) verificam se a regra funciona independentemente da região e a cadeia de caracteres, `*managedApis/{connector-name}` , é o valor a ser correspondido onde `{connector-name}` é a ID do conector que você deseja bloquear. <p><p>Por exemplo, suponha que você deseja bloquear a criação de conexões para bancos de dados ou plataformas de mídia social: <p><p>Twitter `twitter` <br>Instagram `instagram` <br>Facebook `facebook` <br>Pinterest `pinterest` <br>-SQL Server ou SQL do Azure: `sql` <p><p>Para encontrar essas IDs de conector, consulte [Localizar ID de referência do conector](#connector-reference-ID) anteriormente neste tópico. |
    | `then` | `{effect-to-apply}` | O efeito a ser aplicado quando a `if` condição é atendida <p><p>Nesse cenário, o `{effect-to-apply}` é bloquear e reprovar uma solicitação ou operação que não está em conformidade com a política. <p><p>Para obter mais informações, consulte [estrutura de definição de política – regra de política](../governance/policy/concepts/definition-structure.md#policy-rule). |
    | `effect` | `deny` | O `effect` é para bloquear a solicitação, que é criar a conexão especificada <p><p>Para obter mais informações, consulte [entender Azure Policy efeitos-negar](../governance/policy/concepts/effects.md#deny). |
    ||||
@@ -180,7 +180,7 @@ Para bloquear a criação de uma conexão totalmente em um aplicativo lógico, s
 
    Veja a seguir como a caixa **regra de política** é exibida:
 
-   ![Regra para definição de política](./media/block-connections-connectors/policy-definition-create-connections-2.png)
+   ![Captura de tela que mostra a caixa "regra de política" com um exemplo de regra de política.](./media/block-connections-connectors/policy-definition-create-connections-2.png)
 
    Para vários conectores, você pode adicionar mais condições, por exemplo:
 
@@ -224,7 +224,7 @@ Para obter mais informações sobre as definições de política do Azure, consu
 
 * [Definição da estrutura de política](../governance/policy/concepts/definition-structure.md)
 * [Tutorial: Criar e gerenciar políticas para impor a conformidade](../governance/policy/tutorials/create-and-manage.md)
-* [Definições de políticas internas do Azure Policy para os Aplicativos Lógicos do Azure](../logic-apps/policy-samples.md)
+* [Definições de políticas internas do Azure Policy para os Aplicativos Lógicos do Azure](./policy-reference.md)
 
 <a name="create-policy-connector-usage"></a>
 
@@ -244,7 +244,7 @@ Quando você cria uma conexão dentro de um aplicativo lógico, essa conexão ex
 
    ![Propriedades de definição de política](./media/block-connections-connectors/policy-definition-using-connections-1.png)
 
-   | Propriedade | Obrigatório | Valor | DESCRIÇÃO |
+   | Propriedade | Obrigatório | Valor | Descrição |
    |----------|----------|-------|-------------|
    | **Local da definição** | Sim | <*Azure-subscription-name*> | A assinatura do Azure a ser usada para a definição de política <p><p>1. para localizar sua assinatura, selecione o botão de reticências (**...**). <br>2. na lista de **assinaturas** , localize e selecione sua assinatura. <br>3. quando terminar, selecione **selecionar**. |
    | **Nome** | Sim | <*política-definição-nome*> | O nome a ser usado para a definição de política |
@@ -271,12 +271,12 @@ Quando você cria uma conexão dentro de um aplicativo lógico, essa conexão ex
     }
     ```
 
-   | Propriedade | Valor | DESCRIÇÃO |
+   | Propriedade | Valor | Descrição |
    |----------|-------|-------------|
    | `mode` | `All` | O modo que determina os tipos de recursos que a política avalia. <p><p>Esse cenário define `mode` como `All` , que aplica a política a grupos de recursos do Azure, assinaturas e todos os tipos de recursos. <p><p>Para obter mais informações, consulte [estrutura de definição de política – modo](../governance/policy/concepts/definition-structure.md#mode). |
    | `if` | `{condition-to-evaluate}` | A condição que determina quando impor a regra de política <p><p>Nesse cenário, o `{condition-to-evaluate}` determina se a saída da cadeia de caracteres de `[string(field('Microsoft.Logic/workflows/parameters'))]` , contém a cadeia de caracteres, `{connector-name}` . <p><p>Para obter mais informações, consulte [estrutura de definição de política – regra de política](../governance/policy/concepts/definition-structure.md#policy-rule). |
    | `value` | `[string(field('Microsoft.Logic/workflows/parameters'))]` | O valor a ser comparado com a condição <p><p>Nesse cenário, a `value` é a saída da cadeia de caracteres de `[string(field('Microsoft.Logic/workflows/parameters'))]` , que converte o `$connectors` objeto dentro do `Microsoft.Logic/workflows/parameters` objeto em uma cadeia de caracteres. |
-   | `contains` | `{connector-name}` | O operador lógico e o valor a ser usado para comparar com a `value` Propriedade <p><p>Nesse cenário, o `contains` operador garante que a regra funcione independentemente de onde `{connector-name}` aparece, em que a cadeia de caracteres, `{connector-name}` , é a ID do conector que você deseja restringir ou bloquear. <p><p>Por exemplo, suponha que você deseja bloquear usando conexões para bancos de dados ou plataformas de mídia social: <p><p>Twitter`twitter` <br>Instagram`instagram` <br>Facebook`facebook` <br>Pinterest`pinterest` <br>-SQL Server ou SQL do Azure:`sql` <p><p>Para encontrar essas IDs de conector, consulte [Localizar ID de referência do conector](#connector-reference-ID) anteriormente neste tópico. |
+   | `contains` | `{connector-name}` | O operador lógico e o valor a ser usado para comparar com a `value` Propriedade <p><p>Nesse cenário, o `contains` operador garante que a regra funcione independentemente de onde `{connector-name}` aparece, em que a cadeia de caracteres, `{connector-name}` , é a ID do conector que você deseja restringir ou bloquear. <p><p>Por exemplo, suponha que você deseja bloquear usando conexões para bancos de dados ou plataformas de mídia social: <p><p>Twitter `twitter` <br>Instagram `instagram` <br>Facebook `facebook` <br>Pinterest `pinterest` <br>-SQL Server ou SQL do Azure: `sql` <p><p>Para encontrar essas IDs de conector, consulte [Localizar ID de referência do conector](#connector-reference-ID) anteriormente neste tópico. |
    | `then` | `{effect-to-apply}` | O efeito a ser aplicado quando a `if` condição é atendida <p><p>Nesse cenário, o `{effect-to-apply}` é bloquear e reprovar uma solicitação ou operação que o não está em conformidade com a política. <p><p>Para obter mais informações, consulte [estrutura de definição de política – regra de política](../governance/policy/concepts/definition-structure.md#policy-rule). |
    | `effect` | `deny` | O `effect` é `deny` ou bloqueia a solicitação para salvar um aplicativo lógico que usa a conexão especificada <p><p>Para obter mais informações, consulte [entender Azure Policy efeitos-negar](../governance/policy/concepts/effects.md#deny). |
    ||||
@@ -311,7 +311,7 @@ Para obter mais informações sobre as definições de política do Azure, consu
 
 * [Definição da estrutura de política](../governance/policy/concepts/definition-structure.md)
 * [Tutorial: Criar e gerenciar políticas para impor a conformidade](../governance/policy/tutorials/create-and-manage.md)
-* [Definições de políticas internas do Azure Policy para os Aplicativos Lógicos do Azure](../logic-apps/policy-samples.md)
+* [Definições de políticas internas do Azure Policy para os Aplicativos Lógicos do Azure](./policy-reference.md)
 
 <a name="create-policy-assignment"></a>
 

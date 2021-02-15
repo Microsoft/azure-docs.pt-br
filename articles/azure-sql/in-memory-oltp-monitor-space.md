@@ -6,19 +6,19 @@ ms.service: sql-database
 ms.subservice: performance
 ms.custom: sqldbrb=2
 ms.devlang: ''
-ms.topic: conceptual
-author: juliemsft
-ms.author: jrasnick
-ms.reviewer: genemi
+ms.topic: how-to
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.reviewer: sstein
 ms.date: 01/25/2019
-ms.openlocfilehash: a4747fcd3a68c91e10d13a03adcbc4930bd9d759
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5717c2479c1d894117bae44826a814c3cfeaa98a
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84345250"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96493365"
 ---
-# <a name="monitor-in-memory-oltp-storage-in-azure-sql-database-and-azure-sql-managed-instance"></a>Monitorar o armazenamento OLTP na memória no banco de dados SQL do Azure e Azure SQL Instância Gerenciada
+# <a name="monitor-in-memory-oltp-storage-in-azure-sql-database-and-azure-sql-managed-instance"></a>Monitorar In-Memory armazenamento OLTP no banco de dados SQL do Azure e SQL do Azure Instância Gerenciada
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
 
 Ao usar o [In-Memory OLTP](in-memory-oltp-overview.md), os dados em tabelas com otimização de memória e as variáveis de tabela residem no armazenamento OLTP in-memory.
@@ -65,7 +65,7 @@ Para resolver esse erro:
 - Atualize a camada de serviço para uma com armazenamento na memória suficiente para os dados que você precisa manter em tabelas com otimização de memória.
 
 > [!NOTE]
-> Em casos raros, erros 41823 e 41840 podem ser transitórios, o que significa que há armazenamento suficiente OLTP na memória disponível e que repetir a operação será bem-sucedida. Portanto, é recomendável monitorar o armazenamento OLTP na memória global disponível e tentar novamente quando encontrar erro 41823 ou 41840 pela primeira vez. Para obter mais informações sobre a lógica de repetição, consulte [Detecção de conflito e lógica de repetição com OLTP na memória](https://docs.microsoft.com/sql/relational-databases/In-memory-oltp/transactions-with-memory-optimized-tables#conflict-detection-and-retry-logic).
+> Em casos raros, erros 41823 e 41840 podem ser transitórios, o que significa que há armazenamento suficiente OLTP na memória disponível e que repetir a operação será bem-sucedida. Portanto, é recomendável monitorar o armazenamento OLTP na memória global disponível e tentar novamente quando encontrar erro 41823 ou 41840 pela primeira vez. Para obter mais informações sobre a lógica de repetição, consulte [Detecção de conflito e lógica de repetição com OLTP na memória](/sql/relational-databases/In-memory-oltp/transactions-with-memory-optimized-tables#conflict-detection-and-retry-logic).
 
 ## <a name="next-steps"></a>Próximas etapas
 

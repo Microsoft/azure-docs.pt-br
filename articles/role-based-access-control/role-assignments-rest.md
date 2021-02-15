@@ -15,16 +15,16 @@ ms.topic: how-to
 ms.date: 05/06/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: d66b4c8e9f41f661cfc399f72a9ad97405a860fc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e4f230663e0eeddcf874c24e5041653f241f481c
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84790839"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97964262"
 ---
 # <a name="add-or-remove-azure-role-assignments-using-the-rest-api"></a>Adicionar ou remover atribuições de função do Azure usando a API REST
 
-[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)]Este artigo descreve como atribuir funções usando a API REST.
+[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control/definition-grant.md)] Este artigo descreve como atribuir funções usando a API REST.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -65,7 +65,7 @@ Para conceder acesso no Azure RBAC, adicione uma atribuição de função. Para 
     > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Resource group |
     > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/providers/microsoft.web/sites/mysite1` | Recurso |
 
-    No exemplo anterior, Microsoft. Web é um provedor de recursos que se refere a uma instância do serviço de aplicativo. Da mesma forma, você pode usar qualquer outro provedor de recursos e especificar o escopo. Para obter mais informações, consulte [provedores de recursos do Azure e tipos](../azure-resource-manager/management/resource-providers-and-types.md) e [operações de provedor de recursos Azure Resource Manager](resource-provider-operations.md)com suporte.  
+    No exemplo anterior, Microsoft. Web é um provedor de recursos que se refere a uma instância do serviço de aplicativo. Da mesma forma, você pode usar qualquer outro provedor de recursos e especificar o escopo. Para obter mais informações, consulte [provedores de recursos do Azure e tipos](../azure-resource-manager/management/resource-providers-and-types.md) e [operações do provedor de recursos do Azure](resource-provider-operations.md)com suporte.  
 
 1. Substitua *{roleAssignmentId}* pelo identificador GUID da atribuição de função.
 
@@ -170,5 +170,5 @@ O texto a seguir mostra um exemplo da saída:
 
 - [Listar atribuições de função do Azure usando a API REST](role-assignments-list-rest.md)
 - [Implantar recursos com modelos do Resource Manager e a API REST do Resource Manager](../azure-resource-manager/templates/deploy-rest.md)
-- [Referência da API REST do Azure](/rest/api/azure/)
+- [Referência de API REST do Azure](/rest/api/azure/)
 - [Criar ou atualizar funções personalizadas do Azure usando a API REST](custom-roles-rest.md)

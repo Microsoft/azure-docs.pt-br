@@ -3,12 +3,12 @@ title: Trabalhando com Reliable Collections
 description: Conheça as práticas recomendadas para trabalhar com coleções confiáveis em um aplicativo Service Fabric do Azure.
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 7df48bc0dfbef6fc85335801e64484914a218eb7
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 908f24cc22c969a34a513ff3fd3ceaa788420620
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86255788"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98787868"
 ---
 # <a name="working-with-reliable-collections"></a>Trabalhando com Reliable Collections
 O Service Fabric oferece um modelo de programação com estado disponível para desenvolvedores .NET por meio das Reliable Collections. Especificamente, o Service Fabric fornece as classes de dicionário confiável e fila confiável. Quando você usar essas classes, seu estado é particionado (para escalabilidade), replicado (para disponibilidade) e transacionado dentro de uma partição (para semântica ACID). Vamos examinar um uso típico de um objeto Dictionary confiável e ver o que ele está realmente fazendo.
@@ -35,6 +35,7 @@ catch (TimeoutException)
 {
    // choose how to handle the situation where you couldn't get a lock on the file because it was 
    // already in use. You might delay and retry the operation
+   await Task.Delay(100);
 }
 ```
 
@@ -225,4 +226,4 @@ Para aprender as práticas recomendadas sobre o controle de versão de contratos
 
 Para saber como implementar contratos de dados tolerantes a versões, consulte [retornos de chamada de serialização tolerantes à versão](/dotnet/framework/wcf/feature-details/version-tolerant-serialization-callbacks)
 
-Para saber como fornecer uma estrutura de dados que possa interoperar em várias versões, consulte [IExtensibleDataObject](/dotnet/api/system.runtime.serialization.iextensibledataobject?view=netcore-3.1)
+Para saber como fornecer uma estrutura de dados que possa interoperar em várias versões, consulte [IExtensibleDataObject](/dotnet/api/system.runtime.serialization.iextensibledataobject)

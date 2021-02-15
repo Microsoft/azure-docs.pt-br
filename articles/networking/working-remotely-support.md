@@ -7,12 +7,12 @@ ms.service: virtual-network
 ms.topic: article
 ms.date: 03/26/2020
 ms.author: rambala
-ms.openlocfilehash: e0e5806ec59cd2d75111db213d8511488d043eec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 835be5b867826d75732c9482743ad6a4ca2900e7
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80982847"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98231835"
 ---
 # <a name="working-remotely-using-azure-networking-services"></a>Trabalhando remotamente usando os serviços de rede do Azure
 
@@ -64,7 +64,7 @@ Os serviços do Azure a seguir podem ajudar a permitir que os funcionários aces
 
 - **Solução baseada em VPN do Azure**: para seus funcionários remotos conectados ao Azure por meio de P2S ou VPN S2S, você pode habilitar o acesso a redes locais Configurando a VPN S2S entre suas redes locais e o gateway de VPN do Azure. Para obter mais informações, consulte [criar uma conexão site a site][S2S].
 
-- **ExpressRoute**: usando o emparelhamento privado do expressroute, você pode habilitar a conectividade privada entre as implantações do Azure e a infraestrutura local ou sua infraestrutura em uma instalação de colocalização. O ExpressRoute, por meio do emparelhamento da Microsoft, também permite acessar pontos de extremidade públicos na Microsoft a partir de sua rede local. As conexões de ExpressRoute não passam pela Internet pública. Eles oferecem conectividade segura, confiabilidade, maior taxa de transferência, com latências menores e consistentes do que conexões típicas pela Internet. Para obter mais informações, consulte [Visão geral de ExpressRoute][ExR]. Aproveitar seu provedor de rede existente que já faz parte do nosso [ecossistema de parceiros do ExpressRoute][ExR-eco] pode ajudar a reduzir o tempo de obtenção de conexões de largura de banda grande para a Microsoft.  Usando o [ExpressRoute Direct][ExR-D] , você pode conectar diretamente sua rede local ao backbone da Microsoft. O ExpressRoute Direct oferece duas opções de taxa de linha diferentes de 10 Gbps ou 100 Gbps duplos. 
+- **ExpressRoute**: usando o emparelhamento privado do expressroute, você pode habilitar a conectividade privada entre as implantações do Azure e a infraestrutura local ou sua infraestrutura em uma instalação de colocalização. O ExpressRoute, por meio do emparelhamento da Microsoft, também permite acessar pontos de extremidade públicos na Microsoft a partir de sua rede local. As conexões de ExpressRoute não passam pela Internet pública. Eles oferecem conectividade segura, confiabilidade, maior taxa de transferência, com latências menores e consistentes do que conexões típicas pela Internet. Para obter mais informações, confira [Visão geral do ExpressRoute][ExR]. Aproveitar seu provedor de rede existente que já faz parte do nosso [ecossistema de parceiros do ExpressRoute][ExR-eco] pode ajudar a reduzir o tempo de obtenção de conexões de largura de banda grande para a Microsoft.  Usando o [ExpressRoute Direct][ExR-D] , você pode conectar diretamente sua rede local ao backbone da Microsoft. O ExpressRoute Direct oferece duas opções de taxa de linha diferentes de 10 Gbps ou 100 Gbps duplos. 
 
 - **Wan virtual do Azure**: a WAN virtual do Azure permite a interoperabilidade direta entre as conexões VPN e os circuitos do ExpressRoute. Como mencionado anteriormente, a WAN virtual do Azure também oferece suporte a conexões qualquer para qualquer entre recursos em locais globais diferentes no local, em diferentes redes virtuais de Hub regional e spoke
 
@@ -86,15 +86,15 @@ Os artigos a seguir discutem como diferentes recursos de rede do Azure podem ser
 | [Dificuldade para atender às necessidades de residências? Aqui está onde a WAN virtual do Azure pode ajudar](../virtual-wan/work-remotely-support.md) | Use a WAN virtual do Azure para atender às necessidades de conectividade remota da sua organização.|
 | [Suporte a alto tráfego do Gateway de Aplicativo](../application-gateway/high-traffic-support.md) | Use o gateway de aplicativo com o WAF (firewall do aplicativo Web) para uma maneira escalonável e segura de gerenciar o tráfego para seus aplicativos Web. |
 | [Considerações de NVA (solução de virtualização de rede) para trabalho remoto](../vpn-gateway/nva-work-remotely-support.md)|Examine as diretrizes sobre como aproveitar o NVAs no Azure para fornecer soluções de acesso remoto. |
-| [Transição para o protocolo OpenVPN ou IKEv2 do SSTP](https://go.microsoft.com/fwlink/?linkid=2124112) | Supere o limite de conexão simultânea de 128 do SSTP fazendo a transição para o protocolo OpenVPN ou IKEv2.|
+| [Transição para o protocolo OpenVPN ou IKEv2 do SSTP](../vpn-gateway/ikev2-openvpn-from-sstp.md) | Supere o limite de conexão simultânea de 128 do SSTP fazendo a transição para o protocolo OpenVPN ou IKEv2.|
 | [Trabalhando remotamente usando a bastiões do Azure](../bastion/work-remotely-support.md) | Fornecer conectividade RDP/SSH segura e direta para máquinas virtuais na rede virtual do Azure, diretamente no portal do Azure, sem o uso de um endereço IP público. |
 | [Usando o Azure ExpressRoute para criar conectividade híbrida para dar suporte a usuários remotos](../expressroute/work-remotely-support.md) | Use o ExpressRoute para conectividade híbrida para permitir que os usuários em sua organização trabalhem remotamente.|
 | [Suporte ao trabalho remoto do firewall do Azure](../firewall/remote-work-support.md)|Proteja seus recursos de rede virtual do Azure usando o Firewall do Azure. |
 
 <!--Link References-->
-[VNet-peer]: https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview
-[S2S]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal
-[ExR]: https://docs.microsoft.com/azure/expressroute/expressroute-introduction
-[ExR-eco]: https://docs.microsoft.com/azure/expressroute/expressroute-locations
-[ExR-D]: https://docs.microsoft.com/azure/expressroute/expressroute-erdirect-about
-[Az-OCI]: https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/configure-azure-oci-networking
+[VNet-peer]: ../virtual-network/virtual-network-peering-overview.md
+[S2S]: ../vpn-gateway/tutorial-site-to-site-portal.md
+[ExR]: ../expressroute/expressroute-introduction.md
+[ExR-eco]: ../expressroute/expressroute-locations.md
+[ExR-D]: ../expressroute/expressroute-erdirect-about.md
+[Az-OCI]: ../virtual-machines/workloads/oracle/configure-azure-oci-networking.md

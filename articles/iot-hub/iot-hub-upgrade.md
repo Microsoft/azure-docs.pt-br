@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: robinsh
 ms.openlocfilehash: 96c3a7b2cfda23f173f4caeff4fb7a92b1ddc438
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "61440194"
 ---
 # <a name="how-to-upgrade-your-iot-hub"></a>Como fazer upgrade do Hub IoT
@@ -39,7 +39,7 @@ Esses exemplos destinam-se a ajudá-lo a reconhecer como ajustar o Hub IoT na me
 
 2. Selecione **Preço e escala**.
 
-   ![Preços e dimensionamento](./media/iot-hub-upgrade/pricing-scale.png)
+   ![Preço e dimensionamento](./media/iot-hub-upgrade/pricing-scale.png)
 
 3. Para alterar a camada do hub, selecione **Tipo e escala de preço**. Escolha a nova camada e clique em**selecionar**.
 

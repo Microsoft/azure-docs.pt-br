@@ -15,10 +15,10 @@ ms.reviewer: hirsin
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: b719e866852d2e865c16c62fddd8c549ae505b7d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85551558"
 ---
 # <a name="authorize-access-to-web-applications-using-openid-connect-and-azure-active-directory"></a>Autorizar o acesso aos aplicativos Web usando o OpenID Connect e o Azure Active Directory
@@ -111,9 +111,9 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | Parâmetro | Type | Descrição |
 | --- | --- | --- |
 | locatário |obrigatório |O valor `{tenant}` no caminho da solicitação pode ser usado para controlar quem pode entrar no aplicativo. Os valores permitidos são identificadores de locatário, por exemplo, `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` ou `contoso.onmicrosoft.com` ou `common` para tokens independentes de locatário |
-| client_id |obrigatório |A ID do Aplicativo atribuída para o aplicativo ao registrá-lo no Azure Active Directory. Você pode encontrar isso no Portal do Azure. Clique em **Azure Active Directory**, clique em **registros do aplicativo**, escolha o aplicativo e localize a ID do aplicativo na página do aplicativo. |
-| response_type |exigido |Deve incluir `id_token` para conexão do OpenID Connect. Também pode incluir outros response_types, como `code` ou `token`. |
-| scope | recomendável | A especificação do OpenID Connect requer o escopo `openid` , que se traduz na permissão "entrar" na interface do usuário de consentimento. Esse e outros escopos OIDC são ignorados no ponto de extremidade v 1.0, mas ainda é uma prática recomendada para clientes em conformidade com os padrões. |
+| client_id |necessárias |A ID do Aplicativo atribuída para o aplicativo ao registrá-lo no Azure Active Directory. Você pode encontrar isso no Portal do Azure. Clique em **Azure Active Directory**, clique em **registros do aplicativo**, escolha o aplicativo e localize a ID do aplicativo na página do aplicativo. |
+| response_type |necessárias |Deve incluir `id_token` para conexão do OpenID Connect. Também pode incluir outros response_types, como `code` ou `token`. |
+| escopo | recomendável | A especificação do OpenID Connect requer o escopo `openid` , que se traduz na permissão "entrar" na interface do usuário de consentimento. Esse e outros escopos OIDC são ignorados no ponto de extremidade v 1.0, mas ainda é uma prática recomendada para clientes em conformidade com os padrões. |
 | nonce |necessárias |Um valor incluído na solicitação, gerado pelo aplicativo, que é incluído no `id_token` resultante como uma declaração. O aplicativo pode, então, verificar esse valor para atenuar os ataques de reprodução de token. Normalmente, o valor é uma cadeia de caracteres aleatória e exclusiva ou um GUID que pode ser usado para identificar a origem da solicitação. |
 | redirect_uri | recomendável |O redirect_uri do seu aplicativo, onde as respostas de autenticação podem ser enviadas e recebidas pelo aplicativo. Ele deve corresponder exatamente a um dos redirect_uris que você registrou no portal, com exceção de que ele deve ser codificado por url. Se estiver ausente, o agente do usuário será enviado de volta para um dos URIs de redirecionamento registrados para o aplicativo, aleatoriamente. O comprimento máximo é de 255 bytes |
 | response_mode |opcionais |Especifica o método que deve ser usado para enviar o authorization_code resultante de volta ao aplicativo. Os valores suportados são `form_post` para * post do formulário HTTP * e `fragment` para o * fragmento de URL *. Em aplicativos Web, é recomendável usar `response_mode=form_post` a fim de garantir a transferência mais segura de tokens para seu aplicativo. O padrão para qualquer fluxo, incluindo um id_token é `fragment`.|
@@ -154,7 +154,7 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 
 | Parâmetro | Descrição |
 | --- | --- |
-| erro |Uma cadeia de caracteres de códigos de erro que pode ser usada para classificar tipos de erro que ocorrem e pode ser usada para responder aos erros. |
+| error |Uma cadeia de caracteres de códigos de erro que pode ser usada para classificar tipos de erro que ocorrem e pode ser usada para responder aos erros. |
 | error_description |Uma mensagem de erro específica que pode ajudar um desenvolvedor a identificar a causa raiz de um erro de autenticação. |
 
 #### <a name="error-codes-for-authorization-endpoint-errors"></a>Códigos de erro para erros de ponto de extremidade de autorização
@@ -197,7 +197,7 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 
 ```
 
-| Parâmetro | Type | Description |
+| Parâmetro | Type | Descrição |
 | --- | --- | --- |
 | post_logout_redirect_uri |recomendável |A URL para a qual o usuário deve ser redirecionado após a saída bem-sucedida.  Essa URL deve corresponder a um dos URIs de redirecionamento registrados para seu aplicativo no portal de registro de aplicativo.  Se *post_logout_redirect_uri* não for incluído, o usuário será exibido como uma mensagem genérica. |
 
@@ -264,7 +264,7 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 
 | Parâmetro | Descrição |
 | --- | --- |
-| erro |Uma cadeia de caracteres de códigos de erro que pode ser usada para classificar tipos de erro que ocorrem e pode ser usada para responder aos erros. |
+| error |Uma cadeia de caracteres de códigos de erro que pode ser usada para classificar tipos de erro que ocorrem e pode ser usada para responder aos erros. |
 | error_description |Uma mensagem de erro específica que pode ajudar um desenvolvedor a identificar a causa raiz de um erro de autenticação. |
 
 Para obter uma descrição dos possíveis códigos de erro e sua ação recomendada do cliente, veja [Códigos de erro para erros de ponto de extremidade de autorização](#error-codes-for-authorization-endpoint-errors).

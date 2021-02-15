@@ -1,6 +1,6 @@
 ---
 title: Visão geral da criação de imagens do Linux para o Azure
-description: Visão geral de como trazer suas imagens de VM do Linux ou criar imagens para serem usadas no Azure.
+description: Como trazer suas imagens de VM do Linux ou criar imagens para uso no Azure.
 author: danielsollondon
 ms.service: virtual-machines-linux
 ms.subservice: imaging
@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 06/22/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: aa372d4e1b377ecdcbeb49b47f0f9a3a217ee7ad
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 223fdc215bc391bea5cad5d4cb9999b9d14ba570
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86502173"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878775"
 ---
 # <a name="bringing-and-creating-linux-images-in-azure"></a>Trazer e criar imagens do Linux no Azure
 
@@ -25,11 +25,11 @@ Este artigo percorrerá os pontos e requisitos de decisão de imagem e explicar�
 ## <a name="difference-between-managed-disks-and-images"></a>Diferença entre discos gerenciados e imagens
 
 
-O Azure permite que você coloque um VHD na plataforma ou use como um [Disco Gerenciado](../windows/faq-for-disks.md#managed-disks) ou como uma origem para uma imagem. 
+O Azure permite que você coloque um VHD na plataforma ou use como um [Disco Gerenciado](../faq-for-disks.md#managed-disks) ou como uma origem para uma imagem. 
 
 Os discos gerenciados do Azure são VHDs únicos. É possível usar um VHD existente e criar um disco gerenciado com base nele ou criar um disco gerenciado vazio do zero. É possível criar VMs com base em discos gerenciados anexando o disco à VM, mas você só pode usar um VHD com uma VM. Não é possível modificar nenhuma propriedade do sistema operacional; o Azure tentará ligar a VM e inicializar usando esse disco. 
 
-As imagens do Azure podem ser compostas por vários discos do sistema operacional e de dados. Quando você usa uma imagem gerenciada para criar uma VM, a plataforma faz uma cópia da imagem e a usa para criar a VM, de modo que a imagem gerenciada dá suporte à reutilização da mesma imagem para várias VMs. O Azure também fornece funcionalidades avançadas de gerenciamento para imagens, como replicação global, e controle de versão por meio da [Galeria de Imagens Compartilhadas](shared-image-galleries.md). 
+As imagens do Azure podem ser compostas por vários discos do sistema operacional e de dados. Quando você usa uma imagem gerenciada para criar uma VM, a plataforma faz uma cópia da imagem e a usa para criar a VM, de modo que a imagem gerenciada dá suporte à reutilização da mesma imagem para várias VMs. O Azure também fornece funcionalidades avançadas de gerenciamento para imagens, como replicação global, e controle de versão por meio da [Galeria de Imagens Compartilhadas](../shared-image-galleries.md). 
 
 
 
@@ -46,7 +46,7 @@ O Azure oferece dois tipos de imagem principais: generalizados e especializados.
 
 ### <a name="generalized-images"></a>Imagens generalizada
 
-Uma imagem generalizada é uma imagem que requer que a instalação seja concluída na primeira inicialização. Por exemplo, na primeira inicialização, você define o nome do host, o usuário administrador e outras configurações específicas da VM. Isso é útil quando você deseja que a imagem seja reutilizada várias vezes e quando você deseja passar parâmetros durante a criação. Se a imagem generalizada contiver o agente do Azure, o agente processará os parâmetros e informará à plataforma que a configuração inicial foi concluída. Esse processo chama-se **provisionamento**. 
+Uma imagem generalizada é uma imagem que requer que a instalação seja concluída na primeira inicialização. Por exemplo, na primeira inicialização, você define o nome do host, o usuário administrador e outras configurações específicas da VM. Isso é útil quando você deseja que a imagem seja reutilizada várias vezes e quando você deseja passar parâmetros durante a criação. Se a imagem generalizada contiver o agente do Azure, o agente processará os parâmetros e informará à plataforma que a configuração inicial foi concluída. Esse processo chama-se [provisionamento](./provisioning.md). 
 
 O provisionamento requer que um provisionador esteja incluído na imagem. Há dois provisionadores:
 - [Agente Linux do Azure](../extensions/agent-linux.md)
@@ -65,7 +65,7 @@ No entanto, os agentes de provisionamento não são necessários para essas imag
 Ao trazer sua imagem do Linux, você tem duas opções:
 
 - Imagens gerenciadas para criação de VM simples em um ambiente de desenvolvimento e teste.
-- [Galeria de Imagens Compartilhadas](shared-image-galleries.md) para criar e compartilhar imagens em escala.
+- [Galeria de Imagens Compartilhadas](../shared-image-galleries.md) para criar e compartilhar imagens em escala.
 
 
 ### <a name="managed-images"></a>Imagens gerenciadas
@@ -76,14 +76,14 @@ As imagens gerenciadas podem ser usadas para ambientes de desenvolvimento e test
 
 ### <a name="azure-shared-image-gallery-sig"></a>SIG (Galeria de Imagens Compartilhadas) do Azure
 
-As [Galerias de Imagens Compartilhadas](shared-image-galleries.md) são recomendadas para criar, gerenciar e compartilhar imagens em escala. A galeria de imagens compartilhadas ajuda você a criar a estrutura e a organização em torno das suas imagens gerenciadas.  
+As [Galerias de Imagens Compartilhadas](../shared-image-galleries.md) são recomendadas para criar, gerenciar e compartilhar imagens em escala. A galeria de imagens compartilhadas ajuda você a criar a estrutura e a organização em torno das suas imagens gerenciadas.  
 
 - Suporte para imagens generalizadas e especializadas.
 - Suporte para imagens da geração 1 e 2.
 - Replicação global de imagens.
 - Agrupamento e controle de versão de imagens para facilitar o gerenciamento.
 - Imagens altamente disponíveis com ZRS (Armazenamento com Redundância de Zona) em regiões que dão suporte a Zonas de Disponibilidade. O ZRS oferece maior resiliência contra falhas em zonas.
-- Compartilhamento entre assinaturas e até mesmo entre locatários do AD (Active Directory), usando o RBAC.
+- Compartilhamento entre assinaturas e até mesmo entre locatários do AD (Active Directory) usando o Azure RBAC.
 - Dimensionamento das suas implantações com réplicas de imagem em cada região.
 
 Em um alto nível, você cria um SIG e ele é composto por:
@@ -94,7 +94,7 @@ Em um alto nível, você cria um SIG e ele é composto por:
 
 ## <a name="hyper-v-generation"></a>Geração do Hyper-V
 
-O Azure dá suporte ao Hyper-V geração 1 (Gen1) e à geração 2 (Gen2); o Gen2 é a última geração e oferece funcionalidade adicional em relação ao Gen1. Por exemplo: maior memória, Intel SGX (Intel com Software Guard Extensions) e vPMEM (memória persistente virtualizada). As VMs de geração 2 em execução no local têm alguns recursos que ainda não têm suporte no Azure. Para obter mais informações, confira a seção Recursos e funcionalidades. Para obter mais informações, veja este [artigo](../windows/generation-2.md). Crie imagens Gen2 se você precisar de funcionalidade adicional.
+O Azure dá suporte ao Hyper-V geração 1 (Gen1) e à geração 2 (Gen2); o Gen2 é a última geração e oferece funcionalidade adicional em relação ao Gen1. Por exemplo: maior memória, Intel SGX (Intel com Software Guard Extensions) e vPMEM (memória persistente virtualizada). As VMs de geração 2 em execução no local têm alguns recursos que ainda não têm suporte no Azure. Para obter mais informações, confira a seção Recursos e funcionalidades. Para obter mais informações, veja este [artigo](../generation-2.md). Crie imagens Gen2 se você precisar de funcionalidade adicional.
 
 Se você ainda precisar criar sua imagem, verifique se ela atende aos [pré-requisitos de imagem](./create-upload-generic.md) e carregue no Azure. Requisitos específicos de distribuição:
 

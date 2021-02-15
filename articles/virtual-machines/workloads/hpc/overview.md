@@ -4,16 +4,16 @@ description: Conheça os recursos e as funcionalidades das VMs das séries H e N
 author: vermagit
 ms.author: amverma
 ms.service: virtual-machines
-ms-subservice: hpc
-ms.workload: infrastructure-services
+ms.subservice: workloads
 ms.topic: overview
 ms.date: 07/29/2020
-ms.openlocfilehash: f9a672777fbc8a75cb6af10ba25232f8a274c894
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.reviewer: cynthn
+ms.openlocfilehash: 5950e9ab6ec979938a2318c4d25f53db4f5e1064
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543717"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94951376"
 ---
 # <a name="high-performance-computing-on-infiniband-enabled-h-series-and-n-series-vms"></a>Computação de alto desempenho em VMs das séries H e N habilitadas para InfiniBand
 

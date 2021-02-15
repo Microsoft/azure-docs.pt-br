@@ -1,26 +1,27 @@
 ---
-title: Início rápido – Criar e executar a imagem de contêiner
-description: Execute tarefas rapidamente com o Registro de Contêiner do Azure para criar e executar uma imagem de contêiner do Docker sob demanda, na nuvem.
+title: Início Rápido – Criar uma imagem de contêiner sob demanda no Azure
+description: Use os comandos do Registro de Contêiner do Azure para criar, enviar por push e executar rapidamente uma imagem de contêiner do Docker sob demanda na nuvem do Azure.
 ms.topic: quickstart
-ms.date: 01/31/2020
-ms.openlocfilehash: 610d82a0761f06338d04f0794d4141165d67d36c
-ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
+ms.date: 09/25/2020
+ms.custom: contperf-fy21q1, devx-track-azurecli
+ms.openlocfilehash: c6fe1fc246d112218b492072155175b2db99c8c9
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84753698"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97032942"
 ---
 # <a name="quickstart-build-and-run-a-container-image-using-azure-container-registry-tasks"></a>Início Rápido: Criar e executar uma imagem de contêiner usando as Tarefas do Registro de Contêiner do Azure
 
-Neste início rápido, você usará comandos de Tarefas do Registro de Contêiner do Azure para criar, efetuar push e executar rapidamente uma imagem de contêiner do Docker nativamente dentro do Azure, mostrando como descarregar seu ciclo de desenvolvimento de “loop interno” para a nuvem. [Tarefas do ACR][container-registry-tasks-overview] é um conjunto de recursos dentro do Registro de Contêiner do Azure para ajudá-lo a gerenciar e a modificar imagens de contêiner em todo o ciclo de vida do contêiner. 
+Neste início rápido, você usará comandos das [Tarefas do Registro de Contêiner do Azure][container-registry-tasks-overview] para criar, efetuar push e executar rapidamente uma imagem de contêiner do Docker nativamente no Azure, sem uma instalação local do Docker. Tarefas do ACR é um conjunto de recursos dentro do Registro de Contêiner do Azure para ajudá-lo a gerenciar e a modificar imagens de contêiner em todo o ciclo de vida do contêiner. Este exemplo mostra como descarregar seu ciclo de desenvolvimento de imagem de contêiner de "loop interno" para a nuvem com builds sob demanda usando um Dockerfile local. 
 
-Após este início rápido, explore mais recursos avançados de Tarefas do ACR. As Tarefas do ACR podem automatizar builds de imagem com base em confirmações do código ou atualizações de imagem base ou testar vários contêineres, em paralelo, entre outros cenários. 
+Após este início rápido, explore recursos mais avançados de Tarefas do ACR usando os [tutoriais](container-registry-tutorial-quick-task.md). As Tarefas do ACR podem automatizar builds de imagem com base em confirmações do código ou atualizações de imagem base ou testar vários contêineres, em paralelo, entre outros cenários. 
 
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita][azure-account] antes de começar.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-Você pode usar o Azure Cloud Shell ou uma instalação local da CLI do Azure para concluir esse guia de início rápido. Se você quer usá-lo localmente, recomendamos usar a versão 2.0.58 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure][azure-cli-install].
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+    
+- Este guia de início rápido requer a versão 2.0.58 ou posterior da CLI do Azure. Se você está usando o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -45,10 +46,10 @@ Este exemplo cria um registro *Básico*, uma opção com otimização de custo p
 
 ## <a name="build-and-push-image-from-a-dockerfile"></a>Criar uma imagem e efetuar push dela de um Dockerfile
 
-Agora, use o Registro de Contêiner do Azure para criar uma imagem e efetuar push dela. Primeiro, crie um diretório de trabalho e, em seguida, crie um Dockerfile chamado *Dockerfile* com a única linha: `FROM hello-world`. Este é um exemplo simples para criar uma imagem de contêiner do Linux com base na imagem `hello-world` no Docker Hub. Você pode criar seu próprio Dockerfile padrão e criar imagens para outras plataformas. Se estiver trabalhando em um shell bash, crie o Dockerfile com o seguinte comando:
+Agora, use o Registro de Contêiner do Azure para criar uma imagem e efetuar push dela. Primeiro, crie um diretório de trabalho local e crie um Dockerfile chamado *Dockerfile* com a única linha: `FROM mcr.microsoft.com/hello-world`. Este é um exemplo simples para criar uma imagem de contêiner do Linux com base na imagem `hello-world` hospedada no Registro de Contêiner da Microsoft. Você pode criar seu próprio Dockerfile padrão e criar imagens para outras plataformas. Se estiver trabalhando em um shell bash, crie o Dockerfile com o seguinte comando:
 
 ```bash
-echo FROM hello-world > Dockerfile
+echo FROM mcr.microsoft.com/hello-world > Dockerfile
 ```
 
 Execute o comando [az acr build][az-acr-build], que cria a imagem e, após criá-la com êxito, efetua push dela para o registro. O exemplo a seguir cria a imagem `sample/hello-world:v1` e efetua push dela. O `.` no final do comando define a localização do Dockerfile; neste caso, o diretório atual.
@@ -77,8 +78,8 @@ Waiting for agent...
 2019/03/18 21:57:00 Successfully obtained source code and scanned for dependencies
 2019/03/18 21:57:00 Launching container with name: build
 Sending build context to Docker daemon  13.82kB
-Step 1/1 : FROM hello-world
-latest: Pulling from library/hello-world
+Step 1/1 : FROM mcr.microsoft.com/hello-world
+latest: Pulling from hello-world
 Digest: sha256:2557e3c07ed1e38f26e389462d03ed943586fxxxx21577a99efb77324b0fe535
 Successfully built fce289e99eb9
 Successfully tagged mycontainerregistry008.azurecr.io/sample/hello-world:v1

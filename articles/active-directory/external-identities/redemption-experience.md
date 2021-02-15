@@ -5,40 +5,41 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 05/11/2020
+ms.date: 02/12/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: elisol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6bf5d40262c5991504d3dc62490fb50f6a20592
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 08f560f076caf90c9c930cedfd6a7ba9c6c8b37d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87907929"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100365439"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Resgate do convite de colaboração do Azure Active Directory B2B
 
-Este artigo descreve como os usuários convidados podem acessar seus recursos e o processo de consentimento que eles percorrerão. Se você enviar um email de convite ao convidado, ele incluirá um link que o convidado pode resgatar para obter acesso ao seu aplicativo ou portal. O email de convite é apenas uma das maneiras que os convidados podem usar para obter acesso aos seus recursos. Como alternativa, você pode adicionar convidados ao seu diretório e fornecer a eles um link direto para o portal ou aplicativo que deseja compartilhar. Independentemente do método usado, os convidados são guiados durante o processo de consentimento pela primeira vez. Esse processo faz com que seus convidados aceitem os termos de privacidade e eventuais [termos de uso](https://docs.microsoft.com/azure/active-directory/governance/active-directory-tou) que você tenha configurado.
+Este artigo descreve como os usuários convidados podem acessar seus recursos e o processo de consentimento que eles percorrerão. Se você enviar um email de convite ao convidado, ele incluirá um link que o convidado pode resgatar para obter acesso ao seu aplicativo ou portal. O email de convite é apenas uma das maneiras que os convidados podem usar para obter acesso aos seus recursos. Como alternativa, você pode adicionar convidados ao seu diretório e fornecer a eles um link direto para o portal ou aplicativo que deseja compartilhar. Independentemente do método usado, os convidados são guiados durante o processo de consentimento pela primeira vez. Esse processo faz com que seus convidados aceitem os termos de privacidade e eventuais [termos de uso](../conditional-access/terms-of-use.md) que você tenha configurado.
 
 Quando você adiciona um usuário convidado ao seu diretório, a conta de usuário convidado tem um status de consentimento (visível no PowerShell) que é inicialmente definido como **PendingAcceptance**. Essa configuração permanece até que o convidado aceite seu convite e concorde com a política de privacidade e os termos de uso. Depois disso, o status de consentimento muda para **Accepted** e as páginas de consentimento não são mais apresentadas ao convidado.
 
    > [!IMPORTANT]
-   > **A partir de 31 de março de 2021**, a Microsoft não dará mais suporte ao resgate de convites criando contas e locatários do Azure AD não gerenciado para cenários de colaboração B2B. Durante a preparação, incentivamos os clientes a aceitarem a [autenticação de senha avulsa por email](one-time-passcode.md). Agradecemos seus comentários sobre essa versão prévia do recurso pública e estamos empolgados em criar ainda mais maneiras de colaborar.
+   > - **A partir de 4 de janeiro de 2021**, o Google está [preterindo o suporte de entrada do WebView](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). Se estiver usando a federação do Google ou a inscrição por autoatendimento com o Gmail, você deverá [testar seus aplicativos nativos de linha de negócios para garantir a compatibilidade](google-federation.md#deprecation-of-webview-sign-in-support).
+   > - A **partir de outubro de 2021**, a Microsoft não dará mais suporte ao resgate de convites criando contas e locatários do Azure ad não gerenciados para cenários de colaboração B2B. Durante a preparação, incentivamos os clientes a aceitarem a [autenticação de senha avulsa por email](one-time-passcode.md). Agradecemos seus comentários sobre essa versão prévia do recurso pública e estamos empolgados em criar ainda mais maneiras de colaborar.
 
 ## <a name="redemption-through-the-invitation-email"></a>Resgate por meio de email de convite
 
-Quando você adiciona um usuário convidado ao seu diretório [por meio do portal do Azure](https://docs.microsoft.com/azure/active-directory/b2b/b2b-quickstart-add-guest-users-portal), ele recebe um email de convite no processo. Você também pode optar por enviar emails de convite quando [usa o PowerShell](https://docs.microsoft.com/azure/active-directory/b2b/b2b-quickstart-invite-powershell) para adicionar usuários convidados ao seu diretório. Aqui está uma descrição da experiência do convidado ao resgatar o link no email.
+Quando você adiciona um usuário convidado ao seu diretório [por meio do portal do Azure](./b2b-quickstart-add-guest-users-portal.md), ele recebe um email de convite no processo. Você também pode optar por enviar emails de convite quando [usa o PowerShell](./b2b-quickstart-invite-powershell.md) para adicionar usuários convidados ao seu diretório. Aqui está uma descrição da experiência do convidado ao resgatar o link no email.
 
-1. O convidado recebe um [email de convite](https://docs.microsoft.com/azure/active-directory/b2b/invitation-email-elements) enviado pelo **Microsoft Invitations**.
+1. O convidado recebe um [email de convite](./invitation-email-elements.md) enviado pelo **Microsoft Invitations**.
 2. Ele seleciona **Aceitar o convite** no email.
-3. O convidado usará suas próprias credenciais para entrar no seu diretório. Se ele não tiver uma conta que possa ser federada para o seu diretório e o recurso [enviar senha de uso único por email (OTP)](https://docs.microsoft.com/azure/active-directory/b2b/one-time-passcode) não estiver habilitado; o convidado precisará criar uma [MSA](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create) pessoal ou uma [conta de autoatendimento do Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-self-service-signup). Consulte o [fluxo de resgate de convite](#invitation-redemption-flow) para obter detalhes.
+3. O convidado usará suas próprias credenciais para entrar no seu diretório. Se ele não tiver uma conta que possa ser federada para o seu diretório e o recurso [enviar senha de uso único por email (OTP)](./one-time-passcode.md) não estiver habilitado; o convidado precisará criar uma [MSA](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create) pessoal ou uma [conta de autoatendimento do Azure AD](../enterprise-users/directory-self-service-signup.md). Consulte o [fluxo de resgate de convite](#invitation-redemption-flow) para obter detalhes.
 4. O convidado é guiado pela [experiência de consentimento](#consent-experience-for-the-guest) descrita abaixo.
 
 ## <a name="redemption-through-a-direct-link"></a>Resgate por meio de um link direto
 
-Como alternativa ao email de convite, você pode oferecer a um convidado um link direto para seu aplicativo ou portal. Primeiro, você precisa adicionar o usuário convidado ao seu diretório por meio do [portal do Azure](https://docs.microsoft.com/azure/active-directory/b2b/b2b-quickstart-add-guest-users-portal) ou do [PowerShell](https://docs.microsoft.com/azure/active-directory/b2b/b2b-quickstart-invite-powershell). Em seguida, você pode usar qualquer uma das [formas de personalização da implantação de aplicativos para usuários](https://docs.microsoft.com/azure/active-directory/manage-apps/end-user-experiences), incluindo links de logon diretos. Quando um convidado usa um link direto em vez do email de convite, ele é igualmente guiado pela experiência de consentimento na primeira vez.
+Como alternativa ao email de convite, você pode oferecer a um convidado um link direto para seu aplicativo ou portal. Primeiro, você precisa adicionar o usuário convidado ao seu diretório por meio do [portal do Azure](./b2b-quickstart-add-guest-users-portal.md) ou do [PowerShell](./b2b-quickstart-invite-powershell.md). Em seguida, você pode usar qualquer uma das [formas de personalização da implantação de aplicativos para usuários](../manage-apps/end-user-experiences.md), incluindo links de logon diretos. Quando um convidado usa um link direto em vez do email de convite, ele é igualmente guiado pela experiência de consentimento na primeira vez.
 
 > [!IMPORTANT]
 > O link direto deve ser específico ao locatário. Em outras palavras, ele deve incluir uma ID de locatário ou um domínio verificado para que o convidado possa ser autenticado em seu locatário, que é onde o aplicativo compartilhado está localizado. Uma URL comum como https://myapps.microsoft.com não funciona para um convidado porque ele é redirecionado ao seu locatário inicial para autenticação. Veja alguns exemplos de links diretos com o contexto do locatário:
@@ -60,29 +61,29 @@ Quando um usuário clica no link **Aceitar convite** em um [email de convite](in
 
 **Se o nome UPN do usuário corresponder a uma conta do Azure AD e de MSA pessoal, o usuário será solicitado a escolher a conta que deseja resgatar.*
 
-1. O Azure AD executa a descoberta baseada no usuário para determinar se ele existe em um [locatário do Azure AD](https://docs.microsoft.com/azure/active-directory/b2b/what-is-b2b#easily-add-guest-users-in-the-azure-ad-portal).
+1. O Azure AD executa a descoberta baseada no usuário para determinar se ele existe em um [locatário do Azure AD](./what-is-b2b.md#easily-invite-guest-users-from-the-azure-ad-portal).
 
-2. Se um administrador tiver habilitado [federação direta](https://docs.microsoft.com/azure/active-directory/b2b/direct-federation), o Azure AD verificará se o sufixo de domínio do usuário corresponde ao domínio de um provedor de identidade SAML/WS-FED configurado e redirecionará o usuário para o provedor de identidade pré-configurado.
+2. Se um administrador tiver habilitado [federação direta](./direct-federation.md), o Azure AD verificará se o sufixo de domínio do usuário corresponde ao domínio de um provedor de identidade SAML/WS-FED configurado e redirecionará o usuário para o provedor de identidade pré-configurado.
 
-3. Se um administrador tiver habilitado a [federação com o Google](https://docs.microsoft.com/azure/active-directory/b2b/google-federation), o Azure AD verificará se o sufixo de domínio do usuário é gmail.com ou googlemail.com e redirecionará o usuário para o Google.
+3. Se um administrador tiver habilitado a [federação com o Google](./google-federation.md), o Azure AD verificará se o sufixo de domínio do usuário é gmail.com ou googlemail.com e redirecionará o usuário para o Google.
 
 4. O processo de resgate verifica se o usuário já tem uma [MSA (conta Microsoft)](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create).
 
 5. Depois que o **diretório base** do usuário for identificado, ele será enviado ao provedor de identidade correspondente para se conectar.  
 
-6. Se as etapas 1 a 4 não localizarem um diretório base para o usuário convidado, o Azure AD determinará se o locatário que ele está convidando habilitou o recurso [Enviar OTP (senha de uso único) por email](https://docs.microsoft.com/azure/active-directory/b2b/one-time-passcode) para convidados.
+6. Se as etapas 1 a 4 não localizarem um diretório base para o usuário convidado, o Azure AD determinará se o locatário que ele está convidando habilitou o recurso [Enviar OTP (senha de uso único) por email](./one-time-passcode.md) para convidados.
 
-7. Se a opção [Enviar senha de uso único para convidados por email estiver habilitada](https://docs.microsoft.com/azure/active-directory/b2b/one-time-passcode#when-does-a-guest-user-get-a-one-time-passcode), uma senha será enviada ao usuário pelo email convidado. O usuário vai recuperar e inserir essa senha na página de entrada do Azure AD.
+7. Se a opção [Enviar senha de uso único para convidados por email estiver habilitada](./one-time-passcode.md#when-does-a-guest-user-get-a-one-time-passcode), uma senha será enviada ao usuário pelo email convidado. O usuário vai recuperar e inserir essa senha na página de entrada do Azure AD.
 
-8. Se o email de senha de uso único para convidados estiver desabilitado, o Azure AD verificará o sufixo de domínio para determinar se ele pertence a uma conta de consumidor. Nesse caso, será solicitado que o usuário crie uma [conta Microsoft](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create) pessoal. Caso contrário, o usuário será solicitado a criar uma [conta de autoatendimento do Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-self-service-signup).
+8. Se o email de senha de uso único para convidados estiver desabilitado, o Azure AD verificará o sufixo de domínio para determinar se ele pertence a uma conta de consumidor. Nesse caso, será solicitado que o usuário crie uma [conta Microsoft](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create) pessoal. Caso contrário, o usuário será solicitado a criar uma [conta de autoatendimento do Azure AD](../enterprise-users/directory-self-service-signup.md).
 
-9. O Azure AD tenta criar uma [conta de autoatendimento do Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-self-service-signup) com a verificação do acesso ao email. A verificação da conta é feita como envio de um código por email e instruções para que o usuário a recupere e envie ao Azure AD. No entanto, se o locatário do usuário convidado for federado ou se o campo AllowEmailVerifiedUsers for definido como false no locatário do usuário convidado, ele não poderá concluir o resgate e o fluxo resultará em erro. Para obter mais informações, confira [Solução de problemas de colaboração B2B do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/b2b/troubleshoot#the-user-that-i-invited-is-receiving-an-error-during-redemption).
+9. O Azure AD tenta criar uma [conta de autoatendimento do Azure AD](../enterprise-users/directory-self-service-signup.md) com a verificação do acesso ao email. A verificação da conta é feita como envio de um código por email e instruções para que o usuário a recupere e envie ao Azure AD. No entanto, se o locatário do usuário convidado for federado ou se o campo AllowEmailVerifiedUsers for definido como false no locatário do usuário convidado, ele não poderá concluir o resgate e o fluxo resultará em erro. Para obter mais informações, confira [Solução de problemas de colaboração B2B do Azure Active Directory](./troubleshoot.md#the-user-that-i-invited-is-receiving-an-error-during-redemption).
 
 10. O usuário precisará criar uma conta [MSA (Microsoft)](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create) pessoal.
 
-11. Após a autenticação no provedor de identidade correto, o usuário é redirecionado para o Azure AD a fim de concluir a [experiência de consentimento](https://docs.microsoft.com/azure/active-directory/b2b/redemption-experience#consent-experience-for-the-guest).  
+11. Após a autenticação no provedor de identidade correto, o usuário é redirecionado para o Azure AD a fim de concluir a [experiência de consentimento](#consent-experience-for-the-guest).  
 
-Em resgates JIT (just-in-time), feitos por meio de um link de aplicativo locatário, as etapas 8 a 10 não estão disponíveis. Se um usuário chegar à etapa 6 e o recurso de envio de senha de uso único por email não estiver habilitado, o usuário receberá uma mensagem de erro e não poderá resgatar o convite. Para evitar esse erro, os administradores devem [habilitar o envio de senha de uso único por email](https://docs.microsoft.com/azure/active-directory/b2b/one-time-passcode#when-does-a-guest-user-get-a-one-time-passcode) ou fazer com que o usuário clique em um link de convite.
+Em resgates JIT (just-in-time), feitos por meio de um link de aplicativo locatário, as etapas 8 a 10 não estão disponíveis. Se um usuário chegar à etapa 6 e o recurso de envio de senha de uso único por email não estiver habilitado, o usuário receberá uma mensagem de erro e não poderá resgatar o convite. Para evitar esse erro, os administradores devem [habilitar o envio de senha de uso único por email](./one-time-passcode.md#when-does-a-guest-user-get-a-one-time-passcode) ou fazer com que o usuário clique em um link de convite.
 
 ## <a name="consent-experience-for-the-guest"></a>Experiência de consentimento para o convidado
 
@@ -93,13 +94,13 @@ Quando um convidado entra para acessar recursos em uma organização parceira pe
    ![Captura de tela mostrando a página Analisar as permissões](media/redemption-experience/review-permissions.png) 
 
    > [!NOTE]
-   > Para obter informações sobre como você, como administrador de locatários, pode fornecer um link para a política de privacidade de sua organização, confira [Como: Adicionar informações de privacidade de sua organização ao Azure Active Directory](https://aka.ms/adprivacystatement).
+   > Para obter informações sobre como você, como administrador de locatários, pode fornecer um link para a política de privacidade de sua organização, confira [Como: Adicionar informações de privacidade de sua organização ao Azure Active Directory](../fundamentals/active-directory-properties-area.md).
 
 2. Se os termos de uso estiverem configurados, o convidado abrirá e analisará os termos de uso para depois selecionar **Aceitar**. 
 
    ![Captura de tela mostrando os novos termos de uso](media/redemption-experience/terms-of-use-accept.png) 
 
-   Você pode configurar os [termos de uso](../governance/active-directory-tou.md) em **Identidades Externas** > **Termos de uso**.
+   Você pode configurar os [termos de uso](../conditional-access/terms-of-use.md) em **Identidades Externas** > **Termos de uso**.
 
 3. Se não houver especificação em contrário, o convidado será redirecionado para o painel de acesso Aplicativos, que lista os aplicativos que o convidado pode acessar.
 

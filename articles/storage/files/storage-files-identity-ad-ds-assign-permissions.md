@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 06/22/2020
 ms.author: rogarana
-ms.openlocfilehash: 16c8058da30821a53a20cf3ea6afdb0e4dbfcb77
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: af88f0b3403fb80acbb7dacebe293ac583e35799
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87535086"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91716030"
 ---
 # <a name="part-two-assign-share-level-permissions-to-an-identity"></a>Parte dois: atribuir permissões de nível de compartilhamento a uma identidade
 
@@ -47,12 +47,12 @@ Para atribuir uma função do Azure a uma identidade do Azure AD, usando o [port
 1. No portal do Azure, vá para o compartilhamento de arquivos ou [crie um compartilhamento de arquivos](storage-how-to-create-file-share.md).
 1. Selecione **Controle de Acesso (IAM)** .
 1. Selecione **Adicionar uma atribuição de função**
-1. Na folha **Adicionar atribuição de função** , selecione a função interna apropriada (leitor de compartilhamento SMB de dados de arquivo de armazenamento, colaborador de compartilhamento SMB de dados de arquivo de armazenamento) na lista de **funções** . Deixe **atribuir acesso à** na configuração padrão: **usuário, grupo ou entidade de serviço do Azure ad**. Selecione a identidade do Azure AD de destino por nome ou endereço de email. A identidade do Azure AD selecionada deve ser uma identidade híbrida e não pode ser uma identidade somente na nuvem. Isso significa que a mesma identidade também é representada em AD DS.
+1. Na folha **Adicionar atribuição de função** , selecione a função interna apropriada (leitor de compartilhamento SMB de dados de arquivo de armazenamento, colaborador de compartilhamento SMB de dados de arquivo de armazenamento) na lista de **funções** . Deixe **atribuir acesso à** na configuração padrão: **usuário, grupo ou entidade de serviço do Azure ad**. Selecione a identidade do Azure AD de destino por nome ou endereço de email. **A identidade do Azure AD selecionada deve ser uma identidade híbrida e não pode ser uma identidade somente na nuvem.** Isso significa que a mesma identidade também é representada em AD DS.
 1. Selecione **salvar** para concluir a operação de atribuição de função.
 
 ### <a name="powershell"></a>PowerShell
 
-O exemplo do PowerShell a seguir mostra como atribuir uma função do Azure a uma identidade do Azure AD, com base no nome de entrada. Para obter mais informações sobre como atribuir funções do Azure com o PowerShell, consulte [gerenciar o acesso usando RBAC e Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
+O exemplo do PowerShell a seguir mostra como atribuir uma função do Azure a uma identidade do Azure AD, com base no nome de entrada. Para obter mais informações sobre como atribuir funções do Azure com o PowerShell, consulte [Adicionar ou remover atribuições de função do Azure usando o módulo Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
 Antes de executar o script de exemplo a seguir, substitua os valores de espaço reservado, incluindo colchetes, pelos valores.
 
@@ -67,7 +67,7 @@ New-AzRoleAssignment -SignInName <user-principal-name> -RoleDefinitionName $File
 
 ### <a name="cli"></a>CLI
   
-O comando da CLI 2,0 a seguir atribui uma função do Azure a uma identidade do Azure AD, com base no nome de entrada. Para obter mais informações sobre como atribuir funções do Azure com CLI do Azure, consulte [gerenciar o acesso usando RBAC e CLI do Azure](../../role-based-access-control/role-assignments-cli.md). 
+O comando da CLI 2,0 a seguir atribui uma função do Azure a uma identidade do Azure AD, com base no nome de entrada. Para obter mais informações sobre como atribuir funções do Azure com CLI do Azure, consulte [Adicionar ou remover atribuições de função do Azure usando o CLI do Azure](../../role-based-access-control/role-assignments-cli.md). 
 
 Antes de executar o script de exemplo a seguir, lembre-se de substituir os valores de espaço reservado, incluindo colchetes, pelos seus próprios valores.
 

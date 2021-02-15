@@ -9,12 +9,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.custom: mqtt
-ms.openlocfilehash: 4e380fdcd72ab21f00272536b9f08145dcb09bc1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 03e05eb2bc56a07c2bda3d3fb224012abb3c9e4a
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81728808"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735933"
 ---
 # <a name="azure-iot-hub-developer-guide"></a>Guia do desenvolvedor do Hub IoT do Azure
 
@@ -52,11 +52,11 @@ Este guia do desenvolvedor do Hub IoT inclui os seguintes artigos:
 
 * [Carregar arquivos de um dispositivo](iot-hub-devguide-file-upload.md) descreve como você pode carregar arquivos de um dispositivo. O artigo também inclui informações sobre tópicos como as notificações que podem ser enviadas pelo processo de carregamento.
 
-* [Gerenciar identidades de dispositivos no Hub IoT](iot-hub-devguide-identity-registry.md) descreve quais informações cada registro de identidade do Hub IoT armazena. O artigo também descreve como você pode acessar e modificá-lo.
+* [Gerenciar identidades do dispositivo no Hub IoT](iot-hub-devguide-identity-registry.md) descreve as informações armazenadas pelo registro de identidade de cada Hub IoT. O artigo também descreve como você pode acessar e modificá-lo.
 
 * [Controlar o acesso ao Hub IoT](iot-hub-devguide-security.md) descreve o modelo de segurança usado para conceder acesso à funcionalidade do Hub IoT para componentes de dispositivos e da nuvem. O artigo inclui informações sobre como usar tokens e certificados X.509, e os detalhes das permissões que você pode conceder.
 
-* [Usar dispositivos gêmeos para sincronizar o estado e as configurações](iot-hub-devguide-device-twins.md) descreve o conceito de *dispositivos gêmeos*. O artigo também descreve a funcionalidade que o dispositivo gêmeos expõe, como a sincronização de um dispositivo com seu dispositivo. O artigo inclui informações sobre os dados armazenados em um dispositivo gêmeo.
+* [Usar dispositivos gêmeos para sincronizar o estado e as configurações](iot-hub-devguide-device-twins.md) descreve o conceito de *dispositivos gêmeos* . O artigo também descreve a funcionalidade que o dispositivo gêmeos expõe, como a sincronização de um dispositivo com seu dispositivo. O artigo inclui informações sobre os dados armazenados em um dispositivo gêmeo.
 
 * [Invocar um método direto em um dispositivo](iot-hub-devguide-direct-methods.md) descreve o ciclo de vida de um método direto. O artigo descreve como invocar métodos em um dispositivo de seu aplicativo de back-end e manipular o método direto no seu dispositivo.
 

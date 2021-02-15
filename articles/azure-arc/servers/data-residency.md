@@ -1,25 +1,25 @@
 ---
 title: Residência de dadosResidência de dados
-description: Residência de dados e informações sobre os servidores habilitados para Arc do Azure (visualização).
+description: Residência de dados e informações sobre servidores habilitados para Arc do Azure.
 ms.topic: reference
-ms.date: 08/25/2020
+ms.date: 10/08/2020
 ms.custom: references_regions
-ms.openlocfilehash: 8f207f5889c1764eebcc6081960ff70c0d5bca3a
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: c5ece96acc3ee07ba2896279888363c7d52d737e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89048849"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91856442"
 ---
-# <a name="azure-arc-enabled-servers-preview-data-residency"></a>Servidores habilitados para Arc do Azure (visualização): residência de dados
+# <a name="azure-arc-enabled-servers-data-residency"></a>Servidores habilitados para Arc do Azure: residência de dados
 
-Este artigo explica o conceito de residência de dados e como ele se aplica aos servidores habilitados para Arc do Azure (versão prévia).
+Este artigo explica o conceito de residência de dados e como ele se aplica aos servidores habilitados para Arc do Azure.
 
-Os servidores habilitados para Arc do Azure (versão prévia) estão **[disponíveis na versão prévia](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc)** no **Estados Unidos, na Europa ou Pacífico Asiático**.
+Os servidores habilitados para Arc do Azure estão **[disponíveis](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc)** na **Estados Unidos, na Europa, no Reino Unido, na austrália e no Pacífico Asiático**.
 
 ## <a name="data-residency"></a>Residência de dadosResidência de dados
 
-Os servidores habilitados para Arc do Azure (versão prévia) armazenam definições de configuração de [extensão de VM do Azure](manage-vm-extensions.md) (ou seja, valores de propriedade) a extensão requer especificar antes de tentar habilitar no computador conectado. Por exemplo, quando você habilita a extensão de VM Log Analytics, ela solicita a **ID do espaço de trabalho** log Analytics e a **chave primária**.
+Os servidores habilitados para Arc do Azure armazenam definições de configuração de [extensão de VM do Azure](manage-vm-extensions.md) (ou seja, valores de propriedade) a extensão requer a especificação antes de tentar habilitar no computador conectado. Por exemplo, quando você habilita a extensão de VM Log Analytics, ela solicita a **ID do espaço de trabalho** log Analytics e a **chave primária**.
 
 As informações de metadados sobre o computador conectado também são coletadas. Especificamente:
 
@@ -28,7 +28,7 @@ As informações de metadados sobre o computador conectado também são coletada
 * FQDN (nome de domínio totalmente qualificado) do computador
 * Versão do agente do computador conectado
 
-Os servidores habilitados para Arc (visualização) permitem que você especifique a região onde os dados serão armazenados. A Microsoft pode replicar para outras regiões para resiliência de dados, mas a Microsoft não Replica nem move dados fora da geografia. Esses dados são armazenados na região em que o recurso de máquina do arco do Azure está configurado. Por exemplo, se o computador estiver registrado com Arc na região leste dos EUA, esses dados serão armazenados na região dos EUA.
+Os servidores habilitados para Arc permitem que você especifique a região onde os dados serão armazenados. A Microsoft pode replicar para outras regiões para resiliência de dados, mas a Microsoft não Replica nem move dados fora da geografia. Esses dados são armazenados na região em que o recurso de máquina do arco do Azure está configurado. Por exemplo, se o computador estiver registrado com Arc na região leste dos EUA, esses dados serão armazenados na região dos EUA.
 
 Para obter mais informações sobre a resiliência regional e o suporte de conformidade, consulte [Geografia do Azure](https://azure.microsoft.com/global-infrastructure/geographies/).
 

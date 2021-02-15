@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 35a6fc789c4ed24c2f950ccfa89880088b698a20
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: c143a5af40097039c70c58adba4cb21f687d3fa6
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88553743"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92893005"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-planmyleave"></a>Tutorial: integração do Azure Active Directory com o PlanMyLeave
 
@@ -27,7 +27,7 @@ A integração do PlanMyLeave ao Azure AD oferece os seguintes benefícios:
 * É possível permitir que seus usuários entrem automaticamente no PlanMyLeave (logon único) com suas contas do Azure AD.
 * Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](../manage-apps/what-is-single-sign-on.md).
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Prerequisites
@@ -63,7 +63,7 @@ Para configurar a integração do PlanMyLeave ao Azure AD, você precisará adic
 
     ![O botão Novo aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, digite **PlanMyLeave**, selecione **PlanMyLeave** no painel de resultados e, depois, clique no botão **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa, digite **PlanMyLeave** , selecione **PlanMyLeave** no painel de resultados e, depois, clique no botão **Adicionar** para adicionar o aplicativo.
 
      ![PlanMyLeave na lista de resultados](common/search-new-app.png)
 
@@ -87,34 +87,34 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure.
 
 Para configurar o logon único do Azure AD com o PlanMyLeave, siga estas etapas:
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **PlanMyLeave**, selecione **Logon único**.
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **PlanMyLeave** , selecione **Logon único**.
 
     ![Link Configurar logon único](common/select-sso.png)
 
-2. Na caixa de diálogo **Selecionar um método de logon único**, selecione o modo **SAML/WS-Fed** para habilitar o logon único.
+2. Na caixa de diálogo **Selecionar um método de logon único** , selecione o modo **SAML/WS-Fed** para habilitar o logon único.
 
     ![Modo de seleção de logon único](common/select-saml-option.png)
 
-3. Na página **Definir logon único com SAML**, clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML**.
+3. Na página **Definir logon único com SAML** , clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML**.
 
     ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-4. Na seção **Configuração básica de SAML**, realize as seguintes etapas:
+4. Na seção **Configuração básica de SAML** , realize as seguintes etapas:
 
     ![Informações de logon único de Domínio e URLs do PlanMyLeave](common/sp-identifier.png)
 
-    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<company-name>.planmyleave.com/Login.aspx`
+    a. Na caixa de texto **URL de Logon** , digite uma URL usando o seguinte padrão: `https://<company-name>.planmyleave.com/Login.aspx`
 
     b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `https://<company-name>.planmyleave.com`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Para obter esses valores, entre em contato com a [equipe de suporte do Cliente PlanMyLeave](mailto:support@planmyleave.com). Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
-5. Na página **Configurar Logon Único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Baixar** para baixar o **XML de Metadados de Federação** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
+5. Na página **Configurar Logon Único com SAML** , na seção **Certificado de Autenticação SAML** , clique em **Baixar** para baixar o **XML de Metadados de Federação** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
     ![O link de download do Certificado](common/metadataxml.png)
 
-6. Na seção **Configurar PlanMyLeave**, copie a URL apropriada, de acordo com suas necessidades.
+6. Na seção **Configurar PlanMyLeave** , copie a URL apropriada, de acordo com suas necessidades.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
@@ -128,23 +128,23 @@ Para configurar o logon único do Azure AD com o PlanMyLeave, siga estas etapas:
 
 1. Em outra janela do navegador da Web, faça logon no locatário do PlanMyLeave como administrador.
 
-2. Acesse **Configuração do Sistema**. Em seguida, na seção **Gerenciamento de Segurança**, clique em **Configurações do SAML da Empresa**.
+2. Acesse **Configuração do Sistema**. Em seguida, na seção **Gerenciamento de Segurança** , clique em **Configurações do SAML da Empresa**.
 
-    ![Configurar o logon único no lado do aplicativo](./media/planmyleave-tutorial/tutorial_planmyleave_002.png) 
+    ![Captura de tela que mostra a página "Configuração do sistema" com a seção "Gerenciamento de Segurança" realçada e a ação "Configurações do SAML da Empresa" selecionada.](./media/planmyleave-tutorial/tutorial_planmyleave_002.png) 
 
-3. Na seção **Configurações de SAML**, clique no ícone do editor.
+3. Na seção **Configurações de SAML** , clique no ícone do editor.
 
-    ![Configurar o logon único no lado do aplicativo](./media/planmyleave-tutorial/tutorial_planmyleave_003.png)
+    ![Captura de tela que mostra a seção "Configurações do SAML" com o ícone "editor" selecionado no canto superior direito da seção.](./media/planmyleave-tutorial/tutorial_planmyleave_003.png)
 
-4. Na seção **Atualizar Configuração do SAML**, execute as seguintes etapas:
+4. Na seção **Atualizar Configuração do SAML** , execute as seguintes etapas:
 
     ![Configurar o logon único no lado do aplicativo](./media/planmyleave-tutorial/tutorial_planmyleave_004.png)
 
-    a.  Na caixa de texto **URL de Logon**, cole a **URL de Logon** copiada no portal do Azure.
+    a.  Na caixa de texto **URL de Logon** , cole a **URL de Logon** copiada no portal do Azure.
 
     b.  Abra os metadados baixados, copie o valor **X509Certificate** e, em seguida, cole-o na caixa de texto **Certificado**.
 
-    c. Defina "**Is Enable**" como "**Yes**".
+    c. Defina " **Is Enable** " como " **Yes** ".
 
     d. Clique em **Save** (Salvar). 
 
@@ -152,7 +152,7 @@ Para configurar o logon único do Azure AD com o PlanMyLeave, siga estas etapas:
 
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
-1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, **Todos os usuários**.
+1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory** , selecione **Usuários** e, em seguida, **Todos os usuários**.
 
     ![Os links “Usuários e grupos” e “Todos os usuários”](common/users.png)
 
@@ -164,9 +164,9 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
-    a. No campo **Nome**, insira **BrendaFernandes**.
+    a. No campo **Nome** , insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário**, digite **brittasimon@yourcompanydomain.extension**  
+    b. No campo **Nome de usuário** , digite **brittasimon@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
@@ -177,7 +177,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
 Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure, concedendo acesso ao PlanMyLeave.
 
-1. No portal do Azure, selecione **Aplicativos Empresariais**, selecione **Todos os aplicativos** e, em seguida, selecione **PlanMyLeave**.
+1. No portal do Azure, selecione **Aplicativos Empresariais** , selecione **Todos os aplicativos** e, em seguida, selecione **PlanMyLeave**.
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
@@ -193,11 +193,11 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
     ![O painel Adicionar Atribuição](common/add-assign-user.png)
 
-5. Na caixa de diálogo **Usuários e grupos**, escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+5. Na caixa de diálogo **Usuários e grupos** , escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
 
-6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função**, escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
+6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função** , escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
 
-7. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
+7. Na caixa de diálogo **Adicionar atribuição** , clique no botão **Atribuir**.
 
 ### <a name="create-planmyleave-test-user"></a>Criar usuário de teste do PlanMyLeave
 
@@ -210,13 +210,12 @@ Nesta seção, um usuário chamado Brenda Fernandes será criado no PlanMyLeave.
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Ao clicar no bloco do PlanMyLeave no Painel de Acesso, você deverá entrar automaticamente no PlanMyLeave no qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao clicar no bloco do PlanMyLeave no Painel de Acesso, você deverá entrar automaticamente no PlanMyLeave no qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](./tutorial-list.md)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)

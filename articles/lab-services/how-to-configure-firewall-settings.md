@@ -6,10 +6,10 @@ ms.author: enewman
 ms.date: 06/26/2020
 ms.topic: article
 ms.openlocfilehash: 067a2c9672b87974557f650cef07b0394e7d5a63
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85445841"
 ---
 # <a name="firewall-settings-for-azure-lab-services"></a>Configurações de firewall para o Azure Lab Services

@@ -3,12 +3,12 @@ title: Controles de segurança para retransmissão do Azure
 description: Este artigo fornece uma lista de verificação de controles de segurança internos para avaliar a retransmissão do Azure.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 64abee031bb20e2bdb10bf1cc3cd77e135713550
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ce5053366ac1d3536a152610d8ed7f76fad62b84
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85316618"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919571"
 ---
 # <a name="security-controls-for-azure-relay"></a>Controles de segurança para retransmissão do Azure
 
@@ -20,8 +20,8 @@ Este artigo documenta os controles de segurança criados na retransmissão do Az
 
 | Controle de segurança | Sim/Não | Observações | Documentação |
 |---|---|--|--|
-| Suporte ao ponto de extremidade de serviço| Não |  |   |
-| Isolamento de rede e suporte de firewall| Não |  |   |
+| Suporte de ponto de extremidade privado| Sim |  |   |
+| Isolamento de rede e suporte de firewall| Sim |  |   |
 | Suporte a túnel forçado| N/D | Retransmissão é o túnel TLS  |   |
 
 ## <a name="monitoring--logging"></a>Monitorando & log
@@ -46,7 +46,7 @@ Este artigo documenta os controles de segurança criados na retransmissão do Az
 | Criptografia no lado do servidor em repouso: chaves gerenciadas pela Microsoft |  N/D | A retransmissão é um soquete da Web e não mantém os dados. |   |
 | Criptografia no lado do servidor em repouso: chaves gerenciadas pelo cliente (BYOK) | Não | Usa somente certificados TLS da Microsoft.  |   |
 | Criptografia em nível de coluna (serviços de dados do Azure)| N/D | |   |
-| Criptografia em trânsito (como criptografia de ExpressRoute, criptografia de vnet e criptografia vnet)| Sim | O serviço requer TLS. |   |
+| Criptografia em trânsito (como criptografia de ExpressRoute, criptografia de VNet e criptografia de VNet-VNet)| Sim | O serviço requer TLS. |   |
 | Chamadas criptografadas à API| Sim | HTTPS. |
 
 

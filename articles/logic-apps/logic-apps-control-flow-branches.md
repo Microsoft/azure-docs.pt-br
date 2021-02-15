@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/10/2018
-ms.openlocfilehash: 9dafb702117a7e171ff88b3c77d7b8b79503636f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3514ce966e1de9af1741de6b966964aca2599610
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87066454"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91269226"
 ---
 # <a name="create-or-join-parallel-branches-for-workflow-actions-in-azure-logic-apps"></a>Criar ou unir branches paralelos para ações de fluxo de trabalho nos Aplicativos Lógicos do Azure
 
@@ -47,7 +47,7 @@ Seu aplicativo lógico espera que todos os branches estejam concluídos antes de
 
 1. Na caixa de pesquisa, encontre e selecione a ação desejada.
 
-   ![Localize e selecione a ação que você deseja](media/logic-apps-control-flow-branches/find-select-parallel-action.png)
+   ![Captura de tela que mostra a janela "escolher uma ação" no designer do aplicativo lógico.](media/logic-apps-control-flow-branches/find-select-parallel-action.png)
 
    Sua ação selecionada agora aparece na ramificação paralela, por exemplo:
 
@@ -59,7 +59,7 @@ Seu aplicativo lógico espera que todos os branches estejam concluídos antes de
 
 1. Na caixa de pesquisa, encontre e selecione a ação desejada.
 
-   ![Encontre e selecione a ação sequencial](media/logic-apps-control-flow-branches/find-select-sequential-action.png)
+   ![Captura de tela que mostra a janela "escolher uma ação" e a caixa de pesquisa no designer do aplicativo lógico.](media/logic-apps-control-flow-branches/find-select-sequential-action.png)
 
    A ação selecionada agora aparece dentro da ramificação atual, por exemplo:
 

@@ -3,20 +3,21 @@ title: DateTimeDiff na linguagem de consulta Azure Cosmos DB
 description: Saiba mais sobre a função do sistema SQL DateTimeDiff no Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 07/09/2020
 ms.author: tisande
 ms.custom: query-reference
-ms.openlocfilehash: b90b45072128252e8abc22d3422c84c813808119
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 09b801c48bf2998a2d8926009cae76287c1ac9b6
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87446374"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93342259"
 ---
 # <a name="datetimediff-azure-cosmos-db"></a>DateTimeDiff (Azure Cosmos DB)
-
-Retorna a contagem (como um valor inteiro assinado) dos limites de DateTimePart especificados cruzados entre o *StartDate* e *EndDate*especificados.
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+Retorna a contagem (como um valor inteiro assinado) dos limites de DateTimePart especificados cruzados entre o *StartDate* e *EndDate* especificados.
   
 ## <a name="syntax"></a>Sintaxe
   
@@ -31,8 +32,8 @@ DateTimeDiff (<DateTimePart> , <StartDate> , <EndDate>)
 
 | DateTimePart | abreviações        |
 | ------------ | -------------------- |
-| Ano         | "Year", "yyyy", "AA" |
-| Month        | "month", "mm", "m"   |
+| Year         | "Year", "yyyy", "AA" |
+| Mês        | "month", "mm", "m"   |
 | Dia          | "Day", "dd", "d"     |
 | Hora         | "hora", "HH"         |
 | Minuto       | "minuto", "mi", "n"  |
@@ -51,7 +52,7 @@ DateTimeDiff (<DateTimePart> , <StartDate> , <EndDate>)
   |DD|dia de dois dígitos do mês (01 a 31)|
   |T|signifier para o início dos elementos de hora|
   |hh|hora de dois dígitos (00 a 23)|
-  |MM|minutos de dois dígitos (00 a 59)|
+  |mm|minutos de dois dígitos (00 a 59)|
   |ss|segundos de dois dígitos (00 a 59)|
   |. fffffff|segundos fracionários de sete dígitos|
   |Z|Designador UTC (tempo Universal Coordenado)||
@@ -59,7 +60,7 @@ DateTimeDiff (<DateTimePart> , <StartDate> , <EndDate>)
   Para obter mais informações sobre o formato ISO 8601, consulte [ISO_8601](https://en.wikipedia.org/wiki/ISO_8601)
 
 *Término*  
-   Valor de cadeia de caracteres UTC de data e hora do ISO 8601 no formato`YYYY-MM-DDThh:mm:ss.fffffffZ`
+   Valor de cadeia de caracteres UTC de data e hora do ISO 8601 no formato `YYYY-MM-DDThh:mm:ss.fffffffZ`
 
 ## <a name="return-types"></a>Tipos de retorno
 

@@ -8,19 +8,19 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 06/16/2016
 ms.author: mimckitt
-ms.openlocfilehash: ac6fad8995d409c14008b8345e9e576b2403c799
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: fbba14980083287c91fdd3defec78b229808fb15
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86131695"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621681"
 ---
 # <a name="setting-up-winrm-access-for-virtual-machines-in-azure-resource-manager"></a>Configurando o acesso do WinRM para as máquinas virtuais no Azure Resource Manager
 
 Aqui estão as etapas que você precisa realizar para configurar uma VM com conectividade do WinRM
 
 1. Criar um cofre de chaves
-2. Crie um certificado autoassinado
+2. Criará um certificado autoassinado
 3. Carregar seu certificado autoassinado no Cofre de Chaves
 4. Obtenha a URL para seu certificado autoassinado no Cofre de Chaves
 5. Referenciar a URL de seus certificados autoassinados ao criar uma VM
@@ -57,16 +57,12 @@ $fileName = "<Path to the .pfx file>"
 $fileContentBytes = Get-Content $fileName -Encoding Byte
 $fileContentEncoded = [System.Convert]::ToBase64String($fileContentBytes)
 
-$jsonObject = @"
-{
-  "data": "$filecontentencoded",
-  "dataType" :"pfx",
-  "password": "<password>"
+[System.Collections.HashTable]$TableForJSON = @{
+    "data"     = $filecontentencoded;
+    "dataType" = "pfx";
+    "password" = "<password>";
 }
-"@
-
-$jsonObjectBytes = [System.Text.Encoding]::UTF8.GetBytes($jsonObject)
-$jsonEncoded = [System.Convert]::ToBase64String($jsonObjectBytes)
+[System.String]$JSONObject = $TableForJSON | ConvertTo-Json
 
 $secret = ConvertTo-SecureString -String $jsonEncoded -AsPlainText –Force
 Set-AzKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>" -SecretValue $secret

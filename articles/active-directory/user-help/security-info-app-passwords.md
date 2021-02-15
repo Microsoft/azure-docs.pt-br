@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 02/13/2018
 ms.author: curtand
-ms.openlocfilehash: 9de054162a59b10fbd02bed9b3e84634ee12125b
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 84588130788e9be8d3be52a8ea0f3988dce7b952
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88799189"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91536997"
 ---
 # <a name="create-app-passwords-from-the-security-info-preview-page"></a>Criar senhas de aplicativos usando a página de informações de segurança (versão prévia)
 
@@ -59,7 +59,7 @@ Se você usa a verificação em duas etapas com sua conta corporativa ou de estu
 
 4. Digite o nome do aplicativo que exige a senha de aplicativo e, em seguida, selecione **Avançar**.
 
-    ![Página Senha de aplicativo, com o nome do aplicativo](media/security-info/securityinfo-myprofile-password-appname.png)
+    ![Captura de tela que mostra a página "senha do aplicativo", com o nome do aplicativo inserido.](media/security-info/securityinfo-myprofile-password-appname.png)
 
 5. Copie o texto da caixa **Senha**, cole a senha na área de senha do aplicativo (no exemplo, Outlook 2010) e, em seguida, selecione **Concluído**.
 

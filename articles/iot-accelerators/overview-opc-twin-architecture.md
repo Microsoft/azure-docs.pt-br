@@ -8,14 +8,17 @@ ms.topic: overview
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: b8d4424c92ff24c36650e34a5d050bdc5f0f9091
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 602d2f77564709294d28b797ff3f03f12b3b32d8
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "73819847"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91533376"
 ---
 # <a name="opc-twin-architecture"></a>Arquitetura do OPC Twin
+
+> [!IMPORTANT]
+> Enquanto atualizamos este artigo, confira [IoT Industrial do Azure](https://azure.github.io/Industrial-IoT/) para obter o conteúdo mais atualizado.
 
 Os diagramas a seguir ilustram a arquitetura do OPC Twin.
 
@@ -23,17 +26,17 @@ Os diagramas a seguir ilustram a arquitetura do OPC Twin.
 
 1. O operador habilita o exame de rede no módulo ou faz uma descoberta única usando uma URL de descoberta. As informações de aplicativo e os pontos de extremidade descobertos são enviados por meio de telemetria para o agente de integração para processamento.  O agente de integração do dispositivo da UA de OPC processa eventos de descoberta do servidor da UA de OPC enviados pelo módulo do IoT Edge do Gêmeo OPC quando no modo de descoberta ou de exame. Os eventos de descoberta resultam em registro de aplicativo e atualizações no registro do dispositivo da UA de OPC.
 
-   ![Como o OPC Twin funciona](media/overview-opc-twin-architecture/opc-twin1.png)
+   ![Diagrama que mostra a arquitetura do OPC Twin com o módulo do IoT Edge do OPC Twin no modo de descoberta ou verificação.](media/overview-opc-twin-architecture/opc-twin1.png)
 
 1. O operador inspeciona o certificado do ponto de extremidade descoberto e ativa o gêmeo do ponto de extremidade registrado para acesso. 
 
-   ![Como o OPC Twin funciona](media/overview-opc-twin-architecture/opc-twin2.png)
+   ![Diagrama que mostra a arquitetura do OPC Twin com a "Identidade de Gêmeo" do IoT Edge.](media/overview-opc-twin-architecture/opc-twin2.png)
 
 ## <a name="browse-and-monitor"></a>Procurar e monitor
 
 1. Uma vez ativado, o operador pode usar a API REST de serviço de Gêmeo para procurar ou inspecionar o modelo de informações do servidor, ler/gravar variáveis de objeto e chamar métodos.  O usuário usa uma API simplificada da UA de OPC totalmente expressa em HTTP e JSON.
 
-   ![Como o OPC Twin funciona](media/overview-opc-twin-architecture/opc-twin3.png)
+   ![Diagrama que mostra a configuração da arquitetura do OPC Twin para navegar e inspecionar o modelo de informação do servidor.](media/overview-opc-twin-architecture/opc-twin3.png)
 
 1. A interface REST do serviço de gêmeo também pode ser usada para criar itens monitorados e assinaturas no OPC Publisher. O OPC Publisher permite enviar telemetria de sistemas de servidor da UA de OPC ao Hub IoT. Para obter mais informações sobre o OPC Publisher, veja [O que é o OPC Publisher](overview-opc-publisher.md).
 

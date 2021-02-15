@@ -12,12 +12,12 @@ metadata:
   ms.author: markvi
   ms.date: 08/29/2019
   ms.collection: M365-identity-device-management
-  ms.openlocfilehash: 28f65417053d136983611cfa07ebedb7de93e25a
-  ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+  ms.openlocfilehash: d7b75dfae53884bcea5f721d6d9c15b1e80e655d
+  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 05/29/2020
-  ms.locfileid: "84168617"
+  ms.lasthandoff: 10/09/2020
+  ms.locfileid: "89226838"
 landingContent:
 - title: Sobre os relatórios e o monitoramento do Azure Active Directory
   linkLists:
@@ -34,9 +34,9 @@ landingContent:
     - text: Logs de entrada
       url: concept-sign-ins.md
     - text: Logs de entrada com risco
-      url: concept-risky-sign-ins.md
+      url: ../identity-protection/overview-identity-protection.md
     - text: Usuários sinalizados por logs de risco
-      url: concept-user-at-risk.md
+      url: ../identity-protection/overview-identity-protection.md
     - text: Provisionando logs
       url: concept-provisioning-logs.md
 - title: Usar relatórios no Azure AD

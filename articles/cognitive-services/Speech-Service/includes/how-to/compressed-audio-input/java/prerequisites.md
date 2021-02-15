@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 03/09/2020
 ms.author: trbye
 ms.openlocfilehash: ccc7fcd748323e05f21edcfff1535085d2cdbdc7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81421885"
 ---
 O tratamento de áudio compactado é implementado usando o [GStreamer](https://gstreamer.freedesktop.org). Por motivos de licenciamento, os binários GStreamer não são compilados e vinculados ao SDK de fala. Em vez disso, você precisará usar os binários predefinidos para Android. Para baixar as bibliotecas predefinidas, consulte [Installing for Android Development](https://gstreamer.freedesktop.org/documentation/installing/for-android-development.html?gi-language=c).
 
-`libgstreamer_android.so` é obrigatório. Verifique se os plug-ins GStreamer estão vinculados `libgstreamer_android.so`.
+`libgstreamer_android.so` é obrigatório. Verifique se os plug-ins GStreamer estão vinculados `libgstreamer_android.so` .
 
 ```makefile
 GSTREAMER_PLUGINS := coreelements app audioconvert mpg123 \
@@ -21,7 +21,7 @@ GSTREAMER_PLUGINS := coreelements app audioconvert mpg123 \
     opus wavparse alaw mulaw flac
 ```
 
-Um exemplo `Android.mk` e `Application.mk` um arquivo são fornecidos abaixo. Siga estas etapas para criar o `gstreamer` objeto compartilhado:`libgstreamer_android.so`.
+Um exemplo `Android.mk` e um `Application.mk` arquivo são fornecidos abaixo. Siga estas etapas para criar o `gstreamer` objeto compartilhado: `libgstreamer_android.so` .
 
 ```makefile
 # Android.mk
@@ -108,4 +108,4 @@ ndk-build -C $(pwd)/gstreamer "NDK_APPLICATION_MK=Application.mk" APP_ABI=armeab
 #ndk-build -C $(pwd)/gstreamer "NDK_APPLICATION_MK=Application.mk" APP_ABI=x86 NDK_LIBS_OUT=$(pwd)
 ```
 
-Depois que o objeto compartilhado`libgstreamer_android.so`() é criado, o desenvolvedor de aplicativos precisa posicionar o objeto compartilhado no aplicativo do Android, para que ele possa ser carregado pelo SDK de fala.
+Depois que o objeto compartilhado ( `libgstreamer_android.so` ) é criado, o desenvolvedor de aplicativos precisa posicionar o objeto compartilhado no aplicativo do Android, para que ele possa ser carregado pelo SDK de fala.

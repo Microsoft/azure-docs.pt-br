@@ -3,7 +3,7 @@ title: Rotear o tráfego para HA de aplicativos-Azure PowerShell-Gerenciador de 
 description: Exemplo de script do Azure PowerShell – Rotear o tráfego para alta disponibilidade de aplicativos
 services: traffic-manager
 documentationcenter: traffic-manager
-author: rohinkoul
+author: duongau
 manager: kumudD
 editor: ''
 tags: azure-infrastructure
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: traffic-manager
 ms.date: 04/26/2018
-ms.author: rohink
-ms.openlocfilehash: 67d87549503a6ee458342ebb7c629a839f97bbc4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.author: duau
+ms.openlocfilehash: 114041a6ad0b311a1e01a692b9e6c36b0a8fb900
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87070141"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185369"
 ---
 # <a name="route-traffic-for-high-availability-of-applications-using-azure-powershell"></a>Rotear o tráfego para alta disponibilidade de aplicativos usando o Azure PowerShell
 
@@ -60,6 +60,6 @@ Esse script usa os seguintes comandos para criar um grupo de recursos, o aplicat
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre o Azure PowerShell, confira a [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/azure/).
+Para obter mais informações sobre o Azure PowerShell, confira a [Documentação do Azure PowerShell](/powershell/azure/).
 
 Exemplos adicionais de script de PowerShell de rede podem ser encontrados na [Documentação de visão geral da rede do Azure](../powershell-samples.md?toc=%2fazure%2fnetworking%2ftoc.json).

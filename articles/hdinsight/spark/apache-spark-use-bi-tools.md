@@ -1,19 +1,16 @@
 ---
 title: 'Tutorial: Analisar dados do Apache Spark do Azure HDInsight com o Power BI'
 description: Tutorial - Use o Microsoft Power BI para visualizar dados armazenados do Apache Spark em clusters HDInsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,mvc,seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: 4eb10298ac683c991835f86582d82fb952b314b2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 285c6c05a1a216303ee9d8019093c963cad60aa0
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82195104"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946473"
 ---
 # <a name="tutorial-analyze-apache-spark-data-using-power-bi-in-hdinsight"></a>Tutorial: Analisar dados do Apache Spark usando o Power BI no HDInsight
 
@@ -37,7 +34,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 O [Jupyter Notebook](https://jupyter.org/) que você criou no [tutorial anterior](apache-spark-load-data-run-query.md) inclui código para criar uma tabela `hvac`. Esta tabela é baseada no arquivo CSV disponível em todos os clusters do Spark do HDInsight em `\HdiSamples\HdiSamples\SensorSampleData\hvac\hvac.csv`. Use o procedimento a seguir para verificar os dados.
 
-1. A partir do notebook Jupyter, cole o código a seguir e pressione **SHIFT+ENTER**. O código verifica a existência das tabelas.
+1. Do Jupyter Notebook, cole o código a seguir e pressione **SHIFT + ENTER**. O código verifica a existência das tabelas.
 
     ```PySpark
     %%sql
@@ -99,7 +96,7 @@ As primeiras etapas ao trabalhar com Spark são conectar-se ao cluster no Power 
 
     1. No painel **VISUALIZAÇÕES**, selecione **Gráfico de Área**.
 
-    2. Arraste o campo **BuildingID** para **Eixo**e arraste os campos **ActualTemp** e **TargetTemp** para **Valor**.
+    2. Arraste o campo **BuildingID** para **Eixo** e arraste os campos **ActualTemp** e **TargetTemp** para **Valor**.
 
         ![adicionar colunas de valor](./media/apache-spark-use-bi-tools/apache-spark-bi-add-value-columns.png "adicionar colunas de valor")
 

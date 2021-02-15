@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: edbe202350b0912372aad822c8530c5f79c76384
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 2d3f382635e9a8b8a562f7a7f60f256d68b90b8f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86254819"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91363198"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Autorizar contas de desenvolvedor usando o Active Directory do Azure no Gerenciamento de API do Azure
 
@@ -34,9 +34,9 @@ Este artigo mostra como habilitar o acesso ao portal do desenvolvedor para os us
 ## <a name="authorize-developer-accounts-by-using-azure-ad"></a>Autorizar contas de desenvolvedor usando o Azure AD
 
 1. Entre no [portal do Azure](https://portal.azure.com). 
-2. Selecionar ![seta](./media/api-management-howto-aad/arrow.png).
+2. Selecionar ![Ícone de seta.](./media/api-management-howto-aad/arrow.png).
 3. Digite **api** na caixa de pesquisa.
-4. Selecione **Serviços de Gerenciamento de API**.
+4. Selecione **serviços de gerenciamento de API**.
 5. Selecione uma instância do Serviço de Gerenciamento de API.
 6. Em **portal do desenvolvedor**, selecione **identidades**.
 7. Selecione **+Adicionar** na parte superior.
@@ -103,7 +103,7 @@ Depois de adicionar um grupo do Azure AD externo, você poderá revisar e config
  
 Os usuários da instância do Azure AD configurada já podem entrar no portal do desenvolvedor. Eles podem exibir e se inscrever em todos os grupos para os quais têm visibilidade.
 
-## <a name="developer-portal---add-azure-ad-account-authentication"></a><a id="log_in_to_dev_portal"></a>Portal do desenvolvedor-adicionar autenticação de conta do Azure AD
+## <a name="developer-portal---add-azure-ad-account-authentication"></a><a id="log_in_to_dev_portal"></a> Portal do desenvolvedor-adicionar autenticação de conta do Azure AD
 
 No portal do desenvolvedor, é possível entrar com o AAD com o **botão de entrada: widget OAuth** . O widget já está incluído na página de entrada do conteúdo do portal do desenvolvedor padrão.
 

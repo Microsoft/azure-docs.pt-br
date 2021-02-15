@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 08/2/2019
 ms.author: mayg
-ms.openlocfilehash: e9e66cbb024aa64e8c4cb5db9fc1c172fdc573fc
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 8b44a1d6119cc658b9460e0a52fa0629f759964a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135363"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91336198"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>Solução de problemas de replicação para VMs VMware e servidores físicos
 
@@ -146,7 +146,7 @@ Alguns dos problemas mais comuns estão listados abaixo
 #### <a name="cause-3-known-issue-in-sql-server-2016-and-2017"></a>Causa 3: Problema conhecido no SQL Server 2016 e 2017
 **Como corrigir**: Consulte o [artigo](https://support.microsoft.com/help/4493364/fix-error-occurs-when-you-back-up-a-virtual-machine-with-non-component) da base de dados
 
-#### <a name="cause-4-app-consistency-not-enabled-on-linux-servers"></a>Causa 4: consistência de aplicativo não habilitada em servidores Linux
+#### <a name="cause-4-app-consistency-not-enabled-on-linux-servers"></a>Causa 4: App-Consistency não habilitado em servidores Linux
 **Como corrigir: a** Azure site Recovery para o sistema operacional Linux dá suporte a scripts personalizados de aplicativo para consistência de aplicativo. O script personalizado com as opções pre e post será usado pelo agente de mobilidade Azure Site Recovery para consistência de aplicativo. [Aqui](./site-recovery-faq.md#replication) estão as etapas para habilitá-lo.
 
 ### <a name="more-causes-due-to-vss-related-issues"></a>Mais causas devido a problemas relacionados ao VSS:
@@ -192,6 +192,24 @@ Verifique se o tipo de inicialização do serviço do provedor do VSS está defi
         - Serviço de Cópias de Sombra de Volume
         - Provedor de VSS do Azure Site Recovery
         - Serviço VDS
+
+## <a name="error-id-95001---insufficient-permissions-found"></a>ID do erro 95001-permissões insuficientes encontradas
+
+Esse erro ocorre ao tentar habilitar a replicação e as pastas do aplicativo não têm permissões suficientes.
+
+**Como corrigir**: para resolver esse problema, verifique se o usuário IUSR tem função de proprietário para todas as pastas mencionadas abaixo-
+
+- *C\ProgramData\Microsoft Recovery\private Azure site*
+- O diretório de instalação. Por exemplo, se o diretório de instalação for uma unidade F, forneça as permissões corretas para-
+    - *Arquivos F:\Program (x86) \Microsoft Azure site Recovery\home\svsystems*
+- A pasta *\pushinstallsvc* no diretório de instalação. Por exemplo, se o diretório de instalação for uma unidade F, forneça as permissões corretas para-
+    - *Arquivos F:\Program (x86) \Microsoft Azure site Recovery\home\svsystems\pushinstallsvc*
+- A pasta *\etc* no diretório de instalação. Por exemplo, se o diretório de instalação for uma unidade F, forneça as permissões corretas para-
+    - *Arquivos F:\Program (x86) \Microsoft Azure site Recovery\home\svsystems\etc*
+- *C:\temp.*
+- *C:\thirdparty\php5nts*
+- Todos os itens sob o caminho abaixo-
+    - *C:\thirdparty\rrdtool-1.2.15-win32-perl58\rrdtool\Release\**
 
 ## <a name="next-steps"></a>Próximas etapas
 

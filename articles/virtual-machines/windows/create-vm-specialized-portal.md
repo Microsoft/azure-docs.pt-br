@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 01/18/2019
 ms.author: cynthn
-ms.openlocfilehash: 5a541dce94cc25958e3c3a6a058e015c8c5e3db0
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 31677482660a48e2bb4c71b81b04681eba725fcd
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283241"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96455123"
 ---
 # <a name="create-a-vm-from-a-vhd-by-using-the-azure-portal"></a>Crie uma VM a partir de um VHD usando o portal do Azure
 
@@ -26,7 +26,10 @@ Existem várias maneiras de criar uma máquina virtual (VM) no Azure:
  
 - Você pode criar uma VM do Azure a partir de um VHD local fazendo o upload do VHD local e anexando-o a uma nova VM. Você usa o PowerShell ou outra ferramenta para carregar o VHD em uma conta de armazenamento e, em seguida, cria um disco gerenciado a partir do VHD. Para obter mais informações, consulte [carregar um VHD especializado](create-vm-specialized.md#option-2-upload-a-specialized-vhd). 
 
-Não use um disco especializado, se você quiser criar várias VMs. Em vez disso, para implantações maiores, [criar uma imagem](capture-image-resource.md) e, em seguida [usar essa imagem para criar várias VMs](create-vm-generalized-managed.md).
+> [!IMPORTANT]
+> 
+> Quando você usa um disco especializado para criar uma nova VM, a nova VM retém o nome do computador da VM original. Outras informações específicas do computador (por exemplo, CMID) também são mantidas e, em alguns casos, essas informações duplicadas podem causar problemas. Ao copiar uma VM, esteja ciente de quais tipos de informações específicas do computador seus aplicativos dependem.  
+> Portanto, não use um disco especializado se desejar criar várias VMs. Em vez disso, para implantações maiores, [criar uma imagem](capture-image-resource.md) e, em seguida [usar essa imagem para criar várias VMs](create-vm-generalized-managed.md).
 
 Recomendamos que você limite o número de implantações simultâneas a 20 VMs de um único instantâneo ou VHD. 
 

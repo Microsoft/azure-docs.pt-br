@@ -9,13 +9,13 @@ metadata:
   ms.topic: landing-page
   author: cherylmc
   ms.author: cherylmc
-  ms.date: 08/29/2019
-  ms.openlocfilehash: a60f7d2026bbfae2d52cffa3f3d4229d834631ae
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.date: 10/20/2020
+  ms.openlocfilehash: e6102ae6a688819af63680a259b4fedf8650e7c2
+  ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "73498857"
+  ms.lasthandoff: 10/21/2020
+  ms.locfileid: "92327307"
 landingContent:
 - title: Sobre o Azure Bastion
   linkLists:
@@ -29,10 +29,14 @@ landingContent:
       url: bastion-faq.md
 - title: Introdução
   linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Configurar o Bastion e conectar-se a uma VM
+      url: quickstart-host-portal.md
   - linkListType: how-to-guide
     links:
     - text: Criar um Bastion host
-      url: bastion-create-host-portal.md
+      url: ./tutorial-create-host-portal.md
     - text: Conectar-se a uma máquina virtual (Linux)
       url: bastion-connect-vm-ssh.md
     - text: Conectar-se a uma máquina virtual (Windows)

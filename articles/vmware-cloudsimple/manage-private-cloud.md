@@ -1,19 +1,19 @@
 ---
 title: Gerenciar a Nuvem Privada da Solução VMware da CloudSimple no Azure
 description: Descreve as funcionalidades disponíveis para gerenciar seus recursos e sua atividade de Nuvem Privada da CloudSimple
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 06/10/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: b0aff8298ac2335e5216252eb2cbd5a393cc37d5
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 4f2f66c2e1e2e8aa596393d4c69a757138ab5a91
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86524989"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97895199"
 ---
 # <a name="manage-private-cloud-resources-and-activity"></a>Gerenciar recursos e a atividade da Nuvem Privada
 

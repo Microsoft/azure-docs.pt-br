@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 02/13/2019
+ms.date: 01/05/2021
 ms.author: aahi
-ms.openlocfilehash: aca3b0bea65923cee1bae25020058666c973922c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9a4e179767cc38169cd794f4cd629604bdcdaab0
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73837133"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955035"
 ---
-# <a name="frequently-asked-questions-faq-about-the-text-analytics-cognitive-service"></a>FAQ (perguntas frequentes) sobre o Serviço Cognitivo de Análise de Texto
+# <a name="frequently-asked-questions-faq-about-the-text-analytics-api"></a>Perguntas frequentes sobre a API de Análise de Texto
 
- Encontre respostas a perguntas frequentes sobre conceitos, código e cenários relacionados à API de Análise de Texto para Serviços Cognitivos da Microsoft no Azure.
+ Encontre respostas para perguntas frequentes sobre conceitos, código e cenários relacionados ao API de Análise de Texto nos serviços cognitivas do Azure.
 
 ## <a name="can-text-analytics-identify-sarcasm"></a>Análise de Texto consegue identificar sarcasmo?
 
@@ -29,11 +29,11 @@ Sempre há um certo grau de imprecisão na análise de sentimento, mas o modelo 
 
 ## <a name="can-i-add-my-own-training-data-or-models"></a>Adicionar meus próprios modelos ou dados de treinamento?
 
-Não, os modelos são pré-treinados. As únicas operações disponíveis nos dados de upload são pontuação, extração de frases-chave e detecção de idioma. Não hospedamos modelos personalizados. Se você quiser criar e hospedar modelos de aprendizado de máquina personalizados, considere as [funcionalidades de aprendizado de máquina no Microsoft R Server](https://docs.microsoft.com/r-server/r/concept-what-is-the-microsoftml-package).
+Não, os modelos são pré-treinados. As únicas operações disponíveis nos dados de upload são pontuação, extração de frases-chave e detecção de idioma. Não hospedamos modelos personalizados. Se você quiser criar e hospedar modelos de aprendizado de máquina personalizados, considere as [funcionalidades de aprendizado de máquina no Microsoft R Server](/r-server/r/concept-what-is-the-microsoftml-package).
 
 ## <a name="can-i-request-additional-languages"></a>Posso solicitar idiomas adicionais?
 
-Análise de sentimento e extração de frases-chave estão disponíveis para um [número selecionado de idiomas](text-analytics-supported-languages.md). Processamento de idioma natural é complexo e exige teste substancial antes de nova funcionalidade pode ser lançada. Por esse motivo, evitamos anunciar suporte para que ninguém conte com uma funcionalidade que precisa de mais tempo para amadurecer. 
+Análise de sentimento e extração de frases-chave estão disponíveis para um [número selecionado de idiomas](./language-support.md). Processamento de idioma natural é complexo e exige teste substancial antes de nova funcionalidade pode ser lançada. Por esse motivo, evitamos anunciar suporte para que ninguém conte com uma funcionalidade que precisa de mais tempo para amadurecer. 
 
 Para nos ajudar a priorizar em quais idiomas trabalhar a seguir, vote em idiomas específicos na [Voz do Usuário](https://cognitive.uservoice.com/forums/555922-text-analytics). 
 
@@ -47,11 +47,21 @@ Em geral, saída consiste nos substantivos e nos objetos da frase. A saída é l
 
 Melhorias aos modelos e algoritmos serão anunciadas se a alteração for importante ou silenciosamente integradas ao serviço se a atualização for secundária. Ao longo do tempo, você poderá descobrir que a mesma entrada de texto resulta em uma pontuação de sentimento ou saída de frases-chave diferente. Essa é uma consequência normal e intencional do uso de recursos de aprendizado de máquina gerenciados na nuvem.
 
+## <a name="service-availability-and-redundancy"></a>Disponibilidade e redundância do serviço
+
+### <a name="is-text-analytics-service-zone-resilient"></a>O Análise de Texto zona de serviço é resiliente?
+
+Sim. Por padrão, o serviço de Análise de Texto é resiliente por zona.
+
+### <a name="how-do-i-configure-the-text-analytics-service-to-be-zone-resilient"></a>Como fazer configurar o serviço de Análise de Texto para ser resistente a zona?
+
+Nenhuma configuração de cliente é necessária para habilitar a resiliência de zona. A resiliência de zona para recursos de Análise de Texto está disponível por padrão e gerenciada pelo próprio serviço.
+
 ## <a name="next-steps"></a>Próximas etapas
 
 A sua pergunta é sobre a falta de um recurso ou funcionalidade? Considere solicitar ou votar nisso em nosso [site UserVoice](https://cognitive.uservoice.com/forums/555922-text-analytics).
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
- [StackOverflow: API de Análise de Texto](https://stackoverflow.com/questions/tagged/text-analytics-api)   
- [StackOverflow: Serviços Cognitivos](https://stackoverflow.com/questions/tagged/microsoft-cognitive)
+ * [StackOverflow: API de Análise de Texto](https://stackoverflow.com/questions/tagged/text-analytics-api)   
+ * [StackOverflow: Serviços Cognitivos](https://stackoverflow.com/questions/tagged/microsoft-cognitive)

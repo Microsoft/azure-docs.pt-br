@@ -1,31 +1,49 @@
 ---
 title: 'Início Rápido: Usar o SDK para criar e gerenciar a base de dados de conhecimento – QnA Maker'
 description: Este guia de início rápido mostra como criar e gerenciar sua base de dados de conhecimento usando o SDK do cliente.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 06/18/2020
-ms.custom: devx-track-python, devx-track-javascript
-zone_pivot_groups: programming-languages-set-six
-ms.openlocfilehash: e6a8a6d0688f362f934d1439c1ca0f6072acf6d6
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp
+zone_pivot_groups: qnamaker-quickstart
+ms.openlocfilehash: de237c1bba699165e63fc0b2e4bfb58d25518bd9
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87872915"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98701272"
 ---
 # <a name="quickstart-qna-maker-client-library"></a>Início Rápido: Biblioteca de clientes do QnA Maker
 
 Introdução à biblioteca de clientes do QnA Maker. Siga essas etapas para instalar o pacote e testar o código de exemplo para tarefas básicas.
 
 ::: zone pivot="programming-language-csharp"
-[!INCLUDE [Get intent with C# and REST](../includes/quickstart-sdk-csharp.md)]
+[!INCLUDE [QnA Maker C# client library quickstart](../includes/quickstart-sdk-csharp.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
-[!INCLUDE [Get intent with Node.js and REST](../includes/quickstart-sdk-nodejs.md)]
+[!INCLUDE [QnA Maker Javascript client library quickstart](../includes/quickstart-sdk-nodejs.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-[!INCLUDE [Get intent with Python and REST](../includes/quickstart-sdk-python.md)]
+[!INCLUDE [QnA Maker Python client library quickstart](../includes/quickstart-sdk-python.md)]
+::: zone-end
+
+::: zone pivot="programming-language-java"
+[!INCLUDE [QnA Maker Java client library quickstart](../includes/quickstart-sdk-java.md)]
+::: zone-end
+
+::: zone pivot="programming-language-go"
+[!INCLUDE [QnA Maker Go client library quickstart](../includes/quickstart-sdk-go.md)]
+::: zone-end
+
+::: zone pivot="programming-language-ruby"
+[!INCLUDE [QnA Maker Ruby client library quickstart](../includes/quickstart-sdk-ruby.md)]
+::: zone-end
+
+::: zone pivot="rest"
+[!INCLUDE [QnA Maker REST quickstart](../includes/quickstart-rest.md)]
 ::: zone-end
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
@@ -38,9 +56,8 @@ Se quiser limpar e remover uma assinatura dos Serviços Cognitivos, você poder�
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
->[Tutorial: Testar sua base de dados de conhecimento com um arquivo em lotes](./batch-testing.md)
+>[Tutorial: Testar sua base de dados de conhecimento com um arquivo em lotes](../index.yml)
 
 * [O que é a API de QnA Maker?](../Overview/overview.md)
 * [Editar uma base de dados de conhecimento](../how-to/edit-knowledge-base.md)
 * [Obter a análise de uso](../how-to/get-analytics-knowledge-base.md)
-

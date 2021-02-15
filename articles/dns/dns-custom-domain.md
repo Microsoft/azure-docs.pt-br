@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: how-to
 ms.date: 7/13/2019
 ms.author: rohink
-ms.openlocfilehash: f4eb26678dee161451ff10144c2eaa3321ecc011
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4d8af5815e544698ab833001e5ce6d0f4a30a264
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84693105"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487391"
 ---
 # <a name="use-azure-dns-to-provide-custom-domain-settings-for-an-azure-service"></a>Usar o DNS do Azure para fornecer as configurações de domínio personalizadas para um serviço do Azure
 
@@ -66,7 +66,7 @@ Navegue para a sua zona DNS e clique em **+ Conjunto de registros**. Preencha as
 |Propriedade  |Valor  |Descrição  |
 |---------|---------|---------|
 |Nome     | mywebserver        | Esse valor junto com o rótulo de nome de domínio é o FQDN para o nome de domínio personalizado.        |
-|Tipo     | Um        | Use um registro A, uma vez que o recurso é um endereço IP.        |
+|Type     | A        | Use um registro A, uma vez que o recurso é um endereço IP.        |
 |TTL     | 1        | 1 é usado por 1 hora        |
 |Unidade de TTL     | Horas        | Horas são usadas como a medida de tempo         |
 |Endereço IP     | `<your ip address>`       | O endereço IP público.|
@@ -103,7 +103,7 @@ Navegue para a sua zona DNS e clique em **+ Conjunto de registros**. Preencha as
 
 Navegue de volta para o serviço de aplicativo que está configurado para o nome de domínio personalizado. Clique em **Domínios personalizados**, em seguida, clique em **Nomes de host**. Para adicionar o registro CNAME que você criou, clique em **+ Adicionar nome de host**.
 
-![figura 1](./media/dns-custom-domain/figure1.png)
+![Captura de tela que realça o botão + Adicionar nome do host.](./media/dns-custom-domain/figure1.png)
 
 Quando o processo estiver concluído, execute **nslookup** para validar que a resolução de nomes está funcionando.
 
@@ -115,7 +115,7 @@ Para saber como migrar um nome DNS ativo, consulte [migrar um nome DNS ativo par
 
 Se você precisar comprar um domínio personalizado, acesse [Comprar um nome de domínio personalizado para aplicativos Web do Azure](../app-service/manage-custom-dns-buy-domain.md) para saber mais sobre domínios do Serviço de Aplicativo.
 
-## <a name="blob-storage"></a>Armazenamento de blob
+## <a name="blob-storage"></a>Armazenamento de Blobs
 
 As etapas a seguir o conduzem pela configuração de um registro CNAME para uma conta de armazenamento de blobs usando o método asverify. Esse método garante que não haja tempo de inatividade.
 
@@ -136,7 +136,7 @@ Navegue para a sua zona DNS e clique em **+ Conjunto de registros**. Preencha as
 
 Navegue de volta para sua conta de armazenamento **clicando em**  >  **contas de armazenamento**de armazenamento, selecione sua conta de armazenamento e clique em **domínio personalizado**. Digite o alias que você criou sem o prefixo asverify na caixa de texto, marque **usar validação de CNAME indireto**e clique em **salvar**. Depois que essa etapa estiver concluída, volte para a zona DNS e crie um registro CNAME sem o prefixo asverify.  Depois desse ponto, você pode excluir com segurança o registro CNAME com o prefixo cdnverify.
 
-![domínio personalizado de armazenamento de blobs](./media/dns-custom-domain/indirectvalidate.png)
+![Captura de tela que mostra a página de domínio personalizada.](./media/dns-custom-domain/indirectvalidate.png)
 
 Valide a resolução de DNS, executando `nslookup`
 

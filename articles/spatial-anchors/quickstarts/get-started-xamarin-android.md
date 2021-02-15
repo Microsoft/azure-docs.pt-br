@@ -1,19 +1,19 @@
 ---
 title: 'Início Rápido: criar um aplicativo Android do Xamarin'
 description: Neste Início Rápido, você aprenderá a criar um aplicativo do Android com o Xamarin usando as Âncoras Espaciais.
-author: craigktreasure
-manager: vriveras
+author: msftradford
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
-ms.author: crtreasu
-ms.date: 07/22/2019
+ms.author: parkerra
+ms.date: 11/20/2020
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 8a7bb300bb634b342b1141d175b0046c7d2d7e2b
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 1626dfa739df6b7cf971aa570f14d36ac6c532e7
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87810302"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "96022608"
 ---
 # <a name="quickstart-create-a-xamarin-android-app-with-azure-spatial-anchors"></a>Início Rápido: Criar um aplicativo para Xamarin Android com as Âncoras Espaciais do Azure
 
@@ -37,10 +37,10 @@ Para concluir este início rápido, certifique-se de que:
     - <a href="https://git-scm.com/download/win" target="_blank">Git para Windows</a>.
     - <a href="https://git-lfs.github.com/">Git LFS</a>.
   - Se estiver usando o macOS:
-    - Uma versão atualizada do <a href="https://docs.microsoft.com/visualstudio/mac/installation?view=vsmac-2019" target="_blank">Visual Studio para Mac 8.1+</a>.
+    - Uma versão atualizada do <a href="/visualstudio/mac/installation?view=vsmac-2019" target="_blank">Visual Studio para Mac 8.1+</a>.
     - <a href="https://git-scm.com/download/mac" target="_blank">Git para macOS</a>.
     - <a href="https://git-lfs.github.com/">Git LFS</a>.
-- A versão mais recente do Xamarin.Android instalada e em execução na plataforma de sua escolha. Para obter um guia para instalar o Xamarin.Android, consulte os guias de [Instalação do Xamarin.Android](https://docs.microsoft.com/xamarin/android/get-started/installation/index).
+- A versão mais recente do Xamarin.Android instalada e em execução na plataforma de sua escolha. Para obter um guia para instalar o Xamarin.Android, consulte os guias de [Instalação do Xamarin.Android](/xamarin/android/get-started/installation/index).
 - Um dispositivo Android <a href="https://developer.android.com/studio/debug/dev-options" target="_blank">habilitado para desenvolvedor</a> e <a href="https://developers.google.com/ar/discover/supported-devices" target="_blank">compatível com ARCore</a>.
   - Drivers de dispositivo adicionais podem ser necessários para que seu computador se comunique com seu dispositivo Android. Para saber mais, clique [aqui](https://developer.android.com/studio/run/device.html).
 - Seu aplicativo deve ser destinado ao ARCore **1.8**.
@@ -73,7 +73,7 @@ Defina o projeto de inicialização como **SampleXamarin.Android**, altere a **C
 
 # <a name="windows"></a>[Windows](#tab/deploy-windows)
 
-![Configuração do Visual Studio](./media/get-started-xamarin-android/visual-studio-windows-configuration.png)
+![Captura de tela que mostra o menu para selecionar o projeto e o dispositivo no Windows.](./media/get-started-xamarin-android/visual-studio-windows-configuration.png)
 
 Selecione **Depurar** > **Iniciar depuração** para implantar e iniciar seu aplicativo.
 

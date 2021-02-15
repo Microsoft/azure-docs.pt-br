@@ -8,10 +8,10 @@ ms.custom: devx-track-csharp
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: aaa1d6df9faa20b1a561bfccdfea682af7645c18
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88930240"
 ---
 # <a name="write-code-to-track-requests-with-application-insights"></a>Escrever código para acompanhar as solicitações com o Application Insights

@@ -1,19 +1,16 @@
 ---
 title: Opções de contexto de computação para o ML Services no Azure HDInsight
 description: Conheça as diferentes opções de contexto de computação disponíveis para usuários com o ML Services no HDInsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/02/2020
-ms.openlocfilehash: 4df3c24c6f0853c1ae7447a8e20e8c2944319686
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 71ce0d87faa33bd7d533242edfcf3b131c8f7e47
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087598"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943960"
 ---
 # <a name="compute-context-options-for-ml-services-on-hdinsight"></a>Opções de contexto de computação para o ML Services no HDInsight
 
@@ -23,7 +20,7 @@ O nó de borda de um cluster fornece um local conveniente para se conectar ao cl
 
 ## <a name="ml-services-on-azure-hdinsight"></a>ML Services no Microsoft Azure HDInsight
 
-O [ML Services no Microsoft Azure HDInsight](r-server-overview.md) fornece os recursos mais recentes para análises baseadas em R. Ele pode usar dados armazenados em um contêiner Apache Hadoop HDFS em sua conta de armazenamento de [BLOBs do Azure](../../storage/common/storage-introduction.md "Armazenamento de Blobs do Azure") , em um data Lake Store ou no sistema de arquivos Linux local. Como os serviços ML se baseiam no R de software livre, os aplicativos baseados em R que você cria podem aplicar qualquer um dos mais de 8000 pacotes de R de software livre. Eles também podem usar as rotinas no [RevoScaleR](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/revoscaler), o pacote de análise de Big Data da Microsoft que está incluído no ML Services.  
+O [ML Services no Microsoft Azure HDInsight](r-server-overview.md) fornece os recursos mais recentes para análises baseadas em R. Ele pode usar dados armazenados em um contêiner Apache Hadoop HDFS em sua conta de armazenamento de [BLOBs do Azure](../../storage/common/storage-introduction.md "Armazenamento de Blobs do Azure") , em um data Lake Store ou no sistema de arquivos Linux local. Como os serviços ML se baseiam no R de software livre, os aplicativos baseados em R que você cria podem aplicar qualquer um dos mais de 8000 pacotes de R de software livre. Eles também podem usar as rotinas no [RevoScaleR](/machine-learning-server/r-reference/revoscaler/revoscaler), o pacote de análise de Big Data da Microsoft que está incluído no ML Services.  
 
 ## <a name="compute-contexts-for-an-edge-node"></a>Contextos de computação para um nó de extremidade
 
@@ -77,7 +74,7 @@ Para obter mais informações e exemplos de contextos de computação de RevoSca
 > ?rxSetComputeContext
 ```
 
-Você também pode consultar a [visão geral da computação distribuída](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-distributed-computing) na [documentação do Machine Learning Server](https://docs.microsoft.com/machine-learning-server/).
+Você também pode consultar a [visão geral da computação distribuída](/machine-learning-server/r/how-to-revoscaler-distributed-computing) na [documentação do Machine Learning Server](/machine-learning-server/).
 
 ## <a name="next-steps"></a>Próximas etapas
 

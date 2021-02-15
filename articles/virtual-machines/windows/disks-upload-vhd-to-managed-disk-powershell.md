@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: virtual-machines
 ms.tgt_pltfrm: linux
 ms.subservice: disks
-ms.openlocfilehash: ec765e2eb635449140d60ee98762e35aea12fe44
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: c766c78705a1c1e40a9385360d35ac06a3db3a5d
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88689602"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99252229"
 ---
 # <a name="upload-a-vhd-to-azure-or-copy-a-managed-disk-to-another-region---azure-powershell"></a>Carregar um VHD no Azure ou copiar um disco gerenciado para outra região-Azure PowerShell
 
@@ -44,19 +44,19 @@ Esse tipo de disco gerenciado tem dois Estados exclusivos:
 
 Para poder criar um HDD padrão vazio para carregamento, você precisará do tamanho do arquivo do VHD que deseja carregar, em bytes. O código de exemplo o levará para você, mas, para você mesmo, você pode usar: `$vhdSizeBytes = (Get-Item "<fullFilePathHere>").length` . Esse valor é usado ao especificar o parâmetro **-UploadSizeInBytes** .
 
-Agora, no Shell local, crie um HDD padrão vazio para carregamento, especificando a configuração de **carregamento** no parâmetro **-createoption** , bem como o parâmetro **-UploadSizeInBytes** no cmdlet [New-AzDiskConfig](/powershell/module/az.compute/new-azdiskconfig?view=azps-1.8.0) . Em seguida, chame [New-AzDisk](/powershell/module/az.compute/new-azdisk?view=azps-1.8.0) para criar o disco.
+Agora, no Shell local, crie um HDD padrão vazio para carregamento, especificando a configuração de **carregamento** no parâmetro **-createoption** , bem como o parâmetro **-UploadSizeInBytes** no cmdlet [New-AzDiskConfig](/powershell/module/az.compute/new-azdiskconfig) . Em seguida, chame [New-AzDisk](/powershell/module/az.compute/new-azdisk) para criar o disco.
 
 Substitua `<yourdiskname>` , `<yourresourcegroupname>` e `<yourregion>` Execute os seguintes comandos:
 
 > [!TIP]
-> Se você estiver criando um disco do sistema operacional, adicione-HyperVGeneration ' <yourGeneration> ' a `New-AzDiskConfig` .
+> Se você estiver criando um disco do sistema operacional, adicione `-HyperVGeneration '<yourGeneration>'` a `New-AzDiskConfig` .
 
 ```powershell
 $vhdSizeBytes = (Get-Item "<fullFilePathHere>").length
 
 $diskconfig = New-AzDiskConfig -SkuName 'Standard_LRS' -OsType 'Windows' -UploadSizeInBytes $vhdSizeBytes -Location '<yourregion>' -CreateOption 'Upload'
 
-New-AzDisk -ResourceGroupName '<yourresourcegroupname' -DiskName '<yourdiskname>' -Disk $diskconfig
+New-AzDisk -ResourceGroupName '<yourresourcegroupname>' -DiskName '<yourdiskname>' -Disk $diskconfig
 ```
 
 Se você quiser carregar um SSD Premium ou um SSD padrão, substitua **Standard_LRS** por **Premium_LRS** ou **StandardSSD_LRS**. Ainda não há suporte para ultra discos.
@@ -77,7 +77,7 @@ Agora que você tem uma SAS para seu disco gerenciado vazio, você pode usá-lo 
 
 Use AzCopy V10 para carregar o arquivo VHD local em um disco gerenciado especificando o URI SAS gerado.
 
-Esse carregamento tem a mesma taxa de transferência que o [HDD padrão](disks-types.md#standard-hdd)equivalente. Por exemplo, se você tiver um tamanho que é igual a S4, terá uma taxa de transferência de até 60 MiB/s. Mas, se você tiver um tamanho igual a S70, terá uma taxa de transferência de até 500 MiB/s.
+Esse carregamento tem a mesma taxa de transferência que o [HDD padrão](../disks-types.md#standard-hdd)equivalente. Por exemplo, se você tiver um tamanho que é igual a S4, terá uma taxa de transferência de até 60 MiB/s. Mas, se você tiver um tamanho igual a S70, terá uma taxa de transferência de até 500 MiB/s.
 
 ```
 AzCopy.exe copy "c:\somewhere\mydisk.vhd" $diskSas.AccessSAS --blob-type PageBlob

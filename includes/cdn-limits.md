@@ -5,18 +5,18 @@ ms.topic: include
 ms.date: 04/29/2019
 ms.author: magattus
 ms.openlocfilehash: 41cbc888f40505e010537b75463b72be72b50d57
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85838926"
 ---
 | Recurso | Limite |
 | --- | --- |
-| Perfis de rede de distribuição de conteúdo do Azure |25 |
-| Pontos de extremidade de rede de distribuição de conteúdo por perfil |25 |
+| Perfis de Rede de Distribuição de Conteúdo do Azure |25 |
+| Pontos de extremidade de Rede de Distribuição de Conteúdo por perfil |25 |
 | Domínios personalizados por ponto de extremidade |25 |
 
-Uma assinatura de rede de distribuição de conteúdo pode conter um ou mais perfis de rede de distribuição de conteúdo. Um perfil de rede de distribuição de conteúdo pode conter um ou mais pontos de extremidade de rede de distribuição de conteúdo. Talvez você queira usar vários perfis para organizar os pontos de extremidade da rede de distribuição de conteúdo por domínio da Internet, aplicativo Web ou algum outro critério. 
+Uma assinatura de Rede de Distribuição de Conteúdo poderá conter um ou mais perfis de Rede de Distribuição de Conteúdo. Um perfil de Rede de Distribuição de Conteúdo poderá conter um ou mais pontos de extremidade de Rede de Distribuição de Conteúdo. Talvez seja interessante usar vários perfis para organizar seus pontos de extremidade de Rede de Distribuição de Conteúdo por domínio de Internet, aplicativo Web ou algum outro critério. 
 
 

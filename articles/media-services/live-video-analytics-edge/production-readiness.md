@@ -3,12 +3,12 @@ title: Preparação para produção e práticas recomendadas – Azure
 description: Este artigo fornece orientação sobre como configurar e implantar a análise de vídeo ao vivo em IoT Edge módulo em ambientes de produção.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: c34e05e184cfa6f0933701a76177fae3eed70c0a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 56982d84b7ffac718072683076657d56a2691d6c
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87071937"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400549"
 ---
 # <a name="production-readiness-and-best-practices"></a>Preparação para produção e práticas recomendadas
 
@@ -62,7 +62,7 @@ Em seguida, no manifesto de implantação, você pode definir o LOCAL_USER_ID e 
 
 O módulo análise de vídeo ao vivo no IoT Edge requer a capacidade de gravar arquivos no sistema de arquivos local quando:
 
-* Usando uma propriedade addmodule [[applicationDataDirectory](module-twin-configuration-schema.md#module-twin-properties)], em que você deve especificar um diretório no sistema de arquivos local para armazenar dados de configuração.
+* Usando uma propriedade MyModule [`applicationDataDirectory`](module-twin-configuration-schema.md#module-twin-properties) , em que você deve especificar um diretório no sistema de arquivos local para armazenar dados de configuração.
 * Usando um grafo de mídia para gravar vídeo na nuvem, o módulo requer o uso de um diretório no dispositivo de borda como um cache (consulte o artigo [gravação de vídeo contínua](continuous-video-recording-concept.md) para obter mais informações).
 * [Registro em um arquivo local](event-based-video-recording-concept.md#video-recording-based-on-events-from-other-sources), onde você deve especificar um caminho de arquivo para o vídeo gravado.
 
@@ -109,7 +109,11 @@ Se você examinar os gráficos de mídia de exemplo para o início rápido e os 
 
 ### <a name="naming-video-assets-or-files"></a>Nomenclatura dos ativos de vídeo ou arquivos
 
-Os grafos de mídia permitem a criação de ativos na nuvem ou em arquivos MP4 na borda. Os ativos de mídia podem ser gerados pela [gravação contínua de vídeo](continuous-video-recording-tutorial.md) ou pela [gravação de vídeo baseada em evento](event-based-video-recording-tutorial.md). Embora esses ativos e arquivos possam ser nomeados como você desejar, a estrutura de nomenclatura recomendada para o ativo de mídia com base na gravação de vídeo contínua é " &lt; anytext &gt; -$ {System. GraphTopologyName}-$ {System. GraphInstanceName}". Por exemplo, você pode definir o assetNamePattern no coletor de ativos da seguinte maneira:
+Os grafos de mídia permitem a criação de ativos na nuvem ou em arquivos MP4 na borda. Os ativos de mídia podem ser gerados pela [gravação contínua de vídeo](continuous-video-recording-tutorial.md) ou pela [gravação de vídeo baseada em evento](event-based-video-recording-tutorial.md). Embora esses ativos e arquivos possam ser nomeados como você desejar, a estrutura de nomenclatura recomendada para o ativo de mídia com base na gravação de vídeo contínua é " &lt; anytext &gt; -$ {System. GraphTopologyName}-$ {System. GraphInstanceName}".   
+
+O padrão de substituição é definido pelo sinal $, seguido por chaves: **$ {VariableName}**.  
+
+Por exemplo, você pode definir o assetNamePattern no coletor de ativos da seguinte maneira:
 
 ```
 "assetNamePattern": "sampleAsset-${System.GraphTopologyName}-${System.GraphInstanceName}
@@ -124,21 +128,35 @@ Para os ativos gerados pelo registro de vídeo baseado em evento, o padrão de n
 Se você estiver executando várias instâncias do mesmo grafo, poderá usar o nome da topologia do grafo e o nome da instância para diferenciar. Por exemplo, você pode definir o assetNamePattern no coletor de ativos da seguinte maneira:
 
 ```
-"assetNamePattern": "sampleAssetFromEVR-${System.GraphTopologyName}-${System.GraphInstanceName} -${System.DateTime}"
+"assetNamePattern": "sampleAssetFromEVR-${System.GraphTopologyName}-${System.GraphInstanceName}-${System.DateTime}"
 ```
 
 Para a gravação de vídeo baseada em evento-os clipes de vídeo MP4 gerados na borda, o padrão de nomenclatura recomendado deve incluir DateTime e várias instâncias do mesmo grafo recomendadas usando as variáveis de sistema GraphTopologyName e GraphInstanceName. Como exemplo, você pode definir filePathPattern no coletor de arquivos da seguinte maneira: 
 
 ```
-"filePathPattern": "/var/media/sampleFilesFromEVR-${fileSinkOutputName}-${System.DateTime}"
+"fileNamePattern": "/var/media/sampleFilesFromEVR-${fileSinkOutputName}-${System.DateTime}"
 ```
 
 Ou 
 
 ```
-"filePathPattern": "/var/media/sampleFilesFromEVR-${fileSinkOutputName}--${System.GraphTopologyName}-${System.GraphInstanceName} ${System.DateTime}"
+"fileNamePattern": "/var/media/sampleFilesFromEVR-${fileSinkOutputName}--${System.GraphTopologyName}-${System.GraphInstanceName} ${System.DateTime}"
 ```
+>[!NOTE]
+> No exemplo acima, a variável **fileSinkOutputName** é um nome de variável de exemplo que você define na topologia do grafo. Essa **não** é uma variável do sistema. 
 
+#### <a name="system-variables"></a>Variáveis do sistema
+Algumas variáveis definidas pelo sistema que você pode usar são:
+
+|Variável do sistema|Descrição|Exemplo|
+|-----------|-----------|-----------|
+|System.DateTime|Data e hora UTC no formato compatível com arquivo ISO8601 (representação básica AAAAMMDDThhmmss).|20200222T173200Z|
+|System. PreciseDateTime|Data e hora UTC no formato compatível com o arquivo ISO8601 com milissegundos (representação básica AAAAMMDDThhmmss. SSS).|20200222T 173200.123 Z|
+|System. GraphTopologyName|Nome fornecido pelo usuário da topologia do grafo em execução.|IngestAndRecord|
+|System. GraphInstanceName|Nome fornecido pelo usuário da instância do grafo em execução.|camera001|
+
+>[!TIP]
+> System. PreciseDateTime não pode ser usado ao nomear ativos devido a "." no nome
 ### <a name="keeping-your-vm-clean"></a>Mantendo sua VM limpa
 
 A VM Linux que você está usando como um dispositivo de borda pode deixar de responder se não for gerenciada periodicamente. É essencial manter os caches limpos, eliminar pacotes desnecessários e remover contêineres não utilizados da VM também. Para fazer isso aqui está um conjunto de comandos recomendados, você pode usar em sua VM de borda.
@@ -152,8 +170,8 @@ A VM Linux que você está usando como um dispositivo de borda pode deixar de re
 1. `sudo apt-get autoremove1`
 
     A opção de remoção automática remove pacotes que foram instalados automaticamente porque algum outro pacote os exigiu, mas com esses outros pacotes removidos, eles não são mais necessários
-1. `sudo docker image ls`– Fornece uma lista de imagens do Docker no sistema de borda
-1. `sudo docker system prune `
+1. `sudo docker image ls` – Fornece uma lista de imagens do Docker no sistema de borda
+1. `sudo docker system prune`
 
     O Docker usa uma abordagem conservadora para limpar objetos não utilizados (geralmente chamados de "coleta de lixo"), como imagens, contêineres, volumes e redes: esses objetos geralmente não são removidos, a menos que você solicite explicitamente o Docker para fazer isso. Isso pode fazer com que o Docker use espaço em disco extra. Para cada tipo de objeto, o Docker fornece um comando de remoção. Além disso, você pode usar a remoção do sistema Docker para limpar vários tipos de objetos ao mesmo tempo. Para obter mais informações, consulte [remover objetos do Docker não utilizados](https://docs.docker.com/config/pruning/).
 1. `sudo docker rmi REPOSITORY:TAG`

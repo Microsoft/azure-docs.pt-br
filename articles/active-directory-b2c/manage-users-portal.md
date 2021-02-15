@@ -11,10 +11,10 @@ ms.date: 11/09/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 5d6d6169f8662c9b973fb7f624a590322f62b0b5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85387517"
 ---
 # <a name="use-the-azure-portal-to-create-and-delete-consumer-users-in-azure-ad-b2c"></a>Use o portal do Azure para criar e excluir usuários do consumidor no Azure AD B2C
@@ -29,7 +29,7 @@ Para adicionar ou excluir usuários, sua conta deve ser atribuída à função *
 
 Conforme descrito em [visão geral das contas de usuário no Azure ad B2C](user-overview.md), há três tipos de contas de usuário que podem ser criadas em um diretório Azure ad B2C:
 
-* Trabalho
+* Work
 * Convidado
 * Consumidor
 
@@ -41,7 +41,7 @@ Este artigo se concentra em trabalhar com **contas de consumidor** na portal do 
 1. Selecione o filtro **Diretório + assinatura** no menu superior e, em seguida, selecione o diretório que contém o locatário do Azure AD B2C.
 1. No menu à esquerda, selecione **Azure AD B2C**. Ou selecione **Todos os serviços** e pesquise e selecione **Azure AD B2C**.
 1. Em **Gerenciar**, selecione **Usuários**.
-1. Selecione **novo usuário**.
+1. Selecione **Novo usuário**.
 1. Selecione **criar Azure ad B2C usuário**.
 1. Escolha um **método de entrada** e insira um endereço de **email** ou um **nome** de usuário para o novo. O método de entrada selecionado aqui deve corresponder à configuração que você especificou para o provedor de identidade da *conta local* do Azure ad B2C locatário (consulte **gerenciar**  >  **provedores de identidade** em seu locatário Azure ad B2C).
 1. Insira um **nome** para o usuário. Normalmente, esse é o nome completo (fornecido e sobrenome) do usuário.

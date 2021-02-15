@@ -1,19 +1,16 @@
 ---
 title: Python UDF com Apache Hive e Apache Pig - Azure HDInsight
 description: Aprenda a usar as Funções Definidas pelo Usuário Python (UDF) do Apache Hive e do Apache Pig no HDInsight, a pilha da tecnologia Apache Hadoop no Azure.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 11/15/2019
 ms.custom: H1Hack27Feb2017,hdinsightactive, devx-track-python
-ms.openlocfilehash: 2f02e579f7679180cecfd8a48736b3af307ba371
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 593b809813f949cd1d0bcc17e1d1b7255ea19130
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87874751"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944279"
 ---
 # <a name="use-python-user-defined-functions-udf-with-apache-hive-and-apache-pig-in-hdinsight"></a>Usar funções definidas pelo usuário (UDF) do Python com o Apache Hive e o Apache Pig no HDInsight
 
@@ -31,14 +28,14 @@ O HDInsight também inclui o Jython, que é uma implementação do Python gravad
 * **Um cliente SSH**. Para saber mais, confira [Conectar-se ao HDInsight (Apache Hadoop) usando SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 * O [esquema de URI](../hdinsight-hadoop-linux-information.md#URI-and-scheme) do seu armazenamento primário de clusters. Isso seria `wasb://` para o armazenamento do Azure, `abfs://` por Azure Data Lake Storage Gen2 ou adl://para Azure data Lake Storage Gen1. Se a transferência segura estiver habilitada para o armazenamento do Azure, o URI seria wasbs://.  Confira também [Transferência segura](../../storage/common/storage-require-secure-transfer.md).
 * **Alteração possível na configuração de armazenamento.**  Consulte [configuração de armazenamento](#storage-configuration) se estiver usando o tipo de conta de armazenamento `BlobStorage` .
-* Opcional.  Se estiver planejando usar o PowerShell, você precisará do [módulo AZ](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) instalado.
+* Opcional.  Se estiver planejando usar o PowerShell, você precisará do [módulo AZ](/powershell/azure/new-azureps-module-az) instalado.
 
 > [!NOTE]  
 > A conta de armazenamento usada neste artigo foi o armazenamento do Azure com a [transferência segura](../../storage/common/storage-require-secure-transfer.md) habilitada e, portanto, `wasbs` é usada em todo o artigo.
 
 ## <a name="storage-configuration"></a>Configuração de armazenamento
 
-Nenhuma ação será necessária se a conta de armazenamento usada for do tipo `Storage (general purpose v1)` ou `StorageV2 (general purpose v2)` .  O processo neste artigo produzirá a saída para pelo menos `/tezstaging` .  Uma configuração padrão do Hadoop conterá `/tezstaging` na `fs.azure.page.blob.dir` variável de configuração no `core-site.xml` para o serviço `HDFS` .  Essa configuração fará com que a saída para o diretório seja blobs de páginas, que não têm suporte para o tipo de conta de armazenamento `BlobStorage` .  Para usar `BlobStorage` neste artigo, remova `/tezstaging` da variável de `fs.azure.page.blob.dir` configuração.  A configuração pode ser acessada na [interface do usuário do amAmbari](../hdinsight-hadoop-manage-ambari.md).  Caso contrário, você receberá a mensagem de erro:`Page blob is not supported for this account type.`
+Nenhuma ação será necessária se a conta de armazenamento usada for do tipo `Storage (general purpose v1)` ou `StorageV2 (general purpose v2)` .  O processo neste artigo produzirá a saída para pelo menos `/tezstaging` .  Uma configuração padrão do Hadoop conterá `/tezstaging` na `fs.azure.page.blob.dir` variável de configuração no `core-site.xml` para o serviço `HDFS` .  Essa configuração fará com que a saída para o diretório seja blobs de páginas, que não têm suporte para o tipo de conta de armazenamento `BlobStorage` .  Para usar `BlobStorage` neste artigo, remova `/tezstaging` da variável de `fs.azure.page.blob.dir` configuração.  A configuração pode ser acessada na [interface do usuário do amAmbari](../hdinsight-hadoop-manage-ambari.md).  Caso contrário, você receberá a mensagem de erro: `Page blob is not supported for this account type.`
 
 > [!WARNING]  
 > As etapas neste documento fazem as seguintes suposições:  
@@ -46,7 +43,7 @@ Nenhuma ação será necessária se a conta de armazenamento usada for do tipo `
 > * Você cria scripts Python em seu ambiente de desenvolvimento local.
 > * Você carrega os scripts no HDInsight usando o `scp` comando ou o script do PowerShell fornecido.
 >
-> Se você quiser usar o [Azure cloud Shell (bash)](https://docs.microsoft.com/azure/cloud-shell/overview) para trabalhar com o HDInsight, deverá:
+> Se você quiser usar o [Azure cloud Shell (bash)](../../cloud-shell/overview.md) para trabalhar com o HDInsight, deverá:
 >
 > * Criar os scripts de dentro do ambiente do Cloud Shell.
 > * Usar `scp` para carregar os arquivos do Cloud Shell para o HDInsight.
@@ -300,8 +297,8 @@ Um script Python pode ser utilizado como um UDF do Pig por meio da instrução `
 
 Para especificar o interpretador do Python, use `register` ao referenciar o script do Python. Os exemplos a seguir registram os scripts com o Pig como `myfuncs`:
 
-* **Para usar o Jython**:`register '/path/to/pigudf.py' using jython as myfuncs;`
-* **Para usar o Python C**:`register '/path/to/pigudf.py' using streaming_python as myfuncs;`
+* **Para usar o Jython**: `register '/path/to/pigudf.py' using jython as myfuncs;`
+* **Para usar o Python C**: `register '/path/to/pigudf.py' using streaming_python as myfuncs;`
 
 > [!IMPORTANT]  
 > Ao usar Jython, o caminho para o arquivo de pig_jython pode ser um caminho local ou um caminho WASBS://. No entanto, ao usar o Python C, você deve fazer referência a um arquivo no sistema de arquivos local do nó que está usando para enviar o trabalho de Pig.
@@ -423,7 +420,7 @@ Nos comandos abaixo, substitua `sshuser` pelo nome de usuário real, se for dife
     #from pig_util import outputSchema
     ```
 
-    Essa linha modifica o script Python para trabalhar com Python C em vez de Jython. Depois que a alteração for feita, use **Ctrl+X** para sair do editor. Selecione **Y**e, em seguida, **Enter** para salvar as alterações.
+    Essa linha modifica o script Python para trabalhar com Python C em vez de Jython. Depois que a alteração for feita, use **Ctrl+X** para sair do editor. Selecione **Y** e, em seguida, **Enter** para salvar as alterações.
 
 6. Use o comando `pig` para iniciar o shell novamente. No prompt `grunt>` , use o que segue para executar o script de Python usando o interpretador de Python C.
 
@@ -563,7 +560,7 @@ A saída para o trabalho **Pig** deve ser parecida com os seguintes dados:
 ((2012-02-03,20:11:56,SampleClass3,[INFO],everything normal for id 530537821))
 ```
 
-## <a name="troubleshooting"></a><a name="troubleshooting"></a>Solução de problemas
+## <a name="troubleshooting"></a><a name="troubleshooting"></a>Solução
 
 ### <a name="errors-when-running-jobs"></a>Erros durante a execução de trabalhos
 
@@ -594,7 +591,7 @@ As informações de erro (STDERR) e o resultado do trabalho (STDOUT) também sã
 
 ## <a name="next-steps"></a><a name="next"></a>Próximas etapas
 
-Se você precisar carregar módulos do Python que não são fornecidos por padrão, consulte [Como implantar um módulo para o HDInsight do Azure](https://blogs.msdn.com/b/benjguin/archive/2014/03/03/how-to-deploy-a-python-module-to-windows-azure-hdinsight.aspx).
+Se você precisar carregar módulos do Python que não são fornecidos por padrão, consulte [Como implantar um módulo para o HDInsight do Azure](/archive/blogs/benjguin/how-to-deploy-a-python-module-to-windows-azure-hdinsight).
 
 Para obter outras formas de usar o Pig e o Hive e para saber como usar o MapReduce, consulte os documentos a seguir:
 

@@ -12,16 +12,16 @@ ms.topic: article
 ms.date: 01/13/2020
 ms.author: joscot
 ms.custom: fasttrack-new
-ms.openlocfilehash: 45e16c9aa9e4b04e7225320951e9f839fae75ba3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8249cc543c6334841c8e5152d5d1ceb84d4097dc
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75942471"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92076106"
 ---
 # <a name="filter-on-request-ip-address-when-using-an-application-gateway"></a>Filtrar por endereço IP de solicitação ao usar um gateway de aplicativo
 
-Este artigo mostra um exemplo de política de gerenciamento de API do Azure que demonstra como filtrar o endereço IP da solicitação quando a instância de gerenciamento de API é acessada por meio de um gateway de aplicativo ou outro intermediário. Para definir ou editar um código de política, siga as etapas descritas em [Definir ou editar uma política](../set-edit-policies.md). Para ver outros exemplos, consulte [exemplos de política](../policy-samples.md).
+Este artigo mostra um exemplo de política de gerenciamento de API do Azure que demonstra como filtrar o endereço IP da solicitação quando a instância de gerenciamento de API é acessada por meio de um gateway de aplicativo ou outro intermediário. Para definir ou editar um código de política, siga as etapas descritas em [Definir ou editar uma política](../set-edit-policies.md). Para ver outros exemplos, consulte [exemplos de política](../policy-reference.md).
 
 ## <a name="policy"></a>Política
 
@@ -34,4 +34,4 @@ Cole o código no bloco de **entrada**.
 Saiba mais sobre as políticas de APIM:
 
 + [Políticas de restrição de acesso](../api-management-access-restriction-policies.md)
-+ [Exemplos de política](../policy-samples.md)
++ [Exemplos de política](../policy-reference.md)

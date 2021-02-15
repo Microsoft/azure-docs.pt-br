@@ -1,6 +1,6 @@
 ---
-title: DROP EXTERNAL STREAM (Transact-SQL) - SQL do Azure no Edge (Versão Prévia)
-description: Saiba mais sobre a instrução DROP EXTERNAL STREAM no SQL do Azure no Edge (Versão Prévia)
+title: REMOVER fluxo externo (Transact-SQL)-Azure SQL Edge
+description: Saiba mais sobre a instrução DROP EXTERNAL STREAM no Azure SQL Edge
 keywords: ''
 services: sql-edge
 ms.service: sql-edge
@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: d5ff5d74db4ad89744c0b42b188a916173b4d864
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ec516b99eb619c12a2031f87fb3fbd5f5b04b08e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84233231"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "90886620"
 ---
 # <a name="drop-external-stream-transact-sql"></a>DROP EXTERNAL STREAM (Transact-SQL)
 
@@ -29,4 +29,3 @@ DROP EXTERNAL STREAM {external_stream_name}
 ## <a name="see-also"></a>Confira também
 
 - [CREATE EXTERNAL STREAM (Transact-SQL)](create-external-stream-transact-sql.md) 
-- [ALTER EXTERNAL STREAM (Transact-SQL)](alter-external-stream-transact-sql.md) 

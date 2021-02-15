@@ -16,18 +16,18 @@ ms.date: 11/12/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d64bfe66f5fb871ff9f85a5d58d128ac44643846
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 25d4152783129fa1c5950d6cf6287332bf90d32a
+ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87019754"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97976870"
 ---
 # <a name="azure-ad-connect-sync-directory-extensions"></a>Sincronização do Azure AD Connect: extensões do Directory
-É possível usar extensões de diretório para estender o esquema no Azure AD (Microsoft Azure Active Directory) com seus próprios atributos do Active Directory local. Esse recurso permite compilar aplicativos LOB ao consumir atributos que continuam gerenciando localmente. Esses atributos podem ser consumidos por meio de [extensões](https://docs.microsoft.com/graph/extensibility-overview
+É possível usar extensões de diretório para estender o esquema no Azure AD (Microsoft Azure Active Directory) com seus próprios atributos do Active Directory local. Esse recurso permite compilar aplicativos LOB ao consumir atributos que continuam gerenciando localmente. Esses atributos podem ser consumidos por meio de [extensões](/graph/extensibility-overview
 ). Você pode ver os atributos disponíveis usando o [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer). Você também pode usar esse recurso para criar grupos dinâmicos no Azure AD.
 
-No momento, nenhuma carga de trabalho do Office 365 consome esses atributos.
+No momento, nenhuma carga de trabalho de Microsoft 365 consome esses atributos.
 
 ## <a name="customize-which-attributes-to-synchronize-with-azure-ad"></a>Personalizar quais atributos sincronizar com o Azure AD
 
@@ -46,7 +46,7 @@ Configure quais atributos adicionais você deseja sincronizar no caminho de conf
 
 
 >[!NOTE]
-> Embora o Azure AD Connect dê suporte à sincronização de atributos com valores múltiplos do Active Directory com o Azure AD como extensões de diretório com valores múltiplos, atualmente, não há nenhuma maneira de recuperar/consumir os dados carregados em atributos da extensão de diretório com valores múltiplos.
+> Depois de Azure AD Connect sincronizado o atributo Active Directory com vários valores para o Azure AD como uma extensão de atributo com vários valores, é possível incluir o atributo para a declaração SAML. Mas não é possível consumir esses dados por meio de chamada à API.
 
 A lista de atributos é lida a partir do cache de esquema criado durante a instalação do Azure AD Connect. Se você estendeu o esquema do Active Directory com atributos adicionais, será necessário [atualizar o esquema](how-to-connect-installation-wizard.md#refresh-directory-schema), antes que esses novos atributos fiquem visíveis.
 
@@ -69,11 +69,14 @@ Esses atributos agora estão disponíveis por meio da API Microsoft Graph, usand
 >[!NOTE]
 > Na API Microsoft Graph, você precisa solicitar que os atributos sejam retornados. Selecione explicitamente os atributos como este: `https://graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com?$select=extension_9d98ed114c4840d298fad781915f27e4_employeeID,extension_9d98ed114c4840d298fad781915f27e4_division` .
 >
-> Para obter mais informações, consulte [Microsoft Graph: usar parâmetros de consulta](https://developer.microsoft.com/graph/docs/concepts/query_parameters#select-parameter).
+> Para obter mais informações, consulte [Microsoft Graph: usar parâmetros de consulta](/graph/query-parameters#select-parameter).
+
+>[!NOTE]
+> Não há suporte para a sincronização de valores de atributo de AADConnect para atributos de extensão que não são criados pelo AADConnect. Isso pode gerar problemas de desempenho e resultados inesperados. Somente os atributos de extensão criados conforme mostrado acima têm suporte para sincronização.
 
 ## <a name="use-the-attributes-in-dynamic-groups"></a>Usar os atributos em grupos dinâmicos
 
-Um dos cenários mais úteis é usar esses atributos em segurança dinâmica ou grupos do Office 365.
+Um dos cenários mais úteis é usar esses atributos em grupos de segurança dinâmica ou Microsoft 365.
 
 1. Crie um novo grupo no Azure AD. Dê a ele um bom nome e verifique se o **tipo de associação** é **Dynamic User**.
 
@@ -87,7 +90,7 @@ Um dos cenários mais úteis é usar esses atributos em segurança dinâmica ou 
 
    ![Captura de tela com novos atributos exibidos na interface do usuário](./media/how-to-connect-sync-feature-directory-extensions/dynamicgroup3.png)
 
-   Conclua a expressão para atender às suas necessidades. Em nosso exemplo, a regra é definida como **(User. extension_9d98ed114c4840d298fad781915f27e4_division-EQ "Sales and marketing")**.
+   Conclua a expressão para atender às suas necessidades. Em nosso exemplo, a regra é definida como **(User.extension_9d98ed114c4840d298fad781915f27e4_division-EQ "vendas e marketing")**.
 
 4. Depois que o grupo tiver sido criado, dê ao Azure AD algum tempo para preencher os membros e, em seguida, examine os membros.
 

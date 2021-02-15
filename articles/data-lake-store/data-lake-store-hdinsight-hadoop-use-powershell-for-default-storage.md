@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: f7c41dc11e7321d6fb9e6f8c030eb74b586a1b3e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5e899f28cf5b3c11ae5f935d7bc273c566214225
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075034"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97606769"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-as-default-storage-by-using-powershell"></a>Criar clusters do HDInsight com o Armazenamento de Data Lake do Azure Gen1 como armazenamento padrão usando o PowerShell
 
@@ -46,7 +46,7 @@ Antes de começar este tutorial, verifique se você atende aos seguintes requisi
     >Você poderá criar uma entidade de serviço somente se for um administrador do Azure AD. O administrador do AD do Azure AD deve criar uma entidade de serviço antes de criar um cluster do HDInsight com o Data Lake Storage Gen1. A entidade de serviço deve ser criada com um certificado, conforme descrito em [Criar uma entidade de serviço com certificado](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-certificate-from-certificate-authority).
     >
 
-## <a name="create-a-data-lake-storage-gen1-account"></a>Criar uma conta do Data Lake Storage Gen1
+## <a name="create-an-azure-data-lake-storage-gen1-account"></a>Criar uma conta do Azure Data Lake Storage Gen1
 
 Para criar uma conta do Data Lake Storage Gen1, faça o seguinte:
 
@@ -67,7 +67,7 @@ Para criar uma conta do Data Lake Storage Gen1, faça o seguinte:
     ```
 
     > [!NOTE]
-    > Se você registrar o provedor de recursos Data Lake Storage Gen1 e receber um erro semelhante a `Register-AzResourceProvider : InvalidResourceNamespace: The resource namespace 'Microsoft.DataLakeStore' is invalid`, sua assinatura poderá não estar na lista de permissões para o Data Lake Storage Gen1. Para habilitar sua assinatura do Azure para o Data Lake Storage Gen1, siga as instruções em [Introdução ao Azure Data Lake Storage Gen1 usando o portal do Azure](data-lake-store-get-started-portal.md).
+    > Se você registrar o provedor de recursos Data Lake Storage Gen1 e receber um erro semelhante a `Register-AzResourceProvider : InvalidResourceNamespace: The resource namespace 'Microsoft.DataLakeStore' is invalid` , sua assinatura poderá não ser aprovada para data Lake Storage Gen1. Para habilitar sua assinatura do Azure para o Data Lake Storage Gen1, siga as instruções em [Introdução ao Azure Data Lake Storage Gen1 usando o portal do Azure](data-lake-store-get-started-portal.md).
     >
 
 2. Uma conta do Data Lake armazenamento Gen1 está associada um grupo de recursos do Azure. Comece criando um grupo de recursos.
@@ -77,7 +77,7 @@ Para criar uma conta do Data Lake Storage Gen1, faça o seguinte:
     New-AzResourceGroup -Name $resourceGroupName -Location "East US 2"
     ```
 
-    Você verá uma saída como esta:
+    Você deverá ver uma saída como esta:
 
     ```output
     ResourceGroupName : hdiadlgrp
@@ -207,8 +207,8 @@ Nesta seção, você cria um cluster do HDInsight Hadoop Linux com o Data Lake S
     # Set these variables
 
     $location = "East US 2"
-    $storageAccountName = $dataLakeStorageGen1Name                         # Data Lake Storage Gen1 account name
-        $storageRootPath = "<Storage root path you specified earlier>" # E.g. /clusters/hdiadlcluster
+    $storageAccountName = $dataLakeStorageGen1Name    # Data Lake Storage Gen1 account name
+        $storageRootPath = "<Storage root path you specified earlier>"     # e.g. /clusters/hdiadlcluster
         $clusterName = "<unique cluster name>"
     $clusterNodes = <ClusterSizeInNodes>            # The number of nodes in the HDInsight cluster
     $httpCredentials = Get-Credential
@@ -236,7 +236,7 @@ Nesta seção, você cria um cluster do HDInsight Hadoop Linux com o Data Lake S
     Após a conclusão bem-sucedida do cmdlet, você deverá ver uma saída que lista os detalhes do cluster.
 
 ## <a name="run-test-jobs-on-the-hdinsight-cluster-to-use-data-lake-storage-gen1"></a>Executar trabalhos de teste no cluster HDInsight para usar Data Lake Storage Gen1
-Depois de configurar um cluster do HDInsight, você poderá executar tarefas de teste nele para garantir que ele possa acessar o Data Lake Storage Gen1. Para fazer isso, execute um trabalho de hive de exemplo para criar uma tabela que usa os dados de exemplo que já estão disponíveis em Data Lake Storage Gen1 em * \<cluster root> /example/data/Sample.log*.
+Depois de configurar um cluster do HDInsight, você poderá executar tarefas de teste nele para garantir que ele possa acessar o Data Lake Storage Gen1. Para fazer isso, execute um trabalho de hive de exemplo para criar uma tabela que usa os dados de exemplo que já estão disponíveis em Data Lake Storage Gen1 em *\<cluster root> /example/data/Sample.log*.
 
 Nesta seção, você estabelece uma conexão SSH (Secure Shell) com o cluster Linux HDInsight criado e, em seguida, executa uma consulta do Hive de exemplo.
 
@@ -282,8 +282,8 @@ hdfs dfs -ls adl:///
 Também é possível usar o comando `hdfs dfs -put` para carregar alguns arquivos no Data Lake Storage Gen1 e, em seguida, usar `hdfs dfs -ls` para verificar se os arquivos foram carregados com êxito.
 
 ## <a name="see-also"></a>Confira também
-* [Usar Data Lake Storage Gen1 com clusters HDInsight do Azure](../hdinsight/hdinsight-hadoop-use-data-lake-store.md)
+* [Usar Data Lake Storage Gen1 com clusters HDInsight do Azure](../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen1.md)
 * [Portal do Azure: criar um cluster de HDInsight para usar o Data Lake armazenamento Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-[makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
+[makecert]: /windows-hardware/drivers/devtest/makecert
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx

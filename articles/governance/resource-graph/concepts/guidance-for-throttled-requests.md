@@ -1,15 +1,15 @@
 ---
 title: Diretrizes para solicitações limitadas
 description: Aprenda a agrupar, escalonar, paginar e consultar em paralelo para evitar que as solicitações sejam limitadas pelo Azure Resource Graph.
-ms.date: 08/03/2020
+ms.date: 01/27/2021
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c8576fe38433026a28a3fb09a03332b5dd756bab
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: ddd3cf4d411733e831c94039c3bc9aeaf0e95271
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89005999"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98917700"
 ---
 # <a name="guidance-for-throttled-requests-in-azure-resource-graph"></a>Diretrizes para solicitações limitadas no Azure Resource Graph
 
@@ -132,7 +132,7 @@ Devido à maneira como a limitação é imposta, recomendamos que as consultas s
   |---------------------|-----|------|-------|-------|
   | Intervalo de tempo (s) | 0-5 | 5-10 | 10-15 | 15–20 |
 
-Veja abaixo um exemplo de como respeitar cabeçalhos de limitação ao consultar o Azure Resource Graph:
+Aqui está um exemplo de como respeitar cabeçalhos de limitação ao consultar o grafo de recursos do Azure:
 
 ```csharp
 while (/* Need to query more? */)
@@ -156,7 +156,7 @@ while (/* Need to query more? */)
 
 ### <a name="query-in-parallel"></a>Consulta em paralelo
 
-Embora o agrupamento seja recomendado em detrimento da paralelização, há ocasiões em que as consultas não podem ser agrupadas facilmente. Nesses casos, talvez seja melhor consultar o Azure Resource Graph enviando várias consultas de maneira paralela. Veja abaixo um exemplo de como fazer a _retirada_ com base em cabeçalhos de limitação em tais cenários:
+Embora o agrupamento seja recomendado em detrimento da paralelização, há ocasiões em que as consultas não podem ser agrupadas facilmente. Nesses casos, talvez seja melhor consultar o Azure Resource Graph enviando várias consultas de maneira paralela. Veja um exemplo de como fazer a _retirada_ com base em cabeçalhos de limitação em tais cenários:
 
 ```csharp
 IEnumerable<IEnumerable<string>> queryGroup = /* Groups of queries  */
@@ -219,7 +219,7 @@ Como o Azure Resource Graph retorna no máximo 1.000 entradas em uma única resp
 
 - CLI do Azure/Azure PowerShell
 
-  Ao usar a CLI do Azure ou o Azure PowerShell, as consultas para o Azure Resource Graph são paginadas automaticamente para buscar no máximo 5.000 entradas. Os resultados da consulta retornam uma lista combinada de entradas de todas as chamadas paginadas. Nesse caso, dependendo do número de entradas no resultado da consulta, uma única consulta paginada pode consumir mais de uma cota de consulta. Por exemplo, no exemplo a seguir, uma única execução de consulta pode consumir até cinco cotas de consulta:
+  Ao usar a CLI do Azure ou o Azure PowerShell, as consultas para o Azure Resource Graph são paginadas automaticamente para buscar no máximo 5.000 entradas. Os resultados da consulta retornam uma lista combinada de entradas de todas as chamadas paginadas. Nesse caso, dependendo do número de entradas no resultado da consulta, uma única consulta paginada pode consumir mais de uma cota de consulta. Por exemplo, nos exemplos a seguir, uma única execução da consulta pode consumir até cinco cotas de consulta:
 
   ```azurecli-interactive
   az graph query -q 'Resources | project id, name, type' --first 5000

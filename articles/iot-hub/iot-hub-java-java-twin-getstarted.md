@@ -10,12 +10,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.custom: mqtt, devx-track-java
-ms.openlocfilehash: c439f1a5aaa03774652dc815364c45633096f6de
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 68908b7d62b8211c202262112831d5d2b523f594
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327592"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92146970"
 ---
 # <a name="get-started-with-device-twins-java"></a>Introdução ao dispositivos gêmeos (Java)
 
@@ -31,7 +31,7 @@ Neste tutorial, você cria dois aplicativos de console do Java:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [Java SE Development Kit 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable). Certifique-se de selecionar **Java 8** em **Suporte de longo prazo** para obter downloads do JDK 8.
+* [Java SE Development Kit 8](/java/azure/jdk/?view=azure-java-stable). Certifique-se de selecionar **Java 8** em **Suporte de longo prazo** para obter downloads do JDK 8.
 
 * [Maven 3](https://maven.apache.org/download.cgi)
 
@@ -380,7 +380,7 @@ Agora você está pronto para executar os aplicativos de console.
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
     ```
 
-    ![Aplicativo de serviço do Hub IoT Java para atualizar valores de marca e executar consultas de dispositivo](./media/iot-hub-java-java-twin-getstarted/service-app-1.png)
+    ![Captura de tela que mostra a saída do comando para executar o aplicativo de serviço de consulta adicionar marcas.](./media/iot-hub-java-java-twin-getstarted/service-app-1.png)
 
     Você pode ver as marcas **planta** e **região** adicionadas ao dispositivo gêmeo. A primeira consulta retorna seu dispositivo, mas a segunda, não.
 
@@ -390,7 +390,7 @@ Agora você está pronto para executar os aplicativos de console.
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
     ```
 
-    ![O cliente do dispositivo adiciona a propriedade relatada **connectivityType**](./media/iot-hub-java-java-twin-getstarted/device-app-1.png)
+    ![O cliente do dispositivo adiciona a propriedade relatada tipo de conectividade](./media/iot-hub-java-java-twin-getstarted/device-app-1.png)
 
 3. Em um prompt de comando na pasta **add-tags-query**, execute o seguinte comando para executar o aplicativo de serviço **add-tags-query** uma segunda vez:
 

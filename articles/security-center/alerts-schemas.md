@@ -2,7 +2,6 @@
 title: Esquemas para os alertas da central de segurança do Azure
 description: Este artigo descreve os esquemas diferentes usados pela central de segurança do Azure para alertas de segurança.
 services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
 ms.service: security-center
@@ -12,22 +11,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2020
 ms.author: memildin
-ms.openlocfilehash: 9b8d7f241f79b087f318c9c416dcadf92838b084
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f9b3be69ab57c0abf7523169303def899f325229
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85126205"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789209"
 ---
 # <a name="security-alerts-schemas"></a>Esquemas de alertas de segurança
 
-Os usuários da camada Standard da central de segurança do Azure recebem alertas de segurança quando a central de segurança detecta ameaças aos seus recursos.
+Se sua assinatura tiver o Azure defender habilitado, você receberá alertas de segurança quando a central de segurança detectar ameaças aos seus recursos.
 
 Você pode exibir esses alertas de segurança nas páginas de **proteção contra ameaças** da central de segurança do Azure ou por meio de ferramentas externas, como:
 
-- [Azure Sentinel](https://docs.microsoft.com/azure/sentinel/) – Siem nativo de nuvem da Microsoft. O conector do Sentinel Obtém alertas da central de segurança do Azure e os envia para o [espaço de trabalho log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace) para o Azure Sentinel.
-- SIEMs de terceiros – use as ferramentas de [exportação contínua](continuous-export.md) da central de segurança para enviar dados para os [hubs de eventos do Azure](https://docs.microsoft.com/azure/event-hubs/). Em seguida, integre os dados do hub de eventos a um SIEM de terceiros.
-- [A API REST](https://docs.microsoft.com/rest/api/securitycenter/) -se você estiver usando a API REST para acessar alertas, consulte a [documentação da API de alertas online](https://docs.microsoft.com/rest/api/securitycenter/alerts).
+- [Azure Sentinel](../sentinel/index.yml) – Siem nativo de nuvem da Microsoft. O conector do Sentinel Obtém alertas da central de segurança do Azure e os envia para o [espaço de trabalho log Analytics](../azure-monitor/learn/quick-create-workspace.md) para o Azure Sentinel.
+- SIEMs de terceiros – enviam dados para os [hubs de eventos do Azure](../event-hubs/index.yml). Em seguida, integre os dados do hub de eventos a um SIEM de terceiros. Saiba mais em [transmitir alertas para uma solução Siem, disparar ou de gerenciamento de serviços de ti](export-to-siem.md).
+- [A API REST](/rest/api/securitycenter/) -se você estiver usando a API REST para acessar alertas, consulte a [documentação da API de alertas online](/rest/api/securitycenter/alerts).
 
 Se você estiver usando qualquer método programático para consumir os alertas, precisará do esquema correto para localizar os campos que são relevantes para você. Além disso, se você estiver exportando para um hub de eventos ou tentar disparar a automação de fluxo de trabalho com conectores HTTP genéricos, use os esquemas para analisar corretamente os objetos JSON.
 
@@ -47,8 +46,9 @@ Abaixo, você encontrará o esquema dos eventos de alerta passados para:
 - Instâncias do aplicativo lógico do Azure que foram configuradas na automação de fluxo de trabalho da central de segurança
 - Hub de eventos do Azure usando o recurso de exportação contínua da central de segurança
 
-Para obter mais informações sobre o recurso de automação de fluxo de trabalho, consulte [automatizar respostas para alertas e recomendações](workflow-automation.md).
-Para obter mais informações sobre exportação contínua, consulte [Exportar alertas e recomendações](continuous-export.md).
+Para obter mais informações sobre o recurso de automação de fluxo de trabalho, consulte [automatizar respostas para gatilhos da central de segurança](workflow-automation.md).
+
+Para obter mais informações sobre a exportação contínua, consulte [Exportar continuamente os dados da central de segurança](continuous-export.md).
 
 [!INCLUDE [Workflow schema](../../includes/security-center-alerts-schema-workflow-automation.md)]
 
@@ -61,7 +61,7 @@ O conector do Sentinel Obtém alertas da central de segurança do Azure e os env
 
 Para criar um caso ou um incidente Sentinel usando alertas da central de segurança, você precisará do esquema para esses alertas mostrados abaixo. 
 
-Para obter mais informações sobre o Azure Sentinel, consulte [a documentação](https://docs.microsoft.com/azure/sentinel/).
+Para obter mais informações sobre o Azure Sentinel, consulte [a documentação](../sentinel/index.yml).
 
 [!INCLUDE [Sentinel and workspace schema](../../includes/security-center-alerts-schema-log-analytics-workspace.md)]
 
@@ -144,13 +144,13 @@ Você pode exibir os eventos de alertas de segurança no log de atividades pesqu
 |----|----|
 |**meios**|Constante, "operação"|
 |**correlationId**|A ID do alerta da central de segurança do Azure|
-|**ndescrição**|Descrição do alerta|
+|**descrição**|Descrição do alerta|
 |**eventDataId**|Consulte CorrelationId|
 |**eventName**|O valor e os subcampos localizadas contêm o nome de exibição do alerta|
 |**category**|O valor e os subcampos localizadas são constantes-"segurança"|
 |**eventTimestamp**|Carimbo de data/hora UTC para quando o alerta foi gerado|
 |**id**|A ID do alerta totalmente qualificado|
-|**nível**|Constante, "informativo"|
+|**level**|Constante, "informativo"|
 |**operationId**|Consulte CorrelationId|
 |**operationName**|O campo valor é constante-"Microsoft. Security/Locations/Alerts/Activate/Action", e o valor localizado será "ativar alerta" (possivelmente pode ser localizado par a localidade do usuário)|
 |**resourceGroupName**|Incluirá o nome do grupo de recursos|
@@ -173,7 +173,7 @@ Você pode exibir os eventos de alertas de segurança no log de atividades pesqu
 
 Microsoft Graph é o gateway para dados e inteligência em Microsoft 365. Ele fornece um modelo de programação unificado que você pode usar para acessar a enorme quantidade de dados em Microsoft 365, Windows 10 e Enterprise Mobility + Security. Use a riqueza de dados em Microsoft Graph para criar aplicativos para organizações e consumidores que interagem com milhões de usuários.
 
-O esquema e uma representação JSON para alertas de segurança enviados ao MS Graph estão disponíveis na [documentação do Microsoft Graph](https://docs.microsoft.com/graph/api/resources/alert?view=graph-rest-1.0).
+O esquema e uma representação JSON para alertas de segurança enviados ao MS Graph estão disponíveis na [documentação do Microsoft Graph](/graph/api/resources/alert?preserve-view=true&view=graph-rest-1.0).
 
 ---
 
@@ -184,7 +184,7 @@ Este artigo descreveu os esquemas que as ferramentas de proteção contra ameaç
 
 Para obter mais informações sobre as maneiras de acessar alertas de segurança de fora da central de segurança, consulte as seguintes páginas:
 
-- [Azure Sentinel](https://docs.microsoft.com/azure/sentinel/) -Siem nativo de nuvem da Microsoft
-- [Hubs de eventos do Azure](https://docs.microsoft.com/azure/event-hubs/) -serviço de ingestão de dados em tempo real, totalmente gerenciado pela Microsoft
-- [Recurso de exportação contínua](continuous-export.md) da central de segurança
-- [Espaços de trabalho do log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace) -Azure monitor armazena dados de log em um espaço de trabalho log Analytics, um contêiner que inclui informações de dados e configuração
+- [Azure Sentinel](../sentinel/index.yml) -Siem nativo de nuvem da Microsoft
+- [Hubs de eventos do Azure](../event-hubs/index.yml) -serviço de ingestão de dados em tempo real, totalmente gerenciado pela Microsoft
+- [Exportar continuamente os dados da central de segurança](continuous-export.md)
+- [Espaços de trabalho do log Analytics](../azure-monitor/learn/quick-create-workspace.md) -Azure monitor armazena dados de log em um espaço de trabalho log Analytics, um contêiner que inclui informações de dados e configuração

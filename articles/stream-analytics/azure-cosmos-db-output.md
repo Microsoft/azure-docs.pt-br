@@ -1,18 +1,17 @@
 ---
 title: Azure Cosmos DB saída de Azure Stream Analytics
 description: Este artigo descreve como gerar dados de saída de Azure Stream Analytics para Azure Cosmos DB.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: 7832c53cfa9e0c5c3d0903c52bae8033402a2c0d
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 9382ac8dc71d1ccb3a85dc0a7a027c8e99296cc6
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88875561"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98016570"
 ---
 # <a name="azure-cosmos-db-output-from-azure-stream-analytics"></a>Azure Cosmos DB saída de Azure Stream Analytics
 
@@ -39,7 +38,7 @@ A tabela a seguir descreve as propriedades para a criação de uma saída do Azu
 
 ## <a name="partitioning"></a>Particionamento
 
-A chave de partição é baseada na cláusula PARTITION BY na consulta. O número de gravadores de saída segue o particionamento de entrada para [consultas totalmente paralelizadas](stream-analytics-scale-jobs.md). Stream Analytics converte a chave de partição de saída Cosmos DB em uma cadeia de caracteres. Por exemplo, se você tiver uma chave de partição com um valor de 1 do tipo bigint, ela será convertida em "1" do tipo cadeia de caracteres.
+A chave de partição é baseada na cláusula PARTITION BY na consulta. O número de gravadores de saída segue o particionamento de entrada para [consultas totalmente paralelizadas](stream-analytics-scale-jobs.md). Stream Analytics converte a chave de partição de saída Cosmos DB em uma cadeia de caracteres. Por exemplo, se você tiver uma chave de partição com um valor de 1 do tipo bigint, ela será convertida em "1" do tipo cadeia de caracteres. Essa conversão sempre acontece, independentemente de a propriedade de partição ser gravada em Cosmos DB.
 
 ## <a name="output-batch-size"></a>Tamanho do lote de saída
 
@@ -52,4 +51,4 @@ Para obter o tamanho máximo da mensagem, consulte [limites de Azure Cosmos DB](
 * [Início Rápido: Criar um trabalho do Azure Stream Analytics usando um modelo do Resource Manager](quick-create-azure-resource-manager.md)
 * [Início rápido: criar um trabalho de Stream Analytics usando Azure PowerShell](stream-analytics-quick-create-powershell.md)
 * [Início Rápido: Criar um trabalho do Azure Stream Analytics usando o Visual Studio](stream-analytics-quick-create-vs.md)
-* [Início rápido: criar um trabalho de Azure Stream Analytics no Visual Studio Code](quick-create-vs-code.md)
+* [Início rápido: criar um trabalho de Azure Stream Analytics no Visual Studio Code](quick-create-visual-studio-code.md)

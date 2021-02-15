@@ -13,12 +13,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/13/2020
 ms.author: kumud
-ms.openlocfilehash: d630a41f9b83a852605ffad2a85ad6dd14bbac73
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: e047f46e110e1f7b1d544545c80bd1097ae65167
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86079642"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98221911"
 ---
 # <a name="tutorial-route-network-traffic-with-a-route-table-using-the-azure-portal"></a>Tutorial: Rotear tráfego com uma tabela de rotas utilizando o Portal do Azure
 
@@ -361,4 +361,4 @@ Embora seja possível implantar muitos recursos do Azure dentro de uma rede virt
 > [Restringir o acesso à rede para recursos PaaS](tutorial-restrict-network-access-to-resources.md)
 
 > [!NOTE] 
-> Os serviços do Azure custam dinheiro. O Gerenciamento de Custos do Azure ajuda você a definir orçamentos e configurar alertas para manter os gastos sob controle. Analise, gerencie e otimize seus custos do Azure com o Gerenciamento de Custos. Para saber mais, confira o [guia de início rápido sobre como analisar seus custos](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
+> Os serviços do Azure custam dinheiro. O Gerenciamento de Custos do Azure ajuda você a definir orçamentos e configurar alertas para manter os gastos sob controle. Analise, gerencie e otimize seus custos do Azure com o Gerenciamento de Custos. Para saber mais, confira o [guia de início rápido sobre como analisar seus custos](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).

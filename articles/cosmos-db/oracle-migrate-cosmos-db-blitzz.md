@@ -3,18 +3,20 @@ title: Migre dados do Oracle para o Azure Cosmos DB API do Cassandra usando o Bl
 description: Saiba como migrar dados do Oracle Database para Azure Cosmos DB API do Cassandra usando o Blitzz.
 author: SnehaGunda
 ms.service: cosmos-db
+ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 08/21/2019
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: 882ba7f0b8f896c51e340fe921e53b27dd07ff8a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 15bcd0c54fc5f6614f4d1925759704309048acae
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85262456"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93336432"
 ---
 # <a name="migrate-data-from-oracle-to-azure-cosmos-db-cassandra-api-account-using-blitzz"></a>Migrar dados do Oracle para Azure Cosmos DB conta de API do Cassandra usando o Blitzz
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 API do Cassandra no Azure Cosmos DB se tornou uma ótima opção para cargas de trabalho corporativas em execução no Oracle por vários motivos, como:
 
@@ -100,7 +102,7 @@ Esta seção descreve as etapas necessárias para configurar o Blitzz e migrar d
 
    Você deve diminuir a taxa de transferência após a conclusão da migração. Com base na quantidade de dados armazenados e RUs necessários para cada operação, você pode estimar a taxa de transferência necessária após a migração de dados. Para saber mais sobre como estimar o RUs necessário, confira [provisionar taxa de transferência em contêineres e bancos de dados](set-throughput.md) e [estimar ru/s usando os artigos Azure Cosmos DB Capacity Planner](estimate-ru-with-capacity-planner.md) .
 
-1. Obtenha o **ponto de contato, a porta, o nome de usuário**e a **senha primária** da sua conta do Azure Cosmos no painel de **cadeia de conexão** . Você usará esses valores no arquivo de configuração.
+1. Obtenha o **ponto de contato, a porta, o nome de usuário** e a **senha primária** da sua conta do Azure Cosmos no painel de **cadeia de conexão** . Você usará esses valores no arquivo de configuração.
 
 1. No terminal da CLI, defina a configuração do banco de dados de destino. Abra o arquivo de configuração usando o **`vi conf/conn/cosmosdb.yml`** comando e adicione uma lista separada por vírgulas de URI de host, número da porta, nome de usuário, senha e outros parâmetros necessários. Veja a seguir um exemplo de conteúdo no arquivo de configuração:
 

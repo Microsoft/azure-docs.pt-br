@@ -1,14 +1,16 @@
 ---
 title: Gerenciar configurações de modelo e aprendizado-personalizador
 description: As configurações de modelo e aprendizado aprendidas por computador podem ser exportadas para backup em seu próprio sistema de controle do código-fonte.
+ms.service: cognitive-services
+ms.subservice: personalizer
 ms.topic: how-to
 ms.date: 02/20/2020
-ms.openlocfilehash: 59af5a64ea5752ec03fb44df91440e8d395e3782
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 48e954eab9da5dfc638f93a7c4e55c675c4f2ac9
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344349"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97797240"
 ---
 # <a name="how-to-manage-model-and-learning-settings"></a>Como gerenciar configurações de modelo e aprendizado
 
@@ -53,4 +55,4 @@ As configurações da [política de aprendizado](concept-active-learning.md#unde
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Saiba como gerenciar uma política de aprendizado](how-to-manage-model.md)
+[Analise seu loop de aprendizagem com uma avaliação offline](how-to-offline-evaluation.md)

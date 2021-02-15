@@ -1,19 +1,16 @@
 ---
 title: SDK do Azure HDInsight para go
 description: Material de referência para usar o SDK do Azure HDInsight para clusters de Go e Apache Hadoop
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurecli
 ms.date: 01/03/2020
-ms.openlocfilehash: 292496c4d458621213fe62105149ac845d78891e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dc8528c40fe7e3b32e2f38152afc8abb0ae18ba5
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79479579"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945992"
 ---
 # <a name="hdinsight-sdk-for-go-preview"></a>SDK do HDInsight para go (visualização)
 
@@ -21,7 +18,7 @@ ms.locfileid: "79479579"
 O SDK do HDInsight para go fornece classes e funções que permitem que você gerencie seus clusters HDInsight. Inclui operações para criar, excluir, atualizar, listar, redimensionar, executar ações de script, monitorar, obter propriedades dos clusters HDInsight e muito mais.
 
 > [!NOTE]  
->O material de referência do GoDoc para esse SDK também está [disponível aqui](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight).
+>O material de referência do GoDoc para esse SDK também está [disponível aqui](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2015-03-01-preview/hdinsight).
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -39,7 +36,7 @@ Na sua localização do GOPATH, execute `go get github.com/Azure/azure-sdk-for-g
 O SDK precisa primeiro ser autenticado com a assinatura do Azure.  Siga o exemplo abaixo para criar uma entidade de serviço e use-a para a autenticação. Depois que isso for feito, você terá uma instância de a `ClustersClient` , que contém muitas funções (descritas nas seções abaixo) que podem ser usadas para executar operações de gerenciamento.
 
 > [!NOTE]  
-> Existem outras formas de autenticar além do exemplo abaixo que talvez sejam mais adequadas às suas necessidades. Todas as funções são descritas aqui: [Funções de autenticação no SDK do Azure para linguagem Go](https://docs.microsoft.com/azure/go/azure-sdk-go-authorization)
+> Existem outras formas de autenticar além do exemplo abaixo que talvez sejam mais adequadas às suas necessidades. Todas as funções são descritas aqui: [Funções de autenticação no SDK do Azure para linguagem Go](/azure/go/azure-sdk-go-authorization)
 
 ### <a name="authentication-example-using-a-service-principal"></a>Exemplo de autenticação usando uma entidade de serviço
 
@@ -149,7 +146,7 @@ Este exemplo demonstra como criar um cluster [Apache Spark](https://spark.apache
 > [!NOTE]  
 > Primeiro você precisa criar um grupo de recursos e uma conta de armazenamento, conforme explicado abaixo. Se você já os tiver criado, ignore as próximas etapas.
 
-##### <a name="creating-a-resource-group"></a>Criando um grupo de recursos
+##### <a name="creating-a-resource-group"></a>Criar um grupo de recursos
 
 É possível criar um grupo de recursos usando o [Azure Cloud Shell](https://shell.azure.com/bash) executando:
 
@@ -365,7 +362,7 @@ extClient.Authorizer, _ = credentials.Authorizer()
 ### <a name="enable-oms-monitoring"></a>Habilitar o monitoramento de OMS
 
 > [!NOTE]  
-> Para habilitar o Monitoramento de OMS, você deve ter um espaço de trabalho do Log Analytics existente. Se você já não tiver criado um, você pode aprender como fazer isso aqui: [Criar um espaço de trabalho do Log Analytics no portal do Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace).
+> Para habilitar o Monitoramento de OMS, você deve ter um espaço de trabalho do Log Analytics existente. Se você já não tiver criado um, você pode aprender como fazer isso aqui: [Criar um espaço de trabalho do Log Analytics no portal do Azure](../azure-monitor/learn/quick-create-workspace.md).
 
 Para habilitar o Monitoramento de OMS no seu cluster:
 
@@ -394,7 +391,7 @@ extClient.DisableMonitoring(context.Background(), "<Resource Group Name", "Clust
 O HDInsight fornece uma função de configuração chamada ações de script que invoca os scripts personalizados para personalizar o cluster.
 
 > [!NOTE]  
-> Mais informações sobre como usar as ações de script podem ser encontradas aqui: [Personalizar clusters HDInsight com base em Linux usando ações de script](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux)
+> Mais informações sobre como usar as ações de script podem ser encontradas aqui: [Personalizar clusters HDInsight com base em Linux usando ações de script](./hdinsight-hadoop-customize-cluster-linux.md)
 
 ### <a name="execute-script-actions"></a>Executar ações de script
 
@@ -491,4 +488,4 @@ for (page.NotDone()) {
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Explore o [material de referência do GoDoc](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight). Os GoDocs fornecem a documentação de referência para todas as funções no SDK.
+Explore o [material de referência do GoDoc](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2015-03-01-preview/hdinsight). Os GoDocs fornecem a documentação de referência para todas as funções no SDK.

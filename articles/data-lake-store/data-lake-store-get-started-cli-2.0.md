@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 06/27/2018
 ms.author: twooley
-ms.openlocfilehash: 92fd681d05b8e5bd7cf07ecd735acd87698935ef
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: de98e25cf5703a43282e551a0eda20d7767c6ce8
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985782"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92103621"
 ---
 # <a name="get-started-with-azure-data-lake-storage-gen1-using-the-azure-cli"></a>Introdução ao Azure Data Lake Storage Gen1 usando o CLI do Azure
 
@@ -26,7 +26,7 @@ ms.locfileid: "85985782"
 
 Saiba como usar o CLI do Azure para criar uma conta de Azure Data Lake Storage Gen1 e executar operações básicas, como criar pastas, carregar e baixar arquivos de dados, excluir sua conta, etc. Para obter mais informações sobre Data Lake Storage Gen1, consulte [visão geral do data Lake Storage Gen1](data-lake-store-overview.md).
 
-A CLI do Azure é a experiência de linha de comando do Azure para gerenciar recursos do Azure. Ela pode ser usada em Windows, Linux e macOS. Para obter mais informações, confira [Visão geral da CLI do Azure](https://docs.microsoft.com/cli/azure). Você também pode examinar a [referência da CLI do Azure Data Lake Storage Gen1](https://docs.microsoft.com/cli/azure/dls) para obter uma lista completa de comandos e sintaxes.
+A CLI do Azure é a experiência de linha de comando do Azure para gerenciar recursos do Azure. Ela pode ser usada em Windows, Linux e macOS. Para obter mais informações, confira [Visão geral da CLI do Azure](/cli/azure). Você também pode examinar a [referência da CLI do Azure Data Lake Storage Gen1](/cli/azure/dls) para obter uma lista completa de comandos e sintaxes.
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -34,11 +34,11 @@ Antes de começar este artigo, você deve ter o seguinte:
 
 * **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-* **CLI do Azure** – Confira [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) para obter instruções.
+* **CLI do Azure** – Confira [Instalar a CLI do Azure](/cli/azure/install-azure-cli) para obter instruções.
 
 ## <a name="authentication"></a>Autenticação
 
-Este artigo usa uma abordagem de autenticação mais simples com o Data Lake Storage Gen1, em que você faz logon como um usuário final. O nível de acesso à conta do Data Lake Storage Gen1 e ao sistema de arquivos é controlado pelo nível de acesso do usuário conectado. No entanto, há outras abordagens para autenticar com o Data Lake Storage Gen1, que são a **autenticação de usuário final** ou a **autenticação serviço a serviço**. Para obter instruções e saber mais sobre como se autenticar, veja [Autenticação do usuário final](data-lake-store-end-user-authenticate-using-active-directory.md) ou [Autenticação de serviço a serviço](data-lake-store-authenticate-using-active-directory.md).
+Este artigo usa uma abordagem de autenticação mais simples com o Data Lake Storage Gen1, em que você faz logon como um usuário final. O nível de acesso à conta do Data Lake Storage Gen1 e ao sistema de arquivos é controlado pelo nível de acesso do usuário conectado. No entanto, há outras abordagens para autenticar com o Data Lake Storage Gen1, que são a **autenticação de usuário final** ou a **autenticação serviço a serviço**. Para obter instruções e saber mais sobre como se autenticar, veja [Autenticação do usuário final](data-lake-store-end-user-authenticate-using-active-directory.md) ou [Autenticação de serviço a serviço](./data-lake-store-service-to-service-authenticate-using-active-directory.md).
 
 
 ## <a name="log-in-to-your-azure-subscription"></a>Entre na sua assinatura do Azure
@@ -59,7 +59,7 @@ Este artigo usa uma abordagem de autenticação mais simples com o Data Lake Sto
 
 ## <a name="create-an-azure-data-lake-storage-gen1-account"></a>Criar uma conta do Azure Data Lake Storage Gen1
 
-1. Crie um novo grupo de recursos. No comando a seguir fornecem os valores de parâmetro que você deseja usar. Se o nome do local contiver espaços, coloque-o entre aspas duplas. Por exemplo "Leste dos EUA 2". 
+1. Criar um grupo de recursos. No comando a seguir fornecem os valores de parâmetro que você deseja usar. Se o nome do local contiver espaços, coloque-o entre aspas duplas. Por exemplo "Leste dos EUA 2". 
    
     ```azurecli
     az group create --location "East US 2" --name myresourcegroup

@@ -1,22 +1,18 @@
 ---
 title: Migrar dados do Amazon S3 para o Azure Data Lake Storage Gen2
 description: Saiba como usar um modelo de solução para migrar dados do Amazon S3 usando uma tabela de controle externo para armazenar uma lista de partições no AWS S3 com o Azure Data Factory.
-services: data-factory
 author: dearandyxu
 ms.author: yexu
-ms.reviewer: ''
-manager: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/07/2019
-ms.openlocfilehash: 23d799f84cb3ac3ca911a5669041b0a25394a7ff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c1fd4cb248abdc219c6ee5d098e10c329826c160
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81414771"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100361971"
 ---
 # <a name="migrate-data-from-amazon-s3-to-azure-data-lake-storage-gen2"></a>Migrar dados do Amazon S3 para o Azure Data Lake Storage Gen2
 
@@ -109,23 +105,23 @@ O modelo contém dois parâmetros:
 
 3. Vá para o modelo **migrar dados históricos do AWS S3 para Azure data Lake Storage Gen2** . Insira as conexões com sua tabela de controle externa, AWS S3 como o armazenamento de fonte de dados e Azure Data Lake Storage Gen2 como o armazenamento de destino. Lembre-se de que a tabela de controle externo e o procedimento armazenado são referenciados para a mesma conexão.
 
-    ![Criar uma conexão](media/solution-template-migration-s3-azure/historical-migration-s3-azure1.png)
+    ![Captura de tela que mostra a migração de dados históricos do AWS S3 para Azure Data Lake Storage Gen2 modelo.](media/solution-template-migration-s3-azure/historical-migration-s3-azure1.png)
 
 4. Selecione **Usar este modelo**.
 
-    ![Usar este modelo](media/solution-template-migration-s3-azure/historical-migration-s3-azure2.png)
+    ![Captura de tela que realça o botão usar este modelo.](media/solution-template-migration-s3-azure/historical-migration-s3-azure2.png)
     
 5. Você verá os 2 pipelines e 3 conjuntos de valores foram criados, conforme mostrado no exemplo a seguir:
 
-    ![Revisar o pipeline](media/solution-template-migration-s3-azure/historical-migration-s3-azure3.png)
+    ![Captura de tela que mostra os dois pipelines e três conjuntos de valores que foram criados usando o modelo.](media/solution-template-migration-s3-azure/historical-migration-s3-azure3.png)
 
-6. Selecione **Depurar**, insira os **Parâmetros** e, em seguida, selecione **Concluir**.
+6. Vá para o pipeline "BulkCopyFromS3" e selecione **depurar**, insira os **parâmetros**. Em seguida, selecione **Concluir**.
 
-    ![Clique em **Depurar**](media/solution-template-migration-s3-azure/historical-migration-s3-azure4.png)
+    ![Captura de tela que mostra onde selecionar depurar e insira os parâmetros antes de selecionar concluir.](media/solution-template-migration-s3-azure/historical-migration-s3-azure4.png)
 
 7. Você vê resultados semelhantes ao exemplo a seguir:
 
-    ![Revisar o resultado](media/solution-template-migration-s3-azure/historical-migration-s3-azure5.png)
+    ![Captura de tela que mostra os resultados retornados.](media/solution-template-migration-s3-azure/historical-migration-s3-azure5.png)
 
 
 ### <a name="for-the-template-to-copy-changed-files-only-from-amazon-s3-to-azure-data-lake-storage-gen2"></a>Para o modelo copiar arquivos alterados somente do Amazon S3 para Azure Data Lake Storage Gen2
@@ -172,7 +168,7 @@ O modelo contém dois parâmetros:
 
 3. Vá para o modelo **copiar dados Delta do AWS S3 para Azure data Lake Storage Gen2** . Insira as conexões com sua tabela de controle externa, AWS S3 como o armazenamento de fonte de dados e Azure Data Lake Storage Gen2 como o armazenamento de destino. Lembre-se de que a tabela de controle externo e o procedimento armazenado são referenciados para a mesma conexão.
 
-    ![Criar uma conexão](media/solution-template-migration-s3-azure/delta-migration-s3-azure1.png)
+    ![Crie uma nova conexão](media/solution-template-migration-s3-azure/delta-migration-s3-azure1.png)
 
 4. Selecione **Usar este modelo**.
 
@@ -182,7 +178,7 @@ O modelo contém dois parâmetros:
 
     ![Revisar o pipeline](media/solution-template-migration-s3-azure/delta-migration-s3-azure3.png)
 
-6. Selecione **Depurar**, insira os **Parâmetros** e, em seguida, selecione **Concluir**.
+6.  Acesse o pipeline "DeltaCopyFromS3" e selecione **depurar** e insira os **parâmetros**. Em seguida, selecione **Concluir**.
 
     ![Clique em **Depurar**](media/solution-template-migration-s3-azure/delta-migration-s3-azure4.png)
 
@@ -192,7 +188,7 @@ O modelo contém dois parâmetros:
 
 8. Você também pode verificar os resultados da tabela de controle por uma consulta *"select * from s3_partition_delta_control_table"*, verá a saída semelhante ao exemplo a seguir:
 
-    ![Revisar o resultado](media/solution-template-migration-s3-azure/delta-migration-s3-azure6.png)
+    ![Captura de tela que mostra os resultados da tabela de controle depois de executar a consulta.](media/solution-template-migration-s3-azure/delta-migration-s3-azure6.png)
     
 ## <a name="next-steps"></a>Próximas etapas
 

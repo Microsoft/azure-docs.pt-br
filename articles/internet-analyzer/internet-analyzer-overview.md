@@ -7,12 +7,12 @@ ms.service: internet-analyzer
 ms.topic: overview
 ms.date: 10/16/2019
 ms.author: mebeatty
-ms.openlocfilehash: 3d9d1240e31d40a3d9c75d56314acc1721d90b99
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 2512092c69390ce604c26ab6c5dd000afafc7c05
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "73488132"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91360881"
 ---
 # <a name="what-is-internet-analyzer-preview"></a>O que é o Analisador de Internet? (Visualização)
 
@@ -90,7 +90,7 @@ Para usar o Analisador de Internet, configure um recurso do Analisador de Intern
 
 Quando um usuário visita o aplicativo Web, o cliente JavaScript seleciona dois pontos de extremidade para medir em todos os testes configurados. Para cada ponto de extremidade, o cliente executa uma medida _quente_ e uma _fria_. A medida _fria_ incorre em latência adicional além da latência de rede pura entre o usuário e o ponto de extremidade, como resolução DNS, handshake de conexão TCP e negociação SSL/TLS. A medida _quente_ segue logo após a conclusão da _fria_ e usa o gerenciamento persistente de conexões TCP dos navegadores modernos para obter uma medida precisa da latência de ponta a ponta. Quando há suporte no navegador do usuário, a API de tempo do recurso W3C é usada para calcular o tempo exato da medida. Atualmente, somente as medidas de latência a quente são usadas para análise.
 
-![Arquitetura](./media/ia-overview/architecture.png)
+![O diagrama mostra um usuário final que se conecta a um servidor de aplicativos com o cliente inserido e aos dois pontos de extremidade na Internet em várias opções. O usuário carrega as medidas no Analisador de Internet.](./media/ia-overview/architecture.png)
 
 
 ## <a name="scorecards"></a>Scorecards 

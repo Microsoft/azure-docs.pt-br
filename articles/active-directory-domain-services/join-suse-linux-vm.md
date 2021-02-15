@@ -2,20 +2,20 @@
 title: Ingresse em uma VM de EPU para Azure AD Domain Services | Microsoft Docs
 description: Saiba como configurar e ingressar em uma máquina virtual SUSE Linux Enterprise em um Azure AD Domain Services domínio gerenciado.
 services: active-directory-ds
-author: iainfoulds
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 08/12/2020
-ms.author: iainfou
-ms.openlocfilehash: 9f50be95e456802c6ad403acd6a2f539780e53a2
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.author: justinha
+ms.openlocfilehash: f2f421d95dfc376aed373c718198db33a870d9dc
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88251145"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96619599"
 ---
 # <a name="join-a-suse-linux-enterprise-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>Ingressar em uma máquina virtual SUSE Linux Enterprise em um Azure Active Directory Domain Services domínio gerenciado
 
@@ -105,7 +105,7 @@ Para ingressar a VM no domínio gerenciado, conclua as seguintes etapas:
 
 1. Na caixa de diálogo, selecione **Adicionar domínio**.
 
-1. Especifique o *nome de domínio*correto, como *aaddscontoso.com*, e especifique os serviços a serem usados para dados de identidade e autenticação. Selecione *Microsoft Active Directory* para ambos.
+1. Especifique o *nome de domínio* correto, como *aaddscontoso.com*, e especifique os serviços a serem usados para dados de identidade e autenticação. Selecione *Microsoft Active Directory* para ambos.
 
     Verifique se a opção *habilitar o domínio* está selecionada.
 
@@ -137,9 +137,9 @@ Depois que a VM for inscrita no domínio gerenciado, configure o cliente usando 
 
 1. Para permitir que os usuários no domínio gerenciado tenham diretórios base na VM, marque a caixa *criar diretórios base*.
 
-1. Na barra lateral, selecione **Opções de serviço › Switch de nome**e, em seguida, *Opções estendidas*. Nessa janela, selecione *fallback_homedir* ou *override_homedir*e, em seguida, selecione **Adicionar**.
+1. Na barra lateral, selecione **Opções de serviço › Switch de nome** e, em seguida, *Opções estendidas*. Nessa janela, selecione *fallback_homedir* ou *override_homedir* e, em seguida, selecione **Adicionar**.
 
-1. Especifique um valor para o local do diretório base. Para que os diretórios base sigam o formato de */home/user_name*, use */Home/%u*. Para obter mais informações sobre variáveis possíveis, consulte a página do Man SSSD. conf ( `man 5 sssd.conf` ), *override_homedir*de seção.
+1. Especifique um valor para o local do diretório base. Para que os diretórios base sigam o formato de */home/user_name*, use */Home/%u*. Para obter mais informações sobre variáveis possíveis, consulte a página do Man SSSD. conf ( `man 5 sssd.conf` ), *override_homedir* de seção.
 
 1. Selecione **OK**.
 
@@ -165,7 +165,7 @@ Para ingressar no domínio gerenciado usando o **Winbind** e o módulo de *Assoc
 
 1. Se você quiser alterar os intervalos de UID e GID para os usuários e grupos do samba, selecione *configurações de especialista*.
 
-1. Configure a sincronização de horário NTP para seu domínio gerenciado selecionando *configuração de NTP*. Insira os endereços IP do domínio gerenciado. Esses endereços IP são mostrados na janela *Propriedades* no portal do Azure para seu domínio gerenciado, como *10.0.2.4* e *10.0.2.5*.
+1. Configure a sincronização de tempo do protocolo NTP (NTP) para seu domínio gerenciado selecionando *configuração de NTP*. Insira os endereços IP do domínio gerenciado. Esses endereços IP são mostrados na janela *Propriedades* no portal do Azure para seu domínio gerenciado, como *10.0.2.4* e *10.0.2.5*.
 
 1. Selecione **OK** e confirme o ingresso no domínio quando solicitado.
 
@@ -174,6 +174,127 @@ Para ingressar no domínio gerenciado usando o **Winbind** e o módulo de *Assoc
     ![Captura de tela de exemplo do prompt da caixa de diálogo de autenticação ao unir uma VM de EPU ao domínio gerenciado](./media/join-suse-linux-vm/domain-join-authentication-prompt.png)
 
 Depois de ingressar no domínio gerenciado, você pode entrar nele na sua estação de trabalho usando o Gerenciador de exibição da sua área de trabalho ou o console do.
+
+## <a name="join-vm-to-the-managed-domain-using-winbind-from-the-yast-command-line-interface"></a>Ingresse a VM no domínio gerenciado usando o Winbind da interface de linha de comando do YaST
+
+Para ingressar no domínio gerenciado usando o **Winbind** e a *interface de linha de comando do YaST*:
+
+* Ingresse no domínio:
+
+  ```console
+  sudo yast samba-client joindomain domain=aaddscontoso.com user=<admin> password=<admin password> machine=<(optional) machine account>
+  ```
+
+## <a name="join-vm-to-the-managed-domain-using-winbind-from-the-terminal"></a>Ingressar a VM no domínio gerenciado usando o Winbind do terminal
+
+Para ingressar no domínio gerenciado usando **Winbind** e o *`samba net` comando*:
+
+1. Instalar o cliente Kerberos e o samba-Winbind:
+
+   ```console
+   sudo zypper in krb5-client samba-winbind
+   ```
+
+2. Edite os arquivos de configuração:
+
+   * /etc/samba/smb.conf
+   
+     ```ini
+     [global]
+         workgroup = AADDSCONTOSO
+         usershare allow guests = NO #disallow guests from sharing
+         idmap config * : backend = tdb
+         idmap config * : range = 1000000-1999999
+         idmap config AADDSCONTOSO : backend = rid
+         idmap config AADDSCONTOSO : range = 5000000-5999999
+         kerberos method = secrets and keytab
+         realm = AADDSCONTOSO.COM
+         security = ADS
+         template homedir = /home/%D/%U
+         template shell = /bin/bash
+         winbind offline logon = yes
+         winbind refresh tickets = yes
+     ```
+
+   * /etc/krb5.conf
+   
+     ```ini
+     [libdefaults]
+         default_realm = AADDSCONTOSO.COM
+         clockskew = 300
+     [realms]
+         AADDSCONTOSO.COM = {
+             kdc = PDC.AADDSCONTOSO.COM
+             default_domain = AADDSCONTOSO.COM
+             admin_server = PDC.AADDSCONTOSO.COM
+         }
+     [domain_realm]
+         .aaddscontoso.com = AADDSCONTOSO.COM
+     [appdefaults]
+         pam = {
+             ticket_lifetime = 1d
+             renew_lifetime = 1d
+             forwardable = true
+             proxiable = false
+             minimum_uid = 1
+         }
+     ```
+
+   * /etc/security/pam_winbind. conf
+   
+     ```ini
+     [global]
+         cached_login = yes
+         krb5_auth = yes
+         krb5_ccache_type = FILE
+         warn_pwd_expire = 14
+     ```
+
+   * /etc/nsswitch.conf
+   
+     ```ini
+     passwd: compat winbind
+     group: compat winbind
+     ```
+
+3. Verifique se a data e a hora no Azure AD e no Linux estão em sincronia. Você pode fazer isso adicionando o servidor do Azure AD ao serviço NTP:
+   
+   1. Adicione a seguinte linha a/etc/ntp.conf:
+     
+      ```console
+      server aaddscontoso.com
+      ```
+
+   1. Reinicie o serviço NTP:
+     
+      ```console
+      sudo systemctl restart ntpd
+      ```
+
+4. Ingresse no domínio:
+
+   ```console
+   sudo net ads join -U Administrator%Mypassword
+   ```
+
+5. Habilite o Winbind como uma fonte de logon nos módulos de autenticação conectável do Linux (PAM):
+
+   ```console
+   pam-config --add --winbind
+   ```
+
+6. Habilite a criação automática de diretórios base para que os usuários possam fazer logon:
+
+   ```console
+   pam-config -a --mkhomedir
+   ```
+
+7. Inicie e habilite o serviço Winbind:
+
+   ```console
+   sudo systemctl enable winbind
+   sudo systemctl start winbind
+   ```
 
 ## <a name="allow-password-authentication-for-ssh"></a>Permitir autenticação de senha para SSH
 

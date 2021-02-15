@@ -4,12 +4,12 @@ description: Saiba como implementar um monitor de status utilizando a extensão 
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: ed92156df9d8e1e07b56cea4b1e64edee11d68d9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e70c50098ece516312e1e92984185624c276301b
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77562115"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028413"
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>Cenário do Monitor em Funções Duráveis - Exemplo de observador meteorológico
 
@@ -72,6 +72,9 @@ Este é o código que implementa a função:
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_Monitor/index.js)]
 
+# <a name="python"></a>[Python](#tab/python)
+Temos um tutorial diferente para o padrão de monitoramento no Python, confira-o [aqui](durable-functions-monitor-python.md).
+
 ---
 
 Essa função de orquestrador executa as ações a seguir:
@@ -83,8 +86,7 @@ Essa função de orquestrador executa as ações a seguir:
 5. Cria um temporizador durável para retomar a orquestração no próximo intervalo de sondagem. O exemplo usa um valor embutido em código para brevidade.
 6. Continua em execução até que a hora UTC atual passe o tempo de expiração do monitor ou um alerta SMS seja enviado.
 
-Várias instâncias de orquestrador podem ser executadas simultaneamente chamando a função de orquestrador várias vezes. A localização a ser monitorada e o número do telefone para envio de um alerta por SMS podem ser excluídos.
-
+Várias instâncias de orquestrador podem ser executadas simultaneamente chamando a função de orquestrador várias vezes. A localização a ser monitorada e o número do telefone para envio de um alerta por SMS podem ser excluídos. Por fim, observe que a função de orquestrador *não* está em execução enquanto aguarda o timer, portanto, você não será cobrado por ela.
 ### <a name="e3_getisclear-activity-function"></a>Função de atividade de E3_GetIsClear
 
 Como com outros exemplo, as funções de atividade auxiliares são funções regulares que usam a associação de gatilho `activityTrigger`. A função **E3_GetIsClear** função obtém as condições meteorológicas atuais, utilizando a API do Weather Underground e determina se as condições estão boas.
@@ -102,6 +104,9 @@ O *function.json* é definido da seguinte maneira:
 E aqui está a implementação.
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_GetIsClear/index.js)]
+
+# <a name="python"></a>[Python](#tab/python)
+Temos um tutorial diferente para o padrão de monitoramento no Python, confira-o [aqui](durable-functions-monitor-python.md).
 
 ---
 
@@ -125,6 +130,9 @@ O *function.json* é simples:
 E aqui está o código que envia a mensagem SMS:
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_SendGoodWeatherAlert/index.js)]
+
+# <a name="python"></a>[Python](#tab/python)
+Temos um tutorial diferente para o padrão de monitoramento no Python, confira-o [aqui](durable-functions-monitor-python.md).
 
 ---
 
@@ -169,7 +177,7 @@ A instância **E3_Monitor** inicia e consulta as condições meteorológicas atu
 2018-03-01T01:14:54.030 Function completed (Success, Id=561d0c78-ee6e-46cb-b6db-39ef639c9a2c, Duration=62ms)
 ```
 
-A orquestração [terminará](durable-functions-instance-management.md) quando o tempo limite for alcançado ou as condições climáticas favoráveis forem detectadas. Também é possível usar `TerminateAsync` (.NET) ou `terminate` (JavaScript) dentro de outra função ou invocar o webhook HTTP POST **terminatePostUri** referenciados na resposta 202 acima, substituindo `{text}` pelo motivo da terminação:
+A orquestração é concluída quando seu tempo limite é atingido ou a limpeza de Skies é detectada. Você também pode usar a `terminate` API dentro de outra função ou invocar o webhook **TERMINATEPOSTURI** http post referenciado na resposta 202 acima. Para usar o webhook, substitua `{text}` pelo motivo do encerramento antecipado. A URL HTTP POST terá uma aparência semelhante à seguinte:
 
 ```
 POST https://{host}/runtime/webhooks/durabletask/instances/f6893f25acf64df2ab53a35c09d52635/terminate?reason=Because&taskHub=SampleHubVS&connection=Storage&code={systemKey}

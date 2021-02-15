@@ -9,12 +9,12 @@ ms.date: 07/06/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
-ms.openlocfilehash: 566307581b49922b9d47936f64beea73715f63ba
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 21f937d95c6cd0dafa27daae50d7a74648af7bdc
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86034669"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97006099"
 ---
 # <a name="create-an-app-service-app-and-deploy-private-endpoint-using-azure-cli"></a>Criar um aplicativo do Serviço de Aplicativo e implantar um ponto de extremidade privado usando a CLI do Azure
 
@@ -22,9 +22,9 @@ Este script de exemplo cria um aplicativo no Serviço de Aplicativo com os recur
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-Se você optar por instalar e usar a CLI do Azure localmente, este guia de início rápido exigirá a versão 2.0.28 ou posterior da CLI do Azure. Execute `az --version` para localizar a versão instalada. Para informações sobre como instalar ou atualizar, confira [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
+ - Este tutorial exige a versão 2.0.28 ou posterior da CLI do Azure. Se você está usando o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -37,7 +37,7 @@ az group create --name myResourceGroup --location francecentral
 ## <a name="create-an-app-service-plan"></a>Criar um Plano do Serviço de Aplicativo
 
 Você precisará criar um Plano do Serviço de Aplicativo para hospedar seu Aplicativo Web.
-Crie um Plano do Serviço de Aplicativo com [az appservice plan create](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create).
+Crie um Plano do Serviço de Aplicativo com [az appservice plan create](/cli/azure/appservice/plan#az-appservice-plan-create).
 Este exemplo cria o Plano do Serviço de Aplicativo chamado *myAppServicePlan* na localização *francecentral* com o SKU *P1V2* e apenas um trabalho: 
 
 ```azurecli-interactive
@@ -78,7 +78,7 @@ az network vnet create \
 
 ## <a name="configure-the-subnet"></a>Configurar a sub-rede 
 
-Você precisará atualizar a sub-rede para desabilitar as políticas de rede do ponto de extremidade privado. Atualize uma configuração de sub-rede denominada *mySubnet* com [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update):
+Você precisará atualizar a sub-rede para desabilitar as políticas de rede do ponto de extremidade privado. Atualize uma configuração de sub-rede denominada *mySubnet* com [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update):
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -138,5 +138,5 @@ az network private-endpoint dns-zone-group create \
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para saber mais sobre a CLI do Azure, veja a [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
+- Para saber mais sobre a CLI do Azure, veja a [documentação da CLI do Azure](/cli/azure).
 - Os exemplos de script da CLI do Serviço de Aplicativo adicionais podem ser encontrados na [documentação do Serviço de Aplicativo do Azure](../samples-cli.md).

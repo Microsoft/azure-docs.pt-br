@@ -14,14 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: faf0db31b458ed6b8dd4961fffbf2a810990574d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9f86f7a0a7eaef7c0dc244a2e089596de3779eae
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084476"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018944"
 ---
-# <a name="publish-content-in-the-azure-portal"></a>Publicar conteúdo no Portal do Azure  
+# <a name="publish-content-in-the-azure-portal"></a>Publicar conteúdo no Portal do Azure
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-publish.md)
 > * [.NET](media-services-deliver-streaming-content.md)
@@ -63,14 +66,14 @@ Para obter mais informações, consulte [visão geral sobre entrega de conteúdo
 > 
 > 
 
-Para atualizar uma data de validade em um localizador, você pode usar uma [API REST](/rest/api/media/operations/locator#update_a_locator) ou uma [API .NET](https://go.microsoft.com/fwlink/?LinkID=533259). 
+Para atualizar uma data de validade em um localizador, você pode usar uma [API REST](/rest/api/media/operations/locator#update_a_locator) ou uma [API .NET](/dotnet/api/microsoft.windowsazure.mediaservices.client.ilocator). 
 
 > [!NOTE]
 > Quando você atualiza a data de validade de um localizador SAS, a URL é alterada.
 
 ### <a name="to-use-the-portal-to-publish-an-asset"></a>Para usar o portal para publicar um ativo
 1. No [Portal do Azure](https://portal.azure.com/), selecione sua conta dos Serviços de Mídia do Azure.
-2. Selecione **configurações**  >  **ativos**. Selecione o ativo que você deseja publicar.
+2. Selecione **Configurações** > **Ativos**. Selecione o ativo que você deseja publicar.
 3. Clique no botão **Publicar**.
 4. Selecione o tipo de localizador.
 5. Selecione **Adicionar**.

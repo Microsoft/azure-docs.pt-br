@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 04/05/2020
 ms.author: haroldw
-ms.openlocfilehash: 0c60fdfda0c18f5a8feb11c3d9c5a386025670cd
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: fab8f88a39730411503af273902a53f169e3fe57
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87368142"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97703728"
 ---
 # <a name="deploy-openshift-container-platform-311-in-azure"></a>Implantar a plataforma de contêiner OpenShift 3,11 no Azure
 
@@ -32,7 +32,7 @@ Certifique-se de que você tenha uma senha, uma ID do Pool e um Nome de usuário
 
 ### <a name="private-clusters"></a>Clusters privados
 
-Implantar clusters OpenShift privados requer mais do que simplesmente não ter um IP público associado ao balanceador de carga mestre (console Web) ou ao balanceador de carga (roteador).  Um cluster privado geralmente usa um servidor DNS personalizado (não o DNS padrão do Azure), um nome de domínio personalizado (como contoso.com) e redes virtuais predefinidas.  Para clusters privados, você precisa configurar sua rede virtual com todas as sub-redes apropriadas e as configurações do servidor DNS com antecedência.  Em seguida, use **existingMasterSubnetReference**, **existingInfraSubnetReference**, **existingCnsSubnetReference**e **existingNodeSubnetReference** para especificar a sub-rede existente a ser usada pelo cluster.
+Implantar clusters OpenShift privados requer mais do que simplesmente não ter um IP público associado ao balanceador de carga mestre (console Web) ou ao balanceador de carga (roteador).  Um cluster privado geralmente usa um servidor DNS personalizado (não o DNS padrão do Azure), um nome de domínio personalizado (como contoso.com) e redes virtuais predefinidas.  Para clusters privados, você precisa configurar sua rede virtual com todas as sub-redes apropriadas e as configurações do servidor DNS com antecedência.  Em seguida, use **existingMasterSubnetReference**, **existingInfraSubnetReference**, **existingCnsSubnetReference** e **existingNodeSubnetReference** para especificar a sub-rede existente a ser usada pelo cluster.
 
 Se o mestre privado estiver selecionado (**masterClusterType**= Private), um IP privado estático precisará ser especificado para **masterPrivateClusterIp**.  Esse IP será atribuído ao front-end do balanceador de carga mestre.  O IP deve estar dentro do CIDR para a sub-rede mestre e não em uso.  **masterClusterDnsType** deve ser definido como "Custom" e o nome DNS mestre deve ser fornecido para **masterClusterDns**.  O nome DNS deve mapear para o IP privado estático e será usado para acessar o console do nos nós mestres.
 
@@ -276,14 +276,14 @@ Versões diferentes podem ter parâmetros diferentes. Portanto, verifique os par
 | `keyVaultName` | O nome da Key Vault que você criou |  |  |
 | `enableAzure` | Habilitar o provedor de nuvem do Azure | true <br> false | true |
 | `aadClientId` | Azure Active Directory ID do cliente também conhecida como ID do aplicativo para a entidade de serviço |  |  |
-| `domainName` | Nome do nome de domínio personalizado a ser usado (se aplicável). Defina como "nenhum" se não estiver implantando um cluster totalmente privado |  | nenhuma |
+| `domainName` | Nome do nome de domínio personalizado a ser usado (se aplicável). Defina como "nenhum" se não estiver implantando um cluster totalmente privado |  | none |
 | `masterClusterDnsType` | Tipo de domínio do console Web do OpenShift. ' default ' usará o rótulo DNS do IP de infraestrutura principal. ' Custom ' permite que você defina seu próprio nome | padrão <br> custom | padrão |
-| `masterClusterDns` | O nome DNS personalizado a ser usado para acessar o console Web OpenShift se você selecionou ' Custom ' para`masterClusterDnsType` |  | console.contoso.com |
+| `masterClusterDns` | O nome DNS personalizado a ser usado para acessar o console Web OpenShift se você selecionou ' Custom ' para `masterClusterDnsType` |  | console.contoso.com |
 | `routingSubDomainType` | Se definido como ' nipio ', `routingSubDomain` usará Nip.IO.  Use ' Custom ' se você tiver seu próprio domínio que deseja usar para roteamento | nipio <br> custom | nipio |
-| `routingSubDomain` | O nome DNS do curinga que você deseja usar para roteamento se você selecionou ' personalizado ' para`routingSubDomainType` |  | apps.contoso.com |
+| `routingSubDomain` | O nome DNS do curinga que você deseja usar para roteamento se você selecionou ' personalizado ' para `routingSubDomainType` |  | apps.contoso.com |
 | `virtualNetworkNewOrExisting` | Selecione se deseja usar uma rede virtual existente ou criar uma nova rede virtual | pré-existente <br> novo | novo |
-| `virtualNetworkResourceGroupName` | Nome do grupo de recursos para a nova rede virtual se você selecionou ' novo ' para`virtualNetworkNewOrExisting` |  | resourcegroup (). Name |
-| `virtualNetworkName` | O nome da nova rede virtual a ser criada se você selecionou ' novo ' para`virtualNetworkNewOrExisting` |  | openshiftvnet |
+| `virtualNetworkResourceGroupName` | Nome do grupo de recursos para a nova rede virtual se você selecionou ' novo ' para `virtualNetworkNewOrExisting` |  | resourcegroup (). Name |
+| `virtualNetworkName` | O nome da nova rede virtual a ser criada se você selecionou ' novo ' para `virtualNetworkNewOrExisting` |  | openshiftvnet |
 | `addressPrefixes` | Prefixo de endereço da nova rede virtual |  | 10.0.0.0/14 |
 | `masterSubnetName` | O nome da sub-rede mestre |  | mastersubnet |
 | `masterSubnetPrefix` | CIDR usado para a sub-rede mestre-precisa ser um subconjunto do addressPrefix |  | 10.1.0.0/16 |
@@ -295,9 +295,9 @@ Versões diferentes podem ter parâmetros diferentes. Portanto, verifique os par
 | `existingInfraSubnetReference` | Referência completa à sub-rede existente para nós de infraestrutura. Não é necessário se estiver criando uma nova vNet/sub-rede |  |  |
 | `existingCnsSubnetReference` | Referência completa para a sub-rede existente para nós do CNS. Não é necessário se estiver criando uma nova vNet/sub-rede |  |  |
 | `existingNodeSubnetReference` | Referência completa para a sub-rede existente para nós de computação. Não é necessário se estiver criando uma nova vNet/sub-rede |  |  |
-| `masterClusterType` | Especifique se o cluster usa nós mestres privados ou públicos. Se privado for escolhido, os nós mestres não serão expostos à Internet por meio de um IP público. Em vez disso, ele usará o IP privado especificado no`masterPrivateClusterIp` | público <br> particulares | público |
+| `masterClusterType` | Especifique se o cluster usa nós mestres privados ou públicos. Se privado for escolhido, os nós mestres não serão expostos à Internet por meio de um IP público. Em vez disso, ele usará o IP privado especificado no `masterPrivateClusterIp` | públicos <br> particulares | públicos |
 | `masterPrivateClusterIp` | Se nós mestres privados forem selecionados, um endereço IP privado deverá ser especificado para ser usado pelo balanceador de carga interno para nós mestres. Esse IP estático deve estar dentro do bloco CIDR para a sub-rede mestre e ainda não está em uso. Se os nós mestres públicos forem selecionados, esse valor não será usado, mas ainda deverá ser especificado |  | 10.1.0.200 |
-| `routerClusterType` | Especifique se o cluster usa nós de infraestrutura privada ou pública. Se privado for escolhido, os nós de infra-estrutura não serão expostos à Internet por meio de um IP público. Em vez disso, ele usará o IP privado especificado no`routerPrivateClusterIp` | público <br> particulares | público |
+| `routerClusterType` | Especifique se o cluster usa nós de infraestrutura privada ou pública. Se privado for escolhido, os nós de infra-estrutura não serão expostos à Internet por meio de um IP público. Em vez disso, ele usará o IP privado especificado no `routerPrivateClusterIp` | públicos <br> particulares | públicos |
 | `routerPrivateClusterIp` | Se os nós de infraestrutura privada forem selecionados, um endereço IP privado deverá ser especificado para ser usado pelo balanceador de carga interno para os nós de infraestrutura. Esse IP estático deve estar dentro do bloco CIDR para a sub-rede de infraestrutura e ainda não está em uso. Se os nós de infraestrutura pública forem selecionados, esse valor não será usado, mas ainda deverá ser especificado |  | 10.2.0.200 |
 | `routingCertType` | Usar certificado personalizado para o domínio de roteamento ou o certificado autoassinado padrão-siga as instruções na seção de **certificados personalizados** | selfsigned <br> custom | selfsigned |
 | `masterCertType` | Usar certificado personalizado para o domínio mestre ou o certificado autoassinado padrão-siga as instruções na seção de **certificados personalizados** | selfsigned <br> custom | selfsigned |
@@ -312,7 +312,7 @@ Versões diferentes podem ter parâmetros diferentes. Portanto, verifique os par
 O exemplo a seguir implanta o cluster do OpenShift e todos os recursos relacionados em um grupo de recursos denominado openshiftrg, com um nome de implantação de myOpenShiftCluster. O modelo é referenciado diretamente do repositório GitHub e um arquivo de parâmetros local chamado azuredeploy.parameters.json é usado.
 
 ```azurecli 
-az group deployment create -g openshiftrg --name myOpenShiftCluster \
+az deployment group create -g openshiftrg --name myOpenShiftCluster \
       --template-uri https://raw.githubusercontent.com/Microsoft/openshift-container-platform/master/azuredeploy.json \
       --parameters @./azuredeploy.parameters.json
 ```

@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Usar o Cache do Azure para Redis com aplicativos .NET'
+title: 'Início Rápido: Usar o Cache do Azure para Redis no .NET Framework'
 description: Neste início rápido, aprenda como acessar o Cache do Azure para Redis de seus aplicativos .NET
 author: yegu-ms
 ms.author: yegu
@@ -8,14 +8,14 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: devx-track-csharp, mvc
 ms.date: 06/18/2020
-ms.openlocfilehash: b64fd82ab6050d6f4a9f0f91c2b8336ce03ab1d3
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 762fdf0aab0077cfbf8beceeb432dc85695e4176
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88211352"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002437"
 ---
-# <a name="quickstart-use-azure-cache-for-redis-with-a-net-framework-application"></a>Início Rápido: Usar o Cache do Azure para Redis com um aplicativo .NET Framework
+# <a name="quickstart-use-azure-cache-for-redis-in-net-framework"></a>Início Rápido: Usar o Cache do Azure para Redis no .NET Framework
 
 Neste guia de início rápido, você incorporará o Cache do Azure para Redis a um aplicativo .NET Framework para ter acesso a um cache seguro e dedicado que pode ser acessado de qualquer aplicativo no Azure. Você especificamente usará o cliente [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) com o código C# em um aplicativo de console do .NET.
 
@@ -92,7 +92,7 @@ using System.Configuration;
 
 A conexão com o Cache do Azure para Redis é gerenciada pela classe `ConnectionMultiplexer`. Essa classe deve ser compartilhada e reutilizada em todo o seu aplicativo cliente. Não crie uma nova conexão para cada operação. 
 
-Nunca armazene credenciais no código-fonte. Para manter essa amostra simples, estou usando apenas um arquivo de configuração de segredos externo. Uma abordagem melhor seria usar o [Azure Key Vault com certificados](https://docs.microsoft.com/rest/api/keyvault/certificate-scenarios).
+Nunca armazene credenciais no código-fonte. Para manter essa amostra simples, estou usando apenas um arquivo de configuração de segredos externo. Uma abordagem melhor seria usar o [Azure Key Vault com certificados](/rest/api/keyvault/certificate-scenarios).
 
 Em *Program.cs*, adicione os seguintes membros à classe `Program` do seu aplicativo de console:
 
@@ -271,4 +271,4 @@ Neste guia de início rápido, você aprendeu a usar o Cache do Azure para Redis
 Deseja otimizar e reduzir seus gastos com a nuvem?
 
 > [!div class="nextstepaction"]
-> [Comece a analisar os custos com o Gerenciamento de Custos](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+> [Comece a analisar os custos com o Gerenciamento de Custos](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

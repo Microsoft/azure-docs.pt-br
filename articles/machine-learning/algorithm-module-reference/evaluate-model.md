@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/27/2020
-ms.openlocfilehash: 7f37a598c31f340e66437a6478512fad1f79121f
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 39bdf9cb0c97e19a67b23046c6f06b60daa30147
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285944"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584933"
 ---
 # <a name="evaluate-model-module"></a>Módulo Avaliar modelo
 
-Este artigo descreve um módulo no designer do Azure Machine Learning (versão prévia).
+Este artigo descreve um módulo no designer de Azure Machine Learning.
 
 Use este módulo para medir a precisão de um modelo treinado. Você fornece um conjunto de dados que contém pontuações geradas por um modelo, e o módulo **Avaliar modelo** calcula um conjunto de métricas de avaliação padrão do setor.
   
@@ -30,7 +30,7 @@ Use este módulo para medir a precisão de um modelo treinado. Você fornece um 
 
 
 > [!TIP]
-> Se a avaliação de modelo for novidade para você, recomendamos a série de vídeos do Dr. Stephen Elston, como parte do [curso de aprendizado de máquina](https://blogs.technet.microsoft.com/machinelearning/2015/09/08/new-edx-course-data-science-machine-learning-essentials/) da EdX. 
+> Se a avaliação de modelo for novidade para você, recomendamos a série de vídeos do Dr. Stephen Elston, como parte do [curso de aprendizado de máquina](/archive/blogs/machinelearning/new-edx-course-data-science-machine-learning-essentials) da EdX. 
 
 
 ## <a name="how-to-use-evaluate-model"></a>Como usar Avaliar modelo
@@ -39,6 +39,14 @@ Use este módulo para medir a precisão de um modelo treinado. Você fornece um 
     > Se usar módulos, como "Selecionar colunas no conjunto de dados", para selecionar parte do conjunto de dados de entrada, verifique se as colunas de rótulo “Real” (usada no treinamento), “Probabilidades pontuadas” e “Rótulos pontuados” existem para calcular métricas, como AUC, Precisão para classificação binária/detecção de anomalias.
     > A coluna de rótulo real e a coluna “Rótulos pontuados” existem para calcular métricas para classificação/regressão multiclasse.
     > A coluna “Atribuições” e as colunas “DistancesToClusterCenter no.X” (X é o índice do centroide, de 0, ..., número de centroides-1) existem para calcular métricas para clustering.
+
+    > [!IMPORTANT]
+    > + Para avaliar os resultados, o conjunto de informações de saída deve conter nomes de coluna de Pontuação específicos, que atendem aos requisitos do módulo avaliar modelo.
+    > + A `Labels` coluna será considerada como rótulos reais.
+    > + Para a tarefa de regressão, o conjunto de pontos a ser avaliado deve ter uma coluna, denominada `Regression Scored Labels` , que representa rótulos pontuados.
+    > + Para a tarefa de classificação binária, o conjunto de linhas a ser avaliado deve ter duas colunas, chamadas `Binary Class Scored Labels` , `Binary Class Scored Probabilities` , que representam rótulos pontuados e probabilidades, respectivamente.
+    > + Para a tarefa de classificação múltipla, o conjunto de pontos a ser avaliado deve ter uma coluna, denominada `Multi Class Scored Labels` , que representa rótulos pontuados.
+    > Se as saídas do módulo upstream não tiverem essas colunas, você precisará modificar de acordo com os requisitos acima.
 
 2. [Opcional] Conecte a saída **Conjunto de dados pontuado** da saída de conjunto de dados [Modelo de pontuação](./score-model.md) ou Resultado de Atribuir dados a clusters para o segundo modelo à porta de entrada **direita** de **Avaliar modelo**. Você pode comparar facilmente os resultados de dois modelos diferentes nos mesmos dados. Os dois algoritmos de entrada devem ter o mesmo tipo de algoritmo. Ou, você pode comparar pontuações de duas execuções diferentes sobre os mesmos dados com parâmetros diferentes.
 
@@ -86,7 +94,7 @@ As métricas a seguir são relatadas ao avaliar modelos de classificação biná
   
 -   A **Pontuação F1** é calculada como a média ponderada de precisão e RECALL entre 0 e 1, em que o valor de Pontuação F1 ideal é 1.  
   
--   **AUC** mede a área sob a curva plotada com verdadeiros positivos no eixo y e falsos positivos no eixo x. Essa métrica é útil porque ele fornece um único número que permite comparar modelos de tipos diferentes.  
+-   **AUC** mede a área sob a curva plotada com verdadeiros positivos no eixo y e falsos positivos no eixo x. Essa métrica é útil porque ele fornece um único número que permite comparar modelos de tipos diferentes. AUC é classificação-limite-invariável. Ele mede a qualidade das previsões do modelo, independentemente de qual limite de classificação é escolhido.
 
 
 ### <a name="metrics-for-regression-models"></a>Métricas para modelos de regressão
@@ -105,7 +113,7 @@ As métricas retornadas para modelos de regressão são projetadas para estimar 
   
 
   
-- **Coeficiente de determinação**, frequentemente chamado de R<sup>2</sup>, representa o poder de previsão do modelo como um valor entre 0 e 1. Zero significa que o modelo é aleatório (não explica nada) e 1 significa que há um ajuste perfeito. No entanto, deve-se ter cuidado ao interpretar valores de R<sup>2</sup>, pois valores baixos podem ser totalmente normais e valores altos podem ser suspeitos.
+- **Coeficiente de determinação**, frequentemente chamado de R <sup>2</sup>, representa o poder de previsão do modelo como um valor entre 0 e 1. Zero significa que o modelo é aleatório (não explica nada) e 1 significa que há um ajuste perfeito. No entanto, deve-se ter cuidado ao interpretar valores de R<sup>2</sup>, pois valores baixos podem ser totalmente normais e valores altos podem ser suspeitos.
 
 ###  <a name="metrics-for-clustering-models"></a>Métricas para modelos de clustering
 
@@ -134,4 +142,4 @@ As métricas a seguir são relatadas para avaliar modelos de clustering.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Confira o [conjunto de módulos disponíveis](module-reference.md) no Azure Machine Learning. 
+Confira o [conjunto de módulos disponíveis](module-reference.md) no Azure Machine Learning.

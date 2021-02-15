@@ -13,13 +13,13 @@ ms.workload: multiple
 ms.topic: sample
 ms.date: 01/19/2018
 ms.author: atsenthi
-ms.custom: mvc
-ms.openlocfilehash: f6b900bba178d4180d48ed3b89ec1e4d6cb49d7b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: mvc, devx-track-azurepowershell
+ms.openlocfilehash: bae42c9ec8643da1563fb6b566d8db4af6039225
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076119"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89078938"
 ---
 # <a name="create-a-service-fabric-cluster"></a>Criar um cluster do Service Fabric
 

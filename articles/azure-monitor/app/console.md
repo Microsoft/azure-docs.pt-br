@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 05/21/2020
 ms.custom: devx-track-csharp
 ms.reviewer: lmolkova
-ms.openlocfilehash: 98f1ea8a4994515b437841174ae95563ea53ed88
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: aa39a1eca04621fc4db75f755402d3679403e814
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88933334"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920595"
 ---
 # <a name="application-insights-for-net-console-applications"></a>Application Insights para aplicativos do console .NET
 
@@ -22,6 +22,9 @@ Você precisa de uma assinatura do [Microsoft Azure](https://azure.com). Entre c
 > É *altamente recomendável* usar o pacote [Microsoft. ApplicationInsights. WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) e as instruções associadas [aqui](./worker-service.md) para qualquer aplicativo de console. Esse pacote é direcionado [`NetStandard2.0`](/dotnet/standard/net-standard) e, portanto, pode ser usado no .NET Core 2,1 ou superior e .NET Framework 4.7.2 ou superior.
 
 ## <a name="getting-started"></a>Introdução
+
+> [!IMPORTANT]
+> Novas regiões do Azure **exigem** o uso de cadeias de conexão em vez de chaves de instrumentação. A [cadeia de conexão](./sdk-connection-string.md?tabs=net) identifica o recurso ao qual você deseja associar os dados de telemetria. Ele também permite que você modifique os pontos de extremidade que o recurso usará como um destino para a telemetria. Você precisará copiar a cadeia de conexão e adicioná-la ao código do aplicativo ou a uma variável de ambiente.
 
 * No [portal do Azure](https://portal.azure.com), [crie um recurso Application Insights](./create-new-resource.md). Para o tipo de aplicativo, escolha **Geral**.
 * Faça uma cópia da chave de instrumentação. Localize a chave no menu suspenso **Essentials** do novo recurso que você criou.

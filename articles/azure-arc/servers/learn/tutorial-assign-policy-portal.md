@@ -2,18 +2,17 @@
 title: Tutorial – Nova atribuição de política com o portal do Azure
 description: Neste tutorial, use o portal do Azure para criar uma atribuição do Azure Policy para identificar recursos sem conformidade.
 ms.topic: tutorial
-ms.date: 08/12/2020
-ms.openlocfilehash: 4ba301b066137dbdb85ccea0a02ffcac88128e6b
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.date: 10/07/2020
+ms.openlocfilehash: 9a07e490525ce532f8f843b30b3b83715e65ce3c
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213230"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826603"
 ---
 # <a name="tutorial-create-a-policy-assignment-to-identify-non-compliant-resources"></a>Tutorial: Criar uma atribuição de política para identificar recursos sem conformidade
 
-A primeira etapa para compreender a conformidade no Azure é identificar o status de seus recursos.
-Este tutorial orienta você durante o processo de criação de uma atribuição de política para identificar os servidores habilitados para o Azure Arc (versão prévia) e para identificar computadores que não têm o agente do Log Analytics instalado nos seus computadores habilitados para o Azure Arc.
+A primeira etapa para compreender a conformidade no Azure é identificar o status de seus recursos. O Azure Policy dá suporte à auditoria do estado do servidor habilitado para Arc com as políticas de Configuração de Convidado. As políticas de Configuração de Convidado não aplicam as configurações, elas apenas auditam as configurações dentro do computador. Este tutorial orienta você pelo processo de criação e atribuição de uma política, identificando quais servidores habilitados para Arc não têm o agente do Log Analytics instalado.
 
 No final desse processo, você identificará com êxito os computadores que não têm o agente do Log Analytics para Windows ou Linux instalado. Eles _não estão em conformidade_ com a atribuição da política.
 
@@ -23,7 +22,7 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
 
 ## <a name="create-a-policy-assignment"></a>Criar uma atribuição de política
 
-Neste tutorial, crie uma atribuição de política e atribua a definição de política _Auditar VMs que não usam discos gerenciados_.
+Neste tutorial, você cria uma atribuição de política e atribui _\[Versão Prévia]: o agente do Log Analytics deve ser instalado nos seus computadores do Azure Arc do Linux_.
 
 1. Inicie o serviço de Azure Policy no portal do Azure clicando em**Todos os serviços**, em seguida pesquisando e selecionando **Política**.
 
@@ -31,11 +30,11 @@ Neste tutorial, crie uma atribuição de política e atribua a definição de po
 
 1. Selecione **Atribuições** no lado esquerdo da página de Política do Azure. Uma atribuição é uma política que foi atribuída para entrar em vigor em um escopo específico.
 
-   :::image type="content" source="./media/tutorial-assign-policy-portal/select-assignment.png" alt-text="Selecionar a página Atribuições na página Visão Geral da Política" border="false":::
+   :::image type="content" source="./media/tutorial-assign-policy-portal/select-assignment.png" alt-text="Pesquisar Política em Todos os Serviços" border="false":::
 
 1. Selecione **Atribuir Política** na parte superior da página **Política - Atribuições**.
 
-   :::image type="content" source="./media/tutorial-assign-policy-portal/select-assign-policy.png" alt-text="Atribuir uma definição de política na página Atribuições" border="false":::
+   :::image type="content" source="./media/tutorial-assign-policy-portal/select-assign-policy.png" alt-text="Pesquisar Política em Todos os Serviços" border="false":::
 
 1. Na página **Atribuir Política**, selecione o **Escopo** clicando no botão de reticências e selecionando uma assinatura ou então um grupo de gerenciamento. Opcionalmente, selecione um grupo de recursos. Um escopo determina em quais recursos ou agrupamento de recursos a atribuição de política é imposta. Em seguida, clique em **Selecionar** na parte inferior da página **Escopo**.
 
@@ -51,9 +50,9 @@ Neste tutorial, crie uma atribuição de política e atribua a definição de po
 
    Para ver uma lista parcial das políticas internas disponíveis, confira [Exemplos do Azure Policy](../../../governance/policy/samples/index.md).
 
-1. Pesquise na lista definições de política para localizar a definição _\[Versão Prévia]: o agente do Log Analytics deve ser instalado nos computadores Windows com Azure Arc_, se você tiver habilitado o agente de servidores habilitados para Arc (versão prévia) em um computador baseado no Windows. Para um computador baseado no Linux, localize a definição de política correspondente _\[Versão prévia]: o agente do Log Analytics deve ser instalado nos seus computadores do Azure Arc do Linux_. Clique na política e clique em **Selecionar**.
+1. Pesquise na lista definições de política para localizar a definição _\[Versão Prévia]: o agente do Log Analytics deve ser instalado nos computadores Windows com Azure Arc_ se você habilitou o agente de servidores habilitados para Arc em um computador baseado no Windows. Para um computador baseado no Linux, localize a definição de política correspondente _\[Versão prévia]: o agente do Log Analytics deve ser instalado nos seus computadores do Azure Arc do Linux_. Clique na política e clique em **Selecionar**.
 
-   :::image type="content" source="./media/tutorial-assign-policy-portal/select-available-definition.png" alt-text="Encontre a definição de política correta" border="false":::
+   :::image type="content" source="./media/tutorial-assign-policy-portal/select-available-definition.png" alt-text="Pesquisar Política em Todos os Serviços" border="false":::
 
 1. O **Nome da atribuição** é automaticamente preenchido com o nome da política selecionada, mas você pode alterá-lo. Neste exemplo, saia de _\[Versão prévia]: o agente do Log Analytics deve ser instalado nos seus computadores Windows com Azure Arc_ ou _\[Versão prévia]: o agente do Log Analytics deve ser instalado nos seus computadores do Azure Arc do Linux_, dependendo de qual deles você selecionou. Você também pode adicionar uma **Descrição**opcional. A descrição fornece detalhes sobre essa atribuição de política.
    **Atribuído por** preencherá automaticamente com base em quem está conectado. Esse campo é opcional, portanto, valores personalizados podem ser inseridos.
@@ -68,7 +67,7 @@ Agora você está pronto para identificar recursos fora de conformidade para ent
 
 Selecione **Conformidade** no lado esquerdo da página. Em seguida, localize a atribuição de política **\[Versão prévia]: o agente do Log Analytics deve ser instalado nos seus computadores Windows com Azure Arc** ou **\[Versão prévia]: o agente do Log Analytics deve ser instalado nos seus computadores do Azure Arc do Linux** que você criou.
 
-:::image type="content" source="./media/tutorial-assign-policy-portal/policy-compliance.png" alt-text="Detalhes de conformidade na página Conformidade com a Política" border="false":::
+:::image type="content" source="./media/tutorial-assign-policy-portal/policy-compliance.png" alt-text="Pesquisar Política em Todos os Serviços" border="false":::
 
 Se houver recursos sem conformidade com essa nova atribuição, eles aparecerão em **Recursos sem conformidade**.
 
@@ -92,12 +91,11 @@ Para remover a atribuição criada, siga estas etapas:
 
 1. Clique com o botão direito do mouse na atribuição de política e selecione **Excluir atribuição**.
 
-   :::image type="content" source="./media/tutorial-assign-policy-portal/delete-assignment.png" alt-text="Excluir uma atribuição da página Conformidade" border="false":::
+   :::image type="content" source="./media/tutorial-assign-policy-portal/delete-assignment.png" alt-text="Pesquisar Política em Todos os Serviços" border="false":::
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você atribuiu uma definição de política para um escopo e avaliou o relatório de conformidade.
-A definição de política valida que todos os recursos no escopo estão em conformidade e identifica quais não estão. Agora você está pronto para monitorar o seu computador de servidores habilitados para Azure Arc (versão prévia) com o Azure Monitor para VMs.
+Neste tutorial, você atribuiu uma definição de política para um escopo e avaliou o relatório de conformidade. A definição de política valida que todos os recursos no escopo estão em conformidade e identifica quais não estão. Agora você está pronto para monitorar o seu computador de servidores habilitados para Azure Arc com o Azure Monitor para VMs.
 
 Para saber como monitorar e exibir o desempenho, o processo de execução e as dependências dele no seu computador, prossiga para o tutorial:
 

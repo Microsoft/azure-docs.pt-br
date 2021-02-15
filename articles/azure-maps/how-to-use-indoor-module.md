@@ -1,29 +1,33 @@
 ---
-title: Usar o módulo Mapas do Azure Mapas Interno
+title: Usar o módulo mapas em modo interno do Azure Maps com os serviços Microsoft Creator (versão prévia)
 description: Saiba como usar o módulo Mapas do Microsoft Azure Mapas Interno para renderizar mapas inserindo as bibliotecas JavaScript do módulo.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 07/20/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 4bfb017bb085d22c187e8074ba4f2b026d17f442
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.custom: devx-track-js
+ms.openlocfilehash: bc80b7dfd433911ef13906db38f59a76827db258
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815939"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905274"
 ---
 # <a name="use-the-azure-maps-indoor-maps-module"></a>Usar o módulo Mapas do Azure Mapas Interno
 
-O SDK da Web do Azure Mapas inclui o módulo *Mapas do Interior do Azure Mapas*. O módulo *Mapas do Interior do Azure Mapas* permite renderizar mapas do interior criados no Criador do Azure Mapas.
+> [!IMPORTANT]
+> Os serviços do Azure Maps Creator estão atualmente em visualização pública.
+> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+O SDK da Web do Azure Mapas inclui o módulo *Mapas do Interior do Azure Mapas*. O módulo do  *Azure Maps interno* permite que você processe mapas de interno criados nos serviços do Azure Maps Creator (versão prévia) 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 1. [Fazer uma conta do Azure Mapas](quick-demo-map-app.md#create-an-azure-maps-account)
-2. [Criar um recurso do Criador](how-to-manage-creator.md)
+2. [Criar um recurso de criador (versão prévia)](how-to-manage-creator.md)
 3. [Obter uma chave de assinatura primária](quick-demo-map-app.md#get-the-primary-key-for-your-account), também conhecida como a chave primária ou a chave de assinatura.
 4. Obtenha um `tilesetId` e um `statesetId` concluindo o [tutorial para a criação de mapas do interior](tutorial-creator-indoor-maps.md).
  Você precisará usar esses identificadores para renderizar mapas do interior com o módulo Mapas do Azure Mapas Interno.
@@ -147,7 +151,7 @@ Este exemplo mostra como usar o módulo *Mapas do Azure Mapas Interno* em seu ap
 4. Inicialize um *objeto Mapa*. O *objeto Mapa* oferece suporte para as seguintes opções:
     - `Subscription key` é a sua chave de assinatura primária do Azure Mapas.
     - `center` define uma latitude e longitude para o centro do mapa do interior. Forneça um valor para `center` se você não quiser fornecer um valor para `bounds`. O formato deve ser exibido como `center`: [-122.13315, 47.63637].
-    - `bounds` é a menor forma retangular que inclui os dados de mapa do conjunto de peças. Defina um valor para `bounds` se você não quiser definir um valor para `center`. Você pode encontrar os limites do mapa chamando a [API de lista de conjunto de peças](https://docs.microsoft.com/rest/api/maps/tileset/listpreview). A API de lista de conjunto de peças retorna o `bbox`, que você pode analisar e atribuir a `bounds`. O formato deve aparecer como `bounds` : [# West, # Sul, # East, # Norte].
+    - `bounds` é a menor forma retangular que inclui os dados de mapa do conjunto de peças. Defina um valor para `bounds` se você não quiser definir um valor para `center`. Você pode encontrar os limites do mapa chamando a [API de lista de conjunto de peças](/rest/api/maps/tileset/listpreview). A API de lista de conjunto de peças retorna o `bbox`, que você pode analisar e atribuir a `bounds`. O formato deve aparecer como `bounds` : [# West, # Sul, # East, # Norte].
     - `style` permite definir a cor da tela de fundo. Para exibir uma tela de fundo branca, defina `style` como “em branco”.
     - `zoom` permite especificar os níveis de zoom mínimo e máximo para o mapa.
 
@@ -249,7 +253,7 @@ Leia sobre as APIs relacionadas ao módulo de *Mapas do Interior do Azure Mapas*
 > [Requisitos do pacote de desenho](drawing-requirements.md)
 
 >[!div class="nextstepaction"]
-> [Criador de mapas internos](creator-indoor-maps.md)
+> [Criador (visualização) para mapas de interno](creator-indoor-maps.md)
 
 Saiba mais sobre como adicionar mais dados ao seu mapa:
 
@@ -257,4 +261,4 @@ Saiba mais sobre como adicionar mais dados ao seu mapa:
 > [Estilos dinâmicos para mapas internos](indoor-map-dynamic-styling.md)
 
 > [!div class="nextstepaction"]
-> [Exemplos de código](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+> [Exemplos de código](/samples/browse/?products=azure-maps)

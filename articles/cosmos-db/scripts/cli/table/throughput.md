@@ -1,30 +1,31 @@
 ---
-title: Atualizar a RU/s de uma tabela da API de Tabela do Azure Cosmos DB
-description: Atualizar a RU/s de uma tabela da API de Tabela do Azure Cosmos DB
+title: Scripts da CLI do Azure para operações de taxa de transferência (RU/s) para recursos da API de Tabela do Azure Cosmos DB
+description: Scripts da CLI do Azure para operações de taxa de transferência (RU/s) para recursos da API de Tabela do Azure Cosmos DB
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: sample
-ms.date: 07/29/2020
-ms.openlocfilehash: 3f3a39e546c83620ded539180197f6fda760260f
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.date: 10/07/2020
+ms.openlocfilehash: 6e76da71cb14122817090e64354babf5a618db8b
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87431544"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94562654"
 ---
-# <a name="update-rus-for-a-table-api-table-for-azure-cosmos-db-azure-cli"></a>Atualizar a RU/s de uma tabela da API de Tabela para a CLI do Azure do Azure Cosmos DB
+# <a name="throughput-rus-operations-with-azure-cli-for-a-table-for-azure-cosmos-db-table-api"></a>Operações de taxa de transferência (RU/s) com uma CLI do Azure para uma tabela da API de Tabela do Azure Cosmos DB
+[!INCLUDE[appliesto-table-api](../../../includes/appliesto-table-api.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../../../includes/azure-cli-prepare-your-environment.md)]
 
-Se você optar por instalar e usar a CLI localmente, este tópico exigirá a execução da CLI do Azure versão 2.9.1 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
+- Este artigo exige a versão 2.12.1 ou posterior da CLI do Azure. Se você está usando o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ## <a name="sample-script"></a>Exemplo de script
 
-Esse script cria uma tabela de API de Tabela e, em seguida, atualiza a taxa de transferência da tabela.
+Esse script cria uma tabela de API de Tabela e, em seguida, atualiza a taxa de transferência da tabela. Em seguida, o script faz a migração da taxa de transferência padrão para a de dimensionamento automático e lê o valor da taxa de transferência de dimensionamento automático após a migração.
 
-[!code-azurecli-interactive[main](../../../../../cli_scripts/cosmosdb/table/throughput.sh "Update RU/s for a Table API table.")]
+[!code-azurecli-interactive[main](../../../../../cli_scripts/cosmosdb/table/throughput.sh "Throughput operations for Table API.")]
 
 ## <a name="clean-up-deployment"></a>Limpar a implantação
 
@@ -43,7 +44,8 @@ Este script usa os comandos a seguir. Cada comando da tabela é vinculado à doc
 | [az group create](/cli/azure/group#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) | Cria uma conta do Banco de Dados Cosmos do Azure. |
 | [az cosmosdb table create](/cli/azure/cosmosdb/table#az-cosmosdb-table-create) | Cria uma tabela da API de Tabela do Azure Cosmos. |
-| [az cosmosdb table throughput update](/cli/azure/cosmosdb/table/throughput#az-cosmosdb-table-throughput-update) | Atualize a RU/s de uma tabela da API de Tabela do Azure Cosmos. |
+| [az cosmosdb table throughput update](/cli/azure/cosmosdb/table/throughput#az-cosmosdb-table-throughput-update) | Atualiza a taxa de transferência de uma tabela da API de Tabela do Azure Cosmos. |
+| [az cosmosdb table throughput migrate](/cli/azure/cosmosdb/table/throughput#az-cosmosdb-table-throughput-migrate) | Migra a taxa de transferência de uma tabela da API de Tabela do Azure Cosmos. |
 | [az group delete](/cli/azure/resource#az-resource-delete) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
 
 ## <a name="next-steps"></a>Próximas etapas

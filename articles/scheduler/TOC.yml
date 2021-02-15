@@ -49,7 +49,7 @@
     - name: Roteiro do Azure
       href: 'https://azure.microsoft.com/updates/'
     - name: Página de perguntas de P e R da Microsoft
-      href: 'https://docs.microsoft.com/answers/topics/azure-scheduler.html'
+      href: /answers/topics/azure-scheduler.html
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-scheduler'
     - name: Preços

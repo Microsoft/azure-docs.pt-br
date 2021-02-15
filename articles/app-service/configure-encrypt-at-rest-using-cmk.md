@@ -1,14 +1,14 @@
 ---
 title: Criptografar a origem do aplicativo em repouso
-description: Criptografe os dados do aplicativo no armazenamento do Azure e implante-os como um arquivo de pacote.
+description: Saiba como criptografar os dados do aplicativo no armazenamento do Azure e implantá-los como um arquivo de pacote.
 ms.topic: article
 ms.date: 03/06/2020
-ms.openlocfilehash: 7e5e809fe8b670ae6ec5bfd15e54f9a8019e76d1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5524b749b1e15342dd0133920d7190e33ced18ad
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79408736"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92146054"
 ---
 # <a name="encryption-at-rest-using-customer-managed-keys"></a>Criptografia em repouso usando chaves gerenciadas pelo cliente
 
@@ -22,7 +22,7 @@ Criptografar os dados de aplicativo de seu aplicativo Web em repouso requer uma 
 
 ### <a name="create-an-azure-storage-account"></a>Criar uma conta de Armazenamento do Azure
 
-Primeiro, [crie uma conta de armazenamento do Azure](../storage/common/storage-account-create.md) e [criptografe-a com chaves gerenciadas pelo cliente](../storage/common/encryption-customer-managed-keys.md). Depois que a conta de armazenamento for criada, use o [Gerenciador de armazenamento do Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) para carregar arquivos de pacote.
+Primeiro, [crie uma conta de armazenamento do Azure](../storage/common/storage-account-create.md) e [criptografe-a com chaves gerenciadas pelo cliente](../storage/common/customer-managed-keys-overview.md). Depois que a conta de armazenamento for criada, use o [Gerenciador de armazenamento do Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) para carregar arquivos de pacote.
 
 Em seguida, use o Gerenciador de Armazenamento para [gerar uma SAS](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#generate-a-sas-in-storage-explorer). 
 

@@ -6,18 +6,18 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 11/21/2019
-ms.author: iainfou
-author: iainfoulds
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 94955e27dcadb3acbea03926d6d1ed73e9c5c9ed
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3ba84bb3ee38981217e72f8372a836b03647083d
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87051350"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861333"
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Inicie com uma autenticação baseada em certificado do Azure Active Directory
 
@@ -31,7 +31,7 @@ Configurar esse recurso elimina a necessidade de digitar uma combinação de nom
 Este tópico:
 
 - Este tópico mostra como configurar e utilizar a autenticação baseada em certificado para usuários de locatários nos planos Office 365 corporativo, Business, educacional e governamental. Esse recurso está disponível na visualização em planos do Office 365 para China, defesa governamental e governo federal.
-- Pressupõe que você já tem uma [infraestrutura de chave pública (PKI)](https://go.microsoft.com/fwlink/?linkid=841737) e [do AD FS](../hybrid/how-to-connect-fed-whatis.md) configurada.
+- Pressupõe que você já tem uma [infraestrutura de chave pública (PKI)](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831740(v=ws.11)) e [do AD FS](../hybrid/how-to-connect-fed-whatis.md) configurada.
 
 ## <a name="requirements"></a>Requisitos
 
@@ -93,7 +93,7 @@ Veja abaixo o esquema de uma autoridade de certificação:
     }
 ```
 
-Para a configuração, você pode usar o [Azure Active Directory PowerShell versão 2](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0):
+Para a configuração, você pode usar o [Azure Active Directory PowerShell versão 2](/powershell/azure/active-directory/install-adv2):
 
 1. Inicie o Windows PowerShell com os privilégios de administrador.
 2. Instale o módulo do Microsoft Azure AD versão [2.0.0.33](https://www.powershellgallery.com/packages/AzureAD/2.0.0.33) ou superior.
@@ -106,7 +106,7 @@ Como essa é a primeira etapa de configuração, você precisa estabelecer uma c
 
 ### <a name="connect"></a>Conectar
 
-Para estabelecer uma conexão com seu locatário, use o cmdlet [Connect-AzureAD](/powershell/module/azuread/connect-azuread?view=azureadps-2.0):
+Para estabelecer uma conexão com seu locatário, use o cmdlet [Connect-AzureAD](/powershell/module/azuread/connect-azuread):
 
 ```azurepowershell
     Connect-AzureAD
@@ -114,7 +114,7 @@ Para estabelecer uma conexão com seu locatário, use o cmdlet [Connect-AzureAD]
 
 ### <a name="retrieve"></a>Recuperar
 
-Para recuperar as autoridades de certificação confiáveis que são definidas em seu diretório, use o cmdlet [Get-AzureADTrustedCertificateAuthority](/powershell/module/azuread/get-azureadtrustedcertificateauthority?view=azureadps-2.0).
+Para recuperar as autoridades de certificação confiáveis que são definidas em seu diretório, use o cmdlet [Get-AzureADTrustedCertificateAuthority](/powershell/module/azuread/get-azureadtrustedcertificateauthority).
 
 ```azurepowershell
     Get-AzureADTrustedCertificateAuthority
@@ -122,7 +122,7 @@ Para recuperar as autoridades de certificação confiáveis que são definidas e
 
 ### <a name="add"></a>Adicionar
 
-Para criar uma autoridade de certificação confiável, use o cmdlet [New-AzureADTrustedCertificateAuthority](/powershell/module/azuread/new-azureadtrustedcertificateauthority?view=azureadps-2.0) e defina o atributo **crlDistributionPoint** para um valor correto:
+Para criar uma autoridade de certificação confiável, use o cmdlet [New-AzureADTrustedCertificateAuthority](/powershell/module/azuread/new-azureadtrustedcertificateauthority) e defina o atributo **crlDistributionPoint** para um valor correto:
 
 ```azurepowershell
     $cert=Get-Content -Encoding byte "[LOCATION OF THE CER FILE]"
@@ -135,7 +135,7 @@ Para criar uma autoridade de certificação confiável, use o cmdlet [New-AzureA
 
 ### <a name="remove"></a>Remover
 
-Para remover uma autoridade de certificação confiável, use o cmdlet [Remove-AzureADTrustedCertificateAuthority](/powershell/module/azuread/remove-azureadtrustedcertificateauthority?view=azureadps-2.0):
+Para remover uma autoridade de certificação confiável, use o cmdlet [Remove-AzureADTrustedCertificateAuthority](/powershell/module/azuread/remove-azureadtrustedcertificateauthority):
 
 ```azurepowershell
     $c=Get-AzureADTrustedCertificateAuthority
@@ -144,7 +144,7 @@ Para remover uma autoridade de certificação confiável, use o cmdlet [Remove-A
 
 ### <a name="modify"></a>Modificar
 
-Para modificar uma autoridade de certificação confiável, use o cmdlet [Set-AzureADTrustedCertificateAuthority](/powershell/module/azuread/set-azureadtrustedcertificateauthority?view=azureadps-2.0):
+Para modificar uma autoridade de certificação confiável, use o cmdlet [Set-AzureADTrustedCertificateAuthority](/powershell/module/azuread/set-azureadtrustedcertificateauthority):
 
 ```azurepowershell
     $c=Get-AzureADTrustedCertificateAuthority
@@ -154,7 +154,7 @@ Para modificar uma autoridade de certificação confiável, use o cmdlet [Set-Az
 
 ## <a name="step-3-configure-revocation"></a>Etapa 3: configurar a revogação
 
-Para revogar um certificado do cliente, o Azure Active Directory busca a CRL (Lista de Certificados Revogados) nas URLs carregadas como parte das informações da autoridade de certificado e a armazena em cache. O carimbo de data/hora da última publicação (propriedade**Effective Date** ) na CRL é usado para garantir que a CRL continua sendo válida. A CRL é referenciada periodicamente para revogar o acesso a certificados que fazem parte da lista.
+Para revogar um certificado do cliente, o Azure Active Directory busca a CRL (Lista de Certificados Revogados) nas URLs carregadas como parte das informações da autoridade de certificado e a armazena em cache. O carimbo de data/hora da última publicação (propriedade **Effective Date** ) na CRL é usado para garantir que a CRL continua sendo válida. A CRL é referenciada periodicamente para revogar o acesso a certificados que fazem parte da lista.
 
 Se uma revogação mais imediata for necessária (por exemplo, se um usuário perder um dispositivo), o token de autorização do usuário poderá ser invalidado. Para invalidar o token de autorização, defina o campo **StsRefreshTokenValidFrom** para esse usuário específico usando o Windows PowerShell. Você deve atualizar o campo **StsRefreshTokenValidFrom** para cada usuário do qual deseja revogar o acesso.
 

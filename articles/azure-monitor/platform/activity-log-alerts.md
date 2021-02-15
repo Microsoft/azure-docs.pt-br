@@ -4,12 +4,12 @@ description: Seja notificado por SMS, webhook, email e mais quando ocorrerem det
 ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 09/17/2018
-ms.openlocfilehash: 7ed73678e0df1e068782c2a094846132be58cfe2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 8a30c0a0527f98cc00f7888299c09f1f26c3dd09
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516117"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735207"
 ---
 # <a name="alerts-on-activity-log"></a>Alertas no log de atividades
 
@@ -18,7 +18,8 @@ ms.locfileid: "86516117"
 Alertas do log de atividades são alertas que são ativados quando ocorre um novo [evento do log de atividades](activity-log-schema.md) que corresponde às condições especificadas no alerta. Com base na ordem e no volume dos eventos registrados no [log de atividades do Azure](platform-logs-overview.md), a regra de alerta será acionada. As regras de alerta do log de atividades são recursos do Azure, para que possam ser criadas usando um modelo de Azure Resource Manager. Eles também podem ser criados, atualizados ou excluídos no portal do Azure. Este artigo apresenta os conceitos por trás de alertas de log de atividades. Para obter mais informações sobre a criação ou uso de regras de alerta do log de atividades, consulte [criar e gerenciar alertas do log de atividades](alerts-activity-log.md).
 
 > [!NOTE]
-> **Não é possível** criar alertas para eventos na categoria de alerta do log de atividades.
+> * **Não é possível** criar alertas para eventos na categoria de alerta do log de atividades.
+> * Os alertas do log de atividades com a categoria de segurança também podem ser definidos em um [novo fluxo atualizado](../../security-center/continuous-export.md?tabs=azure-portal) para o [ServiceNow](../../security-center/export-to-siem.md)
 
 Normalmente, você cria alertas de log de atividade para receber notificações quando:
 
@@ -40,7 +41,7 @@ Os alertas do log de atividades têm algumas opções comuns:
     - Nível de assinatura: por exemplo, todas as máquinas virtuais em uma assinatura (ou) todos os recursos em uma assinatura
 - **Grupo de recursos**: por padrão, a regra de alerta é salva no mesmo grupo de recursos como no destino definido no escopo. O usuário também pode definir o grupo de recursos no qual a regra de alerta deve ser armazenada.
 - **Tipo de recurso**: o Resource Manager definido pelo namespace para o destino do alerta.
-- **Nome da operação**: o nome da [operação de Azure Resource Manager](../../role-based-access-control/resource-provider-operations.md) utilizado para o controle de acesso baseado em função. As operações não registradas com Azure Resource Manager não podem ser usadas em uma regra de alerta do log de atividades.
+- **Nome da operação**: o nome da [operação do provedor de recursos do Azure](../../role-based-access-control/resource-provider-operations.md) utilizado para o controle de acesso baseado em função do Azure. As operações não registradas com Azure Resource Manager não podem ser usadas em uma regra de alerta do log de atividades.
 - **Nível**: o nível de severidade do evento (informativo, aviso, erro ou crítico).
 - **Status**: o status do evento, normalmente Iniciado, Falha ou Êxito.
 - **Evento iniciado por**: também conhecido como "chamador". O endereço de email ou o identificador do Azure Active Directory do usuário que realizou a operação.
@@ -48,7 +49,7 @@ Os alertas do log de atividades têm algumas opções comuns:
 > [!NOTE]
 > Em uma assinatura, é possível criar até 100 regras de alerta para uma atividade de escopo: um único recurso, todos os recursos no grupo de recursos (ou) todo o nível de assinatura.
 
-Quando um alerta do log de atividades é ativado, ele usa um grupo de ações para gerar ações ou notificações. Um grupo de ações é um conjunto reutilizável de destinatários de notificação, como endereços de email, URLs de webhook ou números de telefone de SMS. Os destinatários podem ser referenciados de vários alertas para centralizar e agrupar seus canais de notificação. Quando você define o alerta do log de atividades, tem duas opções. Você pode:
+Quando um alerta do log de atividades é ativado, ele usa um grupo de ações para gerar ações ou notificações. Um grupo de ações é um conjunto reutilizável de destinatários de notificação, como endereços de email, URLs de webhook ou números de telefone de SMS. Os destinatários podem ser referenciados de vários alertas para centralizar e agrupar seus canais de notificação. Quando você define o alerta do log de atividades, tem duas opções. Você poderá:
 
 * Use um grupo existente no seu alerta do log de atividades.
 * Crie um novo grupo de ações.
@@ -60,5 +61,5 @@ Para saber mais sobre grupos de ações, veja [Criar e gerenciar grupos de açõ
 
 - Obtenha uma [visão geral dos alertas](alerts-overview.md).
 - Saiba mais sobre [criar e modificar alertas do log de atividades](alerts-activity-log.md).
-- Examine o [esquema de webhook de alerta do log de atividades](activity-log-alerts-webhook.md).
+- Examine o [esquema do webhook de alertas de log de atividades](activity-log-alerts-webhook.md).
 - Saiba mais sobre as [notificações de integridade do serviço](../../service-health/service-notifications.md).

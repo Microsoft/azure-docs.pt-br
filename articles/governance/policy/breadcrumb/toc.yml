@@ -18,3 +18,9 @@
         - name: Política
           tocHref: /azure/aks
           topicHref: /azure/governance/policy
+        - name: Política
+          tocHref: /azure/storage
+          topicHref: /azure/governance/policy
+        - name: Política
+          tocHref: /azure/web-application-firewall
+          topicHref: /azure/governance/policy

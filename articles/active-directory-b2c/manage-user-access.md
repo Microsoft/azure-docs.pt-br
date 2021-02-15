@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/24/2018
+ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 084284037b02ce02d1e46a61a69d6e60cc89a36b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fadc739f16ce9690a735be22758f58857ff8b9ff
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85387721"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94951614"
 ---
 # <a name="manage-user-access-in-azure-active-directory-b2c"></a>Gerenciar o acesso do usuário no Azure Active Directory B2C
 
@@ -46,7 +46,7 @@ Dependendo do regulamento do aplicativo, pode ser necessário que o consentiment
 
 Este é um exemplo de um fluxo de usuário para a coleta de consentimento dos pais:
 
-1. Uma operação da [API do Microsoft Graph](https://docs.microsoft.com/graph/use-the-api) identifica o usuário como menor e retorna os dados do usuário ao aplicativo na forma de um token JSON não assinado.
+1. Uma operação da [API do Microsoft Graph](/graph/use-the-api) identifica o usuário como menor e retorna os dados do usuário ao aplicativo na forma de um token JSON não assinado.
 
 2. O aplicativo processa o token JSON e mostra uma tela para o menor, notificando-o que o consentimento dos pais é necessário e solicitando o consentimento de um pai online.
 
@@ -56,7 +56,7 @@ Este é um exemplo de um fluxo de usuário para a coleta de consentimento dos pa
 
 5. Quando tanto o menor ou o adulto revoga o consentimento, a API do Microsoft Graph pode ser usada para alterar **consentProvidedForMinor** para **negado**. Como alternativa, o aplicativo pode optar por excluir um menor cujo consentimento foi revogado. Opcionalmente, é possível personalizar o fluxo de usuário para que o menor autenticado (ou o pai que estiver usando a conta do menor) possa revogar o consentimento. O Azure AD B2C registra **consentProvidedForMinor** como **negado**.
 
-Para obter mais informações sobre o **legalAgeGroupClassification**, o **consentProvidedForMinor** e o **ageGroup**, confira [typo de recurso de Usuário](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/user). Para obter mais informações sobre atributos personalizados, confira [Usar atributos personalizados para coletar informações sobre seus consumidores](user-flow-custom-attributes.md). Quando você abordar atributos estendidos usando a API do Microsoft Graph, você deve usar a versão longa do atributo precisa ser usada, como *extension_18b70cf9bb834edd8f38521c2583cd86_dateOfBirth*: *2011-01-01T00:00:00Z*.
+Para obter mais informações sobre o **legalAgeGroupClassification**, o **consentProvidedForMinor** e o **ageGroup**, confira [typo de recurso de Usuário](/graph/api/resources/user). Para obter mais informações sobre atributos personalizados, confira [Usar atributos personalizados para coletar informações sobre seus consumidores](user-flow-custom-attributes.md). Quando você abordar atributos estendidos usando a API do Microsoft Graph, você deve usar a versão longa do atributo precisa ser usada, como *extension_18b70cf9bb834edd8f38521c2583cd86_dateOfBirth*: *2011-01-01T00:00:00Z*.
 
 ## <a name="gather-date-of-birth-and-countryregion-data"></a>Coletar dados de nascimento e país/região
 
@@ -114,7 +114,7 @@ A imagem a seguir mostra o fluxo de usuário recomendado:
 
 ![Fluxograma mostrando o fluxo de usuários de aceitação recomendado](./media/manage-user-access/user-flow.png)
 
-Este é um exemplo de consentimento para termos de uso baseado em DateTime em uma declaração:
+Veja a seguir um exemplo de um consentimento de termos de uso baseado em data em uma declaração. Se a `extension_termsOfUseConsentDateTime` declaração for mais antiga do que a `2025-01-15T00:00:00` , Force uma nova aceitação verificando a `termsOfUseConsentRequired` declaração booliana e exibindo uma tela autodeclarada. 
 
 ```xml
 <ClaimsTransformations>
@@ -128,7 +128,7 @@ Este é um exemplo de consentimento para termos de uso baseado em DateTime em um
       <InputClaim ClaimTypeReferenceId="extension_termsOfUseConsentDateTime" TransformationClaimType="termsOfUseConsentDateTime" />
     </InputClaims>
     <InputParameters>
-      <InputParameter Id="termsOfUseTextUpdateDateTime" DataType="dateTime" Value="2098-01-30T23:03:45" />
+      <InputParameter Id="termsOfUseTextUpdateDateTime" DataType="dateTime" Value="2025-01-15T00:00:00" />
     </InputParameters>
     <OutputClaims>
       <OutputClaim ClaimTypeReferenceId="termsOfUseConsentRequired" TransformationClaimType="result" />
@@ -137,7 +137,7 @@ Este é um exemplo de consentimento para termos de uso baseado em DateTime em um
 </ClaimsTransformations>
 ```
 
-Este é um exemplo de consentimento para termos de uso baseado em Versão em uma declaração:
+Veja a seguir um exemplo de um consentimento de termos de uso baseado em versão em uma declaração. Se a `extension_termsOfUseConsentVersion` declaração não for igual a `V1` , Force uma nova aceitação verificando a `termsOfUseConsentRequired` declaração booliana e exibindo uma tela autodeclarada.
 
 ```xml
 <ClaimsTransformations>

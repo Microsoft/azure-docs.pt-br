@@ -5,27 +5,31 @@ author: MikeDodaro
 ms.author: barbkess
 ms.service: spring-cloud
 ms.topic: how-to
-ms.date: 01/20/2019
+ms.date: 09/08/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 433cd9e7b8cfe69ce5008366db884659cccbc149
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0ea0db1faf8c452958b8d95c193d45506057777c
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076013"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98673325"
 ---
 # <a name="authenticate-azure-spring-cloud-with-key-vault-in-github-actions"></a>Autenticação do Azure Spring Cloud com o Key Vault no GitHub Actions
+
+**Este artigo aplica-se a:** ✔️ Java ✔️ C#
+
 O Key Vault é um local seguro para armazenar chaves. Os usuários corporativos precisam armazenar credenciais para ambientes de CI/CD no escopo que controlam. A chave para obter credenciais no cofre de chaves deve ser limitada ao escopo do recurso.  Ele tem acesso apenas ao escopo do cofre de chaves, não ao escopo do Azure inteiro. É como uma chave que só pode abrir uma caixa forte, e não uma chave mestra, que pode abrir todas as portas em um edifício. É uma maneira de obter uma chave com outra chave, que é útil em um fluxo de trabalho CICD. 
 
 ## <a name="generate-credential"></a>Gerar credencial
 Para gerar uma chave para acessar o cofre de chaves, execute o comando abaixo no computador local:
-```
+
+```azurecli
 az ad sp create-for-rbac --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.KeyVault/vaults/<KEY_VAULT> --sdk-auth
 ```
 O escopo especificado pelo `--scopes` parâmetro limita o acesso à chave para o recurso.  Ele só pode acessar a caixa forte.
 
 Com resultados:
-```
+```output
 {
     "clientId": "<GUID>",
     "clientSecret": "<GUID>",
@@ -47,7 +51,7 @@ Vá para o painel de **Key Vault** em portal do Azure, clique no menu **controle
 
  ![Definir política de acesso](./media/github-actions/key-vault1.png)
 
-Copie o nome da credencial, por exemplo, `azure-cli-2020-01-19-04-39-02` . Abra o menu **políticas de acesso** , clique em **+ Adicionar** link de política de acesso.  Selecione `Secret Management` para **modelo**e, em seguida, selecione **entidade de segurança**. Cole o nome da credencial em **principal** / caixa de entrada**selecionar** :
+Copie o nome da credencial, por exemplo, `azure-cli-2020-01-19-04-39-02` . Abra o menu **políticas de acesso** , clique em **+ Adicionar** link de política de acesso.  Selecione `Secret Management` para **modelo** e, em seguida, selecione **entidade de segurança**. Cole o nome da credencial em **principal** / caixa de entrada **selecionar** :
 
  ![Selecionar](./media/github-actions/key-vault2.png)
 
@@ -56,12 +60,12 @@ Copie o nome da credencial, por exemplo, `azure-cli-2020-01-19-04-39-02` . Abra 
 ## <a name="generate-full-scope-azure-credential"></a>Gerar credencial do Azure de escopo completo
 Essa é a chave mestra para abrir todas as portas na construção. O procedimento é semelhante à etapa anterior, mas aqui alteramos o escopo para gerar a chave mestra:
 
-```
+```azurecli
 az ad sp create-for-rbac --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID> --sdk-auth
 ```
 
 Novamente, os resultados:
-```
+```output
 {
     "clientId": "<GUID>",
     "clientSecret": "<GUID>",
@@ -81,7 +85,7 @@ Copie a cadeia de caracteres JSON inteira.  Volte para **Key Vault** painel. Abr
 ## <a name="combine-credentials-in-github-actions"></a>Combinar credenciais em ações do GitHub
 Defina as credenciais usadas quando o pipeline CICD for executado:
 
-```
+```console
 on: [push]
 
 jobs:

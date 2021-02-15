@@ -3,31 +3,33 @@ title: Codecs e formatos de codificador padrão-Azure
 description: Este artigo contém uma lista dos formatos de arquivo de importação e exportação mais comuns que você pode usar com StandardEncoderPreset.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 02/10/2019
-ms.author: juliako
+ms.topic: conceptual
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.reviewer: anilmur
-ms.openlocfilehash: dd8c38f9f08bbcaccc39d2f0d1843af720c12932
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f6e9c0a3d9100bc447314f5874107363c6bf5d8a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87053230"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89289436"
 ---
 # <a name="standard-encoder-formats-and-codecs"></a>Codecs e formatos de codificador padrão
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Este artigo contém uma lista dos formatos de arquivo de importação e exportação mais comuns que você pode usar com [StandardEncoderPreset](/rest/api/media/transforms/createorupdate#standardencoderpreset). Para obter informações sobre como criar predefinições personalizadas usando **StandardEncoderPreset**, veja [Criar uma transformação com uma predefinição personalizada](customize-encoder-presets-how-to.md).
 
 ## <a name="input-containerfile-formats"></a>Formatos de contêiner/arquivo de entrada
 
-| Formatos de arquivo (extensões de arquivo) | Suportado |
+| Formatos de arquivo (extensões de arquivo) | Com suporte |
 | --- | --- |
 | FLV (com codecs H.264 e AAC) (.flv) |Sim |
 | MXF    (.mxf) |Sim |
@@ -52,7 +54,7 @@ ou
 * Arquivos MXF, GXF e QuickTime onde o áudio é executado como faixas PCM separadas, mas o mapeamento de canal (para estéreo ou 5.1) pode ser deduzido dos metadados do arquivo
 
 ## <a name="input-video-codecs"></a>Codecs de vídeo de entrada
-| Codecs de vídeo de entrada | Suportado |
+| Codecs de vídeo de entrada | Com suporte |
 | --- | --- |
 | AVC de 8 bits/10 bits até 4:2:2, incluindo AVCIntra |8 bits 4:2:0 e 4:2:2 |
 | DNxHD ávido (em MXF) |Sim |
@@ -75,7 +77,7 @@ ou
 | HEVC/H.265| Perfil Principal|
 
 ## <a name="input-audio-codecs"></a>Codecs de áudio de entrada
-| Codecs de áudio de entrada | Suportado |
+| Codecs de áudio de entrada | Com suporte |
 | --- | --- |
 | AAC (AAC-LC, AAC-HE e AAC-HEv2; até 5.1) |Sim |
 | MPEG Layer 2 |Sim |

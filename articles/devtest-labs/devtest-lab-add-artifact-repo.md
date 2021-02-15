@@ -4,10 +4,10 @@ description: Saiba como adicionar um repositório Git do GitHub ou do Azure DevO
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 225aae5e0a017b711f29a47829b06f8bb7a6a8ee
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85483135"
 ---
 # <a name="add-a-git-repository-to-store-custom-artifacts-and-resource-manager-templates"></a>Adicionar um repositório Git para armazenar os artefatos personalizados e modelos do Resource Manager
@@ -74,7 +74,7 @@ Para adicionar um repositório de artefatos ao laboratório, você deve primeiro
    5. **Caminhos de pasta**. Insira, pelo menos, um caminho de pasta em relação a URL de clone que contém o artefato ou definições de modelo do Resource Manager. Ao especificar um subdiretório, verifique se você incluiu a barra "/" no caminho da pasta.
 
       ![Área de repositórios](./media/devtest-lab-add-repo/devtestlab-repo-blade.png)
-6. Selecione **Salvar**.
+6. Clique em **Salvar**.
 
 ### <a name="related-blog-posts"></a>Postagens de blogs relacionadas
 * [Solucionando artefatos com falha no DevTest Labs](devtest-lab-troubleshoot-artifact-failure.md)

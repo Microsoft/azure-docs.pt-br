@@ -34,9 +34,6 @@
       href: /samples/browse/?products=azure-logic-apps
     - name: Modelos de início rápido do Resource Manager
       href: 'https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Logic'
-    - name: Itens internos do Azure Policy
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: Conceitos
   items:
     - name: Conectores para Aplicativos Lógicos
@@ -60,14 +57,26 @@
           href: security-baseline.md
 - name: Guias de instruções
   items:
+    - name: Versão prévia dos Aplicativos Lógicos do Azure
+      items:
+        - name: Visão geral da versão prévia dos Aplicativos Lógicos do Azure
+          href: logic-apps-overview-preview.md
+        - name: Criar fluxos de trabalho com e sem estado – portal do Azure
+          href: create-stateful-stateless-workflows-azure-portal.md
+        - name: Criar fluxos de trabalho com e sem estado – Visual Studio Code
+          href: create-stateful-stateless-workflows-visual-studio-code.md
     - name: Desenvolver
       items:
         - name: Criar a partir de modelos predefinidos
           href: logic-apps-create-logic-apps-from-templates.md
+        - name: Gerenciar recursos do Azure criando tarefas de automação
+          href: create-automation-tasks-azure-resources.md
         - name: Migrar dos Serviços BizTalk
           href: logic-apps-move-from-mabs.md
         - name: Exportar fluxos do Power Automate e implantar no Aplicativos Lógicos do Azure
           href: export-from-microsoft-flow-logic-app-template.md
+        - name: Chamar aplicativos lógicos do Power Automate e do Power Apps
+          href: call-from-power-automate-power-apps.md
         - name: Controlar a execução do fluxo de trabalho
           items:
             - name: Instruções de condição
@@ -98,7 +107,7 @@
           href: logic-apps-batch-process-send-receive-messages.md
         - name: Enviar mensagens em ordem – comboio sequencial
           href: send-related-messages-sequential-convoy.md
-        - name: Criar definições JSON
+        - name: Criar definições de fluxo de trabalho em JSON
           href: logic-apps-author-definitions.md
         - name: Lidar com tipos de conteúdo
           href: logic-apps-content-type.md
@@ -106,6 +115,8 @@
           href: logic-apps-exception-handling.md
         - name: Processar mensagens grandes
           href: logic-apps-handle-large-messages.md
+        - name: Manipular procedimentos armazenados de longa execução para o conector do SQL
+          href: handle-long-running-stored-procedures-sql-connector.md
         - name: Tratar problemas de limitação ou erros do tipo 429
           href: handle-throttling-problems-429-errors.md
         - name: Desenvolver conectores personalizados
@@ -142,6 +153,7 @@
       items:
         - name: Criar conta de integração
           href: logic-apps-enterprise-integration-create-integration-account.md
+          displayName: 'Azure CLI, az logic integration-account create, integration-account'
         - name: Parceiros comerciais
           href: logic-apps-enterprise-integration-partners.md
         - name: Contratos
@@ -169,8 +181,8 @@
               href: logic-apps-enterprise-integration-edifact-decode.md
             - name: Lidar com arquivos EDIFACT com segmento UNH2.5
               href: logic-apps-enterprise-integration-edifact_inputfile_unh2.5.md
-        - name: Trocar mensagens do RosettaNet
-          href: logic-apps-enterprise-integration-rosettanet.md
+            - name: Trocar mensagens do RosettaNet
+              href: logic-apps-enterprise-integration-rosettanet.md
         - name: Trocar mensagens X12
           href: logic-apps-enterprise-integration-x12.md
           items:
@@ -315,9 +327,11 @@
         - name: Gerir aplicativos lógicos - Visual Studio
           href: manage-logic-apps-with-visual-studio.md
         - name: Gerenciar contas de integração
-          href: ./logic-apps-enterprise-integration-create-integration-account.md
+          href: logic-apps-enterprise-integration-create-integration-account.md
         - name: Gerenciar ambientes de serviço de integração
           href: ise-manage-integration-service-environment.md
+        - name: Planejar e gerenciar custos
+          href: plan-manage-costs.md
         - name: Mover recursos do aplicativo lógico
           href: move-logic-app-resources.md
         - name: Migrar para o esquema mais recente
@@ -340,6 +354,8 @@
           href: monitor-logic-apps.md
         - name: Monitorar aplicativos lógicos com os logs do Azure Monitor
           href: monitor-logic-apps-log-analytics.md
+        - name: Monitorar aplicativos lógicos na Central de Segurança do Azure
+          href: healthy-unhealthy-resource.md
         - name: Monitorar mensagens B2B com os logs do Azure Monitor
           href: monitor-b2b-messages-log-analytics.md
         - name: Criar consultas de monitoramento e acompanhamento
@@ -396,6 +412,9 @@
           href: logic-apps-track-integration-account-x12-tracking-schema.md
         - name: Esquema de controle personalizado
           href: logic-apps-track-integration-account-custom-tracking-schema.md
+    - name: Itens internos do Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Recursos
   items:
     - name: Desenvolva suas habilidades com o Microsoft Learn

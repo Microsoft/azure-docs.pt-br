@@ -2,20 +2,18 @@
 title: Adicionar entidades-LUIS
 description: Crie entidades para extrair dados de chave de declarações de usuário em aplicativos de Reconhecimento vocal (LUIS). Os dados de entidade extraídos são usados pelo aplicativo cliente para fullfil solicitações de clientes.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/17/2020
-ms.author: diberry
-ms.openlocfilehash: 61e53e6110e545d253dae81e94f8738ee17c4141
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: c5c6836c2d68036bf2b9c5abe191943537349b8d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344468"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91540958"
 ---
 # <a name="add-entities-to-extract-data"></a>Adicionar entidades para extrair dados
 
@@ -179,14 +177,14 @@ Neste procedimento, adicione `origin` funções e `destination` a uma entidade g
 1. Para rotular com a função, selecione o rótulo da entidade (linha sólida em texto) no exemplo expressão e selecione **Exibir no painel de entidade** na lista suspensa.
 
     > [!div class="mx-imgBorder"]
-    > ![Captura de tela da seleção da exibição na paleta de entidades](media/add-entities/view-in-entity-pane.png)
+    > ![Captura de tela mostra a exibição no item de menu do painel de entidade selecionado.](media/add-entities/view-in-entity-pane.png)
 
     A paleta de entidades é aberta à direita.
 
 1. Selecione a entidade e, em seguida, vá para a parte inferior da paleta e selecione a função.
 
     > [!div class="mx-imgBorder"]
-    > ![Captura de tela da seleção da exibição na paleta de entidades](media/add-entities/select-role-in-entity-palette.png)
+    > ![Captura de tela mostra onde selecionar a função.](media/add-entities/select-role-in-entity-palette.png)
 
 <a name="add-pattern-any-entities"></a>
 <a name="add-a-patternany-entity"></a>

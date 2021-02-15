@@ -8,21 +8,22 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 09/01/2019
-ms.openlocfilehash: ffe9167bb155826eea3a1e7994469d378e5925fe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d25e168e342e22af9dc41d31dd7e18530aaa22b8
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85260484"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93090504"
 ---
 # <a name="connect-to-azure-cosmos-db-cassandra-api-from-spark"></a>Conecte-se à API do Cassandra do Azure Cosmos DB usando o Spark
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 Este artigo está entre uma série de artigos sobre a integração da API do Cassandra do Azure Cosmos DB usando o Spark. Os artigos abordam conectividade, operações de DDL (linguagem de definição de dados), operações de DML (linguagem de manipulação de dados) e integração avançada da API do Cassandra do Azure Cosmos DB usando o Spark. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * [Provisionar uma conta de API do Cassandra Azure Cosmos DB.](create-cassandra-dotnet.md#create-a-database-account)
 
-* Provisione sua escolha do ambiente do Spark [[Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal)  |  [Azure HDInsight-Spark](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-jupyter-spark-sql) | Outros].
+* Provisione sua escolha do ambiente do Spark [[Azure Databricks](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal)  |  [Azure HDInsight-Spark](../hdinsight/spark/apache-spark-jupyter-spark-sql.md) | Outros].
 
 ## <a name="dependencies-for-connectivity"></a>Dependências para conectividade
 * **Conector do Spark para Cassandra:** o conector do Spark é usado para se conectar à API do Cassandra do Azure Cosmos DB.  Identifique e use a versão do conector localizada em [central do Maven]( https://mvnrepository.com/artifact/com.datastax.spark/spark-cassandra-connector) compatível com as versões do Spark e do Scala do seu ambiente do Spark.
@@ -69,7 +70,7 @@ cqlsh.py YOUR-COSMOSDB-ACCOUNT-NAME.cassandra.cosmosdb.azure.com 10350 -u YOUR-C
 O artigo a seguir aborda o provisionamento do cluster do Azure Databricks, configuração do cluster para conexão à API do Cassandra do Azure Cosmos DB e vários blocos de anotações de exemplo que cobrem operações de DDL, operações de DML e muito mais.<BR>
 [Trabalhar com a API do Cassandra do Azure Cosmos DB usando o Azure Databricks](cassandra-spark-databricks.md)<BR>
   
-### <a name="2--azure-hdinsight-spark"></a>2. Azure HDInsight-Spark
+### <a name="2--azure-hdinsight-spark"></a>2. HDInsight-Spark do Azure
 O artigo a seguir aborda o serviço HDInsight-Spark, provisionamento, configuração do cluster para conexão à API do Cassandra do Azure Cosmos DB e vários blocos de anotações de exemplo que cobrem operações de DDL, operações de DML e muito mais.<BR>
 [Trabalhar com a API do Cassandra do Azure Cosmos DB usando o Azure HDInsight-Spark](cassandra-spark-hdinsight.md)
  
@@ -121,6 +122,6 @@ Os artigos a seguir demonstram a integração do Spark com a API do Cassandra do
 * [Operações de criação/inserção](cassandra-spark-create-ops.md)
 * [Operações de leitura](cassandra-spark-read-ops.md)
 * [Operações de Upsert](cassandra-spark-upsert-ops.md)
-* [Excluir operações](cassandra-spark-delete-ops.md)
+* [Operações de exclusão](cassandra-spark-delete-ops.md)
 * [Operações de agregação](cassandra-spark-aggregation-ops.md)
 * [Operações de cópia de tabela](cassandra-spark-table-copy-ops.md)

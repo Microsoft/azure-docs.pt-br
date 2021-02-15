@@ -1,21 +1,18 @@
 ---
 title: Funções Data Factory e variáveis do sistema
 description: Fornece uma lista de funções do Azure Data Factory e variáveis do sistema
-documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
-manager: jroth
+author: dcstwh
+ms.author: weetok
 ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 9acc369e24d1bac92dea3fb6ae391a410e5f6c3d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d47a26b46fad1ab8238f9fa7a1183aad20530ef5
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73667662"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100363926"
 ---
 # <a name="azure-data-factory---functions-and-system-variables"></a>Azure Data Factory - Funções e Variáveis do Sistema
 > [!NOTE]
@@ -70,7 +67,7 @@ No exemplo a seguir, a propriedade **sqlReaderQuery** em um arquivo JSON é atri
 }
 ```
 
-Confira o tópico [Cadeias de caracteres de formato de data e hora personalizado](https://msdn.microsoft.com/library/8kb3ddd4.aspx) que descreve as diferentes opções de formatação que você pode usar (por exemplo: aa versus aaaa). 
+Confira o tópico [Cadeias de caracteres de formato de data e hora personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings) que descreve as diferentes opções de formatação que você pode usar (por exemplo: aa versus aaaa). 
 
 ### <a name="functions"></a>Funções
 As tabelas a seguir listam todas as funções no Azure Data Factory:
@@ -227,5 +224,4 @@ Para ler dados do dia anterior em vez do dia representado pelo SliceStart, use a
 }
 ```
 
-Confira o tópico [Cadeias de caracteres de formato de data e hora personalizado](https://msdn.microsoft.com/library/8kb3ddd4.aspx) que descreve as diferentes opções de formatação que você pode usar (por exemplo: aa versus aaaa). 
-
+Confira o tópico [Cadeias de caracteres de formato de data e hora personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings) que descreve as diferentes opções de formatação que você pode usar (por exemplo: aa versus aaaa).

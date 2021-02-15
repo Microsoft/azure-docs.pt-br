@@ -7,10 +7,10 @@ ms.date: 11/01/2019
 ms.author: yunjchoi
 ms.custom: na
 ms.openlocfilehash: fb329273d442c023233fee2e7e01aabe5f5bff8c
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83122351"
 ---
 # <a name="azure-functions-diagnostics-overview"></a>Visão geral de diagnóstico do Azure Functions
@@ -31,11 +31,11 @@ Para iniciar o diagnóstico do Azure Functions:
 
 Depois de selecionar uma categoria de home page que melhor se alinha com o problema do seu aplicativo de funções, a interface interativa do diagnóstico do Azure Functions, chamada de Gênio, pode orientá-lo no diagnóstico e na resolução do problema de seu aplicativo. Você pode usar os atalhos de bloco fornecidos pelo Gênio para exibir o relatório de diagnóstico completo da categoria de problema em que você está interessado. Os atalhos de bloco fornecem uma forma direta de acessar suas métricas de diagnóstico.
 
-:::image type="content" source="./media/functions-diagnostics/genie.png" alt-text="O Gênio é a interface do diagnóstico do Azure Functions." border="false":::
+:::image type="content" source="./media/functions-diagnostics/genie.png" alt-text="Procurar diagnóstico do Azure Functions." border="false":::
 
 Depois de selecionar um bloco, você poderá ver uma lista de tópicos relacionados ao problema descrito no bloco. Esses tópicos fornecem trechos de informações importantes do relatório completo. Selecione qualquer um desses tópicos para investigar os problemas em mais detalhes. Além disso, você pode selecionar **Exibir relatório completo** para explorar todos os tópicos em apenas uma página.
 
-:::image type="content" source="./media/functions-diagnostics/preview-of-diagnostic-report.png" alt-text="Visualização do relatório de diagnóstico" border="false":::
+:::image type="content" source="./media/functions-diagnostics/preview-of-diagnostic-report.png" alt-text="Procurar diagnóstico do Azure Functions." border="false":::
 
 ## <a name="view-a-diagnostic-report"></a>Exibir um relatório de diagnóstico
 
@@ -45,9 +45,9 @@ Depois de escolher um tópico, você pode exibir um relatório de diagnóstico e
 
 Para funções baseadas em script, você pode usar a **Execução de Função e Erros** em **Aplicativo de Funções Inoperante ou Relatando Erros** para restringir a linha de código que está causando exceções ou erros. Você pode usar essa ferramenta para obter a causa raiz e corrigir problemas de uma linha de código específica. Essa opção não está disponível para funções pré-compiladas de C# e Java.
 
-:::image type="content" source="./media/functions-diagnostics/diagnostic-report-on-function-execution-errors.png" alt-text="Relatório de diagnóstico sobre erros de execução de função" border="false":::
+:::image type="content" source="./media/functions-diagnostics/diagnostic-report-on-function-execution-errors.png" alt-text="Procurar diagnóstico do Azure Functions." border="false":::
 
-:::image type="content" source="./media/functions-diagnostics/function-exception.png" alt-text="Exibição dos detalhes da exceção." border="false":::
+:::image type="content" source="./media/functions-diagnostics/function-exception.png" alt-text="Procurar diagnóstico do Azure Functions." border="false":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.date: 06/26/2020
 ms.author: cynthn
 ms.reviewer: jagaveer
-ms.openlocfilehash: 165a2c6221c8d3c14f71134deef962d0859bb438
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 71e0f2e87fc71deef0bdc4dd48425cdc9dd99dc8
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816704"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98200763"
 ---
 # <a name="deploy-spot-vms-using-the-azure-cli"></a>Implantar VMs especiais usando o CLI do Azure
 
-O uso de [VMs do Azure Spot](spot-vms.md) permite que você aproveite a capacidade não utilizada a uma economia de custo significativa. A qualquer momento, quando o Azure precisar da capacidade de volta, a infraestrutura do Azure removerá as VMs pontuais. Portanto, as VMs pontuais são ótimas para cargas de trabalho que podem lidar com interrupções como trabalhos de processamento em lotes, ambientes de desenvolvimento/teste, grandes cargas de trabalho de computação e muito mais.
+O uso de [VMs do Azure Spot](../spot-vms.md) permite que você aproveite a capacidade não utilizada a uma economia de custo significativa. A qualquer momento, quando o Azure precisar da capacidade de volta, a infraestrutura do Azure removerá as VMs pontuais. Portanto, as VMs pontuais são ótimas para cargas de trabalho que podem lidar com interrupções como trabalhos de processamento em lotes, ambientes de desenvolvimento/teste, grandes cargas de trabalho de computação e muito mais.
 
 Os preços para VMs pontuais são variáveis, com base na região e SKU. Para obter mais informações, consulte preços de VM para [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) e [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). 
 
@@ -64,8 +64,25 @@ az vm list \
    --output table
 ```
 
+## <a name="simulate-an-eviction"></a>Simular uma remoção
+
+Você pode [simular uma remoção](/rest/api/compute/virtualmachines/simulateeviction) de uma VM Spot, para testar o quão bem seu aplicativo responderá a uma remoção repentina. 
+
+Substitua o seguinte pelas suas informações: 
+
+- `subscriptionId`
+- `resourceGroupName`
+- `vmName`
+
+
+```http
+POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}/simulateEviction?api-version=2020-06-01
+```
+
 **Próximas etapas**
 
-Você também pode criar uma VM Spot usando [Azure PowerShell](../windows/spot-powershell.md), [portal](../windows/spot-portal.md)ou um [modelo](spot-template.md).
+Você também pode criar uma VM Spot usando [Azure PowerShell](../windows/spot-powershell.md), [portal](../spot-portal.md)ou um [modelo](spot-template.md).
 
-Se você encontrar um erro, consulte [códigos de erro](../error-codes-spot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Consulte as informações de preços atuais usando a [API de preços de varejo do Azure](/rest/api/cost-management/retail-prices/azure-retail-prices) para obter informações sobre preços especiais. O `meterName` e `skuName` os dois conterão `Spot` .
+
+Se você encontrar um erro, consulte [códigos de erro](../error-codes-spot.md).

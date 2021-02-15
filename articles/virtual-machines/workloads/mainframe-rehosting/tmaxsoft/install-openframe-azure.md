@@ -1,6 +1,6 @@
 ---
 title: Instalar o TmaxSoft OpenFrame em máquinas virtuais do Azure
-description: Rehospede suas cargas de trabalho de mainframe do IBM z/OS usando o ambiente TmaxSoft OpenFrame em VMs (máquinas virtuais) do Azure.
+description: Saiba como configurar um ambiente OpenFrame no Azure adequado para desenvolvimento, demonstrações, testes ou cargas de trabalho de produção.
 services: virtual-machines-linux
 documentationcenter: ''
 author: njray
@@ -8,12 +8,13 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: virtual-machines-linux
-ms.openlocfilehash: 41b31d5c4a01183d4620dcd6ec6f4729f078d382
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.subservice: workloads
+ms.openlocfilehash: ad3dbd8cdc6fff7eca8c24bb6e5258022d52cb9b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082385"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018487"
 ---
 # <a name="install-tmaxsoft-openframe-on-azure"></a>Instalar o TmaxSoft OpenFrame no Azure
 
@@ -164,7 +165,7 @@ Ao conceder a novos indivíduos acesso à VM:
 
 3.  Clique em **Gerar**.
 
-    ![Caixa de diálogo gerador de chave de geração](media/puttygen-02.png)
+    ![Captura de tela que mostra a caixa de diálogo gerador de chave de geração e realça o botão gerar.](media/puttygen-02.png)
 
 4.  Após a geração, salve a chave pública e a chave privada. Cole o conteúdo da chave pública na seção **chave pública SSH** do painel **criar \> noções básicas da máquina virtual** (mostrado nas etapas 6 e 7 na seção anterior).
 
@@ -191,7 +192,7 @@ Ao conceder a novos indivíduos acesso à VM:
 
 7. Para **nome do host**, digite seu nome de usuário e o endereço IP público que você copiou. Por exemplo, **nome de usuário \@ publicip**.
 
-    ![Caixa de diálogo configuração de saída](media/putty-01.png)
+    ![Captura de tela que mostra a caixa de diálogo configuração de saída e realça o campo nome do host (ou endereço IP).](media/putty-01.png)
 
 8. Na caixa **categoria** , clique em **conexão \> SSH \> autenticação**. Forneça o caminho para o arquivo de **chave privada** .
 
@@ -460,7 +461,7 @@ Para instalar o ODBC:
 
      Por padrão, o unixODBC é instalado em/usr/local, portanto, `--prefix` passa um valor para alterar o local. Da mesma forma, os arquivos de configuração são instalados em/etc por padrão, portanto, `--sysconfdir` passa o valor do local desejado.
 
-4. Executar makefile:`[oframe7@ofdemo unixODBC-2.3.4]$ make`
+4. Executar makefile: `[oframe7@ofdemo unixODBC-2.3.4]$ make`
 
 5. Copie o arquivo executável no diretório do programa após a compilação. Por exemplo:
 
@@ -945,7 +946,7 @@ O sortimento é um utilitário usado em transações em lote para classificar da
      export PATH
      ```
 
-6. Para executar o perfil bash, no prompt de comando, digite:`. .bash_profile`
+6. Para executar o perfil bash, no prompt de comando, digite: `. .bash_profile`
 
 7. Crie o arquivo de configuração. Por exemplo:
 
@@ -1389,7 +1390,7 @@ Antes de instalar o JEUS, instale o pacote Apache Ant, que fornece as biblioteca
      > [!NOTE]
      > Se você tiver problemas com a segurança da porta, abra a porta 9736 ou desabilite o firewall ( `systemctl stop firewall` ).
 
-14. Para alterar o nome do host para Server1, clique em **bloquear & editar**e, em seguida, clique em **Server1**. Na janela do servidor, altere o nome do host da seguinte maneira:
+14. Para alterar o nome do host para Server1, clique em **bloquear & editar** e, em seguida, clique em **Server1**. Na janela do servidor, altere o nome do host da seguinte maneira:
 
     1.  Altere **NodeName** para **ofdemo**.
     2.  Clique em **OK** no lado direito da janela.

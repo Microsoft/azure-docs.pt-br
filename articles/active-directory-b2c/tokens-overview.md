@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/21/2020
+ms.date: 08/31/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8acdf714f459ae604ccd7788b021aee3ee037935
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: b4e268d35a2e31db0ce92ff61e66fd23bce68e38
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87482576"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516363"
 ---
 # <a name="overview-of-tokens-in-azure-active-directory-b2c"></a>Visão geral dos tokens no Azure Active Directory B2C
 
@@ -31,7 +31,7 @@ Os tokens a seguir são usados na comunicação com o Azure AD B2C:
 
 - *Token de ID* - um JWT que contém declarações que você pode usar para identificar usuários em seu aplicativo. Esse token é enviado com segurança em solicitações HTTP para a comunicação entre dois componentes do mesmo aplicativo ou serviço. Você pode usar as declarações em um token de ID como desejar. Elas são comumente usadas para exibir informações de conta ou para tomar decisões de controle de acesso em um aplicativo. Os tokens de ID são assinados, mas não são criptografados. Quando seu aplicativo ou a API recebe um token de ID, deve validar a assinatura para provar que o token é autêntico. Seu aplicativo ou a API também deve validar algumas declarações no token para provar que ele é válido. Dependendo dos requisitos do cenário, as declarações validadas por um aplicativo podem variar, mas seu aplicativo deve executar algumas validações de declaração comuns em cada cenário.
 - *Token de acesso* - um JWT que contém declarações que você pode usar para identificar as permissões concedidas para suas APIs. Os tokens de acesso são assinados, mas não são criptografados. Os tokens de acesso são usados para fornecer acesso aos servidores de APIs e recursos.  Quando sua API recebe um token de acesso, deve validar a assinatura para provar que o token é autêntico. Sua API também deve validar algumas declarações no token para provar que ele é válido. Dependendo dos requisitos do cenário, as declarações validadas por um aplicativo podem variar, mas seu aplicativo deve executar algumas validações de declaração comuns em cada cenário.
-- *Tokens de atualização* - os tokens de atualização são usados para adquirir novos tokens de ID e tokens de acesso em um fluxo OAuth 2.0. Eles fornecem ao aplicativo acesso de longo prazo aos recursos em nome dos usuários sem a necessidade de interação com os usuários. Os tokens de atualização são opacos para seu aplicativo. Eles são emitidos pelo Azure AD B2C e só podem ser inspecionados e interpretados por ele. Eles têm longa duração, mas o aplicativo não deve ser escrito com a expectativa de que um token de atualização durará por um período de tempo específico. Os tokens de atualização podem ser invalidados a qualquer momento por vários motivos. A única maneira de o aplicativo saber se um token de atualização é válido, é tentando resgatá-lo fazendo uma solicitação de token ao Azure AD B2C. Ao resgatar um token de atualização para um novo token, você receberá um novo token de atualização na resposta de token. Salve o novo token de atualização. Ele substitui o token de atualização que você usou anteriormente na solicitação. Isso ajuda a garantir que seus tokens de atualização permaneçam válidos pelo máximo tempo possível.
+- *Tokens de atualização* - os tokens de atualização são usados para adquirir novos tokens de ID e tokens de acesso em um fluxo OAuth 2.0. Eles fornecem ao aplicativo acesso de longo prazo aos recursos em nome dos usuários sem a necessidade de interação com os usuários. Os tokens de atualização são opacos para seu aplicativo. Eles são emitidos pelo Azure AD B2C e só podem ser inspecionados e interpretados por ele. Eles têm longa duração, mas o aplicativo não deve ser escrito com a expectativa de que um token de atualização durará por um período de tempo específico. Os tokens de atualização podem ser invalidados a qualquer momento por vários motivos. A única maneira de o aplicativo saber se um token de atualização é válido, é tentando resgatá-lo fazendo uma solicitação de token ao Azure AD B2C. Ao resgatar um token de atualização para um novo token, você receberá um novo token de atualização na resposta de token. Salve o novo token de atualização. Ele substitui o token de atualização que você usou anteriormente na solicitação. Isso ajuda a garantir que seus tokens de atualização permaneçam válidos pelo máximo tempo possível. Observe que os aplicativos de página única que usam o fluxo de código de autorização com PKCE sempre têm um tempo de vida de token de atualização de 24 horas. [Saiba mais sobre as implicações de segurança de tokens de atualização no navegador](../active-directory/develop/reference-third-party-cookies-spas.md#security-implications-of-refresh-tokens-in-the-browser).
 
 ## <a name="endpoints"></a>Pontos de extremidade
 
@@ -97,7 +97,7 @@ As propriedades a seguir são usadas para [gerenciar a compatibilidade do token]
 
 ## <a name="pass-through"></a>Passagem
 
-Quando a jornada de um usuário é iniciada, o Azure AD B2C recebe um token de acesso de um provedor de identidade. O Azure Active Directory B2C usa esse token para recuperar informações sobre o usuário. [Habilite uma declaração no seu fluxo de usuário](idp-pass-through-user-flow.md) ou [defina uma declaração em uma política personalizada](idp-pass-through-custom.md) para passar o token por meio para os aplicativos que você se registrar no Azure AD B2C. Seu aplicativo deve estar usando um [fluxo de usuário recomendado](user-flow-versions.md) para aproveitar a passagem do token como uma declaração.
+Quando a jornada de um usuário é iniciada, o Azure AD B2C recebe um token de acesso de um provedor de identidade. O Azure Active Directory B2C usa esse token para recuperar informações sobre o usuário. Você habilita uma declaração em seu fluxo de usuário para [passar o token](idp-pass-through-user-flow.md) para os aplicativos que você registra no Azure ad B2C. Seu aplicativo deve estar usando um [fluxo de usuário recomendado](user-flow-versions.md) para aproveitar a passagem do token como uma declaração.
 
 Atualmente, o Azure AD B2C é compatível somente com a passagem do token de acesso dos provedores de identidade do OAuth 2.0, que incluem o Facebook e o Google. Para todos os outros provedores de identidade, a declaração é retornada em branco.
 
@@ -119,7 +119,7 @@ O cabeçalho do token contém informações sobre o método de criptografia e a 
 }
 ```
 
-O valor da declaração **alg** é o algoritmo que foi usado para assinar o token. O valor da declaração **kid** é a chave pública que foi usada para assinar o token. A qualquer momento, o Azure AD B2C pode assinar um token usando qualquer opção de um conjunto de pares de chaves públicas-privadas. O Azure AD B2C alterna o possível conjunto de chaves periodicamente. Seu aplicativo deve ser gravado para tratar dessas alterações de chave automaticamente. Uma frequência razoável para verificar se há atualizações para as chaves públicas usadas pelo Azure AD B2C é a cada 24 horas.
+O valor da declaração **alg** é o algoritmo que foi usado para assinar o token. O valor da declaração **kid** é a chave pública que foi usada para assinar o token. A qualquer momento, o Azure AD B2C pode assinar um token usando qualquer opção de um conjunto de pares de chaves públicas-privadas. O Azure AD B2C alterna o possível conjunto de chaves periodicamente. Seu aplicativo deve ser gravado para tratar dessas alterações de chave automaticamente. Uma frequência razoável para verificar se há atualizações para as chaves públicas usadas pelo Azure AD B2C é a cada 24 horas. Para lidar com alterações de chave inesperadas, seu aplicativo deve ser gravado para recuperar as chaves públicas novamente caso receba um valor de **criança** inesperado.
 
 O Azure AD B2C tem um ponto de extremidade de metadados OpenID Connect. Usando esse ponto de extremidade, os aplicativos podem solicitar informações sobre o Azure AD B2C em tempo de execução. Essas informações incluem pontos de extremidade, conteúdos de token e chaves de assinatura de token. Seu locatário do Azure AD B2C contém um documento de metadados JSON para cada política. O documento de metadados é um objeto JSON que contém várias informações úteis. Os metadados contêm **jwks_uri**, que fornece o local do conjunto de chaves públicas usadas para assinar tokens. Esse local é fornecido aqui, mas é melhor buscar o local dinamicamente usando o documento de metadados e analisando **jwks_uri**:
 
@@ -134,7 +134,7 @@ O documento de metadados para a política `B2C_1_signupsignin1` no locatário `c
 https://contoso.b2clogin.com/contoso.onmicrosoft.com/b2c_1_signupsignin1/v2.0/.well-known/openid-configuration
 ```
 
-Para determinar qual política foi usada para assinar um token (e onde ir para solicitar os metadados), você tem duas opções. Primeiro, o nome da política é incluído na declaração `acr` no token. Você pode analisar as declarações fora do corpo do JWT decodificando em base 64 o corpo e desserializando a cadeia de caracteres JSON resultante. A declaração `acr` é o nome da política que foi usada para emitir o token. A outra opção é codificar a política no valor do parâmetro `state` quando você emitir a solicitação e, em seguida, decodificá-lo para determinar qual política foi usada. Ambos os métodos são válidos.
+Para determinar qual política foi usada para assinar um token (e onde ir para solicitar os metadados), você tem duas opções. Primeiro, o nome da política é incluído no `tfp` (padrão) ou na `acr` declaração (conforme configurado) no token. Você pode analisar as declarações fora do corpo do JWT decodificando em base 64 o corpo e desserializando a cadeia de caracteres JSON resultante. A `tfp` `acr` declaração ou é o nome da política que foi usada para emitir o token. A outra opção é codificar a política no valor do parâmetro `state` quando você emitir a solicitação e, em seguida, decodificá-lo para determinar qual política foi usada. Ambos os métodos são válidos.
 
 Uma descrição de como executar a validação de assinatura está fora do escopo deste documento. Muitas bibliotecas de software livre estão disponíveis para ajudar você a validar um token.
 

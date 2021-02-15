@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/08/2019
 ms.author: sutalasi
 ms.openlocfilehash: fa4d61599e102f9a2580e704ee7a02486067daa2
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86135783"
 ---
 # <a name="replicate-azure-disk-encryption-enabled-virtual-machines-to-another-azure-region"></a>Replicar máquinas virtuais habilitadas para Azure Disk Encryption para outra região do Azure
@@ -22,7 +22,7 @@ Este artigo descreve como replicar VMs do Azure com o Azure Disk Encryption (ADE
 > O Site Recovery atualmente dá suporte para ADE, com e sem o ADD (Azure Active Directory) para VMs que executam sistemas operacionais Windows. Para sistemas operacionais Linux, damos suporte apenas a ADE sem AAD. Além disso, para computadores que executam o ADE 1.1 (sem AAD), as VMs devem usar discos gerenciados. Não há suporte para VMs com discos não gerenciados. Se você alternar de ADE 0.1 (com AAD) para 1.1, será necessário desabilitar a replicação e habilitar a replicação para uma VM depois de habilitar a 1.1.
 
 
-## <a name="required-user-permissions"></a><a id="required-user-permissions"></a>Permissões de usuário necessárias
+## <a name="required-user-permissions"></a><a id="required-user-permissions"></a> Permissões de usuário necessárias
 Site Recovery exige que o usuário tenha permissões para criar o cofre de chaves na região de destino e copiar chaves do cofre de chaves de região de origem para o cofre de chaves da região de destino.
 
 Para habilitar a replicação de VMs habilitadas para criptografia de disco do portal do Azure, o usuário precisa das seguintes permissões na **região de origem e** nos cofres de chaves de região de destino.
@@ -122,7 +122,7 @@ Siga estas etapas para modificar as Site Recovery configurações de destino pad
 4. Depois que as VMs estiverem habilitadas para replicação, você poderá verificar o status de integridade das VMs em **itens replicados**.
 
 >[!NOTE]
->Durante a replicação inicial, o status pode levar algum tempo para ser atualizado, sem um progresso aparente. Clique em **Atualizar** para obter o status mais recente.
+>Durante a replicação inicial, o status pode levar algum tempo para ser atualizado, sem um progresso aparente. Clique em **Atualizar**  para obter o status mais recente.
 
 ## <a name="update-target-vm-encryption-settings"></a>Atualizar configurações de criptografia da VM de destino
 Nos cenários a seguir, será necessário atualizar as configurações de criptografia de VM de destino:

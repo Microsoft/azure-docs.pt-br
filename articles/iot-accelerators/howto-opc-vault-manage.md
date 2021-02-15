@@ -8,14 +8,17 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 890a25ed2cf11d657cad930815d78dbf968cc9f9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0829d4b3fca068ddb0db2df53dd635ab7ad80bed
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "71203661"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91281908"
 ---
 # <a name="manage-the-opc-vault-certificate-service"></a>Gerenciar o serviço de certificado do cofre do OPC
+
+> [!IMPORTANT]
+> Enquanto atualizamos este artigo, confira [IoT Industrial do Azure](https://azure.github.io/Industrial-IoT/) para obter o conteúdo mais atualizado.
 
 Este artigo explica as tarefas administrativas para o serviço de gerenciamento de certificados do compartimento OPC no Azure. Ele inclui informações sobre como renovar certificados de autoridade de certificação do emissor, como renovar a CRL (lista de certificados revogados) e como conceder e revogar o acesso do usuário.
 
@@ -32,7 +35,7 @@ Depois de implantar o cofre OPC, você deve criar o certificado de autoridade de
 5. Insira um assunto válido (por exemplo, `CN=My CA Root, O=MyCompany, OU=MyDepartment` ).<br>
    > [!IMPORTANT]
    > Se você alterar o assunto, deverá renovar o certificado do emissor ou o serviço falhará ao assinar certificados de aplicativo. O assunto da configuração é verificado em relação ao assunto do certificado do emissor ativo. Se os assuntos não corresponderem, a assinatura de certificado será recusada.
-6. Clique em **Salvar**.
+6. Selecione **Salvar**.
 7. Se você encontrar um erro "proibido" neste ponto, suas credenciais de usuário não terão a permissão de administrador para modificar ou criar um novo certificado raiz. Por padrão, o usuário que implantou o serviço tem funções de administrador e assinatura com o serviço. Outros usuários precisam ser adicionados às funções aprovador, gravador ou administrador, conforme apropriado no registro do aplicativo Azure Active Directory (AD do Azure).
 8. Selecione **Detalhes**. Isso deve mostrar as informações atualizadas.
 9. Selecione **renovar certificado de autoridade de certificação** para emitir o primeiro certificado de autoridade de certificação do emissor ou para renovar o certificado do emissor. Depois, selecione **OK**.
@@ -72,7 +75,7 @@ Por padrão, um usuário autenticado no locatário pode entrar no serviço como 
 5. Selecione **Adicionar usuário**.
 6. Selecione ou convide o usuário para atribuição a uma função específica.
 7. Selecione a função para os usuários.
-8. Selecione **atribuir**.
+8. Selecione **Atribuir**.
 9. Para usuários na função Administrador ou aprovador, continue a adicionar políticas de acesso de Azure Key Vault.
 
 ### <a name="remove-user"></a>Remover usuário

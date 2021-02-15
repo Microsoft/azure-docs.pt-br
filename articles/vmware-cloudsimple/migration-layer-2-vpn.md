@@ -1,19 +1,19 @@
 ---
 title: Solução VMware da CloudSimple no Azure – transferir uma rede de camada 2 local para a nuvem privada
 description: Descreve como configurar uma VPN de camada 2 entre o NSX-T em uma nuvem privada do CloudSimple e um cliente NSX Edge autônomo local
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/19/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: a530a6f656f37657a198af85d93d5404ac88d0e1
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 06446b6c36e36466fe891d7327d8151603cdecd2
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83651016"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97899364"
 ---
 # <a name="migrate-workloads-using-layer-2-stretched-networks"></a>Migrar cargas de trabalho usando redes ampliadas da camada 2
 
@@ -118,7 +118,7 @@ As etapas a seguir mostram como buscar a ID do roteador lógico da instância do
 
 3. Abra uma sessão SSH para o endereço IP de gerenciamento da VM do Edge. Execute o comando ```get logical-router``` usando o nome de usuário **admin** e a senha **CloudSimple 123!** .
 
-    ![Obter saída do roteador lógico](media/l2vpn-fetch03.png)
+    ![Captura de tela que mostra uma sessão SSH aberta.](media/l2vpn-fetch03.png)
 
 4. Caso não esteja vendo uma entrada “DR-Provider-LR”, conclua as etapas a seguir.
 
@@ -132,7 +132,7 @@ As etapas a seguir mostram como buscar a ID do roteador lógico da instância do
 
 7. Execute o comando `get logical-router` novamente na sessão SSH da VM do Edge. A UUID do roteador lógico “DR-Provider-LR” é exibida. Anote a UUID, a qual é necessária ao configurar a L2VPN.
 
-    ![Obter saída do roteador lógico](media/l2vpn-fetch06.png)
+    ![Captura de tela que mostra o UUID do roteador lógico.](media/l2vpn-fetch06.png)
 
 ## <a name="fetch-the-logical-switch-id-needed-for-l2vpn"></a>Buscar a ID do comutador lógico necessária para a L2VPN
 
@@ -430,7 +430,7 @@ Antes da implantação, verifique se as regras de firewall local permitem o trá
 
 2. Acesse a pasta com todos os arquivos extraídos. Selecione todos os vmdks (NSX-l2t-client-large.mf e NSX-l2t-client-large.ovf para tamanho de dispositivo grande ou NSX-l2t-client-Xlarge.mf e NSX-l2t-client-Xlarge.ovf for para tamanho de dispositivo extragrande). Clique em **Próximo**.
 
-    ![Selecionar modelo](media/l2vpn-deploy-client02.png) ![Selecionar modelo](media/l2vpn-deploy-client03.png)
+    ![Selecione ](media/l2vpn-deploy-client02.png) ![ captura de tela do modelo que mostra os arquivos VMDKs selecionados.](media/l2vpn-deploy-client03.png)
 
 3. Insira um nome para o cliente autônomo do NSX-T e clique em **Próximo**.
 

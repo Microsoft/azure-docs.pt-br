@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 2c8c094efdfa9f46c6e6c42e34fd4010e43fa972
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a2969ce6ceda0d1b71ec991b32f5b10acf9bfa12
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84039897"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92780369"
 ---
 # <a name="the-wingtip-tickets-saas-application"></a>O aplicativo Wingtip Tickets SaaS
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -42,7 +42,7 @@ Confira os [tutoriais][docs-tutorials-for-wingtip-sa] e o código no GitHub [...
 
 O padrão de banco de dados por locatário é eficaz para provedores de serviço que se preocupam com isolamento de locatários e desejam executar um serviço centralizado que permite o uso econômico dos recursos compartilhados. Um banco de dados é criado para cada local, ou locatário, e todos os bancos de dados são gerenciados centralmente. Os bancos de dados podem ser hospedados em pools elásticos para fornecer um gerenciamento de desempenho fácil e econômico, que aproveita os padrões de carga de trabalho imprevisíveis dos locatários. O banco de dados de catálogo contém o mapeamento entre locatários e seus bancos de dados. Esse mapeamento é gerenciado usando os recursos de gerenciamento de mapa de fragmento da [Biblioteca de Cliente de Banco de Dados Elástico](elastic-database-client-library.md), que fornece um gerenciamento de conexão eficiente para o aplicativo.
 
-Confira os [tutoriais][docs-tutorials-for-wingtip-dpt] e o código no GitHub [. ../Microsoft/WingtipTicketsSaaS-DbPerTenant][github-code-for-wingtip-dpt].
+Confira os [tutoriais][docs-tutorials-for-wingtip-dpt] e o código no GitHub  [. ../Microsoft/WingtipTicketsSaaS-DbPerTenant][github-code-for-wingtip-dpt].
 
 ## <a name="sharded-multi-tenant-database-pattern"></a>Padrão de bancos de dados multilocatários compartilhados
 
@@ -50,7 +50,7 @@ Bancos de dados multilocatários são eficientes para provedores de serviço que
 
 Esse padrão também permite um modelo *híbrido* no qual você pode otimizar o custo com vários locatários em um banco de dados ou otimizar o isolamento com um único locatário em seu próprio banco de dados. A escolha pode ser feita com base em locatário por locatário, seja quando o locatário for provisionado ou mais tarde, sem nenhum impacto no aplicativo.  Esse modelo pode ser usado com eficiência quando grupos de locatários precisam ser tratados de modo diferente. Por exemplo, locatários de baixo custo podem ser atribuídos a bancos de dados compartilhados, enquanto locatários premium podem ser atribuídos a seus próprios bancos de dados. 
 
-Confira os [tutoriais][docs-tutorials-for-wingtip-mt] e o código no GitHub [. ../Microsoft/WingtipTicketsSaaS-MultiTenantDb][github-code-for-wingtip-mt].
+Confira os [tutoriais][docs-tutorials-for-wingtip-mt] e o código no GitHub  [. ../Microsoft/WingtipTicketsSaaS-MultiTenantDb][github-code-for-wingtip-mt].
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -84,12 +84,11 @@ Confira os [tutoriais][docs-tutorials-for-wingtip-mt] e o código no GitHub [. .
 
 <!-- WWWeb http references. -->
 
-[docs-tutorials-for-wingtip-sa]: https://aka.ms/wingtipticketssaas-sa
+[docs-tutorials-for-wingtip-sa]: ./saas-standaloneapp-get-started-deploy.md
 [github-code-for-wingtip-sa]: https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp
 
-[docs-tutorials-for-wingtip-dpt]: https://aka.ms/wingtipticketssaas-dpt
+[docs-tutorials-for-wingtip-dpt]: ./saas-dbpertenant-wingtip-app-overview.md
 [github-code-for-wingtip-dpt]: https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant
 
-[docs-tutorials-for-wingtip-mt]: https://aka.ms/wingtipticketssaas-mt
+[docs-tutorials-for-wingtip-mt]: ./saas-multitenantdb-get-started-deploy.md
 [github-code-for-wingtip-mt]: https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDb
-

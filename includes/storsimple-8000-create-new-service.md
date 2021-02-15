@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 88f275016bad72122ebd195449b9af88086bdc7b
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 746198f87e23cd7aca2a3177c23974917cb4b12a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87507487"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96025934"
 ---
 #### <a name="to-create-a-new-service"></a>Para criar um novo serviço
 
@@ -21,7 +21,7 @@ ms.locfileid: "87507487"
 
     Procure _StorSimple Físico_. Selecione e clique em **Série de Dispositivos Físicos StorSimple** e então clique em **Criar**. Como alternativa, na portal do Azure clique em **+** e, em **armazenamento**, clique em **série de dispositivo físico StorSimple**.
 
-    ![Criar Gerenciador de Dispositivo StorSimple](./media/storsimple-8000-create-new-service/createssdevman11.png)
+    ![Criar StorSimple Device Manager 2](./media/storsimple-8000-create-new-service/createssdevman11.png)
 
 3. Na folha **StorSimple Device Manager**, siga estas etapas:
 
@@ -29,7 +29,7 @@ ms.locfileid: "87507487"
 
    2. Escolha uma **Assinatura** na lista suspensa. A assinatura está vinculada à sua conta de cobrança. Este campo não estará presente se você tiver apenas uma assinatura.
 
-   3. Para **Grupo de recursos**, **Usar existente** ou **Criar novo** grupo. Para obter mais informações, veja [Grupos de recursos do Azure](/azure/azure-resource-manager/management/manage-resource-groups-portal).
+   3. Para **Grupo de recursos**, **Usar existente** ou **Criar novo** grupo. Para obter mais informações, veja [Grupos de recursos do Azure](../articles/azure-resource-manager/management/manage-resource-groups-portal.md).
 
    4. Forneça um **Local** para seu serviço. Em geral, escolha um local próximo à região geográfica onde quer implantar os seus serviços. Você talvez queira considerar o seguinte:
 
@@ -42,8 +42,8 @@ ms.locfileid: "87507487"
 
    7. Clique em **Criar** para criar o StorSimple Device Manager.
 
-       ![Criar Gerenciador de Dispositivo StorSimple](./media/storsimple-8000-create-new-service/createssdevman2.png)
+       ![Criar StorSimple Device Manager 3](./media/storsimple-8000-create-new-service/createssdevman2.png)
 
 A criação do serviço leva alguns minutos. Depois que o serviço for criado com êxito, você verá uma notificação e a nova folha de serviço será aberta.
 
-![Criar Gerenciador de Dispositivo StorSimple](./media/storsimple-8000-create-new-service/createssdevman5.png)
+![Criar StorSimple Device Manager 4](./media/storsimple-8000-create-new-service/createssdevman5.png)

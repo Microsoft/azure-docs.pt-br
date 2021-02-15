@@ -1,23 +1,20 @@
 ---
 title: Usar os recursos estendidos no servidor de histórico de Apache Spark para depurar aplicativos – Azure HDInsight
 description: Use os recursos estendidos no servidor de histórico de Apache Spark para depurar e diagnosticar aplicativos Spark – Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 11/25/2019
-ms.openlocfilehash: d8dd9aaeaadf13fa48577cf2853e7bcf58badb41
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 1d53d9e9ee2a7fa6588ea0993b3bebdb2a287351
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86079285"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98941047"
 ---
 # <a name="use-the-extended-features-of-the-apache-spark-history-server-to-debug-and-diagnose-spark-applications"></a>Usar os recursos estendidos do servidor de histórico de Apache Spark para depurar e diagnosticar aplicativos Spark
 
-Este artigo mostra como usar os recursos estendidos do servidor de histórico de Apache Spark para depurar e diagnosticar aplicativos Spark concluídos ou em execução. A extensão inclui uma guia **dados** , uma guia **gráfico** e uma guia **diagnóstico** . Na guia **dados** , você pode verificar os dados de entrada e saída do trabalho do Spark. Na guia **grafo** , você pode verificar o fluxo de dados e reproduzir o grafo do trabalho. Na guia **diagnóstico** , você pode consultar os recursos de **distorção de dados**, **distorção de tempo**e **análise de uso de executor** .
+Este artigo mostra como usar os recursos estendidos do servidor de histórico de Apache Spark para depurar e diagnosticar aplicativos Spark concluídos ou em execução. A extensão inclui uma guia **dados** , uma guia **gráfico** e uma guia **diagnóstico** . Na guia **dados** , você pode verificar os dados de entrada e saída do trabalho do Spark. Na guia **grafo** , você pode verificar o fluxo de dados e reproduzir o grafo do trabalho. Na guia **diagnóstico** , você pode consultar os recursos de **distorção de dados**, **distorção de tempo** e **análise de uso de executor** .
 
 ## <a name="get-access-to-the-spark-history-server"></a>Obter acesso ao servidor de histórico do Spark
 
@@ -26,7 +23,7 @@ O servidor de histórico do Spark é a interface do usuário da Web para aplicat
 ### <a name="open-the-spark-history-server-web-ui-from-the-azure-portal"></a>Abra a interface do usuário da Web do servidor de histórico do Spark no portal do Azure
 
 1. No [portal do Azure](https://portal.azure.com/), abra o cluster Spark. Para obter mais informações, consulte [Listar e mostrar clusters](../hdinsight-administer-use-portal-linux.md#showClusters).
-2. Em **painéis de cluster**, selecione **servidor de histórico do Spark**. Quando solicitado, insira as credenciais de administrador para o cluster Spark.
+2. Em **painéis de cluster**, selecione  **servidor de histórico do Spark**. Quando solicitado, insira as credenciais de administrador para o cluster Spark.
 
     ![Inicie o servidor de histórico do Spark por meio do portal do Azure.](./media/apache-azure-spark-history-server/azure-portal-dashboard-spark-history.png "Servidor de Histórico do Spark")
 
@@ -42,7 +39,7 @@ A interface do usuário da Web do servidor de histórico do Spark pode ser semel
 
 Selecione a ID do trabalho e, em seguida, selecione **dados** no menu ferramenta para ver a exibição de dados.
 
-+ Examine as **entradas**, as **saídas**e **as operações de tabela** selecionando as guias individuais.
++ Examine as **entradas**, as **saídas** e **as operações de tabela** selecionando as guias individuais.
 
     ![Guias de dados na página dados para o aplicativo Spark.](./media/apache-azure-spark-history-server/apache-spark-data-tabs.png)
 
@@ -97,12 +94,12 @@ Selecione a ID do trabalho e, em seguida, selecione **dados** no menu ferramenta
    ![O mapa de calor no aplicativo Spark & página grafo de trabalho.](./media/apache-azure-spark-history-server/sparkui-graph-heatmap.png)
 
 
-    |Cor |Descrição |
+    |Color |DESCRIÇÃO |
     |---|---|
     |Verde|o trabalho foi concluído com êxito.|
     |Laranja|A tarefa falhou, mas isso não afeta o resultado final do trabalho. Essas tarefas têm instâncias duplicadas ou repetidas que podem ter sucesso mais tarde.|
     |Azul|a tarefa está em execução.|
-    |Branco|a tarefa está aguardando para ser executada ou a fase foi ignorada.|
+    |Branca|a tarefa está aguardando para ser executada ou a fase foi ignorada.|
     |Vermelho|a tarefa falhou.|
 
      ![Executando uma tarefa no aplicativo Spark & página grafo de trabalho.](./media/apache-azure-spark-history-server/sparkui-graph-color-running.png)
@@ -151,9 +148,9 @@ Selecione a ID do trabalho e, em seguida, selecione **dados** no menu ferramenta
 
 ## <a name="use-the-diagnosis-tab-in-the-spark-history-server"></a>Usar a guia diagnóstico no servidor de histórico do Spark
 
-Selecione a ID do trabalho e, em seguida, selecione **diagnóstico** no menu ferramenta para ver o modo de exibição diagnóstico do trabalho. A guia **diagnóstico** inclui **distorção de dados**, **distorção de tempo**e análise de uso de **executor**.
+Selecione a ID do trabalho e, em seguida, selecione **diagnóstico** no menu ferramenta para ver o modo de exibição diagnóstico do trabalho. A guia **diagnóstico** inclui **distorção de dados**, **distorção de tempo** e análise de uso de **executor**.
 
-+ Examine a **distorção de dados**, a **distorção de tempo**e a análise de uso do **executor** selecionando as guias respectivamente.
++ Examine a **distorção de dados**, a **distorção de tempo** e a análise de uso do **executor** selecionando as guias respectivamente.
 
     ![A guia distorção de dados na guia diagnóstico.](./media/apache-azure-spark-history-server/sparkui-diagnosis-tabs.png)
 
@@ -193,7 +190,7 @@ Quando você seleciona **distorção de tempo**, o resultado filtrado é exibido
 
 O **grafo uso do executor** exibe a alocação real do executor do trabalho e o status de execução.  
 
-Quando você seleciona **análise de uso de executor**, quatro curvas diferentes sobre o uso do executor são rascunhos: **executores alocados**, **executores em execução**, **executores ociosos**e **instâncias de máximo de executor**. Cada **executor adicionado** ou o evento **removido do executor** aumentará ou diminuirá os executores alocados. Você pode verificar a **linha do tempo do evento** na guia **trabalhos** para obter mais comparações.
+Quando você seleciona **análise de uso de executor**, quatro curvas diferentes sobre o uso do executor são rascunhos: **executores alocados**, **executores em execução**, **executores ociosos** e **instâncias de máximo de executor**. Cada **executor adicionado** ou o evento **removido do executor** aumentará ou diminuirá os executores alocados. Você pode verificar a **linha do tempo do evento** na guia **trabalhos** para obter mais comparações.
 
 ![A guia análise de uso do executor na guia diagnóstico.](./media/apache-azure-spark-history-server/sparkui-diagnosis-executors.png)
 
@@ -208,10 +205,10 @@ Selecione o ícone de cor para selecionar ou desmarcar o conteúdo correspondent
 Para reverter para a versão da Comunidade, execute as etapas a seguir.
 
 1. Abra o cluster no Ambari.
-1. Navegue até **Spark2**  >  **configurações**do Spark2.
+1. Navegue até   >  **configurações** do Spark2.
 1. Selecione **Spark2 personalizados-padrões**.
 1. Selecione **Adicionar Propriedade...**.
-1. Adicione **Spark. UI. Enhancement. Enabled = False**e, em seguida, salve-o.
+1. Adicione **Spark. UI. Enhancement. Enabled = False** e, em seguida, salve-o.
 1. A propriedade define **falsos** agora.
 1. Selecione **salvar** para salvar a configuração.
 
@@ -221,7 +218,7 @@ Para reverter para a versão da Comunidade, execute as etapas a seguir.
 
     ![O modo de exibição de resumo no Apache Ambari.](./media/apache-azure-spark-history-server/apache-spark-restart1.png)
 
-1. Para reiniciar o servidor de histórico do Spark, selecione o botão **iniciado** à direita do **Spark2 History Server**e, em seguida, selecione **reiniciar** no menu suspenso.
+1. Para reiniciar o servidor de histórico do Spark, selecione o botão **iniciado** à direita do **Spark2 History Server** e, em seguida, selecione **reiniciar** no menu suspenso.
 
     ![Reinicie o servidor de histórico do Spark no Apache Ambari.](./media/apache-azure-spark-history-server/apache-spark-restart2.png)  
 

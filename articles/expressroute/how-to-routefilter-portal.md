@@ -1,21 +1,22 @@
 ---
-title: 'ExpressRoute: filtros de rota-emparelhamento da Microsoft: portal do Azure'
-description: Este artigo descreve como configurar filtros de rota para o Emparelhamento da Microsoft usando o portal do Azure.
+title: 'Tutorial: Configurar filtros de rota para o emparelhamento da Microsoft – portal do Azure'
+description: Esse tutorial descreve como configurar filtros de rota para o emparelhamento da Microsoft usando o portal do Azure.
 services: expressroute
-author: charwen
+author: duongau
 ms.service: expressroute
-ms.topic: how-to
-ms.date: 07/01/2019
-ms.author: charwen
+ms.topic: tutorial
+ms.date: 10/15/2020
+ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 54674be0010bd062cfe6263db4167a24805a9e5a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.openlocfilehash: d142028d197f9e279b5f1e05757946dc40d2c153
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84727119"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92109129"
 ---
-# <a name="configure-route-filters-for-microsoft-peering-azure-portal"></a>Configurar os filtros de rota para o emparelhamento da Microsoft: Portal do Azure
+# <a name="tutorial-configure-route-filters-for-microsoft-peering-using-the-azure-portal"></a>Tutorial: Configurar filtros de rota para o emparelhamento da Microsoft usando o portal do Azure
+
 > [!div class="op_single_selector"]
 > * [Portal do Azure](how-to-routefilter-portal.md)
 > * [PowerShell do Azure](how-to-routefilter-powershell.md)
@@ -24,97 +25,81 @@ ms.locfileid: "84727119"
 
 Filtros de rota são uma maneira de consumir um subconjunto de serviços com suporte por meio do emparelhamento da Microsoft. As etapas neste artigo lhe ajudam a configurar e gerenciar filtros de rota para circuitos de ExpressRoute.
 
-Os serviços do Office 365, como o Exchange Online, o SharePoint Online e o Skype for Business, e os serviços do Azure, como o armazenamento e o SQL DB, podem ser acessados por meio do emparelhamento da Microsoft. Quando emparelhamento da Microsoft é configurado em um circuito de ExpressRoute, todos os prefixos relacionados a esses serviços são publicados por meio das sessões de BGP que são estabelecidas. Um valor de comunidade BGP é anexado a cada prefixo, pelo qual se pode identificar o serviço que é oferecido. Para obter uma lista dos valores de comunidade BGP e os serviços para os quais eles são mapeados, consulte [comunidades BGP](expressroute-routing.md#bgp).
+Os serviços do Microsoft 365, tais como o Exchange Online, o SharePoint Online e o Skype for Business, são acessíveis por meio do emparelhamento da Microsoft. Quando emparelhamento da Microsoft é configurado em um circuito do ExpressRoute, todos os prefixos relacionados a esses serviços são publicados por meio das sessões de BGP que são estabelecidas. Um valor de comunidade BGP é anexado a cada prefixo, pelo qual se pode identificar o serviço que é oferecido. Para obter uma lista dos valores de comunidade BGP e os serviços para os quais eles são mapeados, consulte [comunidades BGP](expressroute-routing.md#bgp).
 
-Se você precisa de conectividade para todos os serviços, um grande número de prefixos é anunciado através do BGP. Isso aumenta consideravelmente o tamanho das tabelas de rotas mantidas por roteadores em sua rede. Se você planeja consumir apenas um subconjunto de serviços oferecidos pelo emparelhamento da Microsoft, você pode reduzir o tamanho de suas tabelas de rotas de duas maneiras. Você pode:
+A conectividade com todos os serviços do Azure e Microsoft 365 faz um grande número de prefixos ser anunciado por meio do BGP. Esse grande número de prefixos aumenta consideravelmente o tamanho das tabelas de rotas mantidas por roteadores em sua rede. Se você planeja consumir apenas um subconjunto de serviços oferecidos pelo emparelhamento da Microsoft, você pode reduzir o tamanho de suas tabelas de rotas de duas maneiras. Você pode:
 
-- Filtre prefixos indesejados aplicando filtros de rota nas comunidades do BGP. Essa é uma prática de rede padrão e é usada frequentemente em várias redes.
+* Filtre prefixos indesejados aplicando filtros de rota nas comunidades do BGP. A filtragem de rota é uma prática de rede padrão e é usada frequentemente em muitas redes.
 
-- Defina filtros de rota e aplique-as ao circuito de ExpressRoute. Um filtro de rota é um novo recurso que permite a você selecionar a lista de serviços que você planeja consumir por meio do emparelhamento da Microsoft. Roteadores do ExpressRoute enviam apenas a lista de prefixos que pertencem aos serviços identificados no filtro de rota.
+* Defina filtros de rota e aplique-as ao circuito de ExpressRoute. Um filtro de rota é um novo recurso que permite a você selecionar a lista de serviços que você planeja consumir por meio do emparelhamento da Microsoft. Roteadores do ExpressRoute enviam apenas a lista de prefixos que pertencem aos serviços identificados no filtro de rota.
+
+Neste tutorial, você aprenderá como:
+> [!div class="checklist"]
+> - Obter valores de comunidade BGP.
+> - Criar um filtro de rota e uma regra de filtro.
+> - Associar o filtro de rota a um circuito do ExpressRoute.
 
 ### <a name="about-route-filters"></a><a name="about"></a>Sobre filtros de rota
 
-Quando o emparelhamento da Microsoft é configurado no seu circuito de ExpressRoute, os roteadores de borda da Microsoft estabelecem um par de sessões de BGP com os roteadores de borda (seus ou de seu provedor de conectividade). Nenhuma rota é anunciada para sua rede. Para habilitar os anúncios de rota para sua rede, você deve associar um filtro de rota.
+Quando o emparelhamento da Microsoft é configurado no seu circuito do ExpressRoute, os roteadores do Microsoft Edge estabelecem um par de sessões de BGP com os roteadores do Edge por meio do seu provedor de conectividade. Nenhuma rota é anunciada para sua rede. Para habilitar os anúncios de rota para sua rede, você deve associar um filtro de rota.
 
-Um filtro de rota permite identificar os serviços que você deseja consumir por meio de emparelhamento da Microsoft do seu circuito de ExpressRoute. É essencialmente uma lista de todos os valores de comunidade BGP que você deseja permitir. Depois que um recurso de filtro de rota é definido e anexado a um circuito de ExpressRoute, todos os prefixos que são mapeados para os valores de comunidade do BGP são anunciados para sua rede.
+Um filtro de rota permite identificar os serviços que você deseja consumir por meio de emparelhamento da Microsoft do seu circuito de ExpressRoute. Ele é essencialmente uma lista de permissões de todos os valores de comunidade do BGP. Depois que um recurso de filtro de rota é definido e anexado a um circuito do ExpressRoute, todos os prefixos que são mapeados para os valores de comunidade do BGP são anunciados para sua rede.
 
-Para que seja possível anexar filtros de rota que incluam serviços do Office 365, você deve ter autorização para consumir serviços do Office 365 por meio do ExpressRoute. Se você não está autorizado a consumir serviços do Office 365 por meio do ExpressRoute, a operação de anexação de filtros de rota falhará. Para obter mais informações sobre o processo de autorização, consulte [Azure ExpressRoute para Office 365](https://support.office.com/article/Azure-ExpressRoute-for-Office-365-6d2534a2-c19c-4a99-be5e-33a0cee5d3bd).
+Para anexar filtros de rota aos serviços do Microsoft 365, você precisa ter autorização para consumir serviços do Microsoft 365 por meio do ExpressRoute. Se você não tiver autorização para consumir serviços do Microsoft 365 por meio do ExpressRoute, a operação de anexação de filtros de rota falhará. Para obter mais informações sobre o processo de autorização, confira o [Azure ExpressRoute para Microsoft 365](/microsoft-365/enterprise/azure-expressroute).
 
 > [!IMPORTANT]
 > O emparelhamento da Microsoft de circuitos de ExpressRoute configurados antes de 1º de agosto de 2017 terá todos os prefixos de serviço anunciados através do emparelhamento da Microsoft, mesmo que os filtros de rota não estejam definidos. O emparelhamento da Microsoft de circuitos de ExpressRoute configurados em ou após 1º de agosto de 2017 não terá nenhum prefixo anunciado até que um filtro de rota seja anexado ao circuito.
 > 
-> 
 
-### <a name="workflow"></a><a name="workflow"></a>Fluxo de trabalho
+## <a name="prerequisites"></a>Pré-requisitos
 
-Para poder se conectar aos serviços por meio do emparelhamento da Microsoft, você deve concluir as etapas de configuração a seguir:
+- Examine os [pré-requisitos](expressroute-prerequisites.md) e os [fluxos de trabalho](expressroute-workflows.md) antes de começar a configuração.
 
 - Você deve ter um circuito de ExpressRoute ativado que tenha o Microsoft emparelhamento provisionado. Você pode usar as instruções a seguir para realizar estas tarefas:
-  - [Crie um circuito de ExpressRoute](expressroute-howto-circuit-portal-resource-manager.md) e habilite-o pelo provedor de conectividade antes de prosseguir. O circuito de ExpressRoute deve estar em um estado habilitado e provisionado.
+  - [Crie um circuito do ExpressRoute](expressroute-howto-circuit-portal-resource-manager.md) e habilite-o pelo provedor de conectividade antes de prosseguir. O circuito de ExpressRoute deve estar em um estado habilitado e provisionado.
   - [Crie o emparelhamento da Microsoft](expressroute-howto-routing-portal-resource-manager.md) se você gerenciar a sessão de BGP diretamente. Ou então, faça com que seu provedor de conectividade provisione emparelhamento da Microsoft para o circuito.
 
--  Você deve criar e configurar um filtro de rota.
-    - Identifique os serviços que você deseja consumir por meio de emparelhamento da Microsoft
-    - Identificar a lista de valores de comunidade BGP associados aos serviços
-    - Criar uma regra para permitir a lista de prefixos que correspondem aos valores de comunidade BGP
+## <a name="get-a-list-of-prefixes-and-bgp-community-values"></a><a name="prefixes"></a>Obter uma lista de prefixos e valores de comunidade BGP
 
--  Você deve anexar o filtro de rota ao circuito de ExpressRoute.
-
-## <a name="before-you-begin"></a>Antes de começar
-
-Antes de começar a configuração, verifique se você satisfaz os seguintes critérios:
-
- - Examine os [pré-requisitos](expressroute-prerequisites.md) e os [fluxos de trabalho](expressroute-workflows.md) antes de começar a configuração.
-
- - Você deve ter um circuito do ExpressRoute ativo. Antes de continuar, siga as instruções para [criar um circuito do ExpressRoute](expressroute-howto-circuit-portal-resource-manager.md) e para que o circuito seja habilitado pelo provedor de conectividade. O circuito de ExpressRoute deve estar em um estado habilitado e provisionado.
-
- - Você deve ter um emparelhamento da Microsoft ativo. Siga as instruções em [Criar e modificar a configuração de emparelhamento](expressroute-howto-routing-portal-resource-manager.md)
-
-
-## <a name="step-1-get-a-list-of-prefixes-and-bgp-community-values"></a><a name="prefixes"></a>Etapa 1: obter uma lista de prefixos e valores de comunidade BGP
-
-### <a name="1-get-a-list-of-bgp-community-values"></a>1. obter uma lista de valores de comunidade BGP
+### <a name="get-a-list-of-bgp-community-values"></a>Obter uma lista de valores de comunidade BGP
 
 Os valores de comunidade BGP associados aos serviços acessíveis por meio de emparelhamento da Microsoft está disponível na página [Requisitos de roteamento do ExpressRoute](expressroute-routing.md).
 
-### <a name="2-make-a-list-of-the-values-that-you-want-to-use"></a>2. faça uma lista dos valores que você deseja usar
+### <a name="make-a-list-of-the-values-that-you-want-to-use"></a>Faça uma lista dos valores que você deseja usar
 
 Faça uma lista de [valores de comunidade BGP](expressroute-routing.md#bgp) que você deseja usar no filtro de rota. 
 
-## <a name="step-2-create-a-route-filter-and-a-filter-rule"></a><a name="filter"></a>Etapa 2: criar um filtro de rota e uma regra de filtro
+## <a name="create-a-route-filter-and-a-filter-rule"></a><a name="filter"></a>Criar um filtro de rota e uma regra de filtro
 
 Um filtro de rota pode ter apenas uma regra, que deve ser do tipo 'Permitir'. Essa regra pode ter uma lista de valores de comunidade BGP associados a ela.
 
-### <a name="1-create-a-route-filter"></a>1. criar um filtro de rota
-Você pode criar um circuito de rota selecionando a opção de criar um novo recurso. Clique em **criar um recurso**  >  **rede**  >  **RouteFilter**, conforme mostrado na imagem a seguir:
+1. Selecione **Criar um recurso**. Em seguida, pesquise *Filtro de rota*, conforme mostrado na seguinte imagem:
 
-![Criar um filtro de rota](./media/how-to-routefilter-portal/CreateRouteFilter1.png)
+    :::image type="content" source="./media/how-to-routefilter-portal/create-route-filter.png" alt-text="Captura de tela que mostra a página Filtro de rota":::
 
-Você deve colocar o filtro de rota em um grupo de recursos. 
+1. Coloque o filtro de rota em um grupo de recursos. Verifique se a localização é a mesma que o circuito do ExpressRoute. Selecione **Examinar + criar** e depois **Criar**.
 
-![Criar um filtro de rota](./media/how-to-routefilter-portal/CreateRouteFilter.png)
+    :::image type="content" source="./media/how-to-routefilter-portal/create-route-filter-basic.png" alt-text="Captura de tela que mostra a página Filtro de rota":::
 
-### <a name="2-create-a-filter-rule"></a>2. criar uma regra de filtro
+### <a name="create-a-filter-rule"></a>Criar uma regra de filtro
 
-Você pode adicionar e atualizar regras selecionando a guia de regra de gerenciar para o filtro de rota.
+1. Para adicionar e atualizar regras, selecione a guia gerenciar regra para o filtro de rota.
 
-![Criar um filtro de rota](./media/how-to-routefilter-portal/ManageRouteFilter.png)
+    :::image type="content" source="./media/how-to-routefilter-portal/manage-route-filter.png" alt-text="Captura de tela que mostra a página Filtro de rota":::
 
+1. Selecione os serviços aos quais deseja se conectar na lista suspensa e salve a regra quando terminar.
 
-Você pode selecionar os serviços aos quais deseja se conectar na lista suspensa e salvar a regra quando terminar.
+    :::image type="content" source="./media/how-to-routefilter-portal/add-route-filter-rule.png" alt-text="Captura de tela que mostra a página Filtro de rota":::
 
-![Criar um filtro de rota](./media/how-to-routefilter-portal/AddRouteFilterRule.png)
+## <a name="attach-the-route-filter-to-an-expressroute-circuit"></a><a name="attach"></a>Anexar o filtro de rota a um circuito de ExpressRoute
 
+Anexe o filtro de rota a um circuito selecionando o botão **+ Adicionar Circuito** e selecionando o circuito do ExpressRoute na lista suspensa.
 
-## <a name="step-3-attach-the-route-filter-to-an-expressroute-circuit"></a><a name="attach"></a>Etapa 3: anexar o filtro de rota a um circuito de ExpressRoute
+:::image type="content" source="./media/how-to-routefilter-portal/add-circuit-to-route-filter.png" alt-text="Captura de tela que mostra a página Filtro de rota":::
 
-Você pode anexar o filtro de rota a um circuito selecionando o botão "Adicionar circuito" e selecionando o circuito do ExpressRoute na lista suspensa.
+Se o provedor de conectividade configura o emparelhamento do seu circuito do ExpressRoute, atualize o circuito da página do circuito do ExpressRoute antes de selecionar o botão **+ Adicionar Circuito**.
 
-![Criar um filtro de rota](./media/how-to-routefilter-portal/AddCktToRouteFilter.png)
-
-Se o provedor de conectividade configura o emparelhamento do seu circuito do ExpressRoute atualize o circuito da folha do circuito do ExpressRoute antes de selecionar o botão "Adicionar circuito".
-
-![Criar um filtro de rota](./media/how-to-routefilter-portal/RefreshExpressRouteCircuit.png)
+:::image type="content" source="./media/how-to-routefilter-portal/refresh-express-route-circuit.png" alt-text="Captura de tela que mostra a página Filtro de rota":::
 
 ## <a name="common-tasks"></a><a name="tasks"></a>Tarefas comuns
 
@@ -122,34 +107,34 @@ Se o provedor de conectividade configura o emparelhamento do seu circuito do Exp
 
 Você pode exibir as propriedades de um filtro de rota quando abre o recurso no portal.
 
-![Criar um filtro de rota](./media/how-to-routefilter-portal/ViewRouteFilter.png)
-
+:::image type="content" source="./media/how-to-routefilter-portal/view-route-filter.png" alt-text="Captura de tela que mostra a página Filtro de rota":::
 
 ### <a name="to-update-the-properties-of-a-route-filter"></a><a name="updateproperties"></a>Para atualizar as propriedades de um filtro de rota
 
-Você pode atualizar a lista de valores de comunidade BGP anexada a um circuito ao selecionar o botão "Gerenciar regra".
+1. Você pode atualizar a lista de valores de comunidade BGP anexada a um circuito selecionando o botão **Gerenciar regra**.
 
+    :::image type="content" source="./media/how-to-routefilter-portal/update-route-filter.png" alt-text="Captura de tela que mostra a página Filtro de rota":::
 
-![Criar um filtro de rota](./media/how-to-routefilter-portal/ManageRouteFilter.png)
+1. Selecione as comunidades de serviço que você deseja e, em seguida, selecione **Salvar**.
 
-![Criar um filtro de rota](./media/how-to-routefilter-portal/AddRouteFilterRule.png) 
-
+    :::image type="content" source="./media/how-to-routefilter-portal/add-route-filter-rule.png" alt-text="Captura de tela que mostra a página Filtro de rota":::
 
 ### <a name="to-detach-a-route-filter-from-an-expressroute-circuit"></a><a name="detach"></a>Para desanexar um filtro de rota de um circuito de ExpressRoute
 
-Para desanexar um circuito do filtro de rota, clique com o botão direito do mouse no circuito e clique em "desassociar".
+Para desanexar um circuito do filtro de rota, clique com o botão direito do mouse no circuito e selecione **Desassociar**.
 
-![Criar um filtro de rota](./media/how-to-routefilter-portal/DetachRouteFilter.png) 
+:::image type="content" source="./media/how-to-routefilter-portal/detach-route-filter.png" alt-text="Captura de tela que mostra a página Filtro de rota":::
 
 
-### <a name="to-delete-a-route-filter"></a><a name="delete"></a>Para excluir um filtro de rota
+## <a name="clean-up-resources"></a>Limpar os recursos
 
-Você pode excluir um filtro de rota selecionando o botão de exclusão. 
+Você pode excluir um filtro de rota selecionando o botão **Excluir**. Verifique se o Filtro de rota não está associado a nenhum circuito antes de fazer isso.
 
-![Criar um filtro de rota](./media/how-to-routefilter-portal/DeleteRouteFilter.png) 
+:::image type="content" source="./media/how-to-routefilter-portal/delete-route-filter.png" alt-text="Captura de tela que mostra a página Filtro de rota":::
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para obter mais informações sobre o ExpressRoute, consulte [Perguntas Frequentes sobre ExpressRoute](expressroute-faqs.md).
+Para obter informações sobre exemplos de configuração de roteador, confira:
 
-* Para obter informações sobre exemplos de configuração do roteador, consulte [exemplos de configuração do roteador para configurar e gerenciar o roteamento](expressroute-config-samples-routing.md). 
+> [!div class="nextstepaction"]
+> [Exemplos de configuração do roteador para configurar e gerenciar o roteamento](expressroute-config-samples-routing.md)

@@ -1,25 +1,27 @@
 ---
-title: Sinalizar faixas de áudio descritivas com os serviços de mídia do Azure v3 | Microsoft Docs
+title: Sinalizar faixas de áudio descritivas com os serviços de mídia v3
 description: Siga as etapas deste tutorial para carregar um arquivo, codificar o vídeo, adicionar faixas de áudio descritivas e transmitir seu conteúdo com os serviços de mídia v3.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
-ms.topic: article
+ms.topic: how-to
 ms.custom: devx-track-csharp
-ms.date: 09/25/2019
-ms.author: juliako
-ms.openlocfilehash: cce2dfe943519f39fbe0660338babf782fee4336
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: 3d029f23a094646d20dd6ae8cb6560aeef4aed54
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89006645"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954505"
 ---
 # <a name="signal-descriptive-audio-tracks"></a>Sinalizar faixas de áudio descritivas
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Você pode adicionar uma faixa de narração ao seu vídeo para ajudar clientes com deficiência visual a seguir a gravação do vídeo ouvindo a narração. Nos serviços de mídia v3, você sinaliza faixas de áudio descritivas anotando a faixa de áudio no arquivo de manifesto.
 
@@ -34,7 +36,7 @@ Este artigo mostra como codificar um vídeo, carregar um arquivo MP4 somente de 
 
 ## <a name="create-an-input-asset-and-upload-a-local-file-into-it"></a>Criar um ativo de entrada e carregar um arquivo local para ele 
 
-A função **CreateInputAsset** cria um novo [Ativo](/rest/api/media/assets) de entrada e carrega o arquivo de vídeo local especificado para ele. Esse **ativo** é usado como a entrada para seu trabalho de codificação. Nos serviços de mídia v3, a entrada para um **trabalho** pode ser um **ativo**ou pode ser o conteúdo que você disponibiliza para sua conta de serviços de mídia por meio de URLs HTTPS. 
+A função **CreateInputAsset** cria um novo [Ativo](/rest/api/media/assets) de entrada e carrega o arquivo de vídeo local especificado para ele. Esse **ativo** é usado como a entrada para seu trabalho de codificação. Nos serviços de mídia v3, a entrada para um **trabalho** pode ser um **ativo** ou pode ser o conteúdo que você disponibiliza para sua conta de serviços de mídia por meio de URLs HTTPS. 
 
 Se você quiser saber como codificar a partir de uma URL HTTPS, consulte [Este artigo](job-input-from-http-how-to.md) .  
 

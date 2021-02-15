@@ -3,23 +3,21 @@ title: Padrões-adição de precisão-LUIS
 titleSuffix: Azure Cognitive Services
 description: Adicione modelos de padrão para melhorar a precisão da previsão em aplicativos Reconhecimento vocal (LUIS).
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/17/2020
-ms.author: diberry
-ms.openlocfilehash: 4af8f90abf2a5581ec18ea550cbc5f1a5df50a4e
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: c5e1cc5cdda921e63315c2904d560b7ad3939776
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344893"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018847"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>Como adicionar padrões para melhorar a precisão da previsão
-Depois que um aplicativo LUIS recebe o ponto de extremidade declarações, use um [padrão](luis-concept-patterns.md) para melhorar a precisão da previsão para declarações que revela um padrão em ordem de palavras e escolha de palavra. Padrões usam [sintaxe](luis-concept-patterns.md#pattern-syntax) específica para indicar o local de: [entidades](luis-concept-entity-types.md), [funções](luis-concept-roles.md)de entidade e texto opcional.
+Depois que um aplicativo LUIS recebe o ponto de extremidade declarações, use um [padrão](luis-concept-patterns.md) para melhorar a precisão da previsão para declarações que revela um padrão em ordem de palavras e escolha de palavra. Padrões usam [sintaxe](luis-concept-patterns.md#pattern-syntax) específica para indicar o local de: [entidades](luis-concept-entity-types.md), [funções](./luis-concept-entity-types.md)de entidade e texto opcional.
 
 > [!CAUTION]
 > Os padrões incluem apenas pais de entidade de aprendizado de máquina, não subentidades.
@@ -37,7 +35,7 @@ Depois que um aplicativo LUIS recebe o ponto de extremidade declarações, use u
     > [!div class="mx-imgBorder"]
     > ![Captura de tela de entidade do padrão](./media/luis-how-to-model-intent-pattern/patterns-3.png)
 
-    Se sua entidade incluir uma [função](luis-concept-roles.md), indique a função com um único dois-pontos, `:` , após o nome da entidade, como `{Location:Origin}` . A lista de funções das entidades é exibida em uma lista. Selecione a função e, depois, selecione Enter.
+    Se sua entidade incluir uma [função](./luis-concept-entity-types.md), indique a função com um único dois-pontos, `:` , após o nome da entidade, como `{Location:Origin}` . A lista de funções das entidades é exibida em uma lista. Selecione a função e, depois, selecione Enter.
 
     > [!div class="mx-imgBorder"]
     > ![Captura de tela da entidade com a função](./media/luis-how-to-model-intent-pattern/patterns-4.png)

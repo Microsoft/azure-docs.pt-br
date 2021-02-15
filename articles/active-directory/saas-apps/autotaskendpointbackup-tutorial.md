@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 1/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 502717621fb9b228a818b67a09a699a2ac1713f7
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 349a77d2f2cd5e1c492de63919d84efb436a51a3
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550207"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673674"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-autotask-endpoint-backup"></a>Tutorial: Integração do Active Directory do Azure ao Autotask Endpoint Backup
 
@@ -27,7 +27,7 @@ A integração do Autotask Endpoint Backup com o Azure AD oferece os seguintes b
 * Você pode permitir que seus usuários sejam automaticamente conectados ao Autotask Endpoint Backup (Logon Único) com suas contas do Azure AD.
 * Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](../manage-apps/what-is-single-sign-on.md).
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Prerequisites
@@ -63,7 +63,7 @@ Para configurar a integração do Autotask Endpoint Backup ao Azure AD, você pr
 
 4. Na caixa de pesquisa, digite **Autotask Endpoint Backup**, selecione **Autotask Endpoint Backup** no painel de resultados e clique no botão **Add** para adicionar o aplicativo.
 
-     ![Autotask Endpoint Backup na lista de resultados](common/search-new-app.png)
+    ![Autotask Endpoint Backup na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
@@ -106,7 +106,7 @@ Para configurar o logon único do Azure AD com o Autotask Endpoint Backup, execu
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<subdomain>.backup.autotask.net/singlesignon/saml/SSO`
 
     > [!NOTE]
-    > Esses valores não são reais. Atualize esses valores com o Identificador e a URL de Resposta reais. Entre em contato com a [equipe de suporte do Cliente do Autotask Endpoint Backup](https://backup.autotask.net/help/Content/0_HOME/_AutotaskCustomerSupport.htm) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
+    > Esses valores não são reais. Atualize esses valores com o Identificador e a URL de Resposta reais. Entre em contato com a [equipe de suporte do Cliente do Autotask Endpoint Backup](https://backup.autotask.net/help/Content/0_HOME/Support_for_End_Clients.htm) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
 5. Na página **Configurar Logon Único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Baixar** para baixar o **XML de Metadados de Federação** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
@@ -124,7 +124,7 @@ Para configurar o logon único do Azure AD com o Autotask Endpoint Backup, execu
 
 ### <a name="configure-autotask-endpoint-backup-single-sign-on"></a>Configurar Logon Único do Autotask Endpoint Backup
 
-Para configurar o logon único no **Autotask Endpoint Backup**, é necessário enviar o **XML de Metadados de Federação** baixado e as URLs copiadas apropriadas do portal do Azure para a [equipe de suporte do Autotask Endpoint Backup](https://backup.autotask.net/help/Content/0_HOME/_AutotaskCustomerSupport.htm). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+Para configurar o logon único no **Autotask Endpoint Backup**, é necessário enviar o **XML de Metadados de Federação** baixado e as URLs copiadas apropriadas do portal do Azure para a [equipe de suporte do Autotask Endpoint Backup](https://backup.autotask.net/help/Content/0_HOME/Support_for_End_Clients.htm). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD 
 
@@ -179,18 +179,18 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure, c
 
 ### <a name="create-autotask-endpoint-backup-test-user"></a>Criar usuário de teste do Autotask Endpoint Backup
 
-Nesta seção, você cria um usuário chamado Brenda Fernandes no Autotask Endpoint Backup. Trabalhe com a equipe de suporte do [Autotask Endpoint Backup](https://backup.autotask.net/help/Content/0_HOME/_AutotaskCustomerSupport.htm) para adicionar usuários à plataforma Autotask Endpoint Backup. Os usuários devem ser criados e ativados antes de usar o logon único.
+Nesta seção, você cria um usuário chamado Brenda Fernandes no Autotask Endpoint Backup. Trabalhe com a equipe de suporte do [ Autotask Endpoint Backup ](https://backup.autotask.net/help/Content/0_HOME/Support_for_End_Clients.htm) para adicionar os usuários na plataforma Autotask Endpoint Backup. Os usuários devem ser criados e ativados antes de usar o logon único.
 
 ### <a name="test-single-sign-on"></a>Testar logon único
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Quando você clica no bloco Autotask Endpoint Backup no Painel de Acesso, deverá ser conectado automaticamente ao Autotask Endpoint Backup para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando você clica no bloco Autotask Endpoint Backup no Painel de Acesso, deverá ser conectado automaticamente ao Autotask Endpoint Backup para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](./tutorial-list.md)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)

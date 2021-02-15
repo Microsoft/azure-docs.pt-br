@@ -4,17 +4,17 @@ summary: Saiba como usar a Configuração de Aplicativos do Azure, um serviço g
 metadata:
   title: Documentação da Configuração de Aplicativos do Azure
   description: Saiba como usar a Configuração de Aplicativos do Azure, um serviço gerenciado que ajuda os desenvolvedores a centralizar seus aplicativos e suas configurações de recursos de maneira simples e segura.
-  author: lisaguthrie
-  ms.author: lcozzens
+  author: AlexandraKemperMS
+  ms.author: alkemper
   ms.service: azure-app-configuration
   ms.topic: landing-page
   ms.date: 02/03/2020
-  ms.openlocfilehash: 4896271a1ac03fba688bd7159cdd8452f0cc59dc
-  ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+  ms.openlocfilehash: 64a9bc3cf00af66c65b06b9edbed4621668b05bc
+  ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 08/27/2020
-  ms.locfileid: "89021010"
+  ms.lasthandoff: 02/14/2021
+  ms.locfileid: "100365014"
 landingContent:
 - title: Sobre a Configuração de Aplicativos do Azure
   linkLists:
@@ -23,7 +23,7 @@ landingContent:
     - text: O que é Configuração de Aplicativo do Azure?
       url: overview.md
     - text: Perguntas frequentes
-      url: faq.md
+      url: faq.yml
   - linkListType: video
     links:
     - text: Introdução à Configuração de Aplicativos do Azure
@@ -34,7 +34,7 @@ landingContent:
       url: https://channel9.msdn.com/Events/dotnetConf/NET-Conf-2019/B210
     - text: Configuração de Aplicativos do Azure na apresentação nativa de nuvem
       url: https://www.youtube.com/watch?v=DJqmA5PcfzE
-    - text: Filtragem de recursos no Azure Friday
+    - text: Implementar novos recursos
       url: https://channel9.msdn.com/Shows/Azure-Friday/How-Azure-App-Configuration-helps-developers-roll-out-new-features?ocid=AID747781&wt.mc_id=azfr-c9-scottha&wt.mc_id=CFID0553
   - linkListType: whats-new
     links:
@@ -62,6 +62,8 @@ landingContent:
       url: quickstart-azure-functions-csharp.md
     - text: Codificar um aplicativo do Spring Boot
       url: quickstart-java-spring-app.md
+    - text: Codificar um aplicativo Python
+      url: quickstart-python.md
     - text: Modelo do Azure Resource Manager
       url: quickstart-resource-manager.md
   - linkListType: tutorial
@@ -74,6 +76,8 @@ landingContent:
       url: enable-dynamic-configuration-dotnet.md
     - text: Usar configuração dinâmica no Azure Functions
       url: enable-dynamic-configuration-azure-functions-csharp.md
+    - text: Usar configuração dinâmica no Spring Boot
+      url: enable-dynamic-configuration-java-spring-app.md
   - linkListType: tutorial
     links:
     - text: Integrar com um pipeline de CI/CD
@@ -113,9 +117,9 @@ landingContent:
   - linkListType: reference
     links:
     - text: Biblioteca do .NET Core
-      url: https://go.microsoft.com/fwlink/?linkid=2091700
+      url: /dotnet/api/microsoft.featuremanagement
     - text: Biblioteca de filtros do .NET core
-      url: https://go.microsoft.com/fwlink/?linkid=2091601
+      url: /dotnet/api/microsoft.featuremanagement.featurefilters
 - title: SDKs e exemplos de configuração
   linkLists:
   - linkListType: sample
@@ -125,13 +129,13 @@ landingContent:
   - linkListType: reference
     links:
     - text: CLI do Azure
-      url: https://docs.microsoft.com/cli/azure/appconfig?view=azure-cli-latest
+      url: /cli/azure/appconfig?view=azure-cli-latest
+    - text: PowerShell
+      url: /powershell/module/az.appconfiguration/
+    - text: Terraform
+      url: https://www.terraform.io/docs/providers/azurerm/r/app_configuration.html
     - text: Provedor do .NET Core
-      url: https://go.microsoft.com/fwlink/?linkid=2074664
-    - text: Construtor do .NET Framework
-      url: https://go.microsoft.com/fwlink/?linkid=2074663
-    - text: SDK do Azure para .NET
-      url: https://go.microsoft.com/fwlink/?linkid=2092056
+      url: /dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration
     - text: Provedor do Spring Boot
       url: https://github.com/microsoft/spring-cloud-azure/tree/master/
     - text: SDK do Azure para Java
@@ -141,4 +145,4 @@ landingContent:
     - text: SDK do Azure para JavaScript
       url: https://go.microsoft.com/fwlink/?linkid=2103664
     - text: REST
-      url: https://go.microsoft.com/fwlink/?linkid=2078296
+      url: rest-api.md

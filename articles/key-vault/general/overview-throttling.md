@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: f32a988ec0d75ca8d8eca04e69edd7226bf283b4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5b60f290f6d3ca184e25edd2984ad5b2d1ff2bdf
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81432080"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289678"
 ---
 # <a name="azure-key-vault-throttling-guidance"></a>Diretrizes de limitação do Azure Key Vault
 
@@ -30,7 +30,7 @@ O Key Vault foi originalmente projetado para ser usado para armazenar e recupera
 
 O Key Vault foi criado originalmente com os limites especificados nos [limites de serviço Azure Key Vault](service-limits.md).  Para maximizar sua Key Vault por meio de tarifas de put, aqui estão algumas diretrizes recomendadas/práticas recomendadas para maximizar sua taxa de transferência:
 1. Verifique se você tem limitação em vigor.  O cliente deve honrar as políticas de retirada exponencial Para 429 e garantir que você esteja fazendo novas tentativas de acordo com as diretrizes abaixo.
-1. Divida seu tráfego de Key Vault entre vários cofres e regiões diferentes.   Use um cofre separado para cada domínio de segurança/disponibilidade.   Se você tiver cinco aplicativos, cada um em duas regiões, recomendamos 10 cofres que contenham os segredos exclusivos do aplicativo e da região.  Um limite de toda a assinatura para todos os tipos de transação é cinco vezes o limite individual do cofre de chaves. Por exemplo, HSM-outras transações por assinatura são limitadas a 5.000 transações em 10 segundos por assinatura. Considere armazenar em cache o segredo em seu serviço ou aplicativo para também reduzir o RPS diretamente para o cofre de chaves e/ou lidar com o tráfego baseado em intermitência.  Você também pode dividir o tráfego entre regiões diferentes para minimizar a latência e usar uma assinatura/cofre diferente.  Não envie mais do que o limite de assinatura para o serviço de Key Vault em uma única região do Azure.
+1. Divida seu tráfego de Key Vault entre vários cofres e regiões diferentes.   Use um cofre separado para cada domínio de segurança/disponibilidade.   Se você tiver cinco aplicativos, cada um em duas regiões, recomendamos 10 cofres que contenham os segredos exclusivos do aplicativo e da região.  Um limite de toda a assinatura para todos os tipos de transação é cinco vezes o limite individual do cofre de chaves. Por exemplo, outras transações HSM por assinatura são limitadas a 5.000 transações a cada 10 segundos por assinatura. Considere armazenar em cache o segredo em seu serviço ou aplicativo para também reduzir o RPS diretamente para o cofre de chaves e/ou lidar com o tráfego baseado em intermitência.  Você também pode dividir o tráfego entre regiões diferentes para minimizar a latência e usar uma assinatura/cofre diferente.  Não envie mais do que o limite de assinatura para o serviço de Key Vault em uma única região do Azure.
 1. Armazene em cache os segredos que você recupera de Azure Key Vault na memória e reutilize a memória sempre que possível.  Leia novamente de Azure Key Vault somente quando a cópia armazenada em cache parar de funcionar (por exemplo, porque ela foi girada na origem). 
 1. Key Vault é projetado para seus próprios segredos de serviços.   Se você estiver armazenando os segredos de seus clientes (especialmente para cenários de armazenamento de chaves de alta taxa de transferência), considere colocar as chaves em um banco de dados ou conta de armazenamento com criptografia e armazenar apenas a chave mestra em Azure Key Vault.
 1. As operações criptografar, encapsular e verificar a chave pública podem ser executadas sem acesso ao Key Vault, o que não apenas reduz o risco de limitação, mas também melhora a confiabilidade (desde que você armazene o material da chave pública em cache corretamente).
@@ -43,12 +43,12 @@ Se você descobrir que o acima ainda não atende às suas necessidades, preencha
 |--|--|--|--|--|--|--|--|--|
 | https://mykeyvault.vault.azure.net/ | | Chave | Assinar | EC | P-256 | Não | 200 | 1000 |
 
-\*Para obter uma lista completa de valores possíveis, consulte [Azure Key Vault operações](/rest/api/keyvault/key-operations).
+\* Para obter uma lista completa de valores possíveis, consulte [Azure Key Vault operações](/rest/api/keyvault/key-operations).
 
 Se a capacidade adicional for aprovada, observe o seguinte como resultado da capacidade aumentar:
 1. Alterações no modelo de consistência de dados. Depois que um cofre é permitido listado com capacidade de taxa de transferência adicional, a Key Vault garantia de consistência de dados de serviço é alterada (necessário para atender a um maior volume RPS, já que o serviço de armazenamento do Azure subjacente não pode acompanhar).  Resumindo:
-  1. **Sem a listagem de permissão**: o serviço de Key Vault refletirá os resultados de uma operação de gravação (por exemplo, Secretset, CreateKey) imediatamente nas chamadas subsequentes (por exemplo, SecretGet, keysign).
-  1. **Com a listagem de permissão**: o serviço de Key Vault refletirá os resultados de uma operação de gravação (por exemplo, Secretset, CreateKey) dentro de 60 segundos em chamadas subsequentes (por exemplo, SecretGet, keysign).
+  1. **Sem a listagem de permissão** : o serviço de Key Vault refletirá os resultados de uma operação de gravação (por exemplo, Secretset, CreateKey) imediatamente nas chamadas subsequentes (por exemplo, SecretGet, keysign).
+  1. **Com a listagem de permissão** : o serviço de Key Vault refletirá os resultados de uma operação de gravação (por exemplo, Secretset, CreateKey) dentro de 60 segundos em chamadas subsequentes (por exemplo, SecretGet, keysign).
 1. O código do cliente deve honrar a política de retirada Para 429 tentativas. O código do cliente que chama o serviço de Key Vault não deve repetir Key Vault solicitações imediatamente quando recebe um código de resposta 429.  As diretrizes de limitação de Azure Key Vault publicadas aqui recomendam a aplicação de retirada exponencial ao receber um código de resposta http 429.
 
 Se você tiver um caso comercial válido para restrições mais altas, entre em contato conosco.
@@ -75,7 +75,7 @@ SecretClientOptions options = new SecretClientOptions()
             Mode = RetryMode.Exponential
          }
     };
-    var client = new SecretClient(new Uri(https://keyVaultName.vault.azure.net"), new DefaultAzureCredential(),options);
+    var client = new SecretClient(new Uri("https://keyVaultName.vault.azure.net"), new DefaultAzureCredential(),options);
                                  
     //Retrieve Secret
     secret = client.GetSecret(secretName);
@@ -96,7 +96,6 @@ No código de erro HTTP 429, inicie a limitação do cliente usando uma abordage
 
 Neste ponto, você não deve estar obtendo códigos de resposta HTTP 429.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
-Para obter uma orientação mais profunda de limitação no Microsoft Cloud, consulte [Padrão de Limitação](https://docs.microsoft.com/azure/architecture/patterns/throttling).
-
+Para obter uma orientação mais profunda de limitação no Microsoft Cloud, consulte [Padrão de Limitação](/azure/architecture/patterns/throttling).

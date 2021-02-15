@@ -6,14 +6,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 11/30/2020
 ms.author: banders
-ms.openlocfilehash: b18e08f93df143f9844fe774eee59452978d7437
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: a9e3297ad055157d552424ecc48db6801f43b220
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686387"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96929948"
 ---
 # <a name="billing-accounts-and-scopes-in-the-azure-portal"></a>Escopos do orçamento e contas de cobrança no portal do Azure
 
@@ -25,14 +25,20 @@ O portal do Azure dá suporte aos seguintes tipos de contas de cobrança:
 
 - **Contrato Enterprise**: Uma conta de cobrança para um Contrato Enterprise é criada quando sua organização assina um [EA (Contrato Enterprise)](https://azure.microsoft.com/pricing/enterprise-agreement/) para usar o Azure. Você pode ter um máximo de 2.000 assinaturas em um Contrato Enterprise.
 
-- **Contrato de Cliente da Microsoft**: Uma conta de cobrança para um Contrato de Cliente da Microsoft é criada quando sua organização decide assinar um Contrato de Cliente da Microsoft por meio de um representante da Microsoft. Alguns clientes em regiões selecionadas, que se inscrevem por meio do site do Azure em uma [conta com taxas pagas conforme o uso](https://azure.microsoft.com/offers/ms-azr-0003p/) ou uma [conta gratuita do Azure](https://azure.microsoft.com/offers/ms-azr-0044p/) também podem ter uma conta de cobrança para um Contrato de Cliente da Microsoft. Você pode ter um máximo de 20 assinaturas em um Contrato de Cliente da Microsoft. Para obter mais informações, confira [Introdução à conta de cobrança para o Contrato de Cliente da Microsoft](../understand/mca-overview.md).
+- **Contrato de Cliente da Microsoft**: Uma conta de cobrança para um Contrato de Cliente da Microsoft é criada quando sua organização decide assinar um Contrato de Cliente da Microsoft por meio de um representante da Microsoft. Alguns clientes em regiões selecionadas, que se inscrevem por meio do site do Azure em uma [conta com taxas pagas conforme o uso](https://azure.microsoft.com/offers/ms-azr-0003p/) ou uma [conta gratuita do Azure](https://azure.microsoft.com/offers/ms-azr-0044p/) também podem ter uma conta de cobrança para um Contrato de Cliente da Microsoft. Você pode ter, no máximo, 20 assinaturas em um Contrato de Cliente da Microsoft. Um Contrato de Cliente da Microsoft para uma empresa não tem um limite no número de assinaturas. Para obter mais informações, confira [Introdução à conta de cobrança para o Contrato de Cliente da Microsoft](../understand/mca-overview.md).
 
-- **Contrato de Parceiro da Microsoft**: Uma conta de cobrança para um Contrato de Parceiro da Microsoft é criada para parceiros CSP (Provedor de Soluções na Nuvem) para gerenciar os clientes deles na nova experiência de comércio. Os parceiros precisam ter pelo menos um cliente com um [plano do Azure](https://docs.microsoft.com/partner-center/purchase-azure-plan) para gerenciar as respectivas contas de cobrança no portal do Azure. Para obter mais informações, confira [Introdução à conta de cobrança para o Contrato de Parceiro da Microsoft](../understand/mpa-overview.md).
+- **Contrato de Parceiro da Microsoft**: Uma conta de cobrança para um Contrato de Parceiro da Microsoft é criada para parceiros CSP (Provedor de Soluções na Nuvem) para gerenciar os clientes deles na nova experiência de comércio. Os parceiros precisam ter pelo menos um cliente com um [plano do Azure](/partner-center/purchase-azure-plan) para gerenciar as respectivas contas de cobrança no portal do Azure. Para obter mais informações, confira [Introdução à conta de cobrança para o Contrato de Parceiro da Microsoft](../understand/mpa-overview.md).
 
 Para determinar o tipo de sua conta de cobrança, confira [Verificar o tipo de sua conta de cobrança](#check-the-type-of-your-account).
 
 ## <a name="scopes-for-billing-accounts"></a>Escopos para contas de cobrança
 Um escopo é um nó em uma conta de cobrança que você usa para exibir e gerenciar a cobrança. É nele que você gerencia dados de cobrança, pagamentos, faturas e realiza o gerenciamento geral da conta.
+
+Caso você não tenha acesso para ver nem gerenciar contas de cobrança, provavelmente, não tem permissão para acessá-las. Solicite ao administrador da conta de cobrança a permissão de acesso. Para obter mais informações, consulte os seguintes artigos:
+
+- [Acesso ao Programa do Microsoft Online Services](manage-billing-access.md)
+- [Acesso ao Contrato de Cliente da Microsoft](understand-mca-roles.md)
+- [Acesso ao Contrato Enterprise](understand-ea-roles.md)
 
 ### <a name="microsoft-online-services-program"></a>Programa Microsoft Online Services
 
@@ -80,11 +86,11 @@ Um escopo é um nó em uma conta de cobrança que você usa para exibir e gerenc
 
 2. Pesquise **Gerenciamento de Custos + Cobrança**.
 
-   ![Captura de tela que mostra a pesquisa do portal do Azure](./media/view-all-accounts/billing-search-cost-management-billing.png)
+   ![Captura de tela que mostra a pesquisa no portal do Azure de Gerenciamento de Custos e Cobrança.](./media/view-all-accounts/billing-search-cost-management-billing.png)
 
 3. Na página de visão geral, selecione **Alternar escopo**.
 
-   ![Captura de tela que mostra os escopos do orçamento](./media/view-all-accounts/overview-select-scopes.png)
+   ![Captura de tela que mostra os escopos do orçamento.](./media/view-all-accounts/overview-select-scopes.png)
 
    > [!Note]
     >
@@ -92,7 +98,7 @@ Um escopo é um nó em uma conta de cobrança que você usa para exibir e gerenc
 
 4. Selecione um escopo para exibir detalhes.
 
-   ![Captura de tela que mostra os escopos do orçamento](./media/view-all-accounts/list-of-scopes.png)
+   ![Captura de tela que mostra escopos do orçamento, que você pode selecionar para obter detalhes.](./media/view-all-accounts/list-of-scopes.png)
 
 ## <a name="check-the-type-of-your-account"></a>Verifique o tipo de sua conta
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-account-type.md)]

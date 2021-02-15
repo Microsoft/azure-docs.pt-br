@@ -1,24 +1,23 @@
 ---
 title: Saída do banco de dados SQL do Azure de Azure Stream Analytics
 description: Este artigo descreve o banco de dados SQL do Azure como saída para Azure Stream Analytics.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: d61cad0be25f5aa1a4c63bf3dc128196ad80fdad
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 631fdba451f69e44a675d396a42e1cddaea50a3b
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88875560"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98013950"
 ---
 # <a name="azure-sql-database-output-from-azure-stream-analytics"></a>Saída do banco de dados SQL do Azure de Azure Stream Analytics
 
-Você pode usar o [Banco de Dados SQL do Azure](https://azure.microsoft.com/services/sql-database/) como uma saída para os dados que sejam relacionais por natureza ou para aplicativos que dependam da hospedagem do conteúdo em um banco de dados relacional. Azure Stream Analytics trabalhos gravam em uma tabela existente no banco de dados SQL. O esquema da tabela deve corresponder exatamente aos campos e seus tipos na saída de trabalho. Você também pode especificar um [Azure SQL Data Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) como uma saída por meio da opção de saída do Banco de Dados SQL. Para saber mais sobre as maneiras de melhorar a taxa de transferência de gravação, consulte o artigo [Stream Analytics com o Banco de Dados SQL do Azure como saída](stream-analytics-sql-output-perf.md).
+Você pode usar o [Banco de Dados SQL do Azure](https://azure.microsoft.com/services/sql-database/) como uma saída para os dados que sejam relacionais por natureza ou para aplicativos que dependam da hospedagem do conteúdo em um banco de dados relacional. Azure Stream Analytics trabalhos gravam em uma tabela existente no banco de dados SQL. O esquema da tabela deve corresponder exatamente aos campos e seus tipos na saída de trabalho. Você também pode especificar a [análise de Synapse do Azure](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) como uma saída por meio da opção saída do banco de dados SQL. Para saber mais sobre as maneiras de melhorar a taxa de transferência de gravação, consulte o artigo [Stream Analytics com o Banco de Dados SQL do Azure como saída](stream-analytics-sql-output-perf.md).
 
-Você também pode usar o [Azure SQL instância gerenciada](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) como uma saída. Você precisa [configurar um ponto de extremidade público no SQL instância gerenciada](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure) e, em seguida, definir manualmente as configurações a seguir em Azure Stream Analytics. A máquina virtual do Azure que executando o SQL Server com um banco de dados anexado também tem suporte da definição manual das configurações abaixo.
+Você também pode usar o [Azure SQL instância gerenciada](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md) como uma saída. Você precisa [configurar um ponto de extremidade público no SQL instância gerenciada](../azure-sql/managed-instance/public-endpoint-configure.md) e, em seguida, definir manualmente as configurações a seguir em Azure Stream Analytics. A máquina virtual do Azure que executando o SQL Server com um banco de dados anexado também tem suporte da definição manual das configurações abaixo.
 
 ## <a name="output-configuration"></a>Configuração de saída
 
@@ -35,7 +34,7 @@ A tabela a seguir lista os nomes de propriedade e suas descrições para a cria�
 |Herdar esquema de partição| Uma opção para herdar o esquema de partição da etapa da sua consulta anterior para possibilitar uma topologia totalmente paralela com vários gravadores na tabela. Para obter mais informações, confira [Saída do Azure Stream Analytics para Banco de Dados SQL do Azure](stream-analytics-sql-output-perf.md).|
 |Contagem máxima do lote| O limite máximo recomendado do número de registros enviados com cada transação de inserção em massa.|
 
-Há dois adaptadores que permitem a saída do Azure Stream Analytics para o Azure Synapse Analytics (anteriormente SQL Data Warehouse): Banco de Dados SQL e Azure Synapse. Recomendamos que você escolha o adaptador do Azure Synapse Analytics em vez do adaptador do banco de dados SQL se qualquer uma das condições a seguir for verdadeira:
+Há dois adaptadores que permitem a saída de Azure Stream Analytics para o Azure Synapse Analytics: banco de dados SQL e Azure Synapse. Recomendamos que você escolha o adaptador do Azure Synapse Analytics em vez do adaptador do banco de dados SQL se qualquer uma das condições a seguir for verdadeira:
 
 * **Taxa de transferência**: se a taxa de transferência esperada agora ou no futuro for maior que 10 MB/s, use a opção de saída do Azure Synapse para melhorar o desempenho.
 
@@ -47,13 +46,9 @@ O particionamento precisa ser habilitado e baseado na cláusula PARTITION BY na 
 
 ## <a name="output-batch-size"></a>Tamanho do lote de saída
 
-Você pode configurar o tamanho máximo da mensagem usando a **contagem máxima de lotes**. O máximo padrão é 10.000 e o mínimo padrão é 100 linhas por inserção em massa única. Para obter mais informações, consulte [limites do SQL do Azure](../sql-database/sql-database-resource-limits.md). Inicialmente, cada lote é inserido em massa com a contagem máxima de lotes. O lote é dividido na metade (até a contagem de lote mínima) com base em erros de nova tentativa do SQL.
+Você pode configurar o tamanho máximo da mensagem usando a **contagem máxima de lotes**. O máximo padrão é 10.000 e o mínimo padrão é 100 linhas por inserção em massa única. Para obter mais informações, consulte [limites do SQL do Azure](../azure-sql/database/resource-limits-logical-server.md). Inicialmente, cada lote é inserido em massa com a contagem máxima de lotes. O lote é dividido na metade (até a contagem de lote mínima) com base em erros de nova tentativa do SQL.
 
 ## <a name="next-steps"></a>Próximas etapas
 
+* [Usar identidades gerenciadas para acessar o banco de dados SQL do Azure ou o Azure Synapse Analytics de um trabalho Azure Stream Analytics (versão prévia)](sql-database-output-managed-identity.md)
 * [Início Rápido: Criar um trabalho do Stream Analytics usando o portal do Azure](stream-analytics-quick-create-portal.md)
-* [Início Rápido: Criar um trabalho do Azure Stream Analytics usando a CLI do Azure](quick-create-azure-cli.md)
-* [Início Rápido: Criar um trabalho do Azure Stream Analytics usando um modelo do Resource Manager](quick-create-azure-resource-manager.md)
-* [Início rápido: criar um trabalho de Stream Analytics usando Azure PowerShell](stream-analytics-quick-create-powershell.md)
-* [Início Rápido: Criar um trabalho do Azure Stream Analytics usando o Visual Studio](stream-analytics-quick-create-vs.md)
-* [Início rápido: criar um trabalho de Azure Stream Analytics no Visual Studio Code](quick-create-vs-code.md)

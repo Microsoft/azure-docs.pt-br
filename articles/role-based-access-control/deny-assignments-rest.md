@@ -16,10 +16,10 @@ ms.date: 03/19/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 2f835c270930734bf9963a7c7c3168b873eddaf6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84791904"
 ---
 # <a name="list-azure-deny-assignments-using-the-rest-api"></a>Listar atribuições de negação do Azure usando a API REST
@@ -33,7 +33,7 @@ As [atribuições de negação do Azure](deny-assignments.md) bloqueiam os usuá
 
 Para obter informações sobre uma atribuição de negação, você deve ter:
 
-- `Microsoft.Authorization/denyAssignments/read`permissão, que está incluída na maioria das [funções internas do Azure](built-in-roles.md).
+- `Microsoft.Authorization/denyAssignments/read` permissão, que está incluída na maioria das [funções internas do Azure](built-in-roles.md).
 
 ## <a name="list-a-single-deny-assignment"></a>Lista uma única atribuição de negação
 
@@ -46,7 +46,7 @@ Para obter informações sobre uma atribuição de negação, você deve ter:
 1. Dentro do URI, substitua *{scope}* pelo escopo para o qual você deseja listar as atribuições de negação.
 
     > [!div class="mx-tableFixed"]
-    > | Escopo | Tipo |
+    > | Escopo | Type |
     > | --- | --- |
     > | `subscriptions/{subscriptionId}` | Subscription |
     > | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
@@ -71,7 +71,7 @@ Para obter informações sobre uma atribuição de negação, você deve ter:
 1. Dentro do URI, substitua *{scope}* pelo escopo para o qual você deseja listar as atribuições de negação.
 
     > [!div class="mx-tableFixed"]
-    > | Escopo | Tipo |
+    > | Escopo | Type |
     > | --- | --- |
     > | `subscriptions/{subscriptionId}` | Subscription |
     > | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
@@ -113,4 +113,4 @@ Para obter informações sobre uma atribuição de negação, você deve ter:
 
 - [Entender as atribuições de negação do Azure](deny-assignments.md)
 - [Elevar o acesso para gerenciar todas as assinaturas e grupos de gerenciamento do Azure](elevate-access-global-admin.md)
-- [Referência da API REST do Azure](/rest/api/azure/)
+- [Referência de API REST do Azure](/rest/api/azure/)

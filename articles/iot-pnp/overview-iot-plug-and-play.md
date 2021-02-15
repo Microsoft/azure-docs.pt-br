@@ -1,24 +1,24 @@
 ---
-title: Introdução ao IoT Plug and Play Preview   Microsoft Docs
-description: Saiba mais sobre o IoT Plug and Play Preview. O IoT Plug and Play baseia-se em uma linguagem de programação de modelagem aberta que permite aos dispositivos IoT inteligentes declarar as respectivas funcionalidades. Os dispositivos IoT apresentam essa declaração, chamada de modelo de dispositivo, quando se conectam a soluções de nuvem. A solução de nuvem pode, então, entender automaticamente o dispositivo e começar a interagir com ele, tudo sem que nenhum código seja escrito.
+title: Introdução ao IoT Plug and Play | Microsoft Docs
+description: Saiba mais sobre o IoT Plug and Play. O IoT Plug and Play baseia-se em uma linguagem de programação de modelagem aberta que permite aos dispositivos IoT inteligentes declarar as respectivas funcionalidades. Os dispositivos IoT apresentam essa declaração, chamada de modelo de dispositivo, quando se conectam a soluções de nuvem. A solução de nuvem pode, então, entender automaticamente o dispositivo e começar a interagir com ele, tudo sem que nenhum código seja escrito.
 author: rido-min
 ms.author: rmpablos
 ms.date: 07/06/2020
-ms.topic: overview
+ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 manager: eliotgra
 ms.custom: references_regions
-ms.openlocfilehash: 7f889d6730012a11ebf82a78583ef420b7621075
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: dcdd19faec5e428ac26917178aa8114245c205b3
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337646"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594562"
 ---
-# <a name="what-is-iot-plug-and-play-preview"></a>O que é a versão prévia do IoT Plug and Play?
+# <a name="what-is-iot-plug-and-play"></a>O que é IoT Plug and Play?
 
-A versão prévia do IoT Plug and Play permite que os criadores de solução integrem as respectivas soluções a dispositivos inteligentes sem nenhuma configuração manual. No núcleo do IoT Plug and Play há um _modelo_ de dispositivo que um dispositivo usa para anunciar suas funcionalidades a um aplicativo habilitado para IoT Plug and Play. Esse modelo é estruturado como um conjunto de elementos que definem:
+O IoT Plug and Play permite integrar dispositivos inteligentes a soluções sem nenhuma configuração manual. No núcleo do IoT Plug and Play há um _modelo_ de dispositivo que um dispositivo usa para anunciar suas funcionalidades a um aplicativo habilitado para IoT Plug and Play. Esse modelo é estruturado como um conjunto de elementos que definem:
 
 - _Propriedades_ que representam o estado somente leitura ou gravável de um dispositivo ou outra entidade. Por exemplo, um número de série do dispositivo pode ser uma propriedade somente leitura e uma temperatura de destino em um termostato pode ser uma propriedade gravável.
 - _Telemetria_, que são os dados emitidos por um dispositivo, sejam esses dados um fluxo regular de leituras de sensor, um erro ocasional ou uma mensagem informativa.
@@ -26,7 +26,7 @@ A versão prévia do IoT Plug and Play permite que os criadores de solução int
 
 É possível agrupar esses elementos em interfaces para reutilização entre modelos para facilitar a colaboração e acelerar o desenvolvimento.
 
-Para fazer o IoT Plug and Play funcionar com os [Gêmeos Digitais do Azure](../digital-twins/about-digital-twins.md), defina modelos e interfaces usando a [DTDL (Linguagem de Definição de Gêmeo Digital)](https://github.com/Azure/opendigitaltwins-dtdl). O IoT Plug and Play e as DTDL estão abertos para a Comunidade, e a Microsoft agradece a colaboração com clientes, parceiros e o setor. Ambos se baseiam em padrões W3C abertos, tais como JSON-LD e RDF, o que permite uma adoção mais fácil entre serviços e ferramentas.
+Para fazer o IoT Plug and Play funcionar com os [Gêmeos Digitais do Azure](../digital-twins/overview.md), defina modelos e interfaces usando a [DTDL (Linguagem de Definição de Gêmeo Digital)](https://github.com/Azure/opendigitaltwins-dtdl). O IoT Plug and Play e as DTDL estão abertos para a Comunidade, e a Microsoft agradece a colaboração com clientes, parceiros e o setor. Ambos se baseiam em padrões W3C abertos, tais como JSON-LD e RDF, o que permite uma adoção mais fácil entre serviços e ferramentas.
 
 Não há nenhum custo adicional para usar o IoT Plug and Play e o DTDL. As taxas Standard para o [Hub IoT do Azure](../iot-hub/about-iot-hub.md) e outros serviços do Azure permanecem as mesmas.
 
@@ -45,9 +45,13 @@ O IoT Plug and Play é útil para dois tipos de desenvolvedores:
 
 ## <a name="use-iot-plug-and-play-devices"></a>Usar dispositivos IoT Plug and Play
 
-Como desenvolvedor de soluções, você pode desenvolver uma solução de IoT hospedada na nuvem que usa dispositivos IoT Plug and Play. Use o [Hub IoT](../iot-hub/about-iot-hub.md), um serviço de nuvem gerenciado que atua como um hub central de mensagem para a comunicação bidirecional entre o aplicativo de IoT e os dispositivos.
+Como desenvolvedor de soluções, você pode usar o [IoT Central](../iot-central/core/overview-iot-central.md) ou o [Hub IoT](../iot-hub/about-iot-hub.md) para desenvolver uma solução de IoT hospedada na nuvem que usa dispositivos IoT Plug and Play.
 
-Ao conectar um dispositivo IoT Plug and Play a um Hub IoT, você pode usar a ferramenta [Azure IoT Explorer](./howto-use-iot-explorer.md) para ver a telemetria, as propriedades e os comandos definidos nas interfaces que compõem o modelo.
+A interface do usuário da Web no IoT Central permite que você monitore as condições do dispositivo, crie regras e gerencie milhões de dispositivos e dados ao longo do ciclo de vida deles. Os dispositivos IoT Plug and Play se conectam diretamente a um aplicativo IoT Central, em que você pode usar painéis personalizáveis para monitorar e controlar seus dispositivos. Você também pode usar modelos de dispositivo na interface do usuário da Web do IoT Central para criar e editar modelos DTDL.
+
+Hub IoT – um serviço gerenciado de nuvem que atua como um hub central de mensagem para a comunicação bidirecional entre o aplicativo de IoT e os dispositivos. Ao conectar um dispositivo IoT Plug and Play a um Hub IoT, você pode usar a ferramenta [Azure IoT Explorer](./howto-use-iot-explorer.md) para ver a telemetria, as propriedades e os comandos definidos no modelo DTDL.
+
+Se houver sensores anexados a um gateway do Windows ou do Linux, use a [ponte do IoT Plug and Play](./concepts-iot-pnp-bridge.md) para conectá-los e criar dispositivos do IoT Plug and Play sem precisar escrever o software/firmware do dispositivo (para [protocolos compatíveis](./concepts-iot-pnp-bridge.md#supported-protocols-and-sensors)).
 
 ## <a name="develop-an-iot-device-application"></a>Desenvolver um aplicativo de dispositivo IoT
 
@@ -55,21 +59,20 @@ Como desenvolvedor de dispositivos, você pode desenvolver um produto de hardwar
 
 1. Defina o modelo do dispositivo. Você cria um conjunto de arquivos JSON que definem as funcionalidades do dispositivo usando a [DTDL](https://github.com/Azure/opendigitaltwins-dtdl). Um modelo descreve uma entidade completa (assim como um produto físico) e define o conjunto de interfaces implementadas por essa entidade. Interfaces são contratos compartilhados que identificam exclusivamente a telemetria, as propriedades e os comandos compatíveis com um dispositivo. As interfaces podem ser reutilizadas em modelos diferentes.
 
-1. Crie software de dispositivo ou firmware de uma forma que as respectivas propriedades, comandos e telemetria sigam as convenções de IoT Plug and Play.
+1. Crie software de dispositivo ou firmware de uma forma que as respectivas propriedades, comandos e telemetria sigam as convenções de IoT Plug and Play. É possível simplificar a conexão dos sensores existentes anexados a um gateway do Windows ou do Linux com a [ponte do IoT Plug and Play](./concepts-iot-pnp-bridge.md).
 
 1. O dispositivo anuncia a ID do modelo como parte da conexão MQTT. O SDK do Azure IoT inclui novos constructos para fornecer a ID do modelo no momento da conexão.
 
 > [!Important]
 > Os dispositivos IoT Plug and Play precisam usar MQTT ou MQTT sobre WebSockets. Outros protocolos, como AMQP ou HTTP, não são válidos para implementar dispositivos IoT Plug and Play.
 
-## <a name="regional-availability"></a>Disponibilidade regional
+## <a name="device-certification"></a>Certificado de dispositivo
 
-Esta atualização de versão prévia do IoT Plug and Play está disponível nos Hubs IoT criados nas regiões EUA Central, Norte da Europa e Leste do Japão.
+O [programa de certificação de dispositivo do IoT Plug and Play](howto-certify-device.md) verifica se um dispositivo atende aos requisitos de certificação do IoT Plug and Play. Você pode adicionar um dispositivo certificado ao [catálogo de dispositivos Azure Certified para IoT](https://aka.ms/devicecatalog).
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Agora que você tem uma visão geral do IoT Plug and Play, a próxima etapa sugerida é experimentar um dos guias de início rápido:
 
-- [Conectar um dispositivo ao Hub IoT (C)](./quickstart-connect-device-c.md)
-- [Interagir com um dispositivo da sua solução (Node.js)](./quickstart-service-node.md)
-
+- [Conectar um dispositivo ao Hub IoT](./quickstart-connect-device.md)
+- [Interagir com um dispositivo da sua solução](./quickstart-service.md)

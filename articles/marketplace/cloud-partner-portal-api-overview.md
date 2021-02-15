@@ -7,19 +7,19 @@ ms.topic: reference
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: bfb6e9cb510f5fe887f108dfdea5932406aafe0d
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 57d3d1c6bb14db3eb2ca499069934a628d2f7fea
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292914"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425775"
 ---
 # <a name="cloud-partner-portal-api-reference"></a>Referência de API do Portal do Cloud Partner
 
 > [!NOTE]
 > As APIs de Portal do Cloud Partner são integradas ao e continuarão funcionando no Partner Center. A transição apresenta pequenas alterações. Examine as [alterações nas APIs de CPP](#changes-to-cpp-apis-after-the-migration-to-partner-center) listadas neste documento para garantir que seu código continue a funcionar após a transição para o Partner Center. As APIs de CPP só devem ser usadas para produtos existentes que já foram integrados antes da transição para o Partner Center; os novos produtos devem usar as APIs de envio do Partner Center.
 
-As APIs REST do Portal do Cloud Partner permitem a recuperação programática e a manipulação de cargas de trabalho, ofertas e perfis de publicação. As APIs usam RBAC (controle de acesso baseado em função) para impor permissões corretas no tempo de processamento.
+As APIs REST do Portal do Cloud Partner permitem a recuperação programática e a manipulação de cargas de trabalho, ofertas e perfis de publicação. As APIs usam o Azure RBAC (controle de acesso baseado em função) para impor as permissões corretas no momento do processamento.
 
 Essa referência fornece os detalhes técnicos para as APIs REST do Portal do Cloud Partner. Os exemplos de conteúdo deste documento são apenas para referência e estão sujeitos a alterações à medida que novas funcionalidades são adicionadas.
 
@@ -50,7 +50,7 @@ Essa referência detalha as APIs para executar as seguintes tarefas comuns.
 - [Criar uma oferta](./cloud-partner-portal-api-creating-offer.md)
 - [Publicar uma oferta](./cloud-partner-portal-api-publish-offer.md)
 
-### <a name="operations"></a>Operations
+### <a name="operations"></a>Operações
 
 - [Recuperar operações](./cloud-partner-portal-api-retrieve-operations.md)
 - [Cancelar operações](./cloud-partner-portal-api-cancel-operations.md)

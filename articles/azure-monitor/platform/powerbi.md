@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/01/2019
-ms.openlocfilehash: 8b9624313716081a039b12c73e54b9f7afc2a323
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 69f00416f180f83c761be5ed444e80903e9fcbb6
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505305"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98234436"
 ---
 # <a name="import-azure-monitor-log-data-into-power-bi"></a>Importar Azure Monitor dados de log para Power BI
 
@@ -28,7 +28,10 @@ Para importar dados de um [espaço de trabalho log Analytics](manage-access.md) 
 ## <a name="export-query"></a>Consulta de exportação
 Comece criando uma [consulta de log](../log-query/log-query-overview.md) que retorne os dados que você deseja que preencham o Power bi DataSet.  Depois exporte essa consulta para a [linguagem do Power Query (M)](/powerquery-m/power-query-m-language-specification) que pode ser usado pelo Power BI Desktop.
 
-1. [Crie a consulta de log no log Analytics](../log-query/get-started-portal.md) para extrair os dados para seu conjunto.
+> [!WARNING]
+> Tenha cuidado para [otimizar sua consulta](../log-query/query-optimization.md) para que ela não leve muito tempo para ser executada ou possa atingir o tempo limite. Observe o valor **TimeSpan** na consulta exportada que define o período de tempo dos dados que a consulta irá recuperar. Use o menor TimeSpan que você precisa para limitar a quantidade de dados que a consulta retorna.
+
+1. [Crie a consulta de log no log Analytics](../log-query/log-analytics-tutorial.md) para extrair os dados para seu conjunto.
 2. Selecione **Exportar**  >  **consulta de Power bi (M)**.  Isso exporta a consulta para um arquivo de texto chamado **PowerBIQuery.txt**. 
 
     ![Exportar pesquisa de logs](media/powerbi/export-analytics.png)

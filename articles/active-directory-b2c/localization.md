@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/20/2020
+ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 84850b7d44033a2759c51c5c6b9c53d1c945a99d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 88244ec3ba4bbebe7d6096fa3ac49bd4f1b8f661
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87005371"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97108613"
 ---
 # <a name="localization-element"></a>Elemento de localização
 
@@ -41,7 +41,7 @@ O elemento **Localization** contém os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| habilitado | Não | Valores possíveis: `true` ou `false`. |
+| Habilitada | Não | Valores possíveis: `true` ou `false`. |
 
 O elemento **Localization** contém os seguintes elementos XML
 
@@ -73,7 +73,7 @@ O elemento **LocalizedResources** contém os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| ID | Sim | Um identificador usado para identificar exclusivamente os recursos localizados. |
+| Id | Sim | Um identificador usado para identificar exclusivamente os recursos localizados. |
 
 O elemento **LocalizedResources** contém os seguintes elementos:
 
@@ -163,6 +163,7 @@ A referência ElementType para um tipo de declaração, uma transformação de d
 |Mensagem de usuário de predicado|`Predicate`|O nome do predicado| O atributo do predicado a ser localizado. Valores possíveis: `HelpText` .|
 |Mensagem de usuário do grupo de predicado|`InputValidation`|A ID do elemento PredicateValidation.|A ID do elemento de predicado. O grupo de predicado deve ser um filho do elemento de validação de predicado, conforme definido no ElementID.|
 |Elementos da interface do usuário |`UxElement` | | A ID do elemento de interface do usuário a ser localizado.|
+|[Controle de exibição](display-controls.md) |`DisplayControl` |A ID do controle de exibição. | A ID do elemento de interface do usuário a ser localizado.|
 
 ## <a name="examples"></a>Exemplos
 
@@ -332,9 +333,26 @@ O valor UxElement é usado para localizar um dos elementos da interface do usuá
 <LocalizedString ElementType="UxElement" StringId="button_cancel">Cancel</LocalizedString>
 ```
 
+### <a name="displaycontrol"></a>DisplayControl
+
+O valor de DisplayControl é usado para localizar um dos elementos da interface do usuário do [controle de exibição](display-controls.md) . O exemplo a seguir mostra como localizar os botões enviar e verificar. 
+
+```xml
+<LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_send_code">Send verification code</LocalizedString>
+<LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_verify_code">Verify code</LocalizedString>
+```
+
+Na seção de metadados de um perfil técnico autodeclarado, o ContentDefinition referenciado precisa ter DataUri definido como versão de [layout de página](page-layout.md) 2.1.0 ou superior. Por exemplo:
+
+```xml
+<ContentDefinition Id="api.selfasserted">
+  <DataUri>urn:com:microsoft:aad:b2c:elements:selfasserted:2.1.0</DataUri>
+  ...
+```
+
 ## <a name="next-steps"></a>Próximas etapas
 
 Consulte os seguintes artigos para obter exemplos de localização:
 
-- [Personalização de idioma com política personalizada no Azure Active Directory B2C](custom-policy-localization.md)
-- [Personalização de idioma com fluxos de usuário no Azure Active Directory B2C](user-flow-language-customization.md)
+- [Personalização de idioma com política personalizada no Azure Active Directory B2C](language-customization.md)
+- [Personalização de idioma com fluxos de usuário no Azure Active Directory B2C](language-customization.md)

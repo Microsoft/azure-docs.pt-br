@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 0ff197a5603480e9143a14a4760f14dccf8b101b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b1c4ab22db3bb9cadc783357bd9963c5de3b6f98
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544513"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672654"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-confirmit-horizons"></a>Tutorial: Integração do Azure Active Directory ao Confirmit Horizons
 
@@ -27,7 +27,7 @@ A integração do Confirmit Horizons ao Azure AD oferece os seguintes benefício
 * É possível permitir que seus usuários entrem automaticamente no Confirmit Horizons (logon único) com suas contas do Azure AD.
 * Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](../manage-apps/what-is-single-sign-on.md).
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -65,7 +65,7 @@ Para configurar a integração do Confirmit Horizons ao Azure AD, é necessário
 
 4. Na caixa de pesquisa, digite **Confirmit Horizons**, selecione **Confirmit Horizons** no painel de resultados e clique no botão **Adicionar** para adicionar o aplicativo.
 
-     ![Confirmit Horizons na lista de resultados](common/search-new-app.png)
+    ![Confirmit Horizons na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
@@ -101,7 +101,7 @@ Para configurar o logon único do Azure AD com o Confirmit Horizons, siga estas 
 
 4. Na seção **Configuração básica do SAML**, execute as etapas a seguir caso deseje configurar o aplicativo no modo **IDP** iniciado:
 
-    ![Informações de logon único de Domínio e URLs do Confirmit Horizons](common/idp-intiated.png)
+    ![Captura de tela que mostra a seção "Configuração Básica de SAML" com a ação "Salvar", o campo "Identificador" e o campo "URL de Resposta" realçados.](common/idp-intiated.png)
 
     a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão:
 
@@ -165,7 +165,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
     a. No campo **Nome**, insira **BrendaFernandes**.
-  
+
     b. No **nome de usuário** , digite **brittasimon@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
@@ -207,13 +207,12 @@ Nesta seção, um usuário chamado Brenda Fernandes é criado no Confirmit Horiz
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Ao clicar no bloco do Confirmit Horizons no Painel de Acesso, você deverá entrar automaticamente no Confirmit Horizons no qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao clicar no bloco do Confirmit Horizons no Painel de Acesso, você deverá entrar automaticamente no Confirmit Horizons no qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](./tutorial-list.md)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [O que é o Acesso Condicional no Azure Active Directory?](../conditional-access/overview.md)

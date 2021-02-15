@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 03/16/2020
 ms.author: sagupt
 ms.openlocfilehash: e446fca11e029e28e44ada884efd071f3142514c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86518072"
 ---
 # <a name="configure-periodic-summary-for-recommendations"></a>Configurar o resumo periódico para recomendações
@@ -54,7 +54,7 @@ Estas são as etapas para criar um **Resumo de recomendação:**
 ## <a name="next-steps"></a>Próximas etapas
 
 Para obter mais informações sobre as recomendações do Assistente, consulte:
-* [Introdução ao Azure Advisor](advisor-overview.md)
+* [Introdução ao Assistente do Azure](advisor-overview.md)
 * [Introdução ao Assistente](advisor-get-started.md)
 * [Recomendações de custo do Advisor](advisor-cost-recommendations.md)
 * [Recomendações de desempenho do Advisor](advisor-performance-recommendations.md)

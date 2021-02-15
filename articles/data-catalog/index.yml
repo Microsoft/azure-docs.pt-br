@@ -8,15 +8,19 @@ metadata:
   ms.date: 08/30/2019
   ms.service: data-catalog
   ms.topic: landing-page
-  ms.openlocfilehash: eb60085cd76fa9d3857b5e284b2cdd03f35fcb13
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: 3b5e88b17136852129a408dff5c4f4fbf304c23a
+  ms.sourcegitcommit: a89a517622a3886b3a44ed42839d41a301c786e0
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "70172689"
+  ms.lasthandoff: 12/22/2020
+  ms.locfileid: "97732896"
 landingContent:
 - title: Sobre o Catálogo de Dados do Azure
   linkLists:
+  - linkListType: whats-new
+    links:
+    - text: Azure Purview – próxima geração de governança de dados unificada
+      url: ../purview/overview.md
   - linkListType: overview
     links:
     - text: O que é o Catálogo de Dados do Azure?

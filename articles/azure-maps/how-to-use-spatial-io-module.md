@@ -4,23 +4,23 @@ description: Saiba como usar o módulo de e/s espacial fornecido pelo SDK da Web
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 02/28/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.custom: devx-track-javascript
-ms.openlocfilehash: f848274f67b5ebf5349cbef24a769aaae39b9955
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.custom: devx-track-js
+ms.openlocfilehash: cd64c80acceb1542c080fc45efbce59f287d448a
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287037"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97680689"
 ---
 # <a name="how-to-use-the-azure-maps-spatial-io-module"></a>Como usar o módulo e/s espacial do mapas do Azure
 
 O SDK da Web do Azure Maps fornece o **módulo de e/s espacial**, que integra dados espaciais com o SDK da Web do Azure Maps usando JavaScript ou TypeScript. Os recursos robustos deste módulo permitem aos desenvolvedores:
 
-- [Ler e gravar arquivos de dados espaciais comuns](spatial-io-read-write-spatial-data.md). Os formatos de arquivo com suporte incluem os arquivos: KML, KMZ, GPX, GeoRSS, GML, geojson e CSV contendo colunas com informações espaciais. Também dá suporte a texto bem conhecido (WKT).
+- [Ler e gravar arquivos de dados espaciais comuns](spatial-io-read-write-spatial-data.md). Os formatos de arquivo com suporte incluem os arquivos: KML, KMZ, GPX, GeoRSS, GML, geojson e CSV contendo colunas com informações espaciais. Também dá suporte a texto de Well-Known (WKT).
 - [Conecte-se aos serviços do Open Geospatial Consortium (OGC) e integre-o ao SDK da Web do Azure Maps. Sobreponha os serviços de mapa da Web (WMS) e os serviços de bloco do mapa da Web (WMTS) como camadas no mapa](spatial-io-add-ogc-map-layer.md).
 - [Consultar dados em um serviço de recurso da Web (WFS)](spatial-io-connect-wfs-service.md).
 - [Sobreponha conjuntos de dados complexos que contêm informações de estilo e faça com que eles sejam renderizados automaticamente usando o código mínimo](spatial-io-add-simple-data-layer.md).
@@ -30,17 +30,16 @@ Neste guia, aprenderemos como integrar e usar o módulo de e/s espacial em um ap
 
 Este vídeo fornece uma visão geral do módulo de e/s espacial no SDK da Web do Azure Maps.
 
-<br/>
+</br>
 
-<iframe src="https://channel9.msdn.com/Shows/Internet-of-Things-Show/Easily-integrate-spatial-data-into-the-Azure-Maps/player" width="960" height="540" allowFullScreen frameBorder="0" title="Integre facilmente dados espaciais ao Azure Maps – vídeo do Microsoft Channel 9"></iframe>
-
+> [!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Easily-integrate-spatial-data-into-the-Azure-Maps/player?format=ny]
 
 > [!WARNING]
 > Use apenas dados e serviços que sejam de uma fonte confiável, especialmente se fizer referência a ele de outro domínio. O módulo de e/s espacial executa etapas para minimizar o risco. no entanto, a abordagem mais segura não é permitir que todos os dados do danagerous em seu aplicativo comecem. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de poder usar o módulo de e/s espacial, você precisará [fazer uma conta do Azure Maps](https://docs.microsoft.com/azure/azure-maps/quick-demo-map-app#create-an-azure-maps-account) e [obter a chave de assinatura primária para sua conta](https://docs.microsoft.com/azure/azure-maps/quick-demo-map-app#get-the-primary-key-for-your-account).
+Antes de poder usar o módulo de e/s espacial, você precisará [fazer uma conta do Azure Maps](./quick-demo-map-app.md#create-an-azure-maps-account) e [obter a chave de assinatura primária para sua conta](./quick-demo-map-app.md#get-the-primary-key-for-your-account).
 
 ## <a name="installing-the-spatial-io-module"></a>Instalando o módulo de e/s espacial
 
@@ -68,7 +67,7 @@ Você pode carregar o módulo e/s espacial do Azure Maps usando uma das duas op�
 
 1. Criar um novo arquivo HTML.
 
-2. Carregue o SDK da Web do Azure Maps e inicialize o controle de mapa. Consulte o guia de [controle do mapa do Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-use-map-control) para obter os detalhes. Depois de concluir esta etapa, o arquivo HTML deverá ter esta aparência:
+2. Carregue o SDK da Web do Azure Maps e inicialize o controle de mapa. Consulte o guia de [controle do mapa do Azure Maps](./how-to-use-map-control.md) para obter os detalhes. Depois de concluir esta etapa, o arquivo HTML deverá ter esta aparência:
 
     ```html
     <!DOCTYPE html>
@@ -256,4 +255,4 @@ O recurso que demonstramos aqui é apenas um dos muitos recursos disponíveis no
 Consulte a documentação de e/s espacial do Azure Maps:
 
 > [!div class="nextstepaction"]
-> [Pacote de e/s espacial do Azure Maps](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/)
+> [Pacote de e/s espacial do Azure Maps](/javascript/api/azure-maps-spatial-io/)

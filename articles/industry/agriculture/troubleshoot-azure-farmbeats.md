@@ -5,16 +5,16 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: c66d3d6fd3ee0bcba01db61183f40cd3ccf3f39d
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: dd0ed78c56e4d656a2ecee6395d831ed093e85b5
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88797931"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001602"
 ---
 # <a name="troubleshoot-azure-farmbeats"></a>Solução de problemas do Azure FarmBeats
 
-Este artigo fornece soluções para problemas comuns do FarmBeats do Azure. Para obter ajuda adicional, entre em contato com nosso [p&um fórum de suporte](https://aka.ms/farmbeatssupport) ou envie um email para farmbeatssupport@microsoft.com .
+Este artigo fornece soluções para problemas comuns do FarmBeats do Azure. Para obter ajuda adicional, entre em contato com nosso [p&um fórum de suporte](/answers/topics/azure-farmbeats.html) ou envie um email para farmbeatssupport@microsoft.com .
 
 > [!NOTE]
   > Se você tiver instalado o FarmBeats em abril e seus trabalhos estiverem falhando com uma mensagem de erro vazia, talvez sua instalação não tenha sido alocada a nenhuma cota de lote para priorizar o suporte para as organizações de saúde e segurança críticas. Consulte [aqui](https://azure.microsoft.com/blog/update-2-on-microsoft-cloud-services-continuity/) para obter mais informações. Você precisará solicitar que as VMs sejam alocadas para a conta do lote para executar trabalhos com êxito.
@@ -110,7 +110,7 @@ Para entender como baixar logs, vá até a seção ["Coletar logs manualmente"](
 > [!NOTE]
 > A ID de parceiro do sensor no qual você está interessado.
 
-3. Volte para a API de parceiro e selecione **obter/ \<ID> **.
+3. Volte para a API de parceiro e selecione **obter/ \<ID>**.
 4. Especifique a ID de parceiro da etapa 3 e, em seguida, selecione **Executar**.
 
    A resposta da API deve ter a cadeia de conexão dos Hubs de Eventos.
@@ -174,7 +174,7 @@ Enquanto você estiver excluindo um dispositivo, poderá encontrar um dos seguin
 
 Se você já tiver recebido o acesso e continua encontrando esse erro, tente novamente atualizando a página. Se o erro persistir, entre em contato conosco com a mensagem/logs de erro.
 
-![Projeto FarmBeats](./media/troubleshoot-azure-farmbeats/accelerator-troubleshooting-1.png)
+![Captura de tela que mostra o erro de autorização.](./media/troubleshoot-azure-farmbeats/accelerator-troubleshooting-1.png)
 
 ### <a name="accelerator-issues"></a>Problemas do Acelerador  
 
@@ -289,11 +289,11 @@ Esse problema pode ocorrer se alguma atividade de manutenção estiver sendo fei
 2. Na caixa **Pesquisar**, procure o grupo de recursos do Datahub do FarmBeats.
 3. No painel **Grupo de Recursos**, procure a conta de armazenamento do *datahublogs\** . Por exemplo, *datahublogsmvxmq*.  
 4. Na coluna **Nome**, selecione a conta de armazenamento para exibir o painel **Conta de Armazenamento**.
-5. No painel **datahubblogs\*** , selecione **Abrir no Explorer** para exibir o aplicativo **Gerenciador de Armazenamento do Azure**.
+5. No **painel datahubblogs \* *_, selecione _* abrir no Explorer** para exibir o aplicativo **aberto Gerenciador de armazenamento do Azure** .
 6. No painel esquerdo, selecione **Contêineres de Blob** e, em seguida, selecione **logs de trabalhos** para logs do Azure Data Factory ou **appinsights-logs** para logs do Serviço de Aplicativo.
 7. Selecione **Download** e baixe os logs em uma pasta local no computador.
 
-    ![Projeto FarmBeats](./media/troubleshoot-azure-farmbeats/collecting-logs-manually-1.png)
+    ![Captura de tela que mostra os arquivos de log baixados.](./media/troubleshoot-azure-farmbeats/collecting-logs-manually-1.png)
 
 ### <a name="collect-azure-data-factory-job-logs-or-app-service-logs-for-accelerator"></a>Coletar Azure Data Factory logs de trabalho ou logs do serviço de aplicativo para Acelerador
 
@@ -301,7 +301,7 @@ Esse problema pode ocorrer se alguma atividade de manutenção estiver sendo fei
 2. Na caixa **Pesquisar**, procure o grupo de recursos do Acelerador do FarmBeats.
 3. No painel **Grupo de recursos**, procure a conta de *armazenamento\** . Por exemplo, *storagedop4k\** .
 4. Selecione a conta de armazenamento na coluna **Nome** para exibir o painel **Conta de armazenamento**.
-5. No painel **Armazenamento\*** , selecione **Abrir no Explorer** para abrir o aplicativo Gerenciador de Armazenamento do Azure.
+5. No **painel armazenamento \* *_, selecione _* abrir no Explorer** para abrir o aplicativo Gerenciador de armazenamento do Azure.
 6. No painel esquerdo, selecione **Contêineres de Blob** e, em seguida, selecione **logs de trabalhos** para logs do Azure Data Factory ou **appinsights-logs** para logs do Serviço de Aplicativo.
 7. Selecione **Download** e baixe os logs em uma pasta local no computador.
 
@@ -327,23 +327,23 @@ Esse problema pode ocorrer se alguma atividade de manutenção estiver sendo fei
 > [!NOTE]
 > Para exibir as marcas dos serviços no grupo de recursos, clique em "Editar colunas" e adicione "marcas" à exibição do grupo de recursos
 
-:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-1.png" alt-text="Projeto FarmBeats":::
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-1.png" alt-text="Captura de tela que realça a marca SKU: Datahub.":::
 
 3. Na página Visão geral do data Factory, clique em **autor e monitor**. Uma nova guia é aberta no navegador. Clique em **Monitor**
 
-:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-2.png" alt-text="Projeto FarmBeats":::
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-2.png" alt-text="Captura de tela que realça a opção de menu monitor.":::
 
 4. Você verá uma lista de execuções de pipeline que fazem parte da execução do trabalho meteorológico. Clique no trabalho para o qual você deseja coletar logs
  
-:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-3.png" alt-text="Projeto FarmBeats":::
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-3.png" alt-text="Captura de tela que realça a opção de menu execuções de pipeline e o trabalho selecionado.":::
 
 5. Na página Visão geral do pipeline, você verá a lista de execuções de atividade. Anote as IDs de execução das atividades para as quais você deseja coletar os logs
  
-:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-4.png" alt-text="Projeto FarmBeats":::
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-4.png" alt-text="Captura de tela que mostra a lista de execuções de atividade.":::
 
 6. Volte para o grupo de recursos FarmBeats em portal do Azure e clique na conta de armazenamento com o nome **datahublogs-xxxx**
  
-:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-5.png" alt-text="Projeto FarmBeats":::
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-5.png" alt-text="Captura de tela que realça a conta de armazenamento com o nome datahublogs-XXXX.":::
 
 7. Clique em **contêineres**  ->  **adfjobs**. Na caixa de pesquisa, insira a ID de execução do trabalho que você anotou na etapa 5 acima.
  

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/08/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: b73c7e62c6b621d3ac86cfb99b10b567460534f1
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: e879d8370821ea465147e344d0fe95836c843ff4
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88961849"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008003"
 ---
 # <a name="continuous-deployment-with-web-app-for-containers"></a>Implantação contínua com o Aplicativo Web para Contêineres
 
@@ -35,7 +35,7 @@ Neste tutorial, você configura a implantação contínua para uma imagem de con
 
 Depois que a Implantação Contínua tiver sido habilitada, você poderá exibir o webhook recém-criado na página de webholes do Registro de Contêiner do Azure.
 
-![Captura de tela de ACR webhook](./media/deploy-ci-cd-custom-container/ci-cd-acr-03.png)
+![Captura de tela que mostra onde você pode exibir o webhook recém-criado em sua página WebHooks do registro de contêiner do Azure.](./media/deploy-ci-cd-custom-container/ci-cd-acr-03.png)
 
 No seu Registro de Contêiner, clique em Webhooks para visualizar os webhooks atuais.
 
@@ -55,7 +55,7 @@ Copie a URL do Webhook. Para adicionar um webhook para o Hub do Docker, execute 
 
 ## <a name="automate-with-cli"></a>Automatização com a CLI
 
-Para configurar o CI/CD usando o CLI do Azure, execute o comando [AZ webapp Deployment container config](/cli/azure/webapp/deployment/container?view=azure-cli-latest#az-webapp-deployment-container-config) para gerar a URL do webhook. A URL pode ser usada para configurar seu registro de contêiner do DockerHub ou do Azure.
+Para configurar o CI/CD usando o CLI do Azure, execute o comando [AZ webapp Deployment container config](/cli/azure/webapp/deployment/container#az-webapp-deployment-container-config) para gerar a URL do webhook. A URL pode ser usada para configurar seu registro de contêiner do DockerHub ou do Azure.
 
 ```azurecli-interactive
 az webapp deployment container config --name <app-name> --resource-group <group-name> --enable-cd true

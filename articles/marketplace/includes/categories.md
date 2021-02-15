@@ -1,5 +1,5 @@
 ---
-title: incluir arquivo
+title: arquivo de inclusão
 description: incluir arquivo para a lista de categorias e subcategorias
 documentationcenter: partner-center-commercial-marketplace
 ms.service: marketplace
@@ -10,10 +10,10 @@ ms.custom: include file
 author: anbene
 ms.author: mingshen
 ms.openlocfilehash: 763ee108e1e2899bb2268ae5e6236f74a73e4b44
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87498032"
 ---
 | [**Azure Marketplace**](https://azuremarketplace.microsoft.com/marketplace/apps)  | [**AppSource**](https://appsource.microsoft.com/marketplace/apps) |
@@ -78,7 +78,7 @@ ms.locfileid: "87498032"
 | **Monitorando & diagnóstico**  | **Cadeia de fornecedores de & de operações** |
 | **Migração**  | &nbsp;&nbsp;Gerenciamento de produção de & de ativos |
 | &nbsp;&nbsp;Migração de dados | &nbsp;&nbsp;Previsão de demanda |
-| **Realidade Misturada**  | &nbsp;&nbsp;Gerenciamento de informações & conectividade |
+| **Realidade misturada**  | &nbsp;&nbsp;Gerenciamento de informações & conectividade |
 | **Rede**  | &nbsp;&nbsp;Planejando, comprando & relatórios |
 | &nbsp;&nbsp;Gerenciadores de dispositivos | &nbsp;&nbsp;Gerenciamento de serviços de qualidade & |
 | &nbsp;&nbsp;Conectividade | &nbsp;&nbsp;Gerenciamento de pedidos de vendas & |

@@ -3,16 +3,16 @@ title: Azure DevTest Labs o uso em vários laboratórios e assinaturas
 description: Saiba como relatar o uso de Azure DevTest Labs em vários laboratórios e assinaturas.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 1d2663113e929145308f5a5712b968f3551668c2
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: d789b9849ec798a396e99420649792937422470f
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287275"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98789931"
 ---
 # <a name="report-azure-devtest-labs-usage-across-multiple-labs-and-subscriptions"></a>Relatório de Azure DevTest Labs uso em vários laboratórios e assinaturas
 
-A maioria das grandes organizações deseja controlar o uso de recursos para ser mais eficiente com esses recursos visualizando tendências e exceções no uso. Com base no uso de recursos, os proprietários ou gerentes de laboratório podem personalizar os laboratórios para [melhorar o uso de recursos e os custos](../cost-management-billing/manage/getting-started.md). No Azure DevTest Labs, você pode baixar o uso de recursos por laboratório, permitindo uma análise mais profunda dos padrões de uso. Esses padrões de uso podem ajudar a identificar as alterações para melhorar a eficiência. A maioria das empresas quer o uso de laboratório individual e o uso geral em [vários laboratórios e assinaturas](/azure/architecture/cloud-adoption/decision-guides/subscriptions/). 
+A maioria das grandes organizações deseja controlar o uso de recursos para ser mais eficiente com esses recursos visualizando tendências e exceções no uso. Com base no uso de recursos, os proprietários ou gerentes de laboratório podem personalizar os laboratórios para [melhorar o uso de recursos e os custos](../cost-management-billing/cost-management-billing-overview.md). No Azure DevTest Labs, você pode baixar o uso de recursos por laboratório, permitindo uma análise mais profunda dos padrões de uso. Esses padrões de uso podem ajudar a identificar as alterações para melhorar a eficiência. A maioria das empresas quer o uso de laboratório individual e o uso geral em [vários laboratórios e assinaturas](/azure/architecture/cloud-adoption/decision-guides/subscriptions/). 
 
 Este artigo discute como lidar com informações de uso de recursos em vários laboratórios e assinaturas.
 
@@ -82,5 +82,5 @@ Quando o sistema estiver configurado e os dados estiverem mudando para o armazen
     Os usuários estão selecionando tamanhos de VM de alto desempenho (mais caros)?
 -   Quais imagens do Marketplace estão sendo usadas?
 
-    As imagens personalizadas são a base de VM mais comum, caso um repositório de imagens comum seja criado como a [Galeria de imagens compartilhadas](../virtual-machines/windows/shared-image-galleries.md) ou a [fábrica de imagens](image-factory-create.md).
+    As imagens personalizadas são a base de VM mais comum, caso um repositório de imagens comum seja criado como a [Galeria de imagens compartilhadas](../virtual-machines/shared-image-galleries.md) ou a [fábrica de imagens](image-factory-create.md).
 -   Quais imagens personalizadas estão sendo usadas ou não são usadas?

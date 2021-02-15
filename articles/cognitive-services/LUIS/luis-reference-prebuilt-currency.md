@@ -3,20 +3,18 @@ title: Entidade predefinida de moeda-LUIS
 titleSuffix: Azure Cognitive Services
 description: Este artigo contém informações sobre a entidade predefinida de moeda de LUIS (Serviço Inteligente de Reconhecimento Vocal).
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 10/14/2019
-ms.author: diberry
-ms.openlocfilehash: 56d264fa976967ae4772f50b4aa6f58b30355d6f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c89de0ba74d04c510f3d5ba537f3a6dcc4819169
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78270776"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91534329"
 ---
 # <a name="currency-prebuilt-entity-for-a-luis-app"></a>Entidade de moeda predefinida para um aplicativo LUIS
 A entidade de moeda predefinida detecta a moeda em muitas indicações e países/regiões, independentemente da cultura do aplicativo LUIS. Uma vez que essa entidade já está treinada, não é necessário adicionar enunciados de exemplo contendo moeda às intenções do aplicativo. A entidade de moeda é compatível com [muitas culturas](luis-reference-prebuilt-entities.md).
@@ -28,7 +26,7 @@ A moeda é gerenciada por meio do repositório do GitHub [Recognizers-text](http
 
 #### <a name="v3-response"></a>[Resposta v3](#tab/V3)
 
-O JSON a seguir é com `verbose` o parâmetro definido `false`como:
+O JSON a seguir é com o `verbose` parâmetro definido como `false` :
 
 ```json
 "entities": {
@@ -41,7 +39,7 @@ O JSON a seguir é com `verbose` o parâmetro definido `false`como:
 }
 ```
 #### <a name="v3-verbose-response"></a>[V3, resposta detalhada](#tab/V3-verbose)
-O JSON a seguir é com `verbose` o parâmetro definido `true`como:
+O JSON a seguir é com o `verbose` parâmetro definido como `true` :
 
 ```json
 "entities": {

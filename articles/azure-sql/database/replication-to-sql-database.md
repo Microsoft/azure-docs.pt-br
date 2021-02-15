@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: mathoma
 ms.date: 04/28/2020
-ms.openlocfilehash: 6f1eb48655c4e38e2cf0520409e5e2b38750baf5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6ff1d485ab4c0662ae8a9d754ce67b1446b76fcc
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84324140"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92780947"
 ---
 # <a name="replication-to-azure-sql-database"></a>Replicação no banco de dados SQL do Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -24,7 +24,7 @@ ms.locfileid: "84324140"
 Você pode configurar um banco de dados SQL do Azure como o Assinante de push em uma topologia de replicação transacional ou de instantâneo unidirecional.
 
 > [!NOTE]
-> Este artigo descreve o uso da [replicação transacional](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) no banco de dados SQL do Azure. Ele não está relacionado à [replicação geográfica ativa](https://docs.microsoft.com/azure/sql-database/sql-database-active-geo-replication), um recurso de banco de dados SQL do Azure que permite que você crie réplicas legíveis completas de bancos de dados individuais.
+> Este artigo descreve o uso da [replicação transacional](/sql/relational-databases/replication/transactional/transactional-replication) no banco de dados SQL do Azure. Ele não está relacionado à [replicação geográfica ativa](./active-geo-replication-overview.md), um recurso de banco de dados SQL do Azure que permite que você crie réplicas legíveis completas de bancos de dados individuais.
 
 ## <a name="supported-configurations"></a>Configurações com suporte
   
@@ -50,16 +50,16 @@ Para usar todos os recursos do Banco de Dados SQL do Azure, você deve estar usa
 
 ### <a name="types-of-replication"></a>Tipos de replicação
 
-Existem diferentes [tipos de replicação](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication):
+Existem diferentes [tipos de replicação](/sql/relational-databases/replication/types-of-replication):
 
 | Replicação | Banco de Dados SQL do Azure | Instância Gerenciada do Azure SQL |
 | :----| :------------- | :--------------- |
-| [**Transacional padrão**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | Sim (somente como assinante) | Sim | 
-| [**Instantâneo**](https://docs.microsoft.com/sql/relational-databases/replication/snapshot-replication) | Sim (somente como assinante) | Sim|
-| [**Replicação de mesclagem**](https://docs.microsoft.com/sql/relational-databases/replication/merge/merge-replication) | Não | Não|
-| [**Ponto a ponto**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/peer-to-peer-transactional-replication) | Não | Não|
-| [**Direciona**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | Não | Sim|
-| [**Assinaturas atualizáveis**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication) | Não | Não|
+| [**Transacional padrão**](/sql/relational-databases/replication/transactional/transactional-replication) | Sim (somente como assinante) | Sim | 
+| [**Instantâneo**](/sql/relational-databases/replication/snapshot-replication) | Sim (somente como assinante) | Sim|
+| [**Replicação de mesclagem**](/sql/relational-databases/replication/merge/merge-replication) | Não | Não|
+| [**Ponto a ponto**](/sql/relational-databases/replication/transactional/peer-to-peer-transactional-replication) | Não | Não|
+| [**Bidirecional**](/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | Não | Sim|
+| [**Assinaturas atualizáveis**](/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication) | Não | Não|
 | &nbsp; | &nbsp; | &nbsp; |
 
   
@@ -78,7 +78,7 @@ Existem diferentes [tipos de replicação](https://docs.microsoft.com/sql/relati
 
 ## <a name="replication-architecture"></a>Arquitetura de replicação  
 
-![replication-to-sql-database](./media/replication-to-sql-database/replication-to-sql-database.png)  
+![O diagrama mostra a arquitetura de replicação com o banco de dados SQL do Azure, que contém vários clusters de assinantes em regiões diferentes e máquinas virtuais do Azure locais, que contêm um Publicador, um executável logread e executáveis do distribuidor que se conectam a clusters remotos.](./media/replication-to-sql-database/replication-to-sql-database.png)  
 
 ## <a name="scenarios"></a>Cenários  
 
@@ -126,14 +126,14 @@ As opções a seguir não têm suporte para assinaturas de Banco de Dados SQL do
 
 Crie uma publicação e uma assinatura push. Para obter mais informações, consulte:
   
-- [Criar uma publicação](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
-- [Crie uma assinatura push](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/) usando o nome do servidor como o assinante (por exemplo **n' azuresqldbdns. Database. Windows. net '**) e o nome do banco de dados SQL do Azure como o banco de dados de destino (por exemplo, **AdventureWorks**).  
+- [Criar uma publicação](/sql/relational-databases/replication/publish/create-a-publication)
+- [Crie uma assinatura push](/sql/relational-databases/replication/create-a-push-subscription/) usando o nome do servidor como o assinante (por exemplo **n' azuresqldbdns. Database. Windows. net '** ) e o nome do banco de dados SQL do Azure como o banco de dados de destino (por exemplo, **AdventureWorks** ).  
 
 ## <a name="see-also"></a>Consulte Também  
 
 - [Replicação transacional](../managed-instance/replication-transactional-overview.md)
-- [Criar uma publicação](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
-- [Criar uma Assinatura Push](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/)
-- [Tipos de Replicação](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication)
-- [Monitoramento (Replicação)](https://docs.microsoft.com/sql/relational-databases/replication/monitor/monitoring-replication)
-- [Inicializar uma Assinatura](https://docs.microsoft.com/sql/relational-databases/replication/initialize-a-subscription)  
+- [Criar uma publicação](/sql/relational-databases/replication/publish/create-a-publication)
+- [Criar uma Assinatura Push](/sql/relational-databases/replication/create-a-push-subscription/)
+- [Tipos de Replicação](/sql/relational-databases/replication/types-of-replication)
+- [Monitoramento (Replicação)](/sql/relational-databases/replication/monitor/monitoring-replication)
+- [Inicializar uma Assinatura](/sql/relational-databases/replication/initialize-a-subscription)

@@ -3,18 +3,18 @@ title: Integrar e gerenciar as operações de segurança & segurança de Microso
 description: Melhorar a proteção contra ameaças do seu aplicativo, a detecção e a resposta com o Microsoft Graph Security & aplicativos lógicos do Azure
 services: logic-apps
 ms.suite: integration
-author: preetikr
+author: ecfan
 ms.author: preetikr
 ms.reviewer: v-ching, estfan, logicappspm
 ms.topic: article
 ms.date: 02/21/2020
 tags: connectors
-ms.openlocfilehash: b08b5db5639d498aa6a6a47b7f7121cad565fe02
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: a83cd68df2f1d722517d6239bf6959075860d0b8
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87986361"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888531"
 ---
 # <a name="improve-threat-protection-by-integrating-security-operations-with-microsoft-graph-security--azure-logic-apps"></a>Melhore a proteção contra ameaças integrando as operações de segurança com a Segurança do Microsoft Graph e os Aplicativos Lógicos do Azure
 
@@ -30,13 +30,13 @@ Com os [Aplicativos Lógicos do Azure](../logic-apps/logic-apps-overview.md) e o
 
 O fluxo de trabalho do aplicativo lógico pode usar ações que obtêm as respostas do conector da Segurança do Microsoft Graph e disponibilizam essa saída para outras ações no fluxo de trabalho. Você também pode fazer com que outras ações no fluxo de trabalho usem a saída das ações de conector da Segurança do Microsoft Graph. Por exemplo, se receber alertas de severidade alta por meio do conector da Segurança do Microsoft Graph, você poderá enviar os alertas em uma mensagem de email usando o conector do Outlook. 
 
-Para saber mais sobre a Segurança do Microsoft Graph, confira a [Visão geral da API de Segurança do Microsoft Graph](https://aka.ms/graphsecuritydocs). Se você for novo em aplicativos lógicos, examine [o que são os aplicativos lógicos do Azure?](../logic-apps/logic-apps-overview.md). Se você estiver procurando Microsoft Flow ou PowerApps, consulte [o que é o Flow?](https://flow.microsoft.com/) ou [o que é o powerapps?](https://powerapps.microsoft.com/)
+Para saber mais sobre a Segurança do Microsoft Graph, confira a [Visão geral da API de Segurança do Microsoft Graph](/graph/security-concept-overview). Se você for novo em aplicativos lógicos, examine [o que são os aplicativos lógicos do Azure?](../logic-apps/logic-apps-overview.md). Se você estiver procurando energia automatizada ou PowerApps, consulte [o que é Power Automate?](https://flow.microsoft.com/) ou [o que é o Power apps?](https://powerapps.microsoft.com/)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/). 
 
-* Para usar o conector da Segurança do Microsoft Graph, você precisa ter *dado explicitamente* seu consentimento de administrador do locatário do Azure AD (Active Directory), o que faz parte dos [requisitos de autenticação da Segurança do Microsoft Graph](https://aka.ms/graphsecurityauth). Esse consentimento requer o nome e a ID do aplicativo do conector da Segurança do Microsoft Graph, que você também pode encontrar no [portal do Azure](https://portal.azure.com):
+* Para usar o conector da Segurança do Microsoft Graph, você precisa ter *dado explicitamente* seu consentimento de administrador do locatário do Azure AD (Active Directory), o que faz parte dos [requisitos de autenticação da Segurança do Microsoft Graph](/graph/security-authorization). Esse consentimento requer o nome e a ID do aplicativo do conector da Segurança do Microsoft Graph, que você também pode encontrar no [portal do Azure](https://portal.azure.com):
 
   | Propriedade | Valor |
   |----------|-------|
@@ -62,11 +62,11 @@ Para saber mais sobre a Segurança do Microsoft Graph, confira a [Visão geral d
 
 1. Para aplicativos lógicos em branco, adicione o gatilho e todas as outras ações que desejar antes de adicionar uma ação de Microsoft Graph segurança.
 
-   - ou -
+   - ou -
 
    Para os aplicativos lógicos existentes, na última etapa em que você deseja adicionar uma Microsoft Graph ação de segurança, selecione **nova etapa**.
 
-   - ou -
+   - ou -
 
    Para adicionar uma ação entre as etapas, mova o ponteiro sobre a seta entre as etapas. Selecione o sinal de adição (+) que aparece e selecione **Adicionar uma ação**.
 
@@ -96,7 +96,7 @@ Este exemplo mostra como você pode iniciar um fluxo de trabalho de aplicativo l
    | **Intervalo** | `interval` | Sim | Integer | Um inteiro positivo que descreve a frequência na qual o fluxo de trabalho é executado com base na frequência. Aqui estão os intervalos mínimos e máximos: <p><p>– Mês: 1 a 16 meses <br>–Dia: 1 a 500 dias <br>– Hora: 1 a 12.000 horas <br>– Minuto: 1 a 72.000 minutos <br>– Segundo: 1 a 9.999.999 segundos <p>Por exemplo, se o intervalo for 6 e a frequência for "Mês", a recorrência será a cada 6 meses. |
    | **Frequência** | `frequency` | Sim | String | A unidade de tempo para a recorrência: **Segundo**, **Minuto**, **Hora**, **Dia**, **Semana** ou **Mês** |
    | **Fuso horário** | `timeZone` | Não | String | Aplica-se somente quando você especifica uma hora de início, porque o gatilho não aceita [diferença UTC](https://en.wikipedia.org/wiki/UTC_offset). Selecione o fuso horário que você deseja aplicar. |
-   | **Hora de início** | `startTime` | Não | String | Forneça uma data e hora de início neste formato: <p><p>AAAA-MM-DDThh:mm:ss se você selecionar um fuso horário <p>- ou - <p>AAAA-MM-DDThh:mm:ssZ se você não selecionar um fuso horário <p>Por exemplo, se você quiser 18 de setembro de 2017 às 2:00 PM, especifique "2017-09-18T14:00:00" e selecione um fuso horário como hora padrão do Pacífico. Ou, especifique "2017-09-18T14:00:00Z" sem um fuso horário. <p>**Observação:** Essa hora de início tem um máximo de 49 anos no futuro e deve seguir a [especificação de data e hora ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) no [formato de data e hora UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), mas sem um [deslocamento UTC](https://en.wikipedia.org/wiki/UTC_offset). Se você não selecionar um fuso horário, será necessário adicionar a letra "Z" no final sem espaços. Essa letra "Z" refere-se ao equivalente em [hora náutica](https://en.wikipedia.org/wiki/Nautical_time). <p>Para agendamentos simples, a hora de início é a primeira ocorrência, enquanto que, para agendamentos complexos, o gatilho não é disparado antes da hora de início. [*Quais são as maneiras que posso usar a data e hora de início?*](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) |
+   | **Hora de início** | `startTime` | Não | String | Forneça uma data e hora de início neste formato: <p><p>AAAA-MM-DDThh:mm:ss se você selecionar um fuso horário <p>- ou - <p>AAAA-MM-DDThh:mm:ssZ se você não selecionar um fuso horário <p>Por exemplo, se você quiser 18 de setembro de 2017 às 2:00 PM, especifique "2017-09-18T14:00:00" e selecione um fuso horário como hora padrão do Pacífico. Ou, especifique "2017-09-18T14:00:00Z" sem um fuso horário. <p>**Observação:** Essa hora de início tem um máximo de 49 anos no futuro e deve seguir a [especificação de data e hora ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) no [formato de data e hora UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), mas sem um [deslocamento UTC](https://en.wikipedia.org/wiki/UTC_offset). Se você não selecionar um fuso horário, será necessário adicionar a letra "Z" no final sem espaços. Essa letra "Z" refere-se ao equivalente em [hora náutica](https://en.wikipedia.org/wiki/Nautical_time). <p>Para agendamentos simples, a hora de início é a primeira ocorrência, enquanto que, para agendamentos complexos, o gatilho não é disparado antes da hora de início. [*Quais são as maneiras que posso usar a data e hora de início?*](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) |
    ||||||
 
 1.  Quando terminar, selecione **Salvar** na barra de ferramentas do designer.
@@ -142,26 +142,25 @@ Para filtrar, classificar ou obter os resultados mais recentes, forneça *soment
 
 `Filter threat intelligence indicator value as threatType eq 'DDoS'`
 
-Para obter mais informações sobre as consultas que você pode usar com esse conector, consulte ["parâmetros de consulta opcionais" na documentação de referência do indicador Microsoft Graph Security Threat Intelligence](/graph/api/tiindicators-list?tabs=http&view=graph-rest-beta). Para criar experiências aprimoradas com esse conector, saiba mais sobre as [Propriedades do esquema indicador de inteligência contra ameaças](/graph/api/resources/tiindicator?view=graph-rest-beta) ao qual o conector dá suporte.
+Para obter mais informações sobre as consultas que você pode usar com esse conector, consulte ["parâmetros de consulta opcionais" na documentação de referência do indicador Microsoft Graph Security Threat Intelligence](/graph/api/tiindicators-list). Para criar experiências aprimoradas com esse conector, saiba mais sobre as [Propriedades do esquema indicador de inteligência contra ameaças](/graph/api/resources/tiindicator) ao qual o conector dá suporte.
 
 | Ação | Descrição |
 |--------|-------------|
-| **Obter indicadores de inteligência contra ameaças** | Obtenha tiIndicators filtrado com base em uma ou mais [Propriedades tiIndicator](/graph/api/resources/tiindicator?view=graph-rest-beta), por exemplo,`threatType eq 'MaliciousUrl' or 'DDoS'` |
+| **Obter indicadores de inteligência contra ameaças** | Obtenha tiIndicators filtrado com base em uma ou mais [Propriedades tiIndicator](/graph/api/resources/tiindicator), por exemplo, `threatType eq 'MaliciousUrl' or 'DDoS'` |
 | **Obter indicador de inteligência contra ameaças por ID** | Obtenha um tiIndicator específico com base na ID do tiIndicator. | 
-| **Criar indicador de inteligência contra ameaças** | Crie um novo tiIndicator postando na coleção tiIndicators. Para garantir que você passe as propriedades necessárias em sua solicitação, consulte as [Propriedades necessárias para criar tiIndicator](/graph/api/tiindicators-post?tabs=http&view=graph-rest-beta). |
-| **Enviar vários indicadores de inteligência contra ameaças** | Crie vários novos tiIndicators postando uma coleção tiIndicators. Para garantir que você passe as propriedades necessárias em sua solicitação, consulte as [Propriedades necessárias para enviar vários tiIndicators](/graph/api/tiindicator-submittiindicators?tabs=http&view=graph-rest-beta). |
-| **Atualizar indicador de inteligência contra ameaças** | Atualize um tiIndicator específico com base na ID do tiIndicator. Para ter certeza de que você passa as propriedades requeridas e editáveis em sua solicitação, consulte as [Propriedades editáveis de tiIndicator](/graph/api/tiindicator-update?tabs=http&view=graph-rest-beta). Por exemplo, para atualizar a ação a ser aplicada se o indicador for correspondido de dentro da ferramenta de segurança do targetProduct, você poderá atualizar a propriedade de **ação** do tiIndicator. |
-| **Atualizar vários indicadores de inteligência contra ameaças** | Atualizar vários tiIndicators. Para garantir que você passe as propriedades necessárias em sua solicitação, consulte as [Propriedades necessárias para atualizar vários tiIndicators](/graph/api/tiindicator-updatetiindicators?tabs=http&view=graph-rest-beta). |
+| **Criar indicador de inteligência contra ameaças** | Crie um novo tiIndicator postando na coleção tiIndicators. Para garantir que você passe as propriedades necessárias em sua solicitação, consulte as [Propriedades necessárias para criar tiIndicator](/graph/api/tiindicators-post). |
+| **Enviar vários indicadores de inteligência contra ameaças** | Crie vários novos tiIndicators postando uma coleção tiIndicators. Para garantir que você passe as propriedades necessárias em sua solicitação, consulte as [Propriedades necessárias para enviar vários tiIndicators](/graph/api/tiindicator-submittiindicators). |
+| **Atualizar indicador de inteligência contra ameaças** | Atualize um tiIndicator específico com base na ID do tiIndicator. Para ter certeza de que você passa as propriedades requeridas e editáveis em sua solicitação, consulte as [Propriedades editáveis de tiIndicator](/graph/api/tiindicator-update). Por exemplo, para atualizar a ação a ser aplicada se o indicador for correspondido de dentro da ferramenta de segurança do targetProduct, você poderá atualizar a propriedade de **ação** do tiIndicator. |
+| **Atualizar vários indicadores de inteligência contra ameaças** | Atualizar vários tiIndicators. Para garantir que você passe as propriedades necessárias em sua solicitação, consulte as [Propriedades necessárias para atualizar vários tiIndicators](/graph/api/tiindicator-updatetiindicators). |
 | **Excluir indicador de inteligência contra ameaças por ID** | Exclua um tiIndicator específico com base na ID do tiIndicator. |
-| **Excluir vários indicadores de inteligência contra ameaças por IDs** | Exclua várias tiIndicators por suas IDs. Para garantir que você passe as propriedades necessárias em sua solicitação, consulte as [Propriedades necessárias para excluir vários tiIndicators por IDs](/graph/api/tiindicator-deletetiindicators?tabs=http&view=graph-rest-beta). |
-| **Excluir vários indicadores de inteligência contra ameaças por IDs externas** | Exclua várias tiIndicators pelas IDs externas. Para garantir que você passe as propriedades necessárias em sua solicitação, consulte as [Propriedades necessárias para excluir vários tiIndicators por IDs externas](/graph/api/tiindicator-deletetiindicatorsbyexternalid?tabs=http&view=graph-rest-beta). |
+| **Excluir vários indicadores de inteligência contra ameaças por IDs** | Exclua várias tiIndicators por suas IDs. Para garantir que você passe as propriedades necessárias em sua solicitação, consulte as [Propriedades necessárias para excluir vários tiIndicators por IDs](/graph/api/tiindicator-deletetiindicators). |
+| **Excluir vários indicadores de inteligência contra ameaças por IDs externas** | Exclua várias tiIndicators pelas IDs externas. Para garantir que você passe as propriedades necessárias em sua solicitação, consulte as [Propriedades necessárias para excluir vários tiIndicators por IDs externas](/graph/api/tiindicator-deletetiindicatorsbyexternalid). |
 |||
 
 ## <a name="connector-reference"></a>Referência de conector
 
-Para obter detalhes técnicos sobre gatilhos, ações e limites, que são explicados na descrição da OpenAPI do conector (anteriormente conhecido como Swagger), veja a [página de referência](https://aka.ms/graphsecurityconnectorreference) do conector.
+Para obter detalhes técnicos sobre gatilhos, ações e limites, que são explicados na descrição da OpenAPI do conector (anteriormente conhecido como Swagger), veja a [página de referência](/connectors/microsoftgraphsecurity/) do conector.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre outros [conectores de Aplicativos Lógicos](../connectors/apis-list.md)
-

@@ -3,7 +3,7 @@ title: Indexando arquivos de mídia com o Indexador de Mídia do Azure
 description: O Azure Media Indexer permite que você torne o conteúdo de seus arquivos de mídia pesquisável e gere uma transcrição de texto completo para legendas codificadas e palavras-chave. Este tópico mostra como usar o indexador de mídia.
 services: media-services
 documentationcenter: ''
-author: Asolanki
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: 827a56b2-58a5-4044-8d5c-3e5356488271
@@ -12,21 +12,23 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/22/2019
-ms.author: juliako
+ms.date: 10/21/2020
+ms.author: inhenkel
 ms.reviewer: johndeu
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 39cbfebcf34ef47ae93972a11be44ef3bcec0d66
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 12a4099a6a3f0d06dfbb40171970c7386c3e4d22
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89008923"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518833"
 ---
 # <a name="indexing-media-files-with-azure-media-indexer"></a>Indexando arquivos de mídia com o Indexador de Mídia do Azure
 
-> [!NOTE]
-> O processador de mídia **Azure Media indexer** será desativado. Para ver as datas de desativação, consulte o tópico de [componentes herdados](legacy-components.md). Os [serviços de mídia do Azure Video indexer](../video-indexer/index.yml) substituem esse processador de mídia herdado. Para obter mais informações, confira [Migrar do Azure Media Indexer e do Azure Media Indexer 2 para o Video Indexer dos Serviços de Mídia do Azure](migrate-indexer-v1-v2.md).
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
+> [!IMPORTANT]
+> É recomendável que os clientes migrem do indexador v1 e do indexador v2 para usar o [modo AudioAnalyzerPreset Basic dos serviços de mídia v3](../latest/analyzing-video-audio-files-concept.md). O processador de mídia [Azure Media indexer](media-services-index-content.md) e os processadores de mídia de [Azure Media indexer 2 Preview](./legacy-components.md) estão sendo desativados. Para ver as datas de desativação, consulte o tópico de [componentes herdados](legacy-components.md).
 
 O Azure Media Indexer permite que você torne o conteúdo de seus arquivos de mídia pesquisável e gere uma transcrição de texto completo para legendas codificadas e palavras-chave. É possível processar um arquivo de mídia ou vários arquivos de mídia em um lote.  
 
@@ -46,7 +48,7 @@ Você pode especificar mais detalhes para as tarefas de indexação usando uma c
 
 Você também pode processar vários arquivos de mídia ao mesmo tempo usando um arquivo de manifesto.
 
-Para saber mais, consulte [Predefinição de tarefa para o Indexador de Mídia do Azure](./media-services-analytics-overview.md).
+Para saber mais, consulte [Predefinição de tarefa para o Indexador de Mídia do Azure](./legacy-components.md).
 
 ## <a name="index-an-asset"></a>Indexe um ativo
 O método a seguir carrega um arquivo de mídia como um ativo e cria um trabalho para indexar o ativo.
@@ -152,14 +154,14 @@ Quando houver mais de um arquivo de mídia de entrada, o Indexador irá gerar um
 | --- | --- |
 | **InputFileName.ttml**<br/>**InputFileName.vtt** |Arquivos de legenda oculta (CC) nos formatos TTML e WebVTT.<br/><br/>Eles podem ser usados para tornar os arquivos de áudio e vídeo acessíveis para pessoas com deficiência auditiva.<br/><br/>Arquivos de legenda oculta incluem uma marca chamada <b>Recognizability</b>, que classifica um trabalho de indexação com base no quanto a fala é reconhecível no vídeo de origem.  Você pode usar o valor de <b>Reconhecimento</b> para mostrar os arquivos de saída na tela e facilitar o uso. Uma baixa pontuação significaria resultados de indexação fraca devido a qualidade do áudio. |
 | **InputFileName.kw.xml<br/>InputFileName.info** |Arquivos de palavra-chave e de informações. <br/><br/>O arquivo de palavra-chave é um arquivo XML que contém as palavras-chave extraídas do conteúdo de fala, com frequência e informações de compensação. <br/><br/>Arquivo de informações é um arquivo de texto não criptografado que contém informações detalhadas sobre cada termo reconhecido. A primeira linha é especial e contém a pontuação de Reconhecimento. Cada linha subsequente é uma lista separada por tabulações dos seguintes dados: hora de início, hora de término, palavra/frase, confiança. Os tempos são fornecidos em segundos, e a confiança é fornecida como um número de 0 a 1. <br/><br/>Linha de exemplo: "1.20    1.45    word    0.67" <br/><br/>Esses arquivos podem ser usados para várias finalidades, por exemplo, para a execução da análise de fala ou exposição aos mecanismos de pesquisa como Bing, Google ou Microsoft SharePoint, a fim de tornar os arquivos de mídia mais detectáveis, ou até mesmo usados para entregar anúncios mais relevantes. |
-| **JobResult.txt** |Manifesto de saída, presente apenas durante a indexação de vários arquivos, contendo as seguintes informações:<br/><br/><table border="1"><tr><th>InputFile</th><th>Alias</th><th>MediaLength</th><th>Erro do</th></tr><tr><td>a.mp4</td><td>Media_1</td><td>300</td><td>0</td></tr><tr><td>b.mp4</td><td>Media_2</td><td>0</td><td>3000</td></tr><tr><td>c.mp4</td><td>Media_3</td><td>600</td><td>0</td></tr></table><br/> |
+| **JobResult.txt** |Manifesto de saída, presente apenas durante a indexação de vários arquivos, contendo as seguintes informações:<br/><br/><table border="1"><tr><th>InputFile</th><th>Alias</th><th>MediaLength</th><th>Erro</th></tr><tr><td>a.mp4</td><td>Media_1</td><td>300</td><td>0</td></tr><tr><td>b.mp4</td><td>Media_2</td><td>0</td><td>3000</td></tr><tr><td>c.mp4</td><td>Media_3</td><td>600</td><td>0</td></tr></table><br/> |
 
 Se nem todos os arquivos de mídia de entrada forem indexados com êxito, o trabalho de indexação falha com o código de erro 4000. Para saber mais, consulte [Códigos de erro](#error_codes).
 
 ## <a name="index-multiple-files"></a>Indexar vários arquivos
 O método a seguir carrega vários arquivos de mídia como um ativo e cria um trabalho para indexar todos esses arquivos em um lote.
 
-Um arquivo de manifesto com a extensão ".lst" é criado e carregado para o ativo. O arquivo de manifesto contém a lista de todos os arquivos de ativo. Para saber mais, consulte [Predefinição de tarefa para o Indexador de Mídia do Azure](./media-services-analytics-overview.md).
+Um arquivo de manifesto com a extensão ".lst" é criado e carregado para o ativo. O arquivo de manifesto contém a lista de todos os arquivos de ativo. Para saber mais, consulte [Predefinição de tarefa para o Indexador de Mídia do Azure](./legacy-components.md).
 
 ```csharp
     static bool RunBatchIndexingJob(string[] inputMediaFiles, string outputFolder)
@@ -250,7 +252,7 @@ O processamento do Indexador de Mídia do Azure pode ser personalizado por meio 
 | **los** |false |Metadados para os arquivos de ativo especificados usados para a Adaptação de Vocabulário.  É útil para preparar o Indexador a fim de reconhecer palavras de vocabulário que não são padrão, como nomes próprios.<br/>`<metadata key="..." value="..."/>` <br/><br/>Você pode fornecer **valores** para **chaves** predefinidas. No momento, as chaves a seguir têm suporte:<br/><br/>"title" e "description" - usadas para a adaptação do vocabulário a fim de ajustar o modelo de idioma para o seu trabalho e melhorar a precisão do reconhecimento de fala.  Os valores propagam pesquisas na Internet para encontrar documentos de texto contextualmente relevantes, usando o conteúdo para aumentar o dicionário interno durante sua tarefa de Indexação.<br/>`<metadata key="title" value="[Title of the media file]" />`<br/>`<metadata key="description" value="[Description of the media file] />"` |
 | **Features** <br/><br/>  Adicionado na versão 1.2. Atualmente, o único recurso com suporte é o reconhecimento de fala (“ASR”). |false |O recurso de Reconhecimento de Fala tem as seguintes chaves de configurações:<table><tr><th><p>Chave</p></th>        <th><p>Descrição</p></th><th><p>Valor de exemplo</p></th></tr><tr><td><p>Linguagem</p></td><td><p>O idioma natural a ser reconhecido no arquivo de multimídia.</p></td><td><p>Inglês, espanhol</p></td></tr><tr><td><p>CaptionFormats</p></td><td><p>uma lista separada por pontos-e-vírgulas dos formatos de legenda de saída desejados (se houver)</p></td><td><p>ttml; webvtt</p></td></tr><tr><td><p></p></td><td><p> </p></td><td><p>Verdadeiro, Falso</p></td></tr><tr><td><p>GenerateKeywords</p></td><td><p>Um sinalizador booliano que especifica se um arquivo XML de palavras-chave é necessário.</p></td><td><p>True; False. </p></td></tr><tr><td><p>ForceFullCaption</p></td><td><p>Um sinalizador booliano que especifica se deve ou não forçar legendas completas (independentemente do nível de confiança).  </p><p>O padrão é false, e nesse caso palavras e frases que têm um nível de confiança inferior a 50% são omitidas das saídas da legenda final e substituídas por reticências (“...”).  As reticências são úteis para controle de qualidade de legenda e auditoria.</p></td><td><p>True; False. </p></td></tr></table> |
 
-### <a name="error-codes"></a><a id="error_codes"></a>Códigos do Erro
+### <a name="error-codes"></a><a id="error_codes"></a>Códigos de erro
 Em caso de erros, o Indexador de Mídia do Azure deverá relatar um dos seguintes códigos de erro:
 
 | Código | Nome | Possíveis motivos |
@@ -276,6 +278,6 @@ Atualmente, há suporte para os idiomas inglês e espanhol.
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-links"></a>Links relacionados
-[Visão geral do Azure Media Services Analytics](media-services-analytics-overview.md)
+[Visão geral do Azure Media Services Analytics](./legacy-components.md)
 
-[Indexando arquivos de mídia com a Preview do Indexador de Mídia do Azure 2](media-services-process-content-with-indexer2.md)
+[Indexando arquivos de mídia com a Preview do Indexador de Mídia do Azure 2](./legacy-components.md)

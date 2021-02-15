@@ -2,18 +2,17 @@
 title: Configurar grupos de disponibilidade para SQL Server em máquinas virtuais RHEL no Azure – Máquinas Virtuais do Linux | Microsoft Docs
 description: Aprenda a configurar a alta disponibilidade em um ambiente de cluster RHEL e configure o STONITH
 ms.service: virtual-machines-linux
-ms.subservice: ''
 ms.topic: tutorial
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: jroth
 ms.date: 06/25/2020
-ms.openlocfilehash: af1df529ae0f6bb03a8d3f36e51619f273780dfe
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 533f5c9e38818a8e37482cbbb3a90602366eca6f
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086788"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97587206"
 ---
 # <a name="tutorial-configure-availability-groups-for-sql-server-on-rhel-virtual-machines-in-azure"></a>Tutorial: Configurar grupos de disponibilidade para o SQL Server em máquinas virtuais RHEL no Azure 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -37,9 +36,9 @@ Este tutorial usará a CLI do Azure para implantar recursos no Azure.
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-[!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../../includes/azure-cli-prepare-your-environment.md)]
 
-Se preferir instalar e usar a CLI localmente, este tutorial exigirá a CLI do Azure versão 2.0.30 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
+- Este artigo exige a versão 2.0.30 ou posterior da CLI do Azure. Se você está usando o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -242,7 +241,7 @@ Você deverá obter os seguintes resultados depois que o comando for concluído:
     done
     ```
 
-O comando acima cria as VMs e uma VNet padrão para essas VMs. Para obter mais informações sobre as diferentes configurações, confira o artigo [az vm create](https://docs.microsoft.com/cli/azure/vm).
+O comando acima cria as VMs e uma VNet padrão para essas VMs. Para obter mais informações sobre as diferentes configurações, confira o artigo [az vm create](/cli/azure/vm).
 
 Depois que o comando for concluído para cada VM, você deverá obter resultados semelhantes aos seguintes:
 
@@ -263,7 +262,7 @@ Depois que o comando for concluído para cada VM, você deverá obter resultados
 > [!IMPORTANT]
 > A imagem padrão criada com o comando acima cria um disco do sistema operacional de 32 GB por padrão. Possivelmente, você poderia ficar sem espaço com essa instalação padrão. Você pode usar o seguinte parâmetro adicionado ao comando `az vm create` acima para criar um disco do sistema operacional com 128 GB como um exemplo: `--os-disk-size-gb 128`.
 >
-> Em seguida, você poderá [configurar o LVM (Gerenciador de Volume Lógico)](../../../virtual-machines/linux/configure-lvm.md) se precisar expandir os volumes de pastas apropriados para acomodar a instalação.
+> Em seguida, você poderá [configurar o LVM (Gerenciador de Volume Lógico)](/previous-versions/azure/virtual-machines/linux/configure-lvm) se precisar expandir os volumes de pastas apropriados para acomodar a instalação.
 
 ### <a name="test-connection-to-the-created-vms"></a>Testar a conexão com as VMs criadas
 
@@ -908,7 +907,7 @@ Em todas as instâncias do SQL Server, salve as credenciais usadas para o logon 
 
 1. Depois que as réplicas secundárias forem ingressadas, você poderá vê-las no Pesquisador de Objetos do SSMS expandindo o nó **Alta Disponibilidade Always On**:
 
-    ![availability-group-joined.png](./media/rhel-high-availability-stonith-tutorial/availability-group-joined.png)
+    ![A captura de tela mostra as réplicas de disponibilidade primárias e secundárias.](./media/rhel-high-availability-stonith-tutorial/availability-group-joined.png)
 
 ### <a name="add-a-database-to-the-availability-group"></a>Adicionar um banco de dados ao grupo de disponibilidade
 
@@ -946,6 +945,9 @@ Se o `synchronization_state_desc` listar SINCRONIZADO para `db1`, isso significa
 ## <a name="create-availability-group-resources-in-the-pacemaker-cluster"></a>Criar recursos do grupo de disponibilidade no cluster do Pacemaker
 
 Seguiremos o guia para [criar os recursos do grupo de disponibilidade no cluster do Pacemaker](/sql/linux/sql-server-linux-create-availability-group#create-the-availability-group-resources-in-the-pacemaker-cluster-external-only).
+
+> [!NOTE]
+> Este artigo contém referências ao termo "servidor subordinado", um termo que a Microsoft não usa mais. Quando o termo for removido do software, também o removeremos deste artigo.
 
 ### <a name="create-the-ag-cluster-resource"></a>Criar o recurso de cluster do grupo de disponibilidade
 
@@ -1132,6 +1134,34 @@ Para verificar se a configuração foi bem-sucedida até agora, testaremos um fa
     sudo pcs resource move ag_cluster-clone <VM2> --master
     ```
 
+   Você também pode especificar uma opção adicional para que a restrição temporária criada para mover o recurso para um nó desejado seja desabilitada automaticamente e não seja necessário executar as etapas 2 e 3 abaixo.
+
+   **RHEL 7**
+
+    ```bash
+    sudo pcs resource move ag_cluster-master <VM2> --master lifetime=30S
+    ```
+
+   **RHEL 8**
+
+    ```bash
+    sudo pcs resource move ag_cluster-clone <VM2> --master lifetime=30S
+    ```
+
+   Outra alternativa para automatizar as etapas 2 e 3 abaixo que desmarcam a restrição temporária no próprio comando de movimentação de recursos é combinar vários comandos em uma linha. 
+
+   **RHEL 7**
+
+    ```bash
+    sudo pcs resource move ag_cluster-master <VM2> --master && sleep 30 && pcs resource clear ag_cluster-master
+    ```
+
+   **RHEL 8**
+
+    ```bash
+    sudo pcs resource move ag_cluster-clone <VM2> --master && sleep 30 && pcs resource clear ag_cluster-clone
+    ```
+    
 2. Se você verificar suas restrições novamente, verá que outra restrição foi adicionada devido ao failover manual:
     
     **RHEL 7**

@@ -8,12 +8,12 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: 44f7ce657ea9341779e15f6e4817e8fae1515e47
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: ea1ee2311d8655ce17017c73309bc69e89f4b5f4
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88685962"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98599113"
 ---
 # <a name="save-on-sap-hana-large-instances-with-an-azure-reservation"></a>Economizar com o SAP HANA em Instâncias Grandes com uma reserva do Azure
 
@@ -32,15 +32,15 @@ Um SKU do HLI precisa ser provisionado antes da realização da compra da capaci
 - Você não pode ter uma capacidade reservada do HANA com o escopo da reserva compartilhado. Você não pode dividir, mesclar nem atualizar o escopo da reserva.
 - Você pode comprar um HLI por vez usando chamadas à API da capacidade reservada. Faça chamadas à API adicionais para comprar quantidades adicionais.
 
-Você pode comprar a capacidade reservada no portal do Azure ou usando a [API REST](https://docs.microsoft.com/rest/api/reserved-vm-instances/reservationorder/purchase).
+Você pode comprar a capacidade reservada no portal do Azure ou usando a [API REST](/rest/api/reserved-vm-instances/reservationorder/purchase).
 
 ## <a name="buy-a-hana-large-instance-reservation"></a>Comprar uma reserva do HANA em Instância Grande
 
-Use as informações a seguir para comprar uma reserva do HLI com as [APIs REST de Pedido de Reserva](https://docs.microsoft.com/rest/api/reserved-vm-instances/reservationorder/purchase).
+Use as informações a seguir para comprar uma reserva do HLI com as [APIs REST de Pedido de Reserva](/rest/api/reserved-vm-instances/reservationorder/purchase).
 
 ### <a name="get-the-reservation-order-and-price"></a>Obter o pedido e o preço da reserva
 
-Primeiro, obtenha as informações sobre o pedido e o preço da reserva do SKU do HANA em Instância Grande provisionado usando a API [Calcular Preço](https://docs.microsoft.com/rest/api/reserved-vm-instances/reservationorder/calculate).
+Primeiro, obtenha as informações sobre o pedido e o preço da reserva do SKU do HANA em Instância Grande provisionado usando a API [Calcular Preço](/rest/api/reserved-vm-instances/reservationorder/calculate).
 
 O exemplo a seguir usa o [armclient](https://github.com/projectkudu/ARMClient) para fazer chamadas à API REST com o PowerShell. O pedido da reserva, bem como a solicitação e o corpo da solicitação à API Calcular Preço devem ter esta aparência:
 
@@ -220,11 +220,11 @@ As informações a seguir explicam o significado dos diferentes campos da reserv
 
   **SKU** Nome do SKU do HLI. Ele se parece com `SAP_HANA_On_Azure_<SKUname>`.
 
-  **Localização** Regiões do HLI disponíveis. Confira em [SKUs para SAP HANA no Azure (Instâncias Grandes)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-available-skus) as regiões disponíveis. Para obter o formato da cadeia de caracteres da localização, use [chamada à API obter localizações](https://docs.microsoft.com/rest/api/resources/subscriptions/listlocations#locationlistresult).
+  **Localização** Regiões do HLI disponíveis. Confira em [SKUs para SAP HANA no Azure (Instâncias Grandes)](../../virtual-machines/workloads/sap/hana-available-skus.md) as regiões disponíveis. Para obter o formato da cadeia de caracteres da localização, use [chamada à API obter localizações](/rest/api/resources/subscriptions/listlocations#locationlistresult).
 
   **Tipo de recurso reservado** `SapHana`
 
-  **Assinatura** A assinatura usada para pagar pela reserva. Os custos da reserva são cobrados segundo a forma de pagamento da assinatura. O tipo de assinatura deve ser um contrato empresarial (números da oferta: MS-AZR-0017P ou MS-AZR-0148P) ou Contrato de Cliente da Microsoft. Os preços são deduzidos do saldo do compromisso monetário, se disponível, ou são cobrados como excedente.
+  **Assinatura** A assinatura usada para pagar pela reserva. Os custos da reserva são cobrados segundo a forma de pagamento da assinatura. O tipo de assinatura deve ser um contrato empresarial (números da oferta: MS-AZR-0017P ou MS-AZR-0148P) ou Contrato de Cliente da Microsoft. Os preços são deduzidos do saldo do Pagamento antecipado do Azure (anteriormente conhecido como compromisso monetário), se disponível, ou cobrados como excedente.
 
   **Escopo** O escopo da reserva deve ser único.
 
@@ -248,5 +248,5 @@ location. You can also go to https://aka.ms/corequotaincrease to learn about quo
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre [Como chamar APIs REST do Azure com Postman e cURL](https://docs.microsoft.com/rest/api/azure/#how-to-call-azure-rest-apis-with-postman).
-- Confira em [SKUs para SAP HANA no Azure (Instâncias Grandes)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-available-skus) as lista com os SKUs e as regiões disponíveis.
+- Saiba mais sobre [Como chamar APIs REST do Azure com Postman e cURL](/rest/api/azure/#how-to-call-azure-rest-apis-with-postman).
+- Confira em [SKUs para SAP HANA no Azure (Instâncias Grandes)](../../virtual-machines/workloads/sap/hana-available-skus.md) as lista com os SKUs e as regiões disponíveis.

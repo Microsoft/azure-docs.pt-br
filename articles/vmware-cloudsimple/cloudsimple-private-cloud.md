@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: e2096e8c0ebfb233c7449510bf0bc8e80b56231e
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/12/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88140709"
 ---
 # <a name="cloudsimple-private-cloud-overview"></a>Visão geral da nuvem privada do CloudSimple
@@ -121,7 +121,7 @@ Aqui estão alguns exemplos de casos de uso para implantação em nuvem privada.
 * Acesse serviços de nuvem pública sem precisar expandir seu data center ou rearquitetar seus aplicativos.
 * Centralize identidades, políticas de controle de acesso, registro em log e monitoramento para aplicativos VMware no Azure.
 
-## <a name="limits"></a>Limites
+## <a name="limits"></a>limites
 
 A tabela a seguir lista os limites de nó dos recursos de uma nuvem privada.
 

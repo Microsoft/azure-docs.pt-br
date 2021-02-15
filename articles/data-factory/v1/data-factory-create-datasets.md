@@ -1,22 +1,18 @@
 ---
 title: Criar conjuntos de os Azure Data Factory
 description: Saiba como criar conjuntos de dados no Azure Data Factory, com exemplos que usam propriedades como offset e anchorDateTime.
-services: data-factory
-documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
-manager: jroth
+author: dcstwh
+ms.author: weetok
 ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 13ee8c5166e3b31ec186ca9aa2702d15de36e09f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 4b222b387dad1c078cfe2a063ed310ef463b192e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86522390"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100376829"
 ---
 # <a name="datasets-in-azure-data-factory-version-1"></a>Conjuntos de valores no Azure Data Factory (versão 1)
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -32,9 +28,9 @@ Este artigo descreve o que são conjuntos de dados, como eles são definidos no 
 > Se estiver conhecendo o Azure Data Factory agora, consulte [Introdução ao Azure Data Factory](data-factory-introduction.md) para obter uma visão geral. Caso não tenha experiência prática com a criação de data factories, obtenha um melhor entendimento lendo o [tutorial de transformação de dados](data-factory-build-your-first-pipeline.md) e o [tutorial de movimentação de dados](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 ## <a name="overview"></a>Visão geral
-Uma fábrica de dados pode ter um ou mais pipelines. Um **pipeline** é um agrupamento lógico de **atividades** que juntas executam uma tarefa. As atividades em um pipeline definem ações para executar em seus dados. Por exemplo, você pode usar uma atividade de cópia para copiar dados de um banco de dado SQL Server para o armazenamento de BLOBs do Azure. Em seguida, poderá usar uma atividade do Hive que executa um script Hive em um cluster HDInsight do Azure a fim de processar dados do armazenamento de Blobs para gerar dados de saída. Por fim, poderá usar uma segunda atividade de cópia para copiar os dados de saída para o SQL Data Warehouse do Azure, no qual as soluções de relatório de BI (business intelligence) são criadas. Para obter mais informações sobre pipelines e atividades, consulte [pipelines e atividades em Azure data Factory](data-factory-create-pipelines.md).
+Uma fábrica de dados pode ter um ou mais pipelines. Um **pipeline** é um agrupamento lógico de **atividades** que juntas executam uma tarefa. As atividades em um pipeline definem ações para executar em seus dados. Por exemplo, você pode usar uma atividade de cópia para copiar dados de um banco de dado SQL Server para o armazenamento de BLOBs do Azure. Em seguida, poderá usar uma atividade do Hive que executa um script Hive em um cluster HDInsight do Azure a fim de processar dados do armazenamento de Blobs para gerar dados de saída. Por fim, você pode usar uma segunda atividade de cópia para copiar os dados de saída para o Azure Synapse Analytics, na parte superior das soluções de relatório de business intelligence (BI) criadas. Para obter mais informações sobre pipelines e atividades, consulte [pipelines e atividades em Azure data Factory](data-factory-create-pipelines.md).
 
-Uma atividade pode usar zero ou mais **conjuntos**de dados de entrada e produzir um ou mais conjuntos de resultados de saída. Um conjunto de dados de entrada representa a entrada de uma atividade no pipeline e um conjunto de dados de saída representa a saída da atividade. Conjuntos de dados identificam dados em armazenamentos de dados diferentes, como tabelas, arquivos, pastas e documentos. Por exemplo, um conjunto de dados de Blob do Azure especifica o contêiner de blobs e a pasta no armazenamento de Blobs dos quais o pipeline deve ler os dados.
+Uma atividade pode usar zero ou mais **conjuntos** de dados de entrada e produzir um ou mais conjuntos de resultados de saída. Um conjunto de dados de entrada representa a entrada de uma atividade no pipeline e um conjunto de dados de saída representa a saída da atividade. Conjuntos de dados identificam dados em armazenamentos de dados diferentes, como tabelas, arquivos, pastas e documentos. Por exemplo, um conjunto de dados de Blob do Azure especifica o contêiner de blobs e a pasta no armazenamento de Blobs dos quais o pipeline deve ler os dados.
 
 Antes de criar um conjunto de dados, crie um **serviço vinculado** para vincular o armazenamento de dados ao data factory. Serviços vinculados são como cadeias de conexão, que definem as informações de conexão necessárias para o Data Factory para se conectar a recursos externos. Conjuntos de dados identificam dados em armazenamentos de dados vinculados, como tabelas SQL, arquivos, pastas e documentos. Por exemplo, um serviço vinculado do Armazenamento do Azure vincula uma conta de armazenamento ao data factory. Um conjunto de dados de Blob do Azure representa o contêiner de blob e a pasta que contém os blobs de entrada a ser processado.
 
@@ -141,7 +137,7 @@ Como você pode ver, o serviço vinculado define como se conectar a um banco de 
 > [!IMPORTANT]
 > A menos que um conjunto de dados seja produzido pela pipeline, ele deverá ser marcado como **externo**. Essa configuração geralmente se aplica às entradas da primeira atividade em um pipeline.
 
-## <a name="dataset-type"></a><a name="Type"></a>Tipo de conjunto de texto
+## <a name="dataset-type"></a><a name="Type"></a> Tipo de conjunto de texto
 O tipo do conjunto de dados depende do armazenamento de dados que você usa. Consulte a tabela a seguir para obter uma lista de armazenamentos de dados com suporte pelo Data Factory. Clique em um armazenamento de dados para saber como criar um serviço vinculado e um conjunto de dados para esse armazenamento de dados.
 
 [!INCLUDE [data-factory-supported-data-stores](../../../includes/data-factory-supported-data-stores.md)]

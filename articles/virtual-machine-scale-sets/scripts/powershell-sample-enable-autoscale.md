@@ -7,13 +7,13 @@ ms.topic: sample
 ms.service: virtual-machine-scale-sets
 ms.subservice: autoscale
 ms.date: 06/25/2020
-ms.custom: avverma
-ms.openlocfilehash: 9ee64f86cba7287af371f856c442d93e9a03d85b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: avverma, devx-track-azurepowershell
+ms.openlocfilehash: 9530f34ee919547049df06fb0974971c3ba4b2a9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87088896"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89079618"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-with-powershell"></a>Dimensionar automaticamente um conjunto de dimensionamento de máquinas virtuais com o PowerShell
 Esse script cria um conjunto de dimensionamento de máquinas virtuais executando o Windows Server 2016 e usa métricas baseadas em host para dimensionar automaticamente conforme a carga da CPU muda.

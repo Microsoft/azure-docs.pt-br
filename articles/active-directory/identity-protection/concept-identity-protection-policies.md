@@ -11,24 +11,24 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7587ed6d414a69cff67aca9446aebf6260c99fcd
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 28a9080ce878e262573adf0b3c79394079c09ca2
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83736493"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835961"
 ---
 # <a name="identity-protection-policies"></a>Políticas do Identity Protection
 
-O Azure Active Directory Identity Protection inclui três políticas padrão que os administradores podem habilitar. A personalização dessas políticas é limitada, mas são aplicáveis à maioria das organizações. Todas as políticas permitem a exclusão de usuários, como suas [contas de administrador de interrupção ou de acesso de emergência](../users-groups-roles/directory-emergency-access.md).
+O Azure Active Directory Identity Protection inclui três políticas padrão que os administradores podem habilitar. A personalização dessas políticas é limitada, mas são aplicáveis à maioria das organizações. Todas as políticas permitem a exclusão de usuários, como suas [contas de administrador de interrupção ou de acesso de emergência](../roles/security-emergency-access.md).
 
 ![Políticas do Identity Protection](./media/concept-identity-protection-policies/identity-protection-policies.png)
 
-## <a name="azure-mfa-registration-policy"></a>Política de registro com Azure MFA
+## <a name="azure-ad-mfa-registration-policy"></a>Política de registro de MFA do Azure AD
 
-O Identity Protection ajuda as organizações a implantar a Autenticação multifator do Azure (MFA) do Azure usando uma política de Acesso Condicional que requer um registro para entrar. Habilitar essa política é uma ótima maneira de garantir que novos usuários da organização tenham se registrado para MFA no primeiro dia. A autenticação multifator é um dos métodos de autocorreção para eventos de risco no Identity Protection. A autocorreção permite que os usuários tomem providências por conta própria para reduzir o volume de chamadas para assistência técnica.
+A proteção de identidade pode ajudar as organizações a distribuir a MFA (autenticação multifator) do Azure AD usando uma política de acesso condicional que requer registro na entrada. Habilitar essa política é uma ótima maneira de garantir que novos usuários da organização tenham se registrado para MFA no primeiro dia. A autenticação multifator é um dos métodos de autocorreção para eventos de risco no Identity Protection. A autocorreção permite que os usuários tomem providências por conta própria para reduzir o volume de chamadas para assistência técnica.
 
-Mais informações sobre a Autenticação Multifator do Azure podem ser encontradas no artigo [Como funciona: Autenticação Multifator do Azure](../authentication/concept-mfa-howitworks.md).
+Mais informações sobre a autenticação multifator do Azure AD podem ser encontradas no artigo [como funciona: autenticação multifator do Azure ad](../authentication/concept-mfa-howitworks.md).
 
 ## <a name="sign-in-risk-policy"></a>Política de risco de entrada
 
@@ -37,7 +37,7 @@ O Identity Protection analisa os sinais de cada entrada, tanto em tempo real qua
 Se for detectado um risco, os usuários podem executar a autenticação multifator para autocorrigir e fechar a entrada suspeita para evitar passar problemas desnecessários para os administradores.
 
 > [!NOTE] 
-> Os usuários devem ter se registrado anteriormente para a Autenticação Multifator do Azure antes de disparar a política de risco de entrada.
+> Os usuários devem ter registrado anteriormente para a autenticação multifator do Azure AD antes de disparar a política de risco de entrada.
 
 ### <a name="custom-conditional-access-policy"></a>Política de Acesso Condicional personalizada
 
@@ -58,8 +58,8 @@ Se for detectado um risco, os usuários podem realizar a redefinição de senha 
 
 - [Habilitar a redefinição de senha self-service do Azure AD](../authentication/howto-sspr-deployment.md)
 
-- [Habilitar a Autenticação Multifator do Microsoft Azure](../authentication/howto-mfa-getstarted.md)
+- [Habilitar a autenticação multifator do Azure AD](../authentication/howto-mfa-getstarted.md)
 
-- [Habilitar a política de registro da Autenticação Multifator do Azure](howto-identity-protection-configure-mfa-policy.md)
+- [Habilitar a política de registro da autenticação multifator do Azure AD](howto-identity-protection-configure-mfa-policy.md)
 
 - [Habilitar as políticas de entrada e de risco do usuário](howto-identity-protection-configure-risk-policies.md)

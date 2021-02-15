@@ -1,20 +1,20 @@
 ---
 title: Segurança de rede para retransmissão do Azure
-description: Este artigo descreve como configurar o acesso de pontos de extremidade privados
+description: Este artigo descreve como usar regras de firewall IP e pontos de extremidade privados com a retransmissão do Azure.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: bf49eff29385b5b72639420416df87b9187845e8
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 735a0b7dc303ad63cb301151e3e14e4488c856b1
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87532978"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98217236"
 ---
 # <a name="network-security-for-azure-relay"></a>Segurança de rede para retransmissão do Azure 
 Este artigo descreve como usar os seguintes recursos de segurança com a retransmissão do Azure: 
 
-- Regras de firewall de IP (versão prévia)
-- Pontos de extremidade privados (versão prévia)
+- Regras de firewall de IP
+- Pontos de extremidade privados 
 
 > [!NOTE]
 > A retransmissão do Azure não dá suporte a pontos de extremidade de serviço de rede. 
@@ -31,12 +31,9 @@ Para obter mais informações, consulte [como configurar o firewall IP para um n
 
 ## <a name="private-endpoints"></a>Pontos de extremidade privados
 
-O Serviço de Link Privado do Azure permite acessar os Serviços do Azure (por exemplo, Retransmissão do Azure, Barramento de Serviço do Azure, Hubs de Eventos do Azure, Armazenamento do Microsoft Azure e Azure Cosmos DB) e serviços de parceiros/clientes hospedados no Azure em um **ponto de extremidade privado** da sua rede virtual. Para obter mais informações, confira [O que é o Link Privado do Azure (versão prévia)?](../private-link/private-link-overview.md)
+O Serviço de Link Privado do Azure permite acessar os Serviços do Azure (por exemplo, Retransmissão do Azure, Barramento de Serviço do Azure, Hubs de Eventos do Azure, Armazenamento do Microsoft Azure e Azure Cosmos DB) e serviços de parceiros/clientes hospedados no Azure em um **ponto de extremidade privado** da sua rede virtual. Para obter mais informações, confira [O que é o Link Privado do Azure?](../private-link/private-link-overview.md)
 
 Um **ponto de extremidade privado**  é uma interface de rede que permite que suas cargas de trabalho em execução em uma rede virtual se conectem de forma privada e segura a um serviço que tenha um **recurso de link privado** (por exemplo, um namespace de Retransmissão). O ponto de extremidade privado usa um endereço IP privado de sua VNet, colocando efetivamente em sua VNet. Todo o tráfego para o serviço pode ser roteado por meio do ponto de extremidade privado; assim, nenhum gateway, nenhum dispositivo NAT, nenhum ExpressRoute, nenhuma conexão VPN e nenhum endereço IP público é necessário. O tráfego entre a rede virtual e o serviço percorre a rede de backbone da Microsoft, eliminando a exposição da Internet pública. Você pode fornecer um nível de granularidade ao controle de acesso que permite conexões a namespaces específicos da Retransmissão do Azure.
-
-> [!NOTE]
-> Esse recurso está atualmente em **versão prévia**. 
 
 Para obter mais informações, consulte [como configurar pontos de extremidade privados](private-link-service.md)
 

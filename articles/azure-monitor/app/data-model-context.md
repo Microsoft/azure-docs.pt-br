@@ -4,12 +4,12 @@ description: Modelo de dados de contexto do Application Insights Telemetry
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.reviewer: sergkanz
-ms.openlocfilehash: 25ff7d92da5ea0a6aba84aad1cfc98e5295e151e
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 76f3be510494a1f005b0080ee8f2390a3fbc3622
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322662"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91767837"
 ---
 # <a name="telemetry-context-application-insights-data-model"></a>Contexto de telemetria: modelo de dados do Application Insights
 
@@ -85,7 +85,7 @@ Comprimento máximo: 128
 
 ## <a name="authenticated-user-id"></a>Id de usuário autenticado
 
-ID de usuário autenticado. O oposto da ID de usuário anônimo, esse campo representa o usuário com um nome amigável. As informações de PII não são coletadas por padrão pela maioria dos SDKs.
+ID de usuário autenticado. O oposto da ID de usuário anônimo, esse campo representa o usuário com um nome amigável. Isso só é coletado por padrão com o SDK do ASP.NET Framework [`AuthenticatedUserIdTelemetryInitializer`](https://github.com/microsoft/ApplicationInsights-dotnet/blob/develop/WEB/Src/Web/Web/AuthenticatedUserIdTelemetryInitializer.cs) .  
 
 Comprimento máximo: 1024
 
@@ -113,7 +113,7 @@ Comprimento máximo: 256
 
 ## <a name="internal-sdk-version"></a>Interno: versão de SDK
 
-Versão do SDK. Consulte [Este artigo](https://github.com/microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/SDK-VERSIONS.md) para obter informações.
+Versão do SDK. Consulte [Este artigo](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/EndpointSpecs/SDK-VERSIONS.md) para obter informações.
 
 Comprimento máximo: 64
 

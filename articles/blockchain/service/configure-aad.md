@@ -5,10 +5,10 @@ ms.date: 11/22/2019
 ms.topic: how-to
 ms.reviewer: janders
 ms.openlocfilehash: 337d01abc51d310d06aeea3427b770132be4824c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85208766"
 ---
 # <a name="how-to-configure-azure-active-directory-access-for-azure-blockchain-service"></a>Como configurar o acesso de Azure Active Directory para o serviço Blockchain do Azure
@@ -41,7 +41,7 @@ Para conceder permissão de acesso no nível de membro.
 
     ![Adicionar atribuição de função](./media/configure-aad/add-role-assignment.png)
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 ### <a name="grant-node-level-access"></a>Conceder acesso ao nível do nó
 
@@ -89,7 +89,7 @@ connector.exe -remote <myBlockchainEndpoint>  -method aadclient -client-id <myCl
 
 | Parâmetro | Descrição |
 |-----------|-------------|
-| ID do locatário | Domínio do Azure AD, por exemplo,`yourdomain.onmicrosoft.com`
+| ID do locatário | Domínio do Azure AD, por exemplo, `yourdomain.onmicrosoft.com`
 | ID do cliente | ID do cliente do aplicativo registrado no Azure AD
 | segredo do cliente | Segredo do cliente do aplicativo registrado no Azure AD
 

@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 08d56a13d0a2e373a725320e132df739d806f2e6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0c4fde22b1b8d72ae8ae775c090e0da25ce0665f
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85608221"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96181162"
 ---
 # <a name="analyze-azure-ad-activity-logs-with-azure-monitor-logs"></a>Analisar logs de atividade do Azure AD com os logs do Azure Monitor
 
@@ -36,9 +36,9 @@ Neste artigo, você aprenderá como analisar o logs de atividades do Azure AD no
 
 Para acompanhar, você precisa:
 
-* Um espaço de trabalho do Log Analytics em sua assinatura do Azure. Saiba como [criar um espaço de trabalho do Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace).
+* Um espaço de trabalho do Log Analytics em sua assinatura do Azure. Saiba como [criar um espaço de trabalho do Log Analytics](../../azure-monitor/learn/quick-create-workspace.md).
 * Em primeiro lugar, conclua as etapas para [rotear os logs de atividades do Azure AD para seu espaço de trabalho do Log Analytics](howto-integrate-activity-logs-with-log-analytics.md).
-*  [Acesse](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access#manage-access-using-workspace-permissions) para o workspace de análise de logs
+*  [Acesse](../../azure-monitor/platform/manage-access.md#manage-access-using-workspace-permissions) para o workspace de análise de logs
 * As funções a seguir no Azure Active Directory (se você estiver acessando a análise de logs por meio do portal do Azure Active Directory)
     - Administrador de Segurança
     - Leitor de segurança
@@ -96,23 +96,20 @@ Você também pode configurar alertas em sua consulta. Por exemplo, para configu
 
 3. Insira um nome e uma descrição para o alerta e escolha o nível de gravidade. Para nosso exemplo, podemos pode defini-lo como **Informativo**.
 
-4. Selecione o **Grupo de Ações** que receberá um alerta quando ocorrer o sinal. Você pode optar por notificar a equipe por email ou mensagem de texto, ou pode automatizar a ação usando webhooks, o Azure Functions ou aplicativos lógicos. Saiba mais sobre [como criar e gerenciar grupos de alerta no portal do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups).
+4. Selecione o **Grupo de Ações** que receberá um alerta quando ocorrer o sinal. Você pode optar por notificar a equipe por email ou mensagem de texto, ou pode automatizar a ação usando webhooks, o Azure Functions ou aplicativos lógicos. Saiba mais sobre [como criar e gerenciar grupos de alerta no portal do Azure](../../azure-monitor/platform/action-groups.md).
 
 5. Depois de configurar o alerta, selecione **Criar alerta** para habilitá-lo. 
 
-## <a name="install-and-use-pre-built-views-for-azure-ad-activity-logs"></a>Instalar e usar exibições predefinidas para logs de atividades do Azure AD
+## <a name="use-pre-built-workbooks-for-azure-ad-activity-logs"></a>Usar pastas de trabalho predefinidas para logs de atividades do Azure AD
 
-Você também pode baixar as exibições do Log Analytics predefinidas para logs de atividades do Azure AD. As exibições fornecem vários relatórios relacionados a cenários comuns que envolvem eventos de auditoria e entrada. Você também pode alertar sobre qualquer um dos dados fornecidos nos relatórios seguindo as etapas descritas na seção anterior.
+As pastas de trabalho fornecem vários relatórios relacionados a cenários comuns envolvendo auditoria, entrada e eventos de provisionamento. Você também pode alertar sobre qualquer um dos dados fornecidos nos relatórios seguindo as etapas descritas na seção anterior.
 
-* **Eventos de provisionamento de conta do Azure AD**: Essa exibição mostra os relatórios relacionados à auditoria da atividade de provisionamento, como o número de novos usuários provisionados e falhas de provisionamento, número de usuários atualizados e falhas de atualização, além de número de usuários desprovisionados e falhas correspondentes.    
-* **Eventos de entradas**: Essa exibição mostra os relatórios mais relevantes relacionados à atividade de entrada de monitoramento, como entradas por aplicativo, usuário, dispositivo, bem como exibição resumida de acompanhamento do número de entradas ao longo do tempo.
-* **Usuários que executam o consentimento**: essa exibição mostra os relatórios relacionados ao consentimento do usuário, como o consentimento dados por usuário, entradas por usuários que recebeu consentimento, bem como entradas por aplicativo para todos os aplicativos baseados em consentimento. 
-
-Saiba como [instalar e usar as exibições do Log Analytics para logs de atividades do Azure AD](howto-install-use-log-analytics-views.md). 
-
+* **Análise de provisionamento**: esta [pasta de trabalho](../app-provisioning/application-provisioning-log-analytics.md) mostra relatórios relacionados à atividade de provisionamento de auditoria, como o número de novos usuários provisionados e falhas de provisionamento, número de usuários atualizados e falhas de atualização e o número de usuários desprovisionados e falhas correspondentes.    
+* **Eventos de entradas**: esta pasta de trabalho mostra os relatórios mais relevantes relacionados à atividade de entrada de monitoramento, como entradas por aplicativo, usuário, dispositivo, bem como uma exibição de resumo que controla o número de entradas ao longo do tempo.
+* **Informações de acesso condicional**: a [pasta de trabalho](../conditional-access/howto-conditional-access-insights-reporting.md) informações de acesso condicional e relatórios permite que você entenda o impacto das políticas de acesso condicional em sua organização ao longo do tempo. 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Introdução às consultas de log do Azure Monitor](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries)
-* [Criar e gerenciar grupos de alertas no portal do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups)
+* [Introdução às consultas de log do Azure Monitor](../../azure-monitor/log-query/get-started-queries.md)
+* [Criar e gerenciar grupos de alertas no portal do Azure](../../azure-monitor/platform/action-groups.md)
 * [Instalar e usar os modos de exibição do Log Analytics do Azure Active Directory](howto-install-use-log-analytics-views.md)

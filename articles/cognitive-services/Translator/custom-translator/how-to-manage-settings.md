@@ -2,19 +2,19 @@
 title: Como gerenciar configurações? - Tradutor Personalizado
 titleSuffix: Azure Cognitive Services
 description: Como gerenciar configurações, criar workspace, compartilhar workspace e gerenciar a chave de assinatura no Tradutor Personalizado.
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 08/17/2020
-ms.author: swmachan
+ms.author: lajanuar
 ms.topic: conceptual
-ms.openlocfilehash: 488ca52abdd5f8d6cfd1f92a5f91861a17a77d19
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 49801eddd748a88109bb7f6d075def03cd798754
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88510432"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895774"
 ---
 # <a name="how-to-manage-settings"></a>Como gerenciar configurações
 
@@ -33,7 +33,7 @@ Você precisa ter uma chave de assinatura do tradutor associada ao seu espaço d
 
 Se você não tem uma assinatura, siga as etapas abaixo:
 
-1. Assine para criar um recurso de tradutor. Siga [como se inscrever no Translator](https://docs.microsoft.com/azure/cognitive-services/translator/translator-how-to-signup) para assinar e adquirir uma chave de tradutor.
+1. Assine para criar um recurso de tradutor. Siga [como se inscrever no Translator](../translator-how-to-signup.md) para assinar e adquirir uma chave de tradutor.
 2. Anote a chave para sua assinatura do tradutor. Qualquer uma das Key1 ou Key2 são aceitáveis.
 3. Navegue de volta para o portal do Custom Translator.
 
@@ -51,6 +51,8 @@ Se você não tem uma assinatura, siga as etapas abaixo:
 
     ![Criar caixa de diálogo do novo workspace](media/how-to/create-new-workspace-dialog.png)
 
+>[!Note]
+>O tradutor personalizado não dá suporte à criação de espaço de trabalho para API de Tradução de Texto recurso (também conhecido como Chave de assinatura do Azure) que foi criada dentro da [VNET habilitada](../../../api-management/api-management-using-with-vnet.md).
 
 ### <a name="modify-existing-key"></a>Modificar chave existente
 
@@ -61,7 +63,7 @@ Se você não tem uma assinatura, siga as etapas abaixo:
 
 3. Na caixa de diálogo, insira a chave para sua assinatura do tradutor e clique no botão "salvar".
 
-    ![Como adicionar chave de assinatura](media/how-to/how-to-add-subscription-key-dialog.png)
+    ![Caixa de diálogo como adicionar chave de assinatura](media/how-to/how-to-add-subscription-key-dialog.png)
 
 ## <a name="manage-your-workspace"></a>Gerenciar seu workspace
 

@@ -14,12 +14,12 @@ ms.author: blazem
 ms.reviewer: jroth
 manager: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 6f1f5f55348069dbfe11b4d5857d93f8ba8c9b19
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 772341d046186e46b79ad7b11170e1bad23a3a6f
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74033966"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024187"
 ---
 # <a name="enable-transparent-data-encryption-tde-for-stretch-database-on-azure-transact-sql"></a>Habilitar TDE (Transparent Data Encryption) para Stretch Database no Azure (Transact-SQL)
 > [!div class="op_single_selector"]
@@ -69,7 +69,7 @@ FROM
 Um resultado de ```1``` indica um banco de dados criptografado, ```0``` indica um banco de dados não criptografado.
 
 <!--Anchors-->
-[TDE (Transparent Data Encryption)]: https://msdn.microsoft.com/library/bb934049.aspx
+[TDE (Transparent Data Encryption)]: /sql/relational-databases/security/encryption/transparent-data-encryption
 
 
 <!--Image references-->

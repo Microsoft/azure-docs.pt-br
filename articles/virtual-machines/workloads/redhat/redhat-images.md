@@ -1,23 +1,19 @@
 ---
 title: Visão geral das imagens de Red Hat Enterprise Linux no Azure
 description: Saiba mais sobre as imagens de Red Hat Enterprise Linux no Microsoft Azure.
-services: virtual-machines-linux
-documentationcenter: ''
 author: asinn826
-manager: BorisB2015
-editor: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: 9aa0ca41f63da94e2dedaffe65ea518b8adff0dc
-ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
+ms.reviewer: cynthn
+ms.openlocfilehash: 293245d6778a40e234cdca177905c15dc88dd04f
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87439476"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737754"
 ---
 # <a name="overview-of-red-hat-enterprise-linux-images"></a>Visão geral de imagens de Red Hat Enterprise Linux
 
@@ -26,7 +22,7 @@ Este artigo descreve as imagens disponíveis do Red Hat Enterprise Linux (RHEL) 
 Para obter informações sobre as políticas de suporte do Red Hat para todas as versões do RHEL, consulte [ciclo de vida Red Hat Enterprise Linux](https://access.redhat.com/support/policy/updates/errata). Para obter detalhes de preços, consulte [calculadora de preços do Azure](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 
 >[!IMPORTANT]
-> As imagens RHEL atualmente disponíveis no Azure Marketplace dão suporte a BYOS (traga sua própria assinatura) ou a modelos de licenciamento pagos conforme o uso. O [benefício de uso híbrido do Azure](../../windows/hybrid-use-benefit-licensing.md) e a alternância dinâmica entre BYOS e licenciamento pago conforme o uso não têm suporte. Para alternar o modo de licenciamento, você deve reimplantar a VM da imagem correspondente.
+> As imagens RHEL atualmente disponíveis no Azure Marketplace dão suporte a BYOS (traga sua própria assinatura) ou a modelos de licenciamento pagos conforme o uso. A alternância dinâmica entre o BYOS e o licenciamento pago conforme o uso pode ser feita por meio [do benefício de utilização híbrida do Azure](../../linux/azure-hybrid-benefit-linux.md).
 
 >[!NOTE]
 > Para qualquer problema relacionado a imagens RHEL no Azure Marketplace, arquivo um tíquete de suporte com a Microsoft.
@@ -64,8 +60,8 @@ az vm create --name RhelVM --resource-group TestRG --image RedHat:RHEL:8-LVM:lat
 ```
 
 >[!NOTE]
-> Em geral, a comparação de versões para determinar a versão mais recente segue as regras do [método CompareTo](/dotnet/api/system.version.compareto?view=netcore-3.1#system_version_compareto_system_version_).
-Essa comparação de versão de imagem é feita comparando os valores como um objeto de [versão](/dotnet/api/system.version.-ctor?view=netframework-4.8) , não como uma cadeia de caracteres.
+> Em geral, a comparação de versões para determinar a versão mais recente segue as regras do [método CompareTo](/dotnet/api/system.version.compareto#system_version_compareto_system_version_).
+Essa comparação de versão de imagem é feita comparando os valores como um objeto de [versão](/dotnet/api/system.version.-ctor) , não como uma cadeia de caracteres.
 
 ## <a name="rhel-6-image-types"></a>Tipos de imagem RHEL 6
 
@@ -108,7 +104,7 @@ Os detalhes dos tipos de imagem RHEL 8 estão abaixo.
 |Publicador | Oferta | Valor de SKU | Versão | Detalhes
 |----------|-------|------------|---------|--------
 |RedHat | RHEL | 8 | Valores concatenados da versão secundária do RHEL e a data de publicação (por exemplo, 8.0.20191023) | Essas imagens são imagens do RHEL 8 com particionamento de LVM conectadas a repositórios Red Hat padrão.
-|RedHat | RHEL | 8-Gen2 | Valores concatenados da versão secundária do RHEL e a data de publicação (por exemplo, 8.0.20191024) | Essas imagens são imagens do Hyper-V geração 2 RHEL 8 LVM-particionadas conectadas a repositórios Red Hat padrão. Para obter mais informações sobre VMs de geração 2 no Azure, consulte [suporte para VMs de geração 2 no Azure](../../linux/generation-2.md).
+|RedHat | RHEL | 8-Gen2 | Valores concatenados da versão secundária do RHEL e a data de publicação (por exemplo, 8.0.20191024) | Essas imagens são imagens do Hyper-V geração 2 RHEL 8 LVM-particionadas conectadas a repositórios Red Hat padrão. Para obter mais informações sobre VMs de geração 2 no Azure, consulte [suporte para VMs de geração 2 no Azure](../../generation-2.md).
 
 ## <a name="rhel-longer-support-add-ons"></a>O RHEL suporta mais Complementos
 
@@ -116,7 +112,7 @@ Os detalhes dos tipos de imagem RHEL 8 estão abaixo.
 
 A partir de abril de 2019, são disponibilizadas imagens RHEL que são anexadas aos repositórios EUS por padrão. Mais informações sobre o RHEL EUS estão disponíveis na [documentação do Red Hat](https://access.redhat.com/articles/rhel-eus).
 
-É possível alternar para repositórios EUS e tem suporte. Para obter instruções sobre como mudar sua VM para EUS e obter mais informações sobre o suporte do EUS de datas de fim de vida, consulte [RHEL eus e VMs RHEL de bloqueio de versão](https://aka.ms/rhui-update#rhel-eus-and-version-locking-rhel-vms).
+É possível alternar para repositórios EUS e tem suporte. Para obter instruções sobre como mudar sua VM para EUS e obter mais informações sobre o suporte do EUS de datas de fim de vida, consulte [RHEL eus e VMs RHEL de bloqueio de versão](./redhat-rhui.md#rhel-eus-and-version-locking-rhel-vms).
 
 >[!NOTE]
 > O EUS não tem suporte em extras de RHEL. Isso significa que, se você instalar um pacote que geralmente está disponível no canal de extras do RHEL, não será possível fazer isso enquanto estiver em EUS. Para obter mais informações sobre o ciclo de vida do produto Red Hat extras, consulte [Red Hat Enterprise Linux ciclo de vida extra](https://access.redhat.com/support/policy/updates/extras/).
@@ -183,6 +179,6 @@ A política atual é manter todas as imagens publicadas anteriormente. Nós nos 
 ## <a name="next-steps"></a>Próximas etapas
 
 * Para exibir a lista completa de imagens RHEL no Azure, confira [Red Hat Enterprise Linux (RHEL) imagens disponíveis no Azure](./redhat-imagelist.md).
-* Para saber mais sobre a infraestrutura de atualização do Red Hat do Azure, confira [infraestrutura de atualização do Red Hat para VMs do RHEL sob demanda no Azure](https://aka.ms/rhui-update).
+* Para saber mais sobre a infraestrutura de atualização do Red Hat do Azure, confira [infraestrutura de atualização do Red Hat para VMs do RHEL sob demanda no Azure](./redhat-rhui.md).
 * Para saber mais sobre a oferta BYOS do RHEL, confira [Red Hat Enterprise Linux imagens Gold de sua própria assinatura no Azure](./byos.md).
 * Para obter informações sobre as políticas de suporte do Red Hat para todas as versões do RHEL, consulte [ciclo de vida Red Hat Enterprise Linux](https://access.redhat.com/support/policy/updates/errata).

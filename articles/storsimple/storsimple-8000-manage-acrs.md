@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/31/2017
 ms.author: alkohli
-ms.openlocfilehash: 9f92a6277765447cbc1a9b12f06c3ec49548f4d1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 15c35fb314af27b1ced129a12f752d0a2794e0f8
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85513458"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91949897"
 ---
 # <a name="use-the-storsimple-manager-service-to-manage-access-control-records"></a>Usar o serviço StorSimple Manager para gerenciar registros de controle de acesso
 
@@ -63,11 +63,11 @@ Execute as etapas a seguir para adicionar um ACR.
 
     3. Clique em **Adicionar** para criar o ACR.
 
-        ![Clique em Adicionar ACR](./media/storsimple-8000-manage-acrs/createacr2.png)
+        ![Clique em adicionar ACR 2](./media/storsimple-8000-manage-acrs/createacr2.png)
 
 4.  O ACR recém-adicionado será exibido na listagem tabular de ACRs.
 
-    ![Clique em Adicionar ACR](./media/storsimple-8000-manage-acrs/createacr5.png)
+    ![Clique em adicionar ACR 3](./media/storsimple-8000-manage-acrs/createacr5.png)
 
 
 ## <a name="edit-an-access-control-record"></a>Editar um registro de controle de acesso
@@ -89,11 +89,11 @@ Execute as etapas a seguir para editar um ACR.
 
 3. Na folha **Editar registro de controle de acesso**, forneça um IQN diferente que corresponde a outro host.
 
-    ![Editar os registros de controle de acesso](./media/storsimple-8000-manage-acrs/editacr2.png)
+    ![Editar registros de controle de acesso 2](./media/storsimple-8000-manage-acrs/editacr2.png)
 
-4. Clique em **Save** (Salvar). Quando solicitada a confirmação, clique em **Sim**. 
+4. Clique em **Salvar**. Quando solicitada a confirmação, clique em **Sim**. 
 
-    ![Editar os registros de controle de acesso](./media/storsimple-8000-manage-acrs/editacr3.png)
+    ![Editar registros de controle de acesso 3](./media/storsimple-8000-manage-acrs/editacr3.png)
 
 5. Você será notificado quando o ACR for atualizado. A listagem tabular também é atualizada para refletir as alterações.
 
@@ -109,23 +109,23 @@ Execute as etapas a seguir para excluir um registro de controle de acesso.
 #### <a name="to-delete-an-access-control-record"></a>Para excluir um registro de controle de acesso
 1.  Acesse seu serviço do Gerenciador de Dispositivos do StorSimple, clique duas vezes no nome do serviço e, na seção **Configuração**, clique em **Registros de controle de acesso**.
 
-    ![Acessar os registro de controle de acesso](./media/storsimple-8000-manage-acrs/createacr1.png)
+    ![Ir para registros de controle de acesso 1B](./media/storsimple-8000-manage-acrs/createacr1.png)
 
 2. Na listagem tabular dos registros de controle de acesso, clique e selecione o ACR que você deseja excluir.
 
-    ![Acessar os registro de controle de acesso](./media/storsimple-8000-manage-acrs/deleteacr1.png)
+    ![Ir para registros de controle de acesso 2](./media/storsimple-8000-manage-acrs/deleteacr1.png)
 
 3. Clique com o botão direito do mouse para invocar o menu de contexto e selecione **Excluir**.
 
-    ![Acessar os registro de controle de acesso](./media/storsimple-8000-manage-acrs/deleteacr2.png)
+    ![Ir para registros de controle de acesso 3](./media/storsimple-8000-manage-acrs/deleteacr2.png)
 
 4. Quando sua confirmação for solicitada, leia as informações e clique em **Excluir**.
 
-    ![Acessar os registro de controle de acesso](./media/storsimple-8000-manage-acrs/deleteacr3.png)
+    ![Ir para registros de controle de acesso 4](./media/storsimple-8000-manage-acrs/deleteacr3.png)
 
 5. Você será notificado quando a exclusão for concluída. A listagem de tabela é atualizada para refletir a exclusão.
 
-    ![Acessar os registro de controle de acesso](./media/storsimple-8000-manage-acrs/deleteacr5.png)
+    ![Ir para registros de controle de acesso 5](./media/storsimple-8000-manage-acrs/deleteacr5.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre [como gerenciar volumes do StorSimple](storsimple-8000-manage-volumes-u2.md).

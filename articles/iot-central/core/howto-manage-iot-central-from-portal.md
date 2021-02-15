@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 02/11/2020
 ms.topic: how-to
 manager: philmea
-ms.openlocfilehash: e7efda8efa27044168386e3ebbc557bf7fb74e8c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8cf8fdfe0c8eb557946baa95d0d8beb2b388baa5
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80157918"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97674439"
 ---
 # <a name="manage-iot-central-from-the-azure-portal"></a>Gerenciar IoT Central do portal do Azure
 
@@ -41,7 +41,7 @@ Preencha todos os campos no formulário. Esse formulário é semelhante ao formu
 
 ![Criar formulário de IoT Central](media/howto-manage-iot-central-from-portal/image6a.png)
 
-**Localização** é a [geografia](https://azure.microsoft.com/global-infrastructure/geographies/) em que você deseja criar seu aplicativo. Normalmente, você deve escolher a localização fisicamente mais próxima de seus dispositivos para obter um desempenho ideal. No momento, o Azure IoT Central está disponível nas regiões da **Austrália**, **Pacífico Asiático**, **Europa**, **Estados Unidos**, **Reino Unido**e **Japão** . Depois de escolher uma localização, você não poderá mover o aplicativo posteriormente para outra localização.
+**Localização** é a [geografia](https://azure.microsoft.com/global-infrastructure/geographies/) em que você deseja criar seu aplicativo. Normalmente, você deve escolher a localização fisicamente mais próxima de seus dispositivos para obter um desempenho ideal. No momento, o Azure IoT Central está disponível nas regiões da **Austrália**, **Pacífico Asiático**, **Europa**, **Estados Unidos**, **Reino Unido** e **Japão** . Depois de escolher uma localização, você não poderá mover o aplicativo posteriormente para outra localização.
 
 Depois de preencher todos os campos, selecione **criar**.
 
@@ -50,19 +50,19 @@ Depois de preencher todos os campos, selecione **criar**.
 Se você já tiver um aplicativo do Azure IoT Central, poderá excluí-lo ou movê-lo para uma assinatura ou grupo de recursos diferente no portal do Azure.
 
 > [!NOTE]
-> Você não pode ver os aplicativos criados no plano de preços gratuito no portal do Azure porque eles não estão associados à sua assinatura.
+> Os aplicativos criados usando o plano *gratuito* não exigem assinaturas do Azure e, portanto, você não os encontrará na sua assinatura do azure na portal do Azure. Você só pode ver e gerenciar aplicativos gratuitos no portal de IoT Central.
 
 Para começar, selecione **todos os recursos** no Portal. Selecione **Mostrar tipos ocultos** e comece a digitar o nome do seu aplicativo em **Filtrar por nome** para localizá-lo. Em seguida, selecione o aplicativo IoT Central que você gostaria de gerenciar.
 
 Para navegar até o aplicativo, selecione a **URL do aplicativo IOT central**:
 
-![Portal de gerenciamento: gerenciamento de recursos](media/howto-manage-iot-central-from-portal/image3.png)
+![Captura de tela que mostra a página "visão geral" com a "URL do aplicativo IoT Central" realçada.](media/howto-manage-iot-central-from-portal/image3.png)
 
 Para mover o aplicativo para um grupo de recursos diferente, selecione **alterar** ao lado do grupo de recursos. Na página **mover recursos** , escolha o grupo de recursos para o qual você deseja mover este aplicativo:
 
-![Portal de gerenciamento: gerenciamento de recursos](media/howto-manage-iot-central-from-portal/image4a.png)
+![Captura de tela que mostra a página "visão geral" com o "grupo de recursos (alterar)" realçado.](media/howto-manage-iot-central-from-portal/image4a.png)
 
-Para mover o aplicativo para uma assinatura diferente, selecione **alterar** ao lado da assinatura. Na página **mover recursos** , escolha a assinatura para a qual você gostaria de mover este aplicativo:
+Para mover o aplicativo para uma assinatura diferente, selecione  **alterar** ao lado da assinatura. Na página **mover recursos** , escolha a assinatura para a qual você gostaria de mover este aplicativo:
 
 ![Portal de gerenciamento: gerenciamento de recursos](media/howto-manage-iot-central-from-portal/image5a.png)
 

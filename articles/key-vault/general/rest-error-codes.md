@@ -10,12 +10,12 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: reference
 ms.date: 12/16/2019
-ms.openlocfilehash: 95fb9798bc62236d785c911ec75db8d6e11f6e97
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 30b7e34f2a791cfd8dec1a6d8e81d706fa07939f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88685707"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91631215"
 ---
 # <a name="azure-key-vault-rest-api-error-codes"></a>Azure Key Vault códigos de erro da API REST
  
@@ -112,7 +112,7 @@ Content-Length: 192
 resource=https%3A%2F%2Fvault.azure.net&client_id=<registered-app-ID>&client_secret=<registered-app-secret>&client_info=1&grant_type=client_credentials
 ```
 
-As informações fornecidas pelo usuário a seguir visualiza estar corretas:
+As informações fornecidas pelo usuário a seguir devem estar corretas:
 
 - A ID do locatário do cofre de chaves
 - Valor do recurso definido como https %3 A %2 F %2 F Vault. Azure. net (codificação de URL)
@@ -128,7 +128,7 @@ Se você só puder obter o token de acesso de resposta, poderá decodificá-lo (
 O HTTP 403 significa que a solicitação foi autenticada (ela conhece a identidade solicitada), mas a identidade não tem permissão para acessar o recurso solicitado. Há duas causas:
 
 - Não há nenhuma política de acesso para a identidade.
-- O endereço IP do recurso solicitante não está na lista de permissões nas configurações de firewall do cofre de chaves.
+- O endereço IP do recurso solicitante não é aprovado nas configurações de firewall do cofre de chaves.
 
 O HTTP 403 geralmente ocorre quando o aplicativo do cliente não está usando a ID do cliente que o cliente pensa. Isso geralmente significa que as políticas de acesso não estão configuradas corretamente para a identidade de chamada real.
 
@@ -166,5 +166,3 @@ A limitação é contornada usando estas técnicas:
 - Se o número de solicitações não puder ser reduzido pelo cache e a retirada cronometrada não funcionar, considere dividir as chaves em vários cofres de chaves. O limite de serviço para uma única assinatura é cinco vezes o limite individual de Key Vault. Se estiver usando mais de 5 cofres de chaves, deve-se considerar o uso de várias assinaturas. 
 
 Diretrizes detalhadas, incluindo solicitação para aumentar os limites, podem ser encontradas aqui: [diretrizes de limitação de Key Vault](overview-throttling.md)
-
-

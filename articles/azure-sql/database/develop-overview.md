@@ -10,12 +10,12 @@ ms.author: sstein
 ms.reviewer: genemi
 ms.date: 11/14/2019
 ms.custom: sqldbrb=2
-ms.openlocfilehash: b099158261de55c829ab2b89a2f994b35b3e50d4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7ea3456dbd1d0942cba48c97d70982ae088d73f9
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85254031"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782970"
 ---
 # <a name="application-development-overview---sql-database--sql-managed-instance"></a>Visão geral do desenvolvimento de aplicativos-banco de dados SQL & SQL Instância Gerenciada
 
@@ -27,7 +27,7 @@ Este artigo apresenta as considerações básicas que um desenvolvedor deve conh
 
 Você pode usar várias [plataformas e linguagens de programação](connect-query-content-reference-guide.md) para se conectar ao Banco de Dados SQL do Azure e consultá-lo. Você pode encontrar [aplicativos de exemplo](https://azure.microsoft.com/resources/samples/?service=sql-database&sort=0) que você pode usar para se conectar ao banco de dados.
 
-Você pode aproveitar as ferramentas de software livre, como [cheetah](https://github.com/wunderlist/cheetah), [sql-cli](https://www.npmjs.com/package/sql-cli), [Código VS](https://code.visualstudio.com/). Além disso, o Banco de Dados SQL do Azure funciona com ferramentas da Microsoft, como [Visual Studio](https://www.visualstudio.com/downloads/) e [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx). Você também pode usar o portal do Azure, o PowerShell e APIs REST para obter maior produtividade.
+Você pode aproveitar as ferramentas de software livre, como [cheetah](https://github.com/wunderlist/cheetah), [sql-cli](https://www.npmjs.com/package/sql-cli), [Código VS](https://code.visualstudio.com/). Além disso, o Banco de Dados SQL do Azure funciona com ferramentas da Microsoft, como [Visual Studio](https://www.visualstudio.com/downloads/) e [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms). Você também pode usar o portal do Azure, o PowerShell e APIs REST para obter maior produtividade.
 
 ## <a name="authentication"></a>Autenticação
 
@@ -39,7 +39,7 @@ Saiba mais sobre [como gerenciar o acesso e o logon em banco de dados](logins-cr
 
 Em sua lógica de conexão de cliente, substitua o tempo limite padrão para ser 30 segundos. O padrão de 15 segundos é muito curto para conexões que dependem da Internet.
 
-Se você estiver usando um [pool de conexões](https://msdn.microsoft.com/library/8xx3tyca.aspx), feche a conexão no instante em que o programa não a estiver utilizando ativamente e não estiver se preparando para reutilizá-la.
+Se você estiver usando um [pool de conexões](/dotnet/framework/data/adonet/sql-server-connection-pooling), feche a conexão no instante em que o programa não a estiver utilizando ativamente e não estiver se preparando para reutilizá-la.
 
 Evite transações de longa execução, pois qualquer falha de infraestrutura ou conexão pode reverter a transação. Se possível, divida a transação em várias transações menores e use [envio em lote para melhorar o desempenho](../performance-improve-use-batching.md).
 

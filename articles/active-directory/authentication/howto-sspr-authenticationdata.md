@@ -5,18 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 07/17/2020
-ms.author: iainfou
-author: iainfoulds
+ms.date: 10/05/2020
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 22037468c47de45513351e1d6126d3f3e5fccadc
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: ed93944c2a94370250fb75a679c1ac37a2a8418c
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88717788"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861146"
 ---
 # <a name="pre-populate-user-authentication-contact-information-for-azure-active-directory-self-service-password-reset-sspr"></a>Preencher previamente as informações de contato de autenticação de usuário para Azure Active Directory redefinição de senha de autoatendimento (SSPR)
 
@@ -47,16 +48,14 @@ Depois que um usuário verifica seu número de telefone celular, o campo *telefo
 
 ## <a name="authentication-contact-info"></a>Informações de contato de autenticação
 
-Na página **métodos de autenticação** de um usuário do Azure AD na portal do Azure, um administrador global pode definir manualmente as informações de contato de autenticação, conforme mostrado no seguinte exemplo de captura de tela:
+Na página **métodos de autenticação** de um usuário do Azure AD na portal do Azure, um administrador global pode definir manualmente as informações de contato de autenticação. Você pode examinar os métodos existentes na seção *métodos de autenticação utilizáveis* ou **+ Adicionar métodos de autenticação**, conforme mostrado no seguinte exemplo de captura de tela:
 
-![Informações de contato de autenticação em um usuário no Azure AD][Contact]
+:::image type="content" source="media/howto-sspr-authenticationdata/user-authentication-contact-info.png" alt-text="Gerenciar métodos de autenticação do portal do Azure":::
 
 As seguintes considerações se aplicam a essas informações de contato de autenticação:
 
 * Se o campo *telefone* for preenchido e o *telefone celular* estiver habilitado na política SSPR, o usuário verá esse número na página de registro de redefinição de senha e durante o fluxo de trabalho de redefinição de senha.
-* O campo *telefone alternativo* não é usado para redefinição de senha.
 * Se o campo de *email* for preenchido e o *email* estiver habilitado na política SSPR, o usuário verá esse email na página de registro de redefinição de senha e durante o fluxo de trabalho de redefinição de senha.
-* Se o campo de *email alternativo* for preenchido e o *email* estiver habilitado na política SSPR, o usuário não verá esse email na página de registro de redefinição de senha, mas o verá durante o fluxo de trabalho de redefinição de senha.
 
 ## <a name="security-questions-and-answers"></a>Perguntas e respostas de segurança
 
@@ -126,7 +125,7 @@ Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthentic
 
 ### <a name="use-powershell-version-2"></a>Usar o PowerShell versão 2
 
-Para começar, [Baixe e instale o módulo PowerShell da versão 2 do Azure ad](/powershell/module/azuread/?view=azureadps-2.0).
+Para começar, [Baixe e instale o módulo PowerShell da versão 2 do Azure ad](/powershell/module/azuread/).
 
 Para instalar rapidamente de versões recentes do PowerShell com suporte `Install-Module` , execute os comandos a seguir. A primeira linha verifica se o módulo já está instalado:
 
@@ -168,5 +167,3 @@ Depois que as informações de contato de autenticação forem preenchidas previ
 
 > [!div class="nextstepaction"]
 > [Habilitar a redefinição de senha self-service do Azure AD](tutorial-enable-sspr.md)
-
-[Contact]: ./media/howto-sspr-authenticationdata/user-authentication-contact-info.png "Os administradores globais podem modificar informações de contato de autenticação de um usuário"

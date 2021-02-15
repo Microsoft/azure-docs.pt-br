@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
 ms.openlocfilehash: 043e61f498417b74831cd49f046f78b02e907964
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84310301"
 ---
 # <a name="language-support-for-content-moderator-api"></a>Suporte de idioma para a API do Content Moderator
@@ -85,7 +85,7 @@ ms.locfileid: "84310301"
 | Tagbanwa | Concani | | |
 | Tai (Nua) | Coreano | | |
 | Tamashek | Kyrgyz | | |
-| Turco | Laosiano | | |
+| Turco | Lao | | |
 | Ugarítico | Letão | | |
 | Uzbeque (cirílico) | Lituano | | |
 | Uzbeque (latino) | Luxemburguês | | |

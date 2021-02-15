@@ -8,12 +8,12 @@ ms.author: robreed
 ms.date: 04/26/2019
 ms.topic: how-to
 manager: carmonm
-ms.openlocfilehash: 7e8ccc832cdf12176cd88cce0157c08d8bf92507
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: dae77dfb72fb6b11721500686991f2b199606b99
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372579"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737856"
 ---
 # <a name="run-shell-scripts-in-your-linux-vm-by-using-run-command"></a>Executar scripts de shell em sua VM Linux usando o recurso Executar Comando
 
@@ -21,7 +21,7 @@ O recurso Executar Comando usa o agente da máquina virtual (VM) para executar s
 
 ## <a name="benefits"></a>Benefícios
 
-Acesse as máquinas virtuais de várias maneiras. O recurso Executar Comando pode executar scripts nas máquinas virtuais remotamente usando o agente de VM. Use o comando Executar por meio do portal do Azure, [API REST](/rest/api/compute/virtual%20machines%20run%20commands/runcommand) ou [CLI do Azure](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke) para VMs do Linux.
+Acesse as máquinas virtuais de várias maneiras. O recurso Executar Comando pode executar scripts nas máquinas virtuais remotamente usando o agente de VM. Use o comando Executar por meio do portal do Azure, [API REST](/rest/api/compute/virtual%20machines%20run%20commands/runcommand) ou [CLI do Azure](/cli/azure/vm/run-command#az_vm_run_command_invoke) para VMs do Linux.
 
 Esse recurso é útil em todos os cenários em que você deseja executar um script em uma máquina virtual. É uma das únicas maneiras de solucionar problemas e corrigir uma máquina virtual que não tem a porta RDP ou SSH aberta devido à configuração imprópria da rede ou do usuário administrativo.
 
@@ -39,7 +39,7 @@ As seguintes restrições se aplicam ao usar o recurso Executar Comando:
 * A conectividade de saída da VM é necessária para retornar os resultados do script.
 
 > [!NOTE]
-> Para funcionar corretamente, Executar Comando requer conectividade (porta 443) a endereços IP públicos do Azure. Se a extensão não tiver acesso a esses pontos de extremidade, os scripts poderão ser executados com êxito, mas não retornarão os resultados. Se você estiver bloqueando o tráfego na máquina virtual, poderá usar [marcas de serviço](../../virtual-network/security-overview.md#service-tags) para permitir o tráfego para os endereços IP públicos do Azure usando a marca `AzureCloud`.
+> Para funcionar corretamente, Executar Comando requer conectividade (porta 443) a endereços IP públicos do Azure. Se a extensão não tiver acesso a esses pontos de extremidade, os scripts poderão ser executados com êxito, mas não retornarão os resultados. Se você estiver bloqueando o tráfego na máquina virtual, poderá usar [marcas de serviço](../../virtual-network/network-security-groups-overview.md#service-tags) para permitir o tráfego para os endereços IP públicos do Azure usando a marca `AzureCloud`.
 
 ## <a name="available-commands"></a>Comandos disponíveis
 
@@ -56,7 +56,7 @@ The entity was not found in this Azure location
 
 ## <a name="azure-cli"></a>CLI do Azure
 
-O exemplo a seguir usa o comando [az vm run-command](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke) para executar um script de shell em uma VM Linux do Azure.
+O exemplo a seguir usa o comando [az vm run-command](/cli/azure/vm/run-command#az_vm_run_command_invoke) para executar um script de shell em uma VM Linux do Azure.
 
 ```azurecli-interactive
 az vm run-command invoke -g myResourceGroup -n myVm --command-id RunShellScript --scripts "apt-get update && apt-get install -y nginx"
@@ -85,7 +85,7 @@ Depois de escolher o comando, selecione **Executar** para executar o script. Qua
 O exemplo a seguir usa o cmdlet [Invoke-AzVMRunCommand](/powershell/module/az.compute/invoke-azvmruncommand) para executar um script do PowerShell em uma VM do Azure. O cmdlet espera que o script referenciado no parâmetro `-ScriptPath` seja o local onde o cmdlet é executado.
 
 ```powershell-interactive
-Invoke-AzVMRunCommand -ResourceGroupName '<myResourceGroup>' -Name '<myVMName>' -CommandId 'RunPowerShellScript' -ScriptPath '<pathToScript>' -Parameter @{"arg1" = "var1";"arg2" = "var2"}
+Invoke-AzVMRunCommand -ResourceGroupName '<myResourceGroup>' -Name '<myVMName>' -CommandId 'RunShellScript' -ScriptPath '<pathToScript>' -Parameter @{"arg1" = "var1";"arg2" = "var2"}
 ```
 
 ## <a name="limiting-access-to-run-command"></a>Limitando o acesso ao recurso Executar Comando

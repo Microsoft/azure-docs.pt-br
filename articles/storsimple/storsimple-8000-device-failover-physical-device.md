@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 4fc5c44ab0fcee5cbf1faa2338f65fe12d779f37
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 67d6fb1f3cc359288ed942d915e186542a62b0fc
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85511784"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017127"
 ---
 # <a name="fail-over-to-a-storsimple-8000-series-physical-device"></a>Fazer failover para um dispositivo físico StorSimple da série 8000
 
@@ -54,7 +54,7 @@ Execute as seguintes etapas para restaurar seu dispositivo para um dispositivo f
     
 7. Na folha **Fazer failover**, execute as seguintes etapas:
    
-   1. Clique em **Fonte**. Os contêineres de volume com volumes associados a instantâneos de nuvem são exibidos. Somente os contêineres exibidos estão qualificados para failover. Na lista de contêineres de volume, selecione os contêineres de volume para failover. **São exibidos apenas os contêineres de volume com instantâneos de nuvem e volumes offline associados.**
+   1. Clique em **origem**. Os contêineres de volume com volumes associados a instantâneos de nuvem são exibidos. Somente os contêineres exibidos estão qualificados para failover. Na lista de contêineres de volume, selecione os contêineres de volume para failover. **São exibidos apenas os contêineres de volume com instantâneos de nuvem e volumes offline associados.**
 
        ![Selecionar a origem](./media/storsimple-8000-device-failover-disaster-recovery/failover-phy-dev5.png)
    2. Clique em **Destino**. Para os contêineres de volume selecionados na etapa anterior, selecione um dispositivo de destino na lista suspensa de dispositivos disponíveis. Somente os dispositivos que têm capacidade suficiente para acomodar os contêineres de volume de origem são exibidos na lista.
@@ -75,7 +75,7 @@ Execute as seguintes etapas para restaurar seu dispositivo para um dispositivo f
    
    1. Selecione o dispositivo que foi usado como o dispositivo de destino para o processo de failover.
 
-       ![Selecionar dispositivo](./media/storsimple-8000-device-failover-disaster-recovery/failover-phy-dev14.png)
+       ![Selecionar o dispositivo 2](./media/storsimple-8000-device-failover-disaster-recovery/failover-phy-dev14.png)
 
    2. Acesse a folha **Contêineres de Volume**. Todos os contêineres de volume, juntamente com os volumes do antigo dispositivo devem ser listados.
 

@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: article
 ms.date: 11/21/2019
-ms.author: iainfou
-author: iainfoulds
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71fd33388cb1bdf7c87c44fb3273c6850122a0cc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bd9b07f1f7aed479e94e77a5641130cb784dd69e
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74847842"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96741959"
 ---
 # <a name="azure-ad-password-protection-agent-version-history"></a>Histórico de versão do agente de Proteção de Senha do Azure AD
 
@@ -34,7 +34,7 @@ Data de lançamento: 3/22/2019
 
 Data de lançamento: 3/13/2019
 
-* Os cmdlets Get-AzureADPasswordProtectionProxy e Get-AzureADPasswordProtectionDCAgent agora relatam a versão do software e o locatário do Azure atual com as seguintes limitações:
+* Os cmdlets Get-AzureADPasswordProtectionProxy e Get-AzureADPasswordProtectionDCAgent agora relatam a versão do software e o locatário atual do Azure com as seguintes limitações:
   * A versão do software e os dados de locatário do Azure estão disponíveis somente para agentes de DC e proxies que executam a versão 1.2.116.0 ou posterior.
   * Os dados de locatário do Azure podem não ser relatados até que um novo registro (ou renovação) do proxy ou da floresta tenha ocorrido.
 * O serviço de proxy agora requer que o .NET 4,7 esteja instalado.

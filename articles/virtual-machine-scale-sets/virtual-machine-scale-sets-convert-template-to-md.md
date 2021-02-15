@@ -1,7 +1,7 @@
 ---
 title: Converter um modelo do conjunto de dimensionamento para usar disco gerenciado
 description: Converta um modelo de conjunto de dimensionamento de máquinas virtuais Azure Resource Manager em um modelo de conjunto de dimensionamento de disco gerenciado.
-keywords: conjuntos de escala de máquina virtual
+keywords: conjuntos de dimensionamento de máquinas virtuais
 author: ju-shim
 ms.author: jushiman
 ms.topic: how-to
@@ -11,10 +11,10 @@ ms.date: 6/25/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt
 ms.openlocfilehash: 03cbe4eb56f3b3b99f87048b699f76b30b7937c8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85373957"
 ---
 # <a name="convert-a-scale-set-template-to-a-managed-disk-scale-set-template"></a>Conversão de um modelo de conjunto de dimensionamento para um modelo de conjunto de dimensionamento de disco gerenciado

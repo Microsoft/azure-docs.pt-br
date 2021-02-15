@@ -1,6 +1,6 @@
 ---
-title: Sincronizar dados do SQL do Azure no Edge (visualização) usando o Azure Data Factory
-description: Saiba mais sobre a sincronização de dados entre o SQL do Azure no Edge (visualização) e o armazenamento de blobs do Azure
+title: Sincronizar dados do SQL do Azure no Edge usando o Azure Data Factory
+description: Saiba mais sobre a sincronização de dados entre o SQL do Azure no Edge e o armazenamento de blobs do Azure
 keywords: SQL do Azure no Edge, sincronizar dados do SQL do Azure no Edge, data factory do SQL do Azure no Edge
 services: sql-edge
 ms.service: sql-edge
@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 91bf2ba0957104b7ccba330f914734a362c3e309
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: b83201ae864d1f1eb9124af5268360bb1748f6c8
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85255425"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97507601"
 ---
 # <a name="tutorial-sync-data-from-sql-edge-to-azure-blob-storage-by-using-azure-data-factory"></a>Tutorial: Sincronizar dados do SQL do Azure no Edge para o Armazenamento de Blobs do Azure usando o Azure Data Factory
 
@@ -59,8 +59,11 @@ Execute estes comandos na instância do SQL do Azure no Edge:
     CREATE PROCEDURE usp_write_watermark @timestamp datetime, @TableName varchar(50)  
     AS  
     BEGIN
+    
     UPDATE [dbo].[watermarktable]
-    SET [WatermarkValue] = @timestamp WHERE [TableName] = @TableName
+    SET [WatermarkValue] = @timestamp
+    WHERE [TableName] = @TableName
+
     END
     Go
 ```
@@ -187,7 +190,7 @@ Crie um Data Factory seguindo as instruções fornecidas [neste tutorial](../dat
 
 30. Selecione **Atividade de Procedimento Armazenado** no designer de pipeline e altere o nome dela para **SPtoUpdateWatermarkActivity**.
 
-31. Alterne para a guia **Conta SQL** e selecione ***QLDBEdgeLinkedService** em **Serviço vinculado**.
+31. Alterne para a guia **Conta SQL** e selecione **_QLDBEdgeLinkedService_* em **Serviço vinculado**.
 
 32. Alterne para a guia **Procedimento Armazenado** e conclua estas etapas:
 

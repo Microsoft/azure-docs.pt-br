@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 07/10/2020
 ms.author: alkohli
-ms.openlocfilehash: 1d924e96cfc287060107f541e44980295eb24745
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 3a915ac8de83a5e183660ec4a3d05044eafff4a9
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87494478"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337501"
 ---
 # <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy-export-orders"></a>Rastreamento e log de eventos para seus Azure Data Box e Azure Data Box Heavy ordens de exportação
 
@@ -25,7 +25,7 @@ A tabela a seguir mostra um resumo das etapas Data Box ordem de exportação e a
 
 | Estágio de ordem de exportação Data Box       | Ferramenta para acompanhar e auditar                                                                        |
 |----------------------------|------------------------------------------------------------------------------------------------|
-| Criar pedido               | [Configurar o controle de acesso na ordem por meio de RBAC](#set-up-access-control-on-the-order) <br> [Habilitar log detalhado na ordem](#enable-verbose-log-in-the-order)                                                    |
+| Criar pedido               | [Configurar o controle de acesso na ordem por meio do RBAC do Azure](#set-up-access-control-on-the-order) <br> [Habilitar log detalhado na ordem](#enable-verbose-log-in-the-order)                                                    |
 | Pedido processado            | [Acompanhar o pedido](#track-the-order) <ul><li> Portal do Azure </li><li> Site da transportadora </li><li>Notificações por email</ul> |
 | Configurar o dispositivo              | Acesso de credenciais de dispositivo [logs de atividade](#query-activity-logs-during-setup) registrados              |
 | Cópia de dados do dispositivo        | [Examinar logs de cópia](#copy-log) <br> [Examine os logs detalhados](#verbose-log) antes de copiar dados            |
@@ -46,15 +46,15 @@ Para restringir o acesso a um pedido, você pode:
 - Atribua uma função em um nível de pedido. O usuário só tem essas permissões, conforme definido pelas funções para interagir com essa Data Box ordem específica apenas e nada mais.
 - Atribua uma função no nível do grupo de recursos, o usuário tem acesso a todos os Data Box pedidos em um grupo de recursos.
 
-Para obter mais informações sobre o uso do RBAC sugerido, consulte [práticas recomendadas para o RBAC do Azure](../role-based-access-control/best-practices.md).
+Para obter mais informações sobre o uso do RBAC do Azure sugerido, consulte [práticas recomendadas para o RBAC do Azure](../role-based-access-control/best-practices.md).
 
 ## <a name="enable-verbose-log-in-the-order"></a>Habilitar log detalhado na ordem
 
-Ao colocar uma ordem de exportação para Data Box, você tem a opção de habilitar a coleta de log detalhado. Aqui está a tela do pedido em que você pode habilitar o log detalhado:
+Ao colocar uma ordem de exportação para Data Box, você tem a opção de habilitar a coleta de um log detalhado. Aqui está a tela do pedido em que você pode habilitar o log detalhado:
 
-![Selecionar opção de exportação](media/data-box-deploy-export-ordered/azure-data-box-export-04b.png)
+![Selecionar opção de exportação](media/data-box-deploy-export-ordered/azure-data-box-export-order-export-option.png)
 
-Quando você seleciona a opção **incluir log detalhado** , um arquivo de log detalhado é gerado ao copiar os dados da sua conta de armazenamento do Azure. Esse log contém uma lista de todos os arquivos que foram exportados com êxito.      
+Quando você seleciona a opção **incluir log detalhado** , um arquivo de log detalhado é gerado ao copiar os dados da sua conta de armazenamento do Azure. Esse log contém uma lista de todos os arquivos que foram exportados com êxito.
 
 Para obter mais informações sobre a ordem de exportação, consulte [criar uma ordem de exportação para data Box](data-box-deploy-export-ordered.md)
 
@@ -190,7 +190,7 @@ Depois que os dados são apagados dos discos de Data Box de acordo com as diretr
 
 ### <a name="chain-of-custody-audit-logs"></a>Cadeia de logs de auditoria de custódia
 
-A cadeia de logs de auditoria de custódia contém informações sobre como ligar e acessar compartilhamentos no Data Box ou Data Box Heavy quando ele está fora do datacenter do Azure. Esses logs estão localizados em:`storage-account/azuredatabox-chainofcustodylogs`
+A cadeia de logs de auditoria de custódia contém informações sobre como ligar e acessar compartilhamentos no Data Box ou Data Box Heavy quando ele está fora do datacenter do Azure. Esses logs estão localizados em: `storage-account/azuredatabox-chainofcustodylogs`
 
 Aqui está um exemplo do log de auditoria de um Data Box:
 
@@ -252,7 +252,7 @@ Se você rolar o histórico do pedido, verá:
 
 - Informações de rastreamento de portador para seu dispositivo.
 - Eventos com a atividade *SecureErase* . Esses eventos correspondem à eliminação dos dados no disco.
-- Data Box links de log. Os caminhos para os *logs de auditoria*, *os logs de cópia*e os arquivos de *bom* são apresentados.
+- Data Box links de log. Os caminhos para os *logs de auditoria* , *os logs de cópia* e os arquivos de *bom* são apresentados.
 
 Aqui está um exemplo do log do histórico de pedidos do portal do Azure:
 

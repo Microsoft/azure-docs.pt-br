@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.custom: mvc, amqp, devx-track-csharp
 ms.date: 11/06/2018
 ms.author: dobett
-ms.openlocfilehash: c9c8aa86aa8a374a33750e306529ef212c9a8bfc
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 77a795b8f704084b612a2dcbd364b8d5be0a3333
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89012323"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96852142"
 ---
 # <a name="serialize-telemetry-using-protocol-buffers"></a>Serializar a telemetria usando Buffers de Protocolo
 
@@ -40,7 +40,7 @@ Para executar as etapas neste guia de instruções, você precisará de:
 * .NET Core. Você pode fazer o download do [NET Core para Mac, Linux e Windows](https://www.microsoft.com/net/download).
 * Postman. Baixe o [Postman para Mac, Windows ou Linux](https://www.getpostman.com/apps).
 * Um [hub IoT implantado na assinatura do Azure](../iot-hub/iot-hub-create-through-portal.md). Você precisa da cadeia de conexão do hub IoT para concluir as etapas neste guia. Você pode obter a cadeia de conexão no portal do Azure.
-* Um [banco de dados do Cosmos DB implantado em sua assinatura do Azure](../cosmos-db/create-sql-api-dotnet.md#create-account) que usa a API de SQL e que está configurado para [consistência forte](../cosmos-db/manage-account.md). Você precisa da cadeia de conexão do banco de dados do Cosmos DB para concluir as etapas neste guia. Você pode obter a cadeia de conexão no portal do Azure.
+* Um [banco de dados do Cosmos DB implantado em sua assinatura do Azure](../cosmos-db/create-sql-api-dotnet.md#create-account) que usa a API de SQL e que está configurado para [consistência forte](../cosmos-db/how-to-manage-database-account.md). Você precisa da cadeia de conexão do banco de dados do Cosmos DB para concluir as etapas neste guia. Você pode obter a cadeia de conexão no portal do Azure.
 * Uma [conta de Armazenamento do Azure implantada em sua assinatura do Azure](../storage/common/storage-account-create.md). Você precisa da cadeia de conexão da conta de armazenamento para concluir as etapas neste guia. Você pode obter a cadeia de conexão no portal do Azure.
 
 ## <a name="prepare-your-development-environment"></a>Preparar seu ambiente de desenvolvimento
@@ -63,7 +63,7 @@ Baixe e descompacte o [microsserviço de adaptador de armazenamento](https://git
 
 No Visual Studio Code, abra a pasta **remote-monitoring-services-dotnet-master\storage-adapter**. Clique em qualquer botão **Restaurar** para corrigir todas as dependências não resolvidas.
 
-Abra o **. vscode/launch.jsno** arquivo e atribua sua cadeia de conexão de Cosmos DB à variável de ambiente ** \_ STORAGEADAPTER \_ DOCUMENTDB \_ connString do PC** .
+Abra o **. vscode/launch.jsno** arquivo e atribua sua cadeia de conexão de Cosmos DB à variável de ambiente **\_ STORAGEADAPTER \_ DOCUMENTDB \_ connString do PC** .
 
 > [!NOTE]
 > Ao executar o microsserviço localmente em seu computador, ele ainda exige uma instância do Cosmos DB no Azure para funcionar corretamente.
@@ -265,7 +265,7 @@ Para configurar e executar a simulação:
 
 Para parar a simulação, selecione a solicitação **Parar a simulação** no Postman e clique em **Enviar**.
 
-### <a name="clean-up-resources"></a>Limpar os recursos
+### <a name="clean-up-resources"></a>Limpar recursos
 
 Você pode parar os dois microsserviços em execução local em suas instâncias do Visual Studio Code (**Depurar \> Parar Depuração**).
 
@@ -277,4 +277,4 @@ Muitos recursos do Hub IoT não dão suporte nativo a Protobuf ou a outros forma
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Você aprendeu a personalizar a Simulação de Dispositivo para usar Protobuf a fim de enviar telemetria. A próxima etapa é saber como [Implantar uma imagem personalizada na nuvem](iot-accelerators-device-simulation-deploy-image.md).
+Agora que você aprendeu como personalizar a simulação de dispositivo para usar o Protobuf para enviar telemetria, a próxima etapa é visitar o repositório GitHub para saber mais sobre a [simulação de dispositivo](https://github.com/Azure/device-simulation-dotnet).

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 07/09/2020
 ms.author: victorh
-ms.openlocfilehash: b613e89fbe29074160d83a96d2cd13505244994a
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: f0e5a153efe26640e54f386600f07c7b3d4711d0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186700"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89649061"
 ---
 # <a name="application-gateway-health-monitoring-overview"></a>Visão geral do monitoramento de integridade do Gateway de Aplicativo
 
@@ -98,7 +98,7 @@ Você precisa permitir o tráfego de entrada na Internet nas portas TCP 65503-65
 
 Além disso, a conectividade de Internet de saída não pode ser bloqueada, e o tráfego de entrada proveniente da marca **AzureLoadBalancer** deve ser permitido.
 
-Para obter mais informações, confira [Visão geral da configuração do Gateway de Aplicativo](configuration-overview.md#network-security-groups-on-the-application-gateway-subnet).
+Para obter mais informações, confira [Visão geral da configuração do Gateway de Aplicativo](configuration-infrastructure.md#network-security-groups).
 
 ## <a name="next-steps"></a>Próximas etapas
 Depois de aprender sobre o monitoramento de integridade do Gateway de Aplicativo, você poderá configurar uma [investigação de integridade personalizada](application-gateway-create-probe-portal.md) no portal do Azure ou uma [investigação de integridade personalizada](application-gateway-create-probe-ps.md) usando o PowerShell e o modelo de implantação do Azure Resource Manager.

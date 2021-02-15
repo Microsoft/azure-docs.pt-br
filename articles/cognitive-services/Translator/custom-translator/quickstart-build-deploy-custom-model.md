@@ -1,20 +1,20 @@
 ---
-title: 'Início Rápido: Compilar, implantar e usar um modelo personalizado – Tradutor Personalizado'
+title: 'Início Rápido: Compilar, implantar e usar um modelo personalizado - Tradutor Personalizado'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você percorre passo a passo o processo de criação de um sistema de tradução usando o Tradutor Personalizado.
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 05/26/2020
-ms.author: swmachan
+ms.date: 12/09/2019
+ms.author: lajanuar
 ms.topic: quickstart
-ms.openlocfilehash: b0992c4d18fdb9cb5201ab3ef52fba8ee3feb7a2
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: ae417006903c8d2478126f928f05647361bad1b9
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964372"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896199"
 ---
 # <a name="quickstart-build-deploy-and-use-a-custom-model-for-translation"></a>Início Rápido: Compilar, implantar e usar um modelo personalizado para tradução
 
@@ -22,25 +22,28 @@ Este artigo fornece instruções passo a passo para criar um sistema de traduç�
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-1. Para entrar e usar o Portal do [Tradutor Personalizado](https://portal.customtranslator.azure.ai), você precisará de uma [conta da Microsoft](https://signup.live.com) ou de uma [conta do Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) (conta da organização hospedada no Azure).
+1. Para entrar e usar o Portal do [Tradutor Personalizado](https://portal.customtranslator.azure.ai), você precisará de uma [conta da Microsoft](https://signup.live.com) ou de uma [conta do Azure AD](../../../active-directory/fundamentals/active-directory-whatis.md) (conta da organização hospedada no Azure).
 
-2. Uma assinatura do Tradutor via portal do Azure. Você precisará de uma chave de assinatura do Tradutor para associar ao seu workspace no Tradutor Personalizado. Consulte [como se inscrever para o Tradutor](https://docs.microsoft.com/azure/cognitive-services/translator/translator-text-how-to-signup).
+2. Uma assinatura da API de Tradução de Texto pelo portal do Azure. Você precisará da chave de assinatura da API de Tradução de Texto para associar ao seu workspace no Tradutor Personalizado. Confira [Como inscrever-se na API de Tradução de Texto](../translator-how-to-signup.md).
 
 3. Quando você tiver ambos os itens acima, entre no portal do [Tradutor Personalizado](https://portal.customtranslator.azure.ai) para criar workspaces e projetos, carregar arquivos e criar/implantar modelos.
 
+>[!Note]
+>O Tradutor Personalizado não dá suporte à criação de workspace para o recurso de API de Tradução de Texto que foi criado dentro da [VNET Habilitada](../../../api-management/api-management-using-with-vnet.md).
+
 ## <a name="create-a-workspace"></a>Criar um workspace
 
-Se você for um usuário iniciante, será solicitado a concordar com os Termos de Serviço, criar um workspace e associar seu workspace à assinatura do Tradutor.
+Se você for um usuário iniciante, será solicitado a concordar com os termos de serviço, criar um workspace e associar seu workspace à assinatura da API de Tradução de Texto da Microsoft.
 
 ![Criar workspace](media/quickstart/terms-of-service.png)
-![Criar workspace](media/quickstart/create-workspace-1.png)
-![Criar workspace](media/quickstart/create-workspace-2.png)
-![Criar workspace](media/quickstart/create-workspace-3.png)
-![Criar workspace](media/quickstart/create-workspace-4.png)
-![Criar workspace](media/quickstart/create-workspace-5.png)
-![Criar workspace](media/quickstart/create-workspace-6.png)
+![Imagem 1 de Criar workspace](media/quickstart/create-workspace-1.png)
+![Imagem 2 de Criar workspace](media/quickstart/create-workspace-2.png)
+![Imagem 3 de Criar workspace](media/quickstart/create-workspace-3.png)
+![Imagem 4 de Criar workspace](media/quickstart/create-workspace-4.png)
+![Imagem 5 de Criar workspace](media/quickstart/create-workspace-5.png)
+![Imagem 6 de Criar workspace](media/quickstart/create-workspace-6.png)
 
-Nas visitas subsequentes ao portal do Tradutor Personalizado, navegue até a página Configurações, na qual você pode gerenciar seu espaço de trabalho, criar mais espaços de trabalho, associar sua chave de assinatura do Tradutor a seus espaços de trabalho, adicionar coproprietários e alterar uma chave de assinatura.
+Em visitas subsequentes ao portal do Tradutor Personalizado, navegue até a página de configurações, na qual você pode gerenciar seu workspace, criar mais workspaces, associar sua chave de assinatura da API de Tradução de Texto da Microsoft a seus workspaces, adicionar coproprietários e alterar um chave de assinatura.
 
 ## <a name="create-a-project"></a>Criar um projeto
 
@@ -81,9 +84,15 @@ Quando você estiver pronto para implantar seu modelo treinado, clique no botão
 
 ![Implantar um modelo treinado](media/quickstart/ct-how-to-deploy.png)
 
+## <a name="swap-deployed-model"></a>Trocar modelo implantado
+
+Para trocar um modelo implantado por outro dentro de um projeto, clique no botão "Trocar" exibido ao lado do modelo desejado. Durante o processo de troca, o modelo implantado continuará disponível para atender às solicitações de tradução. 
+
+![Trocar modelo implantado](media/quickstart/ct-how-to-swap-model.png)
+
 ## <a name="use-a-deployed-model"></a>Usar um modelo implantado
 
-Modelos implantados podem ser acessados por meio do Tradutor especificando a CategoryID](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl). Mais informações sobre o Tradutor podem ser encontradas na página da Web [Referência da API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference).
+Os modelos implantados podem ser acessados através da [API de Tradução de Texto V3 da Microsoft](../reference/v3-0-translate.md?tabs=curl) especificando o CategoryID. Saiba mais sobre a API de Tradução de Texto na página da Web de [Referência da API](../reference/v3-0-reference.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -1,19 +1,19 @@
 ---
 title: 'Início Rápido: Criar um servidor – CLI do Azure – Banco de Dados do Azure para MariaDB'
 description: Este início rápido descreve como usar a CLI do Azure para criar um servidor de Banco de Dados do Azure para MariaDB no grupo de recursos do Azure.
-author: ajlam
-ms.author: andrela
-ms.service: mariadb
+author: savjani
+ms.author: pariks
+ms.service: jroth
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 3/18/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 7fe68e7b1a56c22e8c0d9638408982518105888e
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 2242b0842bda9587915fc949046b8fa7effb725c
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185138"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98662153"
 ---
 # <a name="quickstart-create-an-azure-database-for-mariadb-server-by-using-the-azure-cli"></a>Início Rápido: Criar um servidor de Banco de Dados do Azure para MariaDB usando a CLI do Azure
 
@@ -21,9 +21,9 @@ ms.locfileid: "88185138"
 
 Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-[!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Se você instalar e usar a CLI localmente, para este início rápido, você deve executar a CLI do Azure versão 2.0 ou superior. Execute `az --version` para encontrar a versão. Caso precise instalar ou atualizar a CLI, confira [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli).
+- Este artigo exige a versão 2.0 ou posterior da CLI do Azure. Se você está usando o Azure Cloud Shell, a versão mais recente já está instalada.
 
 Se você tiver várias assinaturas, escolha aquela que contém o recurso ou aquela na qual você recebe a cobrança. Para selecionar uma ID da assinatura específica em sua conta, use o comando [az account set](/cli/azure/account#az-account-set):
 
@@ -33,7 +33,7 @@ az account set --subscription 00000000-0000-0000-0000-000000000000
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Crie um [Grupo de recursos do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) usando o comando [az group create](/cli/azure/group#az-group-create). Um grupo de recursos é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados como um grupo.
+Crie um [Grupo de recursos do Azure](../azure-resource-manager/management/overview.md) usando o comando [az group create](/cli/azure/group#az-group-create). Um grupo de recursos é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados como um grupo.
 
 O exemplo a seguir cria um grupo de recursos denominado `myresourcegroup` no local `westus`:
 
@@ -49,7 +49,7 @@ Configuração | Valor de exemplo | Descrição
 ---|---|---
 name | **mydemoserver** | Insira um nome exclusivo que identifique o servidor de Banco de Dados do Azure para MariaDB. O nome do servidor pode conter apenas letras minúsculas, números e o caractere de hífen (-). Ele deve conter entre 3 e 63 caracteres.
 resource-group | **myresourcegroup** | Insira o nome do grupo de recursos do Azure.
-sku-name | **GP_Gen5_2** | O nome da SKU. Segue a convenção*tipo de preço*\_*geração de computação*\_*vCores* em resumo. Para obter mais informações sobre o parâmetro **sku-name**, consulte a seção após a tabela.
+sku-name | **GP_Gen5_2** | O nome da SKU. Segue a convenção *tipo de preço*\_*geração de computação*\_*vCores* em resumo. Para obter mais informações sobre o parâmetro **sku-name**, consulte a seção após a tabela.
 backup-retention | **7** | Quanto tempo um backup deve ser retido. A unidade é dias. Intervalo: 7 a 35. 
 geo-redundant-backup | **Desabilitado** | Indica se os backups com redundância geográfica devem ser habilitados para este servidor. Valores permitidos: **Habilitado**, **Desabilitado**.
 local | **westus** | O local do Azure para o servidor.
@@ -240,4 +240,4 @@ az mariadb server delete --resource-group myresourcegroup --name mydemoserver
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Projetar um banco de dados MariaDB com a CLI do Azure](./tutorial-design-database-cli.md)
+> [Projetar um banco de dados MariaDB com a CLI do Azure](tutorial-design-database-cli.md)

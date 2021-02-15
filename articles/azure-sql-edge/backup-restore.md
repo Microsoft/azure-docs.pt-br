@@ -1,6 +1,6 @@
 ---
-title: Fazer backup e restaurar bancos de dados-Azure SQL Edge (versão prévia)
-description: Saiba mais sobre os recursos de backup e restauração no Azure SQL Edge (versão prévia).
+title: Fazer backup e restaurar bancos de dados-Azure SQL Edge
+description: Saiba mais sobre os recursos de backup e restauração no Azure SQL Edge.
 keywords: ''
 services: sql-edge
 ms.service: sql-edge
@@ -9,16 +9,16 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 92a37babbcc0bbba3845267ca2eb0f95b9fceafa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 114be810ea50f984c3211291691b4c4dd45ac2c7
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84667855"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395233"
 ---
-# <a name="back-up-and-restore-databases-in-azure-sql-edge-preview"></a>Fazer backup e restaurar bancos de dados no Azure SQL Edge (versão prévia) 
+# <a name="back-up-and-restore-databases-in-azure-sql-edge"></a>Fazer backup e restaurar bancos de dados no Azure SQL Edge 
 
-O Azure SQL Edge foi criado com base nas versões mais recentes do Mecanismo de Banco de Dados do Microsoft SQL Server no Linux. Ele fornece recursos de banco de dados de backup e restauração semelhantes aos disponíveis em SQL Server em Linux e SQL Server em execução em contêineres. O componente de backup e restauração fornece uma proteção essencial para proteger os dados armazenados nos bancos de dado do Azure SQL Edge. 
+O Azure SQL Edge foi criado com base nas versões mais recentes do Microsoft SQL Mecanismo de Banco de Dados. Ele fornece recursos de banco de dados de backup e restauração semelhantes aos disponíveis em SQL Server em Linux e SQL Server em execução em contêineres. O componente de backup e restauração fornece uma proteção essencial para proteger os dados armazenados nos bancos de dado do Azure SQL Edge. 
 
 Para minimizar o risco de perda de dados catastrófica, você deve fazer backup de seus bancos de dados periodicamente para preservar as modificações em seus dados regularmente. Uma estratégia de backup e restauração bem planejada ajuda a proteger os bancos de dados contra perda de dados causada por uma variedade de falhas. Teste sua estratégia restaurando um conjunto de backups e, em seguida, recuperando seu banco de dados para prepará-lo a responder com eficiência a um desastre.
 
@@ -75,9 +75,9 @@ No exemplo a seguir, você usa o `BACKUP DATABASE` comando Transact-SQL para cri
 
 ### <a name="back-up-to-url"></a>Fazer backup na URL
 
-O SQL do Azure no Edge dá suporte a backups para blobs de página e blobs de blocos. Para obter mais informações, consulte [back up to Block blob vs Page blob](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url?view=sql-server-ver15#blockbloborpageblob). No exemplo a seguir, o backup do banco de dados *IronOreSilicaPrediction* está sendo feito em um blob de blocos. 
+O SQL do Azure no Edge dá suporte a backups para blobs de página e blobs de blocos. Para obter mais informações, consulte [back up to Block blob vs Page blob](/sql/relational-databases/backup-restore/sql-server-backup-to-url#blockbloborpageblob). No exemplo a seguir, o backup do banco de dados *IronOreSilicaPrediction* está sendo feito em um blob de blocos. 
 
-1. Para configurar backups para bloquear BLOBs, primeiro gere um token SAS (assinatura de acesso compartilhado) que você possa usar para criar uma credencial de SQL Server no Azure SQL Edge. O script cria uma SAS associada a uma política de acesso armazenada. Para obter mais informações, consulte [assinaturas de acesso compartilhado, parte 1: Noções básicas sobre o modelo SAS](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/). O script também grava o comando T-SQL necessário para criar a credencial no SQL Server. O script a seguir pressupõe que você já tenha uma assinatura do Azure com uma conta de armazenamento e um contêiner de armazenamento para os backups.
+1. Para configurar backups para bloquear BLOBs, primeiro gere um token SAS (assinatura de acesso compartilhado) que você possa usar para criar uma credencial de SQL Server no Azure SQL Edge. O script cria uma SAS associada a uma política de acesso armazenada. Para obter mais informações, consulte [assinaturas de acesso compartilhado, parte 1: Noções básicas sobre o modelo SAS](../storage/common/storage-sas-overview.md). O script também grava o comando T-SQL necessário para criar a credencial no SQL Server. O script a seguir pressupõe que você já tenha uma assinatura do Azure com uma conta de armazenamento e um contêiner de armazenamento para os backups.
 
     ```PowerShell
     # Define global variables for the script  
@@ -133,7 +133,10 @@ O SQL do Azure no Edge dá suporte a backups para blobs de página e blobs de bl
 
 ## <a name="restore-a-database-in-azure-sql-edge"></a>Restaurar um banco de dados no Azure SQL Edge
 
-No Azure SQL Edge, você pode restaurar de um disco local, um local de rede ou uma conta de armazenamento de BLOBs do Azure. Para obter mais informações sobre restauração e recuperação no SQL Server, consulte [visão geral de restauração e recuperação](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-and-recovery-overview-sql-server?view=sql-server-ver15). Para obter uma visão geral do modelo de recuperação simples no SQL Server, consulte [restaurações completas de banco de dados (modelo de recuperação simples)](https://docs.microsoft.com/sql/relational-databases/backup-restore/complete-database-restores-simple-recovery-model?view=sql-server-ver15).
+No Azure SQL Edge, você pode restaurar de um disco local, um local de rede ou uma conta de armazenamento de BLOBs do Azure. Para obter mais informações sobre restauração e recuperação no SQL Server, consulte [visão geral de restauração e recuperação](/sql/relational-databases/backup-restore/restore-and-recovery-overview-sql-server). Para obter uma visão geral do modelo de recuperação simples no SQL Server, consulte [restaurações completas de banco de dados (modelo de recuperação simples)](/sql/relational-databases/backup-restore/complete-database-restores-simple-recovery-model).
+
+> [!IMPORTANT] 
+> Os bancos de dados criados no Azure SQL Edge não podem ser restaurados em uma instância de Microsoft SQL Server ou SQL do Azure. Além disso, um banco de dados criado no Microsoft SQL Server ou no Azure SQL pode ser restaurado no Azure SQL Edge, desde que o banco de dados não contenha nenhum dos recursos não suportados pelo Azure SQL Edge. 
 
 ### <a name="restore-from-a-local-disk"></a>Restaurar de um disco local
 
@@ -177,5 +180,3 @@ WITH MOVE 'IronOreSilicaPrediction' TO '/var/opt/mssql/data/IronOreSilicaPredict
 MOVE 'IronOreSilicaPrediction_log' TO '/var/opt/mssql/data/IronOreSilicaPrediction_Primary_3.ldf',
 STATS = 10;
 ```
-
-

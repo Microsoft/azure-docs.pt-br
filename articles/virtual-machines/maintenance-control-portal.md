@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 04/22/2020
 ms.author: cynthn
-ms.openlocfilehash: 4232f4cd39c3f6dd6efa0bf78959798ea842e2dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b174e2631131e6bf26d7b1cb62442c8a99102e2e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84676039"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91397276"
 ---
 # <a name="control-updates-with-maintenance-control-and-the-azure-portal"></a>Controlar atualizações com o controle de manutenção e o portal do Azure
 
@@ -20,7 +20,7 @@ O controle de manutenção permite que você decida quando aplicar atualizaçõe
 
 ## <a name="create-a-maintenance-configuration"></a>Criar uma configuração de manutenção
 
-1. Entre no Portal do Azure.
+1. Entre no portal do Azure.
 
 1. Procure **configurações de manutenção**.
 
@@ -30,11 +30,11 @@ O controle de manutenção permite que você decida quando aplicar atualizaçõe
 
    ![Captura de tela mostrando como adicionar uma configuração de manutenção](media/virtual-machines-maintenance-control-portal/maintenance-configurations-add.png)
 
-1. Escolha uma assinatura e um grupo de recursos, forneça um nome para a configuração e escolha uma região. Clique em **Próximo**.
+1. Escolha uma assinatura e um grupo de recursos, forneça um nome para a configuração e escolha uma região. Clique em **Avançar**.
 
    ![Captura de tela mostrando noções básicas de configuração de manutenção](media/virtual-machines-maintenance-control-portal/maintenance-configurations-basics.png)
 
-1. Adicione marcas e valores. Clique em **Próximo**.
+1. Adicione marcas e valores. Clique em **Avançar**.
 
    ![Captura de tela mostrando como adicionar marcas a uma configuração de manutenção](media/virtual-machines-maintenance-control-portal/maintenance-configurations-tags.png)
 
@@ -76,7 +76,7 @@ Também há duas maneiras de verificar se há atualizações pendentes para uma 
 
 Você também pode verificar um host específico usando **máquinas virtuais** ou propriedades do host dedicado. 
 
-![Captura de tela mostrando como verificar a manutenção de um host](media/virtual-machines-maintenance-control-portal/maintenance-configurations-pending-vm.png)
+![Captura de tela que mostra o estado de manutenção realçado.](media/virtual-machines-maintenance-control-portal/maintenance-configurations-pending-vm.png)
 
 ## <a name="apply-updates"></a>Aplicar atualizações
 
@@ -94,7 +94,7 @@ Você pode verificar o progresso das atualizações para uma configuração em c
 
 Para excluir uma configuração, abra os detalhes de configuração e clique em **excluir**.
 
-![Captura de tela mostrando como verificar a manutenção de um host](media/virtual-machines-maintenance-control-portal/maintenance-configurations-delete.png)
+![Captura de tela que mostra como excluir uma configuração.](media/virtual-machines-maintenance-control-portal/maintenance-configurations-delete.png)
 
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -3,18 +3,18 @@ title: Habilitar rede acelerada para recuperação de desastre de VM do Azure co
 description: Descreve como habilitar a Rede acelerada com o Azure Site Recovery para recuperação de desastre de máquina virtual do Azure
 services: site-recovery
 documentationcenter: ''
-author: mayurigupta13
+author: Harsha-CS
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/08/2019
-ms.author: mayg
-ms.openlocfilehash: baa15b656f061d812b29ded99d55da13294f9800
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.author: harshacs
+ms.openlocfilehash: 1d2d3b3aacc00428c96cde0f8230421a98151ae2
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87835843"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000242"
 ---
 # <a name="accelerated-networking-with-azure-virtual-machine-disaster-recovery"></a>Rede acelerada com a recuperação de desastre de máquina virtual do Azure
 

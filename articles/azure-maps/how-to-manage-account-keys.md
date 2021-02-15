@@ -4,22 +4,22 @@ description: Saiba como usar o portal do Azure para gerenciar uma conta do Azure
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 01/27/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 5717e48683234e55638393d232d931bc50cb59b1
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: c618e8193bed1f35cbbe884d5725c4ecfb25dd75
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037313"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013081"
 ---
 # <a name="manage-your-azure-maps-account"></a>Gerenciar sua conta do Azure Mapas
 
 Você pode gerenciar sua conta Azure Mapas através do portal do Azure. Depois que você tiver uma conta, poderá implementar as APIs em seu site ou aplicativo móvel.
 
-Caso não tenha uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="create-a-new-account"></a>Criar uma nova conta
 

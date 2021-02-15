@@ -37,11 +37,10 @@
       href: powershell-samples.md
     - name: Modelos do Gerenciador de Recursos
       href: template-samples.md
-    - name: Itens internos do Azure Policy
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: Conceitos
   items:
+    - name: Conceitos e melhores práticas
+      href: concepts-and-best-practices.md
     - name: Continuidade de negócios
       href: virtual-network-disaster-recovery-guidance.md
     - name: Conectividade
@@ -74,12 +73,18 @@
           href: ../expressroute/cross-network-connectivity.md?toc=%2fazure%2fvirtual-network%2ftoc.json
         - name: Emparelhamento
           href: virtual-network-peering-overview.md
-    - name: Integração para serviços do Azure
+    - name: Integrar serviços do Azure
       items:
-        - name: Pontos de extremidade de serviço
-          href: virtual-network-service-endpoints-overview.md
+        - name: Visão geral
+          href: vnet-integration-for-azure-services.md
         - name: Implantar um serviço dedicado
           href: virtual-network-for-azure-services.md
+        - name: Link Privado
+          href: ../private-link/private-link-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json
+        - name: Pontos de extremidade de serviço
+          href: virtual-network-service-endpoints-overview.md
+        - name: Marcas de serviço
+          href: service-tags-overview.md
     - name: Serviços de IP
       items:
         - name: IPs Públicos
@@ -94,10 +99,22 @@
           href: ipv6-public-ip-address-prefix.md
         - name: Preferência de roteamento
           href: routing-preference-overview.md
+        - name: Linha de base de segurança de IP público
+          href: public-ip-security-baseline.md
     - name: Segurança
       items:
+        - name: Linha de base de segurança da rede virtual
+          href: security-baseline.md
+        - name: Linha de base de segurança da NAT da Rede Virtual
+          href: nat-security-baseline.md
+        - name: Isolamento de rede de serviços do Azure
+          href: vnet-integration-for-azure-services.md
         - name: Grupos de segurança de rede
-          href: security-overview.md
+          items:
+            - name: Visão geral
+              href: network-security-groups-overview.md
+            - name: Como ele funciona
+              href: network-security-group-how-it-works.md
         - name: Grupos de segurança do aplicativo
           href: application-security-groups.md
         - name: Marcas de serviço
@@ -107,9 +124,12 @@
         - name: Políticas de rede do Kubernetes
           href: kubernetes-network-policies.md
         - name: Proteção contra DDOS
-          href: ddos-protection-overview.md
+          href: ../ddos-protection/ddos-protection-overview.md
         - name: TAP de rede virtual
           href: virtual-network-tap-overview.md
+        - name: Controles de segurança do Azure Policy
+          displayName: 'regulatory, compliance, standards, domains'
+          href: ./security-controls-policy.md
     - name: Sub-redes
       items:
         - name: Extensão de sub-rede
@@ -117,7 +137,7 @@
         - name: Delegação de sub-rede
           href: subnet-delegation-overview.md
     - name: Implantação Clássica
-      href: 'https://docs.microsoft.com/previous-versions/azure/virtual-network/virtual-network-ip-addresses-overview-classic'
+      href: /previous-versions/azure/virtual-network/virtual-network-ip-addresses-overview-classic
 - name: Guias de instruções
   items:
     - name: Planejar e configurar
@@ -145,7 +165,7 @@
             - name: CLI do Azure
               href: tutorial-create-route-table-cli.md
             - name: Ansible
-              href: /azure/ansible/ansible-create-configure-route-table
+              href: /azure/developer/ansible/route-table-configure
             - name: Gerenciar tabelas de rotas
               href: manage-route-table.md
         - name: Gerenciar NICs
@@ -179,11 +199,11 @@
             - name: VNet (Resource Manager) para uma VNet (Clássica)
               href: ../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json
             - name: VNet para rede local (VPN)
-              href: ../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json
+              href: ../vpn-gateway/tutorial-site-to-site-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json
             - name: VNet para rede local (ExpressRoute)
               href: ../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md?toc=%2fazure%2fvirtual-network%2ftoc.json
             - name: Arquitetura de rede híbrida altamente disponível
-              href: ../guidance/guidance-hybrid-network-expressroute-vpn-failover.md?toc=%2fazure%2fvirtual-network%2ftoc.json
+              href: /azure/architecture/reference-architectures/hybrid-networking/expressroute-vpn-failover?toc=%2fazure%2fvirtual-network%2ftoc.json
         - name: Configurar TAP de rede virtual
           href: tutorial-tap-virtual-network-cli.md
         - name: Implantar rede de contêineres
@@ -222,10 +242,18 @@
               href: ipv6-reserve-public-ip-address-prefix.md
         - name: Endereçamento IP
           items:
+            - name: Criar endereços IP públicos – portal
+              href: create-public-ip-portal.md
+            - name: Criar endereços IP públicos – PowerShell
+              href: create-public-ip-powershell.md
+            - name: Criar endereços IP públicos – CLI do Azure
+              href: create-public-ip-cli.md
             - name: Gerenciar endereços IP públicos
               href: virtual-network-public-ip-address.md
             - name: Gerenciar o prefixo do IP público
               href: manage-public-ip-address-prefix.md
+            - name: Atualizar endereços IP públicos
+              href: virtual-network-public-ip-address-upgrade.md
             - name: Adicionar ou remover endereços IP de NICs
               href: virtual-network-network-interface-addresses.md
             - name: Preferência de roteamento
@@ -283,9 +311,9 @@
                 - name: CLI do Azure
                   href: virtual-network-service-endpoint-policies-cli.md
         - name: Gerenciar proteção contra DDoS
-          href: manage-ddos-protection.md
+          href: ../ddos-protection/manage-ddos-protection.md
         - name: Integrar parceiros à Proteção contra DDoS Standard
-          href: ddos-protection-partner-onboarding.md
+          href: ../ddos-protection/ddos-protection-partner-onboarding.md
         - name: Gerenciar grupos de segurança de rede
           href: manage-network-security-group.md
         - name: Cenários de segurança
@@ -293,7 +321,7 @@
             - name: Proteger redes com dispositivos virtuais
               href: virtual-network-scenario-udr-gw-nva.md
             - name: DMZ entre o Azure e a Internet
-              href: ../guidance/guidance-iaas-ra-secure-vnet-dmz.md?toc=%2fazure%2fvirtual-network%2ftoc.json
+              href: /azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2fazure%2fvirtual-network%2ftoc.json
     - name: Rede de VM
       items:
         - name: Criar VM – IP público estático
@@ -353,18 +381,28 @@
           href: virtual-machine-network-throughput.md
     - name: Mover entre regiões
       items:
-        - name: Grupos de segurança de rede – Portal
-          href: move-across-regions-nsg-portal.md
-        - name: Grupos de segurança de rede – PowerShell
-          href: move-across-regions-nsg-powershell.md
-        - name: Redes virtuais – portal
-          href: move-across-regions-vnet-portal.md
-        - name: Redes virtuais – PowerShell
-          href: move-across-regions-vnet-powershell.md
-        - name: IPs públicos – Portal
-          href: move-across-regions-publicip-portal.md
-        - name: IPs públicos – PowerShell
-          href: move-across-regions-publicip-powershell.md
+        - name: NSGs (grupos de segurança de rede)
+          href: ../resource-mover/tutorial-move-region-virtual-machines.md?toc=%2fazure%2fvirtual-network%2ftoc.json
+        - name: Redes virtuais
+          href: ../resource-mover/tutorial-move-region-virtual-machines.md?toc=%2fazure%2fvirtual-network%2ftoc.json
+        - name: Interfaces de rede (NICs)
+          href: ../resource-mover/tutorial-move-region-virtual-machines.md?toc=%2fazure%2fvirtual-network%2ftoc.json
+        - name: IPs Públicos
+          href: ../resource-mover/tutorial-move-region-virtual-machines.md?toc=%2fazure%2fvirtual-network%2ftoc.json
+        - name: Movimentação manual
+          items:
+            - name: Grupos de segurança de rede – Portal
+              href: move-across-regions-nsg-portal.md
+            - name: Grupos de segurança de rede – PowerShell
+              href: move-across-regions-nsg-powershell.md
+            - name: Redes virtuais – portal
+              href: move-across-regions-vnet-portal.md
+            - name: Redes virtuais – PowerShell
+              href: move-across-regions-vnet-powershell.md
+            - name: IPs públicos – Portal
+              href: move-across-regions-publicip-portal.md
+            - name: IPs públicos – PowerShell
+              href: move-across-regions-publicip-powershell.md
     - name: NAT
       items:
         - name: Criar gateway NAT – PowerShell
@@ -407,7 +445,7 @@
         - name: Solucionar problemas de conectividade da VM do Azure
           href: troubleshoot-vm-connectivity.md
     - name: Implantação Clássica
-      href: 'https://docs.microsoft.com/previous-versions/azure/virtual-network/create-virtual-network-classic'
+      href: /previous-versions/azure/virtual-network/create-virtual-network-classic
 - name: Referência
   items:
     - name: CLI do Azure
@@ -419,7 +457,7 @@
     - name: Java
       href: /java/api/
     - name: Node.js
-      href: 'https://docs.microsoft.com/javascript/azure#azure-sdk'
+      href: /javascript/azure#azure-sdk
     - name: Python
       href: 'https://azure.microsoft.com/develop/python/'
     - name: REST
@@ -428,6 +466,9 @@
       href: /azure/templates/microsoft.network/allversions
     - name: Exemplos de código
       href: 'https://azure.microsoft.com/resources/samples/?service=virtual-network'
+    - name: Itens internos do Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Recursos
   items:
     - name: Desenvolva suas habilidades com o Microsoft Learn
@@ -437,7 +478,7 @@
     - name: Blog de rede
       href: 'https://azure.microsoft.com/blog/topics/networking'
     - name: Página de perguntas de P e R da Microsoft para Rede
-      href: 'https://docs.microsoft.com/answers/topics/azure-virtual-network.html'
+      href: /answers/topics/azure-virtual-network.html
     - name: Comentários sobre a rede
       href: 'https://feedback.azure.com/forums/217313-networking?category_id=77469'
     - name: Preços

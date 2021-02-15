@@ -3,23 +3,24 @@ title: Configurar um grupo de disponibilidade SQL Server Always On em diferentes
 description: Este artigo explica como configurar um grupo de disponibilidade SQL Server Always On em máquinas virtuais do Azure com uma réplica em uma região diferente.
 services: virtual-machines
 documentationCenter: na
-author: MikeRayMSFT
+author: MashaMSFT
 editor: monicar
 tags: azure-service-management
 ms.assetid: 388c464e-a16e-4c9d-a0d5-bb7cf5974689
 ms.service: virtual-machines-sql
-ms.topic: article
+ms.subservice: hadr
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/02/2017
-ms.author: mikeray
+ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 8ab62a93546719e172eec34168a0692daccf281a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6f63315c3e9b150a54e122d9a1c6948087603d51
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84669300"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99537400"
 ---
 # <a name="configure-a-sql-server-always-on-availability-group-across-different-azure-regions"></a>Configurar um grupo de disponibilidade SQL Server Always On em diferentes regiões do Azure
 
@@ -31,7 +32,7 @@ Este artigo se aplica às máquinas virtuais do Azure no modo do Resource Manage
 
 A imagem a seguir mostra uma implementação comum de um grupo de disponibilidade em máquinas virtuais do Azure:
 
-   ![Grupo de disponibilidade](./media/availability-group-manually-configure-multiple-regions/00-availability-group-basic.png)
+   ![Diagrama que mostra o balanceador de carga do Azure e o conjunto de disponibilidade com um "cluster de failover do Windows Server" e "Always On grupo de disponibilidade".](./media/availability-group-manually-configure-multiple-regions/00-availability-group-basic.png)
 
 Nessa implantação, todas as máquinas virtuais estão em uma região do Azure. As réplicas do grupo de disponibilidade podem ter de confirmação síncrona com failover automático no SQL-1 e SQL-2. Para criar essa arquitetura, veja [Modelo ou tutorial de Grupo de Disponibilidade](availability-group-overview.md).
 
@@ -53,7 +54,7 @@ Quando as réplicas de grupo de disponibilidade em máquinas virtuais do Azure e
 
 O diagrama a seguir mostra como as redes se comunicam entre data centers.
 
-   ![Grupo de disponibilidade](./media/availability-group-manually-configure-multiple-regions/01-vpngateway-example.png)
+   ![Diagrama que mostra as duas redes virtuais em diferentes regiões do Azure comunicando-se usando gateways V P N.](./media/availability-group-manually-configure-multiple-regions/01-vpngateway-example.png)
 
 >[!IMPORTANT]
 >Essa arquitetura incorre em encargos de dados de saída para os dados replicados entre regiões do Azure. Veja [Preços de Largura de Banda](https://azure.microsoft.com/pricing/details/bandwidth/).  
@@ -69,7 +70,7 @@ Para criar uma réplica em um data center remoto, execute as seguintes etapas:
    >[!NOTE]
    >Em alguns casos, você talvez precise usar o PowerShell para criar a conexão de VNet para VNet. Por exemplo, se você usar diferentes contas do Azure, será possível configurar a conexão no portal. Neste caso, veja [Configurar uma conexão de Rede Virtual para Rede Virtual usando o portal do Azure](../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md).
 
-1. [Crie um controlador de domínio na nova região](../../../active-directory/active-directory-new-forest-virtual-machine.md).
+1. [Crie um controlador de domínio na nova região](/windows-server/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100).
 
    Esse controlador de domínio fornecerá autenticação se o controlador de domínio no site primário não estiver disponível.
 
@@ -84,7 +85,8 @@ Para criar uma réplica em um data center remoto, execute as seguintes etapas:
    - Inclua um pool de back-end que consiste somente as máquinas virtuais na mesma região que o balanceador de carga.
    - Use um teste de porta TCP específico para o endereço IP.
    - Ter uma regra específica para o SQL Server na mesma região balanceamento de carga.  
-   - Seja um Standard Load Balancer se as máquinas virtuais no pool de back-end não forem parte de um único conjunto de disponibilidade ou conjunto de dimensionamento de máquinas virtuais. Para obter mais informações, examine [Visão geral do Azure Load Balancer Standard](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).
+   - Seja um Standard Load Balancer se as máquinas virtuais no pool de back-end não forem parte de um único conjunto de disponibilidade ou conjunto de dimensionamento de máquinas virtuais. Para obter mais informações, examine [Visão geral do Azure Load Balancer Standard](../../../load-balancer/load-balancer-overview.md).
+   - Seja um Standard Load Balancer se as duas redes virtuais em duas regiões diferentes estiverem emparelhadas por emparelhamento de VNet global. Para obter mais informações, consulte FAQ (perguntas frequentes) sobre a [rede virtual do Azure](../../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers).
 
 1. [Adicionar o recurso cluster de Failover para o novo servidor SQL](availability-group-manually-configure-prerequisites-tutorial.md#add-failover-clustering-features-to-both-sql-server-vms).
 
@@ -98,7 +100,7 @@ Para criar uma réplica em um data center remoto, execute as seguintes etapas:
 
    Você pode criar o recurso de endereço IP no Gerenciador de Cluster de Failover. Selecione o nome do cluster e clique com o botão direito do mouse no nome do cluster em **Recursos principais de cluster** e selecione **Propriedades**: 
 
-   ![Propriedades do cluster](./media/availability-group-manually-configure-multiple-regions/cluster-name-properties.png)
+   ![Captura de tela que mostra o "Gerenciador de Cluster de Failover" com um nome de cluster, "nome do servidor" e "Propriedades" selecionado.](./media/availability-group-manually-configure-multiple-regions/cluster-name-properties.png)
 
    Na caixa de diálogo **Propriedades**, selecione **Adicionar** em **Endereço IP** e adicione o endereço IP do nome do cluster da região de rede remota. Selecione **OK** na caixa de diálogo **endereço IP** e, em seguida, selecione **OK** novamente na caixa de diálogo **Propriedades do cluster** para salvar o novo endereço IP. 
 
@@ -113,7 +115,7 @@ Para criar uma réplica em um data center remoto, execute as seguintes etapas:
 
 1. Adicione um recurso de endereço IP à função de grupo de disponibilidade no cluster. 
 
-   Clique com o botão direito do mouse na função de grupo de disponibilidade em Gerenciador de Cluster de Failover, escolha **Adicionar recurso**, **mais recursos**e selecione **endereço IP**.
+   Clique com o botão direito do mouse na função de grupo de disponibilidade em Gerenciador de Cluster de Failover, escolha **Adicionar recurso**, **mais recursos** e selecione **endereço IP**.
 
    ![Criar endereço IP](./media/availability-group-manually-configure-multiple-regions/20-add-ip-resource.png)
 
@@ -161,7 +163,7 @@ Para criar uma réplica em um data center remoto, execute as seguintes etapas:
 
 A réplica no data center remoto é parte do grupo de disponibilidade, mas ele está em uma sub-rede diferente. Se essa réplica se tornar a réplica primária, tempo limite de conexão do aplicativo podem ocorrer. Esse comportamento é o mesmo que um grupo de disponibilidade local em uma implantação de várias sub-redes. Para permitir conexões de cliente de aplicativos, atualize a conexão de cliente ou configurar a resolução de nome do recurso de nome de rede de cluster de cache.
 
-Preferencialmente, atualize as cadeias de conexão do cliente para definir `MultiSubnetFailover=Yes`. Consulte [conectar-se ao MultiSubnetFailover](https://msdn.microsoft.com/library/gg471494#Anchor_0).
+Preferencialmente, atualize as cadeias de conexão do cliente para definir `MultiSubnetFailover=Yes`. Consulte [conectar-se ao MultiSubnetFailover](/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#Anchor_0).
 
 Se você não pode modificar as cadeias de conexão, você pode configurar o cache de resolução de nome. Confira [Erro de tempo limite e não é possível se conectar a um ouvinte de grupo de disponibilidade AlwaysOn do SQL Server 2012 em um ambiente de várias sub-redes](https://support.microsoft.com/help/2792139/time-out-error-and-you-cannot-connect-to-a-sql-server-2012-alwayson-av).
 
@@ -177,7 +179,7 @@ Para testar a conectividade do ouvinte para a região remota, é possível reali
 1. No Pesquisador de **objetos**, clique com o botão direito do mouse no grupo de disponibilidade e selecione **Mostrar painel**.
 1. No painel, verifique se a réplica no site de recuperação de desastre está sincronizada.
 1. No Pesquisador de **objetos**, clique com o botão direito do mouse no grupo de disponibilidade e selecione **failover...**. SQL Server Management estúdios abre um assistente para fazer failover de SQL Server.  
-1. Selecione **Avançar**e selecione a instância de SQL Server no site de recuperação de desastre. Selecione **Avançar** novamente.
+1. Selecione **Avançar** e selecione a instância de SQL Server no site de recuperação de desastre. Selecione **Avançar** novamente.
 1. Conecte-se à instância de SQL Server no site de recuperação de desastre e selecione **Avançar**.
 1. Na página **Resumo** , verifique as configurações e selecione **concluir**.
 
@@ -194,12 +196,12 @@ Depois de testar a conectividade, mova a réplica primária de volta para seu da
 
 Para obter mais informações, consulte estes tópicos:
 
-- [Executar um failover manual planejado de um grupo de disponibilidade (SQL Server)](https://msdn.microsoft.com/library/hh231018.aspx)
-- [Executar um Failover Manual forçado de um grupo de disponibilidade (SQL Server)](https://msdn.microsoft.com/library/ff877957.aspx)
+- [Executar um failover manual planejado de um grupo de disponibilidade (SQL Server)](/sql/database-engine/availability-groups/windows/perform-a-planned-manual-failover-of-an-availability-group-sql-server)
+- [Executar um Failover Manual forçado de um grupo de disponibilidade (SQL Server)](/sql/database-engine/availability-groups/windows/perform-a-forced-manual-failover-of-an-availability-group-sql-server)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Grupos de disponibilidade AlwaysOn](https://msdn.microsoft.com/library/hh510230.aspx)
-* [Máquinas Virtuais do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/)
+* [Grupos de disponibilidade AlwaysOn](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server)
+* [Máquinas Virtuais do Azure](../../../virtual-machines/windows/index.yml)
 * [Balanceadores de Carga do Azure](availability-group-manually-configure-tutorial.md#configure-internal-load-balancer)
-* [Conjuntos de Disponibilidade do Azure](../../../virtual-machines/linux/manage-availability.md)
+* [Conjuntos de Disponibilidade do Azure](../../../virtual-machines/manage-availability.md)

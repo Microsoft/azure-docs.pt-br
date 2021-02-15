@@ -1,14 +1,14 @@
 ---
 title: 'Início Rápido: Sua primeira consulta à API REST'
 description: Neste guia de início rápido, você seguirá as etapas para chamar o ponto de extremidade do Resource Graph para a API REST e executar sua primeira consulta.
-ms.date: 06/29/2020
+ms.date: 01/27/2021
 ms.topic: quickstart
-ms.openlocfilehash: 8776a107484691ffab72f2e1622ed5837375b7fb
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: 670ceba95d937be278c44c34704cb844eead480d
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85802525"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98920043"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-rest-api"></a>Início Rápido: Execute sua primeira consulta ao Resource Graph usando a API REST
 
@@ -49,7 +49,8 @@ $restUri = 'https://management.azure.com/subscriptions/{subscriptionId}?api-vers
 $response = Invoke-RestMethod -Uri $restUri -Method Get -Headers $authHeader
 ```
 
-Substitua `{subscriptionId}` na variável **$restUri** acima para obter informações sobre sua assinatura. A variável $response armazena o resultado do cmdlet `Invoke-RestMethod`, que pode ser analisado com os cmdlets, como [ConvertFrom-Json](/powershell/module/microsoft.powershell.utility/convertfrom-json). Se o ponto de extremidade de serviço da API REST espera um **Corpo da Solicitação**, forneça uma variável formatada do JSON para o parâmetro `-Body` de `Invoke-RestMethod`.
+Substitua `{subscriptionId}` na variável `$restUri` para obter informações sobre a sua assinatura.
+A variável `$response` armazena o resultado do cmdlet `Invoke-RestMethod`, que pode ser analisado com os cmdlets, como [ConvertFrom-Json](/powershell/module/microsoft.powershell.utility/convertfrom-json). Se o ponto de extremidade de serviço da API REST espera um **Corpo da Solicitação**, forneça uma variável formatada do JSON para o parâmetro `-Body` de `Invoke-RestMethod`.
 
 ## <a name="run-your-first-resource-graph-query"></a>Executar a primeira consulta ao Resource Graph
 
@@ -75,7 +76,6 @@ No corpo da solicitação de cada chamada à API REST, há uma variável usada q
              "{subscriptionID}"
          ],
          "query": "Resources | project name, type | limit 5"
-         }
      }
      ```
 
@@ -98,7 +98,6 @@ No corpo da solicitação de cada chamada à API REST, há uma variável usada q
              "{subscriptionID}"
          ],
          "query": "Resources | project name, type | limit 5 | order by name asc"
-         }
      }
      ```
 
@@ -121,7 +120,6 @@ No corpo da solicitação de cada chamada à API REST, há uma variável usada q
              "{subscriptionID}"
          ],
          "query": "Resources | project name, type | order by name asc | limit 5"
-         }
      }
      ```
 

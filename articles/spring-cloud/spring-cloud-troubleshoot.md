@@ -4,15 +4,15 @@ description: Guia de solução de problemas do Azure Spring Cloud
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: troubleshooting
-ms.date: 11/04/2019
+ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: b7b3236fe1e4052689657316df851753de7edbe5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 09415c47432f71310b10c86390c10e55f1ccc4b2
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083677"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498601"
 ---
 # <a name="troubleshoot-common-azure-spring-cloud-issues"></a>Solucionar problemas comuns do Azure Spring Cloud
 
@@ -48,20 +48,25 @@ Quando você estiver Depurando falhas do aplicativo, comece verificando o status
 * Se o status da descoberta estiver _ATIVO_, acesse Métricas para verificar a integridade do aplicativo. Inspecione as seguintes métricas:
 
 
-  - `TomcatErrorCount`(_tomcat. global. Error_): todas as exceções de aplicativo Spring são contadas aqui. Se este número for muito alto, acesse o Azure Log Analytics para inspecionar seus logs de aplicativo.
+  - `TomcatErrorCount` (_tomcat. global. Error_): todas as exceções de aplicativo Spring são contadas aqui. Se este número for muito alto, acesse o Azure Log Analytics para inspecionar seus logs de aplicativo.
 
-  - `AppMemoryMax`(_JVM. Memory. Max_): a quantidade máxima de memória disponível para o aplicativo. O valor pode ser indefinido ou pode mudar ao longo do tempo se for definido. Se ele for definido, a quantidade de memória usada e confirmada será sempre menor ou igual ao máximo. No entanto, uma alocação de memória poderá falhar com uma `OutOfMemoryError` mensagem se a alocação tentar aumentar a memória usada de forma que *usada > confirmada*, mesmo se *usada <= Max* ainda for verdadeira. Nessa situação, tente aumentar o tamanho máximo do heap usando o `-Xmx` parâmetro.
+  - `AppMemoryMax` (_JVM. Memory. Max_): a quantidade máxima de memória disponível para o aplicativo. O valor pode ser indefinido ou pode mudar ao longo do tempo se for definido. Se ele for definido, a quantidade de memória usada e confirmada será sempre menor ou igual ao máximo. No entanto, uma alocação de memória poderá falhar com uma `OutOfMemoryError` mensagem se a alocação tentar aumentar a memória usada de forma que *usada > confirmada*, mesmo se *usada <= Max* ainda for verdadeira. Nessa situação, tente aumentar o tamanho máximo do heap usando o `-Xmx` parâmetro.
 
-  - `AppMemoryUsed`(_JVM. Memory. Used_): a quantidade de memória em bytes que é usada atualmente pelo aplicativo. Para um aplicativo Java de carregamento normal, essa série de métricas forma um padrão *Sawtooth* , em que o uso de memória aumenta e diminui continuamente em pequenos incrementos e, repentinamente, cai muito e, em seguida, o padrão se repete. Essa série de métricas ocorre devido à coleta de lixo dentro da máquina virtual Java, em que as ações de coleta representam quedas no padrão Sawtooth.
+  - `AppMemoryUsed` (_JVM. Memory. Used_): a quantidade de memória em bytes que é usada atualmente pelo aplicativo. Para um aplicativo Java de carregamento normal, essa série de métricas forma um padrão *Sawtooth* , em que o uso de memória aumenta e diminui continuamente em pequenos incrementos e, repentinamente, cai muito e, em seguida, o padrão se repete. Essa série de métricas ocorre devido à coleta de lixo dentro da máquina virtual Java, em que as ações de coleta representam quedas no padrão Sawtooth.
     
     Essa métrica é importante para ajudar a identificar problemas de memória, como:
     * Uma explosão de memória no início.
     * A alocação de memória de sobretensão para um caminho lógico específico.
     * Vazamentos de memória gradual.
-
   Para obter mais informações, consulte [métricas](spring-cloud-concept-metrics.md).
+  
+* Se o aplicativo falhar ao iniciar, verifique se o aplicativo tem parâmetros JVM válidos. Se a memória da JVM estiver definida com um valor muito alto, a seguinte mensagem de erro poderá aparecer em seus logs:
 
-Para saber mais sobre o Log Analytics do Azure, confira [introdução ao log Analytics no Azure monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal).
+  >"a memória necessária 2728741K é maior que 2000m disponível para alocação"
+
+
+
+Para saber mais sobre o Log Analytics do Azure, confira [introdução ao log Analytics no Azure monitor](../azure-monitor/log-query/log-analytics-tutorial.md).
 
 ### <a name="my-application-experiences-high-cpu-usage-or-high-memory-usage"></a>Meu aplicativo experimenta alto uso da CPU ou alta utilização de memória
 
@@ -71,7 +76,7 @@ Se seu aplicativo apresentar alta utilização de CPU ou memória, uma das duas 
 
 Para verificar qual situação se aplica, faça o seguinte:
 
-1. Vá para **métricas**e selecione **percentual de uso da CPU de serviço** ou **memória de serviço usada**.
+1. Vá para **métricas** e selecione **percentual de uso da CPU de serviço** ou **memória de serviço usada**.
 2. Adicione um **app =** Filter para especificar qual aplicativo você deseja monitorar.
 3. Divida as métricas por **instância**.
 
@@ -83,7 +88,7 @@ Para obter mais informações, consulte [métricas para o Azure Spring Cloud](sp
 
 Se todas as instâncias estiverem em execução, vá para o Azure Log Analytics para consultar os logs do aplicativo e examinar a lógica do código. Isso irá ajudá-lo a ver se algum deles pode afetar o particionamento de escala. Para obter mais informações, consulte [analisar logs e métricas com configurações de diagnóstico](diagnostic-services.md).
 
-Para saber mais sobre o Log Analytics do Azure, confira [introdução ao log Analytics no Azure monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal). Consulte os logs usando a [linguagem de consulta Kusto](https://docs.microsoft.com/azure/kusto/query/).
+Para saber mais sobre o Log Analytics do Azure, confira [introdução ao log Analytics no Azure monitor](../azure-monitor/log-query/log-analytics-tutorial.md). Consulte os logs usando a [linguagem de consulta Kusto](/azure/kusto/query/).
 
 ### <a name="checklist-for-deploying-your-spring-application-to-azure-spring-cloud"></a>Lista de verificação para implantar seu aplicativo Spring no Azure Spring Cloud
 
@@ -103,22 +108,30 @@ Antes de carregar seu aplicativo, verifique se ele atende aos seguintes critéri
 
 Quando você configura uma instância do serviço de nuvem do Azure Spring usando o portal do Azure, o Azure Spring Cloud executa a validação para você.
 
-Mas se você tentar configurar a instância do serviço de nuvem do Azure Spring usando o [CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) ou o [modelo de Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/), verifique se:
+Mas se você tentar configurar a instância do serviço de nuvem do Azure Spring usando o [CLI do Azure](/cli/azure/get-started-with-azure-cli) ou o [modelo de Azure Resource Manager](../azure-resource-manager/index.yml), verifique se:
 
 * A assinatura está ativa.
 * O local é [suportado](spring-cloud-faq.md) pelo Azure Spring Cloud.
 * O grupo de recursos da instância já foi criado.
 * O nome do recurso está em conformidade com a regra de nomenclatura. Ele deve conter apenas letras minúsculas, números e hifens. O primeiro caractere deve ser uma letra. O último caractere deve ser uma letra ou um número. O valor deve conter de 2 a 32 caracteres.
 
-Se você quiser configurar a instância do serviço de nuvem do Azure Spring usando o modelo do Resource Manager, primeiro consulte [entender a estrutura e a sintaxe dos modelos de Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates).
+Se você quiser configurar a instância do serviço de nuvem do Azure Spring usando o modelo do Resource Manager, primeiro consulte [entender a estrutura e a sintaxe dos modelos de Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md).
 
 O nome da instância do serviço de nuvem do Azure Spring será usado para solicitar um nome de subdomínio em `azureapps.io` , portanto, a instalação falhará se o nome estiver em conflito com um existente. Você pode encontrar mais detalhes nos logs de atividade.
+
+### <a name="i-cant-deploy-a-net-core-app"></a>Não consigo implantar um aplicativo .NET Core
+
+Não é possível carregar um arquivo *. zip* para um aplicativo Steeltoe do .NET Core usando o portal do Azure ou o modelo do Resource Manager.
+
+Quando você implanta o pacote de aplicativos usando o [CLI do Azure](/cli/azure/get-started-with-azure-cli), o CLI do Azure sonda periodicamente o progresso da implantação e, no final, exibe o resultado da implantação.
+
+Verifique se seu aplicativo está empacotado no formato de arquivo *. zip* correto. Se não for empacotado corretamente, o processo deixará de responder ou você receberá uma mensagem de erro.
 
 ### <a name="i-cant-deploy-a-jar-package"></a>Não consigo implantar um pacote JAR
 
 Não é possível carregar o pacote/Source do arquivo morto Java (JAR) usando o portal do Azure ou o modelo do Resource Manager.
 
-Quando você implanta o pacote de aplicativos usando o [CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), o CLI do Azure sonda periodicamente o progresso da implantação e, no final, exibe o resultado da implantação.
+Quando você implanta o pacote de aplicativos usando o [CLI do Azure](/cli/azure/get-started-with-azure-cli), o CLI do Azure sonda periodicamente o progresso da implantação e, no final, exibe o resultado da implantação.
 
 Se a sondagem for interrompida, você ainda poderá usar o seguinte comando para buscar os logs de implantação:
 
@@ -132,13 +145,13 @@ Verifique se seu aplicativo está empacotado no [formato jar executável](https:
 
 Não é possível carregar o pacote JAR/de origem usando o portal do Azure ou o modelo do Resource Manager.
 
-Quando você implanta o pacote de aplicativos usando o [CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), o CLI do Azure sonda periodicamente o progresso da implantação e, no final, exibe o resultado da implantação.
+Quando você implanta o pacote de aplicativos usando o [CLI do Azure](/cli/azure/get-started-with-azure-cli), o CLI do Azure sonda periodicamente o progresso da implantação e, no final, exibe o resultado da implantação.
 
 Se a sondagem for interrompida, você ainda poderá usar o seguinte comando para buscar os logs de implantação e build:
 
 `az spring-cloud app show-deploy-log -n <app-name>`
 
-No entanto, observe que uma instância do serviço de nuvem do Azure Spring pode disparar apenas um trabalho de compilação para um pacote de origem ao mesmo tempo. Para obter mais informações, consulte [implantar um aplicativo](spring-cloud-quickstart-launch-app-portal.md) e [configurar um ambiente de preparo no Azure Spring Cloud](spring-cloud-howto-staging-environment.md).
+No entanto, observe que uma instância do serviço de nuvem do Azure Spring pode disparar apenas um trabalho de compilação para um pacote de origem ao mesmo tempo. Para obter mais informações, consulte [implantar um aplicativo](spring-cloud-quickstart.md) e [configurar um ambiente de preparo no Azure Spring Cloud](spring-cloud-howto-staging-environment.md).
 
 ### <a name="my-application-cant-be-registered"></a>Meu aplicativo não pode ser registrado
 
@@ -150,7 +163,7 @@ Se você estiver migrando uma solução baseada em nuvem existente do Spring par
 
 Você também pode verificar os logs do cliente _do registro de serviço_ no Azure log Analytics. Para obter mais informações, consulte [analisar logs e métricas com configurações de diagnóstico](diagnostic-services.md)
 
-Para saber mais sobre o Log Analytics do Azure, confira [introdução ao log Analytics no Azure monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal). Consulte os logs usando a [linguagem de consulta Kusto](https://docs.microsoft.com/azure/kusto/query/).
+Para saber mais sobre o Log Analytics do Azure, confira [introdução ao log Analytics no Azure monitor](../azure-monitor/log-query/log-analytics-tutorial.md). Consulte os logs usando a [linguagem de consulta Kusto](/azure/kusto/query/).
 
 ### <a name="i-want-to-inspect-my-applications-environment-variables"></a>Desejo inspecionar as variáveis de ambiente de meu aplicativo
 
@@ -174,7 +187,7 @@ As variáveis de ambiente informam a estrutura de nuvem Spring do Azure, garanti
 
 1. Reinicie o aplicativo.
 
-1. Vá para `https://<your application test endpoint>/actuator/env` e inspecione a resposta.  Ele deverá ser parecido com isto:
+1. Vá para `https://<your application test endpoint>/actuator/env` e inspecione a resposta.  Ele deverá ser parecido com:
 
     ```json
     {
@@ -193,7 +206,7 @@ As variáveis de ambiente informam a estrutura de nuvem Spring do Azure, garanti
 Procure o nó filho denominado `systemEnvironment` .  Esse nó contém as variáveis de ambiente do aplicativo.
 
 > [!IMPORTANT]
-> Lembre-se de reverter a exposição das variáveis de ambiente antes de tornar o aplicativo acessível ao público.  Vá para a portal do Azure, procure a página de configuração do seu aplicativo e exclua essa variável de ambiente: `MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE` .
+> Lembre-se de reverter a exposição das variáveis de ambiente antes de tornar o aplicativo acessível ao público.  Vá para a portal do Azure, procure a página de configuração do seu aplicativo e exclua essa variável de ambiente:  `MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE` .
 
 ### <a name="i-cant-find-metrics-or-logs-for-my-application"></a>Não consigo encontrar métricas ou logs para meu aplicativo
 
@@ -210,4 +223,8 @@ Verifique se a `spring-boot-actuator` dependência está habilitada no pacote do
 </dependency>
 ```
 
-Se os logs do aplicativo puderem ser arquivados em uma conta de armazenamento, mas não forem enviados para o Azure Log Analytics, verifique se você [configurou seu espaço de trabalho corretamente](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace). Se você estiver usando uma camada gratuita da Log Analytics do Azure, observe que [a camada gratuita não fornece um SLA (contrato de nível de serviço)](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_3/).
+Se os logs do aplicativo puderem ser arquivados em uma conta de armazenamento, mas não forem enviados para o Azure Log Analytics, verifique se você [configurou seu espaço de trabalho corretamente](../azure-monitor/learn/quick-create-workspace.md). Se você estiver usando uma camada gratuita da Log Analytics do Azure, observe que [a camada gratuita não fornece um SLA (contrato de nível de serviço)](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_3/).
+
+## <a name="next-steps"></a>Próximas etapas
+
+* [Como diagnosticar e solucionar problemas automaticamente no Azure Spring Cloud](spring-cloud-howto-self-diagnose-solve.md)

@@ -1,6 +1,6 @@
 ---
 title: Políticas no Gerenciamento de API do Azure | Microsoft Docs
-description: Aprenda a criar, editar e configurar políticas de Gerenciamento de API. Consulte exemplos de código e exiba recursos adicionais disponíveis.
+description: Aprenda a criar, editar e configurar políticas de Gerenciamento de API. Confira exemplos de código e exiba recursos adicionais disponíveis.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: apimpm
-ms.openlocfilehash: a0786c1ce5d3a693dabe422b65af7177e16c20b9
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 37ac6369790ed526fd923819558863ae84432aed
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905509"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358109"
 ---
 # <a name="policies-in-azure-api-management"></a>Políticas do Gerenciamento de API do Azure
 
@@ -38,7 +38,7 @@ Clicar em uma instrução habilitada adicionará o XML adequado ao local onde es
 > 
 > 
 
-A configuração é dividida em `inbound`, `backend`, `outbound` e `on-error`. A série de instruções de política especificadas é executada ordenadamente para uma solicitação e uma resposta.
+A configuração é dividida em `inbound`, `backend`, `outbound` e `on-error`. A série de instruções de política especificadas é executada para uma solicitação e uma resposta.
 
 ```xml
 <policies>
@@ -70,7 +70,7 @@ Consulte a [referência de política](./api-management-policies.md) para obter u
 
 ## <a name="policy-samples"></a>Exemplos de política
 
-Consulte em [Exemplos de política](policy-samples.md) mais exemplos de código.
+Consulte em [Exemplos de política](./policy-reference.md) mais exemplos de código.
 
 ## <a name="examples"></a>Exemplos
 
@@ -119,7 +119,7 @@ Para obter mais informações sobre como trabalhar com políticas, consulte:
 
 + [Transformar APIs](transform-api.md)
 + [Referência de Política](./api-management-policies.md) para uma lista completa das instruções de política e suas configurações
-+ [Exemplos de política](policy-samples.md)   
++ [Exemplos de política](./policy-reference.md)   
 
 [Policy Reference]: ./api-management-policies.md
 [Product]: api-management-howto-add-products.md

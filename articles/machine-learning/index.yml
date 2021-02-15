@@ -9,54 +9,56 @@ metadata:
   ms.subservice: core
   ms.topic: landing-page
   ms.collection: collection
-  author: j-martens
-  ms.author: jmartens
-  ms.date: 08/17/2020
-  ms.custom: contperfq1
-  ms.openlocfilehash: 63e1e9216a5150b957a34e15def9726167694978
-  ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+  ms.author: larryfr
+  author: BlackMist
+  ms.date: 09/21/2020
+  ms.custom: contperf-fy21q1
+  ms.openlocfilehash: b52e7908d07dcd342be59f9870dece13701f1dc6
+  ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 08/16/2020
-  ms.locfileid: "88258706"
+  ms.lasthandoff: 02/10/2021
+  ms.locfileid: "100096320"
 landingContent:
-- title: Introdução ao aprendizado de máquina
+- title: 'Introdução: Code First'
   linkLists:
   - linkListType: tutorial
     links:
-    - text: Uso de notebooks do Python
+    - text: Introdução aos scripts do Python
+      url: tutorial-1st-experiment-sdk-setup-local.md
+    - text: Introdução aos Jupyter Notebooks (Python)
       url: tutorial-1st-experiment-sdk-setup.md
-    - text: Com AutoML (sem código/pouco código)
+    - text: Inferência de lote com pipelines de ML (Python)
+      url: tutorial-pipeline-batch-scoring-classification.md
+- title: 'Introdução: Baixo ou nenhum código'
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure Machine Learning Studio
+      url: overview-what-is-machine-learning-studio.md
+    - text: O que é ML automatizado (AutoML)?
+      url: concept-automated-ml.md
+    - text: O que é o designer arrastar e soltar?
+      url: concept-designer.md
+  - linkListType: tutorial
+    links:
+    - text: Introdução (AutoML)
       url: tutorial-first-experiment-automated-ml.md
-    - text: No designer (arrastar e soltar)
+    - text: Introdução (designer)
       url: tutorial-designer-automobile-price-train-score.md
-    - text: Uso do RStudio
-      url: tutorial-1st-r-experiment.md
+  - linkListType: reference
+    links:
+    - text: Algoritmos e módulos do designer
+      url: algorithm-module-reference/module-reference.md
 - title: Trazer seu modelo de ML para o Azure
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Implantar seu modelo local na nuvem
+    - text: Implantar seu modelo na nuvem
       url: how-to-deploy-existing-model.md
-- title: Usar AutoML ou arrastar e soltar no estúdio
-  linkLists:
-  - linkListType: overview
-    links:
-    - text: O que é o AutoML (machine learning automatizado)?
-      url: concept-automated-ml.md
-    - text: O que é o designer (arrastar e soltar)?
-      url: concept-designer.md
-    - text: Como escolher um algoritmo
-      url: how-to-select-algorithms.md
-  - linkListType: tutorial
-    links:
-    - text: 'AutoML: criar um modelo de classificação'
-      url: tutorial-first-experiment-automated-ml.md
-    - text: 'O designer: prever preços de automóvel'
-      url: tutorial-designer-automobile-price-train-score.md
-    - text: Rotular imagens para classificação
-      url: tutorial-labeling.md
-- title: 'MLOps: Implantar e gerenciar modelos'
+    - text: Acompanhar modelos do MLflow
+      url: how-to-use-mlflow.md
+- title: Implantar e gerenciar modelos (MLOps)
   linkLists:
   - linkListType: how-to-guide
     links:
@@ -64,51 +66,21 @@ landingContent:
       url: concept-model-management-and-deployment.md
     - text: Como e onde implantar
       url: how-to-deploy-and-where.md
-    - text: Previsão em tempo real
-      url: how-to-consume-web-service.md
-    - text: Previsão em lote
-      url: how-to-use-parallel-run-step.md
-    - text: Repositório de exemplos do MLOps
-      url: https://github.com/microsoft/MLOps
-- title: Treinar com o SDK do Python
-  linkLists:
-  - linkListType: tutorial
-    links:
-    - text: Criar seu primeiro experimento de ML
-      url: tutorial-1st-experiment-sdk-setup.md
-    - text: Prever tarifas de táxi com o AutoML
-      url: tutorial-auto-train-models.md
-    - text: Criar pipelines do Azure ML
-      url: tutorial-pipeline-batch-scoring-classification.md
-    - text: Classificar imagens
-      url: tutorial-train-models-with-aml.md
-  - linkListType: how-to-guide
-    links:
-    - text: Configure seu ambiente
-      url: how-to-configure-environment.md
-    - text: Treinar modelos Scikit-learn
-      url: how-to-train-scikit-learn.md
-    - text: Treinar modelos de TensorFlow
-      url: how-to-train-tensorflow.md
-    - text: Treinar modelos de PyTorch
-      url: how-to-train-pytorch.md
-    - text: Treinar modelos do Keras
-      url: how-to-train-keras.md
-    - text: O que são pipelines de ML?
-      url: concept-ml-pipelines.md
-- title: Acessar os documentos de referência
-  linkLists:
+    - text: Implantar modelos de MLflow
+      url: how-to-deploy-mlflow-models.md
   - linkListType: reference
     links:
-    - text: SDK para Python
-      url: https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py
-    - text: Algoritmos e módulos do designer
-      url: algorithm-module-reference/module-reference.md
+    - text: SDK do Python
+      url: /python/api/overview/azure/ml/?view=azure-ml-py
     - text: API REST
-      url: https://docs.microsoft.com/rest/api/azureml/
+      url: /rest/api/azureml/
     - text: CLI do aprendizado de máquina
-      url: https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest
-    - text: Arquiteturas de referência de IA (GitHub)
-      url: https://github.com/Microsoft/AI
-    - text: SDK para R
-      url: https://azure.github.io/azureml-sdk-for-r/reference/index.html
+      url: /cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest
+- title: Procurar pelo Studio (clássico)
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Destino do Studio (clássico)
+      url: classic/index.yml
+    - text: Studio (clássico) vs Studio
+      url: overview-what-is-machine-learning-studio.md

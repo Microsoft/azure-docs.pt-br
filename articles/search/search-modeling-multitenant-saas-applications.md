@@ -7,13 +7,13 @@ author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: ea0dac74d4f995e41513b3451dd28d177040e672
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/25/2020
+ms.openlocfilehash: cd21197d6d1559b681ae622b974f6eb7ba95ad3d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935017"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91397361"
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-cognitive-search"></a>Padrões de design para aplicativos SaaS multilocatários e Pesquisa Cognitiva do Azure
 
@@ -41,7 +41,7 @@ Adicionar e remover partições e réplicas permitirá que a capacidade do servi
 ### <a name="service-and-index-limits-in-azure-cognitive-search"></a>Limites de serviço e índice no Azure Pesquisa Cognitiva
 Há alguns [tipos de preço](https://azure.microsoft.com/pricing/details/search/) diferentes no pesquisa cognitiva do Azure, cada uma das camadas tem [limites e cotas](search-limits-quotas-capacity.md)diferentes. Alguns desses limites estão no nível de serviço, alguns estão no nível do índice e alguns estão no nível da partição.
 
-|  | Básico | Standard1 | Standard2 | Standard3 | Standard3 HD |
+|  | Basic | Standard1 | Standard2 | Standard3 | Standard3 HD |
 | --- | --- | --- | --- | --- | --- |
 | **Máximo de réplicas por serviço** |3 |12 |12 |12 |12 |
 | **Máximo de partições por serviço** |1 |12 |12 |12 |3 |
@@ -76,7 +76,8 @@ No caso de um cenário de multilocatário, o desenvolvedor do aplicativo consome
 3. *Mistura de ambos:* locatários maiores e mais ativos são atribuídos a serviços dedicados enquanto locatários menores são atribuídos a índices individuais dentro de serviços compartilhados.
 
 ## <a name="1-index-per-tenant"></a>1. índice por locatário
-![Uma descrição do modelo de índice por locatário](./media/search-modeling-multitenant-saas-applications/azure-search-index-per-tenant.png)
+
+:::image type="content" source="media/search-modeling-multitenant-saas-applications/azure-search-index-per-tenant.png" alt-text="Uma descrição do modelo de índice por locatário" border="false":::
 
 Em um modelo de índice por locatário, vários locatários ocupam um único serviço de Pesquisa Cognitiva do Azure, em que cada locatário tem seu próprio índice.
 
@@ -93,7 +94,8 @@ O Azure Pesquisa Cognitiva permite a escala dos índices individuais e o número
 Se o número total de índices aumenta muito para um único serviço, outro serviço deve ser configurado para acomodar novos locatários. Se os índices tiverem que ser movidos entre os serviços de pesquisa à medida que novos serviços forem adicionados, os dados do índice precisarão ser copiados manualmente de um índice para outro, pois o Azure Pesquisa Cognitiva não permite que um índice seja movido.
 
 ## <a name="2-service-per-tenant"></a>2. serviço por locatário
-![Uma descrição do modelo de serviço por locatário](./media/search-modeling-multitenant-saas-applications/azure-search-service-per-tenant.png)
+
+:::image type="content" source="media/search-modeling-multitenant-saas-applications/azure-search-service-per-tenant.png" alt-text="Uma descrição do modelo de índice por locatário" border="false":::
 
 Em uma arquitetura de serviço por locatário, cada locatário tem seu próprio serviço de pesquisa.
 

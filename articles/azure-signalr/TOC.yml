@@ -19,24 +19,29 @@
       href: signalr-quickstart-azure-functions-java.md
     - name: Azure Functions – Python
       href: signalr-quickstart-azure-functions-python.md
+    - name: Implantação do Serviço do Azure SignalR – modelo ARM
+      href: signalr-quickstart-azure-signalr-service-arm-template.md
+      displayName: deploy azure resource manager template
     - name: API REST
       href: signalr-quickstart-rest-api.md
 - name: Tutoriais
   items:
     - name: Criar um aplicativo em tempo real sem servidor com a autenticação
       href: signalr-tutorial-authenticate-azure-functions.md
+    - name: Criar um aplicativo de chat do Blazor Server
+      href: signalr-tutorial-build-blazor-server-chat-app.md
 - name: Exemplos
   items:
     - name: Exemplos de código
       href: 'https://github.com/aspnet/AzureSignalR-samples'
     - name: CLI do Azure
       href: signalr-reference-cli.md
-    - name: Itens internos do Azure Policy
-      href: ./policy-samples.md
 - name: Conceitos
   items:
     - name: Componentes internos do Serviço do Azure SignalR
       href: signalr-concept-internals.md
+    - name: Modo de serviço
+      href: concept-service-mode.md
     - name: Dimensionar ASP.NET Core SignalR
       href: signalr-concept-scale-aspnet-core.md
     - name: Sem servidor
@@ -49,6 +54,22 @@
           href: ../azure-functions/functions-bindings-signalr-service.md
         - name: Configurações de upstream
           href: concept-upstream.md
+    - name: Disponibilidade
+      items:
+        - name: Desligue normalmente o servidor de aplicativos.
+          href: server-graceful-shutdown.md
+    - name: Segurança
+      items:
+        - name: Autorização
+          items:
+            - name: Autorizar o acesso com o Azure Active Directory
+              href: authorize-access-azure-active-directory.md
+        - name: Autenticação
+          items:
+            - name: Autenticar a partir de um aplicativo
+              href: authenticate-application.md
+            - name: Autenticar com uma identidade gerenciada
+              href: authenticate-managed-identity.md
     - name: Alta disponibilidade
       items:
         - name: Resiliência e recuperação de desastre
@@ -61,6 +82,12 @@
       href: signalr-concept-authenticate-oauth.md
     - name: Manipulação de eventos
       href: signalr-concept-event-grid-integration.md
+    - name: Segurança
+      items:
+        - name: Linha de base de segurança
+          href: security-baseline.md
+        - name: Controles de segurança do Azure Policy
+          href: ./security-controls-policy.md
 - name: Guias de instruções
   items:
     - name: Escala
@@ -93,6 +120,12 @@
           href: signalr-howto-diagnostic-logs.md
         - name: Auditar a conformidade usando o Azure Policy
           href: signalr-howto-azure-policy.md
+    - name: Solução de problemas
+      items:
+        - name: Guias de solução de problemas
+          href: signalr-howto-troubleshoot-guide.md
+        - name: Métodos de solução de problemas
+          href: signalr-howto-troubleshoot-method.md
 - name: Referências
   items:
     - name: CLI do Azure
@@ -100,13 +133,16 @@
     - name: API REST
       href: 'https://github.com/Azure/azure-signalr/blob/dev/docs/rest-api.md'
     - name: ASP.NET Core SignalR
-      href: 'https://docs.microsoft.com/aspnet/core/signalr'
+      href: /aspnet/core/signalr
     - name: Protocolo do Serviço do Azure SignalR
       href: 'https://github.com/Azure/azure-signalr/blob/dev/specs/ServiceProtocol.md'
+    - name: Itens internos do Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Recursos
   items:
     - name: Soluções
-      href: 'https://docs.microsoft.com/azure/architecture/'
+      href: /azure/architecture/
     - name: Relatos de clientes
       href: 'https://customers.microsoft.com/en-us/search?sq=signalr'
     - name: Roteiro do SignalR
@@ -118,7 +154,7 @@
     - name: Perguntas frequentes
       href: signalr-resource-faq.md
     - name: Limites de nível de assinatura do Serviço do SignalR
-      href: 'https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#signalr-service-limits'
+      href: ../azure-resource-manager/management/azure-subscription-service-limits.md#azure-signalr-service-limits
     - name: Preços
       href: 'https://azure.microsoft.com/pricing/details/signalr-service/'
     - name: vídeos

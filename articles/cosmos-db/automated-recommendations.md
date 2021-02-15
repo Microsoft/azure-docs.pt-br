@@ -7,14 +7,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/28/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 8fa2fdf23a0d71b854e043b66c0aed7e944c5f39
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: d9eb55030c7ec52f9b2ac79fbab19944f0a3e190
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87449958"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93087801"
 ---
 # <a name="automated-recommendations-for-azure-cosmos-db"></a>Recomendações automatizadas para Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Todos os serviços de nuvem, incluindo Azure Cosmos DB obter atualizações frequentes com novos recursos, funcionalidades e aprimoramentos. É importante que seu aplicativo acompanhe o desempenho e as atualizações de segurança mais recentes. O portal do Azure oferece recomendações personalizadas que permitem que você maximize o desempenho do seu aplicativo. O mecanismo de consultoria do Azure Cosmos DB analisa continuamente o histórico de uso de seus recursos de Azure Cosmos DB e fornece recomendações com base em seus padrões de carga de trabalho. Essas recomendações correspondem a áreas como particionamento, indexação, rede, segurança, etc. Essas recomendações personalizadas ajudam você a melhorar o desempenho do seu aplicativo.
 
@@ -26,9 +27,9 @@ Você pode exibir recomendações para Azure Cosmos DB das seguintes maneiras:
 
    :::image type="content" source="./media/automated-recommendations/cosmos-db-pane-recommendations.png" alt-text="Exibir recomendações do painel de Azure Cosmos DB":::
 
-- Você também pode encontrar as recomendações por meio do assistente [do Azure](../advisor/advisor-overview.md) em categorizadas por diferentes buckets, como custo, segurança, confiabilidade, desempenho e excelência operacional. Você pode selecionar assinaturas específicas e filtrar pelo tipo de recurso, que é **Azure Cosmos DB contas**.  Quando você seleciona uma recomendação específica, ela exibe as ações que você pode tomar para beneficiar suas cargas de trabalho.
+- Você também pode encontrar as recomendações por meio do assistente [do Azure](../advisor/advisor-overview.md) em categorizadas por diferentes buckets, como custo, segurança, confiabilidade, desempenho e excelência operacional. Você pode selecionar assinaturas específicas e filtrar pelo tipo de recurso, que é **Azure Cosmos DB contas** .  Quando você seleciona uma recomendação específica, ela exibe as ações que você pode tomar para beneficiar suas cargas de trabalho.
 
-   :::image type="content" source="./media/automated-recommendations/advisor-pane-recommendations.png" alt-text="Exibir recomendações do painel do supervisor do Azure":::
+   :::image type="content" source="./media/automated-recommendations/advisor-pane-recommendations.png" alt-text="Exibir recomendações do painel de Azure Cosmos DB":::
 
 Nem todas as recomendações mostradas no painel de Azure Cosmos DB estão disponíveis no Azure Advisor e vice-versa. Isso ocorre porque, com base no tipo de recomendação que cabe no painel do Azure Advisor, Azure Cosmos DB painel ou ambos.
 

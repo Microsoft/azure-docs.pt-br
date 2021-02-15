@@ -14,14 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/21/2019
 ms.author: xpouyat
-ms.openlocfilehash: 7d4822f453e27a5e2fa7b97d77056b6bee1041d9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8e2217c04f5c39ad93185273d537324f4b56e456
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086227"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100099533"
 ---
-# <a name="licensing-microsoftreg-smooth-streaming-client-porting-kit"></a>Licenciamento do Microsoft &reg; Smooth streaming client Porting kit 
+# <a name="licensing-microsoftreg-smooth-streaming-client-porting-kit"></a>Licenciamento do Microsoft &reg; Smooth streaming client Porting kit
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+ 
 ## <a name="overview"></a>Visão geral
 O Kit de Portabilidade de Cliente do Microsoft Smooth Streaming (**SSPK** ) é uma implementação de cliente do Smooth Streaming otimizada para ajudar fabricantes de dispositivos inseridos, operadoras de serviços móveis e a cabo, fornecedores de serviços de conteúdo, fabricantes de celulares, fornecedores de software independentes (ISVs) e fornecedores de soluções a criar produtos e serviços para transmitir conteúdo de streaming adaptativo no formato Smooth Streaming. O SSPK é uma implementação independente de dispositivo e de plataforma do cliente do Smooth Streaming que pode ser movida pelo licenciado para qualquer dispositivo e plataforma. 
 
@@ -113,22 +116,25 @@ As licenças de SSPK provisórias e finais podem enviar perguntas técnicas para
 ## <a name="microsoft-smooth-streaming-client-final-product-agreement-licensees"></a>Licenciados do Contrato do Produto final do cliente do Microsoft Smooth Streaming
 * Advanced Digital Broadcast SA
 * AirTies Kablosuz Iletism Sanayive Dis Ticaret A.S.
+* AmTRAN Technology Co., Ltd 
 * Arcadyan Technology Corporation
 * Arcelik A. S
 * Compal eletrônicos, Inc.
 * TECNOLOGIA DE SORTE EXPRESSA LIMITADA
 * Fluendo S.A.
 * FUNAI ELÉTRICO CO., LTD
-* Hisense International Co., Ltd. 
+* Hisense International Co., Ltd.
+* Tecnologia Visual Hisense co., Ltd
 * HKC Corporation Limited
 * Rae de Hong Kong Konka Ltd
 * Innolux Corporation
-* Innopia Technologies, Inc.
+* Jinpin Electric Company Ltd. Zhuhai. S. E. Z
 * Tecnologia K-Tronics (Suzhou) Co., Ltd. 
 * Kaonmedia Co., Ltd.
 * KDDI Corporation
 * Co-se eletrônicos de mega Fame. limitado
 * MIRC eletrônica limitado
+* MOKA INTERNATIONAL LIMITED
 * Nintendo Co., Ltd.
 * ONEPLUS ELECTRONICS (SHENZHEN) CO., LTD.
 * Panasonic Corporation
@@ -149,6 +155,7 @@ As licenças de SSPK provisórias e finais podem enviar perguntas técnicas para
 * Technicolor Delivery Technologies, SAS
 * Top Victory Investments, Ltd.
 * UMC Polônia SP. z. o.o.
+* Vizio, Inc.
 * ZTE Corporation
 
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia

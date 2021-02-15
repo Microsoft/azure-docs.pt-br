@@ -3,13 +3,13 @@ title: Habilitar a criptografia baseada em host no serviço kubernetes do Azure 
 description: Saiba como configurar uma criptografia baseada em host em um cluster do AKS (serviço kubernetes do Azure)
 services: container-service
 ms.topic: article
-ms.date: 07/10/2020
-ms.openlocfilehash: 4b5deeec0b76520952345e9b03135fa094a1f78e
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.date: 01/27/2021
+ms.openlocfilehash: ac28c698a766f1f3febaff582038906f658d58dd
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87986858"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99071843"
 ---
 # <a name="host-based-encryption-on-azure-kubernetes-service-aks-preview"></a>Criptografia baseada em host no serviço kubernetes do Azure (AKS) (visualização)
 
@@ -25,39 +25,7 @@ Esse recurso só pode ser definido na criação do cluster ou no momento da cria
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-- Verifique se você tem a `aks-preview` extensão da CLI v 0.4.55 ou superior instalada
-- Verifique se você tem o `EncryptionAtHost` sinalizador de recurso em `Microsoft.Compute` habilitado.
-- Verifique se você tem o `EnableEncryptionAtHostPreview` sinalizador de recurso em `Microsoft.ContainerService` habilitado.
-
-### <a name="register-encryptionathost--preview-features"></a>Registrar `EncryptionAtHost` recursos de visualização
-
-Para criar um cluster AKS que usa criptografia baseada em host, você deve habilitar os `EnableEncryptionAtHostPreview` `EncryptionAtHost` sinalizadores de recurso e em sua assinatura.
-
-Registre o `EncryptionAtHost` sinalizador de recurso usando o comando [AZ Feature Register][az-feature-register] , conforme mostrado no exemplo a seguir:
-
-```azurecli-interactive
-az feature register --namespace "Microsoft.Compute" --name "EncryptionAtHost"
-
-az feature register --namespace "Microsoft.ContainerService"  --name "EnableEncryptionAtHostPreview"
-```
-
-Demora alguns minutos para o status exibir *Registrado*. Você pode verificar o status de registro usando o comando [az feature list][az-feature-list]:
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.Compute/EncryptionAtHost')].{Name:name,State:properties.state}"
-
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableEncryptionAtHostPreview')].{Name:name,State:properties.state}"
-```
-
-Quando estiver pronto, atualize o registro dos `Microsoft.ContainerService` `Microsoft.Compute` provedores de recursos e usando o comando [AZ Provider Register][az-provider-register] :
-
-```azurecli-interactive
-az provider register --namespace Microsoft.Compute
-
-az provider register --namespace Microsoft.ContainerService
-```
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+- Verifique se você tem a `aks-preview` extensão da CLI v 0.4.73 ou versão superior instalada.
 
 ### <a name="install-aks-preview-cli-extension"></a>Instalar a extensão da CLI aks-preview
 
@@ -79,27 +47,27 @@ az extension update --name aks-preview
 
 ## <a name="use-host-based-encryption-on-new-clusters-preview"></a>Usar a criptografia baseada em host em novos clusters (visualização)
 
-Configure os nós do agente de cluster para usar a criptografia baseada em host quando o cluster for criado. Use o `--aks-custom-headers` sinalizador para definir o `EnableEncryptionAtHost` cabeçalho.
+Configure os nós do agente de cluster para usar a criptografia baseada em host quando o cluster for criado. 
 
 ```azurecli-interactive
-az aks create --name myAKSCluster --resource-group myResourceGroup -s Standard_DS2_v2 -l westus2 --aks-custom-headers EnableEncryptionAtHost=true
+az aks create --name myAKSCluster --resource-group myResourceGroup -s Standard_DS2_v2 -l westus2 --enable-encryption-at-host
 ```
 
-Se você quiser criar clusters sem criptografia baseada em host, poderá fazer isso omitindo o `--aks-custom-headers` parâmetro personalizado.
+Se você quiser criar clusters sem criptografia baseada em host, poderá fazer isso omitindo o `--enable-encryption-at-host` parâmetro.
 
 ## <a name="use-host-based-encryption-on-existing-clusters-preview"></a>Usar criptografia baseada em host em clusters existentes (visualização)
 
-Você pode habilitar a criptografia baseada em host em clusters existentes adicionando um novo pool de nós ao cluster. Configure um novo pool de nós para usar a criptografia baseada em host usando o `--aks-custom-headers` sinalizador.
+Você pode habilitar a criptografia baseada em host em clusters existentes adicionando um novo pool de nós ao cluster. Configure um novo pool de nós para usar a criptografia baseada em host usando o `--enable-encryption-at-host` parâmetro.
 
 ```azurecli
-az aks nodepool add --name hostencrypt --cluster-name myAKSCluster --resource-group myResourceGroup -s Standard_DS2_v2 -l westus2 --aks-custom-headers EnableEncryptionAtHost=true
+az aks nodepool add --name hostencrypt --cluster-name myAKSCluster --resource-group myResourceGroup -s Standard_DS2_v2 -l westus2 --enable-encryption-at-host
 ```
 
-Se você quiser criar novos pools de nós sem o recurso de criptografia baseado em host, poderá fazer isso omitindo o `--aks-custom-headers` parâmetro personalizado.
+Se você quiser criar novos pools de nós sem o recurso de criptografia baseado em host, poderá fazer isso omitindo o `--enable-encryption-at-host` parâmetro.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Examine [as práticas recomendadas para segurança de cluster AKs][best-practices-security] Leia mais sobre [criptografia baseada em host](../virtual-machines/linux/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data).
+Examine [as práticas recomendadas para segurança de cluster AKs][best-practices-security] Leia mais sobre [criptografia baseada em host](../virtual-machines/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data).
 
 
 <!-- LINKS - external -->
@@ -108,8 +76,8 @@ Examine [as práticas recomendadas para segurança de cluster AKs][best-practice
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [best-practices-security]: ./operator-best-practices-cluster-security.md
-[supported-regions]: ../virtual-machines/linux/disk-encryption.md#supported-regions
-[supported-sizes]: ../virtual-machines/linux/disk-encryption.md#supported-vm-sizes
+[supported-regions]: ../virtual-machines/disk-encryption.md#supported-regions
+[supported-sizes]: ../virtual-machines/disk-encryption.md#supported-vm-sizes
 [azure-cli-install]: /cli/azure/install-azure-cli
 [az-feature-register]: /cli/azure/feature#az-feature-register
 [az-feature-list]: /cli/azure/feature#az-feature-list

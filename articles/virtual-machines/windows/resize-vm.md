@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: cynthn
 ms.openlocfilehash: 4860422fefb5a95fe41912b4898f02867f7b3aeb
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87832239"
 ---
 # <a name="resize-a-windows-vm"></a>Redimensionar uma VM do Windows

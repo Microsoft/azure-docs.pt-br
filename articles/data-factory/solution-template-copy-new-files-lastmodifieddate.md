@@ -1,22 +1,19 @@
 ---
 title: Copiar arquivos novos e alterados por LastModifiedDate
 description: Saiba como usar um modelo de solução para copiar arquivos novos e alterados por LastModifiedDate com Azure Data Factory.
-services: data-factory
 author: dearandyxu
 ms.author: yexu
 ms.reviewer: ''
-manager: shwang
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 3/8/2019
-ms.openlocfilehash: 363af1012b327a55703cc6e35a02dc1f27869bd0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 94d09dc96d017dba3b16cc5fe113272a9393741d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82629058"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100362073"
 ---
 # <a name="copy-new-and-changed-files-by-lastmodifieddate-with-azure-data-factory"></a>Copiar arquivos novos e alterados por LastModifiedDate com Azure Data Factory
 
@@ -26,7 +23,7 @@ Este artigo descreve um modelo de solução que você pode usar para copiar arqu
 
 ## <a name="about-this-solution-template"></a>Sobre o modelo de solução
 
-Esse modelo primeiro seleciona os arquivos novos e alterados somente por seus atributos **LastModifiedDate**e, em seguida, copia esses arquivos selecionados do repositório de fonte de dados para o repositório de destino de dados.
+Esse modelo primeiro seleciona os arquivos novos e alterados somente por seus atributos **LastModifiedDate** e, em seguida, copia esses arquivos selecionados do repositório de fonte de dados para o repositório de destino de dados.
 
 O modelo contém uma atividade:
 - **Copiar** para copiar arquivos novos e alterados somente por LastModifiedDate de um repositório de arquivos para um repositório de destino.
@@ -69,13 +66,13 @@ O modelo define seis parâmetros:
 
     ![Executar o pipeline](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate6.png)
 
-6. Revise o resultado. Você verá que somente os arquivos modificados pela última vez no TimeSpan configurado foram copiados para o repositório de destino.
+6. Examine o resultado. Você verá que somente os arquivos modificados pela última vez no TimeSpan configurado foram copiados para o repositório de destino.
 
     ![Revisar o resultado](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate7.png)
     
-7. Agora você pode adicionar um gatilho do Windows em cascata para automatizar esse pipeline, para que o pipeline sempre possa copiar arquivos novos e alterados somente pelo LastModifiedDate periodicamente.  Selecione **Adicionar gatilho**e selecione **novo/editar**.
+7. Agora você pode adicionar um gatilho do Windows em cascata para automatizar esse pipeline, para que o pipeline sempre possa copiar arquivos novos e alterados somente pelo LastModifiedDate periodicamente.  Selecione **Adicionar gatilho** e selecione **novo/editar**.
 
-    ![Revisar o resultado](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate8.png)
+    ![Captura de tela que realça a opção de menu novo/editar que aparece quando você seleciona adicionar gatilho.](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate8.png)
     
 8. Na janela **Adicionar Gatilhos**, selecione **+ Novo**.
 
@@ -88,8 +85,8 @@ O modelo define seis parâmetros:
     - **Directory_Source**  =  **subpasta**.  Você pode substituir pela subpasta no armazenamento de dados de origem.
     - **FolderPath_Destination**  =  **DestinationFolder**.  Você pode substituir por sua pasta no armazenamento de dados de destino.
     - **Directory_Destination**  =  **subpasta**.  Você pode substituir pela subpasta no armazenamento de dados de destino.
-    - **LastModified_From**  =   ** \@ Trigger (). Outputs. windowStartTime**.  É uma variável de sistema do gatilho que determina a hora em que o pipeline foi disparado pela última vez.
-    - **LastModified_To**  =  ** \@ Trigger (). Outputs. windowEndTime**.  É uma variável de sistema do gatilho que determina a hora em que o pipeline é disparado desta vez.
+    - **LastModified_From**  =   **\@ Trigger (). Outputs. windowStartTime**.  É uma variável de sistema do gatilho que determina a hora em que o pipeline foi disparado pela última vez.
+    - **LastModified_To**  =  **\@ Trigger (). Outputs. windowEndTime**.  É uma variável de sistema do gatilho que determina a hora em que o pipeline é disparado desta vez.
     
     ![Parâmetros de entrada](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate11.png)
     
@@ -101,9 +98,9 @@ O modelo define seis parâmetros:
 
 13. Selecione a guia **Monitor** no painel de navegação à esquerda e aguarde cerca de 15 minutos se a recorrência do gatilho tiver sido definida para a cada 15 minutos. 
 
-14. Revise o resultado. Você verá que seu pipeline será disparado automaticamente a cada 15 minutos e somente os arquivos novos ou alterados do repositório de origem serão copiados para o repositório de destino em cada execução de pipeline.
+14. Examine o resultado. Você verá que seu pipeline será disparado automaticamente a cada 15 minutos e somente os arquivos novos ou alterados do repositório de origem serão copiados para o repositório de destino em cada execução de pipeline.
 
-    ![Revisar o resultado](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate15.png)
+    ![Captura de tela que mostra os resultados que retornam quando o pipeline é disparado.](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate15.png)
     
 ## <a name="next-steps"></a>Próximas etapas
 

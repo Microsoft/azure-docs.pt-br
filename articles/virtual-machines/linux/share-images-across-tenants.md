@@ -1,6 +1,6 @@
 ---
-title: Compartilhar imagens da Galeria entre locatários no Azure
-description: Saiba como compartilhar imagens de VM entre locatários do Azure usando galerias de imagens compartilhadas.
+title: Compartilhar imagens da Galeria entre locatários
+description: Saiba como compartilhar imagens de VM em locatários do Azure usando galerias de imagens compartilhadas usando CLI do Azure.
 author: axayjo
 ms.service: virtual-machines
 ms.subservice: imaging
@@ -10,16 +10,16 @@ ms.date: 05/04/2019
 ms.author: akjosh
 ms.reviewer: cynthn
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: fa4e9432a6acacf986a8e137b0b258abda5abb78
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: f0192a6eb60c72c9f7ac605db492f4e5f97b76ed
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502861"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96779253"
 ---
-# <a name="share-gallery-vm-images-across-azure-tenants"></a>Compartilhar imagens de VM da galeria em locatários do Azure
+# <a name="share-gallery-vm-images-across-azure-tenants-using-the-azure-cli"></a>Compartilhar imagens de VM da galeria em locatários do Azure usando o CLI do Azure
 
-As galerias de imagens compartilhadas permitem compartilhar imagens usando o RBAC. Você pode usar o RBAC para compartilhar imagens dentro de seu locatário e até mesmo para indivíduos fora do seu locatário. Para obter mais informações sobre essa opção de compartilhamento simples, consulte [compartilhar a Galeria](./shared-images-portal.md#share-the-gallery).
+As galerias de imagens compartilhadas permitem compartilhar imagens usando o RBAC do Azure. Você pode usar o RBAC do Azure para compartilhar imagens dentro de seu locatário e até mesmo para indivíduos fora do seu locatário. Para obter mais informações sobre essa opção de compartilhamento simples, consulte [compartilhar a Galeria](./shared-images-portal.md#share-the-gallery).
 
 [!INCLUDE [virtual-machines-share-images-across-tenants](../../../includes/virtual-machines-share-images-across-tenants.md)]
 
@@ -56,4 +56,4 @@ az vm create \
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se você tiver algum problema, você poderá [solucionar problemas de galerias de imagens compartilhadas](troubleshooting-shared-images.md).
+Se você tiver algum problema, você poderá [solucionar problemas de galerias de imagens compartilhadas](../troubleshooting-shared-images.md).

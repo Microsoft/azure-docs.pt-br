@@ -7,19 +7,19 @@ ms.service: load-balancer
 ms.topic: troubleshooting
 ms.date: 05/7/2020
 ms.author: errobin
-ms.openlocfilehash: cd98d5b8d2d4a959a48bfb04fe2eb9e16c4113c9
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 516576f4e005cc9fe2303945ecb1a13489908a5d
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85851144"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696346"
 ---
-# <a name="troubleshooting-outbound-connections-failures"></a><a name="obconnecttsg"></a>Solucionando problemas de falhas de conexões de saída
+# <a name="troubleshooting-outbound-connections-failures"></a><a name="obconnecttsg"></a> Solucionando problemas de falhas de conexões de saída
 
 Este artigo destina-se a fornecer resoluções para problemas comuns que podem ocorrer com conexões de saída de um Azure Load Balancer. A maioria dos problemas com a conectividade de saída que os clientes enfrentam é devido ao esgotamento da porta SNAT e tempos limite de conexão que levam a pacotes descartados. Este artigo fornece etapas para atenuar cada um desses problemas.
 
 ## <a name="managing-snat-pat-port-exhaustion"></a><a name="snatexhaust"></a> Gerenciar esgotamento da porta SNAT (PAT)
-[As portas efêmeras](load-balancer-outbound-connections.md) usadas [para Pat](load-balancer-outbound-connections.md) são um recurso esse esgotável, conforme descrito em [VM autônoma sem um endereço IP público](load-balancer-outbound-connections.md) e [VM com balanceamento de carga sem um endereço IP público](load-balancer-outbound-connections.md). Você pode monitorar o uso de portas efêmeras e comparar com sua alocação atual para determinar o risco de ou confirmar o esgotamento de SNAT usando [este](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics#how-do-i-check-my-snat-port-usage-and-allocation) guia.
+[As portas efêmeras](load-balancer-outbound-connections.md) usadas [para Pat](load-balancer-outbound-connections.md) são um recurso esse esgotável, conforme descrito em [VM autônoma sem um endereço IP público](load-balancer-outbound-connections.md) e [VM com balanceamento de carga sem um endereço IP público](load-balancer-outbound-connections.md). Você pode monitorar o uso de portas efêmeras e comparar com sua alocação atual para determinar o risco de ou confirmar o esgotamento de SNAT usando [este](./load-balancer-standard-diagnostics.md#how-do-i-check-my-snat-port-usage-and-allocation) guia.
 
 Se você sabe que está iniciando muitas conexões TCP ou UDP de saída para o mesmo endereço e porta IP de destino, se você observa as conexões de saída com falha ou é avisado pelo suporte que as portas SNAT ([portas efêmeras](load-balancer-outbound-connections.md#preallocatedports) pré-alocadas usadas pela [PAT](load-balancer-outbound-connections.md)) estão se esgotando, você terá várias opções gerais de mitigação. Avalie essas opções e decida o que está disponível e melhor para o seu cenário. É possível que uma ou mais possam ajudar a gerenciar esse cenário.
 
@@ -44,7 +44,7 @@ Quando as [portas efêmeras pré-alocadas](load-balancer-outbound-connections.md
 As portas efêmeras têm um tempo limite de ociosidade de 4 minutos (não ajustável). Se as tentativas forem muito agressivas, o esgotamento não terá oportunidade de limpar por conta própria. Portanto, considerando como -- e com que frequência -- o aplicativo reage transações é uma parte crítica do projeto.
 
 ## <a name="assign-a-public-ip-to-each-vm"></a><a name="assignilpip"></a>Atribuir um endereço IP a cada VM
-A atribuição de um endereço IP público altera seu cenário para [IP público para uma VM](load-balancer-outbound-connections.md). Todas as portas efêmeras do IP público que são usadas para cada VM estão disponíveis para a VM. (Em oposição aos cenários em que as portas efêmeras de um IP público são compartilhadas com todas as VMs associadas ao respectivo grupo de back-end.) Há compromissos a considerar, tais como o custo adicional dos endereços IP públicos e o potencial impacto da listagem de permissões de um grande número de endereços IP individuais.
+A atribuição de um endereço IP público altera seu cenário para [IP público para uma VM](load-balancer-outbound-connections.md). Todas as portas efêmeras do IP público que são usadas para cada VM estão disponíveis para a VM. (Em oposição aos cenários em que as portas efêmeras de um IP público são compartilhadas com todas as VMs associadas ao respectivo pool de back-end.) Há compensações a serem consideradas, como o custo adicional de endereços IP públicos e o possível impacto da filtragem de um grande número de endereços IP individuais.
 
 >[!NOTE] 
 >Essa opção não está disponível para as funções de trabalho da Web.
@@ -63,7 +63,7 @@ Por exemplo, duas máquinas virtuais no pool de back-end teriam 1024 portas SNAT
 Se você escalar horizontalmente para a próxima camada de tamanho maior de pool de back-end, há potencial para que algumas das conexões de saída atinjam tempo limite se as portas alocadas precisarem ser realocadas.  Se você estiver usando apenas algumas das portas SNAT, escalar horizontalmente no próximo tamanho maior de pool de back-end é irrelevante.  Metade das portas existentes será realocada cada vez que você mover para a próxima camada de pool de back-end.  Se não desejar que isso ocorra, é necessário formatar sua implantação para o tamanho da camada.  Ou, verifique se seu aplicativo pode detectar e repita conforme necessário.  TCP keepalives podem ajudá-lo a detectar quando as portas SNAT não funcionam mais devido a terem sido realocadas.
 
 ## <a name="use-keepalives-to-reset-the-outbound-idle-timeout"></a><a name="idletimeout"></a>Usar keepalives para redefinir o tempo limite ocioso de saída
-Conexões de saída têm um tempo limite de ociosidade de 4 minutos. Esse tempo limite é ajustável por meio de [Regras de saída](../load-balancer/load-balancer-outbound-rules-overview.md#idletimeout). Você também pode usar o transporte (por exemplo, TCP keepalives) ou keepalives da camada de aplicação para atualizar um fluxo ocioso e redefinir esse tempo limite ocioso, se necessário.  
+Conexões de saída têm um tempo limite de ociosidade de 4 minutos. Esse tempo limite é ajustável por meio de [Regras de saída](outbound-rules.md). Você também pode usar o transporte (por exemplo, TCP keepalives) ou keepalives da camada de aplicação para atualizar um fluxo ocioso e redefinir esse tempo limite ocioso, se necessário.  
 
 Ao usar TCP keepalives, é suficiente habilitá-los em um lado da conexão. Por exemplo, é suficiente habilitá-las no lado do servidor apenas para redefinir o timer de ociosidade do fluxo e não é necessário para os dois lados iniciados do TCP keepalives.  Conceitos semelhantes existem para a camada de aplicativo, incluindo as configurações de cliente-servidor de banco de dados.  Verifique o lado do servidor para saber quais opções existem para keepalives específicas do aplicativo.
 

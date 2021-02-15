@@ -3,12 +3,12 @@ title: Fazer backup de máquinas virtuais do Azure em um cofre dos Serviços de 
 description: Descreve como fazer backup de VMs do Azure em um cofre dos Serviços de Recuperação no Backup do Azure
 ms.topic: conceptual
 ms.date: 07/28/2020
-ms.openlocfilehash: fd958fe658306fd068356764100e6aaa15f4fc67
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: f6fe2f629742e15e62dfc13106e92623a4b45add
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826303"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92172744"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Fazer backup de máquinas virtuais do Azure em um cofre dos Serviços de Recuperação
 
@@ -37,14 +37,17 @@ Além disso, há algumas ações que talvez você precise realizar em algumas ci
 
 * **Instale o agente de VM na VM**: O Backup do Azure faz backup de VMs do Azure instalando uma extensão para o agente de VM do Azure em execução no computador. Se a sua VM foi criada a partir de uma imagem do Azure Marketplace, o agente está instalado e em execução. Caso você crie uma VM personalizada ou migre um computador local, talvez seja necessário [instalar o agente manualmente](#install-the-vm-agent).
 
+[!INCLUDE [backup-center.md](../../includes/backup-center.md)]
+
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
 ### <a name="modify-storage-replication"></a>Modificar a replicação de armazenamento
 
-Por padrão, os cofres usam [GRS (armazenamento com redundância geográfica)](../storage/common/storage-redundancy.md).
+Por padrão, os cofres usam [GRS (armazenamento com redundância geográfica)](../storage/common/storage-redundancy.md#geo-redundant-storage).
 
 * Se o cofre for seu mecanismo de backup primário, recomendamos que você use GRS.
-* Você pode usar o [LRS (armazenamento com redundância local)](../storage/common/storage-redundancy.md?toc=/azure/storage/blobs/toc.json) para uma opção mais barata.
+* Você pode usar o [LRS (armazenamento com redundância local)](../storage/common/storage-redundancy.md#locally-redundant-storage) para uma opção mais barata.
+* [O ZRS (armazenamento com redundância de zona)](../storage/common/storage-redundancy.md#zone-redundant-storage) replica seus dados em [zonas de disponibilidade](../availability-zones/az-overview.md#availability-zones), garantindo a residência de dados e a resiliência na mesma região.
 
 Modifique o tipo de replicação de armazenamento da seguinte maneira:
 
@@ -155,7 +158,7 @@ Concluído | Falhou | Concluído com aviso
 Falhou | Falhou | Falhou
 
 Agora, com esse recurso, dois backups podem ser executados em paralelo para a mesma VM, porém, em qualquer fase (instantâneo, transferir dados para o cofre), apenas uma subtarefa pode estar em execução. Assim, em cenários em que um trabalho de backup em andamento resultou no backup do dia seguinte para falhar, ele será evitado com essa funcionalidade de desacoplamento. Os backups de dias subsequentes podem ter o instantâneo concluído, enquanto a **transferência de dados para o cofre** é ignorada se o trabalho de backup de um dia anterior estiver em estado de andamento.
-O ponto de recuperação incremental criado no cofre capturará toda a rotatividade do último ponto de recuperação criado no cofre. Não há impacto no custo do usuário.
+O ponto de recuperação incremental criado no cofre irá capturar toda a rotatividade do ponto de recuperação mais recente criado no cofre. Não há impacto no custo do usuário.
 
 ## <a name="optional-steps"></a>Etapas opcionais
 

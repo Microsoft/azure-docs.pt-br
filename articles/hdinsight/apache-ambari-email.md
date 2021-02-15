@@ -1,18 +1,15 @@
 ---
 title: 'Tutorial: Configurar notificações por email do Apache Ambari no Azure HDInsight'
 description: Este artigo descreve como usar o SendGrid com o Apache Ambari para receber notificações por email.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 03/10/2020
-ms.openlocfilehash: 21376eb40fb40abe67f7e03d15aabd7d89ea62f8
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 63d0f87925f14fddf3dbd722fa72326ee8b04f31
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80081895"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946970"
 ---
 # <a name="tutorial-configure-apache-ambari-email-notifications-in-azure-hdinsight"></a>Tutorial: Configurar notificações por email do Apache Ambari no Azure HDInsight
 
@@ -26,7 +23,7 @@ Neste tutorial, você aprenderá como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma conta de email do SendGrid. Confira [Como enviar emails usando o SendGrid com o Azure](https://docs.microsoft.com/azure/sendgrid-dotnet-how-to-send-email) para obter instruções.
+* Uma conta de email do SendGrid. Confira [Como enviar emails usando o SendGrid com o Azure](../sendgrid-dotnet-how-to-send-email.md) para obter instruções.
 
 * Um cluster HDInsight. Confira [Criar clusters Apache Hadoop usando o portal do Azure](./hdinsight-hadoop-create-linux-clusters-portal.md).
 
@@ -54,7 +51,7 @@ Neste tutorial, você aprenderá como:
 
 1. Na janela **Gerenciar notificações de alerta**, selecione o ícone **+** .
 
-    ![Criar notificação de alerta do Ambari](./media/apache-ambari-email/azure-portal-create-notification.png)
+    ![A captura de tela mostra a caixa de diálogo Gerenciar Notificações de Alerta.](./media/apache-ambari-email/azure-portal-create-notification.png)
 
 1. Na caixa de diálogo **Criar Notificação de Alerta**, forneça as seguintes informações:
 
@@ -75,7 +72,7 @@ Neste tutorial, você aprenderá como:
     |Confirmação de Senha|Reinsira a senha.|
     |Iniciar o TLS|Marcar essa caixa de seleção|
 
-    ![Criar notificação de alerta do Ambari](./media/apache-ambari-email/ambari-create-alert-notification.png)
+    ![A captura de tela mostra a caixa de diálogo Criar Notificação de Alerta.](./media/apache-ambari-email/ambari-create-alert-notification.png)
 
     Clique em **Salvar**. Você voltará para a janela **Gerenciar Notificações de Alerta**.
 

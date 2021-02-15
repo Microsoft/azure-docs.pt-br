@@ -1,14 +1,14 @@
 ---
 title: Visão geral do exemplo de blueprint do FedRAMP High
 description: Visão geral do exemplo de blueprint do FedRAMP High. Este exemplo de blueprint ajuda os clientes a avaliar controles específicos do FedRAMP High.
-ms.date: 07/31/2020
+ms.date: 01/08/2021
 ms.topic: sample
-ms.openlocfilehash: a8761d02d089013bccd31a9968367b26c3d22f87
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 1287a0369e59cc78cce775bff01fe885c1b571d0
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495855"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98034842"
 ---
 # <a name="overview-of-the-fedramp-high-blueprint-sample"></a>Visão geral do exemplo de blueprint do FedRAMP High
 

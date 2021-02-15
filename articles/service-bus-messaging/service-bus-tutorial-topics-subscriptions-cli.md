@@ -5,12 +5,12 @@ ms.date: 06/23/2020
 ms.topic: quickstart
 author: spelluru
 ms.author: spelluru
-ms.openlocfilehash: 3a6535a13ab00c4e22ac4cd8c2de5a5bbb02d0a8
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 080b089efa276779420f6d9bc8e76272f1e65788
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88189801"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "90069689"
 ---
 # <a name="use-azure-cli-to-create-a-service-bus-topic-and-subscriptions-to-the-topic"></a>Usar a CLI do Azure para criar um tópico do Barramento de Serviço e assinaturas para o tópico
 Neste Início rápido, você usará a CLI do Azure para criar um tópico do Barramento de Serviço e, em seguida, criará assinaturas para esse tópico. 
@@ -80,7 +80,7 @@ Cada [assinatura a um tópico](service-bus-messaging-overview.md#topics) pode re
 9. Crie um filtro na terceira assinatura com um filtro usando as propriedades do cliente (`StoreId` não está em `Store1`, `Store2`, `Store3` ou `Store4`).
 
     ```azurecli-interactive
-    az servicebus topic subscription rule create --resource-group MyResourceGroup --namespace-name $namespaceName --topic-name MyTopic --subscription-name S3 --name MyThirdFilter --filter-sql-expression "StoreId IN ('Store1','Store2','Store3', 'Store4')"     
+    az servicebus topic subscription rule create --resource-group MyResourceGroup --namespace-name $namespaceName --topic-name MyTopic --subscription-name S3 --name MyThirdFilter --filter-sql-expression "StoreId NOT IN ('Store1','Store2','Store3', 'Store4')"     
     ```
 10. Execute o comando a seguir para obter a cadeia de conexão primária para o namespace. Você usa essa cadeia de conexão para se conectar à fila e enviar e receber mensagens. 
 

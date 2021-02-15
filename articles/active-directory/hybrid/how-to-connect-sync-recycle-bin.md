@@ -17,24 +17,24 @@ ms.date: 12/17/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed71e53a8cedc2907ac06dd75f11f9c762a78772
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 12073a75cd248c9226c7ce5ecc21b64617823b32
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85357198"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89279628"
 ---
 # <a name="azure-ad-connect-sync-enable-ad-recycle-bin"></a>Sincronização do Azure AD Connect: habilitar a lixeira do AD
 É recomendável que você habilite o recurso Lixeira do AD para seus Active Directories locais, sincronizados com o Azure AD. 
 
-Se você excluiu acidentalmente um objeto de usuário do AD local e o restaurou usando o recurso, o Azure AD restaura o objeto de usuário do Azure AD correspondente.  Para obter informações sobre o recurso Lixeira do AD, consulte o artigo [Scenario Overview for Restoring Deleted Active Directory Objects (Visão geral do cenário de restauração de objetos do Active Directory excluídos)](https://technet.microsoft.com/library/dd379542.aspx).
+Se você excluiu acidentalmente um objeto de usuário do AD local e o restaurou usando o recurso, o Azure AD restaura o objeto de usuário do Azure AD correspondente.  Para obter informações sobre o recurso Lixeira do AD, consulte o artigo [Scenario Overview for Restoring Deleted Active Directory Objects (Visão geral do cenário de restauração de objetos do Active Directory excluídos)](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd379542(v=ws.10)).
 
 ## <a name="benefits-of-enabling-the-ad-recycle-bin"></a>Benefícios da habilitação da lixeira do AD
 Esse recurso ajuda a restaurar os objetos de usuário do Azure AD, fazendo o seguinte:
 
 * Se você excluiu acidentalmente um objeto de usuário do AD local, o objeto de usuário do Azure AD correspondente será excluído no próximo ciclo de sincronização. Por padrão, o Azure AD mantém o objeto de usuário excluído do Azure AD em estado de exclusão temporária durante 30 dias.
 
-* Se você o recurso Lixeira do AD local estiver habilitado, será possível restaurar o objeto de usuário excluído do AD local sem alterar seu valor de Âncora de origem. Quando o objeto de usuário recuperado do AD local for sincronizado com o Azure AD, o Azure AD restaurará o objeto de usuário excluído temporariamente correspondente do Azure AD. Para obter informações sobre o atributo Âncora de origem, consulte o artigo [Azure AD Connect: conceitos de design](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#sourceanchor).
+* Se você o recurso Lixeira do AD local estiver habilitado, será possível restaurar o objeto de usuário excluído do AD local sem alterar seu valor de Âncora de origem. Quando o objeto de usuário recuperado do AD local for sincronizado com o Azure AD, o Azure AD restaurará o objeto de usuário excluído temporariamente correspondente do Azure AD. Para obter informações sobre o atributo Âncora de origem, consulte o artigo [Azure AD Connect: conceitos de design](./plan-connect-design-concepts.md#sourceanchor).
 
 * Se você não tiver o recurso Lixeira do AD local habilitado, talvez seja necessário criar um objeto de usuário do AD para substituir o objeto excluído. Se o Azure AD Connect Synchronization Service tiver sido configurado para usar o atributo do AD gerado pelo sistema (por exemplo, ObjectGuid) para o atributo Âncora de origem, o objeto de usuário do AD recém-criado não terá o mesmo valor de Âncora de origem que o objeto de usuário excluído do AD. Quando o objeto de usuário recém-criado do AD for sincronizado com o Azure AD, o Azure AD criará um novo objeto de usuário do Azure AD em vez de restaurar o objeto de usuário excluído temporariamente do Azure AD.
 

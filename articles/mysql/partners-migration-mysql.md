@@ -6,18 +6,18 @@ ms.author: jtoland
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/08/2018
-ms.openlocfilehash: 7f922275e5541baabc77a1efb19e48fa8be4c5ac
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f325280cb4b18def603410464a06fddaed09c78a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76289417"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "87285400"
 ---
 # <a name="azure-database-for-mysql-migration-partners"></a>Banco de Dados do Azure para parceiros de migração do MySQL
 Para dar suporte amplo à solução do Banco de Dados do Azure para MySQL, é possível escolher entre uma ampla variedade de ferramentas e parceiros líderes do setor. Este artigo destaca os parceiros da Microsoft com soluções de migração que dão suporte para Banco de Dados do Azure para MySQL.
 
 ## <a name="migration-partners"></a>Parceiros de migração
-| Partner (parceiro) | Descrição | Links | Vídeos |
+| Partner (parceiro) | Descrição | Links | vídeos |
 | --- | --- | --- | --- |
 | ![SNP Technologies][1] |**SNP Technologies**<br>A SNP Technologies é uma provedora de serviços somente na nuvem, criando soluções seguras e confiáveis para os negócios do futuro. A empresa acredita na geração de valor real para o seu negócio. Do pensamento à execução, a SNP Technologies compartilha um objetivo comum com os clientes, para transformar seu investimento em uma vantagem.|[Site][snp_website]<br>[Twitter][snp_twitter]<br>[Contact][snp_contact] | |
 | ![DB Best Technologies, LLC][2] |**DB Best Technologies, LLC**<br>A DB Best ajuda os clientes a obterem a maior parte do serviço de banco de dados do Azure. A empresa oferece várias maneiras para começar, incluindo [Projeto arquitetônico de estado futuro ](https://na01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.dbbest.com%2Fservices%2Ffuture-state-architectural-design%2F&data=02%7C01%7Cjtoland%40microsoft.com%7C7311aa2024894a80eff208d5cfd45696%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636643433261194557&sdata=SCr3kseFvcU7mI1%2FZt7K2elXAqLY%2FyL6AO944QiWoLg%3D&reserved=0), [ Otimização de gerenciamento de dados para o Microsoft Data Platform ](https://www.dbbest.com/services/data-management-optimization-for-microsoft-data-platform/), [Serviços de Planejamento de Implantação do Microsoft Azure ](https://www.dbbest.com/services/microsoft-azure-deployment-planning-services) e [ Treinamento de Preparação para Plataforma de Dados do Azure ](https://www.dbbest.com/services/azure-data-platform-readiness-training).|[Site][dbbest_website]<br>[Twitter][dbbest_twitter]<br>[YouTube][dbbest_youtube]<br>[Contact][dbbest_contact] | |
@@ -27,7 +27,7 @@ Para dar suporte amplo à solução do Banco de Dados do Azure para MySQL, é po
 | ![Pactera][6] |**Pactera**<br>Pactera é uma empresa global que oferece serviços de consultoria, digital, tecnologia e operações para empresas líderes do mundo. De suas raízes em engenharia para a versão mais recente na transformação digital, oferece aos clientes uma vantagem competitiva. Suas ferramentas e metodologias comprovadas certificam que seus dados são seguro, autênticos e precisos.|[Site][pactera_website]<br>[Twitter][pactera_twitter]<br>[Contact][pactera_contact] | |
 
 ## <a name="next-steps"></a>Próximas etapas
-Para saber mais sobre outros parceiros da Microsoft, consulte o silte [Microsoft Partner](https://partner.microsoft.com/en-US/).
+Para saber mais sobre outros parceiros da Microsoft, consulte o silte [Microsoft Partner](https://partner.microsoft.com/).
 
 <!--Image references-->
 [1]: ./media/partner-migration-mysql/SNP_Logo.png

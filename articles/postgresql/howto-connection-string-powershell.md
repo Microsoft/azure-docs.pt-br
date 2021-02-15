@@ -1,18 +1,18 @@
 ---
 title: Gerar uma cadeia de conexão com o PowerShell-banco de dados do Azure para PostgreSQL
 description: Este artigo fornece um exemplo de Azure PowerShell para gerar uma cadeia de conexão para se conectar ao banco de dados do Azure para PostgreSQL.
-author: rachel-msft
-ms.author: raagyema
+author: mksuni
+ms.author: sumuth
 ms.service: postgresql
 ms.custom: mvc, devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 8/6/2020
-ms.openlocfilehash: a8e82c1863fde7a7580300606949e00a34c4e58c
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 29641bdc3696f0722ca430dde912768071fd9b16
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87908129"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91708162"
 ---
 # <a name="how-to-generate-an-azure-database-for-postgresql-connection-string-with-powershell"></a>Como gerar uma cadeia de conexão do banco de dados do Azure para PostgreSQL com o PowerShell
 
@@ -20,7 +20,7 @@ Este artigo demonstra como gerar uma cadeia de conexão para um servidor de banc
 
 ## <a name="requirements"></a>Requisitos
 
-Este artigo usa os recursos criados no seguinte guia como um ponto de partida:
+Este artigo usa os recursos criados no seguinte guia como ponto de partida:
 
 * [Início rápido: criar um servidor de banco de dados do Azure para PostgreSQL usando o PowerShell](quickstart-create-postgresql-server-database-using-azure-powershell.md)
 
@@ -36,7 +36,7 @@ Get-AzPostgreSqlConnectionString -Client PHP -Name mydemoserver -ResourceGroupNa
 host=mydemoserver.postgres.database.azure.com port=5432 dbname={your_database} user=myadmin@mydemoserver password={your_password} sslmode=require
 ```
 
-Os valores válidos para o `Client` parâmetro incluem:
+Os valores válidos para o parâmetro `Client` incluem:
 
 * ADO&#46;NET
 * JDBC

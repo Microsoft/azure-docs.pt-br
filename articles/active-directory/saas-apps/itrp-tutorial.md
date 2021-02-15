@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: d7a7c4f7d9a9ba2ef574519a41aae3dd6e28e4fb
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 2dff68f98e2922d5fc7a4fca1e6de8740bc2ae68
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88552778"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "92459672"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-itrp"></a>Tutorial: Integração do Azure Active Directory com o ITRP
 
@@ -27,7 +27,7 @@ Essa integração oferece estes benefícios:
 * Você pode permitir que os usuários sejam conectados automaticamente ao ITRP (Logon Único) com suas contas do Azure AD.
 * Gerencie suas contas em um único local: o portal do Azure.
 
-Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [Logon único em aplicativos no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [Logon único em aplicativos no Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -94,7 +94,7 @@ Para configurar o logon único do Azure AD com o ITRP, execute estas etapas:
 
 3. Na página **Configurar logon único com SAML**, selecione o ícone **Editar** para abrir a caixa de diálogo **Configuração Básica de SAML**:
 
-    ![Ícone Editar](common/edit-urls.png)
+    ![A captura de tela mostra a página Configurar Logon Único com SAML com o ícone Editar selecionado.](common/edit-urls.png)
 
 4. Na caixa de diálogo **Configuração Básica do SAML**, execute as etapas a seguir.
 
@@ -113,7 +113,7 @@ Para configurar o logon único do Azure AD com o ITRP, execute estas etapas:
 
 5. Na seção **Certificado de Autenticação SAML**, selecione o ícone **Editar** para abrir a caixa de diálogo **Certificado de Autenticação SAML**:
 
-    ![Ícone Editar](common/edit-certificate.png)
+    ![A captura de tela mostra a página Certificado de Autenticação SAML com o ícone Editar selecionado.](common/edit-certificate.png)
 
 6. Na caixa de diálogo **Certificado de Autenticação SAML**, copie o valor da **Impressão Digital** e salve-o:
 
@@ -143,9 +143,9 @@ Para configurar o logon único do Azure AD com o ITRP, execute estas etapas:
 
 1. Na seção de configuração de **Logon único**, execute as seguintes etapas.
 
-    ![Seção Logon Único](./media/itrp-tutorial/ic775572.png "Seção Logon Único")
+    ![A captura de tela mostra a seção Logon Único com a opção Habilitado selecionada.](./media/itrp-tutorial/ic775572.png "Seção Logon Único")
 
-    ![Seção Logon Único](./media/itrp-tutorial/ic775573.png "Seção Logon Único")
+    ![A captura de tela mostra a seção Logon Único em que você pode adicionar as informações descritas nesta etapa.](./media/itrp-tutorial/ic775573.png "Seção Logon Único")
 
     1. Selecione **Habilitado**.
 
@@ -242,12 +242,12 @@ Para criar uma conta de usuário, siga estas etapas:
 
 Agora você precisará testar a configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Ao selecionar o bloco do ITRP no Painel de Acesso, você será conectado automaticamente à instância do ITRP, para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, confira [Acessar e usar aplicativos no portal Meus Aplicativos](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao selecionar o bloco do ITRP no Painel de Acesso, você será conectado automaticamente à instância do ITRP, para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, confira [Acessar e usar aplicativos no portal Meus Aplicativos](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Tutoriais para a integração de aplicativos SaaS ao Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Tutoriais para a integração de aplicativos SaaS ao Azure Active Directory](./tutorial-list.md)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)

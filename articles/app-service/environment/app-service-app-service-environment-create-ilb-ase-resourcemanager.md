@@ -8,10 +8,10 @@ ms.date: 07/11/2017
 ms.author: stefsch
 ms.custom: seodec18
 ms.openlocfilehash: 2a03b791f37868010e107214ddcb7cf42174e4e1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85833546"
 ---
 # <a name="how-to-create-an-ilb-ase-using-azure-resource-manager-templates"></a>Como criar um ASE ILB usando modelos do Azure Resource Manager
@@ -88,7 +88,7 @@ Os parâmetros no arquivo *azuredeploy.parameters.json* estão listados abaixo:
 * *pfxBlobString*: a representação de cadeia de caracteres codificada caracteres com do arquivo. pfx.  Usando o snippet de código mostrado anteriormente, copie a cadeia de caracteres contida no "exportedcert.pfx.b64" e cole-a como o valor do atributo *pfxBlobString*.
 * *password*: a senha usada para proteger o arquivo .pfx.
 * *certificateThumbprint*: a impressão digital do certificado.  Se você recuperar esse valor do PowerShell (por exemplo, *$Certificate. Impressão digital* do trecho de código anterior), você pode usar o valor como está.  No entanto se você copiar o valor da caixa de diálogo Certificado Windows, lembre-se de retirar os espaços estranhos.  O *certificateThumbprint* deve ser semelhante a: AF3143EB61D43F6727842115BB7F17BBCECAECAE
-* *CertificateName*: um identificador de cadeia de caracteres amigável de sua escolha usada para identificar o certificado.  O nome é usado como parte do identificador de Azure Resource Manager exclusivo para a entidade *Microsoft. Web/Certificates* que representa o certificado TLS/SSL.  O nome **deve** terminar com o seguinte sufixo: \_ yourASENameHere_InternalLoadBalancingASE.  Esse sufixo é usado pelo portal como um indicador de que o certificado é usado para proteger um ASE habilitado por ILB.
+* *CertificateName*: um identificador de cadeia de caracteres amigável de sua escolha usada para identificar o certificado.  O nome é usado como parte do identificador de Azure Resource Manager exclusivo para a entidade *Microsoft. Web/Certificates* que representa o certificado TLS/SSL.  O nome **deve** terminar com o seguinte sufixo:  \_ yourASENameHere_InternalLoadBalancingASE.  Esse sufixo é usado pelo portal como um indicador de que o certificado é usado para proteger um ASE habilitado por ILB.
 
 Um exemplo abreviado de *azuredeploy.parameters.json* é mostrado abaixo:
 

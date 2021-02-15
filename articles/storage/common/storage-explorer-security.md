@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: best-practice
 ms.date: 07/30/2020
 ms.author: cralvord
-ms.openlocfilehash: d9dea7cd0cc22cc8a1e0aa5c93ece76d689de0e0
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 283ec9999f9b4362035b6770383984efb0879d49
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87835434"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92783752"
 ---
 # <a name="azure-storage-explorer-security-guide"></a>Guia de segurança do Gerenciador de Armazenamento do Azure
 
@@ -42,17 +42,17 @@ A maneira mais fácil e segura de acessar seus recursos de armazenamento do Azur
 
 Esta seção descreve as duas tecnologias baseadas no Azure AD que podem ser usadas para proteger seus recursos de armazenamento.
 
-#### <a name="role-based-access-control-rbac"></a>RBAC (Controle de Acesso Baseado em Função)
+#### <a name="azure-role-based-access-control-azure-rbac"></a>RBAC do Azure (controle de acesso baseado em função do Azure)
 
-O Azure [RBAC (controle de acesso baseado em função) do](https://docs.microsoft.com/azure/role-based-access-control/overview) Azure fornece controle de acesso refinado sobre os recursos do Azure. As funções e permissões de RBAC podem ser gerenciadas no portal do Azure.
+O Azure [RBAC (controle de acesso baseado em função) do](../../role-based-access-control/overview.md) Azure fornece controle de acesso refinado sobre os recursos do Azure. As funções e permissões do Azure podem ser gerenciadas no portal do Azure.
 
-O Gerenciador de Armazenamento dá suporte ao acesso de RBAC a contas de armazenamento, BLOBs e filas. Se precisar de acesso a compartilhamentos de arquivos ou tabelas, você precisará atribuir funções RBAC que concedem permissão para listar chaves de conta de armazenamento.
+O Gerenciador de Armazenamento dá suporte ao acesso RBAC do Azure a contas de armazenamento, BLOBs e filas. Se precisar de acesso a compartilhamentos de arquivos ou tabelas, você precisará atribuir funções do Azure que concedem permissão para listar chaves de conta de armazenamento.
 
 #### <a name="access-control-lists-acls"></a>ACLs (listas de controle de acesso)
 
-As [ACLs (listas de controle de acesso)](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control) permitem controlar o acesso ao nível de arquivo e pasta em ADLS Gen2 contêineres de BLOB. Você pode gerenciar suas ACLs usando Gerenciador de Armazenamento.
+As [ACLs (listas de controle de acesso)](../blobs/data-lake-storage-access-control.md) permitem controlar o acesso ao nível de arquivo e pasta em ADLS Gen2 contêineres de BLOB. Você pode gerenciar suas ACLs usando Gerenciador de Armazenamento.
 
-### <a name="shared-access-signatures-sas"></a>SAS (Assinaturas de Acesso Compartilhado)
+### <a name="shared-access-signatures-sas"></a>SAS (assinaturas de acesso compartilhado)
 
 Se você não puder usar a autenticação do Azure AD, recomendamos o uso de assinaturas de acesso compartilhado. Com as assinaturas de acesso compartilhado, você pode:
 
@@ -77,11 +77,11 @@ Ao usar SAS no Gerenciador de Armazenamento, recomendamos as seguintes diretrize
 
 ### <a name="storage-account-keys"></a>Chaves de conta de armazenamento
 
-As chaves de conta de armazenamento concedem acesso irrestrito aos serviços e recursos em uma conta de armazenamento. Por esse motivo, é recomendável limitar o uso de chaves para acessar recursos no Gerenciador de Armazenamento. Use os recursos RBAC ou SAS para fornecer acesso em vez disso.
+As chaves de conta de armazenamento concedem acesso irrestrito aos serviços e recursos em uma conta de armazenamento. Por esse motivo, é recomendável limitar o uso de chaves para acessar recursos no Gerenciador de Armazenamento. Use os recursos do RBAC do Azure ou SAS para fornecer acesso.
 
-Algumas funções RBAC concedem permissão para recuperar chaves de conta de armazenamento. Indivíduos com essas funções podem efetivamente evitar permissões concedidas ou negadas pelo RBAC. Recomendamos não conceder essa permissão a menos que seja necessário.
+Algumas funções do Azure concedem permissão para recuperar chaves de conta de armazenamento. Indivíduos com essas funções podem efetivamente evitar permissões concedidas ou negadas pelo RBAC do Azure. Recomendamos não conceder essa permissão a menos que seja necessário.
 
-Gerenciador de Armazenamento tentará usar chaves de conta de armazenamento, se disponível, para autenticar solicitações. Você pode desabilitar esse recurso em configurações (**serviços > contas de armazenamento > desabilitar o uso de chaves**). Alguns recursos não oferecem suporte a RBAC, como trabalhar com contas de armazenamento clássicas. Esses recursos ainda exigem chaves e não são afetados por essa configuração.
+Gerenciador de Armazenamento tentará usar chaves de conta de armazenamento, se disponível, para autenticar solicitações. Você pode desabilitar esse recurso em configurações ( **serviços > contas de armazenamento > desabilitar o uso de chaves** ). Alguns recursos não dão suporte ao RBAC do Azure, como trabalhar com contas de armazenamento clássicas. Esses recursos ainda exigem chaves e não são afetados por essa configuração.
 
 Se você precisar usar chaves para acessar seus recursos de armazenamento, recomendamos as seguintes diretrizes:
 
@@ -102,4 +102,4 @@ Ao habilitar o acesso público para um contêiner de BLOB, recomendamos as segui
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Recomendações de segurança](https://docs.microsoft.com/azure/storage/blobs/security-recommendations)
+- [Recomendações de segurança](../blobs/security-recommendations.md)

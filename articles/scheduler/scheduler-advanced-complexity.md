@@ -9,12 +9,12 @@ ms.reviewer: klam, estfan
 ms.suite: infrastructure-services
 ms.topic: article
 ms.date: 11/14/2018
-ms.openlocfilehash: b85932bf0d4fd080afadef2bc28d6a218b2d627a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5a74240e3f116121c0aaddd11c186e6e674ea26a
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78898598"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368172"
 ---
 # <a name="build-advanced-schedules-and-recurrences-for-jobs-in-azure-scheduler"></a>Criar agendamentos avançados e recorrências para trabalhos no Agendador do Azure
 
@@ -54,11 +54,11 @@ Mais tarde este artigo descreve esses cenários mais detalhadamente.
 
 Para criar um agendamento básico com a [API REST do Agendador do Azure](/rest/api/scheduler), siga estas etapas:
 
-1. Registre sua assinatura do Azure com um provedor de recursos usando a [Operação de registro – API REST do Resource Manager](https://docs.microsoft.com/rest/api/resources/providers). O nome do provedor do serviço do Agendador do Azure é **Microsoft.Scheduler**. 
+1. Registre sua assinatura do Azure com um provedor de recursos usando a [Operação de registro – API REST do Resource Manager](/rest/api/resources/providers). O nome do provedor do serviço do Agendador do Azure é **Microsoft.Scheduler**. 
 
-1. Crie uma coleção de trabalhos usando a [Operação de criação ou atualização para coleções de trabalhos](https://docs.microsoft.com/rest/api/scheduler/jobcollections) na API REST do Agendador. 
+1. Crie uma coleção de trabalhos usando a [Operação de criação ou atualização para coleções de trabalhos](/rest/api/scheduler/jobcollections) na API REST do Agendador. 
 
-1. Crie um trabalho usando a [Operação de criação ou atualização para trabalhos](https://docs.microsoft.com/rest/api/scheduler/jobs/createorupdate). 
+1. Crie um trabalho usando a [Operação de criação ou atualização para trabalhos](/rest/api/scheduler/jobs/createorupdate). 
 
 ## <a name="job-schema-elements"></a>Elementos de esquema do trabalho
 

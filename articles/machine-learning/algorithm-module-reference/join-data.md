@@ -1,7 +1,7 @@
 ---
 title: 'Dados de junção: referência de módulo'
 titleSuffix: Azure Machine Learning
-description: Saiba como usar o módulo unir dados de junção em Azure Machine Learning para mesclar conjuntos de dados.
+description: Saiba como usar o módulo ingressar dados no designer de Azure Machine Learning para mesclar dois conjuntos.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 11/19/2019
-ms.openlocfilehash: 38606f424e38fc68519181f485b5b698d0705d6a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c23dca40d50c5837bd9ff45bc3c3d7fb2581685b
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79477571"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420743"
 ---
 # <a name="join-data"></a>Unir dados
 
-Este artigo descreve como usar o módulo **unir dados** no designer de Azure Machine Learning (versão prévia) para mesclar dois DataSets usando uma operação de junção de estilo de banco de dados.  
+Este artigo descreve como usar o módulo **ingressar dados** no designer de Azure Machine Learning para mesclar dois DataSets usando uma operação de junção de estilo de banco de dado.  
 
 ## <a name="how-to-configure-join-data"></a>Como configurar dados de junção
 
@@ -47,17 +47,17 @@ Para executar uma junção em dois conjuntos de valores, eles devem estar relaci
    
 1. Use a lista suspensa **tipo de junção** para especificar como os conjuntos de valores devem ser combinados.  
   
-    * **Junção interna**: uma *junção interna* é a operação de junção mais comum. Retorna as linhas combinadas somente quando os valores das colunas de chave correspondem.  
+    * **Junção interna** : uma *junção interna* é a operação de junção mais comum. Retorna as linhas combinadas somente quando os valores das colunas de chave correspondem.  
   
-    * **Junção externa esquerda**: uma *junção externa esquerda* retorna linhas Unidas para todas as linhas da tabela esquerda. Quando uma linha na tabela esquerda não tem linhas correspondentes na tabela direita, a linha retornada contém valores ausentes para todas as colunas que vêm da tabela direita. Você também pode especificar um valor de substituição para valores ausentes.  
+    * **Junção externa esquerda** : uma *junção externa esquerda* retorna linhas Unidas para todas as linhas da tabela esquerda. Quando uma linha na tabela esquerda não tem linhas correspondentes na tabela direita, a linha retornada contém valores ausentes para todas as colunas que vêm da tabela direita. Você também pode especificar um valor de substituição para valores ausentes.  
   
-    * **Junção externa completa**: uma *junção externa completa* retorna todas as linhas da tabela esquerda (**Table1**) e da tabela direita (**Table2**).  
+    * **Junção externa completa** : uma *junção externa completa* retorna todas as linhas da tabela esquerda ( **Table1** ) e da tabela direita ( **Table2** ).  
   
          Para cada uma das linhas em uma das tabelas que não têm linhas correspondentes no outro, o resultado inclui uma linha que contém valores ausentes.  
   
-    * **Semijunção à esquerda**: uma *semijunção à esquerda* retorna somente os valores da tabela esquerda quando os valores das colunas de chave correspondem.  
+    * **Semijunção à esquerda** : uma *semijunção à esquerda* retorna somente os valores da tabela esquerda quando os valores das colunas de chave correspondem.  
 
-1. Para a opção, **Mantenha as colunas de chave direita na tabela unida**:
+1. Para a opção, **Mantenha as colunas de chave direita na tabela unida** :
 
     * Selecione esta opção para exibir as chaves de ambas as tabelas de entrada.
     * Anular seleção para retornar apenas as colunas de chave da entrada à esquerda.

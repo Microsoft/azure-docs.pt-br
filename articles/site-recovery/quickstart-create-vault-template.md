@@ -2,14 +2,14 @@
 title: Guia de início rápido para criar um cofre dos Serviços de Recuperação do Azure usando um modelo do Azure Resource Manager.
 description: Neste guia de início rápido, você aprende a criar um cofre dos Serviços de Recuperação do Azure usando um modelo do ARM (Azure Resource Manager).
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-azurecli
 ms.date: 04/29/2020
-ms.openlocfilehash: 62bfe71c397367282c696eecdf55ab9c900c69a1
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: c1c6d625c67130a4e3608cee6134b8c81404c01b
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684109"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92745882"
 ---
 # <a name="quickstart-create-a-recovery-services-vault-using-an-arm-template"></a>Início Rápido: Criar um cofre dos Serviços de Recuperação usando um modelo do ARM
 
@@ -17,7 +17,7 @@ Este guia de início rápido descreve como configurar um cofre dos Serviços de 
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Se seu ambiente atender aos pré-requisitos e você estiver familiarizado com o uso de modelos ARM, selecione o botão **Implantar no Azure**. O modelo será aberto no portal do Azure.
+Se seu ambiente atender aos pré-requisitos e você estiver familiarizado com o uso de modelos ARM, selecione o botão **Implantar no Azure** . O modelo será aberto no portal do Azure.
 
 [![Implantar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-recovery-services-vault-create%2Fazuredeploy.json)
 
@@ -42,9 +42,9 @@ Para obter mais modelos de Serviços de Recuperação do Azure, confira [Modelos
 
 ## <a name="deploy-the-template"></a>Implantar o modelo
 
-Para implantar o modelo, a **Assinatura**, o **Grupo de recursos** e o **Nome do cofre** são necessários.
+Para implantar o modelo, a **Assinatura** , o **Grupo de recursos** e o **Nome do cofre** são necessários.
 
-1. Para entrar no Azure e abrir o modelo, selecione a imagem **Implantar no Azure**.
+1. Para entrar no Azure e abrir o modelo, selecione a imagem **Implantar no Azure** .
 
    [![Implantar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-recovery-services-vault-create%2Fazuredeploy.json)
 
@@ -52,18 +52,18 @@ Para implantar o modelo, a **Assinatura**, o **Grupo de recursos** e o **Nome do
 
    :::image type="content" source="media/quickstart-create-vault-template/create-vault-template.png" alt-text="Modelo para criar um cofre dos Serviços de Recuperação.":::
 
-   - **Assinatura**: selecione sua assinatura do Azure.
-   - **Grupo de recursos**: selecione um grupo existente ou selecione **Criar** para adicionar um grupo.
-   - **Localização**: o padrão é a localização do grupo de recursos e fica não disponível após a seleção de um grupo de recursos.
-   - **Nome do cofre**: Forneça um nome para o cofre.
-   - **Alterar o Tipo de Armazenamento**: O padrão é **false**. Selecione **true** somente se você precisar alterar o tipo de armazenamento do cofre.
-   - **Tipo de Armazenamento do Cofre**: o padrão é **GloballyRedundant**. Se o tipo de armazenamento tiver sido definido como **true**, selecione **LocallyRedundant**.
-   - **Localização**: a função `[resourceGroup().location]` usa como padrão a localização do grupo de recursos. Para alterar a localização, insira um valor, como **westus**.
-   - Marque a caixa de seleção **Concordo com os termos e condições declarados acima**.
+   - **Assinatura** : selecione sua assinatura do Azure.
+   - **Grupo de recursos** : selecione um grupo existente ou selecione **Criar** para adicionar um grupo.
+   - **Localização** : o padrão é a localização do grupo de recursos e fica não disponível após a seleção de um grupo de recursos.
+   - **Nome do cofre** : Forneça um nome para o cofre.
+   - **Alterar o Tipo de Armazenamento** : O padrão é **false** . Selecione **true** somente se você precisar alterar o tipo de armazenamento do cofre.
+   - **Tipo de Armazenamento do Cofre** : o padrão é **GloballyRedundant** . Se o tipo de armazenamento tiver sido definido como **true** , selecione **LocallyRedundant** .
+   - **Localização** : a função `[resourceGroup().location]` usa como padrão a localização do grupo de recursos. Para alterar a localização, insira um valor, como **westus** .
+   - Marque a caixa de seleção **Concordo com os termos e condições declarados acima** .
 
-1. Para iniciar a implantação do cofre, selecione o botão **Comprar**. Após uma implantação bem-sucedida, uma notificação é exibida.
+1. Para iniciar a implantação do cofre, selecione o botão **Comprar** . Após uma implantação bem-sucedida, uma notificação é exibida.
 
-   :::image type="content" source="media/quickstart-create-vault-template/deployment-success.png" alt-text="A implantação do cofre foi bem-sucedida.":::
+   :::image type="content" source="media/quickstart-create-vault-template/deployment-success.png" alt-text="Modelo para criar um cofre dos Serviços de Recuperação.":::
 
 ## <a name="validate-the-deployment"></a>Validar a implantação
 

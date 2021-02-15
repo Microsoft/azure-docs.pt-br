@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 10/23/2017
 ms.author: alkohli
-ms.openlocfilehash: fee0837c1196adf35a956cd13df584528d46bfc0
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: b5f2a86fb7c776436ea707ef293a66c033014c33
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88183472"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021071"
 ---
 # <a name="use-azure-automation-runbooks-to-manage-storsimple-devices"></a>Usar o runbook de Automação do Azure para gerenciar dispositivos StorSimple
 
@@ -85,7 +85,7 @@ Para criar um módulo de automação para o gerenciamento de dispositivo StorSim
 
 6. Verifique se um arquivo zip do módulo de automação é criado em `C:\scripts\StorSimpleSDKTools`.
 
-    ![verify-automation-module](./media/storsimple-8000-automation-azurerm-runbook/verify-automation-module.png)
+    ![Captura de tela mostra a pasta StorSimpleSDKTools com o arquivo zip do módulo de automação](./media/storsimple-8000-automation-azurerm-runbook/verify-automation-module.png)
 
 7. A saída a seguir é apresentada quando o módulo de automação é criado por meio do Windows PowerShell.
 
@@ -184,9 +184,9 @@ Para criar um módulo de automação para o gerenciamento de dispositivo StorSim
    5. Deixe a opção **Criar Conta Executar Como** padrão selecionada.
    6. Opcionalmente, marque **Fixar no painel**. Clique em **Criar**.
 
-       ![create-automation-account](./media/storsimple-8000-automation-azurerm-runbook/create-automation-account.png)
+       ![Captura de tela mostra o painel Adicionar conta de automação com valores para assinatura, criar conta Executar como do Azure e criar 2](./media/storsimple-8000-automation-azurerm-runbook/create-automation-account.png)
 
-      Depois de a conta de automação ser criada com sucesso, você será notificado. Para obter mais informações sobre como criar uma Conta de Automação, vá para [Criar a conta Executar como](https://docs.microsoft.com/azure/automation/automation-create-runas-account).
+      Depois de a conta de automação ser criada com sucesso, você será notificado. Para obter mais informações sobre como criar uma Conta de Automação, vá para [Criar a conta Executar como](../automation/manage-runas-account.md).
 
 3. Para garantir que a conta de automação criada possa acessar o serviço de Gerenciador de Dispositivos StorSimple, você precisa atribuir as permissões apropriadas para a conta de automação. Acesse **Controle de acesso** no serviço do Gerenciador de Dispositivos StorSimple. Clique em **+ Adicionar** e forneça o nome de sua Conta de Automação do Azure. **Salve** as configurações.
 
@@ -196,7 +196,7 @@ Para criar um módulo de automação para o gerenciamento de dispositivo StorSim
 
 5. Na folha **Adicionar módulo**, navegue até o local do módulo compactado, selecione e abra o módulo. Clique em **OK**.
 
-    ![add-module](./media/storsimple-8000-automation-azurerm-runbook/add-module.png)
+    ![Captura de tela mostra o painel Adicionar módulo com um valor carregar arquivo e OK](./media/storsimple-8000-automation-azurerm-runbook/add-module.png)
 
 6. Vá para **Automação de Processos > Runbooks e clique em + Adicionar um runbook**. Na folha **Adicionar runbook**, clique em **Importar um runbook existente**. Aponte para o arquivo de script do Windows PowerShell para o **Arquivo de Runbook**. O tipo de runbook é selecionado automaticamente. Forneça um nome e uma descrição opcional para o runbook. Clique em **Criar**.
 
@@ -206,13 +206,13 @@ Para criar um módulo de automação para o gerenciamento de dispositivo StorSim
 
     ![click-new-runbook](./media/storsimple-8000-automation-azurerm-runbook/verify-runbook-created.png)
 
-8. Edite o runbook e clique em **painel de teste**. Forneça os parâmetros, como o nome do seu serviço de Gerenciador de Dispositivos StorSimple, o nome do dispositivo StorSimple e a assinatura. **Inicie** o teste. O relatório é gerado quando a execução é concluída. Para obter mais informações, acesse [como testar um runbook](../automation/automation-first-runbook-textual-powershell.md#step-3---test-the-runbook).
+8. Edite o runbook e clique em **painel de teste**. Forneça os parâmetros, como o nome do seu serviço de Gerenciador de Dispositivos StorSimple, o nome do dispositivo StorSimple e a assinatura. **Inicie** o teste. O relatório é gerado quando a execução é concluída. Para obter mais informações, acesse [como testar um runbook](../automation/learn/automation-tutorial-runbook-textual-powershell.md#step-3---test-the-runbook).
 
-    ![test-runbook](./media/storsimple-8000-automation-azurerm-runbook/test-runbook.png)
+    ![Captura de tela mostra a panorâmica de teste em que você insere valores de parâmetro e inicia um teste](./media/storsimple-8000-automation-azurerm-runbook/test-runbook.png)
 
 9. Inspecione a saída do runbook no painel de teste. Se estiver satisfeito, feche o painel. Clique em **Publicar** e, quando a confirmação for solicitada, confirme e publique o runbook.
 
-    ![publish-runbook](./media/storsimple-8000-automation-azurerm-runbook/publish-runbook.png)
+    ![Captura de tela mostra o painel Editar runbook do PowerShell que solicita que você vá para publicar o runbook](./media/storsimple-8000-automation-azurerm-runbook/publish-runbook.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -1,17 +1,17 @@
 ---
 title: Segurança-banco de dados do Azure para MySQL
 description: Uma visão geral dos recursos de segurança no banco de dados do Azure para MySQL.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: aac2641913331095550c0e19cc587257a996fcce
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 90855059461fcd5f8ed8d2733d2b6d4addaccde3
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79537016"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94535037"
 ---
 # <a name="security-in-azure-database-for-mysql"></a>Segurança do Banco de Dados do Azure para MySQL
 
@@ -23,7 +23,7 @@ Há várias camadas de segurança que estão disponíveis para proteger os dados
 O banco de dados do Azure para MySQL protege seus dados criptografando os dados em trânsito com a segurança da camada de transporte. A criptografia (SSL/TLS) é imposta por padrão.
 
 ### <a name="at-rest"></a>Em repouso
-O serviço Banco de Dados do Azure para MySQL usa o módulo de criptografia validado por FIPS 140-2 para criptografia de armazenamento de dados em repouso. Os dados, incluindo backups, são criptografados no disco, com exceção dos arquivos temporários criados durante a execução de consultas. O serviço usa a criptografia AES de 256 bits incluída na criptografia de armazenamento do Azure e as chaves são gerenciadas pelo sistema. A criptografia de armazenamento está sempre ativada e não pode ser desabilitada.
+O serviço Banco de Dados do Azure para MySQL usa o módulo de criptografia validado por FIPS 140-2 para criptografia de armazenamento de dados em repouso. Os dados, incluindo backups, são criptografados no disco, incluindo os arquivos temporários criados durante a execução de consultas. O serviço usa a criptografia AES de 256 bits incluída na criptografia de armazenamento do Azure e as chaves são gerenciadas pelo sistema. A criptografia de armazenamento está sempre ativada e não pode ser desabilitada.
 
 
 ## <a name="network-security"></a>Segurança de rede

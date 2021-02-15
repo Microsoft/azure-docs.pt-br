@@ -6,45 +6,45 @@ ms.service: security
 ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
-ms.openlocfilehash: 771f692ade9c7616eb7d217b4728a8c80d2aeac5
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: 387c5e70d50e53f922530cfb1fa91494fa7cc624
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044168"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100376302"
 ---
 # <a name="azure-security-baseline-for-azure-data-factory"></a>Linha de base de segurança do Azure para Azure Data Factory
 
 A linha de base de segurança do Azure para Azure Data Factory contém recomendações que ajudarão você a melhorar a postura de segurança de sua implantação.
 
-A linha de base para esse serviço é extraída do [Azure Security Benchmark versão 1.0](https://docs.microsoft.com/azure/security/benchmarks/overview), que fornece recomendações sobre como proteger suas soluções de nuvem no Azure com nossas diretrizes de melhores práticas.
+A linha de base para esse serviço é extraída do [Azure Security Benchmark versão 1.0](../security/benchmarks/overview.md), que fornece recomendações sobre como proteger suas soluções de nuvem no Azure com nossas diretrizes de melhores práticas.
 
-Para obter mais informações, confira a [Visão geral sobre linhas de base de segurança do Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview).
+Para obter mais informações, confira a [Visão geral sobre linhas de base de segurança do Azure](../security/benchmarks/security-baselines-overview.md).
 
 ## <a name="network-security"></a>Segurança de rede
 
-*Para saber mais, confira [Controle de segurança: Segurança de rede](https://docs.microsoft.com/azure/security/benchmarks/security-control-network-security).*
+*Para saber mais, confira [Controle de segurança: Segurança de rede](../security/benchmarks/security-control-network-security.md).*
 
 ### <a name="11-protect-azure-resources-within-virtual-networks"></a>1,1: proteger os recursos do Azure em redes virtuais
 
 **Orientação**: ao criar um Azure-SSIS Integration Runtime (ir), você tem a opção de associá-lo a uma rede virtual. Isso permitirá que Azure Data Factory crie determinados recursos de rede, como um NSG (grupo de segurança de rede) e um balanceador de carga. Você também tem a capacidade de fornecer seu próprio endereço IP público estático ou ter Azure Data Factory criar um para você. No NSG que é criado automaticamente pelo Azure Data Factory, a porta 3389 está aberta para todo o tráfego por padrão. Bloqueie isso para garantir que somente os administradores tenham acesso.
 
-O IRs auto-hospedado pode ser implantado em um computador local ou em uma máquina virtual do Azure dentro de uma rede virtual. Verifique se sua implantação de sub-rede de rede virtual tem um NSG configurado para permitir somente acesso administrativo. A Azure-SSIS IR não permitiu a saída da porta 3389 por padrão na regra de firewall do Windows em cada nó IR para proteção. Você pode proteger seus recursos configurados pela rede virtual associando um NSG à sub-rede e Configurando regras estritas.
+Self-Hosted IRs pode ser implantado em um computador local ou em uma máquina virtual do Azure dentro de uma rede virtual. Verifique se sua implantação de sub-rede de rede virtual tem um NSG configurado para permitir somente acesso administrativo. A Azure-SSIS IR não permitiu a saída da porta 3389 por padrão na regra de firewall do Windows em cada nó IR para proteção. Você pode proteger seus recursos configurados pela rede virtual associando um NSG à sub-rede e Configurando regras estritas.
 
 Onde o link privado está disponível, use pontos de extremidade privados para proteger os recursos que estão sendo vinculados ao pipeline de Azure Data Factory, como o SQL Server do Azure. Com o link privado, o tráfego entre sua rede virtual e o serviço atravessa a rede de backbone da Microsoft, eliminando a exposição da Internet pública.
 
-* [Como criar um Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime)
+* [Como criar um Azure-SSIS IR](./create-azure-ssis-integration-runtime.md)
 
-* [Como criar e configurar um IR de infravermelho auto-hospedado](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime)
+* [Como criar e configurar um IR de infravermelho auto-hospedado](./create-self-hosted-integration-runtime.md)
 
-* [Como criar uma Rede Virtual](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
+* [Como criar uma Rede Virtual](../virtual-network/quick-create-portal.md)
 
-* [Como criar um NSG com uma configuração de segurança](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
+* [Como criar um NSG com uma configuração de segurança](../virtual-network/tutorial-filter-network-traffic.md)
 
-* [Ingressar um Azure-SSIS IR em uma rede virtual](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network#virtual-network-configuration)
+* [Ingressar um Azure-SSIS IR em uma rede virtual](./join-azure-ssis-integration-runtime-virtual-network.md#virtual-network-configuration)
 
-* [Entender o link privado do Azure](https://docs.microsoft.com/azure/private-link/private-link-overview)
+* [Entender o link privado do Azure](../private-link/private-link-overview.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -58,13 +58,13 @@ Além disso, habilite os logs de fluxo do NSG (grupo de segurança de rede) para
 
 Também envie logs de fluxo de NSG para um workspace do Log Analytics e use a Análise de Tráfego para fornecer insights sobre o fluxo de tráfego em sua nuvem do Azure. Algumas vantagens da Análise de Tráfego são a capacidade de visualizar a atividade de rede e identificar pontos de acesso, identificar ameaças à segurança, compreender os padrões de fluxo de tráfego e identificar configurações incorretas de rede de pinpoint.
 
-* [Entender a segurança de rede fornecida pela central de segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations)
+* [Entender a segurança de rede fornecida pela central de segurança do Azure](../security-center/security-center-network-recommendations.md)
 
-* [Como habilitar logs de fluxo de NSG](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
+* [Como habilitar logs de fluxo de NSG](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
-* [Entender a segurança de rede fornecida pela central de segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations)
+* [Entender a segurança de rede fornecida pela central de segurança do Azure](../security-center/security-center-network-recommendations.md)
 
-* [Como habilitar e usar a Análise de Tráfego](https://docs.microsoft.com/azure/network-watcher/traffic-analytics)
+* [Como habilitar e usar a Análise de Tráfego](../network-watcher/traffic-analytics.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -82,9 +82,9 @@ Também envie logs de fluxo de NSG para um workspace do Log Analytics e use a An
 
 **Orientação**: habilite a proteção contra DDoS Standard nas redes virtuais associadas à sua implantação de Integration Runtime para proteção contra ataques de negação de serviço distribuídos. Use a inteligência contra ameaças integrada da Central de Segurança do Azure para negar comunicações com endereços IP da Internet maliciosos conhecidos ou não usados.
 
-* [Como configurar a proteção contra DDoS](https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection)
+* [Como configurar a proteção contra DDoS](../ddos-protection/manage-ddos-protection.md)
 
-* [Compreender a inteligência contra ameaças integrada da Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-alerts-data-services)
+* [Compreender a inteligência contra ameaças integrada da Central de Segurança do Azure](../security-center/azure-defender.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -96,11 +96,11 @@ Também envie logs de fluxo de NSG para um workspace do Log Analytics e use a An
 
 Também envie logs de fluxo de NSG para um workspace do Log Analytics e use a Análise de Tráfego para fornecer insights sobre o fluxo de tráfego em sua nuvem do Azure. Algumas vantagens da Análise de Tráfego são a capacidade de visualizar a atividade de rede e identificar pontos de acesso, identificar ameaças à segurança, compreender os padrões de fluxo de tráfego e identificar configurações incorretas de rede de pinpoint.
 
-* [Como habilitar logs de fluxo de NSG](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
+* [Como habilitar logs de fluxo de NSG](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
-* [Entender a segurança de rede fornecida pela central de segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations)
+* [Entender a segurança de rede fornecida pela central de segurança do Azure](../security-center/security-center-network-recommendations.md)
 
-* [Como habilitar e usar a Análise de Tráfego](https://docs.microsoft.com/azure/network-watcher/traffic-analytics)
+* [Como habilitar e usar a Análise de Tráfego](../network-watcher/traffic-analytics.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -110,13 +110,13 @@ Também envie logs de fluxo de NSG para um workspace do Log Analytics e use a An
 
 **Diretrizes**: se você quiser inspecionar o tráfego de saída de Azure-SSIS ir, poderá rotear o tráfego iniciado de Azure-SSIS ir para o dispositivo de firewall local por meio do túnel de força do ExpressRoute do Azure ou para uma NVA (solução de virtualização de rede) do Azure Marketplace que dá suporte a recursos de IDS/IPS. Se a detecção de intrusão e/ou prevenção baseada na inspeção de conteúdo não for um requisito, o Firewall do Azure com a inteligência contra ameaças poderá ser usado.
 
-* [Ingressar um Azure-SSIS Integration Runtime em uma rede virtual](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network)
+* [Ingressar um Azure-SSIS Integration Runtime em uma rede virtual](./join-azure-ssis-integration-runtime-virtual-network.md)
 
 * [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/?term=Firewall)
 
-* [Como implantar o Firewall do Azure](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal)
+* [Como implantar o Firewall do Azure](../firewall/tutorial-firewall-deploy-portal.md)
 
-* [Como configurar alertas com o Firewall do Azure](https://docs.microsoft.com/azure/firewall/threat-intel)
+* [Como configurar alertas com o Firewall do Azure](../firewall/threat-intel.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -134,9 +134,9 @@ Também envie logs de fluxo de NSG para um workspace do Log Analytics e use a An
 
 **Diretrizes**: use marcas de serviço de rede virtual para definir os controles de acesso à rede no NSG (grupo de segurança de rede) ou no firewall do Azure. Você pode usar marcas de serviço em vez de endereços IP específicos ao criar regras de segurança. Ao especificar o nome da marca de serviço (por exemplo, DataFactoryManagement) no campo de origem ou destino apropriado de uma regra, você pode permitir ou negar o tráfego de entrada para o serviço correspondente. A Microsoft gerencia os prefixos de endereço englobados pela marca de serviço e atualiza automaticamente a marca de serviço em caso de alteração de endereços.
 
-* [Entender e usar marcas de serviço](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)
+* [Entender e usar marcas de serviço](../virtual-network/service-tags-overview.md)
 
-* [Entender Azure Data Factory marcas de serviço específicas](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network)
+* [Entender Azure Data Factory marcas de serviço específicas](./join-azure-ssis-integration-runtime-virtual-network.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -147,11 +147,11 @@ Também envie logs de fluxo de NSG para um workspace do Log Analytics e use a An
 **Diretrizes**: defina e implemente configurações de segurança padrão para configurações de rede e recursos de rede associados às suas instâncias do Azure data Factory com Azure Policy. Use Azure Policy aliases nos namespaces "Microsoft. datafactory" e "Microsoft. Network" para criar políticas personalizadas para auditar ou impor a configuração de rede de suas instâncias de Azure Data Factory. Você também pode fazer uso de definições de política internas relacionadas à rede ou às instâncias do Azure data Factory, como:
 - A Proteção contra DDoS Standard deve ser habilitada
 
-* [Como configurar e gerenciar o Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Como configurar e gerenciar o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-* [Exemplos de Azure Policy para rede](https://docs.microsoft.com/azure/governance/policy/samples/#network)
+* [Exemplos de Azure Policy para rede](../governance/policy/samples/built-in-policies.md#network) 
 
-* [Como criar um blueprint do Azure](https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal)
+* [Como criar um blueprint do Azure](../governance/blueprints/create-blueprint-portal.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -165,7 +165,7 @@ Use qualquer uma das definições do Azure Policy integrado relacionadas à marc
 
 Você pode usar o Azure PowerShell ou a CLI do Azure para pesquisar ou executar ações em recursos com base em suas marcas.
 
-* [Como criar e usar marcas](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [Como criar e usar marcas](../azure-resource-manager/management/tag-resources.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -175,9 +175,9 @@ Você pode usar o Azure PowerShell ou a CLI do Azure para pesquisar ou executar 
 
 **Orientação**: Use o log de atividades do Azure para monitorar as configurações de recursos de rede e detectar alterações de recursos de rede relacionados às suas instâncias de Azure data Factory. Crie alertas no Azure Monitor que serão disparados quando ocorrerem alterações em recursos de rede críticos.
 
-* [Como exibir e recuperar eventos do log de atividades do Azure](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view)
+* [Como exibir e recuperar eventos do log de atividades do Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
-* [Como criar alertas no Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+* [Como criar alertas no Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -185,7 +185,7 @@ Você pode usar o Azure PowerShell ou a CLI do Azure para pesquisar ou executar 
 
 ## <a name="logging-and-monitoring"></a>Log e monitoramento
 
-*Para saber mais, confira [Controle de segurança: Registro em log e monitoramento](https://docs.microsoft.com/azure/security/benchmarks/security-control-logging-monitoring).*
+*Para saber mais, confira [Controle de segurança: Registro em log e monitoramento](../security/benchmarks/security-control-logging-monitoring.md).*
 
 ### <a name="21-use-approved-time-synchronization-sources"></a>2.1: Usar fontes de sincronização de tempo aprovadas
 
@@ -201,13 +201,13 @@ Você pode usar o Azure PowerShell ou a CLI do Azure para pesquisar ou executar 
 
 Como alternativa, você pode habilitar e integrar dados ao Azure Sentinel ou a um SIEM (gerenciamento de eventos e incidentes de segurança) de terceiros. Você também pode integrar Azure Data Factory com o Git para aproveitar vários benefícios de controle do código-fonte, como a capacidade de controlar/auditar alterações e a capacidade de reverter alterações que introduzem bugs.
 
-* [Como definir as configurações de diagnóstico](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings#create-diagnostic-settings-in-azure-portal)
+* [Como definir as configurações de diagnóstico](../azure-monitor/platform/diagnostic-settings.md)
 
-* [Como integrar o Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+* [Como integrar o Azure Sentinel](../sentinel/quickstart-onboard.md)
 
 * [Introdução à integração do Azure Monitor e ao SIEM de terceiros](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
 
-* [Controle do código-fonte no Azure Data Factory](https://docs.microsoft.com/azure/data-factory/source-control)
+* [Controle do código-fonte no Azure Data Factory](./source-control.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -219,9 +219,9 @@ Como alternativa, você pode habilitar e integrar dados ao Azure Sentinel ou a u
 
 Use as configurações de diagnóstico para configurar os logs de diagnóstico para recursos que não são de computação no Azure Data Factory, como métricas e dados de execução de pipeline. Azure Data Factory armazena dados de execução de pipeline por 45 dias. Para manter esses dados por um período de tempo maior, salve os logs de diagnóstico em uma conta de armazenamento para auditoria ou inspeção manual e especifique o tempo de retenção em dias. Você também pode transmitir os logs para os hubs de eventos do Azure ou enviar os logs para um espaço de trabalho Log Analytics para análise.
 
-* [Como habilitar as configurações de diagnóstico para o Log de Atividades do Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy)
+* [Como habilitar as configurações de diagnóstico para o Log de Atividades do Azure](../azure-monitor/platform/activity-log.md)
 
-* [Entender Azure Data Factory logs de diagnóstico](https://docs.microsoft.com/azure/data-factory/monitor-using-azure-monitor)
+* [Entender Azure Data Factory logs de diagnóstico](./monitor-using-azure-monitor.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -233,9 +233,9 @@ Use as configurações de diagnóstico para configurar os logs de diagnóstico p
 
 Se sua organização quiser manter os dados do log de eventos de segurança, ele poderá ser armazenado em uma camada de coleta de dados, no ponto em que pode ser consultado em Log Analytics.
 
-* [Como coletar dados de máquinas virtuais do Azure no Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/learn/quick-collect-azurevm)
+* [Como coletar dados de máquinas virtuais do Azure no Azure Monitor](../azure-monitor/learn/quick-collect-azurevm.md)
 
-* [Habilitando a coleta de dados na central de segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection#data-collection-tier)
+* [Habilitando a coleta de dados na central de segurança do Azure](../security-center/security-center-enable-data-collection.md#data-collection-tier)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -245,9 +245,9 @@ Se sua organização quiser manter os dados do log de eventos de segurança, ele
 
 **Orientação**: Habilitar configurações de diagnóstico para Azure data Factory. Se optar por armazenar logs em um workspace do Log Analytics, defina o período de retenção do workspace do Log Analytics de acordo com os regulamentos de conformidade da sua organização. Use contas do Armazenamento do Azure para armazenamento de longo prazo/arquivamento.
 
-* [Como habilitar os logs de diagnóstico no Azure Data Factory](https://docs.microsoft.com/azure/data-factory/monitor-using-azure-monitor#set-up-diagnostic-logs)
+* [Como habilitar os logs de diagnóstico no Azure Data Factory](./monitor-using-azure-monitor.md)
 
-* [Como definir parâmetros de retenção de log para workspaces do Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+* [Como definir parâmetros de retenção de log para workspaces do Log Analytics](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -261,11 +261,11 @@ Se você estiver executando o Integration Runtime em uma VM (máquina virtual) d
 
 Como alternativa, você pode habilitar e integrar dados ao Azure Sentinel ou a um SIEM de terceiros.
 
-* [Esquema de Log Analytics](https://docs.microsoft.com/azure/data-factory/monitor-using-azure-monitor#schema-of-logs-and-events)
+* [Esquema de Log Analytics](./monitor-using-azure-monitor.md#schema-of-logs-and-events)
 
-* [Como coletar dados de uma máquina virtual do Azure com Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/learn/quick-collect-azurevm)
+* [Como coletar dados de uma máquina virtual do Azure com Azure Monitor](../azure-monitor/learn/quick-collect-azurevm.md)
 
-* [Como integrar o Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+* [Como integrar o Azure Sentinel](../sentinel/quickstart-onboard.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -279,11 +279,11 @@ Defina as configurações de diagnóstico para Azure Data Factory e envie logs p
 
 Além disso, certifique-se de habilitar as configurações de diagnóstico para serviços relacionados aos armazenamentos de dados. Você pode consultar a linha de base de segurança de cada serviço para obter diretrizes.
 
-* [Alertas no Azure Data Factory](https://docs.microsoft.com/azure/data-factory/monitor-visually#alerts)
+* [Alertas no Azure Data Factory](./monitor-visually.md#alerts)
 
-* [Página de todas as métricas com suporte](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported)
+* [Página de todas as métricas com suporte](../azure-monitor/platform/metrics-supported.md)
 
-* [Como configurar alertas no workspace do Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log)
+* [Como configurar alertas no workspace do Log Analytics](../azure-monitor/platform/alerts-log.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -293,9 +293,9 @@ Além disso, certifique-se de habilitar as configurações de diagnóstico para 
 
 **Diretrizes**: se você estiver executando seu Integration Runtime em uma máquina virtual do Azure, poderá usar o Microsoft antimalware para serviços de nuvem do Azure e máquinas virtuais e configurar suas máquinas virtuais para registrar eventos em uma conta de armazenamento do Azure. Configure um espaço de trabalho Log Analytics para ingerir os eventos das contas de armazenamento e criar alertas quando apropriado. Siga as recomendações na central de segurança do Azure: "aplicativos de computação &amp; ".
 
-* [Como configurar o Microsoft antimalware para serviços de nuvem e máquinas virtuais](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
+* [Como configurar o Microsoft antimalware para serviços de nuvem e máquinas virtuais](../security/fundamentals/antimalware.md)
 
-* [Como habilitar o monitoramento em nível de convidado para máquinas virtuais](https://docs.microsoft.com/azure/cost-management/azure-vm-extended-metrics)
+* [Como habilitar o monitoramento em nível de convidado para máquinas virtuais](../cost-management-billing/cloudyn/azure-vm-extended-metrics.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -313,7 +313,7 @@ Além disso, certifique-se de habilitar as configurações de diagnóstico para 
 
 **Diretrizes**: se você estiver executando o Integration Runtime em uma VM (máquina virtual) do Azure, poderá habilitar o log de auditoria de linha de comando. A central de segurança do Azure fornece monitoramento de log de eventos de segurança para VMs do Azure. A central de segurança provisiona a Microsoft Monitoring Agent em todas as VMs do Azure com suporte e quaisquer novas criadas se o provisionamento automático estiver habilitado ou se você puder instalar o agente manualmente. O agente habilita o evento de criação de processo 4688 e o campo CommandLine dentro do evento 4688. Novos processos criados na VM são registrados pelo log de eventos e monitorados pelos serviços de detecção da Central de Segurança.
 
-* [Coleta de dados na Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection#data-collection-tier)
+* [Coleta de dados na Central de Segurança do Azure](../security-center/security-center-enable-data-collection.md#data-collection-tier)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -321,7 +321,7 @@ Além disso, certifique-se de habilitar as configurações de diagnóstico para 
 
 ## <a name="identity-and-access-control"></a>Identidade e controle de acesso
 
-*Para saber mais, confira [Controle de segurança: Identidade e controle de acesso](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control).*
+*Para saber mais, confira [Controle de segurança: Identidade e controle de acesso](../security/benchmarks/security-control-identity-access-control.md).*
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: Manter um inventário de contas administrativas
 
@@ -331,15 +331,15 @@ Além disso, no nível do locatário, Azure Active Directory (AD) tem funções 
 
 Embora o Azure AD seja o método recomendado para administrar o acesso do usuário, tenha em mente que, se você estiver executando Integration Runtime em uma VM (máquina virtual) do Azure, sua VM também poderá ter contas locais. As contas locais e de domínio devem ser examinadas e gerenciadas, normalmente com uma superfície mínima. Além disso, aconselhamos que o Privileged Identity Manager seja revisado pelo recurso just in time para reduzir a disponibilidade de permissões administrativas.
 
-* [Funções e permissões do Azure Data Factory](https://docs.microsoft.com/azure/data-factory/concepts-roles-permissions)
+* [Funções e permissões do Azure Data Factory](./concepts-roles-permissions.md)
 
-* [Informações sobre o Privileged Identity Manager](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-deployment-plan)
+* [Informações sobre o Privileged Identity Manager](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
-* [Como obter uma função de diretório no Azure AD com o PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+* [Como obter uma função de diretório no Azure AD com o PowerShell](/powershell/module/azuread/get-azureaddirectoryrole)
 
-* [Como obter membros de uma função de diretório no Azure AD com o PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+* [Como obter membros de uma função de diretório no Azure AD com o PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
-* [Informações para contas locais](https://docs.microsoft.com/azure/active-directory/devices/assign-local-admin#manage-the-device-administrator-role)
+* [Informações para contas locais](../active-directory/devices/assign-local-admin.md#manage-the-device-administrator-role)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -364,13 +364,13 @@ Além disso, para ajudá-lo a controlar contas administrativas dedicadas, você 
 
 Se você estiver executando seu Integration Runtime em uma máquina virtual do Azure, as contas de administrador nas máquinas virtuais do Azure também poderão ser configuradas com o PIM (Privileged Identity Manager) do Azure. O Azure Privileged Identity Manager fornece várias opções, como a elevação just-in-time, a autenticação multifator e as opções de delegação para que as permissões só estejam disponíveis para quadros de tempo específicos e exijam uma segunda pessoa para aprovar.
 
-* [Entender a identidade e o acesso da central de segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+* [Entender a identidade e o acesso da central de segurança do Azure](../security-center/security-center-identity-access.md)
 
-* [Como usar o Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Como usar o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-* [Informações sobre o Privileged Identity Manager](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-deployment-plan)
+* [Informações sobre o Privileged Identity Manager](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
-* [Funções e permissões do Azure Data Factory](https://docs.microsoft.com/azure/data-factory/concepts-roles-permissions)
+* [Funções e permissões do Azure Data Factory](./concepts-roles-permissions.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -380,13 +380,13 @@ Se você estiver executando seu Integration Runtime em uma máquina virtual do A
 
 **Diretrizes**: Use um registro de aplicativo do Azure (entidade de serviço) para recuperar um token que seu aplicativo ou função pode usar para acessar e interagir com seus cofres de serviços de recuperação.
 
-* [Como chamar as APIs REST do Azure](https://docs.microsoft.com/rest/api/azure/#how-to-call-azure-rest-apis-with-postman)
+* [Como chamar as APIs REST do Azure](/rest/api/azure/#how-to-call-azure-rest-apis-with-postman)
 
-* [Como registrar seu aplicativo cliente (entidade de serviço) com o Azure AD](https://docs.microsoft.com/rest/api/azure/#register-your-client-application-with-azure-ad)
+* [Como registrar seu aplicativo cliente (entidade de serviço) com o Azure AD](/rest/api/azure/#register-your-client-application-with-azure-ad)
 
-* [Informações da API dos serviços de recuperação do Azure](https://docs.microsoft.com/rest/api/recoveryservices/)
+* [Informações da API dos serviços de recuperação do Azure](/rest/api/recoveryservices/)
 
-* [Informações sobre a API REST para Azure Data Factory](https://docs.microsoft.com/rest/api/datafactory/)
+* [Informações sobre a API REST para Azure Data Factory](/rest/api/datafactory/)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -396,9 +396,9 @@ Se você estiver executando seu Integration Runtime em uma máquina virtual do A
 
 **Diretriz**: habilite a autenticação multifator (MFA) do Azure Active Directory e siga as recomendações de gerenciamento de acesso e identidade da Central de Segurança do Azure.
 
-* [Como habilitar a MFA no Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+* [Como habilitar a MFA no Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
-* [Como monitorar identidade e acesso na Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+* [Como monitorar identidade e acesso na Central de Segurança do Azure](../security-center/security-center-identity-access.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -408,9 +408,9 @@ Se você estiver executando seu Integration Runtime em uma máquina virtual do A
 
 **Diretriz**: Use PAWs (estações de trabalho com acesso privilegiado) com a MFA (autenticação multifator) configurada para fazer logon e configurar os recursos do Azure.
 
-* [Saiba mais sobre Estações de Trabalho com Acesso Privilegiado](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+* [Saiba mais sobre Estações de Trabalho com Acesso Privilegiado](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
-* [Como habilitar a MFA no Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+* [Como habilitar a MFA no Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -422,11 +422,11 @@ Se você estiver executando seu Integration Runtime em uma máquina virtual do A
 
 Se você estiver executando seu Integration Runtime em uma VM (máquina virtual) do Azure, poderá, além disso, integrar sua VM ao Azure Sentinel. O Microsoft Azure Sentinel é uma solução escalonável e nativa da nuvem que oferece SIEM (Gerenciamento de Eventos de Informações de Segurança) e SOAR (Resposta Automatizada para Orquestração de Segurança). O Azure Sentinel oferece análise inteligente de segurança e inteligência contra ameaças em toda a empresa, fornecendo uma única solução para detecção de alertas, visibilidade de ameaças, procura proativa e resposta a ameaças.
 
-* [Como identificar usuários do Azure AD sinalizados em relação a atividades arriscadas](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-user-at-risk)
+* [Como identificar usuários do Azure AD sinalizados em relação a atividades arriscadas](../active-directory/identity-protection/overview-identity-protection.md)
 
-* [Como monitorar a atividade de identidade e acesso dos usuários na Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+* [Como monitorar a atividade de identidade e acesso dos usuários na Central de Segurança do Azure](../security-center/security-center-identity-access.md)
 
-* [Como integrar o Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+* [Como integrar o Azure Sentinel](../sentinel/quickstart-onboard.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -436,7 +436,7 @@ Se você estiver executando seu Integration Runtime em uma VM (máquina virtual)
 
 **Diretrizes**: Use localizações nomeadas de acesso condicional para permitir o acesso somente de agrupamentos lógicos de intervalos de endereços IP ou de países/regiões específicos.
 
-* [Como configurar localizações nomeadas no Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
+* [Como configurar localizações nomeadas no Azure](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -448,13 +448,13 @@ Se você estiver executando seu Integration Runtime em uma VM (máquina virtual)
 
 Se você estiver executando seu Integration Runtime (IR) em uma máquina virtual do Azure, poderá usar identidades gerenciadas para autenticar em qualquer serviço que ofereça suporte à autenticação do Azure AD, incluindo Key Vault, sem nenhuma credencial em seu código. Seu código em execução em uma máquina virtual pode usar a identidade gerenciada para solicitar tokens de acesso para serviços que dão suporte à autenticação do Azure AD.
 
-* [Como criar e configurar uma instância do Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
+* [Como criar e configurar uma instância do Azure AD](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
-* [O que são identidades gerenciadas para recursos do Azure?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
+* [O que são identidades gerenciadas para recursos do Azure?](../active-directory/managed-identities-azure-resources/overview.md)
 
-* [Copiar e transformar dados no banco de dados SQL do Azure usando Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database#using-service-principal-authentication)
+* [Copiar e transformar dados no banco de dados SQL do Azure usando Azure Data Factory](./connector-azure-sql-database.md)
 
-* [Como configurar e gerenciar a autenticação Azure Active Directory com o banco de dados SQL do Azure](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure)
+* [Como configurar e gerenciar a autenticação Azure Active Directory com o banco de dados SQL do Azure](../azure-sql/database/authentication-aad-configure.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -466,11 +466,11 @@ Se você estiver executando seu Integration Runtime (IR) em uma máquina virtual
 
 Se estiver executando a integração de tempo de execução em uma máquina virtual do Azure, você precisará examinar os grupos de segurança e os usuários locais para garantir que não haja contas inesperadas que possam comprometer o sistema.
 
-* [Como usar as revisões de acesso de identidade do Azure](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)
+* [Como usar as revisões de acesso de identidade do Azure](../active-directory/governance/access-reviews-overview.md)
 
-* [Entender os relatórios do Azure AD](https://docs.microsoft.com/azure/active-directory/reports-monitoring/)
+* [Entender os relatórios do Azure AD](../active-directory/reports-monitoring/index.yml)
 
-* [Como usar as revisões de acesso de identidade do Azure](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)
+* [Como usar as revisões de acesso de identidade do Azure](../active-directory/governance/access-reviews-overview.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -482,11 +482,11 @@ Se estiver executando a integração de tempo de execução em uma máquina virt
 
 Se você estiver executando seu Integration Runtime em uma VM (máquina virtual) do Azure, integre a VM ao Azure sentinela. O Microsoft Azure Sentinel é uma solução escalonável e nativa da nuvem que oferece SIEM (Gerenciamento de Eventos de Informações de Segurança) e SOAR (Resposta Automatizada para Orquestração de Segurança). O Azure Sentinel oferece análise inteligente de segurança e inteligência contra ameaças em toda a empresa, fornecendo uma única solução para detecção de alertas, visibilidade de ameaças, procura proativa e resposta a ameaças.
 
-* [Como integrar os logs de atividades do Azure ao Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+* [Como integrar os logs de atividades do Azure ao Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-* [Autorizar o acesso aos recursos de hubs de eventos usando Azure Active Directory](https://docs.microsoft.com/azure/event-hubs/authorize-access-azure-active-directory)
+* [Autorizar o acesso aos recursos de hubs de eventos usando Azure Active Directory](../event-hubs/authorize-access-azure-active-directory.md)
 
-* [Como integrar o Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+* [Como integrar o Azure Sentinel](../sentinel/quickstart-onboard.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -496,15 +496,15 @@ Se você estiver executando seu Integration Runtime em uma VM (máquina virtual)
 
 **Diretrizes**: Use o Azure Active Directory (AD) como o sistema de autenticação e autorização central para seus recursos de Azure data Factory, como o banco de dados SQL do Azure ou máquinas virtuais do Azure. Para o desvio do comportamento de logon da conta no plano de controle (o portal do Azure), use Azure AD Identity Protection e recursos de detecção de risco para configurar respostas automatizadas para ações suspeitas detectadas relacionadas a identidades de usuário. Você também pode ingerir dados no Azure Sentinel para uma investigação mais aprofundada.
 
-* [Como exibir entradas suspeitas do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+* [Como exibir entradas suspeitas do Azure Active Directory](../active-directory/identity-protection/overview-identity-protection.md)
 
-* [Como configurar e habilitar políticas de risco de proteção de identidade](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies)
+* [Como configurar e habilitar políticas de risco de proteção de identidade](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
-* [Como integrar o Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+* [Como integrar o Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-* [Configurar e gerenciar autenticação do Azure Active Directory com SQL](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure?tabs=azure-powershell)
+* [Configurar e gerenciar autenticação do Azure Active Directory com SQL](../azure-sql/database/authentication-aad-configure.md?tabs=azure-powershell)
 
-* [Habilitar a autenticação do Azure Active Directory para o Azure-SSIS Integration Runtime](https://docs.microsoft.com/azure/data-factory/enable-aad-authentication-azure-ssis-ir)
+* [Habilitar a autenticação do Azure Active Directory para o Azure-SSIS Integration Runtime](./enable-aad-authentication-azure-ssis-ir.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -514,7 +514,7 @@ Se você estiver executando seu Integration Runtime em uma VM (máquina virtual)
 
 **Orientação**: em cenários de suporte em que a Microsoft precisa acessar dados do cliente, o Azure sistema de proteção de dados do cliente fornece uma interface para os clientes revisarem e aprovarem ou rejeitarem solicitações de acesso a dados do cliente. Observe que, embora o Lockbox do Azure não esteja disponível para Azure Data Factory em si, a Lockbox do Azure dá suporte ao banco de dados SQL do Azure e às máquinas virtuais do Azure.
 
-* [Entender Sistema de Proteção de Dados do Cliente](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview)
+* [Entender Sistema de Proteção de Dados do Cliente](../security/fundamentals/customer-lockbox-overview.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -522,7 +522,7 @@ Se você estiver executando seu Integration Runtime em uma VM (máquina virtual)
 
 ## <a name="data-protection"></a>Proteção de dados
 
-*Para saber mais, confira [Controle de segurança: Proteção de dados](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-protection).*
+*Para saber mais, confira [Controle de segurança: Proteção de dados](../security/benchmarks/security-control-data-protection.md).*
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1: Manter um inventário de informações confidenciais
 
@@ -530,9 +530,9 @@ Se você estiver executando seu Integration Runtime em uma VM (máquina virtual)
 
 Use o recurso de classificação e descoberta de dados do banco de dados SQL do Azure. A descoberta e a classificação de dados fornecem recursos avançados incorporados ao banco de dados SQL do Azure para descobrir, classificar, rotular &amp; a proteção de informações confidenciais em seus bancos.
 
-* [Como criar e usar marcas](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [Como criar e usar marcas](../azure-resource-manager/management/tag-resources.md)
 
-* [Como usar a descoberta e a classificação de dados para o Azure SQL Server](https://docs.microsoft.com/azure/sql-database/sql-database-data-discovery-and-classification)
+* [Como usar a descoberta e a classificação de dados para o Azure SQL Server](../azure-sql/database/data-discovery-and-classification-overview.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -544,13 +544,13 @@ Use o recurso de classificação e descoberta de dados do banco de dados SQL do 
 
  Você também pode usar pontos de extremidade privados para executar o isolamento de rede. Um Ponto de Extremidade Privado do Azure é um adaptador de rede que conecta você de maneira privada e segura a um serviço com tecnologia do Link Privado do Azure. O Ponto de Extremidade Privado usa um endereço IP privado de sua VNet, colocando efetivamente em sua VNet.
 
-* [Como criar assinaturas adicionais do Azure](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+* [Como criar assinaturas adicionais do Azure](../cost-management-billing/manage/create-subscription.md)
 
-* [Como criar Grupos de Gerenciamento](https://docs.microsoft.com/azure/governance/management-groups/create)
+* [Como criar Grupos de Gerenciamento](../governance/management-groups/create-management-group-portal.md)
 
-* [Como criar e usar marcas](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [Como criar e usar marcas](../azure-resource-manager/management/tag-resources.md)
 
-* [Entender o link privado](https://docs.microsoft.com/azure/private-link/private-endpoint-overview)
+* [Entender o link privado](../private-link/private-endpoint-overview.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -562,13 +562,13 @@ Use o recurso de classificação e descoberta de dados do banco de dados SQL do 
 
 Onde o link privado está disponível, use pontos de extremidade privados para proteger os recursos que estão sendo vinculados ao pipeline de Azure Data Factory. O tráfego entre a rede virtual e o serviço percorre a rede de backbone da Microsoft, eliminando a exposição da Internet pública. Você também pode reduzir o risco de vazamento de dados Configurando um conjunto estrito de regras de saída em um grupo de segurança de rede (NSG) e associando esse NSG à sua sub-rede.
 
-* [Como criar e usar marcas](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [Como criar e usar marcas](../azure-resource-manager/management/tag-resources.md)
 
-* [Como criar um NSG com uma configuração de segurança](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
+* [Como criar um NSG com uma configuração de segurança](../virtual-network/tutorial-filter-network-traffic.md)
 
-* [Entender o link privado do Azure](https://docs.microsoft.com/azure/private-link/private-link-overview)
+* [Entender o link privado do Azure](../private-link/private-link-overview.md)
 
-* [Entender a proteção de dados do cliente no Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+* [Entender a proteção de dados do cliente no Azure](../security/fundamentals/protection-customer-data.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -578,9 +578,9 @@ Onde o link privado está disponível, use pontos de extremidade privados para p
 
 **Orientação**: se o armazenamento de dados de nuvem oferecer suporte a HTTPS ou TLS, todas as transferências de dados entre serviços de movimentação de dados no data Factory e um armazenamento de dados de nuvem serão por meio do canal seguro HTTPS ou TLS. A versão do TLS usada é a 1.2.
 
-Todas as conexões com o Banco de Dados SQL do Azure e o SQL Data Warehouse do Azure exigem criptografia (SSL/TLS) quando os dados estão em trânsito, entrando e saindo do banco de dados. Ao criar um pipeline usando JSON, adicione a propriedade criptografia e defina-a como verdadeira na cadeia de conexão. Para Armazenamento do Azure, é possível usar HTTPS na cadeia de conexão.
+Todas as conexões com o banco de dados SQL do Azure e o Azure Synapse Analytics exigem Criptografia (SSL/TLS), enquanto os dados estão em trânsito para e do banco. Ao criar um pipeline usando JSON, adicione a propriedade criptografia e defina-a como verdadeira na cadeia de conexão. Para Armazenamento do Azure, é possível usar HTTPS na cadeia de conexão.
 
-* [Noções básicas sobre criptografia em trânsito no Azure Data Factory](https://docs.microsoft.com/azure/data-factory/data-movement-security-considerations)
+* [Noções básicas sobre criptografia em trânsito no Azure Data Factory](./data-movement-security-considerations.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -592,23 +592,23 @@ Todas as conexões com o Banco de Dados SQL do Azure e o SQL Data Warehouse do A
 
 Os recursos de classificação e descoberta de dados ainda não estão disponíveis para outros serviços do Azure.
 
-* [Como usar a descoberta e a classificação de dados para o Azure SQL Server](https://docs.microsoft.com/azure/sql-database/sql-database-data-discovery-and-classification)
+* [Como usar a descoberta e a classificação de dados para o Azure SQL Server](../azure-sql/database/data-discovery-and-classification-overview.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: usar o controle de acesso baseado em função para controlar o acesso aos recursos
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Usar o RBAC do Azure para controlar o acesso a recursos
 
-**Orientação**: usar o RBAC (controle de acesso baseado em função) do Azure Active Directory (AD) para controlar o acesso ao plano de controle de Azure data Factory (o portal do Azure).
+**Orientação**: Use o controle de acesso baseado em função do Azure (RBAC do Azure) para controlar o acesso ao plano de controle de Azure data Factory (o portal do Azure).
 
 Para criar instâncias de Data Factory, a conta de usuário usada para entrar no Azure deve ser um membro das funções colaborador ou proprietário, ou um administrador da assinatura do Azure.
 
-Para suas Data Factory fontes de dados, como o banco de dado SQL do Azure, consulte a linha de base de segurança para esse serviço para obter mais informações sobre o RBAC.
+Para suas Data Factory fontes de dados, como o banco de dado SQL do Azure, consulte a linha de base de segurança para esse serviço para obter mais informações sobre o RBAC do Azure.
 
-* [Como configurar o RBAC no Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
+* [Como configurar o RBAC do Azure](../role-based-access-control/role-assignments-portal.md)
 
-* [Funções e permissões do Azure Data Factory](https://docs.microsoft.com/azure/data-factory/concepts-roles-permissions)
+* [Funções e permissões do Azure Data Factory](./concepts-roles-permissions.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -620,7 +620,7 @@ Para suas Data Factory fontes de dados, como o banco de dado SQL do Azure, consu
 
 Para a plataforma subjacente que é gerenciada pela Microsoft, a Microsoft trata todo o conteúdo do cliente como confidencial e faz todo o esforço possível para proteger contra perda e exposição de dados do cliente. Para garantir que os dados do cliente no Azure permaneçam seguros, a Microsoft implementou e mantém um conjunto de recursos e controles robustos de proteção de dados.
 
-* [Entender a proteção de dados do cliente no Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+* [Entender a proteção de dados do cliente no Azure](../security/fundamentals/protection-customer-data.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -634,15 +634,15 @@ Se você estiver executando seu Integration Runtime em uma máquina virtual do A
 
 Você pode armazenar credenciais ou valores secretos em um Azure Key Vault e usá-los durante a execução do pipeline para passar para suas atividades. Você também pode armazenar credenciais para armazenamentos de dados e computações em um Azure Key Vault. O Azure Data Factory recupera as credenciais ao executar uma atividade que usa o armazenamento de dados/computação.
 
-* [Noções básicas sobre criptografia em repouso no Azure Data Factory](https://docs.microsoft.com/azure/data-factory/data-movement-security-considerations)
+* [Noções básicas sobre criptografia em repouso no Azure Data Factory](./data-movement-security-considerations.md)
 
-* [Criptografia do lado do servidor de Azure Managed disks](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption)
+* [Criptografia do lado do servidor de Azure Managed disks](../virtual-machines/disk-encryption.md)
 
-* [Azure Disk Encryption para VMs do Windows](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption-overview)
+* [Azure Disk Encryption para VMs do Windows](../virtual-machines/windows/disk-encryption-overview.md)
 
-* [Como usar os segredos de Azure Key Vault em atividades de pipeline](https://docs.microsoft.com/azure/data-factory/how-to-use-azure-key-vault-secrets-pipeline-activities)
+* [Como usar os segredos de Azure Key Vault em atividades de pipeline](./how-to-use-azure-key-vault-secrets-pipeline-activities.md)
 
-* [Como credenciais no Azure Key Vault](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault)
+* [Como credenciais no Azure Key Vault](./store-credentials-in-key-vault.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -652,11 +652,11 @@ Você pode armazenar credenciais ou valores secretos em um Azure Key Vault e us�
 
 **Diretrizes**: Use Azure monitor com o log de atividades do Azure para criar alertas para quando as alterações ocorrerem para Azure data Factory e recursos relacionados.
 
-* [Como criar alertas para eventos do log de atividades do Azure](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+* [Como criar alertas para eventos do log de atividades do Azure](../azure-monitor/platform/alerts-activity-log.md)
 
-* [Como criar alertas para eventos do log de atividades do Azure](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+* [Como criar alertas para eventos do log de atividades do Azure](../azure-monitor/platform/alerts-activity-log.md)
 
-* [Log da análise do Armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging)
+* [Log da análise do Armazenamento do Azure](../storage/common/storage-analytics-logging.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -664,7 +664,7 @@ Você pode armazenar credenciais ou valores secretos em um Azure Key Vault e us�
 
 ## <a name="vulnerability-management"></a>Gerenciamento de vulnerabilidades
 
-*Para saber mais, confira [Controle de segurança: Gerenciamento de vulnerabilidades](https://docs.microsoft.com/azure/security/benchmarks/security-control-vulnerability-management).*
+*Para saber mais, confira [Controle de segurança: Gerenciamento de vulnerabilidades](../security/benchmarks/security-control-vulnerability-management.md).*
 
 ### <a name="51-run-automated-vulnerability-scanning-tools"></a>5.1: Executar ferramentas automatizadas de verificação de vulnerabilidade
 
@@ -672,11 +672,11 @@ Você pode armazenar credenciais ou valores secretos em um Azure Key Vault e us�
 
 Se você estiver executando seu Integration Runtime em uma VM (máquina virtual) do Azure, siga as recomendações da central de segurança do Azure sobre como executar avaliações de vulnerabilidade em suas VMs. Use a solução recomendada de segurança do Azure ou de terceiros para executar avaliações de vulnerabilidade para suas máquinas virtuais.
 
-* [Como executar avaliações de vulnerabilidade no banco de dados SQL do Azure](https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment)
+* [Como executar avaliações de vulnerabilidade no banco de dados SQL do Azure](../azure-sql/database/sql-vulnerability-assessment.md)
 
-* [Como habilitar a segurança de dados avançada](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security)
+* [Como habilitar a segurança de dados avançada](../azure-sql/database/azure-defender-for-sql.md)
 
-* [Como implementar recomendações de avaliação de vulnerabilidade da central de segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-vulnerability-assessment-recommendations)
+* [Como implementar recomendações de avaliação de vulnerabilidade da central de segurança do Azure](../security-center/deploy-vulnerability-assessment-vm.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -688,11 +688,11 @@ Se você estiver executando seu Integration Runtime em uma VM (máquina virtual)
 
 Para a plataforma subjacente que é gerenciada pela Microsoft, a Microsoft trata todo o conteúdo do cliente como confidencial e faz todo o esforço possível para proteger contra perda e exposição de dados do cliente. Para garantir que os dados do cliente no Azure permaneçam seguros, a Microsoft implementou e mantém um conjunto de recursos e controles robustos de proteção de dados.
 
-* [Solução Gerenciamento de Atualizações no Azure](https://docs.microsoft.com/azure/automation/automation-update-management)
+* [Solução Gerenciamento de Atualizações no Azure](../automation/update-management/overview.md)
 
-* [Gerenciar atualizações e patches para as VMs do Azure](https://docs.microsoft.com/azure/automation/automation-tutorial-update-management)
+* [Gerenciar atualizações e patches para as VMs do Azure](../automation/update-management/manage-updates-for-vm.md)
 
-* [Entender a proteção de dados do cliente no Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+* [Entender a proteção de dados do cliente no Azure](../security/fundamentals/protection-customer-data.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -702,9 +702,9 @@ Para a plataforma subjacente que é gerenciada pela Microsoft, a Microsoft trata
 
 **Diretrizes**: se você estiver executando seu Integration Runtime em uma VM (máquina virtual) do Azure, poderá usar uma solução de gerenciamento de patches de terceiros. Você pode usar a solução de Gerenciamento de Atualizações do Azure para gerenciar atualizações e patches para suas máquinas virtuais. Gerenciamento de Atualizações se baseia no repositório de atualização configurado localmente para corrigir os sistemas Windows com suporte. Ferramentas como System Center Updates Publisher (Updates Publisher) permitem que você publique atualizações personalizadas no Windows Server Update Services (WSUS). Esse cenário permite que Gerenciamento de Atualizações patch de máquinas que usam Configuration Manager como seu repositório de atualizações com software de terceiros.
 
-* [Solução Gerenciamento de Atualizações no Azure](https://docs.microsoft.com/azure/automation/automation-update-management)
+* [Solução Gerenciamento de Atualizações no Azure](../automation/update-management/overview.md)
 
-* [Gerenciar atualizações e patches para as VMs do Azure](https://docs.microsoft.com/azure/automation/automation-tutorial-update-management)
+* [Gerenciar atualizações e patches para as VMs do Azure](../automation/update-management/manage-updates-for-vm.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -714,7 +714,7 @@ Para a plataforma subjacente que é gerenciada pela Microsoft, a Microsoft trata
 
 **Orientação**: se você estiver executando seu Integration Runtime em uma máquina virtual do Azure, exporte os resultados da verificação em intervalos consistentes e compare os resultados para verificar se as vulnerabilidades foram corrigidas. Ao usar a recomendação de gerenciamento de vulnerabilidade sugerida pela central de segurança do Azure, você pode dinamizar o portal da solução selecionada para exibir dados de verificação históricas.
 
-* [Entender o verificador de vulnerabilidades integrada para máquinas virtuais](https://docs.microsoft.com/azure/security-center/built-in-vulnerability-assessment)
+* [Entender o verificador de vulnerabilidades integrada para máquinas virtuais](../security-center/deploy-vulnerability-assessment-vm.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -726,7 +726,7 @@ Para a plataforma subjacente que é gerenciada pela Microsoft, a Microsoft trata
 
 Quando a Central de Segurança identifica as vulnerabilidades, apresenta as conclusões e informações relacionadas como recomendações. As informações relacionadas incluem etapas de correção, CVEs relacionadas, pontuações de CVSS e muito mais. Você pode exibir as vulnerabilidades identificadas para uma ou mais assinaturas ou para uma máquina virtual específica.
 
-* [Verificador de vulnerabilidades integrada para máquinas virtuais](https://docs.microsoft.com/azure/security-center/built-in-vulnerability-assessment)
+* [Verificador de vulnerabilidades integrada para máquinas virtuais](../security-center/deploy-vulnerability-assessment-vm.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -734,7 +734,7 @@ Quando a Central de Segurança identifica as vulnerabilidades, apresenta as conc
 
 ## <a name="inventory-and-asset-management"></a>Inventário e gerenciamento de ativos
 
-*Para saber mais, confira [Controle de segurança: Inventário e gerenciamento de ativos](https://docs.microsoft.com/azure/security/benchmarks/security-control-inventory-asset-management).*
+*Para saber mais, confira [Controle de segurança: Inventário e gerenciamento de ativos](../security/benchmarks/security-control-inventory-asset-management.md).*
 
 ### <a name="61-use-automated-asset-discovery-solution"></a>6,1: usar solução de descoberta de ativos automatizada
 
@@ -742,11 +742,11 @@ Quando a Central de Segurança identifica as vulnerabilidades, apresenta as conc
 
 Embora os recursos clássicos do Azure possam ser descobertos por meio do Resource Graph, é altamente recomendável criar e usar recursos do Azure Resource Manager no futuro.
 
-* [Como criar consultas com o Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+* [Como criar consultas com o Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-* [Como exibir suas assinaturas do Azure](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+* [Como exibir suas assinaturas do Azure](/powershell/module/az.accounts/get-azsubscription)
 
-* [Entender o RBAC do Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)
+* [Entender o RBAC do Azure](../role-based-access-control/overview.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -756,7 +756,7 @@ Embora os recursos clássicos do Azure possam ser descobertos por meio do Resour
 
 **Diretriz**: Aplique marcas aos recursos do Azure, fornecendo metadados para organizá-los logicamente em uma taxonomia.
 
-* [Como criar e usar marcas](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [Como criar e usar marcas](../azure-resource-manager/management/tag-resources.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -770,11 +770,11 @@ Além disso, use Azure Policy para colocar restrições no tipo de recursos que 
 - Tipos de recursos não permitidos
 - Tipos de recursos permitidos
 
-* [Como criar assinaturas adicionais do Azure](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+* [Como criar assinaturas adicionais do Azure](../cost-management-billing/manage/create-subscription.md)
 
-* [Como criar Grupos de Gerenciamento](https://docs.microsoft.com/azure/governance/management-groups/create)
+* [Como criar Grupos de Gerenciamento](../governance/management-groups/create-management-group-portal.md)
 
-* [Como criar e usar marcas](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [Como criar e usar marcas](../azure-resource-manager/management/tag-resources.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -794,9 +794,9 @@ Além disso, use Azure Policy para colocar restrições no tipo de recursos que 
 
 Use o Azure Resource Graph para consultar/descobrir recursos em suas assinaturas. Verifique se todos os recursos do Azure presentes no ambiente foram aprovados.
 
-* [Como configurar e gerenciar o Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Como configurar e gerenciar o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-* [Como criar consultas com o Azure Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+* [Como criar consultas com o Azure Graph](../governance/resource-graph/first-query-portal.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -808,9 +808,9 @@ Use o Azure Resource Graph para consultar/descobrir recursos em suas assinaturas
 
 Observação: o nome do software, a versão, o Publicador e o tempo de atualização estão disponíveis no portal do Azure. Para obter acesso à data de instalação e outras informações, o cliente precisou habilitar o diagnóstico em nível de convidado e colocar os logs de eventos do Windows em um espaço de trabalho Log Analytics.
 
-* [Uma introdução à Automação do Azure](https://docs.microsoft.com/azure/automation/automation-intro)
+* [Uma introdução à Automação do Azure](../automation/automation-intro.md)
 
-* [Como habilitar o inventário de VM do Azure](https://docs.microsoft.com/azure/automation/automation-tutorial-installed-software)
+* [Como habilitar o inventário de VM do Azure](../automation/automation-tutorial-installed-software.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -820,11 +820,11 @@ Observação: o nome do software, a versão, o Publicador e o tempo de atualiza�
 
 **Orientação**: se você estiver executando seu Integration Runtime em uma máquina virtual do Azure, a automação do Azure fornecerá controle completo durante a implantação, operações e encerramento de cargas de trabalho e recursos. Você pode usar Controle de Alterações para identificar todos os softwares instalados em máquinas virtuais. Você pode implementar seu próprio processo ou usar a configuração de estado da automação do Azure para remover software não autorizado.
 
-* [Uma introdução à Automação do Azure](https://docs.microsoft.com/azure/automation/automation-intro)
+* [Uma introdução à Automação do Azure](../automation/automation-intro.md)
 
-* [Controlar alterações no ambiente com a solução Controle de Alterações](https://docs.microsoft.com/azure/automation/change-tracking)
+* [Controlar alterações no ambiente com a solução Controle de Alterações](../automation/change-tracking/overview.md)
 
-* [Visão geral da configuração do estado de automação do Azure](https://docs.microsoft.com/azure/automation/automation-dsc-overview)
+* [Visão geral da configuração do estado de automação do Azure](../automation/automation-dsc-overview.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -834,7 +834,7 @@ Observação: o nome do software, a versão, o Publicador e o tempo de atualiza�
 
 **Orientação**: se você estiver executando seu Integration Runtime em uma VM (máquina virtual) do Azure, use os controles de aplicativo adaptáveis da central de segurança do Azure para garantir que apenas o software autorizado seja executado e todos os softwares não autorizados sejam impedidos de serem executados em VMS.
 
-* [Como usar os controles de aplicativo adaptáveis da central de segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application)
+* [Como usar os controles de aplicativo adaptáveis da central de segurança do Azure](../security-center/security-center-adaptive-application.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -846,9 +846,9 @@ Observação: o nome do software, a versão, o Publicador e o tempo de atualiza�
 - Tipos de recursos não permitidos
 - Tipos de recursos permitidos
 
-* [Como configurar e gerenciar o Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Como configurar e gerenciar o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-* [Como negar um tipo de recurso específico com o Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types)
+* [Como negar um tipo de recurso específico com o Azure Policy](../governance/policy/samples/index.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -860,7 +860,7 @@ Observação: o nome do software, a versão, o Publicador e o tempo de atualiza�
 
 Observe que isso só se aplicará se o Integration Runtime estiver em execução em uma máquina virtual do Azure.
 
-* [Como usar os controles de aplicativo adaptáveis da central de segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application)
+* [Como usar os controles de aplicativo adaptáveis da central de segurança do Azure](../security-center/security-center-adaptive-application.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -870,7 +870,7 @@ Observe que isso só se aplicará se o Integration Runtime estiver em execução
 
 **Diretriz**: Configure o acesso condicional do Azure para limitar a capacidade dos usuários de interagir com o Azure Resource Manager configurando "Bloquear acesso" para o aplicativo de “Gerenciamento do Microsoft Azure”.
 
-* [Como configurar o acesso condicional para bloquear o acesso ao Azure Resource Manager](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
+* [Como configurar o acesso condicional para bloquear o acesso ao Azure Resource Manager](../role-based-access-control/conditional-access-azure-management.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -880,9 +880,9 @@ Observe que isso só se aplicará se o Integration Runtime estiver em execução
 
 **Orientação**: se você estiver executando sua integração de tempo de execução em uma máquina virtual do Azure, dependendo do tipo de scripts, você poderá usar configurações específicas do sistema operacional ou recursos de terceiros para limitar a capacidade dos usuários de executar scripts nos recursos de computação do Azure. Você também pode aproveitar os controles de aplicativo adaptáveis da central de segurança do Azure para garantir que apenas o software autorizado seja executado e todos os softwares não autorizados sejam impedidos de serem executados em máquinas virtuais do Azure.
 
-* [Como controlar a execução de script do PowerShell em ambientes Windows](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6)
+* [Como controlar a execução de script do PowerShell em ambientes Windows](/powershell/module/microsoft.powershell.security/set-executionpolicy)
 
-* [Como usar os controles de aplicativo adaptáveis da central de segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application)
+* [Como usar os controles de aplicativo adaptáveis da central de segurança do Azure](../security-center/security-center-adaptive-application.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -892,19 +892,19 @@ Observe que isso só se aplicará se o Integration Runtime estiver em execução
 
 **Orientação**: aplicativos de alto risco implantados em seu ambiente do Azure podem ser isolados usando rede virtual, sub-rede, assinaturas, grupos de gerenciamento, etc. e suficientemente protegidos com um firewall do Azure, o WAF (firewall do aplicativo Web) ou o NSG (grupo de segurança de rede).
 
-* [Redes virtuais e máquinas virtuais no Azure](https://docs.microsoft.com/azure/virtual-machines/windows/network-overview)
+* [Redes virtuais e máquinas virtuais no Azure](../virtual-machines/network-overview.md)
 
-* [O que é o Firewall do Azure?](https://docs.microsoft.com/azure/firewall/overview)
+* [O que é o Firewall do Azure?](../firewall/overview.md)
 
-* [O que é o Firewall do Aplicativo Web do Azure?](https://docs.microsoft.com/azure/web-application-firewall/overview)
+* [O que é o Firewall do Aplicativo Web do Azure?](../web-application-firewall/overview.md)
 
-* [Grupos de segurança de rede](https://docs.microsoft.com/azure/virtual-network/security-overview)
+* [Grupos de segurança de rede](../virtual-network/network-security-groups-overview.md)
 
-* [O que é a rede virtual do Azure?](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)
+* [O que é a Rede Virtual do Azure?](../virtual-network/virtual-networks-overview.md)
 
-* [Organizar seus recursos com grupos de gerenciamento do Azure](https://docs.microsoft.com/azure/governance/management-groups/overview)
+* [Organizar seus recursos com grupos de gerenciamento do Azure](../governance/management-groups/overview.md)
 
-* [Guia de decisão da assinatura](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/subscriptions/)
+* [Guia de decisão da assinatura](/azure/cloud-adoption-framework/decision-guides/subscriptions/)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -912,15 +912,15 @@ Observe que isso só se aplicará se o Integration Runtime estiver em execução
 
 ## <a name="secure-configuration"></a>Configuração segura
 
-*Para saber mais, confira [Controle de segurança: Configuração segura](https://docs.microsoft.com/azure/security/benchmarks/security-control-secure-configuration).*
+*Para saber mais, confira [Controle de segurança: Configuração segura](../security/benchmarks/security-control-secure-configuration.md).*
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7.1: Estabelecer configurações seguras para todos os recursos do Azure
 
 **Orientação**: definir e implementar configurações de segurança padrão para Azure Data Factory com Azure Policy. Use Azure Policy aliases no namespace "Microsoft. datafactory" para criar políticas personalizadas para auditar ou impor a configuração de suas instâncias de Azure Data Factory.
 
-* [Como exibir os aliases disponíveis do Azure Policy](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+* [Como exibir os aliases disponíveis do Azure Policy](/powershell/module/az.resources/get-azpolicyalias)
 
-* [Como configurar e gerenciar o Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Como configurar e gerenciar o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -930,9 +930,9 @@ Observe que isso só se aplicará se o Integration Runtime estiver em execução
 
 **Orientação**: se você estiver executando sua integração de tempo de execução em uma máquina virtual do Azure, use a recomendação da central de segurança do Azure [corrigir vulnerabilidades em configurações de segurança em suas máquinas virtuais] para manter as configurações de segurança em todos os recursos de computação.
 
-* [Como monitorar as recomendações da central de segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-recommendations)
+* [Como monitorar as recomendações da central de segurança do Azure](../security-center/security-center-recommendations.md)
 
-* [Como corrigir as recomendações da central de segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations)
+* [Como corrigir as recomendações da central de segurança do Azure](../security-center/security-center-remediate-recommendations.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -942,11 +942,11 @@ Observe que isso só se aplicará se o Integration Runtime estiver em execução
 
 **Diretriz**: use o Azure Policy [negar] e [implantar se não existir] para impor configurações seguras em seus recursos do Azure.
 
-* [Como configurar e gerenciar o Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Como configurar e gerenciar o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-* [Compreender os efeitos do Azure Policy](https://docs.microsoft.com/azure/governance/policy/concepts/effects)
+* [Compreender os efeitos do Azure Policy](../governance/policy/concepts/effects.md)
 
-* [Informações sobre como criar modelos de Azure Resource Manager](https://docs.microsoft.com/azure/virtual-machines/windows/ps-template)
+* [Informações sobre como criar modelos de Azure Resource Manager](../virtual-machines/windows/ps-template.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -960,11 +960,11 @@ Observe que isso só se aplicará se o Integration Runtime estiver em execução
 
 Para a maioria dos cenários, os modelos de VM base da Microsoft combinados com a configuração de estado desejado da automação do Azure podem ajudar na reunião e manutenção dos requisitos de segurança.
 
-* [Informações sobre como baixar o modelo de VM](https://docs.microsoft.com/azure/virtual-machines/windows/download-template)
+* [Informações sobre como baixar o modelo de VM](/previous-versions/azure/virtual-machines/windows/download-template)
 
-* [Informações sobre como criar modelos de Azure Resource Manager](https://docs.microsoft.com/azure/virtual-machines/windows/ps-template)
+* [Informações sobre como criar modelos de Azure Resource Manager](../virtual-machines/windows/ps-template.md)
 
-* [Como carregar um VHD de VM personalizado para o Azure](https://docs.microsoft.com/azure-stack/operator/azure-stack-add-vm-image?view=azs-1910)
+* [Como carregar um VHD de VM personalizado para o Azure](/azure-stack/operator/azure-stack-add-vm-image)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -974,9 +974,9 @@ Para a maioria dos cenários, os modelos de VM base da Microsoft combinados com 
 
 **Orientação**: se estiver usando definições de Azure Policy personalizadas, use o Azure DevOps ou Azure Repos para armazenar e gerenciar seu código com segurança.
 
-* [Como armazenar código no Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+* [Como armazenar código no Azure DevOps](/azure/devops/repos/git/gitworkflow)
 
-* [Documentação do Azure Repos](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)
+* [Documentação do Azure Repos](/azure/devops/repos/index)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -984,17 +984,17 @@ Para a maioria dos cenários, os modelos de VM base da Microsoft combinados com 
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7.6: armazenar imagens personalizadas do sistema operacional com segurança
 
-**Orientação**: se estiver usando imagens personalizadas, use o RBAC (controle de acesso baseado em função) para garantir que somente usuários autorizados possam acessar as imagens. Para imagens de contêiner, armazene-as no registro de contêiner do Azure e aproveite o RBAC para garantir que somente usuários autorizados possam acessar as imagens.
+**Orientação**: se estiver usando imagens personalizadas, use o Azure RBAC (controle de acesso baseado em função) para garantir que somente usuários autorizados possam acessar as imagens. Para imagens de contêiner, armazene-as no registro de contêiner do Azure e aproveite o RBAC do Azure para garantir que somente usuários autorizados possam acessar as imagens.
 
 A função colaborador de Data Factory pode ser usada para criar e gerenciar fábricas de dados, bem como recursos filho dentro deles.
 
-* [Entender o RBAC no Azure](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)
+* [Entender o RBAC do Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
 
-* [Entender o RBAC para registro de contêiner](https://docs.microsoft.com/azure/container-registry/container-registry-roles)
+* [Entender o RBAC do Azure para registro de contêiner](../container-registry/container-registry-roles.md)
 
-* [Como configurar o RBAC no Azure](https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal)
+* [Como configurar o RBAC do Azure](../role-based-access-control/quickstart-assign-role-user-portal.md)
 
-* [Funções e permissões do Azure Data Factory](https://docs.microsoft.com/azure/data-factory/concepts-roles-permissions)
+* [Funções e permissões do Azure Data Factory](./concepts-roles-permissions.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -1004,7 +1004,7 @@ A função colaborador de Data Factory pode ser usada para criar e gerenciar fá
 
 **Diretrizes**: Use definições de Azure Policy internas, bem como aliases de Azure Policy no namespace "Microsoft. datafactory" para criar políticas personalizadas para alertar, auditar e impor configurações do sistema. Desenvolva também um processo e um pipeline para gerenciar exceções de política.
 
-* [Como configurar e gerenciar o Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Como configurar e gerenciar o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -1014,7 +1014,7 @@ A função colaborador de Data Factory pode ser usada para criar e gerenciar fá
 
 **Orientação**: essa recomendação pode ser aplicada se o Integration Runtime estiver em execução em uma máquina virtual do Azure. A configuração de estado de automação do Azure é um serviço de gerenciamento de configuração para nós de DSC (configuração de estado desejado) em qualquer datacenter local ou na nuvem. Ela permite a escalabilidade entre milhares de máquinas rápida e facilmente a partir de um local central e seguro. Você pode, facilmente, integrar máquinas, atribuir a elas configurações declarativas e exibir relatórios que mostram a conformidade de cada computador com o estado desejado especificado.
 
-* [Integrar computadores para gerenciamento por Configuração de Estado da Automação do Azure](https://docs.microsoft.com/azure/automation/automation-dsc-onboarding)
+* [Integrar computadores para gerenciamento por Configuração de Estado da Automação do Azure](../automation/automation-dsc-onboarding.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -1024,7 +1024,7 @@ A função colaborador de Data Factory pode ser usada para criar e gerenciar fá
 
 **Diretrizes**: Use definições de Azure Policy internas, bem como aliases de Azure Policy no namespace "Microsoft. datafactory" para criar políticas personalizadas para alertar, auditar e impor configurações do sistema. Use Azure Policy [auditoria], [negar] e [implantar se não existir] para impor automaticamente as configurações para os recursos do Azure.
 
-* [Como configurar e gerenciar o Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Como configurar e gerenciar o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -1034,7 +1034,7 @@ A função colaborador de Data Factory pode ser usada para criar e gerenciar fá
 
 **Orientação**: essa recomendação pode ser aplicada se o Integration Runtime estiver em execução em uma máquina virtual do Azure. A configuração de estado de automação do Azure é um serviço de gerenciamento de configuração para nós de DSC (configuração de estado desejado) em qualquer datacenter local ou na nuvem. Ela permite a escalabilidade entre milhares de máquinas rápida e facilmente a partir de um local central e seguro. Você pode, facilmente, integrar máquinas, atribuir a elas configurações declarativas e exibir relatórios que mostram a conformidade de cada computador com o estado desejado especificado.
 
-* [Integrar computadores para gerenciamento por Configuração de Estado da Automação do Azure](https://docs.microsoft.com/azure/automation/automation-dsc-onboarding)
+* [Integrar computadores para gerenciamento por Configuração de Estado da Automação do Azure](../automation/automation-dsc-onboarding.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -1046,15 +1046,17 @@ A função colaborador de Data Factory pode ser usada para criar e gerenciar fá
 
 Você também pode armazenar credenciais ou valores secretos em um Azure Key Vault e usá-los durante a execução do pipeline para passar para suas atividades. Verifique se a exclusão reversível está habilitada.
 
-* [Como integrar com identidades gerenciadas do Azure](https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity)
+* [Como integrar com identidades gerenciadas do Azure](../azure-app-configuration/howto-integrate-azure-managed-service-identity.md)
 
-* [Como criar um Key Vault](https://docs.microsoft.com/azure/key-vault/quick-create-portal)
+* [Como criar um Key Vault](../key-vault/secrets/quick-create-portal.md)
 
-* [Como fornecer Key Vault autenticação com uma identidade gerenciada](https://docs.microsoft.com/azure/key-vault/managed-identity)
+* [Como autenticar-se no Key Vault](../key-vault/general/authentication.md)
 
-* [Usar segredos de Azure Key Vault em atividades de pipeline](https://docs.microsoft.com/azure/data-factory/how-to-use-azure-key-vault-secrets-pipeline-activities)
+* [Como atribuir uma política de acesso de Key Vault](../key-vault/general/assign-access-policy-portal.md)
 
-* [Exclusão reversível no Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete)
+* [Usar segredos de Azure Key Vault em atividades de pipeline](./how-to-use-azure-key-vault-secrets-pipeline-activities.md)
+
+* [Exclusão reversível no Azure Key Vault](../key-vault/general/soft-delete-overview.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -1064,7 +1066,7 @@ Você também pode armazenar credenciais ou valores secretos em um Azure Key Vau
 
 **Orientação**: ao criar um data Factory, uma identidade gerenciada pode ser criada junto com a criação de fábrica. A identidade gerenciada é um aplicativo gerenciado registrado para Azure Active Directory e representa esse data factory específico.
 
-* [Identidade gerenciada para Azure Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity)
+* [Identidade gerenciada para Azure Data Factory](./data-factory-service-identity.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -1082,13 +1084,13 @@ Você também pode armazenar credenciais ou valores secretos em um Azure Key Vau
 
 ## <a name="malware-defense"></a>Defesa contra malware
 
-*Para saber mais, confira [Controle de segurança: Defesa contra malware](https://docs.microsoft.com/azure/security/benchmarks/security-control-malware-defense).*
+*Para saber mais, confira [Controle de segurança: Defesa contra malware](../security/benchmarks/security-control-malware-defense.md).*
 
 ### <a name="81-use-centrally-managed-anti-malware-software"></a>8.1: Usar software antimalware gerenciado centralmente
 
 **Diretrizes**: se você estiver executando seu Integration Runtime em uma máquina virtual do Azure, poderá usar o Microsoft antimalware para Azure máquinas virtuais do Windows para monitorar e defender continuamente seus recursos.
 
-* [Como configurar o Microsoft antimalware para serviços de nuvem e máquinas virtuais](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
+* [Como configurar o Microsoft antimalware para serviços de nuvem e máquinas virtuais](../security/fundamentals/antimalware.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -1102,9 +1104,9 @@ Pré-examinar todos os arquivos que estão sendo carregados em recursos que não
 
 Use a detecção de ameaças da central de segurança do Azure para serviços de dados para detectar malwares carregados em contas de armazenamento.
 
-* [Entender o Microsoft antimalware para serviços de nuvem do Azure e máquinas virtuais](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
+* [Entender o Microsoft antimalware para serviços de nuvem do Azure e máquinas virtuais](../security/fundamentals/antimalware.md)
 
-* [Entender a detecção de ameaças da central de segurança do Azure para serviços de dados](https://docs.microsoft.com/azure/security-center/security-center-alerts-data-services)
+* [Entender a detecção de ameaças da central de segurança do Azure para serviços de dados](../security-center/azure-defender.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -1114,9 +1116,9 @@ Use a detecção de ameaças da central de segurança do Azure para serviços de
 
 **Orientação**: quando implantado, o Microsoft antimalware para Azure instalará automaticamente as atualizações de assinatura, plataforma e mecanismo mais recentes por padrão. Siga as recomendações na central de segurança do Azure: " &amp; aplicativos de computação" para garantir que todos os pontos de extremidade estejam atualizados com as assinaturas mais recentes. O sistema operacional Windows pode estar mais protegido com segurança adicional para limitar o risco de ataques baseados em vírus ou malware com o serviço de proteção avançada contra ameaças do Microsoft defender, que se integra à central de segurança do Azure.
 
-* [Como implantar o Microsoft antimalware para serviços de nuvem e máquinas virtuais do Azure](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
+* [Como implantar o Microsoft antimalware para serviços de nuvem e máquinas virtuais do Azure](../security/fundamentals/antimalware.md)
 
-* [Proteção Avançada contra Ameaças do Microsoft Defender](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/onboard-configure)
+* [Proteção Avançada contra Ameaças do Microsoft Defender](/windows/security/threat-protection/microsoft-defender-atp/onboard-configure)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -1124,7 +1126,7 @@ Use a detecção de ameaças da central de segurança do Azure para serviços de
 
 ## <a name="data-recovery"></a>Recuperação de dados
 
-*Para saber mais, confira [Controle de segurança: Recuperação de dados](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-recovery).*
+*Para saber mais, confira [Controle de segurança: Recuperação de dados](../security/benchmarks/security-control-data-recovery.md).*
 
 ### <a name="91-ensure-regular-automated-back-ups"></a>9.1: Garantir backups automatizados regulares
 
@@ -1132,9 +1134,9 @@ Use a detecção de ameaças da central de segurança do Azure para serviços de
 
 Para qualquer um de seus armazenamentos de dados, consulte a linha de base de segurança desse serviço para obter recomendações sobre como executar backups regulares e automatizados.
 
-* [Uma visão geral do backup de VM do Azure](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction)
+* [Uma visão geral do backup de VM do Azure](../backup/backup-azure-vms-introduction.md)
 
-* [Fazer backup de uma VM do Azure usando as configurações da VM](https://docs.microsoft.com/azure/backup/backup-azure-vms-first-look-arm)
+* [Fazer backup de uma VM do Azure usando as configurações da VM](../backup/backup-azure-vms-first-look-arm.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -1146,9 +1148,9 @@ Para qualquer um de seus armazenamentos de dados, consulte a linha de base de se
 
 Para qualquer um de seus armazenamentos de dados, consulte a linha de base de segurança desse serviço para obter recomendações sobre como executar backups regulares e automatizados.
 
-* [Uma visão geral do backup de VM do Azure](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction)
+* [Uma visão geral do backup de VM do Azure](../backup/backup-azure-vms-introduction.md)
 
-* [Como fazer backup de chaves do cofre de chaves no Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
+* [Como fazer backup de chaves do cofre de chaves no Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -1160,9 +1162,9 @@ Para qualquer um de seus armazenamentos de dados, consulte a linha de base de se
 
 Para qualquer um de seus armazenamentos de dados, consulte a linha de base de segurança desse serviço para obter orientação sobre como validar backups.
 
-* [Como recuperar arquivos do backup de máquina virtual do Azure](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm)
+* [Como recuperar arquivos do backup de máquina virtual do Azure](../backup/backup-azure-restore-files-from-vm.md)
 
-* [Como restaurar chaves do cofre de chaves no Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+* [Como restaurar chaves do cofre de chaves no Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -1172,9 +1174,9 @@ Para qualquer um de seus armazenamentos de dados, consulte a linha de base de se
 
 **Diretrizes**: se você estiver executando seu Integration Runtime em uma VM (máquina virtual) do Azure e fizer a VM com o backup do Azure, sua VM será criptografada em repouso com criptografia do serviço de armazenamento (SSE). O backup do Azure também pode fazer backup de VMs do Azure que são criptografadas usando Azure Disk Encryption. O Azure Disk Encryption se integra com as chaves de criptografia do BitLocker (BEKs), que são protegidas em um cofre de chaves como segredos. O Azure Disk Encryption também se integra com Azure Key Vault chaves de criptografia de chave (KEKs). Habilite a exclusão reversível no Key Vault para proteger chaves contra exclusão acidental ou mal-intencionada.
 
-* [Exclusão reversível para VMs](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#soft-delete)
+* [Exclusão reversível para VMs](../backup/backup-azure-security-feature-cloud.md)
 
-* [Visão geral de exclusão reversível do Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete)
+* [Visão geral de exclusão reversível do Azure Key Vault](../key-vault/general/soft-delete-overview.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -1182,13 +1184,13 @@ Para qualquer um de seus armazenamentos de dados, consulte a linha de base de se
 
 ## <a name="incident-response"></a>Resposta a incidentes
 
-*Para saber mais, confira [Controle de segurança: Resposta a incidentes](https://docs.microsoft.com/azure/security/benchmarks/security-control-incident-response).*
+*Para saber mais, confira [Controle de segurança: Resposta a incidentes](../security/benchmarks/security-control-incident-response.md).*
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1: Criar um guia de resposta a incidentes
 
 **Diretriz**: crie um guia de resposta a incidentes para sua organização. Verifique se há planos de resposta a incidentes escritos que definem todas as funções de pessoal, bem como as fases de tratamento/gerenciamento de incidentes, desde a detecção até a revisão após o incidente.
 
-* [Como configurar automações de fluxo de trabalho na Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide)
+* [Como configurar automações de fluxo de trabalho na Central de Segurança do Azure](../security-center/security-center-planning-and-operations-guide.md)
 
 * [Orientação sobre como criar seu processo de resposta a incidentes de segurança](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/)
 
@@ -1212,7 +1214,7 @@ Além disso, marque claramente as assinaturas (por exemplo, produção, não pro
 
 ### <a name="103-test-security-response-procedures"></a>10.3: testar procedimentos de resposta de segurança
 
-**Diretriz**: conduza exercícios para testar os recursos de resposta a incidentes de seus sistemas em uma cadência regular. Identifique pontos fracos e lacunas e revise o plano conforme necessário.
+**Orientação**: conduza exercícios para testar os recursos de resposta a incidentes de seus sistemas em uma cadência regular. Identifique pontos fracos e lacunas e revise o plano conforme necessário.
 
 * [Veja a publicação do NIST: Guia para testar, treinar e exercitar programas para planos de TI e recursos](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf)
 
@@ -1224,7 +1226,7 @@ Além disso, marque claramente as assinaturas (por exemplo, produção, não pro
 
 **Diretriz**: as informações de contato do incidente serão usadas pela Microsoft para contatá-lo se o MSRC (Microsoft Security Response Center) descobrir que os dados do cliente foram acessados por uma pessoa não autorizada ou ilegal. Examine os incidentes após o fato para garantir que os problemas sejam resolvidos.
 
-* [Como definir o contato de segurança da Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details)
+* [Como definir o contato de segurança da Central de Segurança do Azure](../security-center/security-center-provide-security-contact-details.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -1232,11 +1234,11 @@ Além disso, marque claramente as assinaturas (por exemplo, produção, não pro
 
 ### <a name="105-incorporate-security-alerts-into-your-incident-response-system"></a>10.5: incorporar alertas de segurança em seu sistema de resposta a incidentes
 
-**Diretriz**: exporte os alertas e recomendações da Central de Segurança do Azure usando o recurso de exportação contínua. A exportação contínua permite exportar alertas e recomendações de forma manual ou contínua. Você pode usar o conector de dados da Central de Segurança do Azure para transmitir os alertas do Sentinel.
+**Diretriz**: exporte os alertas e recomendações da Central de Segurança do Azure usando o recurso de exportação contínua. A exportação contínua permite exportar alertas e recomendações de forma manual ou contínua. Você pode usar o conector de dados da Central de Segurança do Azure para transmitir os alertas do Azure Sentinel.
 
-* [Como configurar a exportação contínua](https://docs.microsoft.com/azure/security-center/continuous-export)
+* [Como configurar a exportação contínua](../security-center/continuous-export.md)
 
-* [Como transmitir alertas para o Azure Sentinel](https://docs.microsoft.com/azure/sentinel/connect-azure-security-center)
+* [Como transmitir alertas para o Azure Sentinel](../sentinel/connect-azure-security-center.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -1246,7 +1248,7 @@ Além disso, marque claramente as assinaturas (por exemplo, produção, não pro
 
 **Diretrizes**: Use o recurso de automação de fluxo de trabalho na Central de Segurança do Azure para disparar automaticamente respostas por meio de "Aplicativos Lógicos" em alertas de segurança e recomendações.
 
-* [Como configurar a automação de fluxo de trabalho e os Aplicativos Lógicos](https://docs.microsoft.com/azure/security-center/workflow-automation)
+* [Como configurar a automação de fluxo de trabalho e os Aplicativos Lógicos](../security-center/workflow-automation.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -1254,7 +1256,7 @@ Além disso, marque claramente as assinaturas (por exemplo, produção, não pro
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>Testes de penetração e exercícios de Red Team
 
-*Para saber mais, confira [Controle de segurança: Testes de penetração e exercícios de Red Team](https://docs.microsoft.com/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
+*Para saber mais, confira [Controle de segurança: Testes de penetração e exercícios de Red Team](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11,1: realize testes de penetração regulares de seus recursos do Azure e garanta a correção de todas as descobertas de segurança críticas
 
@@ -1262,7 +1264,7 @@ Além disso, marque claramente as assinaturas (por exemplo, produção, não pro
 
 * [Siga as regras de envolvimento da Microsoft para garantir que seus testes de penetração não estejam em violação às políticas da Microsoft](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
-* [Você pode encontrar mais informações sobre a estratégia da Microsoft e a execução de Red Team e testes de penetração de sites ao vivo em infraestrutura, serviços e aplicativos de nuvem gerenciados pela Microsoft, aqui](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+* [Você pode encontrar mais informações sobre a estratégia da Microsoft e a execução de equipes vermelhas e testes de penetração de sites ativos em infraestrutura, serviços e aplicativos de nuvem gerenciados pela Microsoft, aqui](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -1270,5 +1272,5 @@ Além disso, marque claramente as assinaturas (por exemplo, produção, não pro
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Confira o [Azure Security Benchmark](https://docs.microsoft.com/azure/security/benchmarks/overview)
-- Saiba mais sobre a [Linhas de base de segurança do Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)
+- Confira o [Azure Security Benchmark](../security/benchmarks/overview.md)
+- Saiba mais sobre a [Linhas de base de segurança do Azure](../security/benchmarks/security-baselines-overview.md)

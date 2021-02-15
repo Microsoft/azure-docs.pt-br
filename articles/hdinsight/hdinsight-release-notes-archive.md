@@ -1,19 +1,16 @@
 ---
 title: Notas da versão mais recente do Microsoft Azure HDInsight
 description: Notas de versão arquivadas para o Azure HDInsight. Obtenha detalhes e dicas de desenvolvimento para Hadoop, Spark, Microsoft R Server, Hive e muito mais.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 08/09/2020
-ms.openlocfilehash: 29caccd666294add98882d080a2a0fd3bd9dd660
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.date: 02/08/2021
+ms.openlocfilehash: 902b13c947cb005189e23dee943867100809564e
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036616"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988551"
 ---
 # <a name="archived-release-notes"></a>Notas de versão arquivadas
 
@@ -21,16 +18,213 @@ ms.locfileid: "88036616"
 
 O Azure HDInsight é um dos serviços mais populares entre os clientes corporativos para análise de software livre Apache Hadoop e Apache Spark no Azure.
 
+## <a name="release-date-11182020"></a>Data de lançamento: 11/18/2020
+
+Esta versão se aplica tanto ao HDInsight 3,6 quanto ao HDInsight 4,0. A versão do HDInsight é disponibilizada para todas as regiões durante vários dias. A data de lançamento mostrada aqui indica a data de lançamento da primeira região. Se você não vir as alterações abaixo, aguarde até que a liberação seja ativada em sua região em vários dias.
+
+### <a name="new-features"></a>Novos recursos
+#### <a name="auto-key-rotation-for-customer-managed-key-encryption-at-rest"></a>Rotação de chaves automática para criptografia de chave gerenciada pelo cliente em repouso
+A partir desta versão, os clientes podem usar URLs de chave de criptografia sem versão do Azure KeyValut para criptografia de chave gerenciada pelo cliente em repouso. O HDInsight irá girar automaticamente as chaves conforme elas expiram ou substituídas por novas versões. Veja mais detalhes [aqui](./disk-encryption.md).
+
+#### <a name="ability-to-select-different-zookeeper-virtual-machine-sizes-for-spark-hadoop-and-ml-services"></a>Capacidade de selecionar diferentes tamanhos de máquina virtual Zookeeper para serviços Spark, Hadoop e ML
+Anteriormente, o HDInsight não tinha suporte à personalização do tamanho do nó Zookeeper para os tipos de cluster Spark, Hadoop e ML Services. O padrão é A2_v2 tamanhos de máquina virtual/a2, que são fornecidos gratuitamente. A partir desta versão, você pode selecionar um tamanho de máquina virtual Zookeeper que seja mais apropriado para seu cenário. Os nós Zookeeper com tamanho de máquina virtual diferente de A2_v2/a2 serão cobrados. As máquinas virtuais A2_v2 e a2 ainda são fornecidas gratuitamente.
+
+#### <a name="moving-to-azure-virtual-machine-scale-sets"></a>Migrar para Conjuntos de Dimensionamento de Máquinas Virtuais do Azure
+O HDInsight atualmente usa máquinas virtuais do Azure para provisionar o cluster. A partir desta versão, o serviço migrará gradualmente para os [conjuntos de dimensionamento de máquinas virtuais do Azure](../virtual-machine-scale-sets/overview.md). Todo o processo pode levar meses. Depois que suas regiões e assinaturas forem migradas, os clusters HDInsight recém-criados serão executados em conjuntos de dimensionamento de máquinas virtuais sem ações do cliente. Nenhuma alteração significativa é esperada.
+
+### <a name="deprecation"></a>Reprovação
+#### <a name="deprecation-of-hdinsight-36-ml-services-cluster"></a>Substituição do cluster do HDInsight 3,6 ML Services
+O tipo de cluster de serviços do HDInsight 3,6 ML será o fim do suporte até dezembro de 31 2020. Os clientes não poderão criar novos clusters de serviços de 3,6 ML após dezembro de 31 2020. Os clusters existentes serão executados como estão, sem o suporte da Microsoft. Verifique a expiração do suporte para versões e tipos de cluster do HDInsight [aqui](./hdinsight-component-versioning.md#available-versions).
+
+#### <a name="disabled-vm-sizes"></a>Tamanhos de VM desabilitados
+A partir de novembro de 16 2020, o HDInsight bloqueará novos clientes que criam clusters usando standand_A8, standand_A9, standand_A10 e standand_A11 tamanhos de VM. Os clientes existentes que usaram esses tamanhos de VM nos últimos três meses não serão afetados. A partir do formulário de janeiro de 9 2021, o HDInsight bloqueará todos os clientes que criam clusters usando standand_A8, standand_A9, standand_A10 e standand_A11 tamanhos de VM. Os clusters existentes serão executados como estão. Considere migrar para o HDInsight 4,0 para evitar a interrupção potencial do sistema/suporte.
+
+### <a name="behavior-changes"></a>Alterações de comportamento
+#### <a name="add-nsg-rule-checking-before-scaling-operation"></a>Adicionar a verificação de regra NSG antes da operação de dimensionamento
+O HDInsight adicionou NSGs (grupos de segurança de rede) e a verificação de rotas definidas pelo usuário (UDRs) com a operação de dimensionamento. A mesma validação é feita para o dimensionamento de cluster, além da criação do cluster. Essa validação ajuda a evitar erros imprevisíveis. Se a validação não for aprovada, o dimensionamento falhará. Saiba mais sobre como configurar o NSGs e o UDRs corretamente, consulte [endereços IP de gerenciamento do HDInsight](./hdinsight-management-ip-addresses.md).
+
+### <a name="component-version-change"></a>Alteração na versão do componente
+Nenhuma alteração de versão de componente para esta versão. Você pode encontrar as versões de componente atuais para HDInsight 4,0 e HDInsight 3,6 neste [documento](./hdinsight-component-versioning.md).
+
+## <a name="release-date-11092020"></a>Data de lançamento: 11/09/2020
+
+Esta versão se aplica tanto ao HDInsight 3,6 quanto ao HDInsight 4,0. A versão do HDInsight é disponibilizada para todas as regiões durante vários dias. A data de lançamento mostrada aqui indica a data de lançamento da primeira região. Se você não vir as alterações abaixo, aguarde até que a liberação seja ativada em sua região em vários dias.
+
+### <a name="new-features"></a>Novos recursos
+#### <a name="hdinsight-identity-broker-hib-is-now-ga"></a>O agente de identidade do HDInsight (HIB) agora está disponível
+O HIB (agente de identidade do HDInsight) que habilita a autenticação OAuth para clusters ESP agora está disponível com esta versão. Os clusters HIB criados após esta versão terão os recursos de HIB mais recentes:
+- Alta disponibilidade (HA)
+- Suporte para MFA (autenticação multifator)
+- Usuários federados entram sem sincronização de hash de senha para AAD-DS para obter mais informações, consulte a [documentação do Hib](./domain-joined/identity-broker.md).
+
+#### <a name="moving-to-azure-virtual-machine-scale-sets"></a>Migrar para Conjuntos de Dimensionamento de Máquinas Virtuais do Azure
+O HDInsight atualmente usa máquinas virtuais do Azure para provisionar o cluster. A partir desta versão, o serviço migrará gradualmente para os [conjuntos de dimensionamento de máquinas virtuais do Azure](../virtual-machine-scale-sets/overview.md). Todo o processo pode levar meses. Depois que suas regiões e assinaturas forem migradas, os clusters HDInsight recém-criados serão executados em conjuntos de dimensionamento de máquinas virtuais sem ações do cliente. Nenhuma alteração significativa é esperada.
+
+### <a name="deprecation"></a>Reprovação
+#### <a name="deprecation-of-hdinsight-36-ml-services-cluster"></a>Substituição do cluster do HDInsight 3,6 ML Services
+O tipo de cluster de serviços do HDInsight 3,6 ML será o fim do suporte até dezembro de 31 2020. Os clientes não criarão novos clusters de serviços de 3,6 ML após dezembro de 31 2020. Os clusters existentes serão executados como estão, sem o suporte da Microsoft. Verifique a expiração do suporte para versões e tipos de cluster do HDInsight [aqui](./hdinsight-component-versioning.md#available-versions).
+
+#### <a name="disabled-vm-sizes"></a>Tamanhos de VM desabilitados
+A partir de novembro de 16 2020, o HDInsight bloqueará novos clientes que criam clusters usando standand_A8, standand_A9, standand_A10 e standand_A11 tamanhos de VM. Os clientes existentes que usaram esses tamanhos de VM nos últimos três meses não serão afetados. A partir do formulário de janeiro de 9 2021, o HDInsight bloqueará todos os clientes que criam clusters usando standand_A8, standand_A9, standand_A10 e standand_A11 tamanhos de VM. Os clusters existentes serão executados como estão. Considere migrar para o HDInsight 4,0 para evitar a interrupção potencial do sistema/suporte.
+
+### <a name="behavior-changes"></a>Alterações de comportamento
+Nenhuma alteração de comportamento para esta versão.
+
+### <a name="upcoming-changes"></a>Alterações futuras
+As alterações a seguir ocorrerão em versões futuras.
+
+#### <a name="ability-to-select-different-zookeeper-virtual-machine-sizes-for-spark-hadoop-and-ml-services"></a>Capacidade de selecionar diferentes tamanhos de máquina virtual Zookeeper para serviços Spark, Hadoop e ML
+Atualmente, o HDInsight não dá suporte à personalização do tamanho do nó Zookeeper para os tipos de cluster Spark, Hadoop e ML Services. O padrão é A2_v2 tamanhos de máquina virtual/a2, que são fornecidos gratuitamente. Na próxima versão, você pode selecionar um tamanho de máquina virtual Zookeeper que seja mais apropriado para seu cenário. Os nós Zookeeper com tamanho de máquina virtual diferente de A2_v2/a2 serão cobrados. As máquinas virtuais A2_v2 e a2 ainda são fornecidas gratuitamente.
+
+#### <a name="default-cluster-version-will-be-changed-to-40"></a>A versão de cluster padrão será alterada para 4,0
+A partir de fevereiro de 2021, a versão padrão do cluster HDInsight será alterada de 3,6 para 4,0. Para obter mais informações sobre as versões disponíveis, consulte [versões disponíveis](./hdinsight-component-versioning.md#available-versions). Saiba mais sobre o que há de novo no [HDInsight 4,0](./hdinsight-version-release.md)
+
+#### <a name="hdinsight-36-end-of-support-on-june-30-2021"></a>Fim do suporte do HDInsight 3,6 em junho de 30 2021
+O HDInsight 3,6 será o fim do suporte. A partir do formulário de junho de 30 2021, os clientes não podem criar novos clusters HDInsight 3,6. Os clusters existentes serão executados como estão, sem o suporte da Microsoft. Considere migrar para o HDInsight 4,0 para evitar a interrupção potencial do sistema/suporte.
+
+### <a name="bug-fixes"></a>Correções de bug
+O HDInsight continua a fazer aprimoramentos de desempenho e confiabilidade do cluster. 
+#### <a name="fix-issue-for-restarting-vms-in-cluster"></a>Correção do problema para reiniciar as VMs no cluster
+O problema para reiniciar as VMs no cluster foi corrigido, você pode usar o [PowerShell ou a API REST para reinicializar os nós no cluster](./cluster-reboot-vm.md) novamente.
+
+### <a name="component-version-change"></a>Alteração na versão do componente
+Nenhuma alteração de versão de componente para esta versão. Você pode encontrar as versões de componente atuais para HDInsight 4,0 e HDInsight 3,6 neste [documento](./hdinsight-component-versioning.md).
+
+## <a name="release-date-10082020"></a>Data de lançamento: 10/08/2020
+
+Esta versão se aplica tanto ao HDInsight 3,6 quanto ao HDInsight 4,0. A versão do HDInsight é disponibilizada para todas as regiões durante vários dias. A data de lançamento mostrada aqui indica a data de lançamento da primeira região. Se você não vir as alterações abaixo, aguarde até que a liberação seja ativada em sua região em vários dias.
+
+### <a name="new-features"></a>Novos recursos
+#### <a name="hdinsight-private-clusters-with-no-public-ip-and-private-link-preview"></a>Clusters privados do HDInsight sem IP público e link privado (visualização)
+O HDInsight agora dá suporte à criação de clusters sem IP público e acesso de link privado aos clusters na versão prévia. Os clientes podem usar as novas configurações avançadas de rede para criar um cluster totalmente isolado sem IP público e usar seus próprios pontos de extremidade privados para acessar o cluster. 
+
+#### <a name="moving-to-azure-virtual-machine-scale-sets"></a>Migrar para Conjuntos de Dimensionamento de Máquinas Virtuais do Azure
+O HDInsight atualmente usa máquinas virtuais do Azure para provisionar o cluster. A partir desta versão, o serviço migrará gradualmente para os [conjuntos de dimensionamento de máquinas virtuais do Azure](../virtual-machine-scale-sets/overview.md). Todo o processo pode levar meses. Depois que suas regiões e assinaturas forem migradas, os clusters HDInsight recém-criados serão executados em conjuntos de dimensionamento de máquinas virtuais sem ações do cliente. Nenhuma alteração significativa é esperada.
+
+### <a name="deprecation"></a>Reprovação
+#### <a name="deprecation-of-hdinsight-36-ml-services-cluster"></a>Substituição do cluster do HDInsight 3,6 ML Services
+O tipo de cluster de serviços do HDInsight 3,6 ML será o fim do suporte até Dec 31 2020. Os clientes não criarão novos clusters de serviços de 3,6 ML depois disso. Os clusters existentes serão executados como estão, sem o suporte da Microsoft. Verifique a expiração do suporte para versões e tipos de cluster do HDInsight [aqui](./hdinsight-component-versioning.md#available-versions).
+
+### <a name="behavior-changes"></a>Alterações de comportamento
+Nenhuma alteração de comportamento para esta versão.
+
+### <a name="upcoming-changes"></a>Alterações futuras
+As alterações a seguir ocorrerão em versões futuras.
+
+#### <a name="ability-to-select-different-zookeeper-virtual-machine-sizes-for-spark-hadoop-and-ml-services"></a>Capacidade de selecionar diferentes tamanhos de máquina virtual Zookeeper para serviços Spark, Hadoop e ML
+Atualmente, o HDInsight não dá suporte à personalização do tamanho do nó Zookeeper para os tipos de cluster Spark, Hadoop e ML Services. O padrão é A2_v2 tamanhos de máquina virtual/a2, que são fornecidos gratuitamente. Na próxima versão, você pode selecionar um tamanho de máquina virtual Zookeeper que seja mais apropriado para seu cenário. Os nós Zookeeper com tamanho de máquina virtual diferente de A2_v2/a2 serão cobrados. As máquinas virtuais A2_v2 e a2 ainda são fornecidas gratuitamente.
+
+### <a name="bug-fixes"></a>Correções de bug
+O HDInsight continua a fazer aprimoramentos de desempenho e confiabilidade do cluster. 
+
+### <a name="component-version-change"></a>Alteração na versão do componente
+Nenhuma alteração de versão de componente para esta versão. Você pode encontrar as versões de componente atuais para HDInsight 4,0 e HDInsight 3,6 neste [documento](./hdinsight-component-versioning.md).
+
+## <a name="release-date-09282020"></a>Data de lançamento: 09/28/2020
+
+Esta versão se aplica tanto ao HDInsight 3,6 quanto ao HDInsight 4,0. A versão do HDInsight é disponibilizada para todas as regiões durante vários dias. A data de lançamento mostrada aqui indica a data de lançamento da primeira região. Se você não vir as alterações abaixo, aguarde até que a liberação seja ativada em sua região em vários dias.
+
+### <a name="new-features"></a>Novos recursos
+#### <a name="autoscale-for-interactive-query-with-hdinsight-40-is-now-generally-available"></a>O dimensionamento automático para consulta interativa com o HDInsight 4,0 já está disponível para o público geral
+O dimensionamento automático para o tipo de cluster de consulta interativa agora é geral disponível (GA) para o HDInsight 4,0. Todos os clusters de consulta interativa 4,0 criados após 27 de agosto de 2020 terão suporte de GA para dimensionamento automático.
+
+#### <a name="hbase-cluster-supports-premium-adls-gen2"></a>O cluster HBase dá suporte a ADLS Gen2 Premium
+O HDInsight agora dá suporte ao ADLS Gen2 Premium como conta de armazenamento principal para clusters HDInsight HBase 3,6 e 4,0. Junto com as [gravações aceleradas](./hbase/apache-hbase-accelerated-writes.md), você pode obter um melhor desempenho para seus clusters HBase.
+
+#### <a name="kafka-partition-distribution-on-azure-fault-domains"></a>Distribuição de partição do Kafka em domínios de falha do Azure
+Um domínio de falha é um agrupamento lógico de hardware subjacente em um data center do Azure. Cada domínio de falha tem um comutador de rede e uma fonte de alimentação em comum. Antes do HDInsight Kafka, é possível armazenar todas as réplicas de partição no mesmo domínio de falha. A partir desta versão, o HDInsight agora dá suporte à distribuição automática de partições Kafka com base em domínios de falha do Azure. 
+
+#### <a name="encryption-in-transit"></a>Criptografia em trânsito
+Os clientes podem habilitar a criptografia em trânsito entre os nós de cluster usando a criptografia IPSec com chaves gerenciadas por plataforma. Essa opção pode ser habilitada no momento da criação do cluster. Veja mais detalhes sobre [como habilitar a criptografia em trânsito](./domain-joined/encryption-in-transit.md).
+
+#### <a name="encryption-at-host"></a>Criptografia no host
+Quando você habilita a criptografia no host, os dados armazenados no host da VM são criptografados em repouso e os fluxos são criptografados para o serviço de armazenamento. A partir desta versão, você pode **habilitar a criptografia no disco de dados temporário** ao criar o cluster. A criptografia no host só tem suporte em [determinados SKUs de VM em regiões limitadas](../virtual-machines/disks-enable-host-based-encryption-portal.md). O HDInsight dá suporte à [seguinte configuração de nó e SKUs](./hdinsight-supported-node-configuration.md). Veja mais detalhes sobre [como habilitar a criptografia no host](./disk-encryption.md#encryption-at-host-using-platform-managed-keys).
+
+#### <a name="moving-to-azure-virtual-machine-scale-sets"></a>Migrar para Conjuntos de Dimensionamento de Máquinas Virtuais do Azure
+O HDInsight atualmente usa máquinas virtuais do Azure para provisionar o cluster. A partir desta versão, o serviço migrará gradualmente para os [conjuntos de dimensionamento de máquinas virtuais do Azure](../virtual-machine-scale-sets/overview.md). Todo o processo pode levar meses. Depois que suas regiões e assinaturas forem migradas, os clusters HDInsight recém-criados serão executados em conjuntos de dimensionamento de máquinas virtuais sem ações do cliente. Nenhuma alteração significativa é esperada.
+
+### <a name="deprecation"></a>Reprovação
+Não há preterição para esta versão.
+
+### <a name="behavior-changes"></a>Alterações de comportamento
+Nenhuma alteração de comportamento para esta versão.
+
+### <a name="upcoming-changes"></a>Alterações futuras
+As alterações a seguir ocorrerão em versões futuras.
+
+#### <a name="ability-to-select-different-zookeeper-sku-for-spark-hadoop-and-ml-services"></a>Capacidade de selecionar um SKU Zookeeper diferente para os serviços Spark, Hadoop e ML
+Atualmente, o HDInsight não dá suporte à alteração de SKU Zookeeper para tipos de cluster Spark, Hadoop e ML Services. Ele usa A2_v2 SKU/a2 para nós Zookeeper e os clientes não são cobrados por eles. Na próxima versão, os clientes podem alterar o Zookeeper SKU para os serviços Spark, Hadoop e ML, conforme necessário. Nós Zookeeper com SKU diferente de A2_v2/a2 serão cobrados. O SKU padrão ainda será A2_V2/a2 e sem encargos.
+
+### <a name="bug-fixes"></a>Correções de bug
+O HDInsight continua a fazer aprimoramentos de desempenho e confiabilidade do cluster. 
+
+### <a name="component-version-change"></a>Alteração na versão do componente
+Nenhuma alteração de versão de componente para esta versão. Você pode encontrar as versões de componente atuais para HDInsight 4,0 e HDInsight 3,6 neste [documento](./hdinsight-component-versioning.md).
+
+## <a name="release-date-08092020"></a>Data de lançamento: 08/09/2020
+
+Esta versão se aplica somente ao HDInsight 4,0. A versão do HDInsight é disponibilizada para todas as regiões durante vários dias. A data de lançamento mostrada aqui indica a data de lançamento da primeira região. Se você não vir as alterações abaixo, aguarde até que a liberação seja ativada em sua região em vários dias.
+
+### <a name="new-features"></a>Novos recursos
+#### <a name="support-for-sparkcruise"></a>Suporte para SparkCruise
+SparkCruise é um sistema de reutilização de computação automática para Spark. Ele seleciona subexpressões comuns para materializar com base na carga de trabalho de consulta anterior. O SparkCruise materializa essas subexpressões como parte do processamento de consulta e a reutilização de computação é aplicada automaticamente em segundo plano. Você pode se beneficiar do SparkCruise sem nenhuma modificação no código do Spark.
+ 
+#### <a name="support-hive-view-for-hdinsight-40"></a>Suporte à exibição do hive para o HDInsight 4,0
+A exibição do hive do Apache Ambari foi projetada para ajudá-lo a criar, otimizar e executar consultas do hive a partir do seu navegador da Web. A exibição do hive tem suporte nativo para clusters HDInsight 4,0 a partir desta versão. Ele não se aplica a clusters existentes. Você precisa remover e recriar o cluster para obter a exibição interna do hive.
+ 
+#### <a name="support-tez-view-for-hdinsight-40"></a>Suporte à exibição do tez para o HDInsight 4,0
+Apache Tez exibição é usada para rastrear e depurar a execução do trabalho do hive tez. A exibição tez tem suporte nativo para o HDInsight 4,0 a partir desta versão. Ele não se aplica a clusters existentes. Você precisa remover e recriar o cluster para obter a exibição tez interna.
+
+### <a name="deprecation"></a>Reprovação
+#### <a name="deprecation-of-spark-21-and-22-in-hdinsight-36-spark-cluster"></a>Substituição do Spark 2.1 e 2.2 no cluster do Spark do HDInsight 3.6
+A partir de julho de 1 2020, os clientes não podem criar novos clusters Spark com Spark 2,1 e 2,2 no HDInsight 3,6. Os clusters existentes serão executados como estão, sem o suporte da Microsoft. Considere a possibilidade de migrar para o Spark 2.3 no HDInsight 3.6 até 30 de junho de 2020 para evitar a interrupção potencial do sistema/suporte.
+ 
+#### <a name="deprecation-of-spark-23-in-hdinsight-40-spark-cluster"></a>Substituição do Spark 2.3 no cluster do Spark do HDInsight 4.0
+A partir de julho de 1 2020, os clientes não podem criar novos clusters Spark com o Spark 2,3 no HDInsight 4,0. Os clusters existentes serão executados como estão, sem o suporte da Microsoft. Considere a possibilidade de migrar para o Spark 2.4 no HDInsight 4.0 até 30 de junho de 2020 para evitar a interrupção potencial do sistema/suporte.
+ 
+#### <a name="deprecation-of-kafka-11-in-hdinsight-40-kafka-cluster"></a>Substituição do Kafka 1.1 no cluster Kafka do HDInsight 4.0
+A partir de 1º de julho de 2020, os clientes não poderão criar clusters Kafka com Kafka 1.1 no HDInsight 4.0. Os clusters existentes serão executados como estão, sem o suporte da Microsoft. Considere a possibilidade de migrar para o Kafka 2.1 no HDInsight 4.0 até 30 de junho de 2020 para evitar a interrupção potencial do sistema/suporte.
+
+### <a name="behavior-changes"></a>Alterações de comportamento
+#### <a name="ambari-stack-version-change"></a>Alteração da versão do Ambari Stack
+Nesta versão, a versão Ambari muda de 2. x. x para 4,1. Você pode verificar a versão da pilha (HDInsight 4,1) em Ambari: Ambari > > versões do usuário.
+
+### <a name="upcoming-changes"></a>Alterações futuras
+Não há alterações futuras que você precise prestar atenção.
+
+### <a name="bug-fixes"></a>Correções de bug
+O HDInsight continua a fazer aprimoramentos de desempenho e confiabilidade do cluster. 
+
+Abaixo, os JIRAs são portados de volta para o hive:
+* [HIVE-23619](https://issues.apache.org/jira/browse/HIVE-23619)
+* [HIVE-21223](https://issues.apache.org/jira/browse/HIVE-21223)
+* [HIVE-22599](https://issues.apache.org/jira/browse/HIVE-22599)
+* [HIVE-22121](https://issues.apache.org/jira/browse/HIVE-22121)
+* [HIVE-22136](https://issues.apache.org/jira/browse/HIVE-22136)
+* [HIVE-18786](https://issues.apache.org/jira/browse/HIVE-18786)
+
+Abaixo, os JIRAs são portados de volta para o HBase:
+* [HBASE-21458](https://issues.apache.org/jira/browse/HBASE-21458)
+* [HBASE-24208](https://issues.apache.org/jira/browse/HBASE-24208)
+* [HBASE-24205](https://issues.apache.org/jira/browse/HBASE-24205)
+
+### <a name="component-version-change"></a>Alteração na versão do componente
+Nenhuma alteração de versão de componente para esta versão. Você pode encontrar as versões de componente atuais para HDInsight 4,0 e HDInsight 3,6 neste [documento](./hdinsight-component-versioning.md).
+
+### <a name="known-issues"></a>Problemas conhecidos
+
+Foi corrigido um problema na portal do Azure, em que os usuários estavam tendo um erro ao criar um cluster do Azure HDInsight usando um tipo de autenticação SSH de chave pública. Quando os usuários clicavam em **Examinar + Criar**, recebiam o erro "Não pode conter três caracteres consecutivos do nome de usuário do SSH". Esse problema foi corrigido, mas pode ser necessário atualizar o cache do navegador pressionando CTRL + F5 para carregar a exibição corrigida. A solução alternativa para esse problema era criar um cluster com um modelo do Resource Manager. 
+
 ## <a name="release-date-07132020"></a>Data de lançamento: 07/13/2020
 
 Esta versão se aplica tanto ao HDInsight 3.6 quanto ao 4.0. A versão do HDInsight é disponibilizada para todas as regiões durante vários dias. A data de lançamento mostrada aqui indica a data de lançamento da primeira região. Se você não vir as alterações abaixo, aguarde até que a liberação seja ativada em sua região em vários dias.
 
 ### <a name="new-features"></a>Novos recursos
 #### <a name="support-for-customer-lockbox-for-microsoft-azure"></a>Suporte para Sistema de Proteção de Dados do Cliente para Microsoft Azure
-O Azure HDInsight agora dá suporte ao Azure Sistema de Proteção de Dados do Cliente. Ele fornece uma interface para os clientes revisarem e aprovarem ou rejeitarem solicitações de acesso a dados do cliente. Ele é usado quando o engenheiro da Microsoft precisa acessar os dados do cliente durante uma solicitação de suporte. Para obter mais informações, consulte [sistema de proteção de dados do cliente para Microsoft Azure](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-preview).
+O Azure HDInsight agora dá suporte ao Azure Sistema de Proteção de Dados do Cliente. Ele fornece uma interface para os clientes revisarem e aprovarem ou rejeitarem solicitações de acesso a dados do cliente. Ele é usado quando o engenheiro da Microsoft precisa acessar os dados do cliente durante uma solicitação de suporte. Para obter mais informações, consulte [sistema de proteção de dados do cliente para Microsoft Azure](../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-preview).
 
 #### <a name="service-endpoint-policies-for-storage"></a>Políticas de ponto de extremidade de serviço para armazenamento
-Agora, os clientes podem usar as políticas de ponto de extremidade de serviço (SEP) na sub-rede do cluster HDInsight. Saiba mais sobre a [política de ponto de extremidade de serviço do Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview).
+Agora, os clientes podem usar as políticas de ponto de extremidade de serviço (SEP) na sub-rede do cluster HDInsight. Saiba mais sobre a [política de ponto de extremidade de serviço do Azure](../virtual-network/virtual-network-service-endpoint-policies-overview.md).
 
 ### <a name="deprecation"></a>Reprovação
 #### <a name="deprecation-of-spark-21-and-22-in-hdinsight-36-spark-cluster"></a>Substituição do Spark 2.1 e 2.2 no cluster do Spark do HDInsight 3.6
@@ -60,7 +254,7 @@ Houve um problema para a usabilidade do conector do depósito do hive na versão
 O Zeppelin estava truncando incorretamente os zeros à esquerda na saída da tabela para o formato da cadeia de caracteres. Corrigimos esse problema nesta versão.
 
 ### <a name="component-version-change"></a>Alteração na versão do componente
-Nenhuma alteração de versão de componente para esta versão. Você pode encontrar as versões de componente atuais para HDInsight 4,0 e HDInsight 3,6 neste [documento](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#apache-hadoop-components-available-with-different-hdinsight-versions).
+Nenhuma alteração de versão de componente para esta versão. Você pode encontrar as versões de componente atuais para HDInsight 4,0 e HDInsight 3,6 neste [documento](./hdinsight-component-versioning.md).
 
 ## <a name="release-date-06112020"></a>Data de lançamento: 06/11/2020
 
@@ -68,7 +262,7 @@ Esta versão se aplica tanto ao HDInsight 3.6 quanto ao 4.0. A versão do HDInsi
 
 ### <a name="new-features"></a>Novos recursos
 #### <a name="moving-to-azure-virtual-machine-scale-sets"></a>Migrar para Conjuntos de Dimensionamento de Máquinas Virtuais do Azure
-O HDInsight usa máquinas virtuais do Azure para provisionar o cluster agora. Nesta versão, os clusters HDInsight novos criados começam a usar o conjunto de dimensionamento de máquinas virtuais do Azure. A alteração está sendo distribuída gradualmente. Você não deve esperar nenhuma alteração significativa. Veja mais sobre os [conjuntos de dimensionamento de máquinas virtuais do Azure](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview).
+O HDInsight usa máquinas virtuais do Azure para provisionar o cluster agora. Nesta versão, os clusters HDInsight novos criados começam a usar o conjunto de dimensionamento de máquinas virtuais do Azure. A alteração está sendo distribuída gradualmente. Você não deve esperar nenhuma alteração significativa. Veja mais sobre os [conjuntos de dimensionamento de máquinas virtuais do Azure](../virtual-machine-scale-sets/overview.md).
  
 #### <a name="reboot-vms-in-hdinsight-cluster"></a>Reinicializar VMs no cluster HDInsight
 Nesta versão, damos suporte à reinicialização de VMs no cluster HDInsight para reinicializar nós sem resposta. Atualmente, você só pode fazer isso por meio da API, o PowerShell e o suporte à CLI estão a caminho. Para obter mais informações sobre a API, consulte [este documento](https://github.com/Azure/azure-rest-api-specs/codeowners/master/specification/hdinsight/resource-manager/Microsoft.HDInsight/stable/2018-06-01-preview/virtualMachines.json).
@@ -96,10 +290,10 @@ Quando 80% dos nós de trabalho estiverem prontos, o cluster entrará no estági
 Após o estágio **operacional** , o cluster aguardará outros 60 minutos para os 20% nós de trabalho restantes. No final desses 60 minutos, o cluster se moverá para o estágio **em execução** , mesmo que todos os nós de trabalho ainda não estejam disponíveis. Depois que um cluster entra no estágio **em execução** , você pode usá-lo como de costume. Ambas as operações do plano de controle, como expansão/redução, e operações de plano de dados como executar scripts e trabalhos são aceitas. Se alguns dos nós de trabalho solicitados não estiverem disponíveis, o cluster será marcado como êxito parcial. Você é cobrado pelos nós que foram implantados com êxito. 
  
 #### <a name="create-new-service-principal-through-hdinsight"></a>Criar nova entidade de serviço por meio do HDInsight
-Anteriormente, com a criação do cluster, os clientes podem criar uma nova entidade de serviço para acessar a conta do ADLS Gen 1 conectada no portal do Azure. A partir de junho de 15 2020, os clientes não podem criar uma nova entidade de serviço no fluxo de trabalho de criação do HDInsight, somente a entidade de serviço existente tem suporte Consulte [criar entidade de serviço e certificados usando Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+Anteriormente, com a criação do cluster, os clientes podem criar uma nova entidade de serviço para acessar a conta do ADLS Gen 1 conectada no portal do Azure. A partir de junho de 15 2020, os clientes não podem criar uma nova entidade de serviço no fluxo de trabalho de criação do HDInsight, somente a entidade de serviço existente tem suporte Consulte [criar entidade de serviço e certificados usando Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md).
 
 #### <a name="time-out-for-script-actions-with-cluster-creation"></a>Tempo limite para ações de script com a criação do cluster
-O HDInsight dá suporte à execução de ações de script com a criação do cluster. A partir desta versão, todas as ações de script com a criação do cluster devem ser concluídas dentro de **60 minutos**ou expiram. As ações de script enviadas aos clusters em execução não são afetadas. Veja mais detalhes [aqui](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux#script-action-in-the-cluster-creation-process).
+O HDInsight dá suporte à execução de ações de script com a criação do cluster. A partir desta versão, todas as ações de script com a criação do cluster devem ser concluídas dentro de **60 minutos** ou expiram. As ações de script enviadas aos clusters em execução não são afetadas. Veja mais detalhes [aqui](./hdinsight-hadoop-customize-cluster-linux.md#script-action-in-the-cluster-creation-process).
  
 ### <a name="upcoming-changes"></a>Alterações futuras
 Não há alterações futuras que você precise prestar atenção.
@@ -117,7 +311,7 @@ A versão do Spark é atualizada da versão 2.4.0 para 2.4.4.
 #### <a name="kafka-210-to-211"></a>Kafka 2.1.0 para 2.1.1
 A versão do Kafka é atualizada da versão 2.1.0 para 2.1.1.
  
-Você pode encontrar as versões de componente atuais para o HDInsight 4,0 Ad HDInsight 3,6 neste [documento](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#apache-hadoop-components-available-with-different-hdinsight-versions)
+Você pode encontrar as versões de componente atuais para o HDInsight 4,0 Ad HDInsight 3,6 neste [documento](./hdinsight-component-versioning.md)
 
 ### <a name="known-issues"></a>Problemas conhecidos
 
@@ -135,7 +329,7 @@ Os protocolos TLS e SSL são protocolos criptográficos que fornecem segurança 
 Com esta versão, os clientes podem optar pelo TLS 1.2 apenas para todas as conexões por meio do ponto de extremidade do cluster público. Para dar suporte a isso, a nova propriedade **minSupportedTlsVersion** é introduzida e pode ser especificada durante a criação do cluster. Se a propriedade não estiver definida, o cluster ainda será compatível com TLS 1.0, 1.1 e 1.2, comportamento igual ao atual. Os clientes podem definir o valor dessa propriedade como "1.2", o que significa que o cluster só é compatível com TLS 1.2 e superior. Para obter mais informações, confira [Protocolo TLS](./transport-layer-security.md).
 
 #### <a name="bring-your-own-key-for-disk-encryption"></a>Bring Your Own Key para criptografia de disco
-Todos os discos gerenciados no HDInsight são protegidos com o SSE (Criptografia do Serviço de Armazenamento) do Azure. Por padrão, os dados nesses discos são criptografados usando chaves gerenciadas pela Microsoft. Nesta versão e nas posteriores, você pode usar a criptografia de disco BYOK (Bring Your Own Key) e gerenciá-la usando o Azure Key Vault. A criptografia BYOK é uma configuração de uma etapa realizada durante a criação do cluster sem nenhum custo adicional. Basta registrar o HDInsight como uma identidade gerenciada com o Azure Key Vault e adicionar a chave de criptografia ao criar o cluster. Para obter mais informações, confira [Criptografia de disco de chave gerenciada pelo cliente](https://docs.microsoft.com/azure/hdinsight/disk-encryption).
+Todos os discos gerenciados no HDInsight são protegidos com o SSE (Criptografia do Serviço de Armazenamento) do Azure. Por padrão, os dados nesses discos são criptografados usando chaves gerenciadas pela Microsoft. Nesta versão e nas posteriores, você pode usar a criptografia de disco BYOK (Bring Your Own Key) e gerenciá-la usando o Azure Key Vault. A criptografia BYOK é uma configuração de uma etapa realizada durante a criação do cluster sem nenhum custo adicional. Basta registrar o HDInsight como uma identidade gerenciada com o Azure Key Vault e adicionar a chave de criptografia ao criar o cluster. Para obter mais informações, confira [Criptografia de disco de chave gerenciada pelo cliente](./disk-encryption.md).
 
 ### <a name="deprecation"></a>Reprovação
 Nenhuma desativação para esta versão. Para se preparar para desativações futuras, confira [Alterações futuras](#upcoming-changes).
@@ -186,7 +380,7 @@ Esta versão se aplica tanto ao HDInsight 3.6 quanto ao 4.0.
 ### <a name="new-features"></a>Novos recursos
 
 #### <a name="service-tags"></a>Marcas de serviço
-As marcas de serviço simplificam a segurança para máquinas virtuais do Azure e redes virtuais do Azure, permitindo que você restrinja facilmente o acesso à rede para os serviços do Azure. Você pode usar marcas de serviço em suas regras de NSG (grupo de segurança de rede) para permitir ou negar o tráfego para um serviço específico do Azure globalmente ou por região do Azure. O Azure fornece a manutenção de endereços IP subjacentes a cada marca. As marcas de serviço do HDInsight para NSGs (grupos de segurança de rede) são grupos de endereços IP para serviços de integridade e gerenciamento. Esses grupos ajudam a minimizar a complexidade para a criação de regras de segurança. Os clientes do HDInsight podem habilitar a marca de serviço por meio do portal do Azure, do PowerShell e da API REST. Para obter mais informações, veja [Marcas de serviço do grupo de segurança de rede (NSG) para o Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-service-tags).
+As marcas de serviço simplificam a segurança para máquinas virtuais do Azure e redes virtuais do Azure, permitindo que você restrinja facilmente o acesso à rede para os serviços do Azure. Você pode usar marcas de serviço em suas regras de NSG (grupo de segurança de rede) para permitir ou negar o tráfego para um serviço específico do Azure globalmente ou por região do Azure. O Azure fornece a manutenção de endereços IP subjacentes a cada marca. As marcas de serviço do HDInsight para NSGs (grupos de segurança de rede) são grupos de endereços IP para serviços de integridade e gerenciamento. Esses grupos ajudam a minimizar a complexidade para a criação de regras de segurança. Os clientes do HDInsight podem habilitar a marca de serviço por meio do portal do Azure, do PowerShell e da API REST. Para obter mais informações, veja [Marcas de serviço do grupo de segurança de rede (NSG) para o Azure HDInsight](./hdinsight-service-tags.md).
 
 #### <a name="custom-ambari-db"></a>BD Ambari personalizado
 O HDInsight agora permite que você use seu próprio banco de BD SQL para Apache Ambari. Você pode configurar esse Ambari DB personalizado no portal do Azure ou por meio do modelo do Resource Manager.  Esse recurso permite que você escolha o banco de BD SQL correto para suas necessidades de processamento e capacidade. Você também pode fazer upgrade facilmente para atender aos requisitos de crescimento de negócios. Para obter mais informações, consulte [Configurar clusters do HDInsight com um AMBARI DB personalizado](hdinsight-custom-ambari-db.md).
@@ -210,7 +404,7 @@ A partir da próxima versão, você poderá optar por aceitar e configurar seus 
 Posteriormente no ano, a partir do 6/30/2020, o Azure HDInsight impedirá o TLS 1,2 ou versões posteriores para todas as conexões HTTPS. Recomendamos que você verifique se todos os seus clientes estão prontos para lidar com o TLS 1,2 ou versões posteriores.
 
 #### <a name="moving-to-azure-virtual-machine-scale-sets"></a>Migrar para Conjuntos de Dimensionamento de Máquinas Virtuais do Azure
-O HDInsight atualmente usa máquinas virtuais do Azure para provisionar o cluster. A partir de fevereiro de 2020 (a data exata será comunicada posteriormente), o HDInsight usará os conjuntos de dimensionamento de máquinas virtuais do Azure em vez disso. Veja mais sobre os [conjuntos de dimensionamento de máquinas virtuais do Azure](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview).
+O HDInsight atualmente usa máquinas virtuais do Azure para provisionar o cluster. A partir de fevereiro de 2020 (a data exata será comunicada posteriormente), o HDInsight usará os conjuntos de dimensionamento de máquinas virtuais do Azure em vez disso. Veja mais sobre os [conjuntos de dimensionamento de máquinas virtuais do Azure](../virtual-machine-scale-sets/overview.md).
 
 #### <a name="esp-spark-cluster-node-size-change"></a>Alteração do tamanho do nó de cluster do Spark do ESP 
 Na próxima versão:
@@ -230,7 +424,7 @@ Nenhuma alteração de versão de componente para o HDInsight 4,0.
 
 Apache Zeppelin no HDInsight 3,6:0.7.0-->0.7.3. 
 
-Você pode encontrar as versões de componente mais atualizadas [deste documento](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#apache-hadoop-components-available-with-different-hdinsight-versions).
+Você pode encontrar as versões de componente mais atualizadas [deste documento](./hdinsight-component-versioning.md).
 
 ### <a name="new-regions"></a>Novas regiões
 
@@ -250,7 +444,7 @@ O HIB (agente de identidade do HDInsight) permite que os usuários entrem no Apa
 
 #### <a name="kafka-rest-api-proxy-preview"></a>Proxy da API REST do Kafka (visualização)
 
-O proxy da API REST do Kafka fornece uma implantação de um único clique do proxy REST altamente disponível com o cluster Kafka por meio da autorização do AAD e do protocolo OAuth seguros. 
+O proxy da API REST do Kafka fornece uma implantação de um único clique do proxy REST altamente disponível com o cluster Kafka por meio da autorização e do protocolo OAuth protegidos do Azure AD. 
 
 #### <a name="auto-scale"></a>Escala automática
 
@@ -258,19 +452,19 @@ O dimensionamento automático para o Azure HDInsight agora está disponível em 
 
 Dependendo dos seus requisitos, você pode escolher entre dimensionamento automático baseado em carga e com base em agendamento. O dimensionamento automático baseado em carga pode dimensionar o tamanho do cluster para cima e para baixo com base nas necessidades do recurso atual, enquanto o dimensionamento automático baseado em agenda pode alterar o tamanho do cluster com base em uma agenda predefinida. 
 
-O suporte a AutoEscala para a carga de trabalho do HBase e do LLAP também é visualização pública. Para obter mais informações, consulte [dimensionar automaticamente clusters do Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-autoscale-clusters).
+O suporte a AutoEscala para a carga de trabalho do HBase e do LLAP também é visualização pública. Para obter mais informações, consulte [dimensionar automaticamente clusters do Azure HDInsight](./hdinsight-autoscale-clusters.md).
 
 #### <a name="hdinsight-accelerated-writes-for-apache-hbase"></a>Gravações aceleradas do HDInsight para o Apache HBase 
 
-As gravações aceleradas usam discos gerenciados do SSD premium do Azure para melhorar o desempenho do log de gravação antecipada do Apache HBase (WAL). Para obter mais informações, consulte [Gravações aceleradas do Azure HDInsight para o Apache HBase](https://docs.microsoft.com/azure/hdinsight/hbase/apache-hbase-accelerated-writes).
+As gravações aceleradas usam discos gerenciados do SSD premium do Azure para melhorar o desempenho do log de gravação antecipada do Apache HBase (WAL). Para obter mais informações, consulte [Gravações aceleradas do Azure HDInsight para o Apache HBase](./hbase/apache-hbase-accelerated-writes.md).
 
 #### <a name="custom-ambari-db"></a>BD Ambari personalizado
 
-O HDInsight agora oferece uma nova capacidade para permitir que os clientes usem seu próprio BD SQL para Ambari. Agora, os clientes podem escolher o BD SQL correto para Ambari e atualizá-lo facilmente com base em seu próprio requisito de crescimento de negócios. A implantação é feita com um modelo de Azure Resource Manager. Para obter mais informações, consulte [Configurar clusters do HDInsight com um AMBARI DB personalizado](https://docs.microsoft.com/azure/hdinsight/hdinsight-custom-ambari-db).
+O HDInsight agora oferece uma nova capacidade para permitir que os clientes usem seu próprio BD SQL para Ambari. Agora, os clientes podem escolher o BD SQL correto para Ambari e atualizá-lo facilmente com base em seu próprio requisito de crescimento de negócios. A implantação é feita com um modelo de Azure Resource Manager. Para obter mais informações, consulte [Configurar clusters do HDInsight com um AMBARI DB personalizado](./hdinsight-custom-ambari-db.md).
 
 #### <a name="f-series-virtual-machines-are-now-available-with-hdinsight"></a>As máquinas virtuais da série F agora estão disponíveis com o HDInsight
 
-As VMs (máquinas virtuais) da série F são boas opções para começar com o HDInsight com requisitos leves de processamento. A um preço de lista inferior por hora, a série F é o melhor valor de preço/desempenho no portfólio do Azure com base na ACU (Unidade de Computação do Azure) por vCPU. Para obter mais informações, consulte [selecionando o tamanho correto da VM para o cluster HDInsight do Azure](https://docs.microsoft.com/azure/hdinsight/hdinsight-selecting-vm-size).
+As VMs (máquinas virtuais) da série F são boas opções para começar com o HDInsight com requisitos leves de processamento. A um preço de lista inferior por hora, a série F é o melhor valor de preço/desempenho no portfólio do Azure com base na ACU (Unidade de Computação do Azure) por vCPU. Para obter mais informações, consulte [selecionando o tamanho correto da VM para o cluster HDInsight do Azure](./hdinsight-selecting-vm-size.md).
 
 ### <a name="deprecation"></a>Reprovação
 
@@ -289,7 +483,7 @@ O HDInsight fornece o espaço em disco gerenciado com o cluster. A partir desta 
 As seguintes alterações ocorrerão nas versões futuras. 
 
 #### <a name="moving-to-azure-virtual-machine-scale-sets"></a>Migrar para Conjuntos de Dimensionamento de Máquinas Virtuais do Azure
-O HDInsight atualmente usa máquinas virtuais do Azure para provisionar o cluster. A partir de dezembro, o HDInsight usará os conjuntos de dimensionamento de máquinas virtuais do Azure em vez disso. Veja mais sobre os [conjuntos de dimensionamento de máquinas virtuais do Azure](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview).
+O HDInsight atualmente usa máquinas virtuais do Azure para provisionar o cluster. A partir de dezembro, o HDInsight usará os conjuntos de dimensionamento de máquinas virtuais do Azure em vez disso. Veja mais sobre os [conjuntos de dimensionamento de máquinas virtuais do Azure](../virtual-machine-scale-sets/overview.md).
 
 #### <a name="hbase-20-to-21"></a>HBase 2,0 a 2,1
 Na próxima versão do HDInsight 4,0, a versão do HBase será atualizada da versão 2,0 para a 2,1.
@@ -301,7 +495,7 @@ As VMs da série a podem causar problemas de cluster ESP devido à capacidade re
 O HDInsight continua a fazer aprimoramentos de desempenho e confiabilidade do cluster. 
 
 ### <a name="component-version-change"></a>Alteração na versão do componente
-Não há nenhuma alteração de versão de componente para esta versão. Você pode encontrar as versões de componente atuais para HDInsight 4,0 e HDInsight 3,6 [aqui](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning).
+Não há nenhuma alteração de versão de componente para esta versão. Você pode encontrar as versões de componente atuais para HDInsight 4,0 e HDInsight 3,6 [aqui](./hdinsight-component-versioning.md).
 
 
 ## <a name="release-date-08072019"></a>Data de lançamento: 08/07/2019
@@ -423,7 +617,7 @@ Os serviços Apache Storm e ML não estão disponíveis no HDInsight 4,0.
 
 Os recursos e novas atualizações se enquadram nas categorias a seguir:
 
-*  ***Atualizar o Hadoop e outros projetos de código-fonte aberto*** – além de mais de 1.000 correções de bugs em mais de 20 projetos de software livre, esta atualização contém uma nova versão do **Spark (2,3)** e **Kafka (1,0)**.
+*  ***Atualizar o Hadoop e outros projetos de** software livre _ – além de mais de 1.000 correções de bugs em mais de 20 projetos de software livre, essa atualização contém uma nova versão de _ *Spark (2,3)** e **Kafka (1,0)**.
 
     a.  [**Novos recursos no Apache Spark 2.3**](https://spark.apache.org/releases/spark-release-2-3-0.html)
 
@@ -433,7 +627,7 @@ Os recursos e novas atualizações se enquadram nas categorias a seguir:
 
 *  ***Suporte ao armazenamento de dados do Azure Data Lake Gen2*** - o HDInsight suportará a versão de visualização do Armazenamento de dados do Windows Azure Gen2. Nas regiões disponíveis, os clientes poderão escolher uma conta ADLS Gen2 como uma loja Primária ou Secundária para seus clusters HDInsight.
 
-*  ***HDInsight Enterprise Security Package Updates (Preview)*** – (Preview) Suporte para [Pontos de Extremidade de Serviço de Rede Virtual](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) para Azure Blob Storage, ADLS Gen1, Cosmos DB, e Microsoft Azure Cosmos DB.
+*  ***HDInsight Enterprise Security Package Updates (Preview)*** – (Preview) Suporte para [Pontos de Extremidade de Serviço de Rede Virtual](../virtual-network/virtual-network-service-endpoints-overview.md) para Azure Blob Storage, ADLS Gen1, Cosmos DB, e Microsoft Azure Cosmos DB.
 
 ### <a name="component-versions"></a>Versões do componente
 
@@ -779,7 +973,7 @@ Esta versão fornece Hive 1.2.1 e Hive 2.1.0 além dos patches a seguir:
 
 -   [*HIVE-17621*](https://issues.apache.org/jira/browse/HIVE-17621): configurações de Hive-site serão ignoradas durante o cálculo de divisão HCatInputFormat.
 
--   [*HIVE-17629*](https://issues.apache.org/jira/browse/HIVE-17629): CachedStore: tenha uma configuração da lista de bloqueios/lista de permissões para permitir cache seletiva de tabelas/partições e permitir leitura durante a preparação.
+-   [*Hive-17629*](https://issues.apache.org/jira/browse/HIVE-17629): CachedStore: tenha uma configuração aprovada/não aprovada para permitir o cache seletivo de tabelas/partições e permitir a leitura durante o aquecimento.
 
 -   [*HIVE-17636*](https://issues.apache.org/jira/browse/HIVE-17636): adicionar vários\_teste agg.q para blobstores.
 
@@ -1323,7 +1517,7 @@ Problemas corrigidos representam problemas selecionados que foram registrados an
 | BUG-98655              | [RANGER-2066](https://issues.apache.org/jira/browse/RANGER-2066)                                                                                                                                                                                                               | O acesso à família de colunas do HBase é autorizado por uma coluna marcada na família de colunas                                       |
 | BUG-99883              | [HIVE-19073](https://issues.apache.org/jira/browse/HIVE-19073), [HIVE-19145](https://issues.apache.org/jira/browse/HIVE-19145)                                                                                                                                                 | StatsOptimizer pode desconfigurar as colunas constante                                                                             |
 
-**Outras**
+**Outros**
 
 | **ID do Bug do Hortonworks** | **Apache JIRA**                                                                                                                        | **Resumo**                                                                                                                                |
 |------------------------|----------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
@@ -1534,7 +1728,7 @@ Problemas corrigidos representam problemas selecionados que foram registrados an
 | BUG-97605              | [HIVE-18858](https://issues.apache.org/jira/browse/HIVE-18858)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Propriedades do sistema na configuração de trabalho não resolvido ao enviar trabalho MR                                                                     |
 | BUG-97674              | [OOZIE-3186](https://issues.apache.org/jira/browse/OOZIE-3186)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Oozie é não é possível usar a configuração vinculada usando jceks://file/...                                                                             |
 | BUG-97743              | N/D                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | exceção de java.lang.NoClassDefFoundError ao implantar a topologia do storm                                                                        |
-| BUG-97756              | [PHOENIX-4576](https://issues.apache.org/jira/browse/PHOENIX-4576)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | Corrigir os testes de LocalIndexSplitMergeIT com falha na branch mestre                                                                                      |
+| BUG-97756              | [PHOENIX-4576](https://issues.apache.org/jira/browse/PHOENIX-4576)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | Correção de testes de LocalIndexSplitMergeIT com falha |
 | BUG 97771              | [HDFS-11711](https://issues.apache.org/jira/browse/HDFS-11711)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | DN não deve excluir o bloco na exceção “Muitos arquivos abertos”                                                                              |
 | BUG-97869              | [KNOX-1190](https://issues.apache.org/jira/browse/KNOX-1190)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | O suporte a Knox SSO Google OIDC foi interrompido.                                                                                                    |
 | BUG-97879              | [PHOENIX-4489](https://issues.apache.org/jira/browse/PHOENIX-4489)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | vazamento de Conexão de HBase em trabalhos de Phoenix MR                                                                                                       |
@@ -1692,7 +1886,7 @@ Problemas corrigidos representam problemas selecionados que foram registrados an
 
 |**Componente do Apache**|**Apache JIRA**|**Resumo**|**Detalhes**|
 |--|--|--|--|
-|**Spark 2.3** |**N/A** |**Notas de versão de alterações conforme documentado no Apache Spark** |-Há um documento de "reprovação" e um guia de "alteração de comportamento",https://spark.apache.org/releases/spark-release-2-3-0.html#deprecations<br /><br />-Para o SQL Part, há outro guia detalhado de "migração" (de 2,2 a 2,3),https://spark.apache.org/docs/latest/sql-programming-guide.html#upgrading-from-spark-sql-22-to-23|
+|**Spark 2.3** |**N/A** |**Notas de versão de alterações conforme documentado no Apache Spark** |-Há um documento de "reprovação" e um guia de "alteração de comportamento", https://spark.apache.org/releases/spark-release-2-3-0.html#deprecations<br /><br />-Para o SQL Part, há outro guia detalhado de "migração" (de 2,2 a 2,3), https://spark.apache.org/docs/latest/sql-programming-guide.html#upgrading-from-spark-sql-22-to-23|
 |Spark |[**HIVE-12505**](https://issues.apache.org/jira/browse/HIVE-12505) |Trabalho do Spark concluído com êxito, mas há um erro de total de cota de disco HDFS |**Cenário:** Em execução **inserir substituir** quando uma cota é definida na pasta da Lixeira do usuário que executa o comando.<br /><br />**Comportamento anterior:** o trabalho for bem-sucedido, mesmo que ele não consegue mover os dados para a Lixeira. O resultado incorretamente pode conter alguns dos dados esteja presentes na tabela.<br /><br />**Novo comportamento:** quando a mudança para a pasta da Lixeira falha, os arquivos serão excluídos permanentemente.|
 |**Kafka 1.0**|**N/A**|**Notas de versão de alterações conforme documentado no Apache Spark** |https://kafka.apache.org/10/documentation.html#upgrade_100_notable|
 |**Hive / Ranger** | |Políticas de hive do ranger adicionais necessárias para INSERT OVERWRITE |**Cenário:** políticas de hive do ranger adicionais necessárias para **INSERT OVERWRITE**<br /><br />**Comportamento anterior:** consultas do Hive **INSERT OVERWRITE** consultas realizadas com êxito como de costume.<br /><br />**Novo comportamento:** consultas do Hive **INSERT OVERWRITE** estão falhando inesperadamente após a atualização para HDP 2.6 com o erro:<br /><br />Erro durante a compilação de instrução: FAILED: HiveAccessControlException permissão negada: usuário jdoe não tem privilégios de gravação em /tmp/\*(estado = 42000, código = 40000)<br /><br />A partir das consultas HDP-2.6.0 Hive **INSERT OVERWRITE** exigem uma política de URI do Ranger para permitir operações de gravação, mesmo se o usuário tem o privilégio de gravação concedido por meio da política HDFS.<br /><br />**Solução alternativa/esperado ação do cliente:**<br /><br />1. Crie uma nova política no repositório do hive.<br />2. no menu suspenso onde você vê banco de dados, selecione URI.<br />3. atualize o caminho (exemplo:/tmp/*)<br />4. Adicione os usuários e o grupo e salve.<br />5. Repita a consulta INSERT.|
@@ -1830,6 +2024,6 @@ Problemas corrigidos representam problemas selecionados que foram registrados an
 
 ### <a name="upgrading"></a>Atualizando
 
-Todos esses recursos estão disponíveis no HDInsight 3.6. Para obter a versão mais recente do Spark, Kafka e R Server (serviços de Machine Learning), escolha a versão do Spark, Kafka, ML Services quando você [criar um cluster HDInsight 3.6](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters). Para obter suporte para o ADLS, você pode escolher o tipo de armazenamento do ADLS como uma opção. Os clusters existentes não serão atualizados para essas versões automaticamente.
+Todos esses recursos estão disponíveis no HDInsight 3.6. Para obter a versão mais recente do Spark, Kafka e R Server (serviços de Machine Learning), escolha a versão do Spark, Kafka, ML Services quando você [criar um cluster HDInsight 3.6](./hdinsight-hadoop-provision-linux-clusters.md). Para obter suporte para o ADLS, você pode escolher o tipo de armazenamento do ADLS como uma opção. Os clusters existentes não serão atualizados para essas versões automaticamente.
 
-Todos os novos clusters criados depois de junho de 2018 receberão automaticamente as correções de bug + 1000 entre todos os projetos de código-fonte aberto. Siga este [guia](https://docs.microsoft.com/azure/hdinsight/hdinsight-upgrade-cluster) de práticas recomendadas sobre como atualizar para uma versão mais recente do HDInsight.
+Todos os novos clusters criados depois de junho de 2018 receberão automaticamente as correções de bug + 1000 entre todos os projetos de código-fonte aberto. Siga este [guia](./hdinsight-upgrade-cluster.md) de práticas recomendadas sobre como atualizar para uma versão mais recente do HDInsight.

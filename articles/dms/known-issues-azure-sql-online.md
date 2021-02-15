@@ -10,14 +10,14 @@ ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 02/20/2020
-ms.openlocfilehash: da0c00f0b4a8f2c49996fbcb9b34ee4a1ab65273
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 748c3f8e38b98b2cbdcfecdf7d755827230fdb3d
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856643"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94962460"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-sql-database"></a>Problemas conhecidos/limitações de migração com migrações online para o banco de dados SQL do Azure
 
@@ -40,7 +40,7 @@ Se seu banco de dados de origem consiste em uma ou mais tabelas temporais, a mig
 
 **Solução alternativa**
 
-Use as seguintes etapas.
+Use as etapas a seguir.
 
 1. Localize tabelas temporais no seu esquema de origem usando a consulta abaixo.
 
@@ -54,7 +54,7 @@ Use as seguintes etapas.
 
 **Recursos**
 
-Para obter mais informações, confira o artigo [Tabelas temporais](https://docs.microsoft.com/sql/relational-databases/tables/temporal-tables?view=sql-server-2017).
+Para obter mais informações, confira o artigo [Tabelas temporais](/sql/relational-databases/tables/temporal-tables?view=sql-server-2017).
 
 ### <a name="migration-of-tables-includes-one-or-more-columns-with-the-hierarchyid-data-type"></a>A migração das tabelas inclui uma ou mais colunas com o tipo de dados hierarchyid
 
@@ -66,7 +66,7 @@ Você poderá ver uma exceção do SQL sugerindo que "ntext é incompatível com
 
 **Solução alternativa**
 
-Use as seguintes etapas.
+Use as etapas a seguir.
 
 1. Encontre as tabelas de usuário que incluem colunas com o tipo de dados hierarchyid usando a consulta abaixo.
 
@@ -82,7 +82,7 @@ Use as seguintes etapas.
 
 **Solução alternativa**
 
-Use as seguintes etapas.
+Use as etapas a seguir.
 
 1. Localize os gatilhos que estão atualmente ativos no banco de dados de origem usando a consulta abaixo:
 
@@ -90,7 +90,7 @@ Use as seguintes etapas.
      select * from sys.triggers where is_disabled =0
      ```
 
-2. Desabilite os gatilhos em seu banco de dados de origem usando as etapas fornecidas no artigo [DISABLE TRIGGER (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/disable-trigger-transact-sql?view=sql-server-2017).
+2. Desabilite os gatilhos em seu banco de dados de origem usando as etapas fornecidas no artigo [DISABLE TRIGGER (Transact-SQL)](/sql/t-sql/statements/disable-trigger-transact-sql?view=sql-server-2017).
 
 3. Execute a atividade de migração novamente.
 
@@ -150,7 +150,7 @@ A migração falha com uma mensagem de erro que contém o seguinte texto:
 
 Embora o serviço de migração de banco de dados do Azure dê suporte ao tipo de dado geography para migrações offline para o Azure SQL Database, para migrações online, não há suporte para o DataType geography. Experimente os métodos alternativos para alterar o tipo de dados na origem para um Type com suporte antes de tentar usar o serviço de migração de banco de dados do Azure para uma migração online desse banco de dados.
 
-### <a name="supported-editions"></a>Edições com suporte
+### <a name="supported-editions"></a>Edições compatíveis
 
 **Sintoma**
 

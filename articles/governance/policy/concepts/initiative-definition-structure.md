@@ -1,14 +1,14 @@
 ---
 title: Detalhes da estrutura de definição de iniciativa
 description: Descreve como as definições de iniciativa de política são usadas para agrupar definições de política para implantação em recursos do Azure em sua organização.
-ms.date: 08/17/2020
+ms.date: 10/07/2020
 ms.topic: conceptual
-ms.openlocfilehash: d7b4adf15193e2cd1b9e516a04c7c989dc442ee9
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 8f9c6146e1dde5b5a7f6595c61638319de60a82d
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89048492"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91876168"
 ---
 # <a name="azure-policy-initiative-definition-structure"></a>Estrutura de definição da iniciativa Azure Policy
 
@@ -248,19 +248,18 @@ Aqui está um exemplo de `policyDefinitions` que tem duas definições de polít
 ]
 ```
 
-## <a name="policy-definitions-groups-preview"></a><a name="policy-definition-groups"></a>Grupos de definições de política (versão prévia)
+## <a name="policy-definition-groups"></a>Grupos de definição de política
 
-Como parte do recurso de [conformidade regulatória](./regulatory-compliance.md) do Azure Policy (versão prévia), as definições de política em uma definição de iniciativa podem ser agrupadas. Essas informações são definidas na propriedade de `policyDefinitionGroups` _matriz_ . Esses agrupamentos têm detalhes adicionais, como o domínio de **controle** e **conformidade** para o qual a definição de política fornece cobertura.
-Detalhes adicionais de Agrupamento podem ser encontrados em um objeto **policyMetadata** criado pela Microsoft. Para obter informações, consulte [objetos de metadados](#metadata-objects).
+As definições de política em uma definição de iniciativa podem ser agrupadas e categorizadas. O recurso de [conformidade regulatória](./regulatory-compliance.md) do Azure Policy (versão prévia) usa essa propriedade para agrupar definições em **domínios de conformidade**e **controles** . Essas informações são definidas na propriedade de `policyDefinitionGroups` _matriz_ . Detalhes adicionais de Agrupamento podem ser encontrados em um objeto **policyMetadata** criado pela Microsoft. Para obter informações, consulte [objetos de metadados](#metadata-objects).
 
 ### <a name="policy-definition-groups-parameters"></a>Parâmetros de grupos de definição de política
 
 Cada elemento da _matriz_ em `policyDefinitionGroups` deve ter as duas propriedades a seguir:
 
-- `name` (cadeia de caracteres) \[ obrigatório \] : o nome curto do **controle**. O valor dessa propriedade é usado pelo `groupNames` no `policyDefinitions` .
-- `category` (String): o **domínio de conformidade** do controle.
-- `displayName` (String): o nome amigável para o **controle**. Usado pelo portal.
-- `description` (String): uma descrição do que o **controle** faz.
+- `name` (cadeia de caracteres) \[ obrigatório \] : o nome curto para o **grupo**. Em conformidade regulatória, o **controle**. O valor dessa propriedade é usado pelo `groupNames` no `policyDefinitions` .
+- `category` (cadeia de caracteres): a hierarquia à qual o grupo pertence. Em conformidade regulatória, o **domínio de conformidade** do controle.
+- `displayName` (String): o nome amigável para o **grupo** ou **controle**. Usado pelo portal.
+- `description` (String): uma descrição do que o **grupo** ou **controle** cobre.
 - `additionalMetadataId` (String): o local do objeto [policyMetadata](#metadata-objects) que tem detalhes adicionais sobre o domínio de **controle** e **conformidade**.
 
   > [!NOTE]

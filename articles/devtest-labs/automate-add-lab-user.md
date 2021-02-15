@@ -3,12 +3,12 @@ title: Automatizar a adição de um usuário de laboratório no Azure DevTest La
 description: Este artigo mostra como automatizar a adição de um usuário a um laboratório no Azure DevTest Labs usando modelos de Azure Resource Manager, o PowerShell e a CLI.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: b016d6edcb75016302cf652f873881008de18abb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 61853efacc5974b81d46b2b8cca0f2796672d72d
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483815"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92327953"
 ---
 # <a name="automate-adding-a-lab-user-to-a-lab-in-azure-devtest-labs"></a>Automatize a adição de um usuário de laboratório a um laboratório no Azure DevTest Labs
 Azure DevTest Labs permite criar rapidamente ambientes de desenvolvimento e teste de autoatendimento usando o portal do Azure. No entanto, se você tiver várias equipes e várias instâncias do DevTest Labs, a automatização do processo de criação poderá poupar tempo. Os [modelos de Azure Resource Manager](https://github.com/Azure/azure-devtestlab/tree/master/Environments) permitem criar laboratórios, VMS de laboratório, imagens personalizadas, fórmulas e adicionar usuários de maneira automatizada. Este artigo se concentra especificamente na adição de usuários a uma instância do DevTest Labs.
@@ -179,7 +179,7 @@ New-AzureRmRoleAssignment -UserPrincipalName <email@company.com> -RoleDefinition
 Para especificar o recurso ao qual as permissões estão sendo concedidas podem ser especificadas por uma combinação de `ResourceName` , `ResourceType` `ResourceGroup` ou pelo `scope` parâmetro. Qualquer combinação de parâmetros é usada, forneça informações suficientes ao cmdlet para identificar exclusivamente o objeto de Active Directory (usuário, grupo ou entidade de serviço), escopo (grupo de recursos ou recurso) e definição de função.
 
 ## <a name="use-azure-command-line-interface-cli"></a>Usar a CLI (interface de linha de comando) do Azure
-No CLI do Azure, a adição de um usuário de laboratórios a um laboratório é feita usando o `az role assignment create` comando. Para obter mais informações sobre CLI do Azure cmdlets, consulte [gerenciar o acesso aos recursos do Azure usando o RBAC e o CLI do Azure](../role-based-access-control/role-assignments-cli.md).
+No CLI do Azure, a adição de um usuário de laboratórios a um laboratório é feita usando o `az role assignment create` comando. Para obter mais informações sobre CLI do Azure cmdlets, consulte [Adicionar ou remover atribuições de função do Azure usando CLI do Azure](../role-based-access-control/role-assignments-cli.md).
 
 O objeto que está sendo concedido acesso pode ser especificado pelos `objectId` parâmetros, `signInName` , `spn` . O laboratório ao qual o objeto está sendo concedido acesso pode ser identificado pela `scope` URL ou uma combinação dos `resource-name` `resource-type` parâmetros, e `resource-group` .
 

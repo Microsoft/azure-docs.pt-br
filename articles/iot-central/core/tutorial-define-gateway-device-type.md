@@ -1,5 +1,5 @@
 ---
-title: Definir um novo tipo de dispositivo de gateway no Azure IoT Central | Microsoft Docs
+title: Tutorial – definir um novo tipo de dispositivo de gateway no Azure IoT Central | Microsoft Docs
 description: Este tutorial mostra a você, como um construtor, como definir um novo tipo de dispositivo de gateway de IoT no aplicativo Azure IoT Central.
 author: rangv
 ms.author: rangv
@@ -9,14 +9,14 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 2411eab50cc921a09ba55780b3c6620744a78f3f
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.openlocfilehash: e42e1791693342592e391a14422b1441c9cbbd31
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81758136"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832378"
 ---
-# <a name="define-a-new-iot-gateway-device-type-in-your-azure-iot-central-application"></a>Definir um novo tipo de dispositivo de gateway de IoT no aplicativo Azure IoT Central
+# <a name="tutorial---define-a-new-iot-gateway-device-type-in-your-azure-iot-central-application"></a>Tutorial – definir um novo tipo de dispositivo de gateway de IoT no aplicativo do Azure IoT Central
 
 *Este artigo se aplica a construtores de solução e desenvolvedores de dispositivos.*
 
@@ -31,6 +31,9 @@ Além de permitir que dispositivos downstream se comuniquem com seu aplicativo I
 * Enviar sua telemetria, como a temperatura.
 * Responder a atualizações de propriedade graváveis feitas por um operador. Por exemplo, um operador pode alterar o intervalo de envio de telemetria.
 * Responder a comandos, como reinicialização do dispositivo.
+
+> [!div class="checklist"]
+> Criar modelos de dispositivo downstream Criar um modelo de dispositivo de gateway Publicar o modelo de dispositivo Criar os dispositivos simulados
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -139,7 +142,7 @@ Para publicar o modelo de dispositivo de gateway:
 
 3. Na caixa de diálogo **Publicar um Modelo de Dispositivo**, escolha **Publicar**.
 
-Depois que um modelo de dispositivo é publicado, ele fica visível na página **Dispositivos** e para o operador. Em um modelo de dispositivo publicado, você não pode editar um modelo de funcionalidade do dispositivo sem criar uma nova versão. No entanto, você pode fazer atualizações nas propriedades de nuvem, nas personalizações e nos modos de exibição, em um modelo de dispositivo publicado. Essas atualizações não fazem com que uma nova versão seja criada. Depois de fazer qualquer alteração, selecione **Publicar** para enviar por push essas alterações para o operador.
+Depois que um modelo de dispositivo é publicado, ele fica visível na página **Dispositivos** e para o operador. Em um modelo de dispositivo publicado, não é possível editar um modelo do dispositivo sem criar uma versão. No entanto, você pode fazer atualizações nas propriedades de nuvem, nas personalizações e nos modos de exibição, em um modelo de dispositivo publicado. Essas atualizações não fazem com que uma nova versão seja criada. Depois de fazer qualquer alteração, selecione **Publicar** para enviar por push essas alterações para o operador.
 
 ## <a name="create-the-simulated-devices"></a>Criar os dispositivos simulados
 
@@ -195,6 +198,10 @@ Agora, os dois dispositivos downstream simulados estão conectados ao dispositiv
 
 Selecione um modelo de dispositivo de gateway e uma instância de dispositivo de gateway e selecione **Unir**.
 
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+[!INCLUDE [iot-central-clean-up-resources](../../../includes/iot-central-clean-up-resources.md)]
+
 ## <a name="next-steps"></a>Próximas etapas
 
 Neste tutorial, você aprendeu a:
@@ -205,9 +212,6 @@ Neste tutorial, você aprendeu a:
 * Definir uma visualização para a telemetria do dispositivo.
 * Adicionar relacionamentos.
 * Publicar seu modelo de dispositivo.
-
-> [!NOTE]
-> Atualmente, a geração de código baseada em VS Code não é uma ação compatível com dispositivos de gateway modelados no IoT Central.
 
 Em seguida, como um desenvolvedor do dispositivo, você pode aprender como:
 

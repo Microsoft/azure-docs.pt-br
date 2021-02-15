@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
 ms.date: 05/18/2020
 ms.author: derekol
-ms.openlocfilehash: df337736a676c40f1345310afb9a2e685ddc1d5c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0540fa9c7a29456aaf343adce83509b2d0e390e4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84871316"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91398913"
 ---
 # <a name="peering-service-connection"></a>Conexão de serviço de emparelhamento
 
@@ -29,7 +29,7 @@ Uma conexão normalmente se refere a um conjunto de informações lógicas, iden
 O cliente pode estabelecer uma única conexão ou várias conexões de acordo com o requisito. Uma conexão também é usada como uma unidade de coleção de telemetria. Por exemplo, para aceitar alertas de telemetria, o cliente deve definir a conexão que será monitorada.
 
 > [!Note]
-> Quando você se inscreve no serviço de emparelhamento, analisamos sua telemetria do Windows e do Office 365 para fornecer medidas de latência para os prefixos selecionados.
+> Quando você se inscreve no serviço de emparelhamento, analisamos sua telemetria do Windows e Microsoft 365 para fornecer medidas de latência para os prefixos selecionados.
 >Para obter mais informações sobre telemetria de conexão, consulte a [telemetria de conexão de serviço de emparelhamento](connection-telemetry.md).
 >
 

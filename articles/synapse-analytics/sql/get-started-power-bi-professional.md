@@ -1,22 +1,22 @@
 ---
-title: Conectar-se ao Power BI Professional
-description: Neste tutorial, percorreremos as etapas de como conectar o Power BI Desktop ao SQL sob demanda (versão prévia).
+title: Conectar-se ao Synapse SQL com o Power BI Professional
+description: Neste tutorial, percorreremos as etapas de como conectar o Power BI Desktop ao pool de SQL sem servidor.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: sql
 ms.date: 04/15/2020
-ms.author: v-stazar
-ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 497c6f669699f1e1ce879c0c7da2593256b97448
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.author: stefanazaric
+ms.reviewer: jrasnick
+ms.openlocfilehash: b33edb99109b7516e1792497a936031cf954bc15
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501092"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451604"
 ---
-# <a name="connect-to-synapse-sql-with-power-bi-professional"></a>Conectar-se ao Synapse SQL com o Power BI Professional
+# <a name="connect-to-serverless-sql-pool-with-power-bi-professional"></a>Conectar-se ao pool de SQL sem servidor com o Power BI Professional
 
 > [!div class="op_single_selector"]
 >
@@ -26,11 +26,11 @@ ms.locfileid: "87501092"
 > - [sqlcmd](../sql/get-started-connect-sqlcmd.md)
 > - [SSMS](get-started-ssms.md)
 
-Neste tutorial, percorreremos as etapas para conectar o Power BI Desktop ao SQL sob demanda (versão prévia).
+Neste tutorial, percorreremos as etapas para conectar o Power BI Desktop ao pool de SQL sem servidor.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Ferramenta para emitir consultas:
+Você precisa das seguintes ferramentas para emitir consultas:
 
 - Cliente SQL de sua escolha:
 
@@ -43,17 +43,17 @@ Parâmetros:
 
 | Parâmetro                                 | Descrição                                                   |
 | ----------------------------------------- | ------------------------------------------------------------- |
-| Endereço do ponto de extremidade de serviço do SQL sob demanda    | Será usado como o nome do servidor                                   |
-| Região do ponto de extremidade de serviço do SQL sob demanda     | Será usada para determinar qual armazenamento será usado nas amostras |
+| Endereço do ponto de extremidade de serviço do pool de SQL sem servidor    | Será usado como o nome do servidor                                   |
+| Região do ponto de extremidade de serviço do pool de SQL sem servidor     | Será usada para determinar qual armazenamento será usado nas amostras |
 | Nome de usuário e senha para acesso de ponto de extremidade | Será usado para acessar o ponto de extremidade                               |
-| Banco de dados que você usará para criar exibições     | Esse banco de dados será usado como ponto de partida em exemplos       |
+| Banco de dados que você usará para criar exibições       | Esse banco de dados será usado como ponto de partida em exemplos       |
 
 ## <a name="first-time-setup"></a>Configuração inicial
 
 Há duas etapas antes de usar exemplos:
 
 1. Criar um banco de dados para suas exibições
-2. Criar credenciais a serem usadas pelo SQL sob demanda para acessar arquivos no armazenamento
+2. Criar credenciais a serem usadas pelo pool de SQL sem servidor para acessar arquivos no armazenamento
 
 ### <a name="create-database"></a>Criar banco de dados
 
@@ -70,10 +70,10 @@ DROP DATABASE IF EXISTS demo;
 
 ### <a name="create-credentials"></a>Criar credenciais
 
-Precisaremos criar credenciais antes que você execute consultas. Esta credencial será usada pelo serviço de SQL sob demanda para acessar arquivos no armazenamento.
+Precisaremos criar credenciais antes que você execute consultas. Esta credencial será usada pelo serviço de pool de SQL sem servidor para acessar arquivos no armazenamento.
 
 > [!NOTE]
-> Você precisa criar credenciais de acesso à conta de armazenamento. Embora o SQL sob demanda possa acessar armazenamentos de diferentes regiões, ter o armazenamento e o workspace do Azure Synapse na mesma região proporcionará uma experiência com melhor desempenho.
+> Você precisa criar credenciais de acesso à conta de armazenamento. Embora o pool de SQL sem servidor possa acessar armazenamentos de diferentes regiões, ter o armazenamento e o workspace do Azure Synapse na mesma região proporcionará uma experiência com melhor desempenho.
 
 **Snippet de código sobre como criar credenciais para contêineres de dados do censo**, execute:
 
@@ -108,5 +108,4 @@ Grave a URL do banco de dados e o nome do banco de dados em que a exibição res
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Avance para [Arquivos de armazenamento de consulta](get-started-azure-data-studio.md) para saber como se conectar ao SQL sob demanda usando o Azure Data Studio.
- 
+Avance para [Arquivos de armazenamento de consulta](get-started-azure-data-studio.md) para saber como se conectar ao pool de SQL sem servidor usando o Azure Data Studio.

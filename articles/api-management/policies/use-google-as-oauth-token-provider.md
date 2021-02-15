@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
-ms.openlocfilehash: d606d29d84cd5917c74efe188ae02627ad55d4ab
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0f6c9fe2146414f78e90d6ade1a00045cdf3a04f
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75442384"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078010"
 ---
 # <a name="authorize-access-using-google-oauth-token"></a>Autorizar o acesso usando o token OAuth do Google
 
-Este artigo mostra um exemplo de política de gerenciamento de API do Azure que demonstra como autorizar o acesso aos pontos de extremidade usando o Google como um provedor de token OAuth. Para definir ou editar um código de política, siga as etapas descritas em [Definir ou editar uma política](../set-edit-policies.md). Para ver outros exemplos, consulte [exemplos de política](../policy-samples.md).
+Este artigo mostra um exemplo de política de gerenciamento de API do Azure que demonstra como autorizar o acesso aos pontos de extremidade usando o Google como um provedor de token OAuth. Para definir ou editar um código de política, siga as etapas descritas em [Definir ou editar uma política](../set-edit-policies.md). Para ver outros exemplos, consulte [exemplos de política](../policy-reference.md).
 
 ## <a name="policy"></a>Política
 
@@ -35,5 +35,4 @@ Cole o código no bloco de **entrada**.
 Saiba mais sobre as políticas de APIM:
 
 + [Políticas de transformação](../api-management-transformation-policies.md)
-+ [Exemplos de política](../policy-samples.md)
-
++ [Exemplos de política](../policy-reference.md)

@@ -1,19 +1,19 @@
 ---
 title: Perguntas frequentes
 description: Perguntas frequentes sobre o serviço de Âncoras Espaciais do Azure.
-author: ramonarguelles
-manager: vriveras
+author: msftradford
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
-ms.author: rgarcia
-ms.date: 05/18/2020
+ms.author: parkerra
+ms.date: 11/20/2020
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 9f6f428a930f03259986373ca70a95d5df1f7dc3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 01eb0ce83efa54366e027d35d9c3c3bbf86eff7b
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091480"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95487360"
 ---
 # <a name="frequently-asked-questions-about-azure-spatial-anchors"></a>Perguntas frequentes sobre as Âncoras Espaciais do Azure
 
@@ -51,7 +51,7 @@ Para obter mais informações, veja [Visão geral de Âncoras Espaciais do Azure
 
 **P: Como o recurso Âncoras Espaciais do Azure armazena dados?**
 
-**R:** Todos os dados são armazenados criptografados com uma chave de criptografia de dados gerenciada da Microsoft.
+**R:** Todos os dados são armazenados criptografados com uma chave de criptografia de dados gerenciados da Microsoft e todos os dados são armazenados regionalmente para cada um dos recursos.
 
 **P: Quais informações sobre um ambiente são transmitidas e armazenadas no serviço ao usar Âncoras Espaciais do Azure? Imagens do ambiente são transmitidas e armazenadas?**
 
@@ -128,4 +128,4 @@ Introdução ao [desenvolvimento aqui](index.yml).
 
 **P: Quais portas e protocolos usam Âncoras Espaciais do Azure?**
 
-**R:** As Âncoras Espaciais do Azure se comunicam pela porta TCP 443 usando um protocolo criptografado. Para autenticação, é usado o [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/), que se comunica usando HTTPS pela porta 443.
+**R:** As Âncoras Espaciais do Azure se comunicam pela porta TCP 443 usando um protocolo criptografado. Para autenticação, é usado o [Azure Active Directory](../active-directory/index.yml), que se comunica usando HTTPS pela porta 443.

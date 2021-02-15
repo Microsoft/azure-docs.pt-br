@@ -15,12 +15,12 @@ ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 763441d023e4a707c6a1edc09abfb6d8e5525723
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: f4e2e18f3bb9d1c972d805a60493897d605921e4
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88782729"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010632"
 ---
 # <a name="invite-guest-users-and-assign-azure-resource-roles-in-privileged-identity-management"></a>Convide usuários convidados e atribua funções de recursos do Azure no Privileged Identity Management
 
@@ -67,7 +67,7 @@ Para garantir que você possa convidar convidados para sua organização, verifi
 
 Usando Privileged Identity Management, você pode convidar um convidado e torná-lo qualificado para uma função de recurso do Azure.
 
-1. Entre no [portal do Azure](https://portal.azure.com/) com um usuário que seja membro da função Administrador de [função privilegiada](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) ou [administrador de usuário](../users-groups-roles/directory-assign-admin-roles.md#user-administrator) .
+1. Entre no [portal do Azure](https://portal.azure.com/) com um usuário que seja membro da função Administrador de [função privilegiada](../roles/permissions-reference.md#privileged-role-administrator) ou [administrador de usuário](../roles/permissions-reference.md#user-administrator) .
 
 1. Abra **Azure ad Privileged Identity Management**.
 
@@ -157,7 +157,7 @@ Você pode exibir os logs de auditoria para controlar o que os convidados estão
 
     ![Recursos do Azure – página de auditoria de recursos listando a hora, o solicitante e a ação](./media/pim-resource-roles-external-users/audit-resource.png)
 
-1. Para exibir a atividade para o convidado, selecione **Azure Active Directory**  >  nome de convidado**dos usuários**  >  *guest name*.
+1. Para exibir a atividade para o convidado, selecione **Azure Active Directory**  >  nome de convidado **dos usuários**  >  *guest name*.
 
 1. Selecione **logs de auditoria** para ver os logs de auditoria da organização. Se necessário, você pode especificar os filtros.
 

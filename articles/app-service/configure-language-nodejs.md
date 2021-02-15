@@ -1,23 +1,23 @@
 ---
 title: Configurar aplicativos Node.js
 description: Saiba como configurar um aplicativo Node.js nas instâncias nativas do Windows ou em um contêiner do Linux predefinido, no serviço Azure App. Este artigo mostra as tarefas de configuração mais comuns.
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js, devx-track-azurecli
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 06/02/2020
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: e6daf176504427c96f8dce0a4e9a6b6d5e999a0a
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 8bdf637ab773e90a5eac42bcaa443cf6741db636
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080106"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696006"
 ---
 # <a name="configure-a-nodejs-app-for-azure-app-service"></a>Configurar um aplicativo de Node.js para o serviço Azure App
 
 Node.js aplicativos devem ser implantados com todas as dependências de NPM necessárias. O mecanismo de implantação do serviço de aplicativo é executado automaticamente `npm install --production` quando você implanta um [repositório git](deploy-local-git.md)ou um [pacote zip](deploy-zip.md) com a automação de compilação habilitada. No entanto, se você implantar seus arquivos usando [FTP/S](deploy-ftp.md), será necessário carregar os pacotes necessários manualmente.
 
-Este guia fornece os principais conceitos e instruções para os desenvolvedores de Node.js que se implantam no serviço de aplicativo. Se você nunca usou Azure App serviço, siga o guia de [início rápidoNode.js](quickstart-nodejs.md) e [Node.js com o MongoDB](tutorial-nodejs-mongodb-app.md) primeiro.
+Este guia fornece os principais conceitos e instruções para os desenvolvedores de Node.js que se implantam no serviço de aplicativo. Se você nunca usou Azure App serviço, siga o guia de [ início rápidoNode.js](quickstart-nodejs.md) e [Node.js com o MongoDB](tutorial-nodejs-mongodb-app.md) primeiro.
 
 ## <a name="show-nodejs-version"></a>Mostrar versão de Node.js
 
@@ -85,6 +85,36 @@ Essa configuração especifica a versão de Node.js a ser usada, em tempo de exe
 
 ::: zone-end
 
+## <a name="get-port-number"></a>Obter número da porta
+
+Você Node.js aplicativo precisa escutar a porta certa para receber solicitações de entrada.
+
+::: zone pivot="platform-windows"  
+
+No serviço de aplicativo no Windows, os aplicativos Node.js são hospedados com [IISNode](https://github.com/Azure/iisnode)e seu aplicativo Node.js deve escutar a porta especificada na `process.env.PORT` variável. O exemplo a seguir mostra como fazer isso em um aplicativo Express simples:
+
+::: zone-end
+
+::: zone pivot="platform-linux"  
+
+O serviço de aplicativo define a variável de ambiente `PORT` no contêiner de Node.js e encaminha as solicitações de entrada para o contêiner nesse número de porta. Para receber as solicitações, seu aplicativo deve escutar essa porta usando `process.env.PORT` . O exemplo a seguir mostra como fazer isso em um aplicativo Express simples:
+
+::: zone-end
+
+```javascript
+const express = require('express')
+const app = express()
+const port = process.env.PORT || 3000
+
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
+
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`)
+})
+```
+
 ::: zone pivot="platform-linux"
 
 ## <a name="customize-build-automation"></a>Personalizar a automação de build
@@ -98,7 +128,7 @@ Se você implantar seu aplicativo usando pacotes Git ou zip com a automação de
 1. Executar script personalizado se especificado por `POST_BUILD_SCRIPT_PATH`.
 
 > [!NOTE]
-> Conforme descrito em [NPM docs](https://docs.npmjs.com/misc/scripts), scripts chamados `prebuild` e `postbuild` executados antes e depois `build` , respectivamente, se especificados. `preinstall`e `postinstall` executar antes e depois `install` , respectivamente.
+> Conforme descrito em [NPM docs](https://docs.npmjs.com/misc/scripts), scripts chamados `prebuild` e `postbuild` executados antes e depois `build` , respectivamente, se especificados. `preinstall` e `postinstall` executar antes e depois `install` , respectivamente.
 
 `PRE_BUILD_COMMAND` e `POST_BUILD_COMMAND` são variáveis de ambiente vazias por padrão. Para executar comandos pré-build, defina `PRE_BUILD_COMMAND`. Para executar comandos pós-build, defina `POST_BUILD_COMMAND`.
 
@@ -164,7 +194,7 @@ O contêiner inicia automaticamente seu aplicativo com PM2 quando um dos arquivo
 Você também pode configurar um arquivo de inicialização personalizado com as seguintes extensões:
 
 - Um arquivo *. js*
-- Um [arquivo PM2](https://pm2.keymetrics.io/docs/usage/application-declaration/#process-file) com a extensão *. JSON*, *.config.js*, *. YAML*ou *. yml*
+- Um [arquivo PM2](https://pm2.keymetrics.io/docs/usage/application-declaration/#process-file) com a extensão *. JSON*, *.config.js*, *. YAML* ou *. yml*
 
 Para adicionar um arquivo de inicialização personalizado, execute o seguinte comando no [Cloud Shell](https://shell.azure.com):
 

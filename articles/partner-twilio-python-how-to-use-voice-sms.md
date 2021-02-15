@@ -14,11 +14,11 @@ ms.date: 02/19/2015
 ms.author: gwallace
 ms.custom: devx-track-python
 ms.openlocfilehash: ba93591ade730c4e9c9bdb6a42232e71e10d6469
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87850144"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000429"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-python"></a>Como usar o Twilio para obter recursos de voz e SMS no Python
 Este guia demonstra como executar tarefas comuns de programação com o serviço de API do Twilio no Azure. Os cenários abrangidos incluem fazer uma chamada telefônica e enviar uma mensagem serviço de mensagem curta (SMS). Para obter mais informações sobre o Twilio e o uso de voz e SMS em seus aplicativos, consulte a seção [Próximas etapas](#NextSteps) .
@@ -41,21 +41,21 @@ A API do Twilio é uma API RESTful que fornece os recursos de voz e SMS para apl
 Principais aspectos da API do Twilio são Twilio verbos e linguagem de marcação de Twilio (TwiML).
 
 ### <a name="twilio-verbs"></a><a id="Verbs"></a>Verbos twilio
-A API utiliza verbos twilio; por exemplo, o verbo ** &lt; digamos &gt; ** instrui o twilio a forma audível a entregar uma mensagem em uma chamada.
+A API utiliza verbos twilio; por exemplo, o verbo **&lt; digamos &gt;** instrui o twilio a forma audível a entregar uma mensagem em uma chamada.
 
 A seguir está uma lista de verbos do Twilio. Saiba mais sobre os outros verbos e recursos na [Documentação da linguagem de marcação da Twilio][twiml].
 
-* ** &lt; Discar &gt; **: conecta o chamador a outro telefone.
-* ** &lt; Coletar &gt; **: coleta dígitos numéricos inseridos no teclado do telefone.
-* ** &lt; Desligamento &gt; **: encerra uma chamada.
-* ** &lt; Pausa &gt; **: aguarda silenciosamente por um número especificado de segundos.
-* ** &lt; Play &gt; **: reproduz um arquivo de áudio.
-* ** &lt; Fila &gt; **: Adicione o a uma fila de chamadores.
-* ** &lt; Registro &gt; **: registra a voz do chamador e retorna uma URL de um arquivo que contém a gravação.
-* ** &lt; Redirect &gt; **: transfere o controle de uma chamada ou SMS para o TwiML em uma URL diferente.
-* ** &lt; Rejeitar &gt; **: rejeita uma chamada recebida para seu número de twilio sem cobrar você.
-* ** &lt; Digamos &gt; **: converte o texto em fala que é feito em uma chamada.
-* ** &lt; SMS &gt; **: envia uma mensagem SMS.
+* **&lt; Discar &gt;**: conecta o chamador a outro telefone.
+* **&lt; Coletar &gt;**: coleta dígitos numéricos inseridos no teclado do telefone.
+* **&lt; Desligamento &gt;**: encerra uma chamada.
+* **&lt; Pausa &gt;**: aguarda silenciosamente por um número especificado de segundos.
+* **&lt; Play &gt;**: reproduz um arquivo de áudio.
+* **&lt; Fila &gt;**: Adicione o a uma fila de chamadores.
+* **&lt; Registro &gt;**: registra a voz do chamador e retorna uma URL de um arquivo que contém a gravação.
+* **&lt; Redirect &gt;**: transfere o controle de uma chamada ou SMS para o TwiML em uma URL diferente.
+* **&lt; Rejeitar &gt;**: rejeita uma chamada recebida para seu número de twilio sem cobrar você.
+* **&lt; Digamos &gt;**: converte o texto em fala que é feito em uma chamada.
+* **&lt; SMS &gt;**: envia uma mensagem SMS.
 
 ### <a name="twiml"></a><a id="TwiML"></a>TwiML
 TwiML é um conjunto de instruções em XML com base nos verbos do Twilio que informam o Twilio como processar uma chamada ou SMS.

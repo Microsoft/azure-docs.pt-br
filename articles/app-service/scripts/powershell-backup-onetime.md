@@ -7,13 +7,13 @@ ms.assetid: fc755f82-ca3e-4532-b251-690b699324d6
 ms.topic: sample
 ms.date: 10/30/2017
 ms.author: msangapu
-ms.custom: mvc, seodec18
-ms.openlocfilehash: e17a7ffeb9d9f58e3acfdf4569554637baaaa4c9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: mvc, seodec18, devx-track-azurepowershell
+ms.openlocfilehash: 8d41d491edd5fc6acf0b3b93d92771d0a99ece90
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87004906"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89079958"
 ---
 # <a name="back-up-a-web-app-using-powershell"></a>Fazer backup de um aplicativo Web usando o PowerShell
 

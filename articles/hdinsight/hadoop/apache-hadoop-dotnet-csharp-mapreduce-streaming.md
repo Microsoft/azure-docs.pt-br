@@ -1,19 +1,16 @@
 ---
 title: Usar C# com MapReduce no Hadoop no HDInsight – Azure
 description: Saiba como usar C# para criar soluções de MapReduce com Apache Hadoop no Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, seoapr2020, devx-track-csharp
 ms.date: 04/28/2020
-ms.openlocfilehash: 58f807a5a036f14af9baede604debe9d577cdbf6
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 6948491091f558aa7f317d519b0f92c63cac4788
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89000678"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946631"
 ---
 # <a name="use-c-with-mapreduce-streaming-on-apache-hadoop-in-hdinsight"></a>Use C# com fluxo de MapReduce no Apache Hadoop no HDInsight
 
@@ -47,7 +44,7 @@ Para mais informações sobre streaming, consulte [Hadoop Streaming](https://had
 
 * Uma forma de carregar arquivos .exe no cluster. As etapas neste documento usam o Data Lake Tools para Visual Studio para carregar os arquivos no armazenamento primário do cluster.
 
-* Se estiver usando o PowerShell, você precisará do [Az Module](https://docs.microsoft.com/powershell/azure/).
+* Se estiver usando o PowerShell, você precisará do [Az Module](/powershell/azure/).
 
 * Um cluster do Apache Hadoop no HDInsight. Consulte [Introdução ao HDInsight no Linux](../hadoop/apache-hadoop-linux-tutorial-get-started.md).
 
@@ -88,7 +85,7 @@ namespace mapper
 }
 ```
 
-Depois de criar o aplicativo, compile-o para produzir o arquivo de *mapper.exe/bin/Debug/ * no diretório do projeto.
+Depois de criar o aplicativo, compile-o para produzir o arquivo de *mapper.exe/bin/Debug/* no diretório do projeto.
 
 ## <a name="create-the-reducer"></a>Criar o redutor
 
@@ -141,7 +138,7 @@ namespace reducer
 }
 ```
 
-Depois de criar o aplicativo, compile-o para produzir o arquivo de *reducer.exe/bin/Debug/ * no diretório do projeto.
+Depois de criar o aplicativo, compile-o para produzir o arquivo de *reducer.exe/bin/Debug/* no diretório do projeto.
 
 ## <a name="upload-to-storage"></a>Carregar para o armazenamento
 

@@ -3,13 +3,13 @@ title: Criar um cluster de Service Fabric do Linux no Azure
 description: Saiba como implantar um cluster do Service Fabric do Linux em uma rede virtual do Azure existente usando o CLI do Azure.
 ms.topic: conceptual
 ms.date: 02/14/2019
-ms.custom: mvc
-ms.openlocfilehash: c4b71328ce59284f8870407c9492d24afe9acd8a
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 77cc49c1b79e5c24e78a67a69493aa0b0059d565
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88586913"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791064"
 ---
 # <a name="deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>Implantar um cluster do Service Fabric do Linux em uma rede virtual do Azure
 
@@ -106,7 +106,7 @@ O modelo deste artigo implanta um cluster que usa a impressão digital do certif
 
 ### <a name="create-a-cluster-using-an-existing-certificate"></a>Criar um cluster usando um certificado existente
 
-O script a seguir usa o comando [az sf cluster create](/cli/azure/sf/cluster?view=azure-cli-latest) e o modelo para implantar um novo cluster protegido por um certificado existente. O comando também cria um novo cofre de chaves no Azure e carrega o certificado.
+O script a seguir usa o comando [az sf cluster create](/cli/azure/sf/cluster) e o modelo para implantar um novo cluster protegido por um certificado existente. O comando também cria um novo cofre de chaves no Azure e carrega o certificado.
 
 ```azurecli
 ResourceGroupName="sflinuxclustergroup"
@@ -132,7 +132,7 @@ az sf cluster create --resource-group $ResourceGroupName --location $Location \
 
 ### <a name="create-a-cluster-using-a-new-self-signed-certificate"></a>Criar um cluster usando um novo certificado autoassinado
 
-O script a seguir usa o comando [az sf cluster create](/cli/azure/sf/cluster?view=azure-cli-latest) e um modelo para implantar um novo cluster no Azure. O comando também cria um cofre de chaves no Azure, adiciona um certificado autoassinado a ele e baixa o arquivo de certificado localmente.
+O script a seguir usa o comando [az sf cluster create](/cli/azure/sf/cluster) e um modelo para implantar um novo cluster no Azure. O comando também cria um cofre de chaves no Azure, adiciona um certificado autoassinado a ele e baixa o arquivo de certificado localmente.
 
 ```azurecli
 ResourceGroupName="sflinuxclustergroup"

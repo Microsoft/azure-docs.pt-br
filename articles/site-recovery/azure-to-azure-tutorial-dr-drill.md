@@ -1,58 +1,94 @@
 ---
-title: Executar uma simulação de recuperação de desastre de uma VM do Azure com o Azure Site Recovery
-description: Saiba como executar uma simulação de recuperação de desastre para uma região secundária para VMs do Azure usando o serviço Azure Site Recovery.
+title: Tutorial sobre como executar uma análise de recuperação de desastre de VMs do Azure usando o Azure Site Recovery
+description: Neste tutorial, você executará uma análise de recuperação de desastre de VMs do Azure de outra região usando o Site Recovery.
 services: site-recovery
 ms.topic: tutorial
-ms.date: 01/16/2020
+ms.date: 11/05/2020
 ms.custom: mvc
-ms.openlocfilehash: b2ce157f0f192135ab0507e4aae4c0a282bda1ea
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: c7cd1898f27f3b7255009efb40f6bcc8938dbf9e
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76166186"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395558"
 ---
-# <a name="run-a-disaster-recovery-drill-to-a-secondary-region-for-azure-vms"></a>Executar uma simulação de recuperação de desastre para uma região secundária para VMs do Azure
+# <a name="tutorial-run-a-disaster-recovery-drill-for-azure-vms"></a>Tutorial: executar uma análise de recuperação de desastre para VMs do Azure
 
-O serviço [Azure Site Recovery](site-recovery-overview.md) contribui para sua estratégia de BCDR (continuidade de negócios e recuperação de desastre) por manter seus aplicativos de negócios em execução e disponíveis durante interrupções planejadas e não planejadas. O Site Recovery gerencia e orquestra a recuperação de desastre de máquinas locais e de VMs (máquinas virtuais) do Azure, incluindo replicação, failover e recuperação.
-
-Este tutorial mostra a você como realizar uma simulação de recuperação de desastre para uma VM do Azure, de uma região para outra, com um failover de teste. Uma simulação valida sua estratégia de replicação sem perda de dados ou tempo de inatividade e não afeta seu ambiente de produção. Neste tutorial, você aprenderá como:
+Saiba como executar uma análise de recuperação de desastre em outra região do Azure para a replicação de VMs do Azure usando o [Azure Site Recovery](site-recovery-overview.md). Neste artigo você:
 
 > [!div class="checklist"]
-> * Verificar os pré-requisitos
-> * Executar um failover de teste para uma VM
+> * Verificar pré-requisitos
+> * Verificar as configurações de uma VM antes da análise
+> * Execute um teste de failover
+> * Fazer uma limpeza após a análise
+
 
 > [!NOTE]
-> Este tutorial ajuda você a executar uma simulação de recuperação de desastre com etapas mínimas. Para saber mais sobre as várias funções relacionadas à realização de uma simulação de recuperação de desastre, confira a documentação de [replicação](azure-to-azure-how-to-enable-replication.md), [rede](azure-to-azure-about-networking.md), [automação](azure-to-azure-powershell.md) ou [solução de problemas](azure-to-azure-troubleshoot-errors.md) das VMs do Azure.
+> Este tutorial fornecerá poucas etapas para executar uma análise de recuperação de desastre. Caso queira executar uma análise com testes completos de infraestrutura, saiba mais sobre a [rede](azure-to-azure-about-networking.md) de VMs do Azure, a [automação](azure-to-azure-powershell.md) e [solução de problemas](azure-to-azure-troubleshoot-errors.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Verifique os seguintes itens antes de iniciar este tutorial:
+Antes de iniciar este tutorial, será necessário habilitar a recuperação de desastre de uma ou mais VMs do Azure. [Conclua o primeiro tutorial](azure-to-azure-tutorial-enable-replication.md) desta série para fazer isso.
 
-- Antes de executar um failover de teste, recomendamos que você verifique as propriedades da VM para garantir que ela esteja configurada para a recuperação de desastre. Acesse **Operações** > **Recuperação de Desastre** > **Propriedades** da VM para ver as propriedades de replicação e failover.
-- **É recomendável utilizar uma rede de VM do Azure separada para o failover de teste** e não a rede padrão que foi configurada quando você habilitou a replicação.
-- Dependendo das configurações de rede de origem para cada NIC, você pode especificar **Sub-rede**, **Endereço IP privado**, **IP público**, **Grupo de segurança de rede** ou **Balanceador de carga** para anexação a cada NIC nas configurações de failover de teste em **Computação e Rede** antes de executar a simulação de recuperação de desastre.
+## <a name="verify-vm-settings"></a>Verificar as configurações da VM
+
+1. No cofre > **Itens replicados**, selecione a VM.
+
+    ![Opção para abrir a página de Recuperação de Desastre nas propriedades da VM](./media/azure-to-azure-tutorial-dr-drill/vm-settings.png)
+
+2. Na página de **Visão Geral** da VM, verifique se ela está protegida e íntegra.
+3. Ao executar um failover de teste, selecione uma rede virtual do Azure na região de destino. As VMs do Azure criadas após o failover serão colocadas nessa rede. 
+
+    - Neste tutorial, selecionaremos uma rede existente quando executarmos o failover de teste.
+    - Recomendamos escolher uma rede que não seja de produção para a análise, de modo que endereços IP e componentes de rede permaneçam disponíveis nas redes de produção.
+   - Também será possível pré-configurar as definições de rede a serem usadas no failover de teste. As configurações granulares que podem ser atribuídas a cada NIC incluem: sub-rede, endereço IP privado, endereço IP público, balanceador de carga e grupo de segurança de rede. Não usaremos esse método aqui, porém você poderá [examinar este artigo](azure-to-azure-customize-networking.md#customize-failover-and-test-failover-networking-configurations) para saber mais.
+
 
 ## <a name="run-a-test-failover"></a>Execute um teste de failover
 
-Este exemplo mostra como usar um cofre dos Serviços de Recuperação para fazer um failover de teste de uma VM.
 
-1. Selecione um cofre e acesse **Itens protegidos** > **Itens replicados** e selecione uma VM.
-1. Em **Failover de Teste**, selecione um ponto de uso para o failover:
-   - **Mais recente**: processa todos os dados no Site Recovery e fornece o menor RTO (Objetivo de tempo de recuperação).
-   - **Mais recente processado**: efetua o failover da VM para o último ponto de recuperação processado pelo Site Recovery. A carimbo de data/hora é mostrado. Com esta opção, não há tempo gasto no processamento de dados e, portanto, ele fornece um baixo RTO.
-   - **Consistente com o aplicativo mais recente**: Essa opção falha em todas as VMs para o ponto de recuperação consistente com o aplicativo mais recente. A carimbo de data/hora é mostrado.
-   - **Personalizado**: efetua o failover para um determinado ponto de recuperação. A configuração personalizada só está disponível quando você efetua o failover de uma única VM, não para failovers com um plano de recuperação.
-1. Selecione a rede virtual de destino do Azure à qual as VMs do Azure na região secundária serão conectadas, após o failover.
+1. Na página de **Visão Geral**, selecione **Failover de Teste**.
 
-   > [!NOTE]
-   > Se as configurações de failover de teste estiverem pré-configuradas para o item replicado, o menu suspenso para seleção de uma rede virtual do Azure não estará visível.
+    
+    ![Botão do failover de teste do item replicado](./media/azure-to-azure-tutorial-dr-drill/test-failover-button.png)
 
-1. Para iniciar o failover, selecione **OK**. Para acompanhar o progresso do cofre, acesse **Monitoramento** > **Trabalhos do Site Recovery** e selecione o trabalho **Failover de Teste**.
-1. Após a conclusão do failover, a VM de réplica do Azure será exibida nas **Máquinas Virtuais** do portal do Azure. Verifique se a VM está em execução, tem o tamanho apropriado e está conectada à rede apropriada.
-1. Para excluir as VMs que foram criadas durante o failover de teste, selecione **Failover de teste de limpeza** no item replicado ou no plano de recuperação. Em **Observações**, registre e salve todas as observações associadas ao failover de teste.
+2. Em **Failover de Teste**, escolha um ponto de recuperação. A VM do Azure na região de destino é criada usando dados desse ponto de recuperação.
+  
+   - **Mais recente processado**: usa o último ponto de recuperação processado pelo Site Recovery. A carimbo de data/hora é mostrado. Nenhum tempo será gasto no processamento de dados. Portanto, ele fornecerá um RTO (objetivo do tempo de recuperação) baixo.
+   -  **Mais recente**: processa todos os dados enviados ao Site Recovery para criar um ponto de recuperação para cada VM antes do failover. Fornece o RPO (objetivo do ponto de recuperação) mais baixo porque todos os dados serão replicados para o Site Recovery quando o failover for disparado.
+   - **Consistente com o aplicativo mais recente**: essa opção faz failover de VMs para o ponto de recuperação mais recente e consistente com o aplicativo. A carimbo de data/hora é mostrado.
+   - **Personalizado**: efetua o failover para um determinado ponto de recuperação. A configuração personalizada só está disponível quando você efetua o failover de uma única VM e não usa um plano de recuperação.
+
+3. Em **Rede virtual do Azure**, selecione a rede de destino na qual você deseja colocar as VMs do Azure criadas após o failover. Se possível, selecione uma rede que não seja de produção em vez da rede que foi criada quando a replicação foi habilitada.
+
+    ![Página de configurações do failover de teste](./media/azure-to-azure-tutorial-dr-drill/test-failover-settings.png)    
+
+4. Para iniciar o failover, selecione **OK**.
+5. Monitore o failover de teste por meio de notificações.
+
+    ![Notificação de andamento](./media/azure-to-azure-tutorial-dr-drill/notification-start-test-failover.png) ![Notificação de êxito](./media/azure-to-azure-tutorial-dr-drill/notification-finish-test-failover.png)     
+
+
+5. Após a conclusão do failover, a VM do Azure criada na região de destino aparecerá no portal do Azure em **Máquinas Virtuais**. Verifique se a VM está em execução, tem o tamanho apropriado e está conectada à rede selecionada.
+
+## <a name="clean-up-resources"></a>Limpar recursos
+
+1. Na página **Essenciais**, selecione **Limpar failover de teste**.
+
+    ![Botão para iniciar o processo de limpeza](./media/azure-to-azure-tutorial-dr-drill/select-cleanup.png)
+
+2. Em **Limpeza do failover de teste** > **Observações**, registre e salve as observações associadas ao failover de teste. 
+3. Selecione **O teste foi concluído** para excluir as VMs criadas durante o failover de teste.
+
+    ![Página com opções de limpeza](./media/azure-to-azure-tutorial-dr-drill/cleanup-failover.png)
+
+4. Monitore o andamento da limpeza por meio de notificações.
+
+    ![Notificação de andamento da limpeza](./media/azure-to-azure-tutorial-dr-drill/notification-start-cleanup.png) ![Notificação de êxito da limpeza](./media/azure-to-azure-tutorial-dr-drill/notification-finish-cleanup.png)
 
 ## <a name="next-steps"></a>Próximas etapas
+
+Neste tutorial, você executou uma análise de recuperação de desastre para verificar se um failover funciona conforme o esperado. Agora, você pode experimentar um failover completo.
 
 > [!div class="nextstepaction"]
 > [Executar um failover de produção](azure-to-azure-tutorial-failover-failback.md)

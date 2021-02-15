@@ -1,17 +1,17 @@
 ---
 title: Solucionar problemas de desempenho de consultas – Banco de Dados do Azure para MySQL
 description: Saiba como usar o EXPLAIN para solucionar problemas de desempenho de consulta no Banco de Dados do Azure para MySQL.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: troubleshooting
 ms.date: 3/18/2020
-ms.openlocfilehash: ec926bf6065e11e1b6ca2e3f6df22c4b5ee2c2c7
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 81ec7e6f822f24f2b9e6ca4298e9668358c78149
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836117"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540749"
 ---
 # <a name="how-to-use-explain-to-profile-query-performance-in-azure-database-for-mysql"></a>Como usar a EXPLAIN para analisar o desempenho de consultas no Banco de Dados do Azure para MySQL
 **EXPLAIN** é uma ferramenta útil para otimizar consultas. A instrução EXPLAIN pode ser utilizada para obter informações sobre como as instruções SQL são executadas. A saída a seguir mostra um exemplo da execução de uma instrução EXPLAIN.
@@ -54,10 +54,10 @@ possible_keys: id
 ```
 
 A nova EXPLAIN mostra que o MySQL agora usa um índice para limitar o número de linhas para 1, o que, por sua vez, reduziu drasticamente o tempo de pesquisa.
- 
+ 
 ## <a name="covering-index"></a>Índice de cobertura
 Um índice de cobertura consiste em todas as colunas de uma consulta no índice para reduzir a recuperação de valor a partir de tabelas de dados. Aqui está uma ilustração na instrução **GROUP BY** a seguir.
- 
+ 
 ```sql
 mysql> EXPLAIN SELECT MAX(c1), c2 FROM tb1 WHERE c2 LIKE '%100' GROUP BY c1\G
 *************************** 1. row ***************************
@@ -75,11 +75,11 @@ possible_keys: NULL
         Extra: Using where; Using temporary; Using filesort
 ```
 
-Como pode ser observado a partir da saída, o MySQL não usa nenhum índice porque não há índices adequados disponíveis. Além disso, também mostra *Usando temporário; Usando classificação de arquivo*, que significa que o MySQL cria uma tabela temporária para satisfazer a cláusula **GROUP BY**.
- 
+Como pode ser observado a partir da saída, o MySQL não usa nenhum índice porque não há índices adequados disponíveis. Além disso, também mostra *Usando temporário; Usando classificação de arquivo* , que significa que o MySQL cria uma tabela temporária para satisfazer a cláusula **GROUP BY**.
+ 
 É indiferente criar um índice na coluna **c2** sozinho e o MySQL ainda precisa criar uma tabela temporária:
 
-```sql 
+```sql 
 mysql> ALTER TABLE tb1 ADD KEY (c2);
 mysql> EXPLAIN SELECT MAX(c1), c2 FROM tb1 WHERE c2 LIKE '%100' GROUP BY c1\G
 *************************** 1. row ***************************
@@ -97,9 +97,9 @@ possible_keys: NULL
         Extra: Using where; Using temporary; Using filesort
 ```
 
-Neste caso, um **índice coberto** em ambos **c1** e **c2** pode ser criado, através do qual adicionar o valor de **c2**" diretamente no índice para eliminar pesquisa de dados adicionais.
+Neste caso, um **índice coberto** em ambos **c1** e **c2** pode ser criado, através do qual adicionar o valor de **c2** " diretamente no índice para eliminar pesquisa de dados adicionais.
 
-```sql 
+```sql 
 mysql> ALTER TABLE tb1 ADD KEY covered(c1,c2);
 mysql> EXPLAIN SELECT MAX(c1), c2 FROM tb1 WHERE c2 LIKE '%100' GROUP BY c1\G
 *************************** 1. row ***************************
@@ -120,7 +120,7 @@ possible_keys: covered
 Como mostrado na EXPLAIN acima, o MySQL agora usa o índice coberto e evita criar uma tabela temporária. 
 
 ## <a name="combined-index"></a>Índice combinado
-Um índice combinado consiste em valores de várias colunas e pode ser considerado uma matriz de linhas ordenadas por concatenação de valores das colunas indexadas. Esse método pode ser útil em uma instrução **GROUP BY**.
+Um índice combinado consiste em valores de várias colunas e pode ser considerado uma matriz de linhas ordenadas por concatenação de valores das colunas indexadas.  Esse método pode ser útil em uma instrução **GROUP BY**.
 
 ```sql
 mysql> EXPLAIN SELECT c1, c2 from tb1 WHERE c2 LIKE '%100' ORDER BY c1 DESC LIMIT 10\G
@@ -141,7 +141,7 @@ possible_keys: NULL
 
 O MySQL executa uma operação de *classificação de arquivo* que é bastante lenta, especialmente quando é necessário classificar muitas linhas. Para otimizar essa consulta, um índice combinado pode ser criado em ambas as colunas que estão sendo classificadas.
 
-```sql 
+```sql 
 mysql> ALTER TABLE tb1 ADD KEY my_sort2 (c1, c2);
 mysql> EXPLAIN SELECT c1, c2 from tb1 WHERE c2 LIKE '%100' ORDER BY c1 DESC LIMIT 10\G
 *************************** 1. row ***************************
@@ -160,11 +160,11 @@ possible_keys: NULL
 ```
 
 A EXPLAIN agora mostra que o MySQL é capaz de usar o índice combinado para evitar a classificação adicional, já que o índice já está classificado.
- 
+ 
 ## <a name="conclusion"></a>Conclusão
- 
+ 
 O uso de EXPLAIN e diferentes tipos de índices pode aumentar significativamente o desempenho. Ter um índice na tabela não significa necessariamente que o MySQL seja capaz de usá-lo para suas consultas. Sempre valide suas pressuposições usando a EXPLAIN e otimize as consultas usando índices.
 
 
 ## <a name="next-steps"></a>Próximas etapas
-- Para localizar respostas de pares às suas perguntas mais preocupantes ou publicar uma nova pergunta/resposta, visite a [Página de P e R da Microsoft](https://docs.microsoft.com/answers/topics/azure-database-mysql.html) ou o [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mysql).
+- Para localizar respostas de pares às suas perguntas mais preocupantes ou publicar uma nova pergunta/resposta, visite a [Página de P e R da Microsoft](/answers/topics/azure-database-mysql.html) ou o [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mysql).

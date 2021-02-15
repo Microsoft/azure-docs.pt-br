@@ -1,6 +1,7 @@
 ---
-title: Início rápido do Android para a plataforma de identidade da Microsoft | Azure
-description: Saiba como aplicativos Android podem chamar uma API que exige tokens de acesso pelo ponto de extremidade da plataforma de identidade da Microsoft.
+title: 'Início Rápido: Adicionar a opção Entrar com a conta da Microsoft a um aplicativo Android | Azure'
+titleSuffix: Microsoft identity platform
+description: Neste guia de início rápido, saiba como aplicativos Android podem chamar uma API que exige tokens de acesso emitidos pela plataforma de identidade da Microsoft.
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -11,46 +12,45 @@ ms.workload: identity
 ms.date: 10/15/2019
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:Android
-ms.openlocfilehash: a46cd1b916edeae8a24fb997db46e5a0651567cb
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 6d05c4ba6af860616e5afdfba2378ad9b17fcc77
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88115264"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98938264"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Início Rápido: Entrada de usuários e chamada à API do Microsoft Graph em um aplicativo Android
 
-Este início rápido usa um exemplo de código para demonstrar como um aplicativo Android pode conectar contas pessoais, corporativas ou de estudante usando a plataforma de identidade da Microsoft e, em seguida, obter um token de acesso e chamar a API do Microsoft Graph. (Confira [Como o exemplo funciona](#how-the-sample-works) para ver uma ilustração.)
+Neste guia de início rápido, você baixará e executará um exemplo de código que demonstra como um aplicativo Android pode conectar usuários e obter um token de acesso para chamar a API do Microsoft Graph. 
+
+Confira [Como o exemplo funciona](#how-the-sample-works) para ver uma ilustração.
 
 Os aplicativos precisam ser representados por um objeto de aplicativo no Azure Active Directory, de modo que a plataforma de identidade da Microsoft possa fornecer tokens ao aplicativo.
 
-> [!div renderon="docs"]
-> Por conveniência, o exemplo de código vem com um padrão `redirect_uri`pré-configurado no arquivo `AndroidManifest.xml`, para que você não precise primeiro registrar seu próprio objeto de aplicativo. O `redirect_uri` é parcialmente baseado na chave de assinatura do seu aplicativo. O projeto de exemplo é pré-configurado com uma chave de assinatura para que o `redirect_uri` fornecido funcione. Para saber mais sobre como registrar um objeto de aplicativo e integrá-lo ao seu aplicativo, confira o tutorial [Conectar usuários e chamar o Microsoft Graph em um aplicativo Android](tutorial-v2-android.md).
+## <a name="prerequisites"></a>Pré-requisitos
 
-
-> [!NOTE]
-> **Pré-requisitos**
-> * Android Studio 
-> * Android 16 ou superior
+* Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Android Studio
+* Android 16 ou superior
 
 > [!div class="sxs-lookup" renderon="portal"]
-> ### <a name="step-1-configure-your-application-in-the-azure-portal"></a>Etapa 1: Configurar seu aplicativo no portal do Azure 
->  Para que o exemplo de código deste Início Rápido funcione, é necessário adicionar um URI de redirecionamento compatível com o Agente de autenticação.
+> ### <a name="step-1-configure-your-application-in-the-azure-portal"></a>Etapa 1: Configurar seu aplicativo no portal do Azure
+>  O código de exemplo deste guia de início rápido exige um URI de redirecionamento compatível com o agente de autenticação.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Fazer essas alterações para mim]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
 > > ![Já configurado](media/quickstart-v2-android/green-check.png) Seu aplicativo já está configurado com esses atributos
 >
-> ### <a name="step-2-download-the-project"></a>Etapa 2: Baixe o projeto 
+> ### <a name="step-2-download-the-project"></a>Etapa 2: Baixe o projeto
 > [!div class="sxs-lookup" renderon="portal"]
 > Execute o projeto usando o Android Studio.
-> [!div renderon="portal" id="autoupdate" class="nextstepaction"]
+> [!div class="sxs-lookup" renderon="portal" id="autoupdate" class="nextstepaction"]
 > [Baixe o exemplo de código](https://github.com/Azure-Samples/ms-identity-android-java/archive/master.zip)
 >
 > [!div class="sxs-lookup" renderon="portal"]
 > ### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>Etapa 3: seu aplicativo está configurado e pronto para ser executado
-> Configuramos seu projeto com os valores das propriedades do aplicativo e ele está pronto para ser executado. 
+> Configuramos seu projeto com os valores das propriedades do aplicativo e ele está pronto para ser executado.
 > O aplicativo de exemplo é iniciado na tela **Modo de Conta Único**. Um escopo padrão, **user.read**, é fornecido por padrão, usado ao ler seus próprios dados de perfil durante a chamada à API do Microsoft Graph. A URL da chamada à API do Microsoft Graph é fornecida por padrão. Se desejar, você poderá alterar as duas.
 >
 > ![Aplicativo de exemplo MSAL mostrando o uso de conta única e múltipla](./media/quickstart-v2-android/quickstart-sample-app.png)
@@ -112,8 +112,8 @@ Agora examinaremos esses arquivos mais detalhadamente e chamaremos o código esp
 
 MSAL ([com.microsoft.identity.client](https://javadoc.io/doc/com.microsoft.identity.client/msal)) é a biblioteca usada para conectar usuários e solicitar tokens usados para acessar uma API protegida pela plataforma de identidade da Microsoft. O Gradle 3.0+ instala a biblioteca quando você adiciona o seguinte aos **Scripts do Gradle** > **build.gradle (Módulo: aplicativo)** em **Dependências**:
 
-```gradle  
-implementation 'com.microsoft.identity.client:msal:1.+'
+```gradle
+implementation 'com.microsoft.identity.client:msal:2.+'
 ```
 
 É possível ver isso no projeto de exemplo em build.gradle (Módulo: aplicativo):
@@ -121,7 +121,7 @@ implementation 'com.microsoft.identity.client:msal:1.+'
 ```java
 dependencies {
     ...
-    implementation 'com.microsoft.identity.client:msal:1.+'
+    implementation 'com.microsoft.identity.client:msal:2.+'
     ...
 }
 ```
@@ -384,9 +384,9 @@ private void loadAccounts() {
 Algumas situações em que o usuário pode ser solicitado a selecionar sua conta, inserir credenciais ou dar consentimento às permissões que seu aplicativo solicitou são:
 
 * A primeira vez que os usuários entram no aplicativo
-* Se um usuário redefinir a senha, ele precisará inserir as credenciais 
-* Se o consentimento for revogado 
-* Se o aplicativo exigir consentimento explicitamente 
+* Se um usuário redefinir a senha, ele precisará inserir as credenciais
+* Se o consentimento for revogado
+* Se o aplicativo exigir consentimento explicitamente
 * Quando seu aplicativo estiver solicitando acesso a um recurso pela primeira vez
 * Quando a MFA ou outras políticas de Acesso Condicional forem necessárias
 
@@ -476,20 +476,11 @@ O `"redirect_uri"` é pré-configurado para usar a chave de assinatura fornecida
 }
 ```
 
+[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+
 ## <a name="next-steps"></a>Próximas etapas
 
-### <a name="learn-the-steps-to-create-the-application-used-in-this-quickstart"></a>Conheça as etapas para criar o aplicativo usado neste início rápido
-
-Experimente o tutorial[Conectar usuários e chamar o Microsoft Graph em um aplicativo Android](tutorial-v2-android.md) para obter um guia passo a passo para criar um aplicativo Android que obtenha um token de acesso e o utilize para chamar a API do Microsoft Graph.
+Prossiga para o tutorial do Android, em que você criará um aplicativo Android que obtém um token de acesso da plataforma de identidade da Microsoft e o utilizará para chamar a API do Microsoft Graph.
 
 > [!div class="nextstepaction"]
-> [Tutorial Chamar a API do Graph para Android](./tutorial-v2-android.md)
-
-### <a name="msal-for-android-library-wiki"></a>MSAL para wiki da biblioteca do Android
-
-Leia mais informações sobre a biblioteca MSAL para Android:
-
-> [!div class="nextstepaction"]
-> [MSAL para wiki da biblioteca do Android](https://github.com/AzureAD/microsoft-authentication-library-for-android/wiki)
-
-[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+> [Tutorial: Conectar usuários e chamar o Microsoft Graph em um aplicativo Android](tutorial-v2-android.md)

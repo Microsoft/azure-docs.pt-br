@@ -12,16 +12,16 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 50de800c94bd0a65fafcff3ef6613d6f063a3797
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: bdf74a6d8b6798de8aba33baea5afdf987ce1c34
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855483"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582478"
 ---
 # <a name="protected-web-api-code-configuration"></a>API Web protegida: configuração de código
 
-Para configurar o código para sua API Web protegida, você precisa entender:
+Para configurar o código para sua API Web protegida, entenda:
 
 - O que define as APIs como protegidas.
 - Como configurar um token de portador.
@@ -40,7 +40,7 @@ Considere as seguintes perguntas:
 
 O token de portador definido no cabeçalho quando o aplicativo é chamado contém informações sobre a identidade do aplicativo. Ele também contém informações sobre o usuário, a menos que o aplicativo Web aceite chamadas de serviço a serviço de um aplicativo daemon.
 
-Aqui está um exemplo de código C# que mostra um cliente que chama a API após adquirir um token com a biblioteca de autenticação da Microsoft para .NET (MSAL.NET):
+Aqui está um exemplo de código em C# que mostra um cliente que chama a API depois de adquirir um token com a biblioteca de autenticação da Microsoft para .NET (MSAL.NET):
 
 ```csharp
 var scopes = new[] {$"api://.../access_as_user"};
@@ -55,7 +55,7 @@ HttpResponseMessage response = await _httpClient.GetAsync(apiUri);
 ```
 
 > [!IMPORTANT]
-> Um aplicativo cliente solicita o token de portador para o ponto de extremidade da plataforma *de identidade da Microsoft para a API da Web*. A API Web é o único aplicativo que deve verificar o token e exibir as declarações que ele contém. Os aplicativos cliente nunca devem tentar inspecionar as declarações em tokens.
+> Um aplicativo cliente solicita o token de portador para a plataforma de identidade *da Microsoft para a API da Web*. A API Web é o único aplicativo que deve verificar o token e exibir as declarações que ele contém. Os aplicativos cliente nunca devem tentar inspecionar as declarações em tokens.
 >
 > No futuro, a API Web pode exigir que o token seja criptografado. Esse requisito impediria o acesso para aplicativos cliente que podem exibir tokens de acesso.
 
@@ -111,9 +111,15 @@ Se você aceitou o URI da ID do aplicativo proposto pelo portal de registro do a
 
 Quando um aplicativo é chamado em uma ação do controlador que contém um atributo **[Authorize]** , ASP.NET e ASP.NET Core extrai o token de acesso do token de portador do cabeçalho de autorização. O token de acesso é encaminhado para o middleware JwtBearer, que chama as extensões Microsoft IdentityModel para .NET.
 
+#### <a name="microsoftidentityweb"></a>Microsoft. Identity. Web
+
+A Microsoft recomenda que você use o pacote NuGet [Microsoft. Identity. Web](https://www.nuget.org/packages/Microsoft.Identity.Web) ao desenvolver uma API Web com ASP.NET Core.
+
+O _Microsoft. Identity. Web_ fornece a cola entre ASP.NET Core, o middleware de autenticação e a [MSAL (biblioteca de autenticação da Microsoft)](msal-overview.md) para .net. Ele permite uma experiência de desenvolvedor mais clara e robusta e aproveita o poder da plataforma de identidade da Microsoft e Azure AD B2C.
+
 #### <a name="using-microsoftidentityweb-templates"></a>Usando modelos Microsoft. Identity. Web
 
-Você pode criar uma API Web do zero usando modelos de projeto Microsoft. Identity. Web. Para obter detalhes, consulte [Microsoft. Identity. Web-modelo de projeto de API Web](https://aka.ms/ms-id-web/webapi-project-templates)
+Você pode criar uma API Web do zero usando modelos de projeto Microsoft. Identity. Web. Para obter detalhes, consulte [Microsoft. Identity. Web-modelo de projeto de API Web](https://aka.ms/ms-id-web/webapi-project-templates).
 
 #### <a name="starting-from-an-existing-aspnet-core-31-application"></a>Iniciando com base em um aplicativo ASP.NET Core 3,1 existente
 
@@ -134,7 +140,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
- Atualmente, os modelos de ASP.NET Core criam APIs da Web do Azure Active Directory (Azure AD) que conectam usuários em sua organização ou em qualquer organização. Eles não entram em usuários com contas pessoais. No entanto, você pode alterar os modelos para usar o ponto de extremidade da plataforma Microsoft Identity usando [Microsoft. Identity. Web](https://www.nuget.org/packages/Microsoft.Identity.Web), disponível como um pacote NuGet, substituindo o código em *Startup.cs*:
+ Atualmente, os modelos de ASP.NET Core criam APIs da Web do Azure Active Directory (Azure AD) que conectam usuários em sua organização ou em qualquer organização. Eles não entram em usuários com contas pessoais. No entanto, você pode alterar os modelos para usar a plataforma de identidade da Microsoft usando [Microsoft. Identity. Web](https://www.nuget.org/packages/Microsoft.Identity.Web) , substituindo o código em *Startup.cs*:
 
 ```csharp
 using Microsoft.Identity.Web;
@@ -156,9 +162,10 @@ Você também pode escrever o seguinte (que é equivalente)
 public void ConfigureServices(IServiceCollection services)
 {
  // Adds Microsoft Identity platform (AAD v2.0) support to protect this API
- services.AddMicrosoftIdentityWebApiAuthentication(Configuration, "AzureAd");
+ services.AddAuthentication(AzureADDefaults.JwtBearerAuthenticationScheme)
+             .AddMicrosoftIdentityWebApi(Configuration, "AzureAd");
 
- services.AddControllers();
+services.AddControllers();
 }
 ```
 
@@ -168,7 +175,7 @@ public void ConfigureServices(IServiceCollection services)
 > - `$"api://{ClientId}` em todos os outros casos (para [tokens de acesso](access-tokens.md)v 1.0).
 > Para obter detalhes, consulte [código-fonte](https://github.com/AzureAD/microsoft-identity-web/blob/d2ad0f5f830391a34175d48621a2c56011a45082/src/Microsoft.Identity.Web/Resource/RegisterValidAudience.cs#L70-L83)Microsoft. Identity. Web.
 
-O trecho de código anterior é extraído do [tutorial ASP.NET Core Web API incremental](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/63087e83326e6a332d05fee6e1586b66d840b08f/1.%20Desktop%20app%20calls%20Web%20API/TodoListService/Startup.cs#L23-L28). Os detalhes do **AddMicrosoftIdentityWebApiAuthentication** estão disponíveis em [Microsoft. Identity. Web](https://github.com/AzureAD/microsoft-identity-web/blob/d2ad0f5f830391a34175d48621a2c56011a45082/src/Microsoft.Identity.Web/WebApiExtensions/WebApiServiceCollectionExtensions.cs#L27). Esse método chama [AddMicrosoftWebAPI](https://github.com/AzureAD/microsoft-identity-web/blob/d2ad0f5f830391a34175d48621a2c56011a45082/src/Microsoft.Identity.Web/WebApiExtensions/WebApiAuthenticationBuilderExtensions.cs#L58), que, por sua vez, instrui o middleware sobre como validar o token. Para obter detalhes, consulte seu [código-fonte](https://github.com/AzureAD/microsoft-identity-web/blob/d2ad0f5f830391a34175d48621a2c56011a45082/src/Microsoft.Identity.Web/WebApiExtensions/WebApiAuthenticationBuilderExtensions.cs#L104-L122).
+O trecho de código anterior é extraído do [tutorial ASP.NET Core Web API incremental](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/63087e83326e6a332d05fee6e1586b66d840b08f/1.%20Desktop%20app%20calls%20Web%20API/TodoListService/Startup.cs#L23-L28). Os detalhes do **AddMicrosoftIdentityWebApiAuthentication** estão disponíveis em [Microsoft. Identity. Web](microsoft-identity-web.md). Esse método chama [AddMicrosoftIdentityWebAPI](/dotnet/api/microsoft.identity.web.microsoftidentitywebapiauthenticationbuilderextensions.addmicrosoftidentitywebapi?preserve-view=true&view=azure-dotnet-preview), que, por sua vez, instrui o middleware sobre como validar o token.
 
 ## <a name="token-validation"></a>Validação de token
 
@@ -235,5 +242,4 @@ Você também pode validar tokens de acesso de entrada no Azure Functions. Você
 
 ## <a name="next-steps"></a>Próximas etapas
 
-> [!div class="nextstepaction"]
-> [Verificar escopos e funções de aplicativo em seu código](scenario-protected-web-api-verification-scope-app-roles.md)
+Vá para o próximo artigo neste cenário, verifique os [escopos e as funções de aplicativo em seu código](scenario-protected-web-api-verification-scope-app-roles.md).

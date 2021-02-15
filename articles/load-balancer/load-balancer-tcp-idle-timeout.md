@@ -1,7 +1,7 @@
 ---
-title: Configurar o tempo limite de ociosidade do protocolo TCP no balanceador de carga do Azure
+title: Configurar o tempo limite de ociosidade e redefinição de TCP do balanceador de carga
 titleSuffix: Azure Load Balancer
-description: Neste artigo, saiba como configurar o tempo limite de ociosidade do TCP do Azure Load Balancer.
+description: Neste artigo, saiba como configurar Azure Load Balancer tempo limite de ociosidade TCP e redefinir.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -11,64 +11,106 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/09/2020
+ms.date: 10/26/2020
 ms.author: allensu
-ms.openlocfilehash: 317f6a73812b0e4284564ca9b5593e09e22edf12
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 8a6be588544883b77c3ff115c9dba5e6ecd5fbd7
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89048644"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747227"
 ---
-# <a name="configure-tcp-idle-timeout-settings-for-azure-load-balancer"></a>Definir as configurações de tempo limite de ociosidade do TCP para o Azure Load Balancer
+# <a name="configure-tcp-reset-and-idle-timeout-for-azure-load-balancer"></a>Configurar a redefinição de TCP e o tempo limite de ociosidade para Azure Load Balancer
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+Azure Load Balancer tem o seguinte intervalo de tempo limite ocioso:
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+* 4 minutos a 100 minutos para regras de saída
+* 4 minutos a 30 minutos para regras de Load Balancer e regras NAT de entrada
+
+Por padrão, ele é definido como 4 minutos. Se um período de inatividade for maior do que o valor de tempo limite, não haverá garantia de que a sessão TCP ou HTTP seja mantida entre o cliente e o serviço. 
+
+As seções a seguir descrevem como alterar o tempo limite de ociosidade e as configurações de redefinição de TCP para recursos do balanceador de carga.
+
+## <a name="set-tcp-reset-and-idle-timeout"></a>Definir a redefinição de TCP e o tempo limite de ociosidade
+---
+# <a name="portal"></a>[**Portal**](#tab/tcp-reset-idle-portal)
+
+Para definir o tempo limite de ociosidade e a redefinição de TCP para um balanceador de carga, edite a regra de balanceamento de carga. 
+
+1. Entre no [portal do Azure](https://portal.azure.com).
+
+2. No menu à esquerda, selecione grupos de **recursos** .
+
+3. Selecione o grupo de recursos para o balanceador de carga. Neste exemplo, o grupo de recursos é denominado **MyResource** Group.
+
+4. Selecione seu balanceador de carga. Neste exemplo, o balanceador de carga é denominado **myLoadBalancer** .
+
+5. Em **configurações** , selecione **regras de balanceamento de carga** .
+
+     :::image type="content" source="./media/load-balancer-tcp-idle-timeout/portal-lb-rules.png" alt-text="Edite as regras do balanceador de carga." border="true":::
+
+6. Selecione sua regra de balanceamento de carga. Neste exemplo, a regra de balanceamento de carga é denominada **myLBrule** .
+
+7. Na regra de balanceamento de carga, mova o controle deslizante no **tempo limite de ociosidade (minutos)** para o valor de tempo limite.  
+
+8. Em **redefinição de TCP** , selecione **habilitado** .
+
+   :::image type="content" source="./media/load-balancer-tcp-idle-timeout/portal-lb-rules-tcp-reset.png" alt-text="Edite as regras do balanceador de carga." border="true":::
+
+9. Clique em **Salvar** .
+
+# <a name="powershell"></a>[**PowerShell**](#tab/tcp-reset-idle-powershell)
+
+Para definir o tempo limite de ociosidade e a redefinição de TCP, defina os valores nos seguintes parâmetros de regra de balanceamento de carga com [set-AzLoadBalancer](/powershell/module/az.network/set-azloadbalancer):
+
+* **IdleTimeoutInMinutes**
+* **EnableTcpReset**
 
 Se você optar por instalar e usar o PowerShell localmente, este artigo exigirá o módulo do Azure PowerShell versão 5.4.1 ou posterior. Execute `Get-Module -ListAvailable Az` para localizar a versão instalada. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-Az-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Connect-AzAccount` para criar uma conexão com o Azure.
 
-## <a name="tcp-idle-timeout"></a>Tempo limite de TCP
-O Azure Load Balancer tem uma configuração de tempo limite de ociosidade de 4 a 30 minutos. Por padrão, é definido como 4 minutos. Se um período de inatividade for maior que o valor de tempo limite, não haverá nenhuma garantia de que a sessão TCP ou HTTP seja mantida entre o cliente e o serviço de nuvem.
+Substitua os seguintes exemplos pelos valores de seus recursos:
 
-Quando a conexão estiver fechada, o aplicativo cliente poderá receber a seguinte mensagem de erro: "A conexão subjacente estava fechada: Uma conexão que deveria permanecer ativa foi fechada pelo servidor."
+* **myResourceGroup**
+* **myLoadBalancer**
 
-Uma prática comum é usar um TCP keep alive. Essa prática mantém a conexão ativa por um período maior. Para obter mais informações, consulte estes [exemplos do .NET](https://msdn.microsoft.com/library/system.net.servicepoint.settcpkeepalive.aspx). Com o keep alive habilitado, os pacotes são enviados durante os períodos de inatividade na conexão. Os pacotes keep-alive garantem que o valor de tempo limite de ociosidade não será atingido, e a conexão será mantida por um longo período.
-
-A configuração só funciona para conexões de entrada. Para evitar a perda da conexão, configure o TCP keep-alive com um intervalo menor do que a configuração de tempo limite de ociosidade ou aumente o valor do tempo limite de ociosidade. Para permitir esses cenários, o suporte a um tempo limite de ociosidade configurável foi adicionado.
-
-O TCP keep-alive funciona para cenários em que a vida útil da bateria não é uma restrição. Não é recomendável para aplicativos móveis. Usar o TCP keep alive em um aplicativo móvel pode consumir a bateria do dispositivo mais rapidamente.
-
-![Tempo limite de TCP](./media/load-balancer-tcp-idle-timeout/image1.png)
-
-As seções a seguir descrevem como mudar as configurações de tempo limite de ociosidade para os recursos de IP público e de balanceador de carga.
-
->[!NOTE]
-> O tempo limite de ociosidade de TCP não afeta as regras de balanceamento de carga no protocolo UDP.
-
-
-## <a name="configure-the-tcp-timeout-for-your-instance-level-public-ip-to-15-minutes"></a>Configure o tempo limite de TCP para o IP Público em Nível de Instância para 15 minutos
-
-```azurepowershell-interactive
-$publicIP = Get-AzPublicIpAddress -Name MyPublicIP -ResourceGroupName MyResourceGroup
-$publicIP.IdleTimeoutInMinutes = "15"
-Set-AzPublicIpAddress -PublicIpAddress $publicIP
+```azurepowershell
+$lb = Get-AzLoadBalancer -Name "myLoadBalancer" -ResourceGroup "myResourceGroup"
+$lb.LoadBalancingRules[0].IdleTimeoutInMinutes = '15'
+$lb.LoadBalancingRules[0].EnableTcpReset = 'true'
+Set-AzLoadBalancer -LoadBalancer $lb
 ```
 
-`IdleTimeoutInMinutes` é opcional. Se não for definido, o tempo limite padrão será de quatro minutos. O intervalo de tempo limite aceitável é entre quatro e 30 minutos.
+# <a name="azure-cli"></a>[**CLI do Azure**](#tab/tcp-reset-idle-cli)
 
-## <a name="set-the-tcp-timeout-on-a-load-balanced-rule-to-15-minutes"></a>Defina o tempo limite do TCP em uma regra com balanceamento de carga para 15 minutos
+Para definir o tempo limite de ociosidade e a redefinição de TCP, use os seguintes parâmetros para [atualização de regra AZ Network lb](/cli/azure/network/lb/rule?az_network_lb_rule_update):
 
-Para definir o tempo limite de ociosidade para um balanceador de carga, 'IdleTimeoutInMinutes' é definido na regra de balanceamento de carga. Por exemplo:
+* **--tempo limite de ociosidade**
+* **--Habilitar-TCP-redefinir**
 
-```azurepowershell-interactive
-$lb = Get-AzLoadBalancer -Name "MyLoadBalancer" -ResourceGroup "MyResourceGroup"
-$lb | Set-AzLoadBalancerRuleConfig -Name myLBrule -IdleTimeoutInMinutes 15
+Valide seu ambiente antes de começar:
+
+* Entre no portal do Azure e verifique se a sua assinatura está ativa executando `az login`.
+* Verifique sua versão da CLI do Azure em uma janela Comando ou de terminal executando `az --version`. Para obter a última versão, confira as [notas sobre a versão mais recente](/cli/azure/release-notes-azure-cli?tabs=azure-cli).
+  * Caso não tenha a última versão, atualize a instalação seguindo o [guia de instalação para seu sistema operacional ou sua plataforma](/cli/azure/install-azure-cli).
+
+Substitua os seguintes exemplos pelos valores de seus recursos:
+
+* **myResourceGroup**
+* **myLoadBalancer**
+* **myLBrule**
+
+
+```azurecli
+az network lb rule update \
+    --resource-group myResourceGroup \
+    --name myLBrule \
+    --lb-name myLoadBalancer \
+    --idle-timeout 15 \
+    --enable-tcp-reset true
 ```
+---
 ## <a name="next-steps"></a>Próximas etapas
 
-[Visão geral do balanceador de carga interno](load-balancer-internal-overview.md)
+Para obter mais informações sobre o tempo limite de ociosidade e a redefinição de TCP, consulte [Load BALANCER TCP Reset e tempo limite de ociosidade](load-balancer-tcp-reset.md)
 
-[Introdução à configuração de um balanceador de carga para a Internet](quickstart-load-balancer-standard-public-powershell.md)
-
-[Configurar um modo de distribuição do balanceador de carga](load-balancer-distribution-mode.md)
+Para obter mais informações sobre como configurar o modo de distribuição do balanceador de carga, consulte [configurar um modo de distribuição do balanceador de carga](load-balancer-distribution-mode.md).

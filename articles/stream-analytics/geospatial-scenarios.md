@@ -1,17 +1,17 @@
 ---
 title: Isolamento geográfico e agregação geoespacial com Azure Stream Analytics
 description: Este artigo descreve como usar Azure Stream Analytics para a unificação geográfica e agregação geoespacial.
-author: mamccrea
-ms.author: mamccrea
+author: krishna0815
+ms.author: krishmam
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 04/02/2019
-ms.openlocfilehash: 9792641da4b3aebad047179e2c02dad757027801
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 7f83fe3a8443ac1b9339a0ddb91ee95414eef437
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045256"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98016296"
 ---
 # <a name="geofencing-and-geospatial-aggregation-scenarios-with-azure-stream-analytics"></a>Cenários geoespaciais e de agregação geoespacial com Azure Stream Analytics
 
@@ -70,7 +70,7 @@ O dispositivo "C" está localizado dentro da ID de compilação 2, o que não é
 
 ### <a name="site-with-multiple-allowed-devices"></a>Site com vários dispositivos permitidos
 
-Se um site permitir vários dispositivos, uma matriz de IDs de dispositivo poderá ser definida no `AllowedDeviceID` e uma função definida pelo usuário poderá ser usada na `WHERE` cláusula para verificar se a ID do dispositivo de fluxo corresponde a qualquer ID de dispositivo nessa lista. Para obter mais informações, veja o tutorial do [JavaScript UDF](stream-analytics-javascript-user-defined-functions.md) para trabalhos de nuvem e o tutorial [UDF do C#](stream-analytics-edge-csharp-udf.md) para trabalhos do Edge.
+Se um site permitir vários dispositivos, uma matriz de IDs de dispositivo poderá ser definida no `AllowedDeviceID` e uma função User-Defined poderá ser usada na `WHERE` cláusula para verificar se a ID do dispositivo de fluxo corresponde a qualquer ID de dispositivo nessa lista. Para obter mais informações, veja o tutorial do [JavaScript UDF](stream-analytics-javascript-user-defined-functions.md) para trabalhos de nuvem e o tutorial [UDF do C#](stream-analytics-edge-csharp-udf.md) para trabalhos do Edge.
 
 ## <a name="geospatial-aggregation"></a>Agregação geoespacial
 
@@ -125,4 +125,4 @@ A imagem abaixo ilustra a saída da consulta para Power BI painel.
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Introdução às funções geoespaciais do Stream Analytics](stream-analytics-geospatial-functions.md)
-* [Funções geoespaciais (Azure Stream Analytics)](https://docs.microsoft.com/stream-analytics-query/geospatial-functions)
+* [Funções geoespaciais (Azure Stream Analytics)](/stream-analytics-query/geospatial-functions)

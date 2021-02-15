@@ -1,9 +1,9 @@
 ---
-title: Perguntas frequentes sobre o Azure Proxy de Aplicativo do AD | Microsoft Docs
+title: Proxy de Aplicativo do Azure Active Directory perguntas frequentes
 description: Aprenda as respostas para perguntas frequentes sobre como usar o Proxy de Aplicativo do AD do Azure para publicar aplicativos internos e locais para usuários remotos.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -11,12 +11,13 @@ ms.topic: reference
 ms.date: 07/23/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: edf51dad768e8d8b5ea5dc6c1eff88f43f0f6b70
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: 19a5d223b587e47c562977cc9fea34f990eb0e46
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88589156"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100370811"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Perguntas frequentes sobre o proxy de aplicativo Active Directory (Azure AD)
 
@@ -48,7 +49,7 @@ Não, esse cenário não tem suporte. As configurações padrão são:
 
 Não, atualmente, isso não é possível. A tentativa de registro sempre é feita no locatário inicial do usuário.
 
-### <a name="my-back-end-application-is-hosted-on-multiple-web-servers-and-requires-user-session-persistence-stickiness-how-can-i-achieve-session-persistence"></a>Meu aplicativo de back-end é hospedado em vários servidores Web e requer persistência de sessão de usuário (adesão). Como posso obter persistência de sessão? 
+### <a name="my-back-end-application-is-hosted-on-multiple-web-servers-and-requires-user-session-persistence-stickiness-how-can-i-achieve-session-persistence"></a>Meu aplicativo de back-end é hospedado em vários servidores Web e requer persistência de sessão de usuário (adesão). Como posso obter persistência de sessão? 
 
 Para obter recomendações, consulte [alta disponibilidade e balanceamento de carga dos seus aplicativos e conectores de proxy de aplicativo](application-proxy-high-availability-load-balancing.md).
 
@@ -57,7 +58,7 @@ Para obter recomendações, consulte [alta disponibilidade e balanceamento de ca
 O conector de proxy de aplicativo executa a autenticação baseada em certificado no Azure. A terminação TLS (inspeção ou aceleração TLS/HTTPS) interrompe esse método de autenticação e não tem suporte. O tráfego do conector para o Azure deve ignorar todos os dispositivos que estão executando a terminação de TLS.  
 
 ### <a name="is-tls-12-required-for-all-connections"></a>O TLS 1,2 é necessário para todas as conexões?
-Sim. Para fornecer a melhor criptografia da categoria para nossos clientes, o serviço do Proxy de Aplicativo limita o acesso somente a protocolos TLS 1.2. Essas alterações foram distribuídas gradualmente e estão entrando em vigor desde 31 de agosto de 2019. Certifique-se de que todas as suas combinações cliente-servidor e navegador-servidor estejam atualizadas para usar o TLS 1.2 para manter a conexão com o serviço do Proxy de Aplicativo. Elas incluem clientes que seus usuários estão usando para acessar aplicativos publicados pelo Proxy de Aplicativo. Confira Preparação para [TLS 1.2 no Office 365](https://docs.microsoft.com/microsoft-365/compliance/prepare-tls-1.2-in-office-365) para obter referências e recursos.
+Sim. Para fornecer a melhor criptografia da categoria para nossos clientes, o serviço do Proxy de Aplicativo limita o acesso somente a protocolos TLS 1.2. Essas alterações foram distribuídas gradualmente e estão entrando em vigor desde 31 de agosto de 2019. Certifique-se de que todas as suas combinações cliente-servidor e navegador-servidor estejam atualizadas para usar o TLS 1.2 para manter a conexão com o serviço do Proxy de Aplicativo. Elas incluem clientes que seus usuários estão usando para acessar aplicativos publicados pelo Proxy de Aplicativo. Confira Preparação para [TLS 1.2 no Office 365](/microsoft-365/compliance/prepare-tls-1.2-in-office-365) para obter referências e recursos.
 
 ### <a name="can-i-place-a-forward-proxy-device-between-the-connector-servers-and-the-back-end-application-server"></a>Posso fazer um dispositivo proxy de encaminhamento entre os servidores de conector e o servidor de aplicativos back-end?
 Sim, esse cenário tem suporte a partir da versão 1.5.1526.0 do conector. Consulte [trabalhar com servidores proxy locais existentes](application-proxy-configure-connectors-with-proxy-servers.md).
@@ -79,11 +80,12 @@ Há contadores do monitor de desempenho que são instalados junto com o conector
 O conector não precisa estar na mesma sub-rede. No entanto, ele precisa de resolução de nomes (DNS, arquivo de hosts) para o recurso e a conectividade de rede necessária (roteamento para o recurso, portas abertas no recurso, etc.). Para obter recomendações, consulte [considerações de topologia de rede ao usar proxy de aplicativo do Azure Active Directory](application-proxy-network-topology.md).
 
 ### <a name="what-versions-of-windows-server-can-i-install-a-connector-on"></a>Em quais versões do Windows Server posso instalar um conector?
-O proxy de aplicativo requer o Windows Server 2012 R2 ou posterior. Atualmente, há uma limitação no HTTP2 para o Windows Server 2019. Para usar com êxito o conector no Windows Server 2019, será necessário adicionar a seguinte chave do registro e reiniciar o servidor:
-    ```
-    HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp\EnableDefaultHttp2 (DWORD) Value: 0 
-    ```
 
+O proxy de aplicativo requer o Windows Server 2012 R2 ou posterior. Atualmente, há uma limitação no HTTP2 para o Windows Server 2019. Para usar com êxito o conector no Windows Server 2019, será necessário adicionar a seguinte chave do registro e reiniciar o servidor:
+
+```
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp\EnableDefaultHttp2 (DWORD) Value: 0 
+```
 
 ## <a name="application-configuration"></a>Configuração de aplicativo
 
@@ -100,9 +102,22 @@ Aqui estão algumas dicas para solucionar esse erro:
 
 O comprimento padrão é de 85 segundos. A configuração "longa" é de 180 segundos. O limite de tempo limite não pode ser estendido.
 
+### <a name="can-a-service-principal-manage-application-proxy-using-powershell-or-microsoft-graph-apis"></a>Uma entidade de serviço pode gerenciar o proxy de aplicativo usando o PowerShell ou Microsoft Graph APIs?
+
+Não, não há suporte para esse recurso no momento.
+
+### <a name="what-happens-if-i-delete-cwap_authsecret-the-client-secret-in-the-app-registration"></a>O que acontece se eu excluir CWAP_AuthSecret (o segredo do cliente) no registro do aplicativo?
+
+O segredo do cliente, também chamado de *CWAP_AuthSecret*, é automaticamente adicionado ao objeto de aplicativo (registro do aplicativo) quando o aplicativo de proxy de aplicativo do AD do Azure é criado.
+
+O segredo do cliente é válido por um ano. Um novo segredo do cliente de um ano é criado automaticamente antes que o segredo do cliente válido atual expire. Três CWAP_AuthSecret segredos do cliente são mantidos no objeto de aplicativo em todos os momentos. 
+
+> [!IMPORTANT]
+> A exclusão de CWAP_AuthSecret interrompe a pré-autenticação para o Proxy de Aplicativo do AD do Azure. Não exclua CWAP_AuthSecret.
+
 ### <a name="how-do-i-change-the-landing-page-my-application-loads"></a>Como fazer alterar a página de aterrissagem que meu aplicativo carrega?
 
-Na página registros do aplicativo, você pode alterar a URL da Home Page para a URL externa desejada da página de aterrissagem. A página especificada será carregada quando o aplicativo for iniciado em meus aplicativos ou no portal do Office 365. Para obter as etapas de configuração, consulte [definir um Home Page personalizado para aplicativos publicados usando o Azure proxy de aplicativo do AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-custom-home-page)
+Na página registros do aplicativo, você pode alterar a URL da Home Page para a URL externa desejada da página de aterrissagem. A página especificada será carregada quando o aplicativo for iniciado em meus aplicativos ou no portal do Office 365. Para obter as etapas de configuração, consulte [definir um Home Page personalizado para aplicativos publicados usando o Azure proxy de aplicativo do AD](./application-proxy-configure-custom-home-page.md)
 
 ### <a name="can-only-iis-based-applications-be-published-what-about-web-applications-running-on-non-windows-web-servers-does-the-connector-have-to-be-installed-on-a-server-with-iis-installed"></a>Somente aplicativos baseados no IIS podem ser publicados? E quanto aos aplicativos Web em execução em servidores Web que não são do Windows? O conector precisa ser instalado em um servidor com o IIS instalado?
 
@@ -125,6 +140,12 @@ Para obter mais informações, consulte o White Paper [noções básicas sobre a
 
 A autenticação NTLM não pode ser usada como um método de pré-autenticação ou logon único. A autenticação NTLM pode ser usada somente quando pode ser negociada diretamente entre o cliente e o aplicativo Web publicado. Usar a autenticação NTLM geralmente faz com que uma solicitação de entrada apareça no navegador.
 
+### <a name="can-i-use-the-logon-identity-on-premises-user-principal-name-or-on-premises-sam-account-name-in-a-b2b-iwa-single-sign-on-scenario"></a>Posso usar a identidade de logon "nome principal de usuário local" ou "nome de conta SAM local" em um cenário de logon único IWA B2B?
+
+Não, isso não funcionará, pois um usuário convidado no Azure AD não tem o atributo exigido por qualquer uma das identidades de logon mencionadas acima.
+
+Nesse caso, haverá um fallback para "nome principal do usuário". Para obter mais detalhes sobre o cenário B2B, leia [conceder usuários B2B no acesso do Azure ad aos seus aplicativos locais](../external-identities/hybrid-cloud-to-on-premises.md).
+
 ## <a name="pass-through-authentication"></a>Autenticação de passagem
 
 ### <a name="can-i-use-conditional-access-policies-for-applications-published-with-pass-through-authentication"></a>Posso usar políticas de acesso condicional para aplicativos publicados com autenticação de passagem?
@@ -141,7 +162,7 @@ Não, esse cenário não tem suporte porque o proxy de aplicativo encerrará o t
 
 Consulte [publicar área de trabalho remota com o proxy de aplicativo do AD do Azure](application-proxy-integrate-with-remote-desktop-services.md).
 
-### <a name="can-i-use-kerberos-constrained-delegation-single-sign-on---windows-integrated-authentication-in-the-remote-desktop-gateway-publishing-scenario"></a>Posso usar a delegação restrita de Kerberos (logon único-autenticação integrada do Windows) no cenário de publicação Área de Trabalho Remota gateway?
+### <a name="can-i-use-kerberos-constrained-delegation-single-sign-on---windows-integrated-authentication-in-the-remote-desktop-gateway-publishing-scenario"></a>Posso usar a delegação restrita de Kerberos (autenticação única Sign-On integrada do Windows) no cenário de publicação de gateway Área de Trabalho Remota?
 
 Não, esse cenário não tem suporte.  
 
@@ -165,7 +186,7 @@ Consulte [habilitar o acesso remoto ao SharePoint com o Azure proxy de aplicativ
 
 ### <a name="can-i-use-the-sharepoint-mobile-app-ios-android-to-access-a-published-sharepoint-server"></a>Posso usar o aplicativo móvel do SharePoint (iOS/Android) para acessar um SharePoint Server publicado?
 
-O [aplicativo do SharePoint Mobile](https://docs.microsoft.com/sharepoint/administration/supporting-the-sharepoint-mobile-apps-online-and-on-premises) não oferece suporte a Azure Active Directory pré-autenticação no momento.
+O [aplicativo do SharePoint Mobile](/sharepoint/administration/supporting-the-sharepoint-mobile-apps-online-and-on-premises) não oferece suporte a Azure Active Directory pré-autenticação no momento.
 
 ## <a name="active-directory-federation-services-ad-fs-publishing"></a>Publicação de Serviços de Federação do Active Directory (AD FS) (AD FS) 
 
@@ -175,11 +196,11 @@ Não. O Proxy de Aplicativo do AD do Azure foi projetado para funcionar com o Az
 
 ## <a name="websocket"></a>WebSocket
 
-### <a name="does-websocket-support-work-for-applications-other-than-qliksense"></a>O suporte ao WebSocket funciona para aplicativos diferentes do QlikSense?
+### <a name="does-websocket-support-work-for-applications-other-than-qliksense-and-remote-desktop-web-client-html5"></a>O suporte ao WebSocket funciona para aplicativos que não sejam o QlikSense e o Área de Trabalho Remota Web Client (HTML5)?
 
 Atualmente, o suporte ao protocolo WebSocket ainda está em visualização pública e pode não funcionar para outros aplicativos. Alguns clientes tiveram sucesso misto usando o protocolo WebSocket com outros aplicativos. Se você testar esses cenários, adoraríamos ouvir seus resultados. Envie-nos seus comentários em aadapfeedback@microsoft.com .
 
-Os recursos (EventLogs, PowerShell e Serviços de Área de Trabalho Remota) no centro de administração do Windows (WAC) ou no cliente Web do Área de Trabalho Remota (HTML5) não funcionam com o Azure Proxy de Aplicativo do AD no momento.
+Os recursos (EventLogs, PowerShell e Serviços de Área de Trabalho Remota) no centro de administração do Windows (WAC) não funcionam com o Azure Proxy de Aplicativo do AD no momento.
 
 ## <a name="link-translation"></a>Conversão de link
 
@@ -187,7 +208,7 @@ Os recursos (EventLogs, PowerShell e Serviços de Área de Trabalho Remota) no c
 
 Sim. A conversão de link afeta o desempenho. O serviço de proxy de aplicativo examina o aplicativo em busca de links codificados e os substitui por suas respectivas URLs externas publicadas antes de apresentá-los ao usuário. 
 
-Para obter o melhor desempenho, é recomendável usar URLs internas e externas idênticas Configurando [domínios personalizados](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-custom-domain). Se o uso de domínios personalizados não for possível, você poderá melhorar o desempenho da tradução de links usando a extensão de entrada segura de meus aplicativos ou o navegador Microsoft Edge em dispositivos móveis. Consulte [redirecionar links codificados para aplicativos publicados com o Azure proxy de aplicativo do AD](application-proxy-configure-hard-coded-link-translation.md).
+Para obter o melhor desempenho, é recomendável usar URLs internas e externas idênticas Configurando [domínios personalizados](./application-proxy-configure-custom-domain.md). Se o uso de domínios personalizados não for possível, você poderá melhorar o desempenho da tradução de links usando a extensão de entrada segura de meus aplicativos ou o navegador Microsoft Edge em dispositivos móveis. Consulte [redirecionar links codificados para aplicativos publicados com o Azure proxy de aplicativo do AD](application-proxy-configure-hard-coded-link-translation.md).
 
 ## <a name="wildcards"></a>Curingas
 
@@ -198,5 +219,5 @@ Esse cenário não tem suporte diretamente. As opções para esse cenário são:
 1. Publique as URLs HTTP e HTTPS como aplicativos separados com um curinga, mas forneça a cada um um domínio personalizado diferente. Essa configuração funcionará, pois elas têm diferentes URLS externas.
 
 2. Publique a URL HTTPS por meio de um aplicativo curinga. Publicar os aplicativos HTTP separadamente usando estes cmdlets do PowerShell do proxy de aplicativo:
-   - [Gerenciamento de aplicativos de proxy de aplicativo](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management)
-   - [Gerenciamento de conector de proxy de aplicativo](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#application_proxy_connector_management)
+   - [Gerenciamento de aplicativos de proxy de aplicativo](/powershell/module/azuread/#application_proxy_application_management&preserve-view=true)
+   - [Gerenciamento de conector de proxy de aplicativo](/powershell/module/azuread/#application_proxy_connector_management&preserve-view=true)

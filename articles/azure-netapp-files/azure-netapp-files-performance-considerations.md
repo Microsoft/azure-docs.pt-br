@@ -12,18 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/25/2019
+ms.date: 09/22/2020
 ms.author: b-juche
-ms.openlocfilehash: 5f88b4755c7b4c0b20f27065cf9de2351251bc1c
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: edfebe3d9470defbe70b3694d5574e58ca3b5938
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87513869"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91325514"
 ---
 # <a name="performance-considerations-for-azure-netapp-files"></a>Considerações de desempenho para o Azure NetApp Files
 
-O [limite de taxa de transferência](azure-netapp-files-service-levels.md) para um volume é determinado por uma combinação da cota atribuída ao volume e ao nível de serviço selecionado. Ao fazer planos de desempenho sobre Azure NetApp Files, você precisa entender várias considerações. 
+O [limite de taxa de transferência](azure-netapp-files-service-levels.md) para um volume com QoS automático é determinado por uma combinação da cota atribuída ao volume e ao nível de serviço selecionado. Para volumes com QoS manual, o limite de taxa de transferência pode ser definido individualmente. Ao fazer planos de desempenho sobre Azure NetApp Files, você precisa entender várias considerações. 
 
 ## <a name="quota-and-throughput"></a>Cota e taxa de transferência  
 
@@ -31,19 +31,25 @@ O limite de taxa de transferência é apenas um determinante do desempenho real 
 
 Considerações de desempenho de armazenamento típicas, incluindo a combinação de leitura e gravação, o tamanho da transferência, os padrões aleatórios ou sequenciais, e muitos outros fatores contribuirão para o desempenho total entregue.  
 
-A taxa de transferência máxima de empírica observada no teste é 4.500 MiB/s.  Na camada de armazenamento Premium, uma cota de volume de 70,31 TiB provisionará um limite de taxa de transferência que é alto o suficiente para atingir esse nível de desempenho.  
+A taxa de transferência máxima de empírica observada no teste é 4.500 MiB/s.  Na camada de armazenamento Premium, uma cota de volume de QoS automática de 70,31 TiB provisionará um limite de taxa de transferência que é alto o suficiente para atingir esse nível de desempenho.  
 
-Se você estiver considerando a atribuição de valores de cota de volume além de 70,31 TiB, a cota adicional pode ser atribuída a um volume para armazenar dados adicionais. No entanto, a cota adicionada não resultará em um aumento adicional na taxa de transferência real.  
+No caso de volumes de QoS automáticos, se você estiver considerando a atribuição de valores de cota de volume além de 70,31 TiB, a cota adicional poderá ser atribuída a um volume para armazenar dados adicionais. No entanto, a cota adicionada não resultará em um aumento adicional na taxa de transferência real.  
 
-## <a name="overprovisioning-the-volume-quota"></a>Provisionando a cota de volume
+O mesmo teto de taxa de transferência empírica se aplica a volumes com QoS manual. A taxa de transferência máxima pode ser atribuída a um volume é 4.500 MiB/s.
 
-Se o desempenho de uma carga de trabalho for limite de taxa de transferência, é possível provisionar a cota de volume para definir um nível de taxa de transferência mais alto e obter um melhor desempenho.  
+## <a name="automatic-qos-volume-quota-and-throughput"></a>Cota e taxa de transferência de volume de QoS automática
 
-Por exemplo, se um volume na camada de armazenamento Premium tiver apenas 500 GiB de dados, mas exigir a 128 MiB/s de taxa de transferência, você poderá definir a cota como 2 TiB para que o nível de taxa de transferência seja definido adequadamente (64 MiB/s por TB * 2 TiB = 128 MiB/s).  
+Esta seção descreve o gerenciamento de cotas e a taxa de transferência para volumes com o tipo de QoS automático.
 
-Se você provisionar consistentemente um volume para obter uma taxa de transferência mais alta, considere usar um nível de serviço mais alto em vez disso.  No exemplo acima, você pode obter o mesmo limite de taxa de transferência com metade da cota de volume usando a camada de armazenamento em vez disso (128 MiB/s por TiB * 1 TiB = 128 MiB/s).
+### <a name="overprovisioning-the-volume-quota"></a>Provisionando a cota de volume
 
-## <a name="dynamically-increasing-or-decreasing-volume-quota"></a>Aumentando ou diminuindo a cota de volume dinamicamente
+Se o desempenho de uma carga de trabalho for limite de taxa de transferência, é possível provisionar a cota automática de volume de QoS para definir um nível de taxa de transferência mais alto e obter um melhor desempenho.  
+
+Por exemplo, se um volume de QoS automático na camada de armazenamento Premium tiver apenas 500 GiB de dados, mas exigir a 128 MiB/s de taxa de transferência, você poderá definir a cota como 2 TiB para que o nível de taxa de transferência seja definido adequadamente (64 MiB/s por TB * 2 TiB = 128 MiB/s).  
+
+Se você provisionar consistentemente um volume para obter uma taxa de transferência mais alta, considere usar os volumes de QoS manuais ou usar um nível de serviço mais alto em vez disso.  No exemplo acima, você pode obter o mesmo limite de taxa de transferência com metade da cota automática de volume de QoS usando a camada de armazenamento em vez disso (128 MiB/s por TiB * 1 TiB = 128 MiB/s).
+
+### <a name="dynamically-increasing-or-decreasing-volume-quota"></a>Aumentando ou diminuindo a cota de volume dinamicamente
 
 Se seus requisitos de desempenho forem temporários por natureza ou se você tiver maior necessidade de desempenho por um período de tempo fixo, você poderá aumentar ou diminuir dinamicamente a cota de volume para ajustar instantaneamente o limite de taxa de transferência.  Observe as seguintes considerações: 
 
@@ -55,9 +61,14 @@ Se seus requisitos de desempenho forem temporários por natureza ou se você tiv
 
     A alteração não interrompe nem afeta o acesso ao volume ou e/s.  
 
-* O ajuste da cota do volume requer uma alteração no tamanho do pool de capacidade.  
+* Ajustar a cota de volume pode exigir uma alteração no tamanho do pool de capacidade.  
 
     O tamanho do pool de capacidade pode ser ajustado dinamicamente e sem afetar a disponibilidade ou a e/s do volume.
+
+## <a name="manual-qos-volume-quota-and-throughput"></a>Cota de volume de QoS manual e taxa de transferência 
+
+Se você usar volumes de QoS manuais, não precisará provisionar a cota de volume para obter uma taxa de transferência maior, pois a taxa de transferência pode ser atribuída a cada volume de forma independente. No entanto, você ainda precisa garantir que o pool de capacidade seja previamente provisionado com taxa de transferência suficiente para suas necessidades de desempenho. A taxa de transferência de um pool de capacidade é provisionada de acordo com seu nível de tamanho e de serviço. Consulte [níveis de serviço para Azure NetApp files](azure-netapp-files-service-levels.md) para obter mais detalhes.
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

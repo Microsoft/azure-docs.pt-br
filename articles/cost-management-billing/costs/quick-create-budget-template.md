@@ -8,13 +8,13 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.topic: quickstart
 ms.date: 07/28/2020
-ms.custom: subject-armqs
-ms.openlocfilehash: 3b21353c7e5338c78b9d56e79ac5da3fa7e9af84
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.custom: subject-armqs, devx-track-azurecli
+ms.openlocfilehash: 7d93bd757a39247302a6bc09009a1a814425c32f
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88687579"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92745376"
 ---
 # <a name="quickstart-create-a-budget-with-an-arm-template"></a>Início Rápido: Criar um orçamento com um modelo do ARM
 
@@ -22,7 +22,7 @@ Orçamentos no Gerenciamento de Custos ajudam você a planejar e promover respon
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
-Se seu ambiente atender aos pré-requisitos e você estiver familiarizado com o uso de modelos ARM, selecione o botão **Implantar no Azure**. O modelo será aberto no portal do Azure.
+Se seu ambiente atender aos pré-requisitos e você estiver familiarizado com o uso de modelos ARM, selecione o botão **Implantar no Azure** . O modelo será aberto no portal do Azure.
 
 [![Implantar no Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fcreate-budget%2Fazuredeploy.json)
 
@@ -84,27 +84,27 @@ Um recurso do Azure é definido no modelo:
 
    :::image type="content" source="./media/quick-create-budget-template/create-budget-using-template-portal.png" alt-text="Modelo do Resource Manager, Criar orçamento, portal de implantação]" lightbox="./media/quick-create-budget-template/create-budget-using-template-portal.png" :::
    
-    * **Assinatura**: selecione uma assinatura do Azure.
-    * **Grupo de recursos**: se exigido, selecione um grupo de recursos existente ou **Criar**.
-    * **Região**: selecione uma região do Azure. Por exemplo, **Centro dos EUA**.
-    * **Nome do Orçamento**: insira um nome para o orçamento. Ele deve ser exclusivo em um grupo de recursos. Somente caracteres alfanuméricos, sublinhados e hifens são permitidos.
-    * **Quantidade**: insira a quantidade total do custo a ser acompanhada com o orçamento.
-    * **Intervalo de agregação**: insira o tempo coberto por um orçamento. Os valores permitidos são mensais, trimestrais ou anuais. O orçamento é redefinido ao final do intervalo de agregação.
-    * **Data de Início**: insira a data de início com o primeiro dia do mês no formato AAAA-MM-DD. Uma data de início futura não deve ser a mais de três meses do dia de hoje. Você pode especificar uma data de início anterior com o período de Intervalo de Agregação.
-    * **Data de Término**: insira a data de término do orçamento no formato AAAA-MM-DD. 
-    * **Primeiro Limite**: insira um valor de limite para a primeira notificação. Uma notificação é enviada quando o custo excede o limite. É sempre percentual e deve estar entre 0 e 1000.
-    * **Segundo Limite**: insira um valor de limite para a segunda notificação. Uma notificação é enviada quando o custo excede o limite. É sempre percentual e deve estar entre 0 e 1000.
-    * **Funções de Contato**: insira a lista de funções de contato para as quais enviar a notificação de orçamento quando o limite for excedido. Os valores padrão são Proprietário, Colaborador e Leitor. O formato esperado é `["Owner","Contributor","Reader"]`.
-    * **Emails de Contato**: insira uma lista de endereços de email para os quais enviar a notificação de orçamento quando o limite for excedido. O formato esperado é `["user1@domain.com","user2@domain.com"]`.
-    * **Grupos de Contato**: insira uma lista de IDs de recurso do grupo de ações, como URIs de recurso completo, para os quais enviar a notificação de orçamento quando o limite for excedido. Ela aceita uma matriz de cadeias de caracteres. O formato esperado é `["action group resource ID1","action group resource ID2"]`. Se não desejar usar grupos de ação, insira `[]`.
-    * **Valores de Filtro do Grupo de Recursos**: insira uma lista de nomes de grupos de recursos a serem filtrados. O formato esperado é `["Resource Group Name1","Resource Group Name2"]`. Se não desejar aplicar um filtro, insira `[]`. 
-    * **Valores de Filtro de Categoria de Medidor**: insira uma lista de categorias de medidor de serviço do Azure. O formato esperado é `["Meter Category1","Meter Category2"]`. Se não desejar aplicar um filtro, insira `[]`.
+    * **Assinatura** : selecione uma assinatura do Azure.
+    * **Grupo de recursos** : se exigido, selecione um grupo de recursos existente ou **Criar** .
+    * **Região** : selecione uma região do Azure. Por exemplo, **Centro dos EUA** .
+    * **Nome do Orçamento** : insira um nome para o orçamento. Ele deve ser exclusivo em um grupo de recursos. Somente caracteres alfanuméricos, sublinhados e hifens são permitidos.
+    * **Quantidade** : insira a quantidade total do custo a ser acompanhada com o orçamento.
+    * **Intervalo de agregação** : insira o tempo coberto por um orçamento. Os valores permitidos são mensais, trimestrais ou anuais. O orçamento é redefinido ao final do intervalo de agregação.
+    * **Data de Início** : insira a data de início com o primeiro dia do mês no formato AAAA-MM-DD. Uma data de início futura não deve ser a mais de três meses do dia de hoje. Você pode especificar uma data de início anterior com o período de Intervalo de Agregação.
+    * **Data de Término** : insira a data de término do orçamento no formato AAAA-MM-DD. 
+    * **Primeiro Limite** : insira um valor de limite para a primeira notificação. Uma notificação é enviada quando o custo excede o limite. É sempre percentual e deve estar entre 0 e 1000.
+    * **Segundo Limite** : insira um valor de limite para a segunda notificação. Uma notificação é enviada quando o custo excede o limite. É sempre percentual e deve estar entre 0 e 1000.
+    * **Funções de Contato** : insira a lista de funções de contato para as quais enviar a notificação de orçamento quando o limite for excedido. Os valores padrão são Proprietário, Colaborador e Leitor. O formato esperado é `["Owner","Contributor","Reader"]`.
+    * **Emails de Contato** : insira uma lista de endereços de email para os quais enviar a notificação de orçamento quando o limite for excedido. O formato esperado é `["user1@domain.com","user2@domain.com"]`.
+    * **Grupos de Contato** : insira uma lista de IDs de recurso do grupo de ações, como URIs de recurso completo, para os quais enviar a notificação de orçamento quando o limite for excedido. Ela aceita uma matriz de cadeias de caracteres. O formato esperado é `["action group resource ID1","action group resource ID2"]`. Se não desejar usar grupos de ação, insira `[]`.
+    * **Valores de Filtro do Grupo de Recursos** : insira uma lista de nomes de grupos de recursos a serem filtrados. O formato esperado é `["Resource Group Name1","Resource Group Name2"]`. Se não desejar aplicar um filtro, insira `[]`. 
+    * **Valores de Filtro de Categoria de Medidor** : insira uma lista de categorias de medidor de serviço do Azure. O formato esperado é `["Meter Category1","Meter Category2"]`. Se não desejar aplicar um filtro, insira `[]`.
    
 3. Dependendo do tipo de assinatura do Azure, execute uma das seguintes ações:
-   - Selecione **Examinar + criar**.
-   - Examine os termos e condições e selecione **Eu concordo com os termos e condições declarados acima** e selecione **Comprar**.
+   - Selecione **Examinar + criar** .
+   - Examine os termos e condições e selecione **Eu concordo com os termos e condições declarados acima** e selecione **Comprar** .
 
-4. Se você selecionar **Examinar + criar**, o seu modelo será validado. Selecione **Criar**.  
+4. Se você selecionar **Examinar + criar** , o seu modelo será validado. Selecione **Criar** .  
 
    ![Modelo do Resource Manager, orçamento, notificação de implantação do portal](./media/quick-create-budget-template/resource-manager-template-portal-deployment-notification.png)
 
@@ -112,7 +112,7 @@ O portal do Azure é usado para implantar o modelo. Além do portal do Azure, vo
 
 ## <a name="validate-the-deployment"></a>Validar a implantação
 
-Você pode usar o portal do Azure para verificar se o orçamento foi criado navegando até **Cobrança + Gerenciamento de Custos** > selecione um escopo > **Orçamentos**. Ou use os scripts da CLI do Azure ou do Azure PowerShell a seguir para ver o orçamento.
+Você pode usar o portal do Azure para verificar se o orçamento foi criado navegando até **Cobrança + Gerenciamento de Custos** > selecione um escopo > **Orçamentos** . Ou use os scripts da CLI do Azure ou do Azure PowerShell a seguir para ver o orçamento.
 
 # <a name="cli"></a>[CLI](#tab/CLI)
 
@@ -134,7 +134,7 @@ Quando você não precisar mais de um orçamento, exclua-o usando um dos seguint
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-Navegue até **Gerenciamento de Custos + Cobrança** > selecione um escopo do orçamento > **Orçamentos** > selecione um orçamento >, em seguida, selecione **Excluir orçamento**.
+Navegue até **Gerenciamento de Custos + Cobrança** > selecione um escopo do orçamento > **Orçamentos** > selecione um orçamento >, em seguida, selecione **Excluir orçamento** .
 
 ### <a name="command-line"></a>Linha de comando
 

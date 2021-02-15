@@ -1,19 +1,19 @@
 ### YamlMime:Landing
 title: Documentação do Banco de Dados do Azure para PostgreSQL
-summary: O Banco de Dados do Azure para PostgreSQL é um serviço de banco de dados relacional com base no mecanismo de banco de dados Postgres de software livre. É uma oferta de banco de dados como serviço totalmente gerenciado que pode lidar com cargas de trabalho críticas com desempenho previsível, segurança, alta disponibilidade e escalabilidade dinâmica. Está disponível em duas opções de implantação, como um servidor único e como um cluster Hiperescala (Citus). A opção Hiperescala (Citus) escala horizontalmente as consultas em vários computadores usando a fragmentação. Também atende aplicativos que exigem mais escala e desempenho. Saiba como usar o Banco de Dados do Azure para PostgreSQL com nossos guias de início rápido, tutoriais e exemplos.
+summary: O Banco de Dados do Azure para PostgreSQL é um serviço de banco de dados relacional com base no mecanismo de banco de dados Postgres de software livre. É um banco de dados como serviço totalmente gerenciado que pode lidar com cargas de trabalho críticas com desempenho previsível, segurança, alta disponibilidade e escalabilidade dinâmica.
 metadata:
   description: O Banco de Dados do Azure para PostgreSQL é um serviço de banco de dados relacional na nuvem da Microsoft que é projetado para desenvolvedores com base no mecanismo de banco de dados PostgreSQL de software livre.
-  author: rachel-msft
-  ms.author: raagyema
-  ms.date: 08/30/2019
+  author: sunilagarwal
+  ms.author: sunila
+  ms.date: 09/21/2020
   ms.service: postgresql
   ms.topic: landing-page
-  ms.openlocfilehash: 432dfe4e7907d8599dd9655a3e3eb67987ea6f39
-  ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+  ms.openlocfilehash: 61ce8f178bbdf8bf6cbb981933bed290a20fe04e
+  ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 08/11/2020
-  ms.locfileid: "88078012"
+  ms.lasthandoff: 12/07/2020
+  ms.locfileid: "96749089"
 landingContent:
 - title: Sobre o Banco de Dados do Azure para PostgreSQL
   linkLists:
@@ -25,73 +25,87 @@ landingContent:
     links:
     - text: Confira nosso blog
       url: https://techcommunity.microsoft.com/t5/Azure-Database-for-PostgreSQL/bg-p/ADforPostgreSQL
-- title: Criar um servidor único
+- title: Servidor único
   linkLists:
+  - linkListType: overview
+    links:
+    - text: O que é o servidor único?
+      url: concepts-servers.md
+    - text: Exibir toda a documentação sobre servidor único
+      url: single-server/index.yml
   - linkListType: quickstart
     links:
     - text: Criar um servidor usando o portal do Azure
       url: quickstart-create-server-database-portal.md
     - text: Criar um servidor usando a CLI do Azure
       url: quickstart-create-server-database-azure-cli.md
-  - linkListType: learn
-    links:
-    - text: 'Módulo de aprendizado: Criar um Banco de Dados do Azure para o servidor PostgreSQL'
-      url: /learn/modules/create-azure-db-for-postgresql-server/
   - linkListType: concept
     links:
-    - text: Tipos de preço
-      url: concepts-pricing-tiers.md
+    - text: Conceitos de servidor
+      url: concepts-servers.md
     - text: Limites
       url: concepts-limits.md
-    - text: Versões do PostgreSQL
-      url: concepts-supported-versions.md
-    - text: Extensões do PostgreSQL – servidor único
-      url: concepts-extensions.md
   - linkListType: tutorial
     links:
-    - text: Projetar um banco de dados usando o portal do Azure
+    - text: Criar um banco de dados em um servidor único
       url: tutorial-design-database-using-azure-portal.md
-    - text: Projetar um banco de dados usando a CLI do Azure
-      url: tutorial-design-database-using-azure-cli.md
-    - text: Criar um aplicativo Web usando o Python e a CLI
+    - text: Criar aplicativo Python (Django) com PostgreSQL
       url: ../app-service/tutorial-python-postgresql-app.md?toc=%2fazure%2fpostgresql%2ftoc.json
-    - text: Monitorar e ajustar o serviço
+    - text: Monitorar e ajustar o servidor
       url: tutorial-monitor-and-tune.md
-- title: Criar um cluster Hiperescala (Citus)
+- title: Servidor flexível (versão prévia)
   linkLists:
+  - linkListType: overview
+    links:
+    - text: O que é o servidor flexível?
+      url: flexible-server/overview.md
+    - text: Exibir toda a documentação do servidor flexível
+      url: flexible-server/index.yml
+  - linkListType: concept
+    links:
+    - text: Conceitos de servidor
+      url: flexible-server/concepts-servers.md
+    - text: Noções básicas de computação e armazenamento
+      url: flexible-server/concepts-compute-storage.md
+    - text: Limitações
+      url: flexible-server/concepts-limits.md
   - linkListType: quickstart
     links:
-    - text: Criar um cluster Hiperescala (Citus) no portal do Azure
-      url: quickstart-create-hyperscale-portal.md
+    - text: Criar um servidor usando o portal
+      url: flexible-server/quickstart-create-server-portal.md
+    - text: Criar um servidor usando um modelo ARM
+      url: flexible-server/quickstart-create-server-arm-template.md
   - linkListType: tutorial
     links:
-    - text: Criar um banco de dados multilocatário
-      url: tutorial-design-database-hyperscale-multi-tenant.md
-    - text: Criar um banco de dados em tempo real
-      url: tutorial-design-database-hyperscale-realtime.md
+    - text: Criar um servidor de banco de dados e aplicativo na rede virtual
+      url: flexible-server/tutorial-webapp-server-vnet.md
+- title: Cluster de Hiperescala (Citus)
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que é a Hiperescala?
+      url: concepts-hyperscale-nodes.md
+    - text: Exibir toda a documentação da Hiperescala
+      url: hyperscale/index.yml
   - linkListType: concept
     links:
     - text: Extensões do PostgreSQL – Hiperescala
       url: concepts-hyperscale-extensions.md
-    - text: Noções básicas sobre nós
-      url: concepts-hyperscale-nodes.md
     - text: Noções básicas sobre dados distribuídos
       url: concepts-hyperscale-distributed-data.md
-    - text: Configurar opções de desempenho
-      url: concepts-hyperscale-configuration-options.md
-    - text: Alta disponibilidade
-      url: concepts-hyperscale-high-availability.md
-- title: Conectar-se a um servidor único
+  - linkListType: quickstart
+    links:
+    - text: Criar um cluster Hiperescala (Citus) no portal do Azure
+      url: quickstart-create-hyperscale-portal.md
+- title: Conectar e consultar
   linkLists:
   - linkListType: concept
     links:
-    - text: Entender o firewall
+    - text: Habilitar regras de firewall para se conectar
       url: concepts-firewall-rules.md
-    - text: Criar regras de firewall
-      url: howto-manage-firewall-using-portal.md
-    - text: Configurar SSL
+    - text: Configurar SSL para conexões seguras
       url: concepts-ssl-connection-security.md
-  - linkListType: get-started
+  - linkListType: quickstart
     links:
     - text: Conectar usando o Python
       url: connect-python.md
@@ -107,35 +121,35 @@ landingContent:
       url: connect-csharp.md
     - text: Conectar usando o Go
       url: connect-go.md
-- title: Codificar com as APIs de programação
-  linkLists:
-  - linkListType: get-started
-    links:
-    - text: Scripts da CLI do Azure para tarefas comuns
-      url: /azure/postgresql/sample-scripts-azure-cli
-  - linkListType: reference
-    links:
-    - text: Referência de desenvolvedor da CLI do Azure
-      url: /rest/api/postgresql/
-    - text: Referência de desenvolvedor da API REST
-      url: /cli/azure/postgres
-    - text: Modelos do Azure Resource Manager
-      url: /azure/templates/microsoft.dbforpostgresql/allversions
-- title: Fazer backup e migrar dados
+- title: Desenvolvimento do aplicativo
   linkLists:
   - linkListType: concept
     links:
-    - text: Fazer backup e restaurar em um servidor único
-      url: concepts-backup.md
-  - linkListType: how-to-guide
+    - text: Resiliência de conexão
+      url: concepts-connectivity.md
+  - linkListType: tutorial
     links:
-    - text: Restaurar um servidor usando o portal do Azure
-      url: howto-restore-server-portal.md
-    - text: Restaurar um servidor usando a CLI do Azure
-      url: howto-restore-server-cli.md
-    - text: Migrar um banco de dados usando despejar e restaurar
-      url: howto-migrate-using-dump-and-restore.md
-    - text: Migrar um banco de dados usando exportar e importar
-      url: howto-migrate-using-export-and-import.md
-    - text: Migrações com tempo de inatividade mínimo
-      url: howto-migrate-online.md
+    - text: Criar um banco de dados em um servidor único
+      url: tutorial-design-database-using-azure-portal.md
+    - text: Criar um banco de dados multilocatário usando a Hiperescala
+      url: tutorial-design-database-hyperscale-multi-tenant.md
+    - text: Criar um banco de dados em tempo real usando a Hiperescala
+      url: tutorial-design-database-hyperscale-realtime.md
+- title: Referência
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: 'Módulo de aprendizado: Criar um Banco de Dados do Azure para o servidor PostgreSQL'
+      url: /learn/modules/create-azure-db-for-postgresql-server/
+  - linkListType: deploy
+    links:
+    - text: Scripts da CLI do Azure para tarefas comuns
+      url: ./sample-scripts-azure-cli.md
+    - text: Modelos do Azure Resource Manager
+      url: /azure/templates/microsoft.dbforpostgresql/allversions
+  - linkListType: reference
+    links:
+    - text: Referência de desenvolvedor da CLI do Azure
+      url: /cli/azure/postgres
+    - text: Referência de desenvolvedor da API REST
+      url: /rest/api/postgresql/

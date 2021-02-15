@@ -1,25 +1,27 @@
 ---
-title: Codificar transformação personalizada usando os serviços de mídia v3 CLI do Azure | Microsoft Docs
+title: Codificar uma CLI de transformação personalizada
 description: Este tópico mostra como usar os serviços de mídia do Azure V3 para codificar uma transformação personalizada usando CLI do Azure.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
-ms.topic: article
+ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.date: 05/14/2019
-ms.author: juliako
-ms.openlocfilehash: 4ea328cc21d849367d36342ed1b0953a7eb26c77
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: 91ee605035dbc81c2302aa0350763e68dc73ecb3
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87503881"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98956099"
 ---
 # <a name="how-to-encode-with-a-custom-transform---azure-cli"></a>Como codificar com um CLI do Azure de transformação personalizado
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Ao codificar com os serviços de mídia do Azure, você pode começar rapidamente com uma das predefinições internas recomendadas, com base nas práticas recomendadas do setor, conforme demonstrado no guia de início rápido de [arquivos de streaming](stream-files-cli-quickstart.md#create-a-transform-for-adaptive-bitrate-encoding) . Você também pode criar uma predefinição personalizada para direcionar seus requisitos específicos de cenário ou dispositivo.
 

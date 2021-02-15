@@ -1,25 +1,22 @@
 ---
 title: Solicitação de aumento de cota de núcleo da CPU – Azure HDInsight
 description: Conheça o processo para solicitar um aumento para os núcleos de CPU alocados para sua assinatura.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 05/07/2020
-ms.openlocfilehash: 4de32bad763c0bbf0e143a7ce639efec8c9c41ae
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: a539acc423feeab500830fb33262d1b824101072
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86079608"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98935838"
 ---
 # <a name="requesting-quota-increases-for-azure-hdinsight"></a>Como solicitar aumentos de cota para o Azure HDInsight
 
 As cotas de núcleo de CPU ajudam a garantir que o uso de recursos seja bem distribuído entre todos os clientes em uma determinada região do Azure. No entanto, em determinados casos, seus requisitos de negócios podem exigir mais recursos de cluster do que a sua cota atual permitirá. Nesses casos, você pode solicitar um aumento de cota de núcleo de CPU para que possa implantar clusters, o que corresponde aos seus requisitos de processamento de dados.
 
-Ao atingir um limite de cota, você não pode implantar novos clusters ou escalar horizontalmente os clusters existentes, adicionando mais nós de trabalho. O único limite de cota é a cota de Núcleos de CPU que existe no nível da região para cada assinatura. Por exemplo, sua assinatura pode ter um limite de 30 núcleos de CPU na região leste dos EUA, com outros 30 núcleos de CPU permitidos no leste dos EUA 2.
+Ao atingir um limite de cota, você não pode implantar novos clusters ou escalar horizontalmente os clusters existentes, adicionando mais nós de trabalho. O único limite de cota é a cota de Núcleos de CPU que existe no nível da região para cada assinatura. Por exemplo, sua assinatura pode ter um limite de 30 núcleos de CPU na região leste dos EUA, com outros 30 núcleos de CPU permitidos no leste dos EUA.
 
 ## <a name="gather-required-information"></a>Coletar informações necessárias
 
@@ -65,11 +62,11 @@ Para solicitar um aumento de cota, siga estes passos:
 1. Na guia **Revisar + criar**, selecione **Criar**.
 
 > [!NOTE]  
-> Se precisar aumentar a cota de núcleos do HDInsight em uma região privada, [envie uma solicitação de lista de permissões](https://aka.ms/canaryintwhitelist).
+> Se você precisar aumentar a cota de núcleo do HDInsight em uma região privada, [envie uma solicitação de lista aprovada](https://aka.ms/canaryintwhitelist).
 
-Você pode [entrar em contato com o suporte para solicitar um aumento de cota](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request).
+Você pode [entrar em contato com o suporte para solicitar um aumento de cota](../azure-portal/supportability/resource-manager-core-quotas-request.md).
 
-Há alguns limites de cota fixos. Por exemplo, uma única assinatura do Azure pode ter no máximo 10 mil núcleos. Para detalhes sobre esses limites, confira [Assinatura do Azure e limites, cotas e restrições de serviços](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
+Há alguns limites de cota fixos. Por exemplo, uma única assinatura do Azure pode ter no máximo 10 mil núcleos. Para detalhes sobre esses limites, confira [Assinatura do Azure e limites, cotas e restrições de serviços](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

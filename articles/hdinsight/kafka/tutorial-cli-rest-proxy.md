@@ -1,23 +1,20 @@
 ---
 title: 'Tutorial: Criar um cluster habilitado para proxy REST do Apache Kafka no HDInsight usando a CLI do Azure'
 description: Saiba como executar operações do Apache Kafka usando um proxy REST do Kafka no Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 02/27/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 44951fc19f36bb6652caf79ded96484bcc4b38f1
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: ff11b8461b483f5a66df19bb1b108a1fe1168fb9
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87503133"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944017"
 ---
 # <a name="tutorial-create-an-apache-kafka-rest-proxy-enabled-cluster-in-hdinsight-using-azure-cli"></a>Tutorial: Criar um cluster habilitado para proxy REST do Apache Kafka no HDInsight usando a CLI do Azure
 
-Neste tutorial, você aprenderá a criar um cluster [habilitado para proxy REST](./rest-proxy.md) do Apache Kafka no Azure HDInsight usando a CLI (interface de linha de comando) do Azure. O Azure HDInsight é um serviço de análise de software livre gerenciado e de amplo espectro para empresas. O Apache Kafka é uma plataforma de streaming distribuída de software livre. Ela é geralmente usada como um agente de mensagens, pois fornece funcionalidade semelhante a uma fila de mensagens para publicação e assinatura. O proxy REST do Kafka permite que você interaja com o cluster do Kafka por meio de uma [API REST](https://docs.microsoft.com/rest/api/hdinsight-kafka-rest-proxy/) via HTTP. A CLI do Azure é a experiência da linha de comando de plataforma cruzada da Microsoft para gerenciar os recursos do Azure.
+Neste tutorial, você aprenderá a criar um cluster [habilitado para proxy REST](./rest-proxy.md) do Apache Kafka no Azure HDInsight usando a CLI (interface de linha de comando) do Azure. O Azure HDInsight é um serviço de análise de software livre gerenciado e de amplo espectro para empresas. O Apache Kafka é uma plataforma de streaming distribuída de software livre. Ela é geralmente usada como um agente de mensagens, pois fornece funcionalidade semelhante a uma fila de mensagens para publicação e assinatura. O proxy REST do Kafka permite que você interaja com o cluster do Kafka por meio de uma [API REST](/rest/api/hdinsight-kafka-rest-proxy/) via HTTP. A CLI do Azure é a experiência da linha de comando de plataforma cruzada da Microsoft para gerenciar os recursos do Azure.
 
 A API do Apache Kafka só pode ser acessada por recursos dentro da mesma rede virtual. Você pode acessar o cluster diretamente usando SSH. Para conectar a outros serviços, redes ou máquinas virtuais ao Apache Kafka, primeiro crie uma rede virtual e, depois, crie os recursos na rede. Para saber mais, confira [Conectar-se ao Apache Kafka usando uma rede virtual](./apache-kafka-connect-vpn-gateway.md).
 
@@ -35,7 +32,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 * Um grupo de segurança do Azure AD com seu aplicativo registrado como um membro. Esse grupo de segurança será usado para controlar quais aplicativos têm permissão para interagir com o proxy REST. Para obter mais informações sobre como criar grupos do Azure AD, confira [Criar um grupo básico e adicionar membros usando o Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
-* CLI do Azure. Verifique se você tem pelo menos a versão 2.0.79. Confira [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* CLI do Azure. Verifique se você tem pelo menos a versão 2.0.79. Confira [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
 ## <a name="create-an-apache-kafka-cluster"></a>Criar um cluster do Apache Kafka
 
@@ -85,7 +82,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
     export componentVersion=kafka=2.1
     ```
 
-1. [Crie o grupo de recursos](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create) inserindo o seguinte comando:
+1. [Crie o grupo de recursos](/cli/azure/group#az-group-create) inserindo o seguinte comando:
 
     ```azurecli
      az group create \
@@ -93,7 +90,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
         --name $resourceGroupName
     ```
 
-1. [Crie uma conta de Armazenamento do Azure](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create) inserindo o seguinte comando:
+1. [Crie uma conta de Armazenamento do Azure](/cli/azure/storage/account#az-storage-account-create) inserindo o seguinte comando:
 
     ```azurecli
     # Note: kind BlobStorage is not available as the default storage account.
@@ -106,7 +103,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
         --sku Standard_LRS
     ```
 
-1. [Extraia a chave primária](https://docs.microsoft.com/cli/azure/storage/account/keys?view=azure-cli-latest#az-storage-account-keys-list) da conta de Armazenamento do Azure e armazene-a em uma variável, digitando o seguinte comando:
+1. [Extraia a chave primária](/cli/azure/storage/account/keys#az-storage-account-keys-list) da conta de Armazenamento do Azure e armazene-a em uma variável, digitando o seguinte comando:
 
     ```azurecli
     export storageAccountKey=$(az storage account keys list \
@@ -115,7 +112,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
         --query [0].value -o tsv)
     ```
 
-1. [Crie um contêiner de Armazenamento do Azure](https://docs.microsoft.com/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create) inserindo o seguinte comando:
+1. [Crie um contêiner de Armazenamento do Azure](/cli/azure/storage/container#az-storage-container-create) inserindo o seguinte comando:
 
     ```azurecli
     az storage container create \
@@ -124,7 +121,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
         --account-name $storageAccount
     ```
 
-1. [Criar o cluster HDInsight](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create). Antes de inserir o comando, observe os seguintes parâmetros:
+1. [Criar o cluster HDInsight](/cli/azure/hdinsight#az-hdinsight-create). Antes de inserir o comando, observe os seguintes parâmetros:
 
     1. Parâmetros necessários para clusters Kafka:
 

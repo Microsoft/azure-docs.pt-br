@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 03/31/2020
 ms.author: victorh
-ms.openlocfilehash: 27e8eaa7b8171d6ccc43f6abc8a4b3d1017d30cb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4757a8237aa6226b78e7c1e79ba50710e31d28e3
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84804394"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594258"
 ---
 # <a name="migrate-azure-application-gateway-and-web-application-firewall-from-v1-to-v2"></a>Migrar Aplicativo Azure gateway e firewall do aplicativo Web da v1 para a v2
 
@@ -36,6 +36,8 @@ Há um script de Azure PowerShell disponível que faz o seguinte:
 
 * O novo gateway V2 tem novos endereços IP públicos e privados. Não é possível mover os endereços IP associados ao gateway v1 existente diretamente para a v2. No entanto, você pode alocar um endereço IP público ou privado existente (não alocado) para o novo gateway v2.
 * Você deve fornecer um espaço de endereço IP para outra sub-rede em sua rede virtual onde o gateway v1 está localizado. O script não pode criar o gateway V2 em nenhuma sub-rede existente que já tenha um gateway v1. No entanto, se a sub-rede existente já tiver um gateway v2, isso ainda poderá funcionar, desde que haja espaço de endereço IP suficiente.
+* Se você tiver um grupo de segurança de rede ou rotas definidas pelo usuário associadas à sub-rede de gateway v2, verifique se eles aderem aos requisitos de [NSG](../application-gateway/configuration-infrastructure.md#network-security-groups) e [requisitos de UDR](../application-gateway/configuration-infrastructure.md#supported-user-defined-routes) para uma migração bem-sucedida
+* [As políticas de ponto de extremidade de serviço de rede virtual](../virtual-network/virtual-network-service-endpoint-policies-overview.md) atualmente não têm suporte em uma sub-rede do Gateway de Aplicativo.
 * Para migrar uma configuração de TLS/SSL, você deve especificar todos os certificados TLS/SSL usados no seu gateway v1.
 * Se você tiver o modo FIPS habilitado para o seu gateway v1, ele não será migrado para seu novo gateway v2. O modo FIPS não tem suporte na v2.
 * v2 não dá suporte a IPv6, portanto, os gateways v1 habilitados para IPv6 não são migrados. Se você executar o script, ele poderá não ser concluído.
@@ -44,7 +46,7 @@ Há um script de Azure PowerShell disponível que faz o seguinte:
 
 ## <a name="download-the-script"></a>Baixar o script
 
-Baixe o script de migração do [Galeria do PowerShell](https://www.powershellgallery.com/packages/AzureAppGWMigration).
+Baixe o script de migração do  [Galeria do PowerShell](https://www.powershellgallery.com/packages/AzureAppGWMigration).
 
 ## <a name="use-the-script"></a>Usar o script
 
@@ -55,7 +57,7 @@ Há duas opções para você dependendo da configuração e das preferências do
 
 Para determinar se você tem os módulos AZ do Azure instalados, execute `Get-InstalledModule -Name az` . Se você não vir nenhum módulo AZ instalado, poderá usar o `Install-Script` método.
 
-### <a name="install-using-the-install-script-method"></a>Instalar usando o método Install-Script
+### <a name="install-using-the-install-script-method"></a>Instalar usando o método de Install-Script
 
 Para usar essa opção, você não deve ter os módulos AZ do Azure instalados no seu computador. Se eles estiverem instalados, o comando a seguir exibirá um erro. Você pode desinstalar os módulos AZ do Azure ou usar a outra opção para baixar o script manualmente e executá-lo.
   
@@ -123,7 +125,7 @@ Para executar o script:
       $trustedCert = New-AzApplicationGatewayTrustedRootCertificate -Name "trustedCert1" -CertificateFile $certFilePath
       ```
 
-      Para criar uma lista de objetos PSApplicationGatewayTrustedRootCertificate, consulte [New-AzApplicationGatewayTrustedRootCertificate](https://docs.microsoft.com/powershell/module/Az.Network/New-AzApplicationGatewayTrustedRootCertificate?view=azps-2.1.0&viewFallbackFrom=azps-2.0.0).
+      Para criar uma lista de objetos PSApplicationGatewayTrustedRootCertificate, consulte [New-AzApplicationGatewayTrustedRootCertificate](/powershell/module/Az.Network/New-AzApplicationGatewayTrustedRootCertificate).
    * **privateIpAddress: [String]: opcional**. Um endereço IP privado específico que você deseja associar ao seu novo gateway v2.  Isso deve ser da mesma VNet que você aloca para o novo gateway v2. Se isso não for especificado, o script alocará um endereço IP privado para o seu gateway v2.
    * **publicIpResourceId: [String]: opcional**. O ResourceId do recurso de endereço IP público (SKU padrão) existente na sua assinatura que você deseja alocar para o novo gateway v2. Se isso não for especificado, o script alocará um novo IP público no mesmo grupo de recursos. O nome é o nome do gateway V2 com *-IP* acrescentado.
    * **validateMigration: [opção]: opcional**. Use esse parâmetro se desejar que o script faça algumas validações de comparação de configuração básica após a criação do gateway V2 e a cópia de configuração. Por padrão, nenhuma validação é feita.

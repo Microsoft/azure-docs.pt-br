@@ -1,14 +1,14 @@
 ---
 title: 'Tutorial: Gerenciar a governança de marcas'
 description: Neste tutorial, use o efeito Modificar do Azure Policy para criar e impor um modelo de governança de tag em recursos novos e existentes.
-ms.date: 08/17/2020
+ms.date: 10/05/2020
 ms.topic: tutorial
-ms.openlocfilehash: f49eedb00c98d3c362140fdca9b195a086903f10
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 9efeb27151cd3a32741f1bdb6d1d90d3304c5874
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545498"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91876270"
 ---
 # <a name="tutorial-manage-tag-governance-with-azure-policy"></a>Tutorial: Gerenciar a governança de marca com o Azure Policy
 
@@ -126,7 +126,12 @@ Em termos específicos a um ambiente do Azure gerenciado pelo Azure Policy, os r
         {
             "field": "name",
             "like": "prd-*"
+        },
+        {
+            "field": "tags['Env']",
+            "notEquals": "Production"
         }
+
     ]
     },
     "then": {

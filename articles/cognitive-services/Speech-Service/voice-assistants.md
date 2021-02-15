@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: travisw
-ms.openlocfilehash: 18a9de8a2eaa2364e89e831db8dab5cbbb061c10
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: fc85eec008ef099d63d538e4871a1a84573f5a18
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85299238"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790438"
 ---
 # <a name="what-is-a-voice-assistant"></a>O que é um assistente de voz?
 
@@ -27,12 +27,12 @@ O serviço assistente de voz fornece uma interação rápida e confiável entre 
 
 A primeira etapa para criar um assistente de voz é decidir o que ele deve fazer. O serviço de fala fornece várias soluções complementares para a criação de interações com o assistente. Você pode adicionar recursos de voz e saída de voz ao seu bot flexível e versátil criado usando o serviço de bot do Azure com o canal de [fala de linha direta](direct-line-speech.md) ou aproveitar a simplicidade de criar um aplicativo de [comandos personalizados](custom-commands.md) para cenários de comando de voz simples.
 
-| Se você quiser... | Em seguida, considere... | Por exemplo,... |
+| Se você quiser... | Em seguida, considere... | Por exemplo... |
 |-------------------|------------------|----------------|
 |Conversa aberta com integração de habilidades robusta e controle de implantação completo | Bot do serviço de bot do Azure com canal de [fala de linha direta](direct-line-speech.md) | <ul><li>"Preciso ir para Seattle"</li><li>"Que tipo de pizza posso encomendar?"</li></ul>
 |Comandos de voz ou conversas simples orientadas a tarefas com criação e hospedagem simplificadas | [Comandos personalizados](custom-commands.md) | <ul><li>"Ativar a luz de sobrecarga"</li><li>"Torná-lo 5 graus mais quente"</li><li>Outros exemplos [disponíveis aqui](https://speech.microsoft.com/customcommands)</li></ul>
 
-É recomendável [direcionar a linha de fala](direct-line-speech.md) como a melhor opção padrão se você ainda não tiver certeza do que deseja que seu assistente manipule. Ele oferece integração com um conjunto avançado de ferramentas e auxílios de criação, como a [solução de assistente virtual e modelo empresarial](https://docs.microsoft.com/azure/bot-service/bot-builder-enterprise-template-overview) e o [serviço de QnA Maker](https://docs.microsoft.com/azure/cognitive-services/QnAMaker/Overview/overview) para criar padrões comuns e usar suas fontes de conhecimento existentes.
+É recomendável [direcionar a linha de fala](direct-line-speech.md) como a melhor opção padrão se você ainda não tiver certeza do que deseja que seu assistente manipule. Ele oferece integração com um conjunto avançado de ferramentas e auxílios de criação, como a [solução de assistente virtual e modelo empresarial](/azure/bot-service/bot-builder-enterprise-template-overview) e o [serviço de QnA Maker](../qnamaker/overview/overview.md) para criar padrões comuns e usar suas fontes de conhecimento existentes.
 
 Os [comandos personalizados](custom-commands.md) facilitam a criação de aplicativos avançados de comando de voz otimizados para experiências de interação de voz primeiro. Ele fornece uma experiência de criação unificada, um modelo de hospedagem automático e complexidade relativamente menor, ajudando você a se concentrar na criação da melhor solução para seus cenários de comando de voz.
 
@@ -49,8 +49,8 @@ Independentemente de você escolher os comandos de [fala de linha direta](direct
 
 | Categoria | Recursos |
 |----------|----------|
-|[Palavra-chave personalizada](speech-devices-sdk-create-kws.md) | Os usuários podem iniciar conversas com assistentes com uma palavra-chave personalizada como "Ei contoso". Um aplicativo faz isso com um mecanismo de palavra-chave personalizado no SDK de fala, que pode ser configurado com uma palavra-chave personalizada [que você pode gerar aqui](speech-devices-sdk-create-kws.md). Os assistentes de voz podem usar a verificação de palavra-chave do lado do serviço para melhorar a precisão da ativação da palavra-chave (versus o dispositivo sozinho).
-|[Fala para texto](speech-to-text.md) | Os assistentes de voz convertem áudio em tempo real em texto reconhecido usando a [conversão de fala em texto](speech-to-text.md) do serviço de fala. Esse texto está disponível, como é transcrita, tanto para a implementação do assistente quanto para o aplicativo cliente.
+|[Palavra-chave personalizada](./custom-keyword-basics.md) | Os usuários podem iniciar conversas com assistentes com uma palavra-chave personalizada como "Ei contoso". Um aplicativo faz isso com um mecanismo de palavra-chave personalizado no SDK de fala, que pode ser configurado com uma palavra-chave personalizada [que você pode gerar aqui](./custom-keyword-basics.md). Os assistentes de voz podem usar a verificação de palavra-chave do lado do serviço para melhorar a precisão da ativação da palavra-chave (versus o dispositivo sozinho).
+|[Conversão de fala em texto](speech-to-text.md) | Os assistentes de voz convertem áudio em tempo real em texto reconhecido usando a [conversão de fala em texto](speech-to-text.md) do serviço de fala. Esse texto está disponível, como é transcrita, tanto para a implementação do assistente quanto para o aplicativo cliente.
 |[Conversão de texto em fala](text-to-speech.md) | As respostas textuais do assistente são sintetizadas usando a [conversão de texto em fala](text-to-speech.md) do serviço de fala. Essa síntese é disponibilizada para o aplicativo cliente como um fluxo de áudio. A Microsoft oferece a capacidade de criar sua própria voz TTS multifuncional personalizada de alta qualidade que dá uma voz à sua marca. Para saber mais, [entre em contato conosco](mailto:mstts@microsoft.com).
 
 ## <a name="getting-started-with-voice-assistants"></a>Introdução aos assistentes de voz
@@ -66,13 +66,13 @@ O código de exemplo para a criação de um assistente de voz está disponível 
 
 * [Exemplos do assistente de voz no GitHub](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant)
 * [Tutorial: Ativar voz para seu assistente criado usando o serviço de bot do Azure com o SDK de fala do C#](tutorial-voice-enable-your-bot-speech-sdk.md)
-* [Tutorial: criar um aplicativo de comandos personalizados com comandos de voz simples](how-to-custom-commands-create-application-with-simple-commands.md)
+* [Tutorial: criar um aplicativo de comandos personalizados com comandos de voz simples](./how-to-develop-custom-commands-application.md)
 
 ## <a name="customization"></a>Personalização
 
 Os assistentes de voz criados usando os serviços de fala do Azure podem usar a gama completa de opções de personalização.
 
-* [Fala Personalizada](how-to-custom-speech.md)
+* [Fala Personalizada](./custom-speech-overview.md)
 * [Voz personalizada](how-to-custom-voice.md)
 * [Palavra-chave personalizada](custom-keyword-overview.md)
 
@@ -81,7 +81,7 @@ Os assistentes de voz criados usando os serviços de fala do Azure podem usar a 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Obter gratuitamente uma chave de assinatura dos Serviços de Fala](get-started.md)
+* [Obter gratuitamente uma chave de assinatura dos Serviços de Fala](overview.md#try-the-speech-service-for-free)
 * [Saiba mais sobre comandos personalizados](custom-commands.md)
 * [Saiba mais sobre a Direct line Speech](direct-line-speech.md)
 * [Obter o SDK de Fala](speech-sdk.md)

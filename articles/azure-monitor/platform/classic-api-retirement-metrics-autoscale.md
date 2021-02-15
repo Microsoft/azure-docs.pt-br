@@ -4,12 +4,12 @@ description: APIs clássicas de métricas e de dimensionamento automático, tamb
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 11/19/2018
-ms.openlocfilehash: 38a30f2adc0de7ccb9a9a3a4ba7ed53fd5fda3f7
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: a8900d238e7542864e3dc53f9d192e579e2c96d1
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87317375"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95536686"
 ---
 # <a name="azure-monitor-retirement-of-classic-deployment-model-apis-for-metrics-and-autoscale"></a>Desativação do Azure Monitor de APIs do modelo de implantação clássico para métricas e dimensionamento automático
 
@@ -54,7 +54,7 @@ Se você não tiver certeza se seu código ou ferramentas personalizadas estão 
 
 Todos os recursos existentes para o dimensionamento automático e métricas continuarão funcionando por meio das novas APIs.  
 
-Migrar o failover para o mais recente de APIs vêm com recursos baseado no Gerenciador de Recursos, como o suporte consistente baseado em função para controle de acesso (RBAC) em todos os seus serviços de monitoramento. Você também ganha a funcionalidade adicional para métricas: 
+Migrar para APIs mais recentes vem com recursos baseados no Resource Manager, como suporte para controle de acesso baseado em função (RBAC) do Azure consistente em todos os serviços de monitoramento. Você também ganha a funcionalidade adicional para métricas: 
 
 - suporte para dimensões
 - granularidade de métricas de 1 minuto consistente em todos os serviços 

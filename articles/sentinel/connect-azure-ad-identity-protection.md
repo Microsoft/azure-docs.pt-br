@@ -9,12 +9,12 @@ ms.subservice: azure-sentinel
 ms.topic: how-to
 ms.date: 06/24/2020
 ms.author: yelevin
-ms.openlocfilehash: 69ab76bf213653ea10db8dfd181b615a7e0f47b5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f420e80f10072c440f5401c042d6370a061b1a7f
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85564468"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632234"
 ---
 # <a name="connect-data-from-azure-active-directory-azure-ad-identity-protection"></a>Conectar dados da proteção de identidade do Azure Active Directory (AD do Azure)
 
@@ -24,7 +24,6 @@ Você pode transmitir logs de [Azure ad Identity Protection](../active-directory
 
 - Você deve ter uma [assinatura Azure ad Premium P2](https://azure.microsoft.com/pricing/details/active-directory/).
 - Você deve ter um usuário com permissões de administrador global ou de administrador de segurança.
-
 
 ## <a name="connect-to-azure-ad-identity-protection"></a>Conectar-se ao Azure AD Identity Protection
 

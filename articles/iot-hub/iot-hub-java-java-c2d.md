@@ -12,12 +12,13 @@ ms.date: 06/28/2017
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: e16d0ed264f32746c11d89e88ea1e67f9383b773
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+- devx-track-java
+ms.openlocfilehash: 763b9e05adc07c02265dbb511c073b42df44ea95
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81732525"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92146866"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-java"></a>Enviar mensagens da nuvem para o dispositivo com o Hub IoT (Java)
 
@@ -50,7 +51,7 @@ No final deste tutorial, você executará dois aplicativos de console do Java:
 
 * Uma versão de trabalho completa do início rápido [Enviar telemetria de um dispositivo para um hub IoT](quickstart-send-telemetry-java.md) ou do tutorial [Configurar roteamento de mensagens com Hub IoT](tutorial-routing.md).
 
-* [Java SE Development Kit 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable). Certifique-se de selecionar **Java 8** em **Suporte de longo prazo** para obter downloads do JDK 8.
+* [Java SE Development Kit 8](/java/azure/jdk/?view=azure-java-stable). Certifique-se de selecionar **Java 8** em **Suporte de longo prazo** para obter downloads do JDK 8.
 
 * [Maven 3](https://maven.apache.org/download.cgi)
 
@@ -87,14 +88,25 @@ Nesta seção, você modificará o aplicativo de dispositivo simulado criado em 
     client.open();
     ```
 
-    > [!NOTE]
-    > Se você usar HTTPS em vez de MQTT ou AMQP como transporte, a instância **DeviceClient** verificará se há mensagens do Hub IoT com pouca frequência (menos de cada 25 minutos). Para obter mais informações sobre as diferenças entre o suporte a MQTT, AMQP e HTTPS e a limitação do IoT Hub, consulte a seção de [mensagens do guia do desenvolvedor do Hub IoT](iot-hub-devguide-messaging.md).
-
 4. Para compilar o aplicativo **simulated-device** usando o Maven, execute o comando a seguir no prompt de comando na pasta simulated-device:
 
     ```cmd/sh
     mvn clean package -DskipTests
     ```
+
+O `execute` método na `AppMessageCallback` classe retorna `IotHubMessageResult.COMPLETE` . Isso notifica o Hub IoT de que a mensagem foi processada com êxito e que a mensagem pode ser removida com segurança da fila do dispositivo. O dispositivo deve retornar esse valor quando seu processamento for concluído com êxito, independentemente do protocolo que estiver usando.
+
+Com AMQP e HTTPS, mas não MQTT, o dispositivo também pode:
+
+* Abandone uma mensagem, que resulta no Hub IoT reter a mensagem na fila do dispositivo para consumo futuro.
+* Rejeite uma mensagem, que remove permanentemente a mensagem da fila do dispositivo.
+
+Se algo acontecer que impede que o dispositivo conclua, abandone ou rejeite a mensagem, o Hub IoT irá, após um período de tempo limite fixo, enfileirar a mensagem para entrega novamente. Por esse motivo, a lógica de processamento de mensagens no aplicativo do dispositivo deve ser *idempotente*, de modo que o recebimento da mesma mensagem várias vezes produz o mesmo resultado.
+
+Para obter informações mais detalhadas sobre como o Hub IoT processa mensagens da nuvem para o dispositivo, incluindo detalhes do ciclo de vida da mensagem da nuvem para o dispositivo, consulte [enviar mensagens da nuvem para o dispositivo de um hub IOT](iot-hub-devguide-messages-c2d.md).
+
+> [!NOTE]
+> Se você usar HTTPS em vez de MQTT ou AMQP como o transporte, a instância **DeviceClient** verificará mensagens do Hub IOT com pouca frequência (no mínimo a cada 25 minutos). Para obter mais informações sobre as diferenças entre o suporte a MQTT, AMQP e HTTPS, consulte [diretrizes de comunicação da nuvem para o dispositivo](iot-hub-devguide-c2d-guidance.md) e [escolha um protocolo de comunicação](iot-hub-devguide-protocols.md).
 
 ## <a name="get-the-iot-hub-connection-string"></a>Obter a cadeia de conexão do hub IoT
 

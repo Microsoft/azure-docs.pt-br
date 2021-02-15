@@ -8,32 +8,32 @@ ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: cf6cfdc00d38b72f292f2b3ed41a633fb9cf989d
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 24dafd63de1a37140c6a56547c4701729df1c8fb
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502725"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566547"
 ---
 # <a name="create-an-application-gateway-with-tls-termination-using-the-azure-cli"></a>Criar um gateway de aplicativo com terminação TLS usando o CLI do Azure
 
-Você pode usar o CLI do Azure para criar um [Gateway de aplicativo](overview.md) com um certificado para [terminação TLS](ssl-overview.md). Para servidores de back-end, você pode usar um [conjunto de dimensionamento de máquinas virtuais](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) . Neste exemplo, o conjunto de dimensionamento contém duas instâncias de máquina virtual que são adicionadas ao pool de back-end padrão do gateway de aplicativo.
+Você pode usar o CLI do Azure para criar um [Gateway de aplicativo](overview.md) com um certificado para [terminação TLS](ssl-overview.md). Para servidores de back-end, você pode usar um [conjunto de dimensionamento de máquinas virtuais](../virtual-machine-scale-sets/overview.md) . Neste exemplo, o conjunto de dimensionamento contém duas instâncias de máquina virtual que são adicionadas ao pool de back-end padrão do gateway de aplicativo.
 
 Neste artigo, você aprenderá como:
 
-> [!div class="checklist"]
-> * Criará um certificado autoassinado
-> * Configurar uma rede
-> * Criar um gateway de aplicativo com o certificado
-> * Criar um conjunto de dimensionamento de máquinas virtuais com o pool de back-end padrão
+* Criará um certificado autoassinado
+* Configurar uma rede
+* Criar um gateway de aplicativo com o certificado
+* Criar um conjunto de dimensionamento de máquinas virtuais com o pool de back-end padrão
 
 Se preferir, você poderá concluir este procedimento usando o [Azure PowerShell](tutorial-ssl-powershell.md).
 
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Caso opte por instalar e usar a CLI localmente, este artigo exigirá que você execute a CLI do Azure versão 2.0.4 ou posterior. Para saber qual é a versão, execute `az --version`. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+
+ - Este tutorial requer a versão 2.0.4 ou posterior do CLI do Azure. Se você está usando o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ## <a name="create-a-self-signed-certificate"></a>Criará um certificado autoassinado
 

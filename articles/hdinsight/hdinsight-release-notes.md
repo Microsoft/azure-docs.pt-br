@@ -1,19 +1,16 @@
 ---
 title: Notas da versão mais recente do Microsoft Azure HDInsight
 description: Notas da versão mais recente do Microsoft Azure HDInsight. Obtenha detalhes e dicas de desenvolvimento para Hadoop, Spark, Microsoft R Server, Hive e muito mais.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 08/25/2020
-ms.openlocfilehash: 0587a179b98a410cdba46b7817d86567f275f25d
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.date: 02/08/2021
+ms.openlocfilehash: 1a0b1a0400ae3d43817921e8a336421aee35ccd6
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826813"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100378138"
 ---
 # <a name="azure-hdinsight-release-notes"></a>Notas de versão do Azure HDInsight
 
@@ -23,56 +20,52 @@ Este artigo fornece informações sobre as atualizações de versão **mais rece
 
 O Microsoft Azure HDInsight é um dos serviços mais populares entre os clientes empresariais para análise de software livre no Azure.
 
-## <a name="release-date-08092020"></a>Data de lançamento: 08/09/2020
+Se você quiser assinar as notas de versão, Assista a versões neste [repositório GitHub](https://github.com/hdinsight/release-notes/releases).
 
-Esta versão se aplica somente ao HDInsight 4,0. A versão do HDInsight é disponibilizada para todas as regiões durante vários dias. A data de lançamento mostrada aqui indica a data de lançamento da primeira região. Se você não vir as alterações abaixo, aguarde até que a liberação seja ativada em sua região em vários dias.
+## <a name="release-date-02052021"></a>Data de lançamento: 02/05/2021
+
+Esta versão se aplica tanto ao HDInsight 3,6 quanto ao HDInsight 4,0. A versão do HDInsight é disponibilizada para todas as regiões durante vários dias. A data de lançamento mostrada aqui indica a data de lançamento da primeira região. Se você não vir as alterações abaixo, aguarde até que a liberação seja ativada em sua região em vários dias.
 
 ## <a name="new-features"></a>Novos recursos
-### <a name="support-for-sparkcruise"></a>Suporte para SparkCruise
-SparkCruise é um sistema de reutilização de computação automática para Spark. Ele seleciona subexpressões comuns para materializar com base na carga de trabalho de consulta anterior. O SparkCruise materializa essas subexpressões como parte do processamento de consulta e a reutilização de computação é aplicada automaticamente em segundo plano. Você pode se beneficiar do SparkCruise sem nenhuma modificação no código do Spark.
- 
-### <a name="support-hive-view-for-hdinsight-40"></a>Suporte à exibição do hive para o HDInsight 4,0
-A exibição do hive do Apache Ambari foi projetada para ajudá-lo a criar, otimizar e executar consultas do hive a partir do seu navegador da Web. A exibição do hive tem suporte nativo para clusters HDInsight 4,0 a partir desta versão. Ele não se aplica a clusters existentes. Você precisa remover e recriar o cluster para obter a exibição interna do hive.
- 
-### <a name="support-tez-view-for-hdinsight-40"></a>Suporte à exibição do tez para o HDInsight 4,0
-Apache Tez exibição é usada para rastrear e depurar a execução do trabalho do hive tez. A exibição tez tem suporte nativo para o HDInsight 4,0 a partir desta versão. Ele não se aplica a clusters existentes. Você precisa remover e recriar o cluster para obter a exibição tez interna.
+### <a name="dav4-series-support"></a>Suporte da série Dav4
+O HDInsight acrescentou suporte à série Dav4 nesta versão. Saiba mais sobre [a série Dav4 aqui](https://docs.microsoft.com/azure/virtual-machines/dav4-dasv4-series).
+
+### <a name="kafka-rest-proxy-ga"></a>GA do proxy REST do Kafka 
+O proxy REST do Kafka permite que você interaja com o cluster do Kafka por meio de uma API REST por HTTPS. O proxy REST do Kafka está geral disponível a partir desta versão. Saiba mais sobre o [proxy REST do Kafka aqui](https://docs.microsoft.com/azure/hdinsight/kafka/rest-proxy).
+
+### <a name="moving-to-azure-virtual-machine-scale-sets"></a>Migrar para Conjuntos de Dimensionamento de Máquinas Virtuais do Azure
+O HDInsight atualmente usa máquinas virtuais do Azure para provisionar o cluster. O serviço está migrando gradualmente para os [conjuntos de dimensionamento de máquinas virtuais do Azure](../virtual-machine-scale-sets/overview.md). Todo o processo pode levar meses. Depois que suas regiões e assinaturas forem migradas, os clusters HDInsight recém-criados serão executados em conjuntos de dimensionamento de máquinas virtuais sem ações do cliente. Nenhuma alteração significativa é esperada.
 
 ## <a name="deprecation"></a>Reprovação
-### <a name="deprecation-of-spark-21-and-22-in-hdinsight-36-spark-cluster"></a>Substituição do Spark 2.1 e 2.2 no cluster do Spark do HDInsight 3.6
-A partir de julho de 1 2020, os clientes não podem criar novos clusters Spark com Spark 2,1 e 2,2 no HDInsight 3,6. Os clusters existentes serão executados como estão, sem o suporte da Microsoft. Considere a possibilidade de migrar para o Spark 2.3 no HDInsight 3.6 até 30 de junho de 2020 para evitar a interrupção potencial do sistema/suporte.
- 
-### <a name="deprecation-of-spark-23-in-hdinsight-40-spark-cluster"></a>Substituição do Spark 2.3 no cluster do Spark do HDInsight 4.0
-A partir de julho de 1 2020, os clientes não podem criar novos clusters Spark com o Spark 2,3 no HDInsight 4,0. Os clusters existentes serão executados como estão, sem o suporte da Microsoft. Considere a possibilidade de migrar para o Spark 2.4 no HDInsight 4.0 até 30 de junho de 2020 para evitar a interrupção potencial do sistema/suporte.
- 
-### <a name="deprecation-of-kafka-11-in-hdinsight-40-kafka-cluster"></a>Substituição do Kafka 1.1 no cluster Kafka do HDInsight 4.0
-A partir de 1º de julho de 2020, os clientes não poderão criar clusters Kafka com Kafka 1.1 no HDInsight 4.0. Os clusters existentes serão executados como estão, sem o suporte da Microsoft. Considere a possibilidade de migrar para o Kafka 2.1 no HDInsight 4.0 até 30 de junho de 2020 para evitar a interrupção potencial do sistema/suporte.
+### <a name="disabled-vm-sizes"></a>Tamanhos de VM desabilitados
+A partir do formulário de janeiro de 9 2021, o HDInsight bloqueará todos os clientes que criam clusters usando standand_A8, standand_A9, standand_A10 e standand_A11 tamanhos de VM. Os clusters existentes serão executados como estão. Considere migrar para o HDInsight 4,0 para evitar a interrupção potencial do sistema/suporte.
 
 ## <a name="behavior-changes"></a>Alterações de comportamento
-### <a name="ambari-stack-version-change"></a>Alteração da versão do Ambari Stack
-A partir desta versão, a versão do Ambari é alterada de 2. x. x para 4,1. Você pode obter a versão Ambari da interface do usuário do Ambari > sobre o.
+### <a name="default-cluster-vm-size-changes-to-ev3-series"></a>Alterações de tamanho de VM de cluster padrão para a série Ev3 
+Os tamanhos de VM de cluster padrão serão alterados de D-Series para Ev3-Series. Essa alteração se aplica a nós de cabeçalho e nós de trabalho. Para evitar essa alteração afetando os fluxos de trabalho testados, especifique os tamanhos de VM que você deseja usar no modelo ARM.
+
+### <a name="network-interface-resource-not-visible-for-clusters-running-on-azure-virtual-machine-scale-sets"></a>Recurso de interface de rede não visível para clusters em execução em conjuntos de dimensionamento de máquinas virtuais do Azure
+O HDInsight está migrando gradualmente para os conjuntos de dimensionamento de máquinas virtuais do Azure. As interfaces de rede para máquinas virtuais não são mais visíveis para os clientes para clusters que usam conjuntos de dimensionamento de máquinas virtuais do Azure.
+
+
+### <a name="breaking-change-for-net-for-apache-spark-100"></a>Alteração significativa para .NET para Apache Spark 1.0.0
+Com a versão mais recente, o HDInsight apresenta a primeira versão oficial v 1.0.0 da biblioteca [".NET for Apache Spark"](https://github.com/dotnet/spark) . Ele fornece a integridade do dataframe API para o Spark 2.4. x e o Spark 3.0. x, juntamente com um host de [outros recursos](https://github.com/dotnet/spark/blob/master/docs/release-notes/1.0.0/release-1.0.0.md). Haverá alterações significativas para essa versão principal, consulte [o guia de migração do .net para Apache Spark](https://github.com/dotnet/spark/blob/master/docs/migration-guide.md#upgrading-from-microsoftspark-0x-to-10) para entender as etapas necessárias para atualizar seu código e pipelines. Para saber mais, consulte este [.net para Apache Spark v 1.0 no guia do Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/spark/spark-dotnet-version-update#using-net-for-apache-spark-v10-in-hdinsight).
+
 
 ## <a name="upcoming-changes"></a>Alterações futuras
-Não há alterações futuras que você precise prestar atenção.
+As alterações a seguir ocorrerão em versões futuras.
+
+### <a name="default-cluster-version-will-be-changed-to-40"></a>A versão de cluster padrão será alterada para 4,0
+A partir de fevereiro de 2021, a versão padrão do cluster HDInsight será alterada de 3,6 para 4,0. Para obter mais informações sobre as versões disponíveis, consulte [versões disponíveis](./hdinsight-component-versioning.md#available-versions). Saiba mais sobre o que há de novo no [HDInsight 4,0](./hdinsight-version-release.md).
+
+### <a name="os-version-upgrade"></a>Atualização de versão do so
+O HDInsight está atualizando a versão do sistema operacional do Ubuntu 16, 4 para 18, 4. A atualização será concluída antes de abril de 2021.
+
+### <a name="hdinsight-36-end-of-support-on-june-30-2021"></a>Fim do suporte do HDInsight 3,6 em junho de 30 2021
+O HDInsight 3,6 será o fim do suporte. A partir do formulário de junho de 30 2021, os clientes não podem criar novos clusters HDInsight 3,6. Os clusters existentes serão executados como estão, sem o suporte da Microsoft. Considere migrar para o HDInsight 4,0 para evitar a interrupção potencial do sistema/suporte.
 
 ## <a name="bug-fixes"></a>Correções de bug
 O HDInsight continua a fazer aprimoramentos de desempenho e confiabilidade do cluster. 
 
-Abaixo, os JIRAs são portados de volta para o hive:
-* [HIVE-23619](https://issues.apache.org/jira/browse/HIVE-23619)
-* [HIVE-21223](https://issues.apache.org/jira/browse/HIVE-21223)
-* [HIVE-22599](https://issues.apache.org/jira/browse/HIVE-22599)
-* [HIVE-22121](https://issues.apache.org/jira/browse/HIVE-22121)
-* [HIVE-22136](https://issues.apache.org/jira/browse/HIVE-22136)
-* [HIVE-18786](https://issues.apache.org/jira/browse/HIVE-18786)
-
-Abaixo, os JIRAs são portados de volta para o HBase:
-* [HBASE-21458](https://issues.apache.org/jira/browse/HBASE-21458)
-* [HBASE-24208](https://issues.apache.org/jira/browse/HBASE-24208)
-* [HBASE-24205](https://issues.apache.org/jira/browse/HBASE-24205)
-
 ## <a name="component-version-change"></a>Alteração na versão do componente
-Nenhuma alteração de versão de componente para esta versão. Você pode encontrar as versões de componente atuais para HDInsight 4,0 e HDInsight 3,6 neste [documento](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#apache-hadoop-components-available-with-different-hdinsight-versions).
-
-## <a name="known-issues"></a>Problemas conhecidos
-
-Um problema foi corrigido no portal do Azure, onde os usuários estavam tendo um erro ao criar um cluster do Azure HDInsight usando um tipo de autenticação SSH de chave pública. Quando os usuários clicarem em **revisar + criar**, eles receberão o erro "não deve conter três caracteres consecutivos do nome de usuário SSH". Esse problema foi corrigido, mas pode ser necessário atualizar o cache do navegador pressionando CTRL + F5 para carregar a exibição corrigida. A solução alternativa para esse problema era criar um cluster com um modelo ARM. 
+Nenhuma alteração de versão de componente para esta versão. Você pode encontrar as versões de componente atuais para HDInsight 4,0 e HDInsight 3,6 neste [documento](./hdinsight-component-versioning.md).

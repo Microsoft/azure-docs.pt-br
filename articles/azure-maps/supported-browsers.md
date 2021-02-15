@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: e6d4ea19e5547adb7bee25f4bdce295eb9a76d44
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 6321b96cb3db570102f138dcfd949d9c32daedbc
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88002932"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100384462"
 ---
 # <a name="web-sdk-supported-browsers"></a>Navegadores compatíveis com o SDK Web
 
-O SDK da Web do Azure Maps fornece uma função auxiliar chamada [Atlas. IsSupported](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas?view=azure-iot-typescript-latest#issupported-boolean-). Essa função detecta se um navegador da Web tem o conjunto mínimo de recursos de WebGL necessários para dar suporte ao carregamento e renderização do controle de mapa. Aqui está um exemplo de como usar a função:
+O SDK da Web do Azure Maps fornece uma função auxiliar chamada [Atlas. IsSupported](/javascript/api/azure-maps-control/atlas#issupported-boolean-). Essa função detecta se um navegador da Web tem o conjunto mínimo de recursos de WebGL necessários para dar suporte ao carregamento e renderização do controle de mapa. Aqui está um exemplo de como usar a função:
 
 ```JavaScript
 if (!atlas.isSupported()) {
@@ -36,11 +36,11 @@ O SDK da Web do Azure Maps dá suporte aos seguintes navegadores da área de tra
 - Microsoft Edge (versão atual e anterior)
 - Google Chrome (versão atual e anterior)
 - Mozilla Firefox (versão atual e anterior)
-- Apple Safari (Mac OS X) (versão atual e anterior)
+- Apple Safari (macOS X) (versão atual e anterior)
 
 Consulte também [direcionar navegadores herdados](#Target-Legacy-Browsers) mais adiante neste artigo.
 
-## <a name="mobile"></a>Móvel
+## <a name="mobile"></a>Dispositivos móveis
 
 O SDK da Web do Azure Maps dá suporte aos seguintes navegadores móveis:
 
@@ -59,11 +59,11 @@ O SDK da Web do Azure Maps dá suporte aos seguintes navegadores móveis:
 
 Os seguintes módulos do SDK da Web também têm suporte no Node.js:
 
-- Módulo de serviços[documentation](how-to-use-services-module.md)(  |  [módulo NPM](https://www.npmjs.com/package/azure-maps-rest)de documentação)
+- Módulo de serviços[](how-to-use-services-module.md)(  |  [módulo NPM](https://www.npmjs.com/package/azure-maps-rest)de documentação)
 
 ## <a name="target-legacy-browsers"></a><a name="Target-Legacy-Browsers"></a>Direcionar navegadores herdados
 
-Talvez você queira direcionar para navegadores mais antigos que não dão suporte a WebGL ou que tenham apenas suporte limitado para ele. Nesses casos, recomendamos que você use os serviços do Azure Maps junto com um controle de mapa de código-fonte aberto como [Leaflet](https://leafletjs.com/). Este é um exemplo:
+Talvez você queira direcionar para navegadores mais antigos que não dão suporte a WebGL ou que tenham apenas suporte limitado para ele. Nesses casos, recomendamos que você use os serviços do Azure Maps junto com um controle de mapa de código-fonte aberto como [Leaflet](https://leafletjs.com/). Aqui está um exemplo que usa o [plug-in Leaflet do Azure Maps](https://github.com/azure-samples/azure-maps-leaflet)de código aberto.
 
 <br/>
 
@@ -71,13 +71,14 @@ Talvez você queira direcionar para navegadores mais antigos que não dão supor
 Consulte a caneta <a href='https://codepen.io/azuremaps/pen/GeLgyx/'>Azure Maps + Leaflet</a> pelo Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
+Exemplos de código adicionais usando mapas do Azure no Leaflet podem ser encontrados [aqui](https://azuremapscodesamples.azurewebsites.net/?search=leaflet).
+
+[Aqui](open-source-projects.md#third-part-map-control-plugins) estão alguns controles populares de mapa de código-fonte aberto para os quais a equipe do Azure Maps criou plug-ins.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre o SDK da Web do Azure Maps:
 
-> [!div class="nextstepaction"]
-> [Controle de mapeamento](how-to-use-map-control.md)
+[Controle de mapeamento](how-to-use-map-control.md)
 
-> [!div class="nextstepaction"]
-> [Módulo de serviços](how-to-use-services-module.md)
+[Módulo de serviços](how-to-use-services-module.md)

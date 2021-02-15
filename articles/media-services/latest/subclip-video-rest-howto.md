@@ -1,24 +1,24 @@
 ---
-title: Subclipe um vídeo ao codificar com REST dos serviços de mídia do Azure
+title: Subclipe um vídeo ao codificar com REST dos serviços de mídia
 description: Este tópico descreve como subcortar um vídeo ao codificar com os serviços de mídia do Azure usando REST
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/10/2019
-ms.author: juliako
-ms.openlocfilehash: b112b3844ddb3758b79a086b624a227127e65ce2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.author: inhenkel
+ms.openlocfilehash: 6c287e168289082b2bd717a2706dd011c7115691
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091871"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955659"
 ---
 # <a name="subclip-a-video-when-encoding-with-media-services---rest"></a>Subclipe um vídeo ao codificar com os serviços de mídia-REST
 
@@ -49,7 +49,7 @@ Para concluir as etapas descritas neste tópico, você precisa:
 1. Atualize o valor da variável de ambiente "transformName" com o nome da transformação. 
 1. Selecione a guia **corpo** e atualize o "myOutputAsset" com o nome do ativo de saída.
 
-    ```
+    ```json
     {
       "properties": {
         "description": "A Job with transform cb9599fb-03b3-40eb-a2ff-7ea909f53735 and single clip.",
@@ -58,8 +58,8 @@ Para concluir as etapas descritas neste tópico, você precisa:
           "@odata.type": "#Microsoft.Media.JobInputHttp",
           "baseUri": "https://nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/",
           "files": [
-                "Ignite-short.mp4"
-            ],
+            "Ignite-short.mp4"
+          ],
           "start": {
             "@odata.type": "#Microsoft.Media.AbsoluteClipTime",
             "time": "PT10S"

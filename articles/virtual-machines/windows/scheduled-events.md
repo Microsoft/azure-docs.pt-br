@@ -8,12 +8,13 @@ ms.workload: infrastructure-services
 ms.date: 06/01/2020
 ms.author: ericrad
 ms.reviwer: mimckitt
-ms.openlocfilehash: b6e877f4e4ce7b50a2e50a2925850b9f533b7f97
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: e4b5248ecb47c9456836aa9c4d7ebb2ad122c1dd
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88814817"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98231864"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Serviço de Metadados do Azure: Eventos Agendados para VMs do Windows
 
@@ -54,6 +55,7 @@ Os eventos agendados são entregues a:
 - Máquinas virtuais autônomas.
 - Todas as VMs em um serviço de nuvem.
 - Todas as VMs em um conjunto de disponibilidade.
+- Todas as VMs em uma zona de disponibilidade.
 - Todas as VMs em um grupo de posicionamento do conjunto de dimensionamento. 
 
 > [!NOTE]
@@ -133,7 +135,7 @@ No caso de haver eventos agendados, a resposta contém uma matriz de eventos.
 | EventId | Identificador global exclusivo para esse evento. <br><br> Exemplo: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
 | EventType | Impacto desse evento. <br><br> Valores: <br><ul><li> `Freeze`: A máquina virtual está agendada para ser colocada em pausa por alguns segundos. A conectividade de CPU e rede pode ser suspensa, mas não há nenhum impacto na memória ou arquivos abertos.<li>`Reboot`: A Máquina Virtual está agendada para ser reinicializada (a memória não persistente é perdida). <li>`Redeploy`: A Máquina Virtual está agendada para ser movida para outro nó (os discos efêmeros são perdidos). <li>`Preempt`: A máquina virtual spot está sendo excluída (discos efêmeros são perdidos). <li> `Terminate`: a máquina virtual está agendada para ser excluída. |
 | ResourceType | O tipo de recurso que esse evento afeta. <br><br> Valores: <ul><li>`VirtualMachine`|
-| Recursos| A lista de recursos que esse evento afeta. É garantido que a lista contém máquinas de no máximo um [domínio de atualização](manage-availability.md), mas pode não conter todas as máquinas no UD. <br><br> Exemplo: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
+| Recursos| A lista de recursos que esse evento afeta. É garantido que a lista contém máquinas de no máximo um [domínio de atualização](../manage-availability.md), mas pode não conter todas as máquinas no UD. <br><br> Exemplo: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
 | EventStatus | Status desse evento. <br><br> Valores: <ul><li>`Scheduled`: Esse evento está agendado para ser iniciado após o tempo especificado na propriedade `NotBefore`.<li>`Started`: Esse evento foi iniciado.</ul> Nenhum `Completed` ou status semelhante é fornecido em nenhum momento. O evento não é mais retornado quando é concluído.
 | NotBefore| Tempo após o qual esse evento pode começar. <br><br> Exemplo: <br><ul><li> Segunda-feira, 19 de setembro de 2016 18:29:47 GMT  |
 | Descrição | A descrição deste evento. <br><br> Exemplo: <br><ul><li> O servidor host está passando por manutenção. |
@@ -152,6 +154,10 @@ Cada evento é agendado uma quantidade mínima de tempo no futuro com base no ti
 
 > [!NOTE] 
 > Em alguns casos, o Azure é capaz de prever a falha do host devido a hardware degradado e agendará uma migração para tentar reduzir a interrupção em seu serviço. As máquinas virtuais afetadas receberão um evento agendado com um `NotBefore`, que normalmente é de alguns dias no futuro. O tempo real depende da avaliação de risco da falha prevista. O Azure tenta avisar com sete dias de antecedência, quando possível, mas o tempo real varia e poderá ser menor se houver uma previsão de grande chance de falha de software iminente. Para minimizar o risco para o serviço caso o hardware falhe antes da migração iniciada pelo sistema, recomendamos que você reimplante sua máquina virtual assim que possível.
+
+### <a name="polling-frequency"></a>Frequência de sondagem
+
+Você pode sondar o ponto de extremidade para atualizações com frequência ou com pouca frequência como desejar. No entanto, quanto maior o tempo entre as solicitações, mais tempo você pode perder para reagir a um evento futuro. A maioria dos eventos tem de 5 a 15 minutos de aviso prévio, embora, em alguns casos, o aviso de antecedência possa ser de até 30 segundos. Para garantir que você tenha o máximo de tempo possível para realizar ações de mitigação, recomendamos que você monitore o serviço uma vez por segundo.
 
 ### <a name="start-an-event"></a>Iniciar um evento 
 

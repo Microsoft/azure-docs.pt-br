@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: 101e42263e46c5a21f26b0fa9cdeed798525fee9
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89047062"
 ---
 # <a name="set-up-disaster-recovery-at-scale-for-vmware-vmsphysical-servers"></a>Configurar a recuperação de desastre em escala para VMs VMware/servidores físicos
@@ -100,8 +100,8 @@ O que significa conformidade? Para iniciar uma VM do Azure, o Azure requer algun
 
 **O computador está em conformidade com o Azure?** | **Limites de VM do Azure (failover de disco gerenciado)**
 --- | --- 
-Yes | 2000
-No | 1000
+Sim | 2000
+Não | 1000
 
 - Os limites pressupõem que outros trabalhos mínimos estão em andamento na região de destino da assinatura.
 - Algumas regiões do Azure são menores e podem ter limites ligeiramente menores.
@@ -127,7 +127,7 @@ Após o failover para o Azure, você precisa que suas cargas de trabalho operem 
  
 A capacidade do servidor de configuração é afetada pelo número de máquinas que estão replicando e não pela taxa de rotatividade de dados. Para descobrir se você precisa de servidores de configuração adicionais, use esses limites de VM definidos.
 
-**CPU** | **Memória** | **Disco de cache** | **Limite de máquina replicada**
+**CPU** | **Memória** | **Cache de disco** | **Limite de máquina replicada**
  --- | --- | --- | ---
 8 vCPUs<br> 2 soquetes * 4 núcleos @ 2,5 GHz | 16 GB | 600 GB | Até 550 computadores<br> Pressupõe que cada computador tenha três discos de 100 GB cada.
 
@@ -153,7 +153,7 @@ A capacidade do servidor de processo é afetada pelas taxas de rotatividade de d
 - Recomendamos que você adicione um servidor com a especificação mais alta. 
 
 
-**CPU** | **Memória** | **Disco de cache** | **Taxa de rotatividade**
+**CPU** | **Memória** | **Cache de disco** | **Taxa de rotatividade**
  --- | --- | --- | --- 
 12 vCPUs<br> 2 soquetes * 6 núcleos @ 2,5 GHz | 24 GB | 1 GB | Até 2 TB por dia
 

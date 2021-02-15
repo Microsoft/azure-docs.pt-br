@@ -1,5 +1,6 @@
 ---
-title: Mover para produção um aplicativo Web que chama APIs da Web-plataforma de identidade da Microsoft | Azure
+title: Mover para produção um aplicativo Web que chama APIs da Web | Azure
+titleSuffix: Microsoft identity platform
 description: Saiba como mover para produção um aplicativo Web que chama APIs da Web.
 services: active-directory
 author: jmprieur
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 6404d00b87b9ee745b9e3a92c646404e574417c1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6252e33631fb07a61ed3c1ac2be65762b290600b
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80881654"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98753211"
 ---
 # <a name="a-web-app-that-calls-web-apis-move-to-production"></a>Um aplicativo Web que chama APIs da Web: mover para produção
 
@@ -34,8 +35,7 @@ Saiba mais experimentando o tutorial completo e progressivo para ASP.NET Core ap
 - Manipula o consentimento incremental.
 - Chama sua própria API Web.
 
-> [!div class="nextstepaction"]
-> [Tutorial do aplicativo Web ASP.NET Core](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial#scope-of-this-tutorial)
+[Tutorial do aplicativo Web ASP.NET Core](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial#scope-of-this-tutorial)
 
 <!--- Removing this diagram as it's already shown from the next step linked tutorial
 

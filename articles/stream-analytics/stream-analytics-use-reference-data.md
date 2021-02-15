@@ -3,20 +3,19 @@ title: Usar dados de referência para pesquisas no Azure Stream Analytics
 description: Este artigo descreve como usar dados de referência para pesquisar ou correlacionar dados no design de consulta de um trabalho do Azure Stream Analytics.
 author: jseb225
 ms.author: jeanb
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 5/11/2020
-ms.openlocfilehash: 8aae9a0ff3ffdbd4f6bc93db5c6f15dcb938080e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 12/18/2020
+ms.openlocfilehash: e05a4cbbc5fefbfe8a92914ef480f32bdf43ca37
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84196432"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99560222"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Usar dados de referência para pesquisas no Stream Analytics
 
-Os dados de referência (também conhecidos como uma tabela de pesquisa) são um conjunto de dados finito estático ou com alteração lenta por natureza, usados para executar uma pesquisa ou para aumentar seus fluxos de dados. Por exemplo, em um cenário de IoT, você pode armazenar metadados sobre sensores (que não são alterados com frequência) em dados de referência e uni-los a fluxos de dados de IoT em tempo real. O Azure Stream Analytics carrega dados de referência na memória para obter um processamento de fluxo de baixa latência. Para fazer uso de dados de referência em seu trabalho de Azure Stream Analytics, você geralmente usará uma [junção de dados de referência](https://docs.microsoft.com/stream-analytics-query/reference-data-join-azure-stream-analytics) em sua consulta. 
+Os dados de referência (também conhecidos como uma tabela de pesquisa) são um conjunto de dados finito estático ou com alteração lenta por natureza, usados para executar uma pesquisa ou para aumentar seus fluxos de dados. Por exemplo, em um cenário de IoT, você pode armazenar metadados sobre sensores (que não são alterados com frequência) em dados de referência e uni-los a fluxos de dados de IoT em tempo real. O Azure Stream Analytics carrega dados de referência na memória para obter um processamento de fluxo de baixa latência. Para fazer uso de dados de referência em seu trabalho de Azure Stream Analytics, você geralmente usará uma [junção de dados de referência](/stream-analytics-query/reference-data-join-azure-stream-analytics) em sua consulta. 
 
 ## <a name="example"></a>Exemplo  
 Você pode ter um fluxo em tempo real de eventos gerados quando carros passarem um estande de chamada. O estande de chamada pode capturar a placa de licença em tempo real e ingressar com um conjunto de informações estático que tem detalhes de registro para identificar as placas de licença que expiraram.  
@@ -33,7 +32,7 @@ O Stream Analytics dá suporte ao Armazenamento de Blobs do Azure e ao Banco de 
 
 ## <a name="azure-blob-storage"></a>Armazenamento de Blobs do Azure
 
-Dados de referência são modelados como uma sequência de blobs (definidos na configuração de entrada) em ordem crescente segundo a data/hora especificada no nome do blob. Ele **somente** dá suporte à adição ao final da sequência usando um valor de data/hora **maior** que aquele especificado pelo último blob na sequência.
+Dados de referência são modelados como uma sequência de blobs (definidos na configuração de entrada) em ordem crescente segundo a data/hora especificada no nome do blob. Ele **somente** dá suporte à adição ao final da sequência usando um valor de data/hora **maior** que aquele especificado pelo último blob na sequência. Para obter mais informações, consulte [usar dados de referência de um armazenamento de BLOBs para um trabalho de Azure Stream Analytics](data-protection.md).
 
 ### <a name="configure-blob-reference-data"></a>Configurar dados de referência de blob
 
@@ -42,7 +41,7 @@ Para configurar os dados de referência, você primeiro precisa criar uma entrad
 |**Nome da propriedade**  |**Descrição**  |
 |---------|---------|
 |Alias de entrada   | Um nome amigável que será usado na consulta de trabalho para fazer referência a essa entrada.   |
-|Conta de Armazenamento   | O nome da conta de armazenamento onde estão localizados os blobs. Se estiver na mesma assinatura que o trabalho do Stream Analytics, você pode selecioná-lo na lista suspensa.   |
+|Conta de armazenamento   | O nome da conta de armazenamento onde estão localizados os blobs. Se estiver na mesma assinatura que o trabalho do Stream Analytics, você pode selecioná-lo na lista suspensa.   |
 |Chave da conta de armazenamento   | A chave secreta associada à conta de armazenamento. É preenchida automaticamente se a conta de armazenamento estiver na mesma assinatura que o trabalho do Stream Analytics.   |
 |Contêiner de armazenamento   | Os contêineres fornecem um agrupamento lógico de blobs armazenados no serviço Blob do Microsoft Azure. Quando você carrega um blob no serviço Blob, você deve especificar um contêiner para aquele blob.   |
 |Padrão de caminho   | Essa é uma propriedade necessária que é usada para localizar seus BLOBs dentro do contêiner especificado. No caminho, você pode optar por especificar uma ou mais instâncias das duas variáveis a seguir:<BR>{data}, {hora}<BR>Exemplo 1: products/{data}/{hora}/product-list.csv<BR>Exemplo 2: products/{data}/product-list.csv<BR>Exemplo 3: product-list.csv<BR><br> Se o blob não existir no caminho especificado, o trabalho do Stream Analytics aguardará indefinidamente que o blob fique disponível.   |
@@ -96,7 +95,7 @@ Com a opção de consulta delta, o Stream Analytics executa a consulta de instan
 
 Para configurar os dados de referência do Banco de Dados SQL, primeiro você precisará criar a entrada **Dados de Referência**. A tabela abaixo explica cada propriedade que você precisará fornecer ao criar a entrada de dados de referência com sua descrição. Para obter mais informações, confira [Usar dados de referência de um Banco de Dados SQL para um trabalho do Azure Stream Analytics](sql-reference-data.md).
 
-Você pode usar o [Azure SQL instância gerenciada](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) como uma entrada de dados de referência. Você precisa [configurar um ponto de extremidade público no SQL instância gerenciada](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure) e, em seguida, definir manualmente as configurações a seguir em Azure Stream Analytics. A máquina virtual do Azure que executando o SQL Server com um banco de dados anexado também tem suporte da definição manual das configurações abaixo.
+Você pode usar o [Azure SQL instância gerenciada](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md) como uma entrada de dados de referência. Você precisa [configurar um ponto de extremidade público no SQL instância gerenciada](../azure-sql/managed-instance/public-endpoint-configure.md) e, em seguida, definir manualmente as configurações a seguir em Azure Stream Analytics. A máquina virtual do Azure que executando o SQL Server com um banco de dados anexado também tem suporte da definição manual das configurações abaixo.
 
 |**Nome da propriedade**|**Descrição**  |
 |---------|---------|
@@ -111,13 +110,13 @@ Você pode usar o [Azure SQL instância gerenciada](https://docs.microsoft.com/a
 
 ## <a name="size-limitation"></a>Limitação de tamanho
 
-É recomendável usar conjuntos de valores de referência que sejam menores que 300 MB para obter o melhor desempenho. Há suporte para o uso de dados de referência com mais de 300 MB em trabalhos com 6 SUs ou mais. Essa funcionalidade está em versão prévia e não deve ser usada na produção. O uso de dados de referência muito grandes pode afetar o desempenho do seu trabalho. À medida que a complexidade da consulta aumenta para incluir o processamento com estado, como agregações de janela, junções temporais e funções analíticas temporais, é esperado que o tamanho máximo compatível dos dados de referência diminua. Se o Azure Stream Analytics não pode carregar os dados de referência e realize operações complexas, o trabalho executará fora da memória e falhará. Nesses casos, a % de SU Métrica de utilização alcançará 100%    
+É recomendável usar conjuntos de valores de referência que sejam menores que 300 MB para obter o melhor desempenho. Os conjuntos de informações de referência 5 GB ou mais baixos têm suporte em trabalhos com 6 SUs ou mais. O uso de dados de referência muito grandes pode afetar a latência de ponta a ponta de seu trabalho. À medida que a complexidade da consulta aumenta para incluir o processamento com estado, como agregações de janela, junções temporais e funções analíticas temporais, é esperado que o tamanho máximo compatível dos dados de referência diminua. Se o Azure Stream Analytics não pode carregar os dados de referência e realize operações complexas, o trabalho executará fora da memória e falhará. Nesses casos, a % de SU Métrica de utilização alcançará 100%    
 
 |**Número de unidades de streaming**  |**Tamanho recomendado**  |
 |---------|---------|
 |1   |50 MB ou mais baixo   |
 |3   |150 MB ou mais baixo   |
-|6 e além   |300 MB ou inferior. O uso de dados de referência com mais de 300 MB tem suporte na versão prévia e pode afetar o desempenho do seu trabalho.    |
+|6 e além   |5 GB ou inferior.    |
 
 O suporte para a compactação não está disponível para os dados de referência.
 
@@ -138,6 +137,18 @@ FROM    Step1
 JOIN    refData2 ON refData2.Desc = Step1.Desc 
 ``` 
 
+## <a name="iot-edge-jobs"></a>Trabalhos de IoT Edge
+
+Somente os dados de referência local têm suporte para trabalhos do Stream Analytics Edge. Quando um trabalho é implantado no dispositivo IoT Edge, ele carrega dados de referência do caminho do arquivo definido pelo usuário. Tenha um arquivo de dados de referência pronto no dispositivo. Para um contêiner do Windows, coloque o arquivo de dados de referência na unidade local e compartilhe a unidade local com o contêiner Docker. Para um contêiner do Linux, crie um volume do Docker e preencha o arquivo de dados para o volume.
+
+Os dados de referência em IoT Edge atualização são disparados por uma implantação. Uma vez disparado, o módulo Stream Analytics seleciona os dados atualizados sem interromper o trabalho em execução.
+
+Existem duas maneiras de atualizar os dados de referência:
+
+* Atualize o caminho de dados de referência em seu trabalho de Stream Analytics do portal do Azure.
+
+* Atualize a implantação do IoT Edge.
+
 ## <a name="next-steps"></a>Próximas etapas
 > [!div class="nextstepaction"]
 > [Início Rápido: Criar um trabalho do Stream Analytics usando o portal do Azure](stream-analytics-quick-create-portal.md)
@@ -146,6 +157,6 @@ JOIN    refData2 ON refData2.Desc = Step1.Desc
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md
 [stream.analytics.scale.jobs]: stream-analytics-scale-jobs.md
 [stream.analytics.introduction]: stream-analytics-real-time-fraud-detection.md
-[stream.analytics.get.started]: stream-analytics-get-started.md
-[stream.analytics.query.language.reference]: https://go.microsoft.com/fwlink/?LinkID=513299
-[stream.analytics.rest.api.reference]: https://go.microsoft.com/fwlink/?LinkId=517301
+[stream.analytics.get.started]: ./stream-analytics-real-time-fraud-detection.md
+[stream.analytics.query.language.reference]: /stream-analytics-query/stream-analytics-query-language-reference
+[stream.analytics.rest.api.reference]: /rest/api/streamanalytics/

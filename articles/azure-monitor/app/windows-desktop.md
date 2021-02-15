@@ -3,12 +3,13 @@ title: Monitorando uso e desempenho de aplicativos de área de trabalho do Windo
 description: Analise o uso e o desempenho de seu aplicativo da área de trabalho do Windows com o Application Insights.
 ms.topic: conceptual
 ms.date: 06/11/2020
-ms.openlocfilehash: 17613fc6cea24643c2b88182e7e56a1d216b2da8
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 1aa1e8a9e7ccbbc90a961ebf47224f59f8a9e9fe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323410"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91827862"
 ---
 # <a name="monitoring-usage-and-performance-in-classic-windows-desktop-apps"></a>Monitorando uso e desempenho de aplicativos de área de trabalho clássica do Windows
 
@@ -20,7 +21,7 @@ Aplicativos hospedados localmente, no Azure e em outras nuvens podem tirar prove
 3. No Visual Studio, edite os pacotes NuGet do seu projeto de aplicativo e adicione Microsoft.ApplicationInsights.WindowsServer. (Ou escolha Microsoft. ApplicationInsights se você quiser apenas a API base, sem os módulos de coleta de telemetria padrão.)
 4. Defina a chave de instrumentação no seu código:
    
-    `TelemetryConfiguration.Active.InstrumentationKey = "` *sua chave* `";`
+    `TelemetryConfiguration.Active.InstrumentationKey = "`*sua chave*`";`
    
     ou em ApplicationInsights.config (se tiver instalado um dos pacotes de telemetria padrão):
    
@@ -53,10 +54,8 @@ using Microsoft.ApplicationInsights;
             ...
         }
 
-        protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
+        protected override void OnFormClosing(System.Windows.Forms.FormClosingEventArgs e)
         {
-            e.Cancel = true;
-
             if (tc != null)
             {
                 tc.Flush(); // only for desktop apps
@@ -64,9 +63,10 @@ using Microsoft.ApplicationInsights;
                 // Allow time for flushing:
                 System.Threading.Thread.Sleep(1000);
             }
-            base.OnClosing(e);
+            base.OnFormClosing(e);
         }
-
+        
+        ...
 ```
 
 ## <a name="override-storage-of-computer-name"></a>Substituir o armazenamento do nome do computador

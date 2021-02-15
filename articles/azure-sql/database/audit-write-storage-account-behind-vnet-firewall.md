@@ -4,18 +4,18 @@ description: Configuração da auditoria para gravar eventos de banco de dados e
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.topic: conceptual
+ms.topic: how-to
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 06/17/2020
 ms.custom: azure-synapse
-ms.openlocfilehash: 6ba0a599bcb0b058ce4902882df9459b177fb6b5
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 908c9f1d05c83eaa58f77b79a32d956898c35076
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87530361"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348246"
 ---
 # <a name="write-audit-to-a-storage-account-behind-vnet-and-firewall"></a>Gravação de auditoria para conta de armazenamento atrás de rede virtual ou firewall
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -77,7 +77,7 @@ Os scripts de exemplo nesta seção exigem que você atualize o script antes de 
 |:-----|:-----|
 |`<subscriptionId>`| ID de assinatura do Azure|
 |`<resource group>`| Resource group|
-|`<logical SQL server>`| Nome do servidor|
+|`<logical SQL Server>`| Nome do servidor|
 |`<administrator login>`| Conta de administrador |
 |`<complex password>`| Senha complexa para a conta do administrador|
 
@@ -93,7 +93,7 @@ Para configurar a Auditoria do SQL para gravar eventos em uma conta de armazenam
    Set-AzSqlServer -ResourceGroupName <your resource group> -ServerName <azure server name> -AssignIdentity
    ```
 
-   [**API REST**](https://docs.microsoft.com/rest/api/sql/servers/createorupdate):
+   [**API REST**](/rest/api/sql/servers/createorupdate):
 
    Solicitação de exemplo
 
@@ -114,6 +114,7 @@ Para configurar a Auditoria do SQL para gravar eventos em uma conta de armazenam
      "administratorLoginPassword": "<complex password>",
      "version": "12.0",
      "state": "Ready"
+     }
    }
    ```
 
@@ -122,7 +123,7 @@ Para configurar a Auditoria do SQL para gravar eventos em uma conta de armazenam
    > [!NOTE]
    > Somente membros com o privilégio Proprietário podem executar essa etapa. Para várias funções internas do Azure, consulte [funções internas do Azure](../../role-based-access-control/built-in-roles.md).
 
-3. Configure a [política de auditoria de blob do servidor](/rest/api/sql/server%20auditing%20settings/createorupdate), sem especificar um *storageAccountAccessKey*:
+3. Configure a [política de auditoria de blob do servidor](/rest/api/sql/server%20auditing%20settings/createorupdate), sem especificar um *storageAccountAccessKey* :
 
    Solicitação de exemplo
 

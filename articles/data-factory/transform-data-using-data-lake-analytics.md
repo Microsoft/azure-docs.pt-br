@@ -1,23 +1,18 @@
 ---
 title: Transformar dados usando um script U-SQL
 description: Saiba como processar ou transformar dados executando scripts U-SQL no serviço de computação do Azure Data Lake Analytics.
-services: data-factory
-documentationcenter: ''
 ms.author: abnarain
 author: nabhishek
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/01/2018
-ms.openlocfilehash: f99bc5b07f3749fac28f60d28b040a7e0682971b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 94b584f0bea01754a4e955d1418a7a9a2e9aeace
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86522407"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100373905"
 ---
 # <a name="process-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Processar dados executando scripts U-SQL no Azure Data Lake Analytics 
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -45,7 +40,7 @@ A tabela a seguir apresenta as descrições das propriedades genéricas usadas n
 | **resourceGroupName**    | Nome do grupo de recursos do Azure                | Não                                       |
 
 ### <a name="service-principal-authentication"></a>Autenticação de entidade de serviço
-O serviço vinculado do Azure Data Lake Analytics requer uma autenticação de entidade de serviço para conectar-se ao serviço do Azure Data Lake Analytics. Para usar a autenticação da entidade de serviço, registre uma entidade de aplicativo no Azure Active Directory (Azure AD) e conceda acesso ao Data Lake Analytics e ao Data Lake Store que ele usa. Para encontrar as etapas detalhadas, consulte [Autenticação de serviço a serviço](../data-lake-store/data-lake-store-authenticate-using-active-directory.md). Anote os seguintes valores, que são usados para definir o serviço vinculado:
+O serviço vinculado do Azure Data Lake Analytics requer uma autenticação de entidade de serviço para conectar-se ao serviço do Azure Data Lake Analytics. Para usar a autenticação da entidade de serviço, registre uma entidade de aplicativo no Azure Active Directory (Azure AD) e conceda acesso ao Data Lake Analytics e ao Data Lake Store que ele usa. Para encontrar as etapas detalhadas, consulte [Autenticação de serviço a serviço](../data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory.md). Anote os seguintes valores, que são usados para definir o serviço vinculado:
 
 * ID do aplicativo
 * Chave do aplicativo 
@@ -198,5 +193,5 @@ Consulte os seguintes artigos que explicam como transformar dados de outras mane
 * [Hadoop Streaming activity](transform-data-using-hadoop-streaming.md) (Atividade de streaming do Hadoop)
 * [Spark activity](transform-data-using-spark.md) (Atividade do Spark)
 * [Atividade personalizada do .NET](transform-data-using-dotnet-custom-activity.md)
-* [Machine Learning Batch Execution activity](transform-data-using-machine-learning.md) (Atividade de execução em lotes do Machine Learning)
+* [Atividade de execução de lote Azure Machine Learning Studio (clássica)](transform-data-using-machine-learning.md)
 * [Stored procedure activity](transform-data-using-stored-procedure.md) (Atividade de procedimento armazenado)

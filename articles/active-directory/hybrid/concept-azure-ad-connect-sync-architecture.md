@@ -16,12 +16,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fac0f9143918d3f273812e53abfb88d6a56f7a71
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b27055ce84bbb073045b69b942fd13f4fde4e3b3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84689207"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "90563855"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-architecture"></a>Sincronização do Azure AD Connect: noções básicas sobre a arquitetura
 Este tópico aborda a arquitetura básica para Azure AD Connect sincronização. Em muitos aspectos, é semelhante a seus predecessores MIIS 2003, ILM 2007 e FIM 2010. A sincronização do Azure AD Connect é a evolução dessas tecnologias. Se você estiver familiarizado com qualquer uma dessas tecnologias mais antigas, o conteúdo deste tópico também será familiar. Se você ainda não estiver familiarizado com a sincronização, este tópico é para você. No entanto, não é um requisito saber os detalhes deste tópico para conseguir fazer as personalizações na sincronização do Azure AD Connect (chamada de mecanismo de sincronização neste tópico).
@@ -36,7 +36,7 @@ O mecanismo de sincronização encapsula a interação com uma fonte de dados co
 
 Os conectores fazem chamadas de API para trocar informações de identidade (leitura e gravação) com uma fonte de dados conectada. Também é possível adicionar um Conector personalizado usando a estrutura de conectividade extensível. A ilustração a seguir mostra como um Conector se conecta a uma fonte de dados conectada ao mecanismo de sincronização.
 
-![Arco1](./media/concept-azure-ad-connect-sync-architecture/arch1.png)
+![O diagrama mostra uma fonte de dados conectada e um mecanismo de sincronização associado por uma linha chamada conector.](./media/concept-azure-ad-connect-sync-architecture/arch1.png)
 
 Os dados podem fluir em qualquer direção, mas não podem fluir em ambas as direções simultaneamente. Em outras palavras, um Conector pode ser configurado para permitir que os dados fluam da fonte de dados conectada para o mecanismo de sincronização ou do mecanismo de sincronização para a fonte de dados conectada, mas apenas uma dessas operações pode ocorrer por vez para um atributo e um objeto. A direção pode ser diferente para objetos diferentes e atributos diferentes.
 
@@ -62,7 +62,7 @@ O **metaverso** é uma área de armazenamento que contém as informações de id
 
 A ilustração a seguir mostra o namespace de espaço do conector e o namespace do metaverso no mecanismo de sincronização.
 
-![Arco2](./media/concept-azure-ad-connect-sync-architecture/arch2.png)
+![O diagrama mostra uma fonte de dados conectada e um mecanismo de sincronização, que é separado no espaço do conector e nos namespaces de metaverso, associados por uma linha chamada Connector.](./media/concept-azure-ad-connect-sync-architecture/arch2.png)
 
 ## <a name="sync-engine-identity-objects"></a>Objetos de identidade do mecanismo de sincronização
 Os objetos no mecanismo de sincronização são representações de qualquer um dos objetos na fonte de dados conectada ou na exibição integrada que o mecanismo de sincronização tem desses objetos. Todos os objetos do mecanismo de sincronização devem ter um identificador global exclusivo (GUID). Os GUIDs fornecem a integridade dos dados e expressam relacionamentos entre objetos.
@@ -97,13 +97,13 @@ Um objeto de preparação pode ser um objeto de importação ou de exportação.
 
 A ilustração a seguir mostra um objeto de importação que representa um objeto na fonte de dados conectada.
 
-![Arco3](./media/concept-azure-ad-connect-sync-architecture/arch3.png)
+![O diagrama mostra um objeto de importação trazido da fonte de dados conectada para o namespace de espaço do conector no mecanismo de sincronização.](./media/concept-azure-ad-connect-sync-architecture/arch3.png)
 
 O mecanismo de sincronização cria um objeto de exportação usando informações de objeto no metaverso. Os objetos de exportação são exportados para a fonte de dados conectada durante a próxima sessão de comunicação. Da perspectiva do mecanismo de sincronização, os objetos de exportação ainda não existem na fonte de dados conectada. Portanto, o atributo de âncora para um objeto de exportação não está disponível. Depois de receber o objeto do mecanismo de sincronização, a fonte de dados conectada cria um valor exclusivo para o atributo de âncora do objeto.
 
 A ilustração a seguir mostra como um objeto de exportação é criado usando as informações de identidade no metaverso.
 
-![Arco4](./media/concept-azure-ad-connect-sync-architecture/arch4.png)
+![O diagrama mostra um objeto de exportação trazido do metaverso para o namespace de espaço do conector e, em seguida, para a fonte de dados conectada.](./media/concept-azure-ad-connect-sync-architecture/arch4.png)
 
 O mecanismo de sincronização confirma a exportação do objeto ao importar novamente o objeto de fonte de dados conectada. Os objetos de exportação se tornam objetos de importação quando o mecanismo de sincronização os recebe durante a próxima importação da fonte de dados conectada.
 
@@ -132,7 +132,7 @@ Quando um objeto de preparação se torna um objeto unido durante a sincronizaç
 
 Um único objeto de espaço do conector pode ser vinculado a apenas um objeto de metaverso. No entanto, cada objeto de metaverso pode ser vinculado a vários objetos de espaço do conector no mesmo ou em espaços do conector diferentes, como mostrado na ilustração a seguir.
 
-![Arco5](./media/concept-azure-ad-connect-sync-architecture/arch5.png)
+![O diagrama mostra dois objetos de dados conectados associados por conectores a um mecanismo de sincronização, que tem objetos Unidos e um objeto separado.](./media/concept-azure-ad-connect-sync-architecture/arch5.png)
 
 O relacionamento vinculado entre o objeto de preparação e um objeto de metaverso é persistente e só pode ser removido por regras especificadas por você.
 
@@ -157,7 +157,7 @@ Durante o processo de exportação, o mecanismo de sincronização envia as alte
 
 A ilustração a seguir mostra onde cada um dos processos ocorre à medida que as informações de identidade fluem de uma fonte de dados conectada para outra.
 
-![Arco6](./media/concept-azure-ad-connect-sync-architecture/arch6.png)
+![O diagrama mostra o fluxo de informações de identidade dos dados conectados para o espaço do conector (importação) para o metaverso para o espaço do conector (sincronização) para os dados conectados (exportação).](./media/concept-azure-ad-connect-sync-architecture/arch6.png)
 
 ### <a name="import-process"></a>Processo de importação
 Durante o processo de importação, o mecanismo de sincronização avalia as atualizações de informações de identidade. O mecanismo de sincronização compara as informações de identidade recebidas da fonte de dados conectada com as informações de identidade sobre um objeto de preparação e determina se o objeto de preparação precisa de atualizações. Se for necessário atualizar o objeto de preparação com novos dados, o objeto de preparação será sinalizado como importação pendente.
@@ -252,7 +252,7 @@ Por exemplo, um processo na fonte de dados conectada pode alterar os atributos d
 
 O mecanismo de sincronização armazena as informações sobre o status de exportação e de importação sobre cada objeto de preparação. Se os valores dos atributos especificados na lista de inclusão de atributos tiverem sido alterados desde a última exportação, o armazenamento do status de importação e de exportação permitirá que o mecanismo de sincronização reaja adequadamente. O mecanismo de sincronização usa o processo de importação para confirmar os valores de atributo que foram exportados para a fonte de dados conectada. Uma comparação entre as informações importadas e exportadas, como mostrado na ilustração a seguir, permite que o mecanismo de sincronização determine se a exportação foi bem-sucedida ou se precisará ser repetida.
 
-![Arco7](./media/concept-azure-ad-connect-sync-architecture/arch7.png)
+![O diagrama mostra a sincronização de um objeto entre o espaço do conector e os dados conectados pelo conector.](./media/concept-azure-ad-connect-sync-architecture/arch7.png)
 
 Por exemplo, se o mecanismo de sincronização exportar o atributo C, com um valor 5, para uma fonte de dados conectada, ele armazenará C=5 em sua memória de status de exportação. Cada exportação adicional nesse objeto resultará em uma nova tentativa de exportar C=5 para a fonte de dados conectada, já que o mecanismo de sincronização supõe que esse valor não foi persistentemente aplicado ao objeto (ou seja, a menos que um valor diferente tenha sido importado recentemente da fonte de dados conectada). A memória de exportação é desmarcada quando C=5 é recebido durante uma operação de importação no objeto.
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/14/2020
 ms.openlocfilehash: 26852ec77194714c8236856b7cb496170bf0d777
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81606332"
 ---
 # <a name="sort-transformation-in-mapping-data-flow"></a>Transformação classificação no fluxo de dados de mapeamento
@@ -26,7 +26,7 @@ A transformação classificação permite que você classifique as linhas de ent
 
 ## <a name="configuration"></a>Configuração
 
-![Configurações de classificação](media/data-flow/sort.png "Classificar")
+![Configurações de classificação](media/data-flow/sort.png "Sort")
 
 Não **diferencia maiúsculas de minúsculas:** Se você deseja ou não ignorar maiúsculas e minúsculas ao classificar campos de cadeia de caracteres ou texto
 
@@ -53,7 +53,7 @@ Para modificar ou extrair um valor de coluna antes de aplicar a classificação,
 
 ### <a name="example"></a>Exemplo
 
-![Configurações de classificação](media/data-flow/sort.png "Classificar")
+![Configurações de classificação](media/data-flow/sort.png "Sort")
 
 O script de fluxo de dados para a configuração de classificação acima está no trecho de código abaixo.
 

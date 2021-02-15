@@ -3,12 +3,12 @@ title: Detectar movimento, gravar vídeo nos Serviços de Mídia do Azure
 description: Este guia de início rápido mostra como usar a Análise de Vídeo ao vivo no IoT Edge para detectar o movimento em uma transmissão de vídeo ao vivo e gravar clipes de vídeo nos Serviços de Mídia do Azure.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: 972b85c00aa29cc39dafd03b9945e489680dd9a5
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 15a9def78c7dddda7e63db66d2b21794506f6a92
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067640"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632717"
 ---
 # <a name="quickstart-detect-motion-record-video-to-media-services"></a>Início Rápido: Detectar movimento e gravar vídeo em Serviços de Mídia
 
@@ -19,25 +19,40 @@ Este artigo se baseia no [início rápido Introdução](get-started-detect-motio
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+  > [!NOTE]
+  > Você precisará ter uma assinatura do Azure com permissões para criar entidades de serviço (a **função de proprietário** fornece isso). Caso não tenha as permissões corretas, entre em contato com o administrador da conta para conceder a você as permissões corretas. 
 * [Visual Studio Code](https://code.visualstudio.com/) em seu computador com a [extensão do Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 * Se você não tiver concluído o [início rápido de Introdução](get-started-detect-motion-emit-events-quickstart.md) anteriormente, siga as etapas abaixo:
     * [Configurar recursos do Azure](get-started-detect-motion-emit-events-quickstart.md#set-up-azure-resources)
     * [Implantar módulos](get-started-detect-motion-emit-events-quickstart.md#deploy-modules-on-your-edge-device)
     * [Configurar o Visual Studio Code](get-started-detect-motion-emit-events-quickstart.md#configure-the-azure-iot-tools-extension)
-
+    > [!TIP]
+    > Se você tiver problemas com os recursos do Azure que são criados, confira nosso **[guia de solução de problemas](troubleshoot-how-to.md#common-error-resolutions)** para resolver alguns problemas encontrados com frequência.
 ## <a name="review-the-sample-video"></a>Examinar o vídeo de exemplo
 
 Como parte das etapas acima para configurar os recursos do Azure, um vídeo (curto) de um estacionamento será copiado para a VM Linux no Azure que está sendo usada como o dispositivo IoT Edge. Esse arquivo de vídeo será usado para simular uma transmissão ao vivo para este tutorial.
 
 Use um aplicativo como o [VLC Player](https://www.videolan.org/vlc/), inicie-o, clique em `Ctrl+N` e cole o link [do vídeo de exemplo de estacionamento](https://lvamedia.blob.core.windows.net/public/lots_015.mkv) para iniciar a reprodução. Na marca de aproximadamente 5 segundos, um carro branco percorre o estacionamento.
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4LUbN]
 
 Ao concluir as etapas abaixo, você terá usado a Análise de Vídeo ao vivo no IoT Edge para detectar esse movimento do carro e gravar um clipe de vídeo começando na marca de cerca de 5 segundos. O diagrama a seguir é a representação visual do fluxo geral.
 
-![Gravação de vídeo baseada em evento em Ativos baseados em eventos em movimento](./media/quickstarts/topology.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/quickstarts/topology.svg" alt-text="Gravação de vídeo baseada em evento em Ativos baseados em eventos em movimento":::
 
 ## <a name="use-direct-method-calls"></a>Usar chamadas de método direto
 
 Você pode usar o módulo para analisar transmissões de vídeo ao vivo invocando os métodos diretos dele. Leia [Métodos Diretos para Análise de Vídeo ao vivo no IoT Edge](direct-methods.md) para entender todos os métodos diretos fornecidos pelo módulo. 
+
+1. No Visual Studio Code, abra a guia **Extensões** (ou pressione CTRL + SHIFT + X) e pesquise pelo Hub IoT do Azure.
+1. Clique com o botão direito do mouse e selecione **Configurações da Extensão**.
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Configurações da Extensão":::
+1. Pesquise e habilite “Mostrar Mensagem Detalhada”.
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Mostrar Mensagem Detalhada":::
 
 ### <a name="invoke-graphtopologylist"></a>Invocar GraphTopologyList
 Esta etapa enumera todas as [topologias de grafo](media-graph-concept.md#media-graph-topologies-and-instances) no módulo.
@@ -48,7 +63,7 @@ Esta etapa enumera todas as [topologias de grafo](media-graph-concept.md#media-g
     
 ```
 {
-    "@apiVersion" : "1.0"
+    "@apiVersion" : "2.0"
 }
 ```
 
@@ -73,7 +88,7 @@ Usando as mesmas etapas que aquelas descritas para invocar GraphTopologyList, vo
 
 ```
 {
-    "@apiVersion": "1.0",
+    "@apiVersion": "2.0",
     "name": "EVRtoAssetsOnMotionDetection",
     "properties": {
       "description": "Event-based video recording to Assets based on motion events",
@@ -183,7 +198,7 @@ Usando as mesmas etapas que aquelas descritas para invocar GraphTopologyList, vo
 
 O conteúdo JSON acima resulta na criação de uma topologia de grafo que define cinco parâmetros (quatro dos quais têm valores padrão). A topologia tem um nó de origem ([origem RTSP](media-graph-concept.md#rtsp-source)), dois nós de processador ([processador de detecção de movimento](media-graph-concept.md#motion-detection-processor) e [processador da porta de sinal](media-graph-concept.md#signal-gate-processor)) e dois nós de coletor (coletor do Hub IoT e [coletor de ativos](media-graph-concept.md#asset-sink)). A representação visual da topologia é mostrada acima.
 
-Em poucos segundos, você verá a resposta a seguir na janela de SAÍDA.
+Em poucos segundos, você verá a resposta a seguir na janela de **SAÍDA**.
 
 ```
 [DirectMethod] Invoking Direct Method [GraphTopologySet] to [lva-sample-device/lvaEdge] ...
@@ -320,7 +335,7 @@ Agora invoque GraphTopologyGet com o conteúdo a seguir
 ```
 
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "2.0",
     "name" : "EVRtoAssetsOnMotionDetection"
 }
 ```
@@ -463,7 +478,7 @@ Agora invoque o método direto GraphInstanceSet com o seguinte conteúdo:
 
 ```
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "2.0",
     "name" : "Sample-Graph-2",
     "properties" : {
         "topologyName" : "EVRtoAssetsOnMotionDetection",
@@ -545,7 +560,7 @@ Agora ative a instância do grafo, que inicia a transmissão de vídeo ao vivo p
 
 ```
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "2.0",
     "name" : "Sample-Graph-2"
 }
 ```
@@ -569,7 +584,7 @@ Agora invoque o método direto GraphInstanceGet com o seguinte conteúdo:
 
 ```
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "2.0",
     "name" : "Sample-Graph-2"
 }
 ```
@@ -748,7 +763,7 @@ Invoque o método direto GraphInstanceDeactivate com o seguinte conteúdo:
 
 ```
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "2.0",
     "name" : "Sample-Graph-2"
 }
 ```
@@ -776,7 +791,7 @@ Invoque o método direto GraphInstanceDelete com o conteúdo a seguir
 
 ```
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "2.0",
     "name" : "Sample-Graph-2"
 }
 ```
@@ -800,7 +815,7 @@ Invoque o método direto GraphTopologyDelete com o seguinte conteúdo:
 
 ```
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "2.0",
     "name" : "EVRtoAssetsOnMotionDetection"
 }
 ```

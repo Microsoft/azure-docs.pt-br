@@ -1,17 +1,15 @@
 ---
 title: Instalar o cliente autônomo do Service Fabric
-description: Neste tutorial você aprenderá como instalar o cliente do Service Fabric autônomo no cluster que você criou no artigo do tutorial anterior.
-author: dkkapur
+description: Neste tutorial, você aprenderá a instalar o cliente autônomo do Service Fabric no cluster.
 ms.topic: tutorial
 ms.date: 07/22/2019
-ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: bbaf7dfc546c739dfb858be7ef8372eccf60111b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ae0b343be986f4d8d5176c1f39eef6b23ca81278
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75613934"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91840635"
 ---
 # <a name="tutorial-install-and-create-service-fabric-cluster"></a>Tutorial: Instalar e criar o cluster do Service Fabric
 
@@ -19,7 +17,7 @@ Os clusters autônomos do Service Fabric oferecem a opção de escolher seu pró
 
 Este tutorial é a parte dois de uma série. Este tutorial guia você pelas etapas para criação de um cluster do Service Fabric.
 
-Na segunda parte da série, você aprenderá como:
+Neste artigo, você aprenderá a:
 
 > [!div class="checklist"]
 > * Baixar e instalar o pacote autônomo do Service Fabric
@@ -38,7 +36,7 @@ Se você quiser obter mais detalhes sobre o [conteúdo do pacote de instalação
 
 Você está criando um cluster do Windows de três nós, portanto você precisa modificar o arquivo `ClusterConfig.Unsecure.MultiMachine.json`.
 
-Em seguida, atualize as três linhas de endereço IP que ocorrem no arquivo nas linhas 8, 15 e 22 para os endereços IP para cada uma das instâncias.
+Em seguida, atualize as três linhas ipAddress que ocorrem no arquivo nas linhas 8, 15 e 22 para os endereços IP para cada uma das instâncias.
 
 Depois de atualizar os nós, eles são exibidos da seguinte maneira:
 
@@ -77,7 +75,7 @@ cd .\Desktop\Microsoft.Azure.ServiceFabric.WindowsServer.6.2.274.9494\
 .\TestConfiguration.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.MultiMachine.json
 ```
 
-Você deverá ver uma saída como a abaixo. Se o campo inferior “Passed” é retornado como `True`, as verificações de integridade são aprovadas e o cluster parece estar pronto para implantação com base na configuração de entrada.
+Você deverá ver uma saída como nos exemplos abaixo. Se o campo inferior “Passed” é retornado como `True`, as verificações de integridade são aprovadas e o cluster parece estar pronto para implantação com base na configuração de entrada.
 
 ```powershell
 Trace folder already exists. Traces will be written to existing trace folder: C:\Users\Administrator\Desktop\Microsoft.Azure.ServiceFabric.WindowsServer.6.2.274.9494\DeploymentTraces
@@ -101,7 +99,7 @@ Passed                     : True
 
 ## <a name="create-the-cluster"></a>Criar o cluster
 
-Depois que você tiver validado com êxito sua configuração de cluster execute o script *CreateServiceFabricCluster.ps1* para implantar o cluster do Service Fabric para as máquinas virtuais no arquivo de configuração.
+Depois que você tiver validado com êxito sua configuração de cluster, execute o script *CreateServiceFabricCluster.ps1* para implantar o cluster do Service Fabric para as máquinas virtuais no arquivo de configuração.
 
 ```powershell
 .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.MultiMachine.json -AcceptEULA
@@ -118,7 +116,7 @@ Your cluster is successfully created! You can connect and manage your cluster us
 >
 >
 
-### <a name="bring-up-service-fabric-explorer"></a>Abrir o Service Fabric Explorer
+### <a name="open-service-fabric-explorer"></a>Abrir o Service Fabric Explorer
 
 Agora, você pode se conectar ao cluster com o Service Fabric Explorer diretamente de um dos computadores com http:\//localhost:19080/Explorer/index.html ou remotamente com http:\//<*IPAddressofaMachine*>:19080/Explorer/index.html.
 
@@ -128,7 +126,7 @@ Você pode adicionar ou remover os nós do cluster do Service Fabric autônomo q
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Na parte dois da série, você aprendeu sobre o carregamento de grandes quantidades de dados aleatórios para uma conta de armazenamento em paralelo, por exemplo como:
+Neste artigo, você aprendeu a carregar grandes quantidades de dados aleatórios para uma conta de armazenamento em paralelo, por exemplo, como:
 
 > [!div class="checklist"]
 > * Configurar a cadeia de conexão

@@ -9,21 +9,19 @@ ms.topic: tutorial
 author: cartacioS
 ms.author: sacartac
 ms.reviewer: nibaccam
-ms.date: 07/10/2020
-ms.openlocfilehash: d11df9bae954dc654e22157639b74e5ca2363494
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 12/21/2020
+ms.custom: automl
+ms.openlocfilehash: ff9bd328dd98fbd614a3bb63a1edddc2027d97b2
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87047816"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879774"
 ---
 # <a name="tutorial-create-a-classification-model-with-automated-ml-in-azure-machine-learning"></a>Tutorial: Criar um modelo de classificação com o ML automatizado no Azure Machine Learning
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-Neste tutorial, você aprenderá a criar um modelo de classificação básica sem escrever nenhuma linha de código usando o machine learning automatizado no estúdio do Azure Machine Learning. Este modelo de classificação prevê se um cliente assinará um depósito a prazo fixo com uma instituição financeira.
 
->[!IMPORTANT]
-> A experiência de machine learning automatizado no estúdio do Azure Machine Learning está em versão prévia. Alguns recursos podem não ter suporte ou ter funcionalidades limitadas.
+Neste tutorial, você aprenderá a criar um modelo de classificação simples sem escrever nenhuma linha de código usando o machine learning automatizado no Azure Machine Learning Studio. Este modelo de classificação prevê se um cliente assinará um depósito a prazo fixo com uma instituição financeira.
 
 Com o aprendizado de máquina automatizado, você pode automatizar tarefas intensivas e demoradas. O aprendizado de máquina automatizado itera rapidamente em muitas combinações de algoritmos e hiperparâmetros para ajudar você a encontrar o melhor modelo com base em uma métrica de sucesso de sua escolha.
 
@@ -47,9 +45,9 @@ Neste tutorial, você aprenderá a fazer as seguintes tarefas:
 
 Um Workspace do Azure Machine Learning é o recurso fundamental na nuvem que você usa para experimentar, treinar e implantar modelos de machine learning. Ele vincula sua assinatura do Azure e o grupo de recursos a um objeto facilmente consumido no serviço. 
 
-Crie um workspace **Edição Enterprise** por meio do portal do Azure, um console baseado na Web para gerenciar seus recursos do Azure.
+Há muitas [maneiras de criar um workspace](how-to-manage-workspace.md). Neste tutorial, você cria um workspace pelo portal do Azure, um console baseado na Web para gerenciar os seus recursos do Azure.
 
-[!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal-enterprise.md)]
+[!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal.md)]
 
 >[!IMPORTANT] 
 > Anote seu **workspace** e sua **assinatura**. Você precisará dessas informações para criar o experimento no local certo. 
@@ -104,9 +102,7 @@ Antes de configurar seu experimento, carregue o arquivo de dados no workspace na
         Cabeçalhos da coluna| Indica como os cabeçalhos do conjunto de dados, se houver, serão tratados.| Todos os arquivos têm os mesmos cabeçalhos
         Ignorar linhas | Indica quantas linhas, se houver, serão ignoradas no conjunto de registros.| Nenhum
 
-    1. O formulário **Esquema** permite configurar ainda mais os dados do experimento. Para este exemplo, selecione o botão de alternância do recurso **day_of_week** para não incluí-lo neste experimento. Selecione **Avançar**.
-
-        ![Configuração da guia Visualização](./media/tutorial-first-experiment-automated-ml/schema-tab-config.gif)
+    1. O formulário **Esquema** permite configurar ainda mais os dados do experimento. Neste exemplo, não fazemos nenhuma seleção. Selecione **Avançar**.
 
     1. No formulário **Confirmar detalhes**, verifique se as informações correspondem ao que foi previamente preenchido nos formulários **Informações básicas, Seleção de armazenamento de dados e arquivo** e **Configurações e visualização**.
     
@@ -114,32 +110,44 @@ Antes de configurar seu experimento, carregue o arquivo de dados no workspace na
     
     1. Selecione seu conjunto de dados quando ele aparecer na lista.
     
-    1. Examine a **Visualização de dados** para garantir que você não incluiu **day_of_week** e, em seguida, selecione **OK**.
+    1. Examine a **Visualização de dados** para garantir que você não incluiu **day_of_week** e selecione **Fechar**.
 
     1. Selecione **Avançar**.
 
-## <a name="configure-experiment-run"></a>Configurar a execução do experimento
+## <a name="configure-run"></a>Configurar a execução
 
 Depois de carregar e configurar seus dados, você poderá configurar seu experimento. Essa configuração inclui tarefas de design de experimento, como selecionar o tamanho do seu ambiente de computação e especificar qual coluna você deseja prever. 
+
+1. Selecione o botão de opção **Criar**.
 
 1. Preencha o formulário **Configurar Execução** da seguinte maneira:
     1. Insira este nome de experimento: `my-1st-automl-experiment`
 
     1. Selecione **y** como a coluna de destino, o que você quer prever. Essa coluna indica se o cliente assinou um depósito a prazo ou não.
     
-    1. Selecione **Criar uma computação** e configure o destino de computação. Um destino de computação é um ambiente de recursos local ou baseado em nuvem usado para executar o script de treinamento ou hospedar a implantação do serviço. Para este experimento, usamos uma computação baseada em nuvem. 
+    1. Selecione **+Criar uma computação** e configure o destino de computação. Um destino de computação é um ambiente de recursos local ou baseado em nuvem usado para executar o script de treinamento ou hospedar a implantação do serviço. Para este experimento, usamos uma computação baseada em nuvem. 
+        1. Popule o formulário **Máquina Virtual** para configurar sua computação.
 
-        Campo | Descrição | Valor para o tutorial
-        ----|---|---
-        Nome da computação |Um nome exclusivo que identifique o contexto de computação.|automl-compute
-        Tipo de&nbsp;máquina&nbsp;virtual| Selecione o tipo da máquina virtual da computação.|CPU (Unidade de Processamento Central)
-        Tamanho&nbsp;da&nbsp;máquina virtual| Selecione o tamanho da máquina virtual da computação.|Standard_DS12_V2
-        Mín./máx. de nós| Para analisar os dados, é necessário especificar um ou mais nós.|Número mín. de nós: 1<br>Número máx. de nós: 6
-        Segundos de espera antes de reduzir verticalmente | Tempo de espera antes de o cluster ser automaticamente reduzido verticalmente para a contagem do mínimo de nós.|120 (padrão)
-        Configurações avançadas | Definições para configurar e autorizar uma rede virtual para seu experimento.| Nenhum
-        1. Selecione **Criar** para obter o destino de computação. 
+            Campo | Descrição | Valor para o tutorial
+            ----|---|---
+            Prioridade da&nbsp;máquina&nbsp;virtual |Selecione a prioridade que o experimento deve ter| Dedicado
+            Tipo de&nbsp;máquina&nbsp;virtual| Selecione o tipo da máquina virtual da computação.|CPU (Unidade de Processamento Central)
+            Tamanho&nbsp;da&nbsp;máquina virtual| Selecione o tamanho da máquina virtual da computação. É fornecida uma lista de tamanhos recomendados com base em seus dados e no tipo de experimento. |Standard_DS12_V2
+        
+        1. Selecione **Avançar** para preencher o **Formulário Definir configurações**.
+        
+            Campo | Descrição | Valor para o tutorial
+            ----|---|---
+            Nome da computação |  Um nome exclusivo que identifique o contexto de computação. | automl-compute
+            Mín./máx. de nós| Para analisar os dados, é necessário especificar um ou mais nós.|Número mín. de nós: 1<br>Número máx. de nós: 6
+            Segundos de espera antes de reduzir verticalmente | Tempo de espera antes de o cluster ser automaticamente reduzido verticalmente para a contagem do mínimo de nós.|120 (padrão)
+            Configurações avançadas | Definições para configurar e autorizar uma rede virtual para seu experimento.| Nenhum               
+
+        1. Selecione **Criar** para criar o destino de computação. 
 
             **Isso levará alguns minutos para ser concluído.** 
+
+             ![Página de configurações](./media/tutorial-first-experiment-automated-ml/compute-settings.png)
 
         1. Após a criação, selecione o novo destino de computação na lista suspensa.
 
@@ -161,14 +169,18 @@ Depois de carregar e configurar seus dados, você poderá configurar seu experim
         Simultaneidade| O número máximo de iterações paralelas executadas por iteração| Máximo de&nbsp;iterações&nbsp;simultâneas: 5
         
         Clique em **Salvar**.
+    
+    1. Selecione **Exibir configurações de definição de recursos**. Neste exemplo, selecione o botão de alternância do recurso **day_of_week** para não o incluir na definição de recursos neste experimento.
 
-1. Selecione **Concluir** para executar o experimento. A tela **Detalhes da Execução** é aberta com o **Status da execução** na parte superior à medida que a preparação do experimento é iniciada.
+        ![Seleção da definição de recursos](./media/tutorial-first-experiment-automated-ml/featurization-setting-config.gif)   
+ 
+        Clique em **Salvar**.
+
+1. Selecione **Concluir** para executar o experimento. A tela **Detalhes da Execução** é aberta com o **Status da execução** na parte superior à medida que a preparação do experimento é iniciada. Esse status é atualizado conforme o progresso do experimento. Também aparecem notificações no canto superior direito do estúdio para informar você sobre o status do experimento.
 
 >[!IMPORTANT]
 > A preparação leva de **10 a 15 minutos** para preparar a execução do experimento.
-> Durante a execução, são necessários **mais 2 a 3 minutos para cada iteração**.  
-> Selecione **Atualizar** periodicamente para ver o status da execução durante o andamento do experimento.
->
+> Durante a execução, são necessários **mais 2 a 3 minutos para cada iteração**.  <br> <br>
 > Em produção, provavelmente, isso demorará mais. Mas para este tutorial, sugerimos que você comece a explorar os algoritmos testados na guia **Modelos** conforme eles são concluídos, enquanto os outros ainda estão em execução. 
 
 ##  <a name="explore-models"></a>Explorar modelos
@@ -240,12 +252,12 @@ Exclua apenas a instância de implantação do Azure Machine Learning em https:\
 Neste tutorial de machine learning automatizado, você usou a interface de ML automatizado do Azure Machine Learning para criar e implantar um modelo de classificação. Confira estes artigos para obter mais informações e ver as próximas etapas:
 
 > [!div class="nextstepaction"]
-> [Consumir um serviço Web](how-to-consume-web-service.md#consume-the-service-from-power-bi)
+> [Consumir um serviço Web](/power-bi/connect-data/service-aml-integrate?context=azure%2fmachine-learning%2fcontext%2fml-context)
 
 + Saiba mais sobre o [aprendizado de máquina automatizado](concept-automated-ml.md).
-+ Para saber mais sobre métricas e gráficos de classificação, confira o artigo [Noções básicas sobre os resultados de machine learning automatizado](how-to-understand-automated-ml.md#classification).
++ Para saber mais sobre métricas e gráficos de classificação, confira o artigo [Noções básicas sobre os resultados de machine learning automatizado](how-to-understand-automated-ml.md).
 + Saiba mais sobre a [personalização](how-to-configure-auto-features.md#featurization).
-+ Saiba mais sobre a [criação de perfil de dados](how-to-use-automated-ml-for-ml-models.md#profile).
++ Saiba mais sobre a [criação de perfil de dados](how-to-connect-data-ui.md#profile).
 
 
 >[!NOTE]

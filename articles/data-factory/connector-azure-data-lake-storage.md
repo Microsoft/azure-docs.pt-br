@@ -1,22 +1,18 @@
 ---
 title: Copiar e transformar dados no Azure Data Lake Storage Gen2
 description: Saiba como copiar dados para e do Azure Data Lake Storage Gen2 e transformar dados no Azure Data Lake Storage Gen2 usando o Azure Data Factory.
-services: data-factory
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/28/2020
-ms.openlocfilehash: 40310ad5aab20b6501cead8d408743fbd584d667
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.date: 10/28/2020
+ms.openlocfilehash: d773556352a85c125e32d0ee56b4b6f4cf11da32
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89051263"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100364742"
 ---
 # <a name="copy-and-transform-data-in-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Copiar e transformar dados no Azure Data Lake Storage Gen2 usando o Azure Data Factory
 
@@ -46,10 +42,6 @@ Para atividade de cópia, com esse conector, você pode:
 - [Preserve os metadados do arquivo durante a cópia](#preserve-metadata-during-copy).
 - [Preserve ACLs](#preserve-acls) ao copiar de Azure Data Lake Storage Gen1/Gen2.
 
->[!IMPORTANT]
->Se você habilitar a opção **Permitir que serviços Microsoft confiáveis acessem esta conta de armazenamento** nas configurações do Azure Storage e quiser usar o runtime de integração do Azure para conectar-se ao seu Data Lake Storage Gen2, use a [autenticação de identidade gerenciada](#managed-identity) para ADLS Gen2.
-
-
 ## <a name="get-started"></a>Introdução
 
 >[!TIP]
@@ -68,7 +60,8 @@ O conector do Azure Data Lake Storage Gen2 dá suporte aos seguintes tipos de au
 - [Identidades gerenciadas para autenticação de recursos do Azure](#managed-identity)
 
 >[!NOTE]
->Ao usar o PolyBase para carregar dados no SQL Data Warehouse, se o Data Lake Storage Gen2 de origem estiver configurado com o ponto de extremidade de rede virtual, você deverá usar a autenticação de identidade gerenciada conforme exigido pelo PolyBase. Confira a seção [autenticação de identidade gerenciada](#managed-identity) com mais pré-requisitos de configuração.
+>- Se quiser usar o tempo de execução de integração do Azure público para se conectar ao Data Lake Storage Gen2 aproveitando a opção **permitir que os serviços confiáveis da Microsoft acessem essa conta de armazenamento** habilitada no firewall do armazenamento do Azure, você deve usar a [autenticação de identidade gerenciada](#managed-identity).
+>- Ao usar o polybase ou a instrução de cópia para carregar dados no Azure Synapse Analytics, se o Data Lake Storage Gen2 de origem ou de preparo estiver configurado com um ponto de extremidade de rede virtual do Azure, você deverá usar a autenticação de identidade gerenciada conforme exigido pelo Synapse. Confira a seção [autenticação de identidade gerenciada](#managed-identity) com mais pré-requisitos de configuração.
 
 ### <a name="account-key-authentication"></a>Autenticação de chave de conta
 
@@ -131,12 +124,16 @@ Estas propriedades têm suporte para o serviço vinculado:
 | type | A propriedade type deve ser definida como **AzureBlobFS**. |Sim |
 | url | Ponto de extremidade para Data Lake Storage Gen2 com o padrão de `https://<accountname>.dfs.core.windows.net`. | Sim |
 | servicePrincipalId | Especifique a ID do cliente do aplicativo. | Sim |
-| servicePrincipalKey | Especifique a chave do aplicativo. Marque esse campo como `SecureString` para armazená-lo com segurança no Data Factory. Você também pode [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
+| servicePrincipalCredentialType | O tipo de credencial a ser usado para autenticação de entidade de serviço. Os valores permitidos são **ServicePrincipalKey** e **ServicePrincipalCert**. | Sim |
+| servicePrincipalCredential | A credencial da entidade de serviço. <br/> Ao usar **ServicePrincipalKey** como o tipo de credencial, especifique a chave do aplicativo. Marque este campo como **SecureString** para armazená-lo com segurança no data Factory ou [faça referência a um segredo armazenado em Azure Key Vault](store-credentials-in-key-vault.md). <br/> Quando você usa **ServicePrincipalCert** como a credencial, faça referência a um certificado em Azure Key Vault. | Sim |
+| servicePrincipalKey | Especifique a chave do aplicativo. Marque este campo como **SecureString** para armazená-lo com segurança no data Factory ou [faça referência a um segredo armazenado em Azure Key Vault](store-credentials-in-key-vault.md). <br/> Essa propriedade ainda tem suporte no estado em que se encontra para o `servicePrincipalId`  +  `servicePrincipalKey` . À medida que o ADF adiciona nova autenticação de certificado de entidade de serviço, o novo modelo para autenticação de entidade de serviço é `servicePrincipalId`  +  `servicePrincipalCredentialType`  +  `servicePrincipalCredential` . | Não |
 | locatário | Especifique as informações de locatário (domínio nome ou ID do Locatário) em que o aplicativo reside. Recupere-as passando o mouse no canto superior direito do Portal do Azure. | Sim |
-| azureCloudType | Para autenticação de entidade de serviço, especifique o tipo de ambiente de nuvem do Azure no qual seu aplicativo Azure Active Directory está registrado. <br/> Os valores permitidos são **AzurePublic**, **AzureChina**, **AzureUsGovernment**e **AzureGermany**. Por padrão, o ambiente de nuvem do data factory é usado. | Não |
+| azureCloudType | Para autenticação de entidade de serviço, especifique o tipo de ambiente de nuvem do Azure no qual seu aplicativo Azure Active Directory está registrado. <br/> Os valores permitidos são **AzurePublic**, **AzureChina**, **AzureUsGovernment** e **AzureGermany**. Por padrão, o ambiente de nuvem do data factory é usado. | Não |
 | connectVia | O [runtime de integração](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar o Azure Integration Runtime ou um runtime de integração auto-hospedada se o seu armazenamento de dados estiver em uma rede privada. Se não especificado, o Azure Integration Runtime padrão será usado. |Não |
 
-**Exemplo:**
+**Exemplo: usando a autenticação de chave de entidade de serviço**
+
+Você também pode armazenar a chave de entidade de serviço em Azure Key Vault.
 
 ```json
 {
@@ -146,9 +143,38 @@ Estas propriedades têm suporte para o serviço vinculado:
         "typeProperties": {
             "url": "https://<accountname>.dfs.core.windows.net", 
             "servicePrincipalId": "<service principal id>",
-            "servicePrincipalKey": {
+            "servicePrincipalCredentialType": "ServicePrincipalKey",
+            "servicePrincipalCredential": {
                 "type": "SecureString",
                 "value": "<service principal key>"
+            },
+            "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>" 
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+**Exemplo: usando a autenticação de certificado da entidade de serviço**
+```json
+{
+    "name": "AzureDataLakeStorageGen2LinkedService",
+    "properties": {
+        "type": "AzureBlobFS",
+        "typeProperties": {
+            "url": "https://<accountname>.dfs.core.windows.net", 
+            "servicePrincipalId": "<service principal id>",
+            "servicePrincipalCredentialType": "ServicePrincipalCert",
+            "servicePrincipalCredential": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<AKV reference>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<certificate name in AKV>" 
             },
             "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>" 
         },
@@ -177,7 +203,7 @@ Para usar identidades gerenciadas para autenticação de recursos do Azure, siga
 >Se você usar a interface do usuário do Data Factory para criar e identidade gerenciada não estiver definida com a função "Leitor de dados de blob de armazenamento/colaborador" no IAM, ao fazer a conexão de teste ou procurar/navegar por pastas, escolha "Testar a conexão com o caminho do arquivo" ou "Procurar do caminho especificado" e especifique um caminho com a permissão **Ler + Executar**.
 
 >[!IMPORTANT]
->Se você usar o polybase para carregar dados de Data Lake Storage Gen2 no SQL Data Warehouse, ao usar a autenticação de identidade gerenciada para o Data Lake Storage Gen2, certifique-se de seguir as etapas 1 e 2 nesta [orientação](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage) para 1) registrar seu com Azure Active Directory (Azure AD) e 2) atribuir a função de colaborador de dados de blob de armazenamento ao servidor; o restante são tratados por Data Factory. Se o Data Lake Storage Gen2 de origem estiver configurado com o ponto de extremidade de rede virtual do Azure, para usar o PolyBase para carregar dados, você deverá usar a autenticação de identidade gerenciada conforme exigido pelo PolyBase.
+>Se você usar o polybase ou a instrução de cópia para carregar dados de Data Lake Storage Gen2 no Azure Synapse Analytics, ao usar a autenticação de identidade gerenciada para o Data Lake Storage Gen2, certifique-se de também seguir as etapas 1 a 3 nesta [diretriz](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-virtual-network-service-endpoints-with-azure-storage). Essas etapas registrarão o servidor no Azure AD e atribuirão a função de colaborador de dados de blob de armazenamento ao servidor. Data Factory lida com o restante. Se você configurar o armazenamento de BLOBs com um ponto de extremidade de rede virtual do Azure, você também precisará **permitir que os serviços confiáveis da Microsoft acessem essa conta de armazenamento** ativada em firewalls da conta de armazenamento do Azure e no menu de configurações de **redes virtuais** , conforme exigido pelo Synapse.
 
 Estas propriedades têm suporte para o serviço vinculado:
 
@@ -269,15 +295,15 @@ As propriedades a seguir têm suporte para Data Lake Storage Gen2 em configuraç
 | ***Localize os arquivos a serem copiados:*** |  |  |
 | OPÇÃO 1: caminho estático<br> | Copiar do sistema de arquivos ou caminho de pasta/arquivo especificado no conjunto de dados. Se você quiser copiar todos os arquivos de um sistema de arquivos/pasta, especifique também `wildcardFileName` como `*`. |  |
 | OPÇÃO 2: curinga<br>- wildcardFolderPath | O caminho da pasta com caracteres curinga no sistema de arquivos fornecido configurado no conjunto de dados para filtrar as pastas de origem. <br>Os curingas permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou caractere único); use `^` para escape se o nome de pasta atual tiver curinga ou esse caractere interno de escape. <br>Veja mais exemplos em [Exemplos de filtro de pastas e arquivos](#folder-and-file-filter-examples). | Não                                            |
-| OPÇÃO 2: curinga<br>- wildcardFileName | O nome do arquivo com caracteres curinga sob sistema de arquivos + folderPath/wildcardFolderPath fornecido para filtrar os arquivos de origem. <br>Os curingas permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou caractere único); use `^` para escape se o nome de pasta atual tiver curinga ou esse caractere interno de escape.  Veja mais exemplos em [Exemplos de filtro de pastas e arquivos](#folder-and-file-filter-examples). | Sim |
+| OPÇÃO 2: curinga<br>- wildcardFileName | O nome do arquivo com caracteres curinga sob sistema de arquivos + folderPath/wildcardFolderPath fornecido para filtrar os arquivos de origem. <br>Os curingas permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou caractere único); use `^` para escape se o nome de arquivo real tiver curinga ou esse caractere interno de escape.  Veja mais exemplos em [Exemplos de filtro de pastas e arquivos](#folder-and-file-filter-examples). | Sim |
 | OPÇÃO 3: uma lista de arquivos<br>- fileListPath | Indica a cópia de um determinado conjunto de arquivos. Aponte para um arquivo de texto que inclui uma lista de arquivos que você deseja copiar, um arquivo por linha, que é o caminho relativo para o caminho configurado no conjunto de um.<br/>Ao usar essa opção, não especifique o nome do arquivo no conjunto de dados. Veja mais exemplos em [Exemplos de lista de arquivos](#file-list-examples). |Não |
 | ***Configurações adicionais:*** |  | |
 | recursiva | Indica se os dados são lidos recursivamente das subpastas ou somente da pasta especificada. Observe que quando recursiva é definida como true e o coletor é um armazenamento baseado em arquivo, uma pasta vazia ou subpasta não é copiada ou criada no coletor. <br>Os valores permitidos são **true** (padrão) e **false**.<br>Essa propriedade não se aplica quando você configura `fileListPath`. |Não |
-| deleteFilesAfterCompletion | Indica se os arquivos binários serão excluídos do repositório de origem após a movimentação com êxito para o repositório de destino. A exclusão do arquivo é por arquivo, portanto, quando a atividade de cópia falhar, você verá que alguns arquivos já foram copiados para o destino e excluídos da origem, enquanto outros ainda permanecem no repositório de origem. <br/>Essa propriedade só é válida em cenário de cópia binária, em que os repositórios de fontes de dados são BLOB, ADLS Gen1, ADLS Gen2, S3, armazenamento em nuvem do Google, arquivo, arquivo do Azure, SFTP ou FTP. O valor padrão: false. |Não |
+| deleteFilesAfterCompletion | Indica se os arquivos binários serão excluídos do repositório de origem após a movimentação com êxito para o repositório de destino. A exclusão do arquivo é por arquivo, portanto, quando a atividade de cópia falhar, você verá que alguns arquivos já foram copiados para o destino e excluídos da origem, enquanto outros ainda permanecem no repositório de origem. <br/>Esta propriedade só é válida no cenário de cópia de arquivos binários. O valor padrão: false. |Não |
 | modifiedDatetimeStart    | Filtro de arquivos com base no atributo: Última Modificação. <br>Os arquivos serão escolhidos se a hora da última alteração estiver dentro do período entre `modifiedDatetimeStart` e `modifiedDatetimeEnd`. A hora é aplicada ao fuso horário de UTC no formato "2018-12-01T05:00:00Z". <br> As propriedades podem ser nulas, o que significa que nenhum filtro de atributo de arquivo será aplicado ao conjunto de um.  Quando `modifiedDatetimeStart` tem o valor de data e hora, mas `modifiedDatetimeEnd` for NULL, isso significa que serão selecionados os arquivos cujo último atributo modificado é maior ou igual ao valor de data e hora.  Quando `modifiedDatetimeEnd` tem o valor de data e hora, mas `modifiedDatetimeStart` for NULL, isso significa que serão selecionados os arquivos cujo último atributo modificado é menor que o valor de data e hora.<br/>Essa propriedade não se aplica quando você configura `fileListPath`. | Não                                            |
 | modifiedDatetimeEnd      | Mesmo que acima.                                               | Não                                            |
-| enablePartitionDiscovery | Para arquivos que são particionados, especifique se deseja analisar as partições do caminho do arquivo e adicioná-las como colunas de origem adicionais.<br/>Os valores permitidos são **false** (padrão) e **true**. | Falso                                            |
-| partitionRootPath | Quando a descoberta de partição estiver habilitada, especifique o caminho raiz absoluto para ler as pastas particionadas como colunas de dados.<br/><br/>Se não for especificado, por padrão,<br/>-Quando você usa o caminho do arquivo no conjunto de programas ou na lista de arquivos na origem, o caminho raiz da partição é o caminho configurado no conjunto de um.<br/>-Quando você usa o filtro de pasta curinga, o caminho raiz da partição é o subcaminho antes do primeiro caractere curinga.<br/><br/>Por exemplo, supondo que você configure o caminho no conjunto de um como "raiz/pasta/ano = 2020/mês = 08/dia = 27":<br/>-Se você especificar o caminho raiz da partição como "raiz/pasta/ano = 2020", a atividade de cópia irá gerar mais duas colunas `month` e `day` com o valor "08" e "27", respectivamente, além das colunas dentro dos arquivos.<br/>-Se o caminho raiz da partição não for especificado, nenhuma coluna extra será gerada. | Falso                                            |
+| enablePartitionDiscovery | Para arquivos que são particionados, especifique se deseja analisar as partições do caminho do arquivo e adicioná-las como colunas de origem adicionais.<br/>Os valores permitidos são **false** (padrão) e **true**. | Não                                            |
+| partitionRootPath | Quando a descoberta de partição estiver habilitada, especifique o caminho raiz absoluto para ler as pastas particionadas como colunas de dados.<br/><br/>Se não for especificado, por padrão,<br/>-Quando você usa o caminho do arquivo no conjunto de programas ou na lista de arquivos na origem, o caminho raiz da partição é o caminho configurado no conjunto de um.<br/>-Quando você usa o filtro de pasta curinga, o caminho raiz da partição é o subcaminho antes do primeiro caractere curinga.<br/><br/>Por exemplo, supondo que você configure o caminho no conjunto de um como "raiz/pasta/ano = 2020/mês = 08/dia = 27":<br/>-Se você especificar o caminho raiz da partição como "raiz/pasta/ano = 2020", a atividade de cópia irá gerar mais duas colunas `month` e `day` com o valor "08" e "27", respectivamente, além das colunas dentro dos arquivos.<br/>-Se o caminho raiz da partição não for especificado, nenhuma coluna extra será gerada. | Não                                            |
 | maxConcurrentConnections | O número das conexões para se conectar ao repositório de armazenamento simultaneamente. Especifique somente quando quiser limitar a conexão simultânea com o armazenamento de dados. | Não                                            |
 
 **Exemplo:**
@@ -331,7 +357,7 @@ As propriedades a seguir têm suporte para Data Lake Storage Gen2 em configuraç
 | ------------------------ | ------------------------------------------------------------ | -------- |
 | type                     | A propriedade de tipo em `storeSettings` deve ser configurada com **AzureBlobFSWriteSettings**. | Sim      |
 | copyBehavior             | Define o comportamento de cópia quando a fonte for de arquivos de um armazenamento de dados baseado em arquivo.<br/><br/>Valores permitidos são:<br/><b>– PreserveHierarchy (padrão)</b>: Preserva a hierarquia de arquivos na pasta de destino. O caminho relativo do arquivo de origem para a pasta de origem é idêntico ao caminho relativo do arquivo de destino para a pasta de destino.<br/><b>– FlattenHierarchy</b>: Todos os arquivos da pasta de origem estão no primeiro nível da pasta de destino. Os arquivos de destino têm os nomes gerados automaticamente. <br/><b>– MergeFiles</b>: Mescla todos os arquivos da pasta de origem em um arquivo. Se o nome do arquivo for especificado, o nome do arquivo mesclado será o nome especificado. Caso contrário, ele será um nome de arquivo gerado automaticamente. | Não       |
-| blockSizeInMB | Especifique o tamanho do bloco em MB usado para gravar dados no ADLS Gen2. Saiba mais [sobre Blobs de blocos](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs). <br/>O valor permitido é **entre 4 MB e 100 MB**. <br/>Por padrão, o ADF determina automaticamente o tamanho do bloco com base no tipo de armazenamento de origem e nos dados. Para cópia não binária em ADLS Gen2, o tamanho de bloco padrão é 100 MB para que caiba no máximo de 4,95 TB de dados. Talvez não seja ideal quando os dados não forem grandes, especialmente quando você usar o runtime de integração auto-hospedada com rede deficiente, resultando em tempo limite de operação ou problema de desempenho. Você pode especificar explicitamente um tamanho de bloco, mas verifique se blockSizeInMB*50000 é grande o suficiente para armazenar os dados; caso contrário, haverá falha na execução da atividade de cópia. | Não |
+| blockSizeInMB | Especifique o tamanho do bloco em MB usado para gravar dados no ADLS Gen2. Saiba mais [sobre Blobs de blocos](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs). <br/>O valor permitido é **entre 4 MB e 100 MB**. <br/>Por padrão, o ADF determina automaticamente o tamanho do bloco com base no tipo de armazenamento de origem e nos dados. Para cópia não binária em ADLS Gen2, o tamanho de bloco padrão é 100 MB para que caiba no máximo de 4,95 TB de dados. Talvez não seja ideal quando os dados não forem grandes, especialmente quando você usar o runtime de integração auto-hospedada com rede deficiente, resultando em tempo limite de operação ou problema de desempenho. Você pode especificar explicitamente um tamanho de bloco, mas verifique se blockSizeInMB*50000 é grande o suficiente para armazenar os dados; caso contrário, haverá falha na execução da atividade de cópia. | Não |
 | maxConcurrentConnections | O número das conexões para se conectar ao armazenamento de dados simultaneamente. Especifique somente quando quiser limitar a conexão simultânea com o armazenamento de dados. | Não       |
 
 **Exemplo:**

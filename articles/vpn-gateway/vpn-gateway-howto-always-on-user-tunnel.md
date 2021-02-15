@@ -1,19 +1,19 @@
 ---
-title: Configurar um túnel de usuário de VPN AlwaysOn
+title: Configurar um túnel de usuário de VPN Always-On
 titleSuffix: Azure VPN Gateway
 description: Este artigo descreve como configurar um túnel de usuário de VPN Always On para seu gateway de VPN
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 03/12/2020
+ms.date: 09/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: 8cfe1d6434c0f5765196776ae9f6712fe14c52a3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 99d21222a62ed6b27a6a1b2a73b704f4cb26457b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84984131"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89435789"
 ---
 # <a name="configure-an-always-on-vpn-user-tunnel"></a>Configurar um túnel de usuário Always On VPN
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 6d2b2fb55a9c23643bbb778ced047e75871ba7f5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aca8c75f262e472cbc770c052b86d6e760ee449a
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84807679"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026464"
 ---
 # <a name="visualize-azure-network-watcher-nsg-flow-logs-using-open-source-tools"></a>Visualizar logs de fluxo NSG do Observador de Rede do Azure usando ferramentas de código aberto
 
@@ -29,7 +29,7 @@ Esses logs de fluxo podem ser difíceis de serem analisados e de obter ideias de
 
 Neste artigo, vamos configurar uma solução que permitirá a visualização dos logs de fluxo do Grupo de Segurança de Rede usando o Elastic Stack.  Um plug-in de entrada Logstash obterá os logs de fluxo diretamente do blob de armazenamento configurado para conter os logs do fluxo. Em seguida, usando o Elastic Stack, os logs do fluxo serão indexados e usados para criar um painel Kibana para visualizar as informações.
 
-![cenário][scenario]
+![O diagrama mostra um cenário que permite visualizar os logs de fluxo do grupo de segurança de rede usando a pilha elástica.][scenario]
 
 ## <a name="steps"></a>Etapas
 
@@ -41,7 +41,7 @@ Ao conectar os logs de fluxo NSG ao Elastic Stack, podemos criar um painel Kiban
 
 #### <a name="install-elasticsearch"></a>Instalar Elasticsearch
 
-1. O Elastic Stack da versão 5.0 e superior exige o Java 8. Execute o comando `java -version` para verificar sua versão. Se você não tiver o Java instalado, veja a documentação sobre os [JDKs com suporte do Azure](https://aka.ms/azure-jdks).
+1. O Elastic Stack da versão 5.0 e superior exige o Java 8. Execute o comando `java -version` para verificar sua versão. Se você não tiver o Java instalado, veja a documentação sobre os [JDKs com suporte do Azure](/azure/developer/java/fundamentals/java-jdk-long-term-support).
 2. Baixe o pacote de binários correto para seu sistema:
 
    ```bash
@@ -207,7 +207,7 @@ Baixe o [arquivo do painel](https://aka.ms/networkwatchernsgflowlogdashboard), o
 
 Na guia **Management** (Gerenciamento) do Kibana, navegue até **Saved Objects** (Objetos Salvos) e importe todos os três arquivos. Em seguida, na guia **Painel**, você pode abrir e carregar o painel de exemplo.
 
-Você também pode criar suas próprias visualizações e painéis personalizados para métricas de seu próprio interesse. Leia mais sobre como criar visualizações do Kibana a partir da [documentação oficial](https://www.elastic.co/guide/en/kibana/current/visualize.html) do Kibana.
+Você também pode criar suas próprias visualizações e painéis personalizados para métricas de seu próprio interesse. Leia mais sobre como criar visualizações do Kibana a partir da [documentação oficial](https://www.tutorialspoint.com/kibana/kibana_create_visualization.htm) do Kibana.
 
 ### <a name="visualize-nsg-flow-logs"></a>Visualizar logs de fluxo NSG
 
@@ -215,27 +215,27 @@ O painel de exemplo fornece várias visualizações dos logs de fluxo:
 
 1. Fluxos por Decisão/Direção ao Longo do Tempo - grafos da série de tempo mostrando o número de fluxos durante o período de tempo. Você pode editar a unidade de tempo e o alcance das duas visualizações. Os Fluxos por Decisão mostram a proporção de permitir ou negar decisões tomadas, enquanto os Fluxos por Direção mostram a proporção do tráfego de entrada e de saída. Com esses elementos visuais, você pode examinar as tendências de tráfego ao longo do tempo e procure por picos ou padrões incomuns.
 
-   ![figura2][2]
+   ![Captura de tela mostra um painel de exemplo com fluxos por decisão e direção ao longo do tempo.][2]
 
 2. Fluxos por Porta de Origem/Destino - gráficos de pizza mostrando a divisão dos fluxos pelas respectivas portas. Nesta exibição, você pode ver as portas usadas com mais frequência. Se você clicar em uma porta específica dentro do gráfico de pizza, o restante do painel filtrará em busca de fluxos dessa porta.
 
-   ![figura3][3]
+   ![Captura de tela mostra um painel de exemplo com fluxos por porta de destino e de origem.][3]
 
 3. Número de Fluxos e Hora do Primeiro Log - métricas mostrando o número de fluxos registrados e a data do primeiro log capturado.
 
-   ![figura4][4]
+   ![Captura de tela mostra um painel de exemplo com o número de fluxos e a hora de log mais antiga.][4]
 
 4. Fluxos de NSG e Regra - um grafo de barras mostrando a distribuição dos fluxos em cada NSG, além da distribuição de regras em cada NSG. A partir daqui, você pode ver quais regras e NSG geraram mais tráfego.
 
-   ![figura5][5]
+   ![Captura de tela mostra um painel de exemplo com fluxos por N S G e regra.][5]
 
 5. Os 10 Principais IPs de Origem/Destino - gráficos de barras mostrando os 10 principais IPs de origem e de destino. Você pode ajustar esses gráficos para mostrar mais ou menos IPs principais. A partir daqui, você pode ver os IPs que ocorrem mais frequentemente, além da decisão de tráfego (permitir ou negar) tomada para cada IP.
 
-   ![figura6][6]
+   ![Captura de tela mostra um painel de exemplo com fluxos dos dez principais endereços de origem e destino I P.][6]
 
 6. Tuplas de Fluxo - essa tabela mostra as informações contidas em cada tupla de fluxo, além da regra e NGS correspondentes.
 
-   ![figura7][7]
+   ![Captura de tela mostra tuplas de fluxo em uma tabela.][7]
 
 Usando a barra de consulta na parte superior do painel, você pode filtrar o conteúdo do painel com base nos parâmetros dos fluxos, como a ID da assinatura, grupos de recursos, regra ou qualquer outra variável de interesse. Para obter mais informações sobre consultas e filtros do Kibana, consulte a [documentação oficial](https://www.elastic.co/guide/en/beats/packetbeat/current/kibana-queries-filters.html)
 

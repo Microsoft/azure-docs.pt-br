@@ -1,20 +1,20 @@
 ---
 title: Tutorial – Configurar a rede virtual para o Azure AD Domain Services | Microsoft Docs
 description: Neste tutorial, você aprenderá a criar e configurar uma sub-rede da rede virtual do Azure ou um emparelhamento de rede para um domínio gerenciado do Azure Active Directory Domain Services usando o portal do Azure.
-author: iainfoulds
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
-ms.author: iainfou
-ms.openlocfilehash: e0d2b235f671ca9b30bf61aef254cb850b25373e
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.author: justinha
+ms.openlocfilehash: ddb8f360304bdb41ae359f293af4d10b0afc6558
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86024767"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96618409"
 ---
 # <a name="tutorial-configure-virtual-networking-for-an-azure-active-directory-domain-services-managed-domain"></a>Tutorial: Configurar um emparelhamento de rede para um domínio gerenciado do Azure Active Directory Domain Services
 

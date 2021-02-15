@@ -15,25 +15,39 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2018
 ms.author: apimpm
-ms.openlocfilehash: 7ef1c09b12d3c7e365f090391aa3fa8afa03749b
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 36b21196207f65975dae950f43ec0c7094991dad
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213994"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100362022"
 ---
 # <a name="advanced-request-throttling-with-azure-api-management"></a>Limitação de solicitação avançada com o Gerenciamento de API do Azure
 Ser capaz de limitar as solicitações de entrada é fundamental para o Gerenciamento de API do Azure. Ao controlar a taxa de solicitações ou as solicitações/dados totais transferidos, o Gerenciamento de API permite que os provedores de API protejam suas APIs contra o abuso e criem valor para diferentes níveis de produto de API.
 
+## <a name="rate-limits-and-quotas"></a>Limites de taxa e cotas
+Os limites de taxa e as cotas são usados para finalidades diferentes.
+
+### <a name="rate-limits"></a>Limites de taxa
+Os limites de taxa geralmente são usados para proteger contra picos de volume curtos e intensos. Por exemplo, se você souber que seu serviço de back-end tem um afunilamento em seu banco de dados com um alto volume de chamadas, você pode definir uma `rate-limit-by-key` política para não permitir o alto volume de chamadas usando essa configuração.
+
+### <a name="quotas"></a>Cotas
+As cotas geralmente são usadas para controlar as taxas de chamada em um período de tempo maior. Por exemplo, eles podem definir o número total de chamadas que um determinado assinante pode fazer dentro de um determinado mês. Para monetização sua API, as cotas também podem ser definidas de forma diferente para assinaturas baseadas em camadas. Por exemplo, uma assinatura de camada básica pode não ser capaz de fazer mais de 10.000 chamadas por mês, mas uma camada Premium pode ir até 100 milhões chamadas por mês.
+
+No gerenciamento de API do Azure, os limites de taxa normalmente são propagados mais rapidamente entre os nós para proteção contra picos. Por outro lado, as informações de cota de uso são usadas em um prazo maior e, portanto, sua implementação é diferente.
+
+> [!CAUTION]
+> Devido à natureza distribuída da arquitetura de limitação, a limitação de taxa nunca é completamente precisa. A diferença entre o número configurado e o real de solicitações permitidas varia de acordo com o volume e a taxa de solicitação, a latência de back-end e outros fatores.
+
 ## <a name="product-based-throttling"></a>Limitação com base no produto
-Até o momento, os recursos de limitação da taxa estavam restritos à assinatura de um produto específico, definida no Portal do Azure. Isso é útil para o provedor de API aplicar limites aos desenvolvedores que se inscreveram para usar sua API, mas não ajuda, por exemplo, na limitação de usuários finais individuais da API. É possível que um único usuário do aplicativo do desenvolvedor consuma toda a cota, impedindo que outros clientes do desenvolvedor possam usar o aplicativo. Além disso, vários clientes que gerem um grande volume de solicitações podem limitar o acesso a usuários ocasionais.
+Os recursos de limitação de taxa que têm o escopo de uma determinada assinatura são úteis para o provedor de API aplicar limites aos desenvolvedores que se inscreveram para usar sua API. No entanto, ele não ajuda, por exemplo, na limitação de usuários finais individuais da API. É possível que um único usuário do aplicativo do desenvolvedor consuma toda a cota e, em seguida, impeça que outros clientes do desenvolvedor possam usar o aplicativo. Além disso, vários clientes que gerem um grande volume de solicitações podem limitar o acesso a usuários ocasionais.
 
 ## <a name="custom-key-based-throttling"></a>Limitação baseada em chave personalizada
 
 > [!NOTE]
 > As `rate-limit-by-key` `quota-by-key` políticas e não estão disponíveis no nível de consumo do gerenciamento de API do Azure. 
 
-As novas políticas [rate-limit-by-key](./api-management-access-restriction-policies.md#LimitCallRateByKey) e [quota-by-key](./api-management-access-restriction-policies.md#SetUsageQuotaByKey) fornecem uma solução mais flexível para o controle de tráfego. Essas novas políticas permitem que você defina expressões a fim de identificar as chaves que são usadas para acompanhar o tráfego. O modo como isso funciona será ilustrado com mais facilidade usando um exemplo. 
+As políticas [taxa-limite-por-chave](./api-management-access-restriction-policies.md#LimitCallRateByKey) e [cota por chave](./api-management-access-restriction-policies.md#SetUsageQuotaByKey) fornecem uma solução mais flexível para o controle de tráfego. Essas políticas permitem que você defina expressões para identificar as chaves que são usadas para rastrear o uso do tráfego. O modo como isso funciona será ilustrado com mais facilidade usando um exemplo. 
 
 ## <a name="ip-address-throttling"></a>Limitação de endereço IP
 As políticas a seguir restringem um endereço IP de cliente individual para apenas 10 chamadas a cada minuto, com um total de 1.000.000 chamadas e 10.000 quilobytes de largura de banda por mês. 
@@ -63,7 +77,7 @@ Se um usuário final for autenticado, uma chave de limitação poderá ser gerad
 Este exemplo mostra como extrair o cabeçalho Autorização, o convertemos no objeto `JWT` e usamos o assunto do token para identificar o usuário e como a chave de limitação de taxa. Se a identidade do usuário for armazenada no `JWT` como uma das outras declarações, esse valor poderá ser usado em seu lugar.
 
 ## <a name="combined-policies"></a>Políticas combinadas
-Embora as novas políticas de limitação forneçam mais controle do que as políticas de limitação existentes, ainda vale a pena combinar os dois recursos. Limitar por chave de assinatura do produto ([Limitar a taxa de chamada por assinatura](./api-management-access-restriction-policies.md#LimitCallRate) e [Definir a cota de uso por assinatura](./api-management-access-restriction-policies.md#SetUsageQuota)) é uma ótima maneira de habilitar a monetização de uma API por meio da cobrança com base nos níveis de uso. O controle mais preciso proporcionado pela limitação de acordo com o usuário é complementar e impede que o comportamento de um usuário afete a experiência de outros. 
+Embora as políticas de limitação baseadas no usuário forneçam mais controle do que as políticas de limitação baseadas em assinatura, ainda há um valor que combina os dois recursos. Limitar por chave de assinatura do produto ([Limitar a taxa de chamada por assinatura](./api-management-access-restriction-policies.md#LimitCallRate) e [Definir a cota de uso por assinatura](./api-management-access-restriction-policies.md#SetUsageQuota)) é uma ótima maneira de habilitar a monetização de uma API por meio da cobrança com base nos níveis de uso. O controle mais preciso proporcionado pela limitação de acordo com o usuário é complementar e impede que o comportamento de um usuário afete a experiência de outros. 
 
 ## <a name="client-driven-throttling"></a>Limitação controlada pelo cliente
 Quando a chave de limitação é definida usando uma [expressão de política](./api-management-policy-expressions.md), é o provedor de API que está escolhendo como a limitação é delimitada. No entanto, um desenvolvedor pode querer controlar como vai limitar seus próprios clientes. Isso pode ser habilitado pelo provedor da API introduzindo um cabeçalho personalizado para permitir que o aplicativo cliente do desenvolvedor comunique a chave para a API.

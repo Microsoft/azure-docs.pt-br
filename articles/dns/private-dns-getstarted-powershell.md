@@ -1,18 +1,18 @@
 ---
 title: Início Rápido – Criar uma zona DNS privada do Azure usando o Azure PowerShell
-description: Neste artigo, você cria e testa uma zona e um registro DNS privados no DNS do Azure. Este é uma guia passo a passo para criar e gerenciar sua primeira zona e registro DNS privado usando o Azure PowerShell.
+description: Neste guia de início rápido, você aprenderá a criar e gerenciar sua primeira zona e registro DNS privados usando o Azure PowerShell.
 services: dns
 author: rohinkoul
 ms.service: dns
 ms.topic: quickstart
-ms.date: 10/05/2019
+ms.date: 10/20/2020
 ms.author: rohink
-ms.openlocfilehash: 0db53bcd6516bd52e2796deaa49fe0dd582e0588
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: ee6dde6b34cccd415f9bf2052f65dcbe940715c1
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76939385"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424385"
 ---
 # <a name="quickstart-create-an-azure-private-dns-zone-using-azure-powershell"></a>Início Rápido: Criar uma zona DNS privada do Azure usando o Azure PowerShell
 
@@ -22,19 +22,13 @@ Este artigo explica as etapas para criar sua primeira zona e registro de DNS pri
 
 Uma zona DNS é usada para hospedar os registros DNS para um domínio específico. Para iniciar a hospedagem do seu domínio no DNS do Azure, você precisará criar uma zona DNS para esse nome de domínio. Cada registro DNS para seu domínio é criado dentro dessa zona DNS. Para publicar uma zona de DNS privado em sua rede virtual, você deve especificar a lista de redes virtuais que podem resolver registros na zona.  Elas são chamadas de redes virtuais *vinculadas*. Quando o registro automático estiver habilitado, o DNS do Azure também atualizará os registros de zona sempre que ocorrer a criação de uma máquina virtual, o endereço IP dela mudar ou ela for excluída.
 
-Neste artigo, você aprenderá como:
-
-> [!div class="checklist"]
-> * Criar uma zona DNS privada
-> * Criar máquinas virtuais de teste
-> * Criar um registro DNS adicional
-> * Testar a zona privada
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+## <a name="prerequisites"></a>Pré-requisitos
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 Se preferir, poderá concluir este início rápido usando a [CLI do Azure](private-dns-getstarted-cli.md).
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-the-resource-group"></a>Criar o grupo de recursos
 
@@ -48,7 +42,7 @@ New-AzResourceGroup -name MyAzureResourceGroup -location "eastus"
 
 Uma zona DNS é criada usando o cmdlet `New-AzPrivateDnsZone` .
 
-O seguinte exemplo cria uma rede virtual chamada **myAzureVNet**. Em seguida, ele cria uma zona DNS chamada **private.contoso.com** no grupo de recursos **MyAzureResourceGroup**, vincula a zona DNS à rede virtual **MyAzureVnet** e habilita o registro automático.
+O seguinte exemplo cria uma rede virtual chamada **myAzureVNet**. Em seguida, ele cria uma zona DNS chamada **private.contoso.com** no grupo de recursos **MyAzureResourceGroup** , vincula a zona DNS à rede virtual **MyAzureVnet** e habilita o registro automático.
 
 ```azurepowershell
 Install-Module -Name Az.PrivateDns -force
@@ -155,7 +149,7 @@ Repita para myVM02.
    ping myVM01.private.contoso.com
    ```
 
-   Você deve ver uma saída semelhante a esta:
+   Você deverá ver uma saída semelhante a esta:
 
    ```
    PS C:\> ping myvm01.private.contoso.com
@@ -179,7 +173,7 @@ Repita para myVM02.
    ping db.private.contoso.com
    ```
 
-   Você deve ver uma saída semelhante a esta:
+   Você deverá ver uma saída semelhante a esta:
 
    ```
    PS C:\> ping db.private.contoso.com
@@ -197,7 +191,7 @@ Repita para myVM02.
    PS C:\>
    ```
 
-## <a name="delete-all-resources"></a>Excluir todos os recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando não for mais necessário, exclua o grupo de recursos **MyAzureResourceGroup** para excluir os recursos criados neste artigo.
 

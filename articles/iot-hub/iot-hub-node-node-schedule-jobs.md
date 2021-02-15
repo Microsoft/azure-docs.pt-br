@@ -9,13 +9,13 @@ services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 08/16/2019
-ms.custom: mqtt, devx-track-javascript
-ms.openlocfilehash: 16e6c72f9fbb710524752c2d220d442735d809b7
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: mqtt, devx-track-js
+ms.openlocfilehash: e1992c806619154fa7b3c33500b2e54fbc919f20
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420763"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151442"
 ---
 # <a name="schedule-and-broadcast-jobs-nodejs"></a>Agendar e difundir trabalhos (Node.js)
 
@@ -300,4 +300,4 @@ Neste tutorial, você usou um trabalho para agendar um método direto para um di
 
 Para continuar a introdução aos padrões do Hub IoT e do gerenciamento de dispositivos, como remoto pela atualização do firmware do ar, consulte [tutorial: como fazer uma atualização de firmware](tutorial-firmware-update.md).
 
-Para continuar a introdução ao Hub IoT, consulte [Introdução ao Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md).
+Para continuar a introdução ao Hub IoT, consulte [Introdução ao Azure IoT Edge](../iot-edge/quickstart-linux.md).

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/01/2018
-ms.openlocfilehash: 30f6bf7629152050bc1249a1e22aff0aa30642de
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 2e836a175b45c6fca46f9c76760e1cbaef305a47
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88209533"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792575"
 ---
 # <a name="public-data-sets-for-testing-and-prototyping"></a>Conjuntos de dados públicos para criação de protótipos e testes
 [!INCLUDE[appliesto-asf](includes/appliesto-asf.md)]
@@ -45,7 +45,7 @@ Procure nesta lista de conjuntos de dados públicos os dados que você pode usar
 | [Dados da Open Science Data Cloud](https://www.opensciencedatacloud.org/projects/) | "A Open Science Data Cloud fornece à comunidade científica recursos para armazenar, compartilhar e analisar terabytes e petabytes de conjuntos de dados científicos".| Os conjuntos de dados estão em vários formatos. |
 | [Dados sobre clima global – WorldClim](https://worldclim.org/) | "WorldClim é um conjunto de camadas de clima global (dados de clima matriciais) com uma resolução espacial de cerca de 1 km2. Esses dados podem ser usados para mapeamento e modelagem espacial". | Esses arquivos contêm dados geoespaciais. Para saber mais, veja [Formato de dados](https://worldclim.org/formats1). |
 | [Dados sobre a sociedade humana - o projeto GDELT](https://www.gdeltproject.org/data.html) | "O projeto GDELT é o maior e mais abrangente banco de dados aberto da sociedade humana já criado, além de contar com a maior resolução". | Os arquivos de dados brutos estão no formato CSV. |
-| [Dados de previsão de cliques em publicidade para machine learning da Criteo](https://labs.criteo.com/2013/12/download-terabyte-click-logs/) | "O maior conjunto de dados ML já lançado publicamente". Para saber mais, veja [Conjunto de dados de previsão de cliques de 1 TB da Criteo](https://blogs.technet.microsoft.com/machinelearning/20../../now-available-on-azure-ml-criteos-1tb-click-prediction-dataset/). | |
+| [Dados de previsão de cliques em publicidade para machine learning da Criteo](https://labs.criteo.com/2013/12/download-terabyte-click-logs/) | "O maior conjunto de dados ML já lançado publicamente". Para saber mais, veja [Conjunto de dados de previsão de cliques de 1 TB da Criteo](/archive/blogs/machinelearning/now-available-on-azure-ml-criteos-1tb-click-prediction-dataset). | |
 | [Conjunto de dados de mineração de texto ClueWeb09 do projeto Lemur](https://www.lemurproject.org/clueweb09.php/) | "O conjunto de dados ClueWeb09 foi criado para oferecer suporte à pesquisa sobre a recuperação de informações e tecnologias relacionadas ao idioma humano. Ele consiste em um bilhão de páginas da Web em 10 idiomas coletadas entre janeiro e fevereiro de 2009". | Veja [Informações de conjunto de dados](https://www.lemurproject.org/clueweb09/datasetInformation.php).|
 
 ## <a name="online-service-data"></a>Dados de serviço online

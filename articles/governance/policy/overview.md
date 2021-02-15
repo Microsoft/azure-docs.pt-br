@@ -1,25 +1,26 @@
 ---
 title: Visão geral do Azure Policy
 description: O Azure Policy é um serviço no Azure que você pode usar para criar, atribuir e gerenciar definições de política em seu ambiente do Azure.
-ms.date: 06/17/2020
+ms.date: 01/14/2021
 ms.topic: overview
-ms.openlocfilehash: 2ac8c175f586d9649e35328a483be918276c115d
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: df430586af2e701ec2881f6ea760095fd2ca79d0
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044185"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98220721"
 ---
 # <a name="what-is-azure-policy"></a>O que é o Azure Policy?
 
-O Azure Policy ajuda a impor padrões organizacionais e a avaliar a conformidade em escala. Por meio o painel de conformidade, ele fornece uma exibição agregada para avaliar o estado geral do ambiente, com a capacidade de detalhar para a granularidade por recurso, por política. Ele também ajuda a deixar seus recursos em conformidade por meio da correção em massa de recursos existentes e da correção automática para novos recursos.
+O Azure Policy ajuda a impor padrões organizacionais e a avaliar a conformidade em escala. Por meio do painel de conformidade, ele fornece uma exibição agregada para avaliar o estado geral do ambiente, com a capacidade de drill down para a granularidade por recurso, por política. Ele também ajuda a deixar seus recursos em conformidade por meio da correção em massa de recursos existentes e da correção automática para novos recursos.
 
 Casos de uso comuns do Azure Policy incluem implementar a governança para consistência de recursos, conformidade regulatória, segurança, custo e gerenciamento. As definições de política para esses casos de uso comuns já estão disponíveis em seu ambiente do Azure como itens interno para ajudar você a começar a usar.
 
+Todos os dados e objetos do Azure Policy são criptografados em repouso. Para obter mais informações, confira [Criptografia de dados em repouso do Azure](../../security/fundamentals/encryption-atrest.md).
+
 ## <a name="overview"></a>Visão geral
 
-O Azure Policy avalia os recursos no Azure comparando as propriedades desses recursos com as regras de negócio. Essas regras de negócio, descritas em [Formato JSON](./concepts/definition-structure.md), são conhecidas como [definições de política](#policy-definition). Para simplificar o gerenciamento, várias regras de negócio podem ser agrupadas para formar uma [iniciativa de política](#initiative-definition) (às vezes chamada de _policySet_). Depois que as regras de negócios tiverem sido formadas, a definição ou a iniciativa da política será [atribuída](#assignments) a qualquer escopo de recursos compatível com o Azure, como [grupos de gerenciamento](../management-groups/overview.md), assinaturas, [grupos de recursos](../../azure-resource-manager/management/overview.md#resource-groups) ou recursos individuais. A atribuição se aplica a todos os recursos dentro do [escopo](../../azure-resource-manager/management/overview.md#understand-scope) dessa atribuição.
-Os subescopos podem ser excluídos, se necessário.
+O Azure Policy avalia os recursos no Azure comparando as propriedades desses recursos com as regras de negócio. Essas regras de negócio, descritas em [Formato JSON](./concepts/definition-structure.md), são conhecidas como [definições de política](#policy-definition). Para simplificar o gerenciamento, várias regras de negócio podem ser agrupadas para formar uma [iniciativa de política](#initiative-definition) (às vezes chamada de _policySet_). Depois que as regras de negócios tiverem sido formadas, a definição ou a iniciativa da política será [atribuída](#assignments) a qualquer escopo de recursos compatível com o Azure, como [grupos de gerenciamento](../management-groups/overview.md), assinaturas, [grupos de recursos](../../azure-resource-manager/management/overview.md#resource-groups) ou recursos individuais. A atribuição se aplica a todos os recursos dentro do [escopo do Resource Manager](../../azure-resource-manager/management/overview.md#understand-scope) dessa atribuição. Os subescopos podem ser excluídos, se necessário. Para obter mais informações, confira [Escopo no Azure Policy](./concepts/scope.md).
 
 O Azure Policy usa um [formato JSON](./concepts/definition-structure.md) para formar a lógica que a avaliação usa para determinar se um recurso está em conformidade ou não. As definições incluem metadados e a regra de política. A regra definida pode usar funções, parâmetros, operadores lógicos, condições e [aliases](./concepts/definition-structure.md#aliases) de propriedade para corresponder exatamente ao cenário desejado. A regra de política determina quais recursos no escopo da atribuição são avaliados.
 
@@ -36,7 +37,7 @@ Para obter informações detalhadas sobre quando e como a avaliação de políti
 
 ### <a name="control-the-response-to-an-evaluation"></a>Controlar a resposta a uma avaliação
 
-As regras de negócio para lidar com recursos sem conformidade variam muito entre as organizações. Exemplos de como uma organização deseja que a plataforma responda a um recurso sem reclamação incluem:
+As regras de negócio para lidar com recursos sem conformidade variam muito entre as organizações. Exemplos de como uma organização deseja que a plataforma responda a um recurso sem conformidade, incluindo:
 
 - Negar a alteração do recurso
 - Registrar a alteração no recurso
@@ -58,31 +59,31 @@ A visão geral do Azure Policy a seguir é da versão 2018. Para download de ví
 
 ## <a name="getting-started"></a>Introdução
 
-### <a name="azure-policy-and-rbac"></a>Azure Policy e RBAC
+### <a name="azure-policy-and-azure-rbac"></a>Azure Policy e Azure RBAC
 
-Há algumas diferenças importantes entre o Azure Policy e o RBAC (controle de acesso baseado em função). O Azure Policy avalia o estado examinando as propriedades dos recursos que são representados no Resource Manager e as propriedades de alguns provedores de recursos. O Azure Policy não restringe as ações (também chamadas de _operações_). O Azure Policy garante que o estado do recurso esteja em conformidade com as regras de negócio sem levar em conta quem fez a alteração ou quem tem permissão para fazer uma alteração.
+Há algumas diferenças importantes entre o Azure Policy e o Azure RBAC (controle de acesso baseado em função). O Azure Policy avalia o estado examinando as propriedades dos recursos que são representados no Resource Manager e as propriedades de alguns provedores de recursos. O Azure Policy não restringe as ações (também chamadas de _operações_). O Azure Policy garante que o estado do recurso esteja em conformidade com as regras de negócio sem levar em conta quem fez a alteração ou quem tem permissão para fazer uma alteração.
 
-O RBAC concentra-se em gerenciar as [ações](../../role-based-access-control/resource-provider-operations.md) do usuário em escopos diferentes. Se o controle de uma ação é necessário, o RBAC é a ferramenta correta a ser usada. Mesmo que um indivíduo tenha acesso para executar uma ação, se o resultado for um recurso que não está em conformidade, o Azure Policy ainda bloqueará a criação ou a atualização.
+O Azure RBAC concentra-se em gerenciar as [ações](../../role-based-access-control/resource-provider-operations.md) do usuário em escopos diferentes. Se o controle de uma ação é necessário, o Azure RBAC é a ferramenta correta a ser usada. Mesmo que um indivíduo tenha acesso para executar uma ação, se o resultado for um recurso que não está em conformidade, o Azure Policy ainda bloqueará a criação ou a atualização.
 
-A combinação de RBAC e Azure Policy fornece controle de escopo completo no Azure.
+A combinação do RBAC do Azure e do Azure Policy fornece controle de escopo completo no Azure.
 
-### <a name="rbac-permissions-in-azure-policy"></a>Permissões de RBAC no Azure Policy
+### <a name="azure-rbac-permissions-in-azure-policy"></a>Permissões do Azure RBAC no Azure Policy
 
 O Azure Policy tem diversas permissões, conhecidas como operações, em dois provedores de recursos:
 
 - [Microsoft.Authorization](../../role-based-access-control/resource-provider-operations.md#microsoftauthorization)
 - [Microsoft.PolicyInsights](../../role-based-access-control/resource-provider-operations.md#microsoftpolicyinsights)
 
-Muitas funções internas concedem permissão aos recursos do Azure Policy. A função **Colaborador da Política de Recursos** inclui a maioria das operações do Azure Policy. O **proprietário** tem direitos totais. Tanto o **Colaborador** quanto o **Leitor** têm acesso a todas as operações de _ler_ do Azure Policy. O **colaborador** pode disparar a correção de recursos, mas não pode _criar_ definições nem atribuições.
+Muitas funções internas concedem permissão aos recursos do Azure Policy. A função **Colaborador da Política de Recursos** inclui a maioria das operações do Azure Policy. O **proprietário** tem direitos totais. Tanto o **Colaborador** quanto o **Leitor** têm acesso a todas as operações de _ler_ do Azure Policy. O **colaborador** pode disparar a correção de recursos, mas não pode _criar_ definições nem atribuições. O **Administrador de Acesso do Usuário** é necessário para conceder a identidade gerenciada nas permissões necessárias de atribuições **deployIfNotExists** ou **modify**.
 
 Se nenhuma das funções internas possui as permissões necessárias, crie uma [função personalizada](../../role-based-access-control/custom-roles.md).
 
 > [!NOTE]
-> A identidade gerenciada de uma atribuição de política **deployIfNotExists** precisa de permissões suficientes para criar ou atualizar os recursos incluídos no modelo. Para saber mais, confira [Configurar as definições de política para correção](./how-to/remediate-resources.md#configure-policy-definition).
+> A identidade gerenciada de uma atribuição de política **deployIfNotExists** ou **modify** precisa de permissões suficientes para criar ou atualizar os recursos direcionados. Para saber mais, confira [Configurar as definições de política para correção](./how-to/remediate-resources.md#configure-policy-definition).
 
 ### <a name="resources-covered-by-azure-policy"></a>Recursos cobertos pelo Azure Policy
 
-O Azure Policy avalia todos os recursos no Azure. Para determinados provedores de recursos, como [Configuração de Convidado](./concepts/guest-configuration.md), [Serviço de Kubernetes do Azure](../../aks/intro-kubernetes.md) e [Azure Key Vault](../../key-vault/general/overview.md), há uma integração mais profunda para o gerenciamento de configurações e objetos. Para obter mais informações, confira [Modos de provedor de recursos](./concepts/definition-structure.md).
+O Azure Policy avalia todos os recursos do Azure no nível de assinatura ou abaixo dele, incluindo recursos habilitados para Arc. Para determinados provedores de recursos, como [Configuração de Convidado](./concepts/guest-configuration.md), [Serviço de Kubernetes do Azure](../../aks/intro-kubernetes.md) e [Azure Key Vault](../../key-vault/general/overview.md), há uma integração mais profunda para o gerenciamento de configurações e objetos. Para obter mais informações, confira [Modos de provedor de recursos](./concepts/definition-structure.md).
 
 ### <a name="recommendations-for-managing-policies"></a>Recomendações para o gerenciamento de políticas
 
@@ -113,7 +114,6 @@ No Azure Policy, oferecemos algumas políticas internas que estão disponíveis 
 - **Locais permitidos** (Negar): Restringe os locais disponíveis para novos recursos. O efeito é usado para impor seus requisitos de conformidade de área geográfica.
 - **SKUs de Máquinas Virtuais Permitidas** (Negar): Especifica um conjunto de SKUs de máquina virtual que você pode implantar.
 - **Adicionar uma marca aos recursos** (Modificar): Aplica uma tag necessária e seu valor padrão se ele não é especificado pela solicitação de implantação.
-- **Acrescentar a marca e o seu valor padrão** (Acrescentar): Impõe uma tag necessária e seu valor a um recurso.
 - **Não são tipos de recurso permitidos** (Negar): Impede que uma lista de tipos de recurso seja implantada.
 
 Para implementar essas definições de política (definições internas e personalizadas), você precisará atribuí-las. Você pode atribuir qualquer uma dessas políticas usando o portal do Azure, o PowerShell ou a CLI do Azure.

@@ -3,12 +3,12 @@ title: Criar e usar arquivos de recurso
 description: Saiba como criar arquivos de recurso do Lote a partir de várias fontes de entrada. Este artigo aborda alguns métodos comuns sobre como criar e colocar arquivos de recursos em uma VM.
 ms.date: 03/18/2020
 ms.topic: how-to
-ms.openlocfilehash: 481ac8843f871f9f1eaa61e782e273e27715a473
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 84a5e9780b4fa0abfec5b736e04d385f14716873
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964015"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92109282"
 ---
 # <a name="creating-and-using-resource-files"></a>Criar e usar arquivos de recurso
 
@@ -50,7 +50,7 @@ SharedAccessBlobPolicy sasConstraints = new SharedAccessBlobPolicy
 > [!NOTE]
 > Para acesso ao contêiner, você deve ter as permissões `Read` e `List`. Já para acessar o Blob, você precisa apenas da permissão `Read`.
 
-Depois que as permissões forem configuradas, crie o token SAS e formate a URL de SAS para acesso ao contêiner de armazenamento. Usando a URL de SAS formatada para o contêiner de armazenamento, gere um arquivo de recurso com [`FromStorageContainerUrl`](/dotnet/api/microsoft.azure.batch.resourcefile.fromstoragecontainerurl?view=azure-dotnet).
+Depois que as permissões forem configuradas, crie o token SAS e formate a URL de SAS para acesso ao contêiner de armazenamento. Usando a URL de SAS formatada para o contêiner de armazenamento, gere um arquivo de recurso com [`FromStorageContainerUrl`](/dotnet/api/microsoft.azure.batch.resourcefile.fromstoragecontainerurl).
 
 ```csharp
 CloudBlobContainer container = blobClient.GetContainerReference(containerName);
@@ -61,7 +61,7 @@ string containerSasUrl = String.Format("{0}{1}", container.Uri, sasToken);
 ResourceFile inputFile = ResourceFile.FromStorageContainerUrl(containerSasUrl);
 ```
 
-Uma alternativa para gerar uma URL de SAS é habilitar o acesso de leitura pública anônima para um contêiner e seus blobs no armazenamento de Blobs do Azure. Ao fazer isso, você poderá conceder acesso somente leitura a esses recursos sem compartilhar a chave da conta nem exigir uma SAS. O acesso de leitura público é geralmente usado para cenários em que você quer que determinados blobs estejam sempre disponíveis para acesso de leitura anônimo. Se esse cenário se adequar à sua solução, confira o artigo [Acesso anônimo a blobs](../storage/blobs/storage-manage-access-to-resources.md) para saber mais sobre como gerenciar o acesso aos seus dados de blob.
+Uma alternativa para gerar uma URL de SAS é habilitar o acesso de leitura pública anônima para um contêiner e seus blobs no armazenamento de Blobs do Azure. Ao fazer isso, você poderá conceder acesso somente leitura a esses recursos sem compartilhar a chave da conta nem exigir uma SAS. O acesso de leitura público é geralmente usado para cenários em que você quer que determinados blobs estejam sempre disponíveis para acesso de leitura anônimo. Se esse cenário se adequar à sua solução, confira o artigo [Acesso anônimo a blobs](../storage/blobs/anonymous-read-access-configure.md) para saber mais sobre como gerenciar o acesso aos seus dados de blob.
 
 ### <a name="storage-container-name"></a>Nome do contêiner de armazenamento
 
@@ -93,13 +93,13 @@ Cada tarefa do Lote do Azure usa arquivos de maneira diferente. É por isso que 
 
 O trabalho do Lote pode conter várias tarefas que usam os mesmos arquivos comuns. Se arquivos de tarefas comuns forem compartilhados entre muitas tarefas, usar um pacote de aplicativos para incluir os arquivos em vez de usar arquivos de recurso poderá ser uma opção melhor. Os pacotes de aplicativos fornecem otimização para a velocidade de download. Além disso, os dados nos pacotes de aplicativos são armazenados em cache entre as tarefas. Portanto, se os arquivos de tarefas não forem alterados com frequência, os pacotes de aplicativos poderão ser uma boa opção para sua solução. Com os pacotes de aplicativos, você não precisa gerenciar manualmente vários arquivos de recurso nem gerar URLs de SAS para acessar os arquivos no Armazenamento do Azure. O Lote funciona em segundo plano com o Armazenamento do Azure para armazenar e implantar os pacotes de aplicativos nos nós de computação.
 
-Se cada tarefa tiver muitos arquivos exclusivos, os arquivos de recurso serão a melhor opção, pois as tarefas que usam arquivos exclusivos geralmente precisam ser atualizadas ou substituídas, o que não é tão fácil com o conteúdo dos pacotes de aplicativos. Os arquivos de recurso fornecem flexibilidade adicional para atualizar, adicionar ou editar arquivos individuais.
+Se cada tarefa tiver muitos arquivos exclusivos para essa tarefa, os arquivos de recursos serão a melhor opção, pois as tarefas que usam arquivos exclusivos geralmente precisam ser atualizadas ou substituídas, o que não é tão fácil com o conteúdo dos pacotes de aplicativos. Os arquivos de recurso fornecem flexibilidade adicional para atualizar, adicionar ou editar arquivos individuais.
 
 ### <a name="number-of-resource-files-per-task"></a>Número de arquivos de recurso por tarefa
 
 Se houver várias centenas de arquivos de recurso especificados em uma tarefa, o Lote poderá rejeitar a tarefa por ser muito grande. É melhor manter suas tarefas em tamanho pequeno, minimizando o número de arquivos de recurso na própria tarefa.
 
-Se não houver como reduzir o número de arquivos de que sua tarefa precisa, você poderá otimizar a tarefa criando um único arquivo de recurso que faça referência a um contêiner de armazenamento de arquivos de recurso. Para isso, coloque os arquivos de recurso em um contêiner de Armazenamento do Azure e use os [métodos](/dotnet/api/microsoft.azure.batch.resourcefile?view=azure-dotnet#methods) de "contêiner" para os arquivos de recurso. Use as opções de prefixo de blob a fim de especificar coleções de arquivos a serem baixadas para suas tarefas.
+Se não houver como reduzir o número de arquivos de que sua tarefa precisa, você poderá otimizar a tarefa criando um único arquivo de recurso que faça referência a um contêiner de armazenamento de arquivos de recurso. Para isso, coloque os arquivos de recurso em um contêiner de Armazenamento do Azure e use os [métodos](/dotnet/api/microsoft.azure.batch.resourcefile#methods) de "contêiner" para os arquivos de recurso. Use as opções de prefixo de blob a fim de especificar coleções de arquivos a serem baixadas para suas tarefas.
 
 ## <a name="next-steps"></a>Próximas etapas
 

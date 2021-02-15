@@ -6,25 +6,21 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f4092b9d5ee7453533561f5921781fee4d1823eb
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: fd14af6c95654708f339f4a68cd333d0e3162553
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88005577"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89078173"
 ---
 # <a name="scale-windows-virtual-desktop-classic-session-hosts-using-azure-automation"></a>Dimensionar hosts de sessão da área de trabalho virtual (clássica) do Windows usando a automação do Azure
 
 >[!IMPORTANT]
->Este conteúdo se aplica à Área de Trabalho Virtual do Windows (clássica), que não dá suporte a objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager.
+>Este conteúdo se aplica à Área de Trabalho Virtual do Windows (clássica), que não é compatível com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager.
 
 É possível reduzir o custo total de implantação da Área de Trabalho Virtual do Windows dimensionando suas VMs (máquinas virtuais). Isso significa desligar e desalocar VMs de host da sessão fora do horário de pico de uso, voltar a ligá-las e realocá-las durante os horários de pico.
 
 Neste artigo, você aprenderá sobre a ferramenta de dimensionamento criada com a conta de automação do Azure e o aplicativo lógico do Azure que dimensiona automaticamente as VMs do host de sessão no seu ambiente de área de trabalho virtual do Windows. Para ver como usar a ferramenta de dimensionamento, pule para [Pré-requisitos](#prerequisites).
-
-## <a name="report-issues"></a>Relatar problemas
-
-No momento, os relatórios de problemas da ferramenta de dimensionamento estão sendo tratados no GitHub, e não no Suporte da Microsoft. Se você encontrar algum problema com a ferramenta de dimensionamento, obtenha as informações necessárias, conforme descrito na seção [problemas de relatório](#reporting-issues) e abra um problema do GitHub rotulado com "4a-WVD-Scaling-logicapps" na página do [GitHub do RDS](https://github.com/Azure/RDS-Templates/issues?q=is%3Aissue+is%3Aopen+label%3A4a-WVD-scaling-logicapps).
 
 ## <a name="how-the-scaling-tool-works"></a>Como funciona a ferramenta de dimensionamento
 
@@ -362,3 +358,7 @@ Se você decidiu usar Log Analytics, poderá exibir todos os dados de log em um 
     | where logmessage_s contains "ERROR:" or logmessage_s contains "WARN:"
     | project TimeStampUTC = TimeGenerated, TimeStampLocal = TimeStamp_s, HostPool = hostpoolName_s, LineNumAndMessage = logmessage_s, AADTenantId = TenantId
     ```
+
+## <a name="report-issues"></a>Relatar problemas
+
+Os relatórios de problemas da ferramenta de dimensionamento estão sendo manipulados no momento por Suporte da Microsoft. Ao fazer um relatório de problemas, certifique-se de seguir as instruções em [problemas de relatório](#reporting-issues). Se você tiver comentários sobre a ferramenta ou se quiser solicitar novos recursos, abra um problema do GitHub rotulado "4-WVD-dimensionar-ferramenta" na [página do GitHub do RDS](https://github.com/Azure/RDS-Templates/issues?q=is%3Aissue+is%3Aopen+label%3A4-WVD-scaling-tool).

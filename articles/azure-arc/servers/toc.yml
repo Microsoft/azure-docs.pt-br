@@ -4,6 +4,8 @@
   items:
     - name: Sobre servidores habilitados para o Azure Arc
       href: overview.md
+    - name: Novidades no agente Connected Machine
+      href: agent-release-notes.md
 - name: Inícios rápidos
   items:
     - name: Habilitar o agente de servidores habilitados para Arc
@@ -14,12 +16,6 @@
       href: ./learn/tutorial-assign-policy-portal.md
     - name: Monitorar o computador
       href: ./learn/tutorial-enable-vm-insights.md
-- name: Exemplos
-  items:
-    - name: Itens internos do Azure Policy
-      items:
-        - name: Servidores habilitados para Arc
-          href: policy-samples.md
 - name: Conceitos
   items:
     - name: Segurança
@@ -27,6 +23,8 @@
         - name: Controles de segurança do Azure Policy
           displayName: 'regulatory, compliance, standards, domains'
           href: security-controls-policy.md
+        - name: Visão geral da segurança
+          href: security-overview.md
 - name: Guias de instruções
   items:
     - name: Conecte-se ao Azure Arc
@@ -39,19 +37,66 @@
           href: onboard-service-principal.md
         - name: Conectar computadores ao Azure Arc com o DSC do PowerShell
           href: onboard-dsc.md
+        - name: Conectar computadores do Windows Admin Center
+          href: onboard-windows-admin-center.md
+        - name: Conectar computadores ao Azure Arc com o PowerShell
+          href: onboard-powershell.md
     - name: Gerenciar
       items:
-        - name: Gerenciar e usar extensões de VM do Azure
-          href: manage-vm-extensions.md
+        - name: Extensões de VM
+          items:
+            - name: Visão geral
+              href: manage-vm-extensions.md
+            - name: Gerenciar extensões do portal
+              href: manage-vm-extensions-portal.md
+            - name: Gerenciar extensões com CLI
+              href: manage-vm-extensions-cli.md
+            - name: Gerenciar extensões com o PowerShell
+              href: manage-vm-extensions-powershell.md
+            - name: Implantar extensões usando o modelo do ARM
+              href: manage-vm-extensions-template.md
+        - name: Usar identidades gerenciadas no servidor
+          href: managed-identity-authentication.md
         - name: Gerenciar agente
           href: manage-agent.md
+    - name: Cenários
+      items:
+        - name: Fazer a integração ao Azure Sentinel
+          href: scenario-onboard-azure-sentinel.md
+        - name: Fazer a integração à Central de Segurança do Azure
+          href: ../../security-center/quickstart-onboard-machines.md
     - name: Solução de problemas
       items:
         - name: Problemas de conexão do agente
           href: troubleshoot-agent-onboard.md
-    - name: Referência
-      items:
-        - name: Disponibilidade de região e residência de dados
-          href: data-residency.md
-        - name: REST
-          href: /rest/api/hybridcompute
+        - name: Problemas de extensão de VM
+          href: troubleshoot-vm-extensions.md
+- name: Referência
+  items:
+    - name: Residência de dadosResidência de dados
+      href: data-residency.md
+    - name: CLI do Azure
+      href: /cli/azure/ext/connectedmachine/connectedmachine
+    - name: Azure PowerShell
+      href: /powershell/module/az.connectedmachine
+    - name: .NET
+      href: /dotnet/api/overview/azure/hybridcompute/management
+    - name: REST do Azure Stack HCI
+      href: /rest/api/stackhci
+    - name: REST
+      href: /rest/api/hybridcompute
+    - name: Go
+      href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/hybridcompute/mgmt/2020-08-02/hybridcompute'
+    - name: Java
+      href: /java/api/overview/azure/compute/resourcemanagement
+    - name: JavaScript
+      href: /javascript/api/%40azure/arm-hybridcompute
+    - name: Python
+      href: 'https://azuresdkdocs.blob.core.windows.net/$web/python/azure-mgmt-hybridcompute/2.0.0/index.html'
+    - name: Itens internos do Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: policy-reference.md
+- name: Recursos
+  items:
+    - name: Ponto de partida do Azure Arc
+      href: 'https://azurearcjumpstart.io'

@@ -7,12 +7,12 @@ ms.date: 07/16/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
-ms.openlocfilehash: 959a58a38861075c6509fe57136d8991eeb98ce6
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 6d9e0e63a3586be139620c154616acfcba2ab10f
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88588171"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498210"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Usar o emulador de armazenamento do Azure para desenvolvimento e teste
 
@@ -95,7 +95,7 @@ Depois de instalar e iniciar o emulador de armazenamento, você pode testar seu 
 
 [!INCLUDE [storage-emulator-connection-string-include](../../../includes/storage-emulator-connection-string-include.md)]
 
-Para obter mais informações sobre cadeias de conexão, consulte [Configurar cadeias de conexão do Armazenamento do Azure](../storage-configure-connection-string.md).
+Para obter mais informações sobre cadeias de conexão, consulte [Configurar cadeias de conexão do Armazenamento do Azure](./storage-configure-connection-string.md).
 
 ### <a name="authorize-with-a-shared-access-signature"></a>Autorizar com assinatura de acesso compartilhado
 
@@ -161,7 +161,7 @@ A partir da versão 3,1, o emulador de armazenamento dá suporte à replicação
 `http://127.0.0.1:10000/myaccount-secondary/mycontainer/myblob.txt`
 
 > [!NOTE]
-> Para acesso programático ao secundário com o emulador de armazenamento, use a biblioteca de cliente de armazenamento para .NET versão 3,2 ou posterior. Consulte a [Biblioteca de Clientes do Armazenamento do Microsoft Azure para .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx) para ver mais detalhes.
+> Para acesso programático ao secundário com o emulador de armazenamento, use a biblioteca de cliente de armazenamento para .NET versão 3,2 ou posterior. Consulte a [Biblioteca de Clientes do Armazenamento do Microsoft Azure para .NET](/previous-versions/azure/dn261237(v=azure.100)) para ver mais detalhes.
 >
 >
 
@@ -170,7 +170,7 @@ A partir da versão 3,1, o emulador de armazenamento dá suporte à replicação
 A partir da versão 3.0, uma janela do console é exibida quando você inicia o Emulador de Armazenamento. Use a linha de comando na janela do console para iniciar e parar o emulador. Você também pode consultar o status e fazer outras operações na linha de comando.
 
 > [!NOTE]
-> Se você tiver o emulador de computação do Microsoft Azure instalado, um ícone de bandeja do sistema será exibido ao iniciar o Emulador de Armazenamento. Clique com o botão direito do mouse no ícone para revelar um menu, que fornece uma maneira gráfica de iniciar e parar o Emulador de Armazenamento.
+> Se você tiver o emulador de computação Microsoft Azure instalado, um ícone de bandeja do sistema aparecerá quando você iniciar o emulador de armazenamento. Clique com o botão direito do mouse no ícone para revelar um menu, que fornece uma maneira gráfica de iniciar e parar o Emulador de Armazenamento.
 >
 >
 
@@ -329,7 +329,7 @@ Não existem diferenças específicas para o armazenamento de fila no emulador.
 ## <a name="next-steps"></a>Próximas etapas
 
 * Avalie o [azurite](https://github.com/azure/azurite)emulador de armazenamento de software livre de plataforma cruzada, mantido pela Comunidade. 
-* [Exemplos de Armazenamento do Azure usando .NET](../storage-samples-dotnet.md) contém links para vários exemplos de código que você pode usar ao desenvolver seu aplicativo.
+* [Exemplos de Armazenamento do Azure usando .NET](./storage-samples-dotnet.md) contém links para vários exemplos de código que você pode usar ao desenvolver seu aplicativo.
 * Você pode usar o [Gerenciador de armazenamento do Microsoft Azure](https://storageexplorer.com) para trabalhar com recursos em sua conta de armazenamento em nuvem e no emulador de armazenamento.
 
 ## <a name="see-also"></a>Consulte Também

@@ -1,7 +1,7 @@
 ---
 title: 'Adicionar linhas: referência de módulo'
 titleSuffix: Azure Machine Learning
-description: Saiba como usar o módulo adicionar linhas no Azure Machine Learning para concatenar dois conjuntos de valores.
+description: Saiba como usar o módulo adicionar linhas no designer de Azure Machine Learning para concatenar dois conjuntos de valores.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: cd9b5f8f182c4deab746d2c41e516a6ac23fb7aa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2c2a74ee88e7161ab8dd1701ef4d105df67c0938
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79477724"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421933"
 ---
 # <a name="add-rows-module"></a>Adicionar módulo de linhas
 
-Este artigo descreve um módulo no designer do Azure Machine Learning (versão prévia).
+Este artigo descreve um módulo no designer de Azure Machine Learning.
 
 Use este módulo para concatenar dois conjuntos de valores. Na concatenação, as linhas do segundo conjunto de registros são adicionadas ao final do primeiro conjunto de um.  
   

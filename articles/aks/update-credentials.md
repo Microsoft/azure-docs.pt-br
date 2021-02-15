@@ -5,12 +5,12 @@ description: Saiba como atualizar ou redefinir as credenciais do aplicativo de e
 services: container-service
 ms.topic: article
 ms.date: 03/11/2019
-ms.openlocfilehash: e787322f421094cf9ac6681df0119ba820b654ea
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: ba2c31872ae026cfdfcb7be17d333fb98194dce6
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88871217"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100389001"
 ---
 # <a name="update-or-rotate-the-credentials-for-azure-kubernetes-service-aks"></a>Atualizar ou girar as credenciais do serviço kubernetes do Azure (AKS)
 
@@ -22,7 +22,7 @@ Como alternativa, é possível usar uma identidade gerenciada para permissões e
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Você precisa do CLI do Azure versão 2.0.65 ou posterior instalado e configurado. Execute  `az --version` para encontrar a versão. Se você precisar instalar ou atualizar, confira  [Instalar a CLI do Azure][install-azure-cli].
+Você precisa do CLI do Azure versão 2.0.65 ou posterior instalado e configurado. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure][install-azure-cli].
 
 ## <a name="update-or-create-a-new-service-principal-for-your-aks-cluster"></a>Atualizar ou criar uma nova entidade de serviço para o cluster AKS
 
@@ -47,6 +47,9 @@ az ad sp credential list --id $SP_ID --query "[].endDate" -o tsv
 ### <a name="reset-the-existing-service-principal-credential"></a>Redefinir a credencial da entidade de serviço existente
 
 Para atualizar as credenciais para a entidade de serviço existente, obtenha a ID da entidade de serviço do cluster usando o comando [az aks show][az-aks-show]. O exemplo a seguir obtém a ID do cluster chamado *myAKSCluster* no grupo de recursos *myResourceGroup*. A ID da entidade de serviço é definida como uma variável chamada *SP_ID* para uso em um comando adicional. Esses comandos usam a sintaxe bash.
+
+> [!WARNING]
+> Quando você redefinir suas credenciais de cluster em um cluster AKS que usa conjuntos de dimensionamento de máquinas virtuais do Azure, uma [atualização de imagem de nó][node-image-upgrade] é executada para atualizar seus nós com as novas informações de credencial.
 
 ```azurecli-interactive
 SP_ID=$(az aks show --resource-group myResourceGroup --name myAKSCluster \
@@ -104,7 +107,7 @@ az aks update-credentials \
     --name myAKSCluster \
     --reset-service-principal \
     --service-principal $SP_ID \
-    --client-secret "$SP_SECRET"
+    --client-secret $SP_SECRET
 ```
 
 Para clusters de tamanho pequeno e médio, leva alguns minutos para que as credenciais da entidade de serviço sejam atualizadas no AKS.
@@ -138,3 +141,4 @@ Neste artigo, a entidade de serviço para o cluster AKS e os aplicativos de inte
 [az-ad-sp-create]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac
 [az-ad-sp-credential-list]: /cli/azure/ad/sp/credential#az-ad-sp-credential-list
 [az-ad-sp-credential-reset]: /cli/azure/ad/sp/credential#az-ad-sp-credential-reset
+[node-image-upgrade]: ./node-image-upgrade.md

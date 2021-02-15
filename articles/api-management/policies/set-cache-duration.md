@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
-ms.openlocfilehash: 3101c5695272e8fa6b577ad313897cbc1fa29629
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 088dfbcbfe00357c47de4662ac31b52e83d1d8ab
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75442387"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070972"
 ---
 # <a name="set-response-cache-duration"></a>Definir duração do cache de resposta
 
-Este artigo mostra um exemplo de política de gerenciamento de API do Azure que demonstra como definir a duração do cache de resposta usando o valor de maxAge no cabeçalho Cache-Control enviado pelo back-end. Para definir ou editar um código de política, siga as etapas descritas em [Definir ou editar uma política](../set-edit-policies.md). Para ver outros exemplos, consulte [exemplos de política](../policy-samples.md).
+Este artigo mostra um exemplo de política de gerenciamento de API do Azure que demonstra como definir a duração do cache de resposta usando o valor de maxAge no cabeçalho Cache-Control enviado pelo back-end. Para definir ou editar um código de política, siga as etapas descritas em [Definir ou editar uma política](../set-edit-policies.md). Para ver outros exemplos, consulte [exemplos de política](../policy-reference.md).
 
 ## <a name="policy"></a>Política
 
@@ -35,5 +35,4 @@ Cole o código no bloco de **entrada**.
 Saiba mais sobre as políticas de APIM:
 
 + [Políticas de transformação](../api-management-transformation-policies.md)
-+ [Exemplos de política](../policy-samples.md)
-
++ [Exemplos de política](../policy-reference.md)

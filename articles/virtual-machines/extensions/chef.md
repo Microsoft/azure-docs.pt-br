@@ -8,17 +8,18 @@ manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
+ms.subservice: extensions
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 09/21/2018
 ms.author: akjosh
-ms.openlocfilehash: 9391bb4867717b6780b50cf90b998254227d2310
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8977563c6b19754eda53686baf85f840a7583e77
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082606"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968359"
 ---
 # <a name="chef-vm-extension-for-linux-and-windows"></a>Extensão para VM do Chef para Linux e Windows
 
@@ -70,7 +71,7 @@ O JSON a seguir mostra o esquema para a extensão para VM do Chef. A extensão e
 | Nome | Valor/Exemplo | Tipo de Dados
 | ---- | ---- | ----
 | apiVersion | `2017-12-01` | string (date) |
-| publicador | `Chef.Bootstrap.WindowsAzure` | string |
+| editor | `Chef.Bootstrap.WindowsAzure` | string |
 | type | `LinuxChefClient` (Linux), `ChefClient` (Windows) | string |
 | typeHandlerVersion | `1210.13` | string (double) |
 
@@ -84,7 +85,7 @@ O JSON a seguir mostra o esquema para a extensão para VM do Chef. A extensão e
 
 ### <a name="protected-settings"></a>Configurações protegidas
 
-| Nome | Exemplo | Tipo de Dados | Necessário?
+| Nome | Exemplo | Tipo de dados | Necessário?
 | ---- | ---- | ---- | ---- |
 | protectedSettings/validation_key | `-----BEGIN RSA PRIVATE KEY-----\nKEYDATA\n-----END RSA PRIVATE KEY-----` | string | S |
 

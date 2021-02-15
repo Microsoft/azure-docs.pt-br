@@ -2,17 +2,17 @@
 title: Solucionar problemas de conexão-banco de dados do Azure para MySQL
 description: Saiba como solucionar problemas de conexão com o banco de dados do Azure para MySQL, incluindo erros transitórios que exigem novas tentativas, problemas de firewall e interrupções.
 keywords: conexão do mysql, cadeia de conexão, problemas de conectividade, erro transitório, erro de conexão
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: troubleshooting
 ms.date: 3/18/2020
-ms.openlocfilehash: e4afcb8756f64ab9b66044a1bf1304427330e365
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: da500087aeb4ad5e2bf516c3d0ce3cceaf8396af
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82100882"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000276"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-mysql"></a>Solucionar problemas de conexão no Banco de Dados do Azure para MySQL
 
@@ -48,7 +48,7 @@ Se o aplicativo falhar persistentemente em se conectar ao Banco de Dados do Azur
 
 * Configuração de firewall do servidor: Verifique se o Firewall do servidor do banco de dados do Azure para MySQL está configurado para permitir conexões do cliente, incluindo servidores proxy e gateways.
 * Configuração de firewall do cliente: o firewall em seu cliente deve permitir conexões com o servidor de banco de dados. Endereços IP e portas do servidor sem permissão devem ser permitidos, bem como nomes de aplicativo, como MySQL, em alguns firewalls.
-* Erro do usuário: você pode ter parâmetros de conexão digitados, como o nome do servidor na cadeia de conexão ou um sufixo * \@ ServerName* ausente no nome de usuário.
+* Erro do usuário: você pode ter parâmetros de conexão digitados, como o nome do servidor na cadeia de conexão ou um sufixo *\@ ServerName* ausente no nome de usuário.
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Etapas para resolver os problemas de conectividade temporários
 

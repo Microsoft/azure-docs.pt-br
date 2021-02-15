@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
 ms.openlocfilehash: dc0cf718ee51e23fb749bdf57d5344977de009d8
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88182214"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021853"
 ---
 # <a name="deploy-storsimple-virtual-array-for-cloud-solution-provider-program"></a>Implantar o StorSimple Virtual Array para o programa Cloud Solution Provider
 
@@ -89,7 +89,7 @@ Em alguns casos, você pode ter um cliente existente e você precisa adicionar u
 
     ![Adicionar nova assinatura](./media/storsimple-partner-csp-deploy/image11.png)
 
-6. Depois de uma nova assinatura for criada, clique em ** <-- Clientes** no painel esquerdo para voltar para a página de **Clientes**. Pesquisa do cliente para o qual você acabou de criar uma assinatura. Clique no **Nome da empresa** para fazer drill down nos detalhes.
+6. Depois de uma nova assinatura for criada, clique em **<-- Clientes** no painel esquerdo para voltar para a página de **Clientes**. Pesquisa do cliente para o qual você acabou de criar uma assinatura. Clique no **Nome da empresa** para fazer drill down nos detalhes.
 
     ![Procurar o cliente](./media/storsimple-partner-csp-deploy/image6.png)  
 

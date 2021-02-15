@@ -6,44 +6,46 @@ ms.service: sql-database
 ms.subservice: scale-out
 ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+dev_langs:
+- TSQL
+ms.topic: how-to
 ms.author: jaredmoo
 author: jaredmoo
 ms.reviewer: sstein
-ms.date: 02/07/2020
-ms.openlocfilehash: 339b66310d75e228bc6107635ac39b8d27d774c1
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.date: 02/01/2021
+ms.openlocfilehash: 11b94ba5bcedf56f0115b8730dc58f808aff5c58
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88119106"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100371593"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs-preview"></a>Usar o Transact-SQL (T-SQL) para criar e gerenciar trabalhos de banco de dados elástico (visualização)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Este artigo fornece muitos cenários de exemplo para começar a trabalhar com trabalhos elásticos usando o T-SQL.
 
-Os exemplos usam os [procedimentos armazenados](#job-stored-procedures) e as [exibições](#job-views) disponíveis no [*banco de dados de trabalhos*](job-automation-overview.md#job-database).
+Os exemplos usam os [procedimentos armazenados](#job-stored-procedures) e as [exibições](#job-views) disponíveis no [*banco de dados de trabalhos*](job-automation-overview.md#elastic-job-database).
 
 O T-SQL (Transact-SQL) é usado para criar, configurar, executar e gerenciar trabalhos. O agente de trabalho elástico não é compatível com o T-SQL, portanto, você precisa primeiro criar um *agente de trabalho elástico* usando o portal ou o [PowerShell](elastic-jobs-powershell-create.md#create-the-elastic-job-agent).
 
 ## <a name="create-a-credential-for-job-execution"></a>Criar uma credencial para a execução do trabalho
 
-A credencial é usada para conectar-se a seus bancos de dados de destino para a execução do script. A credencial precisa de permissões apropriadas, nos bancos de dados especificados pelo grupo de destino, para executar o script com êxito. Ao usar um membro lógico do grupo de destino do [SQL Server](logical-servers.md) e/ou pool, é altamente recomendável criar uma credencial mestre para usar para atualizar a credencial antes da expansão do servidor e/ou do pool no momento da execução do trabalho. A credencial no escopo do banco de dados é criada no banco de dados do agente de trabalho. A mesma credencial precisa ser usada para *Criar um logon* e *Criar um usuário do logon para conceder as permissões do banco de dados de logon* nos bancos de dados de destino.
+A credencial é usada para conectar-se a seus bancos de dados de destino para a execução do script. A credencial precisa de permissões apropriadas, nos bancos de dados especificados pelo grupo de destino, para executar o script com êxito. Ao usar um membro lógico do grupo de destino do [SQL Server](logical-servers.md) e/ou pool, é altamente recomendável criar uma credencial para usar para atualizar a credencial antes da expansão do servidor e/ou do pool no momento da execução do trabalho. A credencial no escopo do banco de dados é criada no banco de dados do agente de trabalho. A mesma credencial precisa ser usada para *Criar um logon* e *Criar um usuário do logon para conceder as permissões do banco de dados de logon* nos bancos de dados de destino.
 
 ```sql
---Connect to the job database specified when creating the job agent
+--Connect to the new job database specified when creating the Elastic Job agent
 
--- Create a db master key if one does not already exist, using your own password.  
+-- Create a database master key if one does not already exist, using your own password.  
 CREATE MASTER KEY ENCRYPTION BY PASSWORD='<EnterStrongPasswordHere>';  
   
--- Create a database scoped credential.  
-CREATE DATABASE SCOPED CREDENTIAL myjobcred WITH IDENTITY = 'jobcred',
+-- Create two database scoped credentials.  
+-- The credential to connect to the Azure SQL logical server, to execute jobs
+CREATE DATABASE SCOPED CREDENTIAL job_credential WITH IDENTITY = 'job_credential',
     SECRET = '<EnterStrongPasswordHere>';
 GO
-
--- Create a database scoped credential for the master database of server1.
-CREATE DATABASE SCOPED CREDENTIAL mymastercred WITH IDENTITY = 'mastercred',
+-- The credential to connect to the Azure SQL logical server, to refresh the database metadata in server
+CREATE DATABASE SCOPED CREDENTIAL refresh_credential WITH IDENTITY = 'refresh_credential',
     SECRET = '<EnterStrongPasswordHere>';
 GO
 ```
@@ -51,20 +53,20 @@ GO
 ## <a name="create-a-target-group-servers"></a>Criar um grupo de destino (servidores)
 
 O exemplo a seguir mostra como executar um trabalho em todos os bancos de dados em um servidor.  
-Conecte-se ao [*banco de dados de trabalhos*](job-automation-overview.md#job-database) e execute o seguinte comando:
+Conecte-se ao [*banco de dados de trabalhos*](job-automation-overview.md#elastic-job-database) e execute o seguinte comando:
 
 ```sql
 -- Connect to the job database specified when creating the job agent
 
 -- Add a target group containing server(s)
-EXEC jobs.sp_add_target_group 'ServerGroup1'
+EXEC jobs.sp_add_target_group 'ServerGroup1';
 
 -- Add a server target member
 EXEC jobs.sp_add_target_group_member
-'ServerGroup1',
+@target_group_name = 'ServerGroup1',
 @target_type = 'SqlServer',
-@refresh_credential_name='mymastercred', --credential required to refresh the databases in a server
-@server_name='server1.database.windows.net'
+@refresh_credential_name = 'refresh_credential', --credential required to refresh the databases in a server
+@server_name = 'server1.database.windows.net';
 
 --View the recently created target group and target group members
 SELECT * FROM jobs.target_groups WHERE target_group_name='ServerGroup1';
@@ -74,29 +76,29 @@ SELECT * FROM jobs.target_group_members WHERE target_group_name='ServerGroup1';
 ## <a name="exclude-an-individual-database"></a>Excluir um banco de dados individual
 
 O exemplo a seguir mostra como executar um trabalho em todos os bancos de dados em um servidor, exceto para o banco de dados chamado *MappingDB*.  
-Conecte-se ao [*banco de dados de trabalhos*](job-automation-overview.md#job-database) e execute o seguinte comando:
+Conecte-se ao [*banco de dados de trabalhos*](job-automation-overview.md#elastic-job-database) e execute o seguinte comando:
 
 ```sql
 --Connect to the job database specified when creating the job agent
 
 -- Add a target group containing server(s)
-EXEC [jobs].sp_add_target_group N'ServerGroup'
+EXEC [jobs].sp_add_target_group N'ServerGroup';
 GO
 
 -- Add a server target member
 EXEC [jobs].sp_add_target_group_member
 @target_group_name = N'ServerGroup',
 @target_type = N'SqlServer',
-@refresh_credential_name=N'mymastercred', --credential required to refresh the databases in a server
-@server_name=N'London.database.windows.net'
+@refresh_credential_name = N'refresh_credential', --credential required to refresh the databases in a server
+@server_name = N'London.database.windows.net';
 GO
 
 -- Add a server target member
 EXEC [jobs].sp_add_target_group_member
 @target_group_name = N'ServerGroup',
 @target_type = N'SqlServer',
-@refresh_credential_name=N'mymastercred', --credential required to refresh the databases in a server
-@server_name='server2.database.windows.net'
+@refresh_credential_name = N'refresh_credential', --credential required to refresh the databases in a server
+@server_name = 'server2.database.windows.net';
 GO
 
 --Exclude a database target member from the server target group
@@ -105,7 +107,7 @@ EXEC [jobs].sp_add_target_group_member
 @membership_type = N'Exclude',
 @target_type = N'SqlDatabase',
 @server_name = N'server1.database.windows.net',
-@database_name =N'MappingDB'
+@database_name = N'MappingDB';
 GO
 
 --View the recently created target group and target group members
@@ -116,21 +118,21 @@ SELECT * FROM [jobs].target_group_members WHERE target_group_name = N'ServerGrou
 ## <a name="create-a-target-group-pools"></a>Criar um grupo de destino (pools)
 
 O exemplo a seguir mostra como direcionar a todos os bancos de dados em um ou mais pools elásticos.  
-Conecte-se ao [*banco de dados de trabalhos*](job-automation-overview.md#job-database) e execute o seguinte comando:
+Conecte-se ao [*banco de dados de trabalhos*](job-automation-overview.md#elastic-job-database) e execute o seguinte comando:
 
 ```sql
 --Connect to the job database specified when creating the job agent
 
 -- Add a target group containing pool(s)
-EXEC jobs.sp_add_target_group 'PoolGroup'
+EXEC jobs.sp_add_target_group 'PoolGroup';
 
 -- Add an elastic pool(s) target member
 EXEC jobs.sp_add_target_group_member
-'PoolGroup',
+@target_group_name = 'PoolGroup',
 @target_type = 'SqlElasticPool',
-@refresh_credential_name='mymastercred', --credential required to refresh the databases in a server
-@server_name='server1.database.windows.net',
-@elastic_pool_name='ElasticPool-1'
+@refresh_credential_name = 'refresh_credential', --credential required to refresh the databases in a server
+@server_name = 'server1.database.windows.net',
+@elastic_pool_name = 'ElasticPool-1';
 
 -- View the recently created target group and target group members
 SELECT * FROM jobs.target_groups WHERE target_group_name = N'PoolGroup';
@@ -140,20 +142,20 @@ SELECT * FROM jobs.target_group_members WHERE target_group_name = N'PoolGroup';
 ## <a name="deploy-new-schema-to-many-databases"></a>Implantar o novo esquema para vários bancos de dados
 
 O exemplo a seguir mostra como implantar o novo esquema em todos os bancos de dados.  
-Conecte-se ao [*banco de dados de trabalhos*](job-automation-overview.md#job-database) e execute o seguinte comando:
+Conecte-se ao [*banco de dados de trabalhos*](job-automation-overview.md#elastic-job-database) e execute o seguinte comando:
 
 ```sql
 --Connect to the job database specified when creating the job agent
 
 --Add job for create table
-EXEC jobs.sp_add_job @job_name='CreateTableTest', @description='Create Table Test'
+EXEC jobs.sp_add_job @job_name = 'CreateTableTest', @description = 'Create Table Test';
 
 -- Add job step for create table
-EXEC jobs.sp_add_jobstep @job_name='CreateTableTest',
-@command=N'IF NOT EXISTS (SELECT * FROM sys.tables WHERE object_id = object_id(''Test''))
+EXEC jobs.sp_add_jobstep @job_name = 'CreateTableTest',
+@command = N'IF NOT EXISTS (SELECT * FROM sys.tables WHERE object_id = object_id(''Test''))
 CREATE TABLE [dbo].[Test]([TestId] [int] NOT NULL);',
-@credential_name='myjobcred',
-@target_group_name='PoolGroup'
+@credential_name = 'job_credential',
+@target_group_name = 'PoolGroup';
 ```
 
 ## <a name="data-collection-using-built-in-parameters"></a>Coleta de dados usando parâmetros internos
@@ -179,7 +181,7 @@ Por exemplo, para agrupar todos os resultados da mesma execução de trabalho, u
 
 O exemplo a seguir cria um novo trabalho para coletar dados de desempenho de vários bancos de dados.
 
-Por padrão, o agente de trabalho criará a tabela de saída para armazenar os resultados retornados. Portanto, a entidade de segurança de banco de dados associada à credencial de saída deve ter, no mínimo, as seguintes permissões: `CREATE TABLE` no banco de dados,,,, `ALTER` `SELECT` `INSERT` `DELETE` na tabela de saída ou em seu esquema, e `SELECT` na exibição de catálogo [Sys. Indexes](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-indexes-transact-sql) .
+Por padrão, o agente de trabalho criará a tabela de saída para armazenar os resultados retornados. Portanto, a entidade de segurança de banco de dados associada à credencial de saída deve ter, no mínimo, as seguintes permissões: `CREATE TABLE` no banco de dados,,,, `ALTER` `SELECT` `INSERT` `DELETE` na tabela de saída ou em seu esquema, e `SELECT` na exibição de catálogo [Sys. Indexes](/sql/relational-databases/system-catalog-views/sys-indexes-transact-sql) .
 
 Se você quiser criar manualmente a tabela antes do tempo, ela precisará ter as seguintes propriedades:
 
@@ -188,7 +190,7 @@ Se você quiser criar manualmente a tabela antes do tempo, ela precisará ter as
 3. Um índice não clusterizado chamado `IX_<TableName>_Internal_Execution_ID` na coluna internal_execution_id.
 4. Todas as permissões listadas acima, exceto `CREATE TABLE` a permissão no banco de dados.
 
-Conecte-se ao [*banco de dados de trabalhos*](job-automation-overview.md#job-database) e execute os seguintes comandos:
+Conecte-se ao [*banco de dados de trabalhos*](job-automation-overview.md#elastic-job-database) e execute os seguintes comandos:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -198,34 +200,36 @@ EXEC jobs.sp_add_job @job_name ='ResultsJob', @description='Collection Performan
 
 -- Add a job step w/ schedule to collect results
 EXEC jobs.sp_add_jobstep
-@job_name='ResultsJob',
-@command= N' SELECT DB_NAME() DatabaseName, $(job_execution_id) AS job_execution_id, * FROM sys.dm_db_resource_stats WHERE end_time > DATEADD(mi, -20, GETDATE());',
-@credential_name='myjobcred',
-@target_group_name='PoolGroup',
-@output_type='SqlDatabase',
-@output_credential_name='myjobcred',
-@output_server_name='server1.database.windows.net',
-@output_database_name='<resultsdb>',
-@output_table_name='<resutlstable>'
-Create a job to monitor pool performance
+@job_name = 'ResultsJob',
+@command = N' SELECT DB_NAME() DatabaseName, $(job_execution_id) AS job_execution_id, * FROM sys.dm_db_resource_stats WHERE end_time > DATEADD(mi, -20, GETDATE());',
+@credential_name = 'job_credential',
+@target_group_name = 'PoolGroup',
+@output_type = 'SqlDatabase',
+@output_credential_name = 'job_credential',
+@output_server_name = 'server1.database.windows.net',
+@output_database_name = '<resultsdb>',
+@output_table_name = '<resutlstable>';
+
+--Create a job to monitor pool performance
+
 --Connect to the job database specified when creating the job agent
 
--- Add a target group containing master database
-EXEC jobs.sp_add_target_group 'MasterGroup'
+-- Add a target group containing Elastic Job database
+EXEC jobs.sp_add_target_group 'ElasticJobGroup';
 
 -- Add a server target member
 EXEC jobs.sp_add_target_group_member
-@target_group_name='MasterGroup',
-@target_type='SqlDatabase',
-@server_name='server1.database.windows.net',
-@database_name='master'
+@target_group_name = 'ElasticJobGroup',
+@target_type = 'SqlDatabase',
+@server_name = 'server1.database.windows.net',
+@database_name = 'master';
 
 -- Add a job to collect perf results
 EXEC jobs.sp_add_job
-@job_name='ResultsPoolsJob',
-@description='Demo: Collection Performance data from all pools',
-@schedule_interval_type='Minutes',
-@schedule_interval_count=15
+@job_name = 'ResultsPoolsJob',
+@description = 'Demo: Collection Performance data from all pools',
+@schedule_interval_type = 'Minutes',
+@schedule_interval_count = 15;
 
 -- Add a job step w/ schedule to collect results
 EXEC jobs.sp_add_jobstep
@@ -246,76 +250,76 @@ SELECT elastic_pool_name , end_time, elastic_pool_dtu_limit, avg_cpu_percent, av
         avg_storage_percent, elastic_pool_storage_limit_mb FROM sys.elastic_pool_resource_stats
         WHERE end_time > @poolStartTime and end_time <= @poolEndTime;
 '),
-@credential_name='myjobcred',
-@target_group_name='MasterGroup',
-@output_type='SqlDatabase',
-@output_credential_name='myjobcred',
-@output_server_name='server1.database.windows.net',
-@output_database_name='resultsdb',
-@output_table_name='resutlstable'
+@credential_name = 'job_credential',
+@target_group_name = 'ElasticJobGroup',
+@output_type = 'SqlDatabase',
+@output_credential_name = 'job_credential',
+@output_server_name = 'server1.database.windows.net',
+@output_database_name = 'resultsdb',
+@output_table_name = 'resutlstable';
 ```
 
 ## <a name="view-job-definitions"></a>Exibir definições de trabalho
 
 O exemplo a seguir mostra como exibir as definições de trabalho atuais.  
-Conecte-se ao [*banco de dados de trabalhos*](job-automation-overview.md#job-database) e execute o seguinte comando:
+Conecte-se ao [*banco de dados de trabalhos*](job-automation-overview.md#elastic-job-database) e execute o seguinte comando:
 
 ```sql
 --Connect to the job database specified when creating the job agent
 
 -- View all jobs
-SELECT * FROM jobs.jobs
+SELECT * FROM jobs.jobs;
 
 -- View the steps of the current version of all jobs
 SELECT js.* FROM jobs.jobsteps js
 JOIN jobs.jobs j
-  ON j.job_id = js.job_id AND j.job_version = js.job_version
+  ON j.job_id = js.job_id AND j.job_version = js.job_version;
 
 -- View the steps of all versions of all jobs
-select * from jobs.jobsteps
+SELECT * FROM jobs.jobsteps;
 ```
 
 ## <a name="begin-unplanned-execution-of-a-job"></a>Iniciar a execução não planejada de um trabalho
 
 O exemplo a seguir mostra como iniciar um trabalho imediatamente.  
-Conecte-se ao [*banco de dados de trabalhos*](job-automation-overview.md#job-database) e execute o seguinte comando:
+Conecte-se ao [*banco de dados de trabalhos*](job-automation-overview.md#elastic-job-database) e execute o seguinte comando:
 
 ```sql
 --Connect to the job database specified when creating the job agent
 
 -- Execute the latest version of a job
-EXEC jobs.sp_start_job 'CreateTableTest'
+EXEC jobs.sp_start_job 'CreateTableTest';
 
 -- Execute the latest version of a job and receive the execution id
-declare @je uniqueidentifier
-exec jobs.sp_start_job 'CreateTableTest', @job_execution_id = @je output
-select @je
+declare @je uniqueidentifier;
+exec jobs.sp_start_job 'CreateTableTest', @job_execution_id = @je output;
+select @je;
 
-select * from jobs.job_executions where job_execution_id = @je
+select * from jobs.job_executions where job_execution_id = @je;
 
 -- Execute a specific version of a job (e.g. version 1)
-exec jobs.sp_start_job 'CreateTableTest', 1
+exec jobs.sp_start_job 'CreateTableTest', 1;
 ```
 
 ## <a name="schedule-execution-of-a-job"></a>Agendar a execução de um trabalho
 
 O exemplo a seguir mostra como agendar um trabalho para execução futura.  
-Conecte-se ao [*banco de dados de trabalhos*](job-automation-overview.md#job-database) e execute o seguinte comando:
+Conecte-se ao [*banco de dados de trabalhos*](job-automation-overview.md#elastic-job-database) e execute o seguinte comando:
 
 ```sql
 --Connect to the job database specified when creating the job agent
 
 EXEC jobs.sp_update_job
-@job_name='ResultsJob',
+@job_name = 'ResultsJob',
 @enabled=1,
-@schedule_interval_type='Minutes',
-@schedule_interval_count=15
+@schedule_interval_type = 'Minutes',
+@schedule_interval_count = 15;
 ```
 
 ## <a name="monitor-job-execution-status"></a>Monitorar o status de execução do trabalho
 
 O exemplo a seguir mostra como exibir detalhes do status de execução de todos os trabalhos.  
-Conecte-se ao [*banco de dados de trabalhos*](job-automation-overview.md#job-database) e execute o seguinte comando:
+Conecte-se ao [*banco de dados de trabalhos*](job-automation-overview.md#elastic-job-database) e execute o seguinte comando:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -323,27 +327,27 @@ Conecte-se ao [*banco de dados de trabalhos*](job-automation-overview.md#job-dat
 --View top-level execution status for the job named 'ResultsPoolJob'
 SELECT * FROM jobs.job_executions
 WHERE job_name = 'ResultsPoolsJob' and step_id IS NULL
-ORDER BY start_time DESC
+ORDER BY start_time DESC;
 
 --View all top-level execution status for all jobs
 SELECT * FROM jobs.job_executions WHERE step_id IS NULL
-ORDER BY start_time DESC
+ORDER BY start_time DESC;
 
 --View all execution statuses for job named 'ResultsPoolsJob'
 SELECT * FROM jobs.job_executions
 WHERE job_name = 'ResultsPoolsJob'
-ORDER BY start_time DESC
+ORDER BY start_time DESC;
 
 -- View all active executions
 SELECT * FROM jobs.job_executions
 WHERE is_active = 1
-ORDER BY start_time DESC
+ORDER BY start_time DESC;
 ```
 
 ## <a name="cancel-a-job"></a>Cancelar um trabalho
 
 O exemplo a seguir mostra como cancelar um trabalho.  
-Conecte-se ao [*banco de dados de trabalhos*](job-automation-overview.md#job-database) e execute o seguinte comando:
+Conecte-se ao [*banco de dados de trabalhos*](job-automation-overview.md#elastic-job-database) e execute o seguinte comando:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -351,23 +355,23 @@ Conecte-se ao [*banco de dados de trabalhos*](job-automation-overview.md#job-dat
 -- View all active executions to determine job execution id
 SELECT * FROM jobs.job_executions
 WHERE is_active = 1 AND job_name = 'ResultPoolsJob'
-ORDER BY start_time DESC
+ORDER BY start_time DESC;
 GO
 
 -- Cancel job execution with the specified job execution id
-EXEC jobs.sp_stop_job '01234567-89ab-cdef-0123-456789abcdef'
+EXEC jobs.sp_stop_job '01234567-89ab-cdef-0123-456789abcdef';
 ```
 
 ## <a name="delete-old-job-history"></a>Excluir o histórico de trabalhos antigo
 
 O exemplo a seguir mostra como excluir o histórico de trabalhos antes de uma data específica.  
-Conecte-se ao [*banco de dados de trabalhos*](job-automation-overview.md#job-database) e execute o seguinte comando:
+Conecte-se ao [*banco de dados de trabalhos*](job-automation-overview.md#elastic-job-database) e execute o seguinte comando:
 
 ```sql
 --Connect to the job database specified when creating the job agent
 
--- Delete history of a specific job’s executions older than the specified date
-EXEC jobs.sp_purge_jobhistory @job_name='ResultPoolsJob', @oldest_date='2016-07-01 00:00:00'
+-- Delete history of a specific job's executions older than the specified date
+EXEC jobs.sp_purge_jobhistory @job_name='ResultPoolsJob', @oldest_date='2016-07-01 00:00:00';
 
 --Note: job history is automatically deleted if it is >45 days old
 ```
@@ -375,19 +379,19 @@ EXEC jobs.sp_purge_jobhistory @job_name='ResultPoolsJob', @oldest_date='2016-07-
 ## <a name="delete-a-job-and-all-its-job-history"></a>Excluir um trabalho e todo o seu histórico de trabalhos
 
 O exemplo a seguir mostra como excluir um trabalho e todo o histórico de trabalhos relacionado.  
-Conecte-se ao [*banco de dados de trabalhos*](job-automation-overview.md#job-database) e execute o seguinte comando:
+Conecte-se ao [*banco de dados de trabalhos*](job-automation-overview.md#elastic-job-database) e execute o seguinte comando:
 
 ```sql
 --Connect to the job database specified when creating the job agent
 
-EXEC jobs.sp_delete_job @job_name='ResultsPoolsJob'
+EXEC jobs.sp_delete_job @job_name='ResultsPoolsJob';
 
 --Note: job history is automatically deleted if it is >45 days old
 ```
 
 ## <a name="job-stored-procedures"></a>Procedimentos armazenados de trabalho
 
-Os seguintes procedimentos armazenados ficam no [banco de dados de trabalhos](job-automation-overview.md#job-database).
+Os seguintes procedimentos armazenados ficam no [banco de dados de trabalhos](job-automation-overview.md#elastic-job-database).
 
 |Procedimento armazenado  |Descrição  |
 |---------|---------|
@@ -424,16 +428,16 @@ Adiciona um novo trabalho.
 
 #### <a name="arguments"></a>Argumentos  
 
-[ ** \@ job_name =** ] ' job_name '  
+[ **\@ job_name =** ] ' job_name '  
 O nome do trabalho. O nome precisa ser exclusivo e não pode conter o caractere de porcentagem (%). job_name é nvarchar(128), sem nenhum padrão.
 
-[ ** \@ Descrição =** ] ' Descrição '  
+[ **\@ Descrição =** ] ' Descrição '  
 A descrição do trabalho. a descrição é nvarchar(512), com um padrão NULL. Se a descrição for omitida, uma cadeia de caracteres vazia será usada.
 
-[ ** \@ Enabled =** ] habilitado  
+[ **\@ Enabled =** ] habilitado  
 Se a agenda do trabalho está habilitada. Habilitado é bit, com o padrão 0 (desabilitado). Se for 0, o trabalho não estará habilitado e não será executado de acordo com sua agenda. No entanto, ele poderá ser executado manualmente. Se for 1, o trabalho será executado de acordo com sua agenda e também poderá ser executado manualmente.
 
-[ ** \@ schedule_interval_type =**] schedule_interval_type  
+[ **\@ schedule_interval_type =**] schedule_interval_type  
 O valor indica quando o trabalho será executado. schedule_interval_type é nvarchar(50), com o padrão Once e pode ser um dos seguintes valores:
 
 - 'Once',
@@ -443,16 +447,16 @@ O valor indica quando o trabalho será executado. schedule_interval_type é nvar
 - 'Weeks',
 - 'Months'
 
-[ ** \@ schedule_interval_count =** ] schedule_interval_count  
+[ **\@ schedule_interval_count =** ] schedule_interval_count  
 O número de períodos de schedule_interval_count que devem ocorrer entre cada execução do trabalho. schedule_interval_count é um int, com o padrão 1. O valor precisa ser maior ou igual a 1.
 
-[ ** \@ schedule_start_time =** ] schedule_start_time  
+[ **\@ schedule_start_time =** ] schedule_start_time  
 Data na qual a execução do trabalho pode começar. schedule_start_time é DATETIME2, com o padrão 0001-01-01 00:00:00.0000000.
 
-[ ** \@ schedule_end_time =** ] schedule_end_time  
+[ **\@ schedule_end_time =** ] schedule_end_time  
 Data na qual a execução do trabalho pode parar. schedule_end_time é DATETIME2, com o padrão 9999-12-31 11:59:59.0000000.
 
-[ ** \@ job_id =** ] job_id saída  
+[ **\@ job_id =** ] job_id saída  
 O número de identificação atribuído ao trabalho caso ele seja criado com êxito. job_id é uma variável de saída do tipo uniqueidentifier.
 
 #### <a name="return-code-values"></a>Valores do código de retorno
@@ -491,19 +495,19 @@ Atualiza um trabalho existente.
 
 #### <a name="arguments"></a>Argumentos
 
-[ ** \@ job_name =** ] ' job_name '  
+[ **\@ job_name =** ] ' job_name '  
 O nome do trabalho a ser atualizado. job_name é nvarchar(128).
 
-[ ** \@ new_name =** ] ' new_name '  
+[ **\@ new_name =** ] ' new_name '  
 O novo nome do trabalho. new_name é nvarchar(128).
 
-[ ** \@ Descrição =** ] ' Descrição '  
+[ **\@ Descrição =** ] ' Descrição '  
 A descrição do trabalho. description é nvarchar(512).
 
-[ ** \@ Enabled =** ] habilitado  
+[ **\@ Enabled =** ] habilitado  
 Especifica se a agenda do trabalho está habilitada (1) ou não habilitada (0). Habilitada é bit.
 
-[ ** \@ schedule_interval_type =** ] schedule_interval_type  
+[ **\@ schedule_interval_type =** ] schedule_interval_type  
 O valor indica quando o trabalho será executado. schedule_interval_type é nvarchar(50) e pode ser um dos valores a seguir:
 
 - 'Once',
@@ -513,13 +517,13 @@ O valor indica quando o trabalho será executado. schedule_interval_type é nvar
 - 'Weeks',
 - 'Months'
 
-[ ** \@ schedule_interval_count =** ] schedule_interval_count  
+[ **\@ schedule_interval_count =** ] schedule_interval_count  
 O número de períodos de schedule_interval_count que devem ocorrer entre cada execução do trabalho. schedule_interval_count é um int, com o padrão 1. O valor precisa ser maior ou igual a 1.
 
-[ ** \@ schedule_start_time =** ] schedule_start_time  
+[ **\@ schedule_start_time =** ] schedule_start_time  
 Data na qual a execução do trabalho pode começar. schedule_start_time é DATETIME2, com o padrão 0001-01-01 00:00:00.0000000.
 
-[ ** \@ schedule_end_time =** ] schedule_end_time  
+[ **\@ schedule_end_time =** ] schedule_end_time  
 Data na qual a execução do trabalho pode parar. schedule_end_time é DATETIME2, com o padrão 9999-12-31 11:59:59.0000000.
 
 #### <a name="return-code-values"></a>Valores do código de retorno
@@ -551,10 +555,10 @@ Excluir um trabalho existente.
 
 #### <a name="arguments"></a>Argumentos
 
-[ ** \@ job_name =** ] ' job_name '  
+[ **\@ job_name =** ] ' job_name '  
 O nome do trabalho a ser excluído. job_name é nvarchar(128).
 
-[ ** \@ Force =** ] forçar  
+[ **\@ Force =** ] forçar  
 Especifica se deve ocorrer a exclusão se o trabalho tiver execuções em andamento e o cancelamento de todas as execuções em andamento (1) ou falhar se alguma execução de trabalho estiver em andamento (0). force é bit.
 
 #### <a name="return-code-values"></a>Valores do código de retorno
@@ -607,79 +611,79 @@ Adiciona uma etapa a um trabalho.
 
 #### <a name="arguments"></a>Argumentos
 
-[ ** \@ job_name =** ] ' job_name '  
+[ **\@ job_name =** ] ' job_name '  
 O nome do trabalho ao qual adicionar a etapa. job_name é nvarchar(128).
 
-[ ** \@ step_id =** ] step_id  
+[ **\@ step_id =** ] step_id  
 O número de identificação de sequência para a etapa de trabalho. Os números de identificação de etapa começam em 1 e são incrementados sem lacunas. Se uma etapa existente já tiver essa ID, essa etapa e todas as etapas a seguir terão suas IDs incrementadas para que essa nova etapa possa ser inserida na sequência. Se não for especificada, a step_id será atribuída automaticamente à última na sequência de etapas. step_id é um int.
 
-[ ** \@ step_name =** ] step_name  
+[ **\@ step_name =** ] step_name  
 O nome da etapa. Deve ser especificado, exceto para a primeira etapa de um trabalho que (por conveniência) tem um nome padrão de ' JobStep '. step_name é nvarchar (128).
 
-[ ** \@ command_type =** ] ' command_type '  
+[ **\@ command_type =** ] ' command_type '  
 O tipo de comando executado pela etapa de trabalho. command_type é nvarchar(50), com o valor padrão TSql, o que significa que o valor do parâmetro @command_type é um script T-SQL.
 
 Se especificado, o valor precisa ser TSql.
 
-[ ** \@ command_source =** ] ' command_source '  
+[ **\@ command_source =** ] ' command_source '  
 O tipo do local em que o comando é armazenado. command_source é nvarchar(50), com o valor padrão Inline, o que significa que o valor do parâmetro @command_source é o texto literal do comando.
 
 Se especificado, o valor precisa ser Inline.
 
-[ ** \@ Command =** ] ' comando '  
+[ **\@ Command =** ] ' comando '  
 O comando precisa ser um script T-SQL válido que será executado por essa etapa de trabalho. command é nvarchar (max), com o padrão NULL.
 
-[ ** \@ credential_name =** ] ' credential_name '  
+[ **\@ credential_name =** ] ' credential_name '  
 O nome da credencial no escopo do banco de dados armazenada neste banco de dados de controle de trabalhos que é usado para conectar-se a cada um dos bancos de dados de destino dentro do grupo de destino quando essa etapa é executada. credential_name é nvarchar(128).
 
-[ ** \@ target_group_name =** ] ' target-GROUP_NAME '  
+[ **\@ target_group_name =** ] ' target-GROUP_NAME '  
 O nome do grupo de destino que contém os bancos de dados de destino nos quais a etapa de trabalho será executada. target_group_name é nvarchar(128).
 
-[ ** \@ initial_retry_interval_seconds =** ] initial_retry_interval_seconds  
+[ **\@ initial_retry_interval_seconds =** ] initial_retry_interval_seconds  
 O atraso antes da primeira tentativa de repetição, se a etapa de trabalho falhar na tentativa de execução inicial. initial_retry_interval_seconds é um int, com o valor padrão 1.
 
-[ ** \@ maximum_retry_interval_seconds =** ] maximum_retry_interval_seconds  
+[ **\@ maximum_retry_interval_seconds =** ] maximum_retry_interval_seconds  
 O atraso máximo entre as tentativas repetição. Se o atraso entre as repetições puder aumentar mais que esse valor, ele será limitado a esse valor. maximum_retry_interval_seconds é um int, com o valor padrão 120.
 
-[ ** \@ retry_interval_backoff_multiplier =** ] retry_interval_backoff_multiplier  
+[ **\@ retry_interval_backoff_multiplier =** ] retry_interval_backoff_multiplier  
 O multiplicador a ser aplicado ao atraso de repetição se várias tentativas de execução de etapa de trabalho falharem. Por exemplo, se a primeira repetição tiver um atraso de 5 segundos e o multiplicador de retirada for 2.0, a segunda repetição terá um atraso de 10 segundos e a terceira, de 20 segundos. retry_interval_backoff_multiplier é real, com o valor padrão 2.0.
 
-[ ** \@ retry_attempts =** ] retry_attempts  
+[ **\@ retry_attempts =** ] retry_attempts  
 O número de vezes que a execução deverá ser repetida quando a tentativa inicial falhar. Por exemplo, se o valor de retry_attempts for 10, haverá 1 tentativa inicial e 10 tentativas de repetição, resultando no total de 11 tentativas. Se a tentativa de repetição final falhar, a execução do trabalho será encerrada com um ciclo de vida Com Falha. retry_attempts é um int, com o valor padrão 10.
 
-[ ** \@ step_timeout_seconds =** ] step_timeout_seconds  
+[ **\@ step_timeout_seconds =** ] step_timeout_seconds  
 O período de tempo máximo permitido para a execução da etapa. Se esse tempo for excedido, a execução do trabalho será encerrada com um ciclo de vida igual a TimedOut. step_timeout_seconds é um int, com o valor padrão de 43.200 segundos (12 horas).
 
-[ ** \@ output_type =** ] ' output_type '  
-Se não for nulo, o tipo de destino no qual o primeiro conjunto de resultados do comando será gravado. output_type é nvarchar(50), com o padrão NULL.
+[ **\@ output_type =** ] ' output_type '  
+Se não for NULL, o tipo de destino para o qual o primeiro conjunto de resultados do comando será gravado. output_type é nvarchar(50), com o padrão NULL.
 
 Se especificado, o valor precisará ser SqlDatabase.
 
-[ ** \@ output_credential_name =** ] ' output_credential_name '  
+[ **\@ output_credential_name =** ] ' output_credential_name '  
 Se não for nulo, o nome da credencial no escopo do banco de dados que é usada para conectar-se ao banco de dados de destino de saída. Precisará ser especificado se output_type for igual a SqlDatabase. output_credential_name é nvarchar(128), com o valor padrão NULL.
 
-[ ** \@ output_subscription_id =** ] ' output_subscription_id '  
+[ **\@ output_subscription_id =** ] ' output_subscription_id '  
 Precisa de descrição.
 
-[ ** \@ output_resource_group_name =** ] ' output_resource_group_name '  
+[ **\@ output_resource_group_name =** ] ' output_resource_group_name '  
 Precisa de descrição.
 
-[ ** \@ output_server_name =** ] ' output_server_name '  
+[ **\@ output_server_name =** ] ' output_server_name '  
 Se não for nulo, será o nome DNS totalmente qualificado do servidor que contém o banco de dados de destino de saída. Precisará ser especificado se output_type for igual a SqlDatabase. output_server_name é nvarchar(256), com o padrão NULL.
 
-[ ** \@ output_database_name =** ] ' output_database_name '  
+[ **\@ output_database_name =** ] ' output_database_name '  
 Se não for nulo, será o nome do banco de dados que contém a tabela de destino de saída. Precisará ser especificado se output_type for igual a SqlDatabase. output_database_name é nvarchar(128), com o padrão NULL.
 
-[ ** \@ output_schema_name =** ] ' output_schema_name '  
+[ **\@ output_schema_name =** ] ' output_schema_name '  
 Se não for nulo, será o nome do esquema SQL que contém a tabela de destino de saída. Se output_type for SqlDatabase, o valor padrão será dbo. output_schema_name é nvarchar(128).
 
-[ ** \@ output_table_name =** ] ' output_table_name '  
-Se não for nulo, o nome da tabela na qual o primeiro conjunto de resultados do comando será gravado. Se a tabela ainda não existir, ela será criada com base no esquema de conjunto de resultados retornado. Precisará ser especificado se output_type for igual a SqlDatabase. output_table_name é nvarchar(128), com o valor padrão NULL.
+[ **\@ output_table_name =** ] ' output_table_name '  
+Se não for NULL, o nome da tabela para a qual o primeiro conjunto de resultados do comando será gravado. Se a tabela ainda não existir, ela será criada com base no esquema de conjunto de resultados retornado. Precisará ser especificado se output_type for igual a SqlDatabase. output_table_name é nvarchar(128), com o valor padrão NULL.
 
-[ ** \@ job_version =** ] job_version saída  
+[ **\@ job_version =** ] job_version saída  
 Parâmetro de saída que será atribuído ao novo número de versão do trabalho. job_version é um int.
 
-[ ** \@ max_parallelism =** ] max_parallelism saída  
+[ **\@ max_parallelism =** ] max_parallelism saída  
 O nível máximo de paralelismo por pool elástico. Se estiver definido, a execução da etapa de trabalho será restrita apenas a esse número máximo de bancos de dados por pool elástico. Isso se aplica a cada pool elástico que está incluído diretamente no grupo de destino ou está dentro de um servidor incluído no grupo de destino. max_parallelism é um int.
 
 #### <a name="return-code-values"></a>Valores do código de retorno
@@ -688,7 +692,7 @@ O nível máximo de paralelismo por pool elástico. Se estiver definido, a execu
 
 #### <a name="remarks"></a>Comentários
 
-Quando sp_add_jobstep é bem-sucedido, o número de versão atual do trabalho é incrementado. Na próxima vez em que o trabalho for executado, a nova versão será usada. Se o trabalho estiver em execução no momento, essa execução não conterá a nova etapa.
+Quando sp_add_jobstep for bem-sucedidos, o número da versão atual do trabalho será incrementado. Na próxima vez em que o trabalho for executado, a nova versão será usada. Se o trabalho estiver em execução no momento, essa execução não conterá a nova etapa.
 
 #### <a name="permissions"></a>Permissões
 
@@ -732,79 +736,79 @@ Atualiza uma etapa de trabalho.
 
 #### <a name="arguments"></a>Argumentos
 
-[ ** \@ job_name =** ] ' job_name '  
+[ **\@ job_name =** ] ' job_name '  
 O nome do trabalho ao qual a etapa pertence. job_name é nvarchar(128).
 
-[ ** \@ step_id =** ] step_id  
+[ **\@ step_id =** ] step_id  
 O número de identificação da etapa de trabalho que será modificado. step_id ou step_name precisa ser especificado. step_id é um int.
 
-[ ** \@ step_name =** ] ' step_name '  
+[ **\@ step_name =** ] ' step_name '  
 O nome da etapa a ser modificada. step_id ou step_name precisa ser especificado. step_name é nvarchar (128).
 
-[ ** \@ new_id =** ] new_id  
+[ **\@ new_id =** ] new_id  
 O novo número de identificação de sequência da etapa de trabalho. Os números de identificação de etapa começam em 1 e são incrementados sem lacunas. Se uma etapa for reordenada, as outras etapas serão renumeradas automaticamente.
 
-[ ** \@ new_name =** ] ' new_name '  
+[ **\@ new_name =** ] ' new_name '  
 O novo nome da etapa. new_name é nvarchar(128).
 
-[ ** \@ command_type =** ] ' command_type '  
+[ **\@ command_type =** ] ' command_type '  
 O tipo de comando executado pela etapa de trabalho. command_type é nvarchar(50), com o valor padrão TSql, o que significa que o valor do parâmetro @command_type é um script T-SQL.
 
 Se especificado, o valor precisa ser TSql.
 
-[ ** \@ command_source =** ] ' command_source '  
+[ **\@ command_source =** ] ' command_source '  
 O tipo do local em que o comando é armazenado. command_source é nvarchar(50), com o valor padrão Inline, o que significa que o valor do parâmetro @command_source é o texto literal do comando.
 
 Se especificado, o valor precisa ser Inline.
 
-[ ** \@ Command =** ] ' comando '  
+[ **\@ Command =** ] ' comando '  
 Os comandos precisam ser um script T-SQL válido que será executado por essa etapa de trabalho. command é nvarchar (max), com o padrão NULL.
 
-[ ** \@ credential_name =** ] ' credential_name '  
+[ **\@ credential_name =** ] ' credential_name '  
 O nome da credencial no escopo do banco de dados armazenada neste banco de dados de controle de trabalhos que é usado para conectar-se a cada um dos bancos de dados de destino dentro do grupo de destino quando essa etapa é executada. credential_name é nvarchar(128).
 
-[ ** \@ target_group_name =** ] ' target-GROUP_NAME '  
+[ **\@ target_group_name =** ] ' target-GROUP_NAME '  
 O nome do grupo de destino que contém os bancos de dados de destino nos quais a etapa de trabalho será executada. target_group_name é nvarchar(128).
 
-[ ** \@ initial_retry_interval_seconds =** ] initial_retry_interval_seconds  
+[ **\@ initial_retry_interval_seconds =** ] initial_retry_interval_seconds  
 O atraso antes da primeira tentativa de repetição, se a etapa de trabalho falhar na tentativa de execução inicial. initial_retry_interval_seconds é um int, com o valor padrão 1.
 
-[ ** \@ maximum_retry_interval_seconds =** ] maximum_retry_interval_seconds  
+[ **\@ maximum_retry_interval_seconds =** ] maximum_retry_interval_seconds  
 O atraso máximo entre as tentativas repetição. Se o atraso entre as repetições puder aumentar mais que esse valor, ele será limitado a esse valor. maximum_retry_interval_seconds é um int, com o valor padrão 120.
 
-[ ** \@ retry_interval_backoff_multiplier =** ] retry_interval_backoff_multiplier  
+[ **\@ retry_interval_backoff_multiplier =** ] retry_interval_backoff_multiplier  
 O multiplicador a ser aplicado ao atraso de repetição se várias tentativas de execução de etapa de trabalho falharem. Por exemplo, se a primeira repetição tiver um atraso de 5 segundos e o multiplicador de retirada for 2.0, a segunda repetição terá um atraso de 10 segundos e a terceira, de 20 segundos. retry_interval_backoff_multiplier é real, com o valor padrão 2.0.
 
-[ ** \@ retry_attempts =** ] retry_attempts  
+[ **\@ retry_attempts =** ] retry_attempts  
 O número de vezes que a execução deverá ser repetida quando a tentativa inicial falhar. Por exemplo, se o valor de retry_attempts for 10, haverá 1 tentativa inicial e 10 tentativas de repetição, resultando no total de 11 tentativas. Se a tentativa de repetição final falhar, a execução do trabalho será encerrada com um ciclo de vida Com Falha. retry_attempts é um int, com o valor padrão 10.
 
-[ ** \@ step_timeout_seconds =** ] step_timeout_seconds  
+[ **\@ step_timeout_seconds =** ] step_timeout_seconds  
 O período de tempo máximo permitido para a execução da etapa. Se esse tempo for excedido, a execução do trabalho será encerrada com um ciclo de vida igual a TimedOut. step_timeout_seconds é um int, com o valor padrão de 43.200 segundos (12 horas).
 
-[ ** \@ output_type =** ] ' output_type '  
-Se não for nulo, o tipo de destino no qual o primeiro conjunto de resultados do comando será gravado. Para redefinir o valor de output_type novamente para NULL, defina o valor deste parâmetro como '' (cadeia de caracteres vazia). output_type é nvarchar(50), com o padrão NULL.
+[ **\@ output_type =** ] ' output_type '  
+Se não for NULL, o tipo de destino para o qual o primeiro conjunto de resultados do comando será gravado. Para redefinir o valor de output_type novamente para NULL, defina o valor deste parâmetro como '' (cadeia de caracteres vazia). output_type é nvarchar(50), com o padrão NULL.
 
 Se especificado, o valor precisará ser SqlDatabase.
 
-[ ** \@ output_credential_name =** ] ' output_credential_name '  
+[ **\@ output_credential_name =** ] ' output_credential_name '  
 Se não for nulo, o nome da credencial no escopo do banco de dados que é usada para conectar-se ao banco de dados de destino de saída. Precisará ser especificado se output_type for igual a SqlDatabase. Para redefinir o valor de output_credential_name novamente como NULL, defina o valor deste parâmetro como '' (cadeia de caracteres vazia). output_credential_name é nvarchar(128), com o valor padrão NULL.
 
-[ ** \@ output_server_name =** ] ' output_server_name '  
+[ **\@ output_server_name =** ] ' output_server_name '  
 Se não for nulo, será o nome DNS totalmente qualificado do servidor que contém o banco de dados de destino de saída. Precisará ser especificado se output_type for igual a SqlDatabase. Para redefinir o valor de output_server_name novamente como NULL, defina o valor deste parâmetro como '' (cadeia de caracteres vazia). output_server_name é nvarchar(256), com o padrão NULL.
 
-[ ** \@ output_database_name =** ] ' output_database_name '  
+[ **\@ output_database_name =** ] ' output_database_name '  
 Se não for nulo, será o nome do banco de dados que contém a tabela de destino de saída. Precisará ser especificado se output_type for igual a SqlDatabase. Para redefinir o valor de output_database_name novamente como NULL, defina o valor deste parâmetro como '' (cadeia de caracteres vazia). output_database_name é nvarchar(128), com o padrão NULL.
 
-[ ** \@ output_schema_name =** ] ' output_schema_name '  
+[ **\@ output_schema_name =** ] ' output_schema_name '  
 Se não for nulo, será o nome do esquema SQL que contém a tabela de destino de saída. Se output_type for SqlDatabase, o valor padrão será dbo. Para redefinir o valor de output_schema_name novamente como NULL, defina o valor deste parâmetro como '' (cadeia de caracteres vazia). output_schema_name é nvarchar(128).
 
-[ ** \@ output_table_name =** ] ' output_table_name '  
-Se não for nulo, o nome da tabela na qual o primeiro conjunto de resultados do comando será gravado. Se a tabela ainda não existir, ela será criada com base no esquema de conjunto de resultados retornado. Precisará ser especificado se output_type for igual a SqlDatabase. Para redefinir o valor de output_server_name novamente como NULL, defina o valor deste parâmetro como '' (cadeia de caracteres vazia). output_table_name é nvarchar(128), com o valor padrão NULL.
+[ **\@ output_table_name =** ] ' output_table_name '  
+Se não for NULL, o nome da tabela para a qual o primeiro conjunto de resultados do comando será gravado. Se a tabela ainda não existir, ela será criada com base no esquema de conjunto de resultados retornado. Precisará ser especificado se output_type for igual a SqlDatabase. Para redefinir o valor de output_server_name novamente como NULL, defina o valor deste parâmetro como '' (cadeia de caracteres vazia). output_table_name é nvarchar(128), com o valor padrão NULL.
 
-[ ** \@ job_version =** ] job_version saída  
+[ **\@ job_version =** ] job_version saída  
 Parâmetro de saída que será atribuído ao novo número de versão do trabalho. job_version é um int.
 
-[ ** \@ max_parallelism =** ] max_parallelism saída  
+[ **\@ max_parallelism =** ] max_parallelism saída  
 O nível máximo de paralelismo por pool elástico. Se estiver definido, a execução da etapa de trabalho será restrita apenas a esse número máximo de bancos de dados por pool elástico. Isso se aplica a cada pool elástico que está incluído diretamente no grupo de destino ou está dentro de um servidor incluído no grupo de destino. Para redefinir o valor de max_parallelism novamente como nulo, defina o valor deste parâmetro como -1. max_parallelism é um int.
 
 #### <a name="return-code-values"></a>Valores do código de retorno
@@ -813,7 +817,7 @@ O nível máximo de paralelismo por pool elástico. Se estiver definido, a execu
 
 #### <a name="remarks"></a>Comentários
 
-As execuções do trabalho em andamento não serão afetadas. Quando sp_update_jobstep for bem-sucedida, o número de versão do trabalho será incrementado. Na próxima vez em que o trabalho for executado, a nova versão será usada.
+As execuções do trabalho em andamento não serão afetadas. Quando sp_update_jobstep for bem-sucedidos, o número de versão do trabalho será incrementado. Na próxima vez em que o trabalho for executado, a nova versão será usada.
 
 #### <a name="permissions"></a>Permissões
 
@@ -838,16 +842,16 @@ Remove uma etapa de trabalho de um trabalho.
 
 #### <a name="arguments"></a>Argumentos
 
-[ ** \@ job_name =** ] ' job_name '  
+[ **\@ job_name =** ] ' job_name '  
 O nome do trabalho no qual a etapa será removida. job_name é nvarchar(128), sem nenhum padrão.
 
-[ ** \@ step_id =** ] step_id  
+[ **\@ step_id =** ] step_id  
 O número de identificação da etapa de trabalho a ser excluída. step_id ou step_name precisa ser especificado. step_id é um int.
 
-[ ** \@ step_name =** ] ' step_name '  
+[ **\@ step_name =** ] ' step_name '  
 O nome da etapa a ser excluída. step_id ou step_name precisa ser especificado. step_name é nvarchar (128).
 
-[ ** \@ job_version =** ] job_version saída  
+[ **\@ job_version =** ] job_version saída  
 Parâmetro de saída que será atribuído ao novo número de versão do trabalho. job_version é um int.
 
 #### <a name="return-code-values"></a>Valores do código de retorno
@@ -856,7 +860,7 @@ Parâmetro de saída que será atribuído ao novo número de versão do trabalho
 
 #### <a name="remarks"></a>Comentários
 
-As execuções do trabalho em andamento não serão afetadas. Quando sp_update_jobstep for bem-sucedida, o número de versão do trabalho será incrementado. Na próxima vez em que o trabalho for executado, a nova versão será usada.
+As execuções do trabalho em andamento não serão afetadas. Quando sp_update_jobstep for bem-sucedidos, o número de versão do trabalho será incrementado. Na próxima vez em que o trabalho for executado, a nova versão será usada.
 
 As outras etapas de trabalho serão renumeradas automaticamente para preencher a lacuna deixada pela etapa de trabalho excluída.
 
@@ -881,10 +885,10 @@ Inicia a execução de um trabalho.
 
 #### <a name="arguments"></a>Argumentos
 
-[ ** \@ job_name =** ] ' job_name '  
+[ **\@ job_name =** ] ' job_name '  
 O nome do trabalho no qual a etapa será removida. job_name é nvarchar(128), sem nenhum padrão.
 
-[ ** \@ job_execution_id =** ] job_execution_id saída  
+[ **\@ job_execution_id =** ] job_execution_id saída  
 O parâmetro de saída que será atribuído à ID da execução do trabalho. job_version é uniqueidentifier.
 
 #### <a name="return-code-values"></a>Valores do código de retorno
@@ -915,7 +919,7 @@ Interrompe a execução de um trabalho.
 
 #### <a name="arguments"></a>Argumentos
 
-[ ** \@ job_execution_id =** ] job_execution_id  
+[ **\@ job_execution_id =** ] job_execution_id  
 O número de identificação da execução de trabalho a ser interrompida. job_execution_id é um uniqueidentifier, com o padrão NULL.
 
 #### <a name="return-code-values"></a>Valores do código de retorno
@@ -947,10 +951,10 @@ Adiciona um grupo de destino.
 
 #### <a name="arguments"></a>Argumentos
 
-[ ** \@ target_group_name =** ] ' target_group_name '  
+[ **\@ target_group_name =** ] ' target_group_name '  
 O nome do grupo de destino a ser criado. target_group_name é nvarchar(128), sem nenhum padrão.
 
-[ ** \@ target_group_id =** ] target_group_id saída do número de identificação do grupo de destino atribuído ao trabalho, se criado com êxito. target_group_id é uma variável de saída do tipo uniqueidentifier, com o padrão NULL.
+[ **\@ target_group_id =** ] target_group_id saída do número de identificação do grupo de destino atribuído ao trabalho, se criado com êxito. target_group_id é uma variável de saída do tipo uniqueidentifier, com o padrão NULL.
 
 #### <a name="return-code-values"></a>Valores do código de retorno
 
@@ -980,7 +984,7 @@ Exclui um grupo de destino.
 
 #### <a name="arguments"></a>Argumentos
 
-[ ** \@ target_group_name =** ] ' target_group_name '  
+[ **\@ target_group_name =** ] ' target_group_name '  
 O nome do grupo de destino a ser excluído. target_group_name é nvarchar(128), sem nenhum padrão.
 
 #### <a name="return-code-values"></a>Valores do código de retorno
@@ -1019,31 +1023,31 @@ Adiciona um banco de dados ou um grupo de bancos de dados a um grupo de destino.
 
 #### <a name="arguments"></a>Argumentos
 
-[ ** \@ target_group_name =** ] ' target_group_name '  
+[ **\@ target_group_name =** ] ' target_group_name '  
 O nome do grupo de destino ao qual o membro será adicionado. target_group_name é nvarchar(128), sem nenhum padrão.
 
-[ ** \@ membership_type =** ] ' membership_type '  
-Especifica se o membro do grupo de destino será incluído ou excluído. target_group_name é nvarchar(128), com o padrão ‘Include’. Os valores válidos para target_group_name são 'Include' ou 'Exclude'.
+[ **\@ membership_type =** ] ' membership_type '  
+Especifica se o membro do grupo de destino será incluído ou excluído. target_group_name é nvarchar (128), com o padrão ' include '. Os valores válidos para membership_type são ' include ' ou ' Exclude '.
 
-[ ** \@ target_type =** ] ' target_type '  
-O tipo do banco de dados ou da coleção de bancos de dados de destino, incluindo todos os bancos de dados em um servidor, todos os bancos de dados em um pool elástico, todos os bancos de dados em um mapa de fragmentos ou em um banco de dados individual. target_type é nvarchar(128), sem nenhum padrão. Os valores válidos para target_type são 'SqlServer', 'SqlElasticPool', 'SqlDatabase' ou 'SqlShardMap'.
+[ **\@ target_type =** ] ' target_type '  
+O tipo do banco de dados ou da coleção de bancos de dados de destino, incluindo todos os bancos de dados em um servidor, todos os bancos de dados em um pool elástico, todos os bancos de dados em um mapa de fragmentos ou em um banco de dados individual. target_type é nvarchar(128), sem nenhum padrão. Os valores válidos para target_type são ' SqlServer ', ' SqlElasticPool ', ' SQLDatabase ' ou ' SqlShardMap '.
 
-[ ** \@ refresh_credential_name =** ] ' refresh_credential_name '  
-O nome do servidor. refresh_credential_name é nvarchar(128), sem nenhum padrão.
+[ **\@ refresh_credential_name =** ] ' refresh_credential_name '  
+O nome da credencial no escopo do banco de dados. refresh_credential_name é nvarchar(128), sem nenhum padrão.
 
-[ ** \@ server_name =** ] ' server_name '  
-O nome do servidor que deve ser adicionado ao grupo de destino especificado. server_name deverá ser especificado quando target_type for ‘SqlServer’. server_name é nvarchar(128), sem nenhum padrão.
+[ **\@ server_name =** ] ' server_name '  
+O nome do servidor que deve ser adicionado ao grupo de destino especificado. server_name deve ser especificado quando target_type é ' SqlServer '. server_name é nvarchar(128), sem nenhum padrão.
 
-[ ** \@ database_name =** ] ' database_name '  
-O nome do banco de dados que deve ser adicionado ao grupo de destino especificado. database_name deverá ser especificado quando target_type for ‘SqlDatabase’. database_name é nvarchar(128), sem nenhum padrão.
+[ **\@ database_name =** ] ' database_name '  
+O nome do banco de dados que deve ser adicionado ao grupo de destino especificado. database_name deve ser especificado quando target_type é ' SQLDatabase '. database_name é nvarchar(128), sem nenhum padrão.
 
-[ ** \@ elastic_pool_name =** ] ' elastic_pool_name '  
-O nome do pool elástico que deve ser adicionado ao grupo de destino especificado. elastic_pool_name deverá ser especificado quando target_type for ‘SqlElasticPool’. elastic_pool_name é nvarchar(128), sem nenhum padrão.
+[ **\@ elastic_pool_name =** ] ' elastic_pool_name '  
+O nome do pool elástico que deve ser adicionado ao grupo de destino especificado. elastic_pool_name deve ser especificado quando target_type é ' SqlElasticPool '. elastic_pool_name é nvarchar(128), sem nenhum padrão.
 
-[ ** \@ shard_map_name =** ] ' shard_map_name '  
-O nome do pool do mapa de fragmentos que deve ser adicionado ao grupo de destino especificado. elastic_pool_name deverá ser especificado quando target_type for ‘SqlSqlShardMap’. shard_map_name é nvarchar(128), sem nenhum padrão.
+[ **\@ shard_map_name =** ] ' shard_map_name '  
+O nome do pool do mapa de fragmentos que deve ser adicionado ao grupo de destino especificado. elastic_pool_name deve ser especificado quando target_type é ' SqlShardMap '. shard_map_name é nvarchar(128), sem nenhum padrão.
 
-[ ** \@ target_id =** ] target_group_id saída  
+[ **\@ target_id =** ] target_group_id saída  
 O número de identificação de destino atribuído ao membro do grupo de destino, se tiver sido criado, adicionado ao grupo de destino. target_id é uma variável de saída do tipo uniqueidentifier, com o padrão NULL.
 Valores do código de retorno 0 (sucesso) ou 1 (falha)
 
@@ -1065,27 +1069,27 @@ O exemplo a seguir adiciona todos os bancos de dados nos servidores London e New
 
 ```sql
 --Connect to the jobs database specified when creating the job agent
-USE ElasticJobs ;
+USE ElasticJobs;
 GO
 
 -- Add a target group containing server(s)
-EXEC jobs.sp_add_target_group @target_group_name =  N'Servers Maintaining Customer Information'
+EXEC jobs.sp_add_target_group @target_group_name =  N'Servers Maintaining Customer Information';
 GO
 
 -- Add a server target member
 EXEC jobs.sp_add_target_group_member
 @target_group_name = N'Servers Maintaining Customer Information',
 @target_type = N'SqlServer',
-@refresh_credential_name=N'mymastercred', --credential required to refresh the databases in server
-@server_name=N'London.database.windows.net' ;
+@refresh_credential_name=N'refresh_credential', --credential required to refresh the databases in server
+@server_name=N'London.database.windows.net';
 GO
 
 -- Add a server target member
 EXEC jobs.sp_add_target_group_member
 @target_group_name = N'Servers Maintaining Customer Information',
 @target_type = N'SqlServer',
-@refresh_credential_name=N'mymastercred', --credential required to refresh the databases in server
-@server_name=N'NewYork.database.windows.net' ;
+@refresh_credential_name=N'refresh_credential', --credential required to refresh the databases in server
+@server_name=N'NewYork.database.windows.net';
 GO
 
 --View the recently added members to the target group
@@ -1139,12 +1143,12 @@ GO
 
 -- Retrieve the target_id for a target_group_members
 declare @tid uniqueidentifier
-SELECT @tid = target_id FROM [jobs].target_group_members WHERE target_group_name = 'Servers Maintaining Customer Information' and server_name = 'London.database.windows.net'
+SELECT @tid = target_id FROM [jobs].target_group_members WHERE target_group_name = 'Servers Maintaining Customer Information' and server_name = 'London.database.windows.net';
 
 -- Remove a target group member of type server
 EXEC jobs.sp_delete_target_group_member
 @target_group_name = N'Servers Maintaining Customer Information',
-@target_id = @tid
+@target_id = @tid;
 GO
 ```
 
@@ -1162,13 +1166,13 @@ Remove os registros históricos de um trabalho.
 
 #### <a name="arguments"></a>Argumentos
 
-[ ** \@ job_name =** ] ' job_name '  
+[ **\@ job_name =** ] ' job_name '  
 O nome do trabalho para o qual os registros históricos serão excluídos. job_name é nvarchar(128), com o padrão NULL. É necessário especificar job_id ou job_name, mas não ambos.
 
-[ ** \@ job_id =** ] job_id  
+[ **\@ job_id =** ] job_id  
  O número de identificação do trabalho cujos registros serão excluídos. job_id é um uniqueidentifier, com o padrão NULL. É necessário especificar job_id ou job_name, mas não ambos.
 
-[ ** \@ oldest_date =** ] oldest_date  
+[ **\@ oldest_date =** ] oldest_date  
  O registro mais antigo a ser retido no histórico. oldest_date é DATETIME2, com o padrão NULL. Quando oldest_date é especificado, sp_purge_jobhistory remove somente os registros que são mais antigos do que o valor especificado.
 
 #### <a name="return-code-values"></a>Valores do código de retorno
@@ -1202,7 +1206,7 @@ GO
 
 ## <a name="job-views"></a>Exibições de trabalho
 
-As seguintes exibições estão disponíveis no [banco de dados de trabalhos](job-automation-overview.md#job-database).
+As seguintes exibições estão disponíveis no [banco de dados de trabalhos](job-automation-overview.md#elastic-job-database).
 
 |Visualizar  |Descrição  |
 |---------|---------|
@@ -1228,18 +1232,18 @@ Mostra o histórico de execução de trabalho.
 |**job_version** | INT | Versão do trabalho (atualizada automaticamente sempre que o trabalho é modificado).
 |**step_id** |INT | Identificador exclusivo (para este trabalho) da etapa. NULL indica que esta é a execução do trabalho pai.
 |**is_active** | bit | Indica se as informações estão ativas ou inativas. 1 indica trabalhos ativos e 0 indica inativos.
-|**Lifecycle** | nvarchar (50) | Valor que indica o status do trabalho: ‘Created’, ‘In Progress’, ‘Failed’, ‘Succeeded’, ‘Skipped’, 'SucceededWithSkipped’|
+|**Lifecycle** | nvarchar (50) | Valor que indica o status do trabalho: ' criado ', ' em andamento ', ' falha ', ' êxito ', ' ignorado ', ' SucceededWithSkipped '|
 |**create_time**| Datetime2 (7) | Data e hora em que o trabalho foi criado.
 |**start_time** | Datetime2 (7) | Data e hora em que a execução do trabalho foi iniciada. NULL se o trabalho ainda não foi executado.
 |**end_time** | Datetime2 (7) | Data e hora em que a execução do trabalho foi concluída. NULL se o trabalho ainda não foi executado ou se a execução ainda não foi concluída.
 |**current_attempts** | INT | Número de vezes que a etapa foi repetida. O trabalho pai será 0, as execuções de trabalho filho serão 1 ou maior com base na política de execução.
 |**current_attempt_start_time** | Datetime2 (7) | Data e hora em que a execução do trabalho foi iniciada. NULL indica que esta é a execução do trabalho pai.
 |**last_message** | nvarchar(max) | Mensagem de histórico de trabalho ou de etapa.
-|**target_type** | nvarchar(128) | Tipo de banco de dados ou de coleção de bancos de dados de destino, incluindo todos os bancos de dados em um servidor, todos os bancos de dados em um pool elástico ou em um banco de dados. Os valores válidos para target_type são 'SqlServer', 'SqlElasticPool' ou 'SqlDatabase'. NULL indica que esta é a execução do trabalho pai.
+|**target_type** | nvarchar(128) | Tipo de banco de dados ou de coleção de bancos de dados de destino, incluindo todos os bancos de dados em um servidor, todos os bancos de dados em um pool elástico ou em um banco de dados. Os valores válidos para target_type são ' SqlServer ', ' SqlElasticPool ' ou ' SQLDatabase '. NULL indica que esta é a execução do trabalho pai.
 |**target_id** | UNIQUEIDENTIFIER | A ID exclusiva do membro do grupo de destino.  NULL indica que esta é a execução do trabalho pai.
 |**target_group_name** | nvarchar(128) | Nome do grupo de destino. NULL indica que esta é a execução do trabalho pai.
-|**target_server_name** | nvarchar(256)  | Nome do servidor contido no grupo de destino. Especificado somente se target_type for 'SqlServer'. NULL indica que esta é a execução do trabalho pai.
-|**target_database_name** | nvarchar(128) | Nome do banco de dados contido no grupo de destino. Especificado somente quando target_type for 'SqlDatabase'. NULL indica que esta é a execução do trabalho pai.
+|**target_server_name** | nvarchar(256)  | Nome do servidor contido no grupo de destino. Especificado somente se target_type for ' SqlServer '. NULL indica que esta é a execução do trabalho pai.
+|**target_database_name** | nvarchar(128) | Nome do banco de dados contido no grupo de destino. Especificado somente quando target_type é ' SQLDatabase '. NULL indica que esta é a execução do trabalho pai.
 
 ### <a name="jobs-view"></a>Exibição jobs
 
@@ -1283,8 +1287,8 @@ Mostra todas as etapas na versão atual de cada trabalho.
 |**job_version**|INT|Versão do trabalho (atualizada automaticamente sempre que o trabalho é modificado).|
 |**step_id**|INT|Identificador exclusivo (para este trabalho) da etapa.|
 |**step_name**|nvarchar(128)|Nome exclusivo (para este trabalho) da etapa.|
-|**command_type**|nvarchar (50)|Tipo de comando a ser executado na etapa de trabalho. Para v1, o valor precisa ser igual e configurado como ‘TSql’ por padrão.|
-|**command_source**|nvarchar (50)|Local do comando. Para v1, ‘Inline’ é o padrão e o único valor aceito.|
+|**command_type**|nvarchar (50)|Tipo de comando a ser executado na etapa de trabalho. Para v1, o valor deve ser igual a e o padrão é ' TSql '.|
+|**command_source**|nvarchar (50)|Local do comando. Para v1, ' inline ' é o padrão e apenas o valor aceito.|
 |**command**|nvarchar(max)|Os comandos a serem executados pelos trabalhos elásticos por meio de command_type.|
 |**credential_name**|nvarchar(128)|O nome da credencial no escopo do banco de dados usada para a execução do trabalho.|
 |**target_group_name**|nvarchar(128)|Nome do grupo de destino.|
@@ -1301,7 +1305,7 @@ Mostra todas as etapas na versão atual de cada trabalho.
 |**output_server_name**|nvarchar(256)|Nome do servidor de destino do conjunto de resultados.|
 |**output_database_name**|nvarchar(128)|Nome do banco de dados de destino do conjunto de resultados.|
 |**output_schema_name**|nvarchar(max)|Nome do esquema de destino. O padrão será dbo se não estiver especificado.|
-|**output_table_name**|nvarchar(max)|Nome da tabela para armazenar o conjunto de resultados da consulta. A tabela será criada automaticamente com base no esquema do conjunto de resultados se ela ainda não existir. O esquema precisa corresponder ao esquema do conjunto de resultados.|
+|**output_table_name**|nvarchar(max)|Nome da tabela para armazenar o conjunto de resultados da consulta. A tabela será criada automaticamente com base no esquema do conjunto de resultados, caso ele ainda não exista. O esquema precisa corresponder ao esquema do conjunto de resultados.|
 |**max_parallelism**|INT|O número máximo de bancos de dados por pool elástico em que a etapa de trabalho será executada de cada vez. O padrão é NULL, o que significa sem limite. |
 
 ### <a name="jobstep_versions-view"></a><a name="jobstep_versions-view"></a>Exibição jobstep_versions
@@ -1331,22 +1335,22 @@ Mostra todos os membros de todos os grupos de destino.
 |-----|-----|-----|
 |**target_group_name**|nvarchar(128|O nome do grupo de destino, uma coleção de bancos de dados. |
 |**target_group_id**|UNIQUEIDENTIFIER|ID exclusiva do grupo de destino.|
-|**membership_type**|INT|Especifica se o membro do grupo de destino está incluído ou excluído do grupo de destino. Os valores válidos para target_group_name são 'Include' ou 'Exclude'.|
-|**target_type**|nvarchar(128)|Tipo de banco de dados ou de coleção de bancos de dados de destino, incluindo todos os bancos de dados em um servidor, todos os bancos de dados em um pool elástico ou em um banco de dados. Os valores válidos para target_type são 'SqlServer', 'SqlElasticPool', 'SqlDatabase' ou 'SqlShardMap'.|
+|**membership_type**|INT|Especifica se o membro do grupo de destino está incluído ou excluído do grupo de destino. Os valores válidos para target_group_name são ' include ' ou ' Exclude '.|
+|**target_type**|nvarchar(128)|Tipo de banco de dados ou de coleção de bancos de dados de destino, incluindo todos os bancos de dados em um servidor, todos os bancos de dados em um pool elástico ou em um banco de dados. Os valores válidos para target_type são ' SqlServer ', ' SqlElasticPool ', ' SQLDatabase ' ou ' SqlShardMap '.|
 |**target_id**|UNIQUEIDENTIFIER|A ID exclusiva do membro do grupo de destino.|
 |**refresh_credential_name**|nvarchar(128)|O nome da credencial no escopo do banco de dados usada para conectar-se ao membro do grupo de destino.|
 |**subscription_id**|UNIQUEIDENTIFIER|ID exclusiva da assinatura.|
 |**resource_group_name**|nvarchar(128)|Nome do grupo de recursos no qual o membro do grupo de destino reside.|
-|**server_name**|nvarchar(128)|Nome do servidor contido no grupo de destino. Especificado somente se target_type for 'SqlServer'. |
-|**database_name**|nvarchar(128)|Nome do banco de dados contido no grupo de destino. Especificado somente quando target_type for 'SqlDatabase'.|
-|**elastic_pool_name**|nvarchar(128)|Nome do pool elástico contido no grupo de destino. Especificado somente quando target_type for 'SqlElasticPool'.|
-|**shard_map_name**|nvarchar(128)|Nome dos mapas de fragmento contidos no grupo de destino. Especificado somente quando target_type for 'SqlShardMap'.|
+|**server_name**|nvarchar(128)|Nome do servidor contido no grupo de destino. Especificado somente se target_type for ' SqlServer '. |
+|**database_name**|nvarchar(128)|Nome do banco de dados contido no grupo de destino. Especificado somente quando target_type é ' SQLDatabase '.|
+|**elastic_pool_name**|nvarchar(128)|Nome do pool elástico contido no grupo de destino. Especificado somente quando target_type é ' SqlElasticPool '.|
+|**shard_map_name**|nvarchar(128)|Nome dos mapas de fragmento contidos no grupo de destino. Especificado somente quando target_type é ' SqlShardMap '.|
 
 ## <a name="resources"></a>Recursos
 
-- ![Ícone de link do tópico](https://docs.microsoft.com/sql/database-engine/configure-windows/media/topic-link.gif "Ícone de link do tópico") [Convenções da sintaxe Transact-SQL](https://docs.microsoft.com/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql)  
+- ![Ícone de link do tópico](/sql/database-engine/configure-windows/media/topic-link.gif "Ícone de link do tópico") [Convenções da sintaxe Transact-SQL](/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql)  
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Criar e gerenciar trabalhos elásticos usando o PowerShell](elastic-jobs-powershell-create.md)
-- [Autorização e permissões](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/authorization-and-permissions-in-sql-server)
+- [Autorização e permissões](/dotnet/framework/data/adonet/sql/authorization-and-permissions-in-sql-server)

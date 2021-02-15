@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 07/10/2020
 ms.author: terrylan
 ms.openlocfilehash: 14589e4efe22d89468b069bf6ff7e3d9babcc714
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87543785"
 ---
 # <a name="azure-customer-data-protection"></a>Proteção de dados do cliente do Azure   

@@ -2,43 +2,56 @@
 title: Novidades nas Migrações para Azure
 description: Conheça as novidades e as atualizações recentes no serviço Migrações para Azure.
 ms.topic: overview
+author: anvar-ms
+ms.author: anvar
+ms.manager: bsiva
 ms.date: 04/19/2020
 ms.custom: mvc
-ms.openlocfilehash: 58c77dccd1e43ed497cd56b2831eb2ab914d8d5d
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: fbafed60019005fe2d81c96fb9557e3c307669ac
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85556926"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98233756"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Novidades nas Migrações para Azure
 
 As [Migrações para Azure](migrate-services-overview.md) ajudam a descobrir, avaliar e migrar servidores, aplicativos e dados para a nuvem do Microsoft Azure. Este artigo resume novas versões e novos recursos nas Migrações para Azure.
 
+## <a name="update-january-2021"></a>Atualização (janeiro de 2021)
+-  A migração de VMs do VMware para máquinas virtuais do Azure com discos criptografados usando criptografia dupla com CMK (chaves gerenciadas pelo cliente) e chaves gerenciadas pela plataforma, usando a Migração de Servidor das Migrações para Azure (replicação sem agente) já está disponível por meio do portal do Azure.
+- A migração de VMs do VMware para máquinas virtuais do Azure com discos criptografados usando SSE (criptografia do lado do servidor) com CMK (chaves gerenciadas pelo cliente) e criptografia dupla com chaves gerenciadas pela plataforma e pelo cliente, usando a Migração de Servidor das Migrações para Azure (replicação baseada em agente) já está disponível por meio do portal do Azure.
+- A migração de servidores físicos e VMs de outras nuvens, como a AWS e o GCP, para máquinas virtuais do Azure com discos criptografados usando SSE (criptografia do lado do servidor) com CMK (chaves gerenciadas pelo cliente) e criptografia dupla com chaves gerenciadas pela plataforma e pelo cliente, usando a Migração de Servidor das Migrações para Azure (replicação baseada em agente) já está disponível por meio do portal do Azure.
+
+## <a name="update-december-2020"></a>Atualização (dezembro de 2020)
+- As Migrações para Azure já instalam automaticamente o agente de VM do Azure nas VMs do VMware durante a migração delas para o Azure usando o método sem agente de migração do VMware.
+- A migração de VMs do VMware para máquinas virtuais do Azure com discos criptografados usando a SSE (criptografia do lado do servidor) com CMK (chaves gerenciadas pelo cliente) e usando a Migração de Servidor das Migrações para Azure (replicação sem agente) já está disponível por meio do portal do Azure.
+
+## <a name="update-september-2020"></a>Atualização (setembro de 2020)
+- Agora há suporte para a migração de servidores para as Zonas de Disponibilidade.
+- Agora há suporte para a migração de VMs baseadas em UEFI e servidores físicos para as VMs do Azure da 2ª geração. Com esta versão, as Migrações para Azure: A ferramenta Migração de Servidor não executará a conversão da VM Gen 2 em VM Gen 1 durante a migração.
+- Um novo dashboard de avaliação do Power BI das Migrações para Azure está disponível para ajudar você a comparar os custos entre diferentes configurações de avaliação. O dashboard vem com um utilitário do PowerShell que cria automaticamente as avaliações que se conectam ao dashboard do Power BI. [Saiba mais.](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/assessment-utility)
+- A análise de dependência (sem agente) agora pode ser executada simultaneamente em mil VMs.
+- A análise de dependência (sem agente) agora pode ser habilitada ou desabilitada em escala por meio de scripts do PowerShell. [Saiba mais.](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/dependencies-at-scale)
+- Visualize as conexões de rede no Power BI usando os dados coletados usando a análise de dependência (sem agente) [Saiba mais.](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/dependencies-at-scale)
+- Agora há suporte para a migração de VMs VMware com tamanho de disco de dados de até 32 TB usando o Migrações para Azure: Método de migração VMware sem agente de migração de servidor.
+
+## <a name="update-august-2020"></a>Atualização (agosto de 2020)
+
+- Experiência de integração aprimorada na qual uma chave de projeto das Migrações para Azure é gerada no portal e é usada para concluir o registro do dispositivo.
+- Opção para baixar os arquivos OVA/VHD ou os scripts do instalador do portal para configurar os dispositivos VMware e Hyper-V, respectivamente.
+- Gerenciador de configuração de dispositivo atualizado com experiência de usuário aprimorada.
+- Suporte a várias credenciais para descoberta de VMs do Hyper-V.
+
+## <a name="update-july-2020"></a>Atualização (julho de 2020)
+
+- Agora, a migração do VMware sem agente dá suporte à replicação simultânea de 300 VMs por vCenter
+
 ## <a name="update-june-2020"></a>Atualização (junho de 2020)
 
-- Agora há suporte às avaliações para migrar as VMs locais do VMware para a [AVS (Solução VMware no Azure)](https://go.microsoft.com/fwlink/?linkid=2132637). [Saiba mais](how-to-create-azure-vmware-solution-assessment.md)
+- Agora há suporte às avaliações para migrar as VMs locais do VMware para a [AVS (Solução VMware no Azure)](./concepts-azure-vmware-solution-assessment-calculation.md). [Saiba mais](how-to-create-azure-vmware-solution-assessment.md)
 - Suporte para várias credenciais no dispositivo para descoberta de servidor físico.
 - Suporte para permitir o logon do Azure no dispositivo para o locatário em que a restrição de locatário foi configurada.
-- Novas versões do dispositivo das Migrações para Azure, conforme listado abaixo.
-
-### <a name="azure-public-cloud"></a>Nuvem pública do Azure
-
-**Cenário** | **Download** | **SHA256**
---- | --- | ---
-Hyper-V (8,93 GB) | [Última versão](https://aka.ms/migrate/appliance/hyperv) |  572be425ea0aca69a9aa8658c950bc319b2bdbeb93b440577264500091c846a1
-VMware (10,9 GB) | [Última versão](https://aka.ms/migrate/appliance/vmware) | cacbdaef927fe5477fa4e1f494fcb7203cbd6b6ce7402b79f234bc0fe69663dd
-Físico (63,1 MB) | [Última versão](https://go.microsoft.com/fwlink/?linkid=2105112) | 0a27adf13cc5755e4b23df0c05732c6ac08d1fe8850567cb57c9906fbc3b85a0
-
-
-### <a name="azure-government"></a>Azure Government
-
-**Cenário** | **Download** | **SHA256**
---- | --- | ---
-Hyper-V (63,1 MB) | [Última versão](https://go.microsoft.com/fwlink/?linkid=2120200&clcid=0x409) |  2c5e73a1e5525d4fae468934408e43ab55ff397b7da200b92121972e683f9aa3
-VMware (63,1 MB) | [Última versão](https://go.microsoft.com/fwlink/?linkid=2120300&clcid=0x409 ) | 3d5822038646b81f458d89d706832c0a2c0e827bfa9b0a55cc478eaf2757a4de
-Físico (63,1 MB) | [Última versão](https://go.microsoft.com/fwlink/?linkid=2120100&clcid=0x409) | 93dfef131026e70acdfad2769cd208ff745ab96a96f013cdf3f9e1e61c9b37e1
-
 
 
 ## <a name="update-april-2020"></a>Atualização (abril de 2020)
@@ -104,4 +117,4 @@ se você estava usando a versão anterior das Migrações para Azure (havia supo
 
 - [Saiba mais](https://azure.microsoft.com/pricing/details/azure-migrate/) sobre os preços das Migrações para Azure.
 - [Reveja as perguntas frequentes](resources-faq.md) sobre Migrações para Azure.
-- Experimente nossos tutoriais para avaliar [VMs VMware](tutorial-assess-vmware.md) e [VMs Hyper-V](tutorial-assess-hyper-v.md).
+- Experimente nossos tutoriais para avaliar [VMs VMware](./tutorial-assess-vmware-azure-vm.md) e [VMs Hyper-V](tutorial-assess-hyper-v.md).

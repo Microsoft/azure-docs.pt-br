@@ -9,16 +9,19 @@ manager: diviso
 ms.reviewer: v-mamcge
 ms.workload: big-data
 ms.topic: troubleshooting
-ms.date: 06/30/2020
+ms.date: 09/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 0630e4dfcfc01e5c20fa6fcc3a516dbea6f6f53b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 15f2ff5aaa1d731c13125d0a3ab4ac32acb9276c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87046455"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023268"
 ---
 # <a name="diagnose-and-solve-issues-in-your-azure-time-series-insights-gen1-environment"></a>Diagnosticar e resolver problemas em seu ambiente de Azure Time Series Insights Gen1
+
+> [!CAUTION]
+> Esse é um artigo do Gen1.
 
 Este artigo descreve os problemas que você pode encontrar em seu ambiente de Azure Time Series Insights. O artigo fornece possíveis causas e soluções para resolução.
 
@@ -34,7 +37,7 @@ Se nenhum dado estiver aparecendo no [Azure Time Series insights Explorer](https
 
 ### <a name="cause-a-event-source-data-isnt-in-json-format"></a>Causa: os dados de origem do evento não estão no formato JSON
 
-O Azure Time Series Insights dá suporte somente a dados JSON. Para obter exemplos do JSON, consulte [Formas de JSON com suporte](./how-to-shape-query-json.md).
+O Azure Time Series Insights dá suporte somente a dados JSON. Para obter exemplos do JSON, consulte [Formas de JSON com suporte](./concepts-json-flattening-escaping-rules.md).
 
 ### <a name="cause-b-the-event-source-key-is-missing-a-required-permission"></a>Causa B: a chave de origem do evento não tem uma permissão necessária
 
@@ -66,8 +69,8 @@ Por exemplo, se você tiver 5 milhões eventos em uma origem de evento quando vo
 
 Se houver eventos antigos na origem do evento, você poderá lidar com a limitação de duas maneiras:
 
-- Altere os limites de retenção da origem do evento para ajudar a remover eventos antigos que você não deseja exibir no Azure Time Series Insights.
-- Provisionar um tamanho de ambiente maior (número de unidades) para aumentar a taxa de transferência de eventos antigos. No exemplo anterior, se você aumentar o mesmo ambiente S1 para cinco unidades por um dia, o ambiente deverá ser acumulado em um dia. Se a produção de eventos de estado estacionário for 1 milhão ou menos eventos por dia, você poderá reduzir a capacidade do evento para uma unidade depois que Azure Time Series Insights for atualizado.
+* Altere os limites de retenção da origem do evento para ajudar a remover eventos antigos que você não deseja exibir no Azure Time Series Insights.
+* Provisionar um tamanho de ambiente maior (número de unidades) para aumentar a taxa de transferência de eventos antigos. No exemplo anterior, se você aumentar o mesmo ambiente S1 para cinco unidades por um dia, o ambiente deverá ser acumulado em um dia. Se a produção de eventos de estado estacionário for 1 milhão ou menos eventos por dia, você poderá reduzir a capacidade do evento para uma unidade depois que Azure Time Series Insights for atualizado.
 
 O limite de limitação imposto baseia-se na capacidade e no tipo de SKU do ambiente. Todas as origens do evento no ambiente compartilham essa capacidade. Se a origem do evento para o Hub IoT ou o Hub de eventos enviar dados para além dos limites impostos, você terá limitação e um retardo.
 
@@ -82,7 +85,7 @@ Imagine um ambiente que ingere mensagens de um hub de eventos. Ele tem uma taxa 
 
 Um ambiente de SKU S1 que tem uma capacidade de 3 pode ingressar apenas 2.100 eventos por minuto (1 milhão de eventos por dia = 700 eventos por minuto em 3 unidades = 2.100 eventos por minuto).
 
-Para obter uma compreensão de alto nível de como funciona a lógica de mesclagem, consulte [formas de JSON com suporte](./how-to-shape-query-json.md).
+Para obter uma compreensão de alto nível de como funciona a lógica de mesclagem, consulte [formas de JSON com suporte](./concepts-json-flattening-escaping-rules.md).
 
 #### <a name="recommended-resolutions-for-excessive-throttling"></a>Resolução recomendadas para limitação excessiva
 
@@ -124,16 +127,16 @@ Tenha em mente que o nome da propriedade Timestamp diferencia maiúsculas de min
 
 A maneira mais fácil de garantir que o nome da propriedade de carimbo de data/hora seja capturado e funcionando corretamente é usar o Azure Time Series Insights Explorer. No Azure Time Series Insights Explorer, usando o gráfico, selecione um período de tempo depois de inserir o nome da propriedade de carimbo de data/hora. Clique com o botão direito do mouse na seleção e selecione **explorar eventos**.
 
-O cabeçalho da primeira coluna deve ser o nome da propriedade de carimbo de data/hora. Ao lado do **carimbo de data/hora**do Word, **($TS)** será exibido.
+O cabeçalho da primeira coluna deve ser o nome da propriedade de carimbo de data/hora. Ao lado do **carimbo de data/hora** do Word, **($TS)** será exibido.
 
 Os seguintes valores não serão exibidos:
 
-- *(ABC)*: indica que Azure Time Series insights está lendo os valores de dados como cadeias de caracteres.
-- *Ícone de calendário*: indica que Azure Time Series insights está lendo os valores de dados como valores de data e hora.
-- *#*: Indica que Azure Time Series Insights está lendo os valores de dados como inteiros.
+* *(ABC)*: indica que Azure Time Series insights está lendo os valores de dados como cadeias de caracteres.
+* *Ícone de calendário*: indica que Azure Time Series insights está lendo os valores de dados como valores de data e hora.
+* *#*: Indica que Azure Time Series Insights está lendo os valores de dados como inteiros.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Leia sobre [como mitigar a latência no Azure Time Series insights](time-series-insights-environment-mitigate-latency.md).
+* Leia sobre [como mitigar a latência no Azure Time Series insights](time-series-insights-environment-mitigate-latency.md).
 
-- Saiba [como dimensionar seu ambiente de Azure Time Series insights](time-series-insights-how-to-scale-your-environment.md).
+* Saiba [como dimensionar seu ambiente de Azure Time Series insights](time-series-insights-how-to-scale-your-environment.md).

@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/18/2020
+ms.date: 12/02/2020
 ms.author: mnayak
-ms.openlocfilehash: af3d9e9fcf0dad6a5e51a3db87b63567d701970e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: beb670106690645a80aa12b930e3a005efb4282a
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84687983"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98221639"
 ---
 # <a name="configure-routing-preference-for-a-vm-using-the-azure-portal"></a>Configurar a preferência de roteamento para uma VM usando o portal do Azure
 
@@ -28,12 +28,6 @@ Este artigo mostra como criar uma máquina virtual com um IP público que está 
 > [!IMPORTANT]
 > Atualmente, a preferência de roteamento está em versão prévia pública.
 > Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-## <a name="register-the-feature-for-your-subscription"></a>Registrar o recurso na sua assinatura
-Atualmente, o recurso Preferência de Roteamento está em versão prévia. É necessário registrar o recurso na sua assinatura usando o Azure PowerShell da seguinte maneira:
-```azurepowershell
-Register-AzProviderFeature -FeatureName AllowRoutingPreferenceFeature ProviderNamespace Microsoft.Network
-```
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
@@ -69,10 +63,11 @@ Entre no [portal do Azure](https://preview.portal.azure.com/).
 9. Depois que a máquina virtual for implantada, insira *myPublicIpAddress* na caixa de pesquisa na parte superior do portal. Quando **myPublicIpAddress** aparece nos resultados da pesquisa, selecione.
 10. Você pode visualizar o endereço IP público que é designado e que o endereço é designado à máquina virtual **myVM**, conforme mostrado na figura a seguir:
 
-    ![Endereço IP público de modo de exibição](./media/tutorial-routing-preference-virtual-machine-portal/pip-properties-new.png)
+    ![Captura de tela mostra a NIC pública I P para a interface de rede mynic.](./media/tutorial-routing-preference-virtual-machine-portal/pip-properties-new.png)
 
 11. Selecione **Rede**, clique na NIC **mynic** e selecione o endereço IP público para confirmar se a preferência de roteamento foi atribuída como **Internet**.
-    ![Exibir o endereço IP público](./media/tutorial-routing-preference-virtual-machine-portal/pip-routing-internet-new.png)
+
+    ![Captura de tela mostra o endereço I P e a preferência de roteamento para um endereço público I P.](./media/tutorial-routing-preference-virtual-machine-portal/pip-routing-internet-new.png)
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
@@ -84,5 +79,5 @@ Quando não for mais necessário, exclua o grupo de recursos e todos os recursos
 
 ## <a name="next-steps"></a>Próximas etapas
 - Saiba mais sobre o [IP público com a preferência de roteamento](routing-preference-overview.md).
-- Saiba mais sobre os [endereços IP públicos](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) no Azure.
+- Saiba mais sobre os [endereços IP públicos](./public-ip-addresses.md#public-ip-addresses) no Azure.
 - Saiba mais sobre todas as [configurações de endereço IP público](virtual-network-public-ip-address.md#create-a-public-ip-address).

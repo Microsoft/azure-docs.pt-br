@@ -1,7 +1,7 @@
 ---
 title: Paridade entre regiões públicas e soberanas
 titleSuffix: Azure Machine Learning
-description: Alguns recursos do Azure Machine Learning, como recursos de visualização pública, podem estar disponíveis apenas em regiões de nuvem pública. Este artigo lista os recursos que também estão disponíveis nas regiões Azure governamental, Azure Alemanha e Azure China 21Vianet.
+description: Este artigo lista a paridade de recursos entre a nuvem pública e as regiões do Azure governamental, do Azure Alemanha e do Azure China 21Vianet.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,14 +9,14 @@ ms.topic: reference
 ms.reviewer: larryfr
 ms.author: andzha
 author: Anurzeuii
-ms.date: 08/24/2020
+ms.date: 12/21/2020
 ms.custom: references_regions
-ms.openlocfilehash: c899d14b6e0eea8135b996aadfe2a7388a8fcb89
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 88240f9b46997d11f1e7c2d93fa880b004615a11
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88860766"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97725013"
 ---
 # <a name="azure-machine-learning-sovereign-cloud-parity"></a>Azure Machine Learning a paridade de nuvem do soberanas
 
@@ -34,7 +34,7 @@ Nós visamos fornecer a paridade máxima entre nossa nuvem pública e regiões s
 
 ## <a name="azure-government"></a>Azure Government 
 
-| Recurso | Status da nuvem pública  | EUA-Virgínia | EUA-Arizona| 
+| Recurso | Status da nuvem pública  | US-Virginia | US-Arizona| 
 |----------------------------------------------------------------------------|:----------------------:|:--------------------:|:-------------:|
 | **Machine learning automatizado** | | | |
 | Criar e executar experimentos em notebooks                                    | GA                   | YES                | YES         |
@@ -49,9 +49,9 @@ Nós visamos fornecer a paridade máxima entre nossa nuvem pública e regiões s
 | Criar pontos de extremidade de pipeline usando o SDK do Azure ML                           | GA                   | YES                | YES         |
 | Criar, editar e excluir execuções agendadas de pipelines usando o SDK do Azure ML | GA                   | Ok               | Ok        |
 | Exibir detalhes de execução de pipeline no estúdio                                        | GA                   | YES                | YES         |
-| Criar, executar, Visualizar e publicar pipelines no Azure ML designer          | Visualização pública       | YES                | YES         |
+| Criar, executar, Visualizar e publicar pipelines no Azure ML designer          | GA      | YES                | YES         |
 | Integração de Azure Databricks com o pipeline ML                             | GA                   | Não                 | Não          |
-| Criar pontos de extremidade de pipeline no Azure ML designer                             | Visualização pública       | YES                | YES         |
+| Criar pontos de extremidade de pipeline no Azure ML designer                             | GA      | YES                | YES         |
 | **Blocos de anotações integrados** |   |  | | 
 | Bloco de anotações de espaço de trabalho e compartilhamento de arquivos                                        | GA                   | YES                | YES         |
 | Suporte a R e Python                                                       | GA                   | YES                | YES         |
@@ -60,7 +60,7 @@ Nós visamos fornecer a paridade máxima entre nossa nuvem pública e regiões s
 | Instâncias de computação gerenciadas para blocos de anotações integrados                         | GA                   | YES                | YES         |
 | Integração do Jupyter, JupyterLab                                            | GA                   | YES                | YES         |
 | Suporte de rede virtual (VNet)                                             | Visualização pública       | YES                | YES         |
-| **Suporte do SDK** |  |  | | 
+| **Suporte a SDK** |  |  | | 
 | Suporte do SDK do R                                                              | Visualização pública       | YES                | YES         |
 | Suporte ao SDK do Python                                                         | GA                   | YES                | YES         |
 | **Segurança** |   | | | 
@@ -92,7 +92,7 @@ Nós visamos fornecer a paridade máxima entre nossa nuvem pública e regiões s
 | Rotulagem assistida de ML (classificação de imagem e detecção de objeto)           | Visualização pública       | YES                | YES         |
 | **ML responsável** |   | | |
 | Explicabilidade na interface do usuário                                                       | Visualização pública       | Não                 | Não          |
-| WhiteNoise Toolkit de privacidade diferencial                                    | SOS                  | Não                 | Não          |
+| SmartNoise Toolkit de privacidade diferencial                                    | SOS                  | Não                 | Não          |
 | marcas personalizadas no Azure Machine Learning para implementar folhas de os              | GA                   | Não                 | Não          |
 | Integração do AzureML de imparcialidade                                               | Visualização pública       | Não                 | Não          |
 | SDK de interpretação                                                      | GA                   | YES                | YES         |
@@ -112,7 +112,7 @@ Nós visamos fornecer a paridade máxima entre nossa nuvem pública e regiões s
 
 ### <a name="azure-government-scenarios"></a>Cenários do Azure governamental
 
-| Cenário                                                    | EUA-Virgínia | EUA-Arizona| Limitações  |
+| Cenário                                                    | US-Virginia | US-Arizona| Limitações  |
 |----------------------------------------------------------------------------|:----------------------:|:--------------------:|-------------|
 | **Configuração de segurança geral** |   | | |
 | Comunicação de rede privada entre serviços                                     | Não | Não | Nenhum link privado no momento | 
@@ -122,7 +122,7 @@ Nós visamos fornecer a paridade máxima entre nossa nuvem pública e regiões s
 | Acesso de raiz e SSH para recursos de computação.                                          | YES | YES |  |
 | Manter a segurança dos sistemas implantados (instâncias, pontos de extremidade, etc.), incluindo o Endpoint Protection, aplicação de patch e registro em log |  PARTIAL|  PARTIAL |ACI atrás da VNet e do ponto de extremidade privado atualmente não disponível |                                  
 | Controlar (desabilitar/limitar/restringir) o uso da integração de ACI/AKS                    | PARTIAL| PARTIAL |ACI atrás da VNet e do ponto de extremidade privado atualmente não disponível|
-| RBAC (controle de acesso baseado em função)-criações de função personalizadas                           | YES | YES |  |
+| Controle de acesso baseado em função do Azure (RBAC do Azure) – criações de função personalizadas                           | YES | YES |  |
 | Controlar o acesso a imagens ACR usadas pelo serviço ML (Azure fornecido/mantido versus personalizado)  |PARTIAL|  PARTIAL | Não há suporte para ACR por trás do ponto de extremidade privado e VNet no Azure governamental |
 | **Uso geral do serviço de Machine Learning** |  | | |
 | Capacidade de ter um ambiente de desenvolvimento para criar um modelo, treinar esse modelo, hospedá-lo como um ponto de extremidade e consumi-lo por meio de um webapp     | YES | YES |  |
@@ -136,7 +136,7 @@ Nós visamos fornecer a paridade máxima entre nossa nuvem pública e regiões s
 * Para Azure Machine Learning instâncias de computação, a capacidade de atualizar um token com duração de mais de 24 horas não está disponível no Azure governamental.
 * A criação de perfil de modelo não dá suporte a 4 CPUs na região de US-Arizona.   
 * Os notebooks de exemplo podem não funcionar no Azure governamental se precisarem de acesso aos dados públicos.
-* Endereços IP: o comando da CLI usado na [VNet e instruções de túnel forçado](how-to-enable-virtual-network.md#forced-tunneling) não retorna intervalos de IP. Em vez disso, use os [intervalos de IP e as marcas de serviço do Azure para o Azure governamental](https://www.microsoft.com/download/details.aspx?id=57063) .
+* Endereços IP: o comando da CLI usado na [VNet e instruções de túnel forçado](how-to-secure-training-vnet.md#forced-tunneling) não retorna intervalos de IP. Em vez disso, use os [intervalos de IP e as marcas de serviço do Azure para o Azure governamental](https://www.microsoft.com/download/details.aspx?id=57063) .
 * Para pipelines agendados, também fornecemos um mecanismo de gatilho baseado em BLOB. Não há suporte para esse mecanismo em espaços de trabalho do CMK. Para habilitar um gatilho baseado em blob para espaços de trabalho do CMK, você precisa fazer uma configuração adicional. Para obter mais informações, consulte [disparar uma execução de um pipeline de Machine Learning de um aplicativo lógico](how-to-trigger-published-pipeline.md).
 * Firewalls: ao usar uma região do Azure governamental, adicione os seguintes hosts adicionais à sua configuração de firewall:
 
@@ -162,9 +162,9 @@ Nós visamos fornecer a paridade máxima entre nossa nuvem pública e regiões s
 | Criar pontos de extremidade de pipeline usando o SDK do Azure ML                           | GA               | YES       | N/D        |
 | Criar, editar e excluir execuções agendadas de pipelines usando o SDK do Azure ML | GA               | YES       | N/D        |
 | Exibir detalhes de execução de pipeline no estúdio                                        | GA               | YES       | N/D        |
-| Criar, executar, Visualizar e publicar pipelines no Azure ML designer          | Visualização pública   | YES       | N/D        |
+| Criar, executar, Visualizar e publicar pipelines no Azure ML designer          | GA  | YES       | N/D        |
 | Integração de Azure Databricks com o pipeline ML                             | GA               | Não        | N/D        |
-| Criar pontos de extremidade de pipeline no Azure ML designer                             | Visualização pública   | YES       | N/D        |
+| Criar pontos de extremidade de pipeline no Azure ML designer                             | GA   | YES       | N/D        |
 | **Blocos de anotações integrados** |   | | |
 | Bloco de anotações de espaço de trabalho e compartilhamento de arquivos                                        | GA               | YES       | N/D        |
 | Suporte a R e Python                                                       | GA               | YES       | N/D        |
@@ -173,7 +173,7 @@ Nós visamos fornecer a paridade máxima entre nossa nuvem pública e regiões s
 | Instâncias de computação gerenciadas para blocos de anotações integrados                         | GA               | Não        | N/D        |
 | Integração do Jupyter, JupyterLab                                            | GA               | YES       | N/D        |
 | Suporte de rede virtual (VNet)                                             | Visualização pública   | YES       | N/D        |
-| **Suporte do SDK** |    | | |
+| **Suporte a SDK** |    | | |
 | Suporte do SDK do R                                                              | Visualização pública   | YES       | N/D        |
 | Suporte ao SDK do Python                                                         | GA               | YES       | N/D        |
 | **Segurança** |   | | |
@@ -205,7 +205,7 @@ Nós visamos fornecer a paridade máxima entre nossa nuvem pública e regiões s
 | Rotulagem assistida de ML (classificação de imagem e detecção de objeto)           | Visualização pública   | YES       | N/D        |
 | **ML responsável** |    | | |
 | Explicabilidade na interface do usuário                                                       | Visualização pública   | Não        | N/D        |
-| WhiteNoise Toolkit de privacidade diferencial                                    | SOS              | Não        | N/D        |
+| SmartNoise Toolkit de privacidade diferencial                                    | SOS              | Não        | N/D        |
 | marcas personalizadas no Azure Machine Learning para implementar folhas de os              | GA               | Não        | N/D        |
 | Integração do AzureML de imparcialidade                                               | Visualização pública   | Não        | N/D        |
 | SDK de interpretação                                                      | GA               | YES       | N/D        |
@@ -229,14 +229,14 @@ Nós visamos fornecer a paridade máxima entre nossa nuvem pública e regiões s
 * O Azure China tem SKU de VM limitada, especialmente para SKU de GPU. Ele tem apenas V100 (família NCv3).
 * Os pontos de extremidade da API REST são diferentes do Azure global. Use a tabela a seguir para localizar o ponto de extremidade da API REST para as regiões do Azure China:
 
-    | Ponto de extremidade REST                 | Azure Global                                 | China – Governo                           |
+    | Ponto de extremidade REST                 | Azure Global                                 | China-Government                           |
     |------------------|--------------------------------------------|--------------------------------------------|
     | Plano de gerenciamento | `https://management.azure.com/`              | `https://management.chinacloudapi.cn/`       |
     | Plano de dados       | `https://{location}.experiments.azureml.net` | `https://{location}.experiments.ml.azure.cn` |
     | Azure Active Directory              | `https://login.microsoftonline.com`          | `https://login.chinacloudapi.cn`             |
 
 * O bloco de anotações de exemplo pode não funcionar, se precisar de acesso a dados públicos.
-* Intervalos de endereços IP: o comando da CLI usado nas instruções de [túnel forçado da VNet](how-to-enable-virtual-network.md#forced-tunneling) não retorna intervalos de IP. Em vez disso, use os [intervalos de IP e as marcas de serviço do Azure para o Azure China](https://www.microsoft.com//download/details.aspx?id=57062) .
+* Intervalos de endereços IP: o comando da CLI usado nas instruções de [túnel forçado da VNet](how-to-secure-training-vnet.md#forced-tunneling) não retorna intervalos de IP. Em vez disso, use os [intervalos de IP e as marcas de serviço do Azure para o Azure China](https://www.microsoft.com//download/details.aspx?id=57062) .
 * Não há suporte para a visualização de instâncias de computação Azure Machine Learning em um espaço de trabalho em que o link privado está habilitado por enquanto, mas o CI terá suporte na próxima implantação para a expansão de serviço para todas as regiões AML.
 
 ## <a name="next-steps"></a>Próximas etapas

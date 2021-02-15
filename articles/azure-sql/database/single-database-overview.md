@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 04/08/2019
 ms.openlocfilehash: 8f92fe8e4a4ebbc2d970bf28e415859249b9f67c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84343312"
 ---
 # <a name="what-is-a-single-database-in-azure-sql-database"></a>O que é um banco de dados individual no banco de dados SQL do Azure?
@@ -36,7 +36,7 @@ Um banco de dados individual pode ser movido de ou para um [pool elástico](elas
 
 ## <a name="monitoring-and-alerting"></a>Monitoramento e alertas
 
-Use as ferramentas de [monitoramento de desempenho interno](performance-guidance.md) e [alerta](alerts-insights-configure-portal.md) em conjunto com as classificações de desempenho baseadas nos vCores. Usando essas ferramentas, você pode avaliar rapidamente o impacto da expansão ou redução com base nas suas necessidades de desempenho atuais ou de projeto. Além disso, o banco de dados SQL pode [emitir métricas e logs de recursos](metrics-diagnostic-telemetry-logging-streaming-export-configure.md) para facilitar o monitoramento.
+Use as ferramentas de [monitoramento de desempenho interno](performance-guidance.md) e [alerta](alerts-insights-configure-portal.md) em conjunto com as classificações de desempenho baseadas nos vCores. Usando essas ferramentas, você pode avaliar rapidamente o impacto da expansão ou redução com base nas suas necessidades de desempenho atuais ou de projeto. Além disso, o Banco de Dados SQL pode [emitir métrica e logs de recursos](metrics-diagnostic-telemetry-logging-streaming-export-configure.md) para facilitar o monitoramento.
 
 ## <a name="availability-capabilities"></a>Recursos de disponibilidade
 
@@ -52,10 +52,10 @@ Para obter mais informações, confira [Resolvendo diferenças de Transact-SQL d
 
 ## <a name="security"></a>Segurança
 
-O Banco de Dados SQL fornece uma variedade de [recursos internos de segurança e conformidade](security-overview.md) para ajudar seu aplicativo a atender a vários requisitos de conformidade e segurança.
+O banco de dados SQL fornece uma variedade de recursos [internos de segurança e conformidade](security-overview.md) para ajudar seu aplicativo a atender a vários requisitos de segurança e conformidade.
 
 > [!IMPORTANT]
-> O banco de dados SQL do Azure foi certificado em relação a vários padrões de conformidade. Para obter mais informações, consulte a [central de confiabilidade do Microsoft Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942), em que você pode encontrar a lista mais atual de certificações de conformidade do banco de dados SQL.
+> O banco de dados SQL do Azure foi certificado em relação a vários padrões de conformidade. Para saber mais, confira a [Central de Confiabilidade do Microsoft Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942), onde é possível encontrar a lista mais atualizada de certificações de conformidade do Banco de Dados SQL do Azure.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -1,27 +1,28 @@
 ---
 title: Filtrar seus manifestos usando o Dynamic Packager
-titleSuffix: Azure Media Services
 description: Saiba como criar filtros usando o Dynamic Packager para filtrar e transmitir seletivamente seus manifestos.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
-ms.topic: article
-ms.date: 07/11/2019
-ms.author: juliako
-ms.openlocfilehash: cb7a399258dcab679468d2b8f699487b1ec5406b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.topic: conceptual
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: 3ffdb41752630e0e5e22303ff58ecd798595a890
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84705195"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897655"
 ---
 # <a name="filter-your-manifests-using-dynamic-packager"></a>Filtrar seus manifestos usando o Dynamic Packager
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Quando você estiver distribuindo conteúdo de streaming de taxa de bits adaptável para dispositivos, às vezes precisará publicar várias versões de um manifesto para direcionar recursos de dispositivo específicos ou largura de banda de rede disponível. O [Gerenciador dinâmico](dynamic-packaging-overview.md) permite que você especifique filtros que podem filtrar codecs específicos, resoluções, taxas de bits e combinações de faixas de áudio imediatamente. Essa filtragem elimina a necessidade de criar várias cópias. Você simplesmente precisa publicar uma nova URL com um conjunto específico de filtros configurados para seus dispositivos de destino (iOS, Android, SmartTV ou navegadores) e os recursos de rede (cenários de alta largura de banda, móvel ou baixa largura de banda). Nesse caso, os clientes podem manipular o streaming do seu conteúdo por meio da cadeia de caracteres de consulta (especificando [filtros de ativo disponíveis ou filtros de conta](filters-concept.md)) e usar filtros para transmitir seções específicas de um fluxo.
 
@@ -139,7 +140,7 @@ Para obter mais informações, consulte [esta postagem do blog](https://azure.mi
 
 ## <a name="considerations-and-limitations"></a>Considerações e limitações
 
-- Os valores de **forceEndTimestamp**, **presentationWindowDuration**e **liveBackoffDuration** não devem ser definidos para um filtro VOD. Eles são usados somente para cenários de filtros em tempo real.
+- Os valores de **forceEndTimestamp**, **presentationWindowDuration** e **liveBackoffDuration** não devem ser definidos para um filtro VOD. Eles são usados somente para cenários de filtros em tempo real.
 - Um manifesto dinâmico opera em limites de GOP (quadros-chave), portanto, o corte tem precisão de GOP.
 - Você pode usar o mesmo nome de filtro para filtros de conta e de ativo. Os filtros de ativos têm maior precedência e substituirão os filtros de conta.
 - Se você atualizar um filtro, pode levar até 2 minutos para que o ponto de extremidade de streaming atualize as regras. Se você usou filtros para fornecer o conteúdo (e você armazenou em cache o conteúdo em proxies e caches CDN), a atualização desses filtros pode resultar em falhas do Player. Recomendamos que você limpe o cache depois de atualizar o filtro. Se essa opção não for possível, considere usar um filtro diferente.

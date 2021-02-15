@@ -4,10 +4,10 @@ description: Lista de exceções do barramento de serviço na superfície por Az
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: a0b0338da0f002c7b667748ffd2bf5a40c91c580
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85336977"
 ---
 # <a name="service-bus-resource-manager-exceptions"></a>Exceções do Gerenciador de recursos do barramento de serviço
@@ -48,7 +48,7 @@ Assim como no HTTP, "código de erro 429" indica "muitas solicitações". Isso i
 | 429 | 40900 | Subcódigo = 40900. Conflito. Você está solicitando uma operação não permitida no estado atual do recurso. | Essa condição pode ser atingida quando várias solicitações são feitas para executar as operações na mesma entidade (fila, tópico, assinatura ou regra) ao mesmo tempo. | Aguarde alguns segundos e tente novamente |
 | 429 | 40901 | A solicitação na entidade *' nome da entidade '* entrou em conflito com outra solicitação | Outra operação conflitante está em andamento no mesmo recurso/entidade | Aguarde a conclusão da operação anterior antes de tentar novamente |
 | 429 | 40901 | Outra solicitação de atualização está em andamento para a entidade *' nome da entidade '*. | Outra operação conflitante está em andamento no mesmo recurso/entidade | Aguarde a conclusão da operação anterior antes de tentar novamente |
-| 429 | nenhum | Conflito de recursos ocorrido. Outra operação conflitante pode estar em andamento. Se esta for uma nova tentativa para uma operação com falha, a limpeza em segundo plano ainda estará pendente. Tente novamente depois. | Essa condição pode ser atingida quando há uma operação pendente na mesma entidade. | Aguarde a conclusão da operação anterior antes de tentar novamente. |
+| 429 | nenhum | Conflito de recursos ocorrido. Outra operação conflitante pode estar em andamento. Se esta for uma nova tentativa para uma operação com falha, a limpeza em segundo plano ainda estará pendente. Tente novamente mais tarde. | Essa condição pode ser atingida quando há uma operação pendente na mesma entidade. | Aguarde a conclusão da operação anterior antes de tentar novamente. |
 
 
 ## <a name="error-code-not-found"></a>Código de erro: não encontrado

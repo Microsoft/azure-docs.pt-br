@@ -16,12 +16,12 @@ ms.date: 06/21/2018
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 001adaff1fed901638276e548ac1d5fdb41bdc53
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: cc12b4cb7e97a0808405baebc64ca83cdb742bf1
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87798300"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696941"
 ---
 # <a name="manage-user-access-with-azure-ad-access-reviews"></a>Gestão do acesso do usuário com revisões de acesso do Azure AD
 
@@ -44,7 +44,7 @@ Você pode ter um ou mais usuários como revisores de uma revisão de acesso.
 
 2. Decida se cada usuário revisará o próprio acesso ou se um ou mais usuários revisarão o acesso de todos.
 
-3. Como administrador global ou administrador de usuários, acesse a [página governança de identidade](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
+3. Em uma das seguintes funções: um administrador global, administrador de usuário ou (visualização) um proprietário de grupo de segurança M365 ou AAD do grupo a ser revisado, vá para a [página governança de identidade](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
 
 4. Crie a revisão de acesso. Para obter mais informações, consulte [criar uma revisão de acesso de grupos ou aplicativos](create-access-review.md).
 

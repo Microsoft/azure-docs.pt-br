@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 141ae90805e81d7269a12dcf465389d6a9dcaf55
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.custom: devx-track-js
+ms.openlocfilehash: b00628ec5a9f41b027bf90b93421f3aa1404e97a
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286967"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896388"
 ---
 # <a name="add-a-drawing-tools-toolbar-to-a-map"></a>Adicionar uma barra de ferramentas de ferramentas de desenho a um mapa
 
-Este artigo mostra como usar o módulo ferramentas de desenho e exibir a barra de ferramentas desenho no mapa. O controle [DrawingToolbar](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar?view=azure-node-latest) adiciona a barra de ferramentas de desenho no mapa. Você aprenderá a criar mapas com apenas uma e todas as ferramentas de desenho e como personalizar a renderização das formas de desenho no Gerenciador de desenho.
+Este artigo mostra como usar o módulo ferramentas de desenho e exibir a barra de ferramentas desenho no mapa. O controle [DrawingToolbar](/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar) adiciona a barra de ferramentas de desenho no mapa. Você aprenderá a criar mapas com apenas uma e todas as ferramentas de desenho e como personalizar a renderização das formas de desenho no Gerenciador de desenho.
 
 ## <a name="add-drawing-toolbar"></a>Adicionar barra de ferramentas de desenho
 
@@ -38,7 +38,7 @@ Abaixo está o exemplo de código completo em execução da funcionalidade acima
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Adicionar barra de ferramentas de desenho" src="//codepen.io/azuremaps/embed/ZEzLeRg/?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="Adicionar barra de ferramentas de desenho" src="//codepen.io/azuremaps/embed/ZEzLeRg/?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
 Consulte a <a href='https://codepen.io/azuremaps/pen/ZEzLeRg/'>barra de ferramentas Adicionar desenho</a> da caneta pelo mapas do Azure ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
@@ -62,7 +62,7 @@ Abaixo está o exemplo de código completo em execução da funcionalidade acima
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Adicionar uma ferramenta de desenho de polígono" src="//codepen.io/azuremaps/embed/OJLWWMy/?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="Adicionar uma ferramenta de desenho de polígono" src="//codepen.io/azuremaps/embed/OJLWWMy/?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
 Consulte a caneta <a href='https://codepen.io/azuremaps/pen/OJLWWMy/'>Adicionar uma ferramenta de desenho de polígono</a> pelo Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
@@ -122,7 +122,7 @@ Abaixo está o exemplo de código completo em execução da funcionalidade acima
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Alterar o estilo de renderização do desenho" src="//codepen.io/azuremaps/embed/OJLWpyj/?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="Alterar o estilo de renderização do desenho" src="//codepen.io/azuremaps/embed/OJLWpyj/?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
 Consulte o <a href='https://codepen.io/azuremaps/pen/OJLWpyj/'>estilo de renderização de desenho de alteração</a> de caneta pelo Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
@@ -143,10 +143,10 @@ Saiba como usar recursos adicionais do módulo de ferramentas de desenho:
 Saiba mais sobre as classes e métodos usados neste artigo:
 
 > [!div class="nextstepaction"]
-> [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+> [Map](/javascript/api/azure-maps-control/atlas.map)
 
 > [!div class="nextstepaction"]
-> [Barra de ferramentas desenho](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar?view=azure-node-latest)
+> [Barra de ferramentas desenho](/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar)
 
 > [!div class="nextstepaction"]
-> [Gerenciador de desenho](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager?view=azure-node-latest)
+> [Gerenciador de desenho](/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager)

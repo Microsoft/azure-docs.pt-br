@@ -1,26 +1,21 @@
 ---
-title: Como remover o acesso de um usuário a um aplicativo | Microsoft Docs
-description: Compreenda como remover o acesso de um usuário a um aplicativo
+title: Como remover o acesso de um usuário a um aplicativo no Azure Active Directory
+description: Entenda como remover o acesso de um usuário a um aplicativo no Azure Active Directory
 services: active-directory
-documentationcenter: ''
 author: kenwith
-manager: celestedg
-ms.assetid: ''
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 10/17/2018
+ms.date: 11/02/2020
 ms.author: kenwith
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f9626c256755e2fce81b593d95b8680f4bb55ee
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e6a6c00811a7b87156802897db62a4a10130f130
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763152"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99257348"
 ---
 # <a name="how-to-remove-a-users-access-to-an-application"></a>Como remover o acesso de um usuário a um aplicativo
 
@@ -28,31 +23,15 @@ Este artigo ajuda-lhe a compreender como remover o acesso de um usuário a um ap
 
 ## <a name="i-want-to-remove-a-specific-users-or-groups-assignment-to-an-application"></a>Quero remover a atribuição de um usuário ou grupo específico para um aplicativo
 
-Para remover uma atribuição de um usuário ou grupo a um aplicativo, siga as etapas listadas no artigo [Remover uma atribuição de usuário ou grupo de um aplicativo empresarial no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-remove-assignment-azure-portal).
+Para remover uma atribuição de um usuário ou grupo a um aplicativo, siga as etapas listadas no artigo [Remover uma atribuição de usuário ou grupo de um aplicativo empresarial no Azure Active Directory](./assign-user-or-group-access-portal.md).
 
 ## <a name="i-want-to-disable-all-access-to-an-application-for-every-user"></a>Quero desabilitar todo o acesso a um aplicativo para todos os usuários
 
-Para desabilitar todos os logons de usuário em um aplicativo, siga as etapas listadas no artigo [Desabilitar logons de usuário para um aplicativo empresarial no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-disable-app-azure-portal).
+Para desabilitar todos os logons de usuário em um aplicativo, siga as etapas listadas no artigo [Desabilitar logons de usuário para um aplicativo empresarial no Azure Active Directory](./disable-user-sign-in-portal.md).
 
 ## <a name="i-want-to-delete-an-application-entirely"></a>Quero excluir um aplicativo completamente
 
-Para **excluir um aplicativo**, siga estas instruções:
-
-1. Abra o [**portal do Azure**](https://portal.azure.com/) e entre como um **administrador global** ou **coadministrador.**
-
-2. Abra a **Extensão do Azure Active Directory** clicando em **Todos os serviços** na parte superior do menu de navegação esquerdo principal.
-
-3. Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
-
-4. Clique em **aplicativos empresariais** no Azure Active Directory menu de navegação à esquerda.
-
-5. Clique em **todos os aplicativos** para exibir uma lista de todos os seus aplicativos.
-
-   * Se não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
-
-6. Selecione o aplicativo que deseja excluir.
-
-7. Após o carregamento do aplicativo, clique no ícone **Excluir** do painel **Visão Geral** do aplicativo.
+A [série de guias de início rápido sobre o gerenciamento de aplicativos](delete-application-portal.md) inclui orientações sobre como excluir um aplicativo do seu locatário Azure Active Directory.
 
 ## <a name="i-want-to-disable-all-future-user-consent-operations-to-any-application"></a>Quero desabilitar todas as futuras operações de consentimento do usuário para qualquer aplicativo
 

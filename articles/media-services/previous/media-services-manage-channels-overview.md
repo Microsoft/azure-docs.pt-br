@@ -14,17 +14,19 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: b28e200cab2edb4c1f603e4c67264cdc1c46d7f8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 77c68b3c17b8815c4858e1d73251975a7e00e6eb
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87042846"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98695697"
 ---
 # <a name="overview-of-live-streaming-using-media-services"></a>Visão geral da transmissão ao vivo usando os Serviços de Mídia
 
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 > [!NOTE]
-> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](../latest/index.yml). Além disso, consulte s [diretrizes de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
+> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](../latest/index.yml). Além disso, consulte s [diretrizes de migração da v2 para a v3](../latest/migrate-v-2-v-3-migration-introduction.md)
 
 ## <a name="overview"></a>Visão geral
 
@@ -55,7 +57,7 @@ Nos Serviços de Mídia do Azure, **Canais** e **Programas**, e **StreamingEndpo
 
 Um **Canal** representa um pipeline para o processamento de conteúdo de transmissão ao vivo. Um Canal pode receber fluxos de entrada ao vivo da seguinte maneira:
 
-* Um codificador ativo local envia múltiplas taxas de bits **RTMP** ou **Smooth Streaming** (MP4 fragmentado) para o Canal que está configurado para a entrega de **passagem**. A entrega de **passagem** ocorre quando as transmissões ingeridas passam pelos **Canai**s sem nenhum processamento adicional. Você pode usar os codificadores dinâmicos a seguir, que produzem Smooth Streaming com múltiplas taxas de bits: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco e Elemental. Os seguintes codificadores dinâmicos produzem RTMP: Telestream Wirecast, HaiVision e transcodificadores de Teradek.  Um codificador ativo também pode enviar uma transmissão de taxa de bits única para um canal que não está habilitado para a codificação ativa, porém, isso não é recomendado. Quando solicitado, os Serviços de Mídia transmitem o fluxo aos clientes.
+* Um codificador ativo local envia múltiplas taxas de bits **RTMP** ou **Smooth Streaming** (MP4 fragmentado) para o Canal que está configurado para a entrega de **passagem**. A entrega de **passagem** ocorre quando as transmissões ingeridas passam pelos **Canai** s sem nenhum processamento adicional. Você pode usar os codificadores dinâmicos a seguir, que produzem Smooth Streaming com múltiplas taxas de bits: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco e Elemental. Os seguintes codificadores dinâmicos produzem RTMP: Telestream Wirecast, HaiVision e transcodificadores de Teradek.  Um codificador ativo também pode enviar uma transmissão de taxa de bits única para um canal que não está habilitado para a codificação ativa, porém, isso não é recomendado. Quando solicitado, os Serviços de Mídia transmitem o fluxo aos clientes.
 
   > [!NOTE]
   > Usar um método de passagem é a maneira mais econômica de fazer uma transmissão ao vivo quando você estiver fazendo vários eventos durante um longo período e já tiver investido em codificadores locais. Consulte os detalhes de [preços](https://azure.microsoft.com/pricing/details/media-services/) .
@@ -90,7 +92,7 @@ A tabela a seguir fornece um guia de comparação dos dois tipos de Canal com su
 
 O diagrama a seguir mostra as partes principais da plataforma AMS que estão envolvidas no fluxo de trabalho de **passagem** .
 
-![Fluxo de trabalho ao vivo](./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png)
+![Diagrama que mostra as partes principais da plataforma M S para o fluxo de trabalho "passagem".](./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png)
 
 Para obter mais informações, consulte [Trabalhando com Canais que Recebem a Transmissão ao Vivo de Múltiplas Taxas de Bits de Codificadores Locais](media-services-live-streaming-with-onprem-encoders.md).
 
@@ -151,7 +153,7 @@ A tabela a seguir mostra como os estados de canal são mapeados para o modo de c
 | Estado de canal | Indicadores da interface do usuário do portal | Trata-se de cobrança? |
 | --- | --- | --- |
 | Iniciando |Iniciando |Nenhum (estado transitório) |
-| Em execução |Pronto (nenhum programa em execução)<br/>ou<br/>Streaming (há pelo menos um programa em execução) |YES |
+| Executando |Pronto (nenhum programa em execução)<br/>ou<br/>Streaming (há pelo menos um programa em execução) |YES |
 | Parando |Parando |Nenhum (estado transitório) |
 | Parado |Parado |Não |
 

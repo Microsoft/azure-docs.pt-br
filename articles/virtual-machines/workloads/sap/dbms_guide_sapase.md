@@ -9,18 +9,19 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/13/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ce13c3bce7cdeb0f3e6dcf1f731be22d93a65587
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: a3ef3fc2afa07590ff676d57c22f05ed723539f9
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654592"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94957717"
 ---
 # <a name="sap-ase-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Implantação do DBMS de Máquinas Virtuais do SAP ASE Azure para carga de trabalho do SAP
 
@@ -71,7 +72,7 @@ O SAP ASE grava dados em sequência em dispositivos de armazenamento em disco, a
 É recomendável configurar a expansão automática de banco de dados, conforme descrito no artigo [Configurando a expansão automática de espaço de banco de dados no SAP Adaptive Server Enterprise](https://blogs.sap.com/2014/07/09/configuring-automatic-database-space-expansion-in-sap-adaptive-server-enterprise/)  e [sap support Note #1815695](https://launchpad.support.sap.com/#/notes/1815695). 
 
 ### <a name="sample-sap-ase-on-azure-virtual-machine-disk-and-file-system-configurations"></a>Exemplo do SAP ASE em máquinas virtuais do Azure, disco e configurações do sistema de arquivos 
-Os modelos a seguir mostram as configurações de exemplo para Linux e Windows. Antes de confirmar a máquina virtual e a configuração de disco, verifique se as cotas de largura de banda de rede e de armazenamento da VM individual são suficientes para atender ao requisito de negócios. Também tenha em mente que diferentes tipos de VM do Azure têm números máximos de discos diferentes que podem ser anexados à VM. Por exemplo, uma VM E4s_v3 tem um limite de taxa de transferência de e/s de armazenamento de 48 MB/seg. Se a taxa de transferência de armazenamento exigida pela atividade de backup do banco de dados exigir mais de 48 MB/s, um tipo de VM maior com mais taxa de transferência de largura de banda de armazenamento será inevitável. Ao configurar o armazenamento do Azure, você também precisa ter em mente que, especialmente com o [armazenamento Premium do Azure](../../windows/premium-storage-performance.md) , a taxa de transferência e o IOPS por GB de capacidade mudam. Veja mais sobre este tópico no artigo [quais tipos de disco estão disponíveis no Azure?](../../disks-types.md). As cotas para tipos específicos de VM do Azure são documentadas no artigo [tamanhos de máquina virtual com otimização de memória](../../sizes-memory.md) e artigos vinculados a ele. 
+Os modelos a seguir mostram as configurações de exemplo para Linux e Windows. Antes de confirmar a máquina virtual e a configuração de disco, verifique se as cotas de largura de banda de rede e de armazenamento da VM individual são suficientes para atender ao requisito de negócios. Também tenha em mente que diferentes tipos de VM do Azure têm números máximos de discos diferentes que podem ser anexados à VM. Por exemplo, uma VM E4s_v3 tem um limite de taxa de transferência de e/s de armazenamento de 48 MB/seg. Se a taxa de transferência de armazenamento exigida pela atividade de backup do banco de dados exigir mais de 48 MB/s, um tipo de VM maior com mais taxa de transferência de largura de banda de armazenamento será inevitável. Ao configurar o armazenamento do Azure, você também precisa ter em mente que, especialmente com o [armazenamento Premium do Azure](../../premium-storage-performance.md) , a taxa de transferência e o IOPS por GB de capacidade mudam. Veja mais sobre este tópico no artigo [quais tipos de disco estão disponíveis no Azure?](../../disks-types.md). As cotas para tipos específicos de VM do Azure são documentadas no artigo [tamanhos de máquina virtual com otimização de memória](../../sizes-memory.md) e artigos vinculados a ele. 
 
 > [!NOTE]
 >  Se um sistema DBMS estiver sendo movido do local para o Azure, é recomendável executar o monitoramento na VM e avaliar a CPU, a memória, o IOPS e a taxa de transferência de armazenamento. Compare os valores de pico observados com os limites de cota da VM documentados nos artigos mencionados acima
@@ -188,7 +189,7 @@ O guia de usuários do HADR detalha a configuração e a configuração de uma s
 > A única configuração com suporte no Azure está usando o Gerenciador de falhas sem IP flutuante.  O método de endereço IP flutuante não funcionará no Azure. 
 
 ### <a name="third-node-for-disaster-recovery"></a>Terceiro nó para recuperação de desastres
-Além de usar o SAP ASE Always on para alta disponibilidade local, talvez você queira estender a configuração para um nó replicado assincronamente em outra região do Azure. A documentação para tal cenário pode ser encontrada [aqui](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/installation-procedure-for-sybase-16-3-patch-level-3-always-on/ba-p/368199).
+Além de usar o SAP ASE Always-On para alta disponibilidade local, talvez você queira estender a configuração para um nó replicado assincronamente em outra região do Azure. A documentação para tal cenário pode ser encontrada [aqui](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/installation-procedure-for-sybase-16-3-patch-level-3-always-on/ba-p/368199).
 
 ## <a name="sap-ase-database-encryption--ssl"></a>Criptografia de banco de dados SAP ASE & SSL 
 O Gerenciador de provisionamento de software SAP (SWPM) está fornecendo uma opção para criptografar o banco de dados durante a instalação.  Se você quiser usar a criptografia, é recomendável usar a criptografia de banco de dados completo do SAP.  Consulte os detalhes documentados em:
@@ -239,7 +240,7 @@ e os links gerados no DBACockpit da transação são semelhantes a este:
 
 Dependendo de como a máquina virtual do Azure que hospeda o sistema SAP está conectado ao seu AD e DNS, você precisa se certificar de que o ICM esteja usando um nome de host totalmente qualificado que pode ser resolvido na máquina virtual da qual você está abrindo o DBACockpit. Consulte [#773830 de observação de suporte SAP](https://launchpad.support.sap.com/#/notes/773830) para entender como o ICM determina o nome de host totalmente qualificado com base nos parâmetros de perfil e definir o parâmetro ICM/host_name_full explicitamente, se necessário.
 
-Se você implantou a VM em um cenário somente de nuvem sem conectividade entre locais entre o local e o Azure, você precisa definir um endereço IP público e um `domainlabel` . O formato do nome DNS público da VM tem esta aparência:
+Se você implantou a VM em um cenário de Cloud-Only sem conectividade entre locais entre o local e o Azure, você precisa definir um endereço IP público e um `domainlabel` . O formato do nome DNS público da VM tem esta aparência:
 
 > `<custom domainlabel`>.`<azure region`>.cloudapp.azure.com
 > 

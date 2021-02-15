@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 06/30/2020
 ms.service: azure-education
 ms.subservice: education-hub
-ms.openlocfilehash: a850e5ea851ee539c663b00ecc7f2053eae8dc34
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 7904efb92aa8362605f1f68ee0b39f4241339031
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534083"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92332460"
 ---
 # <a name="create-an-assignment-and-allocate-credit"></a>Criar uma atribuição e alocar crédito
 
@@ -26,12 +26,12 @@ Depois de configurar um curso e criar uma sala de aula no Hub de Educação do M
 
 ### <a name="accounts"></a>Contas
 
-O Hub de Educação do Azure aceita qualquer endereço de email no formato _____@___.___ . Atualmente, ele *não* verifica se há uma conta válida na sua organização ou se a conta Microsoft é atual ou válida. Verifique atentamente cada endereço de email antes de continuar.
+O Hub de Educação do Azure aceita qualquer endereço de email no formato _____@ ___.___ . Atualmente, ele *não* verifica se há uma conta válida na sua organização ou se a conta Microsoft é atual ou válida. Verifique atentamente cada endereço de email antes de continuar.
 
 > [!IMPORTANT]
 > As contas corporativas e de estudante estão sujeitas às próprias políticas, incluindo se um endereço de email de um domínio diferente da organização é permitido (por exemplo, a adição de student2@outlook.com ao domínio @school.edu). Lembre-se de verificar essas políticas antes de adicionar novos usuários.
 
-Quando uma conta corporativa ou de estudante (por exemplo, student1@school.edu) é adicionada como RBAC (controle de acesso baseado em função) no Portal do Patrocinador do Educador ou no [portal do Azure](https://portal.azure.com), o Azure envia automaticamente um email para o destinatário. Esse email exige que o usuário aceite a nova conta e a função do Azure antes de receber acesso à assinatura. Se você for um TA (professor assistente) ou um professor do curso, lembre-se de informar os alunos disso para que a assinatura deles seja exibida no portal do Azure conforme o esperado. O email deverá ser parecido com este:
+Quando uma conta corporativa ou de estudante (por exemplo, student1@school.edu) é adicionada usando o Azure RBAC (controle de acesso baseado em função do Azure) no Portal do Patrocinador do Educador ou no [portal do Azure](https://portal.azure.com), o Azure envia automaticamente um email para o destinatário. Esse email exige que o usuário aceite a nova conta e a função do Azure antes de receber acesso à assinatura. Se você for um TA (professor assistente) ou um professor do curso, lembre-se de informar os alunos disso para que a assinatura deles seja exibida no portal do Azure conforme o esperado. O email deverá ser parecido com este:
 
 :::image type="content" source="media/create-assignment-allocate-credit/azure-active-directory-get-started.png" alt-text="Introdução ao Azure Active Directory" border="false":::
 
@@ -39,7 +39,7 @@ Quando uma conta corporativa ou de estudante (por exemplo, student1@school.edu) 
 
 1. Escolha o valor dos fundos a ser creditado na assinatura do aluno. Se nem todos os alunos receberem o mesmo valor, você poderá selecionar **Alterar** e aplicar um valor personalizado a cada aluno ou grupo de projetos.
 
-1. Selecione **Criar atribuição**.
+1. Selecione **Criar atribuição** .
 1. (Opcional) Remova também os alunos existentes clicando em **Remover** ao lado do nome do aluno.
 1. Selecione o botão **Fechar** quando terminar. As permissões adicionais são exibidas na página Gerenciamento de Crédito do Patrocinador.
 

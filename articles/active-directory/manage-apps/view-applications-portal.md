@@ -3,7 +3,7 @@ title: 'Início Rápido: Veja a lista de aplicativos que estão usando seu locat
 description: Neste guia de início rápido, use o portal do Azure para ver a lista de aplicativos que estão registrados para usar seu locatário do Azure AD (Azure Active Directory) para o gerenciamento de identidades.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,12 +12,12 @@ ms.date: 04/09/2019
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: it-pro
-ms.openlocfilehash: 8f6d9c3409e0b91b6744d406fb1af674f73dbe3c
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 4bf0353148a5f8474270b314a85d55c3cfd753ab
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88117882"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99257554"
 ---
 # <a name="quickstart-view-the-list-of-applications-that-are-using-your-azure-active-directory-azure-ad-tenant-for-identity-management"></a>Início Rápido: Veja a lista de aplicativos que estão usando seu locatário do Azure AD (Azure Active Directory) para gerenciamento de identidades
 
@@ -27,7 +27,7 @@ Comece a usar o Azure AD como seu sistema de IAM (Gerenciamento de Identidades e
 
 Para ver os aplicativos que foram registrados em seu locatário do Azure AD, você precisa de:
 
-- Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Uma conta do Azure. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 >[!IMPORTANT]
 >Recomendamos usar um ambiente que não seja de produção para testar as etapas neste início rápido.
@@ -69,7 +69,7 @@ Para pesquisar aplicativo específico:
 
 
 > [!TIP]
-> Para automatizar o gerenciamento de aplicativos usando a API do Graph, confira [Automatizar o gerenciamento de aplicativos com a API do Microsoft Graph](https://docs.microsoft.com/graph/application-saml-sso-configure-api).
+> Para automatizar o gerenciamento de aplicativos usando a API do Graph, confira [Automatizar o gerenciamento de aplicativos com a API do Microsoft Graph](/graph/application-saml-sso-configure-api).
 
 
 ## <a name="clean-up-resources"></a>Limpar os recursos

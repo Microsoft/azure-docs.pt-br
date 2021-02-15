@@ -3,12 +3,12 @@ title: Fazer backup de uma VM do Azure usando as configurações da VM
 description: Neste artigo, saiba como fazer backup de uma VM do Azure singular ou de várias VMs do Azure com o serviço de backup do Azure.
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: a8d1c29c894663da76b5882ef7ba249356ba3e6d
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 55b71d2a2901cdde984df3ebfd68a2a643b78b74
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87531839"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89667514"
 ---
 # <a name="back-up-an-azure-vm-from-the-vm-settings"></a>Fazer backup de uma VM do Azure usando as configurações da VM
 
@@ -76,7 +76,7 @@ Para fazer backup de VMs do Azure, o backup do Azure instala uma extensão no ag
 
 ## <a name="back-up-from-the-recovery-services-vault"></a>Fazer backup do cofre dos Serviços de Recuperação
 
-Siga as instruções neste artigo para habilitar o backup para VMs do Azure por meio da configuração de um cofre dos Serviços de Recuperação do Backup do Azure, habilitando o backup no cofre.
+Siga as instruções neste [artigo](backup-azure-arm-vms-prepare.md) para habilitar o backup para VMs do Azure Configurando um cofre dos serviços de recuperação de backup do Azure e habilitando o backup no cofre.
 
 ## <a name="next-steps"></a>Próximas etapas
 

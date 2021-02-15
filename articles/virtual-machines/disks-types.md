@@ -3,17 +3,17 @@ title: Escolha um tipo de disco para VMs IaaS do Azure – discos gerenciados
 description: Saiba mais sobre os tipos de disco do Azure disponíveis para máquinas virtuais, incluindo discos ultra, SSDs Premium, SSDs Standard e HDDs Standard.
 author: roygara
 ms.author: rogarana
-ms.date: 06/03/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 53089fa42c536cbdc59865f80f63a77c76720e2c
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 1a7e8e71e26af241d16095a5fa1e6a02a7e3d4c2
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88752017"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500760"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>Quais tipos de disco estão disponíveis no Azure?
 
@@ -57,8 +57,10 @@ Alguns dos principais recursos dos ultra discos são:
 |64     |19.200         |2\.000         |
 |128     |38.400         |2.000         |
 |256     |76.800         |2.000         |
-|512     |80.000         |2\.000         |
+|512     |153.600         |2\.000         |
 |1.024 a 65.536 (os tamanhos nesse intervalo aumentam em incrementos de 1 TiB)     |160.000         |2.000         |
+
+Ultra discos são projetados para fornecer latências de submilissegundos e IOPS de destino e taxa de transferência descritas na tabela anterior 99,99% do tempo.
 
 ### <a name="ga-scope-and-limitations"></a>Limitações e escopo de GA
 
@@ -71,18 +73,18 @@ Se você quiser começar a usar o ultra disks, consulte nosso artigo sobre o ass
 
 Os SSDs Premium do Azure oferecem compatibilidade de disco de alto desempenho e baixa latência para VMs (máquinas virtuais) com cargas de trabalho com uso intensivo de E/S (entrada/saída). Para aproveitar a velocidade e o desempenho dos discos de armazenamento Premium, você pode migrar os discos de VM existentes para os SSDs Premium. Os SSDs Premium são adequados para aplicativos de produção críticos. O SSDs Premium só pode ser usado com a série de VMs que são compatíveis com o armazenamento Premium.
 
-Para saber mais sobre os tipos e tamanhos de VM individuais no Azure para Windows ou Linux, incluindo quais tamanhos são compatíveis com o armazenamento Premium, consulte [tamanhos de máquinas virtuais no Azure](sizes.md). Para saber mais sobre os tipos e tamanhos de VM individuais no Azure para Linux, incluindo quais tamanhos são compatíveis com o armazenamento Premium, confira [tamanhos de máquinas virtuais no Azure](sizes.md). A partir de qualquer um desses artigos, você precisa verificar cada artigo de tamanho de VM individual para determinar se ele é compatível com o armazenamento Premium.
+Para saber mais sobre os tipos e tamanhos de VM individuais no Azure para Windows ou Linux, incluindo quais tamanhos são compatíveis com o armazenamento Premium, consulte [tamanhos de máquinas virtuais no Azure](sizes.md). Neste artigo, você precisa verificar cada artigo de tamanho de VM individual para determinar se ele é compatível com o armazenamento Premium.
 
 ### <a name="disk-size"></a>Tamanho do disco
 [!INCLUDE [disk-storage-premium-ssd-sizes](../../includes/disk-storage-premium-ssd-sizes.md)]
 
-Quando você provisiona um disco de armazenamento premium, ao contrário do armazenamento padrão, a capacidade, IOPS e taxa de transferência de disco são garantidos. Por exemplo, se você criar um disco P50, o Azure provisionará uma capacidade de armazenamento de 4.095 GB, 7.500 IOPS e uma taxa de transferência de 250 MB/s para o disco. O aplicativo pode usar a capacidade e o desempenho no todo ou em parte. SSD Premium discos são projetados para fornecer latências de milissegundos de um dígito baixo e IOPS de destino e taxa de transferência descritas na tabela anterior 99,9% do tempo.
+Quando você provisiona um disco de armazenamento premium, ao contrário do armazenamento padrão, a capacidade, IOPS e taxa de transferência de disco são garantidos. Por exemplo, se você criar um disco P50, o Azure provisionará uma capacidade de armazenamento de 4.095 GB, 7.500 IOPS e uma taxa de transferência de 250 MB/s para o disco. O aplicativo pode usar a capacidade e o desempenho no todo ou em parte. Os discos SSD Premium são projetados para fornecer as latências baixas de milissegundos de dígito único e a IOPS de destino e a taxa de transferência descritas na tabela anterior 99,9% do tempo.
 
 ## <a name="bursting"></a>Bursting
 
-SSD Premium tamanhos menores que p30 agora oferecem intermitência de disco e podem estourar seus IOPS por disco até 3.500 e sua largura de banda de até 170 Mbps. A intermitência é automatizada e opera com base em um sistema de crédito. Os créditos são acumulados automaticamente em um Bucket de intermitência quando o tráfego de disco está abaixo do destino de desempenho provisionado e os créditos são consumidos automaticamente quando o tráfego ultrapassa o destino, até o limite de intermitência máximo. O limite máximo de intermitência define o teto de IOPS de disco & largura de banda, mesmo se você tiver créditos de intermitência a serem consumidos. A intermitência de disco fornece melhor tolerância a alterações imprevisíveis de padrões de e/s. Você pode aproveitá-lo melhor para inicialização de disco do so e aplicativos com tráfego com picos.    
+SSD Premium tamanhos menores que p30 agora oferecem intermitência de disco e podem estourar seus IOPS por disco até 3.500 e sua largura de banda de até 170 MB/s. A intermitência é automatizada e opera com base em um sistema de crédito. Os créditos são acumulados automaticamente em um Bucket de intermitência quando o tráfego de disco está abaixo do destino de desempenho provisionado e os créditos são consumidos automaticamente quando o tráfego ultrapassa o destino, até o limite de intermitência máximo. O limite máximo de intermitência define o teto de IOPS de disco & largura de banda, mesmo se você tiver créditos de intermitência a serem consumidos. A intermitência de disco fornece melhor tolerância a alterações imprevisíveis de padrões de e/s. Você pode aproveitá-lo melhor para inicialização de disco do so e aplicativos com tráfego com picos.    
 
-O suporte a intermitência de discos será habilitado em novas implantações de tamanhos de disco aplicáveis por padrão, sem a necessidade de ação do usuário. Para discos existentes dos tamanhos aplicáveis, você pode habilitar a intermitência com uma das duas opções: desanexar e anexar novamente o disco ou parar e reiniciar a VM conectada. Todos os tamanhos de disco aplicáveis de intermitência começarão com um Bucket de crédito de intermitência completa quando o disco for anexado a uma máquina virtual que dá suporte a uma duração máxima no limite de pico de intermitência de 30 minutos. Para saber mais sobre como a intermitência funciona nos discos do Azure, confira [SSD Premium intermitênciaing](linux/disk-bursting.md). 
+O suporte a intermitência de discos será habilitado em novas implantações de tamanhos de disco aplicáveis por padrão, sem a necessidade de ação do usuário. Para discos existentes dos tamanhos aplicáveis, você pode habilitar a intermitência com uma das duas opções: desanexar e anexar novamente o disco ou parar e reiniciar a VM conectada. Todos os tamanhos de disco aplicáveis de intermitência começarão com um Bucket de crédito de intermitência completa quando o disco for anexado a uma máquina virtual que dá suporte a uma duração máxima no limite de pico de intermitência de 30 minutos. Para saber mais sobre como a intermitência funciona nos discos do Azure, confira [SSD Premium intermitênciaing](./disk-bursting.md). 
 
 ### <a name="transactions"></a>Transactions
 

@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.date: 10/01/2018
 ms.custom: mvc, cc996988-fb4f-47
 ms.openlocfilehash: bf6865d2756579f457dded90b247326d2eec137c
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83122923"
 ---
 # <a name="create-a-function-in-azure-thats-triggered-by-blob-storage"></a>Criar uma função no Azure disparada pelo Armazenamento de Blobs
@@ -36,13 +36,13 @@ Em seguida, crie uma nova função no novo aplicativo de funções.
 
 1. Selecione **Funções** e depois selecione **+ Adicionar** para adicionar uma função.
 
-   :::image type="content" source="./media/functions-create-storage-blob-triggered-function/function-app-quickstart-choose-template.png" alt-text="Escolha um modelo de função no portal do Azure." border="true":::
+   :::image type="content" source="./media/functions-create-storage-blob-triggered-function/function-app-quickstart-choose-template.png" alt-text="Aplicativo de funções criado com êxito." border="true":::
 
 1. Escolha o modelo **gatilho de Armazenamento de Blobs do Azure**.
 
 1. Use as configurações conforme especificado na tabela abaixo da imagem.
 
-    :::image type="content" source="./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal-2.png" alt-text="Nomeie e configure a função disparada pelo Armazenamento de Blobs." border="true":::
+    :::image type="content" source="./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal-2.png" alt-text="Aplicativo de funções criado com êxito." border="true":::
 
     | Configuração | Valor sugerido | Descrição |
     |---|---|---|
@@ -52,7 +52,7 @@ Em seguida, crie uma nova função no novo aplicativo de funções.
 
 1. Selecione **Criar Função** para criar sua função.
 
-    :::image type="content" source="./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal-3.png" alt-text="Crie a função disparada pelo Armazenamento de Blobs." border="true":::
+    :::image type="content" source="./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal-3.png" alt-text="Aplicativo de funções criado com êxito." border="true":::
 
 Em seguida, crie o contêiner **samples-workitems**.
 
@@ -60,19 +60,19 @@ Em seguida, crie o contêiner **samples-workitems**.
 
 1. Em sua função, na página **Visão geral**, selecione o grupo de recursos.
 
-    :::image type="content" source="./media/functions-create-storage-blob-triggered-function/functions-storage-resource-group.png" alt-text="Selecione seu grupo de recursos do portal do Azure." border="true":::
+    :::image type="content" source="./media/functions-create-storage-blob-triggered-function/functions-storage-resource-group.png" alt-text="Aplicativo de funções criado com êxito." border="true":::
 
 1. Encontre e selecione a conta de armazenamento do grupo de recursos.
 
-    :::image type="content" source="./media/functions-create-storage-blob-triggered-function/functions-storage-account-access.png" alt-text="Acesse a conta de armazenamento." border="true":::
+    :::image type="content" source="./media/functions-create-storage-blob-triggered-function/functions-storage-account-access.png" alt-text="Aplicativo de funções criado com êxito." border="true":::
 
 1. Escolha **Contêineres** e, em seguida, escolha **+ Contêiner**. 
 
-    :::image type="content" source="./media/functions-create-storage-blob-triggered-function/functions-storage-add-container.png" alt-text="Adicione um contêiner à sua conta de armazenamento no portal do Azure." border="true":::
+    :::image type="content" source="./media/functions-create-storage-blob-triggered-function/functions-storage-add-container.png" alt-text="Aplicativo de funções criado com êxito." border="true":::
 
 1. No campo **Nome**, digite `samples-workitems` e, em seguida, selecione **Criar**.
 
-    :::image type="content" source="./media/functions-create-storage-blob-triggered-function/functions-storage-name-blob-container.png" alt-text="Nomeie o contêiner de armazenamento." border="true":::
+    :::image type="content" source="./media/functions-create-storage-blob-triggered-function/functions-storage-name-blob-container.png" alt-text="Aplicativo de funções criado com êxito." border="true":::
 
 Agora que você tem um contêiner de blob, você pode testar a função carregando um arquivo para o contêiner.
 
@@ -80,23 +80,23 @@ Agora que você tem um contêiner de blob, você pode testar a função carregan
 
 1. De volta ao Portal do Azure, navegue até sua função, expanda os **Logs** na parte inferior da página e verifique se o streaming de log não está em pausa.
 
-    :::image type="content" source="./media/functions-create-storage-blob-triggered-function/functions-storage-log-expander.png" alt-text="Expanda o log no portal do Azure." border="true":::
+    :::image type="content" source="./media/functions-create-storage-blob-triggered-function/functions-storage-log-expander.png" alt-text="Aplicativo de funções criado com êxito." border="true":::
 
 1. Em uma janela separada do navegador, vá para o grupo de recursos no portal do Azure e selecione a conta de armazenamento.
 
 1. Selecione **Contêineres** e, em seguida, selecione o contêiner **samples-workitems**.
 
-    :::image type="content" source="./media/functions-create-storage-blob-triggered-function/functions-storage-container.png" alt-text="Navegue até o contêiner samples-workitems no portal do Azure." border="true":::
+    :::image type="content" source="./media/functions-create-storage-blob-triggered-function/functions-storage-container.png" alt-text="Aplicativo de funções criado com êxito." border="true":::
 
 1. Selecione **Carregar** e, em seguida, selecione o ícone de pasta para escolher um arquivo a ser carregado.
 
-    :::image type="content" source="./media/functions-create-storage-blob-triggered-function/functions-storage-manager-upload-file-blob.png" alt-text="Carregue um arquivo para o contêiner de blob." border="true":::
+    :::image type="content" source="./media/functions-create-storage-blob-triggered-function/functions-storage-manager-upload-file-blob.png" alt-text="Aplicativo de funções criado com êxito." border="true":::
 
 1. Navegue até um arquivo em seu computador local, por exemplo, um arquivo de imagem, e escolha-o. Selecione **Abrir** e **Carregar**.
 
 1. Volte para os logs de função e verifique se o blob foi lido.
 
-    :::image type="content" source="./media/functions-create-storage-blob-triggered-function/function-app-in-portal-editor.png" alt-text="Veja a mensagem nos logs." border="true":::
+    :::image type="content" source="./media/functions-create-storage-blob-triggered-function/function-app-in-portal-editor.png" alt-text="Aplicativo de funções criado com êxito." border="true":::
 
     >[!NOTE]
     > Quando seu aplicativo de funções é executado no plano de consumo padrão, pode haver um atraso de até vários minutos entre o blob que está sendo adicionado ou atualizado e a função sendo disparada. Se você precisar de baixa latência em suas funções disparadas por blob, considere executar seu aplicativo de funções em um Plano do Serviço de Aplicativo.

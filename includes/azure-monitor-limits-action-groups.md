@@ -1,27 +1,27 @@
 ---
-title: arquivo de inclusão
+title: incluir arquivo
 description: incluir arquivo
 services: azure-monitor
 author: rboucher
 tags: azure-service-management
 ms.topic: include
-ms.date: 02/07/2019
+ms.date: 10/01/2020
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: 2922a1fb92f3df07429d3463b8bf639f336776af
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.openlocfilehash: 963e49ea0e5536be0fca6d565b439aef4a08793d
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67305246"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98605200"
 ---
 | Recurso | Limite padrão | Limite máximo |
 | --- | --- | --- |
-| Push de aplicativo do Azure | 10 ações de aplicativo do Azure por grupo de ação. | Chamar suporte. |
-| Email | 1.000 ações de email em um grupo de ações.<br>não mais de 100 emails em uma hora.<br>Consulte também as [informações de limitação de taxa](../articles/azure-monitor/platform/alerts-rate-limiting.md). | Chamar suporte. |
-| ITSM | 10 ações de ITSM em um grupo de ação. | Chamar suporte. | 
-| Aplicativo lógico | 10 ações de aplicativo lógico em um grupo de ações. | Chamar suporte. |
-| Runbook | 10 ações de runbook em um grupo de ações. | Chamar suporte. |
-| SMS | 10 ações SMS em um grupo de ações.<br>Não mais de 1 mensagem SMS a cada 5 minutos.<br>Consulte também as [informações de limitação de taxa](../articles/azure-monitor/platform/alerts-rate-limiting.md). | Chamar suporte. |
-| Voz | 10 ações de voz em um grupo de ações.<br>Não mais de 1 chamada de voz a cada 5 minutos.<br>Consulte também as [informações de limitação de taxa](../articles/azure-monitor/platform/alerts-rate-limiting.md). | Chamar suporte. |
-| webhook | 10 ações de webhook em um grupo de ações.  O número máximo de chamadas de webhook é 1500 por minuto por assinatura. Outros limites estão disponíveis em [informações específicas da ação](../articles/azure-monitor/platform/action-groups.md#action-specific-information).  | Chamar suporte. |
+| Push do aplicativo Azure | Dez ações de aplicativo do Azure por grupo de ações. | Igual ao padrão |
+| Email | Mil ações de email em um grupo de ações.<br>não mais de 100 emails em uma hora.<br>Confira também as [informações de limitação da taxa](../articles/azure-monitor/platform/alerts-rate-limiting.md). | Igual ao padrão |
+| ITSM | Dez ações do ITSM em um grupo de ações. | Igual ao padrão | 
+| Aplicativo lógico | Dez ações do aplicativo lógico em um grupo de ações. | Igual ao padrão |
+| Runbook | Dez ações do runbook em um grupo de ações. | Igual ao padrão |
+| SMS | Dez ações de SMS em um grupo de ações.<br>Não mais de uma mensagem SMS a cada cinco minutos.<br>Confira também as [informações de limitação da taxa](../articles/azure-monitor/platform/alerts-rate-limiting.md). | Igual ao padrão |
+| Voz | Dez ações de voz em um grupo de ações.<br>Não mais de uma chamada de voz a cada cinco minutos.<br>Confira também as [informações de limitação da taxa](../articles/azure-monitor/platform/alerts-rate-limiting.md). | Igual ao padrão |
+| webhook | Dez ações do webhook em um grupo de ações.  O número máximo de chamadas de webhook é 1.500 por minuto por assinatura. Outros limites estão disponíveis em [informações específicas da ação](../articles/azure-monitor/platform/action-groups.md#action-specific-information).  | Igual ao padrão |

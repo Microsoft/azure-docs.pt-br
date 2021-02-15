@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 05/27/2020
 ms.author: mahender
 ms.reviewer: yevbronsh
-ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 86f501a145ea82f7a4499824dd0b21822c3f1cbd
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.custom: devx-track-csharp, devx-track-python, devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 16cd4685f513eb628372802cc158195b81bce72a
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88961577"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736164"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Como usar identidades gerenciadas para o Serviço de Aplicativo e o Azure Functions
 
@@ -39,7 +39,7 @@ Para configurar uma identidade gerenciada no portal, primeiro, crie um aplicativ
 
 4. Na guia **Sistema atribuído**, alterne o **Status** para **Ligado**. Clique em **Save** (Salvar).
 
-    ![Identidade gerenciada no Serviço de Aplicativo](media/app-service-managed-service-identity/system-assigned-managed-identity-in-azure-portal.png)
+    ![Captura de tela que mostra onde alternar o status para ativado e, em seguida, selecione salvar.](media/app-service-managed-service-identity/system-assigned-managed-identity-in-azure-portal.png)
 
 
 > [!NOTE] 
@@ -109,7 +109,7 @@ As etapas a seguir guiarão você na criação de um aplicativo e na atribuiçã
 
 1. Se necessário, instale o Azure PowerShell usando as instruções encontradas no [Guia do Azure PowerShell](/powershell/azure/) e, em seguida, execute `Login-AzAccount` para criar uma conexão com o Azure.
 
-2. Crie um aplicativo de funções usando o Azure PowerShell. Para obter mais exemplos de como usar o Azure PowerShell com o Azure Functions, confira a [referência do Az.Functions](/powershell/module/az.functions/?view=azps-4.1.0#functions):
+2. Crie um aplicativo de funções usando o Azure PowerShell. Para obter mais exemplos de como usar o Azure PowerShell com o Azure Functions, confira a [referência do Az.Functions](/powershell/module/az.functions/#functions):
 
     ```azurepowershell-interactive
     # Create a resource group.
@@ -219,7 +219,7 @@ As etapas a seguir guiarão você na criação de um aplicativo e na atribuiçã
 
 1. Se necessário, instale o Azure PowerShell usando as instruções encontradas no [Guia do Azure PowerShell](/powershell/azure/) e, em seguida, execute `Login-AzAccount` para criar uma conexão com o Azure.
 
-2. Crie um aplicativo de funções usando o Azure PowerShell. Para obter mais exemplos de como usar o Azure PowerShell com o Azure Functions, confira a [referência do Az.Functions](/powershell/module/az.functions/?view=azps-4.1.0#functions). O script abaixo também usa `New-AzUserAssignedIdentity` que deve ser instalado separadamente de acordo com [Criar, listar ou excluir uma identidade gerenciada atribuída pelo usuário usando o Azure PowerShell](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md).
+2. Crie um aplicativo de funções usando o Azure PowerShell. Para obter mais exemplos de como usar o Azure PowerShell com o Azure Functions, confira a [referência do Az.Functions](/powershell/module/az.functions/#functions). O script abaixo também usa `New-AzUserAssignedIdentity` que deve ser instalado separadamente de acordo com [Criar, listar ou excluir uma identidade gerenciada atribuída pelo usuário usando o Azure PowerShell](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md).
 
     ```azurepowershell-interactive
     # Create a resource group.
@@ -308,7 +308,7 @@ Um aplicativo pode usar sua identidade gerenciada para obter tokens que acessam 
 Talvez seja necessário configurar o recurso de destino para permitir o acesso do aplicativo. Por exemplo, se você solicitar um token para acessar o Key Vault, será necessário se certificar de que uma política de acesso que inclui a identidade do aplicativo foi adicionada. Caso contrário, as chamadas para o Key Vault serão rejeitadas, mesmo se elas incluírem o token. Para saber mais sobre os recursos que oferecem suporte a tokens do Azure Active Directory, veja [Serviços do Azure que dão suporte à autenticação do Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
 > [!IMPORTANT]
-> Os serviços de back-end para identidades gerenciadas mantêm um cache por URI de recurso por cerca de oito horas. Se você atualizar a política de acesso de um recurso de destino específico e recuperar imediatamente um token para esse recurso, você poderá continuar a obter um token em cache com permissões desatualizadas até que esse token expire. Atualmente, não é possível forçar uma atualização de token.
+> Os serviços de back-end para identidades gerenciadas mantêm um cache por URI de recurso por cerca de 24 horas. Se você atualizar a política de acesso de um recurso de destino específico e recuperar imediatamente um token para esse recurso, você poderá continuar a obter um token em cache com permissões desatualizadas até que esse token expire. Atualmente, não é possível forçar uma atualização de token.
 
 Há um protocolo REST simples para obter um token no Serviço de Aplicativo e no Azure Functions. Isso pode ser usado para todos os aplicativos e linguagens. Para .NET e Java, o SDK do Azure fornece uma abstração sobre esse protocolo e facilita uma experiência de desenvolvimento local.
 
@@ -345,7 +345,7 @@ Uma resposta bem-sucedida de 200 OK inclui um corpo JSON com as seguintes propri
 > | expires_on    | O período de expiração do token de acesso. A data é representada como o número de segundos de “1970-01-01T0:0:0Z UTC” (corresponde à declaração `exp` do token).                                                                                |
 > | not_before    | O período para o token de acesso entrar em vigor e poder ser aceito. A data é representada como o número de segundos de “1970-01-01T0:0:0Z UTC” (corresponde à declaração `nbf` do token).                                                      |
 > | recurso      | O recurso para o qual o token de acesso foi solicitado, que corresponde ao parâmetro de cadeia de consulta `resource` da solicitação.                                                                                                                               |
-> | token_type    | Indica o valor do tipo de token. O único tipo com suporte do Azure Active Directory é FBearer. Para saber mais sobre os tokens de portador, consulte [Estrutura de Autorização do OAuth 2.0: Uso do Token de Portador (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
+> | token_type    | Indica o valor do tipo de token. O único tipo com suporte do Azure AD é Portador Para saber mais sobre os tokens de portador, consulte [Estrutura de Autorização do OAuth 2.0: Uso do Token de Portador (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
 
 Essa resposta é igual à [resposta para a solicitação de token de acesso de serviço a serviço do Azure Active Directory](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md#service-to-service-access-token-response).
 
@@ -395,7 +395,7 @@ public async Task<HttpResponseMessage> GetToken(string resource)  {
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
-const rp = require('request-promise');
+const rp = require('request-promise');
 const getToken = function(resource, cb) {
     let options = {
         uri: `${process.env["IDENTITY_ENDPOINT"]}/?resource=${resource}&api-version=2019-08-01`,
@@ -522,7 +522,8 @@ Update-AzFunctionApp -Name $functionAppName -ResourceGroupName $resourceGroupNam
 
 ## <a name="next-steps"></a>Próximas etapas
 
-> [!div class="nextstepaction"]
-> [Acesse o Banco de Dados SQL com segurança usando uma identidade gerenciada](app-service-web-tutorial-connect-msi.md)
+- [Acesse o Banco de Dados SQL com segurança usando uma identidade gerenciada](app-service-web-tutorial-connect-msi.md)
+- [Acessar o armazenamento do Azure com segurança usando uma identidade gerenciada](scenario-secure-app-access-storage.md)
+- [Chamar Microsoft Graph com segurança usando uma identidade gerenciada](scenario-secure-app-access-microsoft-graph-as-app.md)
 
-[Referência Microsoft.Azure.Services.AppAuthentication]: https://go.microsoft.com/fwlink/p/?linkid=862452
+[Referência Microsoft.Azure.Services.AppAuthentication]: /dotnet/api/overview/azure/service-to-service-authentication

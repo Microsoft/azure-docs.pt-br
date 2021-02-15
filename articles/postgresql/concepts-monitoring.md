@@ -1,28 +1,28 @@
 ---
 title: Monitorar e ajustar – Banco de Dados do Azure para PostgreSQL – Servidor único
 description: Este artigo descreve os recursos de monitoramento e ajuste no banco de dados do Azure para PostgreSQL-servidor único.
-author: rachel-msft
-ms.author: raagyema
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 07/10/2020
-ms.openlocfilehash: f6a042dfee000dd6341368b46db32fe36060cc72
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.date: 10/21/2020
+ms.openlocfilehash: 4d4287b877f5327b7fd485358b26148686b9515b
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87171587"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487918"
 ---
 # <a name="monitor-and-tune-azure-database-for-postgresql---single-server"></a>Monitorar e ajustar o Banco de Dados do Azure para PostgreSQL – Servidor único
 Monitorar os dados dos seus servidores ajuda a solucionar problemas e otimizar sua carga de trabalho. O Banco de Dados do Azure para PostgreSQL oferece várias opções de monitoramento para fornecer insights sobre o comportamento do servidor.
 
 ## <a name="metrics"></a>Métricas
-O Banco de Dados do Azure para PostgreSQL oferece várias métricas que fornecem informações sobre o comportamento dos recursos compatíveis com o servidor PostgreSQL. Cada métrica é emitida a uma frequência de um minuto e tem até [93 dias de histórico](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics#retention-of-metrics). É possível configurar alertas nas métricas. Para obter diretrizes passo a passo, consulte [How to set up alerts](howto-alert-on-metric.md) (Como configurar alertas). Outras tarefas incluem a configuração de ações automatizadas, execução de análises avançadas e arquivamento de histórico. Para obter mais informações, consulte a [Visão geral das métricas no Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+O Banco de Dados do Azure para PostgreSQL oferece várias métricas que fornecem informações sobre o comportamento dos recursos compatíveis com o servidor PostgreSQL. Cada métrica é emitida a uma frequência de um minuto e tem até [93 dias de histórico](../azure-monitor/platform/data-platform-metrics.md#retention-of-metrics). É possível configurar alertas nas métricas. Para obter diretrizes passo a passo, consulte [How to set up alerts](howto-alert-on-metric.md) (Como configurar alertas). Outras tarefas incluem a configuração de ações automatizadas, execução de análises avançadas e arquivamento de histórico. Para obter mais informações, consulte a [Visão geral das métricas no Microsoft Azure](../azure-monitor/platform/data-platform.md).
 
 ### <a name="list-of-metrics"></a>Lista de métricas
 Essas métricas estão disponíveis para o Banco de Dados do Azure para PostgreSQL:
 
-|Métrica|Nome de exibição da métrica|Unidade|Descrição|
+|Métrica|Nome de exibição da métrica|Unit|Descrição|
 |---|---|---|---|
 |cpu_percent|Porcentagem de CPU|Porcentagem|O percentual de CPU em uso.|
 |memory_percent|Porcentagem de memória|Porcentagem|O percentual de memória em uso.|
@@ -38,7 +38,7 @@ Essas métricas estão disponíveis para o Banco de Dados do Azure para PostgreS
 |network_bytes_egress|Saída da rede|Bytes|Rede-Out em conexões ativas.|
 |network_bytes_ingress|Entrada na rede|Bytes|Entrada de rede em conexões ativas.|
 |backup_storage_used|Backup do Microsoft Azure|Bytes|A quantidade de armazenamento de backup usado. Essa métrica representa a soma do armazenamento consumido por todos os backups de banco de dados completos, backups diferenciais e backups de log retidos com base no período de retenção de backup definido para o servidor. A frequência dos backups é gerenciada pelo serviço e explicada no [artigo conceitos](concepts-backup.md). Para o armazenamento com redundância geográfica, o uso de armazenamento de backup é o dobro do armazenamento com redundância local.|
-|pg_replica_log_delay_in_bytes|Retardo Máximo entre Réplicas|Bytes|A latência em bytes entre o mestre e a réplica mais retardada. Essa métrica está disponível apenas no servidor mestre.|
+|pg_replica_log_delay_in_bytes|Retardo Máximo entre Réplicas|Bytes|A latência em bytes entre a réplica primária e a mais alta. Essa métrica está disponível somente no servidor primário.|
 |pg_replica_log_delay_in_seconds|Retardo da Réplica|Segundos|O tempo desde a última transação reproduzida. Essa métrica está disponível somente para servidores de réplica.|
 
 ## <a name="server-logs"></a>Logs do servidor
@@ -55,28 +55,12 @@ O recurso [Recomendações de Desempenho](concepts-performance-recommendations.m
 
 ## <a name="planned-maintenance-notification"></a>Notificação de manutenção planejada
 
-As **notificações de manutenção planejada** permitem que você receba alertas para uma manutenção planejada futura para o banco de dados do Azure para PostgreSQL-servidor único. Essas notificações são integradas à manutenção planejada [da integridade do serviço](../service-health/overview.md) e permitem que você exiba toda a manutenção agendada para suas assinaturas em um único local. Ele também ajuda a dimensionar a notificação para os públicos certos para grupos de recursos diferentes, pois você pode ter contatos diferentes responsáveis por diferentes recursos. Você receberá a notificação sobre as próximas 72 horas de manutenção antes do evento.
+As [notificações de manutenção planejada](./concepts-planned-maintenance-notification.md) permitem que você receba alertas para uma manutenção planejada futura para o banco de dados do Azure para PostgreSQL-servidor único. Essas notificações são integradas à manutenção planejada [da integridade do serviço](../service-health/overview.md) e permitem que você exiba toda a manutenção agendada para suas assinaturas em um único local. Ele também ajuda a dimensionar a notificação para os públicos certos para grupos de recursos diferentes, pois você pode ter contatos diferentes responsáveis por diferentes recursos. Você receberá a notificação sobre as próximas 72 horas de manutenção antes do evento.
 
-> [!Note]
-> Faremos todas as tentativas de fornecer **notificação de manutenção planejada** 72 horas de aviso para todos os eventos. No entanto, em casos de patches críticos ou de segurança, as notificações podem ser enviadas próximo ao evento ou ser omitidas.
-
-### <a name="to-receive-planned-maintenance-notification"></a>Para receber a notificação de manutenção planejada
-
-1. No [portal](https://portal.azure.com), selecione **Integridade do Serviço**.
-2. Na seção **Alertas**, selecione **Alertas de integridade**.
-3. Selecione **+ adicionar alerta de integridade do serviço** e preencha os campos.
-4. Preencha os campos obrigatórios. 
-5. Escolha o **tipo de evento**, selecione **manutenção planejada** ou **selecionar tudo**
-6. Em **grupos de ação** , defina como você deseja receber o alerta (obter um email, disparar um aplicativo lógico etc.)  
-7. Verifique se habilitar regra após a criação está definido como Sim.
-8. Selecione **criar regra de alerta** para concluir o alerta
-
-Para obter etapas detalhadas sobre como criar **alertas de integridade do serviço**, consulte [criar alertas do log de atividades em notificações de serviço](../service-health/alerts-activity-log-service-notifications.md).
-
-> [!IMPORTANT]
-> As notificações de manutenção planejada estão disponíveis atualmente na visualização em todas as regiões **, exceto** no Oeste EUA Central
+Saiba mais sobre como configurar notificações no documento de [notificações de manutenção planejada](./concepts-planned-maintenance-notification.md) .
 
 ## <a name="next-steps"></a>Próximas etapas
 - Consulte [como configurar alertas](howto-alert-on-metric.md) para obter orientação sobre como criar um alerta em uma métrica.
-- Para obter mais informações sobre como acessar e exportar métricas usando o Portal do Azure, a API REST ou a CLI, consulte a [Visão geral das métricas no Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+- Para obter mais informações sobre como acessar e exportar métricas usando o portal do Azure, a API REST ou a CLI, consulte a [visão geral das métricas do Azure](../azure-monitor/platform/data-platform.md)
 - Leia nosso blog sobre [práticas recomendadas para monitorar seu servidor](https://azure.microsoft.com/blog/best-practices-for-alerting-on-metrics-with-azure-database-for-postgresql-monitoring/).
+- Saiba mais sobre [notificações de manutenção planejada](./concepts-planned-maintenance-notification.md) no banco de dados do Azure para PostgreSQL-servidor único.

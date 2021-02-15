@@ -14,14 +14,16 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.reviewer: anilmur
-ms.openlocfilehash: f34e3a3d1e0245180ce923fc3ec7353ab1a176be
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 78236a334b6c75f823819c70c0cdbb75bb30191d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086346"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89257425"
 ---
 # <a name="media-encoder-standard-formats-and-codecs"></a>Codecs e formatos padrão do codificador de mídia
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!div class="op_single_selector" title1="Selecione a versão dos serviços de mídia que você está usando:"]
 > * [Versão 2](media-services-media-encoder-standard-formats.md)
@@ -30,7 +32,7 @@ ms.locfileid: "87086346"
 Este documento contém uma lista dos formatos de arquivo de importação e importação mais comuns que você pode usar com o Codificador de Mídia padrão.
 
 ## <a name="input-containerfile-formats"></a>Formatos de arquivo/contêiner de entrada
-| Formatos de arquivo (extensões de arquivo) | Suportado |
+| Formatos de arquivo (extensões de arquivo) | Com suporte |
 | --- | --- |
 | FLV (com codecs H.264 e AAC) (.flv) |Sim |
 | MXF    (.mxf) |Sim |
@@ -59,7 +61,7 @@ ou
 * Arquivos MXF, GXF e QuickTime onde o áudio é executado como faixas PCM separadas, mas o mapeamento de canal (para estéreo ou 5.1) pode ser deduzido dos metadados do arquivo
 
 ## <a name="input-video-codecs"></a>Codecs de vídeo de entrada
-| Codecs de vídeo de entrada | Suportado |
+| Codecs de vídeo de entrada | Com suporte |
 | --- | --- |
 | AVC de 8 bits/10 bits até 4:2:2, incluindo AVCIntra |8 bits 4:2:0 e 4:2:2 |
 | DNxHD ávido (em MXF) |Sim |
@@ -82,7 +84,7 @@ ou
 | HEVC/H.265| Main e Main 10 (&#42;) Profiles<br/>Suporte a Main 10 Profile é necessário para conteúdo 4:2:0 de 8 bits. |
 
 ## <a name="input-audio-codecs"></a>Codecs de áudio de entrada
-| Codecs de áudio de entrada | Suportado |
+| Codecs de áudio de entrada | Com suporte |
 | --- | --- |
 | AAC (AAC-LC, AAC-HE e AAC-HEv2; até 5.1) |Sim |
 | MPEG Layer 2 |Sim |

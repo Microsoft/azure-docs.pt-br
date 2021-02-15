@@ -1,22 +1,17 @@
 ---
 title: Esquema e mapeamento de tipo de dados na atividade de cópia
 description: Saiba mais sobre como a atividade de cópia no Azure Data Factory mapeia os esquemas e os tipos de dados dos dados de origem para coletar dados.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: craigg
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: jingwang
-ms.openlocfilehash: b48fb28a56cdc1c836233cd2bd03a1f9e750a0a7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0aee6030e5608b5413864d6a32dc8442dd346f42
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85249645"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100392775"
 ---
 # <a name="schema-and-data-type-mapping-in-copy-activity"></a>Esquema e mapeamento de tipo de dados na atividade de cópia
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -47,18 +42,18 @@ Saiba mais sobre:
 
 Você pode configurar o mapeamento na interface do usuário de criação de Data Factory-> atividade de cópia-> guia mapeamento ou especificar programaticamente o mapeamento na Propriedade Copy-> `translator` . As propriedades a seguir têm suporte em `translator`  ->  `mappings` objetos de > de matriz-> `source` e `sink` , que aponta para a coluna/campo específico para mapear dados.
 
-| Property | Descrição                                                  | Obrigatório |
+| Propriedade | Descrição                                                  | Obrigatório |
 | -------- | ------------------------------------------------------------ | -------- |
 | name     | Nome do campo/coluna de origem ou de coletor. Aplicar para fonte de tabela e coletor. | Sim      |
 | ordinal  | Índice de coluna. Inicie de 1. <br>Aplica-se e é necessário ao usar texto delimitado sem linha de cabeçalho. | Não       |
 | caminho     | Expressão de caminho JSON para cada campo a ser extraído ou mapeado. Aplicar para origem e coletor hierárquicos, por exemplo, Cosmos DB, MongoDB ou conectores REST.<br>Para campos sob o objeto raiz, o caminho JSON começa com root `$` ; para campos dentro da matriz escolhida pela `collectionReference` propriedade, o caminho JSON é iniciado a partir do elemento de matriz sem `$` . | Não       |
 | type     | Data Factory tipo de dados provisório da coluna de origem ou do coletor. Em geral, você não precisa especificar ou alterar essa propriedade. Saiba mais sobre [mapeamento de tipo de dados](#data-type-mapping). | Não       |
 | culture  | Cultura da coluna de origem ou do coletor. Aplicar quando o tipo for `Datetime` ou `Datetimeoffset` . O padrão é `en-us`.<br>Em geral, você não precisa especificar ou alterar essa propriedade. Saiba mais sobre [mapeamento de tipo de dados](#data-type-mapping). | Não       |
-| format   | Cadeia de caracteres de formato a ser usada quando o tipo é `Datetime` ou `Datetimeoffset` . Consulte [Data personalizada e cadeias de caracteres de formato de hora](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) sobre como formatar a data e hora. Em geral, você não precisa especificar ou alterar essa propriedade. Saiba mais sobre [mapeamento de tipo de dados](#data-type-mapping). | Não       |
+| format   | Cadeia de caracteres de formato a ser usada quando o tipo é `Datetime` ou `Datetimeoffset` . Consulte [Data personalizada e cadeias de caracteres de formato de hora](/dotnet/standard/base-types/custom-date-and-time-format-strings) sobre como formatar a data e hora. Em geral, você não precisa especificar ou alterar essa propriedade. Saiba mais sobre [mapeamento de tipo de dados](#data-type-mapping). | Não       |
 
 As propriedades a seguir têm suporte em `translator` além de `mappings` :
 
-| Property            | Descrição                                                  | Obrigatório |
+| Propriedade            | Descrição                                                  | Necessária |
 | ------------------- | ------------------------------------------------------------ | -------- |
 | collectionReference | Aplicar ao copiar dados de fonte hierárquica, por exemplo, Cosmos DB, MongoDB ou conectores REST.<br>Se você quiser fazer uma iteração e extrair dados de objetos **dentro de um campo de matriz** com o mesmo padrão e converter para por linha por objeto, especifique o caminho JSON da matriz para realizar a aplicação cruzada. | Não       |
 
@@ -66,7 +61,7 @@ As propriedades a seguir têm suporte em `translator` além de `mappings` :
 
 Por exemplo, para copiar dados do Salesforce para o banco de dados SQL do Azure e mapear explicitamente três colunas:
 
-1. Na guia atividade de cópia – mapeamento de >, clique no botão **importar esquema** para importar os esquemas de origem e de coletor.
+1. Na guia atividade de cópia – mapeamento de >, clique no botão **Importar esquemas** para importar os esquemas de origem e de coletor.
 
 2. Mapeie os campos necessários e exclua/exclua o restante.
 
@@ -180,11 +175,14 @@ E você deseja copiá-lo em um arquivo de texto no formato a seguir com a linha 
 
 Você pode definir esse mapeamento na interface do usuário de criação de Data Factory:
 
-1. Na guia atividade de cópia – mapeamento de >, clique no botão **importar esquema** para importar os esquemas de origem e de coletor. Como Data Factory amostras dos principais objetos ao importar o esquema, se algum campo não aparecer, você poderá adicioná-lo à camada correta na hierarquia-focalizar um nome de campo existente e escolher Adicionar um nó, um objeto ou uma matriz.
+1. Na guia atividade de cópia – mapeamento de >, clique no botão **Importar esquemas** para importar os esquemas de origem e de coletor. Como Data Factory amostras dos principais objetos ao importar o esquema, se algum campo não aparecer, você poderá adicioná-lo à camada correta na hierarquia-focalizar um nome de campo existente e escolher Adicionar um nó, um objeto ou uma matriz.
 
 2. Selecione a matriz da qual você deseja iterar e extrair dados. Ele será preenchido automaticamente como **referência de coleção**. Observação apenas uma única matriz tem suporte para essa operação.
 
 3. Mapeie os campos necessários para o coletor. Data Factory determina automaticamente os caminhos JSON correspondentes para o lado hierárquico.
+
+> [!NOTE]
+> Para registros em que a matriz marcada como referência de coleção está vazia e a caixa de seleção está marcada, o registro inteiro é ignorado.
 
 ![Mapear hierárquica para tabular usando a interface do usuário](media/copy-activity-schema-and-type-mapping/map-hierarchical-to-tabular-ui.png)
 
@@ -287,7 +285,7 @@ As conversões de tipo de dados a seguir têm suporte entre os tipos provisório
 | ----------- | ------- | ---------- | ------- | ---------------------------- | ------------------------------ | ---- | -------------------------- | ------ | -------- |
 | Boolean     | ✓       |            | ✓       |                              | ✓                              |      | ✓                          | ✓      |          |
 | Matriz de bytes  |         | ✓          |         |                              |                                |      |                            | ✓      |          |
-| Data/hora   |         |            |         | ✓                            |                                |      |                            | ✓      |          |
+| Data/Hora   |         |            |         | ✓                            |                                |      |                            | ✓      |          |
 | Decimal     | ✓       |            | ✓       |                              | ✓                              |      | ✓                          | ✓      |          |
 | Ponto de flutuação | ✓       |            | ✓       |                              | ✓                              |      | ✓                          | ✓      |          |
 | GUID        |         |            |         |                              |                                | ✓    |                            | ✓      |          |
@@ -307,16 +305,16 @@ As conversões de tipo de dados a seguir têm suporte entre os tipos provisório
 
 As propriedades a seguir têm suporte na atividade de cópia para conversão de tipo de dados (em `translator` seção para a criação programática):
 
-| Property                         | Descrição                                                  | Obrigatório |
+| Propriedade                         | Descrição                                                  | Necessária |
 | -------------------------------- | ------------------------------------------------------------ | -------- |
 | typeConversion                   | Habilite a nova experiência de conversão de tipo de dados. <br>O valor padrão é false devido à compatibilidade com versões anteriores.<br><br>Para novas atividades de cópia criadas por meio da interface do usuário de criação de Data Factory desde o final de junho de 2020, essa conversão de tipo de dados é habilitada por padrão para a melhor experiência, e você pode ver as seguintes configurações de conversão de tipo na guia atividade de cópia – mapeamento de > para cenários aplicáveis. <br>Para criar o pipeline programaticamente, você precisa definir explicitamente `typeConversion` a propriedade como true para habilitá-la.<br>Para as atividades de cópia existentes criadas antes desse recurso ser liberado, você não verá as opções de conversão de tipo na interface do usuário de criação de Data Factory para compatibilidade com versões anteriores. | Não       |
 | typeConversionSettings           | Um grupo de configurações de conversão de tipo. Aplicar quando `typeConversion` estiver definido como `true` . As propriedades a seguir estão todas sob esse grupo. | Não       |
-| *Sob`typeConversionSettings`* |                                                              |          |
+| *Sob `typeConversionSettings`* |                                                              |          |
 | allowDataTruncation              | Permitir truncamento de dados ao converter dados de origem para coletor com tipo diferente durante a cópia, por exemplo, de decimal para inteiro, de DatetimeOffset para DateTime. <br>O valor padrão é true. | Não       |
-| treatBooleanAsNumber             | Trate os valores Boolianos como números, por exemplo, true como 1.<br>O valor padrão é falso. | Não       |
-| dateTimeFormat                   | Cadeia de formato ao converter entre datas sem deslocamento de fuso horário e cadeias de caracteres, por exemplo, `yyyy-MM-dd HH:mm:ss.fff` .  Consulte [cadeias de caracteres de formato de data e hora personalizadas](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) para obter informações detalhadas. | Não       |
-| dateTimeOffsetFormat             | Cadeia de caracteres de formato ao converter entre datas com deslocamento e cadeias de caracteres de fuso horário, por exemplo, `yyyy-MM-dd HH:mm:ss.fff zzz` .  Consulte [cadeias de caracteres de formato de data e hora personalizadas](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) para obter informações detalhadas. | Não       |
-| timeSpanFormat                   | Cadeia de formato ao converter entre períodos de tempo e cadeias de caracteres, por exemplo, `dd\.hh\:mm` . Consulte [cadeias de caracteres de formato de TimeSpan personalizadas](https://docs.microsoft.com/dotnet/standard/base-types/custom-timespan-format-strings) para obter informações detalhadas. | Não       |
+| treatBooleanAsNumber             | Trate os valores Boolianos como números, por exemplo, true como 1.<br>O valor padrão é false. | Não       |
+| dateTimeFormat                   | Cadeia de formato ao converter entre datas sem deslocamento de fuso horário e cadeias de caracteres, por exemplo, `yyyy-MM-dd HH:mm:ss.fff` .  Consulte [cadeias de caracteres de formato de data e hora personalizadas](/dotnet/standard/base-types/custom-date-and-time-format-strings) para obter informações detalhadas. | Não       |
+| dateTimeOffsetFormat             | Cadeia de caracteres de formato ao converter entre datas com deslocamento e cadeias de caracteres de fuso horário, por exemplo, `yyyy-MM-dd HH:mm:ss.fff zzz` .  Consulte [cadeias de caracteres de formato de data e hora personalizadas](/dotnet/standard/base-types/custom-date-and-time-format-strings) para obter informações detalhadas. | Não       |
+| timeSpanFormat                   | Cadeia de formato ao converter entre períodos de tempo e cadeias de caracteres, por exemplo, `dd\.hh\:mm` . Consulte [cadeias de caracteres de formato de TimeSpan personalizadas](/dotnet/standard/base-types/custom-timespan-format-strings) para obter informações detalhadas. | Não       |
 | culture                          | Informações de cultura a serem usadas ao converter tipos, por exemplo, `en-us` ou `fr-fr` . | Não       |
 
 **Exemplo:**
@@ -452,7 +450,7 @@ Se você está utilizando a sintaxe de `"columnMappings": "UserId: MyUserId, Gro
 
 Você pode especificar a atividade de cópia-> `translator`  ->  `schemaMapping` para mapear entre dados em formato hierárquico e dados em formato de tabela, por exemplo, copiar do MongoDB/REST para o arquivo de texto e copiar do Oracle para a API do Azure Cosmos DB para MongoDB. As propriedades a seguir têm suporte na seção `translator` da atividade de cópia:
 
-| Property            | Descrição                                                  | Obrigatório |
+| Propriedade            | Descrição                                                  | Obrigatório |
 | :------------------ | :----------------------------------------------------------- | :------- |
 | type                | A propriedade Type do tradutor de atividade de cópia deve ser definida como: **TabularTranslator** | Sim      |
 | schemaMapping       | Uma coleção de pares chave-valor, que representa a relação de mapeamento **do lado da origem para o lado do coletor**.<br/>- **Chave:** representa a origem. Para **fonte de tabela**, especifique o nome da coluna conforme definido na estrutura do conjunto de dados; para **fonte hierárquica**, especifique a expressão de caminho JSON para cada campo a ser extraído e mapeado.<br>- **Valor:** representa o coletor. Para o **coletor de tabela**, especifique o nome da coluna conforme definido na estrutura do conjunto de dados; para **coletor hierárquico**, especifique a expressão de caminho JSON para cada campo a ser extraído e mapeado. <br>No caso de dados hierárquicos, para campos em objeto raiz, o caminho JSON começa com root $; para campos dentro da matriz escolhida pela `collectionReference` propriedade, o caminho JSON é iniciado a partir do elemento da matriz. | Sim      |

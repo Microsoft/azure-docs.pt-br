@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: 3109ada2c905a9f11169a462284d22b9e9604494
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cb0f9ef64cb8032c02f2ccd4b42028103b6d3ec6
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84808235"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397885"
 ---
 # <a name="configure-tls-policy-versions-and-cipher-suites-on-application-gateway"></a>Configurar versões de política de TLS e conjuntos de codificação no gateway de aplicativo
 
@@ -191,7 +191,7 @@ $appgw = New-AzApplicationGateway -Name appgwtest -ResourceGroupName $rg.Resourc
 
 ## <a name="update-an-existing-application-gateway-with-a-pre-defined-tls-policy"></a>Atualizar um gateway de aplicativo existente com uma política de TLS predefinida
 
-Para definir uma política TLS personalizada, passe os seguintes parâmetros: **PolicyType**, **MinProtocolVersion**, **CipherSuite**e **ApplicationGateway**. Para definir uma política TLS predefinida, passe os seguintes parâmetros: **PolicyType**, **PolicyName**e **ApplicationGateway**. Se tentar passar outros parâmetros, você receberá um erro ao criar ou atualizar o Gateway de Aplicativo.
+Para definir uma política TLS personalizada, passe os seguintes parâmetros: **PolicyType** , **MinProtocolVersion** , **CipherSuite** e **ApplicationGateway**. Para definir uma política TLS predefinida, passe os seguintes parâmetros: **PolicyType** , **PolicyName** e **ApplicationGateway**. Se tentar passar outros parâmetros, você receberá um erro ao criar ou atualizar o Gateway de Aplicativo.
 
 No exemplo a seguir, há exemplos de código para a política personalizada e para a política predefinida. Remova a marca de comentário da política que deseja usar.
 
@@ -217,4 +217,4 @@ $SetGW = Set-AzApplicationGateway -ApplicationGateway $AppGW
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Visite [visão geral de redirecionamento do Gateway de Aplicativo](application-gateway-redirect-overview.md) para aprender a redirecionar o tráfego HTTP para um ponto de extremidade HTTPS.
+Visite [visão geral de redirecionamento do Gateway de Aplicativo](./redirect-overview.md) para aprender a redirecionar o tráfego HTTP para um ponto de extremidade HTTPS.

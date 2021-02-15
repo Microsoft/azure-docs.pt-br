@@ -9,10 +9,10 @@ ms.date: 07/09/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 999f3fb054eedab64a1f7bcebd9788e1edbf29f9
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86220585"
 ---
 Nesta etapa, você pode criar a conexão entre uma VNET e seu hub. Repita as etapas para cada VNET que você deseja se conectar.

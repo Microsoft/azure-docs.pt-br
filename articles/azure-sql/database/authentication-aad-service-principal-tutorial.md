@@ -8,13 +8,13 @@ ms.topic: tutorial
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 08/17/2020
-ms.openlocfilehash: 61cb5384fd4d935ef4038c18b391b5da5fbc96b1
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.date: 10/21/2020
+ms.openlocfilehash: e068ad01c07af4e5833399c0053da3362cd6aaa6
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88516683"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185633"
 ---
 # <a name="tutorial-create-azure-ad-users-using-azure-ad-applications"></a>Tutorial: Criar usuários do Azure AD usando aplicativos do Azure AD
 
@@ -62,12 +62,12 @@ Neste tutorial, você aprenderá como:
     Set-AzSqlServer -ResourceGroupName <resource group> -ServerName <server name> -AssignIdentity
     ```
 
-    Para obter mais informações, confira o comando [Set-AzSqlServer](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserver).
+    Para obter mais informações, confira o comando [Set-AzSqlServer](/powershell/module/az.sql/set-azsqlserver).
 
     > [!IMPORTANT]
-    > Se uma identidade do Azure AD estiver configurada para o servidor lógico do SQL do Azure, a permissão de [**Leitores de diretório**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) precisará ser concedida à identidade. Veremos essa etapa na seção a seguir. **Não** ignore essa etapa, pois se o fizer, a autenticação do Azure AD deixará de funcionar.
+    > Se uma identidade do Azure AD estiver configurada para o servidor lógico do SQL do Azure, a permissão de [**Leitores de diretório**](../../active-directory/roles/permissions-reference.md#directory-readers) precisará ser concedida à identidade. Veremos essa etapa na seção a seguir. **Não** ignore essa etapa, pois se o fizer, a autenticação do Azure AD deixará de funcionar.
 
-    - Se você tiver usado o comando [New-AzSqlServer](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlserver) com o parâmetro `AssignIdentity` para uma criação do SQL Server no passado, será necessário executar o comando [Set-AzSqlServer](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserver) posteriormente como um comando separado para habilitar essa propriedade na malha do Azure.
+    - Se você tiver usado o comando [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) com o parâmetro `AssignIdentity` para uma criação do SQL Server no passado, será necessário executar o comando [Set-AzSqlServer](/powershell/module/az.sql/set-azsqlserver) posteriormente como um comando separado para habilitar essa propriedade na malha do Azure.
 
 1. Verifique se a identidade do servidor foi atribuída com êxito. Execute o seguinte comando do PowerShell:
 
@@ -101,13 +101,13 @@ Para conceder essa permissão necessária, execute o script a seguir.
 - Substitua `<server name>` pelo seu nome do servidor lógico do SQL. Se o nome do servidor for `myserver.database.windows.net`, substitua `<server name>` por `myserver`.
 
 ```powershell
-# This script grants Azure “Directory Readers” permission to a Service Principal representing the Azure SQL logical server
-# It can be executed only by a "Global Administrator" or “Privileged Roles Administrator” type of user.
-# To check if the “Directory Readers" permission was granted, execute this script again
+# This script grants Azure "Directory Readers" permission to a Service Principal representing the Azure SQL logical server
+# It can be executed only by a "Global Administrator" or "Privileged Roles Administrator" type of user.
+# To check if the "Directory Readers" permission was granted, execute this script again
 
-Import-Module AzureAd
-connect-azuread -TenantId "<TenantId>"     #Enter your actual TenantId
- $AssignIdentityName = "<server name>"     #Enter Azure SQL logical server name
+Import-Module AzureAD
+Connect-AzureAD -TenantId "<TenantId>"    #Enter your actual TenantId
+$AssignIdentityName = "<server name>"     #Enter Azure SQL logical server name
  
 # Get Azure AD role "Directory Users" and create if it doesn't exist
 $roleName = "Directory Readers"
@@ -122,14 +122,13 @@ if ($role -eq $null) {
 # Get service principal for managed instance
 $roleMember = Get-AzureADServicePrincipal -SearchString $AssignIdentityName
 $roleMember.Count
-if ($roleMember -eq $null)
-{
-    Write-Output "Error: No Service Principals with name '$    ($AssignIdentityName)', make sure that AssignIdentityName parameter was     entered correctly."
+if ($roleMember -eq $null) {
+    Write-Output "Error: No Service Principals with name '$($AssignIdentityName)', make sure that AssignIdentityName parameter was entered correctly."
     exit
 }
-if (-not ($roleMember.Count -eq 1))
-{
-    Write-Output "Error: More than one service principal with name pattern '$    ($AssignIdentityName)'"
+
+if (-not ($roleMember.Count -eq 1)) {
+    Write-Output "Error: More than one service principal with name pattern '$($AssignIdentityName)'"
     Write-Output "Dumping selected service principals...."
     $roleMember
     exit
@@ -137,21 +136,18 @@ if (-not ($roleMember.Count -eq 1))
  
 # Check if service principal is already member of readers role
 $allDirReaders = Get-AzureADDirectoryRoleMember -ObjectId $role.ObjectId
-$selDirReader = $allDirReaders | where{$_.ObjectId -match     $roleMember.ObjectId}
+$selDirReader = $allDirReaders | where{$_.ObjectId -match $roleMember.ObjectId}
  
-if ($selDirReader -eq $null)
-{
+if ($selDirReader -eq $null) {
     # Add principal to readers role
-    Write-Output "Adding service principal '$($msName)' to     'Directory Readers' role'..."
-    Add-AzureADDirectoryRoleMember -ObjectId $role.ObjectId -RefObjectId     $roleMember.ObjectId
-    Write-Output "'$($AssignIdentityName)' service principal added to     'Directory Readers' role'..."
+    Write-Output "Adding service principal '$($AssignIdentityName)' to 'Directory Readers' role'..."
+    Add-AzureADDirectoryRoleMember -ObjectId $role.ObjectId -RefObjectId $roleMember.ObjectId
+    Write-Output "'$($AssignIdentityName)' service principal added to 'Directory Readers' role'..."
  
     #Write-Output "Dumping service principal '$($AssignIdentityName)':"
     #$allDirReaders = Get-AzureADDirectoryRoleMember -ObjectId $role.ObjectId
     #$allDirReaders | where{$_.ObjectId -match $roleMember.ObjectId}
-}
-else
-{
+} else {
     Write-Output "Service principal '$($AssignIdentityName)' is already member of 'Directory Readers' role'."
 }
 ```
@@ -167,11 +163,11 @@ Para obter uma abordagem semelhante sobre como definir a permissão de **Leitore
 
     Certifique-se de adicionar as **permissões de aplicativo**, bem como as **permissões delegadas**.
 
-    :::image type="content" source="media/authentication-aad-service-principals-tutorial/aad-apps.png" alt-text="aad-apps":::
+    :::image type="content" source="media/authentication-aad-service-principals-tutorial/aad-apps.png" alt-text="Captura de tela que mostra a página de Registros de aplicativo do Azure Active Directory. Um aplicativo com o Nome de exibição AppSP é realçado.":::
 
     :::image type="content" source="media/authentication-aad-service-principals-tutorial/aad-app-registration-api-permissions.png" alt-text="api-permissions":::
 
-2. Você também precisará criar um segredo do cliente para entrar. Siga o guia disponibilizado aqui para [Carregar um certificado ou criar um segredo para entrar](../../active-directory/develop/howto-create-service-principal-portal.md#upload-a-certificate-or-create-a-secret-for-signing-in).
+2. Você também precisará criar um segredo do cliente para entrar. Siga o guia disponibilizado aqui para [carregar um certificado ou criar um segredo para entrar](../../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options).
 
 3. Registre as informações a seguir, que serão obtidas do registro de aplicativo. Elas devem estar disponíveis em seu painel **Visão geral**:
     - **ID do Aplicativo**
@@ -181,6 +177,16 @@ Neste tutorial, usaremos *AppSP* como nossa entidade de serviço principal e *My
 
 Para obter mais informações sobre como criar um aplicativo do Azure AD, confira o artigo [Como Usar o portal para criar um aplicativo e uma entidade de serviço do Azure AD que possa acessar recursos](../../active-directory/develop/howto-create-service-principal-portal.md).
 
+### <a name="permissions-required-to-set-or-unset-the-azure-ad-admin"></a>Permissões necessárias para definir ou remover a definição do administrador do Azure AD
+
+Para que a entidade de serviço defina ou remova a definição de um administrador do Azure AD para o Azure SQL, é necessária uma permissão adicional de API. A permissão de API do aplicativo [Directory.Read.All](/graph/permissions-reference#application-permissions-18) precisará ser adicionada ao seu aplicativo no Azure AD.
+
+:::image type="content" source="media/authentication-aad-service-principals-tutorial/aad-directory-reader-all-permissions.png" alt-text="Permissões Directory.Reader.All no Azure AD":::
+
+A entidade de serviço também precisará da função [**Colaborador do SQL Server**](../../role-based-access-control/built-in-roles.md#sql-server-contributor) para o Banco de Dados SQL ou a função [**Colaborador da Instância Gerenciada de SQL**](../../role-based-access-control/built-in-roles.md#sql-managed-instance-contributor) para a Instância Gerenciada de SQL.
+
+> [!NOTE]
+> Embora a API do Graph do Azure AD esteja sendo preterida, a permissão **Directory.Reader.All** ainda será aplicável a este tutorial. A API do Microsoft Graph não se aplica a este tutorial.
 
 ## <a name="create-the-service-principal-user-in-azure-sql-database"></a>criar o usuário da entidade de serviço no Banco de Dados SQL do Azure
 
@@ -200,7 +206,7 @@ Depois que uma entidade de serviço for criada no Azure AD, crie o usuário no B
     GO
     ```
 
-    Para obter mais informações, confira [sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql)
+    Para obter mais informações, confira [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql)
 
     Como alternativa, a permissão `ALTER ANY USER` pode ser concedida em vez da função de `db_owner`. Isso permitirá que a entidade de serviço adicione outros usuários do Azure AD.
 
@@ -305,5 +311,5 @@ Depois que uma entidade de serviço for criada no Azure AD, crie o usuário no B
 - [Como usar identidades gerenciadas para o Serviço de Aplicativo e o Azure Functions](../../app-service/overview-managed-identity.md)
 - [Autenticação de entidade de serviço do Azure AD para o BD SQL – exemplo de código](https://techcommunity.microsoft.com/t5/azure-sql-database/azure-ad-service-principal-authentication-to-sql-db-code-sample/ba-p/481467)
 - [Objetos de entidade de serviço e aplicativo no Azure Active Directory](../../active-directory/develop/app-objects-and-service-principals.md)
-- [Criar uma entidade de serviço do Azure com o Azure PowerShell](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps)
+- [Criar uma entidade de serviço do Azure com o Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps)
 - [Função Leitores de Diretório no Azure Active Directory para o SQL do Azure](authentication-aad-directory-readers-role.md)

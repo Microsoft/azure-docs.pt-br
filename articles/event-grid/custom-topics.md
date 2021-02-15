@@ -4,18 +4,18 @@ description: Descreve os tópicos personalizados na grade de eventos do Azure.
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: 8f48824989c8ec51b766385188ad99e9e59cf621
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86113778"
 ---
 # <a name="custom-topics-in-azure-event-grid"></a>Tópicos personalizados na grade de eventos do Azure
 Um tópico da grade de eventos fornece um ponto de extremidade onde a origem envia eventos. O editor cria o tópico de grade de eventos e decide se uma origem do evento precisa de um tópico ou mais de um tópico. Um tópico é usado para uma coleção de eventos relacionados. Para reagir a determinados tipos de evento, os assinantes decidem quais tópicos assinar.
 
-Os **Tópicos personalizados** são aplicativos e tópicos de terceiros. Quando criar ou receber acesso a um tópico personalizado, você verá o tópico personalizado na assinatura. 
+Os **Tópicos personalizados** são aplicativos e tópicos de terceiros. Ao criar ou receber acesso a um tópico personalizado, você verá o tópico personalizado em sua assinatura. 
 
-Ao projetar o seu aplicativo, você terá flexibilidade ao decidir sobre quantos tópicos criar. Para soluções grandes, crie um **tópico personalizado** para **cada categoria de eventos relacionados**. Por exemplo, considere um aplicativo que envia eventos relacionados à modificação de contas de usuários e ordens de processamento. É improvável que qualquer manipulador de eventos queira ambas as categorias de eventos. Crie dois tópicos personalizados e permita que os manipuladores de eventos assinem o que for interessante para eles. Para soluções pequenas, você pode preferir enviar todos os eventos para um único tópico. Assinantes de evento podem filtrar par os tipos de evento que desejam.
+Ao projetar o seu aplicativo, você terá flexibilidade ao decidir sobre quantos tópicos criar. Para soluções grandes, crie um **tópico personalizado** para **cada categoria de eventos relacionados**. Por exemplo, considere um aplicativo que envia eventos relacionados à modificação de contas de usuário e ordens de processamento. É improvável que qualquer manipulador de eventos queira ambas as categorias de eventos. Crie dois tópicos personalizados e permita que os manipuladores de eventos assinem o que for interessante para eles. Para soluções pequenas, você pode preferir enviar todos os eventos para um único tópico. Assinantes de evento podem filtrar par os tipos de evento que desejam.
 
 ## <a name="event-schema"></a>Esquema do evento
 Para obter uma visão geral detalhada do esquema de evento, consulte [esquema de evento da grade de eventos do Azure](event-schema.md). Para tópicos personalizados, o editor de eventos determina o objeto de **dados** . Os dados de nível superior devem ter os mesmos campos do que os eventos definidos pelo recurso padrão.

@@ -3,7 +3,7 @@ title: Adicionar um aplicativo do Azure Marketplace
 description: Este artigo atua como uma página de aterrissagem do botão Obter Agora no Azure Marketplace.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/16/2020
 ms.author: kenwith
 ROBOTS: NOINDEX
-ms.openlocfilehash: 318458eae72d6ffa679f08ffd32e8e8251e7484b
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 7bff0ca3dfa561f836f94e362ee84d025de020ab
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87562320"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258330"
 ---
 # <a name="get-it-now---add-an-app-from-the-azure-marketplace"></a>Obter Agora – adicionar um aplicativo do Azure Marketplace
 

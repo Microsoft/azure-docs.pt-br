@@ -6,17 +6,17 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 10/24/2019
-ms.openlocfilehash: 345d4fe218f5eed433204622bd47481628ec810f
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: a949c9b34e299e0dc4eccbb62f4b4ebb38d6ccb9
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87874054"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186704"
 ---
 # <a name="get-started-with-log-queries-in-azure-monitor"></a>Introdução às consultas de log no Azure Monitor
 
 > [!NOTE]
-> Você poderá trabalhar com este exercício em seu próprio ambiente se estiver coletando dados de pelo menos uma máquina virtual. Caso contrário, use nosso [Ambiente de demonstração](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring_Logs/DemoLogsBlade), que inclui muitos dados de exemplo.  Se você já sabe como consultar em KQL, mas precisa apenas criar rapidamente consultas úteis com base em tipos de recurso, confira o [painel de consultas de exemplo salvas](saved-queries.md).
+> Você poderá trabalhar com este exercício em seu próprio ambiente se estiver coletando dados de pelo menos uma máquina virtual. Caso contrário, use nosso [Ambiente de demonstração](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring_Logs/DemoLogsBlade), que inclui muitos dados de exemplo.  Se você já sabe como consultar em KQL, mas precisa apenas criar rapidamente consultas úteis com base em tipos de recurso, confira o [painel de consultas de exemplo salvas](./example-queries.md).
 
 Neste tutorial, você aprenderá a escrever consultas de log no Azure Monitor. Ele irá ensiná-lo como para:
 
@@ -28,7 +28,7 @@ Neste tutorial, você aprenderá a escrever consultas de log no Azure Monitor. E
 - Definir e usar campos personalizados
 - Agregar e agrupar resultados
 
-Para obter um tutorial sobre como usar o Log Analytics no portal do Azure, confira [Introdução ao Log Analytics do Azure Monitor](get-started-portal.md).<br>
+Para obter um tutorial sobre como usar o Log Analytics no portal do Azure, confira [Introdução ao Log Analytics do Azure Monitor](./log-analytics-tutorial.md).<br>
 Para obter mais detalhes sobre consultas de log no Azure Monitor, confira [Visão geral de consultas de log no Azure Monitor](log-query-overview.md).
 
 Acompanhe com uma versão em vídeo deste tutorial abaixo:
@@ -171,7 +171,7 @@ O exemplo anterior gera esta saída:
 Você também pode usar **projeto** para renomear colunas e definir novos. O exemplo a seguir usa o projeto para fazer o seguinte:
 
 * Selecione apenas o *computador* e *TimeGenerated* colunas originais.
-* Renomeie o *atividade* coluna *EventDetails*.
+* Exibe a coluna *Atividade* como *EventDetails*.
 * Criar uma nova coluna chamada *EventCode*. A função **substring ()** é usada para obter apenas os quatro primeiros caracteres do campo Activity.
 
 
@@ -192,7 +192,7 @@ SecurityEvent
 ## <a name="summarize-aggregate-groups-of-rows"></a>Resumo: agregar grupos de linhas
 Use **resumir** para identificar grupos de registros, de acordo com uma ou mais colunas, e aplicar agregações a eles. O uso mais comum de **resumir** é a *contagem*, que retorna o número de resultados em cada grupo.
 
-A consulta a seguir examina todos os *Perf* registros de última hora, agrupa-os por *ObjectName*e conta os registros em cada grupo: 
+A consulta a seguir examina todos os *Perf* registros de última hora, agrupa-os por *ObjectName* e conta os registros em cada grupo: 
 ```Kusto
 Perf
 | where TimeGenerated > ago(1h)
@@ -244,7 +244,7 @@ Para tornar a saída mais clara, selecione-a como um gráfico de tempo, mostrand
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre como usar dados de cadeia de caracteres em uma consulta de log com [Trabalhe com cadeias de caracteres nas consultas de log no Azure Monitor](string-operations.md).
-- Saiba mais sobre como agregar dados em uma consulta de log com [Agregações avançadas nas consultas de log no Azure Monitor](advanced-aggregations.md).
-- Saiba como unir dados de várias tabelas com [Junções nas consultas de log do Azure Monitor](joins.md).
+- Saiba mais sobre como usar dados de cadeia de caracteres em uma consulta de log com [Trabalhe com cadeias de caracteres nas consultas de log no Azure Monitor](/azure/data-explorer/kusto/query/samples?&pivots=azuremonitor#string-operations).
+- Saiba mais sobre como agregar dados em uma consulta de log com [Agregações avançadas nas consultas de log no Azure Monitor](/azure/data-explorer/write-queries#advanced-aggregations).
+- Saiba como unir dados de várias tabelas com [Junções nas consultas de log do Azure Monitor](/azure/data-explorer/kusto/query/samples?&pivots=azuremonitor#joins).
 - Obtenha a documentação sobre toda a linguagem de consulta Kusto na [referência da linguagem KQL](/azure/kusto/query/).

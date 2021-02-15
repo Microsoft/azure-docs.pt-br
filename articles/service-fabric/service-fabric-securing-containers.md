@@ -4,17 +4,17 @@ description: Saiba como importar arquivos de certificado para um serviço de con
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 426aa2ebbfb87fe2c80e0d1aff3eeecbe0e2472d
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 219882a3f7f6db665f1ec311098ef53464773b71
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89050736"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92313692"
 ---
 # <a name="import-a-certificate-file-into-a-container-running-on-service-fabric"></a>Importe um arquivo de certificado para um contêiner em execução no Service Fabric
 
 > [!NOTE]
-> Para Service Fabric clusters em execução no Azure, é recomendável usar [Service Fabric identidade gerenciada do aplicativo](https://docs.microsoft.com/azure/service-fabric/concepts-managed-identity) para provisionar certificados de aplicativo de dentro de um contêiner. A identidade gerenciada fornece isolamento de segredos e certificados no nível de serviço e permite que o provisionamento de certificado de aplicativo faça parte do fluxo de trabalho do aplicativo, em vez do fluxo de trabalho da infraestrutura. O mecanismo CertificateRef será preterido em uma versão futura.
+> Para Service Fabric clusters em execução no Azure, é recomendável usar [Service Fabric identidade gerenciada do aplicativo](./concepts-managed-identity.md) para provisionar certificados de aplicativo de dentro de um contêiner. A identidade gerenciada fornece isolamento de segredos e certificados no nível de serviço e permite que o provisionamento de certificado de aplicativo faça parte do fluxo de trabalho do aplicativo, em vez do fluxo de trabalho da infraestrutura. O mecanismo CertificateRef será preterido em uma versão futura.
 
 Você pode proteger seus serviços de contêiner especificando um certificado. O Service Fabric fornece um mecanismo para serviços dentro de um contêiner para acessar um certificado que está instalado em nós em um cluster do Windows ou Linux (versão 5.7 ou superior). O certificado deve ser instalado em um repositório de certificados na LocalMachine em todos os nós do cluster. A chave privada correspondente ao certificado deve estar disponível, acessível e, no Windows, exportável. As informações do certificado são fornecidas no manifesto do aplicativo sob a marca `ContainerHostPolicies`, como mostra o snippet de código a seguir:
 

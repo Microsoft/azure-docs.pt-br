@@ -1,6 +1,6 @@
 ---
-title: O que é o SQL do Azure no Edge (visualização)?
-description: Saiba mais sobre o SQL do Azure no Edge (visualização)
+title: O que é o Azure SQL Edge?
+description: Saiba mais sobre o Azure SQL Edge
 keywords: introdução ao SQL do Azure no Edge, o que é o SQL do Azure no Edge, visão geral do SQL do Azure no Edge
 services: sql-edge
 ms.service: sql-edge
@@ -9,27 +9,31 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 2c96e4b7baa2c463c42db9440cadb3cb396fde1b
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: a74e12a5e9bdd2dfdbc6ac07b66798e517f6f426
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88642462"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395063"
 ---
-# <a name="what-is-azure-sql-edge-preview"></a>O que é o SQL do Azure no Edge (visualização)?
+# <a name="what-is-azure-sql-edge"></a>O que é o Azure SQL Edge?
 
-O SQL do Azure no Edge (visualização) é um mecanismo otimizado de banco de dados relacional projetado para implantações de IoT e IoT Edge. Ele oferece funcionalidades para a criação de uma camada de processamento e armazenamento de dados de alto desempenho para aplicativos e soluções de IoT. O SQL do Azure no Edge fornece recursos para transmitir, processar e analisar relacionais e não relacionais, como JSON, gráfico e dados de série temporal, o que o torna a escolha certa para uma variedade de aplicativos de IoT modernos.
+O Azure SQL Edge é um mecanismo de banco de dados relacional otimizado voltado para implantações de IoT e IoT Edge. Ele oferece funcionalidades para a criação de uma camada de processamento e armazenamento de dados de alto desempenho para aplicativos e soluções de IoT. O SQL do Azure no Edge fornece recursos para transmitir, processar e analisar relacionais e não relacionais, como JSON, gráfico e dados de série temporal, o que o torna a escolha certa para uma variedade de aplicativos de IoT modernos.
 
-O Azure SQL Edge foi criado com base nas versões mais recentes do Microsoft SQL Mecanismo de Banco de Dados (/SQL/SQL-Server/SQL-Server-technical-documentation? TOC =/Azure/Azure-SQL-Edge/toc.js), que fornece recursos de desempenho, segurança e processamento de consulta líderes do setor. Desde que o Azure SQL Edge se baseia no mesmo mecanismo que [SQL Server](/sql/sql-server/sql-server-technical-documentation?toc=/azure/azure-sql-edge/toc.json) e no [Azure SQL](https://docs.microsoft.com/azure/azure-sql/), ele fornece a mesma área de superfície de programação T-SQL que torna o desenvolvimento de aplicativos ou soluções mais fácil e rápido e, ao mesmo tempo, torna a portabilidade do aplicativo entre dispositivos IOT Edge, data centers e a nuvem diretamente em frente.
+O Azure SQL Edge foi criado com base nas versões mais recentes do [SQL Server mecanismo de banco de dados](/sql/sql-server/sql-server-technical-documentation), que fornece recursos de desempenho, segurança e processamento de consulta líderes do setor. Como o Azure SQL Edge é criado no mesmo mecanismo que [SQL Server](/sql/sql-server/sql-server-technical-documentation) e [SQL do Azure](../azure-sql/index.yml), ele fornece a mesma área de superfície de Programação Transact-SQL (T-SQL) que torna o desenvolvimento de aplicativos ou soluções mais fácil e rápido e torna a portabilidade do aplicativo entre IOT Edge dispositivos, data centers e a nuvem diretamente em frente.
 
-> [!NOTE]
-> Atualmente, o SQL do Azure no Edge está na versão de visualização e, como tal, não deve ser usado em ambientes de produção.
+O que é o vídeo do Azure SQL Edge no Channel 9:
+> [!VIDEO https://channel9.msdn.com/Shows/Data-Exposed/What-is-Azure-SQL-Edge/player]
 
 ## <a name="deployment-models"></a>Modelos de implantação
 
-O SQL do Azure no Edge está disponível no Azure Marketplace e pode ser implantado como um módulo para o [Azure IoT Edge](../iot-edge/about-iot-edge.md). Para obter mais informações, consulte o artigo [Implantar o SQL do Azure no Edge](deploy-portal.md).<br>
+O Azure SQL Edge dá suporte a dois modos de implantação.
+
+- Implantação conectada por meio do Azure IoT Edge: o Azure SQL Edge está disponível no Azure Marketplace e pode ser implantado como um módulo para [Azure IOT Edge](../iot-edge/about-iot-edge.md). Para obter mais informações, consulte o artigo [Implantar o SQL do Azure no Edge](deploy-portal.md).<br>
 
 ![Diagrama de visão geral do SQL do Azure no Edge](media/overview/overview.png)
+
+- Implantação desconectada: as imagens de contêiner do Azure SQL Edge podem ser extraídas do Hub do Docker e implantadas como um contêiner autônomo do Docker ou em um cluster kubernetes. Para obter mais informações, consulte [implantar o Azure SQL Edge com o Docker](disconnected-deployment.md) e [implantar um contêiner do Azure SQL Edge no kubernetes](deploy-kubernetes.md).
 
 ## <a name="editions-of-sql-edge"></a>Edições do SQL do Azure no Edge
 
@@ -38,11 +42,11 @@ O SQL no Edge está disponível com duas edições ou planos de software diferen
    |**Plano**  |**Descrição**  |
    |---------|---------|
    |Desenvolvedor do SQL do Azure no Edge  |  No SKU somente de desenvolvimento, cada contêiner do SQL do Azure no Edge é limitado a até 4 núcleos e 32 GB de memória.  |
-   |SQL do Azure no Edge    |  No SKU de produção, cada contêiner do SQL do Azure no Edge é limitado a até 8 núcleos e 64 GB de memória. |
+   |SQL do Azure no Edge    |  SKU de produção, cada contêiner do SQL Edge é limitado a até 8 núcleos e 64 GB de memória. |
 
 ## <a name="pricing-and-availability"></a>Preços e disponibilidade
 
-O SQL do Azure no Edge está atualmente em visualização. Para obter mais informações sobre os preços e a disponibilidade, consulte [SQL do Azure no Edge](https://azure.microsoft.com/services/sql-edge/).
+O Azure SQL Edge já está disponível para o público geral. Para obter mais informações sobre os preços e a disponibilidade em regiões específicas, consulte [Azure SQL Edge](https://azure.microsoft.com/services/sql-edge/).
 
 > [!IMPORTANT]
 > Para entender as diferenças de recursos entre o SQL do Azure no Edge e o SQL Server, bem como as diferenças entre as diferentes opções do SQL do Azure no Edge, consulte [recursos com suporte do SQL do Azure no Edge](features.md).
@@ -67,7 +71,7 @@ O SQL do Azure no Edge torna o desenvolvimento e a manutenção de aplicativos m
 - [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms/): um aplicativo cliente livre e que pode ser baixado para gerenciar qualquer infraestrutura SQL, do SQL Server ao Banco de Dados SQL.
 - [SQL Server Data Tools no Visual Studio](/sql/ssdt/download-sql-server-data-tools-ssdt/): um aplicativo cliente livre que pode ser baixado para o desenvolvimento de bancos de dados relacionais do SQL Server, bancos de dados SQL, pacotes do Integration Services, modelos de dados do Analysis Services e relatórios do Reporting Services.
 - [Azure Data Studio](/sql/azure-data-studio/what-is/): uma ferramenta gratuita e baixável de banco de dados multiplataforma para profissionais de dados que usam a família Microsoft de plataformas de dados locais e na nuvem em Windows, macOS e Linux.
-- [Visual Studio Code](https://code.visualstudio.com/docs): um editor de código gratuito de software livre que pode ser baixado para Windows, macOS e Linux. Ele dá suporte a extensões, incluindo a [extensão mssql](https://aka.ms/mssql-marketplace) para consultar o Microsoft SQL Server, o Banco de Dados SQL do Azure e o SQL Data Warehouse.
+- [Visual Studio Code](https://code.visualstudio.com/docs): um editor de código gratuito de software livre que pode ser baixado para Windows, macOS e Linux. Ele dá suporte a extensões, incluindo a [extensão MSSQL](https://aka.ms/mssql-marketplace) para consultar Microsoft SQL Server, banco de dados SQL do Azure e Azure Synapse Analytics.
 
 
 ## <a name="next-steps"></a>Próximas etapas

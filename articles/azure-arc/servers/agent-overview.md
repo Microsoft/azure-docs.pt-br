@@ -1,18 +1,21 @@
 ---
 title: Visão geral do agente do Connected Machine do Windows
-description: Este artigo fornece uma visão geral detalhada do agente de servidores habilitados para Arc do Azure (versão prévia) disponível, que dá suporte ao monitoramento de máquinas virtuais hospedadas em ambientes híbridos.
-ms.date: 08/06/2020
+description: Este artigo fornece uma visão geral detalhada do agente de servidores habilitados para Arc do Azure disponível, que dá suporte ao monitoramento de máquinas virtuais hospedadas em ambientes híbridos.
+ms.date: 02/03/2021
 ms.topic: conceptual
-ms.openlocfilehash: d922652537034bef258c5bcde78fb178b092ed16
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: ed77ee00510fedaf42226081fcf11c4753b8a63a
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212976"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99626301"
 ---
-# <a name="overview-of-azure-arc-enabled-servers-preview-agent"></a>Visão geral do agente de servidores habilitados para Arc do Azure (versão prévia)
+# <a name="overview-of-azure-arc-enabled-servers-agent"></a>Visão geral do agente de servidores habilitados para Arc do Azure
 
-O agente de computador conectado de servidores habilitados para Arc (visualização) do Azure permite que você gerencie seus computadores Windows e Linux hospedados fora do Azure em sua rede corporativa ou em outro provedor de nuvem. Este artigo fornece uma visão geral detalhada do agente, dos requisitos do sistema e da rede e dos diferentes métodos de implantação.
+O agente de máquina conectado de servidores habilitados para Arc do Azure permite que você gerencie seus computadores Windows e Linux hospedados fora do Azure em sua rede corporativa ou em outro provedor de nuvem. Este artigo fornece uma visão geral detalhada do agente, dos requisitos do sistema e da rede e dos diferentes métodos de implantação.
+
+>[!NOTE]
+>A partir da versão geral dos servidores habilitados para Arc do Azure em setembro de 2020, todas as versões de pré-lançamento do agente do computador conectado do Azure (agentes com versões inferiores a 1,0) estão sendo **preteridas** até **2 de fevereiro de 2021**.  Este período de tempo permite que você atualize para a versão 1,0 ou superior antes que os agentes de pré-lançamento não possam mais se comunicar com o serviço de servidores habilitados para Arc do Azure.
 
 ## <a name="agent-component-details"></a>Detalhes do componente do agente
 
@@ -20,7 +23,7 @@ O pacote do agente do computador conectado do Azure contém vários componentes 
 
 * O serviço de metadados de instância híbrida (HIMDS) gerencia a conexão com o Azure e a identidade do Azure do computador conectado.
 
-* O agente de configuração de convidado fornece a funcionalidade de configuração de convidado e política de convidado, como avaliar se o computador está em conformidade com as políticas necessárias.
+* O agente de configuração de convidado fornece In-Guest funcionalidade de configuração de convidado e política, como avaliar se o computador está em conformidade com as políticas necessárias.
 
     Observe o seguinte comportamento com Azure Policy [configuração de convidado](../../governance/policy/concepts/guest-configuration.md) para um computador desconectado:
 
@@ -28,7 +31,7 @@ O pacote do agente do computador conectado do Azure contém vários componentes 
     * A atribuição de convidado é armazenada localmente por 14 dias. Dentro do período de 14 dias, se o agente da máquina conectada se reconectar ao serviço, as atribuições de política serão reaplicadas.
     * As atribuições são excluídas após 14 dias e não são reatribuídas à máquina após o período de 14 dias.
 
-* O agente de extensão gerencia extensões de VM, incluindo instalar, desinstalar e atualizar. As extensões são baixadas do Azure e copiadas para a `%SystemDrive%\AzureConnectedMachineAgent\ExtensionService\downloads` pasta no Windows e para o Linux para o `/opt/GC_Ext/downloads` . No Windows, a extensão é instalada no caminho a seguir `%SystemDrive%\Packages\Plugins\<extension>` e, no Linux, a extensão é instalada no `/var/lib/waagent/<extension>` .
+* O agente de extensão gerencia extensões de VM, incluindo instalar, desinstalar e atualizar. As extensões são baixadas do Azure e copiadas para a `%SystemDrive%\%ProgramFiles%\AzureConnectedMachineAgent\ExtensionService\downloads` pasta no Windows e para o Linux para o `/opt/GC_Ext/downloads` . No Windows, a extensão é instalada no caminho a seguir `%SystemDrive%\Packages\Plugins\<extension>` e, no Linux, a extensão é instalada no `/var/lib/waagent/<extension>` .
 
 ## <a name="download-agents"></a>Baixar agentes
 
@@ -44,28 +47,30 @@ O agente do Azure Connected Machine para Windows e Linux pode ser atualizado par
 
 ### <a name="supported-operating-systems"></a>Sistemas operacionais compatíveis
 
-Há suporte oficial para as seguintes versões do sistema operacional Windows e Linux para o agente do Azure Connected Machine: 
+Há suporte oficial para as seguintes versões do sistema operacional Windows e Linux para o agente do Azure Connected Machine:
 
-- Windows Server 2012 R2 e versões posteriores (incluindo o Windows Server Core)
-- Ubuntu 16, 4 e 18, 4 (x64)
+- Windows Server 2008 R2, Windows Server 2012 R2 e superior (incluindo Server Core)
+- Ubuntu 16, 4 e 18, 4 LTS (x64)
 - CentOS Linux 7 (x64)
-- SUSE Linux Enterprise Server (SLES) 15 (x64)
-- Red Hat Enterprise Linux (RHEL) 7 (x64)
+- SLES (SUSE Linux Enterprise Server) 15 (x64)
+- RHEL (Red Hat Enterprise Linux) 7 (x64)
 - Amazon Linux 2 (x64)
+- Oracle Linux 7
 
->[!NOTE]
->Essa versão prévia do agente do Connected Machine para Windows só é compatível com o Windows Server configurado para usar o idioma inglês.
->
+> [!WARNING]
+> O nome do host do Linux ou do computador Windows não pode usar nenhuma das palavras reservadas nem marcas no nome. Caso contrário, a tentativa de registrar o computador conectado com o Azure falhará. Confira [Resolver erros de nome de recurso reservado](../../azure-resource-manager/templates/error-reserved-resource-name.md) para obter uma lista das palavras reservadas.
 
 ### <a name="required-permissions"></a>Permissões necessárias
 
 * Para os computadores de integração, você é membro da função **Integração do Azure Connected Machine**.
 
-* Para ler, modificar, reintegrer e excluir um computador, você é membro da função de **administrador de recursos do computador conectado do Azure** . 
+* Para ler, modificar e excluir um computador, você é membro da função de **administrador de recursos do computador conectado do Azure** . 
 
 ### <a name="azure-subscription-and-service-limits"></a>Limites de serviço e assinatura do Azure
 
-Antes de configurar seus computadores com os servidores habilitados para Arc do Azure (versão prévia), examine os limites de Azure Resource Manager de [assinatura](../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits) e [os limites de grupo de recursos](../../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits) para planejar o número de computadores a serem conectados.
+Antes de configurar seus computadores com os servidores habilitados para Arc do Azure, examine os limites de [assinatura](../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits) Azure Resource Manager e [os limites de grupo de recursos](../../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits) para planejar o número de computadores a serem conectados.
+
+Os servidores habilitados para Arc do Azure dão suporte a até 5.000 instâncias de computador em um grupo de recursos.
 
 ### <a name="transport-layer-security-12-protocol"></a>Protocolo de segurança de camada de transporte 1,2
 
@@ -78,14 +83,20 @@ Para garantir a segurança de dados em trânsito para o Azure, incentivamos voc�
 
 ### <a name="networking-configuration"></a>Configuração de rede
 
-O agente do Connected Machine para Linux e Windows comunica a saída com segurança ao Azure Arc pela porta TCP 443. Se o computador se conectar por meio de um firewall ou servidor proxy para se comunicar pela Internet, examine os requisitos abaixo para entender os requisitos da configuração de rede.
+O agente do Connected Machine para Linux e Windows comunica a saída com segurança ao Azure Arc pela porta TCP 443. Se o computador se conectar por meio de um firewall ou servidor proxy para se comunicar pela Internet, examine o seguinte para entender os requisitos de configuração de rede.
 
-Se a conectividade de saída estiver restrita por seu firewall ou servidor proxy, verifique se as URLs listadas abaixo não estão bloqueadas. Se você permitir apenas os intervalos de IP ou nomes de domínio necessários para o agente se comunicar com o serviço, deverá permitir também o acesso às Marcas de Serviço e URLs a seguir.
+> [!NOTE]
+> Os servidores habilitados para ARC não dão suporte ao uso de um [Gateway de log Analytics](../../azure-monitor/platform/gateway.md) como proxy para o agente de computador conectado.
+>
+
+Se a conectividade de saída estiver restrita por seu firewall ou servidor proxy, verifique se as URLs listadas abaixo não estão bloqueadas. Quando você permite apenas os intervalos IP ou nomes de domínio necessários para que o agente se comunique com o serviço, é necessário permitir o acesso às seguintes marcas de serviço e URLs.
 
 Marcas de serviço:
 
 * AzureActiveDirectory
 * AzureTrafficManager
+* AzureResourceManager
+* AzureArcInfrastructure
 
 URLs:
 
@@ -93,40 +104,47 @@ URLs:
 |---------|---------|
 |`management.azure.com`|Azure Resource Manager|
 |`login.windows.net`|Azure Active Directory|
+|`login.microsoftonline.com`|Azure Active Directory|
 |`dc.services.visualstudio.com`|Application Insights|
-|`agentserviceapi.azure-automation.net`|Configuração de convidado|
-|`*-agentservice-prod-1.azure-automation.net`|Configuração de convidado|
 |`*.guestconfiguration.azure.com` |Configuração de convidado|
 |`*.his.arc.azure.com`|Serviço de identidade híbrida|
+|`www.office.com`|Office 365|
 
-Para obter uma lista de endereços IP para cada tag de serviço/região, confira o arquivo JSON – [Intervalos de IP do Azure e marcas de serviço – nuvem pública](https://www.microsoft.com/download/details.aspx?id=56519). A Microsoft publica atualizações semanais que contêm cada serviço do Azure e os intervalos de IP que ele usa. Para obter mais informações, confira [Marcas de serviço](../../virtual-network/security-overview.md#service-tags).
+Os agentes de visualização (versão 0,11 e inferior) também exigem acesso às seguintes URLs:
 
-As URLs na tabela anterior são necessárias, além das informações sobre o intervalo de endereços IP da Marca de Serviço, porque a maioria dos serviços não tem um registro de Marca de Serviço no momento. Como tal, os endereços IP estão sujeitos a alterações. Se os intervalos de endereço IP forem necessários para sua configuração de firewall, a Marca de Serviço **AzureCloud** deverá ser usada para permitir o acesso a todos os serviços do Azure. Não desabilite o monitoramento de segurança ou a inspeção dessas URLs. Permita-os como você faria com outro tráfego de Internet.
+| recurso de agente | Descrição |
+|---------|---------|
+|`agentserviceapi.azure-automation.net`|Configuração de convidado|
+|`*-agentservice-prod-1.azure-automation.net`|Configuração de convidado|
+
+Para obter uma lista de endereços IP para cada tag de serviço/região, confira o arquivo JSON – [Intervalos de IP do Azure e marcas de serviço – nuvem pública](https://www.microsoft.com/download/details.aspx?id=56519). A Microsoft publica atualizações semanais que contêm cada serviço do Azure e os intervalos de IP que ele usa. Essas informações no arquivo JSON são a lista pontual atual dos intervalos de IP que correspondem a cada marca de serviço. Os endereços IP estão sujeitos a alterações. Se os intervalos de endereço IP forem necessários para sua configuração de firewall, a Marca de Serviço **AzureCloud** deverá ser usada para permitir o acesso a todos os serviços do Azure. Não desabilite o monitoramento de segurança ou a inspeção dessas URLs. Permita-os como você faria com outro tráfego de Internet.
+
+Para obter mais informações, consulte [visão geral das marcas de serviço](../../virtual-network/service-tags-overview.md).
 
 ### <a name="register-azure-resource-providers"></a>Registrar provedores de recursos do Azure
 
-Os servidores habilitados para Arc do Azure (visualização) dependem dos seguintes provedores de recursos do Azure em sua assinatura para usar este serviço:
+Os servidores habilitados do Azure Arc dependem dos seguintes provedores de recursos do Azure na sua assinatura para usar esse serviço:
 
 * **Microsoft.HybridCompute**
 * **Microsoft.GuestConfiguration**
 
 Se não estiverem registrados, você poderá registrá-los usando os seguintes comandos:
 
-Azure PowerShell:
+Azure PowerShell:
 
 ```azurepowershell-interactive
 Login-AzAccount
-Set-AzContext -SubscriptionId [subscription you want to onboard]
-Register-AzResourceProvider -ProviderNamespace Microsoft.HybridCompute
-Register-AzResourceProvider -ProviderNamespace Microsoft.GuestConfiguration
+Set-AzContext -SubscriptionId [subscription you want to onboard]
+Register-AzResourceProvider -ProviderNamespace Microsoft.HybridCompute
+Register-AzResourceProvider -ProviderNamespace Microsoft.GuestConfiguration
 ```
 
-CLI do Azure:
+CLI do Azure:
 
 ```azurecli-interactive
-az account set --subscription "{Your Subscription Name}"
-az provider register --namespace 'Microsoft.HybridCompute'
-az provider register --namespace 'Microsoft.GuestConfiguration'
+az account set --subscription "{Your Subscription Name}"
+az provider register --namespace 'Microsoft.HybridCompute'
+az provider register --namespace 'Microsoft.GuestConfiguration'
 ```
 
 Você também pode registrar os provedores de recursos no portal do Azure seguindo as etapas no [portal do Azure](../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal).
@@ -134,6 +152,9 @@ Você também pode registrar os provedores de recursos no portal do Azure seguin
 ## <a name="installation-and-configuration"></a>Instalação e configuração
 
 Conectar computadores em seu ambiente híbrido diretamente com o Azure pode ser feito usando métodos diferentes, dependendo das suas necessidades. A tabela a seguir realça cada método para determinar qual funciona melhor para sua organização.
+
+> [!IMPORTANT]
+> O agente do computador conectado não pode ser instalado em uma máquina virtual do Windows do Azure. Se você tentar, a instalação detectará isso e reverterá.
 
 | Método | Descrição |
 |--------|-------------|
@@ -151,7 +172,7 @@ O agente do Connected Machine para Windows pode ser instalado usando um destes t
 * Manualmente, ao executar o pacote do Windows Installer `AzureConnectedMachineAgent.msi` do Shell de comando.
 * De uma sessão do PowerShell usando um método com script.
 
-Após a instalação do agente do Connected Machine para Windows, serão aplicadas as seguintes alterações de configuração adicionais em todo o sistema.
+Depois de instalar o agente de máquina conectado para Windows, as seguintes alterações de configuração em todo o sistema são aplicadas.
 
 * As pastas de instalação a seguir são criadas durante a configuração.
 
@@ -161,16 +182,17 @@ Após a instalação do agente do Connected Machine para Windows, serão aplicad
     |%ProgramData%\AzureConnectedMachineAgent |Contém os arquivos de configuração do agente.|
     |%ProgramData%\AzureConnectedMachineAgent\Tokens |Contém os tokens adquiridos.|
     |%ProgramData%\AzureConnectedMachineAgent\Config |Contém o arquivo de configuração do agente `agentconfig.json` com as suas informações de registro do serviço.|
-    |%Systemdrive%\Arquivos de Files\ArcConnectedMachineAgent\ExtensionService\GC | Caminho de instalação que contém os arquivos do agente de configuração do convidado. |
+    |%ProgramFiles%\ArcConnectedMachineAgent\ExtensionService\GC | Caminho de instalação que contém os arquivos do agente de configuração do convidado. |
     |%ProgramData%\GuestConfig |Contém as políticas (aplicadas) do Azure.|
-    |%SystemDrive%\AzureConnectedMachineAgent\ExtensionService\downloads | As extensões são baixadas do Azure e copiadas aqui.|
+    |%ProgramFiles%\AzureConnectedMachineAgent\ExtensionService\downloads | As extensões são baixadas do Azure e copiadas aqui.|
 
 * Os seguintes serviços do Windows são criados no computador de destino durante a instalação do agente.
 
     |Nome do serviço |Nome de exibição |Nome do processo |Descrição |
     |-------------|-------------|-------------|------------|
-    |himds |Serviço de Metadados de Instância do Azure Híbrido |himds.exe |Esse serviço implementa o serviço de metadados de instância do Azure (IMDS) para gerenciar a conexão com o Azure e a identidade do Azure do computador conectado.|
-    |DscService |Serviço de Configuração de Convidado |dsc_service.exe |A base de código de configuração de estado desejado (DSC v2) usada no Azure para implementar a política no convidado.|
+    |himds |Serviço de Metadados de Instância do Azure Híbrido |himds |Esse serviço implementa o serviço de metadados de instância do Azure (IMDS) para gerenciar a conexão com o Azure e a identidade do Azure do computador conectado.|
+    |GCArcService |Serviço de arco de configuração de convidado |gc_service |Monitora a configuração de estado desejado da máquina.|
+    |ExtensionService |Serviço de extensão de configuração de convidado | gc_service |Instala as extensões necessárias para direcionar o computador.|
 
 * As variáveis ambientais a seguir são criadas durante a instalação do agente.
 
@@ -187,14 +209,14 @@ Após a instalação do agente do Connected Machine para Windows, serão aplicad
     |%ProgramData%\AzureConnectedMachineAgent\Log\azcmagent.log |Contém a saída dos comandos da ferramenta azcmagent, quando o argumento verbose (-v) é usado.|
     |%ProgramData%\GuestConfig\gc_agent_logs\gc_agent.log |Registra detalhes da atividade de serviço de DSC,<br> em particular, a conectividade entre o serviço HIMDS e o Azure Policy.|
     |%ProgramData%\GuestConfig\gc_agent_logs\gc_agent_telemetry.txt |Registra os detalhes sobre o log detalhado e a telemetria do serviço de DSC.|
-    |Ext_mgr_logs%SystemDrive%\ProgramData\GuestConfig\|Registra os detalhes sobre o componente do agente de extensão.|
-    |Extension_logs%SystemDrive%\ProgramData\GuestConfig\\<Extension>|Registra os detalhes da extensão instalada.|
+    |Ext_mgr_logs%ProgramData%\GuestConfig\|Registra os detalhes sobre o componente do agente de extensão.|
+    |Extension_logs%ProgramData%\GuestConfig\\<Extension>|Registra os detalhes da extensão instalada.|
 
 * O grupo de segurança local **Aplicativos de extensão de agente híbridos** é criado.
 
 * Durante a desinstalação do agente, os artefatos a seguir não são removidos.
 
-    * %ProgramFiles%\AzureConnectedMachineAgent\Logs
+    * %ProgramData%\AzureConnectedMachineAgent\Log
     * %ProgramData%\AzureConnectedMachineAgent e subdiretórios
     * %ProgramData%\GuestConfig
 
@@ -202,7 +224,7 @@ Após a instalação do agente do Connected Machine para Windows, serão aplicad
 
 O agente do Connected Machine para Linux é fornecido no formato de pacote preferencial para a distribuição (.RPM ou .DEB) hospedada no [repositório de pacotes](https://packages.microsoft.com/) da Microsoft. O agente é instalado e configurado com o pacote de script do Shell [Install_linux_azcmagent.sh](https://aka.ms/azcmagent).
 
-Após a instalação do agente do Connected Machine para Linux, serão aplicadas as seguintes alterações de configuração adicionais em todo o sistema.
+Depois de instalar o agente de máquina conectado para Linux, as seguintes alterações de configuração em todo o sistema são aplicadas.
 
 * As pastas de instalação a seguir são criadas durante a configuração.
 
@@ -220,8 +242,9 @@ Após a instalação do agente do Connected Machine para Linux, serão aplicadas
 
     |Nome do serviço |Nome de exibição |Nome do processo |Descrição |
     |-------------|-------------|-------------|------------|
-    |himdsd. Service |Serviço de Metadados de Instância do Azure Híbrido |/opt/azcmagent/bin/himds |Esse serviço implementa o serviço de metadados de instância do Azure (IMDS) para gerenciar a conexão com o Azure e a identidade do Azure do computador conectado.|
-    |dscd.service |Serviço de Configuração de Convidado |/opt/DSC/dsc_linux_service |Essa é a base de código do Desired State Configuration (DSC v2) usada no Azure a fim de implementar a Política no Convidado.|
+    |himdsd. Service |Serviço do agente de computador conectado do Azure |himds |Esse serviço implementa o serviço de metadados de instância do Azure (IMDS) para gerenciar a conexão com o Azure e a identidade do Azure do computador conectado.|
+    |gcad.servce |Serviço de arco do GC |gc_linux_service |Monitora a configuração de estado desejado da máquina. |
+    |extd. Service |Serviço de extensão |gc_linux_service | Instala as extensões necessárias para direcionar o computador.|
 
 * Há vários arquivos de log disponíveis para solução de problemas. Eles são descritos na tabela a seguir.
 
@@ -232,7 +255,7 @@ Após a instalação do agente do Connected Machine para Linux, serão aplicadas
     |/opt/logs/dsc.log |Registra detalhes da atividade de serviço de DSC,<br> em particular, a conectividade entre o serviço do himds e o Azure Policy.|
     |/opt/logs/dsc.telemetry.txt |Registra os detalhes sobre o log detalhado e a telemetria do serviço de DSC.|
     |ext_mgr_logs/var/lib/GuestConfig/ |Registra os detalhes sobre o componente do agente de extensão.|
-    |extension_logs/var/log/GuestConfig/|Registra os detalhes da extensão instalada.|
+    |extension_logs/var/lib/GuestConfig/|Registra os detalhes da extensão instalada.|
 
 * As variáveis ambientais a seguir são criadas durante a instalação do agente. Estas variáveis são definidas em `/lib/systemd/system.conf.d/azcmagent.conf`.
 
@@ -248,4 +271,6 @@ Após a instalação do agente do Connected Machine para Linux, serão aplicadas
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para começar a avaliar os servidores habilitados para Arc do Azure (versão prévia), siga o artigo [conectar computadores híbridos ao Azure por meio do portal do Azure](onboard-portal.md).
+* Para começar a avaliar os servidores habilitados para Arc do Azure, siga o artigo [conectar computadores híbridos ao Azure por meio do portal do Azure](onboard-portal.md).
+
+* Informações de solução de problemas podem ser encontradas no [guia solucionar problemas do agente do computador conectado](troubleshoot-agent-onboard.md).

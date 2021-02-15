@@ -6,24 +6,24 @@ author: ms-puneet-nagpal
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: tutorial
-ms.date: 08/03/2020
+ms.date: 11/13/2020
 ms.author: punagpal
-ms.openlocfilehash: 04c732b857c06246bdc636f01afd2689c98c2b0d
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 6c364cf84bada2a951ef3f224ea836885f0e3c1e
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87831610"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636309"
 ---
 # <a name="tutorial-receive-device-data-through-azure-iot-hub"></a>Tutorial: Receber dados do dispositivo por meio do Hub IoT do Azure
 
-Com o Conector IoT do Azure para FHIR, você pode ingerir dados de dispositivos IoMT (Internet das Coisas Médicas) na API do Azure para FHIR. O guia de início rápido [Implantar o Conector IoT do Azure para FHIR (versão prévia) usando o portal do Azure](iot-fhir-portal-quickstart.md) mostrou um exemplo de dispositivo gerenciado pelo Azure IoT Central [enviando a telemetria](iot-fhir-portal-quickstart.md#connect-your-devices-to-iot) para o Conector IoT do Azure para FHIR. O conector IoT do Azure para FHIR também pode trabalhar com dispositivos provisionados e gerenciados por meio do Hub IoT do Azure. Este tutorial fornece o procedimento para conectar e rotear dados de dispositivo do Hub IoT do Azure para o conector IoT do Azure para FHIR.
+O Conector IoT do Azure para FHIR (Fast Healthcare Interoperability Resources&#174;)*fornece a você a capacidade de ingerir dados de dispositivos IoMT (Internet das Coisas Médicas) na API do Azure para FHIR. O guia de início rápido [Implantar o Conector IoT do Azure para FHIR (versão prévia) usando o portal do Azure](iot-fhir-portal-quickstart.md) mostrou um exemplo de dispositivo gerenciado pelo Azure IoT Central [enviando a telemetria](iot-fhir-portal-quickstart.md#connect-your-devices-to-iot) para o Conector IoT do Azure para FHIR. O conector IoT do Azure para FHIR também pode trabalhar com dispositivos provisionados e gerenciados por meio do Hub IoT do Azure. Este tutorial fornece o procedimento para conectar e rotear dados de dispositivo do Hub IoT do Azure para o conector IoT do Azure para FHIR.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma assinatura ativa do Azure: [crie uma gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - Recurso de API do Azure para FHIR com pelo menos um Conector IoT do Azure para FHIR – [implante o conector IoT do Azure para FHIR (versão prévia) usando o portal do Azure](iot-fhir-portal-quickstart.md)
-- Recurso do Hub IoT do Azure conectado com dispositivos reais ou simulados: [Criar um hub IoT usando o portal do Azure](https://docs.microsoft.com/azure/iot-hub/quickstart-send-telemetry-dotnet)
+- Recurso do Hub IoT do Azure conectado com dispositivos reais ou simulados: [Criar um hub IoT usando o portal do Azure](../iot-hub/quickstart-send-telemetry-dotnet.md)
 
 > [!TIP]
 > Se estiver usando um aplicativo de dispositivo simulado do Hub IoT do Azure, fique à vontade para escolher seu aplicativo preferido entre diferentes linguagens e sistemas compatíveis.
@@ -36,15 +36,15 @@ O conector IoT do Azure para FHIR usa uma instância do Hub de Eventos do Azure 
 
 ## <a name="connect-azure-iot-hub-with-the-azure-iot-connector-for-fhir-preview"></a>Conectar o Hub IoT do Azure com o Conector IoT do Azure para FHIR (versão prévia)
 
-O Hub IoT do Azure dá suporte a um recurso chamado [roteamento de mensagens](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c) que fornece a capacidade de enviar dados do dispositivo para vários serviços do Azure, como o Hub de Eventos, a conta de armazenamento e o Barramento de Serviço. O Conector IoT do Azure para FHIR aproveita esse recurso para se conectar e enviar dados do dispositivo do Hub IoT do Azure para o respectivo ponto de extremidade do Hub de Eventos.
+O Hub IoT do Azure dá suporte a um recurso chamado [roteamento de mensagens](../iot-hub/iot-hub-devguide-messages-d2c.md) que fornece a capacidade de enviar dados do dispositivo para vários serviços do Azure, como o Hub de Eventos, a conta de armazenamento e o Barramento de Serviço. O Conector IoT do Azure para FHIR aproveita esse recurso para se conectar e enviar dados do dispositivo do Hub IoT do Azure para o respectivo ponto de extremidade do Hub de Eventos.
 
 > [!NOTE] 
-> No momento, você só pode usar o comando do PowerShell ou da CLI para [criar o roteamento de mensagens](https://docs.microsoft.com/azure/iot-hub/tutorial-routing), porque o Conector IoT do Azure para o Hub de Eventos do FHRI não está hospedado na assinatura do cliente e, portanto, não estará visível para você por meio do portal do Azure. No entanto, depois que os objetos de rota de mensagem são adicionados por meio do PowerShell ou da CLI, eles ficam visíveis no portal do Azure e podem ser gerenciados nele.
+> No momento, você só pode usar o comando do PowerShell ou da CLI para [criar o roteamento de mensagens](../iot-hub/tutorial-routing.md), porque o Conector IoT do Azure para o Hub de Eventos do FHRI não está hospedado na assinatura do cliente e, portanto, não estará visível para você por meio do portal do Azure. No entanto, depois que os objetos de rota de mensagem são adicionados por meio do PowerShell ou da CLI, eles ficam visíveis no portal do Azure e podem ser gerenciados nele.
 
 A configuração de um roteamento de mensagens consiste em duas etapas.
 
 ### <a name="add-an-endpoint"></a>Adicionar um ponto de extremidade
-Essa etapa define um ponto de extremidade para o qual o Hub IoT roteará os dados. Crie esse ponto de extremidade usando o comando [Add-AzIotHubRoutingEndpoint](https://docs.microsoft.com/powershell/module/az.iothub/Add-AzIotHubRoutingEndpoint) do PowerShell ou o comando [az iot hub routing-endpoint create](https://docs.microsoft.com/cli/azure/iot/hub/routing-endpoint?#az-iot-hub-routing-endpoint-create) da CLI, como preferir.
+Essa etapa define um ponto de extremidade para o qual o Hub IoT roteará os dados. Crie esse ponto de extremidade usando o comando [Add-AzIotHubRoutingEndpoint](/powershell/module/az.iothub/Add-AzIotHubRoutingEndpoint) do PowerShell ou o comando [az iot hub routing-endpoint create](/cli/azure/iot/hub/routing-endpoint#az-iot-hub-routing-endpoint-create) da CLI, como preferir.
 
 Esta é a lista de parâmetros a serem usados com o comando para criar um ponto de extremidade:
 
@@ -59,9 +59,9 @@ Esta é a lista de parâmetros a serem usados com o comando para criar um ponto 
 |ConnectionString|connection-string|Cadeia de conexão para o Conector IoT do Azure para FHIR. Use o valor obtido na etapa anterior.|
 
 ### <a name="add-a-message-route"></a>Adicionar uma rota de mensagens
-Essa etapa define uma rota de mensagens usando o ponto de extremidade criado acima. Crie uma rota usando o comando [Add-AzIotHubRoute](https://docs.microsoft.com/powershell/module/az.iothub/Add-AzIoTHubRoute) do PowerShell ou o comando [az iot hub route create](https://docs.microsoft.com/cli/azure/iot/hub/route#az-iot-hub-route-create) da CLI, como preferir.
+Essa etapa define uma rota de mensagens usando o ponto de extremidade criado acima. Crie uma rota usando o comando [Add-AzIotHubRoute](/powershell/module/az.iothub/Add-AzIoTHubRoute) do PowerShell ou o comando [az iot hub route create](/cli/azure/iot/hub/route#az-iot-hub-route-create) da CLI, como preferir.
 
-Esta é a lista de parâmetros a serem usados com o comando para criar um ponto de extremidade:
+Esta é a lista de parâmetros a serem usados com o comando para adicionar uma rota de mensagem:
 
 |Parâmetro do PowerShell|Parâmetro da CLI|Descrição|
 |---|---|---|
@@ -113,6 +113,4 @@ Saiba como configurar o Conector IoT usando modelos de mapeamento FHIR e do disp
 >[!div class="nextstepaction"]
 >[Modelos de mapeamento do Conector IoT do Azure para FHIR](iot-mapping-templates.md)
 
-*No portal do Azure, o Conector IoT do Azure para FHIR é chamado de Conector IoT (versão prévia).
-
-FHIR é uma marca registrada da HL7, usada com permissão da HL7.
+*No portal do Azure, o Conector IoT do Azure para FHIR é chamado de Conector IoT (versão prévia). FHIR é uma marca registrada da HL7, usada com permissão da HL7.

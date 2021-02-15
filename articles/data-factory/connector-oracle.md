@@ -1,24 +1,20 @@
 ---
 title: Copiar dados de e para o Oracle usando o Azure Data Factory
 description: Saiba como copiar dados de armazenamentos de origem com suporte para um Oracle Database ou do Oracle para repositórios de coletor com suporte, usando Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
-ms.date: 07/24/2020
+ms.date: 09/28/2020
 ms.author: jingwang
-ms.openlocfilehash: bac673f5c8c8d6a4e2b368938a0c08c893518022
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: bba1ae991f2a4702a0d55a8dc3f6c7a44b9e7b65
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87171272"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100381334"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Copiar dados de e para o Oracle usando o Azure Data Factory
+
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
 > * [Versão 1](v1/data-factory-onprem-oracle-connector.md)
 > * [Versão atual](connector-oracle.md)
@@ -52,7 +48,7 @@ Especificamente, este conector Oracle oferece suporte a:
 > [!Note]
 > Não há suporte para servidor proxy do Oracle.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)] 
 
@@ -153,13 +149,13 @@ Para habilitar a criptografia na conexão do Oracle, há duas opções:
         "type": "Oracle",
         "typeProperties": {
             "connectionString": "Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;",
-            "password": { 
-                "type": "AzureKeyVaultSecret", 
-                "store": { 
-                    "referenceName": "<Azure Key Vault linked service name>", 
-                    "type": "LinkedServiceReference" 
-                }, 
-                "secretName": "<secretName>" 
+            "password": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
             }
         },
         "connectVia": {
@@ -221,7 +217,7 @@ Para copiar dados do Oracle, defina o tipo de fonte na atividade de cópia como 
 | partitionOptions | Especifica as opções de particionamento de dados usadas para carregar dados do Oracle. <br>Os valores permitidos são: **None** (padrão), **PhysicalPartitionsOfTable** e **DynamicRange**.<br>Quando uma opção de partição está habilitada (ou seja, não `None` ), o grau de paralelismo para carregar dados simultaneamente de um banco de dado Oracle é controlado pela [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) configuração na atividade de cópia. | Não |
 | partitionSettings | Especifique o grupo de configurações para o particionamento de dados. <br>Aplicar quando a opção de partição não estiver `None` . | Não |
 | partições | A lista de partições físicas que precisam ser copiadas. <br>Aplicar quando a opção de partição for `PhysicalPartitionsOfTable`. Se você usar uma consulta para recuperar os dados de origem, conecte `?AdfTabularPartitionName` na cláusula WHERE. Para obter um exemplo, consulte a seção [cópia paralela do Oracle](#parallel-copy-from-oracle) . | Não |
-| partitionColumnName | Especifique o nome da coluna de origem **no tipo de inteiro** que será usado pelo particionamento de intervalo para cópia paralela. Se não for especificado, a chave primária da tabela será detectada automaticamente e usada como a coluna de partição. <br>Aplicar quando a opção de partição for `DynamicRange`. Se você usar uma consulta para recuperar os dados de origem, conecte-se `?AdfRangePartitionColumnName` à cláusula WHERE. Para obter um exemplo, consulte a seção [cópia paralela do Oracle](#parallel-copy-from-oracle) . | Não |
+| partitionColumnName | Especifique o nome da coluna de origem **no tipo de inteiro** que será usado pelo particionamento de intervalo para cópia paralela. Se não for especificado, a chave primária da tabela será detectada automaticamente e usada como a coluna de partição. <br>Aplicar quando a opção de partição for `DynamicRange`. Se você usar uma consulta para recuperar os dados de origem, conecte-se  `?AdfRangePartitionColumnName` à cláusula WHERE. Para obter um exemplo, consulte a seção [cópia paralela do Oracle](#parallel-copy-from-oracle) . | Não |
 | partitionUpperBound | O valor máximo da coluna de partição para copiar dados. <br>Aplicar quando a opção de partição for `DynamicRange`. Se você usar uma consulta para recuperar os dados de origem, conecte `?AdfRangePartitionUpbound` na cláusula WHERE. Para obter um exemplo, consulte a seção [cópia paralela do Oracle](#parallel-copy-from-oracle) . | Não |
 | partitionLowerBound | O valor mínimo da coluna de partição para copiar dados. <br>Aplicar quando a opção de partição for `DynamicRange`. Se você usar uma consulta para recuperar os dados de origem, conecte `?AdfRangePartitionLowbound` na cláusula WHERE. Para obter um exemplo, consulte a seção [cópia paralela do Oracle](#parallel-copy-from-oracle) . | Não |
 
@@ -315,6 +311,9 @@ Quando você habilita a cópia particionada, o Data Factory executa consultas pa
 | Carga total de uma tabela grande, sem partições físicas, enquanto com uma coluna de inteiros para o particionamento de dados. | **Opções de partição**: partição de intervalo dinâmico.<br>**Coluna de partição**: especifique a coluna usada para particionar dados. Se não for especificado, a coluna de chave primária será usada. |
 | Carregue uma grande quantidade de dados usando uma consulta personalizada, com partições físicas. | **Opção de partição**: partições físicas da tabela.<br>**Consulta**: `SELECT * FROM <TABLENAME> PARTITION("?AdfTabularPartitionName") WHERE <your_additional_where_clause>`.<br>**Nome da partição**: Especifique os nomes de partição dos quais copiar dados. Se não for especificado, Data Factory detectará automaticamente as partições físicas na tabela que você especificou no conjunto de Oracle.<br><br>Durante a execução, Data Factory substitui `?AdfTabularPartitionName` pelo nome real da partição e envia para o Oracle. |
 | Carregue uma grande quantidade de dados usando uma consulta personalizada, sem partições físicas, enquanto com uma coluna de inteiros para o particionamento de dados. | **Opções de partição**: partição de intervalo dinâmico.<br>**Consulta**: `SELECT * FROM <TABLENAME> WHERE ?AdfRangePartitionColumnName <= ?AdfRangePartitionUpbound AND ?AdfRangePartitionColumnName >= ?AdfRangePartitionLowbound AND <your_additional_where_clause>`.<br>**Coluna de partição**: especifique a coluna usada para particionar dados. Você pode particionar em relação à coluna com tipo de dados Integer.<br>Limite **superior** da partição e limite **inferior da partição**: especifique se deseja filtrar a coluna de partição para recuperar dados somente entre o intervalo inferior e superior.<br><br>Durante a execução, Data Factory substitui `?AdfRangePartitionColumnName` , `?AdfRangePartitionUpbound` e `?AdfRangePartitionLowbound` pelo nome real da coluna e os intervalos de valores de cada partição e envia ao Oracle. <br>Por exemplo, se a coluna de partição "ID" for definida com o limite inferior como 1 e o limite superior como 80, com conjunto de cópia paralela como 4, Data Factory recuperará dados por 4 partições. Suas IDs estão entre [1, 20], [21, 40], [41, 60] e [61, 80], respectivamente. |
+
+> [!TIP]
+> Ao copiar dados de uma tabela não particionada, você pode usar a opção de partição "intervalo dinâmico" para particionar em uma coluna de inteiros. Se os dados de origem não tiverem esse tipo de coluna, você poderá aproveitar [ORA_HASH]( https://docs.oracle.com/database/121/SQLRF/functions136.htm) função na consulta de origem para gerar uma coluna e usá-la como coluna de partição.
 
 **Exemplo: consulta com partição física**
 

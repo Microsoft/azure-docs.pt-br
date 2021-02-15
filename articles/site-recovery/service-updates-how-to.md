@@ -1,18 +1,18 @@
 ---
 title: Atualizações e atualizações de componentes no Azure Site Recovery
 description: Fornece uma visão geral de Azure Site Recovery atualizações de serviço e atualizações de componentes.
-author: rajani-janaki-ram
+author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.author: rajanaki
-ms.openlocfilehash: 483d2152f3af13c82830528ea73e837fe3788ca4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: ramamill
+ms.openlocfilehash: a1ea8b6fb9800d796670161288be0d86ce6ffc42
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84629381"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89424932"
 ---
 # <a name="service-updates-in-site-recovery"></a>Atualizações de serviço no Site Recovery
 

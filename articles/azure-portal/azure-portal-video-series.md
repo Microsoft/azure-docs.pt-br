@@ -1,20 +1,15 @@
 ---
 title: Série de vídeos explicativos sobre o portal do Azure
 description: Encontre demonstrações em vídeo sobre como trabalhar com os serviços do Azure no portal. Exiba e vincule diretamente aos vídeos de instruções mais recentes.
-services: azure-portal
 keywords: ''
-author: mgblythe
-ms.author: mblythe
-ms.date: 08/17/2020
+ms.date: 10/05/2020
 ms.topic: conceptual
-ms.service: azure-portal
-manager: mtillman
-ms.openlocfilehash: 3c34fd198164d7e3ae0851749cf51809df31ca19
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: d0b356729f2fab418b2322aeb20a44fc74cb199c
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88522939"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550434"
 ---
 # <a name="azure-portal-how-to-video-series"></a>Série de vídeos explicativos sobre o portal do Azure
 
@@ -22,18 +17,17 @@ A série de vídeos de instruções portal do Azure demonstra como trabalhar com
 
 ## <a name="featured-video"></a>Vídeo em destaque
 
-Neste vídeo em destaque, mostramos como implantar um aplicativo Web estático do Azure.
+Neste vídeo em destaque, mostramos como usar as exibições de gerenciamento de custos do Azure.
 
-> [!VIDEO https://www.youtube.com/embed/H2MPsgujpNk]
+> [!VIDEO https://www.youtube.com/embed/VRJA5bn2VH0]
 
-[Como implantar um aplicativo Web estático do Azure](https://www.youtube.com/watch?v=H2MPsgujpNk)
+[Como usar as exibições de gerenciamento de custos do Azure](https://www.youtube.com/watch?v=VRJA5bn2VH0)
 
 Atualize-se com estes vídeos recentes que você pode ter perdido:
 
-| [Como monitorar Azure Functions](https://www.youtube.com/watch?v=eVDZz8h0s00)  | [Como usar o controle de versão de BLOB](https://www.youtube.com/watch?v=b2oyxbSbLPA)  | [Conectar-se a uma conta de armazenamento usando o link privado do Azure](https://www.youtube.com/watch?v=m7e9h1gedWQ)  |
+| [Como usar o pills para filtrar na portal do Azure](https://www.youtube.com/watch?v=XyKh_3NxUlM)  | [Como obter uma exibição de visualização de seus recursos](https://www.youtube.com/watch?v=wudqkkJd5E4)  | [Como fixar conteúdo ao seu painel de portal do Azure](https://www.youtube.com/watch?v=eyOJkhYItSg) |
 | ------| ------ | ------ |
-| [![Imagem do vídeo do YouTube sobre como monitorar Azure Functions](https://i.ytimg.com/vi/eVDZz8h0s00/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAf2gcTSuNBP-DczGeEB7rQLKc4UQ)](http://www.youtube.com/watch?v=eVDZz8h0s00) | [![Imagem do vídeo do YouTube sobre como usar o controle de versão de BLOB](https://i.ytimg.com/vi/m7e9h1gedWQ/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLBUZwS_xaZIkYNakpHFvFIiD8i-Tw)](http://www.youtube.com/watch?v=m7e9h1gedWQ) | [![Imagem do vídeo do YouTube sobre como se conectar a uma conta de armazenamento usando o link privado do Azure](https://i.ytimg.com/vi/vM7yDwHSc_o/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAiBhmM0tZo_eV_u_JClkx3SXaWFw)](https://www.youtube.com/watch?v=vM7yDwHSc_o) |
-
+| [![Imagem do vídeo do YouTube sobre como usar o pills para filtrar na portal do Azure](https://i.ytimg.com/vi/XyKh_3NxUlM/hqdefault.jpg)](https://www.youtube.com/watch?XyKh_3NxUlM) | [![Imagem do vídeo do YouTube sobre como obter uma exibição de visualização de seus recursos](https://i.ytimg.com/vi/wudqkkJd5E4/hqdefault.jpg)](http://www.youtube.com/watch?v=wudqkkJd5E4) | [![Imagem do vídeo do YouTube sobre como fixar conteúdo no seu painel do portal do Azure](https://i.ytimg.com/vi/eyOJkhYItSg/hqdefault.jpg)](http://www.youtube.com/watch?v=eyOJkhYItSg) |
 
 ## <a name="video-playlist"></a>Playlist de vídeo
 

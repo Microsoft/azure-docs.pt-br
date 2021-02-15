@@ -5,15 +5,15 @@ ms.assetid: 39d5514f-0139-453a-b52e-4a1c06d8d914
 ms.topic: article
 ms.date: 10/30/2018
 ms.custom: seodec18
-ms.openlocfilehash: 11798db483f0ba370f73340489c17f38c87ede41
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 949e408544e25cb55622cf2a1b1d2dddb92350a6
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080191"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001500"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Funcionalidade do sistema operacional no Serviço de Aplicativo do Azure
-Este artigo descreve a funcionalidade do sistema operacional de linha de base comum disponível a todos os aplicativos Windows em execução no [Serviço de Aplicativo do Azure](https://go.microsoft.com/fwlink/?LinkId=529714). Essa funcionalidade inclui acesso a arquivos, redes e registros, além de logs de diagnóstico e eventos. 
+Este artigo descreve a funcionalidade do sistema operacional de linha de base comum disponível a todos os aplicativos Windows em execução no [Serviço de Aplicativo do Azure](./overview.md). Essa funcionalidade inclui acesso a arquivos, redes e registros, além de logs de diagnóstico e eventos. 
 
 > [!NOTE] 
 > [Aplicativos Linux](overview.md#app-service-on-linux) no Serviço de Aplicativo são executados em seus próprios contêineres. Nenhum acesso ao sistema operacional do host é permitido, você tem acesso à raiz para o contêiner. Da mesma forma, para [aplicativos em execução em contêineres do Windows](quickstart-custom-container.md?pivots=container-windows), você tem acesso administrativo ao contêiner, mas nenhum acesso ao sistema operacional do host. 
@@ -126,4 +126,3 @@ O Serviço de Aplicativo não fornece acesso à área de trabalho remota às ins
 ## <a name="more-information"></a>Mais informações
 
 [Área restrita do Serviço de Aplicativo do Azure](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox) - As informações mais atualizadas sobre o ambiente de execução do Serviço de Aplicativo. Esta página é mantida diretamente pela equipe de desenvolvimento do Serviço de Aplicativo.
-

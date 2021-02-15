@@ -2,33 +2,29 @@
 title: Configurar link privado
 description: Configure um ponto de extremidade privado em um registro de contêiner e habilite o acesso em um link privado em uma rede virtual local. O acesso ao link privado é um recurso da camada de serviço Premium.
 ms.topic: article
-ms.date: 06/26/2020
-ms.openlocfilehash: 713b19e4a60e5dcad6cfd92d65f97af2e921c0e9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 10/01/2020
+ms.openlocfilehash: 3193c65a2021d29f03bd9ae6cbc00fd6c349d9bf
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86523835"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93342293"
 ---
 # <a name="connect-privately-to-an-azure-container-registry-using-azure-private-link"></a>Conectar-se de forma privada a um registro de contêiner do Azure usando o link privado do Azure
 
 
-Limite o acesso a um registro atribuindo endereços IP privados da rede virtual aos pontos de extremidade do registro e usando o [link privado do Azure](../private-link/private-link-overview.md). O tráfego de rede entre os clientes na rede virtual e os pontos de extremidade privados do registro atravessa a rede virtual e um link privado na rede de backbone da Microsoft, eliminando a exposição da Internet pública. O vínculo privado também habilita o acesso de registro privado do local por meio do emparelhamento privado [do Azure ExpressRoute](../expressroute/expressroute-introduction.MD) ou um [Gateway de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
+Limite o acesso a um registro atribuindo endereços IP privados da rede virtual aos pontos de extremidade do registro e usando o [link privado do Azure](../private-link/private-link-overview.md). O tráfego de rede entre os clientes na rede virtual e os pontos de extremidade privados do registro atravessa a rede virtual e um link privado na rede de backbone da Microsoft, eliminando a exposição da Internet pública. O link privado também habilita o acesso de registro privado do local por meio do emparelhamento privado [do Azure ExpressRoute](../expressroute/expressroute-introduction.MD) ou de um [Gateway de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
 Você pode [definir as configurações de DNS](../private-link/private-endpoint-overview.md#dns-configuration) para os pontos de extremidade particulares do registro, para que as configurações sejam resolvidas para o endereço IP privado alocado do registro. Com a configuração de DNS, clientes e serviços na rede podem continuar acessando o registro no nome de domínio totalmente qualificado do registro, como *myregistry.azurecr.io*. 
 
-Esse recurso está disponível na camada de serviço **Premium** do registro de contêiner. Para obter informações sobre os limites e as camadas de serviço do registro, confira [Camadas do Registro de Contêiner do Azure](container-registry-skus.md).
+Esse recurso está disponível na camada de serviço **Premium** do registro de contêiner. No momento, um máximo de 10 pontos de extremidade privados podem ser configurados para um registro. Para obter informações sobre os limites e as camadas de serviço do registro, confira [Camadas do Registro de Contêiner do Azure](container-registry-skus.md).
 
-
-## <a name="things-to-know"></a>Observações importantes
-
-* Atualmente, o exame de imagem usando a Central de Segurança do Azure não está disponível em um registro configurado com um ponto de extremidade privado.
-* No momento, um máximo de 10 pontos de extremidade privados podem ser configurados para um registro.
+[!INCLUDE [container-registry-scanning-limitation](../../includes/container-registry-scanning-limitation.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Para usar as etapas da CLI do Azure neste artigo, recomendamos a CLI do Azure versão 2.6.0 ou posterior. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure][azure-cli]. Ou executá-la no [Azure Cloud Shell](../cloud-shell/quickstart.md).
-* Se ainda não tiver um registro de contêiner, crie um (precisa da camada Premium) e [importe](container-registry-import-images.md) uma amostra de imagem, como `hello-world` do Docker Hub. Por exemplo, use o [portal do Azure][quickstart-portal] ou a [CLI do Azure][quickstart-cli] para criar um registro.
+* Se você ainda não tiver um registro de contêiner, crie um (camada Premium necessária) e [importe](container-registry-import-images.md) uma imagem pública de exemplo, como `mcr.microsoft.com/hello-world` do registro de contêiner da Microsoft. Por exemplo, use o [portal do Azure][quickstart-portal] ou a [CLI do Azure][quickstart-cli] para criar um registro.
 * Para configurar o acesso ao registro usando um link privado em outra assinatura do Azure, você precisará registrar o provedor de recursos para o Registro de Contêiner do Azure nessa assinatura. Por exemplo:
 
   ```azurecli
@@ -54,7 +50,7 @@ VM_NAME=<virtual-machine-name>
 
 Você precisará dos nomes de uma rede virtual e sub-rede para configurar um link privado. Neste exemplo, você usa a mesma sub-rede para a VM e o ponto de extremidade privado do registro. No entanto, em muitos cenários, você configuraria o ponto de extremidade em uma sub-rede separada. 
 
-Ao criar uma VM, o Azure por padrão cria uma rede virtual no mesmo grupo de recursos. O nome da rede virtual é baseado no nome da máquina virtual. Por exemplo, se o nome da máquina virtual for *myDockerVM*, o nome padrão da rede virtual será *myDockerVMVNET* e o da sub-rede será *myDockerVMSubnet*. Defina esses valores nas variáveis de ambiente executando o comando [az network vnet list][az-network-vnet-list]:
+Ao criar uma VM, o Azure por padrão cria uma rede virtual no mesmo grupo de recursos. O nome da rede virtual é baseado no nome da máquina virtual. Por exemplo, se o nome da máquina virtual for *myDockerVM* , o nome padrão da rede virtual será *myDockerVMVNET* e o da sub-rede será *myDockerVMSubnet*. Defina esses valores nas variáveis de ambiente executando o comando [az network vnet list][az-network-vnet-list]:
 
 ```azurecli
 NETWORK_NAME=$(az network vnet list \
@@ -83,7 +79,7 @@ az network vnet subnet update \
 
 ### <a name="configure-the-private-dns-zone"></a>Configurar a zona DNS privada
 
-Crie uma zona DNS privada para o domínio privado de registro de contêiner do Azure. Mais à frente, você criará registros DNS para seu domínio de registro nesta zona DNS.
+Crie uma [zona DNS privada](../dns/private-dns-privatednszone.md) para o domínio de registro de contêiner do Azure privado. Mais à frente, você criará registros DNS para seu domínio de registro nesta zona DNS.
 
 Para usar uma zona privada para substituir a resolução DNS padrão para o registro de contêiner do Azure, a zona deve ser nomeada como **privatelink.azurecr.io**. Execute o comando [az network private-dns zone create][az-network-private-dns-zone-create] a seguir para criar a zona privada:
 
@@ -163,7 +159,7 @@ DATA_ENDPOINT_PRIVATE_IP=$(az resource show \
 
 ### <a name="create-dns-records-in-the-private-zone"></a>Criar registros DNS na zona privada
 
-Os comandos a seguir criam registros DNS na zona privada para o ponto de extremidade do registro e seu ponto de extremidade de dados. Por exemplo, se houver um registro com nome *myregistry* na região *westeurope*, os nomes de ponto de extremidade serão `myregistry.azurecr.io` e `myregistry.westeurope.data.azurecr.io`. 
+Os comandos a seguir criam registros DNS na zona privada para o ponto de extremidade do registro e seu ponto de extremidade de dados. Por exemplo, se houver um registro com nome *myregistry* na região *westeurope* , os nomes de ponto de extremidade serão `myregistry.azurecr.io` e `myregistry.westeurope.data.azurecr.io`. 
 
 > [!NOTE]
 > Se o registro tiver [replicação geográfica](container-registry-geo-replication.md), crie registros DNS adicionais para o IP do ponto de extremidade de dados de cada réplica.
@@ -208,9 +204,9 @@ Configure um link privado ao criar um registro, ou adicione um link privado a um
 
 ### <a name="create-a-private-endpoint---new-registry"></a>Criar um ponto de extremidade privado - Novo registro
 
-1. Ao criar um registro no portal, na guia **Noções básicas**, em **SKU**, selecione **Premium**.
+1. Ao criar um registro no portal, na guia **Noções básicas** , em **SKU** , selecione **Premium**.
 1. Selecione a guia **Rede**.
-1. Em **Conectividade de rede**, selecione **Ponto de extremidade privado** >  **+ Adicionar**.
+1. Em **Conectividade de rede** , selecione **Ponto de extremidade privado** >  **+ Adicionar**.
 1. Insira ou selecione as seguintes informações:
 
     | Configuração | Valor |
@@ -233,9 +229,9 @@ Configure um link privado ao criar um registro, ou adicione um link privado a um
 ### <a name="create-a-private-endpoint---existing-registry"></a>Criar um ponto de extremidade privado - Registro existente
 
 1. No portal, navegue até o registro de contêiner.
-1. Em **Configurações**, selecione **Rede**.
-1. Na guia **Pontos de extremidade privados**, selecione **+ Ponto de extremidade privado**.
-1. Na guia **Noções básicas**, insira ou selecione as informações a seguir:
+1. Em **Configurações** , selecione **Rede**.
+1. Na guia **Pontos de extremidade privados** , selecione **+ Ponto de extremidade privado**.
+1. Na guia **Noções básicas** , insira ou selecione as informações a seguir:
 
     | Configuração | Valor |
     | ------- | ----- |
@@ -270,14 +266,14 @@ Configure um link privado ao criar um registro, ou adicione um link privado a um
     |Zona DNS privado |Selecione *(Novo) privatelink.azurecr.io* |
     |||
 
-1. Selecione **Examinar + criar**. Você é levado até a página **Examinar + criar**, na qual o Azure valida sua configuração. 
-2. Quando vir a mensagem **Validação aprovada**, selecione **Criar**.
+1. Selecione **Examinar + criar**. Você é levado até a página **Examinar + criar** , na qual o Azure valida sua configuração. 
+2. Quando vir a mensagem **Validação aprovada** , selecione **Criar**.
 
 Depois que o ponto de extremidade privado for criado, as configurações de DNS na zona privada aparecerão na página **Pontos de extremidade privado** no portal:
 
 1. No portal, navegue até o registro de contêiner e selecione **Configurações > Rede**.
-1. Na guia **Ponto de extremidade privado**, selecione o ponto de extremidade privado criado.
-1. Na página **Visão geral**, revise as configurações de link e as configurações personalizadas de DNS.
+1. Na guia **Ponto de extremidade privado** , selecione o ponto de extremidade privado criado.
+1. Na página **Visão geral** , revise as configurações de link e as configurações personalizadas de DNS.
 
   ![Configurações de DNS do ponto de extremidade](./media/container-registry-private-link/private-endpoint-overview.png)
 
@@ -302,7 +298,7 @@ az acr update --name $REGISTRY_NAME --public-network-enabled false
 ### <a name="disable-public-access---portal"></a>Desabilitar o acesso público – portal
 
 1. No portal, navegue até o registro de contêiner e selecione **Configurações > Rede**.
-1. Na guia **Acesso público**, em **Permitir acesso da rede pública**, selecione **Desabilitado**. Em seguida, selecione **Salvar**.
+1. Na guia **Acesso público** , em **Permitir acesso da rede pública** , selecione **Desabilitado**. Em seguida, selecione **Salvar**.
 
 ## <a name="validate-private-link-connection"></a>Validar conexão de link privado
 
@@ -310,28 +306,46 @@ Você deve validar se os recursos dentro da sub-rede do ponto de extremidade pri
 
 Para validar a conexão de link privado, use o SSH para a máquina virtual que você configurou na rede virtual.
 
-Execute o comando `nslookup` para resolver o endereço IP do seu registro por meio do link privado:
+Execute um utilitário como `nslookup` ou `dig` para pesquisar o endereço IP do registro no link privado. Por exemplo:
 
 ```bash
-nslookup $REGISTRY_NAME.azurecr.io
+dig $REGISTRY_NAME.azurecr.io
 ```
 
 O exemplo de saída mostra o endereço IP do registro no espaço de endereço da sub-rede:
 
 ```console
 [...]
-myregistry.azurecr.io       canonical name = myregistry.privatelink.azurecr.io.
-Name:   myregistry.privatelink.azurecr.io
-Address: 10.0.0.6
+; <<>> DiG 9.11.3-1ubuntu1.13-Ubuntu <<>> myregistry.azurecr.io
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 52155
+;; flags: qr rd ra; QUERY: 1, ANSWER: 2, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 65494
+;; QUESTION SECTION:
+;myregistry.azurecr.io.         IN      A
+
+;; ANSWER SECTION:
+myregistry.azurecr.io.  1783    IN      CNAME   myregistry.privatelink.azurecr.io.
+myregistry.privatelink.azurecr.io. 10 IN A      10.0.0.7
+
+[...]
 ```
 
-Compare esse resultado com o endereço IP público na saída `nslookup` do mesmo registro em um ponto de extremidade público:
+Compare esse resultado com o endereço IP público na saída `dig` do mesmo registro em um ponto de extremidade público:
 
 ```console
 [...]
-Non-authoritative answer:
-Name:   myregistry.westeurope.cloudapp.azure.com
-Address: 40.78.103.41
+;; ANSWER SECTION:
+myregistry.azurecr.io.  2881    IN  CNAME   myregistry.privatelink.azurecr.io.
+myregistry.privatelink.azurecr.io. 2881 IN CNAME xxxx.xx.azcr.io.
+xxxx.xx.azcr.io.    300 IN  CNAME   xxxx-xxx-reg.trafficmanager.net.
+xxxx-xxx-reg.trafficmanager.net. 300 IN CNAME   xxxx.westeurope.cloudapp.azure.com.
+xxxx.westeurope.cloudapp.azure.com. 10  IN A 20.45.122.144
+
+[...]
 ```
 
 ### <a name="registry-operations-over-private-link"></a>Operações de registro em link privado
@@ -361,13 +375,24 @@ az acr private-endpoint-connection list \
   --registry-name $REGISTRY_NAME 
 ```
 
-Ao configurar uma conexão de ponto de extremidade privado usando o procedimento neste artigo, o registro aceitará automaticamente conexões de clientes e serviços que tenham permissões de RBAC no registro. Você pode configurar o ponto de extremidade para exigir aprovação manual de conexões. Para informações sobre como aprovar e rejeitar conexões de ponto de extremidade privado, consulte [Gerenciar uma conexão de ponto de extremidade privado](../private-link/manage-private-endpoint.md).
+Quando você configura uma conexão de ponto de extremidade privado usando as etapas neste artigo, o registro aceita automaticamente conexões de clientes e serviços que têm permissões de RBAC do Azure no registro. Você pode configurar o ponto de extremidade para exigir aprovação manual de conexões. Para informações sobre como aprovar e rejeitar conexões de ponto de extremidade privado, consulte [Gerenciar uma conexão de ponto de extremidade privado](../private-link/manage-private-endpoint.md).
 
 ## <a name="add-zone-records-for-replicas"></a>Adicionar registros de zona para réplicas
 
-Como mostrado neste artigo, ao adicionar uma conexão de ponto de extremidade privado em um registro, os registros DNS na zona `privatelink.azurecr.io` serão criados para o registro e seus pontos de extremidade de dados nas regiões onde o registro é [replicado](container-registry-geo-replication.md). 
+Conforme mostrado neste artigo, ao adicionar uma conexão de ponto de extremidade privada a um registro, você cria registros DNS na `privatelink.azurecr.io` zona para o registro e seus pontos de extremidade de dados nas regiões em que o registro é [replicado](container-registry-geo-replication.md). 
 
-Se você adicionar uma nova réplica mais tarde, precisará adicionar manualmente um novo registro de zona para o ponto de extremidade de dados nessa região. Por exemplo, se você criar uma réplica de *myregistry* no local *northeurope*, adicione um registro de zona para `myregistry.northeurope.data.azurecr.io`. Para instruções, consulte [Criar registros DNS na zona privada](#create-dns-records-in-the-private-zone) neste artigo.
+Se você adicionar uma nova réplica mais tarde, precisará adicionar manualmente um novo registro de zona para o ponto de extremidade de dados nessa região. Por exemplo, se você criar uma réplica de *myregistry* no local *northeurope* , adicione um registro de zona para `myregistry.northeurope.data.azurecr.io`. Para instruções, consulte [Criar registros DNS na zona privada](#create-dns-records-in-the-private-zone) neste artigo.
+
+## <a name="dns-configuration-options"></a>Opções de configuração de DNS
+
+O ponto de extremidade privado neste exemplo se integra a uma zona DNS privada associada a uma rede virtual básica. Essa configuração usa o serviço DNS fornecido pelo Azure diretamente para resolver o FQDN público do registro para seu endereço IP privado na rede virtual. 
+
+O link privado dá suporte a cenários de configuração de DNS adicionais que usam a zona privada, incluindo as soluções de DNS personalizadas. Por exemplo, você pode ter uma solução de DNS personalizada implantada na rede virtual ou localmente em uma rede conectada à rede virtual usando um gateway de VPN ou o Azure ExpressRoute. 
+
+Para resolver o FQDN público do registro para o endereço IP privado nesses cenários, você precisa configurar um encaminhador no nível do servidor para o serviço DNS do Azure (168.63.129.16). As opções e as etapas de configuração exatas dependem de suas redes e DNS existentes. Para obter exemplos, consulte [configuração de DNS do ponto de extremidade privado do Azure](../private-link/private-endpoint-dns.md).
+
+> [!IMPORTANT]
+> Se para alta disponibilidade você criou pontos de extremidade privados em várias regiões, recomendamos que você use um grupo de recursos separado em cada região e coloque a rede virtual e a zona DNS privada associada nela. Essa configuração também impede a resolução de DNS imprevisível causada pelo compartilhamento da mesma zona DNS privada.
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

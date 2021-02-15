@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 03/21/2019
+ms.date: 01/19/2021
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: c5d1b08944417493d175de23c7738db58f1c7bd3
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 4377ed76de971f78336ea9024b59dafc5d513487
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88797999"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100094960"
 ---
 # <a name="troubleshoot-problems-with-the-my-apps-portal"></a>Solucionar problemas com o portal Meus Aplicativos
 
@@ -31,9 +31,9 @@ Se você estiver com problemas ao instalar a Extensão de Conexão Segura de Meu
 
     - **Microsoft Edge.** Em execução na Edição de Aniversário do Windows 10 ou posterior.
 
-    - **Google Chrome.** Em execução no Windows 7 ou posterior e no Mac OS X ou posterior.
+    - **Google Chrome.** Em execução no Windows 7 ou posterior e no macOS X ou posterior.
 
-    - **Mozilla Firefox 26.0 ou posterior.** Em execução no Windows XP SP2 ou posterior e no Mac OS X 10.6 ou posterior.
+    - **Mozilla Firefox 26.0 ou posterior.** Em execução no Windows XP SP2 ou posterior e no macOS X 10,6 ou posterior.
 
     - **Internet Explorer 11.** Em execução no Windows 7 ou posterior (suporte limitado).
 
@@ -47,11 +47,16 @@ Se você estiver com problemas ao instalar a Extensão de Conexão Segura de Meu
 
 Se você estiver com problemas para entrar no portal **Meus Aplicativos**, tente o seguinte:
 
+- Se você vir um erro ao entrar com um conta Microsoft pessoal, ainda poderá entrar usando o nome de domínio da sua organização (como contoso.com) ou a **ID de locatário** da sua organização em uma das seguintes URLs:
+
+   - https://myapplications.microsoft.com?tenantId=*your_domain_name*
+   - https://myapplications.microsoft.com?tenant=*your_tenant_ID*
+
 - Verifique se você está usando a URL correta. Ela deve ser https://myapps.microsoft.com ou uma página personalizada para sua organização, como https://myapps.microsoft.com/contoso.com.
 
 - Verifique se sua senha está correta e não expirou. Para obter mais informações, consulte [Redefinir sua senha corporativa ou de estudante](active-directory-passwords-update-your-own-password.md).
 
-- Verifique se suas informações de verificação estão atualizadas e precisas. Para obter mais informações, confira [O que a Autenticação Multifator do Azure significa para mim?](./multi-factor-authentication-end-user-first-time.md) ou [Como alterar seus métodos e informações de segurança da informação](./security-info-setup-auth-app.md).
+- Verifique se suas informações de verificação estão atualizadas e precisas. Para obter mais informações, consulte [o que a autenticação multifator do Azure ad significa para mim?](./multi-factor-authentication-end-user-first-time.md) ou [alterar seus métodos e informações de informações de segurança](./security-info-setup-auth-app.md).
 
 - Adicione a URL do portal **Meu Aplicativo** à configuração **Propriedades da Internet > Segurança > Sites confiáveis**.
 
@@ -75,7 +80,7 @@ Se você está recebendo uma mensagem de **Acesso Negado** depois de iniciar um 
 
 - Verifique se sua senha está correta e não expirou. Para obter mais informações, consulte [Redefinir sua senha corporativa ou de estudante](active-directory-passwords-update-your-own-password.md).
 
-- Verifique se suas informações de verificação estão atualizadas e precisas. Para obter mais informações, confira [O que a Autenticação Multifator do Azure significa para mim?](./multi-factor-authentication-end-user-first-time.md) ou [Como alterar seus métodos e informações de segurança da informação](./security-info-setup-auth-app.md).
+- Verifique se suas informações de verificação estão atualizadas e precisas. Para obter mais informações, consulte [o que a autenticação multifator do Azure ad significa para mim?](./multi-factor-authentication-end-user-first-time.md) ou [alterar seus métodos e informações de informações de segurança](./security-info-setup-auth-app.md).
 
 - Limpe o cache do navegador e tente entrar novamente.
 
@@ -87,7 +92,7 @@ Depois de entrar no portal **Meus Aplicativos**, você também pode atualizar su
 
 - [Acesse e use aplicativos no portal Meus Aplicativos](my-apps-portal-end-user-access.md).
 
-- [Alterar as informações do seu perfil](my-apps-portal-end-user-update-profile.md).
+- [Alterar as informações do seu perfil](./my-account-portal-settings.md).
 
 - [Exibir e atualizar suas informações relacionadas a grupos](my-apps-portal-end-user-groups.md).
 

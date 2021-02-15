@@ -12,13 +12,13 @@ ms.custom:
 - mvc
 - amqp
 - mqtt
-- devx-track-javascript
-ms.openlocfilehash: b424ea01d8283963c49d899a97120c9132d862f8
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+- devx-track-js
+ms.openlocfilehash: 58891bdb4601744129c97454f43202d3ba07b709
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422531"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96852550"
 ---
 # <a name="create-an-advanced-device-model"></a>Criar um modelo de dispositivo avançados
 
@@ -30,15 +30,11 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 Para seguir as etapas deste guia prático, você precisa de uma instância implantada do Device Simulation em sua assinatura do Azure.
 
-Se você ainda não implantou a Simulação de Dispositivo, conclua o início rápido [Implantar e executar uma simulação de dispositivo IoT no Azure](quickstart-device-simulation-deploy.md).
+Se você ainda não implantou a simulação de dispositivo, consulte [implantação de simulação de dispositivo](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md) no github.
 
 ### <a name="open-device-simulation"></a>Abrir a Simulação de Dispositivo
 
-Para executar a Simulação de Dispositivo no navegador, primeiro navegue até [Aceleradores de Solução do Microsoft Azure IoT](https://www.azureiotsolutions.com).
-
-Você pode ser solicitado a entrar usando suas credenciais da assinatura do Azure.
-
-Em seguida, clique em **Ativar** na peça da Simulação de Dispositivo que você implantou no [Implantar e executar uma simulação de dispositivo IoT no início rápido do Azure](quickstart-device-simulation-deploy.md).
+Se você ainda não implantou a simulação de dispositivo, consulte [implantação de simulação de dispositivo](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md) no github.
 
 ## <a name="device-models"></a>Modelos de dispositivo
 
@@ -520,4 +516,4 @@ Se seus arquivos passarem pela validação, clique em **Salvar** e seu modelo de
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste guia prático, você aprendeu sobre os arquivos de modelo de dispositivo usados na Simulação de dispositivos e como criar um modelo de dispositivo avançado. Em seguida, você pode explorar como [Usar as Estatísticas da Série Temporal para visualizar a telemetria enviada a partir do acelerador da solução Simulação de Dispositivo](https://docs.microsoft.com/azure/iot-accelerators/iot-accelerators-device-simulation-time-series-insights).
+Neste guia prático, você aprendeu sobre os arquivos de modelo de dispositivo usados na Simulação de dispositivos e como criar um modelo de dispositivo avançado. Em seguida, você pode explorar como [Usar as Estatísticas da Série Temporal para visualizar a telemetria enviada a partir do acelerador da solução Simulação de Dispositivo](./iot-accelerators-device-simulation-time-series-insights.md).

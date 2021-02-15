@@ -4,12 +4,12 @@ description: Saiba como configurar a recuperação de desastre de VMs locais do 
 ms.topic: tutorial
 ms.date: 03/19/2020
 ms.custom: MVC
-ms.openlocfilehash: f32103adce184a67cec9e5a778ac1d1e6f330f4d
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: c806f968bc6530879f64ddbf6fd4c7d45aa7a8d3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86130231"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89442813"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-in-vmm-clouds-to-azure"></a>Configurar a recuperação de desastre de VMs locais do Hyper-V em nuvens do VMM para o Azure
 
@@ -83,7 +83,11 @@ Instale o agente em cada host Hyper-V que contém máquinas virtuais que você d
 No Assistente de Instalação do Agente de Serviços de Recuperação do Microsoft Azure, defina estas configurações:
 
 1. **Verificação de Pré-requisitos**. Selecione **Avançar**. Pré-requisitos faltantes serão instalados automaticamente.
-1. **Configurações de Instalação**. Aceite o local de instalação e o local do cache. A unidade de cache precisa de pelo menos 5 GB de armazenamento. É recomendável uma unidade com 600 GB ou mais de espaço livre. Em seguida, selecione **Instalar**.
+1. **Configurações de Instalação**. Aceite o local da instalação. Em seguida, selecione **Instalar**.
+
+    >[!NOTE]
+    >Pra o Azure Site Recovery, o **Local do Cache** não é necessário.
+
 1. **Instalação**. Quando a instalação for concluída, selecione **Fechar** para concluir o assistente.
 
    ![Instalar o agente](./media/hyper-v-vmm-azure-tutorial/mars-install.png)

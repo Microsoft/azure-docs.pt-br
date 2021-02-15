@@ -12,15 +12,15 @@ ms.workload: identity
 ms.date: 06/05/2020
 ms.author: negoe
 ms.reviewer: nacanuma
-ms.custom: aaddev
-ms.openlocfilehash: 13b478e85278827258ea2fc25a0ee4298039fb1c
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.custom: aaddev devx-track-js
+ms.openlocfilehash: 53294a30b38bed7ab7516443277cac24e4fef4c1
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88119776"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98063715"
 ---
-# <a name="use-microsoft-authentication-library-for-javascript-to-work-with-azure-ad-b2c"></a>Usar a biblioteca de autenticação da Microsoft para JavaScript para trabalhar com Azure AD B2C
+# <a name="use-the-microsoft-authentication-library-for-javascript-to-work-with-azure-ad-b2c"></a>Use a biblioteca de autenticação da Microsoft para JavaScript para trabalhar com Azure AD B2C
 
 A [biblioteca de autenticação da Microsoft para JavaScript (MSAL.js)](https://github.com/AzureAD/microsoft-authentication-library-for-js) permite que os desenvolvedores de JavaScript autentiquem usuários com identidades sociais e locais usando [Azure Active Directory B2C](../../active-directory-b2c/overview.md) (Azure ad B2C).
 
@@ -56,18 +56,24 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-nodej
 
 ### <a name="step-3-configure-authentication"></a>Etapa 3: configurar a autenticação
 
-1. Abra o arquivo `config.js` no exemplo.
+1. Abra o *config.jsno* arquivo no exemplo.
 
-2. Configure o exemplo com as credenciais do aplicativo que você obteve anteriormente ao registrar seu aplicativo. Altere as linhas de código a seguir substituindo os valores pelos nomes de clientID, host, tenantid e nome da política.
+2. Configure o exemplo com as credenciais do aplicativo que você obteve anteriormente ao registrar seu aplicativo. Altere as linhas de código a seguir substituindo os valores pelo nome do locatário, ID do cliente e nome da política.
 
-```JavaScript
-const clientID = "<Application ID for your Node.js web API - found on Properties page in Azure portal e.g. 93733604-cc77-4a3c-a604-87084dd55348>";
-const b2cDomainHost = "<Domain of your B2C host eg. fabrikamb2c.b2clogin.com>";
-const tenantId = "<your-tenant-ID>.onmicrosoft.com"; // Alternatively, you can use your Directory (tenant) ID (GUID)
-const policyName = "<Name of your sign in / sign up policy, e.g. B2C_1_signupsignin1>";
-```
+    ```json
+         "credentials": {
+             "tenantName": "<your-tenant-name>",
+             "clientID": "<your-webapi-application-ID>"
+         },
+         "policies": {
+             "policyName": "B2C_1_signupsignin1"
+         },
+         "resource": {
+             "scope": ["demo.read"] 
+         },
+    ```
 
-Para obter mais informações, confira este [exemplo de API webNode.js B2C](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi).
+Para obter mais informações, confira este [ exemplo de API webNode.js B2C](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi).
 
 ## <a name="javascript-spa"></a>JavaScript SPA
 
@@ -203,7 +209,7 @@ Quando um usuário seleciona a **senha esquecida**, seu aplicativo gera um erro 
 
     :::image type="content" source="media/msal-b2c-overview/user-journey-02-password-reset.png" alt-text="Telas de fluxo de redefinição de senha mostradas por Azure AD B2C" border="false":::
 
-    Para obter mais informações sobre códigos de erro e tratamento de exceções, consulte [erros de MSAL e códigos de exceção](msal-handling-exceptions.md).
+    Para obter mais informações sobre códigos de erro e tratamento de exceções, consulte [erros de MSAL e códigos de exceção](msal-error-handling-js.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -211,4 +217,4 @@ Saiba mais sobre estes conceitos de Azure AD B2C:
 
 - [Fluxos de usuário](../../active-directory-b2c/tutorial-create-user-flows.md)
 - [Políticas personalizadas](../../active-directory-b2c/custom-policy-get-started.md)
-- [Personalização de experiência do usuário](../../active-directory-b2c/custom-policy-configure-user-input.md)
+- [Personalização de experiência do usuário](../../active-directory-b2c/configure-user-input.md)

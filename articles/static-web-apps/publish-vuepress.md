@@ -7,13 +7,13 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
-ms.custom: devx-track-javascript
-ms.openlocfilehash: c689b31f73d732dda37b64793f988febc409e6da
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.custom: devx-track-js
+ms.openlocfilehash: 72b1bd4d46b0b04364b25a8460361d6a008d42a6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88797948"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91250123"
 ---
 # <a name="tutorial-publish-a-vuepress-site-to-azure-static-web-apps-preview"></a>Tutorial: Publicar um site do VuePress na Versão Prévia dos Aplicativos Web Estáticos do Azure
 
@@ -127,7 +127,7 @@ As etapas a seguir mostram como criar um novo aplicativo de Aplicativos Web Est�
 
 1. Para _SKU_, selecione **Gratuito**.
 
-   :::image type="content" source="./media/publish-vuepress/basic-app-details.png" alt-text="Detalhes preenchidos":::
+   :::image type="content" source="./media/publish-vuepress/basic-app-details.png" alt-text="Criar Aplicativos Web Estáticos (Versão Prévia) no portal":::
 
 1. Clique no botão **Entrar com o GitHub**.
 
@@ -137,7 +137,7 @@ As etapas a seguir mostram como criar um novo aplicativo de Aplicativos Web Est�
 
 1. Para _Branch_, selecione **master**.
 
-   :::image type="content" source="./media/publish-vuepress/completed-github-info.png" alt-text="Informações do GitHub concluídas":::
+   :::image type="content" source="./media/publish-vuepress/completed-github-info.png" alt-text="Criar Aplicativos Web Estáticos (Versão Prévia) no portal":::
 
 ### <a name="build"></a>Build
 
@@ -151,7 +151,7 @@ Em seguida, você adiciona as definições de configuração que o processo de c
 
 Não é necessário um valor para _Local da API_, pois você não está implantando uma API no momento.
 
-   :::image type="content" source="./media/publish-vuepress/build-details.png" alt-text="Configurações do Build":::
+   :::image type="content" source="./media/publish-vuepress/build-details.png" alt-text="Criar Aplicativos Web Estáticos (Versão Prévia) no portal":::
 
 ### <a name="review-and-create"></a>Examinar e criar
 
@@ -163,7 +163,7 @@ Não é necessário um valor para _Local da API_, pois você não está implanta
 
 1. Na tela de recursos, clique no link _URL_ para abrir o aplicativo implantado. Talvez seja necessário aguardar um minuto ou dois para que a GitHub Action seja concluída.
 
-   :::image type="content" source="./media/publish-vuepress/deployed-app.png" alt-text="Aplicativo implantado":::
+   :::image type="content" source="./media/publish-vuepress/deployed-app.png" alt-text="Criar Aplicativos Web Estáticos (Versão Prévia) no portal":::
 
 ### <a name="clean-up-resources"></a>Limpar os recursos
 

@@ -1,17 +1,17 @@
 ---
 title: Solucionar problemas de criptografia de dados-banco de dados do Azure para PostgreSQL-servidor único
 description: Saiba como solucionar problemas de criptografia de dados no banco de dado do Azure para PostgreSQL-servidor único
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 02/13/2020
-ms.openlocfilehash: ee0a1ebe483dd4719fd1a84fec37906329116eba
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: c315e1df473f3d23bab7e2a78ce166f22272ee70
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86117892"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242238"
 ---
 # <a name="troubleshoot-data-encryption-in-azure-database-for-postgresql---single-server"></a>Solucionar problemas de criptografia de dados no banco de dado do Azure para PostgreSQL-servidor único
 
@@ -19,7 +19,7 @@ Este artigo ajuda você a identificar e resolver problemas comuns que podem ocor
 
 ## <a name="introduction"></a>Introdução
 
-Quando você configura a criptografia de dados para usar uma chave gerenciada pelo cliente no Azure Key Vault, o servidor requer acesso contínuo à chave. Se o servidor perder o acesso à chave gerenciada pelo cliente no Azure Key Vault, ele negará todas as conexões, retornará a mensagem de erro apropriada e alterará seu estado para ***inacessível*** no portal do Azure.
+Quando você configura a criptografia de dados para usar uma chave gerenciada pelo cliente no Azure Key Vault, o servidor requer acesso contínuo à chave. Se o servidor perder o acesso à chave gerenciada pelo cliente no Azure Key Vault, ele negará todas as conexões, retornará a mensagem de erro apropriada e alterará seu estado para * **inacessível** _ no portal do Azure.
 
 Se você não precisar mais de um banco de dados do Azure inacessível para o servidor PostgreSQL, poderá excluí-lo para parar de incorrer em custos. Nenhuma outra ação no servidor é permitida até que o acesso ao cofre de chaves tenha sido restaurado e o servidor esteja disponível. Também não é possível alterar a opção de criptografia de dados de `Yes` (gerenciada pelo cliente) para `No` (gerenciada pelo serviço) em um servidor inacessível quando ele é criptografado com uma chave gerenciada pelo cliente. Você precisará revalidar a chave manualmente para que o servidor possa ser acessado novamente. Essa ação é necessária para proteger os dados contra o acesso não autorizado enquanto as permissões para a chave gerenciada pelo cliente são revogadas.
 
@@ -44,12 +44,12 @@ As seguintes configurações incorretas causam a maioria dos problemas com a cri
 #### <a name="disabled-key-vault"></a>Cofre de chaves desabilitado
 
 - `AzureKeyVaultKeyDisabledMessage`
-- **Explicação**: a operação não pôde ser concluída no servidor porque a chave de Azure Key Vault está desabilitada.
+- _ * Explicação * *: a operação não pôde ser concluída no servidor porque a chave de Azure Key Vault está desabilitada.
 
 #### <a name="missing-key-vault-permissions"></a>Permissões do Key Vault ausentes
 
 - `AzureKeyVaultMissingPermissionsMessage`
-- **Explicação**: o servidor não tem as permissões obter, encapsular e desencapsular necessárias para Azure Key Vault. Conceda quaisquer permissões ausentes à entidade de serviço com ID.
+- **Explicação** : o servidor não tem as permissões obter, encapsular e desencapsular necessárias para Azure Key Vault. Conceda quaisquer permissões ausentes à entidade de serviço com ID.
 
 ### <a name="mitigation"></a>Atenuação
 

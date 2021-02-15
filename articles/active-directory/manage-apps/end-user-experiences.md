@@ -3,7 +3,7 @@ title: Experiências do usuário final para aplicativos-Azure Active Directory
 description: O Microsoft Azure Active Directory (Azure AD) fornece várias maneiras personalizáveis de implantar aplicativos para usuários finais em sua organização.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -11,56 +11,49 @@ ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: kenwith
 ms.reviewer: arvindh
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c2ec85af2c954c2189f0df1b407a2c40967f096
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0d3f1cab0637c7409cbc45f4f5a5374b2b5b6a77
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763390"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99259246"
 ---
 # <a name="end-user-experiences-for-applications-in-azure-active-directory"></a>Experiências do usuário final para aplicativos no Active Directory Domain Services do Azure
 
 Azure Active Directory Domain Services (Azure AD) fornece várias maneiras personalizáveis para implantar aplicativos para usuários finais em sua organização:
 
-* Painel de acesso do AD do Azure
-* Iniciador de aplicativos do Office 365
+* Meus aplicativos do Azure AD
+* Microsoft 365 iniciador de aplicativo
 * Logon direto a aplicativos federados
 * Links profundos a aplicativos federados, baseado em senha, ou existentes
 
 A escolha dos métodos para implantação de sua organização fica seu critério.
 
-## <a name="azure-ad-access-panel"></a>Painel de acesso do AD do Azure
+## <a name="azure-ad-my-apps"></a>Meus aplicativos do Azure AD
 
-O painel de acesso no https://myapps.microsoft.com é um portal baseado na Web que permite que um usuário final com uma conta organizacional no Azure Active Directory exiba e inicie aplicativos aos quais eles receberam acesso pelo administrador do Azure AD. Se for um usuário final com o [Azure Active Directory Premium](https://azure.microsoft.com/pricing/details/active-directory/), você também poderá utilizar recursos de gerenciamento do grupo de autoatendimento por meio do Painel de acesso.
+Meus aplicativos em https://myapps.microsoft.com é um portal baseado na Web que permite que um usuário final com uma conta institucional no Azure Active Directory exiba e inicie aplicativos aos quais eles receberam acesso pelo administrador do Azure AD. Se você for um usuário final com [Azure Active Directory Premium](https://azure.microsoft.com/pricing/details/active-directory/), também poderá utilizar os recursos de gerenciamento de grupo de autoatendimento por meio de meus aplicativos.
 
-![Captura de tela mostra o portal do painel de acesso do Azure AD](media/what-is-single-sign-on/azure-ad-access-panel.png)
+Por padrão, todos os aplicativos são listados juntos em uma única página. Mas você pode usar coleções para agrupar aplicativos relacionados e apresentá-los em uma guia separada, facilitando sua localização. Por exemplo, você pode usar coleções para criar agrupamentos lógicos de aplicativos para funções de trabalho específicas, tarefas, projetos e assim por diante. Para obter informações, consulte [criar coleções no portal meus aplicativos](access-panel-collections.md). 
 
-Por padrão, todos os aplicativos são listados juntos em uma única página. Mas você pode usar coleções para agrupar aplicativos relacionados e apresentá-los em uma guia separada, facilitando sua localização. Por exemplo, você pode usar coleções para criar agrupamentos lógicos de aplicativos para funções de trabalho específicas, tarefas, projetos e assim por diante. Para obter informações, consulte [como usar coleções de meus aplicativos para personalizar os painéis de acesso do usuário](access-panel-collections.md). 
+Meus aplicativos é separado da portal do Azure e não exige que os usuários tenham uma assinatura do Azure ou Microsoft 365 assinatura.
 
-O Painel de acesso é separado do portal do Azure e não requer que os usuários tenham uma assinatura do Azure ou do Office 365.
+Para obter mais informações sobre meus aplicativos do Azure AD, consulte a [introdução aos meus aplicativos](../user-help/my-apps-portal-end-user-access.md).
 
-Para obter mais informações sobre o painel de acesso do AD do Azure, consulte a [Introdução ao painel de acesso](../user-help/active-directory-saas-access-panel-introduction.md).
+## <a name="microsoft-365-application-launcher"></a>Microsoft 365 iniciador de aplicativo
 
-## <a name="office-365-application-launcher"></a>Iniciador de aplicativos do Office 365
+Para organizações que implantaram Microsoft 365, os aplicativos atribuídos aos usuários por meio do Azure AD também aparecerão no portal do Office 365 em [https://portal.office.com/myapps](https://portal.office.com/myapps) . Isso torna fácil e conveniente para os usuários em uma organização iniciarem seus aplicativos sem precisar usar um segundo portal e é a solução de inicialização de aplicativo recomendada para organizações que usam Microsoft 365.
 
-Para organizações que implantaram o Office 365, os aplicativos atribuídos aos usuários por meio do Azure AD também serão exibidos no portal do Office 365 em [https://portal.office.com/myapps](https://portal.office.com/myapps) . Isso torna simples e fácil para os usuários em uma organização para iniciar seus aplicativos sem precisar usar um segundo portal e é a solução de inicialização do aplicativo recomendada para organizações que usam o Office 365.
-
-![Captura de tela mostra o portal do Office 365](./media/end-user-experiences/microsoft-365-portal-office-com.png)
-
-Para obter mais informações sobre o iniciador do aplicativo Office 365, consulte [Faça o seu aplicativo ser exibido no iniciador do aplicativo do Office 365](https://msdn.microsoft.com/office/office365/howto/connect-your-app-to-o365-app-launcher).
+Para obter mais informações sobre o iniciador do aplicativo Office 365, consulte [Faça o seu aplicativo ser exibido no iniciador do aplicativo do Office 365](/previous-versions/office/office-365-api/).
 
 ## <a name="direct-sign-on-to-federated-apps"></a>Logon direto a aplicativos federados
 
-A maioria dos aplicativos federados que oferecem suporte à conexão SAML 2.0, WS-Federation ou OpenID também oferecem suporte à capacidade dos usuários de iniciar o aplicativo e, em seguida, obter conexão por meio do AD do Azure pelo redirecionamento automático ou clicando em um link para entrar. Isso é conhecido como serviço de logon iniciado pelo provedor e a maioria dos aplicativos federados na Galeria de aplicativos do Azure AD oferece suporte a eles (consulte a documentação vinculada do Assistente de configuração de logon único do aplicativo no portal do Azure para obter detalhes).
-
-![Exemplo de uma página de entrada de aplicativo móvel](./media/end-user-experiences/workdaymobile.png)
+A maioria dos aplicativos federados que oferecem suporte à conexão SAML 2.0, WS-Federation ou OpenID também oferecem suporte à capacidade dos usuários de iniciar o aplicativo e, em seguida, obter conexão por meio do AD do Azure pelo redirecionamento automático ou clicando em um link para entrar. Isso é conhecido como logon iniciado pelo provedor de serviços e a maioria dos aplicativos federados na Galeria de aplicativos do Azure AD dá suporte a isso (consulte a documentação vinculada do assistente de configuração de logon único do aplicativo no portal do Azure para obter detalhes).
 
 ## <a name="direct-sign-on-links"></a>Links diretos logon
 
 O Microsoft Azure Active Directory também oferece suporte a links de logon únicos diretos para aplicativos individuais que oferecem suporte baseado em senha de logon único, logon único vinculado e qualquer forma de logon único federado.
 
-Esses links são URLs criadas especificamente que enviam um usuário por meio do processo de entrada do Azure AD para um aplicativo específico sem exigir que o usuário as inicie do painel de acesso do Azure AD ou do Office 365. Essas **URLs de acesso do usuário** podem ser encontradas nas propriedades de aplicativos empresariais disponíveis. No portal do Azure, selecione **Azure Active Directory** > **Aplicativos empresariais**. Selecione o aplicativo e, em seguida, selecione **Propriedades**.
+Esses links são URLs criadas especificamente que enviam um usuário por meio do processo de entrada do Azure AD para um aplicativo específico sem exigir que o usuário os inicie do Azure AD meus aplicativos ou Microsoft 365. Essas **URLs de acesso do usuário** podem ser encontradas nas propriedades de aplicativos empresariais disponíveis. No portal do Azure, selecione **Azure Active Directory** > **Aplicativos empresariais**. Selecione o aplicativo e, em seguida, selecione **Propriedades**.
 
 ![Exemplo da URL de acesso do usuário nas propriedades do Twitter](media/end-user-experiences/direct-sign-on-link.png)
 
@@ -68,14 +61,16 @@ Esses links podem ser copiados e colados em qualquer lugar em que você deseja f
 
 `https://myapps.microsoft.com/signin/Twitter/230848d52c8745d4b05a60d29a40fced`
 
-Semelhante a URLs específicas da organização para o painel de acesso, você pode personalizar ainda mais essa URL adicionando um dos domínios para seu diretório ativos ou verificados após o domínio myapps.microsoft.com. Isso garante que qualquer identidade visual organizacional seja carregada imediatamente na página de entrada sem que o usuário precise inserir sua ID de usuário pela primeira vez:
+Semelhante às URLs específicas da organização para meus aplicativos, você pode personalizar ainda mais essa URL adicionando um dos domínios ativos ou verificados ao seu diretório após o domínio *myapps.Microsoft.com* . Isso garante que qualquer identidade visual organizacional seja carregada imediatamente na página de entrada sem que o usuário precise inserir sua ID de usuário pela primeira vez:
 
 `https://myapps.microsoft.com/contosobuild.com/signin/Twitter/230848d52c8745d4b05a60d29a40fced`
 
-Quando um usuário autorizado clica em um desses links específicos do aplicativo, ele primeiro consulta sua página de entrada organizacional (supondo que eles não ainda tenha entrados) e depois de entrada é redirecionado para seu aplicativo sem parar no primeiro painel de acesso. Se o usuário não tiver os pré-requisitos para acessar o aplicativo, como a extensão de navegador de logon único baseado em senha, o link solicitará que o usuário instale a extensão que está faltando. A URL do link também permanece constante se a configuração de logon único para o aplicativo for alterada.
+Quando um usuário autorizado clica em um desses links específicos do aplicativo, ele primeiro vê sua página de entrada organizacional (pressupondo que eles ainda não estejam conectados) e, depois que a entrada é redirecionada para seu aplicativo sem parar em meus aplicativos primeiro. Se o usuário não tiver os pré-requisitos para acessar o aplicativo, como a extensão de navegador de logon único baseado em senha, o link solicitará que o usuário instale a extensão que está faltando. A URL do link também permanece constante se a configuração de logon único para o aplicativo for alterada.
 
-Esses links usam os mesmos mecanismos de controle de acesso que o painel de acesso e o Office 365, e apenas esses usuários ou grupos que foram atribuídos ao aplicativo no portal do Azure serão capazes de autenticar com êxito. No entanto, todos os usuários não autorizados receberão uma mensagem explicando que não foi concedido acesso e receberão um link para carregar o painel de acesso para exibir os aplicativos disponíveis para os quais têm acesso.
+Esses links usam os mesmos mecanismos de controle de acesso que meus aplicativos e Microsoft 365, e somente os usuários ou grupos que foram atribuídos ao aplicativo no portal do Azure poderão se autenticar com êxito. No entanto, qualquer usuário não autorizado verá uma mensagem explicando que não recebeu acesso e receberá um link para carregar meus aplicativos para exibir os aplicativos disponíveis aos quais eles têm acesso.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para planos de implantação, consulte [planos de implantação do Azure Active Directory Domain Services](../fundamentals/active-directory-deployment-plans.md)
+* [Série de Início Rápido no Gerenciamento de Aplicativos](view-applications-portal.md)
+* [O que é logon único?](what-is-single-sign-on.md)
+* [Guia de introdução: integrando o Active Directory do Azure com aplicativos](plan-an-application-integration.md)

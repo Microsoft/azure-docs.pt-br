@@ -1,19 +1,19 @@
 ---
 title: Backup e restauração-Azure PowerShell-banco de dados do Azure para MariaDB
 description: Saiba como fazer backup e restaurar um servidor no banco de dados do Azure para MariaDB usando Azure PowerShell.
-author: ajlam
-ms.author: andrela
-ms.service: mariadb
+author: savjani
+ms.author: pariks
+ms.service: jroth
 ms.devlang: azurepowershell
 ms.topic: how-to
 ms.date: 05/26/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a3870ae192955df11107f0ebb5c618b90a0cc799
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 211285a0ae8aaa9b82bca914f3add7fbaa700146
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87833242"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664844"
 ---
 # <a name="how-to-back-up-and-restore-an-azure-database-for-mariadb-server-using-powershell"></a>Como fazer backup de um servidor do Banco de Dados do Azure para MariaDB e restaurá-lo usando o PowerShell
 
@@ -23,14 +23,14 @@ O backup do banco de dados do Azure para servidores MariaDB é feito periodicame
 
 Para concluir este guia de instruções, você precisa:
 
-- O [módulo AZ PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) instalado localmente ou [Azure cloud Shell](https://shell.azure.com/) no navegador
+- O [módulo AZ PowerShell](/powershell/azure/install-az-ps) instalado localmente ou [Azure cloud Shell](https://shell.azure.com/) no navegador
 - Um [banco de dados do Azure para servidor MariaDB](quickstart-create-mariadb-server-database-using-azure-powershell.md)
 
 > [!IMPORTANT]
 > Embora o módulo Az.MariaDb do PowerShell esteja em versão prévia, você precisará instalá-lo separadamente por meio do módulo do Az PowerShell usando o seguinte comando: `Install-Module -Name Az.MariaDb -AllowPrerelease`.
 > Depois que o módulo Az.MariaDb do PowerShell estiver em disponibilidade geral, ele passará a fazer parte das versões futuras do módulo do Az PowerShell e ficará disponível nativamente no Azure Cloud Shell.
 
-Se você optar por usar o PowerShell localmente, conecte-se à sua conta do Azure usando o cmdlet [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) .
+Se você optar por usar o PowerShell localmente, conecte-se à sua conta do Azure usando o cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) .
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -75,9 +75,9 @@ Get-AzMariaDbServer -Name mydemoserver -ResourceGroupName myresourcegroup |
 
 O conjunto de parâmetros **PointInTimeRestore** do `Restore-AzMariaDbServer` cmdlet requer os seguintes parâmetros:
 
-| Configuração | Valor sugerido | Descrição  |
+| Configuração | Valor sugerido | Descrição  |
 | --- | --- | --- |
-| ResourceGroupName |  myresourcegroup |  O grupo de recursos em que o servidor de origem existe.  |
+| ResourceGroupName |  myresourcegroup |  O grupo de recursos em que o servidor de origem existe.  |
 | Nome | mydemoserver-restored | O nome do novo servidor que é criado pelo comando de restauração. |
 | RestorePointInTime | 2020-03-13T13:59:00Z | Selecione um ponto no tempo para restaurar. Essa data e hora devem estar dentro do período de retenção de backup do servidor de origem. Use o formato ISO8601 de data e hora. Por exemplo, você pode usar seu próprio fuso horário local, como **2020-03-13T05:59:00-08:00**. Você também pode usar o formato UTC Zulu, por exemplo, **2018-03-13T13:59:00Z**. |
 | UsePointInTimeRestore | `<SwitchParameter>` | Use o modo point-in-time para restaurar. |
@@ -106,7 +106,7 @@ Get-AzMariaDbServer -Name mydemoserver -ResourceGroupName myresourcegroup |
   Restore-AzMariaDbServer -Name mydemoserver-georestored -ResourceGroupName myresourcegroup -Location eastus -Sku GP_Gen5_8 -UseGeoRestore
 ```
 
-Este exemplo cria um novo servidor chamado **mydemoserver-georestore** na região leste dos EUA que pertence ao **MyResource**. É um Uso geral, servidor Gen 5 com 8 vCores. O servidor é criado a partir do backup com redundância geográfica de **mydemoserver**, também no grupo de recursos **MyResource**Group.
+Este exemplo cria um novo servidor chamado **mydemoserver-georestore** na região leste dos EUA que pertence ao **MyResource**. É um Uso geral, servidor Gen 5 com 8 vCores. O servidor é criado a partir do backup com redundância geográfica de **mydemoserver**, também no grupo de recursos **MyResource** Group.
 
 Para criar o novo servidor em um grupo de recursos diferente do servidor existente, especifique o novo nome do grupo de recursos usando o parâmetro **ResourceGroupName** , conforme mostrado no exemplo a seguir:
 
@@ -117,11 +117,11 @@ Get-AzMariaDbServer -Name mydemoserver -ResourceGroupName myresourcegroup |
 
 O conjunto de parâmetros **Georestore** do `Restore-AzMariaDbServer` cmdlet requer os seguintes parâmetros:
 
-| Configuração | Valor sugerido | Descrição  |
+| Configuração | Valor sugerido | Descrição  |
 | --- | --- | --- |
 |ResourceGroupName | myresourcegroup | O nome do grupo de recursos ao qual o novo servidor pertence.|
 |Nome | mydemoserver-georestored | O nome do novo servidor. |
-|Localização | eastus | A localização do novo servidor. |
+|Location | eastus | A localização do novo servidor. |
 |UseGeoRestore | `<SwitchParameter>` | Use o modo geográfico para restaurar. |
 
 Ao criar um novo servidor usando a restauração geográfica, ele herda o mesmo tamanho de armazenamento e tipo de preço do servidor de origem, a menos que o parâmetro **SKU** seja especificado.
@@ -133,4 +133,4 @@ O servidor criado durante uma restauração não tem o ponto de extremidade de s
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Como gerar um banco de dados do Azure para a cadeia de conexão MariaDB com o PowerShell](howto-connection-string-powershell.md)
+> [Como gerar uma cadeia de conexão do Banco de Dados do Azure para MariaDB com o PowerShell](howto-connection-string-powershell.md)

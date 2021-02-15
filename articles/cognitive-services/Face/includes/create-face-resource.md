@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 7/5/2019
 ms.author: aahi
 ms.openlocfilehash: 0a330c2401412e1e3d5e2e49bf8121a681342808
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80878351"
 ---
 ## <a name="create-an-face-resource"></a>Criar um recurso facial
@@ -34,5 +34,5 @@ ms.locfileid: "80878351"
 
     |Guia de recursos no portal|Configuração|Valor|
     |--|--|--|
-    |**Visão geral**|Ponto de extremidade|Copie o ponto de extremidade. Ele é semelhante a`https://face.cognitiveservices.azure.com/face/v1.0`|
-    |**Chaves**|Chave de API|Cópia 1 das duas chaves. É uma cadeia de caracteres alfanuméricos 32 sem espaços ou traços `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.|
+    |**Visão geral**|Ponto de extremidade|Copie o ponto de extremidade. Ele é semelhante a `https://face.cognitiveservices.azure.com/face/v1.0`|
+    |**Chaves**|Chave de API|Cópia 1 das duas chaves. É uma cadeia de caracteres alfanuméricos 32 sem espaços ou traços `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` .|

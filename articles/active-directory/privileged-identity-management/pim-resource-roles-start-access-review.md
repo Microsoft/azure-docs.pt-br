@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: pim
-ms.date: 11/08/2019
+ms.date: 02/11/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd9e3aaf0747e9b28526a43d9f734084f8a75662
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b8f05ca02068c82a3839b22b698e49a7be818a56
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84743687"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100370539"
 ---
 # <a name="create-an-access-review-of-azure-resource-roles-in-privileged-identity-management"></a>Criar uma revisão de acesso das funções de recurso do Azure no Privileged Identity Management
 
@@ -30,7 +30,7 @@ Este artigo descreve como criar uma ou mais revisões de acesso para funções p
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-[Administrador de Função com Privilégios](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator)
+ Para criar revisões de acesso, você deve ser atribuído à função de [proprietário](../../role-based-access-control/built-in-roles.md#owner) ou [administrador de acesso do usuário](../../role-based-access-control/built-in-roles.md#user-access-administrator) do Azure para o recurso.
 
 ## <a name="open-access-reviews"></a>Abrir revisões de acesso
 
@@ -40,7 +40,7 @@ Este artigo descreve como criar uma ou mais revisões de acesso para funções p
 
 1. No menu à esquerda, selecione **recursos do Azure**.
 
-1. Selecione o recurso que você deseja gerenciar, como uma assinatura ou grupo de gerenciamento.
+1. Selecione o recurso que você deseja gerenciar, como uma assinatura.
 
 1. Em gerenciar, selecione **revisões de acesso**.
 

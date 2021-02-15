@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7637a4280d725aa8cd3482641645dbe19cb56210
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 550481b9153d8fe8745d2a745fe6b6f00d09cdb1
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84689037"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100365813"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Perguntas frequentes sobre o gerenciamento de dispositivos do Azure Active Directory
 
@@ -25,7 +25,7 @@ ms.locfileid: "84689037"
 ### <a name="q-i-registered-the-device-recently-why-cant-i-see-the-device-under-my-user-info-in-the-azure-portal-or-why-is-the-device-owner-marked-as-na-for-hybrid-azure-active-directory-azure-ad-joined-devices"></a>P: Registrei o dispositivo recentemente. Por que não consigo ver o dispositivo em minhas informações de usuário na portal do Azure? Ou, por que o proprietário do dispositivo está marcado como N/D para dispositivos ingressados no Azure Active Directory (Azure AD) híbrido?
 
 **R:** Dispositivos Windows 10 que são ingressados no Azure AD híbrido não aparecem em **dispositivos de usuário**.
-Use o modo de exibição **Todos os dispositivos** no portal do Azure. Você também pode usar um cmdlet [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) do PowerShell.
+Use o modo de exibição **Todos os dispositivos** no portal do Azure. Você também pode usar um cmdlet [Get-MsolDevice](/powershell/module/msonline/get-msoldevice) do PowerShell.
 
 Apenas os dispositivos a seguir estão listados sob os **dispositivos do usuário**:
 
@@ -62,7 +62,7 @@ Apenas os dispositivos a seguir estão listados sob os **dispositivos do usuári
 - O usuário desabilita o dispositivo do portal meus aplicativos. 
 - Um administrador (ou usuário) exclui ou desabilita o dispositivo no portal do Azure ou usando o PowerShell
 - Somente ingressado no Azure AD híbrido: um administrador remove a UO dos dispositivos fora do escopo de sincronização, resultando na exclusão dos dispositivos do Azure AD
-- Atualizando o Azure AD Connect para a versão 1.4. XX. x. [Entendendo Azure ad Connect 1.4. XX. x e desaparecem o dispositivo](/azure/active-directory/hybrid/reference-connect-device-disappearance).
+- Atualizando o Azure AD Connect para a versão 1.4. XX. x. [Entendendo Azure ad Connect 1.4. XX. x e desaparecem o dispositivo](../hybrid/reference-connect-device-disappearance.md).
 
 
 Veja abaixo como essas ações podem ser corrigidas.
@@ -144,6 +144,12 @@ Veja abaixo como essas ações podem ser corrigidas.
 >Em ambos os casos, você deve registrar novamente o dispositivo manualmente em cada um desses dispositivos. Para verificar se o dispositivo foi registrado anteriormente, você pode [solucionar problemas de dispositivos usando o comando dsregcmd](troubleshoot-device-dsregcmd.md).
 
 ---
+
+### <a name="q-i-cannot-add-more-than-3-azure-ad-user-accounts-under-the-same-user-session-on-a-windows-10-device-why"></a>P: não consigo adicionar mais de três contas de usuário do Azure AD na mesma sessão de usuário em um dispositivo Windows 10, por quê?
+
+**R: o** Azure ad adicionou suporte para várias contas do Azure ad na versão 10 1803 do Windows. No entanto, o Windows 10 restringe o número de contas do Azure AD em um dispositivo para 3 para limitar o tamanho das solicitações de token e habilitar o SSO (logon único confiável). Depois que 3 contas tiverem sido adicionadas, os usuários verão um erro para as contas subsequentes. As informações adicionais sobre o problema na tela de erro fornecem a seguinte mensagem indicando o motivo: "a operação de adição de conta está bloqueada porque o limite de conta é atingido". 
+
+---
 ## <a name="azure-ad-join-faq"></a>Perguntas frequentes sobre ingresso no Azure AD
 
 ### <a name="q-how-do-i-unjoin-an-azure-ad-joined-device-locally-on-the-device"></a>P: Como fazer desassociar um dispositivo ingressado no Azure AD localmente no dispositivo?
@@ -198,7 +204,7 @@ Há suporte para alterações de UPN com a atualização do Windows 10 2004. Os 
 
 ---
 
-### <a name="q-why-dont-some-of-my-users-get-azure-multi-factor-authentication-prompts-on-azure-ad-joined-devices"></a>P: por que alguns dos meus usuários obtêm prompts da autenticação multifator do Azure em dispositivos ingressados no Azure AD?
+### <a name="q-why-dont-some-of-my-users-get-azure-ad-multi-factor-authentication-prompts-on-azure-ad-joined-devices"></a>P: por que alguns dos meus usuários obtêm prompts da autenticação multifator do Azure AD em dispositivos ingressados no Azure AD?
 
 **R:** Um usuário pode ingressar ou registrar um dispositivo com o Azure AD usando a autenticação multifator. Em seguida, o próprio dispositivo torna-se um segundo fator confiável para esse usuário. Sempre que o mesmo usuário faz logon no dispositivo e acessa um aplicativo, o Azure AD considera o dispositivo como um segundo fator. Ele permite que o usuário acesse diretamente os aplicativos sem prompts de autenticação multifator adicionais. 
 
@@ -291,8 +297,13 @@ Há suporte para alterações de UPN com a atualização do Windows 10 2004. Os 
 
 **Um** 
 - Para dispositivos registrados no Azure AD do Windows 10, acesse **configurações**  >  **contas**  >  **acesso corporativo ou de estudante**. Selecione sua conta e, em seguida, **Desconectar**. O registro de dispositivo é por perfil de usuário no Windows 10.
-- Para IOS e Android, você pode usar o registro de dispositivo Microsoft Authenticator **configurações**de aplicativo  >  **Device Registration** e selecionar **Cancelar registro de dispositivo**.
+- Para IOS e Android, você pode usar o registro de dispositivo Microsoft Authenticator **configurações** de aplicativo  >   e selecionar **Cancelar registro de dispositivo**.
 - Para o macOS, você pode usar o aplicativo Microsoft Intune Portal da Empresa para cancelar o registro do dispositivo do gerenciamento e remover qualquer registro. 
+
+Para dispositivos Windows 10, esse processo pode ser automatizado com a [ferramenta de remoção de Workplace Join (WPJ)](https://download.microsoft.com/download/8/e/f/8ef13ae0-6aa8-48a2-8697-5b1711134730/WPJCleanUp.zip)
+
+> [!NOTE]
+> Essa ferramenta remove todas as contas de SSO no dispositivo. Após essa operação, todos os aplicativos perderão o estado do SSO e o dispositivo terá o registro cancelado das ferramentas de gerenciamento (MDM) e não registrado na nuvem. Na próxima vez que um aplicativo tentar entrar, os usuários serão solicitados a adicionar a conta novamente.
 
 ---
 ### <a name="q-how-can-i-block-users-from-adding-additional-work-accounts-azure-ad-registered-on-my-corporate-windows-10-devices"></a>P: como posso impedir que os usuários adicionem outras contas de trabalho (registradas no Azure AD) em meus dispositivos corporativos do Windows 10?
@@ -312,7 +323,7 @@ Há suporte para alterações de UPN com a atualização do Windows 10 2004. Os 
 **R:** Execute as seguintes etapas:
 
 1.    [Criar uma política de conformidade](/intune/compliance-policy-create-mac-os)
-1.    [Definir uma política de acesso condicional para dispositivos macOS](../active-directory-conditional-access-azure-portal.md) 
+1.    [Definir uma política de acesso condicional para dispositivos macOS](../conditional-access/overview.md) 
 
 **Comentários**
 

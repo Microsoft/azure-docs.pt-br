@@ -6,10 +6,10 @@ ms.author: jobreen
 author: jjbfour
 ms.date: 05/13/2019
 ms.openlocfilehash: 277faa2d47df9fddd1762d90d9aa2fb5bf00d4df
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82508115"
 ---
 # <a name="azure-managed-application-with-managed-identity"></a>Aplicativo gerenciado do Azure com identidade gerenciada
@@ -126,7 +126,7 @@ O CreateUIDefinition dá suporte a um [controle de identidade gerenciado](./micr
 
 ![CreateUIDefinition de identidade gerenciada](./media/publish-managed-identity/msi-cuid.png)
 
-### <a name="using-azure-resource-manager-templates"></a>Usando modelos do Gerenciador de Recursos do Azure
+### <a name="using-azure-resource-manager-templates"></a>Usar modelos do Azure Resource Manager
 
 > [!NOTE]
 > Os modelos de aplicativo gerenciado do Marketplace são gerados automaticamente para clientes que passam pela experiência de criação de portal do Azure.

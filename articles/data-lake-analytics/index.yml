@@ -4,19 +4,18 @@ summary: O Azure Data Lake Analytics permite que você execute trabalhos de aná
 metadata:
   title: Análise Azure Data Lake
   description: O Azure Data Lake Analytics permite que você execute trabalhos de análise de Big Data dimensionados para conjuntos de dados muito grandes.
-  services: data-lake-analytics
   ms.service: data-lake-analytics
   ms.topic: landing-page
   ms.collection: collection
   author: hrasheed-msft
   ms.author: hrasheed
   ms.date: 09/13/2019
-  ms.openlocfilehash: 5dadcad164a309a7251a1e4627cf1e78f6e927d4
-  ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+  ms.openlocfilehash: a2c2c992d717d22fbd5b9b45003a947102174dfa
+  ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 07/31/2020
-  ms.locfileid: "87475712"
+  ms.lasthandoff: 01/28/2021
+  ms.locfileid: "98928384"
 landingContent:
 - title: Sobre o Data Lake Analytics
   linkLists:
@@ -41,7 +40,7 @@ landingContent:
     - text: Introdução ao U-SQL
       url: data-lake-analytics-u-sql-get-started.md
     - text: Referência da linguagem U-SQL
-      url: https://docs.microsoft.com/u-sql/
+      url: /u-sql
     - text: Introdução ao Catálogo do U-SQL
       url: data-lake-analytics-u-sql-catalog.md
     - text: Usar operadores definidos pelo usuário

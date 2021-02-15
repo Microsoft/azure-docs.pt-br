@@ -1,23 +1,23 @@
 ---
 title: Reutilizar modelos entre nuvens
-description: Desenvolva modelos do Azure Resource Manager que funcionam de maneira uniforme para diferentes ambientes de nuvem. Crie modelos ou atualize modelos existentes para o Azure Stack.
+description: Desenvolva modelos de Azure Resource Manager (modelos ARM) que funcionam consistentemente para diferentes ambientes de nuvem. Crie modelos ou atualize modelos existentes para o Azure Stack.
 author: marcvaneijk
 ms.topic: conceptual
 ms.date: 12/09/2018
 ms.author: mavane
-ms.custom: seodec18
-ms.openlocfilehash: 9355482c26cabb96fc6292bab5d542f36aec6a8c
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: 806556a8da97ec84fe8141b95198b4a7da95c062
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88509749"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928351"
 ---
 # <a name="develop-arm-templates-for-cloud-consistency"></a>Desenvolver modelos ARM para consistência de nuvem
 
 [!INCLUDE [requires-azurerm](../../../includes/requires-azurerm.md)]
 
-Um dos principais benefícios do Azure é a consistência. Os investimentos de desenvolvimento em um local são reutilizáveis em outro. Um modelo de Azure Resource Manager (ARM) torna suas implantações consistentes e reproduzíveis entre ambientes, incluindo as nuvens globais do Azure, do Azure soberanas e Azure Stack. No entanto, para reutilizar modelos entre nuvens, você precisa considerar dependências específicas da nuvem, como explica este guia.
+Um dos principais benefícios do Azure é a consistência. Os investimentos de desenvolvimento em um local são reutilizáveis em outro. Um modelo de Azure Resource Manager (modelo ARM) torna suas implantações consistentes e reproduzíveis entre ambientes, incluindo as nuvens globais do Azure, do Azure soberanas e Azure Stack. No entanto, para reutilizar modelos entre nuvens, você precisa considerar dependências específicas da nuvem, como explica este guia.
 
 A Microsoft oferece serviços de nuvem inteligentes e prontos para a empresa em muitos locais, incluindo:
 
@@ -443,8 +443,8 @@ Namespaces de ponto de extremidade também pode ser usados na saída de um model
 
 Em geral, evite pontos de extremidade embutidos em código em um modelo. A melhor prática é usar a função de modelo de referência para recuperar os pontos de extremidade dinamicamente. Por exemplo, o ponto de extremidade mais geralmente embutido em código é o namespace de ponto de extremidade para contas de armazenamento. Cada conta de armazenamento tem um FQDN exclusivo que é construído pela concatenação do nome da conta de armazenamento com o namespace de ponto de extremidade. Uma conta de Armazenamento de Blobs chamada mystorageaccount1 resulta em FQDNs diferentes, dependendo da nuvem:
 
-* **mystorageaccount1.blob.core.windows.net** quando criado na nuvem do Azure global.
-* **mystorageaccount1.blob.Core.chinacloudapi.cn** quando criado na nuvem da 21Vianet do Azure na China.
+* `mystorageaccount1.blob.core.windows.net` Quando criado na nuvem global do Azure.
+* `mystorageaccount1.blob.core.chinacloudapi.cn` Quando criado na nuvem da 21Vianet do Azure na China.
 
 A seguinte função de modelo de referência recupera o namespace de ponto de extremidade do provedor de recursos de armazenamento:
 
@@ -487,7 +487,7 @@ Para recuperar uma lista das imagens de VM disponíveis em um local, execute o s
 az vm image list -all
 ```
 
-Recupere a mesma lista com o cmdlet [Get-AzureRmVMImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) do Azure PowerShell e especifique o local desejado com o parâmetro `-Location`. Por exemplo: 
+Recupere a mesma lista com o cmdlet [Get-AzureRmVMImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) do Azure PowerShell e especifique o local desejado com o parâmetro `-Location`. Por exemplo:
 
 ```azurepowershell-interactive
 Get-AzureRmVMImagePublisher -Location "West Europe" | Get-AzureRmVMImageOffer | Get-AzureRmVMImageSku | Get-AzureRmVMImage
@@ -590,7 +590,7 @@ Para recuperar uma lista das extensões de VM que estão disponíveis para uma r
 az vm extension image list --location myLocation
 ```
 
-Execute também o cmdlet [Get-AzureRmVmImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) do Azure PowerShell e use `-Location` para especificar o local da imagem de máquina virtual. Por exemplo: 
+Execute também o cmdlet [Get-AzureRmVmImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) do Azure PowerShell e use `-Location` para especificar o local da imagem de máquina virtual. Por exemplo:
 
 ```azurepowershell-interactive
 Get-AzureRmVmImagePublisher -Location myLocation | Get-AzureRmVMExtensionImageType | Get-AzureRmVMExtensionImage | Select Type, Version
@@ -655,7 +655,7 @@ Para ver uma lista de fornecedores, use o comando [Get-AzureRmVmImagePublisher](
 
 A imagem a seguir mostra um exemplo típico de um processo de desenvolvimento para uma equipe usando um IDE (ambiente de desenvolvimento integrado). Em estágios diferentes na linha do tempo, diferentes tipos de teste são executados. Aqui, dois desenvolvedores estão trabalhando na mesma solução, mas esse cenário se aplica igualmente a um único desenvolvedor ou a uma equipe grande. Normalmente, cada desenvolvedor cria uma cópia local de um repositório central, permitindo que cada um trabalhe na cópia local sem afetar os outros que podem estar trabalhando nos mesmos arquivos.
 
-![Fluxo de trabalho](./media/templates-cloud-consistency/workflow.png)
+![O diagrama mostra dois conjuntos de testes de unidade e testes de integração em paralelo no local I D E, que mesclam o fluxo de desenvolvimento C I/C D em testes de unidade, em seguida, os testes de integração, a implantação de teste e a implantação.](./media/templates-cloud-consistency/workflow.png)
 
 Considere as seguintes dicas para testes e automação:
 

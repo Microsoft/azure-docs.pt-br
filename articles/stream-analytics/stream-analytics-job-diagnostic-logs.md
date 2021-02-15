@@ -3,16 +3,16 @@ title: Solucionar problemas Azure Stream Analytics usando logs de recursos
 description: Este artigo descreve como analisar os logs de recursos no Azure Stream Analytics.
 author: jseb225
 ms.author: jeanb
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: troubleshooting
+ms.custom: contperf-fy21q1
 ms.date: 06/18/2020
-ms.openlocfilehash: 6d0a778dee31d93244479c08c7bb7b6f37cf49cb
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 56c7ad49fc9af3ca4f30aa5309623c31e9db7385
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319347"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98011111"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-resource-logs"></a>Solucionar problemas do Azure Stream Analytics usando logs de recursos
 
@@ -47,7 +47,7 @@ Os logs de atividades são ativados por padrão e fornecem insights de alto nív
 
    ![Resumo de operações do log de atividades do Stream Analytics](./media/stream-analytics-job-diagnostic-logs/operation-summary.png)
 
-4. Role para baixo até a seção **Propriedades** do JSON, que fornece os detalhes do erro que causou a operação com falha. Neste exemplo, a falha ocorreu devido a um erro de runtime de valores de latitude fora do limite. A discrepância nos dados que são processados por um trabalho de Stream Analytics causa um erro de dados. Você pode aprender sobre [erros de dados de entrada e saída diferentes e por que eles ocorrem](https://docs.microsoft.com/azure/stream-analytics/data-errors).
+4. Role para baixo até a seção **Propriedades** do JSON, que fornece os detalhes do erro que causou a operação com falha. Neste exemplo, a falha ocorreu devido a um erro de runtime de valores de latitude fora do limite. A discrepância nos dados que são processados por um trabalho de Stream Analytics causa um erro de dados. Você pode aprender sobre [erros de dados de entrada e saída diferentes e por que eles ocorrem](./data-errors.md).
 
    ![Detalhes do erro JSON](./media/stream-analytics-job-diagnostic-logs/error-details.png)
 
@@ -65,17 +65,17 @@ Os logs de atividades são ativados por padrão e fornecem insights de alto nív
 
     ![Navegação de folha para logs de recursos](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs-monitoring.png)  
 
-2.  Forneça um **nome** no **nome das configurações de diagnóstico** e marque as caixas de **execução** e **criação** em **log**e **biométricas** em **métrica**. Em seguida, selecione **Enviar para log Analytics** e escolha seu espaço de trabalho. Clique em **Salvar**.
+2.  Forneça um **nome** no **nome das configurações de diagnóstico** e marque as caixas de **execução** e **criação** em **log** e **biométricas** em **métrica**. Em seguida, selecione **Enviar para log Analytics** e escolha seu espaço de trabalho. Clique em **Salvar**.
 
     ![Configurações para logs de recursos](./media/stream-analytics-job-diagnostic-logs/logs-setup.png)
 
 3. Quando seu trabalho de Stream Analytics é iniciado, os logs de recursos são roteados para seu espaço de trabalho do Log Analytics. Para exibir os logs de recursos para seu trabalho, selecione **logs** na seção **monitoramento** .
 
-   ![Logs de recursos em monitoramento](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs.png)
+   ![Captura de tela mostra o menu geral com logs selecionados.](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs.png)
 
 4. Stream Analytics fornece consultas predefinidas que permitem pesquisar facilmente os logs nos quais você está interessado. Você pode selecionar qualquer consulta predefinida no painel esquerdo e, em seguida, selecionar **executar**. Você verá os resultados da consulta no painel inferior. 
 
-   ![Logs de recursos em monitoramento](./media/stream-analytics-job-diagnostic-logs/logs-example.png)
+   ![Captura de tela mostra os logs de um trabalho Stream Analytics.](./media/stream-analytics-job-diagnostic-logs/logs-example.png)
 
 ## <a name="resource-log-categories"></a>Categorias de log de recursos
 
@@ -110,7 +110,7 @@ Os logs de execução trazem informações sobre eventos que ocorreram durante a
 
 ### <a name="data-errors"></a>Erros de dados
 
-Qualquer erro ocorrido enquanto o trabalho processa os dados está nessa categoria de logs. Esses logs costumam ser criados durante operações de leitura, serialização e gravação de dados. Esses logs não incluem erros de conectividade. Os erros de conectividade são tratados como eventos genéricos. Você pode saber mais sobre a causa de vários [erros de dados de entrada e saída](https://docs.microsoft.com/azure/stream-analytics/data-errors)diferentes.
+Qualquer erro ocorrido enquanto o trabalho processa os dados está nessa categoria de logs. Esses logs costumam ser criados durante operações de leitura, serialização e gravação de dados. Esses logs não incluem erros de conectividade. Os erros de conectividade são tratados como eventos genéricos. Você pode saber mais sobre a causa de vários [erros de dados de entrada e saída](./data-errors.md)diferentes.
 
 Nome | Descrição
 ------- | -------
@@ -142,5 +142,5 @@ ID de Correlação | GUID que identifica exclusivamente a execução do trabalho
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Erros de dados de Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/data-errors)
-* [Referência da linguagem de consulta do Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
+* [Erros de dados de Stream Analytics](./data-errors.md)
+* [Referência da linguagem de consulta do Stream Analytics](/stream-analytics-query/stream-analytics-query-language-reference)

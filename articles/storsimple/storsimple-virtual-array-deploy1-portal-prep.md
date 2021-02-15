@@ -9,10 +9,10 @@ ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: c1a3d0b05f04ad8c182d428843479160666b96ee
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87070320"
 ---
 # <a name="deploy-storsimple-virtual-array---prepare-the-azure-portal"></a>Implantar o StorSimple Virtual Array – preparar o portal do Azure
@@ -127,7 +127,7 @@ Execute as etapas a seguir no [portal do Azure](https://portal.azure.com/).
 
 #### <a name="to-get-the-virtual-array-image"></a>Para obter a imagem da matriz virtual
 
-1. Entre no [portal do Azure](https://portal.azure.com/). 
+1. Faça logon no [Portal do Azure](https://portal.azure.com/). 
 2. No portal do Azure, clique em **Procurar > Gerenciadores de Dispositivos StorSimple**.
 3. Selecione um serviço Gerenciador de Dispositivos StorSimple existente. Na folha **Gerenciador de Dispositivos StorSimple**, clique em **Início Rápido**. 
 4. Clique no link correspondente à imagem que você deseja baixar do Centro de Download da Microsoft. Os arquivos de imagem têm aproximadamente 4,8 GB.

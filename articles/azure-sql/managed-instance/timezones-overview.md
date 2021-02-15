@@ -6,17 +6,17 @@ ms.service: sql-managed-instance
 ms.subservice: operations
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: reference
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: ''
-ms.date: 05/25/2020
-ms.openlocfilehash: 84df755d4a89b83a0842a74a619fad5275396dec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 10/12/2020
+ms.openlocfilehash: 8a4c1b2ac53679153c8d9485443a231b817df77a
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84711350"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98734572"
 ---
 # <a name="time-zones-in-azure-sql-managed-instance"></a>Fusos horários no Azure SQL Instância Gerenciada
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -32,9 +32,9 @@ Funções T-SQL como [GETDATE ()](/sql/t-sql/functions/getdate-transact-sql) ou 
 
 Um conjunto de fusos horários com suporte é herdado do sistema operacional subjacente da instância gerenciada. Ele é atualizado regularmente para obter novas definições de fuso horário e refletir as alterações nas existentes.
 
-A [política de horário de verão e alterações de fuso horário](https://aka.ms/time) garante a precisão histórica de 2010 para frente.
+A [política de horário de verão e alterações de fuso horário](/troubleshoot/windows-client/system-management-components/daylight-saving-time-help-support) garante a precisão histórica de 2010 para frente.
 
-Uma lista com nomes dos fusos horários com suporte é exposta por meio da exibição do sistema [Sys. time_zone_info](/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql) .
+Uma lista com nomes dos fusos horários com suporte é exposta por meio da exibição do sistema [Sys.time_zone_info](/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql) .
 
 ## <a name="set-a-time-zone"></a>Definir um fuso horário
 
@@ -51,7 +51,7 @@ Ao inserir parâmetros para uma nova instância, selecione um fuso horário na l
 
 ### <a name="azure-resource-manager-template"></a>Modelo do Azure Resource Manager
 
-Especifique a propriedade TimeZoneID em seu [modelo do Resource Manager](https://aka.ms/sql-mi-create-arm-posh) para definir o fuso horário durante a criação da instância.
+Especifique a propriedade TimeZoneID em seu [modelo do Resource Manager](./scripts/create-powershell-azure-resource-manager-template.md) para definir o fuso horário durante a criação da instância.
 
 ```json
 "properties": {
@@ -95,7 +95,7 @@ Usar o mesmo fuso horário em uma instância primária e secundária em um grupo
 
 ## <a name="limitations"></a>Limitações
 
-- O fuso horário da instância gerenciada existente não pode ser alterado.
+- O fuso horário da instância gerenciada existente não pode ser alterado. Como alternativa, crie uma nova instância gerenciada com o fuso horário adequado e, em seguida, execute um backup e uma restauração manuais, ou o que recomendamos, execute uma [restauração pontual de instância cruzada](./point-in-time-restore.md?tabs=azure-portal#restore-an-existing-database).
 - Os processos externos iniciados por meio dos trabalhos de SQL Server Agent não observam o fuso horário da instância.
 
 ## <a name="list-of-supported-time-zones"></a>Lista de fusos horários com suporte
@@ -144,7 +144,7 @@ Usar o mesmo fuso horário em uma instância primária e secundária em um grupo
 | Horário padrão de Saint Pierre | (UTC-03:00) São Pedro e Miquelon |
 | Hora padrão de Bahia | (UTC-03:00) Salvador |
 | UTC-02 | (UTC-02:00) Tempo universal coordenado-02 |
-| Horário padrão do Atlântico Médio | (UTC-02:00) Meados do Atlântico-antigo |
+| Mid-Atlantic hora padrão | (UTC-02:00) Mid-Atlantic-antigo |
 | Hora padrão de Açores | (UTC-01:00) Açore |
 | Hora oficial do cabo verde | (UTC-01:00) Ilha de cabo verde |
 | UTC | (UTC) Tempo Universal Coordenado |
@@ -199,7 +199,7 @@ Usar o mesmo fuso horário em uma instância primária e secundária em um grupo
 | Hora padrão de Omsk | (UTC + 06:00) Omsk |
 | Hora oficial de Myanmar | (UTC + 06:30) Yangon (Rangoon) |
 | Hora padrão do Sudeste Asiático | (UTC + 07:00) Bancoc, Hanói, Jacarta |
-| Hora padrão de Altai | (UTC + 07:00) Barnaul, Gorno-Altaisk |
+| Hora padrão de Altai | (UTC + 07:00) Barnaul, Gorno-Altaysk |
 | W. Hora padrão da Mongólia | (UTC + 07:00) Hovd |
 | Hora oficial do norte da Ásia | (UTC + 07:00) Krasnoyarsk |
 | N. Hora oficial da Ásia Central | (UTC + 07:00) Novosibirsk |
@@ -241,9 +241,9 @@ Usar o mesmo fuso horário em uma instância primária e secundária em um grupo
 | Hora oficial de Samoa | (UTC + 13:00) Samoa |
 | Hora oficial das ilhas de linha | (UTC + 14:00) Ilha Kiritimati |
 
-## <a name="see-also"></a>Consulte também 
+## <a name="see-also"></a>Confira também 
 
-- [CURRENT_TIMEZONE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/functions/current-timezone-transact-sql)
-- [CURRENT_TIMEZONE_ID (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/functions/current-timezone-id-transact-sql)
-- [AT TIME ZONE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/queries/at-time-zone-transact-sql)
-- [sys. time_zone_info (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql)
+- [CURRENT_TIMEZONE (Transact-SQL)](/sql/t-sql/functions/current-timezone-transact-sql)
+- [CURRENT_TIMEZONE_ID (Transact-SQL)](/sql/t-sql/functions/current-timezone-id-transact-sql)
+- [AT TIME ZONE (Transact-SQL)](/sql/t-sql/queries/at-time-zone-transact-sql)
+- [sys.time_zone_info (Transact-SQL)](/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql)

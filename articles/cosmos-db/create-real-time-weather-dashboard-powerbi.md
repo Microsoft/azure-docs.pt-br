@@ -4,17 +4,19 @@ description: Saiba como criar um painel do clima ao vivo em Power BI usando Azur
 author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 09/04/2019
 ms.reviewer: sngun
-ms.openlocfilehash: eda3ee3e9e170469ffb0b9b0e1d7dede181fe3f0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b3ec3e96aa1ba4bce3893c1af2446bb509a867b6
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85261997"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93333589"
 ---
 # <a name="create-a-real-time-dashboard-using-azure-cosmos-db-and-power-bi"></a>Criar um painel em tempo real usando Azure Cosmos DB e Power BI
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Este artigo descreve as etapas necessárias para criar um painel do clima ao vivo no Power BI usando Azure Cosmos DB e Azure Analysis Services. O painel de Power BI exibirá gráficos para mostrar informações em tempo real sobre temperatura e chuva em uma região.
 
@@ -46,7 +48,7 @@ O Azure Analysis Services fornece uma plataforma totalmente gerenciada como um s
 
 ### <a name="ingest-weather-data-into-azure-cosmos-db"></a>Ingerir dados meteorológicos em Azure Cosmos DB
 
-Configure um pipeline de ingestão para carregar [dados meteorológicos](https://catalog.data.gov/dataset/local-weather-archive) para Azure Cosmos DB. Você pode configurar um trabalho de [Azure data Factory (ADF)](../data-factory/connector-azure-cosmos-db.md) para carregar periodicamente os dados meteorológicos mais recentes em Azure Cosmos DB usando o coletor de Cosmos DB e de origem http.
+Configure um pipeline de ingestão para carregar [dados meteorológicos](https://catalog.data.gov/dataset/local-weather-archive/resource/c28974a2-fc83-4722-8977-9a701323f729) para Azure Cosmos DB. Você pode configurar um trabalho de [Azure data Factory (ADF)](../data-factory/connector-azure-cosmos-db.md) para carregar periodicamente os dados meteorológicos mais recentes em Azure Cosmos DB usando o coletor de Cosmos DB e de origem http.
 
 
 ### <a name="connect-power-bi-to-azure-cosmos-db"></a>Conectar Power BI ao Azure Cosmos DB
@@ -68,11 +70,11 @@ Configure um pipeline de ingestão para carregar [dados meteorológicos](https:/
    Dependendo de qual coluna e tipo de dados está presente no conjunto de dados de origem, você pode alterar os campos RangeStart e RangeEnd adequadamente
 
    
-   |Property  |Tipo de dados  |Filtrar  |
+   |Propriedade  |Tipo de dados  |Filtrar  |
    |---------|---------|---------|
    |_ts     |   Numérico      |  [_ts] > Duration. TotalSeconds (RangeStart-#datetime (1970, 1, 1, 0, 0, 0)) e [_ts] < Duration. TotalSeconds (RangeEnd-#datetime (1970, 1, 1, 0, 0, 0)))       |
-   |Data (por exemplo:-2019-08-19)     |   String      | [Document. Date] > DateTime. totext (RangeStart, "YYYY-MM-DD") e [Document. Date] < DateTime. totext (RangeEnd, "aaaa-MM-DD")        |
-   |Data (por exemplo:-2019-08-11 12:00:00)   |  String       |  [Document. Date] > DateTime. totext (RangeStart, "aaaa-mm-dd HH: mm: SS") e [Document. Date] < DateTime. totext (RangeEnd, "aaaa-mm-dd HH: mm: SS")       |
+   |Data (por exemplo:-2019-08-19)     |   Cadeia de caracteres      | [Document. Date] > DateTime. totext (RangeStart, "YYYY-MM-DD") e [Document. Date] < DateTime. totext (RangeEnd, "aaaa-MM-DD")        |
+   |Data (por exemplo:-2019-08-11 12:00:00)   |  Cadeia de caracteres       |  [Document. Date] > DateTime. totext (RangeStart, "aaaa-mm-dd HH: mm: SS") e [Document. Date] < DateTime. totext (RangeEnd, "aaaa-mm-dd HH: mm: SS")       |
 
 
 1. **Definir a política de atualização** – defina a política de atualização navegando até a guia **atualização incremental** no menu de **contexto** da tabela. Defina a política de atualização para atualizar **todos os dias** e armazene os dados do último mês.
@@ -92,13 +94,13 @@ Configure um pipeline de ingestão para carregar [dados meteorológicos](https:/
 
 ### <a name="ingest-weather-data-into-azure-cosmos-db"></a>Ingerir dados meteorológicos em Azure Cosmos DB 
 
-Configure um pipeline de ingestão para carregar [dados meteorológicos](https://catalog.data.gov/dataset/local-weather-archive) para Azure Cosmos DB. Você pode configurar um trabalho de Azure Data Factory (ADF) para carregar periodicamente os dados meteorológicos mais recentes em Azure Cosmos DB usando o coletor de Cosmos DB e de origem HTTP.
+Configure um pipeline de ingestão para carregar [dados meteorológicos](https://catalog.data.gov/dataset/local-weather-archive/resource/c28974a2-fc83-4722-8977-9a701323f729) para Azure Cosmos DB. Você pode configurar um trabalho de Azure Data Factory (ADF) para carregar periodicamente os dados meteorológicos mais recentes em Azure Cosmos DB usando o coletor de Cosmos DB e de origem HTTP.
 
 ### <a name="connect-azure-analysis-services-to-azure-cosmos-account"></a>Conectar Azure Analysis Services à conta do cosmos do Azure
 
 1. **Criar um novo cluster Azure Analysis Services**  -  [Crie uma instância do Azure Analysis Services](../analysis-services/analysis-services-create-server.md) na mesma região que a conta do Azure Cosmos e o cluster do databricks.
 
-1. **Criar um novo projeto de tabela Analysis Services no Visual Studio**  -   [Instale o SQL Server Data Tools (SSDT)](/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017) e crie um Analysis Services projeto de tabela no Visual Studio.
+1. **Criar um novo projeto de tabela Analysis Services no Visual Studio**  -   [Instale o SQL Server Data Tools (SSDT)](/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017&preserve-view=true) e crie um Analysis Services projeto de tabela no Visual Studio.
 
    :::image type="content" source="./media/create-real-time-weather-dashboard-powerbi/create-analysis-services-project.png" alt-text="Criar Azure Analysis Services projeto":::
 
@@ -110,7 +112,7 @@ Configure um pipeline de ingestão para carregar [dados meteorológicos](https:/
 
    :::image type="content" source="./media/create-real-time-weather-dashboard-powerbi/add-data-source.png" alt-text="Adicionar fonte de dados de Cosmos DB":::
 
-   Conecte-se a Azure Cosmos DB fornecendo o **URI da conta**, o nome do banco de **dados**e o nome do **contêiner**. Agora você pode ver que os dados do contêiner Cosmos do Azure são importados para o Power BI.
+   Conecte-se a Azure Cosmos DB fornecendo o **URI da conta** , o nome do banco de **dados** e o nome do **contêiner**. Agora você pode ver que os dados do contêiner Cosmos do Azure são importados para o Power BI.
 
    :::image type="content" source="./media/create-real-time-weather-dashboard-powerbi/preview-cosmosdb-data.png" alt-text="Visualizar dados de Azure Cosmos DB":::
 

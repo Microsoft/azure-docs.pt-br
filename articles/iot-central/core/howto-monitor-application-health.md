@@ -3,25 +3,25 @@ title: Monitorar a integridade de um aplicativo de IoT Central do Azure | Micros
 description: Como um operador ou administrador, monitore a integridade geral dos dispositivos conectados ao seu aplicativo IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 05/14/2020
+ms.date: 01/27/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: d246adbf8e87d5503bc19bcd497dd00370c0a867
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1c16da10a8a7853b1392383855aba0ff24424f33
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87001889"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100515862"
 ---
-# <a name="monitor-the-overall-health-of-the-devices-connected-to-an-iot-central-application"></a>Monitorar a integridade geral dos dispositivos conectados a um aplicativo IoT Central
+# <a name="monitor-the-overall-health-of-an-iot-central-application"></a>Monitorar a integridade geral de um aplicativo IoT Central
 
 > [!NOTE]
 > As métricas só estão disponíveis para aplicativos IoT Central versão 3. Para saber como verificar a versão do aplicativo, consulte [sobre seu aplicativo](./howto-get-app-info.md).
 
 *Este artigo se aplica a operadores e administradores.*
 
-Neste artigo, você aprenderá a usar o conjunto de métricas fornecidas pelo IoT Central para avaliar a integridade geral dos dispositivos conectados ao seu aplicativo IoT Central.
+Neste artigo, você aprenderá a usar o conjunto de métricas fornecidas pelo IoT Central para avaliar a integridade dos dispositivos conectados ao seu aplicativo IoT Central e a integridade de suas exportações de dados em execução.
 
 As métricas são habilitadas por padrão para seu aplicativo IoT Central e você as acessa do [portal do Azure](https://portal.azure.com/). A [plataforma de dados Azure monitor expõe essas métricas](../../azure-monitor/platform/data-platform-metrics.md) e fornece várias maneiras para você interagir com elas. Por exemplo, você pode usar gráficos no portal do Azure, uma API REST ou consultas no PowerShell ou no CLI do Azure.
 
@@ -31,7 +31,7 @@ Os aplicativos que usam o plano de avaliação gratuita não têm uma assinatura
 
 ## <a name="view-metrics-in-the-azure-portal"></a>Exibir métricas no portal do Azure
 
-As etapas a seguir pressupõem que você tenha um [aplicativo IOT central](./quick-deploy-iot-central.md) com alguns [dispositivos conectados](./tutorial-connect-device-nodejs.md).
+As etapas a seguir pressupõem que você tenha um [aplicativo IOT central](./quick-deploy-iot-central.md) com alguns [dispositivos conectados](./tutorial-connect-device.md) ou uma [exportação de dados](howto-export-data.md)em execução.
 
 Para exibir IoT Central métricas no Portal:
 
@@ -46,7 +46,7 @@ O acesso às métricas no portal do Azure é gerenciado pelo [controle de acesso
 
 ## <a name="iot-central-metrics"></a>Métricas de IoT Central
 
-Para obter uma lista das métricas que estão disponíveis atualmente para IoT Central, consulte [métricas com suporte com Azure monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftiotcentraliotapps).
+Para obter uma lista das métricas que estão disponíveis atualmente para IoT Central, consulte [métricas com suporte com Azure monitor](../../azure-monitor/platform/metrics-supported.md#microsoftiotcentraliotapps).
 
 ### <a name="metrics-and-invoices"></a>Métricas e faturas
 
@@ -60,4 +60,4 @@ As métricas podem ser diferentes dos números mostrados na sua fatura do Azure 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora que você aprendeu a usar modelos de aplicativos, a próxima etapa sugerida é aprender a [gerenciar IOT central da portal do Azure](howto-manage-iot-central-from-portal.md)
+Agora que você aprendeu a usar modelos de aplicativos, a próxima etapa sugerida é aprender a [gerenciar IOT central da portal do Azure](howto-manage-iot-central-from-portal.md).

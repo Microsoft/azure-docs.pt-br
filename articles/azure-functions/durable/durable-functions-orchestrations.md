@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: overview
 ms.date: 09/08/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 1b349b1e3c4a2fac4cd260dbe83469a776951ab0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ba314963058389e171601407ff00411049eecd45
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87033635"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97845427"
 ---
 # <a name="durable-orchestrations"></a>Orquestrações Duráveis
 
@@ -51,7 +51,7 @@ Quando uma função de orquestração recebe mais trabalho a fazer (por exemplo,
 > Para que o padrão de reprodução funcione corretamente e de forma confiável, o código de função funções de orquestrador deve ser *determinístico*. Para obter mais informações sobre restrições de código para funções de orquestrador, confira o tópico [restrições de código de função funções de orquestrador](durable-functions-code-constraints.md).
 
 > [!NOTE]
-> Se uma função de orquestrador emitir mensagens de log, o comportamento da reprodução poderá causar mensagens de erro duplicadas a serem emitidas. Confira o tópico [Registro em log](durable-functions-diagnostics.md#logging) para saber mais sobre por que esse comportamento ocorre e como contorná-lo.
+> Se uma função de orquestrador emitir mensagens de log, o comportamento da reprodução poderá causar mensagens de erro duplicadas a serem emitidas. Confira o tópico [Log](durable-functions-diagnostics.md#app-logging) para saber mais sobre por que esse comportamento ocorre e como resolvê-lo.
 
 ## <a name="orchestration-history"></a>Histórico de orquestração
 
@@ -293,7 +293,7 @@ Não é possível passar vários parâmetros para uma função de atividade dire
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-No .NET, use também objetos [ValueTuples](/dotnet/csharp/tuples). O exemplo a seguir usa os novos recursos de [ValueTuples](/dotnet/csharp/tuples) adicionados com [C# 7](/dotnet/csharp/whats-new/csharp-7#tuples):
+No .NET, use também objetos [ValueTuple](/dotnet/csharp/tuples). O seguinte exemplo usa os novos recursos de [ValueTuple](/dotnet/csharp/tuples) adicionados com [C# 7](/dotnet/csharp/whats-new/csharp-7#tuples):
 
 ```csharp
 [FunctionName("GetCourseRecommendations")]

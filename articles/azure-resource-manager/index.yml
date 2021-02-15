@@ -11,12 +11,12 @@ metadata:
   author: tfitzmac
   ms.author: tomfitz
   ms.date: 03/04/2020
-  ms.openlocfilehash: 6a0c4ecff3f381dc12ba3ce6f385782754857bfe
-  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+  ms.openlocfilehash: e844a428910a220d77c143baa74124a112135387
+  ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 03/24/2020
-  ms.locfileid: "78297711"
+  ms.lasthandoff: 12/01/2020
+  ms.locfileid: "96435205"
 highlightedContent:
   items:
   - title: O que é o Gerenciador de Recursos?
@@ -55,7 +55,7 @@ conceptualContent:
       text: Práticas recomendadas
     footerLink:
       url: templates/index.yml
-      text: Ver mais
+      text: Veja mais
   - title: Gerenciar recursos
     links:
     - url: management/overview.md
@@ -78,7 +78,7 @@ conceptualContent:
       text: Limites de serviço e assinatura
     footerLink:
       url: management/index.yml
-      text: Ver mais
+      text: Veja mais
   - title: Aplicativos gerenciados
     links:
     - url: managed-applications/overview.md
@@ -90,12 +90,12 @@ conceptualContent:
     - url: managed-applications/create-uidefinition-overview.md
       itemType: how-to-guide
       text: Definir painel do portal para criar aplicativo
-    - url: managed-applications/publish-marketplace-app.md
+    - url: ../marketplace/create-new-azure-apps-offer.md
       itemType: tutorial
       text: Adicionar aplicativo ao Marketplace
     footerLink:
       url: managed-applications/index.yml
-      text: Ver mais
+      text: Veja mais
   - title: Provedores Personalizados do Azure
     links:
     - url: custom-providers/overview.md

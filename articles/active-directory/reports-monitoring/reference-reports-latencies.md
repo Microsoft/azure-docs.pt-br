@@ -17,12 +17,12 @@ ms.date: 05/13/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d031546bb4f1f05e9ea2abb5b74fe911b0b507f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0498ee1c57cfa661884fe3209d4e089b54996fae
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74007697"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89231054"
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Latências de relatórios do Azure Active Directory
 
@@ -54,8 +54,8 @@ Se você já tiver dados de atividades com sua licença gratuita, poderá vê-lo
 
 Há dois tipos de relatórios de segurança:
 
-- [Entradas arriscadas](concept-risky-sign-ins.md) - uma entrada arriscada é um indicador para uma tentativa de logon que pode ter sido realizada por alguém que não é o proprietário legítimo de uma conta de usuário. 
-- [Usuários sinalizados para riscos](concept-user-at-risk.md) - um usuário arriscado é um indicador de uma conta de usuário que pode ter sido comprometida. 
+- [Entradas arriscadas](../identity-protection/overview-identity-protection.md) - uma entrada arriscada é um indicador para uma tentativa de logon que pode ter sido realizada por alguém que não é o proprietário legítimo de uma conta de usuário. 
+- [Usuários sinalizados para riscos](../identity-protection/overview-identity-protection.md) - um usuário arriscado é um indicador de uma conta de usuário que pode ter sido comprometida. 
 
 A tabela a seguir lista as informações de latência para relatórios de segurança.
 
@@ -84,4 +84,4 @@ A tabela a seguir lista as informações de latência para as detecções de ris
 
 * [Visão geral dos relatórios do Azure AD](overview-reports.md)
 * [Acesso programático aos relatórios do Microsoft Azure Active Directory](concept-reporting-api.md)
-* [Azure Active Directory de detecções de risco](concept-risk-events.md)
+* [Azure Active Directory de detecções de risco](../identity-protection/overview-identity-protection.md)

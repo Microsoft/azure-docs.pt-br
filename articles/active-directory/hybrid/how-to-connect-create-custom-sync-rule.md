@@ -1,6 +1,6 @@
 ---
 title: Como personalizar uma regra de sincronização no Azure AD Connect | Microsoft Docs
-description: Este tópico fornece etapas para solucionar problemas com a instalação do Azure AD Connect.
+description: Saiba como usar o editor de regras de sincronização para editar ou criar uma nova regra de sincronização.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -15,12 +15,12 @@ ms.date: 01/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75300824d94ecbd77f426539ce99da6caaa2e27a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e2bb86988454141dc692b4a9967997c4ff7574a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85359986"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "90530481"
 ---
 # <a name="how-to-customize-a-synchronization-rule"></a>Como personalizar uma regra de sincronização
 
@@ -43,13 +43,13 @@ Você pode usar o editor de regra de sincronização para editar ou criar uma no
 * Para modificar uma regra de **Saída**, altere o filtro de editor de regra de sincronização.
 
 ## <a name="recommended-documents"></a>**Documentos recomendados**
-* [Sincronização de Azure AD Connect: conceitos técnicos](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-technical-concepts)
-* [Sincronização do Azure AD Connect: noções básicas sobre a arquitetura](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-architecture)
-* [Sincronização do Azure AD Connect: noções básicas sobre expressões de provisionamento declarativo](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-declarative-provisioning)
-* [Sincronização do Azure AD Connect: noções básicas sobre expressões de provisionamento declarativo](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-declarative-provisioning-expressions)
-* [Sincronização do Azure AD Connect: Noções básicas sobre a configuração padrão](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-default-configuration)
-* [Azure Active Directory Connect Sync: noções básicas sobre usuários, grupos e contatos](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-user-and-contacts)
-* [Sincronização de Azure AD Connect: atributos de sombra](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-syncservice-shadow-attributes)
+* [Sincronização de Azure AD Connect: conceitos técnicos](./how-to-connect-sync-technical-concepts.md)
+* [Sincronização do Azure AD Connect: noções básicas sobre a arquitetura](./concept-azure-ad-connect-sync-architecture.md)
+* [Sincronização do Azure AD Connect: noções básicas sobre expressões de provisionamento declarativo](./concept-azure-ad-connect-sync-declarative-provisioning.md)
+* [Sincronização do Azure AD Connect: noções básicas sobre expressões de provisionamento declarativo](./concept-azure-ad-connect-sync-declarative-provisioning-expressions.md)
+* [Sincronização do Azure AD Connect: Noções básicas sobre a configuração padrão](./concept-azure-ad-connect-sync-default-configuration.md)
+* [Azure Active Directory Connect Sync: noções básicas sobre usuários, grupos e contatos](./concept-azure-ad-connect-sync-user-and-contacts.md)
+* [Sincronização de Azure AD Connect: atributos de sombra](./how-to-connect-syncservice-shadow-attributes.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 - [Sincronização de Azure ad Connect](how-to-connect-sync-whatis.md).

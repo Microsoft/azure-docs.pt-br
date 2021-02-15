@@ -10,12 +10,12 @@ ms.custom: develop apps
 ms.topic: include
 ms.date: 07/13/2018
 ms.author: ninarn
-ms.openlocfilehash: 6ead2e0ea326b5c3f2e76e7aa9cc4ab3c50d4154
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b06004143d4a1ec5a2808e21b1f78833e410c195
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67172002"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95561682"
 ---
 ### <a name="obtain-the-connection-string-from-the-azure-portal"></a>Obter a cadeia de conexão no portal do Azure
 Obtenha no [portal do Azure](https://portal.azure.com/) a cadeia de conexão que é necessária para o seu programa cliente interagir com o Banco de Dados SQL do Azure.
@@ -38,7 +38,7 @@ Obtenha no [portal do Azure](https://portal.azure.com/) a cadeia de conexão que
 
 8. Em um formato ou outro, cole as informações da cadeia de conexão no código do programa cliente.
 
-Para obter mais informações, consulte [cadeias de conexão e arquivos de configuração](https://msdn.microsoft.com/library/ms254494.aspx).
+Para obter mais informações, consulte [cadeias de conexão e arquivos de configuração](/dotnet/framework/data/adonet/connection-strings-and-configuration-files).
 
 <!-- Image references. -->
 

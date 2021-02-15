@@ -3,18 +3,20 @@ title: Criar vários gatilhos de Azure Functions independentes para Cosmos DB
 description: Saiba como configurar vários gatilhos independentes do Azure Functions para o Cosmos DB a fim de criar arquiteturas orientadas a eventos.
 author: ealsur
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 07/17/2019
 ms.author: maquaran
 ms.custom: devx-track-csharp
-ms.openlocfilehash: dce10fb85ac181bb06aef0058768bef659462a5a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 78fff48a97965f0b80456cd3e56ed1507bc784fc
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89019973"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93336666"
 ---
 # <a name="create-multiple-azure-functions-triggers-for-cosmos-db"></a>Criar vários gatilhos do Azure Functions para o Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Este artigo descreve como você pode configurar vários gatilhos do Azure Functions para o Cosmos DB a fim de funcionarem em paralelo e reagirem de modo independente a alterações.
 
@@ -24,7 +26,7 @@ Este artigo descreve como você pode configurar vários gatilhos do Azure Functi
 
 Ao criar arquiteturas sem servidor com o [Azure Functions](../azure-functions/functions-overview.md), é [recomendado](../azure-functions/functions-best-practices.md#avoid-long-running-functions) criar pequenos conjuntos de função que funcionam juntos, em vez de funções grandes de execução prolongada.
 
-Conforme criar fluxos sem servidor com base em eventos usando o [Gatilho do Azure Functions para o Cosmos DB](./change-feed-functions.md), você executará o cenário em que deseja realizar várias ações sempre que houver um novo evento em um [contêiner do Azure Cosmos](./databases-containers-items.md#azure-cosmos-containers) em particular. Se as ações que você deseja disparar são independentes umas das outras, a solução ideal é **criar um gatilho do Azure Functions para o Cosmos DB por ação** que você deseja realizar, tudo isso escutando as alterações no mesmo contêiner do Azure Cosmos.
+Conforme criar fluxos sem servidor com base em eventos usando o [Gatilho do Azure Functions para o Cosmos DB](./change-feed-functions.md), você executará o cenário em que deseja realizar várias ações sempre que houver um novo evento em um [contêiner do Azure Cosmos](./account-databases-containers-items.md#azure-cosmos-containers) em particular. Se as ações que você deseja disparar são independentes umas das outras, a solução ideal é **criar um gatilho do Azure Functions para o Cosmos DB por ação** que você deseja realizar, tudo isso escutando as alterações no mesmo contêiner do Azure Cosmos.
 
 ## <a name="optimizing-containers-for-multiple-triggers"></a>Otimizando contêineres para vários gatilhos
 
@@ -32,7 +34,7 @@ Dados os *requisitos* do gatilho do Azure Functions para o Cosmos DB, precisamos
 
 Aqui você tem duas opções:
 
-* Criar **um contêiner de concessões por função**: essa abordagem pode ser traduzida em custos adicionais, a menos que você esteja usando um [banco de dados de produtividade compartilhado](./set-throughput.md#set-throughput-on-a-database). A taxa de transferência mínima no nível do contêiner é de 400 [unidades de solicitação](./request-units.md) e, no caso do contêiner de concessões, só está sendo usada como ponto de verificação do progresso e para manter o estado.
+* Criar **um contêiner de concessões por função** : essa abordagem pode ser traduzida em custos adicionais, a menos que você esteja usando um [banco de dados de produtividade compartilhado](./set-throughput.md#set-throughput-on-a-database). A taxa de transferência mínima no nível do contêiner é de 400 [unidades de solicitação](./request-units.md) e, no caso do contêiner de concessões, só está sendo usada como ponto de verificação do progresso e para manter o estado.
 * Ter **um contêiner de concessão e compartilhá-lo** para todas as suas funções: essa segunda opção faz uso melhor das unidades de solicitação provisionadas no contêiner, pois permite que vários Azure Functions compartilhem e usem a mesma taxa de transferência provisionada.
 
 A meta deste artigo é orientá-lo para realizar a segunda opção.

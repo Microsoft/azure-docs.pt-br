@@ -1,5 +1,5 @@
 - name: Solução VMware pela CloudSimple
-  href: /azure/vmware-cloudsimple
+  href: ./index.md
   items:
     - name: Visão geral
       items:
@@ -7,7 +7,7 @@
           href: cloudsimple-vmware-solutions-overview.md
         - name: Principais conceitos de administração
           href: key-concepts.md
-    - name: Guia de Início Rápido
+    - name: Início Rápido
       expanded: true
       items:
         - name: Planejamento da rede
@@ -52,6 +52,8 @@
           href: node-quota.md
         - name: Manutenção e atualizações
           href: cloudsimple-maintenance-updates.md
+        - name: Ações proibidas
+          href: forbidden-actions.md
         - name: Perguntas frequentes
           href: cloudsimple-faq.md
     - name: Tutoriais
@@ -178,3 +180,7 @@
               href: on-premises-connection.md
             - name: Conexão de rede virtual do Azure com ExpressRoute
               href: azure-expressroute-connection.md
+    - name: Notas de Versão
+      items:
+        - name: Atualização de setembro de 2020 do CloudSimple
+          href: update-plan-sept-2020.md

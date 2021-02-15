@@ -1,7 +1,7 @@
 ---
 title: Referência de módulo de hash de recurso
 titleSuffix: Azure Machine Learning
-description: Saiba como usar o módulo hash de recurso no Azure Machine Learning para personalizarr dados de texto.
+description: Saiba como usar o módulo hash de recurso no designer de Azure Machine Learning para personalizarr dados de texto.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,20 +9,20 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: 7178417a5c20afe5b1ed02bc526ec174704962df
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cd48b32afee320aa3d252540d566317c374c73a8
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79456243"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420777"
 ---
 # <a name="feature-hashing-module-reference"></a>Referência de módulo de hash de recurso
 
-Este artigo descreve um módulo incluído no designer de Azure Machine Learning (versão prévia).
+Este artigo descreve um módulo incluído no Azure Machine Learning designer.
 
 Use o módulo hash de recurso para transformar um fluxo de texto em inglês em um conjunto de recursos inteiros. Em seguida, você pode passar esse conjunto de recursos com hash para um algoritmo de aprendizado de máquina para treinar um modelo de análise de texto.
 
-A funcionalidade de hash de recurso fornecida neste módulo é baseada na estrutura nimbusml. Para obter mais informações, consulte [classe NgramHash](https://docs.microsoft.com/python/api/nimbusml/nimbusml.feature_extraction.text.extractor.ngramhash?view=nimbusml-py-latest).
+A funcionalidade de hash de recurso fornecida neste módulo é baseada na estrutura nimbusml. Para obter mais informações, consulte [classe NgramHash](/python/api/nimbusml/nimbusml.feature_extraction.text.extractor.ngramhash?view=nimbusml-py-latest&preserve-view=true).
 
 ## <a name="what-is-feature-hashing"></a>O que é o hash de recurso?
 
@@ -90,7 +90,7 @@ As saídas numéricas também possibilitam o uso de métodos comuns de aprendiza
     
     O tamanho de bit padrão é 10. Para muitos problemas, esse valor é adequado. Talvez seja necessário mais espaço para evitar colisões, dependendo do tamanho do vocabulário de n-grams no texto de treinamento.
     
-1. Para **N-grams**, insira um número que defina o comprimento máximo dos N-grams a serem adicionados ao dicionário de treinamento. Um n-Gram é uma sequência de *n* palavras, tratada como uma unidade exclusiva.
+1. Para **N-grams** , insira um número que defina o comprimento máximo dos N-grams a serem adicionados ao dicionário de treinamento. Um n-Gram é uma sequência de *n* palavras, tratada como uma unidade exclusiva.
 
     Por exemplo, se você inserir 3, unigrams, bigrams e trigrams serão criados.
 
@@ -131,4 +131,4 @@ O conjunto ideal de métodos de pré-processamento a serem aplicados em qualquer
 
 ## <a name="next-steps"></a>Próximas etapas
             
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning 
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning

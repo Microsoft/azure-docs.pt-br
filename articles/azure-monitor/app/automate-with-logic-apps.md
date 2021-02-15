@@ -3,12 +3,12 @@ title: Automatizar processos do insights Aplicativo Azure usando aplicativos ló
 description: Saiba como você pode automatizar rapidamente os processos repetíveis adicionando o conector do Application Insights ao aplicativo lógico.
 ms.topic: conceptual
 ms.date: 03/11/2019
-ms.openlocfilehash: d023d774c130a9db513fbcf9452b05fa030a967a
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: f6406c2e6fb933c561a8ae54009499768c81a204
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323189"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "90970867"
 ---
 # <a name="automate-application-insights-processes-by-using-logic-apps"></a>Automatize os processos do Application Insights usando os Aplicativos Lógicos
 
@@ -36,7 +36,7 @@ Neste tutorial, você aprenderá como criar um aplicativo lógico que utliza o a
 
     ![Janela Designer de Aplicativo Lógico](./media/automate-with-logic-apps/2logicappdesigner.png)
 
-1. Na caixa **intervalo** , digite **1** e, em seguida, caixa**frequência** , selecione **dia**.
+1. Na caixa  **intervalo** , digite **1** e, em seguida, caixa**frequência** , selecione **dia**.
 
     ![Janela "Recorrência" do Designer de Aplicativo Lógico](./media/automate-with-logic-apps/3recurrence.png)
 
@@ -53,7 +53,7 @@ Neste tutorial, você aprenderá como criar um aplicativo lógico que utliza o a
 
 Para concluir esta etapa, você precisa de uma ID do Aplicativo e uma Chave de API do recurso. Você pode recuperá-las no Portal do Azure, conforme mostrado no seguinte diagrama:
 
-![ID do Aplicativo no portal do Azure](./media/automate-with-logic-apps/5apiaccess.png)
+![Captura de tela mostra a página de acesso à API no portal do Azure com o botão Criar chave de API selecionado.](./media/automate-with-logic-apps/5apiaccess.png)
 
 ![ID do Aplicativo no portal do Azure](./media/automate-with-logic-apps/6apikey.png)
 
@@ -103,7 +103,7 @@ Quando criar suas próprias consultas, verifique se elas estão funcionando corr
     
    d. Clique na lista suspensa **Adicionar novo parâmetro** e selecione anexos e é HTML.
 
-      ![Configuração do Office 365 Outlook](./media/automate-with-logic-apps/10emailbody.png)
+      ![Captura de tela mostra a janela enviar um email com a caixa corpo realçada e o menu conteúdo dinâmico com corpo realçado no lado direito.](./media/automate-with-logic-apps/10emailbody.png)
 
       ![Configuração do Office 365 Outlook](./media/automate-with-logic-apps/11emailparameter.png)
 

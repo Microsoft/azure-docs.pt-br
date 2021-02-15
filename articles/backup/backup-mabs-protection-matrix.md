@@ -3,12 +3,12 @@ title: Matriz de proteção UR1 MABS (Servidor de Backup do Azure) v3
 description: Este artigo fornece uma matriz de suporte listando todas as cargas de trabalho, tipos de dados e instalações que o Servidor de Backup do Azure protege.
 ms.date: 03/19/2020
 ms.topic: conceptual
-ms.openlocfilehash: 70d8b8cd26a40b0c7ec8b538bcb702d281f829e6
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 2c7caad1d377070d4d4ac8436c1d8c08e786dc44
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826830"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986829"
 ---
 # <a name="mabs-azure-backup-server-v3-ur1-protection-matrix"></a>Matriz de proteção UR1 MABS (Servidor de Backup do Azure) v3
 
@@ -39,12 +39,12 @@ As seções a seguir detalham a matriz de suporte à proteção para MABS:
 
 | **Carga de trabalho**               | **Versão**                                                  | **Instalação do Servidor de Backup do Azure**                       | **Servidor de Backup do Azure com suporte** | **Proteção e recuperação**                                  |
 | -------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | --------------------------------- | ------------------------------------------------------------ |
-| Computadores cliente (64 bits) | Windows 10                                                  | Servidor físico  <br><br>    Máquina virtual do Hyper-V   <br><br>   Máquinas Virtuais VMware | UR1 V3                            | Volume, compartilhamento, pasta, arquivos, volumes com eliminação de duplicação   <br><br>   Os volumes protegidos devem ser NTFS. FAT e FAT32 não têm suporte.  <br><br>    Os volumes devem ter no mínimo 1 GB. Servidor de Backup do Azure usa Serviço de Cópias de Sombra de Volume (VSS) para pegar o instantâneo de dados e o instantâneo só funciona se o volume for de pelo menos 1 GB. |
-| Servidores (64 bits)          | Windows Server 2019, 2016, 2012 R2, 2012                    | Máquina virtual do Azure (quando a carga de trabalho estiver em execução como máquina virtual do Azure)  <br><br>    Servidor físico  <br><br>    Máquina virtual do Hyper-V <br><br>     Máquinas Virtuais VMware  <br><br>    Azure Stack Hub | UR1 V3                            | Volume, compartilhamento, pasta, arquivo <br><br>    Volumes com eliminação de duplicação (somente NTFS)  <br><br>   Estado do sistema e bare-metal (sem suporte quando a carga de trabalho está em execução como máquina virtual do Azure) |
-| Servidores (64 bits)          | Windows Server 2008 R2 SP1, Windows Server 2008 SP2 (você precisa instalar o [Windows Management Framework](https://www.microsoft.com/download/details.aspx?id=54616)) | Servidor físico  <br><br>    Máquina virtual do Hyper-V  <br><br>      Máquina virtual VMware  <br><br>   Azure Stack Hub | UR1 V3                            | Volume, compartilhamento, pasta, arquivo, estado do sistema/bare metal        |
-| SQL Server                | SQL Server 2019, 2017, 2016 e [SPS com suporte](https://support.microsoft.com/lifecycle/search?alpha=SQL%20Server%202016), 2014 e [SPS](https://support.microsoft.com/lifecycle/search?alpha=SQL%20Server%202014) com suporte | Servidor físico  <br><br>     Máquina virtual do Hyper-V   <br><br>     Máquina virtual VMware  <br><br>   Máquina virtual do Azure (quando a carga de trabalho está sendo executada como máquina virtual do Azure)  <br><br>     Azure Stack Hub | UR1 V3                            | Todos os cenários de implantação: banco de dados       <br><br>  O MABS v3 UR1 dá suporte ao backup de bancos de dados SQL em volumes ReFS                  |
-| Exchange                   | Exchange 2019, 2016                                         | Servidor físico   <br><br>   Máquina virtual do Hyper-V  <br><br>      Máquina virtual VMware  <br><br>   Azure Stack Hub  <br><br>    Máquina virtual do Azure (quando a carga de trabalho está sendo executada como máquina virtual do Azure) | UR1 V3                            | Proteger (todos os cenários de implantação): Exchange Server autônomo, banco de dados em um grupo de disponibilidade de banco de dados (DAG)  <br><br>    Recupera (todos os cenários de implantação): caixa de correio, bancos de dados de caixa de correio em um DAG    <br><br>  Há suporte para o backup do Exchange em ReFS com o MABS v3 UR1 |
-| SharePoint                 | SharePoint 2019, 2016 com SPs mais recentes                       | Servidor físico  <br><br>    Máquina virtual do Hyper-V <br><br>    Máquina virtual VMware  <br><br>   Máquina virtual do Azure (quando a carga de trabalho está sendo executada como máquina virtual do Azure)   <br><br>   Azure Stack Hub | UR1 V3                            | Proteger (todos os cenários de implantação): Farm, conteúdo do servidor Web front-end  <br><br>    Recuperar (todos os cenários de implantação): Farm, banco de dados, aplicativo Web, arquivo ou item de lista, pesquisa do SharePoint, servidor Web front-end  <br><br>    Não há suporte para a proteção de um farm do SharePoint que está usando o SQL Server recurso AlwaysOn 2012 para os bancos de dados de conteúdo. |
+| Computadores cliente (64 bits) | Windows 10                                                  | Servidor físico  <br><br>    Máquina virtual do Hyper-V   <br><br>   Máquina virtual do VMware | UR1 V3                            | Volume, compartilhamento, pasta, arquivos, volumes com eliminação de duplicação   <br><br>   Os volumes protegidos devem ser NTFS. Não há suporte para o FAT e o FAT32.  <br><br>    Os volumes devem ser de, pelo menos, 1 GB. Servidor de Backup do Azure usa Serviço de Cópias de Sombra de Volume (VSS) para pegar o instantâneo de dados e o instantâneo só funciona se o volume for de pelo menos 1 GB. |
+| Servidores (64 bits)          | Windows Server 2019, 2016, 2012 R2, 2012                    | Máquina virtual do Azure (quando a carga de trabalho estiver em execução como máquina virtual do Azure)  <br><br>    Servidor físico  <br><br>    Máquina virtual do Hyper-V <br><br>     Máquina virtual do VMware  <br><br>    Azure Stack | UR1 V3                            | Volume, compartilhamento, pasta, arquivo <br><br>    Volumes com eliminação de duplicação (somente NTFS)  <br><br>   Estado do sistema e bare-metal (sem suporte quando a carga de trabalho está em execução como máquina virtual do Azure) |
+| Servidores (64 bits)          | Windows Server 2008 R2 SP1, Windows Server 2008 SP2 (você precisa instalar o [Windows Management Framework](https://www.microsoft.com/download/details.aspx?id=54616)) | Servidor físico  <br><br>    Máquina virtual do Hyper-V  <br><br>      Máquina virtual VMware  <br><br>   Azure Stack | UR1 V3                            | Volume, compartilhamento, pasta, arquivo, estado do sistema/bare metal        |
+| SQL Server                | SQL Server 2019, 2017, 2016 e [SPS com suporte](https://support.microsoft.com/lifecycle/search?alpha=SQL%20Server%202016), 2014 e [SPS](https://support.microsoft.com/lifecycle/search?alpha=SQL%20Server%202014) com suporte | Servidor físico  <br><br>     Máquina virtual do Hyper-V   <br><br>     Máquina virtual VMware  <br><br>   Máquina virtual do Azure (quando a carga de trabalho está sendo executada como máquina virtual do Azure)  <br><br>     Azure Stack | UR1 V3                            | Todos os cenários de implantação: banco de dados       <br><br>  O MABS v3 UR1 dá suporte ao backup de bancos de dados SQL em volumes ReFS                  |
+| Exchange                   | Exchange 2019, 2016                                         | Servidor físico   <br><br>   Máquina virtual do Hyper-V  <br><br>      Máquina virtual VMware  <br><br>   Azure Stack  <br><br>    Máquina virtual do Azure (quando a carga de trabalho está sendo executada como máquina virtual do Azure) | UR1 V3                            | Proteger (todos os cenários de implantação): Exchange Server autônomo, banco de dados em um grupo de disponibilidade de banco de dados (DAG)  <br><br>    Recupera (todos os cenários de implantação): caixa de correio, bancos de dados de caixa de correio em um DAG    <br><br>  Há suporte para o backup do Exchange em ReFS com o MABS v3 UR1 |
+| SharePoint                 | SharePoint 2019, 2016 com SPs mais recentes                       | Servidor físico  <br><br>    Máquina virtual do Hyper-V <br><br>    Máquina virtual VMware  <br><br>   Máquina virtual do Azure (quando a carga de trabalho está sendo executada como máquina virtual do Azure)   <br><br>   Azure Stack | UR1 V3                            | Proteger (todos os cenários de implantação): Farm, conteúdo do servidor Web front-end  <br><br>    Recuperar (todos os cenários de implantação): Farm, banco de dados, aplicativo Web, arquivo ou item de lista, pesquisa do SharePoint, servidor Web front-end  <br><br>    Não há suporte para a proteção de um farm do SharePoint que está usando o SQL Server recurso AlwaysOn 2012 para os bancos de dados de conteúdo. |
 
 ## <a name="vm-backup"></a>Backup de VM
 
@@ -57,7 +57,7 @@ As seções a seguir detalham a matriz de suporte à proteção para MABS:
 
 | **Carga de trabalho** | **Versão**                               | **Instalação do Servidor de Backup do Azure**                      | **Servidor de Backup do Azure com suporte** | **Proteção e recuperação**                                 |
 | ------------ | ----------------------------------------- | ------------------------------------------------------------ | ---------------------------------- | ------------------------------------------------------------ |
-| Linux        | Linux em execução como Hyper-V ou convidado do VMware | Servidor físico, VM Hyper-V local, VM do Windows no VMWare | UR1 V3                             | O Hyper-V deve estar em execução no Windows Server 2012 R2, no Windows Server 2016 ou no Windows Server 2019. Proteger: máquina virtual inteira   <br><br>   Recupera: a máquina virtual inteira   <br><br>    Somente os instantâneos consistentes de arquivos têm suporte.    <br><br>   Para obter uma lista completa de distribuições e versões do Linux com suporte, consulte o artigo [Linux em distribuições endossadas pelo Azure](../virtual-machines/linux/endorsed-distros.md). |
+| Linux        | Linux em execução como [Hyper-V](back-up-hyper-v-virtual-machines-mabs.md) ou convidado do [VMware](backup-azure-backup-server-vmware.md) | Servidor físico, VM Hyper-V local, VM do Windows no VMWare | UR1 V3                             | O Hyper-V deve estar em execução no Windows Server 2012 R2, no Windows Server 2016 ou no Windows Server 2019. Proteger: máquina virtual inteira   <br><br>   Recupera: a máquina virtual inteira   <br><br>    Somente os instantâneos consistentes de arquivos têm suporte.    <br><br>   Para obter uma lista completa de distribuições e versões do Linux com suporte, consulte o artigo [Linux em distribuições endossadas pelo Azure](../virtual-machines/linux/endorsed-distros.md). |
 
 ## <a name="azure-expressroute-support"></a>Suporte do Azure ExpressRoute
 
@@ -65,11 +65,17 @@ Você pode fazer backup dos dados por meio do Azure ExpressRoute com o emparelha
 
 Com o emparelhamento público: Verifique o acesso aos seguintes domínios/endereços:
 
-* `http://www.msftncsi.com/ncsi.txt`
-* `microsoft.com`
-* `.WindowsAzure.com`
-* `.microsoftonline.com`
-* `.windows.net`
+* URLs
+  * `www.msftncsi.com`
+  * `*.Microsoft.com`
+  * `*.WindowsAzure.com`
+  * `*.microsoftonline.com`
+  * `*.windows.net`
+  * `www.msftconnecttest.com`
+* Endereços IP
+  * 20.190.128.0/18
+  * 40.126.0.0/18
+
 
 Com o emparelhamento da Microsoft, selecione os seguintes serviços/regiões e os valores de comunidade relevantes:
 
@@ -82,7 +88,7 @@ Para obter mais informações, consulte os [requisitos de roteamento do ExpressR
 >[!NOTE]
 >O emparelhamento público foi preterido para novos circuitos.
 
-## <a name="cluster-support"></a>Suporte a cluster
+## <a name="cluster-support"></a>Suporte do cluster
 
 O Servidor de Backup do Azure pode proteger dados nos seguintes aplicativos em cluster:
 

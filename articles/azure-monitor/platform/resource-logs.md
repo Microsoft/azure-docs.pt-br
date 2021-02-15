@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: ccf470abadb28919e4fca3c4862b71946a5bb204
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: a2f46440a4214e298bc6d2f3b9c2b5680437ead7
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87800493"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95522695"
 ---
 # <a name="azure-resource-logs"></a>Logs de recursos do Azure
 Os logs de recursos do Azure são [logs de plataforma](platform-logs-overview.md) que fornecem informações sobre as operações que foram executadas em um recurso do Azure. O conteúdo dos logs de recursos varia de acordo com o serviço do Azure e o tipo de recurso. Os logs de recursos não são coletados por padrão. Você deve criar uma configuração de diagnóstico para cada recurso do Azure para enviar seus logs de recursos para um Log Analytics espaço de trabalho para usar com [logs de Azure monitor](data-platform-logs.md), hubs de eventos do Azure para encaminhar fora do Azure ou para o armazenamento do Azure para arquivamento.
@@ -27,7 +27,7 @@ Consulte [criar configurações de diagnóstico para enviar logs e métricas de 
 - Use consultas de log para executar análises complexas e obter informações aprofundadas sobre dados de log.
 - Use alertas de log com lógica de alerta complexa.
 
-[Crie uma configuração de diagnóstico](diagnostic-settings.md) para enviar logs de recursos para um espaço de trabalho log Analytics. Esses dados são armazenados em tabelas, conforme descrito em [estrutura de logs de Azure monitor](../log-query/logs-structure.md). As tabelas usadas pelos logs de recursos dependem do tipo de coleção que o recurso está usando:
+[Crie uma configuração de diagnóstico](diagnostic-settings.md) para enviar logs de recursos para um espaço de trabalho log Analytics. Esses dados são armazenados em tabelas, conforme descrito em [estrutura de logs de Azure monitor](./data-platform-logs.md). As tabelas usadas pelos logs de recursos dependem do tipo de coleção que o recurso está usando:
 
 - Diagnóstico do Azure-todos os dados gravados estão na tabela _AzureDiagnostics_ .
 - Dados específicos do recurso são gravados em uma tabela individual para cada categoria do recurso.
@@ -54,7 +54,7 @@ A tabela AzureDiagnostics terá a seguinte aparência:
 | ... |
 
 ### <a name="resource-specific"></a>Específico do recurso
-Nesse modo, as tabelas individuais no espaço de trabalho selecionado são criadas para cada categoria selecionada na configuração de diagnóstico. Esse método é recomendado, pois torna muito mais fácil trabalhar com os dados em consultas de log, fornece melhor detecção de esquemas e sua estrutura, melhora o desempenho em tempos de consulta e latência de ingestão e a capacidade de conceder direitos de RBAC em uma tabela específica. Todos os serviços do Azure eventualmente serão migrados para o modo específico do recurso. 
+Nesse modo, as tabelas individuais no espaço de trabalho selecionado são criadas para cada categoria selecionada na configuração de diagnóstico. Esse método é recomendado, pois torna muito mais fácil trabalhar com os dados em consultas de log, fornece melhor capacidade de descoberta de esquemas e sua estrutura, melhora o desempenho em tempos de consulta e latência de ingestão e a capacidade de conceder direitos de RBAC do Azure em uma tabela específica. Todos os serviços do Azure eventualmente serão migrados para o modo de Resource-Specific. 
 
 O exemplo acima resultaria em três tabelas sendo criadas:
  
@@ -85,7 +85,7 @@ O exemplo acima resultaria em três tabelas sendo criadas:
 
 
 ### <a name="select-the-collection-mode"></a>Selecione o modo de coleta
-A maioria dos recursos do Azure gravará dados no espaço de trabalho no modo de **diagnóstico do Azure** ou **específico do recurso,** sem lhe dar uma opção. Consulte a [documentação de cada serviço](./resource-logs-schema.md) para obter detalhes sobre qual modo ele usa. Todos os serviços do Azure eventualmente usarão o modo específico do recurso. Como parte dessa transição, alguns recursos permitirão que você selecione um modo na configuração de diagnóstico. Especifique o modo específico do recurso para as novas configurações de diagnóstico, pois isso torna os dados mais fáceis de gerenciar e pode ajudá-lo a evitar migrações complexas em uma data posterior.
+A maioria dos recursos do Azure gravará dados no espaço de trabalho no modo de **diagnóstico do Azure** ou **específico do recurso,** sem lhe dar uma opção. Consulte a [documentação de cada serviço](./resource-logs-schema.md) para obter detalhes sobre qual modo ele usa. Todos os serviços do Azure eventualmente usarão o modo de Resource-Specific. Como parte dessa transição, alguns recursos permitirão que você selecione um modo na configuração de diagnóstico. Especifique o modo específico do recurso para as novas configurações de diagnóstico, pois isso torna os dados mais fáceis de gerenciar e pode ajudá-lo a evitar migrações complexas em uma data posterior.
   
    ![Seletor de modo de configurações de diagnóstico](media/resource-logs-collect-workspace/diagnostic-settings-mode-selector.png)
 
@@ -95,7 +95,7 @@ A maioria dos recursos do Azure gravará dados no espaço de trabalho no modo de
 
 Você pode modificar uma configuração de diagnóstico existente para o modo específico do recurso. Nesse caso, os dados que já foram coletados permanecerão na tabela _AzureDiagnostics_ até que sejam removidos de acordo com sua configuração de retenção para o espaço de trabalho. Novos dados serão coletados na tabela dedicada. Use o operador [Union](/azure/kusto/query/unionoperator) para consultar dados em ambas as tabelas.
 
-Continue a assistir ao blog de [atualizações do Azure](https://azure.microsoft.com/updates/) para obter anúncios sobre os serviços do Azure que dão suporte ao modo específico do recurso.
+Continue a assistir ao blog de [atualizações do Azure](https://azure.microsoft.com/updates/) para obter anúncios sobre os serviços do Azure que dão suporte ao modo de Resource-Specific.
 
 ### <a name="column-limit-in-azurediagnostics"></a>Limite de coluna em AzureDiagnostics
 Há um limite de propriedade de 500 para qualquer tabela nos logs de Azure Monitor. Quando esse limite for atingido, todas as linhas contendo dados com qualquer propriedade fora do primeiro 500 serão removidas no momento da ingestão. A tabela *AzureDiagnostics* está em particular suscetível a esse limite, pois inclui propriedades para todos os serviços do Azure que gravam nele.

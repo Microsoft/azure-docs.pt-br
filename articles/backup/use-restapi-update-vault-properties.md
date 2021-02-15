@@ -4,12 +4,12 @@ description: Neste artigo, saiba como atualizar a configuração do cofre usando
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.assetid: 9aafa5a0-1e57-4644-bf79-97124db27aa2
-ms.openlocfilehash: 8890cb541e38f8bc8b680fbcfeb821f29723e8c0
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 19a335d17ee0aa5ff9f989556656f5cf20d2b1a9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89007104"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91567818"
 ---
 # <a name="update-azure-recovery-services-vault-configurations-using-rest-api"></a>Atualizar as configurações do cofre dos serviços de recuperação do Azure usando a API REST
 
@@ -30,20 +30,20 @@ Por padrão, o estado de exclusão reversível será habilitado para qualquer co
 Para buscar o estado atual de exclusão reversível para um cofre, use a seguinte operação *Get*
 
 ```http
-GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupconfig/vaultconfig?api-version=2019-05-13
+GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupconfig/vaultconfig?api-version=2019-06-15
 ```
 
 O URI Get tem `{subscriptionId}` , `{vaultName}` , `{vaultresourceGroupName}` parâmetros. Neste exemplo, `{vaultName}` é "testVault" e `{vaultresourceGroupName}` é "testVaultRG". Como todos os parâmetros necessários são fornecidos no URI, não há necessidade de um corpo de solicitação separado.
 
 ```http
-GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupconfig/vaultconfig?api-version=2019-05-13
+GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupconfig/vaultconfig?api-version=2019-06-15
 ```
 
 #### <a name="responses"></a>Respostas
 
 A resposta bem-sucedida para a operação ' GET ' é mostrada abaixo:
 
-|Nome  |Tipo  |Descrição  |
+|Nome  |Type  |Descrição  |
 |---------|---------|---------|
 |200 OK     |   [BackupResourceVaultConfig](/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | OK        |
 
@@ -65,16 +65,16 @@ Depois que a solicitação ' GET ' for enviada, uma resposta 200 (bem-sucedida) 
 
 ### <a name="update-soft-delete-state-using-rest-api"></a>Atualizar o estado de exclusão reversível usando a API REST
 
-Para atualizar o estado de exclusão reversível do cofre dos serviços de recuperação usando a API REST, use a seguinte operação de *patch*
+Para atualizar o estado de exclusão reversível do cofre dos serviços de recuperação usando a API REST, use a seguinte operação *Put*
 
 ```http
-PATCH https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupconfig/vaultconfig?api-version=2019-05-13
+PUT https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupconfig/vaultconfig?api-version=2019-06-15
 ```
 
-O URI do patch tem `{subscriptionId}` , `{vaultName}` , `{vaultresourceGroupName}` parâmetros. Neste exemplo, `{vaultName}` é "testVault" e `{vaultresourceGroupName}` é "testVaultRG". Se substituirmos o URI pelos valores acima, o URI terá a seguinte aparência.
+O URI Put tem `{subscriptionId}` , `{vaultName}` , `{vaultresourceGroupName}` parâmetros. Neste exemplo, `{vaultName}` é "testVault" e `{vaultresourceGroupName}` é "testVaultRG". Se substituirmos o URI pelos valores acima, o URI terá a seguinte aparência.
 
 ```http
-PATCH https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupconfig/vaultconfig?api-version=2019-05-13
+PUT https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupconfig/vaultconfig?api-version=2019-06-15
 ```
 
 #### <a name="create-the-request-body"></a>Criar o corpo da solicitação
@@ -85,10 +85,10 @@ Para obter mais detalhes, consulte [a documentação da API REST](/rest/api/back
 
 |Nome  |Obrigatório  |Type  |Descrição  |
 |---------|---------|---------|---------|
-|eTag     |         |   Cadeia de caracteres      |  eTag Opcional       |
-|local     |  true       |Cadeia de caracteres         |   Localização do recurso      |
+|eTag     |         |   String      |  eTag Opcional       |
+|local     |  true       |String         |   Localização do recurso      |
 |properties     |         | [VaultProperties](/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  Propriedades do cofre       |
-|marcas     |         | Objeto        |     Marcações de recursos    |
+|tags     |         | Objeto        |     Marcações de recursos    |
 
 #### <a name="example-request-body"></a>Exemplo do corpo de solicitação
 
@@ -107,7 +107,7 @@ O exemplo a seguir é usado para atualizar o estado de exclusão reversível par
 
 A resposta bem-sucedida para a operação ' PATCH ' é mostrada abaixo:
 
-|Nome  |Tipo  |Descrição  |
+|Nome  |Type  |Descrição  |
 |---------|---------|---------|
 |200 OK     |   [BackupResourceVaultConfig](/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | OK        |
 

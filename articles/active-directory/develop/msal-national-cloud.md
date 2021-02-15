@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 11/22/2019
 ms.author: negoe
-ms.reviewer: nacanuma
+ms.reviewer: marsma, nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 479e74f9c36864e041685393d35972e7365260da
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 09c4dadd7a6560bd5163d623dd8a7f247b57860e
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88119429"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100102488"
 ---
 # <a name="use-msal-in-a-national-cloud-environment"></a>Usar o MSAL em um ambiente de nuvem nacional
 
@@ -40,22 +40,22 @@ Antes de começar, certifique-se de atender a esses pré-requisitos.
 
 ### <a name="choose-the-appropriate-identities"></a>Escolha as identidades apropriadas
 
-Os aplicativos [do Azure governamental](../../azure-government/index.yml) podem usar identidades do Azure ad governamental e identidades públicas do Azure ad para autenticar usuários. Como você pode usar qualquer uma dessas identidades, você precisa decidir qual ponto de extremidade de autoridade deve escolher para seu cenário:
+Os aplicativos [do Azure governamental](../../azure-government/index.yml) podem usar identidades do Azure ad governamental e identidades públicas do Azure ad para autenticar usuários. Como você pode usar qualquer uma dessas identidades, decida qual ponto de extremidade de autoridade você deve escolher para seu cenário:
 
-- Público do Azure AD: normalmente usado se sua organização já tiver um locatário público do Azure AD para dar suporte ao Office 365 (público ou GCC) ou a outro aplicativo.
+- Público do Azure AD: normalmente usado se sua organização já tiver um locatário público do Azure AD para dar suporte a Microsoft 365 (pública ou GCC) ou a outro aplicativo.
 - Azure AD governamental: normalmente usado se sua organização já tiver um locatário do Azure AD governamental para dar suporte ao Office 365 (GCC High ou DoD) ou estiver criando um novo locatário no Azure AD governamental.
 
 Depois de decidir, uma consideração especial é onde você executa o registro do aplicativo. Se você escolher identidades públicas do Azure AD para seu aplicativo do Azure governamental, deverá registrar o aplicativo em seu locatário público do Azure AD.
 
 ### <a name="get-an-azure-government-subscription"></a>Obter uma assinatura do Azure governamental
 
-Para obter uma assinatura do Azure governamental, consulte [Gerenciando e conectando-se à sua assinatura no Azure governamental](../../azure-government/documentation-government-manage-subscriptions.md).
+Para obter uma assinatura do Azure governamental, consulte [Gerenciando e conectando-se à sua assinatura no Azure governamental](../../azure-government/compare-azure-government-global-azure.md).
 
 Se você não tiver uma assinatura do Azure governamental, crie uma [conta gratuita](https://azure.microsoft.com/global-infrastructure/government/request/) antes de começar.
 
 Para obter detalhes sobre como usar uma nuvem nacional com uma linguagem de programação específica, escolha a guia correspondente ao seu idioma:
 
-## <a name="net"></a>[.NET](#tab/donet)
+## <a name="net"></a>[.NET](#tab/dotnet)
 
 Você pode usar o MSAL.NET para conectar usuários, adquirir tokens e chamar a API Microsoft Graph em nuvens nacionais.
 
@@ -70,19 +70,21 @@ Para habilitar seu aplicativo MSAL.js para nuvens soberanas:
 
 ### <a name="step-1-register-your-application"></a>Etapa 1: Registre seu aplicativo
 
-1. Entre no [portal do Azure](https://portal.azure.us/).
+1. Entre no <a href="https://portal.azure.us/" target="_blank">portal do Azure</a>.
 
    Para localizar portal do Azure pontos de extremidade para outras nuvens nacionais, consulte [pontos de extremidade de registro de aplicativo](authentication-national-cloud.md#app-registration-endpoints).
 
-1. Se sua conta fornecer acesso a mais de um locatário, selecione sua conta no canto superior direito e defina a sessão do portal para o locatário do Azure AD desejado.
-1. Vá para a página de [registros de aplicativo](https://aka.ms/ra/ff) na plataforma de identidade da Microsoft para desenvolvedores.
-1. Quando a página **Registrar um aplicativo** aparecer, insira um nome para o seu aplicativo.
+1. Se você tem acesso a vários locatários, use o filtro **Diretório + assinatura** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o locatário no qual você deseja registrar um aplicativo.
+1. Pesquise **Azure Active Directory** e selecione-o.
+1. Em **Gerenciar**, selecione **Registros de aplicativo** > **Novo registro**.
+1. Insira um **Nome** para seu aplicativo. Os usuários do seu aplicativo podem ver esse nome e você pode alterá-lo mais tarde.
 1. Em **Tipos de conta com suporte**, selecione **Contas em qualquer diretório organizacional**.
 1. Na seção **URI de redirecionamento** , selecione a plataforma **da Web** e defina o valor como a URL do aplicativo com base no servidor Web. Consulte as próximas seções para obter instruções sobre como definir e obter a URL de redirecionamento no Visual Studio e no nó.
 1. Selecione **Registrar**.
-1. Na página **Visão geral** do aplicativo, anote o valor de **ID do aplicativo (cliente)**.
-1. Este tutorial requer que você habilite o [fluxo de concessão implícito](v2-oauth2-implicit-grant-flow.md). No painel esquerdo do aplicativo registrado, selecione **Autenticação**.
-1. Em **Configurações avançadas**, em **Concessão implícita**, marque as caixas de seleção **Tokens de ID** e **Tokens de Acesso**. Tokens de ID e tokens de acesso são necessários porque esse aplicativo precisa conectar usuários e chamar uma API.
+1. Na página **visão geral** , anote o valor da **ID do aplicativo (cliente)** para uso posterior.
+    Este tutorial requer que você habilite o [fluxo de concessão implícito](v2-oauth2-implicit-grant-flow.md). 
+1. Em **Gerenciar**, selecione **Autenticação**.
+1. Na **concessão implícita e em fluxos híbridos**, selecione **tokens de ID** e **tokens de acesso**. Tokens de ID e tokens de acesso são necessários porque esse aplicativo precisa conectar usuários e chamar uma API.
 1. Clique em **Salvar**.
 
 ### <a name="step-2--set-up-your-web-server-or-project"></a>Etapa 2: configurar seu servidor Web ou projeto
@@ -122,7 +124,7 @@ const myMSALObj = new UserAgentApplication(msalConfig);
 
 Nesse código:
 
-- `Enter_the_Application_Id_here`é o valor da **ID do aplicativo (cliente)** para o aplicativo que você registrou.
+- `Enter_the_Application_Id_here` é o valor da **ID do aplicativo (cliente)** para o aplicativo que você registrou.
 - `Enter_the_Tenant_Info_Here` é definido como uma das seguintes opções:
     - Se seu aplicativo der suporte a **contas nesse diretório organizacional**, substitua esse valor pela ID do locatário ou pelo nome do locatário (por exemplo, contoso.Microsoft.com).
     - Se seu aplicativo oferecer suporte a **contas em qualquer diretório organizacional**, substitua esse valor por `organizations` .
@@ -132,7 +134,7 @@ Nesse código:
     > [!NOTE]
     > Não há suporte para contas pessoais da Microsoft em nuvens nacionais.
 
-- `graphEndpoint`é o ponto de extremidade Microsoft Graph para a nuvem da Microsoft para o governo dos EUA.
+- `graphEndpoint` é o ponto de extremidade Microsoft Graph para a nuvem da Microsoft para o governo dos EUA.
 
    Para localizar Microsoft Graph pontos de extremidade para todas as nuvens nacionais, confira [Microsoft Graph pontos de extremidade em nuvens nacionais](/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
 
@@ -150,9 +152,9 @@ Para habilitar seu aplicativo MSAL Python para nuvens soberanas:
     "authority": "https://login.microsoftonline.us/Enter_the_Tenant_Info_Here"
     ```
 
-- Chamar o Microsoft Graph requer uma URL de ponto de extremidade de grafo específica que depende de qual nuvem você está usando. Para localizar Microsoft Graph pontos de extremidade para todas as nuvens nacionais, consulte [Microsoft Graph e pontos de extremidade raiz de serviço do Gerenciador de gráficos](/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
+- Chamar a API de Microsoft Graph requer uma URL de ponto de extremidade específica para a nuvem que você está usando. Para localizar Microsoft Graph pontos de extremidade para todas as nuvens nacionais, consulte [Microsoft Graph e pontos de extremidade raiz de serviço do Gerenciador de gráficos](/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
 
-    Aqui está um exemplo de um ponto de extremidade de grafo, com escopo:
+    Aqui está um exemplo de um ponto de extremidade Microsoft Graph, com escopo:
 
     ```json
     "endpoint" : "https://graph.microsoft.us/v1.0/me"
@@ -173,7 +175,7 @@ Aqui está uma autoridade de exemplo:
 "authority": "https://login.microsoftonline.us/Enter_the_Tenant_Info_Here"
 ```
 
-- Chamar o Microsoft Graph requer uma URL de ponto de extremidade de grafo específica que depende de qual nuvem você está usando. Para localizar Microsoft Graph pontos de extremidade para todas as nuvens nacionais, consulte [Microsoft Graph e pontos de extremidade raiz de serviço do Gerenciador de gráficos](/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
+- Chamar a API de Microsoft Graph requer uma URL de ponto de extremidade específica para a nuvem que você está usando. Para localizar Microsoft Graph pontos de extremidade para todas as nuvens nacionais, consulte [Microsoft Graph e pontos de extremidade raiz de serviço do Gerenciador de gráficos](/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
 
 Aqui está um exemplo de um ponto de extremidade de grafo, com escopo:
 
@@ -222,9 +224,10 @@ if let application = try? MSALPublicClientApplication(configuration: config) { /
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre:
+Consulte [pontos de extremidade de autenticação de nuvem nacional](authentication-national-cloud.md) para obter uma lista de URLs de portal do Azure e pontos de extremidade de token para cada nuvem.
 
-- [Autenticação em nuvens nacionais](authentication-national-cloud.md)
+Documentação da nuvem nacional:
+
 - [Azure Governamental](../../azure-government/index.yml)
 - [Azure China 21Vianet](/azure/china/)
 - [Azure Alemanha](../../germany/index.yml)

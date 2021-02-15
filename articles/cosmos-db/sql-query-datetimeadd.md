@@ -3,18 +3,20 @@ title: DateTimeAdd na linguagem de consulta Azure Cosmos DB
 description: Saiba mais sobre a função do sistema SQL DateTimeAdd no Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 07/09/2020
 ms.author: tisande
 ms.custom: query-reference
-ms.openlocfilehash: 0b2741a3d2b013ba7bd97038eb4ba4512f36af11
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: dc81849a13fdaef748c5fd631ee66ea5e3eb67c4
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261645"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93335782"
 ---
 # <a name="datetimeadd-azure-cosmos-db"></a>DateTimeAdd (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Retorna o valor da cadeia de caracteres DateTime resultante da adição de um valor de número especificado (como um inteiro assinado) a uma cadeia de caracteres DateTime especificada  
   
@@ -31,7 +33,7 @@ DateTimeAdd (<DateTimePart> , <numeric_expr> ,<DateTime>)
 
 | DateTimePart | abreviações        |
 | ------------ | -------------------- |
-| Ano         | "Year", "yyyy", "AA" |
+| Year         | "Year", "yyyy", "AA" |
 | Mês        | "month", "mm", "m"   |
 | Dia          | "Day", "dd", "d"     |
 | Hora         | "hora", "HH"         |
@@ -54,7 +56,7 @@ DateTimeAdd (<DateTimePart> , <numeric_expr> ,<DateTime>)
   |DD|dia de dois dígitos do mês (01 a 31)|
   |T|signifier para o início dos elementos de hora|
   |hh|hora de dois dígitos (00 a 23)|
-  |MM|minutos de dois dígitos (00 a 59)|
+  |mm|minutos de dois dígitos (00 a 59)|
   |ss|segundos de dois dígitos (00 a 59)|
   |. fffffff|segundos fracionários de sete dígitos|
   |Z|Designador UTC (tempo Universal Coordenado)||
@@ -72,7 +74,7 @@ Retorna um valor de cadeia de caracteres do UTC de data e hora do ISO 8601 no fo
   |DD|dia de dois dígitos do mês (01 a 31)|
   |T|signifier para o início dos elementos de hora|
   |hh|hora de dois dígitos (00 a 23)|
-  |MM|minutos de dois dígitos (00 a 59)|
+  |mm|minutos de dois dígitos (00 a 59)|
   |ss|segundos de dois dígitos (00 a 59)|
   |. fffffff|segundos fracionários de sete dígitos|
   |Z|Designador UTC (tempo Universal Coordenado)||
@@ -87,7 +89,7 @@ DateTimeAdd retornará `undefined` pelos seguintes motivos:
 
 ## <a name="examples"></a>Exemplos
   
-O exemplo a seguir adiciona 1 mês ao DateTime:`2020-07-09T23:20:13.4575530Z`
+O exemplo a seguir adiciona 1 mês ao DateTime: `2020-07-09T23:20:13.4575530Z`
 
 ```sql
 SELECT DateTimeAdd("mm", 1, "2020-07-09T23:20:13.4575530Z") AS OneMonthLater
@@ -101,7 +103,7 @@ SELECT DateTimeAdd("mm", 1, "2020-07-09T23:20:13.4575530Z") AS OneMonthLater
 ]
 ```  
 
-O exemplo a seguir subtrai 2 horas do DateTime:`2020-07-09T23:20:13.4575530Z`
+O exemplo a seguir subtrai 2 horas do DateTime: `2020-07-09T23:20:13.4575530Z`
 
 ```sql
 SELECT DateTimeAdd("hh", -2, "2020-07-09T23:20:13.4575530Z") AS TwoHoursEarlier

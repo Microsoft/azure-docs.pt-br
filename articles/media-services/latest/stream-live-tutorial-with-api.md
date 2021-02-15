@@ -1,27 +1,11 @@
 ---
-title: Transmissão ao vivo com os Serviços de Mídia v3
-titleSuffix: Azure Media Services
-description: Saiba como transmitir ao vivo com os Serviços de Mídia do Azure v3.
-services: media-services
-documentationcenter: ''
-author: juliako
-manager: femila
-editor: ''
-ms.service: media-services
-ms.workload: media
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: tutorial
-ms.custom: mvc
-ms.date: 06/13/2019
-ms.author: juliako
-ms.openlocfilehash: b92d26da837cab72a4c4404a7b5b3de5d3116480
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87043362"
+Título: Transmissão ao vivo com os Serviços de Mídia v3: Descrição dos Serviços de Mídia do Azure: Saiba como transmitir ao vivo com os Serviços de Mídia do Azure v3.
+services: media-services documentationcenter: '' author: IngridAtMicrosoft manager: femila editor: ''
+
+ms.service: media-services ms.workload: media ms.tgt_pltfrm: na ms.devlang: na ms.topic: tutorial ms.custom: "mvc, devx-track-csharp" ms.date: 06/13/2019 ms.author: inhenkel
+
 ---
+
 # <a name="tutorial-stream-live-with-media-services"></a>Tutorial: Transmissão ao vivo com os Serviços de Mídia
 
 > [!NOTE]

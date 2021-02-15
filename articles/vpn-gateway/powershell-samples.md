@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: sample
-ms.date: 01/10/2020
+ms.date: 09/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: 84aa01722a9be078f361bd482c8c95be675e6ef9
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: fe2e1f970e64d80bfd8cb762cf74bb52d4fc9650
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88035325"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89426156"
 ---
 # <a name="azure-powershell-samples-for-vpn-gateway"></a>Amostras do Azure PowerShell para o Gateway de VPN
 

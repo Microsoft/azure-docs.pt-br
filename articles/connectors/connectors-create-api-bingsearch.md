@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 05/21/2018
 tags: connectors
-ms.openlocfilehash: e547ae59f7b3260f46756825bca2bef1c10bcc97
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 52bf42434640dc965999895549b4fa12a139dcce
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75665880"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999596"
 ---
 # <a name="find-results-in-bing-search-by-using-azure-logic-apps"></a>Localizar resultados em Pesquisa do Bing usando os aplicativos lógicos do Azure
 
@@ -21,7 +21,7 @@ Este artigo mostra como é possível encontrar notícias, vídeos e outros itens
 Por exemplo, é possível encontrar itens de notícias com base em critérios de pesquisa e fazer com que o Twitter publique esses itens como tweets no feed do Twitter.
 
 Se você não tiver uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/). Se ainda não estiver familiarizado com aplicativo lógicos, consulte [O que são os Aplicativos Lógicos do Azure](../logic-apps/logic-apps-overview.md) e [Início Rápido: criar seu primeiro aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
-Para obter informações técnicas específicas do conector, consulte a [referência do conector da Pesquisa do Bing](https://docs.microsoft.com/connectors/bingsearch/).
+Para obter informações técnicas específicas do conector, consulte a [referência do conector da Pesquisa do Bing](/connectors/bingsearch/).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -52,11 +52,11 @@ Ou, se a conexão já existir, forneça as informações necessárias para o gat
 
    | Propriedade | Obrigatório | Valor | Descrição |
    |----------|----------|-------|-------------|
-   | Consulta de Pesquisa | Sim | <*Pesquisar-palavras*> | Insira os termos de pesquisa que você quer utilizar. |
-   | Market | Sim | <*locale*> | A localidade de pesquisa. O padrão é "en-US", mas é possível selecionar outro valor. |
-   | Salvar pesquisa | Sim | <*nível de pesquisa*> | O nível do filtro para excluir conteúdo adulto. O padrão é "Moderado", mas você seleciona outro nível. |
+   | Consulta de Pesquisa | Yes | <*Pesquisar-palavras*> | Insira os termos de pesquisa que você quer utilizar. |
+   | Market | Yes | <*locale*> | A localidade de pesquisa. O padrão é "en-US", mas é possível selecionar outro valor. |
+   | Salvar pesquisa | Yes | <*nível de pesquisa*> | O nível do filtro para excluir conteúdo adulto. O padrão é "Moderado", mas você seleciona outro nível. |
    | Contagem | Não | <*resultados-contagem*> | Retornar o número de resultados especificado. O padrão é 20, mas é possível especificar outro valor. O número atual de resultados retornados pode ser menor que o número especificado. |
-   | Deslocamento | Não | <*ignorar valor*> | O número de resultados para ignorar antes de retornar os resultados |
+   | Deslocamento | No | <*ignorar valor*> | O número de resultados para ignorar antes de retornar os resultados |
    |||||
 
    Por exemplo:
@@ -103,11 +103,11 @@ Na lista de ações, selecione a ação desejada.
 
    | Propriedade | Obrigatório | Valor | Descrição |
    |----------|----------|-------|-------------|
-   | Consulta de Pesquisa | Sim | <*expressão de pesquisa*> | Insira uma expressão para consultar os resultados do gatilho. É possível selecionar os campos ou a lista de conteúdo dinâmico ou criar uma expressão com o construtor de expressões. |
-   | Market | Sim | <*locale*> | A localidade de pesquisa. O padrão é "en-US", mas é possível selecionar outro valor. |
-   | Salvar pesquisa | Sim | <*nível de pesquisa*> | O nível do filtro para excluir conteúdo adulto. O padrão é "Moderado", mas você seleciona outro nível. |
+   | Consulta de Pesquisa | Yes | <*expressão de pesquisa*> | Insira uma expressão para consultar os resultados do gatilho. É possível selecionar os campos ou a lista de conteúdo dinâmico ou criar uma expressão com o construtor de expressões. |
+   | Market | Yes | <*locale*> | A localidade de pesquisa. O padrão é "en-US", mas é possível selecionar outro valor. |
+   | Salvar pesquisa | Yes | <*nível de pesquisa*> | O nível do filtro para excluir conteúdo adulto. O padrão é "Moderado", mas você seleciona outro nível. |
    | Contagem | Não | <*resultados-contagem*> | Retornar o número de resultados especificado. O padrão é 20, mas é possível especificar outro valor. O número atual de resultados retornados pode ser menor que o número especificado. |
-   | Deslocamento | Não | <*ignorar valor*> | O número de resultados para ignorar antes de retornar os resultados |
+   | Deslocamento | No | <*ignorar valor*> | O número de resultados para ignorar antes de retornar os resultados |
    |||||
 
    Por exemplo, suponha que você queira aqueles resultados cuja categoria inclua a palavra "tech".
@@ -150,9 +150,9 @@ Na lista de ações, selecione a ação desejada.
 
    | Propriedade | Obrigatório | Valor | Descrição |
    |----------|----------|-------|-------------|
-   | Nome da Conexão | Sim | <*nome da conexão*> | O nome a criar para a conexão |
-   | Versão da API | Sim | <*Versão da API*> | Por padrão, a versão da API de Pesquisa do Bing é definida para a versão atual. É possível selecionar uma versão anterior, conforme necessário. |
-   | Chave de API | Sim | <*Chave de API*> | A chave da API de Pesquisa do Bing obtida anteriormente. Se você não tiver uma chave, obtenha a [Chave de API agora](https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api). |  
+   | Nome da Conexão | Yes | <*nome da conexão*> | O nome a criar para a conexão |
+   | Versão da API | Yes | <*Versão da API*> | Por padrão, a versão da API de Pesquisa do Bing é definida para a versão atual. É possível selecionar uma versão anterior, conforme necessário. |
+   | Chave de API | Yes | <*Chave de API*> | A chave da API de Pesquisa do Bing obtida anteriormente. Se você não tiver uma chave, obtenha a [Chave de API agora](https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api). |  
    |||||  
 
    Por exemplo:
@@ -168,3 +168,4 @@ Para obter detalhes técnicos, como gatilhos, ações e limites, conforme descri
 ## <a name="next-steps"></a>Próximas etapas
 
 * Saiba mais sobre outros [conectores de Aplicativos Lógicos](../connectors/apis-list.md)
+

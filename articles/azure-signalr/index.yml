@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 title: Documentação do Serviço do Azure SignalR
-summary: O Serviço Azure SignalR é um serviço gerenciado do Azure que ajuda os desenvolvedores a criarem facilmente aplicativos Web com recursos em tempo real.
+summary: O Serviço do Azure SignalR é um serviço gerenciado do Azure que ajuda os desenvolvedores a criar aplicativos Web facilmente com recursos em tempo real.
 metadata:
   title: Documentação do Serviço do Azure SignalR
   description: Crie e dimensione aplicativos Web em tempo real facilmente no modo com servidor ou sem servidor. Baseado em WebSocket, com suporte a ampla gama de linguagens e estruturas.
@@ -9,12 +9,12 @@ metadata:
   author: v-chmccl
   ms.author: wesmc
   ms.date: 03/11/2020
-  ms.openlocfilehash: db405e7405fc96779aebc9074fa19302f3b4ba1b
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: 377d0c8daa864b6ee936fbb487ef8a7235ee638e
+  ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "79137930"
+  ms.lasthandoff: 12/28/2020
+  ms.locfileid: "97796730"
 landingContent:
 - title: Sobre o Serviço Azure SignalR
   linkLists:
@@ -38,13 +38,15 @@ landingContent:
       url: signalr-quickstart-azure-functions-java.md
     - text: Azure Functions – Python
       url: signalr-quickstart-azure-functions-python.md
+    - text: Implantação do Serviço do Azure SignalR – modelo ARM
+      url: signalr-quickstart-azure-signalr-service-arm-template.md
     - text: API REST
       url: signalr-quickstart-rest-api.md
 - title: Criar aplicativos do Serviço do Azure SignalR
   linkLists:
   - linkListType: tutorial
     links:
-    - text: Integrar o Serviço do Azure SignalR com o ASP.NET Core Identity
+    - text: Integrar o Serviço Azure SignalR com o ASP.NET Core Identity
       url: signalr-concept-authenticate-oauth.md
     - text: Compilar um aplicativo em tempo real sem servidor com a autenticação
       url: signalr-tutorial-authenticate-azure-functions.md

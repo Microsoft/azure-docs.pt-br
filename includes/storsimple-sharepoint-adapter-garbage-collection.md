@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 9c734ff03b1cf277c7e0967d8b76b1941434f414
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86050474"
 ---
 Neste procedimento, você vai:
@@ -23,7 +23,7 @@ Neste procedimento, você vai:
 2. Navegue até a pasta *unidade de inicialização*:\Arquivos de Programas\Microsoft SQL Remote Blob Storage 10.50\Maintainer\.
 3. Renomeie **Microsoft.Data.SqlRemoteBlobs.Maintainer.exe.config** para **web.config**.
 4. Use `aspnet_regiis -pdf connectionStrings` para descriptografar o arquivo web.config.
-5. No arquivo web.config descriptografado, sob o nó `connectionStrings` , adicione a cadeia de conexão para sua instância de SQL Server e o nome do banco de dados de conteúdo. Veja os exemplos a seguir.
+5. No arquivo web.config descriptografado, sob o nó `connectionStrings` , adicione a cadeia de conexão para sua instância de SQL Server e o nome do banco de dados de conteúdo. Veja o exemplo a seguir.
    
     `<add name="RBSMaintainerConnectionWSSContent" connectionString="Data Source=SHRPT13-SQL12\SHRPT13;Initial Catalog=WSS_Content;Integrated Security=True;Application Name=&quot;Remote Blob Storage Maintainer for WSS_Content&quot;" providerName="System.Data.SqlClient" />`
 6. Use `aspnet_regiis –pef connectionStrings` para criptografar o arquivo web.config novamente. 

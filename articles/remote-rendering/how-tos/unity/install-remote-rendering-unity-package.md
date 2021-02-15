@@ -6,10 +6,10 @@ ms.author: flborn
 ms.date: 02/26/2020
 ms.topic: how-to
 ms.openlocfilehash: 3704d1a418baeec18c3303b8203a0185790cbcc7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85564303"
 ---
 # <a name="install-the-remote-rendering-package-for-unity"></a>Instalar o pacote do Remote Rendering o para o Unity

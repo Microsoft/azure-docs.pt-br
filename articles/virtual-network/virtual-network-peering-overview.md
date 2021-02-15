@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2019
 ms.author: kumud
-ms.openlocfilehash: 6ba0caa2546fdb9d4845e2c7adf87a06d906dd12
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: feea2d54edd8a93e6e0effbef03389ef895d5ffb
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87265153"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98216743"
 ---
 # <a name="virtual-network-peering"></a>Emparelhamento de rede virtual
 
-O emparelhamento de rede virtual permite que você conecte diretamente as redes na [rede virtual do Azure](virtual-networks-overview.md). As redes virtuais aparecem como uma para fins de conectividade. O tráfego entre as máquinas virtuais usa a infraestrutura de backbone da Microsoft. Assim como o tráfego entre as máquinas virtuais na mesma rede, o tráfego é roteado somente pela rede *privada* da Microsoft.
+O emparelhamento de rede virtual permite que você conecte diretamente duas ou mais [redes virtuais](virtual-networks-overview.md) no Azure. As redes virtuais aparecem como uma para fins de conectividade. O tráfego entre máquinas virtuais em redes virtuais emparelhadas usa a infraestrutura de backbone da Microsoft. Assim como o tráfego entre as máquinas virtuais na mesma rede, o tráfego é roteado somente pela rede *privada* da Microsoft.
 
 O Azure dá suporte aos seguintes tipos de emparelhamento:
 
@@ -48,7 +48,7 @@ A latência de rede entre as máquinas virtuais em redes virtuais emparelhadas n
 O tráfego entre as máquinas virtuais nas redes virtuais emparelhadas é roteado diretamente pela infraestrutura de backbone da Microsoft, não por um gateway ou pela Internet pública.
 
 Você pode aplicar grupos de segurança de rede em qualquer rede virtual para bloquear o acesso a outras redes virtuais ou sub-redes.
-Ao configurar o emparelhamento de rede virtual, abra ou feche as regras do grupo de segurança de rede entre as redes virtuais. Se você abrir a conectividade completa entre redes virtuais emparelhadas, poderá aplicar grupos de segurança de rede para bloquear ou negar acesso específico. A conectividade completa é a opção padrão. Para saber mais sobre grupos de segurança de rede, consulte [grupos de segurança](security-overview.md).
+Ao configurar o emparelhamento de rede virtual, abra ou feche as regras do grupo de segurança de rede entre as redes virtuais. Se você abrir a conectividade completa entre redes virtuais emparelhadas, poderá aplicar grupos de segurança de rede para bloquear ou negar acesso específico. A conectividade completa é a opção padrão. Para saber mais sobre grupos de segurança de rede, consulte [grupos de segurança](./network-security-groups-overview.md).
 
 ## <a name="service-chaining"></a>Encadeamento de serviços
 

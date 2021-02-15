@@ -3,12 +3,12 @@ title: Exclusão reversível para o backup do Azure
 description: Saiba como usar recursos de segurança no backup do Azure para tornar os backups mais seguros.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: a23d9d1e2ceeb767784490ba65542a5e91b6785b
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: da473b1d886ec2fe95a7baae76b09aff38fb3cd7
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89004911"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95254012"
 ---
 # <a name="soft-delete-for-azure-backup"></a>Exclusão reversível para o backup do Azure
 
@@ -29,7 +29,7 @@ Este gráfico de fluxo mostra as diferentes etapas e Estados de um item de backu
 
 A exclusão reversível é habilitada por padrão em cofres recém-criados para proteger dados de backup de exclusões acidentais ou mal-intencionadas.  Não é recomendável desabilitar esse recurso. A única circunstância em que você deve considerar a desabilitação da exclusão reversível é se você planeja mover seus itens protegidos para um novo cofre e não pode aguardar os 14 dias necessários antes de excluir e proteger novamente (como em um ambiente de teste). Somente o proprietário do cofre pode desabilitar esse recurso. Se você desabilitar esse recurso, todas as exclusões futuras de itens protegidos resultarão na remoção imediata, sem a capacidade de restaurar. Os dados de backup que existem no estado de exclusão reversível antes de desabilitar esse recurso permanecerão no estado de exclusão reversível pelo período de 14 dias. Se você quiser excluí-las permanentemente imediatamente, será necessário restaurar e excluí-las novamente para que sejam excluídas permanentemente.
 
- É importante lembrar que, quando a exclusão reversível estiver desabilitada, o recurso estará desabilitado para todos os tipos de cargas de trabalho, incluindo as cargas de trabalho do SQL Server e do SAP HANA. Por exemplo, depois que a [visualização de SQL Server/SAP Hana](./soft-delete-sql-saphana-in-azure-vm.md#steps-to-enroll-in-preview) estiver habilitada para uma assinatura, não será possível desabilitar a exclusão reversível somente para bancos de SAP Hana ou SQL Server, mantendo-o habilitado para máquinas virtuais no mesmo cofre. Você pode criar cofres separados para o controle granular.
+É importante lembrar que, quando a exclusão reversível está desabilitada, o recurso é desabilitado para todos os tipos de cargas de trabalho. Por exemplo, não é possível desabilitar a exclusão reversível somente para bancos de SAP HANA ou SQL Server, mantendo-o habilitado para máquinas virtuais no mesmo cofre. Você pode criar cofres separados para o controle granular.
 
 ### <a name="disabling-soft-delete-using-azure-portal"></a>Desabilitando a exclusão reversível usando o portal do Azure
 
@@ -73,7 +73,7 @@ Siga estas etapas:
 
 1. Siga as etapas para [desabilitar a exclusão reversível](#enabling-and-disabling-soft-delete).
 
-2. No portal do Azure, acesse seu cofre, vá para **itens de backup**e escolha o item com exclusão reversível.
+2. No portal do Azure, acesse seu cofre, vá para **itens de backup** e escolha o item com exclusão reversível.
 
    ![Escolher item com exclusão reversível](./media/backup-azure-security-feature-cloud/vm-soft-delete.png)
 
@@ -87,11 +87,11 @@ Siga estas etapas:
 
 5. Escolha **excluir dados de backup** para excluir permanentemente os dados de backup.
 
-   ![Escolha excluir dados de backup](/azure/backup/media/backup-azure-manage-vms/delete-backup-buttom.png)
+   ![Escolha excluir dados de backup](./media/backup-azure-manage-vms/delete-backup-button.png)
 
 6. Digite o nome do item de backup para confirmar que você deseja excluir os pontos de recuperação.
 
-   ![Digite o nome do item de backup](/azure/backup/media/backup-azure-manage-vms/delete-backup-data1.png)
+   ![Digite o nome do item de backup](./media/backup-azure-manage-vms/delete-backup-data.png)
 
 7. Para excluir os dados de backup do item, selecione **excluir**. Uma mensagem de notificação permite que você saiba que os dados de backup foram excluídos.
 

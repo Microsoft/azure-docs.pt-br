@@ -1,28 +1,25 @@
 ---
 title: Usar a API de Gerenciamento de Serviços (Python) - guia de recursos
 description: Saiba como executar tarefas de gerenciamento de serviços comuns de forma programática no Python.
-services: cloud-services
-documentationcenter: python
-author: tanmaygore
-manager: vashan
-editor: ''
-ms.assetid: 61538ec0-1536-4a7e-ae89-95967fe35d73
-ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: python
 ms.topic: article
-ms.date: 05/30/2017
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.custom: devx-track-python
-ms.openlocfilehash: 35d0f77d5f4dde9e156d22e64881ba674189d327
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 02993f2b79e37e5e50c20c4ee07220bcbd36edb8
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87851504"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98741393"
 ---
 # <a name="use-service-management-from-python"></a>Usar o gerenciamento de serviços do Python
+
+> [!IMPORTANT]
+> Os [serviços de nuvem do Azure (suporte estendido)](../cloud-services-extended-support/overview.md) são um novo modelo de implantação baseado em Azure Resource Manager para o produto de serviços de nuvem do Azure.Com essa alteração, os serviços de nuvem do Azure em execução no modelo de implantação baseado no Azure Service Manager foram renomeados como serviços de nuvem (clássicos) e todas as novas implantações devem usar os [serviços de nuvem (suporte estendido)](../cloud-services-extended-support/overview.md).
+
 Este guia mostra como executar tarefas de gerenciamento de serviços comuns de forma programática no Python. A classe **ServiceManagementService** no [SDK do Azure para Python](https://github.com/Azure/azure-sdk-for-python) dá suporte a acesso programático para grande parte da funcionalidade relacionada ao gerenciamento de serviços que está disponível no [Portal do Azure][management-portal]. Você pode usar essa funcionalidade para criar, atualizar e excluir serviços de nuvem, implantações, serviços de gerenciamento de dados e máquinas virtuais. Essa funcionalidade pode ser útil na criação de aplicativos que precisam de acesso programático ao gerenciamento de serviços.
 
 ## <a name="what-is-service-management"></a><a name="WhatIs"> </a>O que é gerenciamento de serviços?
@@ -127,7 +124,7 @@ Ao criar um serviço de nuvem ou de armazenamento, é preciso fornecer uma local
 * Leste dos EUA
 * Leste do Japão
 * Oeste do Japão
-* Brazil South
+* Sul do Brasil
 * Leste da Austrália
 * Sudeste da Austrália
 
@@ -194,7 +191,7 @@ sms.delete_deployment('myhostedservice', 'v1')
 ```
 
 ## <a name="create-a-storage-service"></a><a name="CreateStorageService"> </a>Criar um serviço de armazenamento
-Um [serviço de armazenamento](../storage/common/storage-create-storage-account.md) fornece acesso a [BLOBs](../storage/blobs/storage-python-how-to-use-blob-storage.md), [tabelas](../cosmos-db/table-storage-how-to-use-python.md)e [filas](../storage/queues/storage-python-how-to-use-queue-storage.md)do Azure. Para criar um serviço de armazenamento, é necessário um nome para o serviço (entre 3 e 24 caracteres minúsculos e exclusivos dentro do Azure). Você também precisa de uma descrição, um rótulo (até 100 caracteres codificados automaticamente com base64) e um local. O exemplo a seguir mostra como criar um serviço de armazenamento especificando um local:
+Um [serviço de armazenamento](../storage/common/storage-account-create.md) fornece acesso a [BLOBs](../storage/blobs/storage-quickstart-blobs-python.md), [tabelas](../cosmos-db/table-storage-how-to-use-python.md)e [filas](../storage/queues/storage-python-how-to-use-queue-storage.md)do Azure. Para criar um serviço de armazenamento, é necessário um nome para o serviço (entre 3 e 24 caracteres minúsculos e exclusivos dentro do Azure). Você também precisa de uma descrição, um rótulo (até 100 caracteres codificados automaticamente com base64) e um local. O exemplo a seguir mostra como criar um serviço de armazenamento especificando um local:
 
 ```python
 from azure import *
@@ -446,9 +443,9 @@ sms.create_virtual_machine_deployment(service_name=name,
     vm_image_name = image_name)
 ```
 
-Para saber mais sobre como capturar uma máquina virtual Linux no modelo de implantação clássico, consulte [Capturar uma máquina virtual Linux](../virtual-machines/linux/classic/capture-image-classic.md).
+Para saber mais sobre como capturar uma máquina virtual Linux no modelo de implantação clássico, consulte [Capturar uma máquina virtual Linux](/previous-versions/azure/virtual-machines/linux/classic/capture-image-classic).
 
-Para saber mais sobre como capturar uma máquina virtual Windows no modelo de implantação clássico, consulte [Capturar uma máquina virtual Windows](../virtual-machines/windows/classic/capture-image-classic.md).
+Para saber mais sobre como capturar uma máquina virtual Windows no modelo de implantação clássico, consulte [Capturar uma máquina virtual Windows](/previous-versions/azure/virtual-machines/windows/classic/capture-image-classic).
 
 ## <a name="next-steps"></a><a name="What's Next"> </a>Próximas etapas
 Agora que você aprendeu os fundamentos do gerenciamento de serviços, é possível acessar a [documentação de referência da API completa para o SDK do Python do Azure](https://azure-sdk-for-python.readthedocs.org/) e executar tarefas complexas facilmente para gerenciar seu aplicativo Python.
@@ -474,7 +471,7 @@ Para saber mais, confira o [Centro de Desenvolvedores do Python](https://azure.m
 [Delete a virtual machine]: #DeleteVM
 [Next steps]: #NextSteps
 [management-portal]: https://portal.azure.com/
-[svc-mgmt-rest-api]: https://msdn.microsoft.com/library/windowsazure/ee460799.aspx
+[svc-mgmt-rest-api]: /previous-versions/azure/ee460799(v=azure.100)
 
 
 [cloud service]:/azure/cloud-services/

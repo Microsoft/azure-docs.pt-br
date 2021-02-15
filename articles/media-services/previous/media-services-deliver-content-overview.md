@@ -10,14 +10,17 @@ ms.workload: media
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 7a6a717f663e6e1ee5c2371c35557c7c374246fa
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 363bb5389eda8336d04b1ff457f8246e89a042d8
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87060357"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92014376"
 ---
 # <a name="deliver-content-to-customers"></a>Distribuir conteúdo aos clientes
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 Quando você estiver distribuindo conteúdo de streaming ou vídeo sob demanda aos clientes, sua meta será distribuir vídeo de alta qualidade a vários dispositivos sob diferentes condições de rede.
 
 Para atingir esse objetivo, você pode:
@@ -66,7 +69,7 @@ Os localizadores têm datas de validade. O portal do Azure define uma data de va
 > 
 > 
 
-Para atualizar uma data de validade em um localizador, use as APIs [REST](/rest/api/media/operations/locator#update_a_locator) ou [.NET](https://go.microsoft.com/fwlink/?LinkID=533259). Observe que, quando você atualiza a data de validade de um localizador SAS, a URL é alterada.
+Para atualizar uma data de validade em um localizador, use as APIs [REST](/rest/api/media/operations/locator#update_a_locator) ou [.NET](/dotnet/api/microsoft.windowsazure.mediaservices.client.ilocator). Observe que, quando você atualiza a data de validade de um localizador SAS, a URL é alterada.
 
 Os localizadores não foram desenvolvidos para gerenciar o controle de acesso por usuário. Você pode conceder diferentes direitos de acesso a usuários individuais usando as soluções DRM (Gerenciamento de Direitos Digitais). Para obter mais informações, consulte [Protegendo mídia](/previous-versions/azure/dn282272(v=azure.100)).
 

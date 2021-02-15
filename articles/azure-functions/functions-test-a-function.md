@@ -3,15 +3,15 @@ title: Testando os Azure Functions
 description: Criar testes automatizados para uma Função do C# no Visual Studio e uma Função JavaScript no VS Code
 author: craigshoemaker
 ms.topic: conceptual
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-js
 ms.date: 03/25/2019
 ms.author: cshoe
-ms.openlocfilehash: e0abfc9be0031f899071d6e5e22274481ba76e10
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: f75f42f3879f551a945bdeb2d88450ae3b9d6106
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212894"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98674143"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Estratégias para testar seu código no Azure Functions
 
@@ -28,7 +28,7 @@ O repositório de exemplo está disponível no [GitHub](https://github.com/Azure
 
 ## <a name="c-in-visual-studio"></a>C# no Visual Studio
 
-O exemplo a seguir descreve como criar um aplicativo de funções C# no Visual Studio e executar testes com [xUnit](https://xunit.github.io).
+O exemplo a seguir descreve como criar um aplicativo de funções C# no Visual Studio e executar testes com [xUnit](https://github.com/xunit/xunit).
 
 ![Testar o Azure Functions com C# no Visual Studio](./media/functions-test-a-function/azure-functions-test-visual-studio-xunit.png)
 
@@ -36,12 +36,12 @@ O exemplo a seguir descreve como criar um aplicativo de funções C# no Visual S
 
 Para configurar o ambiente, crie uma função e teste o aplicativo. As etapas a seguir ajudam você a criar os aplicativos e as funções necessários para os testes:
 
-1. [Crie um aplicativo de funções](./functions-create-first-azure-function.md) e nomeie-o como **Functions**
-2. [Crie uma função http a partir do modelo](./functions-create-first-azure-function.md) e nomeie-a **MyHttpTrigger**.
+1. [Crie um aplicativo de funções](./functions-get-started.md) e nomeie-o como **Functions**
+2. [Crie uma função http a partir do modelo](./functions-get-started.md) e nomeie-a **MyHttpTrigger**.
 3. [Crie uma função de temporizador a partir do modelo](./functions-create-scheduled-function.md) e nomeie-a **MyTimerTrigger**.
-4. [Crie um aplicativo de teste do xUnit](https://xunit.github.io/docs/getting-started-dotnet-core) na solução e nomeie-o como **functions. Tests**.
+4. [Crie um aplicativo de teste do xUnit](https://xunit.net/docs/getting-started/netcore/cmdline) na solução e nomeie-o como **functions. Tests**.
 5. Use o NuGet para adicionar uma referência do aplicativo de teste a [Microsoft. AspNetCore. Mvc](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc/)
-6. [Referencie o aplicativo de *funções* ](/visualstudio/ide/managing-references-in-a-project?view=vs-2017) do aplicativo *functions. Tests* .
+6. [Referencie o aplicativo de *funções*](/visualstudio/ide/managing-references-in-a-project?view=vs-2017) do aplicativo *functions. Tests* .
 
 ### <a name="create-test-classes"></a>Criar classes de teste
 
@@ -251,7 +251,7 @@ Os membros implementados nesta classe são:
 
 - **Timer_should_log_message**: esse teste cria uma instância do `ListLogger` e a passa para uma função de temporizador. Depois que a função é executada, o log é verificado para garantir que a mensagem esperada está presente.
 
-Se você quiser acessar as configurações do aplicativo em seus testes, você pode usar [System. Environment. GetEnvironmentVariable](./functions-dotnet-class-library.md#environment-variables).
+Se você quiser acessar as configurações do aplicativo em seus testes, poderá [injetar](./functions-dotnet-dependency-injection.md) uma `IConfiguration` instância com valores de variável de ambiente fictícios em sua função.
 
 ### <a name="run-tests"></a>Executar testes
 

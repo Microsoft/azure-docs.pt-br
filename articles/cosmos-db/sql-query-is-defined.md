@@ -3,18 +3,21 @@ title: IS_DEFINED na linguagem de consulta Azure Cosmos DB
 description: Saiba mais sobre a função do sistema SQL IS_DEFINED no Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: a5fcaf52d8e9e6b942a95f0b0c43f3f654c5d5d2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4b45e09fe7cd9165487f1c9f142a1338a1e6db44
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78303844"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93338680"
 ---
 # <a name="is_defined-azure-cosmos-db"></a>IS_DEFINED (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Retorna um valor booliano que indica se um valor foi atribuído à propriedade.  
   
 ## <a name="syntax"></a>Sintaxe

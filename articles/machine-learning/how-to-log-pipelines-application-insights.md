@@ -10,15 +10,15 @@ ms.subservice: core
 ms.date: 08/11/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 17a60ae604a74cf98f3a11e0cbee6d22898c1336
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: e451e55a9a73022f9c90ba4adae91b520840481e
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121980"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880752"
 ---
 # <a name="collect-machine-learning-pipeline-log-files-in-application-insights-for-alerts-and-debugging"></a>Coletar arquivos de log do pipeline do Machine Learning no Application Insights para alertas e depuração
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 A Biblioteca Python [OpenCensus](https://opencensus.io/quickstart/python/) pode ser usada para rotear logs para Application insights de seus scripts. A agregação de logs de execuções de pipeline em um único local permite que você crie consultas e diagnostique problemas. O uso de Application Insights permitirá que você acompanhe os logs ao longo do tempo e compare os logs de pipeline entre as execuções.
 
@@ -26,7 +26,7 @@ Ter seus logs em vigor fornecerá um histórico de exceções e mensagens de err
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Siga as etapas para criar um espaço de trabalho [Azure Machine Learning](./how-to-manage-workspace.md) e [criar seu primeiro pipeline](./how-to-create-your-first-pipeline.md)
+* Siga as etapas para criar um espaço de trabalho [Azure Machine Learning](./how-to-manage-workspace.md) e [criar seu primeiro pipeline](./how-to-create-machine-learning-pipelines.md)
 * [Configure seu ambiente de desenvolvimento](./how-to-configure-environment.md) para instalar o SDK do Azure Machine Learning.
 * Instale o pacote de [exportador do OpenCensus Azure monitor](https://pypi.org/project/opencensus-ext-azure/) localmente:
   ```python
@@ -38,7 +38,7 @@ Ter seus logs em vigor fornecerá um histórico de exceções e mensagens de err
 
 Esta seção é uma introdução específica para usar o OpenCensus de um pipeline Azure Machine Learning. Para obter um tutorial detalhado, consulte [OpenCensus Azure monitor exportadores](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure)
 
-Adicione um PythonScriptStep ao seu pipeline do Azure ML. Configure seu [RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py) com a dependência em opencensus-ext-Azure. Configure a `APPLICATIONINSIGHTS_CONNECTION_STRING` variável de ambiente.
+Adicione um PythonScriptStep ao seu pipeline do Azure ML. Configure seu [RunConfiguration](/python/api/azureml-core/azureml.core.runconfiguration?preserve-view=true&view=azure-ml-py) com a dependência em opencensus-ext-Azure. Configure a `APPLICATIONINSIGHTS_CONNECTION_STRING` variável de ambiente.
 
 ```python
 from azureml.core.conda_dependencies import CondaDependencies
@@ -134,7 +134,7 @@ custom_dimensions = {
 }
 
 # Assumes AzureLogHandler was already registered above
-logger.info("I will be sent to Application Insights with Custom Dimensions", custom_dimensions)
+logger.info("I will be sent to Application Insights with Custom Dimensions", extra= {"custom_dimensions":custom_dimensions})
 ```
 
 ## <a name="opencensus-python-logging-considerations"></a>Considerações de log do Python OpenCensus
@@ -153,7 +153,7 @@ O resultado em Application Insights mostrará a mensagem de log e o nível, o ca
 
 ### <a name="additional-helpful-queries"></a>Consultas úteis adicionais
 
-Algumas das consultas abaixo usam ' customDimensions. Level '. Esses níveis de severidade correspondem ao nível no qual o log do Python foi originalmente enviado. Para obter informações adicionais de consulta, consulte [Azure monitor log queries](https://docs.microsoft.com/azure/azure-monitor/log-query/query-language).
+Algumas das consultas abaixo usam ' customDimensions. Level '. Esses níveis de severidade correspondem ao nível no qual o log do Python foi originalmente enviado. Para obter informações adicionais de consulta, consulte [Azure monitor log queries](/azure/data-explorer/kusto/query/).
 
 | Caso de uso                                                               | Consulta                                                                                              |
 |------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------|
@@ -166,4 +166,4 @@ Algumas das consultas abaixo usam ' customDimensions. Level '. Esses níveis de 
 
 Depois que você tiver logs em sua instância de Application Insights, eles poderão ser usados para definir [Azure monitor alertas](../azure-monitor/platform/alerts-overview.md#what-you-can-alert-on) com base nos resultados da consulta.
 
-Você também pode adicionar resultados de consultas a um [painel do Azure](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-app-dashboards#add-logs-analytics-query) para obter informações adicionais.
+Você também pode adicionar resultados de consultas a um [painel do Azure](../azure-monitor/learn/tutorial-app-dashboards.md#add-logs-query) para obter informações adicionais.

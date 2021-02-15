@@ -1,19 +1,16 @@
 ---
 title: 'Início Rápido: Criar/gerenciar a topologia do Apache Storm – Azure HDInsight'
 description: No início rápido, saiba como criar e monitorar uma topologia do Apache Storm no Azure HDInsight.
-author: hrasheed-msft
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: quickstart
 ms.date: 06/14/2019
-ms.author: hrasheed
 ms.custom: mvc
-ms.openlocfilehash: 8f13c813eee9bcfde578ba210c5aa2f2fe1cac2c
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: fe7b1cdc96ae95ac361183342ea491432c3ab4b4
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045018"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98928856"
 ---
 # <a name="quickstart-create-and-monitor-an-apache-storm-topology-in-azure-hdinsight"></a>Início Rápido: Criar e monitorar uma topologia do Apache Storm no Azure HDInsight
 

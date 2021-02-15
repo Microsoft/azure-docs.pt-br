@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Integração do logon único do Azure Active Directory ao F5 | Microsoft Docs'
-description: Saiba como configurar o logon único entre o Azure Active Directory e o F5.
+description: Neste artigo, saiba quais etapas você precisa executar para integrar o F5 ao Azure AD (Azure Active Directory).
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/11/2019
 ms.author: jeedes
-ms.openlocfilehash: 2e0e727e73fa1eff21a4b2e481738be49306676a
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 217872586d09531926b43a13d826efe559c70597
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88542969"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98796764"
 ---
 # <a name="tutorial-azure-active-directory-ad-single-sign-on-sso-integration-with-f5"></a>Tutorial: Integração do SSO (logon único) do Azure AD (Active Directory) ao F5
 
@@ -26,7 +26,7 @@ Neste tutorial, você aprenderá a integrar o F5 ao Azure AD (Azure Active Direc
 * Permitir que os usuários sejam conectados automaticamente ao F5 com suas contas do Azure AD.
 * Gerenciar suas contas em um local central: o portal do Azure.
 
-Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -39,8 +39,9 @@ Para começar, você precisará dos seguintes itens:
 
 Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste.
 
-* O F5 dá suporte ao SSO iniciado por **SP e IDP**
-* O SSO do F5 pode ser configurado de três maneiras.
+O F5 dá suporte ao SSO iniciado por **SP e IDP**.
+
+O SSO do F5 pode ser configurado de três maneiras diferentes:
 
 - [Configurar logon único do F5 para aplicativo Kerberos Avançado](#configure-f5-single-sign-on-for-advanced-kerberos-application)
 
@@ -145,38 +146,38 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 
 1. Você precisa importar o Certificado de Metadados no F5 (Kerberos Avançado) que será usado posteriormente no processo de instalação. Acesse **Sistema > Gerenciamento de Certificado > Gerenciamento de Certificado de Tráfego >> Lista de Certificados SSL**. Clique em **Importar** do canto direito.
 
-    ![Configuração do F5 (Kerberos avançado)](./media/advance-kerbf5-tutorial/configure01.png)
+    ![Captura de tela que realça o botão Importar para importar o Certificado de Metadados.](./media/advance-kerbf5-tutorial/configure01.png)
  
 1. Para configurar o IDP do SAML, vá até **Acessar > Federação > Provedor de Serviços SAML > Criar > De Metadados**.
 
-    ![Configuração do F5 (Kerberos avançado)](./media/advance-kerbf5-tutorial/configure02.png)
+    ![Captura de tela que realça como criar o IDP do SAML com base em metadados.](./media/advance-kerbf5-tutorial/configure02.png)
 
-    ![Configuração do F5 (Kerberos avançado)](./media/advance-kerbf5-tutorial/configure03.png)
+    ![Captura de tela que mostra Criar Conector IdP SAML.](./media/advance-kerbf5-tutorial/configure03.png)
  
     ![Configuração do F5 (Kerberos avançado)](./media/advance-kerbf5-tutorial/configure04.png)
 
-    ![Configuração do F5 (Kerberos avançado)](./media/advance-kerbf5-tutorial/configure05.png)
+    ![Captura de tela que mostra Configurações do Serviço de Logon Único. ](./media/advance-kerbf5-tutorial/configure05.png)
  
 1. Especificar o Certificado carregado da Tarefa 3
 
-    ![Configuração do F5 (Kerberos avançado)](./media/advance-kerbf5-tutorial/configure06.png)
+    ![Captura de tela que mostra Editar Conector IdP SAML.](./media/advance-kerbf5-tutorial/configure06.png)
 
-    ![Configuração do F5 (Kerberos avançado)](./media/advance-kerbf5-tutorial/configure07.png)
+    ![Captura de tela que mostra Configurações do Serviço de Logoff Único.](./media/advance-kerbf5-tutorial/configure07.png)
 
  1. Para configurar o SP do SAML, vá para **Acessar > Federação > Federação de Serviços SAML > Serviços SP Locais > Criar**.
 
-    ![Configuração do F5 (Kerberos avançado)](./media/advance-kerbf5-tutorial/configure08.png)
+    ![Captura de tela que mostra a tela na qual você cria um serviço de SP local.](./media/advance-kerbf5-tutorial/configure08.png)
  
 1. Clique em **OK**.
 
 1. Selecione a Configuração do SP e clique em **Associar/desassociar conectores IdP**.
 
-     ![Configuração do F5 (Kerberos avançado)](./media/advance-kerbf5-tutorial/configure09.png)
+     ![Captura de tela que mostra o Provedor de Serviços SAML.](./media/advance-kerbf5-tutorial/configure09.png)
  
  
 1. Clique em **Adicionar Nova Linha** e selecione o **Conector IdP externo** criado na etapa anterior.
 
-    ![Configuração do F5 (Kerberos avançado)](./media/advance-kerbf5-tutorial/configure10.png)
+    ![Captura de tela que realça o botão Adicionar Linha.](./media/advance-kerbf5-tutorial/configure10.png)
  
 1. Para configurar o SSO do Kerberos, **Acessar > Logon Único > Kerberos**
 
@@ -187,54 +188,54 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 
     • Origem de realm do usuário `session.logon.last.domain`
 
-    ![Configuração do F5 (Kerberos avançado)](./media/advance-kerbf5-tutorial/configure11.png)
+    ![Captura de tela que realça Acesso > Logon Único.](./media/advance-kerbf5-tutorial/configure11.png)
 
 1. Para configurar o Perfil de Acesso, **Acessar > Perfil/Políticas > Perfil de Acesso (por políticas de sessão)** .
 
-    ![Configuração do F5 (Kerberos avançado)](./media/advance-kerbf5-tutorial/configure12.png)
+    ![Captura de tela que realça a guia Propriedades na opção de menu Perfis/Políticas.](./media/advance-kerbf5-tutorial/configure12.png)
 
-    ![Configuração do F5 (Kerberos avançado)](./media/advance-kerbf5-tutorial/configure13.png)
+    ![Captura de tela que mostra a guia Domínios SSO/Autenticação.](./media/advance-kerbf5-tutorial/configure13.png)
 
-    ![Configuração do F5 (Kerberos avançado)](./media/advance-kerbf5-tutorial/configure14.png)
+    ![Captura de tela que mostra a guia Política de Acesso.](./media/advance-kerbf5-tutorial/configure14.png)
 
-    ![Configuração do F5 (Kerberos avançado)](./media/advance-kerbf5-tutorial/configure15.png)
+    ![Captura de tela que mostra a guia Propriedades na Política de Acesso.](./media/advance-kerbf5-tutorial/configure15.png)
 
-    ![Configuração do F5 (Kerberos avançado)](./media/advance-kerbf5-tutorial/configure16.png)
+    ![Captura de tela que mostra as propriedades de Atribuição de Variável.](./media/advance-kerbf5-tutorial/configure16.png)
  
     * session.logon.last.usernameUPN   expr {[mcget {session.saml.last.identity}]}
 
     * session.ad.lastactualdomain  TEXT superdemo.live
 
-    ![Configuração do F5 (Kerberos avançado)](./media/advance-kerbf5-tutorial/configure17.png)
+    ![Captura de tela que mostra as propriedades de Consulta do AD.](./media/advance-kerbf5-tutorial/configure17.png)
 
     * (userPrincipalName=%{session.logon.last.usernameUPN})
 
-    ![Configuração do F5 (Kerberos avançado)](./media/advance-kerbf5-tutorial/configure18.png)
+    ![Captura de tela que mostra a guia Regras de Ramificação e a regra Verificar Conta.](./media/advance-kerbf5-tutorial/configure18.png)
 
-    ![Configuração do F5 (Kerberos avançado)](./media/advance-kerbf5-tutorial/configure19.png)
+    ![Captura de tela que mostra as caixas de texto da variável personalizada e da expressão personalizada.](./media/advance-kerbf5-tutorial/configure19.png)
 
     * session.logon.last.username  expr { "[mcget {session.ad.last.attr.sAMAccountName}]" }
 
-    ![Configuração do F5 (Kerberos avançado)](./media/advance-kerbf5-tutorial/configure20.png)
+    ![Captura de tela que mostra os valores nos campos Nome do Token SSO e Senha do Token de SSO.](./media/advance-kerbf5-tutorial/configure20.png)
 
     * mcget {session.logon.last.username}
     * mcget {session.logon.last.password}
 
 1. Para adicionar um novo nó, acesse **Tráfego Local > Nós > Lista de Nós > +** .
 
-    ![Configuração do F5 (Kerberos avançado)](./media/advance-kerbf5-tutorial/configure21.png)
+    ![Captura de tela que realça Tráfego Local > Nós.](./media/advance-kerbf5-tutorial/configure21.png)
  
 1. Para criar um pool, acesse **Tráfego Local > Pools > Lista de Pools > Criar**.
 
-     ![Configuração do F5 (Kerberos avançado)](./media/advance-kerbf5-tutorial/configure22.png)
+     ![Captura de tela que realça Tráfego Local > Pools.](./media/advance-kerbf5-tutorial/configure22.png)
 
  1. Para criar um servidor virtual, acesse **Tráfego Local > Servidores Virtuais > Lista de Servidores Virtuais >** +.
 
-    ![Configuração do F5 (Kerberos avançado)](./media/advance-kerbf5-tutorial/configure23.png)
+    ![Captura de tela que realça Tráfego Local > Servidores Virtuais.](./media/advance-kerbf5-tutorial/configure23.png)
 
 1. Especifique o Perfil de Acesso criado na etapa anterior.
 
-    ![Configuração do F5 (Kerberos avançado)](./media/advance-kerbf5-tutorial/configure24.png) 
+    ![Captura de tela que mostra em que local você especifica o perfil de acesso criado.](./media/advance-kerbf5-tutorial/configure24.png) 
 
 ### <a name="setting-up-kerberos-delegation"></a>Configurar Delegação do Kerberos 
 
@@ -263,15 +264,15 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
     * Configure a Delegação adequada para a Conta de Delegação da F5.
     * No exemplo abaixo, a conta de Delegação APM está sendo configurada para KCD para o aplicativo FRP-App1.superdemo.live.
 
-        ![Configuração do F5 (Kerberos avançado)](./media/advance-kerbf5-tutorial/configure25.png)
+        ![Captura de tela que mostra a guia Propriedades da Conta de Delegação do APM > Delegação.](./media/advance-kerbf5-tutorial/configure25.png)
 
 1. Forneça os detalhes conforme mencionado no documento de referência [aqui](https://techdocs.f5.com/kb/en-us/products/big-ip_apm/manuals/product/apm-authentication-single-sign-on-11-5-0/2.html)
 
 1. Apêndice – SAML – Mapeamentos de Variável BIG-IP do F5 mostrados abaixo:
 
-    ![Configuração do F5 (Kerberos avançado)](./media/advance-kerbf5-tutorial/configure26.png)
+    ![Captura de tela que mostra a guia Visão Geral > Sessões Ativas.](./media/advance-kerbf5-tutorial/configure26.png)
 
-    ![Configuração do F5 (Kerberos avançado)](./media/advance-kerbf5-tutorial/configure27.png) 
+    ![Captura de tela que mostra as variáveis e as chaves de sessão.](./media/advance-kerbf5-tutorial/configure27.png) 
 
 1. Abaixo encontra-se a lista completa de Atributos padrão do SAML. GivenName é representado usando a seguinte cadeia de caracteres.
 `session.saml.last.attr.name.http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`
@@ -313,21 +314,21 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 
 ### <a name="create-f5-test-user"></a>Criar usuário de teste do F5
 
-Nesta seção, você criará um usuário chamado B.Fernandes no F5. Trabalhe com a [equipe de suporte ao Cliente do F5](https://support.f5.com/csp/knowledge-center/software/BIG-IP?module=BIG-IP%20APM45) para adicionar os usuários à plataforma do F5. Os usuários devem ser criados e ativados antes de usar o logon único. 
+Nesta seção, você criará um usuário chamado B.Fernandes no F5. Trabalhe com a [equipe de suporte ao cliente do F5](https://support.f5.com/csp/knowledge-center/software/BIG-IP?module=BIG-IP%20APM45) para adicionar os usuários na plataforma do F5. Os usuários devem ser criados e ativados antes de usar o logon único. 
 
 ## <a name="test-sso"></a>Testar o SSO 
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Ao clicar no bloco do F5 no Painel de Acesso, você deverá ser conectado automaticamente ao F5 no qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao clicar no bloco do F5 no Painel de Acesso, você deverá ser conectado automaticamente ao F5 no qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](./tutorial-list.md)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)
 
 - [Experimente o F5 com o Azure AD](https://aad.portal.azure.com/)
 
@@ -335,3 +336,8 @@ Ao clicar no bloco do F5 no Painel de Acesso, você deverá ser conectado automa
 
 - [Configurar logon único do F5 para aplicativo Kerberos](kerbf5-tutorial.md)
 
+- [Integração do F5 BIG-IP APM e do Azure AD para acesso híbrido seguro](https://docs.microsoft.com/azure/active-directory/manage-apps/f5-aad-integration)
+
+- [Tutorial para implantar a VM do F5 BIG-IP Virtual Edition na IaaS do Azure para acesso híbrido seguro](https://docs.microsoft.com/azure/active-directory/manage-apps/f5-bigip-deployment-guide)
+
+- [Tutorial para a integração de logon único do Azure Active Directory ao F5 BIG-IP para VPN sem senha](https://docs.microsoft.com/azure/active-directory/manage-apps/f5-aad-password-less-vpn)

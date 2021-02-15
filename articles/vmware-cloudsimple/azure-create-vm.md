@@ -1,19 +1,19 @@
 ---
 title: Solução do Azure VMware por CloudSimple-criar uma máquina virtual no Azure com modelos de VM
 description: Descreve como criar máquinas virtuais no Azure usando modelos de VM na infraestrutura do VMware para sua nuvem privada do CloudSimple
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/16/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: ee3029de9826aee17dc76d0e69f08b3c1068423b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b01afe60a78a746eb0dc5f03cc7b45989f8cf81e
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85847156"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97898752"
 ---
 # <a name="create-a-virtual-machine-in-azure-using-vm-templates-on-the-vmware-infrastructure"></a>Criar uma máquina virtual no Azure usando modelos de VM na infra-estrutura do VMware
 
@@ -42,10 +42,10 @@ Entre no [portal do Azure](https://portal.azure.com).
 
     | Campo | Descrição |
     | ------------ | ------------- |
-    | Subscription | Assinatura do Azure associada à sua nuvem privada.  |
+    | Assinatura | Assinatura do Azure associada à sua nuvem privada.  |
     | Grupo de recursos | Grupo de recursos ao qual a VM será atribuída. Selecione um grupo existente ou crie um novo. |
     | Nome | Nome para identificar a VM.  |
-    | Location | Região do Azure na qual essa VM está hospedada.  |
+    | Localização | Região do Azure na qual essa VM está hospedada.  |
     | Nuvem privada | CloudSimple nuvem privada em que você deseja criar a máquina virtual. |
     | Pool de recursos | Pool de recursos mapeados para a VM. Selecione entre os pools de recursos disponíveis. |
     | Modelo do vSphere | modelo de vSphere para a VM.  |

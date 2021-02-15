@@ -1,6 +1,6 @@
 ---
 title: Importar um aplicativo lógico como uma API com o Portal do Azure | Microsoft Docs
-description: Este tutorial mostra como usar o APIM (Gerenciamento de API) para importar um aplicativo lógico como uma API.
+description: Este artigo mostra como usar o APIM (Gerenciamento de API) para importar um aplicativo lógico como uma API.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -9,15 +9,15 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.topic: tutorial
+ms.topic: article
 ms.date: 04/22/2020
 ms.author: apimpm
-ms.openlocfilehash: b6cb0fa3611da44726dabd879c37fec357fc3031
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0dd460bce01b86c72d0b8fd70351fdcc85c69bd4
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82202767"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146953"
 ---
 # <a name="import-a-logic-app-as-an-api"></a>Importar um aplicativo lógico como uma API
 
@@ -48,7 +48,7 @@ Neste artigo, você aprenderá como:
 3. Pressione **Procurar** para ver a lista de Aplicativos Lógicos com gatilho HTTP em sua assinatura. (Observe que os Aplicativos Lógicos sem gatilho HTTP não serão exibidos na lista.)
 4. Selecione o aplicativo. O Gerenciamento de API localiza o Swagger associado ao aplicativo selecionado, busca-o e importa-o.
 5. Adicione um sufixo da URL da API. O sufixo é um nome que identifica a API específica messa instância do Gerenciamento de API. Ele deve ser exclusivo nessa instância do Gerenciamento de API.
-6. Publica a API associando-a a um produto. Nesse caso, o produto "_Ilimitado_" é usado. Se você deseja que a API seja publicada e fique disponível para os desenvolvedores, adicione-a a um produto. Você pode fazer isso durante a criação da API ou configurá-lo mais tarde.
+6. Publica a API associando-a a um produto. Nesse caso, o produto " _Ilimitado_ " é usado. Se você deseja que a API seja publicada e fique disponível para os desenvolvedores, adicione-a a um produto. Você pode fazer isso durante a criação da API ou configurá-lo mais tarde.
 
     Os produtos são associações de uma ou mais APIs. Você pode incluir várias APIs e oferecê-las aos desenvolvedores por meio do portal do desenvolvedor. Os Desenvolvedores devem primeiro se inscrever em um produto para obter acesso à API. Com a assinatura, eles obtêm uma chave de assinatura que funciona para qualquer API no produto. Se você criou a instância do Gerenciamento de API, você já é um administrador, portanto, está inscrito em cada produto, por padrão.
 
@@ -57,7 +57,7 @@ Neste artigo, você aprenderá como:
     - **Inicial**
     - **Ilimitado**
 
-7. Insira outras configurações de API. Você pode definir os valores durante a criação ou configurá-los mais tarde, acessando a guia **Configurações**. As configurações são explicadas no tutorial [Importar e publicar sua primeira API](import-and-publish.md#-import-and-publish-a-backend-api).
+7. Insira outras configurações de API. Você pode definir os valores durante a criação ou configurá-los mais tarde, acessando a guia **Configurações**. As configurações são explicadas no tutorial [Importar e publicar sua primeira API](import-and-publish.md#import-and-publish-a-backend-api).
 8. Selecione **Criar**.
 
 ## <a name="test-the-api-in-the-azure-portal"></a>Testar a API no Portal do Azure

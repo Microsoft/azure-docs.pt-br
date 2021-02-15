@@ -1,6 +1,6 @@
 ---
 title: Tutorial – Usar o Azure Key Vault com uma máquina virtual no Python | Microsoft Docs
-description: Neste tutorial, você vai configurar um aplicativo do ASP.NET Core para ler um segredo no cofre de chaves.
+description: Neste tutorial, você configurará uma máquina virtual com um aplicativo Python para que ele leia um segredo do cofre de chaves.
 services: key-vault
 author: msmbaldwin
 ms.service: key-vault
@@ -8,13 +8,13 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 07/20/2020
 ms.author: mbaldwin
-ms.custom: mvc, devx-track-python
-ms.openlocfilehash: c0f98f8c77e4a9cd4271511e0169f07da1c52baa
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.custom: mvc, devx-track-python, devx-track-azurecli
+ms.openlocfilehash: ae62bf353f8a92c4408d4a38a91771ad60a13107
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87875942"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93285307"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-virtual-machine-in-python"></a>Tutorial: Usar o Azure Key Vault com uma máquina virtual no Python
 
@@ -66,7 +66,7 @@ Crie uma VM chamada **myVM** usando um dos seguintes métodos:
 | [PowerShell](../../virtual-machines/linux/quick-create-powershell.md) | [PowerShell](../../virtual-machines/windows/quick-create-powershell.md) |
 | [Azure portal](../../virtual-machines/linux/quick-create-portal.md) | [O portal do Azure](../../virtual-machines/windows/quick-create-portal.md) |
 
-Para criar uma VM Linux usando a CLI do Azure, use o comando [az vm create](/cli/azure/vm).  O exemplo a seguir cria uma conta de usuário chamada *azureuser*. O parâmetro `--generate-ssh-keys` é usado para gerar automaticamente uma chave SSH e colocá-la no local de chave padrão ( *~/.ssh*). 
+Para criar uma VM Linux usando a CLI do Azure, use o comando [az vm create](/cli/azure/vm).  O exemplo a seguir cria uma conta de usuário chamada *azureuser*. O parâmetro `--generate-ssh-keys` é usado para gerar automaticamente uma chave SSH e colocá-la no local de chave padrão ( *~/.ssh* ). 
 
 ```azurecli-interactive
 az vm create \
@@ -166,4 +166,4 @@ az group delete -g myResourceGroup
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[API REST do Azure Key Vault](https://docs.microsoft.com/rest/api/keyvault/)
+[API REST do Azure Key Vault](/rest/api/keyvault/)

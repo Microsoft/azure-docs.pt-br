@@ -6,22 +6,25 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 05/13/2020
-ms.custom: devx-track-java
-ms.openlocfilehash: 1b9d7326ec13176fbe65ba430a8a33bb93a48f74
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-java, devx-track-azurecli
+ms.openlocfilehash: 2fbdd46b872c4c70999355d457045f4aac8aa34c
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091446"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92742797"
 ---
 # <a name="how-to-enable-system-assigned-managed-identity-for-azure-spring-cloud-application"></a>Como habilitar uma identidade gerenciada atribuída pelo sistema para o aplicativo Azure Spring Cloud
+
+**Este artigo aplica-se a:** ✔️ Java ✔️ C#
+
 Identidades gerenciadas para recursos do Azure fornecem uma identidade gerenciada automaticamente no Azure Active Directory para um recurso do Azure, como seu aplicativo de nuvem Spring do Azure. Você pode usar essa identidade para autenticar em qualquer serviço que dá suporte à autenticação do Azure AD, incluindo o Key Vault, sem ter as credenciais no seu código.
 
 Este artigo mostra como habilitar e desabilitar identidades gerenciadas atribuídas pelo sistema para um aplicativo de nuvem do Azure Spring, usando o portal do Azure e a CLI (disponível na versão 0.2.4).
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Se você não estiver familiarizado com identidades gerenciadas para recursos do Azure, consulte a [seção visão geral](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
-Você precisará de uma instância do Azure Spring Cloud implantada. Siga o guia de [início rápido para implantar usando o CLI do Azure](spring-cloud-quickstart-launch-app-cli.md).
+Se você não estiver familiarizado com identidades gerenciadas para recursos do Azure, consulte a [seção visão geral](../active-directory/managed-identities-azure-resources/overview.md).
+Você precisará de uma instância do Azure Spring Cloud implantada. Siga o guia de [início rápido para implantar usando o CLI do Azure](spring-cloud-quickstart.md).
 
 ## <a name="add-a-system-assigned-identity"></a>Adicionar uma identidade atribuída pelo sistema
 A criação de um aplicativo com uma identidade atribuída pelo sistema requer a definição de uma propriedade adicional no aplicativo.
@@ -31,8 +34,8 @@ Para configurar uma identidade gerenciada no [portal do Azure](https://portal.az
 
 1. Crie um aplicativo no portal, como você faria normalmente. Navegue até ele no portal.
 2. Role para baixo até o grupo **configurações** no painel de navegação esquerdo.
-3. Selecionar **Identidade**.
-4. Na guia **Sistema atribuído**, alterne o **Status** para *Ligado*. Clique em **Save** (Salvar).
+3. Selecionar **Identidade** .
+4. Na guia **Sistema atribuído** , alterne o **Status** para *Ligado* . Clique em **Save** (Salvar).
 
  ![Identidade gerenciada no portal](./media/spring-cloud-managed-identity/identity-1.png)
 
@@ -56,9 +59,9 @@ az spring-cloud app identity assign -n app_name -s service_name -g resource_grou
 ## <a name="obtain-tokens-for-azure-resources"></a>Obter tokens para recursos do Azure
 Um aplicativo pode usar sua identidade gerenciada para obter tokens para acessar outros recursos protegidos pelo Azure Active Directory, como Azure Key Vault. Esses tokens representam o aplicativo que está acessando o recurso, não qualquer usuário específico do aplicativo.
 
-Talvez seja necessário [Configurar o recurso de destino para permitir o acesso do seu aplicativo](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/howto-assign-access-portal). Por exemplo, se você solicitar um token para acessar Key Vault, certifique-se de ter adicionado uma política de acesso que inclui a identidade do seu aplicativo. Caso contrário, as chamadas para o Key Vault serão rejeitadas, mesmo se elas incluírem o token. Para saber mais sobre os recursos que oferecem suporte a tokens do Azure Active Directory, veja [Serviços do Azure que dão suporte à autenticação do Azure AD](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities#azure-services-that-support-azure-ad-authentication).
+Talvez seja necessário [Configurar o recurso de destino para permitir o acesso do seu aplicativo](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md). Por exemplo, se você solicitar um token para acessar Key Vault, certifique-se de ter adicionado uma política de acesso que inclui a identidade do seu aplicativo. Caso contrário, as chamadas para o Key Vault serão rejeitadas, mesmo se elas incluírem o token. Para saber mais sobre os recursos que oferecem suporte a tokens do Azure Active Directory, veja [Serviços do Azure que dão suporte à autenticação do Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
-O Azure Spring Cloud compartilha o mesmo ponto de extremidade para aquisição de token com a máquina virtual do Azure. É recomendável usar o SDK do Java ou os iniciadores do Spring boot para adquirir um token.  Veja [como usar o token de VM](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-token) para vários exemplos de código e script e orientação sobre tópicos importantes, como tratamento de expiração de token e erros http.
+O Azure Spring Cloud compartilha o mesmo ponto de extremidade para aquisição de token com a máquina virtual do Azure. É recomendável usar o SDK do Java ou os iniciadores do Spring boot para adquirir um token.  Veja [como usar o token de VM](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) para vários exemplos de código e script e orientação sobre tópicos importantes, como tratamento de expiração de token e erros http.
 
 Recomendado: Use o SDK do Java ou iniciadores do Spring boot para obter tokens.  Consulte os exemplos nas [próximas etapas](#next-steps).
 
@@ -69,10 +72,10 @@ A remoção de uma identidade atribuída pelo sistema também a excluirá do Azu
 Para remover a identidade gerenciada atribuída pelo sistema de um aplicativo que não precisa mais dela:
 
 1. Entre no [portal do Azure](https://portal.azure.com/) usando uma conta associada à assinatura do Azure que contém a instância do Azure Spring Cloud.
-1. Navegue até a Máquina Virtual desejada e selecione **Identidade**.
-1. Em **status atribuído pelo sistema** / **Status**, selecione **desativado** e, em seguida, clique em **salvar**:
+1. Navegue até a Máquina Virtual desejada e selecione **Identidade** .
+1. Em **status atribuído pelo sistema** / **Status** , selecione **desativado** e, em seguida, clique em **salvar** :
 
- ![Identidade gerenciada no portal](./media/spring-cloud-managed-identity/remove-identity.png)
+ ![Identidade gerenciada](./media/spring-cloud-managed-identity/remove-identity.png)
 
 ### <a name="using-azure-cli"></a>Usando a CLI do Azure
 Para remover a identidade gerenciada atribuída pelo sistema de um aplicativo que não precisa mais dela, use o seguinte comando:
@@ -81,7 +84,7 @@ az spring-cloud app identity remove -n app_name -s service_name -g resource_grou
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Como usar identidades gerenciadas com o SDK do Java](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples)
+
 * [Acesse Azure Key Vault com identidades gerenciadas no iniciador do Spring boot](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/azure-spring-boot-starter-keyvault-secrets/README.md#use-msi--managed-identities)
 * [Saiba mais sobre identidades gerenciadas para recursos do Azure](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/active-directory/managed-identities-azure-resources/overview.md)
-
+* [Como usar identidades gerenciadas com o SDK do Java](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples)

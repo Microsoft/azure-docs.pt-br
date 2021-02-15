@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: jobreen
 ms.openlocfilehash: 1846b036f12fe7e691021ec0248782cad946d9b7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75650403"
 ---
 # <a name="azure-custom-providers-resource-onboarding-overview"></a>Visão geral da integração de recursos de provedores personalizados do Azure
@@ -54,7 +54,7 @@ Veja um exemplo de provedor personalizado do Azure:
 }
 ```
 
-Property | Obrigatório? | Descrição
+Propriedade | Necessário? | Descrição
 ---|---|---
 name | Sim | O nome da definição do ponto de extremidade. Para integração de recursos, o nome deve ser "associações".
 routingType | Sim | Determina o tipo de contrato com o ponto de extremidade. Para integração de recursos, os **routingTypes** válidos são "proxy, cache, extensão" e "webhook, cache, extensão".
@@ -76,7 +76,7 @@ Exemplo de associação de provedores personalizados do Azure:
 }
 ```
 
-Property | Obrigatório? | Descrição
+Propriedade | Necessário? | Descrição
 ---|---|---
 targetResourceId | Sim | A ID de recurso do Microsoft. CustomProviders/resourceProviders ou Microsoft. Solutions/Applications.
 

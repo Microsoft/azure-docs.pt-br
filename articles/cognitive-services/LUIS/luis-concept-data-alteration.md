@@ -1,15 +1,17 @@
 ---
 title: Alteração de dados-LUIS
 description: Saiba como os dados podem ser alterados antes das previsões no LUIS (Reconhecimento vocal)
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c675ac246f397b5949c870ad91ab936bbd92c7ef
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 621a41f743b751a8c24bf6f6ad8497fb5c79775c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88934660"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026003"
 ---
 # <a name="alter-utterance-data-before-or-during-prediction"></a>Alterar os dados de declaração antes ou durante a previsão
 O LUIS fornece maneiras de manipular a declaração antes ou durante a previsão. Isso inclui a [correção ortográfica](luis-tutorial-bing-spellcheck.md)e a correção de problemas de fuso horário para [datetimeV2](luis-reference-prebuilt-datetimev2.md)predefinidos.
@@ -96,7 +98,7 @@ Remover 60 minutos:
 
 #### <a name="v2-prediction-c-code-determines-correct-value-of-parameter"></a>O código do C# de previsão v2 determina o valor correto do parâmetro
 
-O código C# a seguir usa o método [FindSystemTimeZoneById](https://docs.microsoft.com/dotnet/api/system.timezoneinfo.findsystemtimezonebyid#examples) da classe [TimeZoneInfo](https://docs.microsoft.com/dotnet/api/system.timezoneinfo) para determinar o valor de deslocamento correto com base na hora do sistema:
+O código C# a seguir usa o método [FindSystemTimeZoneById](/dotnet/api/system.timezoneinfo.findsystemtimezonebyid#examples) da classe [TimeZoneInfo](/dotnet/api/system.timezoneinfo) para determinar o valor de deslocamento correto com base na hora do sistema:
 
 ```csharp
 // Get CST zone id

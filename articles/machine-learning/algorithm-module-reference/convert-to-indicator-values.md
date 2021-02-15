@@ -1,7 +1,7 @@
 ---
 title: Converter em valores de indicador
 titleSuffix: Azure Machine Learning
-description: Saiba como usar o módulo converter para valores de indicador em Azure Machine Learning para converter colunas que contêm valores categóricos em uma série de colunas de indicadores binários.
+description: Use o módulo converter para valores de indicador no designer de Azure Machine Learning para converter colunas categóricas em uma série de colunas de indicador binário.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/11/2020
-ms.openlocfilehash: f1b194f2c65f95ad4daff0353d05ca589db9ce51
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 81b3c113f46428327842c1555fdd1934e9ae8762
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79477656"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420845"
 ---
 # <a name="convert-to-indicator-values"></a>Converter em valores de indicador
 Este artigo descreve um módulo do designer de Azure Machine Learning.
@@ -51,7 +51,7 @@ Suponha que você tenha uma coluna com pontuações que indicam se um servidor t
 | 10302     | Médio        |
 | 10303     | Alta          |
 
-Quando você aplica **converter a valores de indicador**, o designer converte uma única coluna de rótulos em várias colunas contendo valores Boolianos:  
+Quando você aplica **converter a valores de indicador** , o designer converte uma única coluna de rótulos em várias colunas contendo valores Boolianos:  
 
 | ID de servidor | Pontuação de falha-baixa | Pontuação de falha-média | Pontuação de falha-alta |
 | --------- | ------------------- | ---------------------- | -------------------- |
@@ -71,8 +71,8 @@ Agora você pode usar as três colunas de indicador como recursos em um modelo d
 
 O módulo retorna duas saídas:
 
-- **Conjunto de resultados**: um conjunto de linhas com colunas de valores de indicador convertidos. As colunas não selecionadas para limpeza também são "passadas".
-- **Transformação de valores de indicador**: uma transformação de dados usada para converter para valores de indicador, que pode ser salva em seu espaço de trabalho e aplicada a novos dados posteriormente.
+- **Conjunto de resultados** : um conjunto de linhas com colunas de valores de indicador convertidos. As colunas não selecionadas para limpeza também são "passadas".
+- **Transformação de valores de indicador** : uma transformação de dados usada para converter para valores de indicador, que pode ser salva em seu espaço de trabalho e aplicada a novos dados posteriormente.
 
 ## <a name="apply-a-saved-indicator-values-operation-to-new-data"></a>Aplicar uma operação de valores de indicadores salvos a novos dados
 
@@ -98,13 +98,13 @@ Esta seção contém detalhes de implementação, dicas e respostas para pergunt
 
 -   Somente as colunas que são marcadas como categóricas podem ser convertidas em colunas de indicador. Se você vir o erro a seguir, é provável que uma das colunas selecionadas não seja categórica:  
 
-     Erro 0056: a coluna com \<column name> o nome não está em uma categoria permitida.  
+     Erro 0056: a coluna com  \<column name> o nome não está em uma categoria permitida.  
 
      Por padrão, a maioria das colunas de cadeia de caracteres são tratadas como recursos de cadeia de caracteres, portanto, você deve marcá-las explicitamente como categóricos usando [Editar metadados](edit-metadata.md).  
 
 -   Não há limite para o número de colunas que você pode converter em colunas de indicador. No entanto, como cada coluna de valores pode produzir várias colunas de indicador, talvez você queira converter e examinar apenas algumas colunas de cada vez.  
 
--   Se a coluna contiver valores ausentes, uma coluna de indicador separada será criada para a categoria ausente, com este nome: * \<source column> -ausente*  
+-   Se a coluna contiver valores ausentes, uma coluna de indicador separada será criada para a categoria ausente, com este nome: *\<source column> -ausente*  
 
 -   Se a coluna que você converter em valores de indicador contiver números, elas deverão ser marcadas como categóricas como qualquer outra coluna de recurso. Depois de fazer isso, os números são tratados como valores discretos. Por exemplo, se você tiver uma coluna numérica com valores MPG variando de 25 a 30, uma nova coluna de indicador será criada para cada valor discreto:  
 

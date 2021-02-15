@@ -1,14 +1,14 @@
 ---
-title: Visão geral da amostra de blueprint ISM PROTECTED do governo australiano
-description: Visão geral da amostra de blueprint ISM PROTECTED do governo australiano. Este exemplo de blueprint ajuda os clientes a avaliar controles específicos do ISM PROTECTED.
-ms.date: 08/03/2020
+title: Controles do exemplo de blueprint ISM PROTECTED do governo australiano
+description: Mapeamento de controle de exemplo do blueprint ISM PROTECTED do governo australiano. Cada controle é mapeado para uma ou mais definições do Azure Policy que auxiliam na avaliação.
+ms.date: 01/21/2021
 ms.topic: sample
-ms.openlocfilehash: 750cc5551f0bbf05e0da6ad41d46729231243f72
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: df143a871db3d871fe6354eab23b7ca6dc012b78
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87760423"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98679990"
 ---
 # <a name="control-mapping-of-the-australian-government-ism-protected-blueprint-sample"></a>Mapeamento de controle da amostra de blueprint ISM PROTECTED do governo australiano
 
@@ -17,8 +17,7 @@ O artigo a seguir fornece detalhes sobre como a amostra de blueprint ISM PROTECT
 Os mapeamentos a seguir são para os controles **ISM PROTECTED**. Use a navegação no lado direito para ir diretamente para um mapeamento de controle específico. Muitos dos controles mapeados são implementados com uma iniciativa do [Azure Policy](../../../policy/overview.md). Para examinar a iniciativa completa, abra **Política** no portal do Azure e selecione a página **Definições**. Em seguida, localize e selecione a iniciativa de política interna **\[Versão prévia\]: Auditar os controles PROTEGIDOS do ISM do governo australiano e implantar Extensões de VM específicas para dar suporte à iniciativa de política integrados dos requisitos de auditoria**.
 
 > [!IMPORTANT]
-> Cada controle abaixo está associado com uma ou mais definições do [Azure Policy](../../../policy/overview.md). Essas políticas podem ajudar você a [avaliar a conformidade](../../../policy/how-to/get-compliance-data.md) com o controle. No entanto, geralmente não há uma correspondência 1:1 ou completa entre um controle e uma ou mais políticas. Dessa forma, **Conformidade** no Azure Policy refere-se somente às próprias políticas. Não garante que você está totalmente em conformidade com todos os requisitos de um controle. Além disso, o padrão de conformidade inclui controles que não são abordados por nenhuma definição do Azure Policy no momento. Portanto, a conformidade no Azure Policy é somente uma exibição parcial do status de conformidade geral. As associações entre controles e definições do Azure Policy desta amostra de blueprint de conformidade podem ser alteradas ao longo do tempo.
-> Para exibir o histórico de alterações, confira o [Histórico de Confirmações do GitHub](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/ism-protected/control-mapping.md).
+> Cada controle abaixo está associado com uma ou mais definições do [Azure Policy](../../../policy/overview.md). Essas políticas podem ajudar você a [avaliar a conformidade](../../../policy/how-to/get-compliance-data.md) com o controle. No entanto, geralmente não há uma correspondência um para um ou completa entre um controle e uma ou mais políticas. Dessa forma, **Conformidade** no Azure Policy refere-se somente às próprias políticas. Não garante que você está totalmente em conformidade com todos os requisitos de um controle. Além disso, o padrão de conformidade inclui controles que não são abordados por nenhuma definição do Azure Policy no momento. Portanto, a conformidade no Azure Policy é somente uma exibição parcial do status de conformidade geral. As associações entre controles e definições do Azure Policy desta amostra de blueprint de conformidade podem ser alteradas ao longo do tempo. Para exibir o histórico de alterações, confira o [Histórico de Confirmações do GitHub](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/ism-protected/control-mapping.md).
 
 
 ## <a name="location-constraints"></a>Restrições de localização
@@ -350,6 +349,10 @@ Este blueprint ajuda a restringir a localização da implantação de todos os r
 ## <a name="next-steps"></a>Próximas etapas
 
 Outros artigos sobre blueprints e como usá-los:
+
+> [!div class="nextstepaction"]
+> [Blueprint ISM PROTECTED – Visão geral](./index.md)
+> [Blueprint ISM PROTECTED – Etapas de implantação](./deploy.md)
 
 - Saiba mais sobre o [ciclo de vida do blueprint](../../concepts/lifecycle.md).
 - Saiba como usar [parâmetros estáticos e dinâmicos](../../concepts/parameters.md).

@@ -1,23 +1,23 @@
 ---
-title: O que é Retransmissão do Azure? | Microsoft Docs
+title: O que é a Retransmissão do Azure? | Microsoft Docs
 description: Este artigo fornece uma visão geral do serviço de Retransmissão do Azure, que permite que você desenvolva aplicativos de nuvem que consomem serviços locais em execução na sua rede corporativa sem abrir uma conexão de firewall ou fazer mudanças intrusivas na sua rede infraestrutura.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 0c9a67bcad47ad2e7284bcf6e70914d2ffb06a8c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fbf1b2134a4c2dce7a3e6a62668d0852dc08c18a
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85322652"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955375"
 ---
-# <a name="what-is-azure-relay"></a>O que é Retransmissão do Azure?
+# <a name="what-is-azure-relay"></a>O que é a Retransmissão do Azure?
 O serviço de Retransmissão do Azure permite que você exponha com segurança os serviços que são executados na sua rede corporativa para a nuvem pública. Você pode expor os serviços sem abrir uma porta no seu firewall e realizar alterações invasivas a uma infraestrutura de rede corporativa. 
 
 O serviço de retransmissão é compatível com os seguintes cenários entre os serviços locais e aplicativos em execução na nuvem ou em outro ambiente local. 
 
 - Comunicação unidirecional tradicional, solicitação/resposta e ponto a ponto 
 - Distribuição de eventos no escopo da Internet para habilitar cenários de publicação/assinatura 
-- Comunicação de soquete bidirecional e não armazenada em buffer entre os limites de rede.
+- Comunicação de soquete bidirecional e sem buffer entre limites de rede
 
 A Retransmissão do Azure é diferente de tecnologias de integração no nível de rede, como VPN. O escopo de uma Retransmissão do Azure pode ser definido para um único ponto de extremidade do aplicativo em um único computador. A tecnologia VPN é muito mais intrusiva, pois depende da alteração do ambiente de rede. 
 
@@ -56,7 +56,7 @@ Tanto as Conexões Híbridas quanto a Retransmissão do WCF habilitam a conexão
 | **WCF** |x | |
 | **.NET Core** | |x |
 | **.NET Framework** |x |x |
-| **Script Java/Node.JS** | |x |
+| **JavaScript/Node.js** | |x |
 | **Protocolo aberto baseado em padrões** | |x |
 | **Modelos de programação RPC** | |x |
 

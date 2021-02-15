@@ -3,12 +3,12 @@ title: Conceitos do DevTest Labs | Microsoft Docs
 description: Aprenda os conceitos básicos do DevTest Labs e como ele pode facilitar a criação, o gerenciamento e o monitoramento de máquinas virtuais do Azure
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 43d62d637686a785cafd29aa311ccf20cb942721
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: b184f835ee99d47ddb843e5b02136299c26bfcdc
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283836"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92327851"
 ---
 # <a name="devtest-labs-concepts"></a>Conceitos dos Laboratórios de Desenvolvimento/Teste
 ## <a name="overview"></a>Visão geral
@@ -52,11 +52,11 @@ Com fórmulas, VMs com o mesmo conjunto de propriedades - como a imagem de base,
 ## <a name="policies"></a>Políticas
 Políticas ajudam no controle de custos em seu laboratório. Por exemplo, você pode criar uma política para desligar automaticamente máquinas virtuais com base em uma agenda definida.
 
-## <a name="caps"></a>Limites
+## <a name="caps"></a>Bonés
 Limites são um mecanismo usado para minimizar o desperdício em seu laboratório. Por exemplo, você pode definir um limite para restringir o número de VMs que podem ser criados por usuário ou em um laboratório.
 
 ## <a name="security-levels"></a>Níveis de segurança
-O acesso de segurança é determinado pelo Azure RBAC (controle de acesso baseado em função). Para entender como funciona o acesso, é importante entender as diferenças entre um escopo, uma permissão e uma função, conforme definido pelo RBAC.
+O acesso de segurança é determinado pelo Azure RBAC (controle de acesso baseado em função). Para entender como funciona o Access, ele ajuda a entender as diferenças entre uma permissão, uma função e um escopo, conforme definido pelo RBAC do Azure.
 
 * Permissão – uma permissão é um acesso definido para uma ação específica (por exemplo, acesso de leitura para todas as máquinas virtuais).
 * Função – uma função é um conjunto de permissões que podem ser agrupadas e atribuídas a um usuário. Por exemplo, a função *proprietário da assinatura* tem acesso a todos os recursos dentro de uma assinatura.

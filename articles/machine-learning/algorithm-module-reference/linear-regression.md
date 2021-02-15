@@ -9,15 +9,15 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
-ms.openlocfilehash: 9d83a9ffb9dc334ef959b7a8039b9a9c4a1fced7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 809b1be4f9f12e1963ff5caeaacd109c84db154f
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82137444"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323648"
 ---
 # <a name="linear-regression-module"></a>Módulo de regressão linear
-Este artigo descreve um módulo no designer do Azure Machine Learning (versão prévia).
+Este artigo descreve um módulo no designer de Azure Machine Learning.
 
 Use este módulo para criar um modelo de regressão linear para uso em um pipeline.  A regressão linear tenta estabelecer uma relação linear entre uma ou mais variáveis independentes e um resultado numérico, ou variável dependente. 
 
@@ -25,7 +25,7 @@ Você usa esse módulo para definir um método de regressão linear e, em seguid
 
 ## <a name="about-linear-regression"></a>Sobre a regressão linear
 
-A regressão linear é um método estatístico comum, que foi adotado no aprendizado de máquina e aprimorado com muitos métodos novos para ajustar o erro de linha e medição. No sentido mais básico, a regressão refere-se à previsão de um destino numérico. A regressão linear ainda é uma boa opção quando você deseja um modelo simples para uma tarefa de previsão básica. A regressão linear também tende a funcionar bem em conjuntos de dados esparsos e altamente dimensionais sem complexidade.
+A regressão linear é um método estatístico comum, que foi adotado no aprendizado de máquina e aprimorado com muitos métodos novos para ajustar o erro de linha e medição. Em síntese, regressão refere-se à previsão de um destino numérico. A regressão linear ainda é uma boa opção quando você deseja um modelo simples para uma tarefa de previsão básica. A regressão linear também tende a funcionar bem em conjuntos de dados esparsos e altamente dimensionais sem complexidade.
 
 O Azure Machine Learning dá suporte a uma variedade de modelos de regressão, além da regressão linear. No entanto, o termo "regressão" pode ser interpretado livremente e alguns tipos de regressão fornecidos em outras ferramentas não têm suporte.
 
@@ -41,7 +41,7 @@ O Azure Machine Learning dá suporte a uma variedade de modelos de regressão, a
 
 Há anos, estatísticos desenvolver métodos cada vez mais avançados para regressão. Isso é verdadeiro mesmo para regressão linear. Esse módulo dá suporte a dois métodos para medir o erro e se ajustar à linha de regressão: método de quadrados mínimos comum e descendente de gradiente.
 
-- **Gradiente descendente** é um método que minimiza a quantidade de erros em cada etapa do processo de treinamento do modelo. Há muitas variações do espaço descendente do gradiente e a otimização para vários problemas de aprendizado tem sido muito estudada. Se você escolher essa opção para o **método de solução**, poderá definir uma variedade de parâmetros para controlar o tamanho da etapa, a taxa de aprendizagem e assim por diante. Essa opção também dá suporte ao uso de uma varredura de parâmetro integrada.
+- **Gradiente descendente** é um método que minimiza a quantidade de erros em cada etapa do processo de treinamento do modelo. Há muitas variações do espaço descendente do gradiente e a otimização para vários problemas de aprendizado tem sido muito estudada. Se você escolher essa opção para o **método de solução** , poderá definir uma variedade de parâmetros para controlar o tamanho da etapa, a taxa de aprendizagem e assim por diante. Essa opção também dá suporte ao uso de uma varredura de parâmetro integrada.
 
 - Os **quadrados mínimos comuns** são uma das técnicas mais usadas na regressão linear. Por exemplo, os quadrados mínimos são o método usado nas ferramentas de análise para o Microsoft Excel.
 
@@ -63,19 +63,19 @@ Esse módulo dá suporte a dois métodos para ajustar um modelo de regressão, c
 
 1. Adicione o módulo **modelo de regressão linear** ao seu pipeline no designer.
 
-    Você pode encontrar esse módulo na categoria **Machine Learning** . Expanda **inicializar modelo**, expanda **regressão**e arraste o módulo **modelo de regressão linear** para seu pipeline.
+    Você pode encontrar esse módulo na categoria **Machine Learning** . Expanda **inicializar modelo** , expanda **regressão** e arraste o módulo **modelo de regressão linear** para seu pipeline.
 
 2. No painel **Propriedades** , na lista suspensa **método de solução** , selecione **quadrados mínimos comuns**. Esta opção especifica o método de computação usado para localizar a linha de regressão.
 
-3. Em **peso de regularização L2**, digite o valor a ser usado como o peso para regularização L2. Recomendamos que você use um valor diferente de zero para evitar o superajuste.
+3. Em **peso de regularização L2** , digite o valor a ser usado como o peso para regularização L2. Recomendamos que você use um valor diferente de zero para evitar o superajuste.
 
-     Para saber mais sobre como a regularização afeta o ajuste de modelo, consulte este artigo: [regularização de L1 e L2 para Machine Learning](https://msdn.microsoft.com/magazine/dn904675.aspx)
+     Para saber mais sobre como a regularização afeta o ajuste de modelo, consulte este artigo: [regularização de L1 e L2 para Machine Learning](/archive/msdn-magazine/2015/february/test-run-l1-and-l2-regularization-for-machine-learning)
 
-4. Selecione a opção **incluir termo de intercepção**, se você quiser exibir o termo para a interceptação.
+4. Selecione a opção **incluir termo de intercepção** , se você quiser exibir o termo para a interceptação.
 
     Desmarque esta opção se você não precisar revisar a fórmula de regressão.
 
-5. Para a **semente de número aleatório**, você pode, opcionalmente, digitar um valor para propagar o gerador de número aleatório usado pelo modelo.
+5. Para a **semente de número aleatório** , você pode, opcionalmente, digitar um valor para propagar o gerador de número aleatório usado pelo modelo.
 
     Usar um valor de semente será útil se você quiser manter os mesmos resultados entre diferentes execuções do mesmo pipeline. Caso contrário, o padrão é usar um valor do relógio do sistema.
 
@@ -96,42 +96,42 @@ Após a conclusão do treinamento:
 
 1. Adicione o módulo **modelo de regressão linear** ao seu pipeline no designer.
 
-    Você pode encontrar esse módulo na categoria **Machine Learning** . Expanda o **modelo de inicialização**, expanda **regressão**e arraste o módulo **modelo de regressão linear** para seu pipeline
+    Você pode encontrar esse módulo na categoria **Machine Learning** . Expanda o **modelo de inicialização** , expanda **regressão** e arraste o módulo **modelo de regressão linear** para seu pipeline
 
 2. No painel **Propriedades** , na lista suspensa **método de solução** , escolha **descendente de gradiente online** como o método de computação usado para localizar a linha de regressão.
 
-3. Para **criar modo de instrutor**, indique se você deseja treinar o modelo com um conjunto predefinido de parâmetros ou se deseja otimizar o modelo usando uma varredura de parâmetro.
+3. Para **criar modo de instrutor** , indique se você deseja treinar o modelo com um conjunto predefinido de parâmetros ou se deseja otimizar o modelo usando uma varredura de parâmetro.
 
-    + **Parâmetro único**: se você souber como deseja configurar a rede de regressão linear, poderá fornecer um conjunto específico de valores como argumentos.
+    + **Parâmetro único** : se você souber como deseja configurar a rede de regressão linear, poderá fornecer um conjunto específico de valores como argumentos.
     
-    + **Intervalo de parâmetros**: Selecione esta opção se você não tiver certeza dos melhores parâmetros e quiser executar uma limpeza de parâmetro. Selecione um intervalo de valores para iteração e os [hiperparâmetros de modelo de ajuste](tune-model-hyperparameters.md) iteram sobre todas as combinações possíveis das configurações que você forneceu para determinar os hiperparâmetros que produzem os resultados ideais.  
+    + **Intervalo de parâmetros** : Selecione esta opção se você não tiver certeza dos melhores parâmetros e quiser executar uma limpeza de parâmetro. Selecione um intervalo de valores para iteração e os [hiperparâmetros de modelo de ajuste](tune-model-hyperparameters.md) iteram sobre todas as combinações possíveis das configurações que você forneceu para determinar os hiperparâmetros que produzem os resultados ideais.  
 
    
-4. Para **taxa de aprendizagem**, especifique a taxa de aprendizado inicial para o otimizador de descendente de gradiente estocástico.
+4. Para **taxa de aprendizagem** , especifique a taxa de aprendizado inicial para o otimizador de descendente de gradiente estocástico.
 
-5. Para **número de épocas de treinamento**, digite um valor que indique quantas vezes o algoritmo deve iterar por meio de exemplos. Para conjuntos de dados com um pequeno número de exemplos, esse número deverá ser grande para alcançar convergência.
+5. Para **número de épocas de treinamento** , digite um valor que indique quantas vezes o algoritmo deve iterar por meio de exemplos. Para conjuntos de dados com um pequeno número de exemplos, esse número deverá ser grande para alcançar convergência.
 
-6. **Normalizar recursos**: se você já tiver normalizado os dados numéricos usados para treinar o modelo, você poderá desmarcar essa opção. Por padrão, o módulo normaliza todas as entradas numéricas para um intervalo entre 0 e 1.
+6. **Normalizar recursos** : se você já tiver normalizado os dados numéricos usados para treinar o modelo, você poderá desmarcar essa opção. Por padrão, o módulo normaliza todas as entradas numéricas para um intervalo entre 0 e 1.
 
     > [!NOTE]
     > 
     > Lembre-se de aplicar o mesmo método de normalização aos novos dados usados para pontuação.
 
-7. Em **peso de regularização L2**, digite o valor a ser usado como o peso para regularização L2. Recomendamos que você use um valor diferente de zero para evitar o superajuste.
+7. Em **peso de regularização L2** , digite o valor a ser usado como o peso para regularização L2. Recomendamos que você use um valor diferente de zero para evitar o superajuste.
 
-    Para saber mais sobre como a regularização afeta o ajuste de modelo, consulte este artigo: [regularização de L1 e L2 para Machine Learning](https://msdn.microsoft.com/magazine/dn904675.aspx)
+    Para saber mais sobre como a regularização afeta o ajuste de modelo, consulte este artigo: [regularização de L1 e L2 para Machine Learning](/archive/msdn-magazine/2015/february/test-run-l1-and-l2-regularization-for-machine-learning)
 
 
-9. Selecione a opção **diminuir taxa de aprendizado**se quiser que a taxa de aprendizagem diminua conforme as iterações progredirem.  
+9. Selecione a opção **diminuir taxa de aprendizado** se quiser que a taxa de aprendizagem diminua conforme as iterações progredirem.  
 
-10. Para a **semente de número aleatório**, você pode, opcionalmente, digitar um valor para propagar o gerador de número aleatório usado pelo modelo. Usar um valor de semente será útil se você quiser manter os mesmos resultados entre diferentes execuções do mesmo pipeline.
+10. Para a **semente de número aleatório** , você pode, opcionalmente, digitar um valor para propagar o gerador de número aleatório usado pelo modelo. Usar um valor de semente será útil se você quiser manter os mesmos resultados entre diferentes execuções do mesmo pipeline.
 
 
 12. Treine o modelo:
 
-    + Se você definir **criar modo de instrutor** como um **único parâmetro**, conecte um conjunto de um DataSet marcado e o módulo [treinar modelo](train-model.md) .  
+    + Se você definir **criar modo de instrutor** como um **único parâmetro** , conecte um conjunto de um DataSet marcado e o módulo [treinar modelo](train-model.md) .  
   
-    + Se você definir **criar modo de instrutor** como **intervalo de parâmetros**, conecte um conjunto de um DataSet marcado e treine o modelo usando [ajustar hiperparâmetros de modelo](tune-model-hyperparameters.md).  
+    + Se você definir **criar modo de instrutor** como **intervalo de parâmetros** , conecte um conjunto de um DataSet marcado e treine o modelo usando [ajustar hiperparâmetros de modelo](tune-model-hyperparameters.md).  
   
     > [!NOTE]
     > 
@@ -152,4 +152,4 @@ Após a conclusão do treinamento:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Confira o [conjunto de módulos disponíveis](module-reference.md) no Azure Machine Learning. 
+Confira o [conjunto de módulos disponíveis](module-reference.md) no Azure Machine Learning.

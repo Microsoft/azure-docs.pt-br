@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: trbye
-ms.openlocfilehash: dcc7721aec067c4de309e3fdd926245a9d240f0d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c27493748381a3aced92aab41745f352f228c50e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81402507"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024986"
 ---
 # <a name="what-is-conversation-transcription-in-meetings-preview"></a>O que é a transcrição de conversa em reuniões (versão prévia)?
 
@@ -34,9 +34,11 @@ A transcrição de conversa é uma solução de [fala para texto](speech-to-text
 > [!NOTE]
 > Embora a transcrição de conversa não coloque um limite no número de palestrantes na sala, ela é otimizada para 2-10 alto-falantes por sessão.
 
-## <a name="use-cases"></a>Casos de uso
+## <a name="get-started"></a>Introdução
 
-### <a name="inclusive-meetings"></a>Reuniões inclusivas
+Consulte o guia de [início rápido](how-to-use-conversation-transcription.md) de transcrição de conversa em tempo real para começar.
+
+## <a name="use-cases"></a>Casos de uso
 
 Para tornar as reuniões inclusivas para todos, como participantes que são surdos e difíceis de ouvir, é importante ter a transcrição em tempo real. A transcrição de conversa no modo em tempo real leva o áudio de reunião e determina quem está dizendo o que, permitindo que todos os participantes da reunião sigam a transcrição e participem da reunião sem atraso.
 
@@ -44,7 +46,7 @@ Para tornar as reuniões inclusivas para todos, como participantes que são surd
 
 Os participantes da reunião podem se concentrar na reunião e deixar de fazer anotações para a transcrição da conversa. Os participantes podem envolver ativamente a reunião e acompanhar rapidamente as próximas etapas, usando a transcrição em vez de fazer anotações e possivelmente perder alguma coisa durante a reunião.
 
-## <a name="how-it-works"></a>Como isso funciona
+## <a name="how-it-works"></a>Como ele funciona
 
 Esta é uma visão geral de alto nível de como funciona a transcrição de conversa.
 
@@ -52,8 +54,12 @@ Esta é uma visão geral de alto nível de como funciona a transcrição de conv
 
 ## <a name="expected-inputs"></a>Entradas esperadas
 
-- **Fluxo de áudio de vários canais** – para obter detalhes de especificação e design, consulte [microfone do SDK do dispositivo de fala da Microsoft](https://aka.ms/cts/microphone). Para saber mais ou comprar um kit de desenvolvimento, confira [obter o SDK do dispositivo de fala da Microsoft](https://aka.ms/cts/getsdk).
+- **Fluxo de áudio de vários canais** – para obter detalhes de especificação e design, consulte [microfone do SDK do dispositivo de fala da Microsoft](./speech-devices-sdk-microphone.md). Para saber mais ou comprar um kit de desenvolvimento, confira [obter o SDK do dispositivo de fala da Microsoft](./get-speech-devices-sdk.md).
 - **Exemplos de voz de usuário** – a transcrição de conversa precisa de perfis de usuário antes da conversa. Você precisará coletar gravações de áudio de cada usuário e, em seguida, enviar as gravações para o [serviço de geração de assinatura](https://aka.ms/cts/signaturegenservice) para validar o áudio e gerar perfis de usuário.
+
+> [!NOTE]
+> Os exemplos de voz do usuário são opcionais. Sem essa entrada, a transcrição mostrará alto-falantes diferentes, mas mostrados como "Speaker1", "Speaker2" etc. em vez de reconhecê-los como nomes de palestrantes específicos previamente registrados.
+
 
 ## <a name="real-time-vs-asynchronous"></a>Em tempo real versus assíncrono
 
@@ -63,7 +69,7 @@ A transcrição de conversa oferece três modos de transcrição:
 
 Os dados de áudio são processados ao vivo para retornar o identificador do orador + transcrição. Selecione esse modo se seu requisito de solução de transcrição for fornecer aos participantes da conversa uma exibição dinâmica de sua conversa em andamento. Por exemplo, criar um aplicativo para tornar as reuniões mais acessíveis os participantes surdos e difíceis de ouvir são um caso de uso ideal para a transcrição em tempo real.
 
-### <a name="asynchronous"></a>Assíncrona
+### <a name="asynchronous"></a>Assíncronos
 
 Os dados de áudio são processados em lote para retornar o identificador do orador e a transcrição. Selecione este modo se seu requisito de solução de transcrição for fornecer maior precisão sem a exibição dinâmica de transcrição. Por exemplo, se você quiser criar um aplicativo para permitir que os participantes da reunião se acompanhem facilmente em reuniões perdidas, use o modo de transcrição assíncrona para obter resultados de transcrição de alta precisão.
 
@@ -73,9 +79,9 @@ Os dados de áudio são processados ao vivo para retornar o identificador do ora
 
 ## <a name="language-support"></a>Suporte ao idioma
 
-Atualmente, a transcrição de conversa dá suporte a "en-US" e a "zh-CN" nas seguintes regiões: *centralus* e *eastasia*. Se precisar de suporte de localidade adicional, contate a [equipe de recursos de transcrição de conversa](mailto:CTSFeatureCrew@microsoft.com).
+Atualmente, a transcrição de conversa dá suporte a [todas as linguagens de fala para texto](language-support.md#speech-to-text) nas seguintes regiões:  `centralus` ,, `eastasia` `eastus` , `westeurope` . Se precisar de suporte de localidade adicional, contate a [equipe de recursos de transcrição de conversa](mailto:CTSFeatureCrew@microsoft.com).
 
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Transcrever conversas em tempo real](how-to-use-conversation-transcription-service.md)
+> [Transcrever conversas em tempo real](how-to-use-conversation-transcription.md)

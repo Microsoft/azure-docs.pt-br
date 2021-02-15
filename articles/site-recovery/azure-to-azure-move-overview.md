@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 0c7efc94bcde18e7b6ff43726602fa87641f3e76
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 61d596c4b3a65c54e1a70682adad5b7328c384f8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86130626"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "90007359"
 ---
 # <a name="moving-azure-vms-to-another-azure-region"></a>Mover máquinas virtuais do Azure para outra região do Azure
 
@@ -26,9 +26,21 @@ Você pode mover VMs pelos seguintes motivos:
 - Você já fez a implantação em uma região e foi adicionado suporte a uma nova região mais próxima aos usuários finais do aplicativo ou serviço. Nesse cenário, você pode querer mover suas VMs como está para a nova região para reduzir a latência. Use a mesma abordagem se você desejar consolidar assinaturas ou se houver regras de governança ou da organização que exijam a movimentação.
 - Sua VM foi implantada como uma VM de instância única ou como parte de um conjunto de disponibilidade. Se quiser aumentar a disponibilidade dos SLAs, você poderá mover suas VMs para uma Zona de Disponibilidade.
 
-## <a name="steps-to-move-azure-vms"></a>Etapas para mover as VMs do Azure
+## <a name="move-vms-with-resource-mover"></a>Mover VMs com o Resource Mover
 
-A movimentação das VMs envolve as seguintes etapas:
+Agora, você pode mover VMs para outra região com o [Azure Resource Mover](../resource-mover/tutorial-move-region-virtual-machines.md). O Resource Mover está em versão prévia pública e fornece:
+- Um único hub para mover recursos entre regiões.
+- Tempo e complexidade de movimentação reduzidos. Tudo o que você precisa está em um único local.
+- Uma experiência simples e consistente para mover os diferentes tipos de recursos do Azure.
+- Uma maneira fácil de identificar dependências entre os recursos que você deseja mover. Isso ajuda a mover os recursos relacionados em conjunto, para que tudo funcione conforme o esperado na região de destino após a movimentação.
+- Se você quiser excluí-los após a movimentação, realize a limpeza automática de recursos na região de origem.
+- Testes. Você pode experimentar uma movimentação e depois descartá-la caso não queira fazer uma movimentação completa.
+
+
+
+## <a name="move-vms-with-site-recovery"></a>Mover as VMs com o Site Recovery
+
+Mover VMs com o Site Recovery envolve as seguintes etapas:
 
 1. Verifique se os pré-requisitos.
 2. Prepare as VMs de origem.
@@ -49,7 +61,7 @@ Esta seção descreve as arquiteturas de implantação mais comuns para um aplic
 
 * **VMs de instância única implantadas em várias camadas**: Cada VM em uma camada é configurada como uma VM de instância única e é conectada por balanceadores de carga às outras camadas. Essa configuração é mais simples de adotar.
 
-     ![Implantação de VM de instância única em camadas](media/move-vm-overview/regular-deployment.png)
+     ![Seleção para mover a implantação de VM de instância única em camadas](media/move-vm-overview/regular-deployment.png)
 
 * **VMs em cada camada implantadas em conjuntos de disponibilidade**: Cada VM em uma camada é configurada em um conjunto de disponibilidade. Os [conjuntos de disponibilidade](../virtual-machines/windows/tutorial-availability-sets.md) garantem que as VMs implantadas no Azure sejam distribuídas entre vários nós de hardware isolados em um cluster. Isso garante que, se ocorrer uma falha de hardware ou de software no Azure, apenas um subconjunto de suas VMs será afetado e a solução geral permanecerá disponível e operacional.
 
@@ -64,16 +76,8 @@ Esta seção descreve as arquiteturas de implantação mais comuns para um aplic
 Com base nas [arquiteturas](#typical-architectures-for-a-multi-tier-deployment) mencionadas acima, veja a seguir como será a aparência das implantações depois que você realizar a movimentação das VMs no estado em que se encontram para a região de destino.
 
 * **VMs de instância única implantadas em várias camadas**
-
-     ![Implantação de VM de instância única em camadas](media/move-vm-overview/single-zone.png)
-
 * **VMs em cada camada implantadas em conjuntos de disponibilidade**
-
-     ![Conjuntos de disponibilidade entre regiões](media/move-vm-overview/crossregionaset.png)
-
 * **VMs em cada camada implantadas em Zonas de Disponibilidade**
-
-     ![Implantação de VMs em Zonas de Disponibilidade](media/move-vm-overview/azonecross.png)
 
 ## <a name="move-vms-to-increase-availability"></a>Mover as VMs para aumentar a disponibilidade
 

@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: f75723aedae390a0d41956d63acadf6370f390d9
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 78fddb5b4512883f8e78d6ed53f6e3dbbeba0e4f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88606510"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "90524990"
 ---
 # <a name="prepare-source-machine-for-push-installation-of-mobility-agent"></a>Preparar o computador de origem para a instalação por push do agente de mobilidade
 
@@ -25,8 +25,12 @@ Em cada máquina Windows que você deseja proteger, faça o seguinte:
 1. Crie uma conta que o servidor de processo possa usar para acessar o computador. A conta deve ter direitos de administrador, seja local ou do domínio. Use essa conta somente para a instalação por push e atualizações de agentes.
 2. Se você não usar uma conta de domínio, desative o controle de acesso de usuário remoto no computador local da seguinte maneira:
     - Na chave do Registro HKEY_LOCAL_MACHINE \ SOFTWARE \ Microsoft \ Windows \ CurrentVersion \ Policies \ System, adicione um novo DWORD: **LocalAccountTokenFilterPolicy**. Defina o valor como **1**.
-    -  Para fazer isso no prompt de comando, execute o seguinte comando:  
-   `REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d
+    -  Para fazer isso no prompt de comando, execute o seguinte comando:
+    
+       ```
+       REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1 /f
+       ```
+
 3. No Firewall do Windows na máquina que você deseja proteger, selecione **Permitir um aplicativo ou recurso pelo Firewall**. Habilite **Compartilhamento de Arquivo e Impressora** e **Instrumentação de Gerenciamento do Windows (WMI)**. Em computadores pertencentes a um domínio, pode-se configurar o firewall com um objeto de Política de Grupo (GPO).
 
    ![Configurações de firewall](./media/vmware-azure-install-mobility-service/mobility1.png)
@@ -59,7 +63,7 @@ Em cada máquina Linux que você deseja proteger, faça o seguinte:
 11. Na guia **Gerenciar Contas**, selecione **Adicionar Conta**.
 12. Adicione a conta que você criou.
 13. Insira as credenciais usadas quando você habilitar a replicação de um computador.
-1. Etapa adicional para atualizar ou proteger computadores SUSE Linux Enterprise Server 11 SP3. [Verifique se a versão mais recente está disponível no servidor de configuração](vmware-physical-mobility-service-overview.md#download-latest-mobility-agent-installer-for-suse-11-sp3-server).
+1. Etapa adicional para atualização ou proteção de computadores SUSE Linux Enterprise Server 11 SP3 ou RHEL 5 ou CentOS 5 ou Debian 7. [Verifique se a versão mais recente está disponível no servidor de configuração](vmware-physical-mobility-service-overview.md#download-latest-mobility-agent-installer-for-suse-11-sp3-rhel-5-debian-7-server).
 
 ## <a name="anti-virus-on-replicated-machines"></a>Antivírus em computadores replicados
 

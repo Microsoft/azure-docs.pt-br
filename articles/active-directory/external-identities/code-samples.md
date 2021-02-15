@@ -13,10 +13,10 @@ ms.reviewer: elisolMS
 ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fcf6e7a4fb5e76dddba6162bbabfdc5abc806a20
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87906787"
 ---
 # <a name="azure-active-directory-b2b-collaboration-code-and-powershell-samples"></a>Exemplos de código e do PowerShell para colaboração B2B do Azure Active Directory

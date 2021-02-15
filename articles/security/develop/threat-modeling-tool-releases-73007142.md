@@ -1,17 +1,17 @@
 ---
 title: Versão Microsoft Threat Modeling Tool 07/14/2020 – Azure
-description: Documentando as notas sobre a versão da Threat Modeling Tool
+description: Documentando as notas de versão da versão 7.3.00714.2 da ferramenta de modelagem de ameaças.
 author: jegeib
 ms.author: jegeib
 ms.service: security
 ms.topic: article
 ms.date: 07/14/2020
-ms.openlocfilehash: 741d8c96059d379ae453f7ac1da1d5a02127a680
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 60ab9290dd204b9e65fcc612d1b590785450ebed
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87839847"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94516859"
 ---
 # <a name="threat-modeling-tool-update-release-73007142---07142020"></a>Versão de atualização do Threat Modeling Tool 7.3.00714.2-07/14/2020
 
@@ -19,7 +19,7 @@ A versão 7.3.00714.2 do Microsoft Threat Modeling Tool (TMT) foi lançada em ju
 
 - Aprimoramentos de acessibilidade
 
-## <a name="system-requirements"></a>Requisitos do sistema
+## <a name="system-requirements"></a>Requisitos de sistema
 
 - Sistemas operacionais com suporte
   - [Atualização de aniversário do Microsoft Windows 10](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update/#HTkoK5Zdv0g2F2Zq.97) ou posterior
@@ -30,7 +30,7 @@ A versão 7.3.00714.2 do Microsoft Threat Modeling Tool (TMT) foi lançada em ju
 
 ## <a name="documentation-and-feedback"></a>Documentação e comentários
 
-- A documentação da Threat Modeling Tool está localizada em [docs.microsoft.com](https://docs.microsoft.com/azure/security/azure-security-threat-modeling-tool) e inclui informações [sobre como usar a ferramenta](https://docs.microsoft.com/azure/security/azure-security-threat-modeling-tool-getting-started).
+- A documentação da Threat Modeling Tool está localizada em [docs.microsoft.com](./threat-modeling-tool.md) e inclui informações [sobre como usar a ferramenta](./threat-modeling-tool-getting-started.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -1,31 +1,24 @@
 ---
 title: Perguntas frequentes-Azure Monitor para soluções SAP | Microsoft Docs
-description: Este artigo fornece respostas para as perguntas frequentes sobre o Azure monitor para soluções SAP
-services: virtual-machines-windows,virtual-network,storage
-documentationcenter: saponazure
+description: Neste artigo, aprenda respostas para perguntas frequentes sobre Azure Monitor para soluções SAP.
 author: rdeltcheva
-manager: juergent
-editor: ''
-tags: azure-resource-manager
-keywords: ''
-ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.subservice: workloads
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure-services
 ms.date: 06/30/2020
 ms.author: radeltch
-ms.openlocfilehash: cf0366300c4fab18a0f6231a97ca050eddd50132
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.reviewer: cynthn
+ms.openlocfilehash: 204b809966fbf63a48f6d1ce1d80f87f706c9a56
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85852229"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968563"
 ---
-# <a name="azure-monitor-for-sap-solutions-faq-preview"></a>Perguntas frequentes sobre o Azure monitor para soluções SAP (versão prévia)
+# <a name="azure-monitor-for-sap-solutions-faq-preview"></a>Perguntas frequentes sobre o Azure Monitor para soluções SAP (versão prévia)
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
-Este artigo fornece respostas para perguntas frequentes sobre o Azure monitor para soluções SAP.  
+Este artigo fornece respostas para perguntas frequentes sobre Azure Monitor para soluções SAP.  
 
  - **Tenho que pagar por Azure Monitor para soluções SAP?**  
 Não há nenhuma taxa de licenciamento para Azure Monitor para soluções SAP.  

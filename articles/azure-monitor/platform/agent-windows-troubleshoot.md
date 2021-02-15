@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/21/2019
-ms.openlocfilehash: 3d99293ea83c883f8d0870d78dfbec58f74c9bd1
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 4e2531d511193586ef4605cc3732968b6db28d9f
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87927310"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98050554"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-windows"></a>Como solucionar problemas com o agente do Log Analytics para Windows 
 
@@ -21,6 +21,40 @@ Se nenhuma dessas etapas funcionar para você, os seguintes canais de suporte ta
 * Os clientes com benefícios de suporte Premier podem abrir uma solicitação de suporte com [Premier](https://premier.microsoft.com/).
 * Os clientes com contratos de suporte do Azure podem abrir uma solicitação de suporte [no portal do Azure](https://manage.windowsazure.com/?getsupport=true).
 * Visite a página de comentários Log Analytics para revisar ideias e bugs enviados [https://aka.ms/opinsightsfeedback](https://aka.ms/opinsightsfeedback) ou um novo arquivo. 
+
+## <a name="log-analytics-troubleshooting-tool"></a>Ferramenta de solução de problemas Log Analytics
+
+O agente do Log Analytics ferramenta de solução de problemas do Windows é uma coleção de scripts do PowerShell projetadas para ajudar a localizar e diagnosticar problemas com o agente de Log Analytics. Ele é incluído automaticamente com o agente na instalação. A execução da ferramenta deve ser a primeira etapa no diagnóstico de um problema.
+
+### <a name="how-to-use"></a>Como usar
+1. Abra o prompt do PowerShell como administrador no computador em que o agente do Log Analytics está instalado.
+1. Navegue até o diretório onde a ferramenta está localizada.
+   * `cd "C:\Program Files\Microsoft Monitoring Agent\Agent\Troubleshooter"`
+1. Execute o script principal usando este comando:
+   * `.\GetAgentInfo.ps1`
+1. Selecione um cenário de solução de problemas.
+1. Siga as instruções no console do. (Observação: as etapas de logs de rastreamento exigem intervenção manual para parar a coleta de log. Com base na reprodução do problema, aguarde o tempo de duração e pressione ' s ' para parar a coleta de logs e prosseguir para a próxima etapa).
+
+   Os locais do arquivo de resultados são registrados após a conclusão e uma nova janela do Explorer realçando-o é aberto.
+
+### <a name="installation"></a>Instalação
+A ferramenta de solução de problemas é incluída automaticamente na instalação do agente de Log Analytics Build 10.20.18053.0 e em diante.
+
+### <a name="scenarios-covered"></a>Cenários cobertos
+Abaixo está uma lista de cenários verificados pela ferramenta de solução de problemas:
+
+- Agente não relatando dados ou dados de pulsação ausentes
+- Falha na implantação da extensão do agente
+- Falha do agente
+- Agente consumindo alta CPU/memória
+- Falhas de instalação/desinstalação
+- Problema de logs personalizados
+- Problema do gateway do OMS
+- Problema de contadores de desempenho
+- Coletar todos os logs
+
+>[!NOTE]
+>Execute a ferramenta de solução de problemas quando enfrentar um problema. Ao abrir um tíquete, ter os logs inicialmente ajudará muito a nossa equipe de suporte a solucionar o problema mais rapidamente.
 
 ## <a name="important-troubleshooting-sources"></a>Fontes de solução de problemas importantes
 
@@ -59,7 +93,7 @@ Há várias maneiras de verificar se o agente está se comunicando com êxito co
 
     ![Resultados da execução da ferramenta TestCloudConnection](./media/agent-windows-troubleshoot/output-testcloudconnection-tool-01.png)
 
-- Filtre o log de eventos *Operations Manager* por **fontes de evento**  -  *serviço de integridade módulos*, *HealthService*e *conector de serviço* e filtre por *aviso* de **nível de evento** e *erro* para confirmar se há eventos gravados da tabela a seguir. Se estiverem, examine as etapas de resolução incluídas para cada evento possível.
+- Filtre o log de eventos *Operations Manager* por **fontes de evento**  -  *serviço de integridade módulos*, *HealthService* e *conector de serviço* e filtre por *aviso* de **nível de evento** e *erro* para confirmar se há eventos gravados da tabela a seguir. Se estiverem, examine as etapas de resolução incluídas para cada evento possível.
 
     |ID do evento |Fonte |Descrição |Resolução |
     |---------|-------|------------|-----------|

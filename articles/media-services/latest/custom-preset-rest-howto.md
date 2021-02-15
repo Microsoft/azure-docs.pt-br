@@ -1,25 +1,27 @@
 ---
-title: Codificar transformação personalizada usando o REST dos serviços de mídia v3-Azure | Microsoft Docs
+title: Codificar um REST de transformação personalizada
 description: Este tópico mostra como usar os serviços de mídia do Azure V3 para codificar uma transformação personalizada usando REST.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
-ms.topic: article
+ms.topic: how-to
 ms.custom: ''
-ms.date: 05/14/2019
-ms.author: juliako
-ms.openlocfilehash: 4bd092dbee09a783dcbd6e36c82a70ff5decaf83
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: 2c0416e2787bc69465e18a71f6b9912f7571c24d
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87053318"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98956082"
 ---
 # <a name="how-to-encode-with-a-custom-transform---rest"></a>Como codificar com uma transformação personalizada-REST
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Ao codificar com os serviços de mídia do Azure, você pode começar rapidamente com uma das predefinições internas recomendadas, com base nas práticas recomendadas do setor, conforme demonstrado no tutorial de [arquivos de streaming](stream-files-tutorial-with-rest.md#create-a-transform) . Você também pode criar uma predefinição personalizada para direcionar seus requisitos específicos de cenário ou dispositivo.
 

@@ -10,20 +10,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/22/2017
+ms.date: 01/04/2021
 ms.author: damendo
-ms.openlocfilehash: b73727e6bd824b80fbc3897055d71f6b9c632a61
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: bc085163b4f738d022ab9771794ec85293de5ed8
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084357"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100521672"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introdução ao log de fluxo dos grupos de segurança da rede
 
 ## <a name="introduction"></a>Introdução
 
-Os logs de fluxo do NSG ( [grupo de segurança de rede](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) ) são um recurso do observador de rede do Azure que permite registrar informações sobre o tráfego IP que flui através de um NSG. Os dados de fluxo são enviados para contas de armazenamento do Azure de onde você pode acessá-los, bem como exportá-los para qualquer ferramenta de visualização, SIEM ou IDS de sua escolha.
+Os logs de fluxo do NSG ( [grupo de segurança de rede](../virtual-network/network-security-groups-overview.md#security-rules) ) são um recurso do observador de rede do Azure que permite registrar informações sobre o tráfego IP que flui através de um NSG. Os dados de fluxo são enviados para contas de armazenamento do Azure de onde você pode acessá-los, bem como exportá-los para qualquer ferramenta de visualização, SIEM ou IDS de sua escolha.
 
 ![visão geral dos logs de fluxo](./media/network-watcher-nsg-flow-logging-overview/homepage.jpg)
 
@@ -48,21 +48,21 @@ Os logs de fluxo são a fonte de verdade para todas as atividades de rede em seu
 **Propriedades da chave**
 
 - Os logs de fluxo operam na [camada 4](https://en.wikipedia.org/wiki/OSI_model#Layer_4:_Transport_Layer) e registram todos os fluxos de IP que entram e saem de um NSG
-- Os logs são coletados por meio da plataforma do Azure e não afetam os recursos do cliente ou o desempenho da rede de alguma forma.
+- Os logs são coletados em um **intervalo de 1 minuto** por meio da plataforma Azure e não afetam os recursos do cliente ou o desempenho da rede de alguma forma.
 - Os logs são gravados no formato JSON e mostram os fluxos de entrada e saída em uma base regra por NSG.
 - Cada registro de log contém a NIC (interface de rede) que o fluxo aplica a informações de 5 tuplas, a decisão de tráfego & (versão 2 somente) informações de taxa de transferência. Veja o _formato de log_ abaixo para obter detalhes completos.
 - Os logs de fluxo têm um recurso de retenção que permite excluir automaticamente os logs de até um ano após a criação. 
 
 > [!NOTE]
-> A retenção estará disponível somente se você usar [contas de armazenamento v2 de uso geral (GPv2)](https://docs.microsoft.com/azure/storage/common/storage-account-overview#types-of-storage-accounts). 
+> A retenção estará disponível somente se você usar [contas de armazenamento v2 de uso geral (GPv2)](../storage/common/storage-account-overview.md#types-of-storage-accounts). 
 
-**Conceitos básicos**
+**Conceitos fundamentais**
 
 - Redes definidas por software são organizadas em redes virtuais (VNETs) e sub-redes. A segurança dessas VNets e sub-redes pode ser gerenciada usando um NSG.
-- Um NSG (grupo de segurança de rede) contém uma lista de _regras de segurança_ que permitem ou negam o tráfego de rede em recursos aos quais ele está conectado. NSGs pode ser associado a sub-redes, VMs individuais ou adaptadores de rede (NIC) individuais conectados às VMs (Gerenciador de recursos). Para obter mais informações, confira [Visão geral do Grupo de Segurança de Rede](https://docs.microsoft.com/azure/virtual-network/security-overview?toc=%2Fazure%2Fnetwork-watcher%2Ftoc.json).
+- Um NSG (grupo de segurança de rede) contém uma lista de _regras de segurança_ que permitem ou negam o tráfego de rede em recursos aos quais ele está conectado. NSGs pode ser associado a sub-redes, VMs individuais ou adaptadores de rede (NIC) individuais conectados às VMs (Gerenciador de recursos). Para obter mais informações, confira [Visão geral do Grupo de Segurança de Rede](../virtual-network/network-security-groups-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 - Todos os fluxos de tráfego em sua rede são avaliados usando as regras no NSG aplicável.
 - O resultado dessas avaliações são os logs de fluxo NSG. Os logs de fluxo são coletados por meio da plataforma Azure e não exigem nenhuma alteração nos recursos do cliente.
-- Observação: as regras são de dois tipos – terminando & não terminando, cada um com comportamentos de log diferentes.
+- Observação: as regras são de dois tipos – terminando & não terminando, cada um com diferentes comportamentos de log.
 - - As regras de negação NSG estão sendo encerradas. O NSG que nega o tráfego o registrará em logs de fluxo e o processamento, nesse caso, será interrompido depois que qualquer NSG negar tráfego. 
 - - As regras de NSG permitem que não sejam encerradas, o que significa que, mesmo se uma NSG permitir, o processamento continuará para o próximo NSG. O último NSG que permite o tráfego registrará o tráfego em logs de fluxo.
 - Os logs de fluxo NSG são gravados em contas de armazenamento de onde podem ser acessados.
@@ -294,7 +294,7 @@ O texto que segue é um exemplo de um log de fluxo. Como você pode ver, há vá
 ```
 **Tupla de log explicada**
 
-![visão geral dos logs de fluxo](./media/network-watcher-nsg-flow-logging-overview/tuple.png)
+![tupla de logs de fluxo](./media/network-watcher-nsg-flow-logging-overview/tuple.png)
 
 **Cálculo de largura de banda de exemplo**
 
@@ -305,15 +305,15 @@ Fluxo de tuplas de uma conversa TCP entre 185.170.185.105:35370 e 10.2.0.4:23:
 Para os estados de fluxo de continuação _C_ e final _E_, as contagens de bytes e pacotes são contagens agregadas do tempo do registro da tupla de fluxo anterior. Referenciando a conversação de exemplo anterior, o número total de pacotes transferidos é 1021 + 52 + 8005 + 47 = 9125. O número total de bytes transferidos é 588096 + 29952 + 4610880 + 27072 = 5256000.
 
 
-## <a name="enabling-nsg-flow-logs"></a>Habilitando logs de fluxo do NSG
+## <a name="enabling-nsg-flow-logs"></a>Como habilitar logs de fluxo de NSG
 
 Use o link relevante abaixo para obter guias sobre como habilitar logs de fluxo.
 
-- [Azure portal](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
-- [PowerShell](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-powershell)
-- [CLI](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-cli)
-- [REST](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-rest)
-- [Azure Resource Manager](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-azure-resource-manager)
+- [Azure portal](./network-watcher-nsg-flow-logging-portal.md)
+- [PowerShell](./network-watcher-nsg-flow-logging-powershell.md)
+- [CLI](./network-watcher-nsg-flow-logging-cli.md)
+- [REST](./network-watcher-nsg-flow-logging-rest.md)
+- [Azure Resource Manager](./network-watcher-nsg-flow-logging-azure-resource-manager.md)
 
 ## <a name="updating-parameters"></a>Atualizando parâmetros
 
@@ -329,8 +329,8 @@ Para atualizar parâmetros por meio de ferramentas de linha de comando, use o me
 
 *Ler e exportar logs de fluxo*
 
-- [Baixar &amp; logs de fluxo de exibição do portal](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal#download-flow-log)
-- [Ler logs de fluxo usando funções do PowerShell](https://docs.microsoft.com/azure/network-watcher/network-watcher-read-nsg-flow-logs)
+- [Baixar &amp; logs de fluxo de exibição do portal](./network-watcher-nsg-flow-logging-portal.md#download-flow-log)
+- [Ler logs de fluxo usando funções do PowerShell](./network-watcher-read-nsg-flow-logs.md)
 - [Exportar logs de fluxo NSG para Splunk](https://www.splunk.com/en_us/blog/tips-and-tricks/splunking-microsoft-azure-network-watcher-data.html)
 
 Embora os logs de fluxo sejam destinados aos NSGs, eles não são exibidos como os outros logs. Os logs de fluxo são armazenados apenas em uma conta de armazenamento e seguem o caminho do log mostrado no exemplo a seguir:
@@ -341,11 +341,11 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 
 *Visualizar logs de fluxo*
 
-- A [análise de tráfego do Azure](https://docs.microsoft.com/azure/network-watcher/traffic-analytics) é um serviço nativo do Azure para processar logs de fluxo, extrai informações e visualiza logs de fluxo. 
-- [Destina Visualizar logs de fluxo NSG com Power BI](https://docs.microsoft.com/azure/network-watcher/network-watcher-visualize-nsg-flow-logs-power-bi)
-- [Destina Visualizar logs de fluxo NSG com pilha elástica](https://docs.microsoft.com/azure/network-watcher/network-watcher-visualize-nsg-flow-logs-open-source-tools)
-- [Destina Gerenciar e analisar logs de fluxo de NSG usando o Grafana](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-grafana)
-- [Destina Gerenciar e analisar logs de fluxo de NSG usando o Graylog](https://docs.microsoft.com/azure/network-watcher/network-watcher-analyze-nsg-flow-logs-graylog)
+- A [análise de tráfego do Azure](./traffic-analytics.md) é um serviço nativo do Azure para processar logs de fluxo, extrai informações e visualiza logs de fluxo. 
+- [Destina Visualizar logs de fluxo NSG com Power BI](./network-watcher-visualize-nsg-flow-logs-power-bi.md)
+- [Destina Visualizar logs de fluxo NSG com pilha elástica](./network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
+- [Destina Gerenciar e analisar logs de fluxo de NSG usando o Grafana](./network-watcher-nsg-grafana.md)
+- [Destina Gerenciar e analisar logs de fluxo de NSG usando o Graylog](./network-watcher-analyze-nsg-flow-logs-graylog.md)
 
 
 ## <a name="nsg-flow-logging-considerations"></a>Considerações de log de fluxo NSG
@@ -353,21 +353,34 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 **Considerações sobre a conta de armazenamento**: 
 
 - Local: a conta de armazenamento usada deve estar na mesma região que o NSG.
+- Nível de desempenho: atualmente, há suporte apenas para contas de armazenamento de camada Standard.
 - Rotação de chaves de autogerenciamento: se você alterar/girar as chaves de acesso para sua conta de armazenamento, os logs de fluxo do NSG deixarão de funcionar. Para corrigir esse problema, você deve desabilitar e, em seguida, reabilitar os logs de fluxo do NSG.
 
-**Custos de log de fluxo**: o log de fluxo de NSG é cobrado no volume de logs produzidos. Um alto volume de tráfego pode resultar em um volume grande de log de fluxo e nos custos associados. Os preços do log de fluxo de NSG não incluem os custos de armazenamento subjacentes. Usar o recurso de política de retenção com log de fluxo NSG significa incorrer em custos de armazenamento separados por longos períodos de tempo. Se você não precisa do recurso de política de retenção, é recomendável que você defina esse valor como 0. Para obter mais informações, consulte [preços do observador de rede](https://azure.microsoft.com/pricing/details/network-watcher/) e preços do [armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/) para obter detalhes adicionais.
+**Custos de log de fluxo**: o log de fluxo de NSG é cobrado no volume de logs produzidos. Um alto volume de tráfego pode resultar em um volume grande de log de fluxo e nos custos associados. Os preços do log de fluxo de NSG não incluem os custos de armazenamento subjacentes. Usar o recurso de política de retenção com log de fluxo NSG significa incorrer em custos de armazenamento separados por longos períodos de tempo. Se você quiser manter os dados para sempre e não quiser aplicar nenhuma política de retenção, defina a retenção (dias) como 0. Para obter mais informações, consulte [preços do observador de rede](https://azure.microsoft.com/pricing/details/network-watcher/) e preços do [armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/) para obter detalhes adicionais.
 
-**Problemas com regras TCP de entrada definidas pelo usuário**: [NSGs (grupos de segurança de rede)](https://docs.microsoft.com/azure/virtual-network/security-overview) são implementados como um [Firewall com estado](https://en.wikipedia.org/wiki/Stateful_firewall?oldformat=true). No entanto, devido às limitações atuais da plataforma, as regras definidas pelo usuário que afetam os fluxos TCP de entrada são implementadas de forma sem monitoração de estado. Devido a isso, os fluxos afetados por regras de entrada definidas pelo usuário se tornam não conclusivos. Além disso, as contagens de byte e pacote não são registradas para esses fluxos. Consequentemente, o número de bytes e pacotes relatados nos logs de fluxo NSG (e Análise de Tráfego) podem ser diferentes dos números reais. Um sinalizador de aceitação que corrige esses problemas está programado para ser disponibilizado até dezembro de 2020 mais recente. No ínterim, os clientes que enfrentam problemas graves devido a esse comportamento podem solicitar a recusa por meio do suporte, gerar uma solicitação de suporte no observador de rede > logs de fluxo do NSG.  
+**Problemas com regras TCP de entrada definidas pelo usuário**: [NSGs (grupos de segurança de rede)](../virtual-network/network-security-groups-overview.md) são implementados como um [Firewall com estado](https://en.wikipedia.org/wiki/Stateful_firewall?oldformat=true). No entanto, devido às limitações atuais da plataforma, as regras definidas pelo usuário que afetam os fluxos TCP de entrada são implementadas de forma sem monitoração de estado. Devido a isso, os fluxos afetados por regras de entrada definidas pelo usuário se tornam não conclusivos. Além disso, as contagens de byte e pacote não são registradas para esses fluxos. Consequentemente, o número de bytes e pacotes relatados nos logs de fluxo NSG (e Análise de Tráfego) podem ser diferentes dos números reais. Um sinalizador de aceitação que corrige esses problemas está programado para ser disponibilizado por março de 2021 mais recente. No ínterim, os clientes que enfrentam problemas graves devido a esse comportamento podem solicitar a recusa por meio do suporte, gerar uma solicitação de suporte no observador de rede > logs de fluxo do NSG.  
 
 **Fluxos de entrada registrados de IPS de Internet para VMs sem IPS públicos**: VMs que não têm um endereço IP público atribuído por meio de um endereço IP público associado à NIC como um IP público em nível de instância, ou que fazem parte de um pool de back-end do Load Balancer básico, usam [SNAT padrão](../load-balancer/load-balancer-outbound-connections.md) e têm um endereço IP atribuído pelo Azure para facilitar a conectividade de saída. Como resultado, você poderá ver entradas de log de fluxo de fluxos de endereços IP da Internet, se o fluxo for destinado a uma porta no intervalo de portas atribuídas para SNAT. Embora o Azure não permita esses fluxos para a VM, a tentativa é registrada e aparece no log de fluxo do NSG do observador de rede por design. Recomendamos que o tráfego de Internet de entrada indesejado seja explicitamente bloqueado com NSG.
+
+**Problema com a sub-rede NSG do gateway de aplicativo v2**: o log de fluxo na sub-rede v2 do gateway de aplicativo NSG [não tem suporte](../application-gateway/application-gateway-faq.yml#are-nsg-flow-logs-supported-on-nsgs-associated-to-application-gateway-v2-subnet) no momento. Esse problema não afeta o Application Gateway v1.
+
+**Serviços incompatíveis**: devido às limitações da plataforma atual, um pequeno conjunto de serviços do Azure não tem suporte dos logs de fluxo do NSG. A lista atual de serviços incompatíveis é
+- [AKS (Serviço de Kubernetes do Azure)](https://azure.microsoft.com/services/kubernetes-service/)
+- [Aplicativos Lógicos](https://azure.microsoft.com/services/logic-apps/) 
 
 ## <a name="best-practices"></a>Práticas recomendadas
 
 **Habilitar em VNETs/sub-redes críticas**: os logs de fluxo devem ser habilitados em todas as VNETs/sub-redes críticas em sua assinatura como uma prática recomendada de auditoria e de segurança. 
 
-**Habilitar o log de fluxo de NSG em todos os NSGs anexados a um recurso**: o log de fluxo no Azure está configurado no recurso NSG. Um fluxo só será associado a uma regra de NSG. Em cenários em que vários NSGs são utilizados, é recomendável Habilitar logs de fluxo de NSG em todos os NSGs aplicados à sub-rede ou interface de rede de um recurso para garantir que todo o tráfego seja registrado. Para obter mais informações, consulte [como o tráfego é avaliado](../virtual-network/security-overview.md#how-traffic-is-evaluated) em grupos de segurança de rede.
+**Habilitar o log de fluxo de NSG em todos os NSGs anexados a um recurso**: o log de fluxo no Azure está configurado no recurso NSG. Um fluxo só será associado a uma regra de NSG. Em cenários em que vários NSGs são utilizados, recomendamos habilitar os logs de fluxo do NSG em todos os NSGs aplicados à sub-rede do recurso ou à interface de rede para garantir que todo o tráfego seja registrado. Para obter mais informações, consulte [como o tráfego é avaliado](../virtual-network/network-security-group-how-it-works.md) em grupos de segurança de rede. 
+
+Alguns cenários comuns:
+1. **Várias NICs em uma VM**: caso várias NICs estejam conectadas a uma máquina virtual, o log de fluxo deve ser habilitado em todas elas
+1. **Ter NSG no nível de NIC e de sub-rede**: no caso de NSG ser configurado na NIC, bem como no nível de sub-rede, o registro em log de fluxo deve ser habilitado em ambos os NSGs. 
 
 **Provisionamento de armazenamento**: o armazenamento deve ser provisionado em sintonia com o volume de log de fluxo esperado.
+
+**Nome: o** nome do NSG deve ter até 80 caracteres e os nomes da regra NSG até 65 caracteres. Se os nomes excederem o limite de caracteres, ele poderá ficar truncado durante o log.
 
 ## <a name="troubleshooting-common-issues"></a>Solução de problemas comuns
 
@@ -375,13 +388,13 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 
 - O provedor de recursos **Microsoft. insights** não está registrado
 
-Se você recebeu um erro _AuthorizationFailed_ ou _GatewayAuthenticationFailed_, talvez não tenha habilitado o provedor de recursos do Microsoft Insights em sua assinatura. [Siga as instruções](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal#register-insights-provider) para habilitar o provedor do Microsoft insights.
+Se você recebeu um erro _AuthorizationFailed_ ou _GatewayAuthenticationFailed_, talvez não tenha habilitado o provedor de recursos do Microsoft Insights em sua assinatura. [Siga as instruções](./network-watcher-nsg-flow-logging-portal.md#register-insights-provider) para habilitar o provedor do Microsoft insights.
 
 **Habilitei os logs de fluxo do NSG, mas não vejo nenhum dado em minha conta de armazenamento**
 
 - **Hora da configuração**
 
-Os logs de fluxo do NSG podem levar até 5 minutos para aparecer em sua conta de armazenamento (se configurados corretamente). Um PT1H.json será exibido, que pode ser acessado [conforme descrito aqui](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal#download-flow-log).
+Os logs de fluxo do NSG podem levar até 5 minutos para aparecer em sua conta de armazenamento (se configurados corretamente). Um PT1H.json será exibido, que pode ser acessado [conforme descrito aqui](./network-watcher-nsg-flow-logging-portal.md#download-flow-log).
 
 - **Nenhum tráfego em seus NSGs**
 
@@ -395,7 +408,7 @@ O suporte para automação por meio de modelos do Resource Manager não está di
 
 **O que os logs de fluxo do NSG fazem?**
 
-Os recursos de rede do Azure podem ser combinados e gerenciados por meio [de NSGs (grupos de segurança de rede)](https://docs.microsoft.com/azure/virtual-network/security-overview). Os logs de fluxo do NSG permitem que você registre informações de fluxo de 5 tuplas sobre todo o tráfego por meio de seu NSGs. Os logs de fluxo brutos são gravados em uma conta de armazenamento do Azure de onde eles podem ser processados, analisados, consultados ou exportados conforme necessário.
+Os recursos de rede do Azure podem ser combinados e gerenciados por meio [de NSGs (grupos de segurança de rede)](../virtual-network/network-security-groups-overview.md). Os logs de fluxo do NSG permitem que você registre informações de fluxo de 5 tuplas sobre todo o tráfego por meio de seu NSGs. Os logs de fluxo brutos são gravados em uma conta de armazenamento do Azure de onde eles podem ser processados, analisados, consultados ou exportados conforme necessário.
 
 **O uso de logs de fluxo afeta a latência ou o desempenho da rede?**
 
@@ -406,8 +419,8 @@ Os dados de logs de fluxo são coletados fora do caminho do tráfego de rede e, 
 Para usar uma conta de armazenamento por trás de um firewall, você precisa fornecer uma exceção para que os serviços confiáveis da Microsoft acessem sua conta de armazenamento:
 
 - Navegue até a conta de armazenamento digitando o nome da conta de armazenamento na pesquisa global no portal ou na [página contas de armazenamento](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Storage%2FStorageAccounts)
-- Na seção **configurações** , selecione **firewalls e redes virtuais**
-- Em **permitir acesso de**, selecione **redes selecionadas**. Em **exceções**, marque a caixa ao lado de * * * * permitir que serviços confiáveis da Microsoft acessem esta conta de armazenamento * * * *
+- Na seção  **configurações**  , selecione  **firewalls e redes virtuais**
+- Em **permitir acesso de**, selecione  **redes selecionadas**. Em  **exceções**, marque a caixa ao lado de * * * * permitir que serviços confiáveis da Microsoft acessem esta conta de armazenamento * * * *
 - Se já estiver selecionada, nenhuma alteração será necessária.
 - Localize o NSG de destino na [página de visão geral dos logs de fluxo do NSG](https://ms.portal.azure.com/#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/flowLogs) e habilite os logs de fluxo do NSG com a conta de armazenamento acima selecionada.
 
@@ -415,15 +428,14 @@ Você pode verificar os logs de armazenamento após alguns minutos, você deve v
 
 **Como fazer usar logs de fluxo NSG com uma conta de armazenamento por trás de um ponto de extremidade de serviço?**
 
-Os logs de fluxo NSG são compatíveis com pontos de extremidade de serviço sem a necessidade de nenhuma configuração extra. Consulte o [tutorial sobre como habilitar pontos de extremidade de serviço](https://docs.microsoft.com/azure/virtual-network/tutorial-restrict-network-access-to-resources#enable-a-service-endpoint) em sua rede virtual.
+Os logs de fluxo NSG são compatíveis com pontos de extremidade de serviço sem a necessidade de nenhuma configuração extra. Consulte o [tutorial sobre como habilitar pontos de extremidade de serviço](../virtual-network/tutorial-restrict-network-access-to-resources.md#enable-a-service-endpoint) em sua rede virtual.
 
 **Qual é a diferença entre as versões 1 & 2 dos logs de fluxo?**
 
-Os logs de fluxo versão 2 apresentam o conceito de _estado de fluxo_ & armazena informações sobre bytes e pacotes transmitidos. [Leia mais](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview#log-file)
+Os logs de fluxo versão 2 apresentam o conceito de _estado de fluxo_ & armazena informações sobre bytes e pacotes transmitidos. [Leia mais](#log-format)
 
 ## <a name="pricing"></a>Preços
 
 Os logs de fluxo NSG são cobrados por GB de logs coletados e vêm com uma camada gratuita de 5 GB/mês por assinatura. Para obter os preços atuais em sua região, consulte a [página de preços do observador de rede](https://azure.microsoft.com/pricing/details/network-watcher/).
 
 O armazenamento de logs é cobrado separadamente, consulte a [página de preços do blob de blocos de armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/blobs/) para obter os preços relevantes.
- 

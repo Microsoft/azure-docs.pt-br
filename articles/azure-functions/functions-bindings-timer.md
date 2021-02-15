@@ -4,33 +4,33 @@ description: Entenda como usar gatilhos de temporizador no Azure Functions.
 author: craigshoemaker
 ms.assetid: d2f013d1-f458-42ae-baf8-1810138118ac
 ms.topic: reference
-ms.date: 09/08/2018
+ms.date: 11/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 45f704afce28967237b2905ef068678ba05ae085
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 0d9852659801040d64fe4143f024fd52ffec16ee
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88206649"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874076"
 ---
-# <a name="timer-trigger-for-azure-functions"></a>Gatilho de temporizador para o Azure Functions 
+# <a name="timer-trigger-for-azure-functions"></a>Gatilho de temporizador para o Azure Functions
 
-Este artigo explica como trabalhar com gatilhos de temporizador no Azure Functions. Um gatilho de temporizador permite executar uma função em uma agenda. 
+Este artigo explica como trabalhar com gatilhos de temporizador no Azure Functions. Um gatilho de temporizador permite executar uma função em uma agenda.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 Para obter informações sobre como executar manualmente uma função disparada por temporizador, consulte [executar manualmente uma função não disparada por http](./functions-manually-run-non-http.md).
 
-## <a name="packages---functions-1x"></a>Pacotes - Functions 1. x
-
-O gatilho de timer é fornecido no [Microsoft.Azure.WebJobs.Extensions](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) pacote NuGet, versão 2. x. O código-fonte do pacote está no repositório GitHub [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions/Extensions/Timers/).
-
-[!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
-
 ## <a name="packages---functions-2x-and-higher"></a>Pacotes-funções 2. x e superior
 
 O gatilho de timer é fornecido no [Microsoft.Azure.WebJobs.Extensions](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) pacote NuGet, versão 2. x. O código-fonte do pacote está no repositório GitHub [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/).
+
+[!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
+
+## <a name="packages---functions-1x"></a>Pacotes - Functions 1. x
+
+O gatilho de timer é fornecido no [Microsoft.Azure.WebJobs.Extensions](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) pacote NuGet, versão 2. x. O código-fonte do pacote está no repositório GitHub [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions/Extensions/Timers/).
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
@@ -80,6 +80,21 @@ public static void Run(TimerInfo myTimer, ILogger log)
 }
 ```
 
+# <a name="java"></a>[Java](#tab/java)
+
+A função de exemplo a seguir é disparada e executada a cada cinco minutos. A anotação `@TimerTrigger` na função define o agendamento usando o mesmo formato de cadeia de caracteres que as [expressões CRON](https://en.wikipedia.org/wiki/Cron#CRON_expression).
+
+```java
+@FunctionName("keepAlive")
+public void keepAlive(
+  @TimerTrigger(name = "keepAliveTrigger", schedule = "0 */5 * * * *") String timerInfo,
+      ExecutionContext context
+ ) {
+     // timeInfo is a JSON string, you can deserialize it to an object using your favorite JSON library
+     context.getLogger().info("Timer is triggered: " + timerInfo);
+}
+```
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 O exemplo a seguir mostra uma associação de gatilho de temporizador em um arquivo *function.json* e uma [função JavaScript](functions-reference-node.md) que usa a associação. A função grava um log que indica se esta chamada de função deve-se a uma ocorrência de agendamento ausente. Um [objeto de timer](#usage) é passado para a função.
@@ -111,9 +126,44 @@ module.exports = function (context, myTimer) {
 };
 ```
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+O exemplo a seguir demonstra como configurar o *function.jsem* e *run.ps1* arquivo para um gatilho de temporizador no [PowerShell](./functions-reference-powershell.md).
+
+```json
+{
+  "bindings": [
+    {
+      "name": "Timer",
+      "type": "timerTrigger",
+      "direction": "in",
+      "schedule": "0 */5 * * * *"
+    }
+  ]
+}
+```
+
+```powershell
+# Input bindings are passed in via param block.
+param($Timer)
+
+# Get the current universal time in the default string format.
+$currentUTCtime = (Get-Date).ToUniversalTime()
+
+# The 'IsPastDue' property is 'true' when the current function invocation is later than scheduled.
+if ($Timer.IsPastDue) {
+    Write-Host "PowerShell timer is running late!"
+}
+
+# Write an information log with the current time.
+Write-Host "PowerShell timer trigger function ran! TIME: $currentUTCtime"
+```
+
+Uma instância do [objeto de timer](#usage) é passada como o primeiro argumento para a função.
+
 # <a name="python"></a>[Python](#tab/python)
 
-O exemplo a seguir usa uma associação de gatilho de temporizador cuja configuração é descrita na *function.jsno* arquivo. A [função Python](functions-reference-python.md) real que usa a associação é descrita no arquivo * __init__. py* . O objeto passado para a função é do tipo [objeto Azure. Functions. TimerRequest](/python/api/azure-functions/azure.functions.timerrequest). A lógica de função grava nos logs indicando se a invocação atual é devido a uma ocorrência de agendamento ausente. 
+O exemplo a seguir usa uma associação de gatilho de temporizador cuja configuração é descrita na *function.jsno* arquivo. A [função Python](functions-reference-python.md) real que usa a associação é descrita no arquivo *__init__. py* . O objeto passado para a função é do tipo [objeto Azure. Functions. TimerRequest](/python/api/azure-functions/azure.functions.timerrequest). A lógica de função grava nos logs indicando se a invocação atual é devido a uma ocorrência de agendamento ausente.
 
 Aqui estão os dados de associação no arquivo *function.json*:
 
@@ -145,21 +195,6 @@ def main(mytimer: func.TimerRequest) -> None:
     logging.info('Python timer trigger function ran at %s', utc_timestamp)
 ```
 
-# <a name="java"></a>[Java](#tab/java)
-
-A função de exemplo a seguir é disparada e executada a cada cinco minutos. A anotação `@TimerTrigger` na função define o agendamento usando o mesmo formato de cadeia de caracteres que as [expressões CRON](https://en.wikipedia.org/wiki/Cron#CRON_expression).
-
-```java
-@FunctionName("keepAlive")
-public void keepAlive(
-  @TimerTrigger(name = "keepAliveTrigger", schedule = "0 */5 * * * *") String timerInfo,
-      ExecutionContext context
- ) {
-     // timeInfo is a JSON string, you can deserialize it to an object using your favorite JSON library
-     context.getLogger().info("Timer is triggered: " + timerInfo);
-}
-```
-
 ---
 
 ## <a name="attributes-and-annotations"></a>Atributos e anotações
@@ -188,14 +223,6 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger
 
 O script C# não dá suporte a atributos.
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
-
-O JavaScript não dá suporte a atributos.
-
-# <a name="python"></a>[Python](#tab/python)
-
-O Python não dá suporte a atributos.
-
 # <a name="java"></a>[Java](#tab/java)
 
 A anotação `@TimerTrigger` na função define o agendamento usando o mesmo formato de cadeia de caracteres que as [expressões CRON](https://en.wikipedia.org/wiki/Cron#CRON_expression).
@@ -210,6 +237,18 @@ public void keepAlive(
      context.getLogger().info("Timer is triggered: " + timerInfo);
 }
 ```
+
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+O JavaScript não dá suporte a atributos.
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Não há suporte para atributos pelo PowerShell.
+
+# <a name="python"></a>[Python](#tab/python)
+
+O Python não dá suporte a atributos.
 
 ---
 
@@ -229,7 +268,7 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 > [!CAUTION]
-> Recomendamos a configuração **runOnStartup** para `true` em produção. Usar essa configuração faz com que código seja executado em momentos altamente imprevisíveis. Em determinadas configurações de produção, essas execuções extras podem resultar em custos significativamente mais altos para aplicativos hospedados em planos de consumo. Por exemplo, com **runOnStartup** habilitado, o gatilho é invocado sempre que seu aplicativo de funções é dimensionado. Verifique se você compreender totalmente o comportamento de produção de suas funções antes de habilitar **runOnStartup** em produção.   
+> Recomendamos a configuração **runOnStartup** para `true` em produção. Usar essa configuração faz com que código seja executado em momentos altamente imprevisíveis. Em determinadas configurações de produção, essas execuções extras podem resultar em custos significativamente mais altos para aplicativos hospedados em planos de consumo. Por exemplo, com **runOnStartup** habilitado, o gatilho é invocado sempre que seu aplicativo de funções é dimensionado. Verifique se você compreender totalmente o comportamento de produção de suas funções antes de habilitar **runOnStartup** em produção.
 
 ## <a name="usage"></a>Uso
 
@@ -237,20 +276,20 @@ Quando uma função de gatilho de temporizador é invocada, um objeto de tempori
 
 ```json
 {
-    "Schedule":{
+    "schedule":{
     },
-    "ScheduleStatus": {
-        "Last":"2016-10-04T10:15:00+00:00",
-        "LastUpdated":"2016-10-04T10:16:00+00:00",
-        "Next":"2016-10-04T10:20:00+00:00"
+    "scheduleStatus": {
+        "last":"2016-10-04T10:15:00+00:00",
+        "lastUpdated":"2016-10-04T10:16:00+00:00",
+        "next":"2016-10-04T10:20:00+00:00"
     },
-    "IsPastDue":false
+    "isPastDue":false
 }
 ```
 
-A propriedade `IsPastDue` é `true` quando a invocação da função atual é posterior ao agendado. Por exemplo, uma reinicialização do aplicativo de função pode causar a perda de uma invocação.
+A propriedade `isPastDue` é `true` quando a invocação da função atual é posterior ao agendado. Por exemplo, uma reinicialização do aplicativo de função pode causar a perda de uma invocação.
 
-## <a name="ncrontab-expressions"></a>Expressões NCRONTAB 
+## <a name="ncrontab-expressions"></a>Expressões NCRONTAB
 
 Azure Functions usa a biblioteca [NCronTab](https://github.com/atifaziz/NCrontab) para interpretar as expressões NCronTab. Uma expressão NCRONTAB é semelhante a uma expressão CRON, exceto que ela inclui um sexto campo adicional no início a ser usado para a precisão de tempo em segundos:
 
@@ -260,11 +299,11 @@ Cada campo pode ter um dos seguintes tipos de valores:
 
 |Type  |Exemplo  |Quando disparado  |
 |---------|---------|---------|
-|Um valor específico |<nobr>"0 5 * * * *"</nobr>|em hh:05:00, em que hh é cada hora (uma vez por hora)|
-|Todos os valores (`*`)|<nobr>"0 * 5 * * *"</nobr>|em 5:mm: 00 diariamente, em que mm é cada minuto da hora (60 vezes por dia)|
-|Um intervalo (`-` operador)|<nobr>"5-7 * * * * *"</nobr>|em hh:mm:05, hh:mm:06 e hh:mm:07, em que hh é cada minuto de cada hora (3 vezes por minuto)|
-|Um conjunto de valores (`,` operador)|<nobr>"5,8,10 * * * * *"</nobr>|em hh:mm:05, hh:mm:08 e hh:mm:10, em que hh é cada minuto de cada hora (3 vezes por minuto)|
-|Um valor de intervalo (`/` operador)|<nobr>"0 */5 * * * *"</nobr>|em hh: 00:00, hh: 05:00, hh: 10:00 e assim por diante por meio de hh: 55:00, em que HH é a cada hora (12 vezes por hora)|
+|Um valor específico |<nobr>`0 5 * * * *`</nobr>| Uma vez a cada hora do dia, no minuto 5 de cada hora |
+|Todos os valores (`*`)|<nobr>`0 * 5 * * *`</nobr>| A cada minuto na hora, começando na hora 5 |
+|Um intervalo (`-` operador)|<nobr>`5-7 * * * * *`</nobr>| Três vezes por minuto em segundos de 5 a 7 durante cada minuto de cada hora de cada dia |
+|Um conjunto de valores (`,` operador)|<nobr>`5,8,10 * * * * *`</nobr>| Três vezes por minuto em segundos 5, 8 e 10 durante cada minuto de cada hora de cada dia |
+|Um valor de intervalo (`/` operador)|<nobr>`0 */5 * * * *`</nobr>| 12 vezes por hora – em segundo 0 de cada quinto minuto de cada hora de cada dia |
 
 [!INCLUDE [functions-cron-expressions-months-days](../../includes/functions-cron-expressions-months-days.md)]
 
@@ -272,16 +311,18 @@ Cada campo pode ter um dos seguintes tipos de valores:
 
 Aqui estão alguns exemplos de expressões NCRONTAB que você pode usar para o gatilho de temporizador no Azure Functions.
 
-|Exemplo|Quando disparado  |
-|---------|---------|
-|`"0 */5 * * * *"`|uma vez a cada cinco minutos|
-|`"0 0 * * * *"`|uma vez a cada hora|
-|`"0 0 */2 * * *"`|uma vez a cada duas horas|
-|`"0 0 9-17 * * *"`|uma vez a cada hora entre 9h e 17h|
-|`"0 30 9 * * *"`|às 9h30 todos os dias|
-|`"0 30 9 * * 1-5"`|às 9h30 todo dia útil|
-|`"0 30 9 * Jan Mon"`|em 9H30 toda segunda-feira em janeiro|
+| Exemplo            | Quando disparado                     |
+|--------------------|------------------------------------|
+| `0 */5 * * * *`    | uma vez a cada cinco minutos            |
+| `0 0 * * * *`      | uma vez a cada hora      |
+| `0 0 */2 * * *`    | uma vez a cada duas horas               |
+| `0 0 9-17 * * *`   | uma vez a cada hora entre 9h e 17h  |
+| `0 30 9 * * *`     | às 9h30 todos os dias               |
+| `0 30 9 * * 1-5`   | às 9h30 todo dia útil           |
+| `0 30 9 * Jan Mon` | em 9H30 toda segunda-feira em janeiro |
 
+> [!NOTE]
+> A expressão NCRONTAB requer um formato de **seis campos** . A posição sexto campo é um valor para segundos que é colocado no início da expressão. Não há suporte para expressões cron de cinco campos no Azure.
 
 ### <a name="ncrontab-time-zones"></a>NCRONTAB fuso horário
 
@@ -297,12 +338,12 @@ Ao contrário de uma expressão CRON, um valor `TimeSpan` especifica o intervalo
 
 Expresso como uma cadeia de caracteres, o formato `TimeSpan` é `hh:mm:ss` quando `hh` é menor que 24. Quando os dois primeiros dígitos são 24 ou superior, o formato é `dd:hh:mm`. Estes são alguns exemplos:
 
-|Exemplo |Quando disparado  |
-|---------|---------|
-|"01:00:00" | a cada hora        |
-|"00:01:00"|a cada minuto         |
-|"24:00:00" | a cada 24 dias        |
-|"1,00:00:00" | Todos os dias        |
+| Exemplo      | Quando disparado |
+|--------------|----------------|
+| "01:00:00"   | a cada hora     |
+| "00:01:00"   | a cada minuto   |
+| "24:00:00"   | a cada 24 dias  |
+| "1,00:00:00" | Todos os dias      |
 
 ## <a name="scale-out"></a>Escalabilidade horizontal
 

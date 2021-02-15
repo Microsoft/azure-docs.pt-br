@@ -1,15 +1,16 @@
 ---
 title: Referência de sintaxe de padrão-LUIS
 description: Crie entidades para extrair dados de chave de declarações de usuário em aplicativos de Reconhecimento vocal (LUIS). Os dados extraídos são usados pelo aplicativo cliente.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 04/14/2020
-ms.author: diberry
-ms.openlocfilehash: a0139cf5ef424288c41c436fb63313494404f841
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 3caccd6766226ce68b371856b081b052c1033f71
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684534"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91542182"
 ---
 # <a name="pattern-syntax"></a>Sintaxe de padrões
 
@@ -24,10 +25,10 @@ A sintaxe de padrão oferece suporte à seguinte sintaxe:
 
 |Função|Sintaxe|Nível de aninhamento|Exemplo|
 |--|--|--|--|
-|entidade| {}-chaves|2|Onde é o formato {Entity-Name}?|
-|opcionais|[]-colchetes<BR><BR>Há um limite de 3 em níveis de aninhamento de qualquer combinação de opcional e agrupamento |2|O ponto de interrogação é opcional [?]|
+|entidade| {} -chaves|2|Onde é o formato {Entity-Name}?|
+|opcional|[]-colchetes<BR><BR>Há um limite de 3 em níveis de aninhamento de qualquer combinação de opcional e agrupamento |2|O ponto de interrogação é opcional [?]|
 |agrupamento|()-parênteses|2|é (a \| b)|
-|ou| \|-barra vertical (pipe)<br><br>Há um limite de 2 nas barras verticais (ou) em um grupo |-|Onde é formulário ({Form-Name-Short} &#x7c; {formulário-nome-longo} &#x7c; {formulário-número})|
+|ou| \| -barra vertical (pipe)<br><br>Há um limite de 2 nas barras verticais (ou) em um grupo |-|Onde é formulário ({Form-Name-Short} &#x7c; {formulário-nome-longo} &#x7c; {formulário-número})|
 |início e/ou fim de expressão|^-cursor|-|^ iniciar o expressão<br>o expressão é concluído ^<br>^ correspondência literal estrita de expressão inteira com {Number} entidade ^|
 
 ## <a name="nesting-syntax-in-patterns"></a>Sintaxe de aninhamento em padrões
@@ -126,7 +127,7 @@ Marque texto opcional na expressão usando a sintaxe colchete de expressão regu
 
 |Padrão com texto opcional|Significado|
 |--|--|
-|`[find] email about {subject} [from {person}]`|`find`e `from {person}` são opcionais|
+|`[find] email about {subject} [from {person}]`|`find` e `from {person}` são opcionais|
 |' Você pode me ajudar a [?]|A marca de pontuação é opcional|
 
 As marcas de Pontuação ( `?` , `!` , `.` ) devem ser ignoradas e você precisa ignorá-las usando a sintaxe de colchetes em padrões.

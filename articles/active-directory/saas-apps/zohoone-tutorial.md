@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
-ms.openlocfilehash: baa33e79b3bba8eccb2d0fc03e110e1a3c4defde
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 98c9012969051e4370239a0f4098e0ea1d7a55a0
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545998"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348306"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zoho-one"></a>Tutorial: Integração do Active Directory do Azure ao Zoho One
 
@@ -27,7 +27,7 @@ A integração do Zoho One ao Azure AD oferece os seguintes benefícios:
 * É possível permitir que seus usuários entrem automaticamente no Zoho One (logon único) com suas contas do Azure AD.
 * Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](../manage-apps/what-is-single-sign-on.md).
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Prerequisites
@@ -99,14 +99,14 @@ Para configurar o logon único do Azure AD com o Zoho One, siga as etapas abaixo
 
 4. Na seção **Configuração Básica do SAML**, caso deseje configurar o aplicativo no modo iniciado por **IDP** execute as seguintes etapas:
 
-    ![Zoho One Domain e informações de logon único de URLs](common/idp-relay.png)
+    ![Captura de tela que mostra a Configuração Básica de SAML, em que você pode inserir o Identificador e a URL de Resposta e selecionar Salvar.](common/idp-relay.png)
 
     a. Na caixa de texto **Identificador**, digite uma URL: `one.zoho.com`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://accounts.zoho.com/samlresponse/<saml-identifier>`
 
     > [!NOTE]
-    > O valor **URL de Resposta** anterior não é real. Você obterá o valor `<saml-identifier>` da etapa 4 da seção **Configurar logon único do Zoho One**, explicada posteriormente no tutorial.
+    > O valor **URL de Resposta** anterior não é real. Você obterá o valor `<saml-identifier>` da etapa 4 da seção **Configurar o Logon Único do Zoho One**, que será explicada mais adiante no tutorial.
 
     c. Clique em **Definir URLs adicionais**.
 
@@ -114,8 +114,7 @@ Para configurar o logon único do Azure AD com o Zoho One, siga as etapas abaixo
 
 5. Se quiser configurar o aplicativo no modo iniciado pelo **SP**, realize as seguintes etapas:
 
-
-    ![Zoho One Domain e informações de logon único de URLs](common/both-signonurl.png)
+    ![Captura de tela que mostra Definir URLs adicionais, em que você pode inserir uma URL de Logon.](common/both-signonurl.png)
 
     Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://accounts.zoho.com/samlauthrequest/<domain_name>?serviceurl=https://one.zoho.com` 
 
@@ -164,7 +163,7 @@ Para configurar o logon único do Azure AD com o Zoho One, siga as etapas abaixo
 
     ![Domínio do Zoho One](./media/zohoone-tutorial/tutorial_zohoone_domain.png)
 
-6. Na página**Adicionar Domínio**, execute as seguintes etapas:
+6. Na página **Adicionar Domínio**, execute as seguintes etapas:
 
     ![Adicionar domínio do Zoho One](./media/zohoone-tutorial/tutorial_zohoone_adddomain.png)
 
@@ -254,13 +253,12 @@ Para permitir que os usuários do Azure AD entrem no Zoho One, eles devem ser pr
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Quando você clicar no bloco do Zoho One no Painel de Acesso, deverá ser conectado automaticamente ao Zoho One para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando você clicar no bloco do Zoho One no Painel de Acesso, deverá ser conectado automaticamente ao Zoho One para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](./tutorial-list.md)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)

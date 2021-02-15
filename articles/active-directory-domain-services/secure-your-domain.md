@@ -2,7 +2,7 @@
 title: Proteger Azure AD Domain Services | Microsoft Docs
 description: Saiba como desabilitar codificações fracas, protocolos antigos e sincronização de hash de senha NTLM para um domínio gerenciado Azure Active Directory Domain Services.
 services: active-directory-ds
-author: iainfoulds
+author: justinha
 manager: daveba
 ms.assetid: 6b4665b5-4324-42ab-82c5-d36c01192c2a
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
-ms.author: iainfou
-ms.openlocfilehash: 50cf58f83115cfb8c84fe7b2a37b6664c2d9c567
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.author: justinha
+ms.openlocfilehash: a89c898e150facc9860d86e18a7acc42f5e0f441
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88116675"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96618851"
 ---
 # <a name="disable-weak-ciphers-and-password-hash-synchronization-to-secure-an-azure-active-directory-domain-services-managed-domain"></a>Desabilitar codificações fracas e a sincronização de hash de senha para proteger um Azure Active Directory Domain Services domínio gerenciado
 

@@ -4,12 +4,12 @@ description: Saiba como configurar e usar o status de orquestração personaliza
 ms.topic: conceptual
 ms.date: 07/10/2020
 ms.author: azfuncdf
-ms.openlocfilehash: bb5c6ee15a5a445b4b762bd9eaf8919e1396f8ce
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4a95e7c74fac7043d0adb5f31d2bdcdd73b9577a
+ms.sourcegitcommit: 489ce69c0ff3f5188889ecfef5ffa76f7121e0d3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081824"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97766321"
 ---
 # <a name="custom-orchestration-status-in-durable-functions-azure-functions"></a>Status de orquestração personalizado em Funções Duráveis (Azure Functions)
 
@@ -53,7 +53,7 @@ public static string SayHello([ActivityTrigger] string name)
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-`E1_HelloSequence`função de orquestrador:
+`E1_HelloSequence` função de orquestrador:
 
 ```javascript
 const df = require("durable-functions");
@@ -73,7 +73,7 @@ module.exports = df.orchestrator(function*(context){
 });
 ```
 
-`E1_SayHello`função de atividade:
+`E1_SayHello` função de atividade:
 
 ```javascript
 module.exports = async function(context, name) {
@@ -82,7 +82,7 @@ module.exports = async function(context, name) {
 ```
 # <a name="python"></a>[Python](#tab/python)
 
-### <a name="e1_hellosequence-orchestrator-function"></a>`E1_HelloSequence`Função de orquestrador
+### <a name="e1_hellosequence-orchestrator-function"></a>`E1_HelloSequence` Função de orquestrador
 ```python
 import azure.functions as func
 import azure.durable_functions as df
@@ -102,7 +102,7 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
 main = df.Orchestrator.create(orchestrator_function)
 ```
 
-### <a name="e1_sayhello-activity-function"></a>`E1_SayHello`Função de atividade
+### <a name="e1_sayhello-activity-function"></a>`E1_SayHello` Função de atividade
 ```python
 def main(name: str) -> str:
     return f"Hello {name}!"
@@ -125,7 +125,7 @@ public static async Task<HttpResponseMessage> Run(
 {
     // Function input comes from the request content.
     dynamic eventData = await req.Content.ReadAsAsync<object>();
-    string instanceId = await starter.StartNewAsync(functionName, eventData);
+    string instanceId = await starter.StartNewAsync(functionName, (string)eventData);
 
     log.LogInformation($"Started orchestration with ID = '{instanceId}'.");
 
@@ -249,7 +249,7 @@ public static void Run(
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-#### <a name="cityrecommender-orchestrator"></a>`CityRecommender`Orchestrator
+#### <a name="cityrecommender-orchestrator"></a>`CityRecommender` Orchestrator
 
 ```javascript
 const df = require("durable-functions");
@@ -284,7 +284,7 @@ module.exports = df.orchestrator(function*(context) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-#### <a name="cityrecommender-orchestrator"></a>`CityRecommender`Orchestrator
+#### <a name="cityrecommender-orchestrator"></a>`CityRecommender` Orchestrator
 
 ```python
 import azure.functions as func

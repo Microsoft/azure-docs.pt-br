@@ -1,20 +1,18 @@
 ---
-title: 'Script do PowerShell: listar compartilhamentos existentes no compartilhamento de dados do Azure | Microsoft Docs'
+title: 'Script do PowerShell: listar compartilhamentos existentes no compartilhamento de dados do Azure'
 description: Este script do PowerShell lista e exibe detalhes de compartilhamentos.
 services: data-share
 author: joannapea
+ms.author: joanpo
 ms.service: data-share
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/07/2019
-ms.author: joanpo
-ms.openlocfilehash: 6314bd348c22c901001b88eda6875181a2f69df4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 54b4b6cedc2dc09e4a9d5c4b7b937e80750e17c6
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "70307132"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92220815"
 ---
 # <a name="use-powershell-to-view-the-details-of-a-sent-data-share"></a>Usar o PowerShell para exibir os detalhes de um compartilhamento de dados enviados
 
@@ -45,11 +43,11 @@ Este script usa os seguintes comandos:
 
 | Comando | Observações |
 |---|---|
-| [Get-AzDataShare](/powershell/module/az.datashare/get-azdatashare?view=azps-2.6.0) | Obtém e lista de compartilhamentos em uma conta. |
+| [Get-AzDataShare](/powershell/module/az.datashare/get-azdatashare) | Obtém e lista de compartilhamentos em uma conta. |
 |||
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre o Azure PowerShell, confira a [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/).
+Para obter mais informações sobre o Azure PowerShell, confira a [Documentação do Azure PowerShell](/powershell/).
 
 Exemplos adicionais de script do PowerShell do compartilhamento de dados do Azure podem ser encontrados nos [exemplos do PowerShell do compartilhamento de dados do Azure](../../samples-powershell.md).

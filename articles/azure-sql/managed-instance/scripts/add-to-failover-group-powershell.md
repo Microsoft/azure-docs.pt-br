@@ -8,16 +8,16 @@ ms.subservice: high-availability
 ms.custom: sqldbrb=1
 ms.devlang: PowerShell
 ms.topic: sample
-author: MashaMSFT
-ms.author: mathoma
-ms.reviewer: carlrab
+author: stevestein
+ms.author: sstein
+ms.reviewer: ''
 ms.date: 07/16/2019
-ms.openlocfilehash: 5b8ca2f578881b3e8bd557fa5aaac618bcab1599
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: af1d7110cccfd8b0617d6c79eb5373cc7c087159
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073448"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94594004"
 ---
 # <a name="use-powershell-to-add-a-managed-instance-to-a-failover-group"></a>Usar o PowerShell para adicionar uma instância gerenciada a um grupo de failover 
 

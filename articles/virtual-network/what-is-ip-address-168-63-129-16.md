@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/15/2019
 ms.author: genli
-ms.openlocfilehash: 0f0bfa693086a3a097df219132d696a1d04e6f56
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 1e304bc30a48c92fdff576723dae6af1e26ef3da
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286029"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222574"
 ---
 # <a name="what-is-ip-address-1686312916"></a>O que é o endereço IP 168.63.129.16?
 
@@ -32,17 +32,22 @@ O endereço IP 168.63.129.16 é um endereço IP público virtual usado para faci
 - Permite que a VM obtenha um endereço IP dinâmico do serviço DHCP no Azure.
 - Habilita mensagens de pulsação de Agente Convidado para a função de PaaS.
 
+> [!NOTE]
+> Em um cenário de rede não virtual (clássico), um endereço IP privado é usado em vez de 168.63.129.16. Esse endereço IP privado é descoberto dinamicamente por meio do DHCP. Regras de firewall específicas para 168.63.129.16 precisam ser ajustadas conforme apropriado.
+
 ## <a name="scope-of-ip-address-1686312916"></a>Escopo de endereço IP 168.63.129.16
 
-O endereço IP público 168.63.129.16 é usado em todas as regiões e em todas as nuvens nacionais. Esse endereço IP público especial pertence à Microsoft e não será alterado. Recomendamos que você permita esse endereço IP em qualquer política de firewall local (na VM) (direção de saída). A comunicação entre esse endereço IP especial e os recursos é segura porque a plataforma interna do Azure pode originar uma mensagem desse endereço IP. Se esse endereço for bloqueado, um comportamento inesperado poderá ocorrer em uma variedade de cenários. 168.63.129.16 é um [IP virtual do nó de host](../virtual-network/security-overview.md#azure-platform-considerations) e, como tal, não está sujeito a rotas definidas pelo usuário.
+O endereço IP público 168.63.129.16 é usado em todas as regiões e em todas as nuvens nacionais. Esse endereço IP público especial pertence à Microsoft e não será alterado. Recomendamos que você permita esse endereço IP em qualquer política de firewall local (na VM) (direção de saída). A comunicação entre esse endereço IP especial e os recursos é segura porque a plataforma interna do Azure pode originar uma mensagem desse endereço IP. Se esse endereço for bloqueado, um comportamento inesperado poderá ocorrer em uma variedade de cenários. 168.63.129.16 é um [IP virtual do nó de host](./network-security-groups-overview.md#azure-platform-considerations) e, como tal, não está sujeito a rotas definidas pelo usuário.
 
-- O agente de VM requer comunicação de saída nas portas 80, 443, 32526 com WireServer (168.63.129.16). Eles devem ser abertos no firewall local na VM. A comunicação nessas portas com o 168.63.129.16 não está sujeita aos grupos de segurança de rede configurados.
-- o 168.63.129.16 pode fornecer serviços DNS para a VM. Se isso não for desejado, esse tráfego poderá ser bloqueado no firewall local na VM. Por padrão, a comunicação DNS não está sujeita aos grupos de segurança de rede configurados, a menos que especificamente direcionado para a marca de serviço [AzurePlatformDNS](../virtual-network/service-tags-overview.md#available-service-tags) . Para bloquear o tráfego DNS para o DNS do Azure por meio do NSG, crie uma regra de saída para negar o tráfego para [AzurePlatformDNS](../virtual-network/service-tags-overview.md#available-service-tags)e especifique "*" como "intervalos de porta de destino" e "qualquer" como protocolo.
+- O agente de VM requer comunicação de saída nas portas 80/TCP e 32526/TCP com WireServer (168.63.129.16). Eles devem ser abertos no firewall local na VM. A comunicação nessas portas com o 168.63.129.16 não está sujeita aos grupos de segurança de rede configurados.
+
+- o 168.63.129.16 pode fornecer serviços DNS para a VM. Se isso não for desejado, o tráfego de saída para as portas 168.63.129.16 53/UDP e 53/TCP poderá ser bloqueado no firewall local na VM.
+
+  Por padrão, a comunicação DNS não está sujeita aos grupos de segurança de rede configurados, a menos que especificamente direcionado para a marca de serviço [AzurePlatformDNS](../virtual-network/service-tags-overview.md#available-service-tags) . Para bloquear o tráfego DNS para o DNS do Azure por meio do NSG, crie uma regra de saída para negar o tráfego para [AzurePlatformDNS](../virtual-network/service-tags-overview.md#available-service-tags)e especifique "*" como "intervalos de porta de destino" e "qualquer" como protocolo.
+
 - Quando a VM faz parte de um pool de back-end do balanceador de carga, a comunicação de [investigação de integridade](../load-balancer/load-balancer-custom-probe-overview.md) deve ter permissão para ser originada em 168.63.129.16. A configuração padrão do grupo de segurança de rede tem uma regra que permite essa comunicação. Essa regra aproveita a marca de serviço [AzureLoadBalancer](../virtual-network/service-tags-overview.md#available-service-tags) . Se desejar, esse tráfego pode ser bloqueado Configurando o grupo de segurança de rede, no entanto, isso resultará em investigações que falham.
-
-Em um cenário de rede não virtual (clássico), a investigação de integridade é originada de um IP privado e 168.63.129.16 não é usado.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Grupos de segurança](security-overview.md)
+- [Grupos de segurança](./network-security-groups-overview.md)
 - [Criar, alterar ou excluir um Grupo de Segurança de Rede](manage-network-security-group.md)

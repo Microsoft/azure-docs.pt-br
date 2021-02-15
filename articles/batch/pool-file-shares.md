@@ -3,12 +3,12 @@ title: Compartilhamento de arquivo do Azure para pools do Lote do Azure
 description: Como montar um compartilhamento de Arquivos do Azure de nós de computação em um pool de Linux ou Windows no Lote do Azure.
 ms.topic: how-to
 ms.date: 05/24/2018
-ms.openlocfilehash: 6bbaba20512a17de563e74ba095057c5c3f71f6b
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: e5682e7ba853973592c3a650a06ce72615cec7b6
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87986416"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735487"
 ---
 # <a name="use-an-azure-file-share-with-a-batch-pool"></a>Usar um compartilhamento de arquivos do Azure com um pool do Lote
 
@@ -20,7 +20,7 @@ Os [Arquivos do Azure](../storage/files/storage-files-introduction.md) oferecem 
 
 * Os compartilhamentos de arquivos do Azure são [econômicos](https://azure.microsoft.com/pricing/details/storage/files/) e podem ser configurados com replicação de dados para outra região, então são redundantes globalmente. 
 
-* Você pode montar um compartilhamento de arquivos do Azure simultaneamente em um computador local. No entanto, certifique-se de entender as [implicações de simultaneidade](../storage/common/storage-concurrency.md) especialmente ao usar APIs REST.
+* Você pode montar um compartilhamento de arquivos do Azure simultaneamente em um computador local. No entanto, certifique-se de entender as [implicações de simultaneidade](../storage/blobs/concurrency-manage.md) especialmente ao usar APIs REST.
 
 * Veja também as [considerações de planejamento](../storage/files/storage-files-planning.md) gerais para compartilhamentos de arquivos do Azure.
 

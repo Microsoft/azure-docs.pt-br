@@ -10,14 +10,14 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: pafarley
-ms.openlocfilehash: a9726e41a84926d00d48b51e31f534a3d8c2fe0c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 479c7c455f07d098edd327196803e85df24dfb6d
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "72757135"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905122"
 ---
-# <a name="create-human-reviews-rest"></a>Criar análises humanas (REST)
+# <a name="create-human-reviews-api-console"></a>Criar análises humanas (console de API)
 
 [Revisa](./review-api.md#reviews) o armazenamento e exibe o conteúdo de moderadores humanos para avaliar. Quando um usuário conclui uma revisão, os resultados são enviados para um ponto de extremidade de retorno de chamada especificado. Neste guia, você aprenderá a configurar as revisões usando as APIs REST de revisão por meio do console de API. Depois de entender a estrutura das APIs, você pode facilmente portar essas chamadas para qualquer plataforma compatível com REST.
 
@@ -33,7 +33,7 @@ Para criar uma revisão, vá para a página **[análise-criar](https://westus2.d
 
 ### <a name="enter-rest-call-parameters"></a>Inserir parâmetros de chamada REST
 
-Insira valores para **teamname**e **OCP-APIM-Subscription-Key**:
+Insira valores para **teamname** e **OCP-APIM-Subscription-Key**:
 
 - **teamname**: a ID da equipe que você criou quando configurou sua conta de [ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com/) (encontrada no campo **ID** na tela de credenciais da ferramenta de revisão).
 - **OCP-APIM-Subscription-Key**: sua chave de Content Moderator. Você pode encontrá-lo na guia **configurações** da [ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com).
@@ -129,13 +129,13 @@ O corpo da solicitação padrão mostra exemplos dos diferentes tipos de revisõ
 
 ### <a name="submit-your-request"></a>Enviar a solicitação
   
-Selecione **Enviar**. Se a operação for concluída com sucesso, o status `200 OK`da **resposta** será e a caixa **conteúdo da resposta** exibirá uma ID para a revisão. Copie esta ID para usar nas etapas a seguir.
+Selecione **Enviar**. Se a operação for concluída com sucesso, o **status da resposta** será `200 OK` e a caixa **conteúdo da resposta** exibirá uma ID para a revisão. Copie esta ID para usar nas etapas a seguir.
 
 ![Análise - Criar console Caixa de conteúdo de resposta exibe a ID de análise](images/test-drive-review-2.PNG)
 
 ### <a name="examine-the-new-review"></a>Examinar a nova revisão
 
-Na [ferramenta revisão](https://contentmoderator.cognitive.microsoft.com), selecione**vídeo** de**texto**/da**imagem**/de **revisão** > (dependendo de qual conteúdo você usou). O conteúdo que você carregou deve aparecer, pronto para revisão humana.
+Na [ferramenta revisão](https://contentmoderator.cognitive.microsoft.com), selecione vídeo de texto da imagem de **revisão**  >  **Image** / **Text** / **Video** (dependendo de qual conteúdo você usou). O conteúdo que você carregou deve aparecer, pronto para revisão humana.
 
 ![Imagem da ferramenta de análise de uma bola de futebol](images/test-drive-review-5.PNG)
 
@@ -149,7 +149,7 @@ Insira os parâmetros de chamada REST como na seção acima. Para esta etapa, **
 
 ![Análise - Criar console Obter resultados](images/test-drive-review-3.PNG)
   
-Selecione **Enviar**. Se a operação for concluída com sucesso, o status `200 OK`da **resposta** será e a caixa **conteúdo da resposta** exibirá os detalhes da revisão no formato JSON, como o seguinte:
+Selecione **Enviar**. Se a operação for concluída com sucesso, o **status da resposta** será `200 OK` e a caixa **conteúdo da resposta** exibirá os detalhes da revisão no formato JSON, como o seguinte:
 
 ```json
 {  

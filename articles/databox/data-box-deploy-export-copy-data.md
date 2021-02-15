@@ -6,17 +6,17 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 07/10/2020
+ms.date: 12/18/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 1d39b29ba340b34d6f0add8ff5da473408bd6360
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 495b4427fb7e456c60a489b9ce3d19c2a44bd918
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259123"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97680897"
 ---
-# <a name="tutorial-copy-data-from-azure-data-box-via-smb-preview"></a>Tutorial: Copiar dados do Azure Data Box por meio de SMB (Versão Prévia)
+# <a name="tutorial-copy-data-from-azure-data-box-via-smb"></a>Tutorial: Copiar dados do Azure Data Box por meio do SMB
 
 Este tutorial descreve como conectar-se e copiar dados do Data Box para um servidor local usando a IU da Web local. O dispositivo Data Box contém os dados exportados da sua conta de Armazenamento do Azure.
 
@@ -27,8 +27,6 @@ Neste tutorial, você aprenderá como:
 > * Pré-requisitos
 > * Conectar-se à caixa de dados
 > * Copiar dados do Data Box
-
-[!INCLUDE [Data Box feature is in preview](../../includes/data-box-feature-is-preview-info.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -50,11 +48,11 @@ Se estiver usando um computador host do Windows Server, siga estas etapas para c
 
 1. O primeiro passo é autenticar e iniciar uma sessão. Vá para **conectar e copiar**. Selecione **Obter credenciais** para obter as credenciais de acesso dos compartilhamentos associados à sua conta de armazenamento. 
 
-    ![Obter as credenciais de compartilhamento 1](media/data-box-deploy-export-copy-data/get-share-credentials-1.png)
+    ![Obter credenciais de compartilhamento](media/data-box-deploy-export-copy-data/get-share-credentials-1.png)
 
 2. No compartilhamento de acesso e caixa de diálogo de dados de cópia, copie o **nome de usuário** e o **senha** correspondente para o compartilhamento. Selecione **OK**.
     
-    ![Obter as credenciais de compartilhamento 2](media/data-box-deploy-export-copy-data/get-share-credentials-2.png)
+    ![Obter credenciais de compartilhamento, bem como acessar o compartilhamento e copiar dados](media/data-box-deploy-export-copy-data/get-share-credentials-2.png)
 
 3. Para acessar os compartilhamentos associados à sua conta de armazenamento (*exportbvtdataset2* no exemplo a seguir) no computador host, abra uma janela Comando. No prompt de comando, digite:
 
@@ -73,16 +71,16 @@ Se estiver usando um computador host do Windows Server, siga estas etapas para c
     The command completed successfully.
     ```
 
-4. Pressione Windows + R. Na janela **Executar**, especifique o `\\<device IP address>`. Selecione **OK** para abrir o Explorador de Arquivos.
+5. Pressione Windows + R. Na janela **Executar**, especifique o `\\<device IP address>`. Selecione **OK** para abrir o Explorador de Arquivos.
     
-    ![Conecte-se para compartilhar via File Explorer 2](media/data-box-deploy-export-copy-data/connect-shares-file-explorer-1.png)
+    ![Conectar-se para compartilhar por meio do Explorador de Arquivos e inserir o IP do dispositivo](media/data-box-deploy-export-copy-data/connect-shares-file-explorer-1.png)
 
     Agora você verá os compartilhamentos como pastas.
     
-    ![Conecte-se para compartilhar via File Explorer 2](media/data-box-deploy-export-copy-data/connect-shares-file-explorer-2.png)
+    ![Conectar-se para compartilhar por meio do Explorador de Arquivos e exibir compartilhamentos](media/data-box-deploy-export-copy-data/connect-shares-file-explorer-2.png)
 
     
-Se estiver usando um cliente Linux, use o seguinte comando para montar o compartilhamento SMB. O parâmetro "vers" abaixo é a versão do SMB compatível com seu host do Linux. Conecte a versão adequada no comando a seguir. Para versões do SMB compatíveis com o Data Box, consulte [Sistemas de arquivo compatíveis para clientes Linux](https://docs.microsoft.com/azure/databox/data-box-system-requirements#supported-file-systems-for-linux-clients) 
+Se estiver usando um cliente Linux, use o seguinte comando para montar o compartilhamento SMB. O parâmetro "vers" abaixo é a versão do SMB compatível com seu host do Linux. Conecte a versão adequada no comando a seguir. Para versões do SMB compatíveis com o Data Box, consulte [Sistemas de arquivo compatíveis para clientes Linux](./data-box-system-requirements.md#supported-file-transfer-protocols-for-clients) 
 
 ```console
 sudo mount -t nfs -o vers=2.1 169.254.143.85:/exportbvtdataset2_BlockBlob /home/databoxubuntuhost/databox
@@ -119,4 +117,3 @@ Avance para o próximo tutorial para saber como enviar o Data Box novamente à M
 
 > [!div class="nextstepaction"]
 > [Envie o Azure Data Box para a Microsoft](./data-box-deploy-export-picked-up.md)
-

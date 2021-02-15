@@ -9,18 +9,18 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: rohink
-ms.openlocfilehash: 19189af6424960b8e20be686af745b10f2d8578b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 41eb15a38c97532951723f12d1ac74c90c838eb1
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85846843"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968189"
 ---
 # <a name="overview-of-dns-zones-and-records"></a>Visão geral de zonas e registros DNS
 
 Esta página explica os principais conceitos de domínios, zonas DNS, conjuntos de registros e registros DNS, e como eles têm suporte no DNS do Azure.
 
-## <a name="domain-names"></a>Nomes de domínio
+## <a name="domain-names"></a>Nomes de domínios
 
 O Sistema de Nomes de Domínio é uma hierarquia de domínios. A hierarquia começa no domínio ' raiz ', cujo nome é simplesmente '**.**'.  Abaixo dele vêm domínios de nível superior, como 'com', 'net', 'org', 'uk' ou 'jp'.  Abaixo desses estão domínios de segundo nível, como 'org.uk' ou 'co.jp'. Os domínios na hierarquia de DNS são distribuídos globalmente, hospedados por servidores de nomes DNS em todo o mundo.
 
@@ -107,7 +107,7 @@ As várias cadeias de caracteres em um registro DNS não devem ser confundidas c
 
 ## <a name="tags-and-metadata"></a>Marcas e metadados
 
-### <a name="tags"></a>Marcas
+### <a name="tags"></a>Marcações
 
 As marcas consistem em uma lista de pares de nome/valor e são usadas pelo Azure Resource Manager na rotulagem de recursos.  O Azure Resource Manager usa marcas para habilitar exibições filtradas de sua fatura do Azure e também permite que você defina uma política sobre as marcas que são obrigatórias. Para obter mais informações sobre marcas, consulte [Usando marcas para organizar os recursos do Azure](../azure-resource-manager/management/tag-resources.md).
 
@@ -127,7 +127,7 @@ Por padrão, o PowerShell do DNS do Azure usa as Etags bloquear alterações sim
 
 No nível da API REST do DNS do Azure, as Etags são especificadas usando cabeçalhos HTTP.  Seu comportamento é descrito na tabela a seguir:
 
-| parâmetro | Comportamento |
+| Cabeçalho | Comportamento |
 | --- | --- |
 | Nenhum |PUT sempre terá êxito (nenhuma verificação de Etag) |
 | If-match \<etag> |PUT só terá êxito se o recurso existir e a Etag corresponder |
@@ -135,7 +135,7 @@ No nível da API REST do DNS do Azure, as Etags são especificadas usando cabeç
 | If-none-match * |PUT só terá êxito se não houver recursos |
 
 
-## <a name="limits"></a>limites
+## <a name="limits"></a>Limites
 
 Os limites padrão abaixo se aplicam ao usar o DNS do Azure:
 
@@ -143,5 +143,5 @@ Os limites padrão abaixo se aplicam ao usar o DNS do Azure:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para começar a usar o DNS do Azure, aprenda a [criar uma zona DNS](dns-getstarted-create-dnszone-portal.md) e a [criar registros DNS](dns-getstarted-create-recordset-portal.md).
+* Para começar a usar o DNS do Azure, aprenda a [criar uma zona DNS](./dns-getstarted-portal.md) e a [criar registros DNS](./dns-getstarted-portal.md).
 * Para migrar uma zona DNS existente, saiba como [importar e exportar um arquivo de zona DNS](dns-import-export.md).

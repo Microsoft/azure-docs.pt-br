@@ -1,30 +1,30 @@
 ---
-title: Linha de base de segurança do Azure para HDInsight
-description: Linha de base de segurança do Azure para HDInsight
+title: Linha de base de segurança do Azure para o HDInsight
+description: Linha de base de segurança do Azure para o HDInsight
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
-ms.openlocfilehash: bbc421baddf03068ac72907aaa88a71a81d208d0
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: 5174c3bf2150c4671f1034eba6e661a10c222aec
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86041312"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807675"
 ---
-# <a name="azure-security-baseline-for-hdinsight"></a>Linha de base de segurança do Azure para HDInsight
+# <a name="azure-security-baseline-for-hdinsight"></a>Linha de base de segurança do Azure para o HDInsight
 
 A linha de base de segurança do Azure para HDInsight contém recomendações que ajudarão você a melhorar a postura de segurança de sua implantação.
 
-A linha de base para esse serviço é extraída do [Azure Security Benchmark versão 1.0](https://docs.microsoft.com/azure/security/benchmarks/overview), que fornece recomendações sobre como proteger suas soluções de nuvem no Azure com nossas diretrizes de melhores práticas.
+A linha de base para esse serviço é extraída do [Azure Security Benchmark versão 1.0](../security/benchmarks/overview.md), que fornece recomendações sobre como proteger suas soluções de nuvem no Azure com nossas diretrizes de melhores práticas.
 
-Para obter mais informações, consulte [Visão geral sobre linhas de base de segurança do Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview).
+Para obter mais informações, consulte [Visão geral sobre linhas de base de segurança do Azure](../security/benchmarks/security-baselines-overview.md).
 
 ## <a name="network-security"></a>Segurança de rede
 
-*Para obter mais informações, consulte [Controle de segurança: Segurança de rede](https://docs.microsoft.com/azure/security/benchmarks/security-control-network-security).*
+*Para obter mais informações, consulte [Controle de segurança: Segurança de rede](../security/benchmarks/security-control-network-security.md).*
 
 ### <a name="11-protect-resources-using-network-security-groups-or-azure-firewall-on-your-virtual-network"></a>1.1: proteger recursos usando grupos de segurança de rede ou o Firewall do Azure em sua Rede Virtual
 
@@ -32,9 +32,9 @@ Para obter mais informações, consulte [Visão geral sobre linhas de base de se
 
 Para reduzir o risco de perda de dados por meio de vazamento, restrinja o tráfego de rede de saída para clusters do Azure HDInsight usando o Firewall do Azure.
 
-Como implantar o Azure HDInsight em uma rede virtual e proteger com um grupo de segurança de rede:https://docs.microsoft.com/azure/hdinsight/hdinsight-create-virtual-network
+Como implantar o Azure HDInsight em uma rede virtual e proteger com um grupo de segurança de rede: https://docs.microsoft.com/azure/hdinsight/hdinsight-create-virtual-network
 
-Como restringir o tráfego de saída para clusters do Azure HDInsight com o Firewall do Azure:https://docs.microsoft.com/azure/hdinsight/hdinsight-restrict-outbound-traffic
+Como restringir o tráfego de saída para clusters do Azure HDInsight com o Firewall do Azure: https://docs.microsoft.com/azure/hdinsight/hdinsight-restrict-outbound-traffic
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -108,11 +108,11 @@ Há várias dependências para o Azure HDInsight que exigem tráfego de entrada.
 
 Para reduzir o risco de perda de dados por meio de vazamento, restrinja o tráfego de rede de saída para clusters do Azure HDInsight usando o Firewall do Azure.
 
-Como implantar o HDInsight em uma rede virtual e proteger com um grupo de segurança de rede:https://docs.microsoft.com/azure/hdinsight/hdinsight-create-virtual-network
+Como implantar o HDInsight em uma rede virtual e proteger com um grupo de segurança de rede: https://docs.microsoft.com/azure/hdinsight/hdinsight-create-virtual-network
 
-Entenda as dependências do HDInsight e o uso do firewall:https://docs.microsoft.com/azure/hdinsight/hdinsight-restrict-outbound-traffic
+Entenda as dependências do HDInsight e o uso do firewall: https://docs.microsoft.com/azure/hdinsight/hdinsight-restrict-outbound-traffic
 
-Endereços IP de gerenciamento do HDInsight:https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses
+Endereços IP de gerenciamento do HDInsight: https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -142,13 +142,11 @@ https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags
 
 **Orientação**: definir e implementar configurações de segurança padrão para recursos de rede relacionados ao cluster do Azure HDInsight. Use aliases de Azure Policy nos namespaces "Microsoft. HDInsight" e "Microsoft. Network" para criar políticas personalizadas para auditar ou impor a configuração de rede do cluster do Azure HDInsight.
 
-Você também pode usar plantas do Azure para simplificar implantações do Azure de grande escala ao empacotar artefatos de ambiente-chave, como modelos de Azure Resource Manager, controles RBAC e políticas, em uma única definição de Blueprint. Aplique facilmente o blueprint a novas assinaturas e ambientes e ajuste o controle e o gerenciamento por meio do controle de versão.
+Você também pode usar plantas do Azure para simplificar implantações do Azure de grande escala ao empacotar artefatos de ambiente-chave, como modelos de Azure Resource Manager, controles RBAC do Azure e políticas, em uma única definição de Blueprint. Aplique facilmente o blueprint a novas assinaturas e ambientes e ajuste o controle e o gerenciamento por meio do controle de versão.
 
 Como exibir os aliases do Azure Policy disponíveis: 
 
-https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
-
-Como configurar e gerenciar o Azure Policy: 
+https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias Como configurar e gerenciar Azure Policy:
 
 https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -200,7 +198,7 @@ como criar alertas no Azure Monitor: https://docs.microsoft.com/azure/azure-moni
 
 ## <a name="logging-and-monitoring"></a>Registro em log e monitoramento
 
-*Para obter mais informações, consulte [Controle de segurança: registro em log e monitoramento](https://docs.microsoft.com/azure/security/benchmarks/security-control-logging-monitoring).*
+*Para obter mais informações, consulte [Controle de segurança: registro em log e monitoramento](../security/benchmarks/security-control-logging-monitoring.md).*
 
 ### <a name="21-use-approved-time-synchronization-sources"></a>2.1: usar fontes de sincronização de tempo aprovadas
 
@@ -336,7 +334,7 @@ https://docs.microsoft.com/azure/hdinsight/hdinsight-faq#security-and-certificat
 
 ## <a name="identity-and-access-control"></a>Identidade e controle de acesso
 
-*Para obter mais informações, consulte [Controle de segurança: Identidade e controle de acesso](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control).*
+*Para obter mais informações, consulte [Controle de segurança: Identidade e controle de acesso](../security/benchmarks/security-control-identity-access-control.md).*
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: manter um inventário de contas administrativas
 
@@ -346,11 +344,11 @@ Além disso, você pode usar as recomendações de gerenciamento de acesso e ide
 
 Como obter uma função de diretório no Azure AD com o PowerShell:
 
-https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0
+https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole
 
 Como obter membros de uma função de diretório no Azure AD com o PowerShell:
 
-https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0
+https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember
 
 Como monitorar a identidade e o acesso à central de segurança do Azure:
 
@@ -406,7 +404,7 @@ https://docs.microsoft.com/azure/hdinsight/domain-joined/identity-broker#enable-
 
 **Diretrizes**: Habilite a MFA do Azure AD e siga as recomendações de gerenciamento de acesso e identidade da Central de Segurança do Azure. Os clusters do Azure HDInsight com o Enterprise Security Package configurado podem ser conectados a um domínio para que os usuários de domínio possam usar suas credenciais de domínio para autenticar com os clusters e executar trabalhos de Big Data. Ao autenticar com a MFA (autenticação multifator) habilitada, os usuários serão desafiados a fornecer um segundo fator de autenticação.
 
-Como habilitar a MFA no Azure: 
+Como habilitar a MFA no Azure:
 
 https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
 
@@ -424,9 +422,9 @@ https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
 Saiba mais sobre estações de trabalho com acesso privilegiado: 
 
-https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations
+https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/
 
-Como habilitar a MFA no Azure: 
+Como habilitar a MFA no Azure:
 
 https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
 
@@ -536,7 +534,7 @@ Lista de serviços suportados do Sistema de Proteção de Dados do Cliente: http
 
 ## <a name="data-protection"></a>Proteção de dados
 
-*Para obter mais informações, consulte [Controle de segurança: proteção de dados](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-protection).*
+*Para obter mais informações, consulte [Controle de segurança: proteção de dados](../security/benchmarks/security-control-data-protection.md).*
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1: manter um inventário de informações confidenciais
 
@@ -694,7 +692,7 @@ https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-diagnos
 
 ## <a name="vulnerability-management"></a>Gerenciamento de vulnerabilidades
 
-*Para obter mais informações, consulte [Controle de segurança: gerenciamento de vulnerabilidades](https://docs.microsoft.com/azure/security/benchmarks/security-control-vulnerability-management).*
+*Para obter mais informações, consulte [Controle de segurança: gerenciamento de vulnerabilidades](../security/benchmarks/security-control-vulnerability-management.md).*
 
 ### <a name="51-run-automated-vulnerability-scanning-tools"></a>5.1: Executar ferramentas automatizadas de verificação de vulnerabilidade
 
@@ -766,7 +764,7 @@ https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-li
 
 ## <a name="inventory-and-asset-management"></a>Inventário e gerenciamento de ativos
 
-*Para obter mais informações, consulte [Controle de segurança: inventário e gerenciamento de ativos](https://docs.microsoft.com/azure/security/benchmarks/security-control-inventory-asset-management).*
+*Para obter mais informações, consulte [Controle de segurança: inventário e gerenciamento de ativos](../security/benchmarks/security-control-inventory-asset-management.md).*
 
 ### <a name="61-use-azure-asset-discovery"></a>6.1: usar a descoberta de ativos do Azure
 
@@ -780,7 +778,7 @@ https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 Como exibir suas assinaturas do Azure: 
 
-https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
+https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription
 
 Entenda o RBAC do Azure: 
 
@@ -934,7 +932,7 @@ Como configurar o acesso condicional para bloquear o acesso ao Azure Resource Ma
 
 ## <a name="secure-configuration"></a>Configuração segura
 
-*Para obter mais informações, consulte [Controle de segurança: configuração segura](https://docs.microsoft.com/azure/security/benchmarks/security-control-secure-configuration).*
+*Para obter mais informações, consulte [Controle de segurança: configuração segura](../security/benchmarks/security-control-secure-configuration.md).*
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7.1: estabelecer configurações seguras para todos os recursos do Azure
 
@@ -942,9 +940,9 @@ Como configurar o acesso condicional para bloquear o acesso ao Azure Resource Ma
 
 Como exibir os aliases do Azure Policy disponíveis: 
 
-https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
+https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias
 
-Como configurar e gerenciar o Azure Policy: 
+Como configurar e gerenciar Azure Policy:
 
 https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -965,7 +963,7 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 **Diretrizes**: Use Azure Policy [Deny] e [implantar se não existir] para impor configurações seguras para seus clusters do Azure HDInsight e recursos relacionados.
 
-Como configurar e gerenciar o Azure Policy: 
+Como configurar e gerenciar Azure Policy:
 
 https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -990,13 +988,9 @@ https://docs.microsoft.com/azure/governance/policy/concepts/effects
 
 **Orientação**: se estiver usando definições de Azure Policy personalizadas, use o Azure DevOps ou Azure Repos para armazenar e gerenciar seu código com segurança.
 
-Como armazenar código no Azure DevOps: 
+[Como armazenar código no Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops&preserve-view=true)
 
-https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
-
-Documentação do Azure Repos:
-
-https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
+[Documentação do Azure Repos](/azure/devops/repos/index?view=azure-devops&preserve-view=true)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -1034,13 +1028,9 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 **Orientação**: use aliases de Azure Policy no namespace "Microsoft. HDInsight" para criar políticas personalizadas para auditar ou impor a configuração do cluster HDInsight.
 
-Como exibir os aliases do Azure Policy disponíveis: 
+[Como exibir os aliases de Azure Policy disponíveis](/powershell/module/az.resources/get-azpolicyalias)
 
-https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
-
-Como configurar e gerenciar o Azure Policy: 
-
-https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+[Como configurar e gerenciar o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -1100,7 +1090,7 @@ https://secdevtools.azurewebsites.net/helpcredscan.html
 
 ## <a name="malware-defense"></a>Defesa contra malwares
 
-*Para obter mais informações, consulte [Controle de segurança: defesa contra malwares](https://docs.microsoft.com/azure/security/benchmarks/security-control-malware-defense).*
+*Para obter mais informações, consulte [Controle de segurança: defesa contra malwares](../security/benchmarks/security-control-malware-defense.md).*
 
 ### <a name="81-use-centrally-managed-anti-malware-software"></a>8.1: usar software antimalware gerenciado centralmente
 
@@ -1142,7 +1132,7 @@ https://docs.microsoft.com/azure/hdinsight/hdinsight-faq#security-and-certificat
 
 ## <a name="data-recovery"></a>Recuperação de dados
 
-*Para obter mais informações, consulte [Controle de segurança: recuperação de dados](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-recovery).*
+*Para obter mais informações, consulte [Controle de segurança: recuperação de dados](../security/benchmarks/security-control-data-recovery.md).*
 
 ### <a name="91-ensure-regular-automated-back-ups"></a>9.1: garantir backups automatizados regulares
 
@@ -1174,7 +1164,7 @@ https://docs.microsoft.com/azure/storage/common/storage-redundancy
 
 Como fazer backup de chaves de Key Vault no Azure:
 
-https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0
+https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -1190,7 +1180,7 @@ https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-byok
 
 Como restaurar chaves do Key Vault no Azure:
 
-https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0
+https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -1198,9 +1188,9 @@ https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyva
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9.4: garantir a proteção de backups e chaves gerenciadas pelo cliente
 
-**Orientação**: se Azure Key Vault estiver sendo usada com sua implantação do Azure HDInsight, habilite a exclusão reversível em Key Vault para proteger as chaves contra exclusão acidental ou mal-intencionada.
+**Diretrizes**: se Azure Key Vault estiver sendo usada com sua implantação do Azure HDInsight, habilite Soft-Delete no Key Vault para proteger as chaves contra exclusão acidental ou mal-intencionada.
 
-Como habilitar a exclusão reversível no Azure Key Vault:
+Como habilitar Soft-Delete no Azure Key Vault:
 
 https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal
 
@@ -1210,7 +1200,7 @@ https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azu
 
 ## <a name="incident-response"></a>Resposta a incidentes
 
-*Para obter mais informações, consulte [Controle de segurança: resposta a incidentes](https://docs.microsoft.com/azure/security/benchmarks/security-control-incident-response).*
+*Para obter mais informações, consulte [Controle de segurança: resposta a incidentes](../security/benchmarks/security-control-incident-response.md).*
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1: criar um guia de resposta a incidentes
 
@@ -1234,7 +1224,7 @@ https://docs.microsoft.com/azure/security-center/security-center-planning-and-op
 
 ### <a name="103-test-security-response-procedures"></a>10.3: testar procedimentos de resposta de segurança
 
-**Diretriz**: conduza exercícios para testar os recursos de resposta a incidentes de seus sistemas em uma cadência regular. Identificar pontos fracos e lacunas e revisar o plano conforme necessário. Consulte a publicação do NIST: guia para testar, treinar e preparar programas para planos de ti e recursos:https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf
+**Orientação**: conduza exercícios para testar os recursos de resposta a incidentes de seus sistemas em uma cadência regular. Identificar pontos fracos e lacunas e revisar o plano conforme necessário. Consulte a publicação do NIST: guia para testar, treinar e preparar programas para planos de ti e recursos:https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -1244,7 +1234,7 @@ https://docs.microsoft.com/azure/security-center/security-center-planning-and-op
 
 **Diretriz**: As informações de contato do incidente serão usadas pela Microsoft para contatá-lo se o MSRC (Microsoft Security Response Center) descobrir que seus dados foram acessados por uma pessoa não autorizada ou ilegal.
 
-Como definir o contato de segurança da Central de Segurança do Azure: 
+Como definir o contato da segurança da central de segurança do Azure:
 
 https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details
 
@@ -1254,13 +1244,13 @@ https://docs.microsoft.com/azure/security-center/security-center-provide-securit
 
 ### <a name="105-incorporate-security-alerts-into-your-incident-response-system"></a>10.5: incorporar alertas de segurança em seu sistema de resposta a incidentes
 
-**Diretriz**: exporte os alertas e recomendações da Central de Segurança do Azure usando o recurso de exportação contínua. A exportação contínua permite exportar alertas e recomendações de forma manual ou contínua. Você pode usar o conector de dados da Central de Segurança do Azure para transmitir os alertas do Sentinel.
+**Diretriz**: exporte os alertas e recomendações da Central de Segurança do Azure usando o recurso de exportação contínua. A exportação contínua permite exportar alertas e recomendações de forma manual ou contínua. Você pode usar o conector de dados da Central de Segurança do Azure para transmitir os alertas do Azure Sentinel.
 
-Como configurar a exportação contínua: 
+Como configurar a exportação contínua:
 
 https://docs.microsoft.com/azure/security-center/continuous-export
 
-Como transmitir alertas para o Azure Sentinel: 
+Como transmitir alertas para o Azure Sentinel:
 
 https://docs.microsoft.com/azure/sentinel/connect-azure-security-center
 
@@ -1282,7 +1272,7 @@ https://docs.microsoft.com/azure/security-center/workflow-automation
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>Testes de penetração e exercícios de Red Team
 
-*Para obter mais informações, consulte [Controle de segurança: testes de penetração e exercícios de Red Team](https://docs.microsoft.com/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
+*Para obter mais informações, consulte [Controle de segurança: testes de penetração e exercícios de Red Team](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings-within-60-days"></a>11.1: realizar testes de penetração regulares de seus recursos do Azure e garanta a correção de todas as constatações de segurança críticas em 60 dias
 
@@ -1290,7 +1280,7 @@ https://docs.microsoft.com/azure/security-center/workflow-automation
 
 https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1.
 
-Você pode encontrar mais informações sobre a estratégia e a execução da Microsoft de equipes vermelhas e testes de penetração de sites ativos em infraestrutura, serviços e aplicativos da nuvem gerenciada da Microsoft, aqui:https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
+Você pode encontrar mais informações sobre a estratégia e a execução da Microsoft de equipes vermelhas e testes de penetração de sites ativos em infraestrutura, serviços e aplicativos da nuvem gerenciada da Microsoft, aqui: https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -1298,5 +1288,5 @@ Você pode encontrar mais informações sobre a estratégia e a execução da Mi
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Consulte o [Parâmetro de segurança do Azure](https://docs.microsoft.com/azure/security/benchmarks/overview)
-- Saiba mais sobre as [Linhas de base de segurança do Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)
+- Consulte o [Parâmetro de segurança do Azure](../security/benchmarks/overview.md)
+- Saiba mais sobre as [Linhas de base de segurança do Azure](../security/benchmarks/security-baselines-overview.md)

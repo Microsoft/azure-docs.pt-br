@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 06/15/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 6b50bffd1a44c0cf53f15650f5ff4d938f45df4d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 047c8afbfe7b489e5c3ac0ccb677f6fc021443a8
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84907881"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632632"
 ---
 # <a name="azure-vm-is-unresponsive-while-applying-security-policy-to-the-system"></a>A VM do Azure não está respondendo ao aplicar a política de segurança ao sistema
 
@@ -42,6 +42,9 @@ Há uma infinidade de possíveis causas desse problema. Você não poderá saber
 ## <a name="resolution"></a>Resolução
 
 ### <a name="process-overview"></a>Visão geral do processo
+
+> [!TIP]
+> Se você tiver um backup recente da VM, poderá tentar [restaurar a VM do backup](../../backup/backup-azure-arm-restore-vms.md) para corrigir o problema de inicialização.
 
 1. [Criar e acessar uma VM de reparo](#create-and-access-a-repair-vm)
 2. [Habilitar o console serial e a coleção de despejo de memória](#enable-serial-console-and-memory-dump-collection)

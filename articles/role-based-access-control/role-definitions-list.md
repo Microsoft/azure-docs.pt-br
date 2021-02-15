@@ -14,18 +14,18 @@ ms.workload: identity
 ms.date: 06/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 9819b90ba390e8601cc33a17338ce9b16bf3b3cc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9dad8ffc9971894a2777e8bda9bcf6d78eee00a9
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84982485"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97369269"
 ---
 # <a name="list-azure-role-definitions"></a>Listar definições de função do Azure
 
 Uma definição de função é uma coleção de permissões que podem ser executadas, como leitura, gravação e exclusão. Normalmente ela é chamada apenas de função. O Azure [RBAC (controle de acesso baseado em função)](overview.md) tem mais de 120 [funções internas](built-in-roles.md) ou você pode criar suas próprias funções personalizadas. Este artigo descreve como listar as funções internas e personalizadas que você pode usar para conceder acesso aos recursos do Azure.
 
-Para ver a lista de funções de administrador para Azure Active Directory, consulte [permissões de função de administrador no Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
+Para ver a lista de funções de administrador para Azure Active Directory, consulte [permissões de função de administrador no Azure Active Directory](../active-directory/roles/permissions-reference.md).
 
 ## <a name="azure-portal"></a>Portal do Azure
 
@@ -275,7 +275,7 @@ az role definition list --name "Contributor"
 
 ### <a name="list-permissions-of-a-role-definition"></a>Listar permissões de uma definição de função
 
-O exemplo a seguir lista apenas *actions* as ações *e as não ações da* função *colaborador* .
+O exemplo a seguir lista apenas  as ações *e as não ações da* função *colaborador* .
 
 ```azurecli
 az role definition list --name "Contributor" --output json --query '[].{actions:permissions[0].actions, notActions:permissions[0].notActions}'
@@ -351,7 +351,7 @@ Para listar definições de função, use as [definições de função-lista](/r
     > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Resource group |
     > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1` | Recurso |
 
-    No exemplo anterior, Microsoft. Web é um provedor de recursos que se refere a uma instância do serviço de aplicativo. Da mesma forma, você pode usar qualquer outro provedor de recursos e especificar o escopo. Para obter mais informações, consulte [provedores de recursos do Azure e tipos](../azure-resource-manager/management/resource-providers-and-types.md) e [operações de provedor de recursos Azure Resource Manager](resource-provider-operations.md)com suporte.  
+    No exemplo anterior, Microsoft. Web é um provedor de recursos que se refere a uma instância do serviço de aplicativo. Da mesma forma, você pode usar qualquer outro provedor de recursos e especificar o escopo. Para obter mais informações, consulte [provedores de recursos do Azure e tipos](../azure-resource-manager/management/resource-providers-and-types.md) e [operações do provedor de recursos do Azure](resource-provider-operations.md)com suporte.  
      
 1. Substitua *{Filter}* pela condição que você deseja aplicar para filtrar a lista de definições de função.
 

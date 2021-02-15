@@ -1,5 +1,5 @@
 ---
-title: Como gerar miniaturas usando o codificador dos serviços de mídia do Azure Standard com .NET
+title: Gerar miniaturas usando o Media Encoder Standard .NET
 description: Este artigo mostra como usar o .NET para codificar um ativo e gerar miniaturas ao mesmo tempo usando Media Encoder Standard.
 services: media-services
 documentationcenter: ''
@@ -11,19 +11,21 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 08/10/2020
+ms.date: 12/01/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 89b640e1a23123fcac335ee0bf02ef078227e633
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 551574685ec9a2f9eb1ef569fbec7c9a104353ff
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89016802"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955861"
 ---
 # <a name="how-to-generate-thumbnails-using-encoder-standard-with-net"></a>Como gerar miniaturas usando o codificador padrão com .NET
 
-Você pode usar o Media Encoder Standard para gerar uma ou mais miniaturas de sua entrada de vídeo nos formatos de arquivo de imagem [JPEG](https://en.wikipedia.org/wiki/JPEG), [PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics) ou [BMP](https://en.wikipedia.org/wiki/BMP_file_format).
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
+
+Você pode usar Media Encoder Standard para gerar uma ou mais miniaturas do vídeo de entrada em formatos de arquivo de imagem [JPEG](https://en.wikipedia.org/wiki/JPEG) ou [png](https://en.wikipedia.org/wiki/Portable_Network_Graphics) .
 
 ## <a name="recommended-reading-and-practice"></a>Leitura e prática recomendadas
 

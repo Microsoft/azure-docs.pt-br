@@ -7,12 +7,12 @@ keywords: azure automation, DSC, powershell, state configuration, update managem
 ms.date: 10/18/2018
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: d10570efe49203f879cdceae776af5c3bc6991c0
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: e3986b7e8fc70f8662bed40b076897caa6165744
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448064"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182811"
 ---
 # <a name="an-introduction-to-azure-automation"></a>Uma introdução à Automação do Azure
 
@@ -35,7 +35,7 @@ O Gerenciamento de Configuração na Automação do Azure permite o acesso a doi
 
 ### <a name="change-tracking-and-inventory"></a>Controle de Alterações e Inventário
 
-O Controle de Alterações e Inventário combinam as funções de controle de alterações e inventário para permitir que você rastreie as alterações de infraestrutura de máquina virtual e de servidor. O serviço dá suporte ao controle de alterações entre serviços, daemons, software, Registro e arquivos em seu ambiente para ajudar a diagnosticar alterações indesejadas e a gerar alertas. O suporte a inventário permite consultar recursos no convidado para obter visibilidade sobre aplicativos instalados e outros itens de configuração. Para obter detalhes desse recurso, consulte [Controle de Alterações e Inventário](change-tracking.md).
+O Controle de Alterações e Inventário combinam as funções de controle de alterações e inventário para permitir que você rastreie as alterações de infraestrutura de máquina virtual e de servidor. O serviço dá suporte ao controle de alterações entre serviços, daemons, software, Registro e arquivos em seu ambiente para ajudar a diagnosticar alterações indesejadas e a gerar alertas. O suporte a inventário permite consultar recursos no convidado para obter visibilidade sobre aplicativos instalados e outros itens de configuração. Para obter detalhes desse recurso, consulte [Controle de Alterações e Inventário](change-tracking/overview.md).
 
 ### <a name="azure-automation-state-configuration"></a>State Configuration da Automação do Azure
 
@@ -43,7 +43,7 @@ O [State Configuration da Automação do Azure](automation-dsc-overview.md) é u
 
 ## <a name="update-management"></a>Gerenciamento de atualizações
 
-A Automação do Azure inclui o recurso de [Gerenciamento de Atualizações](update-management/update-mgmt-overview.md) para sistemas Windows e Linux em ambientes híbridos. O Gerenciamento de Atualizações oferece visibilidade sobre a conformidade de atualizações no Azure, em outras nuvens e localmente. O recurso permite criar implantações agendadas que orquestram a instalação de atualizações em uma janela de manutenção definida. Se uma atualização não deve ser instalada em um computador, você pode usar a funcionalidade Gerenciamento de Atualizações para excluí-la de uma implantação.
+A Automação do Azure inclui o recurso de [Gerenciamento de Atualizações](./update-management/overview.md) para sistemas Windows e Linux em ambientes híbridos. O Gerenciamento de Atualizações oferece visibilidade sobre a conformidade de atualizações no Azure, em outras nuvens e localmente. O recurso permite criar implantações agendadas que orquestram a instalação de atualizações em uma janela de manutenção definida. Se uma atualização não deve ser instalada em um computador, você pode usar a funcionalidade Gerenciamento de Atualizações para excluí-la de uma implantação.
 
 ## <a name="shared-capabilities"></a>Funcionalidades compartilhadas
 
@@ -64,7 +64,7 @@ A Automação do Azure é composta por um conjunto de recursos compartilhados qu
 
 ### <a name="role-based-access-control"></a>Controle de acesso baseado em função
 
-A Automação do Azure dá suporte ao RBAC (controle de acesso baseado em função) para regular o acesso à conta de Automação e aos recursos dela. Para saber mais sobre como configurar o RBAC na conta, nos runbooks e nos trabalhos de Automação, confira [Controle de acesso baseado em função para a Automação do Azure](automation-role-based-access-control.md).
+A Automação do Azure dá suporte ao RBAC do Azure (controle de acesso baseado em função do Azure) para regular o acesso à conta de Automação e aos recursos dela. Para saber mais sobre como configurar o RBAC do Azure na conta, nos runbooks e nos trabalhos de Automação, confira [Controle de acesso baseado em função para a Automação do Azure](automation-role-based-access-control.md).
 
 ### <a name="source-control-integration"></a>Integração de controle do código-fonte
 
@@ -86,7 +86,7 @@ A Automação do Azure dá suporte ao gerenciamento durante todo o ciclo de vida
 * **Localizar alterações** – identifique alterações que podem causar erros de configuração e aprimore a conformidade operacional.
 * **Monitorar** – isole alterações no computador que estão causando problemas e corrija-as ou escalone-as para sistemas de gerenciamento.
 * **Proteger** – coloque computadores em quarentena se forem gerados alertas de segurança. Defina requisitos no convidado.
-* **Administrar** – configure o RBAC para equipes. Recupere recursos não utilizados.
+* **Administrar** – Configure o RBAC do Azure para equipes. Recupere recursos não utilizados.
 
 [!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]
 

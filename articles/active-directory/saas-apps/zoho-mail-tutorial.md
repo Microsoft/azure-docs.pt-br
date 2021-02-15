@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 00b9df3ad5e4d2104051e5489138785b4ecde8e0
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 89c703f6bb956409c97c36c6507519f4e884fcf2
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88546110"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92892631"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zoho"></a>Tutorial: Integração do Azure Active Directory com Zoho
 
@@ -27,7 +27,7 @@ A integração do Zoho com o Azure AD fornece os seguintes benefícios:
 * Você pode permitir que os usuários sejam conectados automaticamente ao Zoho (Logon Único) com suas contas do Azure AD.
 * Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](../manage-apps/what-is-single-sign-on.md).
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Prerequisites
@@ -61,7 +61,7 @@ Para configurar a integração do Zoho com o Azure AD, você precisará adiciona
 
     ![O botão Novo aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, digite **Zoho**, selecione **Zoho** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa, digite **Zoho** , selecione **Zoho** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
      ![Zoho na lista de resultados](common/search-new-app.png)
 
@@ -85,32 +85,32 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure.
 
 Para configurar o logon único do Azure AD com o Zoho, execute as seguintes etapas:
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Zoho**, selecione **Logon único**.
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Zoho** , selecione **Logon único**.
 
     ![Link Configurar logon único](common/select-sso.png)
 
-2. Na caixa de diálogo **Selecionar um método de logon único**, selecione o modo **SAML/WS-Fed** para habilitar o logon único.
+2. Na caixa de diálogo **Selecionar um método de logon único** , selecione o modo **SAML/WS-Fed** para habilitar o logon único.
 
     ![Modo de seleção de logon único](common/select-saml-option.png)
 
-3. Na página **Definir logon único com SAML**, clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML**.
+3. Na página **Definir logon único com SAML** , clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML**.
 
     ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-4. Na seção **Configuração básica de SAML**, realize as seguintes etapas:
+4. Na seção **Configuração básica de SAML** , realize as seguintes etapas:
 
     ![Informações de logon único em Domínio e URLs do Zoho](common/sp-signonurl.png)
 
-    Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://<company name>.zohomail.com`
+    Na caixa de texto **URL de logon** , digite um URL usando o seguinte padrão: `https://<company name>.zohomail.com`
 
     > [!NOTE]
     > O valor não é real. Atualize o valor com a URL de Logon real. Contate a [equipe de suporte ao Cliente do Zoho](https://www.zoho.com/mail/contact.html) para obter o valor. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
-4. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Fazer o download** para fazer o download do **Certificado (Base64)** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
+4. Na página **Configurar logon único com SAML** , na seção **Certificado de Autenticação SAML** , clique em **Fazer o download** para fazer o download do **Certificado (Base64)** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
     ![O link de download do Certificado](common/certificatebase64.png)
 
-6. Na seção **Configurar o Zoho**, copie as URLs apropriadas de acordo com suas necessidades.
+6. Na seção **Configurar o Zoho** , copie as URLs apropriadas de acordo com suas necessidades.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
@@ -136,15 +136,15 @@ Para configurar o logon único do Azure AD com o Zoho, execute as seguintes etap
    
     ![Detalhes da Autenticação SAML](./media/zoho-mail-tutorial/ic789609.png "Detalhes da Autenticação SAML")
    
-    a. Na caixa de texto **URL de Logon**, cole a **URL de Logon** copiada no portal do Azure.
+    a. Na caixa de texto **URL de Logon** , cole a **URL de Logon** copiada no portal do Azure.
    
-    b. Na caixa de texto **URL de Logoff**, cole a **URL de Logoff** copiada no portal do Azure.
+    b. Na caixa de texto **URL de Logoff** , cole a **URL de Logoff** copiada no portal do Azure.
    
-    c. Na caixa de texto **Alterar URL de Senha**, cole **Alterar URL da Senha** copiada do portal do Azure.
+    c. Na caixa de texto **Alterar URL de Senha** , cole **Alterar URL da Senha** copiada do portal do Azure.
        
     d. Abra o certificado codificado em BASE-64 baixado no portal do Azure no bloco de notas, copie o conteúdo dele para a área de transferência e, depois, cole-o na caixa de texto **PublicKey**.
    
-    e. Para **Algoritmo**, selecione **RSA**.
+    e. Para **Algoritmo** , selecione **RSA**.
    
     f. Clique em **OK**.
 
@@ -152,7 +152,7 @@ Para configurar o logon único do Azure AD com o Zoho, execute as seguintes etap
 
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
-1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, **Todos os usuários**.
+1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory** , selecione **Usuários** e, em seguida, **Todos os usuários**.
 
     ![Os links “Usuários e grupos” e “Todos os usuários”](common/users.png)
 
@@ -164,9 +164,9 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
-    a. No campo **Nome**, insira **BrendaFernandes**.
+    a. No campo **Nome** , insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário**, digite **brendafernandes\@dominiodaempresa.extensao**  
+    b. No campo **Nome de usuário** , digite **brendafernandes\@dominiodaempresa.extensao**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
@@ -177,7 +177,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
 Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure concedendo-lhe acesso ao Zoho.
 
-1. No portal do Azure, selecione **Aplicativos Empresariais**, **Todos os aplicativos** e, em seguida, **Zoho**.
+1. No portal do Azure, selecione **Aplicativos Empresariais** , **Todos os aplicativos** e, em seguida, **Zoho**.
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
@@ -193,11 +193,11 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
     ![O painel Adicionar Atribuição](common/add-assign-user.png)
 
-5. Na caixa de diálogo **Usuários e grupos**, escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+5. Na caixa de diálogo **Usuários e grupos** , escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
 
-6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função**, escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
+6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função** , escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
 
-7. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
+7. Na caixa de diálogo **Adicionar atribuição** , clique no botão **Atribuir**.
 
 ### <a name="create-zoho-test-user"></a>Criar um usuário de teste do Zoho
 
@@ -214,17 +214,17 @@ Para permitir que os usuários do AD do Azure façam logon no Zoho Mail, eles de
 
 1. Vá para **Detalhes do Usuário \> Adicionar Usuário**.
    
-    ![Adicionar Usuário](./media/zoho-mail-tutorial/ic789611.png "Adicionar usuário")
+    ![A captura de tela mostra o site do Zoho Mail com as opções Detalhes do Usuário e Adicionar Usuário selecionadas.](./media/zoho-mail-tutorial/ic789611.png "Adicionar usuário")
 
 1. No diálogo **Adicionar usuários** , realize as seguintes etapas:
    
-    ![Adicionar Usuário](./media/zoho-mail-tutorial/ic789612.png "Adicionar usuário")
+    ![Captura de tela que mostra a caixa de diálogo Adicionar usuários, na qual você pode inserir os valores descritos.](./media/zoho-mail-tutorial/ic789612.png "Adicionar usuário")
    
-    a. Na caixa de texto **Nome**, digite o Nome do usuário, como **Brenda**.
+    a. Na caixa de texto **Nome** , digite o Nome do usuário, como **Brenda**.
 
-    b. Na caixa de texto **Sobrenome**, digite o Sobrenome do usuário, como **Fernandes**.
+    b. Na caixa de texto **Sobrenome** , digite o Sobrenome do usuário, como **Fernandes**.
 
-    c. Na caixa de texto **ID do Email**, digite a ID do email do usuário como **brendafernandes\@contoso.com**.
+    c. Na caixa de texto **ID do Email** , digite a ID do email do usuário como **brendafernandes\@contoso.com**.
 
     d. Na caixa de texto **Senha** digite a senha do usuário.
    
@@ -237,13 +237,12 @@ Para permitir que os usuários do AD do Azure façam logon no Zoho Mail, eles de
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Ao clicar no bloco do Zoho no Painel de Acesso, você deverá ser conectado automaticamente ao Zoho, para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao clicar no bloco do Zoho no Painel de Acesso, você deverá ser conectado automaticamente ao Zoho, para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](./tutorial-list.md)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)

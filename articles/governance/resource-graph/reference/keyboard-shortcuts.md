@@ -1,15 +1,15 @@
 ---
 title: Atalhos de teclado no portal do Azure para o Gerenciador de gráficos de recursos do Azure
 description: O Gerenciador de grafo de recursos do Azure no portal do Azure dá suporte a atalhos de teclado para ajudá-lo a executar ações e navegar.
-ms.date: 08/25/2020
+ms.date: 01/27/2021
 ms.topic: reference
 ms.custom: accessibility
-ms.openlocfilehash: f5995498f2b95828a7c03dbcd5669491e62de2e7
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 70777db630a654dc61aad697561583a02c0ccc25
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88848726"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919084"
 ---
 # <a name="keyboard-shortcuts-for-azure-resource-graph-explorer"></a>Atalhos de teclado para o Gerenciador de gráficos de recursos do Azure
 
@@ -19,14 +19,13 @@ Este artigo lista os atalhos de teclado que funcionam na página do Gerenciador 
 
 | Ação | Atalho do Windows | Atalho do Mac |
 |---|---|---|
-|Inserir/remover comentário |<kbd>TECLAS</kbd>+<kbd>/</kbd> | <kbd>Cmd</kbd>+<kbd>/</kbd> |
+|Inserir/remover comentário |<kbd>CTRL</kbd>+<kbd>/</kbd> | <kbd>Cmd</kbd>+<kbd>/</kbd> |
 |Diminuir recuo |<kbd>Ctrl</kbd> + <kbd>[</kbd> |<kbd>Cmd</kbd> + <kbd>[</kbd> |
-|Aumentar recuo |<kbd>Ctrl</kbd> + <kbd>]</kbd> |<kbd>Cmd</kbd> + <kbd>]</kbd> |
-|Selecionar tudo |<kbd>Ctrl</kbd> + <kbd>Um</kbd> |<kbd>Cmd</kbd> + <kbd>Um</kbd> |
+|Aumentar recuo |<kbd>CTRL</kbd>+<kbd>]</kbd> |<kbd>Cmd</kbd> + <kbd>]</kbd> |
 |Mover a linha para baixo |<kbd>ALT</kbd> + <kbd>↓</kbd> |<kbd>Opção</kbd> + <kbd>↓</kbd> |
 |Mover a linha para cima |<kbd>ALT</kbd> + <kbd>↑</kbd> |<kbd>Opção</kbd> + <kbd>↑</kbd> |
-|Substitua |<kbd>Ctrl</kbd> + <kbd>F</kbd> |<kbd>Cmd</kbd> + <kbd>ALT</kbd> + <kbd>F</kbd> |
-|Selecionar tudo |<kbd>Ctrl</kbd> + <kbd>Um</kbd> |<kbd>Cmd</kbd> + <kbd>Um</kbd> |
+|Substitua |<kbd>CTRL</kbd>+<kbd>H</kbd> |<kbd>Cmd</kbd> + <kbd>H</kbd> |
+|Selecionar tudo |<kbd>CTRL</kbd>+<kbd>A</kbd> |<kbd>Cmd</kbd> + <kbd>Um</kbd> |
 |Selecionar para baixo |<kbd>Shift</kbd> + <kbd>↓</kbd> |<kbd>Shift</kbd> + <kbd>↓</kbd> |
 |Selecionar à direita |<kbd>Shift</kbd> + <kbd>→</kbd> |<kbd>Shift</kbd> + <kbd>→</kbd> |
 |Selecionar esquerda |<kbd>Shift</kbd> + <kbd>←</kbd> |<kbd>Shift</kbd> + <kbd>←</kbd> |
@@ -44,8 +43,8 @@ Este artigo lista os atalhos de teclado que funcionam na página do Gerenciador 
 |Cancelar consulta em execução |<kbd>Esc</kbd> | <kbd>Esc</kbd> |
 |Abrir nova guia de consulta |<kbd>Ctrl</kbd> + <kbd>ALT</kbd> + <kbd>N</kbd> | <kbd>Cmd</kbd> + <kbd>Opção</kbd> + <kbd>N</kbd> |
 |Fechar a guia consulta ativa |<kbd>Ctrl</kbd> + <kbd>ALT</kbd> + <kbd>W</kbd> | <kbd>Cmd</kbd> + <kbd>Opção</kbd> + <kbd>W</kbd> |
-|Salvar consulta atual |<kbd>Ctrl</kbd> + <kbd>S</kbd> | <kbd>Cmd</kbd> + <kbd>S</kbd> |
-|Abrir uma consulta salva |<kbd>Ctrl</kbd> + <kbd>O</kbd> | <kbd>Cmd</kbd> + <kbd>O</kbd> |
+|Salvar consulta atual |<kbd>CTRL</kbd>+<kbd>S</kbd> | <kbd>Cmd</kbd> + <kbd>S</kbd> |
+|Abrir uma consulta salva |<kbd>CTRL</kbd>+<kbd>O</kbd> | <kbd>Cmd</kbd> + <kbd>O</kbd> |
 |Alternar para guia de consulta (1-9) |<kbd>Ctrl</kbd> + <kbd>(1-9)</kbd> | <kbd>Cmd</kbd> + <kbd>(1-9)</kbd> |
 |Ir para a próxima guia de consulta |<kbd>Ctrl</kbd> + <kbd>↓</kbd> | <kbd>Cmd</kbd> + <kbd>↓</kbd> |
 |Ir para a guia consulta anterior |<kbd>Ctrl</kbd> + <kbd>↑</kbd> | <kbd>Cmd</kbd> + <kbd>↑</kbd> |

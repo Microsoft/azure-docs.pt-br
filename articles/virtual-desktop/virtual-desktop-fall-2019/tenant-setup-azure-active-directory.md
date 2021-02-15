@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e2858daaa834552da5a85063fd9973d2c35209d7
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: f41584194f8f5e8afde630405116b8b169cb5656
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88005611"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91542029"
 ---
 # <a name="tutorial-create-a-tenant-in-windows-virtual-desktop-classic"></a>Tutorial: Criar um locatário na Área de Trabalho Virtual do Windows (clássica)
 
@@ -126,7 +126,7 @@ Para localizar sua ID da assinatura do Azure:
 1. Na mesma sessão do [portal do Azure](https://portal.azure.com), procure por **Assinaturas** e selecione essa opção.
 
    > [!div class="mx-imgBorder"]
-   > ![Captura de tela dos resultados da pesquisa para "Azure Active Directory" no portal do Azure. O resultado da pesquisa em "Serviços" está destacado.](../media/tenant-search-subscription.png)
+   > ![Captura de tela dos resultados da pesquisa para "Azure Active Directory" no portal do Azure. O resultado da pesquisa por "Serviços" está destacado.](../media/tenant-search-subscription.png)
 
 2. Selecione a assinatura do Azure que você quer usar para receber as notificações de serviço da Área de Trabalho Virtual do Windows.
 3. Procure **ID da assinatura** e passe o mouse sobre o valor até que um ícone da área de transferência seja exibido. Selecione o ícone da área de transferência e cole-o em um local prático para poder usá-lo posteriormente como o valor **AzureSubscriptionId**.

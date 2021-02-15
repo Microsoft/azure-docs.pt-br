@@ -1,26 +1,23 @@
 ---
 title: Restringir o acesso usando Assinaturas de Acesso Compartilhado – HDInsight do Azure
-description: Saiba como usar Assinaturas de Acesso Compartilhado para restringir o acesso do HDInsight a dados armazenados em blobs de armazenamento do Azure.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
+description: Saiba como usar assinaturas de acesso compartilhado para restringir o acesso do HDInsight aos dados armazenados no armazenamento de BLOBs do Azure.
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive,seoapr2020
+ms.custom: hdinsightactive,seoapr2020, devx-track-azurecli
 ms.date: 04/28/2020
-ms.openlocfilehash: 8ab181eb72b5a3ab54ad8dba19d23288926b8969
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 647ac363dd81604f0a5a1d750d98a3349beb19c0
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87006306"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98931719"
 ---
-# <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Usar Assinaturas de Acesso Compartilhado do Armazenamento do Azure para restringir o acesso a dados no HDInsight
+# <a name="use-azure-blob-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Usar assinaturas de acesso compartilhado do armazenamento de BLOBs do Azure para restringir o acesso a dados no HDInsight
 
-O HDInsight tem acesso completo aos dados nas contas de Armazenamento do Azure associadas ao cluster. Você pode usar Assinaturas de Acesso Compartilhado no contêiner de blob para restringir o acesso aos dados. As Assinaturas de Acesso Compartilhado (SAS) são recursos das contas de armazenamento do Azure que permitem que você limite o acesso aos dados. Por exemplo, oferecendo acesso somente leitura aos dados.
+O HDInsight tem acesso completo aos dados nas contas de armazenamento de BLOBs do Azure associadas ao cluster. Você pode usar Assinaturas de Acesso Compartilhado no contêiner de blob para restringir o acesso aos dados. As assinaturas de acesso compartilhado (SAS) são um recurso das contas de armazenamento de BLOBs do Azure que permitem limitar o acesso aos dados. Por exemplo, oferecendo acesso somente leitura aos dados.
 
 > [!IMPORTANT]  
-> Para uma solução que usa o Apache Ranger, considere usar HDInsight ingressado em domínio. Para obter mais informações, consulte o documento [Configurar HDInsight ingressado em domínio](./domain-joined/apache-domain-joined-configure.md).
+> Para uma solução que usa o Apache Ranger, considere usar HDInsight ingressado em domínio. Para obter mais informações, consulte o documento [Configurar HDInsight ingressado em domínio](./domain-joined/apache-domain-joined-configure-using-azure-adds.md).
 
 > [!WARNING]  
 > O HDInsight deve ter acesso completo ao armazenamento padrão para o cluster.
@@ -31,15 +28,15 @@ O HDInsight tem acesso completo aos dados nas contas de Armazenamento do Azure a
 
 * Um [contêiner de armazenamento](../storage/blobs/storage-quickstart-blobs-portal.md)existente.  
 
-* Se estiver usando o PowerShell, você precisará do [Az Module](https://docs.microsoft.com/powershell/azure/).
+* Se estiver usando o PowerShell, você precisará do [Az Module](/powershell/azure/).
 
-* Se desejar usar a CLI do Azure e você ainda não a instalou, veja [Instalação da CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* Se desejar usar a CLI do Azure e você ainda não a instalou, veja [Instalação da CLI do Azure](/cli/azure/install-azure-cli).
 
 * Se estiver usando [Python](https://www.python.org/downloads/), versão 2,7 ou superior.
 
 * Se estiver usando C#, o Visual Studio deverá ser a versão 2013 ou superior.
 
-* O esquema de URI para sua conta de armazenamento. Esse esquema seria `wasb://` para o armazenamento do Azure, `abfs://` por Azure data Lake Storage Gen2 ou `adl://` para Azure data Lake Storage Gen1. Se a transferência segura estiver habilitada para o Armazenamento do Azure, o URI será `wasbs://`.
+* O esquema de URI para sua conta de armazenamento. Esse esquema seria `wasb://` para o armazenamento de BLOBs do Azure, `abfs://` por Azure data Lake Storage Gen2 ou `adl://` para Azure data Lake Storage Gen1. Se a transferência segura estiver habilitada para o armazenamento de BLOBs do Azure, o URI será `wasbs://` .
 
 * Um cluster HDInsight existente ao qual adicionar uma assinatura de acesso compartilhado. Caso contrário, você poderá usar o Azure PowerShell para criar um cluster e adicionar uma Assinatura de Acesso Compartilhado durante a criação do cluster.
 
@@ -48,7 +45,7 @@ O HDInsight tem acesso completo aos dados nas contas de Armazenamento do Azure a
   * Um projeto do Visual Studio que pode criar um contêiner de armazenamento, a política armazenada e a SAS a ser usada com o HDInsight
   * Um script Python que pode criar um contêiner de armazenamento, a política armazenada e a SAS a ser usada com o HDInsight
   * Um script do PowerShell que pode criar um cluster HDInsight e configurá-lo para usar a SAS. Uma versão atualizada é usada mais adiante.
-  * Um arquivo de exemplo:`hdinsight-dotnet-python-azure-storage-shared-access-signature-master\sampledata\sample.log`
+  * Um arquivo de exemplo: `hdinsight-dotnet-python-azure-storage-shared-access-signature-master\sampledata\sample.log`
 
 ## <a name="shared-access-signatures"></a>Assinaturas de Acesso Compartilhado
 
@@ -76,7 +73,7 @@ A diferença entre as duas formas é importante para um cenário fundamental: re
 
 É recomendável sempre usar políticas de acesso armazenadas. Ao usar políticas armazenadas, você pode revogar assinaturas ou estender a data de expiração conforme a necessidade. As etapas deste documento usam políticas de acesso armazenado para gerar a SAS.
 
-Para saber mais sobre as Assinaturas de Acesso Compartilhado, consulte [Noções básicas sobre o modelo de SAS](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
+Para saber mais sobre as Assinaturas de Acesso Compartilhado, consulte [Noções básicas sobre o modelo de SAS](../storage/common/storage-sas-overview.md).
 
 ## <a name="create-a-stored-policy-and-sas"></a>Criar uma política armazenada e uma SAS
 
@@ -86,7 +83,7 @@ Salve o token SAS que é produzido no final de cada método. O token será semel
 ?sv=2018-03-28&sr=c&si=myPolicyPS&sig=NAxefF%2BrR2ubjZtyUtuAvLQgt%2FJIN5aHJMj6OsDwyy4%3D
 ```
 
-### <a name="using-powershell"></a>Usando o PowerShell
+### <a name="using-powershell"></a>Usar o PowerShell
 
 Substitua `RESOURCEGROUP` , `STORAGEACCOUNT` e `STORAGECONTAINER` pelos valores apropriados para seu contêiner de armazenamento existente. Altere o diretório para `hdinsight-dotnet-python-azure-storage-shared-access-signature-master` ou revise o `-File` parâmetro para que ele contenha o caminho absoluto para `Set-AzStorageblobcontent` . Insira o seguinte comando do PowerShell:
 
@@ -188,7 +185,7 @@ O uso de variáveis nesta seção é baseado em um ambiente do Windows. Pequenas
     az storage container policy list --container-name %AZURE_STORAGE_CONTAINER% --account-key %AZURE_STORAGE_KEY% --account-name %AZURE_STORAGE_ACCOUNT%
 
     # Generate a shared access signature for the container
-    az storage container generate-sas --name myPolicyCLI --account-key %AZURE_STORAGE_KEY% --account-name %AZURE_STORAGE_ACCOUNT%
+    az storage container generate-sas --name %AZURE_STORAGE_CONTAINER% --policy-name myPolicyCLI --account-key %AZURE_STORAGE_KEY% --account-name %AZURE_STORAGE_ACCOUNT%
 
     # Reversal
     # az storage container policy delete --container-name %AZURE_STORAGE_CONTAINER% --name myPolicyCLI --account-key %AZURE_STORAGE_KEY% --account-name %AZURE_STORAGE_ACCOUNT%
@@ -357,7 +354,7 @@ Se você tiver um cluster existente, poderá adicionar a SAS à configuração d
 
 1. Expanda a seção **Core-site personalizada** , role até o final e, em seguida, selecione **Adicionar Propriedade...**. Use os seguintes valores para **chave** e **valor**:
 
-    * **Chave**:`fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net`
+    * **Chave**: `fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net`
     * **Valor**: a SAS retornada por um dos métodos executados anteriormente.
 
     Substitua `CONTAINERNAME` pelo nome do contêiner usado com o aplicativo do C# ou da SAS. Substitua `STORAGEACCOUNTNAME` pelo nome da conta de armazenamento usado.

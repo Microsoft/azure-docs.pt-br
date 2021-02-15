@@ -7,18 +7,19 @@ author: saghorpa
 manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 33d52f871de75a7f7d34016b040e44d6f1623fd8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7f0782738a8aa57b2bc0b87e1378972e3fa5d31c
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "70101255"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967849"
 ---
 # <a name="disaster-recovery-principles"></a>Princípios da recuperação de desastres
 
@@ -68,7 +69,7 @@ A próxima etapa é instalar a segunda instância do SAP HANA na unidade do SAP 
 - Pare a instância do SAP HANA instalada recentemente na unidade do SAP HANA nas Instâncias Grandes na região do Azure de DR.
 - Desmonte esses volumes PRD e entre em contato com o Gerenciamento de Serviços do SAP HANA no Azure. Os volumes não podem permanecer montados na unidade, pois eles não podem ser acessados enquanto estão em funcionamento como o destino de replicação de armazenamento.  
 
-![Etapa de configuração da recuperação de desastre antes de estabelecer a replicação](./media/hana-overview-high-availability-disaster-recovery/disaster_recovery_start3.PNG)
+![Diagrama que mostra a relação de replicação entre os volumes PRD na região do Azure de produção e os volumes PRD na região do Azure de recuperação de desastre.](./media/hana-overview-high-availability-disaster-recovery/disaster_recovery_start3.PNG)
 
 A equipe de operações estabelece o relacionamento de replicação entre os volumes PRD na região do Azure de produção e os volumes PRD na região do Azure de recuperação de desastre.
 

@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 12/1/2016
 ms.author: alkohli
 ms.openlocfilehash: 6bea9c9b7807ffb32b6071c968d3186965477009
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85513037"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000922"
 ---
 # <a name="use-the-web-ui-to-administer-your-storsimple-virtual-array"></a>Usar a interface do usuário da Web para administrar o StorSimple Virtual Array
 ![fluxo do processo de instalação](./media/storsimple-ova-web-ui-admin/manage4.png)
@@ -49,7 +49,7 @@ Se você esqueceu sua chave de criptografia de dados de serviço e precisa recup
 Em alguns casos em que você configura o dispositivo por meio da interface do usuário da Web local, você pode encontrar erros. Para diagnosticar e solucionar esses erros, você pode executar os testes de diagnóstico.
 
 #### <a name="to-run-the-diagnostic-tests"></a>Para executar os testes de diagnóstico
-1. Na interface do usuário da Web local, vá para **solução de problemas**de  >  **testes de diagnóstico**.
+1. Na interface do usuário da Web local, vá para **solução de problemas** de  >  **testes de diagnóstico**.
    
     ![executar dignóstico 1](./media/storsimple-ova-web-ui-admin/image29.png)
 2. Na parte inferior da página, clique em **Executar Testes de Diagnóstico**. Isso iniciará testes para diagnosticar quaisquer possíveis problemas com suas configurações de rede, dispositivo, proxy da Web, de hora ou de nuvem. Você será notificado de que o dispositivo está executando testes.

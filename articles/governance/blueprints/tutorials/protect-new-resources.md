@@ -1,14 +1,14 @@
 ---
 title: 'Tutorial: Proteger novos recursos com bloqueios'
 description: Neste tutorial, você usa as opções Somente Leitura e Não Excluir dos bloqueios de recursos do Azure Blueprints para proteger recursos recém-implantados.
-ms.date: 05/06/2020
+ms.date: 01/27/2021
 ms.topic: tutorial
-ms.openlocfilehash: 738c627d350c5e11b41a65d159cf2cc7de807334
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: c671d641982ba833b54586c1b33979a97747396b
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85969633"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98915400"
 ---
 # <a name="tutorial-protect-new-resources-with-azure-blueprints-resource-locks"></a>Tutorial: Proteger recursos novos com bloqueios de recursos do Azure Blueprints
 
@@ -187,7 +187,7 @@ A atribuição cria o grupo de recursos _TestingBPLocks_ e a conta de armazename
 
 1. Selecione a atribuição de negação e, em seguida, selecione a página **Permissões Negadas** à esquerda.
 
-   A atribuição de negação está impedindo todas as operações com **\*** e a configuração **Ação**, mas permite o acesso de leitura excluindo **\*/read** por meio de **NotActions**.
+   A atribuição de negação está impedindo todas as operações com **\* *_ e a configuração _* Ação**, mas permite o acesso de leitura excluindo **\*/read** por meio de **NotActions**.
 
 1. Na trilha do portal do Azure, selecione **TestingBPLocks – Controle de acesso (IAM)** . Depois, selecione a página **Visão geral** à esquerda e, em seguida, o botão **Excluir grupo de recursos**. Insira o nome **TestingBPLocks** para confirmar a exclusão e, em seguida, selecione **Excluir** na parte inferior do painel.
 

@@ -1,24 +1,27 @@
 ---
 title: incluir arquivo
-description: incluir arquivo
+description: arquivo de inclusão
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
+ms.date: 10/19/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: c1793a22c59cda279a9d8c4522bcec2606d25582
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3c825f042bb3e7fee5c00a8b34c12ca2d05f8d2e
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67673213"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92217910"
 ---
 No portal do Azure, você pode exibir o status da conexão de um Gateway de VPN do Resource Manager navegando até a conexão. As etapas a seguir mostram uma maneira de navegar para a conexão e verificar.
 
 1. No [portal do Azure](https://portal.azure.com), clique em **todos os recursos** e navegue até o gateway de rede virtual.
-2. Na folha do gateway de rede virtual, clique em **Conexões**. Você pode ver o status de cada conexão.
-3. Clique no nome da conexão que você deseja verificar para abrir **Essentials**. No Essentials, você pode exibir mais informações sobre a conexão. O **status** é ' êxito ' e ' conectado ' quando você fez uma conexão bem-sucedida.
+1. Na folha do gateway de rede virtual, clique em **Conexões**. Você pode ver o status de cada conexão.
 
-   ![Verifique a conexão do Gateway de VPN usando o portal do Azure](./media/vpn-gateway-verify-connection-portal-rm-include/connection-succeeded.png)
+   :::image type="content" source="./media/vpn-gateway-verify-connection-portal-rm-include/connections.png" alt-text="Exibir conexões" lightbox="./media/vpn-gateway-verify-connection-portal-rm-include/connections-expand.png":::
+
+1. Clique no nome da conexão que você deseja verificar. No **Essentials**, você pode exibir mais informações sobre sua conexão. Os valores de **status** serão ' êxito ' e ' conectado ' quando você tiver feito uma conexão bem-sucedida.
+
+   :::image type="content" source="./media/vpn-gateway-verify-connection-portal-rm-include/essentials.png" alt-text="Exibir conexões" lightbox="./media/vpn-gateway-verify-connection-portal-rm-include/essentials-expand.png":::

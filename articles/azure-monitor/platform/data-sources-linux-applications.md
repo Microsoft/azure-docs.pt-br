@@ -6,15 +6,15 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/04/2017
-ms.openlocfilehash: 10851754bda73fc769e613153582e491265ebb71
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: db83e24931ec91449ac8c08bf4ce476e0f527b26
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85963233"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461338"
 ---
 # <a name="collect-performance-counters-for-linux-applications-in-azure-monitor"></a>Coletar contadores de desempenho para aplicativos do Linux no Azure Monitor 
-[!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
+
 Este artigo fornece detalhes sobre como configurar o [agente do Log Analytics para Linux](https://github.com/Microsoft/OMS-Agent-for-Linux) para coletar contadores de desempenho para aplicativos específicos no Azure Monitor.  Os aplicativos incluídos neste artigo são:  
 
 - [MySQL](#mysql)
@@ -41,7 +41,7 @@ A seguir, temos o formato para o arquivo de autenticação de OMI do MySQL
 
 As entradas no arquivo de autenticação são descritas na tabela a seguir.
 
-| Property | Descrição |
+| Propriedade | Descrição |
 |:--|:--|
 | Porta | Representa a porta atual em que a instância do MySQL está escutando. A porta 0 significa que as propriedades a seguir são usadas para a instância padrão. |
 | Endereço de Ligação| Endereço de associação atual de MySQL. |

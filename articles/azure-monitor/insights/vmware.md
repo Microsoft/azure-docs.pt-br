@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/04/2018
-ms.openlocfilehash: b9d27e602062ff2638d8eea23fe64497fd66512d
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: be50deb836082354db899e84ef24d75c4d403432
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322900"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91450402"
 ---
 # <a name="vmware-monitoring-deprecated-solution-in-azure-monitor"></a>Monitoramento do VMware (preterido) solução no Azure Monitor
 
@@ -66,7 +66,7 @@ Crie um sistema operacional do Linux VM para receber todos os dados syslog de ho
 
 1. No portal do Azure, execute uma consulta de log para `VMware_CL` . Quando Azure Monitor coleta os dados do syslog, ele retém o formato syslog. No portal, alguns campos específicos são capturados, como *Hostname* e *ProcessName*.  
 
-    ![type](./media/vmware/type.png)  
+    ![Captura de tela mostra uma consulta de log para Type = VMware_CL com um resultado de carimbo de data/hora.](./media/vmware/type.png)  
 
     Se seus resultados da pesquisa de log de exibição forem semelhantes àqueles da imagem acima, você estará pronto para usar o painel de solução de Monitoramento do VMWare.  
 
@@ -75,7 +75,7 @@ A solução de Monitoramento do VMware coleta vários dados de log e métricas d
 
 A tabela a seguir mostra os métodos de coleta de dados e outros detalhes sobre como os dados são coletados.
 
-| plataforma | Agente do Log Analytics para Linux | Agente SCOM | Armazenamento do Azure | SCOM necessário? | Os dados do agente SCOM enviados por meio do grupo de gerenciamento | frequência de coleta |
+| plataforma | Agente do Log Analytics para Linux | Agente do System Center Operations Manager | Armazenamento do Azure | Operations Manager necessário? | Dados de agente do Operations Manager enviados por meio do grupo de gerenciamento | frequência de coleta |
 | --- | --- | --- | --- | --- | --- | --- |
 | Linux |&#8226; |  |  |  |  |a cada 3 minutos |
 
@@ -105,7 +105,7 @@ A tabela a seguir mostram exemplos de campos de dados coletados pela solução d
 ## <a name="vmware-monitoring-solution-overview"></a>Visão geral da solução de Monitoramento de VMware
 O bloco de VMware aparece no espaço de trabalho do Log Analytics. Ele fornece uma visão ampla de eventuais falhas. Quando você clica no bloco, você entra em um modo de exibição de painel.
 
-![bloco](./media/vmware/tile.png)
+![Captura de tela mostra o bloco VMware, exibindo nove falhas.](./media/vmware/tile.png)
 
 #### <a name="navigate-the-dashboard-view"></a>Navegar pelo modo de exibição de painel
 No modo de exibição de painel **VMware**, as folhas são organizadas por:
@@ -133,27 +133,27 @@ Você pode aprofundar-se ainda mais, clicando em um host ESXi ou um tipo de even
 
 Quando você clica em um nome de host ESXi, as informações desse host são exibidas. Se você quiser restringir os resultados com o tipo de evento, deverá adicionar `“ProcessName_s=EVENT TYPE”` em sua consulta de pesquisa. Você pode selecionar **ProcessName** no filtro de pesquisa. Isso restringe as informações para você.
 
-![aprofundar-se](./media/vmware/eventhostdrilldown.png)
+![Captura de tela do host ESXi por contagem de eventos e divisão por folhas de tipo de evento na exibição do painel Monitoramento do VMware.](./media/vmware/eventhostdrilldown.png)
 
 #### <a name="find-high-vm-activities"></a>Localizar atividades altas de VM
 Uma máquina virtual pode ser criada em e excluída de qualquer host ESXi. Isso é útil para um administrador identificar a quantidade de VMs criadas por um host ESXi. Isso, por sua vez, ajuda a entender o planejamento de capacidade e desempenho. Manter o controle dos eventos de atividade de VM é essencial ao gerenciar seu ambiente.
 
-![aprofundar-se](./media/vmware/vmactivities1.png)
+![Captura de tela da folha atividades de máquina virtual no painel Monitoramento do VMware, mostrando um grafo de criação e exclusão de VM pelo host ESXi.](./media/vmware/vmactivities1.png)
 
 Se você quiser ver dados adicionais de criação de VMs de host ESXi, clique em um nome de host ESXi.
 
-![aprofundar-se](./media/vmware/createvm.png)
+![Captura de tela de um painel do painel de Monitoramento do VMware mostrando uma tabela com uma linha de dados para cada criação de máquina virtual por um host ESXi.](./media/vmware/createvm.png)
 
 #### <a name="common-log-queries"></a>Consultas de log comuns
 A solução inclui outras consultas úteis que podem ajudá-lo a gerenciar seus hosts ESXi, como espaço de armazenamento de alta latência de armazenamento e falha do caminho.
 
-![consultas](./media/vmware/queries.png)
+![A captura de tela mostra as pesquisas RECOMENDAdas, que são consultas armazenadas úteis.](./media/vmware/queries.png)
 
 
 #### <a name="save-queries"></a>Salvar consultas
 Salvar consultas de log é um recurso padrão no Azure Monitor e pode ajudá-lo a manter todas as consultas que você encontrou úteis. Depois de criar uma consulta você considerar útil, salve-a clicando em **Favoritos**. Uma consulta salva permite que você reutilize-a posteriormente com facilidade usando a página [Meu Painel](../learn/tutorial-logs-dashboards.md), na qual você pode criar seus próprios painéis personalizados.
 
-![DockerDashboardView](./media/vmware/dockerdashboardview.png)
+![A captura de tela mostra parte de um painel personalizado rotulado pesquisa de logs com ícones para desfazer, exportar, alerta, salvar, favoritos e histórico.](./media/vmware/dockerdashboardview.png)
 
 #### <a name="create-alerts-from-queries"></a>Criar alertas com base em consultas
 Depois de criar as consultas, talvez você queira usá-las para alertá-lo quando eventos específicos ocorrem. Veja [Alertas no Log Analytics](../platform/alerts-overview.md) para obter informações sobre como criar alertas. Para obter exemplos de consultas de alertas e outros exemplos de consultas, veja a postagem de blog [Monitorar VMware usando o Log Analytics](/archive/blogs/msoms/monitor-vmware-using-oms-log-analytics).
@@ -190,7 +190,7 @@ Pode haver vários motivos:
 
     a. Verifique se o agente do Log Analytics está em execução usando `ps -ef | grep oms`. Se ele não está em execução, inicie o processo executando o comando `sudo /opt/microsoft/omsagent/bin/service_control start`
 
-     b. Abra o arquivo `/etc/opt/microsoft/omsagent/conf/omsagent.d/vmware_esxi.conf`.
+     b. Abra o arquivo `/etc/opt/microsoft/omsagent/conf/omsagent.d/vmware_esxi.conf` .
 
      c. Verifique se o usuário apropriado e a configuração do grupo são válidos, semelhante a: `-rw-r--r-- 1 omsagent omiusers 677 Sep 20 16:46 vmware_esxi.conf`
 

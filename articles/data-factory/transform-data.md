@@ -1,21 +1,18 @@
 ---
 title: Transformar dados
-description: Aprenda a transformar ou processar dados no Azure Data Factory usando o Hadoop, o Machine Learning ou o Azure Data Lake Analytics.
-services: data-factory
+description: Transforme dados ou processe dados em Azure Data Factory usando Hadoop, Azure Machine Learning Studio (clássico) ou Azure Data Lake Analytics.
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
-manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 07/31/2018
-ms.openlocfilehash: fdb10894ab9d1c6b805b8b43c90e54126d67b8dd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0a1eb593e9f9f15f88aefb2fe06706153a4b74a4
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81606624"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100361393"
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Transformar dados no Azure Data Factory
 
@@ -26,7 +23,7 @@ ms.locfileid: "81606624"
 > * [MapReduce](transform-data-using-hadoop-map-reduce.md)  
 > * [HDInsight Streaming](transform-data-using-hadoop-streaming.md)
 > * [HDInsight Spark](transform-data-using-spark.md)
-> * [Machine Learning](transform-data-using-machine-learning.md) 
+> * [Azure Machine Learning Studio (clássico)](transform-data-using-machine-learning.md) 
 > * [Procedimento armazenado](transform-data-using-stored-procedure.md)
 > * [U-SQL da Análise Data Lake](transform-data-using-data-lake-analytics.md)
 > * [Bloco de anotações do databricks](transform-data-databricks-notebook.md)
@@ -47,9 +44,9 @@ O Data Factory dá suporte às seguintes atividades de transformação de dados,
 
 O mapeamento de fluxos de dados são transformações de dados visualmente projetadas em Azure Data Factory. Os fluxos de dados permitem que os engenheiros de dados desenvolvam a lógica de transformação de dados gráficos sem escrever código. Os fluxos de dados resultantes são executados como atividades dentro de Azure Data Factory pipelines que usam clusters Spark expandidos. As atividades de fluxo de dados podem ser operadas por meio de recursos de agendamento, controle, fluxo e monitoramento existentes de Data Factory. Para obter mais informações, consulte [mapeando fluxos de dados](concepts-data-flow-overview.md).
 
-### <a name="wrangling-data-flows"></a>Fluxos de dados Wrangling
+### <a name="data-wrangling"></a>Wrangling de dados
 
-Os fluxos de dados do Wrangling no Azure Data Factory permitem que você faça uma preparação de dados sem código em escala de nuvem iterativamente. Os fluxos de dados do Wrangling integram-se ao [Power Query online](https://docs.microsoft.com/power-query/) e fazem Power Query funções M disponíveis para os dados Wrangling em escala de nuvem por meio da execução do Spark. Para obter mais informações, consulte [fluxos de dados do Wrangling](wrangling-data-flow-overview.md).
+Power Query no Azure Data Factory permite a Wrangling de dados em escala de nuvem, o que permite que você faça a preparação de dados sem código em escala de nuvem iterativamente. O data Wrangling integra-se com o [Power Query online](/power-query/) e torna Power Query funções M disponíveis para os dados Wrangling em escala de nuvem por meio da execução do Spark. Para obter mais informações, consulte [Data Wrangling in ADF](wrangling-overview.md).
 
 ## <a name="external-transformations"></a>Transformações externas
 
@@ -70,15 +67,15 @@ A atividade de streaming no HDInsight em um pipeline do Data Factory executa pro
 ### <a name="hdinsight-spark-activity"></a>Atividade do Spark no HDInsight
 A atividade do HDInsight Spark em um pipeline do Data Factory executa programas do Spark em seu próprio cluster HDInsight. Para obter detalhes, consulte [Invocar programas Spark do Azure Data Factory](transform-data-using-spark.md) para obter detalhes. 
 
-### <a name="machine-learning-activities"></a>Atividades de Machine Learning
-O Azure Data Factory permite que você crie facilmente pipelines que usam o serviço Web do Azure Machine Learning publicado para a análise preditiva. Usando a [Atividade de Execução em Lotes](transform-data-using-machine-learning.md) em um pipeline do Azure Data Factory, você pode invocar um serviço Web do Machine Learning para fazer previsões sobre dados em lote.
+### <a name="azure-machine-learning-studio-classic-activities"></a>Atividades Azure Machine Learning Studio (clássicas)
+Azure Data Factory permite que você crie facilmente pipelines que usam um serviço Web publicado Azure Machine Learning Studio (clássico) para análise preditiva. Usando a [atividade de execução em lote](transform-data-using-machine-learning.md) em um pipeline Azure data Factory, você pode invocar um serviço Web Studio (clássico) para fazer previsões sobre os dados no lote.
 
-Ao longo do tempo, os modelos de previsão nos testes de pontuação do Machine Learning precisam ser readaptados usando novos conjuntos de dados de entrada. Depois de concluir o novo treinamento, você deseja atualizar o serviço Web de pontuação com o modelo do Machine Learning readaptado. Você pode usar a [Atividade de Recurso de Atualização](update-machine-learning-models.md) para atualizar o serviço Web com o modelo recém-treinado.  
+Ao longo do tempo, os modelos de previsão nos experimentos de Pontuação do estúdio (clássico) precisam ser retreinados usando novos conjuntos de dados de entrada. Depois de concluir o retreinamento, você deseja atualizar o serviço Web de pontuação com o modelo de aprendizado de máquina retreinado. Você pode usar a [Atividade de Recurso de Atualização](update-machine-learning-models.md) para atualizar o serviço Web com o modelo recém-treinado.  
 
-Confira [Usar atividades de Machine Learning](transform-data-using-machine-learning.md) para obter detalhes sobre essas atividades de Machine Learning. 
+Confira [usar atividades Azure Machine Learning Studio (clássicas)](transform-data-using-machine-learning.md) para obter detalhes sobre essas atividades do estúdio (clássico). 
 
 ### <a name="stored-procedure-activity"></a>Atividade de procedimento armazenado
-Você pode usar a atividade de Procedimento Armazenado do SQL Server em um pipeline de Data Factory para invocar um procedimento armazenado em um dos seguintes repositórios de dados: Banco de Dados SQL do Azure, SQL Data Warehouse, Banco de Dados SQL Server na sua empresa ou uma VM do Azure. Consulte o artigo [Stored Procedure activity](transform-data-using-stored-procedure.md) (Atividade de Procedimento Armazenado) para obter detalhes.  
+Você pode usar a atividade de procedimento armazenado SQL Server em um pipeline de Data Factory para invocar um procedimento armazenado em um dos seguintes repositórios de dados: banco de dados SQL do Azure, análise de Synapse do Azure, banco de dados SQL Server em sua empresa ou uma VM do Azure. Consulte o artigo [Stored Procedure activity](transform-data-using-stored-procedure.md) (Atividade de Procedimento Armazenado) para obter detalhes.  
 
 ### <a name="data-lake-analytics-u-sql-activity"></a>Atividade do U-SQL do Data Lake Analytics
 A atividade de U-SQL do Data Lake Analytics executa um script U-SQL em um cluster do Azure Data Lake Analytics. Consulte o artigo [Data Analytics U-SQL activity](transform-data-using-data-lake-analytics.md) (atividade de U-SQL do Data Analytics) para obter detalhes. 

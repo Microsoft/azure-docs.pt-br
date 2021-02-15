@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 04/24/2020
-ms.openlocfilehash: 226cf29b1a94b4508a9d68f02b7400a18eba4bc2
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 132a9b7ad3eef17f4ca27fb76a0c05f94c82fd37
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88587847"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92428273"
 ---
 # <a name="tutorial-connect-to-an-azure-red-hat-openshift-4-cluster"></a>Tutorial: Conectar-se a um cluster do Red Hat OpenShift 4 no Azure
 
@@ -25,7 +25,7 @@ Neste tutorial, parte dois de três, você se conectará a um cluster do Red Hat
 
 Nos tutoriais anteriores, um cluster do Red Hat OpenShift no Azure foi criado. Se você ainda não realizou essas etapas e gostaria de acompanhar, comece com o [Tutorial 1 – Criar um cluster do Red Hat OpenShift no Azure 4.](tutorial-create-cluster.md)
 
-Se você optar por instalar e usar a CLI localmente, este tutorial exigirá a execução da CLI do Azure versão 2.6.0 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+Se você optar por instalar e usar a CLI localmente, este tutorial exigirá a execução da CLI do Azure versão 2.6.0 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="connect-to-the-cluster"></a>Conectar-se ao cluster
 
@@ -37,7 +37,7 @@ az aro list-credentials \
   --resource-group $RESOURCEGROUP
 ```
 
-A saída de exemplo a seguir mostra que a senha estará em `kubeadminPassword`.
+A saída de exemplo a seguir mostra qual senha estará em `kubeadminPassword`.
 
 ```json
 {
@@ -46,7 +46,7 @@ A saída de exemplo a seguir mostra que a senha estará em `kubeadminPassword`.
 }
 ```
 
-Você pode encontrar a URL do console de cluster executando o comando a seguir, que será semelhante a `https://console-openshift-console.apps.<random>.<region>.aroapp.io/`
+Você pode encontrar a URL do console de cluster executando o comando a seguir, que será semelhante a `https://console-openshift-console.apps.<random>.<region>.aroapp.io/`.
 
 ```azurecli-interactive
  az aro show \
@@ -63,7 +63,7 @@ Inicie a URL do console em um navegador e faça logon usando as credenciais `kub
 
 Quando você estiver conectado ao console Web do OpenShift, clique no **?** no canto superior direito e então em **Ferramentas de Linha de Comando**. Baixe a versão apropriada para seu computador.
 
-![Tela de logon do Red Hat OpenShift no Azure](media/aro4-download-cli.png)
+![Captura de tela que realça a opção Ferramentas de Linha de Comando na lista quando você seleciona o ? ícone.](media/aro4-download-cli.png)
 
 Você também pode baixar a versão mais recente da CLI apropriada para seu computador de <https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/>.
 

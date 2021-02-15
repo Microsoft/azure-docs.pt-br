@@ -1,26 +1,17 @@
 ---
-title: Compartilhar portal do Azure dashboards usando o controle de acesso baseado em função
-description: Este artigo explica como compartilhar um painel no portal do Azure usando o Controle de Acesso Baseado em Função.
-services: azure-portal
-documentationcenter: ''
-author: mgblythe
-manager: mtillman
+title: Compartilhar portal do Azure dashboards usando o controle de acesso baseado em função do Azure
+description: Este artigo explica como compartilhar um painel no portal do Azure usando o controle de acesso baseado em função do Azure.
 ms.assetid: 8908a6ce-ae0c-4f60-a0c9-b3acfe823365
-ms.service: azure-portal
-ms.devlang: NA
 ms.topic: how-to
-ms.tgt_pltfrm: NA
-ms.workload: na
 ms.date: 03/23/2020
-ms.author: mblythe
-ms.openlocfilehash: b478272ff790121d914a51f8ee4c5cf250134f4d
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: de2efd75d07c3dc7df771aad1bd9c73453dad212
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87923876"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745971"
 ---
-# <a name="share-azure-dashboards-by-using-role-based-access-control"></a>Compartilhar painéis do Azure usando o Controle de Acesso Baseado em Função
+# <a name="share-azure-dashboards-by-using-azure-role-based-access-control"></a>Compartilhar painéis do Azure usando o controle de acesso baseado em função do Azure
 
 Depois de configurar um painel, você pode publicá-lo e compartilhá-lo com outros usuários na sua organização. Você permite que outras pessoas exibam seu painel usando o [controle de acesso baseado em função do Azure (RBAC do Azure)](../role-based-access-control/role-assignments-portal.md). Atribuir um usuário ou grupo de usuários a uma função. Essa função define se esses usuários podem exibir ou modificar o painel publicado.
 
@@ -33,7 +24,7 @@ Todos os painéis publicados são implementados como recursos do Azure. Elas exi
 
 ## <a name="understanding-access-control-for-dashboards"></a>Noções básicas de controle de acesso de painéis
 
-Com o RBAC (Controle de Acesso Baseado em Função), você pode atribuir usuários a funções em três níveis de escopo diferentes:
+Com o Azure RBAC (controle de acesso baseado em função), você pode atribuir usuários a funções em três níveis diferentes de escopo:
 
 * subscription
 * grupo de recursos
@@ -88,4 +79,4 @@ Você pode atribuir um grupo de usuários a uma função para esse painel.
 ## <a name="next-steps"></a>Próximas etapas
 
 * Para obter uma lista de funções, consulte [funções internas do Azure](../role-based-access-control/built-in-roles.md).
-* Para saber mais sobre como gerenciar recursos, consulte [gerenciar recursos do Azure usando o portal do Azure](resource-group-portal.md).
+* Para saber mais sobre como gerenciar recursos, consulte [gerenciar recursos do Azure usando o portal do Azure](../azure-resource-manager/management/manage-resources-portal.md).

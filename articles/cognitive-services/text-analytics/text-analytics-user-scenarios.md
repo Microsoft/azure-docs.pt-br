@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: aahi
-ms.openlocfilehash: 0e60ba0517fb3b9388045762853c651869cffb6a
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: a4c551a6e9b8d79fdeb7b5219f311c7c7c969757
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87986450"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505351"
 ---
 # <a name="example-user-scenarios-for-the-text-analytics-api"></a>Exemplos de cenário do usuário para a API de Análise de Texto
 
@@ -41,7 +41,7 @@ Use a Extração de Frases-chave e o Reconhecimento de Entidade para processar s
 
 ## <a name="monitor-your-products-social-media-feeds"></a>Monitorar os feeds de mídia social de seu produto
 
-Monitore os comentários sobre o produto do usuário na página do Twitter ou do Facebook do seu produto. Use os dados para analisar o sentimento do cliente com relação a novos lançamentos de produtos, extraia frases-chave sobre recursos e solicitações de recursos ou responda a reclamações do cliente conforme elas ocorrerem. Confira o exemplo [modelo do Microsoft Flow](https://flow.microsoft.com/galleries/public/templates/2680d2227d074c4d901e36c66e68f6f9/run-sentiment-analysis-on-tweets-and-push-results-to-a-power-bi-dataset/).
+Monitore os comentários sobre o produto do usuário na página do Twitter ou do Facebook do seu produto. Use os dados para analisar o sentimento do cliente com relação a novos lançamentos de produtos, extraia frases-chave sobre recursos e solicitações de recursos ou responda a reclamações do cliente conforme elas ocorrerem. Confira o [modelo](https://flow.microsoft.com/galleries/public/templates/2680d2227d074c4d901e36c66e68f6f9/run-sentiment-analysis-on-tweets-and-push-results-to-a-power-bi-dataset/)exemplo de automação de energia da Microsoft.
 
 ![Uma imagem descrevendo como monitorar comentários sobre seu produto e sua empresa em redes sociais usando extração de frases-chave](media/use-cases/social-feed.svg)
 
@@ -61,4 +61,4 @@ Agrupe opiniões relacionadas a aspectos específicos de um produto ou serviço 
 ## <a name="next-steps"></a>Próximas etapas
 
 * [O que é a API de Análise de Texto?](overview.md)
-* [Enviar uma solicitação à API de Análise de Texto usando a biblioteca de clientes](quickstarts/text-analytics-sdk.md)
+* [Enviar uma solicitação à API de Análise de Texto usando a biblioteca de clientes](quickstarts/client-libraries-rest-api.md)

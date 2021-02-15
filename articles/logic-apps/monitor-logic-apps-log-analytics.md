@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
-ms.date: 01/30/2020
-ms.openlocfilehash: 2a39e27c0a9fc7999d7f363767ad62513d383192
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 09/24/2020
+ms.openlocfilehash: 5df596560e97ea9dba38dca4d4ca58e38caabd37
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86520725"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91333946"
 ---
 # <a name="set-up-azure-monitor-logs-and-collect-diagnostics-data-for-azure-logic-apps"></a>Configurar logs de Azure Monitor e coletar dados de diagnóstico para aplicativos lógicos do Azure
 
@@ -19,7 +19,7 @@ Para obter informações de depuração mais avançadas sobre seus aplicativos l
 
 Para configurar o registro em log para seu aplicativo lógico, você pode [habilitar log Analytics quando você cria seu aplicativo lógico](#logging-for-new-logic-apps)ou pode [instalar a solução de gerenciamento de aplicativos lógicos](#install-management-solution) em seu espaço de trabalho log Analytics para aplicativos lógicos existentes. Essa solução fornece informações agregadas para suas execuções de aplicativo lógico e inclui detalhes específicos, como status, tempo de execução, status de reenvio e IDs de correlação. Em seguida, para habilitar o registro em log e criar consultas para essas informações, [configure Azure monitor logs](#set-up-resource-logs).
 
-Este artigo mostra como habilitar Log Analytics quando você cria aplicativos lógicos, como instalar e configurar a solução de gerenciamento de aplicativos lógicos e como configurar e criar consultas para logs de Azure Monitor.
+Este artigo mostra como habilitar Log Analytics em novos aplicativos lógicos e aplicativos lógicos existentes, como instalar e configurar a solução de gerenciamento de aplicativos lógicos e como configurar e criar consultas para logs de Azure Monitor.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -89,6 +89,9 @@ Se você ativou Log Analytics quando criou seu aplicativo lógico, ignore esta e
 
 Ao armazenar informações sobre eventos de tempo de execução e dados em [logs de Azure monitor](../azure-monitor/platform/data-platform-logs.md), você pode criar [consultas de log](../azure-monitor/log-query/log-query-overview.md) que ajudam a localizar e examinar essas informações.
 
+> [!NOTE]
+> Depois de habilitar as configurações de diagnóstico, os dados de diagnóstico podem não fluir por até 30 minutos para os logs no destino especificado, como Log Analytics, Hub de eventos ou conta de armazenamento. Esse atraso significa que os dados de diagnóstico desse período de tempo talvez não existam para você examinar. Eventos concluídos e [Propriedades rastreadas](#extend-data) podem não aparecer em seu espaço de trabalho de Log Analytics por 10-15 minutos.
+
 1. No [portal do Azure](https://portal.azure.com), encontre e selecione o aplicativo lógico.
 
 1. No menu do aplicativo lógico, em **monitoramento**, selecione **configurações de diagnóstico**  >  **Adicionar configuração de diagnóstico**.
@@ -140,13 +143,12 @@ Depois que o aplicativo lógico for executado, você poderá exibir os dados sob
 
    ![Exibir as execuções e o status do aplicativo lógico](./media/monitor-logic-apps-log-analytics/logic-app-run-details.png)
 
+   > [!NOTE]
+   > A funcionalidade de **reenvio** nesta página não está disponível no momento.
+
    Para ações em que você [configura as propriedades rastreadas](#extend-data), você também pode exibir essas propriedades selecionando **Exibir** na coluna **Propriedades rastreadas** . Para pesquisar as propriedades rastreadas, use o filtro de coluna.
 
    ![Exibir propriedades rastreadas para um aplicativo lógico](./media/monitor-logic-apps-log-analytics/logic-app-tracked-properties.png)
-
-   > [!NOTE]
-   > As propriedades rastreadas ou os eventos concluídos podem apresentar atrasos de 10-15 minutos antes de serem exibidos no espaço de trabalho Log Analytics.
-   > Além disso, a funcionalidade **reenviar** nesta página não está disponível no momento.
 
 1. Para filtrar os resultados, você pode executar a filtragem do lado do cliente e do servidor.
 

@@ -2,18 +2,18 @@
 title: 'Tutorial: criar um analisador personalizado'
 titleSuffix: Azure Cognitive Search
 description: Saiba como criar um analisador personalizado para aprimorar a qualidade dos resultados da pesquisa no Azure Cognitive Search.
-manager: liamca
+manager: luisca
 author: dereklegenzoff
 ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 06/22/2020
-ms.openlocfilehash: a9c2a5beae8a9206554dd6c432c1d8442b652696
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 01/29/2021
+ms.openlocfilehash: f4bde98cfc772f5a80bb52c2e4bc2f5a9c28c78d
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87021878"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99097650"
 ---
 # <a name="tutorial-create-a-custom-analyzer-for-phone-numbers"></a>Tutorial: Criar um analisador personalizado para números de telefone
 
@@ -21,7 +21,7 @@ Os [analisadores](search-analyzers.md) são um componente fundamental de qualque
 
 Em alguns casos, como com um campo de texto livre, basta selecionar o [analisador de idioma](index-add-language-analyzers.md) correto para aprimorar os resultados da pesquisa. No entanto, alguns cenários, como pesquisar de modo preciso números de telefone, URLs ou emails, podem exigir o uso de analisadores personalizados.
 
-Este tutorial usa o Postman e as APIs REST do [Azure Cognitive Search](https://docs.microsoft.com/rest/api/searchservice/) para:
+Este tutorial usa o Postman e as APIs REST do [Azure Cognitive Search](/rest/api/searchservice/) para:
 
 > [!div class="checklist"]
 > * Explicar como funcionam os analisadores
@@ -59,9 +59,9 @@ Para cada solicitação, você precisa:
 
 1. Substituir `<YOUR-ADMIN-API-KEY>` pela chave primária ou secundária do serviço de pesquisa.
 
-  ![URL e cabeçalho da solicitação do Postman](media/search-get-started-postman/postman-url.png "URL e cabeçalho da solicitação do Postman")
+  :::image type="content" source="media/search-get-started-rest/postman-url.png" alt-text="URL e cabeçalho da solicitação do Postman" border="false":::
 
-Se não estiver familiarizado com o Postman, confira [Explorar APIs REST do Azure Cognitive Search usando Postman](search-get-started-postman.md).
+Se não estiver familiarizado com o Postman, confira [Explorar APIs REST do Azure Cognitive Search](search-get-started-rest.md).
 
 ## <a name="3---create-an-initial-index"></a>3 – Criar um índice inicial
 
@@ -225,7 +225,7 @@ Se você considera esses resultados confusos, não está sozinho. Na próxima se
 
 ## <a name="4---debug-search-results"></a>4 – Depurar resultados da pesquisa
 
-Para entender esses resultados da pesquisa, é importante entender primeiro como funcionam os analisadores. Então podemos testar o analisador padrão usando a API [Analisar Texto](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) e criar um analisador que atenda às nossas necessidades.
+Para entender esses resultados da pesquisa, é importante entender primeiro como funcionam os analisadores. Então podemos testar o analisador padrão usando a API [Analisar Texto](/rest/api/searchservice/test-analyzer) e criar um analisador que atenda às nossas necessidades.
 
 ### <a name="how-analyzers-work"></a>Como funcionam os analisadores
 
@@ -239,11 +239,11 @@ Os analisadores consistem em três componentes:
 
 No seguinte diagrama, você pode ver como esses três componentes funcionam em conjunto para indexar uma sentença:
 
-  ![Diagrama do processo do Analisador](media/tutorial-create-custom-analyzer/analyzers-explained.png)
+  :::image type="content" source="media/tutorial-create-custom-analyzer/analyzers-explained.png" alt-text="Diagrama do processo do analisador para criar tokens para uma sentença":::
 
 Esses tokens são então armazenados em um índice invertido, que permite pesquisas rápidas de texto completo.  Um índice invertido permite a pesquisa de texto completo mapeando todos os termos exclusivos extraídos durante a análise lexical para os documentos em que eles ocorrem. Você pode ver um exemplo no diagrama abaixo:
 
-  ![Índice invertido de exemplo](media/tutorial-create-custom-analyzer/inverted-index-explained.png)
+  :::image type="content" source="media/tutorial-create-custom-analyzer/inverted-index-explained.png" alt-text="Índice invertido de exemplo":::
 
 Toda a pesquisa fica inativa para pesquisar os termos armazenados no índice invertido. Quando o usuário emite uma consulta:
 
@@ -251,7 +251,7 @@ Toda a pesquisa fica inativa para pesquisar os termos armazenados no índice inv
 1. O índice invertido é então examinado em busca de documentos com termos correspondentes.
 1. Por fim, os documentos recuperados são classificados pelo [algoritmo de similaridade](index-ranking-similarity.md).
 
-  ![Diagrama do processo do Analisador](media/tutorial-create-custom-analyzer/query-architecture-explained.png)
+  :::image type="content" source="media/tutorial-create-custom-analyzer/query-architecture-explained.png" alt-text="Similaridade de classificação do diagrama do processo do Analisador":::
 
 Se os termos da consulta não corresponderem aos termos no índice invertido, os resultados não serão retornados. Para saber mais sobre como funcionam as consultas, confira este artigo sobre [pesquisa de texto completo](search-lucene-query-architecture.md).
 
@@ -260,7 +260,7 @@ Se os termos da consulta não corresponderem aos termos no índice invertido, os
 
 ### <a name="test-analyzer-using-the-analyze-text-api"></a>Analisador de testes usando a API de Análise de Texto
 
-O Azure Cognitive Search fornece uma [API de Análise de Texto](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) que permite testar analisadores para entender como eles processam o texto.
+O Azure Cognitive Search fornece uma [API de Análise de Texto](/rest/api/searchservice/test-analyzer) que permite testar analisadores para entender como eles processam o texto.
 
 A API de Análise de Texto é chamada usando a seguinte solicitação:
 
@@ -270,8 +270,8 @@ POST https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/tutorial-basi
   api-key: <YOUR-ADMIN-API-KEY>
 
   {
-      "text": "(425) 555-0100",
-      "analyzer": "standard.lucene"
+    "text": "(425) 555-0100",
+    "analyzer": "standard.lucene"
   }
 ```
 

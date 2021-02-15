@@ -7,16 +7,16 @@ ms.subservice: security
 ms.custom: security
 ms.devlang: azurecli
 ms.topic: sample
-author: ronitr
-ms.author: ronitr
-ms.reviewer: carlrab, vanto
-ms.date: 08/05/2019
-ms.openlocfilehash: ac945b14091ae01cfad66c3776c84406583e491f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+author: DavidTrigano
+ms.author: datrigan
+ms.reviewer: vanto
+ms.date: 02/09/2021
+ms.openlocfilehash: 7450911dabe04ea04ba16ec5e648f09ecf4a616f
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87037109"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100095980"
 ---
 # <a name="use-cli-to-configure-sql-database-auditing-and-advanced-threat-protection"></a>Usar a CLI para configurar a auditoria e a Proteção Avançada contra Ameaças do Banco de Dados SQL
 
@@ -38,7 +38,41 @@ az account set -s $subscription # ...or use 'az login'
 
 ### <a name="run-the-script"></a>Executar o script
 
-[!code-azurecli-interactive[main](../../../cli_scripts/sql-database/database-auditing-and-threat-detection/database-auditing-and-threat-detection.sh "Configure auditing and threat detection")]
+```azurecli-interactive
+#!/bin/bash
+location="East US"
+randomIdentifier=random123
+
+resource="resource-$randomIdentifier"
+server="server-$randomIdentifier"
+database="database-$randomIdentifier"
+storage="storage$randomIdentifier"
+
+notification="changeto@your.email;changeto@your.email"
+
+login="sampleLogin"
+password="samplePassword123!"
+
+echo "Using resource group $resource with login: $login, password: $password..."
+
+echo "Creating $resource..."
+az group create --name $resource --location "$location"
+
+echo "Creating $server in $location..."
+az sql server create --name $server --resource-group $resource --location "$location" --admin-user $login --admin-password $password
+
+echo "Creating $database on $server..."
+az sql db create --name $database --resource-group $resource --server $server --service-objective S0
+
+echo "Creating $storage..."
+az storage account create --name $storage --resource-group $resource --location "$location" --sku Standard_LRS
+
+echo "Setting access policy on $storage..."
+az sql db audit-policy update --resource-group $resource --server $server --name $database --state Enabled --blob-storage-target-state Enabled --storage-account $storage
+
+echo "Setting threat detection policy on $storage..."
+az sql db threat-policy update --email-account-admins Disabled --email-addresses $notification --name $database --resource-group $resource --server $server --state Enabled --storage-account $storage
+```
 
 ### <a name="clean-up-deployment"></a>Limpar a implantação
 

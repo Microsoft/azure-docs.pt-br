@@ -1,16 +1,16 @@
 ---
-title: Executar uma carga de trabalho paralela usando a API do .NET
+title: Tutorial – Executar uma carga de trabalho paralela usando a API do .NET
 description: 'Tutorial: transcodificar arquivos de mídia em paralelo com ffmpeg no Lote do Azure usando a biblioteca de cliente .NET do Lote'
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 12/21/2018
-ms.custom: mvc
-ms.openlocfilehash: afa660a7138f3b69b2a6f7c478550095f357e29b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 09/29/2020
+ms.custom: mvc, devx-track-csharp
+ms.openlocfilehash: a990a5480a8a6462bb6ef9f84070b78768628fd0
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87062578"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106522"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>Tutorial: Executar uma carga de trabalho paralela com o Lote do Azure usando a API do .NET
 
@@ -35,7 +35,7 @@ Neste tutorial, você converte os arquivos de mídia MP4 em paralelo para o form
 
 * Uma conta do Lote e uma conta de Armazenamento do Azure vinculada. Para criar essas contas, consulte os guias de início rápido do Lote usando o [portal do Azure](quick-create-portal.md) ou a [CLI do Azure](quick-create-cli.md).
 
-* [Versão de 64 bits do Windows do ffmpeg 3.4](https://ffmpeg.zeranoe.com/builds/win64/static/ffmpeg-3.4-win64-static.zip) (. zip). Baixe o arquivo zip em seu computador local. Para este tutorial, você só precisa do arquivo zip. Não é necessário descompactar o arquivo ou instalá-lo localmente.
+* [Versão do Windows de 64 bits do ffmpeg 4.3.1](https://github.com/GyanD/codexffmpeg/releases/tag/4.3.1-2020-11-08) (.zip). Baixe o arquivo zip em seu computador local. Para este tutorial, você só precisa do arquivo zip. Não é necessário descompactar o arquivo ou instalá-lo localmente.
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
@@ -47,7 +47,7 @@ Use o portal do Azure para adicionar o ffmpeg à sua conta do Lote como um [paco
 
 1. No portal do Azure, clique em **Mais serviços** > **Contas do Lote** e clique no nome da sua conta do Lote.
 3. Clique em **Aplicativos** > **Adicionar**.
-4. Como **Id do aplicativo**, insira *ffmpeg*e uma versão do pacote de *3.4*. Selecione o arquivo zip de ffmpeg que você baixou anteriormente e clique em **OK**. O pacote de aplicativos ffmpeg é adicionado à sua conta do Lote.
+4. Para obter a **ID do aplicativo**, insira *ffmpeg* e uma versão do pacote de *4.3.1*. Selecione o arquivo zip de ffmpeg que você baixou anteriormente e clique em **OK**. O pacote de aplicativos ffmpeg é adicionado à sua conta do Lote.
 
 ![Adicionar pacote de aplicativos](./media/tutorial-parallel-dotnet/add-application.png)
 
@@ -84,7 +84,7 @@ Além disso, verifique se a referência do pacote de aplicativos ffmpeg na solu�
 
 ```csharp
 const string appPackageId = "ffmpeg";
-const string appPackageVersion = "3.4";
+const string appPackageVersion = "4.3.1";
 ```
 
 ### <a name="build-and-run-the-sample-project"></a>Criar e executar o projeto de exemplo
@@ -263,7 +263,7 @@ for (int i = 0; i < inputFiles.Count; i++)
     string outputMediaFile = String.Format("{0}{1}",
         System.IO.Path.GetFileNameWithoutExtension(inputMediaFile),
         ".mp3");
-    string taskCommandLine = String.Format("cmd /c {0}\\ffmpeg-3.4-win64-static\\bin\\ffmpeg.exe -i {1} {2}", appPath, inputMediaFile, outputMediaFile);
+    string taskCommandLine = String.Format("cmd /c {0}\\ffmpeg-4.3.1-2020-09-21-full_build\\bin\\ffmpeg.exe -i {1} {2}", appPath, inputMediaFile, outputMediaFile);
 
     // Create a cloud task (with the task ID and command line)
     CloudTask task = new CloudTask(taskId, taskCommandLine);
@@ -332,6 +332,3 @@ Para obter mais exemplos de como usar a API do .NET para agendar e processar car
 
 > [!div class="nextstepaction"]
 > [Exemplos em C# do Lote](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp)
-
-
-Definir a variável de instância LowPriorityNodeCount=0 e o DedicatedNodeCount=5 corrigiu o problema e permitiu que o trabalho fosse concluído.

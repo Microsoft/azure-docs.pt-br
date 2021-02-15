@@ -11,12 +11,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - 'Role: Technical Support'
-ms.openlocfilehash: 4a13d1ff030a63d3ccf33297f215909f5920e16a
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 9487fc562fa099d2650aabc8d15fc1449c7fcb5c
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327677"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97825179"
 ---
 # <a name="iot-hub-device-streams-preview"></a>Fluxos de dispositivos do Hub IoT (versão prévia)
 
@@ -26,7 +26,7 @@ Os *fluxos de dispositivos* do Hub IoT do Azure facilitam a criação de túneis
 
 Ao usar os fluxos de dispositivos do Hub IoT, os dispositivos permanecem seguros e só precisarão abrir as conexões de TCP de saída para o ponto de extremidade de streaming do Hub IoT pela porta 443. Quando um fluxo é estabelecido, os aplicativos do lado do serviço e do lado do dispositivo têm acesso via programação a um objeto de cliente do WebSocket para enviar e receber os bytes brutos entre si. As garantias de confiabilidade e ordenação fornecidas por esse túnel são similares àquelas oferecidas por TCP.
 
-## <a name="benefits"></a>Benefícios
+## <a name="benefits"></a>Vantagens
 
 Os fluxos de dispositivos do Hub IoT oferecem os seguintes benefícios:
 
@@ -103,7 +103,7 @@ A saída é um objeto JSON com todos os pontos de extremidade que seu dispositiv
 ```
 
 > [!NOTE]
-> Verifique se a CLI do Azure versão 2.0.57 ou posterior está instalada. Você pode baixar a versão mais recente na página [instalar CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) .
+> Verifique se a CLI do Azure versão 2.0.57 ou posterior está instalada. Você pode baixar a versão mais recente na página [instalar CLI do Azure](/cli/azure/install-azure-cli) .
 >
 
 ## <a name="allow-outbound-connectivity-to-the-device-streaming-endpoints"></a>Permitir conectividade de saída para os pontos de extremidade de streaming do dispositivo
@@ -119,28 +119,28 @@ az iot hub devicestream show --name <YourIoTHubName>
 ```
 
 > [!NOTE]
-> Verifique se a CLI do Azure versão 2.0.57 ou posterior está instalada. Você pode baixar a versão mais recente na página [instalar CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) .
+> Verifique se a CLI do Azure versão 2.0.57 ou posterior está instalada. Você pode baixar a versão mais recente na página [instalar CLI do Azure](/cli/azure/install-azure-cli) .
 >
 
-## <a name="troubleshoot-via-device-streams-activity-logs"></a>Solucionar problemas por meio de logs de atividades de fluxos de dispositivos
+## <a name="troubleshoot-via-device-streams-resource-logs"></a>Solucionar problemas via logs de recursos de fluxos de dispositivo
 
-Você pode configurar logs de Azure Monitor para coletar o log de atividades dos fluxos de dispositivo em seu hub IoT. Isso pode ser muito útil em cenários de solução de problemas.
+Você pode configurar Azure Monitor para coletar os [logs de recursos para fluxos de dispositivo](monitor-iot-hub-reference.md#device-streams-preview) emitidos pelo Hub IOT. Isso pode ser muito útil em cenários de solução de problemas.
 
-Siga as etapas abaixo para configurar os logs de Azure Monitor para as atividades de fluxo do dispositivo do Hub IoT:
+Siga as etapas abaixo para criar uma configuração de diagnóstico para enviar logs de fluxos de dispositivo para o Hub IoT para Azure Monitor logs:
 
-1. Navegue até a guia *Configurações de diagnóstico* em seu Hub IoT e, em seguida, clique no link *Ativar diagnóstico*.
+1. Em portal do Azure, navegue até o Hub IoT. No painel esquerdo, em **monitoramento**, selecione **configurações de diagnóstico**. Em seguida, selecione **Adicionar configuração de diagnóstico**.
 
-   !["Habilitando logs de diagnóstico"](./media/iot-hub-device-streams-overview/device-streams-diagnostics-settings-pane.png)
+2. Forneça um nome para a configuração de diagnóstico e selecione **DeviceStreams** na lista de logs. Em seguida, selecione **Enviar para log Analytics**. Você será guiado para escolher um espaço de trabalho Log Analytics existente ou criar um novo.
 
-2. Forneça um nome para as configurações de diagnóstico e, em seguida, escolha a opção *Enviar para o Log Analytics*. Você será guiado para escolher um recurso existente do espaço de trabalho Log Analytics ou criar um novo. Além disso, verifique os *DeviceStreams* na lista.
+    :::image type="content" source="media/iot-hub-device-streams-overview/device-streams-configure-diagnostics.png" alt-text="Habilitar logs de fluxos de dispositivo":::
 
-    !["Habilitar logs de fluxos de dispositivo"](./media/iot-hub-device-streams-overview/device-streams-configure-diagnostics.png)
-
-3. Agora você pode acessar seus logs de fluxos de dispositivo na guia *Logs* no portal do seu Hub IoT. Os logs de atividades de fluxo de dispositivo aparecerão na tabela `AzureDiagnostics` e possuem `Category=DeviceStreams`.
+3. Depois de criar uma configuração de diagnóstico para enviar os logs de fluxos de dispositivo para um espaço de trabalho Log Analytics, você pode acessar os logs selecionando **logs** em **monitoramento** no painel esquerdo do Hub IOT no portal do Azure. Os logs de fluxos de dispositivo serão exibidos na `AzureDiagnostics` tabela e terão `Category=DeviceStreams` . Lembre-se de que pode levar vários minutos após uma operação para que os logs apareçam na tabela.
 
    Como mostrado abaixo, a identidade do dispositivo de destino e o resultado da operação também estão disponíveis nos logs.
 
    !["Acessar logs de fluxo do dispositivo"](./media/iot-hub-device-streams-overview/device-streams-view-logs.png)
+
+Para saber mais sobre como usar Azure Monitor com o Hub IoT, confira [monitorar o Hub IOT](monitor-iot-hub.md). Para obter informações sobre todos os logs de recursos, as métricas e as tabelas disponíveis para o Hub IoT, consulte [monitorando a referência de dados do Hub IOT do Azure](monitor-iot-hub-reference.md).
 
 ## <a name="regional-availability"></a>Disponibilidade regional
 
@@ -156,7 +156,7 @@ Dois lados de cada fluxo (no lado do dispositivo e do serviço) usam o SDK do Hu
 
 ## <a name="iot-hub-device-stream-samples"></a>Amostras de fluxo de dispositivo do Hub IoT
 
-Há duas [amostras de início rápido](/azure/iot-hub) disponíveis na página do Hub IOT. Eles demonstram o uso de fluxos de dispositivo por aplicativos.
+Há duas [amostras de início rápido](./index.yml) disponíveis na página do Hub IOT. Eles demonstram o uso de fluxos de dispositivo por aplicativos.
 
 * O exemplo *Echo* demonstra o uso programático de fluxos de dispositivo (chamando diretamente a API do SDK).
 
@@ -164,7 +164,7 @@ Há duas [amostras de início rápido](/azure/iot-hub) disponíveis na página d
 
 Esses exemplos são abordados em mais detalhes abaixo.
 
-### <a name="echo-sample"></a>Exemplo de echo
+### <a name="echo-sample"></a>Exemplo de eco
 
 O exemplo de eco demonstra o uso via programação dos fluxos de dispositivos para enviar e receber bytes entre os aplicativos de serviço e de dispositivo. Observe que você pode usar programas de serviço e dispositivo em diferentes idiomas. Por exemplo, você pode usar o programa de dispositivo C com o programa de serviço C#.
 
@@ -172,7 +172,7 @@ Aqui estão os exemplos de eco:
 
 * [Programa de serviço e serviço C#](quickstart-device-streams-echo-csharp.md)
 
-* [Programa de serviço deNode.js](quickstart-device-streams-echo-nodejs.md)
+* [ Programa de serviço deNode.js](quickstart-device-streams-echo-nodejs.md)
 
 * [Programa de dispositivo C](quickstart-device-streams-echo-c.md)
 
@@ -208,7 +208,7 @@ Use os links abaixo para obter instruções sobre como executar os programas de 
 
 * [Programa de serviço e serviço C#](quickstart-device-streams-proxy-csharp.md)
 
-* [Programa de serviço deNode.js](quickstart-device-streams-proxy-nodejs.md)
+* [ Programa de serviço deNode.js](quickstart-device-streams-proxy-nodejs.md)
 
 * [Programa de dispositivo C](quickstart-device-streams-proxy-c.md)
 

@@ -2,14 +2,16 @@
 title: 'Tutorial: Examinando enunciados de ponto de extremidade – LUIS'
 description: Neste tutorial, aprimore as previsões de aplicativo verificando ou corrigindo os enunciados recebidos pelo ponto de extremidade HTTP do LUIS dos quais o LUIS não tem certeza. Alguns enunciados podem ser verificados quanto à intenção e outros quanto à entidade.
 services: cognitive-services
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 07/02/2020
-ms.openlocfilehash: 082e625efeeb4764aaa1ac5101eb2b0013348b19
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: b8f8fa2cd3c9c22187bb95c55d9de2abb2e8caec
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85959002"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91324630"
 ---
 # <a name="tutorial-fix-unsure-predictions-by-reviewing-endpoint-utterances"></a>Tutorial: Corrigir previsões incertas examinando os enunciados de ponto de extremidade
 Neste tutorial, melhore as previsões de aplicativo verificando ou corrigindo os enunciados recebidos pelo ponto de extremidade HTTP do LUIS sobre os quais o LUIS não tem certeza. Você deve examinar os enunciados de ponto de extremidade como uma parte regular da sua manutenção agendada do LUIS.
@@ -82,7 +84,7 @@ Examine os enunciados do ponto de extremidade para uma intenção corretamente a
 
 1. Na seção **Build** do portal, selecione **Examinar enunciados do ponto de extremidade** no painel de navegação esquerdo. A lista é filtrada para a intenção **ApplyForJob**.
 
-    :::image type="content" source="./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png" alt-text="Captura de tela do botão Examinar enunciados de ponto de extremidade na barra de navegação à esquerda.":::
+    :::image type="content" source="./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png" alt-text="Altere da página Versões para a página Intenções.":::
 
     Este enunciado, `I'm looking for a job with Natural Language Processing`, não está na intenção correta, _GetJobInformation_. Ele foi previsto incorretamente como _ApplyForJob_ devido à similaridade de nomes e verbos do de trabalho nas duas intenções.
 

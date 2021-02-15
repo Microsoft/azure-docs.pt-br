@@ -3,12 +3,12 @@ title: 'Início Rápido: Enviar eventos personalizados para a Função do Azure 
 description: 'Início Rápido: Use a Grade de Eventos do Azure e a CLI do Azure ou o portal para publicar um tópico e assinar esse evento. Uma Função do Azure é usada para o ponto de extremidade.'
 ms.date: 07/07/2020
 ms.topic: quickstart
-ms.openlocfilehash: 26ddfd1aeb61d3786edcdfca1acf5e293e4145ae
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 4fe4753de41443a0537636933364c7b69b25cb27
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86115070"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791720"
 ---
 # <a name="quickstart-route-custom-events-to-an-azure-function-with-event-grid"></a>Início Rápido: Rotear eventos personalizados para uma Função do Azure com a Grade de Eventos
 
@@ -17,14 +17,17 @@ A Grade de Eventos do Azure é um serviço de eventos para a nuvem. O Azure Func
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="create-azure-function"></a>Criar Função do Azure
+Antes de assinar o tópico personalizado, crie uma função para a lidar com os eventos. 
 
-Antes de assinar o tópico personalizado, vamos criar uma função para a lidar com os eventos. No portal do Azure, clique em 'Criar um recurso', digite 'função ', escolha 'aplicativo de funções' e clique em Criar. Selecione 'Criar novo' em grupo de recursos e dê a ele um nome. Você usará isso para o restante do tutorial. Dê ao aplicativo de funções um nome, deixe a alternância 'Publicar' em 'Código', selecione qualquer runtime e região e clique em Criar.
+1. Crie um aplicativo de funções usando instruções de [Criar um aplicativo de funções](../azure-functions/functions-get-started.md).
+2. Crie uma função usando o **Gatilho da Grade de Eventos**. Selecione Se esta for a primeira vez que você usa esse gatilho, talvez seja necessário clicar em 'Instalar' para instalar a extensão.
+    1. Na página **Aplicativo de Funções**, selecione **Funções** no menu à esquerda, pesquise **Grade de Eventos** em modelos e escolha **Gatilho da Grade de Eventos do Azure**. 
 
-Quando o aplicativo de funções estiver pronto, navegue até ele e clique em '+ Nova Função'. Selecione 'No portal' para o ambiente de desenvolvimento e clique em Continuar. Em Criar uma função, escolha 'Mais modelos' para exibir mais modelos e, em seguida, procure 'Gatilho da Grade de Eventos do Azure' e selecione-o. Se esta for a primeira vez que você usa esse gatilho, talvez seja necessário clicar em 'Instalar' para instalar a extensão.
+        :::image type="content" source="./media/custom-event-to-function/function-event-grid-trigger.png" alt-text="Selecionar gatilho da Grade de Eventos":::
+3. Na página **Nova Função**, insira um nome para a função e selecione **Criar Função**.
 
-![Gatilho da Grade de Eventos de Função](./media/custom-event-to-function/grid-trigger.png)
-
-Depois de instalar a extensão, clique em Continuar, dê um nome à sua função e clique em Criar.
+    :::image type="content" source="./media/custom-event-to-function/new-function-page.png" alt-text="Página Nova Função":::
+4. Use a página **Código + Teste** para ver o código existente para a função e atualizá-lo. 
 
 [!INCLUDE [event-grid-register-provider-portal.md](../../includes/event-grid-register-provider-portal.md)]
 
@@ -43,7 +46,7 @@ Um tópico de grade de evento fornece um ponto de extremidade definido pelo usu�
 4. Na página **Criar Tópico**, siga estas etapas:
 
     1. Informe um **nome** exclusivo para o tópico personalizado. O nome do tópico deve ser exclusivo, pois é representado por uma entrada DNS. Não use o nome mostrado na imagem. Em vez disso, crie seu próprio nome – ele deve ter entre 3 e 50 caracteres e conter apenas valores a-z, A-Z, 0-9 e "-".
-    2. Selecione sua **assinatura**do Azure.
+    2. Selecione sua **assinatura** do Azure.
     3. Selecione o mesmo grupo de recursos das etapas anteriores.
     4. Selecione um **local** para o tópico de grade de eventos.
     5. Mantenha o valor padrão **Esquema de Grade de Eventos** para o campo **Esquema de Eventos**. 
@@ -81,8 +84,12 @@ Você assina um tópico da grade de eventos para indicar à Grade de Eventos qua
     5. Para o ponto de extremidade da função, selecione a Assinatura do Azure e o Grupo de Recursos no qual o aplicativo de funções está e, em seguida, selecione o aplicativo de funções e a função que você criou anteriormente. Selecione **Confirmar seleção**.
 
        ![Fornecer URL de ponto de extremidade](./media/custom-event-to-function/provide-endpoint.png)
-
-    6. Volte para a página **Criar Assinatura de Evento** e selecione **Criar**.
+    6. Esta etapa é opcional, mas recomendada para cenários de produção. Na página **Criar Assinatura de Evento**, alterne para a guia **Recursos Avançados** e defina valores para **Máximo de eventos por lote** e **Tamanho preferencial do lote em quilobytes**. 
+    
+        O envio em lote pode fornecer uma alta taxa de transferência. Para **Máximo de eventos por lote**, defina o número máximo de eventos que uma assinatura incluirá em um lote. O tamanho de lote preferencial define o limite superior preferencial do tamanho do lote em quilobytes, mas poderá ser excedido se um evento for maior do que esse limite.
+    
+        :::image type="content" source="./media/custom-event-to-function/enable-batching.png" alt-text="Habilitar o envio em lote":::
+    6. Na página **Criar Assinatura de Evento**, selecione **Criar**.
 
 ## <a name="send-an-event-to-your-topic"></a>Enviar um evento para o tópico
 

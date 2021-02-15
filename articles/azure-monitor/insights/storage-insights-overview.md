@@ -3,15 +3,15 @@ title: Monitore os serviços de Armazenamento do Microsoft Azure com o Azure Mon
 description: Este artigo descreve o recurso Azure Monitor for Storage, que permite aos administradores entenderem rapidamente questões de desempenho e utilização de suas contas do Armazenamento do Azure.
 ms.subservice: ''
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
+author: lgayhardt
+ms.author: lagayhar
 ms.date: 05/11/2020
-ms.openlocfilehash: 6d6754594a321d297d983f9bd7e90ce074857919
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 47799898251923b327954c764dcccb8157ba5119
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88961968"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98208634"
 ---
 # <a name="monitoring-your-storage-service-with-azure-monitor-for-storage"></a>Monitorando seu serviço de armazenamento com o Azure Monitor for Storage
 
@@ -31,14 +31,11 @@ Ele distribui:
 
 * **Personalizável**, logo, você pode alterar que métricas deseja ver e modificar, pode definir restrições alinhadas com os seus limites e salvar sua própria pasta de trabalho. Os gráficos da pasta de trabalho podem ser fixados ao painel do Azure.  
 
-Esse recurso não exige que você habilite nem configure nada, as métricas das contas de armazenamento são coletadas por padrão. Se não estiver familiarizado com as métricas disponíveis no Armazenamento do Azure, exiba sua descrição e definição examinando [Métricas de armazenamento do Azure](../../storage/common/monitor-storage.md).
+Esse recurso não exige que você habilite nem configure nada, as métricas das contas de armazenamento são coletadas por padrão. Se não estiver familiarizado com as métricas disponíveis no Armazenamento do Azure, exiba sua descrição e definição examinando [Métricas de armazenamento do Azure](../../storage/blobs/monitor-blob-storage.md).
 
 >[!NOTE]
 >Não há nenhum encargo para acessar esse recurso e você será cobrado somente pelos recursos essenciais do Azure Monitor que você configurar ou habilitar, conforme descrito na página [Detalhes de preços de Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
 
->[!NOTE]
->O Azure Monitor for Storage não dá suporte a [contas de uso geral v1](../../storage/common/storage-account-overview.md#general-purpose-v1-accounts).
->
 
 ## <a name="view-from-azure-monitor"></a>Exibir no Azure Monitor
 
@@ -67,7 +64,7 @@ O bloco contador sob as listas suspensas acumula o número total de contas de ar
 A seleção de um valor nas colunas **Disponibilidade**, **Latência E2E**, **Latência do Servidor** e **Erros/tipo de erro de transação** o levará a um relatório personalizado para o tipo específico de métricas de armazenamento que corresponda à coluna selecionada para essa conta de armazenamento. Para obter mais informações sobre as pastas de trabalho para cada categoria, consulte a seção a seguir chamada [Pastas de trabalho de armazenamento detalhadas](#detailed-storage-workbooks). 
 
 >[!NOTE]
->Para obter detalhes sobre que erros podem ser mostrados no relatório, consulte o [esquema de Tipo de Resposta](../../storage/common/monitor-storage-reference.md#metrics-dimensions) e procure tipos de resposta como **ServerOtherError**, **ClientOtherError**, **ClientThrottlingError**. Dependendo das contas de armazenamento selecionadas, se houver mais do que três tipos de erros relatados, todos os demais erros serão representados sob a categoria **Outros**.
+>Para obter detalhes sobre que erros podem ser mostrados no relatório, consulte o [esquema de Tipo de Resposta](../../storage/blobs/monitor-blob-storage-reference.md#metrics-dimensions) e procure tipos de resposta como **ServerOtherError**, **ClientOtherError**, **ClientThrottlingError**. Dependendo das contas de armazenamento selecionadas, se houver mais do que três tipos de erros relatados, todos os demais erros serão representados sob a categoria **Outros**.
 
 O limite de **Disponibilidade** padrão é:
 
@@ -94,7 +91,7 @@ Para acessar o Azure Monitor para VMs diretamente a partir de uma conta de armaz
 
 2. Selecione uma conta de armazenamento na lista. Na seção Monitoramento, selecione Insights.
 
-    ![Página Visão geral da conta de armazenamento selecionada](./media/storage-insights-overview/storage-account-direct-overview-01.png)
+    ![Captura de tela que mostra a página da pasta de trabalho de visão geral da conta de armazenamento.](./media/storage-insights-overview/storage-account-direct-overview-01.png)
 
 Na pasta de trabalho **Visão geral** da conta de armazenamento, são mostradas várias métricas de desempenho do armazenamento que ajudam a avaliar rapidamente o seguinte:
 
@@ -104,7 +101,7 @@ Na pasta de trabalho **Visão geral** da conta de armazenamento, são mostradas 
 
 * Blocos de métricas e status que realçam a disponibilidade do serviço, a contagem total de transações para o serviço de armazenamento, a latência E2E e a latência do servidor.
 
-A seleção do botão**Falhas**, **Desempenho** , **Disponibilidade** ou **Capacidade** abrirá a respectiva pasta de trabalho. 
+A seleção do botão **Falhas**, **Desempenho** , **Disponibilidade** ou **Capacidade** abrirá a respectiva pasta de trabalho. 
 
 ![Página Visão geral da conta de armazenamento selecionada](./media/storage-insights-overview/storage-account-capacity-01.png)
 
@@ -174,7 +171,7 @@ Em nosso exemplo, estamos trabalhando com a pasta de trabalho de capacidade de v
 * Remover uma métrica
 * Alterar a renderização de cores
 
-Você pode executar as mesmas alterações em qualquer uma das seguintes pastas de trabalho predefinidas: **Falhas**, **Desempenho**, **Disponibilidade**e **Capacidade** .
+Você pode executar as mesmas alterações em qualquer uma das seguintes pastas de trabalho predefinidas: **Falhas**, **Desempenho**, **Disponibilidade** e **Capacidade** .
 
 1. Selecione **Monitor** no portal e, em seguida, selecione **Contas de Armazenamento** no painel esquerdo.
 
@@ -220,7 +217,7 @@ Neste exemplo, trabalharemos com a pasta de trabalho de capacidade da conta de a
 
 5. Selecione **Configurações de coluna** e, em seguida, no painel **Editar configurações de coluna**, na seção **Colunas**, selecione **Disponibilidade (%) (Limites + Formatadas)** .
 
-6. Altere o valor do estado de integridade **Crítico** de**90** para **85** e clique em **Salvar e Fechar**.
+6. Altere o valor do estado de integridade **Crítico** de **90** para **85** e clique em **Salvar e Fechar**.
 
     ![Modificar o valor do limite de disponibilidade do estado crítico](./media/storage-insights-overview/edit-column-settings-capacity-workbook-01.png)
 
@@ -274,4 +271,3 @@ Cada pasta de trabalho será salva na conta de armazenamento na qual você a sal
 * Conheça os cenários aos quais as pastas de trabalho foram projetadas para dar suporte, como criar relatórios, personalizar relatórios existentes e muito mais, examinando [Criar relatórios interativos com pastas de trabalho do Azure Monitor](../platform/workbooks-overview.md).
 
 * Para um guia aprofundado sobre como usar a Análise de Armazenamento e outras ferramentas para identificar, diagnosticar e solucionar problemas relacionados ao Armazenamento do Azure, consulte [Monitorar, diagnosticar e solucionar problemas do Armazenamento do Microsoft Azure](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md).
-

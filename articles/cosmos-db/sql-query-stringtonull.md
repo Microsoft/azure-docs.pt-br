@@ -3,18 +3,21 @@ title: StringToNull na linguagem de consulta Azure Cosmos DB
 description: Saiba mais sobre a função do sistema SQL StringToNull no Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 7e17547f88465103b61eabec04978ea806ffa2c9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ee91ca3a32bacbf6590877f49bf74499fc00a8f9
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78296432"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339573"
 ---
 # <a name="stringtonull-azure-cosmos-db"></a>StringToNull (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Retorna a expressão convertida em NULL. Se a expressão não puder ser convertida, retornará indefinido.  
   
 ## <a name="syntax"></a>Sintaxe

@@ -7,12 +7,12 @@ ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 55b789363397945e01d02d76cb0e573660d18b67
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 091feacceb510038786ae487c0895f9ff1e47aba
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607505"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880331"
 ---
 # <a name="frequently-asked-questions-about-transitioning-from-the-cloud-partner-portal-to-partner-center"></a>Perguntas frequentes sobre a transição do Portal do Cloud Partner para o Partner Center
 
@@ -28,7 +28,7 @@ Você pode continuar fazendo negócios no Partner Center:
 | Ofereça experiência de gerenciamento de publicação e oferta | Nós movemos seus dados de oferta do Portal do Cloud Partner para o Partner Center. Agora você vai acessar suas ofertas no Partner Center, o que oferece uma experiência de usuário aprimorada e uma interface intuitiva. Saiba como [atualizar uma oferta existente no Marketplace comercial](partner-center-portal/update-existing-offer.md). |
 | Disponibilidade de suas ofertas no Marketplace comercial | Sem alterações. Se sua oferta estiver ativa no Marketplace comercial, ela continuará a ser dinâmica. |
 | Novas compras e implantações | Sem alterações. Seus clientes podem continuar comprando e implantando suas ofertas sem interrupções. |
-| Pagamentos | Todas as compras e implantações continuarão a ser pagas normalmente. Saiba mais sobre como ser [pago no mercado comercial](partner-center-portal/get-paid.md). |
+| Pagamentos | Todas as compras e implantações continuarão a ser pagas normalmente. Saiba mais sobre como ser [pago no mercado comercial](/partner-center/marketplace-get-paid?context=/azure/marketplace/context/context). |
 | Integrações de API com APIs existentes de [Portal do Cloud Partner ](cloud-partner-portal-api-overview.md) | As APIs existentes do Portal do Cloud Partner ainda têm suporte e suas integrações existentes ainda funcionam. Saiba mais em [as APIs REST do portal do Cloud Partner terão suporte?](#are-the-cloud-partner-portal-rest-apis-still-supported) |
 | Análise | Você pode continuar a monitorar as vendas, avaliar o desempenho e otimizar suas ofertas no Marketplace comercial exibindo análise no Partner Center. Há diferenças entre o modo como os relatórios de análise são exibidos no CPP e no Partner Center. Por exemplo, as **informações do vendedor** em cpp têm uma guia **Orders & Usage** que exibe dados para ofertas baseadas em uso e ofertas não baseadas em uso, enquanto no Partner Center a página **pedidos** tem uma guia separada para ofertas de SaaS. Saiba mais em [relatórios analíticos do Access para o mercado comercial no Partner Center](partner-center-portal/analytics.md). |
 |||
@@ -77,25 +77,25 @@ Para os tipos de oferta com suporte no Partner Center, todas as ofertas foram mo
 
 | Tipo de oferta <img src="" width=150px>| Mudou para o Partner Center? <img src="" width=100px>| Próximas etapas |
 | --- | --- | --- |
-| SaaS | Sim | Entre no Partner Center para criar novas ofertas e gerenciar ofertas que foram criadas no Portal do Cloud Partner. Saiba mais em [criar uma nova oferta de SaaS no Marketplace comercial](partner-center-portal/create-new-saas-offer.md). |
-| Máquina Virtual | Sim | Entre no Partner Center para criar novas ofertas e gerenciar ofertas que foram criadas no Portal do Cloud Partner. Saiba mais em [criar uma oferta de máquina virtual do Azure no Azure Marketplace](partner-center-portal/azure-vm-create-offer.md). |
-| Aplicativo do Azure | Sim | Entre no Partner Center para criar novas ofertas e gerenciar ofertas que foram criadas no Portal do Cloud Partner. Saiba mais em [criar uma oferta de aplicativo do Azure](partner-center-portal/create-new-azure-apps-offer.md). |
+| SaaS | Sim | Entre no Partner Center para criar novas ofertas e gerenciar ofertas que foram criadas no Portal do Cloud Partner. Saiba mais em [planejar uma oferta de SaaS para o Marketplace comercial](plan-saas-offer.md). |
+| Máquina Virtual | Sim | Entre no Partner Center para criar novas ofertas e gerenciar ofertas que foram criadas no Portal do Cloud Partner. Saiba mais em [planejar uma oferta de máquina virtual](marketplace-virtual-machines.md). |
+| Aplicativo do Azure | Sim | Entre no Partner Center para criar novas ofertas e gerenciar ofertas que foram criadas no Portal do Cloud Partner. Saiba mais em [criar uma oferta de aplicativo do Azure](create-new-azure-apps-offer.md). |
 | Dynamics 365 Business Central | Sim | Entre no Partner Center para criar novas ofertas e gerenciar ofertas que foram criadas no Portal do Cloud Partner. Saiba mais em [criar uma oferta do Dynamics 365 Business central](partner-center-portal/create-new-business-central-offer.md). |
 | Dynamics 365 para compromisso com o cliente & PowerApps | Sim | Entre no Partner Center para criar novas ofertas e gerenciar ofertas que foram criadas no Portal do Cloud Partner. Saiba mais em [criar um Dynamics 365 para o envolvimento do cliente & oferta do PowerApps](partner-center-portal/create-new-customer-engagement-offer.md). |
 | Dynamics 365 for Operations | Sim | Entre no Partner Center para criar novas ofertas e gerenciar ofertas que foram criadas no Portal do Cloud Partner. Saiba mais em [criar uma oferta do Dynamics 365 for Operations](partner-center-portal/create-new-operations-offer.md). |
 | Aplicativo do Power BI | Sim | Entre no Partner Center para criar novas ofertas e gerenciar ofertas que foram criadas no Portal do Cloud Partner. Saiba mais em [criar um aplicativo Power bi para AppSource](partner-center-portal/create-power-bi-app-offer.md). |
 | Módulo do IoT Edge | Sim | Entre no Partner Center para criar novas ofertas e gerenciar ofertas que foram criadas no Portal do Cloud Partner. Saiba mais em [criar, configurar e publicar uma oferta de módulo IOT Edge no Azure Marketplace](partner-center-portal/azure-iot-edge-module-creation.md). |
-| Contêiner | Sim | Entre no Partner Center para criar novas ofertas e gerenciar ofertas que foram criadas no Portal do Cloud Partner. Saiba mais em [criar uma oferta de contêiner do Azure](partner-center-portal/create-azure-container-offer.md). |
-| Serviço de consultoria | Sim | Entre no Partner Center para criar novas ofertas e gerenciar ofertas que foram criadas no Portal do Cloud Partner. Saiba mais em [criar uma oferta de serviço de consultoria](partner-center-portal/create-consulting-service-offer.md). |
-| Serviço gerenciado | Sim | Entre no Partner Center para criar novas ofertas e gerenciar ofertas que foram criadas no Portal do Cloud Partner. Saiba mais em [criar uma oferta de serviço gerenciado](partner-center-portal/create-new-managed-service-offer.md). |
-| Serviço gerenciado do Dynamics NAV | Não | A Microsoft desenvolveu o serviço gerenciado do Dynamics NAV no [dynamics 365 Business central](https://docs.microsoft.com/dynamics365/business-central/)e, portanto, listamos as ofertas dinâmicas de serviço gerenciado do Dynamics NAV do AppSource. Essas ofertas não são mais detectáveis pelos clientes e não foram movidas para o Partner Center. Para disponibilizar suas ofertas no AppSource, adapte-as às ofertas do Dynamics 365 Business central e envie-as no [Partner Center](https://partner.microsoft.com/). Saiba mais em [criar uma oferta do Dynamics 365 Business central](partner-center-portal/create-new-business-central-offer.md). |
-| Cortana Intelligence | Não | A Microsoft evoluiu o mapa de estrada do produto para Cortana Intelligence, portanto, nós a listamos Cortana Intelligence ofertas ao vivo da AppSource. Essas ofertas não são mais detectáveis pelos clientes e não foram movidas para o Partner Center. Para disponibilizar suas ofertas no mercado comercial, adapte suas ofertas para ofertas de software como serviço (SaaS) e envie-as para o [Partner Center](https://partner.microsoft.com/). Saiba mais na [lista de verificação de criação de oferta de SaaS no Partner Center](partner-center-portal/offer-creation-checklist.md). |
+| Contêiner | Sim | Entre no Partner Center para criar novas ofertas e gerenciar ofertas que foram criadas no Portal do Cloud Partner. Saiba mais em [criar uma oferta de contêiner do Azure](./create-azure-container-offer.md). |
+| Serviço de consultoria | Sim | Entre no Partner Center para criar novas ofertas e gerenciar ofertas que foram criadas no Portal do Cloud Partner. Saiba mais em [criar uma oferta de serviço de consultoria](./create-consulting-service-offer.md). |
+| Serviço gerenciado | Sim | Entre no Partner Center para criar novas ofertas e gerenciar ofertas que foram criadas no Portal do Cloud Partner. Saiba mais em [criar uma oferta de serviço gerenciado](./plan-managed-service-offer.md). |
+| Serviço gerenciado do Dynamics NAV | Não | A Microsoft desenvolveu o serviço gerenciado do Dynamics NAV no [dynamics 365 Business central](/dynamics365/business-central/)e, portanto, listamos as ofertas dinâmicas de serviço gerenciado do Dynamics NAV do AppSource. Essas ofertas não são mais detectáveis pelos clientes e não foram movidas para o Partner Center. Para disponibilizar suas ofertas no AppSource, adapte-as às ofertas do Dynamics 365 Business central e envie-as no [Partner Center](https://partner.microsoft.com/). Saiba mais em [criar uma oferta do Dynamics 365 Business central](partner-center-portal/create-new-business-central-offer.md). |
+| Cortana Intelligence | Não | A Microsoft evoluiu o mapa de estrada do produto para Cortana Intelligence, portanto, nós a listamos Cortana Intelligence ofertas ao vivo da AppSource. Essas ofertas não são mais detectáveis pelos clientes e não foram movidas para o Partner Center. Para disponibilizar suas ofertas no mercado comercial, adapte suas ofertas para ofertas de software como serviço (SaaS) e envie-as para o [Partner Center](https://partner.microsoft.com/). Saiba mais na [lista de verificação de criação de oferta de SaaS no Partner Center](./plan-saas-offer.md). |
 
 ## <a name="i-cant-find-my-cloud-partner-portal-offers-in-partner-center"></a>Não consigo encontrar minhas ofertas de Portal do Cloud Partner no Partner Center
 
 O que você vê no Partner Center depende dos programas nos quais você está inscrito, das contas às quais você pertence e das funções e permissões de usuário atribuídas. Há muitos programas do Partner Center disponíveis e você pode estar inscrito em vários programas. Você também pode ter acesso a várias contas com as mesmas credenciais de usuário.
 
-As ofertas que você criou no Portal do Cloud Partner estão disponíveis no Partner Center no programa do **Marketplace comercial** e na conta usada para criar as ofertas. Para verificar se você está exibindo o programa certo e a conta certa, siga as etapas abaixo. Para obter outras dicas de solução de problemas, consulte [gerenciar sua conta do Partner Center](https://docs.microsoft.com/partner-center/partner-center-account-setup).
+As ofertas que você criou no Portal do Cloud Partner estão disponíveis no Partner Center no programa do **Marketplace comercial** e na conta usada para criar as ofertas. Para verificar se você está exibindo o programa certo e a conta certa, siga as etapas abaixo. Para obter outras dicas de solução de problemas, consulte [gerenciar sua conta do Partner Center](/partner-center/partner-center-account-setup).
 
 ### <a name="access-the-right-program-in-partner-center"></a>Acesse o programa certo no Partner Center
 
@@ -103,7 +103,7 @@ As ofertas que você criou no Portal do Cloud Partner estão disponíveis no Par
 
     Exemplo: Suponha que você tenha acesso a três programas: o programa MPN, o programa de referências e o programa do Marketplace comercial. Ao entrar no Partner Center, você verá esses três programas no painel de navegação.
 
-2. Selecione **Commercial Marketplace**  >  **visão geral** do Marketplace comercial para acessar suas ofertas.
+2. Selecione   >  **visão geral** do Marketplace comercial para acessar suas ofertas.
 
     Se você não vir o programa comercial do Marketplace no painel de navegação à esquerda, você poderá estar na conta errada. Siga as etapas na próxima seção para acessar a conta correta.
 
@@ -143,7 +143,7 @@ As atualizações que você não publica são salvas como rascunhos. Continue a 
 
 ### <a name="enhanced-preview-options"></a>Opções de visualização avançada
 
-O Partner Center inclui um recurso [comparar](partner-center-portal/update-existing-offer.md#compare-changes-to-commercial-marketplace-offers) com opções de filtragem aprimoradas. Isso lhe dá a capacidade de comparar com as versões de visualização e dinâmica da oferta.
+O Partner Center inclui um recurso [comparar](partner-center-portal/update-existing-offer.md#compare-changes-to-your-offer) com opções de filtragem aprimoradas. Isso lhe dá a capacidade de comparar com as versões de visualização e dinâmica da oferta.
 
 [![Captura de tela mostra o recurso de comparação do Partner Center.](media/cpp-pc-faq/compare.png "Mostra o recurso de comparação do Partner Center")](media/cpp-pc-faq/compare.png#lightbox)
 
@@ -155,14 +155,16 @@ Você observará algumas alterações de identidade visual. Por exemplo, as *SKU
 
 Além disso, as informações fornecidas anteriormente nas páginas de detalhes do **Marketplace** ou da **vitrine**  (serviço de consultoria, Power BI aplicativo) na portal do Cloud Partner agora são coletadas na página de **listagem de ofertas** no Partner Center:
 
-[![Captura de tela mostra a página de listagem da oferta do Partner Center.](media/cpp-pc-faq/offer-listing.png "Mostra a página de listagem da oferta do Partner Center")](media/cpp-pc-faq/offer-listing.png#lightbox)
+[! [Captura de tela mostra a página de listagem da oferta do Partner Center.] (mídia/cpp-PC-perguntas frequentes/offer-listing.png](media/cpp-pc-faq/offer-listing.png#lightbox)
 
 As informações fornecidas anteriormente para SKUs em uma única página no Portal do Cloud Partner podem agora ser coletadas em várias páginas no Partner Center:
 
-- Página Configurar plano
+- Página de configuração do plano
 - Página Listagem de planos
 - Página de disponibilidade do plano
-- Página planejar configuração técnica, conforme mostrado aqui: ![ ! [ Captura de tela mostra a página de configuração técnica do Partner Center.] (Media/cpp-PC-FAQ/technical-configuration.png "mostra a página de configuração técnica do Partner Center")](media/cpp-pc-faq/technical-configuration.png#lightbox)
+- Página planejar configuração técnica, conforme mostrado aqui:
+
+[![Mostra a página de configuração técnica do Partner Center.](media/cpp-pc-faq/technical-configuration.png)](media/cpp-pc-faq/technical-configuration.png#lightbox)
 
 Sua ID de oferta agora é mostrada na barra de navegação à esquerda da oferta:
 
@@ -179,7 +181,7 @@ Você pode solicitar para [parar de vender uma oferta](partner-center-portal/upd
 
 As APIs de Portal do Cloud Partner são integradas ao Partner Center e continuarão a funcionar. A transição para o Partner Center apresenta pequenas alterações. Examine a tabela abaixo para garantir que seu código continue a funcionar no Partner Center.
 
-| API <img src="" width=100px>| Descrição da alteração | Impacto |
+| API <img src="" width=100px>| Descrição das alterações | Impacto |
 | --- | --- | --- |
 | POSTAR publicação, GoLive, cancelar | Para ofertas migradas, o cabeçalho de resposta terá um formato diferente, mas continuará a funcionar da mesma forma, denotando um caminho relativo para recuperar o status da operação. | Ao enviar qualquer uma das solicitações POST correspondentes para uma oferta, o cabeçalho Location terá um dos dois formatos, dependendo do status de migração da oferta: <ul><li>Ofertas não migradas: `/api/operations/{PublisherId}${offerId}$2$preview?api-version=2017-10-31`</li><li>Ofertas migradas: `/api/publishers/{PublisherId}/offers/{offereId}/operations/408a4835-0000-1000-0000-000000000000?api-version=2017-10-31`</li></ul>|
 | Operação GET | Para ofertas que anteriormente eram compatíveis com um campo ' Notification-email ' na resposta, esse campo será preterido e não retornará mais para ofertas migradas. | Para ofertas migradas, não enviaremos mais notificações para a lista de e-mails especificados nas solicitações. Em vez disso, o serviço de API será alinhado com o processo de e-mail de notificação no Partner Center para enviar e-mails. Especificamente, as notificações de andamento da operação serão enviadas para o endereço de email definido na seção informações de contato do vendedor de suas configurações de conta no Partner Center.<br><br>Verifique se o endereço de email definido na seção informações de contato do vendedor nas [configurações da conta](https://partner.microsoft.com/dashboard/account/management) no Partner Center está correto para receber notificações. |

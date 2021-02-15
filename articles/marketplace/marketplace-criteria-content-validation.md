@@ -1,22 +1,22 @@
 ---
 title: Requisitos de listagem de serviço e oferta do Azure Marketplace
-description: Este artigo explica os requisitos e as diretrizes para listar novas ofertas e serviços no Azure Marketplace.
+description: Este artigo explica os requisitos e as diretrizes para listar novas ofertas, serviços e outras soluções de ti no Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: keferna
-ms.author: keferna
-ms.date: 07/14/2020
-ms.openlocfilehash: 2f472f15f5f15fb48563aba90df273e31bb1b665
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+author: trkeya
+ms.author: trkeya
+ms.date: 09/04/2020
+ms.openlocfilehash: 08c5b5d8351105744f7a912b352a940df3b4baa7
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88812862"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462139"
 ---
 # <a name="azure-marketplace-listing-guidelines"></a>Diretrizes de listagem do Azure Marketplace
 
-Este artigo explica os requisitos e as diretrizes para listar novas ofertas e serviços no Azure Marketplace. Todas as ofertas devem atender aos requisitos listados na seção [requisitos de listagem para todas as ofertas](#listing-requirements-for-all-offers) . Use os links à direita para saltar para os requisitos e listas de verificação de tipos de listagem específicos.
+Este artigo explica os requisitos e as diretrizes para listar novas ofertas e serviços no Azure Marketplace. Todas as ofertas devem atender aos [requisitos de listagem](#listing-requirements-for-all-offers) listados abaixo. Use os links à direita para navegar até requisitos adicionais e listas de verificação para tipos de listagem específicos.
 
 ## <a name="listing-requirements-for-all-offers"></a>Requisitos de listagem para todas as ofertas
 
@@ -29,7 +29,7 @@ Este artigo explica os requisitos e as diretrizes para listar novas ofertas e se
 | 5 | Categorias e setores | <ul><li>Categorias e subcategorias devem corresponder aos recursos da oferta </li><li>Não selecione categorias/subcategorias que não caibam em seus recursos de oferta. </li></ul> | <ul><li>Selecione até duas categorias, incluindo uma categoria primária e uma secundária (opcional).</li><li>Selecione até duas subcategorias para cada categoria primária e/ou secundária. Se nenhuma subcategoria for selecionada, sua oferta ainda será detectável na categoria selecionada.</li></ul> |
 | 6 | Imagens | <ul><li>Os requisitos de imagem são listados no Partner Center.</li><li>O texto incluso na captura de tela é legível e a imagem é clara. | A oferta de solução pode ser entendida de modo fácil e rápido. |
 | 7 | vídeos | <ul><li>Nenhum vídeo é necessário, mas, caso fornecido, precisa ser reproduzido sem erros.</li><li>Caso fornecido, não pode se referir a empresas concorrentes, *exceto* na demonstração de uma solução de migração. |<ul><li>O ideal é que o comprimento seja de 3 min ou mais.</li><li>A oferta de solução é fácil de entender pelo conteúdo do vídeo.</li><li>Fornece demonstração dos recursos da solução. |
-| 8 | Listar status (chamada para ação) | <ul><li>Deve ter um rótulo de um dos tipos a seguir: <ul><li>*Entrar em contato comigo*</li><li>*Avaliação*/*Obter avaliação gratuita agora*/*Iniciar avaliação*/*Test Drive*</li><li>*Compre agora*/*Obtenha agora*</li></ul></ul> | O cliente pode entender facilmente quais são as próximas etapas: <ol><li>Experimentar a avaliação gratuita.</li><li>Comprar agora.</li><li>Entre em contato por email ou número de telefone para providenciar a Prova de Conceito, Avaliação ou Resumo.</li></ol> | 
+| 8 | Status da lista (opções de listagem) | <ul><li>Deve ter um rótulo de um dos tipos a seguir: <ul><li>*Entrar em contato comigo*</li><li>*Avaliação*/*Obter avaliação gratuita agora*/*Iniciar avaliação*/*Test Drive*</li><li>*Compre agora*/*Obtenha agora*</li></ul></ul> | O cliente pode entender facilmente quais são as próximas etapas: <ol><li>Experimentar a avaliação gratuita.</li><li>Comprar agora.</li><li>Entre em contato por email ou número de telefone para providenciar a Prova de Conceito, Avaliação ou Resumo.</li></ol> | 
 | 9 | Preço da solução | É necessário ter uma guia de preço da solução/detalhes, e o preço deve estar na moeda local da oferta de solução do parceiro. | Várias opções de cobrança devem estar disponíveis com faixa de preço para dar opções ao cliente. |
 | 10 | Saiba mais | Os links na parte inferior (na descrição, não os links do Azure Marketplace à esquerda) conduzem a mais informações sobre a solução, estão disponíveis ao público e são exibidos corretamente. |    Links para itens específicos (por exemplo, páginas de especificações no site de parceiros) e não apenas a página inicial do parceiro. | 
 | 11 | Suporte e ajuda da solução | Link para pelo menos uma das opções a seguir: <ul><li>Números de telefone</li><li>Suporte por email</li><li>Agentes de chat</li><li>Fóruns comunitários |<ul><li>Todos os métodos de suporte são listados.</li><li>Suporte pago oferecido gratuitamente durante o período da *avaliação gratuita* ou do *test drive*. |
@@ -38,9 +38,9 @@ Este artigo explica os requisitos e as diretrizes para listar novas ofertas e se
 
 ## <a name="trial-offer-requirements"></a>Requisitos da oferta de avaliação gratuita
 
-| Não. | Elemento de listagem | Requisito base | Requisitos ideais | 
+| Não. | Elemento de listagem | Requisito base | Requisito ideal | 
 |:--- |:--- |:--- |:--- |
-|  | Listar status (chamada para ação) | O link deve levar à experiência de *avaliação gratuita* conduzida pelo cliente. | Outras chamadas para ação (por exemplo, *Compre agora*) também estão disponíveis. | 
+|  | Status da lista (opção de listagem) | O link deve levar à experiência de *avaliação gratuita* conduzida pelo cliente. | Outras opções de listagem (por exemplo, *comprar agora*) também estão disponíveis. | 
 |||
 
 ## <a name="saas-application-requirements"></a>Requisitos do aplicativo SaaS
@@ -78,7 +78,7 @@ Este artigo explica os requisitos e as diretrizes para listar novas ofertas e se
 | 2 | Descrição da oferta  |<ul><li>Garanta o uso adequado dos [nomes de produtos da Microsoft](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/en-us.aspx).</li><li>Ofertas marcadas como *Preço: Estimado* devem ter uma anotação na parte superior ou inferior para explicar a variabilidade (viagem até o cliente, número de servidores que estão sendo migrados e assim por diante).</li><li>Cada tipo de oferta tem os requisitos de descrição a seguir: <ul><li>Os resumos precisam de pelo menos quatro ou cinco marcadores, com informações sobre tópicos a serem abordados.</li><li>Todos os workshops precisam de uma agenda.</li><li>Todas as agendas precisam ser divididas por dia ou semana, dependendo da duração do workshop.</li><li>As ofertas de implementação de avaliação, prova de conceito, workshops sem treinamento precisam de produtos finais.</li><li>Os workshops de treinamento não precisam de produtos finais, mas necessitam de uma agenda detalhada com os tópicos que serão abordados.</li></ul></ul> | <ul><li>Toda oferta tem agenda e produtos finais.</li><li>Na seção superior, a oferta inclui um parágrafo com contexto sobre a empresa que presta o serviço.</li><li>A oferta inclui um parágrafo sobre o valor do próprio serviço como uma seção superior. |
 | 3 | Formatação Markdown  | Todas as ofertas devem usar a formatação Markdown para serem renderizadas adequadamente quando convertidas em HTML.  |  |
 | 4 | Categorias e setores | As categorias não são relevantes. |  | 
-| 5 | Listar status (chamada para ação) | Listado automaticamente como *Entre em contato comigo*. |  | 
+| 5 | Status da lista (opção de listagem) | Listado automaticamente como *Entre em contato comigo*. |  | 
 | 6 | Suporte e ajuda da solução  | Suporte e ajuda não são necessários.  | | 
 | 7 | Política de privacidade e termos de uso disponíveis  |  As políticas ou termos não são necessários.  | | 
 | 8 | Tipos de serviços | Verifique se o tipo de serviço corresponde ao título. | |
@@ -91,7 +91,7 @@ Este artigo explica os requisitos e as diretrizes para listar novas ofertas e se
 ## <a name="next-steps"></a>Próximas etapas
 
 * Saiba mais sobre os vários tipos de oferta no Azure Marketplace:
-  * [Aplicativos SaaS](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide)
-  * [Contêineres](https://docs.microsoft.com/azure/marketplace/marketplace-containers)
-  * [Serviços de consultoria](https://docs.microsoft.com/azure/marketplace/consulting-services)
-* [Determinar a opção de publicação](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type)
+  * [Aplicativos SaaS](./plan-saas-offer.md)
+  * [Contêineres](./marketplace-containers.md)
+  * [Serviços de consultoria](./plan-consulting-service-offer.md)
+* [Determinar a opção de publicação](./determine-your-listing-type.md)

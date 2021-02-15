@@ -7,14 +7,14 @@ ms.custom:
 - seo-python-october2019
 - seodec18
 - mvc
-- devx-track-javascript
+- devx-track-js
 - devx-track-azurecli
-ms.openlocfilehash: 31e7e7d6785e8fd52f4c76171f6ca9d7f5c8383c
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 1c327fc7fc067948b5022f989e6c86f99573bd1a
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501314"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100177"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-cli"></a>Início Rápido: Implantar uma instância de contêiner no Azure usando a CLI do Azure
 
@@ -24,11 +24,11 @@ Neste início rápido, você usará a CLI do Azure para implantar um contêiner 
 
 ![Exibir um aplicativo implantado nas Instâncias de Contêiner do Azure no navegador][aci-app-browser]
 
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita][azure-account] antes de começar.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Você pode usar o Azure Cloud Shell ou uma instalação local da CLI do Azure para concluir esse guia de início rápido. Se você quer usá-lo localmente, recomendamos usar a versão 2.0.55 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure][azure-cli-install].
+- Este guia de início rápido requer a versão 2.0.55 ou posterior da CLI do Azure. Se você está usando o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -66,7 +66,7 @@ FQDN                               ProvisioningState
 aci-demo.eastus.azurecontainer.io  Succeeded
 ```
 
-Se o `ProvisioningState` do contêiner for **Êxito**, vá até o FQDN dele no seu navegador. Se você encontrar uma página da Web semelhante à seguinte, parabéns! Você implantou com êxito um aplicativo em execução em um contêiner do Docker no Azure.
+Se o `ProvisioningState` do contêiner for **Êxito** , vá até o FQDN dele no seu navegador. Se você encontrar uma página da Web semelhante à seguinte, parabéns! Você implantou com êxito um aplicativo em execução em um contêiner do Docker no Azure.
 
 ![Exibir um aplicativo implantado nas Instâncias de Contêiner do Azure no navegador][aci-app-browser]
 
@@ -101,7 +101,7 @@ Primeiro, execute o comando [az container attach][az-container-attach] para anex
 az container attach --resource-group myResourceGroup --name mycontainer
 ```
 
-Depois de anexados, atualize seu navegador algumas vezes para gerar algumas saídas adicionais. Quando terminar, desanexe o console com `Control+C`. Será exibida uma saída semelhante à seguinte:
+Depois de anexados, atualize seu navegador algumas vezes para gerar algumas saídas adicionais. Quando terminar, desanexe o console com `Control+C`. Você deverá ver uma saída semelhante à seguinte:
 
 ```output
 Container 'mycontainer' is in state 'Running'...

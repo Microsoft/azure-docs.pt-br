@@ -1,19 +1,19 @@
 ---
 title: 'Tutorial: Criar um Banco de Dados do Azure para PostgreSQL – Servidor único – CLI do Azure'
 description: Este tutorial mostra como criar, configurar e consultar seu primeiro servidor de Banco de Dados do Azure para PostgreSQL - Servidor único usando a CLI do Azure.
-author: rachel-msft
-ms.author: raagyema
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.custom: mvc, devx-track-azurecli
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 06/25/2019
-ms.openlocfilehash: c1ab057c34a89bfa39a298805216af89b2327622
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 019e6e738ea312b7e6a16c44354c7dcd54e24f2f
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500769"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93331872"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-azure-cli"></a>Tutorial: Criar um Banco de Dados do Azure para PostgreSQL – Servidor único usando a CLI do Azure 
 Neste tutorial, você usará a CLI (interface de linha de comando) do Azure e outros utilitários para aprender a:
@@ -27,6 +27,9 @@ Neste tutorial, você usará a CLI (interface de linha de comando) do Azure e ou
 > * Restaurar dados
 
 Você pode usar o Azure Cloud Shell no navegador ou [instalar a CLI do Azure]( /cli/azure/install-azure-cli) em seu computador para executar os comandos neste tutorial.
+
+## <a name="prerequisites"></a>Pré-requisitos
+Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
@@ -199,9 +202,9 @@ az postgres server restore --resource-group myresourcegroup --name mydemoserver-
 
 O comando `az postgres server restore` precisa dos seguintes parâmetros:
 
-| Configuração | Valor sugerido | Descrição  |
+| Configuração | Valor sugerido | Descrição  |
 | --- | --- | --- |
-| resource-group |  myresourcegroup |  O grupo de recursos no qual o servidor de origem existe.  |
+| resource-group |  myresourcegroup |  O grupo de recursos no qual o servidor de origem existe.  |
 | name | mydemoserver-restored | O nome do novo servidor que é criado pelo comando de restauração. |
 | restore-point-in-time | 2017-04-13T13:59:00Z | Selecione um point-in-time para restaurar. Essa data e hora devem estar dentro do período de retenção de backup do servidor de origem. Use o formato ISO8601 de data e hora. Por exemplo, você pode usar seu próprio fuso horário local, como `2017-04-13T05:59:00-08:00`, ou usar o formato UTC Zulu `2017-04-13T13:59:00Z`. |
 | source-server | mydemoserver | O nome ou ID para restaurar a partir do servidor de origem. |
@@ -210,16 +213,21 @@ Restaurar um servidor para um ponto no tempo cria um novo servidor, copiado como
 
 O comando é síncrono e retornará depois que o servidor for restaurado. Depois que a restauração é concluída, localize o novo servidor que foi criado. Verifique se os dados foram restaurados conforme o esperado.
 
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+Nas etapas anteriores, você criou recursos do Azure em um grupo de servidores. Caso esses recursos não sejam mais necessários no futuro, exclua o grupo de servidores. Pressione o botão *Excluir* na página *Visão geral* do grupo de servidores. Quando solicitado em uma página pop-up, confirme o nome do grupo de servidores e clique no botão *Excluir* final.
+
 
 ## <a name="next-steps"></a>Próximas etapas
 Neste tutorial, você aprendeu como usar a CLI (interface de linha de comando) do Azure e outros utilitários para aprender a:
 > [!div class="checklist"]
 > * Criar um Banco de Dados do Azure para o servidor PostgreSQL
 > * Configurar o firewall do servidor
-> * Useo utilitário [**psql**](https://www.postgresql.org/docs/9.6/static/app-psql.html) para criar um banco de dados
+> * Use o utilitário **psql** para criar um banco de dados
 > * Carregar dados de exemplo
 > * Consultar dados
 > * Atualizar dados
 > * Restaurar dados
 
-Em seguida, para saber como usar o portal do Azure para executar tarefas semelhantes, examine este tutorial: [Criar seu primeiro Banco de Dados do Azure para PostgreSQL usando o portal do Azure](tutorial-design-database-using-azure-portal.md)
+> [!div class="nextstepaction"]
+> [Criar seu primeiro Banco de Dados do Azure para PostgreSQL usando o portal do Azure](tutorial-design-database-using-azure-portal.md)

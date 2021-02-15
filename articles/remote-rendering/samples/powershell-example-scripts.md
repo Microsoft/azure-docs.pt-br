@@ -5,12 +5,13 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/12/2020
 ms.topic: sample
-ms.openlocfilehash: 07055025eff9ab81c7321624daed9b4a6e993a60
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: cb8cc98a020cb382a6941c1e410eab4543594629
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88506504"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009748"
 ---
 # <a name="example-powershell-scripts"></a>Scripts de exemplo do PowerShell
 
@@ -21,15 +22,21 @@ O Azure Remote Rendering fornece essas duas APIs REST:
 
 O [repositório de amostras do ARR](https://github.com/Azure/azure-remote-rendering) contém scripts de exemplo na pasta *Scripts* para interagir com as APIs REST do serviço. Este artigo descreve o uso desses scripts.
 
+> [!TIP]
+> Também há uma [ferramenta baseada em interface do usuário chamada ARRT](azure-remote-rendering-asset-tool.md) para fazer a interação com o serviço, que é uma alternativa conveniente ao uso de scripts. ![ARRT](./media/azure-remote-rendering-asset-tool.png "Captura de tela do ARRT")
+
+> [!CAUTION]
+> Chamar funções da API REST com muita frequência fará com que o servidor seja limitado e retorne uma falha eventualmente. Nesse caso, a ID do código de falha HTTP é 429 ("muitas solicitações"). Como regra geral, deve haver um atraso de **5 a 10 segundos entre as chamadas subsequentes**.
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para executar os scripts de exemplo, você precisa de uma configuração funcional do [Azure PowerShell](https://docs.microsoft.com/powershell/azure/).
+Para executar os scripts de exemplo, você precisa de uma configuração funcional do [Azure PowerShell](/powershell/azure/).
 
 1. Instalar o Azure PowerShell:
     1. Abra uma janela do PowerShell com direitos de administrador.
     1. Execute: `Install-Module -Name Az -AllowClobber`
 
-1. Se você obtiver erros sobre a execução de scripts, verifique se a [política de execução](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6) está definida adequadamente:
+1. Se você obtiver erros sobre a execução de scripts, verifique se a [política de execução](/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6) está definida adequadamente:
     1. Abra uma janela do PowerShell com direitos de administrador.
     1. Execute: `Set-ExecutionPolicy -ExecutionPolicy Unrestricted`
 
@@ -40,9 +47,9 @@ Para executar os scripts de exemplo, você precisa de uma configuração funcion
     1. Execute: `Connect-AzAccount` e siga as instruções na tela.
 
     > [!NOTE]
-    > Caso sua organização tenha mais de uma assinatura, talvez seja necessário especificar os argumentos SubscriptionId e Tenant. Encontre detalhes na [Documentação sobre Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount).
+    > Caso sua organização tenha mais de uma assinatura, talvez seja necessário especificar os argumentos SubscriptionId e Tenant. Encontre detalhes na [Documentação sobre Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount).
 
-1. Baixe a pasta *Scripts* do [repositório do GithHub do Azure Remote Rendering](https://github.com/Azure/azure-remote-rendering).
+1. Baixe a pasta *Scripts* do [repositório do GitHub do Azure Remote Rendering](https://github.com/Azure/azure-remote-rendering).
 
 ## <a name="configuration-file"></a>Arquivo de configuração
 

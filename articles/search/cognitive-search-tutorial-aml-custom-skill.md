@@ -1,23 +1,23 @@
 ---
-title: 'Tutorial: Criar e implantar uma habilidade personalizada com o Azure Machine Learning'
+title: 'Exemplo: Criar e implantar uma habilidade personalizada com o Azure Machine Learning'
 titleSuffix: Azure Cognitive Search
-description: Esse tutorial demonstra como usar Azure Machine Learning para criar e implantar uma habilidade personalizada para o pipeline de enriquecimento de IA do Azure Cognitive Search.
+description: Esse exemplo demonstra como usar o Azure Machine Learning para criar e implantar uma habilidade personalizada no pipeline de enriquecimento de IA do Azure Cognitive Search.
 manager: nitinme
-author: tchristiani
-ms.author: terrychr
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
-ms.topic: tutorial
-ms.date: 06/10/2020
-ms.openlocfilehash: 69618604c38d82567260e45d651df523055c5f7b
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.topic: conceptual
+ms.date: 09/25/2020
+ms.openlocfilehash: 98d8395236bf955eed88f36c03c96981fa0e4b6b
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86245323"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98745627"
 ---
-# <a name="tutorial-build-and-deploy-a-custom-skill-with-azure-machine-learning"></a>Tutorial: Criar e implantar uma habilidade personalizada com o Azure Machine Learning 
+# <a name="example-build-and-deploy-a-custom-skill-with-azure-machine-learning"></a>Exemplo: Criar e implantar uma habilidade personalizada com o Azure Machine Learning 
 
-Neste tutorial, você usará o [conjunto de dados de avaliações de hotel](https://www.kaggle.com/datafiniti/hotel-reviews) (distribuído sob a licença Creative Commons [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.txt)) para criar uma [habilidade personalizada](https://docs.microsoft.com/azure/search/cognitive-search-aml-skill) usando o Azure Machine Learning para extrair os sentimentos baseados em aspectos das avaliações. Isso permite que a atribuição de sentimentos positivos e negativos na mesma avaliação seja atribuída corretamente para entidades identificadas como equipe, quarto, saguão ou piscina.
+Nesse exemplo, você usará o [conjunto de dados de avaliações de hotel](https://www.kaggle.com/datafiniti/hotel-reviews) (distribuído sob a licença Creative Commons [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.txt)) para criar uma [habilidade personalizada](./cognitive-search-aml-skill.md) usando o Azure Machine Learning para extrair os sentimentos baseados em aspectos das avaliações. Isso permite que a atribuição de sentimentos positivos e negativos na mesma avaliação seja atribuída corretamente para entidades identificadas como equipe, quarto, saguão ou piscina.
 
 Para treinar o modelo de sentimentos baseado em aspectos no Azure Machine Learning, você usará o [repositório de receitas nlp](https://github.com/microsoft/nlp-recipes/tree/master/examples/sentiment_analysis/absa). O modelo será então implantado como um ponto de extremidade em um cluster do Kubernetes do Azure. Depois de implantado, o ponto de extremidade é adicionado ao pipeline de enriquecimento como uma habilidade do AML para uso pelo serviço Cognitive Search.
 
@@ -36,10 +36,10 @@ Dois conjuntos de dados são fornecidos. Se você quiser treinar o modelo por co
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Assinatura do Azure – obtenha uma [assinatura gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Serviço Cognitive Search](https://docs.microsoft.com/azure/search/search-get-started-arm)
-* [Recurso dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Cwindows)
-* [Conta do Armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-account-create?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=azure-portal)
-* [Workspace do Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace)
+* [Serviço Cognitive Search](./search-get-started-arm.md)
+* [Recurso dos Serviços Cognitivos](../cognitive-services/cognitive-services-apis-create-account.md?tabs=multiservice%2cwindows)
+* [Conta do Armazenamento do Azure](../storage/common/storage-account-create.md?tabs=azure-portal&toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+* [Workspace do Azure Machine Learning](../machine-learning/how-to-manage-workspace.md)
 
 ## <a name="setup"></a>Instalação
 
@@ -47,9 +47,9 @@ Dois conjuntos de dados são fornecidos. Se você quiser treinar o modelo por co
 * Extraia o conteúdo se o download for um arquivo zip. Verifique se os arquivos são de leitura/gravação.
 * Ao configurar as contas e os serviços do Azure, copie os nomes e as chaves para um arquivo de texto facilmente acessado. Os nomes e as chaves serão adicionados à primeira célula no notebook, em que as variáveis para acessar os serviços do Azure são definidas.
 * Se você não estiver familiarizado com Azure Machine Learning e os respectivos requisitos, convém examinar estes documentos antes de começar:
- * [Configurar um ambiente de desenvolvimento para Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-configure-environment)
- * [Criar e gerenciar workspaces do Azure Machine Learning no portal do Azure](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace)
- * Ao configurar o ambiente de desenvolvimento para o Azure Machine Learning, considere o uso da [instância de computação baseada em nuvem](https://docs.microsoft.com/azure/machine-learning/how-to-configure-environment#compute-instance) para uma introdução rápida e fácil.
+ * [Configurar um ambiente de desenvolvimento para Azure Machine Learning](../machine-learning/how-to-configure-environment.md)
+ * [Criar e gerenciar workspaces do Azure Machine Learning no portal do Azure](../machine-learning/how-to-manage-workspace.md)
+ * Ao configurar o ambiente de desenvolvimento para o Azure Machine Learning, considere o uso da [instância de computação baseada em nuvem](../machine-learning/how-to-configure-environment.md#compute-instance) para uma introdução rápida e fácil.
 * Carregue o arquivo do conjunto de dados em um contêiner na conta de armazenamento. O arquivo maior será necessário se você quiser executar a etapa de treinamento no notebook. Se você preferir ignorar a etapa de treinamento, será recomendável usar o arquivo menor.
 
 ## <a name="open-notebook-and-connect-to-azure-services"></a>Abra o notebook e conecte-se aos serviços do Azure
@@ -68,9 +68,9 @@ A seção 2 tem seis células que baixam o arquivo de incorporações GloVe do r
 
 A seção 3 do notebook treinará os modelos que foram criados na seção 2, registrará esses modelos e os implantará como um ponto de extremidade em um cluster Kubernetes do Azure. Se você não estiver familiarizado com o Kubernetes do Azure, é altamente recomendável examinar os seguintes artigos antes de tentar criar um cluster de inferência:
 
-* [Visão geral do serviço de Kubernetes do Azure](https://docs.microsoft.com/azure/aks/intro-kubernetes)
-* [Conceitos de Kubernetes para o serviço de Kubernetes do Azure (AKS)](https://docs.microsoft.com/azure/aks/concepts-clusters-workloads)
-* [Cotas, restrições de tamanho de máquina virtual e disponibilidade de região no AKS (Serviço de Kubernetes do Azure)](https://docs.microsoft.com/azure/aks/quotas-skus-regions)
+* [Visão geral do serviço de Kubernetes do Azure](../aks/intro-kubernetes.md)
+* [Conceitos de Kubernetes para o serviço de Kubernetes do Azure (AKS)](../aks/concepts-clusters-workloads.md)
+* [Cotas, restrições de tamanho de máquina virtual e disponibilidade de região no AKS (Serviço de Kubernetes do Azure)](../aks/quotas-skus-regions.md)
 
 O processo de criação e implantação do cluster de inferência pode levar até 30 minutos. É recomendável testar o serviço Web antes de passar para as etapas finais, atualizar seu conjunto de habilidades e executar o indexador.
 
@@ -82,8 +82,7 @@ A seção 4 do notebook tem quatro células que atualizam o conjunto de habilida
 
 No portal, acesse o conjunto de habilidades e selecione o link Definição do Conjunto de Habilidades (JSON). O portal exibirá o JSON do seu conjunto de habilidades que foi criado nas primeiras células do notebook. À direita da exibição, há um menu suspenso em que você pode selecionar o modelo de definição de habilidade. Selecione o modelo do AML (Azure Machine Learning). Forneça o nome do workspace do Azure ML e o ponto de extremidade para o modelo implantado no cluster de inferência. O modelo será atualizado com o URI e a chave do ponto de extremidade.
 
-> [!div class="mx-imgBorder"]
-> ![Modelo de definição de conjunto de habilidades](media/cognitive-search-aml-skill/portal-aml-skillset-definition.png)
+> :::image type="content" source="media/cognitive-search-aml-skill/portal-aml-skillset-definition.png" alt-text="Modelo de definição de conjunto de habilidades":::
 
 Copie o modelo do conjunto de habilidades da janela e cole-o na definição de conjunto de habilidades à esquerda. Edite o modelo para fornecer os valores ausentes para:
 
@@ -108,5 +107,5 @@ Se você estiver usando um serviço gratuito, estará limitado a três índices,
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Examinar a API Web de habilidades personalizadas](https://docs.microsoft.com/azure/search/cognitive-search-custom-skill-web-api)
-> [Saiba mais sobre como adicionar habilidades personalizadas ao pipeline de enriquecimento](https://docs.microsoft.com/azure/search/cognitive-search-custom-skill-interface)
+> [Examinar a API Web de habilidades personalizadas](./cognitive-search-custom-skill-web-api.md)
+> [Saiba mais sobre como adicionar habilidades personalizadas ao pipeline de enriquecimento](./cognitive-search-custom-skill-interface.md)

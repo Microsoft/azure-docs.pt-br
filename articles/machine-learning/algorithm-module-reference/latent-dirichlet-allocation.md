@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 06/05/2020
-ms.openlocfilehash: 2fa969b6dd89000b4d669bc5d42aa09b3cf3a2b2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f9f239ea69aaf71e591a447feb300c13a45ba1a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84751688"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "90907860"
 ---
 # <a name="latent-dirichlet-allocation-module"></a>Módulo de alocação de Dirichlet latente
 
-Este artigo descreve como usar o módulo de alocação Dirichlet latente no designer de Azure Machine Learning (versão prévia) para agrupar o texto não classificado em categorias. 
+Este artigo descreve como usar o módulo de alocação Dirichlet latente no designer de Azure Machine Learning, para agrupar o texto não classificado em categorias. 
 
 A alocação de Dirichlet latente (LDA) é geralmente usada no processamento de idioma natural para encontrar textos semelhantes. Outro termo comum é a *modelagem de tópico*.
 
@@ -58,7 +58,7 @@ Este módulo requer um conjunto de um DataSet que contém uma coluna de texto, s
 
     Como o LDA cria uma matriz de recursos grande do texto, você normalmente analisará uma única coluna de texto.
 
-4. Para obter o **número de tópicos a serem modelados**, insira um número inteiro entre 1 e 1000 que indica quantas categorias ou tópicos você deseja derivar do texto de entrada.
+4. Para obter o  **número de tópicos a serem modelados**, insira um número inteiro entre 1 e 1000 que indica quantas categorias ou tópicos você deseja derivar do texto de entrada.
 
     Por padrão, são criados 5 tópicos.
 
@@ -75,7 +75,7 @@ Este módulo requer um conjunto de um DataSet que contém uma coluna de texto, s
     + Os valores na matriz de tópicos de recursos serão representados como uma probabilidade de onde `P(word|topic)` .
 
     > [!NOTE] 
-    > No designer de Azure Machine Learning (versão prévia), a biblioteca scikit-Learn não oferece mais suporte à saída de *doc_topic_distr* não normalizada da versão 0,19. Neste módulo, o parâmetro **Normalize** só pode ser aplicado à saída de *matriz de tópico de recurso* . A saída do conjunto de resultados *transformado* sempre é normalizada.
+    > No Azure Machine Learning designer, a biblioteca scikit-Learn não dá mais suporte à saída de *doc_topic_distr* não normalizada da versão 0,19. Neste módulo, o parâmetro **Normalize** só pode ser aplicado à saída de *matriz de tópico de recurso* . A saída do conjunto de resultados *transformado* sempre é normalizada.
 
 7. Selecione a opção **Mostrar todas as opções**e defina-a como **true** se desejar definir os seguintes parâmetros avançados.
 
@@ -148,7 +148,7 @@ Geralmente, você pode melhorar a precisão dos modelos com base em LDA usando o
 
 Para obter mais informações, consulte [pré-processar Text](preprocess-text.md).
 
-No designer, você também pode usar bibliotecas R ou Python para processamento de texto: [Executar script r](execute-r-script.md), [Executar script do Python](execute-python-script.md).
+No designer, você também pode usar bibliotecas R ou Python para processamento de texto: [Executar script r](execute-r-script.md),  [Executar script do Python](execute-python-script.md).
 
 
 
@@ -181,26 +181,26 @@ Depois que os índices de termo são computados, uma medida de similaridade base
 
 ###  <a name="module-parameters"></a>Parâmetros do módulo
 
-|Nome|Tipo|Intervalo|Opcional|Padrão|Descrição|  
+|Nome|Type|Intervalo|Opcional|Padrão|Descrição|  
 |----------|----------|-----------|--------------|-------------|-----------------|  
 |Coluna(s) de destino|Seleção de coluna||Obrigatório|StringFeature|Nome ou índice da coluna de destino.|  
-|Número de tópicos a serem modelados|Integer|[1; 1000]|Obrigatório|5|Modele a distribuição de documentos em relação a N tópicos.|  
-|N-grams|Integer|[1; 10]|Obrigatório|2|Ordem de N-gramas gerados durante o hash.|  
-|Normaliza|Boolean|Verdadeiro ou Falso|Obrigatório|true|Normalizar a saída para probabilidades.  O conjunto de texto transformado será P (tópico&#124;documento) e a matriz do tópico do recurso será P (tópico&#124;do Word).|  
-|Mostrar todas as opções|Boolean|Verdadeiro ou Falso|Obrigatório|Falso|Apresenta parâmetros adicionais específicos ao scikit-Learn online LDA.|  
+|Número de tópicos a serem modelados|Inteiro|[1; 1000]|Obrigatório|5|Modele a distribuição de documentos em relação a N tópicos.|  
+|N-grams|Inteiro|[1; 10]|Obrigatório|2|Ordem de N-gramas gerados durante o hash.|  
+|Normaliza|Booliano|Verdadeiro ou Falso|Obrigatório|true|Normalizar a saída para probabilidades.  O conjunto de texto transformado será P (tópico&#124;documento) e a matriz do tópico do recurso será P (tópico&#124;do Word).|  
+|Mostrar todas as opções|Booliano|Verdadeiro ou Falso|Obrigatório|Falso|Apresenta parâmetros adicionais específicos ao scikit-Learn online LDA.|  
 |Parâmetro de Rô|Float|[0.00001; 1.0]|Aplica quando a caixa de seleção **Mostrar todas as opções** está marcada|0,01|Tópico palavra de distribuição anterior.|  
 |Parâmetro alfa|Float|[0.00001; 1.0]|Aplica quando a caixa de seleção **Mostrar todas as opções** está marcada|0,01|Tópico do documento distribuição anterior.|  
-|Número estimado de documentos|Integer|[1;int.MaxValue]|Aplica quando a caixa de seleção **Mostrar todas as opções** está marcada|1000|Número estimado de documentos. Corresponde ao `total_samples` parâmetro.|  
-|Tamanho do lote|Integer|[1; 1024]|Aplica quando a caixa de seleção **Mostrar todas as opções** está marcada|32|Tamanho do lote.|  
-|Valor inicial da iteração usada no agendamento de atualização da taxa de aprendizagem|Integer|[0; int. MaxValue|Aplica quando a caixa de seleção **Mostrar todas as opções** está marcada|0|Valor inicial que downweights a taxa de aprendizagem para iterações iniciais. Corresponde ao `learning_offset` parâmetro.|  
-|Energia aplicada à iteração durante as atualizações|Float|[0,0; 1,0]|Aplica quando a caixa de seleção **Mostrar todas as opções** está marcada|0,5|Energia aplicada à contagem de iteração para controlar a taxa de aprendizado. Corresponde ao `learning_decay` parâmetro. |  
-|Número de iterações de treinamento|Integer|[1; 1024]|Aplica quando a caixa de seleção **Mostrar todas as opções** está marcada|25|Número de iterações de treinamento.|  
-|Criar dicionário de ngrams|Boolean|Verdadeiro ou Falso|Aplica-se quando a caixa de seleção **Mostrar todas as opções** *não* está marcada|True|Cria um dicionário de ngrams antes de computar LDA. Útil para inspeção e interpretação de modelo.|  
-|Tamanho máximo do dicionário ngram|Integer|[1;int.MaxValue]|Aplica-se quando o **dicionário de compilação de opção de ngrams** é **verdadeiro**|20000|Tamanho máximo do dicionário ngrams. Se o número de tokens na entrada exceder esse tamanho, poderão ocorrer colisões.|  
-|Número de bits a serem usados para o hash de recurso.|Integer|[1; 31]|Aplica quando a caixa de seleção **Mostrar todas as opções** *não* está marcada e o **dicionário de compilação de ngrams** é **false**|12|Número de bits a serem usados para o hash de recurso.| 
-|Criar dicionário de ngrams antes de LDA|Boolean|Verdadeiro ou Falso|Aplica quando a caixa de seleção **Mostrar todas as opções** está marcada|True|Cria um dicionário de ngrams antes de LDA. Útil para inspeção e interpretação de modelo.|  
-|Número máximo de ngrams no dicionário|Integer|[1;int.MaxValue]|Aplica-se quando a caixa de seleção **Mostrar todas as opções** está marcada e a opção o **dicionário de compilação de ngrams** é **true**|20000|Tamanho máximo do dicionário. Se o número de tokens na entrada exceder esse tamanho, poderão ocorrer colisões.|  
-|Número de bits de hash|Integer|[1; 31]|Aplica-se quando a caixa de seleção **Mostrar todas as opções** está marcada e a opção o **dicionário de compilação de ngrams** é **false**|12|Número de bits a serem usados durante o hash de recurso.|   
+|Número estimado de documentos|Inteiro|[1;int.MaxValue]|Aplica quando a caixa de seleção **Mostrar todas as opções** está marcada|1000|Número estimado de documentos. Corresponde ao `total_samples` parâmetro.|  
+|Tamanho do lote|Inteiro|[1; 1024]|Aplica quando a caixa de seleção **Mostrar todas as opções** está marcada|32|Tamanho do lote.|  
+|Valor inicial da iteração usada no agendamento de atualização da taxa de aprendizagem|Inteiro|[0; int. MaxValue|Aplica quando a caixa de seleção **Mostrar todas as opções** está marcada|0|Valor inicial que downweights a taxa de aprendizagem para iterações iniciais. Corresponde ao `learning_offset` parâmetro.|  
+|Energia aplicada à iteração durante as atualizações|Float|[0,0; 1,0]|Aplica quando a caixa de seleção **Mostrar todas as opções** está marcada|0.5|Energia aplicada à contagem de iteração para controlar a taxa de aprendizado. Corresponde ao `learning_decay` parâmetro. |  
+|Número de iterações de treinamento|Inteiro|[1; 1024]|Aplica quando a caixa de seleção **Mostrar todas as opções** está marcada|25|Número de iterações de treinamento.|  
+|Criar dicionário de ngrams|Booliano|Verdadeiro ou Falso|Aplica-se quando a caixa de seleção **Mostrar todas as opções** *não* está marcada|True|Cria um dicionário de ngrams antes de computar LDA. Útil para inspeção e interpretação de modelo.|  
+|Tamanho máximo do dicionário ngram|Inteiro|[1;int.MaxValue]|Aplica-se quando o **dicionário de compilação de opção de ngrams** é **verdadeiro**|20000|Tamanho máximo do dicionário ngrams. Se o número de tokens na entrada exceder esse tamanho, poderão ocorrer colisões.|  
+|Número de bits a serem usados para o hash de recurso.|Inteiro|[1; 31]|Aplica quando a caixa de seleção **Mostrar todas as opções** *não* está marcada e o **dicionário de compilação de ngrams** é **false**|12|Número de bits a serem usados para o hash de recurso.| 
+|Criar dicionário de ngrams antes de LDA|Booliano|Verdadeiro ou Falso|Aplica quando a caixa de seleção **Mostrar todas as opções** está marcada|True|Cria um dicionário de ngrams antes de LDA. Útil para inspeção e interpretação de modelo.|  
+|Número máximo de ngrams no dicionário|Inteiro|[1;int.MaxValue]|Aplica-se quando a caixa de seleção **Mostrar todas as opções** está marcada e a opção o **dicionário de compilação de ngrams** é **true**|20000|Tamanho máximo do dicionário. Se o número de tokens na entrada exceder esse tamanho, poderão ocorrer colisões.|  
+|Número de bits de hash|Inteiro|[1; 31]|Aplica-se quando a caixa de seleção **Mostrar todas as opções** está marcada e a opção o **dicionário de compilação de ngrams** é **false**|12|Número de bits a serem usados durante o hash de recurso.|   
 
 
 ## <a name="next-steps"></a>Próximas etapas

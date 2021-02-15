@@ -1,7 +1,7 @@
 ---
 title: Memória de modelo de perfil e uso de CPU
 titleSuffix: Azure Machine Learning
-description: Aprenda a criar o perfil da memória do modelo e do uso da CPU
+description: Saiba como criar o perfil de seu modelo antes da implantação. A criação de perfil determina a memória e o uso da CPU do seu modelo.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,14 @@ author: gvashishtha
 ms.date: 07/31/2020
 ms.topic: conceptual
 zone_pivot_groups: aml-control-methods
-ms.openlocfilehash: a3aed23441df225316f52eb3acb1387cbba6d807
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.reviewer: larryfr
+ms.custom: deploy
+ms.openlocfilehash: b9ae40b3d2673961f9b84ed702f18b25b79b6d0c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935578"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320401"
 ---
 # <a name="profile-your-model-to-determine-resource-utilization"></a>Criar o perfil de seu modelo para determinar a utilização de recursos
 
@@ -24,6 +26,10 @@ Este artigo mostra como criar o perfil de um Machine Learning como modelo para d
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Este artigo pressupõe que você tenha treinado e registrado um modelo com Azure Machine Learning. Consulte o [tutorial de exemplo aqui](how-to-train-scikit-learn.md) para obter um exemplo de treinamento e registro de um modelo scikit-learn com Azure Machine Learning.
+
+## <a name="limitations"></a>Limitações
+
+* A criação de perfil não funcionará quando o ACR (registro de contêiner do Azure) para seu espaço de trabalho estiver por trás de uma rede virtual.
 
 ## <a name="run-the-profiler"></a>Executar o criador de perfil
 

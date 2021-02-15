@@ -4,15 +4,15 @@ description: Este artigo descreve como gerenciar administradores de servidor par
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 2/4/2021
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: bc17d27837d5b96f06b5172fb019db873418db94
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 62acb526a247362b17c4dfd4e26c52760deecd71
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87922924"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99573476"
 ---
 # <a name="manage-server-administrators"></a>Gerenciar administradores de servidor
 
@@ -20,10 +20,14 @@ Os administradores de servidor devem ser um usuário, uma entidade de serviço o
 
 Ao adicionar um **grupo de segurança**, use `obj:groupid@tenantid` . Não há suporte para entidades de serviço em grupos de segurança adicionados à função de administrador do servidor.
 
+Para saber mais sobre como adicionar uma entidade de serviço à função de administrador do servidor, consulte [Adicionar uma entidade de serviço à função de administrador do servidor](analysis-services-addservprinc-admins.md).
+
+Se o Firewall do servidor estiver habilitado, os endereços IP do computador cliente do administrador do servidor deverão ser incluídos em uma regra de firewall. Para saber mais, consulte [Configurar o Firewall do servidor](analysis-services-qs-firewall.md).
+
 ## <a name="to-add-server-administrators-by-using-azure-portal"></a>Para adicionar administradores do servidor usando o Portal do Azure
 
 1. No portal, para o seu servidor, clique em **Administradores do Analysis Services**.
-2. ** \<servername> Administradores Analysis Services**, clique em **Adicionar**.
+2. **\<servername> Administradores Analysis Services**, clique em **Adicionar**.
 3. Em **Adicionar Administradores de Servidor**, selecione contas de usuário do seu Azure Active Directory ou convide usuários externos por endereço de email.
 
     ![Administradores de servidor no portal do Azure](./media/analysis-services-server-admins/aas-manage-users-admins.png)
@@ -40,13 +44,13 @@ Ao adicionar um **grupo de segurança**, use `obj:groupid@tenantid` . Não há s
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Use o cmdlet [New-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/new-azanalysisservicesserver) para especificar o parâmetro de administrador ao criar um novo servidor. <br>
-Use o cmdlet [set-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver) para modificar o parâmetro de administrador de um servidor existente.
+Use o cmdlet [New-AzAnalysisServicesServer](/powershell/module/az.analysisservices/new-azanalysisservicesserver) para especificar o parâmetro de administrador ao criar um novo servidor. <br>
+Use o cmdlet [set-AzAnalysisServicesServer](/powershell/module/az.analysisservices/set-azanalysisservicesserver) para modificar o parâmetro de administrador de um servidor existente.
 
 ## <a name="rest-api"></a>API REST
 
-Use [Criar](https://docs.microsoft.com/rest/api/analysisservices/servers/create) para especificar a propriedade asAdministrator ao criar um novo servidor. <br>
-Use [Atualizar](https://docs.microsoft.com/rest/api/analysisservices/servers/update) para especificar a propriedade asAdministrator ao modificar um servidor existente. <br>
+Use [Criar](/rest/api/analysisservices/servers/create) para especificar a propriedade asAdministrator ao criar um novo servidor. <br>
+Use [Atualizar](/rest/api/analysisservices/servers/update) para especificar a propriedade asAdministrator ao modificar um servidor existente. <br>
 
 
 
@@ -54,4 +58,4 @@ Use [Atualizar](https://docs.microsoft.com/rest/api/analysisservices/servers/upd
 
 [Autenticação e permissões de usuário](analysis-services-manage-users.md)  
 [Gerenciar usuários e funções de banco de dados](analysis-services-database-users.md)  
-[Controle de acesso baseado em função do Azure (RBAC do Azure)](../role-based-access-control/overview.md)  
+[RBAC do Azure (controle de acesso baseado em função do Azure)](../role-based-access-control/overview.md)

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: pabouwer
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: 871a764c549de75d5a9e1449ba2e0737d38a4094
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: d66f3099ba225fbdd2bfc3d54db56ffd8ed2c43f
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83799952"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94684025"
 ---
 # <a name="use-intelligent-routing-and-canary-releases-with-istio-in-azure-kubernetes-service-aks"></a>Usar roteamento inteligente e versões canário com Istio no AKS (Serviço de Kubernetes do Azure)
 
@@ -33,7 +33,7 @@ Neste artigo, você aprenderá como:
 > [!NOTE]
 > Esse cenário foi testado em relação à versão `1.3.2` do Istio.
 
-As etapas detalhadas neste artigo presumem que você criou um cluster do AKS (Kubernetes `1.13` e superior, com RBAC habilitado) e estabeleceu uma conexão `kubectl` com o cluster. Também é necessário ter o Istio instalado no seu cluster.
+As etapas detalhadas neste artigo pressupõem que você criou um cluster AKS (kubernetes `1.13` e superior, com o KUBERNETES RBAC habilitado) e estabeleceu uma `kubectl` conexão com o cluster. Também é necessário ter o Istio instalado no seu cluster.
 
 Se você precisar de ajuda com qualquer um desses itens, veja o [Início rápido do AKS][aks-quickstart] e [Instalar o Istio no AKS][istio-install].
 
@@ -53,7 +53,7 @@ Quando você tiver certeza de que a versão `2.0` funciona conforme esperado no 
 
 Vamos começar pela implantação do aplicativo no cluster do AKS (Serviço de Kubernetes do Azure). O diagrama a seguir mostra o que é executado no final desta seção: versão `1.0` de todos os componentes com solicitações de entrada atendidas por meio do gateway de entrada do Istio:
 
-![Os componentes e roteamento do aplicativo de votação do AKS.](media/servicemesh/istio/scenario-routing-components-01.png)
+![Diagrama que mostra a versão 1,0 de todos os componentes com solicitações de entrada atendidas por meio do gateway de entrada do İSTİO.](media/servicemesh/istio/scenario-routing-components-01.png)
 
 Os artefatos necessários para acompanhar este artigo estão disponíveis no repositório do GitHub [Azure-Samples/aks-voting-app][github-azure-sample]. É possível baixar os artefatos ou clonar o repositório da seguinte maneira:
 
@@ -180,7 +180,7 @@ Vamos implantar uma nova versão do componente de análise. Essa nova versão `1
 
 O diagrama a seguir mostra o que será executado ao final desta seção: somente a versão `1.1` do nosso componente `voting-analytics` tem tráfego roteado do componente `voting-app`. Embora a versão `1.0` do nosso componente `voting-analytics` continue a ser executada e seja referenciada pelo serviço `voting-analytics`, os proxies Istio não permitem o tráfego de e para eles.
 
-![Os componentes e roteamento do aplicativo de votação do AKS.](media/servicemesh/istio/scenario-routing-components-02.png)
+![O diagrama que mostra apenas a versão 1,1 do componente de análise de votação tem o tráfego roteado do componente de aplicativo de votação.](media/servicemesh/istio/scenario-routing-components-02.png)
 
 Vamos implantar a versão `1.1` do componente `voting-analytics`. Crie este componente no namespace `voting`:
 
@@ -361,7 +361,7 @@ O diagrama a seguir mostra o que você terá em execução no final desta seçã
 * Versão `2.0` do componente `voting-app`, a versão `2.0` do componente `voting-analytics` e a versão `2.0` do componente `voting-storage` são capazes de se comunicar entre si.
 * A versão `2.0` do componente `voting-app` só é acessível aos usuários que tenham um conjunto de sinalizadores de recurso específico. Essa alteração é gerenciada usando um sinalizador de recurso por meio de um cookie.
 
-![Os componentes e roteamento do aplicativo de votação do AKS.](media/servicemesh/istio/scenario-routing-components-03.png)
+![Diagrama que mostra o que você terá em execução no final desta seção.](media/servicemesh/istio/scenario-routing-components-03.png)
 
 Primeiro, atualize as regras de destino do Istio e os serviços virtuais para atender a esses novos componentes. Essas atualizações garantem que você não roteie tráfego incorretamente para os novos componentes e os usuários não obtenham acesso inesperado:
 
@@ -415,7 +415,7 @@ As contagens de voto são diferentes entre as versões do aplicativo. Essa difer
 
 Após testar com êxito a versão canário, atualize o serviço virtual `voting-app` para rotear todo o tráfego para a versão `2.0` do componente `voting-app`. Em seguida, todos os usuários podem ver a versão `2.0` do aplicativo, independentemente de o sinalizador de recurso estar definido ou não:
 
-![Os componentes e roteamento do aplicativo de votação do AKS.](media/servicemesh/istio/scenario-routing-components-04.png)
+![Diagrama que mostra que os usuários veem a versão 2,0 do aplicativo, independentemente de o sinalizador de recurso estar ou não definido.](media/servicemesh/istio/scenario-routing-components-04.png)
 
 Atualize todas as regras de destino para remover as versões dos componentes que não quer mais ativas. Em seguida, atualize todos os serviços virtuais para parar de fazer referência a essas versões.
 

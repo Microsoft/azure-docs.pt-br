@@ -3,20 +3,20 @@ title: Criação do pool de hosts do Windows Virtual Desktop Environment-Azure
 description: Como solucionar e resolver problemas de locatário e pool de hosts durante a instalação de um ambiente de área de trabalho virtual do Windows.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 08/11/2020
+ms.date: 09/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 4d504c46288ebe2a8112586ce6be6449178df16a
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 0a5439a9d1fd43154379c1dc1a95a6e98b6e877b
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121367"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539639"
 ---
 # <a name="host-pool-creation"></a>Criação do pool de host
 
 >[!IMPORTANT]
->Este conteúdo se aplica à Área de Trabalho Virtual do Windows com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager. Se você estiver usando a Área de Trabalho Virtual do Windows (clássica) sem objetos do Azure Resource Manager, confira [este artigo](./virtual-desktop-fall-2019/troubleshoot-set-up-issues-2019.md).
+>Este conteúdo se aplica à Área de Trabalho Virtual do Windows com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager. Se você estiver usando a Área de Trabalho Virtual do Windows (clássica), sem objetos do Azure Resource Manager, confira [este artigo](./virtual-desktop-fall-2019/troubleshoot-set-up-issues-2019.md).
 
 Este artigo aborda problemas durante a configuração inicial do locatário da área de trabalho virtual do Windows e da infraestrutura do pool de hosts da sessão relacionada.
 
@@ -26,7 +26,7 @@ Visite a [Comunidade Tecnológica da Área de Trabalho Virtual do Windows](https
 
 ## <a name="acquiring-the-windows-10-enterprise-multi-session-image"></a>Adquirindo a imagem de várias sessões do Windows 10 Enterprise
 
-Para usar a imagem de várias sessões do Windows 10 Enterprise, vá para o Azure Marketplace, **selecione introdução**ao  >  **Microsoft Windows 10** > e [Windows 10 Enterprise Multi-Session, versão 1809](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsdesktop.windows-10?tab=PlansAndPrice).
+Para usar a imagem de várias sessões do Windows 10 Enterprise, vá para o Azure Marketplace, **selecione introdução** ao  >  **Microsoft Windows 10** > e [Windows 10 Enterprise Multi-Session, versão 1809](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsdesktop.windows-10?tab=PlansAndPrice).
 
 ## <a name="issues-with-using-the-azure-portal-to-create-host-pools"></a>Problemas com o uso do portal do Azure para criar pools de hosts
 
@@ -47,13 +47,19 @@ Se a operação ultrapassar o limite de cota, você poderá executar uma das seg
 
 - Abra o link que você vê no campo statusMessage em um navegador para enviar uma solicitação para aumentar a cota de sua assinatura do Azure para a SKU de VM especificada.
 
+### <a name="error-cant-see-user-assignments-in-app-groups"></a>Erro: não é possível ver as atribuições de usuário em grupos de aplicativos.
+
+Causa: esse erro geralmente ocorre depois que você moveu a assinatura de um locatário de 1 Azure Active Directory (AD) para outro. Se suas atribuições antigas ainda estiverem vinculadas ao locatário antigo do Azure AD, o portal do Azure perderá o controle delas.
+
+Correção: você precisará reatribuir usuários a grupos de aplicativos.
+
 ## <a name="azure-resource-manager-template-errors"></a>Erros de modelo de Azure Resource Manager
 
 Siga estas instruções para solucionar problemas de implantações sem êxito de modelos de Azure Resource Manager e DSC do PowerShell.
 
-1. Examine os erros na implantação usando [Exibir operações de implantação com o Azure Resource Manager](../azure-resource-manager/resource-manager-deployment-operations.md).
-2. Se não houver erros na implantação, examine os erros no log de atividades usando [Exibir logs de atividades para auditar ações em recursos](../azure-resource-manager/resource-group-audit.md).
-3. Depois que o erro for identificado, use a mensagem de erro e os recursos em [solucionar erros comuns de implantação do Azure com o Azure Resource Manager](../azure-resource-manager/resource-manager-common-deployment-errors.md) para resolver o problema.
+1. Examine os erros na implantação usando [Exibir operações de implantação com o Azure Resource Manager](../azure-resource-manager/templates/deployment-history.md).
+2. Se não houver erros na implantação, examine os erros no log de atividades usando [Exibir logs de atividades para auditar ações em recursos](../azure-resource-manager/management/view-activity-logs.md).
+3. Depois que o erro for identificado, use a mensagem de erro e os recursos em [solucionar erros comuns de implantação do Azure com o Azure Resource Manager](../azure-resource-manager/templates/common-deployment-errors.md) para resolver o problema.
 4. Exclua todos os recursos criados durante a implantação anterior e tente novamente implantar o modelo novamente.
 
 ### <a name="error-your-deployment-failedhostnamejoindomain"></a>Erro: falha na implantação... \<hostname> /JoinDomain
@@ -88,7 +94,7 @@ Para corrigir isso, faça o seguinte:
 3. O menu servidores DNS deve aparecer no lado direito da tela. Nesse menu, selecione **personalizado**.
 4. Verifique se os servidores DNS listados em Personalizar correspondem ao seu controlador de domínio ou Active Directory domínio. Se você não vir o servidor DNS, poderá adicioná-lo inserindo seu valor no campo **Adicionar servidor DNS** .
 
-### <a name="error-your-deployment-failedunauthorized"></a>Erro: falha na implantação. ..\Unauthorized
+### <a name="error-your-deployment-failedunauthorized"></a>Erro: Falha na implantação...\Não autorizada
 
 ```Error
 {"code":"DeploymentFailed","message":"At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/arm-debug for usage details.","details":[{"code":"Unauthorized","message":"{\r\n \"Code\": \"Unauthorized\",\r\n \"Message\": \"The scale operation is not allowed for this subscription in this region. Try selecting different region or scale option.\",\r\n \"Target\": null,\r\n \"Details\": [\r\n {\r\n \"Message\": \"The scale operation is not allowed for this subscription in this region. Try selecting different region or scale option.\"\r\n },\r\n {\r\n \"Code\": \"Unauthorized\"\r\n },\r\n {\r\n \"ErrorEntity\": {\r\n \"ExtendedCode\": \"52020\",\r\n \"MessageTemplate\": \"The scale operation is not allowed for this subscription in this region. Try selecting different region or scale option.\",\r\n \"Parameters\": [\r\n \"default\"\r\n ],\r\n \"Code\": \"Unauthorized\",\r\n \"Message\": \"The scale operation is not allowed for this subscription in this region. Try selecting different region or scale option.\"\r\n }\r\n }\r\n ],\r\n \"Innererror\": null\r\n}"}]}
@@ -109,7 +115,7 @@ Para corrigir isso, faça o seguinte:
 
 **Correção:** Confirme se o ambiente de área de trabalho virtual do Windows está íntegro ao entrar usando o PowerShell. Conclua o registro da VM manualmente em [criar um pool de hosts com o PowerShell](create-host-pools-powershell.md).
 
-### <a name="error-the-admin-username-specified-isnt-allowed"></a>Erro: o nome de usuário do administrador especificado não é permitido
+### <a name="error-the-admin-username-specified-isnt-allowed"></a>Erro: O nome de usuário administrador especificado não é permitido
 
 > [!div class="mx-imgBorder"]
 > ![A captura de tela de sua implantação falhou na qual um administrador especificado não é permitido.](media/failure-username.png)
@@ -127,7 +133,7 @@ Exemplo de erro bruto:
 
 **Correção:** Atualize o nome de usuário ou use usuários diferentes.
 
-### <a name="error-vm-has-reported-a-failure-when-processing-extension"></a>Erro: a VM relatou uma falha ao processar a extensão
+### <a name="error-vm-has-reported-a-failure-when-processing-extension"></a>Erro: A VM relatou uma falha durante o processamento da extensão
 
 > [!div class="mx-imgBorder"]
 > ![Falha na captura de tela da operação de recurso concluída com o estado de provisionamento de terminal em sua implantação.](media/failure-processing.png)
@@ -263,6 +269,7 @@ the VM.\\\"
 
 - Confira uma visão geral da solução de problemas da Área de Trabalho Virtual do Windows e das faixas de escalonamento em [Visão geral da solução de problemas, comentários e suporte](troubleshoot-set-up-overview.md).
 - Confira como solucionar problemas ao configurar uma VM (máquina virtual) na Área de Trabalho Virtual do Windows em [Configuração da máquina virtual do host da sessão](troubleshoot-vm-configuration.md).
+- Para solucionar problemas relacionados ao agente de área de trabalho virtual do Windows ou conectividade de sessão, consulte [solucionar problemas comuns do agente de área de trabalho virtual do Windows](troubleshoot-agent.md).
 - Para solucionar problemas com conexões de cliente de área de trabalho virtual do Windows, consulte [conexões do serviço área de trabalho virtual do Windows](troubleshoot-service-connection.md).
 - Para solucionar problemas com clientes Área de Trabalho Remota, consulte [solucionar problemas do cliente área de trabalho remota](troubleshoot-client.md)
 - Veja como solucionar problemas ao usar o PowerShell com a Área de Trabalho Virtual do Windows em [PowerShell da Área de Trabalho Virtual do Windows](troubleshoot-powershell.md).

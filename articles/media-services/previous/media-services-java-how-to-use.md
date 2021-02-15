@@ -15,17 +15,19 @@ ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: devx-track-java
-ms.openlocfilehash: 73dfa45361f2c111934ee7b938c44824112c6c8d
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: f05b78c777fdfa633e07bc03266c862f9e85ee0c
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322679"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98695714"
 ---
-# <a name="get-started-with-the-java-client-sdk-for-azure-media-services"></a>Introdução ao SDK de cliente Java para Serviços de Mídia do Azure  
+# <a name="get-started-with-the-java-client-sdk-for-azure-media-services"></a>Introdução ao SDK de cliente Java para Serviços de Mídia do Azure
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
-> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](../latest/index.yml). Além disso, consulte s [diretrizes de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
+> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](../latest/index.yml). Além disso, consulte s [diretrizes de migração da v2 para a v3](../latest/migrate-v-2-v-3-migration-introduction.md)
 
 Este tutorial orienta você ao longo das etapas de implementação de um serviço básico de fornecimento de conteúdo de vídeo com o Serviços de Mídia do Azure usando o SDK de cliente Java.
 
@@ -49,7 +51,7 @@ Por exemplo, se a ferramenta de compilação é `gradle`, adicione a seguinte de
 >Começando com o pacote `azure-media` versão `0.9.8`, o SDK adicionou suporte para autenticação do Azure Active Directory (AAD) e removeu o suporte para autenticação do Serviço de Controle de Acesso do Azure (ACS). Recomendamos que você migre para o modelo de autenticação do Azure AD assim que possível. Para obter detalhes sobre migração, leia o artigo [Acessar a API dos Serviços de Mídia do Azure com autenticação do Azure AD](media-services-use-aad-auth-to-access-ams-api.md).
 
 >[!NOTE]
->Você pode encontrar o código-fonte do SDK de Java do Serviços de Mídia do Azure em nosso [repositório GitHub](https://github.com/Azure/azure-sdk-for-java/tree/0.9/services/azure-media). Não se esqueça de alternar para o branch 0.9 e não o branch mestre. 
+>Você pode encontrar o código-fonte do SDK de Java do Serviços de Mídia do Azure em nosso [repositório GitHub](https://github.com/Azure/azure-sdk-for-java/tree/0.9/services/azure-media). Certifique-se de mudar para a ramificação 0,9 e não para a ramificação principal. 
 
 ## <a name="how-to-use-azure-media-services-with-java"></a>Como: usar os Serviços de Mídia do Azure com o Java
 

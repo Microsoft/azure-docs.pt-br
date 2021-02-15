@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: f3e4c411223a3e8fc0602602cd941a00f7a19cca
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 808443cb805b2dee2426198f9cd4f7ba502d8999
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87028236"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98197499"
 ---
 # <a name="troubleshooting-specific-rdp-error-messages-to-a-windows-vm-in-azure"></a>Solucionar problemas de mensagens de erro específicas ao RDP para uma VM do Windows no Azure
 Você pode receber mensagens de erro específicas ao usar a conexão de Área de Trabalho Remota para uma VM (máquina virtual) do Windows no Azure. Este artigo detalha algumas das mensagens de erro mais comuns encontradas, junto com as etapas para resolvê-las. Se você estiver enfrentando problemas para se conectar à sua VM usando o RDP, mas não encontrar uma mensagem de erro específica, consulte o [guia de solução de Área de Trabalho Remota](troubleshoot-rdp-connection.md).
@@ -89,7 +89,7 @@ Causa: a VM de destino não pôde validar seu nome de conta e senha.
 Um computador baseado em Windows pode validar as credenciais de uma conta local ou de uma conta de domínio.
 
 * Para contas locais, use a sintaxe *ComputerName* \\ *nome de usuário* (exemplo: SQL1\Admin4798).
-* Para contas de domínio, use a sintaxe de nome de usuário *DomainName* \\ *UserName* (exemplo: CONTOSO\peterodman).
+* Para contas de domínio, use a sintaxe de nome de usuário *DomainName* \\  (exemplo: CONTOSO\peterodman).
 
 Se você promoveu sua VM a um controlador de domínio em uma nova floresta do Active Directory, a conta de administrador local à qual você está conectado também será convertida em uma conta equivalente com a mesma senha na nova floresta e domínio. A conta local é então excluída.
 
@@ -109,7 +109,7 @@ Todo computador Windows tem um grupo local Usuários da Área de Trabalho Remota
 Certifique-se que a conta que você está usando para conectar-se tem direitos de entrada da Área de Trabalho Remota. Como alternativa, use uma conta de administrador local ou domínio para se conectar na Área de Trabalho Remota. Para adicionar a conta desejada ao grupo local de usuários da Área de Trabalho Remota, use o snap-in do Console de Gerenciamento Microsoft (**Ferramentas do sistema > Usuários e Grupos Locais > Grupos > Usuários da Área de Trabalho Remota**).
 
 ## <a name="next-steps"></a>Próximas etapas
-Se nenhum desses erros ocorrerem e você tiver um problema desconhecido com a conexão usando o RDP, consulte o [guia de solução da Área de Trabalho Remota](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Se nenhum desses erros ocorrerem e você tiver um problema desconhecido com a conexão usando o RDP, consulte o [guia de solução da Área de Trabalho Remota](troubleshoot-rdp-connection.md).
 
 * Para obter etapas de solução de problema de acesso a aplicativos em execução, consulte [Solucionar problemas de acesso a um aplicativo em execução em uma VM do Azure](./troubleshoot-app-connection.md?toc=/azure/virtual-machines/linux/toc.json).
 * Se você estiver enfrentando problemas ao usar o Secure Shell (SSH) para se conectar a uma VM do Linux no Azure, consulte [Solucionar problemas de conexões SSH a uma VM do Linux no Azure](./troubleshoot-ssh-connection.md?toc=/azure/virtual-machines/linux/toc.json).

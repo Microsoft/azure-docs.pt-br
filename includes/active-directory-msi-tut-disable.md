@@ -8,13 +8,13 @@ ms.topic: include
 ms.date: 01/14/2020
 ms.author: markvi
 ms.custom: include file
-ms.openlocfilehash: 6a50faee2d557c39e9bd371caa98a4bcb2016e0f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b907eb1f9240156cdb1d9c9cf44d77d4738aff1a
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75971850"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93135582"
 ---
 Para desabilitar a identidade atribuída pelo sistema em sua VM, configure o status da identidade atribuída pelo sistema como **Desativado**. 
 
-![Criar nova conta de armazenamento](./media/active-directory-msi-tut-disable/identity.png)
+![Captura de tela que mostra a guia Atribuído ao sistema para uma máquina virtual na qual você pode desativar o status Atribuído ao sistema.](./media/active-directory-msi-tut-disable/identity.png)

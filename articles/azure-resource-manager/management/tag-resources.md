@@ -2,14 +2,14 @@
 title: Marcar recursos, grupos de recursos e assinaturas para a organização lógica
 description: Mostra como aplicar marcas para organizar os recursos do Azure para cobrança e gerenciamento.
 ms.topic: conceptual
-ms.date: 07/27/2020
+ms.date: 01/04/2021
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: daedb5dcd660ec2637557fe5af75db2939318495
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: fb93673b643fd13efe9ffea148c5fb1d072f9e05
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87499986"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896216"
 ---
 # <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>Use marcas para organizar os recursos e a hierarquia de gerenciamento do Azure
 
@@ -26,9 +26,11 @@ Para obter recomendações sobre como implementar uma estratégia de marcação,
 
 ## <a name="required-access"></a>Acesso necessário
 
-Para aplicar marcas a um recurso, você deve ter acesso de gravação ao tipo de recurso **Microsoft. Resources/Tags** . A função de [colaborador de marca](../../role-based-access-control/built-in-roles.md#tag-contributor) permite aplicar marcas a uma entidade sem ter acesso à própria entidade. Atualmente, a função de colaborador de marca não pode aplicar marcas a recursos ou grupos de recursos por meio do Portal. Ele pode aplicar marcas às assinaturas por meio do Portal. Ele dá suporte a todas as operações de marca por meio do PowerShell e da API REST.  
+Há duas maneiras de obter o acesso necessário aos recursos de marca.
 
-A função [colaborador](../../role-based-access-control/built-in-roles.md#contributor) também concede o acesso necessário para aplicar marcas a qualquer entidade. Para aplicar marcas a apenas um tipo de recurso, use a função de colaborador para esse recurso. Por exemplo, para aplicar marcas a máquinas virtuais, use o [Colaborador da Máquina Virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
+- Você pode ter acesso de gravação ao tipo de recurso **Microsoft. Resources/Tags** . Esse acesso permite marcar qualquer recurso, mesmo que você não tenha acesso ao próprio recurso. A função de [colaborador de marca](../../role-based-access-control/built-in-roles.md#tag-contributor) concede esse acesso. Atualmente, a função de colaborador de marca não pode aplicar marcas a recursos ou grupos de recursos por meio do Portal. Ele pode aplicar marcas às assinaturas por meio do Portal. Ele dá suporte a todas as operações de marca por meio do PowerShell e da API REST.  
+
+- Você pode ter acesso de gravação ao próprio recurso. A função [colaborador](../../role-based-access-control/built-in-roles.md#contributor) concede o acesso necessário para aplicar marcas a qualquer entidade. Para aplicar marcas a apenas um tipo de recurso, use a função de colaborador para esse recurso. Por exemplo, para aplicar marcas a máquinas virtuais, use o [Colaborador da Máquina Virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
 
 ## <a name="powershell"></a>PowerShell
 
@@ -240,92 +242,208 @@ Remove-AzTag -ResourceId "/subscriptions/$subscription"
 
 ### <a name="apply-tags"></a>Aplicar marcas
 
-Ao adicionar marcas a um grupo de recursos ou recurso, você pode substituir as marcas existentes ou acrescentar novas marcas a marcas existentes.
+CLI do Azure oferece dois comandos para aplicar marcas- [AZ tag Create](/cli/azure/tag#az_tag_create) e [AZ tag update](/cli/azure/tag#az_tag_update). Você deve ter CLI do Azure 2.10.0 ou posterior. Você pode verificar sua versão com `az version` . Para atualizar ou instalar o, consulte [instalar o CLI do Azure](/cli/azure/install-azure-cli).
 
-Para substituir as marcas em um recurso, use:
+A **tag AZ Create** substitui todas as marcas no recurso, no grupo de recursos ou na assinatura. Ao chamar o comando, passe a ID de recurso da entidade que você deseja marcar.
 
-```azurecli-interactive
-az resource tag --tags 'Dept=IT' 'Environment=Test' -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
-```
-
-Para acrescentar uma marca às marcas existentes em um recurso, use:
+O exemplo a seguir aplica um conjunto de marcas a uma conta de armazenamento:
 
 ```azurecli-interactive
-az resource update --set tags.'Status'='Approved' -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
+resource=$(az resource show -g demoGroup -n demoStorage --resource-type Microsoft.Storage/storageAccounts --query "id" --output tsv)
+az tag create --resource-id $resource --tags Dept=Finance Status=Normal
 ```
 
-Para substituir as marcas existentes em um grupo de recursos, use:
+Quando o comando for concluído, observe que o recurso tem duas marcas.
+
+```output
+"properties": {
+  "tags": {
+    "Dept": "Finance",
+    "Status": "Normal"
+  }
+},
+```
+
+Se você executar o comando novamente, mas desta vez com marcas diferentes, observe que as marcas anteriores são removidas.
 
 ```azurecli-interactive
-az group update -n examplegroup --tags 'Environment=Test' 'Dept=IT'
+az tag create --resource-id $resource --tags Team=Compliance Environment=Production
 ```
 
-Para acrescentar uma marca às marcas existentes em um grupo de recursos, use:
+```output
+"properties": {
+  "tags": {
+    "Environment": "Production",
+    "Team": "Compliance"
+  }
+},
+```
+
+Para adicionar marcas a um recurso que já tem marcas, use `az tag update` . Defina o parâmetro de `--operation` a `Merge`.
 
 ```azurecli-interactive
-az group update -n examplegroup --set tags.'Status'='Approved'
+az tag update --resource-id $resource --operation Merge --tags Dept=Finance Status=Normal
 ```
 
-Atualmente, CLI do Azure não tem um comando para aplicar marcas a assinaturas. No entanto, você pode usar a CLI para implantar um modelo do ARM que aplica as marcas a uma assinatura. Consulte [aplicar marcas a grupos de recursos ou assinaturas](#apply-tags-to-resource-groups-or-subscriptions).
+Observe que as duas novas marcas foram adicionadas às duas marcas existentes.
+
+```output
+"properties": {
+  "tags": {
+    "Dept": "Finance",
+    "Environment": "Production",
+    "Status": "Normal",
+    "Team": "Compliance"
+  }
+},
+```
+
+Cada nome de marca pode ter apenas um valor. Se você fornecer um novo valor para uma marca, o valor antigo será substituído mesmo se você usar a operação de mesclagem. O exemplo a seguir altera a marca de status de normal para verde.
+
+```azurecli-interactive
+az tag update --resource-id $resource --operation Merge --tags Status=Green
+```
+
+```output
+"properties": {
+  "tags": {
+    "Dept": "Finance",
+    "Environment": "Production",
+    "Status": "Green",
+    "Team": "Compliance"
+  }
+},
+```
+
+Quando você define o `--operation` parâmetro como `Replace` , as marcas existentes são substituídas pelo novo conjunto de marcas.
+
+```azurecli-interactive
+az tag update --resource-id $resource --operation Replace --tags Project=ECommerce CostCenter=00123 Team=Web
+```
+
+Somente as novas marcas permanecem no recurso.
+
+```output
+"properties": {
+  "tags": {
+    "CostCenter": "00123",
+    "Project": "ECommerce",
+    "Team": "Web"
+  }
+},
+```
+
+Os mesmos comandos também funcionam com grupos de recursos ou assinaturas. Você passa o identificador do grupo de recursos ou da assinatura que deseja marcar.
+
+Para adicionar um novo conjunto de marcas a um grupo de recursos, use:
+
+```azurecli-interactive
+group=$(az group show -n demoGroup --query id --output tsv)
+az tag create --resource-id $group --tags Dept=Finance Status=Normal
+```
+
+Para atualizar as marcas de um grupo de recursos, use:
+
+```azurecli-interactive
+az tag update --resource-id $group --operation Merge --tags CostCenter=00123 Environment=Production
+```
+
+Para adicionar um novo conjunto de marcas a uma assinatura, use:
+
+```azurecli-interactive
+sub=$(az account show --subscription "Demo Subscription" --query id --output tsv)
+az tag create --resource-id /subscriptions/$sub --tags CostCenter=00123 Environment=Dev
+```
+
+Para atualizar as marcas de uma assinatura, use:
+
+```azurecli-interactive
+az tag update --resource-id /subscriptions/$sub --operation Merge --tags Team="Web Apps"
+```
 
 ### <a name="list-tags"></a>Listar marcas
 
-Para ver as marcas existentes de um recurso, use:
+Para obter as marcas de um recurso, grupo de recursos ou assinatura, use o comando [AZ tag List](/cli/azure/tag#az_tag_list) e passe a ID do recurso para a entidade.
+
+Para ver as marcas de um recurso, use:
 
 ```azurecli-interactive
-az resource show -n examplevnet -g examplegroup --resource-type "Microsoft.Network/virtualNetworks" --query tags
+resource=$(az resource show -g demoGroup -n demoStorage --resource-type Microsoft.Storage/storageAccounts --query "id" --output tsv)
+az tag list --resource-id $resource
 ```
 
-Para conferir as marcas existentes para um grupo de recursos, use:
+Para ver as marcas de um grupo de recursos, use:
 
 ```azurecli-interactive
-az group show -n examplegroup --query tags
+group=$(az group show -n demoGroup --query id --output tsv)
+az tag list --resource-id $group
 ```
 
-Esse script retorna o seguinte formato:
+Para ver as marcas de uma assinatura, use:
 
-```json
-{
-  "Dept"        : "IT",
-  "Environment" : "Test"
-}
+```azurecli-interactive
+sub=$(az account show --subscription "Demo Subscription" --query id --output tsv)
+az tag list --resource-id /subscriptions/$sub
 ```
 
 ### <a name="list-by-tag"></a>Listar por marca
 
-Para obter todos os recursos que tem marca e valor específicos, use `az resource list`:
+Para obter recursos que têm um nome e valor de marca específicos, use:
 
 ```azurecli-interactive
-az resource list --tag Dept=Finance
+az resource list --tag CostCenter=00123 --query [].name
 ```
 
-Para obter grupos de recursos que têm uma marca específica, use `az group list`:
+Para obter recursos que têm um nome de marca específico com qualquer valor de marca, use:
 
 ```azurecli-interactive
-az group list --tag Dept=IT
+az resource list --tag Team --query [].name
+```
+
+Para obter os grupos de recursos que têm um nome e valor de marca específicos, use:
+
+```azurecli-interactive
+az group list --tag Dept=Finance
+```
+
+### <a name="remove-tags"></a>Remover marcas
+
+Para remover marcas específicas, use `az tag update` e defina `--operation` como `Delete` . Passe as marcas que você deseja excluir.
+
+```azurecli-interactive
+az tag update --resource-id $resource --operation Delete --tags Project=ECommerce Team=Web
+```
+
+As marcas especificadas são removidas.
+
+```output
+"properties": {
+  "tags": {
+    "CostCenter": "00123"
+  }
+},
+```
+
+Para remover todas as marcas, use o comando [AZ tag Delete](/cli/azure/tag#az_tag_delete) .
+
+```azurecli-interactive
+az tag delete --resource-id $resource
 ```
 
 ### <a name="handling-spaces"></a>Espaços de manuseio
 
-Se os nomes ou valores de marcação incluírem espaços, você deverá executar algumas etapas adicionais. O exemplo a seguir aplica todas as marcas de um grupo de recursos a seus recursos quando as marcas podem conter espaços.
+Se os nomes ou valores de marcação incluírem espaços, coloque-os entre aspas duplas.
 
 ```azurecli-interactive
-jsontags=$(az group show --name examplegroup --query tags -o json)
-tags=$(echo $jsontags | tr -d '{}"' | sed 's/: /=/g' | sed "s/\"/'/g" | sed 's/, /,/g' | sed 's/ *$//g' | sed 's/^ *//g')
-origIFS=$IFS
-IFS=','
-read -a tagarr <<< "$tags"
-resourceids=$(az resource list -g examplegroup --query [].id --output tsv)
-for id in $resourceids
-do
-  az resource tag --tags "${tagarr[@]}" --id $id
-done
-IFS=$origIFS
+az tag update --resource-id $group --operation Merge --tags "Cost Center"=Finance-1222 Location="West US"
 ```
 
-## <a name="templates"></a>Modelos
+## <a name="arm-templates"></a>Modelos de ARM
 
-Você pode marcar recursos, grupos de recursos e assinaturas durante a implantação com um modelo do Resource Manager.
+Você pode marcar recursos, grupos de recursos e assinaturas durante a implantação com um modelo de Azure Resource Manager (modelo ARM).
+
+> [!NOTE]
+> As marcas aplicadas por meio do modelo ARM substituem todas as marcas existentes.
 
 ### <a name="apply-values"></a>Aplicar valores
 
@@ -333,7 +451,7 @@ O exemplo a seguir implanta uma conta de armazenamento com três marcas. Duas da
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "utcShort": {
@@ -372,7 +490,7 @@ Você pode definir um parâmetro de objeto que armazena várias marcas e aplicar
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "location": {
@@ -410,7 +528,7 @@ Para armazenar diversos valores em uma única marca, aplica uma cadeia de caract
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "location": {
@@ -443,7 +561,7 @@ Para aplicar marcas de um grupo de recursos a um recurso, use a função [resour
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "location": {
@@ -579,7 +697,7 @@ As marcas aplicadas ao grupo de recursos ou à assinatura não são herdadas pel
 
 Você pode usar marcas para agrupar os dados de cobrança. Por exemplo, se estiver executando várias VMs para organizações diferentes, use as marcas para agrupar o uso por centro de custo. Você também pode usar marcas para categorizar os custos pelo ambiente de runtime, como por exemplo, o uso de cobrança para VMs em execução no ambiente de produção.
 
-Você pode recuperar informações sobre marcas por meio de [APIs de uso de recursos do Azure e de cartão de taxa](../../cost-management-billing/manage/usage-rate-card-overview.md) ou o arquivo CSV (valores separados por vírgula) de uso. Você baixar o arquivo de uso do [Centro de Contas do Azure](https://account.azure.com/Subscriptions) ou do Portal do Azure. Para saber mais, confira [Baixar ou exibir sua fatura de cobrança e dados de uso diário do Azure](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md). Ao baixar o arquivo de uso do Centro de Contas do Azure, selecione **Versão 2**. Para os serviços que dão suporte a marcas com cobrança, as marcas aparecerão na coluna **Marcas**.
+Você pode recuperar informações sobre marcas baixando o arquivo de uso, um arquivo CSV (valores separados por vírgula) disponível no portal do Azure. Para saber mais, confira [Baixar ou exibir sua fatura de cobrança e dados de uso diário do Azure](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md). Ao baixar o arquivo de uso do Centro de Contas do Azure, selecione **Versão 2**. Para os serviços que dão suporte a marcas com cobrança, as marcas aparecerão na coluna **Marcas**.
 
 Para operações de API REST, confira [Referência da API REST de cobrança do Azure](/rest/api/billing/).
 

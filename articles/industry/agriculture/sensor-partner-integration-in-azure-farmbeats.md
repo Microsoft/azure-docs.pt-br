@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 88a8dcb53ab2f845f52121b11c96c23ad0a3e791
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ef74c4b799c3a24636f88a8e704bf726104b034f
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87078922"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001585"
 ---
 # <a name="sensor-partner-integration"></a>Integração com parceiros de sensor
 
@@ -48,7 +48,7 @@ As APIs contêm documentação técnica do Swagger. Para saber mais sobre as API
 
 O FarmBeats usa a autenticação do Microsoft Azure Active Directory. O Serviço de Aplicativo do Azure fornece suporte interno para a autenticação e autorização.
 
-Para obter mais informações, consulte [Azure Active Directory](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization).
+Para obter mais informações, consulte [Azure Active Directory](../../app-service/overview-authentication-authorization.md).
 
 O Datahub do FarmBeats usa autenticação de portador, que precisa das seguintes credenciais:
    - ID do Cliente
@@ -131,7 +131,7 @@ O FarmBeats Datahub tem as seguintes APIs que permitem aos parceiros de disposit
 - /**SensorModel**: SensorModel corresponde aos metadados do sensor, como o fabricante, o tipo de sensor, seja analógico ou digital, e a medida do sensor, como temperatura ambiente e pressão.
 - /**Sensor**: Sensor corresponde a um sensor físico que registra valores. Um sensor geralmente está conectado a um dispositivo com uma ID de dispositivo.
 
-  DeviceModel | Descrição |
+  DeviceModel | Description |
   --- | ---
   Tipo (nó, gateway)  | Tipo de dispositivo: nó ou gateway |
   Fabricante  | Nome do fabricante |
@@ -201,7 +201,7 @@ Os dados de telemetria são mapeados para uma mensagem canônica que é publicad
 
 ## <a name="send-telemetry-data-to-farmbeats"></a>Enviar dados de telemetria para o FarmBeats
 
-Para enviar dados de telemetria para o FarmBeats, crie um cliente que envie mensagens para um hub de eventos no FarmBeats. Para saber mais sobre dados de telemetria, confira [Enviar telemetria para um hub de eventos](https://docs.microsoft.com/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send).
+Para enviar dados de telemetria para o FarmBeats, crie um cliente que envie mensagens para um hub de eventos no FarmBeats. Para saber mais sobre dados de telemetria, confira [Enviar telemetria para um hub de eventos](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md).
 
 Aqui está um exemplo de código Python que envia telemetria como cliente para um hub de eventos especificado.
 

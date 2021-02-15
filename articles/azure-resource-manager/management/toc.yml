@@ -4,11 +4,6 @@
   items:
     - name: O que é o Gerenciador de Recursos?
       href: overview.md
-- name: Exemplos
-  items:
-    - name: Itens internos do Azure Policy
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: Conceitos
   items:
     - name: Limites de serviço e assinatura
@@ -17,19 +12,23 @@
       href: resource-name-rules.md
     - name: Gerenciador de Recursos e implantação clássica
       href: deployment-models.md
-    - name: Atributos de segurança comuns do Azure
-      href: azure-resource-manager-security-controls.md
     - name: Provedores de recursos por serviço
       href: azure-services-resource-providers.md
+    - name: Painel de controle e plano de dados
+      href: control-plane-and-data-plane.md
     - name: Tipos de recursos de extensão
       href: extension-resource-types.md
     - name: Limite de instância de recurso
       href: resources-without-resource-group-limit.md
     - name: Segurança
       items:
+        - name: Linha de base de segurança
+          href: ./security-baseline.md
         - name: Controles de segurança do Azure Policy
           displayName: 'regulatory, compliance, standards, domains'
           href: ./security-controls-policy.md
+        - name: Atributos de segurança comuns do Azure
+          href: azure-resource-manager-security-controls.md
 - name: Como
   items:
     - name: Mover – grupos de recursos/assinaturas de recursos
@@ -58,8 +57,10 @@
               href: ./move-limitations/virtual-machines-move-limitations.md
     - name: Mover – regiões
       items:
-        - name: Mover entre regiões
+        - name: Visão geral
           href: move-region.md
+        - name: Mover entre regiões (do grupo de recursos)
+          href: ../../resource-mover/move-region-within-resource-group.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Serviços com suporte
           href: region-move-support.md
         - name: Serviços
@@ -74,6 +75,8 @@
               href: ../../batch/best-practices.md?toc=/azure/azure-resource-manager/management/toc.json#moving-batch-accounts-across-regions
             - name: Pesquisa Cognitiva do Azure
               href: ../../search/search-howto-move-across-regions.md?toc=/azure/azure-resource-manager/management/toc.json
+            - name: Azure Cosmos DB
+              href: ../../cosmos-db/how-to-move-regions.md?toc=/azure/azure-resource-manager/management/toc.json
             - name: Espaços de Desenvolvimento do Azure
               href: ../../dev-spaces/faq.md?toc=/azure/azure-resource-manager/management/toc.json#can-i-migrate-my-aks-cluster-with-azure-dev-spaces-to-another-region
             - name: Hubs de eventos do Azure
@@ -87,19 +90,21 @@
             - name: SQL do Azure
               href: ../../azure-sql/database/move-resources-across-regions.md?toc=/azure/azure-resource-manager/management/toc.json
             - name: VMs do Azure
-              href: ../../site-recovery/azure-to-azure-tutorial-migrate.md?toc=/azure/azure-resource-manager/management/toc.json
+              href: ../../resource-mover/tutorial-move-region-virtual-machines.md?toc=/azure/azure-resource-manager/management/toc.json
             - name: Aplicativos lógicos
               href: ../../logic-apps/move-logic-app-resources.md?toc=/azure/azure-resource-manager/management/toc.json
             - name: Configuração do controle de manutenção
               href: ../../virtual-machines/move-region-maintenance-configuration.md?toc=/azure/azure-resource-manager/management/toc.json
             - name: NSG (Grupo de Segurança de Rede)
-              href: ../../virtual-network/move-across-regions-nsg-portal.md?toc=/azure/azure-resource-manager/management/toc.json
+              href: ../../resource-mover/tutorial-move-region-virtual-machines.md?toc=/azure/azure-resource-manager/management/toc.json
             - name: Endereços IP públicos
-              href: ../../virtual-network/move-across-regions-publicip-portal.md?toc=/azure/azure-resource-manager/management/toc.json
+              href: ../../resource-mover/tutorial-move-region-virtual-machines.md?toc=/azure/azure-resource-manager/management/toc.json
             - name: Site Recovery (cofres dos Serviços de Recuperação)
               href: ../../site-recovery/move-vaults-across-regions.md?toc=/azure/azure-resource-manager/management/toc.json
             - name: Rede virtual
-              href: ../../virtual-network/move-across-regions-nsg-portal.md?toc=/azure/azure-resource-manager/management/toc.json
+              href: ../../resource-mover/tutorial-move-region-virtual-machines.md?toc=/azure/azure-resource-manager/management/toc.json
+            - name: NIC (Adaptador de Rede)
+              href: ../../resource-mover/tutorial-move-region-virtual-machines.md?toc=/azure/azure-resource-manager/management/toc.json
             - name: Servidor do Banco de Dados do Azure para PostgreSQL
               href: ../../postgresql/howto-move-regions-portal.md?toc=/azure/azure-resource-manager/management/toc.json
             - name: Servidor do Banco de Dados do Azure para MariaDB
@@ -141,7 +146,7 @@
     - name: Assinaturas de EA
       items:
         - name: Criar
-          href: ../../cost-management-billing/manage/programmatically-create-subscription.md?toc=/azure/azure-resource-manager/management/toc.json
+          href: ../../cost-management-billing/manage/programmatically-create-subscription-enterprise-agreement.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Permitir acesso para criar
           href: ../../cost-management-billing/manage/grant-access-to-create-subscription.md?toc=/azure/azure-resource-manager/management/toc.json
     - name: Provedores e tipos de recursos
@@ -172,8 +177,13 @@
       href: /java/api/com.microsoft.azure.management.resources
     - name: Python
       href: /python/api/overview/azure/resources?view=azure-python
+    - name: Itens internos do Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Recursos
   items:
+    - name: Desenvolva suas habilidades com o Microsoft Learn
+      href: /learn/browse/?products=azure-resource-manager
     - name: Roteiro do Azure
       href: 'https://azure.microsoft.com/roadmap/?category=monitoring-management'
     - name: Calculadora de preço

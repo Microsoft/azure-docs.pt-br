@@ -1,19 +1,16 @@
 ---
 title: Processar eventos de Hubs de Eventos com o Storm – Azure HDInsight
 description: Saiba como processar dados de Hubs de Eventos do Azure com uma topologia Storm C# criada no Visual Studio usando as ferramentas do HDInsight para Visual Studio.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 01/14/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: cb1c2d8daa74d1224ad07ef7a2fb5a74f4773338
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 4393c6797f5a164a063b55f8994d7d37d278f3c4
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89000304"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98929195"
 ---
 # <a name="process-events-from-azure-event-hubs-with-apache-storm-on-hdinsight-c"></a>Processar eventos dos Hubs de Eventos do Azure com o Apache Storm no HDInsight (C#)
 
@@ -107,7 +104,7 @@ Você pode baixar uma versão completa do projeto criado neste artigo do [GitHub
 
 * As [Ferramentas do HDInsight para Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md).
 
-* Java JDK 1.8 ou posterior em seu ambiente de desenvolvimento. Downloads de JDK estão disponíveis na [Oracle](https://aka.ms/azure-jdks).
+* Java JDK 1.8 ou posterior em seu ambiente de desenvolvimento. Downloads de JDK estão disponíveis na [Oracle](/azure/developer/java/fundamentals/java-jdk-long-term-support).
 
   * A variável de ambiente **JAVA_HOME** deve apontar ao diretório que contém o Java.
   * O diretório **%JAVA_HOME%/bin** deve estar no caminho.

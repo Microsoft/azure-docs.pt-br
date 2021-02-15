@@ -13,21 +13,19 @@ ms.date: 03/31/2020
 ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 514782d62f117af5bfff4a5d2b3354c4e263eece
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3cd7074467332f89d4d6c60830be34f4e2a638c1
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80550234"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94562076"
 ---
 # <a name="overview-of-shared-device-mode"></a>Visão geral do modo de dispositivo compartilhado
 
 O modo de dispositivo compartilhado é um recurso do Azure Active Directory que permite que você crie aplicativos que dão suporte a trabalhadores de primeira e habilitam o modo de dispositivo compartilhado nos dispositivos implantados neles.
 
-> [!NOTE]
-> Esse recurso está em uma versão prévia.
-> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos.
-> Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>[!IMPORTANT]
+> Este recurso [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)]
 
 ## <a name="what-are-firstline-workers"></a>O que são trabalhadores de primeira a?
 

@@ -1,6 +1,6 @@
 ---
 title: Pontos de restauração definidos pelo usuário
-description: Como criar um ponto de restauração para o pool do SQL.
+description: Como criar um ponto de restauração para o pool do SQL dedicado (anteriormente conhecido como SQL DW).
 services: synapse-analytics
 author: anumjs
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 07/03/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 66a2dad9396e8bf7c8ef49db529f7a5486cc8a8f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 097a3132208eee98b3f95291e414263e637bc265
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089200"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96545580"
 ---
-# <a name="user-defined-restore-points"></a>Pontos de restauração definidos pelo usuário
+# <a name="user-defined-restore-points-for-a-dedicated-sql-pool-formerly-sql-dw"></a>Pontos de restauração definidos pelo usuário para um pool SQL dedicado (antigo SQL DW)
 
-Neste artigo, você aprenderá a criar um novo ponto de restauração definido pelo usuário para um pool do SQL no Azure Synapse Analytics usando o PowerShell e o portal do Azure.
+Neste artigo, você aprenderá a criar um novo ponto de restauração definido pelo usuário para um pool SQL dedicado (anteriormente conhecido como SQL DW) no Azure Synapse Analytics usando o PowerShell e o portal do Azure.
 
 ## <a name="create-user-defined-restore-points-through-powershell"></a>Criar pontos de restauração definidos pelo usuário por meio do PowerShell
 
@@ -53,7 +53,7 @@ New-AzSqlDatabaseRestorePoint -ResourceGroupName $ResourceGroupName -ServerName 
 
 ```Powershell
 # List all restore points
-Get-AzSqlDatabaseRestorePoints -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName
+Get-AzSqlDatabaseRestorePoint -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName
 ```
 
 ## <a name="create-user-defined-restore-points-through-the-azure-portal"></a>Criar pontos de restauração definidos pelo usuário por meio do portal do Azure
@@ -62,9 +62,9 @@ Os pontos de restauração definidos pelo usuário também podem ser criados por
 
 1. Entre em sua conta do [portal do Azure](https://portal.azure.com/) .
 
-2. Navegue até o pool SQL para o qual você deseja criar um ponto de restauração.
+2. Navegue até o pool dedicado do SQL (antigo SQL DW) para o qual você deseja criar um ponto de restauração.
 
-3. Selecione **visão geral** no painel esquerdo, selecione **+ novo ponto de restauração**. Se o botão novo ponto de restauração não estiver habilitado, verifique se o pool do SQL não está pausado.
+3. Selecione **visão geral** no painel esquerdo, selecione **+ novo ponto de restauração**. Se o botão novo ponto de restauração não estiver habilitado, verifique se o pool do SQL dedicado (anteriormente conhecido como SQL DW) não está em pausa.
 
     ![Novo Ponto de Restauração](./media/sql-data-warehouse-restore-points/creating-restore-point-01.png)
 
@@ -74,7 +74,6 @@ Os pontos de restauração definidos pelo usuário também podem ser criados por
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Restaurar um pool SQL existente](sql-data-warehouse-restore-active-paused-dw.md)
-- [Restaurar um pool do SQL excluído](sql-data-warehouse-restore-deleted-dw.md)
-- [Restaurar de um pool SQL de backup geográfico](sql-data-warehouse-restore-from-geo-backup.md)
-
+- [Restaurar um pool SQL dedicado existente (anteriormente conhecido como SQL DW)](sql-data-warehouse-restore-active-paused-dw.md)
+- [Restaurar um pool SQL dedicado excluído (antigo SQL DW)](sql-data-warehouse-restore-deleted-dw.md)
+- [Restaurar de um pool SQL dedicado de backup geográfico (antigo SQL DW)](sql-data-warehouse-restore-from-geo-backup.md)

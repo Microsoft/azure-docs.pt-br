@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
-ms.openlocfilehash: 397197c2ab3ba4f135912eab800f1abd7ab73a0f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: f564032873be6e4c70426d48c4576371862ea35d
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88531048"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673589"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bitabiz"></a>Tutorial: Integração do Active Directory do Azure ao BitaBIZ
 
@@ -27,7 +27,7 @@ A integração do BitaBIZ ao Azure AD oferece os seguintes benefícios:
 * Você pode permitir que os usuários sejam conectados automaticamente ao BitaBIZ (logon único) com suas contas do Azure AD.
 * Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](../manage-apps/what-is-single-sign-on.md).
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Prerequisites
@@ -63,7 +63,7 @@ Para configurar a integração do BitaBIZ ao Azure AD, você precisará adiciona
 
 4. Na caixa de pesquisa, digite **BitaBIZ**, selecione **BitaBIZ** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
-     ![BitaBIZ na lista de resultados](common/search-new-app.png)
+    ![BitaBIZ na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
@@ -132,15 +132,15 @@ Para configurar o logon único do Azure AD com o BitaBIZ, execute as seguintes e
 
 2. Clique em **CONFIGURAR ADMIN**.
 
-    ![Configuração do BitaBIZ](./media/bitabiz-tutorial/settings1.png)
+    ![Captura de tela que mostra parte de uma janela do navegador com Configurar Admin selecionado.](./media/bitabiz-tutorial/settings1.png)
 
 3. Clique em **Integrações Microsoft** na seção **Adicionar valor**.
 
-    ![Configuração do BitaBIZ](./media/bitabiz-tutorial/settings2.png)
+    ![Captura de tela que mostra Adicionar valor com as Integrações da Microsoft selecionadas.](./media/bitabiz-tutorial/settings2.png)
 
 4. Role para baixo até a seção **Microsoft Azure AD (Habilitar logon único)** e execute as seguintes etapas:
 
-    ![Configuração do BitaBIZ](./media/bitabiz-tutorial/settings3.png)
+    ![Captura de tela que mostra a seção Microsoft Azure AD, em que insere as informações descritas nesta etapa.](./media/bitabiz-tutorial/settings3.png)
 
     a. Copie o valor da caixa de texto **ID da Entidade (“Identificador” no Azure AD)** e cole-o na caixa e texto **Identificador** na seção **Configuração Básica do SAML** do portal do Azure. 
 
@@ -173,7 +173,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
     a. No campo **Nome**, insira **BrendaFernandes**.
-  
+
     b. No campo **Nome de usuário**, digite **brendafernandes\@dominiodaempresa.extensao**  
     Por exemplo, BrittaSimon@contoso.com
 
@@ -218,19 +218,19 @@ No caso do BitaBIZ, o provisionamento é uma tarefa manual.
 
 2. Clique em **CONFIGURAR ADMIN**.
 
-    ![Adicionar usuário no BitaBIZ](./media/bitabiz-tutorial/settings1.png)
+    ![Captura de tela que mostra parte de sua janela do navegador com Configurar Admin selecionado.](./media/bitabiz-tutorial/settings1.png)
 
 3. Clique em **Adicionar usuários** na seção **Organização**.
 
-    ![Adicionar usuário no BitaBIZ](./media/bitabiz-tutorial/user1.png)
+    ![Captura de tela que mostra a seção Organização com Adicionar usuários selecionado.](./media/bitabiz-tutorial/user1.png)
 
 4. Clique em **Adicionar novo funcionário**.
 
-    ![Adicionar usuário no BitaBIZ](./media/bitabiz-tutorial/user2.png)
+    ![Captura de tela que mostra Adicionar usuários com Adicionar novo funcionário selecionado.](./media/bitabiz-tutorial/user2.png)
 
 5. Na página da caixa de diálogo **Adicionar novo funcionário**, execute as seguintes etapas:
 
-    ![Adicionar usuário no BitaBIZ](./media/bitabiz-tutorial/user3.png)
+    ![Captura de tela que mostra a página em que insere as informações descritas nesta etapa.](./media/bitabiz-tutorial/user3.png)
 
     a. Na caixa de texto **Nome**, digite o nome do usuário, como Brenda.
 
@@ -251,12 +251,12 @@ No caso do BitaBIZ, o provisionamento é uma tarefa manual.
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Ao clicar no bloco do BitaBIZ no Painel de Acesso, você deverá ser conectado automaticamente ao BitaBIZ, para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao clicar no bloco do BitaBIZ no Painel de Acesso, você deverá ser conectado automaticamente ao BitaBIZ, para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](./tutorial-list.md)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)

@@ -1,16 +1,18 @@
 ---
 title: Configurações do aplicativo-LUIS
 description: As configurações de aplicativos para aplicativos de reconhecimento de linguagem de serviços cognitivas do Azure são armazenadas no aplicativo e no Portal.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 05/04/2020
-ms.openlocfilehash: 7b545e0959a43520b7d643ef8c0658a1e1a3b295
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 0578e3c3c952a475c6beb01ffcf354e19eda6e26
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83590971"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91319156"
 ---
-# <a name="app-and-version-settings"></a>Configurações de aplicativo e versão
+# <a name="app-and-version-settings"></a>Configurações do aplicativo e da versão
 
 Essas configurações são armazenadas no aplicativo [exportado](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40) e atualizadas com as APIs REST ou o portal do Luis.
 

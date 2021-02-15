@@ -1,6 +1,6 @@
 ---
-title: incluir arquivo
-description: incluir arquivo
+title: arquivo de inclusão
+description: arquivo de inclusão
 services: data-factory
 author: memildin
 ms.service: data-factory
@@ -9,10 +9,10 @@ ms.date: 03/17/2020
 ms.author: memildin
 ms.custom: include file
 ms.openlocfilehash: 7d81799f7fbdb2b41db421daa1a85ec8cde511eb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "79538825"
 ---
 ### <a name="the-data-model-of-the-schema"></a>O modelo de dados do esquema
@@ -32,11 +32,11 @@ ms.locfileid: "79538825"
 |**Isincident**|Determina se o alerta é um incidente ou um alerta regular. Um incidente é um alerta de segurança que agrega vários alertas em um incidente de segurança|
 |**ProcessingEndTime**|Carimbo de data/hora UTC em que o alerta foi criado|
 |**ProductComponentName**|Adicional O nome de um componente dentro do produto que gerou o alerta.|
-|**NomeDoProduto**|constante (' Central de segurança do Azure ')|
+|**ProductName**|constante (' Central de segurança do Azure ')|
 |**ProviderName**|unused|
 |**RemediationSteps**|Itens de ação manual a serem necessários para corrigir a ameaça de segurança|
-|**Identificação**|Identificador completo do recurso afetado|
-|**Severidade**|A severidade do alerta (alta/média/baixa/informativa)|
+|**ResourceId**|Identificador completo do recurso afetado|
+|**Gravidade**|A severidade do alerta (alta/média/baixa/informativa)|
 |**SourceComputerId**|um GUID exclusivo para o servidor afetado (se o alerta for gerado no servidor)|
 |**SourceSystem**|unused|
 |**StartTime**|A hora de início do alerta (a hora do primeiro evento que contribui para o alerta)|

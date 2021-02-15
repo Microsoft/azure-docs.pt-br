@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
-ms.openlocfilehash: 7ff135911742c49c2c52ce30d1dca00bc89b3a56
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a64d5cebfd8e70e2f54a66193a7041c47887c54a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84450090"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "90898910"
 ---
 # <a name="apply-image-transformation"></a>Aplicar Transformação de Imagem 
 
-Este artigo descreve como usar o módulo aplicar transformação de imagem no designer de Azure Machine Learning (versão prévia) para modificar um diretório de imagem de entrada com base em uma transformação de imagem especificada anteriormente.  
+Este artigo descreve como usar o módulo aplicar transformação de imagem no Azure Machine Learning designer, para modificar um diretório de imagem de entrada com base em uma transformação de imagem especificada anteriormente.  
 
 Você precisa conectar um módulo de [transformação de imagem inicial](init-image-transformation.md) para especificar a transformação e, em seguida, aplicar essa transformação ao diretório de imagem de entrada do módulo aplicar transformação de imagem.
 
@@ -49,18 +49,18 @@ Você precisa conectar um módulo de [transformação de imagem inicial](init-im
 
 | Nome | Intervalo | Type | Padrão                   | Descrição                              |
 | ---- | ----- | ---- | ------------------------- | ---------------------------------------- |
-| Mode | Qualquer   | Mode | (Exigir que o usuário especifique) | Para qual finalidade você usa a transformação de entrada. Você deve excluir operações de transformação ' Random ' na inferência, mas mantê-las em treinamento |
+| Mode | Qualquer   | Modo | (Exigir que o usuário especifique) | Para qual finalidade você usa a transformação de entrada. Você deve excluir operações de transformação ' Random ' na inferência, mas mantê-las em treinamento |
 
 ### <a name="expected-inputs"></a>Entradas esperadas  
 
-| Nome                       | Tipo                    | Description                       |
+| Nome                       | Tipo                    | Descrição                       |
 | -------------------------- | ----------------------- | --------------------------------- |
 | Transformação imagem de entrada | TransformationDirectory | Transformação imagem de entrada        |
 | Diretório da imagem de entrada      | ImageDirectory          | Diretório de imagem a ser transformado |
 
-### <a name="outputs"></a>Saídas  
+### <a name="outputs"></a>outputs  
 
-| Nome                   | Tipo           | Description            |
+| Nome                   | Tipo           | Descrição            |
 | ---------------------- | -------------- | ---------------------- |
 | Diretório de imagens de saída | ImageDirectory | Diretório de imagens de saída |
 

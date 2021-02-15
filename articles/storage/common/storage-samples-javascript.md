@@ -3,17 +3,17 @@ title: Exemplos de Armazenamento do Azure que usam JavaScript | Microsoft Docs
 description: Exiba, baixe e execute exemplos de código e aplicativos para o Armazenamento do Azure. Descubra exemplos de introdução a blobs, filas, tabelas e arquivos usando as bibliotecas do cliente de armazenamento do JavaScript/Node.js.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 02/19/2020
+ms.date: 10/01/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 466a1318dbe0a9299eebb9259ef8e0fe9bbbc0e7
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.custom: devx-track-js
+ms.openlocfilehash: d21c92d6595d2db3f9fb01ee5ddc3669a0564bab
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87433087"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92359740"
 ---
 # <a name="azure-storage-samples-using-v12-javascript-client-libraries"></a>Exemplos de Armazenamento do Azure usando bibliotecas de cliente JavaScript v12
 
@@ -428,4 +428,5 @@ Para saber mais sobre exemplos para outras linguagens:
 * .NET: [Exemplos de Armazenamento do Azure usando .NET](storage-samples-dotnet.md)
 * Java: [Exemplos de Armazenamento do Azure usando Java](storage-samples-java.md)
 * Python: [Exemplos do Armazenamento do Azure usando Python](storage-samples-python.md)
+* C++: [Exemplos do Armazenamento do Azure usando C++](storage-samples-c-plus-plus.md)
 * Todas as outras linguagens: [Exemplos do Armazenamento do Azure](storage-samples.md)

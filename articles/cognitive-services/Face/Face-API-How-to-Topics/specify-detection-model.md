@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/16/2019
 ms.author: yluiu
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3278a1522fe3967dd1de5551e90732e63b7666f2
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 5a70b10f7d22c9cc04427bdfbb44243fad457ba0
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88931549"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913476"
 ---
 # <a name="specify-a-face-detection-model"></a>Especificar um modelo de detecção facial
 
@@ -110,9 +110,9 @@ A melhor maneira de comparar o desempenho dos `detection_01` modelos e `detectio
 
 Neste artigo, você aprendeu a especificar o modelo de detecção a ser usado com diferentes APIs de face. Em seguida, siga um guia de início rápido para começar a usar a detecção facial.
 
-* [SDK do .NET facial](../Quickstarts/csharp-sdk.md)
-* [SDK facial do Python](../Quickstarts/python-sdk.md)
-* [SDK do facial go](../Quickstarts/go-sdk.md)
+* [SDK do .NET facial](../quickstarts/client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp)
+* [SDK facial do Python](../quickstarts/client-libraries.md?pivots=programming-language-python%253fpivots%253dprogramming-language-python)
+* [SDK do facial go](../quickstarts/client-libraries.md?pivots=programming-language-go%253fpivots%253dprogramming-language-go)
 
 [Face – Detectar]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d
 [Face - Find Similar]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237

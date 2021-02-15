@@ -2,17 +2,17 @@
 title: Transição para OpenVPN ou IKEv2 do SSTP | Gateway de VPN do Azure
 description: Este artigo ajuda você a entender as maneiras de superar o limite de conexões simultâneas de 128 do SSTP.
 services: vpn-gateway
-author: kumudD
+author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 03/30/2020
+ms.date: 09/03/2020
 ms.author: alzam
-ms.openlocfilehash: 1531bca6c56c159b7535536fb31a577f0d7253ef
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e2fa265e580bc0e752498284ed50e398b59423fd
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87064679"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97657134"
 ---
 # <a name="transition-to-openvpn-protocol-or-ikev2-from-sstp"></a>Transição para o protocolo OpenVPN ou IKEv2 do SSTP
 
@@ -47,7 +47,7 @@ Adicionar IKEv2 a um gateway de VPN SSTP existente não afetará os clientes exi
 
 Para adicionar o IKEv2 a um gateway existente, basta ir para a guia "configuração de ponto a site" no gateway de rede virtual no portal e selecionar **IKEv2 e SSTP (SSL)** na caixa suspensa.
 
-![ponto a site](./media/ikev2-openvpn-from-sstp/sstptoikev2.png "IKEv2")
+![Captura de tela que mostra a página "configuração ponto a site" com a lista suspensa "tipo de túnel" aberta e "IKEv2 e SSTP (SSL)" selecionado.](./media/ikev2-openvpn-from-sstp/sstptoikev2.png "IKEv2")
 
 
 ### <a name="option-2---remove-sstp-and-enable-openvpn-on-the-gateway"></a>Opção 2-remover SSTP e habilitar OpenVPN no gateway
@@ -58,9 +58,9 @@ Você pode habilitar OpenVPN junto com IKEv2, se desejar. O OpenVPN é baseado e
 
 ![ponto a site](./media/ikev2-openvpn-from-sstp/sstptoopenvpn.png "OpenVPN")
 
-Depois que o gateway tiver sido configurado, os clientes existentes não poderão se conectar até que você [implante e configure os clientes do OpenVPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-openvpn-clients).
+Depois que o gateway tiver sido configurado, os clientes existentes não poderão se conectar até que você [implante e configure os clientes do OpenVPN](./vpn-gateway-howto-openvpn-clients.md).
 
-Se você estiver usando o Windows 10, também poderá usar o [cliente VPN do Azure para Windows](https://docs.microsoft.com/azure/vpn-gateway/openvpn-azure-ad-client#to-download-the-azure-vpn-client)
+Se você estiver usando o Windows 10, também poderá usar o [cliente VPN do Azure para Windows](./openvpn-azure-ad-client.md#to-download-the-azure-vpn-client)
 
 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
@@ -96,41 +96,41 @@ O arquivo zip também fornece os valores de algumas das configurações importan
 
 **IKEv2**
 
-|**Codificação** | **Integridade** | **PRF** | **Grupo DH** |
-|---        | ---            | ---        | ---     |
-|GCM_AES256 |    GCM_AES256    | SHA384    | GROUP_24 |
-|GCM_AES256 |    GCM_AES256    | SHA384    | GROUP_14 |
-|GCM_AES256 |    GCM_AES256    | SHA384    | GROUP_ECP384 |
-|GCM_AES256 |    GCM_AES256    | SHA384    | GROUP_ECP256 |
-|GCM_AES256 |    GCM_AES256    | SHA256    | GROUP_24 |
-|GCM_AES256 |    GCM_AES256    | SHA256    | GROUP_14 |
-|GCM_AES256 |    GCM_AES256    | SHA256    | GROUP_ECP384 |
-|GCM_AES256 |    GCM_AES256    | SHA256    | GROUP_ECP256 |
-|AES256     |   SHA384        | SHA384    | GROUP_24 |
-|AES256     |   SHA384        | SHA384    | GROUP_14 |
-|AES256     |   SHA384        | SHA384    | GROUP_ECP384 |
-|AES256     |   SHA384        | SHA384    | GROUP_ECP256 |
-|AES256     |   SHA256        | SHA256    | GROUP_24 |
-|AES256     |   SHA256        | SHA256    | GROUP_14 |
-|AES256     |   SHA256        | SHA256    | GROUP_ECP384 |
-|AES256     |   SHA256        | SHA256    | GROUP_ECP256 |
-|AES256     |   SHA256        | SHA256    | GROUP_2 |
+| **Codificação** | **Integridade** | **PRF** | **Grupo DH** |
+|--|--|--|--|
+| GCM_AES256 | GCM_AES256 | SHA384 | GROUP_24 |
+| GCM_AES256 | GCM_AES256 | SHA384 | GROUP_14 |
+| GCM_AES256 | GCM_AES256 | SHA384 | GROUP_ECP384 |
+| GCM_AES256 | GCM_AES256 | SHA384 | GROUP_ECP256 |
+| GCM_AES256 | GCM_AES256 | SHA256 | GROUP_24 |
+| GCM_AES256 | GCM_AES256 | SHA256 | GROUP_14 |
+| GCM_AES256 | GCM_AES256 | SHA256 | GROUP_ECP384 |
+| GCM_AES256 | GCM_AES256 | SHA256 | GROUP_ECP256 |
+| AES256 | SHA384 | SHA384 | GROUP_24 |
+| AES256 | SHA384 | SHA384 | GROUP_14 |
+| AES256 | SHA384 | SHA384 | GROUP_ECP384 |
+| AES256 | SHA384 | SHA384 | GROUP_ECP256 |
+| AES256 | SHA256 | SHA256 | GROUP_24 |
+| AES256 | SHA256 | SHA256 | GROUP_14 |
+| AES256 | SHA256 | SHA256 | GROUP_ECP384 |
+| AES256 | SHA256 | SHA256 | GROUP_ECP256 |
+| AES256 | SHA256 | SHA256 | GROUP_2 |
 
 **IPsec**
 
-|**Codificação** | **Integridade** | **Grupo PFS** |
-|---        | ---            | ---        |
-|GCM_AES256    | GCM_AES256 | GROUP_NONE |
-|GCM_AES256    | GCM_AES256 | GROUP_24 |
-|GCM_AES256    | GCM_AES256 | GROUP_14 |
-|GCM_AES256    | GCM_AES256 | GROUP_ECP384 |
-|GCM_AES256    | GCM_AES256 | GROUP_ECP256 |
-| AES256    | SHA256 | GROUP_NONE |
-| AES256    | SHA256 | GROUP_24 |
-| AES256    | SHA256 | GROUP_14 |
-| AES256    | SHA256 | GROUP_ECP384 |
-| AES256    | SHA256 | GROUP_ECP256 |
-| AES256    | SHA1 | GROUP_NONE |
+| **Codificação** | **Integridade** | **Grupo PFS** |
+|--|--|--|
+| GCM_AES256 | GCM_AES256 | GROUP_NONE |
+| GCM_AES256 | GCM_AES256 | GROUP_24 |
+| GCM_AES256 | GCM_AES256 | GROUP_14 |
+| GCM_AES256 | GCM_AES256 | GROUP_ECP384 |
+| GCM_AES256 | GCM_AES256 | GROUP_ECP256 |
+| AES256 | SHA256 | GROUP_NONE |
+| AES256 | SHA256 | GROUP_24 |
+| AES256 | SHA256 | GROUP_14 |
+| AES256 | SHA256 | GROUP_ECP384 |
+| AES256 | SHA256 | GROUP_ECP256 |
+| AES256 | SHA1 | GROUP_NONE |
 
 ### <a name="what-tls-policies-are-configured-on-vpn-gateways-for-p2s"></a><a name="TLS policies"></a>Quais políticas de TLS são configuradas em gateways de VPN para P2S?
 **TLS**

@@ -1,31 +1,31 @@
 ---
-title: Usar o Java e o JDBC com o Banco de Dados do Azure para MySQL
+title: 'Início Rápido: Usar o Java e o JDBC com o Banco de Dados do Azure para MySQL'
 description: Saiba como usar o Java e o JDBC com um banco de dados do Banco de Dados do Azure para MySQL.
 author: jdubois
 ms.author: judubois
 ms.service: mysql
-ms.custom: mvc, devcenter
+ms.custom: mvc, devcenter, devx-track-azurecli
 ms.topic: quickstart
 ms.devlang: java
 ms.date: 08/17/2020
-ms.openlocfilehash: a54e950286a37c207d902090f015b3732e0ff10b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 457f7e07391c647d2ab0e7d78197086f6f5e2cf7
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88517575"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187775"
 ---
-# <a name="use-java-and-jdbc-with-azure-database-for-mysql"></a>Usar o Java e o JDBC com o Banco de Dados do Azure para MySQL
+# <a name="quickstart-use-java-and-jdbc-with-azure-database-for-mysql"></a>Início Rápido: Usar o Java e o JDBC com o Banco de Dados do Azure para MySQL
 
-Este tópico demonstra como criar um aplicativo de exemplo que usa o Java e o [JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity) para armazenar e recuperar informações no [Banco de Dados do Azure para MySQL](https://docs.microsoft.com/azure/mysql/).
+Este tópico demonstra como criar um aplicativo de exemplo que usa o Java e o [JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity) para armazenar e recuperar informações no [Banco de Dados do Azure para MySQL](./index.yml).
 
 O JDBC é a API Java padrão para se conectar a bancos de dados relacionais tradicionais.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma conta do Azure. Se você não tiver uma, [obtenha uma avaliação gratuita](https://azure.microsoft.com/free/).
-- [Azure Cloud Shell](/azure/cloud-shell/quickstart) ou [CLI do Azure](/cli/azure/install-azure-cli). É recomendável usar o Azure Cloud Shell para que o logon seja feito automaticamente e você tenha acesso a todas as ferramentas necessárias.
-- Um [Java Development Kit](https://aka.ms/azure-jdks) compatível, versão 8 (incluído no Azure Cloud Shell).
+- [Azure Cloud Shell](../cloud-shell/quickstart.md) ou [CLI do Azure](/cli/azure/install-azure-cli). É recomendável usar o Azure Cloud Shell para que o logon seja feito automaticamente e você tenha acesso a todas as ferramentas necessárias.
+- Um [Java Development Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support) compatível, versão 8 (incluído no Azure Cloud Shell).
 - A ferramenta de build [Apache Maven](https://maven.apache.org/).
 
 ## <a name="prepare-the-working-environment"></a>Preparar o ambiente de trabalho
@@ -68,7 +68,7 @@ az group create \
 A primeira coisa que criaremos é um servidor MySQL gerenciado.
 
 > [!NOTE]
-> Você pode ler informações mais detalhadas sobre como criar servidores MySQL em [Criar um servidor de Banco de Dados do Azure para MySQL usando o portal do Azure](/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal).
+> Você pode ler informações mais detalhadas sobre como criar servidores MySQL em [Criar um servidor de Banco de Dados do Azure para MySQL usando o portal do Azure](./quickstart-create-mysql-server-database-using-azure-portal.md).
 
 No [Azure Cloud Shell](https://shell.azure.com/), execute o seguinte script:
 
@@ -493,7 +493,7 @@ A execução da classe principal deve produzir a seguinte saída:
 [INFO   ] Closing database connection 
 ```
 
-## <a name="conclusion-and-resources-clean-up"></a>Conclusão e limpeza de recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Parabéns! Você criou um aplicativo Java que usa o JDBC para armazenar e recuperar dados do Banco de Dados do Azure para MySQL.
 

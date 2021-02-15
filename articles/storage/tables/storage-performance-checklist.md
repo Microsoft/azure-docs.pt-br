@@ -8,12 +8,13 @@ ms.service: storage
 ms.topic: overview
 ms.date: 10/10/2019
 ms.subservice: tables
-ms.openlocfilehash: 7c805e9cf15e22b9200ef86c6c22ac3f50e77719
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 71b1f3cfa1df86b417c468d56f67cd7fe8d71d73
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88236379"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004697"
 ---
 # <a name="performance-and-scalability-checklist-for-table-storage"></a>Lista de verificação de desempenho e escalabilidade para Armazenamento de tabela
 
@@ -152,7 +153,7 @@ Defina o limite da conexão antes de abrir conexões.
 
 No caso de outras linguagens de programação, confira a documentação da linguagem para verificar como definir o limite da conexão.  
 
-Para saber mais, confira a postagem no blog [Serviços Web: conexões simultâneas](https://blogs.msdn.microsoft.com/darrenj/2005/03/07/web-services-concurrent-connections/).  
+Para saber mais, confira a postagem no blog [Serviços Web: conexões simultâneas](/archive/blogs/darrenj/web-services-concurrent-connections).  
 
 ### <a name="increase-minimum-number-of-threads"></a>Aumentar o número mínimo de threads
 
@@ -170,7 +171,7 @@ Embora o paralelismo possa ser ótimo para o desempenho, tenha cuidado ao usar o
 
 ## <a name="client-libraries-and-tools"></a>Bibliotecas de cliente e ferramentas
 
-Para obter o melhor desempenho, sempre use as bibliotecas de cliente e ferramentas mais recentes fornecidas pela Microsoft. As bibliotecas de cliente do Armazenamento do Azure estão disponíveis para várias linguagens. O Armazenamento do Azure também dá suporte ao PowerShell e à CLI do Azure. A Microsoft desenvolve ativamente essas ferramentas e bibliotecas de cliente pensando no desempenho, os mantém atualizados com as versões de serviço mais recentes e verifica se eles lidam com muitas práticas de desempenho comprovadas internamente. Para obter mais informações, confira a [documentação de referência do Armazenamento do Azure](/azure/storage/#reference).
+Para obter o melhor desempenho, sempre use as bibliotecas de cliente e ferramentas mais recentes fornecidas pela Microsoft. As bibliotecas de cliente do Armazenamento do Azure estão disponíveis para várias linguagens. O Armazenamento do Azure também dá suporte ao PowerShell e à CLI do Azure. A Microsoft desenvolve ativamente essas ferramentas e bibliotecas de cliente pensando no desempenho, os mantém atualizados com as versões de serviço mais recentes e verifica se eles lidam com muitas práticas de desempenho comprovadas internamente.
 
 ## <a name="handle-service-errors"></a>Manipular erros de serviço
 
@@ -196,7 +197,7 @@ Esta seção lista diversas configurações rápidas que você pode usar para fa
 
 Começando na versão 2013-08-15 do serviço de armazenamento, o serviço Tabela dá suporte ao uso de JSON, em vez do formato AtomPub baseado em XML para transferir dados de tabela. Usar JSON pode reduzir o tamanho do conteúdo em até 75% e melhorar consideravelmente o desempenho do seu aplicativo.
 
-Para saber mais, veja a postagem [Tabelas do Microsoft Azure: introdução ao JSON](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/05/windows-azure-tables-introducing-json.aspx) e [Formato de carga para operações do serviço Tabela](https://msdn.microsoft.com/library/azure/dn535600.aspx).
+Para saber mais, veja a postagem [Tabelas do Microsoft Azure: introdução ao JSON](/archive/blogs/windowsazurestorage/windows-azure-tables-introducing-json) e [Formato de carga para operações do serviço Tabela](/rest/api/storageservices/Payload-Format-for-Table-Service-Operations).
 
 ### <a name="disable-nagle"></a>Desabilitar o Nagle
 

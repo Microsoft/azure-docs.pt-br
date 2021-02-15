@@ -3,17 +3,19 @@ title: Perguntas frequentes sobre o API do Cassandra para Azure Cosmos DB
 description: Obtenha respostas para perguntas frequentes sobre o API do Cassandra para Azure Cosmos DB.
 author: TheovanKraay
 ms.service: cosmos-db
+ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 08/12/2020
 ms.author: thvankra
-ms.openlocfilehash: b327c0786fb07488fd8863272598dbffe19bfe07
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 1368a3174af08f557b6d08f298fba015601d568c
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167599"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96030825"
 ---
 # <a name="frequently-asked-questions-about-the-cassandra-api-in-azure-cosmos-db"></a>Perguntas frequentes sobre o API do Cassandra no Azure Cosmos DB
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 Este artigo descreve as diferenças de funcionalidade entre o Apache Cassandra e o API do Cassandra no Azure Cosmos DB. Ele também fornece respostas para perguntas frequentes sobre o API do Cassandra no Azure Cosmos DB.
 
@@ -75,15 +77,15 @@ Quando você passa por essa capacidade, recebe a seguinte mensagem de erro que i
 
 Há métricas disponíveis que mostram como a taxa de transferência é usada em horas, mais de dias e por sete dias, entre partições ou agregadas. Para obter mais informações, consulte [monitorando e Depurando com métricas em Azure Cosmos DB](use-metrics.md).
 
-Logs de diagnóstico são explicados no artigo [Logs de diagnóstico do Azure Cosmos DB](logging.md).
+Logs de diagnóstico são explicados no artigo [Logs de diagnóstico do Azure Cosmos DB](./monitor-cosmos-db.md).
 
 ### <a name="does-the-primary-key-map-to-the-partition-key-concept-of-azure-cosmos-db"></a>A chave primária mapeia para o conceito de chave de partição do Azure Cosmos DB?
 
-Sim, a chave de partição é usada para posicionar a entidade no local certo. No Azure Cosmos DB, ele é usado para localizar a partição lógica correta que é armazenada em uma partição física. O conceito de particionamento também é explicado no artigo [Partição e escala no Azure Cosmos DB](partition-data.md). A vantagem essencial aqui é que uma partição lógica não deve passar pelo limite de 20 GB.
+Sim, a chave de partição é usada para posicionar a entidade no local certo. No Azure Cosmos DB, ele é usado para localizar a partição lógica correta que é armazenada em uma partição física. O conceito de particionamento também é explicado no artigo [Partição e escala no Azure Cosmos DB](partitioning-overview.md). A vantagem essencial aqui é que uma partição lógica não deve passar pelo limite de 20 GB.
 
 ### <a name="what-happens-when-i-get-a-notification-that-a-partition-is-full"></a>O que acontece quando recebo uma notificação de que uma partição está cheia?
 
-Azure Cosmos DB é um sistema baseado no SLA (contrato de nível de serviço). Ele fornece escala ilimitada, com garantias de latência, taxa de transferência, disponibilidade e consistência. Esse armazenamento ilimitado é baseado na escala horizontal dos dados, usando o particionamento como o conceito-chave. O conceito de particionamento também é explicado no artigo [Partição e escala no Azure Cosmos DB](partition-data.md).
+Azure Cosmos DB é um sistema baseado no SLA (contrato de nível de serviço). Ele fornece escala ilimitada, com garantias de latência, taxa de transferência, disponibilidade e consistência. Esse armazenamento ilimitado é baseado na escala horizontal dos dados, usando o particionamento como o conceito-chave. O conceito de particionamento também é explicado no artigo [Partição e escala no Azure Cosmos DB](partitioning-overview.md).
 
 Você deve aderir ao limite de 20 GB no número de entidades ou itens por partição lógica. Para garantir que seu aplicativo dimensiona bem, recomendamos que você *não* crie uma partição ativa armazenando todas as informações em uma partição e consultando-a. Esse erro pode vir somente se os dados estiverem distorcidos: ou seja, você tem muitos dados para uma chave de partição (mais de 20 GB). Você pode encontrar a distribuição de dados usando o portal de armazenamento. A maneira de corrigir esse erro é recriar a tabela e escolher uma primária granular (chave de partição), o que permite uma melhor distribuição dos dados.
 
@@ -135,9 +137,9 @@ Sim, há suporte para TTL.
 
 O Azure Cosmos DB é um serviço de plataforma que ajuda a aumentar a produtividade e não se preocupar com o gerenciamento e monitoramento da infraestrutura. Por exemplo, você não precisa monitorar OS parâmetros status do nó, status da réplica, GC e so anteriormente com várias ferramentas. Você só precisa cuidar da taxa de transferência disponível nas métricas do portal para ver se você está ficando limitado e, em seguida, aumentar ou diminuir essa taxa de transferência. Você pode:
 
-- Monitorar [SLAs](monitor-accounts.md)
+- Monitorar [SLAs](./monitor-cosmos-db.md)
 - Usar [métricas](use-metrics.md)
-- Usar [logs de diagnóstico](logging.md)
+- Usar [logs de diagnóstico](./monitor-cosmos-db.md)
 
 ### <a name="which-client-sdks-can-work-with-the-cassandra-api"></a>Quais SDKs de cliente podem trabalhar com o API do Cassandra?
 
@@ -174,7 +176,7 @@ Não. O API do Cassandra dá suporte a [índices secundários](cassandra-seconda
 
 ### <a name="can-i-use-the-new-cassandra-api-sdk-locally-with-the-emulator"></a>Posso usar o novo SDK da API Cassandra localmente com o emulador?
 
-Sim, há suporte para isso. Você pode encontrar detalhes sobre como habilitar isso no artigo [usar o emulador do Azure Cosmos para desenvolvimento e teste local](local-emulator.md#cassandra-api) .
+Sim, há suporte para isso. Você pode encontrar detalhes sobre como habilitar isso no artigo [usar o emulador de Azure Cosmos DB para desenvolvimento e teste local](local-emulator.md#cassandra-api) .
 
 
 ### <a name="how-can-i-migrate-data-from-apache-cassandra-clusters-to-azure-cosmos-db"></a>Como posso migrar dados de clusters Apache Cassandra para Azure Cosmos DB?
@@ -187,7 +189,7 @@ Você pode ler sobre as opções de migração no tutorial [migrar seus dados pa
 Deixe comentários por meio dos [comentários da voz do usuário](https://feedback.azure.com/forums/263030-azure-cosmos-db).
 
 [azure-portal]: https://portal.azure.com
-[query]: sql-api-sql-query.md
+[query]: ./sql-query-getting-started.md
 
 ## <a name="next-steps"></a>Próximas etapas
 

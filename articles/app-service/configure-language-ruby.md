@@ -4,13 +4,13 @@ description: Saiba como configurar um contêiner pré-criado do Ruby para seu ap
 ms.topic: quickstart
 ms.date: 06/18/2020
 ms.reviewer: astay; kraigb
-ms.custom: mvc, seodec18
-ms.openlocfilehash: c822dbdf9940db7b38d354fa32906c16977df0c0
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.custom: mvc, seodec18, devx-track-azurecli
+ms.openlocfilehash: 038d62573b491325adc60647debf17fa87e06cfe
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88083256"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92743690"
 ---
 # <a name="configure-a-linux-ruby-app-for-azure-app-service"></a>Configurar um aplicativo Ruby do Linux para o Serviço de Aplicativo do Azure
 
@@ -65,7 +65,7 @@ ENV['WEBSITE_SITE_NAME']
 
 Quando você implanta um [repositório do Git](deploy-local-git.md) ou um [pacote zip](deploy-zip.md) com processos de build ativados, o mecanismo de implantação (Kudu) executa automaticamente as seguintes etapas pós-implantação por padrão:
 
-1. Verifique se há um *Gemfile*.
+1. Verifique se há um *Gemfile* .
 1. Execute `bundle clean`. 
 1. Execute `bundle install --path "vendor/bundle"`.
 1. Execute `bundle package` para empacotar joias na pasta vendor/cache.
@@ -97,7 +97,7 @@ Por padrão, o contêiner do Ruby inicia o servidor Rails na seguinte sequência
 1. Gere um valor [secret_key_base](https://edgeguides.rubyonrails.org/security.html#environmental-security), caso ainda não exista nenhum. Esse valor é necessário para que o aplicativo seja executado no modo de produção.
 1. Defina a variável de ambiente `RAILS_ENV` como `production`.
 1. Exclua qualquer arquivo *.pid* no diretório *tmp/pids* deixado por um servidor Rails anteriormente em execução.
-1. Verifique se todas as dependências estão instaladas. Caso contrário, tente instalar joias do diretório local *vendor/cache*.
+1. Verifique se todas as dependências estão instaladas. Caso contrário, tente instalar joias do diretório local *vendor/cache* .
 1. Execute `rails server -e $RAILS_ENV`.
 
 Você pode personalizar o processo de inicialização das seguintes maneiras:

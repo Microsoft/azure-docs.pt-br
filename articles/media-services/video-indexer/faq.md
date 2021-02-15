@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/12/2020
 ms.author: juliako
-ms.openlocfilehash: d533735af340b23e8a79b6c5953df748a548609c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0fc28a1f808eeb2977b1dcca5046ed29933b8aa8
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87046955"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028787"
 ---
 # <a name="video-indexer-frequently-asked-questions"></a>Perguntas frequentes sobre o Video Indexer
 
@@ -183,7 +183,7 @@ Atualmente, há algumas sobreposições nos recursos oferecidos pela API do Vide
 
 A API do Video Indexer contém uma API de autorização e uma API de operações. A API de autorizações contém as chamadas que lhe dão o token de acesso. Cada chamada para a API de operações deve estar associada a um token de acesso, correspondendo ao escopo de autorização da chamada.
 
-Os tokens de acesso são necessários para usar as APIs do Video Indexer para fins de segurança. Isso garante que todas as chamadas são provenientes de você ou daqueles que têm permissões de acesso à sua conta. 
+Os tokens de acesso são necessários para usar as APIs do Video Indexer para fins de segurança. Isso garante que todas as chamadas são provenientes de você ou daqueles que têm permissões de acesso à sua conta. 
 
 ### <a name="what-is-the-difference-between-account-access-token-user-access-token-and-video-access-token"></a>Qual é a diferença entre o token de acesso de conta, o token de acesso de usuário e o token de acesso de vídeo?
 
@@ -197,7 +197,7 @@ Os tokens de acesso expiram a cada hora, portanto, você precisa gerar um novo t
 
 ### <a name="what-are-the-login-options-to-video-indexer-developer-portal"></a>Quais são as opções de logon para Video Indexer portal do desenvolvedor?
 
-Você pode fazer logon usando o Azure AD, conta Microsoft, conta do Google ou conta do Facebook. 
+Consulte uma nota de versão sobre [informações de logon](release-notes.md#october-2020).
 
 Depois de registrar sua conta de email usando um provedor de identidade, você não poderá usar essa conta de email com outro provedor de identidade.
 
@@ -217,4 +217,5 @@ Sim, o Video Indexer oferece uma avaliação gratuita que fornece o serviço e a
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Visão geral](video-indexer-overview.md)
+* [Visão geral](video-indexer-overview.md)
+* [Stack Overflow](https://stackoverflow.com/search?q=video-indexer)

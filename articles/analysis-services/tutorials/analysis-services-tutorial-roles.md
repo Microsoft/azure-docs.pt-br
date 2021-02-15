@@ -1,22 +1,22 @@
 ---
 title: Tutorial – Configurar funções do Azure Analysis Services | Microsoft Docs
-description: Saiba como configurar as funções de administrador e usuário do Azure Analysis Services usuário usando o portal do Azure ou o SQL Server Management Studio.
+description: Neste tutorial, aprenda a configurar as funções de administrador e usuário do Azure Analysis Services usuário usando o portal do Azure ou o SQL Server Management Studio.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: tutorial
-ms.date: 04/15/2020
+ms.date: 08/31/2020
 ms.author: owend
 ms.reviewer: owend
-ms.openlocfilehash: 6e757260c7cd8945ff75dd0e760f3afeffd992f9
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: aea2196671a136145671b977a6d925849b635b73
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "84016382"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018688"
 ---
 # <a name="tutorial-configure-server-administrator-and-user-roles"></a>Tutorial: Configurar funções de administrador do servidor e usuário
 
- Neste tutorial, você usa o SSMS (SQL Server Management Studio) para conectar o servidor no Azure para configurar as funções de modelo de banco de dados e administrador do servidor. Você também é apresentado à [TMSL (Linguagem de Scripts de Modelo de Tabela)](https://docs.microsoft.com/analysis-services/tabular-model-programming-compatibility-level-1200/tabular-model-programming-for-compatibility-level-1200). A TMSL é uma linguagem de scripts baseada em JSON para modelos tabulares nos níveis de compatibilidade 1200 e superior. Ela pode ser utilizada para automatizar muitas tarefas de modelagem de tabela. A TMSL é frequentemente utilizada com o PowerShell mas, neste tutorial, você usará o editor de consulta XMLA no SSMS. Com este tutorial, você concluirá estas tarefas: 
+ Neste tutorial, você usa o SSMS (SQL Server Management Studio) para conectar o servidor no Azure para configurar as funções de modelo de banco de dados e administrador do servidor. Você também é apresentado à [TMSL (Linguagem de Scripts de Modelo de Tabela)](/analysis-services/tabular-model-programming-compatibility-level-1200/tabular-model-programming-for-compatibility-level-1200). A TMSL é uma linguagem de scripts baseada em JSON para modelos tabulares nos níveis de compatibilidade 1200 e superior. Ela pode ser utilizada para automatizar muitas tarefas de modelagem de tabela. A TMSL é frequentemente utilizada com o PowerShell mas, neste tutorial, você usará o editor de consulta XMLA no SSMS. Com este tutorial, você concluirá estas tarefas: 
   
 > [!div class="checklist"]
 > * Obter o nome do servidor no portal
@@ -33,7 +33,7 @@ Para saber mais sobre segurança do usuário no Azure Analysis Services, consult
 - Um [servidor do Azure Analysis Services](../analysis-services-create-server.md) criado em sua assinatura.
 - Ter permissões de [administrador do servidor](../analysis-services-server-admins.md).
 - [Adicione o modelo de exemplo adventureworks](../analysis-services-create-sample-model.md) ao servidor.
-- [Instale a última versão do SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SQL Server Management Studio).
+- [Instale a última versão do SSMS](/sql/ssms/download-sql-server-management-studio-ssms) (SQL Server Management Studio).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 
@@ -63,7 +63,7 @@ Para as tarefas restantes, será utilizado o SSMS para conectar e gerenciar o se
 
 3. Em **Pesquisador de Objetos**, expanda para ver os objetos do servidor. Clique com o botão direito do mouse para ver as propriedades do servidor.
    
-    ![Conectar-se no SSMS](./media/analysis-services-tutorial-roles/aas-connect-ssms-objexp.png)
+    ![Pesquisador de Objetos no SSMS](./media/analysis-services-tutorial-roles/aas-connect-ssms-objexp.png)
 
 ## <a name="add-a-user-account-to-the-server-administrator-role"></a>Adicionar uma conta de usuário à função de administrador do servidor
 
@@ -82,7 +82,7 @@ Nesta tarefa, você adiciona uma conta de usuário ou grupo do Azure AD à funç
 
 ## <a name="add-a-user-to-the-model-database-administrator-role"></a>Adicionar um usuário à função de administrador do modelo de banco de dados
 
-Nesta tarefa, você adicionará uma conta de usuário ou grupo à função Administrador de Vendas pela Internet que já existe no modelo. Essa função tem permissões de Controle total (Administrador) para o modelo de banco de dados de exemplo adventureworks. Essa tarefa usa o comando de TMSL [CreateOrReplace](https://docs.microsoft.com/analysis-services/tmsl/createorreplace-command-tmsl) em um script criado para você.
+Nesta tarefa, você adicionará uma conta de usuário ou grupo à função Administrador de Vendas pela Internet que já existe no modelo. Essa função tem permissões de Controle total (Administrador) para o modelo de banco de dados de exemplo adventureworks. Essa tarefa usa o comando de TMSL [CreateOrReplace](/analysis-services/tmsl/createorreplace-command-tmsl) em um script criado para você.
 
 1. No **Pesquisador de Objetos**, expanda **Bancos de Dados** > **adventureworks** > **Funções**. 
 2. Clique com o botão direito do mouse em **Administrador de Vendas pela Internet** e, em seguida, clique em **Função de Script como** > **CREATE OR REPLACE To** > **Janela do Editor de Nova Consulta**.
@@ -98,7 +98,7 @@ Nesta tarefa, você adicionará uma conta de usuário ou grupo à função Admin
 
 ## <a name="add-a-new-model-database-role-and-add-a-user-or-group"></a>Adicionar uma nova função de modelo de banco de dados e adicionar um usuário ou grupo
 
-Nesta tarefa, você usa o comando [Criar](https://docs.microsoft.com/analysis-services/tmsl/create-command-tmsl) em um script TMSL para criar uma nova função Global de Vendas pela Internet, especifica permissões de *leitura* para a função e adiciona uma conta de grupo ou usuário do Azure AD.
+Nesta tarefa, você usa o comando [Criar](/analysis-services/tmsl/create-command-tmsl) em um script TMSL para criar uma nova função Global de Vendas pela Internet, especifica permissões de *leitura* para a função e adiciona uma conta de grupo ou usuário do Azure AD.
 
 1. Em **Pesquisador de Objetos**, clique com o botão direito do mouse em **adventureworks**, e, em seguida, clique em **Nova Consulta** > **XMLA**. 
 2. Copie e cole o seguinte script TMSL no editor de consultas:
@@ -144,4 +144,3 @@ Neste tutorial, você aprendeu como conectar o servidor de sistema autônomo do 
 
 > [!div class="nextstepaction"]
 > [Tutorial: Conectar-se com o Power BI Desktop](analysis-services-tutorial-pbid.md)
-

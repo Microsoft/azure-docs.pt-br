@@ -5,20 +5,20 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 06/19/2020
-ms.author: keferna
-author: keferna
-ms.openlocfilehash: 92fd4d629585ed465e2891be2dce1c1bdc8c88e6
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.author: trkeya
+author: trkeya
+ms.openlocfilehash: fd3fa04d2d7e868476838788dd9cf0e27c07aeca
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287939"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461755"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Azure Resource Manager test drive
 
 Use este tipo se você tiver uma oferta no Azure Marketplace ou AppSource, mas quiser criar um test drive apenas com recursos do Azure. Um modelo de Azure Resource Manager (ARM) é um contêiner codificado de recursos do Azure que você cria para representar melhor sua solução. O test drive usa o modelo ARM fornecido e implanta todos os recursos necessários para um grupo de recursos. Essa é a única opção test drive para a máquina virtual ou ofertas de aplicativo do Azure.
 
-Se você não estiver familiarizado com o que é um modelo ARM, leia [o que é Azure Resource Manager?](../azure-resource-manager/resource-group-overview.md) e [entenda a estrutura e a sintaxe dos modelos ARM](../azure-resource-manager/resource-group-authoring-templates.md) para entender melhor como criar e testar seus próprios modelos.
+Se você não estiver familiarizado com o que é um modelo ARM, leia [o que é Azure Resource Manager?](../azure-resource-manager/management/overview.md) e [entenda a estrutura e a sintaxe dos modelos ARM](../azure-resource-manager/templates/template-syntax.md) para entender melhor como criar e testar seus próprios modelos.
 
 Para obter informações sobre um test drive de **aplicativo** **hospedado** ou lógico, consulte [o que é um test drive?](what-is-test-drive.md)
 
@@ -34,7 +34,10 @@ Um modelo de implantação contém todos os recursos do Azure que compõem sua s
 
   - **Fria** – esse tipo de instância representa o número total de instâncias que é possível implantar por região. As instâncias *frias* exigem que o modelo do Resource Manager para test drive inteiro passe por uma implantação no momento em que um cliente solicita o test drive; portanto, carregam muito mais lentamente que as instâncias *quentes*. A compensação é que você só precisa pagar pela duração do test drive, ela *não* está sempre em execução em sua assinatura do Azure, como ocorre com uma instância *quente*.
 
-- **Modelo do Azure Resource Manager para test drive** – carregue o .zip que contém o modelo do Azure Resource Manager. Saiba mais sobre como criar um modelo de Azure Resource Manager no artigo de início rápido [Criar e implantar modelos de Azure Resource Manager usando o portal do Azure](../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md).
+- **Modelo do Azure Resource Manager para test drive** – carregue o .zip que contém o modelo do Azure Resource Manager. Saiba mais sobre como criar um modelo de Azure Resource Manager no artigo de início rápido [Criar e implantar modelos de Azure Resource Manager usando o portal do Azure](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
+
+    > [!note]
+    > Para publicar com êxito, é importante validar a formatação do modelo ARM. Duas maneiras de fazer isso são (1) usando uma [ferramenta de API online](/rest/api/resources/deployments/validate) ou (2) com uma [implantação de teste](../azure-resource-manager/templates/deploy-portal.md).
 
 - **Duração do test drive** (obrigatório): insira o número de horas pelo qual o test drive permanecerá ativo. O test drive é encerrado automaticamente após o término desse período de tempo. Use apenas números inteiros (por exemplo, "2" horas é válido, "1,5" não é).
 
@@ -42,7 +45,7 @@ Um modelo de implantação contém todos os recursos do Azure que compõem sua s
 
 Depois de criar o pacote de recursos desejado, grave e crie o modelo de test drive ARM. Como test drive executa implantações em um modo totalmente automatizado, os modelos de test drive têm algumas restrições:
 
-### <a name="parameters"></a>parâmetros
+### <a name="parameters"></a>Parâmetros
 
 A maioria dos modelos tem um conjunto de parâmetros que definem nomes de recursos, tamanhos de recursos (como tipos de contas de armazenamento ou tamanhos de máquina virtual), nomes de usuário e senhas, nomes DNS e assim por diante. Quando você implanta soluções usando o portal do Azure, pode preencher manualmente todos esses parâmetros, escolher nomes de DNS disponíveis ou nomes de conta de armazenamento e assim por diante.
 
@@ -72,10 +75,10 @@ Você pode usar qualquer nome válido para seus parâmetros; test drive reconhec
 
 | Tipo de metadados   | Tipo de parâmetro  | Descrição     | Valor de exemplo    |
 |---|---|---|---|
-| **baseuri**     | cadeia de caracteres          | URI base do seu pacote de implantação| `https:\//\<\..\>.blob.core.windows.net/\<\..\>` |
-| **usu**    | cadeia de caracteres          | Novo nome de usuário aleatório.| admin68876      |
+| **baseuri**     | string          | URI base do seu pacote de implantação| `https:\//\<\..\>.blob.core.windows.net/\<\..\>` |
+| **username**    | string          | Novo nome de usuário aleatório.| admin68876      |
 | **password**    | cadeia de caracteres segura    | Nova senha aleatória | Lp!ACS\^2kh     |
-| **ID da sessão**   | cadeia de caracteres          | ID de sessão de test drive exclusiva (GUID)    | b8c8693e-5673-449c-badd-257a405a6dee |
+| **ID da sessão**   | string          | ID de sessão de test drive exclusiva (GUID)    | b8c8693e-5673-449c-badd-257a405a6dee |
 
 #### <a name="baseuri"></a>baseuri
 
@@ -122,7 +125,7 @@ Test Drive inicializa esse parâmetro com um novo nome de usuário aleatório:
 }
 ```
 
-Valor de exemplo:`admin68876`
+Valor de exemplo: `admin68876`
 
 É possível usar nomes de usuário aleatórios ou constantes para sua solução.
 
@@ -144,7 +147,7 @@ Test Drive inicializa esse parâmetro com uma nova senha aleatória:
 }
 ```
 
-Valor de exemplo:`Lp!ACS^2kh`
+Valor de exemplo:  `Lp!ACS^2kh`
 
 É possível usar senhas aleatórias ou constantes para sua solução.
 
@@ -166,7 +169,7 @@ Test Drive inicializa esse parâmetro com um GUID exclusivo que representa a ID 
 }
 ```
 
-Valor de exemplo:`b8c8693e-5673-449c-badd-257a405a6dee`
+Valor de exemplo: `b8c8693e-5673-449c-badd-257a405a6dee`
 
 Você pode usar esse parâmetro para identificar exclusivamente a sessão de test drive, se for necessário.
 
@@ -237,7 +240,7 @@ E, em seguida, usar esse local para todos os recursos para uma instância de lab
 
 Verifique se sua assinatura tem permissão para implantar todos os recursos desejados em cada uma das regiões que você selecionar. Verifique também se suas imagens de máquina virtual estão disponíveis em todas as regiões que você habilitará, caso contrário, seu modelo de implantação não funcionará para algumas regiões.
 
-### <a name="outputs"></a>outputs
+### <a name="outputs"></a>Saídas
 
 Normalmente, com modelos do Resource Manager, você pode implantar sem produzir nenhuma saída. Isso acontece porque você conhece todos os valores que usa para preencher parâmetros do modelo e pode sempre inspecionar manualmente as propriedades de qualquer recurso.
 
@@ -266,7 +269,7 @@ Exemplo:
 
 ### <a name="subscription-limits"></a>Limites de assinatura
 
-Não se esqueça da assinatura e dos limites de serviço. Por exemplo, se você quiser implantar até dez máquinas virtuais de 4 núcleos, precisará garantir que a assinatura usada para seu laboratório permite que você use núcleos de 40. Para obter mais informações sobre os limites de serviço e assinatura do Azure, consulte [assinatura do Azure e limites de serviço, cotas e restrições](../azure-resource-manager/management/azure-subscription-service-limits.md). Como várias unidades de teste podem ser obtidas ao mesmo tempo, verifique se sua assinatura pode lidar com o número de núcleos multiplicado pelo número total de unidades de teste simultâneas que podem ser executadas.
+Não se esqueça da assinatura e dos limites de serviço. Por exemplo, se você quiser implantar até 10 4 máquinas virtuais de núcleo, precisará garantir que a assinatura usada para seu laboratório permite que você use núcleos de 40. Para obter mais informações sobre os limites de serviço e assinatura do Azure, consulte [assinatura do Azure e limites de serviço, cotas e restrições](../azure-resource-manager/management/azure-subscription-service-limits.md). Como várias unidades de teste podem ser obtidas ao mesmo tempo, verifique se sua assinatura pode lidar com o número de núcleos multiplicado pelo número total de unidades de teste simultâneas que podem ser executadas.
 
 ### <a name="what-to-upload"></a>O que deve ser transferido por upload
 
@@ -297,7 +300,7 @@ A seção final a ser concluída é poder implantar as unidades de teste automat
 
    ![Assinaturas do Azure](media/test-drive/azure-subscriptions.png)
 
-2. Obtenha uma **ID de locatário do Azure ad**. Se você já tiver uma ID de locatário disponível, poderá encontrá-la em **Azure Active Directory**  >  **Properties**  >  **ID do diretório**de propriedades:
+2. Obtenha uma **ID de locatário do Azure ad**. Se você já tiver uma ID de locatário disponível, poderá encontrá-la em **Azure Active Directory**  >  **Properties**  >  **ID do diretório** de propriedades:
 
    ![Propriedades do Azure Active Directory](media/test-drive/azure-active-directory-properties.png)
 

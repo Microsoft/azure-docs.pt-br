@@ -1,6 +1,6 @@
 ---
 title: Copiar incrementalmente várias tabelas usando o PowerShell
-description: Neste tutorial, você criará um pipeline do Azure Data Factory que copia os dados delta de maneira incremental de várias tabelas em um banco de dados do SQL Server para um banco de dados no Banco de Dados SQL do Azure.
+description: Neste tutorial, você criará um Azure Data Factory com um pipeline que carrega dados delta de várias tabelas em um banco de dados do SQL Server no Banco de Dados SQL do Azure.
 services: data-factory
 ms.author: yexu
 author: dearandyxu
@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 06/10/2020
-ms.openlocfilehash: e7846ae0f52dfee4260838302d55213d2791eb07
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 61a4119947b1412d3e874458e06748fd40a381b4
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85250954"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97510253"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-azure-sql-database-using-powershell"></a>Carregar dados de maneira incremental de várias tabelas no SQL Server para o Banco de Dados SQL do Azure usando o PowerShell
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Neste tutorial, você criará um Azure Data Factory com um pipeline que carrega os dados delta de várias tabelas em um banco de dados do SQL Server para o Banco de Dados SQL do Azure.    
+Neste tutorial, você criará um Azure Data Factory com um pipeline que carrega dados delta de várias tabelas em um banco de dados do SQL Server no Banco de Dados SQL do Azure.    
 
 Neste tutorial, você realizará os seguintes procedimentos:
 
@@ -74,7 +74,7 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
 
 ### <a name="create-source-tables-in-your-sql-server-database"></a>Criar tabelas de origem no banco de dados do SQL Server
 
-1. Abra o [SSMS (SQL Server Management Studio)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) ou o [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download-azure-data-studio) e conecte-se ao banco de dados do SQL Server.
+1. Abra o [SSMS (SQL Server Management Studio)](/sql/ssms/download-sql-server-management-studio-ssms) ou o [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) e conecte-se ao banco de dados do SQL Server.
 
 2. No **SSMS (Gerenciador de Servidores)** ou no **painel Conexões (Azure Data Studio)** , clique com o botão direito do mouse no banco de dados e escolha **Nova Consulta**.
 
@@ -113,7 +113,7 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
 
 ### <a name="create-destination-tables-in-your-azure-sql-database"></a>Criar tabelas de destino no Banco de Dados SQL do Azure
 
-1. Abra o [SSMS (SQL Server Management Studio)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) ou o [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download-azure-data-studio) e conecte-se ao banco de dados do SQL Server.
+1. Abra o [SSMS (SQL Server Management Studio)](/sql/ssms/download-sql-server-management-studio-ssms) ou o [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) e conecte-se ao banco de dados do SQL Server.
 
 2. No **SSMS (Gerenciador de Servidores)** ou no **painel Conexões (Azure Data Studio)** , clique com o botão direito do mouse no banco de dados e escolha **Nova Consulta**.
 
@@ -167,8 +167,8 @@ AS
 
 BEGIN
 
-    UPDATE watermarktable
-    SET [WatermarkValue] = @LastModifiedtime 
+UPDATE watermarktable
+SET [WatermarkValue] = @LastModifiedtime 
 WHERE [TableName] = @TableName
 
 END
@@ -365,7 +365,7 @@ Nesta etapa, você vincula seu banco de dados do SQL Server ao data factory.
 
     Veja o exemplo de saída:
 
-    ```json
+    ```console
     LinkedServiceName : SqlServerLinkedService
     ResourceGroupName : <ResourceGroupName>
     DataFactoryName   : <DataFactoryName>
@@ -398,7 +398,7 @@ Nesta etapa, você vincula seu banco de dados do SQL Server ao data factory.
 
     Veja o exemplo de saída:
 
-    ```json
+    ```console
     LinkedServiceName : AzureSQLDatabaseLinkedService
     ResourceGroupName : <ResourceGroupName>
     DataFactoryName   : <DataFactoryName>
@@ -773,7 +773,7 @@ O pipeline usa uma lista de nomes de tabela como um parâmetro. A **atividade Fo
 
    Veja o exemplo de saída: 
 
-   ```json
+   ```console
     PipelineName      : IncrementalCopyPipeline
     ResourceGroupName : <ResourceGroupName>
     DataFactoryName   : <DataFactoryName>
@@ -821,11 +821,11 @@ O pipeline usa uma lista de nomes de tabela como um parâmetro. A **atividade Fo
 4. Na página **Data Factory**, selecione **Criar e Monitorar** para iniciar o Azure Data Factory em uma guia separada.
 
 5. Na página **Vamos começar**, selecione **Monitorar** no lado esquerdo. 
-![Execuções de pipeline](media/doc-common-process/get-started-page-monitor-button.png)    
+![A captura de tela mostra a página Introdução para Azure Data Factory.](media/doc-common-process/get-started-page-monitor-button.png)    
 
 6. Você pode ver todas as execuções de pipeline e seus status. Observe que, no exemplo a seguir, o status da execução de pipeline é **Com Êxito**. Para verificar os parâmetros passados para o pipeline, selecione o link da coluna **Parâmetros**. Se houver um erro, você verá um link na coluna **Erro**.
 
-    ![Execuções de pipeline](media/tutorial-incremental-copy-multiple-tables-powershell/monitor-pipeline-runs-4.png)    
+    ![A captura de tela mostra execuções de pipeline para um data factory incluindo seu pipeline.](media/tutorial-incremental-copy-multiple-tables-powershell/monitor-pipeline-runs-4.png)    
 7. Ao selecionar o link na coluna **Ações**, você verá todas as execuções de atividade para o pipeline. 
 
 8. Para voltar à exibição **Execuções de Pipeline**, selecione **Todas as Execuções de Pipeline**. 
@@ -994,5 +994,3 @@ Avance para o tutorial a seguir para saber mais sobre como transformar dados usa
 
 > [!div class="nextstepaction"]
 >[Carregar incrementalmente os dados do Banco de Dados SQL do Azure para o Armazenamento de Blobs do Azure usando a tecnologia Controle de Alterações](tutorial-incremental-copy-change-tracking-feature-powershell.md)
-
-

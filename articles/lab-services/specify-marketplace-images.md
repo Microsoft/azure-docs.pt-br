@@ -3,18 +3,18 @@ title: Especificar imagens do Marketplace para um laboratório no Azure Lab Serv
 description: Este artigo mostra como especificar as imagens do Marketplace que o criador de laboratório pode usar para criar laboratórios em uma conta de laboratório no Azure Lab Services.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 5a353394fec3dadf0f808a25ec66f6e9028820a3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5c81c8d7a15d67055729a29e98f5b7e30f3d0764
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445603"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96434729"
 ---
 # <a name="specify-marketplace-images-available-to-lab-creators"></a>Especificar imagens do Marketplace disponíveis para os criadores de laboratório
 Como proprietário da conta de laboratório, você pode especificar as imagens do Marketplace que os criadores do laboratório podem usar para criar laboratórios na conta de laboratório. 
 
 ## <a name="select-images-available-for-labs"></a>Selecionar imagens disponíveis para laboratórios
-Selecione **Imagens do Marketplace** no menu esquerdo. Por padrão, você deve ver a lista completa de imagens (habilitadas e desabilitadas). Você pode filtrar a lista para ver apenas as imagens habilitadas/desabilitadas selecionando apenas a opção **habilitado**somente / **desabilitado** na lista suspensa na parte superior. 
+Selecione **Imagens do Marketplace** no menu esquerdo. Por padrão, você deve ver a lista completa de imagens (habilitadas e desabilitadas). Você pode filtrar a lista para ver apenas as imagens habilitadas/desabilitadas selecionando apenas a opção **habilitado** somente / **desabilitado** na lista suspensa na parte superior. 
     
 ![Página Imagens do Marketplace](./media/tutorial-setup-lab-account/marketplace-images-page.png)
 
@@ -60,4 +60,4 @@ Veja os artigos a seguir:
 - [Como um proprietário de laboratório, crie e gerencie laboratórios](how-to-manage-classroom-labs.md)
 - [Como um proprietário de laboratório, configure e publique modelos](how-to-create-manage-template.md)
 - [Como um proprietário de laboratório, configure e controle o uso de um laboratório](how-to-configure-student-usage.md)
-- [Como um usuário de laboratório, acesse os laboratórios de sala de aula](how-to-use-classroom-lab.md)
+- [Como usuário do laboratório, laboratórios de acesso](how-to-use-classroom-lab.md)

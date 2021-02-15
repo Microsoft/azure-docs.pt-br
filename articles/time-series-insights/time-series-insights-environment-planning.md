@@ -9,16 +9,19 @@ manager: diviso
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 09/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: ea243ffd125a527949c4a264177e78de04a22aae
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5e0f1ea42aa2ba888b89dd652d3397a3a2163a3e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87046408"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016200"
 ---
 # <a name="plan-your-azure-time-series-insights-gen1-environment"></a>Planejar seu ambiente de Azure Time Series Insights Gen1
+
+> [!CAUTION]
+> Esse é um artigo do Gen1.
 
 Este artigo descreve como planejar seu ambiente de Azure Time Series Insights Gen1 com base em sua taxa de entrada esperada e seus requisitos de retenção de dados.
 
@@ -48,19 +51,19 @@ Por padrão, Azure Time Series Insights retém dados com base na quantidade de a
 
 ## <a name="data-retention"></a>Retenção de dados
 
-Você pode alterar a configuração de **tempo de retenção de dados** em seu ambiente de Azure Time Series insights. Você pode habilitar até 400 dias de retenção. 
+Você pode alterar a configuração de **tempo de retenção de dados** em seu ambiente de Azure Time Series insights. Você pode habilitar até 400 dias de retenção.
 
 Azure Time Series Insights tem dois modos:
 
-* Um modo otimiza para os dados mais atualizados. Ele impõe uma política para **limpar dados antigos** , deixando dados recentes disponíveis com a instância. Por padrão, esse modo é ativado. 
-* O outro otimiza os dados para permanecerem abaixo dos limites de retenção configurados. **Pausar a entrada** impede que novos dados sejam inseridos quando é selecionado como o **limite de armazenamento excedeu o comportamento**.
+- Um modo otimiza para os dados mais atualizados. Ele impõe uma política para **limpar dados antigos** , deixando dados recentes disponíveis com a instância. Por padrão, esse modo é ativado.
+- O outro otimiza os dados para permanecerem abaixo dos limites de retenção configurados. **Pausar a entrada** impede que novos dados sejam inseridos quando é selecionado como o **limite de armazenamento excedeu o comportamento**.
 
 Você pode ajustar a retenção e alternar entre os dois modos na página de configuração do ambiente no portal do Azure.
 
 > [!IMPORTANT]
 > Você pode configurar um máximo de 400 dias de retenção de dados em seu ambiente de Azure Time Series Insights Gen1.
 
-### <a name="configure-data-retention"></a>Configurar a retenção de dados
+### <a name="configure-data-retention"></a>Configurar retenção de dados
 
 1. No [portal do Azure](https://portal.azure.com), selecione o ambiente do Time Series Insights.
 
@@ -83,13 +86,13 @@ A segunda área para se concentrar para planejar seu ambiente de Azure Time Seri
 
 Você pode aumentar a capacidade de uma SKU S1 ou S2 para até 10 unidades em um único ambiente. Não é possível migrar de um ambiente S1 para um S2. Não é possível migrar de um ambiente S2 para um S1.
 
-Para a capacidade de entrada, primeiro determine a entrada total que você precisa por mês. Em seguida, determine quais são suas necessidades por minuto. 
+Para a capacidade de entrada, primeiro determine a entrada total que você precisa por mês. Em seguida, determine quais são suas necessidades por minuto.
 
 A limitação e a latência desempenham uma função na capacidade por minuto. Se você tiver um pico em sua entrada de dados que dura menos de 24 horas, Azure Time Series Insights poderá "se acumular" em uma taxa de entrada de duas vezes as tarifas listadas na tabela anterior.
 
 Por exemplo, se você tiver uma única SKU S1, você entrará dados em uma taxa de 720 eventos por minuto e os picos de taxa de dados por menos de uma hora a uma taxa de 1.440 eventos ou menos, não haverá latência perceptível em seu ambiente. No entanto, se você exceder 1.440 eventos por minuto por mais de uma hora, provavelmente haverá latência nos dados visualizados e disponíveis para consulta em seu ambiente.
 
-Talvez você não saiba com antecedência a quantidade de dados que espera enviar por push. Nesse caso, você pode encontrar a telemetria de dados para o [Hub IOT do Azure](../iot-hub/iot-hub-metrics.md) e [hubs de eventos do Azure](https://blogs.msdn.microsoft.com/cloud_solution_architect/2016/05/25/using-the-azure-rest-apis-to-retrieve-event-hub-metrics/) em sua assinatura portal do Azure. A telemetria pode ajudá-lo a determinar como provisionar seu ambiente. Use o painel **métricas** na portal do Azure da respectiva origem do evento para exibir sua telemetria. Se você entender suas métricas de origem de evento, poderá planejar e provisionar com mais eficiência seu ambiente de Azure Time Series Insights.
+Talvez você não saiba com antecedência a quantidade de dados que espera enviar por push. Nesse caso, você pode encontrar a telemetria de dados para o [Hub IOT do Azure](../iot-hub/monitor-iot-hub.md) e [hubs de eventos do Azure](/archive/blogs/cloud_solution_architect/using-the-azure-rest-apis-to-retrieve-event-hub-metrics) em sua assinatura portal do Azure. A telemetria pode ajudá-lo a determinar como provisionar seu ambiente. Use o painel **métricas** na portal do Azure da respectiva origem do evento para exibir sua telemetria. Se você entender suas métricas de origem de evento, poderá planejar e provisionar com mais eficiência seu ambiente de Azure Time Series Insights.
 
 ### <a name="calculate-ingress-requirements"></a>Calcular os requisitos de entrada
 
@@ -125,6 +128,6 @@ Para saber mais sobre como criar, carregar e gerenciar seus dados de referência
 
 - Comece criando [um novo ambiente de Azure Time Series insights no portal do Azure](time-series-insights-get-started.md).
 
-- Saiba como [Adicionar uma fonte de eventos de hubs de eventos](time-series-insights-how-to-add-an-event-source-eventhub.md) a Azure Time Series insights.
+- Saiba como [Adicionar uma fonte de eventos de hubs de eventos](./how-to-ingest-data-event-hub.md) a Azure Time Series insights.
 
-- Leia sobre como [Configurar uma origem de evento do Hub IOT](time-series-insights-how-to-add-an-event-source-iothub.md).
+- Leia sobre como [Configurar uma origem de evento do Hub IOT](./how-to-ingest-data-iot-hub.md).

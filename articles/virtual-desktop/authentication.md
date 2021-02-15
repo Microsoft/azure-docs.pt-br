@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 08/27/2020
+ms.date: 09/04/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 8328fa9c9e32a22e8e5093aa343f333cd1914ddc
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 5681228e5da2708912d69f16a4b09a4a93d8bb04
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89038452"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89500293"
 ---
 # <a name="supported-authentication-methods"></a>Métodos de autenticação com suporte
 
@@ -25,9 +25,9 @@ A área de trabalho virtual do Windows dá suporte ao NTLM (NT LAN Manager) e ao
 
 Estes são os métodos de entrada com suporte no momento:
 
-- Cliente da Área de trabalho do Windows
+- Cliente de Área de Trabalho do Windows
     - Nome de usuário e senha
-    - Cartão inteligente
+    - Smartcard
     - Windows Hello
 - Cliente para Microsoft Store
     - Nome de usuário e senha
@@ -43,9 +43,13 @@ Estes são os métodos de entrada com suporte no momento:
 >[!NOTE]
 >O cartão inteligente e o Windows Hello só podem usar o Kerberos para entrar. Entrar com o Kerberos requer a linha de visão para o controlador de domínio.
 
-## <a name="single-sign-on-sso"></a>Logon único (SSO)
+## <a name="hybrid-identity"></a>Identidade híbrida
 
-A área de trabalho virtual do Windows atualmente não dá suporte a Serviços de Federação do Active Directory (AD FS) (ADFS) para autenticação ou SSO.
+A área de trabalho virtual do Windows dá suporte a [identidades híbridas](../active-directory/hybrid/whatis-hybrid-identity.md) por meio do Azure Active Directory (AD), incluindo aquelas que usam serviços de Federação do Active Directory (AD FS) (ADFS). Como os usuários devem ser detectáveis por meio do Azure AD, a área de trabalho virtual do Windows não dá suporte a implantações Active Directory autônomas com o ADFS.
+
+## <a name="single-sign-on-sso"></a>SSO (logon único)
+
+A área de trabalho virtual do Windows atualmente não dá suporte a Serviços de Federação do Active Directory (AD FS) (ADFS) para SSO.
 
 A única maneira de evitar a solicitação de suas credenciais para o host de sessão é salvá-las no cliente. Recomendamos que você faça isso apenas com dispositivos seguros para impedir que outros usuários acessem seus recursos.
 

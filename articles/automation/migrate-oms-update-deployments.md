@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 07/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 9c8238e6e0b52a625c76f79fa0dd5a91dd640fb8
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: a2226f55c829afa4316a92888d16f6dc68e1f931
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87447849"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183593"
 ---
 # <a name="migrate-azure-monitor-logs-update-deployments-to-azure-portal"></a>Migrar implantações de atualização de logs do Azure Monitor para o portal do Azure
 
@@ -19,7 +19,7 @@ O portal do OMS (Operations Management Suite) está sendo [preterido](../azure-m
 ## <a name="key-information"></a>Principais informações
 
 * As implantações existentes continuarão funcionando. Após recriar a implantação no Azure, será possível excluir a implantação antiga.
-* Todos os recursos existentes que estavam disponíveis no OMS também estão no Azure. Para saber mais sobre o Gerenciamento de Atualizações, consulte [Visão geral do Gerenciamento de Atualizações](update-management/update-mgmt-overview.md).
+* Todos os recursos existentes que estavam disponíveis no OMS também estão no Azure. Para saber mais sobre o Gerenciamento de Atualizações, consulte [Visão geral do Gerenciamento de Atualizações](./update-management/overview.md).
 
 ## <a name="access-the-azure-portal"></a>Acesse o portal do Azure
 
@@ -33,7 +33,7 @@ O portal do OMS (Operations Management Suite) está sendo [preterido](../azure-m
 
 3. Na conta da Automação, clique em **Gerenciamento de Atualizações**.
 
-    ![Gerenciamento de atualizações](media/migrate-oms-update-deployments/azure-automation.png)
+    :::image type="content" source="media/migrate-oms-update-deployments/azure-automation.png" alt-text="Captura de tela da página de gerenciamento de atualizações.":::
 
 4. No portal do Azure, selecione **Contas da Automação** em **Todos os serviços**. 
 
@@ -43,7 +43,7 @@ O portal do OMS (Operations Management Suite) está sendo [preterido](../azure-m
 
 Todas as implantações de atualização criadas no portal do OMS têm uma [pesquisa salva](../azure-monitor/platform/computer-groups.md) também conhecida como grupo de computadores, com o mesmo nome da implantação de atualização existente. A pesquisa salva contém a lista de computadores que foram agendados na implantação de atualizações.
 
-![Gerenciamento de atualizações](media/migrate-oms-update-deployments/oms-deployment.png)
+:::image type="content" source="media/migrate-oms-update-deployments/oms-deployment.png" alt-text="Captura de tela da página atualizar implantações com os campos nome e servidores realçados.":::
 
 Para usar essa pesquisa salva existente, siga estas etapas:
 
@@ -74,4 +74,4 @@ Para usar essa pesquisa salva existente, siga estas etapas:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre o Gerenciamento de Atualizações na Automação do Azure, consulte [Visão geral do Gerenciamento de Atualizações](update-management/update-mgmt-overview.md).
+Para saber mais sobre o Gerenciamento de Atualizações na Automação do Azure, consulte [Visão geral do Gerenciamento de Atualizações](./update-management/overview.md).

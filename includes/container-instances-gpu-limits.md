@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 01/31/2020
 ms.author: danlep
 ms.openlocfilehash: ad52317319a2da973c0cc1cdf34a1ada01238d95
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87387074"
 ---
 ### <a name="maximum-resources-per-sku"></a>Máximo de recursos por SKU

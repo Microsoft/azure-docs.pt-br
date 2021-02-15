@@ -1,18 +1,15 @@
 ---
 title: Solucionar problemas de desempenho do Apache HBase no Azure HDInsight
 description: Várias diretrizes e dicas de ajuste de desempenho do Apache HBase para obter um desempenho ideal no Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 09/24/2019
-ms.openlocfilehash: 93698fadcecf190dd8bbc24a9d03978899d3c5e9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 466fac524601e2d569bfa0ccf90179fe9419210d
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75887148"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98942900"
 ---
 # <a name="troubleshoot-apache-hbase-performance-issues-on-azure-hdinsight"></a>Solucionar problemas de desempenho do Apache HBase no Azure HDInsight
 
@@ -110,7 +107,7 @@ A seguir estão alguns dos outros parâmetros específicos que ajustamos, e isso
 
 Estes são os parâmetros adicionais para considerar o ajuste:
 
-- `Hbase.rs.cacheblocksonwrite`– Por padrão, em HDI, essa configuração é definida como **true**.
+- `Hbase.rs.cacheblocksonwrite` – Por padrão, em HDI, essa configuração é definida como **true**.
 
 - Configurações que permitem adiar a compactação secundária para mais tarde.
 
@@ -124,4 +121,4 @@ Se o problema permanecer sem resolução, visite um dos seguintes canais para ob
 
 - Conecte-se com [@AzureSupport](https://twitter.com/azuresupport). Essa é a conta de Microsoft Azure oficial para melhorar a experiência do cliente. Ele conecta a Comunidade do Azure aos recursos certos: respostas, suporte e especialistas.
 
-- Se precisar de mais ajuda, poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **Suporte** na barra de menus ou abra o hub **Ajuda + suporte**. Para obter informações mais detalhadas, consulte [Como criar uma solicitação de Suporte do Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Sua assinatura do Microsoft Azure inclui acesso ao gerenciamento de assinaturas e suporte de cobrança, e o suporte técnico é fornecido por meio de um dos [planos de suporte do Azure](https://azure.microsoft.com/support/plans/).
+- Se precisar de mais ajuda, poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **Suporte** na barra de menus ou abra o hub **Ajuda + suporte**. Para obter informações mais detalhadas, consulte [Como criar uma solicitação de Suporte do Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). Sua assinatura do Microsoft Azure inclui acesso ao gerenciamento de assinaturas e suporte de cobrança, e o suporte técnico é fornecido por meio de um dos [planos de suporte do Azure](https://azure.microsoft.com/support/plans/).

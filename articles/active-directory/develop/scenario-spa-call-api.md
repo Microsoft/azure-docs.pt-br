@@ -1,5 +1,6 @@
 ---
-title: Compilar aplicativo de página única chamando uma API Web-plataforma de identidade da Microsoft | Azure
+title: Compilar aplicativo de página única chamando uma API Web
+titleSuffix: Microsoft identity platform
 description: Saiba como criar um aplicativo de página única que chama uma API da Web
 services: active-directory
 author: rwike77
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 05/06/2019
 ms.author: ryanwi
 ms.custom: aaddev
-ms.openlocfilehash: 5b70b109f43e80fc3ec68f52aef2dba6823033bb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4dd4a40233fc1c030581fd1ae2827061435a0ab3
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80882124"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98753548"
 ---
 # <a name="single-page-application-call-a-web-api"></a>Aplicativo de página única: chamar uma API da Web
 
@@ -52,5 +53,4 @@ O wrapper angular MSAL aproveita o interceptador HTTP para adquirir automaticame
 
 ## <a name="next-steps"></a>Próximas etapas
 
-> [!div class="nextstepaction"]
-> [Mover para ambiente de produção](scenario-spa-production.md)
+Vá para o próximo artigo neste cenário, [vá para produção](scenario-spa-production.md).

@@ -3,12 +3,12 @@ title: Carregar arquivo VHD para Azure DevTest Labs usando Gerenciador de Armaze
 description: Carregar o arquivo VHD na conta de armazenamento do laboratório usando o Explorer do Armazenamento do Microsoft Azure
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 6ed6ace63a135628b6d306b946c0356091bf1bd2
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: d4e421932ebba5d4f389000c12bcf44ac2f37599
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654507"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91282520"
 ---
 # <a name="upload-vhd-file-to-labs-storage-account-using-microsoft-azure-storage-explorer"></a>Carregar o arquivo VHD na conta de armazenamento do laboratório usando o Explorer do Armazenamento do Microsoft Azure
 
@@ -90,13 +90,13 @@ As etapas a seguir mostram como carregar um arquivo VHD no DevTest Labs usando o
 
     1. No painel direito do Explorer do Armazenamento, você deve ver uma listagem dos blobs no contêiner de blob **carregamentos** da conta de armazenamento do laboratório. Na barra de ferramentas do editor de blobs, escolha **Carregar** 
         
-        ![Botão Carregar][6]
+        ![Captura de tela que mostra o Gerenciador de Armazenamento painel direito com o botão "carregar" selecionado.][6]
     
     1. No menu suspenso **Carregar**, escolha **Carregar arquivos...**.
     
     1. Na caixa de diálogo **Carregar arquivos**, escolha as reticências.
         
-        ![Escolher arquivo][8]  
+        ![Captura de tela que mostra a caixa de diálogo "carregar arquivos" com as reticências selecionadas.][8]  
 
     1. Na caixa de diálogo **Selecionar arquivo para carregar**, navegue até o arquivo VHD desejado, selecione-o e escolha **Abrir**.
     

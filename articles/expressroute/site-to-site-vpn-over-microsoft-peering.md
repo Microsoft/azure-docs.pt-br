@@ -2,18 +2,18 @@
 title: 'Azure ExpressRoute: configurar a VPN S2S sobre o emparelhamento da Microsoft'
 description: Configure a conectividade de IPsec/IKE para o Azure por um circuito de emparelhamento Microsoft para ExpressRoute usando um gateway VPN site a site.
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 02/25/2019
-ms.author: cherylmc
+ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 571ed0201fea11f6770ec3aa7e72db10d49e7b01
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 366f27a0e2a22e9aa10dda20e105bf644255bdd4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84738151"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89393132"
 ---
 # <a name="configure-a-site-to-site-vpn-over-expressroute-microsoft-peering"></a>Configurar uma VPN site a site no emparelhamento da Microsoft para ExpressRoute
 

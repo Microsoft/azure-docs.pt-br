@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/18/2019
-ms.openlocfilehash: 99d5594dd3ebe3750cb0a09ea803065e2aeb5ba2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 87bfe1109640f158b92f54b945d314ac65a93ddc
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77666630"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107905"
 ---
 # <a name="log-data-ingestion-time-in-azure-monitor"></a>Tempo de ingestão de dados de log no Azure Monitor
 O Azure Monitor é um serviço de dados de grande escala que atende milhares de clientes que enviam terabytes de dados por mês em um ritmo cada vez maior. Frequentemente, há dúvidas sobre o tempo necessário para que os dados de log fiquem disponíveis após a coleta. Este artigo explica os diferentes fatores que afetam essa latência.
@@ -51,13 +51,13 @@ Quando estiverem disponíveis no ponto de ingestão, somam-se mais 2 a 5 minutos
 ### <a name="management-solutions-collection"></a>Coleção de soluções de gerenciamento
 Algumas soluções não coletam seus dados de um agente e podem usar um método de coleta que introduz latência adicional. Algumas soluções coletam dados em intervalos regulares sem tentar a coleta quase em tempo real. Exemplos específicos incluem os seguintes:
 
-- A solução do Office 365 sonda os logs de atividades usando a API de Gerenciamento de Atividade do Office 365, que atualmente não fornece nenhuma garantia de latência quase em tempo real.
+- Microsoft 365 solução sonda logs de atividade usando a API de atividade de gerenciamento, que atualmente não fornece nenhuma garantia de latência quase em tempo real.
 - Os dados das soluções de Análise do Windows (Conformidade de Atualizações, por exemplo) são coletados pela solução com uma frequência diária.
 
 Veja a documentação de cada solução para determinar sua frequência de coleta.
 
 ### <a name="pipeline-process-time"></a>Tempo de processo de pipeline
-Depois que os registros de log são ingeridos no pipeline de Azure Monitor (conforme identificado na propriedade [_TimeReceived](log-standard-properties.md#_timereceived) ), eles são gravados no armazenamento temporário para garantir o isolamento do locatário e para garantir que os dados não sejam perdidos. Normalmente, esse processo adiciona 5 a 15 segundos. Algumas soluções de gerenciamento implementam algoritmos mais pesados para agregar dados e obter insights conforme os dados são recebidos. Por exemplo, o Monitoramento de Desempenho de Rede agrega os dados recebidos em intervalos de 3 minutos, efetivamente, adicionando uma latência de 3 minutos. Outro processo que adiciona latência é o processo que lida com logs personalizados. Em alguns casos, esse processo pode adicionar alguns minutos de latência aos logs que são coletados de arquivos pelo agente.
+Depois que os registros de log são ingeridos no pipeline de Azure Monitor (conforme identificado na propriedade [_TimeReceived](./log-standard-columns.md#_timereceived) ), eles são gravados no armazenamento temporário para garantir o isolamento do locatário e para garantir que os dados não sejam perdidos. Normalmente, esse processo adiciona 5 a 15 segundos. Algumas soluções de gerenciamento implementam algoritmos mais pesados para agregar dados e obter insights conforme os dados são recebidos. Por exemplo, o Monitoramento de Desempenho de Rede agrega os dados recebidos em intervalos de 3 minutos, efetivamente, adicionando uma latência de 3 minutos. Outro processo que adiciona latência é o processo que lida com logs personalizados. Em alguns casos, esse processo pode adicionar alguns minutos de latência aos logs que são coletados de arquivos pelo agente.
 
 ### <a name="new-custom-data-types-provisioning"></a>Provisionamento de novos tipos de dados personalizados
 Quando um novo tipo de dados personalizados é criado a partir de um [log personalizado](data-sources-custom-logs.md) ou da [API do coletor de dados](data-collector-api.md), o sistema cria um contêiner de armazenamento dedicado. Essa é uma sobrecarga única que ocorre apenas na primeira aparência desse tipo de dados.
@@ -77,8 +77,8 @@ O tempo de ingestão pode variar para recursos diferentes em circunstâncias dif
 
 | Etapa | Propriedade ou função | Comentários |
 |:---|:---|:---|
-| Registro criado na fonte de dados | [TimeGenerated](log-standard-properties.md#timegenerated-and-timestamp) <br>Se a fonte de dados não definir esse valor, ela será definida para o mesmo horário que _TimeReceived. |
-| Registro recebido por Azure Monitor ponto de extremidade de ingestão | [_TimeReceived](log-standard-properties.md#_timereceived) | |
+| Registro criado na fonte de dados | [TimeGenerated](./log-standard-columns.md#timegenerated-and-timestamp) <br>Se a fonte de dados não definir esse valor, ela será definida para o mesmo horário que _TimeReceived. |
+| Registro recebido por Azure Monitor ponto de extremidade de ingestão | [_TimeReceived](./log-standard-columns.md#_timereceived) | |
 | Registro armazenado no espaço de trabalho e disponível para consultas | [ingestion_time ()](/azure/kusto/query/ingestiontimefunction) | |
 
 ### <a name="ingestion-latency-delays"></a>Atrasos de latência de ingestão
@@ -143,4 +143,3 @@ Heartbeat
 
 ## <a name="next-steps"></a>Próximas etapas
 * Leia o [Contrato de Nível de Serviço (SLA)](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_1/) do Azure Monitor.
-

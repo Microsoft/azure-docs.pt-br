@@ -1,19 +1,16 @@
 ---
 title: Apache Hive & Data Lake Tools for Visual Studio – Azure HDInsight
 description: Saiba como usar as ferramentas de Data Lake para Visual Studio para executar consultas do Apache Hive com Apache Hadoop no Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/27/2019
-ms.openlocfilehash: c8645ae9cb901b9fc95f00665d73e223a24fda63
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 3e54991f6afd2ace19bf7b70e57bda6f551f7780
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86076446"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943163"
 ---
 # <a name="run-apache-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>Executar consultas do Apache Hive usando as ferramentas do Data Lake para Visual Studio
 
@@ -60,9 +57,9 @@ Consultas ad hoc podem ser executadas no modo de **lote** ou **interativo** .
 
     O editor do Hive é compatível com o IntelliSense. Agora as Ferramentas do Data Lake para Visual Studio dão suporte à obtenção de metadados remotos quando você edita o script do Hive. Por exemplo, se você digitar `SELECT * FROM` , o IntelliSense listará todos os nomes de tabela sugeridos. Quando um nome de tabela for especificado, o IntelliSense listará os nomes de coluna. As ferramentas dão suporte a quase todas as instruções DML Hive, subconsultas e UDFs internos. O IntelliSense sugere apenas os metadados dos clusters selecionados na Barra de Ferramentas do HDInsight.
 
-7. Na barra de ferramentas de consulta (a área abaixo da guia consulta e acima do texto da consulta), selecione **Enviar**ou selecione a seta suspensa ao lado de **Enviar** e escolha **avançado** na lista suspensa. Se você selecionar a última opção,
+7. Na barra de ferramentas de consulta (a área abaixo da guia consulta e acima do texto da consulta), selecione **Enviar** ou selecione a seta suspensa ao lado de **Enviar** e escolha **avançado** na lista suspensa. Se você selecionar a última opção,
 
-8. Se você selecionou a opção de envio avançado, configure **nome do trabalho**, **argumentos**, **configurações adicionais**e **diretório de status** na caixa de diálogo **Enviar script** . Em seguida, selecione **Enviar**.
+8. Se você selecionou a opção de envio avançado, configure **nome do trabalho**, **argumentos**, **configurações adicionais** e **diretório de status** na caixa de diálogo **Enviar script** . Em seguida, selecione **Enviar**.
 
     ![Caixa de diálogo Enviar script, consulta do hive do HDInsight Hadoop](./media/apache-hadoop-use-hive-visual-studio/vs-tools-submit-jobs-advanced.png)
 

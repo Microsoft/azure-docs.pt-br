@@ -1,29 +1,29 @@
 ---
-title: Condições de correspondência do Mecanismo de Regras do Azure Front Door
+title: Condições de correspondência dos Mecanismos de Regras do Azure Front Door
 description: Este artigo fornece uma lista das várias condições de correspondência disponíveis no mecanismo de regras do Azure Front Door.
 services: frontdoor
 documentationcenter: ''
-author: megan-beatty
+author: duongau
 editor: ''
 ms.service: frontdoor
 ms.devlang: na
-ms.topic: overview
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 4/30/2020
-ms.author: mebeatty
-ms.openlocfilehash: 311914078f8169a3b48b5559ed58a690c29be83a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 09/14/2020
+ms.author: duau
+ms.openlocfilehash: 0e874ae3d29f4143a4f8a9275d5ffcde48d08e6d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86512156"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91569757"
 ---
-# <a name="azure-front-door-rules-engine-match-conditions"></a>Condições de correspondência do mecanismo de regras do Azure Front Door
+# <a name="azure-front-door-rules-engine-match-conditions"></a>Condições de correspondência do Mecanismo de Regras do Azure Front Door
 
-No [Mecanismo de regras do AFD](front-door-rules-engine.md) uma regra consiste em zero ou mais condições de correspondência e uma ação. Este artigo fornece descrições detalhadas das condições de correspondência que você pode usar no mecanismo de regras do AFD.
+No [Mecanismo de Regras do AFD](front-door-rules-engine.md), uma regra consiste em zero ou mais condições de correspondência e uma ação. Este artigo fornece descrições detalhadas das condições de correspondência que você pode usar no mecanismo de regras do AFD.
 
-A primeira parte de uma regra é uma condição de correspondência ou um conjunto de condições de correspondência. Uma regra pode consistir em até 10 condições de correspondência. Uma condição de correspondência identifica tipos específicos de solicitações para as quais as ações definidas são executadas. Se você usar várias condições de correspondência, as condições de correspondência serão agrupadas em conjunto usando a lógica AND. Para todas as condições de correspondência compatíveis com vários valores (anotados abaixo como "separados por espaços"), o operador "OR" é presumido.
+A primeira parte de uma regra é uma condição de correspondência ou um conjunto de condições de correspondência. Uma regra pode consistir em até 10 condições de correspondência. Uma condição de correspondência identifica tipos específicos de solicitações para as quais as ações definidas são executadas. Se você usar várias condições de correspondência, as condições de correspondência serão agrupadas em conjunto usando a lógica AND. Para todas as condições de correspondência compatíveis com vários valores (anotados como "separados por espaços"), o operador "OR" é presumido.
 
 Por exemplo, você pode usar uma condição de correspondência para:
 
@@ -84,7 +84,7 @@ Não Correspondência de IP | Endereço IP (separado por espaços)
   - **Exemplo de IPv6**: *1:2:3:4:5:6:7:8 10:20:30:40:50:60:70:80* corresponde a qualquer solicitação que chega dos endereços 1:2:3:4:5:6:7:8 ou 10:20:30:40:50:60:70:80.
 - A sintaxe para um bloco de endereços IP é o endereço IP básico seguido por uma barra invertida e o tamanho do prefixo. Por exemplo:
   - **Exemplo de IPv4**: *5.5.5.64/26* corresponde a qualquer solicitação que chega dos endereços 5.5.5.64 a 5.5.5.127.
-  - **Exemplo de IPv6**: *1:2:3:/48* corresponde a qualquer solicitação que chega dos endereços 1:2:3:0:0:0:0:0 por meio de 1:2:3:ffff:ffff:ffff:ffff:ffff.
+  - **Exemplo de IPv6**: *1:2:3:/48* corresponde a solicitações que chegam dos endereços 1:2:3:0:0:0:0:0 por meio de 1:2:3: ffff:ffff:ffff:ffff:ffff.
 
 ## <a name="request-body"></a>Corpo da solicitação
 
@@ -204,11 +204,11 @@ Para regras que aceitam valores da lista de operadores padrão, os seguintes ope
 - Não é maior que
 - Não é maior nem igual a
 
-Para operadores numéricos como *Menor que* e *Maior ou igual a*, a comparação usada é baseada no comprimento. Nesse caso, o valor na condição de correspondência deve ser um inteiro igual ao comprimento que você deseja comparar. 
+Para operadores numéricos como *Menor que* e *Maior ou igual a*, a comparação usada é baseada no comprimento. O valor na condição de correspondência deve ser um inteiro igual ao comprimento que você deseja comparar. 
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba como definir sua primeira [Configuração do mecanismo de regras](front-door-tutorial-rules-engine.md). 
+- Saiba como configurar seu primeiro [Mecanismo de Regras](front-door-tutorial-rules-engine.md). 
 - Saiba mais sobre [ações do Mecanismo de regras](front-door-rules-engine-actions.md)
 - Saiba mais sobre o [Mecanismo de regras do Azure Front Door](front-door-rules-engine.md)

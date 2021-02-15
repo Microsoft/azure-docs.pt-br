@@ -6,13 +6,13 @@ ms.service: security
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
-ms.openlocfilehash: 7b48ac1621c5c8788a4ecdb9ceb3af78f8e82a37
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: 77af95f2decbfb81ed930591b03f71fb71780def
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88890494"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99805240"
 ---
 # <a name="azure-security-baseline-for-backup"></a>Linha de base de segurança do Azure para backup
 
@@ -252,9 +252,9 @@ Você também pode carregar um espaço de trabalho Log Analytics para o Azure Se
 
 Documentação de suporte:
 
-- [Como obter uma função de diretório no Azure AD com o PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+- [Como obter uma função de diretório no Azure AD com o PowerShell](/powershell/module/azuread/get-azureaddirectoryrole)
 
-- [Como obter membros de uma função de diretório no Azure AD com o PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [Como obter membros de uma função de diretório no Azure AD com o PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -298,11 +298,11 @@ Além disso, para ajudá-lo a manter o controle de contas administrativas dedica
 
 ### <a name="35-use-multi-factor-authentication-for-all-azure-active-directory-based-access"></a>3.5: usar a autenticação multifator para todos os acessos baseados no Azure Active Directory
 
-**Orientação**: ao executar operações críticas no backup do Azure, você precisa inserir um PIN de segurança, disponível no portal do Azure. A habilitação da Autenticação Multifator do Azure adiciona uma camada de segurança. Apenas usuários autorizados com credenciais válidas do Azure, e autenticados de um segundo dispositivo, podem acessar o portal do Azure.
+**Orientação**: ao executar operações críticas no backup do Azure, você precisa inserir um PIN de segurança, disponível no portal do Azure. A habilitação da autenticação multifator do Azure AD adiciona uma camada de segurança. Apenas usuários autorizados com credenciais válidas do Azure, e autenticados de um segundo dispositivo, podem acessar o portal do Azure.
 
 - [Autenticação multifator no backup do Azure](./backup-azure-security-feature.md)
 
-- [Planejar uma implantação da Autenticação Multifator do Azure baseada em nuvem](../active-directory/authentication/howto-mfa-getstarted.md)
+- [Planejar uma implantação da Autenticação Multifator do Azure AD baseada em nuvem](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -310,11 +310,11 @@ Além disso, para ajudá-lo a manter o controle de contas administrativas dedica
 
 ### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3.6: usar computadores dedicados (estações de trabalho com acesso privilegiado) para todas as tarefas administrativas
 
-**Orientação**: Use uma Paw (estação de trabalho com acesso privilegiado) com o MFA (autenticação multifator) do Azure configurada para fazer logon e configurar seus recursos habilitados para backup do Azure.
+**Diretrizes**: Use uma Paw (estação de trabalho com acesso privilegiado) com o MFA (autenticação multifator) do Azure ad configurada para fazer logon e configurar seus recursos habilitados para backup do Azure.
 
-- [Estações de trabalho com acesso privilegiado](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+- [Estações de trabalho com acesso privilegiado](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
-- [Planejar uma implantação da Autenticação Multifator do Azure baseada em nuvem](../active-directory/authentication/howto-mfa-getstarted.md)
+- [Planejar uma implantação da Autenticação Multifator do Azure AD baseada em nuvem](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -436,7 +436,7 @@ Documentação de suporte:
 
 - [Como criar assinaturas adicionais do Azure](../cost-management-billing/manage/create-subscription.md)
 
-- [Como criar Grupos de Gerenciamento](../governance/management-groups/create.md)
+- [Como criar Grupos de Gerenciamento](../governance/management-groups/create-management-group-portal.md)
 
 - [Como criar e usar marcas](../azure-resource-manager/management/tag-resources.md)
 
@@ -480,13 +480,13 @@ A Microsoft gerencia a infraestrutura subjacente para o backup do Azure e implem
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Usar o RBAC do Azure para controlar o acesso a recursos
 
-**Diretrizes**: o Azure RBAC (controle de acesso baseado em função) do Azure permite o gerenciamento de acesso refinado para o Azure. Com o RBAC, você pode separar as tarefas dentro de sua equipe e conceder somente a quantidade de acesso que os usuários precisam para realizar seus trabalhos.
+**Diretrizes**: o Azure RBAC (controle de acesso baseado em função) do Azure permite o gerenciamento de acesso refinado para o Azure. Com o Azure RBAC, você pode separar as tarefas dentro de sua equipe e permitir somente a quantidade de acesso de que os usuários precisam para realizar os trabalhos deles.
 
 O backup do Azure fornece três funções internas para controlar as operações de gerenciamento de backup: colaborador de backup, operador de backup e leitor de backup. Você pode mapear funções internas de backup para várias ações de gerenciamento de backup.
 
-- [Como configurar o RBAC no Azure](../role-based-access-control/role-assignments-portal.md)
+- [Como configurar o RBAC do Azure](../role-based-access-control/role-assignments-portal.md)
 
-- [Use o Controle de Acesso baseado em função para gerenciar pontos de recuperação de Backup do Azure](./backup-rbac-rs-vault.md)
+- [Usar o controle de acesso baseado em função do Azure para gerenciar pontos de recuperação do backup do Azure](./backup-rbac-rs-vault.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -534,7 +534,7 @@ Ao fazer backup com o agente MARS ou usar um cofre de serviços de recuperação
 
 Plataforma subjacente verificada e corrigida pela Microsoft. Examine os controles de segurança disponíveis para o backup do Azure para reduzir as vulnerabilidades relacionadas à configuração de serviço.
 
-- [Noções básicas sobre os controles de segurança disponíveis para o backup do Azure](./backup-security-controls.md)
+- [Noções básicas sobre os controles de segurança disponíveis para o backup do Azure]()
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -612,7 +612,7 @@ Além disso, use Azure Policy para colocar restrições no tipo de recursos que 
 
 - [Como criar assinaturas adicionais do Azure](../cost-management-billing/manage/create-subscription.md)
 
-- [Como criar Grupos de Gerenciamento](../governance/management-groups/create.md)
+- [Como criar Grupos de Gerenciamento](../governance/management-groups/create-management-group-portal.md)
 
 - [Como criar e usar marcas](../azure-resource-manager/management/tag-resources.md)
 
@@ -760,9 +760,9 @@ Use o Azure Resource Graph para consultar/descobrir recursos em suas assinaturas
 
 **Orientação**: se estiver usando definições de Azure Policy personalizadas, use o Azure DevOps ou Azure Repos para armazenar e gerenciar seu código com segurança.
 
-- [Como armazenar código no Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [Como armazenar código no Azure DevOps](/azure/devops/repos/git/gitworkflow)
 
-- [Documentação do Azure Repos](/azure/devops/repos/index?view=azure-devops)
+- [Documentação do Azure Repos](/azure/devops/repos/index)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -818,7 +818,9 @@ Use o Azure Resource Graph para consultar/descobrir recursos em suas assinaturas
 
 - [Como criar um Key Vault](../key-vault/secrets/quick-create-portal.md)
 
-- [Como fornecer Key Vault autenticação com uma identidade gerenciada](../key-vault/general/managed-identity.md)
+* [Como autenticar-se no Key Vault](../key-vault/general/authentication.md)
+
+* [Como atribuir uma política de acesso de Key Vault](../key-vault/general/assign-access-policy-portal.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -866,7 +868,7 @@ Use a detecção de ameaças da central de segurança do Azure para serviços de
 
 - [Entender o Microsoft antimalware para serviços de nuvem do Azure e máquinas virtuais](../security/fundamentals/antimalware.md)
 
-- [Entender a detecção de ameaças da central de segurança do Azure para serviços de dados](../security-center/threat-protection.md)
+- [Entender a detecção de ameaças da central de segurança do Azure para serviços de dados](../security-center/azure-defender.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -912,7 +914,7 @@ Fazer backup de chaves gerenciadas pelo cliente dentro do Azure Key Vault.
 
 **Diretrizes**: testar a restauração de chaves de backup gerenciadas pelo cliente.
 
-- [Como restaurar chaves do cofre de chaves no Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+- [Como restaurar chaves do cofre de chaves no Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -922,7 +924,7 @@ Fazer backup de chaves gerenciadas pelo cliente dentro do Azure Key Vault.
 
 **Orientação**: para o backup local, a criptografia em repouso é fornecida usando a senha que você fornece ao fazer backup no Azure. Para VMs do Azure, os dados são criptografados em repouso usando SSE (Criptografia do Serviço de Armazenamento). Você pode habilitar a exclusão reversível em Key Vault para proteger as chaves contra exclusão acidental ou mal-intencionada.
 
-- [Como habilitar a exclusão reversível no Key Vault](../storage/blobs/soft-delete-overview.md?tabs=azure-portal)
+- [Como habilitar a exclusão reversível no Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -980,7 +982,7 @@ Além disso, marque claramente as assinaturas (por exemplo, produção, não pro
 
 ### <a name="105-incorporate-security-alerts-into-your-incident-response-system"></a>10.5: incorporar alertas de segurança em seu sistema de resposta a incidentes
 
-**Diretriz**: exporte os alertas e recomendações da Central de Segurança do Azure usando o recurso de exportação contínua. A exportação contínua permite exportar alertas e recomendações de forma manual ou contínua. Você pode usar o conector de dados da Central de Segurança do Azure para transmitir os alertas do Sentinel.
+**Diretriz**: exporte os alertas e recomendações da Central de Segurança do Azure usando o recurso de exportação contínua. A exportação contínua permite exportar alertas e recomendações de forma manual ou contínua. Você pode usar o conector de dados da Central de Segurança do Azure para transmitir os alertas do Azure Sentinel.
 
 - [Como configurar a exportação contínua](../security-center/continuous-export.md)
 

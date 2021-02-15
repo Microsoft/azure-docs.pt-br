@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: cynthn
 ms.topic: conceptual
-ms.openlocfilehash: 1c2156975eb8d8dcb3580603dfbe1f5d1390b79a
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: b7f6d30ffa849f78b0f7baa2d84e4fb01f3bf192
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88852476"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500335"
 ---
 # <a name="secure-and-use-policies-on-virtual-machines-in-azure"></a>Proteger e usar políticas em máquinas virtuais no Azure
 
@@ -25,7 +25,7 @@ O panorama atual de ameaças a ambientes de nuvem é dinâmico, aumentando a pre
 
 ## <a name="azure-security-center"></a>Central de Segurança do Azure
 
-A [Central de Segurança do Azure](../security-center/security-center-intro.md) ajuda você a evitar, detectar e responder a ameaças às suas VMs. O Centro de Segurança permite o gerenciamento de políticas e o monitoramento da segurança integrada entre suas assinaturas do Azure, ajuda a detectar ameaças que poderiam passar despercebidas e funciona com uma enorme variedade de soluções de segurança.
+A [Central de Segurança do Azure](../security-center/security-center-introduction.md) ajuda você a evitar, detectar e responder a ameaças às suas VMs. O Centro de Segurança permite o gerenciamento de políticas e o monitoramento da segurança integrada entre suas assinaturas do Azure, ajuda a detectar ameaças que poderiam passar despercebidas e funciona com uma enorme variedade de soluções de segurança.
 
 O acesso just-in-time da central de segurança pode ser aplicado em sua implantação de VM para bloquear o tráfego de entrada para suas VMs do Azure, reduzindo a exposição a ataques e, ao mesmo tempo, fornecendo acesso fácil para se conectar às VMs quando necessário. Quando o Just-In-Time está habilitado e um usuário solicita acesso a uma VM, a Central de Segurança verifica quais permissões o usuário tem para a VM. Se o usuário tem as permissões corretas, a solicitação é aprovada e a Central de Segurança configura automaticamente os NSGs (Grupos de Segurança de Rede) para permitir o tráfego de entrada às portas selecionadas pelo período limitado. Depois que o tempo expirar, a Central de Segurança restaura os NSGs aos seus estados anteriores. 
 
@@ -41,7 +41,7 @@ A criptografia não afeta o desempenho dos discos gerenciados. Não há nenhum c
 
 Você pode contar com chaves gerenciadas pela plataforma para a criptografia do disco gerenciado ou gerenciar a criptografia usando suas próprias chaves. Se você optar por gerenciar a criptografia com suas próprias chaves, pode especificar uma *chave gerenciada pelo cliente* a ser usada para criptografar e descriptografar todos os dados nos discos gerenciados. 
 
-Para saber mais sobre a criptografia do lado do servidor, consulte os artigos para [Windows](windows/disk-encryption.md) ou [Linux](linux/disk-encryption.md).
+Para saber mais sobre a criptografia do lado do servidor, consulte os artigos para [Windows](./disk-encryption.md) ou [Linux](./disk-encryption.md).
 
 ### <a name="azure-disk-encryption"></a>Azure Disk Encryption
 
@@ -57,7 +57,7 @@ As políticas de acesso do cofre de chaves concedem permissões a chaves, segred
 
 Quando você se conectar a máquinas virtuais, deverá usar a criptografia de chave pública para fornecer uma maneira mais segura para entrar neles. Esse processo envolve uma troca de chaves públicas e privadas usando o comando SSH (secure shell) para autenticar a si mesmo em vez de um nome de usuário e uma senha. As senhas são vulneráveis a ataques de força bruta, especialmente em VMs voltadas para a Internet, como os servidores Web. Com um par de chaves SSH (secure shell), você pode criar uma [VM do Linux](linux/mac-create-ssh-keys.md) que usa chaves SSH para autenticação, eliminando a necessidade de senhas para fazer entrar. Você também pode usar as chaves de SSH para conectar-se de uma [VM do Windows](linux/ssh-from-windows.md) para uma VM do Linux.
 
-## <a name="managed-identities-for-azure-resources"></a>Identidades gerenciadas para recursos do Azure
+## <a name="managed-identities-for-azure-resources"></a>Identidades gerenciadas dos recursos do Azure
 
 Um desafio comum ao criar aplicativos de nuvem é como gerenciar as credenciais no código para autenticar serviços de nuvem. Proteger as credenciais é uma tarefa importante. O ideal é que as credenciais nunca apareçam em estações de trabalho do desenvolvedor e não sejam verificadas no controle de origem. O Azure Key Vault fornece uma maneira de armazenar com segurança as credenciais, os segredos e outras chaves, mas seu código precisa se autenticar no Key Vault para recuperá-los. 
 
@@ -67,11 +67,10 @@ As identidades de gerenciado para a funcionalidade de recursos do Azure no Azure
 
 As [Políticas do Azure](../governance/policy/overview.md) podem ser usadas para definir o comportamento desejado para as [VMs do Windows](./windows/policy.md) e [VMs do Linux](./linux/policy.md) da sua organização. Usando políticas, uma organização pode impor várias convenções e regras em toda a empresa. A imposição do comportamento desejado pode ajudar a reduzir o risco e contribui para o sucesso da organização.
 
-## <a name="role-based-access-control"></a>Controle de acesso baseado em função
+## <a name="azure-role-based-access-control"></a>Controle de acesso baseado em função do Azure
 
-Usando o Azure [RBAC (controle de acesso baseado em função)](../role-based-access-control/overview.md), você pode separar as tarefas dentro de sua equipe e conceder apenas a quantidade de acesso aos usuários em sua VM que eles precisam para executar seus trabalhos. Em vez de apresentar todas as permissões irrestritas na VM, você pode permitir que apenas determinadas ações. Você pode configurar o controle de acesso para a VM no [portal do Azure](../role-based-access-control/role-assignments-portal.md), usando a [CLI do Azure](https://docs.microsoft.com/cli/azure/role) ou o [Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
+Usando o Azure [RBAC (controle de acesso baseado em função)](../role-based-access-control/overview.md), você pode separar as tarefas dentro de sua equipe e conceder apenas a quantidade de acesso aos usuários em sua VM que eles precisam para executar seus trabalhos. Em vez de apresentar todas as permissões irrestritas na VM, você pode permitir que apenas determinadas ações. Você pode configurar o controle de acesso para a VM no [portal do Azure](../role-based-access-control/role-assignments-portal.md), usando a [CLI do Azure](/cli/azure/role) ou o [Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
 
 
 ## <a name="next-steps"></a>Próximas etapas
-- Siga as etapas para monitorar a segurança da máquina virtual usando a Central de Segurança do Azure para [Linux](../security/fundamentals/overview.md) ou [Windows](windows/tutorial-azure-security.md).
-
+- Siga as etapas para monitorar a segurança da máquina virtual usando a Central de Segurança do Azure para [Linux](../security/fundamentals/overview.md) ou [Windows](./tutorial-azure-security.md).

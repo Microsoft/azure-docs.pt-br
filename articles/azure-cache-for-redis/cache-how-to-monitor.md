@@ -1,19 +1,19 @@
 ---
-title: Como monitorar o Cache Redis do Azure
+title: Monitorar o cache do Azure para Redis
 description: Saiba como monitorar a integridade e o desempenho das instâncias do Cache Redis do Azure
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
-ms.date: 07/13/2017
-ms.openlocfilehash: 7d703c63ebdc5b70987ead3ed2ccbe5f4843a06f
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.date: 02/08/2021
+ms.openlocfilehash: ea99c34f03cd74185840767605c17ee6c65eb701
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88004852"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100389698"
 ---
-# <a name="how-to-monitor-azure-cache-for-redis"></a>Como monitorar o Cache Redis do Azure
+# <a name="monitor-azure-cache-for-redis"></a>Monitorar o cache do Azure para Redis
 
 O Cache Redis do Azure usa o [Azure Monitor](../azure-monitor/index.yml) para fornecer várias opções para monitorar suas instâncias de cache. Você pode exibir métricas, fixar gráficos de métricas ao quadro inicial, personalizar o intervalo de data e hora de gráficos de monitoramento, adicionar/remover as métricas de gráficos e definir alertas quando determinadas condições forem atendidas. Essas ferramentas permitem monitorar a integridade de suas instâncias do Cache do Azure para Redis e ajudá-lo a gerenciar seus aplicativos de cache.
 
@@ -23,7 +23,7 @@ As métricas para instâncias do Cache Redis do Azure são coletadas usando o co
 
 Para exibir as métricas de cache, [procure](cache-configure.md#configure-azure-cache-for-redis-settings) sua instância de cache no [portal do Azure](https://portal.azure.com).  O Cache Redis do Azure fornece alguns gráficos internos na folha **Visão Geral** e na folha **Métricas do Redis**. Cada gráfico pode ser personalizado com a adição ou remoção de métricas e a alteração do intervalo de relatório.
 
-![Métricas do Redis](./media/cache-how-to-monitor/redis-cache-redis-metrics-blade.png)
+![Seis grafos são mostrados. Um deles é acertos de cache e erros de cache na última hora.](./media/cache-how-to-monitor/redis-cache-redis-metrics-blade.png)
 
 ## <a name="view-pre-configured-metrics-charts"></a>Exibir gráficos de métricas pré-configurados
 
@@ -50,15 +50,15 @@ A **Tipo de preço** exibe a tipo de preço do cache e pode ser usada para [dime
 
 Para exibir as métricas do Redis e criar gráficos personalizados usando o Azure Monitor, clique em **Métricas** no **menu Recursos** e personalize o gráfico usando as métricas desejadas, intervalo de relatórios, o tipo de gráfico e muito mais.
 
-![Métricas do Redis](./media/cache-how-to-monitor/redis-cache-monitor.png)
+![No painel de navegação à esquerda de contoso55, as métricas são uma opção em monitoramento e são realçadas. Em métricas, há uma lista de métricas. Acertos de cache e erros de cache são selecionados.](./media/cache-how-to-monitor/redis-cache-monitor.png)
 
-Para saber mais sobre como trabalhar com as métricas usando o Azure Monitor, consulte [Visão geral das métricas no Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+Para saber mais sobre como trabalhar com as métricas usando o Azure Monitor, consulte [Visão geral das métricas no Microsoft Azure](../azure-monitor/platform/data-platform.md).
 
 <a name="how-to-view-metrics-and-customize-chart"></a>
 <a name="enable-cache-diagnostics"></a>
 ## <a name="export-cache-metrics"></a>Exportar métricas de cache
 
-Por padrão, as métricas de cache no Azure Monitor são [armazenadas durante 30 dias](../azure-monitor/platform/data-platform-metrics.md) e, em seguida, excluídas. Para persistir suas métricas de cache por mais de 30 dias, [indique uma conta de armazenamento](../azure-monitor/platform/archive-diagnostic-logs.md) e especifique uma política de **Retenção (dias)** para suas métricas de cache. 
+Por padrão, as métricas de cache no Azure Monitor são [armazenadas durante 30 dias](../azure-monitor/platform/data-platform-metrics.md) e, em seguida, excluídas. Para persistir suas métricas de cache por mais de 30 dias, [indique uma conta de armazenamento](../azure-monitor/platform/resource-logs.md#send-to-azure-storage) e especifique uma política de **Retenção (dias)** para suas métricas de cache. 
 
 Para configurar uma conta de armazenamento para suas métricas de cache:
 
@@ -67,7 +67,7 @@ Para configurar uma conta de armazenamento para suas métricas de cache:
 3. Nomeie as configurações.
 4. Marque **Arquivar em uma conta de armazenamento**. Você pagará taxas de dados normais por armazenamento e transações ao enviar diagnóstico para uma conta de armazenamento.
 4. Selecione **Configurar** para escolher a conta de armazenamento na qual armazenar as métricas de cache.
-5. Na **métrica**título da tabela, marque a caixa de seleção ao lado dos itens de linha que você deseja armazenar, como **biométricas**. Especifique uma política de **retenção (dias)** . A retenção máxima de dias que você pode especificar é de **365 dias**. No entanto, se você quiser manter os dados de métricas para sempre, defina a **retenção (dias)** como **0**.
+5. Na **métrica** título da tabela, marque a caixa de seleção ao lado dos itens de linha que você deseja armazenar, como **biométricas**. Especifique uma política de **retenção (dias)** . A retenção máxima de dias que você pode especificar é de **365 dias**. No entanto, se você quiser manter os dados de métricas para sempre, defina a **retenção (dias)** como **0**.
 6. Clique em **Salvar**.
 
 
@@ -129,7 +129,7 @@ Para configurar regras de Alerta para seu cache, clique em **Regras de alerta** 
 
 ![Monitoramento](./media/cache-how-to-monitor/redis-cache-monitoring.png)
 
-Para saber mais sobre como configurar e usar Alertas, consulte [Visão geral dos alertas](../monitoring-and-diagnostics/insights-alerts-portal.md).
+Para saber mais sobre como configurar e usar Alertas, consulte [Visão geral dos alertas](../azure-monitor/platform/alerts-classic-portal.md).
 
 ## <a name="activity-logs"></a>Logs de atividade
 Os logs de atividades fornecem insights sobre as operações realizadas nas instâncias do Cache Redis do Azure. Anteriormente eles eram conhecidos como "logs de auditoria" ou "logs operacionais". Usando logs de atividades, é possível determinar "o que, quem e quando" para operações de gravação (PUT, POST, DELETE) realizadas nas instâncias do Cache Redis do Azure. 

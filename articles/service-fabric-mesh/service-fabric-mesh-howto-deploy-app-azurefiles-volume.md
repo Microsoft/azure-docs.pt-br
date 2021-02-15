@@ -1,19 +1,24 @@
 ---
 title: Usar um volume baseado em arquivos do Azure em um aplicativo de malha Service Fabric
 description: Saiba como armazenar estado em um aplicativo de Malha do Azure Service Fabric montando um volume baseado em Arquivos do Azure dentro do volume usando a CLI do Azure.
-author: dkkapur
+author: georgewallace
 ms.topic: conceptual
 ms.date: 11/21/2018
-ms.author: dekapur
-ms.custom: mvc, devcenter
-ms.openlocfilehash: 54edc242260479a8f48cc4aae91845041fc2d376
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.author: gwallace
+ms.custom: mvc, devcenter , devx-track-azurecli
+ms.openlocfilehash: 40d10568e13ad455bc5178821da80e89f4132e93
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86260102"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99625830"
 ---
 # <a name="mount-an-azure-files-based-volume-in-a-service-fabric-mesh-application"></a>Montar um volume de Arquivos do Azure com base em um aplicativo da Malha do Azure Service Fabric 
+
+> [!IMPORTANT]
+> A visualização da malha de Service Fabric do Azure foi desativada. Novas implantações não serão mais permitidas por meio da API de malha Service Fabric. O suporte para implantações existentes continuará até 28 de abril de 2021.
+> 
+> Para obter detalhes, consulte desativação da [Visualização da malha de Service Fabric do Azure](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
 
 Este artigo descreve como montar um volume de arquivos do Azure com base em um serviço de um aplicativo da Malha do Azure Service Fabric.  O driver de volume de arquivos do Azure é um driver de volume do Docker usado para montar um compartilhamento de Arquivos do Azure para um contêiner, que você usa para manter o estado do serviço. Os volumes oferecem armazenamento de arquivos de finalidade geral e permitem a você ler/gravar arquivos usando APIs de arquivo de E/S de disco normal.  Para saber mais sobre volumes e opções para armazenar dados de aplicativo, leia [armazenando o estado](service-fabric-mesh-storing-state.md).
 
@@ -21,7 +26,7 @@ Para montar um volume em um serviço, crie um recurso de volume em seu aplicativ
 
 ## <a name="prerequisites"></a>Pré-requisitos
 > [!NOTE]
-> **Problema conhecido com a implantação no computador de desenvolvimento RS5 do Windows:** Há um bug aberto com o cmdlet do PowerShell New-SmbGlobalMapping em computadores com Windows RS5 que impede a montagem de volumes do Azurefile. Abaixo está um erro de exemplo que é encontrado quando o volume baseado no Azure está sendo montado no computador de desenvolvimento local.
+> **Problema conhecido com a implantação no computador de desenvolvimento RS5 do Windows:** Há um bug aberto com cmdlet do PowerShell New-SmbGlobalMapping em computadores Windows RS5 que impede a montagem de volumes do Azurefile. Abaixo está um erro de exemplo que é encontrado quando o volume baseado no Azure está sendo montado no computador de desenvolvimento local.
 ```
 Error event: SourceId='System.Hosting', Property='CodePackageActivation:counterService:EntryPoint:131884291000691067'.
 There was an error during CodePackage activation.System.Fabric.FabricException (-2147017731)

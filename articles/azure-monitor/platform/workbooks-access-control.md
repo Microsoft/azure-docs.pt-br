@@ -2,19 +2,16 @@
 title: Controle de acesso de pastas de trabalho Azure Monitor
 description: Simplifique relatórios complexos com pastas de trabalho parametrizadas predefinidas e personalizadas com controle de acesso baseado em função
 services: azure-monitor
-author: mrbullwinkle
-manager: carmonm
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
-ms.author: mbullwin
-ms.openlocfilehash: dc6e1d738bf255fe7baa244556bad4519979b1df
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 7d3bc13dc373cda510153099859cf4cd61b3dd69
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539288"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95534527"
 ---
 # <a name="access-control"></a>Controle de acesso
 
@@ -35,10 +32,10 @@ O [colaborador de monitoramento](../../role-based-access-control/built-in-roles.
 "Colaborador de pastas de trabalho" adiciona privilégios de "pastas de trabalho/gravação" a um objeto para salvar pastas de trabalho compartilhadas.
 Nenhum privilégio especial é necessário para que os usuários salvem pastas de trabalho particulares que só possam ver.
 
-Para controle de acesso baseado em função personalizado:
+Para funções personalizadas:
 
 Adicionar `microsoft.insights/workbooks/write` para salvar pastas de trabalho compartilhadas. Para obter mais detalhes, consulte a função [colaborador da pasta de trabalho](../../role-based-access-control/built-in-roles.md#monitoring-contributor) .
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Comece a aprender mais](workbooks-visualizations.md) sobre pastas de trabalho muitas opções de visualizações ricas.
+* [Comece a aprender mais](./workbooks-overview.md#visualizations) sobre pastas de trabalho muitas opções de visualizações ricas.

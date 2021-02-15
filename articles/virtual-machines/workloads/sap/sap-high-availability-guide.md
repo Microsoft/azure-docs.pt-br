@@ -1,6 +1,6 @@
 ---
 title: Alta disponibilidade de Máquinas Virtuais do Azure para SAP NetWeaver
-description: Guia de alta disponibilidade do SAP NetWeaver em máquinas virtuais do Azure
+description: Neste artigo, saiba mais sobre as máquinas virtuais do Azure de alta disponibilidade para o SAP NetWeaver.
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: rdeltcheva
@@ -10,18 +10,19 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: dbdbae3d310d6e4c3224663dd523cb124744dfbd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8e0baeb7eddb1d74a8d7708b04391134d2e188b2
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080175"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005666"
 ---
 # <a name="high-availability-azure-virtual-machines-for-sap-netweaver"></a>Máquinas virtuais do Azure de alta disponibilidade para SAP NetWeaver
 

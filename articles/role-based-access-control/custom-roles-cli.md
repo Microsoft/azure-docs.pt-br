@@ -14,17 +14,17 @@ ms.workload: identity
 ms.date: 06/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 8fa77f13b99564246c048e7b7a8129f9fc141c47
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 31dabcf77f0db76047919fa76d00f1c5ed3c96d6
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84984182"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97369133"
 ---
 # <a name="create-or-update-azure-custom-roles-using-azure-cli"></a>Criar ou atualizar funções personalizadas do Azure usando a CLI do Azure
 
 > [!IMPORTANT]
-> A adição de um grupo de gerenciamento ao `AssignableScopes` está em visualização no momento.
+> A adição de um grupo de gerenciamento a `AssignableScopes` está em versão prévia no momento.
 > Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos.
 > Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -189,7 +189,7 @@ Para atualizar uma função personalizada, primeiro use [lista de definições d
 az role definition update --role-definition {roleDefinition}
 ```
 
-O exemplo a seguir adiciona a operação *Microsoft. insights/diagnosticSettings/* ao `Actions` e adiciona um grupo de gerenciamento ao `AssignableScopes` para a função personalizada *operador de máquina virtual* . A adição de um grupo de gerenciamento ao `AssignableScopes` está em visualização no momento.
+O exemplo a seguir adiciona a operação *Microsoft. insights/diagnosticSettings/* ao `Actions` e adiciona um grupo de gerenciamento ao `AssignableScopes` para a função personalizada *operador de máquina virtual* . A adição de um grupo de gerenciamento a `AssignableScopes` está em versão prévia no momento.
 
 vmoperator.json
 
@@ -244,4 +244,4 @@ az role definition delete --name "Virtual Machine Operator"
 
 - [Tutorial: Criar uma função personalizada do Azure usando a CLI do Azure](tutorial-custom-role-cli.md)
 - [Funções personalizadas do Azure](custom-roles.md)
-- [Operações do provedor de recursos Azure Resource Manager](resource-provider-operations.md)
+- [Operações do provedor de recursos do Azure](resource-provider-operations.md)

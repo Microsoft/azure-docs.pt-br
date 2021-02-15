@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3cb22bc2cd032e51dcdb7429e2c0684c578b0870
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 2a7dedea2937c9cafb4216da3628aa1360ad6993
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89005642"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92172996"
 ---
 # <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>Gerenciando o consumo e a carga de recursos no Service Fabric com métricas
 *Métricas* são os recursos que são importantes para seus serviços e que são fornecidas pelos nós no cluster. Uma métrica é tudo o que você deseja gerenciar para melhorar ou monitorar o desempenho de seus serviços. Por exemplo, você pode observar o consumo de memória para saber se o serviço está sobrecarregado. Outro uso é para descobrir se o serviço pode ser movido para outro lugar onde a memória seja menos restrita para obter um melhor desempenho.
@@ -138,12 +138,13 @@ Agora, vamos percorrer cada uma dessas configurações mais detalhadamente e fal
 ## <a name="load"></a>Carregar
 O objetivo da definição de métricas é representar alguma carga. *Carga* é a quantidade de determinada métrica consumida por alguma instância de serviço ou réplica em determinado nó. A carga pode ser configurada em praticamente qualquer ponto. Por exemplo:
 
-  - A carga pode ser definida quando um serviço é criado. Isso é chamado de _carga padrão_.
-  - As informações de métrica, inclusive as cargas padrão, para um serviço podem ser atualizadas depois que o serviço é criado. Isso é chamado de _atualização de um serviço_. 
-  - As cargas de uma determinada partição podem ser redefinidas com os valores padrão para o serviço. Isso é chamado de _redefinição da carga de partição_.
-  - A carga pode ser relatada por objeto de serviço dinamicamente em runtime. Isso é chamado de _relatório de carga_. 
-  
-Todas essas estratégias podem ser usadas dentro do mesmo serviço durante o seu tempo de vida. 
+  - A carga pode ser definida quando um serviço é criado. Esse tipo de configuração de carga é chamado de _carga padrão_.
+  - As informações de métrica, incluindo as cargas padrão, para um serviço podem ser atualizadas depois que o serviço é criado. Essa atualização de métrica é feita _atualizando um serviço_.
+  - As cargas de uma determinada partição podem ser redefinidas com os valores padrão para o serviço. Essa atualização de métrica é chamada de _redefinição de carga de partição_.
+  - A carga pode ser relatada por objeto de serviço, dinamicamente durante o tempo de execução. Essa atualização de métrica é chamada de _carga de relatório_.
+  - A carga para réplicas ou instâncias da partição também pode ser atualizada com o relatório de valores de carga por meio de uma chamada à API de malha. Essa atualização de métrica é chamada _de carga de relatório para uma partição_.
+
+Todas essas estratégias podem ser usadas dentro do mesmo serviço durante o seu tempo de vida.
 
 ## <a name="default-load"></a>Carga padrão
 *Carga padrão* é o quanto de métrica cada objeto de serviço (instância sem estado ou réplica com estado) desse serviço consome. O Gerenciador de Recursos de Cluster usa esse número para a carga do objeto do serviço até receber outra informação, como um relatório de carga dinâmico. Para serviços mais simples, a carga padrão é uma definição estática. A carga padrão nunca é atualizada e é usada ao longo de todo o tempo de vida do serviço. A carga padrão funciona muito bem para cenários de planejamento de capacidade simples em que certos valores de recursos são dedicados para diferentes cargas de trabalho e não são alterados.
@@ -175,6 +176,67 @@ this.Partition.ReportLoad(new List<LoadMetric> { new LoadMetric("CurrentConnecti
 ```
 
 Um serviço pode relatar qualquer uma das métricas definidas para ela no momento da criação. Se um serviço relatar uma carga para uma métrica que ele não está configurado para usar, o Service Fabric ignora esse relatório. Se houver outras métricas relatadas ao mesmo tempo que sejam válidas, esses relatórios serão aceitos. O código do serviço pode medir e relatar todas as métricas que ele sabe relatar, e os operadores podem especificar a configuração de métrica para uso sem ter que alterar o código do serviço. 
+
+## <a name="reporting-load-for-a-partition"></a>Relatando carga para uma partição
+A seção anterior descreve como as réplicas ou instâncias de serviço relatam o carregamento. Há uma opção adicional para relatar dinamicamente a carga com FabricClient. Ao relatar a carga de uma partição, você pode relatar várias partições ao mesmo tempo.
+
+Esses relatórios serão usados exatamente da mesma forma que os relatórios de carga provenientes das réplicas ou das próprias instâncias. Os valores relatados serão válidos até que novos valores de carga sejam reportados, seja pela réplica ou instância, ou relatando um novo valor de carga para uma partição.
+
+Com essa API, há várias maneiras de atualizar a carga no cluster:
+
+  - Uma partição de serviço com estado pode atualizar seu carregamento de réplica primária.
+  - Os serviços com e sem estado podem atualizar a carga de todas as suas réplicas ou instâncias secundárias.
+  - Os serviços com e sem estado podem atualizar a carga de uma réplica ou instância específica em um nó.
+
+Também é possível combinar qualquer uma dessas atualizações por partição ao mesmo tempo.
+
+A atualização de cargas para várias partições é possível com uma única chamada à API; nesse caso, a saída conterá uma resposta por partição. Caso a atualização de partição não seja aplicada com êxito por qualquer motivo, as atualizações para essa partição serão ignoradas e o código de erro correspondente para uma partição de destino será fornecido:
+
+  - PartitionNotFound-a ID de partição especificada não existe.
+  - ReconfigurationPending-a partição está sendo reconfigurada no momento.
+  - InvalidForStatelessServices-foi feita uma tentativa de alterar a carga de uma réplica primária para uma partição que pertence a um serviço sem estado.
+  - ReplicaDoesNotExist-a réplica ou instância secundária não existe em um nó especificado.
+  - InvalidOperation-pode acontecer em dois casos: a atualização da carga para uma partição que pertence ao aplicativo do sistema ou a atualização da carga prevista não está habilitada.
+
+Se alguns desses erros forem retornados, você poderá atualizar a entrada para uma partição específica e tentar novamente a atualização para uma partição específica.
+
+Código:
+
+```csharp
+Guid partitionId = Guid.Parse("53df3d7f-5471-403b-b736-bde6ad584f42");
+string metricName0 = "CustomMetricName0";
+List<MetricLoadDescription> newPrimaryReplicaLoads = new List<MetricLoadDescription>()
+{
+    new MetricLoadDescription(metricName0, 100)
+};
+
+string nodeName0 = "NodeName0";
+List<MetricLoadDescription> newSpecificSecondaryReplicaLoads = new List<MetricLoadDescription>()
+{
+    new MetricLoadDescription(metricName0, 200)
+};
+
+OperationResult<UpdatePartitionLoadResultList> updatePartitionLoadResults =
+    await this.FabricClient.UpdatePartitionLoadAsync(
+        new UpdatePartitionLoadQueryDescription
+        {
+            PartitionMetricLoadDescriptionList = new List<PartitionMetricLoadDescription>()
+            {
+                new PartitionMetricLoadDescription(
+                    partitionId,
+                    newPrimaryReplicaLoads,
+                    new List<MetricLoadDescription>(),
+                    new List<ReplicaMetricLoadDescription>()
+                    {
+                        new ReplicaMetricLoadDescription(nodeName0, newSpecificSecondaryReplicaLoads)
+                    })
+            }
+        },
+        this.Timeout,
+        cancellationToken);
+```
+
+Com este exemplo, você executará uma atualização da última carga relatada para uma partição _53df3d7f-5471-403b-b736-bde6ad584f42_. O carregamento de réplica primária para uma métrica _CustomMetricName0_ será atualizado com o valor 100. Ao mesmo tempo, a carga para a mesma métrica para uma réplica secundária específica localizada no nó _NodeName0_será atualizada com o valor 200.
 
 ### <a name="updating-a-services-metric-configuration"></a>Atualizando a configuração da métrica do serviço
 A lista de métricas associadas ao serviço e as propriedades dessas métricas podem ser atualizadas dinamicamente enquanto o serviço está ativo. Isso permite flexibilidade e a oportunidade de fazer experimentos. Alguns exemplos de quando isso é útil são:

@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: troubleshooting
-ms.date: 06/22/2020
+ms.date: 10/16/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 5e75f7214e3a9aa5b44a763cc3448583b47185f9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8043e85db1ee1aadc814e98db12cab10ec17e129
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253232"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145231"
 ---
 # <a name="azure-active-directory-conditional-access-faqs"></a>Azure Active Directory FAQs de acesso condicional
 
@@ -31,11 +31,11 @@ As políticas são impostas para usuários de colaboração B2B (entre empresas)
 
 ## <a name="does-a-sharepoint-online-policy-also-apply-to-onedrive-for-business"></a>A política do SharePoint Online também se aplica ao OneDrive for Business?
 
-Sim. A política do SharePoint Online também se aplica ao OneDrive for Business. Para obter mais informações, consulte o artigo [dependências do serviço de acesso condicional](service-dependencies.md) e considerar as políticas de direcionamento para o [aplicativo do Office 365](concept-conditional-access-cloud-apps.md#office-365-preview) em vez disso.
+Sim. A política do SharePoint Online também se aplica ao OneDrive for Business. Para obter mais informações, consulte o artigo [dependências do serviço de acesso condicional](service-dependencies.md) e considerar as políticas de direcionamento para o [aplicativo do Office 365](concept-conditional-access-cloud-apps.md#office-365) em vez disso.
 
 ## <a name="why-cant-i-set-a-policy-directly-on-client-apps-like-word-or-outlook"></a>Por que não posso definir uma política diretamente em aplicativos cliente, como o Word ou o Outlook?
 
-Uma política de acesso condicional define os requisitos para acessar um serviço. É imposta quando ocorre a autenticação para esse serviço. A política não é definida diretamente em um aplicativo cliente. Em vez disso, ela será aplicada quando um cliente chamar um serviço. Por exemplo, um conjunto de políticas no SharePoint se aplica aos clientes que chamam o SharePoint. Um conjunto de políticas no Exchange se aplica ao Outlook. Para obter mais informações, consulte o artigo [dependências do serviço de acesso condicional](service-dependencies.md) e considerar as políticas de direcionamento para o [aplicativo do Office 365](concept-conditional-access-cloud-apps.md#office-365-preview) em vez disso.
+Uma política de acesso condicional define os requisitos para acessar um serviço. É imposta quando ocorre a autenticação para esse serviço. A política não é definida diretamente em um aplicativo cliente. Em vez disso, ela será aplicada quando um cliente chamar um serviço. Por exemplo, um conjunto de políticas no SharePoint se aplica aos clientes que chamam o SharePoint. Um conjunto de políticas no Exchange se aplica ao Outlook. Para obter mais informações, consulte o artigo [dependências do serviço de acesso condicional](service-dependencies.md) e considerar as políticas de direcionamento para o [aplicativo do Office 365](concept-conditional-access-cloud-apps.md#office-365) em vez disso.
 
 ## <a name="does-a-conditional-access-policy-apply-to-service-accounts"></a>Uma política de acesso condicional se aplica a contas de serviço?
 
@@ -53,14 +53,14 @@ O Microsoft Teams também tem suporte separadamente como um aplicativo de nuvem 
 
 Os clientes de área de trabalho do Microsoft Teams para Windows e Mac oferecem suporte a autenticação moderna. A autenticação moderna traz a entrada com base no Azure Active Directory Authentication Library (ADAL) para aplicativos cliente do Microsoft Office entre plataformas.
 
-Para obter mais informações, consulte o artigo [dependências do serviço de acesso condicional](service-dependencies.md) e considerar as políticas de direcionamento para o [aplicativo do Office 365](concept-conditional-access-cloud-apps.md#office-365-preview) em vez disso.
+Para obter mais informações, consulte o artigo [dependências do serviço de acesso condicional](service-dependencies.md) e considerar as políticas de direcionamento para o [aplicativo do Office 365](concept-conditional-access-cloud-apps.md#office-365) em vez disso.
 
 ## <a name="why-are-some-tabs-not-working-in-microsoft-teams-after-enabling-conditional-access-policies"></a>Por que algumas guias não estão funcionando no Microsoft Teams depois de habilitar as políticas de acesso condicional?
 
 Depois de habilitar algumas políticas de acesso condicional no locatário do Microsoft Teams, algumas guias podem não funcionar mais no cliente de desktop conforme o esperado. No entanto, as guias afetadas funcionam ao usar o cliente Web do Microsoft Teams. As guias afetadas podem incluir Power BI, formulários, VSTS, PowerApps e lista do SharePoint.
 
-Para ver as guias afetadas, você deve usar o cliente Web das equipes no Edge, no Internet Explorer ou no Chrome com a extensão de contas do Windows 10 instalada. Algumas guias dependem da autenticação na Web, que não funciona no cliente do Microsoft Teams desktop quando o acesso condicional está habilitado. A Microsoft está trabalhando com parceiros para habilitar esses cenários. Até o momento, habilitamos o scenrarios envolvendo o Planner, o OneNote e o Stream.
+Para ver as guias afetadas, você deve usar o cliente Web das equipes no Edge, no Internet Explorer ou no Chrome com a extensão de contas do Windows 10 instalada. Algumas guias dependem da autenticação na Web, que não funciona no cliente do Microsoft Teams desktop quando o acesso condicional está habilitado. A Microsoft está trabalhando com parceiros para habilitar esses cenários. Até o momento, habilitamos cenários envolvendo o Planner, o OneNote e o Stream.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para configurar políticas de acesso condicional para seu ambiente, consulte as [práticas recomendadas para acesso condicional no Azure Active Directory](best-practices.md). 
+- Para configurar políticas de acesso condicional para seu ambiente, consulte o artigo [planejar uma implantação de acesso condicional](plan-conditional-access.md). 

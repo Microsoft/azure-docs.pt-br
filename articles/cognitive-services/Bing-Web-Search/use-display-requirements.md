@@ -10,14 +10,19 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: aahi
-ms.openlocfilehash: 5575668f164b97142e7c4b2ddb2608c3173426a6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4300860039b76bd076f19acfc252f59ef10d462b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "60499875"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351837"
 ---
 # <a name="bing-search-api-use-and-display-requirements"></a>Requisitos de uso e exibição da API de Pesquisa do Bing
+
+> [!WARNING]
+> As APIs de Pesquisa do Bing estão migrando dos Serviços Cognitivos para os Serviços de Pesquisa do Bing. A partir de **30 de outubro de 2020**, todas as novas instâncias da Pesquisa do Bing precisam ser provisionadas seguindo o processo documentado [aqui](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> As APIs de Pesquisa do Bing provisionadas por meio dos Serviços Cognitivos terão suporte nos próximos três anos ou até o final do seu Contrato Enterprise, o que ocorrer primeiro.
+> Para obter instruções sobre a migração, confira [Serviços de Pesquisa do Bing](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Esses requisitos de uso e exibição se aplicam a qualquer implementação do conteúdo e informações associadas das seguintes APIs de Pesquisa do Bing, incluindo relações, metadados e outros sinais.
 
@@ -27,7 +32,7 @@ Esses requisitos de uso e exibição se aplicam a qualquer implementação do co
 - Pesquisa de Notícias do Bing
 - Pesquisa de Vídeo do Bing
 - Pesquisa Visual do Bing
-- Pesquisa da Web do Bing
+- Pesquisa na Web do Bing
 - Verificação Ortográfica do Bing
 - Sugestão Automática do Bing
 
@@ -38,7 +43,7 @@ Esses requisitos de uso e exibição se aplicam a qualquer implementação do co
 |---------|---------|
 |Resposta     | Uma categoria de resultados retornados em uma resposta. Por exemplo, uma resposta da API de Pesquisa de Web do Bing pode incluir respostas nas categorias de resultados de página da Web, imagens, vídeo, visual e notícias. |
 |Resposta     | Quaisquer respostas e dados associados recebidos em resposta a uma única chamada a uma API de Pesquisa. |
-|Result    | Um item de informação em uma resposta. Por exemplo, o conjunto de dados conectados com um artigo de notícias único é um resultado em uma resposta de notícias. |
+|Resultado    | Um item de informação em uma resposta. Por exemplo, o conjunto de dados conectados com um artigo de notícias único é um resultado em uma resposta de notícias. |
 |APIs de pesquisa    | coletivamente, a Pesquisa Personalizada do Bing, a Pesquisa de Entidade, a Pesquisa de Imagem, a Pesquisa de Notícias, a Pesquisa de Vídeo, a Pesquisa Visual, a Pesquisa de Empresas Locais e as APIs de Pesquisa na Web. |
 
 ## <a name="bing-spell-check-and-bing-autosuggest-api-restrictions"></a>Restrições da API de Verificação Ortográfica do Bing e API de Sugestão Automática do Bing
@@ -97,7 +102,7 @@ Não:
     - Que são filtradas ou limitadas principalmente (ou unicamente) a resultados da pesquisa de imagens, notícias e/ou vídeos ou objetos visuais.
 
 ### <a name="notices-and-branding"></a>Notificações e identidade visual 
-Fazem:
+Você deve
 
 - Proeminentemente incluem um hiperlink funcional para a [Declaração de Privacidade da Microsoft](https://go.microsoft.com/fwlink/?LinkId=521839), perto de cada ponto na experiência do usuário (UX) que oferece a capacidade de uma consulta de pesquisa de entrada de um usuário. Rotule o hiperlink **política de privacidade da Microsoft**.
 
@@ -134,7 +139,7 @@ Você pode permitir que um usuário mantenha os resultados em um dispositivo par
 - Para permitir que o usuário acesse os resultados retornados anteriormente para o usuário no dispositivo (por exemplo, no caso de interrupção de serviço).
 - Para armazenar os resultados retornados para sua consulta proativa personalizada prevendo as necessidades do usuário com base em sinais do usuário (por exemplo, no caso de interrupção de serviço prevista).
 
-#### <a name="server"></a>Server (Servidor)
+#### <a name="server"></a>Servidor
 
 Você pode manter os resultados específicos para um único usuário com segurança em um servidor que controla e exibir os resultados mantidos somente:
 
@@ -167,5 +172,4 @@ As seções anteriores de APIs de Pesquisa usam e exibem requisitos que não se 
 
 ## <a name="gdpr-compliance"></a>Conformidade de GDPR  
 
-Com relação a alguns dados pessoais sujeitos à Regulação de Proteção de Dados Gerais da União Europeia (GDPR) e que é processada em conexão com as chamadas para as APIs de Pesquisa, API de Verificação Ortográfica do Bing ou API de Sugestão Automática do Bing, você entende que você e a Microsoft são controladores de dados independentes da GDPR. Você é responsável independentemente de sua conformidade com a GDPR.  
-
+Com relação a alguns dados pessoais sujeitos à Regulação de Proteção de Dados Gerais da União Europeia (GDPR) e que é processada em conexão com as chamadas para as APIs de Pesquisa, API de Verificação Ortográfica do Bing ou API de Sugestão Automática do Bing, você entende que você e a Microsoft são controladores de dados independentes da GDPR. Você é responsável independentemente de sua conformidade com a GDPR.

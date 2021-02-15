@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1140b65cf56125b23ef3c616e597aafba989b197
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2a0089d246169ad4215075662500794e7143940e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83993840"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "90601802"
 ---
 # <a name="conditional-access-session"></a>Acesso condicional: sessão
 
@@ -57,7 +57,7 @@ A configuração frequência de entrada funciona com aplicativos que implementar
 - Word, Excel, PowerPoint online
 - OneNote online
 - Office.com
-- Portal de administração do O365
+- Portal de administração do Microsoft 365
 - Exchange Online
 - SharePoint e OneDrive
 - Cliente Web de equipes

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: a043a1655950f3ed7688e59352f8a912146e12c9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ed54fda744978ac43bbffc6a70d6b331e85dc5e7
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76720445"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305591"
 ---
 # <a name="the-team-data-science-process-lifecycle"></a>O ciclo de vida do Processo de Ciência de Dados de Equipe
 
@@ -29,7 +29,7 @@ Esse ciclo de vida foi projetado para projetos de ciência de dados que devem se
 O ciclo de vida do TDSP é composto por cinco estágios principais executados de forma iterativa. Esses estágios incluem:
 
    1. [Noções básicas sobre negócios](lifecycle-business-understanding.md)
-   2. [Compreensão e aquisição de dados](lifecycle-data.md)
+   2. [Aquisição e compreensão de dados](lifecycle-data.md)
    3. [Modelagem](lifecycle-modeling.md)
    4. [Implantação](lifecycle-deployment.md)
    5. [Aceitação do cliente](lifecycle-acceptance.md)
@@ -43,12 +43,12 @@ O ciclo de vida do TDSP é modelado como uma sequência de etapas iteradas que f
 
 Para cada estágio, fornecemos as seguintes informações:
 
-   * **Metas**: os objetivos específicos.
-   * **Como fazer isso**: uma estrutura de tópicos de tarefas específicas e diretrizes sobre como conclui-las.
-   * **Artefatos**: as entregas e o suporte para produzi-las.
+   * **Metas** : os objetivos específicos.
+   * **Como fazer isso** : uma estrutura de tópicos de tarefas específicas e diretrizes sobre como conclui-las.
+   * **Artefatos** : as entregas e o suporte para produzi-las.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Fornecemos passo a passo completos que demonstram todas as etapas do processo para cenários específicos. O artigo [Passo a passos de exemplo](walkthroughs.md) fornece uma lista dos cenários com descrições de links e miniaturas. Os passo a passo ilustram como combinar ferramentas e serviços de nuvem e locais em um fluxo de trabalho ou pipeline para criar um aplicativo inteligente. 
 
-Para obter exemplos de como executar etapas nos TDSPs que usam o Azure Microsoft Azure Machine Learning Studio, consulte [Use the TDSP with Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) (Usar o TDSP com o Azure Machine Learning).
+Para obter exemplos de como executar etapas nos TDSPs que usam o Azure Microsoft Azure Machine Learning Studio, consulte [Use the TDSP with Azure Machine Learning](./index.yml) (Usar o TDSP com o Azure Machine Learning).

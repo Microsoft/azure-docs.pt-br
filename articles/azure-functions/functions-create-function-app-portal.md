@@ -1,46 +1,84 @@
 ---
-title: Criar um aplicativo de funções no portal do Azure
-description: Crie um novo aplicativo de funções no Azure por meio do Portal.
+title: Criar sua primeira função no portal do Azure
+description: Aprenda a criar sua primeira Função do Azure para a execução sem servidor usando o Portal do Azure.
 ms.topic: how-to
-ms.date: 08/29/2019
-ms.custom: mvc
-ms.openlocfilehash: 001b4e4f0ea7fbacd232b2a87abfe353f34919bd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 03/26/2020
+ms.custom: devx-track-csharp, mvc, devcenter, cc996988-fb4f-47
+ms.openlocfilehash: 63e9c87d1d94d6b803c27862bc9f2755e02f3111
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80985007"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980926"
 ---
-# <a name="create-a-function-app-from-the-azure-portal"></a>Criar um aplicativo de funções no portal do Azure
+# <a name="create-your-first-function-in-the-azure-portal"></a>Criar sua primeira função no portal do Azure
 
-Este tópico mostra como usar Azure Functions para criar um aplicativo de funções no portal do Azure. Um aplicativo de funções é o contêiner que hospeda a execução de funções individuais. 
+O Azure Functions permite que você execute seu código em um ambiente sem servidor que não precise primeiro criar uma VM (máquina virtual) ou publicar um aplicativo Web. Neste artigo, você aprenderá a usar o Azure Functions para criar uma função de gatilho HTTP "Olá, mundo" no portal do Azure.
+
+>[!NOTE]
+>A edição no portal só tem suporte para as funções de script JavaScript, PowerShell, TypeScript e C#.<br><br>Para as funções de biblioteca de classes C#, Java e Python, você pode criar o aplicativo de funções no portal, mas você também deve criar as funções localmente e, em seguida, publicá-las no Azure. 
+
+Em vez disso, recomendamos que você [desenvolva suas funções localmente](functions-develop-local.md) e publique em um aplicativo de funções no Azure.  
+Use um dos links a seguir para começar com o idioma e o ambiente de desenvolvimento local escolhidos:
+
+| Visual Studio Code | Terminal/prompt de comando | Visual Studio |
+| --- | --- | --- |
+|  &bull;&nbsp;[Introdução ao C #](./create-first-function-vs-code-csharp.md)<br/>&bull;&nbsp;[Introdução ao Java](./create-first-function-vs-code-java.md)<br/>&bull;&nbsp;[Introdução ao JavaScript](./create-first-function-vs-code-node.md)<br/>&bull;&nbsp;[Introdução ao PowerShell](./create-first-function-vs-code-powershell.md)<br/>&bull;&nbsp;[Introdução ao Python](./create-first-function-vs-code-python.md) |&bull;&nbsp;[Introdução ao C #](./create-first-function-cli-csharp.md)<br/>&bull;&nbsp;[Introdução ao Java](./create-first-function-cli-java.md)<br/>&bull;&nbsp;[Introdução ao JavaScript](./create-first-function-cli-node.md)<br/>&bull;&nbsp;[Introdução ao PowerShell](./create-first-function-cli-powershell.md)<br/>&bull;&nbsp;[Introdução ao Python](./create-first-function-cli-python.md) | [Introdução ao C#](functions-create-your-first-function-visual-studio.md) |
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+## <a name="sign-in-to-azure"></a>Entrar no Azure
+
+Entre no [portal do Azure](https://portal.azure.com) com sua conta do Azure.
 
 ## <a name="create-a-function-app"></a>Criar um aplicativo de funções
 
-[!INCLUDE [functions-create-function-app-portal](../../includes/functions-create-function-app-portal.md)]
+Você deve ter um aplicativo de funções para hospedar a execução de suas funções. Um aplicativo de funções lhe permite agrupar funções como uma unidade lógica para facilitar o gerenciamento, a implantação, o dimensionamento e o compartilhamento de recursos.
 
-Depois de criar o aplicativo de funções, é possível criar funções individuais em uma ou mais linguagens diferentes. Crie funções [usando o portal](functions-create-first-azure-function.md#create-function), [a implantação contínua](functions-continuous-deployment.md) ou [carregando com FTP](https://github.com/projectkudu/kudu/wiki/Accessing-files-via-ftp).
+[!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
-## <a name="service-plans"></a>Planos de serviço
+Em seguida, crie uma função no novo aplicativo de funções.
 
-Azure Functions tem três planos de serviço diferentes: plano de consumo, plano Premium e plano dedicado (serviço de aplicativo). Você deve escolher seu plano de serviço quando seu aplicativo de funções for criado e não puder ser alterado posteriormente. Para obter mais informações, consulte [Escolher um plano de hospedagem do Azure Functions](functions-scale.md).
+## <a name="create-an-http-trigger-function"></a><a name="create-function"></a>Criar uma função de gatilho HTTP
 
-Se você estiver planejando executar funções JavaScript em um plano dedicado (serviço de aplicativo), escolha um plano com menos núcleos. Para obter mais informações, consulte a [Referência do JavaScript para funções](functions-reference-node.md#choose-single-vcpu-app-service-plans).
+1. No menu esquerdo da janela **Funções**, selecione **Funções** e depois selecione **Adicionar** no menu superior. 
+ 
+1. Na janela **Nova Função**, selecione **Gatilho HTTP**.
 
-<a name="storage-account-requirements"></a>
+    ![Escolher uma função de gatilho HTTP](./media/functions-create-first-azure-function/function-app-select-http-trigger.png)
 
-## <a name="storage-account-requirements"></a>Requisitos da conta de armazenamento
+1. Na janela **Nova Função**, aceite o nome padrão para **Nova Função** ou insira um novo nome. 
 
-Quando você cria um aplicativo de funções, é necessário criar ou vincular uma conta de armazenamento do Azure de uso geral que oferece suporte ao armazenamento de Tabelas, Blobs e Filas. Internamente, o Functions usa o Armazenamento para operações como gerenciamento de gatilhos e log de execuções de função. Algumas contas de armazenamento não dão suporte a filas e tabelas, como contas de armazenamento somente blob, Armazenamento Premium do Azure e contas de armazenamento de uso geral com replicação ZRS. Essas contas são filtradas na folha Conta de Armazenamento durante a criação de um aplicativo de funções.
+1. Escolha **Anônimo** na lista suspensa **Nível de autorização** e, em seguida, selecione **Criar Função**.
 
->[!NOTE]
->Ao usar o plano de hospedagem de Consumo, o código da função e os arquivos de configuração da associação são armazenados no armazenamento de Arquivos do Azure na conta de armazenamento principal. Ao excluir a conta de armazenamento principal, esse conteúdo será excluído e não poderá ser recuperado.
+    O Azure cria a função de gatilho HTTP. Agora você pode executar a nova função enviando uma solicitação HTTP.
 
-Para saber mais sobre tipos de conta de armazenamento, confira [Introdução aos serviços de Armazenamento do Microsoft Azure](../storage/common/storage-introduction.md#core-storage-services). 
+## <a name="test-the-function"></a>Testar a função
+
+1. Em sua nova função de gatilho HTTP, selecione **Codificar + Testar** no menu esquerdo e, em seguida, **Obter URL da função** no menu superior.
+
+    ![Selecione Obter URL da função](./media/functions-create-first-azure-function/function-app-select-get-function-url.png)
+
+1. Na caixa de diálogo **Obter URL da função**, selecione **padrão** na lista suspensa e, em seguida, selecione **Copiar para a área de transferência**. 
+
+    ![Copiar a URL da função do Portal do Azure](./media/functions-create-first-azure-function/function-app-develop-tab-testing.png)
+
+1. Cole a URL de função na barra de endereços do navegador. Adicione o valor da cadeia de caracteres de consulta `?name=<your_name>` ao final desta URL e pressione ENTER para executar a solicitação. 
+
+    O exemplo a seguir mostra a resposta no navegador:
+
+    ![Resposta da função no navegador.](./media/functions-create-first-azure-function/function-app-browser-testing.png)
+
+    Se a URL de solicitação tiver incluído uma [chave de acesso](functions-bindings-http-webhook-trigger.md#authorization-keys) ( `?code=...` ), isso significa que você escolherá a **função** em vez do nível de acesso **anônimo** ao criar a função. Nesse caso, você deve anexar `&name=<your_name>` .
+
+1. Quando a função é executada, informações de rastreamento são gravadas nos logs. Para ver a saída do rastreamento, retorne à página **Codificar + Testar** no portal e expanda a seta **Logs** na parte inferior da página.
+
+   ![Visualizador de log de função no Portal do Azure.](./media/functions-create-first-azure-function/function-view-logs.png)
+
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+[!INCLUDE [Clean-up resources](../../includes/functions-quickstart-cleanup.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Embora o portal do Azure torna fácil criar e testar funções, é recomendável usar o [desenvolvimento local](functions-develop-local.md). Depois de criar um aplicativo de funções no portal, você ainda precisa adicionar uma função. 
-
-> [!div class="nextstepaction"]
-> [Adicionar uma função disparada por HTTP](functions-create-first-azure-function.md#create-function)
+[!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]

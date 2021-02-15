@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 06/26/2020
 ms.author: cynthn
 ms.reviewer: jagaveer
-ms.openlocfilehash: 8bcf90368e8d43dce2d10fa3744024bcbc7e4b52
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 0ca3c99aed8160161c125a89da3cb176c6e745f6
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816534"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202055"
 ---
 # <a name="deploy-spot-vms-using-azure-powershell"></a>Implantar VMs especiais usando Azure PowerShell
 
@@ -73,8 +73,25 @@ Get-AzVM -ResourceGroupName $resourceGroup | `
    Select-Object Name,@{Name="maxPrice"; Expression={$_.BillingProfile.MaxPrice}}
 ```
 
+## <a name="simulate-an-eviction"></a>Simular uma remoção
+
+Você pode [simular uma remoção](/rest/api/compute/virtualmachines/simulateeviction) de uma VM Spot, para testar o quão bem seu aplicativo responderá a uma remoção repentina. 
+
+Substitua o seguinte pelas suas informações: 
+
+- `subscriptionId`
+- `resourceGroupName`
+- `vmName`
+
+
+```http
+POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}/simulateEviction?api-version=2020-06-01
+```
+
 ## <a name="next-steps"></a>Próximas etapas
 
-Você também pode criar uma VM Spot usando o [CLI do Azure](../linux/spot-cli.md), o [portal](spot-portal.md) ou um [modelo](../linux/spot-template.md).
+Você também pode criar uma VM Spot usando o [CLI do Azure](../linux/spot-cli.md), o [portal](../spot-portal.md) ou um [modelo](../linux/spot-template.md).
 
-Se você encontrar um erro, consulte [códigos de erro](../error-codes-spot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Consulte as informações de preços atuais usando a [API de preços de varejo do Azure](/rest/api/cost-management/retail-prices/azure-retail-prices) para obter informações sobre preços especiais. O `meterName` e `skuName` os dois conterão `Spot` .
+
+Se você encontrar um erro, consulte [códigos de erro](../error-codes-spot.md).

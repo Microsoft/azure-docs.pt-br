@@ -1,30 +1,28 @@
 ---
-title: Autoridade de certificação permitida para habilitar HTTPS personalizado na CDN do Azure
-description: Se você estiver usando seu próprio certificado para habilitar HTTPS em um domínio personalizado, deverá usar uma AC (autoridade de certificação) permitida para criá-lo.
+title: Autoridade de certificação permitida para habilitar o HTTPS personalizado
+titleSuffix: Azure Content Delivery Network
+description: Se você estiver usando seu próprio certificado para habilitar o HTTPS em um domínio personalizado, deverá usar uma autoridade de certificação (CA) permitida para criá-lo.
 services: cdn
-documentationcenter: ''
 author: asudbring
-manager: danielgi
-editor: ''
-ms.assetid: ''
 ms.service: azure-cdn
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 10/18/2018
+ms.date: 02/04/2021
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 29b6cb25e021e86ce6663b4db5c89217aaf70a37
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f98e28c89fa70831108cfbbbaca6e2f316d1b039
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84887395"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99573391"
 ---
-# <a name="allowed-certificate-authorities-for-enabling-custom-https-on-azure-cdn"></a>Autoridades de certificação permitidas para habilitar HTTPS personalizado no CDN do Azure
+# <a name="allowed-certificate-authorities-for-enabling-custom-https"></a>Autoridades de certificação permitidas para habilitar o HTTPS personalizado
 
-Você deve atender aos requisitos de certificado específicos ao [habilitar o recurso https usando seu próprio certificado](cdn-custom-ssl.md?tabs=option-2-enable-https-with-your-own-certificate#tlsssl-certificates) para um domínio personalizado da CDN (rede de distribuição de conteúdo) do Azure. O perfil **Azure CDN Standard da Microsoft** requer um certificado de uma das autoridades de certificação aprovadas na lista a seguir. Se um certificado de uma AC não aprovada ou se um certificado autoassinado for usado, a solicitação será rejeitada. Os perfis **da CDN standard do Azure da Verizon** e do **Azure CDN Premium da Verizon** aceitam qualquer certificado válido de qualquer AC válida.
+Requisitos de certificado específicos são necessários quando você [habilita o recurso https usando seu próprio certificado](cdn-custom-ssl.md?tabs=option-2-enable-https-with-your-own-certificate#tlsssl-certificates) para um domínio personalizado da CDN do Azure (rede de distribuição de conteúdo). 
+
+* O perfil **Azure CDN Standard da Microsoft** requer um certificado de uma das autoridades de certificação aprovadas na lista a seguir. Se um certificado de uma AC não aprovada ou se um certificado autoassinado for usado, a solicitação será rejeitada. 
+
+* Os perfis **da CDN standard do Azure da Verizon** e do **Azure CDN Premium da Verizon** aceitam qualquer certificado válido de qualquer AC válida. Os perfis Verizon não dão suporte a certificados autoassinados.
 
 > [!NOTE]
 > A opção de usar seu próprio certificado para habilitar o recurso HTTPS de domínio personalizado *não* está disponível para os perfis **da CDN standard do Azure da Akamai** . 

@@ -5,14 +5,14 @@ ms.topic: conceptual
 ms.custom: devx-track-dotnet
 author: DaleKoetke
 ms.author: dalek
-ms.date: 5/7/2020
+ms.date: 2/7/2021
 ms.reviewer: mbullwin
-ms.openlocfilehash: 5dd1fd1209be29774d19a155b6e585fa6ebcc036
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 3ae3224ae17d0dee2ed1080669c6057ca62959d9
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88930478"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100384496"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Gerenciar o uso e os custos do Application Insights
 
@@ -148,7 +148,7 @@ union (AppAvailabilityResults),
       (AppRequests),
       (AppSystemEvents),
       (AppTraces)
-| where TimeGenerated >= startofday(ago(7d) and TimeGenerated < startofday(now())
+| where TimeGenerated >= startofday(ago(7d)) and TimeGenerated < startofday(now())
 | summarize sum(_BilledSize) by _ResourceId, bin(TimeGenerated, 1d)
 | render areachart
 ```
@@ -167,7 +167,7 @@ union (AppAvailabilityResults),
       (AppRequests),
       (AppSystemEvents),
       (AppTraces)
-| where TimeGenerated >= startofday(ago(7d) and TimeGenerated < startofday(now())
+| where TimeGenerated >= startofday(ago(7d)) and TimeGenerated < startofday(now())
 | where _ResourceId contains "<myAppInsightsResourceName>"
 | summarize sum(_BilledSize) by Type, bin(TimeGenerated, 1d)
 | render areachart
@@ -186,7 +186,7 @@ O volume de dados que você envia pode ser gerenciado com as seguintes técnicas
 
 * **Amostragem**: Você pode usar a amostragem para reduzir o volume de telemetria enviado do seu servidor e de aplicativos cliente, com mínima distorção de métricas. Amostragem é a ferramenta principal que você pode usar para ajustar a quantidade de dados enviados. Saiba mais sobre [recursos de amostragem](./sampling.md).
 
-* **Limitar chamadas Ajax**: Você pode [limitar o número de chamadas Ajax que podem ser relatadas](./javascript.md#configuration) em cada exibição de página ou desativar relatórios Ajax.
+* **Limitar chamadas Ajax**: Você pode [limitar o número de chamadas Ajax que podem ser relatadas](./javascript.md#configuration) em cada exibição de página ou desativar relatórios Ajax. Observe que desabilitar as chamadas AJAX desabilitará a [correlação de JavaScript](./javascript.md#enable-correlation).
 
 * **Desabilitar os módulos desnecessários**: [Edite Applicationinsights](./configuration-with-applicationinsights-config.md) para desativar os módulos de coleção desnecessários. Por exemplo, você pode decidir que os contadores de desempenho ou dados de dependência não são essenciais.
 
@@ -264,7 +264,7 @@ A retenção padrão para recursos do Application Insights é de 90 dias. Difere
 
 Para alterar a retenção, em seu recurso do Application Insights, vá para a página **Uso e Custos Estimados** e selecione a opção **Retenção de Dados**:
 
-![Ajustar o limite de volume de telemetria diário](./media/pricing/pricing-005.png)
+![Captura de tela que mostra onde alterar o período de retenção de dados.](./media/pricing/pricing-005.png)
 
 Quando a retenção é reduzida, há um período de carência de vários dias antes que os dados mais antigos sejam removidos.
 
@@ -286,15 +286,18 @@ Para desabilitar os emails de limite diário, na seção **Configurar** do recur
 
 Para os usuários pioneiros do Azure Application Insights, ainda há dois possíveis tipos de preços: Básico e Enterprise. O tipo de preço Basic é o mesmo descrito acima e é a camada padrão. Ele inclui todos os recursos da camada Enterprise, sem nenhum custo adicional. A camada Basic cobra principalmente o volume de dados ingeridos.
 
-> [!NOTE]
-> Esses tipos de preço herdados foram renomeados. O tipo de preço Enterprise agora é chamado de **Por Nó**, e o tipo de preço Basic agora é chamado de **Por GB**. Esses novos nomes são usados abaixo e no portal do Azure.  
+Esses tipos de preço herdados foram renomeados. O tipo de preço Enterprise agora é chamado de **Por Nó**, e o tipo de preço Basic agora é chamado de **Por GB**. Esses novos nomes são usados abaixo e no portal do Azure.  
 
-A camada Por Nó (antiga Enterprise) tem um encargo por nó, e cada nó recebe uma concessão de dados diária. No tipo de preço Por Nó, você será cobrado pelos dados ingeridos acima da bonificação incluída. Se você estiver usando o Operations Management Suite, deverá escolher a camada Por Nó.
+A camada Por Nó (antiga Enterprise) tem um encargo por nó, e cada nó recebe uma concessão de dados diária. No tipo de preço Por Nó, você será cobrado pelos dados ingeridos acima da bonificação incluída. Se você estiver usando o Operations Management Suite, deverá escolher a camada Por Nó. Em abril de 2018, [introduzimos](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/) um novo modelo de preços para monitoramento do Azure. Esse modelo adota um modelo de "pagamento conforme o uso" simples no portfólio completo de serviços de monitoramento. Saiba mais sobre o [novo modelo de preços](../platform/usage-estimated-costs.md).
 
 Para preços atuais em sua moeda e região, consulte [Preços do Application Insights](https://azure.microsoft.com/pricing/details/application-insights/).
 
-> [!NOTE]
-> Em abril de 2018, [introduzimos](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/) um novo modelo de preços para monitoramento do Azure. Esse modelo adota um modelo de "pagamento conforme o uso" simples no portfólio completo de serviços de monitoramento. Saiba mais sobre o [novo modelo de preços](../platform/usage-estimated-costs.md), como a [avaliar o impacto de migrar para esse modelo](../platform/usage-estimated-costs.md#understanding-your-azure-monitor-costs) com base nos seus padrões de uso e [como aceitar o novo modelo](../platform/usage-estimated-costs.md#azure-monitor-pricing-model)
+### <a name="understanding-billed-usage-on-the-legacy-enterprise-per-node-tier"></a>Entendendo o uso cobrado na camada Legacy Enterprise (por nó) 
+
+Conforme descrito abaixo mais detalhadamente, a camada de empresa herdada (por nó) combina o uso de todos os recursos de Application Insights em uma assinatura para calcular o número de nós e os dados excedentes. Devido a esse processo de combinação, o **uso de todos os Application insights recursos em uma assinatura é relatado em apenas um dos recursos**.  Isso torna a reconciliação do [uso cobrado](https://docs.microsoft.com/azure/azure-monitor/app/pricing#viewing-application-insights-usage-on-your-azure-bill) com o uso que você observa para cada Application insights recursos muito complicados. 
+
+> [!WARNING]
+> Devido à complexidade de acompanhar e entender o uso de recursos de Application Insights na camada corporativa herdada (por nó), é altamente recomendável usar o tipo de preço pago conforme o uso atual. 
 
 ### <a name="per-node-tier-and-operations-management-suite-subscription-entitlements"></a>Direitos de assinatura da camada Por Nó e do Operations Management Suite
 
@@ -347,4 +350,3 @@ Você pode escrever um script para definir o tipo de preço com o Gerenciamento 
 [start]: ./app-insights-overview.md
 [pricing]: https://azure.microsoft.com/pricing/details/application-insights/
 [pricing]: https://azure.microsoft.com/pricing/details/application-insights/
-

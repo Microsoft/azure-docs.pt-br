@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: a2fe1b8bdc80a5265add22bd3602050034471fe2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: dec5aeaac6f39a106899094e674864d3bd10dc02
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87036430"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91966331"
 ---
 # <a name="troubleshoot-application-connectivity-issues-on-virtual-machines-in-azure"></a>Solucionar problemas de conectividade do aplicativo em máquinas virtuais no Azure
 
@@ -122,7 +122,7 @@ Se não conseguir acessar o aplicativo, verifique as seguintes configurações:
   
   * Verifique se a configuração da regra NAT de entrada para a VM está permitindo o tráfego de entrada, especialmente o protocolo (TCP ou UDP) e os números de porta pública e privada.
   * Verifique se os Grupos de Segurança de Rede permitem o tráfego de saída de respostar e de entrada de solicitações.
-  * Para obter mais informações, consulte [o que é um grupo de segurança de rede?](../../virtual-network/security-overview.md)
+  * Para obter mais informações, consulte [o que é um grupo de segurança de rede?](../../virtual-network/network-security-groups-overview.md)
 
 Se a máquina virtual ou ponto de extremidade for um membro de um conjunto com balanceamento de carga:
 

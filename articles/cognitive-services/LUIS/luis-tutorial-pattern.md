@@ -1,14 +1,16 @@
 ---
 title: 'Tutorial: Padrões – LUIS'
 description: Use padrões para aumentar a previsão de intenção e entidade enquanto fornece menos enunciados de exemplo neste tutorial. O padrão é fornecido como um enunciado de modelo de exemplo, que inclui sintaxe para identificar entidades e texto ignorável.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 07/06/2020
-ms.openlocfilehash: 3ca8bb15d19b0fa0dd6b33d35a380c0b1b07abe0
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 9814304aed4d7a5f307fb2179491b0fa9635fd68
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86039493"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91324647"
 ---
 # <a name="tutorial-add-common-pattern-template-utterance-formats-to-improve-predictions"></a>Tutorial: Adicionar formatos de enunciado de modelo de padrão comuns para aprimorar previsões
 

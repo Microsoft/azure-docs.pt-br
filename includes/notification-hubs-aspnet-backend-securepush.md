@@ -1,21 +1,21 @@
 ---
 author: sethmanheim
-ms.service: service-bus
+ms.service: notification-hubs
 ms.topic: include
-ms.date: 11/09/2018
+ms.date: 09/14/2020
 ms.author: sethm
-ms.openlocfilehash: 7fd161c90234d45a6751f173ba3685ee8c392c87
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fb3c95b74128f1da7b29a290e17fefe21987dd76
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74260643"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019405"
 ---
 ## <a name="webapi-project"></a>Projeto WebAPI
 
 1. No Visual Studio, abra o projeto **AppBackend** que você criou no tutorial **Notificar Usuários** .
-2. Em Notifications.cs, substitua toda a classe **Notifications** pelo código a seguir. Certifique-se de substituir os espaços reservados por sua cadeia de conexão (com acesso completo) para seu hub de notificação e pelo nome do hub. Você pode obter esses valores do [Portal do Azure](https://portal.azure.com). Esse módulo agora representa as diferentes notificações seguras que serão enviadas. Em uma implementação completa, as notificações são armazenadas em um banco de dados; por questão de simplicidade, neste caso as armazenaremos na memória.
-   
+2. No Notifications.cs, substitua toda a classe de **notificações** pelo código a seguir. Certifique-se de substituir os espaços reservados por sua cadeia de conexão (com acesso completo) para seu hub de notificação e pelo nome do hub. Você pode obter esses valores do [Portal do Azure](https://portal.azure.com). Esse módulo agora representa as diferentes notificações seguras que serão enviadas. Em uma implementação completa, as notificações são armazenadas em um banco de dados; por questão de simplicidade, neste caso as armazenaremos na memória.
+
    ```csharp
     public class Notification
     {
@@ -56,8 +56,8 @@ ms.locfileid: "74260643"
     }
     ```
 
-1. Em NotificationsController.cs, substitua o código dentro da definição de classe **NotificationsController** pelo código a seguir. Este componente implementa um modo para o dispositivo obter a notificação com segurança, além de também fornecer um modo (para os fins deste tutorial) para disparar uma notificação por push segura para seus dispositivos. Observe que, ao enviar a notificação ao Hub de Notificação, enviamos somente uma notificação bruta com a ID da notificação (sem a mensagem em si):
-   
+3. Em NotificationsController.cs, substitua o código dentro da definição de classe **NotificationsController** pelo código a seguir. Este componente implementa um modo para o dispositivo obter a notificação com segurança, além de também fornecer um modo (para os fins deste tutorial) para disparar uma notificação por push segura para seus dispositivos. Observe que, ao enviar a notificação ao Hub de Notificação, enviamos somente uma notificação bruta com a ID da notificação (sem a mensagem em si):
+
    ```csharp
     public NotificationsController()
     {

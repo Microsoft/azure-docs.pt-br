@@ -4,15 +4,15 @@ description: Replicar servidores Azure Analysis Services com escala horizontal. 
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 09/10/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ceed2a287fb210a421972e9c9f9e6c77c6cb1879
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 24ee31b941d836d296c30927cfb9636f3023fa89
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88716921"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019419"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Escala horizontal do Azure Analysis Services
 
@@ -42,11 +42,13 @@ Ao executar uma operação de expansão subsequente, por exemplo, aumentar o nú
 
 * Ao automatizar operações de processamento *e* expansão, é importante processar primeiro os dados no servidor primário, executar uma sincronização e, em seguida, executar a operação de expansão. Essa sequência garante um impacto mínimo sobre os recursos de memória e QPU.
 
+* Durante as operações de expansão, todos os servidores no pool de consultas, incluindo o servidor primário, estão temporariamente offline.
+
 * A sincronização é permitida mesmo quando não há réplicas no pool de consultas. Se você estiver expandindo de zero para uma ou mais réplicas com novos dados de uma operação de processamento no servidor primário, execute a sincronização primeiro sem réplicas no pool de consultas e, em seguida, expanda horizontalmente. A sincronização antes de escalar horizontalmente evita hidratação redundantes das réplicas adicionadas recentemente.
 
-* Ao excluir um banco de dados modelo do servidor primário, ele não é excluído automaticamente das réplicas no pool de consultas. Você deve executar uma operação de sincronização usando o comando do PowerShell [Sync-AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) , que remove os arquivos do banco de dados do local de armazenamento de blob compartilhado da réplica e, em seguida, exclui o banco de dados modelo nas réplicas no pool de consultas. Para determinar se um banco de dados modelo existe em réplicas no pool de consultas, mas não no servidor primário, certifique-se de que a configuração **separar o servidor de processamento da consulta do pool** seja **Sim**. Em seguida, use o SSMS para se conectar ao servidor primário usando o `:rw` qualificador para ver se o banco de dados existe. Em seguida, conecte-se às réplicas no pool de consultas conectando-se sem o `:rw` qualificador para ver se o mesmo banco de dados também existe. Se o banco de dados existir em réplicas no pool de consultas, mas não no servidor primário, execute uma operação de sincronização.   
+* Ao excluir um banco de dados modelo do servidor primário, ele não é excluído automaticamente das réplicas no pool de consultas. Você deve executar uma operação de sincronização usando o comando do PowerShell [Sync-AzAnalysisServicesInstance](/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) , que remove os arquivos do banco de dados do local de armazenamento de blob compartilhado da réplica e, em seguida, exclui o banco de dados modelo nas réplicas no pool de consultas. Para determinar se um banco de dados modelo existe em réplicas no pool de consultas, mas não no servidor primário, certifique-se de que a configuração **separar o servidor de processamento da consulta do pool** seja **Sim**. Em seguida, use o SSMS para se conectar ao servidor primário usando o `:rw` qualificador para ver se o banco de dados existe. Em seguida, conecte-se às réplicas no pool de consultas conectando-se sem o `:rw` qualificador para ver se o mesmo banco de dados também existe. Se o banco de dados existir em réplicas no pool de consultas, mas não no servidor primário, execute uma operação de sincronização.   
 
-* Ao renomear um banco de dados no servidor primário, há uma etapa adicional necessária para garantir que o banco de dados seja sincronizado corretamente com as réplicas. Após a renomeação, execute uma sincronização usando o comando [Sync-AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) especificando o `-Database` parâmetro com o nome antigo do banco de dados. Essa sincronização remove o banco de dados e os arquivos com o nome antigo de qualquer réplica. Em seguida, execute outra sincronização especificando o `-Database` parâmetro com o novo nome do banco de dados. A segunda sincronização copia o banco de dados nomeado recentemente para o segundo conjunto de arquivos e hidratam quaisquer réplicas. Essas sincronizações não podem ser executadas usando o comando sincronizar modelo no Portal.
+* Ao renomear um banco de dados no servidor primário, há uma etapa adicional necessária para garantir que o banco de dados seja sincronizado corretamente com as réplicas. Após a renomeação, execute uma sincronização usando o comando [Sync-AzAnalysisServicesInstance](/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) especificando o `-Database` parâmetro com o nome antigo do banco de dados. Essa sincronização remove o banco de dados e os arquivos com o nome antigo de qualquer réplica. Em seguida, execute outra sincronização especificando o `-Database` parâmetro com o novo nome do banco de dados. A segunda sincronização copia o banco de dados nomeado recentemente para o segundo conjunto de arquivos e hidratam quaisquer réplicas. Essas sincronizações não podem ser executadas usando o comando sincronizar modelo no Portal.
 
 ### <a name="synchronization-mode"></a>Modo de sincronização
 
@@ -114,7 +116,7 @@ As operações de sincronização devem ser executadas manualmente ou usando a A
 
 Em **Visão Geral** > modelo > **Sincronizar modelo**.
 
-![Controle deslizante da escala horizontal](media/analysis-services-scale-out/aas-scale-out-sync.png)
+![Ícone sincronizar](media/analysis-services-scale-out/aas-scale-out-sync.png)
 
 ### <a name="rest-api"></a>API REST
 
@@ -137,7 +139,7 @@ Códigos de status de retorno:
 |0     | Replicating        |
 |1     |  Reidratar       |
 |2     |   Concluído       |
-|3     |   Com falha      |
+|3     |   Failed (Falha)      |
 |4     |    Finalizando     |
 |||
 
@@ -148,11 +150,11 @@ Códigos de status de retorno:
 
 Antes de usar o PowerShell, [Instale ou atualize o módulo de Azure PowerShell mais recente](/powershell/azure/install-az-ps). 
 
-Para executar a sincronização, use [Sync-AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance).
+Para executar a sincronização, use [Sync-AzAnalysisServicesInstance](/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance).
 
-Para definir o número de réplicas de consulta, use [set-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver). Especifique o parâmetro `-ReadonlyReplicaCount` opcional.
+Para definir o número de réplicas de consulta, use [set-AzAnalysisServicesServer](/powershell/module/az.analysisservices/set-azanalysisservicesserver). Especifique o parâmetro `-ReadonlyReplicaCount` opcional.
 
-Para separar o servidor de processamento do pool de consulta, use [set-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver). Especifique o `-DefaultConnectionMode` parâmetro opcional a ser usado `Readonly` .
+Para separar o servidor de processamento do pool de consulta, use [set-AzAnalysisServicesServer](/powershell/module/az.analysisservices/set-azanalysisservicesserver). Especifique o `-DefaultConnectionMode` parâmetro opcional a ser usado `Readonly` .
 
 Para saber mais, consulte [usando uma entidade de serviço com o módulo AZ. AnalysisServices](analysis-services-service-principal.md#azmodule).
 
@@ -170,7 +172,7 @@ Para SSMS, Visual Studio e cadeias de conexão no PowerShell, aplicativos de fun
 
 Você pode alterar o tipo de preço em um servidor com várias réplicas. O mesmo tipo de preço se aplica a todas as réplicas. Uma operação de escala primeiro desativará todas as réplicas ao mesmo tempo e, em seguida, abrirá todas as réplicas no novo tipo de preço.
 
-## <a name="troubleshoot"></a>Solução de problemas
+## <a name="troubleshoot"></a>Solucionar problemas
 
 **Problema:** Os usuários obtêm erro **não podem encontrar a \<Name of the server> instância do servidor ' ' no modo de conexão ' ReadOnly '.**
 
@@ -181,4 +183,4 @@ Você pode alterar o tipo de preço em um servidor com várias réplicas. O mesm
 ## <a name="related-information"></a>Informações relacionadas
 
 [Monitorar métricas do servidor](analysis-services-monitor.md)   
-[Gerenciar Azure Analysis Services](analysis-services-manage.md) 
+[Gerenciar Azure Analysis Services](analysis-services-manage.md)

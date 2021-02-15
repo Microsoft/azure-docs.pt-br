@@ -3,25 +3,25 @@ title: Histórico de implantações
 description: Descreve como exibir as operações de implantação do Azure Resource Manager com o portal, o PowerShell, a CLI do Azure e a API REST.
 tags: top-support-issue
 ms.topic: conceptual
-ms.date: 05/26/2020
-ms.openlocfilehash: b7439a70a3bd802a5f8a7c371fc04ab3eed31a5b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/23/2020
+ms.openlocfilehash: 00e0c51244d5c191d4c9f05f689b90ece81ec5a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84117843"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91284611"
 ---
 # <a name="view-deployment-history-with-azure-resource-manager"></a>Exibir histórico de implantação com o Azure Resource Manager
 
 Azure Resource Manager permite que você exiba seu histórico de implantação. Você pode examinar operações específicas nas implantações anteriores e ver quais recursos foram implantados. Este histórico contém informações sobre quaisquer erros.
 
-O histórico de implantação de um grupo de recursos é limitado a implantações de 800. À medida que você se aproximar do limite, as implantações serão excluídas automaticamente do histórico. Para obter mais informações, consulte [exclusões automáticas do histórico de implantação](deployment-history-deletions.md).
+O histórico de implantação de um grupo de recursos é limitado a implantações de 800. À medida que você se aproximar do limite, as implantações serão excluídas automaticamente do histórico. Para obter mais informações, confira [Exclusões automáticas do histórico de implantações](deployment-history-deletions.md).
 
 Para obter ajuda com a resolução de erros de implantação específicos, veja [Resolver erros comuns ao implantar recursos no Azure com o Azure Resource Manager](common-deployment-errors.md).
 
 ## <a name="get-deployments-and-correlation-id"></a>Obter as implantações e a ID de correlação
 
-Você pode ver detalhes sobre uma implantação por meio do portal do Azure, do PowerShell, da CLI do Azure ou da API REST. Cada implantação tem uma ID de correlação, que é usada para rastrear eventos relacionados. Pode ser útil ao trabalhar com o suporte técnico para solucionar um problema de implantação.
+Você pode ver detalhes sobre uma implantação por meio do portal do Azure, do PowerShell, da CLI do Azure ou da API REST. Cada implantação tem uma ID de correlação, que é usada para rastrear eventos relacionados. Se você [criar uma solicitação de suporte do Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md), o suporte poderá solicitar a ID de correlação. O suporte usa a ID de correlação para identificar as operações para a implantação com falha.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -61,13 +61,13 @@ Para obter a ID de correlação, use:
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Para listar a implantação de um grupo de recursos, use [az deployment group list](/cli/azure/group/deployment?view=azure-cli-latest#az-deployment-group-list).
+Para listar a implantação de um grupo de recursos, use [az deployment group list](/cli/azure/group/deployment#az-deployment-group-list).
 
 ```azurecli-interactive
 az deployment group list --resource-group ExampleGroup
 ```
 
-Para obter uma implantação específica, use [az deployment group show](/cli/azure/group/deployment?view=azure-cli-latest#az-deployment-group-show).
+Para obter uma implantação específica, use [az deployment group show](/cli/azure/group/deployment#az-deployment-group-show).
 
 ```azurecli-interactive
 az deployment group show --resource-group ExampleGroup --name ExampleDeployment

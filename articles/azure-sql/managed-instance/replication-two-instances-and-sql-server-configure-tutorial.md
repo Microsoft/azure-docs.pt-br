@@ -1,21 +1,21 @@
 ---
 title: Configurar a replicação transacional entre a Instância Gerenciada de SQL do Azure e o SQL Server
-description: Um tutorial que configura a replicação entre uma instância gerenciada do publicador, uma instância gerenciada do distribuidor e um assinante do SQL Server em uma VM do Azure, juntamente com os componentes de rede necessários, como a zona DNS privado e o emparelhamento VPN.
+description: Um tutorial que configura a replicação entre uma instância gerenciada do editor, uma instância gerenciada do distribuidor e um assinante do SQL Server em uma VM do Azure, juntamente com os componentes de rede necessários, como a zona DNS privado e o Emparelhamento VNET.
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: security
 ms.custom: sqldbrb=1
 ms.topic: tutorial
-author: MashaMSFT
-ms.author: mathoma
-ms.reviewer: carlrab
+author: stevestein
+ms.author: sstein
+ms.reviewer: ''
 ms.date: 11/21/2019
-ms.openlocfilehash: d89bc33b0ddd0793a3c55dbd64bef9678bd723e7
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: d2b45f5b51f4656294632aa46f679a7a09c06ed3
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87920136"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94593919"
 ---
 # <a name="tutorial-configure-transactional-replication-between-azure-sql-managed-instance-and-sql-server"></a>Tutorial: Configurar a replicação transacional entre a Instância Gerenciada de SQL do Azure e o SQL Server
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -38,7 +38,7 @@ Este tutorial destina-se a um público-alvo experiente e pressupõe que o usuár
 
 
 > [!NOTE]
-> Este artigo descreve o uso de [replicação transacional](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) na Instância Gerenciada de SQL do Azure. Ele não está relacionado a [grupos de failover](https://docs.microsoft.com/azure/sql-database/sql-database-auto-failover-group), um recurso de Instância Gerenciada de SQL do Azure que permite criar réplicas legíveis completas de instâncias individuais. Há considerações adicionais ao configurar [replicação transacional com grupos de failover](replication-transactional-overview.md#with-failover-groups).
+> Este artigo descreve o uso de [replicação transacional](/sql/relational-databases/replication/transactional/transactional-replication) na Instância Gerenciada de SQL do Azure. Ele não está relacionado a [grupos de failover](../database/auto-failover-group-overview.md), um recurso de Instância Gerenciada de SQL do Azure que permite criar réplicas legíveis completas de instâncias individuais. Há considerações adicionais ao configurar [replicação transacional com grupos de failover](replication-transactional-overview.md#with-failover-groups).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -48,10 +48,10 @@ Para concluir o tutorial, verifique se você tem os seguintes pré-requisitos:
 - Experiência com a implantação de duas instâncias gerenciadas na mesma rede virtual.
 - Um assinante do SQL Server, local ou em uma VM do Azure. Este tutorial usa uma VM do Azure.  
 - [SSMS (SQL Server Management Studio) 18.0 ou posterior](/sql/ssms/download-sql-server-management-studio-ssms).
-- A versão mais recente do [Azure PowerShell](/powershell/azure/install-az-ps?view=azps-1.7.0).
+- A versão mais recente do [Azure PowerShell](/powershell/azure/install-az-ps).
 - As portas 445 e 1433 permitem o tráfego do SQL no firewall do Azure e no firewall do Windows.
 
-## <a name="1---create-the-resource-group"></a>1 – Criar o grupo de recursos
+## <a name="create-the-resource-group"></a>Criar o grupo de recursos
 
 Use o seguinte snippet de código do PowerShell para criar um grupo de recursos:
 
@@ -64,7 +64,7 @@ $Location = "East US 2"
 New-AzResourceGroup -Name  $ResourceGroupName -Location $Location
 ```
 
-## <a name="2---create-two-managed-instances"></a>2 – Criar duas instâncias gerenciadas
+## <a name="create-two-managed-instances"></a>Criar duas instâncias gerenciadas
 
 Crie duas instâncias gerenciadas nesse novo grupo de recursos usando o [portal do Azure](https://portal.azure.com).
 
@@ -76,9 +76,9 @@ Crie duas instâncias gerenciadas nesse novo grupo de recursos usando o [portal 
 Para obter mais informações sobre como criar uma instância gerenciada, confira [Criar uma instância gerenciada no portal](instance-create-quickstart.md).
 
   > [!NOTE]
-  > Para simplificar e por esta ser a configuração mais comum, este tutorial sugere a colocação da instância gerenciada do distribuidor na mesma rede virtual do publicador. No entanto, é possível criar o distribuidor em uma rede virtual separada. Para fazer isso, você precisará configurar o emparelhamento VPN entre as redes virtuais do publicador e do distribuidor e, em seguida, configurar o emparelhamento VPN entre as redes virtuais do distribuidor e do assinante.
+  > Para simplificar e por esta ser a configuração mais comum, este tutorial sugere a colocação da instância gerenciada do distribuidor na mesma rede virtual do publicador. No entanto, é possível criar o distribuidor em uma rede virtual separada. Para fazer isso, você precisará configurar o Emparelhamento VNET entre as redes virtuais do editor e do distribuidor e, depois, configurar o Emparelhamento VNET entre as redes virtuais do distribuidor e do assinante.
 
-## <a name="3---create-a-sql-server-vm"></a>3 – Criar uma VM do SQL Server
+## <a name="create-a-sql-server-vm"></a>Criar uma VM do SQL Server
 
 Crie uma máquina virtual do SQL Server no [portal do Azure](https://portal.azure.com). A máquina virtual do SQL Server deve ter as seguintes características:
 
@@ -89,9 +89,9 @@ Crie uma máquina virtual do SQL Server no [portal do Azure](https://portal.azur
 
 Para obter mais informações sobre como implantar uma VM do SQL Server no Azure, confira [Início Rápido: Criar uma VM do SQL Server](../virtual-machines/windows/sql-vm-create-portal-quickstart.md).
 
-## <a name="4---configure-vpn-peering"></a>4 – Configurar o emparelhamento VPN
+## <a name="configure-vnet-peering"></a>Configurar o Emparelhamento VNET
 
-Configure o emparelhamento VPN para habilitar a comunicação entre a rede virtual das duas instâncias gerenciadas e a rede virtual do SQL Server. Para fazer isso, use este snippet de código do PowerShell:
+Configure o Emparelhamento VNET para habilitar a comunicação entre a rede virtual das duas instâncias gerenciadas e a rede virtual do SQL Server. Para fazer isso, use este snippet de código do PowerShell:
 
 ```powershell-interactive
 # Set variables
@@ -110,13 +110,13 @@ $virtualNetwork1 = Get-AzVirtualNetwork `
   -ResourceGroupName $resourceGroup `
   -Name $subvNet  
 
-# Configure VPN peering from publisher to subscriber
+# Configure VNet peering from publisher to subscriber
 Add-AzVirtualNetworkPeering `
   -Name $pubsubName `
   -VirtualNetwork $virtualNetwork1 `
   -RemoteVirtualNetworkId $virtualNetwork2.Id
 
-# Configure VPN peering from subscriber to publisher
+# Configure VNet peering from subscriber to publisher
 Add-AzVirtualNetworkPeering `
   -Name $subpubName `
   -VirtualNetwork $virtualNetwork2 `
@@ -136,11 +136,11 @@ Get-AzVirtualNetworkPeering `
 
 ```
 
-Quando o emparelhamento VPN for estabelecido, teste a conectividade iniciando o SSMS (SQL Server Management Studio) no SQL Server e se conectando a ambas as instâncias gerenciadas. Para obter mais informações sobre como se conectar a uma instância gerenciada usando o SSMS, confira [Usar o SSMS para se conectar à Instância Gerenciada de SQL](point-to-site-p2s-configure.md#connect-with-ssms).
+Quando o Emparelhamento VNET for estabelecido, teste a conectividade iniciando o SSMS (SQL Server Management Studio) no SQL Server e se conectando a ambas as instâncias gerenciadas. Para obter mais informações sobre como se conectar a uma instância gerenciada usando o SSMS, confira [Usar o SSMS para se conectar à Instância Gerenciada de SQL](point-to-site-p2s-configure.md#connect-with-ssms).
 
 ![Testar a conectividade com as instâncias gerenciadas](./media/replication-two-instances-and-sql-server-configure-tutorial/test-connectivity-to-mi.png)
 
-## <a name="5---create-a-private-dns-zone"></a>5 – Criar uma zona DNS privada
+## <a name="create-a-private-dns-zone"></a>Criar uma zona DNS privada
 
 Uma zona DNS privada permite o roteamento DNS entre as instâncias gerenciadas e o SQL Server.
 
@@ -180,9 +180,9 @@ Uma zona DNS privada permite o roteamento DNS entre as instâncias gerenciadas e
 1. Selecione **OK** para vincular a rede virtual.
 1. Repita essas etapas para adicionar um link para a rede virtual do assinante, com um nome como `Sub-link`.
 
-## <a name="6---create-an-azure-storage-account"></a>6 – Criar uma conta de armazenamento do Azure
+## <a name="create-an-azure-storage-account"></a>Criar uma conta de armazenamento do Azure
 
-[Crie uma conta de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account) para o diretório de trabalho e, em seguida, crie um [compartilhamento de arquivo](../../storage/files/storage-how-to-create-file-share.md) na conta de armazenamento.
+[Crie uma conta de armazenamento do Azure](../../storage/common/storage-account-create.md#create-a-storage-account) para o diretório de trabalho e, em seguida, crie um [compartilhamento de arquivo](../../storage/files/storage-how-to-create-file-share.md) na conta de armazenamento.
 
 Copie o caminho do compartilhamento de arquivo no formato: `\\storage-account-name.file.core.windows.net\file-share-name`
 
@@ -194,7 +194,7 @@ Exemplo: `DefaultEndpointsProtocol=https;AccountName=replstorage;AccountKey=dYT5
 
 Para obter mais informações, confira [Gerenciar chaves de acesso da conta de armazenamento](../../storage/common/storage-account-keys-manage.md).
 
-## <a name="7---create-a-database"></a>7 – Criar um banco de dados
+## <a name="create-a-database"></a>Criar um banco de dados
 
 Crie um banco de dados na instância gerenciada do publicador. Para fazer isso, siga estas etapas:
 
@@ -210,7 +210,7 @@ GO
 -- Drop database if it exists
 IF EXISTS (SELECT * FROM sys.sysdatabases WHERE name = 'ReplTutorial')
 BEGIN
-    DROP DATABASE ReplTutorial
+    DROP DATABASE ReplTutorial
 END
 GO
 
@@ -242,7 +242,7 @@ SELECT * FROM ReplTest
 GO
 ```
 
-## <a name="8---configure-distribution"></a>8 – Configurar a distribuição
+## <a name="configure-distribution"></a>Configurar distribuição
 
 Depois que a conectividade for estabelecida e você tiver um banco de dados de exemplo, configure a distribuição na instância gerenciada `sql-mi-distributor`. Para fazer isso, siga estas etapas:
 
@@ -277,7 +277,7 @@ Depois que a conectividade for estabelecida e você tiver um banco de dados de e
    EXEC sys.sp_adddistributor @distributor = 'sql-mi-distributor.b6bf57.database.windows.net', @password = '<distributor_admin_password>'
    ```
 
-## <a name="9---create-the-publication"></a>9 – Criar a publicação
+## <a name="create-the-publication"></a>Criar a publicação
 
 Depois que a distribuição for configurada, você poderá criar a publicação. Para fazer isso, siga estas etapas:
 
@@ -298,7 +298,7 @@ Depois que a distribuição for configurada, você poderá criar a publicação.
 1. Na página **Concluir o Assistente**, nomeie a publicação `ReplTest` e selecione **Avançar** para criar a publicação.
 1. Depois que a publicação for criada, atualize o nó **Replicação** no **Pesquisador de Objetos** e expanda **Publicações Locais** para ver a nova publicação.
 
-## <a name="10---create-the-subscription"></a>10 – Criar a assinatura
+## <a name="create-the-subscription"></a>Criar a assinatura
 
 Depois que a publicação for criada, você poderá criar a assinatura. Para fazer isso, siga estas etapas:
 
@@ -331,7 +331,7 @@ exec sp_addpushsubscription_agent
 GO
 ```
 
-## <a name="11---test-replication"></a>11 – Testar a replicação
+## <a name="test-replication"></a>Testar a replicação
 
 Depois que a replicação for configurada, teste-a inserindo novos itens no publicador e observando as alterações se propagarem para o assinante.
 
@@ -393,7 +393,7 @@ Soluções possíveis:
 - Confirme se o nome DNS foi usado ao criar o assinante.
 - Verifique se as redes virtuais estão corretamente vinculadas na zona DNS privado.
 - Verifique se o registro A está configurado corretamente.
-- Verifique se o emparelhamento VPN está configurado corretamente.
+- Verifique se o Emparelhamento VNET está configurado corretamente.
 
 ### <a name="no-publications-to-which-you-can-subscribe"></a>Não há publicações que você pode assinar
 
@@ -414,7 +414,7 @@ Confira o artigo [O que é a Instância Gerenciada de SQL do Azure?](sql-managed
 - [Detecção de ameaças](threat-detection-configure.md)
 - [Mascaramento de dados dinâmicos](/sql/relational-databases/security/dynamic-data-masking)
 - [Segurança em nível de linha](/sql/relational-databases/security/row-level-security)
-- [Transparent data encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)
+- [Transparent data encryption (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)
 
 ### <a name="sql-managed-instance-capabilities"></a>Funcionalidades da Instância Gerenciada de SQL
 

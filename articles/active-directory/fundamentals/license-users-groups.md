@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/06/2018
+ms.date: 12/14/2020
 ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9909b92e58d73c9578d3d17a7bbf24fe2924fae2
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: b6900647acf7182529f34c8cc065dbb039de38be
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87797076"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97504399"
 ---
 # <a name="assign-or-remove-licenses-in-the-azure-active-directory-portal"></a>Atribuir ou remover licenças no portal de Azure Active Directory
 
@@ -35,7 +35,7 @@ Há vários planos de licença disponíveis para o serviço do Azure AD, incluin
 
 - Azure AD Premium P2
 
-Para obter informações específicas sobre cada plano de licença e os detalhes de licenciamento associados, consulte [qual licença eu preciso?](https://azure.microsoft.com/pricing/details/active-directory/). Para se inscrever nos planos de licença do Azure AD Premium, veja [aqui](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-get-started-premium).
+Para obter informações específicas sobre cada plano de licença e os detalhes de licenciamento associados, consulte [qual licença eu preciso?](https://azure.microsoft.com/pricing/details/active-directory/). Para se inscrever nos planos de licença do Azure AD Premium, veja [aqui](./active-directory-get-started-premium.md).
 
 Nem todos os serviços da Microsoft estão disponíveis em todos os locais. Antes que uma licença possa ser atribuída a um grupo, você deve especificar o **Local de uso** para todos os membros. Você pode definir esse valor **Azure Active Directory &gt; os usuários &gt; perfil &gt; configurações** área no Azure AD. Qualquer usuário cujo local de uso não seja especificado herda o local da organização do Azure AD.
 
@@ -49,11 +49,18 @@ Você pode exibir os planos de serviço disponíveis, incluindo as licenças ind
 
 1. Selecione **Active Directory do Azure** e, em seguida, selecione **Licenças**.
 
-    ![Página licenças, com número de serviços comprados e licenças atribuídas](media/license-users-groups/license-details-blade.png)
+    :::image type="content" source="media/license-users-groups/license-details-blade.png" alt-text="Página licenças, com número de serviços comprados e licenças atribuídas":::
 
-1. Selecione o link **comprado** para exibir a **página produtos** e ver os números em breve **atribuídos**, **disponíveis**e **expirando** para seus planos de licença.
+1. Selecione **todos os produtos** para exibir a página todos os produtos e ver os números **totais**, **atribuídos**, **disponíveis** e **expirando em breve** para seus planos de licença.
 
-    ![página de serviços, com planos de licença de serviço e informações de licença associadas](media/license-users-groups/license-products-blade-with-products.png)
+    :::image type="content" source="media/license-users-groups/license-products-blade-with-products.png" alt-text="página de serviços-com planos de licença de serviço – informações de licença associadas":::
+
+    > [!NOTE]
+    > Os números são definidos como: 
+    > - Total: número total de licenças adquiridas
+    > - Atribuído: número de licenças atribuídas aos usuários
+    > - Disponível: número de licenças disponíveis para atribuição, incluindo expirando em breve
+    > - Expirando em breve: número de licenças expirando em breve
 
 1. Selecione um nome de plano para ver seus usuários e grupos licenciados.
 
@@ -102,11 +109,11 @@ Certifique-se de que qualquer pessoa que precise usar um serviço licenciado do 
 
 1. Na página **Atribuir**, selecione **Usuários e grupos** e pesquise e selecione o grupo que você está atribuindo a licença.
 
-    ![Atribuir página de licença, com pesquisa realçada e opções de seleção](media/license-users-groups/assign-group-license-blade-with-highlight.png)
+    ![Página atribuir licença, com a pesquisa realçada e selecione as opções 2](media/license-users-groups/assign-group-license-blade-with-highlight.png)
 
 1. Selecione **Opções de atribuição**, verifique se você tem as opções de licença apropriadas ativadas e, em seguida, selecione **OK**.
 
-    ![Página de opção de licença, com todas as opções disponíveis no plano de licença](media/license-users-groups/license-option-blade-group-assignments.png)
+    ![Página de opção de licença, com todas as opções disponíveis no plano de licença 2](media/license-users-groups/license-option-blade-group-assignments.png)
 
     A página **Atribuir licença** é atualizada para mostrar que um usuário está selecionado e que as atribuições estão configuradas.
 
@@ -135,7 +142,7 @@ Você pode remover uma licença da página de usuário do Azure AD de um usuári
 
 1. Selecione **remover licença**.
 
-    ![Página Grupos de Licenciados com a opção Remover Licença Destacada](media/license-users-groups/license-products-group-blade-with-remove-option-highlight.png)
+    ![Página grupos licenciados com a opção remover licença realçada 2](media/license-users-groups/license-products-group-blade-with-remove-option-highlight.png)
     
     > [!NOTE]
     > Quando uma conta de usuário local sincronizada com o Azure AD fica fora do escopo da sincronização ou quando a sincronização é removida, o usuário é excluído de maneira reversível no Azure AD. Quando isso ocorrer, as licenças atribuídas ao usuário diretamente ou por meio do licenciamento baseado em grupo serão marcadas como **suspensas** em vez de **excluídas**.
@@ -144,10 +151,10 @@ Você pode remover uma licença da página de usuário do Azure AD de um usuári
 
 Depois de atribuir suas licenças, você pode executar os seguintes processos:
 
-- [Identifique e resolva problemas de atribuição de licenças](../users-groups-roles/licensing-groups-resolve-problems.md)
+- [Identifique e resolva problemas de atribuição de licenças](../enterprise-users/licensing-groups-resolve-problems.md)
 
-- [Adicione usuários licenciados a um grupo para licenciamento](../users-groups-roles/licensing-groups-migrate-users.md)
+- [Adicione usuários licenciados a um grupo para licenciamento](../enterprise-users/licensing-groups-migrate-users.md)
 
-- [Cenários, limitações e problemas conhecidos usando grupos para gerenciar o licenciamento no Azure Active Directory](../users-groups-roles/licensing-group-advanced.md)
+- [Cenários, limitações e problemas conhecidos usando grupos para gerenciar o licenciamento no Azure Active Directory](../enterprise-users/licensing-group-advanced.md)
 
 - [Adicionar ou alterar informações de perfil](active-directory-users-profile-azure-portal.md)

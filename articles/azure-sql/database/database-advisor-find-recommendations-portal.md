@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: performance
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, carlrab
+ms.reviewer: wiassaf, sstein
 ms.date: 12/19/2018
-ms.openlocfilehash: 72f0d361f69232894df3a9131d173411614a2055
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 748ac448ad8bf5c06e5be8b7a4a8b00a9b7af84b
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87921190"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500879"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Localizar e aplicar recomendações de desempenho
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -30,12 +30,12 @@ Para exibir e aplicar recomendações de desempenho, você precisa das permissõ
 Use as etapas a seguir para encontrar recomendações de desempenho no portal do Azure:
 
 1. Entre no [portal do Azure](https://portal.azure.com/).
-2. Vá para **todos os serviços**  >  **bancos**de dados SQL e selecione seu banco de dados.
+2. Vá para **todos os serviços**  >  **bancos** de dados SQL e selecione seu banco de dados.
 3. Navegue até **Recomendação de desempenho** para exibir as recomendações disponíveis para o banco de dados selecionado.
 
 As recomendações de desempenho são exibidas na tabela semelhante à exibida na figura a seguir:
 
-![Recomendações](./media/database-advisor-find-recommendations-portal/recommendations.png)
+![Captura de tela mostra as recomendações de desempenho em uma tabela com a descrição de ação e recomendação.](./media/database-advisor-find-recommendations-portal/recommendations.png)
 
 As recomendações são classificadas de acordo com seu impacto em potencial no desempenho nas seguintes categorias:
 
@@ -43,7 +43,7 @@ As recomendações são classificadas de acordo com seu impacto em potencial no 
 |:--- |:--- |
 | Alta |Recomendações de alto impacto devem fornecer o impacto mais significativo no desempenho. |
 | Médio |Recomendações de médio impacto devem melhorar o desempenho, mas não substancialmente. |
-| Baixo |Recomendações de baixo impacto devem fornecer um desempenho melhor do que seria obtido sem elas, mas as melhorias podem não ser significativas. |
+| Baixa |Recomendações de baixo impacto devem fornecer um desempenho melhor do que seria obtido sem elas, mas as melhorias podem não ser significativas. |
 
 > [!NOTE]
 > O Banco de Dados SQL do Azure precisa monitorar as atividades de pelo menos um dia para identificar algumas recomendações. O Banco de Dados SQL do Azure pode otimizar com mais facilidade os padrões de consulta consistentes do que intermitências aleatórias e irregulares de atividade. Se não houver recomendações disponíveis no momento, a página **Recomendação de desempenho** apresentará uma mensagem explicando o motivo.
@@ -103,7 +103,7 @@ Você pode definir seu banco de dados para implementar recomendações automatic
    ![Configurações do supervisor](./media/database-advisor-find-recommendations-portal/settings.png)
 2. Selecione as ações para automatização:
 
-   ![Índices recomendados](./media/database-advisor-find-recommendations-portal/server.png)
+   ![Captura de tela que mostra onde selecionar as ações a serem automatizadas.](./media/database-advisor-find-recommendations-portal/server.png)
 
 > [!NOTE]
 > Observe que a opção **DROP_INDEX** atualmente não é compatível com aplicativos usando as dicas de índice e de alternância de partição.
@@ -114,7 +114,7 @@ Depois de selecionar a configuração desejada, clique em Aplicar.
 
 Selecione qualquer recomendação e clique em **Exibir script**. Execute este script em seu banco de dados para aplicar manualmente a recomendação.
 
-*Os índices que são executados manualmente não são monitorados e validados quanto ao impacto no desempenho pelo serviço* , portanto, é recomendável que você monitore esses índices após a criação para verificar se eles fornecem ganhos de desempenho e ajustá-los ou excluí-los, se necessário. Para obter detalhes sobre a criação de índices, consulte [CRIAR ÍNDICE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-index-transact-sql). Além disso, as recomendações aplicadas manualmente permanecerão ativas e exibidas na lista de recomendações de 24-48 horas. antes que o sistema as retire automaticamente. Se você quiser remover uma recomendação mais cedo, poderá descartá-la manualmente.
+*Os índices que são executados manualmente não são monitorados e validados quanto ao impacto no desempenho pelo serviço* , portanto, é recomendável que você monitore esses índices após a criação para verificar se eles fornecem ganhos de desempenho e ajustá-los ou excluí-los, se necessário. Para obter detalhes sobre a criação de índices, consulte [CRIAR ÍNDICE (Transact-SQL)](/sql/t-sql/statements/create-index-transact-sql). Além disso, as recomendações aplicadas manualmente permanecerão ativas e exibidas na lista de recomendações de 24-48 horas. antes que o sistema as retire automaticamente. Se você quiser remover uma recomendação mais cedo, poderá descartá-la manualmente.
 
 ### <a name="canceling-recommendations"></a>Cancelando recomendações
 
@@ -132,14 +132,14 @@ A aplicação de uma recomendação pode não acontecer instantaneamente. O port
 | Pendente |O comando Aplicar recomendação foi recebido e está programado para execução. |
 | Executando |A recomendação está sendo aplicada. |
 | Validando |A recomendação foi aplicada com êxito e o serviço está medindo os benefícios. |
-| Sucesso |A recomendação foi aplicada com êxito e benefícios foram calculados. |
+| Êxito |A recomendação foi aplicada com êxito e benefícios foram calculados. |
 | Erro |Ocorreu um erro durante o processo de aplicação da recomendação. Este pode ser um problema temporário ou, possivelmente, uma alteração de esquema na tabela, tornando o script inválido. |
 | Revertendo |A recomendação foi aplicada, mas foi considerada não funcional e está sendo revertida automaticamente. |
 | Revertida |A recomendação foi revertida. |
 
 Clique em uma recomendação em processo da lista para ver mais informações:
 
-![Índices recomendados](./media/database-advisor-find-recommendations-portal/operations.png)
+![Captura de tela que mostra a lista de recomendações em processo.](./media/database-advisor-find-recommendations-portal/operations.png)
 
 ### <a name="reverting-a-recommendation"></a>Revertendo uma recomendação
 
@@ -170,6 +170,6 @@ Monitore suas recomendações e continue a aplicá-las para refinar o desempenho
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Repositório de Consultas](https://msdn.microsoft.com/library/dn817826.aspx)
-* [CREATE INDEX](https://msdn.microsoft.com/library/ms188783.aspx)
-* [Controle de acesso baseado em função do Azure (RBAC do Azure)](../../role-based-access-control/overview.md)
+* [Repositório de Consultas](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store)
+* [CREATE INDEX](/sql/t-sql/statements/create-index-transact-sql)
+* [RBAC do Azure (controle de acesso baseado em função do Azure)](../../role-based-access-control/overview.md)

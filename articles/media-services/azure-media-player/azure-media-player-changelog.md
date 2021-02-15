@@ -5,15 +5,29 @@ author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: overview
-ms.date: 07/27/2020
-ms.openlocfilehash: 9642f6d1090ef358cf86241640255c647dea52eb
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.date: 09/23/2020
+ms.openlocfilehash: 9d126f591da1bffebbfd29119c56927cfbb21dcd
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432663"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370569"
 ---
-# <a name="changelog"></a>Log de alteração #
+# <a name="changelog"></a>Log de alteração
+
+## <a name="236-official-update-september-21-2020"></a>2.3.6 (atualização oficial de 21 de setembro de 2020)
+
+### <a name="features-236"></a>Recursos do 2.3.6
+
+Adicionado suporte somente de áudio para a azureHtml5JS tech (DASH) Suporte ao início tardio da transcrição ao vivo Alteração no suporte a idioma na transcrição ao vivo
+
+### <a name="bug-fixes-236"></a>Correções de bugs da versão 2.3.6
+
+Ao usar "playsinline" em reproduções de HLS em dispositivos Apple, clicar no botão "LIVE" faz com que o vídeo seja reiniciado A imagem do pôster de AMP às vezes causa uma exceção O botão Volume estava ausente ao reproduzir as FairPlay do HLS [Acessibilidade] Dicas de ferramentas não definidas para botões quando o teclado é usado [Acessibilidade] A taxa de luminosidade é menor que 1,3:1 para a barra de progresso [Acessibilidade] O foco do teclado às vezes não retorna ao botão de qualidade do vídeo [Acessibilidade] Os controles não estão visíveis na tela Vídeo, impedindo o narrador de encontrá-los
+
+### <a name="changes-236"></a>Alterações na versão 2.3.6
+
+Retornar erros KeyDelivery significativos para chamar aplicativos
 
 ## <a name="235-official-update-june-1-2020"></a>2.3.5 (atualização oficial de 1° de junho de 2020)
 
@@ -83,7 +97,7 @@ ms.locfileid: "87432663"
 
 ### <a name="features-231"></a>Recursos da versão 2.3.1
 
-- Sinalizar um evento quando caixas de EMSG são recebidas na reprodução de DASH – Adicionado suporte para mostrar as faixas de áudio do EC-3 no menu de áudio em navegadores que dão suporte a EC-3 e permitem alternar a faixa de áudio do AAC para o EC3 e vice-versa, somente no navegador do Edge baseado em Chromimum
+- Sinalizar um evento quando caixas de EMSG são recebidas na reprodução de DASH – Adicionado suporte para mostrar as faixas de áudio do EC-3 no menu de áudio em navegadores que dão suporte a EC-3 e permitem alternar a faixa de áudio do AAC para o EC3 e vice-versa, somente no navegador do Microsoft Edge baseado em Chromimum
 
 ### <a name="bug-fixes-231"></a>Correções de bugs da versão 2.3.1
 
@@ -91,7 +105,7 @@ ms.locfileid: "87432663"
 - A hora atual pode ser maior do que a duração do vídeo
 - Definir a velocidade de reprodução via initialSpeed não funciona
 - Às vezes, após uma busca, o player parece travado
-- No Edge e no IE em uma tela touch, depois de ampliar uma página, pressionar ou passar o mouse sobre a barra de pesquisa não obtém o segmento correto do vídeo de maneira precisa
+- No Microsoft Edge e no IE em uma tela touch, depois de ampliar uma página, pressionar ou passar o mouse sobre a barra de pesquisa não obtém o segmento correto do vídeo de maneira precisa
 - [Acessibilidade] O rótulo do Aria para Executar/Pausar não é descritivo para o erro do player de vídeo Mapear segmento dinâmico não encontrado para o flashSS para o erro do amp correto
 - [Acessibilidade] As funções do Aria usadas para Reproduzir/Pausar devem estar em conformidade com os valores válidos (.vjs-text-track-display)
 - [Acessibilidade] Determinadas funções do ARIA devem estar contidas por pais específicos
@@ -184,7 +198,7 @@ ms.locfileid: "87432663"
 
 ### <a name="changes"></a>Alterações ###
 
-- [Alteração][Legenda ao vivo] Alteração do nome da API para legendas CEA de 608 para 708. Para obter mais informações, confira [Configurações de legendas do CEA-708](/javascript/api/azuremediaplayer/amp.player.cea708captionssettings)-->
+- [Alteração][Legenda ao vivo] Alteração do nome da API para legendas CEA de 608 para 708. Para obter mais informações, confira [Configurações de legendas do CEA-708](/javascript/api/azuremediaplayer/cea708captionssettings)-->
 
 ## <a name="220-official-release"></a>2.2.0 (versão oficial) ##
 
@@ -713,7 +727,7 @@ ms.locfileid: "87432663"
 - [Correção de bug] Atualização da experiência de carregamento da interface do usuário atualizada para o modo de reprodução automática
 - [Correção de bug] Problema do carregador AMD e definição de conflitos de método
 - [Correção de bug] Problema de carregamento do aplicativo Cordova no WP 8.1
-- [Correção de bug] O conteúdo protegido consulta o ProtectionType compatível com a plataforma/a tecnologia para selecionar a tecnologia apropriada para reprodução.  Corrige o problema conhecido anterior '_Atualmente, o conteúdo do PlayReady no Chrome (desktop)/Safari 8 (no OSX Yosemite) não faz fallback para o player do Silverlight_'
+- [Correção de bug] O conteúdo protegido consulta o ProtectionType compatível com a plataforma/a tecnologia para selecionar a tecnologia apropriada para reprodução.  Corrige o problema conhecido anterior ' _Atualmente, o conteúdo do PlayReady no Chrome (desktop)/Safari 8 (no OSX Yosemite) não faz fallback para o player do Silverlight_ '
 - [Correção de bug] Exceção não capturada no WinServer 2012 R2 devido ao Media Foundation não estar instalado neste computador por padrão.  Tentativa de usar APIs de marca de vídeo HTML, que não são implementadas, gerando assim um erro. A mitigação atual é capturar esse erro e retornar false em vez de gerar o erro.
 - [Correção de bug] O segmento inicial sempre e obtido após a busca ou uma falha de HTTP para evitar falhas durante a reprodução
 - [Correção de bug] Desativação do acompanhamento do progresso simulado e das atualizações de tempo quando o erro ocorria.

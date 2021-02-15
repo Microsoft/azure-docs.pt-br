@@ -3,12 +3,12 @@ title: Referência host.json para o Azure Functions 2.x
 description: Documentação de referência do arquivo host.json do Azure Functions com o runtime v2.
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 629f579642185c5600586473d1280d9b26f4cba3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7ab60fb364eb3268a03c04bb4950251ae030f015
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87055285"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100374041"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Referência ao host.json para Azure Functions 2.x e versões posteriores 
 
@@ -39,6 +39,7 @@ O exemplo a seguir *host.json* arquivo para a versão 2. x + tem todas as opçõ
         "flushTimeout": "00:00:30"
     },
     "extensions": {
+        "blobs": {},
         "cosmosDb": {},
         "durableTask": {},
         "eventHubs": {},
@@ -117,6 +118,11 @@ O exemplo a seguir *host.json* arquivo para a versão 2. x + tem todas as opçõ
     "managedDependency": {
         "enabled": true
     },
+    "retry": {
+      "strategy": "fixedDelay",
+      "maxRetryCount": 5,
+      "delayInterval": "00:00:05"
+    },
     "singleton": {
       "lockPeriod": "00:00:15",
       "listenerLockPeriod": "00:01:00",
@@ -124,7 +130,8 @@ O exemplo a seguir *host.json* arquivo para a versão 2. x + tem todas as opçõ
       "lockAcquisitionTimeout": "00:01:00",
       "lockAcquisitionPollingInterval": "00:00:03"
     },
-    "watchDirectories": [ "Shared", "Test" ]
+    "watchDirectories": [ "Shared", "Test" ],
+    "watchFiles": [ "myFile.txt" ]
 }
 ```
 
@@ -138,7 +145,7 @@ As seções seguintes deste artigo explicam cada propriedade de nível superior.
 
 Essa configuração é a filha de [Registro em log](#logging).
 
-Controla opções para Application Insights, incluindo [Opções de amostragem](./functions-monitoring.md#configure-sampling).
+Controla opções para Application Insights, incluindo [Opções de amostragem](./configure-monitoring.md#configure-sampling).
 
 Para obter a estrutura JSON completa, consulte o [exemplo anterior host.json arquivo](#sample-hostjson-file).
 
@@ -157,16 +164,18 @@ Para obter a estrutura JSON completa, consulte o [exemplo anterior host.json arq
 
 ### <a name="applicationinsightssamplingsettings"></a>applicationInsights. samplingSettings
 
+Para obter mais informações sobre essas configurações, consulte [amostragem em Application insights](../azure-monitor/app/sampling.md). 
+
 |Propriedade | Padrão | Descrição |
 | --------- | --------- | --------- | 
 | isEnabled | true | Habilita ou desabilita a amostragem. | 
 | maxTelemetryItemsPerSecond | 20 | O número de destino de itens de telemetria registrados por segundo em cada host do servidor. Se seu aplicativo for executado em vários hosts, reduza esse valor para permanecer dentro da taxa de destino de tráfego geral. | 
 | evaluationInterval | 01:00:00 | O intervalo no qual a taxa atual de telemetria é reavaliada. Avaliação é executada como uma média móvel. Talvez você queira reduzir esse intervalo se a sua telemetria estiver sujeita a picos repentinos. |
-| initialSamplingPercentage| 1.0 | A porcentagem de amostragem inicial aplicada no início do processo de amostragem para variar dinamicamente a porcentagem. Não reduza o valor enquanto estiver depurando. |
+| initialSamplingPercentage| 100.0 | A porcentagem de amostragem inicial aplicada no início do processo de amostragem para variar dinamicamente a porcentagem. Não reduza o valor enquanto estiver depurando. |
 | samplingPercentageIncreaseTimeout | 00:00:01 | Quando o valor da porcentagem de amostragem é alterado, essa propriedade determina quanto tempo depois Application Insights tem permissão para aumentar a porcentagem de amostragem novamente para capturar mais dados. |
 | samplingPercentageDecreaseTimeout | 00:00:01 | Quando o valor da porcentagem de amostragem é alterado, essa propriedade determina quanto tempo depois Application Insights tem permissão para reduzir a porcentagem de amostragem novamente para capturar menos dados. |
-| minSamplingPercentage | 0.1 | À medida que a porcentagem de amostragem varia, essa propriedade determina a porcentagem de amostragem mínima permitida. |
-| maxSamplingPercentage | 0.1 | À medida que a porcentagem de amostragem varia, essa propriedade determina a porcentagem máxima de amostragem permitida. |
+| minSamplingPercentage | 0,1 | À medida que a porcentagem de amostragem varia, essa propriedade determina a porcentagem de amostragem mínima permitida. |
+| maxSamplingPercentage | 100.0 | À medida que a porcentagem de amostragem varia, essa propriedade determina a porcentagem máxima de amostragem permitida. |
 | movingAverageRatio | 1.0 | No cálculo da média móvel, o peso atribuído ao valor mais recente. Use um valor menor ou igual a 1. Valores menores tornam o algoritmo menos reativo a mudanças repentinas. |
 | excludedTypes | nulo | Uma lista delimitada por ponto e vírgula de tipos que você não deseja que sejam amostrados. Os tipos reconhecidos são: `Dependency` , `Event` , `Exception` ,, `PageView` `Request` e `Trace` . Todas as instâncias dos tipos especificados são transmitidas; os tipos que não são especificados são amostrados. |
 | includedTypes | nulo | Uma lista delimitada por ponto e vírgula dos tipos que você deseja que sejam amostrados; uma lista vazia implica todos os tipos. Tipo listado em `excludedTypes` tipos de substituição listados aqui. Os tipos reconhecidos são: `Dependency` , `Event` , `Exception` ,, `PageView` `Request` e `Trace` . As instâncias dos tipos especificados são amostradas; os tipos que não são especificados ou implícitos são transmitidos sem amostragem. |
@@ -208,9 +217,35 @@ Para obter mais informações sobre instantâneos, consulte [depurar instantâne
 | thresholdForSnapshotting | 1 | Quantas vezes Application Insights precisa ver uma exceção antes de solicitar instantâneos. |
 | uploaderProxy | nulo | Substitui o servidor proxy usado no processo de carregador de instantâneo. Talvez seja necessário usar essa configuração se o aplicativo se conectar à Internet por meio de um servidor proxy. O Snapshot Collector é executado no processo do aplicativo e usará as mesmas configurações de proxy. No entanto, o carregador de instantâneos é executado como um processo separado e talvez seja necessário configurar o servidor proxy manualmente. Se esse valor for nulo, Snapshot Collector tentará detectar automaticamente o endereço do proxy examinando System .net. WebRequest. DefaultWebProxy e passando o valor para o carregador de instantâneos. Se esse valor não for nulo, a detecção automática não será usada e o servidor proxy especificado aqui deverá ser usado no carregador de instantâneos. |
 
+## <a name="blobs"></a>blobs
+
+As definições de configuração podem ser encontradas em [gatilhos e associações de blob de armazenamento](functions-bindings-storage-blob.md#hostjson-settings).  
+
 ## <a name="cosmosdb"></a>cosmosDb
 
 A definição de configuração pode ser encontrada em [Associações e gatilhos do Cosmos DB](functions-bindings-cosmosdb-v2-output.md#host-json).
+
+## <a name="customhandler"></a>customHandler
+
+Definições de configuração para um manipulador personalizado. Para obter mais informações, consulte [Azure Functions manipuladores personalizados](functions-custom-handlers.md#configuration).
+
+```json
+"customHandler": {
+  "description": {
+    "defaultExecutablePath": "server",
+    "workingDirectory": "handler",
+    "arguments": [ "--port", "%FUNCTIONS_CUSTOMHANDLER_PORT%" ]
+  },
+  "enableForwardingHttpRequest": false
+}
+```
+
+|Propriedade | Padrão | Descrição |
+| --------- | --------- | --------- |
+| defaultExecutablePath | N/D | O executável a ser iniciado como o processo do manipulador personalizado. É uma configuração necessária ao usar manipuladores personalizados e seu valor é relativo à raiz do aplicativo de funções. |
+| workingDirectory | *raiz do aplicativo de funções* | O diretório de trabalho no qual iniciar o processo de manipulador personalizado. É uma configuração opcional e seu valor é relativo à raiz do aplicativo de funções. |
+| argumentos | N/D | Uma matriz de argumentos de linha de comando para passar para o processo de manipulador personalizado. |
+| enableForwardingHttpRequest | false | Se definido, todas as funções que consistem apenas em um gatilho HTTP e saída HTTP serão encaminhadas a solicitação HTTP original em vez da [carga de solicitação](functions-custom-handlers.md#request-payload)do manipulador personalizado. |
 
 ## <a name="durabletask"></a>durableTask
 
@@ -310,7 +345,7 @@ Controla os comportamentos de registro em log do aplicativo de funções, inclui
 |Propriedade  |Padrão | Descrição |
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|Define qual nível de log de arquivos está habilitado.  As opções são: `never`, `always` e `debugOnly`. |
-|logLevel|N/D|Objeto que define a filtragem da categoria de log para funções no aplicativo. As versões 2. x e posteriores seguem o layout de ASP.NET Core para filtragem de categorias de log. Essa configuração permite filtrar o registro em log para funções específicas. Para obter mais informações, consulte [Filtragem de logs](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) na documentação do ASP.NET Core. |
+|logLevel|N/D|Objeto que define a filtragem da categoria de log para funções no aplicativo. As versões 2. x e posteriores seguem o layout de ASP.NET Core para filtragem de categorias de log. Essa configuração permite filtrar o registro em log para funções específicas. Para obter mais informações, consulte [Filtragem de logs](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1&preserve-view=true#log-filtering) na documentação do ASP.NET Core. |
 |console|N/D| A configuração de log do [console](#console). |
 |applicationInsights|N/D| A configuração [applicationInsights](#applicationinsights). |
 
@@ -348,7 +383,29 @@ A dependência gerenciada é um recurso que atualmente só tem suporte com funç
 
 ## <a name="queues"></a>filas
 
-As definições de configuração podem ser encontradas em [Associações e gatilhos da fila de armazenamento](functions-bindings-storage-queue-output.md#host-json).  
+As definições de configuração podem ser encontradas em [Associações e gatilhos da fila de armazenamento](functions-bindings-storage-queue.md#host-json).  
+
+## <a name="retry"></a>tentar novamente
+
+Controla as opções de [política de repetição](./functions-bindings-error-pages.md#retry-policies-preview) para todas as execuções no aplicativo.
+
+```json
+{
+    "retry": {
+        "strategy": "fixedDelay",
+        "maxRetryCount": 2,
+        "delayInterval": "00:00:03"  
+    }
+}
+```
+
+|Propriedade  |Padrão | Descrição |
+|---------|---------|---------| 
+|usada|nulo|Obrigatório. Usar qual estratégia de repetição. Os valores válidos são `fixedDelay` ou `exponentialBackoff`.|
+|maxRetryCount|nulo|Obrigatório. O número máximo de repetições permitidas por execução de função. `-1` significa repetir indefinidamente.|
+|delayInterval|nulo|O atraso usado entre as repetições com uma `fixedDelay` estratégia.|
+|minimumInterval|nulo|O atraso mínimo de repetição ao usar a `exponentialBackoff` estratégia.|
+|maximumInterval|nulo|O atraso máximo de repetição ao usar a `exponentialBackoff` estratégia.| 
 
 ## <a name="sendgrid"></a>sendGrid
 
@@ -393,6 +450,16 @@ Um conjunto de [diretórios de código compartilhado](functions-reference-csharp
 ```json
 {
     "watchDirectories": [ "Shared" ]
+}
+```
+
+## <a name="watchfiles"></a>watchFiles
+
+Uma matriz de um ou mais nomes de arquivos que são monitorados para alterações que exigem que seu aplicativo seja reiniciado.  Isso garante que, quando o código desses arquivos for alterado, as atualizações serão coletadas por suas funções.
+
+```json
+{
+    "watchFiles": [ "myFile.txt" ]
 }
 ```
 

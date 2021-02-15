@@ -4,12 +4,12 @@ ms.service: data-factory
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 24bb7a1fcb1569922fb34034fb3c0d003cdd7061
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.openlocfilehash: 9447cec55c53861ca57d5416a91ffefd35fdd20b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67172389"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91571977"
 ---
 ## <a name="repeatability-during-copy"></a>Capacidade de repetição durante a cópia
 Ao copiar os dados de outros repositórios de dados para o Azure SQL/SQL Server, a pessoa precisa manter em mente a capacidade de repetição para evitar desfechos não intencionais. 
@@ -74,7 +74,7 @@ Não era necessário fazer nada de novo. A atividade de cópia executou o script
 
 ### <a name="mechanism-2"></a>Mecanismo 2
 > [!IMPORTANT]
-> No momento, não há suporte para sliceIdentifierColumnName no SQL Data Warehouse do Azure. 
+> No momento, não há suporte para sliceIdentifierColumnName no Azure Synapse Analytics. 
 
 Outro mecanismo para atingir a capacidade de repetição é ter uma coluna dedicada (**sliceIdentifierColumnName**) na tabela de destino. Essa coluna pode ser usada pelo Azure Data Factory para garantir que a origem e destino permaneçam em sincronia. Essa abordagem funciona quando há flexibilidade para alteração ou definição do esquema de tabela SQL de destino. 
 

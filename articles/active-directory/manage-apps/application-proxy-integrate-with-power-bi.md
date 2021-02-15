@@ -4,7 +4,7 @@ description: Aborda as noções básicas sobre como integrar um Power BI local c
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 68993a460ba3d6a672a27eb8da5ced85b29d3d12
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e9f0959ff51714e8a7e69f58a3e3abeab71e8359
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84764546"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99259365"
 ---
 # <a name="enable-remote-access-to-power-bi-mobile-with-azure-ad-application-proxy"></a>Habilitar acesso remoto ao Power BI Mobile com o Proxy de Aplicativo do Azure AD
 
@@ -32,12 +32,12 @@ Este artigo discute como usar o Azure Proxy de Aplicativo do AD para habilitar o
 Este artigo pressupõe que você já implantou os serviços de relatório e o [proxy de aplicativo habilitado](application-proxy-add-on-premises-application.md).
 
 - Habilitar o proxy de aplicativo requer a instalação de um conector em um Windows Server e a conclusão dos [pré-requisitos](application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment) para que o conector possa se comunicar com os serviços do Azure AD.
-- Ao publicar Power BI, recomendamos que você use os mesmos domínios internos e externos. Para saber mais sobre domínios personalizados, consulte [trabalhando com domínios personalizados no proxy de aplicativo](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-custom-domain).
+- Ao publicar Power BI, recomendamos que você use os mesmos domínios internos e externos. Para saber mais sobre domínios personalizados, consulte [trabalhando com domínios personalizados no proxy de aplicativo](./application-proxy-configure-custom-domain.md).
 - Essa integração está disponível para o **Power bi Mobile aplicativo Ios e Android** .
 
 ## <a name="step-1-configure-kerberos-constrained-delegation-kcd"></a>Etapa 1: configurar a delegação restrita de Kerberos (KCD)
 
-Para aplicativos locais que usam a autenticação do Windows, você pode obter SSO (logon único) usando o protocolo de autenticação Kerberos e um recurso chamado KCD (delegação restrita de Kerberos). Quando configurado, o KCD permite que o conector do proxy de aplicativo obtenha um token do Windows para um usuário, mesmo que o usuário não tenha entrado no Windows diretamente. Para saber mais sobre o KCD, confira [visão geral da delegação restrita de Kerberos](https://technet.microsoft.com/library/jj553400.aspx) e [delegação restrita de Kerberos para logon único em seus aplicativos com o proxy de aplicativo](application-proxy-configure-single-sign-on-with-kcd.md).
+Para aplicativos locais que usam a autenticação do Windows, você pode obter SSO (logon único) usando o protocolo de autenticação Kerberos e um recurso chamado KCD (delegação restrita de Kerberos). Quando configurado, o KCD permite que o conector do proxy de aplicativo obtenha um token do Windows para um usuário, mesmo que o usuário não tenha entrado no Windows diretamente. Para saber mais sobre o KCD, confira [visão geral da delegação restrita de Kerberos](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj553400(v=ws.11)) e [delegação restrita de Kerberos para logon único em seus aplicativos com o proxy de aplicativo](application-proxy-configure-single-sign-on-with-kcd.md).
 
 Não há muito o que configurar no lado do Reporting Services. Apenas certifique-se de ter um SPN (nome da entidade de serviço) válido para permitir que a autenticação Kerberos adequada ocorra. Verifique também se o servidor de Reporting Services está habilitado para autenticação de negociação.
 
@@ -45,7 +45,7 @@ Para configurar o KCD para o Reporting Services, continue com as etapas a seguir
 
 ### <a name="configure-the-service-principal-name-spn"></a>Configurar o SPN (nome da entidade de serviço)
 
-O SPN é um identificador exclusivo para um serviço que usa a autenticação Kerberos. Você precisará verificar se tem um SPN HTTP adequado presente para seu servidor de relatório. Para obter informações sobre como configurar o SPN (Nome da Entidade de Serviço) adequado para seu servidor de relatório, consulte [Registrar um SPN (Nome da Entidade de Serviço) para um servidor de relatório](https://msdn.microsoft.com/library/cc281382.aspx).
+O SPN é um identificador exclusivo para um serviço que usa a autenticação Kerberos. Você precisará verificar se tem um SPN HTTP adequado presente para seu servidor de relatório. Para obter informações sobre como configurar o SPN (Nome da Entidade de Serviço) adequado para seu servidor de relatório, consulte [Registrar um SPN (Nome da Entidade de Serviço) para um servidor de relatório](/sql/reporting-services/report-server/register-a-service-principal-name-spn-for-a-report-server).
 Você pode verificar se o SPN foi adicionado executando o comando Setspn com a opção -L. Para saber mais sobre esse comando, confira [Setspn](https://social.technet.microsoft.com/wiki/contents/articles/717.service-principal-names-spn-setspn-syntax.aspx).
 
 ### <a name="enable-negotiate-authentication"></a>Habilitar autenticação de negociação
@@ -60,7 +60,7 @@ Para habilitar um servidor de relatório para usar a autenticação Kerberos, co
 </AuthenticationTypes>
 ```
 
-Para obter mais informações, consulte [Modify a Reporting Services Configuration File (Modificar um arquivo de configuração de serviços)](https://msdn.microsoft.com/library/bb630448.aspx) e [Configurar a Autenticação do Windows no servidor de relatório](https://msdn.microsoft.com/library/cc281253.aspx).
+Para obter mais informações, consulte [Modify a Reporting Services Configuration File (Modificar um arquivo de configuração de serviços)](/sql/reporting-services/report-server/modify-a-reporting-services-configuration-file-rsreportserver-config) e [Configurar a Autenticação do Windows no servidor de relatório](/sql/reporting-services/security/configure-windows-authentication-on-the-report-server).
 
 ### <a name="ensure-the-connector-is-trusted-for-delegation-to-the-spn-added-to-the-reporting-services-application-pool-account"></a>Verifique se o conector é confiável para delegação para o SPN adicionado à conta do pool de aplicativos Reporting Services
 Configure o KCD para que o serviço de Proxy de Aplicativo do AD do Azure possa delegar identidades de usuário para a conta do pool de aplicativos Reporting Services. Configure a KCD habilitando o conector Proxy de Aplicativo para recuperar tíquetes Kerberos para seus usuários que foram autenticados no Azure AD. Em seguida, esse servidor passa o contexto para o aplicativo de destino ou Reporting Services nesse caso.
@@ -84,7 +84,7 @@ Você já pode configurar o Proxy de Aplicativo do Azure AD.
 1. Publique os serviços de relatório por meio do proxy de aplicativo com as configurações a seguir. Para obter instruções detalhadas sobre como publicar um aplicativo por meio do Proxy de Aplicativo, confira [Publicar aplicativos usando o Proxy de Aplicativo do Azure AD](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad).
    - **URL interna**: Insira a URL para o servidor de relatório que o conector pode acessar na rede corporativa. Verifique se essa URL pode ser acessada no servidor no qual o conector está instalado. É considerada uma melhor prática usar um domínio de nível superior, como `https://servername/`, para evitar problemas com subcaminhos publicados no Proxy de Aplicativo. Por exemplo, use `https://servername/`, e não `https://servername/reports/` ou `https://servername/reportserver/`.
      > [!NOTE]
-     > É recomendável usar uma conexão HTTPS segura para o servidor de relatório. Para saber mais, confira [Configurar conexões SSL em um servidor de relatórios do modo nativo](https://docs.microsoft.com/sql/reporting-services/security/configure-ssl-connections-on-a-native-mode-report-server?view=sql-server-2017).
+     > É recomendável usar uma conexão HTTPS segura para o servidor de relatório. Para saber mais, confira [Configurar conexões SSL em um servidor de relatórios do modo nativo](/sql/reporting-services/security/configure-ssl-connections-on-a-native-mode-report-server?view=sql-server-2017).
    - **URL externa**: Insira a URL pública à qual o aplicativo móvel Power bi se conectará. Por exemplo, poderá se parecer com `https://reports.contoso.com` se um domínio personalizado for usado. Para usar um domínio personalizado, carregue um certificado para o domínio e aponte um registro DNS ao domínio padrão msappproxy.net para seu aplicativo. Para obter etapas detalhadas, confira [Trabalhar com domínios personalizados no Proxy de Aplicativo do Azure AD](application-proxy-configure-custom-domain.md).
 
    - **Método de pré-autenticação**: Azure Active Directory
@@ -148,13 +148,15 @@ Você pode usar Microsoft Intune para gerenciar os aplicativos cliente que a for
 5. Em **APIs que minha organização usa**, pesquise "gerenciamento de aplicativos móveis da Microsoft" e selecione-o.
 6. Adicione a permissão **DeviceManagementManagedApps. ReadWrite** ao aplicativo
 7. Clique em **conceder consentimento do administrador** para conceder a permissão de acesso ao aplicativo.
-8. Configure a política do Intune desejada consultando [como criar e atribuir políticas de proteção de aplicativo](https://docs.microsoft.com/intune/app-protection-policies).
+8. Configure a política do Intune desejada consultando [como criar e atribuir políticas de proteção de aplicativo](/intune/app-protection-policies).
 
 ## <a name="troubleshooting"></a>Solução de problemas
 
-Se o aplicativo retornar uma página de erro depois de tentar carregar um relatório por mais de alguns minutos, talvez seja necessário alterar a configuração de tempo limite. Por padrão, o proxy de aplicativo dá suporte a aplicativos que levam até 85 segundos para responder a uma solicitação. Para aumentar essa configuração para 180 segundos, selecione o tempo limite de back-end para **longo** na página de configurações de proxy de aplicativo para o aplicativo. Para obter dicas sobre como criar relatórios rápidos e confiáveis, consulte [práticas recomendadas de Power bi relatórios](https://docs.microsoft.com/power-bi/power-bi-reports-performance).
+Se o aplicativo retornar uma página de erro depois de tentar carregar um relatório por mais de alguns minutos, talvez seja necessário alterar a configuração de tempo limite. Por padrão, o proxy de aplicativo dá suporte a aplicativos que levam até 85 segundos para responder a uma solicitação. Para aumentar essa configuração para 180 segundos, selecione o tempo limite de back-end para **longo** na página de configurações de proxy de aplicativo para o aplicativo. Para obter dicas sobre como criar relatórios rápidos e confiáveis, consulte [práticas recomendadas de Power bi relatórios](/power-bi/power-bi-reports-performance).
+
+Usando o Azure Proxy de Aplicativo do AD para habilitar o Power BI aplicativo móvel para se conectar ao Servidor de Relatórios do Power BI local não tem suporte com políticas de acesso condicional que exigem o aplicativo Microsoft Power BI como um aplicativo cliente aprovado.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Permitir que aplicativos cliente nativos interajam com aplicativos de proxy](application-proxy-configure-native-client-application.md)
-- [Exibir KPIs e relatórios locais do servidor de relatório nos aplicativos móveis do Power BI](https://docs.microsoft.com/power-bi/consumer/mobile/mobile-app-ssrs-kpis-mobile-on-premises-reports)
+- [Exibir KPIs e relatórios locais do servidor de relatório nos aplicativos móveis do Power BI](/power-bi/consumer/mobile/mobile-app-ssrs-kpis-mobile-on-premises-reports)

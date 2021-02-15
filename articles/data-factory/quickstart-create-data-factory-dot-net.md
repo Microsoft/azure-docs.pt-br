@@ -1,6 +1,6 @@
 ---
-title: Criar o Azure Data Factory usando o SDK do .NET
-description: Crie um Azure Data Factory para copiar dados de um local em um Armazenamento de Blobs do Azure para outro local.
+title: Criar um Azure Data Factory usando o SDK do .NET
+description: Crie um pipeline e um Azure Data Factory usando o SDK do .NET para copiar dados de uma localização em um Armazenamento de Blobs do Azure para outra.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 06/24/2019
+ms.date: 12/18/2020
 ms.author: jingwang
-ms.openlocfilehash: 0c2f840333f066afaa22883fb0f5d67072a5c822
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.openlocfilehash: c5e35fb8ab6a782ec79f10b1099f6781062c1d7c
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85504858"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97678876"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-net-sdk"></a>Início Rápido: Criar um data factory e um pipeline usando o SDK do .NET
 
@@ -49,7 +49,7 @@ Das seções em *Como usar o portal para criar um aplicativo do Azure AD e uma e
 
 1. Em [Criar um aplicativo no Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal), crie um aplicativo que represente o aplicativo .NET que você está criando neste tutorial. Para a URL de logon, você pode fornecer uma URL fictícia, como mostrado no artigo (`https://contoso.org/exampleapp`).
 2. Em [Obter valores para entrar](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in), obtenha a **ID do aplicativo** e a **ID do locatário** e anote esses valores que você usará posteriormente neste tutorial. 
-3. Em [Certificados e segredos](../active-directory/develop/howto-create-service-principal-portal.md#upload-a-certificate-or-create-a-secret-for-signing-in), obtenha a **chave de autenticação** e anote esse valor que você usa posteriormente neste tutorial.
+3. Em [Certificados e segredos](../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options), obtenha a **chave de autenticação** e anote esse valor que você usa posteriormente neste tutorial.
 4. Em [Atribuir o aplicativo a uma função](../active-directory/develop/howto-create-service-principal-portal.md#assign-a-role-to-the-application), atribua o aplicativo à função **Colaborador** no nível da assinatura para que o aplicativo possa criar os data factories na assinatura.
 
 ## <a name="create-a-visual-studio-project"></a>Criar um projeto do Visual Studio
@@ -81,6 +81,7 @@ Em seguida, crie um aplicativo de console do .NET em C# no Visual Studio:
     using System.Collections.Generic;
     using System.Linq;
     using Microsoft.Rest;
+    using Microsoft.Rest.Serialization;
     using Microsoft.Azure.Management.ResourceManager;
     using Microsoft.Azure.Management.DataFactory;
     using Microsoft.Azure.Management.DataFactory.Models;

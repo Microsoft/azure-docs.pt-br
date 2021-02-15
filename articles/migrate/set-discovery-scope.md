@@ -1,14 +1,17 @@
 ---
 title: Definir o escopo para a descoberta de VM VMware com migrações para Azure
 description: Descreve como definir o escopo de descoberta para avaliação e migração de VM VMware com migrações para Azure.
+author: vineetvikram
+ms.author: vivikram
+ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 06/09/2020
-ms.openlocfilehash: dfc9c12edd93fc720ef716fd43b04e0c193d5803
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: dc5bd178c837deea7a22fb3be5ba438085c0e748
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88919719"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753545"
 ---
 # <a name="set-discovery-scope-for-vmware-vms"></a>Definir escopo de descoberta para VMs VMware
 
@@ -21,7 +24,7 @@ Quando você configura o dispositivo, ele se conecta ao vCenter Server e inicia 
 
 ## <a name="before-you-start"></a>Antes de começar
 
-Se você não tiver configurado uma conta de usuário do vCenter que a migração do Azure usa para descoberta, faça isso agora para [avaliação](tutorial-prepare-vmware.md#set-up-permissions-for-assessment) ou [migração sem agente](tutorial-prepare-vmware.md#assign-permissions-to-an-account).
+Se você não tiver configurado uma conta de usuário do vCenter que a migração do Azure usa para descoberta, faça isso agora para [avaliação](./tutorial-discover-vmware.md#prepare-vmware) ou [migração sem agente](./migrate-support-matrix-vmware-migration.md#agentless-migration).
 
 
 ## <a name="assign-permissions-and-roles"></a>Atribuir permissões e funções

@@ -8,10 +8,10 @@ author: emuench
 ms.author: mingshen
 ms.date: 07/24/2020
 ms.openlocfilehash: e68d40a42664de0392ca666238fdb006c05c0350
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88030737"
 ---
 Siga estas diretrizes para seus logotipos:

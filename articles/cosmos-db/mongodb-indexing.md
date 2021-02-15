@@ -5,28 +5,39 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: how-to
-ms.date: 08/07/2020
+ms.date: 01/08/2020
 author: timsander1
 ms.author: tisande
-ms.custom: devx-track-javascript
-ms.openlocfilehash: fb90390814af39b240c9a157f490ee9390afeb8f
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.custom: devx-track-js
+ms.openlocfilehash: 34caca47746814046a894494ec43d9b5c977389a
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88030496"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060054"
 ---
 # <a name="manage-indexing-in-azure-cosmos-dbs-api-for-mongodb"></a>Gerenciar a indexação na API do Azure Cosmos DB para MongoDB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 A API do Azure Cosmos DB para MongoDB aproveita os principais recursos de gerenciamento de índice do Azure Cosmos DB. Este artigo se concentra em como adicionar índices usando a API do Azure Cosmos DB para MongoDB. Você também pode ler uma [visão geral da indexação em Azure Cosmos DB](index-overview.md) relevante em todas as APIs.
 
 ## <a name="indexing-for-mongodb-server-version-36"></a>Indexação para o servidor MongoDB versão 3,6
 
-A API do Azure Cosmos DB para o servidor MongoDB versão 3,6 indexa automaticamente o `_id` campo, que não pode ser removido. Ele impõe automaticamente a exclusividade do `_id` campo por chave de fragmentação. Na API do Azure Cosmos DB para MongoDB, a fragmentação e a indexação são conceitos separados. Você não precisa indexar sua chave de fragmento. No entanto, assim como com qualquer outra propriedade em seu documento, se essa propriedade for um filtro comum em suas consultas, recomendamos indexar a chave de fragmento.
+A API do Azure Cosmos DB para o servidor MongoDB versão 3,6 indexa automaticamente o `_id` campo, que não pode ser removido. Ele impõe automaticamente a exclusividade do `_id` campo por chave de fragmentação. Na API do Azure Cosmos DB para MongoDB, a fragmentação e a indexação são conceitos separados. Você não precisa indexar sua chave de fragmento. No entanto, assim como com qualquer outra propriedade em seu documento, se essa propriedade for um filtro comum em suas consultas, é recomendável indexar a chave de fragmentação.
 
 Para indexar campos adicionais, você aplica os comandos de gerenciamento de índice do MongoDB. Como no MongoDB, a API do Azure Cosmos DB para MongoDB indexa automaticamente o `_id` campo somente. Essa política de indexação padrão difere da API de SQL do Azure Cosmos DB, que indexa todos os campos por padrão.
 
 Para aplicar uma classificação a uma consulta, você deve criar um índice nos campos usados na operação de classificação.
+
+### <a name="editing-indexing-policy"></a>Editando política de indexação
+
+É recomendável editar sua política de indexação no Data Explorer dentro do portal do Azure.
+. Você pode adicionar índices de campo único e curinga do editor de políticas de indexação no Data Explorer:
+
+:::image type="content" source="./media/mongodb-indexing/indexing-policy-editor.png" alt-text="Editor de políticas de indexação":::
+
+> [!NOTE]
+> Você não pode criar índices compostos usando o editor de política de indexação no Data Explorer.
 
 ## <a name="index-types"></a>Tipos de índice
 
@@ -36,11 +47,18 @@ Você pode criar índices em qualquer campo único. A ordem de classificação d
 
 `db.coll.createIndex({name:1})`
 
+Você pode criar o mesmo índice de campo único no `name` portal do Azure:
+
+:::image type="content" source="./media/mongodb-indexing/add-index.png" alt-text="Adicionar índice de nome no editor de políticas de indexação":::
+
 Uma consulta usa vários índices de campo único, quando disponíveis. Você pode criar até 500 índices de campo único por contêiner.
 
 ### <a name="compound-indexes-mongodb-server-version-36"></a>Índices compostos (servidor MongoDB versão 3,6)
 
-A API do Azure Cosmos DB para MongoDB dá suporte a índices compostos para contas que usam o protocolo de transmissão da versão 3,6. Você pode incluir até oito campos em um índice composto. **Ao contrário do MongoDB, você deve criar um índice composto somente se sua consulta precisar classificar com eficiência em vários campos ao mesmo tempo.** Para consultas com vários filtros que não precisam ser classificados, crie vários índices de campo único em vez de um único índice composto.
+A API do Azure Cosmos DB para MongoDB dá suporte a índices compostos para contas que usam o protocolo de transmissão da versão 3,6. Você pode incluir até oito campos em um índice composto. Ao contrário do MongoDB, você deve criar um índice composto somente se sua consulta precisar classificar com eficiência em vários campos ao mesmo tempo. Para consultas com vários filtros que não precisam ser classificados, crie vários índices de campo único em vez de um único índice composto. 
+
+> [!NOTE]
+> Você não pode criar índices compostos em propriedades aninhadas ou matrizes.
 
 O comando a seguir cria um índice composto nos campos `name` e `age` :
 
@@ -50,7 +68,7 @@ Você pode usar índices compostos para classificar com eficiência em vários c
 
 `db.coll.find().sort({name:1,age:1})`
 
-Você também pode usar o índice composto anterior para classificar com eficiência uma consulta com a ordem de classificação oposta em todos os campos. Este é um exemplo:
+Você também pode usar o índice composto anterior para classificar com eficiência uma consulta com a ordem de classificação oposta em todos os campos. Veja um exemplo:
 
 `db.coll.find().sort({name:-1,age:-1})`
 
@@ -59,7 +77,7 @@ No entanto, a sequência dos caminhos no índice composto deve corresponder exat
 `db.coll.find().sort({age:1,name:1})`
 
 > [!NOTE]
-> Você não pode criar índices compostos em propriedades aninhadas ou matrizes.
+> Os índices compostos são usados apenas em consultas que classificam os resultados. Para consultas que têm vários filtros que não precisam ser classificados, crie índices de campo único multipe.
 
 ### <a name="multikey-indexes"></a>Índices de multikey
 
@@ -75,7 +93,7 @@ Aqui está um exemplo de criação de um índice geoespacial no `location` campo
 
 ### <a name="text-indexes"></a>Índices de texto
 
-Atualmente, a API do Azure Cosmos DB para MongoDB não dá suporte a índices de texto. Para consultas de pesquisa de texto em cadeias de caracteres, você deve usar a integração de [pesquisa cognitiva do Azure](https://docs.microsoft.com/azure/search/search-howto-index-cosmosdb) com Azure Cosmos DB.
+Atualmente, a API do Azure Cosmos DB para MongoDB não dá suporte a índices de texto. Para consultas de pesquisa de texto em cadeias de caracteres, você deve usar a integração de [pesquisa cognitiva do Azure](../search/search-howto-index-cosmosdb.md) com Azure Cosmos DB. 
 
 ## <a name="wildcard-indexes"></a>Índices curinga
 
@@ -131,7 +149,14 @@ Veja como você pode criar um índice curinga em todos os campos:
 
 `db.coll.createIndex( { "$**" : 1 } )`
 
-Como você está iniciando o desenvolvimento, pode ser útil criar um índice curinga em todos os campos. À medida que mais propriedades forem indexadas em um documento, o encargo de RU (unidade de solicitação) para gravação e atualização do documento aumentará. Portanto, se você tiver uma carga de trabalho de gravação intensa, deverá optar por caminhos de índice individualmente em vez de usar índices curinga.
+Você também pode criar índices curinga usando o Data Explorer no portal do Azure:
+
+:::image type="content" source="./media/mongodb-indexing/add-wildcard-index.png" alt-text="Adicionar índice curinga no editor de política de indexação":::
+
+> [!NOTE]
+> Se você estiver apenas iniciando o desenvolvimento, é **altamente** recomendável começar com um índice curinga em todos os campos. Isso pode simplificar o desenvolvimento e facilitar a otimização das consultas.
+
+Documentos com muitos campos podem ter uma cobrança de alta unidade de solicitação (RU) para gravações e atualizações. Portanto, se você tiver uma carga de trabalho de gravação intensa, deverá optar por caminhos de índice individualmente em vez de usar índices curinga.
 
 ### <a name="limitations"></a>Limitações
 
@@ -143,7 +168,7 @@ Os índices curinga não oferecem suporte a nenhum dos seguintes tipos de índic
 
 **Ao contrário do MongoDB**, na API do Azure Cosmos DB para MongoDB, você **não pode** usar índices curinga para:
 
-- Criando um índice curinga que inclui vários campos específicos
+- Criar um índice curinga que inclui vários campos específicos
 
 `db.coll.createIndex(
     { "$**" : 1 },
@@ -155,7 +180,7 @@ Os índices curinga não oferecem suporte a nenhum dos seguintes tipos de índic
     }
 )`
 
-- Criando um índice curinga que exclui vários campos específicos
+- Criar um índice curinga que exclui vários campos específicos
 
 `db.coll.createIndex(
     { "$**" : 1 },
@@ -204,7 +229,7 @@ globaldb:PRIMARY> db.runCommand({shardCollection: db.coll._fullName, key: { univ
         "ok" : 1,
         "collectionsharded" : "test.coll"
 }
-globaldb:PRIMARY> db.coll.createIndex( { "student_id" : 1, "university" : 1 }, {unique:true})
+globaldb:PRIMARY> db.coll.createIndex( { "university" : 1, "student_id" : 1 }, {unique:true});
 {
         "_t" : "CreateIndexesResponse",
         "ok" : 1,
@@ -324,10 +349,55 @@ Independentemente do valor especificado para a propriedade de índice de **plano
 
 Não há nenhum impacto na disponibilidade de leitura ao adicionar um novo índice. As consultas só utilizarão novos índices depois que a transformação do índice for concluída. Durante a transformação do índice, o mecanismo de consulta continuará a usar índices existentes, portanto, você observará um desempenho de leitura semelhante durante a transformação de indexação para o que você observou antes de iniciar a alteração de indexação. Ao adicionar novos índices, também não há nenhum risco de resultados de consulta incompletos ou inconsistentes.
 
-Ao remover índices e executar imediatamente as consultas que têm filtros nos índices descartados, os resultados podem ser inconsistentes e incompletos até que a transformação do índice seja concluída. Se você remover índices, o mecanismo de consulta não garantirá resultados consistentes ou completos quando as consultas filtrarem esses índices recentemente removidos. A maioria dos desenvolvedores não removem índices e, em seguida, tentam consultá-los imediatamente, na prática, essa situação é improvável.
+Ao remover índices e executar imediatamente as consultas que têm filtros nos índices descartados, os resultados podem ser inconsistentes e incompletos até que a transformação do índice seja concluída. Se você remover índices, o mecanismo de consulta não fornecerá resultados consistentes ou completos quando as consultas filtrarem esses índices recentemente removidos. A maioria dos desenvolvedores não removem índices e, em seguida, tentam consultá-los imediatamente, na prática, essa situação é improvável.
 
 > [!NOTE]
 > Você pode [acompanhar o progresso do índice](#track-index-progress).
+
+## <a name="reindex-command"></a>Comando REINDEX
+
+O `reIndex` comando recriará todos os índices em uma coleção. Na maioria dos casos, isso é desnecessário. No entanto, em alguns casos raros, o desempenho da consulta pode melhorar após a execução do `reIndex` comando.
+
+Você pode executar o `reIndex` comando usando a seguinte sintaxe:
+
+`db.runCommand({ reIndex: <collection> })`
+
+Você pode usar a sintaxe abaixo para verificar se você precisa executar o `reIndex` comando:
+
+`db.runCommand({"customAction":"GetCollection",collection:<collection>, showIndexes:true})`
+
+Saída de exemplo:
+
+```
+{
+        "database" : "myDB",
+        "collection" : "myCollection",
+        "provisionedThroughput" : 400,
+        "indexes" : [
+                {
+                        "v" : 1,
+                        "key" : {
+                                "_id" : 1
+                        },
+                        "name" : "_id_",
+                        "ns" : "myDB.myCollection",
+                        "requiresReIndex" : true
+                },
+                {
+                        "v" : 1,
+                        "key" : {
+                                "b.$**" : 1
+                        },
+                        "name" : "b.$**_1",
+                        "ns" : "myDB.myCollection",
+                        "requiresReIndex" : true
+                }
+        ],
+        "ok" : 1
+}
+```
+
+Se `reIndex` for necessário, **requiresReIndex** será true. Se `reIndex` não for necessário, essa propriedade será omitida.
 
 ## <a name="migrate-collections-with-indexes"></a>Migrar coleções com índices
 
@@ -335,7 +405,7 @@ No momento, você só pode criar índices exclusivos quando a coleção não con
 
 ## <a name="indexing-for-mongodb-version-32"></a>Indexação para o MongoDB versão 3,2
 
-Os recursos de indexação disponíveis e os padrões são diferentes para contas do Azure cosmos que são compatíveis com a versão 3,2 do protocolo de transmissão do MongoDB. Você pode [verificar a versão da sua conta](mongodb-feature-support-36.md#protocol-support). Você pode atualizar para a versão 3,6 ao arquivar uma [solicitação de suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Os recursos de indexação disponíveis e os padrões são diferentes para contas do Azure cosmos que são compatíveis com a versão 3,2 do protocolo de transmissão do MongoDB. Você pode [verificar a versão da sua conta](mongodb-feature-support-36.md#protocol-support) e [atualizar para a versão 3,6](mongodb-version-upgrade.md).
 
 Se você estiver usando a versão 3,2, esta seção descreve as principais diferenças com a versão 3,6.
 
@@ -352,11 +422,11 @@ Depois de descartar os índices padrão, você pode adicionar mais índices como
 
 ### <a name="compound-indexes-version-32"></a>Índices compostos (versão 3,2)
 
-Os índices compostos possuem referências a vários campos de um documento. Se você quiser criar um índice composto, atualize para a versão 3,6, preenchendo uma [solicitação de suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Os índices compostos possuem referências a vários campos de um documento. Se você quiser criar um índice composto, [atualize para a versão 3,6](mongodb-version-upgrade.md).
 
 ### <a name="wildcard-indexes-version-32"></a>Índices curinga (versão 3,2)
 
-Se você quiser criar um índice curinga, atualize para a versão 3,6, preenchendo uma [solicitação de suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Se você quiser criar um índice curinga, [atualize para a versão 3,6](mongodb-version-upgrade.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

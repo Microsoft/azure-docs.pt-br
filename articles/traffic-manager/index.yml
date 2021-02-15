@@ -8,15 +8,15 @@ metadata:
   ms.service: traffic-manager
   ms.topic: landing-page
   ms.collection: collection
-  author: rohinkoul
-  ms.author: rohink
+  author: duongau
+  ms.author: duau
   ms.date: 08/19/2019
-  ms.openlocfilehash: 2159cd10327d5a2d58ed012d7e2572e9f8ec387b
-  ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+  ms.openlocfilehash: da5a925596eb407dc95109d249862080c9bdc086
+  ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 04/24/2020
-  ms.locfileid: "82130739"
+  ms.lasthandoff: 01/14/2021
+  ms.locfileid: "98185624"
 landingContent:
 - title: Sobre o Gerenciador de Tráfego
   linkLists:
@@ -31,7 +31,7 @@ landingContent:
   - linkListType: learn
     links:
     - text: Aprimorar a disponibilidade do serviço e a localidade dos dados
-      url: https://docs.microsoft.com/learn/modules/distribute-load-with-traffic-manager/
+      url: /learn/modules/distribute-load-with-traffic-manager/
 - title: Introdução
   linkLists:
   - linkListType: quickstart
@@ -85,6 +85,6 @@ landingContent:
   - linkListType: reference
     links:
     - text: Azure PowerShell
-      url: https://docs.microsoft.com/powershell/module/az.trafficmanager/?view=azps-2.5.0
+      url: /powershell/module/az.trafficmanager/?view=azps-2.5.0
     - text: CLI do Azure
       url: https://docs.microsoft.com/cli/azure/network/traffic-manager?view=azure-cli-latest

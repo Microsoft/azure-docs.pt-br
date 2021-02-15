@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 07/28/2019
-ms.openlocfilehash: a02583825f4a1ef15992aa2307e7f666d5abeaba
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: b3eda2c8de8319552f32938f20ff98af0e0a49fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88136449"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91314819"
 ---
 # <a name="nodes-and-tables-in-azure-database-for-postgresql--hyperscale-citus"></a>Nós e tabelas no banco de dados do Azure para PostgreSQL – Citus (hiperescala)
 
@@ -24,7 +24,7 @@ O tipo de Hospedagem de hiperescala (Citus) permite que os servidores do banco d
 
 Cada grupo de servidores tem um nó de coordenador e vários trabalhadores. Os aplicativos enviam suas consultas para o nó de coordenador, que os retransmite para os trabalhadores relevantes e acumula seus resultados. Os aplicativos não podem se conectar diretamente aos trabalhadores.
 
-O Citus (hiperescala) permite que o administrador de banco de dados *distribua* tabelas, armazenando linhas diferentes em nós de trabalho diferentes. As tabelas distribuídas são a chave para o desempenho de hiperescala. A incapacidade de distribuir tabelas as deixa totalmente no nó de coordenador e não pode tirar proveito do paralelismo entre máquinas.
+O Citus (hiperescala) permite que o administrador de banco de dados *distribua* tabelas, armazenando linhas diferentes em nós de trabalho diferentes. As tabelas distribuídas são a chave para o desempenho de hiperescala (Citus). A incapacidade de distribuir tabelas as deixa totalmente no nó de coordenador e não pode tirar proveito do paralelismo entre máquinas.
 
 Para cada consulta em tabelas distribuídas, o coordenador a roteia para um único nó de trabalho ou a paralelize em vários dependendo se os dados necessários residem em um único nó ou vários. O coordenador decide o que fazer por meio das tabelas de metadados de consultoria. Essas tabelas acompanham os nomes DNS e a integridade dos nós de trabalho e a distribuição de dados entre nós.
 

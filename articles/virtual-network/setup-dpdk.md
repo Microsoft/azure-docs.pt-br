@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/12/2020
 ms.author: labattul
-ms.openlocfilehash: 622b7e629a7f5fea77afc18ec5121fe3466716ed
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: ba7c2a37d58f20ac4ff1f49a46a406d1b1f70106
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387550"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97704411"
 ---
 # <a name="set-up-dpdk-in-a-linux-virtual-machine"></a>Configurar o DPDK em uma máquina virtual Linux
 
@@ -50,7 +50,7 @@ As seguintes distribuições do Azure Marketplace são suportadas:
 
 **Suporte a kernel personalizado**
 
-Para qualquer versão do kernel Linux que não esteja listada, confira [Patches para a criação de um kernel do Linux ajustado para o Azure](https://github.com/microsoft/azure-linux-kernel). Para mais informações, você também pode entrar em contato com [azuredpdk@microsoft.com](mailto:azuredpdk@microsoft.com). 
+Para qualquer versão do kernel Linux que não esteja listada, confira [Patches para a criação de um kernel do Linux ajustado para o Azure](https://github.com/microsoft/azure-linux-kernel). Para mais informações, você também pode entrar em contato com [aznetdpdk@microsoft.com](mailto:aznetdpdk@microsoft.com). 
 
 ## <a name="region-support"></a>Suporte de regiões
 

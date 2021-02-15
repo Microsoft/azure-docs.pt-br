@@ -1,81 +1,145 @@
 ---
-title: Início Rápido – Biblioteca de clientes do Azure Key Vault para Node.js (v4)
-description: Saiba como criar, recuperar e excluir segredos de um Azure Key Vault usando a biblioteca de clientes do Node.js
+title: Início Rápido – Biblioteca de clientes de segredo do Azure Key Vault para JavaScript (versão 4)
+description: Saiba como criar, recuperar e excluir segredos de um Azure Key Vault usando a biblioteca de clientes do JavaScript
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 10/20/2019
+ms.date: 12/6/2020
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 99424e5a7b39d3f60f3337ff10bf7d9265e2ab4c
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-js
+ms.openlocfilehash: afb0e04d6f8a34d844df382081d53a32899e9a5c
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422871"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934757"
 ---
-# <a name="quickstart-azure-key-vault-client-library-for-nodejs-v4"></a>Início Rápido: biblioteca de clientes do Azure Key Vault para Node.js (v4)
+# <a name="quickstart-azure-key-vault-secret-client-library-for-javascript-version-4"></a>Início rápido: Biblioteca de clientes de segredo do Azure Key Vault para JavaScript (versão 4)
 
-Introdução à biblioteca de clientes do Azure Key Vault para Node.js. Siga as etapas abaixo para instalar o pacote e testar o código de exemplo para tarefas básicas.
+Introdução à biblioteca de clientes do segredo do Azure Key Vault para JavaScript. O [Azure Key Vault](../general/overview.md) é um serviço de nuvem que funciona como um repositório seguro de segredos. Você pode armazenar chaves, senhas, certificados e outros segredos com segurança. Os cofres de chaves do Azure podem ser criados e gerenciados por meio do portal do Azure. Neste início rápido, você aprende a criar, recuperar e excluir segredos de um cofre de chaves do Azure usando a biblioteca de clientes do JavaScript
 
-O Cofre da Chave do Azure ajuda a proteger chaves criptográficas e segredos usados por aplicativos e serviços em nuvem. Use a biblioteca de clientes do Key Vault para Node.js para:
+Recursos da biblioteca de clientes do Key Vault:
 
-- Aumentar a segurança e o controle sobre chaves e senhas.
-- Criar e importar chaves de criptografia em minutos.
-- Reduzir a latência com escala de nuvem e redundância global.
-- Simplifique e automatize tarefas para certificados TLS/SSL.
-- Usar HSMs validados para os padrões FIPS 140-2 Nível 2.
+[Documentação de referência da API](/javascript/api/overview/azure/key-vault-index) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/keyvault) | [Pacote (npm)](https://www.npmjs.com/package/@azure/keyvault-secrets)
 
-[Documentação de referência da API](https://docs.microsoft.com/javascript/api/overview/azure/key-vault-index?view=azure-node-latest) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/keyvault) | [Pacote (npm)](https://www.npmjs.com/package/@azure/keyvault-secrets)
+Para obter mais informações sobre o Key Vault e os segredos, confira:
+- [Visão Geral do Key Vault](../general/overview.md)
+- [Visão Geral dos Segredos](about-secrets.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma assinatura do Azure – [crie uma gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Node.js](https://nodejs.org) atual para o seu sistema operacional.
-- [CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) ou [Azure PowerShell](/powershell/azure/)
+- [CLI do Azure](/cli/azure/install-azure-cli)
+- Um Key Vault – crie um usando o [portal do Azure](../general/quick-create-portal.md), a [CLI do Azure](../general/quick-create-cli.md) ou o [Azure PowerShell](../general/quick-create-powershell.md)
 
-Este início rápido pressupõe que você está executando a [CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) em uma janela de terminal do Linux.
+Este início rápido pressupõe que você esteja executando a [CLI do Azure](/cli/azure/install-azure-cli).
 
-## <a name="setting-up"></a>Configurando
+## <a name="sign-in-to-azure"></a>Entrar no Azure
 
-### <a name="install-the-package"></a>Instalar o pacote
+1. Execute o comando `login`.
 
-Na janela do console, instale a biblioteca de segredos do Azure Key Vault para Node.js.
+    ```azurecli-interactive
+    az login
+    ```
 
-```console
+    Se a CLI puder abrir o navegador padrão, ela o fará e carregará uma página de entrada do Azure.
+
+    Caso contrário, abra uma página de navegador em [https://aka.ms/devicelogin](https://aka.ms/devicelogin) e insira o código de autorização exibido no terminal.
+
+2. Entre com suas credenciais de conta no navegador.
+
+## <a name="create-new-nodejs-application"></a>Criar um aplicativo Node.js
+
+Em seguida, crie um aplicativo Node.js que possa ser implantado na nuvem. 
+
+1. Em um shell de comando, crie uma pasta chamada `key-vault-node-app`:
+
+```azurecli
+mkdir key-vault-node-app
+```
+
+1. Altere para o diretório *key-vault-node-app* recém-criado e execute o comando "nit" para inicializar o projeto do Node:
+
+```azurecli
+cd key-vault-node-app
+npm init -y
+```
+
+## <a name="install-key-vault-packages"></a>Instalar pacotes do Key Vault
+
+Na janela do console, instale a [biblioteca de segredos](https://www.npmjs.com/package/@azure/keyvault-secrets) do Azure Key Vault para Node.js.
+
+```azurecli
 npm install @azure/keyvault-secrets
 ```
 
-Para este guia de início rápido, você precisará instalar também o pacote azure.identity:
+Instalar o pacote [azure.identity](https://www.npmjs.com/package/@azure/identity) para autenticar em um Key Vault
 
-```console
+```azurecli
 npm install @azure/identity
 ```
 
-### <a name="create-a-resource-group-and-key-vault"></a>Criar um grupo de recursos e um cofre de chaves
+## <a name="set-environment-variables"></a>Definir variáveis de ambiente
 
-[!INCLUDE [Create a resource group and key vault](../../../includes/key-vault-rg-kv-creation.md)]
+Este aplicativo usa o nome do cofre de chaves como uma variável de ambiente chamada `KEY_VAULT_NAME`.
 
-### <a name="create-a-service-principal"></a>Criar uma entidade de serviço
+Windows
+```cmd
+set KEY_VAULT_NAME=<your-key-vault-name>
+````
+Windows PowerShell
+```powershell
+$Env:KEY_VAULT_NAME="<your-key-vault-name>"
+```
 
-[!INCLUDE [Create a service principal](../../../includes/key-vault-sp-creation.md)]
+macOS ou Linux
+```cmd
+export KEY_VAULT_NAME=<your-key-vault-name>
+```
 
-#### <a name="give-the-service-principal-access-to-your-key-vault"></a>Fornecer acesso à entidade de serviço ao seu cofre de chaves
+## <a name="grant-access-to-your-key-vault"></a>Permitir acesso ao cofre de chaves
 
-[!INCLUDE [Give the service principal access to your key vault](../../../includes/key-vault-sp-kv-access.md)]
+Crie uma política de acesso para o cofre de chaves que conceda permissões de segredos à sua conta de usuário
 
-#### <a name="set-environmental-variables"></a>Definir variáveis de ambiente
-
-[!INCLUDE [Set environmental variables](../../../includes/key-vault-set-environmental-variables.md)]
-
-## <a name="object-model"></a>Modelo de objeto
-
-A biblioteca de clientes do Azure Key Vault para Node.js permite gerenciar chaves e ativos relacionados, como certificados e segredos. Os exemplos de código abaixo mostrarão como criar um cliente, definir, recuperar e excluir um segredo.
-
-Todo o aplicativo de console está disponível em https://github.com/Azure-Samples/key-vault-dotnet-core-quickstart/tree/master/key-vault-console-app.
+```azurecli
+az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --secret-permissions delete get list set purge
+```
 
 ## <a name="code-examples"></a>Exemplos de código
+
+Os exemplos de código abaixo mostrarão como criar um cliente, definir, recuperar e excluir um segredo. 
+
+### <a name="set-up-the-app-framework"></a>Configurar o framework de aplicativos
+
+1. Crie um arquivo de texto e salve-o como "index.js"
+
+1. Adicione chamadas necessárias para carregar os módulos do Azure e do Node.js
+
+1. Crie a estrutura do programa, incluindo um tratamento de exceções básico
+
+```javascript
+const readline = require('readline');
+
+function askQuestion(query) {
+    const rl = readline.createInterface({
+        input: process.stdin,
+        output: process.stdout,
+    });
+
+    return new Promise(resolve => rl.question(query, ans => {
+        rl.close();
+        resolve(ans);
+    }))
+}
+
+async function main() {
+    
+}
+
+main().then(() => console.log('Done')).catch((ex) => console.log(ex.message));
+```
 
 ### <a name="add-directives"></a>Adicionar diretivas
 
@@ -88,9 +152,11 @@ const { SecretClient } = require("@azure/keyvault-secrets");
 
 ### <a name="authenticate-and-create-a-client"></a>Autenticar e criar um cliente
 
-A autenticação no cofre de chaves e a criação de um cliente de cofre de chaves dependem das variáveis ambientais na etapa [Definir variáveis de ambiente](#set-environmental-variables) acima e o [construtor SecretClient](/javascript/api/@azure/keyvault-secrets/secretclient?view=azure-node-latest#secretclient-string--tokencredential--pipelineoptions-). 
+Neste guia de início rápido, o usuário conectado é usado para se autenticar no cofre de chaves, que é o método preferencial para o desenvolvimento local. Para os aplicativos implantados no Azure, a identidade gerenciada deve ser atribuída ao Serviço de Aplicativo ou à Máquina Virtual. Para obter mais informações, confira [Visão geral da identidade gerenciada](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
 
-O nome do cofre de chaves é expandido para o URI do cofre de chaves, no formato `https://<your-key-vault-name>.vault.azure.net`. 
+No exemplo abaixo, o nome do cofre de chaves é expandido para o URI do cofre de chaves, no formato "https://\<your-key-vault-name\>.vault.azure.net". Este exemplo usa a classe ['DefaultAzureCredential()'](https://docs.microsoft.com/javascript/api/@azure/identity/defaultazurecredential) da [Biblioteca de Identidades do Azure](https://docs.microsoft.com/javascript/api/overview/azure/identity-readme), que permite usar o mesmo código em diferentes ambientes com outras opções para fornecer a identidade. Para obter mais informações sobre como se autenticar no cofre de chaves, confira [Guia do Desenvolvedor](https://docs.microsoft.com/azure/key-vault/general/developers-guide#authenticate-to-key-vault-in-code).
+
+Adicione o código a seguir à função 'main()'
 
 ```javascript
 const keyVaultName = process.env["KEY_VAULT_NAME"];
@@ -102,21 +168,15 @@ const client = new SecretClient(KVUri, credential);
 
 ### <a name="save-a-secret"></a>Salvar um segredo
 
-Agora que seu aplicativo foi autenticado, é possível colocar um segredo em seu cofre de chaves usando o [método client.setSecret](/javascript/api/@azure/keyvault-secrets/secretclient?view=azure-node-latest#setsecret-string--string--setsecretoptions-). Isso requer um nome para o segredo, estamos usando "mySecret" neste exemplo.  
+Agora que o aplicativo foi autenticado, é possível colocar um segredo no cofre de chaves usando o [método setSecret](/javascript/api/@azure/keyvault-secrets/secretclient?#setsecret-string--string--setsecretoptions-). Isso requer um nome para o segredo, estamos usando "mySecret" neste exemplo.  
 
 ```javascript
 await client.setSecret(secretName, secretValue);
 ```
 
-Você pode verificar se o segredo foi definido usando o comando [az keyvault secret show](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show):
-
-```azurecli
-az keyvault secret show --vault-name <your-unique-keyvault-name> --name mySecret
-```
-
 ### <a name="retrieve-a-secret"></a>Recuperar um segredo
 
-Agora, você pode recuperar o valor definido anteriormente com o [método client.getSecret](/javascript/api/@azure/keyvault-secrets/secretclient?view=azure-node-latest#getsecret-string--getsecretoptions-).
+Agora, você pode recuperar o valor definido anteriormente com o [método getSecret](/javascript/api/@azure/keyvault-secrets/secretclient?#getsecret-string--getsecretoptions-).
 
 ```javascript
 const retrievedSecret = await client.getSecret(secretName);
@@ -126,28 +186,12 @@ Agora, seu segredo está salvo como `retrievedSecret.value`.
 
 ### <a name="delete-a-secret"></a>Excluir um segredo
 
-Por fim, vamos excluir o segredo do cofre de chaves com o [método client.beginDeleteSecret](/javascript/api/@azure/keyvault-secrets/secretclient?view=azure-node-latest#begindeletesecret-string--begindeletesecretoptions-).
+Por fim, vamos excluir e limpar o segredo do cofre de chaves com os métodos [beginDeleteSecret](https://docs.microsoft.com/javascript/api/@azure/keyvault-secrets/secretclient?#beginDeleteSecret_string__BeginDeleteSecretOptions_) e [purgeDeletedSecret](https://docs.microsoft.com/javascript/api/@azure/keyvault-secrets/secretclient?#purgeDeletedSecret_string__PurgeDeletedSecretOptions_).
 
 ```javascript
-await client.beginDeleteSecret(secretName)
-```
-
-Você pode verificar se o segredo foi excluído com o comando [az keyvault secret show](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show):
-
-```azurecli
-az keyvault secret show --vault-name <your-unique-keyvault-name> --name mySecret
-```
-
-## <a name="clean-up-resources"></a>Limpar os recursos
-
-Quando não for mais necessário, você poderá usar a CLI do Azure ou o Azure PowerShell para remover seu cofre de chaves e o grupo de recursos correspondente.
-
-```azurecli
-az group delete -g "myResourceGroup"
-```
-
-```azurepowershell
-Remove-AzResourceGroup -Name "myResourceGroup"
+const deletePoller = await client.beginDeleteSecret(secretName);
+await deletePoller.pollUntilDone();
+await client.purgeDeletedSecret(secretName);
 ```
 
 ## <a name="sample-code"></a>Código de exemplo
@@ -195,22 +239,52 @@ async function main() {
   const retrievedSecret = await client.getSecret(secretName);
 
   console.log("Your secret is '" + retrievedSecret.value + "'.");
+
   console.log("Deleting your secret from " + keyVaultName + " ...");
-
-  await client.beginDeleteSecret(secretName);
-
+  const deletePoller = await client.beginDeleteSecret(secretName);
+  await deletePoller.pollUntilDone();
   console.log("Done.");
-
+  
+  console.log("Purging your secret from {keyVaultName} ...");
+  await client.purgeDeletedSecret(secretName);
+  
 }
 
-main()
+main().then(() => console.log('Done')).catch((ex) => console.log(ex.message));
 
 ```
 
+## <a name="test-and-verify"></a>Testar e verificar
+
+1. Execute os comandos a seguir para executar o aplicativo.
+
+    ```azurecli
+    npm install
+    npm index.js
+    ```
+
+1. Quando solicitado, insira um valor secreto. Por exemplo, mySecretPassword.
+
+    Uma variação do seguinte resultado é exibida:
+
+    ```azurecli
+    Input the value of your secret > mySecretPassword
+    Creating a secret in <your-unique-keyvault-name> called 'mySecret' with the value 'mySecretPassword' ... done.
+    Forgetting your secret.
+    Your secret is ''.
+    Retrieving your secret from <your-unique-keyvault-name>.
+    Your secret is 'mySecretPassword'.
+    Deleting your secret from <your-unique-keyvault-name> ... done.  
+    Purging your secret from <your-unique-keyvault-name> ... done.   
+    ```
+
+
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste início rápido, você criou um cofre de chaves, armazenou um segredo e recuperou esse segredo. Para saber mais sobre o Key Vault e como integrá-lo a seus aplicativos, confira os artigos abaixo.
+Neste guia de início rápido, você criou um cofre de chaves, armazenou um segredo e o recuperou. Para saber mais sobre o Key Vault e como integrá-lo a seus aplicativos, confira os artigos abaixo.
 
 - Leia uma [Visão geral do Azure Key Vault](../general/overview.md)
+- Leia uma [Visão geral dos Segredos do Azure Key Vault](about-secrets.md)
+- Como [Proteger o acesso a um cofre de chaves](../general/secure-your-key-vault.md)
 - Confira o [Guia do desenvolvedor do Azure Key Vault](../general/developers-guide.md)
-- Examine as [Melhores práticas do Azure Key Vault](../general/best-practices.md)
+- Examine a [Visão geral de segurança do Key Vault](../general/security-overview.md)

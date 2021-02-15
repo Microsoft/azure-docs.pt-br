@@ -3,18 +3,20 @@ title: Azure Cosmos DB dicas de desempenho para o SDK do .NET v3
 description: Aprenda as opções de configuração do cliente para ajudar a melhorar o desempenho do SDK do .NET v3 Azure Cosmos DB.
 author: j82w
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 06/16/2020
+ms.date: 10/13/2020
 ms.author: jawilley
-ms.custom: devx-track-dotnet
-ms.openlocfilehash: 9d50ed62343a7fd0aafb1fed97c0f33f2caaec12
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.custom: devx-track-dotnet, contperf-fy21q2
+ms.openlocfilehash: f503f132794f6d04b587a78b8f838acba26f9ac3
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89019922"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97032007"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Dicas de desempenho para o Azure Cosmos DB e .NET
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [SDK v3 do .NET](performance-tips-dotnet-sdk-v3-sql.md)
@@ -39,11 +41,11 @@ Para Linux e outras plataformas sem suporte em que o ServiceInterop.dll não est
 
 Os quatro tipos de aplicativos listados aqui usam o processamento de host de 32 bits por padrão. Para alterar o processamento de host para o processamento de 64 bits para o tipo de aplicativo, faça o seguinte:
 
-- **Para aplicativos executáveis**: na janela de **Propriedades do projeto** , no painel de **compilação** , defina o [destino da plataforma](https://docs.microsoft.com/visualstudio/ide/how-to-configure-projects-to-target-platforms?view=vs-2019) como **x64**.
+- **Para aplicativos executáveis**: na janela de **Propriedades do projeto** , no painel de **compilação** , defina o [destino da plataforma](/visualstudio/ide/how-to-configure-projects-to-target-platforms?preserve-view=true&view=vs-2019) como **x64**.
 
-- **Para projetos de teste baseados em VSTest**: no menu de **teste** do Visual Studio **, selecione**  >  **configurações de teste**de teste e, em seguida, defina a **arquitetura de processador padrão** como **x64**.
+- **Para projetos de teste baseados em VSTest**: no menu de **teste** do Visual Studio **, selecione**  >  **configurações de teste** de teste e, em seguida, defina a **arquitetura de processador padrão** como **x64**.
 
-- **Para aplicativos Web ASP.net implantados localmente**: selecione **ferramentas**  >  **Opções**  >  **projetos e soluções**  >  **projetos da Web**e, em seguida, selecione **usar a versão de 64 bits do IIS Express para sites e projetos**.
+- **Para aplicativos Web ASP.net implantados localmente**: selecione **ferramentas**  >  **Opções**  >  **projetos e soluções**  >  **projetos da Web** e, em seguida, selecione **usar a versão de 64 bits do IIS Express para sites e projetos**.
 
 - **Para aplicativos web ASP.net implantados no Azure**: no portal do Azure, em **configurações do aplicativo**, selecione a plataforma de **64 bits** .
 
@@ -53,7 +55,7 @@ Os quatro tipos de aplicativos listados aqui usam o processamento de host de 32 
     
 **Ativar a coleta de lixo do lado do servidor**
 
-Reduzir a frequência de coleta de lixo pode ajudar em alguns casos. No .NET, defina [gcServer](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector#flavors-of-garbage-collection) como `true` .
+Reduzir a frequência de coleta de lixo pode ajudar em alguns casos. No .NET, defina [gcServer](/dotnet/core/run-time-config/garbage-collector#flavors-of-garbage-collection) como `true` .
 
 **Escalar horizontalmente a carga de trabalho do cliente**
 
@@ -67,32 +69,7 @@ Se você estiver testando em níveis de taxa de transferência alta ou em taxas 
 
 **Política de conexão: usar o modo de conexão direta**
 
-Como um cliente se conecta a Azure Cosmos DB tem implicações de desempenho importantes, especialmente para latência observada no lado do cliente. Duas definições de configuração principais estão disponíveis para configurar a política de conexão do cliente: o *modo* de conexão e o *protocolo*de conexão. Os dois modos de conexão disponíveis são:
-
-   * Modo direto (padrão)
-
-     O modo direto dá suporte à conectividade por meio do protocolo TCP e é o modo de conectividade padrão se você estiver usando o [SDK Microsoft. Azure. Cosmos/. net v3](https://github.com/Azure/azure-cosmos-dotnet-v3). O modo direto oferece melhor desempenho e requer menos saltos de rede do que o modo de gateway.
-
-   * Modo Gateway
-      
-     Se seu aplicativo for executado em uma rede corporativa que tenha restrições de firewall estritas, o modo de gateway será a melhor opção, pois ele usa a porta HTTPS padrão e um único ponto de extremidade. 
-     
-     No entanto, a compensação de desempenho é que o modo de gateway envolve um salto de rede adicional toda vez que os dados são lidos ou gravados em Azure Cosmos DB. Portanto, o modo direto oferece melhor desempenho porque há menos saltos de rede. Também recomendamos o modo de conexão de gateway quando você executa aplicativos em ambientes que têm um número limitado de conexões de soquete.
-
-     Ao usar o SDK no Azure Functions, especialmente no plano de [consumo](../azure-functions/functions-scale.md#consumption-plan), esteja ciente dos limites atuais das [conexões](../azure-functions/manage-connections.md). Nesse caso, o modo de gateway poderá ser melhor se você também estiver trabalhando com outros clientes baseados em HTTP em seu aplicativo Azure Functions.
-     
-Ao usar o protocolo TCP no modo direto, além das portas de gateway, você precisa garantir que o intervalo de portas de 10000 a 20000 esteja aberto, pois Azure Cosmos DB usa portas TCP dinâmicas. Quando você usa o modo direto em [pontos de extremidade privados](./how-to-configure-private-endpoints.md), o intervalo completo de portas TCP de 0 a 65535 deve ser aberto. As portas são abertas por padrão para a configuração de VM do Azure padrão. Se essas portas não estiverem abertas e você tentar usar TCP, você receberá um erro "503 Serviço indisponível". 
-
-A tabela a seguir mostra os modos de conectividade disponíveis para várias APIs e as portas de serviço que são usadas para cada API:
-
-|Modo da conexão  |Protocolo com Suporte  |SDKs com suporte  |Porta/serviço de API  |
-|---------|---------|---------|---------|
-|Gateway  |   HTTPS    |  Todos os SDKs    |   SQL (443), MongoDB (10250, 10255, 10256), tabela (443), Cassandra (10350), grafo (443) <br><br> A porta 10250 é mapeada para uma API de Azure Cosmos DB padrão para a instância do MongoDB sem replicação geográfica, e as portas 10255 e 10256 são mapeadas para a instância com replicação geográfica.   |
-|Direto    |     TCP    |  SDK .NET    | Quando você usa pontos de extremidade de serviço/público: portas no intervalo de 10000 a 20000<br><br>Quando você usa pontos de extremidade privados: portas no intervalo de 0 a 65535 |
-
-O Azure Cosmos DB oferece um modelo de programação RESTful simples e aberto por HTTPS. Além disso, ele oferece um protocolo TCP eficiente que também é RESTful em seu modelo de comunicação e está disponível por meio do SDK do cliente .NET. O protocolo TCP usa TLS (segurança de camada de transporte) para autenticação inicial e criptografia de tráfego. Para ter um melhor desempenho, use o protocolo TCP quando possível.
-
-Para o SDK v3, você configura o modo de conexão ao criar a `CosmosClient` instância no `CosmosClientOptions` . Lembre-se de que o modo direto é o padrão.
+O modo de conexão padrão do SDK do .NET v3 é direto. Você configura o modo de conexão ao criar a `CosmosClient` instância no `CosmosClientOptions` .  Para saber mais sobre as diferentes opções de conectividade, consulte o artigo [modos de conectividade](sql-sdk-connection-modes.md) .
 
 ```csharp
 string connectionString = "<your-account-connection-string>";
@@ -103,10 +80,6 @@ new CosmosClientOptions
 });
 ```
 
-Como o TCP tem suporte apenas no modo direto, se você usar o modo de gateway, o protocolo HTTPS sempre será usado para se comunicar com o gateway.
-
-:::image type="content" source="./media/performance-tips/connection-policy.png" alt-text="Estabeleça conexão com Azure Cosmos DB com diferentes modos de conexão e protocolos." border="false":::
-
 **Esgotamento de porta efêmera**
 
 Se você vir um alto volume de conexão ou uso de porta alta em suas instâncias, primeiro verifique se suas instâncias de cliente são singletons. Em outras palavras, as instâncias de cliente devem ser exclusivas durante o tempo de vida do aplicativo.
@@ -115,8 +88,8 @@ Quando ele está em execução no protocolo TCP, o cliente otimiza a latência u
 
 Em cenários em que você tem acesso esparso, e se você notar uma contagem de conexões maior quando comparado ao acesso do modo de gateway, você pode:
 
-* Configure a propriedade [CosmosClientOptions. PortReuseMode](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.portreusemode) para `PrivatePortPool` (em vigor com as versões do Framework 4.6.1 e posteriores e as versões 2,0 e posteriores do .NET Core). Essa propriedade permite que o SDK use um pequeno pool de portas efêmeras para vários pontos de extremidade de destino Azure Cosmos DB.
-* Configure a propriedade [CosmosClientOptions. IdleConnectionTimeout](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.idletcpconnectiontimeout) como maior ou igual a 10 minutos. Os valores recomendados são de 20 minutos a 24 horas.
+* Configure a propriedade [CosmosClientOptions. PortReuseMode](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.portreusemode) para `PrivatePortPool` (em vigor com as versões do Framework 4.6.1 e posteriores e as versões 2,0 e posteriores do .NET Core). Essa propriedade permite que o SDK use um pequeno pool de portas efêmeras para vários pontos de extremidade de destino Azure Cosmos DB.
+* Configure a propriedade [CosmosClientOptions. IdleConnectionTimeout](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.idletcpconnectiontimeout) como maior ou igual a 10 minutos. Os valores recomendados são de 20 minutos a 24 horas.
 
 <a id="same-region"></a>
 
@@ -132,7 +105,7 @@ Você pode obter a menor latência possível garantindo que o aplicativo de cham
 
 **Aumentar o número de threads/tarefas**
 
-Como as chamadas para Azure Cosmos DB são feitas pela rede, talvez seja necessário variar o grau de simultaneidade de suas solicitações para que o aplicativo cliente aguarde o tempo mínimo de espera entre as solicitações. Por exemplo, se você estiver usando a [biblioteca paralela de tarefas](https://msdn.microsoft.com//library/dd460717.aspx)do .net, crie na ordem de centenas de tarefas que lêem ou gravam em Azure Cosmos DB.
+Como as chamadas para Azure Cosmos DB são feitas pela rede, talvez seja necessário variar o grau de simultaneidade de suas solicitações para que o aplicativo cliente aguarde o tempo mínimo de espera entre as solicitações. Por exemplo, se você estiver usando a [biblioteca paralela de tarefas](/dotnet/standard/parallel-programming/task-parallel-library-tpl)do .net, crie na ordem de centenas de tarefas que lêem ou gravam em Azure Cosmos DB.
 
 **Habilitar rede acelerada**
  
@@ -163,7 +136,7 @@ Quando você estiver trabalhando no Azure Functions, as instâncias também deve
 Para cargas de trabalho que têm cargas de criação pesadas, defina a `EnableContentResponseOnWrite` opção de solicitação como `false` . O serviço não retornará mais o recurso criado ou atualizado para o SDK. Normalmente, como o aplicativo tem o objeto que está sendo criado, ele não precisa que o serviço o retorne. Os valores de cabeçalho ainda são acessíveis, como um encargo de solicitação. Desabilitar a resposta de conteúdo pode ajudar a melhorar o desempenho, pois o SDK não precisa mais alocar memória ou serializar o corpo da resposta. Ele também reduz o uso de largura de banda da rede para ajudar ainda mais o desempenho.  
 
 ```csharp
-ItemRequestOption requestOptions = new ItemRequestOptions() { EnableContentResponseOnWrite = false };
+ItemRequestOptions requestOptions = new ItemRequestOptions() { EnableContentResponseOnWrite = false };
 ItemResponse<Book> itemResponse = await this.container.CreateItemAsync<Book>(book, new PartitionKey(book.pk), requestOptions);
 // Resource will be null
 itemResponse.Resource
@@ -175,7 +148,7 @@ Habilite o *Bulk* para cenários em que a carga de trabalho requer uma grande qu
 
 **Aumentar o System.Net MaxConnections por host ao usar o modo de gateway**
 
-Azure Cosmos DB solicitações são feitas por HTTPS/REST quando você usa o modo de gateway. Eles estão sujeitos ao limite de conexão padrão por nome de host ou endereço IP. Talvez seja necessário definir `MaxConnections` como um valor mais alto (de 100 a 1.000) para que a biblioteca de cliente possa usar várias conexões simultâneas para Azure Cosmos DB. No SDK do .NET 1.8.0 e posterior, o valor padrão de [ServicePointManager. DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit.aspx) é 50. Para alterar o valor, você pode definir [`Documents.Client.ConnectionPolicy.MaxConnectionLimit`](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.connectionpolicy.maxconnectionlimit.aspx) como um valor mais alto.
+Azure Cosmos DB solicitações são feitas por HTTPS/REST quando você usa o modo de gateway. Eles estão sujeitos ao limite de conexão padrão por nome de host ou endereço IP. Talvez seja necessário definir `MaxConnections` como um valor mais alto (de 100 a 1.000) para que a biblioteca de cliente possa usar várias conexões simultâneas para Azure Cosmos DB. No SDK do .NET 1.8.0 e posterior, o valor padrão de [ServicePointManager. DefaultConnectionLimit](/dotnet/api/system.net.servicepointmanager.defaultconnectionlimit) é 50. Para alterar o valor, você pode definir [`Documents.Client.ConnectionPolicy.MaxConnectionLimit`](/dotnet/api/microsoft.azure.documents.client.connectionpolicy.maxconnectionlimit) como um valor mais alto.
 
 **Ajustar consultas paralelas para coleções particionadas**
 
@@ -199,7 +172,7 @@ As consultas paralelas fornecem dois parâmetros que você pode ajustar para ate
 
 Durante o teste de desempenho, você deve aumentar a carga até que uma pequena taxa de solicitações seja limitada. Se as solicitações forem limitadas, o aplicativo cliente deverá retirar a limitação do intervalo de repetição especificado pelo servidor. Respeitar a retirada ajuda a garantir que você gaste um período mínimo de tempo esperando entre as tentativas. 
 
-Para obter mais informações, consulte [RetryAfter](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosexception.retryafter?view=azure-dotnet#Microsoft_Azure_Cosmos_CosmosException_RetryAfter).
+Para obter mais informações, consulte [RetryAfter](/dotnet/api/microsoft.azure.cosmos.cosmosexception.retryafter?preserve-view=true&view=azure-dotnet#Microsoft_Azure_Cosmos_CosmosException_RetryAfter).
     
 Há um mecanismo para registrar em log informações adicionais de diagnóstico e solucionar problemas de latência, conforme mostrado no exemplo a seguir. Você pode registrar a cadeia de caracteres de diagnóstico para solicitações que têm uma latência de leitura mais alta. A cadeia de caracteres capturada de diagnóstico ajudará você a entender quantas vezes você recebeu um erro *429* para uma determinada solicitação.
 
@@ -287,4 +260,4 @@ O encargo da solicitação (ou seja, o custo de processamento da solicitação) 
 ## <a name="next-steps"></a>Próximas etapas
 Para um aplicativo de exemplo que é usado para avaliar Azure Cosmos DB para cenários de alto desempenho em alguns computadores cliente, consulte [teste de desempenho e escala com Azure Cosmos DB](performance-testing.md).
 
-Para saber mais sobre como projetar seu aplicativo para escala e alto desempenho, consulte [Particionamento e escala no Azure Cosmos DB](partition-data.md).
+Para saber mais sobre como projetar seu aplicativo para escala e alto desempenho, consulte [Particionamento e escala no Azure Cosmos DB](partitioning-overview.md).

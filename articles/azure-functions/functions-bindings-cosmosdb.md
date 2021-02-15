@@ -1,17 +1,17 @@
 ---
 title: Associações do Azure Cosmos DB para Functions 1.x
-description: Entenda como usar gatilhos e associações do Azure Cosmos DB no Azure Functions.
+description: Entenda como usar Azure Cosmos DB gatilhos e associações no Azure Functions 1. x.
 author: craigshoemaker
 ms.author: cshoe
 ms.topic: reference
 ms.date: 11/21/2017
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 8ae7613eea4b952c079be90b05e615087ea80a32
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 524df7805207ce517c7ae805fb17de1b041a2248
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88214159"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002096"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-1x"></a>Associações do Azure Cosmos DB para Azure Functions 1.x
 
@@ -184,7 +184,7 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 |**direction** | n/d | Deve ser definido como `in`. Esse parâmetro é definido automaticamente quando você cria o gatilho no portal do Azure. |
 |**name** | n/d | O nome da variável usado no código de função que representa a lista de documentos com alterações. |
 |**connectionStringSetting**|**ConnectionStringSetting** | O nome de uma configuração de aplicativo que contém a cadeia de conexão usada para conectar-se à conta do Azure Cosmos DB que está sendo monitorada. |
-|**NomeDoBancoDeDados**|**DatabaseName**  | O nome do banco de dados do Azure Cosmos DB com a coleção que está sendo monitorada. |
+|**databaseName**|**DatabaseName**  | O nome do banco de dados do Azure Cosmos DB com a coleção que está sendo monitorada. |
 |**collectionName** |**CollectionName** | O nome da coleção que está sendo monitorada. |
 |**leaseConnectionStringSetting** | **LeaseConnectionStringSetting** | (Opcional) O nome de uma configuração de aplicativo que contém a cadeia de conexão para o serviço com a coleção de concessão. Quando não definido, o valor `connectionStringSetting` é usado. Esse parâmetro é definido automaticamente quando a associação é criada no portal. A cadeia de conexão da coleção de concessões deve ter permissões de gravação.|
 |**leaseDatabaseName** |**LeaseDatabaseName** | (Opcional) O nome do banco de dados que contém a coleção usada para armazenar as concessões. Quando não definido, o valor da configuração `databaseName` é usado. Esse parâmetro é definido automaticamente quando a associação é criada no portal. |
@@ -214,6 +214,8 @@ O gatilho não indica se um documento foi atualizado ou inserido, ele fornece ap
 ## <a name="input"></a>Entrada
 
 A associação de dados de entrada do Azure Cosmos DB usa a API de SQL para recuperar um ou mais documentos do Azure Cosmos DB e passá-los para o parâmetro de entrada da função. A ID do documento ou os parâmetros de consulta podem ser determinados com base no gatilho que invoca a função.
+
+## <a name="input---example"></a>Entrada - exemplo
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -1118,7 +1120,7 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 |**tipo**     | n/d | Deve ser definido como `documentdb`.        |
 |**direction**     | n/d | Deve ser definido como `in`.         |
 |**name**     | n/d | Nome do parâmetro de associação que representa o documento na função.  |
-|**NomeDoBancoDeDados** |**DatabaseName** |O banco de dados que contém o documento.        |
+|**databaseName** |**DatabaseName** |O banco de dados que contém o documento.        |
 |**collectionName** |**CollectionName** | O nome da coleção que contém o documento. |
 |**id**    | **Id** | A ID do documento a ser recuperado. Essa propriedade dá suporte a [expressões de associação](./functions-bindings-expressions-patterns.md). Não defina ambas as propriedades **id** e **sqlQuery**. Se você não definir uma ou outra, toda a coleção é recuperada. |
 |**sqlQuery**  |**SqlQuery**  | Uma consulta SQL do Azure Cosmos DB usada para recuperar vários documentos. A propriedade dá suporte a associações em tempo de execução, como neste exemplo: `SELECT * FROM c where c.departmentId = {departmentId}`. Não defina ambas as propriedades **id** e **sqlQuery**. Se você não definir uma ou outra, toda a coleção é recuperada.|
@@ -1146,6 +1148,8 @@ As atualizações não são feitas automaticamente após a saída da função. E
 ## <a name="output"></a>Saída
 
 Com a associação de saída do Azure Cosmos DB, você pode gravar um novo documento para um banco de dados do Azure Cosmos DB usando a API de SQL.
+
+## <a name="output---example"></a>Saída - exemplo
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -1457,7 +1461,7 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 |**tipo**     | n/d | Deve ser definido como `documentdb`.        |
 |**direction**     | n/d | Deve ser definido como `out`.         |
 |**name**     | n/d | Nome do parâmetro de associação que representa o documento na função.  |
-|**NomeDoBancoDeDados** | **DatabaseName**|O banco de dados que contém a coleção na qual o documento será criado.     |
+|**databaseName** | **DatabaseName**|O banco de dados que contém a coleção na qual o documento será criado.     |
 |**collectionName** |**CollectionName**  | O nome da coleção na qual o documento será criado. |
 |**createIfNotExists**  |**CreateIfNotExists**    | É um valor booliano para indicar se a coleção será criada quando não existir. O padrão é *false* porque as novas coleções são criadas com a taxa de transferência reservada, o que tem implicações de preço. Para saber mais, confira a [página de preço](https://azure.microsoft.com/pricing/details/documentdb/).  |
 |**partitionKey**|**PartitionKey** |Quando `CreateIfNotExists` for true, define o caminho da chave de partição para a coleção criada.|

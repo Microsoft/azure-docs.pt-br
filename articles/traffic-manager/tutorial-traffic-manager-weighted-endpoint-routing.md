@@ -2,18 +2,18 @@
 title: 'Tutorial: Rotear o tráfego para pontos de extremidade ponderados – Gerenciador de Tráfego do Azure'
 description: Este artigo de tutorial descreve como rotear o tráfego para pontos de extremidade ponderados usando o Gerenciador de Tráfego.
 services: traffic-manager
-author: rohinkoul
+author: duongau
 Customer intent: As an IT Admin, I want to distribute traffic based on the weight assigned to a website endpoint so that I can control the user traffic to a given website.
 ms.service: traffic-manager
 ms.topic: tutorial
-ms.date: 10/15/2018
-ms.author: rohink
-ms.openlocfilehash: a4738b2e36786cd627f53af3e36bd8f1e3fbc375
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.date: 10/19/2020
+ms.author: duau
+ms.openlocfilehash: 55c316a370b9e44e906e48b4716201384567c9c2
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76939475"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96003779"
 ---
 # <a name="tutorial-control-traffic-routing-with-weighted-endpoints-by-using-traffic-manager"></a>Tutorial: Controlar o roteamento de tráfego com pontos de extremidade ponderados usando o Gerenciador de Tráfego
 
@@ -201,11 +201,13 @@ Nesta seção, você pode ver o Gerenciador de Tráfego em ação.
 
 7. Repita as etapas 1 a 6 na VM myVMWestEurope para ver a resposta do site ponderada.
 
-## <a name="delete-the-traffic-manager-profile"></a>Excluir o perfil do Gerenciador de Tráfego
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando você não precisar mais dos recursos criados neste tutorial, poderá excluí-los. Para fazer isso, selecione o grupo de recursos (**ResourceGroupTM1** ou **ResourceGroupTM2**) e, em seguida, selecione **Excluir**.
 
 ## <a name="next-steps"></a>Próximas etapas
 
+Para saber mais sobre os métodos de roteamento, confira:
+
 > [!div class="nextstepaction"]
-> [Rotear o tráfego para pontos de extremidade específicos com base na localização geográfica do usuário](traffic-manager-configure-geographic-routing-method.md)
+> [Método de roteamento de tráfego](traffic-manager-routing-methods.md)

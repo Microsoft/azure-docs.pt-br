@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 02/15/2019
+ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: 318656a779aa5ba2279f075fcc44589fe2039682
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7de83302dd91d7d679b9c35718d184a9767ba436
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87009485"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655350"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>Configurar uma conexão gateway de VPN de Vnet pra VNet usando o PowerShell
 
@@ -67,7 +67,7 @@ Para este exercício, você pode combinar as configurações, ou simplesmente es
 
 * [VNets que residem na mesma assinatura](#samesub): as etapas para essa configuração usam TestVNet1 e TestVNet4.
 
-  ![Diagrama de v2v](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
+  ![Diagrama que mostra as etapas de rede V de rede a v para as redes V que residem na mesma assinatura.](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
 
 * [VNets que residem em assinaturas diferentes](#difsub): as etapas para essa configuração usam TestVNet1 e TestVNet4.
 
@@ -203,7 +203,7 @@ Usamos os seguintes valores nos exemplos:
    -VpnType RouteBased -GatewaySku VpnGw1
    ```
 
-Depois de concluir os comandos, o gateway levará até 45 minutos para ser criado. Se você estiver usando o Azure Cloud Shell, poderá reiniciar a sessão do CloudShell clicando no canto superior esquerdo do terminal do Cloud Shell; em seguida, configure TestVNet4. Você não precisa esperar até que o gateway TestVNet1 seja concluído.
+Depois de concluir os comandos, o gateway levará até 45 minutos para ser criado. Se você estiver usando Azure Cloud Shell, poderá reiniciar sua sessão de Cloud Shell clicando no canto superior esquerdo do Cloud Shell terminal e, em seguida, configurar o TestVNet4. Você não precisa esperar até que o gateway TestVNet1 seja concluído.
 
 ### <a name="step-3---create-and-configure-testvnet4"></a>Etapa 3: criar e configurar TestVNet4
 
@@ -364,7 +364,7 @@ Esta etapa deve ser feita no contexto da nova assinatura. Esta parte pode ser ex
    ```azurepowershell-interactive
    Select-AzSubscription -SubscriptionName $Sub5
    ```
-3. Criar um grupo de recursos.
+3. Crie um novo grupo de recursos.
 
    ```azurepowershell-interactive
    New-AzResourceGroup -Name $RG5 -Location $Location5
@@ -448,7 +448,7 @@ Neste exemplo, como os gateways estão em assinaturas diferentes, dividirmos est
    PS C:\> $vnet5gw.Id
    /subscriptions/66c8e4f1-ecd6-47ed-9de7-7e530de23994/resourceGroups/TestRG5/providers/Microsoft.Network/virtualNetworkGateways/VNet5GW
    ```
-3. **[Assinatura 1]** Crie o TestVNet1 para a conexão TestVNet5. Nesta etapa, você criará a conexão de TestVNet1 para TestVNet5. A diferença aqui é que não é possível obter $vnet5gw diretamente, porque ele está em uma assinatura diferente. Você precisará criar um novo objeto do PowerShell com os valores comunicados na Assinatura 1 nas etapas acima. Use o exemplo abaixo. Substitua o Nome, a ID e a chave compartilhada por seus próprios valores. O importante é que a chave compartilhada deve corresponder em ambas as conexões. Criar uma conexão pode levar alguns minutos para ser concluída.
+3. **[Assinatura 1]** Crie o TestVNet1 para a conexão TestVNet5. Nesta etapa, você criará a conexão de TestVNet1 para TestVNet5. A diferença aqui é que não é possível obter $vnet5gw diretamente, porque ele está em uma assinatura diferente. Você precisará criar um novo objeto do PowerShell com os valores comunicados na Assinatura 1 nas etapas acima. Use o exemplo abaixo. Substitua o nome, a ID e a chave compartilhada pelos seus próprios valores. O importante é que a chave compartilhada deve corresponder em ambas as conexões. Criar uma conexão pode levar alguns minutos para ser concluída.
 
    Conecte-se à Assinatura 1 antes de executar o exemplo abaixo:
 
@@ -475,7 +475,7 @@ Neste exemplo, como os gateways estão em assinaturas diferentes, dividirmos est
 
 [!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
 
-[!INCLUDE [verify connections powershell](../../includes/vpn-gateway-verify-connection-ps-rm-include.md)]
+[!INCLUDE [verify connections PowerShell](../../includes/vpn-gateway-verify-connection-ps-rm-include.md)]
 
 ## <a name="vnet-to-vnet-faq"></a><a name="faq"></a>Perguntas frequentes sobre Rede Virtual para Rede Virtual
 
@@ -483,5 +483,5 @@ Neste exemplo, como os gateways estão em assinaturas diferentes, dividirmos est
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Quando sua conexão for concluída, você poderá adicionar máquinas virtuais às suas redes virtuais. Consulte a [Documentação sobre Máquinas Virtuais](https://docs.microsoft.com/azure/) para obter mais informações.
+* Quando sua conexão for concluída, você poderá adicionar máquinas virtuais às suas redes virtuais. Consulte a [Documentação sobre Máquinas Virtuais](../index.yml) para obter mais informações.
 * Para obter informações sobre o BGP, consulte a [Visão Geral do BGP](vpn-gateway-bgp-overview.md) e [Como configurar o BGP](vpn-gateway-bgp-resource-manager-ps.md).

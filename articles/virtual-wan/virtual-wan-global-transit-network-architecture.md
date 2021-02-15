@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: 63a9c3a6c23d78411c04250359dac3c3aacde2ba
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: cfb75b6383d8ca449b4bc54b9d21cb16b3a4ad40
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212706"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99428176"
 ---
 # <a name="global-transit-network-architecture-and-virtual-wan"></a>Arquitetura de rede de trânsito global e WAN virtual
 
@@ -43,7 +43,7 @@ A WAN virtual do Azure permite uma arquitetura de rede de trânsito global permi
 
 **Figura 2: rede de trânsito global e WAN virtual**
 
-Na arquitetura WAN virtual do Azure, os hubs de WAN virtuais são provisionados nas regiões do Azure, às quais você pode optar por conectar seus branches, VNets e usuários remotos. Os sites de ramificação física estão conectados ao Hub por VPNs do Premium ExpressRoute ou site a site-para-redes, VNets estão conectados ao Hub por conexões de VNet, e os usuários remotos podem se conectar diretamente ao Hub usando VPN de usuário (VPNs ponto a site). A WAN virtual também dá suporte à conexão VNet entre regiões, em que uma VNet em uma região pode ser conectada a um hub de WAN virtual em uma região diferente.
+Na arquitetura WAN virtual do Azure, os hubs de WAN virtuais são provisionados nas regiões do Azure, às quais você pode optar por conectar seus branches, VNets e usuários remotos. Os sites de ramificação física estão conectados ao Hub por conexões Premium ou Standard ExpressRoute ou site a site-VPNs, VNets são conectadas ao Hub por conexão de VNet, e os usuários remotos podem se conectar diretamente ao Hub usando VPN de usuário (VPNs ponto a site). A WAN virtual também dá suporte à conexão VNet entre regiões, em que uma VNet em uma região pode ser conectada a um hub de WAN virtual em uma região diferente.
 
 Você pode estabelecer uma WAN virtual criando um único Hub de WAN virtual na região que tem o maior número de spokes (branches, VNets, Users) e, em seguida, conectando os spokes que estão em outras regiões ao Hub. Essa é uma boa opção quando uma superfície corporativa está em grande parte de uma região com alguns spokes remotos.  
   
@@ -87,7 +87,7 @@ O Branch-to-VNet é o caminho principal com suporte da WAN virtual do Azure. Ess
 
 ### <a name="expressroute-global-reach-and-virtual-wan"></a>ExpressRoute Alcance Global e WAN virtual
 
-O ExpressRoute é uma maneira privada e resiliente de conectar suas redes locais ao Microsoft Cloud. A WAN virtual dá suporte a conexões de circuito de rota expressa. Conectar um site de ramificação à WAN virtual com rota expressa requer 1) circuito do circuito Premium 2) para estar em um local Alcance Global habilitado.
+O ExpressRoute é uma maneira privada e resiliente de conectar suas redes locais ao Microsoft Cloud. A WAN virtual dá suporte a conexões de circuito de rota expressa. A conexão de um site de filial à WAN virtual com o Route Express requer 1) circuito Premium ou Standard circuito 2) para estar em um local Alcance Global habilitado.
 
 O ExpressRoute Alcance Global é um recurso complementar para o ExpressRoute. Com o Alcance Global, você pode vincular circuitos do ExpressRoute juntos para fazer uma rede privada entre suas redes locais. As ramificações que estão conectadas à WAN virtual do Azure usando o ExpressRoute exigem que os Alcance Global do ExpressRoute se comuniquem entre si.
 
@@ -127,14 +127,11 @@ Esse sinalizador fica visível quando o usuário edita uma conexão de rede virt
 
 Os hubs de WAN virtual do Azure interconectam todos os pontos de extremidade de rede na rede híbrida e potencialmente veem todo o tráfego de rede de trânsito. Os hubs de WAN virtuais podem ser convertidos em hubs virtuais protegidos implantando o Firewall do Azure dentro de hubs de VWAN para habilitar a segurança, o acesso e o controle de políticas baseados em nuvem. A orquestração de firewalls do Azure em hubs de WAN virtual pode ser executada pelo Gerenciador de firewall do Azure.
 
-O [Gerenciador de firewall do Azure](https://go.microsoft.com/fwlink/?linkid=2107683) fornece os recursos para gerenciar e dimensionar a segurança para redes de trânsito globais. O Gerenciador de firewall do Azure fornece a capacidade de gerenciar centralmente o roteamento, o gerenciamento de políticas globais e os serviços avançados de segurança da Internet por meio de terceiros, juntamente com o Firewall do Azure.
+O [Gerenciador de firewall do Azure](../firewall-manager/index.yml) fornece os recursos para gerenciar e dimensionar a segurança para redes de trânsito globais. O Gerenciador de firewall do Azure fornece a capacidade de gerenciar centralmente o roteamento, o gerenciamento de políticas globais e os serviços avançados de segurança da Internet por meio de terceiros, juntamente com o Firewall do Azure.
 
 ![Hub virtual protegido com o Firewall do Azure](./media/virtual-wan-global-transit-network-architecture/figure5.png)
 
 **Figura 5: Hub virtual protegido com o Firewall do Azure**
-
-> [!NOTE]
-> Não há suporte para o Inter-Hub com o firewall no momento. O tráfego entre hubs moverá o bypass diretamente do firewall do Azure em cada Hub.
 
 O Firewall do Azure para a WAN virtual dá suporte aos seguintes caminhos de conectividade de trânsito seguro global. As letras entre parênteses são mapeadas para a Figura 5.
 
@@ -152,6 +149,23 @@ A rede virtual para a Internet permite que o VNets se conecte à Internet por me
 
 ### <a name="branch-to-internet-or-third-party-security-service-j"></a>Branch-to-Internet ou serviço de segurança de terceiros (j)
 A ramificação para a Internet permite que branches se conectem à Internet por meio do firewall do Azure no Hub de WAN virtual. O tráfego para a Internet por meio de serviços de segurança de terceiros com suporte não flui pelo firewall do Azure. Você pode configurar o caminho da ramificação para a Internet por meio do serviço de segurança de terceiros com suporte usando o Gerenciador de firewall do Azure. 
+
+### <a name="branch-to-branch-secured-transit-cross-region-f"></a>Entre regiões de trânsito protegidas de ramificação para ramificação (f)
+
+As ramificações podem ser conectadas a um hub virtual protegido com o Firewall do Azure usando circuitos de ExpressRoute e/ou conexões VPN site a site. Você pode conectar as ramificações ao Hub de WAN virtual que está na região mais próxima da ramificação.
+
+Essa opção permite que as empresas aproveitem o backbone do Azure para conectar branches. No entanto, embora esse recurso esteja disponível, você deve avaliar os benefícios de conectar branches pela WAN virtual do Azure versus usar uma WAN privada.  
+
+> [!NOTE]
+> Não há suporte para o processamento entre hubs do tráfego via firewall no momento. O tráfego entre hubs será roteado para a ramificação apropriada no Hub virtual protegido, no entanto, o tráfego irá ignorar o Firewall do Azure em cada Hub.
+
+### <a name="branch-to-vnet-secured-transit-g"></a>Trânsito protegido de Branch para VNet (g)
+
+O trânsito protegido de Branch para VNet permite que as ramificações se comuniquem com redes virtuais na mesma região que o Hub WAN virtual, bem como outra rede virtual conectada a outro hub WAN virtual em outra região.
+
+> [!NOTE]
+> Não há suporte para o Inter-Hub com o firewall no momento. O tráfego entre hubs moverá o bypass diretamente do firewall do Azure em cada Hub.  O tráfego por meio de uma conexão destinada a uma rede virtual na mesma região será processado pelo firewall do Azure no Hub protegido.
+
 
 ### <a name="how-do-i-enable-default-route-00000-in-a-secured-virtual-hub"></a>Como fazer habilitar a rota padrão (0.0.0.0/0) em um hub virtual protegido
 
@@ -177,4 +191,4 @@ Crie uma conexão usando a WAN virtual e implante o Firewall do Azure em VWAN Hu
 
 * [Conexões site a site usando a WAN virtual](virtual-wan-site-to-site-portal.md)
 * [Conexões do ExpressRoute usando a WAN virtual](virtual-wan-expressroute-portal.md)
-* [Gerenciador de firewall do Azure para implantar o FW do Azure no VWAN](https://go.microsoft.com/fwlink/?linkid=2107683)
+* [Gerenciador de firewall do Azure para implantar o FW do Azure no VWAN](../firewall-manager/index.yml)

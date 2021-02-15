@@ -6,24 +6,24 @@ ms.service: sql-database
 ms.subservice: performance
 ms.custom: sqldbrb=1
 ms.devlang: PowerShell
-ms.topic: conceptual
-author: MightyPen
-ms.author: genemi
-ms.reviewer: jrasnik
+ms.topic: sample
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.reviewer: sstein
 ms.date: 12/19/2018
-ms.openlocfilehash: faba9eaf59f5d1c941bacb58ba1faf9f817d39cf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.openlocfilehash: a646588616b874e40b1ed2a5a0b5e691b075075d
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84033877"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96487296"
 ---
-# <a name="ring-buffer-target-code-for-extended-events-in-azure-sql-database"></a>Código de destino do buffer de anéis para eventos estendidos no banco de dados SQL do Azure
+# <a name="ring-buffer-target-code-for-extended-events-in-azure-sql-database"></a>Código de destino do Buffer de Anéis para eventos estendidos no Banco de Dados SQL do Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../../includes/sql-database-xevents-selectors-1-include.md)]
 
-Você deseja um exemplo de código completo da maneira mais fácil e rápida de capturar e relatar informações para um evento estendido durante um teste. O destino mais fácil para os dados do evento estendido é o [destino do Buffer de Anéis](https://msdn.microsoft.com/library/ff878182.aspx).
+Você deseja um exemplo de código completo da maneira mais fácil e rápida de capturar e relatar informações para um evento estendido durante um teste. O destino mais fácil para os dados do evento estendido é o [destino do Buffer de Anéis](/previous-versions/sql/sql-server-2016/bb630339(v=sql.130)).
 
 Este tópico apresenta um exemplo de código Transact-SQL que:
 
@@ -43,14 +43,14 @@ Este tópico apresenta um exemplo de código Transact-SQL que:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma conta e uma assinatura do Azure. Você pode se inscrever para uma [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
+* Uma conta e uma assinatura do Azure. Você pode se inscrever em uma [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * Qualquer banco de dados no qual você possa criar uma tabela.
   
   * Como alternativa, você pode [criar um banco de dados de demonstração do **AdventureWorksLT**](single-database-create-quickstart.md) em questão minutos.
 * O SQL Server Management Studio (ssms.exe), idealmente na sua versão de atualização mensal mais recente.
   Você pode baixar o ssms.exe mais recente de:
   
-  * Tópico [Baixar o SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+  * Tópico [Baixar o SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms).
   * [Um link direto para o download.](https://go.microsoft.com/fwlink/?linkid=616025)
 
 ## <a name="code-sample"></a>Exemplo de código
@@ -216,13 +216,13 @@ GO
 
 ## <a name="ring-buffer-contents"></a>Conteúdo do Buffer de Anéis
 
-Nós usamos `ssms.exe` para executar o exemplo de código.
+Use `ssms.exe` para executar o exemplo de código.
 
 Para exibir os resultados, clicamos na célula no título de coluna **target_data_XML**.
 
 Em seguida, no painel de resultados, clicamos na célula no título de coluna **target_data_XML**. Esse clique criou outra guia de arquivo no ssms.exe, onde o conteúdo da célula de resultado foi exibido como XML.
 
-A saída é mostrada no bloco a seguir. Parece longo, mas é apenas dois **\<event>** elementos.
+A saída é mostrada no bloco a seguir. Parece longo, mas são apenas dois elementos **\<event>** .
 
 &nbsp;
 
@@ -340,15 +340,15 @@ ALTER EVENT SESSION eventsession_gm_azuresqldb51
 
 O tópico principal para eventos estendidos no Banco de Dados SQL do Azure é:
 
-* [Considerações sobre eventos estendidos no banco de dados SQL do Azure](xevent-db-diff-from-svr.md), que contrasta alguns aspectos de eventos estendidos que diferem entre o banco de dados SQL do azure versus Microsoft SQL Server.
+* [Considerações sobre eventos estendidos no Banco de Dados SQL do Azure](xevent-db-diff-from-svr.md), que é diferente em alguns aspectos dos eventos estendidos que diferem entre o Banco de Dados SQL do Azure e o Microsoft SQL Server.
 
 Outros tópicos com exemplos de código para eventos estendidos estão disponíveis nos links a seguir. No entanto, você deve verificar regularmente os exemplos para ver se eles se destinam ao Microsoft SQL Server ou ao Banco de Dados SQL do Azure. Em seguida, você pode decidir se alterações mínimas são necessárias para realizar o exemplo.
 
-* Exemplo de código para o banco de dados SQL do Azure: [código de destino do arquivo de evento para eventos estendidos no banco de dados SQL](xevent-code-event-file.md)
+* Amostra do código para o Banco de Dados SQL do Microsoft Azure: [Código de destino do arquivo de evento para eventos estendidos no Banco de Dados SQL do Azure](xevent-code-event-file.md)
 
 <!--
 ('lock_acquired' event.)
 
-- Code sample for SQL Server: [Determine Which Queries Are Holding Locks](https://msdn.microsoft.com/library/bb677357.aspx)
-- Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](https://msdn.microsoft.com/library/bb630355.aspx)
+- Code sample for SQL Server: [Determine Which Queries Are Holding Locks](/sql/relational-databases/extended-events/determine-which-queries-are-holding-locks)
+- Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](/sql/relational-databases/extended-events/find-the-objects-that-have-the-most-locks-taken-on-them)
 -->

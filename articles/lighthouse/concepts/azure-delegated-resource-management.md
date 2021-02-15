@@ -1,18 +1,18 @@
 ---
 title: Gerenciamento de recursos delegados do Azure
 description: O gerenciamento de recursos delegado do Azure é uma parte fundamental do Azure Lighthouse, permitindo que os provedores de serviços gerenciem recursos delegados em escala com agilidade e precisão.
-ms.date: 08/12/2020
+ms.date: 10/19/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9a499ceda546b7ea5c71cd8c770f1a4b99001b08
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: d484e61fc4ab3714eb362b26d64d449890065888
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88163519"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92203850"
 ---
 # <a name="azure-delegated-resource-management"></a>Gerenciamento de recursos delegados do Azure
 
-O gerenciamento de recursos delegado do Azure é um dos principais componentes do [Azure Lighthouse](../overview.md). Com o gerenciamento de recursos delegados do Azure, os provedores de serviços podem simplificar as experiências de envolvimento e de integração do cliente e gerenciar recursos delegados em escala com agilidade e precisão.
+O gerenciamento de recursos delegado do Azure é um dos principais componentes do [Azure Lighthouse](../overview.md). Com o gerenciamento de recursos delegados do Azure, os provedores de serviços podem simplificar as experiências de envolvimento e de integração do cliente e gerenciar recursos delegados em escala com agilidade e precisão. Os clientes mantêm o controle sobre quais provedores de serviço podem acessar seus locatários, os clientes mantêm o controle sobre quem pode acessar seu locatário, quais recursos eles podem acessar e quais ações podem ser executadas.
 
 ## <a name="what-is-azure-delegated-resource-management"></a>O que é gerenciamento de recursos delegados do Azure?
 
@@ -35,7 +35,8 @@ Em um alto nível, veja como o gerenciamento de recursos delegados do Azure func
 2. Você especifica esse acesso e integra o cliente ao Azure Lighthouse de uma destas duas maneiras:
    - [Publicar uma oferta de serviço gerenciado do Azure Marketplace](../how-to/publish-managed-services-offers.md) (privada ou pública) que o cliente aceitará
    - [Implantar um modelo de Azure Resource Manager no locatário do cliente](../how-to/onboard-customer.md) para uma ou mais assinaturas ou grupos de recursos específicos
-3. Depois que o cliente tiver sido integrado, os usuários autorizados poderão entrar no seu locatário de gerenciamento e executar tarefas no escopo determinado do cliente, com base no acesso que você definiu.
+
+3. Depois que o cliente tiver sido integrado, os usuários autorizados poderão entrar no seu locatário de gerenciamento e executar tarefas no escopo determinado do cliente, com base no acesso que você definiu. Os clientes podem examinar as ações do provedor de serviços e ter a opção de remover o acesso, se necessário.
 
 > [!NOTE]
 > Você pode gerenciar recursos delegados que estão localizados em [regiões](../../availability-zones/az-overview.md#regions)diferentes. No entanto, a delegação de assinaturas em uma [nuvem nacional](../../active-directory/develop/authentication-national-cloud.md) e na nuvem pública do Azure ou em duas nuvens nacionais separadas não tem suporte.

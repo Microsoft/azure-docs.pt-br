@@ -3,7 +3,7 @@ title: Implantar o StorSimple Snapshot Manager | Microsoft Docs
 description: Saiba como baixar e instalar o StorSimple Snapshot Manager, um snap-in do MMC para gerenciar recursos de backup e de proteção de dados do StorSimple.
 services: storsimple
 documentationcenter: NA
-author: twooley
+author: alkohli
 manager: timlt
 editor: ''
 ms.assetid: f0128f57-519e-49ec-9187-23575809cdbe
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
-ms.author: twooley
-ms.openlocfilehash: 6d3e3d6cdf7a831bf09d9c4709c1a60d27683438
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: alkohli
+ms.openlocfilehash: 5f94564c5e769d3cf0e0abbe92a309a1ee2117a1
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75933376"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96003864"
 ---
 # <a name="deploy-the-storsimple-snapshot-manager-mmc-snap-in"></a>Implantar o snap-in do MMC StorSimple Snapshot Manager
 
@@ -160,7 +160,7 @@ Use as etapas a seguir para desinstalar o StorSimple Snapshot Manager.
    > Se houver algum processo do MMC em execução em segundo plano, como o StorSimple Snapshot Manager ou o Gerenciamento de Disco, a desinstalação falhará e você receberá uma mensagem para fechar todas as instâncias do MMC antes de tentar desinstalar o programa. Selecione **Fechar automaticamente os aplicativos e tentar reiniciá-los depois que a configuração for concluída** e, em seguida, clique em **OK**.
    > 
    > 
-5. Quando o processo de desinstalação for concluído, a mensagem **Configuração Bem-sucedida** será exibida. Clique em **Fechar**.
+5. Quando o processo de desinstalação for concluído, a mensagem **Configuração Bem-sucedida** será exibida. Clique em **fechar**
 
 ### <a name="step-2-back-up-the-storsimple-snapshot-manager-database"></a>Etapa 2: Fazer backup do banco de dados do StorSimple Snapshot Manager
 Use as etapas a seguir para criar e salvar uma cópia do banco de dados do StorSimple Snapshot Manager.

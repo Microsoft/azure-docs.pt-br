@@ -6,23 +6,23 @@ author: JBCook
 ms.service: virtual-machines
 ms.subservice: workloads
 ms.topic: overview
-ms.date: 04/06/2020
+ms.date: 09/22/2020
 ms.author: JenCook
-ms.openlocfilehash: 4e92f974ce7d6c03143276808c4ca4d09d607a84
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 44479db6b29075e87b0d2dcef6f0d9bc1881738c
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87835809"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94560818"
 ---
 # <a name="confidential-computing-on-azure"></a>Computação confidencial no Azure
 
-A computação confidencial do Azure permite isolar seus dados confidenciais enquanto eles estão sendo processados na nuvem. Muitos setores usam a computação confidencial para proteger os dados. Essas cargas de trabalho incluem:
+A computação confidencial do Azure permite isolar seus dados confidenciais enquanto eles estão sendo processados na nuvem. Muitos setores, no intuito de proteger dados, usam a computação confidencial para:
 
-- Proteção de dados financeiros
-- Proteção de informações de pacientes
-- Execução de processos de aprendizado de máquina em informações confidenciais
-- Execução de algoritmos em conjuntos de dados criptografados provenientes de várias fontes
+- Proteger dados financeiros
+- Proteger informações de pacientes
+- Executar processos de machine learning em informações confidenciais
+- Executar algoritmos em conjuntos de dados criptografados provenientes de várias fontes
 
 
 ## <a name="overview"></a>Visão geral
@@ -39,74 +39,58 @@ Sabemos que a proteção de seus dados na nuvem é importante. Ouvimos suas preo
 
 O Microsoft Azure ajuda a minimizar a superfície de ataque para obter uma proteção de dados mais forte. O Azure já oferece muitas ferramentas para proteger [**dados em repouso**](../security/fundamentals/encryption-atrest.md) por meio de modelos como criptografia do lado do cliente e criptografia do lado do servidor. Além disso, o Azure oferece mecanismos para criptografar [**dados em trânsito**](../security/fundamentals/data-encryption-best-practices.md#protect-data-in-transit) por meio de protocolos seguros, como TLS e HTTPS. Esta página apresenta um terceiro segmento de criptografia de dados: a criptografia dos **dados em uso**.
 
+## <a name="introduction-to-confidential-computing"></a>Apresentando a computação confidencial  
 
-## <a name="introduction-to-confidential-computing"></a>Apresentando a computação confidencial <a id="intro to acc"></a>
+Computação confidencial é um termo específico desse setor, definido pelo [CCC](https://confidentialcomputing.io/) (Confidential Computing Consortium), uma fundação dedicada à definição e aceleração da adoção da computação confidencial. O CCC define a computação confidencial como: a proteção dos dados em uso por meio da execução da computação em um TEE (Ambiente de Execução Confiável) baseado em hardware.
 
-Computação confidencial é um termo específico desse setor, definido pelo [CCC](https://confidentialcomputing.io/) (Confidential Computing Consortium), uma fundação dedicada à definição e aceleração da adoção da computação confidencial. O CCC define Computação confidencial como a proteção dos dados em uso executando a computação em um TEE (Ambiente de Execução Confiável) baseado em hardware.
+Um TEE é um ambiente que impõe a execução somente de código autorizado. Os dados no TEE não podem ser lidos nem adulterados por qualquer código de fora desse ambiente. 
 
-Um TEE é um ambiente que impõe a execução somente de código autorizado. Os dados no TEE não podem ser lidos nem adulterados por qualquer código de fora desse ambiente.
+### <a name="lessen-the-need-for-trust"></a>Diminua a necessidade de confiança
+A execução de cargas de trabalho na nuvem requer confiança. Você dá essa confiança a vários provedores, habilitando diferentes componentes do seu aplicativo.
 
-### <a name="enclaves"></a>Enclaves
 
-Enclaves são partes protegidas do processador e da memória de um hardware. Não há como ver dados ou código dentro do enclave, mesmo com um depurador. Se as tentativas de código não confiável modificarem o conteúdo na memória enclave, o ambiente será desabilitado e as operações serão negadas.
+**Fornecedores de software de aplicativo**: Confie no software implantando localmente, usando código de software livre ou criando software de aplicativo internamente.
 
-Ao desenvolver aplicativos, você pode usar [ferramentas de software](#oe-sdk) para blindar partes de do código e dos dados dentro do enclave. Essas ferramentas garantirão que seu código e seus dados não possam ser exibidos nem modificados por ninguém de fora do ambiente confiável. 
+**Fornecedores de hardware**: Confie no hardware usando hardware local ou hardware interno. 
 
-Fundamentalmente, imagine um enclave como uma caixa protegida. Você coloca o código criptografado e os dados na caixa. De fora da caixa você não consegue ver nada. Você dá ao enclave uma chave para descriptografar os dados; então, os dados são processados e criptografados novamente, antes de serem enviados para fora do enclave.
+**Provedores de infraestrutura**: Confie em provedores de nuvem ou gerencie os seus data centers locais.
 
-### <a name="attestation"></a>Atestado
 
-Você desejará obter a verificação e a validação de que o ambiente confiável é seguro. Essa verificação é o processo de atestado. 
+A Computação confidencial do Azure facilita a confiança no provedor de nuvem, reduzindo a necessidade de confiança em vários aspectos da infraestrutura de nuvem de computação. A Computação confidencial do Azure minimiza a confiança ao kernel do sistema operacional do host, ao hipervisor, ao administrador da VM e ao administrador do host.
 
-O atestado permite que uma terceira parte confiável tenha maior confiança de que seu software está (1) em execução em um enclave e (2) que o enclave está atualizado e seguro. Por exemplo, um enclave solicita que o hardware subjacente gere uma credencial que inclua uma prova de que o enclave existe na plataforma. O relatório pode ser dado a um segundo enclave que verifica se o relatório foi gerado na mesma plataforma.
+### <a name="reducing-the-attack-surface"></a>Reduzindo a superfície de ataque
+A TCB (base de computação confiável) refere-se a todos os componentes de hardware, de firmware e de software de um sistema que oferecem um ambiente seguro. Os componentes dentro da TCB são considerados "críticos". Se um componente dentro da TCB for comprometido, a segurança de todo o sistema poderá ser prejudicada. 
 
-O atestado deve ser implementado usando um serviço de atestado seguro que seja compatível com o software do sistema e com o chip. [Os serviços de atestado e provisionamento da Intel](https://software.intel.com/sgx/attestation-services) são compatíveis com as máquinas virtuais de computação confidencial do Azure.
+Uma TCB inferior significa maior segurança. Há menos risco de exposição a várias vulnerabilidades, malwares, ataques e pessoas mal-intencionadas. A Computação confidencial do Azure visa reduzir a TCB das suas cargas de trabalho de nuvem oferecendo TEEs. Os TEEs reduzem sua TCB a binários, códigos e bibliotecas de runtime confiáveis. Ao usar a infraestrutura do Azure e os serviços para computação confidencial, você pode remover tudo o que é da Microsoft da sua TCB.
 
 
 ## <a name="using-azure-for-cloud-based-confidential-computing"></a>Usando o Azure para computação confidencial baseada em nuvem <a id="cc-on-azure"></a>
 
-A computação confidencial do Azure permite que você aproveite os recursos de computação confidencial em um ambiente virtualizado. Agora você pode usar ferramentas, software e infraestrutura de nuvem para criar com base em hardware seguro. 
+A computação confidencial do Azure permite que você aproveite os recursos de computação confidencial em um ambiente virtualizado. Agora você pode usar ferramentas, software e infraestrutura de nuvem para criar com base em hardware seguro.  
 
-### <a name="virtual-machines"></a>Máquinas Virtuais
+**Impedir o acesso não autorizado**: Executar dados confidenciais na nuvem. Confie que o Azure oferece a melhor proteção de dados possível, com pouca ou nenhuma alteração no que é feito atualmente.
 
-O Azure é o primeiro provedor de nuvem a oferecer computação confidencial em um ambiente virtualizado. Desenvolvemos máquinas virtuais que atuam como uma camada de abstração entre o hardware e seu aplicativo. Você pode executar cargas de trabalho em escala e com opções de redundância e disponibilidade.  
+**Conformidade normativa**: Migre para a nuvem e mantenha controle total dos dados para atender às normas governamentais para proteger informações pessoais e proteger o IP organizacional.
 
-#### <a name="intel-sgx-enabled-virtual-machines"></a>Máquinas Virtuais habilitadas para Intel SGX
+**Colaboração segura e não confiável**: Lide com problemas de escala de trabalho de todos os setores, combinando dados entre organizações, até mesmo entre concorrentes, para revelar análises amplas de dados e insights mais detalhados.
 
-Nas máquinas virtuais de computação confidencial do Azure, uma parte do hardware da CPU é reservada para uma porção do código e dos dados de seu aplicativo. Essa parte restrita é a enclave. 
+**Processamento isolado**: Ofereça uma nova onda de produtos que removem a obrigação em dados privados com o processamento cego. Os dados do usuário não podem ser recuperados nem mesmo pelo provedor de serviços. 
 
-![Modelo de VM](media/overview/hardware-backed-enclave.png)
+## <a name="get-started"></a>Começar agora
+### <a name="azure-compute"></a>Computação do Azure
+Crie aplicativos com base nas ofertas de IaaS de computação confidencial no Azure.
+- VMs (Máquinas Virtuais): [Série DCsv2](confidential-computing-enclaves.md)
+- AKS (Kubernetes do Azure): [Orquestrar contêineres confidenciais](confidential-nodes-aks-overview.md)
 
-Atualmente, a infraestrutura de computação confidencial do Azure é composta de um SKU especializado de VMs (máquinas virtuais). Essas VMs são executadas em processadores Intel com Software Guard Extension (Intel SGX). [O Intel SGX](https://intel.com/sgx) é o componente que proporciona a maior proteção que nós revelamos com a computação confidencial. 
+### <a name="azure-security"></a>Segurança do Azure 
+Tenha a certeza de que suas cargas de trabalho estão protegidas por meio de métodos de verificação e gerenciamento de chaves vinculados a hardware. 
+- Atestado: [Atestado do Microsoft Azure (versão prévia)](../attestation/overview.md)
+- Gerenciamento de chaves: HSM Gerenciado (versão prévia)
 
-Atualmente, o Azure oferece a [Série DCsv2](https://docs.microsoft.com/azure/virtual-machines/dcv2-series) baseada na tecnologia Intel SGX para a criação de enclave baseada em hardware. Você pode criar aplicativos seguros baseados em enclave para serem executados na série DCsv2 de VMs para proteger os dados do seu aplicativo e o código em uso. 
-
-[Leia mais](virtual-machine-solutions.md) sobre a implantação de máquinas virtuais de computação confidencial do Azure com enclaves confiáveis baseados em hardware.
-
-## <a name="application-development"></a>Desenvolvimento de aplicativos <a id="application-development"></a>
-
-Para aproveitar o potencial dos enclaves e dos ambientes isolados, você precisará usar ferramentas compatíveis com a computação confidencial. Há várias ferramentas que compatíveis com o desenvolvimento de aplicativos de enclave. Por exemplo, você pode usar essas estruturas de software livre: 
-
-- [O Open Enclave SDK (Software Development Kit)](https://github.com/openenclave/openenclave)
-- [O CCF (Confidential Consortium Framework)](https://github.com/Microsoft/CCF)
-
-### <a name="overview"></a>Visão geral
-
-Um aplicativo criado com enclaves é particionado de duas maneiras:
-1. Um componente "não confiável" (o host)
-1. Um componente "confiável" (o enclave)
-
-**O host** é onde o aplicativo enclave está em execução e é um ambiente não confiável. O código de enclave implantado no host não pode ser acessado pelo host. 
-
-**O enclave** é onde o código do aplicativo e seus dados/memória em cache são executados. As computações protegidas devem ocorrer no enclave para garantir que os segredos e os dados confidenciais permaneçam protegidos. 
-
-Durante o design do aplicativo, é importante identificar e determinar qual parte do aplicativo precisa ser executada nos enclaves. O código que você escolhe colocar no componente confiável é isolado do restante do aplicativo. Depois que o enclave é inicializado e o código é carregado na memória, esse código não pode ser lido nem alterado usando os componentes não confiáveis. 
-
-### <a name="open-enclave-software-development-kit-oe-sdk"></a>OE SDK (Open Enclave Software Development Kit) <a id="oe-sdk"></a>
-
-Use uma biblioteca ou uma estrutura compatível com seu provedor se quiser escrever um código que seja executado em um enclave. O [OE SDK](https://github.com/openenclave/openenclave) (Open Enclave SDK) é um SDK de software livre que permite a abstração em um hardware habilitado para computação confidencial diferente. 
-
-O OE SDK é criado para ser uma camada de abstração única em qualquer hardware em qualquer CSP. O OE SDK pode ser usado sobre máquinas virtuais de computação confidencial do Azure para criar e executar aplicativos sobre enclaves.
+### <a name="develop"></a>Desenvolver
+Comece a usar o desenvolvimento de aplicativos com reconhecimento de enclave e implante algoritmos confidenciais usando a estrutura de inferência confidencial.
+- Escreva aplicativos para execução em VMs DCsv2: [SDK do Open-enclave](https://github.com/openenclave/openenclave)
+- Modelos de ML confidenciais no runtime do ONNX: [Inferência confidencial (beta)](https://aka.ms/confidentialinference)
 
 ## <a name="next-steps"></a>Próximas etapas
 

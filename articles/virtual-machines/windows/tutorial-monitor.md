@@ -10,12 +10,12 @@ ms.workload: infrastructure
 ms.date: 09/27/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 154e4c9421d1c0a54b3d9b5f53424e7640fe62d8
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 89b33a697e818539ab6666be33fc1542c5bdcc51
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323563"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736586"
 ---
 # <a name="tutorial-monitor-a-windows-virtual-machine-in-azure"></a>Tutorial: Monitorar uma máquina virtual do Windows no Azure
 
@@ -39,7 +39,7 @@ Para abrir o Cloud Shell, basta selecionar **Experimentar** no canto superior di
 
 ## <a name="create-virtual-machine"></a>Criar máquina virtual
 
-Para configurar o monitoramento do Azure e o gerenciamento de atualizações neste tutorial, você precisa de uma VM Windows no Azure. Primeiro, defina o nome de usuário e a senha de um administrador para a VM com [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-5.1):
+Para configurar o monitoramento do Azure e o gerenciamento de atualizações neste tutorial, você precisa de uma VM Windows no Azure. Primeiro, defina o nome de usuário e a senha de um administrador para a VM com [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential):
 
 ```azurepowershell-interactive
 $cred = Get-Credential
@@ -93,7 +93,7 @@ Para habilite o monitoramento da VM do Azure com o Azure Monitor para VMs:
     A lista selecione previamente o workspace e a localização padrão em que a VM está implantada na assinatura. 
 
     >[!NOTE]
-    >Para criar um workspace do Log Analytics para armazenar os dados de monitoramento da VM, confira [Criar um workspace do Log Analytics](../../azure-monitor/learn/quick-create-workspace.md). O workspace precisa pertencer a uma das [regiões com suporte](../../azure-monitor/insights/vminsights-configure-workspace.md#supported-regions).
+    >Para criar um workspace do Log Analytics para armazenar os dados de monitoramento da VM, confira [Criar um workspace do Log Analytics](../../azure-monitor/learn/quick-create-workspace.md). O workspace deve pertencer a uma das [regiões com suporte](../../azure-monitor/insights/vminsights-configure-workspace.md#supported-regions).
 
 Depois de habilitar o monitoramento, talvez você precise aguardar vários minutos antes de poder exibir as métricas de desempenho da VM.
 

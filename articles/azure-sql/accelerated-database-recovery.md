@@ -7,21 +7,30 @@ ms.subservice: high-availability
 ms.custom: sqldbrb=4
 ms.devlang: ''
 ms.topic: conceptual
-author: mashamsft
-ms.author: mathoma
-ms.reviewer: carlrab
+author: stevestein
+ms.author: sstein
+ms.reviewer: ''
 ms.date: 05/19/2020
-ms.openlocfilehash: a6d95bbcb0873086a799dcf216beab4a6b0d33de
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bd1b33b2f6b1b0e0bf94639b3991b6507a89f5a9
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84344689"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400787"
 ---
 # <a name="accelerated-database-recovery-in-azure-sql"></a>Recuperação de banco de dados acelerada no SQL do Azure 
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
 
-A **ADR (recuperação de banco de dados acelerada)** é um recurso de mecanismo de banco de dados SQL Server que melhora muito a disponibilidade do banco de dados, especialmente na presença de transações de longa execução, remodelando o processo de recuperação do mecanismo de banco de dados SQL Server. ADR está disponível no momento para o banco de dados SQL do Azure, Azure SQL Instância Gerenciada, SQL Server na VM do Azure e bancos de dados no Azure Synapse Analytics (atualmente em versão prévia). Os principais benefícios do ADR são:
+A **ADR (recuperação de banco de dados acelerada)** é um recurso de mecanismo de banco de dados SQL Server que melhora muito a disponibilidade do banco de dados, especialmente na presença de transações de longa execução, remodelando o processo de recuperação do mecanismo de banco de dados SQL Server. 
+
+O ADR está disponível no momento para o banco de dados SQL do Azure, Azure SQL Instância Gerenciada, bancos de dados no Azure Synapse Analytics e SQL Server em VMs do Azure a partir do SQL Server 2019. 
+
+> [!NOTE] 
+> ADR está habilitado por padrão no banco de dados SQL do Azure e no Azure SQL Instância Gerenciada e não há suporte para a desabilitação de ADR para qualquer produto. 
+
+## <a name="overview"></a>Visão geral
+
+Os principais benefícios do ADR são:
 
 - **Recuperação de banco de dados rápida e consistente**
 
@@ -76,7 +85,7 @@ O processo de recuperação ADR tem as mesmas três fases que o processo de recu
 
   O processo permanece o mesmo que antes com a adição da recriação de sLog e a cópia de registros de log para operações sem controle de versão.
   
-- Fase de **refazer**
+- Fase **refazer**
 
   Dividido em duas fases (P)
   - Fase 1
@@ -95,7 +104,7 @@ O processo de recuperação ADR tem as mesmas três fases que o processo de recu
 
 Os quatro componentes principais da ADR são:
 
-- **Repositório de versão persistente (PVS)**
+- **PVS (repositório de versão persistente)**
 
   O repositório de versão persistente é um novo mecanismo de mecanismo de banco de dados SQL Server para persistir as versões de linha geradas no próprio banco de dados, em vez do `tempdb` armazenamento de versão tradicional. PVS habilita o isolamento de recursos, bem como melhora a disponibilidade de secundários legíveis.
 

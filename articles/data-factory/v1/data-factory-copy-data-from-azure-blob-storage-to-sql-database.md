@@ -1,24 +1,18 @@
 ---
 title: Copiar dados do armazenamento de BLOBs para o banco de dados SQL – Azure
 description: Este tutorial mostra como usar a Atividade de Cópia em um pipeline do Azure Data Factory para copiar dados do Armazenamento de Blobs para um banco de dados SQL.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: ''
-editor: ''
-ms.assetid: e4035060-93bf-4e8d-bf35-35e2d15c51e0
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 6c8c93c8721527d506847e394a02fc4eb5a98c47
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 24cedc6a1e0be66e9a924a50e25257f18b7f96a6
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85248353"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100376880"
 ---
 # <a name="tutorial-copy-data-from-blob-storage-to-sql-database-using-data-factory"></a>Tutorial: copiar dados do Armazenamento de Blobs para o Banco de Dados SQL usando o Data Factory
 > [!div class="op_single_selector"]
@@ -47,7 +41,7 @@ Antes de iniciar este tutorial, você deverá ter os seguintes pré-requisitos:
 
 * **Assinatura do Azure**.  Se você não tiver uma assinatura, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Consulte o artigo [Avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/) para obter detalhes.
 * **Conta de armazenamento do Azure**. Você usa o armazenamento de blobs como um armazenamento de dados de **origem** dados neste tutorial. Se você não tiver uma conta de armazenamento do Azure, consulte o artigo [criar uma conta de armazenamento](../../storage/common/storage-account-create.md) para obter as etapas para criar uma.
-* **Banco de dados SQL do Azure**. Você usa o banco de dados SQL do Azure como um armazenamento de dado de **destino** neste tutorial. Se você não tiver um banco de dados no banco de dados SQL do Azure que possa ser usado no tutorial, consulte [como criar e configurar um banco de dados no banco de dados SQL do Azure](../../sql-database/sql-database-get-started.md) para criar um.
+* **Banco de dados SQL do Azure**. Você usa o banco de dados SQL do Azure como um armazenamento de dado de **destino** neste tutorial. Se você não tiver um banco de dados no banco de dados SQL do Azure que possa ser usado no tutorial, consulte [como criar e configurar um banco de dados no banco de dados SQL do Azure](../../azure-sql/database/single-database-create-quickstart.md) para criar um.
 * **SQL Server 2012/2014 ou Visual Studio 2013**. Você usa SQL Server Management Studio ou Visual Studio para criar um banco de dados de exemplo e exibir os dados de resultado no banco de dados.  
 
 ## <a name="collect-blob-storage-account-name-and-key"></a>Coletar o nome e a chave da conta de armazenamento de blobs
@@ -66,7 +60,7 @@ Você precisa do nome da conta e chave de conta da sua conta de armazenamento do
 7. Feche todas as folhas, clicando em **X**.
 
 ## <a name="collect-sql-server-database-user-names"></a>Coletar o servidor SQL, o banco de dados, os nomes de usuário
-Você precisa dos nomes do SQL Server, do banco de dados e do usuário lógicos para fazer este tutorial. Anote os nomes do **servidor, do** **banco de dados**e do **usuário** para o banco de dados SQL do Azure.
+Você precisa dos nomes do SQL Server, do banco de dados e do usuário lógicos para fazer este tutorial. Anote os nomes do **servidor, do** **banco de dados** e do **usuário** para o banco de dados SQL do Azure.
 
 1. No **Portal do Azure**, clique em **Todos os serviços** à esquerda e selecione **Bancos de Dados SQL**.
 2. Na **folha Bancos de dados SQL**, clique no **banco de dados** que você deseja utilizar neste tutorial. Anote o **nome do banco de dados**.  
@@ -107,11 +101,11 @@ Agora, prepare o armazenamento de BLOBs do Azure e o banco de dados SQL do Azure
     CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
     ```
 
-    **Se você tiver o SQL Server 2012/2014 instalado no computador:** siga as instruções em [Gerenciando o banco de dados SQL do Azure usando SQL Server Management Studio](../../sql-database/sql-database-manage-azure-ssms.md) para se conectar ao servidor e executar o script SQL.
+    **Se você tiver o SQL Server 2012/2014 instalado no computador:** siga as instruções em [Gerenciando o banco de dados SQL do Azure usando SQL Server Management Studio](../../azure-sql/database/single-database-manage.md) para se conectar ao servidor e executar o script SQL.
 
-    Se o cliente não tiver permissão para acessar o SQL Server lógico, você precisará configurar o firewall para o servidor para permitir o acesso do seu computador (endereço IP). Consulte [Este artigo](../../sql-database/sql-database-configure-firewall-settings.md) para obter as etapas para configurar o firewall para seu servidor.
+    Se o cliente não tiver permissão para acessar o SQL Server lógico, você precisará configurar o firewall para o servidor para permitir o acesso do seu computador (endereço IP). Consulte [Este artigo](../../azure-sql/database/firewall-configure.md) para obter as etapas para configurar o firewall para seu servidor.
 
-## <a name="create-a-data-factory"></a>Criar uma data factory
+## <a name="create-a-data-factory"></a>Criar um data factory
 Você concluiu os pré-requisitos. Você pode criar um data factory usando um dos caminhos a seguir. Clique em uma das opções na lista suspensa na parte superior ou nos links a seguir para executar o tutorial.     
 
 * [Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md)

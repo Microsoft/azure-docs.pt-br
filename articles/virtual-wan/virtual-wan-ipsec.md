@@ -5,14 +5,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 10/07/2019
+ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: 784f43cfa259ad7bdf161aea8e9b1ce559855db7
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 30c58a26a326370a2566bc9ebbec33bfbd4b3173
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213904"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91267356"
 ---
 # <a name="virtual-wan-default-policies-for-ipsec-connectivity"></a>Políticas padrão de WAN virtual para conectividade IPsec
 

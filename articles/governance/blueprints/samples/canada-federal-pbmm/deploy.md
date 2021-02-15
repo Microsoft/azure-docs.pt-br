@@ -1,14 +1,14 @@
 ---
 title: Implantar a amostra de blueprint do PBMM Federal do Canadá
 description: Etapas de implantação da amostra de blueprint do PBMM Federal do Canadá, incluindo detalhes do parâmetro do artefato de blueprint.
-ms.date: 07/31/2020
+ms.date: 02/05/2021
 ms.topic: sample
-ms.openlocfilehash: 0b7e0467fbc43ea83a0aa4ff40e9b0be4c69b41e
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 376c6329c0c3c571364c7d5d23a21c9f8cad2e53
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500105"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99624988"
 ---
 # <a name="deploy-the-canada-federal-pbmm-blueprint-samples"></a>Implantar as amostras de blueprint do PBMM Federal do Canadá
 

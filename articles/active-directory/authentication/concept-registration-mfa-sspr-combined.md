@@ -1,47 +1,47 @@
 ---
-title: Registro combinado para SSPR e autenticação multifator do Azure-Azure Active Directory
-description: Saiba mais sobre a experiência de registro combinada para Azure Active Directory para permitir que os usuários se registrem para a autenticação multifator do Azure e a redefinição de senha de autoatendimento
+title: Registro combinado para SSPR e autenticação multifator do Azure AD-Azure Active Directory
+description: Saiba mais sobre a experiência de registro combinada para Azure Active Directory para permitir que os usuários se registrem para a autenticação multifator do Azure AD e a redefinição de senha de autoatendimento
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/14/2020
-ms.author: iainfou
-author: iainfoulds
+ms.date: 01/27/2021
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4afc5e554e72fc2ab78173368930b2e5317bce7
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 112ad0714c84cd3be08788b3277f52372f6d0373
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88718910"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98938467"
 ---
 # <a name="combined-security-information-registration-for-azure-active-directory-overview"></a>Registro de informações de segurança combinado para Azure Active Directory visão geral
 
-Antes do registro combinado, os usuários registravam métodos de autenticação diferentes para a Autenticação Multifator do Microsoft Azure e a SSPR (redefinição de senha de autoatendimento) separadamente. As pessoas foram confundidas que métodos semelhantes eram usados para autenticação multifator e SSPR, mas tinham que se registrar para ambos os recursos. Agora, com o registro combinado, os usuários podem registrar uma vez e obter os benefícios da autenticação multifator e do SSPR.
+Antes do registro combinado, os usuários registraram métodos de autenticação para a autenticação multifator do Azure AD e a SSPR (redefinição de senha de autoatendimento) separadamente. As pessoas foram confundidas que métodos semelhantes eram usados para autenticação multifator e SSPR, mas tinham que se registrar para ambos os recursos. Agora, com o registro combinado, os usuários podem registrar uma vez e obter os benefícios da autenticação multifator e do SSPR.
 
 > [!NOTE]
-> A partir de 15 de agosto de 2020, todos os novos locatários do Azure AD serão habilitados automaticamente para o registro combinado.
+> A partir de 15 de agosto de 2020, todos os novos locatários do Azure AD serão habilitados automaticamente para o registro combinado. 
 
 Este artigo descreve o que é o registro de segurança combinado. Para começar a usar o registro de segurança combinado, consulte o seguinte artigo:
 
 > [!div class="nextstepaction"]
 > [Habilitar o registro de segurança combinado](howto-registration-mfa-sspr-combined.md)
 
-![Meu perfil mostrando informações de segurança registradas para um usuário](media/concept-registration-mfa-sspr-combined/combined-security-info-defualts-registered.png)
+![Minha conta mostrando informações de segurança registradas para um usuário](media/concept-registration-mfa-sspr-combined/combined-security-info-defaults-registered.png)
 
 Antes de habilitar a nova experiência, examine esta documentação voltada para o administrador e a documentação voltada para o usuário para garantir que você compreenda a funcionalidade e o efeito desse recurso. Baseie seu treinamento na [documentação do usuário](../user-help/security-info-setup-signin.md) para preparar seus usuários para a nova experiência e para ajudar a garantir uma distribuição bem-sucedida.
 
-O registro de informações de segurança combinadas do Azure AD não está disponível atualmente para nuvens nacionais como Azure EUA governamental, Azure Alemanha ou Azure China 21Vianet.
+O registro de informações de segurança combinadas do Azure AD não está disponível atualmente para nuvens nacionais como o Azure Alemanha ou o Azure China 21Vianet. Ele está disponível para o governo dos EUA do Azure.
 
 > [!IMPORTANT]
-> Os usuários que estão habilitados para a versão prévia original e a experiência avançada de registro combinado veem o novo comportamento. Os usuários que estão habilitados para ambas as experiências veem apenas a nova experiência meu perfil. O novo *meu perfil* se alinha com a aparência do registro combinado e fornece uma experiência direta para os usuários. Os usuários podem ver meu perfil acessando [https://myprofile.microsoft.com](https://myprofile.microsoft.com) .
+> Os usuários que estão habilitados para a versão prévia original e a experiência avançada de registro combinado veem o novo comportamento. Os usuários que estão habilitados para as duas experiências veem apenas a experiência da minha conta. A *minha conta* está alinhada com a aparência do registro combinado e fornece uma experiência direta para os usuários. Os usuários podem ver minha conta acessando [https://myaccount.microsoft.com](https://myaccount.microsoft.com) .
 >
 > Você pode encontrar uma mensagem de erro ao tentar acessar a opção de informações de segurança, como "Desculpe, não é possível conectá-lo". Confirme que você não tem nenhuma configuração ou objeto de política de grupo que bloqueia cookies de terceiros no navegador da Web.
 
-*Minhas* páginas de perfil são localizadas com base nas configurações de idioma do computador que está acessando a página. A Microsoft armazena a linguagem mais recente usada no cache do navegador, portanto, as tentativas subsequentes de acessar as páginas continuam a ser renderizadas no último idioma usado. Se você limpar o cache, as páginas são renderizadas novamente.
+As páginas da *minha conta* são localizadas com base nas configurações de idioma do computador que está acessando a página. A Microsoft armazena a linguagem mais recente usada no cache do navegador, portanto, as tentativas subsequentes de acessar as páginas continuam a ser renderizadas no último idioma usado. Se você limpar o cache, as páginas são renderizadas novamente.
 
 Se você quiser forçar um idioma específico, poderá adicionar `?lng=<language>` ao final da URL, em que `<language>` é o código do idioma que você deseja renderizar.
 
@@ -51,14 +51,14 @@ Se você quiser forçar um idioma específico, poderá adicionar `?lng=<language
 
 O registro combinado dá suporte aos seguintes métodos e ações de autenticação:
 
-| Método | Registrar | Alterar | Excluir |
+| Método | Registre-se | Alterar | Excluir |
 | --- | --- | --- | --- |
 | Microsoft Authenticator | Sim (no máximo 5) | Não | Sim |
 | Outro aplicativo autenticador | Sim (no máximo 5) | Não | Sim |
 | Token de hardware | Não | Não | Sim |
 | Telefone | Sim | Sim | Sim |
 | Telefone alternativo | Sim | Sim | Sim |
-| Telefone comercial | Não | Não | Não |
+| Telefone comercial | Sim | Sim | Sim |
 | Email | Sim | Sim | Sim |
 | Perguntas de segurança | Sim | Não | Sim |
 | Senhas de aplicativo | Sim | Não | Sim |
@@ -116,7 +116,7 @@ Se a política de SSPR exigir que os usuários revisem suas informações de seg
 
 ### <a name="manage-mode"></a>Modo de gerenciamento
 
-Os usuários podem acessar o modo de gerenciamento acessando [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) ou selecionando **informações de segurança** em meu perfil. A partir daí, os usuários podem adicionar métodos, excluir ou alterar métodos existentes, alterar o método padrão e muito mais.
+Os usuários podem acessar o modo de gerenciamento acessando [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) ou selecionando **informações de segurança** em minha conta. A partir daí, os usuários podem adicionar métodos, excluir ou alterar métodos existentes, alterar o método padrão e muito mais.
 
 ## <a name="key-usage-scenarios"></a>Principais cenários de uso
 
@@ -126,24 +126,24 @@ Um administrador impôs o registro.
 
 Um usuário não configurou todas as informações de segurança necessárias e vai para a portal do Azure. Depois de inserir o nome de usuário e a senha, o usuário será solicitado a configurar as informações de segurança. Em seguida, o usuário segue as etapas mostradas no Assistente para configurar as informações de segurança necessárias. Se suas configurações permitirem, o usuário poderá optar por configurar métodos diferentes daqueles mostrados por padrão. Depois de concluir o assistente, os usuários examinam os métodos que eles configuram e seu método padrão para a autenticação multifator. Para concluir o processo de instalação, o usuário confirma as informações e continua a portal do Azure.
 
-### <a name="set-up-security-info-from-my-profile"></a>Configurar informações de segurança do meu perfil
+### <a name="set-up-security-info-from-my-account"></a>Configurar informações de segurança de minha conta
 
 Um administrador não impô o registro.
 
-Um usuário que ainda não configurou todas as informações de segurança necessárias vai para [https://myprofile.microsoft.com](https://myprofile.microsoft.com) . O usuário seleciona **informações de segurança** no painel esquerdo. A partir daí, o usuário opta por adicionar um método, seleciona qualquer um dos métodos disponíveis e segue as etapas para configurar esse método. Quando terminar, o usuário verá o método que foi configurado na página informações de segurança.
+Um usuário que ainda não configurou todas as informações de segurança necessárias vai para [https://myaccount.microsoft.com](https://myaccount.microsoft.com) . O usuário seleciona **informações de segurança** no painel esquerdo. A partir daí, o usuário opta por adicionar um método, seleciona qualquer um dos métodos disponíveis e segue as etapas para configurar esse método. Quando terminar, o usuário verá o método que foi configurado na página informações de segurança.
 
-### <a name="delete-security-info-from-my-profile"></a>Excluir informações de segurança do meu perfil
+### <a name="delete-security-info-from-my-account"></a>Excluir informações de segurança da minha conta
 
 Um usuário que tenha configurado anteriormente pelo menos um método navega para [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) . O usuário escolhe excluir um dos métodos registrados anteriormente. Quando terminar, o usuário não verá mais esse método na página informações de segurança.
 
-### <a name="change-the-default-method-from-my-profile"></a>Alterar o método padrão do meu perfil
+### <a name="change-the-default-method-from-my-account"></a>Alterar o método padrão de minha conta
 
 Um usuário que configurou anteriormente pelo menos um método que pode ser usado para a autenticação multifator navega para [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) . O usuário altera o método padrão atual para um método padrão diferente. Quando terminar, o usuário verá o novo método padrão na página informações de segurança.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para começar, consulte os tutoriais para [habilitar a redefinição de senha de autoatendimento](tutorial-enable-sspr.md) e [habilitar a autenticação multifator do Azure](tutorial-enable-azure-mfa.md).
+Para começar, consulte os tutoriais para [habilitar a redefinição de senha de autoatendimento](tutorial-enable-sspr.md) e [habilitar a autenticação multifator do Azure ad](tutorial-enable-azure-mfa.md).
 
 Saiba como [habilitar o registro combinado em seu locatário](howto-registration-mfa-sspr-combined.md) ou [forçar os usuários a registrar novamente os métodos de autenticação](howto-mfa-userdevicesettings.md#manage-user-authentication-options).
 
-Você também pode examinar os [métodos disponíveis para a Autenticação Multifator do Microsoft Azure e a SSPR](concept-authentication-methods.md).
+Você também pode examinar os [métodos disponíveis para a autenticação multifator do Azure AD e o SSPR](concept-authentication-methods.md).

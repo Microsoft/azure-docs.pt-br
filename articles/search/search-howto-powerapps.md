@@ -8,13 +8,13 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.devlang: rest-api
 ms.topic: tutorial
-ms.date: 08/21/2020
-ms.openlocfilehash: 887017f60deb832bd5c53f28bde4b57a3d82bde5
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 11/17/2020
+ms.openlocfilehash: e8c16f02cf6b77fa54d2a19abac48e9914aa99bd
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88918036"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008558"
 ---
 # <a name="tutorial-query-a-cognitive-search-index-from-power-apps"></a>Tutorial: Consultar um índice do Cognitive Search por meio do Power Apps
 
@@ -31,9 +31,9 @@ Caso não tenha uma assinatura do Azure, abra uma [conta gratuita](https://azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [Conta do Power Apps](http://make.powerapps.com)
+* [Conta do Power Apps](https://make.powerapps.com)
 
-* [Índice do exemplo de hotéis](search-get-started-portal.md)
+* [Índice hotels-sample](search-get-started-portal.md) hospedado em seu serviço de pesquisa
 
 * [Chave da API de consulta](search-security-api-keys.md#find-existing-keys)
 
@@ -41,7 +41,7 @@ Caso não tenha uma assinatura do Azure, abra uma [conta gratuita](https://azure
 
 Um conector no Power Apps é uma conexão de fonte de dados. Nesta etapa, você criará um conector personalizado para se conectar a um índice de pesquisa na nuvem.
 
-1. [Entre](http://make.powerapps.com) no Power Apps.
+1. [Entre](https://make.powerapps.com) no Power Apps.
 
 1. À esquerda, expanda **Dados** > **Conectores Personalizados**.
  
@@ -76,9 +76,9 @@ Um conector no Power Apps é uma conexão de fonte de dados. Nesta etapa, você 
 
    * Para a URL, insira uma consulta de exemplo para o índice de pesquisa (`search=*` retorna todos os documentos, `$select=` permite que você escolha campos). A versão da API é um campo obrigatório. Uma URL, quando totalmente especificada, pode ter aparência semelhante a esta: `https://mydemo.search.windows.net/indexes/hotels-sample-index/docs?search=*&$select=HotelName,Description,Address/City&api-version=2020-06-30`
 
-   * Para Cabeçalhos, digite `Content-Type`. 
+   * Para Cabeçalhos, digite `Content-Type`. Você definirá o valor como `application/json` em uma etapa posterior.
 
-     O **Power Apps** usará a sintaxe para extrair parâmetros da consulta. Observe que definimos o campo de pesquisa explicitamente. 
+     O **Power Apps** usa a sintaxe na URL para extrair parâmetros da consulta: os parâmetros search, select e api-version se tornam configuráveis à medida que você avança no assistente.
 
        :::image type="content" source="./media/search-howto-powerapps/1-8-1-import-from-sample.png" alt-text="Importar do exemplo" border="true":::
 
@@ -111,11 +111,11 @@ Um conector no Power Apps é uma conexão de fonte de dados. Nesta etapa, você 
       - {name: Content-Type, in: header, required: false, type: string}
     ```
 
-1. Retorne à etapa **3. Solicitação** e role para baixo até a seção de resposta. Clique em **"Adicionar resposta padrão"** . Isso é crítico porque ajudará o Power Apps a compreender o esquema da resposta. 
+1. Volte para o assistente e retorne para a etapa **3. Solicitar**. Role para baixo até a seção Resposta. Clique em **"Adicionar resposta padrão"** . Isso é crítico porque ajudará o Power Apps a compreender o esquema da resposta. 
 
 1. Cole uma resposta de exemplo. Um modo fácil de capturar uma resposta de exemplo é por meio do Gerenciador de Pesquisa no portal do Azure. No Gerenciador de Pesquisa, você deve inserir a mesma consulta que inseriu para a solicitação, mas adicionar **$top=2** para restringir os resultados a apenas dois documentos: `search=*&$select=HotelName,Description,Address/City&$top=2`. 
 
-   O Power Apps precisa de apenas de alguns resultados para detectar o esquema.
+   O Power Apps precisa de apenas de alguns resultados para detectar o esquema. Agora você copiar a resposta a seguir para o assistente, supondo que você esteja usando o índice hotels-sample.
 
     ```JSON
     {
@@ -144,7 +144,11 @@ Um conector no Power Apps é uma conexão de fonte de dados. Nesta etapa, você 
     > [!TIP] 
     > Há um limite de caracteres que você pode inserir para a resposta JSON, portanto, talvez seja melhor que você simplifique o JSON antes de colá-lo. O esquema e o formato da resposta são mais importantes do que os valores propriamente ditos. Por exemplo, o campo Descrição pode ser simplificado apenas para a primeira frase.
 
-1. Clique em **Criar conector** no canto superior direito.
+1. Clique em **Importar** para adicionar a resposta padrão.
+
+1. Clique em **Criar conector** no canto superior direito para salvar a definição.
+
+1. Clique em **Fechar** para fechar o conector.
 
 ## <a name="2---test-the-connection"></a>2 – Testar a conexão
 
@@ -154,7 +158,7 @@ Você precisará de uma [chave de API de consulta](search-security-api-keys.md#f
 
 1. Na extrema esquerda, clique em **Conectores Personalizados**.
 
-1. Procure o conector pelo nome (neste tutorial, é "AzureSearchQuery").
+1. Encontre seu conector na lista (neste tutorial, é "AzureSearchQuery").
 
 1. Selecione o conector, expanda a lista de ações e selecione **Exibir Propriedades**.
 
@@ -250,7 +254,7 @@ Nesta etapa, crie um Power App com uma caixa de pesquisa, um botão de pesquisa 
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Quando você está trabalhando em sua própria assinatura, é uma boa ideia identificar, no final de um projeto, se você ainda precisa dos recursos criados. Recursos deixados em execução podem custar dinheiro. Você pode excluir os recursos individualmente ou excluir o grupo de recursos para excluir todo o conjunto de recursos.
+Quando você está trabalhando em sua própria assinatura, é uma boa ideia identificar, no final de um projeto, se você ainda precisa dos recursos criados. Os recursos mantidos em execução podem gerar custos. Você pode excluir os recursos individualmente ou excluir o grupo de recursos para excluir todo o conjunto de recursos.
 
 Você pode localizar e gerenciar recursos no portal usando o link **Todos os recursos** ou **Grupos de recursos** no painel de navegação à esquerda.
 

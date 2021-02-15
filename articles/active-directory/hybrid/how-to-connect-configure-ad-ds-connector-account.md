@@ -11,12 +11,13 @@ ms.date: 05/18/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 252c033c1a9d4d45c3d48256e65ae9ad10a93c51
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 62bfc528886767bc09159ca2a2696c8c9264b307
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85360054"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349932"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: Configurar as permissões de Conta do AD DS Connector 
 
@@ -38,12 +39,12 @@ A tabela a seguir fornece um resumo das permissões necessárias nos objetos do 
 | Sincronização de hash de senha |<li>Replicar alterações de diretório</li>  <li>Replicar todas as alterações de diretório |
 | Implantação híbrida do Exchange |Permissões de leitura e gravação para os atributos documentados em [Write-back híbrido do Exchange](reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback) para usuários, grupos e contatos. |
 | Pasta pública do Exchange Mail |Permissões de leitura para os atributos documentados na [Pasta pública do Exchange Mail](reference-connect-sync-attributes-synchronized.md#exchange-mail-public-folder) para pastas públicas. | 
-| write-back de senha |Permissões de leitura e gravação para os atributos documentados em [Introdução ao gerenciamento de senhas](../authentication/howto-sspr-writeback.md) para usuários. |
+| write-back de senha |Permissões de leitura e gravação para os atributos documentados em [Introdução ao gerenciamento de senhas](../authentication/tutorial-enable-sspr-writeback.md) para usuários. |
 | Write-back de dispositivo |Permissões de leitura e gravação para objetos de dispositivo e contêineres documentados em [write-back de dispositivo](how-to-connect-device-writeback.md). |
 | Write-back de grupo |Ler, criar, atualizar e excluir objetos de grupo para **grupos do Office 365** sincronizados.|
 
 ## <a name="using-the-adsyncconfig-powershell-module"></a>Usando o módulo ADSyncConfig PowerShell 
-O módulo ADSyncConfig requer o [Ferramentas de Administração de Servidor Remoto (RSAT) para o AD DS](https://docs.microsoft.com/windows-server/remote/remote-server-administration-tools), pois ele depende do módulo do PowerShell do AD DS e ferramentas. Para instalar o RSAT para o AD DS, abra uma janela do Windows PowerShell com “Executar como administrador” e execute: 
+O módulo ADSyncConfig requer o [Ferramentas de Administração de Servidor Remoto (RSAT) para o AD DS](/windows-server/remote/remote-server-administration-tools), pois ele depende do módulo do PowerShell do AD DS e ferramentas. Para instalar o RSAT para o AD DS, abra uma janela do Windows PowerShell com “Executar como administrador” e execute: 
 
 ``` powershell
 Install-WindowsFeature RSAT-AD-Tools 
@@ -148,7 +149,7 @@ Esse cmdlet definirá as seguintes permissões:
 
  
 ### <a name="configure-ms-ds-consistency-guid-permissions"></a>Configurar permissões do MS-DS-Consistency-Guid 
-Para definir permissões para a conta do conector do AD DS ao usar o atributo ms-Ds-Consistency-Guid como âncora de origem (também conhecido como a opção "Permitir que o Azure gerencie a âncora de origem para mim"), execute: 
+Para definir permissões para a conta do conector de AD DS ao usar o atributo ms-DS-Consistency-GUID como a âncora de origem (também conhecida como a opção "permitir que o Azure gerencie a âncora de origem para mim"), execute: 
 
 ``` powershell
 Set-ADSyncMsDsConsistencyGuidPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String> [-SkipAdminSdHolders] [<CommonParameters>] 
@@ -310,4 +311,3 @@ Esse cmdlet definirá as seguintes permissões:
 - Instalação expressa[Instalação expressa](how-to-connect-install-express.md)
 - [Personalização Instalada](how-to-connect-install-custom.md)
 - [Referência de ADSyncConfig](reference-connect-adsyncconfig.md)
-

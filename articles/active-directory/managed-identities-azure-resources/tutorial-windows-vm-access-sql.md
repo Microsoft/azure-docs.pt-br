@@ -1,9 +1,9 @@
 ---
-title: Tutorial`:` Usar uma identidade gerenciada para acessar o Banco de Dados SQL do Azure – Windows – Azure AD
+title: 'Tutorial: Usar uma identidade gerenciada para acessar o Banco de Dados SQL do Azure – Windows – Azure AD'
 description: Um tutorial que descreve o processo de usar uma identidade gerenciada atribuída ao sistema em uma VM do Windows para acessar o Banco de Dados SQL do Azure.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 ms.service: active-directory
 ms.subservice: msi
@@ -12,14 +12,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/14/2020
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 13be33843172f505ed8f12293137c0808e9bd2a0
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: 9f4f56ce9fa86dc27b77ad6b463479d13c8e4e7d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85920380"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91856504"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-sql"></a>Tutorial: Usar uma identidade gerenciada atribuída pelo sistema da VM do Windows para acessar o SQL Azure
 
@@ -44,7 +44,7 @@ Este tutorial mostra como usar uma identidade atribuída ao sistema em uma VM (m
 
 ## <a name="grant-access"></a>Conceder acesso
 
-Para permitir acesso à VM a um banco de dados no Banco de Dados SQL do Azure, use um [servidor SQL lógico](../../azure-sql/database/logical-servers.md) existente ou crie um. Para criar um novo servidor e banco de dados usando o portal do Azure, siga este [início rápido do Azure SQL](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal). Também há inícios rápidos que usam a CLI do Azure e o Azure PowerShell na [documentação do SQL Azure](https://docs.microsoft.com/azure/sql-database/).
+Para permitir acesso à VM a um banco de dados no Banco de Dados SQL do Azure, use um [servidor SQL lógico](../../azure-sql/database/logical-servers.md) existente ou crie um. Para criar um novo servidor e banco de dados usando o portal do Azure, siga este [início rápido do Azure SQL](../../azure-sql/database/single-database-create-quickstart.md). Também há inícios rápidos que usam a CLI do Azure e o Azure PowerShell na [documentação do SQL Azure](/azure/sql-database/).
 
 Há duas etapas para conceder acesso da VM a um banco de dados:
 
@@ -53,7 +53,7 @@ Há duas etapas para conceder acesso da VM a um banco de dados:
 
 ### <a name="enable-azure-ad-authentication"></a>Habilitar a autenticação do Azure AD
 
-**Para [configurar a autenticação do Azure AD](/azure/sql-database/sql-database-aad-authentication-configure):**
+**Para [configurar a autenticação do Azure AD](../../azure-sql/database/authentication-aad-configure.md):**
 
 1. No portal do Azure, selecione **Servidores SQL** na navegação à esquerda.
 2. Clique no SQL Server a ser habilitado para autenticação do Azure AD.
@@ -64,10 +64,10 @@ Há duas etapas para conceder acesso da VM a um banco de dados:
 
 ### <a name="create-contained-user"></a>Criar um usuário contido
 
-Esta seção mostra como criar um usuário contido no banco de dados que representa a identidade atribuída do sistema da VM. Para esta etapa, você precisará do SSMS ([Microsoft SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)). Antes de começar, também pode ser útil examinar os seguintes artigos para obter informações sobre a integração do Azure AD:
+Esta seção mostra como criar um usuário contido no banco de dados que representa a identidade atribuída do sistema da VM. Para esta etapa, você precisará do SSMS ([Microsoft SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)). Antes de começar, também pode ser útil examinar os seguintes artigos para obter informações sobre a integração do Azure AD:
 
-- [Autenticação Universal com o Banco de Dados SQL e o Azure Synapse Analytics (suporte de SSMS para MFA)](/azure/sql-database/sql-database-ssms-mfa-authentication)
-- [Configurar e gerenciar o Azure Active Directory para autenticação com o Banco de Dados SQL ou o Azure Synapse Analytics](/azure/sql-database/sql-database-aad-authentication-configure)
+- [Autenticação Universal com o Banco de Dados SQL e o Azure Synapse Analytics (suporte de SSMS para MFA)](../../azure-sql/database/authentication-mfa-ssms-overview.md)
+- [Configurar e gerenciar o Azure Active Directory para autenticação com o Banco de Dados SQL ou o Azure Synapse Analytics](../../azure-sql/database/authentication-aad-configure.md)
 
 O BD SQL requer nomes de exibição exclusivos do AAD. Com isso, contas do AAD como usuários, grupos e entidades de serviço (aplicativos) e nomes de VM habilitados para identidade gerenciada precisam ser definidos exclusivamente no AAD com relação aos respectivos nomes de exibição. O BD SQL verifica o nome de exibição do AAD durante a criação do T-SQL desses usuários e, se ele não for exclusivo, o comando falhará solicitando para fornecer um nome de exibição do AAD exclusivo para uma determinada conta.
 
@@ -208,4 +208,4 @@ Examine o valor de `$DataSet.Tables[0]` para exibir os resultados da consulta.
 Neste tutorial, você aprendeu a usar uma identidade gerenciada atribuída ao sistema para acessar o Banco de Dados SQL do Azure. Para saber mais sobre o Banco de Dados SQL do Azure, confira:
 
 > [!div class="nextstepaction"]
-> [Banco de Dados SQL do Azure](/azure/sql-database/sql-database-technical-overview)
+> [Banco de Dados SQL do Azure](../../azure-sql/database/sql-database-paas-overview.md)

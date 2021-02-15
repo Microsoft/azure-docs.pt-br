@@ -10,18 +10,19 @@ tags: azure-resource-manager
 keywords: dsc
 ms.assetid: bbacbc93-1e7b-4611-a3ec-e3320641f9ba
 ms.service: virtual-machines-windows
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 07/13/2020
 ms.author: magoedte
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9b609fd81c9f1013d2308dccd8ed22fb82aac149
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: 17ada83f6fa1b57f8dd72d591b6625f25e9a2388
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87503337"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94955847"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Introdução ao manipulador de extensão de Desired State Configuration do Azure
 
@@ -178,7 +179,7 @@ Para configurar o DSC no portal:
 
 1. Ir para uma VM.
 2. Em **Configurações**, selecione **Extensões**.
-3. Na nova página que é criada, selecione **+ Adicionar**e, em seguida, selecione **Desired State Configuration do PowerShell**.
+3. Na nova página que é criada, selecione **+ Adicionar** e, em seguida, selecione **Desired State Configuration do PowerShell**.
 4. Clique em **Criar**, na parte inferior da página de informações.
 
 O portal coleta a seguinte entrada:

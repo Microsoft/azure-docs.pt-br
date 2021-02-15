@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: srrengar
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 614c8e5f76475c7e7af35db37334eb645ad553a3
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 6bed26227542cbf3ffc13ecc018aef9e659d026e
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018596"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791621"
 ---
 # <a name="query-eventstore-apis-for-cluster-events"></a>Consultar APIs do EventStore para eventos de cluster
 
@@ -111,7 +111,7 @@ Aqui, podemos ver que entre `2018-04-03T18:00:00Z` e `2018-04-04T18:00:00Z`, est
 
 ## <a name="query-the-eventstore-programmatically"></a>Consultar EventStore programaticamente
 
-Você também pode consultar EventStore programaticamente, por meio da [biblioteca de cliente do Service Fabric](/dotnet/api/overview/azure/service-fabric?view=azure-dotnet#client-library).
+Você também pode consultar EventStore programaticamente, por meio da [biblioteca de cliente do Service Fabric](/dotnet/api/overview/azure/service-fabric#client-library).
 
 Assim que seu Cliente do Service Fabric for configurado, você poderá consultar eventos acessando o EventStore desta maneira: `sfhttpClient.EventStore.<request>`
 
@@ -192,7 +192,7 @@ Além de ver apenas eventos de ciclo de vida do aplicativo, você talvez queira 
 
 *Integridade do histórico para todos os serviços em "myApp":*
 
-Atualmente, os eventos de relatório de integridade para serviços aparecem como eventos do `DeployedServicePackageNewHealthReport` sob a entidade correspondente do aplicativo. Para ver como seus serviços têm feito para "App1", use a seguinte consulta: `https://winlrc-staging-10.southcentralus.cloudapp.azure.com:19080/EventsStore/Applications/myapp/$/Events?api-version=6.4&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&EventsTypesFilter=DeployedServicePackageNewHealthReport`
+Atualmente, os eventos de relatório de integridade para serviços aparecem como eventos do `DeployedServicePackageNewHealthReport` sob a entidade correspondente do aplicativo. Para ver como seus serviços têm feito para "App1", use a seguinte consulta: `https://mycluster.cloudapp.azure.com:19080/EventsStore/Applications/myapp/$/Events?api-version=6.4&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&EventsTypesFilter=DeployedServicePackageNewHealthReport`
 
 *Reconfiguração da partição:*
 

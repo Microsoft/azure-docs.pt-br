@@ -4,7 +4,7 @@ description: Escolha qual solução de proxy será a melhor se você estiver atu
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: efd98cab50c3239d3202e6feabe18f45a4240293
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: a7d089d8f57bf8ef1278d262129cc8ddfc81d581
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88641170"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99257736"
 ---
 # <a name="compare-remote-access-solutions"></a>Comparar as soluções de acesso remoto
 
@@ -46,7 +46,7 @@ Use essa tabela para entender a comparação entre o Threat Management Gateway (
 | Conversão de link de corpo de resposta | Sim | Sim | - | Sim | 
 | Autenticação com cabeçalhos | - | Sim | - | Sim, com PingAccess | 
 | Segurança em escala de nuvem | - | - | - | Sim | 
-| Acesso Condicional | - | Sim | - | Sim |
+| Acesso condicional | - | Sim | - | Sim |
 | Nenhum componente na zona desmilitarizada (DMZ) | - | - | - | Sim |
 | Nenhuma conexão de entrada | - | - | - | Sim |
 
@@ -59,7 +59,7 @@ O Proxy de Aplicativo do Azure AD oferece benefícios exclusivos quando comparad
    - Recursos como acesso condicional e autenticação multifator são fáceis de habilitar
 - Nenhum componente na zona desmilitarizada
 - Nenhuma conexão de entrada necessária
-- Uma página meus aplicativos à qual os usuários podem ir para todos os seus aplicativos, incluindo o O365, aplicativos SaaS integrados do Azure AD e seus aplicativos Web locais. 
+- Uma página meus aplicativos que os usuários podem acessar para todos os seus aplicativos, incluindo Microsoft 365, aplicativos SaaS integrados do Azure AD e seus aplicativos Web locais. 
 
 
 ## <a name="next-steps"></a>Próximas etapas

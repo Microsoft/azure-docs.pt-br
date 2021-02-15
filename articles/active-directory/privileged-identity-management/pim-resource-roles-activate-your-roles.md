@@ -15,12 +15,12 @@ ms.date: 07/01/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f38ef7db114705392bd1d3dc6f9a4562a809e20
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 1a6ddde80ca554aea25d24694aff76e61e47d928
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86023850"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672450"
 ---
 # <a name="activate-my-azure-resource-roles-in-privileged-identity-management"></a>Ativar minhas funções de recurso do Azure no Privileged Identity Management
 
@@ -42,7 +42,7 @@ Quando precisar tomar uma função de recurso do Azure, você poderá solicitar 
 
 1. Selecione **funções de recurso do Azure** para ver uma lista de suas funções de recurso do Azure qualificadas.
 
-   ![Minhas funções – página funções de recurso do Azure](./media/pim-resource-roles-activate-your-roles/resources-my-roles-azure-resources.png)
+    ![Minhas funções – página funções de recurso do Azure](./media/pim-resource-roles-activate-your-roles/resources-my-roles-azure-resources.png)
 
 1. Na lista **Funções de recursos do Azure**, encontre a função que você deseja ativar.
 
@@ -50,7 +50,7 @@ Quando precisar tomar uma função de recurso do Azure, você poderá solicitar 
 
 1. Selecione **Ativar** para abrir a página ativar.
 
-     ![O painel ativar aberto com escopo, hora de início, duração e motivo](./media/pim-resource-roles-activate-your-roles/azure-role-eligible-activate.png)
+    ![O painel ativar aberto com escopo, hora de início, duração e motivo](./media/pim-resource-roles-activate-your-roles/azure-role-eligible-activate.png)
 
 1. Se sua função exigir autenticação multifator, selecione **Verificar sua identidade antes de prosseguir**. Você só precisa se autenticar uma vez por sessão.
 

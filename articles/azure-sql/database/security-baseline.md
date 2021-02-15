@@ -4,28 +4,28 @@ description: Linha de base de segurança do Azure para banco de dados SQL do Azu
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 04/09/2020
+ms.date: 09/21/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
-ms.openlocfilehash: 3c890dc48c97580fd8de5c817c96b62d4eb9c009
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: d2513d822c182d4820728123b187e995da3179fe
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045936"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99806199"
 ---
 # <a name="azure-security-baseline-for-azure-sql-database--sql-managed-instance"></a>Linha de base de segurança do Azure para o banco de dados SQL do Azure & SQL Instância Gerenciada
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 A linha de base de segurança do Azure para o banco de dados SQL do Azure contém recomendações que ajudarão você a melhorar a postura de segurança de sua implantação.
 
-A linha de base para esse serviço é extraída do [Azure Security Benchmark versão 1.0](https://docs.microsoft.com/azure/security/benchmarks/overview), que fornece recomendações sobre como proteger suas soluções de nuvem no Azure com nossas diretrizes de melhores práticas.
+A linha de base para esse serviço é extraída do [Azure Security Benchmark versão 1.0](../../security/benchmarks/overview.md), que fornece recomendações sobre como proteger suas soluções de nuvem no Azure com nossas diretrizes de melhores práticas.
 
-Para obter mais informações, consulte [Visão geral sobre linhas de base de segurança do Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview).
+Para obter mais informações, consulte [Visão geral sobre linhas de base de segurança do Azure](../../security/benchmarks/security-baselines-overview.md).
 
 ## <a name="network-security"></a>Segurança de rede
 
-*Para obter mais informações, consulte [Controle de segurança: Segurança de rede](https://docs.microsoft.com/azure/security/benchmarks/security-control-network-security).*
+*Para obter mais informações, consulte [Controle de segurança: Segurança de rede](../../security/benchmarks/security-control-network-security.md).*
 
 ### <a name="11-protect-resources-using-network-security-groups-or-azure-firewall-on-your-virtual-network"></a>1.1: proteger recursos usando grupos de segurança de rede ou o Firewall do Azure em sua Rede Virtual
 
@@ -119,7 +119,7 @@ https://docs.microsoft.com/azure/network-watcher/network-watcher-create
 
 **Orientação**: habilitar a ATP (proteção avançada contra ameaças) para o banco de dados SQL do Azure.  Os usuários receberão um alerta em caso de atividades suspeitas em bancos de dados, possíveis vulnerabilidades e ataques de injeção de SQL, bem como padrões anômalos de consultas e acesso a banco de dados. A proteção avançada contra ameaças também integra alertas com a central de segurança do Azure.
 
-Entenda e use a proteção avançada contra ameaças para o banco de dados SQL do Azure:https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview
+Entenda e use a proteção avançada contra ameaças para o banco de dados SQL do Azure: https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -155,7 +155,7 @@ https://docs.microsoft.com/azure/virtual-network/service-tags-overview
 
 **Orientação**: definir e implementar configurações de segurança de rede para seu banco de dados SQL do Azure com Azure Policy. Você pode usar o namespace "Microsoft. SQL" para definir definições de política personalizadas ou usar qualquer uma das definições de política internas projetadas para proteção de rede do servidor. Um exemplo de uma diretiva de segurança de rede interna aplicável para um servidor seria: "o banco de dados SQL deve usar um ponto de extremidade de serviço de rede virtual".
 
-Use plantas do Azure para simplificar implantações do Azure de grande escala empacotando artefatos de ambiente-chave, como modelos de gerenciamento de recursos do Azure, RBAC (controle de acesso baseado em função) e políticas, em uma única definição de Blueprint. Aplique facilmente o blueprint a novas assinaturas e ambientes e ajuste o controle e o gerenciamento por meio do controle de versão.
+Use plantas do Azure para simplificar implantações do Azure de grande escala ao empacotar artefatos de ambiente-chave, como modelos de gerenciamento de recursos do Azure, controle de acesso baseado em função do Azure (RBAC do Azure) e políticas, em uma única definição de Blueprint. Aplique facilmente o blueprint a novas assinaturas e ambientes e ajuste o controle e o gerenciamento por meio do controle de versão.
 
 Como configurar e gerenciar o Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -199,7 +199,7 @@ https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 
 ## <a name="logging-and-monitoring"></a>Registro em log e monitoramento
 
-*Para obter mais informações, consulte [Controle de segurança: registro em log e monitoramento](https://docs.microsoft.com/azure/security/benchmarks/security-control-logging-monitoring).*
+*Para obter mais informações, consulte [Controle de segurança: registro em log e monitoramento](../../security/benchmarks/security-control-logging-monitoring.md).*
 
 ### <a name="21-use-approved-time-synchronization-sources"></a>2.1: usar fontes de sincronização de tempo aprovadas
 
@@ -285,15 +285,15 @@ https://docs.microsoft.com/azure/sql-database/sql-database-insights-alerts-porta
 
 ### <a name="27-enable-alerts-for-anomalous-activity"></a>2.7: habilitar alertas para atividade anormal
 
-**Diretrizes**: Use a central de segurança do Azure proteção avançada contra ameaças para o banco de dados SQL do Azure para monitoramento e alertas na atividade anômala. Habilite a segurança de dados avançada para seus bancos de dado SQL. A segurança de dados avançada inclui a funcionalidade para descobrir e classificar dados confidenciais, identificandor e reduzir possíveis vulnerabilidades de banco de dado e detectar atividades anormais que podem indicar uma ameaça ao seu banco de dados.
+**Diretrizes**: Use a central de segurança do Azure proteção avançada contra ameaças para o banco de dados SQL do Azure para monitoramento e alertas na atividade anômala. Habilite o Azure defender para SQL para seus bancos de dados SQL. O Azure defender para SQL inclui a funcionalidade de identificando e a mitigação de vulnerabilidades de banco de dados potenciais e a detecção de atividades anormais que podem indicar uma ameaça ao seu banco de dados.
 
 Entenda a proteção avançada contra ameaças e os alertas para o banco de dados SQL do Azure:
 
 https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview
 
-Como habilitar a segurança de dados avançada para o banco de dado SQL do Azure:
+Como habilitar o Azure defender para SQL para o banco de dados SQL do Azure:
 
-https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security
+https://docs.microsoft.com/azure/azure-sql/database/azure-defender-for-sql
 
 Como gerenciar alertas na central de segurança do Azure:
 
@@ -329,11 +329,11 @@ https://docs.microsoft.com/azure/security-center/security-center-managing-and-re
 
 ## <a name="identity-and-access-control"></a>Identidade e controle de acesso
 
-*Para obter mais informações, consulte [Controle de segurança: Identidade e controle de acesso](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control).*
+*Para obter mais informações, consulte [Controle de segurança: Identidade e controle de acesso](../../security/benchmarks/security-control-identity-access-control.md).*
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: manter um inventário de contas administrativas
 
-**Diretrizes**: Azure Active Directory (AAD) tem funções internas que devem ser explicitamente atribuídas e que podem ser consultadas. Use o módulo AAD PowerShell para executar consultas ad hoc para descobrir contas que são membros de grupos administrativos.
+**Diretrizes**: Azure Active Directory (Azure AD) tem funções internas que devem ser explicitamente atribuídas e que podem ser consultadas. Use o módulo do PowerShell do Azure AD para executar consultas ad hoc para descobrir contas que são membros de grupos administrativos.
 
 Como obter uma função de diretório no Azure AD com o PowerShell:
 
@@ -381,9 +381,9 @@ https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
 ### <a name="35-use-multi-factor-authentication-for-all-azure-active-directory-based-access"></a>3.5: usar a autenticação multifator para todos os acessos baseados no Azure Active Directory
 
-**Orientação**: habilitar a MFA (autenticação multifator) Azure Active Directory (AAD) e seguir as recomendações de gerenciamento de acesso e identidade da central de segurança do Azure.
+**Diretrizes**: habilite a MFA (autenticação multifator) do Azure AD (Azure Active Directory) e siga as recomendações de gerenciamento de acesso e identidade da central de segurança do Azure.
 
-Como habilitar a MFA no Azure: 
+Como habilitar a MFA no Azure:
 
 https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
 
@@ -401,9 +401,9 @@ https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
 Saiba mais sobre estações de trabalho com acesso privilegiado: 
 
-https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations
+https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/
 
-Como habilitar a MFA no Azure: 
+Como habilitar a MFA no Azure:
 
 https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
 
@@ -445,13 +445,13 @@ Como configurar localizações nomeadas no Azure: https://docs.microsoft.com/azu
 
 ### <a name="39-use-azure-active-directory"></a>3.9: Use o Azure Active Directory Domain Services
 
-**Orientação**: criar um administrador do Azure Active Directory (AAD) para seu servidor.
+**Orientação**: criar um administrador do Azure Active Directory (AD do Azure) para seu servidor.
 
 Como configurar e gerenciar a autenticação Azure Active Directory com o SQL do Azure:
 
 https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-configure
 
-Como criar e configurar uma instância do AAD:
+Como criar e configurar uma instância do Azure AD:
 
 https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance
 
@@ -461,7 +461,7 @@ https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-creat
 
 ### <a name="310-regularly-review-and-reconcile-user-access"></a>3.10: revisar e reconciliar regularmente o acesso do usuário
 
-**Diretrizes**: Azure Active Directory (AAD) fornece logs para ajudar a descobrir contas obsoletas. Além disso, use as revisões de acesso de identidade do Azure para gerenciar com eficiência as associações de grupo, o acesso aos aplicativos empresariais e as atribuições de função. O acesso dos usuários pode ser revisado regularmente para garantir que apenas os usuários certos tenham acesso contínuo.
+**Diretrizes**: o Azure Active Directory (Azure AD) fornece logs para ajudar a descobrir contas obsoletas. Além disso, use as revisões de acesso de identidade do Azure para gerenciar com eficiência as associações de grupo, o acesso aos aplicativos empresariais e as atribuições de função. O acesso dos usuários pode ser revisado regularmente para garantir que apenas os usuários certos tenham acesso contínuo.
 
 Como usar as revisões de acesso de identidade do Azure: 
 
@@ -473,7 +473,7 @@ https://docs.microsoft.com/azure/active-directory/governance/access-reviews-over
 
 ### <a name="311-monitor-attempts-to-access-deactivated-accounts"></a>3.11: monitorar tentativas de acessar contas desativadas
 
-**Orientação**: configurar a autenticação do Azure Active Directory (AAD) com o SQL do Azure e criar configurações de diagnóstico para Azure Active Directory contas de usuário, enviando os logs de auditoria e os logs de entrada para um espaço de trabalho log Analytics. Configure os alertas desejados no espaço de trabalho Log Analytics.
+**Diretrizes**: Configure a autenticação do Azure Active Directory (Azure AD) com o SQL do Azure e crie configurações de diagnóstico para Azure Active Directory contas de usuário, enviando os logs de auditoria e os logs de entrada para um espaço de trabalho log Analytics. Configure os alertas desejados no espaço de trabalho Log Analytics.
 
 Como configurar e gerenciar a autenticação Azure Active Directory com o SQL do Azure:
 
@@ -489,7 +489,7 @@ https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integ
 
 ### <a name="312-alert-on-account-login-behavior-deviation"></a>3.12: alertar sobre o desvio de comportamento de logon na conta
 
-**Orientação**: usar o Azure Active Directory (AAD) identidade Protection e as detecções de risco para configurar respostas automatizadas para ações suspeitas detectadas relacionadas a identidades de usuário. Além disso, você pode ingerir dados no Azure Sentinel para uma investigação mais aprofundada.
+**Diretrizes**: Use a proteção de identidade do Azure Active Directory (AD do Azure) e as detecções de risco para configurar respostas automatizadas para ações suspeitas detectadas relacionadas a identidades de usuário. Além disso, você pode ingerir dados no Azure Sentinel para uma investigação mais aprofundada.
 
 Como exibir as entradas de risco do Azure AD:
 
@@ -517,7 +517,7 @@ https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview
 
 ## <a name="data-protection"></a>Proteção de dados
 
-*Para obter mais informações, consulte [Controle de segurança: proteção de dados](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-protection).*
+*Para obter mais informações, consulte [Controle de segurança: proteção de dados](../../security/benchmarks/security-control-data-protection.md).*
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1: Manter um inventário de informações confidenciais
 
@@ -565,7 +565,7 @@ Como configurar o link privado e NSGs para impedir que os dados vazamento em sua
 
 https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview
 
-Entenda a proteção de dados do cliente no Azure: 
+Entender a proteção de dados do cliente no Azure:
 
 https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
@@ -599,7 +599,7 @@ https://docs.microsoft.com/azure/sql-database/sql-database-data-discovery-and-cl
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Usar o RBAC do Azure para controlar o acesso a recursos
 
-**Orientação**: Use Azure Active Directory (AAD) para autenticar e controlar o acesso às instâncias do banco de dados SQL do Azure.
+**Diretrizes**: Use Azure Active Directory (AD do Azure) para autenticar e controlar o acesso às instâncias do banco de dados SQL do Azure.
 
 Como integrar o banco de dados SQL do Azure com o Azure Active Directory para autenticação:
 
@@ -617,7 +617,7 @@ https://docs.microsoft.com/azure/sql-database/sql-database-control-access
 
 **Diretrizes**: a Microsoft gerencia a infraestrutura subjacente para o banco de dados SQL do Azure e implementou controles estritos para evitar a perda ou a exposição dos clientes.
 
-Entenda a proteção de dados do cliente no Azure: 
+Entender a proteção de dados do cliente no Azure:
 
 https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
@@ -651,19 +651,19 @@ https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 
 ## <a name="vulnerability-management"></a>Gerenciamento de vulnerabilidades
 
-*Para obter mais informações, consulte [Controle de segurança: gerenciamento de vulnerabilidades](https://docs.microsoft.com/azure/security/benchmarks/security-control-vulnerability-management).*
+*Para obter mais informações, consulte [Controle de segurança: gerenciamento de vulnerabilidades](../../security/benchmarks/security-control-vulnerability-management.md).*
 
 ### <a name="51-run-automated-vulnerability-scanning-tools"></a>5.1: executar ferramentas automatizadas de verificação de vulnerabilidade
 
-**Orientação**: habilitar a segurança de dados avançada para o banco de dados SQL do Azure e seguir as recomendações da central de segurança do Azure sobre a execução de avaliações de vulnerabilidade em seus servidores.
+**Orientação**: habilitar o Azure defender para SQL para o banco de dados SQL do Azure e seguir as recomendações da central de segurança do Azure sobre a execução de avaliações de vulnerabilidade em seus servidores.
 
 Como executar avaliações de vulnerabilidade no banco de dados SQL do Azure:
 
 https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment
 
-Como habilitar a segurança de dados avançada:
+Como habilitar o Azure defender para SQL:
 
-https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security
+https://docs.microsoft.com/azure/azure-sql/database/azure-defender-for-sql
 
 Como implementar recomendações de avaliação de vulnerabilidade da central de segurança do Azure:
 
@@ -675,7 +675,7 @@ https://docs.microsoft.com/azure/security-center/security-center-vulnerability-a
 
 ### <a name="52-deploy-automated-operating-system-patch-management-solution"></a>5.2: Implantar solução automatizada de gerenciamento de patch de sistema operacional
 
-**Diretriz**: não aplicável; essa recomendação destina-se a recursos de computação.
+**Diretriz**: Não aplicável. Esta recomendação destina-se a recursos de computação.
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -715,7 +715,7 @@ https://docs.microsoft.com/azure/security-center/security-center-secure-score
 
 ## <a name="inventory-and-asset-management"></a>Inventário e gerenciamento de ativos
 
-*Para obter mais informações, consulte [Controle de segurança: inventário e gerenciamento de ativos](https://docs.microsoft.com/azure/security/benchmarks/security-control-inventory-asset-management).*
+*Para obter mais informações, consulte [Controle de segurança: inventário e gerenciamento de ativos](../../security/benchmarks/security-control-inventory-asset-management.md).*
 
 ### <a name="61-use-azure-asset-discovery"></a>6.1: usar a descoberta de ativos do Azure
 
@@ -801,7 +801,7 @@ Como criar consultas com o Azure Graph: https://docs.microsoft.com/azure/governa
 
 ### <a name="67-remove-unapproved-azure-resources-and-software-applications"></a>6.7: Remover recursos e aplicativos de software não aprovados do Azure
 
-**Diretriz**: não aplicável; essa recomendação destina-se a recursos de computação.
+**Diretriz**: Não aplicável. Esta recomendação destina-se a recursos de computação.
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -869,13 +869,13 @@ Como configurar o acesso condicional para bloquear o acesso ao Azure Resource Ma
 
 ## <a name="secure-configuration"></a>Configuração segura
 
-*Para obter mais informações, consulte [Controle de segurança: configuração segura](https://docs.microsoft.com/azure/security/benchmarks/security-control-secure-configuration).*
+*Para obter mais informações, consulte [Controle de segurança: configuração segura](../../security/benchmarks/security-control-secure-configuration.md).*
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7.1: estabelecer configurações seguras para todos os recursos do Azure
 
 **Diretrizes**: Use Azure Policy ou as recomendações da central de segurança do Azure para o banco de dados SQL do Azure para manter as configurações de segurança para todos os recursos do Azure.
 
-Como configurar e gerenciar o Azure Policy: 
+Como configurar e gerenciar Azure Policy:
 
 https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -993,7 +993,7 @@ https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azur
 
 ### <a name="712-manage-identities-securely-and-automatically"></a>7.12: gerenciar identidades de maneira segura e automática
 
-**Diretrizes**: Use identidades gerenciadas para fornecer aos serviços do Azure uma identidade gerenciada automaticamente no Azure Active Directory (AAD). Identidades gerenciadas permitem que você se autentique em qualquer serviço que dê suporte à autenticação do AAD, incluindo Azure Key Vault, sem nenhuma credencial em seu código.
+**Diretrizes**: Use identidades gerenciadas para fornecer aos serviços do Azure uma identidade gerenciada automaticamente no Azure Active Directory (Azure AD). Identidades gerenciadas permitem que você se autentique em qualquer serviço que ofereça suporte à autenticação do Azure AD, incluindo Azure Key Vault, sem nenhuma credencial em seu código.
 
 Tutorial: usar uma identidade gerenciada atribuída pelo sistema da VM do Windows para acessar o SQL do Azure:
 
@@ -1019,11 +1019,11 @@ Como configurar o verificador de credenciais: https://secdevtools.azurewebsites.
 
 ## <a name="malware-defense"></a>Defesa contra malwares
 
-*Para obter mais informações, consulte [Controle de segurança: defesa contra malwares](https://docs.microsoft.com/azure/security/benchmarks/security-control-malware-defense).*
+*Para obter mais informações, consulte [Controle de segurança: defesa contra malwares](../../security/benchmarks/security-control-malware-defense.md).*
 
 ### <a name="81-use-centrally-managed-anti-malware-software"></a>8.1: usar software antimalware gerenciado centralmente
 
-**Diretriz**: Não aplicável. Esta recomendação destina-se a recursos de computação. A Microsoft lida com o anti-malware para a plataforma subjacente.
+**Diretriz**: não aplicável; essa recomendação destina-se a recursos de computação. A Microsoft lida com o anti-malware para a plataforma subjacente.
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -1035,7 +1035,7 @@ Como configurar o verificador de credenciais: https://secdevtools.azurewebsites.
 
 Pré-verificar qualquer conteúdo que esteja sendo carregado em recursos não computados do Azure, como serviço de aplicativo, Data Lake Storage, armazenamento de BLOBs, banco de dados SQL do Azure, etc. A Microsoft não pode acessar seus dados nessas instâncias.
 
-Entenda o Microsoft antimalware para os serviços de nuvem do Azure e máquinas virtuais:https://docs.microsoft.com/azure/security/fundamentals/antimalware
+Entenda o Microsoft antimalware para os serviços de nuvem do Azure e máquinas virtuais: https://docs.microsoft.com/azure/security/fundamentals/antimalware
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -1051,7 +1051,7 @@ Entenda o Microsoft antimalware para os serviços de nuvem do Azure e máquinas 
 
 ## <a name="data-recovery"></a>Recuperação de dados
 
-*Para obter mais informações, consulte [Controle de segurança: recuperação de dados](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-recovery).*
+*Para obter mais informações, consulte [Controle de segurança: recuperação de dados](../../security/benchmarks/security-control-data-recovery.md).*
 
 ### <a name="91-ensure-regular-automated-back-ups"></a>9.1: garantir backups automatizados regulares
 
@@ -1115,7 +1115,7 @@ https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azu
 
 ## <a name="incident-response"></a>Resposta a incidentes
 
-*Para obter mais informações, consulte [Controle de segurança: resposta a incidentes](https://docs.microsoft.com/azure/security/benchmarks/security-control-incident-response).*
+*Para obter mais informações, consulte [Controle de segurança: resposta a incidentes](../../security/benchmarks/security-control-incident-response.md).*
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1: criar um guia de resposta a incidentes
 
@@ -1133,7 +1133,7 @@ https://docs.microsoft.com/azure/security-center/security-center-planning-and-op
 
 **Diretrizes**: a central de segurança atribui uma severidade aos alertas, para ajudá-lo a priorizar a ordem em que você participa de cada alerta, para que, quando um recurso for comprometido, você possa acessá-lo imediatamente. A severidade se baseia na confiança que a Central de Segurança tem na constatação ou na análise usada para emitir o alerta, bem como no nível de confiança de que houve uma ação mal-intencionada por trás da atividade que levou ao alerta.
 
-Alertas de segurança na central de segurança do Azure:https://docs.microsoft.com/azure/security-center/security-center-alerts-overview
+Alertas de segurança na central de segurança do Azure: https://docs.microsoft.com/azure/security-center/security-center-alerts-overview
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -1155,7 +1155,7 @@ https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf
 
 **Diretrizes**: as informações de contato de incidente de segurança serão usadas pela Microsoft para entrar em contato com você se o MSRC (Microsoft Security Response Center) descobre que seus dados foram acessados por uma entidade ilegal ou não autorizada.
 
-Como definir o contato de segurança da Central de Segurança do Azure: 
+Como definir o contato da segurança da central de segurança do Azure:
 
 https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details
 
@@ -1165,13 +1165,13 @@ https://docs.microsoft.com/azure/security-center/security-center-provide-securit
 
 ### <a name="105-incorporate-security-alerts-into-your-incident-response-system"></a>10.5: incorporar alertas de segurança em seu sistema de resposta a incidentes
 
-**Diretriz**: exporte os alertas e recomendações da Central de Segurança do Azure usando o recurso de exportação contínua. A exportação contínua permite exportar alertas e recomendações de forma manual ou contínua. Você pode usar o conector de dados da central de segurança do Azure para transmitir os alertas para o sentinela.
+**Diretriz**: exporte os alertas e recomendações da Central de Segurança do Azure usando o recurso de exportação contínua. A exportação contínua permite exportar alertas e recomendações de forma manual ou contínua. Você pode usar o conector de dados da Central de Segurança do Azure para transmitir os alertas do Azure Sentinel.
 
-Como configurar a exportação contínua: 
+Como configurar a exportação contínua:
 
 https://docs.microsoft.com/azure/security-center/continuous-export
 
-Como transmitir alertas para o Azure Sentinel: 
+Como transmitir alertas para o Azure Sentinel:
 
 https://docs.microsoft.com/azure/sentinel/connect-azure-security-center
 
@@ -1193,7 +1193,7 @@ https://docs.microsoft.com/azure/security-center/workflow-automation
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>Testes de penetração e exercícios de Red Team
 
-*Para obter mais informações, consulte [Controle de segurança: testes de penetração e exercícios de Red Team](https://docs.microsoft.com/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
+*Para obter mais informações, consulte [Controle de segurança: testes de penetração e exercícios de Red Team](../../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings-within-60-days"></a>11.1: realizar testes de penetração regulares de seus recursos do Azure e garanta a correção de todas as constatações de segurança críticas em 60 dias
 
@@ -1201,7 +1201,7 @@ https://docs.microsoft.com/azure/security-center/workflow-automation
 
 https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1.
 
-Você pode encontrar mais informações sobre a estratégia e a execução da Microsoft de equipes vermelhas e testes de penetração de sites ativos em infraestrutura, serviços e aplicativos da nuvem gerenciada da Microsoft, aqui:https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
+Você pode encontrar mais informações sobre a estratégia e a execução da Microsoft de equipes vermelhas e testes de penetração de sites ativos em infraestrutura, serviços e aplicativos da nuvem gerenciada da Microsoft, aqui: https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -1209,5 +1209,5 @@ Você pode encontrar mais informações sobre a estratégia e a execução da Mi
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Consulte o [Parâmetro de segurança do Azure](https://docs.microsoft.com/azure/security/benchmarks/overview)
-- Saiba mais sobre as [Linhas de base de segurança do Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)
+- Consulte o [Parâmetro de segurança do Azure](../../security/benchmarks/overview.md)
+- Saiba mais sobre as [Linhas de base de segurança do Azure](../../security/benchmarks/security-baselines-overview.md)

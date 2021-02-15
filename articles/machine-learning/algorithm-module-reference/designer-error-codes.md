@@ -1,7 +1,7 @@
 ---
-title: Solucionar problemas de erros do módulo designer (versão prévia)
+title: Solucionar problemas de erros do módulo do designer
 titleSuffix: Azure Machine Learning
-description: Solucionar problemas de códigos de erro do módulo no designer de Azure Machine Learning (versão prévia)
+description: Saiba como você pode ler e solucionar problemas de códigos de erro de módulo automatizado no designer de Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,17 +9,17 @@ ms.topic: reference
 ms.custom: troubleshooting
 author: likebupt
 ms.author: keli19
-ms.date: 04/16/2020
-ms.openlocfilehash: 023a28c6f1d89d0975ff8ecac2466c51c05fa9da
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.date: 11/25/2020
+ms.openlocfilehash: b917e3fc93c59de85c5236c18e31d7bbc9d891f0
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87876913"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98065466"
 ---
-# <a name="exceptions-and-error-codes-for-the-designer-preview"></a>Exceções e códigos de erro para o designer (versão prévia)
+# <a name="exceptions-and-error-codes-for-the-designer"></a>Exceções e códigos de erro para o designer
 
-Este artigo descreve as mensagens de erro e os códigos de exceção no designer do Azure Machine Learning (versão prévia) para ajudar você a solucionar problemas de pipelines de machine learning.
+Este artigo descreve as mensagens de erro e os códigos de exceção no designer de Azure Machine Learning para ajudá-lo a solucionar problemas de pipelines do Machine Learning.
 
 Você pode encontrar a mensagem de erro no designer seguindo estas etapas:  
 
@@ -279,13 +279,22 @@ Se o modelo tiver sido treinado usando qualquer um dos módulos de treinamento e
 ## <a name="error-0014"></a>Erro 0014  
  Ocorrerá uma exceção se a contagem de valores exclusivos da coluna for maior que o permitido.  
 
- Esse erro ocorrerá quando uma coluna contiver um número excessivo de valores exclusivos.  Por exemplo, você poderá ver esse erro se especificar que uma coluna seja tratada como dados categóricos, mas houver um número excessivo de valores exclusivos na coluna para permitir que o processamento seja concluído. Você também poderá ver esse erro se houver uma incompatibilidade entre o número de valores exclusivos em duas entradas.   
+ Esse erro ocorre quando uma coluna contém um número excessivo de valores exclusivos, como uma coluna de ID ou coluna de texto. Você poderá ver esse erro se especificar que uma coluna seja tratada como dados categóricos, mas há muitos valores exclusivos na coluna para permitir que o processamento seja concluído. Você também poderá ver esse erro se houver uma incompatibilidade entre o número de valores exclusivos em duas entradas.   
+
+O erro de valores exclusivos será maior que o permitido se atender às **duas** condições a seguir:
+
+- Mais de 97% instâncias de uma coluna são valores exclusivos, o que significa que quase todas as categorias são diferentes umas das outras.
+- Uma coluna tem mais de 1000 valores exclusivos.
 
 **Resolução:**
 
 abra o módulo que gerou o erro e identifique as colunas usadas como entradas. Para alguns módulos, você pode clicar com o botão direito do mouse na entrada do conjunto de dados e selecionar **Visualizar** para obter estatísticas em colunas individuais, incluindo o número de valores exclusivos e a distribuição.
 
 Para as colunas que você pretende usar para agrupamento ou categorização, execute as etapas para reduzir o número de valores exclusivos em colunas. Você pode reduzir de maneiras diferentes, dependendo do tipo de dados da coluna. 
+
+Para colunas de ID que não são recursos significativos durante o treinamento de um modelo, você pode usar [Editar metadados](../algorithm-module-reference/edit-metadata.md) para marcar essa coluna como **recurso claro** e ela não será usada durante o treinamento de um modelo. 
+
+Para colunas de texto, você pode usar o [hash de recurso](../algorithm-module-reference/feature-hashing.md) ou [extrair recursos de N-Gram do módulo de texto](../algorithm-module-reference/extract-n-gram-features-from-text.md) para pré-processar colunas de texto.
 <!--
 + For text data, you might be able to use [Preprocess Text](preprocess-text.md) to collapse similar entries. 
 + For numeric data, you can create a smaller number of bins using [Group Data into Bins](group-data-into-bins.md), remove or truncate values using [Clip Values](clip-values.md), or use machine learning methods such as [Principal Component Analysis](principal-component-analysis.md) or [Learning with Counts](data-transformation-learning-with-counts.md) to reduce the dimensionality of the data.  
@@ -713,7 +722,7 @@ For general information about how the Matchbox recommendation algorithm works, a
 **Resolução:** esse erro é causado por muitas condições e não há uma medida específica.  
  A tabela a seguir contém mensagens genéricas para esse erro, que são seguidas por uma descrição específica da condição. 
 
- Se não houver detalhes disponíveis, acesse a [página de perguntas de P e R da Microsoft para enviar comentários](https://docs.microsoft.com/answers/topics/azure-machine-learning-studio-classic.html) e forneça informações sobre os módulos que geraram o erro e as condições relacionadas.
+ Se não houver detalhes disponíveis, acesse a [página de perguntas de P e R da Microsoft para enviar comentários](/answers/topics/azure-machine-learning-studio-classic.html) e forneça informações sobre os módulos que geraram o erro e as condições relacionadas.
 
 |Mensagens de Exceção|
 |------------------------|
@@ -862,7 +871,7 @@ Outro motivo para você receber esse erro é se tentar usar uma coluna que cont�
 
  No Azure Machine Learning, esse erro ocorrerá se a chave usada para acessar a conta de armazenamento do Azure estiver incorreta. Por exemplo, você pode ver esse erro se a chave de armazenamento do Azure estava truncada quando copiada e colada ou se a chave errada foi usada.  
 
- Para obter mais informações sobre obter a chave para uma conta de armazenamento do Azure, confira [Exibir, copiar e regenerar as chaves de acesso de armazenamento](https://azure.microsoft.com/documentation/articles/storage-create-storage-account-classic-portal/).  
+ Para obter mais informações sobre obter a chave para uma conta de armazenamento do Azure, confira [Exibir, copiar e regenerar as chaves de acesso de armazenamento](../../storage/common/storage-account-create.md).  
 
 **Resolução:** reveja o módulo e verifique se a chave de armazenamento do Azure está correta para a conta; copie a chave novamente no portal clássico do Azure, se necessário.  
 
@@ -1083,9 +1092,9 @@ a mensagem de erro do Hive normalmente é informada no Log de Erros para que voc
 
 Confira os seguintes artigos para obter ajuda com consultas do Hive para machine learning:
 
-+ [Criar tabelas do Hive e carregar dados do Armazenamento de Blobs do Azure](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-move-hive-tables)
-+ [Explorar dados em tabelas com consultas do Hive](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-explore-data-hive-tables)
-+ [Criar recursos de dados em um cluster Hadoop usando as consultas do Hive](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-create-features-hive)
++ [Criar tabelas do Hive e carregar dados do Armazenamento de Blobs do Azure](../team-data-science-process/move-hive-tables.md)
++ [Explorar dados em tabelas com consultas do Hive](../team-data-science-process/explore-data-hive-tables.md)
++ [Criar recursos de dados em um cluster Hadoop usando as consultas do Hive](../team-data-science-process/create-features-hive.md)
 + [Roteiro de Usuários do Hive para SQL (PDF)](http://hortonworks.com/wp-content/uploads/2013/05/hql_cheat_sheet.pdf)
 
   
@@ -1107,7 +1116,7 @@ Confira os seguintes artigos para obter ajuda com consultas do Hive para machine
 
  Se houver uma mensagem gerada por SQL informada pela exceção do módulo, execute uma ação com base no erro relatado. Por exemplo, as mensagens de erro às vezes incluem diretrizes específicas sobre o erro provável:
 + *Nenhuma coluna ou banco de dados ausente*, indicando que você pode ter digitado um nome de coluna errado. Se você tiver certeza de que o nome da coluna está correto, tente usar colchetes ou aspas nos quais incluir o identificador de coluna.
-+ *Erro lógico do SQL \<SQL keyword\> próximo *, indicando que você pode ter um erro de sintaxe antes da palavra-chave especificada
++ *Erro lógico do SQL \<SQL keyword\> próximo*, indicando que você pode ter um erro de sintaxe antes da palavra-chave especificada
 
   
 |Mensagens de Exceção|
@@ -1164,7 +1173,7 @@ No Azure Machine Learning, esse erro ocorrerá quando você estiver tentando agr
 
 o tratamento de erro para esse evento foi introduzido em uma versão anterior do Azure Machine Learning que permitia mais personalização dos métodos compartimentalização. No momento, todos os métodos de compartimentalização são baseados em uma seleção de uma lista suspensa, portanto, tecnicamente, não deve mais ser possível obter esse erro.
 
- <!--If you get this error when using the [Group Data into Bins](group-data-into-bins.md) module, consider reporting the issue in the [Microsoft Q&A question page for Azure Machine Learning](https://docs.microsoft.com/answers/topics/azure-machine-learning-studio-classic.html), providing the data types, parameter settings, and the exact error message.  -->
+ <!--If you get this error when using the [Group Data into Bins](group-data-into-bins.md) module, consider reporting the issue in the [Microsoft Q&A question page for Azure Machine Learning](/answers/topics/azure-machine-learning-studio-classic.html), providing the data types, parameter settings, and the exact error message.  -->
 
 |Mensagens de Exceção|
 |------------------------|
@@ -1516,7 +1525,7 @@ Exceção de biblioteca interna.
 
 Esse erro é fornecido para capturar erros de mecanismo interno sem tratamento de outra forma. Portanto, a causa desse erro poderá ser diferente dependendo do módulo que gerou o erro.  
 
-Para obter mais ajuda, recomendamos que você poste a mensagem detalhada que acompanha o erro no fórum de [Azure Machine Learning](https://docs.microsoft.com/answers/topics/azure-machine-learning.html), junto com uma descrição do cenário, incluindo os dados usados como entradas. Esses comentários nos ajudarão a priorizar erros e identificar os problemas mais importantes para um trabalho adicional.  
+Para obter mais ajuda, recomendamos que você poste a mensagem detalhada que acompanha o erro no fórum de [Azure Machine Learning](/answers/topics/azure-machine-learning.html), junto com uma descrição do cenário, incluindo os dados usados como entradas. Esses comentários nos ajudarão a priorizar erros e identificar os problemas mais importantes para um trabalho adicional.  
 
 |Mensagens de Exceção|
 |------------------------|
@@ -1524,3 +1533,7 @@ Para obter mais ajuda, recomendamos que você poste a mensagem detalhada que aco
 |Exceção de biblioteca: {exception}.|
 |Exceção de biblioteca desconhecida: {exception}. {customer_support_guidance}.|
 
+
+## <a name="execute-python-script-module"></a>Executar módulo de script Python
+
+Pesquise **em azureml_main** em **70_Driver_logs** do **módulo executar script python** e você poderá encontrar o erro de linha que ocorreu. Por exemplo, "File"/tmp/tmp01_ID/user_script. py ", line 17, in azureml_main" indica que o erro ocorreu na linha 17 do seu script Python.

@@ -16,12 +16,12 @@ ms.subservice: report-monitor
 ms.date: 05/13/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: b3db86137207ae726c7befc393f62590fd1456d7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 54bce5e839786862a6dac9aeb685dd364547a09a
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74008256"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685014"
 ---
 # <a name="usage-and-insights-report-in-the-azure-active-directory-portal"></a>Relatório de uso e informações no portal de Azure Active Directory
 
@@ -45,20 +45,22 @@ Para acessar os dados do relatório de uso e informações, você precisa:
 2. Selecione o diretório certo e, em seguida, selecione **Azure Active Directory** e escolha **aplicativos empresariais**.
 3. Na seção **atividade** , selecione **uso & insights** para abrir o relatório. 
 
-![Relatório de uso e insights](./media/concept-usage-insights-report/main-menu.png)
+![Captura de tela mostra o uso & informações selecionadas na seção atividade.](./media/concept-usage-insights-report/main-menu.png)
                                      
 
 ## <a name="use-the-report"></a>Usar o relatório
 
-O relatório uso e informações mostra a lista de aplicativos com uma ou mais tentativas de entrada e permite que você classifique o número de entradas bem-sucedidas, entradas com falha e a taxa de êxito.
+O relatório de uso e informações mostra a lista de aplicativos com uma ou mais tentativas de entrada e permite que você classifique o número de entradas bem-sucedidas, entradas com falha e a taxa de êxito.
 
-Clicar em carregar mais na parte inferior da lista permite que você exiba aplicativos adicionais na página. Você pode selecionar o intervalo de datas para exibir todos os aplicativos que foram usados dentro do intervalo.
+Clicar em **carregar mais** na parte inferior da lista permite que você exiba aplicativos adicionais na página. Você pode selecionar o intervalo de datas para exibir todos os aplicativos que foram usados dentro do intervalo.
+
+![A captura de tela mostra o uso & informações para a atividade do aplicativo, em que você pode selecionar um intervalo e exibir a atividade de entrada para aplicativos diferentes.](./media/concept-usage-insights-report/usage-and-insights-report.png)
 
 Você também pode definir o foco em um aplicativo específico. Selecione **Exibir atividade de entrada** para ver a atividade de entrada ao longo do tempo para o aplicativo, bem como os principais erros.  
 
 Ao selecionar um dia no grafo de uso do aplicativo, você obtém uma lista detalhada das atividades de entrada para o aplicativo.  
 
-![Relatório de uso e insights](./media/concept-usage-insights-report/usage-and-insights-report.png)
+:::image type="content" source="./media/concept-usage-insights-report/usage-and-insights-application-report.png" alt-text="A captura de tela mostra o uso & informações para um aplicativo específico em que você pode ver um grafo para a atividade de entrada.":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

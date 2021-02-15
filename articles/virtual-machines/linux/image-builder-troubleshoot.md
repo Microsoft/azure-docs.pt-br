@@ -3,16 +3,16 @@ title: Solucionar problemas do serviço Construtor de imagens do Azure
 description: Solucionar problemas e erros comuns ao usar o serviço do construtor de imagem de VM do Azure
 author: cynthn
 ms.author: danis
-ms.date: 08/07/2020
+ms.date: 10/02/2020
 ms.topic: troubleshooting
 ms.service: virtual-machines
 ms.subservice: imaging
-ms.openlocfilehash: 754d9324137632b928e67bbe4c67a3e6c72e452a
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 52801d0d7b02bb3637b5edb03072bde04a023de9
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88068065"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881781"
 ---
 # <a name="troubleshoot-azure-image-builder-service"></a>Solucionar problemas do serviço Construtor de imagens do Azure
 
@@ -152,11 +152,11 @@ Get-AzImageBuilderTemplate -ImageTemplateName  <imageTemplateName> -ResourceGrou
 
 Quando a compilação da imagem está em execução, os logs são criados e armazenados em uma conta de armazenamento. O construtor de imagens do Azure cria a conta de armazenamento no grupo de recursos temporários quando você cria um artefato de modelo de imagem.
 
-O nome da conta de armazenamento usa o seguinte padrão: **IT_ \<ImageResourceGroupName\> _\<TemplateName\>_ \<GUID\> **
+O nome da conta de armazenamento usa o seguinte padrão: **IT_ \<ImageResourceGroupName\> _\<TemplateName\>_ \<GUID\>**
 
 Por exemplo, *IT_aibmdi_helloImageTemplateLinux01*.
 
-Você pode exibir a personalização. log na conta de armazenamento no grupo de recursos, **Storage Account**selecionando  >  **BLOBs**da conta de armazenamento  >  `packerlogs` .  Em seguida, selecione **diretório > personalização. log**.
+Você pode exibir a personalização. log na conta de armazenamento no grupo de recursos, selecionando  >  **BLOBs** da conta de armazenamento  >  `packerlogs` .  Em seguida, selecione **diretório > personalização. log**.
 
 
 ### <a name="understanding-the-customization-log"></a>Noções básicas sobre o log de personalização
@@ -320,7 +320,7 @@ Deployment failed. Correlation ID: XXXXXX-XXXX-XXXXXX-XXXX-XXXXXX. Failed in dis
 
 #### <a name="cause"></a>Causa
 
-O Image Builder atingiu o tempo limite aguardando a imagem ser adicionada e replicada para a Galeria de imagens compartilhada (SIG). Se a imagem estiver sendo injetada no SIG, ela poderá ser considerada que a compilação da imagem foi bem-sucedida. No entanto, o processo geral falhou, pois o construtor de imagem estava esperando na Galeria de imagens compartilhadas para concluir a replicação. Embora a compilação tenha falhado, a replicação continua. Você pode obter as propriedades da versão da imagem verificando o *runOutput*de distribuição.
+O Image Builder atingiu o tempo limite aguardando a imagem ser adicionada e replicada para a Galeria de imagens compartilhada (SIG). Se a imagem estiver sendo injetada no SIG, ela poderá ser considerada que a compilação da imagem foi bem-sucedida. No entanto, o processo geral falhou, pois o construtor de imagem estava esperando na Galeria de imagens compartilhadas para concluir a replicação. Embora a compilação tenha falhado, a replicação continua. Você pode obter as propriedades da versão da imagem verificando o *runOutput* de distribuição.
 
 ```bash
 $runOutputName=<distributionRunOutput>
@@ -502,6 +502,28 @@ A causa pode ser um problema de tempo devido ao tamanho da VM D1_V2. Se as perso
 
 Aumente o tamanho da VM. Ou então, você pode adicionar uma personalização de suspensão do PowerShell de 60 segundos para evitar o problema de tempo.
 
+### <a name="cancelling-builder-after-context-cancellation-context-canceled"></a>Cancelando o Construtor após o contexto de cancelamento do contexto
+
+#### <a name="error"></a>Erro
+```text
+PACKER ERR 2020/03/26 22:11:23 Cancelling builder after context cancellation context canceled
+PACKER OUT Cancelling build after receiving terminated
+PACKER ERR 2020/03/26 22:11:23 packer-builder-azure-arm plugin: Cancelling hook after context cancellation context canceled
+..
+PACKER ERR 2020/03/26 22:11:23 packer-builder-azure-arm plugin: Cancelling provisioning due to context cancellation: context canceled
+PACKER ERR 2020/03/26 22:11:25 packer-builder-azure-arm plugin: [ERROR] Remote command exited without exit status or exit signal.
+PACKER ERR 2020/03/26 22:11:25 packer-builder-azure-arm plugin: [INFO] RPC endpoint: Communicator ended with: 2300218
+PACKER ERR 2020/03/26 22:11:25 [INFO] 148974 bytes written for 'stdout'
+PACKER ERR 2020/03/26 22:11:25 [INFO] 0 bytes written for 'stderr'
+PACKER ERR 2020/03/26 22:11:25 [INFO] RPC client: Communicator ended with: 2300218
+PACKER ERR 2020/03/26 22:11:25 [INFO] RPC endpoint: Communicator ended with: 2300218
+```
+#### <a name="cause"></a>Causa
+O serviço do construtor de imagem usa a porta 22 (Linux) ou 5986 (Windows) para se conectar à VM de compilação, isso ocorre quando o serviço está desconectado da VM de compilação durante uma compilação de imagem. Os motivos para a desconexão podem variar, mas habilitar ou configurar firewalls no script pode bloquear as portas acima.
+
+#### <a name="solution"></a>Solução
+Examine os scripts de alterações/habilitação do firewall ou alterações no SSH ou no WinRM e verifique se as alterações permitem a conectividade constante entre o serviço e a VM de compilação nas portas acima. Para obter mais informações sobre a rede do Image Builder, consulte os [requisitos](./image-builder-networking.md).
+
 ## <a name="devops-task"></a>Tarefa do DevOps 
 
 ### <a name="troubleshooting-the-task"></a>Solucionando problemas da tarefa
@@ -564,15 +586,27 @@ Talvez haja alguns casos em que você precise investigar compilações bem-suced
 
 Se a compilação não foi cancelada por um usuário, ela foi cancelada pelo agente do usuário DevOps do Azure. Provavelmente, o tempo limite de uma hora ocorreu devido a recursos de DevOps do Azure. Se você estiver usando um projeto e um agente privados, obterá 60 minutos de tempo de compilação. Se a compilação exceder o tempo limite, o DevOps cancelará a tarefa em execução.
 
-Para obter mais informações sobre as limitações e recursos de DevOps do Azure, consulte [agentes hospedados pela Microsoft](https://docs.microsoft.com/azure/devops/pipelines/agents/hosted?view=azure-devops#capabilities-and-limitations)
+Para obter mais informações sobre as limitações e recursos de DevOps do Azure, consulte [agentes hospedados pela Microsoft](/azure/devops/pipelines/agents/hosted#capabilities-and-limitations)
  
 #### <a name="solution"></a>Solução
 
 Você pode hospedar seus próprios agentes do DevOps ou procurar reduzir o tempo de sua compilação. Por exemplo, se você estiver distribuindo para a Galeria de imagens compartilhadas, replique para uma região. Se você quiser replicar de forma assíncrona. 
+
+### <a name="slow-windows-logon-please-wait-for-the-windows-modules-installer"></a>Logon lento do Windows: ' aguarde o instalador dos módulos do Windows '
+
+#### <a name="error"></a>Erro
+Depois de criar uma imagem do Windows 10 com o Image Builder, crie uma VM a partir da imagem, você o RDP e tenha que aguardar minutos no primeiro logon visualizando uma tela azul com a mensagem:
+```text
+Please wait for the Windows Modules Installer
+```
+
+#### <a name="solution"></a>Solução
+No início da compilação de imagem, verifique se não há reinicializações pendentes necessárias adicionando um personalizador de reinicialização do Windows como a última personalização e se toda a instalação do software foi concluída. Por fim, adicione a opção [/Mode: VM](/windows-hardware/manufacture/desktop/sysprep-command-line-options) ao Sysprep padrão que o AIB usa, veja abaixo, ' VMs criadas de AIB images não criam com êxito ' > ' substituindo os comandos '  
+
  
 ## <a name="vms-created-from-aib-images-do-not-create-successfully"></a>As VMs criadas a partir de imagens AIB não são criadas com êxito
 
-Por padrão, o construtor de imagens do Azure executa o código *de desprovisionamento* no final de cada fase de personalização de imagem para *generalizar* a imagem. Generalizar é um processo em que a imagem é configurada para ser reutilizada para criar várias VMs e você pode passar configurações de VM, como nome de host, nome de usuário, etc. Para o Windows, o construtor de imagem do Azure executa o *Sysprep*e para execuções do construtor de imagem do Azure do Linux `waagent -deprovision` . 
+Por padrão, o construtor de imagens do Azure executa o código *de desprovisionamento* no final de cada fase de personalização de imagem para *generalizar* a imagem. Generalizar é um processo em que a imagem é configurada para ser reutilizada para criar várias VMs e você pode passar configurações de VM, como nome de host, nome de usuário, etc. Para o Windows, o construtor de imagem do Azure executa o *Sysprep* e para execuções do construtor de imagem do Azure do Linux `waagent -deprovision` . 
 
 Para o Windows, o construtor de imagem do Azure usa um comando Sysprep genérico. No entanto, isso pode não ser adequado para todas as generalizações do Windows bem-sucedidas. O construtor de imagens do Azure permite que você personalize o comando Sysprep. Observe que o construtor de imagem do Azure é uma ferramenta de automação de imagem. É responsável pela execução bem-sucedida do comando Sysprep. Mas você pode precisar de comandos diferentes do Sysprep para tornar sua imagem reutilizável. Para o Linux, o construtor de imagem do Azure usa um `waagent -deprovision+user` comando genérico. Para obter mais informações, consulte [Microsoft Azure documentação do agente do Linux](https://github.com/Azure/WALinuxAgent#command-line-options).
 
@@ -633,11 +667,11 @@ Se você tiver mencionado as diretrizes e ainda não conseguir solucionar o prob
 Selecionando o produto do caso:
 ```bash
 Product Family: Azure
-Product: Virtual Machine Running Windows
-Support Topic: Management
-Support Subtopic: Issues with Azure Image Builder
+Product: Virtual Machine Running (Window\Linux)
+Support Topic: Azure Features
+Support Subtopic: Azure Image Builder
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações, consulte [visão geral do construtor de imagens do Azure](image-builder-overview.md).
+Para obter mais informações, consulte [visão geral do construtor de imagens do Azure](../image-builder-overview.md).

@@ -2,22 +2,22 @@
 title: Métricas, alertas e logs de diagnóstico
 description: Registre e analisar eventos de log de diagnóstico para recursos de conta do Lote do Azure, como pools e tarefas.
 ms.topic: how-to
-ms.date: 05/29/2020
+ms.date: 10/08/2020
 ms.custom: seodec18
-ms.openlocfilehash: abf9ef53d3f2e3ffeffabfe9b7c77dc5c5debec3
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: fe2697c73f2a5f3f0b33cfb598f11f39420ed723
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86145090"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994104"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Logs, alertas e métricas do Lote para avaliação e monitoramento de diagnóstico
- 
+
 Este artigo explica como monitorar uma conta do Lote usando os recursos do [Azure Monitor](../azure-monitor/overview.md). O Azure Monitor coleta [métricas](../azure-monitor/platform/data-platform-metrics.md) e [logs de diagnóstico](../azure-monitor/platform/platform-logs-overview.md) para recursos na conta do Lote. Colete e consuma esses dados de várias maneiras para monitorar a conta do Lote e diagnosticar problemas. Também é possível configurar [alertas de métrica](../azure-monitor/platform/alerts-overview.md) para receber notificações quando uma métrica alcançar um valor especificado.
 
 ## <a name="batch-metrics"></a>Métricas do Lote
 
-Métricas são dados de telemetria do Azure (também chamados de contadores de desempenho) que são emitidos por seus recursos do Azure e consumidos pelo serviço de Azure Monitor. Exemplos de métricas em uma conta do lote são eventos de criação de pool, contagem de nós de baixa prioridade e eventos de conclusão de tarefa.
+Métricas são dados de telemetria do Azure (também chamados de contadores de desempenho) que são emitidos por seus recursos do Azure e consumidos pelo serviço de Azure Monitor. Exemplos de métricas em uma conta do lote são eventos de criação de pool, Low-Priority contagem de nós e eventos de conclusão de tarefa.
 
 Consulte [lista de métricas do Lote com suporte](../azure-monitor/platform/metrics-supported.md#microsoftbatchbatchaccounts).
 
@@ -33,8 +33,8 @@ Na portal do Azure, a página **visão geral** da conta mostrará as principais 
 
 Para exibir todas as métricas de conta do lote no portal do Azure:
 
-1. Na portal do Azure, selecione **todos os serviços**  >  **contas do lote**e, em seguida, selecione o nome da sua conta do lote.
-2. Em **monitoramento**, selecione **métricas**.
+1. Na portal do Azure, selecione **todos os serviços**  >  **contas do lote** e, em seguida, selecione o nome da sua conta do lote.
+2. Em **Monitoramento**, selecione **Métricas**.
 3. Selecione **Adicionar métrica** e, em seguida, escolha uma métrica na lista suspensa.
 4. Selecione uma opção de **agregação** para a métrica. Para métricas baseadas em contagem (como "contagem de núcleos dedicados" ou "contagem de nós de baixa prioridade"), use a agregação **média** . Para métricas baseadas em evento (como "eventos de redimensionamento de pool concluídos"), use a agregação " **Count**".
 
@@ -57,13 +57,13 @@ Você pode configurar *alertas de métrica* quase em tempo real que são dispara
 
 Alertas que disparam em um único ponto de dados não são recomendados, pois as métricas estão sujeitas a entrega fora de ordem, perda de dados e/ou duplicação. Ao criar seus alertas, você pode usar os limites para considerar essas inconsistências.
 
-Por exemplo, você pode configurar um alerta de métrica quando a contagem de núcleos de baixa prioridade cair para um determinado nível, de modo que seja possível ajustar a composição dos pools. Para obter melhores resultados, defina um período de 10 ou mais minutos, em que os alertas são disparados se a contagem de núcleos de baixa prioridade baixo estiver abaixo do valor de limite para o período inteiro. Isso permite mais tempo para que as métricas sejam agregadas para que você obtenha resultados mais precisos. 
+Por exemplo, você pode configurar um alerta de métrica quando a contagem de núcleos de baixa prioridade cair para um determinado nível, de modo que seja possível ajustar a composição dos pools. Para obter melhores resultados, defina um período de 10 ou mais minutos, em que os alertas são disparados se a contagem de núcleos de baixa prioridade baixo estiver abaixo do valor de limite para o período inteiro. Isso permite mais tempo para que as métricas sejam agregadas para que você obtenha resultados mais precisos.
 
 Para configurar um alerta de métrica no portal do Azure:
 
 1. Selecione **Todos os serviços** > **Contas do Lote** e, em seguida, selecione o nome de sua conta do Lote.
-2. Em **monitoramento**, selecione **alertas**e, em seguida, selecione **nova regra de alerta**.
-3. Clique em **Selecionar condição**e escolha uma métrica. Confirme os valores do **período do gráfico**, do **tipo de limite**, do **operador**e do **tipo de agregação**e insira um **valor de limite**. Em seguida, selecione **Concluído**.
+2. Em **monitoramento**, selecione **alertas** e, em seguida, selecione **nova regra de alerta**.
+3. Clique em **Selecionar condição** e escolha uma métrica. Confirme os valores do **período do gráfico**, do **tipo de limite**, do **operador** e do **tipo de agregação** e insira um **valor de limite**. Em seguida, selecione **Concluído**.
 4. Adicione um grupo de ações ao alerta selecionando um grupo de ações existente ou criar um novo.
 5. Na seção **detalhes da regra de alerta** , insira um nome e uma **Descrição** da **regra de alerta** e selecione a **severidade**
 6. Selecione **Criar regra de alerta**.
@@ -87,25 +87,25 @@ Um cenário comum é selecionar uma conta de Armazenamento do Microsoft Azure co
 
 Como alternativa, você pode:
 
-- Transmita eventos de log de diagnóstico do Lote para um [Hub de Eventos do Azure](../event-hubs/event-hubs-about.md). Os Hubs de Eventos podem incluir milhões de eventos por segundo, os quais você pode transformar e armazenar usando qualquer provedor de análise em tempo real. 
+- Transmita eventos de log de diagnóstico do Lote para um [Hub de Eventos do Azure](../event-hubs/event-hubs-about.md). Os Hubs de Eventos podem incluir milhões de eventos por segundo, os quais você pode transformar e armazenar usando qualquer provedor de análise em tempo real.
 - Envie os logs de diagnóstico para o [logs do Azure Monitor](../azure-monitor/log-query/log-query-overview.md), onde você pode analisá-los ou exportá-los para análise no Power BI ou Excel.
 
 > [!NOTE]
-> É possível que incorra custos adicionais para armazenar ou processar dados de log de diagnóstico com os serviços do Azure. 
+> É possível que incorra custos adicionais para armazenar ou processar dados de log de diagnóstico com os serviços do Azure.
 
 ### <a name="enable-collection-of-batch-diagnostic-logs"></a>Habilitar coleção de logs de diagnóstico do Lote
 
 Para criar uma nova configuração de diagnóstico no portal do Azure, siga as etapas abaixo.
 
-1. Na portal do Azure, selecione **todos os serviços**  >  **contas do lote**e, em seguida, selecione o nome da sua conta do lote.
+1. Na portal do Azure, selecione **todos os serviços**  >  **contas do lote** e, em seguida, selecione o nome da sua conta do lote.
 2. Em **Monitoramento**, selecione **Configurações de diagnóstico**.
 3. Em **configurações de diagnóstico**, selecione **Adicionar configuração de diagnóstico**.
 4. Insira um nome para a configuração.
-5. Selecione um destino: **Enviar para log Analytics**, **arquivar em uma conta de armazenamento**ou **transmitir para um hub de eventos**. Se você selecionar uma conta de armazenamento, poderá, opcionalmente, definir uma política de retenção. Se você não especificar um número de dias para retenção, os dados serão retidos durante a vida útil da conta de armazenamento.
-6. Selecione **ServiceLog**, **biometria**ou ambos.
+5. Selecione um destino: **Enviar para log Analytics**, **arquivar em uma conta de armazenamento** ou **transmitir para um hub de eventos**. Se você selecionar uma conta de armazenamento, poderá, opcionalmente, definir uma política de retenção. Se você não especificar um número de dias para retenção, os dados serão retidos durante a vida útil da conta de armazenamento.
+6. Selecione **ServiceLog**, **biometria** ou ambos.
 7. Selecione **salvar** para criar a configuração de diagnóstico.
 
-Você também pode [habilitar a coleta por meio de Azure monitor no portal do Azure](../azure-monitor/platform/diagnostic-settings.md) para definir configurações de diagnóstico, usando um [modelo do Resource Manager](../azure-monitor/platform/diagnostic-settings-template.md)ou com Azure PowerShell ou CLI do Azure. Para obter mais informações, consulte [visão geral dos logs da plataforma Azure](../azure-monitor/platform/platform-logs-overview.md).
+Você também pode [habilitar a coleta por meio de Azure monitor no portal do Azure](../azure-monitor/platform/diagnostic-settings.md) para definir configurações de diagnóstico, usando um [modelo do Resource Manager](../azure-monitor/samples/resource-manager-diagnostic-settings.md)ou com Azure PowerShell ou CLI do Azure. Para obter mais informações, consulte [visão geral dos logs da plataforma Azure](../azure-monitor/platform/platform-logs-overview.md).
 
 ### <a name="access-diagnostics-logs-in-storage"></a>Acessar logs de diagnóstico no armazenamento
 
@@ -155,7 +155,7 @@ Os logs de serviço do lote do Azure, se coletados, contêm eventos emitidos pel
     },
     "resizeTimeout": "300000",
     "targetDedicatedComputeNodes": 2,
-    "maxTasksPerNode": 1,
+    "taskSlotsPerNode": 1,
     "vmFillType": "Spread",
     "enableAutoscale": false,
     "enableInterNodeCommunication": false,
@@ -170,9 +170,11 @@ Os eventos de log de serviço emitidos pelo serviço de lote incluem o seguinte:
 - [Conclusão da exclusão de pool](batch-pool-delete-complete-event.md)
 - [Início de redimensionamento de pool](batch-pool-resize-start-event.md)
 - [Conclusão de redimensionamento de pool](batch-pool-resize-complete-event.md)
+- [Dimensionamento automático do pool](batch-pool-autoscale-event.md)
 - [Início da tarefa](batch-task-start-event.md)
 - [Conclusão da tarefa](batch-task-complete-event.md)
 - [Falha da tarefa](batch-task-fail-event.md)
+- [Falha no agendamento da tarefa](batch-task-schedule-fail-event.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 

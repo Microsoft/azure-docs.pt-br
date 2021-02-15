@@ -10,14 +10,19 @@ ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
-ms.openlocfilehash: c43abc6c87b88e9fc4a15d4ca5d5506389a8a81a
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 213dec3498b76f7331f40cb24f0c796175a3fbb3
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849613"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353843"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-php"></a>Início Rápido: Pesquisar vídeos usando a API de Pesquisa de Vídeo do Bing e PHP
+
+> [!WARNING]
+> As APIs de Pesquisa do Bing estão migrando dos Serviços Cognitivos para os Serviços de Pesquisa do Bing. A partir de **30 de outubro de 2020**, todas as novas instâncias da Pesquisa do Bing precisam ser provisionadas seguindo o processo documentado [aqui](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> As APIs de Pesquisa do Bing provisionadas por meio dos Serviços Cognitivos terão suporte nos próximos três anos ou até o final do seu Contrato Enterprise, o que ocorrer primeiro.
+> Para obter instruções sobre a migração, confira [Serviços de Pesquisa do Bing](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Use este início rápido para fazer sua primeira chamada à API da Pesquisa de Vídeo do Bing. Este aplicativo PHP simples envia uma consulta de pesquisa de vídeo HTTP para a API e exibe a resposta JSON. O código de exemplo foi gravado para funcionar no PHP 5.6.
 
@@ -31,7 +36,7 @@ Embora esse aplicativo seja escrito em PHP, a API é um serviço Web RESTful com
 
 ## <a name="running-the-application"></a>Executando o aplicativo
 
-A [API de Pesquisa de Vídeo do Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference) retorna os resultados de vídeo do mecanismo de pesquisa do Bing.
+A [API de Pesquisa de Vídeo do Bing](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference) retorna os resultados de vídeo do mecanismo de pesquisa do Bing.
 
 1. Habilite o suporte a HTTP seguro no arquivo `php.ini` removendo a marca de comentário da linha de `;extension=php_openssl.dll`, conforme descrito no código a seguir.
 2. Crie um projeto PHP em seu IDE ou editor favorito.
@@ -46,8 +51,8 @@ A [API de Pesquisa de Vídeo do Bing](https://docs.microsoft.com/rest/api/cognit
 // ;extension=php_openssl.dll
 
 // **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
+// **_ Update or verify the following values. _*_
+// _*********************************************
 
 // Replace the accessKey string value with your valid access key.
 $accessKey = 'enter key here';

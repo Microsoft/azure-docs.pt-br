@@ -8,13 +8,13 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.devlang: csharp
-ms.custom: mvc
-ms.openlocfilehash: 9d5b1511ffb48f587d4ee5c5a7d2b0ee9216018f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.custom: mvc, devx-track-csharp
+ms.openlocfilehash: f9a14ee6ee3e10b36d64ec11fc23807efe2bfaf2
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74976767"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966557"
 ---
 # <a name="tutorial-enroll-the-device-to-an-iot-hub-using-the-azure-iot-hub-provisioning-service-client-net"></a>Tutorial: Registrar o dispositivo para um Hub IoT usando o Cliente do Serviço de Provisionamento do Hub IoT do Azure (.NET)
 
@@ -42,12 +42,12 @@ Este tutorial simula o período durante ou logo após o processo de fabricação
 Esta etapa envolve adicionar os artefatos de segurança exclusivos do dispositivo ao Serviço de Provisionamento de Dispositivos. Esses artefatos de segurança são os seguintes:
 
 - Para dispositivos baseados em TPM:
-    - A *chave de endosso* que é exclusiva para cada simulação ou chip do TPM. Leia [Compreender a chave de endosso do TPM](https://technet.microsoft.com/library/cc770443.aspx) para obter mais informações.
+    - A *chave de endosso* que é exclusiva para cada simulação ou chip do TPM. Leia [Compreender a chave de endosso do TPM](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770443(v=ws.11)) para obter mais informações.
     - A *ID do registro* é usada para identificar exclusivamente um dispositivo no namespace/escopo. Isso pode ou não ser o mesmo que a ID do dispositivo. A ID é obrigatória para cada dispositivo. Para dispositivos baseados em TPM, a ID do registro pode ser derivada do TPM em si, por exemplo, um hash SHA-256 da chave de endosso do TPM.
 
 - Para dispositivos baseados em X.509:
-    - O [certificado X.509 emitido para o dispositivo](https://msdn.microsoft.com/library/windows/desktop/bb540819.aspx), na forma de um arquivo *.pem* ou *.cer*. Para o registro individual, você precisa usar o *certificado assinante* para seu sistema X.509, enquanto para grupos de registro, você precisa usar o *certificado raiz* ou um *certificado de signatário* equivalente.
-    - A *ID do registro* é usada para identificar exclusivamente um dispositivo no namespace/escopo. Isso pode ou não ser o mesmo que a ID do dispositivo. A ID é obrigatória para cada dispositivo. Para dispositivos baseados no X.509, a ID do registro é derivada do nome comum (CN) do certificado. Para obter mais informações sobre esses requisitos, consulte [Conceitos de dispositivo](https://docs.microsoft.com/azure/iot-dps/concepts-device).
+    - O [certificado X.509 emitido para o dispositivo](/windows/win32/seccertenroll/about-x-509-public-key-certificates), na forma de um arquivo *.pem* ou *.cer*. Para o registro individual, você precisa usar o *certificado assinante* para seu sistema X.509, enquanto para grupos de registro, você precisa usar o *certificado raiz* ou um *certificado de signatário* equivalente.
+    - A *ID do registro* é usada para identificar exclusivamente um dispositivo no namespace/escopo. Isso pode ou não ser o mesmo que a ID do dispositivo. A ID é obrigatória para cada dispositivo. Para dispositivos baseados no X.509, a ID do registro é derivada do nome comum (CN) do certificado. Para obter mais informações sobre esses requisitos, consulte [Conceitos de dispositivo](./concepts-service.md).
 
 Há duas maneiras de registrar o dispositivo no Serviço de Provisionamento de Dispositivos:
 

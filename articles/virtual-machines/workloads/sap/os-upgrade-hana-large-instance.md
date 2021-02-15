@@ -7,18 +7,19 @@ author: saghorpa
 manager: juergent
 editor: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/04/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8485f3474da18e052bc0eab6c053be084ef884a2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cdc6dd49fe98085edf3c6fb16606b9f540b5a3a0
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82192409"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608683"
 ---
 # <a name="operating-system-upgrade"></a>Atualização do Sistema Operacional
 Este documento descreve os detalhes sobre as atualizações de sistema operacional em Instâncias Grandes de HANA.
@@ -26,10 +27,13 @@ Este documento descreve os detalhes sobre as atualizações de sistema operacion
 >[!NOTE]
 >A atualização do sistema operacional é responsabilidade do cliente, o suporte às operações da Microsoft pode orientá-lo nas principais áreas a serem observadas durante a atualização. Antes de planejar uma atualização, você deve consultar o fornecedor do sistema operacional.
 
+> [!NOTE]
+> Este artigo contém referências ao termo lista de *bloqueios*, um termo que a Microsoft não usa mais. Quando o termo for removido do software, nós o removeremos deste artigo.
+
 Durante o provisionamento de unidade de HLI, a equipe de operações da Microsoft instala o sistema operacional.
 Ao longo do tempo, você deverá manter o sistema operacional (exemplo: patches, ajustes, atualizações etc.) na unidade HLI.
 
-Antes de fazer alterações importantes no sistema operacional (por exemplo, atualizar o SP1 para o SP2), você precisa entrar em contato com a equipe de operações da Microsoft abrindo um tíquete de suporte para consultar.
+Antes de fazer alterações importantes no sistema operacional (por exemplo, atualizar o SP1 para o SP2), você deverá entrar em contato com a equipe de operações da Microsoft abrindo um tíquete de suporte para consultar.
 
 Incluir no seu tíquete:
 
@@ -38,11 +42,9 @@ Incluir no seu tíquete:
 * O nível de patch que você pretende aplicar.
 * A data em que você está planejando essa alteração. 
 
-Recomendamos que você abra esse tíquete pelo menos uma semana antes da data de conclusão da atualização desejável, para que a equipe de operações verifique se uma atualização de firmware é necessária na folha do seu servidor.
-
+Recomendamos que você abra esse tíquete pelo menos uma semana antes da atualização desejável, o que permitirá que a equipe do operação saiba sobre a versão de firmware desejada.
 
 Para a matriz de suporte das diferentes versões do SAP HANA com as diferentes versões do Linux, consulte [Nota SAP nº 2235581](https://launchpad.support.sap.com/#/notes/2235581).
-
 
 ## <a name="known-issues"></a>Problemas conhecidos
 
@@ -55,16 +57,17 @@ A seguir estão alguns problemas conhecidos comuns durante a atualização:
 A configuração do sistema operacional pode descompasso das configurações recomendadas ao longo do tempo devido à aplicação de patches, atualizações do sistema e alterações feitas por clientes. Além disso, a Microsoft identifica as atualizações necessárias para os sistemas existentes para garantir que eles sejam configurados de forma ideal para o melhor desempenho e resiliência. As instruções a seguir descrevem as recomendações que resolvem o desempenho da rede, a estabilidade do sistema e o desempenho ideal do HANA.
 
 ### <a name="compatible-enicfnic-driver-versions"></a>Versões de driver eNIC/fNIC compatíveis
-  Para ter um desempenho de rede adequado e a estabilidade do sistema, é aconselhável garantir que a versão apropriada específica do sistema operacional dos drivers eNIC e fNIC sejam instaladas conforme descrito na tabela de compatibilidade a seguir. Os servidores são entregues aos clientes com versões compatíveis. Observe que, em alguns casos, durante o patch do sistema operacional/kernel, OS drivers podem ser revertidos para as versões de driver padrão. Verifique se a versão apropriada do driver está executando operações de aplicação de patch do sistema operacional/kernel.
+  Para ter um desempenho de rede adequado e a estabilidade do sistema, é aconselhável garantir que a versão apropriada específica do sistema operacional dos drivers eNIC e fNIC sejam instaladas conforme descrito na tabela de compatibilidade a seguir. Os servidores são entregues aos clientes com versões compatíveis. Em alguns casos, durante o patch do sistema operacional/kernel, OS drivers podem ser revertidos para as versões de driver padrão. Verifique se a versão apropriada do driver está executando operações de aplicação de patch do sistema operacional/kernel.
        
       
   |  Fornecedor do sistema operacional    |  Versão do pacote do so     |  Versão do Firmware  |  Driver eNIC |  Driver fNIC | 
   |---------------|-------------------------|--------------------|--------------|--------------|
   |   SuSE        |  SLES 12 SP2            |   3.1.3 h           |  2.3.0.40    |   1.6.0.34   |
   |   SuSE        |  SLES 12 SP3            |   3.1.3 h           |  2.3.0.44    |   1.6.0.36   |
-  |   SuSE        |  SLES 12 SP4            |   3.2.3 i           |  2.3.0.47    |   2.0.0.54   |
+  |   SuSE        |  SLES 12 SP4            |   3.2.3 i           |  4.0.0.6     |   2.0.0.60   |
   |   SuSE        |  SLES 12 SP2            |   3.2.3 i           |  2.3.0.45    |   1.6.0.37   |
-  |   SuSE        |  SLES 12 SP3            |   3.2.3 i           |  2.3.0.45    |   1.6.0.37   |
+  |   SuSE        |  SLES 12 SP3            |   3.2.3 i           |  2.3.0.43    |   1.6.0.36   |
+  |   SuSE        |  SLES 12 SP5            |   3.2.3 i           |  4.0.0.8     |   2.0.0.60   |
   |   Red Hat     |  RHEL 7.2               |   3.1.3 h           |  2.3.0.39    |   1.6.0.34   |
  
 
@@ -89,13 +92,22 @@ modinfo enic
 modinfo fnic
 ```
 
+#### <a name="steps-for-enicfnic-drivers-installation-during-os-upgrade"></a>Etapas para a instalação de drivers eNIC/fNIC durante a atualização do so
+
+* Atualizar versão do so
+* Remover pacotes RPM antigos
+* Instalar drivers eNIC/fNIC compatíveis de acordo com a versão do so instalada
+* Reinicializar sistema
+* Após a reinicialização, verifique a versão do eNIC/fNIC
+
+
 ### <a name="suse-hlis-grub-update-failure"></a>Falha na atualização do SuSE HLIs GRUB
 O SAP no Azure HANA em instâncias grandes (tipo I) pode estar em um estado não inicializável após a atualização. O procedimento a seguir corrige esse problema.
 #### <a name="execution-steps"></a>Etapas de execução
 
 
 *   Execute o `multipath -ll` comando.
-*   Obtenha a ID do LUN cujo tamanho é aproximadamente 50G ou use o comando:`fdisk -l | grep mapper`
+*   Obtenha a ID do LUN cujo tamanho é aproximadamente 50G ou use o comando: `fdisk -l | grep mapper`
 *   Atualize o `/etc/default/grub_installdevice` arquivo com a linha `/dev/mapper/<LUN ID>` . Exemplo:/dev/mapper/3600a09803830372f483f495242534a56
 >[!NOTE]
 >A ID do LUN varia de servidor para servidor.
@@ -110,27 +122,25 @@ O SAP no Azure HANA em instâncias grandes (tipo I) pode estar em um estado não
 ```
 lsmod | grep -i edac 
 ```
-* Desabilite os módulos acrescentando as seguintes linhas ao arquivo`/etc/modprobe.d/blacklist.conf`
+* Desabilite os módulos acrescentando as seguintes linhas ao arquivo `/etc/modprobe.d/blacklist.conf`
 ```
 blacklist sb_edac
 blacklist edac_core
 ```
 Uma reinicialização é necessária para fazer alterações no local. Execute `lsmod` o comando e verifique se o módulo não está presente na saída.
 
-
 ### <a name="kernel-parameters"></a>Parâmetros de kernel
    Certifique-se de que a configuração correta para `transparent_hugepage` , `numa_balancing` , `processor.max_cstate` `ignore_ce` e `intel_idle.max_cstate` seja aplicada.
 
-* intel_idle. max_cstate = 1
-* Processor. max_cstate = 1
+* intel_idle intel_idle.max_cstate = 1
+* processor.max_cstate = 1
 * transparent_hugepage = nunca
 * numa_balancing = desabilitar
 * MCE = ignore_ce
 
-
 #### <a name="execution-steps"></a>Etapas de execução
 
-* Adicionar esses parâmetros à `GRB_CMDLINE_LINUX` linha no arquivo`/etc/default/grub`
+* Adicionar esses parâmetros à `GRB_CMDLINE_LINUX` linha no arquivo `/etc/default/grub`
 ```
 intel_idle.max_cstate=1 processor.max_cstate=1 transparent_hugepage=never numa_balancing=disable mce=ignore_ce
 ```

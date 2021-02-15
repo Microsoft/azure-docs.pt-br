@@ -4,14 +4,14 @@ description: Use Helm com AKS e registro de contêiner do Azure para empacotar e
 services: container-service
 author: zr-msft
 ms.topic: article
-ms.date: 07/28/2020
+ms.date: 01/12/2021
 ms.author: zarhoads
-ms.openlocfilehash: 0ca2d7ccc863e2208db1212ef3d3f10fa709d069
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 5656051ecd6e3fd39b051d2d0288e9762c83d9ad
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87407108"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98249917"
 ---
 # <a name="quickstart-develop-on-azure-kubernetes-service-aks-with-helm"></a>Início rápido: desenvolver no serviço de kubernetes do Azure (AKS) com Helm
 
@@ -22,7 +22,7 @@ Este artigo mostra como usar o Helm para empacotar e executar um aplicativo no A
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma assinatura do Azure. Caso não tenha uma assinatura do Azure, é possível criar uma [conta gratuita](https://azure.microsoft.com/free).
-* A [CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) instalada.
+* A [CLI do Azure](/cli/azure/install-azure-cli) instalada.
 * [Helm v3 instalado][helm-install].
 
 ## <a name="create-an-azure-container-registry"></a>Criar um Registro de Contêiner do Azure
@@ -144,7 +144,7 @@ Por exemplo:
 replicaCount: 1
 
 image:
-  repository: *myhelmacr.azurecr.io*/webfrontend
+  repository: myhelmacr.azurecr.io/webfrontend
   pullPolicy: IfNotPresent
 ...
 service:

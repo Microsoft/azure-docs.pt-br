@@ -56,14 +56,16 @@
           href: dsvm-common-identity.md
         - name: Proteger credenciais de acesso de recursos
           href: dsvm-secure-access-keys.md
+    - name: Atualizar sua Máquina Virtual de Ciência de Dados para o Ubuntu 18.04
+      href: ubuntu-upgrade.md
 - name: Recursos
   items:
     - name: Página de perguntas de P e R da Microsoft
-      href: 'https://docs.microsoft.com/answers/topics/azure-data-science-vm.html'
+      href: /answers/topics/azure-data-science-vm.html
     - name: Stack Overflow
       href: 'https://stackoverflow.com/search?q=dsvm'
     - name: Guia do desenvolvedor R
-      href: /azure/architecture/data-guide/technology-choices/r-developers-guide?context=azure/machine-learning/data-science-virtual-machine/context/ml-context
+      href: /azure/architecture/data-guide/technology-choices/r-developers-guide?context=%2fazure/machine-learning/data-science-virtual-machine/context/ml-context
 - name: Referência
   items:
     - name: Máquina Virtual de Ciência de Dados do Ubuntu
@@ -72,5 +74,3 @@
       href: release-notes.md
     - name: Problemas conhecidos
       href: reference-known-issues.md
-    - name: Comunicados de preterimento
-      href: reference-deprecation.md

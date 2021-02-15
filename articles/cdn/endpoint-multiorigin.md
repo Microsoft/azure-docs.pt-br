@@ -1,19 +1,19 @@
 ---
-title: 'Ponto de extremidade da CDN do Azure: várias origens'
+title: Ponto de extremidade da CDN do Azure com várias origens (visualização)
 description: Introdução ao ponto de extremidade da CDN do Azure várias origens.
 services: cdn
 author: asudbring
 manager: KumudD
 ms.service: azure-cdn
 ms.topic: how-to
-ms.date: 8/20/2020
+ms.date: 9/06/2020
 ms.author: allensu
-ms.openlocfilehash: c7e6733079dbd867255e604f6f8d4459f647cc93
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 6e433950c04c4494201b090063b17a10e54a4822
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88870435"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685764"
 ---
 # <a name="azure-cdn-endpoint-multi-origin"></a>Ponto de extremidade da CDN do Azure: várias origens
 
@@ -42,7 +42,7 @@ Configure um ou mais grupos de origem e escolha um grupo de origem padrão. Cada
 
 5. Na configuração **Adicionar grupo de origem** , insira ou selecione as seguintes informações:
 
-   | Setting           | Valor                                                                 |
+   | Configuração           | Valor                                                                 |
    |-------------------|-----------------------------------------------------------------------|
    | Nome do grupo de origem | Insira um nome para seu grupo de origem.                                   |
    | Status da investigação      | Selecione **Habilitado**. </br> A CDN do Azure executará investigações de integridade de diferentes pontos em todo o mundo para determinar a integridade da origem. Não habilite se o grupo de origem atual não estiver ativo para evitar custo adicional.
@@ -64,10 +64,10 @@ Configure um ou mais grupos de origem e escolha um grupo de origem padrão. Cada
 
 2. Insira ou selecione as seguintes informações na configuração **Adicionar origem** :
 
-   | Setting           | Valor                                                                 |
+   | Configuração           | Valor                                                                 |
    |-------------------|-----------------------------------------------------------------------|
    | Nome        | Insira um nome para a origem.        |
-   | Tipo de origem | Selecione **armazenamento**, **serviço de nuvem**, **aplicativo Web**ou **origem personalizada**.                                   |
+   | Tipo de origem | Selecione **armazenamento**, **serviço de nuvem**, **aplicativo Web** ou **origem personalizada**.                                   |
    | Nome do host de origem        | Selecione ou insira seu nome de host de origem.  O menu suspenso lista todas as origens disponíveis do tipo especificado na configuração anterior. Se você selecionou **origem personalizada** como seu tipo de origem, insira o domínio do servidor de origem do cliente. |
    | Cabeçalho de host de origem    | Insira o cabeçalho de host que você deseja que a CDN do Azure envie com cada solicitação ou deixe o padrão.                        |
    | Porta HTTP   | Insira a porta HTTP.                                         |
@@ -130,13 +130,13 @@ Distribua o tráfego para um grupo diferente com base na URL da solicitação.
 
 3. Insira um nome para a regra no **nome**.
 
-4. Selecione **+ condição**e, em seguida, selecione **caminho da URL**.
+4. Selecione **+ condição** e, em seguida, selecione **caminho da URL**.
 
 5. Na suspenso do **operador** , selecione **contém**.
 
 6. Em **valor**, digite **/images**.
 
-7. Selecione **+ Adicionar ação**e, em seguida, selecione **substituição de grupo de origem**.
+7. Selecione **+ Adicionar ação** e, em seguida, selecione **substituição de grupo de origem**.
 
 8. Em **grupo de origem**, selecione o grupo de origem na caixa de pull.
 

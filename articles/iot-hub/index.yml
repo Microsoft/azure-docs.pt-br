@@ -11,12 +11,12 @@ metadata:
   manager: eliotgra
   ms.date: 03/23/2020
   ms.custom: amqp
-  ms.openlocfilehash: 949a007a51fce4a76dcc840f187ca353c88e8ede
-  ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+  ms.openlocfilehash: 665692e1d902dfed8cdab535d0639f356f4e709c
+  ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 07/28/2020
-  ms.locfileid: "87291602"
+  ms.lasthandoff: 11/19/2020
+  ms.locfileid: "94885913"
 landingContent:
 - title: Introdução
   linkLists:
@@ -40,12 +40,6 @@ landingContent:
     links:
     - text: Trabalhar com dispositivos gêmeos usando o Node.js
       url: iot-hub-node-node-twin-getstarted.md
-    - text: Noções básicas de métricas de IoT
-      url: iot-hub-metrics.md
-    - text: Log de diagnóstico
-      url: iot-hub-monitor-resource-health.md
-    - text: Monitore, diagnostique e solucione problemas de desconexões com a IoT
-      url: iot-hub-troubleshoot-connectivity.md
 - title: Escalar sua solução
   linkLists:
   - linkListType: concept
@@ -84,6 +78,20 @@ landingContent:
       url: tutorial-routing-config-message-routing-rm-template.md
     - text: Executar e exibir resultados de roteamento
       url: tutorial-routing-view-message-routing-results.md
+- title: Hub IoT no Azure Stack Hub (versão prévia)
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Visão geral para operadores
+      url: /azure-stack/operator/iot-hub-rp-overview
+    - text: Visão geral para usuários
+      url: /azure-stack/user/iot-hub-overview
+  - linkListType: how-to-guide
+    links:
+    - text: Pré-requisitos de instalação
+      url: /azure-stack/operator/iot-hub-rp-prerequisites
+    - text: Como instalar o Hub IoT no Azure Stack Hub
+      url: /azure-stack/operator/iot-hub-rp-install
 - title: Usar Ferramentas de Hub IoT
   linkLists:
   - linkListType: how-to-guide
@@ -91,7 +99,19 @@ landingContent:
     - text: Usar o IoT Tools para VS Code
       url: iot-hub-create-use-iot-toolkit.md
     - text: IoT Explorer
-      url: ../iot-pnp/howto-install-iot-explorer.md
+      url: ../iot-pnp/howto-use-iot-explorer.md
+- title: Monitorar e solucionar problemas do Hub IoT
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Monitorar o Hub IoT
+      url: monitor-iot-hub.md
+    - text: Monitorar referência de dados do Hub IoT
+      url: monitor-iot-hub-reference.md
+    - text: Monitorar, diagnosticar e solucionar problemas de desconexões com o Hub IoT
+      url: iot-hub-troubleshoot-connectivity.md
+    - text: Ordenar eventos de conexão de dispositivo do Hub IoT usando o Azure Cosmos DB
+      url: iot-hub-how-to-order-connection-state-events.md
 - title: Usar certificados de segurança da IoT
   linkLists:
   - linkListType: concept

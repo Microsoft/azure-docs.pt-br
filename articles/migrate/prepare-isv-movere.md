@@ -1,14 +1,17 @@
 ---
 title: Preparar as Migrações para Azure para trabalhar com uma ferramenta ISV/Movere
 description: Este artigo descreve como preparar as Migrações para Azure para trabalhar com uma ferramenta ISV ou um Movere e, em seguida, como começar a usar a ferramenta.
+author: ms-psharma
+ms.author: panshar
+ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 06/10/2020
-ms.openlocfilehash: ed7652cb34705bac56a79b5c30e6bda3dac69af0
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 1716db0476169e12822b3f47f7199bf6e2c4ee92
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86103918"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753766"
 ---
 # <a name="prepare-to-work-with-an-isv-tool-or-movere"></a>Preparar-se para trabalhar com uma ferramenta ISV/Movere
 
@@ -26,7 +29,7 @@ Sua conta de usuário do Azure precisa dessas permissões:
 
 1. Verifique a função da sua conta no Azure AD.
 2. Se você tiver a função de usuário, selecione **Configurações de usuário** à esquerda e verifique se os usuários podem registrar aplicativos. Se estiver definido como **Sim**, qualquer usuário no locatário do Azure AD poderá registrar um aplicativo. Se estiver definido como **Não**, somente usuários administradores podem registrar aplicativos.   
-3. Se você não tiver permissões, um usuário administrador poderá fornecer a sua conta de usuário com a função de [Administrador de aplicativos](../active-directory/users-groups-roles/directory-assign-admin-roles.md#application-administrator), para que você possa registrar o aplicativo.
+3. Se você não tiver permissões, um usuário administrador poderá fornecer a sua conta de usuário com a função de [Administrador de aplicativos](../active-directory/roles/permissions-reference.md#application-administrator), para que você possa registrar o aplicativo.
 4. Depois que a ferramenta estiver vinculada às Migrações para Azure, o administrador poderá remover a função da sua conta.
 
 ### <a name="set-permissions-to-assign-a-role-to-an-azure-ad-app"></a>Definir permissões para atribuir uma função a um aplicativo do Azure AD

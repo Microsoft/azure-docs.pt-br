@@ -12,12 +12,12 @@ ms.date: 07/23/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 48a62694790505dcf8355b3011387d9bdfd036b6
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 859a4f199e65dd0c3aee9424029f6060683d5fbd
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88057118"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836080"
 ---
 # <a name="azure-ad-connect-version-release-history-archive"></a>Azure AD Connect: arquivo de histórico de lançamento de versão
 
@@ -166,8 +166,8 @@ A atualização do Azure AD Connect falha se a Disponibilidade AlwaysOn do SQL f
 
 ### <a name="new-features-and-improvements"></a>Novos recursos e aprimoramentos
 
-- A integração do Ping Federate no Azure AD Connect agora está disponível para disponibilidade geral. [Saiba mais sobre como federar o Azure AD com o Ping Federate](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-user-signin#federation-with-pingfederate)
-- O Azure AD Connect agora cria o backup da confiança do AD do Azure no AD FS toda vez que uma atualização é feita e a armazena em um arquivo separado para facilitar a restauração, se necessário. [Saiba mais sobre a nova funcionalidade e o gerenciamento de confiança do Azure AD no Azure AD Connect](https://aka.ms/fedtrustinaadconnect).
+- A integração do Ping Federate no Azure AD Connect agora está disponível para disponibilidade geral. [Saiba mais sobre como federar o Azure AD com o Ping Federate](./plan-connect-user-signin.md#federation-with-pingfederate)
+- O Azure AD Connect agora cria o backup da confiança do AD do Azure no AD FS toda vez que uma atualização é feita e a armazena em um arquivo separado para facilitar a restauração, se necessário. [Saiba mais sobre a nova funcionalidade e o gerenciamento de confiança do Azure AD no Azure AD Connect](./how-to-connect-azure-ad-trust.md).
 - Novo conjunto de ferramentas de solução de problemas ajuda a solucionar problemas de alteração do endereço de e-mail primário e ocultação de conta da lista de endereços global
 - O Azure AD Connect foi atualizado para incluir o mais recente cliente nativo do SQL Server 2012
 - Quando você alternar entrada do usuário para a sincronização de Hash de senha ou autenticação de passagem na tarefa "Alterar entrada do usuário", a caixa de seleção de logon único contínuo é habilitada por padrão.
@@ -402,7 +402,7 @@ Set-ADSyncRestrictedPermissions -ObjectDN "CN=TestAccount1,CN=Users,DC=bvtadwbac
 
 Para verificar se essa vulnerabilidade foi usada para comprometer a sua configuração do Azure AD Connect verifique a última data de redefinição de senha da sua conta de serviço.  Se o carimbo de hora for inesperado, uma investigação adicional deve ser realizada, por meio do log de eventos, para aquele evento de redefinição de senha.
 
-Para obter mais informações, consulte [Microsoft Security Advisory 4056318](https://technet.microsoft.com/library/security/4056318)
+Para obter mais informações, consulte [Microsoft Security Advisory 4056318](/security-updates/securityadvisories/2017/4056318)
 
 ## <a name="116490"></a>1.1.649.0
 Status: 27 de outubro de 2017
@@ -443,7 +443,7 @@ Status: 19 de outubro de 2017
 
 * Corrigido um problema que causava a falha na atualização do Azure AD Connect com o erro “*Não é possível atualizar o Serviço de Sincronização*”. Além disso, o Serviço de Sincronização não pode mais iniciar com o erro de evento "*O serviço não pôde ser iniciado porque a versão do bando de dados é mais nova do que a versão dos binários instalados*". O problema ocorre quando o administrador executando a atualização não tem privilégios de administrador do sistema para o SQL Server que está sendo usado pelo Azure AD Connect. Com essa correção, o Azure AD Connect requer apenas que o administrador tenha o privilégio db_owner no banco de dados ADSync durante a atualização.
 
-* Corrigido um problema de atualização do Azure AD Connect que afetava os clientes que habilitaram o [Logon Único Contínuo](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso). Após o Azure AD Connect ser atualizado, o Logon Único Contínuo aparece incorretamente como desabilitado no assistente do Azure AD Connect, embora o recurso permaneça habilitado e totalmente funcional. Com essa correção, o recurso agora aparece corretamente como habilitado no assistente.
+* Corrigido um problema de atualização do Azure AD Connect que afetava os clientes que habilitaram o [Logon Único Contínuo](./how-to-connect-sso.md). Após o Azure AD Connect ser atualizado, o Logon Único Contínuo aparece incorretamente como desabilitado no assistente do Azure AD Connect, embora o recurso permaneça habilitado e totalmente funcional. Com essa correção, o recurso agora aparece corretamente como habilitado no assistente.
 
 * Corrigido um problema que fazia com que o assistente do Azure AD Connect sempre mostrasse o prompt “*Configurar a Âncora de Origem*” na página *Pronto para Configurar*, mesmo se não tivesse sido feita nenhuma alteração relacionada à Âncora de Origem.
 
@@ -457,7 +457,7 @@ Status: 19 de outubro de 2017
 
 ### <a name="azure-ad-connect-sync"></a>Sincronização do Azure AD Connect
 > [!NOTE]
-> Observação: o serviço de sincronização tem uma interface WMI que permite que você desenvolva seu próprio agendador personalizado. Esta interface agora está preterida e será removida de versões futuras do Azure AD Connect enviadas após 30 de junho de 2018. Os clientes que desejam personalizar o agendamento de sincronização devem usar o [Agendador integrado](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-feature-scheduler).
+> Observação: o serviço de sincronização tem uma interface WMI que permite que você desenvolva seu próprio agendador personalizado. Esta interface agora está preterida e será removida de versões futuras do Azure AD Connect enviadas após 30 de junho de 2018. Os clientes que desejam personalizar o agendamento de sincronização devem usar o [Agendador integrado](./how-to-connect-sync-feature-scheduler.md).
 #### <a name="fixed-issues"></a>Problemas corrigidos
 * Quando o assistente do Azure AD Connect cria a conta do AD Connector necessária para sincronizar as alterações do Active Directory Local, ele não atribui corretamente à conta a permissão necessária para ler objetos PublicFolder. Esse problema afeta a Instalação Expressa e a Instalação Personalizada. Essa alteração corrige o problema.
 
@@ -470,7 +470,7 @@ Status: 19 de outubro de 2017
 
 ### <a name="ad-fs-management"></a>Gerenciamento dos AD FS
 #### <a name="fixed-issue"></a>Problema corrigido
-* Corrigido um problema relacionado ao uso do recurso [ms-DS-ConsistencyGuid como Âncora de Origem](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-ms-ds-consistencyguid-as-sourceanchor). Esse problema afeta os clientes que configuraram a *federação com o AD FS* como o método de entrada do usuário. Quando você executa a tarefa *Configurar Âncora de Origem* no assistente, o Azure AD Connect muda para usar *ms-DS-ConsistencyGuid como o atributo de origem para immutableId. Como parte dessa alteração, o Azure AD Connect tenta atualizar as regras de declaração para ImmutableId no AD FS. No entanto, essa etapa falhava porque o Azure AD Connect não tinha as credenciais de administrador necessárias para configurar o AD FS. Com essa correção, o Azure AD Connect agora solicita que você insira as credenciais de administrador para o AD FS ao executar a tarefa *Configurar Âncora de Origem*.
+* Corrigido um problema relacionado ao uso do recurso [ms-DS-ConsistencyGuid como Âncora de Origem](./plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor). Esse problema afeta os clientes que configuraram a *federação com o AD FS* como o método de entrada do usuário. Quando você executa a tarefa *Configurar Âncora de Origem* no assistente, o Azure AD Connect muda para usar *ms-DS-ConsistencyGuid como o atributo de origem para immutableId. Como parte dessa alteração, o Azure AD Connect tenta atualizar as regras de declaração para ImmutableId no AD FS. No entanto, essa etapa falhava porque o Azure AD Connect não tinha as credenciais de administrador necessárias para configurar o AD FS. Com essa correção, o Azure AD Connect agora solicita que você insira as credenciais de administrador para o AD FS ao executar a tarefa *Configurar Âncora de Origem*.
 
 
 
@@ -485,7 +485,7 @@ Status: 5 de setembro de 2017
 * Há um problema conhecido com a atualização do Azure AD Connect que está afetando os clientes que habilitaram o [Logon Único Contínuo](how-to-connect-sso.md). Após a atualização do Azure AD Connect, o recurso é exibido como desabilitado no assistente, mesmo que na realidade o recurso permaneça habilitado. Uma correção para esse problema será fornecida em futuras versões. Os clientes que se preocupam com esse problema de exibição podem corrigi-lo manualmente habilitando o Logon Único Contínuo no assistente.
 
 #### <a name="fixed-issues"></a>Problemas corrigidos
-* Corrigido um problema que impedia que o Azure AD Connect atualizasse as regras de declarações no AD FS local, habilitando o recurso [ms-DS-ConsistencyGuid as Source Anchor](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-ms-ds-consistencyguid-as-sourceanchor). O problema ocorre se você tenta habilitar o recurso para uma implantação existente do Azure AD Connect com AD FS configurado como o método de entrada. O problema ocorre porque o assistente não solicita as credenciais do ADFS antes de tentar atualizar as regras de declarações no AD FS.
+* Corrigido um problema que impedia que o Azure AD Connect atualizasse as regras de declarações no AD FS local, habilitando o recurso [ms-DS-ConsistencyGuid as Source Anchor](./plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor). O problema ocorre se você tenta habilitar o recurso para uma implantação existente do Azure AD Connect com AD FS configurado como o método de entrada. O problema ocorre porque o assistente não solicita as credenciais do ADFS antes de tentar atualizar as regras de declarações no AD FS.
 * Corrigido um problema que causava falha na instalação do Azure AD Connect se a floresta do AD local estava com o NTLM desabilitado. O problema era devido ao assistente do Azure AD Connect não fornecer credenciais totalmente qualificadas ao criar os contextos de segurança necessários para a autenticação Kerberos. Isso faz com que a autenticação Kerberos falhe e que o assistente do Azure AD Connect volte a usar o NTLM.
 
 ### <a name="azure-ad-connect-sync"></a>Sincronização do Azure AD Connect
@@ -631,16 +631,16 @@ O problema que surge é que a **opção Sincronizar todos os domínios e UOs** f
 
 #### <a name="fixed-issues"></a>Problemas corrigidos
 
-* Foi corrigido um problema com Write-back de Senha que permitia que um administrador do Azure AD redefinisse a senha de uma conta de usuário privilegiado do AD local. O problema ocorre quando o Azure AD Connect recebe a permissão de Redefinição de senha sobre a conta privilegiada. O problema é corrigido nesta versão do Azure AD Connect não permitindo que um administrador do Azure AD redefina a senha de uma conta de usuário privilegiado arbitrária do AD local, a menos que o administrador seja o proprietário daquela conta. Para obter mais informações, consulte o [Security Advisory 4033453](https://technet.microsoft.com/library/security/4033453).
+* Foi corrigido um problema com Write-back de Senha que permitia que um administrador do Azure AD redefinisse a senha de uma conta de usuário privilegiado do AD local. O problema ocorre quando o Azure AD Connect recebe a permissão de Redefinição de senha sobre a conta privilegiada. O problema é corrigido nesta versão do Azure AD Connect não permitindo que um administrador do Azure AD redefina a senha de uma conta de usuário privilegiado arbitrária do AD local, a menos que o administrador seja o proprietário daquela conta. Para obter mais informações, consulte o [Security Advisory 4033453](/security-updates/SecurityAdvisories/2017/4033453).
 
-* Foi corrigido um problema relacionado ao recurso [ms-DS-ConsistencyGuid como âncora de origem](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-ms-ds-consistencyguid-as-sourceanchor) em que o Azure AD Connect não faz write-back no atributo ms-DS-ConsistencyGuid do AD local. O problema ocorre quando há várias florestas do AD locais adicionadas ao Azure AD Connect e a *opção Existem identidades de usuários em vários diretórios* está selecionada. Quando essa configuração é usada, as regras de sincronização resultantes não preenchem o atributo sourceAnchorBinary no metaverso. O atributo sourceAnchorBinary é usado como o atributo de origem para o atributo ms-DS-ConsistencyGuid. Como resultado, o write-back no atributo ms-DSConsistencyGuid não ocorre. Para corrigir o problema, as seguintes regras de sincronização foram atualizadas para garantir que o atributo sourceAnchorBinary no metaverso seja sempre populado:
+* Foi corrigido um problema relacionado ao recurso [ms-DS-ConsistencyGuid como âncora de origem](./plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor) em que o Azure AD Connect não faz write-back no atributo ms-DS-ConsistencyGuid do AD local. O problema ocorre quando há várias florestas do AD locais adicionadas ao Azure AD Connect e a *opção Existem identidades de usuários em vários diretórios* está selecionada. Quando essa configuração é usada, as regras de sincronização resultantes não preenchem o atributo sourceAnchorBinary no metaverso. O atributo sourceAnchorBinary é usado como o atributo de origem para o atributo ms-DS-ConsistencyGuid. Como resultado, o write-back no atributo ms-DSConsistencyGuid não ocorre. Para corrigir o problema, as seguintes regras de sincronização foram atualizadas para garantir que o atributo sourceAnchorBinary no metaverso seja sempre populado:
   * In from AD – InetOrgPerson AccountEnabled.xml
   * In from AD - InetOrgPerson Common.xml
   * In from AD - User AccountEnabled.xml
   * In from AD - User Common.xml
   * In from AD - User Join SOAInAAD.xml
 
-* Anteriormente, mesmo se o recurso [ms-DS-ConsistencyGuid como âncora de origem](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-ms-ds-consistencyguid-as-sourceanchor) não estivesse habilitado, a regra de sincronização "Out to AD – User ImmutableId" ainda seria adicionada ao Azure AD Connect. O efeito seria benigno e não faria com que o write-back do atributo ms-DS-ConsistencyGuid ocorresse. Para evitar confusão, foi adicionada uma lógica para garantir que a regra de sincronização seja adicionada somente quando o recurso estiver habilitado.
+* Anteriormente, mesmo se o recurso [ms-DS-ConsistencyGuid como âncora de origem](./plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor) não estivesse habilitado, a regra de sincronização "Out to AD – User ImmutableId" ainda seria adicionada ao Azure AD Connect. O efeito seria benigno e não faria com que o write-back do atributo ms-DS-ConsistencyGuid ocorresse. Para evitar confusão, foi adicionada uma lógica para garantir que a regra de sincronização seja adicionada somente quando o recurso estiver habilitado.
 
 * Foi corrigido um problema que causava a falha na sincronização de hash de senha com o evento de erro 611. Esse problema ocorria depois que um ou mais controladores de domínio eram removidos do AD local. No final de cada ciclo de sincronização de senha, o cookie de sincronização emitido pelo AD local continha IDs de invocação dos controladores de domínio removidos com valor de USN (números de sequência de atualização) igual a 0. O Gerenciador de Sincronização de Senha não é capaz de persistir o cookie de sincronização que tenha valor de USN igual a 0 e falha com o evento de erro 611. Durante o próximo ciclo de sincronização, o Gerenciador de Sincronização de Senha reutiliza o último cookie de sincronização persistido que não tenha o valor de USN igual a 0. Isso faz com que as mesmas alterações de senha sejam sincronizadas. Com essa correção, o Gerenciador de Sincronização de Senha persiste corretamente o cookie de sincronização.
 
@@ -648,12 +648,12 @@ O problema que surge é que a **opção Sincronizar todos os domínios e UOs** f
 
 #### <a name="new-features-and-improvements"></a>Novos recursos e aprimoramentos
 
-* Anteriormente, o recurso [ms-DS-ConsistencyGuid como âncora de origem](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-ms-ds-consistencyguid-as-sourceanchor) estava disponível somente para novas implantações. Agora ele está disponível para as implantações existentes. Mais especificamente:
+* Anteriormente, o recurso [ms-DS-ConsistencyGuid como âncora de origem](./plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor) estava disponível somente para novas implantações. Agora ele está disponível para as implantações existentes. Mais especificamente:
   * Para acessar o recurso, inicie o assistente Azure AD Connect e escolha a opção *Atualizar âncora de origem*.
   * Essa opção só está visível para as implantações existentes que estejam usando o objectGuid como atributo sourceAnchor.
   * Ao configurar a opção, o assistente validará o estado do atributo ms-DS-ConsistencyGuid em seu Active Directory local. Se o atributo não estiver configurado em nenhum objeto de usuário no diretório, o assistente usará o ms-DS-ConsistencyGuid como o atributo sourceAnchor. Se o atributo estiver configurado em um ou mais objetos de usuário no diretório, o assistente concluirá que o atributo está sendo usado por outros aplicativos e não é adequado como atributo sourceAnchor, não permitindo que a alteração da Âncora de origem prossiga. Se você tiver certeza de que o atributo não é usado pelos aplicativos existentes, precisará contatar o Suporte para obter informações sobre como suprimir o erro.
 
-* Específico ao atributo **userCertificate** nos objetos de dispositivo, o Azure AD Connect agora procura por valores de certificados necessários para [Conectar dispositivos ingressados no domínio ao Azure AD para a experiência do Windows 10](https://docs.microsoft.com/azure/active-directory/active-directory-azureadjoin-devices-group-policy) e filtra o restante antes da sincronização com o Azure AD. Para habilitar esse comportamento, a regra de sincronização integrada "Out to AAD – Device Join SOAInAD" foi atualizada.
+* Específico ao atributo **userCertificate** nos objetos de dispositivo, o Azure AD Connect agora procura por valores de certificados necessários para [Conectar dispositivos ingressados no domínio ao Azure AD para a experiência do Windows 10](../devices/hybrid-azuread-join-plan.md) e filtra o restante antes da sincronização com o Azure AD. Para habilitar esse comportamento, a regra de sincronização integrada "Out to AAD – Device Join SOAInAD" foi atualizada.
 
 * Agora o Azure AD Connect dá suporte ao write-back do atributo **cloudPublicDelegates** do Exchange Online no atributo **publicDelegates** do AD local. Isso habilita o cenário em que uma caixa de correio do Exchange Online possa obter direitos de SendOnBehalfTo para usuários com caixa de correio do Exchange local. Para dar suporte a esse recurso, uma nova regra de sincronização integrada "Out to AD – User Exchange Hybrid PublicDelegates writeback" foi adicionada. Essa regra de sincronização só é adicionada ao Azure AD Connect quando o recurso Exchange Híbrido está habilitado.
 
@@ -844,7 +844,7 @@ Sincronização do Azure AD Connect
 * No seu locatário do Azure AD, há uma configuração de serviço que indica se o recurso de Sincronização de Senha está habilitado para o seu locatário ou não. Anteriormente, era fácil que configuração de serviço fosse configurado incorretamente pelo Azure AD Connect quando havia um servidor de preparo e um ativo. Agora, o Azure AD Connect tentará manter a configuração de serviço consistente com o servidor ativo do Azure AD Connect, somente.
 * O assistente do Azure AD Connect agora detecta e retorna um aviso se o AD local não tiver Lixeira do AD ativada.
 * Anteriormente, Exportar para o Azure AD expirava e falhava se o tamanho combinado dos objetos no lote excedesse um determinado limite. Agora, o Serviço de Sincronização tentará reenviar os objetos em lotes menores se o problema for encontrado.
-* O aplicativo de Gerenciamento de Chaves de Serviço de Sincronização foi removido do Menu Iniciar do Windows. O Gerenciamento de chave de criptografia continuará a oferecer suporte por meio da interface de linha de comando usando miiskmu.exe. Para obter informações sobre o gerenciamento de chave de criptografia, consulte o artigo [Abandonando a chave de criptografia de sincronização do Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-change-serviceacct-pass#abandoning-the-adsync-service-account-encryption-key).
+* O aplicativo de Gerenciamento de Chaves de Serviço de Sincronização foi removido do Menu Iniciar do Windows. O Gerenciamento de chave de criptografia continuará a oferecer suporte por meio da interface de linha de comando usando miiskmu.exe. Para obter informações sobre o gerenciamento de chave de criptografia, consulte o artigo [Abandonando a chave de criptografia de sincronização do Azure AD Connect](./how-to-connect-sync-change-serviceacct-pass.md#abandoning-the-adsync-service-account-encryption-key).
 * Anteriormente, se você alterava a senha da conta de serviço de sincronização do Azure AD Connect, o Serviço de Sincronização não poderia iniciar corretamente até que você tivesse abandonado a chave de criptografia e reinicializado a senha da conta do serviço de sincronização do Azure AD Connect. Agora, esse processo não é mais necessário.
 
 SSO da Área de Trabalho
@@ -1023,7 +1023,7 @@ Lançado: Fevereiro de 2016
 **Novos recursos:**
 
 * [Automatic upgrade](how-to-connect-install-automatic-upgrade.md) para clientes de configurações Expressas.
-* Suporte para o administrador global usando a Autenticação Multifator do Azure e o Privileged Identity Management no assistente de instalação.
+* Suporte para o administrador global usando a autenticação multifator do Azure AD e Privileged Identity Management no assistente de instalação.
   * Você precisará permitir que o proxy também permita o tráfego para https://secure.aadcdn.microsoftonline-p.com se usar a Autenticação Multifator.
   * Você precisa adicionar https://secure.aadcdn.microsoftonline-p.com à lista de sites confiáveis para que a Autenticação Multifator funcione corretamente.
 * Permita alterar o método de logon do usuário após a instalação inicial.
@@ -1072,7 +1072,7 @@ Lançado: Novembro de 2015
 
 **Novo cenário com suporte:**
 
-* Dá suporte a várias organizações local do Exchange. Para obter mais informações, confira [Implantações híbridas com várias florestas do Active Directory](https://docs.microsoft.com/previous-versions/exchange-server/exchange-150/jj873754(v=exchg.150)).
+* Dá suporte a várias organizações local do Exchange. Para obter mais informações, confira [Implantações híbridas com várias florestas do Active Directory](/previous-versions/exchange-server/exchange-150/jj873754(v=exchg.150)).
 
 **Problemas corrigidos:**
 
@@ -1181,7 +1181,7 @@ Lançado: Dezembro de 2014
 **Novos recursos:**
 
 * Agora há suporte para a sincronização de senhas com filtragem baseada em atributo. Para obter mais informações, confira [Sincronização de senha com filtragem](how-to-connect-sync-configure-filtering.md).
-* O atributo ms-DS-ExternalDirectoryObjectID será gravado de volta no Active Directory. Esse recurso adiciona suporte a aplicativos do Office 365. Ele usa OAuth2 para acessar caixas de correio locais e online em uma Implantação Híbrida do Exchange.
+* O atributo ms-DS-ExternalDirectoryObjectID será gravado de volta no Active Directory. Este recurso adiciona suporte para aplicativos Microsoft 365. Ele usa OAuth2 para acessar caixas de correio locais e online em uma Implantação Híbrida do Exchange.
 
 **Problemas de atualização corrigidos:**
 

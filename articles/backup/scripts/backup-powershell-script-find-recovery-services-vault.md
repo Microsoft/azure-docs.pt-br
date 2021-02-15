@@ -3,16 +3,17 @@ title: Script do PowerShell – localizar o Cofre da Conta de Armazenamento
 description: Saiba como usar um script do Azure PowerShell para localizar o cofre dos Serviços de Recuperação em que sua conta de armazenamento está registrada.
 ms.topic: sample
 ms.date: 1/28/2020
-ms.openlocfilehash: b343b2f93ed439188c5c0238bf108064f6e132c1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 40859c1ea05210d27fcdcf33ba9d4f961965ea22
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513244"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89075691"
 ---
-# <a name="powershell-script-to-find-the-recovery-services-vault-where-a-storage-account-is-registered"></a>O Script do PowerShell localiza o Cofre dos Serviços de Recuperação em que uma Conta de Armazenamento está registrada
+# <a name="powershell-script-to-find-the-recovery-services-vault-where-a-storage-account-is-registered"></a>O Script do PowerShell localiza o cofre dos Serviços de Recuperação em que uma Conta de Armazenamento está registrada
 
-O script ajuda a localizar o cofre dos Serviços de Recuperação em que sua conta de armazenamento está registrada.
+Esse script ajuda a localizar o cofre dos Serviços de Recuperação em que sua conta de armazenamento está registrada.
 
 ## <a name="sample-script"></a>Exemplo de script
 

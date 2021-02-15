@@ -6,11 +6,11 @@ manager: rochakm
 ms.topic: troubleshooting
 ms.date: 04/03/2020
 ms.openlocfilehash: dc14334668b76ee8cbb81e48abfe1eecf17fa138
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86130402"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96007351"
 ---
 # <a name="troubleshoot-replication-in-azure-vm-disaster-recovery"></a>Solucionar problemas de replicação na recuperação de desastre de VM do Azure
 
@@ -65,7 +65,7 @@ Azure Site Recovery tem limites de taxas de alteração de dados, dependendo do 
 Um pico na taxa de alteração de dados pode vir de uma intermitência de dados ocasional. Se a taxa de alteração de dados for maior que 10 MB/s (para Premium) ou 2 MB/s (para o padrão) e ficar inativa, a replicação será atualizada. Se a rotatividade estiver consistentemente bem além do limite com suporte, considere uma destas opções:
 
 - Exclua o disco que está causando uma alta taxa de alteração de dados: primeiro, desabilite a replicação. Em seguida, você pode excluir o disco usando o [PowerShell](azure-to-azure-exclude-disks.md).
-- Alterar a camada do disco de armazenamento de recuperação de desastre: essa opção só será possível se a variação de dados do disco for menor que 20 MB/s. Por exemplo, uma VM com um disco P10 tem uma variação de dados maior que 8 MB/s, mas menos de 10 MB/s. Se o cliente puder usar um disco P30 para o armazenamento de destino durante a proteção, o problema poderá ser resolvido. Esta solução só é possível para computadores que usam o Managed Disks Premium. Siga estas etapas:
+- Alterar a camada do disco de armazenamento de recuperação de desastre: essa opção só será possível se a variação de dados do disco for menor que 20 MB/s. Por exemplo, uma VM com um disco P10 tem uma variação de dados maior que 8 MB/s, mas menos de 10 MB/s. Se o cliente puder usar um disco P30 para o armazenamento de destino durante a proteção, o problema poderá ser resolvido. Essa solução só é possível para computadores que estejam usando discos Premium-Managed. Siga estas etapas:
 
   1. Vá para **discos** do computador replicado afetado e copie o nome do disco de réplica.
   1. Vá para esta réplica do disco gerenciado.

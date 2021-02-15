@@ -1,15 +1,15 @@
 ---
-title: PowerShell-criar uma função personalizada em um laboratório no Azure DevTest Labs
-description: Este artigo fornece um script Azure PowerShell que adiciona um usuário externo a um laboratório no Azure DevTest Labs.
+title: PowerShell – Criar uma função personalizada em um laboratório do Azure DevTest Labs
+description: Este artigo fornece um script do Azure PowerShell que criará uma função personalizada em um laboratório do Azure DevTest Labs.
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 08/11/2020
-ms.openlocfilehash: 9b6e4d47babd17916e31ab2762ec87f6aa433da6
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: 3757d6c16a762a0f76f4718f117da93322af074c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88136194"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021190"
 ---
 # <a name="use-powershell-to-create-a-custom-role-in-a-lab-in-azure-devtest-labs"></a>Use o PowerShell para criar uma função personalizada em um laboratório no Azure DevTest Labs
 
@@ -33,7 +33,7 @@ Este script usa os seguintes comandos:
 | Comando | Observações |
 |---|---|
 | [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) | Obtém as operações de um provedor de recursos do Azure que são protegidas usando o RBAC do Azure. |
-| [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) | Lista todas as funções do Azure que estão disponíveis para atribuição. |
+| [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) | Lista todas as funções do Azure disponíveis para atribuição. |
 | [New-AzRoleDefinition](/powershell/module/az.resources/new-azroledefinition) | Cria uma Função personalizada. |
 
 ## <a name="next-steps"></a>Próximas etapas

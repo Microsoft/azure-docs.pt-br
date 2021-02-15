@@ -6,12 +6,12 @@ metadata:
   title: Documentação dos serviços de contêiner do Microsoft Azure | Microsoft Docs
   description: Saiba como usar os serviços de contêiner do Azure para gerenciar e desenvolver aplicativos de contêiner baseados em nuvem.
   ms.topic: hub-page
-  ms.openlocfilehash: a7b1480061a1482e5a7980fd89d9d28d89561d31
-  ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+  ms.openlocfilehash: a1ed2769438208b422907dcb8758bd6f3c130986
+  ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 08/11/2020
-  ms.locfileid: "88080840"
+  ms.lasthandoff: 11/30/2020
+  ms.locfileid: "96349224"
 highlightedContent:
   items:
   - itemType: whats-new
@@ -44,10 +44,10 @@ conceptualContent:
     - url: /visualstudio/containers/overview-local-process-kubernetes
       itemType: concept
       text: Como o processo local com Kubernetes funciona
-    - url: ../dev-spaces/how-to/local-process-kubernetes-vs-code.md
+    - url: https://code.visualstudio.com/docs/containers/bridge-to-kubernetes
       itemType: how-to-guide
       text: Usar o Local Process with Kubernetes com o Visual Studio Code
-    - url: ../dev-spaces/how-to/local-process-kubernetes-visual-studio.md
+    - url: /visualstudio/containers/bridge-to-kubernetes
       itemType: how-to-guide
       text: Usar o Local Process with Kubernetes com o Visual Studio
   - title: Criar aplicativos de nuvem para a Web e móvel
@@ -64,10 +64,10 @@ conceptualContent:
     - url: ../app-service/quickstart-custom-container.md
       itemType: get-started
       text: Executar um contêiner personalizado do Windows
-    - url: ../app-service/containers/quickstart-docker.md
+    - url: ../app-service/quickstart-custom-container.md?pivots=platform-linux%253fpivots%253dplatform-linux
       itemType: quickstart
       text: Executar um contêiner personalizado do Linux
-    - url: ../app-service/containers/quickstart-multi-container.md
+    - url: ../app-service/quickstart-multi-container.md
       itemType: quickstart
       text: Criar um aplicativo multicontêiner do Linux
     footerLink:
@@ -144,14 +144,14 @@ conceptualContent:
       itemType: tutorial
       text: Criar um cluster do Red Hat OpenShift no Azure
     footerLink:
-      url: /azure/openshift/
+      url: ../openshift/index.yml
       text: Ver mais
   - title: Desenvolvimento de aplicativos sem servidor
     links:
     - url: ../azure-functions/functions-overview.md
       itemType: overview
       text: Introdução ao Azure Functions
-    - url: ../azure-functions/functions-create-first-function-vs-code.md
+    - url: ../azure-functions/create-first-function-vs-code-csharp.md
       itemType: quickstart
       text: Criar sua primeira função
     - url: ../azure-functions/functions-triggers-bindings.md

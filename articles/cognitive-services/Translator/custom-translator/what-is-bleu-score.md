@@ -2,19 +2,19 @@
 title: O que é uma pontuação no BLEU? - Tradutor Personalizado
 titleSuffix: Azure Cognitive Services
 description: BLEU é uma medida das diferenças entre tradução automática e traduções de referência criadas pelo homem da mesma sentença de origem.
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 08/17/2020
-ms.author: swmachan
-ms.openlocfilehash: 61c1efb7337bee5fe329c9d548e23f3931e6ce3c
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.author: lajanuar
+ms.openlocfilehash: 6691c1b91a3d26312e279cadc97a1bb95838c04f
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88510769"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895570"
 ---
 # <a name="what-is-a-bleu-score"></a>O que é uma pontuação no BLEU?
 

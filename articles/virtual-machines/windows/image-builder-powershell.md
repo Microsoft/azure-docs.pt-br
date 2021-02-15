@@ -8,19 +8,19 @@ ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.subservice: imaging
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e25b2b53acdfb05af8572a01109961bf3002e429
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 7e902798284240b55a3b08ea55ab6ee55add2431
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87499408"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575831"
 ---
 # <a name="preview-create-a-windows-vm-with-azure-image-builder-using-powershell"></a>Versão prévia: criar uma VM do Windows com o construtor de imagem do Azure usando o PowerShell
 
 Este artigo demonstra como você pode criar uma imagem personalizada do Windows usando o módulo do PowerShell do construtor de imagem de VM do Azure.
 
 > [!CAUTION]
-> O Construtor de Imagens do Azure está atualmente em versão prévia pública. Esta versão de visualização é fornecida sem um contrato de nível de serviço. Não é recomendável para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> O Construtor de Imagens do Azure está atualmente em versão prévia pública. A versão prévia é fornecida sem um contrato de nível de serviço. Ela não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -37,7 +37,7 @@ Se você optar por usar o PowerShell localmente, este artigo exigirá que você 
 
 [!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
 
-Se tiver várias assinaturas do Azure, escolha a que for adequada para cobrança do recurso. Selecione uma assinatura específica usando o cmdlet [set-AzContext](/powershell/module/az.accounts/set-azcontext) .
+Se tiver várias assinaturas do Azure, escolha a que for adequada para cobrança do recurso. Selecione uma assinatura específica usando o cmdlet [Set-AzContext](/powershell/module/az.accounts/set-azcontext).
 
 ```azurepowershell-interactive
 Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
@@ -103,7 +103,7 @@ Write-Output $subscriptionID
 
 Crie um [grupo de recursos do Azure](../../azure-resource-manager/management/overview.md) usando o cmdlet [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Um grupo de recursos é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados como um grupo.
 
-O exemplo a seguir cria um grupo de recursos com base no nome na `$imageResourceGroup` variável na região especificada na `$location` variável. Esse grupo de recursos é usado para armazenar o artefato do modelo de configuração de imagem e a imagem.
+O exemplo a seguir cria um grupo de recursos com base no nome na variável `$imageResourceGroup` na região especificada na variável `$location`. Esse grupo de recursos é usado para armazenar o artefato do modelo de configuração de imagem e a imagem.
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name $imageResourceGroup -Location $location
@@ -231,13 +231,25 @@ $disSharedImg = New-AzImageBuilderDistributorObject @disObjParams
 Crie um objeto de personalização do Azure Image Builder.
 
 ```azurepowershell-interactive
-$ImgCustomParams = @{
+$ImgCustomParams01 = @{
   PowerShellCustomizer = $true
   CustomizerName = 'settingUpMgmtAgtPath'
   RunElevated = $false
-  Inline = @("mkdir c:\\buildActions", "echo Azure-Image-Builder-Was-Here  > c:\\buildActions\\buildActionsOutput.txt")
+  Inline = @("mkdir c:\\buildActions", "mkdir c:\\buildArtifacts", "echo Azure-Image-Builder-Was-Here  > c:\\buildActions\\buildActionsOutput.txt")
 }
-$Customizer = New-AzImageBuilderCustomizerObject @ImgCustomParams
+$Customizer01 = New-AzImageBuilderCustomizerObject @ImgCustomParams01
+```
+
+Crie um segundo objeto de personalização do Azure Image Builder.
+
+```azurepowershell-interactive
+$ImgCustomParams02 = @{
+  FileCustomizer = $true
+  CustomizerName = 'downloadBuildArtifacts'
+  Destination = 'c:\\buildArtifacts\\index.html'
+  SourceUri = 'https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/exampleArtifacts/buildArtifacts/index.html'
+}
+$Customizer02 = New-AzImageBuilderCustomizerObject @ImgCustomParams02
 ```
 
 Crie um modelo do Azure Image Builder.
@@ -248,7 +260,7 @@ $ImgTemplateParams = @{
   ResourceGroupName = $imageResourceGroup
   Source = $srcPlatform
   Distribute = $disSharedImg
-  Customize = $Customizer
+  Customize = $Customizer01, $Customizer02
   Location = $location
   UserAssignedIdentityId = $identityNameResourceId
 }
@@ -271,7 +283,7 @@ Em segundo plano, o construtor de imagem também cria um grupo de recursos de pr
 
 Se o serviço relatar uma falha durante o envio do modelo de configuração de imagem:
 
-- Consulte [Solucionando problemas de falhas de compilação de imagem de VM do Azure (AIB)](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#template-submission-errors--troubleshooting).
+- Consulte [Solucionando problemas de falhas de compilação de imagem de VM do Azure (AIB)](../linux/image-builder-troubleshoot.md).
 - Exclua o modelo usando o exemplo a seguir antes de tentar novamente.
 
 ```azurepowershell-interactive
@@ -288,11 +300,11 @@ Start-AzImageBuilderTemplate -ResourceGroupName $imageResourceGroup -Name $image
 
 Aguarde a conclusão do processo de criação de imagem. Esta etapa pode levar até uma hora.
 
-Se você encontrar erros, examine [solução de problemas de falhas de compilação de imagem de VM do Azure (AIB)](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#image-build-errors--troubleshooting).
+Se você encontrar erros, examine [solução de problemas de falhas de compilação de imagem de VM do Azure (AIB)](../linux/image-builder-troubleshoot.md).
 
 ## <a name="create-a-vm"></a>Criar uma máquina virtual
 
-Armazene as credenciais de logon para a VM em uma variável. A senha deve ser complexa.
+Armazene as credenciais de logon da VM em uma variável. A senha deve ser complexa.
 
 ```azurepowershell-interactive
 $Cred = Get-Credential
@@ -306,7 +318,7 @@ $ArtifactId = (Get-AzImageBuilderRunOutput -ImageTemplateName $imageTemplateName
 New-AzVM -ResourceGroupName $imageResourceGroup -Image $ArtifactId -Name myWinVM01 -Credential $Cred
 ```
 
-## <a name="verify-the-customization"></a>Verificar a personalização
+## <a name="verify-the-customizations"></a>Verificar as personalizações
 
 Crie uma Conexão de Área de Trabalho Remota com a VM usando o nome de usuário e a senha que você definiu quando criou a VM. Dentro da VM, abra o PowerShell e execute `Get-Content` conforme mostrado no exemplo a seguir:
 
@@ -320,9 +332,26 @@ Você deve ver a saída com base no conteúdo do arquivo criado durante o proces
 Azure-Image-Builder-Was-Here
 ```
 
+Na mesma sessão do PowerShell, verifique se a segunda personalização foi concluída com êxito verificando a presença do arquivo `c:\buildArtifacts\index.html` , conforme mostrado no exemplo a seguir:
+
+```azurepowershell-interactive
+Get-ChildItem c:\buildArtifacts\
+```
+
+O resultado deve ser uma listagem de diretório mostrando o arquivo baixado durante o processo de personalização da imagem.
+
+```Output
+    Directory: C:\buildArtifacts
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a---          29/01/2021    10:04            276 index.html
+```
+
+
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Se os recursos criados neste artigo não forem necessários, você poderá excluí-los executando os exemplos a seguir.
+Se os recursos criados neste artigo não forem necessários, você poderá excluí-los executando o exemplo a seguir.
 
 ### <a name="delete-the-image-builder-template"></a>Excluir o modelo do construtor de imagem
 
@@ -342,4 +371,4 @@ Remove-AzResourceGroup -Name $imageResourceGroup
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre os componentes do arquivo. JSON usado neste artigo, consulte referência de [modelo do Image Builder](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Para saber mais sobre os componentes do arquivo. JSON usado neste artigo, consulte referência de [modelo do Image Builder](../linux/image-builder-json.md).

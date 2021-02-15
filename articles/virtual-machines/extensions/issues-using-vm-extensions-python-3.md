@@ -9,17 +9,18 @@ manager: dcscontentpm
 editor: ''
 tags: top-support-issue,azure-resource-manager
 ms.service: virtual-machines-windows
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/25/2020
 ms.assetid: 3cd520fd-eaf7-4ef9-b4d3-4827057e5028
-ms.openlocfilehash: 15ece836e172b8316222ea606ca638650795d5d7
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: c5593257fa17944eebce6346a1eb9e88e7af2c06
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88852606"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965945"
 ---
 # <a name="issues-using-vm-extensions-in-python-3-enabled-linux-azure-virtual-machines-systems"></a>Problemas ao usar extensões de VM em sistemas de máquinas virtuais Linux do Azure habilitadas para Python 3
 

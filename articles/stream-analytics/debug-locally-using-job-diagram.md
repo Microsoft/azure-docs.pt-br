@@ -3,16 +3,15 @@ title: Depurar Azure Stream Analytics consultas localmente usando o diagrama de 
 description: Este artigo descreve como depurar consultas localmente usando o diagrama de trabalho no Azure Stream Analytics Tools para Visual Studio.
 author: su-jie
 ms.author: sujie
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 01/23/2020
-ms.openlocfilehash: 86367f1dce3cc8040555827935e9ca2f9f9fb4c5
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: d0e94fda1fb21be1a01516f4cecf657426ae867e
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045392"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019441"
 ---
 # <a name="debug-azure-stream-analytics-queries-locally-using-job-diagram-in-visual-studio"></a>Depurar Azure Stream Analytics consultas localmente usando o diagrama de trabalho no Visual Studio
 
@@ -55,14 +54,14 @@ Nesta seção, você explora as métricas disponíveis para cada parte do diagra
 |Métrica|Descrição|
 |-|-|
 |**TaxiRide**| Nome da entrada.|
-|**Hub de evento** | Tipo de fonte de entrada.|
+|**Hub de Evento** | Tipo de fonte de entrada.|
 |**Eventos**|O número de eventos lidos.|
 |**Fontes de evento de registro posterior**|Quantas mensagens mais precisam ser lidas para os hubs de eventos e entradas do Hub IoT.|
 |**Eventos em bytes**|O número de bytes lidos.|
 | **Eventos degradados**|A contagem de eventos que tiveram um problema diferente de desserialização.|
 |**Eventos antecipados**| O número de eventos que têm um carimbo de data/hora do aplicativo antes da marca d' água alta.|
 |**Eventos atrasados**| O número de eventos que têm um carimbo de data/hora do aplicativo após a marca d' água alta.|
-|**Origens do evento**| O número de unidades de dados lidas. Por exemplo, o número de blobs.|
+|**Origens do Evento**| O número de unidades de dados lidas. Por exemplo, o número de blobs.|
 
 #### <a name="input-sources-local-input"></a>Fontes de entrada (entrada local)
 
@@ -71,7 +70,7 @@ Nesta seção, você explora as métricas disponíveis para cada parte do diagra
 |Métrica|Descrição|
 |-|-|
 |**TaxiRide**| Nome da entrada.|
-|**Contagem de linhas**| O número de linhas geradas a partir da etapa.|
+|**Contagem de Linhas**| O número de linhas geradas a partir da etapa.|
 |**Tamanho dos dados**| O tamanho dos dados gerados nesta etapa.|
 |**Entrada local**| Use dados locais como entrada.|
 
@@ -82,12 +81,12 @@ Nesta seção, você explora as métricas disponíveis para cada parte do diagra
 |Métrica|Descrição|
 |-|-|
 |**TripData**|O nome do conjunto de resultados temporário.|
-|**Contagem de linhas**| O número de linhas geradas a partir da etapa.|
+|**Contagem de Linhas**| O número de linhas geradas a partir da etapa.|
 |**Tamanho dos dados**| O tamanho dos dados gerados nesta etapa.|
   
 #### <a name="output-sinks-live-output"></a>Coletores de saída (saída ao vivo)
 
-![Coletor de saída local do diagrama de trabalho](./media/debug-locally-using-job-diagram/live-output.png)
+![Diagrama de trabalho que mostra os coletores de saída local.](./media/debug-locally-using-job-diagram/live-output.png)
 
 |Métrica|Descrição|
 |-|-|
@@ -102,7 +101,7 @@ Nesta seção, você explora as métricas disponíveis para cada parte do diagra
 |-|-|
 |**regionaggEH**|Nome da saída.|
 |**Saída local**| Saída de resultado para um arquivo local.|
-|**Contagem de linhas**| O número de linhas de saída para o arquivo local.|
+|**Contagem de Linhas**| O número de linhas de saída para o arquivo local.|
 |**Tamanho dos dados**| O tamanho da saída de dados para o arquivo local.|
 
 ### <a name="close-job-diagram"></a>Fechar diagrama de trabalho
@@ -119,7 +118,7 @@ Outras métricas de nível de trabalho aparecem no console pop-up. Pressione **C
 
 * Não há suporte para Power BI e Azure Data Lake Storage Gen1 coletores de saída devido a limitações do modelo de autenticação.
 
-* Somente opções de entrada de nuvem têm suporte para [políticas de tempo](stream-analytics-out-of-order-and-late-events.md), as opções de entrada locais, não.
+* Somente opções de entrada de nuvem têm suporte para [políticas de tempo](./stream-analytics-time-handling.md), as opções de entrada locais, não.
 
 ## <a name="next-steps"></a>Próximas etapas
 

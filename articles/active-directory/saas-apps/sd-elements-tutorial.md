@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 323d6324bc99028a3df4cb9cada133ad8cd990aa
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: a9bcda4affa19cf8793cd078fdc5b96d842eb42b
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88543254"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92893567"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sd-elements"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao SD Elements
 
@@ -26,7 +26,7 @@ Neste tutorial, você aprenderá a integrar o SD Elements ao Azure AD (Azure Act
 * Permitir que os usuários sejam conectados automaticamente ao SD Elements com as contas do Azure AD deles.
 * Gerenciar suas contas em um local central: o portal do Azure.
 
-Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -49,7 +49,7 @@ Para configurar a integração de SD Elements ao Azure AD, você precisa adicion
 1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory**.
 1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos**.
 1. Para adicionar um novo aplicativo, escolha **Novo aplicativo**.
-1. Na seção **Adicionar da galeria**, digite **SD Elements** na caixa de pesquisa.
+1. Na seção **Adicionar da galeria** , digite **SD Elements** na caixa de pesquisa.
 1. Selecione **SD Elements** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
 
@@ -70,13 +70,13 @@ Para configurar e testar o SSO do Azure AD com o SD Elements, conclua os seguint
 
 Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **SD Elements**, localize a seção **Gerenciar** e selecione **logon único**.
-1. Na página **Selecionar um método de logon único**, escolha **SAML**.
-1. Na página **Configurar o logon único com o SAML**, clique no ícone de edição/caneta da **Configuração Básica do SAML** para editar as configurações.
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **SD Elements** , localize a seção **Gerenciar** e selecione **logon único**.
+1. Na página **Selecionar um método de logon único** , escolha **SAML**.
+1. Na página **Configurar o logon único com o SAML** , clique no ícone de edição/caneta da **Configuração Básica do SAML** para editar as configurações.
 
    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-1. Na página **Configurar logon único com SAML**, insira os valores para os seguintes campos:
+1. Na página **Configurar logon único com SAML** , insira os valores para os seguintes campos:
 
     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<tenantname>.sdelements.com/sso/saml2/metadata`
 
@@ -97,11 +97,11 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
     | nome |user.givenname |
     | sobrenome |user.surname |
 
-1. Na página **Configurar o logon único com o SAML**, na seção **Certificado de Autenticação SAML**, localize **Certificado (Base64)** e selecione **Baixar** para baixar o certificado e salvá-lo no computador.
+1. Na página **Configurar o logon único com o SAML** , na seção **Certificado de Autenticação SAML** , localize **Certificado (Base64)** e selecione **Baixar** para baixar o certificado e salvá-lo no computador.
 
     ![O link de download do Certificado](common/certificatebase64.png)
 
-1. Na seção **Configurar o SD Elements**, copie as URLs apropriadas de acordo com suas necessidades.
+1. Na seção **Configurar o SD Elements** , copie as URLs apropriadas de acordo com suas necessidades.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
@@ -109,11 +109,11 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 Nesta seção, você criará um usuário de teste no portal do Azure chamado B.Fernandes.
 
-1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory**, **Usuários** e, em seguida, **Todos os usuários**.
+1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory** , **Usuários** e, em seguida, **Todos os usuários**.
 1. Selecione **Novo usuário** na parte superior da tela.
-1. Nas propriedades do **Usuário**, siga estas etapas:
-   1. No campo **Nome**, insira `B.Simon`.  
-   1. No campo **Nome de usuário**, insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
+1. Nas propriedades do **Usuário** , siga estas etapas:
+   1. No campo **Nome** , insira `B.Simon`.  
+   1. No campo **Nome de usuário** , insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
    1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha**.
    1. Clique em **Criar**.
 
@@ -131,9 +131,9 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 
     ![O link Adicionar Usuário](common/add-assign-user.png)
 
-1. Na caixa de diálogo **Usuários e grupos**, selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
-1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função**, escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
-1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
+1. Na caixa de diálogo **Usuários e grupos** , selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função** , escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
+1. Na caixa de diálogo **Adicionar atribuição** , clique no botão **Atribuir**.
 
 ## <a name="configure-sd-elements-sso"></a>Configurar o SSO do SD Elements
 
@@ -143,17 +143,17 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 
 1. No menu na parte superior, clique em **Sistema** e, depois, em **Logon Único**.
 
-    ![Configurar o logon único](./media/sd-elements-tutorial/tutorial_sd-elements_09.png)
+    ![Captura de tela que mostra a opção "Sistema" selecionada e a opção "Logon único" selecionada na lista suspensa.](./media/sd-elements-tutorial/tutorial_sd-elements_09.png)
 
 1. Na caixa de diálogo **Configurações de Logon Único** , execute as seguintes etapas:
 
     ![Configurar o logon único](./media/sd-elements-tutorial/tutorial_sd-elements_10.png)
 
-    a. Como **Tipo de SSO**, selecione **SAML**.
+    a. Como **Tipo de SSO** , selecione **SAML**.
 
-    b. Na caixa de texto **ID da Entidade do Provedor de Identidade**, cole o valor de **Identificador do Azure AD**, copiado do portal do Azure.
+    b. Na caixa de texto **ID da Entidade do Provedor de Identidade** , cole o valor de **Identificador do Azure AD** , copiado do portal do Azure.
 
-    c. Na caixa de texto **Serviço de Logon Único do Provedor de Identidade**, cole o valor de **URL de Logon** que você copiou do portal do Azure.
+    c. Na caixa de texto **Serviço de Logon Único do Provedor de Identidade** , cole o valor de **URL de Logon** que você copiou do portal do Azure.
 
     d. Clique em **Save** (Salvar).
 
@@ -167,23 +167,23 @@ O objetivo desta seção é criar um usuário com o nome B.Fernandes no SD Eleme
 
 1. No menu na parte superior, clique em **Gerenciamento de Usuários** e, depois, em **Usuários**.
 
-    ![Criar um usuário de teste de elementos de SD](./media/sd-elements-tutorial/tutorial_sd-elements_11.png) 
+    ![Captura de tela que mostra a opção "Usuários" selecionada na lista suspensa "Gerenciamento de Usuários".](./media/sd-elements-tutorial/tutorial_sd-elements_11.png) 
 
 1. Clique em **Adicionar Novo Usuário**.
 
-    ![Criar um usuário de teste de elementos de SD](./media/sd-elements-tutorial/tutorial_sd-elements_12.png)
+    ![Uma captura de tela que mostra o botão "Adicionar Novo Usuário" selecionado.](./media/sd-elements-tutorial/tutorial_sd-elements_12.png)
 
-1. Na caixa de diálogo **Adicionar Novo Usuário**, realize as seguintes etapas:
+1. Na caixa de diálogo **Adicionar Novo Usuário** , realize as seguintes etapas:
 
     ![Criar um usuário de teste de elementos de SD](./media/sd-elements-tutorial/tutorial_sd-elements_13.png) 
 
-    a. Na caixa de texto **Email**, insira o email do usuário, como **b.simon@contoso.com** .
+    a. Na caixa de texto **Email** , insira o email do usuário, como **b.simon@contoso.com** .
 
-    b. Na caixa de texto **Nome**, digite o nome do usuário, como **B.** .
+    b. Na caixa de texto **Nome** , digite o nome do usuário, como **B.** .
 
-    c. Na caixa de texto **Sobrenome**, digite o sobrenome do usuário como **Fernandes**.
+    c. Na caixa de texto **Sobrenome** , digite o sobrenome do usuário como **Fernandes**.
 
-    d. Como **Função**, selecione **Usuário**.
+    d. Como **Função** , selecione **Usuário**.
 
     e. Clique em **Criar Usuário**.
 
@@ -191,14 +191,14 @@ O objetivo desta seção é criar um usuário com o nome B.Fernandes no SD Eleme
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Ao clicar no bloco do SD Elements no Painel de Acesso, você será conectado automaticamente ao aplicativo SD Elements para o qual configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao clicar no bloco do SD Elements no Painel de Acesso, você será conectado automaticamente ao aplicativo SD Elements para o qual configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](./tutorial-list.md)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)
 
 - [Experimente o SD Elements com o Azure AD](https://aad.portal.azure.com/)

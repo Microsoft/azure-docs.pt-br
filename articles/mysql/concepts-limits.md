@@ -1,17 +1,17 @@
 ---
 title: Limitações - Banco de Dados do Azure para MySQL
 description: Este artigo descreve limitações no Banco de Dados do Azure para MySQL, como número de opções de mecanismo de armazenamento e conexão.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 6/25/2020
-ms.openlocfilehash: 24a214d63fd01fc4353be6563d18f9e28b820c6f
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.date: 10/1/2020
+ms.openlocfilehash: b4f828c675df9625d6d4889dbc31bbc4b9f887ed
+ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036514"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97386707"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Limitações no Banco de Dados do Azure para MySQL
 As seções a seguir descrevem a capacidade, suporte do mecanismo de armazenamento, suporte de privilégio, suporte à instrução de manipulação de dados e limites funcionais no serviço do banco de dados. Consulte também as [limitações gerais](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) aplicáveis ao mecanismo de banco de dados MySQL.
@@ -25,7 +25,11 @@ O banco de dados do Azure para MySQL dá suporte ao ajuste dos valores dos parâ
 
 Após a implantação inicial, um servidor do Azure para MySQL inclui tabelas de sistemas para informações de fuso horário, mas essas tabelas não são populadas. As tabelas de fuso horário podem ser preenchidas, chamando o procedimento armazenado `mysql.az_load_timezone` de uma ferramenta como a linha de comando do MySQL ou o Workbench do MySQL. Consulte os artigos [Portal do Azure](howto-server-parameters.md#working-with-the-time-zone-parameter) ou [CLI do Azure](howto-configure-server-parameters-using-cli.md#working-with-the-time-zone-parameter) para saber como chamar o procedimento armazenado e definir os fusos horários globais ou no nível da sessão.
 
-## <a name="storage-engine-support"></a>Suporte do mecanismo de armazenamento
+Os plug-ins de senha, como "validate_password" e "caching_sha2_password", não são suportados pelo serviço.
+
+## <a name="storage-engines"></a>Mecanismos de armazenamento
+
+O MySQL dá suporte a muitos mecanismos de armazenamento. No banco de dados do Azure para MySQL servidor flexível, os seguintes mecanismos de armazenamento têm suporte e não têm suporte:
 
 ### <a name="supported"></a>Com suporte
 - [InnoDB](https://dev.mysql.com/doc/refman/5.7/en/innodb-introduction.html)
@@ -37,21 +41,24 @@ Após a implantação inicial, um servidor do Azure para MySQL inclui tabelas de
 - [ARCHIVE](https://dev.mysql.com/doc/refman/5.7/en/archive-storage-engine.html)
 - [FEDERATED](https://dev.mysql.com/doc/refman/5.7/en/federated-storage-engine.html)
 
-## <a name="privilege-support"></a>Suporte de privilégio
+## <a name="privileges--data-manipulation-support"></a>Privilégios & suporte à manipulação de dados
+
+Muitos parâmetros de servidor e configurações podem degradar inadvertidamente o desempenho do servidor ou negar as propriedades ACID do servidor MySQL. Para manter a integridade do serviço e o SLA em um nível de produto, esse serviço não expõe várias funções. 
+
+O serviço MySQL não permite acesso direto ao sistema de arquivos subjacente. Não há suporte para alguns comandos de manipulação de dados. 
 
 ### <a name="unsupported"></a>Sem suporte
-- Função DBA: Muitas configurações e parâmetros do servidor podem, inadvertidamente, prejudicar o desempenho do servidor ou negar as propriedades de ACID do DBMS. Desa forma, para manter a SLA e integridade do serviço em um nível de produto, esse serviço não expõe a função DBA. A conta de usuário padrão, que é construída quando uma nova instância do banco de dados é criada, permite que o usuário execute a maioria das instruções DDL e DML na instância do banco de dados gerenciado. 
-- Privilégio SUPER: De forma semelhante, o [privilégio SUPER](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_super) também é restrito.
-- DEFINER: Requer superprivilégios para criar e é restrito. Se estiver importando dados usando um backup, remova os comandos `CREATE DEFINER`manualmente ou usando o comando `--skip-definer` ao executar um mysqldump.
-- Bancos de dados do sistema: no Azure Database para MySQL, o [banco de dados do sistema MySQL](https://dev.mysql.com/doc/refman/8.0/en/system-schema.html) é somente leitura, pois é usado para dar suporte a várias funcionalidades de serviço de PaaS. Observe que você não pode alterar nada no `mysql` banco de dados do sistema.
 
-## <a name="data-manipulation-statement-support"></a>Suporte à instrução de manipulação de dados
+Os itens a seguir não têm suporte:
+- Função DBA: restrita. Como alternativa, você pode usar o usuário administrador (criado durante a criação do novo servidor), permitindo que você execute a maioria das instruções DDL e DML. 
+- SUPER privilégio: da mesma forma, o [super privilégio](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_super) é restrito.
+- DEFINER: Requer superprivilégios para criar e é restrito. Se estiver importando dados usando um backup, remova os comandos `CREATE DEFINER`manualmente ou usando o comando `--skip-definer` ao executar um mysqldump.
+- Bancos de dados do sistema: o [banco de dados do sistema MySQL](https://dev.mysql.com/doc/refman/5.7/en/system-schema.html) é somente leitura e usado para dar suporte a várias funcionalidades de PaaS. Você não pode fazer alterações no `mysql` banco de dados do sistema.
+- `SELECT ... INTO OUTFILE`: Sem suporte no serviço.
+- `LOAD_FILE(file_name)`: Sem suporte no serviço.
 
 ### <a name="supported"></a>Com suporte
 - `LOAD DATA INFILE` tem suporte, mas o parâmetro `[LOCAL]` deve ser especificado e direcionado para um caminho UNC (armazenamento do Azure montado por meio do SMB).
-
-### <a name="unsupported"></a>Sem suporte
-- `SELECT ... INTO OUTFILE`
 
 ## <a name="functional-limitations"></a>Limitações funcionais
 

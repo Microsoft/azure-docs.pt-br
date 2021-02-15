@@ -2,7 +2,7 @@
 title: Verificar a integridade de Azure Active Directory Domain Services | Microsoft Docs
 description: Saiba como verificar a integridade de um domínio gerenciado Azure Active Directory Domain Services (Azure AD DS) e entender as mensagens de status usando o portal do Azure.
 services: active-directory-ds
-author: iainfoulds
+author: justinha
 manager: daveba
 ms.assetid: 8999eec3-f9da-40b3-997a-7a2587911e96
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
-ms.author: iainfou
-ms.openlocfilehash: 34f4ecfd4cc3432babbd26d65bd37ea4d1fb882c
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.author: justinha
+ms.openlocfilehash: 92cc6157c590d3e05b4002e0f071c08e4ec23a16
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86040411"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96620317"
 ---
 # <a name="check-the-health-of-an-azure-active-directory-domain-services-managed-domain"></a>Verificar a integridade de um domínio gerenciado Azure Active Directory Domain Services
 
@@ -28,7 +28,7 @@ Este artigo mostra como exibir o status de integridade do AD DS do Azure e enten
 
 O status de integridade de um domínio gerenciado é exibido usando o portal do Azure. As informações sobre o último backup e a sincronização com o Azure AD podem ser vistas, junto com todos os alertas que indicam um problema com a integridade do domínio gerenciado. Para exibir o status de integridade de um domínio gerenciado, conclua as seguintes etapas:
 
-1. Na portal do Azure, procure e selecione **Azure AD Domain Services**.
+1. No portal do Azure, pesquise e selecione **Azure AD Domain Services**.
 1. Selecione seu domínio gerenciado, como *aaddscontoso.com*.
 1. No lado esquerdo da janela de recursos do AD DS do Azure, selecione **integridade**. A captura de tela de exemplo a seguir mostra um domínio gerenciado íntegro e o status do último backup e a sincronização do AD do Azure:
 
@@ -47,7 +47,7 @@ O status no canto superior direito indica a integridade geral do domínio gerenc
 
 ## <a name="understand-monitors-and-alerts"></a>Entender monitores e alertas
 
-O status de integridade de um domínio gerenciado mostra dois tipos de informações – *monitores*e *alertas*. Monitores mostram a hora em que as tarefas de segundo plano de núcleo foram concluídas. Os alertas fornecem informações ou sugestões para melhorar a estabilidade do domínio gerenciado.
+O status de integridade de um domínio gerenciado mostra dois tipos de informações – *monitores* e *alertas*. Monitores mostram a hora em que as tarefas de segundo plano de núcleo foram concluídas. Os alertas fornecem informações ou sugestões para melhorar a estabilidade do domínio gerenciado.
 
 ### <a name="monitors"></a>Monitores
 

@@ -2,15 +2,13 @@
 title: Criar e executar testes de disponibilidade personalizados usando Azure Functions
 description: Este documento explicará como criar uma função do Azure com API trackavailability () que será executado periodicamente de acordo com a configuração fornecida na função TimerTrigger. Os resultados desse teste serão enviados para o recurso de Application Insights, no qual você poderá consultar e alertar sobre os dados de resultados de disponibilidade. Os testes personalizados permitirão que você escreva testes de disponibilidade mais complexos do que o possível usando a interface do usuário do portal, monitore um aplicativo dentro de sua VNET do Azure, altere o endereço do ponto de extremidade ou crie um teste de disponibilidade se ele não estiver disponível em sua região.
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 05/04/2020
-ms.openlocfilehash: e2603d921973aefdcc1a6f4a76bdf70d69dcb68f
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 3553b212d1b63d4bd239893ba90aa3465d98df60
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320622"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945644"
 ---
 # <a name="create-and-run-custom-availability-tests-using-azure-functions"></a>Criar e executar testes de disponibilidade personalizados usando Azure Functions
 
@@ -32,7 +30,7 @@ Este artigo abordará como criar uma função do Azure com API trackavailability
 
             ![Selecionando recurso de Application Insights existente](media/availability-azure-functions/app-insights-resource.png)
 
-        - Selecione **revisão + criar**
+        - Selecione **Examinar + criar**
 - Se você ainda não tiver um recurso Application Insights criado para a função disparada pelo temporizador:
     - Por padrão, quando você estiver criando seu aplicativo de Azure Functions, ele criará um recurso de Application Insights para você.
     - Siga as instruções sobre como [criar um recurso de Azure Functions e uma função disparada por temporizador](../../azure-functions/functions-create-scheduled-function.md) (parar antes da limpeza).
@@ -135,7 +133,7 @@ public async static Task Run(TimerInfo myTimer, ILogger log)
         <TargetFramework>netstandard2.0</TargetFramework>
     </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.8.2" /> <!-- Ensure you’re using the latest version -->
+        <PackageReference Include="Microsoft.ApplicationInsights" Version="2.15.0" /> <!-- Ensure you’re using the latest version -->
     </ItemGroup>
 </Project>
 
@@ -183,7 +181,7 @@ Você pode usar logs (análise) para exibir os resultados de disponibilidade, as
 >![Resultados da disponibilidade](media/availability-azure-functions/availabilityresults.png)
 
 >[!div class="mx-imgBorder"]
->![Dependências](media/availability-azure-functions/dependencies.png)
+>![A captura de tela mostra a nova guia de consulta com dependências limitadas a 50.](media/availability-azure-functions/dependencies.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

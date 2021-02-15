@@ -4,10 +4,10 @@ description: Este artigo fornece informações sobre SDKs de cliente para hubs d
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 9f4eec603245f1e4ea6fa4d97b843ca6a770f2ad
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88930869"
 ---
 # <a name="azure-event-hubs---client-sdks"></a>Hubs de eventos do Azure-SDKs de cliente

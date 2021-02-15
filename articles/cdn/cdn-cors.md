@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 89adc283fa9d6edc49536cb9459a479710c94435
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: f7edf790e526329dd285d03a31137a26220e52ee
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85921158"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018640"
 ---
 # <a name="using-azure-cdn-with-cors"></a>Usar a CDN do Azure com o CORS
-## <a name="what-is-cors"></a>O que é CORS?
+## <a name="what-is-cors"></a>O que é o CORS?
 O CORS (Compartilhamento de Recursos entre Origens) é um recurso HTTP que permite que um aplicativo web em execução em um domínio acesse recursos em outro domínio. Para reduzir a possibilidade de ataques de script entre sites, todos os navegadores modernos implementam uma restrição de segurança conhecida como [política de mesma origem](https://www.w3.org/Security/wiki/Same_Origin_Policy).  Isso impede que uma página da Web chame APIs em um domínio diferente.  O CORS fornece uma maneira segura para permitir que uma origem (o domínio de origem) chame APIs em outra origem.
 
-## <a name="how-it-works"></a>Como funciona
+## <a name="how-it-works"></a>Como ele funciona
 Há dois tipos de solicitações CORS, *solicitações simples* e *solicitações complexas.*
 
 ### <a name="for-simple-requests"></a>Para solicitações simples:
@@ -75,7 +75,7 @@ No Azure CDN Standard da Microsoft, você pode criar uma regra no [mecanismo de 
 No **Azure CDN Standard da Akamai**, o único mecanismo para permitir várias origens sem o uso da origem curinga é usar o cache de [cadeia de caracteres de consulta](cdn-query-string.md). Habilite a configuração da cadeia de caracteres de consulta para o ponto de extremidade da CDN e usar uma cadeia de caracteres de consulta exclusiva para solicitações de cada domínio permitido. Isso fará com que a CDN armazene em cache um objeto separado para cada cadeia de caractere de consulta exclusiva. No entanto, essa abordagem não é ideal, pois resultará em várias cópias do mesmo arquivo armazenadas em cache na CDN.  
 
 ### <a name="azure-cdn-premium-from-verizon"></a>CDN Premium do Azure da Verizon
-Usando o mecanismo de regras do Verizon Premium, você precisará [criar uma regra](cdn-rules-engine.md) para verificar o cabeçalho de **origem** na solicitação.  Se for uma origem válida, a regra definirá o cabeçalho **Access-Control-Allow-Origin** com a origem fornecida na solicitação.  Se a origem especificada no cabeçalho de **origem** não for permitida, a regra deverá omitir o cabeçalho **Access-Control-Allow-Origin** , que fará com que o navegador rejeite a solicitação. 
+Usando o mecanismo de regras do Verizon Premium, você precisará [criar uma regra](./cdn-verizon-premium-rules-engine.md) para verificar o cabeçalho de **origem** na solicitação.  Se for uma origem válida, a regra definirá o cabeçalho **Access-Control-Allow-Origin** com a origem fornecida na solicitação.  Se a origem especificada no cabeçalho de **origem** não for permitida, a regra deverá omitir o cabeçalho **Access-Control-Allow-Origin** , que fará com que o navegador rejeite a solicitação. 
 
 Há duas maneiras de fazer isso com o mecanismo de regras Premium. Em ambos os casos, o cabeçalho **Access-Control-Allow-Origin** do servidor de origem do arquivo é ignorado e o mecanismo de regras da CDN gerencia completamente as origens CORS permitidas.
 
@@ -103,7 +103,4 @@ Em vez de expressões regulares, você pode criar uma regra separada para cada o
 > [!TIP]
 > No exemplo acima, o uso do caractere curinga * instrui o mecanismo de regras a corresponder HTTP e HTTPS.
 > 
-> 
-
-
-
+>

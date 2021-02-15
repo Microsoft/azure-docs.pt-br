@@ -4,19 +4,19 @@ titleSuffix: Azure Kubernetes Service
 description: Saiba como usar um balanceador de carga público com um SKU padrão para expor seus serviços com o AKS (serviço kubernetes do Azure).
 services: container-service
 ms.topic: article
-ms.date: 06/14/2020
+ms.date: 11/14/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 417ca42e014c0bb197d7dd834b960f25fcfdf468
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5da7f2a11be7562313b709a8af72ccd709165cfa
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87056805"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000854"
 ---
 # <a name="use-a-public-standard-load-balancer-in-azure-kubernetes-service-aks"></a>Usar um Standard Load Balancer público no AKS (serviço kubernetes do Azure)
 
-O Azure Load Balancer é um L4 do modelo de interconexão de sistemas abertos (OSI) que dá suporte a cenários de entrada e saída. Ele distribui os fluxos de entrada que chegam ao front-end do balanceador de carga para as instâncias do pool de back-end.
+O Azure Load Balancer está na L4 do modelo de interconexão de sistemas abertos (OSI) que dá suporte aos cenários de entrada e saída. Ele distribui os fluxos de entrada que chegam ao front-end do balanceador de carga para as instâncias do pool de back-end.
 
 Um Load Balancer **público** quando integrado ao AKs tem duas finalidades:
 
@@ -87,19 +87,22 @@ Ao usar o balanceador de carga público do SKU Standard, há um conjunto de opç
 * Personalizar o número de portas de saída alocadas para cada nó do cluster
 * Definir a configuração de tempo limite para conexões ociosas
 
+> [!IMPORTANT]
+> Somente uma opção de IP de saída (IPs gerenciados, traga seu próprio IP ou prefixo de IP) pode ser usada em um determinado momento.
+
 ### <a name="scale-the-number-of-managed-outbound-public-ips"></a>Dimensionar o número de IPs públicos de saída gerenciados
 
 O Azure Load Balancer fornece conectividade de saída de uma rede virtual além da entrada. Regras de saída simplificam a configuração da conversão de endereços de rede de saída do Standard Load Balancer público.
 
 Como todas as regras do Load Balancer, regras de saída seguem a mesma sintaxe familiar que regras NAT de entrada e balanceamento de carga:
 
-***front-end IPs + parâmetros + pool de back-end***
+***front-end IPS + parâmetros + pool de back-end** _
 
 Uma regra de saída configura o NAT de saída para todas as máquinas virtuais identificadas pelo pool de back-end a serem convertidas no front-end. Os parâmetros fornecem controle refinado adicional sobre o algoritmo NAT de saída.
 
 Embora uma regra de saída possa ser usada com apenas um único endereço IP público, regras de saída aliviam a carga de configuração para o dimensionamento de NAT de saída. Você pode usar vários endereços IP para planejar cenários de grande escala e pode usar regras de saída para atenuar padrões propensos à exaustão de SNAT. Cada endereço IP adicional fornecido por um front-end fornece portas efêmeras de 64K para Load Balancer para usar como portas SNAT. 
 
-Ao usar um balanceador de carga SKU *padrão* com IPs públicos de saída gerenciados, que são criados por padrão, você pode dimensionar o número de IPS públicos de saída gerenciados usando o **`load-balancer-managed-ip-count`** parâmetro.
+Ao usar um balanceador de carga de SKU _Standard * com IPs públicos de saída gerenciados, que são criados por padrão, você pode dimensionar o número de IPs públicos de saída gerenciados usando o **`load-balancer-managed-ip-count`** parâmetro.
 
 Para atualizar um cluster existente, execute o comando a seguir. Esse parâmetro também pode ser definido no momento de criação do cluster para ter vários IPs públicos de saída gerenciados.
 
@@ -120,10 +123,11 @@ Quando você usa um balanceador de carga SKU *padrão* , por padrão, o cluster 
 
 Um IP público criado pelo AKS é considerado um recurso gerenciado por AKS. Isso significa que o ciclo de vida desse IP público deve ser gerenciado pelo AKS e não requer nenhuma ação do usuário diretamente no recurso de IP público. Como alternativa, você pode atribuir seu próprio IP público personalizado ou prefixo de IP público no momento da criação do cluster. Seus IPs personalizados também podem ser atualizados em Propriedades do balanceador de carga de um cluster existente.
 
-> [!NOTE]
-> Os endereços IP públicos personalizados devem ser criados e pertencentes ao usuário. Os endereços IP públicos gerenciados criados por AKS não podem ser reutilizados como um traga seu próprio IP personalizado, pois isso pode causar conflitos de gerenciamento.
+Requisitos para usar seu próprio IP público ou prefixo:
 
-Antes de executar esta operação, verifique se você atende aos [pré-requisitos e às restrições](../virtual-network/public-ip-address-prefix.md#constraints) necessárias para configurar IPS de saída ou prefixos de IP de saída.
+- Os endereços IP públicos personalizados devem ser criados e pertencentes ao usuário. Os endereços IP públicos gerenciados criados por AKS não podem ser reutilizados como um traga seu próprio IP personalizado, pois isso pode causar conflitos de gerenciamento.
+- Você deve garantir que a identidade do cluster AKS (entidade de serviço ou identidade gerenciada) tenha permissões para acessar o IP de saída. De acordo com a [lista de permissões de IP público necessária](kubernetes-service-principal.md#networking).
+- Verifique se você atende aos [pré-requisitos e às restrições](../virtual-network/public-ip-address-prefix.md#constraints) necessárias para configurar IPS de saída ou prefixos de IP de saída.
 
 #### <a name="update-the-cluster-with-your-own-outbound-public-ip"></a>Atualizar o cluster com seu próprio IP público de saída
 
@@ -221,7 +225,7 @@ az aks update \
     --load-balancer-outbound-ports 4000
 ```
 
-Este exemplo forneceria 4000 portas de saída alocadas para cada nó em meu cluster e com 7 IPs você teria *4000 portas por nó * 100 nós = 400 mil total de portas < = 448K total de portas = 7 IPS * 64K portas por IP*. Isso permitiria que você dimensionasse com segurança os nós 100 e tenha uma operação de atualização padrão. É essencial alocar portas suficientes para nós adicionais necessários para a atualização e outras operações. AKS usa como padrão um nó de buffer para atualização, neste exemplo, isso requer 4000 portas livres em qualquer momento determinado. Se estiver usando [valores de maxSurge](upgrade-cluster.md#customize-node-surge-upgrade-preview), multiplique as portas de saída por nó pelo valor de maxSurge.
+Este exemplo forneceria 4000 portas de saída alocadas para cada nó em meu cluster e com 7 IPs você teria *4000 portas por nó * 100 nós = 400 mil total de portas < = 448K total de portas = 7 IPS * 64K portas por IP*. Isso permitiria que você dimensionasse com segurança os nós 100 e tenha uma operação de atualização padrão. É essencial alocar portas suficientes para nós adicionais necessários para a atualização e outras operações. AKS usa como padrão um nó de buffer para atualização, neste exemplo, isso requer 4000 portas livres em qualquer momento determinado. Se estiver usando [valores de maxSurge](upgrade-cluster.md#customize-node-surge-upgrade), multiplique as portas de saída por nó pelo valor de maxSurge.
 
 Para ir acima de 100 nós, você precisaria adicionar mais IPs.
 
@@ -267,16 +271,15 @@ Se você espera ter várias conexões de curta duração e nenhuma conexão long
 *outboundIPs* \* 64.000 \> *nodeVMs* \* *desiredAllocatedOutboundPorts*.
  
 Por exemplo, se você tiver três *nodeVMs* e 50 mil *desiredAllocatedOutboundPorts*, precisará ter pelo menos três *outboundIPs*. É recomendável incorporar a capacidade de IP de saída adicional além da que você precisa. Além disso, você precisa considerar o dimensionador automático do cluster e a possibilidade de atualizações do pool de nós ao calcular a capacidade do IP de saída. Para o dimensionador automático do cluster, examine a contagem de nós atual e a contagem máxima de nós e use o valor mais alto. Para atualizar, considere uma VM de nó adicional para cada pool de nós que permite a atualização.
- 
+
 - Ao definir *IdleTimeoutInMinutes* como um valor diferente do padrão de 30 minutos, considere por quanto tempo suas cargas de trabalho precisarão de uma conexão de saída. Considere também que o valor do tempo limite padrão para um balanceador de carga de SKU *Standard* usado fora do AKS é de 4 minutos. Um valor *IdleTimeoutInMinutes* que reflete com mais precisão sua carga de trabalho do AKS específica pode ajudar a diminuir o esgotamento de SNAT causado pela associação de conexões que não são mais usadas.
 
 > [!WARNING]
 > Alterar os valores de *AllocatedOutboundPorts* e *IdleTimeoutInMinutes* pode alterar significativamente o comportamento da regra de saída para o balanceador de carga e não deve ser feito levemente, sem compreender as compensações e os padrões de conexão do aplicativo, verificar a seção de solução de [problemas de SNAT abaixo][troubleshoot-snat] e examinar as [Load Balancer regras de saída][azure-lb-outbound-rules-overview] e [conexões de saída no Azure][azure-lb-outbound-connections] antes de atualizar esses valores para entender totalmente o impacto de suas alterações
 
-
 ## <a name="restrict-inbound-traffic-to-specific-ip-ranges"></a>Restringir o tráfego de entrada para intervalos de IP específicos
 
-Por padrão, o NSG (Grupo de Segurança de Rede) associado à rede virtual do balanceador de carga tem uma regra para permitir todo o tráfego externo de saída. Você pode atualizar essa regra para somente permitir intervalos de IP específicos para o tráfego de entrada. O seguinte manifesto usa *loadBalancerSourceRanges* para especificar um novo intervalo de IP para o tráfego externo de entrada:
+O seguinte manifesto usa *loadBalancerSourceRanges* para especificar um novo intervalo de IP para o tráfego externo de entrada:
 
 ```yaml
 apiVersion: v1
@@ -292,6 +295,9 @@ spec:
   loadBalancerSourceRanges:
   - MY_EXTERNAL_IP_RANGE
 ```
+
+> [!NOTE]
+> Entrada, o tráfego externo flui do balanceador de carga para a rede virtual para o cluster AKS. A rede virtual tem um NSG (grupo de segurança de rede) que permite todo o tráfego de entrada do balanceador de carga. Este NSG usa uma [marca de serviço][service-tags] do tipo Balancer para permitir o tráfego do balanceador de carga. *LoadBalancer*
 
 ## <a name="maintain-the-clients-ip-on-inbound-connections"></a>Manter o IP do cliente em conexões de entrada
 
@@ -315,14 +321,14 @@ spec:
 
 Abaixo está uma lista de anotações com suporte para serviços kubernetes com tipo `LoadBalancer` , estas anotações se aplicam somente a fluxos de **entrada** :
 
-| Anotação | Valor | Descrição
+| Annotation | Valor | Descrição
 | ----------------------------------------------------------------- | ------------------------------------- | ------------------------------------------------------------ 
 | `service.beta.kubernetes.io/azure-load-balancer-internal`         | `true` ou `false`                     | Especifique se o balanceador de carga deve ser interno. O padrão é público se não estiver definido.
 | `service.beta.kubernetes.io/azure-load-balancer-internal-subnet`  | Nome da sub-rede                    | Especifique a qual sub-rede o balanceador de carga interno deve ser associado. O padrão é a sub-rede configurada no arquivo de configuração de nuvem se não estiver definida.
 | `service.beta.kubernetes.io/azure-dns-label-name`                 | Nome do rótulo DNS em IPs públicos   | Especifique o nome do rótulo DNS para o serviço **público** . Se estiver definido como uma cadeia de caracteres vazia, a entrada DNS no IP público não será usada.
-| `service.beta.kubernetes.io/azure-shared-securityrule`            | `true` ou `false`                     | Especifique que o serviço deve ser exposto usando uma regra de segurança do Azure que pode ser compartilhada com outro serviço, que é uma determinada especificação de regras para um aumento no número de serviços que podem ser expostos. Esta anotação depende do recurso de [regras de segurança aumentadas](../virtual-network/security-overview.md#augmented-security-rules) do Azure de grupos de segurança de rede. 
+| `service.beta.kubernetes.io/azure-shared-securityrule`            | `true` ou `false`                     | Especifique que o serviço deve ser exposto usando uma regra de segurança do Azure que pode ser compartilhada com outro serviço, que é uma determinada especificação de regras para um aumento no número de serviços que podem ser expostos. Esta anotação depende do recurso de [regras de segurança aumentadas](../virtual-network/network-security-groups-overview.md#augmented-security-rules) do Azure de grupos de segurança de rede. 
 | `service.beta.kubernetes.io/azure-load-balancer-resource-group`   | Nome do grupo de recursos            | Especifique o grupo de recursos de IPs públicos do Load Balancer que não estão no mesmo grupo de recursos que a infraestrutura de cluster (grupo de recursos de nó).
-| `service.beta.kubernetes.io/azure-allowed-service-tags`           | Lista de marcas de serviço permitidas          | Especifique uma lista de [marcas de serviço](../virtual-network/security-overview.md#service-tags) permitidas separadas por vírgula.
+| `service.beta.kubernetes.io/azure-allowed-service-tags`           | Lista de marcas de serviço permitidas          | Especifique uma lista de [marcas de serviço][service-tags] permitidas separadas por vírgula.
 | `service.beta.kubernetes.io/azure-load-balancer-tcp-idle-timeout` | Tempos limite de ociosidade de TCP em minutos          | Especifique o tempo, em minutos, para que os tempos limite de ociosidade de conexão TCP ocorram no balanceador de carga. O valor padrão e mínimo é 4. O valor máximo é 30. Deve ser um inteiro.
 |`service.beta.kubernetes.io/azure-load-balancer-disable-tcp-reset` | `true`                                | Desabilitar `enableTcpReset` para SLB
 
@@ -424,3 +430,4 @@ Saiba mais sobre como usar o Load Balancer interno para o tráfego de entrada na
 [requirements]: #requirements-for-customizing-allocated-outbound-ports-and-idle-timeout
 [use-multiple-node-pools]: use-multiple-node-pools.md
 [troubleshoot-snat]: #troubleshooting-snat
+[service-tags]: ../virtual-network/network-security-groups-overview.md#service-tags

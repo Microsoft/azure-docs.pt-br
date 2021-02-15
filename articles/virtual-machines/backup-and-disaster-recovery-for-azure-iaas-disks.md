@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/19/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 28a46ad9e53a90c25c239278ee57ea368af395a5
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 01133ab5582e63c0e87d8a5cf8de12f5445394c5
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88754966"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91969697"
 ---
 # <a name="backup-and-disaster-recovery-for-azure-iaas-disks"></a>Backup e recuperação de desastre de discos de IaaS do Azure
 
@@ -48,7 +48,7 @@ Devido a essa arquitetura, o Azure proporcionou durabilidade de nível empresari
 
 Falhas de hardware localizadas no host de computação ou na plataforma de Armazenamento podem, às vezes, resultar na indisponibilidade temporária para a VM que é coberta pelo [SLA do Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) em relação à disponibilidade da VM. O Azure também fornece um SLA líder do setor para instâncias de VM individuais que usam SSDs premium do Azure.
 
-Para proteger cargas de trabalho do aplicativo contra o tempo de inatividade devido à indisponibilidade temporária de um disco ou de uma VM, os clientes podem usar [conjuntos de disponibilidade](windows/manage-availability.md). Duas ou mais máquinas virtuais em um conjunto de disponibilidade fornecem redundância para o aplicativo. Em seguida, o Azure cria essas VMs e esses discos em domínios de falha separados com diferentes componentes de energia, rede e servidor.
+Para proteger cargas de trabalho do aplicativo contra o tempo de inatividade devido à indisponibilidade temporária de um disco ou de uma VM, os clientes podem usar [conjuntos de disponibilidade](./manage-availability.md). Duas ou mais máquinas virtuais em um conjunto de disponibilidade fornecem redundância para o aplicativo. Em seguida, o Azure cria essas VMs e esses discos em domínios de falha separados com diferentes componentes de energia, rede e servidor.
 
 Devido a esses domínios de falha separados, as falhas de hardware localizadas geralmente não afetam várias VMs no conjunto ao mesmo tempo. Ter domínios de falha separados fornece alta disponibilidade para o aplicativo. É considerada uma melhor prática usar conjuntos de disponibilidade quando a alta disponibilidade é necessária. A próxima seção aborda o aspecto de recuperação de desastre.
 
@@ -77,7 +77,7 @@ Considere um servidor de banco de dados de produção, como o SQL Server ou o Or
 - Os dados devem ser protegidos e recuperáveis.
 - O servidor deve estar disponível para uso.
 
-O plano de recuperação de desastre pode exigir a manutenção de uma réplica do banco de dados em outra região como um backup. Dependendo dos requisitos de disponibilidade do servidor e de recuperação de dados, a solução pode variar de um site de réplica ativo-ativo ou ativo-passivo para backups offline periódicos dos dados. Bancos de dados relacionais, como o SQL Server e o Oracle, fornecem várias opções de replicação. Para o SQL Server, use [Grupos de Disponibilidade AlwaysOn do SQL Server](https://msdn.microsoft.com/library/hh510230.aspx) para alta disponibilidade.
+O plano de recuperação de desastre pode exigir a manutenção de uma réplica do banco de dados em outra região como um backup. Dependendo dos requisitos de disponibilidade do servidor e de recuperação de dados, a solução pode variar de um site de réplica ativo-ativo ou ativo-passivo para backups offline periódicos dos dados. Bancos de dados relacionais, como o SQL Server e o Oracle, fornecem várias opções de replicação. Para o SQL Server, use [Grupos de Disponibilidade AlwaysOn do SQL Server](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) para alta disponibilidade.
 
 Bancos de dados NoSQL, como o MongoDB, também dão suporte a [réplicas](https://docs.mongodb.com/manual/replication/) para redundância. As réplicas para alta disponibilidade são usadas.
 
@@ -201,7 +201,7 @@ Outra opção para criar backups consistentes é desligar a VM e tirar instantâ
 
 1. Crie um instantâneo de cada blob de disco rígido virtual, o que leva apenas alguns segundos.
 
-    Para criar um instantâneo, use o [PowerShell](https://docs.microsoft.com/powershell/module/az.storage), a [API REST do Armazenamento do Azure](https://msdn.microsoft.com/library/azure/ee691971.aspx), a [CLI do Azure](/cli/azure/) ou uma das bibliotecas de clientes do Armazenamento do Azure, como [a biblioteca de clientes do Armazenamento para .NET](https://msdn.microsoft.com/library/azure/hh488361.aspx).
+    Para criar um instantâneo, use o [PowerShell](/powershell/module/az.storage), a [API REST do Armazenamento do Azure](/rest/api/storageservices/Snapshot-Blob), a [CLI do Azure](/cli/azure/) ou uma das bibliotecas de clientes do Armazenamento do Azure, como [a biblioteca de clientes do Armazenamento para .NET](/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob).
 
 1. Inicie a VM, o que encerra o tempo de inatividade. Normalmente, todo o processo é concluído em alguns minutos.
 
@@ -224,7 +224,7 @@ Para copiar os instantâneos incrementais para DR com eficiência, examine as in
 
 ### <a name="recovery-from-snapshots"></a>Recuperação com base em instantâneos
 
-Para recuperar um instantâneo, copie-o para criar um novo blob. Se estiver copiando o instantâneo da conta primária, copie o instantâneo sobre o blob base do instantâneo. Esse processo reverte o disco para o instantâneo. Esse processo é conhecido como promoção do instantâneo. Se estiver copiando o backup de instantâneo de uma conta secundária, no caso de uma conta de armazenamento com redundância geográfica com acesso de leitura, você deverá copiá-lo para uma conta primária. Copie um instantâneo [usando o PowerShell](https://docs.microsoft.com/powershell/module/az.storage) ou o utilitário AzCopy. Para obter mais informações, consulte [Transferir dados com o utilitário de linha de comando AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy).
+Para recuperar um instantâneo, copie-o para criar um novo blob. Se estiver copiando o instantâneo da conta primária, copie o instantâneo sobre o blob base do instantâneo. Esse processo reverte o disco para o instantâneo. Esse processo é conhecido como promoção do instantâneo. Se estiver copiando o backup de instantâneo de uma conta secundária, no caso de uma conta de armazenamento com redundância geográfica com acesso de leitura, você deverá copiá-lo para uma conta primária. Copie um instantâneo [usando o PowerShell](/powershell/module/az.storage) ou o utilitário AzCopy. Para obter mais informações, consulte [Transferir dados com o utilitário de linha de comando AzCopy](../storage/common/storage-use-azcopy-v10.md).
 
 Para VMs com vários discos, é necessário copiar todos os instantâneos que fazem parte do mesmo ponto de restauração coordenado. Depois de copiar os instantâneos para blobs de VHD graváveis, use os blobs para recriar a VM usando o modelo da VM.
 
@@ -265,4 +265,3 @@ Consulte [fazer backup de discos de máquina virtual não gerenciados do Azure c
 
 [1]: ./media/virtual-machines-common-backup-and-disaster-recovery-for-azure-iaas-disks/backup-and-disaster-recovery-for-azure-iaas-disks-1.png
 [2]: ./media/virtual-machines-common-backup-and-disaster-recovery-for-azure-iaas-disks/backup-and-disaster-recovery-for-azure-iaas-disks-2.png
-

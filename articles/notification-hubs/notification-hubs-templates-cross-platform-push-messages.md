@@ -17,10 +17,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: e3c64155053517205ab006673bb8f400325ad3c4
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86219956"
 ---
 # <a name="notification-hubs-templates"></a>Modelos de hubs de notificação
@@ -133,7 +133,7 @@ Os modelos são limitados aos formatos de documento XML ou JSON. Além disso, s�
 
 A tabela a seguir mostra a linguagem permitida nos modelos:
 
-| Expressão       | Descrição |
+| Expression       | Descrição |
 | ---------------- | --- |
 | $(prop)          | Referência para uma propriedade de evento com o nome fornecido. Os nomes de propriedade não diferenciam maiúsculas de minúsculas. Esta expressão é convertida para o valor de texto da propriedade ou em uma sequência de caracteres vazia se a propriedade não estiver presente. |
 | $(prop, n)       | Como consta acima, mas o texto é explicitamente cortado em n caracteres, por exemplo, $(title, 20) corta o conteúdo da propriedade de título em 20 caracteres. |

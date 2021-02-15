@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: article
 ms.date: 04/23/2020
 ms.author: cshoe
-ms.openlocfilehash: 37f79d717b7ea0e26717e7b51f9e66b908b96521
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 79aebf7ed80fea370ff7a5d5cc40911da4144414
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88640949"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91537694"
 ---
 # <a name="manually-run-a-non-http-triggered-function"></a>Executar manualmente uma função não disparada por HTTP
 
@@ -43,11 +43,11 @@ Você pode usar esta localização de solicitação no Postman, juntamente com a
 
 1. Na seção **Editar chave** , copie o valor da chave para a área de transferência e, em seguida, selecione **OK**.
 
-    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-functions-master-key-copy.png" alt-text="Copie a chave mestra na área de transferência." border="true":::
+    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-functions-master-key-copy.png" alt-text="Localize a chave mestra a ser copiada." border="true":::
 
 1. Depois de copiar a chave de *_master* , selecione **código + teste**e, em seguida, selecione **logs**. Você verá mensagens da função registrada aqui quando executar manualmente a função do Postman.
 
-    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-function-log.png" alt-text="Exiba os logs para ver os resultados do teste de chave mestra." border="true":::
+    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-function-log.png" alt-text="Localize a chave mestra a ser copiada." border="true":::
 
 > [!CAUTION]  
 > Devido às permissões elevadas no aplicativo de funções concedidas pela chave mestra, você não deve compartilhar essa chave com terceiros nem distribuí-la em um aplicativo. A chave só deve ser enviada para um ponto de extremidade HTTPS.
@@ -62,22 +62,22 @@ Abra Postman e siga estas etapas:
 1. Digite **x-Functions-Key** como a primeira chave e cole a chave mestra (da área de transferência) como o valor.
 1. Digite **Content-Type** como a segunda chave e digite **Application/JSON** como o valor.
 
-    :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-headers.png" alt-text="Configurações de cabeçalhos do postmaster." border="true":::
+    :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-headers.png" alt-text="Localize a chave mestra a ser copiada." border="true":::
 
 1. Selecione a guia **Corpo**.
 1. Digite **{"Input": "Test"}** como o corpo da solicitação.
 
-    :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-body.png" alt-text="Configurações do corpo do postmaster." border="true":::
+    :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-body.png" alt-text="Localize a chave mestra a ser copiada." border="true":::
 
 1. Selecione **Enviar**.
         
-    :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-send.png" alt-text="Envie uma solicitação com o postmaster." border="true":::
+    :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-send.png" alt-text="Localize a chave mestra a ser copiada." border="true":::
 
     O Postman então relata um status **202 Aceito**.
 
 1. Em seguida, volte à sua função no portal do Azure. Examine os logs e você verá mensagens provenientes da chamada manual para a função.
 
-    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-functions-master-key-logs.png" alt-text="Exiba os logs para ver os resultados do teste de chave mestra." border="true":::
+    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-functions-master-key-logs.png" alt-text="Localize a chave mestra a ser copiada." border="true":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

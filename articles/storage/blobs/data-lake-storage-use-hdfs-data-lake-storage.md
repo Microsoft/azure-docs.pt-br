@@ -9,12 +9,12 @@ ms.date: 12/06/2018
 ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: artek
-ms.openlocfilehash: 1d720aed44358dd314bc4226adb9ad517139cd18
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: f1f2ea8bd51b7eeda9afdd6a94d5de1d58acef57
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836302"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100520639"
 ---
 # <a name="using-the-hdfs-cli-with-data-lake-storage-gen2"></a>Usando a CLI do HDFS com o Data Lake Storage Gen2
 
@@ -25,11 +25,11 @@ O HDInsight fornece acesso ao contêiner distribuído que está anexado localmen
 Para obter mais informações sobre a CLI do HDFS, consulte a [documentação oficial](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html) e o [Guia de permissões do HDFS](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html)
 
 >[!NOTE]
->Se você estiver usando Azure Databricks em vez do HDInsight e desejar interagir com seus dados usando uma interface de linha de comando, poderá usar a CLI do databricks para interagir com o sistema de arquivos do databricks. Consulte a [CLI do databricks](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html).
+>Se você estiver usando Azure Databricks em vez do HDInsight e desejar interagir com seus dados usando uma interface de linha de comando, poderá usar a CLI do databricks para interagir com o sistema de arquivos do databricks. Consulte a [CLI do databricks](/azure/databricks/dev-tools/cli/).
 
 ## <a name="use-the-hdfs-cli-with-an-hdinsight-hadoop-cluster-on-linux"></a>Usar a CLI do HDFS com um cluster HDInsight Hadoop no Linux
 
-Primeiro, estabeleça o [acesso remoto aos serviços](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-information#remote-access-to-services). Se você escolher [SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) o código de exemplo do PowerShell seria semelhante ao seguinte:
+Primeiro, estabeleça o [acesso remoto aos serviços](../../hdinsight/hdinsight-hadoop-linux-information.md#remote-access-to-services). Se você escolher [SSH](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md) o código de exemplo do PowerShell seria semelhante ao seguinte:
 
 ```powershell
 #Connect to the cluster via SSH.
@@ -120,4 +120,4 @@ Consulte [chmod](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoo
 
 * [ Use uma conta compatível com o Azure Data Lake Gen2 em bancos de dados do Azure ](./data-lake-storage-quickstart-create-databricks-account.md)
 
-* [Saiba mais sobre as listas de controle de acesso em arquivos e diretórios](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)
+* [Saiba mais sobre as listas de controle de acesso em arquivos e diretórios](./data-lake-storage-access-control.md)

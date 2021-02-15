@@ -2,17 +2,18 @@
 title: Configurar o LVM e o RAID em dispositivos criptografados-Azure Disk Encryption
 description: Este artigo fornece instruções para configurar o LVM e o RAID em dispositivos criptografados para VMs do Linux.
 author: jofrance
-ms.service: security
+ms.service: virtual-machines
+ms.subservice: security
 ms.topic: how-to
 ms.author: jofrance
 ms.date: 03/17/2020
-ms.custom: seodec18
-ms.openlocfilehash: 746243336d74aefc55df48872fe9dd21e9cd99a5
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: 3f90d5a95d153405f9257258fba6ab9cc1ce9a35
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87268213"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98681295"
 ---
 # <a name="configure-lvm-and-raid-on-encrypted-devices"></a>Configurar o LVM e o RAID em dispositivos criptografados
 
@@ -76,7 +77,7 @@ New-AzVm -ResourceGroupName ${RGNAME} `
 ```
 CLI do Azure:
 
-```bash
+```azurecli
 az vm create \
 -n ${VMNAME} \
 -g ${RGNAME} \
@@ -104,7 +105,7 @@ Update-AzVM -VM ${VM} -ResourceGroupName ${RGNAME}
 
 CLI do Azure:
 
-```bash
+```azurecli
 az vm disk attach \
 -g ${RGNAME} \
 --vm-name ${VMNAME} \
@@ -124,7 +125,7 @@ $VM.StorageProfile.DataDisks | Select-Object Lun,Name,DiskSizeGB
 
 CLI do Azure:
 
-```bash
+```azurecli
 az vm show -g ${RGNAME} -n ${VMNAME} --query storageProfile.dataDisks -o table
 ```
 ![Lista de discos anexados no CLI do Azure](./media/disk-encryption/lvm-raid-on-crypt/002-lvm-raid-check-disks-cli.png)
@@ -206,7 +207,7 @@ Set-AzVMDiskEncryptionExtension -ResourceGroupName $RGNAME `
 
 CLI do Azure usando um KEK:
 
-```bash
+```azurecli
 az vm encryption enable \
 --resource-group ${RGNAME} \
 --name ${VMNAME} \
@@ -230,7 +231,7 @@ Get-AzVmDiskEncryptionStatus -ResourceGroupName ${RGNAME} -VMName ${VMNAME}
 
 CLI do Azure:
 
-```bash
+```azurecli
 az vm encryption show -n ${VMNAME} -g ${RGNAME} -o table
 ```
 ![Status de criptografia no CLI do Azure](./media/disk-encryption/lvm-raid-on-crypt/009-lvm-raid-verify-encryption-status-cli.png)
@@ -286,7 +287,7 @@ Em vez de usar o nome do dispositivo, use os caminhos/dev/mapper para cada um do
 
 ### <a name="configure-lvm-on-top-of-the-encrypted-layers"></a>Configurar o LVM na parte superior das camadas criptografadas
 #### <a name="create-the-physical-volumes"></a>Criar os volumes físicos
-Você receberá um aviso perguntando se está OK para apagar a assinatura do sistema de arquivos. Continue inserindo **y**ou use **echo "y"** , conforme mostrado:
+Você receberá um aviso perguntando se está OK para apagar a assinatura do sistema de arquivos. Continue inserindo **y** ou use **echo "y"** , conforme mostrado:
 
 ```bash
 echo "y" | pvcreate /dev/mapper/c49ff535-1df9-45ad-9dad-f0846509f052
@@ -367,7 +368,7 @@ mount -a
 lsblk -fs
 df -h
 ```
-![Informações para sistemas de arquivos montados](./media/disk-encryption/lvm-raid-on-crypt/018-lvm-raid-lsblk-after-lvm.png)
+![Captura de tela mostra uma janela de console com sistemas de arquivos montados como data0 e Data1.](./media/disk-encryption/lvm-raid-on-crypt/018-lvm-raid-lsblk-after-lvm.png)
 
 Nessa variação de **lsblk**, estamos listando os dispositivos que mostram as dependências na ordem inversa. Essa opção ajuda a identificar os dispositivos agrupados pelo volume lógico em vez dos nomes de dispositivo/dev/sd [disco] originais.
 
@@ -436,7 +437,7 @@ Verifique se o novo sistema de arquivos está montado:
 lsblk -fs
 df -h
 ```
-![Informações para sistemas de arquivos montados](./media/disk-encryption/lvm-raid-on-crypt/021-lvm-raid-lsblk-md-details.png)
+![Captura de tela mostra uma janela de console com um sistema de arquivos montado como raiddata.](./media/disk-encryption/lvm-raid-on-crypt/021-lvm-raid-lsblk-md-details.png)
 
 É importante certificar-se de que a opção **nofail** seja adicionada às opções de ponto de montagem dos volumes RAID criados na parte superior de um dispositivo criptografado por meio de Azure Disk Encryption. Isso impede que o sistema operacional fique preso durante o processo de inicialização (ou no modo de manutenção).
 
@@ -459,4 +460,5 @@ df -h
 ```
 ## <a name="next-steps"></a>Próximas etapas
 
+- [Redimensionar dispositivos de gerenciamento de volume lógico criptografados com Azure Disk Encryption](how-to-resize-encrypted-lvm.md)
 - [Guia de solução de problemas do Azure Disk Encryption](disk-encryption-troubleshooting.md)

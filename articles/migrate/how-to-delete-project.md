@@ -1,17 +1,17 @@
 ---
 title: Excluir um projeto das Migrações para Azure
-description: Descreve como criar um projeto de migrações para Azure e adicionar uma ferramenta de avaliação/migração.
-author: rayne-wiselman
-ms.service: azure-migrate
-ms.topic: article
+description: Neste artigo, saiba como você pode excluir um projeto de migrações para Azure usando o portal do Azure.
+author: ms-psharma
+ms.author: panshar
+ms.manager: abhemraj
+ms.topic: how-to
 ms.date: 10/22/2019
-ms.author: raynew
-ms.openlocfilehash: 4fd6285c3d22c8e0bdddbbe47366e6ae9428e7d8
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: face3d02ee72d1e05c6c08330dae4fffc2fd0e0b
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86109868"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96754242"
 ---
 # <a name="delete-an-azure-migrate-project"></a>Excluir um projeto das Migrações para Azure
 

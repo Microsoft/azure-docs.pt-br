@@ -9,13 +9,13 @@ metadata:
   ms.topic: landing-page
   author: cherylmc
   ms.author: cherylmc
-  ms.date: 08/19/2020
-  ms.openlocfilehash: 1a0a64864c4e8229b4a0f2211af06920fc1e73cc
-  ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+  ms.date: 01/15/2020
+  ms.openlocfilehash: 3aaf42935e292bda64d9227d01f498c83f4c9f7a
+  ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 08/20/2020
-  ms.locfileid: "88654541"
+  ms.lasthandoff: 01/16/2021
+  ms.locfileid: "98250767"
 landingContent:
 - title: Sobre a WAN Virtual
   linkLists:
@@ -25,6 +25,8 @@ landingContent:
       url: virtual-wan-about.md
   - linkListType: concept
     links:
+    - text: Migrar para a WAN Virtual
+      url: migrate-from-hub-spoke-topology.md
     - text: Trabalhando com locais e parceiros
       url: virtual-wan-locations-partners.md
     - text: Perguntas frequentes
@@ -73,12 +75,14 @@ landingContent:
       url: about-virtual-hub-routing.md
     - text: Cenário – Rotear o tráfego por meio de um NVA
       url: scenario-route-through-nva.md
-    - text: Cenário – De qualquer ponto para qualquer ponto
+    - text: Cenário – De qualquer spoke para qualquer spoke
       url: scenario-any-to-any.md
-    - text: Cenário – Isolar VNets
+    - text: Cenário – Isolar uma VNet
       url: scenario-isolate-vnets.md
-    - text: Cenário – VNets de serviços compartilhados
+    - text: Cenário – Rotear para uma VNet de serviços compartilhados
       url: scenario-shared-services-vnet.md
+    - text: Cenário – Roteamento personalizado por meio do Firewall do Azure
+      url: scenario-route-between-vnets-firewall.md
   - linkListType: how-to-guide
     links:
     - text: Configurar um roteamento de hub virtual

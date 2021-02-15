@@ -11,10 +11,10 @@ metadata:
   ms.author: allensu
   ms.date: 09/16/2019
   ms.openlocfilehash: c062c0aa38037485e6bd892b3dbce67160f64995
-  ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 04/24/2020
+  ms.lasthandoff: 10/09/2020
   ms.locfileid: "82127612"
 landingContent:
 - title: Sobre o Link Privado do Azure

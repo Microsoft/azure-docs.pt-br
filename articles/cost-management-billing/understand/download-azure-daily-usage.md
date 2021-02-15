@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
-ms.openlocfilehash: 3b16e5b460f5fdfd0668db2b2e2fac78775cd893
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 141da3dfab9996110952ec266733271582e66ff9
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88688905"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91439202"
 ---
 # <a name="view-and-download-your-azure-usage-and-charges"></a>Exibir e baixar uso e encargos do Azure
 
@@ -28,12 +28,12 @@ Com base no tipo de assinatura que você usa, as opções para baixar o uso e os
 
 1. Entre no [portal do Azure](https://portal.azure.com).
 1. Pesquise *Gerenciamento de Custos + Cobrança*.  
-    ![Captura de tela que mostra a pesquisa do portal do Azure](./media/download-azure-daily-usage/portal-cm-billing-search.png)
+    ![A captura de tela mostra a pesquisa de Gerenciamento de Custos e Cobrança no portal do Azure.](./media/download-azure-daily-usage/portal-cm-billing-search.png)
 1. Dependendo de seu acesso, talvez você precise selecionar uma conta de cobrança ou um perfil de cobrança.
 1. No menu esquerdo, selecione **Faturas** em **Cobrança**.
 1. Na grade da fatura, encontre a linha do período de cobrança correspondente ao uso que deseja baixar.
 1. Selecione o **ícone de download** ou as reticências (`...`) à direita.  
-  ![Captura de tela mostrando o local de download Uso + encargos](./media/download-azure-daily-usage/download-usage-others.png)  
+  ![A captura de tela mostra a página Faturas do Gerenciamento de Custos e Cobrança com a opção de download.](./media/download-azure-daily-usage/download-usage-others.png)  
 1. O painel Download se abre à direita. Selecione **Download** na seção **Detalhes de Uso**.  
 
 ## <a name="download-usage-for-ea-customers"></a>Faça o download uso para clientes do EA
@@ -42,10 +42,10 @@ Para exibir e baixar os dados de uso como cliente do EA, você deverá ser admin
 
 1. Entre no [portal do Azure](https://portal.azure.com).
 1. Pesquise *Gerenciamento de Custos + Cobrança*.  
-    ![Captura de tela que mostra a pesquisa do portal do Azure](./media/download-azure-daily-usage/portal-cm-billing-search.png)
+    ![A captura de tela mostra a pesquisa do portal do Azure.](./media/download-azure-daily-usage/portal-cm-billing-search.png)
 1. Selecione **uso + encargos**.
 1. No mês que você deseja fazer o download, selecione **fazer o download**.  
-    ![Captura de tela mostrando o local de download Uso + encargos](./media/download-azure-daily-usage/download-usage-ea.png)
+    ![A captura de tela mostra a página Faturas do Gerenciamento de Custos e Cobrança para clientes EA.](./media/download-azure-daily-usage/download-usage-ea.png)
 
 ## <a name="download-usage-for-pending-charges"></a>Baixar uso para encargos pendentes
 

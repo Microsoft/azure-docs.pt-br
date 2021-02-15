@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 07/31/2020
 ms.author: cshoe
 ms.openlocfilehash: 266df5371ff5f47526fa9d6567c62e31d51ebb05
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87810217"
 ---
 # <a name="shifting-from-expressjs-to-azure-functions"></a>Mudando de Express.js para Azure Functions
@@ -49,7 +49,7 @@ app.get('/hello', (req, res) => {
 
 Quando uma `GET` solicitação é enviada para `/hello` , uma `HTTP 200` resposta que contém `Success` é retornada. Se o ponto de extremidade encontrar um erro, a resposta será um `HTTP 500` com os detalhes do erro.
 
-### <a name="azure-functions"></a>Azure Functions
+### <a name="azure-functions"></a>Funções do Azure
 
 Azure Functions organiza os arquivos de configuração e de código em uma única pasta para cada função. Por padrão, o nome da pasta determina o nome da função.
 
@@ -113,7 +113,7 @@ Ao migrar para o functions, as seguintes alterações são feitas:
 
 - **Configuração**: você define os verbos HTTP no [function.jsno](./functions-bindings-http-webhook-trigger.md#customize-the-http-endpoint) arquivo, como `POST` ou `PUT` .
 
-Ofunction.jsa seguir _no_ arquivo contém informações de configuração para a função.
+Ofunction.jsa seguir _ no_ arquivo contém informações de configuração para a função.
 
 ```json
 {

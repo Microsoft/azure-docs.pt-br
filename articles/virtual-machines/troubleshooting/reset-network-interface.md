@@ -13,11 +13,11 @@ ms.topic: troubleshooting
 ms.date: 11/16/2018
 ms.author: genli
 ms.openlocfilehash: 6c4e507df0f112934979d4e59778b667743cf623
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87005949"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022897"
 ---
 # <a name="how-to-reset-network-interface-for-azure-windows-vm"></a>Como redefinir o adaptador de rede de uma VM Windows do Azure 
 
@@ -40,7 +40,7 @@ Este artigo mostra como redefinir o adaptador de rede para uma VM do Windows no 
     
 4.  Selecione **Configurações de IP**.
 5.  Selecione o IP. 
-6.  Se a **atribuição de IP privado** não for **estática**, altere-a para **estático**.
+6.  Se a **atribuição de IP privado**  não for  **estática**, altere-a para **estático**.
 7.  Altere o **endereço IP** para outro endereço IP que está disponível na Sub-rede.
 8. A máquina virtual será reiniciada para inicializar a nova NIC no sistema.
 9.  Tente executar o RDP no computador. Se for bem-sucedido, você poderá alterar o endereço IP Privado novamente para o original, se desejar. Caso contrário, você poderá mantê-lo. 
@@ -82,7 +82,7 @@ Para redefinir o adaptador de rede, siga estas etapas:
 2.  Selecione **Máquinas Virtuais (Clássicas)**.
 3.  Selecione a Máquina Virtual afetada.
 4.  Selecione **Endereços IP**.
-5.  Se a **atribuição de IP privado** não for **estática**, altere-a para **estático**.
+5.  Se a **atribuição de IP privado**  não for  **estática**, altere-a para **estático**.
 6.  Altere o **endereço IP** para outro endereço IP que está disponível na Sub-rede.
 7.  Clique em **Salvar**.
 8.  A máquina virtual será reiniciada para inicializar a nova NIC no sistema.

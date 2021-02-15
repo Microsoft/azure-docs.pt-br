@@ -1,5 +1,5 @@
 ---
-title: Criar um instantâneo de um VHD no Azure
+title: Criar um instantâneo de um VHD usando o CLI do Azure
 description: Saiba como criar uma cópia de um VHD no Azure como um backup ou para solução de problemas.
 author: roygara
 manager: twooley
@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.date: 07/11/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 7f4489b3073462a93319886ee5560ed5a6660111
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d041f864c6c8cd3ae9c522d79447d71c86f9ac04
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84659959"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98875596"
 ---
-# <a name="create-a-snapshot"></a>Criar um instantâneo 
+# <a name="create-a-snapshot-using-the-portal-or-azure-cli"></a>Criar um instantâneo usando o portal ou CLI do Azure
 
 Capture um instantâneo de um SO ou disco de dados para backup ou para solucionar problemas de VM. Um instantâneo é uma cópia completa somente leitura de um VHD. 
 
@@ -70,5 +70,4 @@ az snapshot list \
 
 ## <a name="next-steps"></a>Próximas etapas
 
- Cria uma máquina virtual de um instantâneo criando um disco gerenciado do instantâneo e, em seguida, anexando o novo disco gerenciado como disco do SO. Para obter mais informações, consulte o script [Criar uma VM com base em um instantâneo](./../scripts/virtual-machines-linux-cli-sample-create-vm-from-snapshot.md?toc=%2fcli%2fmodule%2ftoc.json).
-
+ Cria uma máquina virtual de um instantâneo criando um disco gerenciado do instantâneo e, em seguida, anexando o novo disco gerenciado como disco do SO. Para obter mais informações, consulte o script [Criar uma VM com base em um instantâneo](/previous-versions/azure/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-from-snapshot?toc=%2fcli%2fmodule%2ftoc.json).

@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: tomfitz
 ms.openlocfilehash: 2a075c5c99f457681cd49e75014487bf9cca263c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87095728"
 ---
 # <a name="createuidefinition-collection-functions"></a>Funções de coleção CreateUiDefinition
@@ -53,7 +53,7 @@ O exemplo a seguir retorna `true`:
 "[contains(steps('demoStep').element1, 'key1')]"
 ```
 
-## <a name="empty"></a>empty
+## <a name="empty"></a>vazio
 
 Retorna `true` se a cadeia de caracteres, matriz ou objeto é nulo ou vazio.
 
@@ -98,7 +98,7 @@ Suponha que `element1` é `null` ou indefinido. O exemplo a seguir retorna `true
 "[empty(steps('demoStep').element1)]"
 ```
 
-## <a name="filter"></a>filtro
+## <a name="filter"></a>filter
 
 Retorna uma nova matriz após aplicar a lógica de filtragem fornecida como uma função lambda. O primeiro parâmetro é a matriz a ser usada para filtragem. O segundo parâmetro é a função lambda que especifica a lógica de filtragem.
 

@@ -17,6 +17,9 @@
           href: dns-getstarted-powershell.md
         - name: Criar uma zona pública – CLI
           href: dns-getstarted-cli.md
+        - name: Criar uma zona pública – Modelo do ARM
+          displayName: Resource Manager
+          href: dns-get-started-template.md
     - name: DNS privado
       items:
         - name: Criar uma zona privada – portal
@@ -33,6 +36,8 @@
           href: dns-delegate-domain-azure-dns.md
         - name: Criar registros DNS personalizados para um aplicativo Web
           href: dns-web-sites-custom-domain.md
+        - name: Criar uma Zona DNS filho
+          href: tutorial-public-dns-zones-child.md
         - name: Registros de alias para o Gerenciador de Tráfego
           href: tutorial-alias-tm.md
         - name: Registros de alias para endereços IP públicos
@@ -75,7 +80,7 @@
           href: ../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md
         - name: Perguntas frequentes
           href: dns-faq-private.md
-- name: Como
+- name: Guias de instruções
   items:
     - name: DNS público
       items:
@@ -146,7 +151,7 @@
         - name: Ruby
           href: 'https://www.rubydoc.info/gems/azure_mgmt_dns/0.8.0'
         - name: Python
-          href: 'https://azure.github.io/azure-sdk-for-python/ref/DNS.html'
+          href: 'https://azure.github.io/azure-sdk-for-python/dns.html'
         - name: REST
           href: /rest/api/dns/
         - name: Modelo do Resource Manager
@@ -168,7 +173,7 @@
     - name: Solicitações de recursos
       href: 'https://feedback.azure.com/forums/217313-networking/category/77466-domain-name-service-dns-traffic-manager'
     - name: Página de perguntas de P e R da Microsoft
-      href: 'https://docs.microsoft.com/en-us/answers/topics/azure-virtual-network.html'
+      href: /answers/topics/azure-virtual-network.html
     - name: Blog de rede
       href: 'https://azure.microsoft.com/blog/topics/networking'
     - name: Preços

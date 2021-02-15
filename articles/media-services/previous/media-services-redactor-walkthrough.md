@@ -15,18 +15,20 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: ril
 ms.reviewer: juliako
-ms.openlocfilehash: a8db8de6ef062dcf757f3d264379677d6550ea3a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 048635a33c3d84416dae00b731b386572aa3f89d
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "69997687"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97802568"
 ---
 # <a name="redact-faces-with-azure-media-analytics-walkthrough"></a>Passo a passo de edição facial com o Azure Media Analytics
 
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 ## <a name="overview"></a>Visão geral
 
-**Azure Media Redactor** é um MP (processador de mídia) do [Azure Media Analytics](media-services-analytics-overview.md) que oferece edição facial escalonável na nuvem. A edição facial permite que você modifique seu vídeo para desfocar rostos de pessoas selecionadas. Você pode querer usar o serviço de edição facial em cenários de segurança pública e de notícias veiculadas. Alguns minutos de vídeo com vários rostos podem levar horas para serem editados manualmente, mas, com esse serviço, o processo de edição facial exigirá apenas algumas etapas simples. Para obter mais informações, consulte [este](https://azure.microsoft.com/blog/azure-media-redactor/) blog.
+**Azure Media Redactor** é um MP (processador de mídia) do [Azure Media Analytics](./legacy-components.md) que oferece edição facial escalonável na nuvem. A edição facial permite que você modifique seu vídeo para desfocar rostos de pessoas selecionadas. Você pode querer usar o serviço de edição facial em cenários de segurança pública e de notícias veiculadas. Alguns minutos de vídeo com vários rostos podem levar horas para serem editados manualmente, mas, com esse serviço, o processo de edição facial exigirá apenas algumas etapas simples. Para obter mais informações, consulte [este](https://azure.microsoft.com/blog/azure-media-redactor/) blog.
 
 Para obter detalhes sobre o **Azure Media Redactor**, veja o tópico [Visão geral da edição de face](media-services-face-redaction.md).
 
@@ -45,7 +47,7 @@ A maneira mais fácil de começar a usar o Redactor é com a ferramenta de códi
 
     Para obter as informações de chave e nome da conta, vá para o [Portal do Azure](https://portal.azure.com/) e selecione sua conta do AMS. Em seguida, selecione Configurações > Chaves. A janela Gerenciar chaves mostra o nome da conta e as chaves primária e secundária são exibidas. Copie os valores do nome da conta e a chave primária.
 
-![Redação de face](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough001.png)
+![Captura de tela mostra Serviços de Mídia do Microsoft Azure onde você pode inserir o nome da conta e a chave.](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough001.png)
 
 ### <a name="first-pass--analyze-mode"></a>Primeira aprovação – modo de análise
 
@@ -53,32 +55,32 @@ A maneira mais fácil de começar a usar o Redactor é com a ferramenta de códi
 1. Clique com botão direito e processe o arquivo de mídia usando a Análise de Mídia –> Azure Media Redactor –> Modo de Análise. 
 
 
-![Redação de face](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough002.png)
+![Captura de tela mostra um menu com ativos de processo com Azure Media Redactor.](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough002.png)
 
-![Redação de face](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough003.png)
+![A captura de tela mostra Azure Media Redactor com a primeira passagem: modo de análise selecionado.](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough003.png)
 
 A saída incluirá um arquivo json de anotações com dados de localização de face, bem como um jpg de cada face detectada. 
 
-![Redação de face](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough004.png)
+![Captura de tela mostra a saída da análise.](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough004.png)
 
 ### <a name="second-pass--redact-mode"></a>Segunda aprovação – modo de edição
 
 1. Carregue seu ativo de vídeo original na saída da primeira aprovação e o defina como um ativo primário. 
 
-    ![Redação de face](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough005.png)
+    ![Captura de tela mostra os botões carregar e definir como primário.](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough005.png)
 
 2. (Opcional) Carregue um arquivo “Dance_idlist.txt”, que inclui uma lista delimitada por nova linha das IDs que você deseja editar. 
 
-    ![Redação de face](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough006.png)
+    ![Captura de tela mostra a opção para carregar o arquivo de texto.](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough006.png)
 
 3. (Opcional) Faça as edições no arquivo annotations.json, por exemplo, aumentar os limites da caixa delimitadora. 
 4. Clique com botão direito no ativo de saída da primeira aprovação, selecione o Redactor e execute com o modo **Editar**. 
 
-    ![Redação de face](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough007.png)
+    ![A captura de tela mostra Azure Media Redactor com o segundo passo: modo de edição selecionado.](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough007.png)
 
 5. Baixe ou compartilhe o ativo de saída editado final. 
 
-    ![Redação de face](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough008.png)
+    ![Captura de tela mostra o botão baixar.](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough008.png)
 
 ## <a name="azure-media-redactor-visualizer-open-source-tool"></a>Ferramenta de código-fonte aberto Azure Media Redactor Visualizador
 
@@ -92,12 +94,12 @@ Se você for um desenvolvedor que está tentando analisar os dados de anotação
 
 1.  Baixe e compile toda a solução. 
 
-    ![Redação de face](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough009.png)
+    ![Captura de tela mostra a solução de compilação selecionada no menu.](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough009.png)
 
 2.  Baixe FFMPEG [aqui](https://ffmpeg.org/download.html). Este projeto foi desenvolvido originalmente com a versão be1d324 (2016-10-04) e com vinculação estática. 
 3.  Copie ffmpeg.exe e ffprobe.exe na mesma pasta de saída que AzureMediaRedactor.exe. 
 
-    ![Redação de face](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough010.png)
+    ![Captura de tela mostra o conteúdo da pasta, incluindo ffmpeg e ffprobe.](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough010.png)
 
 4. Execute AzureMediaRedactor.exe. 
 
@@ -107,11 +109,11 @@ Se você for um desenvolvedor que está tentando analisar os dados de anotação
 2. Baixe o arquivo de vídeo original e a saída do trabalho Edição - Análise. 
 3. Execute o aplicativo visualizador e escolha os arquivos acima. 
 
-    ![Redação de face](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough011.png)
+    ![A captura de tela mostra Azure Media Redactor carregando arquivos.](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough011.png)
 
 4. Visualize o arquivo. Selecione quais faces você gostaria de desfocar na barra lateral à direita. 
     
-    ![Redação de face](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough012.png)
+    ![Captura de tela mostra Azure Media Redactor onde você pode visualizar e selecionar faces para desfoque.](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough012.png)
 
 5.  O campo de texto inferior será atualizado com as IDs de face. Crie um arquivo chamado "idlist.txt" com essas IDs como uma lista delimitada por nova linha. 
 
@@ -129,8 +131,8 @@ Se você for um desenvolvedor que está tentando analisar os dados de anotação
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-links"></a>Links relacionados
-[Visão geral do Azure Media Services Analytics](media-services-analytics-overview.md)
+[Visão geral do Azure Media Services Analytics](./legacy-components.md)
 
-[Demonstrações do Azure Media Analytics](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+[Demonstrações do Azure Media Analytics](http://amslabs.azurewebsites.net/demos/Analytics.html)
 
 [Anunciando a redação da face da Análise de Mídia do Azure](https://azure.microsoft.com/blog/azure-media-redactor/)

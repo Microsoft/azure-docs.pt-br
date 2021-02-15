@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: 417ef716c391126982809574fc16f6681115cac3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a5740e851fbd8f7ba82e179f7e5299d6c7090596
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79477401"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "90890240"
 ---
 # <a name="train-svd-recommender"></a>Treinar o sistema de recomendação SVD
 
-Este artigo descreve como usar o módulo treinar Recomendador SVD no designer de Azure Machine Learning (versão prévia). Use este módulo para treinar um modelo de recomendação com base no algoritmo de decomposição de valor único (SVD).  
+Este artigo descreve como usar o módulo treinar Recomendador SVD no designer de Azure Machine Learning. Use este módulo para treinar um modelo de recomendação com base no algoritmo de decomposição de valor único (SVD).  
 
 O módulo treinar Recomendador SVD lê um conjunto de uma série de processamentos de usuário-item-classificação. Ele retorna um recomendador SVD treinado. Em seguida, você pode usar o modelo treinado para prever classificações ou gerar recomendações usando o módulo de [recomendação SVD de Pontuação](score-svd-recommender.md) .  
 
@@ -40,7 +40,7 @@ Para obter mais informações sobre o recomendador SVD, consulte o documento de 
 
 ## <a name="how-to-configure-train-svd-recommender"></a>Como configurar o Recomendador SVD de treinamento  
 
-### <a name="prepare-data"></a>Preparar os dados
+### <a name="prepare-data"></a>Preparar dados
 
 Antes de usar o módulo, os dados de entrada devem estar no formato esperado pelo modelo de recomendação. Um conjunto de dados de treinamento de percurso de classificação de usuário-item é necessário.
 

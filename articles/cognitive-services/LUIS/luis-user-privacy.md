@@ -3,20 +3,18 @@ title: Exportar & excluir dados-LUIS
 titleSuffix: Azure Cognitive Services
 description: Você tem controle total sobre a exibição, a exportação e a exclusão de seus dados. Exclua os dados do cliente para garantir a privacidade e a conformidade.
 services: cognitive-services
-author: diberry
 manager: nitinme
-ms.custom: seodec18
+ms.custom: seodec18, references_regions
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 04/02/2019
-ms.author: diberry
-ms.openlocfilehash: 4e3e0d04b0086905b80e26fb4f838c36b5b5545e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 12/10/2020
+ms.openlocfilehash: 0a2d0ce683261ca3460c7aeaa0d7a42152b81a1e
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78273356"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98680154"
 ---
 # <a name="export-and-delete-your-customer-data-in-language-understanding-luis-in-cognitive-services"></a>Exportar e excluir dados do cliente no LUIS (Serviço Inteligente de Reconhecimento Vocal) nos Serviços Cognitivos
 
@@ -52,7 +50,7 @@ Os usuários do LUIS têm controle total para exibir os dados no portal, no enta
 
 ## <a name="location-of-active-learning"></a>Local do aprendizado ativo
 
-Para habilitar o [aprendizado ativo](luis-how-to-review-endpoint-utterances.md#enable-active-learning), os declarações registrados em log dos usuários, recebidos nos pontos de extremidade Luis publicados, são armazenados nas seguintes regiões geográficas do Azure:
+Para habilitar o [aprendizado ativo](luis-how-to-review-endpoint-utterances.md#log-user-queries-to-enable-active-learning), os declarações registrados em log dos usuários, recebidos nos pontos de extremidade Luis publicados, são armazenados nas seguintes regiões geográficas do Azure:
 
 * [Europa](#europe)
 * [Austrália](#australia)
@@ -60,31 +58,38 @@ Para habilitar o [aprendizado ativo](luis-how-to-review-endpoint-utterances.md#e
 
 Com exceção dos dados de aprendizado ativos (detalhados abaixo), o LUIS segue as [práticas de armazenamento de dados para serviços regionais](https://azuredatacentermap.azurewebsites.net/).
 
+[!INCLUDE [portal consolidation](includes/portal-consolidation.md)]
+
+
 ### <a name="europe"></a>Europa
 
-O portal [eu.Luis.ai](https://eu.luis.ai) e a criação da Europa (também conhecidas como APIs programáticas) são hospedados na geografia da Europa do Azure. O portal do eu.luis.ai e a criação da Europa (também conhecida como APIs programáticas) dão suporte à implantação de pontos de extremidade para as seguintes regiões geográficas do Azure:
+Os recursos de criação da Europa (também conhecidos como APIs programáticas) são hospedados na geografia da Europa do Azure e dão suporte à implantação de pontos de extremidade para as seguintes regiões geográficas do Azure:
 
 * Europa
 * França
-* United Kingdom
+* Reino Unido
 
-Ao implantar nessas regiões do Azure, o declarações recebido pelo ponto de extremidade dos usuários finais do seu aplicativo será armazenado na geografia da Europa do Azure para o aprendizado ativo. Você pode desabilitar o aprendizado ativo, consulte [desabilitar o aprendizado ativo](luis-how-to-review-endpoint-utterances.md#disable-active-learning). Para gerenciar o declarações armazenado, consulte [excluir expressão](luis-how-to-review-endpoint-utterances.md#delete-utterance).
+Ao implantar nessas regiões do Azure, o declarações recebido pelo ponto de extremidade dos usuários finais do seu aplicativo será armazenado na geografia da Europa do Azure para o aprendizado ativo.
 
 ### <a name="australia"></a>Austrália
 
-O portal [au.Luis.ai](https://au.luis.ai) e a criação da Austrália (também conhecidas como APIs programáticas) são hospedados na geografia da Austrália do Azure. O portal do au.luis.ai e a criação da Austrália (também conhecida como APIs programáticas) dão suporte à implantação de pontos de extremidade para as seguintes regiões geográficas do Azure:
+Os recursos de criação da Austrália (também conhecidos como APIs programáticas) são hospedados na geografia da Austrália do Azure e dão suporte à implantação de pontos de extremidade para as seguintes regiões geográficas do Azure:
 
 * Austrália
 
-Ao implantar nessas regiões do Azure, o declarações recebido pelo ponto de extremidade dos usuários finais do seu aplicativo será armazenado na geografia da Austrália do Azure para o aprendizado ativo. Você pode desabilitar o aprendizado ativo, consulte [desabilitar o aprendizado ativo](luis-how-to-review-endpoint-utterances.md#disable-active-learning). Para gerenciar o declarações armazenado, consulte [excluir expressão](luis-how-to-review-endpoint-utterances.md#delete-utterance).
+Ao implantar nessas regiões do Azure, o declarações recebido pelo ponto de extremidade dos usuários finais do seu aplicativo será armazenado na geografia da Austrália do Azure para o aprendizado ativo.
 
 ### <a name="united-states"></a>Estados Unidos
 
-O portal do [Luis.ai](https://www.luis.ai) e a criação de Estados Unidos (também conhecida como APIs programáticas) são hospedados na geografia de Estados Unidos do Azure. O portal do luis.ai e a criação de Estados Unidos (também conhecida como APIs programáticas) dão suporte à implantação de pontos de extremidade para as seguintes regiões geográficas do Azure:
+Os recursos de criação de Estados Unidos (também conhecidos como APIs programáticas) são hospedados na geografia de Estados Unidos do Azure e dão suporte à implantação de pontos de extremidade para as seguintes regiões geográficas do Azure:
 
 * Geografias do Azure sem suporte nas regiões de criação da Europa ou da Austrália
 
-Ao implantar nessas regiões do Azure, o declarações recebido pelo ponto de extremidade dos usuários finais do seu aplicativo será armazenado na geografia Estados Unidos do Azure para o aprendizado ativo. Você pode desabilitar o aprendizado ativo, consulte [desabilitar o aprendizado ativo](luis-how-to-review-endpoint-utterances.md#disable-active-learning). Para gerenciar o declarações armazenado, consulte [excluir expressão](luis-how-to-review-endpoint-utterances.md#delete-utterance).
+Ao implantar nessas regiões do Azure, o declarações recebido pelo ponto de extremidade dos usuários finais do seu aplicativo será armazenado na geografia Estados Unidos do Azure para o aprendizado ativo. 
+
+## <a name="disable-active-learning"></a>Desabilitar o aprendizado ativo
+
+Para desabilitar o aprendizado ativo, consulte [desabilitar o aprendizado ativo](luis-how-to-review-endpoint-utterances.md#disable-active-learning). Para gerenciar o declarações armazenado, consulte [excluir expressão](luis-how-to-review-endpoint-utterances.md#delete-utterance).
 
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -2,14 +2,14 @@
 author: wolfma61
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 02/12/2020
+ms.date: 12/10/2020
 ms.author: wolfma
-ms.openlocfilehash: c8e6c11771ae4cd216b3b1e43f3db7924dca81cd
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 329241c2660ff7828f57fb21daeb6de20caedc43
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77168170"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97504450"
 ---
 | painel Geografia do app&#39;s selecionado | Região | Identificador de região |
 | ----- | ----- | ----- |
@@ -22,12 +22,12 @@ ms.locfileid: "77168170"
 | Américas | Oeste dos EUA | `westus` |
 | Américas | Oeste dos EUA 2 | `westus2` |
 | Américas | Canadá Central | `canadacentral` |
-| Américas | Sul do Brasil | `brazilsouth` |
+| Américas | Brazil South | `brazilsouth` |
 | Pacífico Asiático | Leste da Ásia | `eastasia` |
 | Pacífico Asiático | Sudeste Asiático | `southeastasia` |
 | Pacífico Asiático | Leste da Austrália | `australiaeast` |
 | Pacífico Asiático | Índia Central | `centralindia` |
-| Pacífico Asiático | Leste do Japão | `japaneast` |
+| Pacífico Asiático | Japan East | `japaneast` |
 | Pacífico Asiático | Oeste do Japão | `japanwest` |
 | Pacífico Asiático | Coreia Central | `koreacentral` |
 | Europa | Norte da Europa | `northeurope` |

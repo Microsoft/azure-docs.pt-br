@@ -1,21 +1,17 @@
 ---
 title: Identidade gerenciada para o Data Factory
 description: Saiba mais sobre identidade gerenciada para Azure Data Factory.
-services: data-factory
 author: linda33wj
-manager: shwang
-editor: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: jingwang
-ms.openlocfilehash: 7c1de2b6ef59efdaaed64fcf687fed0c834683c0
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: e0d3b551265a480a700f374ddfcf89dd4d93333f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86037589"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100389154"
 ---
 # <a name="managed-identity-for-data-factory"></a>Identidade gerenciada para o Data Factory
 
@@ -32,7 +28,7 @@ Ao criar um data factory, uma identidade gerenciada pode ser criada junto com a 
 A identidade gerenciada para Data Factory beneficia os seguintes recursos:
 
 - [Armazene a credencial em Azure Key Vault](store-credentials-in-key-vault.md), nesse caso data Factory identidade gerenciada é usada para Azure Key Vault autenticação.
-- Conectores incluindo [armazenamento de Blobs do Azure](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Banco de Dados SQL do Azure](connector-azure-sql-database.md), e [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md).
+- Conectores, incluindo o [armazenamento de BLOBs do Azure](connector-azure-blob-storage.md), [Azure data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure data Lake Storage Gen2](connector-azure-data-lake-storage.md), [banco de dados SQL do Azure](connector-azure-sql-database.md)e [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md).
 - [Atividade da Web](control-flow-web-activity.md).
 
 ## <a name="generate-managed-identity"></a>Gerar identidade gerenciada
@@ -57,7 +53,7 @@ Se você achar que o data factory não tem uma identidade gerenciada associada a
 
 ### <a name="generate-managed-identity-using-powershell"></a>Gerar identidade gerenciada usando o PowerShell
 
-Chame o comando **set-AzDataFactoryV2** novamente, então você verá os campos de "identidade" que estão sendo gerados recentemente:
+Chame o comando **set-AzDataFactoryV2** , então você verá os campos de "identidade" que estão sendo gerados recentemente:
 
 ```powershell
 PS C:\WINDOWS\system32> Set-AzDataFactoryV2 -ResourceGroupName <resourceGroupName> -Name <dataFactoryName> -Location <region>
@@ -252,4 +248,4 @@ Consulte os tópicos a seguir que introduzem quando e como usar data factory ide
 - [Armazenar credencial em Azure Key Vault](store-credentials-in-key-vault.md)
 - [Copiar dados de/para o Azure Data Lake Store usando identidades gerenciadas para autenticação de recursos do Azure](connector-azure-data-lake-store.md)
 
-Consulte [visão geral de identidades gerenciadas para recursos do Azure](/azure/active-directory/managed-identities-azure-resources/overview) para obter mais informações sobre identidades gerenciadas para recursos do Azure, que data Factory identidade gerenciada baseia-se no. 
+Consulte [visão geral de identidades gerenciadas para recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md) para obter mais informações sobre identidades gerenciadas para recursos do Azure, que data Factory identidade gerenciada baseia-se no.

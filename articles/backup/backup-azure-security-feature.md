@@ -4,12 +4,12 @@ description: Saiba como usar os recursos de segurança no Backup do Azure para t
 ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 06/08/2017
-ms.openlocfilehash: cbd9ee0336953b65b4e2d55d294d30309ebe0de7
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 8c671b1b54b937f518f7179bb6940f31a28a78d4
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892449"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94841011"
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Recursos de segurança para ajudar a proteger backups híbridos usando o Backup do Azure
 
@@ -22,7 +22,7 @@ Preocupações sobre problemas de segurança, como malware, ransomware e invasã
 > [!NOTE]
 > Os recursos de segurança não devem ser habilitados se você estiver usando o backup de VM de IaaS (infraestrutura como serviço). Esses recursos ainda não estão disponíveis para backup de VM IaaS, portanto, habilitá-los não terá nenhum impacto. Os recursos de segurança só devem ser habilitados se você estiver usando: <br/>
 >
-> - **Agente de backup do Azure**. Versão mínima do agente 2.0.9052. Depois de habilitar esses recursos, você deverá atualizar para esta versão do agente para realizar operações críticas. <br/>
+> - **Agente de backup do Azure**. Versão mínima do agente 2.0.9052. Depois de habilitar esses recursos, você deve atualizar para esta versão do agente para executar operações críticas. <br/>
 > - **Servidor de backup do Azure**. Versão mínima do agente de Backup do Azure 2.0.9052 com o Servidor de Backup do Azure atualização 1. <br/>
 > - **Data Protection Manager do System Center**. Versão mínima do agente de Backup do Azure 2.0.9052 com o Data Protection Manager 2012 R2 UR12 ou Data Protection Manager 2016 UR2. <br/>
 
@@ -48,10 +48,10 @@ Se você estiver criando um cofre dos serviços de recuperação, poderá usar t
     ![Captura de tela das propriedades do cofre dos Serviços de Recuperação](./media/backup-azure-security-feature/security-settings-update.png)
 
     O link de atualização abre o painel **configurações de segurança** , que fornece um resumo dos recursos e permite que você os habilite.
-5. Na lista suspensa **Você configurou a Autenticação Multifator do Azure?**, selecione um valor para confirmar se você habilitou a [Autenticação Multifator do Azure](../active-directory/authentication/concept-mfa-howitworks.md). Se ele estiver habilitado, você será solicitado a autenticar de outro dispositivo (por exemplo, um telefone celular) ao entrar no portal do Azure.
+5. Na lista suspensa **, você configurou a autenticação multifator do Azure ad?**, selecione um valor para confirmar se você habilitou a [autenticação multifator do Azure ad](../active-directory/authentication/concept-mfa-howitworks.md). Se ele estiver habilitado, você será solicitado a autenticar de outro dispositivo (por exemplo, um telefone celular) ao entrar no portal do Azure.
 
-   Ao realizar operações críticas no Backup, você poderá inserir um PIN de segurança, disponível no portal do Azure. A habilitação da Autenticação Multifator do Azure adiciona uma camada de segurança. Apenas usuários autorizados com credenciais válidas do Azure, e autenticados de um segundo dispositivo, podem acessar o portal do Azure.
-6. Para salvar as configurações de segurança, selecione **habilitar** e selecione **salvar**. Você só poderá selecionar **Habilitar** depois de selecionar um valor da lista **Você configurou a Autenticação Multifator do Azure** na etapa anterior.
+   Ao realizar operações críticas no Backup, você poderá inserir um PIN de segurança, disponível no portal do Azure. A habilitação da autenticação multifator do Azure AD adiciona uma camada de segurança. Apenas usuários autorizados com credenciais válidas do Azure, e autenticados de um segundo dispositivo, podem acessar o portal do Azure.
+6. Para salvar as configurações de segurança, selecione **habilitar** e selecione **salvar**. Você pode selecionar **habilitar** somente depois de selecionar um valor da lista **você configurou a autenticação multifator do Azure ad?** na etapa anterior.
 
     ![Captura de tela das configurações de segurança](./media/backup-azure-security-feature/enable-security-settings-dpm-update.png)
 
@@ -88,8 +88,8 @@ Como parte da adição de uma camada extra de autenticação para operações cr
 
 Para receber esse PIN:
 
-1. Entre no Portal do Azure.
-2. Navegue até **serviços de recuperação**  >  **configurações**do cofre  >  **Propriedades**.
+1. Entre no portal do Azure.
+2. Navegue até **serviços de recuperação**  >  **configurações** do cofre  >  **Propriedades**.
 3. Em **PIN de segurança**, selecione **gerar**. Isso abre um painel que contém o PIN a ser inserido na interface do usuário do agente dos serviços de recuperação do Azure.
     Esse PIN é válido somente por cinco minutos e é gerado automaticamente após esse período.
 

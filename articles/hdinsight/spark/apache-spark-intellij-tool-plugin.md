@@ -1,19 +1,16 @@
 ---
 title: 'Azure Toolkit for IntelliJ: aplicativo Spark – HDInsight'
 description: Use o Kit de Ferramentas do Azure para IntelliJ a fim de desenvolver aplicativos Spark escritos em Scala e enviá-los a um cluster Spark do HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 04/13/2020
-ms.openlocfilehash: 370ac9528b023f01aaff5e5a7ec62785a02bb4bd
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 0b2c2a91ba9d029bcf24b0980d0a2339194e6d8a
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085337"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98931043"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-hdinsight-cluster"></a>Usar o Azure Toolkit for IntelliJ para criar aplicativos Apache Spark para um cluster do HDInsight
 
@@ -37,9 +34,9 @@ Neste artigo, você aprenderá como:
 
 * [Kit de desenvolvimento Oracle Java](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).  Este artigo usa a versão do Java 8.0.202.
 
-* IntelliJ IDEA. Este artigo usa a [INTELLIJ Idea Community ver.  2018.3.4](https://www.jetbrains.com/idea/download/).
+* IntelliJ IDEA. Este artigo usa o [IntelliJ IDEA Community ver.  2018.3.4](https://www.jetbrains.com/idea/download/).
 
-* Azure Toolkit for IntelliJ.  Confira [Installing the Azure Toolkit for IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij-installation?view=azure-java-stable) (Instalação do Azure Toolkit for IntelliJ).
+* Azure Toolkit for IntelliJ.  Confira [Installing the Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij/) (Instalação do Azure Toolkit for IntelliJ).
 
 ## <a name="install-scala-plugin-for-intellij-idea"></a>Instalar o plug-in Scala para IntelliJ IDEA
 
@@ -47,7 +44,7 @@ Etapas para instalar o plug-in escalar:
 
 1. Abra o IntelliJ IDEA.
 
-2. Na tela de boas-vindas, navegue até **Configurar**  >  **plug-ins** para abrir a janela **plug-ins** .
+2. Na tela de boas-vindas, navegue até **Configurar** > **Plug-ins** para abrir a janela **Plug-ins**.
 
     ![IntelliJ IDEA habilita o plug-in escalar](./media/apache-spark-intellij-tool-plugin/enable-scala-plugin1.png)
 
@@ -78,9 +75,9 @@ Etapas para instalar o plug-in escalar:
     |  Propriedade   | Descrição   |  
     | ----- | ----- |  
     |Nome do projeto| Insira um nome.  Este artigo usa `myApp`.|  
-    |Local do&nbsp;projeto| Insira o local para salvar o projeto.|
+    |Local do&nbsp;projeto| Insira o local no qual salvar o projeto.|
     |SDK do projeto| Esse campo pode estar em branco no primeiro uso da ideia.  Selecione **Novo...** e navegue até o JDK.|
-    |Versão do Spark|O assistente de criação integra a versão apropriada para o SDK do Spark e o SDK do Scala. Se a versão do cluster do Spark for anterior à 2.0, selecione **Spark 1.x**. Caso contrário, selecione **Spark2.x**. Esse exemplo usa o **Spark 2.3.0 (Scala 2.11.8)**.|
+    |Versão do Spark|O assistente de criação integra a versão apropriada para o SDK do Spark e o SDK do Scala. Se a versão do cluster do Spark for anterior à 2.0, selecione **Spark 1.x**. Caso contrário, selecione **Spark2.x**. Esse exemplo usa o **Spark 2.3.0 (Scala 2.11.8)** .|
 
     ![Selecionar o SDK do Apache Spark](./media/apache-spark-intellij-tool-plugin/intellij-new-project.png)
 
@@ -92,7 +89,7 @@ Etapas para instalar o plug-in escalar:
 
    b. Na janela **Estrutura do Projeto**, selecione **Artefatos**.  
 
-   c. Selecione **Cancelar** depois de exibir o artefato.
+   c. Selecione **Cancelar**  depois de exibir o artefato.
 
       ![Informações do artefato na caixa de diálogo](./media/apache-spark-intellij-tool-plugin/default-artifact-dialog.png)
 
@@ -239,7 +236,7 @@ Depois de criar um aplicativo Scala, você poderá enviá-lo ao cluster.
     |Nome da classe principal|O valor padrão é a classe principal do arquivo selecionado. Você pode alterar a classe selecionando as reticência ( **...** ) e escolhendo outra classe.|
     |Configurações de trabalho|Você pode alterar as chaves padrão e, ou valores. Para obter mais informações, confira [API REST do Apache Livy](https://livy.incubator.apache.org/docs/latest/rest-api.html).|
     |Argumentos de linha de comando|Você pode inserir argumentos separados por espaço para a classe principal se necessário.|
-    |Arquivos Referenciados e Jars Referenciados|você pode inserir os caminhos para os Jars e os arquivos referenciados, se houver. Você também pode procurar arquivos no sistema de arquivos virtual do Azure, que atualmente suporta apenas o cluster ADLS Gen 2. Para obter mais informações: [configuração de Apache Spark](https://spark.apache.org/docs/latest/configuration.html#runtime-environment).  Confira também [Como carregar recursos para o cluster](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer).|
+    |Arquivos Referenciados e Jars Referenciados|você pode inserir os caminhos para os Jars e os arquivos referenciados, se houver. Você também pode procurar arquivos no sistema de arquivos virtual do Azure, que atualmente suporta apenas o cluster ADLS Gen 2. Para obter mais informações: [configuração de Apache Spark](https://spark.apache.org/docs/latest/configuration.html#runtime-environment).  Confira também [Como carregar recursos para o cluster](../../storage/blobs/storage-quickstart-blobs-storage-explorer.md).|
     |Armazenamento de Upload de Trabalho|Expanda para revelar opções adicionais.|
     |Tipo de armazenamento|Selecione **Usar Blob do Azure para carregar** na lista suspensa.|
     |Conta de Armazenamento|Insira sua conta de armazenamento.|
@@ -262,7 +259,7 @@ Você pode realizar várias operações usando Azure Toolkit for IntelliJ.  A ma
 
 ### <a name="access-the-job-view"></a>Acessar a exibição do trabalho
 
-1. No Azure Explorer, navegue até trabalhos do **HDInsight**  >  \<Your Cluster>  >  **Jobs**.
+1. No Azure Explorer, navegue até trabalhos do **HDInsight**  >  \<Your Cluster>  >  .
 
     ![IntelliJ nó de exibição de trabalho do Azure Explorer](./media/apache-spark-intellij-tool-plugin/intellij-job-view-node.png)
 

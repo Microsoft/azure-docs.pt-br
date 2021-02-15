@@ -1,6 +1,6 @@
 ---
 title: Início rápido do Striim
-description: Comece rapidamente a usar o Striim e o SQL Data Warehouse do Azure.
+description: Comece rapidamente com o Striim e o Azure Synapse Analytics.
 services: synapse-analytics
 author: mlee3gsd
 manager: craigg
@@ -11,18 +11,18 @@ ms.date: 10/12/2018
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 945bcd03bc3bf13517836e7a5624bd5142782183
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d6b5fa1a42201479c5d426a5bbb9188d0cb8e03d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85208545"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89485967"
 ---
-# <a name="striim-azure-sql-dw-marketplace-offering-install-guide"></a>Guia de instalação da oferta do Marketplace do Striim Azure SQL DW
+# <a name="striim-azure-synapse-analytics-marketplace-offering-install-guide"></a>Guia de instalação da oferta do Marketplace do Azure Synapse Analytics Striim
 
-Este início rápido pressupõe que você já tem uma instância já existente do SQL Data Warehouse.
+Este início rápido pressupõe que você já tem uma instância pré-existente do Azure Synapse Analytics.
 
-Procure o Striim no Azure Marketplace e selecione-o para a opção de integração de dados com o SQL Data Warehouse (Preparado) 
+Pesquise Striim no Azure Marketplace e selecione a opção Striim for Data Integration to Azure Synapse Analytics (preparado) 
 
 ![Instalar o Striim][install]
 
@@ -32,7 +32,7 @@ Configurar a VM do Striim com as propriedades especificadas, anotando o nome do 
 
 Depois de implantado, clique em \<VM Name>-masternode no portal do Azure, clique em Conectar e copie o logon usando a conta local da VM 
 
-![Conectar o Striim ao SQL Data Warehouse][connect]
+![Conectar o Striim ao Azure Synapse Analytics][connect]
 
 Baixe o sqljdbc42.jar de <https://www.microsoft.com/en-us/download/details.aspx?id=54671> para seu computador local. 
 

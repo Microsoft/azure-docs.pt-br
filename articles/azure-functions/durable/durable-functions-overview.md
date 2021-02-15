@@ -3,15 +3,15 @@ title: Visão Geral das Funções Duráveis – Azure
 description: Introdução à extensão de Durable Functions do Azure Functions.
 author: cgillum
 ms.topic: overview
-ms.date: 03/12/2020
+ms.date: 12/23/2020
 ms.author: cgillum
 ms.reviewer: azfuncdf
-ms.openlocfilehash: adf58b667d17393fc905fbf31261530fce88d9f8
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: 2079a3a7c9ce6817186e743bb09d31facdecf0e7
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88272341"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97931714"
 ---
 # <a name="what-are-durable-functions"></a>O que são as Durable Functions?
 
@@ -21,11 +21,13 @@ As *Durable Functions* são uma extensão do [Azure Functions](../functions-over
 
 Atualmente, as Durable Functions dão suporte às seguintes linguagens:
 
-* **C#** : [bibliotecas de classes pré-compiladas](../functions-dotnet-class-library.md) e [script C#](../functions-reference-csharp.md).
+* **C#**: [bibliotecas de classes pré-compiladas](../functions-dotnet-class-library.md) e [script C#](../functions-reference-csharp.md).
 * **JavaScript**: compatível apenas com a versão 2.x do Azure Functions Runtime. Exige a versão 1.7.0 da extensão das Durable Functions ou uma versão posterior. 
-* **Python**: exige a versão 1.8.5 da extensão das Durable Functions ou uma versão posterior. 
-* **F#** : bibliotecas de classes pré-compiladas e script F#. Só há suporte para o script F# na versão 1.x do Azure Functions Runtime.
+* **Python**: requer a versão 2.3.1 ou posterior da extensão das Durable Functions. No momento, o suporte das Durable Functions está em versão prévia pública.
+* **F#**: bibliotecas de classes pré-compiladas e script F#. Só há suporte para o script F# na versão 1.x do Azure Functions Runtime.
 * **PowerShell**: atualmente, o suporte das Durable Functions está em versão prévia pública. Compatível apenas com a versão 3.x do Azure Functions Runtime e o PowerShell 7. Exige a versão 2.2.2 da extensão das Durable Functions ou uma versão posterior. No momento, há suporte apenas para os seguintes padrões: [Encadeamento de funções](#chaining), [Fan-out/fan-in](#fan-in-out) e [APIs HTTP assíncronas](#async-http).
+
+Recomendamos usar as versões mais recentes da extensão Durable Functions, além de bibliotecas específicas a um idioma das Durable Functions para acessar os recursos e as atualizações mais recentes. Saiba mais sobre as [versões das Durable Functions](durable-functions-versions.md).
 
 As Durable Functions têm o objetivo de dar suporte a todas as [linguagens do Azure Functions](../supported-languages.md). Confira a [lista de problemas das Durable Functions](https://github.com/Azure/azure-functions-durable-extension/issues) para obter o último status do trabalho para dar suporte a linguagens adicionais.
 
@@ -42,7 +44,7 @@ O principal caso de uso das Durable Functions é simplificar requisitos complexo
 * [Interação humana](#human)
 * [Agregador (entidades com estado)](#aggregator)
 
-### <a name="pattern-1-function-chaining"></a><a name="chaining"></a>Padrão 1: Encadeamento de funções
+### <a name="pattern-1-function-chaining"></a>Padrão 1: encadeamento de funções
 
 No padrão de encadeamento de funções, uma sequência de funções é executada em uma ordem específica. Nesse padrão, a saída de uma função é aplicada à entrada de outra função.
 
@@ -135,7 +137,7 @@ Use o comando `Invoke-ActivityFunction` para invocar outras funções por nome, 
 
 ---
 
-### <a name="pattern-2-fan-outfan-in"></a><a name="fan-in-out"></a>Padrão 2: Fan-out/fan-in
+### <a name="pattern-2-fan-outfan-in"></a>Padrão 2: fan-out/fan-in
 
 No padrão fan-out/fan-in, execute várias funções em paralelo e, em seguida, aguarde a conclusão de todas as funções. Frequentemente, algum trabalho de agregação é feito nos resultados retornados pelas funções.
 
@@ -255,7 +257,7 @@ A criação automática de ponto de verificação que ocorre na chamada `Wait-Ac
 > [!NOTE]
 > Em raras circunstâncias, é possível que uma falha ocorra na janela depois que uma função de atividade for concluída, mas antes de sua conclusão ser salva no histórico de orquestração. Se isso acontecer, a função de atividade será executada novamente desde o início depois que o processo for recuperado.
 
-### <a name="pattern-3-async-http-apis"></a><a name="async-http"></a>Padrão 3: APIs HTTP assíncronas
+### <a name="pattern-3-async-http-apis"></a>Padrão 3: APIs de HTTP assíncrono
 
 O padrão de API HTTP assíncrona trata do problema de coordenar o estado de operações de execução longa com clientes externos. Uma maneira comum de implementar esse padrão é fazer com que um ponto de extremidade HTTP dispare a ação de execução longa. Em seguida, redirecione o cliente para um ponto de extremidade de status que é sondado pelo cliente para saber quando a operação é concluída.
 
@@ -403,7 +405,7 @@ Atualmente, não há suporte para o Monitor no PowerShell.
 
 Quando uma solicitação é recebida, uma nova instância de orquestração é criada para essa ID do trabalho. A instância sonda um status até que uma condição seja atendida e o loop seja encerrado. Um temporizador durável controla o intervalo de sondagem. Em seguida, mais trabalho pode ser realizado ou a orquestração pode ser encerrada. Quando `nextCheck` excede `expiryTime`, o monitor é encerrado.
 
-### <a name="pattern-5-human-interaction"></a><a name="human"></a>Padrão 5: Interação humana
+### <a name="pattern-5-human-interaction"></a>Padrão 5: interação humana
 
 Muitos processos automatizados envolvem algum tipo de interação humana. Envolver humanos em um processo automatizado é complicado, porque as pessoas não estão tão altamente disponíveis nem são tão dinâmicas quanto os serviços de nuvem. Um processo automatizado pode permitir essa interação usando tempos limite e a lógica de compensação.
 
@@ -695,7 +697,7 @@ Para fornecer garantias de execução confiáveis e de execução longa, as fun�
 
 ## <a name="billing"></a>Cobrança
 
-As Durable Functions são cobradas da mesma forma que o Azure Functions. Para saber mais, confira [Preços do Azure Functions](https://azure.microsoft.com/pricing/details/functions/). Ao executar funções de orquestrador no [plano de Consumo](../functions-scale.md#consumption-plan) do Azure Functions, há alguns comportamentos de cobrança para sua informação. Para obter mais informações sobre esses comportamentos, confira o artigo [Cobrança das Durable Functions](durable-functions-billing.md).
+As Durable Functions são cobradas da mesma forma que o Azure Functions. Para saber mais, confira [Preços do Azure Functions](https://azure.microsoft.com/pricing/details/functions/). Ao executar funções de orquestrador no [plano de Consumo](../consumption-plan.md) do Azure Functions, há alguns comportamentos de cobrança para sua informação. Para obter mais informações sobre esses comportamentos, confira o artigo [Cobrança das Durable Functions](durable-functions-billing.md).
 
 ## <a name="jump-right-in"></a>Comece a usar agora
 
@@ -704,8 +706,9 @@ Comece a usar as Durable Functions em menos de 10 minutos concluindo um destes t
 * [C# usando o Visual Studio 2019](durable-functions-create-first-csharp.md)
 * [JavaScript usando o Visual Studio Code](quickstart-js-vscode.md)
 * [Python usando o Visual Studio Code](quickstart-python-vscode.md)
+* [PowerShell usando o Visual Studio Code](quickstart-powershell-vscode.md)
 
-Nos dois inícios rápidos, você criará e testará uma durable function "Olá, Mundo" localmente. Em seguida, você publicará o código de função no Azure. A função que você criará orquestra e encadeia chamadas para outras funções.
+Nestes guias de início rápido, você criará e testará uma função durável "Olá, Mundo" localmente. Em seguida, você publicará o código de função no Azure. A função que você criará orquestra e encadeia chamadas para outras funções.
 
 ## <a name="learn-more"></a>Saiba mais
 

@@ -7,17 +7,17 @@ ms.service: cache
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 08/06/2020
-ms.openlocfilehash: 5c5c7a5adae9891f764f714d1700c6024376de02
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 15c7ed4ca9d04e4bb314eea8b92bef749d2369b1
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88205387"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92537653"
 ---
 # <a name="azure-cache-for-redis-management-faqs"></a>Perguntas frequentes sobre o cache do Azure para gerenciamento Redis
 Este artigo fornece respostas a perguntas comuns sobre como gerenciar o cache do Azure para Redis.
 
-## <a name="common-questions-and-answers"></a>Perguntas e respostas comuns
+## <a name="common-questions-and-answers"></a>Perguntas comuns e respostas
 Esta seção aborda as seguintes perguntas frequentes:
 
 * [Quando devo habilitar a porta não TLS/SSL para conexão ao Redis?](#when-should-i-enable-the-non-tlsssl-port-for-connecting-to-redis)
@@ -63,7 +63,7 @@ Para obter instruções sobre como baixar as ferramentas do Redis, consulte a se
 * A VM do cliente usada para testes deve estar na mesma região que a instância do Cache do Azure para Redis.
 * É recomendável usar a Série de VM Dv2 série para o cliente, pois ela tem hardware melhor e deve oferecer melhores resultados.
 * Verifique se a VM do cliente escolhida tem ao menos a quantidade de computação e funcionalidade de largura de banda de cache que você está testando.
-* Habilite o VRSS no computador cliente, se você estiver usando o Windows. [Consulte aqui para obter detalhes](https://technet.microsoft.com/library/dn383582.aspx).
+* Habilite o VRSS no computador cliente, se você estiver usando o Windows. [Consulte aqui para obter detalhes](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn383582(v=ws.11)).
 * As instâncias do Redis nível Premium terão melhor latência de rede e taxa de transferência porque estão em execução tanto para a CPU quanto para a Rede.
 
 ### <a name="what-are-some-of-the-considerations-when-using-common-redis-commands"></a>Quais são algumas das considerações ao usar os comandos comuns do Redis?
@@ -144,10 +144,10 @@ Como definir essa configuração:
     > [!NOTE]
     > O valor especificado por esse método é uma configuração global que afeta todo o AppDomain. Por exemplo, se você tiver uma máquina com quatro núcleos e desejar definir as configurações *minWorkerThreads* e *minIoThreads* como 50 por CPU durante o tempo de execução, use **ThreadPool.SetMinThreads (200, 200)** .
 
-* Também é possível especificar a configuração de threads mínimos usando a configuração [*minIoThreads* ou *minWorkerThreads*](https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx) no elemento de configuração `<processModel>` no `Machine.config`, geralmente localizado em `%SystemRoot%\Microsoft.NET\Framework\[versionNumber]\CONFIG\`. **Definir o número de threads mínimos assim geralmente não é recomendado, pois é uma configuração de todo o sistema.**
+* Também é possível especificar a configuração de threads mínimos usando a configuração [*minIoThreads* ou *minWorkerThreads*](/previous-versions/dotnet/netframework-4.0/7w2sway1(v=vs.100)) no elemento de configuração `<processModel>` no `Machine.config`, geralmente localizado em `%SystemRoot%\Microsoft.NET\Framework\[versionNumber]\CONFIG\`. **Definir o número de threads mínimos assim geralmente não é recomendado, pois é uma configuração de todo o sistema.**
 
   > [!NOTE]
-  > O valor especificado nesse elemento de configuração é uma *configuração por núcleo*. Por exemplo, se você tivesse um computador com quatro núcleos e desejar que sua configuração *minIoThreads* seja de 200 no runtime, usaria `<processModel minIoThreads="50"/>`.
+  > O valor especificado nesse elemento de configuração é uma *configuração por núcleo* . Por exemplo, se você tivesse um computador com quatro núcleos e desejar que sua configuração *minIoThreads* seja de 200 no runtime, usaria `<processModel minIoThreads="50"/>`.
   >
 
 ### <a name="enable-server-gc-to-get-more-throughput-on-the-client-when-using-stackexchangeredis"></a>Habilitar a GC (coleta de lixo) do servidor para obter mais produtividade no cliente ao usar o StackExchange.Redis

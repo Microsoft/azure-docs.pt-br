@@ -1,6 +1,6 @@
 ---
 title: Copiar dados no Armazenamento de Blobs usando o Azure Data Factory
-description: Crie um Azure Data Factory para copiar dados de um local em um Armazenamento de Blobs do Azure para outro local.
+description: Crie um Azure Data Factory usando o PowerShell para copiar dados de uma localização no Armazenamento de Blobs do Azure para outra.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -13,14 +13,14 @@ ms.devlang: powershell
 ms.topic: quickstart
 ms.date: 04/10/2020
 ms.author: jingwang
-ms.openlocfilehash: ad757e3d65d3094ca6883d747404906a871ed850
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: a7fcb4be47e0e1e62c190a9b089243a178df8e7a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81419333"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013336"
 ---
-# <a name="quickstart-create-an-azure-data-factory-using-powershell"></a>Início Rápido: Criar um Azure Data Factory usando o PowerShell
+# <a name="quickstart-create-an-azure-data-factory-using-powershell"></a>Início rápido: Criar um Azure Data Factory usando o PowerShell
 
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
 > * [Versão 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
@@ -99,7 +99,7 @@ Instale os módulos mais recentes do Azure PowerShell seguindo as instruções e
 
 Observe os seguintes pontos:
 
-* O nome da data factory do Azure deve ser globalmente exclusivo. Se você receber o erro a seguir, altere o nome e tente novamente.
+* O nome do Azure Data Factory deve ser globalmente exclusivo. Se você receber o erro a seguir, altere o nome e tente novamente.
 
     ```
     The specified Data Factory name 'ADFv2QuickStartDataFactory' is already in use. Data Factory names must be globally unique.
@@ -115,8 +115,8 @@ Observe os seguintes pontos:
 Crie serviços vinculados em um data factory para vincular seus armazenamentos de dados e serviços de computação ao data factory. Neste guia de início rápido, você cria um serviço vinculado do Armazenamento do Azure que é usado como armazenamento de origem e do coletor. O serviço vinculado tem as informações de conexão que o serviço do Data Factory usa no runtime para se conectar a ele.
 
 >[!TIP]
->Neste início rápido, você usa a *Chave de conta* como o tipo de autenticação para o armazenamento de dados, mas você pode escolher outros métodos de autenticação compatíveis: *URI de SAS*, *Entidade de Serviço* e *Identidade Gerenciada* se necessário. Veja as seções correspondentes [neste artigo](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#linked-service-properties) para obter detalhes.
->Para armazenar segredos de armazenamentos de dados com segurança, também é recomendável usar um Azure Key Vault. Veja [este artigo](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault) para obter ilustrações detalhadas.
+>Neste início rápido, você usa a *Chave de conta* como o tipo de autenticação para o armazenamento de dados, mas você pode escolher outros métodos de autenticação compatíveis: *URI de SAS*, *Entidade de Serviço* e *Identidade Gerenciada* se necessário. Veja as seções correspondentes [neste artigo](./connector-azure-blob-storage.md#linked-service-properties) para obter detalhes.
+>Para armazenar segredos de armazenamentos de dados com segurança, também é recomendável usar um Azure Key Vault. Veja [este artigo](./store-credentials-in-key-vault.md) para obter ilustrações detalhadas.
 
 1. Crie um arquivo JSON chamado **AzureStorageLinkedService.json** na pasta **C:\ADFv2QuickStartPSH** com o seguinte conteúdo: (Crie a pasta ADFv2QuickStartPSH se ela ainda não existir.).
 

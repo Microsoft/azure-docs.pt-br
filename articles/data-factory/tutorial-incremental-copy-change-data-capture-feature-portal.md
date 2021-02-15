@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: ''
 ms.date: 05/04/2020
-ms.openlocfilehash: e15ac501a0598ae81a295d5a04074beb33c860f6
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 754f58fe7ee9bc8d10ba1fa973615781ce4d6dce
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085711"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98555909"
 ---
 # <a name="incrementally-load-data-from-azure-sql-managed-instance-to-azure-storage-using-change-data-capture-cdc"></a>Carregar incrementalmente dados da Instância Gerenciada de SQL do Azure para o Armazenamento do Azure usando CDA (captura de dados de alterações)
 
@@ -34,7 +34,7 @@ Neste tutorial, você realizará os seguintes procedimentos:
 > * Concluir, executar e monitorar o pipeline de cópia incremental completo
 
 ## <a name="overview"></a>Visão geral
-A tecnologia de captura de dados de alterações compatível com armazenamentos de dados, como MI (instâncias gerenciadas) do Azure SQL e SQL Server, pode ser usada para identificar dados alterados.  Este tutorial descreve como usar o Azure Data Factory com a tecnologia de Captura de Dados de Alterações do SQL para carregar incrementalmente os dados delta da Instância Gerenciada de SQL do Azure no Armazenamento de Blobs do Azure.  Para obter informações mais concretas sobre a tecnologia de captura de dados de alterações do SQL, confira [Captura de dados de alterações no SQL Server](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-data-capture-sql-server).
+A tecnologia de captura de dados de alterações compatível com armazenamentos de dados, como MI (instâncias gerenciadas) do Azure SQL e SQL Server, pode ser usada para identificar dados alterados.  Este tutorial descreve como usar o Azure Data Factory com a tecnologia de Captura de Dados de Alterações do SQL para carregar incrementalmente os dados delta da Instância Gerenciada de SQL do Azure no Armazenamento de Blobs do Azure.  Para obter informações mais concretas sobre a tecnologia de captura de dados de alterações do SQL, confira [Captura de dados de alterações no SQL Server](/sql/relational-databases/track-changes/about-change-data-capture-sql-server).
 
 ## <a name="end-to-end-workflow"></a>Fluxos de trabalho completos
 Estas são as etapas normais de fluxo de trabalho de ponta a ponta para carregar incrementalmente os dados usando a tecnologia de Captura de Dados de Alterações.
@@ -52,7 +52,7 @@ Neste tutorial, você cria um pipeline que executa as seguintes operações:
 Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* **Instância Gerenciada do Banco de Dados SQL do Azure**. Você usa o banco de dados como um armazenamento de dados de **origem**. Se você não tiver um Instância Gerenciada do Banco de Dados SQL do Azure, confira o artigo [Criar um Instância Gerenciada do Banco de Dados SQL do Azure](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started) para conhecer as etapas para criar uma.
+* **Instância Gerenciada do Banco de Dados SQL do Azure**. Você usa o banco de dados como um armazenamento de dados de **origem**. Se você não tiver um Instância Gerenciada do Banco de Dados SQL do Azure, confira o artigo [Criar um Instância Gerenciada do Banco de Dados SQL do Azure](../azure-sql/managed-instance/instance-create-quickstart.md) para conhecer as etapas para criar uma.
 * **Conta de Armazenamento do Azure**. Você usa o Armazenamento de Blobs como um armazenamento de dados de **coletor**. Se você não tiver uma conta de Armazenamento do Azure, veja o artigo [Criar uma conta de armazenamento](../storage/common/storage-account-create.md) para conhecer as etapas para criar uma. Crie um contêiner chamado **raw**. 
 
 ### <a name="create-a-data-source-table-in-azure-sql-database"></a>Criar uma tabela de fonte de dados no Banco de Dados SQL do Azure
@@ -75,7 +75,7 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
 
     > [!NOTE]
     > - Substitua &lt;seu nome de esquema de origem&gt; pelo esquema da MI do SQL do Azure que tem a tabela de clientes.
-    > - A captura de dados de alterações não faz nada como parte das transações que alteram a tabela que está sendo controlada. Em vez disso, as operações de inserção, atualização e exclusão são gravadas no log de transações. Os dados depositados nas tabelas de alteração aumentam de modo não gerenciável se você não diminuir periódica e sistematicamente os dados. Para obter mais informações, confira [Habilitar a Captura de Dados de Alterações para um banco de dados](https://docs.microsoft.com/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server?enable-change-data-capture-for-a-database=&view=sql-server-ver15)
+    > - A captura de dados de alterações não faz nada como parte das transações que alteram a tabela que está sendo controlada. Em vez disso, as operações de inserção, atualização e exclusão são gravadas no log de transações. Os dados depositados nas tabelas de alteração aumentam de modo não gerenciável se você não diminuir periódica e sistematicamente os dados. Para obter mais informações, confira [Habilitar a Captura de Dados de Alterações para um banco de dados](/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server#enable-change-data-capture-for-a-database)
 
     ```sql
     EXEC sys.sp_cdc_enable_db 
@@ -118,8 +118,8 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
 4. Selecione a **assinatura** do Azure na qual você deseja criar o data factory.
 5. Para o **Grupo de Recursos**, execute uma das seguintes etapas:
 
-   1. Selecione **Usar existente**e selecione um grupo de recursos existente na lista suspensa.
-   2. Selecione **Criar novo**e insira o nome de um grupo de recursos.   
+   1. Selecione **Usar existente** e selecione um grupo de recursos existente na lista suspensa.
+   2. Selecione **Criar novo** e insira o nome de um grupo de recursos.   
          
     Para saber mais sobre grupos de recursos, consulte [Usando grupos de recursos para gerenciar recursos do Azure](../azure-resource-manager/management/overview.md).  
 5. Selecione o **local** do data factory. Apenas os locais com suporte são exibidos na lista suspensa. Os armazenamentos de dados (Armazenamento do Azure, Banco de Dados SQL do Azure, etc.) e serviços de computação (HDInsight, etc.) usados pelo data factory podem estar em outras regiões.
@@ -127,10 +127,10 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
 7. Clique em **Criar**.
 8. Depois que a implantação estiver concluída, selecione **Ir para o recurso**
 
-   ![Página inicial do data factory](./media/tutorial-incremental-copy-change-data-capture-feature-portal/data-factory-deploy-complete.png)
+   ![A captura de tela mostra uma mensagem informando que sua implantação foi concluída, além da opção de acessar o recurso.](./media/tutorial-incremental-copy-change-data-capture-feature-portal/data-factory-deploy-complete.png)
 9. Após a criação, a página do **Data Factory** será exibida conforme mostrado na imagem.
 
-   ![Página inicial do data factory](./media/tutorial-incremental-copy-change-data-capture-feature-portal/data-factory-home-page.png)
+   ![A captura de tela mostra o data factory que você implantou.](./media/tutorial-incremental-copy-change-data-capture-feature-portal/data-factory-home-page.png)
 10. Clique no bloco **Criar e Monitorar** para iniciar a interface do usuário do Azure Data Factory em uma guia separada.
 11. Na página de **introdução**, alterne para a guia **Editar** no painel esquerdo, conforme mostrado na imagem a seguir:
 
@@ -161,7 +161,7 @@ Nesta etapa, você vincula a Conta de Armazenamento do Azure ao data factory.
 Nesta etapa, você vincula o banco de dados de MI SQL do Azure ao data factory.
 
 > [!NOTE]
-> Se você usa a MI do SQL, obtenha [aqui](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database-managed-instance#prerequisites) informações sobre o acesso via ponto de extremidade público vs. privado. Se você estiver usando um ponto de extremidade privado, será necessário executar esse pipeline usando um runtime de integração auto-hospedada. O mesmo se aplica a quem executa o SQL Server nos cenários local, de VM ou de VNet.
+> Se você usa a MI do SQL, obtenha [aqui](./connector-azure-sql-managed-instance.md#prerequisites) informações sobre o acesso via ponto de extremidade público vs. privado. Se você estiver usando um ponto de extremidade privado, será necessário executar esse pipeline usando um runtime de integração auto-hospedada. O mesmo se aplica a quem executa o SQL Server nos cenários local, de VM ou de VNet.
 
 1. Clique em **Conexões** e clique em **+ Novo**.
 2. Na janela **Novo Serviço Vinculado**, selecione **Instância Gerenciada do Banco de Dados SQL do Azure** e clique em **Continuar**.
@@ -193,7 +193,7 @@ Nesta etapa, você cria conjuntos de dados para representar os dados de origem.
 3. Na guia **Definir propriedades**, defina o nome do conjunto de dados e as informações de conexão:
  
    1. Selecione **AzureSqlMI1** para **Serviço vinculado**.
-   2. Selecione **[dbo].[dbo_customers_CT]** para **Nome da tabela**.  Observação: essa tabela foi criada automaticamente quando o CDA foi habilitado na tabela clientes. Os dados alterados nunca são consultados dessa tabela diretamente, mas, em vez disso, são extraídos por meio das [funções de CDA](https://docs.microsoft.com/sql/relational-databases/system-functions/change-data-capture-functions-transact-sql?view=sql-server-ver15).
+   2. Selecione **[dbo].[dbo_customers_CT]** para **Nome da tabela**.  Observação: essa tabela foi criada automaticamente quando o CDA foi habilitado na tabela clientes. Os dados alterados nunca são consultados dessa tabela diretamente, mas, em vez disso, são extraídos por meio das [funções de CDA](/sql/relational-databases/system-functions/change-data-capture-functions-transact-sql).
 
    ![Conexão de Origem](./media/tutorial-incremental-copy-change-data-capture-feature-portal/source-dataset-configuration.png)
 
@@ -289,10 +289,10 @@ Nesta etapa, você cria um pipeline, que primeiro verifica o número de registro
 
 11. Clique em visualizar para verificar se a consulta retorna as linhas alteradas corretamente.
 
-    ![Atividade de cópia - configurações do coletor](./media/tutorial-incremental-copy-change-data-capture-feature-portal/copy-source-preview.png)
+    ![A captura de tela mostra uma visualização para verificar a consulta.](./media/tutorial-incremental-copy-change-data-capture-feature-portal/copy-source-preview.png)
 12. Alterne para a guia **Coletor** e especifique o conjunto de dados de Armazenamento do Azure para o campo **Conjunto de Dados do Coletor**.
 
-    ![Atividade de cópia - configurações do coletor](./media/tutorial-incremental-copy-change-data-capture-feature-portal/copy-sink-settings.png)
+    ![A captura de tela mostra a guia Coletor.](./media/tutorial-incremental-copy-change-data-capture-feature-portal/copy-sink-settings.png)
 13. Clique em voltar à tela do pipeline principal e conecte a atividade de **Procurar** à atividade **If Condition** uma a uma. Arraste o botão **verde** anexado à atividade de **Pesquisa** para a atividade de **If Condition**.
 
     ![Conecte as atividades de Pesquisa e Cópia](./media/tutorial-incremental-copy-change-data-capture-feature-portal/connect-lookup-if.png)
@@ -318,7 +318,7 @@ Nesta etapa, você cria um gatilho de janela em cascata para executar o trabalho
     SET @begin_time = ''',pipeline().parameters.triggerStartTime,''';
     SET @end_time = ''',pipeline().parameters.triggerEndTime,''';
     SET @from_lsn = sys.fn_cdc_map_time_to_lsn(''smallest greater than or equal'', @begin_time);
-    SET @to_lsn = sys.fn_cdc_map_time_to_lsn(''largest less than or equal'', @end_time);
+    SET @to_lsn = sys.fn_cdc_map_time_to_lsn(''largest less than'', @end_time);
     SELECT count(1) changecount FROM cdc.fn_cdc_get_all_changes_dbo_customers(@from_lsn, @to_lsn, ''all'')')
     ```
 
@@ -328,12 +328,12 @@ Nesta etapa, você cria um gatilho de janela em cascata para executar o trabalho
     SET @begin_time = ''',pipeline().parameters.triggerStartTime,''';
     SET @end_time = ''',pipeline().parameters.triggerEndTime,''';
     SET @from_lsn = sys.fn_cdc_map_time_to_lsn(''smallest greater than or equal'', @begin_time);
-    SET @to_lsn = sys.fn_cdc_map_time_to_lsn(''largest less than or equal'', @end_time);
+    SET @to_lsn = sys.fn_cdc_map_time_to_lsn(''largest less than'', @end_time);
     SELECT * FROM cdc.fn_cdc_get_all_changes_dbo_customers(@from_lsn, @to_lsn, ''all'')')
     ```
 4. Clique na guia **Coletor** da atividade **Copiar** e clique em **Abrir** para editar as propriedades do conjunto de dados. Clique na guia **Parâmetros** e adicione um novo parâmetro chamado **triggerStart**    
 
-    ![Configuração do conjunto de dados do coletor-3](./media/tutorial-incremental-copy-change-data-capture-feature-portal/sink-dataset-configuration-2.png)
+    ![A captura de tela mostra como adicionar um novo parâmetro à guia Parâmetros.](./media/tutorial-incremental-copy-change-data-capture-feature-portal/sink-dataset-configuration-2.png)
 5. Em seguida, configure as propriedades do conjunto de dados para armazená-lo em um subdiretório **clientes/incremental** com partições baseadas em data.
    1. Clique na guia **Conexão** das propriedades do conjunto de dados e adicione conteúdo dinâmico às seções **Diretório** e **Arquivo**. 
    2. Insira a expressão a seguir na seção **Diretório** clicando no link de conteúdo dinâmico na caixa de texto:
@@ -380,7 +380,7 @@ Nesta etapa, você cria um gatilho de janela em cascata para executar o trabalho
    ![Gatilho de janela em cascata-2](./media/tutorial-incremental-copy-change-data-capture-feature-portal/tumbling-window-trigger-2.png)
 
 > [!NOTE]
-> Observe que o gatilho só será executado depois que tiver sido publicado. Além disso, o comportamento esperado da janela em cascata é executar todos os intervalos históricos da data de início até agora. Mais informações sobre os gatilhos de janela em cascata podem ser encontradas [aqui](https://docs.microsoft.com/azure/data-factory/how-to-create-tumbling-window-trigger). 
+> Observe que o gatilho só será executado depois que tiver sido publicado. Além disso, o comportamento esperado da janela em cascata é executar todos os intervalos históricos da data de início até agora. Mais informações sobre os gatilhos de janela em cascata podem ser encontradas [aqui](./how-to-create-tumbling-window-trigger.md). 
   
 10. Usando o **SQL Server Management Studio**, faça algumas alterações adicionais à tabela cliente executando o seguinte SQL:
     ```sql

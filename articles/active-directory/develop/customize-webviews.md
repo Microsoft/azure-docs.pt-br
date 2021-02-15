@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev
 ms.openlocfilehash: a8486ec87b5198231a33b1dab382ba457c8c8066
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85478120"
 ---
 # <a name="how-to-customize-browsers-and-webviews-for-iosmacos"></a>Como: Personalizar navegadores e webviews para iOS/macOS
@@ -36,7 +36,7 @@ Para iOS e macOS:
 - [ASWebAuthenticationSession](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession?language=objc)
 - [WKWebView](https://developer.apple.com/documentation/webkit/wkwebview?language=objc).
 
-O MSAL para macOS só dá suporte a `WKWebView` versões mais antigas do sistema operacional. `ASWebAuthenticationSession`Só tem suporte no macOS 10,15 e superior. 
+O MSAL para macOS só dá suporte a `WKWebView` versões mais antigas do sistema operacional. `ASWebAuthenticationSession` Só tem suporte no macOS 10,15 e superior. 
 
 ## <a name="system-browsers"></a>Navegadores do sistema
 
@@ -61,8 +61,8 @@ Por padrão, o MSAL detectará a versão do iOS dinamicamente e selecionará o n
 
 Os desenvolvedores também podem selecionar um navegador de sistema diferente para aplicativos MSAL:
 
-- `SFAuthenticationSession`é a versão do iOS 11 do `ASWebAuthenticationSession` .
-- `SFSafariViewController`é uma finalidade mais geral e fornece uma interface para navegar na Web e também pode ser usada para fins de logon. No iOS 9 e 10, os cookies e outros dados do site são compartilhados com o Safari, mas não no iOS 11 e posterior.
+- `SFAuthenticationSession` é a versão do iOS 11 do `ASWebAuthenticationSession` .
+- `SFSafariViewController` é uma finalidade mais geral e fornece uma interface para navegar na Web e também pode ser usada para fins de logon. No iOS 9 e 10, os cookies e outros dados do site são compartilhados com o Safari, mas não no iOS 11 e posterior.
 
 ## <a name="in-app-browser"></a>Navegador no aplicativo
 
@@ -74,10 +74,10 @@ O navegador que você usa afeta a experiência de SSO devido à forma como eles 
 
 | Tecnologia    | Tipo de navegador  | disponibilidade do iOS | disponibilidade do macOS | Compartilha cookies e outros dados  | Disponibilidade do MSAL | SSO |
 |:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|-------------:|
-| [ASWebAuthenticationSession](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession) | Sistema | iOS12 e up | macOS 10,15 e superior | Sim | iOS e macOS 10.15 + | instâncias do Safari
-| [SFAuthenticationSession](https://developer.apple.com/documentation/safariservices/sfauthenticationsession) | Sistema | iOS11 e up | N/D | Sim | Somente iOS |  instâncias do Safari
-| [SFSafariViewController](https://developer.apple.com/documentation/safariservices/sfsafariviewcontroller) | Sistema | iOS11 e up | N/D | Não | Somente iOS | Não * *
-| **SFSafariViewController** | Sistema | iOS10 | N/D | Sim | Somente iOS |  instâncias do Safari
+| [ASWebAuthenticationSession](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession) | System (sistema) | iOS12 e up | macOS 10,15 e superior | Sim | iOS e macOS 10.15 + | instâncias do Safari
+| [SFAuthenticationSession](https://developer.apple.com/documentation/safariservices/sfauthenticationsession) | System (sistema) | iOS11 e up | N/D | Sim | Somente iOS |  instâncias do Safari
+| [SFSafariViewController](https://developer.apple.com/documentation/safariservices/sfsafariviewcontroller) | System (sistema) | iOS11 e up | N/D | Não | Somente iOS | Não * *
+| **SFSafariViewController** | System (sistema) | iOS10 | N/D | Sim | Somente iOS |  instâncias do Safari
 | **WKWebView**  | No aplicativo | iOS8 e up | macOS 10,10 e superior | Não | iOS e macOS | Não * *
 
 * * Para que o SSO funcione, os tokens precisam ser compartilhados entre aplicativos. Isso requer um cache de token ou aplicativo de agente, como Microsoft Authenticator para iOS.

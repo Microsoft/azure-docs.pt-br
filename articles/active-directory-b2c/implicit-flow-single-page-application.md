@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/19/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: fb1750996f40db6d76db30cd1c3bc07186660159
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fe31e1bf095d15cfdd7945288486cb866ace8246
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85201847"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840603"
 ---
 # <a name="single-page-sign-in-using-the-oauth-20-implicit-flow-in-azure-active-directory-b2c"></a>Entrada de página única usando o fluxo implícito do OAuth 2,0 no Azure Active Directory B2C
 
@@ -26,7 +26,9 @@ Muitos aplicativos modernos têm um front-end de aplicativo de página única qu
 - Muitos servidores de autorização e provedores de identidade não dão suporte para solicitações CORS (compartilhamento de recursos entre origens).
 - O navegador de página inteira redireciona para fora do aplicativo pode ser invasivo para a experiência do usuário.
 
-Para oferecer suporte a esses aplicativos, o Azure AD B2C (Azure Active Directory B2C) utiliza o fluxo implícito do OAuth 2.0. O fluxo de concessão implícita de autorização do OAuth 2.0 é descrito na [seção 4.2 da especificação do OAuth 2.0](https://tools.ietf.org/html/rfc6749). No fluxo implícito, o aplicativo recebe tokens diretamente do ponto de extremidade autorizado do Azure AD (Azure Active Directory) sem qualquer troca de servidor para servidor. Toda a lógica de autenticação e manipulação de sessão é feita inteiramente no cliente JavaScript com um redirecionamento de página ou uma caixa pop-up.
+A maneira recomendada de dar suporte a aplicativos de página única é o [fluxo de código de autorização OAuth 2,0 (com PKCE)](./authorization-code-flow.md).
+
+Algumas estruturas, como [MSAL.js 1.x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-core), dão suporte apenas ao fluxo de concessão implícita. Nesses casos, Azure Active Directory B2C (Azure AD B2C) dá suporte ao fluxo de concessão implícita de autorização OAuth 2,0. O fluxo três é descrito na [seção 4,2 da especificação do OAuth 2,0](https://tools.ietf.org/html/rfc6749). No fluxo implícito, o aplicativo recebe tokens diretamente do ponto de extremidade autorizado do Azure AD (Azure Active Directory) sem qualquer troca de servidor para servidor. Toda a lógica de autenticação e manipulação de sessão é feita inteiramente no cliente JavaScript com um redirecionamento de página ou uma caixa pop-up.
 
 O Azure AD B2C estende o fluxo implícito do OAuth 2.0 padrão para mais que autenticação e autorização simples. O Azure AD B2C introduz o [parâmetro de política](user-flow-overview.md). Com o parâmetro de política, é possível usar o OAuth 2.0 para adicionar políticas ao seu aplicativo, como fluxos de usuários de inscrição, conexão e gerenciamento de perfil. No exemplo de solicitações HTTP neste artigo, **{Tenant}. o onmicrosoft. com** é usado como exemplo. Substitua `{tenant}` pelo nome do seu locatário se você tiver um e também tiver criado um fluxo de usuário.
 
@@ -102,7 +104,7 @@ error=access_denied
 
 | Parâmetro | Descrição |
 | --------- | ----------- |
-| erro | Um código usado para classificar tipos de erros que ocorrem. |
+| error | Um código usado para classificar tipos de erros que ocorrem. |
 | error_description | Uma mensagem de erro específica que pode ajudar você a identificar a causa raiz de um erro de autenticação. |
 | state | Se um parâmetro `state` for incluído na solicitação, o mesmo valor deverá aparecer na resposta. O aplicativo deve verificar se os valores `state` na solicitação e na resposta são idênticos.|
 
@@ -139,7 +141,7 @@ Várias outras validações que você deve executar são descritas em detalhes n
 
 * Garanta que o usuário ou a organização tenha se inscrito no aplicativo.
 * Garanta que o usuário tenha autorização e privilégios adequados.
-* Garanta que uma determina força de autenticação tenha ocorrido como, por exemplo, utilizando a autenticação multifator do Azure.
+* Garantindo que uma determinada força de autenticação tenha ocorrido, como usando a autenticação multifator do Azure AD.
 
 Para obter mais informações sobre as reivindicações em um token de ID, consulte a [referência de token do Azure AD B2C](tokens-overview.md).
 
@@ -164,7 +166,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &prompt=none
 ```
 
-| Parâmetro | Obrigatório? | Descrição |
+| Parâmetro | Necessário? | Descrição |
 | --- | --- | --- |
 |vários| Obrigatório | Nome do seu locatário de Azure AD B2C|
 regras| Obrigatório| O fluxo do usuário a ser executado. Especifique o nome de um fluxo de usuário que você criou em seu locatário Azure AD B2C. Por exemplo: `b2c_1_sign_in`, `b2c_1_sign_up` ou `b2c_1_edit_profile` |
@@ -212,7 +214,7 @@ error=user_authentication_required
 
 | Parâmetro | Descrição |
 | --- | --- |
-| erro |Uma cadeia de caracteres de código de erro que pode ser utilizada para classificar os tipos de erros que ocorrem. Você também pode usar a cadeia de caracteres para reagir a erros. |
+| error |Uma cadeia de caracteres de código de erro que pode ser utilizada para classificar os tipos de erros que ocorrem. Você também pode usar a cadeia de caracteres para reagir a erros. |
 | error_description |Uma mensagem de erro específica que pode ajudar você a identificar a causa raiz de um erro de autenticação. |
 
 Se você receber esse erro na solicitação do iframe, o usuário deverá entrar novamente de forma interativa para recuperar um novo token.

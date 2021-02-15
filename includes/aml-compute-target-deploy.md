@@ -8,32 +8,30 @@ ms.author: sgilley
 manager: cgronlund
 ms.custom: include file
 ms.topic: include
-ms.date: 06/25/2020
-ms.openlocfilehash: bd3ac8d512c1b9d151c0dc549ffeee6a05c7f94b
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.date: 12/11/2020
+ms.openlocfilehash: 09dd6e9a9d69797c2c33270d1620e861a052efe2
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542752"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505113"
 ---
-O destino de computação que você usa para hospedar seu modelo afetará o custo e a disponibilidade do ponto de extremidade implantado. Use a tabela abaixo para escolher um destino de computação apropriado.
+O destino de computação que você usa para hospedar seu modelo afetará o custo e a disponibilidade do ponto de extremidade implantado. Use esta tabela para escolher um destino de computação apropriado.
 
 | Destino de computação | Usado para | Suporte de GPU | Suporte de FPGA | Descrição |
 | ----- | ----- | ----- | ----- | ----- |
 | [Serviço&nbsp;Web&nbsp;local](../articles/machine-learning/how-to-deploy-local-container-notebook-vm.md) | Teste/depuração | &nbsp; | &nbsp; | Use para teste e solução de problemas limitados. A aceleração de hardware depende do uso de bibliotecas no sistema local.
-| [Serviço Web de instância de computação do Azure&nbsp;Machine&nbsp;Learning](../articles/machine-learning/how-to-deploy-local-container-notebook-vm.md) | Teste/depuração | &nbsp; | &nbsp; | Use para teste e solução de problemas limitados.
-| [AKS (Serviço de Kubernetes do Azure)](../articles/machine-learning/how-to-deploy-azure-kubernetes-service.md) | Inferência em tempo real |  [Sim](../articles/machine-learning/how-to-deploy-inferencing-gpus.md) (implantação do serviço Web) | [Sim](../articles/machine-learning/how-to-deploy-fpga-web-service.md)   |Use para implantações de produção em grande escala. Fornece tempo de resposta rápido e dimensionamento automático do serviço implantado. O dimensionamento automático do cluster não tem suporte por meio do SDK do Azure Machine Learning. Para alterar os nós no cluster do AKS, use a interface do usuário do cluster do AKS no portal do Azure. O AKS é a única opção disponível para o designer. |
-| [Instâncias de Contêiner do Azure](../articles/machine-learning/how-to-deploy-azure-container-instance.md) | Teste ou desenvolvimento | &nbsp;  | &nbsp; | Use para cargas de trabalho baseadas em CPU de baixa escala que exigem menos de 48 GB de RAM. |
-| [Clusters de cálculo do Azure Machine Learning](../articles/machine-learning/how-to-use-parallel-run-step.md) | Inferência&nbsp;de lote | [Sim](../articles/machine-learning/how-to-use-parallel-run-step.md) (pipeline de machine learning) | &nbsp;  | Executar a pontuação de lote em computação sem servidor. Compatível com VMs normais e de baixa prioridade. |
-| [Azure Functions](../articles/machine-learning/how-to-deploy-functions.md) | (Versão prévia) Inferência em tempo real | &nbsp; | &nbsp; | &nbsp; |
-| [Azure IoT Edge](../articles/machine-learning/how-to-deploy-and-where.md#iotedge) | (Versão prévia) Módulo do&nbsp;IoT |  &nbsp; | &nbsp; | Implante e sirva modelos de ML em dispositivos IoT. |
-| [Borda da caixa de dados do Azure](../articles/databox-online/azure-stack-edge-overview.md)   | Via IoT Edge |  &nbsp; | Sim | Implante e sirva modelos de ML em dispositivos IoT. |
+| [AKS (Serviço de Kubernetes do Azure)](../articles/machine-learning/how-to-deploy-azure-kubernetes-service.md) | Inferência em tempo real |  [Sim](../articles/machine-learning/how-to-deploy-inferencing-gpus.md) (implantação do serviço Web) | [Sim](../articles/machine-learning/how-to-deploy-fpga-web-service.md)   |Use para implantações de produção em grande escala. Fornece tempo de resposta rápido e dimensionamento automático do serviço implantado. O dimensionamento automático do cluster não tem suporte por meio do SDK do Azure Machine Learning. Para alterar os nós no cluster do AKS, use a interface do usuário do cluster do AKS no portal do Azure. <br/><br/> Com suporte no designer. |
+| [Instâncias de Contêiner do Azure](../articles/machine-learning/how-to-deploy-azure-container-instance.md) | Teste ou desenvolvimento | &nbsp;  | &nbsp; | Use para cargas de trabalho baseadas em CPU de baixa escala que exigem menos de 48 GB de RAM. <br/><br/> Com suporte no designer. |
+| [Clusters de cálculo do Azure Machine Learning](../articles/machine-learning/tutorial-pipeline-batch-scoring-classification.md) | Inferência&nbsp;de lote | [Sim](../articles/machine-learning/tutorial-pipeline-batch-scoring-classification.md) (pipeline de machine learning) | &nbsp;  | Executar a pontuação de lote em computação sem servidor. Compatível com VMs normais e de baixa prioridade. Não há suporte para inferência em tempo real.|
 
 > [!NOTE]
-> Embora os destinos de computação como local, instância de computação do Azure Machine Learning e clusters de cálculo do Azure Machine Learning sejam compatíveis com GPU para treinamento e experimentação, o uso de GPU para inferência __quando implantada como um serviço Web__ só é compatível com o Serviço de Kubernetes do Azure.
+> Embora os destinos de computação como local, Computação do Azure Machine Learning e clusters de cálculo do Azure Machine Learning sejam compatíveis com GPU para treinamento e experimentação, o uso de GPU para inferência _quando implantada como um serviço Web_ só é compatível com o AKS.
 >
-> O uso de uma GPU para inferência __quando a pontuação é feita com um pipeline de machine learning__ só é compatível com a Computação do Azure Machine Learning.
+> O uso de uma GPU para inferência _quando a pontuação é feita com um pipeline de machine learning_ só é compatível com a Computação do Azure Machine Learning.
+> 
+> Ao escolher uma SKU de cluster, primeiro escale verticalmente e, em seguida, escale horizontalmente. Comece com um computador que tenha 150% da RAM de que seu modelo requer, perfile o resultado e localize um computador que tenha o desempenho de que você precisa. Depois de aprender isso, aumente o número de computadores para atender à sua necessidade de inferência simultânea.
 
 > [!NOTE]
-> * As ACI (Instâncias de Contêiner do Azure) são adequadas somente para modelos pequenos com menos de 1 GB de tamanho. 
-> * Recomendamos o uso de clusters do AKS (Serviço de Kubernetes do Azure) de nó único para desenvolvimento/teste de modelos maiores.
+> * As instâncias de contêiner são adequadas somente para modelos pequenos com menos de 1 GB de tamanho.
+> * Use clusters do AKS de nó único para desenvolvimento/teste de modelos maiores.

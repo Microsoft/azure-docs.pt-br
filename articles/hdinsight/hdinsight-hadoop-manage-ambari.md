@@ -1,19 +1,16 @@
 ---
 title: Monitorar e gerenciar o Azure HDInsight usando a IU da Web do Ambari
 description: Saiba como usar a interface do usuário do Apache Ambari para monitorar e gerenciar clusters HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
-ms.date: 04/16/2020
-ms.openlocfilehash: ce078a3dad645f592bb33ed55ce508f68ce8f30a
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.date: 01/12/2021
+ms.openlocfilehash: 087f284bed7ab0c9eb551c1629ab4f9196c80d76
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281372"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945705"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>Gerenciar clusters HDInsight usando a interface do usuário da Web do Apache Ambari
 
@@ -54,11 +51,11 @@ Quando a página se abrir, observe a barra na parte superior. Essa barra contém
 |Logotipo do Ambari|Abre o painel, que pode ser usado para monitorar o cluster.|
 |Nome do cluster # Ops|Exibe o número de operações de Ambari em andamento. A seleção do nome do cluster ou **Nº operações** exibe uma lista de operações em segundo plano.|
 |n º de alertas|Exibe avisos ou alertas críticos, se houver, para o cluster.|
-|Painel|Exibe o painel.|
+|Dashboard|Exibe o painel.|
 |Serviços|Informações e definições de configuração para os serviços no cluster.|
 |Hosts|Informações e definições de configuração para os nós no cluster.|
 |Alertas|Um log de informações, avisos e alertas críticos.|
-|Admin|Pilha de software/serviços que estão instalados no cluster, informações de conta de serviço e segurança Kerberos.|
+|Administrador|Pilha de software/serviços que estão instalados no cluster, informações de conta de serviço e segurança Kerberos.|
 |Botão administrador|Gerenciamento de Ambari, configurações de usuário e sair.|
 
 ## <a name="monitoring"></a>Monitoramento
@@ -88,7 +85,7 @@ Você gerencia os métodos de alerta e cria notificações de alerta no menu **a
 
 Por fim, selecionar __Gerenciar Definições de Alerta__ do menu __Ações__ permite que você defina o número de vezes que um alerta deve ocorrer antes do envio de uma notificação. Essa configuração pode ser usada para evitar notificações de erros transitórios.
 
-Para obter um tutorial de uma notificação de alerta usando uma conta gratuita do [SendGrid](https://docs.microsoft.com/azure/sendgrid-dotnet-how-to-send-email), consulte [configurar notificações por email do Apache Ambari no Azure HDInsight](./apache-ambari-email.md).
+Para obter um tutorial de uma notificação de alerta usando uma conta gratuita do [SendGrid](../sendgrid-dotnet-how-to-send-email.md), consulte [configurar notificações por email do Apache Ambari no Azure HDInsight](./apache-ambari-email.md).
 
 ### <a name="cluster"></a>Cluster
 
@@ -139,7 +136,7 @@ A seleção de qualquer um desses links abrirá uma nova guia em seu navegador, 
 Há suporte para o trabalho com usuários, grupos e permissões. Para a administração local, consulte [autorizar usuários para exibições do Apache Ambari](./hdinsight-authorize-users-to-ambari.md). Para clusters ingressados no domínio, consulte [gerenciar clusters HDInsight ingressados no domínio](./domain-joined/hdinsight-security-overview.md).
 
 > [!WARNING]  
-> Não altere a senha do watchdog Ambari (hdinsightwatchdog) no seu cluster HDInsight baseado em Linux. A alteração da senha interrompe a capacidade de usar as ações de script ou executar operações de dimensionamento com o cluster.
+> Não exclua nem altere a senha do Watchdog do Ambari (hdinsightwatchdog) em seu cluster HDInsight baseado em Linux. A alteração da senha interrompe a capacidade de usar as ações de script ou executar operações de dimensionamento com o cluster.
 
 ### <a name="hosts"></a>Hosts
 
@@ -161,7 +158,7 @@ A página **Hosts** lista todos os hosts no cluster. Para gerenciar hosts, siga 
     |Reiniciar todos os componentes|Pare e inicie todos os componentes no host.|
     |Ativar o modo de manutenção|Suprime alertas para o host. Esse modo deve ser habilitado se você estiver fazendo ações que geram alertas. Por exemplo, parar e iniciar um serviço.|
     |Desligar o modo de manutenção|Retorna o host para alertas normais.|
-    |Stop|Interrompe datanode ou NodeManagers no host.|
+    |Parar|Interrompe datanode ou NodeManagers no host.|
     |Iniciar|Inicia datanode ou NodeManagers no host.|
     |Reiniciar|Para e inicia o datanode ou NodeManagers no host.|
     |Desprogramar|Remove um host do cluster. **Não use essa ação em clusters HDInsight.**|

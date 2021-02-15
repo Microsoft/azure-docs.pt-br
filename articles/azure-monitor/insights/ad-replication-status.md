@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 01/24/2018
 ms.openlocfilehash: c33e9105be1eb080025922ff9e612771a4f021cd
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87318072"
 ---
 # <a name="monitor-active-directory-replication-status-with-azure-monitor"></a>Monitorar o Status de Replicação do Active Directory com o Azure Monitor
@@ -41,7 +41,7 @@ Se não quiser conectar nenhum de seus controladores de domínio diretamente ao 
 
 1. Verifique se o computador é um membro do domínio que você deseja monitorar usando a solução de Status de Replicação do AD.
 2. [Conecte o computador Windows ao Azure Monitor](../platform/om-agents.md) ou [conecte-o usando seu ambiente existente do Operations Manager para Azure Monitor](../platform/om-agents.md) se ele ainda não estiver conectado.
-3. Nesse computador, defina a seguinte chave do Registro:<br>Chave: **HKEY_LOCAL_MACHINE grupos \System\currentcontrolset\services\healthservice\parameters\management \<ManagementGroupName> \Solutions\ADReplication**<br>Valor: **IsTarget**<br>Dados do Valor: **true**
+3. Nesse computador, defina a seguinte chave do Registro:<br>Chave: **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Management Groups\<ManagementGroupName> \Solutions\ADReplication**<br>Valor: **IsTarget**<br>Dados do Valor: **true**
 
    > [!NOTE]
    > Essas alterações não entram em vigor até que você reinicie o serviço de Microsoft Monitoring Agent (HealthService.exe).

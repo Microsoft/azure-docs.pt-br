@@ -3,8 +3,7 @@ title: Tutorial para o uso de referências do Key Vault da Configuração de Apl
 description: Neste tutorial, você aprenderá a usar as referências do Key Vault da Configuração de Aplicativos do Azure de um aplicativo ASP.NET Core
 services: azure-app-configuration
 documentationcenter: ''
-author: lisaguthrie
-manager: maiye
+author: AlexandraKemperMS
 editor: ''
 ms.assetid: ''
 ms.service: azure-app-configuration
@@ -12,14 +11,14 @@ ms.workload: tbd
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 04/08/2020
-ms.author: lcozzens
+ms.author: alkemper
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 3e6403f41d8e4b52ca64e9fa452524fa25efe870
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 37bc7fbcd366455668d5316e45ffbf79127a49f3
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213258"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99981214"
 ---
 # <a name="tutorial-use-key-vault-references-in-an-aspnet-core-app"></a>Tutorial: Usar referências do Key Vault em um aplicativo ASP.NET Core
 
@@ -51,7 +50,7 @@ Antes de iniciar este tutorial, instale o [SDK do .NET Core](https://dotnet.micr
 
 1. Selecione a opção **Criar um recurso** no canto superior esquerdo do portal do Azure:
 
-    ![Saída após a conclusão da criação do cofre de chaves](./media/quickstarts/search-services.png)
+    ![A captura de tela mostra a opção Criar um recurso no portal do Azure.](./media/quickstarts/search-services.png)
 1. Digite **Key Vault** na caixa de pesquisa.
 1. Na lista de resultados, selecione **Cofres de chaves** à esquerda.
 1. Em **Cofres de chaves**, selecione **Adicionar**.
@@ -65,7 +64,7 @@ Antes de iniciar este tutorial, instale o [SDK do .NET Core](https://dotnet.micr
 
 Nesse ponto, sua conta do Azure é a única autorizada a acessar esse novo cofre.
 
-![Saída após a conclusão da criação do cofre de chaves](./media/quickstarts/vault-properties.png)
+![A captura de tela mostra o cofre de chaves.](./media/quickstarts/vault-properties.png)
 
 ## <a name="add-a-secret-to-key-vault"></a>Adicionar um segredo ao Key Vault
 
@@ -94,7 +93,7 @@ Para adicionar um segredo ao cofre, basta executar algumas etapas adicionais. Ne
 
 ## <a name="connect-to-key-vault"></a>Conectar-se ao Key Vault
 
-1. Neste tutorial, você usará uma entidade de serviço para autenticação no Key Vault. Para criar uma entidade de serviço, use o comando [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) da CLI do Azure:
+1. Neste tutorial, você usará uma entidade de serviço para autenticação no Key Vault. Para criar uma entidade de serviço, use o comando [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) da CLI do Azure:
 
     ```azurecli
     az ad sp create-for-rbac -n "http://mySP" --sdk-auth

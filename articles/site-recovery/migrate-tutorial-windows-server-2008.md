@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/27/2020
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: d8cd8bf2e1a29b122fb4bac7a12454f102183fe3
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 6cc0855d3a4540de780a566a4613b4dbc647cfc5
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87845554"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369481"
 ---
 # <a name="migrate-servers-running-windows-server-2008-to-azure"></a>Migrar servidores que executam o Windows Server 2008 para o Azure
 
@@ -61,7 +61,7 @@ Para migrar máquinas virtuais Hyper-V que executam o Windows Server 2008 ou o W
 
 O restante deste tutorial mostra como você pode migrar máquinas virtuais de VMware locais e servidores físicos que executam o Windows Server 2008 ou 2008 R2.
 > [!TIP]
-> Procurando uma maneira sem uso de agente para migrar VMs VMware para o Azure? [Clique aqui](https://aka.ms/migrateVMs-signup)
+> Procurando uma maneira sem uso de agente para migrar VMs VMware para o Azure? [Clique aqui](../migrate/tutorial-migrate-vmware.md)
 
 
 ### <a name="limitations-and-known-issues"></a>Limitações e problemas conhecidos

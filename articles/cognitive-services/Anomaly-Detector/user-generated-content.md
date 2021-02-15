@@ -3,19 +3,19 @@ title: Conteúdo gerado pelo usuário em destaque para a API do Detector de Anom
 titleSuffix: Azure Cognitive Services
 description: Localize conteúdo em destaque e descubra como outras pessoas estão pensando e usando a API do Detector de Anomalias.
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
-ms.date: 06/17/2019
-ms.author: aahi
-ms.openlocfilehash: 81a2cb7ece775bfaffaf1b1932feb12b2da5f08f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 01/22/2021
+ms.author: mbullwin
+ms.openlocfilehash: fcd4f73a9cea75877360b2b537776bf59fb22363
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74012020"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98704449"
 ---
 # <a name="featured-user-generated-content-for-the-anomaly-detector-api"></a>Conteúdo gerado pelo usuário em destaque para a API do Detector de Anomalias
 
@@ -27,7 +27,7 @@ Use este artigo para descobrir como os outros clientes estão pensando e usando 
 
 ## <a name="open-source-projects"></a>Projetos de software livre
 
-* [Bloco de anotações do Jupyter demonstrando a Detecção de Anomalias e o streaming para o Power BI](https://github.com/marvinbuss/MS-AnomalyFinder)
+* [Bloco de anotações do Jupyter demonstrando a Detecção de Anomalias e o streaming para o Power BI](https://github.com/marvinbuss/MS-AnomalyDetector)
 
 Se desejar nomear um recursom oreencha [um formulário pequeno](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxSkyhztUNZCtaivu8nmhd1UMENTMEJWTkRORkRGQUtGQzlWQ1dSV1JLTS4u).
 Entre em contato com AnomalyDetector@microsoft.com ou relate um problema no GitHub se você gostaria de remover o conteúdo.

@@ -1,18 +1,17 @@
 ---
 title: Avaliar grandes números de servidores físicos para migração para o Azure com migrações para Azure | Microsoft Docs
 description: Descreve como avaliar grandes números de servidores físicos para migração para o Azure usando o serviço migrações para Azure.
-author: rayne-wiselman
-manager: carmonm
-ms.service: azure-migrate
-ms.topic: conceptual
+author: rashi-ms
+ms.author: rajosh
+ms.manager: abhemraj
+ms.topic: how-to
 ms.date: 01/19/2020
-ms.author: hamusa
-ms.openlocfilehash: b84a7b88f700e2ba8e9fbe29099dfcbce8dbf3b7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 45954a42613fb1716e3b66305c0485a3966b8e37
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85081080"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753681"
 ---
 # <a name="assess-large-numbers-of-physical-servers-for-migration-to-azure"></a>Avaliar grandes números de servidores físicos para migração para o Azure
 
@@ -30,7 +29,7 @@ Neste artigo, você aprenderá como:
 
 
 > [!NOTE]
-> Se você quiser experimentar uma prova de conceito para avaliar alguns servidores antes de avaliar em escala, siga nossa [série de tutoriais](tutorial-prepare-physical.md).
+> Se você quiser experimentar uma prova de conceito para avaliar alguns servidores antes de avaliar em escala, siga nossa [série de tutoriais](./tutorial-discover-physical.md).
 
 ## <a name="plan-for-assessment"></a>Planejar a avaliação
 
@@ -48,7 +47,7 @@ Use os limites resumidos nesta tabela para planejamento.
 --- | --- 
 **Projetos das Migrações para Azure** | Avalie até 35.000 servidores em um projeto.
 **Dispositivo de Migrações para Azure** | Um dispositivo pode descobrir até 1000 servidores.<br/> Um dispositivo só pode ser associado a um único projeto de migrações para Azure.<br/> Qualquer número de dispositivos pode ser associado a um único projeto de migrações para Azure. <br/><br/> 
-**Group** | Você pode adicionar até 35.000 servidores em um único grupo.
+**Grupo** | Você pode adicionar até 35.000 servidores em um único grupo.
 **Avaliação de migrações para Azure** | Você pode avaliar até 35.000 servidores em uma única avaliação.
 
 
@@ -64,7 +63,7 @@ Prepare servidores físicos e do Azure para avaliação do servidor.
 2. Configure as permissões para sua conta do Azure para interagir com as migrações para Azure.
 3. Prepare os servidores físicos.
 
-Siga as instruções neste [tutorial](tutorial-prepare-physical.md) para definir essas configurações.
+Siga as instruções neste [tutorial](./tutorial-discover-physical.md) para definir essas configurações.
 
 ## <a name="create-a-project"></a>Criar um projeto
 
@@ -73,7 +72,7 @@ De acordo com seus requisitos de planejamento, faça o seguinte:
 1. Criar um projeto do Migrações para Azure.
 2. Adicione a ferramenta de avaliação do servidor de migrações para projetos.
 
-[Saiba mais](how-to-add-tool-first-time.md)
+[Saiba mais](./create-manage-projects.md)
 
 ## <a name="create-and-review-an-assessment"></a>Criar e examinar uma avaliação
 

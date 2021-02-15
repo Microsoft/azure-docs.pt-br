@@ -1,14 +1,16 @@
 ---
 title: Examinar usuário expressão-LUIS
 description: Com o aprendizado ativo, seus enunciados de ponto de extremidade são analisados para verificar se a intenção e a entidade estão corretas. O LUIS escolhe os enunciados de ponto de extremidade sobre os quais ele não tem certeza.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2020
-ms.openlocfilehash: 8d267fc441dc2cbf7f8ae3746486d5e7be55f135
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 82f228d5e6f801539c549e16faea371782ad4b59
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80546863"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91316436"
 ---
 # <a name="concepts-for-enabling-active-learning-by-reviewing-endpoint-utterances"></a>Conceitos para habilitar o aprendizado ativo revisando declarações de ponto de extremidade
 O aprendizado ativo é uma das três estratégias para melhorar a precisão da previsão e a mais fácil de implementar. Com o aprendizado ativo, seus enunciados de ponto de extremidade são analisados para verificar se a intenção e a entidade estão corretas. O LUIS escolhe os enunciados de ponto de extremidade sobre os quais ele não tem certeza.
@@ -35,7 +37,7 @@ Use a API **[Excluir não rotulada do declarações](https://westus.dev.cognitiv
 
 ## <a name="enable-active-learning"></a>Habilitar o aprendizado ativo
 
-Para habilitar o aprendizado ativo, você deve registrar as consultas de usuário. Isso é feito chamando a [consulta de ponto](luis-get-started-create-app.md#query-the-v3-api-prediction-endpoint) de extremidade `log=true` com o parâmetro e o valor de QueryString.
+Para habilitar o aprendizado ativo, você deve registrar as consultas de usuário. Isso é feito chamando a [consulta de ponto de extremidade](luis-get-started-create-app.md#query-the-v3-api-prediction-endpoint) com o `log=true` parâmetro e o valor de QueryString.
 
 ## <a name="next-steps"></a>Próximas etapas
 

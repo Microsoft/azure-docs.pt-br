@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 03/19/2018
 ms.author: liydu
-ms.openlocfilehash: 6bebe8ac6b9869466938600d6267fd0062c84477
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e3649ac786c07459695a1e6ca6ad52620e23d59f
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75977292"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148794"
 ---
 # <a name="door-monitor----using-azure-functions-and-sendgrid-send-email-when-a-door-is-opened"></a>Monitor de porta--usando Azure Functions e SendGrid, enviar email quando uma porta é aberta           
 
@@ -171,14 +171,14 @@ A cadeia de caracteres de conexão que é recuperada da etapa [Provisionar Servi
 
 O VS Code então inicia verificando e carregando o esboço Arduino para o Kit de Desenvolvimento.
 
-![device-upload](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/device-upload.png)
+![A captura de tela mostra Visual Studio Code verificar e carregar o esboço Arduino.](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/device-upload.png)
 
-O Kit de Desenvolvimento reinicia e começa a execução do código.
+O DevKit reinicia e inicia a execução do código.
 
 > [!NOTE]
 > Ocasionalmente, você pode receber uma mensagem de erro "Erro: AZ3166: pacote desconhecido". Esse erro ocorre quando o índice do pacote de quadro não é atualizado corretamente. Para resolver esse erro, consulte a [seção de desenvolvimento de perguntas frequentes sobre o Kit de Desenvolvimento de IoT](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#development).
 
-## <a name="test-the-project"></a>Teste do projeto
+## <a name="test-the-project"></a>Testar o projeto
 
 O programa primeiro inicializa quando o Kir de Desenvolvimento está na presença de um campo magnético estável.
 
@@ -197,7 +197,4 @@ Se você encontrar problemas, consulte [as perguntas frequentes do Kit de Desenv
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Você aprendeu como conectar um dispositivo de Kit de Desenvolvimento ao acelerador de solução de Monitoramento Remoto do Azure IoT e usar o serviço SendGrid para enviar um email. Aqui estão sugestões para as próximas etapas:
-
-* [Visão geral do acelerador de solução de Monitoramento Remoto do Azure IoT](https://docs.microsoft.com/azure/iot-suite/)
-* [Conectar um dispositivo MXChip IoT DevKit ao seu aplicativo Azure IoT Central](/azure/iot-central/core/howto-connect-devkit)
+Você aprendeu como conectar um dispositivo de Kit de Desenvolvimento ao acelerador de solução de Monitoramento Remoto do Azure IoT e usar o serviço SendGrid para enviar um email. Esta é a próxima etapa sugerida:[visão geral do acelerador de solução de monitoramento remoto do Azure IOT](/azure/iot-suite/)

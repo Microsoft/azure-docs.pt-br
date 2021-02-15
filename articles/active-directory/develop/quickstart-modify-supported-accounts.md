@@ -1,90 +1,61 @@
 ---
-title: Modificar as contas de aplicativo da plataforma de identidade da Microsoft | Azure
-description: Configurar um aplicativo registrado na Microsoft Identity Platform para alterar quem, ou que contas, pode acessar o aplicativo.
+title: Como usar a Alterar os tipos de conta com suporte por um aplicativo | Azure
+titleSuffix: Microsoft identity platform
+description: Nestas instruções, você configura um aplicativo registrado na plataforma de identidade da Microsoft para alterar quem (ou quais contas) pode acessar o aplicativo.
 services: active-directory
 author: rwike77
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: quickstart
+ms.topic: how-to
 ms.workload: identity
-ms.date: 05/08/2019
+ms.date: 11/15/2020
 ms.author: ryanwi
 ms.custom: aaddev
-ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: 2850ca3f23e61be54702878c0683af9fdb1fad91
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.reviewer: marsma, aragra, lenalepa, sureshja
+ms.openlocfilehash: 3ae6616263de605d5910f244423b9e7ffc036c5d
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83826852"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100103950"
 ---
-# <a name="quickstart-modify-the-accounts-supported-by-an-application"></a>Início Rápido: Modificar as contas que têm suporte de um aplicativo
+# <a name="how-to-modify-the-accounts-supported-by-an-application"></a>Como modificar as contas compatíveis com um aplicativo
 
-Ao registrar um aplicativo na Microsoft Identity Platform, talvez você queira que ele seja acessado apenas por usuários da sua organização. Como alternativa, você talvez queira também que ele possa ser acessado por usuários em organizações externas, ou por estes e também por usuários que não fazem necessariamente parte de uma organização (contas pessoais).
+Quando registrou seu aplicativo na plataforma de identidade da Microsoft, você especificou quem – quais tipos de conta – pode acessá-lo. Por exemplo, você pode ter especificado contas apenas em sua organização, que é um aplicativo de *locatário único*. Ou, então, você pode ter especificado contas em qualquer organização (incluindo a sua), que é um aplicativo *multilocatário*.
 
-Neste início rápido, você aprenderá a modificar a configuração do aplicativo para alterar quem, ou que contas, pode acessá-lo.
+Nas seções a seguir, você aprenderá a modificar o registro do aplicativo no portal do Azure para alterar quem (ou quais tipos de contas) pode acessar o aplicativo.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para começar, atenda aos seguintes pré-requisitos:
-
-* Leia sobre [permissões e consentimentos](v2-permissions-and-consent.md), o que é importante saber na hora de criar aplicativos que precisam ser usados por outros usuários ou aplicativos.
-* Obtenha um locatário com aplicativos registrados.
-  * Se você não tiver aplicativos registrados, [saiba como registrar aplicativos com a Microsoft Identity Platform](quickstart-register-app.md).
-
-## <a name="sign-in-to-the-azure-portal-and-select-the-app"></a>Entrar no portal do Azure e selecionar o aplicativo
-
-Antes de configurar o aplicativo, siga estas etapas:
-
-1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
-1. Se sua conta fornecer acesso a mais de um locatário, selecione sua conta no canto superior direito e defina sua sessão do portal para o locatário desejado do Azure AD.
-1. No painel de navegação à esquerda, selecione o serviço **Azure Active Directory** e, em seguida, **Registros de aplicativo**.
-1. Encontre e selecione o aplicativo que você deseja configurar. Depois de selecionar o aplicativo, você verá a página **Visão Geral** ou a página de registro principal.
-1. Siga as etapas para [alterar o registro do aplicativo para dar suporte a contas diferentes](#change-the-application-registration-to-support-different-accounts).
-1. Se você tem um aplicativo de página única, [habilite a concessão implícita do OAuth 2.0](#enable-oauth-20-implicit-grant-for-single-page-applications).
+* Um [aplicativo registrado no locatário do Azure AD](quickstart-register-app.md)
 
 ## <a name="change-the-application-registration-to-support-different-accounts"></a>Alterar o registro do aplicativo para dar suporte a contas diferentes
 
-Se você estiver escrevendo um aplicativo que queira disponibilizar aos seus clientes ou parceiros fora da sua organização, você precisará atualizar a definição de aplicativo no portal do Azure.
+Para especificar uma configuração diferente para os tipos de conta com suporte de um registro de aplicativo existente:
 
-> [!IMPORTANT]
-> O Azure AD exige que o URI da ID do Aplicativo de aplicativos multilocatário seja globalmente exclusivo. O URI da ID do Aplicativo é uma das maneiras que um aplicativo é identificado em mensagens de protocolo. Para um aplicativo de locatário único, é suficiente que o URI da ID do Aplicativo seja exclusivo nesse locatário. Para um aplicativo multilocatário, ele deve ser globalmente exclusivo para que o Azure AD possa localizar os aplicativos em todos os locatários. A exclusividade global é imposta exigindo o URI da ID do Aplicativo com um nome de host que corresponda a um domínio verificado do locatário do Azure AD. Por exemplo, se o nome do locatário fosse contoso.onmicrosoft.com, um URI da ID do aplicativo válido seria `https://contoso.onmicrosoft.com/myapp`. Se o locatário tivesse um domínio verificado de contoso.com, então, um URI da ID do aplicativo válido também seria `https://contoso.com/myapp`. A configuração de um aplicativo como multilocatário falhará se o URI da ID do Aplicativo não seguir esse padrão.
+1. Entre no <a href="https://portal.azure.com/" target="_blank">portal do Azure</a>.
+1. Se você tem acesso a vários locatários, use o filtro **Diretório + assinatura** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o locatário no qual você deseja registrar um aplicativo.
+1. Pesquise **Azure Active Directory** e selecione-o.
+1. Em **Gerenciar**, selecione **Registros de aplicativo** e, em seguida, selecione seu aplicativo.
+1. Agora, especifique quem pode usar o aplicativo, às vezes chamado de *público-alvo de conexão*.
 
-### <a name="to-change-who-can-access-your-application"></a>Para alterar quem pode acessar seu aplicativo
+    | Tipos de conta com suporte | Descrição |
+    |-------------------------|-------------|
+    | **Contas somente neste diretório organizacional** | Selecione essa opção se você está criando um aplicativo para uso somente por usuários (ou convidados) no *seu* locatário.<br><br>Geralmente chamado de aplicativo LOB (*linha de negócios*), é um aplicativo de **locatário único** na plataforma de identidade da Microsoft. |
+    | **Contas em qualquer diretório organizacional** | Selecione essa opção se você quer que os usuários em *qualquer* locatário do Azure AD possam usar seu aplicativo. Essa opção é apropriada se, por exemplo, você está criando um aplicativo SaaS (software como serviço) que quer fornecer a várias organizações.<br><br>Isso é conhecido como um aplicativo **multilocatário** na plataforma de identidade da Microsoft. |
+1. Selecione **Salvar**.
 
-1. Na página **Visão Geral** do aplicativo, selecione a seção **Autenticação** e altere o valor selecionado em **Tipos de conta com suporte**.
-    * Selecione **Contas somente neste diretório** se você está criando um aplicativo de LOB (linha de negócios). Essa opção não estará disponível se o aplicativo não estiver registrado em um diretório.
-    * Selecione **Contas em qualquer diretório organizacional** se você deseja direcionar todos os clientes comerciais e educacionais.
-    * Selecione **Contas em qualquer diretório organizacional e contas pessoais da Microsoft** a fim de direcionar para o conjunto mais amplo de clientes.
-1. Clique em **Salvar**.
+### <a name="why-changing-to-multi-tenant-can-fail"></a>Por que fazer a alteração para multilocatário pode falhar
 
-## <a name="enable-oauth-20-implicit-grant-for-single-page-applications"></a>Habilitar a concessão implícita do OAuth 2.0 para aplicativos de página única
+A alternância de um registro de aplicativo de locatário único para multilocatário às vezes pode falhar devido a conflitos de nome do URI de ID do Aplicativo. Um URI de ID do Aplicativo de exemplo é `https://contoso.onmicrosoft.com/myapp`.
 
-Os SPAs (aplicativos de página única) normalmente são estruturados com um front-end que usa muito JavaScript e é executado no navegador, que chama o back-end da API Web do aplicativo para executar sua lógica de negócios. Para SPAs hospedados no Azure AD, use a Concessão Implícita do OAuth 2.0 para autenticar o usuário com o Azure AD e obter um token que possa ser usado para proteger chamadas do cliente JavaScript do aplicativo para sua API Web de back-end.
+O URI da ID do Aplicativo é uma das maneiras que um aplicativo é identificado em mensagens de protocolo. Para um aplicativo de locatário único, o URI de ID do Aplicativo precisa ser exclusivo dentro desse locatário. Para um aplicativo multilocatário, ele deve ser globalmente exclusivo para que o Azure AD possa localizar os aplicativos em todos os locatários. A exclusividade global é imposta exigindo que o nome do host do URI de ID do Aplicativo corresponda a um dos [domínios de editor verificado](howto-configure-publisher-domain.md) do locatário do Azure AD.
 
-Depois que o usuário tiver dado consentimento, esse mesmo protocolo de autenticação poderá ser usado para obter tokens para proteger chamadas entre o cliente e outros recursos de API Web configurados para o aplicativo. Para saber mais sobre a concessão de autorização implícita e ajudá-lo a decidir se ela é adequada para seu cenário de aplicativo, veja o fluxo de concessão implícita do OAuth 2.0 no Azure AD [v1.0](../azuread-dev/v1-oauth2-implicit-grant-flow.md) e [v2.0](v2-oauth2-implicit-grant-flow.md).
+Por exemplo, se o nome do locatário for *contoso.onmicrosoft.com*, então um `https://contoso.onmicrosoft.com/myapp` será um URI de ID do Aplicativo válido. Se o locatário tivesse um domínio verificado de *contoso.com*, então, um URI da ID do aplicativo válido também seria `https://contoso.com/myapp`. Se o URI de ID do Aplicativo não seguir o segundo padrão, `https://contoso.com/myapp`, a conversão do registro do aplicativo multilocatário falhará.
 
-Por padrão, a concessão implícita do OAuth 2.0 está desabilitada para aplicativos. Você pode habilitar a concessão implícita do OAuth 2.0 para seu aplicativo seguindo as etapas descritas abaixo.
-
-### <a name="to-enable-oauth-20-implicit-grant"></a>Para habilitar a Concessão Implícita do OAuth 2.0
-
-1. No painel de navegação à esquerda, selecione o serviço **Azure Active Directory** e, em seguida, **Registros de aplicativo**.
-1. Encontre e selecione o aplicativo que você deseja configurar. Depois de selecionar o aplicativo, você verá a página **Visão Geral** ou a página de registro principal.
-1. Na página **Visão Geral** do aplicativo, selecione a seção **Autenticação**.
-1. Em **Configurações avançadas**, localize a seção **Concessão implícita**.
-1. Selecione **Tokens de ID**, **Tokens de acesso** ou ambos.
-1. Clique em **Salvar**.
+Para obter mais informações sobre como configurar um domínio de editor verificado, confira [Configurar um domínio verificado](howto-configure-publisher-domain.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre esses outros inícios rápidos de gerenciamento de aplicativos relacionados para aplicativos:
-
-* [Registrar um aplicativo com a Microsoft Identity Platform](quickstart-register-app.md)
-* [Configurar um aplicativo cliente para acessar APIs Web](quickstart-configure-app-access-web-apis.md)
-* [Configurar um aplicativo para expor APIs Web](quickstart-configure-app-expose-web-apis.md)
-* [Remover um aplicativo registrado na Microsoft Identity Platform](quickstart-remove-app.md)
-
-Saiba mais sobre os dois objetos do Azure AD que representam um aplicativo registrado e a relação entre eles, confira [Objetos de aplicativo e objetos de entidade de serviço](app-objects-and-service-principals.md).
-
-Para saber mais sobre as diretrizes de identidade visual que você deve usar ao desenvolver aplicativos com o Azure Active Directory, confira [Diretrizes de identidade visual para aplicativos](howto-add-branding-in-azure-ad-apps.md).
+Saiba mais sobre os requisitos para [converter um aplicativo de locatário único em multilocatário](howto-convert-app-to-be-multi-tenant.md).

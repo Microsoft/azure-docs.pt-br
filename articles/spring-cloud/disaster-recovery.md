@@ -7,14 +7,16 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 6af23f566e8768dd1213095402b7af029d494476
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e18193b40bb7c59a21a279f451673dc7d11140e4
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076035"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92092895"
 ---
 # <a name="azure-spring-cloud-disaster-recovery"></a>Recuperação de desastre no Azure Spring Cloud
+
+**Este artigo aplica-se a:** ✔️ Java ✔️ C#
 
 Este artigo explica algumas estratégias para proteger seus aplicativos do Azure Spring Cloud contra tempo de inatividade.  Qualquer região ou data center pode enfrentar tempo de inatividade causado por desastres regionais, mas o planejamento cuidadoso pode reduzir o impacto sobre seus clientes.
 
@@ -48,7 +50,7 @@ Você precisará implantar duas instâncias de serviço do Azure Spring Cloud em
 
 2. Configure o domínio personalizado para o serviço. Siga o [Documento de domínio personalizado](spring-cloud-tutorial-custom-domain.md) para configurar o domínio personalizado para essas duas instâncias de serviço. Após serem configuradas corretamente, ambas as instâncias de serviço serão associadas ao domínio personalizado: bcdr-test.contoso.com
 
-3. Crie um gerenciador de tráfego e dois pontos de extremidade: [Crie um perfil do Gerenciador de Tráfego com o portal do Azure](https://docs.microsoft.com/azure/traffic-manager/quickstart-create-traffic-manager-profile).
+3. Crie um gerenciador de tráfego e dois pontos de extremidade: [Crie um perfil do Gerenciador de Tráfego com o portal do Azure](../traffic-manager/quickstart-create-traffic-manager-profile.md).
 
 Este é o perfil do gerenciador de tráfego:
 * Nome do DNS do Gerenciador de Tráfego: `http://asc-bcdr.trafficmanager.net`
@@ -62,3 +64,7 @@ Este é o perfil do gerenciador de tráfego:
 4. Crie um registro CNAME na zona de DNS: bcdr-test.contoso.com CNAME asc-bcdr.trafficmanager.net. 
 
 5. Agora, o ambiente está completamente configurado. Os clientes devem conseguir acessar o aplicativo via: bcdr-test.contoso.com
+
+## <a name="next-steps"></a>Próximas etapas
+
+* [Início Rápido: Implantar seu primeiro aplicativo do Azure Spring Cloud](spring-cloud-quickstart.md)

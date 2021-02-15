@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 03/27/2019
 ms.author: zhshang
-ms.openlocfilehash: ecf4a35fc239a70e87550a97e71d7abd3d00ecfa
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: fd6ac8c4d4fc4c3fec4f549f8ef4f955e2b1c637
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88921980"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89439207"
 ---
 # <a name="how-to-scale-signalr-service-with-multiple-instances"></a>Como dimensionar o serviço de Signalr com várias instâncias?
 O SDK do serviço de sinalização mais recente dá suporte a vários pontos de extremidade para instâncias de serviço do Signalr. Você pode usar esse recurso para dimensionar as conexões simultâneas ou usá-las para mensagens entre regiões.
@@ -27,7 +27,7 @@ Se a chave começar com `Azure:SignalR:ConnectionString:` , ela deve estar no fo
 
 Você pode adicionar várias cadeias de conexão de instância usando os seguintes `dotnet` comandos:
 
-```batch
+```cmd
 dotnet user-secrets set Azure:SignalR:ConnectionString:east-region-a <ConnectionString1>
 dotnet user-secrets set Azure:SignalR:ConnectionString:east-region-b:primary <ConnectionString2>
 dotnet user-secrets set Azure:SignalR:ConnectionString:backup:secondary <ConnectionString3>

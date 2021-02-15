@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 02/15/2017
 ms.reviewer: dx@sendgrid.com
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: c8ac20378cbae9334cedb59878311f2541b40bd3
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: ae816d2be592ab774500d1cfe8f2f6a7b7905b91
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020585"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98196547"
 ---
 # <a name="how-to-send-email-using-sendgrid-with-azure"></a>Como enviar emails usando o SendGrid com o Azure
 ## <a name="overview"></a>Visão geral
@@ -107,7 +107,7 @@ O envio de email requer que você forneça sua chave de API do SendGrid. Se prec
 
 Você pode armazenar essas credenciais por meio de seu portal do Azure clicando em configurações do aplicativo e adicionando os pares de chave/valor em configurações do aplicativo.
 
- ![Configurações do aplicativo do Azure][azure_app_settings]
+![Configurações do aplicativo do Azure][azure_app_settings]
 
 Em seguida, você pode acessá-las da seguinte forma:
 
@@ -159,17 +159,17 @@ Neste exemplo, a chave de API foi armazenada no arquivo `appsettings.json`, que 
 
 O conteúdo do arquivo `appsettings.json` deve ser semelhante ao seguinte:
 
-```csharp
+```json
 {
-   "Logging": {
-   "IncludeScopes": false,
-   "LogLevel": {
-   "Default": "Debug",
-   "System": "Information",
-   "Microsoft": "Information"
-     }
-   },
- "SENDGRID_API_KEY": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+  "Logging": {
+    "IncludeScopes": false,
+    "LogLevel": {
+      "Default": "Debug",
+      "System": "Information",
+      "Microsoft": "Information"
+    }
+  },
+  "SENDGRID_API_KEY": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
 }
 ```
 
@@ -208,8 +208,8 @@ namespace SendgridMailApp.Controllers
        public NotificationController(IConfiguration configuration)
        {
          _configuration = configuration;
-       }      
-    
+       }
+
        [Route("SendNotification")]
        public async Task PostMessage()
        {
@@ -222,7 +222,7 @@ namespace SendgridMailApp.Controllers
               new EmailAddress("test3@example.com", "Example User 3"),
               new EmailAddress("test4@example.com","Example User 4")
           };
-        
+
           var subject = "Hello world email from Sendgrid ";
           var htmlContent = "<strong>Hello world with HTML content</strong>";
           var displayRecipients = false; // set this to true if you want recipients to see each others mail id 
@@ -258,10 +258,10 @@ Os exemplos a seguir demonstram os filtros de rodapé e de acompanhamento de cli
 ### <a name="footer-settings"></a>Configurações de rodapé
 
 ```csharp
-msg.SetFooterSetting(
-                     true,
-                     "Some Footer HTML",
-                     "<strong>Some Footer Text</strong>");
+    msg.SetFooterSetting(
+        true,
+        "Some Footer HTML",
+        "<strong>Some Footer Text</strong>");
 ```
 
 ### <a name="click-tracking"></a>Rastreamento de cliques
@@ -296,7 +296,7 @@ Agora que você já conhece as noções básicas do serviço de email SendGrid, 
 [sendgrid-csharp]: https://github.com/sendgrid/sendgrid-csharp
 [SMTP vs. Web API]: https://sendgrid.com/docs/Integrate/index.html
 [App Settings]: https://sendgrid.com/docs/API_Reference/SMTP_API/apps.html
-[SendGrid API documentation]: https://sendgrid.com/docs/API_Reference/api_v3.html
+[SendGrid API documentation]: https://sendgrid.com/docs/api-reference/
 [NET-library]: https://sendgrid.com/docs/Integrate/Code_Examples/v2_Mail/csharp.html#-Using-NETs-Builtin-SMTP-Library
 [documentation]: https://sendgrid.com/docs/Classroom/Send/api_keys.html
 [settings-documentation]: https://sendgrid.com/docs/API_Reference/SMTP_API/apps.html

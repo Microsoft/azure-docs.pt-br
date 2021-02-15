@@ -3,18 +3,20 @@ title: Gerenciar conflitos entre regiões no Azure Cosmos DB
 description: Saiba como gerenciar conflitos no Azure Cosmos DB criando a política de resolução de conflitos last-writer-WINS ou personalizada
 author: anfeldma-ms
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 06/11/2020
 ms.author: anfeldma
-ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: ec9e6bc7daad05284893ce3148f9a80f500c5cbb
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.custom: devx-track-js, devx-track-csharp
+ms.openlocfilehash: 8f98c2201159350f5774f4d2b05102384f31f3af
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89019939"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339335"
 ---
 # <a name="manage-conflict-resolution-policies-in-azure-cosmos-db"></a>Gerenciar políticas de resolução de conflitos no Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Com gravações de várias regiões, quando vários clientes gravam no mesmo item, poderão ocorrer conflitos. Quando ocorre um conflito, você pode resolvê-lo usando políticas de resolução de conflitos diferentes. Este artigo descreve como gerenciar políticas de resolução de conflitos.
 
@@ -74,7 +76,7 @@ Container container = await createClient.GetDatabase(this.databaseName)
 
 # <a name="async-java-v2-sdk"></a>[SDK do Java v2 assíncrono](#tab/async)
 
-SDK do Java [v2 assíncrono](sql-api-sdk-async-java.md)   (Maven [com. Microsoft. Azure:: Azure-cosmosdb](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb))
+[SDK do Java v2 assíncrono](sql-api-sdk-async-java.md) (Maven [com. Microsoft. Azure:: Azure-cosmosdb](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb))
 
 ```java
 DocumentCollection collection = new DocumentCollection();
@@ -86,7 +88,7 @@ DocumentCollection createdCollection = client.createCollection(databaseUri, coll
 
 # <a name="sync-java-v2-sdk"></a>[Sincronizar SDK do Java v2](#tab/sync)
 
-[Sincronizar SDK](sql-api-sdk-java.md)   do Java v2 (Maven [com. Microsoft. Azure:: Azure-documentdb](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb))
+[Sincronizar o SDK do Java v2](sql-api-sdk-java.md) (Maven [com. Microsoft. Azure:: Azure-documentdb](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb))
 
 ```java
 DocumentCollection lwwCollection = new DocumentCollection();
@@ -134,10 +136,10 @@ Estes exemplos mostram como configurar um contêiner com uma política de resolu
 
 Procedimentos de armazenados de resolução de conflitos personalizados devem ser implementados usando a assinatura de função mostrada abaixo. O nome da função não precisa corresponder ao nome usado ao registrar o procedimento armazenado com o contêiner, mas simplifica a nomenclatura. Aqui está uma descrição dos parâmetros que devem ser implementados para esse procedimento armazenado.
 
-- **incomingItem**: o item que está sendo inserido ou atualizado na confirmação que está gerando os conflitos. É nulo para operações de exclusão.
-- **existingItem**: o item atualmente confirmado. Esse valor é null em uma atualização e nulo para uma inserção ou exclusão.
-- **isTombstone**isdelete: booliano que indica se o incomingItem está em conflito com um item excluído anteriormente. Quando verdadeiro, existingItem também será null.
-- **conflictingItems**: matriz da versão confirmada de todos os itens no contêiner que estão em conflito com INCOMINGITEM na ID ou qualquer outra propriedade de índice exclusivo.
+- **incomingItem** : o item que está sendo inserido ou atualizado na confirmação que está gerando os conflitos. É nulo para operações de exclusão.
+- **existingItem** : o item atualmente confirmado. Esse valor é null em uma atualização e nulo para uma inserção ou exclusão.
+- **isTombstone** isdelete: booliano que indica se o incomingItem está em conflito com um item excluído anteriormente. Quando verdadeiro, existingItem também será null.
+- **conflictingItems** : matriz da versão confirmada de todos os itens no contêiner que estão em conflito com INCOMINGITEM na ID ou qualquer outra propriedade de índice exclusivo.
 
 > [!IMPORTANT]
 > Assim como com qualquer procedimento armazenado, um procedimento de resolução de conflitos personalizado pode acessar todos os dados com a mesma chave de partição e executar qualquer operação de inserir, atualizar ou excluir para resolver conflitos.
@@ -262,7 +264,7 @@ await container.Scripts.CreateStoredProcedureAsync(
 
 # <a name="async-java-v2-sdk"></a>[SDK do Java v2 assíncrono](#tab/async)
 
-SDK do Java [v2 assíncrono](sql-api-sdk-async-java.md)   (Maven [com. Microsoft. Azure:: Azure-cosmosdb](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb))
+[SDK do Java v2 assíncrono](sql-api-sdk-async-java.md) (Maven [com. Microsoft. Azure:: Azure-cosmosdb](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb))
 
 ```java
 DocumentCollection collection = new DocumentCollection();
@@ -274,7 +276,7 @@ DocumentCollection createdCollection = client.createCollection(databaseUri, coll
 
 # <a name="sync-java-v2-sdk"></a>[Sincronizar SDK do Java v2](#tab/sync)
 
-[Sincronizar SDK](sql-api-sdk-java.md)   do Java v2 (Maven [com. Microsoft. Azure:: Azure-documentdb](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb))
+[Sincronizar o SDK do Java v2](sql-api-sdk-java.md) (Maven [com. Microsoft. Azure:: Azure-documentdb](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb))
 
 ```java
 DocumentCollection udpCollection = new DocumentCollection();
@@ -377,7 +379,7 @@ Container container = await createClient.GetDatabase(this.databaseName)
 
 # <a name="async-java-v2-sdk"></a>[SDK do Java v2 assíncrono](#tab/async)
 
-SDK do Java [v2 assíncrono](sql-api-sdk-async-java.md)   (Maven [com. Microsoft. Azure:: Azure-cosmosdb](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb))
+[SDK do Java v2 assíncrono](sql-api-sdk-async-java.md) (Maven [com. Microsoft. Azure:: Azure-cosmosdb](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb))
 
 ```java
 DocumentCollection collection = new DocumentCollection();
@@ -389,7 +391,7 @@ DocumentCollection createdCollection = client.createCollection(databaseUri, coll
 
 # <a name="sync-java-v2-sdk"></a>[Sincronizar SDK do Java v2](#tab/sync)
 
-[Sincronizar SDK](sql-api-sdk-java.md)   do Java v2 (Maven [com. Microsoft. Azure:: Azure-documentdb](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb))
+[Sincronizar o SDK do Java v2](sql-api-sdk-java.md) (Maven [com. Microsoft. Azure:: Azure-documentdb](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb))
 
 ```java
 DocumentCollection manualCollection = new DocumentCollection();
@@ -466,7 +468,7 @@ while (conflictFeed.HasMoreResults)
 
 # <a name="async-java-v2-sdk"></a>[SDK do Java v2 assíncrono](#tab/async)
 
-SDK do Java [v2 assíncrono](sql-api-sdk-async-java.md)   (Maven [com. Microsoft. Azure:: Azure-cosmosdb](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb))
+[SDK do Java v2 assíncrono](sql-api-sdk-async-java.md) (Maven [com. Microsoft. Azure:: Azure-cosmosdb](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb))
 
 ```java
 FeedResponse<Conflict> response = client.readConflicts(this.manualCollectionUri, null)
@@ -477,7 +479,7 @@ for (Conflict conflict : response.getResults()) {
 ```
 # <a name="sync-java-v2-sdk"></a>[Sincronizar SDK do Java v2](#tab/sync)
 
-[Sincronizar SDK](sql-api-sdk-java.md)   do Java v2 (Maven [com. Microsoft. Azure:: Azure-documentdb](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb))
+[Sincronizar o SDK do Java v2](sql-api-sdk-java.md) (Maven [com. Microsoft. Azure:: Azure-documentdb](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb))
 
 ```java
 Iterator<Conflict> conflictsIterator = client.readConflicts(this.collectionLink, null).getQueryIterator();
@@ -513,9 +515,9 @@ while conflict:
 Saiba mais sobre os conceitos do Azure Cosmos DB a seguir:
 
 - [Distribuição global - nos bastidores](global-dist-under-the-hood.md)
-- [Como configurar vários mestres em seus aplicativos](how-to-multi-master.md)
+- [Como configurar gravações de várias regiões em seus aplicativos](how-to-multi-master.md)
 - [Configurar clientes para multihoming](how-to-manage-database-account.md#configure-multiple-write-regions)
 - [Como adicionar/remover regiões da conta do Azure Cosmos DB](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
-- [Como configurar vários mestres nos aplicativos](how-to-multi-master.md).
-- [Particionamento e distribuição de dados](partition-data.md)
-- [Indexação no Azure Cosmos DB](indexing-policies.md)
+- [Como configuremulti as gravações em seus aplicativos](how-to-multi-master.md).
+- [Particionamento e distribuição de dados](partitioning-overview.md)
+- [Indexação no Azure Cosmos DB](index-policy.md)

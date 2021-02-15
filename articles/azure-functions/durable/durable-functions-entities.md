@@ -6,10 +6,10 @@ ms.topic: overview
 ms.date: 12/17/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 496b315e23beeb97d08befca13e05c4797268f36
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "85341555"
 ---
 # <a name="entity-functions"></a>Funções de entidade

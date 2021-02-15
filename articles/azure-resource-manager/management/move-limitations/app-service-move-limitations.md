@@ -3,12 +3,12 @@ title: Mover Azure App recursos do serviço
 description: Use Azure Resource Manager para mover os recursos do serviço de aplicativo para um novo grupo de recursos ou assinatura.
 ms.topic: conceptual
 ms.date: 08/10/2020
-ms.openlocfilehash: 45f04cad27e175b471f4d6e07426787ca678e369
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: 27555a4616befca41c7e970e947afa1cd1ff7248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88042050"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "90531365"
 ---
 # <a name="move-guidance-for-app-service-resources"></a>Mover diretrizes para recursos do serviço de aplicativo
 
@@ -42,7 +42,7 @@ Selecione a opção para obter as etapas recomendadas para mover o aplicativo We
 
 Você vê as ações recomendadas a serem executadas antes de mover os recursos. As informações incluem o grupo de recursos original para o aplicativo Web.
 
-![Recomendações](./media/app-service-move-limitations/recommendations.png)
+![Captura de tela mostra as etapas recomendadas para mover recursos da Web do Microsoft dot.](./media/app-service-move-limitations/recommendations.png)
 
 ## <a name="move-support"></a>Suporte de movimentação
 

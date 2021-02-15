@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.author: absha
-ms.openlocfilehash: fb5196f9612cb4ce1f0a49be8b5a76f6703fdab6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7c5b4f0d5d4b153684683963c56b7506e76d963e
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85248663"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575646"
 ---
 # <a name="rewrite-http-headers-with-application-gateway"></a>Reescrever cabeçalhos HTTP com o gateway de aplicativo
 
@@ -22,7 +22,7 @@ Os cabeçalhos HTTP permitem que um cliente e um servidor passem informações a
 
 O Gateway de Aplicativo permite adicionar, remover ou atualizar solicitações HTTP e cabeçalhos de resposta, enquanto os pacotes de solicitação e resposta são transferidos entre os pools de cliente e de back-end. Ele também permite adicionar condições para garantir que os cabeçalhos especificados sejam reescritos somente quando determinadas condições forem atendidas.
 
-O gateway de aplicativo também dá suporte a várias [variáveis de servidor](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers#server-variables) que ajudam a armazenar informações adicionais sobre solicitações e respostas. Isso facilita a criação de regras de reescrita avançadas.
+O gateway de aplicativo também dá suporte a várias [variáveis de servidor](#server-variables) que ajudam a armazenar informações adicionais sobre solicitações e respostas. Isso facilita a criação de regras de reescrita avançadas.
 
 > [!NOTE]
 >
@@ -49,14 +49,14 @@ Você pode usar uma condição para avaliar se uma variável especificada está 
 Você usa ações de reescrita para especificar os cabeçalhos de solicitação e resposta que deseja reescrever e o novo valor para os cabeçalhos. Você pode criar um novo cabeçalho, modificar o valor de um cabeçalho existente ou excluir um cabeçalho existente. O valor de um novo cabeçalho ou de um cabeçalho existente pode ser definido para esses tipos de valores:
 
 - Text.
-- Cabeçalho da solicitação. Para especificar um cabeçalho de solicitação, você precisa usar a sintaxe {http_req_*HeaderName*}.
-- Cabeçalho de resposta. Para especificar um cabeçalho de resposta, você precisa usar a sintaxe {http_resp_*HeaderName*}.
-- Variável de servidor. Para especificar uma variável de servidor, você precisa usar a sintaxe {var_*serverVariable*}.
+- Cabeçalho da solicitação. Para especificar um cabeçalho de solicitação, você precisa usar a sintaxe {http_req_ *HeaderName*}.
+- Cabeçalho de resposta. Para especificar um cabeçalho de resposta, você precisa usar a sintaxe {http_resp_ *HeaderName*}.
+- Variável de servidor. Para especificar uma variável de servidor, você precisa usar a sintaxe {var_ *serverVariable*}.
 - Uma combinação de texto, um cabeçalho de solicitação, um cabeçalho de resposta e uma variável de servidor.
 
 ## <a name="server-variables"></a>Variáveis de servidor
 
-O gateway de aplicativo usa variáveis de servidor para armazenar informações úteis sobre o servidor, a conexão com o cliente e a solicitação atual na conexão. Exemplos de informações armazenadas incluem o endereço IP do cliente e o tipo de navegador da Web. As variáveis de servidor são alteradas dinamicamente, por exemplo, quando uma nova página é carregada ou quando um formulário é Postado. Você pode usar essas variáveis para avaliar as condições de regravação e reescrever os cabeçalhos. Para usar o valor de variáveis de servidor para regravar os cabeçalhos, você precisará especificar essas variáveis na sintaxe {var_*serverVariable*}
+O gateway de aplicativo usa variáveis de servidor para armazenar informações úteis sobre o servidor, a conexão com o cliente e a solicitação atual na conexão. Exemplos de informações armazenadas incluem o endereço IP do cliente e o tipo de navegador da Web. As variáveis de servidor são alteradas dinamicamente, por exemplo, quando uma nova página é carregada ou quando um formulário é Postado. Você pode usar essas variáveis para avaliar as condições de regravação e reescrever os cabeçalhos. Para usar o valor de variáveis de servidor para regravar os cabeçalhos, você precisará especificar essas variáveis na sintaxe {var_ *serverVariable*}
 
 O gateway de aplicativo dá suporte a essas variáveis de servidor:
 
@@ -69,21 +69,21 @@ O gateway de aplicativo dá suporte a essas variáveis de servidor:
 | client_port                | A porta do cliente.                                                  |
 | client_tcp_rtt             | Informações sobre a conexão TCP do cliente. Disponível em sistemas que dão suporte à opção de soquete TCP_INFO. |
 | client_user                | Quando a autenticação HTTP é usada, o nome de usuário fornecido para autenticação. |
-| host                       | Nesta ordem de precedência: o nome do host da linha de solicitação, o nome do host do campo de cabeçalho de solicitação do host ou o nome do servidor que corresponde a uma solicitação. Exemplo: na solicitação *http://contoso.com:8080/article.aspx?id=123&title=fabrikam* , o valor do host será *contoso.com* |
+| host                       | Nesta ordem de precedência: o nome do host da linha de solicitação, o nome do host do campo de cabeçalho de solicitação do host ou o nome do servidor que corresponde a uma solicitação. Exemplo: na solicitação `http://contoso.com:8080/article.aspx?id=123&title=fabrikam` , o valor do host será *contoso.com* |
 | *nome* do cookie_              | O *nome* do cookie.                                            |
 | http_method                | O método usado para fazer a solicitação de URL. Por exemplo, GET ou POST. |
 | http_status                | O status da sessão. Por exemplo, 200, 400 ou 403.                       |
 | http_version               | O protocolo de solicitação. Geralmente, HTTP/1.0, HTTP/1.1 ou HTTP/2.0. |
-| query_string               | A lista de pares de variáveis/valores que segue o "?" na URL solicitada. Exemplo: na solicitação *http://contoso.com:8080/article.aspx?id=123&title=fabrikam* , QUERY_STRING valor será *ID = 123&título = Fabrikam* |
+| query_string               | A lista de pares de variáveis/valores que segue o "?" na URL solicitada. Exemplo: na solicitação `http://contoso.com:8080/article.aspx?id=123&title=fabrikam` , QUERY_STRING valor será *ID = 123&título = Fabrikam* |
 | received_bytes             | O comprimento da solicitação (incluindo a linha de solicitação, o cabeçalho e o corpo da solicitação). |
 | request_query              | Os argumentos na linha de solicitação.                                |
 | request_scheme             | O esquema de solicitação: http ou HTTPS.                            |
-| request_uri                | O URI de solicitação original completo (com argumentos). Exemplo: na solicitação *http://contoso.com:8080/article.aspx?id=123&title=fabrikam* , REQUEST_URI valor será */article.aspx? id = 123&title = Fabrikam*   |
+| request_uri                | O URI de solicitação original completo (com argumentos). Exemplo: na solicitação `http://contoso.com:8080/article.aspx?id=123&title=fabrikam` , REQUEST_URI valor será */article.aspx? id = 123&title = Fabrikam*   |
 | sent_bytes                 | O número de bytes enviados a um cliente.                             |
 | server_port                | A porta do servidor que aceitou uma solicitação.                 |
 | ssl_connection_protocol    | O protocolo de uma conexão TLS estabelecida.        |
 | ssl_enabled                | "Ativado" se a conexão opera no modo TLS. Caso contrário, uma cadeia de caracteres vazia. |
-| uri_path                   | Identifica o recurso específico no host que o cliente Web deseja acessar. Essa é a parte do URI de solicitação sem os argumentos. Exemplo: na solicitação *http://contoso.com:8080/article.aspx?id=123&title=fabrikam* , uri_path valor será */article.aspx*  |
+| uri_path                   | Identifica o recurso específico no host que o cliente Web deseja acessar. Essa é a parte do URI de solicitação sem os argumentos. Exemplo: na solicitação `http://contoso.com:8080/article.aspx?id=123&title=fabrikam` , uri_path valor será */article.aspx*  |
 
 ## <a name="rewrite-configuration"></a>Reescrever configuração
 
@@ -156,7 +156,7 @@ Você pode avaliar uma solicitação HTTP ou um cabeçalho de resposta para a pr
 
 ## <a name="limitations"></a>Limitações
 
-- Se uma resposta tiver mais de um cabeçalho com o mesmo nome, a regravação do valor de um desses cabeçalhos fará com que os outros cabeçalhos sejam descartados na resposta. Isso geralmente pode acontecer com o cabeçalho Set-cookie, pois você pode ter mais de um cabeçalho Set-cookie em uma resposta. Um cenário desse tipo é quando você está usando um serviço de aplicativo com um gateway de aplicativo e configurou a afinidade de sessão baseada em cookie no gateway de aplicativo. Nesse caso, a resposta conterá dois cabeçalhos Set-Cookie: um usado pelo serviço de aplicativo, por exemplo: `Set-Cookie: ARRAffinity=ba127f1caf6ac822b2347cc18bba0364d699ca1ad44d20e0ec01ea80cda2a735;Path=/;HttpOnly;Domain=sitename.azurewebsites.net` e outro para afinidade de gateway de aplicativo, por exemplo, `Set-Cookie: ApplicationGatewayAffinity=c1a2bd51lfd396387f96bl9cc3d2c516; Path=/` . Reescrever um dos cabeçalhos Set-cookie nesse cenário pode resultar na remoção do outro cabeçalho Set-cookie da resposta.
+- Se uma resposta tiver mais de um cabeçalho com o mesmo nome, a regravação do valor de um desses cabeçalhos fará com que os outros cabeçalhos sejam descartados na resposta. Isso geralmente pode acontecer com Set-Cookie cabeçalho, já que você pode ter mais de um cabeçalho de Set-Cookie em uma resposta. Um cenário desse tipo é quando você está usando um serviço de aplicativo com um gateway de aplicativo e configurou a afinidade de sessão baseada em cookie no gateway de aplicativo. Nesse caso, a resposta conterá dois cabeçalhos de Set-Cookie: um usado pelo serviço de aplicativo, por exemplo: `Set-Cookie: ARRAffinity=ba127f1caf6ac822b2347cc18bba0364d699ca1ad44d20e0ec01ea80cda2a735;Path=/;HttpOnly;Domain=sitename.azurewebsites.net` e outro para afinidade de gateway de aplicativo, por exemplo, `Set-Cookie: ApplicationGatewayAffinity=c1a2bd51lfd396387f96bl9cc3d2c516; Path=/` . Reescrever um dos cabeçalhos de Set-Cookie nesse cenário pode resultar na remoção do outro cabeçalho de Set-Cookie da resposta.
 
 - Não há suporte para regravações quando o gateway de aplicativo está configurado para redirecionar as solicitações ou para mostrar uma página de erro personalizada.
 
@@ -168,5 +168,5 @@ Você pode avaliar uma solicitação HTTP ou um cabeçalho de resposta para a pr
 
 Para saber como reescrever cabeçalhos HTTP, consulte:
 
-- [Reescrever cabeçalhos HTTP usando portal do Azure](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-portal)
+- [Reescrever cabeçalhos HTTP usando o portal do Azure](./rewrite-http-headers-portal.md)
 - [Reescrever cabeçalhos HTTP usando Azure PowerShell](add-http-header-rewrite-rule-powershell.md)

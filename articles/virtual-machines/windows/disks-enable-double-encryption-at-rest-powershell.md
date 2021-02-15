@@ -8,24 +8,20 @@ ms.author: rogarana
 ms.service: virtual-machines-windows
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 6cb0bf9ae12169f9431cf221431f442b5870d932
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 9f0642d3421e775d1c6930b672b37643a961178f
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816500"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736281"
 ---
 # <a name="use-the-azure-powershell-module-to-enable-double-encryption-at-rest-for-managed-disks"></a>Usar o módulo Azure PowerShell para habilitar a criptografia dupla em repouso para discos gerenciados
 
-O Armazenamento em Disco do Azure dá suporte à criptografia dupla em repouso para discos gerenciados. Para obter informações conceituais sobre a criptografia dupla em repouso, bem como outros tipos de criptografia de disco gerenciado, consulte a seção [criptografia dupla em repouso](disk-encryption.md#double-encryption-at-rest) do nosso artigo sobre criptografia de disco.
-
-## <a name="supported-regions"></a>Regiões com suporte
-
-[!INCLUDE [virtual-machines-disks-double-encryption-at-rest-regions](../../../includes/virtual-machines-disks-double-encryption-at-rest-regions.md)]
+O Armazenamento em Disco do Azure dá suporte à criptografia dupla em repouso para discos gerenciados. Para obter informações conceituais sobre a criptografia dupla em repouso, bem como outros tipos de criptografia de disco gerenciado, consulte a seção [criptografia dupla em repouso](../disk-encryption.md#double-encryption-at-rest) do nosso artigo sobre criptografia de disco.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Instale a versão mais recente do [Azure PowerShell](/powershell/azure/install-az-ps)e entre em uma conta do Azure usando [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-4.3.0).
+Instale a versão mais recente do [Azure PowerShell](/powershell/azure/install-az-ps)e entre em uma conta do Azure usando [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount).
 
 ## <a name="getting-started"></a>Introdução
 

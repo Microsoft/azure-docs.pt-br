@@ -2,19 +2,15 @@
 title: Gerenciar agendamentos na Automação do Azure
 description: Este artigo mostra como criar e trabalhar com um agendamento na Automação do Azure.
 services: automation
-ms.service: automation
 ms.subservice: shared-capabilities
-author: mgoedtel
-ms.author: magoedte
-ms.date: 04/04/2019
+ms.date: 09/10/2020
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 8bd988029b8d78a29de38e995c36ee1860d8cda9
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 844a45c9b596522b949443b6edc311308da7806c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187346"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "90004605"
 ---
 # <a name="manage-schedules-in-azure-automation"></a>Gerenciar agendamentos na Automação do Azure
 
@@ -28,17 +24,17 @@ Para agendar um runbook na Automação do Azure para iniciar em um horário espe
 
 ## <a name="powershell-cmdlets-used-to-access-schedules"></a>Cmdlets do PowerShell usados para acessar agendamentos
 
-Os cmdlets na tabela a seguir são usados para criar e gerenciar agendamentos de Automação com o PowerShell. Eles são fornecidos como parte dos [módulos AZ](modules.md#az-modules). 
+Os cmdlets na tabela a seguir são usados para criar e gerenciar agendamentos de Automação com o PowerShell. Eles são fornecidos como parte dos [módulos AZ](modules.md#az-modules).
 
 | Cmdlets | Descrição |
 |:--- |:--- |
-| [Get-AzAutomationSchedule](/powershell/module/Az.Automation/Get-AzAutomationSchedule?view=azps-3.7.0) |Recupera uma agenda. |
-| [Get-AzAutomationScheduledRunbook](/powershell/module/az.automation/get-azautomationscheduledrunbook?view=azps-3.7.0) |Recupera runbooks agendados. |
-| [New-AzAutomationSchedule](/powershell/module/Az.Automation/New-AzAutomationSchedule?view=azps-3.7.0) |Cria uma nova agenda. |
-| [Register-AzAutomationScheduledRunbook](/powershell/module/Az.Automation/Register-AzAutomationScheduledRunbook?view=azps-3.7.0) |Associa um runbook a uma agenda. |
-| [Remove-AzAutomationSchedule](/powershell/module/Az.Automation/Remove-AzAutomationSchedule?view=azps-3.7.0) |Remove uma agenda. |
-| [Set-AzAutomationSchedule](/powershell/module/Az.Automation/Set-AzAutomationSchedule?view=azps-3.7.0) |Define as propriedades de uma agenda existente. |
-| [Unregister-AzAutomationScheduledRunbook](/powershell/module/Az.Automation/Unregister-AzAutomationScheduledRunbook?view=azps-3.7.0) |Dissocia um runbook de uma agenda. |
+| [Get-AzAutomationSchedule](/powershell/module/Az.Automation/Get-AzAutomationSchedule) |Recupera uma agenda. |
+| [Get-AzAutomationScheduledRunbook](/powershell/module/az.automation/get-azautomationscheduledrunbook) |Recupera runbooks agendados. |
+| [New-AzAutomationSchedule](/powershell/module/Az.Automation/New-AzAutomationSchedule) |Cria uma nova agenda. |
+| [Register-AzAutomationScheduledRunbook](/powershell/module/Az.Automation/Register-AzAutomationScheduledRunbook) |Associa um runbook a uma agenda. |
+| [Remove-AzAutomationSchedule](/powershell/module/Az.Automation/Remove-AzAutomationSchedule) |Remove uma agenda. |
+| [Set-AzAutomationSchedule](/powershell/module/Az.Automation/Set-AzAutomationSchedule) |Define as propriedades de uma agenda existente. |
+| [Unregister-AzAutomationScheduledRunbook](/powershell/module/Az.Automation/Unregister-AzAutomationScheduledRunbook) |Dissocia um runbook de uma agenda. |
 
 ## <a name="create-a-schedule"></a>Criar um agendamento
 
@@ -49,23 +45,33 @@ Você pode criar um novo agendamento para runbooks no portal do Azure ou com o P
 
 ### <a name="create-a-new-schedule-in-the-azure-portal"></a>Para criar um novo agendamento no portal do Azure
 
-1. No portal do Azure, em sua conta de Automação, selecione **Agendas** na seção **Recursos Compartilhados** à esquerda.
-1. Selecione **Adicionar um agendamento** na parte superior da página.
-1. No painel **Novo agendamento**, digite um nome e insira uma descrição do novo agendamento (opcional).
-1. Selecione se o agendamento é executado uma vez ou em um agendamento recorrente selecionando **Uma vez** ou **Recorrente**. Se você selecionar **Uma vez**, especifique uma hora de início e clique em **Criar**. Se você selecionar **Recorrente**, especifique uma hora de início. Para **Repetir a cada**, selecione com que frequência você deseja que o runbook se repita. Selecione por hora, dia, semana ou mês.
-    1. Se você selecionar **Semana**, os dias da semana serão apresentados para sua escolha. Selecione quantos dias você desejar. A primeira execução da agenda de ocorrerá no primeiro dia selecionado após a hora de início. Por exemplo, para escolher um agendamento de fim de semana, selecione sábado e domingo.
-    
-       ![Definir agendamento recorrente de fim de semana](../media/schedules/week-end-weekly-recurrence.png)
+1. Na sua conta de automação, no painel esquerdo, selecione **agendas** em **recursos compartilhados**.
+2. Na página **agendas** , selecione **Adicionar um agendamento**.
+3. Na página **novo agendamento** , insira um nome e, opcionalmente, insira uma descrição para a nova agenda.
 
-    2. Se você selecionar **Mês**, terá diferentes opções. Para a opção **Ocorrências mensais**, selecione **Dias do mês** ou **Dias da semana**. Se você selecionar **Dias do mês**, você verá um calendário onde poderá escolher quantos dias quiser. Se você escolher uma data, como o 31º dia, que não ocorre no mês atual, a programação não será executada. Se você quiser que o agendamento seja executado no último dia, escolha **Sim** em **Executar no último dia do mês**. Se você selecionar **Dias da semana**, a opção **Repetir a cada** será exibida. Escolher **primeira**, **segundo**, **terceira**, **quarto**, ou **último**. Finalmente, escolha um dia para repetir.
+    >[!NOTE]
+    >Atualmente, os agendamentos de automação não dão suporte ao uso de caracteres especiais no nome da agenda.
+    >
 
-       ![Agendamento mensal no primeiro, décimo-quinto e no último dia do mês](../media/schedules/monthly-first-fifteenth-last.png)
+4. Selecione se a agenda é executada uma vez ou em um agendamento recorrente selecionando **uma vez** ou **repetindo**. Se você selecionar **Uma vez**, especifique uma hora de início e clique em **Criar**. Se você selecionar **Recorrente**, especifique uma hora de início. Para **Repetir a cada**, selecione com que frequência você deseja que o runbook se repita. Selecione por hora, dia, semana ou mês.
 
-1. Ao terminar, selecione **Criar**.
+    * Se você selecionar **Semana**, os dias da semana serão apresentados para sua escolha. Selecione quantos dias você desejar. A primeira execução da agenda de ocorrerá no primeiro dia selecionado após a hora de início. Por exemplo, para escolher um agendamento de fim de semana, selecione sábado e domingo.
+
+    ![Definir agendamento recorrente de fim de semana](../media/schedules/week-end-weekly-recurrence.png)
+
+    * Se você selecionar **Mês**, terá diferentes opções. Para a opção **Ocorrências mensais**, selecione **Dias do mês** ou **Dias da semana**. Se você selecionar **Dias do mês**, você verá um calendário onde poderá escolher quantos dias quiser. Se você escolher uma data, como o 31º dia, que não ocorre no mês atual, a programação não será executada. Se você quiser que o agendamento seja executado no último dia, escolha **Sim** em **Executar no último dia do mês**. Se você selecionar **Dias da semana**, a opção **Repetir a cada** será exibida. Escolher **primeira**, **segundo**, **terceira**, **quarto**, ou **último**. Finalmente, escolha um dia para repetir.
+
+    ![Agendamento mensal no primeiro, décimo-quinto e no último dia do mês](../media/schedules/monthly-first-fifteenth-last.png)
+
+5. Ao terminar, selecione **Criar**.
 
 ### <a name="create-a-new-schedule-with-powershell"></a>Criar um novo agendamento com o PowerShell
 
-Use o cmdlet [New-AzAutomationSchedule](/powershell/module/Az.Automation/New-AzAutomationSchedule?view=azps-3.7.0) para criar agendamentos. Especifique a hora de início para a agenda e a frequência de execução. Os exemplos a seguir mostram como criar vários cenários de agendamento diferentes.
+Use o cmdlet [New-AzAutomationSchedule](/powershell/module/Az.Automation/New-AzAutomationSchedule) para criar agendamentos. Especifique a hora de início para a agenda e a frequência de execução. Os exemplos a seguir mostram como criar vários cenários de agendamento diferentes.
+
+>[!NOTE]
+>Atualmente, os agendamentos de automação não dão suporte ao uso de caracteres especiais no nome da agenda.
+>
 
 #### <a name="create-a-one-time-schedule"></a>Criar um agendamento único
 
@@ -128,7 +134,7 @@ Um runbook pode ser vinculado a várias agendas, e uma agenda pode ter vários r
 
 ### <a name="link-a-schedule-to-a-runbook-with-powershell"></a>Vincular um agendamento a um runbook com o PowerShell
 
-Use o cmdlet [Register-AzAutomationScheduledRunbook](/powershell/module/Az.Automation/Register-AzAutomationScheduledRunbook?view=azps-3.7.0) para vincular um agendamento. Você pode especificar valores para os parâmetros do runbook com o parâmetro Parameters. Para mais informações para especificar os valores do parâmetro, consulte [Como iniciar um runbook na Automação do Azure](../start-runbooks.md).
+Use o cmdlet [Register-AzAutomationScheduledRunbook](/powershell/module/Az.Automation/Register-AzAutomationScheduledRunbook) para vincular um agendamento. Você pode especificar valores para os parâmetros do runbook com o parâmetro Parameters. Para mais informações para especificar os valores do parâmetro, consulte [Como iniciar um runbook na Automação do Azure](../start-runbooks.md).
 O exemplo a seguir mostra como vincular um agendamento a um runbook usando um cmdlet do Azure Resource Manager com parâmetros.
 
 ```azurepowershell-interactive
@@ -155,7 +161,7 @@ Quando você desabilita uma agenda, qualquer runbook vinculados a ela deixam de 
 
 ### <a name="disable-a-schedule-from-the-azure-portal"></a>Desabilitar um agendamento no portal do Azure
 
-1. Na sua conta de Automação, selecione **Agendamentos** em **Recursos compartilhados**.
+1. Na sua conta de automação, no painel esquerdo, selecione **agendas** em **recursos compartilhados**.
 1. Clique no nome de um agendamento para abrir o painel de detalhes.
 1. Altere **Habilitado** para **Não**.
 
@@ -164,7 +170,7 @@ Quando você desabilita uma agenda, qualquer runbook vinculados a ela deixam de 
 
 ### <a name="disable-a-schedule-with-powershell"></a>Desabilitar um agendamento com o PowerShell
 
-Use o cmdlet [Set-AzAutomationSchedule](/powershell/module/Az.Automation/Set-AzAutomationSchedule?view=azps-3.7.0) para alterar as propriedades de um agendamento existente. Para desabilitar o agendamento, especifique false para o parâmetro `IsEnabled`.
+Use o cmdlet [Set-AzAutomationSchedule](/powershell/module/Az.Automation/Set-AzAutomationSchedule) para alterar as propriedades de um agendamento existente. Para desabilitar o agendamento, especifique false para o parâmetro `IsEnabled`.
 
 O exemplo a seguir mostra como desabilitar um agendamento para um runbook usando um cmdlet do Azure Resource Manager.
 
@@ -181,13 +187,13 @@ Quando estiver tudo pronto para remover seus agendamentos, você poderá usar o 
 
 ### <a name="remove-a-schedule-using-the-azure-portal"></a>Remover um agendamento usando o portal do Azure
 
-1. Na sua conta de Automação, selecione **Agendamentos** em **Recursos compartilhados**.
-2. Clique no nome de uma agenda para abrir o painel de detalhes.
+1. Na sua conta de automação, no painel esquerdo, selecione **agendas** em **recursos compartilhados**.
+2. Clique no nome de um agendamento para abrir o painel de detalhes.
 3. Clique em **Excluir**.
 
 ### <a name="remove-a-schedule-with-powershell"></a>Remover um agendamento com o PowerShell
 
-Você pode usar o cmdlet `Remove-AzAutomationSchedule` como mostrado abaixo, para excluir um agendamento. 
+Você pode usar o cmdlet `Remove-AzAutomationSchedule` como mostrado abaixo, para excluir um agendamento.
 
 ```azurepowershell-interactive
 $automationAccountName = "MyAutomationAccount"

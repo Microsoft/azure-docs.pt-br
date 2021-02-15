@@ -1,17 +1,15 @@
 ---
 title: Instalar um aplicativo em um cluster autônomo
 description: Neste tutorial, você aprenderá a implantar um aplicativo no cluster autônomo do Service Fabric.
-author: dkkapur
 ms.topic: tutorial
 ms.date: 07/22/2019
-ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 8dd47d27f928cb33e5a2bbc3ba9a6ab2bc044852
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: ae946321b34f12c816a717db4a3d07f57feefe52
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86245374"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96485353"
 ---
 # <a name="tutorial-deploy-an-application-on-your-service-fabric-standalone-cluster"></a>Tutorial: Implantar um aplicativo no seu cluster do Service Fabric autônomo
 
@@ -19,7 +17,7 @@ Os clusters autônomos do Service Fabric oferecem a opção de escolher seu pró
 
 Este tutorial é a parte três de uma série.  Os clusters autônomos do Service Fabric oferecem a opção de escolher seu próprio ambiente e criar um cluster como parte de nossa abordagem "qualquer sistema operacional, qualquer nuvem" com o Service Fabric. Este tutorial mostra como criar a infraestrutura AWS necessária para hospedar este cluster autônomo.
 
-Na terceira parte da série, você aprenderá a:
+Neste artigo, você aprenderá a:
 
 > [!div class="checklist"]
 > * Baixar o aplicativo de exemplo
@@ -52,7 +50,7 @@ Após o aplicativo ser baixado, você poderá implantá-lo no cluster diretament
 
 4. Clique com botão direito do mouse no projeto de aplicativo `Voting` no Gerenciador de Soluções e escolha **Publicar**
 
-5. Selecione o menu suspenso para a **Ponto de extremidade de conexão** e insira o nome de DNS público de um dos nós no seu cluster.  Por exemplo, `ec2-34-215-183-77.us-west-2.compute.amazonaws.com:19000`. Observe que, no Azure, um nome de domínio totalmente qualificado (FQDN) não é fornecido automaticamente, mas pode ser facilmente [definido na página Visão Geral de VM.](../virtual-machines/linux/portal-create-fqdn.md)
+5. Selecione o menu suspenso para a **Ponto de extremidade de conexão** e insira o nome de DNS público de um dos nós no seu cluster.  Por exemplo, `ec2-34-215-183-77.us-west-2.compute.amazonaws.com:19000`. No Azure, um FQDN (nome de domínio totalmente qualificado) não é fornecido automaticamente, mas pode ser facilmente [definido na página Visão Geral de VM.](../virtual-machines/create-fqdn.md)
 
 6. Abra o seu navegador de preferência e digite o endereço do cluster (o ponto de extremidade de conexão, este aplicativo implanta na porta 8080 - por exemplo, ec2-34-215-183-77.us-west-2.compute.amazonaws.com:8080).
 
@@ -60,7 +58,7 @@ Após o aplicativo ser baixado, você poderá implantá-lo no cluster diretament
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Na parte três da série, você aprendeu como implantar um aplicativo no seu cluster:
+Neste artigo, você aprendeu a implantar um aplicativo em seu cluster:
 
 > [!div class="checklist"]
 > * Baixar o aplicativo de exemplo

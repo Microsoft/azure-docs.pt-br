@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: victorh
-ms.openlocfilehash: da5100fafc98ae38809c93e9b3db5ef41c58766a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3c0e2033ee559af38a6816bdfa611eea86b14dea
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82863409"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658308"
 ---
 # <a name="azure-firewall-remote-work-support"></a>Suporte ao trabalho remoto do firewall do Azure
 
@@ -24,8 +24,8 @@ O trabalho de políticas domésticas exige que muitas organizações de ti resol
 
 ## <a name="azure-windows-virtual-desktop-support"></a>Suporte de área de trabalho virtual do Windows do Azure
 
-A área de trabalho virtual do Windows é um serviço abrangente de virtualização de desktops e aplicativos em execução no Azure. É a única VDI (Virtual Desktop Infrastructure) que fornece gerenciamento simplificado, várias sessões do Windows 10, otimizações para o Office 365 ProPlus e suporte para ambientes de Serviços de Área de Trabalho Remota (RDS). Você pode implantar e dimensionar suas áreas de trabalho e aplicativos do Windows no Azure em minutos e obter recursos internos de segurança e conformidade. A área de trabalho virtual do Windows não exige que você abra nenhum acesso de entrada à sua rede virtual. No entanto, você deve permitir um conjunto de conexões de rede de saída para as máquinas virtuais da área de trabalho virtual do Windows que são executadas em sua rede virtual. Para obter mais informações, confira [Usar o Firewall do Azure para proteger implantações da Área de Trabalho Virtual do Windows](protect-windows-virtual-desktop.md).
+A área de trabalho virtual do Windows é um serviço abrangente de virtualização de desktops e aplicativos em execução no Azure. É a única VDI (Virtual Desktop Infrastructure) que fornece gerenciamento simplificado, várias sessões do Windows 10, otimizações para aplicativos Microsoft 365 para empresas e suporte para ambientes de Serviços de Área de Trabalho Remota (RDS). Você pode implantar e dimensionar suas áreas de trabalho e aplicativos do Windows no Azure em minutos e obter recursos internos de segurança e conformidade. A área de trabalho virtual do Windows não exige que você abra nenhum acesso de entrada à sua rede virtual. No entanto, você deve permitir um conjunto de conexões de rede de saída para as máquinas virtuais da área de trabalho virtual do Windows que são executadas em sua rede virtual. Para obter mais informações, confira [Usar o Firewall do Azure para proteger implantações da Área de Trabalho Virtual do Windows](protect-windows-virtual-desktop.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre a [área de trabalho virtual do Windows](https://docs.microsoft.com/azure/virtual-desktop/).
+Saiba mais sobre a [área de trabalho virtual do Windows](../virtual-desktop/index.yml).

@@ -1,17 +1,17 @@
 ---
 title: Códigos de erro de configuração - Azure Stream Analytics
 description: Solucionar problemas do Azure Stream Analytics com códigos de erro de configuração.
-ms.author: mamccrea
-author: mamccrea
+ms.author: sidram
+author: sidramadoss
 ms.topic: troubleshooting
 ms.date: 05/07/2020
 ms.service: stream-analytics
-ms.openlocfilehash: de8eefd099f3691ae5e5eb5234ae8f76015dd68f
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 6137ceeb0d86b1531adab910175ddbc4722ef858
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86041108"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019509"
 ---
 # <a name="azure-stream-analytics-configuration-error-codes"></a>Códigos de erro de configuração do Azure Stream Analytics
 
@@ -94,7 +94,7 @@ Você pode usar logs de atividade e logs de recursos para ajudar a depurar compo
 ## <a name="sqldwoutputinvalidserviceedition"></a>SQLDWOutputInvalidServiceEdition
 
 * **Causa**: Não há suporte para o Banco de Dados SQL.
-* **Recomendação**: Use o pool de SQL do Synapse.
+* **Recomendação**: Use o pool de SQL dedicado.
 
 ## <a name="next-steps"></a>Próximas etapas
 

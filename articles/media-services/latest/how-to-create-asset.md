@@ -1,5 +1,5 @@
 ---
-title: Carregar conteúdo em um ativo dos Serviços de Mídia do Azure usando a CLI do Azure
+title: Carregar conteúdo para uma CLI de ativo
 description: O script de CLI do Azure neste tópico mostra como criar um ativo dos Serviços de Mídia para carregar o conteúdo.
 services: media-services
 documentationcenter: ''
@@ -12,23 +12,25 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 08/18/2020
+ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 65b0b276dcda58810f44494c14f06dd412d633f6
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 6f3c5fa41150f5df2b0e89c4253cb0bb55b1d625
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88719284"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955810"
 ---
 # <a name="create-an-asset"></a>Criar um ativo
 
-Este artigo mostra como criar um ativo de serviços de mídia.  Você usará um ativo para manter o conteúdo de mídia para codificação e streaming.  Para saber mais sobre os ativos dos serviços de mídia, leia [ativos nos serviços de mídia do Azure v3](assets-concept.md)
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
+
+Este artigo mostra como criar um ativo dos Serviços de Mídia.  Você usará um ativo para armazenar o conteúdo de mídia para codificação e streaming.  Para saber mais sobre os ativos dos Serviços de Mídia, leia [Ativos dos Serviços de Mídia do Azure v3](assets-concept.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Siga as etapas em [criar uma conta dos serviços de mídia](./create-account-howto.md) para criar a conta dos serviços de mídia e o grupo de recursos necessários para criar um ativo.
+Siga as etapas descritas em [Criar uma conta dos Serviços de Mídia](./create-account-howto.md) para criar a conta dos Serviços de Mídia e o grupo de recursos necessários para criar um ativo.
 
 ## <a name="methods"></a>Métodos
 

@@ -1,21 +1,24 @@
 ---
-title: Monitorar um Serviço de Nuvem do Azure | Microsoft Docs
+title: Monitorar um serviço de nuvem do Azure (clássico) | Microsoft Docs
 description: Descreve o que envolve o monitoramento de um Serviço de Nuvem do Azure e quais são algumas das opções.
-services: cloud-services
-documentationcenter: ''
-author: tgore03
-ms.service: cloud-services
 ms.topic: article
-ms.date: 01/29/2018
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 61c794ba03934ae1828ba310f3f776bfb61b652b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 60f320f86860cca482cdf25c7d93f84dae8c4e5f
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85847237"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743365"
 ---
-# <a name="introduction-to-cloud-service-monitoring"></a>Introdução ao Monitoramento de Serviço de Nuvem
+# <a name="introduction-to-cloud-service-classic-monitoring"></a>Introdução ao monitoramento de serviço de nuvem (clássico)
+
+> [!IMPORTANT]
+> Os [serviços de nuvem do Azure (suporte estendido)](../cloud-services-extended-support/overview.md) são um novo modelo de implantação baseado em Azure Resource Manager para o produto de serviços de nuvem do Azure.Com essa alteração, os serviços de nuvem do Azure em execução no modelo de implantação baseado no Azure Service Manager foram renomeados como serviços de nuvem (clássicos) e todas as novas implantações devem usar os [serviços de nuvem (suporte estendido)](../cloud-services-extended-support/overview.md).
 
 Você pode monitorar as principais métricas de desempenho de qualquer serviço de nuvem. Toda função de serviço de nuvem coleta o mínimo de dados: uso da CPU, uso da rede e utilização do disco. Se o serviço de nuvem tiver a extensão `Microsoft.Azure.Diagnostics` aplicada a uma função, essa função poderá coletar outros pontos de dados. Este artigo fornece uma introdução aos Diagnósticos do Azure para Serviços de Nuvem.
 

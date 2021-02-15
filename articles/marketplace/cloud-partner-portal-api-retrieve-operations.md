@@ -8,10 +8,10 @@ author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
 ms.openlocfilehash: cb44d977407a7e854603e6bbacf3591752b109c2
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87271936"
 ---
 # <a name="retrieve-operations"></a>Recuperar operações
@@ -33,8 +33,8 @@ Recuperar todas as operações na oferta ou obter uma operação específica par
 
 |  **Nome**          |      **Descrição**                                                                                           | **Data type** |
 |  ----------------  |     --------------------------------------------------------------------------------------------------------   |  -----------  |
-|  publisherId       |  Identificador do editor, por exemplo `Contoso`                                                                   |  Cadeia de caracteres       |
-|  offerId           |  Identificador da oferta                                                                                              |  Cadeia de caracteres       |
+|  publisherId       |  Identificador do editor, por exemplo `Contoso`                                                                   |  String       |
+|  offerId           |  Identificador da oferta                                                                                              |  String       |
 |  operationId       |  GUID que identifica exclusivamente a operação na oferta. A operationId pode ser recuperada usando essa API e também é retornada no cabeçalho HTTP da resposta para qualquer operação longa, como a API [Publicar oferta](./cloud-partner-portal-api-publish-offer.md).  |   Guid   |
 |  api-version       | Última versão da API |    Data      |
 |  |  |  |
@@ -176,7 +176,7 @@ Recuperar todas as operações na oferta ou obter uma operação específica par
 |  createdDateTime             | Data e hora em UTC quando a operação foi criada                                                       |
 |  lastActionDateTime          | Data e hora em UTC quando a última atualização foi feita na operação                                       |
 |  status                      | Status da operação, seja `not started` \| `running` \| `failed` \| `completed` . Apenas uma operação pode ter um status `running` por vez. |
-|  erro                       | Mensagem de erro para operações com falha                                                               |
+|  error                       | Mensagem de erro para operações com falha                                                               |
 |  |  |
 
 ### <a name="response-step-properties"></a>Propriedades da etapa de resposta

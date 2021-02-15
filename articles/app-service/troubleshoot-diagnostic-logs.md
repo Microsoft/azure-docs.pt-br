@@ -5,12 +5,12 @@ ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 09/17/2019
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 89162a0b8ca20e59319802f9e2359c2f27ff163f
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 8f3fb0be08bb806d74c689a7656c1c55019eb105
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962172"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980602"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Habilitar log de diagnósticos para aplicativos no Serviço de Aplicativo do Azure
 ## <a name="overview"></a>Visão geral
@@ -25,7 +25,7 @@ Este artigo usa o [portal do Azure](https://portal.azure.com) e a CLI do Azure p
 
 |Digite|Plataforma|Location|Descrição|
 |-|-|-|-|
-| Registro em log do aplicativo | Windows, Linux | Sistema de arquivos do serviço de aplicativo e/ou BLOBs de armazenamento do Azure | Registra as mensagens geradas pelo código do aplicativo. As mensagens podem ser geradas pela estrutura da Web que você escolher ou do código do aplicativo diretamente usando o padrão de log padrão do seu idioma. Cada mensagem recebe uma das seguintes categorias: **crítico**, **erro**, **aviso**, **informações**, **depuração**e **rastreamento**. Você pode selecionar o quão detalhado deseja que o log seja definindo o nível de severidade ao habilitar o log do aplicativo.|
+| Registro em log do aplicativo | Windows, Linux | Sistema de arquivos do serviço de aplicativo e/ou BLOBs de armazenamento do Azure | Registra as mensagens geradas pelo código do aplicativo. As mensagens podem ser geradas pela estrutura da Web que você escolher ou do código do aplicativo diretamente usando o padrão de log padrão do seu idioma. Cada mensagem recebe uma das seguintes categorias: **crítico**, **erro**, **aviso**, **informações**, **depuração** e **rastreamento**. Você pode selecionar o quão detalhado deseja que o log seja definindo o nível de severidade ao habilitar o log do aplicativo.|
 | Log do servidor Web| Windows | Sistema de arquivos do serviço de aplicativo ou BLOBs de armazenamento do Azure| Dados de solicitação HTTP brutos no [formato de arquivo de log estendido W3C](/windows/desktop/Http/w3c-logging). Cada mensagem de log inclui dados como o método HTTP, o URI de recurso, o IP do cliente, a porta do cliente, o agente do usuário, o código de resposta e assim por diante. |
 | Mensagens de erro detalhadas| Windows | Sistema de arquivos do serviço de aplicativo | Cópias das páginas de erro *. htm* que seriam enviadas ao navegador do cliente. Por motivos de segurança, as páginas de erro detalhadas não devem ser enviadas aos clientes em produção, mas o serviço de aplicativo pode salvar a página de erro cada vez que um erro de aplicativo ocorre com código HTTP 400 ou superior. A página pode conter informações que podem ajudar a determinar por que o servidor retorna o código de erro. |
 | De uma solicitação de rastreio com falha | Windows | Sistema de arquivos do serviço de aplicativo | Informações detalhadas de rastreamento sobre solicitações com falha, incluindo um rastreamento dos componentes do IIS usados para processar a solicitação e o tempo gasto em cada componente. Isso é útil se você quiser melhorar o desempenho do site ou isolar um erro HTTP específico. Uma pasta é gerada para cada solicitação com falha, que contém o arquivo de log XML e a folha de estilos XSL com a qual exibir o arquivo de log. |
@@ -58,9 +58,9 @@ A opção **FileSystem** é para fins de depuração temporária e fica desativa
 >
 >
 
-Selecione o **nível**ou o nível de detalhes para o log. A tabela a seguir mostra as categorias de log incluídas em cada nível:
+Selecione o **nível** ou o nível de detalhes para o log. A tabela a seguir mostra as categorias de log incluídas em cada nível:
 
-| Nível | Categorias incluídas |
+| Level | Categorias incluídas |
 |-|-|
 |**Desabilitado** | Nenhum |
 |**Erro** | Erro, Crítico |
@@ -102,7 +102,7 @@ Quando terminar, selecione **Avançar**.
 
 Para salvar a página de erro ou o rastreamento de solicitação com falha para aplicativos do Windows no [portal do Azure](https://portal.azure.com), navegue até seu aplicativo e selecione **logs do serviço de aplicativo**.
 
-Em **log de erros detalhado** ou **rastreamento de solicitação com falha**, selecione **ativado**e, em seguida, selecione **salvar**.
+Em **log de erros detalhado** ou **rastreamento de solicitação com falha**, selecione **ativado** e, em seguida, selecione **salvar**.
 
 Os dois tipos de logs são armazenados no sistema de arquivos do serviço de aplicativo. Até 50 erros (arquivos/pastas) são mantidos. Quando o número de arquivos HTML exceder 50, os 26 erros mais antigos são excluídos automaticamente.
 
@@ -171,7 +171,7 @@ Para aplicativos do Windows, o arquivo ZIP contém o conteúdo do diretório *D:
 | **Logs de aplicativo** |*/LogFiles/Application/* | Contém um ou mais arquivos de texto. O formato das mensagens de log depende do provedor de log que você usa. |
 | **Rastreamentos de solicitação com falha** | */LogFiles/W3SVC # # # # # # # # #/* | Contém arquivos XML e um arquivo XSL. Você pode exibir os arquivos XML formatados no navegador. |
 | **Logs de erros detalhados** | */LogFiles/DetailedErrors/* | Contém arquivos de erro HTM. Você pode exibir os arquivos HTM no navegador.<br/>Outra maneira de exibir os rastreamentos de solicitação com falha é navegar até a página do aplicativo no Portal. No menu à esquerda, selecione **diagnosticar e resolver problemas**, em seguida, procure **logs de rastreamento de solicitação com falha**, clique no ícone para procurar e exibir o rastreamento desejado. |
-| **Logs do servidor Web** | */LogFiles/http/RawLogs/* | Contém arquivos de texto formatados usando o [formato de arquivo de log estendido do W3C](/windows/desktop/Http/w3c-logging). Essas informações podem ser lidas usando um editor de texto ou um utilitário como o [Log Parser](https://go.microsoft.com/fwlink/?LinkId=246619).<br/>O serviço de aplicativo não dá suporte aos `s-computername` `s-ip` campos, ou `cs-version` . |
+| **Logs do servidor Web** | */LogFiles/http/RawLogs/* | Contém arquivos de texto formatados usando o [formato de arquivo de log estendido do W3C](/windows/desktop/Http/w3c-logging). Essas informações podem ser lidas usando um editor de texto ou um utilitário como o [Log Parser](https://www.iis.net/downloads/community/2010/04/log-parser-22).<br/>O serviço de aplicativo não dá suporte aos `s-computername` `s-ip` campos, ou `cs-version` . |
 | **Logs de implantação** | */LogFiles/git/* e */Deployments/* | Conter logs gerados pelos processos de implantação internos, bem como logs para implantações do git. |
 
 ## <a name="send-logs-to-azure-monitor-preview"></a>Enviar logs para Azure Monitor (versão prévia)
@@ -185,16 +185,19 @@ Com a nova [integração de Azure monitor](https://aka.ms/appsvcblog-azmon), voc
 
 A tabela a seguir mostra os tipos de log e as descrições com suporte: 
 
-| Tipo de log | Suporte do Windows | Suporte para Linux (Docker) | Descrição |
-|-|-|-|
-| AppServiceConsoleLogs | TBA | Sim | Saída padrão e erro padrão |
-| AppServiceHTTPLogs | Sim | Sim | Logs do Web Server |
-| AppServiceEnvironmentPlatformLogs | Sim | Sim | Ambiente do Serviço de Aplicativo: dimensionamento, alterações de configuração e logs de status|
-| AppServiceAuditLogs | Sim | Sim | Atividade de logon via FTP e kudu |
-| AppServiceFileAuditLogs | Sim | TBD | Alterações de arquivo via FTP e kudu |
-| AppServiceAppLogs | TBA | Java SE & Tomcat | Logs de aplicativo |
-| AppServiceIPSecAuditLogs  | Sim | Sim | Solicitações de regras de IP |
-| AppServicePlatformLogs  | TBA | Sim | Logs de contêiner |
+| Tipo de log | Windows | Contêiner do Windows | Linux | Contêiner do Linux | Description |
+|-|-|-|-|-|-|
+| AppServiceConsoleLogs | Java SE & Tomcat | Sim | Sim | Sim | Saída padrão e erro padrão |
+| AppServiceHTTPLogs | Sim | Sim | Sim | Sim | Logs do Web Server |
+| AppServiceEnvironmentPlatformLogs | Sim | N/D | Sim | Sim | Ambiente do Serviço de Aplicativo: dimensionamento, alterações de configuração e logs de status|
+| AppServiceAuditLogs | Sim | Sim | Sim | Sim | Atividade de logon via FTP e kudu |
+| AppServiceFileAuditLogs | Sim | Sim | TBA | TBA | Alterações de arquivo feitas no conteúdo do site; **disponível somente para a camada Premium e acima** |
+| AppServiceAppLogs | ASP .NET | ASP .NET | Java SE & as imagens privilegiado Tomcat <sup>1</sup> | Java SE & as imagens privilegiado Tomcat <sup>1</sup> | Logs de aplicativo |
+| AppServiceIPSecAuditLogs  | Sim | Sim | Sim | Sim | Solicitações de regras de IP |
+| AppServicePlatformLogs  | TBA | Sim | Sim | Sim | Logs de operação do contêiner |
+| AppServiceAntivirusScanAuditLogs | Sim | Sim | Sim | Sim | [Logs de varredura antivírus](https://azure.github.io/AppService/2020/12/09/AzMon-AppServiceAntivirusScanAuditLogs.html) usando o Microsoft defender; **disponível somente para a camada Premium** | 
+
+<sup>1</sup> para aplicativos Java se, adicione "$website _AZMON_PREVIEW_ENABLED" às configurações do aplicativo e defina-o como 1 ou como true.
 
 ## <a name="next-steps"></a><a name="nextsteps"></a> Próximas etapas
 * [Consultar logs com o Azure Monitor](../azure-monitor/log-query/log-query-overview.md)

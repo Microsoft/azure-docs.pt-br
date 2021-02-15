@@ -13,20 +13,20 @@ metadata:
   author: msmbaldwin
   ms.author: mbaldwin
   ms.date: 04/07/2020
-  ms.openlocfilehash: 549309a01602206b85a54b47df297735dfc5e709
-  ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+  ms.openlocfilehash: cf53b3165863c6f22ce4c9a74d002eafd2dcc329
+  ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 08/17/2020
-  ms.locfileid: "88262595"
+  ms.lasthandoff: 10/28/2020
+  ms.locfileid: "92792337"
 highlightedContent:
   items:
   - title: Introdução ao Azure Key Vault
     itemType: overview
     url: ./general/overview.md
-  - title: Alterações importantes na exclusão temporária
+  - title: Atualizações importantes para o serviço
     itemType: whats-new
-    url: ./general/soft-delete-change.md
+    url: ./general/whats-new.md
   - title: Autenticação
     itemType: overview
     url: ./general/authentication.md
@@ -89,6 +89,20 @@ conceptualContent:
     footerLink:
       url: ./secrets/index.yml
       text: Ver mais
+  - title: HSM Gerenciado (versão prévia)
+    links:
+    - url: ./managed-hsm/overview.md
+      itemType: overview
+      text: O que é o HSM Gerenciado?
+    - url: ./managed-hsm/best-practices.md
+      itemType: overview
+      text: Práticas recomendadas
+    - url: ./managed-hsm/quick-create-cli.md
+      itemType: quickstart
+      text: Provisionar e ativar um HSM gerenciado
+    footerLink:
+      text: Ver mais
+      url: ./managed-hsm/index.yml
   - title: Bibliotecas de cliente
     links:
     - url: ./general/client-libraries.md
@@ -139,7 +153,7 @@ conceptualContent:
       text: Key Vault com os Conjuntos de Dimensionamento de Máquinas Virtuais
   - title: Integração do Cofre da Chave
     links:
-    - url: https://docs.microsoft.com/azure/devops/pipelines/library/variable-groups?view=azure-devops&tabs=yaml#link-secrets-from-an-azure-key-vault
+    - url: /azure/devops/pipelines/library/variable-groups?tabs=yaml&view=azure-devops#link-secrets-from-an-azure-key-vault
       itemType: overview
       text: Azure DevOps – referenciar segredos do Key Vault no Azure Pipelines
     - url: ../app-service/app-service-key-vault-references.md
@@ -151,6 +165,6 @@ conceptualContent:
     - url: ../aks/developer-best-practices-pod-security.md#use-azure-key-vault-with-secrets-store-csi-driver
       itemType: overview
       text: Serviço de Kubernetes do Azure – usar segredos, certificados e chaves do Key Vault no AKS
-    - url: https://docs.microsoft.com/azure/databricks/security/secrets/secret-scopes
+    - url: /azure/databricks/security/secrets/secret-scopes
       itemType: overview
       text: Azure Databricks – Gerenciamento de Segredos com o Key Vault

@@ -12,20 +12,20 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: jeedes
 ms.custom: has-adal-ref
-ms.openlocfilehash: 1934b6256ecf4f35c54bbc2ac497c331b2c5ee89
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 32f79f24df6fe705146b39750c710450ef8f1f7b
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88543917"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735916"
 ---
 # <a name="configure-an-openidoauth-application-from-the-azure-ad-app-gallery"></a>Configurar um aplicativo OpenID/OAuth da galeria de aplicativo do Azure AD
 
 ## <a name="process-of-adding-an-openid-application-from-the-gallery"></a>Processo para adicionar um aplicativo OpenID da galeria
 
-1. No [Portal do Azure](https://portal.azure.com), no painel esquerdo, selecione **Azure Active Directory**.
+1. No [portal do Azure](https://portal.azure.com), selecione **Azure Active Directory**.
 
-    ![O botão Azure Active Directory](common/select-azuread.png))
+    ![O botão Azure Active Directory](common/select-azuread.png)
 
 2. Acesse **Aplicativos empresariais** > **Todos os aplicativos**.
 
@@ -39,17 +39,23 @@ ms.locfileid: "88543917"
 
     ![OpenID na lista de resultados](common/search-new-app.png)
 
-    > [!NOTE]
-    > Para os aplicativos OpenID Connect e OAuth, o botão **Adicionar** está desabilitado por padrão. Aqui o administrador de locatário deve selecionar o botão para se inscrever e dar o consentimento ao aplicativo. Em seguida, o aplicativo é adicionado ao locatário do cliente, onde você pode definir as configurações. Não é necessário adicionar o aplicativo explicitamente.
+
+1. Na página Nome do aplicativo, clique no botão **Inscrever-se**.
 
     ![Botão Adicionar](./media/openidoauth-tutorial/addbutton.png)
 
-5. Ao selecionar o link de inscrição, você será redirecionado para a página do Azure Active Directory (Azure AD) para inserir as credenciais de entrada.
+    > [!NOTE]
+    > Aqui o administrador de locatário deve selecionar o botão para se inscrever e dar o consentimento ao aplicativo. Em seguida, o aplicativo é adicionado ao locatário do cliente, onde você pode definir as configurações. Não é necessário adicionar o aplicativo explicitamente.
+
+5. Você será redirecionado para a página Logon do Aplicativo ou para a página do Azure AD (Azure Active Directory) das credenciais de entrada.
 
 6. Após a autenticação bem-sucedida, você deve aceitar o consentimento da página de consentimento. Depois disso, é exibida a home page do aplicativo.
 
     > [!NOTE]
     > Você só pode adicionar uma instância do aplicativo. Caso já tenha adicionado uma e tenha tentado fornecer o consentimento novamente, ela não será adicionada outra vez no locatário. Portanto, logicamente, só é possível usar uma instância de aplicativo no locatário.
+
+1. Siga o vídeo abaixo para adicionar um aplicativo OpenID por meio da galeria.
+    >[!VIDEO https://www.microsoft.com/videoplayer/embed/RE4HoNI]
 
 ## <a name="authentication-flow-using-openid-connect"></a>Fluxo de autenticação usando o OpenID Connect
 
@@ -76,13 +82,13 @@ Por padrão, o Azure AD promove aplicativos multilocatários. Eles são acessado
 ## <a name="consent-framework"></a>Estrutura de consentimento
 
 É possível usar a estrutura de consentimento do Azure AD para desenvolver aplicativos Web multilocatários e clientes nativos. Esses aplicativos permitem a entrada de contas de usuário de um locatário do Azure AD diferente daquele no qual o aplicativo está registrado. Eles também precisam acessar APIs Web como:
-- A API do Microsoft Graph, para acessar o Azure AD, Intune e serviços no Office 365.
+- A API do Microsoft Graph, para acessar o Azure AD, o Intune e serviços no Microsoft 365.
 - Outras APIs de serviços da Microsoft.
 - Suas próprias APIs Web.
 
 A estrutura se baseia em um usuário ou administrador que dá autorização a um aplicativo que solicita seu registro no diretório. O registro pode envolver acesso aos dados de diretório. Depois que o consentimento for dado, o aplicativo cliente pode chamar a API do Microsoft Graph em nome do usuário e usar as informações conforme o necessário.
 
-A [API do Microsoft Graph](https://developer.microsoft.com/graph/) fornece acesso aos dados no Office 365, como:
+A [API do Microsoft Graph](https://developer.microsoft.com/graph/) fornece acesso aos dados no Microsoft 365, como:
 
 - Calendários e mensagens do Exchange.
 - Sites e listas do SharePoint.
@@ -99,19 +105,19 @@ As etapas a seguir mostram como a experiência de consentimento funciona para o 
 
     a. Clique nos **Registros de aplicativo** do lado esquerdo do menu e abra seu aplicativo, digitando o nome dele na caixa de pesquisa.
 
-    ![API do Graph](./media/openidoauth-tutorial/application.png)
+    ![Uma captura de tela que mostra a opção "Registros de aplicativo" selecionada no menu do lado esquerdo e a caixa de pesquisa "ID de aplicativo" realçada.](./media/openidoauth-tutorial/application.png)
 
     b. Clique em **Exibir Permissões de API**.
 
-    ![API do Graph](./media/openidoauth-tutorial/api-permission.png)
+    ![Uma captura de tela que mostra a página "Chamar API" com o botão "Exibir Permissões de API" selecionado.](./media/openidoauth-tutorial/api-permission.png)
 
     c. Clique em **Adicionar uma permissão**.
 
-    ![API do Graph](./media/openidoauth-tutorial/add-permission.png)
+    ![Uma captura de tela que mostra a seção "Permissões de API" com o botão "Adicionar uma permissão" selecionado.](./media/openidoauth-tutorial/add-permission.png)
 
     d. Clique em **Microsoft Graph**.
 
-    ![API do Graph](./media/openidoauth-tutorial/microsoft-graph.png)
+    ![Uma captura de tela que mostra a página "Solicitar Permissões de API" com a guia "API da Microsoft" e o bloco "Microsoft Graph" selecionados.](./media/openidoauth-tutorial/microsoft-graph.png)
 
     e. Selecione as opções obrigatórias de **Permissões delegadas** e **Permissões do Aplicativo**.
 
@@ -121,7 +127,7 @@ As etapas a seguir mostram como a experiência de consentimento funciona para o 
 
 3. Se o usuário ainda não tiver sido autenticado, o ponto de extremidade /authorize do Azure AD solicitará a entrada.
 
-    ![Autenticação](./media/openidoauth-tutorial/authentication.png)
+    ![Uma captura de tela do prompt de entrada da conta](./media/openidoauth-tutorial/authentication.png)
 
 4. Depois que o usuário tiver entrado, o Azure AD determinará se o usuário precisará ver uma página de consentimento. Essa decisão depende do fato de o usuário (ou do administrador da organização) já ter dado o consentimento de aplicativo.
 
@@ -151,3 +157,7 @@ Um administrador de locatários pode desabilitar a capacidade dos usuários regu
 O parâmetro *prompt=admin_consent* também pode ser usado por aplicativos que solicitam permissões que não necessitam do consentimento do administrador. Um exemplo é um aplicativo que exige uma experiência na qual o administrador de locatários "se inscreve" uma vez, e não é solicitado o consentimento de nenhum outro usuário desse ponto em diante.
 
 Imagine que um aplicativo exige o consentimento do administrador e que um administrador entra sem o parâmetro *prompt = admin_consent* ser enviado. Quando o administrador fornece consentimento ao aplicativo com sucesso, este se aplica somente à sua conta de usuário. Os usuários normais ainda não poderão entrar ou dar consentimento ao aplicativo. Esse recurso é útil se você quiser conceder ao administrador de locatários a capacidade de explorar seu aplicativo antes de permitir o acesso de outros usuários.
+
+## <a name="next-steps"></a>Próximas etapas
+
+[Configurar o SSO (logon único) baseado em OIDC para um aplicativo no locatário do Azure AD (Azure Active Directory)](../manage-apps/add-application-portal-setup-oidc-sso.md)

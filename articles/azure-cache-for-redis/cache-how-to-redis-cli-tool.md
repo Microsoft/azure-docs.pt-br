@@ -1,19 +1,19 @@
 ---
-title: Como usar o Redis-CLI com o cache do Azure para Redis
-description: Saiba como usar *redis-cli.exe* como uma ferramenta de linha de comando para interagir com um cache do Azure para Redis como um cliente.
+title: Usar o Redis-CLI com o cache do Azure para Redis
+description: Saiba como usar *redis-cli.exe* como uma ferramenta de linha de comando para interagir com um cache do Azure para Redis como um cliente
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
-ms.date: 03/22/2018
-ms.openlocfilehash: bd2da798cae92a7e47bd879b69dd108618463402
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 02/08/2021
+ms.openlocfilehash: 3a1e1cdb7706cb284da57e10e35afe3420deaf75
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81010759"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100375299"
 ---
-# <a name="how-to-use-the-redis-command-line-tool-with-azure-cache-for-redis"></a>Como usar a ferramenta de linha de comando Redis com Cache do Azure para Redis
+# <a name="use-the-redis-command-line-tool-with-azure-cache-for-redis"></a>Use a ferramenta de linha de comando Redis com o cache do Azure para Redis
 
 O *redis-cli.exe* é uma ferramenta de linha de comando popular para interagir com um Cache do Azure para Redis como um cliente. Essa ferramenta também está disponível para uso com Cache do Azure para Redis.
 
@@ -27,9 +27,9 @@ Se você quiser executar a ferramenta de linha de comando em outra plataforma, b
 
 Você pode coletar as informações necessárias para acessar o cache usando três métodos:
 
-1. Usando a CLI do Azure [az redis list-keys](https://docs.microsoft.com/cli/azure/redis?view=azure-cli-latest#az-redis-list-keys)
-2. Com o Azure PowerShell usando [Get-AzRedisCacheKey](https://docs.microsoft.com/powershell/module/az.rediscache/Get-AzRedisCacheKey)
-3. Usando o Portal do Azure.
+1. Usando a CLI do Azure [az redis list-keys](/cli/azure/redis?view=azure-cli-latest#az-redis-list-keys)
+2. Com o Azure PowerShell usando [Get-AzRedisCacheKey](/powershell/module/az.rediscache/Get-AzRedisCacheKey)
+3. Usando o portal do Azure.
 
 Nesta seção, você vai recuperar as chaves do Portal do Azure.
 
@@ -72,9 +72,9 @@ Ao usar stunnel, execute *redis-cli.exe* e passe apenas sua *porta* e *chave de 
 redis-cli.exe -p 6380 -a YourAccessKey
 ```
 
-![stunnel com redis-cli](media/cache-how-to-redis-cli-tool/cache-redis-cli-stunnel.png)
+![Captura de tela que mostra que a conexão com o cache foi bem-sucedida.](media/cache-how-to-redis-cli-tool/cache-redis-cli-stunnel.png)
 
-Se você estiver usando um cache de teste com a porta não TLS não **segura** , execute `redis-cli.exe` e passe seu *nome de host*, *porta*e *chave de acesso* (primário ou secundário) para se conectar ao cache de teste.
+Se você estiver usando um cache de teste com a porta não TLS não **segura** , execute `redis-cli.exe` e passe seu *nome de host*, *porta* e *chave de acesso* (primário ou secundário) para se conectar ao cache de teste.
 
 ```
 redis-cli.exe -h yourcachename.redis.cache.windows.net -p 6379 -a YourAccessKey
@@ -88,4 +88,3 @@ redis-cli.exe -h yourcachename.redis.cache.windows.net -p 6379 -a YourAccessKey
 ## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre como usar o [Console Redis](cache-configure.md#redis-console) para emitir comandos.
-

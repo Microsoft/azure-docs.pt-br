@@ -1,135 +1,129 @@
 ---
-title: 'Cenário: rotear o tráfego por meio de NVAs usando configurações personalizadas'
+title: Rotear o tráfego por meio de NVAs usando configurações personalizadas
 titleSuffix: Azure Virtual WAN
-description: Esse cenário ajuda a rotear o tráfego por meio de NVAs usando um NVA diferente para o tráfego de entrada na Internet.
+description: Esse cenário ajuda a rotear o tráfego por meio do NVAs usando um NVA diferente para tráfego vinculado à Internet.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 08/06/2020
+ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 5546fc63b01d1da6b4033e071ac071574ab9699a
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: 8e51d7d00120f6facb0fb53a8e379d157ae79ea4
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87987181"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98938571"
 ---
-# <a name="scenario-route-traffic-through-nvas---custom-preview"></a>Cenário: rotear o tráfego por meio de NVAs-personalizado (visualização)
+# <a name="scenario-route-traffic-through-nvas-by-using-custom-settings"></a>Cenário: rotear o tráfego por meio de NVAs usando configurações personalizadas
 
-Ao trabalhar com o roteamento de Hub virtual de WAN virtual, há alguns cenários disponíveis. Neste cenário de NVA (solução de virtualização de rede), o objetivo é rotear o tráfego por meio de um NVA para comunicação entre VNets e branches e usar um NVA diferente para tráfego de Internet. Para obter mais informações sobre roteamento de Hub virtual, consulte [sobre roteamento de Hub virtual](about-virtual-hub-routing.md).
+Quando estiver trabalhando com o roteamento de Hub virtual de WAN virtual do Azure, você terá várias opções disponíveis. O foco deste artigo é quando você deseja rotear o tráfego por meio de uma NVA (solução de virtualização de rede) para a comunicação entre redes virtuais e branches e usar um NVA diferente para o tráfego de entrada na Internet. Para obter mais informações, consulte [sobre roteamento de Hub virtual](about-virtual-hub-routing.md).
 
-## <a name="design"></a><a name="design"></a>Design
+## <a name="design"></a>Design
 
-Neste cenário, usaremos a Convenção de nomenclatura:
+* **Spokes** para redes virtuais conectadas ao Hub virtual. (Por exemplo, VNet 1, VNet 2 e VNet 3 no diagrama mais adiante neste artigo.)
+* **VNet de serviço** para redes virtuais em que os usuários implantaram um NVA para inspecionar o tráfego de não Internet e possivelmente com serviços comuns acessados por spokes. (Por exemplo, VNet 4 no diagrama mais adiante neste artigo.) 
+* **VNet do perímetro** para redes virtuais em que os usuários implantaram um NVA a ser usado para inspecionar o tráfego vinculado à Internet. (Por exemplo, VNet 5 no diagrama mais adiante neste artigo.)
+* **Hubs** para HUBS de WAN virtual gerenciados pela Microsoft.
 
-* "VNet de serviço" para redes virtuais em que os usuários implantaram um NVA (VNet 4 na **Figura 1**) para inspecionar o tráfego de não Internet.
-* "Rede virtual DMZ" para redes virtuais em que os usuários implantaram um NVA a ser usado para inspecionar o tráfego vinculado à Internet (VNet 5 na **Figura 1**).
-* "NVA spokes" para redes virtuais conectadas a uma VNet NVA (VNet 1, VNet 2 e VNet 3 na **Figura 1**).
-* "Hubs" para hubs de WAN virtual gerenciados pela Microsoft.
+A tabela a seguir resume as conexões com suporte neste cenário:
 
-A matriz de conectividade a seguir resume os fluxos com suporte neste cenário:
+| De          | Para|Spokes|VNet de serviço|Branches|Internet|
+|---|---|:---:|:---:|:---:|:---:|:---:|
+| **Spokes**| ->| diretamente |diretamente | por meio da VNet de serviço |por meio da VNet do perímetro |
+| **VNet de serviço**| ->| diretamente |n/a| diretamente | |
+| **Branches** | ->| por meio da VNet de serviço |diretamente| diretamente |  |
 
-**Matriz de conectividade**
+Cada uma das células na matriz de conectividade descreve se a conectividade flui diretamente pela WAN virtual ou por uma das redes virtuais com um NVA. 
 
-| De          | Para:|*NVA spokes*|*VNet de serviço*|*Rede virtual DMZ*|*Ramificações estáticas*|
-|---|---|---|---|---|---|
-| **NVA spokes**| &#8594;|      X |            X |   Emparelhamento |    Estático    |
-| **VNet de serviço**| &#8594;|    X |            X |      X    |      X       |
-| **Rede virtual DMZ** | &#8594;|       X |            X |      X    |      X       |
-| **Branches** | &#8594;|  Estático |            X |      X    |      X       |
-
-Cada uma das células na matriz de conectividade descreve se uma conexão de WAN virtual (o lado "de" do fluxo, os cabeçalhos de linha) aprende um prefixo de destino (o lado "para" do fluxo, os cabeçalhos de coluna em itálico) para um fluxo de tráfego específico. Vamos detalhar as diferentes linhas:
-
-* NVA spokes:
+Observe o seguintes detalhes:
+* Spokes
   * Os spokes alcançarão outros spokes diretamente sobre os hubs de WAN virtual.
-  * Os spokes obterão conectividade com os branches por meio de uma rota estática apontando para a VNet do serviço. Eles não devem aprender prefixos específicos dos branches (caso contrário, eles seriam mais específicos e substituem o resumo).
-  * Os spokes enviarão tráfego de Internet para a rede virtual DMZ por meio de um emparelhamento VNet direto.
-* Filia
-  * As ramificações chegarão a spokes por meio de um roteamento estático apontando para a VNet do serviço. Eles não devem aprender prefixos específicos do VNets que substituem a rota estática resumida.
-* A VNet de serviço será semelhante a uma VNet de serviços compartilhados que precisa ser acessada de cada VNet e de cada ramificação.
-* A VNet da DMZ não precisa realmente ter conectividade sobre a WAN virtual, pois o único tráfego com suporte será fornecido por emparelhamentos de VNet direta. No entanto, usaremos o mesmo modelo de conectividade que o rede virtual DMZ para simplificar a configuração.
+  * Os spokes obterão conectividade com os branches por meio de uma rota estática apontando para a VNet do serviço. Eles não aprendem prefixos específicos dos branches, pois são mais específicos e substituem o resumo.
+  * Os spokes enviarão tráfego de Internet para a VNet do perímetro por meio de um emparelhamento VNet direto.
+* As ramificações chegarão a spokes por meio de um roteamento estático apontando para a VNet do serviço. Eles não aprendem prefixos específicos das redes virtuais que substituem a rota estática resumida.
+* A VNet de serviço será semelhante a uma VNet de serviços compartilhados que precisa ser acessada de todas as redes virtuais e de cada ramificação.
+* A VNet do perímetro não precisa ter conectividade sobre a WAN virtual, pois o único tráfego que ele dará suporte vem por emparelhamentos de rede virtual direta. No entanto, para simplificar a configuração, use o mesmo modelo de conectividade que para a VNet do perímetro.
 
-Portanto, nossa matriz de conectividade fornece três padrões distintos de conectividade, que se traduz em três tabelas de rotas. As associações para os diferentes VNets serão as seguintes:
+Há três padrões distintos de conectividade, que se traduz em três tabelas de rotas. As associações para as diferentes redes virtuais são:
 
-* NVA spokes:
+* Spokes
   * Tabela de rotas associada: **RT_V2B**
   * Propagando para tabelas de rotas: **RT_V2B** e **RT_SHARED**
-* NVA VNets (interno e Internet):
+* NVA VNets (VNet de serviço e rede virtual DMZ):
   * Tabela de rotas associada: **RT_SHARED**
   * Propagando para tabelas de rotas: **RT_SHARED**
 * Filia
   * Tabela de rotas associada: **padrão**
   * Propagando para tabelas de rotas: **RT_SHARED** e **padrão**
 
-Precisamos dessas rotas estáticas para garantir que o tráfego de VNet para ramificação e de ramificação para VNet passe pelo NVA na VNet do serviço (VNet 4):
+> [!NOTE] 
+> Verifique se os VNets spoke não estão se propagando para o rótulo padrão. Isso garante que o tráfego de branches para spoke VNets será encaminhado para o NVAs.
+
+Essas rotas estáticas garantem que o tráfego de e para a rede virtual e a ramificação passe pelo NVA na VNet do serviço (VNet 4):
 
 | Descrição | Tabela de rotas | Rota estática              |
 | ----------- | ----------- | ------------------------- |
 | Branches    | RT_V2B      | 10.2.0.0/16-> vnet4conn  |
 | NVA spokes  | Padrão     | 10.1.0.0/16-> vnet4conn  |
 
-Agora, a WAN virtual sabe a qual conexão enviar os pacotes, mas a conexão precisa saber o que fazer ao receber esses pacotes: é aqui que as tabelas de rotas de conexão são usadas.
+Agora você pode usar a WAN virtual para selecionar a conexão correta para a qual enviar os pacotes. Você também precisa usar a WAN virtual para selecionar a ação correta a ser tomada ao receber esses pacotes. Você usa as tabelas de rotas de conexão para isso, da seguinte maneira:
 
 | Descrição | Conexão | Rota estática            |
 | ----------- | ---------- | ----------------------- |
 | VNet2Branch | vnet4conn  | 10.2.0.0/16-> 10.4.0.5 |
 | Branch2VNet | vnet4conn  | 10.1.0.0/16-> 10.4.0.5 |
 
-Neste ponto, tudo deve estar em vigor.
+Para obter mais informações, consulte [sobre roteamento de Hub virtual](about-virtual-hub-routing.md).
 
-Para obter mais informações sobre roteamento de Hub virtual, consulte [sobre roteamento de Hub virtual](about-virtual-hub-routing.md).
+## <a name="architecture"></a>Arquitetura
 
-## <a name="architecture"></a><a name="architecture"></a>Arquitetura
+Aqui está um diagrama da arquitetura descrita anteriormente neste artigo.
 
-Na **Figura 1**, há um Hub, **Hub 1**.
+Há um Hub, chamado **Hub 1**.
 
 * O **Hub 1** está diretamente conectado a NVA VNets **vnet 4** e **vnet 5**.
 
-* Espera-se que o tráfego entre VNets 1, 2 e 3 e branches (VPN/ER/P2S) vá via **VNet 4 NVA** 10.4.0.5.
+* O tráfego entre VNets 1, 2 e 3 e branches deve passar por **VNet 4 NVA** 10.4.0.5.
 
 * Espera-se que todo o tráfego associado à Internet de VNets 1, 2 e 3 Vá por meio do **VNet 5 NVA** 10.5.0.5.
 
-**Figura 1**
+:::image type="content" source="./media/routing-scenarios/nva-custom/figure-1.png" alt-text="Diagrama da arquitetura de rede.":::
 
-:::image type="content" source="./media/routing-scenarios/nva-custom/figure-1.png" alt-text="Figura 1":::
-
-## <a name="workflow"></a><a name="workflow"></a>Fluxo de trabalho
+## <a name="workflow"></a>Fluxo de trabalho
 
 Para configurar o roteamento via NVA, aqui estão as etapas a serem consideradas:
 
-1. Para que o tráfego vinculado à Internet vá por meio da VNet 5, você precisa de VNets 1, 2 e 3 para se conectar diretamente por meio de emparelhamento de VNet à VNet 5. Você também precisa de um UDR configurado no VNets para 0.0.0.0/0 e o próximo salto 10.5.0.5. Atualmente, a WAN virtual não permite um NVA de próximo salto no Hub virtual para 0.0.0.0/0.
+1. Para que o tráfego associado à Internet vá por meio da VNet 5, você precisa de VNets 1, 2 e 3 para se conectar diretamente por meio do emparelhamento de rede virtual para a VNet 5. Você também precisa de uma configuração de rota definida pelo usuário nas redes virtuais para 0.0.0.0/0 e 10.5.0.5 do próximo salto. Atualmente, a WAN virtual não permite um NVA de próximo salto no Hub virtual para 0.0.0.0/0.
 
-1. No portal do Azure, navegue até o Hub virtual e crie uma tabela de rotas personalizada **RT_Shared** que aprenderá as rotas por meio da propagação de todas as conexões de VNets e ramificação. Na **Figura 2**, isso é descrito como uma tabela de rotas personalizada vazia **RT_Shared**.
+1. Na portal do Azure, vá para o Hub virtual e crie uma tabela de rotas personalizada chamada **RT_Shared**. Esta tabela aprende as rotas por meio da propagação de todas as redes virtuais e conexões de ramificação. Você pode ver essa tabela vazia no diagrama a seguir.
 
    * **Rotas:** Você não precisa adicionar rotas estáticas.
 
-   * **Associação:** Selecione VNets 4 e 5, o que significa que as conexões VNets 4 e 5 são associadas à tabela de rotas **RT_Shared**.
+   * **Associação:** Selecione VNets 4 e 5, o que significa que as conexões dessas redes virtuais são associadas à tabela de rotas **RT_Shared**.
 
-   * **Propagação:** Como você deseja que todas as ramificações e conexões de VNet propaguem suas rotas dinamicamente para essa tabela de rotas, selecione branches e todos os VNets.
+   * **Propagação:** Como você deseja que todas as ramificações e conexões de rede virtual propaguem suas rotas dinamicamente para essa tabela de rotas, selecione branches e todas as redes virtuais.
 
-1. Crie uma **RT_V2B** de tabela de rotas personalizada para direcionar o tráfego de VNets 1, 2 e 3 para branches.
+1. Crie uma tabela de rotas personalizada chamada **RT_V2B** para direcionar o tráfego de VNets 1, 2 e 3 para branches.
 
-   * **Rotas:** Adicione uma entrada de rota estática agregada para branches (VPN/ER/P2S) (10.2.0.0/16 na **Figura 2**) com o próximo salto como a conexão VNet 4. Você também precisa configurar uma rota estática na conexão da VNet 4 para prefixos de ramificação e indicar o próximo salto como o IP específico do NVA na VNet 4.
+   * **Rotas:** Adicione uma entrada de rota estática agregada para branches, com o próximo salto como a conexão VNet 4. Configure uma rota estática na conexão da VNet 4 para prefixos de ramificação e indique o próximo salto como o IP específico do NVA na VNet 4.
 
    * **Associação:** Selecione todos os VNets 1, 2 e 3. Isso implica que as conexões de VNet 1, 2 e 3 serão associadas a essa tabela de rotas e poderão aprender rotas (estáticas e dinâmicas via propagação) nesta tabela de rotas.
 
-   * **Propagação:** As conexões propagam rotas para tabelas de rotas. Selecionar VNets 1, 2 e 3 permitirá propagar rotas de VNets 1, 2 e 3 para esta tabela de rotas. Não é necessário propagar rotas de conexões de ramificação para RT_V2B, uma vez que o tráfego de VNet de ramificação passa pelo NVA na VNet 4.
+   * **Propagação:** As conexões propagam rotas para tabelas de rotas. Selecionar VNets 1, 2 e 3 habilitar a propagação de rotas de VNets 1, 2 e 3 para esta tabela de rotas. Não há necessidade de propagar rotas de conexões de ramificação para **RT_V2B**, porque o tráfego de rede virtual de ramificação passa por NVA na VNet 4.
   
-1. Edite a tabela de rotas padrão **Defaultroutetable**.
+1. Edite a tabela de rotas padrão, **Defaultroutetable**.
 
-   Todas as conexões VPN, ExpressRoute e VPN de usuário são associadas à tabela de rotas padrão. Todas as conexões VPN, ExpressRoute e VPN de usuário propagam rotas para o mesmo conjunto de tabelas de rotas.
+   Todas as conexões VPN, Azure ExpressRoute e VPN de usuário estão associadas à tabela de rotas padrão. Todas as conexões VPN, ExpressRoute e VPN de usuário propagam rotas para o mesmo conjunto de tabelas de rotas.
 
-   * **Rotas:** Adicione uma entrada de rota estática agregada para VNets 1, 2 e 3 (10.1.0.0/16 na **Figura 2**) com o próximo salto como a conexão VNet 4. Você também precisa configurar uma rota estática na conexão da VNet 4 para os prefixos agregados da VNet 1, 2 e 3 e indicar o próximo salto como o IP específico do NVA na VNet 4.
+   * **Rotas:** Adicione uma entrada de rota estática agregada para VNets 1, 2 e 3, com o próximo salto como a conexão VNet 4. Configure uma rota estática na conexão da VNet 4 para os prefixos agregados da VNet 1, 2 e 3 e indique o próximo salto como o IP específico do NVA na VNet 4.
 
-   * **Associação:** Certifique-se de que a opção para branches (VPN/ER/P2S) esteja selecionada, garantindo que as conexões de ramificação locais estejam associadas a *defaultroutetable*.
+   * **Associação:** Verifique se a opção de branches (VPN/ER/P2S) está selecionada, garantindo que as conexões de ramificação locais estejam associadas à tabela de rotas padrão.
 
-   * **Propagação de:** Certifique-se de que a opção para branches (VPN/ER/P2S) esteja selecionada, garantindo que as conexões locais estejam propagando rotas para o *defaultroteiatable*.
+   * **Propagação de:** Verifique se a opção de branches (VPN/ER/P2S) está selecionada, garantindo que as conexões locais estejam propagando rotas para a tabela de rotas padrão.
 
-**Figura 2**
-
-:::image type="content" source="./media/routing-scenarios/nva-custom/figure-2.png" alt-text="Figura 2" lightbox="./media/routing-scenarios/nva-custom/figure-2.png":::
+:::image type="content" source="./media/routing-scenarios/nva-custom/figure-2.png" alt-text="Diagrama de fluxo de trabalho." lightbox="./media/routing-scenarios/nva-custom/figure-2.png":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

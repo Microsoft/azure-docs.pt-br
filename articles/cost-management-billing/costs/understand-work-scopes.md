@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
 ms.custom: ''
-ms.openlocfilehash: 64e7f0eae10f590ffd268b43b63a5d8cb0987c57
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 729444b1d1ccf55f34e54a4b59508131458c472b
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683140"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054797"
 ---
 # <a name="understand-and-work-with-scopes"></a>Entender e trabalhar com escopos
 
@@ -26,7 +26,7 @@ Um _escopo_ é um nó na hierarquia de recursos do Azure em que os usuários do 
 - Dados de cobrança, como pagamentos e faturas
 - Serviços de nuvem, como governança de políticas e custos
 
-Os escopos são o local em que você gerencia os dados de cobrança, têm funções específicas para pagamentos, exibem faturas e realizam o gerenciamento geral da conta. As funções de cobrança e de conta são gerenciadas separadamente das funções usadas para o gerenciamento de recursos, que usam o [Azure RBAC](../../role-based-access-control/overview.md). Para distinguir claramente a intenção dos escopos separados, incluindo as diferenças de controle de acesso, eles são chamados de _escopos do orçamento_ e _escopos do RBAC_, respectivamente.
+Os escopos são o local em que você gerencia os dados de cobrança, têm funções específicas para pagamentos, exibem faturas e realizam o gerenciamento geral da conta. As funções de cobrança e de conta são gerenciadas separadamente das funções usadas para o gerenciamento de recursos, que usam o [Azure RBAC](../../role-based-access-control/overview.md). Para distinguir claramente a intenção dos escopos separados, incluindo as diferenças de controle de acesso, eles são chamados de _escopos do orçamento_ e _escopos do Azure RBAC_, respectivamente.
 
 Para saber mais sobre escopos, assista ao vídeo [Gerenciamento de Custos configurando hierarquias](https://www.youtube.com/watch?v=n3TLRaYJ1NY). Para assistir a outros vídeos, visite o [Canal do YouTube do Gerenciamento de Custos](https://www.youtube.com/c/AzureCostManagement).
 
@@ -34,7 +34,7 @@ Para saber mais sobre escopos, assista ao vídeo [Gerenciamento de Custos config
 
 ## <a name="how-cost-management-uses-scopes"></a>Como o Gerenciamento de Custos usa os escopos
 
-O Gerenciamento de Custos funciona em todos os escopos acima dos recursos para permitir que as organizações gerenciem os custos no nível em que têm acesso, seja esse nível a conta de cobrança inteira ou um grupo de recursos. Embora os escopos do orçamento sejam diferentes de acordo com o seu contrato da Microsoft (tipo de assinatura), os escopos do RBAC não são.
+O Gerenciamento de Custos funciona em todos os escopos acima dos recursos para permitir que as organizações gerenciem os custos no nível em que têm acesso, seja esse nível a conta de cobrança inteira ou um grupo de recursos. Embora os escopos do orçamento sejam diferentes de acordo com o seu contrato da Microsoft (tipo de assinatura), os escopos do Azure RBAC não são.
 
 ## <a name="azure-rbac-scopes"></a>Função do Azure RBAC
 
@@ -98,7 +98,7 @@ Os escopos do orçamento de EA dão suporte às seguintes funções:
 - **Usuário corporativo somente leitura** – pode exibir configurações de conta de cobrança, dados de custo e configuração de custo. Por exemplo, orçamentos e exportações. Em função, o escopo do orçamento do EA é o mesmo que a [função do Azure de Leitor do Gerenciamento de Custos](../../role-based-access-control/built-in-roles.md#cost-management-reader).
 - **Administrador de departamento** – pode gerenciar configurações de departamento, como centro de custo, e pode acessar e exibir todos os custos e gerenciar a configuração de custo. Por exemplo, orçamentos e exportações.  A configuração **Administrador de departamento exibir encargos** da conta de cobrança deve estar habilitada para que administradores do departamento e usuários somente leitura vejam os custos. Se a opção **Administrador de departamento exibir encargos** estiver desabilitada, os usuários do departamento não poderão ver os custos em nenhum nível, mesmo se forem um proprietário de conta ou da assinatura.
 - **Usuário somente leitura do departamento** – pode exibir configurações de departamento, dados de custo e configuração de custo. Por exemplo, orçamentos e exportações. Se a opção **Administrador de departamento exibir encargos** estiver desabilitada, os usuários do departamento não poderão ver os custos em nenhum nível, mesmo se forem um proprietário de conta ou da assinatura.
-- **Proprietário da conta** – pode gerenciar as configurações da conta de registro (como o centro de custo), exibir todos os custos e gerenciar a configuração de custos (como orçamentos e exportações) para a conta de registro. A configuração **Proprietário da conta exibir encargos** da conta de cobrança deve estar habilitada para que proprietários da conta e usuários RBAC vejam os custos.
+- **Proprietário da conta** – pode gerenciar as configurações da conta de registro (como o centro de custo), exibir todos os custos e gerenciar a configuração de custos (como orçamentos e exportações) para a conta de registro. A configuração **Exibir cobranças de AO** da conta de cobrança deve estar habilitada para que proprietários da conta e usuários Azure RBAC vejam os custos.
 
 Os usuários da conta de cobrança do EA não têm acesso direto às faturas. As notas fiscais estão disponíveis em um sistema de licenciamento por volume externo.
 
@@ -114,7 +114,7 @@ As assinaturas do Azure criadas com base em ofertas individuais, como as pagas c
 
     Tipo de recurso: Não aplicável
 
-Os administradores individuais da conta de assinatura do Azure podem exibir e gerenciar dados de cobrança, como faturas e pagamentos, do [Centro de Contas do Azure](https://account.azure.com/subscriptions). No entanto, eles não podem exibir dados de custo nem gerenciar recursos no portal do Azure. Para permitir acesso ao administrador da conta, use as funções de Gerenciamento de Custos mencionadas anteriormente.
+Os administradores individuais da conta de assinatura do Azure podem ver e gerenciar dados de cobrança, como faturas e pagamentos no [portal do Azure](https://portal.azure.com) > **Assinaturas** > selecionar uma assinatura.
 
 Ao contrário do que ocorre no EA, os administradores de contas de assinaturas do Azure individuais podem ver as respectivas notas fiscais no portal do Azure. Lembre-se de que as funções de Colaborador do Gerenciamento de Custos e de Leitor do Gerenciamento de Custos não fornecem acesso a faturas. Para obter mais informações, veja [Como permitir acesso a faturas](../manage/manage-billing-access.md#give-read-only-access-to-billing).
 
@@ -180,7 +180,7 @@ Os seguintes escopos são compatíveis com CSPs com clientes em um Contrato de C
 
 Somente os usuários com as funções *Administrador global* e *Agente administrativo* podem gerenciar e ver os custos de contas de cobrança, perfis de cobrança e clientes diretamente no locatário do Azure do parceiro. Para obter mais informações sobre as funções do Partner Center, confira [Atribuir funções e permissões de usuários](/partner-center/permissions-overview).
 
-O Gerenciamento de Custos do Azure só dará suporte a clientes de parceiros CSP se os clientes tiverem um Contrato de Cliente da Microsoft. Para clientes com suporte do CSP que ainda não estão em um Contrato de Cliente da Microsoft, confira [Partner Center](https://docs.microsoft.com/azure/cloud-solution-provider/overview/partner-center-overview).
+O Gerenciamento de Custos do Azure só dará suporte a clientes de parceiros CSP se os clientes tiverem um Contrato de Cliente da Microsoft. Para clientes com suporte do CSP que ainda não estão em um Contrato de Cliente da Microsoft, confira [Partner Center](/azure/cloud-solution-provider/overview/partner-center-overview).
 
 Os grupos de gerenciamento em escopos do CSP não têm suporte do Gerenciamento de Custos. Se você tiver uma assinatura do CSP e definir o escopo para um grupo de gerenciamento na análise de custo, você verá um erro semelhante a:
 

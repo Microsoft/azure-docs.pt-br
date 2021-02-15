@@ -3,12 +3,12 @@ title: Tópicos de parceiro Auth0 com a Grade de Eventos do Azure
 description: Enviar eventos do Auth0 para os serviços do Azure com a Grade de Eventos do Azure.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 411d8f8eb53e4bc3fa8c8dda04bdcf12c74db768
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 340403111c094540ba7e66faf71ebf3cfe24fe7d
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86103340"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101282"
 ---
 # <a name="auth0-partner-topics"></a>Tópicos de parceiros do Auth0
 ![Logotipo do Auth0](./media/auth0-overview/auth0-logo.png)
@@ -43,7 +43,7 @@ A combinação de procedimentos de monitoramento de segurança e resposta a inci
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Visão geral dos tópicos de parceiros](partner-topics-overview.md)
+- [Visão geral dos tópicos de parceiros](partner-events-overview.md)
 - [Como usar o tópico de parceiro do Auth0](auth0-how-to.md)
 - [Documentação do Auth0](https://auth0.com/docs/azure-tutorial)
 - [Torne-se um Parceiro da Grade de Eventos](partner-onboarding-overview.md)

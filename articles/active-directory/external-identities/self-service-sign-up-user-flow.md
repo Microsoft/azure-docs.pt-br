@@ -1,6 +1,6 @@
 ---
 title: Adicionar um fluxo dos usuários de inscrição por autoatendimento — Azure AD
-description: Federar com o Facebook para permitir que usuários externos (convidados) entrem em seus aplicativos do Azure AD com suas próprias contas do Facebook.
+description: Crie fluxos de usuário para aplicativos que são criados por sua organização. Em seguida, os usuários que visitam esse aplicativo podem obter uma conta de convidado usando as opções configuradas no fluxo do usuário.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9fa9d9e23de9a4ec93cbef6d2696d7bec70d41d
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 51602e97a8424bade542eec6f88b673130fee8b5
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87907903"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97586016"
 ---
 # <a name="add-a-self-service-sign-up-user-flow-to-an-app-preview"></a>Adicionar um fluxo do usuário de inscrição por autoatendimento a um aplicativo (visualização)
 > [!NOTE]
@@ -53,7 +53,7 @@ Para poder adicionar um fluxo de usuário de inscrição de autoatendimento aos 
 4. Alterne a opção **Habilitar a inscrição de autoatendimento de convidado por meio de fluxos de usuário (versão prévia)** para **Sim**.
 
    ![Habilitar inscrição de autoatendimento de convidado](media/self-service-sign-up-user-flow/enable-self-service-sign-up.png)
-
+5. Selecione **Salvar**.
 ## <a name="create-the-user-flow-for-self-service-sign-up"></a>Criar o fluxo de usuário para inscrição de autoatendimento
 
 Em seguida, você criará o fluxo de usuário para inscrição de autoatendimento e o adicionará a um aplicativo.
@@ -70,6 +70,9 @@ Em seguida, você criará o fluxo de usuário para inscrição de autoatendiment
 7. Em **Atributos de usuário**, escolha os atributos que você deseja coletar do usuário. Para obter atributos adicionais, selecione **Mostrar mais**. Por exemplo, selecione **Mostrar mais** e, depois, escolha atributos e declarações de **País/região**, **Nome de exibição** e **Código postal**. Selecione **OK**.
 
    ![Criar uma nova página de fluxo de usuário](media/self-service-sign-up-user-flow/create-user-flow.png)
+
+> [!NOTE]
+> Você só pode coletar atributos quando um usuário se inscreve pela primeira vez. Depois que um usuário se inscreve, ele não será mais solicitado a coletar informações de atributo, mesmo se você alterar o fluxo do usuário.
 
 8. Selecione **Criar**.
 9. O novo fluxo de usuário aparece na lista **Fluxos de usuário (versão prévia)** . Se necessário, atualize a página.

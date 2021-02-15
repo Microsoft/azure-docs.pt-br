@@ -10,12 +10,12 @@ metadata:
   author: georgewallace
   ms.author: gwallace
   ms.date: 03/08/2020
-  ms.openlocfilehash: a1c16e8dd2a9b00e726dd527137bde4c059edae2
-  ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+  ms.openlocfilehash: 5a3b09c3835e09d734c1083f84893224c3fe8cfd
+  ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 07/11/2020
-  ms.locfileid: "86243011"
+  ms.lasthandoff: 12/14/2020
+  ms.locfileid: "97399087"
 landingContent:
 - title: Sobre o Gerenciamento de API
   linkLists:
@@ -29,10 +29,16 @@ landingContent:
   linkLists:
   - linkListType: quickstart
     links:
+    - text: CLI do Azure
+      url: get-started-create-service-instance-cli.md
     - text: Portal do Azure
       url: get-started-create-service-instance.md
     - text: Azure PowerShell
       url: powershell-create-service-instance.md
+    - text: Visual Studio Code
+      url: vscode-create-service-instance.md
+    - text: Modelo de ARM
+      url: quickstart-arm-template.md
 - title: Gerenciar o Gerenciamento de API
   linkLists:
   - linkListType: tutorial
@@ -54,7 +60,9 @@ landingContent:
     - text: 8. Publicar várias versões da sua API
       url: api-management-get-started-publish-versions.md
     - text: 9. Personalizar o estilo das páginas do Portal do Desenvolvedor
-      url: api-management-customize-styles.md
+      url: api-management-howto-developer-portal-customize.md
+    - text: 10. Gerenciar APIs no Visual Studio Code
+      url: visual-studio-code-tutorial.md
 - title: Exemplos
   linkLists:
   - linkListType: sample
@@ -64,7 +72,7 @@ landingContent:
     - text: Azure PowerShell
       url: powershell-samples.md
     - text: Itens internos do Azure Policy
-      url: ./policy-samples.md
+      url: ./policy-reference.md
 - title: Arquitetura
   linkLists:
   - linkListType: architecture

@@ -3,16 +3,16 @@ title: Faça backup de VMs VMware com o Servidor de Backup do Azure
 description: Neste artigo, saiba como usar Servidor de Backup do Azure para fazer backup de VMs VMware em execução em um servidor VMware vCenter/ESXi.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: e18b5c51446446103a91ef7d6a00277c2b41db77
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: db5e5c4bdac64e2faf5babb107ecec61a02d6468
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017559"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002946"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Faça backup de VMs VMware com o Servidor de Backup do Azure
 
-Este artigo explica como fazer backup de VMs VMware em execução em hosts do VMware ESXi/vCenter Server no Azure usando o Servidor de Backup do Azure.
+Este artigo explica como fazer backup de VMs VMware em execução em hosts VMware ESXi/vCenter Server no Azure usando o Servidor de Backup do Azure (MABS).
 
 Este artigo explica como:
 
@@ -21,6 +21,31 @@ Este artigo explica como:
 - Adicione as credenciais da conta ao Backup do Azure.
 - Adicione o servidor ESXi ou vCenter ao Servidor de Backup do Azure.
 - Configure um grupo de proteção que contenha as VMs do VMware de que você deseja fazer backup, especifique as configurações de backup e agende o backup.
+
+## <a name="supported-vmware-features"></a>Recursos do VMware com suporte
+
+O MABS fornece os seguintes recursos ao fazer backup de máquinas virtuais VMware:
+
+- Backup sem agente: o MABS não exige que um agente seja instalado no servidor vCenter ou ESXi para fazer backup da máquina virtual. Em vez disso, forneça apenas o endereço IP ou FQDN (nome de domínio totalmente qualificado) e as credenciais de logon usadas para autenticar o servidor VMware com o MABS.
+- Backup integrado em nuvem: o MABS protege as cargas de trabalho para o disco e a nuvem. O fluxo de trabalho de backup e recuperação do MABS ajuda a gerenciar a retenção de longo prazo e o backup externo.
+- Detectar e proteger VMs gerenciadas pelo vCenter: o MABS detecta e protege as VMs implantadas em um servidor VMware (servidor vCenter ou ESXi). Conforme a implantação vai aumentando, use o vCenter para gerenciar seu ambiente VMware. O MABS também detecta VMs gerenciadas pelo vCenter, permitindo que você proteja grandes implantações.
+- Proteção automática no nível de pastas: o vCenter permite organizar suas VMs em pastas de VM. O MABS detecta essas pastas e permite que você proteja as VMs no nível da pasta e inclui todas as subpastas. Ao proteger pastas, o MABS só protege as VMs nessa pasta, mas também protege as VMs adicionadas posteriormente. O MABS detecta novas VMs diariamente e as protege automaticamente. Conforme você organiza suas VMs em pastas recursivas, o MABS detecta e protege automaticamente as novas VMs implantadas nas pastas recursivas.
+- O MABS protege as VMs armazenadas em um disco local, NFS (sistema de arquivos de rede) ou armazenamento de cluster.
+- O MABS protege as VMs migradas para balanceamento de carga: à medida que as VMs são migradas para balanceamento de carga, o MABS automaticamente detecta e continua a proteção da VM.
+- O MABS pode recuperar arquivos/pastas de uma VM do Windows sem recuperar toda a VM, o que ajuda a recuperar os arquivos necessários mais rapidamente.
+
+## <a name="prerequisites-and-limitations"></a>Pré-requisitos e limitações
+
+Antes de iniciar o backup de uma máquina virtual VMware, examine a lista de pré-requisitos e limitações a seguir.
+
+- Se você estiver usando o MABS para proteger um servidor vCenter (em execução no Windows) como um servidor Windows usando o FQDN do servidor, não será possível proteger o servidor vCenter como um servidor VMware usando o FQDN do servidor.
+  - Você pode usar o endereço IP estático de vCenter Server como uma solução alternativa.
+  - Se você quiser usar o FQDN, deverá interromper a proteção como um servidor do Windows, remover o agente de proteção e, em seguida, adicionar como um servidor VMware usando o FQDN.
+- Se você usar o vCenter para gerenciar servidores ESXi em seu ambiente, adicione o vCenter (e não o ESXi) ao grupo de proteção MABS.
+- Não é possível fazer backup de instantâneos do usuário antes do primeiro backup do MABS. Depois que o MABS concluir o primeiro backup, você poderá fazer backup de instantâneos do usuário.
+- O MABS não pode proteger VMs VMware com discos de passagem e mapeamentos de dispositivo brutos físicos (pRDM).
+- O MABS não pode detectar ou proteger o VMware vApps.
+- O MABS não pode proteger VMs VMware com instantâneos existentes.
 
 ## <a name="before-you-start"></a>Antes de começar
 
@@ -79,7 +104,7 @@ Configure um canal seguro da seguinte maneira:
 
     ![Boas-Vindas do Assistente](./media/backup-azure-backup-server-vmware/certificate-import-wizard1.png)
 
-10. Na página **repositório de certificados** , selecione **Coloque todos os certificados no repositório a seguir**e, em seguida, selecione **procurar** para escolher o repositório de certificados.
+10. Na página **repositório de certificados** , selecione **Coloque todos os certificados no repositório a seguir** e, em seguida, selecione **procurar** para escolher o repositório de certificados.
 
     ![Armazenamento de certificado](./media/backup-azure-backup-server-vmware/cert-import-wizard-local-store.png)
 
@@ -118,11 +143,11 @@ O Servidor de Backup do Azure precisa de uma conta de usuário com permissões p
 
     ![Administração](./media/backup-azure-backup-server-vmware/vmware-navigator-panel.png)
 
-3. Em **Administration**  >  **funções**de administração, selecione o ícone Adicionar função (o símbolo +).
+3. Em **Administration**  >  **funções** de administração, selecione o ícone Adicionar função (o símbolo +).
 
     ![Adicionar função](./media/backup-azure-backup-server-vmware/vmware-define-new-role.png)
 
-4. Em **criar**  >  **nome da função**de função, insira *BackupAdminRole*. O nome da função pode ser o que você quiser, mas deve ser reconhecível para o objetivo da função.
+4. Em **criar**  >  **nome da função** de função, insira *BackupAdminRole*. O nome da função pode ser o que você quiser, mas deve ser reconhecível para o objetivo da função.
 
 5. Selecione os privilégios conforme resumido na tabela abaixo e, em seguida, selecione **OK**.  A nova função é exibida na lista no painel **Funções**.
    - Selecione o ícone ao lado do rótulo pai para expandir o pai e exibir os privilégios filho.
@@ -174,7 +199,7 @@ A seguinte tabela captura os privilégios que precisam ser atribuídos à conta 
 | Virtual machine .Provisioning.Allow disk access                            | Virtual machine .Provisioning.Allow disk access                            |
 | Virtual machine .Provisioning.Allow file access                            | Virtual machine .Provisioning.Allow file access                            |
 | Virtual machine .Provisioning.Allow read-only disk access                  | Virtual machine .Provisioning.Allow read-only disk access                  |
-| Virtual machine .Provisioning.Allow virtual machine download               | Virtual machine .Provisioning.Allow virtual machine download               |
+| Virtual machine .Provisioning.Allow virtual machine download               | Virtual machine .Provisioning.Allow virtual machine download               |
 | Virtual machine .Snapshot management. Create snapshot                      | Virtual machine .Snapshot management. Create snapshot                      |
 | Virtual machine .Snapshot management.Remove Snapshot                       | Virtual machine .Snapshot management.Remove Snapshot                       |
 | Virtual machine .Snapshot management.Revert to snapshot                    | Virtual machine .Snapshot management.Revert to snapshot                    |
@@ -267,7 +292,7 @@ Adicionar vCenter Server para o Servidor de Backup do Azure.
 
     ![Abra o Assistente de Adição de Servidor de Produção](./media/backup-azure-backup-server-vmware/add-vcenter-to-mabs.png)
 
-2. No **Assistente de adição de servidor de produção**,  >  Selecione a página**tipo de servidor de produção** , selecione **servidores VMware**e, em seguida, selecione **Avançar**.
+2. No **Assistente de adição de servidor de produção**,  >  Selecione a página **tipo de servidor de produção** , selecione **servidores VMware** e, em seguida, selecione **Avançar**.
 
     ![Assistente de Adição de Servidor de Produção](./media/backup-azure-backup-server-vmware/production-server-add-wizard.png)
 
@@ -392,7 +417,7 @@ Você pode modificar o número de trabalhos usando a chave do registro, conforme
 
 Para fazer backup do vSphere 6,7, faça o seguinte:
 
-- Habilite o TLS 1.2 no servidor DPM
+- Habilitar o TLS 1,2 no servidor MABS
 
 >[!NOTE]
 >O VMWare 6,7 em diante tinha o TLS habilitado como protocolo de comunicação.

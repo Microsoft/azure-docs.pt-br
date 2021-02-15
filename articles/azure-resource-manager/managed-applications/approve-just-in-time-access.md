@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: evanhi
 ms.openlocfilehash: 4a3604a3256fb2d3f4253891bbc28c7685748cd2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75651014"
 ---
 # <a name="configure-and-approve-just-in-time-access-for-azure-managed-applications"></a>Configurar e aprovar o acesso just-in-time para aplicativos gerenciados do Azure
@@ -95,7 +95,7 @@ Para aprovar solicitações por meio do aplicativo gerenciado:
 
 Para aprovar solicitações por meio de Azure AD Privileged Identity Management:
 
-1. Selecione **todos os serviços** e comece a procurar por **Azure ad Privileged Identity Management**. Selecione-o nas opções disponíveis.
+1. Selecione **todos os serviços** e comece a procurar por **Azure ad Privileged Identity Management**. Selecione-as entre as opções disponíveis.
 
    ![Pesquisar serviço](./media/approve-just-in-time-access/search.png)
 

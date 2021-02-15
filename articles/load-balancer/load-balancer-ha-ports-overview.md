@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2019
 ms.author: allensu
-ms.openlocfilehash: ab11060924c29dbddc965aa94064d0091a7b348e
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 6f089af71e4d32023e9cebd6613872f7db0eed7a
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88639844"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94694952"
 ---
 # <a name="high-availability-ports-overview"></a>Visão geral de portas de alta disponibilidade
 
-O Azure Load Balancer Standard ajuda você a balancear cargas de fluxos TCP e UDP em todas as portas simultaneamente quando estiver usando um balanceador de carga interno. 
+O Azure Standard Load Balancer ajuda a balancear a carga de **todos os** fluxos de protocolo em **todas** as portas simultaneamente quando você estiver usando um Load balancer interno por meio de portas de alta disponibilidade.
 
-Uma regra de balanceamento de carga de portas de alta disponibilidade (HA) é uma variante de uma regra de balanceamento de carga, configurada em um Standard Load Balancer interno. Você pode simplificar o uso de um balanceador de carga fornecendo uma única regra para balancear a carga de todos os fluxos TCP e UDP que chegam em todas as portas de um Load Balancer Standard interno. A decisão de balanceamento de carga é feita por fluxo. A ação é baseada na seguinte conexão de cinco tuplas: endereço IP de origem, porta de origem, endereço IP de destino, porta de destino e protocolo
+As portas HA (alta disponibilidade) são um tipo de regra de balanceamento de carga que fornece uma maneira fácil de balancear a carga de **todos os** fluxos que chegam em **todas** as portas de um Standard Load balancer interno. A decisão de balanceamento de carga é feita por fluxo. A ação é baseada na seguinte conexão de cinco tuplas: endereço IP de origem, porta de origem, endereço IP de destino, porta de destino e protocolo
 
 As regras de balanceamento de carga de portas de HA o ajudam com cenários críticos, como alta disponibilidade e escala para NVAs (soluções de virtualização de rede) dentro de redes virtuais. O recurso também pode ajudar quando um grande número de portas precisar de balanceamento de carga. 
 
@@ -54,7 +54,7 @@ O diagrama a seguir apresenta uma implantação de rede virtual de hub e spoke. 
 
 ### <a name="load-balancing-large-numbers-of-ports"></a>Balanceamento de carga de grandes quantidades de portas
 
-Também é possível usar portas de alta disponibilidade para aplicativos que exigem o balanceamento de carga de grandes quantidades de portas. Você pode simplificar esses cenários usando um [Load Balancer Standard](load-balancer-standard-overview.md) interno com portas de alta disponibilidade. Uma única regra de balanceamento de carga substitui várias regras individuais de balanceamento de carga, uma para cada porta.
+Também é possível usar portas de alta disponibilidade para aplicativos que exigem o balanceamento de carga de grandes quantidades de portas. Você pode simplificar esses cenários usando um [Load Balancer Standard](./load-balancer-overview.md) interno com portas de alta disponibilidade. Uma única regra de balanceamento de carga substitui várias regras individuais de balanceamento de carga, uma para cada porta.
 
 ## <a name="region-availability"></a>Disponibilidade de região
 
@@ -99,5 +99,4 @@ Você pode configurar *um* recurso de Standard Load Balancer público para os re
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Saiba como configurar portas de alta disponibilidade para seu ILB por meio do portal](tutorial-load-balancer-standard-internal-portal.md#create-a-load-balancer-rule), do [PowerShell](load-balancer-get-started-ilb-arm-ps.md#create-the-configuration-rules-probe-and-load-balancer), da [CLI](load-balancer-get-started-ilb-arm-cli.md#create-the-load-balancer-rule)ou de [modelos](load-balancer-get-started-ilb-arm-template.md).
-- [Saiba mais sobre o Standard Load Balancer](load-balancer-standard-overview.md)
+- [Saiba mais sobre o Standard Load Balancer](load-balancer-overview.md)

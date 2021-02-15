@@ -2,31 +2,21 @@
 title: Regras de firewall dos Hubs de Eventos do Azure| Microsoft Docs
 description: Use as Regras de firewall para permitir conexões de endereços IP específicos com os Hubs de Eventos do Azure.
 ms.topic: article
-ms.date: 07/16/2020
-ms.openlocfilehash: fbf3e67cdde43dbe3d5e02cd4b044d5473f409ac
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.date: 02/12/2021
+ms.openlocfilehash: 18d043ebff7ff317207d0a33eaeba741fea8cc8a
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185121"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100517188"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-from-specific-ip-addresses-or-ranges"></a>Permitir acesso aos namespaces dos hubs de eventos do Azure de intervalos ou endereços IP específicos
 Por padrão, os namespaces dos Hubs de Eventos são acessíveis da Internet, desde que a solicitação acompanhe autenticação e autorização válidas. Com o firewall de IP, você pode restringir ainda mais a um conjunto de endereços IPv4 ou intervalos de endereços IPv4 na notação [CIDR (roteamento entre domínios sem classificação)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
 
 Esse recurso é útil em cenários nos quais os Hubs de Eventos do Azure devem ser acessíveis apenas de determinados sites conhecidos. As regras de firewall permitem que você configure regras para aceitar o tráfego originado de endereços IPv4 específicos. Por exemplo, se você usa os Hubs de Eventos com o [Azure ExpressRoute][express-route], é possível criar uma **regra de firewall** para permitir o tráfego apenas de seus endereços IP da infraestrutura local. 
 
->[!IMPORTANT]
-> Ativar as regras de firewall para seu namespace de hubs de eventos bloqueia solicitações de entrada por padrão, a menos que as solicitações sejam originadas de um serviço operando de endereços IP públicos permitidos. Solicitações que estão bloqueadas incluem as de outros serviços do Azure, do portal do Azure, de registro em log e serviços de métricas e assim por diante. 
->
-> Aqui estão alguns dos serviços que não podem acessar os recursos de hubs de eventos quando a filtragem de IP está habilitada. Observe que a lista **não** é exaustiva.
->
-> - Stream Analytics do Azure
-> - Rotas do Hub IoT do Azure
-> - Device Explorer do Azure IoT
-> - Grade de Eventos do Azure
-> - Azure Monitor (configurações de diagnóstico)
->
-> Como exceção, você pode permitir o acesso a recursos de hubs de eventos de determinados serviços confiáveis mesmo quando a filtragem de IP está habilitada. Para obter uma lista de serviços confiáveis, consulte [serviços confiáveis da Microsoft](#trusted-microsoft-services).
+>[!WARNING]
+> Ativar as regras de firewall para seu namespace de hubs de eventos bloqueia solicitações de entrada por padrão, a menos que as solicitações sejam originadas de um serviço operando de endereços IP públicos permitidos. Solicitações que estão bloqueadas incluem as de outros serviços do Azure, do portal do Azure, de registro em log e serviços de métricas e assim por diante. Como exceção, você pode permitir o acesso a recursos de hubs de eventos de determinados serviços confiáveis mesmo quando a filtragem de IP está habilitada. Para obter uma lista de serviços confiáveis, consulte [serviços confiáveis da Microsoft](#trusted-microsoft-services).
 
 ## <a name="ip-firewall-rules"></a>Regras de firewall de IP
 As regras de firewall de IP são aplicadas no nível do namespace dos Hubs de Eventos. Portanto, as regras se aplicam a todas as conexões de clientes usando qualquer protocolo com suporte. Qualquer tentativa de conexão de um endereço IP que não corresponda a uma regra de IP permitida no namespace dos hubs de eventos é rejeitada como não autorizada. A resposta não menciona a regra de IP. As regras de filtro IP são aplicadas na ordem e a primeira regra que corresponde ao endereço IP determina a ação de aceitar ou rejeitar.
@@ -36,14 +26,15 @@ Esta seção mostra como usar o portal do Azure para criar regras de firewall de
 
 1. Navegue até o seu **namespace dos Hubs de Eventos** no [portal do Azure](https://portal.azure.com).
 4. Selecione **rede** em **configurações** no menu à esquerda. Você vê a guia **rede** somente para namespaces **padrão** ou **dedicados** . 
-    > [!NOTE]
-    > Por padrão, a opção **redes selecionadas** é selecionada conforme mostrado na imagem a seguir. Se você não especificar uma regra de firewall IP ou adicionar uma rede virtual nessa página, o namespace poderá ser acessado via **Internet pública** (usando a chave de acesso).  
+    
+    > [!WARNING]
+    > Se você selecionar a opção **redes selecionadas** e não adicionar pelo menos uma regra de firewall IP ou uma rede virtual nessa página, o namespace poderá ser acessado via **Internet pública** (usando a tecla de acesso).  
 
     :::image type="content" source="./media/event-hubs-firewall/selected-networks.png" alt-text="Guia redes – opção redes selecionadas" lightbox="./media/event-hubs-firewall/selected-networks.png":::    
 
     Se você selecionar a opção **todas as redes** , o Hub de eventos aceitará conexões de qualquer endereço IP (usando a tecla de acesso). Essa configuração é equivalente a uma regra que aceita o intervalo de endereço IP 0.0.0.0/0. 
 
-    ![Firewall – opção "Todas as redes" selecionada](./media/event-hubs-firewall/firewall-all-networks-selected.png)
+    ![Captura de tela que mostra a página "firewall e redes virtuais" com a opção "todas as redes" selecionada.](./media/event-hubs-firewall/firewall-all-networks-selected.png)
 1. Para restringir o acesso a endereços IP específicos, confirme se a opção **redes selecionadas** está selecionada. Na seção **Firewall**, siga estas etapas:
     1. Selecione a opção **Adicionar o endereço IP do cliente** para permitir ao IP do cliente atual acesso ao namespace. 
     2. Para **intervalo de endereços**, insira um endereço IPv4 específico ou um intervalo de endereços IPv4 na notação CIDR. 
@@ -65,23 +56,9 @@ Esta seção mostra como usar o portal do Azure para criar regras de firewall de
 
 O modelo do Resource Manager a seguir permite adicionar uma regra de filtro IP a um namespace de Hubs de Eventos existente.
 
-Parâmetros de modelo:
+**ipMask** no modelo é um único endereço IPv4 ou um bloco de endereços IP na notação CIDR. Por exemplo, na notação CIDR 70.37.104.0/24, representa os 256 endereços IPv4 de 70.37.104.0 a 70.37.104.255, em que 24 indica o número de bits de prefixo significativos para o intervalo.
 
-- A **ipMask** é um endereço IPv4 único ou um bloco de endereços IP na notação CIDR. Por exemplo, na notação CIDR 70.37.104.0/24, representa os 256 endereços IPv4 de 70.37.104.0 a 70.37.104.255, em que 24 indica o número de bits de prefixo significativos para o intervalo.
-
-> [!NOTE]
-> Embora não haja nenhuma regra de negação possível, o modelo do Azure Resource Manager tem a ação padrão definida como **"Allow"** , que não restringe as conexões.
-> Ao criar as regras de rede virtual ou de firewalls, devemos alterar a ***"defaultAction"***
-> 
-> de
-> ```json
-> "defaultAction": "Allow"
-> ```
-> para
-> ```json
-> "defaultAction": "Deny"
-> ```
->
+Ao adicionar regras de rede virtual ou firewalls, defina o valor de `defaultAction` como `Deny` .
 
 ```json
 {
@@ -119,7 +96,7 @@ Parâmetros de modelo:
       {
         "apiVersion": "2018-01-01-preview",
         "name": "[variables('namespaceNetworkRuleSetName')]",
-        "type": "Microsoft.EventHub/namespaces/networkruleset",
+        "type": "Microsoft.EventHub/namespaces/networkrulesets",
         "dependsOn": [
           "[concat('Microsoft.EventHub/namespaces/', parameters('eventhubNamespaceName'))]"
         ],
@@ -146,6 +123,9 @@ Parâmetros de modelo:
 ```
 
 Para implantar o modelo, siga as instruções para o [Azure Resource Manager][lnk-deploy].
+
+> [!IMPORTANT]
+> Se não houver nenhuma regra de rede virtual e IP, todo o tráfego fluirá para o namespace mesmo se você definir `defaultAction` como `deny` .  O namespace pode ser acessado pela Internet pública (usando a chave de acesso). Especifique pelo menos uma regra de IP ou regra de rede virtual para o namespace para permitir o tráfego somente dos endereços IP ou da sub-rede de uma rede virtual especificada.  
 
 ## <a name="next-steps"></a>Próximas etapas
 

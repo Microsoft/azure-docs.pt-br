@@ -1,18 +1,18 @@
 ---
 title: 'Início Rápido: Criar um BD do Azure para MariaDB – modelo do ARM'
 description: Neste Início Rápido, aprenda a criar um servidor do Banco de Dados do Azure para MariaDB usando um modelo do Azure Resource Manager.
-author: mgblythe
-ms.service: mariadb
+author: savjani
+ms.author: pariks
+ms.service: jroth
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.author: mblythe
 ms.date: 05/14/2020
-ms.openlocfilehash: 108233892a89e6f6288e05476e37460a58b52b0e
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: b40aa30121bf98e756e26d70b44bc74a500de79f
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88660539"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98662066"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-mariadb-server"></a>Início Rápido: Usar um modelo do ARM para criar um servidor de Banco de Dados do Azure para MariaDB
 

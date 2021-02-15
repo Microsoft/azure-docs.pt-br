@@ -4,12 +4,12 @@ description: Crie alertas do log de atividades usando o portal do Azure, um mode
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 06/25/2019
-ms.openlocfilehash: b202e3d47b98c5e395b3a8b525b9b8c0a04c0f76
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 7914f3ee57d014de2f34fca301b587c6297bebe3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322407"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "90983096"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-by-using-azure-monitor"></a>Criar, exibir e gerenciar alertas do log de atividades usando o Azure Monitor  
 
@@ -111,7 +111,7 @@ Uma analogia simples para entender as condições nas quais as regras de alerta 
 
 1. No portal do Azure, selecione **Monitor** > **Alertas**. Selecione **Gerenciar regras de alerta** no canto superior esquerdo da janela.
 
-    ![Gerenciar regras de alerta](media/alerts-activity-log/manage-alert-rules.png)
+    ![Captura de tela mostra o log de atividades com a caixa de pesquisa realçada.](media/alerts-activity-log/manage-alert-rules.png)
 
     A lista das regras disponíveis é exibida.
 

@@ -3,12 +3,12 @@ title: Como criar políticas de Configuração de Convidado para o Windows
 description: Saiba como criar uma política de Configuração de Convidado do Azure Policy para Windows.
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 36e71f00a4613e1723645f48d9e57aed9e1e9a8a
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: ae9af51ad3b2eb237f8655c996a1345140a8a635
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88719386"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99070637"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>Como criar políticas de Configuração de Convidado para o Windows
 
@@ -23,10 +23,12 @@ A [Configuração de Convidado do Azure Policy](../concepts/guest-configuration.
 Use as ações a seguir para criar sua própria configuração para validar o estado de um computador que tem ou não o Azure.
 
 > [!IMPORTANT]
-> As políticas personalizadas com a Configuração de Convidado são uma versão prévia do recurso.
+> As definições de política personalizadas com a configuração de convidado no Azure governamental e nos ambientes do Azure China são um recurso de visualização.
 >
 > A extensão de Configuração de Convidado é necessária para executar auditorias em máquinas virtuais do Azure.
 > Para implantar a extensão em escala em todas as máquinas com Windows, atribua as seguintes definições de política: `Deploy prerequisites to enable Guest Configuration Policy on Windows VMs`
+> 
+> Não use informações confidenciais ou segredos em pacotes de conteúdo personalizados.
 
 ## <a name="install-the-powershell-module"></a>Instalar o módulo do PowerShell
 
@@ -52,7 +54,7 @@ Sistemas operacionais em que é possível instalar o módulo:
 
 O módulo do recurso de Configuração de Convidado requer o seguinte software:
 
-- PowerShell 6.2 ou superior. Se ainda não estiver instalado, siga [estas instruções](/powershell/scripting/install/installing-powershell).
+- PowerShell 6.2 ou posterior. Se ainda não estiver instalado, siga [estas instruções](/powershell/scripting/install/installing-powershell).
 - Azure PowerShell 1.5.0 ou superior. Se ainda não estiver instalado, siga [estas instruções](/powershell/azure/install-az-ps).
   - Somente os módulos AZ ' AZ. Accounts ' e ' AZ. Resources ' são necessários.
 
@@ -136,9 +138,32 @@ class ResourceName : OMI_BaseResource
 };
 ```
 
+Se o recurso tiver propriedades obrigatórias, elas também deverão ser retornadas `Get-TargetResource` em paralelo com a `reasons` classe. Se `reasons` não estiver incluído, o serviço incluirá um comportamento "capturar tudo" que compara a entrada de valores para `Get-TargetResource` e os valores retornados por e `Get-TargetResource` fornece uma comparação detalhada como `reasons` .
+
 ### <a name="configuration-requirements"></a>Requisitos de configuração
 
 O nome da configuração personalizada deve ser o mesmo em todos os lugares. O nome do arquivo. zip para o pacote de conteúdo, o nome da configuração no arquivo MOF e o nome da atribuição de convidado no modelo de Azure Resource Manager (modelo ARM), deve ser o mesmo.
+
+### <a name="policy-requirements"></a>Requisitos de política
+
+A seção de definição de política `metadata` deve incluir duas propriedades para o serviço de configuração de convidado para automatizar o provisionamento e a emissão de relatórios de atribuições de configuração de convidado. A `category` propriedade deve ser definida como "configuração de convidado" e uma seção chamada `Guest Configuration` deve conter informações sobre a atribuição de configuração de convidado. O `New-GuestConfigurationPolicy` cmdlet cria esse texto automaticamente.
+Consulte as instruções detalhadas nesta página.
+
+O exemplo a seguir demonstra a `metadata` seção.
+
+```json
+    "metadata": {
+      "category": "Guest Configuration",
+      "guestConfiguration": {
+        "name": "test",
+        "version": "1.0.0",
+        "contentType": "Custom",
+        "contentUri": "CUSTOM-URI-HERE",
+        "contentHash": "CUSTOM-HASH-VALUE-HERE",
+        "configurationParameter": {}
+      }
+    },
+```
 
 ### <a name="scaffolding-a-guest-configuration-project"></a>Processo de scaffolding em um projeto de Configuração de Convidado
 
@@ -158,7 +183,7 @@ O pacote fechado é usado pela Configuração de Convidado para criar as defini�
 
 Os cmdlets do PowerShell auxiliam na criação do pacote.
 Nenhuma pasta de nível de raiz ou de versão é necessária.
-O formato do pacote deve ser um arquivo zip.
+O formato do pacote deve ser um arquivo. zip e não pode exceder um tamanho total de 100 MB quando não compactado.
 
 ### <a name="storing-guest-configuration-artifacts"></a>Armazenar artefatos de Configuração de Convidado
 
@@ -212,7 +237,7 @@ New-GuestConfigurationPackage `
   -Configuration './Config/AuditBitlocker.mof'
 ```
 
-Depois de criar o pacote de configuração, mas antes de publicá-lo no Azure, você pode testar o pacote da sua estação de trabalho ou do seu ambiente de CI/CD. O cmdlet GuestConfiguration `Test-GuestConfigurationPackage` inclui o mesmo agente em seu ambiente de desenvolvimento, assim como ele é usado dentro de computadores com o Azure. Ao usar essa solução, você pode executar testes de integração localmente antes da liberação para ambientes de nuvem cobrados.
+Depois de criar o pacote de configuração, mas antes de publicá-lo no Azure, você pode testar o pacote em sua estação de trabalho ou em um ambiente de CI/CD (integração contínua e implantação contínua). O cmdlet GuestConfiguration `Test-GuestConfigurationPackage` inclui o mesmo agente em seu ambiente de desenvolvimento, assim como ele é usado dentro de computadores com o Azure. Ao usar essa solução, você pode executar testes de integração localmente antes da liberação para ambientes de nuvem cobrados.
 
 Como o agente está realmente avaliando o ambiente local, na maioria dos casos, você precisa executar o cmdlet Test- na mesma plataforma do SO que planeja auditar. O teste usa apenas módulos que estão incluídos no pacote de conteúdo.
 
@@ -235,61 +260,20 @@ O cmdlet também tem suporte para a entrada do pipeline do PowerShell. Conduza a
 New-GuestConfigurationPackage -Name AuditBitlocker -Configuration ./Config/AuditBitlocker.mof | Test-GuestConfigurationPackage
 ```
 
-A próxima etapa é publicar o arquivo no armazenamento de blobs. O script a seguir contém uma função que pode ser usada para automatizar essa tarefa. Os comandos usados na função `publish` requerem o módulo `Az.Storage`.
+A próxima etapa é publicar o arquivo no armazenamento de BLOBs do Azure. O comando `Publish-GuestConfigurationPackage` requer o `Az.Storage` módulo.
+
+Parâmetros do cmdlet `Publish-GuestConfigurationPackage`:
+
+- **Caminho**: local do pacote a ser publicado
+- **ResourceGroupName**: nome do grupo de recursos em que a conta de armazenamento está localizada
+- **StorageAccountName**: nome da conta de armazenamento na qual o pacote deve ser publicado
+- **StorageContainerName**: (padrão: *guestconfiguration*) nome do contêiner de armazenamento na conta de armazenamento
+- **Forçar**: substituir o pacote existente na conta de armazenamento com o mesmo nome
+
+O exemplo a seguir publica o pacote para um nome de contêiner de armazenamento ' guestconfiguration '.
 
 ```azurepowershell-interactive
-function publish {
-    param(
-    [Parameter(Mandatory=$true)]
-    $resourceGroup,
-    [Parameter(Mandatory=$true)]
-    $storageAccountName,
-    [Parameter(Mandatory=$true)]
-    $storageContainerName,
-    [Parameter(Mandatory=$true)]
-    $filePath,
-    [Parameter(Mandatory=$true)]
-    $blobName
-    )
-
-    # Get Storage Context
-    $Context = Get-AzStorageAccount -ResourceGroupName $resourceGroup `
-        -Name $storageAccountName | `
-        ForEach-Object { $_.Context }
-
-    # Upload file
-    $Blob = Set-AzStorageBlobContent -Context $Context `
-        -Container $storageContainerName `
-        -File $filePath `
-        -Blob $blobName `
-        -Force
-
-    # Get url with SAS token
-    $StartTime = (Get-Date)
-    $ExpiryTime = $StartTime.AddYears('3')  # THREE YEAR EXPIRATION
-    $SAS = New-AzStorageBlobSASToken -Context $Context `
-        -Container $storageContainerName `
-        -Blob $blobName `
-        -StartTime $StartTime `
-        -ExpiryTime $ExpiryTime `
-        -Permission rl `
-        -FullUri
-
-    # Output
-    return $SAS
-}
-
-# replace the $storageAccountName value below, it must be globally unique
-$resourceGroup        = 'policyfiles'
-$storageAccountName   = 'youraccountname'
-$storageContainerName = 'artifacts'
-
-$uri = publish `
-  -resourceGroup $resourceGroup `
-  -storageAccountName $storageAccountName `
-  -storageContainerName $storageContainerName `
-  -filePath ./AuditBitlocker.zip `
-  -blobName 'AuditBitlocker'
+Publish-GuestConfigurationPackage -Path ./AuditBitlocker.zip -ResourceGroupName myResourceGroupName -StorageAccountName myStorageAccountName
 ```
 
 Depois que um pacote de política personalizada de Configuração de Convidado tiver sido criado e carregado, crie a definição de política de Configuração de Convidado. O cmdlet `New-GuestConfigurationPolicy` usa um pacote de política personalizado e cria uma definição de política.
@@ -322,8 +306,6 @@ New-GuestConfigurationPolicy `
 Os arquivos a seguir são criados por `New-GuestConfigurationPolicy`:
 
 - **auditIfNotExists.json**
-- **deployIfNotExists.json**
-- **Initiative.json**
 
 A saída do cmdlet retorna um objeto que contenha o nome de exibição da iniciativa e o caminho dos arquivos da política.
 
@@ -346,27 +328,9 @@ New-GuestConfigurationPolicy `
  | Publish-GuestConfigurationPolicy
 ```
 
-Com a política criada no Azure, a última etapa é atribuir a iniciativa. Veja como atribuir a iniciativa com [Portal](../assign-policy-portal.md), [CLI do Azure](../assign-policy-azurecli.md) e [Azure PowerShell](../assign-policy-powershell.md).
+Com a política criada no Azure, a última etapa é atribuir a definição. Consulte como atribuir a definição com o [portal](../assign-policy-portal.md), [CLI do Azure](../assign-policy-azurecli.md)e [Azure PowerShell](../assign-policy-powershell.md).
 
-> [!IMPORTANT]
-> As políticas de Configuração de Convidado devem **sempre** ser atribuídas usando a iniciativa que combina as políticas _AuditIfNotExists_ e _DeployIfNotExists_. Caso apenas a política _AuditIfNotExists_ seja atribuída, os pré-requisitos não serão implantados, e a política sempre mostrará que “0” servidores estão em conformidade.
-
-Atribuir uma definição de política com o efeito _DeployIfNotExists_ requer um nível adicional de acesso. Para conceder o privilégio mínimo, você pode criar uma definição de função personalizada que estenda o **Colaborador da política de recursos**. O exemplo abaixo cria uma função chamada **DINE do Colaborador da Política de Recursos** com a permissão adicional _Microsoft.Authorization/roleAssignments/write_.
-
-```azurepowershell-interactive
-$subscriptionid = '00000000-0000-0000-0000-000000000000'
-$role = Get-AzRoleDefinition "Resource Policy Contributor"
-$role.Id = $null
-$role.Name = "Resource Policy Contributor DINE"
-$role.Description = "Can assign Policies that require remediation."
-$role.Actions.Clear()
-$role.Actions.Add("Microsoft.Authorization/roleAssignments/write")
-$role.AssignableScopes.Clear()
-$role.AssignableScopes.Add("/subscriptions/$subscriptionid")
-New-AzRoleDefinition -Role $role
-```
-
-### <a name="filtering-guest-configuration-policies-using-tags"></a>Filtrar políticas de Configuração de Convidado usando marcas
+### <a name="filtering-guest-configuration-policies-using-tags"></a>Filtrar políticas de Configuração de Convidado usando tags
 
 As políticas criadas por cmdlets no módulo de Configuração de Convidado podem incluir um filtro para marcas como opção. O parâmetro **Tag** de `New-GuestConfigurationPolicy` oferece suporte a uma matriz de tabelas de hash contendo toda a marca individual. As marcas são adicionadas à `If` seção da definição de política e não podem ser modificadas por uma atribuição de política.
 
@@ -403,13 +367,22 @@ Os cmdlets `New-GuestConfigurationPolicy` e `Test-GuestConfigurationPolicyPackag
 O exemplo a seguir cria uma definição de política para auditar um serviço, no qual o usuário seleciona a partir de uma lista no momento da atribuição da política.
 
 ```azurepowershell-interactive
+# This DSC Resource text:
+Service 'UserSelectedNameExample'
+      {
+          Name = 'ParameterValue'
+          Ensure = 'Present'
+          State = 'Running'
+      }
+
+# Would require the following hashtable:
 $PolicyParameterInfo = @(
     @{
         Name = 'ServiceName'                                            # Policy parameter name (mandatory)
         DisplayName = 'windows service name.'                           # Policy parameter display name (mandatory)
         Description = "Name of the windows service to be audited."      # Policy parameter description (optional)
         ResourceType = "Service"                                        # DSC configuration resource type (mandatory)
-        ResourceId = 'windowsService'                                   # DSC configuration resource property name (mandatory)
+        ResourceId = 'UserSelectedNameExample'                                   # DSC configuration resource id (mandatory)
         ResourcePropertyName = "Name"                                   # DSC configuration resource property name (mandatory)
         DefaultValue = 'winrm'                                          # Policy parameter default value (optional)
         AllowedValues = @('BDESVC','TermService','wuauserv','winrm')    # Policy parameter allowed values (optional)
@@ -551,9 +524,18 @@ New-GuestConfigurationPackage `
 
 ## <a name="policy-lifecycle"></a>Ciclo de vida da política
 
-Se você gostaria de liberar uma atualização para a política, há dois campos que precisam de atenção.
+Se você quiser liberar uma atualização para a política, faça a alteração para o pacote de configuração do convidado e os detalhes da definição de Azure Policy.
 
-- **Versão**: ao executar o cmdlet `New-GuestConfigurationPolicy`, você deverá especificar um número de versão maior do que o publicado atualmente. A propriedade atualiza a versão da atribuição de Configuração de Convidado para que o agente reconheça o pacote atualizado.
+> [!NOTE]
+> A `version` propriedade da atribuição de configuração de convidado afeta apenas os pacotes que são hospedados pela Microsoft. A prática recomendada para o controle de versão de conteúdo personalizado é incluir a versão no nome do arquivo.
+
+Primeiro, ao executar `New-GuestConfigurationPackage` , especifique um nome para o pacote que o torna exclusivo de versões anteriores. Você pode incluir um número de versão no nome, como `PackageName_1.0.0` .
+O número neste exemplo é usado apenas para tornar o pacote exclusivo, não para especificar que o pacote deve ser considerado mais recente ou mais antigo que outros pacotes.
+
+Em segundo lugar, atualize os parâmetros usados com o `New-GuestConfigurationPolicy` cmdlet seguindo cada uma das explicações abaixo.
+
+- **Versão**: ao executar o cmdlet `New-GuestConfigurationPolicy`, você deve especificar um número de versão maior do que o publicado atualmente.
+- **contentUri**: ao executar o `New-GuestConfigurationPolicy` cmdlet, você deve especificar um URI para o local do pacote. A inclusão de uma versão do pacote no nome do arquivo garantirá que o valor dessa propriedade seja alterado em cada versão.
 - **contentHash**: essa propriedade é atualizada automaticamente pelo cmdlet `New-GuestConfigurationPolicy`. Trata-se de um valor de hash do pacote criado por `New-GuestConfigurationPackage`. A propriedade deve estar correta para o arquivo `.zip` que você publicar. Caso apenas a propriedade **contentUri** seja atualizada, a extensão não aceitará o pacote de conteúdo.
 
 A maneira mais fácil de liberar um pacote atualizado é repetindo o processo descrito neste artigo e fornecendo um número de versão atualizado. Esse processo garante que todas as propriedades tenham sido atualizadas corretamente.
@@ -588,12 +570,6 @@ $Cert | Export-Certificate -FilePath "$env:temp\DscPublicKey.cer" -Force
 ```
 
 Depois que o conteúdo for publicado, acrescente uma marca com o nome `GuestConfigPolicyCertificateValidation` e o valor `enabled` a todas as máquinas virtuais em que a assinatura de código deve ser necessária. Consulte as [Amostras de tag](../samples/built-in-policies.md#tags) sobre como tags podem ser entregues em escala usando o Azure Policy. Depois que essa tag estiver sendo usada, a definição de política gerada usando o cmdlet `New-GuestConfigurationPolicy` habilita o requisito por meio da extensão da Configuração de Convidado.
-
-## <a name="troubleshooting-guest-configuration-policy-assignments-preview"></a>Solucionar problemas de atribuições de política de Configuração de Convidado (versão prévia)
-
-Há uma ferramenta disponível em versão prévia para auxiliar na solução de problemas de atribuições da Configuração de Convidado do Azure Policy. A ferramenta está em versão prévia e foi publicada na Galeria do PowerShell com o nome de módulo [Solução de problemas de Configuração de Convidado](https://www.powershellgallery.com/packages/GuestConfigurationTroubleshooter/).
-
-Para obter mais informações sobre os cmdlets nessa ferramenta, use o comando Get-Help no PowerShell para mostrar as diretrizes internas. Como a ferramenta recebe atualizações frequentes, essa é a melhor maneira de obter as informações mais recentes.
 
 ## <a name="next-steps"></a>Próximas etapas
 

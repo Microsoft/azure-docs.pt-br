@@ -1,20 +1,20 @@
 ---
 title: Autorizar o acesso à Configuração de Aplicativos do Azure usando o Azure Active Directory
-description: Habilitar o RBAC para autorizar o acesso à instância da Configuração de Aplicativos do Azure
-author: lisaguthrie
-ms.author: lcozzens
-ms.date: 02/13/2020
+description: Habilitar o RBAC do Azure para autorizar o acesso à sua instância de configuração do Azure App
+author: AlexandraKemperMS
+ms.author: alkemper
+ms.date: 05/26/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: 8889e7270127aa3991adb3c0575a4bce96090db2
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 4768dbe292b7c71770ded1e8ad27025bc9944608
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87830064"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96930255"
 ---
 # <a name="authorize-access-to-azure-app-configuration-using-azure-active-directory"></a>Autorizar o acesso à Configuração de Aplicativos do Azure usando o Azure Active Directory
-Além de usar o HMAC (Message Authentication Code baseado em hash), a configuração do Azure App dá suporte ao uso do Azure Active Directory (AD do Azure) para autorizar solicitações às instâncias de configuração do aplicativo.  O Azure AD permite usar o RBAC (controle de acesso baseado em função) para conceder permissões a uma entidade de segurança.  Uma entidade de segurança pode ser um usuário, uma [identidade gerenciada](../active-directory/managed-identities-azure-resources/overview.md) ou uma [entidade de serviço de aplicativo](../active-directory/develop/app-objects-and-service-principals.md).  Para saber mais sobre as funções e atribuições de função, confira [Noções básicas sobre funções diferentes](../role-based-access-control/overview.md).
+Além de usar o HMAC (Message Authentication Code baseado em hash), a configuração do Azure App dá suporte ao uso do Azure Active Directory (AD do Azure) para autorizar solicitações às instâncias de configuração do aplicativo.  O Azure AD permite que você use o Azure RBAC (controle de acesso baseado em função) para conceder permissões a uma entidade de segurança.  Uma entidade de segurança pode ser um usuário, uma [identidade gerenciada](../active-directory/managed-identities-azure-resources/overview.md) ou uma [entidade de serviço de aplicativo](../active-directory/develop/app-objects-and-service-principals.md).  Para saber mais sobre as funções e atribuições de função, confira [Noções básicas sobre funções diferentes](../role-based-access-control/overview.md).
 
 ## <a name="overview"></a>Visão geral
 As solicitações feitas por uma entidade de segurança para acessar um recurso de configuração de aplicativo devem ser autorizadas. Com o Azure AD, o acesso a um recurso é um processo de duas etapas:
@@ -39,7 +39,7 @@ O Azure fornece as seguintes funções internas do Azure para autorizar o acesso
 - **Leitor**: Use essa função para conceder acesso de leitura ao recurso de Configuração de Aplicativos. Isso não concede acesso às chaves de acesso do recurso nem aos dados armazenados na Configuração de Aplicativos.
 
 > [!NOTE]
-> Atualmente, o portal do Azure e a CLI dão suporte apenas à autenticação HMAC para acessar os dados de configuração do aplicativo. Não há suporte para a autenticação do Azure AD. Portanto, os usuários do portal do Azure e da CLI exigem a função de *colaborador* para recuperar as chaves de acesso do recurso de configuração de aplicativo. A concessão de dados de *configuração de aplicativo* ou funções de proprietário de dados de *configuração de aplicativo* não tem impacto sobre o acesso por meio do portal e da CLI.
+> Atualmente, o portal do Azure dá suporte apenas à autenticação HMAC para acessar os dados de configuração do aplicativo. Não há suporte para a autenticação do Azure AD. Portanto, os usuários do portal do Azure exigem que a função de *colaborador* recupere as chaves de acesso do recurso de configuração de aplicativo. A concessão de dados de *configuração de aplicativo* ou funções de proprietário de dados de *configuração de aplicativo* não tem impacto sobre o acesso por meio do Portal.
 
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre o uso de [identidades gerenciadas](howto-integrate-azure-managed-service-identity.md) para administrar o serviço de Configuração de Aplicativos.

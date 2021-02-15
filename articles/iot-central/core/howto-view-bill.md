@@ -1,25 +1,25 @@
 ---
 title: Gerencie sua fatura e converta do plano de preços gratuito no aplicativo IoT Central do Azure | Microsoft Docs
 description: Como administrador, saiba como gerenciar sua fatura e mover-se do plano de preços gratuito para um plano de preços padrão no aplicativo de IoT Central do Azure
-author: v-krghan
-ms.author: v-krghan
-ms.date: 12/09/2019
+author: dominicbetts
+ms.author: dobett
+ms.date: 11/23/2019
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 888b9f31b8082ac124a773cc489293b335d7d255
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 50d0119b08d2c76a5f6111e485408ebcdace83c6
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80157479"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96549014"
 ---
 # <a name="manage-your-bill-in-an-iot-central-application"></a>Gerenciar sua fatura em um aplicativo IoT Central
 
-Este artigo descreve como, como administrador, você pode gerenciar sua fatura no aplicativo IoT Central do Azure na seção Administração. Você aprenderá como é possível mover seu aplicativo do plano de preços gratuito para um plano de preços padrão e também como atualizar ou fazer downgrade de seu plano de preços.
+Este artigo descreve como, como administrador, você pode gerenciar sua cobrança de IoT Central do Azure. Você pode mover seu aplicativo do plano de preços gratuito para um plano de preços padrão e também atualizar ou fazer downgrade de seu plano de preços.
 
-Para acessar e usar a seção **Administração** , você deve estar na função *administrador* ou ter uma *função de usuário personalizada* que permita exibir a cobrança de um aplicativo IOT central do Azure. Se você criar um aplicativo Azure IoT Central, você será automaticamente atribuído à função **Administrador** desse aplicativo.
+Para acessar a seção **Administração** , você deve estar na função *administrador* ou ter uma *função de usuário personalizada* que permita exibir a cobrança. Se você criar um aplicativo de IoT Central do Azure, você será automaticamente atribuído à função **administrador** .
 
 ## <a name="move-from-free-to-standard-pricing-plan"></a>Mover do plano de preços gratuito para o padrão
 
@@ -34,11 +34,11 @@ Para concluir esse processo de autoatendimento, execute estas etapas:
 
 1. Vá para a página de **preços** na seção **Administração** .
 
-    ![Estado de avaliação](media/howto-view-bill/freetrialbilling.png)
+    :::image type="content" source="media/howto-view-bill/freetrialbilling.png" alt-text="Estado de avaliação":::
 
 1. Selecione **converter para um plano pago**.
 
-    ![Converter a versão de avaliação](media/howto-view-bill/convert.png)
+    :::image type="content" source="media/howto-view-bill/convert.png" alt-text="Converter a versão de avaliação":::
 
 1. Selecione o Azure Active Directory apropriado e, em seguida, a assinatura do Azure a ser usada para seu aplicativo que usa um plano pago.
 
@@ -55,9 +55,9 @@ Na seção de preços, você pode atualizar ou fazer downgrade do plano de preç
 
 1. Vá para a página de **preços** na seção **Administração** .
 
-    ![Estado de avaliação](media/howto-view-bill/pricing.png)
+    :::image type="content" source="media/howto-view-bill/pricing.png" alt-text="Atualizar plano de preços":::
 
-1. Selecione o **plano** e clique em **salvar** para atualizar ou fazer downgrade.
+1. Selecione o **plano** e, em seguida, selecione **salvar** para atualizar ou fazer downgrade.
 
 ## <a name="view-your-bill"></a>Exibir a fatura
 

@@ -3,21 +3,21 @@ title: Mensagens mortas e políticas de repetição – grade de eventos do Azur
 description: Descreve como personalizar opções de entrega de eventos para a Grade de Eventos. Definir um destino de inatividade e especificar o tempo de entrega novamente.
 ms.topic: conceptual
 ms.date: 07/20/2020
-ms.openlocfilehash: 2ff1d05899fb74583489649154ffa062e857cb95
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7d8cd74ccfb77bcec45d06071a4f46fb2a640cf8
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87074881"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460930"
 ---
-# <a name="dead-letter-and-retry-policies"></a>Mensagens mortas e tentar novas políticas
+# <a name="set-dead-letter-location-and-retry-policy"></a>Definir a localização de mensagens mortas e a política de repetição
 
 Ao criar uma assinatura de evento, você pode personalizar as configurações para entrega de eventos. Este artigo mostra como configurar um local de mensagens mortas e personalizar as configurações de repetição. Para obter informações sobre esses recursos, consulte [Entrega e repetição de mensagens da Grade de Eventos](delivery-and-retry.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 > [!NOTE]
-> Para saber mais sobre entrega de mensagens, novas tentativas e mensagens mortas, consulte o artigo conceitual: [entrega e repetição de mensagem da grade de eventos]().
+> Para saber mais sobre entrega de mensagens, novas tentativas e mensagens mortas, consulte o artigo conceitual: [entrega e repetição de mensagem da grade de eventos](delivery-and-retry.md).
 
 ## <a name="set-dead-letter-location"></a>Defina o local de mensagens mortas
 

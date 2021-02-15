@@ -1,18 +1,18 @@
 ---
 title: Criar um teste do Analisador de Internet usando CLI | Microsoft Docs
-description: Neste artigo, saiba como criar seu primeiro teste do Analisador de Internet.
+description: Neste artigo, saiba como criar seu primeiro teste do Analisador de Internet usando a CLI do Azure.
 services: internet-analyzer
 author: diego-perez-botero
 ms.service: internet-analyzer
 ms.topic: tutorial
 ms.date: 10/16/2019
 ms.author: mebeatty
-ms.openlocfilehash: d474442086e2a114f26df279ab2682cd7628a5f5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 23a76e4007965c263671554bbcd937dbf3b4b0a6
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74184277"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676208"
 ---
 # <a name="create-an-internet-analyzer-test-using-cli-preview"></a>Criar um teste do Analisador de Internet usando a CLI (versão prévia)
 
@@ -37,7 +37,7 @@ A CLI do analisador de Internet expõe os seguintes tipos de recursos:
 
 ## <a name="profile-and-test-creation"></a>Criação de perfil e teste
 1. Obtenha acesso à versão prévia do Analisador de Internet seguindo as instruções em **Como fazer para participar da versão prévia?** nas [Perguntas frequentes do Analisador de Internet do Azure](internet-analyzer-faq.md).
-2. [Instale a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+2. [Instale a CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
 3. Execute o `login` comando para iniciar uma sessão de CLI:
     ```azurecli-interactive
     az login
@@ -50,9 +50,9 @@ A CLI do analisador de Internet expõe os seguintes tipos de recursos:
 
 5. Selecione sua ID de assinatura que tenha recebido acesso à visualização pública do analisador da Internet.
 
-    Depois de entrar, você deve ver uma lista de assinaturas associadas à sua conta do Azure. A informação de assinatura com `isDefault: true` é a assinatura ativada no momento depois de entrar. Para selecionar outra assinatura, use o comando [az account set](https://docs.microsoft.com/cli/azure/account#az-account-set) com a ID da assinatura para a qual alternar. Para obter mais informações sobre a seleção da assinatura, confira [Usar várias assinaturas do Azure](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest).
+    Depois de entrar, você deve ver uma lista de assinaturas associadas à sua conta do Azure. A informação de assinatura com `isDefault: true` é a assinatura ativada no momento depois de entrar. Para selecionar outra assinatura, use o comando [az account set](/cli/azure/account#az-account-set) com a ID da assinatura para a qual alternar. Para obter mais informações sobre a seleção da assinatura, confira [Usar várias assinaturas do Azure](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest).
 
-    Há maneiras de entrar de modo não interativo, como mostrado em detalhes em [Entrar com a CLI do Azure](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
+    Há maneiras de entrar de modo não interativo, como mostrado em detalhes em [Entrar com a CLI do Azure](/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
 
 6. **[Opcional]** Criar um novo grupo de recursos do Azure:
     ```azurecli-interactive
@@ -132,6 +132,6 @@ A CLI do analisador de Internet expõe os seguintes tipos de recursos:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Procure a [referência à CLI do Analisador de Internet](https://docs.microsoft.com/cli/azure/ext/internet-analyzer/internet-analyzer?view=azure-cli-latest) para obter a lista completa de comandos e exemplos de uso com suporte.
+* Procure a [referência à CLI do Analisador de Internet](/cli/azure/ext/internet-analyzer/internet-analyzer?view=azure-cli-latest) para obter a lista completa de comandos e exemplos de uso com suporte.
 * Leia as [Perguntas frequentes sobre o Analisador de Internet](internet-analyzer-faq.md).
-* Saiba mais sobre como inserir o [Cliente do Analisador de Internet](internet-analyzer-embed-client.md) e criar um [ponto de extremidade personalizado](internet-analyzer-custom-endpoint.md). 
+* Saiba mais sobre como inserir o [Cliente do Analisador de Internet](internet-analyzer-embed-client.md) e criar um [ponto de extremidade personalizado](internet-analyzer-custom-endpoint.md).

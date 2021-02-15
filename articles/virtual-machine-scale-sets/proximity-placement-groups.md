@@ -9,16 +9,16 @@ ms.subservice: availability
 ms.date: 07/01/2019
 ms.reviewer: zivr
 ms.custom: mimckitt
-ms.openlocfilehash: 1525ef7c1e19aa9821df3f111fdce3518d37afd5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a3a7b50c82b3deffa7526bfcfe799972c3b02762
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87011049"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98877859"
 ---
 # <a name="preview-creating-and-using-proximity-placement-groups-using-powershell"></a>Visualização: Criação e uso dos grupos de posicionamento por proximidade usando o PowerShell
 
-Para colocar as VMs o mais próximo possível umas das outras, atingindo a menor latência possível, implante o conjunto de dimensionamento dentro de um [grupo de posicionamento por proximidade](co-location.md#preview-proximity-placement-groups).
+Para colocar as VMs o mais próximo possível umas das outras, atingindo a menor latência possível, implante o conjunto de dimensionamento dentro de um [grupo de posicionamento por proximidade](../virtual-machines/co-location.md#proximity-placement-groups).
 
 Um grupo de posicionamento por proximidade é um agrupamento lógico usado para garantir que os recursos de computação do Azure estejam fisicamente localizados próximos uns dos outros. Os grupos de posicionamento por proximidade são úteis para cargas de trabalho em que a baixa latência é um requisito.
 

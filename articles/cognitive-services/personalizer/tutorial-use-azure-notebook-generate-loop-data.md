@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 04/27/2020
 ms.custom: devx-track-python
 ms.openlocfilehash: 0cf2aa504fd7a36a55740b3a59eeb3759e67f469
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88509902"
 ---
 # <a name="tutorial-use-personalizer-in-azure-notebook"></a>Tutorial: Usar o Personalizador no Azure Notebook

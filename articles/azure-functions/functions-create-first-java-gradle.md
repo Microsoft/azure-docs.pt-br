@@ -6,25 +6,25 @@ ms.custom: devx-track-java
 ms.author: karler
 ms.topic: how-to
 ms.date: 04/08/2020
-ms.openlocfilehash: ce2169838faaee8da459f80979fa31318e9d50c9
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: c9ecb670cea022988efda8ec690c0724310cdb4b
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322169"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934842"
 ---
 # <a name="use-java-and-gradle-to-create-and-publish-a-function-to-azure"></a>Usar Java e gradle para criar e publicar uma função no Azure
 
-Este artigo mostra como criar e publicar um projeto de função Java para Azure Functions com a ferramenta de linha de comando gradle. Quando você terminar, o código de função será executado no Azure em um [plano de hospedagem sem servidor](functions-scale.md#consumption-plan) e será disparado por uma solicitação HTTP. 
+Este artigo mostra como criar e publicar um projeto de função Java para Azure Functions com a ferramenta de linha de comando gradle. Quando você terminar, o código de função será executado no Azure em um [plano de hospedagem sem servidor](consumption-plan.md) e será disparado por uma solicitação HTTP. 
 
 > [!NOTE]
-> Se o gradle não for sua ferramenta de desenvolvimento preferida, Confira nossos tutoriais semelhantes para desenvolvedores de Java usando [Maven](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java), [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/quickstart-functions) e [vs Code](./functions-create-first-function-vs-code.md?pivots=programming-language-java).
+> Se o gradle não for sua ferramenta de desenvolvimento preferida, Confira nossos tutoriais semelhantes para desenvolvedores de Java usando [Maven](./create-first-function-cli-java.md), [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/quickstart-functions) e [vs Code](./create-first-function-vs-code-java.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para desenvolver funções usando Java, você deve ter o seguinte instalado:
 
-- [Java Developer Kit](https://aka.ms/azure-jdks), versão 8
+- [Java Developer Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support), versão 8
 - [CLI do Azure]
 - [Azure Functions Core Tools](./functions-run-local.md#v2) versão 2.6.666 ou posterior
 - [Gradle](https://gradle.org/), versão 4,10 e posterior
@@ -126,7 +126,7 @@ Isso cria os seguintes recursos no Azure, com base nos valores no arquivo Build.
 
 + Grupo de recursos. Nomeado com o _resourceGroup_ fornecido.
 + Conta de armazenamento. Necessária para o Functions. O nome é gerado aleatoriamente de acordo com os requisitos de nome da conta de armazenamento.
-+ Plano do Serviço de Aplicativo. Plano de consumo sem servidor que hospeda para seu aplicativo de funções no _appRegion_especificado. O nome é gerado aleatoriamente.
++ Plano do Serviço de Aplicativo. Plano de consumo sem servidor que hospeda para seu aplicativo de funções no _appRegion_ especificado. O nome é gerado aleatoriamente.
 + Aplicativo de funções. Um aplicativo de funções é a unidade de implantação e execução para suas funções. O nome é o _appName_, acrescentado a um número gerado aleatoriamente. 
 
 A implantação também empacota os arquivos de projeto e implanta-os no novo aplicativo de funções usando [zip deployment](functions-deployment-technologies.md#zip-deploy), com o modo run-from-package habilitado.

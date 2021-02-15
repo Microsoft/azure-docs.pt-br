@@ -5,15 +5,15 @@ author: suchiagicha
 ms.topic: conceptual
 ms.date: 06/29/2017
 ms.author: pepogors
-ms.openlocfilehash: 89a7a545dd334f892ee27b97995de40d7b6416dc
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 9c7d466d6e8fd36b4445966b92ee753becf96c64
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86245918"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791754"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-service-remoting"></a>Diagnóstico e monitoramento de desempenho para Reliable Service Remoting
-O runtime do Reliable ServiceRemoting emite [contadores de desempenho](/dotnet/api/system.diagnostics.performancecounter?view=dotnet-plat-ext-3.1). Esses recursos fornecem informações sobre como o ServiceRemoting está operando e ajudam na solução de problemas e no monitoramento de desempenho.
+O runtime do Reliable ServiceRemoting emite [contadores de desempenho](/dotnet/api/system.diagnostics.performancecounter). Esses recursos fornecem informações sobre como o ServiceRemoting está operando e ajudam na solução de problemas e no monitoramento de desempenho.
 
 
 ## <a name="performance-counters"></a>Contadores de desempenho
@@ -36,7 +36,7 @@ Para a categoria `Service Fabric Service`, os nomes da instância do contador es
 
 `ServiceFabricPartitionID_ServiceReplicaOrInstanceId_ServiceRuntimeInternalID`
 
-*ServiceFabricPartitionID* é a representação de cadeia de caracteres da ID de partição de Service Fabric à qual a instância do contador de desempenho está associada. A ID de partição é um GUID, e sua representação de cadeia de caracteres é gerada por meio do [`Guid.ToString`](/dotnet/api/system.guid.tostring?view=netcore-3.1#System_Guid_ToString_System_String_) método com o especificador de formato "D".
+*ServiceFabricPartitionID* é a representação de cadeia de caracteres da ID de partição de Service Fabric à qual a instância do contador de desempenho está associada. A ID de partição é um GUID, e sua representação de cadeia de caracteres é gerada por meio do [`Guid.ToString`](/dotnet/api/system.guid.tostring#System_Guid_ToString_System_String_) método com o especificador de formato "D".
 
 *ServiceReplicaOrInstanceID* é a representação da cadeia de caracteres da ID da Réplica/Instância do Service Fabric à qual a instância do contador de desempenho está associada.
 
@@ -57,7 +57,7 @@ Para a categoria `Service Fabric Service Method`, os nomes da instância do cont
 
 *ServiceRuntimeMethodID* é a representação da cadeia de caracteres de um inteiro de 32 bits que é gerada pelo tempo de execução do Fabric Service para seu uso interno. Isso está incluído no nome da instância do contador de desempenho para garantir sua exclusividade e evitar conflito com outros nomes da instância do contador de desempenho. Os usuários não devem tentar interpretar essa parte do nome da instância do contador de desempenho.
 
-*ServiceFabricPartitionID* é a representação de cadeia de caracteres da ID de partição de Service Fabric à qual a instância do contador de desempenho está associada. A ID de partição é um GUID, e sua representação de cadeia de caracteres é gerada por meio do [`Guid.ToString`](/dotnet/api/system.guid.tostring?view=netcore-3.1#System_Guid_ToString_System_String_) método com o especificador de formato "D".
+*ServiceFabricPartitionID* é a representação de cadeia de caracteres da ID de partição de Service Fabric à qual a instância do contador de desempenho está associada. A ID de partição é um GUID, e sua representação de cadeia de caracteres é gerada por meio do [`Guid.ToString`](/dotnet/api/system.guid.tostring#System_Guid_ToString_System_String_) método com o especificador de formato "D".
 
 *ServiceReplicaOrInstanceID* é a representação da cadeia de caracteres da ID da Réplica/Instância do Service Fabric à qual a instância do contador de desempenho está associada.
 

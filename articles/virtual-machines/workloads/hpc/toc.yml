@@ -22,6 +22,12 @@
               href: hb-series-overview.md
             - name: Desempenho
               href: hb-series-performance.md
+        - name: Série HBv2
+          items:
+            - name: Visão geral
+              href: hbv2-series-overview.md
+            - name: Desempenho
+              href: hbv2-performance.md
         - name: Série HC
           items:
             - name: Visão geral

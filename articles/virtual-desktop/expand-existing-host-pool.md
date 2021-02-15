@@ -3,15 +3,15 @@ title: Expandir o pool de hosts existente com novos hosts de sessão-Azure
 description: Como expandir um pool de hosts existente com novos hosts de sessão na área de trabalho virtual do Windows.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 04/30/2020
+ms.date: 10/09/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 339fe25a5a75ca8bc5cc0af7c4d96651e90c7eb6
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: b65560a3b10d04887040c4da1e137912810b3095
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88002436"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91929584"
 ---
 # <a name="expand-an-existing-host-pool-with-new-session-hosts"></a>Expandir um pool de hosts existente com novos hosts de sessão
 
@@ -39,7 +39,7 @@ Você também precisará das seguintes informações ao criar pela primeira vez 
 
 Para expandir o pool de hosts adicionando máquinas virtuais:
 
-1. Entre no Portal do Azure.
+1. Entre no portal do Azure.
 
 2. Pesquise e selecione **Área de Trabalho Virtual do Windows**.
 
@@ -56,7 +56,7 @@ Para expandir o pool de hosts adicionando máquinas virtuais:
 8. Insira o número de hosts de sessão que você deseja adicionar ao seu pool de hosts em **número de VMs**. Por exemplo, se você estiver expandindo o pool de hosts em cinco hosts, insira **5**.
 
     >[!NOTE]
-    >Você não pode editar o tamanho ou a imagem das VMs porque é importante garantir que todas as VMs no pool de hosts tenham o mesmo tamanho.
+    >Embora seja possível editar a imagem e o prefixo das VMs, não recomendamos editá-las se você tiver VMs com imagens diferentes no mesmo pool de hosts. Edite a imagem e o prefixo somente se você planeja remover VMs com imagens mais antigas do pool de hosts afetados.
 
 9. Para obter as **informações da rede virtual**, selecione a rede virtual e a sub-rede às quais você deseja que as máquinas virtuais sejam unidas. Você pode selecionar a mesma rede virtual que seus computadores existentes usam atualmente ou escolher outro que seja mais adequado para a região que você selecionou na etapa 7.
 
@@ -67,7 +67,7 @@ Para expandir o pool de hosts adicionando máquinas virtuais:
 
 11. Selecione a guia **marca** se você tiver marcas nas quais deseja agrupar as máquinas virtuais. Caso contrário, ignore esta guia.
 
-12. Selecione a guia **revisar + criar** . revise suas escolhas e, se tudo estiver correto, selecione **criar**.
+12. Selecione a guia **revisar + criar** . Examine suas escolhas e, se tudo estiver correto, selecione **criar**.
 
 ## <a name="next-steps"></a>Próximas etapas
 

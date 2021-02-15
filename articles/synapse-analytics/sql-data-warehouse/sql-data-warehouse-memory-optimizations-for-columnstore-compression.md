@@ -1,6 +1,6 @@
 ---
-title: Melhorar o desempenho do índice columnstore
-description: Reduza os requisitos de memória ou aumente a memória disponível para maximizar o número de linhas em cada rowgroup.
+title: Melhorar o desempenho do índice columnstore para o pool do SQL dedicado
+description: Reduza os requisitos de memória ou aumente a memória disponível para maximizar o número de linhas em cada rowgroup no pool SQL dedicado.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -11,14 +11,14 @@ ms.date: 03/22/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 85a9c758f46150c422b55c6ac5cf7e62a429c74f
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: d668c3e505d6849d3cde52d52698a95c1c5647d9
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88797761"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98676155"
 ---
-# <a name="maximizing-rowgroup-quality-for-columnstore"></a>Maximizando a qualidade do grupo de linhas para o columnstore
+# <a name="maximizing-rowgroup-quality-for-columnstore-indexes-in-dedicated-sql-pool"></a>Maximizando a qualidade do rowgroup para índices columnstore no pool SQL dedicado 
 
 A qualidade do grupo de linhas é determinada pelo número de linhas em um grupo de linhas. Aumentar a memória disponível pode maximizar o número de linhas que um índice columnstore compacta em cada rowgroup.  Use estes métodos para melhorar as taxas de compactação e o desempenho da consulta em índices columnstore.
 
@@ -28,7 +28,7 @@ Como um índice columnstore examina uma tabela com o exame de segmentos de colun
 
 Quando os rowgroups têm um número elevado de linhas, a compactação de dados melhora, o que significa que há menos dados para serem lidos do disco.
 
-Para obter mais informações sobre rowgroups, consulte [Guia de índices Columnstore](/sql/relational-databases/indexes/columnstore-indexes-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+Para obter mais informações sobre rowgroups, consulte [Guia de índices Columnstore](/sql/relational-databases/indexes/columnstore-indexes-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 ## <a name="target-size-for-rowgroups"></a>Tamanho de destino para rowgroups
 
@@ -42,11 +42,11 @@ Durante um carregamento em massa ou uma recompilação de índices columnstore, 
 
 Quando não houver memória suficiente para compactar pelo menos 10.000 linhas em cada rowgroup, um erro será gerado.
 
-Para obter mais informações sobre o carregamento em massa, consulte [Carregamento em massa em um índice columnstore clusterizado](/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+Para obter mais informações sobre o carregamento em massa, consulte [Carregamento em massa em um índice columnstore clusterizado](/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 ## <a name="how-to-monitor-rowgroup-quality"></a>Como monitorar a qualidade do grupo de linhas
 
-O DMV sys. dm_pdw_nodes_db_column_store_row_group_physical_stats ([Sys. dm_db_column_store_row_group_physical_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) contém a definição de exibição correspondente ao banco de dados SQL) que expõe informações úteis, como o número de linhas em RowGroups e o motivo para corte, se houver corte.
+O sys.dm_pdw_nodes_db_column_store_row_group_physical_stats de DMV ([Sys.dm_db_column_store_row_group_physical_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) contém a definição de exibição correspondente ao banco de dados SQL) que expõe informações úteis, como o número de linhas em RowGroups e o motivo para corte, se houver corte.
 
 Você pode criar a exibição a seguir como uma maneira útil consultar essa DMV para obter informações sobre a fragmentação do grupo de linhas.
 
@@ -75,9 +75,6 @@ select *
 from cte;
 ```
 
->[!TIP]
-> Para melhorar o desempenho no Synapse SQL, considere usar **Sys. pdw_permanent_table_mappings** em vez de **Sys. pdw_table_mappings** em tabelas de usuário permanentes. Consulte **[Sys. pdw_permanent_table_mappings &#40;&#41;Transact-SQL ](/sql/relational-databases/system-catalog-views/sys-pdw-permanent-table-mappings-transact-sql?view=azure-sqldw-latest)** para obter mais informações.
-
 O trim_reason_desc informa se o grupo de linhas foi cortado (trim_reason_desc = NO_TRIM implica que não houve corte e grupo de linhas é de melhor qualidade). Os motivos de corte a seguir indicam prematuro corte do grupo de linhas:
 
 - CARREGAMENTO EM MASSA: Esse motivo de corte é usado quando o lote de entrada de linhas para a carga tinha menos de 1 milhão de linhas. O mecanismo criará grupos de linhas compactado se houver mais que 100.000 linhas sendo inseridas (em vez de inserir no repositório delta), mas define o motivo do corte para CARREGAMENTO EM MASSA. Nesse cenário, considere aumentar a carga do lote para incluir mais linhas. Além disso, reavalie seu esquema de particionamento para garantir que ele não seja muito granular, pois grupos de linhas não podem abranger limites de partição.
@@ -102,7 +99,7 @@ O máximo de memória necessário para compactar um rowgroup é aproximadamente
 
 As cadeias de caracteres longas são compactadas com um método de compactação projetado para a compactação de texto. Esse método de compactação usa um *dicionário* para armazenar os padrões de texto. O tamanho máximo de um dicionário é de 16 MB. Há apenas um dicionário para cada coluna de cadeia de caracteres longa no rowgroup.
 
-Para uma discussão aprofundada sobre os requisitos de memória columnstore, consulte o vídeo [Synapse o dimensionamento do pool SQL: configuração e diretrizes](https://channel9.msdn.com/Events/Ignite/2016/BRK3291).
+Para uma discussão aprofundada sobre os requisitos de memória columnstore, confira o vídeo [conjunto de pools de SQL dedicado: configuração e diretrizes](https://channel9.msdn.com/Events/Ignite/2016/BRK3291).
 
 ## <a name="ways-to-reduce-memory-requirements"></a>Maneiras de reduzir os requisitos de memória
 
@@ -125,7 +122,7 @@ Requisitos de memória adicionais para a compactação de cadeia de caracteres:
 
 ### <a name="avoid-over-partitioning"></a>Evitar o excesso de particionamento
 
-Os índices Columnstore criam um ou mais rowgroups por partição. Para o pool do SQL no Azure Synapse Analytics, o número de partições aumenta rapidamente porque os dados são distribuídos e cada distribuição é particionada.
+Os índices Columnstore criam um ou mais rowgroups por partição. Para o pool SQL dedicado no Azure Synapse Analytics, o número de partições aumenta rapidamente porque os dados são distribuídos e cada distribuição é particionada.
 
 Se a tabela tiver um número excessivo de partições, talvez não haja linhas suficientes para preencher os rowgroups. A falta de linhas não cria pressão de memória durante a compactação. Mas, ele leva a grupos de colunas que não atingem o melhor desempenho de consulta columnstore.
 
@@ -168,4 +165,4 @@ Para aumentar a concessão de memória para uma consulta de carga, você pode au
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para encontrar mais maneiras de melhorar o desempenho do pool SQL, consulte a [visão geral de desempenho](cheat-sheet.md).
+Para encontrar mais maneiras de melhorar o desempenho do pool SQL dedicado, consulte a [visão geral de desempenho](cheat-sheet.md).

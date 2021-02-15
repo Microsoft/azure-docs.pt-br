@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
-ms.openlocfilehash: dc444c0179078713f9586c47c0138fe15f246a5f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 36ba61c86082e191831c2c890de4466181f1a4db
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88530379"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97674173"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-central-desktop"></a>Tutorial: Integração do Active Directory do Azure ao Central Desktop
 
@@ -27,7 +27,7 @@ A integração da Área de Trabalho Central ao Azure AD oferece os seguintes ben
 * Você pode permitir que os usuários sejam conectados automaticamente ao Central Desktop (logon único) com suas contas do Azure AD.
 * Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](../manage-apps/what-is-single-sign-on.md).
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Prerequisites
@@ -63,7 +63,7 @@ Para configurar a integração da Área de Trabalho Central ao Azure AD, você p
 
 4. Na caixa de pesquisa, digite **Central Desktop**, selecione **Central Desktop** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
-     ![Área de Trabalho Central na lista de resultados](common/search-new-app.png)
+    ![Área de Trabalho Central na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
@@ -104,7 +104,7 @@ Para configurar o logon único do Azure AD com o Central Desktop, execute as seg
     a. Na caixa de texto **URL de Entrada** digite uma URL usando o seguinte padrão: `https://<companyname>.centraldesktop.com`
 
     b. Na caixa **Identificador**, digite uma URL usando o seguinte padrão:
-    
+
     ```http
     https://<companyname>.centraldesktop.com/saml2-metadata.php
     https://<companyname>.imeetcentral.com/saml2-metadata.php
@@ -152,7 +152,7 @@ Para configurar o logon único do Azure AD com o Central Desktop, execute as seg
 4. Na seção **Método de Verificação de Assinatura de Mensagem**, execute as seguintes etapas:
 
     ![Método de verificação de assinatura de mensagem](./media/central-desktop-tutorial/ic769565.png "Método de Verificação de Assinatura de Mensagem")
-    
+
     a. Selecione **Certificado**.
 
     b. Na lista **Certificado de SSO**, selecione **RSH SHA256**.
@@ -180,7 +180,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
     a. No campo **Nome**, insira **BrendaFernandes**.
-  
+
     b. No campo **Nome de usuário**, digite **brendafernandes\@dominiodaempresa.extensao**  
     Por exemplo, BrittaSimon@contoso.com
 
@@ -236,7 +236,7 @@ Para que usuários do Azure AD consigam entrar, eles devem ser provisionados no 
 4. Selecione **Adicionar Membro(s) Interno(s)** .
 
     ![Adicionar membro interno](./media/central-desktop-tutorial/ic781053.png "Adicionar membro interno")
-  
+
    > [!NOTE]
    > Os usuários que você adicionar recebem um email que inclui um link de confirmação para ativar suas contas.
 
@@ -244,12 +244,12 @@ Para que usuários do Azure AD consigam entrar, eles devem ser provisionados no 
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Ao clicar no bloco do Central Desktop no Painel de Acesso, você deverá ser conectado automaticamente ao Central Desktop, para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao clicar no bloco do Central Desktop no Painel de Acesso, você deverá ser conectado automaticamente ao Central Desktop, para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](./tutorial-list.md)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)

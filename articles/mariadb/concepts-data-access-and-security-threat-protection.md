@@ -1,17 +1,17 @@
 ---
 title: Proteção avançada contra ameaças-banco de dados do Azure para MariaDB
 description: A Proteção Avançada contra Ameaças detecta as atividades anormais do banco de dados que indicam possíveis ameaças de segurança ao banco de dados.
-author: ajlam
-ms.author: andrela
-ms.service: mariadb
+author: savjani
+ms.author: pariks
+ms.service: jroth
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 8485907eba75f80c8f0ed4fd0cc7368c6147b9fd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 98eacad1b8a10be175846401eaa733c888f765e1
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79532171"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98661612"
 ---
 # <a name="azure-database-for-mariadb-advanced-threat-protection"></a>Banco de dados do Azure para proteção avançada contra ameaças do MariaDB
 
@@ -42,6 +42,6 @@ A proteção avançada contra ameaças para o banco de dados do Azure para Maria
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Saiba mais sobre a [Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-intro)
+* Saiba mais sobre a [Central de Segurança do Azure](../security-center/security-center-introduction.md)
 * Para obter mais informações sobre preços, consulte a [página de preços do banco de dados do Azure para MariaDB](https://azure.microsoft.com/pricing/details/mariadb/) 
-* Configurar o [banco de dados do Azure para proteção avançada contra ameaças do MariaDB](howto-database-threat-protection-portal.md) usando o portal do Azure  
+* Configurar o [banco de dados do Azure para proteção avançada contra ameaças do MariaDB](howto-database-threat-protection-portal.md) usando o portal do Azure

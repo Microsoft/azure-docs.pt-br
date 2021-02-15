@@ -3,7 +3,7 @@ title: Descubra quando um usuário específico poderá acessar um aplicativo
 description: Como saber quando um usuário extremamente importante é capaz de acessar um aplicativo que você configurou para o provisionamento do usuário com o Azure AD
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/03/2019
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 307a97b71fe453c89617a86a88063e60fcf28fa3
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 890c4a8a5aec3b15b150908c64bb114bd85a61a1
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88235053"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99256755"
 ---
 # <a name="check-the-status-of-user-provisioning"></a>Verificar o status do provisionamento do usuário
 
@@ -35,7 +35,7 @@ Quando você configura o provisionamento automático pela primeira vez, a seçã
 
 Após a conclusão de um ciclo de provisionamento, a seção **estatísticas até a data** mostra os números cumulativos de usuários e grupos que foram provisionados até a data, junto com a data de conclusão e a duração do último ciclo. A **ID da atividade** identifica exclusivamente o ciclo de provisionamento mais recente. A **ID do trabalho** é um identificador exclusivo para o trabalho de provisionamento e é específica para o aplicativo em seu locatário.
 
-O progresso do provisionamento pode ser exibido na portal do Azure, na guia ** &gt; &gt; \[ \] &gt; provisionamento de nome de aplicativo do Azure Active Directory Enterprise apps** .
+O progresso do provisionamento pode ser exibido na portal do Azure, na guia **&gt; &gt; \[ \] &gt; provisionamento de nome de aplicativo do Azure Active Directory Enterprise apps** .
 
 ![Barra de progresso da página de provisionamento](./media/application-provisioning-when-will-provisioning-finish-specific-user/provisioning-progress-bar-section.png)
 

@@ -9,13 +9,13 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/03/2019
-ms.author: angle
-ms.openlocfilehash: fe38c6b7cfb1abbaf3f1079dd8bff66b51b98091
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.author: shlo
+ms.openlocfilehash: f1889d49d1eb4981e59af6248817a6a9b6e2002d
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74776378"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99537248"
 ---
 # <a name="disclosure-design-guidelines"></a>Diretrizes de design de divulgação
 Saiba como criar e manter a confiança com os clientes ao ser transparente sobre a natureza sintética da sua experiência de voz.
@@ -56,7 +56,7 @@ Considerando o vasto corpo de diretrizes de design sobre experiências de voz, n
 3. [**Quando divulgar**](concepts-disclosure-patterns.md#when-to-disclose): um tempo ideal para divulgar durante o percurso do usuário
 
 ## <a name="disclosure-assessment"></a>Avaliação de divulgação
-Considere seus usuários&#39; expectativas sobre uma interação e o contexto no qual eles terão a voz. Se o contexto tornar claro que uma voz sintética está &quot;falando,&quot; a divulgação poderá ser mínima, momentânea ou ainda desnecessária. Os principais tipos de contexto que afetam a divulgação incluem tipo persona, tipo de cenário e nível de exposição. Também ajuda a considerar quem pode estar ouvindo.
+Considere seus usuários&#39; expectativas sobre uma interação e o contexto no qual eles terão a voz. Se o contexto tornar claro que uma voz sintética está &quot; falando, a &quot; divulgação poderá ser mínima, momentânea ou ainda desnecessária. Os principais tipos de contexto que afetam a divulgação incluem tipo persona, tipo de cenário e nível de exposição. Também ajuda a considerar quem pode estar ouvindo.
 
 ### <a name="understand-context"></a>Entender o contexto
 
@@ -74,12 +74,8 @@ Use o diagrama a seguir para determinar se sua experiência de voz sintética re
 
   ![Diagrama de avaliação de divulgação](media/responsible-ai/disclosure-guidelines/flowchart.png)
 
-## <a name="reference-docs"></a>Documentos de Referência
-
-* [Divulgação para talento de voz](https://aka.ms/disclosure-voice-talent)
-* [Diretrizes para a implantação responsável da tecnologia de voz sintética](concepts-guidelines-responsible-deployment-synthetic.md)
-* [Visão geral da retenção](concepts-gating-overview.md)
-
-## <a name="next-steps"></a>Próximas etapas
+## <a name="see-also"></a>Confira também
 
 * [Padrões de design de divulgação](concepts-disclosure-patterns.md)
+* [Divulgação para talento de voz](https://docs.microsoft.com/legal/cognitive-services/speech-service/disclosure-voice-talent?context=/azure/cognitive-services/speech-service/context/context)
+* [Diretrizes para a implantação responsável da tecnologia de voz sintética](concepts-guidelines-responsible-deployment-synthetic.md)

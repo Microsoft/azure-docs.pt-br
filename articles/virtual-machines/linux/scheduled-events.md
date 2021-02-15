@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.date: 06/01/2020
 ms.author: ericrad
 ms.reviewer: mimckitt
-ms.openlocfilehash: fee57efb3517131049f986c743125f17573fdc34
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 3bda1e2076e29fc1365bfc236adc9071db2564a1
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816721"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104732"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Serviço de Metadados do Azure: Eventos Agendados para VMs do Linux
 
@@ -71,7 +71,7 @@ Para VMs habilitadas para VNET, o serviço de metadados está disponível de um 
 Se a VM não for criada em uma Rede Virtual, os casos padrão para serviços de nuvem e VMs clássicas, uma lógica adicional será necessária para descobrir o endereço IP a ser utilizado. Consulte esse exemplo para saber como [descobrir o ponto de extremidade do host](https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm).
 
 ### <a name="version-and-region-availability"></a>Disponibilidade de Versão e Região
-O serviço de Eventos Agendados tem controle de versão. As versões são obrigatórias; a versão atual é `2019-01-01`.
+O serviço de Eventos Agendados tem controle de versão. As versões são obrigatórias; a versão atual é `2019-08-01`.
 
 | Versão | Tipo de Versão | Regiões | Notas de versão | 
 | - | - | - | - | 
@@ -135,7 +135,7 @@ No caso de haver eventos agendados, a resposta contém uma matriz de eventos.
 | EventId | Identificador global exclusivo para esse evento. <br><br> Exemplo: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
 | EventType | Impacto desse evento. <br><br> Valores: <br><ul><li> `Freeze`: A máquina virtual está agendada para ser colocada em pausa por alguns segundos. A conectividade de CPU e rede pode ser suspensa, mas não há nenhum impacto na memória ou arquivos abertos.<li>`Reboot`: A Máquina Virtual está agendada para ser reinicializada (a memória não persistente é perdida). <li>`Redeploy`: A Máquina Virtual está agendada para ser movida para outro nó (os discos efêmeros são perdidos). <li>`Preempt`: A máquina virtual spot está sendo excluída (discos efêmeros são perdidos). <li> `Terminate`: a máquina virtual está agendada para ser excluída. |
 | ResourceType | O tipo de recurso que esse evento afeta. <br><br> Valores: <ul><li>`VirtualMachine`|
-| Recursos| A lista de recursos que esse evento afeta. É garantido que a lista contém máquinas de no máximo um [domínio de atualização](manage-availability.md), mas pode não conter todas as máquinas no UD. <br><br> Exemplo: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
+| Recursos| A lista de recursos que esse evento afeta. É garantido que a lista contém máquinas de no máximo um [domínio de atualização](../manage-availability.md), mas pode não conter todas as máquinas no UD. <br><br> Exemplo: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
 | EventStatus | Status desse evento. <br><br> Valores: <ul><li>`Scheduled`: Esse evento está agendado para ser iniciado após o tempo especificado na propriedade `NotBefore`.<li>`Started`: Esse evento foi iniciado.</ul> Nenhum `Completed` ou status semelhante é fornecido em nenhum momento. O evento não é mais retornado quando é concluído.
 | NotBefore| Tempo após o qual esse evento pode começar. <br><br> Exemplo: <br><ul><li> Segunda-feira, 19 de setembro de 2016 18:29:47 GMT  |
 | Descrição | A descrição deste evento. <br><br> Exemplo: <br><ul><li> O servidor host está passando por manutenção. |
@@ -154,6 +154,10 @@ Cada evento é agendado uma quantidade mínima de tempo no futuro com base no ti
 
 > [!NOTE] 
 > Em alguns casos, o Azure é capaz de prever a falha do host devido a hardware degradado e agendará uma migração para tentar reduzir a interrupção em seu serviço. As máquinas virtuais afetadas receberão um evento agendado com um `NotBefore`, que normalmente é de alguns dias no futuro. O tempo real depende da avaliação de risco da falha prevista. O Azure tenta avisar com sete dias de antecedência, quando possível, mas o tempo real varia e poderá ser menor se houver uma previsão de grande chance de falha de software iminente. Para minimizar o risco para o serviço caso o hardware falhe antes da migração iniciada pelo sistema, recomendamos que você reimplante sua máquina virtual assim que possível.
+
+### <a name="polling-frequency"></a>Frequência de sondagem
+
+Você pode sondar o ponto de extremidade para atualizações com frequência ou com pouca frequência como desejar. No entanto, quanto maior o tempo entre as solicitações, mais tempo você pode perder para reagir a um evento futuro. A maioria dos eventos tem de 5 a 15 minutos de aviso prévio, embora, em alguns casos, o aviso de antecedência possa ser de até 30 segundos. Para garantir que você tenha o máximo de tempo possível para realizar ações de mitigação, recomendamos que você monitore o serviço uma vez por segundo.
 
 ### <a name="start-an-event"></a>Iniciar um evento 
 

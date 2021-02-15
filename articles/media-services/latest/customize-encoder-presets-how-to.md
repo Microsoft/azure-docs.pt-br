@@ -1,25 +1,27 @@
 ---
-title: Codificar transformação personalizada usando os serviços de mídia v3 .NET-Azure | Microsoft Docs
+title: Codificar .NET de transformação personalizada
 description: Este tópico mostra como usar os serviços de mídia do Azure V3 para codificar uma transformação personalizada usando o .NET.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
-ms.topic: article
-ms.date: 05/03/2019
-ms.author: juliako
+ms.topic: how-to
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 28525c198bb6863e942f5ff33d17226769efdc21
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c8c9f1deb1b776a818269909b3feb19f00a2c356
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87001138"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954269"
 ---
 # <a name="how-to-encode-with-a-custom-transform---net"></a>Como codificar com uma transformação personalizada-.NET
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Ao codificar com os serviços de mídia do Azure, você pode começar rapidamente com uma das predefinições internas recomendadas com base nas práticas recomendadas do setor, conforme demonstrado no tutorial de [arquivos de streaming](stream-files-tutorial-with-api.md) . Você também pode criar uma predefinição personalizada para direcionar seus requisitos específicos de cenário ou dispositivo.
 
@@ -34,7 +36,7 @@ Ao criar predefinições personalizadas, as seguintes considerações se aplicam
 
 [Criar uma conta dos Serviços de Mídia](./create-account-howto.md)
 
-## <a name="download-the-sample"></a>Baixar o exemplo
+## <a name="download-the-sample"></a>Baixe o exemplo
 
 Clone um repositório do GitHub que contém o exemplo de .NET Core completo em sua máquina usando o comando a seguir:  
 
@@ -46,7 +48,7 @@ O exemplo de predefinição personalizado está localizado na pasta [EncodeCusto
 
 ## <a name="create-a-transform-with-a-custom-preset"></a>Criar uma transformação com uma predefinição personalizada 
 
-Ao criar uma nova [Transformação](/rest/api/media/transforms), você precisará especificar o que deseja produzir como uma saída. O parâmetro necessário é um objeto [TransformOutput](/rest/api/media/transforms/createorupdate#transformoutput), como mostrado no código a seguir. Cada **TransformOutput** contém um **Predefinição**. A **predefinição** descreve as instruções detalhadas de operações de processamento de vídeo e/ou áudio que devem ser usadas para gerar o **TransformOutput**desejado. O seguinte **TransformOutput** cria configurações personalizadas de saída de codec e camada.
+Ao criar uma nova [Transformação](/rest/api/media/transforms), você precisará especificar o que deseja produzir como uma saída. O parâmetro necessário é um objeto [TransformOutput](/rest/api/media/transforms/createorupdate#transformoutput), como mostrado no código a seguir. Cada **TransformOutput** contém um **Predefinição**. A **predefinição** descreve as instruções detalhadas de operações de processamento de vídeo e/ou áudio que devem ser usadas para gerar o **TransformOutput** desejado. O seguinte **TransformOutput** cria configurações personalizadas de saída de codec e camada.
 
 Ao criar uma [Transformação](/rest/api/media/transforms), você deverá verificar primeiro se já existe uma usando o método **Get**, conforme mostrado no código a seguir. Nos serviços de mídia v3, os métodos **Get** em entidades retornarão **NULL** se a entidade não existir (uma verificação que não diferencia maiúsculas de minúsculas no nome).
 

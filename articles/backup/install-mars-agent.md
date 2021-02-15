@@ -3,12 +3,12 @@ title: Instalar o agente de Serviços de Recuperação do Microsoft Azure (MARS)
 description: Saiba como instalar o agente de Serviços de Recuperação do Microsoft Azure (MARS) para fazer backup de computadores Windows.
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.openlocfilehash: 715153d445acbc372f8305ca39f5276bf8a39773
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: acf38fdf338fcdd0cd7902d4295f0f03310543a8
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533471"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986863"
 ---
 # <a name="install-the-azure-backup-mars-agent"></a>Instalar o agente MARS do backup do Azure
 
@@ -42,10 +42,10 @@ Os dados que estão disponíveis para backup dependem de onde o agente está ins
 
 ## <a name="modify-storage-replication"></a>Modificar a replicação de armazenamento
 
-Por padrão, os cofres usam [GRS (armazenamento com redundância geográfica)](../storage/common/storage-redundancy.md).
+Por padrão, os cofres usam [GRS (armazenamento com redundância geográfica)](../storage/common/storage-redundancy.md#geo-redundant-storage).
 
 * Se o cofre for seu mecanismo de backup primário, recomendamos que você use GRS.
-* Você pode usar o [LRS (armazenamento com redundância local)](../storage/common/storage-redundancy.md?toc=/azure/storage/blobs/toc.json) para reduzir os custos de armazenamento do Azure.
+* Você pode usar o [LRS (armazenamento com redundância local)](../storage/common/storage-redundancy.md#locally-redundant-storage) para reduzir os custos de armazenamento do Azure.
 
 Para modificar o tipo de replicação de armazenamento:
 
@@ -88,6 +88,9 @@ Para usar o emparelhamento público, primeiro garanta o acesso aos seguintes dom
 * `.WindowsAzure.com`
 * `.microsoftonline.com`
 * `.windows.net`
+* Endereços IP
+  * 20.190.128.0/18
+  * 40.126.0.0/18
 
 Para usar o emparelhamento da Microsoft, selecione os seguintes serviços, regiões e valores de comunidade relevantes:
 
@@ -127,11 +130,11 @@ Se você já tiver instalado o agente em qualquer computador, certifique-se de e
 
 1. No menu baixar, selecione **salvar**. Por padrão, o arquivo *MARSagentinstaller.exe* será salvo em sua pasta Downloads.
 
-1. Selecione **já baixar ou usar o agente de serviços de recuperação mais recente**e, em seguida, baixe as credenciais do cofre.
+1. Selecione **já baixar ou usar o agente de serviços de recuperação mais recente** e, em seguida, baixe as credenciais do cofre.
 
     ![Baixar as credenciais do cofre](./media/backup-try-azure-backup-in-10-mins/download-vault-credentials.png)
 
-1. Clique em **Salvar**. O arquivo é baixado para a pasta downloads. Você não pode abrir o arquivo de credenciais do cofre.
+1. Selecione **Salvar**. O arquivo é baixado para a pasta downloads. Você não pode abrir o arquivo de credenciais do cofre.
 
 ## <a name="install-and-register-the-agent"></a>Instalar e registrar o agente
 
@@ -151,7 +154,7 @@ Se você já tiver instalado o agente em qualquer computador, certifique-se de e
 
 1. Para **instalação**, examine os pré-requisitos e selecione **instalar**.
 1. Depois que o agente for instalado, selecione **prosseguir para o registro**.
-1. Na identificação do cofre do **Assistente para servidor de registro**  >  **Vault Identification**, navegue até e selecione o arquivo de credenciais que você baixou. Em seguida, selecione **Avançar**.
+1. Na identificação do cofre do **Assistente para servidor de registro**  >  , navegue até e selecione o arquivo de credenciais que você baixou. Em seguida, selecione **Avançar**.
 
     ![Adicionar credenciais do cofre usando o assistente para registrar servidor](./media/backup-configure-vault/register1.png)
 

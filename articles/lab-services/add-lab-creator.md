@@ -3,15 +3,15 @@ title: Adicionar um usuário como um criador de laboratório no Azure Lab Servic
 description: Este artigo mostra como adicionar um usuário à função de criador de laboratório para uma conta de laboratório no Azure Lab Services. Os criadores de laboratório podem criar laboratórios nessa conta de laboratório.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 34fbf9085f36d008607b648825585d3435cc2895
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a6c89483744f943926f126701d28988358627a27
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85444277"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96435953"
 ---
 # <a name="add-lab-creators-to-a-lab-account-in-azure-lab-services"></a>Adicionar criadores de laboratório a uma conta de laboratório no Azure Lab Services
-Este artigo mostra como adicionar usuários como criadores de laboratório a uma conta de laboratório no Azure Lab Services. Esses usos podem criar laboratórios de sala de aula na conta do laboratório. 
+Este artigo mostra como adicionar usuários como criadores de laboratório a uma conta de laboratório no Azure Lab Services. Esses usos podem criar laboratórios na conta do laboratório. 
 
 ## <a name="add-microsoft-user-account-to-lab-creator-role"></a>Adicionar conta de usuário da Microsoft à função de criador de laboratório
 Para configurar um laboratório de curso em uma conta de laboratório, o usuário deve ser um membro da função **Criador de Laboratório** na conta de laboratório. A conta usada para criar a conta de laboratório é automaticamente adicionada a essa função. Se você planeja usar a mesma conta de usuário para criar um laboratório de curso, poderá pular esta etapa. Para usar outra conta de usuário e criar um laboratório de curso, siga estas etapas: 
@@ -31,7 +31,7 @@ Para fornecer aos educadores a permissão para criar laboratórios para suas cla
 ## <a name="add-a-non-microsoft-account-user-as-a-lab-creator"></a>Adicionar um usuário não conta Microsoft como um criador de laboratório
 Para adicionar um usuário como um criador de laboratório, você usa suas contas de email. Os seguintes tipos de contas de email podem ser usados:
 
-- Uma conta de email fornecida pelo AAD (Office 365 Azure Active Directory da sua universidade). 
+- Uma conta de email fornecida pelo Azure Active Directory da sua universidade (AAD).
 - Uma conta de email da Microsoft, como `@outlook.com` ,, `@hotmail.com` `@msn.com` ou `@live.com` .
 - Uma conta de email que não seja da Microsoft, como uma fornecida pelo Yahoo ou pelo Google. No entanto, esses tipos de contas devem ser vinculados a um conta Microsoft.
 - Uma conta do GitHub. Essa conta deve ser vinculada a um conta Microsoft.
@@ -66,4 +66,4 @@ Veja os artigos a seguir:
 - [Como um proprietário de laboratório, crie e gerencie laboratórios](how-to-manage-classroom-labs.md)
 - [Como um proprietário de laboratório, configure e publique modelos](how-to-create-manage-template.md)
 - [Como um proprietário de laboratório, configure e controle o uso de um laboratório](how-to-configure-student-usage.md)
-- [Como um usuário de laboratório, acesse os laboratórios de sala de aula](how-to-use-classroom-lab.md)
+- [Como usuário do laboratório, laboratórios de acesso](how-to-use-classroom-lab.md)

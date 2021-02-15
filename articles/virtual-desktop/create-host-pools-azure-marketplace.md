@@ -3,15 +3,15 @@ title: Portal do Azure do pool de host da Área de Trabalho Virtual do Windows �
 description: Como criar um pool de host da Área de Trabalho Virtual do Windows usando o portal do Azure.
 author: Heidilohr
 ms.topic: tutorial
-ms.date: 08/21/2020
+ms.date: 09/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 30101d4e9125b0ac283710ebb26205c2bb120766
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 268f1c4bff84a2c9ef67c3f6b5749bc8d0b90e85
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88755476"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735174"
 ---
 # <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>Tutorial: Criar um pool de host com o portal do Azure
 
@@ -47,6 +47,9 @@ Se você ainda não tiver uma assinatura do Azure, [crie uma conta](https://azur
 Para começar a criar seu pool de host:
 
 1. Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com/).
+   
+   >[!NOTE]
+   > Se estiver entrando no portal US Gov, acesse [https://portal.azure.us/](https://portal.azure.us/).
 
 2. Insira **Área de Trabalho Virtual do Windows** na barra de pesquisa e, em seguida, localize e selecione **Área de Trabalho Virtual do Windows** em serviços.
 
@@ -72,7 +75,7 @@ Para começar a criar seu pool de host:
       > [!div class="mx-imgBorder"]
       > ![Uma captura de tela do menu suspenso do campo de tipo de atribuição. O usuário selecionou Automático.](media/assignment-type-field.png)
 
-9. Se você escolher **Em pool**, insira as seguintes informações:
+9.  Se você escolher **Em pool**, insira as seguintes informações:
 
      - Para **Limite máximo de sessão**, insira o número máximo de usuários cuja carga você deseja balancear para um host de sessão.
      - Para **Algoritmo de balanceamento de carga**, escolha amplitude primeiro ou profundidade primeiro conforme seu padrão de uso.
@@ -115,7 +118,7 @@ Para configurar sua máquina virtual dentro do processo de configuração do poo
       - Windows 10 Enterprise multissessão, versão 2004
       - Windows 10 Enterprise multissessão, versão 2004 + Aplicativos Microsoft 365
 
-     Se você não vir a imagem desejada, selecione **Procurar todas as imagens e discos**, o que permite que você selecione outra imagem na galeria ou uma imagem fornecida pela Microsoft e outros editores.
+     Se você não vir a imagem desejada, selecione **Procurar todas as imagens e discos**, o que permite que você selecione outra imagem na galeria ou uma imagem fornecida pela Microsoft e outros editores. Verifique se a imagem escolhida é uma das [imagens do sistema operacional com suporte](overview.md#supported-virtual-machine-os-images).
 
      > [!div class="mx-imgBorder"]
      > ![Uma captura de tela do Marketplace com uma lista de imagens da Microsoft exibida.](media/marketplace-images.png)
@@ -129,9 +132,11 @@ Para configurar sua máquina virtual dentro do processo de configuração do poo
 
 7. Escolha o tipo de discos do SO que você deseja que suas VMs usem: SSD Standard, SSD Premium ou HDD Standard.
 
-8. Em Rede e Segurança, selecione a **Rede virtual** e a **Sub-rede** em que você deseja colocar as máquinas virtuais criadas. Verifique se a rede virtual consegue se conectar ao controlador de domínio, pois você precisará ingressar as máquinas virtuais dentro da rede virtual ao domínio. Em seguida, selecione se deseja ou não um IP público para as máquinas virtuais. Recomendamos que você selecione **Não**, pois um IP privado é mais seguro.
+8. Em Rede e Segurança, selecione a **Rede virtual** e a **Sub-rede** em que você deseja colocar as máquinas virtuais criadas. Verifique se a rede virtual consegue se conectar ao controlador de domínio, pois você precisará ingressar as máquinas virtuais dentro da rede virtual ao domínio. Os servidores DNS da rede virtual que você selecionou devem ser configurados para usar o IP do controlador de domínio.
 
-9. Selecione o tipo de grupo de segurança desejado: **Básico**, **Avançado** ou **Nenhum**.
+9. Em seguida, selecione se deseja um IP público para as máquinas virtuais. Recomendamos que você selecione **Não** porque um IP privado é mais seguro.
+
+10. Selecione o tipo de grupo de segurança desejado: **Básico**, **Avançado** ou **Nenhum**.
 
     Se você selecionar **Básico**, precisará selecionar se deseja que qualquer porta de entrada seja aberta. Se você selecionar **Sim**, escolha na lista de portas padrão para permitir conexões de entrada.
 
@@ -143,11 +148,13 @@ Para configurar sua máquina virtual dentro do processo de configuração do poo
 
     Se você escolher **Avançado**, selecione um grupo de segurança de rede existente que você já configurou.
 
-10. Depois disso, selecione se deseja que as máquinas virtuais sejam ingressadas em um domínio específico e em uma unidade organizacional. Se você escolher **Sim**, especifique o domínio para ingressar. Opcionalmente, você pode adicionar uma unidade organizacional específica na qual deseja que as máquinas virtuais estejam. Se você escolher **Não**, as VMs serão unidas ao domínio que corresponde ao sufixo da **UPN de ingresso no domínio do AD**.
+11. Depois disso, selecione se deseja que as máquinas virtuais sejam ingressadas em um domínio específico e em uma unidade organizacional. Se você escolher **Sim**, especifique o domínio para ingressar. Opcionalmente, você pode adicionar uma unidade organizacional específica na qual deseja que as máquinas virtuais estejam. Se você escolher **Não**, as VMs serão unidas ao domínio que corresponde ao sufixo da **UPN de ingresso no domínio do AD**.
 
-11. Em Conta do administrador, insira as credenciais para o administrador da rede virtual do Domínio do Active Directory que você selecionou.
+  - Ao especificar uma unidade organizacional, lembre-se de usar o caminho completo (nome diferenciado) e não usar aspas.
 
-12. Selecione **Avançar: Workspace >** .
+12. Em Conta do administrador, insira as credenciais para o administrador da rede virtual do Domínio do Active Directory que você selecionou. Essa conta não pode ter a MFA (autenticação multifator) habilitada. Ao ingressar em um domínio do Azure AD DS (Azure Active Directory Domain Services), a conta precisa fazer parte do grupo de administradores do Azure AD DS e a senha da conta precisa funcionar no Azure AD DS.
+
+13. Selecione **Avançar: Workspace >** .
 
 Com isso, estamos prontos para iniciar a próxima fase de configuração do pool de host: registrar seu grupo de aplicativos em um workspace.
 
@@ -182,6 +189,13 @@ Para registrar o grupo de aplicativos da área de trabalho em um workspace:
      - Um link de download para um modelo de gerenciamento de recursos do Azure com base em sua configuração.
 
 Depois disso, está tudo pronto.
+
+## <a name="run-the-azure-resource-manager-template-to-provision-a-new-host-pool"></a>Executar o modelo do Azure Resource Manager para provisionar um novo pool de host
+
+Se você preferir usar um processo automatizado, [baixe nosso modelo de Azure Resource Manager](https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates) para provisionar o seu novo pool de host.
+
+>[!NOTE]
+>Se você estiver usando um processo automatizado para criar o seu ambiente, precisará da versão mais recente do arquivo JSON de configuração. Você pode localizar o arquivo JSON [aqui](https://wvdportalstorageblob.blob.core.windows.net/galleryartifacts?restype=container&comp=list).
 
 ## <a name="next-steps"></a>Próximas etapas
 

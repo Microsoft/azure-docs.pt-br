@@ -1,22 +1,22 @@
 ---
 title: Compreender dispositivos gêmeos no Hub IoT do Azure| Microsoft Docs
 description: Guia de desenvolvedor ‑ use dispositivos gêmeos para sincronizar os dados de estado e de configuração entre os dispositivos e o Hub IoT
-author: ash2017
+author: nehsin
 manager: philmea
-ms.author: asrastog
+ms.author: nehsin
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 02/01/2020
+ms.date: 09/29/2020
 ms.custom:
 - mqtt
 - 'Role: Cloud Development'
-ms.openlocfilehash: 4887315ddef3f15ee3f6ef5ad80cf8df8b1dcd34
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: b83faecb16ac09a47a0ade25474f7a5b3ecd4296
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327762"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400921"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Entender e usar dispositivos gêmeos no Hub IoT
 
@@ -201,7 +201,7 @@ O back-end da solução funciona no dispositivo gêmeo usando as seguintes opera
 
   - Corpo
         
-    Esta seção inclui todas as alterações gêmeas em um formato JSON. Ele usa o mesmo formato que um patch, com a diferença de que ele pode conter todas as seções de myup: Tags, Properties. reported, Properties. Desired e que ele contém os elementos "$metadata". Por exemplo:
+    Esta seção inclui todas as alterações gêmeas em um formato JSON. Ele usa o mesmo formato que um patch, com a diferença de que ele pode conter todas as seções de myup: Tags, Properties. reported, Properties. Desired e que ele contém os elementos "$metadata". Por exemplo,
 
     ```json
     {
@@ -250,7 +250,7 @@ Marcas, propriedades desejadas e propriedades reportadas são objetos JSON com a
 
 * **Chaves**: todas as chaves em objetos JSON são codificadas em UTF-8, diferencia maiúsculas de minúsculas e até 1 KB de comprimento. Os caracteres permitidos excluem caracteres de controle UNICODE (segmentos C0 e C1) e `.`, `$` e SP.
 
-* **Valores**: todos os valores em objetos JSON podem ser dos seguintes tipos JSON: booliano, número, Cadeia de caracteres, objeto. Não há permissão para matrizes.
+* **Valores**: todos os valores em objetos JSON podem ser dos seguintes tipos JSON: booliano, número, Cadeia de caracteres, objeto. Também há suporte para matrizes.
 
     * Os inteiros podem ter um valor mínimo de-4503599627370496 e um valor máximo de 4503599627370495.
 
@@ -339,7 +339,9 @@ Por exemplo:
             "batteryLevel": "55%",
             "$metadata": {
                 "telemetryConfig": {
-                    "sendFrequency": "5m",
+                    "sendFrequency": {
+                        "$lastUpdated": "2016-03-31T16:35:48.789Z"
+                    },
                     "status": {
                         "$lastUpdated": "2016-03-31T16:35:48.789Z"
                     },

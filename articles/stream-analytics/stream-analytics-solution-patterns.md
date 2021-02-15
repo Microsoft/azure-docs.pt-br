@@ -1,18 +1,17 @@
 ---
 title: Padrões de solução do Azure Stream Analytics
 description: Saiba mais sobre os padrões comuns de solução para Azure Stream Analytics, como painel, mensagens de evento, armazenamentos de dados, enriquecimento de dados de referência e monitoramento.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: sidramadoss
+ms.author: sidram
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: c3d487c1595a077ac8609813a41d15e28ede0e0b
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 1bd3c1099344bd266d7e3bc153613daaecfb412a
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87903316"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020308"
 ---
 # <a name="azure-stream-analytics-solution-patterns"></a>Padrões de solução do Azure Stream Analytics
 
@@ -20,7 +19,7 @@ Como muitos outros serviços no Azure, a Stream Analytics é melhor usada com ou
 
 ## <a name="create-a-stream-analytics-job-to-power-real-time-dashboarding-experience"></a>Crie um trabalho de Stream Analytics para a experiência de criação de painéis em tempo real
 
-Com o Azure Stream Analytics, você pode rapidamente representar painéis e alertas em tempo real. Uma solução simples ingere eventos de hubs de eventos ou Hub IoT e [alimenta o painel de Power bi com um conjunto de dados de streaming](/power-bi/service-real-time-streaming). Para obter mais informações, consulte o tutorial detalhado [analisar dados de chamada telefônica com Stream Analytics e Visualizar resultados no painel Power bi](stream-analytics-manage-job.md).
+Com o Azure Stream Analytics, você pode rapidamente representar painéis e alertas em tempo real. Uma solução simples ingere eventos de hubs de eventos ou Hub IoT e [alimenta o painel de Power bi com um conjunto de dados de streaming](/power-bi/service-real-time-streaming). Para obter mais informações, consulte o tutorial detalhado [analisar dados de chamada fraudulentas com Stream Analytics e Visualizar resultados no painel Power bi](stream-analytics-real-time-fraud-detection.md).
 
 ![Painel Power BI do ASA](media/stream-analytics-solution-patterns/power-bi-dashboard.png)
 
@@ -102,7 +101,7 @@ A maioria das atividades de ciência de dados e análise ainda ocorrem offline. 
 
 ## <a name="use-reference-data-for-enrichment"></a>Usar dados de referência para enriquecimento
 
-O enriquecimento de dados geralmente é um requisito para os mecanismos de ETL. O Azure Stream Analytics dá suporte ao enriquecimento de dados com [dados de referência](stream-analytics-use-reference-data.md) do banco do dados SQL e do armazenamento de BLOBs do Azure. O enriquecimento de dados pode ser feito para a aterrissagem de dados em Azure Data Lake e SQL Data Warehouse.
+O enriquecimento de dados geralmente é um requisito para os mecanismos de ETL. O Azure Stream Analytics dá suporte ao enriquecimento de dados com [dados de referência](stream-analytics-use-reference-data.md) do banco do dados SQL e do armazenamento de BLOBs do Azure. O enriquecimento de dados pode ser feito para a aterrissagem de dados no Azure Data Lake e no Azure Synapse Analytics.
 
 
 ![Análise offline de ASA com enriquecimento de dados](media/stream-analytics-solution-patterns/offline-analytics-enriched.png)
@@ -115,7 +114,7 @@ Se você combinar o padrão de análise offline com o padrão de aplicativo quas
 
 ## <a name="how-to-monitor-asa-jobs"></a>Como monitorar trabalhos do ASA
 
-Um trabalho de Azure Stream Analytics pode ser executado 24/7 para processar eventos de entrada continuamente em tempo real. Sua garantia de tempo de atividade é crucial para a integridade do aplicativo geral. Embora Stream Analytics seja o único serviço de análise de streaming no setor que oferece uma [garantia de disponibilidade de 99,9%](https://azure.microsoft.com/support/legal/sla/stream-analytics/v1_0/), você ainda poderá incorrer em algum nível de tempo de inatividade. Ao longo dos anos, Stream Analytics introduziu métricas, logs e Estados de trabalho para refletir a integridade dos trabalhos. Todos eles são exibidos por meio do serviço Azure Monitor e podem ser exportados para o OMS. Para obter mais informações, consulte [entender Stream Analytics monitoramento de trabalho e como monitorar consultas](stream-analytics-monitoring.md).
+Um trabalho de Azure Stream Analytics pode ser executado 24/7 para processar eventos de entrada continuamente em tempo real. Sua garantia de tempo de atividade é crucial para a integridade do aplicativo geral. Embora Stream Analytics seja o único serviço de análise de streaming no setor que oferece uma  [garantia de disponibilidade de 99,9%](https://azure.microsoft.com/support/legal/sla/stream-analytics/v1_0/), você ainda poderá incorrer em algum nível de tempo de inatividade. Ao longo dos anos, Stream Analytics introduziu métricas, logs e Estados de trabalho para refletir a integridade dos trabalhos. Todos eles são exibidos por meio do serviço Azure Monitor e podem ser exportados para o OMS. Para obter mais informações, consulte [entender Stream Analytics monitoramento de trabalho e como monitorar consultas](stream-analytics-monitoring.md).
 
 ![Monitoramento do ASA](media/stream-analytics-solution-patterns/monitoring.png)
 

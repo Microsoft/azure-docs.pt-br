@@ -1,21 +1,18 @@
 ---
 title: Noções básicas sobre preços Azure Data Factory por meio de exemplos
 description: Este artigo explica e demonstra o modelo de preços do Azure Data Factory com exemplos detalhados
-documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
-manager: jroth
+author: dcstwh
+ms.author: weetok
 ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
-ms.date: 12/27/2019
-ms.openlocfilehash: d679dbb7a14767b83d6508e4b1e637584f33210a
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.date: 09/14/2020
+ms.openlocfilehash: b9f163a7632ca59d4f97aef21d8d62157610ba73
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88949942"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100372800"
 ---
 # <a name="understanding-data-factory-pricing-through-examples"></a>Noções básicas de preços do Data Factory por meio de exemplos
 
@@ -38,7 +35,7 @@ Para executar o cenário, você precisará criar um pipeline com os seguintes it
 
 3. Um gatilho de agenda para executar o pipeline a cada hora.
 
-   ![Cenário1](media/pricing-concepts/scenario1.png)
+   ![O diagrama mostra um pipeline com um gatilho de agendamento. No pipeline, a atividade de cópia flui para um conjunto de dados de entrada, que flui para um serviço vinculado S3 S e A atividade de cópia também flui para um conjunto de dados de saída, que flui para um serviço vinculado do armazenamento do Azure.](media/pricing-concepts/scenario1.png)
 
 | **Operações** | **Tipos e unidades** |
 | --- | --- |
@@ -48,7 +45,7 @@ Para executar o cenário, você precisará criar um pipeline com os seguintes it
 | Obter pipeline | 1 entidade de leitura/gravação |
 | Executar pipeline | 2 Execuções de atividade (1 para execução do gatilho, 1 para execução da atividade) |
 | Suposição ao copiar dados: tempo de execução = 10 min | 10 \* 4 Azure Integration Runtime(configuração DIU padrão = 4) Para obter mais informações sobre unidades de integração de dados e otimização de desempenho de cópia, consulte [este artigo](copy-activity-performance.md) |
-| Suposição de monitoramento do pipeline: ocorreu apenas 1 execução | 2 registros de execução de monitoramento repetidos (1 para execução de pipeline, 1 para execução de atividade) |
+| Suposição de monitoramento do pipeline: ocorreu apenas 1 execução | 2 registros de execução de monitoramento recuperados (1 para execução de pipeline, 1 para execução de atividade) |
 
 **Total de preços do cenário: US$ 0,16811**
 
@@ -69,7 +66,7 @@ Para executar o cenário, você precisará criar um pipeline com os seguintes it
 2. Uma atividade do Azure Databricks para a transformação de dados.
 3. Um gatilho de agenda para executar o pipeline a cada hora.
 
-![Cenário2](media/pricing-concepts/scenario2.png)
+![O diagrama mostra um pipeline com um gatilho de agendamento. No pipeline, a atividade de cópia flui para um conjunto de dados de entrada, um conjunto de dados de saída e uma atividade do databricks, que é executada em Azure Databricks. O conjunto de dados de entrada flui para um serviço vinculado S3 S. O conjunto de resultados de saída flui para um serviço vinculado do armazenamento do Azure.](media/pricing-concepts/scenario2.png)
 
 | **Operações** | **Tipos e unidades** |
 | --- | --- |
@@ -79,7 +76,7 @@ Para executar o cenário, você precisará criar um pipeline com os seguintes it
 | Obter pipeline | 1 entidade de leitura/gravação |
 | Executar pipeline | 3 Execuções de atividade (1 para execução do gatilho, 2 para execução da atividade) |
 | Suposição ao copiar dados: tempo de execução = 10 min | 10 \* 4 Azure Integration Runtime(configuração DIU padrão = 4) Para obter mais informações sobre unidades de integração de dados e otimização de desempenho de cópia, consulte [este artigo](copy-activity-performance.md) |
-| Suposição de monitoramento do pipeline: ocorreu apenas 1 execução | 3 registros de execução de monitoramento repetidos (1 para execução de pipeline, 2 para execução de atividade) |
+| Suposição de monitoramento do pipeline: ocorreu apenas 1 execução | 3 registros de execução de monitoramento recuperados (1 para execução de pipeline, 2 para execução de atividade) |
 | Suposição da atividade Executar Databricks: tempo de execução = 10 min | 10 minutos de execução de atividade do pipeline externo |
 
 **Total de preços do cenário: US$ 0,16916**
@@ -103,7 +100,7 @@ Para executar o cenário, você precisará criar um pipeline com os seguintes it
 3. Uma atividade do Azure Databricks para a transformação de dados.
 4. Um gatilho de agenda para executar o pipeline a cada hora.
 
-![Cenário3](media/pricing-concepts/scenario3.png)
+![O diagrama mostra um pipeline com um gatilho de agendamento. No pipeline, a atividade de cópia flui para um conjunto de dados de entrada, um conjunto de dados de saída e uma atividade de pesquisa que flui para uma atividade do databricks, que é executada em Azure Databricks. O conjunto de dados de entrada flui para um serviço vinculado S3 S. O conjunto de resultados de saída flui para um serviço vinculado do armazenamento do Azure.](media/pricing-concepts/scenario3.png)
 
 | **Operações** | **Tipos e unidades** |
 | --- | --- |
@@ -113,7 +110,7 @@ Para executar o cenário, você precisará criar um pipeline com os seguintes it
 | Obter pipeline | 1 entidade de leitura/gravação |
 | Executar pipeline | 4 Execuções de atividade (1 para execução do gatilho, 3 para execução da atividade) |
 | Suposição ao copiar dados: tempo de execução = 10 min | 10 \* 4 Azure Integration Runtime(configuração DIU padrão = 4) Para obter mais informações sobre unidades de integração de dados e otimização de desempenho de cópia, consulte [este artigo](copy-activity-performance.md) |
-| Suposição de monitoramento do pipeline: ocorreu apenas 1 execução | 4 registros de execução de monitoramento repetidos (1 para execução de pipeline, 3 para execução de atividade) |
+| Suposição de monitoramento do pipeline: ocorreu apenas 1 execução | 4 monitoramento de registros de execução recuperados (1 para execução de pipeline, 3 para execução de atividade) |
 | Suposição da atividade de pesquisa: tempo de execução = 1 min | 1 minuto de execução da atividade do pipeline |
 | Suposição da atividade Executar Databricks: tempo de execução = 10 min | 10 minutos de execução de atividade do pipeline externo |
 
@@ -130,9 +127,13 @@ Para executar o cenário, você precisará criar um pipeline com os seguintes it
 
 ## <a name="using-mapping-data-flow-debug-for-a-normal-workday"></a>Usando a depuração de fluxo de dados de mapeamento para um workday normal
 
-Como engenheiro de dados, você é responsável por criar, criar e testar fluxos de dados de mapeamento todos os dias. Faça logon na interface do usuário do ADF na manhã e habilite o modo de depuração para fluxos de dados. O TTL padrão para sessões de depuração é de 60 minutos. Você trabalha ao longo do dia por 8 horas, portanto, sua sessão de depuração nunca expira. Portanto, sua cobrança pelo dia será:
+Como engenheiro de dados, o Sam é responsável por criar, criar e testar fluxos de dados de mapeamento todos os dias. O Sam faz logon na interface do usuário do ADF na manhã e habilita o modo de depuração para fluxos de dados. O TTL padrão para sessões de depuração é de 60 minutos. O Sam funciona ao longo do dia por 8 horas, portanto, a sessão de depuração nunca expira. Portanto, os encargos de Sam para o dia serão:
 
 **8 (horas) x 8 (núcleos com otimização de computação) x $0.193 = $12.35**
+
+Ao mesmo tempo, Chris, outro engenheiro de dados, também faz logon na interface do usuário do navegador ADF para o trabalho de design de ETL e criação de perfil de dados. Chris não funciona no ADF todo dia como o Sam. Chris só precisa usar o depurador de fluxo de dados por 1 hora durante o mesmo período e no mesmo dia que o Sam acima. Esses são os encargos que Chris incorre para uso de depuração:
+
+**1 (hora) x 8 (núcleos de uso geral) x $0.274 = $2.19**
 
 ## <a name="transform-data-in-blob-store-with-mapping-data-flows"></a>Transformar dados no repositório de blob com fluxos de dados de mapeamento
 
@@ -156,7 +157,7 @@ Para executar o cenário, você precisará criar um pipeline com os seguintes it
 | Obter pipeline | 1 entidade de leitura/gravação |
 | Executar pipeline | 2 Execuções de atividade (1 para execução do gatilho, 1 para execução da atividade) |
 | Pressuposições de fluxo de dados: tempo de execução = 10 min + 10 min TTL | 10 \* núcleos de computação geral com TTL de 10 |
-| Suposição de monitoramento do pipeline: ocorreu apenas 1 execução | 2 registros de execução de monitoramento repetidos (1 para execução de pipeline, 1 para execução de atividade) |
+| Suposição de monitoramento do pipeline: ocorreu apenas 1 execução | 2 registros de execução de monitoramento recuperados (1 para execução de pipeline, 1 para execução de atividade) |
 
 **Preço do cenário total: $1.4631**
 
@@ -185,7 +186,7 @@ Nesse cenário, você deseja excluir os arquivos originais no armazenamento de B
 | Executar pipeline | 6 execuções de atividade (2 para execução de gatilho, 4 para execuções de atividade) |
 | Executar atividade de exclusão: cada tempo de execução = 5 min. A execução da atividade de exclusão no primeiro pipeline é de 10:00 AM UTC para 10:05 AM UTC. A execução da atividade de exclusão no segundo pipeline é de 10:02 AM UTC para 10:07 AM UTC.|Total de 7 minutos de execução da atividade de pipeline na VNET gerenciada. A atividade de pipeline dá suporte a até 50 de simultaneidade na VNET gerenciada. |
 | Pressuposição de Copiar Dados: cada tempo de execução = 10 min. A execução da cópia no primeiro pipeline é de 10:06 AM UTC para 10:15 AM UTC. A execução da atividade de exclusão no segundo pipeline é de 10:08 AM UTC para 10:17 AM UTC. | 10 * 4 Azure Integration Runtime (configuração padrão de DIU = 4) para obter mais informações sobre unidades de integração de dados e otimizar o desempenho de cópia, consulte [Este artigo](copy-activity-performance.md) |
-| Monitorar a suposição de pipeline: apenas 2 execuções ocorreram | 6 registros de execução de monitoramento repetidos (2 para execução de pipeline, 4 para execução de atividade) |
+| Monitorar a suposição de pipeline: apenas 2 execuções ocorreram | 6 registros de execução de monitoramento recuperados (2 para execução de pipeline, 4 para execução de atividade) |
 
 
 **Preço do cenário total: $0.45523**

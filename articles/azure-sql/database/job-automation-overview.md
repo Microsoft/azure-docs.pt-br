@@ -6,17 +6,17 @@ ms.service: sql-db-mi
 ms.subservice: features
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: overview
-author: jovanpop-msft
-ms.author: jovanpop
-ms.reviewer: carlr
+ms.topic: conceptual
+author: stevestein
+ms.author: sstein
+ms.reviewer: ''
 ms.date: 03/10/2020
-ms.openlocfilehash: 537c989271800c15444d5323cfce8e133c8eeeba
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 7ecd7e847a91847db8f57c640a374dc329fce7ea
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85984634"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782936"
 ---
 # <a name="automate-management-tasks-using-database-jobs"></a>Automatizar tarefas de gerenciamento usando trabalhos de banco de dados
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -51,7 +51,7 @@ As tecnologias de agendamento de trabalhos a seguir estão disponíveis:
 - Os **Trabalhos do SQL Agent** são um componente de agendamento de trabalho do SQL Server clássico e eficaz disponível na Instância Gerenciada de SQL do Azure. Os Trabalhos do SQL Agent não estão disponíveis no Banco de Dados SQL do Azure.
 - Os **Trabalhos do Banco de Dados Elástico (versão prévia)** são os serviços de Agendamento de Trabalhos que executam trabalhos personalizados em um ou muitos bancos de dados no Banco de Dados SQL do Azure.
 
-Vale a pena observar algumas diferenças entre o SQL Agent (disponível localmente e como parte da Instância Gerenciada de SQL) e o agente Trabalho Elástico do Banco de Dados (disponível para bancos de dados individuais no Banco de Dados SQL do Azure e para bancos de dados no SQL Data Warehouse).
+Vale a pena observar algumas diferenças entre o SQL Agent (disponível localmente e como parte da Instância Gerenciada de SQL) e o agente Trabalho Elástico do Banco de Dados (disponível para bancos de dados individuais no Banco de Dados SQL do Azure e para bancos de dados no Azure Synapse Analytics).
 
 | |Trabalhos elásticos |SQL Agent |
 |---------|---------|---------|
@@ -173,13 +173,13 @@ Alguns recursos do SQL Agent disponíveis no SQL Server não são compatíveis c
 - Não há suporte para proxies.
 - Não há suporte para Eventlog.
 
-Para obter informações sobre o SQL Server Agent, consulte [SQL Server Agent](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent).
+Para obter informações sobre o SQL Server Agent, consulte [SQL Server Agent](/sql/ssms/agent/sql-server-agent).
 
 ## <a name="elastic-database-jobs-preview"></a>Trabalhos de Banco de Dados Elástico (versão prévia)
 
 Os **Trabalhos de Banco de Dados Elástico** permitem executar um ou mais scripts T-SQL em paralelo, em um grande número de bancos de dados, seja com agendamento ou sob demanda.
 
-**Execute trabalhos em qualquer combinação de bancos de dados**: um ou mais bancos de dados individuais, todos os bancos de dados em um servidor, todos os bancos de dados em um pool elástico ou mapa de fragmentos, com a flexibilidade extra de poder incluir ou excluir qualquer banco de dados. **Os trabalhos podem ser executados em diversos servidores e pools, até mesmo em bancos de dados presentes em assinaturas diferentes.** Os servidores e pools são enumerados dinamicamente no runtime e, portanto, os trabalhos são executados em todos os bancos de dados existentes no grupo de destino no momento da execução.
+**Execute trabalhos em qualquer combinação de bancos de dados** : um ou mais bancos de dados individuais, todos os bancos de dados em um servidor, todos os bancos de dados em um pool elástico ou mapa de fragmentos, com a flexibilidade extra de poder incluir ou excluir qualquer banco de dados. **Os trabalhos podem ser executados em diversos servidores e pools, até mesmo em bancos de dados presentes em assinaturas diferentes.** Os servidores e pools são enumerados dinamicamente no runtime e, portanto, os trabalhos são executados em todos os bancos de dados existentes no grupo de destino no momento da execução.
 
 A imagem a seguir mostra um agente de trabalho executando trabalhos em diferentes tipos de grupos de destino:
 
@@ -210,11 +210,11 @@ Na versão prévia atual, um banco de dados existente no Banco de Dados SQL do A
 
 O *Banco de dados de trabalhos* não precisa ser literalmente novo, mas deve ser um objetivo de serviço limpo, vazio, S0 ou superior. O objetivo de serviço recomendado do *Banco de dados de trabalhos* é S1 ou superior, mas a opção ideal depende das necessidades de desempenho dos trabalhos: o número de etapas de trabalho, o número de destinos de trabalho e a frequência com que os trabalhos são executados. Por exemplo, um banco de dados S0 pode ser suficiente para um agente de trabalho que executa alguns trabalhos por hora direcionado a menos de dez bancos de dados, mas a execução de um trabalho por minuto pode não ser rápida o suficiente com um banco de dados S0, e uma camada de serviço superior pode ser melhor.
 
-Se as operações no banco de dados de trabalhos forem mais lentas do que o esperado, [monitore](monitor-tune-overview.md#azure-sql-database-and-azure-sql-managed-instance-resource-monitoring) o desempenho do banco de dados e a utilização de recursos no banco de dados de trabalhos durante períodos de lentidão usando o portal do Azure ou a DMV [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database). Se a utilização de um recurso, como CPU, E/S de Dados ou Gravação de Log, se aproximar de 100% e se correlacionar com períodos de lentidão, considere a possibilidade de dimensionar de maneira incremental o banco de dados para objetivos de serviço superiores (no [modelo de DTU](service-tiers-dtu.md) ou no [modelo de vCore](service-tiers-vcore.md)) até que o desempenho do banco de dados de trabalhos seja suficientemente aprimorado.
+Se as operações no banco de dados de trabalhos forem mais lentas do que o esperado, [monitore](monitor-tune-overview.md#azure-sql-database-and-azure-sql-managed-instance-resource-monitoring) o desempenho do banco de dados e a utilização de recursos no banco de dados de trabalhos durante períodos de lentidão usando o portal do Azure ou a DMV [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database). Se a utilização de um recurso, como CPU, E/S de Dados ou Gravação de Log, se aproximar de 100% e se correlacionar com períodos de lentidão, considere a possibilidade de dimensionar de maneira incremental o banco de dados para objetivos de serviço superiores (no [modelo de DTU](service-tiers-dtu.md) ou no [modelo de vCore](service-tiers-vcore.md)) até que o desempenho do banco de dados de trabalhos seja suficientemente aprimorado.
 
 ##### <a name="job-database-permissions"></a>Permissões de banco de dados de trabalhos
 
-Durante a criação do agente de trabalho, um esquema, tabelas e uma função chamada *jobs_reader* são criados no *Banco de dados de trabalhos*. A função, projetada para oferecer aos administradores um controle de acesso mais rígido para monitoramento de trabalho, tem a seguinte permissão:
+Durante a criação do agente de trabalho, um esquema, tabelas e uma função chamada *jobs_reader* são criados no *Banco de dados de trabalhos* . A função, projetada para oferecer aos administradores um controle de acesso mais rígido para monitoramento de trabalho, tem a seguinte permissão:
 
 |Nome da função |permissões de esquema 'jobs' |permissões de esquema 'jobs_internal' |
 |---------|---------|---------|
@@ -227,13 +227,13 @@ Durante a criação do agente de trabalho, um esquema, tabelas e uma função ch
 
 Um *grupo de destino* define o conjunto de bancos de dados em que uma etapa de trabalho será executada. Um grupo de destino pode conter qualquer quantidade ou combinação dos seguintes itens:
 
-- **Servidor SQL lógico**: se um servidor for especificado, todos os bancos de dados existentes no servidor no momento da execução do trabalho farão parte do grupo. A credencial de banco de dados mestre deve ser fornecida para que o grupo possa ser enumerado e atualizado antes da execução do trabalho.
-- **Pool elástico**: se um pool elástico for especificado, todos os bancos de dados presentes no pool elástico no momento da execução do trabalho farão parte do grupo. Assim como ocorre para servidores, a credencial de banco de dados mestre deve ser fornecida para que o grupo possa ser atualizado antes da execução do trabalho.
-- **Banco de dados único**: especifica um ou mais bancos de dados individuais como parte do grupo.
-- **Mapa de fragmentos**: bancos de dados de um mapa de fragmentos.
+- **Servidor SQL lógico** : se um servidor for especificado, todos os bancos de dados existentes no servidor no momento da execução do trabalho farão parte do grupo. A credencial de banco de dados mestre deve ser fornecida para que o grupo possa ser enumerado e atualizado antes da execução do trabalho.
+- **Pool elástico** : se um pool elástico for especificado, todos os bancos de dados presentes no pool elástico no momento da execução do trabalho farão parte do grupo. Assim como ocorre para servidores, a credencial de banco de dados mestre deve ser fornecida para que o grupo possa ser atualizado antes da execução do trabalho.
+- **Banco de dados único** : especifica um ou mais bancos de dados individuais como parte do grupo.
+- **Mapa de fragmentos** : bancos de dados de um mapa de fragmentos.
 
 > [!TIP]
-> No momento da execução do trabalho, a *enumeração dinâmica* reavalia o conjunto de bancos de dados em grupos de destino que incluem servidores ou grupos. A enumeração dinâmica garante que os **trabalhos serão executados em todos os bancos de dados existentes no servidor ou pool no momento da execução do trabalho**. A reavaliação da lista de bancos de dados no runtime é especialmente útil para cenários em que a associação de pools ou servidores é alterada com frequência.
+> No momento da execução do trabalho, a *enumeração dinâmica* reavalia o conjunto de bancos de dados em grupos de destino que incluem servidores ou grupos. A enumeração dinâmica garante que os **trabalhos serão executados em todos os bancos de dados existentes no servidor ou pool no momento da execução do trabalho** . A reavaliação da lista de bancos de dados no runtime é especialmente útil para cenários em que a associação de pools ou servidores é alterada com frequência.
 
 É possível incluir ou excluir pools e bancos de dados individuais do grupo. Isso permite a criação de um grupo de destino com qualquer combinação de bancos de dados. Por exemplo, você pode adicionar um servidor a um grupo de destino, mas excluir bancos de dados específicos em um pool elástico (ou excluir um pool inteiro).
 
@@ -245,11 +245,11 @@ Os exemplos a seguir mostram como definições de grupo-alvo diferentes são enu
 
 O **exemplo 1** mostra um grupo de destino que consiste em uma lista de bancos de dados individuais. Quando uma etapa de trabalho é executada usando esse grupo de destino, a ação da etapa do trabalho é executada em cada um dos bancos de dados.<br>
 O **Exemplo 2** mostra um grupo de destino que contém um servidor como destino. Quando uma etapa de trabalho é executada usando esse grupo de destino, o servidor é enumerado dinamicamente para determinar a lista de bancos de dados que estão atualmente no servidor. A ação da etapa de trabalho será executada em cada um desses bancos de dados.<br>
-O **exemplo 3** mostra um grupo de destino semelhante ao do *exemplo 2*, mas o banco de dados individual é especificamente excluído. A ação da etapa de trabalho *não* será executada no banco de dados excluído.<br>
-O **exemplo 4** mostra um grupo de destino que contém um pool elástico como destino. Semelhante ao *exemplo 2*, o pool será enumerado dinamicamente no tempo de execução do trabalho para determinar a lista de bancos de dados no pool.
+O **exemplo 3** mostra um grupo de destino semelhante ao do *exemplo 2* , mas o banco de dados individual é especificamente excluído. A ação da etapa de trabalho *não* será executada no banco de dados excluído.<br>
+O **exemplo 4** mostra um grupo de destino que contém um pool elástico como destino. Semelhante ao *exemplo 2* , o pool será enumerado dinamicamente no tempo de execução do trabalho para determinar a lista de bancos de dados no pool.
 <br><br>
 
-![Exemplos de grupo de destino](./media/job-automation-overview/targetgroup-examples2.png)
+![Exemplos de grupo de destino adicionais](./media/job-automation-overview/targetgroup-examples2.png)
 
 O **Exemplo 5** e o **Exemplo 6** mostram cenários avançados em que os servidores, os pools elásticos e os bancos de dados podem ser combinados usando regras de inclusão e exclusão.<br>
 O **exemplo 7** mostra que os fragmentos em um mapa de fragmentos também podem ser avaliados no tempo de execução do trabalho.
@@ -260,7 +260,7 @@ O **exemplo 7** mostra que os fragmentos em um mapa de fragmentos também podem 
 
 #### <a name="job"></a>Trabalho
 
-Um *trabalho* é uma unidade de trabalho executada com agendamento ou como um único trabalho. Um trabalho consiste em uma ou mais *etapas de trabalho*.
+Um *trabalho* é uma unidade de trabalho executada com agendamento ou como um único trabalho. Um trabalho consiste em uma ou mais *etapas de trabalho* .
 
 ##### <a name="job-step"></a>Etapa de trabalho
 
@@ -272,7 +272,7 @@ O resultado das etapas de um trabalho em cada banco de dados de destino é regis
 
 #### <a name="job-history"></a>Histórico de trabalho
 
-O histórico de execução do trabalho é armazenado no *Banco de dados de trabalhos*. Um trabalho de limpeza do sistema limpa o histórico de execuções com mais de 45 dias. Para remover o histórico de menos de 45 dias, chame o procedimento armazenado **sp_purge_history** no *Banco de dados de trabalhos*.
+O histórico de execução do trabalho é armazenado no *Banco de dados de trabalhos* . Um trabalho de limpeza do sistema limpa o histórico de execuções com mais de 45 dias. Para remover o histórico de menos de 45 dias, chame o procedimento armazenado **sp_purge_history** no *Banco de dados de trabalhos* .
 
 ### <a name="agent-performance-capacity-and-limitations"></a>Desempenho, capacidade e limitações do agente
 
@@ -288,7 +288,7 @@ Para que os recursos não fiquem sobrecarregados ao executar trabalhos em bancos
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [O que é o SQL Server Agent](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent)
+- [O que é o SQL Server Agent](/sql/ssms/agent/sql-server-agent)
 - [Como criar e gerenciar trabalhos elásticos](elastic-jobs-overview.md)
 - [Criar e gerenciar trabalhos elásticos usando o PowerShell](elastic-jobs-powershell-create.md)
 - [Criar e gerenciar Trabalhos Elásticos usando T-SQL (Transact-SQL)](elastic-jobs-tsql-create-manage.md)

@@ -13,10 +13,10 @@ ms.date: 12/14/2017
 ms.author: apimpm
 ms.custom: mvc
 ms.openlocfilehash: 16da7891b5321006708dc59ec8d482754beb7d9e
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87853255"
 ---
 # <a name="set-up-custom-domain"></a>Configurar um domínio personalizado

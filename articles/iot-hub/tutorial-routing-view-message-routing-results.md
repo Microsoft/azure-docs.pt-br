@@ -1,6 +1,6 @@
 ---
-title: Exibir resultados de roteamento de mensagens do Hub IoT do Azure (.NET) | Microsoft Docs
-description: Depois de configurar todos os recursos usando a Parte 1 do tutorial, adicione a capacidade de rotear mensagens para Azure Stream Analytics e exibir os resultados no PowerBI.
+title: Tutorial – Exibir resultados de roteamento de mensagens do Hub IoT do Azure (.NET) | Microsoft Docs
+description: Tutorial – Depois de configurar todos os recursos usando a Parte 1 do tutorial, adicione a capacidade de rotear mensagens para Azure Stream Analytics e exibir os resultados no Power BI.
 author: robinsh
 manager: philmea
 ms.service: iot-hub
@@ -8,13 +8,13 @@ services: iot-hub
 ms.topic: tutorial
 ms.date: 03/25/2018
 ms.author: robinsh
-ms.custom: mvc
-ms.openlocfilehash: bfee4e64070e5f37eaa3d63280409f00c0ed8672
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.custom: mvc, devx-track-csharp
+ms.openlocfilehash: fdfb2470e83cefaeb6df35115f7bb46149d8ffe6
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73890400"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98733906"
 ---
 # <a name="tutorial-part-2---view-the-routed-messages"></a>Tutorial: Parte 2 – Exibir as mensagens roteadas
 
@@ -48,7 +48,7 @@ Agora você pode criar os recursos para os quais as mensagens serão roteadas, e
 
    **Localização**: use sua localização. Este tutorial usa **Oeste dos EUA**.
 
-   **Log Analytics**: este controle de alternância deve ser desativado.
+   **Habilitar o Log Analytics**: este controle de alternância deve ser desativado.
 
    ![A tela Criar Aplicativo Lógico](./media/tutorial-routing-view-message-routing-results/create-logic-app.png)
 
@@ -82,7 +82,7 @@ Agora você pode criar os recursos para os quais as mensagens serão roteadas, e
 
    ![As opções do Office365](./media/tutorial-routing-view-message-routing-results/logic-app-select-outlook.png)
 
-8. Entre em sua conta do Office 365 para configurar a conexão. Se atingir o tempo limite, tente novamente. Especifique os endereços de e-mail para os destinatários dos e-mails. Também especifique o assunto e digite a mensagem de que você gostaria que o destinatário visse no corpo da mensagem. Para testar, preencha seu próprio endereço de e-mail como o destinatário.
+8. Entre em sua conta corporativa ou de estudante para configurar a conexão. Se atingir o tempo limite, tente novamente. Especifique os endereços de e-mail para os destinatários dos e-mails. Também especifique o assunto e digite a mensagem de que você gostaria que o destinatário visse no corpo da mensagem. Para testar, preencha seu próprio endereço de e-mail como o destinatário.
 
    Selecione **Adicionar conteúdo dinâmico** para mostrar o conteúdo da mensagem que você pode incluir. Selecione **Conteúdo** – ele incluirá a mensagem no e-mail.
 
@@ -151,6 +151,8 @@ Para ver os dados em uma visualização do Power BI, primeiro configure um traba
    **Nome do conjunto de dados**: nome do conjunto de dados a ser usado no Power BI. Este tutorial usa **contosodataset**. 
 
    **Nome da tabela**: nome da tabela a ser usada no Power BI. Este tutorial usa **contosotable**.
+
+  **Modo de autenticação**: selecione o modo a ser usado.
 
    Aceite os padrões para o restante dos campos.
 
@@ -280,7 +282,7 @@ Entre na sua conta do [Power BI](https://powerbi.microsoft.com/). Vá até seu w
 
 ### <a name="use-the-azure-cli-to-clean-up-resources"></a>Usar a CLI do Azure para limpar os recursos
 
-Para remover o grupo de recursos, use o comando [excluir grupo az](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete). `$resourceGroup` foi definido como **ContosoResources** novamente no início deste tutorial.
+Para remover o grupo de recursos, use o comando [excluir grupo az](/cli/azure/group?view=azure-cli-latest#az-group-delete&preserve-view=true). `$resourceGroup` foi definido como **ContosoResources** novamente no início deste tutorial.
 
 ```azurecli-interactive
 az group delete --name $resourceGroup
@@ -288,7 +290,7 @@ az group delete --name $resourceGroup
 
 ### <a name="use-powershell-to-clean-up-resources"></a>Usar o PowerShell para limpar os recursos
 
-Para remover o grupo de recursos, use o comando [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup). `$resourceGroup` foi definido como **ContosoResources** novamente no início deste tutorial.
+Para remover o grupo de recursos, use o comando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup). `$resourceGroup` foi definido como **ContosoResources** novamente no início deste tutorial.
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name $resourceGroup

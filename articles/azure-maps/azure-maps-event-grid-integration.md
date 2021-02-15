@@ -9,18 +9,18 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 701c94237ef5348e11b5d7fbc85d4da1f20136ee
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 44b2cab814d4e51c4eb0c3ce3322b898f5b26414
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036803"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92889759"
 ---
 # <a name="react-to-azure-maps-events-by-using-event-grid"></a>Reagir a eventos do Azure Mapas usando a Grade de Eventos
 
 O Azure Maps integra-se à grade de eventos do Azure, para que os usuários possam enviar notificações de eventos para outros serviços e disparar processos downstream. A finalidade deste artigo é ajudá-lo a configurar seus aplicativos de negócios para ouvir os eventos do Azure Maps. Isso permite que os usuários reajam a eventos críticos de maneira confiável, escalonável e segura. Por exemplo, os usuários podem criar um aplicativo para atualizar um banco de dados, criar um tíquete e entregar uma notificação por email, toda vez que um dispositivo entrar em uma cerca geográfica.
 
-A grade de eventos do Azure é um serviço de roteamento de eventos totalmente gerenciado, que usa um modelo de publicação/assinatura. A grade de eventos tem suporte interno para serviços do Azure como [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview) e [aplicativos lógicos do Azure](https://docs.microsoft.com/azure/azure-functions/functions-overview). Ele pode entregar alertas de eventos para serviços que não são do Azure usando WebHooks. Para obter uma lista completa dos manipuladores de eventos que dá suporte a Grade de Eventos, consulte [Uma introdução à Grade de Eventos do Azure](https://docs.microsoft.com/azure/event-grid/overview).
+A Grade de Eventos do Azure é um serviço de roteamento de eventos totalmente gerenciado que usa um modelo de publicação-assinatura. A Grade de Eventos tem suporte interno para serviços do Azure, como [Azure Functions](../azure-functions/functions-overview.md) e [Aplicativos Lógicos do Azure](../azure-functions/functions-overview.md). Ela pode entregar alertas de eventos para serviços que não são do Azure usando webhooks. Para obter uma lista completa dos manipuladores de eventos que dá suporte a Grade de Eventos, consulte [Uma introdução à Grade de Eventos do Azure](../event-grid/overview.md).
 
 
 ![Modelo funcional da Grade de Eventos do Azure](./media/azure-maps-event-grid-integration/azure-event-grid-functional-model.png)
@@ -28,7 +28,7 @@ A grade de eventos do Azure é um serviço de roteamento de eventos totalmente g
 
 ## <a name="azure-maps-events-types"></a>Tipos de eventos do Azure Mapas
 
-A Grade de eventos usa [assinaturas de evento](https://docs.microsoft.com/azure/event-grid/concepts#event-subscriptions) para rotear mensagens de evento para os assinantes. Uma conta do Azure Mapas emite os seguintes tipos de eventos: 
+A Grade de eventos usa [assinaturas de evento](../event-grid/concepts.md#event-subscriptions) para rotear mensagens de evento para os assinantes. Uma conta do Azure Mapas emite os seguintes tipos de eventos: 
 
 | Tipo de evento | Descrição |
 | ---------- | ----------- |

@@ -11,9 +11,9 @@
 - name: Inícios rápidos
   expanded: true
   items:
-    - name: .NET Core
+    - name: ASP.NET Core
       href: quickstart-dotnetcore.md
-    - name: .NET Framework
+    - name: ASP.NET
       href: quickstart-dotnet-framework.md
     - name: Node.js
       href: quickstart-nodejs.md
@@ -27,17 +27,34 @@
       href: quickstart-ruby.md
     - name: Site HTML estático
       href: quickstart-html.md
+    - name: Modelo de ARM
+      displayName: Resource Manager
+      href: quickstart-arm-template.md
     - name: Contêiner personalizado
       href: quickstart-custom-container.md
     - name: Aplicativo com vários contêineres
       href: quickstart-multi-container.md
 - name: Tutoriais
   items:
+    - name: O aplicativo seguro acessa o armazenamento e o Microsoft Graph
+      items:
+        - name: Visão geral
+          href: scenario-secure-app-overview.md
+        - name: Configurar a autenticação do Serviço de Aplicativo
+          href: scenario-secure-app-authentication-app-service.md
+        - name: Armazenamento de acessos de aplicativo seguro
+          href: scenario-secure-app-access-storage.md
+        - name: O aplicativo seguro acessa o Microsoft Graph como o usuário
+          href: scenario-secure-app-access-microsoft-graph-as-user.md
+        - name: O aplicativo seguro acessa o Microsoft Graph como o aplicativo
+          href: scenario-secure-app-access-microsoft-graph-as-app.md
+        - name: Limpar os recursos
+          href: scenario-secure-app-clean-up-resources.md
     - name: Aplicativo com BD
       items:
-        - name: .NET Core com banco de dados SQL
+        - name: ASP.NET Core com BD SQL
           href: tutorial-dotnetcore-sqldb-app.md
-        - name: .NET Framework com o banco de dados SQL
+        - name: ASP.NET com BD SQL
           href: app-service-web-tutorial-dotnet-sqldatabase.md
         - name: PHP com MySQL
           href: tutorial-php-mysql-app.md
@@ -79,15 +96,14 @@
       href: samples-powershell.md
     - name: Modelos do Gerenciador de Recursos
       href: samples-resource-manager-templates.md
-    - name: Itens internos do Azure Policy
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
     - name: Terraform
       href: samples-terraform.md
 - name: Conceitos
   items:
     - name: Planos do Serviço de Aplicativo
       href: overview-hosting-plans.md
+    - name: Gerenciamento de custos
+      href: overview-manage-costs.md
     - name: Funcionalidade de SO
       href: operating-system-functionality.md
     - name: Melhores práticas de implantação
@@ -100,8 +116,8 @@
           href: overview-authentication-authorization.md
         - name: SO e aplicação de patch ao runtime
           href: overview-patch-os-runtime.md
-        - name: Controles de segurança interna
-          href: app-service-security-controls.md
+        - name: Linha de base de segurança
+          href: security-baseline.md
         - name: Controles de segurança do Azure Policy
           displayName: 'regulatory, compliance, standards, domains'
           href: ./security-controls-policy.md
@@ -147,7 +163,7 @@
           href: configure-language-java.md
         - name: Configurar o Ruby
           href: configure-language-ruby.md
-        - name: Configurar contêiner personalizado do Linux
+        - name: Configurar contêiner personalizado
           href: configure-custom-container.md
         - name: Conectar-se a recursos locais
           href: web-sites-integrate-with-vnet.md
@@ -209,6 +225,8 @@
               href: configure-authentication-provider-twitter.md
             - name: Autenticar-se com um provedor do OpenID Connect (versão prévia)
               href: configure-authentication-provider-openid-connect.md
+            - name: Autenticar usando Entrar com a Apple (versão prévia)
+              href: configure-authentication-provider-apple.md
         - name: Autenticação avançada
           href: app-service-authentication-how-to.md
         - name: Restringir acesso
@@ -227,7 +245,7 @@
       items:
         - name: Escalar verticalmente a capacidade do servidor
           href: manage-scale-up.md
-        - name: Configurar a camada PremiumV2
+        - name: Configurar a camada PremiumV3
           href: app-service-configure-premium-tier.md
         - name: Escalar horizontalmente em várias instâncias
           href: ../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json
@@ -241,6 +259,8 @@
           href: troubleshoot-diagnostic-logs.md
         - name: Obter eventos de recurso
           href: get-resource-events.md
+        - name: Verificação de integridade
+          href: monitor-instances-health-check.md
         - name: Abrir sessão SSH para o contêiner do Linux
           href: configure-linux-open-ssh-session.md
     - name: Gerenciar aplicativo
@@ -285,6 +305,9 @@
       href: /rest/api/appservice/
     - name: Modelo do Resource Manager
       href: /azure/templates/microsoft.web/allversions
+    - name: Itens internos do Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Recursos
   items:
     - name: Blog do Serviço de Aplicativo

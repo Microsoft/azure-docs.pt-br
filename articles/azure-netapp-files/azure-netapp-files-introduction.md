@@ -15,10 +15,10 @@ ms.topic: overview
 ms.date: 03/28/2018
 ms.author: b-juche
 ms.openlocfilehash: 4ad556a6c720cb4eaac9a0c9cdf5c4346e2aa857
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87512934"
 ---
 # <a name="what-is-azure-netapp-files"></a>O que é o Azure NetApp Files

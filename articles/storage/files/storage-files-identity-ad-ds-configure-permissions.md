@@ -5,24 +5,46 @@ author: roygara
 ms.service: storage
 ms.subservice: files
 ms.topic: how-to
-ms.date: 06/22/2020
+ms.date: 09/16/2020
 ms.author: rogarana
-ms.openlocfilehash: 5e293bb98405affd824d4bbc50b6f24c5a0e3c11
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 02b8d72ab88f9eca2e1fac4858c14826dae57dbe
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86999608"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629165"
 ---
 # <a name="part-three-configure-directory-and-file-level-permissions-over-smb"></a>Parte três: configurar permissões de diretório e de nível de arquivo sobre SMB 
 
 Antes de começar este artigo, verifique se você concluiu o artigo anterior, [atribua permissões de nível de compartilhamento a uma identidade](storage-files-identity-ad-ds-assign-permissions.md) para garantir que suas permissões de nível de compartilhamento estejam em vigor.
 
-Depois de atribuir permissões de nível de compartilhamento com o RBAC, você deve configurar ACLs apropriadas do Windows no nível de raiz, diretório ou arquivo, para tirar proveito do controle de acesso granular. Considere as permissões de nível de compartilhamento do RBAC como o gatekeeper de alto nível que determina se um usuário pode acessar o compartilhamento. Enquanto as ACLs do Windows operam em um nível mais granular para determinar quais operações o usuário pode fazer no nível do diretório ou do arquivo. As permissões no nível de compartilhamento e de arquivo/diretório são impostas quando um usuário tenta acessar um arquivo/diretório, portanto, se houver uma diferença entre qualquer uma delas, somente a mais restritiva será aplicada. Por exemplo, se um usuário tiver acesso de leitura/gravação no nível de arquivo, mas somente leitura em um nível de compartilhamento, ele só poderá ler esse arquivo. O mesmo seria verdadeiro se ele fosse invertido e um usuário tivesse acesso de leitura/gravação no nível de compartilhamento, mas somente leitura no nível de arquivo, ele ainda poderá ler o arquivo.
+Depois de atribuir permissões de nível de compartilhamento com o RBAC do Azure, você deve configurar ACLs apropriadas do Windows no nível de raiz, diretório ou arquivo, para tirar proveito do controle de acesso granular. Considere as permissões de nível de compartilhamento do RBAC do Azure como o gatekeeper de alto nível que determina se um usuário pode acessar o compartilhamento. Enquanto as ACLs do Windows operam em um nível mais granular para determinar quais operações o usuário pode fazer no nível do diretório ou do arquivo. As permissões no nível de compartilhamento e de arquivo/diretório são impostas quando um usuário tenta acessar um arquivo/diretório, portanto, se houver uma diferença entre qualquer uma delas, somente a mais restritiva será aplicada. Por exemplo, se um usuário tiver acesso de leitura/gravação no nível de arquivo, mas somente leitura em um nível de compartilhamento, ele só poderá ler esse arquivo. O mesmo seria verdadeiro se ele fosse invertido e um usuário tivesse acesso de leitura/gravação no nível de compartilhamento, mas somente leitura no nível de arquivo, ele ainda poderá ler o arquivo.
+
+## <a name="azure-rbac-permissions"></a>Permissões do RBAC do Azure
+
+A tabela a seguir contém as permissões RBAC do Azure relacionadas a esta configuração:
+
+
+| Função interna  | Permissão NTFS  | Acesso resultante  |
+|---------|---------|---------|
+|Leitor de Compartilhamento SMB de Dados do Arquivo de Armazenamento | Controle total, modificar, ler, gravar, executar | Ler e executar  |
+|     |   Ler |     Ler  |
+|Colaborador de Compartilhamento SMB de Dados do Arquivo de Armazenamento  |  Controle total    |  Modificar, ler, gravar, executar |
+|     |  Modificar         |  Modificar    |
+|     |  Ler e executar |  Ler e executar |
+|     |  Ler           |  Ler    |
+|     |  Gravar          |  Gravar   |
+|Colaborador com Privilégios Elevados do Compartilhamento SMB de Dados do Arquivo de Armazenamento | Controle total  |  Modificar, ler, gravar, editar, executar |
+|     |  Modificar          |  Modificar |
+|     |  Ler e executar  |  Ler e executar |
+|     |  Ler            |  Ler   |
+|     |  Gravar           |  Gravar  |
+
+
 
 ## <a name="supported-permissions"></a>Permissões com suporte
 
-Os arquivos do Azure dão suporte ao conjunto completo de ACLs básicas e avançadas do Windows. Você pode exibir e configurar ACLs do Windows em diretórios e arquivos em um compartilhamento de arquivos do Azure montando o compartilhamento e usando o explorador de arquivos do Windows, executando o comando [icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls) do Windows ou o comando [Set-ACL](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-acl) . 
+Os arquivos do Azure dão suporte ao conjunto completo de ACLs básicas e avançadas do Windows. Você pode exibir e configurar ACLs do Windows em diretórios e arquivos em um compartilhamento de arquivos do Azure montando o compartilhamento e usando o explorador de arquivos do Windows, executando o comando [icacls](/windows-server/administration/windows-commands/icacls) do Windows ou o comando [Set-ACL](/powershell/module/microsoft.powershell.security/set-acl) . 
 
 Para configurar ACLs com permissões de superusuário, você deve montar o compartilhamento usando sua chave de conta de armazenamento de sua VM ingressada no domínio. Siga as instruções na próxima seção para montar um compartilhamento de arquivos do Azure no prompt de comando e configurar ACLs do Windows.
 
@@ -63,7 +85,7 @@ else
 
 ```
 
-Se você tiver problemas ao conectar-se aos arquivos do Azure, consulte [a ferramenta de solução de problemas que publicamos para erros de montagem de arquivos do Azure no Windows](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5). Também fornecemos [orientações](https://docs.microsoft.com/azure/storage/files/storage-files-faq#on-premises-access) para contornar cenários quando a porta 445 é bloqueada. 
+Se você tiver problemas ao conectar-se aos arquivos do Azure, consulte [a ferramenta de solução de problemas que publicamos para erros de montagem de arquivos do Azure no Windows](https://azure.microsoft.com/blog/new-troubleshooting-diagnostics-for-azure-files-mounting-errors-on-windows/). Também fornecemos [orientações](./storage-files-faq.md#on-premises-access) para contornar cenários quando a porta 445 é bloqueada. 
 
 ## <a name="configure-windows-acls"></a>Configurar ACLs do Windows
 
@@ -92,7 +114,7 @@ Use o seguinte comando do Windows para conceder permissões completas para todos
 icacls <mounted-drive-letter>: /grant <user-email>:(f)
 ```
 
-Para obter mais informações sobre como usar o icacls para definir ACLs do Windows e sobre os diferentes tipos de permissões com suporte, consulte [a referência de linha de comando para icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls).
+Para obter mais informações sobre como usar o icacls para definir ACLs do Windows e sobre os diferentes tipos de permissões com suporte, consulte [a referência de linha de comando para icacls](/windows-server/administration/windows-commands/icacls).
 
 ## <a name="next-steps"></a>Próximas etapas
 

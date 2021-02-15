@@ -1,14 +1,14 @@
 ---
 title: Visão Geral do exemplo de blueprint de carga de trabalho do ASE/SQL ISO 27001
 description: Visão geral e arquitetura do exemplo de blueprint da carga de trabalho do Ambiente do Serviço de Aplicativo/Banco de Dados SQL ISO 27001.
-ms.date: 07/13/2020
+ms.date: 02/05/2021
 ms.topic: sample
-ms.openlocfilehash: 76177efcac8b32907c60cecac41404a3834d0fb8
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 61e62c9a9099b0c84a98f1840743f05469e46b62
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926086"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627509"
 ---
 # <a name="overview-of-the-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>Visão geral do exemplo de blueprint de carga de trabalho do Ambiente do Serviço de Aplicativo/Banco de Dados SQL do ISO 27001
 
@@ -29,7 +29,7 @@ O exemplo de blueprint do Ambiente do Serviço de Aplicativo/Banco de Dados SQL 
 Este ambiente é composto de vários serviços do Azure usados para oferecer uma infraestrutura de carga de trabalho segura, totalmente monitorada e pronta para empresas, baseada nas normas ISO 27001. Esse ambiente é composto de:
 
 - [Função do Azure](../../../../role-based-access-control/overview.md) chamada DevOps que tem o direito de implantar e gerenciar recursos em um [Ambiente do Serviço de Aplicativo do Azure](../../../../app-service/environment/intro.md) implantado pelo exemplo de blueprint
-- [Políticas do Azure](../../../policy/overview.md) para bloquear os serviços que podem ser implantados no ambiente e negar a criação de recursos de PIP (endereço IP público)
+- Definições do [Azure Policy](../../../policy/overview.md) para bloquear os serviços que podem ser implantados no ambiente e negar a criação de recursos de PIP (endereço IP público)
 - Uma rede virtual que contém uma sub-rede e emparelha com um ambiente de [serviços compartilhados](../iso27001-shared/index.md) já existente e força a passagem de todo o tráfego pelo firewall dos [serviços compartilhados](../iso27001-shared/index.md). A rede virtual hospeda os recursos a seguir:
   - Um [Ambiente do Serviço de Aplicativo do Azure](../../../../app-service/environment/intro.md) que pode ser usado para hospedar um ou mais aplicativos Web, APIs Web ou funções
   - Uma instância do [Azure Key Vault](../../../../key-vault/general/overview.md) que usa um ponto de extremidade de serviço de VNet para armazenar segredos usados pelos aplicativos em execução no ambiente de carga de trabalho

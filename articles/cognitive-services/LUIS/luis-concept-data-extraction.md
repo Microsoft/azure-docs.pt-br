@@ -1,15 +1,16 @@
 ---
 title: Extração de dados-LUIS
 description: Extraia dados de texto expressão com intenções e entidades. Saiba que tipo de dados pode ser extraído de Reconhecimento vocal (LUIS).
-author: diberry
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 35f015691b15c6451a66509671c7dc2fc72f38e4
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: e6f01354bb5aa2b78d3c9962bac49be39dd2c81f
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682198"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025986"
 ---
 # <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>Extrair dados de um texto do enunciado com intenções e entidades
 O LUIS oferece a capacidade de obter informações de declarações de idioma natural de um usuário. As informações são extraídas de forma que possam ser usadas por um programa, aplicativo ou chat bot para executar uma ação. Nas seções a seguir, saiba quais dados são retornados de intenções e entidades com exemplos de JSON.
@@ -69,7 +70,7 @@ Saiba mais sobre o [ponto de extremidade de previsão V3](luis-migration-api-v3.
 
 * * *
 
-|Objeto de dados|Tipo de Dados|Local dos dados|Valor|
+|Objeto de dados|Tipo de dados|Local dos dados|Valor|
 |--|--|--|--|
 |Intencional|String|topScoringIntent.intent|"GetStoreInfo"|
 
@@ -131,7 +132,7 @@ Saiba mais sobre o [ponto de extremidade de previsão V3](luis-migration-api-v3.
 
 As intenções são ordenadas da pontuação mais alta para a mais baixa.
 
-|Objeto de dados|Tipo de Dados|Local dos dados|Valor|Pontuação|
+|Objeto de dados|Tipo de dados|Local dos dados|Valor|Pontuação|
 |--|--|--|--|:--|
 |Intencional|String|intents[0].intent|"GetStoreInfo"|0,984749258|
 |Intencional|String|intents[1].intent|"None"|0,0168218873|
@@ -192,7 +193,7 @@ Saiba mais sobre o [ponto de extremidade de previsão V3](luis-migration-api-v3.
 
 * * *
 
-|Domínio|Objeto de dados|Tipo de Dados|Local dos dados|Valor|
+|Domain|Objeto de dados|Tipo de dados|Local dos dados|Valor|
 |--|--|--|--|--|
 |Utilitários|Intencional|String|intents[0].intent|"<b>Utilities</b>.ShowNext"|
 |Comunicação|Intencional|String|intents[1].intent|<b>Communication</b>.StartOver"|
@@ -231,9 +232,9 @@ As entidades [PersonName](luis-reference-prebuilt-person.md) e [GeographyV2](lui
 
 ### <a name="names-of-people"></a>Nomes de pessoas
 
-Os nomes de pessoas podem ter um formato pequeno dependendo do idioma e da cultura. Use uma entidade **[PersonName](luis-reference-prebuilt-person.md)** predefinida ou uma **[entidade simples](luis-concept-entity-types.md#simple-entity)** com [funções](luis-concept-roles.md) de First e Last Name.
+Os nomes de pessoas podem ter um formato pequeno dependendo do idioma e da cultura. Use uma entidade **[PersonName](luis-reference-prebuilt-person.md)** predefinida ou uma **[entidade simples](luis-concept-entity-types.md)** com funções de First e Last Name.
 
-Se você usar a entidade simples, certifique-se de fornecer exemplos que usam o nome e o sobrenome em diferentes partes do expressão, em declarações de comprimentos diferentes e declarações em todas as intenções, incluindo a intenção de nenhum. [Examine](luis-how-to-review-endoint-utt.md) declarações de ponto de extremidade regularmente para rotular nomes que não foram previstos corretamente.
+Se você usar a entidade simples, certifique-se de fornecer exemplos que usam o nome e o sobrenome em diferentes partes do expressão, em declarações de comprimentos diferentes e declarações em todas as intenções, incluindo a intenção de nenhum. [Examine](./luis-how-to-review-endpoint-utterances.md) declarações de ponto de extremidade regularmente para rotular nomes que não foram previstos corretamente.
 
 ### <a name="names-of-places"></a>Nomes de locais
 
@@ -241,17 +242,17 @@ Os nomes de local são definidos e conhecidos como cidades, municípios, Estados
 
 ### <a name="new-and-emerging-names"></a>Nomes novos e emergentes
 
-Alguns aplicativos precisam poder encontrar nomes novos e emergentes, como produtos ou empresas. Esses tipos de nomes são o tipo mais difícil de extração de dados. Comece com uma **[entidade simples](luis-concept-entity-types.md#simple-entity)** e adicione uma [lista de frases](luis-concept-feature.md). [Examine](luis-how-to-review-endoint-utt.md) declarações de ponto de extremidade regularmente para rotular nomes que não foram previstos corretamente.
+Alguns aplicativos precisam poder encontrar nomes novos e emergentes, como produtos ou empresas. Esses tipos de nomes são o tipo mais difícil de extração de dados. Comece com uma **[entidade simples](luis-concept-entity-types.md#simple-entity)** e adicione uma [lista de frases](luis-concept-feature.md). [Examine](./luis-how-to-review-endpoint-utterances.md) declarações de ponto de extremidade regularmente para rotular nomes que não foram previstos corretamente.
 
 ## <a name="patternany-entity-data"></a>Dados de entidade pattern.any
 
 [Padrão. any](reference-entity-pattern-any.md) é um espaço reservado de comprimento variável usado somente no modelo de um padrão expressão para marcar onde a entidade começa e termina. A entidade usada no padrão deve ser encontrada para que o padrão seja aplicado.
 
 ## <a name="sentiment-analysis"></a>Análise de sentimento
-Se a análise de sentimentos estiver configurada durante a [publicação](luis-how-to-publish-app.md#sentiment-analysis), a resposta JSON Luis incluirá a análise de sentimentos. Saiba mais sobre a análise de sentimento na documentação [Análise de Texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/).
+Se a análise de sentimentos estiver configurada durante a [publicação](luis-how-to-publish-app.md#sentiment-analysis), a resposta JSON Luis incluirá a análise de sentimentos. Saiba mais sobre a análise de sentimento na documentação [Análise de Texto](../text-analytics/index.yml).
 
 ## <a name="key-phrase-extraction-entity-data"></a>Dados de entidade de extração de frases-chave
-A [entidade de extração de frases-chave](luis-reference-prebuilt-keyphrase.md) retorna frases-chave no expressão, fornecido por [análise de texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/).
+A [entidade de extração de frases-chave](luis-reference-prebuilt-keyphrase.md) retorna frases-chave no expressão, fornecido por [análise de texto](../text-analytics/index.yml).
 
 ## <a name="data-matching-multiple-entities"></a>Dados que correspondem a várias entidades
 

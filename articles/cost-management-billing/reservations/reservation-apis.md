@@ -9,12 +9,12 @@ ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: cffb753d515c4d066c8ce52e7dacebe5a8f6f8ca
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 773334787ec7b2706c16e517281d6a60215ad482
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88682630"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353010"
 ---
 # <a name="apis-for-azure-reservation-automation"></a>APIs para a automação de reserva do Azure
 
@@ -62,7 +62,7 @@ Corpo da solicitação:
 Também é possível comprar uma reserva no portal do Azure. Para obter mais informações, consulte os seguintes artigos:
 
 Planos de serviço:
-- [Máquina virtual](../../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json)
+- [Máquina virtual](../../virtual-machines/prepay-reserved-vm-instances.md?toc=%2fazure%2fbilling%2fTOC.json)
 -  [Cosmos DB](../../cosmos-db/cosmos-db-reserved-capacity.md?toc=/azure/billing/TOC.json)
 - [Banco de Dados SQL](../../azure-sql/database/reserved-capacity-overview.md?toc=/azure/billing/TOC.json)
 
@@ -88,9 +88,9 @@ Se você descobrir que as reservas de sua organização estiverem sendo subutili
 
 Obtenha a lista de todas as reservas às quais um usuário tem acesso usando a [API Reserva – Operação – Lista](/rest/api/reserved-vm-instances/reservationorder/list). Para conceder acesso a uma reserva de modo programático, leia um dos seguintes artigos:
 
-- [Gerenciar acesso usando RBAC e API REST](../../role-based-access-control/role-assignments-rest.md)
-- [Gerenciar o acesso usando RBAC e Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
-- [Gerenciar o acesso usando RBAC e CLI do Azure](../../role-based-access-control/role-assignments-cli.md)
+- [Adicionar ou remover atribuições de função do Azure usando a API REST](../../role-based-access-control/role-assignments-rest.md)
+- [Adicionar ou remover atribuições de função do Azure usando o Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
+- [Adicionar ou remover atribuições de função do Azure usando a CLI do Azure](../../role-based-access-control/role-assignments-cli.md)
 
 ## <a name="split-or-merge-reservation"></a>Dividir ou mesclar reserva
 
@@ -115,4 +115,4 @@ Para alterar o escopo de modo programático, use a API [Reserva – Atualizaçã
 - [Entender o uso de reserva para a sua assinatura paga conforme o uso](understand-reserved-instance-usage.md)
 - [Entender o uso de reserva para seu registro de empresa](understand-reserved-instance-usage-ea.md)
 - [Custos de software do Windows não estão incluídos nas reservas](reserved-instance-windows-software-costs.md)
-- [Reservas do Azure no programa de CSP (Provedor de Soluções na Nuvem) do Partner Center](https://docs.microsoft.com/partner-center/azure-reservations)
+- [Reservas do Azure no programa de CSP (Provedor de Soluções na Nuvem) do Partner Center](/partner-center/azure-reservations)

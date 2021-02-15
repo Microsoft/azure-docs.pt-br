@@ -1,19 +1,16 @@
 ---
 title: Gerenciar logs para um cluster HDInsight - HDInsight do Azure
 description: Determine os tipos, tamanhos e as políticas de retenção para arquivos de log de atividade de HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 02/05/2020
-ms.openlocfilehash: e279f0ba5186ae4e4ad4b403ad823a59ee085170
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 0a6e837284917129bb56c6230e68927b79e95dac
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88997550"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945280"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>Gerenciar logs para um cluster HDInsight
 
@@ -42,7 +39,7 @@ Os seguintes detalhes de cluster são úteis para ajudar a coletar informações
 * Estado do cluster, incluindo detalhes da última alteração de estado
 * Tipo e número de instâncias do HDInsight especificado para o mestre, núcleo e nós de tarefa
 
-Você pode obter a maioria dessas informações de nível superior usando o portal do Azure.  Como alternativa, você pode usar [CLI do Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) para obter informações sobre seus clusters HDInsight:
+Você pode obter a maioria dessas informações de nível superior usando o portal do Azure.  Como alternativa, você pode usar [CLI do Azure](/cli/azure/) para obter informações sobre seus clusters HDInsight:
 
 ```azurecli
 az hdinsight list --resource-group <ResourceGroup>
@@ -109,7 +106,7 @@ A próxima etapa é examinar os arquivos de log de execução do trabalho para o
 
 ### <a name="access-the-hadoop-log-files"></a>Acessar os arquivos de log do Hadoop
 
-O HDInsight armazena seus arquivos de log no sistema de arquivos de cluster e no armazenamento do Azure. Você pode examinar os arquivos de log no cluster abrindo uma conexão [SSH](hdinsight-hadoop-linux-use-ssh-unix.md) para o cluster e navegando no sistema de arquivos ou usando o portal de status do Hadoop yarn no servidor do nó de cabeçalho remoto. Você pode examinar os arquivos de log no armazenamento do Azure usando qualquer uma das ferramentas que podem acessar e baixar dados do armazenamento do Azure. Os exemplos são [AzCopy](../storage/common/storage-use-azcopy.md), [CloudXplorer](https://clumsyleaf.com/products/cloudxplorer)e o Visual Studio Gerenciador de servidores. Você também pode usar o PowerShell e as bibliotecas de cliente de armazenamento do Azure ou os SDKs do .NET do Azure, para acessar dados no Armazenamento de Blobs do Azure.
+O HDInsight armazena seus arquivos de log no sistema de arquivos de cluster e no armazenamento do Azure. Você pode examinar os arquivos de log no cluster abrindo uma conexão [SSH](hdinsight-hadoop-linux-use-ssh-unix.md) para o cluster e navegando no sistema de arquivos ou usando o portal de status do Hadoop yarn no servidor do nó de cabeçalho remoto. Você pode examinar os arquivos de log no armazenamento do Azure usando qualquer uma das ferramentas que podem acessar e baixar dados do armazenamento do Azure. Os exemplos são [AzCopy](../storage/common/storage-use-azcopy-v10.md), [CloudXplorer](https://clumsyleaf.com/products/cloudxplorer)e o Visual Studio Gerenciador de servidores. Você também pode usar o PowerShell e as bibliotecas de cliente de armazenamento do Azure ou os SDKs do .NET do Azure, para acessar dados no Armazenamento de Blobs do Azure.
 
 O Hadoop executa o trabalho das tarefas como *tentativas de tarefas* em vários nós no cluster. O HDInsight pode iniciar tentativas de tarefa especulativa, encerrando as outras tentativas de tarefa que não são concluídas primeiro. Isso gera atividade significativa que é registrada para o controlador, stderr e arquivos syslog log em interrupções. Além disso, várias tentativas de tarefa estão em execução simultaneamente, mas um arquivo de log só pode exibir os resultados linearmente.
 
@@ -150,7 +147,7 @@ A interface de usuário ResourceManager do YARN é executada no nó de cabeçalh
 
 Depois de concluir as etapas anteriores, você tem uma compreensão dos tipos e os volumes de arquivos de log que seus clusters HDInsight estão produzindo.
 
-Em seguida, analise o volume de dados de log nos locais de armazenamento de chave de registro em um período de tempo. Por exemplo, você pode analisar o volume e o crescimento em períodos de 30-60-90 dias.  Registre as informações em uma planilha ou use outras ferramentas como o Visual Studio, o Azure Storage Explorer ou o Power Query para Excel. Para saber mais, confira [Analisar logs do HDInsight](hdinsight-debug-jobs.md).  
+Em seguida, analise o volume de dados de log nos locais de armazenamento de chave de registro em um período de tempo. Por exemplo, você pode analisar o volume e o crescimento em períodos de 30-60-90 dias.  Registre as informações em uma planilha ou use outras ferramentas como o Visual Studio, o Azure Storage Explorer ou o Power Query para Excel. ```
 
 Agora você tem informações suficientes para criar uma estratégia de gerenciamento de log para os logs de chave.  Use sua planilha (ou ferramenta de sua escolha) para calcular o crescimento de tamanho dos logs e os custos de armazenamento de logs futuros do Azure.  Considere também quaisquer requisitos de retenção de log para o conjunto de logs que você está examinando.  Agora você pode reprever os custos de armazenamento de log futuros, depois de determinar quais arquivos de log podem ser excluídos (se houver) e quais logs devem ser retidos e arquivados em um armazenamento do Azure menos dispendioso.
 
@@ -186,6 +183,6 @@ Para coletar os logs de todos os nós para um local central, você pode criar um
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Monitoramento e prática de registro em log para HDInsight](https://msdn.microsoft.com/library/dn749790.aspx)
+* [Monitoramento e prática de registro em log para HDInsight](/previous-versions/msp-n-p/dn749790(v=pandp.10))
 * [Acessar Apache Hadoop logs de aplicativo do YARN no HDInsight baseado em Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 * [Como controlar o tamanho dos arquivos de log para vários componentes do Apache Hadoop](https://community.hortonworks.com/articles/8882/how-to-control-size-of-log-files-for-various-hdp-c.html)

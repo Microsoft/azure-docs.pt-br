@@ -1,22 +1,18 @@
 ---
 title: Atividade de webhook no Azure Data Factory
 description: A atividade de webhook não continua a execução do pipeline até que ele valide o conjunto de dado anexado com determinados critérios especificados pelo usuário.
-services: data-factory
-documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
-manager: jroth
+author: dcstwh
+ms.author: weetok
 ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.openlocfilehash: 4056550ae0a71138d136878fc7e3aa5f6f8f4180
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 435cad4d1ef002261b194431dbdb787e072808f5
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81417871"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100361478"
 ---
 # <a name="webhook-activity-in-azure-data-factory"></a>Atividade de webhook no Azure Data Factory
 
@@ -53,15 +49,15 @@ Uma atividade de webhook pode controlar a execução de pipelines por meio de se
 
 ## <a name="type-properties"></a>Propriedades de tipo
 
-Propriedade | Descrição | Valores permitidos | Obrigatório
+Propriedade | Descrição | Valores permitidos | Necessária
 -------- | ----------- | -------------- | --------
 **name** | O nome da atividade de webhook. | String | Sim |
 **type** | Deve ser definido como "webhook". | String | Sim |
 **forma** | O método da API REST para o ponto de extremidade de destino. | Cadeia de caracteres. O tipo com suporte é "POST". | Sim |
 **url** | O ponto de extremidade e o caminho de destino. | Uma cadeia de caracteres ou uma expressão com o valor de **ResultType** de uma cadeia de caracteres. | Sim |
 **conector** | Cabeçalhos que são enviados para a solicitação. Aqui está um exemplo que define o idioma e o tipo em uma solicitação: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }` . | Uma cadeia de caracteres ou uma expressão com o valor de **ResultType** de uma cadeia de caracteres. | Sim. Um `Content-Type` cabeçalho como `"headers":{ "Content-Type":"application/json"}` é necessário. |
-**body** | Representa o conteúdo enviado para o ponto de extremidade. | JSON válido ou uma expressão com o valor de **ResultType** de JSON. Consulte [esquema de carga de solicitação](https://docs.microsoft.com/azure/data-factory/control-flow-web-activity#request-payload-schema) para o esquema da carga de solicitação. | Sim |
-**Authentication** | O método de autenticação usado para chamar o ponto de extremidade. Os tipos com suporte são "básico" e "ClientCertificate". Para obter mais informações, consulte [Autenticação](https://docs.microsoft.com/azure/data-factory/control-flow-web-activity#authentication). Se a autenticação não for necessária, exclua essa propriedade. | Uma cadeia de caracteres ou uma expressão com o valor de **ResultType** de uma cadeia de caracteres. | Não |
+**body** | Representa o conteúdo enviado para o ponto de extremidade. | JSON válido ou uma expressão com o valor de **ResultType** de JSON. Consulte [esquema de carga de solicitação](./control-flow-web-activity.md#request-payload-schema) para o esquema da carga de solicitação. | Sim |
+**Authentication** | O método de autenticação usado para chamar o ponto de extremidade. Os tipos com suporte são "básico" e "ClientCertificate". Para obter mais informações, consulte [Autenticação](./control-flow-web-activity.md#authentication). Se a autenticação não for necessária, exclua essa propriedade. | Uma cadeia de caracteres ou uma expressão com o valor de **ResultType** de uma cadeia de caracteres. | Não |
 **timeout** | Por quanto tempo a atividade aguarda o retorno de chamada especificado por **callBackUri** ser invocado. O valor padrão é 10 minutos ("00:10:00"). Os valores têm o formato TimeSpan *d*. *hh*:*mm*:*SS*. | String | Não |
 **Relatar status no retorno de chamada** | Permite que um usuário relate o status de falha de uma atividade de webhook. | Boolean | Não |
 
@@ -69,11 +65,11 @@ Propriedade | Descrição | Valores permitidos | Obrigatório
 
 Uma atividade de webhook dá suporte aos seguintes tipos de autenticação.
 
-### <a name="none"></a>Não
+### <a name="none"></a>Nenhum
 
 Se a autenticação não for necessária, não inclua a propriedade de **autenticação** .
 
-### <a name="basic"></a>Basic
+### <a name="basic"></a>Básico
 
 Especifique o nome de usuário e a senha a serem usados com a autenticação básica.
 
@@ -99,7 +95,7 @@ Especifique o conteúdo codificado em Base64 de um arquivo PFX e uma senha.
 
 ### <a name="managed-identity"></a>Identidade gerenciada
 
-Use a identidade gerenciada do data factory para especificar o URI de recurso para o qual o token de acesso é solicitado. Para chamar a API de Gerenciamento de Recursos do Azure, use `https://management.azure.com/`. Para obter mais informações sobre como as identidades gerenciadas funcionam, consulte a [visão geral identidades gerenciadas para recursos do Azure](/azure/active-directory/managed-identities-azure-resources/overview).
+Use a identidade gerenciada do data factory para especificar o URI de recurso para o qual o token de acesso é solicitado. Para chamar a API de Gerenciamento de Recursos do Azure, use `https://management.azure.com/`. Para obter mais informações sobre como as identidades gerenciadas funcionam, consulte a [visão geral identidades gerenciadas para recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md).
 
 ```json
 "authentication": {

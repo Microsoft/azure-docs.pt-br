@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 7dbb1b4a8b85350b8bf8a6df0c9035a19055444c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1f893f8e2ec03681697f15cd85685d4c99b13de6
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79409012"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151967"
 ---
 # <a name="azure-data-catalog-frequently-asked-questions"></a>Perguntas frequentes sobre o Catálogo de Dados do Azure
 Este artigo apresenta respostas para perguntas frequentes relacionadas ao serviço de Catálogo de Dados do Azure.
@@ -55,7 +55,7 @@ Para enviar solicitações de recurso e outros comentários, vá aos [Fóruns do
 
 ## <a name="why-do-i-get-an-error-catalog-already-exists-when-i-try-to-create-a-new-catalog"></a>Por que eu obtenho um catálogo de erros *já existe* quando tento criar um novo catálogo?
 
-Quando você adquire o Office 365 E5 com licença Power BI Pro, a Microsoft cria um catálogo padrão na região da assinatura automaticamente. Este catálogo usa o SKU gratuito. A licença de usuário do Office 365/Power BI é gerenciada na página de administração do Office 365. 
+Quando você adquire o Office 365 E5 com licença Power BI Pro, a Microsoft cria um catálogo padrão na região da assinatura automaticamente. Este catálogo usa o SKU gratuito. A licença de usuário do Office 365/Power BI é gerenciada na página Administração. 
 
 No entanto, esse tipo de catálogo de dados não tem uma **opção de administrador** e não é visível no **portal do Azure**. Você não pode excluir este tipo de catálogo de dados. Da mesma forma, você não tem permissão para renomear o catálogo de dados e não pode movê-lo para outra região. 
 
@@ -75,7 +75,7 @@ Para registrar seus dados no Catálogo de Dados:
 As propriedades específicas diferem de uma fonte de dados para outra, porém, em geral, o serviço de publicação do Catálogo de Dados extrai as seguintes informações:
 
 * Nome do ativo
-* Tipo de Ativo
+* Tipo de ativo
 * Descrição do ativo
 * Nomes do atributo/coluna
 * Tipos de dados do atributo/coluna
@@ -87,7 +87,7 @@ As propriedades específicas diferem de uma fonte de dados para outra, porém, e
 >
 
 > [!NOTE]
-> Para fontes de dados como SQL Server Analysis Services que têm uma propriedade **Description** de primeira classe, a ferramenta de registro de fonte de dados do Catálogo de Dados extrai esse valor da propriedade. Para bancos de dados relacionais SQL Server *locais* que não têm uma propriedade de **Descrição** de primeira classe, a ferramenta de registro de fonte de dados do catálogo é extraída do valor da **MS_Description** propriedade estendida para objetos e colunas. Não há suporte para essa propriedade para SQL Azure. Para saber mais, confira [Como usar propriedades estendidas em objetos de banco de dados](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx).
+> Para fontes de dados como SQL Server Analysis Services que têm uma propriedade **Description** de primeira classe, a ferramenta de registro de fonte de dados do Catálogo de Dados extrai esse valor da propriedade. Para bancos de dados relacionais SQL Server *locais* que não têm uma propriedade de **Descrição** de primeira classe, a ferramenta de registro de fonte de dados do catálogo é extraída do valor da **MS_Description** propriedade estendida para objetos e colunas. Não há suporte para essa propriedade para SQL Azure. Para saber mais, confira [Como usar propriedades estendidas em objetos de banco de dados](/previous-versions/sql/sql-server-2008-r2/ms190243(v=sql.105)).
 >
 >
 
@@ -122,7 +122,7 @@ O Catálogo de Dados é um serviço de nuvem que pode funcionar com fontes de da
 ## <a name="can-i-extract-more-or-richer-metadata-from-the-data-sources-i-register"></a>Posso extrair mais metadados ou metadados mais avançados das fontes de dados que eu registro?
 Estamos trabalhando ativamente para expandir os recursos do Catálogo de Dados. Se você quiser ter metadados adicionais extraídos da fonte de dados durante o registro, sugira-os (ou voto neles, se já tiverem sido sugeridos) no [Fóruns de Comentário do Azure do Catálogo de Dados](https://feedback.azure.com/forums/906052-data-catalog). 
 
-Se você quiser incluir metadados de coluna ou o esquema, visões prévias ou perfis de dados para fontes de dados em que esses metadados não é extraído pela ferramenta de registro da fonte de dados, você pode usar a API de catálogo de dados para adicionar esses metadados. Para obter informações adicionais, consulte a [API REST do Catálogo de Dados do Azure](https://docs.microsoft.com/rest/api/datacatalog/).
+Se você quiser incluir metadados de coluna ou o esquema, visões prévias ou perfis de dados para fontes de dados em que esses metadados não é extraído pela ferramenta de registro da fonte de dados, você pode usar a API de catálogo de dados para adicionar esses metadados. Para obter informações adicionais, consulte a [API REST do Catálogo de Dados do Azure](/rest/api/datacatalog/).
 
 ## <a name="how-do-i-restrict-the-visibility-of-registered-data-assets-so-that-only-certain-people-can-discover-them"></a>Como fazer para restringir a visibilidade dos ativos de dados registrados para que apenas determinadas pessoas possam descobri-los?
 Selecione os ativos de dados no Catálogo de Dados e, em seguida, clique no botão **Apropriar-se**. Os proprietários dos ativos de dados no Catálogo de Dados podem alterar as configurações de visibilidade para permitir que todos os usuários descubram os ativos de sua propriedade ou restringir a visibilidade a usuários específicos. Para obter informações adicionais, consulte a [Gerenciar ativos de dados do Catálogo de Dados do Azure](data-catalog-how-to-manage.md).

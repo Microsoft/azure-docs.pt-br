@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 05/28/2020
+ms.date: 09/10/2020
 ms.author: curtand
-ms.openlocfilehash: b83cdf0b069eac2e46cfdd54edc11a1aa5a41075
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: c47d573dab3e72a956f6f0b9d09a1dafadf0225c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88799036"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91827771"
 ---
 # <a name="reset-your-work-or-school-password-using-security-info"></a>Redefinir sua senha corporativa ou de estudante usando informações de segurança
 
@@ -69,7 +69,7 @@ Se você não conseguir acessar sua conta do Azure AD (Azure Active Directory), 
 
     3. Digite e confirme sua nova senha e, em seguida, selecione **Finalizar**.
 
-- **Redefina sua senha usando um número de telefone.** Envia uma mensagem de texto para o número de telefone que você configurou anteriormente nas informações de segurança. Se o administrador ativou a experiência de informações de segurança, você pode encontrar mais informações sobre como configurar um número de telefone no artigo [Configurar informações de segurança para usar uma chamada telefônica (visualização)](security-info-setup-phone-number.md). Se você ainda não estiver usando as informações de segurança, poderá encontrar mais informações sobre como configurar um número de telefone no artigo [Configurar minha conta para verificação em duas etapas](multi-factor-authentication-end-user-first-time.md).
+- **Redefina sua senha usando um número de telefone.** Faz uma chamada de voz automática para o número de telefone que você configurou anteriormente nas informações de segurança. Se o administrador ativou a experiência de informações de segurança, você pode encontrar mais informações sobre como configurar um número de telefone no artigo [Configurar informações de segurança para usar uma chamada telefônica (visualização)](security-info-setup-phone-number.md). Se você ainda não estiver usando as informações de segurança, poderá encontrar mais informações sobre como configurar um número de telefone no artigo [Configurar minha conta para verificação em duas etapas](multi-factor-authentication-end-user-first-time.md).
 
     1. Selecione **Ligar para meu celular**, digite seu número de telefone e, em seguida, selecione **Ligar**.
 
@@ -107,7 +107,7 @@ Depois de redefinir sua senha, você pode receber um email de confirmação prov
 
 ## <a name="how-to-change-your-password"></a>Como alterar sua senha
 
-Se você quiser apenas alterar sua senha, poderá fazê-lo através do portal do Office 365, do Painel de Acesso do Azure ou da página de entrada do Windows 10.
+Se você quiser apenas alterar sua senha, poderá fazê-lo por meio do portal do Office 365, do portal meus aplicativos ou da página de entrada do Windows 10.
 
 ### <a name="to-change-your-password-using-the-office-365-portal"></a>Para alterar sua senha usando o portal do Office 365
 
@@ -121,11 +121,11 @@ Use esse método se você normalmente acessa seus aplicativos pelo portal do Off
 
 4. Digite sua senha antiga, crie e confirme sua nova senha e, em seguida, selecione **Enviar**.
 
-### <a name="to-change-your-password-from-the-azure-access-panel"></a>Para alterar sua senha no painel de acesso do Azure
+### <a name="to-change-your-password-from-the-my-apps-portal"></a>Para alterar sua senha do portal meus aplicativos
 
-Use esse método se você normalmente acessa seus aplicativos no Painel de Acesso do Azure (MyApps):
+Use esse método se você normalmente acessa seus aplicativos no portal meus aplicativos:
 
-1. Entre no [Painel de Acesso do Azure](https://myapps.microsoft.com/), usando sua senha existente.
+1. Entre no [portal meus aplicativos](https://myapps.microsoft.com/), usando sua senha existente.
 
 2. Selecione seu perfil no lado superior direito e selecione **Perfil**.
 

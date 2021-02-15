@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 05/28/2020
+ms.date: 12/14/2020
 ms.author: jingwang
-ms.openlocfilehash: 16b5eeb33f8be07d6257d8d7957ea2526ab9d3f1
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 34eb34a86948a2b4c043d5d9b58b50958855e449
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85253954"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97508707"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-database-in-azure-sql-database-by-using-azure-data-factory"></a>Copiar dados do Armazenamento de Blobs do Azure para um banco de dados no Banco de Dados SQL do Azure usando o Azure Data Factory
 
@@ -26,7 +26,7 @@ ms.locfileid: "85253954"
 Neste tutorial, você criará um data factory ao usar a interface do usuário do Azure Data Factory. O pipeline neste data factory copia dados do Armazenamento de Blobs do Azure para um banco de dados no Banco de Dados SQL do Azure. O padrão de configuração neste tutorial aplica-se a cópia de um armazenamento de dados baseado em arquivo para um armazenamento de dados relacional. Para obter uma lista de armazenamentos de dados com suporte como origens e coletores, confira a tabela [Armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).
 
 > [!NOTE]
-> - Se estiver se familiarizando com o Data Factory, confira a [Introdução ao Azure Data Factory](introduction.md).
+> Se estiver se familiarizando com o Data Factory, confira a [Introdução ao Azure Data Factory](introduction.md).
 
 Neste tutorial, você executa as seguintes etapas:
 
@@ -81,25 +81,27 @@ Agora, prepare seu armazenamento de blobs e o banco de dados SQL para o tutorial
 Nesta etapa, você cria um data factory e inicia a interface do usuário do Data Factory para criar um pipeline no data factory.
 
 1. Abra o **Microsoft Edge** ou **Google Chrome**. Atualmente, a interface do usuário do Data Factory tem suporte apenas nos navegadores da Web Microsoft Edge e Google Chrome.
-2. No menu à esquerda, selecione **Criar um recurso** > **Analytics** > **Data Factory**.
-3. Na página **Novo data factory**, em **Nome**, insira **ADFTutorialDataFactory**.
+2. No menu à esquerda, selecione **Criar um recurso** > **Integração** > **Data Factory**.
+3. Na página **Criar Data Factory**, na guia **Informações Básicas**, selecione a **Assinatura** do Azure na qual deseja criar o data factory.
+4. Em **Grupo de Recursos**, use uma das seguintes etapas:
+
+    a. Selecione um grupo de recursos existente na lista suspensa.
+
+    b. Escolha **Criar** e insira o nome de um grupo de recursos.
+    
+    Para saber mais sobre grupos de recursos, confira [Usar grupos de recursos para gerenciar recursos do Azure](../azure-resource-manager/management/overview.md). 
+5. Em **Região**, escolha uma localização para o data factory. Apenas os locais com suporte são exibidos na lista suspensa. Os armazenamentos de dados (por exemplo, Armazenamento do Azure e Banco de Dados SQL) e os serviços de computação (por exemplo, Azure HDInsight) usados pelo data factory podem estar em outras regiões.
+6. Em **Nome**, insira **ADFTutorialDataFactory**.
 
    O nome do Azure Data Factory deve ser *globalmente exclusivo*. Se você receber uma mensagem de erro sobre o valor do nome, insira um nome diferente para o data factory. (por exemplo, yournameADFTutorialDataFactory). Para ver as regras de nomenclatura para artefatos do Data Factory, confira [Data Factory – Regras de nomenclatura](naming-rules.md).
 
      ![Novo data factory](./media/doc-common-process/name-not-available-error.png)
-4. Selecione a **assinatura** do Azure na qual deseja criar o data factory.
-5. Em **Grupo de Recursos**, use uma das seguintes etapas:
 
-    a. Selecione **Usar existente**e selecione um grupo de recursos existente na lista suspensa.
-
-    b. Selecione **Criar novo**e insira o nome de um grupo de recursos. 
-         
-    Para saber mais sobre grupos de recursos, confira [Usar grupos de recursos para gerenciar recursos do Azure](../azure-resource-manager/management/overview.md). 
-6. Em **Versão**, selecione **V2**.
-7. Em **Local**, informe uma localização para o data factory. Apenas os locais com suporte são exibidos na lista suspensa. Os armazenamentos de dados (por exemplo, Armazenamento do Azure e Banco de Dados SQL) e os serviços de computação (por exemplo, Azure HDInsight) usados pelo data factory podem estar em outras regiões.
-8. Selecione **Criar**.
-9. Depois que a criação for concluída, você verá o aviso no centro de notificações. Selecione **Ir para o recurso** para navegar até a página do Data Factory.
-10. Clique em **Criar e Monitorar** para iniciar a IU do Azure Data Factory em uma guia separada.
+7. Em **Versão**, selecione **V2**.
+8. Escolha a guia **Configuração do Git** na parte superior e marque a caixa de seleção **Configurar o Git mais tarde**.
+9. Selecione **Examinar + criar** e escolha **Criar** depois que a validação for aprovada.
+10. Depois que a criação for concluída, você verá o aviso no centro de notificações. Selecione **Ir para o recurso** para navegar até a página do Data Factory.
+11. Selecione **Criar e Monitorar** para iniciar a interface do usuário do Azure Data Factory em uma guia separada.
 
 
 ## <a name="create-a-pipeline"></a>Criar um pipeline
@@ -115,7 +117,7 @@ Neste tutorial, inicie com a criação do pipeline. Em seguida, crie conjuntos d
 
    ![Criar um pipeline](./media/doc-common-process/get-started-page.png)
 
-1. 1. No painel geral, em **Propriedades**, especifique **CopyPipeline** para **Nome**. Em seguida, recolha o painel clicando no ícone Propriedades no canto superior direito.
+1. No painel geral, em **Propriedades**, especifique **CopyPipeline** para **Nome**. Em seguida, recolha o painel clicando no ícone Propriedades no canto superior direito.
 
 1. Na caixa de ferramentas de **Atividades**, expanda a categoria **Mover e transformar** e arraste e solte a atividade **Copiar dados** da caixa de ferramentas para a superfície do designer do pipeline. Especifique **CopyFromBlobToSql** para o **Nome**.
 
@@ -124,8 +126,8 @@ Neste tutorial, inicie com a criação do pipeline. Em seguida, crie conjuntos d
 ### <a name="configure-source"></a>Configurar fonte
 
 >[!TIP]
->Neste tutorial, você usa *Chave de conta* como o tipo de autenticação para o armazenamento de dados de origem, mas você pode escolher outros métodos de autenticação compatíveis: *URI de SAS*, *Entidade de Serviço* e *Identidade Gerenciada* se necessário. Veja as seções correspondentes [neste artigo](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#linked-service-properties) para obter detalhes.
->Para armazenar segredos de armazenamentos de dados com segurança, também é recomendável usar um Azure Key Vault. Veja [este artigo](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault) para obter ilustrações detalhadas.
+>Neste tutorial, você usa *Chave de conta* como o tipo de autenticação para o armazenamento de dados de origem, mas você pode escolher outros métodos de autenticação compatíveis: *URI de SAS*, *Entidade de Serviço* e *Identidade Gerenciada* se necessário. Veja as seções correspondentes [neste artigo](./connector-azure-blob-storage.md#linked-service-properties) para obter detalhes.
+>Para armazenar segredos de armazenamentos de dados com segurança, também é recomendável usar um Azure Key Vault. Veja [este artigo](./store-credentials-in-key-vault.md) para obter ilustrações detalhadas.
 
 1. Vá para a guia **Origem**. Selecione **+ Novo** para criar um conjunto de dados de origem.
 
@@ -147,8 +149,8 @@ Neste tutorial, inicie com a criação do pipeline. Em seguida, crie conjuntos d
 
 ### <a name="configure-sink"></a>Configurar coletor
 >[!TIP]
->Neste tutorial, você usa *Autenticação de SQL* como o tipo de autenticação para o armazenamento de dados coletor, mas você pode escolher outros métodos de autenticação compatíveis: *Entidade de Serviço* e *Identidade Gerenciada* se necessário. Veja as seções correspondentes [neste artigo](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database#linked-service-properties) para obter detalhes.
->Para armazenar segredos de armazenamentos de dados com segurança, também é recomendável usar um Azure Key Vault. Veja [este artigo](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault) para obter ilustrações detalhadas.
+>Neste tutorial, você usa *Autenticação de SQL* como o tipo de autenticação para o armazenamento de dados coletor, mas você pode escolher outros métodos de autenticação compatíveis: *Entidade de Serviço* e *Identidade Gerenciada* se necessário. Veja as seções correspondentes [neste artigo](./connector-azure-sql-database.md#linked-service-properties) para obter detalhes.
+>Para armazenar segredos de armazenamentos de dados com segurança, também é recomendável usar um Azure Key Vault. Veja [este artigo](./store-credentials-in-key-vault.md) para obter ilustrações detalhadas.
 
 1. Alterne para a guia **Coletor** e selecione **+ Novo** para criar um conjunto de dados do coletor.
 
@@ -224,19 +226,17 @@ Nesse cronograma, você criará um gatilho de agenda para o pipeline. O gatilho 
 
     a. Em **Nome**, digite **RunEveryMinute**.
 
-    b. Em **Término**, selecione **Na Data**.
+    b. Atualize a **Data de início** do gatilho. Se a data for anterior ao datetime atual, o gatilho começará a entrar em vigor quando a alteração for publicada. 
 
-    c. Em **Terminar Em**, selecione a lista suspensa.
+    c. Em **Fuso horário**, selecione a lista suspensa.
 
-    d. Selecione a opção do **dia atual**. Por padrão, o dia final é definido para o próximo dia.
+    d. Defina a **Recorrência** como **A cada Minuto**.
 
-    e. Atualize a parte **Hora de término** para alguns minutos após o datetime atual. O gatilho só é ativado depois de você publicar as alterações. Se você a definir com apenas alguns minutos de diferença e não publicar até a hora especificada, nenhum gatilho será executado.
+    e. Marque a caixa de seleção **Especificar uma data de término** e atualize o componente **Término em** de modo que ele tenha alguns minutos após o datetime atual. O gatilho só é ativado depois de você publicar as alterações. Se você a definir com apenas alguns minutos de diferença e não publicar até a hora especificada, nenhum gatilho será executado.
 
-    f. Selecione **OK**.
+    f. Para a opção **Ativado**, selecione **Sim**.
 
-    g. Para a opção **Ativado**, selecione **Sim**.
-
-    h. Selecione **OK**.
+    g. Selecione **OK**.
 
     > [!IMPORTANT]
     > Há um custo associado a cada execução de pipeline e, portanto, defina a data de término adequadamente.

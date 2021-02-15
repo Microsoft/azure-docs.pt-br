@@ -1,23 +1,18 @@
 ---
 title: Copiar dados do Salesforce marketing Cloud
 description: Saiba como copiar dados do Salesforce Marketing Cloud para armazenamentos de dados de coletor com suporte usando uma atividade de cópia em um pipeline do Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/17/2020
-ms.openlocfilehash: 1f0fb1ee8580c0c7f6eb30228b65e0a3780ef0a8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 161b81b196a1e178c7244845b25594440e6d6e1e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076802"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100369740"
 ---
 # <a name="copy-data-from-salesforce-marketing-cloud-using-azure-data-factory"></a>Copiar dados da nuvem de Marketing de vendas usando o Azure Data Factory
 
@@ -58,9 +53,9 @@ As propriedades a seguir têm suporte para o serviço vinculado do Salesforce Ma
 | host | Para o pacote avançado, o host deve ser seu [subdomínio](https://developer.salesforce.com/docs/atlas.en-us.mc-apis.meta/mc-apis/your-subdomain-tenant-specific-endpoints.htm) , que é representado por uma cadeia de caracteres de 28 caracteres, começando com as letras "MC", por exemplo, `mc563885gzs27c5t9-63k636ttgm` . <br>Para pacote herdado, especifique `www.exacttargetapis.com` . | Sim |
 | clientId | A ID do cliente associada ao aplicativo do Salesforce Marketing Cloud.  | Sim |
 | clientSecret | O segredo do cliente associada ao aplicativo do Salesforce Marketing Cloud. Você pode optar por marcar esse campo como uma SecureString para armazená-lo com segurança no ADF, ou armazenar o segredo em Azure Key Vault e deixar que a atividade de cópia do ADF seja pull a partir daí ao executar a cópia de dados-Saiba mais em [armazenar credenciais no Key Vault](store-credentials-in-key-vault.md). | Sim |
-| useEncryptedEndpoints | Especifica se os endpoints de fonte de dados são criptografados usando HTTPS. O valor padrão é verdadeiro.  | Não |
-| useHostVerification | Especifica se deve ser necessário o nome do host no certificado do servidor para corresponder ao nome do host do servidor ao se conectar via TLS. O valor padrão é verdadeiro.  | Não |
-| usePeerVerification | Especifica se a identidade do servidor deve ser verificada ao se conectar via TLS. O valor padrão é verdadeiro.  | Não |
+| useEncryptedEndpoints | Especifica se os endpoints de fonte de dados são criptografados usando HTTPS. O valor padrão é true.  | Não |
+| useHostVerification | Especifica se deve ser necessário o nome do host no certificado do servidor para corresponder ao nome do host do servidor ao se conectar via TLS. O valor padrão é true.  | Não |
+| usePeerVerification | Especifica se a identidade do servidor deve ser verificada ao se conectar via TLS. O valor padrão é true.  | Não |
 
 **Exemplo: usando a autenticação do STS OAuth 2 avançada para o pacote avançado** 
 

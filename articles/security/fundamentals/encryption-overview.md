@@ -9,12 +9,12 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 07/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 5189270a7b9de9ff5a222ad76ce46254ae5d2ee3
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: d7d438b369c863660a032f101e466b6fadf639fa
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542952"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879707"
 ---
 # <a name="azure-encryption-overview"></a>Visão geral da criptografia do Azure
 
@@ -53,7 +53,7 @@ Os três modelos de criptografia no servidor apresentam características diferen
 
 ### <a name="azure-disk-encryption"></a>Criptografia de disco do Azure
 
-Você pode proteger as máquinas virtuais do Windows e do Linux usando o [Azure Disk Encryption](/azure/security/fundamentals/azure-disk-encryption-vms-vmss), que usa a tecnologia [BitLocker do Windows](https://technet.microsoft.com/library/cc766295(v=ws.10).aspx) e o [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) do Linux para proteger os discos do sistema operacional e os discos de dados com a criptografia de volume completo.
+Você pode proteger as máquinas virtuais do Windows e do Linux usando o [Azure Disk Encryption](./azure-disk-encryption-vms-vmss.md), que usa a tecnologia [BitLocker do Windows](/previous-versions/windows/it-pro/windows-vista/cc766295(v=ws.10)) e o [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) do Linux para proteger os discos do sistema operacional e os discos de dados com a criptografia de volume completo.
 
 As chaves de criptografia e os segredos são protegidos em sua [assinatura do Azure Key Vault](../../key-vault/general/overview.md). Usando o serviço Backup do Azure, você pode fazer backup e restaurar VMs (máquinas virtuais) criptografadas que usam a configuração KEK (chave de criptografia de chave).
 
@@ -83,13 +83,13 @@ O [Banco de Dados SQL do Azure](../../azure-sql/database/sql-database-paas-overv
 
 #### <a name="transparent-data-encryption"></a>Criptografia de Dados Transparente
 
-A [TDE](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) é usada para criptografar arquivos de dados do [SQL Server](https://www.microsoft.com/sql-server/sql-server-2016), [Banco de Dados SQL do Azure](../../azure-sql/database/sql-database-paas-overview.md) e [SQL Data Warehouse do Azure](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) em tempo real usando uma DEK (chave de criptografia de banco de dados), que é armazenada no registro de inicialização do banco de dados para disponibilidade durante a recuperação.
+O [TDE](/sql/relational-databases/security/encryption/transparent-data-encryption-tde) é usado para criptografar [SQL Server](https://www.microsoft.com/sql-server/sql-server-2016), banco de dados [SQL do Azure](../../azure-sql/database/sql-database-paas-overview.md)e arquivos de data do [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) em tempo real, usando uma chave de criptografia de banco de dados (Dek), que é armazenada no registro de inicialização do banco de dados para disponibilidade durante a recuperação.
 
 A TDE protege dados e arquivos de log usando os algoritmos de criptografia AES e 3DES (DES triplo). A criptografia do arquivo de banco de dados é executada em nível de página. As páginas de um banco de dados criptografado são criptografadas antes de serem gravadas em disco e são descriptografadas quando lidas na memória. A TDE agora é habilitada por padrão em bancos de dados SQL do Azure recentemente criados.
 
 #### <a name="always-encrypted-feature"></a>Recurso Always Encrypted
 
-Com o recurso [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) no SQL do Azure, criptografe dados em aplicativos cliente antes de armazená-los no Banco de Dados SQL do Azure. Habilite também a delegação da administração de banco de dados local para terceiros e mantenha a separação entre aqueles que têm e podem exibir os dados e aqueles que os gerenciam, mas que não devem ter acesso a eles.
+Com o recurso [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) no SQL do Azure, criptografe dados em aplicativos cliente antes de armazená-los no Banco de Dados SQL do Azure. Habilite também a delegação da administração de banco de dados local para terceiros e mantenha a separação entre aqueles que têm e podem exibir os dados e aqueles que os gerenciam, mas que não devem ter acesso a eles.
 
 #### <a name="cell-level-or-column-level-encryption"></a>Criptografia em nível de célula ou de coluna
 
@@ -125,9 +125,9 @@ O [PFS](https://en.wikipedia.org/wiki/Forward_secrecy) protege as conexões entr
 
 Quando você interage com o Armazenamento do Microsoft Azure por meio do Portal do Azure, todas as transações ocorrem por HTTPS. Também é possível usar a API REST do Armazenamento por HTTPS para interagir com o Armazenamento do Microsoft Azure. Imponha o uso de HTTPS ao chamar as APIs REST para acessar objetos em contas de armazenamento habilitando a transferência segura necessária para a conta de armazenamento.
 
-A [SAS](../../storage/common/storage-dotnet-shared-access-signature-part-1.md) (Assinaturas de Acesso Compartilhado), que pode ser usada para delegar acesso aos objetos do Armazenamento do Azure, inclui uma opção para especificar que apenas o protocolo HTTPS pode ser usado com as Assinaturas de Acesso Compartilhado. Essa abordagem garante que qualquer pessoa que envia links com tokens SAS use o protocolo apropriado.
+A [SAS](../../storage/common/storage-sas-overview.md) (Assinaturas de Acesso Compartilhado), que pode ser usada para delegar acesso aos objetos do Armazenamento do Azure, inclui uma opção para especificar que apenas o protocolo HTTPS pode ser usado com as Assinaturas de Acesso Compartilhado. Essa abordagem garante que qualquer pessoa que envia links com tokens SAS use o protocolo apropriado.
 
-O [SMB 3.0](https://technet.microsoft.com/library/dn551363(v=ws.11).aspx#BKMK_SMBEncryption), que é usado para acessar compartilhamentos de Arquivos do Azure, dá suporte à criptografia e está disponível no Windows Server 2012 R2, Windows 8, Windows 8.1 e Windows 10. Ele permite o acesso entre regiões e até mesmo o acesso na área de trabalho.
+O [SMB 3.0](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn551363(v=ws.11)#BKMK_SMBEncryption), que é usado para acessar compartilhamentos de Arquivos do Azure, dá suporte à criptografia e está disponível no Windows Server 2012 R2, Windows 8, Windows 8.1 e Windows 10. Ele permite o acesso entre regiões e até mesmo o acesso na área de trabalho.
 
 A criptografia do lado do cliente criptografa os dados antes de serem enviados à instância do Armazenamento do Azure, de modo que sejam criptografados enquanto viajam pela rede.
 
@@ -143,7 +143,7 @@ Os dados em trânsito para, de e entre as VMs que executam o Windows podem ser c
 
 ### <a name="rdp-sessions"></a>Sessões RDP
 
-Você pode se conectar e entrar em uma VM usando o [protocolo RDP](https://msdn.microsoft.com/library/aa383015(v=vs.85).aspx) em um computador cliente do Windows ou em um Mac com um cliente RDP instalado. Os dados em trânsito pela rede em sessões RDP podem ser protegidos pelo TLS.
+Você pode se conectar e entrar em uma VM usando o [protocolo RDP](/windows/win32/termserv/remote-desktop-protocol) em um computador cliente do Windows ou em um Mac com um cliente RDP instalado. Os dados em trânsito pela rede em sessões RDP podem ser protegidos pelo TLS.
 
 Você também pode usar a Área de Trabalho Remota para se conectar a uma VM Linux no Azure.
 
@@ -163,7 +163,7 @@ As VPNs site a site usam o [protocolo IPsec](https://en.wikipedia.org/wiki/IPsec
 
 ### <a name="point-to-site-vpns"></a>VPNs ponto a site
 
-As VPNs ponto a site permitem que computadores cliente individuais acessem uma Rede Virtual do Azure. [O SSTP (Secure Socket Tunneling Protocol)](https://technet.microsoft.com/library/2007.06.cableguy.aspx) é usado para criar o túnel VPN. Ele pode atravessar firewalls (o túnel aparece como uma conexão HTTPS). Use sua própria AC (autoridade de certificação) raiz de PKI (infraestrutura de chave pública) interna para a conectividade ponto a site.
+As VPNs ponto a site permitem que computadores cliente individuais acessem uma Rede Virtual do Azure. [O SSTP (Secure Socket Tunneling Protocol)](/previous-versions/technet-magazine/cc162322(v=msdn.10)) é usado para criar o túnel VPN. Ele pode atravessar firewalls (o túnel aparece como uma conexão HTTPS). Use sua própria AC (autoridade de certificação) raiz de PKI (infraestrutura de chave pública) interna para a conectividade ponto a site.
 
 Configure uma conexão VPN ponto a site com uma rede virtual usando o portal do Azure com autenticação de certificado ou o PowerShell.
 
@@ -181,7 +181,7 @@ Configure uma conexão VPN site a site com uma rede virtual usando o portal do A
 
 Para obter mais informações, consulte:
 
-[Criar uma conexão site a site no portal do Azure](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+[Criar uma conexão site a site no portal do Azure](../../vpn-gateway/tutorial-site-to-site-portal.md)
 
 [Criar uma conexão site a site no PowerShell](../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
 
@@ -201,9 +201,9 @@ O Key Vault alivia as organizações da necessidade de configurar, aplicar patch
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Visão geral de segurança do Azure](get-started-overview.md)
+- [Visão geral de segurança do Azure](./overview.md)
 - [Visão geral da segurança de rede do Azure](network-overview.md)
-- [Visão geral de segurança do banco de dados do Azure](database-security-overview.md)
+- [Visão geral de segurança do banco de dados do Azure](../../azure-sql/database/security-overview.md)
 - [Visão geral de segurança de máquinas virtuais do Azure](virtual-machines-overview.md)
 - [Criptografia de dados em repouso](encryption-atrest.md)
 - [Práticas recomendadas de segurança e criptografia de dados](data-encryption-best-practices.md)

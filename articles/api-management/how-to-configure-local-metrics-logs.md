@@ -1,6 +1,6 @@
 ---
 title: Configurar métricas locais e logs para o gateway auto-hospedado do gerenciamento de API do Azure | Microsoft Docs
-description: Saiba como configurar métricas locais e logs para o gateway auto-hospedado do gerenciamento de API do Azure
+description: Saiba como configurar métricas locais e logs para o gateway auto-hospedado do gerenciamento de API do Azure em um kubernetes webhdfs
 services: api-management
 documentationcenter: ''
 author: miaojiang
@@ -10,18 +10,18 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 04/30/2020
+ms.date: 02/01/2021
 ms.author: apimpm
-ms.openlocfilehash: ac147863fe54be3343eda653fc863ebd08dac54d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: e34c25b2e3bfa845e258dc5d9699497d7ffcb004
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86254496"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526663"
 ---
 # <a name="configure-local-metrics-and-logs-for-azure-api-management-self-hosted-gateway"></a>Configurar métricas locais e logs para o gateway auto-hospedado do gerenciamento de API do Azure
 
-Este artigo fornece detalhes sobre a configuração de métricas locais e logs para o [Gateway auto-hospedado](./self-hosted-gateway-overview.md). Para configurar logs e métricas de nuvem, consulte [Este artigo](how-to-configure-cloud-metrics-logs.md). 
+Este artigo fornece detalhes sobre a configuração de métricas locais e logs para o [Gateway auto-hospedado](./self-hosted-gateway-overview.md) implantado em um cluster kubernetes. Para configurar logs e métricas de nuvem, consulte [Este artigo](how-to-configure-cloud-metrics-logs.md). 
 
 ## <a name="metrics"></a>Métricas
 O gateway auto-hospedado dá suporte a [estatísticas](https://github.com/statsd/statsd), que se tornou um protocolo unificado para coleta e agregação de métricas. Esta seção percorre as etapas de implantação de estatísticas em kubernetes, configuração do gateway para emissão de métricas por meio de estatísticas e uso de [Prometheus](https://prometheus.io/) para monitorar as métricas. 
@@ -65,7 +65,7 @@ spec:
     spec:
       containers:
       - name: sputnik-metrics-statsd
-        image: prom/statsd-exporter
+        image: mcr.microsoft.com/aks/hcp/prom/statsd-exporter
         ports:
         - name: tcp
           containerPort: 9102
@@ -80,7 +80,7 @@ spec:
           - mountPath: /tmp
             name: sputnik-metrics-config-files
       - name: sputnik-metrics-prometheus
-        image: prom/prometheus
+        image: mcr.microsoft.com/oss/prometheus/prometheus
         ports:
         - name: tcp
           containerPort: 9090
@@ -152,9 +152,9 @@ Agora que ambas as estatísticas e Prometheus foram implantadas, podemos atualiz
 | Campo  | Padrão | Descrição |
 | ------------- | ------------- | ------------- |
 | telemetria. métricas. local  | `none` | Habilita o registro em log por meio de estatísticas. O valor pode ser `none` , `statsd` . |
-| telemetria. métricas. local. stats. EndPoint  | N/D | Especifica o ponto de extremidade com estatísticas. |
-| telemetria. métricas. local. stats. amostragem  | N/D | Especifica a taxa de amostragem de métricas. O valor pode estar entre 0 e 1. por exemplo,`0.5`|
-| telemetria. Metrics. local. stated. Tag-Format  | N/D | [Formato de marcação](https://github.com/prometheus/statsd_exporter#tagging-extensions)de exportador com estatísticas. O valor pode ser `none` , `librato` , `dogStatsD` , `influxDB` . |
+| telemetria. métricas. local. stats. EndPoint  | n/a | Especifica o ponto de extremidade com estatísticas. |
+| telemetria. métricas. local. stats. amostragem  | n/a | Especifica a taxa de amostragem de métricas. O valor pode estar entre 0 e 1. por exemplo, `0.5`|
+| telemetria. Metrics. local. stated. Tag-Format  | n/a | [Formato de marcação](https://github.com/prometheus/statsd_exporter#tagging-extensions)de exportador com estatísticas. O valor pode ser `none` , `librato` , `dogStatsD` , `influxDB` . |
 
 Aqui está uma configuração de exemplo:
 
@@ -210,13 +210,13 @@ O gateway auto-hospedado também dá suporte a vários protocolos `localsyslog` 
 
 | Campo  | Padrão | Descrição |
 | ------------- | ------------- | ------------- |
-| telemetria. logs. STD  | `text` | Habilita o registro em log para fluxos padrão. O valor pode ser `none` , `text` ,`json` |
-| telemetria. logs. local  | `none` | Habilita o log local. O valor pode ser `none` , `auto` ,, `localsyslog` `rfc5424` ,`journal`  |
-| telemetria. logs. local. localsyslog. EndPoint  | N/D | Especifica o ponto de extremidade localsyslog.  |
-| telemetria. logs. local. localsyslog. Facility  | N/D | Especifica o [código de instalação](https://en.wikipedia.org/wiki/Syslog#Facility)localsyslog. por exemplo,`7` 
-| telemetria. logs. local. rfc5424. EndPoint  | N/D | Especifica o ponto de extremidade rfc5424.  |
-| telemetria. logs. local. rfc5424. Facility  | N/D | Especifica o código de instalação por [rfc5424](https://tools.ietf.org/html/rfc5424). por exemplo,`7`  |
-| telemetria. logs. local. Journal. EndPoint  | N/D | Especifica o ponto de extremidade do diário.  |
+| telemetria. logs. STD  | `text` | Habilita o registro em log para fluxos padrão. O valor pode ser `none` , `text` , `json` |
+| telemetria. logs. local  | `none` | Habilita o log local. O valor pode ser `none` , `auto` ,, `localsyslog` `rfc5424` , `journal`  |
+| telemetria. logs. local. localsyslog. EndPoint  | n/a | Especifica o ponto de extremidade localsyslog.  |
+| telemetria. logs. local. localsyslog. Facility  | n/a | Especifica o [código de instalação](https://en.wikipedia.org/wiki/Syslog#Facility)localsyslog. por exemplo, `7` 
+| telemetria. logs. local. rfc5424. EndPoint  | n/a | Especifica o ponto de extremidade rfc5424.  |
+| telemetria. logs. local. rfc5424. Facility  | n/a | Especifica o código de instalação por [rfc5424](https://tools.ietf.org/html/rfc5424). por exemplo, `7`  |
+| telemetria. logs. local. Journal. EndPoint  | n/a | Especifica o ponto de extremidade do diário.  |
 
 Aqui está um exemplo de configuração de log local:
 

@@ -5,12 +5,12 @@ author: batrived
 ms.topic: article
 ms.date: 06/21/2020
 ms.author: batrived
-ms.openlocfilehash: 5eb40d464fb718f0bd6dffe0d00f6420f4ea4995
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: fa119784715b8c88ef3c9f2700b2cac1cc467234
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118997"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96339738"
 ---
 # <a name="troubleshoot-connectivity-issues---azure-event-grid"></a>Solucionar problemas de conectividade-grade de eventos do Azure
 
@@ -22,7 +22,7 @@ Este artigo fornece dicas para solucionar problemas de conectividade com a grade
 
 Se o aplicativo não for capaz de se conectar à grade de eventos, siga as etapas desta seção para solucionar o problema.
 
-### <a name="check-if-there-is-a-service-outage"></a>Verificar se há uma interrupção de serviço
+### <a name="check-if-theres-a-service-outage"></a>Verificar se há uma interrupção de serviço
 
 Verifique a interrupção do serviço de grade de eventos do Azure no [site de status do serviço do Azure](https://azure.microsoft.com/status/).
 
@@ -48,14 +48,16 @@ telnet {sampletopicname}.{region}-{suffix}.eventgrid.azure.net 443
 
 ### <a name="verify-that-ip-addresses-are-allowed-in-your-corporate-firewall"></a>Verificar se os endereços IP são permitidos em seu firewall corporativo
 
-Quando você estiver trabalhando com o Azure, às vezes terá que permitir intervalos de endereços IP específicos ou URLs em seu firewall corporativo ou proxy para acessar todos os serviços do Azure que você está usando ou tentando usar. Verifique se o tráfego é permitido em endereços IP usados pela grade de eventos. Para endereços IP usados pela grade de eventos do Azure: consulte [intervalos de IP e marcas de serviço do Azure – nuvem pública](https://www.microsoft.com/download/details.aspx?id=56519) e [marca de serviço-AzureEventGrid](network-security.md#service-tags).
+Quando você está trabalhando com o Azure, às vezes você precisa permitir intervalos de endereços IP específicos ou URLs em seu firewall corporativo ou proxy para acessar todos os serviços do Azure que você está usando ou tentando usar. Verifique se o tráfego é permitido em endereços IP usados pela grade de eventos. Para endereços IP usados pela grade de eventos do Azure: consulte [intervalos de IP e marcas de serviço do Azure – nuvem pública](https://www.microsoft.com/download/details.aspx?id=56519) e [marca de serviço-AzureEventGrid](network-security.md#service-tags).
+
+Os [intervalos de IP do Azure e as marcas de serviço – o documento de nuvem pública](https://www.microsoft.com/download/details.aspx?id=56519) também lista os endereços IP **por região**. Você pode permitir intervalos de endereços para a **região do tópico** e a **região emparelhada** em seu firewall ou proxy corporativo. Para uma região emparelhada para uma região, consulte [continuidade de negócios e recuperação de desastres (BCDR): regiões emparelhadas do Azure](../best-practices-availability-paired-regions.md). 
 
 > [!NOTE]
 > Novos endereços IP podem ser adicionados à marca de serviço AzureEventGrid, embora não seja comum. Portanto, é bom fazer uma verificação semanal nas marcas de serviço.
 
 ### <a name="verify-that-azureeventgrid-service-tag-is-allowed-in-your-network-security-groups"></a>Verifique se a marca de serviço AzureEventGrid é permitida em seus grupos de segurança de rede
 
-Se seu aplicativo estiver sendo executado dentro de uma sub-rede e se houver um grupo de segurança de rede associado, confirme se a saída da Internet é permitida ou se a marca de serviço AzureEventGrid é permitida. Consulte as [marcas de serviço](../virtual-network/service-tags-overview.md)
+Se seu aplicativo estiver sendo executado dentro de uma sub-rede e se houver um grupo de segurança de rede associado, confirme se a saída da Internet é permitida ou se a marca de serviço AzureEventGrid é permitida. Consulte [marcas de serviço](../virtual-network/service-tags-overview.md)
 
 ### <a name="check-the-ip-firewall-settings-for-your-topicdomain"></a>Verifique as configurações de firewall de IP para seu tópico/domínio
 
@@ -63,7 +65,7 @@ Verifique se o endereço IP público do computador no qual o aplicativo está em
 
 Por padrão, os tópicos/domínios da grade de eventos podem ser acessados pela Internet, desde que a solicitação venha com autenticação e autorização válidas. Com o firewall de IP, você pode restringir ainda mais a um conjunto de endereços IPv4 ou intervalos de endereços IPv4 na notação [CIDR (roteamento entre domínios sem classificação)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
 
-As regras de firewall IP são aplicadas no nível de domínio/tópico da grade de eventos. Portanto, as regras se aplicam a todas as conexões de clientes que usam qualquer protocolo com suporte. Qualquer tentativa de conexão de um endereço IP que não corresponda a uma regra de IP permitida no tópico/domínio da grade de eventos é rejeitada como proibido. A resposta não menciona a regra IP.
+As regras de firewall IP são aplicadas no nível de domínio/tópico da grade de eventos. Portanto, as regras se aplicam a todas as conexões de clientes que usam qualquer protocolo com suporte. Qualquer tentativa de conexão de um endereço IP que não corresponda a uma regra de IP permitida no tópico/domínio da grade de eventos é rejeitada como proibido. A resposta não menciona a regra de IP.
 
 Para obter mais informações, consulte [configurar regras de firewall de IP para um tópico/domínio da grade de eventos do Azure](configure-firewall.md).
 
@@ -83,7 +85,7 @@ Habilitar logs de diagnóstico para o tópico/domínio da grade de eventos [Habi
 
 ### <a name="check-if-the-eventgrid-topicdomain-can-be-accessed-using-only-a-private-endpoint"></a>Verifique se o tópico/domínio do EventGrid pode ser acessado usando apenas um ponto de extremidade privado
 
-Se o tópico/domínio da grade de eventos estiver configurado para ser acessível somente por meio do ponto de extremidade privado, confirme se o aplicativo cliente está acessando o tópico/domínio sobre o ponto de extremidade privado. Para confirmar isso, verifique se o aplicativo cliente está sendo executado dentro de uma sub-rede e se há um ponto de extremidade privado para o tópico/domínio da grade de eventos nessa sub-rede.
+Se o tópico/domínio da grade de eventos estiver configurado para ser acessível somente por meio do ponto de extremidade privado, confirme se o aplicativo cliente está acessando o tópico/domínio sobre o ponto de extremidade privado. Para confirmar, verifique se o aplicativo cliente está sendo executado dentro de uma sub-rede e se há um ponto de extremidade privado para o tópico/domínio da grade de eventos nessa sub-rede.
 
 O [serviço de vínculo privado do Azure](../private-link/private-link-overview.md) permite que você acesse a grade de eventos do Azure em um **ponto de extremidade privado** em sua rede virtual. O ponto de extremidade privado é uma interface de rede que conecta você de forma privada e segura a um serviço com tecnologia do Link Privado do Azure. O ponto de extremidade privado usa um endereço IP privado de sua VNet, colocando efetivamente em sua VNet. Todo o tráfego para o serviço pode ser roteado por meio do ponto de extremidade privado; assim, nenhum gateway, nenhum dispositivo NAT, nenhuma conexão ExpressRoute ou VPN e nenhum endereço IP público é necessário. O tráfego entre a rede virtual e o serviço percorre a rede de backbone da Microsoft, eliminando a exposição da Internet pública. Você pode se conectar a uma instância de um recurso do Azure, fornecendo o nível mais alto de granularidade no controle de acesso.
 

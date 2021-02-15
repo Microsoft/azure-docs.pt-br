@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/16/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: da4f9fd9fd4305029f42dbe63326c8782d22d907
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: d2f283aa8b049602d25cf8969bc2327ebcfafe08
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87825439"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202871"
 ---
 # <a name="attach-a-data-disk-to-a-windows-vm-with-powershell"></a>Anexar um disco de dados a uma VM do Windows com o PowerShell
 
@@ -20,7 +20,7 @@ Este artigo mostra como anexar discos novos e existentes a uma máquina virtual 
 
 Primeiro, leia estas dicas:
 
-* O tamanho da máquina virtual controla quantos discos de dados você pode anexar a ela. Para obter mais informações, consulte [tamanhos das máquinas virtuais](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* O tamanho da máquina virtual controla quantos discos de dados você pode anexar a ela. Para obter mais informações, consulte [tamanhos das máquinas virtuais](../sizes.md).
 * Para usar os SSDs premium, você precisará de um [tipo de VM ativado para armazenamento premium](../sizes-memory.md), como a máquina virtual da série DS ou da série GS.
 
 Este artigo usa o PowerShell dentro do [Azure cloud Shell](../../cloud-shell/overview.md), que é constantemente atualizado para a versão mais recente. Para abrir o Cloud Shell, selecione **Experimentar** na parte superior de um bloco de código qualquer.
@@ -117,4 +117,4 @@ Update-AzVM -VM $vm -ResourceGroupName $rgName
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Você também pode implantar discos gerenciados usando modelos. Para obter mais informações, consulte [usando Managed disks em modelos de Azure Resource Manager](using-managed-disks-template-deployments.md) ou o [modelo de início rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-multiple-data-disk) para implantar vários discos de dados.
+Você também pode implantar discos gerenciados usando modelos. Para obter mais informações, consulte [usando Managed disks em modelos de Azure Resource Manager](../using-managed-disks-template-deployments.md) ou o [modelo de início rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-multiple-data-disk) para implantar vários discos de dados.

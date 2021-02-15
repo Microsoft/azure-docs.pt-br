@@ -5,10 +5,10 @@ ms.date: 03/30/2020
 ms.topic: how-to
 ms.reviewer: ravastra
 ms.openlocfilehash: f067f4413f6ad8541cd36a7581f9243bed4e195f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87023731"
 ---
 # <a name="configure-blockchain-data-manager-using-azure-cli"></a>Configurar o Gerenciador de Dados Blockchain usando a CLI do Azure
@@ -27,7 +27,7 @@ Para configurar uma instância de Gerenciador de Dados do Blockchain, você:
 
 * Instale o [CLI do Azure](/cli/azure/install-azure-cli) mais recente e conectado usando `az login` .
 * Conclua o [início rápido: Use Visual Studio Code para se conectar a uma rede do Azure Blockchain Service Consortium](connect-vscode.md). A camada *Standard* do serviço Blockchain do Azure é recomendada ao usar o Blockchain Gerenciador de dados.
-* Criar um [tópico de grade de eventos](../../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic)
+* Criar um [tópico da Grade de Eventos](../../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic)
 * Aprenda sobre [Manipuladores de eventos na Grade de Eventos do Azure](../../event-grid/event-handlers.md)
 
 ## <a name="launch-azure-cloud-shell"></a>Iniciar o Azure Cloud Shell

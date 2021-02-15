@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 08fb794839adf9e8a986f53da00b4855e5535af5
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 4694b6ac829c42f20c6783810c248ee18d220433
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86508858"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91965753"
 ---
 # <a name="understand-a-system-reboot-for-azure-vm"></a>Entender uma reinicialização do sistema para VM do Azure
 
@@ -30,7 +30,7 @@ A melhor maneira de proteger um aplicativo em execução no Azure contra reinici
 
 Para oferecer esse nível de redundância ao seu aplicativo, recomendamos que agrupe uma ou mais VMs em um conjunto de disponibilidade. Essa configuração garante que durante um evento de manutenção planejada ou não planejada, pelo menos uma VM estará disponível e atenderá os 99,95% de [SLA do Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_5/).
 
-Para obter mais informações sobre conjuntos de disponibilidade, consulte [gerenciar a disponibilidade de VMs](../windows/manage-availability.md)
+Para obter mais informações sobre conjuntos de disponibilidade, consulte [gerenciar a disponibilidade de VMs](../manage-availability.md)
 
 ## <a name="resource-health-information"></a>Informações do Resource Health
 
@@ -72,7 +72,7 @@ Outro cenário que geralmente faz com que a VM reinicie inclui várias ações d
 
 ### <a name="azure-security-center-and-windows-update"></a>Central de Segurança do Azure e Windows Update
 
-A Central de Segurança do Azure monitora diariamente VMs Windows e Linux para saber se faltam atualizações do sistema operacional. A Central de Segurança recupera uma lista de atualizações críticas e de segurança disponíveis no Windows Update ou no WSUS (Windows Server Update Services), dependendo de qual serviço está configurado em uma VM do Windows. A Central de Segurança também verifica as atualizações mais recentes para sistemas Linux. Se faltar uma atualização do sistema em sua VM, a Central de Segurança recomendará que você aplique as atualizações do sistema. A aplicação dessas atualizações do sistema é controlada pela Central de Segurança no portal do Azure. Depois de aplicar algumas atualizações, pode ser necessário reiniciar algumas VMs. Para saber mais, confira [Aplicar atualizações do sistema na Central de Segurança do Azure](../../security-center/security-center-virtual-machine-protection.md).
+A Central de Segurança do Azure monitora diariamente VMs Windows e Linux para saber se faltam atualizações do sistema operacional. A Central de Segurança recupera uma lista de atualizações críticas e de segurança disponíveis no Windows Update ou no WSUS (Windows Server Update Services), dependendo de qual serviço está configurado em uma VM do Windows. A Central de Segurança também verifica as atualizações mais recentes para sistemas Linux. Se faltar uma atualização do sistema em sua VM, a Central de Segurança recomendará que você aplique as atualizações do sistema. A aplicação dessas atualizações do sistema é controlada pela Central de Segurança no portal do Azure. Depois de aplicar algumas atualizações, pode ser necessário reiniciar algumas VMs. Para saber mais, confira [Aplicar atualizações do sistema na Central de Segurança do Azure](../../security-center/asset-inventory.md).
 
 Assim como os servidores locais, o Azure não efetua push de atualizações do Windows Update para VMs do Windows porque essas máquinas devem ser gerenciadas pelos próprios usuários. No entanto, é recomendável que os clientes deixem a configuração automática do Windows Update habilitada. A instalação automática de atualizações do Windows Update pode causar reinicializações após a aplicação. Para saber mais, confira [Perguntas frequentes sobre o Windows Update](https://support.microsoft.com/help/12373/windows-update-faq).
 

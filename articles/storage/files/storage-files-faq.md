@@ -7,20 +7,20 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: eca9596666b318b71bb1deec64e3a7d037e8fa0d
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 266862a1691387caf1b1ffa9a47b0e60e84970d8
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654320"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492124"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Perguntas frequentes sobre o Azure Files
-[ Os arquivos do Azure](storage-files-introduction.md) oferecem compartilhamentos de arquivos totalmente gerenciados na nuvem que são acessíveis por meio do {SM} protocolo [de padrão do setor](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). Você pode montar compartilhamentos de arquivos do Azure simultaneamente em implantações locais ou na nuvem do Windows, do Linux e do macOS. Também é possível armazenar em cache os compartilhamentos de arquivos do Azure em computadores Windows Server usando a Sincronização de Arquivos do Azure para acesso rápido próximo ao local em que os dados são usados.
+Os [arquivos do Azure](storage-files-introduction.md) oferecem compartilhamentos de arquivos totalmente gerenciados na nuvem que podem ser acessados por meio do [protocolo SMB (Server Message Block)](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) padrão do setor e do [protocolo NFS (sistema de arquivos de rede)](https://en.wikipedia.org/wiki/Network_File_System) (visualização). Você pode montar compartilhamentos de arquivos do Azure simultaneamente em implantações locais ou na nuvem do Windows, do Linux e do macOS. Também é possível armazenar em cache os compartilhamentos de arquivos do Azure em computadores Windows Server usando a Sincronização de Arquivos do Azure para acesso rápido próximo ao local em que os dados são usados.
 
 Este artigo responde perguntas frequentes sobre funcionalidades e recursos do serviço Arquivos do Azure, inclusive sobre o uso dele em combinação com a Sincronização de Arquivos do Azure. Se você não vir a resposta para sua pergunta aqui, poderá entrar em contato conosco pelos seguintes canais (em ordem progressiva):
 
 1. A seção de comentários deste artigo.
-2. [Página de P e R da Microsoft para Armazenamento do Microsoft Azure](https://docs.microsoft.com/answers/topics/azure-file-storage.html).
+2. [Página de P e R da Microsoft para Armazenamento do Microsoft Azure](/answers/topics/azure-file-storage.html).
 3. O [UserVoice do Arquivos do Azure](https://feedback.azure.com/forums/217298-storage/category/180670-files). 
 4. O Suporte da Microsoft. Para criar uma nova solicitação de suporte, no Portal do Azure, na guia **Ajuda**, selecione o botão **Ajuda + suporte** e, em seguida, selecione **Nova solicitação de suporte**.
 
@@ -31,7 +31,7 @@ Este artigo responde perguntas frequentes sobre funcionalidades e recursos do se
 
 * <a id="file-access-options"></a>
   **Quais são as diferentes maneiras de acessar arquivos nos Arquivos do Azure?**  
-    Você pode montar o compartilhamento de arquivos no computador local usando o protocolo SMB 3.0 ou pode usar ferramentas como o [Gerenciador de Armazenamento](https://storageexplorer.com/) para acessar os arquivos no compartilhamento de arquivos. No aplicativo, você pode usar bibliotecas de cliente de armazenamento, APIs REST, o PowerShell ou a CLI do Azure para acessar os arquivos no compartilhamento de arquivos do Azure.
+    Os compartilhamentos de arquivos SMB podem ser montados em seu computador local usando o protocolo SMB 3,0 ou você pode usar ferramentas como [Gerenciador de armazenamento](https://storageexplorer.com/) para acessar arquivos em seu compartilhamento de arquivos. Os compartilhamentos de arquivos NFS podem ser montados em seu computador local copiando/colando o script fornecido pelo portal do Azure. No aplicativo, você pode usar bibliotecas de cliente de armazenamento, APIs REST, o PowerShell ou a CLI do Azure para acessar os arquivos no compartilhamento de arquivos do Azure.
 
 * <a id="what-is-afs"></a>
   **O que é a Sincronização de arquivos do Azure?**  
@@ -43,12 +43,12 @@ Este artigo responde perguntas frequentes sobre funcionalidades e recursos do se
     
     O Armazenamento de Blobs do Azure é útil para aplicativos de grande escala e nativos de nuvem que precisam armazenar dados não estruturados. Para maximizar o desempenho e o dimensionamento, o Armazenamento de Blobs do Azure é uma abstração de armazenamento mais simples do que um sistema de arquivos real. O Armazenamento de Blobs do Azure só pode ser acessado por bibliotecas de cliente baseadas em REST (ou diretamente por meio do protocolo baseado em REST).
 
-    O serviço Arquivos do Azure é especificamente um sistema de arquivos. O serviço Arquivos do Azure tem todos os resumos de arquivo que você conhece e adora após anos de trabalho com sistemas operacionais locais. Assim como o Armazenamento de Blobs do Azure, o serviço Arquivos do Azure oferece uma interface REST e bibliotecas de cliente baseadas em REST. Ao contrário do Armazenamento de Blobs do Azure, o serviço Arquivos do Azure oferece acesso via SMB a compartilhamentos de arquivos do Azure. Usando SMB, você pode montar um compartilhamento dos Arquivos do Azure diretamente no Windows, no Linux ou no macOS, localmente ou em VMs na nuvem, sem escrever nenhum código nem anexar drivers especiais ao sistema de arquivos. Você também pode armazenar em cache os compartilhamentos de arquivos do Azure em servidores de arquivos locais usando a Sincronização de Arquivos do Azure para acesso rápido, perto de onde os dados são usados. 
+    O serviço Arquivos do Azure é especificamente um sistema de arquivos. O serviço Arquivos do Azure tem todos os resumos de arquivo que você conhece e adora após anos de trabalho com sistemas operacionais locais. Assim como o Armazenamento de Blobs do Azure, o serviço Arquivos do Azure oferece uma interface REST e bibliotecas de cliente baseadas em REST. Ao contrário do armazenamento de BLOBs do Azure, os arquivos do Azure oferecem acesso SMB ou NFS aos compartilhamentos de arquivos do Azure Os compartilhamentos de arquivos podem ser montados diretamente no Windows, Linux ou macOS, localmente ou em VMs de nuvem, sem gravar nenhum código ou anexar qualquer driver especial ao sistema de arquivos. Você também pode armazenar em cache os compartilhamentos de arquivos SMB do Azure em servidores de arquivos locais usando Sincronização de Arquivos do Azure para acesso rápido, perto de onde os dados são usados. 
    
     Para uma descrição mais detalhada sobre as diferenças entre os Arquivos do Azure e o Armazenamento de Blobs do Azure, confira [Introdução aos principais serviços do Armazenamento do Microsoft Azure](../common/storage-introduction.md). Para saber mais sobre o Armazenamento de Blobs do Azure, confira [Introdução ao armazenamento de Blobs](../blobs/storage-blobs-introduction.md).
 
 * <a id="files-versus-disks"></a>**Por que usar um compartilhamento de arquivos do Azure em vez dos Discos do Azure?**  
-    Um disco nos Discos do Azure é simplesmente um disco. Para obter valor do serviço Discos do Azure, você deve anexar um disco a uma máquina virtual que está em execução no Azure. O serviço Discos do Azure pode ser usado para todos os fins para os quais você usaria um disco em um servidor local. Você pode usá-lo como um disco de sistema do SO, como espaço de permuta para um SO ou como armazenamento dedicado para um aplicativo. Um uso interessante do serviço Discos do Azure é a criação de um servidor de arquivos na nuvem para uso nos mesmos locais em que você usaria um compartilhamento de arquivos do Azure. Implantar um servidor de arquivos em Máquinas Virtuais do Azure é uma maneira fantástica e de alto desempenho de obter o armazenamento de arquivos no Azure quando você precisa de opções de implantação que atualmente não têm suporte pelo serviço Arquivos do Azure (como suporte a protocolo NFS ou armazenamento Premium). 
+    Um disco nos Discos do Azure é simplesmente um disco. Para obter valor do serviço Discos do Azure, você deve anexar um disco a uma máquina virtual que está em execução no Azure. O serviço Discos do Azure pode ser usado para todos os fins para os quais você usaria um disco em um servidor local. Você pode usá-lo como um disco de sistema do SO, como espaço de permuta para um SO ou como armazenamento dedicado para um aplicativo. Um uso interessante do serviço Discos do Azure é a criação de um servidor de arquivos na nuvem para uso nos mesmos locais em que você usaria um compartilhamento de arquivos do Azure. Implantar um servidor de arquivos em máquinas virtuais do Azure é uma maneira de alto desempenho para obter o armazenamento de arquivos no Azure quando você precisa de opções de implantação que atualmente não são compatíveis com os arquivos do Azure. 
 
     No entanto, executar um servidor de arquivos com os Discos do Azure como armazenamento de back-end geralmente é muito mais caro do que usar um compartilhamento de arquivos do Azure, por vários motivos. Primeiro, além de pagar pelo armazenamento em disco, você também precisa pagar a despesa de execução de uma ou mais VMs do Azure. Em segundo lugar, você também deve gerenciar as VMs que são usadas para executar o servidor de arquivos. Por exemplo, você é responsável por atualizações do SO. Por fim, se precisar que dados sejam armazenados em cache localmente, caberá a você configurar e gerenciar as tecnologias de replicação, por exemplo, a DFSR (Replicação do Sistema de Arquivos Distribuído) para fazer com que isso aconteça.
 
@@ -58,17 +58,18 @@ Este artigo responde perguntas frequentes sobre funcionalidades e recursos do se
 
 * <a id="get-started"></a>
   **Como posso começar a usar os Arquivos do Azure?**  
-   É fácil começar a usar o serviço Arquivos do Azure. Primeiro, [crie um compartilhamento de arquivos](storage-how-to-create-file-share.md) e, em seguida, monte-o no seu sistema operacional preferido: 
+   É fácil começar a usar o serviço Arquivos do Azure. Primeiro, [crie um compartilhamento de arquivos SMB](storage-how-to-create-file-share.md) ou um [como criar um compartilhamento NFS](storage-files-how-to-create-nfs-shares.md)e, em seguida, monte-o em seu sistema operacional preferido: 
 
-  * [Montar no Windows](storage-how-to-use-files-windows.md)
-  * [Montar no Linux](storage-how-to-use-files-linux.md)
-  * [Montar no macOS](storage-how-to-use-files-mac.md)
+  * [Montar um compartilhamento SMB no Windows](storage-how-to-use-files-windows.md)
+  * [Montar um compartilhamento SMB no Linux](storage-how-to-use-files-linux.md)
+  * [Montar um compartilhamento SMB no macOS](storage-how-to-use-files-mac.md)
+  * [Montar um compartilhamento de arquivos NFS](storage-files-how-to-mount-nfs-shares.md)
 
     Para obter um guia mais detalhado sobre como implantar um compartilhamento dos Arquivos do Azure para substituir os compartilhamentos de arquivos de produção em sua organização, confira [Planejando a implantação dos Arquivos do Azure](storage-files-planning.md).
 
 * <a id="redundancy-options"></a>
   **Quais opções de redundância de armazenamento têm suporte pelos Arquivos do Azure?**  
-    Atualmente, os Arquivos do Azure são compatíveis com LRS (armazenamento com redundância local), ZRS (armazenamento com redundância de zona), GRS (armazenamento com redundância geográfica) e GZRS (armazenamento com redundância geográfica e de zona). Planejamos dar suporte para RA-GRS (redundância geográfica com acesso de leitura) no futuro, mas não temos linhas do tempo para compartilhar nesse momento.
+    Atualmente, os Arquivos do Azure são compatíveis com LRS (armazenamento com redundância local), ZRS (armazenamento com redundância de zona), GRS (armazenamento com redundância geográfica) e GZRS (armazenamento com redundância geográfica e de zona). A camada Premium dos arquivos do Azure atualmente dá suporte apenas a LRS e ZRS.
 
 * <a id="tier-options"></a>
   **Atualmente, quais camadas de armazenamento têm suporte no serviço Arquivos do Azure?**  
@@ -79,7 +80,7 @@ Este artigo responde perguntas frequentes sobre funcionalidades e recursos do se
 
 * <a id="file-locking"></a>
   **Os arquivos do Azure dão suporte ao bloqueio de arquivos?**  
-    Sim, os Arquivos do Azure têm suporte com bloqueio de arquivo no estilo do Windows, [veja mais informações](https://docs.microsoft.com/rest/api/storageservices/managing-file-locks).
+    Sim, os Arquivos do Azure têm suporte com bloqueio de arquivo no estilo do Windows, [veja mais informações](/rest/api/storageservices/managing-file-locks).
 
 * <a id="give-us-feedback"></a>
   **Quero muito ver o recurso específico adicionado ao serviço Arquivos do Azure. Você pode adicioná-lo?**  
@@ -157,7 +158,7 @@ Este artigo responde perguntas frequentes sobre funcionalidades e recursos do se
     
 * <a id="afs-resource-move"></a>
   **Posso mover o serviço de sincronização de armazenamento e/ou a conta de armazenamento para um grupo de recursos, uma assinatura ou um locatário do Azure AD diferente?**  
-   Sim, o serviço de sincronização de armazenamento e/ou a conta de armazenamento podem ser movidos para um grupo de recursos, uma assinatura ou um locatário do Azure AD diferente. Depois que o serviço de sincronização de armazenamento ou a conta de armazenamento for movido, você precisará conceder ao aplicativo Microsoft. StorageSync acesso à conta de armazenamento (consulte [garantir que sincronização de arquivos do Azure tenha acesso à conta de armazenamento](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#troubleshoot-rbac)).
+   Sim, o serviço de sincronização de armazenamento e/ou a conta de armazenamento podem ser movidos para um grupo de recursos, uma assinatura ou um locatário do Azure AD diferente. Depois que o serviço de sincronização de armazenamento ou a conta de armazenamento for movido, você precisará conceder ao aplicativo Microsoft. StorageSync acesso à conta de armazenamento (consulte [garantir que sincronização de arquivos do Azure tenha acesso à conta de armazenamento](./storage-sync-files-troubleshoot.md?tabs=portal1%252cportal#troubleshoot-rbac)).
 
     > [!Note]  
     > Ao criar o ponto de extremidade na nuvem, o serviço de sincronização de armazenamento e a conta de armazenamento devem estar no mesmo locatário do Azure AD. Depois que o ponto de extremidade na nuvem é criado, o serviço de sincronização de armazenamento e a conta de armazenamento podem ser movidos para diferentes locatários do Azure AD.
@@ -183,7 +184,7 @@ Este artigo responde perguntas frequentes sobre funcionalidades e recursos do se
 
     - A Sincronização de Arquivos do Azure preserva e replica todas as ACLs discricionárias ou DACLs (sejam elas baseadas no Active Directory ou locais) para todos os pontos de extremidade do servidor aos quais ela é sincronizada. 
     
-    Você pode consultar [Autorizar acesso ao Armazenamento do Microsoft Azure](https://docs.microsoft.com/azure/storage/common/storage-auth?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) para ver uma representação abrangente de todos os protocolos compatíveis nos serviços do Armazenamento do Microsoft Azure. 
+    Você pode consultar [Autorizar acesso ao Armazenamento do Microsoft Azure](../common/storage-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) para ver uma representação abrangente de todos os protocolos compatíveis nos serviços do Armazenamento do Microsoft Azure. 
     
 * <a id="encryption-at-rest"></a>
 **Como garantir que o compartilhamento de arquivos do Azure está criptografado em repouso?**  
@@ -208,14 +209,14 @@ Este artigo responde perguntas frequentes sobre funcionalidades e recursos do se
 * <a id="data-compliance-policies"></a>
 **A quais políticas de conformidade de dados o serviço Arquivos do Azure dá suporte?**  
 
-   O Arquivos do Azure é executado com base na mesma arquitetura de armazenamento usada em outros serviços de armazenamento no Armazenamento do Azure. O Arquivos do Azure aplica as mesmas políticas de conformidade de dados que são usadas em outros serviços de armazenamento do Azure. Para obter mais informações sobre a conformidade de dados do Armazenamento do Azure, você pode consultar as [ofertas de conformidade do Armazenamento do Microsoft Azure ](https://docs.microsoft.com/azure/storage/common/storage-compliance-offerings) e ir à [Central de Confiabilidade da Microsoft](https://microsoft.com/trustcenter/default.aspx).
+   O Arquivos do Azure é executado com base na mesma arquitetura de armazenamento usada em outros serviços de armazenamento no Armazenamento do Azure. O Arquivos do Azure aplica as mesmas políticas de conformidade de dados que são usadas em outros serviços de armazenamento do Azure. Para obter mais informações sobre a conformidade de dados do Armazenamento do Azure, você pode consultar as [ofertas de conformidade do Armazenamento do Microsoft Azure ](../common/storage-compliance-offerings.md) e ir à [Central de Confiabilidade da Microsoft](https://microsoft.com/trustcenter/default.aspx).
 
 * <a id="file-auditing"></a>
 **Como posso auditar o acesso a arquivos e as alterações nos arquivos do Azure?**
 
   Há duas opções que fornecem funcionalidade de auditoria para arquivos do Azure:
-  - Se os usuários estiverem acessando o compartilhamento de arquivos do Azure diretamente, [os logs de armazenamento do Azure (versão prévia)](https://docs.microsoft.com/azure/storage/common/monitor-storage?tabs=azure-powershell#logs-in-azure-monitor-preview) poderão ser usados para controlar as alterações de arquivo e o acesso do usuário. Esses logs podem ser usados para fins de solução de problemas e as solicitações são registradas em uma base de melhor esforço.
-  - Se os usuários estiverem acessando o compartilhamento de arquivos do Azure por meio de um Windows Server com o agente de Sincronização de Arquivos do Azure instalado, use uma [política de auditoria](https://docs.microsoft.com/windows/security/threat-protection/auditing/apply-a-basic-audit-policy-on-a-file-or-folder) ou um produto de terceiros para acompanhar as alterações de arquivos e o acesso do usuário no Windows Server. 
+  - Se os usuários estiverem acessando o compartilhamento de arquivos do Azure diretamente, [os logs de armazenamento do Azure (versão prévia)](../blobs/monitor-blob-storage.md?tabs=azure-powershell#analyzing-logs) poderão ser usados para controlar as alterações de arquivo e o acesso do usuário. Esses logs podem ser usados para fins de solução de problemas e as solicitações são registradas em uma base de melhor esforço.
+  - Se os usuários estiverem acessando o compartilhamento de arquivos do Azure por meio de um Windows Server com o agente de Sincronização de Arquivos do Azure instalado, use uma [política de auditoria](/windows/security/threat-protection/auditing/apply-a-basic-audit-policy-on-a-file-or-folder) ou um produto de terceiros para acompanhar as alterações de arquivos e o acesso do usuário no Windows Server. 
    
 ### <a name="ad-ds--azure-ad-ds-authentication"></a>AD DS & autenticação de AD DS do Azure
 * <a id="ad-support-devices"></a>
@@ -246,7 +247,7 @@ Este artigo responde perguntas frequentes sobre funcionalidades e recursos do se
 * <a id="ad-aad-smb-files"></a>
 **Como posso verificar se eu habilitei a autenticação AD DS na minha conta de armazenamento e recuperar as informações de domínio?**
 
-    Para obter instruções, consulte [aqui](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-enable#1-enable-ad-authentication-for-your-account).
+    Para obter instruções, consulte [aqui](./storage-files-identity-ad-ds-enable.md#confirm-the-feature-is-enabled).
 
 * <a id=""></a>
 **A autenticação do Azure Active Directory dos Arquivos do Azure tem suporte para VMs do Linux?**
@@ -256,7 +257,25 @@ Este artigo responde perguntas frequentes sobre funcionalidades e recursos do se
 * <a id="ad-multiple-forest"></a>
 **A autenticação do AD DS local para compartilhamentos de arquivos do Azure tem suporte à integração com um ambiente de AD DS usando várias florestas?**    
 
-    A autenticação do AD DS local dos Arquivos do Azure se integra apenas com a floresta do serviço de domínio em que a conta de armazenamento está registrada. Para dar suporte à autenticação de outra floresta, seu ambiente precisar ter uma relação de confiança de floresta configurada corretamente. O modo que os Arquivos do Azure se registra no AD DS é quase o mesmo de um servidor de arquivos comum, onde ele cria uma identidade (conta de computador ou de logon de serviço) no AD DS para autenticação. A única diferença é que o SPN registrado da conta de armazenamento termina com "file.core.windows.net", que não corresponde ao sufixo do domínio. Consulte o administrador de domínio para ver se você precisa atualizar sua política de roteamento de DNS para habilitar a autenticação de várias florestas devido ao sufixo de domínio diferente.
+    A autenticação do AD DS local dos Arquivos do Azure se integra apenas com a floresta do serviço de domínio em que a conta de armazenamento está registrada. Para dar suporte à autenticação de outra floresta, seu ambiente precisar ter uma relação de confiança de floresta configurada corretamente. O modo que os Arquivos do Azure se registra no AD DS é quase o mesmo de um servidor de arquivos comum, onde ele cria uma identidade (conta de computador ou de logon de serviço) no AD DS para autenticação. A única diferença é que o SPN registrado da conta de armazenamento termina com "file.core.windows.net", que não corresponde ao sufixo do domínio. Consulte o administrador de domínio para ver se alguma atualização para sua política de roteamento de sufixo é necessária para habilitar a autenticação de várias florestas devido ao sufixo de domínio diferente. Fornecemos um exemplo abaixo para configurar a política de roteamento de sufixo.
+    
+    Exemplo: quando os usuários na floresta um domínio desejam acessar um compartilhamento de arquivos com a conta de armazenamento registrada em um domínio na floresta B, isso não funcionará automaticamente porque a entidade de serviço da conta de armazenamento não tem um sufixo correspondente ao sufixo de qualquer domínio na floresta A. Podemos resolver esse problema Configurando manualmente uma regra de roteamento de sufixo da floresta A para a floresta B para um sufixo personalizado de "file.core.windows.net".
+    Primeiro, você deve adicionar um novo sufixo personalizado à floresta B. Verifique se você tem as permissões administrativas apropriadas para alterar a configuração e siga estas etapas:   
+    1. Logon em um domínio de computador ingressado na floresta B
+    2.  Abrir o console "Active Directory domínios e relações de confiança"
+    3.  Clique com o botão direito em "Active Directory domínios e relações de confiança"
+    4.  Clique em "Propriedades"
+    5.  Clique em "Adicionar"
+    6.  Adicionar "file.core.windows.net" como os sufixos UPN
+    7.  Clique em "aplicar" e em "OK" para fechar o assistente
+    
+    Em seguida, adicione a regra de roteamento de sufixo na floresta A para que ela Redirecione para a floresta B.
+    1.  Fazer logon em um domínio de computador ingressado na floresta A
+    2.  Abrir o console "Active Directory domínios e relações de confiança"
+    3.  Clique com o botão direito do mouse no domínio que você deseja acessar o compartilhamento de arquivos, clique na guia "relações de confiança" e selecione domínio da floresta B de relações de confiança de saída. Se você não configurou a confiança entre as duas florestas, precisará configurar a confiança primeiro
+    4.  Clique em "Propriedades..." em seguida, "roteamento de sufixo de nome"
+    5.  Verifique se o surffix "*. file.core.windows.net" aparece. Caso contrário, clique em ' Atualizar '
+    6.  Selecione "*. file.core.windows.net" e clique em "habilitar" e "aplicar"
 
 * <a id=""></a>
 **Quais regiões estão disponíveis para a autenticação de AD DS de arquivos do Azure?**
@@ -269,26 +288,38 @@ Este artigo responde perguntas frequentes sobre funcionalidades e recursos do se
     Sim, você pode habilitar a autenticação do AD em um compartilhamento de arquivos gerenciado pela Sincronização de Arquivos do Azure. As alterações nas ACLs de NTFS de diretório/arquivo em servidores de arquivos locais serão dispostas em camadas para Arquivos do Azure e vice-versa.
 
 * <a id="ad-aad-smb-files"></a>
-**Como posso verificar se habilitei a autenticação do AD na minha conta de armazenamento e as informações de domínio?**
-
-    Você pode consultar as instruções fornecidas [aqui](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-enable#enable-ad-authentication-for-your-account) para validar se a autenticação do AD dos Arquivos do Azure está habilitada na sua conta de armazenamento e recuperar as informações de domínio do AD.
-
-* <a id="ad-aad-smb-files"></a>
 **Há alguma diferença na criação de uma conta de computador ou de conta de logon de serviço para representar minha conta de armazenamento no AD?**
 
-    Não há diferença entre criar uma [conta de computador](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) (padrão) ou uma [conta de logon de serviço](https://docs.microsoft.com/windows/win32/ad/about-service-logon-accounts) quanto ao funcionamento da autenticação com os Arquivos do Azure. Você pode escolher como representar uma conta de armazenamento como uma identidade em seu ambiente do AD. A configuração DomainAccountType padrão no cmdlet Join-AzStorageAccountForAuth é conta de computador. No entanto, o tempo de expiração de senha configurado em seu ambiente AD para conta de computador ou de logon de serviço pode ser diferente e você precisa levar isso em consideração para [Atualizar a senha da sua identidade de conta de armazenamento no AD](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-enable#5-update-ad-account-password).
+    Não há diferença entre criar uma [conta de computador](/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) (padrão) ou uma [conta de logon de serviço](/windows/win32/ad/about-service-logon-accounts) quanto ao funcionamento da autenticação com os Arquivos do Azure. Você pode escolher como representar uma conta de armazenamento como uma identidade em seu ambiente do AD. A configuração DomainAccountType padrão no cmdlet Join-AzStorageAccountForAuth é conta de computador. No entanto, o tempo de expiração de senha configurado em seu ambiente AD para conta de computador ou de logon de serviço pode ser diferente e você precisa levar isso em consideração para [Atualizar a senha da sua identidade de conta de armazenamento no AD](./storage-files-identity-ad-ds-update-password.md).
  
 * <a id="ad-support-rest-apis"></a>
 **Há APIs REST para dar suporte a ACLs do Windows de obter/definir/copiar diretório/arquivo?**
 
-    Sim, oferecemos suporte a APIs REST que obtêm, configuram ou copiam ACLs NTFS para diretórios ou arquivos ao usar a API REST de [07-07-2019](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services#version-2019-07-07) (ou posterior). Também há suporte para persistência de ACLs do Windows em ferramentas baseadas em REST: [AzCopy v 10.4 +](https://github.com/Azure/azure-storage-azcopy/releases).
+    Sim, oferecemos suporte a APIs REST que obtêm, configuram ou copiam ACLs NTFS para diretórios ou arquivos ao usar a API REST de [07-07-2019](/rest/api/storageservices/versioning-for-the-azure-storage-services#version-2019-07-07) (ou posterior). Também há suporte para persistência de ACLs do Windows em ferramentas baseadas em REST: [AzCopy v 10.4 +](https://github.com/Azure/azure-storage-azcopy/releases).
+
+## <a name="network-file-system"></a>NFS
+
+* <a id="when-to-use-nfs"></a>
+**Quando devo usar o NFS de arquivos do Azure?**
+
+    Consulte [compartilhamentos NFS (versão prévia)](storage-files-compare-protocols.md#nfs-shares-preview).
+
+* <a id="backup-nfs-data"></a>
+**Como fazer dados de backup armazenados em compartilhamentos NFS?**
+
+    O backup de seus dados em compartilhamentos NFS pode ser orquestrado usando ferramentas familiares, como o rsync ou produtos, de um dos nossos parceiros de backup de terceiros. Vários parceiros de backup, incluindo [CommVault](https://documentation.commvault.com/commvault/v11/article?p=92634.htm), [Veeam](https://www.veeam.com/blog/?p=123438)e [Veritas](https://players.brightcove.net/4396107486001/default_default/index.html?videoId=6189967101001) , faziam parte de nossa versão prévia inicial e ampliaram suas soluções para trabalhar com SMB 3,0 e NFS 4,1 para arquivos do Azure.
+
+* <a id="migrate-nfs-data"></a>
+**Posso migrar os dados existentes para um compartilhamento NFS?**
+
+    Em uma região, você pode usar ferramentas padrão como scp, rsync ou SSHFS para mover dados. Como o NFS de arquivos do Azure pode ser acessado de várias instâncias de computação simultaneamente, você pode melhorar a cópia de velocidades com carregamentos paralelos. Se você quiser trazer dados de fora de uma região, use uma VPN ou um Expressroute para montar em seu sistema de arquivos a partir de sua data center local.
 
 ## <a name="on-premises-access"></a>Acesso local
 
 * <a id="port-445-blocked"></a>
 **Meu provedor de internet ou TI bloqueia a porta 445 causando erro na montagem dos Arquivos do Azure. O que devo fazer?**
 
-    Você pode conhecer [várias maneiras soluções alternativas para a porta 445 bloqueada aqui](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#cause-1-port-445-is-blocked). Os Arquivos do Azure só permitem conexões usando SMB 3.0 (com suporte de criptografia) de fora da região ou do datacenter. O protocolo SMB 3.0 introduziu muitos recursos de segurança, inclusive criptografia de canal que é muito segura para uso na internet. No entanto, é possível que a porta 445 tenha sido bloqueada devido a motivos históricos de vulnerabilidades encontradas em versões SMB inferiores. O ideal é bloquear a porta para tráfego de SMB 1.0 e o SMB 1.0 deve estar desativado em todos os clientes.
+    Você pode conhecer [várias maneiras soluções alternativas para a porta 445 bloqueada aqui](./storage-troubleshoot-windows-file-connection-problems.md#cause-1-port-445-is-blocked). Os Arquivos do Azure só permitem conexões usando SMB 3.0 (com suporte de criptografia) de fora da região ou do datacenter. O protocolo SMB 3.0 introduziu muitos recursos de segurança, inclusive criptografia de canal que é muito segura para uso na internet. No entanto, é possível que a porta 445 tenha sido bloqueada devido a motivos históricos de vulnerabilidades encontradas em versões SMB inferiores. O ideal é bloquear a porta para tráfego de SMB 1.0 e o SMB 1.0 deve estar desativado em todos os clientes.
 
 * <a id="expressroute-not-required"></a>
 **Preciso usar o Azure ExpressRoute para me conectar aos Arquivos do Azure ou para usar a Sincronização de arquivos do Azure localmente?**  
@@ -303,7 +334,7 @@ Este artigo responde perguntas frequentes sobre funcionalidades e recursos do se
 ## <a name="backup"></a>Backup
 * <a id="backup-share"></a>
 **Como posso fazer backup do meu compartilhamento de arquivos do Azure?**  
-    Você pode usar [instantâneos de compartilhamento](storage-snapshots-files.md) periódicos para proteção contra exclusões acidentais. Use o AzCopy, o Robocopy ou uma ferramenta de backup de terceiros que possa fazer backup de um compartilhamento de arquivos montado. O Backup do Azure oferece backup do Azure Files. Saiba mais sobre [fazer dos compartilhamos de arquivo do Azure pelo Backup do Microsoft Azure](https://docs.microsoft.com/azure/backup/backup-azure-files).
+    Você pode usar [instantâneos de compartilhamento](storage-snapshots-files.md) periódicos para proteção contra exclusões acidentais. Use o AzCopy, o Robocopy ou uma ferramenta de backup de terceiros que possa fazer backup de um compartilhamento de arquivos montado. O Backup do Azure oferece backup do Azure Files. Saiba mais sobre [fazer dos compartilhamos de arquivo do Azure pelo Backup do Microsoft Azure](../../backup/backup-afs.md).
 
 ## <a name="share-snapshots"></a>Instantâneos de compartilhamento
 
@@ -414,11 +445,11 @@ Este artigo responde perguntas frequentes sobre funcionalidades e recursos do se
 ## <a name="features-and-interoperability-with-other-services"></a>Recursos e interoperabilidade com outros serviços
 * <a id="cluster-witness"></a>
 **É possível usar o compartilhamento de arquivos do Azure como uma *Testemunha de Compartilhamento de Arquivos* para o Cluster de Failover do Windows Server?**  
-    Atualmente, em um compartilhamento de arquivos do Azure, não há suporte para essa configuração. Para saber mais sobre como configurar isso para o Armazenamento de Blobs do Azure, confira [Implantar uma testemunha de nuvem em um cluster de failover](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness).
+    Atualmente, em um compartilhamento de arquivos do Azure, não há suporte para essa configuração. Para saber mais sobre como configurar isso para o Armazenamento de Blobs do Azure, confira [Implantar uma testemunha de nuvem em um cluster de failover](/windows-server/failover-clustering/deploy-cloud-witness).
 
 * <a id="containers"></a>
 **Posso montar um compartilhamento de arquivos do Azure em uma instância de Contêiner do Azure?**  
-    Sim, os compartilhamentos de arquivos do Azure são uma opção fantástica para manter informações além do tempo de vida de uma instância de contêiner. Para obter mais informações, consulte [Montar um compartilhamento de arquivos do Azure com Instâncias de Contêiner do Azure](../../container-instances/container-instances-mounting-azure-files-volume.md).
+    Sim, os compartilhamentos de arquivos do Azure são uma opção fantástica para manter informações além do tempo de vida de uma instância de contêiner. Para obter mais informações, consulte [Montar um compartilhamento de arquivos do Azure com Instâncias de Contêiner do Azure](../../container-instances/container-instances-volume-azure-files.md).
 
 * <a id="rest-rename"></a>
 **Há uma operação de renomeação na API REST?**  

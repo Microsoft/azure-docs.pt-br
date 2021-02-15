@@ -12,12 +12,12 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: sstein
 ms.date: 02/13/2019
-ms.openlocfilehash: 4c6904cfa2a7a3c3281da9a930fd59e8d511ac89
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b34ac24cb26bf5db4a49a5ad5b531deb252f4695
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85249271"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446125"
 ---
 # <a name="new-dba-in-the-cloud--managing-azure-sql-database-after-migration"></a>Novo DBA na nuvem – Gerenciando o banco de dados SQL do Azure após a migração
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -65,7 +65,7 @@ Você não cria backups no banco de dados SQL do Azure e isso ocorre porque voc�
 
 |Camada de serviço|Período de retenção em dias|
 |---|:---:|
-|Basic|7|
+|Básico|7|
 |Standard|35|
 |Premium|35|
 |||
@@ -102,19 +102,21 @@ A [Central de Segurança do Azure](https://azure.microsoft.com/services/security
 Há dois métodos de autenticação oferecidos no Banco de Dados SQL:
 
 - [Autenticação do Azure Active Directory](authentication-aad-overview.md)
-- [Autenticação do SQL](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication)
+- [Autenticação do SQL](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication)
 
-Não há suporte para a Autenticação Integrada do Windows. O Azure Active Directory (AD do Azure) é um serviço de gerenciamento de identidade e acesso centralizado. Com isso você pode fornecer muito convenientemente um acesso de logon único (SSO) para todo o pessoal em sua organização. Isso significa que as credenciais são compartilhadas entre todos os serviços do Azure para autenticação mais simples. O Azure AD dá suporte à [autenticação multifator do Azure](authentication-mfa-ssms-overview.md) e com [alguns cliques](../../active-directory/hybrid/how-to-connect-install-express.md) que o Azure AD pode ser integrado com o Windows Server Active Directory. A autenticação do SQL funciona exatamente como você o vinha usando no passado. Você fornece um nome de usuário/senha e pode autenticar usuários em qualquer banco de dados em um determinado servidor. Isso também permite que o banco de dados SQL e o SQL Data Warehouse ofereçam autenticação multifator e contas de usuário convidado em um domínio do Azure AD. Se você já tiver um Active Directory local, poderá federar o diretório com o Azure Active Directory para estender seu diretório do Azure.
+Não há suporte para a Autenticação Integrada do Windows. O Azure Active Directory (AD do Azure) é um serviço de gerenciamento de identidade e acesso centralizado. Com isso você pode fornecer muito convenientemente um acesso de logon único (SSO) para todo o pessoal em sua organização. Isso significa que as credenciais são compartilhadas entre todos os serviços do Azure para autenticação mais simples. 
 
-|**Se você...**|**Banco de Dados SQL / SQL Data Warehouse**|
+O Azure AD dá suporte à [autenticação multifator do Azure ad](authentication-mfa-ssms-overview.md) e com [alguns cliques](../../active-directory/hybrid/how-to-connect-install-express.md) que o Azure AD pode ser integrado com o Windows Server Active Directory. A autenticação do SQL funciona exatamente como você o vinha usando no passado. Você fornece um nome de usuário/senha e pode autenticar usuários em qualquer banco de dados em um determinado servidor. Isso também permite que o banco de dados SQL e o Azure Synapse Analytics ofereçam autenticação multifator e contas de usuário convidado em um domínio do Azure AD. Se você já tiver um Active Directory local, poderá federar o diretório com o Azure Active Directory para estender seu diretório do Azure.
+
+|**Se você...**|**Banco de dados SQL/análise de Synapse do Azure**|
 |---|---|
 |Prefira não usar Azure Active Directory (Azure AD) no Azure|Use a [autenticação do SQL](security-overview.md)|
 |Usou AD no SQL Server local|[Federe o AD com o Azure AD](../../active-directory/hybrid/whatis-hybrid-identity.md)e use a autenticação do Azure AD. Com isso, você pode usar o logon único.|
 |Necessidade de impor a autenticação multifator|Exigir autenticação multifator como uma política por meio [do acesso condicional da Microsoft](conditional-access-configure.md)e usar [a autenticação universal do Azure AD com suporte à autenticação multifator](authentication-mfa-ssms-overview.md).|
-|Tiver contas de convidado de contas da Microsoft (live.com, outlook.com) ou outros domínios (gmail.com)|Use a [Autenticação universal do Azure AD](authentication-mfa-ssms-overview.md) no Banco de Dados SQL/Data Warehouse, que aproveita a [colaboração B2B do Azure AD](../../active-directory/b2b/what-is-b2b.md).|
+|Tiver contas de convidado de contas da Microsoft (live.com, outlook.com) ou outros domínios (gmail.com)|Use a [Autenticação universal do Azure AD](authentication-mfa-ssms-overview.md) no Banco de Dados SQL/Data Warehouse, que aproveita a [colaboração B2B do Azure AD](../../active-directory/external-identities/what-is-b2b.md).|
 |Estiver conectado ao Windows usando suas credenciais do Azure AD de um domínio federado|Use a [autenticação integrada do Azure AD](authentication-aad-configure.md).|
 |Estiver conectado ao Windows usando credenciais de um domínio não federado com o Azure|Use a [autenticação integrada do Azure AD](authentication-aad-configure.md).|
-|Tiver serviços de camada intermediária que precisam se conectar ao Banco de Dados SQL ou ao SQL Data Warehouse|Use a [autenticação integrada do Azure AD](authentication-aad-configure.md).|
+|Ter serviços de camada intermediária que precisam se conectar ao banco de dados SQL ou ao Azure Synapse Analytics|Use a [autenticação integrada do Azure AD](authentication-aad-configure.md).|
 |||
 
 ### <a name="how-do-i-limit-or-control-connectivity-access-to-my-database"></a>Como fazer para limitar ou controlar o acesso de conectividade ao meu banco de dados?
@@ -170,9 +172,9 @@ Para proteger dados confidenciais em trânsito e em repouso, o Banco de Dados SQ
 |**Características**|**Always Encrypted**|**Criptografia de Dados Transparente**|
 |---|---|---|
 |**Expansão de criptografia**|Ponta a ponta|Dados em repouso|
-|**O servidor pode acessar dados confidenciais**|Não|Sim, desde que a criptografia seja para os dados em repouso|
+|**O servidor pode acessar dados confidenciais**|No|Sim, desde que a criptografia seja para os dados em repouso|
 |**Operações de T-SQL permitidas**|Comparação de igualdade|Toda a área de superfície do T-SQL está disponível|
-|**Alterações de aplicativo necessárias para usar o recurso**|Minimal|Muito Mínimo|
+|**Alterações de aplicativo necessárias para usar o recurso**|Mínimo|Muito Mínimo|
 |**Granularidade de criptografia**|Nível de coluna|Nível de banco de dados|
 ||||
 
@@ -245,7 +247,7 @@ O Banco de Dados SQL fornece recomendações viáveis de segurança para ajudá-
 
 Com a Central de Segurança do Azure, você identifica as recomendações de segurança em todos os segmentos e as aplica com um único clique.
 
-### <a name="cost-optimization"></a>Otimização de custos
+### <a name="cost-optimization"></a>Otimização de custo
 
 A plataforma Azure SQL analisa o histórico de utilização entre todos os bancos de dados em um servidor para avaliar e recomendar opções de otimização de custo para você. Essa análise normalmente leva duas semanas para analisar e criar recomendações viáveis. O pool elástico é uma dessas opções. A recomendação é exibida no portal como um banner:
 
@@ -291,7 +293,7 @@ Sua abordagem para solucionar problemas de desempenho pode se beneficiar bastant
 
 Com a solução de problemas do desempenho, é importante identificar se é apenas o aplicativo ou o banco de dados de backup que está afetando o desempenho do seu aplicativo. Geralmente, o problema de desempenho está na camada de aplicativo. Ele pode estar na arquitetura ou no padrão de acesso a dados. Por exemplo, considere que você tem um aplicativo de conversação que é sensível a latência de rede. Nesse caso, o aplicativo é prejudicado porque deve haver muitas solicitações curtas indo e vindo ("tagarelas") entre o aplicativo e o servidor e em uma rede congestionada, essas idas e voltas se acumulam rapidamente. Para melhorar o desempenho nesse caso, você pode usar [Consultas em lote](performance-guidance.md#batch-queries). Usar lotes ajuda muito porque agora as suas solicitações são processadas em um lote; ajudando, assim, a reduzir a latência de ida e volta e a melhorar o desempenho do seu aplicativo.
 
-Além disso, se você observar uma degradação no desempenho geral do seu banco de dados, poderá monitorar as exibições de gerenciamento dinâmico [Sys. dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) e [Sys. resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) para entender o consumo de CPU, e/s e memória. Seu desempenho pode estar sendo afetado porque o banco de dados está sem recursos. Talvez seja necessário alterar o tamanho da computação e/ou a camada de serviço com base nas demandas de carga de trabalho crescentes e decrescentes.
+Além disso, se você observar uma degradação no desempenho geral do seu banco de dados, poderá monitorar as exibições [Sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) e [Sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) de gerenciamento dinâmico para entender o consumo de CPU, e/s e memória. Seu desempenho pode estar sendo afetado porque o banco de dados está sem recursos. Talvez seja necessário alterar o tamanho da computação e/ou a camada de serviço com base nas demandas de carga de trabalho crescentes e decrescentes.
 
 Para um conjunto abrangente de recomendações de ajuste dos problemas de desempenho, confira: [Ajustar seu desempenho](performance-guidance.md#tune-your-database).
 

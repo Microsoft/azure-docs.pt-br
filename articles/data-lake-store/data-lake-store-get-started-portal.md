@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 06/27/2018
 ms.author: twooley
-ms.openlocfilehash: 7dac5976904263de40c7bc240bdb7deac1ec3df6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 428ed96c3223e644b0c78712723231a5fabbdc77
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85509193"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91578573"
 ---
 # <a name="get-started-with-azure-data-lake-storage-gen1-using-the-azure-portal"></a>Introdução ao Azure Data Lake Store Gen1 usando o portal do Azure
 
@@ -42,7 +42,7 @@ Antes de começar este tutorial, você deve ter os seguintes itens:
 
    * **Nome**. Insira um nome exclusivo para a conta do Data Lake Storage Gen1.
    * **Assinatura**. Selecione a assinatura na qual você deseja criar uma conta do Azure Data Lake Storage Gen1.
-   * **Grupo de recursos**. Selecione um grupo de recursos existente ou selecione a opção **Criar novo** para criar um. Um grupo de recursos é um contêiner que mantém os recursos relacionados para um aplicativo. Para saber mais, consulte [Grupos de Recursos no Azure](../azure-resource-manager/management/overview.md#resource-groups).
+   * **Grupo de Recursos**. Selecione um grupo de recursos existente ou selecione a opção **Criar novo** para criar um. Um grupo de recursos é um contêiner que mantém os recursos relacionados para um aplicativo. Para saber mais, consulte [Grupos de Recursos no Azure](../azure-resource-manager/management/overview.md#resource-groups).
    * **Localização**: selecione uma localização onde deseja criar a conta do Data Lake Storage Gen1.
    * **Configurações de criptografia**. Há três opções:
 
@@ -50,7 +50,7 @@ Antes de começar este tutorial, você deve ter os seguintes itens:
      * **Usar chaves gerenciadas pelo Data Lake Storage Gen1**, se você quiser que o Data Lake Storage Gen1 gerencie suas chaves de criptografia.
      * **Utilize as chaves do seu próprio Key Vault**. Você pode selecionar um Azure Key Vault existente ou criar um novo Key Vault. Para usar as chaves de um Key Vault, você precisa atribuir permissões à conta do Data Lake Storage Gen1 para acessar o Azure Key Vault. Para obter instruções, consulte [Atribuir permissões ao Azure Key Vault](#assign-permissions-to-azure-key-vault).
 
-        ![Data Lake Storage Gen1 criptografia](./media/data-lake-store-get-started-portal/adls-encryption-2.png "Data Lake Storage Gen1 criptografia")
+        ![Captura de tela da nova folha Data Lake Storage Gen 1 e da folha configurações de criptografia.](./media/data-lake-store-get-started-portal/adls-encryption-2.png "Data Lake Storage Gen1 criptografia")
 
         Clique em **OK** na folha **Configurações de Criptografia**.
 
@@ -64,10 +64,10 @@ Se você tiver usado as chaves de um Azure Key Vault para configurar a criptogra
 
 1. Se você tiver usado as chaves do Azure Key Vault, a folha da conta do Data Lake Storage Gen1 exibirá um aviso na parte superior. Clique no aviso para abrir **Criptografia**.
 
-    ![Data Lake Storage Gen1 criptografia](./media/data-lake-store-get-started-portal/adls-encryption-3.png "Data Lake Storage Gen1 criptografia")
+    ![Captura de tela da folha da conta de Data Lake Storage Gen1 mostrando o aviso que diz "configuração de permissão do Key Vault necessária. Clique aqui para configurar.](./media/data-lake-store-get-started-portal/adls-encryption-3.png "Data Lake Storage Gen1 criptografia")
 2. A folha mostra duas opções para configurar o acesso.
 
-    ![Data Lake Storage Gen1 criptografia](./media/data-lake-store-get-started-portal/adls-encryption-4.png "Data Lake Storage Gen1 criptografia")
+    ![Captura de tela da folha criptografia.](./media/data-lake-store-get-started-portal/adls-encryption-4.png "Data Lake Storage Gen1 criptografia")
 
    * Na primeira opção, clique em **Conceder Permissões** para configurar o acesso. A primeira opção só será habilitada quando o usuário que criou a conta do Data Lake Storage Gen1 também for administrador do Azure Key Vault.
    * A outra opção é executar o cmdlet do PowerShell exibido na folha. Você precisa ser o proprietário do Cofre de Chaves do Azure ou ter a capacidade de conceder permissões no Cofre de Chaves do Azure. Depois de executar o cmdlet, volte para a folha e clique em **Habilitar** para configurar o acesso.
@@ -87,10 +87,10 @@ Você pode criar pastas em sua conta do Data Lake Storage Gen1 para gerenciar e 
 1. Abra a conta do Data Lake Storage Gen1 que você criou. No painel esquerdo, clique em **todos os recursos**e, em seguida, na folha **todos os recursos** , clique no nome da conta sob a qual você deseja criar pastas. Se você tiver fixado a conta no quadro inicial, clique no bloco da conta.
 2. Na folha de sua conta do Data Lake Storage Gen1, clique em **Data Explorer**.
 
-    ![Criar pastas em uma conta do Data Lake Storage Gen1](./media/data-lake-store-get-started-portal/ADL.Create.Folder.png "Criar pastas em uma conta do Data Lake Storage Gen1")
+    ![Captura de tela da folha de conta Data Lake Storage Gen 1 com a opção Data Explorer chamada out.](./media/data-lake-store-get-started-portal/ADL.Create.Folder.png "Criar pastas em uma conta do Data Lake Storage Gen1")
 3. Na folha Data Explorer, clique em **Nova Pasta**, insira um nome para a nova pasta e clique em **OK**.
 
-    ![Criar pastas em uma conta do Data Lake Storage Gen1](./media/data-lake-store-get-started-portal/ADL.Folder.Name.png "Criar pastas em uma conta do Data Lake Storage Gen1")
+    ![Captura de tela da folha Data Explorer com a nova opção de pasta e a caixa de texto criar nova pasta chamada out.](./media/data-lake-store-get-started-portal/ADL.Folder.Name.png "Criar pastas em uma conta do Data Lake Storage Gen1")
 
     A pasta recém-criada é listada na folha **Data Explorer**. Você pode criar pastas aninhadas em qualquer nível.
 

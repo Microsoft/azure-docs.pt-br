@@ -1,19 +1,21 @@
 ---
 title: Desenvolvimento de dispositivos para o Azure IoT Central | Microsoft Docs
-description: O Azure IoT Central é uma plataforma de aplicativo IoT que simplifica a criação de soluções de IoT. Este artigo fornece uma visão geral do desenvolvimento de dispositivos para se conectar ao seu aplicativo do IoT Central.
+description: O Azure IoT Central é uma plataforma de aplicativo IoT que simplifica a criação de soluções de IoT. Este artigo fornece uma visão geral do desenvolvimento de dispositivos para se conectar ao seu aplicativo do IoT Central. Os dispositivos usam a telemetria para enviar propriedades e dados de streaming para relatar o estado do dispositivo. O IoT Central pode definir o estado do dispositivo usando propriedades graváveis e chamar comandos em um dispositivo.
 author: dominicbetts
 ms.author: dobett
 ms.date: 05/05/2020
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
-ms.custom: mvc
-ms.openlocfilehash: aa442e15dbc95709ecf3c818f69301d2f02e9b5b
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
+ms.custom:
+- mvc
+- device-developer
+ms.openlocfilehash: e33f48c9496ffa3cca9d8b1aa71d524be9a311bb
+ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84417014"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96122249"
 ---
 # <a name="iot-central-device-development-overview"></a>Visão geral do desenvolvimento de dispositivos para o IoT Central
 
@@ -24,7 +26,7 @@ Um aplicativo do IoT Central permite que você monitore e gerencie milhões de d
 Os dispositivos interagem com um aplicativo do IoT Central usando os seguintes primitivos:
 
 - _Telemetria_ são dados que um dispositivo envia para o IoT Central. Por exemplo, um fluxo de valores de temperatura de um sensor integrado.
-- _Propriedades_ são valores de estado que um dispositivo relata para o IoT Central. Por exemplo, a versão atual do firmware do dispositivo. Você também pode ter propriedades graváveis que o IoT Central pode atualizar no dispositivo.
+- _Propriedades_ são valores de estado que um dispositivo relata para o IoT Central. Por exemplo, a versão atual do firmware do dispositivo. Você também pode ter propriedades graváveis que o IoT Central pode atualizar no dispositivo como uma temperatura de destino.
 - _Comandos_ são chamados do IoT Central para controlar o comportamento de um dispositivo. Por exemplo, seu aplicativo do IoT Central pode chamar um comando para reinicializar um dispositivo.
 
 Um construtor de soluções é responsável por configurar painéis e exibições na interface do usuário Web do IoT Central para visualizar a telemetria, gerenciar propriedades e chamar comandos.
@@ -70,7 +72,7 @@ Para saber mais, confira [Conectar-se ao Azure IoT Central](./concepts-get-conne
 
 ### <a name="security"></a>Segurança
 
-A conexão entre um dispositivo e seu aplicativo do IoT Central é protegida usando [assinaturas de acesso compartilhado](./concepts-get-connected.md#connect-devices-at-scale-using-sas) ou [certificados X.509](./concepts-get-connected.md#connect-devices-using-x509-certificates) padrão do setor.
+A conexão entre um dispositivo e seu aplicativo do IoT Central é protegida usando [assinaturas de acesso compartilhado](./concepts-get-connected.md#sas-group-enrollment) ou [certificados X.509](./concepts-get-connected.md#x509-group-enrollment) padrão do setor.
 
 ### <a name="communication-protocols"></a>Protocolos de comunicação
 
@@ -78,16 +80,62 @@ Os protocolos de comunicação que um dispositivo pode usar para se conectar ao 
 
 ## <a name="implement-the-device"></a>Implementar o dispositivo
 
+Um modelo de dispositivo IoT Central inclui um _modelo_ que especifica os comportamentos que um dispositivo desse tipo deve implementar. Os comportamentos incluem telemetria, propriedades e comandos.
+
+> [!TIP]
+> Você pode exportar o modelo do IoT Central como um arquivo JSON da [DTDL (Linguagem de Definição de Gêmeos Digitais) v2](https://github.com/Azure/opendigitaltwins-dtdl).
+
+Cada modelo tem um _DTMI_ (identificador de modelo de dispositivo gêmeo) exclusivo, como `dtmi:com:example:Thermostat;1`. Quando um dispositivo se conecta ao IoT Central, ele envia o DTMI do modelo que ele implementa. O IoT Central pode associar o modelo de dispositivo correto ao dispositivo.
+
+O [IoT Plug and Play](../../iot-pnp/overview-iot-plug-and-play.md) define um conjunto de convenções que um dispositivo deve seguir ao implementar um modelo DTDL.
+
+Os [SDKs do dispositivo IoT do Azure](#languages-and-sdks) incluem suporte para as convenções do IoT Plug and Play.
+
+### <a name="device-model"></a>Modelo do dispositivo
+
+Um modelo de dispositivo é definido usando a [DTDL](https://github.com/Azure/opendigitaltwins-dtdl). Essa linguagem permite que você defina:
+
+- A telemetria enviada pelo dispositivo. A definição inclui o nome e o tipo de dados da telemetria. Por exemplo, um dispositivo envia a telemetria de temperatura como um double.
+- As propriedades que o dispositivo relata ao IoT Central. Uma definição de propriedade inclui o nome e tipo de dados dela. Por exemplo, um dispositivo relata o estado de uma válvula como um booliano.
+- As propriedades que o dispositivo pode receber do IoT Central. Opcionalmente, você pode marcar uma propriedade como gravável. Por exemplo, IoT Central envia uma temperatura de destino como um double para um dispositivo.
+- Os comandos aos quais um dispositivo responde. A definição inclui o nome do comando e os nomes e tipos de dados de parâmetros. Por exemplo, um dispositivo responde a um comando de reinicialização que especifica o número de segundos de espera antes da reinicialização.
+
+Um modelo de DTDL pode ser um modelo com _nenhum componente_ ou _vários componentes_:
+
+- Modelo com nenhum componente: um modelo simples não usa componentes inseridos nem em cascata. Toda a telemetria, propriedades e comandos são definidos como um _componente padrão_. Para obter um exemplo, confira o modelo [Termostato](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json).
+- Modelo com vários componentes. Um modelo mais complexo que inclui dois ou mais componentes. Esses componentes incluem um componente padrão e um ou mais componentes aninhados adicionais. Para obter um exemplo, confira o modelo [Controlador de Temperatura](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json).
+
+Para saber mais, confira [Componentes de IoT Plug and Play em modelos](../../iot-pnp/concepts-components.md)
+
+### <a name="conventions"></a>Convenções
+
+Um dispositivo deve seguir as convenções de IoT Plug and Play quando troca dados com o IoT Central. As convenções incluem:
+
+- Enviar o DTMI quando ele se conectar ao IoT Central.
+- Enviar os metadados e o conteúdo JSON formatado corretamente para o IoT Central.
+- Responder corretamente a propriedades e comandos graváveis do IoT Central.
+- Seguir as convenções de nomenclatura para comandos de componente.
+
+> [!NOTE]
+> Atualmente, o IoT Central não dá suporte total aos tipos de dados **Matriz** e **Geoespacial** da DTDL.
+
+Para saber mais sobre o formato das mensagens JSON que um dispositivo troca com o IoT Central, confira [Telemetria, propriedade e conteúdos de comando](concepts-telemetry-properties-commands.md).
+
+Para saber mais sobre as convenções do IoT Plug and Play, confira [Convenções do IoT Plug and Play](../../iot-pnp/concepts-convention.md).
+
+### <a name="device-sdks"></a>SDKs de dispositivo
+
 Use um dos [SDKs do dispositivo IoT do Azure](#languages-and-sdks) para implementar o comportamento de seu dispositivo. O código deve:
 
 - Registrar o dispositivo com o DPS e usar as informações do DPS para se conectar ao Hub IoT interno em seu aplicativo do IoT Central.
-- Enviar telemetria no formato que o modelo de dispositivo no IoT Central especifica. O IoT Central usa o modelo de dispositivo para determinar como usar a telemetria para visualizações e análises.
-- Sincronizar valores de propriedade entre o dispositivo e o IoT Central. O modelo de dispositivo especifica os nomes de propriedade e os tipos de dados para que o IoT Central possa exibir as informações.
-- Implementar manipuladores de comandos para os comandos especificados no modelo de dispositivo. O modelo de dispositivo especifica os nomes de comando e parâmetros que o dispositivo deve usar.
+- Comunicar o DTMI do modelo implementado pelo dispositivo.
+- Enviar a telemetria no formato especificado pelo modelo de dispositivo. O IoT Central usa o modelo no modelo de dispositivo para determinar como usar a telemetria para visualizações e análises.
+- Sincronizar valores de propriedade entre o dispositivo e o IoT Central. O modelo especifica os nomes de propriedade e os tipos de dados para que o IoT Central possa exibir as informações.
+- Implementar manipuladores de comandos para os comandos especificados no modelo. O modelo especifica os nomes de comando e parâmetros que o dispositivo deve usar.
 
 Para obter mais informações sobre a função de modelos de dispositivo, confira [O que são modelos de dispositivo?](./concepts-device-templates.md).
 
-Para algum código de exemplo, confira [Criar e conectar um aplicativo cliente Node.js](./tutorial-connect-device-nodejs.md) ou [Criar e conectar um aplicativo cliente Python](./tutorial-connect-device-python.md).
+Para obter um código de exemplo, confira [Criar e conectar um aplicativo cliente](./tutorial-connect-device.md).
 
 ### <a name="languages-and-sdks"></a>Linguagens e SDKs
 
@@ -95,6 +143,6 @@ Para obter mais informações sobre os idiomas e SDKs com suporte, confira [Ente
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se você é um desenvolvedor de dispositivos e deseja se aprofundar em algum código, a próxima etapa sugerida é [Criar e conectar um aplicativo cliente ao seu aplicativo do Azure IoT Central](./tutorial-connect-device-nodejs.md).
+Se você é um desenvolvedor de dispositivos e deseja se aprofundar em algum código, a próxima etapa sugerida é [Criar e conectar um aplicativo cliente ao seu aplicativo do Azure IoT Central](./tutorial-connect-device.md).
 
 Se quiser saber mais sobre como usar o IoT Central, as próximas etapas sugeridas são experimentar os guias de início rápido, começando em [Criar um aplicativo do Azure IoT Central](./quick-deploy-iot-central.md).

@@ -2,19 +2,21 @@
 title: Conectar o Qlik Sense ao Azure Cosmos DB e visualizar seus dados
 description: Este artigo descreve as etapas necessárias para conectar o Azure Cosmos DB ao Qlik Sense e visualizar seus dados.
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 author: SnehaGunda
 ms.author: sngun
 ms.topic: how-to
 ms.date: 05/23/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 986db85ddbf741dc459625dbd763b9cbbba1c429
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2401786a82b6a3e5bf6c6a893a8e7cd3656f3402
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85263340"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996943"
 ---
 # <a name="connect-qlik-sense-to-azure-cosmos-db-and-visualize-your-data"></a>Conectar o Qlik Sense ao Azure Cosmos DB e visualizar seus dados
+[!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
 Qlik Sense é uma ferramenta de visualização de dados que combina dados de fontes diferentes em uma única exibição. O Qlik Sense indexa cada relação possível em seus dados para que você possa obter insights imediatos sobre os dados. Visualize dados do Azure Cosmos DB usando o Qlik Sense. Este artigo descreve as etapas necessárias para conectar o Azure Cosmos DB ao Qlik Sense e visualizar seus dados. 
 
@@ -62,7 +64,7 @@ Antes de seguir as instruções deste artigo, verifique se você tem os seguinte
 
 4. Mude para **DSN de Usuário** e escolha a conexão do ODBC criada anteriormente. Forneça um nome para a conexão e selecione **Criar**. 
 
-   :::image type="content" source="./media/visualize-qlik-sense/create-new-connection.png" alt-text="Criar uma conexão":::
+   :::image type="content" source="./media/visualize-qlik-sense/create-new-connection.png" alt-text="Crie uma nova conexão":::
 
 5. Após a criação da conexão, você pode escolher o banco de dados, a coleção onde os dados de videogame estão localizados e visualizá-la.
 

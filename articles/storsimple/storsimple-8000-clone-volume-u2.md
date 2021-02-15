@@ -10,12 +10,12 @@ ms.devlang: NA
 ms.topic: how-to
 ms.date: 07/15/2020
 ms.author: alkohli
-ms.openlocfilehash: 86a3e2ab15e83f5393315f75f37ad8b41d3489b2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5ebb7f1d9440bc7a8b75afe64403762532213c1d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496138"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91767570"
 ---
 # <a name="use-the-storsimple-device-manager-service-in-azure-portal-to-clone-a-volume"></a>Usar o serviço do Gerenciador de Dispositivos do StorSimple no Portal do Azure para clonar um volume
 
@@ -64,11 +64,11 @@ Siga as seguintes etapas para criar um clone do seu volume com base no catálogo
 
       Os backups associados ao volume ou à política de backup selecionada devem aparecer na lista de conjuntos de backup.
    
-      ![Lista de conjunto de backup](./media/storsimple-8000-clone-volume-u2/bucatalog.png)
+      ![Lista de conjuntos de backup 2](./media/storsimple-8000-clone-volume-u2/bucatalog.png)
      
 3. Expandir o conjunto de backup para exibir os volumes associados e selecionar um volume em um conjunto de backup. Clique com botão direito do mouse e, no menu de contexto, selecione **Clonar**.
 
-   ![Lista de conjunto de backup](./media/storsimple-8000-clone-volume-u2/clonevol3b.png) 
+   ![Lista de conjuntos de backup 3](./media/storsimple-8000-clone-volume-u2/clonevol3b.png) 
 
 3. Na folha **Clonar**, execute as seguintes etapas:
    
@@ -84,17 +84,17 @@ Siga as seguintes etapas para criar um clone do seu volume com base no catálogo
           
    3. Em **Hosts conectados**, especifique um ACR (registro de controle de acesso) para o clone. Você pode adicionar um novo ACR ou escolher na lista existente. O ACR determinará quais hosts podem acessar esse clone.
       
-       ![Lista de conjunto de backup](./media/storsimple-8000-clone-volume-u2/clonevol3a.png) 
+       ![Lista de conjuntos de backup 4](./media/storsimple-8000-clone-volume-u2/clonevol3a.png) 
 
    4. Clique em **Clonar** para concluir a operação.
 
 4. Um trabalho de clonagem será iniciado e você será notificado quando o clone for criado com êxito. Clique na notificação do trabalho ou vá para a folha **Trabalhos** para monitorar o trabalho de clonagem.
 
-    ![Lista de conjunto de backup](./media/storsimple-8000-clone-volume-u2/clonevol5.png)
+    ![Lista de conjuntos de backup 5](./media/storsimple-8000-clone-volume-u2/clonevol5.png)
 
 7. Depois que o trabalho de clonagem for concluído, acesse seu dispositivo e clique em **Volumes**. Na lista de volumes, você verá o clone que acabou de ser criado no mesmo contêiner de volume que o volume de origem.
 
-    ![Lista de conjunto de backup](./media/storsimple-8000-clone-volume-u2/clonevol6.png)
+    ![Lista de conjuntos de backup 6](./media/storsimple-8000-clone-volume-u2/clonevol6.png)
 
 Um clone criado dessa maneira é um clone transitório. Para obter mais informações sobre os tipos de clone, consulte [Clones transitórios versus permanentes](#transient-vs-permanent-clones).
 

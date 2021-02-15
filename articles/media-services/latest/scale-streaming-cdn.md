@@ -1,25 +1,12 @@
 ---
-title: Transmitir conteúdo com integração CDN
-titleSuffix: Azure Media Services
-description: Saiba mais sobre o conteúdo de streaming com a integração da CDN, bem como pré-busca e pré-busca e assistência CDN-prefetch.
-services: media-services
-documentationcenter: ''
-author: Juliako
-manager: femila
-editor: ''
-ms.service: media-services
-ms.workload: ''
-ms.topic: article
-ms.date: 02/13/2020
-ms.author: juliako
-ms.openlocfilehash: b60a86d09e5d6f7d1108595253349bbd0784e4d3
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
-ms.translationtype: MT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88799342"
+# <a name="mandatory-fields-see-more-on-akamsskyeyemeta"></a>Campos obrigatórios. Veja mais em aka.ms/skyeye/meta.
+Título: transmitir conteúdo com integração de CDN: descrição dos serviços de mídia do Azure: Saiba mais sobre o streaming de conteúdo com a integração da CDN, bem como pré-busca e Origin-Assist a pré-busca de CDN.
+serviços: Media-Services documentationcenter: ' ' autor: IngridAtMicrosoft gerente: femila editor: ' ' MS. Service: Media-Services MS. Workload: MS. tópico: conceptual MS. Date: 08/31/2020 MS. Author: inhenkel
 ---
+
 # <a name="stream-content-with-cdn-integration"></a>Transmitir conteúdo com integração CDN
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 A CDN oferece aos desenvolvedores uma solução global de fornecimento rápido de conteúdo de alta largura de banda para usuários armazenando em cache o conteúdo em nós físicos estrategicamente posicionados em todo o mundo.  
 
@@ -29,14 +16,19 @@ O conteúdo popular será servido diretamente do cache da CDN, desde que o fragm
 
 Também é necessário considerar como o streaming adaptável funciona. Cada fragmento de vídeo individual é armazenado em cache como sua própria entidade. Por exemplo, imagine a primeira vez que um determinado vídeo é observado. Se o visualizador ignorar apenas alguns segundos aqui e houver, somente os fragmentos de vídeo associados ao que a pessoa observou serão armazenados em cache na CDN. Com o streaming adaptável, você normalmente tem de 5 a 7 taxas de bits diferentes de vídeo. Se uma pessoa estiver assistindo a uma taxa de bits e outra pessoa estiver assistindo a uma taxa de bits diferente, ela será cada uma armazenada em cache separadamente na CDN. Mesmo que duas pessoas estejam assistindo a mesma taxa de bits, elas podem ser transmitidas por protocolos diferentes. Cada protocolo (HLS, MPEG-DASH, Smooth Streaming) é armazenado em cache separadamente. Portanto, cada taxa de bits e protocolo são armazenados em cache separadamente e apenas os fragmentos de vídeo que foram solicitados são armazenados em cache.
 
-Ao decidir se deseja ou não habilitar a CDN no ponto de [extremidade de streaming](streaming-endpoint-concept.md)dos serviços de mídia, considere o número de visualizadores previstos. A CDN ajuda apenas se você estiver esperando muitos visualizadores para seu conteúdo. Se a simultaneidade máxima de visualizadores for inferior a 500, é recomendável desabilitar a CDN, uma vez que a CDN é dimensionada melhor com simultaneidade.
+Exceto para o ambiente de teste, recomendamos que a CDN seja habilitada para os pontos de extremidade de streaming Standard e Premium. Cada tipo de ponto de extremidade de streaming tem um limite de taxa de transferência com suporte diferente.
+É difícil fazer um cálculo preciso para o número máximo de fluxos simultâneos com suporte por um ponto de extremidade de streaming, pois há vários fatores a serem levados em conta. Estão incluídos:
+
+- Taxas de bits máximas usadas para streaming
+- Comportamento de pré-buffer e alternância do Player. Os jogadores tentam disparar segmentos de uma origem e usam a velocidade de carga para calcular a alternância de taxa de bits adaptável. Se um ponto de extremidade de streaming ficar perto da saturação, os tempos de resposta poderão variar e os jogadores começarão a mudar para a qualidade inferior. Como isso está reduzindo a carga nos players de ponto de extremidade de streaming, dimensione de volta para a qualidade mais alta criando gatilhos de troca
+Em geral, é seguro estimar o máximo de fluxos simultâneos por meio da taxa de transferência máxima do ponto de extremidade de streaming e dividir isso pela taxa de bits máxima (supondo que todos os jogadores usem a taxa de bits mais alta). Por exemplo, você pode ter um ponto de extremidade de streaming padrão que é limitado a 600 Mbps e a taxa de bits mais alta de 3Mbp. Nesse caso, aproximadamente 200 fluxos simultâneos têm suporte na taxa de bits superior. Lembre-se também de considerar os requisitos de largura de banda de áudio. Embora um fluxo de áudio só possa ser transmitido em 128 KPS, o total de streaming aumenta rapidamente quando você o multiplica pelo número de fluxos simultâneos.
 
 Este tópico discute a habilitação da [integração da CDN](#enable-azure-cdn-integration). Ele também explica a pré-busca (cache ativo) e o conceito de [CDN-prefetch de origem de assistência](#origin-assist-cdn-prefetch) .
 
 ## <a name="considerations"></a>Considerações
 
-* O [ponto de extremidade de streaming](streaming-endpoint-concept.md) `hostname` e a URL de streaming permanecem os mesmos, independentemente de você habilitar ou não a CDN.
-* Se você precisar da capacidade de testar seu conteúdo com ou sem CDN, crie outro ponto de extremidade de streaming que não esteja habilitado para CDN.
+- O [ponto de extremidade de streaming](streaming-endpoint-concept.md) `hostname` e a URL de streaming permanecem os mesmos, independentemente de você habilitar ou não a CDN.
+- Se você precisar da capacidade de testar seu conteúdo com ou sem CDN, crie outro ponto de extremidade de streaming que não esteja habilitado para CDN.
 
 ## <a name="enable-azure-cdn-integration"></a>Habilitar a integração da CDN do Azure
 
@@ -47,7 +39,7 @@ Este tópico discute a habilitação da [integração da CDN](#enable-azure-cdn-
 
 Depois que um ponto de extremidade de streaming é provisionado com a CDN habilitada, há um tempo de espera definido nos serviços de mídia antes que a atualização de DNS seja feita para mapear o ponto de extremidade de streaming para o ponto de extremidade CDN.
 
-Se quiser desabilitar/habilitar a CDN depois, o ponto de extremidade de streaming deverá estar no estado **interrompido**. Depois que o ponto de extremidade de streaming é iniciado, pode levar até duas horas para a integração da CDN do Azure ser habilitada e para que as alterações estejam ativas em todos os POPs da CDN. No entanto, você pode iniciar seu ponto de extremidade de streaming e transmitir sem interrupções do ponto de extremidade de streaming. Depois que a integração for concluída, o fluxo será entregue da CDN. Durante o período de provisionamento, o ponto de extremidade de streaming estará no estado **inicial** e você poderá observar o desempenho degradado.
+Se quiser desabilitar/habilitar a CDN depois, o ponto de extremidade de streaming deverá estar no estado **interrompido**. Depois que o ponto de extremidade de streaming é iniciado, pode levar até quatro horas para a integração da CDN do Azure ser habilitada e para que as alterações estejam ativas em todos os POPs da CDN. No entanto, você pode iniciar seu ponto de extremidade de streaming e transmitir sem interrupções do ponto de extremidade de streaming. Depois que a integração for concluída, o fluxo será entregue da CDN. Durante o período de provisionamento, o ponto de extremidade de streaming estará no estado **inicial** e você poderá observar o desempenho degradado.
 
 Quando o ponto de extremidade de streaming padrão é criado, ele é configurado por padrão com a Verizon padrão. Você pode configurar provedores da Verizon Premium ou Standard Akamai usando APIs REST.
 
@@ -60,7 +52,7 @@ A integração dos Serviços de Mídia do Azure à CDN do Azure é implementada 
 
 Você pode determinar se a alteração de DNS foi feita em um ponto de extremidade de streaming (o tráfego está sendo direcionado para a CDN do Azure) usando <https://www.digwebinterface.com> . Se você vir os nomes de domínio azureedge.net nos resultados, o tráfego agora está sendo apontado para a CDN.
 
-## <a name="origin-assist-cdn-prefetch"></a>Origem-auxiliar CDN-pré-busca
+## <a name="origin-assist-cdn-prefetch"></a>Origin-Assist CDN-Prefetch
 
 O cache da CDN é um processo reativo. Se a CDN puder prever o que o próximo objeto será solicitado, a CDN poderá solicitar e armazenar em cache o próximo objeto de forma proativa. Com esse processo, você pode obter um pressionamento de cache para todos (ou a maior parte) dos objetos, o que melhora o desempenho.
 
@@ -71,7 +63,7 @@ Para atingir essa meta, um ponto de extremidade de streaming (origem) e a CDN pr
 - A origem dos serviços de mídia precisa ter a "inteligência" (assistência de origem) para informar à CDN o próximo objeto a prefetch.
 - A CDN faz a pré-busca e o cache (parte da pré-busca da CDN). A CDN também precisa ter a "inteligência" para informar a origem se é uma pré-busca ou uma busca regular, manipular as respostas de 404 e uma maneira de evitar um loop de pré-busca infinito.
 
-### <a name="benefits"></a>Vantagens
+### <a name="benefits"></a>Benefícios
 
 Os benefícios do recurso de *ajuda da CDN-Assist de origem* incluem:
 
@@ -118,11 +110,11 @@ O `Origin-Assist CDN-Prefetch` recurso dá suporte aos seguintes protocolos de s
 
     Não, CDN-prefetch é feito somente após uma solicitação/resposta iniciada pelo cliente. CDN-a pré-busca nunca é disparada por uma pré-busca, para evitar um loop de pré-busca.
 
-* É a origem-auxiliar CDN-recurso de pré-busca AlwaysOn? Como é possível ativar/desativar?
+* Origin-Assist está CDN-Prefetch recurso AlwaysOn? Como é possível ativar/desativar?
 
     Esse recurso está desativado por padrão. Os clientes precisam ativá-lo por meio da API da Akamai.
 
-* Para transmissão ao vivo, o que aconteceria-ajudar se o próximo segmento ou fragmento ainda não estiver disponível?
+* Para transmissão ao vivo, o que aconteceria Origin-Assist se o próximo segmento ou fragmento ainda não estiver disponível?
 
     Nesse caso, a origem dos serviços de mídia não fornecerá `CDN-Origin-Assist-Prefetch-Path` cabeçalho e a CDN-prefetch não ocorrerá.
 

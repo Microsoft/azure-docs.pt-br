@@ -10,39 +10,43 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 1163531fb5a6aa7158bd81ff9095ed1ee29e73c1
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 4cd762d6c264d95ecb1bd0f3f4c3a4d96eb5a57d
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89004894"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99585085"
 ---
-# <a name="business-card-concepts"></a>Conceitos de cartão de visita
+# <a name="form-recognizer-prebuilt-business-cards-model"></a>Modelo de cartões de visita pré-criados do reconhecedor de formulário 
 
-O reconhecedor de formulários do Azure pode analisar e extrair informações de contato de cartões de visita usando um de seus modelos predefinidos. A API do cartão de negócios combina recursos avançados de reconhecimento de caracteres ópticos (OCR) com nosso modelo de compreensão de cartão de negócios para extrair informações importantes de cartões de visita em inglês. Ele extrai informações de contato pessoal, nome da empresa, cargo e muito mais. A API de cartão de visita predefinida está publicamente disponível no formulário versão prévia do Recognizer v 2.1. 
+O reconhecedor de formulários do Azure pode analisar e extrair informações de contato de cartões de visita usando seu modelo de cartões de visita predefinidos. Ele combina recursos avançados de OCR (reconhecimento óptico de caracteres) com nosso modelo de compreensão de cartão de negócios para extrair informações importantes de cartões de visita em inglês. Ele extrai informações de contato pessoal, nome da empresa, cargo e muito mais. A API de cartão de visita predefinida está publicamente disponível no formulário versão prévia do Recognizer v 2.1. 
 
-## <a name="what-does-the-business-card-api-do"></a>O que a API do cartão de negócios faz?
+## <a name="what-does-the-business-card-service-do"></a>O que o serviço de cartão de negócios faz?
 
-A API do cartão de negócios extrai campos de chave de cartões de visita e os retorna em uma resposta de JSON organizada.
+A API de cartão de visita predefinida extrai campos de chave de cartões de visita e os retorna em uma resposta de JSON organizada.
 
-![Imagem do contoso discriminada da saída FOTT + JSON](./media/business-card-english.jpg)
+![Imagem do contoso discriminada da saída FOTT + JSON](./media/business-card-example.jpg)
+
+
 
 ### <a name="fields-extracted"></a>Campos extraídos:
 
-* Nomes de contato 
-  * Primeiros nomes
-  * Últimos nomes
-* Nomes de empresa 
-* Departments 
-* Títulos de trabalho 
-* Emails 
-* Sites 
-* Endereços 
-* Números de telefone 
-  * Telefones celulares 
-  * Cujo 
-  * Telefones de trabalho 
-  * Outros telefones 
+|Nome| Tipo | Descrição | Texto | 
+|:-----|:----|:----|:----|
+| ContactNames | matriz de objetos | Nome do contato extraído do cartão de visita | [{"FirstName": "John", "LastName": "Doe"}] |
+| FirstName | string | Primeiro (fornecido) nome do contato | "John" | 
+| LastName | string | Último nome (família) do contato |     "Doe" | 
+| Empresasnames | Matriz de cadeias de caracteres | Nome da empresa extraído do cartão de visita | ["Contoso"] | 
+| Departments | Matriz de cadeias de caracteres | Departamento ou organização de contato | ["R&D"] | 
+| JobTitles | Matriz de cadeias de caracteres | Título de trabalho de contato listado | ["Engenheiro de software"] | 
+| Emails | Matriz de cadeias de caracteres | Email de contato extraído do cartão de visita | ["johndoe@contoso.com"] | 
+| Sites | Matriz de cadeias de caracteres | Site extraído do cartão de visita | ["https://www.contoso.com"] | 
+| Endereços | Matriz de cadeias de caracteres | Endereço extraído do cartão de visita | ["rua principal 123, Redmond, WA 98052"] | 
+| MobilePhones | matriz de números de telefone | Número de telefone celular extraído do cartão de visita | ["+ 19876543210"] |
+| Cujo | matriz de números de telefone | Número de telefone de fax extraído do cartão de visita | ["+ 19876543211"] |
+| WorkPhones | matriz de números de telefone | Número de telefone de trabalho extraído do cartão de visita | ["+ 19876543231"] |
+| OtherPhones     | matriz de números de telefone | Outro número de telefone extraído do cartão de visita | ["+ 19876543233"] |
+
 
 A API do cartão de negócios também pode retornar todo o texto reconhecido do cartão de visita. Essa saída de OCR é incluída na resposta JSON.  
 
@@ -52,15 +56,15 @@ A API do cartão de negócios também pode retornar todo o texto reconhecido do 
 
 ## <a name="the-analyze-business-card-operation"></a>A operação analisar cartão de negócios
 
-O [cartão de visita de análise](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync) usa uma imagem ou um PDF de um cartão de visita como entrada e extrai os valores de interesse. A chamada retorna um campo de cabeçalho de resposta chamado `Operation-Location` . O `Operation-Location` valor é uma URL que contém a ID de resultado a ser usada na próxima etapa.
+O [cartão de visita de análise](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeBusinessCardAsync) usa uma imagem ou um PDF de um cartão de visita como entrada e extrai os valores de interesse. A chamada retorna um campo de cabeçalho de resposta chamado `Operation-Location` . O `Operation-Location` valor é uma URL que contém a ID de resultado a ser usada na próxima etapa.
 
 |Cabeçalho de resposta| URL do resultado |
 |:-----|:----|
-|Operation-Location | `https://cognitiveservice/formrecognizer/v2.1-preview.1/prebuilt/businessCard/analyzeResults/49a36324-fc4b-4387-aa06-090cfbf0064f` |
+|Operation-Location | `https://cognitiveservice/formrecognizer/v2.1-preview.2/prebuilt/businessCard/analyzeResults/49a36324-fc4b-4387-aa06-090cfbf0064f` |
 
 ## <a name="the-get-analyze-business-card-result-operation"></a>A operação obter resultado do cartão de negócios Get Analyze
 
-A segunda etapa é chamar a operação [obter resultado do cartão de negócios Get Analyze](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/GetAnalyzeBusinessCardResult) . Essa operação usa como entrada a ID de resultado que foi criada pela operação de análise de cartão de negócios. Ele retorna uma resposta JSON que contém um campo de **status** com os seguintes valores possíveis. Você chama essa operação iterativamente até que ela retorne com o valor **Succeeded** . Use um intervalo de 3 a 5 segundos para evitar exceder a taxa de solicitações por segundo (RPS).
+A segunda etapa é chamar a operação [obter resultado do cartão de negócios Get Analyze](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/GetAnalyzeBusinessCardResult) . Essa operação usa como entrada a ID de resultado que foi criada pela operação de análise de cartão de negócios. Ele retorna uma resposta JSON que contém um campo de **status** com os seguintes valores possíveis. Você chama essa operação iterativamente até que ela retorne com o valor **Succeeded** . Use um intervalo de 3 a 5 segundos para evitar exceder a taxa de solicitações por segundo (RPS).
 
 |Campo| Tipo | Valores possíveis |
 |:-----|:----:|:----|
@@ -88,8 +92,8 @@ Consulte o exemplo a seguir de uma resposta JSON bem-sucedida: o nó "readResult
                 "width": 4032,
                 "height": 3024,
                 "unit": "pixel",
-                "lines": 
-                          {
+                   "lines": 
+                             {
                         "text": "Dr. Avery Smith",
                         "boundingBox": [
                             419.3,
@@ -374,7 +378,7 @@ Consulte o exemplo a seguir de uma resposta JSON bem-sucedida: o nó "readResult
 }
 ```
 
-Siga o início rápido [extrair dados do cartão de visita](./QuickStarts/python-business-cards.md) para implementar a extração de dados de cartão de visita usando o Python e a API REST.
+Siga o guia de início rápido do [início](./QuickStarts/client-library.md) rápido para implementar a extração de dados de cartão de visita usando Python e a API REST.
 
 ## <a name="customer-scenarios"></a>Cenários de clientes  
 
@@ -385,11 +389,13 @@ Os dados extraídos com a API do cartão de negócios podem ser usados para exec
 * Mantenha o controle dos leads de vendas.  
 * Extraia informações de contato em massa de imagens de cartões de visita existentes. 
 
-A API do cartão de negócios também alimenta o [recurso de processamento do cartão de visita do AIBuilder](https://docs.microsoft.com/ai-builder/prebuilt-business-card).
+A API do cartão de negócios também alimenta o [recurso de processamento do cartão de negócios do ia Builder](/ai-builder/prebuilt-business-card).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Siga o guia de início rápido para começar a [API de cartões de visita do Python início rápido](./quickstarts/python-business-cards.md)
-- Saiba mais sobre a [API REST do reconhecedor de formulário](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync)
-- Saiba mais sobre o [reconhecedor de formulário](overview.md)
+- Siga o guia de [início rápido](./quickstarts/client-library.md) para começar a reconhecer os cartões de visita.
 
+## <a name="see-also"></a>Confira também
+
+* [O que é o Reconhecimento de Formulários?](./overview.md)
+* [Documentos de referência da API REST](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeBusinessCardAsync)

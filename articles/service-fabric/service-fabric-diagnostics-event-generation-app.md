@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: e1871df962a26def8c12000f8b8bc0cf31bae9a0
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: a1df5d033701195f4fe5f6b7174f3883b84393ab
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86247652"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791266"
 ---
 # <a name="application-logging"></a>Registro em log do aplicativo
 
@@ -22,11 +22,11 @@ Para exemplos de como usar essas sugestões, consulte [Adicionar registro em log
 
 ## <a name="application-insights-sdk"></a>SDK do Application Insights
 
-O Application Insights tem uma integração avançada com o Service Fabric pronta para uso. Os usuários podem adicionar os pacotes NuGet do Service Fabric do IA e receber dados e logs criados e coletados visíveis no Portal do Azure. Além disso, os usuários são incentivados a adicionar sua própria telemetria para diagnosticar e depurar os aplicativos e rastrear quais serviços e partes do aplicativo são mais utilizados. A classe [TelemetryClient](/dotnet/api/microsoft.applicationinsights.telemetryclient?view=azure-dotnet) na SDK fornece muitas maneiras de rastrear a telemetria nos aplicativos. Confira um exemplo de como instrumentar e adicionar Application Insights ao aplicativo no tutorial [monitorar e diagnosticar um aplicativo .NET](service-fabric-tutorial-monitoring-aspnet.md)
+O Application Insights tem uma integração avançada com o Service Fabric pronta para uso. Os usuários podem adicionar os pacotes NuGet do Service Fabric do IA e receber dados e logs criados e coletados visíveis no Portal do Azure. Além disso, os usuários são incentivados a adicionar sua própria telemetria para diagnosticar e depurar os aplicativos e rastrear quais serviços e partes do aplicativo são mais utilizados. A classe [TelemetryClient](/dotnet/api/microsoft.applicationinsights.telemetryclient) na SDK fornece muitas maneiras de rastrear a telemetria nos aplicativos. Confira um exemplo de como instrumentar e adicionar Application Insights ao aplicativo no tutorial [monitorar e diagnosticar um aplicativo .NET](service-fabric-tutorial-monitoring-aspnet.md)
 
 ## <a name="eventsource"></a>EventSource
 
-Quando você cria uma solução do Service Fabric de um modelo do Visual Studio, uma classe derivada de **EventSource** (**ServiceEventSource** ou **ActorEventSource**) é gerada. Um modelo é criado, no qual você pode adicionar eventos para seu aplicativo ou serviço. O **EventSource** nome EventSource **deve** ser exclusivo e deve ser renomeado da cadeia de caracteres do modelo padrão MyCompany- &lt; Solution &gt; - &lt; Project &gt; . Ter várias definições de **EventSource** que usam o mesmo nome causa um problema no tempo de execução. Cada evento definido deve ter um identificador exclusivo. Se um identificador não for exclusivo, ocorrerá uma falha de runtime. Algumas organizações atribuem antecipadamente intervalos de valores para evitar conflitos entre equipes de desenvolvimento separadas. Para saber mais, veja [blog do Vance](/archive/blogs/vancem/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource) ou a [documentação do MSDN](/previous-versions/msp-n-p/dn774985(v=pandp.20)).
+Quando você cria uma solução do Service Fabric de um modelo do Visual Studio, uma classe derivada de **EventSource** (**ServiceEventSource** ou **ActorEventSource**) é gerada. Um modelo é criado, no qual você pode adicionar eventos para seu aplicativo ou serviço. O  nome EventSource **deve** ser exclusivo e deve ser renomeado da cadeia de caracteres do modelo padrão MyCompany- &lt; Solution &gt; - &lt; Project &gt; . Ter várias definições de **EventSource** que usam o mesmo nome causa um problema no tempo de execução. Cada evento definido deve ter um identificador exclusivo. Se um identificador não for exclusivo, ocorrerá uma falha de runtime. Algumas organizações atribuem antecipadamente intervalos de valores para evitar conflitos entre equipes de desenvolvimento separadas. Para saber mais, veja [blog do Vance](/archive/blogs/vancem/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource) ou a [documentação do MSDN](/previous-versions/msp-n-p/dn774985(v=pandp.20)).
 
 ## <a name="aspnet-core-logging"></a>Registro em log de ASP.NET Core
 

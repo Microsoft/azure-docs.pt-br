@@ -5,12 +5,12 @@ ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 33f6f87f38000fd7874f0ab19d4eea2e71a9e2e8
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 9df4c62a65fd133c6ea8dc84e33d7c7b02d94cbf
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88949703"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99494032"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatizar a implantação de recursos para seu aplicativo de funções do Azure Functions
 
@@ -47,7 +47,7 @@ Uma conta de armazenamento do Azure é necessária para um aplicativo de funçõ
 {
     "type": "Microsoft.Storage/storageAccounts",
     "name": "[variables('storageAccountName')]",
-    "apiVersion": "2019-04-01",
+    "apiVersion": "2019-06-01",
     "location": "[resourceGroup().location]",
     "kind": "StorageV2",
     "sku": {
@@ -66,11 +66,11 @@ Essas propriedades são especificadas na coleção `appSettings` no objeto `site
 "appSettings": [
     {
         "name": "AzureWebJobsStorage",
-        "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2015-05-01-preview').keys[0].value)]"
+        "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2019-06-01').keys[0].value)]"
     },
     {
         "name": "AzureWebJobsDashboard",
-        "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2015-05-01-preview').keys[0].value)]"
+        "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2019-06-01').keys[0].value)]"
     }
 ]
 ```
@@ -140,7 +140,7 @@ Um aplicativo de funções deve incluir estas configurações de aplicativo:
 | Nome da configuração                 | Descrição                                                                               | Valores de exemplo                        |
 |------------------------------|-------------------------------------------------------------------------------------------|---------------------------------------|
 | AzureWebJobsStorage          | Uma cadeia de conexão para uma conta de armazenamento que o tempo de execução do Functions usa para a fila interna | Consulte a [conta de armazenamento](#storage)       |
-| FUNCTIONS_EXTENSION_VERSION  | A versão do Azure Functions Runtime                                                | `~2`                                  |
+| FUNCTIONS_EXTENSION_VERSION  | A versão do Azure Functions Runtime                                                | `~3`                                  |
 | FUNCTIONS_WORKER_RUNTIME     | A pilha de idiomas a ser usada para funções neste aplicativo                                   | `dotnet`, `node`, `java`, `python` ou `powershell` |
 | WEBSITE_NODE_DEFAULT_VERSION | Necessário apenas se estiver usando a `node` pilha de idiomas, especifica a versão a ser usada              | `10.14.1`                             |
 
@@ -152,7 +152,7 @@ Essas propriedades são especificadas na `appSettings` coleção na `siteConfig`
         "appSettings": [
             {
                 "name": "AzureWebJobsStorage",
-                "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2015-05-01-preview').keys[0].value)]"
+                "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2019-06-01').keys[0].value)]"
             },
             {
                 "name": "FUNCTIONS_WORKER_RUNTIME",
@@ -164,7 +164,7 @@ Essas propriedades são especificadas na `appSettings` coleção na `siteConfig`
             },
             {
                 "name": "FUNCTIONS_EXTENSION_VERSION",
-                "value": "~2"
+                "value": "~3"
             }
         ]
     }
@@ -175,7 +175,7 @@ Essas propriedades são especificadas na `appSettings` coleção na `siteConfig`
 
 ## <a name="deploy-on-consumption-plan"></a>Implantar no plano de consumo
 
-O plano de consumo automaticamente aloca poder de computação quando seu código está em execução, dimensiona horizontalmente conforme necessário para lidar com a carga e, em seguida, é dimensionado quando o código não está em execução. Você não precisa pagar por VMs ociosas e não precisa reservar a capacidade com antecedência. Para saber mais, confira [Escala e hospedagem do Azure Functions](functions-scale.md#consumption-plan).
+O plano de consumo automaticamente aloca poder de computação quando seu código está em execução, dimensiona horizontalmente conforme necessário para lidar com a carga e, em seguida, é dimensionado quando o código não está em execução. Você não precisa pagar por VMs ociosas e não precisa reservar a capacidade com antecedência. Para saber mais, confira [Escala e hospedagem do Azure Functions](consumption-plan.md).
 
 Para um exemplo de modelo do Azure Resource Manager, consulte [Aplicativo de funções no Plano de Consumo].
 
@@ -212,9 +212,11 @@ Se você definir explicitamente seu plano de consumo, será necessário definir 
 
 ### <a name="create-a-function-app"></a>Criar um aplicativo de funções
 
+As configurações exigidas por um aplicativo de funções em execução no plano de consumo são adiadas entre o Windows e o Linux. 
+
 #### <a name="windows"></a>Windows
 
-No Windows, um plano de consumo requer duas configurações adicionais na configuração do site: `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` e `WEBSITE_CONTENTSHARE` . Essas propriedades configuram a conta de armazenamento e o caminho do arquivo em que o código e as configurações do aplicativo de funções estão armazenados.
+No Windows, um plano de consumo requer uma configuração adicional na configuração do site: [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring) . Essa propriedade configura a conta de armazenamento onde o código do aplicativo de funções e a configuração são armazenados.
 
 ```json
 {
@@ -231,15 +233,11 @@ No Windows, um plano de consumo requer duas configurações adicionais na config
             "appSettings": [
                 {
                     "name": "AzureWebJobsStorage",
-                    "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2015-05-01-preview').keys[0].value)]"
+                    "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2019-06-01').keys[0].value)]"
                 },
                 {
                     "name": "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING",
-                    "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2015-05-01-preview').keys[0].value)]"
-                },
-                {
-                    "name": "WEBSITE_CONTENTSHARE",
-                    "value": "[toLower(variables('functionAppName'))]"
+                    "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2019-06-01').keys[0].value)]"
                 },
                 {
                     "name": "FUNCTIONS_WORKER_RUNTIME",
@@ -251,7 +249,7 @@ No Windows, um plano de consumo requer duas configurações adicionais na config
                 },
                 {
                     "name": "FUNCTIONS_EXTENSION_VERSION",
-                    "value": "~2"
+                    "value": "~3"
                 }
             ]
         }
@@ -259,9 +257,12 @@ No Windows, um plano de consumo requer duas configurações adicionais na config
 }
 ```
 
+> [!IMPORTANT]
+> Não defina a [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) configuração conforme ela é gerada quando o site é criado pela primeira vez.  
+
 #### <a name="linux"></a>Linux
 
-No Linux, o aplicativo de funções deve ter seu `kind` definido como `functionapp,linux` e deve ter a `reserved` propriedade definida como `true` :
+No Linux, o aplicativo de funções deve ter seu `kind` definido como `functionapp,linux` e deve ter a `reserved` propriedade definida como `true` . 
 
 ```json
 {
@@ -278,7 +279,7 @@ No Linux, o aplicativo de funções deve ter seu `kind` definido como `functiona
             "appSettings": [
                 {
                     "name": "AzureWebJobsStorage",
-                    "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountName'),'2015-05-01-preview').keys[0].value)]"
+                    "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountName'),'2019-06-01').keys[0].value)]"
                 },
                 {
                     "name": "FUNCTIONS_WORKER_RUNTIME",
@@ -290,7 +291,7 @@ No Linux, o aplicativo de funções deve ter seu `kind` definido como `functiona
                 },
                 {
                     "name": "FUNCTIONS_EXTENSION_VERSION",
-                    "value": "~2"
+                    "value": "~3"
                 }
             ]
         },
@@ -299,10 +300,9 @@ No Linux, o aplicativo de funções deve ter seu `kind` definido como `functiona
 }
 ```
 
-
+As [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring) [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) configurações e não têm suporte no Linux.
 
 <a name="premium"></a>
-
 ## <a name="deploy-on-premium-plan"></a>Implantar no plano Premium
 
 O plano Premium oferece o mesmo dimensionamento do plano de consumo, mas inclui recursos dedicados e recursos adicionais. Para saber mais, confira [Azure Functions plano Premium](./functions-premium-plan.md).
@@ -334,7 +334,7 @@ Um plano Premium é um tipo especial de recurso "ServerFarm". Você pode especif
 
 ### <a name="create-a-function-app"></a>Criar um aplicativo de funções
 
-Um aplicativo de funções em um plano Premium deve ter a `serverFarmId` propriedade definida como a ID de recurso do plano criado anteriormente. Além disso, um plano Premium requer duas configurações adicionais na configuração do site: `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` e `WEBSITE_CONTENTSHARE` . Essas propriedades configuram a conta de armazenamento e o caminho do arquivo em que o código e as configurações do aplicativo de funções estão armazenados.
+Um aplicativo de funções em um plano Premium deve ter a `serverFarmId` propriedade definida como a ID de recurso do plano criado anteriormente. Além disso, um plano Premium requer uma configuração adicional na configuração do site: [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring) . Essa propriedade configura a conta de armazenamento onde o código do aplicativo de funções e a configuração são armazenados.
 
 ```json
 {
@@ -353,15 +353,11 @@ Um aplicativo de funções em um plano Premium deve ter a `serverFarmId` proprie
             "appSettings": [
                 {
                     "name": "AzureWebJobsStorage",
-                    "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2015-05-01-preview').keys[0].value)]"
+                    "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2019-06-01').keys[0].value)]"
                 },
                 {
                     "name": "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING",
-                    "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2015-05-01-preview').keys[0].value)]"
-                },
-                {
-                    "name": "WEBSITE_CONTENTSHARE",
-                    "value": "[toLower(variables('functionAppName'))]"
+                    "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2019-06-01').keys[0].value)]"
                 },
                 {
                     "name": "FUNCTIONS_WORKER_RUNTIME",
@@ -373,14 +369,15 @@ Um aplicativo de funções em um plano Premium deve ter a `serverFarmId` proprie
                 },
                 {
                     "name": "FUNCTIONS_EXTENSION_VERSION",
-                    "value": "~2"
+                    "value": "~3"
                 }
             ]
         }
     }
 }
 ```
-
+> [!IMPORTANT]
+> Não defina a [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) configuração conforme ela é gerada quando o site é criado pela primeira vez.  
 
 <a name="app-service-plan"></a>
 
@@ -450,7 +447,7 @@ Um aplicativo de funções em um plano do serviço de aplicativo deve ter a `ser
             "appSettings": [
                 {
                     "name": "AzureWebJobsStorage",
-                    "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2015-05-01-preview').keys[0].value)]"
+                    "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2019-06-01').keys[0].value)]"
                 },
                 {
                     "name": "FUNCTIONS_WORKER_RUNTIME",
@@ -462,7 +459,7 @@ Um aplicativo de funções em um plano do serviço de aplicativo deve ter a `ser
                 },
                 {
                     "name": "FUNCTIONS_EXTENSION_VERSION",
-                    "value": "~2"
+                    "value": "~3"
                 }
             ]
         }
@@ -470,13 +467,13 @@ Um aplicativo de funções em um plano do serviço de aplicativo deve ter a `ser
 }
 ```
 
-Os aplicativos do Linux também devem incluir uma `linuxFxVersion` propriedade em `siteConfig` . Se você estiver apenas implantando o código, o valor para isso será determinado pela pilha de tempo de execução desejada:
+Os aplicativos do Linux também devem incluir uma `linuxFxVersion` propriedade em `siteConfig` . Se você estiver apenas implantando o código, o valor para isso será determinado pela pilha de tempo de execução desejada no formato de ```runtime|runtimeVersion``` :
 
 | Pilha            | Valor de exemplo                                         |
 |------------------|-------------------------------------------------------|
-| Python           | `DOCKER|microsoft/azure-functions-python3.6:2.0`      |
-| JavaScript       | `DOCKER|microsoft/azure-functions-node8:2.0`          |
-| .NET             | `DOCKER|microsoft/azure-functions-dotnet-core2.0:2.0` |
+| Python           | `python|3.7`      |
+| JavaScript       | `node|12`          |
+| .NET             | `dotnet|3.1` |
 
 ```json
 {
@@ -495,7 +492,7 @@ Os aplicativos do Linux também devem incluir uma `linuxFxVersion` propriedade e
             "appSettings": [
                 {
                     "name": "AzureWebJobsStorage",
-                    "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2015-05-01-preview').keys[0].value)]"
+                    "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2019-06-01').keys[0].value)]"
                 },
                 {
                     "name": "FUNCTIONS_WORKER_RUNTIME",
@@ -507,16 +504,16 @@ Os aplicativos do Linux também devem incluir uma `linuxFxVersion` propriedade e
                 },
                 {
                     "name": "FUNCTIONS_EXTENSION_VERSION",
-                    "value": "~2"
+                    "value": "~3"
                 }
             ],
-            "linuxFxVersion": "DOCKER|microsoft/azure-functions-node8:2.0"
+            "linuxFxVersion": "node|12"
         }
     }
 }
 ```
 
-Se você estiver [implantando uma imagem de contêiner personalizada](./functions-create-function-linux-custom-image.md), deverá especificá-la com `linuxFxVersion` e incluir a configuração que permite que a imagem seja puxada, como no [aplicativo Web para contêineres](../app-service/containers/index.yml). Além disso, defina `WEBSITES_ENABLE_APP_SERVICE_STORAGE` como `false` , pois o conteúdo do aplicativo é fornecido no próprio contêiner:
+Se você estiver [implantando uma imagem de contêiner personalizada](./functions-create-function-linux-custom-image.md), deverá especificá-la com `linuxFxVersion` e incluir a configuração que permite que a imagem seja puxada, como no [aplicativo Web para contêineres](../app-service/index.yml). Além disso, defina `WEBSITES_ENABLE_APP_SERVICE_STORAGE` como `false` , pois o conteúdo do aplicativo é fornecido no próprio contêiner:
 
 ```json
 {
@@ -535,7 +532,7 @@ Se você estiver [implantando uma imagem de contêiner personalizada](./function
             "appSettings": [
                 {
                     "name": "AzureWebJobsStorage",
-                    "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2015-05-01-preview').keys[0].value)]"
+                    "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2019-06-01').keys[0].value)]"
                 },
                 {
                     "name": "FUNCTIONS_WORKER_RUNTIME",
@@ -547,7 +544,7 @@ Se você estiver [implantando uma imagem de contêiner personalizada](./function
                 },
                 {
                     "name": "FUNCTIONS_EXTENSION_VERSION",
-                    "value": "~2"
+                    "value": "~3"
                 },
                 {
                     "name": "DOCKER_REGISTRY_SERVER_URL",
@@ -577,7 +574,7 @@ Se você estiver [implantando uma imagem de contêiner personalizada](./function
 Um aplicativo de funções tem muitos recursos filho que podem ser usados na sua implantação, incluindo configurações do aplicativo e opções de controle do código-fonte. Você também pode optar por remover o recurso filho **sourcecontrols** e usar uma opção de [implantação](functions-continuous-deployment.md) diferente.
 
 > [!IMPORTANT]
-> Para implantar seu aplicativo com êxito usando o Azure Resource Manager, é importante entender como os recursos são implantados no Azure. No exemplo a seguir, as configurações de nível superior são aplicadas usando **siteConfig**. É importante definir essas configurações em um nível superior porque transmitem informações para o mecanismo de implantação e de runtime do Functions. Informações de nível superior são necessárias antes do recurso filho **sourcecontrols/web** ser aplicado. Embora seja possível definir essas configurações no nível de recurso filho **config/appSettings**, em alguns casos, o aplicativo de funções deve ser implantado *antes de * **config/appSettings** ser aplicado. Por exemplo, quando você está usado funções com [aplicativos lógicos](../logic-apps/index.yml), as funções são uma dependência de outro recurso.
+> Para implantar seu aplicativo com êxito usando o Azure Resource Manager, é importante entender como os recursos são implantados no Azure. No exemplo a seguir, as configurações de nível superior são aplicadas usando **siteConfig**. É importante definir essas configurações em um nível superior porque transmitem informações para o mecanismo de implantação e de runtime do Functions. Informações de nível superior são necessárias antes do recurso filho **sourcecontrols/web** ser aplicado. Embora seja possível definir essas configurações no nível de recurso filho **config/appSettings**, em alguns casos, o aplicativo de funções deve ser implantado *antes de* **config/appSettings** ser aplicado. Por exemplo, quando você está usado funções com [aplicativos lógicos](../logic-apps/index.yml), as funções são uma dependência de outro recurso.
 
 ```json
 {
@@ -597,7 +594,7 @@ Um aplicativo de funções tem muitos recursos filho que podem ser usados na sua
         "appSettings": [
             {
                 "name": "FUNCTIONS_EXTENSION_VERSION",
-                "value": "~2"
+                "value": "~3"
             },
             {
                 "name": "Project",
@@ -617,9 +614,9 @@ Um aplicativo de funções tem muitos recursos filho que podem ser usados na sua
           "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
         ],
         "properties": {
-          "AzureWebJobsStorage": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2015-05-01-preview').keys[0].value)]",
-          "AzureWebJobsDashboard": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2015-05-01-preview').keys[0].value)]",
-          "FUNCTIONS_EXTENSION_VERSION": "~2",
+          "AzureWebJobsStorage": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2019-06-01').keys[0].value)]",
+          "AzureWebJobsDashboard": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2019-06-01').keys[0].value)]",
+          "FUNCTIONS_EXTENSION_VERSION": "~3",
           "FUNCTIONS_WORKER_RUNTIME": "dotnet",
           "Project": "src"
         }
@@ -649,7 +646,7 @@ Você pode usar qualquer uma das seguintes maneiras para implantar o modelo:
 
 * [PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
 * [CLI do Azure](../azure-resource-manager/templates/deploy-cli.md)
-* [Azure portal](../azure-resource-manager/templates/deploy-portal.md)
+* [Portal do Azure](../azure-resource-manager/templates/deploy-portal.md)
 * [REST API](../azure-resource-manager/templates/deploy-rest.md)
 
 ### <a name="deploy-to-azure-button"></a>Botão Implantar no Azure
@@ -695,7 +692,7 @@ Saiba mais sobre como desenvolver e configurar o Azure Functions.
 
 * [Referência do desenvolvedor do Azure Functions](functions-reference.md)
 * [Como definir as configurações do aplicativo de funções do Azure](functions-how-to-use-azure-function-app-settings.md)
-* [Como criar a sua primeira função do Azure](functions-create-first-azure-function.md)
+* [Como criar a sua primeira função do Azure](./functions-get-started.md)
 
 <!-- LINKS -->
 

@@ -1,22 +1,18 @@
 ---
 title: Migrar dados de um cluster Hadoop local para o armazenamento do Azure
 description: Saiba como usar Azure Data Factory para migrar dados do cluster Hadoop local para o armazenamento do Azure.
-services: data-factory
 ms.author: yexu
 author: dearandyxu
-ms.reviewer: ''
-manager: shwang
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 8/30/2019
-ms.openlocfilehash: 63b657e77172282225a9bc890b2f185b0f4d42a1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9959a37d9b68d756437a3b4f0d75a2d63385758e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81417126"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100367785"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-an-on-premises-hadoop-cluster-to-azure-storage"></a>Usar Azure Data Factory para migrar dados de um cluster Hadoop local para o armazenamento do Azure 
 
@@ -26,7 +22,7 @@ O Azure Data Factory fornece um mecanismo eficaz, robusto e econômico para migr
 
 O Data Factory oferece duas abordagens básicas para migrar dados do HDFS local para o Azure. Você pode selecionar a abordagem com base em seu cenário. 
 
-- **Data Factory modo DistCp** (recomendado): em data Factory, você pode usar [DistCp](https://hadoop.apache.org/docs/current3/hadoop-distcp/DistCp.html) (cópia distribuída) para copiar arquivos no estado em que se encontram para o armazenamento de BLOBs do Azure (incluindo [cópia em etapas](https://docs.microsoft.com/azure/data-factory/copy-activity-performance#staged-copy)) ou Azure data Lake Store Gen2. Use Data Factory integrado com o DistCp para tirar proveito de um cluster potente existente para obter a melhor taxa de transferência de cópia. Você também obtém o benefício do agendamento flexível e uma experiência de monitoramento unificada da Data Factory. Dependendo de sua configuração de Data Factory, a atividade de cópia construirá automaticamente um comando DistCp, enviará os dados para o cluster Hadoop e, em seguida, monitorará o status da cópia. É recomendável Data Factory modo DistCp para migrar dados de um cluster Hadoop local para o Azure.
+- **Data Factory modo DistCp** (recomendado): em data Factory, você pode usar [DistCp](https://hadoop.apache.org/docs/current3/hadoop-distcp/DistCp.html) (cópia distribuída) para copiar arquivos no estado em que se encontram para o armazenamento de BLOBs do Azure (incluindo [cópia em etapas](./copy-activity-performance.md#staged-copy)) ou Azure data Lake Store Gen2. Use Data Factory integrado com o DistCp para tirar proveito de um cluster potente existente para obter a melhor taxa de transferência de cópia. Você também obtém o benefício do agendamento flexível e uma experiência de monitoramento unificada da Data Factory. Dependendo de sua configuração de Data Factory, a atividade de cópia construirá automaticamente um comando DistCp, enviará os dados para o cluster Hadoop e, em seguida, monitorará o status da cópia. É recomendável Data Factory modo DistCp para migrar dados de um cluster Hadoop local para o Azure.
 - **Data Factory modo de tempo de execução de integração nativo**: o DistCp não é uma opção em todos os cenários. Por exemplo, em um ambiente de redes virtuais do Azure, a ferramenta DistCp não dá suporte ao emparelhamento privado do Azure ExpressRoute com um ponto de extremidade de rede virtual do armazenamento do Azure. Além disso, em alguns casos, você não deseja usar seu cluster Hadoop existente como um mecanismo para migrar dados para que você não coloque cargas pesadas no cluster, o que pode afetar o desempenho de trabalhos ETL existentes. Em vez disso, você pode usar a funcionalidade nativa do tempo de execução de integração do Data Factory como o mecanismo que copia dados do HDFS local para o Azure.
 
 Este artigo fornece as seguintes informações sobre as duas abordagens:
@@ -45,11 +41,11 @@ O DistCp usa o MapReduce para afetar sua distribuição, tratamento de erros e r
 
 Data Factory modo de tempo de execução de integração nativa também permite paralelismo em diferentes níveis. Você pode usar o paralelismo para utilizar totalmente sua largura de banda de rede, IOPS de armazenamento e largura de banda para maximizar a taxa de transferência de movimentação de dados:
 
-- Uma única atividade de cópia pode aproveitar os recursos de computação escalonáveis. Com um tempo de execução de integração auto-hospedado, você pode escalar verticalmente o computador manualmente ou escalar horizontalmente para vários computadores ([até quatro nós](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime#high-availability-and-scalability)). Uma única atividade de cópia particiona seu arquivo definido em todos os nós. 
+- Uma única atividade de cópia pode aproveitar os recursos de computação escalonáveis. Com um tempo de execução de integração auto-hospedado, você pode escalar verticalmente o computador manualmente ou escalar horizontalmente para vários computadores ([até quatro nós](./create-self-hosted-integration-runtime.md#high-availability-and-scalability)). Uma única atividade de cópia particiona seu arquivo definido em todos os nós. 
 - Uma única atividade de cópia lê e grava no armazenamento de dados usando vários threads. 
-- Data Factory fluxo de controle pode iniciar várias atividades de cópia em paralelo. Por exemplo, você pode usar um [loop for each](https://docs.microsoft.com/azure/data-factory/control-flow-for-each-activity). 
+- Data Factory fluxo de controle pode iniciar várias atividades de cópia em paralelo. Por exemplo, você pode usar um [loop for each](./control-flow-for-each-activity.md). 
 
-Para obter mais informações, consulte o [Guia de desempenho da atividade de cópia](https://docs.microsoft.com/azure/data-factory/copy-activity-performance).
+Para obter mais informações, consulte o [Guia de desempenho da atividade de cópia](./copy-activity-performance.md).
 
 ## <a name="resilience"></a>Resiliência
 
@@ -93,10 +89,10 @@ Recomendamos que você siga estas práticas recomendadas ao implementar a migra�
 
 ### <a name="authentication-and-credential-management"></a>Autenticação e gerenciamento de credenciais 
 
-- Para autenticar no HDFS, você pode usar [o Windows (Kerberos) ou anônimo](https://docs.microsoft.com/azure/data-factory/connector-hdfs#linked-service-properties). 
-- Há suporte para vários tipos de autenticação para conexão com o armazenamento de BLOBs do Azure.  É altamente recomendável usar [identidades gerenciadas para recursos do Azure](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#managed-identity). Criado com base em uma identidade de Data Factory gerenciada automaticamente no Azure Active Directory (AD do Azure), as identidades gerenciadas permitem que você configure pipelines sem fornecer credenciais na definição de serviço vinculado. Como alternativa, você pode autenticar no armazenamento de BLOBs usando uma [entidade de serviço](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#service-principal-authentication), uma [assinatura de acesso compartilhado](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#shared-access-signature-authentication)ou uma [chave de conta de armazenamento](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#account-key-authentication). 
-- Também há suporte para vários tipos de autenticação para conexão com o Data Lake Storage Gen2.  É altamente recomendável usar [identidades gerenciadas para recursos do Azure](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#managed-identity), mas você também pode usar uma [entidade de serviço](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#service-principal-authentication) ou uma chave de conta de [armazenamento](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#account-key-authentication). 
-- Quando você não estiver usando identidades gerenciadas para recursos do Azure, é altamente recomendável [armazenar as credenciais em Azure Key Vault](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault) para facilitar o gerenciamento e a rotação central de chaves sem modificar data Factory serviços vinculados. Essa também é uma [prática recomendada para CI/CD](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment#best-practices-for-cicd). 
+- Para autenticar no HDFS, você pode usar [o Windows (Kerberos) ou anônimo](./connector-hdfs.md#linked-service-properties). 
+- Há suporte para vários tipos de autenticação para conexão com o armazenamento de BLOBs do Azure.  É altamente recomendável usar [identidades gerenciadas para recursos do Azure](./connector-azure-blob-storage.md#managed-identity). Criado com base em uma identidade de Data Factory gerenciada automaticamente no Azure Active Directory (AD do Azure), as identidades gerenciadas permitem que você configure pipelines sem fornecer credenciais na definição de serviço vinculado. Como alternativa, você pode autenticar no armazenamento de BLOBs usando uma [entidade de serviço](./connector-azure-blob-storage.md#service-principal-authentication), uma [assinatura de acesso compartilhado](./connector-azure-blob-storage.md#shared-access-signature-authentication)ou uma [chave de conta de armazenamento](./connector-azure-blob-storage.md#account-key-authentication). 
+- Também há suporte para vários tipos de autenticação para conexão com o Data Lake Storage Gen2.  É altamente recomendável usar [identidades gerenciadas para recursos do Azure](./connector-azure-data-lake-storage.md#managed-identity), mas você também pode usar uma [entidade de serviço](./connector-azure-data-lake-storage.md#service-principal-authentication) ou uma chave de conta de [armazenamento](./connector-azure-data-lake-storage.md#account-key-authentication). 
+- Quando você não estiver usando identidades gerenciadas para recursos do Azure, é altamente recomendável [armazenar as credenciais em Azure Key Vault](./store-credentials-in-key-vault.md) para facilitar o gerenciamento e a rotação central de chaves sem modificar data Factory serviços vinculados. Essa também é uma [prática recomendada para CI/CD](./continuous-integration-deployment.md#best-practices-for-cicd). 
 
 ### <a name="initial-snapshot-data-migration"></a>Migração de dados de instantâneo inicial 
 
@@ -141,16 +137,16 @@ Este é o preço estimado com base em nossas suposições:
 
 ### <a name="additional-references"></a>Referências adicionais
 
-- [HDFS connector](https://docs.microsoft.com/azure/data-factory/connector-hdfs) (Conector de HDFS)
-- [Conector do armazenamento de BLOBs do Azure](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)
-- [Conector do Azure Data Lake Store Gen2](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)
-- [Guia de ajuste de desempenho da atividade de cópia](https://docs.microsoft.com/azure/data-factory/copy-activity-performance)
-- [Criar e configurar um runtime de integração auto-hospedada](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime)
-- [Alta disponibilidade e escalabilidade do tempo de execução de integração auto-hospedado](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime#high-availability-and-scalability)
-- [Considerações sobre segurança da movimentação de dados](https://docs.microsoft.com/azure/data-factory/data-movement-security-considerations)
-- [Armazenar credenciais no Azure Key Vault](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault)
-- [Copiar um arquivo incrementalmente com base em um nome de arquivo particionado por tempo](https://docs.microsoft.com/azure/data-factory/tutorial-incremental-copy-partitioned-file-name-copy-data-tool)
-- [Copiar arquivos novos e alterados com base na LastModifiedDate](https://docs.microsoft.com/azure/data-factory/tutorial-incremental-copy-lastmodified-copy-data-tool)
+- [HDFS connector](./connector-hdfs.md) (Conector de HDFS)
+- [Conector do armazenamento de BLOBs do Azure](./connector-azure-blob-storage.md)
+- [Conector do Azure Data Lake Store Gen2](./connector-azure-data-lake-storage.md)
+- [Guia de ajuste de desempenho da atividade de cópia](./copy-activity-performance.md)
+- [Criar e configurar um runtime de integração auto-hospedada](./create-self-hosted-integration-runtime.md)
+- [Alta disponibilidade e escalabilidade do tempo de execução de integração auto-hospedado](./create-self-hosted-integration-runtime.md#high-availability-and-scalability)
+- [Considerações sobre segurança da movimentação de dados](./data-movement-security-considerations.md)
+- [Armazenar credenciais no Azure Key Vault](./store-credentials-in-key-vault.md)
+- [Copiar um arquivo incrementalmente com base em um nome de arquivo particionado por tempo](./tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md)
+- [Copiar arquivos novos e alterados com base na LastModifiedDate](./tutorial-incremental-copy-lastmodified-copy-data-tool.md)
 - [Página de preços do Data Factory](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/)
 
 ## <a name="next-steps"></a>Próximas etapas

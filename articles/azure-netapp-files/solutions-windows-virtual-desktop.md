@@ -14,35 +14,35 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/13/2020
 ms.author: b-juche
-ms.openlocfilehash: a003090fd610f2ac75895cccbf97750adbd4cfcd
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: 0cd1f6210fbdb74e3fd511150157dccca3e92dda
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88258327"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91932457"
 ---
-# <a name="benefits-of-using-azure-netapp-files-with-windows-virtual-desktop"></a>Benefícios do uso do Azure NetApp Files com a área de trabalho virtual do Windows 
+# <a name="benefits-of-using-azure-netapp-files-with-windows-virtual-desktop"></a>Benefícios de usar o Azure NetApp Files com a Área de Trabalho Virtual do Windows 
 
 Este artigo fornece orientações de práticas recomendadas sobre a implantação da área de trabalho virtual do Windows (WVD) com o Azure NetApp Files.
 
-Azure NetApp Files é um serviço de armazenamento de arquivos altamente funcional do Azure. Ele pode fornecer até 450.000 IOPS e latência de submilissegundo, capaz de dar suporte a uma escala extremamente grande de implantações de área de trabalho virtual do Windows. Você pode ajustar a largura de banda e alterar o nível de serviço de seus volumes Azure NetApp Files sob demanda quase instantaneamente sem pausar a e/s enquanto mantém o acesso ao plano de dados. Esse recurso permite que você otimize facilmente sua escala de implantação do WVD para custos. Você também pode criar instantâneos de volume point-in-time econômicos sem afetar o desempenho do volume. Esse recurso possibilita que você reverta [contêineres de perfil de usuário FSLogix](https://docs.microsoft.com/azure/virtual-desktop/store-fslogix-profile) individuais por meio de uma cópia do `~snapshot` diretório ou reverta instantaneamente todo o volume de uma vez por meio do recurso de reversão de volume.  Com os instantâneos de até 255 (rotativo) in-loco para proteger um volume contra perda ou corrupção de dados, os administradores têm muitas chances de desfazer o que foi feito.
+Azure NetApp Files é um serviço de armazenamento de arquivos altamente funcional do Azure. Ele pode fornecer até 450.000 IOPS e latência de submilissegundo, capaz de dar suporte a uma escala extremamente grande de implantações de área de trabalho virtual do Windows. Você pode ajustar a largura de banda e alterar o nível de serviço de seus volumes Azure NetApp Files sob demanda quase instantaneamente sem pausar a e/s enquanto mantém o acesso ao plano de dados. Esse recurso permite que você otimize facilmente sua escala de implantação do WVD para custos. Você também pode criar instantâneos de volume point-in-time econômicos sem afetar o desempenho do volume. Esse recurso possibilita que você reverta [contêineres de perfil de usuário FSLogix](../virtual-desktop/store-fslogix-profile.md) individuais por meio de uma cópia do `~snapshot` diretório ou reverta instantaneamente todo o volume de uma vez por meio do recurso de reversão de volume.  Com os instantâneos de até 255 (rotativo) in-loco para proteger um volume contra perda ou corrupção de dados, os administradores têm muitas chances de desfazer o que foi feito.
 
 ## <a name="sample-blueprints"></a>Plantas de exemplo
 
-Os seguintes planos gráficos de exemplo mostram a integração da área de trabalho virtual do Windows com o Azure NetApp Files. Em um cenário de área de trabalho em pool, os usuários são direcionados para a melhor sessão disponível (o [modo de amplitude inicial](https://docs.microsoft.com/azure/virtual-desktop/host-pool-load-balancing#breadth-first-load-balancing-method)) no pool, usando [máquinas virtuais de várias sessões](https://docs.microsoft.com/azure/virtual-desktop/windows-10-multisession-faq#what-is-windows-10-enterprise-multi-session). Por outro lado, as áreas de trabalho pessoais são reservadas para cenários nos quais cada usuário tem sua própria máquina virtual.
+Os seguintes planos gráficos de exemplo mostram a integração da área de trabalho virtual do Windows com o Azure NetApp Files. Em um cenário de área de trabalho em pool, os usuários são direcionados para a melhor sessão disponível (o [modo de amplitude inicial](../virtual-desktop/host-pool-load-balancing.md#breadth-first-load-balancing-method)) no pool, usando [máquinas virtuais de várias sessões](../virtual-desktop/windows-10-multisession-faq.md#what-is-windows-10-enterprise-multi-session). Por outro lado, as áreas de trabalho pessoais são reservadas para cenários nos quais cada usuário tem sua própria máquina virtual.
 
 ### <a name="pooled-desktop-scenario"></a>Cenário de área de trabalho em pool
 
-Para o cenário em pool, a equipe de área de trabalho virtual do Windows [recomenda](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/virtual-machine-recs#multi-session-recommendations) as seguintes diretrizes por conta de usuário para vCPU. Observe que nenhum tamanho de máquina virtual é especificado nesta recomendação.
+Para o cenário em pool, a equipe de área de trabalho virtual do Windows [recomenda](/windows-server/remote/remote-desktop-services/virtual-machine-recs#multi-session-recommendations) as seguintes diretrizes por conta de usuário para vCPU. Observe que nenhum tamanho de máquina virtual é especificado nesta recomendação.
 
-|     Tipo de carga de trabalho     |     Claro    |     Média    |     Intenso    |
+|     Tipo de carga de trabalho     |     Claro    |     Médio    |     Intenso    |
 |-----------------------|--------------|---------------|--------------|
 |     Usuários por vCPU    |     6        |     4         |     2        |
 
 
 Essa recomendação é confirmada por um teste de LoginVSI de 500 usuários, registrando aproximadamente 62 "usuários de conhecimento/médio" em cada máquina virtual D16as_V4. 
 
-Por exemplo, em 62 usuários por máquina virtual D16as_V4, Azure NetApp Files pode facilmente dar suporte a 60.000 usuários por ambiente. O teste para avaliar o limite superior do D32as_v4 máquina virtual está em andamento. Se a recomendação do usuário do WVD por vCPU for verdadeira para o D32as_v4, mais de 120.000 usuários se ajustarão em 1.000 máquinas virtuais antes [de broaching o limite de VNet de IP 1.000](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-network-topologies), conforme mostrado na figura a seguir.  
+Por exemplo, em 62 usuários por máquina virtual D16as_V4, Azure NetApp Files pode facilmente dar suporte a 60.000 usuários por ambiente. O teste para avaliar o limite superior do D32as_v4 máquina virtual está em andamento. Se a recomendação do usuário do WVD por vCPU for verdadeira para o D32as_v4, mais de 120.000 usuários se ajustarão em 1.000 máquinas virtuais antes [de broaching o limite de VNet de IP 1.000](./azure-netapp-files-network-topologies.md), conforme mostrado na figura a seguir.  
 
 ![Cenário de área de trabalho em pool de área de trabalho virtual do Windows](../media/azure-netapp-files/solutions-pooled-desktop-scenario.png)   
 

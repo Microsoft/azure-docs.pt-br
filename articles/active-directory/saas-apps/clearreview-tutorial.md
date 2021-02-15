@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
-ms.openlocfilehash: 06c4945c6fee82b3ce622304351c3ad6d9ae282d
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: e971b02fb87440d4833c2eeba8897143f97a20dd
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544651"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97670402"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clear-review"></a>Tutorial: integração do Azure Active Directory ao Clear Review
 
@@ -27,7 +27,7 @@ A integração do Clear Review ao Azure AD oferece os seguintes benefícios:
 * Você pode permitir que seus usuários entrem automaticamente no Clear Review (logon único) usando suas contas do Azure AD.
 * Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](../manage-apps/what-is-single-sign-on.md).
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Prerequisites
@@ -66,7 +66,7 @@ Para configurar a integração do Clear Review com o Azure AD, você precisará 
 
 4. Na caixa de pesquisa, digite **Clear Review**, selecione **Clear Review** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
-     ![Clear Review na lista de resultados](common/search-new-app.png)
+    ![Clear Review na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
@@ -102,7 +102,7 @@ Para configurar o logon único do Azure AD com o Clear Review, execute as seguin
 
 4. Na seção **Configuração Básica do SAML**, caso deseje configurar o aplicativo no modo iniciado por **IDP** execute as seguintes etapas:
 
-    ![Informações de logon único em Domínio e URLs do Clear Review](common/idp-intiated.png)
+    ![Captura de tela que mostra a Configuração Básica de SAML, em que você pode inserir o Identificador e a URL de Resposta e selecionar Salvar.](common/idp-intiated.png)
 
     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<customer name>.clearreview.com/sso/metadata/`
 
@@ -110,7 +110,7 @@ Para configurar o logon único do Azure AD com o Clear Review, execute as seguin
 
 5. Clique em **Definir URLs adicionais** e execute o passo seguinte se quiser configurar a aplicação no modo **SP** iniciado:
 
-    ![Informações de logon único em Domínio e URLs do Clear Review](common/metadata-upload-additional-signon.png)
+    ![Captura de tela que mostra Definir URLs adicionais, em que você pode inserir uma URL de Logon.](common/metadata-upload-additional-signon.png)
 
     Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://<customer name>.clearreview.com`
 
@@ -119,15 +119,15 @@ Para configurar o logon único do Azure AD com o Clear Review, execute as seguin
 
 6. O aplicativo Clear Review espera as declarações do SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados de acordo com a sua configuração de atributos do token SAML. A captura de tela a seguir mostra a lista de atributos padrão, em que **nameidentifier** é mapeado com **user.userprincipalname**. O aplicativo Clear Review espera que **nameidentifier** seja mapeado com **user.mail**. Portanto, você precisa editar o mapeamento de atributo clicando no ícone **Editar** e alterar o mapeamento de atributo.
 
-    ![image](common/edit-attribute.png)
+    ![Captura de tela que mostra Atributos de usuário com o ícone Editar selecionado.](common/edit-attribute.png)
 
 7. Na caixa de diálogo **Atributos de Usuário**, realize as seguintes etapas:
 
     a. Clique no **ícone de edição** à direita do **valor do identificador de nome**.
 
-    ![image](./media/clearreview-tutorial/attribute02.png)
+    ![Captura de tela que mostra Atributos e Declarações do Usuário, com o ícone Editar selecionado.](./media/clearreview-tutorial/attribute02.png)
 
-    ![image](./media/clearreview-tutorial/attribute01.png)
+    ![Captura de tela que mostra a caixa de diálogo Gerenciar declarações do usuário, na qual você pode inserir os valores descritos.](./media/clearreview-tutorial/attribute01.png)
 
     b. Na lista **Atributo de origem**, selecione o valor do atributo **user.mail** para essa linha.
 
@@ -153,15 +153,15 @@ Para configurar o logon único do Azure AD com o Clear Review, execute as seguin
 
 2. Selecione **Admin** do painel de navegação esquerdo.
 
-    ![Botão Salvar em Configurar Logon Único](./media/clearreview-tutorial/tutorial_clearreview_app_admin1.png)
+    ![A captura de tela mostra o portal de revisão clara com o administrador selecionado.](./media/clearreview-tutorial/tutorial_clearreview_app_admin1.png)
 
 3. Na seção **Integrações** na parte inferior da página, clique no botão **Alterar** à direita de **Configurações de Logon Único**.
 
-    ![Botão Salvar em Configurar Logon Único](./media/clearreview-tutorial/tutorial_clearreview_app_admin2.png)
+    ![A captura de tela mostra o botão de alteração de logon único.](./media/clearreview-tutorial/tutorial_clearreview_app_admin2.png)
 
 4. Na página **Configurações de Logon Único**, realize as seguintes etapas
 
-    ![Botão Salvar em Configurar Logon Único](./media/clearreview-tutorial/tutorial_clearreview_app_admin3.png)
+    ![A captura de tela mostra a página de configurações de logon único, na qual você pode inserir as informações nesta etapa.](./media/clearreview-tutorial/tutorial_clearreview_app_admin3.png)
 
     a. Na caixa de texto **URL do Emissor**, cole o valor do **Identificador do Azure AD** copiado do portal do Azure.
 
@@ -190,7 +190,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
     a. No campo **Nome**, insira **BrendaFernandes**.
-  
+
     b. No campo **Nome de usuário**, digite **brendafernandes\@dominiodaempresa.extensao**  
     Por exemplo, BrittaSimon@contoso.com
 
@@ -232,13 +232,12 @@ Nesta seção, você criará um usuário chamado Britta Simon no Clear Review. T
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Ao clicar no bloco do Clear Review no Painel de Acesso, você deverá ser conectado automaticamente ao Clear Review, para o qual configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao clicar no bloco do Clear Review no Painel de Acesso, você deverá ser conectado automaticamente ao Clear Review, para o qual configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](./tutorial-list.md)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [O que é o Acesso Condicional no Azure Active Directory?](../conditional-access/overview.md)

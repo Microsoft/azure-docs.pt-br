@@ -2,15 +2,15 @@
 title: Casos de teste para o kit de ferramentas de teste
 description: Descreve os testes que são executados pelo kit de ferramentas de teste do modelo ARM.
 ms.topic: conceptual
-ms.date: 06/19/2020
+ms.date: 12/03/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 5c18a2658ba1af9370699004860d1743603e8143
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 451323058ad743d6e26fc8bcea27d1b44c76f543
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85255708"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97674035"
 ---
 # <a name="default-test-cases-for-arm-template-test-toolkit"></a>Casos de teste padrão para o kit de ferramentas de teste do modelo ARM
 
@@ -102,13 +102,46 @@ O exemplo a seguir **passa** este teste:
 }
 ```
 
+## <a name="environment-urls-cant-be-hardcoded"></a>As URLs de ambiente não podem ser codificadas
+
+Nome do teste: **deploymenttemplate não deve conter URI codificado**
+
+Não codifique as URLs de ambiente em seu modelo. Em vez disso, use a [função de ambiente](template-functions-deployment.md#environment) para obter dinamicamente essas URLs durante a implantação. Para obter uma lista dos hosts de URL que estão bloqueados, consulte o [caso de teste](https://github.com/Azure/arm-ttk/blob/master/arm-ttk/testcases/deploymentTemplate/DeploymentTemplate-Must-Not-Contain-Hardcoded-Uri.test.ps1).
+
+O exemplo a seguir **falha** nesse teste porque a URL está codificada.
+
+```json
+"variables":{
+    "AzureURL":"https://management.azure.com"
+}
+```
+
+O teste também **falha** quando usado com [concat](template-functions-string.md#concat) ou [URI](template-functions-string.md#uri).
+
+```json
+"variables":{
+    "AzureSchemaURL1": "[concat('https://','gallery.azure.com')]",
+    "AzureSchemaURL2": "[uri('gallery.azure.com','test')]"
+}
+```
+
+O exemplo a seguir **passa** esse teste.
+
+```json
+"variables": {
+    "AzureSchemaURL": "[environment().gallery]"
+},
+```
+
 ## <a name="location-uses-parameter"></a>O local usa o parâmetro
 
 Nome do teste: o **local não deve ser codificado**
 
-Os usuários do seu modelo podem ter regiões limitadas disponíveis para eles. Quando você define o local do recurso como `"[resourceGroup().location]"` , o grupo de recursos pode ter sido criado em uma região que os outros usuários não podem acessar. Esses usuários estão impedidos de usar o modelo.
+Seus modelos devem ter um parâmetro chamado local. Use esse parâmetro para definir o local dos recursos em seu modelo. No modelo principal (chamado azuredeploy.jsno ou mainTemplate.jsem), esse parâmetro pode padrão para o local do grupo de recursos. Em modelos vinculados ou aninhados, o parâmetro de local não deve ter um local padrão.
 
-Ao definir o local para cada recurso, use um parâmetro que usa como padrão o local do grupo de recursos. Ao fornecer esse parâmetro, os usuários podem usar o valor padrão quando conveniente, mas também especificar um local diferente.
+Os usuários do seu modelo podem ter regiões limitadas disponíveis para eles. Quando você embuti código o local do recurso, os usuários podem ser impedidos de criar um recurso nessa região. Os usuários podem ser bloqueados mesmo se você definir o local do recurso como `"[resourceGroup().location]"` . O grupo de recursos pode ter sido criado em uma região que os outros usuários não podem acessar. Esses usuários estão impedidos de usar o modelo.
+
+Ao fornecer um parâmetro de local que usa como padrão o local do grupo de recursos, os usuários podem usar o valor padrão quando conveniente, mas também especificar um local diferente.
 
 O exemplo a seguir **falha** nesse teste porque o local no recurso está definido como `resourceGroup().location` .
 
@@ -164,7 +197,7 @@ O exemplo a seguir usa um parâmetro Location, mas **falha** esse teste porque o
 }
 ```
 
-Em vez disso, crie um parâmetro que usa como padrão o local do grupo de recursos, mas permite que os usuários forneçam um valor diferente. O exemplo a seguir **passa** esse teste.
+Em vez disso, crie um parâmetro que usa como padrão o local do grupo de recursos, mas permite que os usuários forneçam um valor diferente. O exemplo a seguir **passa** esse teste quando o modelo é usado como o modelo principal.
 
 ```json
 {
@@ -196,6 +229,8 @@ Em vez disso, crie um parâmetro que usa como padrão o local do grupo de recurs
     "outputs": {}
 }
 ```
+
+No entanto, se o exemplo anterior for usado como um modelo vinculado, o teste **falhará**. Quando usado como um modelo vinculado, remova o valor padrão.
 
 ## <a name="resources-should-have-location"></a>Os recursos devem ter o local
 
@@ -351,18 +386,18 @@ Você também receberá esse aviso se fornecer um valor mínimo ou máximo, mas 
 
 ## <a name="artifacts-parameter-defined-correctly"></a>Parâmetro de artefatos definido corretamente
 
-Nome do teste: **artefatos-Parameter**
+Nome do teste: **parâmetro de artefatos**
 
-Quando você inclui parâmetros para `_artifactsLocation` e `_artifactsLocationSasToken` , use os padrões e tipos corretos. As seguintes condições devem ser atendidas para passar neste teste:
+Quando você inclui parâmetros para `_artifactsLocation` e `_artifactsLocationSasToken` , use os padrões e tipos corretos. As condições a seguir devem ser atendidas para passar este teste:
 
 * Se você fornecer um parâmetro, deverá fornecer o outro
-* `_artifactsLocation`deve ser uma **cadeia de caracteres**
-* `_artifactsLocation`deve ter um valor padrão no modelo principal
-* `_artifactsLocation`Não é possível ter um valor padrão em um modelo aninhado 
-* `_artifactsLocation`deve ter uma `"[deployment().properties.templateLink.uri]"` ou a URL do repositório bruto para seu valor padrão
-* `_artifactsLocationSasToken`deve ser uma **secureString**
-* `_artifactsLocationSasToken`Só pode ter uma cadeia de caracteres vazia para seu valor padrão
-* `_artifactsLocationSasToken`Não é possível ter um valor padrão em um modelo aninhado 
+* `_artifactsLocation` deve ser uma **cadeia de caracteres**
+* `_artifactsLocation` deve ter um valor padrão no modelo principal
+* `_artifactsLocation` Não é possível ter um valor padrão em um modelo aninhado 
+* `_artifactsLocation` deve ter uma `"[deployment().properties.templateLink.uri]"` ou a URL do repositório bruto para seu valor padrão
+* `_artifactsLocationSasToken` deve ser uma **secureString**
+* `_artifactsLocationSasToken` Só pode ter uma cadeia de caracteres vazia para seu valor padrão
+* `_artifactsLocationSasToken` Não é possível ter um valor padrão em um modelo aninhado 
 
 ## <a name="declared-variables-must-be-used"></a>Variáveis declaradas devem ser usadas
 
@@ -514,9 +549,9 @@ Este teste se aplica a:
 
 Para `reference` `list*` o e o, o teste **falha** quando você usa `concat` o para construir a ID do recurso.
 
-## <a name="dependson-cant-be-conditional"></a>depende não pode ser condicional
+## <a name="dependson-best-practices"></a>depende das práticas recomendadas
 
-Nome do teste: **depende não deve ser condicional**
+Nome do teste: **as práticas recomendadas dependentes**
 
 Ao definir as dependências de implantação, não use a função [If](template-functions-logical.md#if) para testar uma condição. Se um recurso depender de um recurso que é [implantado condicionalmente](conditional-resource-deployment.md), defina a dependência como você faria com qualquer recurso. Quando um recurso condicional não é implantado, Azure Resource Manager o remove automaticamente das dependências necessárias.
 
@@ -572,7 +607,7 @@ Se o modelo incluir uma máquina virtual com uma imagem, verifique se ela está 
 
 ## <a name="use-stable-vm-images"></a>Usar imagens de VM estáveis
 
-Nome do teste: **máquinas virtuais-não deve-ser-Preview**
+Nome do teste: as **máquinas virtuais não devem ser visualizadas**
 
 As máquinas virtuais não devem usar imagens de visualização.
 
@@ -658,4 +693,5 @@ O exemplo a seguir **falha** porque ele usa uma função [list *](template-funct
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre como executar o kit de ferramentas de teste, consulte [usar o kit de ferramentas do ARM template](test-toolkit.md).
+- Para saber mais sobre como executar o kit de ferramentas de teste, consulte [usar o kit de ferramentas do ARM template](test-toolkit.md).
+- Para um módulo Microsoft Learn que abrange o uso do kit de ferramentas de teste, consulte [Visualizar alterações e validar recursos do Azure usando o What-If e o ARM template Test Toolkit](/learn/modules/arm-template-test/).

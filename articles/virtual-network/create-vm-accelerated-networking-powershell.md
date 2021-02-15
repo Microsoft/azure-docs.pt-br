@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 04/15/2020
 ms.author: gsilva
-ms.openlocfilehash: fd50af98fe0d7f20273c45e2b86c18215a3626f0
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: b0ebb75530858a589c3166e21261e2f737fff50d
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289616"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919962"
 ---
-# <a name="create-a-windows-vm-with-accelerated-networking-using-azure-powershell"></a>Criar uma VM do Windows com rede acelerada usando o Azure PowerShell
+# <a name="create-a-windows-vm-with-accelerated-networking-using-azure-powershell"></a>Criar uma VM do Windows com rede acelerada usando Azure PowerShell
 
 Neste tutorial, você aprenderá a criar uma VM (máquina virtual) do Windows com rede acelerada.
 
@@ -61,11 +61,9 @@ As distribuições a seguir têm suporte diretamente da galeria do Azure:
 
 ### <a name="supported-vm-instances"></a>Instâncias de VM compatíveis
 
-A rede acelerada tem suporte na maioria dos tamanhos de instância de uso geral e otimizado para computação com duas ou mais CPUs virtuais (vCPUs).  Essas séries com suporte são: Dv2/DSv2 e F/FS.
+A Rede Acelerada é compatível com os tamanhos de instância de uso geral e de computação otimizada com 2 ou mais vCPUs. Em instâncias que são compatíveis com hyperthreading, a Rede Acelerada é compatível com instâncias de VM com 4 ou mais vCPUs. 
 
-Em instâncias que dão suporte a hyperthreading, a rede acelerada tem suporte em instâncias de VM com quatro ou mais vCPUs. As séries com suporte são: D/Dsv3, D/Dsv4, da/Dasv4, E/Esv3, ea/Easv4, Fsv2, Lsv2, MS/MMS e MS/Mmsv2.
-
-Para obter mais informações sobre instâncias de VM, consulte [tamanhos de máquinas virtuais do Windows no Azure](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+O suporte para rede acelerada pode ser encontrado na documentação de [tamanhos de máquinas virtuais](../virtual-machines/sizes.md) individuais. 
 
 ### <a name="custom-images"></a>Imagens personalizadas
 
@@ -85,7 +83,7 @@ As máquinas virtuais (clássicas) não podem ser implantadas com rede acelerada
 
 ## <a name="vm-creation-using-the-portal"></a>Criação de VM usando o portal
 
-Embora este artigo forneça etapas para criar uma VM com rede acelerada usando Azure PowerShell, você também pode [usar o portal do Azure para criar uma máquina virtual](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) que permite a rede acelerada. Ao criar uma VM no portal, na página **criar uma máquina virtual** , escolha a guia **rede** . Essa guia tem uma opção para **rede acelerada**. Se você tiver escolhido um [sistema operacional com suporte](#supported-operating-systems) e um [tamanho de VM](#supported-vm-instances), essa opção será definida automaticamente como **ativado**. Caso contrário, a opção será definida como **off**e o Azure exibirá o motivo pelo qual ela não pode ser habilitada.
+Embora este artigo forneça etapas para criar uma VM com rede acelerada usando Azure PowerShell, você também pode [usar o portal do Azure para criar uma máquina virtual](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) que permite a rede acelerada. Ao criar uma VM no portal, na página **criar uma máquina virtual** , escolha a guia **rede** . Essa guia tem uma opção para **rede acelerada**. Se você tiver escolhido um [sistema operacional com suporte](#supported-operating-systems) e um [tamanho de VM](#supported-vm-instances), essa opção será definida automaticamente como **ativado**. Caso contrário, a opção será definida como **off** e o Azure exibirá o motivo pelo qual ela não pode ser habilitada.
 
 > [!NOTE]
 > Somente sistemas operacionais com suporte podem ser habilitados por meio do Portal. Se você estiver usando uma imagem personalizada e sua imagem der suporte à rede acelerada, crie sua VM usando a CLI ou o PowerShell. 
@@ -104,7 +102,7 @@ Nas informações de interface de rede, ao lado do rótulo **rede acelerada** , 
 
 Antes de prosseguir, instale [Azure PowerShell](/powershell/azure/install-az-ps) versão 1.0.0 ou posterior. Para localizar a versão atualmente instalada, execute `Get-Module -ListAvailable Az`. Se você precisar instalar ou atualizar o, instale a versão mais recente do módulo AZ do [Galeria do PowerShell](https://www.powershellgallery.com/packages/Az). Em uma sessão do PowerShell, entre em uma conta do Azure usando [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount).
 
-Nos exemplos a seguir, substitua os nomes de parâmetro de exemplo com seus próprios valores. Exemplos de nomes de parâmetro incluem *MyResource*, *myNic*e *myVM*.
+Nos exemplos a seguir, substitua os nomes de parâmetro de exemplo com seus próprios valores. Exemplos de nomes de parâmetro incluem *MyResource*, *myNic* e *myVM*.
 
 ### <a name="create-a-virtual-network"></a>Criar uma rede virtual
 
@@ -134,7 +132,7 @@ Nos exemplos a seguir, substitua os nomes de parâmetro de exemplo com seus pró
 
 ### <a name="create-a-network-security-group"></a>Criar um grupo de segurança de rede
 
-1. Crie uma regra de grupo de segurança de rede com [New-AzNetworkSecurityRuleConfig](/powershell/module/az.Network/New-azNetworkSecurityRuleConfig).
+1. Crie uma regra do grupo de segurança de rede com [New-AzNetworkSecurityRuleConfig](/powershell/module/az.Network/New-azNetworkSecurityRuleConfig).
 
     ```azurepowershell
     $rdp = New-AzNetworkSecurityRuleConfig `
@@ -208,7 +206,7 @@ Nos exemplos a seguir, substitua os nomes de parâmetro de exemplo com seus pró
     $vmConfig = New-AzVMConfig -VMName "myVm" -VMSize "Standard_DS4_v2"
     ```
 
-    Para obter uma lista de todos os tamanhos e características de VM, consulte [Tamanhos de VM do Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+    Para obter uma lista de todos os tamanhos e características de VM, consulte [Tamanhos de VM do Windows](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 3. Crie o restante da configuração da VM com [Set-AzVMOperatingSystem](/powershell/module/az.compute/set-azvmoperatingsystem) e [Set-AzVMSourceImage](/powershell/module/az.compute/set-azvmsourceimage). O comando a seguir cria uma VM do Windows Server 2016:
 
@@ -252,13 +250,13 @@ Depois de criar a VM no Azure, conecte-se à VM e confirme se o controlador Ethe
 
 5. Abra o arquivo. RDP e entre na VM com as credenciais que você inseriu na seção [criar uma VM e anexar a interface de rede](#create-a-vm-and-attach-the-network-interface) . Se você nunca se conectou a uma VM do Windows no Azure, consulte [Conectar-se a máquina virtual](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#connect-to-virtual-machine).
 
-6. Depois que a sessão da área de trabalho remota para sua VM for exibida, clique com o botão direito do mouse no botão Iniciar do Windows e escolha **Device Manager**.
+6. Depois que a sessão da área de trabalho remota para sua VM for exibida, clique com o botão direito do mouse no botão Iniciar do Windows e escolha **Gerenciador de dispositivos**.
 
-7. Na janela **Device Manager** , expanda o nó **adaptadores de rede** .
+7. Na janela **Gerenciador de dispositivos** , expanda o nó **adaptadores de rede** .
 
 8. Confirme se o **adaptador Ethernet de função virtual Mellanox ConnectX-3** aparece, conforme mostrado na imagem a seguir:
 
-    ![Adaptador Ethernet de função virtual Mellanox ConnectX-3, novo adaptador de rede para rede acelerada, Device Manager](./media/create-vm-accelerated-networking/device-manager.png)
+    ![Adaptador Ethernet de função virtual Mellanox ConnectX-3, novo adaptador de rede para rede acelerada, Gerenciador de Dispositivos](./media/create-vm-accelerated-networking/device-manager.png)
 
 A rede acelerada agora está habilitada para sua VM.
 

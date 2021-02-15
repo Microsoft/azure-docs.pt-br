@@ -11,14 +11,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2020
 ms.author: rdhillon
-ms.openlocfilehash: 3c0b0f9f39620996245614b53c7ec274ec965d5b
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 9766379807e6d2708fd6935dd2ffbd7660f9988f
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87921191"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98216641"
 ---
-# <a name="virtual-network-service-endpoint-policies-for-azure-storage"></a>Políticas de ponto de extremidade de serviço de rede virtual para armazenamento do Azure
+# <a name="virtual-network-service-endpoint-policies-for-azure-storage"></a>Políticas de ponto de extremidade de serviço de rede virtual para o Armazenamento do Azure
 
 As políticas de ponto de extremidade de serviço de rede virtual (VNet) permitem filtrar o tráfego de rede virtual de egresso para contas de armazenamento do Azure sobre o ponto de extremidade de serviço e permitir que os dados vazamentom apenas contas específicas de armazenamento do Azure As políticas de ponto de extremidade fornecem controle de acesso granular para o tráfego de rede virtual para o armazenamento do Azure ao se conectar ao ponto de extremidade
 
@@ -32,7 +32,7 @@ Políticas de ponto de extremidade de serviço de rede virtual fornecem os segui
 
 - __Segurança aprimorada para o tráfego de rede virtual para o armazenamento do Azure__
 
-  As [marcas de serviço do Azure para grupos de segurança de rede](https://aka.ms/servicetags) permitem restringir o tráfego de saída da rede virtual para regiões específicas do armazenamento do Azure. No entanto, isso permite o tráfego para qualquer conta na região de armazenamento do Azure selecionada.
+  As [marcas de serviço do Azure para grupos de segurança de rede](./network-security-groups-overview.md) permitem restringir o tráfego de saída da rede virtual para regiões específicas do armazenamento do Azure. No entanto, isso permite o tráfego para qualquer conta na região de armazenamento do Azure selecionada.
   
   As políticas de ponto de extremidade permitem que você especifique as contas de armazenamento do Azure que têm permissão de acesso de saída de rede virtual e restringe o acesso a todas as outras contas de armazenamento. Isso fornece um controle de segurança muito mais granular para proteger os dados vazamento de sua rede virtual.
 
@@ -122,7 +122,7 @@ As redes virtuais e as contas de armazenamento do Azure podem estar na mesma ass
 - Redes virtuais devem estar na mesma região que a política de ponto de extremidade de serviço.
 - Só será possível aplicar política de ponto de extremidade de serviço em uma sub-rede se os pontos de extremidade de serviço estiverem configurados para os serviços do Azure listados na política.
 - Você não pode usar políticas de ponto de extremidade de serviço para o tráfego da sua rede local para serviços do Azure.
-- Atualmente, os serviços gerenciados do Azure não dão suporte a políticas de ponto de extremidade. Isso inclui serviços gerenciados implantados nas sub-redes compartilhadas (por exemplo, *Azure HDInsight, lote do Azure, Azure ADDS, gateway de aplicativo do Azure, gateway de VPN do Azure, firewall do Azure*) ou em sub-redes dedicadas (por exemplo *, ambiente do serviço de aplicativo do Azure, cache Redis do Azure, gerenciamento de API do Azure, SQL do Azure, serviços gerenciados clássicos*).
+- Atualmente, os serviços gerenciados do Azure não dão suporte a políticas de ponto de extremidade. Isso inclui serviços gerenciados implantados nas sub-redes compartilhadas (por exemplo, *lote do Azure, Azure ADDS, gateway de aplicativo Azure, gateway de VPN do Azure, firewall do Azure*) ou em sub-redes dedicadas (por exemplo *, ambiente do serviço de aplicativo do Azure, cache Redis do Azure, gerenciamento de API do Azure, mi SQL do Azure, serviços gerenciados clássicos*).
 
  > [!WARNING]
  > Serviços do Azure implantados em sua rede virtual, como Azure HDInsight, acessam outros serviços do Azure, como Armazenamento do Azure, para requisitos de infraestrutura. Restringir a política de ponto de extremidade a recursos específicos pode interromper o acesso a esses recursos de infraestrutura para serviços do Azure implantados em sua rede virtual.

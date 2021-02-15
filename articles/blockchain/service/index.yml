@@ -10,12 +10,12 @@ metadata:
   author: PatAltimore
   ms.author: patricka
   ms.date: 11/04/2019
-  ms.openlocfilehash: 186841ae1bad51fbeee42c97a68f4ab19803f6d4
-  ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+  ms.openlocfilehash: 97d1d284d7bb5a032dd450e832ddfb7e028d60b3
+  ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 07/23/2020
-  ms.locfileid: "87076973"
+  ms.lasthandoff: 01/07/2021
+  ms.locfileid: "97964483"
 landingContent:
 - title: Sobre o serviço Azure Blockchain
   linkLists:
@@ -33,6 +33,12 @@ landingContent:
       url: develop.md
 - title: Introdução
   linkLists:
+  - linkListType: learn
+    links:
+    - text: Siga o caminho do blockchain do Microsoft Learn
+      url: /learn/paths/ethereum-blockchain-development
+    - text: Assista à série para iniciantes sobre blockchain
+      url: https://channel9.msdn.com/Series/Beginners-Series-to-Blockchain
   - linkListType: deploy
     links:
     - text: Criar um membro do blockchain – Portal

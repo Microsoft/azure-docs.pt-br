@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 01/23/2020
 ms.author: tomfitz
 ms.openlocfilehash: 915b8e13adaa440063f5db62b72fa39e1035d576
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87460772"
 ---
 # <a name="create-event-grid-custom-topic-with-powershell"></a>Criar um tópico de Grade de Eventos personalizado com o PowerShell

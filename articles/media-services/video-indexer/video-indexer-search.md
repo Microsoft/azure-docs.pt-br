@@ -8,54 +8,55 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 11/23/2019
 ms.author: juliako
-ms.openlocfilehash: 1c3326456fefbbef9228cf26b5821f306cd21601
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a1ca7c677e5f1eb55d74cca45e757676674f303c
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80127904"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96030486"
 ---
 # <a name="search-for-exact-moments-in-videos-with-video-indexer"></a>Pesquisar minutos exatos em vídeos com Video Indexer
 
-Este tópico mostra as opções de pesquisa que permitem pesquisar minutos exatos em vídeos.
+Este tópico mostra como usar o site Video Indexer para procurar um tempo exato em vídeos.
 
 1. Acesse o site [Video indexer](https://www.videoindexer.ai/) e entre.
-2. Pesquise entre todos os vídeos da sua conta.
+1. Especifique as palavras-chave de pesquisa e a pesquisa será executada entre todos os vídeos na biblioteca da sua conta. 
 
-    No exemplo a seguir, pesquisamos todos os vídeos que falam sobre segurança e em que Satya é exibida.
+    Você pode filtrar sua pesquisa selecionando **filtros**. No exemplo abaixo, pesquisamos "Microsoft" que aparece como somente texto na tela (OCR).
 
-    ![Pesquisar vídeo em Video Indexer](./media/video-indexer-search/video-indexer-search01.png)
+    :::image type="content" source="./media/video-indexer-search/filter.png" alt-text="Filtrar, somente texto":::
+1. Pressione **Pesquisar** para ver o resultado.
 
-3. Pesquise os insights resumidos do vídeo.
+    :::image type="content" source="./media/video-indexer-search/results.png" alt-text="Resultado da pesquisa de vídeo":::
 
-    Em seguida, você pode pesquisar em um vídeo selecionando **reproduzir** no vídeo. Em seguida, você pode procurar um instante exato no vídeo selecionando a guia **Pesquisar** .
+    Se você selecionar um dos resultados, o jogador o levará a esse momento exato no vídeo.
+1. Exiba e pesquise as informações resumidas do vídeo clicando em **reproduzir** no vídeo ou selecionando um dos resultados da pesquisa original. 
 
-    No exemplo a seguir, pesquisamos "seguro" dentro do vídeo selecionado.
+    Você pode exibir, Pesquisar e editar as **informações**. Quando você seleciona uma das informações, o jogador o leva a esse momento exato no vídeo.  
 
-    ![Pesquisar em um vídeo com Video Indexer](./media/video-indexer-search/video-indexer-search02.png)
+    :::image type="content" source="./media/video-indexer-search/insights.png" alt-text="Exibir, Pesquisar e editar as informações do vídeo":::
 
-    Se você selecionar um dos resultados, o jogador o levará a esse momento exato no vídeo. Você pode obter a exibição e a sincronização do Player/insights em seu aplicativo. Para obter mais informações, consulte [Inserir widgets de video indexer em seu aplicativo](video-indexer-embed-widgets.md).
+    Se você inserir o vídeo por meio de Video Indexer widgets, poderá obter a exibição e a sincronização do Player/insights em seu aplicativo. Para obter mais informações, consulte [Inserir widgets de video indexer em seu aplicativo](video-indexer-embed-widgets.md).
+1. Você pode exibir, Pesquisar e editar as transcrições clicando na guia **linha do tempo** . 
 
-4. Pesquise a análise detalhada do vídeo.
+    :::image type="content" source="./media/video-indexer-search/timeline.png" alt-text="Exibir, Pesquisar e editar as transcrições do vídeo":::
 
-    Se você quiser criar seu próprio clipe com base no vídeo encontrado, selecione o botão **Editar** . Esta página mostra o vídeo junto com suas ideias como filtros. Para obter mais informações, consulte [Exibir e editar insights do Video Indexer](video-indexer-view-edit.md).
+    Para editar o texto, selecione **Editar** no canto superior direito e altere o texto conforme necessário. 
 
-    Você pode pesquisar por momentos exatos no vídeo para mostrar apenas as linhas nas quais você está interessado. Use as informações rápidas para filtrar as partes que você deseja ver. Quando terminar, você poderá visualizar o clipe e selecionar **publicar** para criar o novo clipe que aparecerá na galeria.
+    Você também pode converter e baixar as transcrições selecionando a opção apropriada no canto superior direito. 
 
-    No exemplo a seguir, pesquisamos o texto "realidade misturada". Também aplicamos filtros adicionais, conforme mostrado na tela abaixo.
+## <a name="embed-download-create-projects"></a>Inserir, baixar, criar projetos
 
-    ![Pesquisar um momento exato em Video Indexer](./media/video-indexer-search/video-indexer-search03.png)
+Você pode inserir seu vídeo selecionando **</>inserir** em seu vídeo. Para obter detalhes, consulte [Inserir widgets visuais em seu aplicativo](video-indexer-embed-widgets.md).
+
+Você pode baixar o vídeo de origem, informações do vídeo, transcrições clicando em **baixar** em seu vídeo.
+
+Você pode criar um clipe com base no vídeo de linhas específicas e momentos clicando em **abrir no editor**. Em seguida, editando o vídeo e salvando o projeto. Para obter detalhes, consulte [usar o aprofundamento dos seus vídeos](use-editor-create-project.md).
+
+:::image type="content" source="./media/video-indexer-search/embed-download-create-projects.png" alt-text="Inserir, baixar, criar projetos do vídeo":::
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Quando encontrar o momento exato no vídeo com o qual deseja trabalhar, você poderá continuar a processar o vídeo. Para obter mais informações, consulte estes tópicos:
-
-- [Use as ideias aprofundadas de seus vídeos](use-editor-create-project.md)
-- [Processar conteúdo com Video Indexer API REST](video-indexer-use-apis.md)
-- [Inserir widgets visuais em seu aplicativo](video-indexer-embed-widgets.md)
-
-## <a name="see-also"></a>Confira também
-
-[Visão geral do indexador vídeo](video-indexer-overview.md)
+[Processar conteúdo com Video Indexer API REST](video-indexer-use-apis.md)

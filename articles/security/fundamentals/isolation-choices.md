@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: TomSh
-ms.openlocfilehash: 42582c9474647c4c203bd0cafae0be664398ba41
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: c06fb0830ae709918b668ed60efbaaf47a63ce84
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533896"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842831"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolamento na nuvem pública do Azure
 
@@ -38,7 +38,7 @@ Cada diretório do Azure AD é distinto e separado de outros diretórios do Azur
 
 ### <a name="azure-tenancy"></a>Locação do Azure
 
-A locação do Azure (Assinatura do Azure) refere-se a uma relação de "cliente/cobrança" e um único [locatário](../../active-directory/develop/quickstart-create-new-tenant.md) no [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md). O isolamento no nível do locatário no Microsoft Azure é obtido usando o Azure Active Directory e [controles com base em função](../../role-based-access-control/overview.md) oferecidos por ele. Cada assinatura do Azure está associada com um diretório do Azure Active Directory (AD).
+A locação do Azure (Assinatura do Azure) refere-se a uma relação de "cliente/cobrança" e um único [locatário](../../active-directory/develop/quickstart-create-new-tenant.md) no [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md). O isolamento no nível do locatário no Microsoft Azure é obtido usando Azure Active Directory e o [controle de acesso baseado em função do Azure](../../role-based-access-control/overview.md) oferecido por ele. Cada assinatura do Azure está associada com um diretório do Azure Active Directory (AD).
 
 Usuários, grupos e aplicativos do diretório podem gerenciar recursos na assinatura do Azure. Você pode atribuir esses direitos de acesso usando o Portal do Azure, ferramentas de linha de comando do Azure e APIs de Gerenciamento do Azure. Um locatário do Azure AD é logicamente isolado usando limites de segurança, para que nenhum cliente possa acessar ou comprometer colocatários, de forma maliciosa ou acidental. O Azure AD é executado em servidores "bare metal" isolados em um segmento de rede segregado, onde a filtragem de pacotes no nível do host e o Firewall do Windows bloqueiam o tráfego e conexões indesejadas.
 
@@ -52,9 +52,9 @@ Usuários, grupos e aplicativos do diretório podem gerenciar recursos na assina
 
 - O acesso físico aos servidores que compõem o serviço Azure AD, e acesso direto aos sistemas de back-end do Azure AD, é restrito.
 
-- Os usuários do Azure AD não têm acesso a ativos físicos ou locais e, portanto, não é possível ignorar as verificações lógicas da política de RBAC mencionadas a seguir.
+- Os usuários do Azure AD não têm acesso a ativos físicos ou locais e, portanto, não é possível ignorar as verificações lógicas de política do RBAC do Azure declaradas a seguir.
 
-Para as necessidades de diagnóstico e manutenção, um modelo operacional que emprega um sistema de elevação de privilégio just-in-time é exigido e usado. Azure AD Privileged Identity Management (PIM) apresenta o conceito de administrador qualificado. [Administradores qualificados](../../active-directory/privileged-identity-management/pim-configure.md) devem ser usuários que precisam de acesso privilegiado agora e, em seguida, não todos os dias. A função fica inativa até que o usuário precise de acesso, então ele conclui um processo de ativação e torna-se um administrador ativo por um tempo predeterminado.
+Para as necessidades de diagnóstico e manutenção, um modelo operacional que emprega um sistema de elevação de privilégio just-in-time é exigido e usado. Azure AD Privileged Identity Management (PIM) apresenta o conceito de um administrador qualificado. [Administradores qualificados](../../active-directory/privileged-identity-management/pim-configure.md) devem ser usuários que precisam de acesso privilegiado agora e, em seguida, não todos os dias. A função fica inativa até que o usuário precise de acesso, então ele conclui um processo de ativação e torna-se um administrador ativo por um tempo predeterminado.
 
 ![Gerenciamento de identidades com privilégios do AD do Azure](./media/isolation-choices/azure-isolation-fig2.png)
 
@@ -64,7 +64,7 @@ O conceito de contêineres de locatário está profundamente arraigado no servi�
 
 Mesmo quando os metadados de vários locatários do Azure Active Directory são armazenados no mesmo disco físico, não há nenhuma relação entre os contêineres além do que é definido pelo serviço de diretório, que por sua vez é determinado pelo administrador do locatário.
 
-### <a name="azure-role-based-access-control-azure-rbac"></a>Controle de acesso baseado em função do Azure (RBAC do Azure)
+### <a name="azure-role-based-access-control-azure-rbac"></a>RBAC do Azure (controle de acesso baseado em função do Azure)
 
 O Azure [RBAC (controle de acesso baseado em função) do](../../role-based-access-control/overview.md) Azure ajuda você a compartilhar vários componentes disponíveis em uma assinatura do Azure fornecendo gerenciamento de acesso refinado para o Azure. O RBAC do Azure permite a separação de tarefas dentro de sua organização e a concessão de acesso com base no que os usuários precisam para realizar seus trabalhos. Em vez de dar a todos permissões irrestritas na assinatura ou recursos do Azure, você pode permitir apenas certas ações.
 
@@ -74,23 +74,23 @@ O RBAC do Azure tem três funções básicas que se aplicam a todos os tipos de 
 
 - O **colaborador** pode criar e gerenciar todos os tipos de recursos do Azure, mas não pode conceder acesso a outras pessoas.
 
-- **leitor** pode exibir os recursos existentes do Azure.
+- O **leitor** pode exibir os recursos existentes do Azure.
 
-![Controle de acesso baseado em função do Azure (RBAC do Azure)](./media/isolation-choices/azure-isolation-fig3.png)
+![RBAC do Azure (controle de acesso baseado em função do Azure)](./media/isolation-choices/azure-isolation-fig3.png)
 
 O restante das funções do Azure no Azure permite o gerenciamento de recursos específicos do Azure. Por exemplo, a função Colaborador de Máquina Virtual permite que o usuário crie e gerencie máquinas virtuais. Ela não concede acesso à Rede Virtual ou à sub-rede do Azure com a qual a máquina virtual se conecta.
 
-[Funções internas de RBAC](../../role-based-access-control/built-in-roles.md) lista as funções disponíveis no Azure. Ela especifica as operações e o escopo que cada função interna concede aos usuários. Se você pretende definir suas próprias funções para ter ainda mais controle, confira como criar [Funções personalizadas no RBAC do Azure](../../role-based-access-control/custom-roles.md).
+[Funções internas do Azure](../../role-based-access-control/built-in-roles.md) listam as funções disponíveis no Azure. Ela especifica as operações e o escopo que cada função interna concede aos usuários. Se você pretende definir suas próprias funções para ter ainda mais controle, confira como criar [Funções personalizadas no RBAC do Azure](../../role-based-access-control/custom-roles.md).
 
 Entre os outros recursos para o Azure Active Directory estão:
 
 - O Azure AD habilita o SSO para aplicativos SaaS, independentemente de onde estejam hospedados. Alguns aplicativos são federados com o AD do Azure e outros usam SSO com senha. Os aplicativos federados também podem dar suporte ao provisionamento do usuário e ao [armazenamento de senha no cofre](https://www.techopedia.com/definition/31415/password-vault).
 
-- O acesso aos dados no [Armazenamento do Azure](https://azure.microsoft.com/services/storage/) é controlado por meio de autenticação. Cada conta de armazenamento tem uma chave primária ([chave de conta de armazenamento](../../storage/common/storage-create-storage-account.md) ou SAK) e uma chave secreta secundária (a assinatura de acesso compartilhado ou SAS).
+- O acesso aos dados no [Armazenamento do Azure](https://azure.microsoft.com/services/storage/) é controlado por meio de autenticação. Cada conta de armazenamento tem uma chave primária ([chave de conta de armazenamento](../../storage/common/storage-account-create.md) ou SAK) e uma chave secreta secundária (a assinatura de acesso compartilhado ou SAS).
 
-- O Azure AD fornece identidade como um serviço de federação usando [Serviços de Federação do Active Directory](../../active-directory/hybrid/how-to-connect-fed-azure-adfs.md), sincronização e replicação com diretórios locais.
+- O Azure AD fornece identidade como um serviço de federação usando [Serviços de Federação do Active Directory](/windows-server/identity/ad-fs/deployment/how-to-connect-fed-azure-adfs), sincronização e replicação com diretórios locais.
 
-- A [Autenticação Multifator do Azure](../../active-directory/authentication/multi-factor-authentication.md) é um serviço de autenticação multifator que exige que os usuários verifiquem seus acessos usando um aplicativo móvel, uma chamada telefônica ou uma mensagem de texto. Ela pode ser usada com o Azure AD para proteger os recursos locais com o servidor de Autenticação Multifator do Azure e com diretórios e aplicativos personalizados que usam o SDK.
+- A [autenticação multifator do Azure ad](../../active-directory/authentication/concept-mfa-howitworks.md) é o serviço de autenticação multifator que exige que os usuários verifiquem as entradas usando um aplicativo móvel, uma chamada telefônica ou uma mensagem de texto. Ela pode ser usada com o Azure AD para proteger os recursos locais com o servidor de Autenticação Multifator do Azure e com diretórios e aplicativos personalizados que usam o SDK.
 
 - Os [Azure AD Domain Services](https://azure.microsoft.com/services/active-directory-ds/) permitem adicionar máquinas virtuais do Azure a um domínio do Active Directory sem a necessidade de implantar controladores de domínio. Você pode acessar essas máquinas virtuais usando suas credenciais corporativas do Active Directory e administrar as máquinas virtuais associadas ao domínio usando uma Política de Grupo para impor linhas de base de segurança em todas as suas máquinas virtuais do Azure.
 
@@ -119,7 +119,7 @@ O Microsoft Azure fornece vários serviços de computação baseados em nuvem qu
 
 ### <a name="dedicated-hosts"></a>Hosts dedicados
 
-Além dos hosts isolados descritos na seção anterior, o Azure também oferece hosts dedicados. Os hosts dedicados no Azure são um serviço que fornece servidores físicos que podem hospedar uma ou mais máquinas virtuais e que são dedicados a uma única assinatura do Azure. Os hosts dedicados fornecem isolamento de hardware no nível do servidor físico. Nenhuma outra VM será colocada nos hosts. Os hosts dedicados são implantados nos mesmos data centers e compartilham a mesma rede e a infraestrutura de armazenamento subjacente que outros hosts não isolados. Para obter mais informações, consulte a visão geral detalhada dos [hosts dedicados do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/dedicated-hosts).
+Além dos hosts isolados descritos na seção anterior, o Azure também oferece hosts dedicados. Os hosts dedicados no Azure são um serviço que fornece servidores físicos que podem hospedar uma ou mais máquinas virtuais e que são dedicados a uma única assinatura do Azure. Os hosts dedicados fornecem isolamento de hardware no nível do servidor físico. Nenhuma outra VM será colocada nos hosts. Os hosts dedicados são implantados nos mesmos data centers e compartilham a mesma rede e a infraestrutura de armazenamento subjacente que outros hosts não isolados. Para obter mais informações, consulte a visão geral detalhada dos [hosts dedicados do Azure](../../virtual-machines/dedicated-hosts.md).
 
 ### <a name="hyper-v--root-os-isolation-between-root-vm--guest-vms"></a>Isolamento de sistema operacional raiz e Hyper-V entre a VM raiz e as VMs convidadas
 
@@ -194,7 +194,7 @@ Portanto, o Armazenamento do Azure é executado em um hardware separado sem cone
 
 ![Isolamento usando o Controle de acesso de armazenamento](./media/isolation-choices/azure-isolation-fig9.png)
 
-**O acesso aos dados do Armazenamento do Azure (incluindo tabelas)** pode ser controlado por meio de um token [SAS (Assinatura de Acesso Compartilhado)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md), que concede acesso de escopo. A SAS é criada por meio de um modelo de consulta (URL), assinado com a [SAK (chave de conta de armazenamento)](https://msdn.microsoft.com/library/azure/ee460785.aspx). Essa [URL assinada](../../storage/common/storage-dotnet-shared-access-signature-part-1.md) pode ser concedida a outro processo (ou seja, delegada), que pode preencher os detalhes da consulta e fazer a solicitação do serviço de armazenamento. Uma SAS permite a concessão de acesso com base em tempo para clientes sem revelar a chave secreta da conta de armazenamento.
+**O acesso aos dados do Armazenamento do Azure (incluindo tabelas)** pode ser controlado por meio de um token [SAS (Assinatura de Acesso Compartilhado)](../../storage/common/storage-sas-overview.md), que concede acesso de escopo. A SAS é criada por meio de um modelo de consulta (URL), assinado com a [SAK (chave de conta de armazenamento)](/previous-versions/azure/reference/ee460785(v=azure.100)). Essa [URL assinada](../../storage/common/storage-sas-overview.md) pode ser concedida a outro processo (ou seja, delegada), que pode preencher os detalhes da consulta e fazer a solicitação do serviço de armazenamento. Uma SAS permite a concessão de acesso com base em tempo para clientes sem revelar a chave secreta da conta de armazenamento.
 
 A SAS significa que podemos conceder a um cliente permissões limitadas para objetos em nossa conta de armazenamento por determinado período de tempo e com um conjunto específico de permissões. Podemos conceder essas permissões limitadas sem precisar compartilhar as chaves de acesso da conta.
 
@@ -225,13 +225,13 @@ Para muitas organizações, a [criptografia de dados em repouso](isolation-choic
 
 - [Criptografia do Serviço de Armazenamento](../../storage/blobs/security-recommendations.md) permite solicitar que o serviço de armazenamento criptografe automaticamente os dados ao gravá-los no Armazenamento do Azure.
 - A [criptografia do lado do cliente](../../storage/blobs/security-recommendations.md) também fornece o recurso de criptografia em repouso.
-- [Azure Disk Encryption](../azure-security-disk-encryption-overview.md) permite criptografar os discos do sistema operacional e os discos de dados usados por uma máquina virtual IaaS.
+- [Azure Disk Encryption](./azure-disk-encryption-vms-vmss.md) permite criptografar os discos do sistema operacional e os discos de dados usados por uma máquina virtual IaaS.
 
 #### <a name="azure-disk-encryption"></a>Azure Disk Encryption
 
-[Azure Disk Encryption](../azure-security-disk-encryption-overview.md) para VMs (máquinas virtuais) ajuda a resolver os requisitos de segurança e conformidade organizacionais criptografando seus discos de VM (incluindo discos de dados e de inicialização) com chaves e políticas controladas por você no [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
+[Azure Disk Encryption](./azure-disk-encryption-vms-vmss.md) para VMs (máquinas virtuais) ajuda a resolver os requisitos de segurança e conformidade organizacionais criptografando seus discos de VM (incluindo discos de dados e de inicialização) com chaves e políticas controladas por você no [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
 
-A solução de Criptografia de Disco para Windows é baseada na [Criptografia de Unidade de Disco BitLocker da Microsoft](https://technet.microsoft.com/library/cc732774.aspx) e a solução para Linux é baseada no [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt).
+A solução de Criptografia de Disco para Windows é baseada na [Criptografia de Unidade de Disco BitLocker da Microsoft](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc732774(v=ws.11)) e a solução para Linux é baseada no [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt).
 
 A solução dá suporte aos seguintes cenários para VMs IaaS quando habilitados no Microsoft Azure:
 
@@ -243,7 +243,7 @@ A solução dá suporte aos seguintes cenários para VMs IaaS quando habilitados
 - Ativando a criptografia em VMs IaaS que estão executando o sistema operacional cliente Windows
 - Como habilitar a criptografia em volumes com caminhos de montagem
 - Habilitando a criptografia em VMs Linux configuradas com a distribuição de disco (RAID) usando o [mdadm](https://en.wikipedia.org/wiki/Mdadm)
-- Como habilitar a criptografia em VMs do Linux usando [LVM (Gerenciador de Volume Lógico)](https://msdn.microsoft.com/library/windows/desktop/bb540532) para discos de dados
+- Como habilitar a criptografia em VMs do Linux usando [LVM (Gerenciador de Volume Lógico)](/windows/win32/fileio/about-volume-management) para discos de dados
 - Ativando a criptografia em VMs do Windows que são configurados usando espaços de armazenamento
 - Há suporte para todas as regiões públicas do Azure
 

@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 04/30/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 4086a8f354e5e906325d9c324410f3546a32f658
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: b80437fa1ac41bb240565923eb40e562c8cf8c5b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996136"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018606"
 ---
 # <a name="quickstart-integrate-an-azure-storage-account-with-azure-cdn"></a>Início Rápido: Integrar uma conta de Armazenamento do Azure à CDN do Azure
 
@@ -104,7 +104,7 @@ http://<*nome-do-ponto-de-extremidade*\>.azureedge.net/<*meuContêinerPúbllico*
 
 Se não desejar mais armazenar em cache um objeto na CDN do Azure, você poderá executar uma das seguintes etapas:
 
-- Torne o contêiner particular em vez de público. Para obter mais informações, confira [Gerenciar acesso anônimo de leitura aos contêineres e blobs](../storage/blobs/storage-manage-access-to-resources.md).
+- Torne o contêiner particular em vez de público. Para obter mais informações, confira [Gerenciar acesso anônimo de leitura aos contêineres e blobs](../storage/blobs/anonymous-read-access-configure.md).
 - Desabilite ou exclua o ponto de extremidade CDN usando o Portal do Azure.
 - Modifique seu serviço hospedado para não responder a solicitações do objeto.
 

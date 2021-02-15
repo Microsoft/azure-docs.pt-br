@@ -14,14 +14,16 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 5e8318b480cfa0d399a7fb2a0e7f6ebed1488397
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: f3cc775cd65293a39de28dfbdc8b1d06aeada3b7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836489"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "90987315"
 ---
-# <a name="azure-media-services-community"></a>Comunidade dos Serviços de Mídia do Azure  
+# <a name="azure-media-services-community"></a>Comunidade dos Serviços de Mídia do Azure
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]  
 
 Esta página da comunidade dos AMS (Serviços de Mídia do Azure) discute as diferentes maneiras em que você pode obter atualizações sobre o AMS. Você também pode ver novos vídeos e podcasts, fazer perguntas e comentários.   
 
@@ -48,11 +50,11 @@ Os fóruns a seguir podem ser usados para fazer perguntas sobre produtos e recur
 
 Atualmente, o MSDN é o principal fórum da comunidade da equipe dos Serviços de Mídia.
 
-[![MSDN](./media/media-services-community/msdn.png)](/answers/topics/azure-media-services.html) 
+[:::image type="icon" source="./media/media-services-community/msdn.png" border="false":::](/answers/topics/azure-media-services.html) 
 
 A equipe também monitora perguntas marcadas com 'azure-media-services' no Stack Overflow.
 
-[![StackOverflow](./media/media-services-community/stack-overflow.png)](https://stackoverflow.com/questions/tagged/azure-media-services) 
+[:::image type="icon" source="./media/media-services-community/stack-overflow.png" border="false":::](https://stackoverflow.com/questions/tagged/azure-media-services) 
 
 ## <a name="need-help"></a>Precisa de ajuda?
 

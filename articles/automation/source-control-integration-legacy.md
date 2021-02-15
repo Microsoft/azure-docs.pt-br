@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: f1e4e288b5b95f355221188a45f1e6c764fde77c
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 4dedbcf58e76b8c969f8607db6922e87a85f08e5
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187329"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97591866"
 ---
 # <a name="use-source-control-integration-in-azure-automation---legacy"></a>Uso da integração do controle do código-fonte na Automação do Azure – Herdado
 
@@ -43,7 +43,7 @@ Se você já tiver uma conta do GitHub e um repositório que deseja vincular à 
    | Escolher Origem |Selecione a origem. No momento, apenas **GitHub** tem suporte. |
    | Autorização |Clique no botão **Autorizar** para conceder acesso da Automação do Azure a seu repositório do GitHub. Se você já estiver conectado à sua conta do GitHub em uma janela diferente, as credenciais da conta serão usadas. Quando a autorização for bem-sucedida, a página mostra o seu nome de usuário do GitHub em **Propriedade de Autorização**. |
    | Escolher o repositório |Selecione um repositório do GitHub na lista de repositórios disponíveis. |
-   | Escolher a ramificação |Selecione uma ramificação na lista de ramificações disponíveis. Somente a ramificação **mestre** será mostrada se você ainda não tiver criado quaisquer ramificações. |
+   | Escolher a ramificação |Selecione uma ramificação na lista de ramificações disponíveis. Somente a ramificação **principal** será mostrada se você não tiver criado ramificações. |
    | Caminho da pasta do runbook |O caminho da pasta do runbook especifica o caminho no repositório do GitHub do qual você deseja enviar seu código por push ou por pull. Ele deve ser inserido no formato **/nomedapasta/nomedasubpasta**. Somente os runbooks no caminho da pasta do runbook serão sincronizados com sua conta da Automação. Os runbooks nas subpastas do caminho da pasta do runbook serão **NÃO** serão sincronizados. Use **/** para sincronizar todos os runbooks do repositório. |
 3. Por exemplo, se você tiver um repositório chamado **PowerShellScripts** com uma pasta chamada **RootFolder** que contenha uma pasta chamada **SubFolder**. Você pode usar as seguintes cadeias de caracteres para sincronizar cada nível de pasta:
 
@@ -66,7 +66,7 @@ Se você já tiver uma conta do GitHub e um repositório que deseja vincular à 
      | `Type`  |String |
      | `Value` |{"Branch": \<*Your branch name*> , "RunbookFolderPath": \<*Runbook folder path*> , "ProviderType": \<*has a value 1 for GitHub*> , "Repository": \<*Name of your repository*> , "username": \<*Your GitHub user name*> } |
 
-   * A variável **Microsoft.Azure.Automation.SourceControl.OAuthToken**contém o valor criptografado seguro do OAuthToken.  
+   * A variável **Microsoft.Azure.Automation.SourceControl.OAuthToken** contém o valor criptografado seguro do OAuthToken.  
 
      |**Parâmetro**            |**Valor** |
      |:---|:---|

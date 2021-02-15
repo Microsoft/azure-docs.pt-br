@@ -1,18 +1,16 @@
 ---
 title: Usar o catálogo do U-SQL no Azure Data Lake Analytics
 description: Saiba como usar o catálogo do U-SQL para compartilhar códigos e dados. Crie funções com valor de tabela, crie exibições, crie tabelas e consulte-as.
-services: data-lake-analytics
 ms.service: data-lake-analytics
 ms.reviewer: jasonh
-ms.assetid: 57143396-ab86-47dd-b6f8-613ba28c28d2
 ms.topic: how-to
 ms.date: 05/09/2017
-ms.openlocfilehash: 0ef1bff996589d09326e80b770953bd6b34966c5
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: f92aadc8ccf18dd91b5dd4b35285f60b174e4cf7
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132425"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92220060"
 ---
 # <a name="get-started-with-the-u-sql-catalog-in-azure-data-lake-analytics"></a>Introdução ao catálogo de U-SQL no Azure Data Lake Analytics
 

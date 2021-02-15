@@ -1,18 +1,18 @@
 ---
-title: Funções e permissões do Azure
+title: Funções e permissões de registro
 description: Use o Azure RBAC (controle de acesso baseado em função) e o IAM (gerenciamento de identidade e acesso) para fornecer permissões refinadas aos recursos em um registro de contêiner do Azure.
 ms.topic: article
-ms.date: 08/17/2020
-ms.openlocfilehash: b8562d3e33cd49082d4ba4d8567d5f0c816070b0
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.date: 10/14/2020
+ms.openlocfilehash: 097ccf89caf63d2a504d072cf04c2b534a57a031
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88661377"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207947"
 ---
 # <a name="azure-container-registry-roles-and-permissions"></a>Funções e permissões do Registro de Contêiner do Azure
 
-O serviço de registro de contêiner do Azure dá suporte a um conjunto de [funções internas do Azure](../role-based-access-control/built-in-roles.md) que fornecem diferentes níveis de permissões para um registro de contêiner do Azure. Use o Azure [RBAC (controle de acesso baseado em função)](../role-based-access-control/index.yml) para atribuir permissões específicas a usuários, entidades de serviço ou outras identidades que precisam interagir com um registro. Você também pode definir [funções personalizadas](#custom-roles) com permissões refinadas para um registro para operações diferentes.
+O serviço de registro de contêiner do Azure dá suporte a um conjunto de [funções internas do Azure](../role-based-access-control/built-in-roles.md) que fornecem diferentes níveis de permissões para um registro de contêiner do Azure. Use o Azure [RBAC (controle de acesso baseado em função)](../role-based-access-control/index.yml) para atribuir permissões específicas a usuários, entidades de serviço ou outras identidades que precisam interagir com um registro, por exemplo, para efetuar pull ou enviar por push imagens de contêiner. Você também pode definir [funções personalizadas](#custom-roles) com permissões refinadas para um registro para operações diferentes.
 
 | Função/permissão       | [Acessar o Resource Manager](#access-resource-manager) | [Criar/excluir registro](#create-and-delete-registry) | [Enviar uma imagem por push](#push-image) | [Pull de imagem](#pull-image) | [Excluir dados de imagem](#delete-image-data) | [Alterar políticas](#change-policies) |   [Imagens de entrada](#sign-images)  |
 | ---------| --------- | --------- | --------- | --------- | --------- | --------- | --------- |
@@ -24,13 +24,19 @@ O serviço de registro de contêiner do Azure dá suporte a um conjunto de [fun�
 | AcrDelete |  |  |  |  | X |  |  |
 | AcrImageSigner |  |  |  |  |  |  | X |
 
+## <a name="assign-roles"></a>Atribuir funções
+
+Consulte [as etapas para adicionar uma atribuição de função](../role-based-access-control/role-assignments-steps.md) para etapas de alto nível para adicionar uma atribuição de função a um usuário, grupo, entidade de serviço ou identidade gerenciada existente. Você pode usar o portal do Azure, CLI do Azure ou outras ferramentas do Azure.
+
+Ao criar uma entidade de serviço, você também configura seu acesso e as permissões para recursos do Azure, como um registro de contêiner. Para obter um exemplo de script usando o CLI do Azure, consulte [autenticação do registro de contêiner do Azure com entidades de serviço](container-registry-auth-service-principal.md#create-a-service-principal).
+
 ## <a name="differentiate-users-and-services"></a>Diferenciar usuários e serviços
 
 Qualquer permissão de tempo é aplicada, uma prática recomendada é fornecer o conjunto mais limitado de permissões para uma pessoa ou serviço realizar uma tarefa. Os conjuntos de permissões a seguir representam um conjunto de recursos que podem ser usados por seres humanos e serviços sem periféricos.
 
 ### <a name="cicd-solutions"></a>Soluções CI/CD
 
-Ao automatizar `docker build` comandos de soluções CI/CD, você precisa de `docker push` recursos. Para esses cenários de serviço sem periféricos, sugerimos atribuir a função **AcrPush**. Essa função, ao contrário da função mais ampla **Colaborador**, impede que a conta execute utras operações de registro ou acesse o Azure Resource Manager.
+Ao automatizar `docker build` comandos de soluções CI/CD, você precisa de `docker push` recursos. Para esses cenários de serviço sem periféricos, recomendamos atribuir a função **AcrPush** . Essa função, ao contrário da função mais ampla **Colaborador**, impede que a conta execute utras operações de registro ou acesse o Azure Resource Manager.
 
 ### <a name="container-host-nodes"></a>Nós de host do contêiner
 

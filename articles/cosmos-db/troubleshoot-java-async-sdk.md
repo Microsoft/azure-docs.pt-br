@@ -10,14 +10,15 @@ ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-java
-ms.openlocfilehash: 60d73f8b3eae21ab399853e8d05b67b7b431ee5f
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: b39a74bd06f942cf21d201c8cef48bc6dfc57d46
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321047"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96548079"
 ---
 # <a name="troubleshoot-issues-when-you-use-the-azure-cosmos-db-async-java-sdk-v2-with-sql-api-accounts"></a>Solucionar problemas ao usar o SDK do Java Assíncrono v2 do Azure Cosmos DB com contas de API do SQL
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [SDK do Java v4](troubleshoot-java-sdk-v4-sql.md)
@@ -26,7 +27,7 @@ ms.locfileid: "87321047"
 > 
 
 > [!IMPORTANT]
-> Esse *não* é o SDK do Java mais recente para o Azure Cosmos DB! Você deve atualizar seu projeto para [SDK do Java v4 do Azure Cosmos DB](sql-api-sdk-java-v4.md) e, em seguida, ler o [guia de solução de problemas](troubleshoot-java-sdk-v4-sql.md) do SDK do Java v4 do Azure Cosmos DB. Siga as instruções nos guias [Migrar para o SDK do Java v4 do Azure Cosmos DB](migrate-java-v4-sdk.md) e [Reator vs RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md). 
+> Esse *não* é o SDK do Java mais recente para o Azure Cosmos DB! Você deve atualizar seu projeto para [SDK do Java v4 do Azure Cosmos DB](sql-api-sdk-java-v4.md) e, em seguida, ler o [guia de solução de problemas](troubleshoot-java-sdk-v4-sql.md) do SDK do Java v4 do Azure Cosmos DB. Siga as instruções nos guias [Migrar para o SDK do Java v4 do Azure Cosmos DB](migrate-java-v4-sdk.md) e [Reator vs RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/reactor-rxjava-guide.md). 
 >
 > Este artigo aborda apenas a solução de problemas para o SDK do Java Assíncrono v2 do Azure Cosmos DB. Confira as [Notas sobre a Versão](sql-api-sdk-async-java.md) do SDK do Java Assíncrono v2 do Azure Cosmos DB, o [repositório Maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb) e as [dicas de desempenho](performance-tips-async-java.md) para obter mais informações.
 >
@@ -63,13 +64,13 @@ O número de arquivos abertos máximos permitos, que são identificados como "no
 
 ##### <a name="azure-snat-pat-port-exhaustion"></a><a name="snat"></a>Esgotamento da porta SNAT (PAT) do Azure
 
-Se o seu aplicativo for desenvolvido nas Máquinas Virtuais do Microsoft Azure sem um endereço IP público, por padrão as [portas do Azure SNAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports) estabelecem conexões a qualquer ponto de extremidade fora da sua VM. O número de conexões permitidas da VM para o ponto de extremidade do Azure Cosmos DB é limitado pela [configuração do Azure SNAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports).
+Se o seu aplicativo for desenvolvido nas Máquinas Virtuais do Microsoft Azure sem um endereço IP público, por padrão as [portas do Azure SNAT](../load-balancer/load-balancer-outbound-connections.md#preallocatedports) estabelecem conexões a qualquer ponto de extremidade fora da sua VM. O número de conexões permitidas da VM para o ponto de extremidade do Azure Cosmos DB é limitado pela [configuração do Azure SNAT](../load-balancer/load-balancer-outbound-connections.md#preallocatedports).
 
  As portas Azure SNAT são usadas somente quando sua VM do Azure tiver um endereço IP privado e um processo da VM tenta estabelecer uma conexão com um endereço IP público. Há duas soluções alternativas para evitar a limitação do Azure SNAT:
 
-* Adicione seu ponto de extremidade de serviço do Azure Cosmos DB para a sub-rede da sua rede virtual de Máquinas Virtuais do Azure. Para saber mais, consulte [pontos de extremidade de serviço de Rede Virtual do Microsoft Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview). 
+* Adicione seu ponto de extremidade de serviço do Azure Cosmos DB para a sub-rede da sua rede virtual de Máquinas Virtuais do Azure. Para saber mais, consulte [pontos de extremidade de serviço de Rede Virtual do Microsoft Azure](../virtual-network/virtual-network-service-endpoints-overview.md). 
 
-    Quando o ponto de extremidade for habilitado, as solicitações não são mais enviadas de um IP público para o Azure Cosmos DB. Em vez disso, a rede virtual e a identidade de sub-rede são enviadas. Essa alteração poderá resultar em quedas de firewall se apenas IPs públicos forem permitidos. Se você usar um firewall, quando você habilitar o ponto de extremidade de serviço, adicione uma sub-rede para o firewall usando as [ACLs de Rede Virtual](https://docs.microsoft.com/azure/virtual-network/virtual-networks-acl).
+    Quando o ponto de extremidade for habilitado, as solicitações não são mais enviadas de um IP público para o Azure Cosmos DB. Em vez disso, a rede virtual e a identidade de sub-rede são enviadas. Essa alteração poderá resultar em quedas de firewall se apenas IPs públicos forem permitidos. Se você usar um firewall, quando você habilitar o ponto de extremidade de serviço, adicione uma sub-rede para o firewall usando as [ACLs de Rede Virtual](/previous-versions/azure/virtual-network/virtual-networks-acl).
 * Atribua um IP público à sua VM do Azure.
 
 ##### <a name="cant-reach-the-service---firewall"></a><a name="cant-connect"></a>Não é possível acessar o Serviço – firewall
@@ -180,9 +181,9 @@ Usando `observeOn(customScheduler)`, você libera o thread de E/S Netty e muda p
 ### <a name="request-rate-too-large"></a>Taxa de solicitação grande demais
 Essa falha é uma falha no lado do servidor. Indica que você consumiu sua taxa de transferência provisionada. Tente novamente mais tarde. Se você recebe essa falha com frequência, considere aumentar a taxa de transferência da coleção.
 
-### <a name="failure-connecting-to-azure-cosmos-db-emulator"></a>Falha ao conectar-se ao emulador do Azure Cosmos DB
+### <a name="failure-connecting-to-azure-cosmos-db-emulator"></a>Falha ao conectar-se ao emulador de Azure Cosmos DB
 
-O certificado HTTPS do emulador do Azure Cosmos DB é autoassinado. Para o SDK funcionar com o emulador, importe o certificado do emulador para um Java TrustStore. Para obter mais informações, consulte [Exportar certificados do emulador do Azure Cosmos DB](local-emulator-export-ssl-certificates.md).
+O certificado HTTPS do emulador de Azure Cosmos DB é autoassinado. Para o SDK funcionar com o emulador, importe o certificado do emulador para um Java TrustStore. Para obter mais informações, consulte [Exportar certificados do emulador Azure Cosmos DB](local-emulator-export-ssl-certificates.md).
 
 ### <a name="dependency-conflict-issues"></a>Problemas de conflito de dependência
 
@@ -276,5 +277,3 @@ Muitas conexões para o ponto de extremidade do Azure Cosmos DB podem estar no `
 [Enable client SDK logging]: #enable-client-sice-logging
 [Limite de conexão no computador host]: #connection-limit-on-host
 [Esgotamento da porta SNAT (PAT) do Azure]: #snat
-
-

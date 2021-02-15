@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 2/25/2019
 ms.author: srrengar
 ms.openlocfilehash: e69b407bc7d58a83616daa44272ec008ccff9fad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85846649"
 ---
 # <a name="list-of-service-fabric-events"></a>Lista de eventos do Service Fabric 
@@ -47,14 +47,14 @@ Mais detalhes sobre atualizações de cluster podem ser encontrados [aqui](servi
 | --- | --- | ---| --- | --- | --- | 
 | 18602 | NodeDeactivateCompleted | StateTransition | A desativação de um nó foi concluída | FM | Informativo | 
 | 18603 | NodeUp | StateTransition | O cluster detectou que um nó foi iniciado | FM | Informativo | 
-| 18604 | NodeDown | StateTransition | O cluster detectou que um nó foi encerrado. Durante uma reinicialização do nó, você verá um evento NodeDown seguido por um evento NodeUp |  FM | Erro | 
+| 18604 | NodeDown | StateTransition | O cluster detectou que um nó foi encerrado. Durante uma reinicialização do nó, você verá um evento NodeDown seguido por um evento NodeUp |  FM | Erro do | 
 | 18605 | NodeAddedToCluster | StateTransition |  Um novo nó foi adicionado ao cluster e o Service Fabric pode implantar aplicativos para este nó | FM | Informativo | 
 | 18606 | NodeRemovedFromCluster | StateTransition |  Um nó foi removido do cluster. O Service Fabric não implantará aplicativos para este nó | FM | Informativo | 
 | 18607 | NodeDeactivateStarted | StateTransition |  A desativação de um nó foi iniciada | FM | Informativo | 
 | 25621 | NodeOpenSucceeded | StateTransition |  O nó foi iniciado com êxito | FabricNode | Informativo | 
-| 25622 | NodeOpenFailed | StateTransition |  Um nó falha ao iniciar e unir o anel | FabricNode | Erro | 
+| 25622 | NodeOpenFailed | StateTransition |  Um nó falha ao iniciar e unir o anel | FabricNode | Erro do | 
 | 25624 | NodeClosed | StateTransition |  Um nó foi desligado com êxito | FabricNode | Informativo | 
-| 25626 | NodeAborted | StateTransition |  Um nó foi desligado de maneira brusca | FabricNode | Erro | 
+| 25626 | NodeAborted | StateTransition |  Um nó foi desligado de maneira brusca | FabricNode | Erro do | 
 
 ## <a name="application-events"></a>Eventos de aplicativo
 
@@ -114,7 +114,7 @@ Mais detalhes sobre as atualizações do aplicativo podem ser encontrados [aqui]
 | 63648 | ReliableConcurrentQueueOpened | Ciclo de vida | A fila simultânea confiável foi aberta | ReliableConcurrentQueue | Informativo |
 | 63649 | ReliableConcurrentQueueClosed | Ciclo de vida | A fila simultânea confiável foi fechada | ReliableConcurrentQueue | Informativo |
 | 63650 | ReliableConcurrentQueueCheckpointRecovered | Ciclo de vida | A fila simultânea confiável recuperou seu ponto de verificação | ReliableConcurrentQueue | Informativo |
-| 61687 | TStoreError | Falha | A coleta confiável recebeu um erro inesperado | TStore | Erro |
+| 61687 | TStoreError | Falha | A coleta confiável recebeu um erro inesperado | TStore | Erro do |
 | 63831 | PrimaryFullCopyInitiated | Ciclo de vida | A réplica primária iniciou uma cópia completa | TReplicator | Informativo |
 | 63832 | PrimaryPartialCopyInitiated | Ciclo de vida | A réplica primária iniciou uma cópia parcial | TReplicator | Informativo |
 | 16831 | BuildIdleReplicaStarted | Ciclo de vida | A réplica primária começou a compilar a réplica ociosa | Replicação | Informativo |

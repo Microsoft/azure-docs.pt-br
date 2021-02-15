@@ -4,7 +4,9 @@
   items:
     - name: O que é o Azure NetApp Files
       href: azure-netapp-files-introduction.md
-    - name: Noções básicas sobre a hierarquia de armazenamento
+    - name: Novidades
+      href: whats-new.md
+    - name: Hierarquia de armazenamento do Azure NetApp Files
       href: azure-netapp-files-understand-storage-hierarchy.md
 - name: Inícios rápidos
   expanded: true
@@ -27,12 +29,24 @@
           href: azure-netapp-files-performance-metrics-volumes.md
         - name: Parâmetros de comparação de desempenho para o Linux
           href: performance-benchmarks-linux.md
+        - name: Desempenho do Oracle Database em volumes únicos do Azure NetApp Files
+          href: performance-oracle-single-volumes.md
         - name: Perguntas frequentes sobre o desempenho do SMB
           href: azure-netapp-files-smb-performance.md
     - name: Modelo de custo para o Azure NetApp Files
       href: azure-netapp-files-cost-model.md
     - name: Diretrizes para planejamento de rede do Azure NetApp Files
       href: azure-netapp-files-network-topologies.md
+    - name: Como funcionam os instantâneos do Azure NetApp Files
+      href: snapshots-introduction.md
+    - name: Pool de capacidades de QoS manual
+      href: manual-qos-capacity-pool-introduction.md
+    - name: Replicação entre regiões
+      items:
+        - name: Como funciona a replicação entre regiões
+          href: cross-region-replication-introduction.md
+        - name: Requisitos e considerações para a replicação entre regiões
+          href: cross-region-replication-requirements-considerations.md
     - name: Soluções
       items:
         - name: Arquiteturas da solução usando o Azure NetApp Files
@@ -47,6 +61,10 @@
               href: solutions-windows-virtual-desktop.md
     - name: Perguntas frequentes sobre o Azure NetApp Files
       href: azure-netapp-files-faqs.md
+    - name: O que é a Ferramenta Instantânea Consistente do Aplicativo Azure?
+      href: azacsnap-introduction.md
+    - name: O que significa alterar a cota fixa do volume
+      href: volume-hard-quota-guidelines.md
 - name: Guias de instruções
   items:
     - name: Registro no Azure NetApp Files
@@ -55,6 +73,8 @@
       href: azure-netapp-files-create-netapp-account.md
     - name: Configurar um pool de capacidade
       href: azure-netapp-files-set-up-capacity-pool.md
+    - name: Gerenciar um pool de capacidade de QoS manual
+      href: manage-manual-qos-capacity-pool.md
     - name: Delegar uma sub-rede ao Azure NetApp Files
       href: azure-netapp-files-delegate-subnet.md
     - name: Criar e gerenciar um volume NFS
@@ -81,22 +101,70 @@
       href: azure-netapp-files-resize-capacity-pools-or-volumes.md
     - name: Alterar dinamicamente o nível de serviço de um volume
       href: dynamic-change-volume-service-level.md
+    - name: Gerenciar a replicação entre regiões
+      items:
+        - name: Criar replicação de volume
+          href: cross-region-replication-create-peering.md
+        - name: Exibir o status de integridade da relação de replicação
+          href: cross-region-replication-display-health-status.md
+        - name: Gerenciar recuperação de desastre
+          href: cross-region-replication-manage-disaster-recovery.md
+        - name: Excluir volumes ou replicações de volume
+          href: cross-region-replication-delete.md
     - name: Desenvolver
       items:
         - name: API REST
           href: azure-netapp-files-develop-with-rest-api.md
         - name: API REST usando o PowerShell
           href: develop-rest-api-powershell.md
-        - name: SDKs do Azure NetApp Files e ferramentas da CLI
+        - name: 'SDKs, ferramentas de CLI e modelos do ARM'
           href: azure-netapp-files-sdk-cli.md
-        - name: Solucionar problemas de erros do Provedor de Recursos do Azure NetApp Files
+    - name: Solucionar problemas
+      items:
+        - name: Solucionar problemas de pools de capacidade
+          href: troubleshoot-capacity-pools.md
+        - name: Solucionar problemas de replicação entre regiões
+          href: troubleshoot-cross-region-replication.md
+        - name: Solucionar problemas de volumes de protocolo duplo ou SMB
+          href: troubleshoot-dual-protocol-volumes.md
+        - name: Solucionar problemas de volumes Kerberos do NFSv4.1
+          href: troubleshoot-nfsv41-kerberos-volumes.md
+        - name: Solucionar problemas de políticas de instantâneo
+          href: troubleshoot-snapshot-policies.md
+        - name: Solucionar erros do provedor de recursos
           href: azure-netapp-files-troubleshoot-resource-provider-errors.md
 - name: Referência
   items:
     - name: REST
-      href: 'https://docs.microsoft.com/rest/api/netapp/'
+      href: /rest/api/netapp/
     - name: Modelo do Resource Manager
       href: /azure/templates/microsoft.netapp/allversions
+    - name: AzAcSnap (Ferramenta Instantânea Consistente do Aplicativo Azure)
+      items:
+        - name: Introdução à AzAcSnap
+          href: azacsnap-get-started.md
+        - name: Instalar a AzAcSnap
+          href: azacsnap-installation.md
+        - name: Recuperação de desastre usando a AzAcSnap
+          href: azacsnap-disaster-recovery.md
+        - name: Dicas e truques para usar a AzAcSnap
+          href: azacsnap-tips.md
+        - name: Solucionar problemas da AzAcSnap
+          href: azacsnap-troubleshoot.md
+        - name: Referência de comandos da AzAcSnap
+          items:
+            - name: Configurar a AzAcSnap
+              href: azacsnap-cmd-ref-configure.md
+            - name: Testar a AzAcSnap
+              href: azacsnap-cmd-ref-test.md
+            - name: Fazer backup usando a AzAcSnap
+              href: azacsnap-cmd-ref-backup.md
+            - name: Obter detalhes usando a AzAcSnap
+              href: azacsnap-cmd-ref-details.md
+            - name: Excluir usando a AzAcSnap
+              href: azacsnap-cmd-ref-delete.md
+            - name: Restaurar usando a AzAcSnap
+              href: azacsnap-cmd-ref-restore.md
 - name: Recursos
   items:
     - name: Preços

@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 06/10/2020
 ms.author: caya
 ms.openlocfilehash: fe4da0435731c536a723cb2cb43428166456360b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84807948"
 ---
 # <a name="disable-and-re-enable-agic-add-on-for-your-aks-cluster"></a>Desabilitar e reabilitar o complemento AGIC para o cluster AKS

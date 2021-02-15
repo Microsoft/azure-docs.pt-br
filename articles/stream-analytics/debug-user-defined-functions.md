@@ -3,17 +3,16 @@ title: Depurar funções definidas pelo usuário no Azure Stream Analytics
 description: Este artigo descreve como depurar funções definidas pelo usuário no Azure Stream Analytics.
 author: jenssuessmeyer
 ms.author: jenss
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/24/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 758846e2b4bfa42c9f6db0dc330c12e38a2f8c96
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.custom: devx-track-js
+ms.openlocfilehash: 7f5a24e4d351d7c133251900a80c70094b84cc4e
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432357"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019424"
 ---
 # <a name="debug-user-defined-functions-in-azure-stream-analytics"></a>Depurar funções definidas pelo usuário no Azure Stream Analytics 
 
@@ -47,7 +46,7 @@ A compilação acontece quando o projeto de Stream Analytics é compilado ou exe
 
 Como não há suporte para depuração para funções JavaScript no Stream Analytics diretamente, você pode depurar encapsulando a função em um site HTML e obtendo a saída de lá.
 
-O exemplo a seguir mostra como depurar UDFs JavaScript com algumas limitações em um ambiente de tempo de execução integrado no [Visual Studio Code](quick-create-vs-code.md).
+O exemplo a seguir mostra como depurar UDFs JavaScript com algumas limitações em um ambiente de tempo de execução integrado no [Visual Studio Code](quick-create-visual-studio-code.md).
 
 ### <a name="prerequisites"></a>Pré-requisitos
 

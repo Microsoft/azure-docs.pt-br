@@ -4,12 +4,12 @@ description: Não consegue ver os dados no Application Insights do Azure? Tente 
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 05/21/2020
-ms.openlocfilehash: 7cf3371dc60f97b8bba61012e87b7b4bd4899aa6
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: e41b0a9ce1ff86bc6010e12fdf5d3320f303fd87
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88936462"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99092444"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-netnet-core"></a>Solução de problemas de ausência de dados – Application Insights para .NET/.NET Core
 
@@ -39,8 +39,40 @@ ms.locfileid: "88936462"
 
 * Veja [Solução de problemas do Monitor de Status](./monitor-performance-live-website-now.md#troubleshoot).
 
+> [!IMPORTANT]
+> Novas regiões do Azure **exigem** o uso de cadeias de conexão em vez de chaves de instrumentação. A [cadeia de conexão](./sdk-connection-string.md?tabs=net) identifica o recurso ao qual você deseja associar os dados de telemetria. Ele também permite que você modifique os pontos de extremidade que o recurso usará como um destino para a telemetria. Você precisará copiar a cadeia de conexão e adicioná-la ao código do aplicativo ou a uma variável de ambiente.
+
+
+## <a name="filenotfoundexception-could-not-load-file-or-assembly-microsoftaspnet-telemetrycorrelation"></a>FileNotFoundException: não foi possível carregar o arquivo ou assembly ' Microsoft. AspNet TelemetryCorrelation
+
+Para obter mais informações sobre esse erro, consulte [problema do GitHub 1610] ( https://github.com/microsoft/ApplicationInsights-dotnet/issues/1610) .
+
+Ao atualizar de SDKs com mais de (2,4), você precisa garantir que as seguintes alterações sejam aplicadas a `web.config` e `ApplicationInsights.config` :
+
+1. Dois módulos http em vez de um. No `web.config` , você deve ter dois módulos http. O pedido é importante para alguns cenários:
+
+    ``` xml
+    <system.webServer>
+      <modules>
+          <add name="TelemetryCorrelationHttpModule" type="Microsoft.AspNet.TelemetryCorrelation.TelemetryCorrelationHttpModule, Microsoft.AspNet.TelemetryCorrelation" preCondition="integratedMode,managedHandler" />
+          <add name="ApplicationInsightsHttpModule" type="Microsoft.ApplicationInsights.Web.ApplicationInsightsHttpModule, Microsoft.AI.Web" preCondition="managedHandler" />
+      </modules>
+    </system.webServer>
+    ```
+
+2. Além `ApplicationInsights.config` disso `RequestTrackingTelemetryModule` , você deve ter o seguinte módulo de telemetria:
+
+    ``` xml
+    <TelemetryModules>
+      <Add Type="Microsoft.ApplicationInsights.Web.AspNetDiagnosticTelemetryModule, Microsoft.AI.Web"/>
+    </TelemetryModules>
+    ```
+
+**_A falha na atualização apropriada pode levar a exceções inesperadas ou à telemetria não ser coletada._* _
+
+
 ## <a name="no-add-application-insights-option-in-visual-studio"></a><a name="q01"></a>A opção “Adicionar o Application Insights” não existe no Visual Studio
-*Quando clico com o botão direito em um projeto existente no Gerenciador de Soluções, não vejo opções do Application Insights.*
+_When eu clicar com o botão direito do mouse em um projeto existente no Gerenciador de Soluções, não vejo nenhuma Application Insights opções. *
 
 * Nem todos os tipos de projeto do .NET têm suporte das ferramentas. Há suporte para projetos Web e WCF. Para outros tipos de projeto, como aplicativos de área de trabalho ou de serviço, você ainda pode [adicionar manualmente um SDK do Application Insights ao seu projeto](./windows-desktop.md).
 * Certifique-se de que você tem o [Visual Studio 2013 Atualização 3 ou posterior](/visualstudio/releasenotes/vs2013-update3-rtm-vs). Ele vem pré-instalado com ferramentas de análise do desenvolvedor, que fornecem o SDK do Application Insights.
@@ -156,7 +188,7 @@ Haverá dados de desempenho (CPU, taxa de E/S, etc.) disponíveis para [serviço
 * Verifique que você copiou todos da Microsoft. DLLs do ApplicationInsights no servidor, junto com Microsoft.Diagnostics.Instrumentation.Extensions.Intercept.dll
 * Em seu firewall, você talvez precise [abrir algumas portas TCP](./ip-addresses.md).
 * Se você tiver que usar um proxy para envio fora de sua rede corporativa, defina [defaultProxy](/previous-versions/dotnet/netframework-1.1/aa903360(v=vs.71)) em Web.config
-* Windows Server 2008: Verifique se você instalou as atualizações a seguir: [KB2468871](https://support.microsoft.com/kb/2468871), [KB2533523](https://support.microsoft.com/kb/2533523), [KB2600217](https://support.microsoft.com/kb/2600217).
+* Windows Server 2008: Verifique se você instalou as atualizações a seguir: [KB2468871](https://support.microsoft.com/kb/2468871), [KB2533523](https://support.microsoft.com/kb/2533523), [KB2600217](https://web.archive.org/web/20150129090641/http://support.microsoft.com/kb/2600217).
 
 ## <a name="i-used-to-see-data-but-it-has-stopped"></a>Eu costumava ver os dados, mas eles foram interrompidos
 * Você atingiu sua cota mensal de pontos de dados? Abra configurações/Cota e Preços para descobrir. Nesse caso, você pode atualizar seu plano ou então pagar por capacidade adicional. Consulte o [esquema de preços](https://azure.microsoft.com/pricing/details/application-insights/).
@@ -246,7 +278,7 @@ Você pode modificar estes parâmetros conforme necessário:
 
 Para mais informações,
 - [Gravar rastreamentos de desempenho com o PerfView](https://github.com/dotnet/roslyn/wiki/Recording-performance-traces-with-PerfView).
-- [Fontes de Eventos do Application Insights](https://github.com/microsoft/ApplicationInsights-Home/tree/master/Samples/ETW)
+- [Fontes de Eventos do Application Insights](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/examples/ETW)
 
 ## <a name="collect-logs-with-dotnet-trace"></a>Coletar logs com dotnet-trace
 

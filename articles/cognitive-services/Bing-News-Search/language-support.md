@@ -10,14 +10,19 @@ ms.subservice: bing-news-search
 ms.topic: conceptual
 ms.date: 1/10/2019
 ms.author: aahi
-ms.openlocfilehash: d15058126f43fff328acfc563ffd081164a69a90
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 9c7fd03c2239cea05dc79ad4dd1965fe253a2ce9
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84710551"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96341590"
 ---
 # <a name="language-and-region-support-for-the-bing-news-search-api"></a>Idiomas e regiões compatíveis com a API de Pesquisa de Notícias do Bing
+
+> [!WARNING]
+> As APIs de Pesquisa do Bing estão migrando dos Serviços Cognitivos para os Serviços de Pesquisa do Bing. A partir de **30 de outubro de 2020**, todas as novas instâncias da Pesquisa do Bing precisam ser provisionadas seguindo o processo documentado [aqui](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> As APIs de Pesquisa do Bing provisionadas por meio dos Serviços Cognitivos terão suporte nos próximos três anos ou até o final do seu Contrato Enterprise, o que ocorrer primeiro.
+> Para obter instruções sobre a migração, confira [Serviços de Pesquisa do Bing](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 A API de Pesquisa de Notícias do Bing dá suporte a vários países/regiões, muitos deles com mais de um idioma. Especificar um país/região com uma consulta serve principalmente para refinar os resultados da pesquisa com base nos interesses nesse país/região. Além disso, os resultados podem conter links para o Bing e esses links podem localizar a experiência do usuário do Bing, de acordo com o país/região ou idioma especificado.
 
@@ -47,7 +52,7 @@ Para obter uma lista de códigos de país/região que podem ser especificados no
 |Nova Zelândia|Inglês|en-NZ|
 |República das Filipinas|Inglês|en-PH|
 |Singapura|Inglês|en-SG|
-|Estados Unidos|Inglês|pt-BR|
+|Estados Unidos|Inglês|en-US|
 |Inglês|geral|en-WW|
 |Inglês|geral|en-XA|
 |África do Sul|Inglês|en-ZA|
@@ -86,7 +91,7 @@ Para obter uma lista de códigos de país/região que podem ser especificados no
 |Alemanha|Alemão|de-DE|
 |Austrália|Inglês|en-AU|
 |Reino Unido|Inglês|en-GB|
-|Estados Unidos|Inglês|pt-BR|
+|Estados Unidos|Inglês|en-US|
 |Inglês|geral|en-WW|
 |Chile|Espanhol|es-CL|
 |México|Espanhol|es-MX|
@@ -108,7 +113,7 @@ Para obter uma lista de códigos de país/região que podem ser especificados no
 |Alemanha|Alemão|de-DE|
 |Austrália|Inglês|en-AU|
 |Reino Unido|Inglês|en-GB|
-|Estados Unidos|Inglês|pt-BR|
+|Estados Unidos|Inglês|en-US|
 |Canadá|Inglês|en-CA|
 |Índia|Inglês|en-IN|
 |França|Francês|fr-FR|
@@ -162,4 +167,4 @@ A seguir, são apresentados os códigos de país/região que podem ser especific
 |Estados Unidos|EUA|
 
 ## <a name="next-steps"></a>Próximas etapas
-Para obter mais informações sobre os pontos de extremidade da Pesquisa de Notícias do Bing, confira [Referência da API de Pesquisa de Notícias v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference).
+Para obter mais informações sobre os pontos de extremidade da Pesquisa de Notícias do Bing, confira [Referência da API de Pesquisa de Notícias v7](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference).

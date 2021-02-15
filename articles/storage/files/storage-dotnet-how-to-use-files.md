@@ -1,33 +1,35 @@
 ---
 title: Desenvolver para os Arquivos do Azure com .NET | Microsoft Docs
-description: Saiba como desenvolver aplicativos e serviços .NET que usam o Arquivos do Azure para armazenar dados de arquivo.
+description: Saiba como desenvolver aplicativos e serviços .NET que usam os arquivos do Azure para armazenar dados.
 author: roygara
 ms.service: storage
 ms.devlang: dotnet
-ms.topic: how-to
-ms.date: 10/7/2019
+ms.topic: conceptual
+ms.date: 10/02/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c5c51bb052948c58d4849c556d0756240d6968ca
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: e112060db4a44884d3094a939b03ff106ba72e65
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89011524"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492192"
 ---
 # <a name="develop-for-azure-files-with-net"></a>Desenvolvimento para o Arquivos do Azure com .NET
 
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
 
-Este tutorial demonstra as noções básicas de usar o .NET para desenvolver aplicativos que usam os [Arquivos do Azure](storage-files-introduction.md) para armazenar dados de arquivo. Este tutorial cria um aplicativo de console simples para executar ações básicas com o .NET e os arquivos do Azure:
+Aprenda as noções básicas do desenvolvimento de aplicativos .NET que usam [os arquivos do Azure](storage-files-introduction.md) para armazenar dados. Este artigo mostra como criar um aplicativo de console simples para fazer o seguinte com o .NET e os arquivos do Azure:
 
-* Obter o conteúdo de um arquivo.
-* Defina o tamanho máximo ou a *cota* para o compartilhamento de arquivos.
-* Crie uma assinatura de acesso compartilhado (chave SAS) para um arquivo que usa uma política de acesso armazenada definida no compartilhamento.
-* Copie um arquivo em outro arquivo na mesma conta de armazenamento.
-* Copie um arquivo em um blob na mesma conta de armazenamento.
-* Use as métricas de armazenamento do Azure para solução de problemas.
+- Obter o conteúdo de um arquivo.
+- Defina o tamanho máximo, ou a cota, para um compartilhamento de arquivos.
+- Crie uma assinatura de acesso compartilhado (SAS) para um arquivo.
+- Copie um arquivo em outro arquivo na mesma conta de armazenamento.
+- Copie um arquivo em um blob na mesma conta de armazenamento.
+- Crie um instantâneo de um compartilhamento de arquivos.
+- Restaurar um arquivo de um instantâneo de compartilhamento.
+- Use as métricas de armazenamento do Azure para solução de problemas.
 
 Para saber mais sobre os arquivos do Azure, confira [o que são os arquivos do Azure?](storage-files-introduction.md)
 
@@ -35,14 +37,16 @@ Para saber mais sobre os arquivos do Azure, confira [o que são os arquivos do A
 
 ## <a name="understanding-the-net-apis"></a>Compreendendo as APIs do .NET
 
-Os Arquivos do Azure fornecem duas abordagens amplas para aplicativos cliente: protocolo SMB e REST. No .NET, as `System.IO` `WindowsAzure.Storage` APIs e abstraim essas abordagens.
+Os Arquivos do Azure fornecem duas abordagens amplas para aplicativos cliente: protocolo SMB e REST. No .NET, as `System.IO` `Azure.Storage.Files.Shares` APIs e abstraim essas abordagens.
 
 API | Quando usar | Observações
 ----|-------------|------
-[System.IO](https://docs.microsoft.com/dotnet/api/system.io) | Seu aplicativo: <ul><li>Precisa ler/gravar arquivos usando SMB</li><li>Está em execução em um dispositivo que tem acesso pela porta 445 à sua conta do Arquivos do Azure</li><li>Não precisa gerenciar nenhum das configurações administrativas do compartilhamento de arquivo</li></ul> | A e/s de arquivo implementada com os arquivos do Azure via SMB geralmente é a mesma de e/s com qualquer compartilhamento de arquivos de rede ou dispositivo de armazenamento local. Para obter uma introdução a vários recursos no .NET, incluindo e/s de arquivo, consulte o tutorial [aplicativo de console](https://docs.microsoft.com/dotnet/csharp/tutorials/console-teleprompter) .
-[Microsoft. Azure. Storage. File](/dotnet/api/overview/azure/storage?view=azure-dotnet#version-11x) | Seu aplicativo: <ul><li>Não é possível acessar os arquivos do Azure usando SMB na porta 445 devido a restrições de firewall ou ISP</li><li>Requer a funcionalidade administrativa, como a capacidade de definir uma cota de compartilhamento de arquivos ou criar uma assinatura de acesso compartilhado</li></ul> | Este artigo demonstra o uso de `Microsoft.Azure.Storage.File` para e/s de arquivo usando REST em vez de SMB e gerenciamento do compartilhamento de arquivos.
+[System.IO](/dotnet/api/system.io) | Seu aplicativo: <ul><li>Precisa ler/gravar arquivos usando SMB</li><li>Está em execução em um dispositivo que tem acesso pela porta 445 à sua conta do Arquivos do Azure</li><li>Não precisa gerenciar nenhum das configurações administrativas do compartilhamento de arquivo</li></ul> | A e/s de arquivo implementada com os arquivos do Azure via SMB geralmente é a mesma de e/s com qualquer compartilhamento de arquivos de rede ou dispositivo de armazenamento local. Para obter uma introdução a vários recursos no .NET, incluindo e/s de arquivo, consulte o tutorial [aplicativo de console](/dotnet/csharp/tutorials/console-teleprompter) .
+[Azure. Storage. files. compartilhamentos](/dotnet/api/azure.storage.files.shares) | Seu aplicativo: <ul><li>Não é possível acessar os arquivos do Azure usando SMB na porta 445 devido a restrições de firewall ou ISP</li><li>Requer a funcionalidade administrativa, como a capacidade de definir uma cota de compartilhamento de arquivos ou criar uma assinatura de acesso compartilhado</li></ul> | Este artigo demonstra o uso de `Azure.Storage.Files.Shares` para e/s de arquivo usando REST em vez de SMB e gerenciamento do compartilhamento de arquivos.
 
 ## <a name="create-the-console-application-and-obtain-the-assembly"></a>Criar o aplicativo do console e obter o assembly
+
+Você pode usar a biblioteca de cliente de arquivos do Azure em qualquer tipo de aplicativo .NET. Esses aplicativos incluem a nuvem do Azure, a Web, a área de trabalho e os aplicativos móveis. Neste guia, criamos um aplicativo de console para simplificar.
 
 No Visual Studio, crie um novo aplicativo de console do Windows. As etapas a seguir mostram como criar um aplicativo de console no Visual Studio 2019. As etapas são semelhantes em outras versões do Visual Studio.
 
@@ -50,61 +54,94 @@ No Visual Studio, crie um novo aplicativo de console do Windows. As etapas a seg
 1. Em **criar um novo projeto**, escolha **aplicativo de console (.NET Framework)** para C# e, em seguida, selecione **Avançar**.
 1. Em **configurar seu novo projeto**, insira um nome para o aplicativo e selecione **criar**.
 
-Você pode adicionar todos os exemplos de código neste tutorial ao `Main()` método do arquivo do seu aplicativo de console `Program.cs` .
-
-Você pode usar a biblioteca de cliente de armazenamento do Azure em qualquer tipo de aplicativo .NET. Esses tipos incluem um serviço de nuvem do Azure ou aplicativo Web, e aplicativos móveis e de desktop. Neste guia, usamos um aplicativo de console para simplificar.
+Adicione todos os exemplos de código neste artigo à `Program` classe no arquivo *Program.cs* .
 
 ## <a name="use-nuget-to-install-the-required-packages"></a>Use o NuGet para instalar os pacotes necessários
 
-Consulte estes pacotes em seu projeto para concluir este tutorial:
+Consulte estes pacotes em seu projeto:
 
-* [Armazenamento do Microsoft Azure biblioteca comum para .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)
-  
-  Este pacote fornece acesso programático a recursos comuns em sua conta de armazenamento.
-* [Armazenamento do Microsoft Azure biblioteca de BLOBs para .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/)
+# <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
 
-  Este pacote fornece acesso programático a recursos de BLOB em sua conta de armazenamento.
-* [Biblioteca de arquivos Armazenamento do Microsoft Azure para .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.File/)
+- [Biblioteca principal do Azure para .net](https://www.nuget.org/packages/Azure.Core/): Este pacote é a implementação do pipeline do cliente do Azure.
+- [Biblioteca de cliente Azure Storage blob para .net](https://www.nuget.org/packages/Azure.Storage.Blobs/): Este pacote fornece acesso programático a recursos de BLOB em sua conta de armazenamento.
+- [Biblioteca de cliente de arquivos de armazenamento do Azure para .net](https://www.nuget.org/packages/Azure.Storage.Files.Shares/): Este pacote fornece acesso programático a recursos de arquivo em sua conta de armazenamento.
+- [Biblioteca de Configuration Manager do sistema para .net](https://www.nuget.org/packages/System.Configuration.ConfigurationManager/): Este pacote fornece uma classe que armazena e recupera valores em um arquivo de configuração.
 
-  Este pacote fornece acesso programático a recursos de arquivo em sua conta de armazenamento.
-* [Microsoft Azure Configuration Manager biblioteca para .NET](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/)
-
-  Esse pacote fornece uma classe para analisar uma cadeia de conexão em um arquivo de configuração, onde quer que seu aplicativo seja executado.
-
-Você pode usar NuGet para obter os dois pacotes. Siga estas etapas:
+Você pode usar o NuGet para obter os pacotes. Siga estas etapas:
 
 1. Em **Gerenciador de soluções**, clique com o botão direito do mouse em seu projeto e escolha **gerenciar pacotes NuGet**.
-1. No **Gerenciador de Pacotes NuGet**, selecione **Procurar**. Em seguida, pesquise e escolha **Microsoft. Azure. Storage. blob**e, em seguida, selecione **instalar**.
+1. No **Gerenciador de Pacotes NuGet**, selecione **Procurar**. Em seguida, pesquise e escolha **Azure. Core** e, em seguida, selecione **instalar**.
+
+   Esta etapa instala o pacote e suas dependências.
+
+1. Pesquise e instale esses pacotes:
+
+   - **Azure. Storage. BLOBs**
+   - **Azure. Storage. files. compartilhamentos**
+   - **System.Configuration.ConfigurationManager**
+
+# <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
+
+- [Armazenamento do Microsoft Azure biblioteca comum para .net](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/): Este pacote fornece acesso programático a recursos comuns em sua conta de armazenamento.
+- [Armazenamento do Microsoft Azure biblioteca de BLOBs para .net](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/): Este pacote fornece acesso programático a recursos de BLOB em sua conta de armazenamento.
+- [Armazenamento do Microsoft Azure biblioteca de arquivos para .net](https://www.nuget.org/packages/Microsoft.Azure.Storage.File/): Este pacote fornece acesso programático a recursos de arquivo em sua conta de armazenamento.
+- [Microsoft Azure Configuration Manager Library for .net](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/): esse pacote fornece uma classe para analisar uma cadeia de conexão em um arquivo de configuração, onde quer que seu aplicativo seja executado.
+
+Você pode usar o NuGet para obter os pacotes. Siga estas etapas:
+
+1. Em **Gerenciador de soluções**, clique com o botão direito do mouse em seu projeto e escolha **gerenciar pacotes NuGet**.
+1. No **Gerenciador de Pacotes NuGet**, selecione **Procurar**. Em seguida, pesquise e escolha **Microsoft. Azure. Storage. blob** e, em seguida, selecione **instalar**.
 
    Esta etapa instala o pacote e suas dependências.
 1. Pesquise e instale esses pacotes:
 
-   * **Microsoft. Azure. Storage. Common**
-   * **Microsoft. Azure. Storage. File**
-   * **Microsoft.Azure.ConfigurationManager**
+   - **Microsoft. Azure. Storage. Common**
+   - **Microsoft. Azure. Storage. File**
+   - **Microsoft.Azure.ConfigurationManager**
+
+---
 
 ## <a name="save-your-storage-account-credentials-to-the-appconfig-file"></a>Salve as credenciais da conta de armazenamento no arquivo de App.config
 
-Em seguida, salve suas credenciais no arquivo do seu projeto `App.config` . Em **Gerenciador de soluções**, clique duas vezes `App.config` e edite o arquivo para que ele seja semelhante ao exemplo a seguir. Substitua `myaccount` pelo nome da conta de armazenamento e `mykey` pela sua chave de conta de armazenamento.
+Em seguida, salve suas credenciais no arquivo de *App.config* do seu projeto. Em **Gerenciador de soluções**, clique duas vezes `App.config` e edite o arquivo para que ele seja semelhante ao exemplo a seguir.
+
+# <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
+
+Substitua `myaccount` pelo nome da conta de armazenamento e `mykey` pela sua chave de conta de armazenamento.
+
+:::code language="xml" source="~/azure-storage-snippets/files/howto/dotnet/dotnet-v12/app.config" highlight="5,6,7":::
+
+# <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
+
+Substitua `myaccount` pelo nome da conta de armazenamento e `StorageAccountKeyEndingIn==` pela sua chave de conta de armazenamento.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
 <configuration>
-    <startup>
-        <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" />
-    </startup>
-    <appSettings>
-        <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=StorageAccountKeyEndingIn==" />
-    </appSettings>
+  <startup>
+    <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" />
+  </startup>
+  <appSettings>
+    <add key="StorageConnectionString"
+      value="DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=StorageAccountKeyEndingIn==" />
+  </appSettings>
 </configuration>
 ```
 
+---
+
 > [!NOTE]
-> As versões mais recentes do emulador de armazenamento do Azure e o emulador de código-fonte aberto do azurite não dão suporte a arquivos do Azure. Sua cadeia de conexão deve ter como destino uma Conta de Armazenamento do Azure na nuvem para funcionar com os Arquivos do Azure.
+> O emulador de armazenamento azurite atualmente não dá suporte a arquivos do Azure. Sua cadeia de conexão deve ter como destino uma conta de armazenamento do Azure na nuvem para trabalhar com os arquivos do Azure.
 
 ## <a name="add-using-directives"></a>Adicionar diretivas using
 
-No **Gerenciador de soluções**, abra o `Program.cs` arquivo e adicione as seguintes diretivas using à parte superior do arquivo.
+No **Gerenciador de soluções**, abra o arquivo *Program.cs* e adicione as seguintes diretivas using à parte superior do arquivo.
+
+# <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
+
+:::code language="csharp" source="~/azure-storage-snippets/files/howto/dotnet/dotnet-v12/FileShare.cs" id="snippet_UsingStatements":::
+
+# <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
 
 ```csharp
 using Microsoft.Azure; // Namespace for Azure Configuration Manager
@@ -115,7 +152,19 @@ using Microsoft.Azure.Storage.File; // Namespace for Azure Files
 
 [!INCLUDE [storage-cloud-configuration-manager-include](../../../includes/storage-cloud-configuration-manager-include.md)]
 
+---
+
 ## <a name="access-the-file-share-programmatically"></a>Acessar o compartilhamento de arquivos programaticamente
+
+No arquivo *Program.cs* , adicione o código a seguir para acessar o compartilhamento de arquivos programaticamente.
+
+# <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
+
+O método a seguir criará um compartilhamento de arquivos se ele ainda não existir. O método começa criando um objeto [ShareClient](/dotnet/api/azure.storage.files.shares.shareclient) a partir de uma cadeia de conexão. Em seguida, o exemplo tenta baixar um arquivo que criamos anteriormente. Chame esse método de `Main()` .
+
+:::code language="csharp" source="~/azure-storage-snippets/files/howto/dotnet/dotnet-v12/FileShare.cs" id="snippet_CreateShare":::
+
+# <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
 
 Em seguida, adicione o seguinte conteúdo ao `Main()` método, após o código mostrado acima, para recuperar a cadeia de conexão. Esse código obtém uma referência ao arquivo que criamos anteriormente e gera seu conteúdo.
 
@@ -153,13 +202,21 @@ if (share.Exists())
 
 Execute o aplicativo de console para ver a saída.
 
+---
+
 ## <a name="set-the-maximum-size-for-a-file-share"></a>Definir o tamanho máximo de um compartilhamento de arquivos
 
-A partir da versão 5. x da biblioteca de cliente do armazenamento do Azure, você pode definir a cota (tamanho máximo) para um compartilhamento de arquivos. Você também pode verificar a quantidade de dados atualmente armazenada no compartilhamento.
+A partir da versão 5. x da biblioteca de cliente dos arquivos do Azure, você pode definir a cota (tamanho máximo) para um compartilhamento de arquivos. Você também pode verificar a quantidade de dados atualmente armazenada no compartilhamento.
 
-Definir a cota de um compartilhamento limita o tamanho total dos arquivos armazenados no compartilhamento. Se o tamanho total dos arquivos no compartilhamento exceder a cota definida no compartilhamento, os clientes não poderão aumentar o tamanho dos arquivos existentes. Os clientes não podem criar novos arquivos, a menos que esses arquivos estejam vazios.
+Definir a cota de um compartilhamento limita o tamanho total dos arquivos armazenados no compartilhamento. Se o tamanho total dos arquivos no compartilhamento exceder a cota, os clientes não poderão aumentar o tamanho dos arquivos existentes. Os clientes também não podem criar novos arquivos, a menos que esses arquivos estejam vazios.
 
 O exemplo a seguir mostra como verificar o uso atual de um compartilhamento e como definir a cota para o compartilhamento.
+
+# <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
+
+:::code language="csharp" source="~/azure-storage-snippets/files/howto/dotnet/dotnet-v12/FileShare.cs" id="snippet_SetMaxShareSize":::
+
+# <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
 
 ```csharp
 // Parse the connection string for the storage account.
@@ -191,11 +248,21 @@ if (share.Exists())
 }
 ```
 
+---
+
 ### <a name="generate-a-shared-access-signature-for-a-file-or-file-share"></a>Gerar uma assinatura de acesso compartilhado para um arquivo ou compartilhamento de arquivos
 
-A partir da versão 5.x da Biblioteca de Cliente do Armazenamento do Azure, você pode gerar uma SAS (assinatura de acesso compartilhado) para um compartilhamento de arquivos ou para um arquivo individual. Você também pode criar uma política de acesso armazenada em um compartilhamento de arquivos para gerenciar assinaturas de acesso compartilhado. É recomendável criar uma política de acesso armazenada porque ela permite revogar a SAS se ela for comprometida.
+A partir da versão 5. x da biblioteca de cliente dos arquivos do Azure, você pode gerar uma SAS (assinatura de acesso compartilhado) para um compartilhamento de arquivos ou para um arquivo individual.
 
-O exemplo a seguir cria uma política de acesso armazenada em um compartilhamento. O exemplo usa essa política para fornecer as restrições para uma SAS em um arquivo no compartilhamento.
+# <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
+
+O método de exemplo a seguir retorna uma SAS em um arquivo no compartilhamento especificado.
+
+:::code language="csharp" source="~/azure-storage-snippets/files/howto/dotnet/dotnet-v12/FileShare.cs" id="snippet_GetFileSasUri":::
+
+# <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
+
+Você também pode criar uma política de acesso armazenada em um compartilhamento de arquivos para gerenciar assinaturas de acesso compartilhado. É recomendável criar uma política de acesso armazenada porque ela permite revogar a SAS se ela for comprometida. O exemplo a seguir cria uma política de acesso armazenada em um compartilhamento. O exemplo usa essa política para fornecer as restrições para uma SAS em um arquivo no compartilhamento.
 
 ```csharp
 // Parse the connection string for the storage account.
@@ -241,21 +308,28 @@ if (share.Exists())
 }
 ```
 
+---
+
 Para obter mais informações sobre como criar e usar assinaturas de acesso compartilhado, consulte [como funciona uma assinatura de acesso compartilhado](../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#how-a-shared-access-signature-works).
 
 ## <a name="copy-files"></a>Copiar arquivos
 
-A partir da versão 5.x da Biblioteca de Cliente do Armazenamento do Azure, você pode copiar um arquivo em outro arquivo, um arquivo em um blob ou um blob em um arquivo. Nas próximas seções, demonstraremos como fazer essas operações de cópia programaticamente.
+A partir da versão 5. x da biblioteca de cliente dos arquivos do Azure, você pode copiar um arquivo para outro arquivo, um arquivo para um BLOB ou um blob para um arquivo.
 
-Você também pode usar AzCopy para copiar um arquivo para outro ou para copiar um blob para um arquivo ou o contrário. Confira [Introdução ao AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+Você também pode usar AzCopy para copiar um arquivo para outro ou para copiar um blob para um arquivo ou o contrário. Confira [Introdução ao AzCopy](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
 > [!NOTE]
 > Se você estiver copiando um blob em um arquivo, ou um arquivo em um blob, use uma assinatura de acesso compartilhado (SAS) para autorizar o acesso ao objeto de origem, mesmo se estiver copiando dentro da mesma conta de armazenamento.
->
 
 ### <a name="copy-a-file-to-another-file"></a>Copiar um arquivo para outro arquivo
 
-O exemplo a seguir copia um arquivo em outro arquivo no mesmo compartilhamento. Como essa operação de cópia copia entre arquivos na mesma conta de armazenamento, você pode usar a autenticação de chave compartilhada para fazer a cópia.
+O exemplo a seguir copia um arquivo em outro arquivo no mesmo compartilhamento. Você pode usar a [autenticação de chave compartilhada](/rest/api/storageservices/authorize-with-shared-key) para fazer a cópia porque esta operação copia arquivos dentro da mesma conta de armazenamento.
+
+# <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
+
+:::code language="csharp" source="~/azure-storage-snippets/files/howto/dotnet/dotnet-v12/FileShare.cs" id="snippet_CopyFile":::
+
+# <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
 
 ```csharp
 // Parse the connection string for the storage account.
@@ -299,9 +373,17 @@ if (share.Exists())
 }
 ```
 
+---
+
 ### <a name="copy-a-file-to-a-blob"></a>Copiar um arquivo em um blob
 
 O exemplo a seguir cria um arquivo e o copia em um blob dentro da mesma conta de armazenamento. O exemplo cria uma SAS para o arquivo de origem, que o serviço usa para autorizar o acesso ao arquivo de origem durante a operação de cópia.
+
+# <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
+
+:::code language="csharp" source="~/azure-storage-snippets/files/howto/dotnet/dotnet-v12/FileShare.cs" id="snippet_CopyFileToBlob":::
+
+# <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
 
 ```csharp
 // Parse the connection string for the storage account.
@@ -347,15 +429,23 @@ Console.WriteLine("Source file contents: {0}", sourceFile.DownloadText());
 Console.WriteLine("Destination blob contents: {0}", destBlob.DownloadText());
 ```
 
+---
+
 Você pode copiar um blob em um arquivo da mesma maneira. Se o objeto de origem for um blob, crie uma SAS para autorizar o acesso ao blob durante a operação de cópia.
 
 ## <a name="share-snapshots"></a>Instantâneos de compartilhamento
 
-A partir da versão 8.5 da Biblioteca de Cliente do Armazenamento do Microsoft Azure, você pode criar um instantâneo de compartilhamento. Também pode listar ou procurar os instantâneos de compartilhamento e excluir os instantâneos de compartilhamento. Instantâneos de compartilhamentos são somente leitura, portanto, nenhuma operação de gravação é permitida em instantâneos de compartilhamento.
+A partir da versão 8,5 da biblioteca de cliente dos arquivos do Azure, você pode criar um instantâneo de compartilhamento. Também pode listar ou procurar os instantâneos de compartilhamento e excluir os instantâneos de compartilhamento. Depois de criados, os instantâneos de compartilhamento são somente leitura.
 
 ### <a name="create-share-snapshots"></a>Criar instantâneos de compartilhamento
 
 O exemplo a seguir cria um instantâneo de compartilhamento de arquivos.
+
+# <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
+
+:::code language="csharp" source="~/azure-storage-snippets/files/howto/dotnet/dotnet-v12/FileShare.cs" id="snippet_CreateShareSnapshot":::
+
+# <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
 
 ```csharp
 storageAccount = CloudStorageAccount.Parse(ConnectionString); 
@@ -366,17 +456,33 @@ var snapshotShare = myShare.Snapshot();
 
 ```
 
+---
+
 ### <a name="list-share-snapshots"></a>Listar instantâneos de compartilhamento
 
-O exemplo a seguir lista os instantâneos de compartilhamento em um compartilhamento.
+O exemplo a seguir lista os instantâneos em um compartilhamento.
+
+# <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
+
+:::code language="csharp" source="~/azure-storage-snippets/files/howto/dotnet/dotnet-v12/FileShare.cs" id="snippet_ListShareSnapshots":::
+
+# <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
 
 ```csharp
 var shares = fClient.ListShares(baseShareName, ShareListingDetails.All);
 ```
 
-### <a name="browse-files-and-directories-within-share-snapshots"></a>Procurar arquivos e diretórios nos instantâneos de compartilhamento
+---
 
-O exemplo a seguir procura arquivos e diretórios nos instantâneos de compartilhamento.
+### <a name="list-files-and-directories-within-share-snapshots"></a>Listar arquivos e diretórios em instantâneos de compartilhamento
+
+O exemplo a seguir procura arquivos e diretórios em instantâneos de compartilhamento.
+
+# <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
+
+:::code language="csharp" source="~/azure-storage-snippets/files/howto/dotnet/dotnet-v12/FileShare.cs" id="snippet_ListSnapshotContents":::
+
+# <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
 
 ```csharp
 CloudFileShare mySnapshot = fClient.GetShareReference(baseShareName, snapshotTime); 
@@ -384,11 +490,19 @@ var rootDirectory = mySnapshot.GetRootDirectoryReference();
 var items = rootDirectory.ListFilesAndDirectories();
 ```
 
-### <a name="list-shares-and-share-snapshots-and-restore-file-shares-or-files-from-share-snapshots"></a>Listar compartilhamentos e instantâneos de compartilhamento e restaurar arquivos ou compartilhamentos de arquivos dos instantâneos de compartilhamento
+---
 
-Tirar um instantâneo de um compartilhamento de arquivos permite a recuperação de arquivos individuais ou de todo o compartilhamento de arquivo no futuro.
+### <a name="restore-file-shares-or-files-from-share-snapshots"></a>Restaurar compartilhamentos de arquivos ou arquivos de instantâneos de compartilhamento
 
-Você pode restaurar um arquivo de um instantâneo de compartilhamento de arquivo consultando os instantâneos de compartilhamento de um compartilhamento de arquivos. Em seguida, você pode recuperar um arquivo que pertence a um instantâneo de compartilhamento específico. Use essa versão para ler e comparar diretamente ou para restaurar o.
+Tirar um instantâneo de um compartilhamento de arquivos permite que você recupere arquivos individuais ou todo o compartilhamento de arquivos.
+
+Você pode restaurar um arquivo de um instantâneo de compartilhamento de arquivo consultando os instantâneos de compartilhamento de um compartilhamento de arquivos. Em seguida, você pode recuperar um arquivo que pertence a um instantâneo de compartilhamento específico. Use essa versão para ler diretamente ou restaurar o arquivo.
+
+# <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
+
+:::code language="csharp" source="~/azure-storage-snippets/files/howto/dotnet/dotnet-v12/FileShare.cs" id="snippet_RestoreFileFromSnapshot":::
+
+# <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
 
 ```csharp
 CloudFileShare liveShare = fClient.GetShareReference(baseShareName);
@@ -413,23 +527,39 @@ string sourceUri = (fileInSnapshot.Uri.ToString() + sasContainerToken + "&" + fi
 fileInliveShare.StartCopyAsync(new Uri(sourceUri));
 ```
 
+---
+
 ### <a name="delete-share-snapshots"></a>Excluir instantâneos de compartilhamento
 
 O exemplo a seguir exclui um instantâneo de compartilhamento de arquivos.
+
+# <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
+
+:::code language="csharp" source="~/azure-storage-snippets/files/howto/dotnet/dotnet-v12/FileShare.cs" id="snippet_DeleteSnapshot":::
+
+# <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
 
 ```csharp
 CloudFileShare mySnapshot = fClient.GetShareReference(baseShareName, snapshotTime); mySnapshot.Delete(null, null, null);
 ```
 
+---
+
 ## <a name="troubleshoot-azure-files-by-using-metrics"></a>Solucionar problemas de arquivos do Azure usando métricas<a name="troubleshooting-azure-files-using-metrics"></a>
 
-A Análise de Armazenamento do Azure agora dá suporte a métricas para os Arquivos do Azure. Com dados de métricas, você pode rastrear solicitações e diagnosticar problemas.
+Análise de Armazenamento do Azure dá suporte a métricas para arquivos do Azure. Com dados de métricas, você pode rastrear solicitações e diagnosticar problemas.
 
-Você pode habilitar as métricas para arquivos do Azure do [portal do Azure](https://portal.azure.com). Você também pode habilitar as métricas programaticamente chamando a operação definir propriedades do serviço de arquivo com a API REST ou uma de suas analogias na biblioteca do cliente de armazenamento.
+Você pode habilitar as métricas para arquivos do Azure do [portal do Azure](https://portal.azure.com). Você também pode habilitar as métricas programaticamente chamando a operação [definir propriedades do serviço de arquivo](/rest/api/storageservices/set-file-service-properties) com a API REST ou uma de suas analogias na biblioteca de cliente de arquivos do Azure.
 
-O exemplo de código a seguir mostra como usar a Biblioteca de Cliente de Armazenamento para .NET para habilitar as métricas para os Arquivos do Azure.
+O exemplo de código a seguir mostra como usar a biblioteca de cliente .NET para habilitar métricas para arquivos do Azure.
 
-Primeiro, adicione as seguintes `using` diretivas ao seu `Program.cs` arquivo, juntamente com aquelas que você adicionou acima:
+# <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
+
+:::code language="csharp" source="~/azure-storage-snippets/files/howto/dotnet/dotnet-v12/FileShare.cs" id="snippet_UseMetrics":::
+
+# <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
+
+Primeiro, adicione as seguintes `using` diretivas ao arquivo *Program.cs* , juntamente com aquelas que você adicionou acima:
 
 ```csharp
 using Microsoft.Azure.Storage.File.Protocol;
@@ -479,6 +609,8 @@ Console.WriteLine(serviceProperties.MinuteMetrics.RetentionDays);
 Console.WriteLine(serviceProperties.MinuteMetrics.Version);
 ```
 
+---
+
 Se você encontrar algum problema, poderá consultar [solucionar problemas de arquivos do Azure no Windows](storage-troubleshoot-windows-file-connection-problems.md).
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -487,22 +619,15 @@ Para obter mais informações sobre os arquivos do Azure, consulte os seguintes 
 
 ### <a name="conceptual-articles-and-videos"></a>Artigos e vídeos conceituais
 
-* [Arquivos do Azure: um sistema de arquivos SMB de nuvem ininterrupta para Windows e Linux](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
-* [Usar os Arquivos do Azure com o Linux](storage-how-to-use-files-linux.md)
+- [Arquivos do Azure: um sistema de arquivos SMB de nuvem ininterrupta para Windows e Linux](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
+- [Usar os Arquivos do Azure com o Linux](storage-how-to-use-files-linux.md)
 
 ### <a name="tooling-support-for-file-storage"></a>Suporte de ferramentas para o armazenamento de arquivos
 
-* [Introdução ao AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
-* [Solucionar problemas de Arquivos do Azure no Windows](https://docs.microsoft.com/azure/storage/storage-troubleshoot-file-connection-problems)
+- [Introdução ao AzCopy](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
+- [Solucionar problemas de Arquivos do Azure no Windows](./storage-troubleshoot-windows-file-connection-problems.md)
 
 ### <a name="reference"></a>Referência
 
-* [APIs do Armazenamento do Azure para .NET](/dotnet/api/overview/azure/storage)
-* [API REST do serviço Arquivo](/rest/api/storageservices/File-Service-REST-API)
-
-### <a name="blog-posts"></a>Postagens no blog
-
-* [Armazenamento de arquivos do Azure, agora disponível para o público geral](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
-* [Dentro do armazenamento de arquivos do Azure](https://azure.microsoft.com/blog/inside-azure-file-storage/)
-* [Introdução ao serviço de arquivos de Microsoft Azure](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
-* [Persistindo conexões para arquivos do Microsoft Azure](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
+- [APIs do Armazenamento do Azure para .NET](/dotnet/api/overview/azure/storage)
+- [API REST do serviço Arquivo](/rest/api/storageservices/File-Service-REST-API)

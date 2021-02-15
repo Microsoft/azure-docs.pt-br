@@ -13,12 +13,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: dfccc274ef920c59d39c160055ab27a6900c839c
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: 6e6eda3d711710ea7450165ab02d7a260067bfcb
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88141271"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582546"
 ---
 # <a name="get-a-token-for-a-mobile-app-that-calls-web-apis"></a>Obter um token para um aplicativo móvel que chama APIs da Web
 
@@ -26,7 +26,7 @@ Antes que seu aplicativo possa chamar APIs da Web protegidas, ele precisa de um 
 
 ## <a name="define-a-scope"></a>Definir um escopo
 
-Ao solicitar um token, você precisa definir um escopo. O escopo determina quais dados seu aplicativo pode acessar.
+Ao solicitar um token, defina um escopo. O escopo determina quais dados seu aplicativo pode acessar.
 
 A maneira mais fácil de definir um escopo é combinar as APIs da Web desejadas `App ID URI` com o escopo `.default` . Essa definição informa à plataforma de identidade da Microsoft que seu aplicativo requer todos os escopos definidos no Portal.
 
@@ -207,7 +207,7 @@ catch(MsalUiRequiredException)
 
 #### <a name="mandatory-parameters-in-msalnet"></a>Parâmetros obrigatórios em MSAL.NET
 
-`AcquireTokenInteractive`tem apenas um parâmetro obrigatório: `scopes` . O `scopes` parâmetro enumera cadeias de caracteres que definem os escopos para os quais um token é necessário. Se o token for para Microsoft Graph, você poderá encontrar os escopos necessários na referência de API de cada API Microsoft Graph. Na referência, vá para a seção "permissões".
+`AcquireTokenInteractive` tem apenas um parâmetro obrigatório: `scopes` . O `scopes` parâmetro enumera cadeias de caracteres que definem os escopos para os quais um token é necessário. Se o token for para Microsoft Graph, você poderá encontrar os escopos necessários na referência de API de cada API Microsoft Graph. Na referência, vá para a seção "permissões".
 
 Por exemplo, para [listar os contatos do usuário](/graph/api/user-list-contacts), use o escopo "User. Read", "Contacts. Read". Para obter mais informações, confira [Referência de permissões do Microsoft Graph](/graph/permissions-reference).
 
@@ -225,25 +225,25 @@ O `WithPrompt()` parâmetro controla a interatividade com o usuário especifican
 
 A classe define as constantes a seguir:
 
-- `SelectAccount`força o serviço de token de segurança (STS) a apresentar a caixa de diálogo de seleção de conta. A caixa de diálogo contém as contas para as quais o usuário tem uma sessão. Você pode usar essa opção quando quiser permitir que o usuário escolha entre diferentes identidades. Essa opção faz com que a MSAL envie `prompt=select_account` para o provedor de identidade.
+- `SelectAccount` força o serviço de token de segurança (STS) a apresentar a caixa de diálogo de seleção de conta. A caixa de diálogo contém as contas para as quais o usuário tem uma sessão. Você pode usar essa opção quando quiser permitir que o usuário escolha entre diferentes identidades. Essa opção faz com que a MSAL envie `prompt=select_account` para o provedor de identidade.
 
     A `SelectAccount` constante é o padrão e fornece efetivamente a melhor experiência possível com base nas informações disponíveis. As informações disponíveis podem incluir a conta, a presença de uma sessão para o usuário e assim por diante. Não altere esse padrão, a menos que você tenha um bom motivo para fazê-lo.
-- `Consent`permite que você solicite o consentimento do usuário mesmo que o consentimento tenha sido concedido antes. Nesse caso, a MSAL envia `prompt=consent` para o provedor de identidade.
+- `Consent` permite que você solicite o consentimento do usuário mesmo que o consentimento tenha sido concedido antes. Nesse caso, a MSAL envia `prompt=consent` para o provedor de identidade.
 
     Talvez você queira usar a `Consent` constante em aplicativos com foco em segurança, em que a governança da organização exige que os usuários vejam a caixa de diálogo de consentimento sempre que usarem o aplicativo.
-- `ForceLogin`permite que o serviço solicite credenciais ao usuário mesmo se o prompt não for necessário.
+- `ForceLogin` permite que o serviço solicite credenciais ao usuário mesmo se o prompt não for necessário.
 
     Essa opção pode ser útil se a aquisição de token falhar e você quiser permitir que o usuário entre novamente. Nesse caso, a MSAL envia `prompt=login` para o provedor de identidade. Talvez você queira usar essa opção em aplicativos com foco em segurança, em que o controle da organização exige que o usuário entre cada vez que acessarem partes específicas do aplicativo.
-- `Never`é somente para .NET 4,5 e Windows Runtime (WinRT). Essa constante não solicitará o usuário, mas tentará usar o cookie armazenado na exibição da Web oculta inserida. Para obter mais informações, consulte [usando navegadores da Web com MSAL.net](./msal-net-web-browsers.md).
+- `Never` é somente para .NET 4,5 e Windows Runtime (WinRT). Essa constante não solicitará o usuário, mas tentará usar o cookie armazenado na exibição da Web oculta inserida. Para obter mais informações, consulte [usando navegadores da Web com MSAL.net](./msal-net-web-browsers.md).
 
-    Se essa opção falhar, o `AcquireTokenInteractive` lançará uma exceção para notificá-lo de que uma interação de interface do usuário é necessária. Em seguida, você precisa usar outro `Prompt` parâmetro.
-- `NoPrompt`não envia um prompt para o provedor de identidade.
+    Se essa opção falhar, o `AcquireTokenInteractive` lançará uma exceção para notificá-lo de que uma interação de interface do usuário é necessária. Em seguida, use outro `Prompt` parâmetro.
+- `NoPrompt` não envia um prompt para o provedor de identidade.
 
     Essa opção é útil somente para políticas de edição de perfil no Azure Active Directory B2C. Para obter mais informações, consulte [especificações do B2C](https://aka.ms/msal-net-b2c-specificities).
 
 ##### <a name="withextrascopetoconsent"></a>WithExtraScopeToConsent
 
-Use o `WithExtraScopeToConsent` modificador em um cenário avançado em que você deseja que o usuário forneça consentimento antecipado para vários recursos. Você pode usar esse modificador quando não quiser usar o consentimento incremental, que normalmente é usado com o MSAL.NET ou a plataforma de identidade da Microsoft 2,0. Para obter mais informações, consulte [Ter o consentimento de usuário antecipado para vários recursos](scenario-desktop-production.md#have-the-user-consent-upfront-for-several-resources).
+Use o `WithExtraScopeToConsent` modificador em um cenário avançado em que você deseja que o usuário forneça consentimento antecipado para vários recursos. Você pode usar esse modificador quando não quiser usar o consentimento incremental, que normalmente é usado com o MSAL.NET ou a plataforma de identidade da Microsoft. Para obter mais informações, consulte [Ter o consentimento de usuário antecipado para vários recursos](scenario-desktop-production.md#have-the-user-consent-upfront-for-several-resources).
 
 Este é um exemplo de código:
 
@@ -255,7 +255,7 @@ var result = await app.AcquireTokenInteractive(scopesForCustomerApi)
 
 ##### <a name="other-optional-parameters"></a>Outros parâmetros opcionais
 
-Para saber mais sobre os outros parâmetros opcionais para `AcquireTokenInteractive` , consulte a [documentação de referência para AcquireTokenInteractiveParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokeninteractiveparameterbuilder?view=azure-dotnet-preview#methods).
+Para saber mais sobre os outros parâmetros opcionais para `AcquireTokenInteractive` , consulte a [documentação de referência para AcquireTokenInteractiveParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokeninteractiveparameterbuilder#methods).
 
 ### <a name="acquire-tokens-via-the-protocol"></a>Adquirir tokens por meio do protocolo
 
@@ -294,5 +294,4 @@ client_id=<CLIENT_ID>
 
 ## <a name="next-steps"></a>Próximas etapas
 
-> [!div class="nextstepaction"]
-> [Chamar uma API Web](scenario-mobile-call-api.md)
+Vá para o próximo artigo neste cenário, [chamando uma API da Web](scenario-mobile-call-api.md).

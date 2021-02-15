@@ -4,16 +4,16 @@ description: Saiba como exibir as métricas de uso da API do Azure Maps, como so
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 08/06/2018
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 766bb2eaf6878a8d7261472ba11ea7acd46de92e
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: c9b732bd25e7ef8aa084c98d5b059d422f86a4b0
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036480"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96003507"
 ---
 # <a name="view-azure-maps-api-usage-metrics"></a>Exibir as métricas de uso da API do Azure Mapas
 
@@ -66,4 +66,4 @@ Saiba mais sobre as APIs do Azure Maps para as quais você deseja acompanhar o u
 > [Instruções do Azure Maps SDK do Android](how-to-use-android-map-control-library.md)
 
 > [!div class="nextstepaction"]
-> [Documentação API REST do Azure Mapas](https://docs.microsoft.com/rest/api/maps)
+> [Documentação API REST do Azure Mapas](/rest/api/maps)

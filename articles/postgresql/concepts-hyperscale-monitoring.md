@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: dcce4485e00415f9caa706966cac1c936c1f15f6
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 30be9cbba7fe702d12285fe13794290c4820fd53
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690401"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487986"
 ---
 # <a name="monitor-and-tune-azure-database-for-postgresql---hyperscale-citus"></a>Monitorar e ajustar o banco de dados do Azure para PostgreSQL-Citus (hiperescala)
 
@@ -22,17 +22,17 @@ Monitorar os dados dos seus servidores ajuda a solucionar problemas e otimizar s
 
 O Citus (hiperescala) fornece métricas para cada nó em um grupo de servidores. As métricas fornecem informações sobre o comportamento dos recursos de suporte. Cada métrica é emitida em uma frequência de um minuto e tem até 30 dias de histórico.
 
-Além de exibir grafos das métricas, você pode configurar alertas. Para obter diretrizes passo a passo, consulte [How to set up alerts](howto-hyperscale-alert-on-metric.md) (Como configurar alertas).  Outras tarefas incluem a configuração de ações automatizadas, a execução de análises avançadas e o histórico de arquivamento. Para obter mais informações, consulte a [Visão geral das métricas no Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+Além de exibir grafos das métricas, você pode configurar alertas. Para obter diretrizes passo a passo, consulte [How to set up alerts](howto-hyperscale-alert-on-metric.md) (Como configurar alertas).  Outras tarefas incluem a configuração de ações automatizadas, a execução de análises avançadas e o histórico de arquivamento. Para obter mais informações, consulte a [Visão geral das métricas no Microsoft Azure](../azure-monitor/platform/data-platform.md).
 
 ### <a name="list-of-metrics"></a>Lista de métricas
 
 Essas métricas estão disponíveis para nós de hiperescala (Citus):
 
-|Métrica|Nome de exibição da métrica|Unidade|Descrição|
+|Métrica|Nome de exibição da métrica|Unit|Descrição|
 |---|---|---|---|
 |active_connections|Conexões ativas|Contagem|O número de conexões ativas com o servidor.|
 |cpu_percent|Porcentagem de CPU|Porcentagem|O percentual de CPU em uso.|
-|iops|IOPS|Contagem|Consulte a [definição de IOPS](../virtual-machines/premium-storage-performance.md#iops) e a [taxa de transferência de hiperescala](concepts-hyperscale-configuration-options.md)|
+|iops|IOPS|Contagem|Consulte a [definição de IOPS](../virtual-machines/premium-storage-performance.md#iops) e a [taxa de transferência de hiperescala (Citus)](concepts-hyperscale-configuration-options.md)|
 |memory_percent|Porcentagem de memória|Porcentagem|O percentual de memória em uso.|
 |network_bytes_ingress|Entrada na rede|Bytes|Entrada de rede em conexões ativas.|
 |network_bytes_egress|Saída da rede|Bytes|Rede-Out em conexões ativas.|

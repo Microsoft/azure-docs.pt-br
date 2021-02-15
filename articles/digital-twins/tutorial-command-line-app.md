@@ -1,5 +1,5 @@
 ---
-title: Explorar os conceitos básicos com um aplicativo cliente de exemplo
+title: 'Tutorial: Explorar os conceitos básicos com um aplicativo cliente de exemplo'
 titleSuffix: Azure Digital Twins
 description: Tutorial para explorar os SDKs dos Gêmeos Digitais do Azure usando um aplicativo de linha de comando de exemplo
 author: baanders
@@ -7,23 +7,24 @@ ms.author: baanders
 ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: d02766d82690d2f546fdcbad76efcda043f54471
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: 5658bfcf0bf877db1dd001c2af58a40f3b027bd9
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87986264"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576237"
 ---
-# <a name="explore-azure-digital-twins-with-a-sample-client-app"></a>Explorar os Gêmeos Digitais do Azure com um aplicativo cliente de exemplo
+# <a name="tutorial-explore-azure-digital-twins-with-a-sample-client-app"></a>Tutorial: Explorar os Gêmeos Digitais do Azure com um aplicativo cliente de exemplo
 
 Este tutorial apresenta um aplicativo de exemplo que implementa um aplicativo cliente de linha de comando para interagir com uma instância dos Gêmeos Digitais do Azure. O aplicativo cliente é semelhante ao escrito no [*Tutorial: Codificar um aplicativo cliente*](tutorial-code.md).
 
 Você pode usar este exemplo para executar ações essenciais dos Gêmeos Digitais do Azure, como carregar modelos, criar e modificar gêmeos e criar relações. Você também pode examinar o código do exemplo para saber mais sobre as APIs dos Gêmeos Digitais do Azure, bem como praticar a implementação de seus próprios comandos modificando o projeto de exemplo como preferir.
 
 Neste tutorial, você vai...
-1. Configurar uma instância dos Gêmeos Digitais do Azure
-2. Configurar o aplicativo de linha de comando de exemplo para interagir com a instância
-3. Usar o aplicativo de linha de comando para explorar os Gêmeos Digitais do Azure, incluindo **modelos**, **gêmeos digitais**, **relações** e **consultas**
+> [!div class="checklist"]
+> * Configurar uma instância dos Gêmeos Digitais do Azure
+> * Configurar o aplicativo de linha de comando de exemplo para interagir com a instância
+> * Usar o aplicativo de linha de comando para explorar os Gêmeos Digitais do Azure, incluindo **modelos**, **gêmeos digitais**, **relações** e **consultas**
 
 [!INCLUDE [Azure Digital Twins tutorial: sample prerequisites](../../includes/digital-twins-tutorial-sample-prereqs.md)]
 
@@ -46,31 +47,19 @@ Na janela do Visual Studio em que o projeto _**AdtE2ESample**_ está aberto, use
 
 Selecione *Room.json* para abri-lo na janela de edição e altere-o das seguintes maneiras:
 
-* **Atualizar o número de versão**, de modo a indicar que você está fornecendo uma versão mais atualizada do modelo. Faça isso alterando o *1* no final do valor `@id` para *2*. Qualquer número maior que o da versão atual também funcionará.
-* **Editar uma propriedade**. Altere o nome da propriedade `Humidity` para *HumidityLevel* (ou algo diferente, se desejar. Se usar algo diferente de *HumidityLevel*, lembre-se do que você usou e continue usando o mesmo nome em vez de *HumidityLevel* ao longo do tutorial).
-* **Adicionar uma propriedade**. Abaixo da propriedade `HumidityLevel` que termina na linha 15, cole o código a seguir para adicionar uma propriedade `RoomName` à sala:
+1. **Atualizar o número de versão**, de modo a indicar que você está fornecendo uma versão mais atualizada do modelo. Faça isso alterando o *1* no final do valor `@id` para *2*. Qualquer número maior que o da versão atual também funcionará.
+1. **Editar uma propriedade**. Altere o nome da propriedade `Humidity` para *HumidityLevel* (ou algo diferente, se desejar. Se usar algo diferente de *HumidityLevel*, lembre-se do que você usou e continue usando o mesmo nome em vez de *HumidityLevel* ao longo do tutorial).
+1. **Adicionar uma propriedade**. Abaixo da propriedade `HumidityLevel` que termina na linha 15, cole o código a seguir para adicionar uma propriedade `RoomName` à sala:
 
-    ```json
-    ,
-    {
-      "@type": "Property",
-      "name": "RoomName",
-      "schema": "string"
-    }
-    ```
-* **Adicionar uma relação**. Abaixo da propriedade `RoomName` que você acabou de adicionar, cole o código a seguir para adicionar a capacidade desse tipo de gêmeo de gerar relações do tipo *contains* com outros gêmeos:
+    :::code language="json" source="~/digital-twins-docs-samples/models/Room.json" range="16-20":::
 
-    ```json
-    ,
-    {
-      "@type": "Relationship",
-      "name": "contains",
-    }
-    ```
+1. **Adicionar uma relação**. Abaixo da propriedade `RoomName` que você acabou de adicionar, cole o código a seguir para adicionar a capacidade desse tipo de gêmeo de gerar relações do tipo *contains* com outros gêmeos:
 
-Quando você terminar, o modelo atualizado deverá ter a seguinte aparência:
+    :::code language="json" source="~/digital-twins-docs-samples/models/Room.json" range="21-24":::
 
-:::image type="content" source="media/tutorial-command-line-app/room-model.png" alt-text="Room.json editado com o número de versão atualizado, as propriedades HumidityLevel e RoomName e a relação contains" border="false":::
+Quando você terminar, o modelo atualizado deverá corresponder a:
+
+:::code language="json" source="~/digital-twins-docs-samples/models/Room.json":::
 
 Salve o arquivo antes de continuar.
 
@@ -78,7 +67,7 @@ Salve o arquivo antes de continuar.
 > Se quiser tentar criar seu próprio modelo, cole o código do modelo *Room* em um novo arquivo que você salvará com a extensão *.json* na pasta *AdtSampleApp\SampleClientApp\Models*. Em seguida, experimente adicionar propriedades e relações para representar o que você quiser. Você também pode examinar os outros modelos de exemplo nesta pasta para ter ideias.
 
 > [!TIP] 
-> Há uma [amostra de Validador DTDL](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) independente de linguagem que pode ser usada para verificar os documentos do modelo e ver se a DTDL é válida. Ela se baseia na biblioteca do analisador de DTDL, que é explicada mais detalhadamente em [*Como analisar e validar modelos*](how-to-parse-models.md).
+> Há uma [amostra de Validador DTDL](/samples/azure-samples/dtdl-validator/dtdl-validator) independente de linguagem que pode ser usada para verificar os documentos do modelo e ver se a DTDL é válida. Ela se baseia na biblioteca do analisador de DTDL, que é explicada mais detalhadamente em [*Como analisar e validar modelos*](how-to-parse-models.md).
 
 ### <a name="get-started-with-the-command-line-app"></a>Introdução ao aplicativo de linha de comando
 
@@ -218,8 +207,8 @@ Você também pode verificar as relações com qualquer um dos comandos a seguir
     ```
 * Para consultar essas relações individualmente, 
     ```cmd/sh
-    GetRelationship floor0 contains relationship0
-    GetRelationship floor1 contains relationship1
+    GetRelationship floor0 relationship0
+    GetRelationship floor1 relationship1
     ```
 
 O gêmeos e as relações que você configurou neste tutorial formam o seguinte grafo conceitual:
@@ -241,7 +230,7 @@ Um dos principais recursos dos Gêmeos Digitais do Azure é a capacidade de [con
     :::image type="content" source="media/tutorial-command-line-app/output-query-all.png" alt-text="Resultados parciais da consulta de gêmeos, mostrando room0 e floor1":::
 
     >[!NOTE]
-    >O comando `Query` sem argumentos adicionais é o equivalente de `Query SELECT * FROM DIGITALTWINS`.
+    >No projeto de exemplo, o comando `Query` sem argumentos adicionais é o equivalente de `Query SELECT * FROM DIGITALTWINS`. Para consultar todos os gêmeos em sua instância usando as [APIs de Consulta](/rest/api/digital-twins/dataplane/query) ou os [comandos da CLI](how-to-use-cli.md), use a consulta mais longa (completa).
 
 * **Quais são as salas em meu ambiente?** (consultar por modelo)
 
@@ -285,41 +274,20 @@ Um dos principais recursos dos Gêmeos Digitais do Azure é a capacidade de [con
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-O projeto deste tutorial forma a base para o próximo tutorial, [*Tutorial: Conectar uma solução de ponta a ponta*](tutorial-end-to-end.md). Caso planeje prosseguir para o próximo tutorial, você pode manter os recursos configurados aqui para continuar usando essa instância dos Gêmeos Digitais do Azure e o aplicativo de exemplo configurado.
-* Nesse caso, você pode usar os comandos `DeleteAllTwins` e `DeleteAllModels` do aplicativo de exemplo para limpar os gêmeos e os modelos em sua instância, respectivamente. Isso lhe dará uma imagem fixa em branco para o próximo tutorial.
+Após concluir este tutorial, você poderá escolher quais recursos gostaria de remover, dependendo do que você gostaria de fazer em seguida.
 
-Se você não precisa mais dos recursos criados neste tutorial, siga estas etapas para excluí-los.
+* **Caso planeje prosseguir para o próximo tutorial**, você pode manter os recursos configurados aqui para continuar usando essa instância dos Gêmeos Digitais do Azure e o aplicativo de exemplo configurado para o próximo tutorial
 
-Usando o [Azure Cloud Shell](https://shell.azure.com), exclua todos os recursos do Azure em um grupo de recursos com o comando [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete). Isso removerá o grupo de recursos e a instância dos Gêmeos Digitais do Azure.
+* **Caso deseje continuar usando a instância dos Gêmeos Digitais do Azure, mas limpar todos os seus modelos, gêmeos e relações**, poderá usar os comandos `DeleteAllTwins` e `DeleteAllModels` do aplicativo de exemplo para limpar o gêmeos e os modelos em sua instância, respectivamente. Isso lhe dará uma imagem fixa em branco para o próximo tutorial.
 
-> [!IMPORTANT]
-> A exclusão de um grupo de recursos é irreversível. O grupo de recursos e todos os recursos contidos nele são excluídos permanentemente. Não exclua acidentalmente o grupo de recursos ou os recursos incorretos. 
+[!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
-Abra um Azure Cloud Shell e execute o comando a seguir para excluir o grupo de recursos e tudo o que ele contém.
-
-```azurecli-interactive
-az group delete --name <your-resource-group>
-```
-
-Em seguida, exclua o registro de aplicativo do Azure Active Directory criado para o aplicativo cliente com este comando:
-
-```azurecli
-az ad app delete --id <your-application-ID>
-```
-
-Por fim, exclua a pasta de exemplo do projeto que você baixou para o computador local.
+Talvez seja interessante excluir a pasta do projeto do computador local.
 
 ## <a name="next-steps"></a>Próximas etapas 
 
 Neste tutorial, você teve uma introdução aos Gêmeos Digitais do Azure, configurando uma instância e um aplicativo cliente para interagir com a instância. Você usou o aplicativo cliente para explorar os Gêmeos Digitais do Azure, criar modelos, gêmeos digitais e relações. Você também executou algumas consultas na solução para ter uma ideia de quais tipos de perguntas os Gêmeos Digitais do Azure podem responder sobre um ambiente.
 
 Continue para o próximo tutorial para usar o aplicativo de linha de comando de exemplo em combinação com outros serviços do Azure para concluir um cenário de ponta a ponta orientado por dados:
-
 > [!div class="nextstepaction"]
 > [*Tutorial: Conectar uma solução de ponta a ponta*](tutorial-end-to-end.md)
-
-Ou comece a examinar a documentação de conceito para saber mais sobre os elementos com os quais você trabalhou no tutorial:
-* [*Conceitos: modelos personalizados*](concepts-models.md)
-
-Você também pode aprofundar-se com relação aos processos neste tutorial iniciando os artigos de instruções:
-* [*Como usar a CLI dos Gêmeos Digitais do Azure*](how-to-use-cli.md)

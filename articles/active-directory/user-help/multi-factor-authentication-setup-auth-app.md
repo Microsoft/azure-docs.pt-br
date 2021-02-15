@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: end-user-help
 ms.date: 08/12/2019
 ms.author: curtand
-ms.openlocfilehash: 953f74a18ae7874c8772cdc8179e5e5bdd1a86d2
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: 10b6b788077eccda522c9e8c6e631939ca1819fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83738635"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91530333"
 ---
 # <a name="set-up-an-authenticator-app-as-your-two-factor-verification-method"></a>Configurar um aplicativo autenticador como seu método de verificação de dois fatores
 
@@ -33,7 +33,7 @@ Você pode configurar um aplicativo autenticador para enviar uma notificação a
 
 2. Selecione **Receber notificações para verificação** na área **Como você deseja usar o aplicativo móvel** e, em seguida, selecione **Instalar**.
 
-    ![Página de verificação de segurança adicional, com o aplicativo móvel e a opção de notificações](media/multi-factor-authentication-verification-methods/multi-factor-authentication-auth-app-notification.png)
+    ![Captura de tela que mostra a página "verificação de segurança adicional", com "aplicativo móvel" e "receber notificações para verificação" selecionada.](media/multi-factor-authentication-verification-methods/multi-factor-authentication-auth-app-notification.png)
 
     A página **Configure o aplicativo móvel** é exibida.
 
@@ -48,7 +48,7 @@ Você pode configurar um aplicativo autenticador para enviar uma notificação a
 
 5. Volte para o computador e para a página **Verificação de segurança adicional**, verifique se você recebeu a mensagem dizendo que sua configuração foi bem-sucedida e, em seguida, selecione **Avançar**.
 
-    ![Página de Verificação de segurança adicional, com mensagem de êxito](media/multi-factor-authentication-verification-methods/multi-factor-authentication-auth-app-notification-confirm.png)
+    ![Captura de tela que mostra a página "verificação de segurança adicional", com o "aplicativo móvel foi configurado..." mensagem de êxito realçada.](media/multi-factor-authentication-verification-methods/multi-factor-authentication-auth-app-notification-confirm.png)
 
     O aplicativo autenticador enviará uma notificação ao dispositivo móvel como um teste.
 

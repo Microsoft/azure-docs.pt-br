@@ -6,10 +6,10 @@ ms.author: jobreen
 author: jjbfour
 ms.date: 09/16/2019
 ms.openlocfilehash: 7b7fff913c177703f959bfa103c8e310d01059e2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81391834"
 ---
 # <a name="custom-role-definition-artifact-in-azure-managed-applications"></a>Artefato de definição de função personalizada em aplicativos gerenciados do Azure
@@ -63,7 +63,7 @@ Uma função é composta por um `$.properties.roleName` ou um `id` :
 > [!NOTE]
 > Você pode usar o `id` campo ou `roleName` . Apenas uma é necessária. Esses campos são usados para pesquisar a definição de função que deve ser aplicada. Se ambos forem fornecidos, o `id` campo será usado.
 
-|Propriedade|Obrigatório?|Descrição|
+|Propriedade|Necessário?|Descrição|
 |---------|---------|---------|
 |id|Sim|A ID da função interna. Você pode usar a ID completa ou apenas o GUID.|
 |roleName|Sim|O nome da função interna.|

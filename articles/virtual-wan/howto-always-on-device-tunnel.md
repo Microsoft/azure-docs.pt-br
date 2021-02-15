@@ -1,19 +1,19 @@
 ---
-title: Configurar um túnel de VPN AlwaysOn
+title: Configurar um túnel de VPN Always-On
 titleSuffix: Azure Virtual WAN
 description: Etapas para configurar o túnel de dispositivo VPN Always On para WAN virtual
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 06/22/2020
+ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: 7adeb9682336b19cc87d8c73a7f9ad8bda5e7828
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e814487cb4dab9c8c19daab2ea3bb81391d4a98f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85564072"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "90983679"
 ---
 # <a name="configure-an-always-on-vpn-device-tunnel-for-virtual-wan"></a>Configurar um túnel de dispositivo VPN Always On para WAN virtual
 
@@ -34,7 +34,7 @@ Você deve criar uma configuração ponto a site e editar a atribuição de Hub 
 
 Para remover o perfil, execute o seguinte comando:
 
-![Limpeza](./media/howto-always-on-device-tunnel/cleanup.png)
+![Captura de tela mostra uma janela do PowerShell que executa o comando Remove-VpnConnection-Name MachineCertTest.](./media/howto-always-on-device-tunnel/cleanup.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

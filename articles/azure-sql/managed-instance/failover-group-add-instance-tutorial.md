@@ -1,38 +1,38 @@
 ---
-title: 'Tutorial: Adicionar o SQL Instância Gerenciada a um grupo de failover'
+title: 'Tutorial: Adicionar uma Instância Gerenciada de SQL a um grupo de failover'
 titleSuffix: Azure SQL Managed Instance
-description: Neste tutorial, aprenda a criar um grupo de failover entre um Instância Gerenciada de SQL do Azure primário e secundário.
+description: Neste tutorial, aprenda a criar um grupo de failover entre uma Instância Gerenciada de SQL do Azure primária e secundária.
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: high-availability
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, devx-track-azurepowershell
 ms.devlang: ''
-ms.topic: conceptual
-author: MashaMSFT
-ms.author: mathoma
-ms.reviewer: sashan, carlrab
+ms.topic: tutorial
+author: stevestein
+ms.author: sstein
+ms.reviewer: sashan
 ms.date: 08/27/2019
-ms.openlocfilehash: c898eeaf99b8a24b992f1daa82b9149327b7a457
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
-ms.translationtype: MT
+ms.openlocfilehash: 1609f188af8ffb58251edc806e19f7820a6b0869
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88245768"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99525714"
 ---
-# <a name="tutorial-add-sql-managed-instance-to-a-failover-group"></a>Tutorial: Adicionar o SQL Instância Gerenciada a um grupo de failover
+# <a name="tutorial-add-sql-managed-instance-to-a-failover-group"></a>Tutorial: Adicionar uma Instância Gerenciada de SQL a um grupo de failover
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-Adicione instâncias gerenciadas do Azure SQL Instância Gerenciada a um grupo de failover. Neste artigo, você aprenderá a:
+Adicione instâncias gerenciadas da Instância Gerenciada de SQL do Azure a um grupo de failover. Neste artigo, você aprenderá a:
 
 > [!div class="checklist"]
-> - Crie uma instância gerenciada primária.
-> - Crie uma instância gerenciada secundária como parte de um [grupo de failover](../database/auto-failover-group-overview.md). 
-> - Failover de teste.
+> - Criar uma instância gerenciada primária.
+> - Criar uma instância gerenciada secundária como parte de um [grupo de failover](../database/auto-failover-group-overview.md). 
+> - Testar o failover.
 
   > [!NOTE]
-  > - Ao percorrer este tutorial, verifique se você está configurando seus recursos com os [pré-requisitos para configurar grupos de failover para o SQL instância gerenciada](../database/auto-failover-group-overview.md#enabling-geo-replication-between-managed-instances-and-their-vnets). 
-  > - A criação de uma instância gerenciada pode levar uma quantidade significativa de tempo. Como resultado, este tutorial pode levar várias horas para ser concluído. Para obter mais informações sobre os tempos de provisionamento, consulte [operações de gerenciamento de instância gerenciada do SQL](sql-managed-instance-paas-overview.md#management-operations). 
-  > - As instâncias gerenciadas que participam de um grupo de failover exigem o [Azure ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md) ou dois gateways de VPN conectados. O Emparelhamento VNET Global não é compatível. Este tutorial fornece etapas para criar e conectar os gateways de VPN. Ignore estas etapas se você já tiver o ExpressRoute configurado. 
+  > - Ao acompanhar este tutorial, verifique se você está configurando seus recursos com os [pré-requisitos para configurar grupos de failover para a Instância Gerenciada de SQL](../database/auto-failover-group-overview.md#enabling-geo-replication-between-managed-instances-and-their-vnets). 
+  > - A criação de uma instância gerenciada pode levar um tempo significativo. Como resultado, este tutorial pode levar várias horas para ser concluído. Para obter mais informações sobre os tempos de provisionamento, confira [Operações de gerenciamento da Instância Gerenciada de SQL](sql-managed-instance-paas-overview.md#management-operations). 
+  > - As instâncias gerenciadas que participam de um grupo de failover exigem o [Azure ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md), o emparelhamento VNET ou global ou dois gateways de VPN conectados. Este tutorial fornece etapas para criar e conectar os gateways de VPN. Ignore essas etapas se você já tiver o ExpressRoute configurado. 
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -40,13 +40,13 @@ Adicione instâncias gerenciadas do Azure SQL Instância Gerenciada a um grupo d
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 Para concluir este tutorial, verifique se você tem: 
 
-- Uma assinatura do Azure. [Crie uma conta gratuita](https://azure.microsoft.com/free/) se você ainda não tiver uma.
+- Uma assinatura do Azure. [Crie uma conta gratuita](https://azure.microsoft.com/free/), caso ainda não tenha uma.
 
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 Para concluir o tutorial, verifique se você tem os seguintes itens:
 
-- Uma assinatura do Azure. [Crie uma conta gratuita](https://azure.microsoft.com/free/) se você ainda não tiver uma.
+- Uma assinatura do Azure. [Crie uma conta gratuita](https://azure.microsoft.com/free/), caso ainda não tenha uma.
 - [PowerShell do Azure](/powershell/azure/)
 
 ---
@@ -56,30 +56,32 @@ Para concluir o tutorial, verifique se você tem os seguintes itens:
 
 Nesta etapa, você criará o grupo de recursos e a instância gerenciada primária para seu grupo de failover usando o portal do Azure ou o PowerShell. 
 
+Implante ambas as instâncias gerenciadas em [regiões emparelhadas](../../best-practices-availability-paired-regions.md) por motivos de desempenho. As instâncias gerenciadas que residem em regiões emparelhadas geograficamente têm um desempenho muito melhor em comparação com regiões não emparelhadas. 
+
 
 # <a name="portal"></a>[Portal](#tab/azure-portal) 
 
-Crie o grupo de recursos e sua instância gerenciada primária usando o portal do Azure. 
+Crie o grupo de recursos e a instância gerenciada primária usando o portal do Azure. 
 
-1. Selecione **SQL do Azure** no menu à esquerda do portal do Azure. Se o **SQL do Azure** não estiver na lista, selecione **todos os serviços**e, em seguida, digite `Azure SQL` na caixa de pesquisa. (Opcional) Selecione a estrela ao lado de **SQL do Azure** para marcá-lo como favorito e adicioná-lo como um item no menu de navegação à esquerda. 
+1. Selecione **SQL do Azure** no menu à esquerda do portal do Azure. Se **SQL do Azure** não estiver na lista, selecione **Todos os serviços** e digite `Azure SQL` na caixa de pesquisa. (Opcional) Selecione a estrela ao lado de **SQL do Azure** para marcá-lo como favorito e adicioná-lo como um item no menu de navegação à esquerda. 
 1. Selecione **+ Adicionar** para abrir a página **Selecionar opção de implantação do SQL**. Você pode exibir informações adicionais sobre os diferentes bancos de dados selecionando **Mostrar detalhes** no bloco **Bancos de dados**.
-1. Selecione **criar** no bloco **instâncias gerenciadas do SQL** . 
+1. Selecione **Criar** no bloco **Instâncias Gerenciadas de SQL**. 
 
-    ![Selecione o SQL Instância Gerenciada](./media/failover-group-add-instance-tutorial/select-managed-instance.png)
+    ![Selecionar Instância Gerenciada de SQL](./media/failover-group-add-instance-tutorial/select-managed-instance.png)
 
-1. Na página **criar instância gerenciada de SQL do Azure** , na guia **noções básicas** :
-    1. Em **detalhes do projeto**, selecione sua **assinatura** na lista suspensa e, em seguida, escolha **criar novo** grupo de recursos. Digite um nome para seu grupo de recursos, como `myResourceGroup` . 
-    1. Em **detalhes do SQL instância gerenciada**, forneça o nome da sua instância gerenciada e a região em que você deseja implantar sua instância gerenciada. Deixe **computação + armazenamento** em valores padrão. 
-    1. Em **conta de administrador**, forneça um logon de administrador, como `azureuser` e uma senha de administrador complexa. 
+1. Na página **Criar Instância Gerenciada de SQL do Azure**, na guia **Informações Básicas**:
+    1. Em **Detalhes do Projeto**, selecione sua **Assinatura** na lista suspensa e escolha **Criar** grupo de recursos. Digite um nome para o grupo de recursos, como `myResourceGroup`. 
+    1. Em **Detalhes da Instância Gerenciada de SQL**, forneça o nome da instância gerenciada e da região em que deseja implantar sua instância gerenciada. Mantenha **Computação + armazenamento** com os valores padrão. 
+    1. Em **Conta de Administrador**, forneça um logon de administrador, como `azureuser` e uma senha de administrador complexa. 
 
-    ![Criar instância gerenciada primária](./media/failover-group-add-instance-tutorial/primary-sql-mi-values.png)
+    ![Criar uma instância gerenciada primária](./media/failover-group-add-instance-tutorial/primary-sql-mi-values.png)
 
-1. Deixe o restante das configurações em valores padrão e selecione **examinar + criar** para examinar as configurações de instância gerenciada do SQL. 
-1. Selecione **criar** para criar sua instância gerenciada primária. 
+1. Mantenha o restante das configurações com os valores padrão e escolha **Examinar + criar** para examinar as configurações da Instância Gerenciada de SQL. 
+1. Selecione **Criar** para criar sua instância gerenciada primária. 
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Crie seu grupo de recursos e a instância gerenciada primária usando o PowerShell. 
+Crie o grupo de recursos e a instância gerenciada primária usando o PowerShell. 
 
    ```powershell-interactive
    # Connect-AzAccount
@@ -159,8 +161,8 @@ Crie seu grupo de recursos e a instância gerenciada primária usando o PowerShe
    # Suppress networking breaking changes warning (https://aka.ms/azps-changewarnings
    Set-Item Env:\SuppressAzurePowerShellBreakingChangeWarnings "true"
    
-   # Set the subscription context
-   Set-AzContext -SubscriptionId $subscriptionId 
+   # Set the subscription context
+   Set-AzContext -SubscriptionId $subscriptionId 
    
    # Create the resource group
    Write-host "Creating resource group..."
@@ -404,89 +406,89 @@ Esta parte do tutorial usa os seguintes cmdlets do PowerShell:
 
 ---
 
-## <a name="create-secondary-virtual-network"></a>Criar rede virtual secundária
+## <a name="create-secondary-virtual-network"></a>Criar uma rede virtual secundária
 
-Se você estiver usando o portal do Azure para criar sua instância gerenciada, será necessário criar a rede virtual separadamente porque há um requisito de que a sub-rede da instância gerenciada primária e secundária não tenha intervalos sobrepostos. Se você estiver usando o PowerShell para configurar sua instância gerenciada, pule para a etapa 3. 
+Se você estiver usando o portal do Azure para criar a instância gerenciada, precisará criar a rede virtual separadamente porque há um requisito que exige que a sub-rede da instância gerenciada primária e secundária não tenha intervalos sobrepostos. Se estiver usando o PowerShell para configurar a instância gerenciada, vá para a etapa 3. 
 
 # <a name="portal"></a>[Portal](#tab/azure-portal) 
 
-Para verificar o intervalo de sub-rede de sua rede virtual primária, siga estas etapas:
+Para confirmar o intervalo de sub-rede da rede virtual primária, siga estas etapas:
 
-1. No [portal do Azure](https://portal.azure.com), navegue até o grupo de recursos e selecione a rede virtual para sua instância primária.  
-2. Selecione **sub-redes** em **configurações** e anote o **intervalo de endereços**. O intervalo de endereços de sub-rede da rede virtual para a instância gerenciada secundária não pode sobrepor isso. 
+1. No [portal do Azure](https://portal.azure.com), procure o grupo de recursos e selecione a rede virtual da instância primária.  
+2. Selecione **Sub-redes** em **Configurações** e observe o **Intervalo de endereços**. O intervalo de endereços de sub-rede da rede virtual para a instância gerenciada secundária não pode sobrepor isso. 
 
 
    ![Sub-rede primária](./media/failover-group-add-instance-tutorial/verify-primary-subnet-range.png)
 
 Para criar uma rede virtual, siga estas etapas:
 
-1. Na [portal do Azure](https://portal.azure.com), selecione **criar um recurso** e pesquise *rede virtual*. 
-1. Selecione a opção **rede virtual** publicada pela Microsoft e, em seguida, selecione **criar** na próxima página. 
-1. Preencha os campos obrigatórios para configurar a rede virtual para sua instância gerenciada secundária e, em seguida, selecione **criar**. 
+1. No [portal do Azure](https://portal.azure.com), selecione **Criar um recurso** e pesquise *rede virtual*. 
+1. Selecione a opção **Rede Virtual** publicada pela Microsoft e escolha **Criar** na próxima página. 
+1. Preencha os campos obrigatórios para configurar a rede virtual da instância gerenciada secundária e escolha **Criar**. 
 
-   A tabela a seguir mostra os valores necessários para a rede virtual secundária:
+   A seguinte tabela mostra os valores necessários para a rede virtual secundária:
 
     | **Campo** | Valor |
     | --- | --- |
-    | **Nome** |  O nome da rede virtual a ser usada pela instância gerenciada secundária, como `vnet-sql-mi-secondary` . |
-    | **Espaço de endereço** | O espaço de endereço para sua rede virtual, como `10.128.0.0/16` . | 
+    | **Nome** |  O nome da rede virtual a ser usada pela instância gerenciada secundária, como `vnet-sql-mi-secondary`. |
+    | **Espaço de endereço** | O espaço de endereço da rede virtual, como `10.128.0.0/16`. | 
     | **Assinatura** | A assinatura em que reside a instância gerenciada primária e o grupo de recursos. |
-    | **Região** | O local onde você vai implantar sua instância gerenciada secundária. |
-    | **Sub-rede** | O nome da sua sub-rede. `default` é fornecido para você por padrão. |
-    | **Intervalo de endereços**| O intervalo de endereços da sua sub-rede. Isso deve ser diferente do intervalo de endereços de sub-rede usado pela rede virtual de sua instância gerenciada primária, como `10.128.0.0/24` .  |
+    | **Região** | A localização na qual você implantará a instância gerenciada secundária. |
+    | **Sub-rede** | O nome da sub-rede. `default` é fornecido para você por padrão. |
+    | **Intervalo de endereços**| O intervalo de endereços da sub-rede. Isso precisa ser diferente do intervalo de endereços da sub-rede usado pela rede virtual da instância gerenciada primária, como `10.128.0.0/24`.  |
     | &nbsp; | &nbsp; |
 
-    ![Valores de rede virtual secundária](./media/failover-group-add-instance-tutorial/secondary-virtual-network.png)
+    ![Valores da rede virtual secundária](./media/failover-group-add-instance-tutorial/secondary-virtual-network.png)
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Esta etapa só será necessária se você estiver usando o portal do Azure para implantar o SQL Instância Gerenciada. Pule para a etapa 3 se você estiver usando o PowerShell. 
+Esta etapa só será necessária se você estiver usando o portal do Azure para implantar a Instância Gerenciada de SQL. Vá para a etapa 3 se estiver usando o PowerShell. 
 
 ---
 
 ## <a name="create-a-secondary-managed-instance"></a>Criar uma instância gerenciada secundária
-Nesta etapa, você criará uma instância gerenciada secundária no portal do Azure, que também irá configurar a rede entre as duas instâncias gerenciadas. 
+Nesta etapa, você criará uma instância gerenciada secundária no portal do Azure, que também vai configurar a rede entre as duas instâncias gerenciadas. 
 
-Sua segunda instância gerenciada deve:
-- Ficar vazio. 
-- Ter uma sub-rede e um intervalo de IPS diferentes da instância gerenciada primária. 
+A segunda instância gerenciada precisa:
+- Estar vazia. 
+- Ter uma sub-rede e um intervalo de IP diferentes da instância gerenciada primária. 
 
 # <a name="portal"></a>[Portal](#tab/azure-portal) 
 
 Crie a instância gerenciada secundária usando o portal do Azure. 
 
-1. Selecione **SQL do Azure** no menu à esquerda do portal do Azure. Se o **SQL do Azure** não estiver na lista, selecione **todos os serviços**e, em seguida, digite `Azure SQL` na caixa de pesquisa. (Opcional) Selecione a estrela ao lado de **SQL do Azure** para marcá-lo como favorito e adicioná-lo como um item no menu de navegação à esquerda. 
+1. Selecione **SQL do Azure** no menu à esquerda do portal do Azure. Se **SQL do Azure** não estiver na lista, selecione **Todos os serviços** e digite `Azure SQL` na caixa de pesquisa. (Opcional) Selecione a estrela ao lado de **SQL do Azure** para marcá-lo como favorito e adicioná-lo como um item no menu de navegação à esquerda. 
 1. Selecione **+ Adicionar** para abrir a página **Selecionar opção de implantação do SQL**. Você pode exibir informações adicionais sobre os diferentes bancos de dados selecionando **Mostrar detalhes** no bloco **Bancos de dados**.
-1. Selecione **criar** no bloco **instâncias gerenciadas do SQL** . 
+1. Selecione **Criar** no bloco **Instâncias Gerenciadas de SQL**. 
 
-    ![Selecione o SQL Instância Gerenciada](./media/failover-group-add-instance-tutorial/select-managed-instance.png)
+    ![Selecionar Instância Gerenciada de SQL](./media/failover-group-add-instance-tutorial/select-managed-instance.png)
 
-1. Na guia **noções básicas** da página **criar instância gerenciada de SQL do Azure** , preencha os campos obrigatórios para configurar sua instância gerenciada secundária. 
+1. Na guia **Informações Básicas** da página **Criar Instância Gerenciada de SQL do Azure**, preencha os campos obrigatórios para configurar a instância gerenciada secundária. 
 
-   A tabela a seguir mostra os valores necessários para a instância gerenciada secundária:
+   A seguinte tabela mostra os valores necessários para a instância gerenciada secundária:
  
     | **Campo** | Valor |
     | --- | --- |
-    | **Assinatura** |  A assinatura na qual a instância gerenciada primária é. |
-    | **Grupo de recursos**| O grupo de recursos em que a instância gerenciada primária é. |
-    | **Nome do Instância Gerenciada do SQL** | O nome da sua nova instância gerenciada secundária, como `sql-mi-secondary` .  | 
-    | **Região**| O local da sua instância gerenciada secundária.  |
-    | **Logon de administrador do SQL Instância Gerenciada** | O logon que você deseja usar para a nova instância gerenciada secundária, como `azureuser` . |
+    | **Assinatura** |  A assinatura na qual a instância gerenciada primária está localizada. |
+    | **Grupo de recursos**| O grupo de recursos em que a instância gerenciada primária está localizada. |
+    | **Nome da Instância Gerenciada de SQL** | O nome da nova instância gerenciada secundária, como `sql-mi-secondary`.  | 
+    | **Região**| A localização da instância gerenciada secundária.  |
+    | **Logon de administrador da Instância Gerenciada de SQL** | O logon que você deseja usar para a nova instância gerenciada secundária, como `azureuser`. |
     | **Senha** | Uma senha complexa que será usada pelo logon de administrador para a nova instância gerenciada secundária.  |
     | &nbsp; | &nbsp; |
 
-1. Na guia **rede** , para a **rede virtual**, selecione a rede virtual que você criou para a instância gerenciada secundária na lista suspensa.
+1. Na guia **Rede**, em **Rede Virtual**, selecione a rede virtual que você criou para a instância gerenciada secundária na lista suspensa.
 
-   ![Rede de MI secundária](./media/failover-group-add-instance-tutorial/networking-settings-for-secondary-mi.png)
+   ![Rede da MI secundária](./media/failover-group-add-instance-tutorial/networking-settings-for-secondary-mi.png)
 
-1. Na guia **configurações adicionais** , para **replicação geográfica**, escolha **Sim** para _usar como failover secundário_. Selecione a instância gerenciada primária na lista suspensa. 
+1. Na guia **Configurações adicionais**, em **Replicação Geográfica**, escolha **Sim** para _Usar como secundário de failover_. Escolha a instância gerenciada primária na lista suspensa. 
     
-   Verifique se o agrupamento e o fuso horário correspondem aos da instância gerenciada primária. A instância gerenciada primária criada neste tutorial usou o padrão de `SQL_Latin1_General_CP1_CI_AS` agrupamento e o `(UTC) Coordinated Universal Time` fuso horário. 
+   Verifique se a ordenação e o fuso horário correspondem àqueles da instância gerenciada primária. A instância gerenciada primária criada neste tutorial usou o padrão de ordenação `SQL_Latin1_General_CP1_CI_AS` e o fuso horário `(UTC) Coordinated Universal Time`. 
 
-   ![Rede de instância gerenciada secundária](./media/failover-group-add-instance-tutorial/secondary-mi-failover.png)
+   ![Rede da instância gerenciada secundária](./media/failover-group-add-instance-tutorial/secondary-mi-failover.png)
 
-1. Selecione **examinar + criar** para examinar as configurações de sua instância gerenciada secundária. 
-1. Selecione **criar** para criar sua instância gerenciada secundária. 
+1. Selecione **Examinar + criar** para examinar as configurações da instância gerenciada secundária. 
+1. Selecione **Criar** para criar sua instância gerenciada secundária. 
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -736,52 +738,54 @@ Esta parte do tutorial usa os seguintes cmdlets do PowerShell:
 
 ## <a name="create-a-primary-gateway"></a>Criar um gateway primário 
 
-Para que duas instâncias gerenciadas participem de um grupo de failover, deve haver o ExpressRoute ou um gateway configurado entre as redes virtuais das duas instâncias gerenciadas para permitir a comunicação de rede. Se você optar por configurar o [ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md) em vez de conectar dois gateways de VPN, pule para a [etapa 7](#create-a-failover-group).  
+Para que duas instâncias gerenciadas participem de um grupo de failover, o ExpressRoute ou um gateway precisa estar configurado entre as redes virtuais das duas instâncias gerenciadas para permitir a comunicação de rede. Se você optar por configurar o [ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md) em vez de conectar dois gateways de VPN, vá para a [Etapa 7](#create-a-failover-group).  
 
-Este artigo fornece etapas para criar os dois gateways de VPN e conectá-los, mas você pode pular para criar o grupo de failover se tiver configurado o ExpressRoute em vez disso. 
+Este artigo fornece etapas para criar os dois gateways de VPN e conectá-los, mas você pode ignorá-las para criar o grupo de failover se tiver configurado o ExpressRoute. 
 
+> [!NOTE]
+> O SKU do gateway afeta o desempenho da taxa de transferência. Este tutorial implanta um gateway com o SKU mais básico (`HwGw1`). Implante um SKU mais alto (exemplo: `VpnGw3`) para obter uma taxa de transferência mais alta. Para todas as opções disponíveis, confira [SKUs de gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md#benchmark)
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Crie o gateway para a rede virtual da sua instância gerenciada primária usando o portal do Azure. 
+Crie o gateway para a rede virtual da instância gerenciada primária usando o portal do Azure. 
 
 
-1. Na [portal do Azure](https://portal.azure.com), vá para o grupo de recursos e selecione o recurso de **rede virtual** para sua instância gerenciada primária. 
-1. Selecione sub- **redes** em **configurações** e, em seguida, selecione para adicionar uma nova **sub-rede de gateway**. Deixe os valores padrão. 
+1. No [portal do Azure](https://portal.azure.com), procure o grupo de recursos e selecione o recurso **Rede virtual** da instância gerenciada primária. 
+1. Selecione **Sub-redes** em **Configurações** e escolha a opção para adicionar uma nova **Sub-rede de gateway**. Mantenha os valores padrão. 
 
-   ![Adicionar gateway para instância gerenciada primária](./media/failover-group-add-instance-tutorial/add-subnet-gateway-primary-vnet.png)
+   ![Adicionar um gateway à instância gerenciada primária](./media/failover-group-add-instance-tutorial/add-subnet-gateway-primary-vnet.png)
 
-1. Depois que o gateway de sub-rede for criado, selecione **criar um recurso** no painel de navegação esquerdo e digite `Virtual network gateway` na caixa de pesquisa. Selecione o recurso de **Gateway de rede virtual** publicado pela **Microsoft**. 
+1. Depois que o gateway de sub-rede for criado, selecione **Criar um recurso** no painel de navegação esquerdo e digite `Virtual network gateway` na caixa de pesquisa. Selecione o recurso **Gateway de rede virtual** publicado pela **Microsoft**. 
 
-   ![Criar um novo gateway de rede virtual](./media/failover-group-add-instance-tutorial/create-virtual-network-gateway.png)
+   ![Criar um gateway de rede virtual](./media/failover-group-add-instance-tutorial/create-virtual-network-gateway.png)
 
-1. Preencha os campos obrigatórios para configurar o gateway para sua instância gerenciada primária. 
+1. Preencha os campos obrigatórios para configurar o gateway da instância gerenciada primária. 
 
-   A tabela a seguir mostra os valores necessários para o gateway para a instância gerenciada primária:
+   A seguinte tabela mostra os valores necessários para o gateway da instância gerenciada primária:
  
     | **Campo** | Valor |
     | --- | --- |
-    | **Assinatura** |  A assinatura na qual a instância gerenciada primária é. |
-    | **Nome** | O nome do seu gateway de rede virtual, como `primary-mi-gateway` . | 
-    | **Região** | A região em que a instância gerenciada primária é. |
+    | **Assinatura** |  A assinatura na qual a instância gerenciada primária está localizada. |
+    | **Nome** | O nome do gateway de rede virtual, como `primary-mi-gateway`. | 
+    | **Região** | A região em que a instância gerenciada primária está localizada. |
     | **Tipo de gateway** | Selecione **VPN**. |
     | **Tipo de VPN** | Selecione **Baseado em rota**. |
-    | **SKU**| Mantenha o padrão de `VpnGw1` . |
-    | **Rede virtual**| Selecione a rede virtual que foi criada na seção 2, como `vnet-sql-mi-primary` . |
+    | **SKU**| Mantenha o padrão `VpnGw1`. |
+    | **Rede virtual**| Selecione a rede virtual criada na seção 2, como `vnet-sql-mi-primary`. |
     | **Endereço IP público**| Selecione **Criar**. |
-    | **Nome do endereço IP público**| Insira um nome para seu endereço IP, como `primary-gateway-IP` . |
+    | **Nome do endereço IP público**| Insira um nome para o endereço IP, como `primary-gateway-IP`. |
     | &nbsp; | &nbsp; |
 
-1. Deixe os outros valores como padrão e, em seguida, selecione **revisar + criar** para examinar as configurações do seu gateway de rede virtual.
+1. Mantenha os outros valores como padrão e selecione **Examinar + criar** para examinar as configurações do gateway de rede virtual.
 
    ![Configurações do gateway primário](./media/failover-group-add-instance-tutorial/settings-for-primary-gateway.png)
 
-1. Selecione **criar** para criar seu novo gateway de rede virtual. 
+1. Selecione **Criar** para criar o gateway de rede virtual. 
 
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Crie o gateway para a rede virtual da sua instância gerenciada primária usando o PowerShell. 
+Crie o gateway para a rede virtual da instância gerenciada primária usando o PowerShell. 
 
    ```powershell-interactive
    # Create the primary gateway
@@ -830,27 +834,27 @@ Esta parte do tutorial usa os seguintes cmdlets do PowerShell:
 ---
 
 
-## <a name="create-secondary-gateway"></a>Criar gateway secundário 
-Nesta etapa, crie o gateway para a rede virtual da sua instância gerenciada secundária usando o portal do Azure. 
+## <a name="create-secondary-gateway"></a>Criar um gateway secundário 
+Nesta etapa, crie o gateway para a rede virtual da instância gerenciada secundária usando o portal do Azure. 
 
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Usando o portal do Azure, repita as etapas na seção anterior para criar a sub-rede de rede virtual e o gateway para a instância gerenciada secundária. Preencha os campos obrigatórios para configurar o gateway para sua instância gerenciada secundária. 
+Usando o portal do Azure, repita as etapas da seção anterior para criar a sub-rede de rede virtual e o gateway da instância gerenciada secundária. Preencha os campos obrigatórios para configurar o gateway da instância gerenciada secundária. 
 
-   A tabela a seguir mostra os valores necessários para o gateway para a instância gerenciada secundária:
+   A seguinte tabela mostra os valores necessários para o gateway da instância gerenciada secundária:
 
    | **Campo** | Valor |
    | --- | --- |
-   | **Assinatura** |  A assinatura na qual a instância gerenciada secundária é. |
-   | **Nome** | O nome do seu gateway de rede virtual, como `secondary-mi-gateway` . | 
-   | **Região** | A região onde sua instância gerenciada secundária é. |
+   | **Assinatura** |  A assinatura na qual a instância gerenciada secundária está localizada. |
+   | **Nome** | O nome do gateway de rede virtual, como `secondary-mi-gateway`. | 
+   | **Região** | A região em que a instância gerenciada secundária está localizada. |
    | **Tipo de gateway** | Selecione **VPN**. |
    | **Tipo de VPN** | Selecione **Baseado em rota**. |
-   | **SKU**| Mantenha o padrão de `VpnGw1` . |
-   | **Rede virtual**| Selecione a rede virtual para a instância gerenciada secundária, como `vnet-sql-mi-secondary` . |
+   | **SKU**| Mantenha o padrão `VpnGw1`. |
+   | **Rede virtual**| Selecione a rede virtual para a instância gerenciada secundária, como `vnet-sql-mi-secondary`. |
    | **Endereço IP público**| Selecione **Criar**. |
-   | **Nome do endereço IP público**| Insira um nome para seu endereço IP, como `secondary-gateway-IP` . |
+   | **Nome do endereço IP público**| Insira um nome para o endereço IP, como `secondary-gateway-IP`. |
    | &nbsp; | &nbsp; |
 
    ![Configurações do gateway secundário](./media/failover-group-add-instance-tutorial/settings-for-secondary-gateway.png)
@@ -918,27 +922,27 @@ Nesta etapa, crie uma conexão bidirecional entre os dois gateways das duas rede
 Conecte os dois gateways usando o portal do Azure. 
 
 
-1. Selecione **criar um recurso** no [portal do Azure](https://portal.azure.com).
-1. Digite `connection` na caixa de pesquisa e pressione ENTER para pesquisar, que leva você para o recurso de **conexão** , publicado pela Microsoft.
-1. Selecione **criar** para criar sua conexão. 
-1. Na página **noções básicas** , selecione os valores a seguir e, em seguida, selecione **OK**. 
-    1. Selecione `VNet-to-VNet` para o **tipo de conexão**. 
+1. Selecione **Criar um recurso** no [portal do Azure](https://portal.azure.com).
+1. Digite `connection` na caixa de pesquisa e selecione ENTER para pesquisar, que levará você para o recurso **Conexão**, publicado pela Microsoft.
+1. Selecione **Criar** para criar a conexão. 
+1. Na página **Informações Básicas**, escolha os valores a seguir e selecione **OK**. 
+    1. Selecione `VNet-to-VNet` em **Tipo de conexão**. 
     1. Selecione sua assinatura na lista suspensa. 
-    1. Selecione o grupo de recursos para o SQL Instância Gerenciada na lista suspensa. 
-    1. Selecione o local da instância gerenciada primária na lista suspensa. 
-1. Na página **configurações** , selecione ou insira os seguintes valores e, em seguida, selecione **OK**:
-    1. Escolha o gateway de rede primário para o **primeiro gateway de rede virtual**, como `primaryGateway` .  
-    1. Escolha o gateway de rede secundário para o **segundo gateway de rede virtual**, como `secondaryGateway` . 
-    1. Marque a caixa de seleção ao lado de **estabelecer conectividade bidirecional**. 
-    1. Deixe o nome da conexão primária padrão ou renomeie-o para um valor de sua escolha. 
-    1. Forneça uma **chave compartilhada (PSK)** para a conexão, como `mi1m2psk` . 
+    1. Selecione o grupo de recursos para a Instância Gerenciada de SQL na lista suspensa. 
+    1. Selecione a localização da instância gerenciada primária na lista suspensa. 
+1. Na página **Configurações**, escolha ou insira os seguintes valores e selecione **OK**:
+    1. Escolha o gateway de rede primário para o **Primeiro gateway de rede virtual**, como `primaryGateway`.  
+    1. Escolha o gateway de rede secundário para o **Segundo gateway de rede virtual**, como `secondaryGateway`. 
+    1. Marque a caixa de seleção ao lado de **Estabelecer conectividade bidirecional**. 
+    1. Mantenha o nome da conexão primária padrão ou renomeie-a com um valor de sua escolha. 
+    1. Forneça uma **PSK (chave compartilhada)** para a conexão, como `mi1m2psk`. 
     1. Selecione **OK** para salvar as configurações. 
 
-    ![Criar conexão de gateway](./media/failover-group-add-instance-tutorial/create-gateway-connection.png)
+    ![Criar uma conexão de gateway](./media/failover-group-add-instance-tutorial/create-gateway-connection.png)
 
     
 
-1. Na página **revisar + criar** , examine as configurações da conexão bidirecional e, em seguida, selecione **OK** para criar a conexão. 
+1. Na página **Examinar + criar**, examine as configurações da conexão bidirecional e selecione **OK** para criar a conexão. 
 
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
@@ -979,17 +983,17 @@ Nesta etapa, você criará o grupo de failover e adicionará as duas instâncias
 Crie o grupo de failover usando o portal do Azure. 
 
 
-1. Selecione **SQL do Azure** no menu à esquerda da [portal do Azure](https://portal.azure.com). Se o **SQL do Azure** não estiver na lista, selecione **todos os serviços**e, em seguida, digite `Azure SQL` na caixa de pesquisa. (Opcional) Selecione a estrela ao lado de **SQL do Azure** para marcá-lo como favorito e adicioná-lo como um item no menu de navegação à esquerda. 
-1. Selecione a instância gerenciada primária que você criou na primeira seção, como `sql-mi-primary` . 
-1. Em **configurações**, navegue até **instância grupos de failover** e, em seguida, escolha **Adicionar grupo** para abrir a página **grupo de failover de instância** . 
+1. Selecione **SQL do Azure** no menu de navegação do [portal do Azure](https://portal.azure.com) à esquerda. Se **SQL do Azure** não estiver na lista, selecione **Todos os serviços** e digite `Azure SQL` na caixa de pesquisa. (Opcional) Selecione a estrela ao lado de **SQL do Azure** para marcá-lo como favorito e adicioná-lo como um item no menu de navegação à esquerda. 
+1. Selecione a instância gerenciada primária que você criou na primeira seção, como `sql-mi-primary`. 
+1. Em **Configurações**, procure **Grupos de Failover da Instância** e escolha **Adicionar grupo** para abrir a página **Grupo de Failover da Instância**. 
 
    ![Adicionar um grupo de failover](./media/failover-group-add-instance-tutorial/add-failover-group.png)
 
-1. Na página **grupo de failover de instância** , digite o nome do grupo de failover, como `failovergrouptutorial` . Em seguida, escolha a instância gerenciada secundária, como `sql-mi-secondary` , na lista suspensa. Selecione **criar** para criar seu grupo de failover. 
+1. Na página **Grupo de Failover da Instância**, digite o nome do grupo de failover, como `failovergrouptutorial`. Em seguida, escolha a instância gerenciada secundária, como `sql-mi-secondary`, na lista suspensa. Selecione **Criar** para criar o grupo de failover. 
 
    ![Criar grupo de failover](./media/failover-group-add-instance-tutorial/create-failover-group.png)
 
-1. Depois que a implantação do grupo de failover for concluída, você será levado de volta à página **grupo de failover** . 
+1. Após a conclusão da implantação do grupo de failover, você será levado novamente à página **Grupo de failover**. 
 
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
@@ -1015,28 +1019,28 @@ Esta parte do tutorial usa o seguinte cmdlet do PowerShell:
 
 
 ## <a name="test-failover"></a>Failover de Teste
-Nesta etapa, você falhará no grupo de failover para o servidor secundário e, em seguida, fará o failback usando o portal do Azure. 
+Nesta etapa, você fará failover do grupo de failover para o servidor secundário e fará failback usando o portal do Azure. 
 
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
-Failover de teste usando o portal do Azure. 
+Teste o failover usando o portal do Azure. 
 
 
-1. Navegue até sua instância gerenciada _secundária_ dentro do [portal do Azure](https://portal.azure.com) e selecione grupos de **failover de instância** em configurações. 
+1. Procure a instância gerenciada _secundária_ no [portal do Azure](https://portal.azure.com) e selecione **Grupos de Failover da Instância** em configurações. 
 1. Examine qual instância gerenciada é a primária e qual instância gerenciada é a secundária. 
-1. Selecione **failover** e, em seguida, selecione **Sim** no aviso sobre as sessões de TDS sendo desconectadas. 
+1. Selecione **Failover** e escolha **Sim** no aviso sobre a desconexão das sessões do TDS. 
 
    ![Fazer failover do grupo de failover](./media/failover-group-add-instance-tutorial/failover-mi-failover-group.png)
 
-1. Examine qual instância gerenciada é a primária e qual instância gerenciada é a secundária. Se o failover tiver sido bem-sucedido, as duas instâncias deverão ter funções alternadas. 
+1. Examine qual instância gerenciada é a primária e qual instância gerenciada é a secundária. Se o failover tiver sido bem-sucedido, as duas instâncias deverão ter alternado as funções. 
 
-   ![Instâncias gerenciadas têm funções alternadas após o failover](./media/failover-group-add-instance-tutorial/mi-switched-after-failover.png)
+   ![As instâncias gerenciadas têm funções alternadas após o failover](./media/failover-group-add-instance-tutorial/mi-switched-after-failover.png)
 
-1. Vá para a nova instância gerenciada _secundária_ e selecione **failover** novamente para falhar a instância primária de volta para a função primária. 
+1. Acesse a nova _instância gerenciada_ secundária e selecione **failover** novamente para fazer failback da instância primária na função primária. 
 
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
-Failover de teste usando o PowerShell. 
+Teste o failover usando o PowerShell. 
 
    ```powershell-interactive
     
@@ -1052,7 +1056,7 @@ Failover de teste usando o PowerShell.
    ```
 
 
-Reverta o grupo de failover para o servidor primário:
+Reverta o grupo de failover de volta para o servidor primário:
 
    ```powershell-interactive
    # Verify the current primary role
@@ -1086,14 +1090,14 @@ Limpe os recursos excluindo primeiro as instâncias gerenciadas, depois o cluste
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 1. Procure o grupo de recursos no [portal do Azure](https://portal.azure.com). 
-1. Selecione as instâncias gerenciadas e, em seguida, selecione **Excluir**. Digite `yes` na caixa de texto para confirmar se deseja excluir o recurso e, em seguida, selecione **Excluir**. Esse processo poderá levar algum tempo para ser concluído em segundo plano e, até que ele seja concluído, você não poderá excluir o *cluster virtual* nem os outros recursos dependentes. Monitore a exclusão na guia **atividade** para confirmar se a instância gerenciada foi excluída. 
+1. Selecione as instâncias gerenciadas e, em seguida, selecione **Excluir**. Digite `yes` na caixa de texto para confirmar se deseja excluir o recurso e, em seguida, selecione **Excluir**. Esse processo poderá levar algum tempo para ser concluído em segundo plano e, até que ele seja concluído, você não poderá excluir o *cluster virtual* nem os outros recursos dependentes. Monitore a exclusão na guia **Atividade** para confirmar se a instância gerenciada foi excluída. 
 1. Depois que a instância gerenciada for excluída, exclua o *cluster virtual* selecionando-o no grupo de recursos e, em seguida, escolhendo **Excluir**. Digite `yes` na caixa de texto para confirmar se deseja excluir o recurso e, em seguida, selecione **Excluir**. 
 1. Exclua todos os recursos restantes. Digite `yes` na caixa de texto para confirmar se deseja excluir o recurso e, em seguida, selecione **Excluir**. 
 1. Exclua o grupo de recursos selecionando **Excluir grupo de recursos**, digitando o nome do grupo de recursos, `myResourceGroup`, e, em seguida, selecionando **Excluir**. 
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Você precisará remover o grupo de recursos duas vezes. Remover o grupo de recursos na primeira vez removerá as instâncias gerenciadas e os clusters virtuais, mas falhará com a mensagem de erro `Remove-AzResourceGroup : Long running operation failed with status 'Conflict'` . Execute o comando Remove-AzResourceGroup uma segunda vez para remover todos os recursos residuais, bem como o grupo de recursos.
+Você precisará remover o grupo de recursos duas vezes. A remoção do grupo de recursos pela primeira vez removerá as instâncias gerenciadas e os clusters virtuais, mas, em seguida, falhará com a mensagem de erro `Remove-AzResourceGroup : Long running operation failed with status 'Conflict'`. Execute o comando Remove-AzResourceGroup uma segunda vez para remover todos os recursos residuais, bem como o grupo de recursos.
 
 ```powershell-interactive
 Remove-AzResourceGroup -ResourceGroupName $resourceGroupName
@@ -1139,7 +1143,7 @@ Este script usa os comandos a seguir. Cada comando na tabela redireciona para a 
 | [New-AzVirtualNetworkGatewayIpConfig](/powershell/module/az.network/new-azvirtualnetworkgatewayipconfig) | Cria uma configuração de IP para um gateway de rede virtual. |
 | [New-AzVirtualNetworkGateway](/powershell/module/az.network/new-azvirtualnetworkgateway) | Cria um gateway de rede virtual. |
 | [New-AzVirtualNetworkGatewayConnection](/powershell/module/az.network/new-azvirtualnetworkgatewayconnection) | Cria uma conexão entre os dois Gateways de Rede Virtual.   |
-| [New-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/new-azsqldatabaseinstancefailovergroup)| Cria um novo grupo de failover do SQL Instância Gerenciada.  |
+| [New-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/new-azsqldatabaseinstancefailovergroup)| Cria um grupo de failover da Instância Gerenciada de SQL.  |
 | [Get-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/get-azsqldatabaseinstancefailovergroup) | Obtém ou lista os grupos de failover da Instância Gerenciada de SQL.| 
 | [Switch-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/switch-azsqldatabaseinstancefailovergroup) | Executa um failover de um grupo de failover da Instância Gerenciada de SQL. | 
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Remove um grupo de recursos. | 
@@ -1155,14 +1159,14 @@ Não há nenhum script disponível para o portal do Azure.
 Neste tutorial, você configurou um grupo de failover entre duas instâncias gerenciadas. Você aprendeu a:
 
 > [!div class="checklist"]
-> - Crie uma instância gerenciada primária.
-> - Crie uma instância gerenciada secundária como parte de um [grupo de failover](../database/auto-failover-group-overview.md). 
-> - Failover de teste.
+> - Criar uma instância gerenciada primária.
+> - Criar uma instância gerenciada secundária como parte de um [grupo de failover](../database/auto-failover-group-overview.md). 
+> - Testar o failover.
 
-Avance para o próximo guia de início rápido sobre como se conectar ao SQL Instância Gerenciada e como restaurar um banco de dados para o SQL Instância Gerenciada: 
+Avance para o próximo guia de início rápido para saber como se conectar à Instância Gerenciada de SQL e restaurar um banco de dados nela: 
 
 > [!div class="nextstepaction"]
-> [Conectar-se ao SQL instância gerenciada](connect-vm-instance-configure.md) 
->  [Restaurar um banco de dados para o SQL instância gerenciada](restore-sample-database-quickstart.md)
+> [Conectar-se à Instância Gerenciada de SQL](connect-vm-instance-configure.md)
+> [Restaurar um banco de dados na Instância Gerenciada de SQL](restore-sample-database-quickstart.md)
 
 

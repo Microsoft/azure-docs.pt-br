@@ -1,22 +1,23 @@
 ---
 title: Conectar e consultar o SQL Synapse com o Visual Studio e o SSDT
-description: Use o Visual Studio para consultar o pool SQL usando o Azure Synapse Analytics.
+description: Use o Visual Studio para consultar o pool dedicado do SQL usando o Azure Synapse Analytics.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql
 ms.date: 04/15/2020
-ms.author: v-stazar
+ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 93c975bbbc69a43f1bd47bd4b1e7b857338ac1c0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ef8e2a3d1a6b78e8f2b6b9a900ed2485c1a4a5d7
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089236"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451599"
 ---
 # <a name="connect-to-synapse-sql-with-visual-studio-and-ssdt"></a>Conectar-se ao SQL do Synapse com o Visual Studio e o SSDT
+
 > [!div class="op_single_selector"]
 > * [Azure Data Studio](get-started-azure-data-studio.md)
 > * [Power BI](get-started-power-bi-professional.md)
@@ -26,19 +27,20 @@ ms.locfileid: "87089236"
 > 
 > 
 
-Use o Visual Studio para consultar o pool SQL usando o Azure Synapse Analytics. Esse método usa a extensão SSDT (SQL Server Data Tools) no Visual Studio 2019. 
+Use o Visual Studio para consultar o pool dedicado do SQL usando o Azure Synapse Analytics. Esse método usa a extensão SSDT (SQL Server Data Tools) no Visual Studio 2019. 
 
 > [!NOTE]
-> O SQL sob demanda (versão prévia) não tem suporte do SSDT.
+> O pool SQL sem servidor não tem suporte do SSDT.
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
 Para usar este tutorial, você precisa ter os seguintes componentes:
 
-* Um pool SQL existente. Se você não tiver um, consulte [Criar um pool de SQL](../sql-data-warehouse/create-data-warehouse-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) para concluir esse pré-requisito.
+* Um pool SQL dedicado existente. Se você não tiver um, consulte [criar um pool de SQL dedicado](../sql-data-warehouse/create-data-warehouse-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) para concluir este pré-requisito.
 * SSDT para Visual Studio. Se você tiver o Visual Studio, você provavelmente já tem esse componente. Para obter instruções e opções de instalação, consulte [Instalar o Visual Studio e o SSDT](../sql-data-warehouse/sql-data-warehouse-install-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
-* O nome de servidor SQL totalmente qualificado. Para encontrar o nome do servidor, consulte [Conectar-se ao pool de SQL](connect-overview.md).
+* O nome de servidor SQL totalmente qualificado. Para localizar esse nome de servidor, consulte [conectar-se a um pool SQL dedicado](connect-overview.md).
 
-## <a name="1-connect-to-sql-pool"></a>1. Conectar-se ao pool de SQL
+## <a name="1-connect-to-a-dedicated-sql-pool"></a>1. conectar-se a um pool SQL dedicado
 1. Abra o Visual Studio 2019.
 2. Abra o Pesquisador de Objetos do SQL Server selecionando **Exibir** no  > **Explorador de Objetos do SQL Server**.
    
@@ -79,5 +81,5 @@ Agora que uma conexão foi estabelecida com o banco de dados, você escreverá u
 
 ## <a name="next-steps"></a>Próximas etapas
 Agora que você pode se conectar e consultar, tente [visualizar os dados com o Power BI](get-started-power-bi-professional.md).
-Para configurar seu ambiente para a autenticação do Azure Active Directory, confira [Autenticar no pool de SQL](../sql-data-warehouse/sql-data-warehouse-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+Para configurar seu ambiente para Azure Active Directory autenticação, consulte [autenticar no pool SQL dedicado](../sql-data-warehouse/sql-data-warehouse-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
  

@@ -1,14 +1,14 @@
 ---
 title: Habilitar a virtualização aninhada em uma VM de modelo no Azure Lab Services | Microsoft Docs
-description: Saiba como criar uma VM de modelo com várias VMs dentro.  Em outras palavras, habilite a virtualização aninhada em uma VM de modelo no Azure Lab Services.
+description: Neste artigo, saiba como configurar a virtualização aninhada em um computador de modelo no Azure Lab Services.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: a2f045cbf7c107e7f5dbeff0d78bf5e8d9d8fba6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 319695088e967dc3156ecab5c1b9458e77fcc186
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445229"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91251467"
 ---
 # <a name="enable-nested-virtualization-on-a-template-virtual-machine-in-azure-lab-services"></a>Habilitar a virtualização aninhada em uma máquina virtual de modelo no Azure Lab Services
 

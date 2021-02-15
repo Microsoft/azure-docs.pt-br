@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 05/26/2020
 ms.author: allensu
 ms.openlocfilehash: efd6e6a93cd4ca79e6c4b6de69f8514e2d71b252
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84323307"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-match-conditions"></a>CDN do Azure nas condições de correspondência do mecanismo de regras da Verizon Premium
@@ -28,18 +28,18 @@ Por exemplo, você pode usar uma condição de correspondência para:
 
 ## <a name="match-conditions"></a><a name="top"></a>Condições de correspondência
 
-* [Sempre](#always)
+* [Always](#always)
 * [Dispositivo](#device)
 * [Localidade](#location)
 * [Origem](#origin)
 * [Solicitação](#request)
 * [URL](#url)
 
-### <a name="always"></a><a name="always"></a>Sempre
+### <a name="always"></a><a name="always"></a>Constante
 
 [A condição de correspondência sempre](https://docs.vdms.com/cdn/Content/HRE/M/Always.htm) é projetada para aplicar um conjunto padrão de recursos a todas as solicitações.
 
-### <a name="device"></a><a name="device"></a>Dispositivo
+### <a name="device"></a><a name="device"></a>Vice
 
 Essas condições de correspondência são projetadas para identificar solicitações baseadas no agente do usuário do cliente.
 
@@ -73,7 +73,7 @@ Essas condições de correspondência são projetadas para identificar solicita�
 
 **[Voltar ao início](#top)**
 
-### <a name="location"></a><a name="location"></a>Location
+### <a name="location"></a><a name="location"></a>Local
 
 Essas condições de correspondência são projetadas para identificar solicitações baseadas na localização do solicitante.
 

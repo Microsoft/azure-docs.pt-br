@@ -7,14 +7,14 @@ author: cherylmc
 Customer intent: As someone with a basic network background, I want to understand zone-redundant gateways.
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 12/05/2019
+ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: 3aed75c26880ae2c3e31b412496655e5225b2edc
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 2030469262baf406635fd170af384e154fec6ae6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88035443"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89401105"
 ---
 # <a name="about-zone-redundant-virtual-network-gateways-in-azure-availability-zones"></a>Sobre os gateways de rede virtual com redundância de zona em Zonas de Disponibilidade do Azure
 

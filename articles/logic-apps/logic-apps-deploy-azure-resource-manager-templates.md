@@ -6,19 +6,19 @@ ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: article
 ms.date: 08/25/2020
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 8c51095c9e33cd9e5f6da7e972e0cc596eec6478
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: 5f5db3fd88f04e7fe569cd675936445dcf730288
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855599"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97705329"
 ---
 # <a name="deploy-azure-resource-manager-templates-for-azure-logic-apps"></a>Implantar modelos do Azure Resource Manager para Aplicativos Lógicos do Azure
 
 Depois de criar um modelo de Azure Resource Manager para seu aplicativo lógico, você pode implantar o modelo das seguintes maneiras:
 
-* [Azure portal](#portal)
+* [Portal do Azure](#portal)
 * [Visual Studio](#visual-studio)
 * [PowerShell do Azure](#powershell)
 * [CLI do Azure](#cli)
@@ -75,13 +75,13 @@ Para saber mais, consulte esses tópicos:
 Para implantar em um *grupo de recursos específico do Azure*, use o seguinte comando:
 
 ```azurecli
-az group deployment create -g <Azure-resource-group-name> --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json
+az deployment group create -g <Azure-resource-group-name> --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json
 ```
 
 Para saber mais, consulte esses tópicos:
 
 * [Implantar recursos com modelos do Resource Manager e a CLI do Azure](../azure-resource-manager/templates/deploy-cli.md)
-* [`az group deployment create`](/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create)
+* [`az deployment group create`](/cli/azure/deployment/group#az_deployment_group_create)
 
 <a name="azure-pipelines"></a>
 

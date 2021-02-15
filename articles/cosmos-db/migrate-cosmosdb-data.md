@@ -7,14 +7,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/23/2019
-ms.openlocfilehash: 1e48b2ff6e469a5f792b64c20631e4bd64fb9fd7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b24ea79737c9e1f64abb7f62807352dbd9573695
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85263537"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98018064"
 ---
 # <a name="migrate-hundreds-of-terabytes-of-data-into-azure-cosmos-db"></a>Migrar centenas de terabytes de dados para o Azure Cosmos DB 
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 O Azure Cosmos DB pode armazenar terabytes de dados. Você pode executar uma migração de dados em larga escala para mover sua carga de trabalho de produção para o Azure Cosmos DB. Este artigo descreve os desafios envolvidos na movimentação de dados em grande escala para o Azure Cosmos DB e apresenta a ferramenta que ajuda a enfrentá-los e migra os dados para o Azure Cosmos DB. Nesse estudo de caso, o cliente usou a API do SQL do Cosmos DB.  
 
@@ -38,11 +39,11 @@ Muitas dessas limitações estão sendo corrigidas para ferramentas como o Azure
 
 ## <a name="custom-tool-with-bulk-executor-library"></a>Ferramenta personalizada com biblioteca de executor em massa 
 
-Os desafios descritos na seção acima podem ser resolvidos usando uma ferramenta personalizada que pode ser facilmente dimensionada em várias instâncias e é resiliente a falhas transitórias. Além disso, a ferramenta personalizada pode pausar e retomar a migração em vários pontos de verificação. O Azure Cosmos DB já fornece a [biblioteca de executores em massa](https://docs.microsoft.com/azure/cosmos-db/bulk-executor-overview) que incorpora alguns desses recursos. Por exemplo, a biblioteca de executores em massa já tem a funcionalidade para lidar com erros transitórios e pode expandir os threads em um único nó para consumir cerca de 500 K RUs por nó. A biblioteca de executores em massa também particiona o conjunto de fonte de origem em micro lotes que são operados de forma independente como uma forma de ponto de verificação.  
+Os desafios descritos na seção acima podem ser resolvidos usando uma ferramenta personalizada que pode ser facilmente dimensionada em várias instâncias e é resiliente a falhas transitórias. Além disso, a ferramenta personalizada pode pausar e retomar a migração em vários pontos de verificação. O Azure Cosmos DB já fornece a [biblioteca de executores em massa](./bulk-executor-overview.md) que incorpora alguns desses recursos. Por exemplo, a biblioteca de executores em massa já tem a funcionalidade para lidar com erros transitórios e pode expandir os threads em um único nó para consumir cerca de 500 K RUs por nó. A biblioteca de executores em massa também particiona o conjunto de fonte de origem em micro lotes que são operados de forma independente como uma forma de ponto de verificação.  
 
 A ferramenta personalizada usa a biblioteca de executores em massa e dá suporte à expansão em vários clientes e para rastrear erros durante o processo de ingestão. Para usar essa ferramenta, os dados de origem devem ser particionados em arquivos distintos no Azure Data Lake Storage (ADLS) para que os diferentes operadores de migração possam pegar cada arquivo e ingerir em Azure Cosmos DB. A ferramenta personalizada usa uma coleção separada, que armazena metadados sobre o progresso da migração para cada arquivo de origem individual no ADLS e rastreia os erros associados a eles.  
 
-A imagem a seguir descreve o processo de migração usando essa ferramenta personalizada. A ferramenta está em execução em um conjunto de máquinas virtuais, e cada máquina virtual consulta a coleção de rastreamento em Azure Cosmos DB para adquirir uma concessão em uma das partições de dados de origem. Quando isso for feito, a partição de dados de origem será lida pela ferramenta e ingerida no Azure Cosmos DB usando a biblioteca de executor em massa. Em seguida, a coleção de rastreamento é atualizada para registrar o progresso da ingestão de dados e todos os erros encontrados. Depois que uma partição de dados é processada, a ferramenta tenta consultar a próxima partição de origem disponível. Ele continua processando a próxima partição de origem até que todos os dados sejam migrados. O código-fonte da ferramenta está disponível [aqui](https://github.com/Azure-Samples/azure-cosmosdb-bulkingestion).  
+A imagem a seguir descreve o processo de migração usando essa ferramenta personalizada. A ferramenta está em execução em um conjunto de máquinas virtuais, e cada máquina virtual consulta a coleção de rastreamento em Azure Cosmos DB para adquirir uma concessão em uma das partições de dados de origem. Quando isso for feito, a partição de dados de origem será lida pela ferramenta e ingerida no Azure Cosmos DB usando a biblioteca de executor em massa. Em seguida, a coleção de rastreamento é atualizada para registrar o progresso da ingestão de dados e todos os erros encontrados. Depois que uma partição de dados é processada, a ferramenta tenta consultar a próxima partição de origem disponível. Ele continua processando a próxima partição de origem até que todos os dados sejam migrados. O código-fonte da ferramenta está disponível no repositório de [ingestão em Azure Cosmos DB em massa](https://github.com/Azure-Samples/azure-cosmosdb-bulkingestion) .  
 
  
 :::image type="content" source="./media/migrate-cosmosdb-data/migrationsetup.png" alt-text="Instalação da ferramenta de migração" border="false":::
@@ -142,14 +143,8 @@ Depois que os pré-requisitos forem concluídos, você poderá migrar dados com 
 
 Quando a migração for concluída, você poderá validar que a contagem de documentos em Azure Cosmos DB é igual à contagem de documentos no banco de dados de origem. Neste exemplo, o tamanho total em Azure Cosmos DB foi desativado para 65 terabytes. Após a migração, a indexação pode ser ativada seletivamente e o RUs pode ser reduzido para o nível exigido pelas operações da carga de trabalho.
 
-## <a name="contact-the-azure-cosmos-db-team"></a>Contate a equipe de Azure Cosmos DB
-Embora você possa seguir este guia para migrar com êxito grandes conjuntos de dados para Azure Cosmos DB, para migrações em larga escala, é recomendável que você acesse a equipe do Azure Cosmos DB produto para validar a modelagem de dados e uma revisão geral da arquitetura. Com base em seu conjunto de cargas de trabalho e carga, a equipe de produto também pode sugerir outras otimizações de desempenho e custo que podem ser aplicáveis a você. Para entrar em contato com a equipe de Azure Cosmos DB para obter assistência com migrações em larga escala, você pode abrir um tíquete de suporte no tipo de problema "consultoria geral" e "migrações de grande (TB +)", conforme mostrado abaixo.
-
-:::image type="content" source="./media/migrate-cosmosdb-data/supporttopic.png" alt-text="Tópico de suporte de migração":::
-
-
 ## <a name="next-steps"></a>Próximas etapas
 
 * Saiba mais experimentando os aplicativos de exemplo que consomem a biblioteca de executores em massa no [.net](bulk-executor-dot-net.md) e no [Java](bulk-executor-java.md). 
 * A biblioteca de executores em massa é integrada ao conector do Cosmos DB Spark, para saber mais, consulte o artigo [Azure Cosmos DB conector do Spark](spark-connector.md) .  
-* Entre em contato com a equipe de produto Azure Cosmos DB abrindo um tíquete de suporte no tipo de problema "consultoria geral" e no subtipo de problema "migrações grandes (TB +)" para obter ajuda adicional com migrações em larga escala. 
+* Entre em contato com a equipe de produto Azure Cosmos DB abrindo um tíquete de suporte no tipo de problema "consultoria geral" e no subtipo de problema "migrações grandes (TB +)" para obter ajuda adicional com migrações em larga escala.

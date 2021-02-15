@@ -15,14 +15,16 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5b6a02118aabce7a2f80c016584af1e9808a2df5
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 263bf1cd2a7e2a37a1c4fae172ce4f66b1e59b5f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021455"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89265970"
 ---
-# <a name="configuring-azure-media-services-telemetry-with-net"></a>Configurando a telemetria dos Serviços de Mídia do Azure com o .NET 
+# <a name="configuring-azure-media-services-telemetry-with-net"></a>Configurando a telemetria dos Serviços de Mídia do Azure com o .NET
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 Este artigo descreve as etapas gerais que podem ser seguidas ao configurar a telemetria de serviços de mídia do Azure (AMS) usando o SDK do .NET. 
 

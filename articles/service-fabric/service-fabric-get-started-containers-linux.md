@@ -4,12 +4,12 @@ description: Crie seu primeiro aplicativo de contêiner do Linux no Azure Servic
 ms.topic: conceptual
 ms.date: 1/4/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: 35e96f1039dc71427a1a3d2745245eff5d012aaf
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 0481cc2d36f7882bbd8eea9b984c3dc388de5dee
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87847526"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96534073"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Criar seu primeiro aplicativo de contêiner do Service Fabric no Linux
 > [!div class="op_single_selector"]
@@ -87,10 +87,17 @@ if __name__ == "__main__":
     app.run(host='0.0.0.0', port=80)
 ```
 
-## <a name="build-the-image"></a>Criar a imagem
-Execute o comando `docker build` para criar a imagem que executa o seu aplicativo web. Abra uma janela do PowerShell e navegue até *c:\temp\helloworldapp*. Execute o seguinte comando:
+## <a name="login-to-docker-and-build-the-image"></a>Faça logon no Docker e crie a imagem
 
-```bash
+Em seguida, criaremos a imagem que executa seu aplicativo Web. Ao obter imagens públicas do Docker (como `python:2.7-slim` em nosso Dockerfile), é uma prática recomendada autenticar com sua conta do Hub do Docker em vez de fazer uma solicitação de pull anônima.
+
+> [!NOTE]
+> Ao fazer solicitações de pull anônimas frequentes, você pode ver erros de Docker semelhantes `ERROR: toomanyrequests: Too Many Requests.` ou `You have reached your pull rate limit.` autenticados no Hub do Docker para evitar esses erros. Consulte [gerenciar conteúdo público com o registro de contêiner do Azure](../container-registry/buffer-gate-public-content.md) para obter mais informações.
+
+Abra uma janela do PowerShell e acesse o diretório que contém o Dockerfile. Em seguida, execute os comandos a seguir:
+
+```
+docker login
 docker build -t helloworldapp .
 ```
 
@@ -215,7 +222,7 @@ A partir da versão de atualização mais recente do v 6.4, você tem a opção 
 
 A instrução do **HEALTHCHECK** apontando para a verificação real que é executada para monitorar a integridade do contêiner deve estar presente no Dockerfile usado ao gerar a imagem de contêiner.
 
-![HealthCheckHealthy][1]
+![Captura de tela mostra detalhes do pacote de serviço implantado NodeServicePackage.][1]
 
 ![HealthCheckUnhealthyApp][2]
 
@@ -235,7 +242,7 @@ Você pode configurar o comportamento do **HEALTHCHECK** para cada contêiner es
     </Policies>
 </ServiceManifestImport>
 ```
-Por padrão, *IncludeDockerHealthStatusInSystemHealthReport* é definido como **true**, *RestartContainerOnUnhealthyDockerHealthStatus* é definido como **false**e *TreatContainerUnhealthyStatusAsError* é definido como **false**. 
+Por padrão, *IncludeDockerHealthStatusInSystemHealthReport* é definido como **true**, *RestartContainerOnUnhealthyDockerHealthStatus* é definido como **false** e *TreatContainerUnhealthyStatusAsError* é definido como **false**. 
 
 Se o *RestartContainerOnUnhealthyDockerHealthStatus* for definido como **true**, um contêiner relatando repetidamente um estado não íntegro será reiniciado (possivelmente em outros nós).
 
@@ -373,7 +380,7 @@ Aqui estão os manifestos de aplicativo e serviço completos usados neste artigo
 Para adicionar outro serviço de contêiner a um aplicativo já criado usando o yeoman, execute as seguintes etapas:
 
 1. Altere o diretório para a raiz do aplicativo existente. Por exemplo, `cd ~/YeomanSamples/MyApplication`, se `MyApplication` é o aplicativo criado pelo Yeoman.
-2. Executar `yo azuresfcontainer:AddService`
+2. Execute `yo azuresfcontainer:AddService`
 
 <a id="manually"></a>
 
@@ -413,7 +420,7 @@ Você pode configurar o cluster do Service Fabric para remover as imagens de con
           },
           {
                 "name": "ContainerImagesToSkip",
-                "value": "microsoft/windowsservercore|microsoft/nanoserver|microsoft/dotnet-frameworku|..."
+                "value": "mcr.microsoft.com/windows/servercore|mcr.microsoft.com/windows/nanoserver|mcr.microsoft.com/dotnet/framework/aspnet|..."
           }
           ...
           }

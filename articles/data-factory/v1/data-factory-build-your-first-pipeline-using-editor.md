@@ -3,20 +3,20 @@ title: Criar seu primeiro data factory (portal do Azure)
 description: Neste tutorial, crie um pipeline de exemplo do Azure Data Factory usando o Data Factory Editor no portal do Azure.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
-ms.openlocfilehash: 4b291dcc95e0beecb1fd9fbf038055d8a77c7b79
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 4e19991de20b130b878a230313d87ca09d31a84e
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85254966"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98556436"
 ---
 # <a name="tutorial-build-your-first-data-factory-by-using-the-azure-portal"></a>Tutorial: Criar seu primeiro data factory usando o portal do Azure
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ ms.locfileid: "85254966"
 > Este artigo se aplica à versão 1 do Azure Data Factory, que geralmente está disponível. Caso esteja usando a versão atual do serviço Data Factory, confira [Início Rápido: Criar um data factory usando o Data Factory](../quickstart-create-data-factory-dot-net.md).
 
 > [!WARNING]
-> O editor de JSON no portal do Azure para criação e implantação de pipelines do ADF v1 será DESATIVADO em 31 de julho de 2019. Após o dia 31 de julho de 2019, você poderá continuar usando [cmdlets do PowerShell para o ADF v1](https://docs.microsoft.com/powershell/module/az.datafactory/?view=azps-2.4.0&viewFallbackFrom=azps-2.3.2), o [SDK do .NET para o ADF v1](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.datafactories.models?view=azure-dotnet) e as [APIs REST do ADF v1](https://docs.microsoft.com/rest/api/datafactory/) para criar e implantar seus pipelines do ADF v1.
+> O editor de JSON no portal do Azure para criação e implantação de pipelines do ADF v1 será DESATIVADO em 31 de julho de 2019. Após o dia 31 de julho de 2019, você poderá continuar usando [cmdlets do PowerShell para o ADF v1](/powershell/module/az.datafactory/), o [SDK do .NET para o ADF v1](/dotnet/api/microsoft.azure.management.datafactories.models) e as [APIs REST do ADF v1](/rest/api/datafactory/) para criar e implantar seus pipelines do ADF v1.
 
 Neste artigo, você aprende a usar o [portal do Azure](https://portal.azure.com/) para criar seu primeiro data factory. Para fazer o tutorial usando outras ferramentas/SDKs, escolha uma das opções da lista suspensa. 
 
@@ -161,7 +161,7 @@ Nesta etapa, você vincula um cluster do HDInsight sob demanda ao seu data facto
 
      c. O cluster do HDInsight cria um contêiner padrão no armazenamento de blobs especificado na propriedade (**linkedServiceName**) do JSON. O HDInsight não exclui esse contêiner quando o cluster é excluído. Este comportamento ocorre por design. Com o serviço vinculado HDInsight sob demanda, um cluster do HDInsight é criado sempre que uma fatia é processada, a menos que haja um cluster ativo existente (**timeToLive**). O cluster será excluído automaticamente quando o processamento for concluído.
 
-     Quanto mais fatias forem processadas, mais contêineres você verá no armazenamento de blobs. Se você não precisa deles para solução de problemas dos trabalhos, convém excluí-los para reduzir o custo de armazenamento. Os nomes desses contêineres seguem um padrão: "adf**yourdatafactoryname**-**linkedservicename**-datetimestamp." Use ferramentas como o [Gerenciador de Armazenamento do Azure](https://storageexplorer.com/) para excluir contêineres do armazenamento de blobs.
+     Quanto mais fatias forem processadas, mais contêineres você verá no armazenamento de blobs. Se você não precisa deles para solução de problemas dos trabalhos, convém excluí-los para reduzir o custo de armazenamento. Os nomes desses contêineres seguem um padrão: "adf **yourdatafactoryname**-**linkedservicename**-datetimestamp." Use ferramentas como o [Gerenciador de Armazenamento do Azure](https://storageexplorer.com/) para excluir contêineres do armazenamento de blobs.
 
      Para obter mais informações, confira [Serviço vinculado do HDInsight sob demanda](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service).
 
@@ -171,7 +171,7 @@ Nesta etapa, você vincula um cluster do HDInsight sob demanda ao seu data facto
 
 1. Confirme que você vê **AzureStorageLinkedService** e **HDInsightOnDemandLinkedService** no modo de exibição de árvore à esquerda.
 
-    ![Modo de exibição de árvore com serviços vinculados](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-linked-services.png)
+    ![Captura de tela que mostra que AzureStorageLinkedService e HDInsightOnDemandLinkedService estão vinculados.](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-linked-services.png)
 
 ## <a name="create-datasets"></a>Criar conjuntos de dados
 Nesta etapa, você cria conjuntos de dados para representar dados de entrada e de saída para o processamento do Hive. Esses conjuntos de dados se referem ao AzureStorageLinkedService que você criou anteriormente neste tutorial. O serviço vinculado aponta para uma conta de armazenamento. Os conjuntos de dados especificam o contêiner, a pasta e o nome do arquivo no armazenamento que contém a entrada e a saída de dados.   
@@ -339,7 +339,7 @@ Nesta etapa, você cria seu primeiro pipeline com a atividade de Hive do HDInsig
 
    c. Confirme se você substituiu **storageaccountname** pelo nome da sua conta de armazenamento no JSON do pipeline.
 
-1. Clique em **Implantar** na barra de comandos para implantar o pipeline. Como os tempos de**início** e de **término** são definidos no passado e **isPaused** está definido como **false**, o pipeline (a atividade no pipeline) é imediatamente executado após a implantação.
+1. Clique em **Implantar** na barra de comandos para implantar o pipeline. Como os tempos de **início** e de **término** são definidos no passado e **isPaused** está definido como **false**, o pipeline (a atividade no pipeline) é imediatamente executado após a implantação.
 
 1. Confirme que você vê o pipeline no modo de exibição de árvore.
 

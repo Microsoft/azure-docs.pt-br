@@ -3,7 +3,7 @@ title: Problema ao configurar o provisionamento de usuário para um aplicativo d
 description: Como solucionar problemas comuns enfrentados ao configurar provisionamento do usuário para um aplicativo já listado na Galeria de aplicativos do Azure AD
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: troubleshooting
 ms.date: 09/03/2019
 ms.author: kenwith
 ms.reviewer: asteen
-ms.openlocfilehash: 306c3771c0392bbc97260a726e153cfd385cebcd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 651bc199a43881add7faa00a9d1cf78000de6944
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84782119"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99256265"
 ---
 # <a name="problem-configuring-user-provisioning-to-an-azure-ad-gallery-application"></a>Problema na configuração do provisionamento do usuário para um aplicativo de galeria do Azure AD
 
@@ -30,7 +30,7 @@ Depois que o serviço estiver configurado, a maioria das informações sobre a o
 
 -   **Provisionando logs (versão prévia)** – os [logs de provisionamento](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) registram todas as operações executadas pelo serviço de provisionamento, incluindo a consulta do Azure ad para usuários atribuídos que estão no escopo do provisionamento. O aplicativo de destino para a existência desses usuários, comparando os objetos de usuário entre o sistema de consulta. Em seguida, adicione, atualize ou desabilite a conta de usuário no sistema de destino com base na comparação. Você pode acessar os logs de provisionamento no portal do Azure selecionando **Azure Active Directory** &gt; **aplicativos empresariais** &gt; **logs de provisionamento (versão prévia)** na seção **atividade** .
 
--   **Status atual –** Um resumo da última execução de provisionamento para um determinado aplicativo pode ser visto na seção Azure Active Directory o ** &gt; &gt; \[ \] &gt; provisionamento de nome de aplicativo dos aplicativos empresariais** , na parte inferior da tela, nas configurações do serviço. A seção status atual mostra se um ciclo de provisionamento começou a provisionar contas de usuário. Você pode ver o progresso do ciclo, ver quantos usuários e grupos foram provisionados e ver quantas funções são criadas. Se houver erros, os detalhes podem ser encontrados no [logs de provisionamento (.. /Reports-Monitoring/Concept-Provisioning-logs.MD? contexto = Azure/Active-Directory/Manage-apps/contexto/Manage-apps-context).
+-   **Status atual –** Um resumo da última execução de provisionamento para um determinado aplicativo pode ser visto na seção Azure Active Directory o **&gt; &gt; \[ \] &gt; provisionamento de nome de aplicativo dos aplicativos empresariais** , na parte inferior da tela, nas configurações do serviço. A seção status atual mostra se um ciclo de provisionamento começou a provisionar contas de usuário. Você pode ver o progresso do ciclo, ver quantos usuários e grupos foram provisionados e ver quantas funções são criadas. Se houver erros, os detalhes podem ser encontrados no [logs de provisionamento (.. /Reports-Monitoring/Concept-Provisioning-logs.MD? contexto = Azure/Active-Directory/Manage-apps/contexto/Manage-apps-context).
 
 ## <a name="general-problem-areas-with-provisioning-to-consider"></a>Áreas de problemas gerais com o provisionamento a considerar
 

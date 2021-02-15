@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/09/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: c63160d7514dccb0d2a9c2879db6d3fd614e1a96
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 68ce927c05f7179cca0aa2833460b9550f0a82d2
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75646374"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96027504"
 ---
 > [!div class="op_single_selector"]
 > * [Azure portal](../articles/virtual-network/virtual-network-multiple-ip-addresses-portal.md)
@@ -27,6 +27,6 @@ Uma VM (máquina virtual) do Azure tem uma ou mais NICs (adaptadores de rede) co
 * Funcione como um dispositivo virtual de rede, como um firewall ou balanceador de carga.
 * A capacidade de adicionar qualquer um dos endereços IP privados para qualquer uma das NICs a um pool de back-end do Azure Load Balancer. No passado, somente o endereço IP primário para a NIC primária pode ser adicionado a um pool de back-end. Para saber mais sobre como balancear a carga de várias configurações de IP, leia o artigo [Balanceamento de carga de várias configurações de IP](../articles/load-balancer/load-balancer-multiple-ip.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-Todas as NICs anexadas a uma VM têm uma ou mais configurações IP associadas a elas. Cada configuração recebe um endereço IP privado estático ou dinâmico. Cada configuração também pode ter um recurso de endereço IP público associado a ele. Um recurso de endereço IP público tem um endereço IP público dinâmico ou estático atribuído a ele. Para saber mais sobre endereços IP no Azure, leia o artigo [Endereços IP no Azure](../articles/virtual-network/virtual-network-ip-addresses-overview-arm.md). 
+Todas as NICs anexadas a uma VM têm uma ou mais configurações IP associadas a elas. Cada configuração recebe um endereço IP privado estático ou dinâmico. Cada configuração também pode ter um recurso de endereço IP público associado a ele. Um recurso de endereço IP público tem um endereço IP público dinâmico ou estático atribuído a ele. Para saber mais sobre endereços IP no Azure, leia o artigo [Endereços IP no Azure](../articles/virtual-network/public-ip-addresses.md). 
 
 Há um limite de quantos endereços IP privados podem ser atribuídos a uma NIC. Há também um limite de quantos endereços IP públicos podem ser usados em uma assinatura do Azure. Leia o artigo [Limites de Azure](../articles/azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) para obter detalhes.

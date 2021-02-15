@@ -7,12 +7,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: df303801daba0509177e48565b3ddbe7674013e8
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 27594ff4d7673038e9de38c5969a615be60aeadf
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88689959"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844686"
 ---
 # <a name="create-an-additional-azure-subscription"></a>Criar uma assinatura adicional do Azure
 
@@ -30,7 +30,7 @@ Você precisa das seguintes permissões para criar assinaturas:
 |---------|---------|
 |EA (Enterprise Agreement) |  Função proprietário da conta no registro do Contrato Enterprise. Para obter mais informações, consulte [Entendendo as funções administrativas do Azure Enterprise Agreement no Azure](understand-ea-roles.md).    |
 |MCA (Contrato de Cliente da Microsoft) |  Função proprietário ou colaborador na seção da fatura, no perfil de cobrança ou na conta de cobrança. Ou a função criador de assinatura do Azure na seção da fatura.  Para obter mais informações, confira [Funções e tarefa da cobrança de assinatura](understand-mca-roles.md#subscription-billing-roles-and-tasks).    |
-|MPA (Contrato de Parceiro da Microsoft) |   Função Administrador Global e Agente Administrativo na organização do parceiro CSP. Para saber mais, confira [Partner Center – Atribuir funções e permissões de usuários](https://docs.microsoft.com/partner-center/permissions-overview).  O usuário precisa entrar no locatário do parceiro para criar assinaturas do Azure.   |
+|MPA (Contrato de Parceiro da Microsoft) |   Função Administrador Global e Agente Administrativo na organização do parceiro CSP. Para saber mais, confira [Partner Center – Atribuir funções e permissões de usuários](/partner-center/permissions-overview).  O usuário precisa entrar no locatário do parceiro para criar assinaturas do Azure.   |
 
 ## <a name="create-a-subscription-in-the-azure-portal"></a>Criar uma assinatura no portal do Azure
 
@@ -73,13 +73,17 @@ Você precisa das seguintes permissões para criar assinaturas:
 
 ## <a name="create-an-additional-azure-subscription-programmatically"></a>Criar uma assinatura adicional do Azure de forma programática
 
-Você também pode criar assinaturas adicionais programaticamente. Para obter mais informações, confira [Criar assinaturas do Azure de forma programática](../../azure-resource-manager/management/programmatically-create-subscription.md).
+Você também pode criar assinaturas adicionais programaticamente. Para obter mais informações, consulte:
+
+- [Criar assinaturas do EA de modo programático com a API mais recente](programmatically-create-subscription-enterprise-agreement.md)
+- [Criar assinaturas do MCA de modo programático com a API mais recente](programmatically-create-subscription-microsoft-customer-agreement.md)
+- [Criar assinaturas do MPA de modo programático com a API mais recente](Programmatically-create-subscription-microsoft-customer-agreement.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Adicionar ou alterar administradores de assinatura do Azure](add-change-subscription-administrator.md)
 - [Mover recursos para um novo grupo de recursos ou uma nova assinatura](../../azure-resource-manager/management/move-resource-group-and-subscription.md)
-- [Crie grupos de gerenciamento para organização e gerenciamento de recursos](../../governance/management-groups/create.md)
+- [Crie grupos de gerenciamento para organização e gerenciamento de recursos](../../governance/management-groups/create-management-group-portal.md)
 - [Cancelar sua assinatura do Azure](cancel-azure-subscription.md)
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Entre em contato conosco.

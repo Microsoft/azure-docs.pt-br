@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: tutorial
-ms.custom: mvc
+ms.custom: mvc, devx-track-csharp
 ms.date: 02/27/2020
-ms.openlocfilehash: 925759b63d1225c720ad439f15b82632a4921cbb
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: bd1715dc0a3767bc5826154616bbdc97c7b61dd3
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132323"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576356"
 ---
 # <a name="tutorial-automate-tasks-to-process-emails-by-using-azure-logic-apps-azure-functions-and-azure-storage"></a>Tutorial: Automatizar tarefas para processar emails usando os Aplicativos Lógicos do Azure, o Azure Functions e o Armazenamento do Azure
 
@@ -36,16 +36,18 @@ Quando terminar, o aplicativo lógico ficará parecido com este fluxo de trabalh
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/).
+* Uma conta e uma assinatura do Azure. Se você não tiver uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/).
 
 * Uma conta de email de qualquer provedor de email compatível com os Aplicativos Lógicos, como o Outlook do Office 365, o Outlook.com ou o Gmail. Para outros provedores, [revise a lista de conectores aqui](/connectors/).
 
-  Esso aplicativo lógico usa uma conta do Outlook do Office 365. Se você usar uma conta de email diferente, as etapas gerais serão as mesmas, mas a interface do usuário poderá parecer um pouco diferente.
+  Esse aplicativo lógico usa uma conta corporativa ou de estudante. Se você usar uma conta de email diferente, as etapas gerais serão as mesmas, mas a interface do usuário poderá parecer um pouco diferente.
 
   > [!IMPORTANT]
   > Se você quiser usar o conector do Gmail, somente as contas comerciais do G Suite poderão usar esse conector sem restrição nos aplicativos lógicos. Se você tiver uma conta de consumidor do Gmail, poderá usar esse conector somente com serviços específicos do Google aprovados ou poderá [criar um aplicativo cliente do Google para usar para autenticação com o conector do Gmail](/connectors/gmail/#authentication-and-bring-your-own-application). Para obter mais informações, confira [Políticas de privacidade e segurança de dados para os conectores do Google nos Aplicativos Lógicos do Azure](../connectors/connectors-google-data-security-privacy-policy.md).
 
 * Baixe e instale o [Gerenciador de Armazenamento do Microsoft Azure](https://storageexplorer.com/) gratuito. Essa ferramenta ajuda a verificar se o contêiner de armazenamento está configurado corretamente.
+
+* Se o seu aplicativo lógico precisar se comunicar por um firewall que limita o tráfego a endereços IP específicos, esse firewall precisará permitir o acesso *tanto* para os endereços IP de [entrada](logic-apps-limits-and-config.md#inbound) quanto para os de [saída](logic-apps-limits-and-config.md#outbound) usados pelo runtime ou serviço de Aplicativos Lógicos na região do Azure em que seu aplicativo lógico existe. Se o seu aplicativo lógico também usar [conectores gerenciados](../connectors/apis-list.md#managed-api-connectors), como o conector Outlook do Office 365 ou SQL, ou usar [conectores personalizados](/connectors/custom-connectors/), o firewall também precisará permitir o acesso para *todos* os [endereços IP de saída do conector gerenciado](logic-apps-limits-and-config.md#outbound) na região do Azure do seu aplicativo lógico.
 
 ## <a name="set-up-storage-to-save-attachments"></a>Configurar armazenamento para salvar anexos
 
@@ -86,7 +88,7 @@ Você pode salvar emails recebidos e anexos como blobs em um [contêiner de arma
 
       ![Copie e salve a chave e o nome da conta de armazenamento](./media/tutorial-process-email-attachments-workflow/copy-save-storage-name-key.png)
 
-   Para obter a chave de acesso da conta de armazenamento, você também pode usar o [Azure PowerShell](/powershell/module/az.storage/get-azstorageaccountkey) ou a [CLI do Azure](/cli/azure/storage/account/keys?view=azure-cli-latest.md#az-storage-account-keys-list).
+   Para obter a chave de acesso da conta de armazenamento, você também pode usar o [Azure PowerShell](/powershell/module/az.storage/get-azstorageaccountkey) ou a [CLI do Azure](/cli/azure/storage/account/keys).
 
 1. Crie um contêiner de armazenamento de blobs para os anexos de email.
 
@@ -102,7 +104,7 @@ Você pode salvar emails recebidos e anexos como blobs em um [contêiner de arma
 
       ![Contêiner de armazenamento concluído](./media/tutorial-process-email-attachments-workflow/created-storage-container.png)
 
-   Para criar um contêiner de armazenamento, você também pode usar o [Azure PowerShell](/powershell/module/az.storage/new-azstoragecontainer) ou a [CLI do Azure](/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create).
+   Para criar um contêiner de armazenamento, você também pode usar o [Azure PowerShell](/powershell/module/az.storage/new-azstoragecontainer) ou a [CLI do Azure](/cli/azure/storage/container#az-storage-container-create).
 
 Em seguida, conecte o Gerenciador de Armazenamento à conta de armazenamento.
 
@@ -160,7 +162,7 @@ Agora, use o snippet de código fornecido por estas etapas para criar uma funç�
 
    ![Aplicativo de funções criado](./media/tutorial-process-email-attachments-workflow/function-app-created.png)
 
-   Para criar um aplicativo de funções, você também pode usar a [CLI do Azure](../azure-functions/functions-create-first-azure-function-azure-cli.md) ou os [modelos do PowerShell e do Resource Manager](../azure-resource-manager/templates/deploy-powershell.md).
+   Para criar um aplicativo de funções, você também pode usar a [CLI do Azure](../azure-functions/create-first-function-cli-csharp.md) ou os [modelos do PowerShell e do Resource Manager](../azure-resource-manager/templates/deploy-powershell.md).
 
 1. Na lista **Aplicativos de funções**, expanda seu aplicativo de funções, se ele ainda não estiver expandido. No seu aplicativo de funções, selecione **Funções**. Na barra de ferramentas de funções, selecione **Nova função**.
 
@@ -323,7 +325,7 @@ Agora, adicione uma condição que seleciona somente emails com anexos.
 
    1. Na primeira linha em **E**, clique na caixa à esquerda. Na lista de conteúdo dinâmico exibida, selecione a propriedade **Tem Anexo**.
 
-      ![Condição da compilação](./media/tutorial-process-email-attachments-workflow/build-condition.png)
+      ![Captura de tela que mostra a propriedade "And" da condição e a seleção da propriedade "Has Attachment".](./media/tutorial-process-email-attachments-workflow/build-condition.png)
 
    1. Na caixa do meio, mantenha o operador **é igual a**.
 
@@ -389,7 +391,7 @@ Esta etapa adiciona a função do Azure criada anteriormente ao seu aplicativo l
 
    ![Dentro de "If true", adicionar ação](./media/tutorial-process-email-attachments-workflow/if-true-add-action.png)
 
-1. Na caixa de pesquisa, encontre "azure functions" e selecione esta ação: **Escolher uma função do Azure – Azure Functions**
+1. Na caixa de pesquisa, encontre "Azure Functions" e selecione esta ação: **Escolher uma função do Azure – Azure Functions**
 
    ![Selecionar ação para "Escolher uma função do Azure"](./media/tutorial-process-email-attachments-workflow/add-action-azure-function.png)
 
@@ -458,7 +460,7 @@ Em seguida, adicione uma ação que cria um blob em seu contêiner de armazename
 
    Após a conclusão, a ação será semelhante a este exemplo:
 
-   ![Ação "Criar blob" concluída](./media/tutorial-process-email-attachments-workflow/create-blob-for-email-body-done.png)
+   ![Captura de tela que mostra um exemplo de uma ação "Criar blob" concluída.](./media/tutorial-process-email-attachments-workflow/create-blob-for-email-body-done.png)
 
 1. Salve seu aplicativo lógico.
 

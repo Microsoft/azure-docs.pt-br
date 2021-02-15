@@ -9,17 +9,18 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/04/2020
+ms.date: 02/03/2020
 ms.author: radeltch
-ms.openlocfilehash: 6d61bd2c45cc1ba9cd9494750b793d7321288224
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: ad0f0e9bdc4398af150874d398968d1116578350
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87797739"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550684"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Configuração do Pacemaker no SUSE Linux Enterprise Server no Azure
 
@@ -419,7 +420,7 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
    </code></pre>
 
    >[!IMPORTANT]
-   > A versão instalada do limite do pacote **-agentes** deve ser pelo menos **4.4.0** para se beneficiar dos tempos de failover mais rápidos com o agente de isolamento do Azure, se um nó de cluster precisar ser degradedo. Recomendamos que você atualize o pacote, se estiver executando uma versão inferior.  
+   > A versão instalada do limite do pacote **-agentes** deve ser pelo menos **4.4.0**  para se beneficiar dos tempos de failover mais rápidos com o agente de isolamento do Azure, se um nó de cluster precisar ser degradedo. Recomendamos que você atualize o pacote, se estiver executando uma versão inferior.  
 
 
 1. **[A]** instalar o SDK do Python do Azure 
@@ -442,7 +443,7 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
    >Você pode verificar a extensão, executando SUSEConnect---List-Extensions.  
    >Para obter os tempos de failover mais rápidos com o agente de isolamento do Azure:
    > - no SLES 12 SP4 ou SLES 12 SP5, instale a versão **4.6.2** ou superior do pacote Python-Azure-MGMT-Compute  
-   > - no SLES 15, instale a versão **4.6.2** ou superior do pacote Python**3**-Azure-MGMT-Compute 
+   > - no SLES 15, instale a versão **4.6.2** ou superior do pacote Python **3**-Azure-MGMT-Compute 
 
 1. **[A]** Configurar a resolução de nome do host
 
@@ -636,12 +637,16 @@ Repita as etapas acima para o segundo nó do cluster.
 
 Depois de editar as permissões das máquinas virtuais, você pode configurar os dispositivos STONITH no cluster.
 
+> [!NOTE]
+> A opção ' pcmk_host_map ' só será necessária no comando se os nomes de host e os nomes de VM do Azure não forem idênticos. Especifique o mapeamento no formato **hostname: VM-Name**.
+> Consulte a seção em negrito no comando.
+
 <pre><code>sudo crm configure property stonith-enabled=true
 crm configure property concurrent-fencing=true
 # replace the bold string with your subscription ID, resource group, tenant ID, service principal ID and password
 sudo crm configure primitive rsc_st_azure stonith:fence_azure_arm \
   params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>" \
-  pcmk_monitor_retries=4 pcmk_action_limit=3 power_timeout=240 pcmk_reboot_timeout=900 \ 
+  pcmk_monitor_retries=4 pcmk_action_limit=3 power_timeout=240 pcmk_reboot_timeout=900 <b>pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name"</b> \
   op monitor interval=3600 timeout=120
 
 sudo crm configure property stonith-timeout=900

@@ -6,12 +6,12 @@ ms.author: cynthn
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 05/10/2019
-ms.openlocfilehash: 3826019a19aa744cb03737ed7f0c985f8063a1aa
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: a0ea9a0871dd57088473999b28553258ff210038
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815599"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628757"
 ---
 # <a name="availability-options-for-virtual-machines-in-azure"></a>Opções de disponibilidade para máquinas virtuais no Azure
 
@@ -51,17 +51,17 @@ Os conjuntos de dimensionamento de máquinas virtuais do Azure permitem criar e 
 
 **Domínios de falha e domínios de atualização**
 
-Os conjuntos de dimensionamento de máquinas virtuais simplificam o design para alta disponibilidade alinhando domínios de falha e domínios de atualização. Você precisará definir apenas a contagem de domínios de falha para o conjunto de dimensionamento. O número de domínios de falha disponíveis para os conjuntos de dimensionamento pode variar por região. Consulte [gerenciar a disponibilidade de máquinas virtuais no Azure](./windows/manage-availability.md).
+Os conjuntos de dimensionamento de máquinas virtuais simplificam o design para alta disponibilidade alinhando domínios de falha e domínios de atualização. Você precisará definir apenas a contagem de domínios de falha para o conjunto de dimensionamento. O número de domínios de falha disponíveis para os conjuntos de dimensionamento pode variar por região. Consulte [gerenciar a disponibilidade de máquinas virtuais no Azure](./manage-availability.md).
 
 
 ## <a name="availability-sets"></a>Conjuntos de disponibilidade
-Um conjunto de disponibilidade é um agrupamento lógico de VMs em um datacenter que permite que o Azure entenda como o seu aplicativo foi criado para fornecer redundância e disponibilidade. Recomenda-se que duas ou mais VMs sejam criadas dentro de um conjunto de disponibilidade para fornecer um aplicativo altamente disponível e para atender o [SLA de 99,95% do Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Não há nenhum custo para o conjunto de disponibilidade em si, você paga apenas por cada instância de VM que criar. Quando uma única VM está usando [SSDs premium do Azure](./disks-types.md#premium-ssd), o SLA do Azure se aplica a eventos de manutenção não planejada.
+Um conjunto de disponibilidade é um agrupamento lógico de VMs que permite que o Azure entenda como o seu aplicativo foi criado para fornecer redundância e disponibilidade. Recomenda-se que duas ou mais VMs sejam criadas dentro de um conjunto de disponibilidade para fornecer um aplicativo altamente disponível e para atender o [SLA de 99,95% do Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Não há nenhum custo para o conjunto de disponibilidade em si, você paga apenas por cada instância de VM que criar. Quando uma única VM está usando [SSDs premium do Azure](./disks-types.md#premium-ssd), o SLA do Azure se aplica a eventos de manutenção não planejada.
 
 Em um conjunto de disponibilidade, as VMs são distribuídas automaticamente entre esses domínios de falha. Essa abordagem limita o impacto de possíveis falhas de hardware físico, interrupções de rede ou interrupções de energia.
 
 Para VMs que usam [Azure Managed Disks](./faq-for-disks.md), as VMs são alinhadas aos domínios de falha de disco gerenciado quando usam um conjunto de disponibilidade gerenciada. Esse alinhamento garante que todos os discos gerenciados anexados a uma VM fiquem no mesmo domínio de falha de disco gerenciado. 
 
-Somente as VMs com discos gerenciados podem ser criadas em um conjunto de disponibilidade gerenciado. O número de domínios de falha de disco gerenciado varia por região - dois ou três domínios de falha de disco gerenciados por região. Você pode ler mais sobre esses gerenciados domínios de falha de disco para [VMs do Linux](./linux/manage-availability.md?#use-managed-disks-for-vms-in-an-availability-set) ou [VMs do Windows](./windows/manage-availability.md?#use-managed-disks-for-vms-in-an-availability-set).
+Somente as VMs com discos gerenciados podem ser criadas em um conjunto de disponibilidade gerenciado. O número de domínios de falha de disco gerenciado varia por região - dois ou três domínios de falha de disco gerenciados por região. Você pode ler mais sobre esses gerenciados domínios de falha de disco para [VMs do Linux](./manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) ou [VMs do Windows](./manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
 
 ![Conjunto de disponibilidade gerenciado](./media/virtual-machines-common-manage-availability/md-fd-updated.png)
 

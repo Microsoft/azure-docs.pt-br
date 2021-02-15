@@ -3,23 +3,22 @@ title: Tutorial para o uso das referências do Key Vault da Configuração de Ap
 description: Neste tutorial, você aprenderá a usar as referências do Key Vault da Configuração de Aplicativos do Azure em um aplicativo Java Spring Boot
 services: azure-app-configuration
 documentationcenter: ''
-author: lisaguthrie
-manager: maiye
+author: AlexandraKemperMS
 editor: ''
 ms.assetid: ''
 ms.service: azure-app-configuration
 ms.workload: tbd
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 12/16/2019
-ms.author: lcozzens
-ms.custom: mvc, devx-track-java
-ms.openlocfilehash: 5977aced8354694a631cce05bf6d6b913ea79118
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.date: 08/11/2020
+ms.author: alkemper
+ms.custom: mvc, devx-track-java, devx-track-azurecli
+ms.openlocfilehash: 04d9c7a343570349851a206fd69fdda822f790a4
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121588"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99981469"
 ---
 # <a name="tutorial-use-key-vault-references-in-a-java-spring-app"></a>Tutorial: Usar as referências do Key Vault em um aplicativo Java Spring
 
@@ -44,14 +43,14 @@ Neste tutorial, você aprenderá como:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Assinatura do Azure - [criar uma gratuitamente](https://azure.microsoft.com/free/)
-* Um [JDK (Java Development Kit)](https://docs.microsoft.com/java/azure/jdk) com suporte na versão 8.
+* Um [JDK (Java Development Kit)](/java/azure/jdk) com suporte na versão 8.
 * [Apache Maven](https://maven.apache.org/download.cgi), versão 3.0 ou posterior.
 
 ## <a name="create-a-vault"></a>Criar um cofre
 
 1. Selecione a opção **Criar um recurso** no canto superior esquerdo do portal do Azure:
 
-    ![Saída após a conclusão da criação do cofre de chaves](./media/quickstarts/search-services.png)
+    ![A captura de tela mostra a opção Criar um recurso no portal do Azure.](./media/quickstarts/search-services.png)
 1. Digite **Key Vault** na caixa de pesquisa.
 1. Na lista de resultados, selecione **Cofres de chaves** à esquerda.
 1. Em **Cofres de chaves**, selecione **Adicionar**.
@@ -65,7 +64,7 @@ Neste tutorial, você aprenderá como:
 
 Nesse ponto, sua conta do Azure é a única autorizada a acessar esse novo cofre.
 
-![Saída após a conclusão da criação do cofre de chaves](./media/quickstarts/vault-properties.png)
+![A captura de tela mostra o cofre de chaves.](./media/quickstarts/vault-properties.png)
 
 ## <a name="add-a-secret-to-key-vault"></a>Adicionar um segredo ao Key Vault
 
@@ -94,7 +93,7 @@ Para adicionar um segredo ao cofre, basta executar algumas etapas adicionais. Ne
 
 ## <a name="connect-to-key-vault"></a>Conectar-se ao Key Vault
 
-1. Neste tutorial, você usará uma entidade de serviço para autenticação no Key Vault. Para criar uma entidade de serviço, use o comando [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) da CLI do Azure:
+1. Neste tutorial, você usará uma entidade de serviço para autenticação no Key Vault. Para criar uma entidade de serviço, use o comando [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) da CLI do Azure:
 
     ```azurecli
     az ad sp create-for-rbac -n "http://mySP" --sdk-auth

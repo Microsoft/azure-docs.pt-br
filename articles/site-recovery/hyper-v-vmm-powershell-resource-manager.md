@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 1/10/2020
 ms.author: sutalasi
 ms.openlocfilehash: a4f7d330db9a4a0d9b435ebe7527e55e37c254e2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87086210"
 ---
 # <a name="set-up-disaster-recovery-of-hyper-v-vms-to-a-secondary-site-by-using-powershell-resource-manager"></a>Configurar a recuperação de desastre de VMs Hyper-V para um site secundário usando PowerShell (Resource Manager)
@@ -23,7 +23,7 @@ Este artigo mostra como automatizar as etapas para a replicação de VMs do Hype
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Examine os [componentes e a arquitetura do cenário](hyper-v-vmm-architecture.md).
-- Examine os [requisitos de suporte](./vmware-physical-secondary-support-matrix.md) para todos os componentes.
+- Examine os [requisitos de suporte](./vmware-physical-secondary-support-matrix.md) de todos os componentes.
 - Verifique se os servidores do Virtual Machine Manager e os hosts do Hyper-V estão em conformidade com [os requisitos de suporte](./vmware-physical-secondary-support-matrix.md).
 - Verifique se as VMs que você deseja replicar estão em conformidade com o [suporte ao computador replicado](./vmware-physical-secondary-support-matrix.md).
 

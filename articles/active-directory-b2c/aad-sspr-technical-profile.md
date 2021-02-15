@@ -12,10 +12,10 @@ ms.date: 06/23/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 3e6fcf956639d827a8654c5ee80e7cab8cadf930
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85383590"
 ---
 # <a name="define-an-azure-ad-sspr-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Definir um perfil técnico do Azure AD SSPR em uma política personalizada Azure AD B2C
@@ -103,7 +103,7 @@ O exemplo a seguir mostra um perfil técnico do Azure AD SSPR que é usado para 
 </TechnicalProfile>
 ```
 
-## <a name="verify-code"></a>Verificar código
+## <a name="verify-code"></a>Verificar o código
 
 O segundo modo desse perfil técnico é verificar um código. As opções a seguir podem ser configuradas para esse modo.
 

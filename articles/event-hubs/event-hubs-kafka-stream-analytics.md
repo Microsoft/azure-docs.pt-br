@@ -3,12 +3,12 @@ title: Hubs de Eventos do Azure – processar eventos do Apache Kafka
 description: 'Tutorial: Este artigo mostra como processar eventos do Kafka que são ingeridos por meio de hubs de eventos, usando Azure Stream Analytics'
 ms.topic: tutorial
 ms.date: 06/23/2020
-ms.openlocfilehash: 6dfca5b476dff1ee3367b5365c15869c8cff819b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 328537eebd05391fc4c8138395a9c10f0a5d072f
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87074913"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92319386"
 ---
 # <a name="tutorial-process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>Tutorial: Processar Apache Kafka para eventos dos Hubs de Eventos usando o Stream Analytics 
 Este artigo mostra como transmitir dados para os Hubs de Eventos e processá-los com o Azure Stream Analytics. Este artigo apresenta as seguintes etapas: 
@@ -25,7 +25,7 @@ Não é necessário alterar os clientes de protocolo ou executar seus próprios 
 Para concluir este início rápido, você precisa atender aos seguinte pré-requisitos:
 
 * Uma assinatura do Azure. Se você não tiver uma, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
-* [Java Development Kit (JDK) 1.7+](https://aka.ms/azure-jdks).
+* [Java Development Kit (JDK) 1.7+](/azure/developer/java/fundamentals/java-jdk-long-term-support).
 * [Realizar o download](https://maven.apache.org/download.cgi) e [instalar](https://maven.apache.org/install.html) um armazenamento binário Maven
 * [Git](https://www.git-scm.com/)
 * Uma **conta do Armazenamento do Azure**. Se não tiver, [crie uma](../storage/common/storage-account-create.md) antes de prosseguir. O trabalho do Stream Analytics neste passo a passo armazena os dados de saída em um armazenamento de Blobs do Azure. 
@@ -136,7 +136,7 @@ Depois configurar um trabalho do Stream Analytics para ler um fluxo de dados de 
 3. Substitua `[YourInputAlias]` pelo alias de entrada criado anteriormente. 
 4. Selecione **Salvar** na barra de ferramentas. 
 
-    ![Consulta](./media/event-hubs-kafka-stream-analytics/query.png)
+    ![Captura de tela que mostra a janela de consulta com valores para variáveis de entrada e saída.](./media/event-hubs-kafka-stream-analytics/query.png)
 
 
 ### <a name="run-the-stream-analytics-job"></a>Executar o trabalho do Stream Analytics
@@ -171,4 +171,4 @@ Depois configurar um trabalho do Stream Analytics para ler um fluxo de dados de 
 
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste artigo, você aprendeu como transmitir para os Hubs de Eventos sem alterar seus clientes de protocolo ou seus próprios clusters em execução. Para saber mais sobre os Hubs de Eventos para Apache Kafka, confira [guia do desenvolvedor do Apache Kafka para Hubs de Eventos do Azure](apache-kafka-developer-guide.md). 
+Neste artigo, você aprendeu como transmitir para os Hubs de Eventos sem alterar seus clientes de protocolo ou seus próprios clusters em execução. Para saber mais sobre os Hubs de Eventos para Apache Kafka, confira [guia do desenvolvedor do Apache Kafka para Hubs de Eventos do Azure](apache-kafka-developer-guide.md).

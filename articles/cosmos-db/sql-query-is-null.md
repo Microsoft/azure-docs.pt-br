@@ -3,18 +3,21 @@ title: IS_NULL na linguagem de consulta Azure Cosmos DB
 description: Saiba mais sobre a função do sistema SQL IS_NULL no Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 4dbf21c3052ddd5ebdd62925e65a854c47f59017
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 38aeb0ba5a20da50716013075f086437dc39c0fe
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78303827"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93338672"
 ---
 # <a name="is_null-azure-cosmos-db"></a>IS_NULL (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Retorna um valor booliano que indica se o tipo da expressão especificada é nulo.  
   
 ## <a name="syntax"></a>Sintaxe

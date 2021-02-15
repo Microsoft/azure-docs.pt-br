@@ -3,12 +3,12 @@ title: Melhorar o excellency operacional com o Advisor
 description: Use o Azure Advisor para otimizar e amadurecer sua excelência operacional para suas assinaturas do Azure.
 ms.topic: article
 ms.date: 10/24/2019
-ms.openlocfilehash: 036adb7e7d59bd78980c72b210ad41faea277d00
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: 63e88129a7418e82ea13429c33d8735e96616476
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88258486"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122612"
 ---
 # <a name="achieve-operational-excellence-by-using-azure-advisor"></a>Obtenha excelência operacional usando o Azure Advisor
 
@@ -38,7 +38,7 @@ Se o seu pool estiver usando um componente interno preterido, exclua e recrie o 
 
 ## <a name="repair-invalid-log-alert-rules"></a>Reparar regras de alerta de log inválidas
 
-O Azure Advisor detecta regras de alerta que têm consultas inválidas especificadas na seção condição. Você pode criar regras de alerta de log no Azure Monitor e usá-las para executar consultas de análise em intervalos especificados. Os resultados da consulta determinarão se um alerta precisar ser disparado. As consultas de análise podem se tornar inválidas ao longo do tempo devido a alterações em recursos, tabelas ou comandos referenciados. O Advisor recomenda que você corrija a consulta na regra de alerta para impedir que ela seja automaticamente desativada e garantir a cobertura de monitoramento de seus recursos no Azure. [Saiba mais sobre como solucionar problemas de regras de alerta.](https://aka.ms/aa_logalerts_queryrepair)
+O Azure Advisor detecta regras de alerta que têm consultas inválidas especificadas na seção condição. Você pode criar regras de alerta de log no Azure Monitor e usá-las para executar consultas de análise em intervalos especificados. Os resultados da consulta determinarão se um alerta precisar ser disparado. As consultas de análise podem se tornar inválidas ao longo do tempo devido a alterações em recursos, tabelas ou comandos referenciados. O Advisor recomenda que você corrija a consulta na regra de alerta para impedir que ela seja automaticamente desativada e garantir a cobertura de monitoramento de seus recursos no Azure. [Saiba mais sobre como solucionar problemas de regras de alerta.](../azure-monitor/platform/alerts-troubleshoot-log.md)
 
 ## <a name="use-azure-policy-recommendations"></a>Usar recomendações de Azure Policy
 
@@ -54,10 +54,16 @@ Azure Policy é um serviço no Azure que você pode usar para criar, atribuir e 
 
 **Habilitar *herdar uma marca de grupos de recursos*.** Essa política adiciona ou substitui a tag e o valor especificados do grupo de recursos pai quando qualquer recurso é criado ou atualizado. Você pode corrigir os recursos existentes disparando uma tarefa de correção.
 
-## <a name="no-validation-environment-enabled"></a>Nenhum ambiente de validação habilitado
-O supervisor do Azure determina que você não tem um ambiente de validação habilitado na assinatura atual. Ao criar seus pools de hosts, você selecionou \" não \" para \" o ambiente de validação \" na guia Propriedades. Ter pelo menos um pool de hosts com um ambiente de validação habilitado garante a continuidade de negócios por meio de implantações do serviço de área de trabalho virtual do Windows com a detecção antecipada de possíveis problemas [Saiba mais](https://docs.microsoft.com/azure/virtual-desktop/create-validation-host-pool)
+O Advisor recomenda algumas políticas individuais do Azure que ajudam os clientes a alcançar a excelência operacional adotando as práticas recomendadas. Se um cliente decidir atribuir uma política recomendada, suprimiremos a recomendação. Se o cliente decidir remover a política mais tarde, o Advisor continuará a suprimir a recomendação porque interpretamos sua remoção como um sinal forte do seguinte:
 
-## <a name="ensure-production-non-validation-environment-to-benefit-from-stable-functionality"></a>Garantir que o ambiente de produção (não validação) se beneficie da funcionalidade estável
+1.  O cliente removeu a política porque, apesar da recomendação do consultor, ele não se aplica ao seu caso de uso específico. 
+2.  O cliente está ciente e familiar com a política depois de atribuí-la e removê-la, e pode atribuí-la ou removê-la novamente, conforme necessário, sem orientação, se for mais tarde relevante para seu caso de uso. Se o cliente encontrá-lo em seu melhor interesse para atribuir a mesma política novamente, ele pode fazer isso em Azure Policy sem a necessidade de uma recomendação no Advisor. Observe que essa lógica se aplica especificamente à recomendação de política na categoria excelência operacional. Essas regras não se aplicam a recomendações de segurança.  
+
+
+## <a name="no-validation-environment-enabled"></a>Nenhum ambiente de validação habilitado
+O supervisor do Azure determina que você não tem um ambiente de validação habilitado na assinatura atual. Ao criar seus pools de hosts, você selecionou \" não \" para \" o ambiente de validação \" na guia Propriedades. Ter pelo menos um pool de hosts com um ambiente de validação habilitado garante a continuidade de negócios por meio de implantações do serviço de área de trabalho virtual do Windows com a detecção antecipada de possíveis problemas [Saiba mais](../virtual-desktop/create-validation-host-pool.md)
+
+## <a name="ensure-production-non-validation-environment-to-benefit-from-stable-functionality"></a>Assegure que o ambiente de produção (não validação) seja beneficiado pela funcionalidade estável
 O Azure Advisor detecta que muitos de seus pools de hosts têm o ambiente de validação habilitado. Para que os ambientes de validação atendam melhor às suas finalidades, você deve ter pelo menos um, mas nunca mais do que metade de seus pools de hosts no ambiente de validação. Tendo um equilíbrio íntegro entre seus pools de hosts com o ambiente de validação habilitado e aqueles com ele desabilitado, você poderá utilizar os benefícios das implantações de multiestágio que a área de trabalho virtual do Windows oferece com determinadas atualizações. Para corrigir esse problema, abra as propriedades do pool de hosts e selecione \" não ao \" lado da \" configuração do ambiente de validação \" .
 
 ## <a name="enable-traffic-analytics-to-view-insights-into-traffic-patterns-across-azure-resources"></a>Habilitar Análise de Tráfego para exibir informações sobre os padrões de tráfego nos recursos do Azure

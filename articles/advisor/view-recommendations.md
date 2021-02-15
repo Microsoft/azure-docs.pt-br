@@ -3,12 +3,12 @@ title: Exibir as recomendações do Azure Advisor que são importantes para voc�
 description: Exiba e filtre as recomendações do Azure Advisor para reduzir o ruído.
 ms.topic: article
 ms.date: 04/03/2019
-ms.openlocfilehash: 10d7b16864f8e449dc51e870c5ff9f20d8c0dc87
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 43bdaba7d774bba8857a6eb3ef296d7ab8e1c264
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75422368"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "90986858"
 ---
 # <a name="view-azure-advisor-recommendations-that-matter-to-you"></a>Exibir as recomendações do Azure Advisor que são importantes para você
 
@@ -34,7 +34,7 @@ Para fazer alterações no portal do Azure:
 
 As definições de configuração permanecem ativas até serem alteradas. Se você quiser limitar a exibição de recomendações para uma única exibição, poderá usar os menus suspensos fornecidos na parte superior do painel do Advisor. Na visão geral, alta disponibilidade, segurança, desempenho, custo e todos os painéis de recomendação, você pode selecionar as assinaturas, os tipos de recursos e o status de recomendação que deseja ver.
 
-   ![Menu de filtragem do Advisor](./media/view-recommendations/filtering.png)
+   :::image type="content" source="./media/view-recommendations/filtering.png" alt-text="Captura de tela do Azure Advisor mostrando opções de filtragem.":::
 
 ## <a name="dismissing-and-postponing-recommendations"></a>Ignorando e adiando recomendações
 
@@ -47,7 +47,7 @@ O Azure Advisor permite ignorar ou adiar as recomendações em um único recurso
 1. Selecione uma recomendação na lista de recomendações
 1. Selecione adiar ou ignorar para a recomendação que você deseja adiar ou ignorar
 
-     ![Menu de filtragem do Advisor](./media/view-recommendations/postpone-dismiss.png)
+     :::image type="content" source="./media/view-recommendations/postpone-dismiss.png" alt-text="Captura de tela do Azure Advisor mostrando opções de filtragem.":::
 
 ### <a name="postpone-or-dismiss-a-multiple-recommendations-in-the-azure-portal"></a>Adiar ou ignorar várias recomendações no portal do Azure
 
@@ -57,7 +57,7 @@ O Azure Advisor permite ignorar ou adiar as recomendações em um único recurso
 1. Marque a caixa de seleção à esquerda da linha para todos os recursos que você deseja adiar ou ignorar a recomendação.
 1. Selecione **adiar** ou **ignorar** na parte superior esquerda da tabela.
 
-     ![Menu de filtragem do Advisor](./media/view-recommendations/postpone-dismiss-multiple.png)
+     :::image type="content" source="./media/view-recommendations/postpone-dismiss-multiple.png" alt-text="Captura de tela do Azure Advisor mostrando opções de filtragem.":::
 
 > [!NOTE]
 > Você precisa de um colaborador ou permissão de proprietário para ignorar ou adiar uma recomendação. Saiba mais sobre as permissões no Azure Advisor.
@@ -73,7 +73,7 @@ Você pode ativar uma recomendação que foi adiada ou ignorada. Essa ação pod
 
 1. Altere o filtro no painel Visão geral para **adiado**. Em seguida, o Advisor exibe recomendações adiadas ou ignoradas.
 
-    ![Menu de filtragem do Advisor](./media/view-recommendations/activate-postponed.png)
+    :::image type="content" source="./media/view-recommendations/activate-postponed.png" alt-text="Captura de tela do Azure Advisor mostrando opções de filtragem.":::
 
 1. Selecione uma categoria para ver as recomendações **adiadas** e **ignoradas** .
 
@@ -81,7 +81,7 @@ Você pode ativar uma recomendação que foi adiada ou ignorada. Essa ação pod
 
 1. Clique em **Ativar** no final da linha. Depois de clicado, a recomendação está ativa para esse recurso e, portanto, removida dessa tabela. A recomendação agora está visível na guia **ativa** .
  
-     ![Menu de filtragem do Advisor](./media/view-recommendations/activate-postponed-2.png)
+     :::image type="content" source="./media/view-recommendations/activate-postponed-2.png" alt-text="Captura de tela do Azure Advisor mostrando opções de filtragem.":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -2,14 +2,14 @@
 author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/04/2020
+ms.date: 10/15/2020
 ms.author: trbye
-ms.openlocfilehash: a7e47ebd9695b57163aacdfa5faf3ad82fc7e12d
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: d50d4c554f47629f6e04adf957e02f8ffcc48fe5
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85805497"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96509232"
 ---
 Este guia mostra como instalar o [SDK de Fala](~/articles/cognitive-services/speech-service/speech-sdk.md) para Python. Se quiser apenas o nome do pacote para começar por conta própria, execute `pip install azure-cognitiveservices-speech`.
 
@@ -20,25 +20,20 @@ Este guia mostra como instalar o [SDK de Fala](~/articles/cognitive-services/spe
 - O pacote do SDK de Fala do Python está disponível para estes sistemas operacionais:
   - Windows: x64 e x86
   - Mac: macOS X versão 10.12 ou mais recente
-  - Linux: Ubuntu 16.04/18.04, Debian 9, RHEL 7/8, CentOS 7/8 em x64
+  - Linux; confira a lista de [distribuições do Linux e arquiteturas de destino compatíveis](~/articles/cognitive-services/speech-service/speech-sdk.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - As plataformas Linux com suporte deverão ter determinadas bibliotecas instaladas (`libssl` para suporte do protocolo SSL e `libasound2` para um suporte consistente). Consulte a distribuição abaixo para verificar os comandos necessários para instalar as versões corretas dessas bibliotecas.
 
-  - No Ubuntu, execute os seguintes comandos para instalar os pacotes necessários:
+  - No Ubuntu/Debian, execute os seguintes comandos para instalar os pacotes necessários:
 
     ```sh
     sudo apt-get update
     sudo apt-get install build-essential libssl1.0.0 libasound2
     ```
 
-  - No Debian 9, execute os seguintes comandos para instalar os pacotes necessários:
-
-    ```sh
-    sudo apt-get update
-    sudo apt-get install build-essential libssl1.0.2 libasound2
-    ```
+    Se o libssl 1.0.0 não estiver disponível, instale o libssl 1.0.x (em que x é maior que 0) ou o libssl 1.1.
 
   - No RHEL/CentOS, execute os seguintes comandos para instalar os pacotes necessários:
 
@@ -95,7 +90,7 @@ As atualizações do pacote Python do SDK de Fala são distribuídas por meio do
 Se uma nova versão estiver disponível, você poderá atualizar para ela com o comando `pip install --upgrade azure-cognitiveservices-speech`.
 Verifique qual versão está instalada no momento inspecionando a variável `azure.cognitiveservices.speech.__version__`.
 
-Se você tiver um problema ou se estiver faltando um recurso, confira [Support and help options](~/articles/cognitive-services/speech-service/support.md) (Opções de Ajuda e Suporte).
+Se você tiver um problema ou se estiver faltando um recurso, confira [Support and help options](../../../../cognitive-services-support-options.md?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext%253fcontext%253d%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) (Opções de Ajuda e Suporte).
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 01/23/2019
 ms.author: glenga
 ms.openlocfilehash: a02eadcacddc91ae9d17c50efd5e573718c41a21
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "67172594"
 ---
 * [Conceitos de gatilhos e de associações do Azure Functions](../articles/azure-functions/functions-triggers-bindings.md)  

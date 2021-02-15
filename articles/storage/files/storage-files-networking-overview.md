@@ -7,17 +7,17 @@ ms.topic: overview
 ms.date: 02/22/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 804e469a01be042b4c299fd608f11426e7274b72
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.openlocfilehash: 7164c3dd5c98544f3cb2944cb33cfd0e9703e36d
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84464803"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563328"
 ---
 # <a name="azure-files-networking-considerations"></a>Considerações de rede dos Arquivos do Azure 
 Você pode se conectar a um compartilhamento de arquivo do Azure de duas maneiras:
 
-- Acessando o compartilhamento diretamente por meio dos protocolos SMB ou FileREST. Esse padrão de acesso é empregado principalmente quando é possível eliminar o máximo possível de servidores locais.
+- Acessando o compartilhamento diretamente por meio do protocolo SMB, NFS (Network File System – versão prévia) ou protocolos FileREST. Esse padrão de acesso é empregado principalmente quando é possível eliminar o máximo possível de servidores locais.
 - Criando um cache do compartilhamento de arquivo do Azure em um servidor local (ou em uma VM do Azure) com a Sincronização de Arquivos do Azure e acessando os dados do compartilhamento de arquivo do servidor local com o protocolo de sua escolha (SMB, NFS, FTPS etc.) para seu caso de uso. Esse padrão de acesso é útil porque ele combina o melhor de desempenho local e escala de nuvem e serviços anexáveis sem servidor, como o Backup do Azure.
 
 Este artigo se concentra em como configurar a rede para quando seu caso de uso chamar o acesso ao compartilhamento de arquivo do Azure diretamente, em vez de usar a Sincronização de Arquivos do Azure. Para obter mais informações sobre considerações de rede para uma implantação de Sincronização de Arquivos do Azure, confira [Considerações de rede de Sincronização de Arquivos do Azure](storage-sync-files-networking-overview.md).
@@ -29,17 +29,17 @@ Recomendamos ler [Planejando uma implantação de Arquivos do Azure](storage-fil
 ## <a name="accessing-your-azure-file-shares"></a>Acessar seus compartilhamentos de arquivos do Azure
 Quando você implanta um compartilhamento de arquivo do Azure em uma conta de armazenamento, o compartilhamento de arquivo é imediatamente acessível por meio do ponto de extremidade público da conta de armazenamento. Isso significa que as solicitações autenticadas, como solicitações autorizadas pela identidade de logon de um usuário, podem se originar de maneira segura de dentro ou fora do Azure. 
 
-Em muitos ambientes de clientes, uma montagem inicial do compartilhamento de arquivo do Azure em sua estação de trabalho local falhará, mesmo que as montagens de VMs do Azure tenham tido êxito. O motivo disso é que muitas organizações e ISPs (provedores de serviços de Internet) bloqueiam a porta que o SMB usa para se comunicar, a porta 445. Essa prática se origina de diretrizes de segurança sobre versões herdadas e preteridas do protocolo SMB. Embora o SMB 3.0 seja um protocolo seguro para a Internet, versões mais antigas do SMB, principalmente o SMB 1.0, não são. Os compartilhamentos de arquivo do Azure só podem ser acessados externamente por meio do SMB 3.0 e do protocolo FileREST (que também é um protocolo seguro para a Internet) por meio do ponto de extremidade público.
+Em muitos ambientes de clientes, uma montagem inicial do compartilhamento de arquivo do Azure em sua estação de trabalho local falhará, mesmo que as montagens de VMs do Azure tenham tido êxito. O motivo disso é que muitas organizações e ISPs (provedores de serviços de Internet) bloqueiam a porta que o SMB usa para se comunicar, a porta 445. Os compartilhamentos NFS não têm esse problema. Essa prática se origina de diretrizes de segurança sobre versões herdadas e preteridas do protocolo SMB. Embora o SMB 3.0 seja um protocolo seguro para a Internet, versões mais antigas do SMB, principalmente o SMB 1.0, não são. Os compartilhamentos de arquivo do Azure só podem ser acessados externamente por meio do SMB 3.0 e do protocolo FileREST (que também é um protocolo seguro para a Internet) por meio do ponto de extremidade público.
 
-Como a maneira mais fácil de acessar o compartilhamento de arquivo do Azure local é abrir sua rede local na porta 445, a Microsoft recomenda as seguintes etapas para remover o SMB 1.0 do seu ambiente:
+Como a maneira mais fácil de acessar o compartilhamento de arquivo SMB do Azure local é abrir sua rede local na porta 445, a Microsoft recomenda as seguintes etapas para remover o SMB 1.0 do seu ambiente:
 
 1. Verifique se o SMB 1.0 foi removido ou desabilitado nos dispositivos de sua organização. Todas as versões atualmente compatíveis com o Windows e o Windows Server dão suporte à remoção ou à desabilitação do SMB 1.0 e, desde o lançamento do Windows 10, versão 1709, não há instalação do SMB 1.0 no Windows por padrão. Para saber mais sobre como desabilitar o SMB 1.0, consulte nossas páginas específicas do sistema operacional:
     - [Como proteger o Windows/Windows Server](storage-how-to-use-files-windows.md#securing-windowswindows-server)
     - [Como proteger o Linux](storage-how-to-use-files-linux.md#securing-linux)
-2. Certifique-se de que nenhum produto em sua organização exija o SMB 1.0 e remova aqueles que o fazem. Mantemos um [Centro de roteamento de produtos do SMB1](https://aka.ms/stillneedssmb1), que contém todos os produtos da Microsoft e de terceiros que exigem o SMB 1.0. 
-3. (Opcional) Use um firewall de terceiros com a rede local de sua organização para impedir o tráfego do SMB 1.0 de sair de seu limite organizacional.
+1. Certifique-se de que nenhum produto em sua organização exija o SMB 1.0 e remova aqueles que o fazem. Mantemos um [Centro de roteamento de produtos do SMB1](https://aka.ms/stillneedssmb1), que contém todos os produtos da Microsoft e de terceiros que exigem o SMB 1.0. 
+1. (Opcional) Use um firewall de terceiros com a rede local de sua organização para impedir o tráfego do SMB 1.0 de sair de seu limite organizacional.
 
-Se a organização exigir que a porta 445 seja bloqueada de acordo com a política ou o regulamento ou sua organização exigir que o tráfego para o Azure siga um caminho determinístico, você poderá usar o Gateway de VPN do Azure ou o ExpressRoute para criar um túnel de tráfego para seus compartilhamentos de arquivo do Azure.
+Se a organização exigir que a porta 445 seja bloqueada de acordo com a política ou o regulamento ou sua organização exigir que o tráfego para o Azure siga um caminho determinístico, você poderá usar o Gateway de VPN do Azure ou o ExpressRoute para criar um túnel de tráfego para seus compartilhamentos de arquivo do Azure. Os compartilhamentos NFS não exigem nada disso, pois não precisam da porta 445.
 
 > [!Important]  
 > Mesmo se você decidir usar um método alternativo para acessar seus compartilhamentos de arquivo do Azure, o Microsoft ainda recomendará remover o SMB 1.0 do seu ambiente.
@@ -47,9 +47,9 @@ Se a organização exigir que a porta 445 seja bloqueada de acordo com a políti
 ### <a name="tunneling-traffic-over-a-virtual-private-network-or-expressroute"></a>Criação de um túnel de tráfego por uma rede privada virtual ou ExpressRoute
 Quando você estabelecer um túnel de rede entre a rede local e o Azure, você emparelhará sua rede local com uma ou mais redes virtuais no Azure. Uma [rede virtual](../../virtual-network/virtual-networks-overview.md), ou VNet, é semelhante a uma rede tradicional que você operaria no local. Como uma conta de armazenamento do Azure ou uma VM do Azure, uma VNet é um recurso do Azure que é implantado em um grupo de recursos. 
 
-Os Arquivos do Azure dão suporte aos seguintes mecanismos para criar túnel de tráfego entre as estações de trabalho e servidores locais e o Azure:
+Os Arquivos do Azure dão suporte aos seguintes mecanismos para criar túnel de tráfego entre as estações de trabalho e servidores locais e os compartilhamentos de arquivo SMB/NFS do Azure:
 
-- [Gateway de VPN do Azure](../../vpn-gateway/vpn-gateway-about-vpngateways.md): Um gateway de VPN é um tipo específico de gateway de rede virtual que é usado para enviar tráfego criptografado entre uma rede virtual do Azure e uma localização alternativa (como localmente) na Internet. Um Gateway de VPN do Azure é um recurso do Azure que pode ser implantado em um grupo de recursos junto com uma conta de armazenamento ou outros recursos do Azure. Os gateways de VPN expõem dois tipos diferentes de conexões:
+- Um gateway de VPN é um tipo específico de gateway de rede virtual que é usado para enviar tráfego criptografado entre uma rede virtual do Azure e uma localização alternativa (como localmente) na Internet. Um Gateway de VPN do Azure é um recurso do Azure que pode ser implantado em um grupo de recursos junto com uma conta de armazenamento ou outros recursos do Azure. Os gateways de VPN expõem dois tipos diferentes de conexões:
     - Conexões de gateway de [VPN P2S (ponto a site)](../../vpn-gateway/point-to-site-about.md), que são conexões VPN entre o Azure e um cliente individual. Essa solução é útil principalmente para dispositivos que não fazem parte da rede local de sua organização, como telecomutadores que desejam poder montar o compartilhamento de arquivo do Azure de casa, de uma cafeteria ou de um hotel em trânsito. Para usar uma conexão VPN P2S com os Arquivos do Azure, será preciso configurar uma conexão VPN P2S para cada cliente que desejar se conectar. Para simplificar a implantação de uma conexão VPN P2S, confira [Configurar uma VPN P2S (Ponto a Site) no Windows para uso com os Arquivos do Azure](storage-files-configure-p2s-vpn-windows.md) e [Configurar uma VPN P2S (Ponto a Site) no Linux para uso com os Arquivos do Azure](storage-files-configure-p2s-vpn-linux.md).
     - [VPN S2S (site a site)](../../vpn-gateway/design.md#s2smulti), que são conexões VPN entre o Azure e a rede de sua organização. Uma conexão VPN S2S permite que você configure uma conexão VPN uma vez, para um servidor VPN ou dispositivo hospedado na rede de sua organização, em vez de fazer isso para cada dispositivo cliente que precisar acessar o compartilhamento de arquivo do Azure. Para simplificar a implantação de uma conexão VPN S2S, confira [Configurar uma VPN S2S (Site a Site) para uso com os Arquivos do Azure](storage-files-configure-s2s-vpn.md).
 - [ExpressRoute](../../expressroute/expressroute-introduction.md), que permite que você crie uma rota definida entre o Azure e sua rede local que não atravesse a Internet. Como o ExpressRoute fornece um caminho dedicado entre o datacenter local e o Azure, ele pode ser útil quando o desempenho da rede é importante. O ExpressRoute também é uma boa opção quando os requisitos regulatórios ou de política de sua organização exigem um caminho determinístico para seus recursos na nuvem.
@@ -139,9 +139,16 @@ Há duas abordagens para a restrição do acesso a uma conta de armazenamento a 
 - Crie um ou mais pontos de extremidade privados para a conta de armazenamento e restrinja todo o acesso ao ponto de extremidade público. Com isso, apenas o tráfego proveniente de dentro das redes virtuais desejadas poderá acessar os compartilhamentos de arquivo do Azure dentro da conta de armazenamento.
 - Restrinja o ponto de extremidade público a uma ou mais redes virtuais. Isso funciona usando uma funcionalidade da rede virtual denominada *pontos de extremidade de serviço*. Quando você restringir o tráfego a uma conta de armazenamento por meio de um ponto de extremidade de serviço, você ainda acessará a conta de armazenamento por meio do endereço IP público.
 
+> [!NOTE]
+> Os compartilhamentos NFS não podem acessar o ponto de extremidade público da conta de armazenamento por meio do endereço IP público; eles só podem acessar o ponto de extremidade público da conta de armazenamento usando redes virtuais. Os compartilhamentos NFS também podem acessar a conta de armazenamento usando pontos de extremidade privados.
+
 Para saber mais sobre como configurar o firewall da conta de armazenamento, confira [configurar firewalls de armazenamento e redes virtuais do Azure](../common/storage-network-security.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
 ## <a name="encryption-in-transit"></a>Criptografia em trânsito
+
+> [!IMPORTANT]
+> Esta seção aborda os detalhes de criptografia em trânsito para compartilhamentos SMB. Para obter detalhes sobre a criptografia em trânsito com compartilhamentos NFS, confira [Segurança](storage-files-compare-protocols.md#security).
+
 Por padrão, todas as contas de armazenamento do Azure têm criptografia em trânsito habilitada. Isso significa que quando você montar um compartilhamento de arquivo via SMB ou acessá-lo por meio do protocolo FileREST (por exemplo, por meio do portal do Azure, do PowerShell/CLI ou de SDKs do Azure), os Arquivos do Azure só permitirão a conexão se for feita com o SMB 3.0 e com criptografia ou HTTPS. Os clientes que não são compatíveis com SMB 3.0 ou os clientes que são compatíveis com SMB 3.0, mas não com a criptografia SMB, não poderão montar o compartilhamento de arquivo do Azure se a criptografia em trânsito estiver habilitada. Para obter mais informações sobre quais sistemas operacionais são compatíveis com o SMB 3.0 com criptografia, consulte nossa documentação detalhada para [Windows](storage-how-to-use-files-windows.md), [macOS](storage-how-to-use-files-mac.md) e [Linux](storage-how-to-use-files-linux.md). Todas as versões atuais do PowerShell, da CLI e dos SDKs são compatíveis com HTTPS.  
 
 Você pode desabilitar a criptografia em trânsito para uma conta de armazenamento do Azure. Quando a criptografia estiver desabilitada, os Arquivos do Azure também permitirão o SMB 2.1, o SMB 3.0 sem criptografia e as chamadas à API FileREST não criptografadas sobre HTTP. O principal motivo para desabilitar a criptografia em trânsito é dar suporte a um aplicativo herdado que deve ser executado em um sistema operacional mais antigo, como o Windows Server 2008 R2 ou a distribuição mais antiga do Linux. Os Arquivos do Azure só permitem conexões SMB 2.1 na mesma região do Azure que o compartilhamento de arquivo do Azure. Um cliente SMB 2.1 fora da região do Azure do compartilhamento de arquivo do Azure, como local ou em uma região diferente do Azure, não será capaz de acessar o compartilhamento de arquivo.

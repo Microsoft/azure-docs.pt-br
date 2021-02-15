@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: miradic
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f57e5079543a3112b4fa59f26ba0ae27c24b79a2
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 060bb9dcdd504846c76ab4c782b2857fdddfa394
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89005506"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91354795"
 ---
 # <a name="introduction-to-auto-scaling"></a>Introdução ao dimensionamento automático
 O dimensionamento automático é uma funcionalidade adicional do Service Fabric para dimensionar dinamicamente seus serviços com base na carga que os serviços estão relatando ou com base no uso dos recursos. O dimensionamento automático fornece excelente elasticidade e permite o provisionamento de instâncias ou partições adicionais do seu serviço sob demanda. Todo o processo de dimensionamento automático é automatizado e transparente e, depois que você configurar as políticas em um serviço, não é necessário dimensionar as operações de dimensionamento manuais no nível do serviço. O dimensionamento automático pode ser ativado no momento da criação de serviço, ou a qualquer momento, atualizando o serviço.
@@ -51,7 +51,7 @@ O único mecanismo que pode ser usado com esse gatilho é PartitionInstanceCount
 * _Número máximo de instâncias_ define o limite superior para o dimensionamento. Se o número de instâncias da partição atingir esse limite, o serviço não será escalado horizontalmente, independentemente da carga. É possível omitir esse limite especificando o valor de -1 e, nesse caso, o serviço será escalado horizontalmente tanto quanto possível (o limite é o número de nós que estão disponíveis no cluster).
 * _Número mínimo de instâncias_ define o limite inferior para escala. Se o número de instâncias da partição atingir esse limite, o serviço não será reduzido horizontalmente, independentemente da carga.
 
-## <a name="setting-auto-scaling-policy"></a>Configuração de política de escala automática
+## <a name="setting-auto-scaling-policy-for-instance-based-scaling"></a>Definindo a política de dimensionamento automático para dimensionamento baseado em instância
 
 ### <a name="using-application-manifest"></a>Usando o manifesto do aplicativo
 ``` xml
@@ -133,7 +133,7 @@ Assim como acontece com o mecanismo que usa o dimensionamento adicionando ou rem
 > [!WARNING] 
 > Quando AddRemoveIncrementalNamedPartitionScalingMechanism for usado com serviços com estado, o Service Fabric adicionará ou removerá partições **sem notificação ou aviso**. O reparticionamento de dados não será executado quando o mecanismo de colocação em escala for disparado. No caso de operação de expansão, as novas partições ficarão vazias e, no caso da operação de escala horizontal, **a partição será excluída junto com todos os dados que ela contém**.
 
-## <a name="setting-auto-scaling-policy"></a>Configuração de política de escala automática
+## <a name="setting-auto-scaling-policy-for-partition-based-scaling"></a>Definindo a política de dimensionamento automático para dimensionamento baseado em partição
 
 ### <a name="using-application-manifest"></a>Usando o manifesto do aplicativo
 ``` xml

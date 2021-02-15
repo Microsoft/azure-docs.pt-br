@@ -1,7 +1,7 @@
 ---
-title: Visão geral do portal do desenvolvedor de gerenciamento de API do Azure
+title: Visão geral do portal do desenvolvedor no gerenciamento de API do Azure
 titleSuffix: Azure API Management
-description: Saiba mais sobre o portal do desenvolvedor no gerenciamento de API. O portal do desenvolvedor é onde os consumidores podem encontrar suas APIs.
+description: Saiba mais sobre o portal do desenvolvedor no gerenciamento de API-um site personalizável, onde os consumidores de API podem explorar suas APIs.
 services: api-management
 documentationcenter: API Management
 author: mikebudzynski
@@ -11,95 +11,70 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 07/28/2020
+ms.date: 10/15/2020
 ms.author: apimpm
-ms.openlocfilehash: 6a8c4c3fa2bd73fa689458d6877d09900ea86938
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 30487218fc95be75d22b5a9ea5a6dbc224ffd025
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852150"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93074790"
 ---
-# <a name="azure-api-management-developer-portal-overview"></a>Visão Geral do portal do desenvolvedor do Gerenciamento de API do Azure
+# <a name="overview-of-the-developer-portal"></a>Visão geral do portal do desenvolvedor
 
 O portal do desenvolvedor é um site da Web, totalmente personalizado e gerado com a documentação de suas APIs. É aí que os consumidores de API podem descobrir suas APIs, saber como usá-las, solicitar acesso e experimentá-las.
 
-Este artigo descreve as diferenças entre as versões autohospedadas e gerenciadas do portal do desenvolvedor no gerenciamento de API. Ele também explica sua arquitetura e fornece respostas para perguntas frequentes.
+Este artigo descreve as diferenças entre as versões autohospedadas e gerenciadas do portal do desenvolvedor no gerenciamento de API. Ele também fornece respostas para perguntas frequentes.
 
 ![Portal do desenvolvedor do Gerenciamento da API](media/api-management-howto-developer-portal/cover.png)
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-> [!NOTE]
-> <a name="migrate-from-legacy"></a>O novo portal do desenvolvedor é incompatível com o portal do desenvolvedor herdado e a migração automatizada não é possível. Você precisa recriar manualmente o conteúdo (páginas, texto, arquivos de mídia) e personalizar a aparência do novo Portal. Consulte [o tutorial portal do desenvolvedor](api-management-howto-developer-portal-customize.md) para obter diretrizes.
+## <a name="migration-from-the-legacy-portal"></a>Migração do portal herdado
 
-## <a name="managed-and-self-hosted-versions"></a><a name="managed-vs-self-hosted"></a>Versões gerenciadas e auto-hospedadas
+> [!IMPORTANT]
+> O portal do desenvolvedor herdado foi preterido e receberá apenas atualizações de segurança. Você pode continuar usando-o, como de costume, até a desativação dele em outubro de 2023, quando ele será removido de todos os serviços de Gerenciamento de API.
 
-Você pode criar seu portal do desenvolvedor de duas maneiras:
+A migração para o novo portal do desenvolvedor é descrita no [artigo de documentação dedicada](developer-portal-deprecated-migration.md).
 
-- **Versão gerenciada** – editando e personalizando o portal, que é incorporado à sua instância de gerenciamento de API e pode ser acessado por meio da URL `<your-api-management-instance-name>.developer.azure-api.net` . Consulte [Este artigo de documentação](api-management-howto-developer-portal-customize.md) para saber como acessar e personalizar o portal gerenciado.
-- **Versão hospedada internamente** – Implantando e hospedando internamente seu portal fora de uma instância de gerenciamento de API. Essa abordagem permite que você edite a base de código do portal e estenda a funcionalidade básica fornecida, por exemplo, implementar widgets personalizados para integrações com sistemas de terceiros. Nesse cenário, você é o mantenedor do portal e é responsável por atualizar o portal para a versão mais recente. Para obter detalhes e instruções, consulte o [repositório do GitHub com o código-fonte do portal][1] e [o tutorial sobre como implementar um widget][3]. O [tutorial para a versão gerenciada](api-management-howto-developer-portal-customize.md) percorre o painel administrativo do portal, que é comum para as versões gerenciadas e hospedadas internamente.
+## <a name="customization-and-styling"></a>Personalização e estilo
 
-## <a name="portal-architectural-concepts"></a>Conceitos de arquitetura do portal
+O portal do desenvolvedor pode ser personalizado e estilizado por meio do editor visual interno, com o recurso de arrastar e soltar. Consulte [este tutorial](api-management-howto-developer-portal-customize.md) para obter mais detalhes.
 
-Os componentes do portal podem ser divididos logicamente em duas categorias: *código* e *conteúdo*.
+## <a name="extensibility"></a><a name="managed-vs-self-hosted"></a> Extensibilidade
 
-O *código* é mantido no [repositório do GitHub][1] e inclui:
+O serviço de gerenciamento de API inclui um portal de desenvolvedor **gerenciado** e sempre atualizado. Você pode acessá-lo na interface portal do Azure.
 
-- Widgets – que representam elementos visuais e combinam HTML, JavaScript, capacidade de estilo, configurações e mapeamento de conteúdo. Os exemplos são uma imagem, um parágrafo de texto, um formulário, uma lista de APIs etc.
-- Definições de estilo – que especificam como os widgets podem ser estilizados
-- Mecanismo – que gera páginas da Web estáticas do conteúdo do portal e é escrito em JavaScript
-- Editor visual – que permite a experiência de criação e personalização no navegador
+Se você precisar estendê-lo com lógica personalizada, que não tem suporte pronto para uso, poderá modificar sua base de código. A base de código do portal está [disponível em um repositório GitHub][1]. Por exemplo, você pode implementar um novo widget, que se integra a um sistema de suporte de terceiros. Ao implementar a nova funcionalidade, você pode escolher uma das seguintes opções:
 
-O *conteúdo* é dividido em duas subcategorias: conteúdo do *portal* e conteúdo de *Gerenciamento de API*.
+- **Hospede internamente** o portal resultante fora do seu serviço de gerenciamento de API. Quando você hospeda o portal por conta própria, você se torna seu mantenedor e é responsável por suas atualizações. A assistência do suporte do Azure é limitada apenas à configuração básica de portais de hospedagem interna, conforme documentado na [seção wiki do repositório][2].
+- Abra uma solicitação de pull para a equipe de gerenciamento de API para mesclar novas funcionalidades para a base de código do portal **gerenciado** .
 
-O *conteúdo do portal* é específico para o portal e inclui:
-
-- Páginas-por exemplo, página de aterrissagem, tutoriais de API, Postagens de blog
-- Mídia-imagens, animações e outros conteúdos com base em arquivo
-- Layouts-modelos, que são correspondidos em uma URL e definem como as páginas são exibidas
-- Estilos – valores para definições de estilo, por exemplo, fontes, cores, bordas
-- Configurações-configuração, por exemplo, favicon, metadados do site
-
-O *conteúdo do portal*, exceto para mídia, é expresso como documentos JSON.
-
-O *conteúdo de gerenciamento de API* inclui entidades como APIs, operações, produtos, assinaturas.
-
-O portal é baseado em uma bifurcação adaptada da [estrutura Paperbits](https://paperbits.io/). A funcionalidade original do Paperbits foi estendida para fornecer widgets específicos de gerenciamento de API (por exemplo, uma lista de APIs, uma lista de produtos) e um conector para o serviço de gerenciamento de API para salvar e recuperar conteúdo.
+Para obter detalhes e instruções de extensibilidade, consulte o [repositório do GitHub][1] e [os tutoriais sobre como implementar um widget][3]. O [tutorial para personalizar o portal gerenciado](api-management-howto-developer-portal-customize.md) orienta você pelo painel administrativo do portal, que é comum para versões **gerenciadas** e **hospedadas internamente** .
 
 ## <a name="frequently-asked-questions"></a><a name="faq"></a> Perguntas frequentes
 
 Nesta seção, respondemos a perguntas comuns sobre o portal do desenvolvedor, que são de natureza geral. Para perguntas específicas para a versão hospedada internamente, consulte [a seção wiki do repositório do GitHub](https://github.com/Azure/api-management-developer-portal/wiki).
 
-### <a name="how-can-i-migrate-from-the-preview-version-of-the-portal"></a><a id="preview-to-ga"></a>Como posso migrar da versão de visualização do portal?
+### <a name="how-can-i-migrate-from-the-preview-version-of-the-portal"></a><a id="preview-to-ga"></a> Como posso migrar da versão de visualização do portal?
 
-Usando a versão de visualização do portal do desenvolvedor, você provisionou o conteúdo de visualização em seu serviço de gerenciamento de API. O conteúdo padrão foi modificado significativamente na versão disponível para melhor experiência do usuário. Ele também inclui novos widgets.
+Quando você iniciou pela primeira vez a versão de visualização do portal do desenvolvedor, provisionou a versão de visualização de seu conteúdo padrão no serviço de gerenciamento de API. O conteúdo padrão foi significativamente modificado na versão disponível para o público geral. Por exemplo, a versão de visualização do conteúdo padrão não inclui botões do OAuth nas páginas de logon, ele usa widgets diferentes para exibir APIs e depende de recursos limitados para estruturar páginas do portal do desenvolvedor. Mesmo que haja diferenças no conteúdo, o mecanismo do portal (incluindo widgets subjacentes) é atualizado automaticamente toda vez que você publica o portal do desenvolvedor.
 
-Se você estiver usando a versão gerenciada, redefina o conteúdo do portal clicando em **Redefinir Conteúdo** na seção do menu **operações** . A confirmação dessa operação removerá todo o conteúdo do portal e provisionar o novo conteúdo padrão. O mecanismo do portal foi atualizado automaticamente no serviço de gerenciamento de API.
+Se você tiver personalizado bastante seu portal com base na versão de visualização do conteúdo, poderá continuar a usá-lo como está e posicionar novos widgets manualmente nas páginas do Portal. Caso contrário, é recomendável substituir o conteúdo do portal pelo novo conteúdo padrão.
+
+Para redefinir o conteúdo em um portal gerenciado, selecione **Redefinir Conteúdo** na seção do menu **operações** . Esta operação removerá todo o conteúdo do portal e provisionar o novo conteúdo padrão. Você perderá todas as personalizações e alterações do portal do desenvolvedor. **Não é possível desfazer esta ação** .
 
 ![Redefinir o conteúdo do portal](media/api-management-howto-developer-portal/reset-content.png)
 
-Se você estiver usando a versão hospedada internamente, use o `scripts/cleanup.bat` e o `scripts/generate.bat` do repositório do GitHub para remover o conteúdo existente e provisionar novo conteúdo. Certifique-se de atualizar o código do portal para a versão mais recente do repositório do GitHub com antecedência.
+Se você estiver usando a versão hospedada automaticamente, execute `scripts.v2/cleanup.bat` e `scripts.v2/generate.bat` scripts do repositório GitHub para remover o conteúdo existente e provisionar novo conteúdo. Certifique-se de atualizar o código do portal para a versão mais recente do repositório do GitHub com antecedência.
 
-Se não quiser redefinir o conteúdo do portal, você pode considerar o uso de widgets disponíveis recentemente em todas as páginas. Os widgets existentes foram atualizados automaticamente para as versões mais recentes.
-
-Se o portal foi provisionado após o comunicado de disponibilidade geral, ele já deve apresentar o novo conteúdo padrão. Nenhuma ação é necessária do seu lado.
-
-### <a name="does-the-portal-have-all-the-features-of-the-legacy-portal"></a>O portal tem todos os recursos do portal herdado?
-
-O portal do desenvolvedor não dá mais suporte a *aplicativos* e *problemas*.
-
-### <a name="has-the-legacy-portal-been-deprecated"></a>O portal herdado foi preterido?
-
-Os portais herdados de desenvolvedor e publicador agora são recursos *herdados* ; eles receberão apenas atualizações de segurança. Novos recursos serão implementados somente no novo portal do desenvolvedor.
-
-A substituição dos portais herdados será anunciada separadamente. Se você tiver dúvidas, preocupações ou comentários, gere-os [em um problema dedicado do GitHub](https://github.com/Azure/api-management-developer-portal/issues/121).
+Se você tiver acessado o portal pela primeira vez após o anúncio de disponibilidade geral em novembro de 2019, ele já deverá apresentar o novo conteúdo padrão e nenhuma ação adicional será necessária.
 
 ### <a name="functionality-i-need-isnt-supported-in-the-portal"></a>A funcionalidade necessária não tem suporte no portal
 
-Você pode abrir uma [solicitação de recurso](https://aka.ms/apimwish) ou [implementar a funcionalidade ausente por conta própria][3]. Se você você implementar a funcionalidade por conta própria, poderá hospedar o portal do desenvolvedor por conta própria ou abrir uma solicitação de pull no GitHub para incluir as alterações na versão gerenciada.
+Você pode abrir uma solicitação de recurso no [repositório GitHub][1] ou [implementar a funcionalidade ausente por conta própria][3]. Consulte a seção **extensibilidade** acima para obter mais detalhes.
 
-### <a name="how-can-i-automate-portal-deployments"></a>Como posso automatizar as implantações do portal?
+### <a name="how-can-i-automate-portal-deployments"></a><a id="automate"></a> Como posso automatizar as implantações do portal?
 
 Você pode acessar e gerenciar programaticamente o conteúdo do portal do desenvolvedor por meio da API REST, independentemente de estar usando uma versão gerenciada ou hospedada internamente.
 
@@ -127,7 +102,7 @@ Na maioria dos casos, não.
 
 Se o serviço de gerenciamento de API estiver em uma VNet interna, o portal do desenvolvedor só poderá ser acessado de dentro da rede. O nome do host do ponto de extremidade de gerenciamento deve ser resolvido para o VIP interno do serviço do computador que você usa para acessar a interface administrativa do Portal. Verifique se o ponto de extremidade de gerenciamento está registrado no DNS. No caso de uma configuração incorreta, você verá um erro: `Unable to start the portal. See if settings are specified correctly in the configuration (...)` .
 
-Se o serviço de gerenciamento de API estiver em uma VNet interna e você o estiver acessando por meio do gateway de aplicativo da Internet, certifique-se de habilitar a conectividade com o portal do desenvolvedor e os pontos de extremidade de gerenciamento do gerenciamento de API.
+Se o serviço de gerenciamento de API estiver em uma VNet interna e você o estiver acessando por meio do gateway de aplicativo da Internet, certifique-se de habilitar a conectividade com o portal do desenvolvedor e os pontos de extremidade de gerenciamento do gerenciamento de API. Talvez seja necessário desabilitar as regras de firewall do aplicativo Web. Consulte [Este artigo de documentação](api-management-howto-integrate-internal-vnet-appgateway.md) para obter mais detalhes.
 
 ### <a name="i-have-assigned-a-custom-api-management-domain-and-the-published-portal-doesnt-work"></a>Atribuí um domínio de gerenciamento de API personalizado e o portal publicado não funciona
 
@@ -135,7 +110,7 @@ Depois de atualizar o domínio, você precisará [republicar o portal](api-manag
 
 ### <a name="i-have-added-an-identity-provider-and-i-cant-see-it-in-the-portal"></a>Adicionei um provedor de identidade e não consigo vê-lo no portal
 
-Depois de configurar um provedor de identidade (por exemplo, AAD, AAD B2C), você precisará [republicar o portal](api-management-howto-developer-portal-customize.md#publish) para que as alterações entrem em vigor.
+Depois de configurar um provedor de identidade (por exemplo, o Azure AD, Azure AD B2C), você precisará [republicar o portal](api-management-howto-developer-portal-customize.md#publish) para que as alterações entrem em vigor. Verifique se as páginas do portal do desenvolvedor incluem o widget botões do OAuth.
 
 ### <a name="i-have-set-up-delegation-and-the-portal-doesnt-use-it"></a>Configurei a delegação e o portal não a utiliza
 
@@ -143,23 +118,23 @@ Depois de configurar a delegação, você precisará [republicar o portal](api-m
 
 ### <a name="my-other-api-management-configuration-changes-havent-been-propagated-in-the-developer-portal"></a>Minhas outras alterações de configuração de gerenciamento de API não foram propagadas no portal do desenvolvedor
 
-A maioria das alterações de configuração (por exemplo, VNet, entrada e termos do produto) requer [a republicação do portal](api-management-howto-developer-portal-customize.md#publish).
+A maioria das alterações de configuração (por exemplo, VNet, entrada, termos do produto) requer [a republicação do portal](api-management-howto-developer-portal-customize.md#publish).
 
-### <a name="im-getting-a-cors-error-when-using-the-interactive-console"></a><a name="cors"></a>Estou recebendo um erro de CORS ao usar o console interativo
+### <a name="im-getting-a-cors-error-when-using-the-interactive-console"></a><a name="cors"></a> Estou recebendo um erro de CORS ao usar o console interativo
 
 O console interativo faz uma solicitação de API do lado do cliente do navegador. Resolva o problema de CORS adicionando [uma política de CORS](api-management-cross-domain-policies.md#CORS) em suas API (s).
 
 Você pode verificar o status da política de CORS na seção **visão geral do portal** do serviço de gerenciamento de API no portal do Azure. Uma caixa de aviso indica uma política ausente ou configurada incorretamente.
 
-![Portal do desenvolvedor do Gerenciamento da API](media/api-management-howto-developer-portal/cors-azure-portal.png)
+![Captura de tela que mostra onde você pode verificar o status da sua política de CORS.](media/api-management-howto-developer-portal/cors-azure-portal.png)
 
 Aplique automaticamente a política CORS clicando no botão **habilitar CORS** .
 
 Você também pode habilitar o CORS manualmente.
 
-1. Clique no link **aplicar manualmente no nível global** para ver o código de política gerado.
+1. Selecione o **aplicar manualmente no link de nível global** para ver o código de política gerado.
 2. Navegue até **todas as APIs** na seção **APIs** do serviço de gerenciamento de API no portal do Azure.
-3. Clique no **</>** ícone na seção **processamento de entrada** .
+3. Selecione o **</>** ícone na seção **processamento de entrada** .
 4. Insira a política na **<inbound>** seção do arquivo XML. Verifique se o **<origin>** valor corresponde ao domínio do seu portal do desenvolvedor.
 
 > [!NOTE]
@@ -170,9 +145,13 @@ Você também pode habilitar o CORS manualmente.
 >
 > Como alternativa, você pode passar a chave de assinatura em um parâmetro de consulta.
 
+> [!NOTE]
+> 
+> Apenas uma política CORS é executada. Se você especificou várias políticas de CORS (por exemplo, no nível de API e no nível de todas as APIs), o console interativo poderá não funcionar conforme o esperado.
+
 ### <a name="what-permissions-do-i-need-to-edit-the-developer-portal"></a>Quais permissões preciso para editar o portal do desenvolvedor?
 
-Se você estiver vendo o `Oops. Something went wrong. Please try again later.` erro ao abrir o portal no modo administrativo, talvez você não esteja perdendo as permissões necessárias (RBAC).
+Se você estiver vendo o `Oops. Something went wrong. Please try again later.` erro ao abrir o portal no modo administrativo, talvez você não esteja perdendo as permissões necessárias (RBAC do Azure).
 
 Os portais herdados exigiam a permissão `Microsoft.ApiManagement/service/getssotoken/action` no escopo do serviço ( `/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ApiManagement/service/<apim-service-name>` ) para permitir que o administrador do usuário acesse os portais. O novo portal requer a permissão `Microsoft.ApiManagement/service/users/token/action` no escopo `/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ApiManagement/service/<apim-service-name>/users/1` .
 
@@ -217,7 +196,7 @@ A falha de chamada também pode ser causada por um certificado TLS/SSL, que é a
 | Apple Safari                | Sim<sup>1</sup> |
 | Google Chrome               | Sim<sup>1</sup> |
 | Microsoft Edge              | Sim<sup>1</sup> |
-| Microsoft Internet Explorer | Não              |
+| Microsoft Internet Explorer | No              |
 | Mozilla Firefox             | Sim<sup>1</sup> |
 
  <small><sup>1</sup> com suporte nas duas versões de produção mais recentes.</small>

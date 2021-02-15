@@ -2,17 +2,17 @@
 title: 'Trabalho remoto com P2S: gateway de VPN do Azure'
 description: Esta página descreve como você pode aproveitar o gateway de VPN para habilitar o trabalho remotamente devido ao pandemia COVID-19.
 services: vpn-gateway
-author: kumudD
+author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 04/07/2020
+ms.date: 09/03/2020
 ms.author: alzam
-ms.openlocfilehash: 302706b67900bd0dd82aabfa750bba48918b134a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: eb0291b18952efc643de18e111154ebe58f041af
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525357"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880077"
 ---
 # <a name="remote-work-using-azure-vpn-gateway-point-to-site"></a>Trabalho remoto usando o ponto a site do gateway de VPN do Azure
 
@@ -30,13 +30,13 @@ Uma conexão de gateway de VPN Ponto a Site (P2S) permite que você crie uma con
 
 A tabela a seguir mostra os sistemas operacionais do cliente e as opções de autenticação que estão disponíveis para eles. Seria útil selecionar o método de autenticação com base no sistema operacional do cliente que já está em uso. Por exemplo, selecione OpenVPN com autenticação baseada em certificado se você tiver uma mistura de sistemas operacionais cliente que precisam se conectar. Além disso, observe que a VPN ponto a site só tem suporte em gateways de VPN baseados em rota.
 
-![ponto a site](./media/working-remotely-support/ostable.png "Sistema operacional")
+![Captura de tela que mostra os sistemas operacionais do cliente e as opções de autenticação disponíveis.](./media/working-remotely-support/ostable.png "Sistema operacional")
 
 ## <a name="scenario-1---users-need-access-to-resources-in-azure-only"></a><a name="scenario1"></a>Cenário 1-os usuários precisam acessar recursos somente no Azure
 
 Nesse cenário, os usuários remotos só precisam acessar os recursos que estão no Azure.
 
-![ponto a site](./media/working-remotely-support/scenario1.png "Cenário 1")
+![Diagrama que mostra um cenário ponto a site para usuários que precisam acessar recursos somente no Azure.](./media/working-remotely-support/scenario1.png "Cenário 1")
 
 Em um alto nível, as etapas a seguir são necessárias para permitir que os usuários se conectem aos recursos do Azure com segurança:
 
@@ -55,7 +55,7 @@ Em um alto nível, as etapas a seguir são necessárias para permitir que os usu
 
 Nesse cenário, os usuários remotos precisam acessar os recursos que estão no Azure e no data center local (s).
 
-![ponto a site](./media/working-remotely-support/scenario2.png "Cenário 2")
+![Diagrama que mostra um cenário ponto a site para usuários que precisam de acesso a recursos no Azure.](./media/working-remotely-support/scenario2.png "Cenário 2")
 
 Em um alto nível, as etapas a seguir são necessárias para permitir que os usuários se conectem aos recursos do Azure com segurança:
 
@@ -65,7 +65,7 @@ Em um alto nível, as etapas a seguir são necessárias para permitir que os usu
 4. Configure o dispositivo local para se conectar ao gateway de rede virtual do Azure.
 5. Baixar o perfil de ponto a site do portal do Azure e distribuir para clientes
 
-Para saber como configurar um túnel VPN site a site, consulte [este link](vpn-gateway-howto-site-to-site-resource-manager-portal.md).
+Para saber como configurar um túnel VPN site a site, consulte [este link](./tutorial-site-to-site-portal.md).
 
 ## <a name="faq-for-native-azure-certificate-authentication"></a><a name="faqcert"></a>Perguntas frequentes sobre a autenticação nativa de certificado do Azure
 

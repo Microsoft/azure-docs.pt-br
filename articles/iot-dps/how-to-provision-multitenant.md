@@ -7,16 +7,16 @@ ms.date: 04/10/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: e0dec0a67ed33186797ccec8066aaad89ceb8dcb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d0c132d1aa7a37dc8e7620352bb7b9a078d79a09
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75434746"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571599"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>Como provisionar para multilocação 
 
-As políticas de alocação definidas pelo serviço de provisionamento dão suporte a uma variedade de cenários de alocação. Os dois cenários mais comuns são:
+Este artigo demonstra como provisionar com segurança vários dispositivos de chave simétrica para um grupo de hubs IoT usando uma [política de alocação](concepts-service.md#allocation-policy). As políticas de alocação definidas pelo serviço de provisionamento oferecem suporte a uma variedade de cenários de alocação. Os dois cenários mais comuns são:
 
 * **Localização geográfica / GeoLatency**: uma vez que um dispositivo se move entre locais, a latência de rede é aprimorada fazendo com que o dispositivo provisionasse para o Hub do IoT mais perto de cada localização. Nesse cenário, um grupo de hubs de IoT, que se estendem entre regiões, são selecionados para os registros. A política de alocação de **menor latência** é selecionada para esses registros. Essa política faz com que o serviço de provisionamento de dispositivos avaliem a latência de dispositivo e determinar o hub IoT fora do grupo de hubs IoT armário. 
 
@@ -38,11 +38,8 @@ Este artigo usa uma amostra de dispositivo simulado com o [SDK do Azure IoT C](h
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Conclusão do guia de início rápido [Configurar o Serviço de Provisionamento de Dispositivos no Hub IoT com o portal do Azure](./quick-setup-auto-provision.md).
-
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
+- Conclusão do guia de início rápido [Configurar o Serviço de Provisionamento de Dispositivos no Hub IoT com o portal do Azure](./quick-setup-auto-provision.md).
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## <a name="create-two-regional-iot-hubs"></a>Criar dois Hubs IoT regionais
 
@@ -83,7 +80,7 @@ Nesta seção, você usará o Azure Cloud Shell para criar dois novos IoT hubs r
 
 Nesta seção, você criará um novo grupo de registro para os dispositivos de locatário.  
 
-Para simplificar, este artigo usa o [Atestado de chave simétrica](concepts-symmetric-key-attestation.md) com o registro. Para uma solução mais segura, considere usar o [Atestado de certificado X.509](concepts-security.md#x509-certificates) com uma cadeia de confiança.
+Para simplificar, este artigo usa o [Atestado de chave simétrica](concepts-symmetric-key-attestation.md) com o registro. Para uma solução mais segura, considere usar o [Atestado de certificado X.509](concepts-x509-attestation.md) com uma cadeia de confiança.
 
 1. Entre no [portal do Azure](https://portal.azure.com) e abra a instância do Serviço de Provisionamento de Dispositivos.
 
@@ -191,7 +188,7 @@ Para fazer a limpeza, essas VMs serão adicionadas ao mesmo grupo de recursos qu
 
 Nesta seção, você clona o SDK do Azure IoT C em cada VM. O SDK contém um exemplo que simulará a configuração de cada região do dispositivo de um locatário.
 
-1. Para cada VM, instale **CMake**, **g + +**, **gcc**e [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) usando os seguintes comandos:
+1. Para cada VM, instale **CMake**, **g + +**, **gcc** e [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) usando os seguintes comandos:
 
     ```bash
     sudo apt-get update

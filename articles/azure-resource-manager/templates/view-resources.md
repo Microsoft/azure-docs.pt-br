@@ -3,12 +3,12 @@ title: Descobrir Propriedades de recurso
 description: Descreve como procurar Propriedades de recurso.
 ms.topic: conceptual
 ms.date: 06/10/2020
-ms.openlocfilehash: 75c089ac9d0ca08c788fea1ac9011f018ef0195e
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: c8bbe0dcb1bc9dc9751a1dc0d0b98a6368473546
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057068"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91327741"
 ---
 # <a name="discover-resource-properties"></a>Descobrir Propriedades de recurso
 
@@ -74,7 +74,7 @@ O Gerenciador de recursos é inserido no portal do Azure. Antes de usar esse mé
 1. Entre no [portal do Azure](https://portal.azure.com).
 1. Na caixa de pesquisa, insira **Gerenciador de recursos**e selecione **Gerenciador de recursos**.
 
-    ![portal do Azure Gerenciador de recursos](./media/view-resources/azure-portal-resource-explorer.png)
+    ![A captura de tela mostra a pesquisa do Gerenciador de recursos no portal do Azure.](./media/view-resources/azure-portal-resource-explorer.png)
 
 1. Da esquerda, expanda **assinaturas**e, em seguida, expanda sua assinatura do Azure. Você pode encontrar a conta de armazenamento em ambos os **provedores** ou **ResourceGroups**.
 

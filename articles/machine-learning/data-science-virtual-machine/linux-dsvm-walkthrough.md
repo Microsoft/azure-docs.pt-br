@@ -3,18 +3,17 @@ title: Explorar o Linux
 titleSuffix: Azure Data Science Virtual Machine
 description: Saiba como concluir várias tarefas comuns de ciência de dados usando a Máquina Virtual de Ciência de Dados do Linux.
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: data-science-vm
-author: vijetajo
-ms.author: vijetaj
+ms.service: data-science-vm
+author: lobrien
+ms.author: laobri
 ms.topic: conceptual
-ms.date: 07/17/2020
-ms.openlocfilehash: ca3cfa44bd4f757c6fbb0dd2c84d7a843f9bff36
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.date: 09/17/2020
+ms.openlocfilehash: 42136d0d58dbc318aab0e111fcef46f80751ca88
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816211"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100517664"
 ---
 # <a name="data-science-with-an-ubuntu-data-science-virtual-machine-in-azure"></a>Ciência de dados com uma Máquina Virtual de Ciência de Dados do Ubuntu no Azure
 
@@ -28,8 +27,8 @@ Para poder usar uma DSVM do Linux, você precisa cumprir os pré-requisitos a se
 
 * **Assinatura do Azure**. Para obter uma assinatura do Azure, confira [Criar sua conta do Azure hoje mesmo](https://azure.microsoft.com/free/).
 
-* [**Ubuntu máquina virtual de ciência de dados**](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804). Para obter informações sobre como provisionar a máquina virtual, consulte [provisionar o Ubuntu máquina virtual de ciência de dados](linux-dsvm-intro.md).
-* O [**X2Go**](https://wiki.x2go.org/doku.php) instalado em seu computação com a sessão aberta do XFCE. Para obter mais informações, consulte [Instalar e configurar o cliente X2Go](linux-dsvm-intro.md#x2go).
+* [**Ubuntu máquina virtual de ciência de dados**](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804). Para obter informações sobre como provisionar a máquina virtual, consulte [provisionar o Ubuntu máquina virtual de ciência de dados](./release-notes.md).
+* O [**X2Go**](https://wiki.x2go.org/doku.php) instalado em seu computação com a sessão aberta do XFCE. Para obter mais informações, consulte [Instalar e configurar o cliente X2Go](dsvm-ubuntu-intro.md#x2go).
 * Para uma experiência de rolagem com menos problemas, no navegador da Web Firefox da DSVM, ative o sinalizador `gfx.xrender.enabled` em `about:config`. [Saiba mais](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/). Considere também configurar `mousewheel.enable_pixel_scrolling` como `False`. [Saiba mais](https://support.mozilla.org/questions/981140).
 
 ## <a name="download-the-spambase-dataset"></a>Baixar o conjunto de dados baseado em spam
@@ -213,7 +212,7 @@ Além dos exemplos baseados em estrutura, fornecemos também um conjunto abrange
 
 - [Um guia de instruções para criação de uma solução de ponta a ponta para detectar produtos em imagens](https://github.com/Azure/cortana-intelligence-product-detection-from-images): a detecção de imagens é uma técnica que pode localizar e classificar objetos em imagens. A tecnologia tem o potencial de trazer grande recompensa em vários domínios de negócios da vida real. Por exemplo, os varejistas podem usar essa técnica para determinar qual produto um cliente retirou da prateleira. Por sua vez, essas informações ajudam as lojas a gerenciar o estoque do produtos. 
 
-- [Aprendizado profundo para áudio](https://blogs.technet.microsoft.com/machinelearning/2018/01/30/hearing-ai-getting-started-with-deep-learning-for-audio-on-azure/): Este tutorial mostra como treinar um modelo de aprendizado profundo para detecção de eventos no [conjunto de dados de sons urbanos](https://urbansounddataset.weebly.com/). O tutorial fornece uma visão geral de como trabalhar com dados de áudio.
+- [Aprendizado profundo para áudio](/archive/blogs/machinelearning/hearing-ai-getting-started-with-deep-learning-for-audio-on-azure): Este tutorial mostra como treinar um modelo de aprendizado profundo para detecção de eventos no [conjunto de dados de sons urbanos](https://urbansounddataset.weebly.com/). O tutorial fornece uma visão geral de como trabalhar com dados de áudio.
 
 - [Classificação de documentos de texto](https://github.com/anargyri/lstm_han): Este passo a passo demonstra como criar e treinar duas arquiteturas de rede neural diferentes: Rede de Atenção Hierárquica e LSTM (memória de longo-curto prazo). Essas redes neurais usam a API Keras para aprendizagem profunda para classificar documentos de texto. Keras é um front-end para três das estruturas de aprendizado profundo mais populares: Microsoft Cognitive Toolkit, TensorFlow e Theano.
 
@@ -315,7 +314,7 @@ Vários blocos de anotações de exemplo já estão instalados na DSVM:
 
 ### <a name="rattle"></a>Rattle
 
-[Rattle](https://cran.r-project.org/web/packages/rattle/index.html) (*R* *A*nalytical *T*ool *T*o *L*earn *E*asily) é uma ferramenta R gráfica para mineração de dados. O Rattle tem uma interface simples que facilita carregar, explorar e transformar os dados, compilar e avaliar os modelos. [Rattle: uma GUI da mineração de dados para o R](https://journal.r-project.org/archive/2009-2/RJournal_2009-2_Williams.pdf) fornece um passo a passo que demonstra os recursos do Rattle.
+[Rattle](https://cran.r-project.org/web/packages/rattle/index.html) (*R* *A* nalytical *T* ool *T* o *L* earn *E* asily) é uma ferramenta R gráfica para mineração de dados. O Rattle tem uma interface simples que facilita carregar, explorar e transformar os dados, compilar e avaliar os modelos. [Rattle: uma GUI da mineração de dados para o R](https://journal.r-project.org/archive/2009-2/RJournal_2009-2_Williams.pdf) fornece um passo a passo que demonstra os recursos do Rattle.
 
 Instale e inicie o Rattle com estes comandos:
 
@@ -328,7 +327,7 @@ rattle()
 > [!NOTE]
 > Você não precisa instalar o Rattle na DSVM. No entanto, você pode ser solicitado a instalar pacotes adicionais quando o Rattle abrir.
 
-O Rattle usa uma interface baseada em guias. A maioria das guias corresponde às etapas no [Processo de ciência de dados de equipe](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/), como carregar os dados ou explorá-los. O processo da ciência de dados flui da esquerda para a direita nas guias. A última guia contém um log dos comandos do R executados pelo Rattle.
+O Rattle usa uma interface baseada em guias. A maioria das guias corresponde às etapas no [Processo de ciência de dados de equipe](../team-data-science-process/index.yml), como carregar os dados ou explorá-los. O processo da ciência de dados flui da esquerda para a direita nas guias. A última guia contém um log dos comandos do R executados pelo Rattle.
 
 Para carregar e configurar o conjunto de dados:
 
@@ -538,5 +537,3 @@ GO
 ```
 
 Você também pode consultar com o SSQuirreL SQL. Siga as etapas semelhantes ao PostgreSQL usando o driver JDBC do SQL Server. O driver JDBC está na pasta /usr/share/java/jdbcdrivers/sqljdbc42.jar.
-
-

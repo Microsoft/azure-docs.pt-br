@@ -1,18 +1,18 @@
 ---
 title: Solucionar problemas das Migrações para Azure | Microsoft Docs
 description: Fornece uma visão geral dos problemas conhecidos no serviço de migrações para Azure, bem como dicas de solução de problemas para erros comuns.
-author: musa-57
+author: ms-psharma
+ms.author: panshar
 ms.manager: abhemraj
 ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.author: hamusa
-ms.openlocfilehash: 433f3cc29e334a9034fa073d4ace735fc7e7e3ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 00802f53f973ad9b5a80b265006943121a0fa763
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75725865"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753392"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Solucionar problemas das Migrações para Azure
 
@@ -28,7 +28,7 @@ Examine as [respostas para problemas comuns](troubleshoot-appliance-discovery.md
 
 ## <a name="machines-arent-discovered"></a>Computadores não são descobertos
 
-Examine os problemas comuns de descoberta.
+Examine os [problemas comuns de descoberta](common-questions-discovery-assessment.md).
 
 ## <a name="app-discovery-isnt-working"></a>A descoberta de aplicativos não está funcionando
 

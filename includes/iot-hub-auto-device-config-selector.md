@@ -8,14 +8,13 @@ ms.topic: include
 ms.date: 6/18/2018
 ms.author: chrisgre
 ms.custom: include file
-ms.openlocfilehash: 3b87ffed197f2504b8e63e355f2803ef6a3c722e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e0454a12d4b025d927aa296977d6056e3a7ee18a
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "67172035"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95560313"
 ---
 > [!div class="op_single_selector"]
-> * [Azure portal](../articles/iot-hub/iot-hub-auto-device-config.md)
-> * [CLI](../articles/iot-hub/iot-hub-auto-device-config-cli.md)
-
+> * [Azure portal](../articles/iot-hub/iot-hub-automatic-device-management.md)
+> * [CLI](../articles/iot-hub/iot-hub-automatic-device-management-cli.md)

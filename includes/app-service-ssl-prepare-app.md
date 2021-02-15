@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 10/15/2018
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: 4c5c0197ab6cecbba4bac4c0bff5ef76de24b6de
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
-ms.translationtype: MT
+ms.openlocfilehash: 8b3c1992a1cff18390f9d1332103e0650af418e2
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "78300988"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347703"
 ---
 ## <a name="prepare-your-web-app"></a>Preparar o aplicativo Web
 
-Para criar associações de segurança personalizadas ou habilitar certificados do cliente para o aplicativo do Serviço de Aplicativo, o [Plano do Serviço de Aplicativo](https://azure.microsoft.com/pricing/details/app-service/) precisa estar no nível **Básico**, **Standard**, **Premium** ou **Isolado**. Nesta etapa, você precisa ter certeza de que seu aplicativo Web está no tipo de preço com suporte.
+Para criar associações TLS/SSL personalizadas ou habilitar certificados do cliente para o aplicativo do Serviço de Aplicativo, o [Plano do Serviço de Aplicativo](https://azure.microsoft.com/pricing/details/app-service/) precisa estar no nível **Básico**, **Standard**, **Premium** ou **Isolado**. Nesta etapa, você precisa ter certeza de que seu aplicativo Web está no tipo de preço com suporte.
 
 ### <a name="sign-in-to-azure"></a>Entrar no Azure
 
@@ -31,7 +31,7 @@ Pesquise e selecione **Serviços de Aplicativos**.
 
 Na página **Serviços de Aplicativos**, selecione o nome do seu aplicativo Web.
 
-![Navegação no Portal para o aplicativo do Azure](./media/app-service-ssl-prepare-app/select-app.png)
+![Captura de tela da página Serviços de Aplicativos no portal do Azure mostrando uma lista de todos os aplicativos Web em execução, com o primeiro aplicativo na lista realçado.](./media/app-service-ssl-prepare-app/select-app.png)
 
 Você aterrissou na página de gerenciamento do aplicativo Web.  
 

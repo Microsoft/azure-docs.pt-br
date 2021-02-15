@@ -13,16 +13,16 @@ ms.date: 9/18/2019
 ms.author: brianmel
 ms.reviewer: rapong
 ms.custom: aaddev
-ms.openlocfilehash: 0ad5fab685757d2efd91cd1df0e48a5f1258d17e
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: f87f2e79bd9439fddb52fad82c7ab4712fc68fb9
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88119871"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98680358"
 ---
 # <a name="use-msal-for-android-with-b2c"></a>Usar o MSAL para Android com B2C
 
-A MSAL (Biblioteca de Autenticação da Microsoft) permite que os desenvolvedores de aplicativos autentiquem os usuários com identidades sociais e locais usando o [Azure Active Directory B2C (Azure AD B2C)](../../active-directory-b2c/index.yml). O Azure AD B2C é um serviço de gerenciamento de identidades. Use-o para personalizar e controlar como os clientes se inscrevem, entram e gerenciam seus perfis quando usam seus aplicativos.
+A MSAL (biblioteca de autenticação da Microsoft) permite que os desenvolvedores de aplicativos autentiquem usuários com identidades locais e sociais usando [Azure Active Directory B2C (Azure ad B2C)](../../active-directory-b2c/index.yml). O Azure AD B2C é um serviço de gerenciamento de identidades. Use-o para personalizar e controlar como os clientes se inscrevem, entram e gerenciam seus perfis quando usam seus aplicativos.
 
 ## <a name="configure-known-authorities-and-redirect-uri"></a>Configurar autoridades conhecidas e URI de redirecionamento
 
@@ -30,17 +30,20 @@ No MSAL para Android, as políticas B2C (viagens do usuário) são configuradas 
 
 Dado um aplicativo B2C que tem duas políticas:
 - Inscrição/entrada
-    * Denomina`B2C_1_SISOPolicy`
+    * Denomina `B2C_1_SISOPolicy`
 - Editar Perfil
-    * Denomina`B2C_1_EditProfile`
+    * Denomina `B2C_1_EditProfile`
 
 O arquivo de configuração para o aplicativo declararia dois `authorities` . Uma para cada política. A `type` propriedade de cada autoridade é `B2C` .
+
+>Observação: o `account_mode` deve ser definido como **vários** para aplicativos B2C. Consulte a documentação para obter mais informações sobre [aplicativos cliente públicos de várias contas](./single-multi-account.md#multiple-account-public-client-application).
 
 ### `app/src/main/res/raw/msal_config.json`
 ```json
 {
     "client_id": "<your_client_id_here>",
     "redirect_uri": "<your_redirect_uri_here>",
+    "account_mode" : "MULTIPLE",
     "authorities": [{
             "type": "B2C",
             "authority_url": "https://contoso.b2clogin.com/tfp/contoso.onmicrosoft.com/B2C_1_SISOPolicy/",
@@ -54,11 +57,11 @@ O arquivo de configuração para o aplicativo declararia dois `authorities` . Um
 }
 ```
 
-O `redirect_uri` deve ser registrado na configuração do aplicativo e também no `AndroidManifest.xml` para dar suporte ao redirecionamento durante o [fluxo de concessão do código de autorização](../../active-directory-b2c/authorization-code-flow.md).
+O `redirect_uri` deve ser registrado na configuração do aplicativo e também no  `AndroidManifest.xml` para dar suporte ao redirecionamento durante o [fluxo de concessão do código de autorização](../../active-directory-b2c/authorization-code-flow.md).
 
 ## <a name="initialize-ipublicclientapplication"></a>Inicializar IPublicClientApplication
 
-`IPublicClientApplication`é construído por um método de fábrica para permitir que a configuração do aplicativo seja analisada de forma assíncrona.
+`IPublicClientApplication` é construído por um método de fábrica para permitir que a configuração do aplicativo seja analisada de forma assíncrona.
 
 ```java
 PublicClientApplication.createMultipleAccountPublicClientApplication(
@@ -129,7 +132,7 @@ AcquireTokenSilentParameters parameters = new AcquireTokenSilentParameters.Build
 
         @Override
         public void onError(MsalException exception) {
-            // Token request was unsuccesful, inspect the exception
+            // Token request was unsuccessful, inspect the exception
         }
     })
     .build();
@@ -235,7 +238,7 @@ O B2C trata cada política como uma autoridade separada. Portanto, os tokens de 
 
 Cada política adiciona um `IAccount` ao cache para cada usuário. Se um usuário entrar em um aplicativo e invocar duas políticas, ele terá dois `IAccount` s. Para remover esse usuário do cache, você deve chamar `removeAccount()` para cada política.
 
-Quando você renova tokens para uma política com `acquireTokenSilent` , forneça o mesmo `IAccount` que foi retornado das invocações anteriores da política para o `AcquireTokenSilentParameters` . Fornecer uma conta retornada por outra política resultará em um erro.
+Quando você renova tokens para uma política com `acquireTokenSilent` , forneça o mesmo `IAccount` que foi retornado das invocações anteriores da política para o  `AcquireTokenSilentParameters` . Fornecer uma conta retornada por outra política resultará em um erro.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -1,19 +1,16 @@
 ---
 title: Zeppelin notebooks & Apache Spark cluster – Azure HDInsight
 description: Instruções passo a passo sobre como usar notebooks Zeppelin com clusters Apache Spark no Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
-ms.openlocfilehash: a692f4dd86d110f7f0a91a862a7b16ac28345de5
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: ba58c007dc0bc3776f429366651cb79404b137b3
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86084521"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98928474"
 ---
 # <a name="use-apache-zeppelin-notebooks-with-apache-spark-cluster-on-azure-hdinsight"></a>Use os cadernos Apache Zeppelin com o cluster do Apache Spark no HDInsight do Azure
 
@@ -26,7 +23,7 @@ Os clusters do HDInsight Spark incluem notebooks [Apache Zeppelin](https://zeppe
 
 ## <a name="launch-an-apache-zeppelin-notebook"></a>Inicie um notebook do Apache Zeppelin
 
-1. Na **visão geral**do cluster do Spark, selecione **Zeppelin Notebook** em **painéis do cluster**. Insira as credenciais de administrador para o cluster.  
+1. Na **visão geral** do cluster do Spark, selecione **Zeppelin Notebook** em **painéis do cluster**. Insira as credenciais de administrador para o cluster.  
 
    > [!NOTE]  
    > Você também pode acessar o Bloco de Notas Zeppelin de seu cluster abrindo a seguinte URL no navegador. Substitua **CLUSTERNAME** pelo nome do cluster:
@@ -89,7 +86,7 @@ Os clusters do HDInsight Spark incluem notebooks [Apache Zeppelin](https://zeppe
 
     A instrução **%sql** no início informa ao bloco de anotações para usar o interpretador Scala Livy.
 
-6. Selecione o ícone de **gráfico de barras** para alterar a exibição.  **as configurações**, exibidas depois que você selecionou **gráfico de barras**, permitem que você escolha **chaves**e **valores**.  A captura de tela a seguir mostra o resultado.
+6. Selecione o ícone de **gráfico de barras** para alterar a exibição.  **as configurações**, exibidas depois que você selecionou **gráfico de barras**, permitem que você escolha **chaves** e **valores**.  A captura de tela a seguir mostra o resultado.
 
     ![Executar uma instrução SQL do Spark usando o notebook1](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-spark-query-1.png "Executar uma instrução SQL do Spark usando o notebook1")
 
@@ -115,13 +112,13 @@ Os clusters do HDInsight Spark incluem notebooks [Apache Zeppelin](https://zeppe
 
 O Zeppelin Notebook no cluster Apache Spark no HDInsight pode usar pacotes externos e contribuídos pela Comunidade que não estão incluídos no cluster. Pesquise o [repositório do Maven](https://search.maven.org/) para obter a lista completa de pacotes que estão disponíveis. Você também pode obter uma lista de pacotes disponíveis de outras fontes. Por exemplo, uma lista completa dos pacotes enviados pela comunidade está disponível em [Pacotes do Spark](https://spark-packages.org/).
 
-Neste artigo, você verá como usar o pacote [Spark-CSV](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar) com o notebook Jupyter.
+Neste artigo, você verá como usar o pacote [Spark-CSV](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar) com o Jupyter notebook.
 
 1. Abra as configurações do interpretador. No canto superior direito, selecione o nome de usuário conectado e, em seguida, selecione **intérprete**.
 
     ![Iniciar o interpretador](./media/apache-spark-zeppelin-notebook/zeppelin-launch-interpreter.png "Saída do Hive")
 
-2. Role até **livy2**e, em seguida, selecione **Editar**.
+2. Role até **livy2** e, em seguida, selecione **Editar**.
 
     ![Alterar dispositivo1 do intérprete](./media/apache-spark-zeppelin-notebook/zeppelin-use-external-package-1.png "Alterar dispositivo1 do intérprete")
 
@@ -137,7 +134,7 @@ Neste artigo, você verá como usar o pacote [Spark-CSV](https://search.maven.or
 
     b. No repositório, colete os valores para **GroupId**, **ArtifactId** e **Version**.
 
-    ![Usar pacotes externos com o bloco de notas Jupyter](./media/apache-spark-zeppelin-notebook/use-external-packages-with-jupyter.png "Usar pacotes externos com o bloco de notas Jupyter")
+    ![Usar pacotes externos com Jupyter Notebook](./media/apache-spark-zeppelin-notebook/use-external-packages-with-jupyter.png "Usar pacotes externos com Jupyter Notebook")
 
     c. Concatene os três valores, separados por dois pontos (**:**).
 
@@ -159,7 +156,7 @@ Conforme observado acima, o `%sh` intérprete não tem suporte do HDInsight 4,0 
 
 Os usuários de domínio com privilégios podem usar o `Shiro.ini` arquivo para controlar o acesso à interface do usuário do interpretador. Somente esses usuários podem criar novos `%sh` interpretadores e definir permissões em cada `%sh` intérprete novo. Para controlar o acesso usando o `shiro.ini` arquivo, use as seguintes etapas:
 
-1. Defina uma nova função usando um nome de grupo de domínio existente. No exemplo a seguir, `adminGroupName` é um grupo de usuários privilegiados no AAD. Não use caracteres especiais ou espaços em branco no nome do grupo. Os caracteres depois `=` fornecem as permissões para essa função. `*`significa que o grupo tem permissões completas.
+1. Defina uma nova função usando um nome de grupo de domínio existente. No exemplo a seguir, `adminGroupName` é um grupo de usuários privilegiados no AAD. Não use caracteres especiais ou espaços em branco no nome do grupo. Os caracteres depois `=` fornecem as permissões para essa função. `*` significa que o grupo tem permissões completas.
 
     ```
     [roles]
@@ -183,7 +180,7 @@ Nesse caso, você deve executar as etapas a seguir antes de poder iniciar a exec
 
     ![Iniciar o interpretador](./media/apache-spark-zeppelin-notebook/zeppelin-launch-interpreter.png "Saída do Hive")
 
-2. Role até **livy2**e selecione **reiniciar**.
+2. Role até **livy2** e selecione **reiniciar**.
 
     ![Reiniciar o intérprete Livy](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-restart-interpreter.png "Reiniciar o intérprete Zeppelin")
 
@@ -227,5 +224,5 @@ Para validar o serviço de uma linha de comando, use SSH para o nó principal. A
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Visão geral: Apache Spark no Azure HDInsight](apache-spark-overview.md)
-* [Kernels disponíveis para o notebook Jupyter no cluster do Apache Spark para HDInsight](apache-spark-jupyter-notebook-kernels.md)
+* [Kernels disponíveis para Jupyter Notebook no cluster Apache Spark para HDInsight](apache-spark-jupyter-notebook-kernels.md)
 * [Instalar o Jupyter em seu computador e conectar-se a um cluster Spark do HDInsight](apache-spark-jupyter-notebook-install-locally.md)

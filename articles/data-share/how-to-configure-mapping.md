@@ -7,10 +7,10 @@ ms.service: data-share
 ms.topic: how-to
 ms.date: 08/14/2020
 ms.openlocfilehash: eed3e8275400a3e677df53b9d62cf0e0bc70271c
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88257842"
 ---
 # <a name="how-to-configure-a-dataset-mapping-for-a-received-share-in-azure-data-share"></a>Como configurar um mapeamento de DataSet para um compartilhamento recebido no compartilhamento de dados do Azure
@@ -29,7 +29,7 @@ Marque a caixa ao lado do conjunto de um para o qual você gostaria de atribuir 
 
 ## <a name="select-a-target-store"></a>Selecionar um repositório de destino
 
-Selecione um tipo de armazenamento de dados de destino no qual você deseja que os dados entrem. Para o compartilhamento baseado em instantâneo, todos os dados que já existem em todas as contas de armazenamento mapeadas anteriormente não serão automaticamente movidos para o novo repositório de destino. Para compartilhamento in-loco, selecione um repositório de dados no local especificado. O local é o data center do Azure no qual o armazenamento de dados de origem do provedor de dados está localizado.
+Selecione um tipo de armazenamento de dados de destino no qual deseja que os dados sejam inseridos. Para o compartilhamento baseado em instantâneo, todos os dados que já existem em todas as contas de armazenamento mapeadas anteriormente não serão automaticamente movidos para o novo repositório de destino. Para o compartilhamento in-loco, selecione um armazenamento de dados na Localização especificada. A Localização é o data center do Azure no qual o armazenamento de dados de origem do provedor de dados está localizado.
 
 ![Conta de armazenamento de destino](./media/dataset-map-target-sql.png "Armazenamento de destino") 
 

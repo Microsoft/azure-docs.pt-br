@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/26/2020
-ms.openlocfilehash: 7421162ed68a879d9f935a3efd5c6267e159a648
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 2d9d511098613ddc5bf3579a42b7abe91f51e1a4
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324294"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97694312"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-cli-20"></a>Criar um espaço de trabalho do Log Analytics com a CLI do Azure 2.0
 
@@ -28,14 +28,14 @@ Para outras fontes, como as VMs do Azure e as VMs do Windows ou do Linux em seu 
 * [Coletar dados de um computador Linux híbrido](./quick-collect-linux-computer.md)
 * [Coletar dados de um computador Windows híbrido](quick-collect-windows-computer.md)
 
-Se você não tiver uma assinatura do Azure, crie [uma conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-Se você optar por instalar e usar a CLI localmente, este início rápido exigirá a execução da CLI do Azure versão 2.0.30 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
+- Este artigo exige a versão 2.0.30 ou posterior da CLI do Azure. Se você está usando o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ## <a name="create-a-workspace"></a>Criar um workspace
-Crie um workspace com [az group deployment create](/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create). O exemplo a seguir cria um espaço de trabalho no local *eastus* usando um modelo do Resource Manager do computador local. O modelo JSON está configurado para solicitar apenas o nome do workspace e especifica um valor padrão para os outros parâmetros que provavelmente seriam usados como uma configuração padrão em seu ambiente. Ou ainda armazenar o modelo em uma conta de armazenamento do Azure para acesso compartilhado na sua organização. Para obter mais informações sobre como trabalhar com modelos, veja [Implantar recursos com modelos do Resource Manager e a CLI do Azure](../../azure-resource-manager/templates/deploy-cli.md)
+Crie um espaço de trabalho com [AZ Deployment Group Create](/cli/azure/deployment/group#az_deployment_group_create). O exemplo a seguir cria um espaço de trabalho no local *eastus* usando um modelo do Resource Manager do computador local. O modelo JSON está configurado para solicitar apenas o nome do workspace e especifica um valor padrão para os outros parâmetros que provavelmente seriam usados como uma configuração padrão em seu ambiente. Ou ainda armazenar o modelo em uma conta de armazenamento do Azure para acesso compartilhado na sua organização. Para obter mais informações sobre como trabalhar com modelos, veja [Implantar recursos com modelos do Resource Manager e a CLI do Azure](../../azure-resource-manager/templates/deploy-cli.md)
 
 Para saber mais sobre regiões com suporte, confira [regiões em que o Log Analytics está disponível](https://azure.microsoft.com/regions/services/) e pesquise Azure Monitor no campo **Pesquisar por um produto**.
 
@@ -111,7 +111,7 @@ Os parâmetros a seguir definem um valor padrão:
 4. Você está pronto para implantar o modelo. Use os seguintes comandos na pasta que contém o modelo. Quando for solicitado a informar um nome de espaço de trabalho, forneça um nome que seja globalmente exclusivo em todas as assinaturas do Azure.
 
     ```azurecli
-    az group deployment create --resource-group <my-resource-group> --name <my-deployment-name> --template-file deploylaworkspacetemplate.json
+    az deployment group create --resource-group <my-resource-group> --name <my-deployment-name> --template-file deploylaworkspacetemplate.json
     ```
 
 A implantação pode levar alguns minutos para ser concluída. Quando ela for concluída, você verá uma mensagem semelhante que inclui o resultado:
@@ -119,12 +119,12 @@ A implantação pode levar alguns minutos para ser concluída. Quando ela for co
 ![Resultados de exemplo, quando a implantação for concluída](media/quick-create-workspace-cli/template-output-01.png)
 
 ## <a name="troubleshooting"></a>Solução de problemas
-Quando você cria um espaço de trabalho que foi excluído nos últimos 14 dias e está no [estado de exclusão reversível](../platform/delete-workspace.md#soft-delete-behavior), a operação pode ter um resultado diferente, dependendo da configuração do seu espaço de trabalho:
-1. Se você fornecer o mesmo nome do espaço de trabalho, grupo de recursos, assinatura e região como no espaço de trabalho excluído, seu espaço de trabalho será recuperado, incluindo seus dados, configuração e agentes conectados.
-2. Se você usar o mesmo nome de espaço de trabalho, mas outro grupo de recursos, assinatura ou região, receberá o erro *O nome do espaço de trabalho "espaço de trabalho-name" não é exclusivo* ou erro de *conflito*. Para substituir a exclusão reversível, excluir permanentemente o espaço de trabalho e criar um novo espaço de trabalho com o mesmo nome, siga estas etapas para primeiro recuperar o espaço de trabalho e depois executar a exclusão permanente:
+Quando você cria um workspace que foi excluído nos últimos 14 dias e está no [estado de exclusão reversível](../platform/delete-workspace.md#soft-delete-behavior), a operação pode ter um resultado diferente, dependendo da configuração do seu workspace:
+1. Se você fornecer o mesmo nome do workspace, grupo de recursos, assinatura e região como no workspace excluído, seu workspace será recuperado, incluindo os dados, a configuração e os agentes conectados.
+2. Se você usar o mesmo nome de workspace, mas outro grupo de recursos, assinatura ou região, receberá o erro *O nome do workspace 'workspace-name' não é exclusivo* ou erro de *conflito*. Para substituir a exclusão reversível, excluir permanentemente o workspace e criar um workspace com o mesmo nome, siga estas etapas para recuperar o workspace primeiro e depois executar a exclusão permanente:
    * [Recuperar](../platform/delete-workspace.md#recover-workspace) seu workspace
    * [Excluir permanentemente](../platform/delete-workspace.md#permanent-workspace-delete) seu espaço de trabalho
-   * Criar um novo espaço de trabalho usando o mesmo nome
+   * Criar um workspace usando o mesmo nome
 
 ## <a name="next-steps"></a>Próximas etapas
 Agora que já tem um workspace disponível, você pode configurar a coleta de monitoramento de telemetria, executar pesquisas de logs para analisar os dados e adicionar uma solução de gerenciamento para fornecer dados adicionais e informações analíticas.  

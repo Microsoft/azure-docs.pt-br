@@ -1,6 +1,6 @@
 ---
-title: Visualizar dados no Gen2 Explorer-Azure Time Series Insights Gen2 | Microsoft Docs
-description: Saiba mais sobre os recursos e as opções disponíveis no Azure Time Series Insights Explorer do Gen2.
+title: Visualizar dados no Time Series Insights Explorer-Azure Time Series Insights Gen2 | Microsoft Docs
+description: Saiba mais sobre os recursos e as opções disponíveis no Azure Time Series Insights Explorer.
 author: deepakpalled
 ms.author: dpalled
 manager: diviso
@@ -8,34 +8,34 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/12/2020
+ms.date: 01/22/2021
 ms.custom: seodec18
-ms.openlocfilehash: 68b80a3511a82ff06677d3b7bb1fbea1c68cb2ae
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 55e102cc7e27cbcd9a65999f590c8264f1ad4434
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88164148"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736845"
 ---
-# <a name="azure-time-series-insights-gen2-explorer"></a>Azure Time Series Insights Explorer do Gen2
+# <a name="azure-time-series-insights-explorer"></a>Gerenciador do Azure Time Series Insights
 
 Este artigo descreve os vários recursos e opções disponíveis no [ambiente de demonstração](https://insights.timeseries.azure.com/preview/demo)do Azure Time Series insights Gen2.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para começar a usar o Azure Time Series Insights Gen2 Explorer, você deve:
+Para começar a usar o Azure Time Series Insights Explorer, você deve:
 
-* Ter um ambiente de Azure Time Series Insights Gen2 provisionado. Saiba mais sobre como provisionar uma instância lendo o tutorial [Azure Time Series insights Gen2](./time-series-insights-update-create-environment.md) .
-* [Forneça acesso a dados](./time-series-insights-data-access.md) para o ambiente de Azure Time Series insights Gen2 que você criou para a conta. Você pode fornecer acesso a outras pessoas, bem como para si mesmo.
+* Ter um ambiente de Azure Time Series Insights Gen2 provisionado. Saiba mais sobre como provisionar uma instância lendo o tutorial [Azure Time Series insights Gen2](./tutorials-set-up-tsi-environment.md) .
+* [Forneça acesso a dados](./concepts-access-policies.md) para o ambiente de Azure Time Series insights Gen2 que você criou para a conta. Você pode fornecer acesso a outras pessoas, bem como para si mesmo.
 * Adicione uma origem do evento ao ambiente Azure Time Series Insights Gen2 para enviar dados por push para o ambiente:
-  * Saiba [como se conectar a um hub de eventos](./time-series-insights-how-to-add-an-event-source-eventhub.md)
-  * Saiba [como se conectar a um hub IOT](./time-series-insights-how-to-add-an-event-source-iothub.md)
+  * Saiba [como se conectar a um hub de eventos](./how-to-ingest-data-event-hub.md)
+  * Saiba [como se conectar a um hub IOT](./how-to-ingest-data-iot-hub.md)
 
-## <a name="explore-the-azure-time-series-insights-gen2-explorer"></a>Explore o Azure Time Series Insights Explorer do Gen2
+## <a name="explore-the-azure-time-series-insights-explorer"></a>Explorar o Azure Time Series Insights Explorer
 
-O Azure Time Series Insights Gen2 Explorer consiste nos seguintes sete elementos:
+O Azure Time Series Insights Explorer consiste nos seguintes sete elementos:
 
-[![Visão geral do Azure Time Series Insights Explorer do Gen2](media/v2-update-explorer/preview-explorer-overview.png)](media/v2-update-explorer/preview-explorer-overview.png#lightbox)
+[![Visão geral do Azure Time Series Insights Explorer](media/v2-update-explorer/preview-explorer-overview.png)](media/v2-update-explorer/preview-explorer-overview.png#lightbox)
 
 1. [Painel de ambiente](#1-environment-panel): exibe todos os seus ambientes de Azure Time Series insights Gen2.
 1. [Barra de navegação](#2-navigation-bar): permite alternar entre as páginas **analisar** e **modelo** .
@@ -47,7 +47,7 @@ O Azure Time Series Insights Gen2 Explorer consiste nos seguintes sete elementos
 
 ## <a name="1-environment-panel"></a>1. painel de ambiente
 
-O painel ambiente exibe todos os Azure Time Series Insights ambientes Gen2 aos quais você tem acesso. A lista inclui ambientes Gen2, bem como ambientes Gen 1. Basta selecionar o ambiente que você deseja usar para ser usado imediatamente.
+O painel ambiente exibe todos os Azure Time Series Insights ambientes Gen2 aos quais você tem acesso. A lista inclui ambientes Gen2, bem como ambientes Gen1. Basta selecionar o ambiente que você deseja usar para ser usado imediatamente.
 
 1. Selecione a seta suspensa ao lado do seu ambiente exibido.
 
@@ -133,7 +133,7 @@ Aqui, um exemplo de um **gráfico sobreposto** é fornecido:
 
   [![Opção de gráfico sobreposto](media/v2-update-explorer/tsi-preview-explorer-overlapping-chart.png)](media/v2-update-explorer/tsi-preview-explorer-overlapping-chart.png#lightbox)
 
-O **botão mais ações** se expande para exibir o **download como CSV**, **conectar-se a Power bi**, **Mostrar dados do gráfico como uma tabela**e explorar as opções de **eventos brutos** .
+O **botão mais ações** se expande para exibir o **download como CSV**, **conectar-se a Power bi**, **Mostrar dados do gráfico como uma tabela** e explorar as opções de **eventos brutos** .
 
   [![Opção de mais ações](media/v2-update-explorer/more-actions-icon.png)](media/v2-update-explorer/more-actions-icon.png#lightbox)
 
@@ -156,11 +156,11 @@ Os seguintes controles da Web estão disponíveis em Azure Time Series Insights 
 
 1. **Botões aumentar e diminuir intervalo de datas**: aumente ou diminua seu período selecionando um dos botões para o intervalo desejado.
 
-1. **Controle de recolhimento**de intervalo de tempo: esse controle da Web permite que você oculte todos os controles, exceto a ferramenta de controle deslizante intervalo de datas internas.
+1. **Controle de recolhimento** de intervalo de tempo: esse controle da Web permite que você oculte todos os controles, exceto a ferramenta de controle deslizante intervalo de datas internas.
 
 1. **Controle deslizante de intervalo de datas externas**: Use os controles de ponto de extremidade para selecionar o intervalo de datas externas, que estará disponível para o controle de intervalo de datas interna.
 
-1. **Controle deslizante de intervalo de tempo**: Use-o para alternar rapidamente entre as seleções de intervalo de tempo predefinido, como os últimos **30 minutos**, as **últimas 12 horas**ou um **intervalo personalizado**. A alteração desse valor também muda os intervalos de intervalo disponíveis discutidos na ferramenta de controle deslizante de tamanho do intervalo.
+1. **Controle deslizante de intervalo de tempo**: Use-o para alternar rapidamente entre as seleções de intervalo de tempo predefinido, como os últimos **30 minutos**, as **últimas 12 horas** ou um **intervalo personalizado**. A alteração desse valor também muda os intervalos de intervalo disponíveis discutidos na ferramenta de controle deslizante de tamanho do intervalo.
 
    [![De e para o painel de seleção](media/v2-update-explorer/to-and-from-element.png)](media/v2-update-explorer/to-and-from-element.png#lightbox)
 
@@ -193,18 +193,18 @@ Para selecionar um novo tema, selecione o ícone de perfil localizado no canto s
 > [!TIP]
 > A seleção de idioma também está disponível selecionando o ícone de perfil.
 
-Azure Time Series Insights o Gen2 Explorer dá suporte a dois temas:
+O Azure Time Series Insights Explorer dá suporte a dois temas:
 
 * **Tema claro**: o tema padrão mostrado em todo este documento.
 * **Tema escuro**: renderiza o Gerenciador como mostrado aqui:
 
   [![Tema escuro selecionado](media/v2-update-explorer/tsi-preview-dark-theme-selected.png)](media/v2-update-explorer/tsi-preview-dark-theme-selected.png#lightbox)
 
-## <a name="gen-1-environment-controls"></a>Controles de ambiente Gen 1
+## <a name="gen1-environment-controls"></a>Controles de ambiente Gen1
 
 ### <a name="gen2-terms-panel"></a>Painel de termos do Gen2
 
-Esta seção se aplica somente a ambientes Gen 1 existentes que tentam usar o Gerenciador na interface do usuário atualizada. Talvez você queira usar o produto Gen 1 e o produto Gen2 em combinação. Adicionamos algumas funcionalidades da interface do usuário existente ao Gerenciador atualizado, mas você pode obter a experiência de interface do usuário completa para um ambiente Gen 1 no novo Azure Time Series Insights Explorer Gen2.
+Esta seção se aplica somente a ambientes Gen1 existentes que tentam usar o Gerenciador na interface do usuário atualizada. Talvez você queira usar o produto Gen1 e o produto Gen2 em combinação. Adicionamos algumas funcionalidades da interface do usuário existente ao Gerenciador atualizado, mas você pode obter a experiência de interface do usuário completa para um ambiente Gen1 no novo Azure Time Series Insights Explorer.
 
 Em vez da hierarquia, o painel Azure Time Series Insights termos Gen2 é exibido. O painel de termos permite que você defina consultas em seu ambiente. Use-o para filtrar também os dados com base em um predicado.
 
@@ -221,7 +221,7 @@ O painel do editor de termos do Azure Time Series Insights Gen2 usa os seguintes
 | `IN` | String, Bool, Double, DateTime, TimeSpan, NULL | Todos os operandos devem ser do mesmo tipo ou ser uma constante NULL. |
 | `HAS` | String | Somente literais de cadeia de caracteres constantes são permitidos no lado direito. Cadeia de caracteres vazia e NULL não são permitidos. |
 
-Para saber mais sobre os tipos de dados e operações de consulta com suporte, consulte [TSX (expressão de série temporal)](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax).
+Para saber mais sobre os tipos de dados e operações de consulta com suporte, consulte [TSX (expressão de série temporal)](/rest/api/time-series-insights/reference-time-series-expression-syntax).
 
 ### <a name="examples-of-where-clauses"></a>Exemplos de cláusulas WHERE
 
@@ -233,7 +233,7 @@ Para saber mais sobre os tipos de dados e operações de consulta com suporte, c
 
   [![Exibição consultada e filtrada um](media/v2-update-explorer/s1-s2-preview-filtered-view.png)](media/v2-update-explorer/s1-s2-preview-filtered-view.png#lightbox)
 
-Você pode mostrar e ocultar elementos no painel de gráfico selecionando o ícone visível, conforme mostrado na imagem a seguir. Para remover completamente as consultas, selecione o **X**vermelho.
+Você pode mostrar e ocultar elementos no painel de gráfico selecionando o ícone visível, conforme mostrado na imagem a seguir. Para remover completamente as consultas, selecione o **X** vermelho.
 
   [![Cancelar uma opção consultada e filtrada](media/v2-update-explorer/s1-s2-preview-filtered-view-cancel.png)](media/v2-update-explorer/s1-s2-preview-filtered-view-cancel.png#lightbox)
 
@@ -245,4 +245,4 @@ Você pode mostrar e ocultar elementos no painel de gráfico selecionando o íco
 
 * Leia sobre [modelagem de dados](./concepts-model-overview.md) no Azure Time Series insights Gen2.
 
-* Saiba [como diagnosticar e solucionar problemas](./time-series-insights-update-how-to-troubleshoot.md) de seu ambiente.
+* Saiba [como diagnosticar e solucionar problemas](./how-to-diagnose-troubleshoot.md) de seu ambiente.

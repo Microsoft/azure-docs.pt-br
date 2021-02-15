@@ -5,13 +5,14 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/07/2020
-ms.openlocfilehash: 04f2d11b9fc8bbd61319a057c091cddbf140b9db
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.date: 10/16/2020
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: f9ced3dfeccdbac5f0eb220cf0e104679f263aac
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88135515"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186857"
 ---
 # <a name="monitoring-solutions-in-azure-monitor"></a>Soluções de monitoramento no Azure Monitor
 
@@ -19,16 +20,16 @@ As soluções de monitoramento no Azure Monitor fornecem análise da operação 
 
 ## <a name="use-monitoring-solutions"></a>Usar soluções de monitoramento
 
-A página **visão geral** de soluções no Azure Monitor exibe um bloco para cada solução instalada em um espaço de trabalho log Analytics. Para abrir essa página, vá para **Azure monitor** na [portal do Azure](https://ms.portal.azure.com). No menu **insights** , selecione **mais** para abrir o **Hub de informações**e, em seguida, clique em **log Analytics espaços de trabalho**.
+A página **visão geral** de soluções no Azure Monitor exibe um bloco para cada solução instalada em um espaço de trabalho log Analytics. Para abrir essa página, vá para **Azure monitor** na [portal do Azure](https://ms.portal.azure.com). No menu **insights** , selecione **mais** para abrir o **Hub de informações** e, em seguida, clique em **log Analytics espaços de trabalho**.
 
 [![Hub de informações](media/solutions/insights-hub.png)](media/solutions/insights-hub.png#lightbox)
 
 
 Use as caixas suspensas na parte superior da tela para alterar o workspace ou o intervalo de tempo usado para os blocos. Clique no bloco para uma solução abrir a exibição dela que inclui uma análise mais detalhada dos dados coletados.
 
-[![Visão geral](media/solutions/overview.png)](media/solutions/overview.png#lightbox)
+[![Captura de tela mostra o menu portal do Azure com soluções selecionadas e soluções exibidas no painel soluções.](media/solutions/overview.png)](media/solutions/overview.png#lightbox)
 
-As soluções de monitoramento podem conter vários tipos de recursos do Azure e é possível exibir todos os recursos incluídos em uma solução como qualquer outro recurso. Por exemplo, todas as consultas de log incluídas na solução estão listadas em **Consultas de Solução** no [Gerenciador de consultas](../log-query/get-started-portal.md#load-queries) e é possível usar essas consultas ao executar análises ad hoc com [consultas de log](../log-query/log-query-overview.md).
+As soluções de monitoramento podem conter vários tipos de recursos do Azure e é possível exibir todos os recursos incluídos em uma solução como qualquer outro recurso. Por exemplo, todas as consultas de log incluídas na solução são listadas em **consultas de solução** no [Gerenciador de consultas](../log-query/log-analytics-tutorial.md). Você pode usar essas consultas ao executar análises ad hoc com [consultas de log](../log-query/log-query-overview.md).
 
 ## <a name="list-installed-monitoring-solutions"></a>Listar soluções de monitoramento instaladas
 
@@ -59,6 +60,21 @@ az monitor log-analytics solution list --subscription MySubscription
 
 # List all log-analytics solutions in a resource group
 az monitor log-analytics solution list --resource-group MyResourceGroup
+```
+
+### <a name="azure-powershell"></a>[PowerShell do Azure](#tab/azure-powershell)
+
+Use o cmdlet [Get-AzMonitorLogAnalyticsSolution](/powershell/module/az.monitoringsolutions/get-azmonitorloganalyticssolution) para listar as soluções de monitoramento instaladas em sua assinatura. Antes de executar esses comandos, siga os pré-requisitos encontrados em [instalar uma solução de monitoramento](#install-a-monitoring-solution).
+
+```azurepowershell-interactive
+# List all log-analytics solutions in the current subscription.
+Get-AzMonitorLogAnalyticsSolution
+
+# List all log-analytics solutions for a specific subscription
+Get-AzMonitorLogAnalyticsSolution -SubscriptionId 00000000-0000-0000-0000-000000000000
+
+# List all log-analytics solutions in a resource group
+Get-AzMonitorLogAnalyticsSolution -ResourceGroupName MyResourceGroup
 ```
 
 * * *
@@ -95,11 +111,11 @@ Os membros da comunidade podem enviar soluções de gerenciamento para Modelos d
 
 1. Instalar a CLI do Azure
 
-   Você precisa [instalar o CLI do Azure](/cli/azure/install-azure-cli) antes de executar comandos de referência da CLI.  Se preferir, você também pode usar Azure Cloud Shell para concluir as etapas neste artigo.  Azure Cloud Shell é um ambiente de shell interativo que você usa por meio de seu navegador.  Inicie Cloud Shell usando um destes métodos:
+   Você precisa [instalar o CLI do Azure](/cli/azure/install-azure-cli) antes de executar comandos de referência da CLI.  Se preferir, você também pode usar Azure Cloud Shell para concluir as etapas neste artigo.  O Azure Cloud Shell é um ambiente de shell interativo usado por meio do navegador.  Inicie o Cloud Shell usando um destes métodos:
 
-   - Abra Cloud Shell acessando[https://shell.azure.com](https://shell.azure.com)
+   - Abra o Cloud Shell acessando [https://shell.azure.com](https://shell.azure.com)
 
-   - Selecione o botão **Cloud Shell** na barra de menus no canto superior direito da [portal do Azure](https://portal.azure.com)
+   - Selecione o botão **Cloud Shell** na barra de menus, no canto superior direito do [portal do Azure](https://portal.azure.com)
 
 1. Entrar.
 
@@ -109,18 +125,18 @@ Os membros da comunidade podem enviar soluções de gerenciamento para Modelos d
     az login
     ```
 
-1. Instalar a extensão `log-analytics`
+1. Instalar a extensão `log-analytics-solution`
 
-   O `log-analytics` comando é uma extensão experimental do CLI do Azure principal. Saiba mais sobre referências de extensão na [extensão de uso com CLI do Azure](/cli/azure/azure-cli-extensions-overview?).
+   O `log-analytics-solution` comando é uma extensão experimental do CLI do Azure principal. Saiba mais sobre referências de extensão na [extensão de uso com CLI do Azure](/cli/azure/azure-cli-extensions-overview?).
 
    ```azurecli
-   az extension add --name log-analytics
+   az extension add --name log-analytics-solution
    ```
 
    O seguinte aviso é esperado.
 
    ```output
-   The installed extension `log-analytics` is experimental and not covered by customer support.  Please use with discretion.
+   The installed extension `log-analytics-solution` is experimental and not covered by customer support.  Please use with discretion.
    ```
 
 ### <a name="install-a-solution-with-the-azure-cli"></a>Instalar uma solução com o CLI do Azure
@@ -151,6 +167,54 @@ az monitor log-analytics solution create --resource-group MyResourceGroup \
                                            Microsoft.OperationalInsights/workspaces/{WorkspaceName}"
 ```
 
+### <a name="azure-powershell"></a>[PowerShell do Azure](#tab/azure-powershell)
+
+### <a name="prepare-your-environment"></a>Prepare o seu ambiente
+
+1. Instalar o Azure PowerShell
+
+   Você precisa [instalar o Azure PowerShell](/powershell/azure/install-az-ps) antes de executar Azure PowerShell comandos de referência. Se preferir, você também pode usar Azure Cloud Shell para concluir as etapas neste artigo. O Azure Cloud Shell é um ambiente de shell interativo usado por meio do navegador. Inicie o Cloud Shell usando um destes métodos:
+
+   - Abra o Cloud Shell acessando [https://shell.azure.com](https://shell.azure.com)
+
+   - Selecione o botão **Cloud Shell** na barra de menus, no canto superior direito do [portal do Azure](https://portal.azure.com)
+
+   > [!IMPORTANT]
+   > Enquanto o módulo **AZ. MonitoringSolutions** do PowerShell está em versão prévia, você deve instalá-lo separadamente usando o `Install-Module` cmdlet. Depois que esse módulo do PowerShell estiver em disponibilidade geral, ele fará parte das versões futuras do módulo Az PowerShell e estará disponível por padrão no Azure Cloud Shell.
+
+   ```azurepowershell-interactive
+   Install-Module -Name Az.MonitoringSolutions
+   ```
+
+1. Entrar.
+
+   Se você estiver usando uma instalação local do PowerShell, entre usando o cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) . Siga as etapas exibidas no PowerShell para concluir o processo de autenticação.
+
+   ```azurepowershell
+   Connect-AzAccount
+   ```
+
+### <a name="install-a-solution-with-azure-powershell"></a>Instalar uma solução com Azure PowerShell
+
+Ao instalar uma solução, você deverá selecionar um [Espaço de Trabalho do Log Analytics](../platform/manage-access.md) no qual a solução será instalada e onde seus dados serão coletados. Com Azure PowerShell, você gerencia espaços de trabalho usando os cmdlets no módulo [AZ. MonitoringSolutions](/powershell/module/az.monitoringsolutions) do PowerShell. Siga o processo descrito no [Espaço de Trabalho do Log Analytics e na Conta de automação](#log-analytics-workspace-and-automation-account) para vincular um espaço de trabalho e uma conta.
+
+Use o cmdlet [New-AzMonitorLogAnalyticsSolution](/powershell/module/az.monitoringsolutions/new-azmonitorloganalyticssolution) para instalar uma solução de monitoramento. Os parâmetros entre colchetes são opcionais.
+
+```azurepowershell
+New-AzMonitorLogAnalyticsSolution -ResourceGroupName <string> -Type <string> -Location <string>
+-WorkspaceResourceId <string> [-SubscriptionId <string>] [-Tag <hashtable>]
+[-DefaultProfile <psobject>] [-Break] [-HttpPipelineAppend <SendAsyncStep[]>]
+[-HttpPipelinePrepend <SendAsyncStep[]>] [-Proxy <uri>] [-ProxyCredential <pscredential>]
+[-ProxyUseDefaultCredentials] [-WhatIf] [-Confirm] [<CommonParameters>]
+```
+
+O exemplo a seguir cria uma solução monitorar log Analytics para o espaço de trabalho do log Analytics.
+
+```azurepowershell-interactive
+$workspace = Get-AzOperationalInsightsWorkspace -ResourceGroupName MyResourceGroup -Name WorkspaceName
+New-AzMonitorLogAnalyticsSolution -Type Containers -ResourceGroupName MyResourceGroup -Location $workspace.Location -WorkspaceResourceId $workspace.ResourceId
+```
+
 * * *
 
 ## <a name="log-analytics-workspace-and-automation-account"></a>Espaço de Trabalho do Log Analytics e Conta de automação
@@ -159,9 +223,8 @@ Todas as soluções de monitoramento exigem um [espaço de trabalho do Log Analy
 
 * Cada instalação de uma solução somente pode usar um espaço de trabalho do Log Analytics e uma conta de Automação. É possível instalar a solução separadamente em vários workspaces.
 * Se uma solução exigir uma conta de Automação, o espaço de trabalho do Log Analytics e a conta de Automação deverão estar vinculadas entre si. Um espaço de trabalho do Log Analytics só pode ser vinculado a uma Conta de automação e uma Conta de automação só pode ser vinculada a um espaço de trabalho do Log Analytics.
-* Para ser vinculado, o workspace do Log Analytics e a conta de Automação devem estar na mesma assinatura, mas podem estar em grupos de recursos diferentes implantados na mesma região. A exceção é um workspace na região Leste dos EUA e uma conta de Automação no Leste dos EUA 2.
 
-Ao instalar uma solução por meio do Azure Marketplace, um workspace e uma conta de Automação serão solicitados. Se ainda não estiverem vinculados, o link entre eles será criado.
+Ao instalar uma solução por meio do Azure Marketplace, você será solicitado a fornecer um espaço de trabalho e uma conta de automação. Se ainda não estiverem vinculados, o link entre eles será criado.
 
 ### <a name="verify-the-link-between-a-log-analytics-workspace-and-automation-account"></a>Verifique o link entre um espaço de trabalho do Log Analytics e uma conta de Automação
 
@@ -186,6 +249,14 @@ az monitor log-analytics solution delete --name
                                          --resource-group
                                          [--no-wait]
                                          [--yes]
+```
+
+### <a name="azure-powershell"></a>[PowerShell do Azure](#tab/azure-powershell)
+
+Para remover uma solução instalada usando Azure PowerShell, use o cmdlet [Remove-AzMonitorLogAnalyticsSolution](/powershell/module/az.monitoringsolutions/remove-azmonitorloganalyticssolution) .
+
+```azurepowershell-interactive
+Remove-AzMonitorLogAnalyticsSolution  -ResourceGroupName MyResourceGroup -Name WorkspaceName
 ```
 
 * * *

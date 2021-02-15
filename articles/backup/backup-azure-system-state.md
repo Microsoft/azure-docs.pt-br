@@ -3,12 +3,12 @@ title: Fazer backup de estado do sistema para o Windows Azure
 description: Saiba como fazer backup do estado do sistema de computadores Windows Server no Azure.
 ms.topic: conceptual
 ms.date: 05/23/2018
-ms.openlocfilehash: b3e4e5451d40d7b0e600875b73e4810d5818d168
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 1b3573d757d2f7b1ffec9ae718aa791488960f3b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89013428"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91332875"
 ---
 # <a name="back-up-windows-system-state-to-azure"></a>Fazer backup de estado do sistema para o Windows Azure
 
@@ -38,9 +38,9 @@ Quando você criar um cofre de Serviços de Recuperação, certifique-se de que 
     ![Definir a configuração de armazenamento para o novo cofre](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration.png)
 4. Escolha a opção de replicação de armazenamento adequada para o cofre.
 
-    ![Opções de configuração de armazenamento](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration.png)
+    ![Opções de configuração de armazenamento](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration-for-vault.png)
 
-    Por padrão, seu cofre tem armazenamento com redundância geográfica. Se você usar o Azure como um ponto de extremidade de armazenamento de backup principal, continue a usar **Georredundante**. Se você não usar o Azure como um ponto de extremidade de armazenamento de backup principal, escolha **Localmente redundante**, que reduz os custos de armazenamento do Azure. Leia mais sobre as opções de armazenamento [com redundância geográfica](../storage/common/storage-redundancy.md) e [com redundância local](../storage/common/storage-redundancy.md) nesta [Visão geral de redundância de armazenamento](../storage/common/storage-redundancy.md).
+    Por padrão, seu cofre tem armazenamento com redundância geográfica. Se você usar o Azure como um ponto de extremidade de armazenamento de backup principal, continue a usar **Georredundante**. Se você não usar o Azure como um ponto de extremidade de armazenamento de backup principal, escolha **Localmente redundante**, que reduz os custos de armazenamento do Azure. Leia [mais sobre as](../storage/common/storage-redundancy.md#geo-redundant-storage)opções de armazenamento com redundância local e com redundância de [zona](../storage/common/storage-redundancy.md#zone-redundant-storage) [localmente](../storage/common/storage-redundancy.md#locally-redundant-storage) nesta [visão geral](../storage/common/storage-redundancy.md)de Unificação de armazenamento.
 
 Agora que você criou um cofre, configure-o para fazer backup do Estado do Sistema do Windows.
 
@@ -62,7 +62,7 @@ Agora que você criou um cofre, configure-o para fazer backup do Estado do Siste
 
     ![Configuração de arquivos e pastas](./media/backup-azure-system-state/backup-goal-system-state.png)
 
-    Depois de clicar em OK, uma marca de seleção é exibida ao lado de **meta de backup**e o painel **preparar infraestrutura** é aberto.
+    Depois de selecionar **OK**, uma marca de seleção é exibida ao lado de **meta de backup**e o painel **preparar infraestrutura** é aberto.
 
     ![Meta de backup configurada, prepare a infraestrutura em seguida](./media/backup-try-azure-backup-in-10-mins/backup-goal-configed.png)
 
@@ -80,13 +80,13 @@ Agora que você criou um cofre, configure-o para fazer backup do Estado do Siste
 
     ![O instalador do MARS foi concluído](./media/backup-try-azure-backup-in-10-mins/mars-installer-complete.png)
 
-    Você não precisa instalar o agente ainda. Você poderá instalar o agente depois de baixar as credenciais do cofre.
+    Você não precisa instalar o agente ainda. Você pode instalar o agente depois de baixar as credenciais do cofre.
 
 6. No painel **preparar infraestrutura** , selecione **baixar**.
 
     ![baixar as credenciais do cofre](./media/backup-try-azure-backup-in-10-mins/download-vault-credentials.png)
 
-    As credenciais do cofre são baixadas para a pasta **downloads** . Depois que as credenciais do cofre terminarem de baixar, você verá um pop-up perguntando se deseja abrir ou salvar as credenciais. Clique em **Salvar**. Se você selecionar acidentalmente **abrir**, permita que a caixa de diálogo que tenta abrir as credenciais do cofre falhe. Você não poderá abrir as credenciais do cofre. Prossiga para a próxima etapa. As credenciais do cofre estão na pasta **downloads** .
+    As credenciais do cofre são baixadas para a pasta **downloads** . Depois que as credenciais do cofre terminarem de baixar, você verá um pop-up perguntando se deseja abrir ou salvar as credenciais. Selecione **Salvar**. Se você selecionar acidentalmente **abrir**, permita que a caixa de diálogo que tenta abrir as credenciais do cofre falhe. Você não poderá abrir as credenciais do cofre. Prossiga para a próxima etapa. As credenciais do cofre estão na pasta **downloads** .
 
     ![o download das credenciais do cofre foi concluído](./media/backup-try-azure-backup-in-10-mins/vault-credentials-downloaded.png)
    > [!NOTE]
@@ -181,7 +181,7 @@ Depois que o backup inicial for concluído, o status **Trabalho concluído** apa
 
   ![IR completo](./media/backup-try-azure-backup-in-10-mins/ircomplete.png)
 
-## <a name="questions"></a>Dúvidas?
+## <a name="questions"></a>Perguntas?
 
 Se você tiver dúvidas, [envie-nos seus comentários](https://feedback.azure.com/forums/258995-azure-backup).
 

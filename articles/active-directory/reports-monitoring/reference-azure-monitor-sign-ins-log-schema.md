@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d7c9713f27643e792ea381e1a2419cbc4b67a99
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6a881dee50195fe4995c77d793b4f4b75091d20b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82129195"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89231105"
 ---
 # <a name="interpret-the-azure-ad-sign-in-logs-schema-in-azure-monitor"></a>Interpretar o esquema de logs de entrada do Azure AD no Azure Monitor
 
@@ -155,7 +155,7 @@ Este artigo descreve o esquema de log de logon do Microsoft Azure Active Directo
 | ResultSignature | Contém o código de erro, se houver, para a operação de entrada. |
 | ResultDescription | Fornece a descrição do erro para a operação de entrada. |
 | riskDetail | riskDetail | Fornece o "motivo" por trás de um estado específico de um usuário arriscado, uma conexão ou uma detecção de risco. Os valores possíveis são: `none` , `adminGeneratedTemporaryPassword` , `userPerformedSecuredPasswordChange` ,,,, `userPerformedSecuredPasswordReset` ,, `adminConfirmedSigninSafe` `aiConfirmedSigninSafe` `userPassedMFADrivenByRiskBasedPolicy` `adminDismissedAllRiskForUser` `adminConfirmedSigninCompromised` , `unknownFutureValue` . O valor `none` significa que nenhuma ação foi executada no usuário ou entre até agora. <br>**Observação:** Os detalhes dessa propriedade exigem uma licença Azure AD Premium P2. Outras licenças retornam o valor `hidden` . |
-| riskEventTypes | riskEventTypes | Tipos de detecção de risco associados à entrada. Os valores possíveis são: `unlikelyTravel` , `anonymizedIPAddress` , `maliciousIPAddress` , `unfamiliarFeatures` , `malwareInfectedIPAddress` ,, `suspiciousIPAddress` ,, `leakedCredentials` `investigationsThreatIntelligence` `generic` e `unknownFutureValue` . |
+| riskEventTypes | riskEventTypes | Tipos de detecção de risco associados à entrada. Os valores possíveis são: `unlikelyTravel` , `anonymizedIPAddress` , `maliciousIPAddress` , `unfamiliarFeatures` , `malwareInfectedIPAddress` ,, `suspiciousIPAddress` ,, `leakedCredentials` `investigationsThreatIntelligence`  `generic` e `unknownFutureValue` . |
 | riskLevelAggregated | riskLevel | Nível de risco agregado. Os valores possíveis são: `none` , `low` , `medium` , `high` , `hidden` e `unknownFutureValue` . O valor `hidden` significa que o usuário ou a entrada não foi habilitado para Azure ad Identity Protection. **Observação:** Os detalhes desta propriedade estão disponíveis somente para clientes Azure AD Premium P2. Todos os outros clientes serão retornados `hidden` . |
 | riskLevelDuringSignIn | riskLevel | Nível de risco durante a entrada. Os valores possíveis são: `none` , `low` , `medium` , `high` , `hidden` e `unknownFutureValue` . O valor `hidden` significa que o usuário ou a entrada não foi habilitado para Azure ad Identity Protection. **Observação:** Os detalhes desta propriedade estão disponíveis somente para clientes Azure AD Premium P2. Todos os outros clientes serão retornados `hidden` . |
 | risco | risco | Relata o status do usuário arriscado, de entrada ou de uma detecção de risco. Os valores possíveis são: `none` ,,,,, `confirmedSafe` `remediated` `dismissed` `atRisk` `confirmedCompromised` , `unknownFutureValue` . |
@@ -164,8 +164,8 @@ Este artigo descreve o esquema de log de logon do Microsoft Azure Active Directo
 | CorrelationId | GUID opcional passado pelo cliente. Esse valor pode ajudar a correlacionar operações do lado do cliente com operações do lado do servidor e é útil ao rastrear logs que abrangem os serviços. |
 | Identidade | A identidade do token que foi apresentada ao fazer a solicitação. Pode ser uma conta de usuário, conta do sistema ou principal de serviço. |
 | Nível | Fornece o tipo de mensagem. Para auditoria, é sempre *informativo*. |
-| Location | Fornece o local da atividade de entrada. |
-| Propriedades | Lista todas as propriedades que estão associadas a entradas. Para obter mais informações, consulte [Microsoft Graph referência de API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin). Esse esquema usa os mesmos nomes de atributos como no recurso de entrada, para legibilidade.
+| Localização | Fornece o local da atividade de entrada. |
+| Propriedades | Lista todas as propriedades que estão associadas a entradas. Para obter mais informações, consulte [Microsoft Graph referência de API](/graph/api/resources/signin?view=graph-rest-beta). Esse esquema usa os mesmos nomes de atributos como no recurso de entrada, para legibilidade.
 
 ## <a name="next-steps"></a>Próximas etapas
 

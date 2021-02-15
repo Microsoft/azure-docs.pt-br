@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 84e85e6e817972b8ec0bee0e8b441b3585d2d9dd
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 462cd06c9da3b1f0a57c293d52c59181372b709b
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85984844"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92103740"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-rest-api"></a>Autenticação de usuário final com o Azure Data Lake Storage Gen1 usando a API REST
 > [!div class="op_single_selector"]
@@ -44,7 +44,7 @@ Nesse cenário, o aplicativo solicita o logon do usuário e todas as operações
     `https://login.microsoftonline.com/<TENANT-ID>/oauth2/authorize?client_id=<APPLICATION-ID>&response_type=code&redirect_uri=<REDIRECT-URI>`
 
    > [!NOTE]
-   > \<REDIRECT-URI>precisa ser codificado para uso em uma URL. Portanto, para https://localhost, use `https%3A%2F%2Flocalhost`)
+   > \<REDIRECT-URI> precisa ser codificado para uso em uma URL. Portanto, para https://localhost, use `https%3A%2F%2Flocalhost`)
 
     Para os fins deste tutorial, é possível substituir os valores de espaço reservado na URL acima e colá-los na barra de endereços do navegador da Web. Você será redirecionado para autenticar usando seu logon do Azure. Depois de fazer logon com êxito, a resposta será exibida na barra de endereços do navegador. A resposta estará no seguinte formato:
 
@@ -82,11 +82,10 @@ Nesse cenário, o aplicativo solicita o logon do usuário e todas as operações
          -F refresh_token=<REFRESH-TOKEN>
     ```
 
-Para obter mais informações sobre a autenticação interativa de usuário, confira [Fluxo de concessão de código de autorização](https://msdn.microsoft.com/library/azure/dn645542.aspx).
+Para obter mais informações sobre a autenticação interativa de usuário, confira [Fluxo de concessão de código de autorização](/previous-versions/azure/dn645542(v=azure.100)).
 
 ## <a name="next-steps"></a>Próximas etapas
 Neste artigo, você aprendeu a usar a autenticação de serviço a serviço para se autenticar no Armazenamento de Dados do Azure Data Lake usando a API REST. Agora você pode examinar os artigos a seguir que falam sobre como usar a API REST para trabalhar com o Armazenamento de dados do Windows Azure Gen1.
 
 * [Operações de gerenciamento de conta no Data Lake Storage Gen1 usando a API REST](data-lake-store-get-started-rest-api.md)
 * [Operações de dados no Data Lake Storage Gen1 usando a API REST](data-lake-store-data-operations-rest-api.md)
-

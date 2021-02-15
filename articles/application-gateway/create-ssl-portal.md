@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 08/14/2020
+ms.date: 01/28/2021
 ms.author: victorh
-ms.openlocfilehash: 0d0522dd2f206e02ad8b63b13a9537c049232db2
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: c976ea236ae1d37cc0a543b10a9de55609035632
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88245733"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986745"
 ---
 # <a name="tutorial-configure-an-application-gateway-with-tls-termination-using-the-azure-portal"></a>Tutorial: Configurar um gateway de aplicativo com o encerramento de TLS usando o portal do Azure
 
@@ -36,7 +36,7 @@ Entre no portal do Azure em [https://portal.azure.com](https://portal.azure.com)
 
 ## <a name="create-a-self-signed-certificate"></a>Crie um certificado autoassinado
 
-Nesta seção, você usa [New-SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate) para criar um certificado autoassinado. Você pode carregar o certificado no portal do Azure quando você cria o ouvinte para o Gateway de Aplicativo.
+Nesta seção, você usa [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) para criar um certificado autoassinado. Você pode carregar o certificado no portal do Azure quando você cria o ouvinte para o Gateway de Aplicativo.
 
 No computador local, abra uma janela do Windows PowerShell como administrador. Execute o comando a seguir para criar o certificado:
 
@@ -56,7 +56,7 @@ Thumbprint                                Subject
 E1E81C23B3AD33F9B4D1717B20AB65DBB91AC630  CN=www.contoso.com
 ```
 
-Use o [Export-PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate) com a impressão digital que foi retornada para exportar um arquivo pfx do certificado. Verifique se sua senha tem 4-12 caracteres de comprimento:
+Use o [Export-PfxCertificate](/powershell/module/pkiclient/export-pfxcertificate) com a impressão digital que foi retornada para exportar um arquivo pfx do certificado. Verifique se sua senha tem 4-12 caracteres de comprimento:
 
 
 ```powershell
@@ -106,7 +106,7 @@ Export-PfxCertificate `
    > [!NOTE]
    > Para a SKU do Gateway de Aplicativo v2, você só pode escolher a configuração de IP de front-end **Pública**. A configuração de IP de front-end privado não está habilitada para esta SKU v2.
 
-2. Escolha **Criar novo** para o **Endereço IP público** e insira *myAGPublicIPAddress* para o nome do endereço IP público e, em seguida, selecione **OK**. 
+2. Selecione **Adicionar novo** para o **Endereço IP público**, insira *myAGPublicIPAddress* para o nome do endereço IP público e clique em **OK**. 
 
    ![Criar gateway de aplicativo: front-ends](./media/application-gateway-create-gateway-portal/application-gateway-create-frontends.png)
 
@@ -116,7 +116,7 @@ Export-PfxCertificate `
 
 O pool de back-end é usado para encaminhar solicitações aos servidores back-end que atendem à solicitação. Os pools de back-end podem ser formados por NICs, conjuntos de dimensionamento de máquinas virtuais, IPs públicos, IPs internos, FQDN (nomes de domínio totalmente qualificados) e back-ends multilocatário como Serviço de Aplicativo do Azure. Neste exemplo, você criará um pool de back-end vazio com o gateway de aplicativo e, em seguida, adicionará destinos de back-end ao pool de back-end.
 
-1. Na guia **Back-ends**, selecione **+ Adicionar um pool de back-end**.
+1. Na guia **Back-ends**, selecione **Adicionar um pool de back-end**.
 
 2. Na janela **Adicionar um pool de back-end** que é aberta, insira os seguintes valores para criar um pool de back-end vazio:
 
@@ -133,7 +133,7 @@ O pool de back-end é usado para encaminhar solicitações aos servidores back-e
 
 Na guia **Configuração**, você conectará o front-end e o pool de back-end que você criou usando uma regra de roteamento.
 
-1. Selecione **Adicionar uma regra** na coluna **Regras de roteamento**.
+1. Selecione **Adicionar uma regra de roteamento** na coluna **Regra de roteamento**.
 
 2. Na janela **Adicionar uma regra de roteamento** que é aberta, insira *myRoutingRule* para o **Nome da regra**.
 
@@ -144,11 +144,12 @@ Na guia **Configuração**, você conectará o front-end e o pool de back-end qu
     - **Protocolo**: Selecione **HTTPS**.
     - **Porta**: Verifique se 443 foi inserido para a porta.
 
-   Em **Certificado HTTPS**:
+   Em **Configurações de HTTPS**:
 
+   - **Escolha um certificado** – selecione **Carregar certificado**.
    - **Arquivo de certificado PFX** – procure e selecione o arquivo c:\appgwcert.pfx criado anteriormente.
    - **Nome do certificado** – digite *mycert1* para o nome do certificado.
-   - **Senha**: digite sua senha.
+   - **Senha** – digite a senha usada para criar o certificado.
   
         Aceite os valores padrão para as outras configurações na guia **Ouvinte** e, em seguida, selecione a guia **Destinos de back-end** para configurar o restante da regra de roteamento.
 
@@ -156,7 +157,7 @@ Na guia **Configuração**, você conectará o front-end e o pool de back-end qu
 
 4. Na guia **Destinos de back-end**, selecione **myBackendPool** para o **Destino de back-end**.
 
-5. Para a **Configuração de HTTP**, selecione **Criar novo** para criar uma configuração HTTP. A configuração HTTP determinará o comportamento da regra de roteamento. Na janela **Adicionar uma configuração de HTTP** que é aberta, insira *myHTTPSetting* para o **Nome da configuração de HTTP**. Aceite os valores padrão para as outras configurações na janela **Adicionar uma configuração de HTTP** e, em seguida, selecione **Adicionar** para retornar à janela **Adicionar uma regra de roteamento**. 
+5. Para a **Configuração de HTTP**, selecione **Adicionar novo** para criar uma configuração de HTTP. A configuração HTTP determinará o comportamento da regra de roteamento. Na janela **Adicionar uma configuração de HTTP** aberta, insira *myHTTPSetting* para o **Nome da configuração de HTTP**. Aceite os valores padrão para as outras configurações na janela **Adicionar uma configuração de HTTP** e selecione **Adicionar** para retornar à janela **Adicionar uma regra de roteamento**. 
 
    :::image type="content" source="./media/create-ssl-portal/application-gateway-create-httpsetting.png" alt-text="Criar Gateway de Aplicativo: configuração de HTTP":::
 
@@ -191,14 +192,14 @@ Para fazer isso, você precisará:
 
     - **Grupo de recursos**: Selecione **myResourceGroupAG** para o nome do grupo de recursos.
     - **Nome da máquina virtual**: Insira *myVM* para o nome da máquina virtual.
-    - **Nome de usuário**: Insira *azureuser* para o nome de usuário do administrador.
+    - **Nome de usuário**: Insira um nome para o nome de usuário do administrador.
     - **Senha**: Insira uma senha para a conta de administrador.
 1. Aceite os outros padrões e selecione **Próximo: Discos**.  
 2. Aceite os padrões na guia **Discos** e selecione **Próximo: Rede**.
 3. Na guia **Rede**, verifique se **myVNet** está selecionado para a **Rede virtual** e se a **Sub-rede** está definida como **myBackendSubnet**. Aceite os outros padrões e selecione **Próximo: Gerenciamento**.
 
    O Gateway de Aplicativo pode comunicar-se com instâncias fora da rede virtual em que está, mas é necessário garantir que há conectividade IP.
-1. Na guia **Gerenciamento**, defina **Diagnóstico de inicialização** como **Desligado**. Aceite os outros padrões e selecione **Revisar + criar**.
+1. Na guia **Gerenciamento**, defina **Diagnóstico de inicialização** como **Desabilitar**. Aceite os outros padrões e selecione **Revisar + criar**.
 2. Na guia **Revisar + criar**, examine as configurações, corrija os erros de validação e selecione **Criar**.
 3. Aguarde a conclusão da implantação antes de continuar.
 
@@ -206,11 +207,11 @@ Para fazer isso, você precisará:
 
 Neste exemplo, você instala IIS nas máquinas virtuais apenas para verificar se o Azure criou o gateway de aplicativo com êxito.
 
-1. Abra o [PowerShell do Azure](https://docs.microsoft.com/azure/cloud-shell/quickstart-powershell). Para fazer isso, selecione **Cloud Shell** na barra de navegação superior do portal do Azure e selecione **PowerShell** na lista suspensa. 
+1. Abra o [PowerShell do Azure](../cloud-shell/quickstart-powershell.md). Para fazer isso, selecione **Cloud Shell** na barra de navegação superior do portal do Azure e selecione **PowerShell** na lista suspensa. 
 
     ![Instalar a extensão personalizada](./media/application-gateway-create-gateway-portal/application-gateway-extension.png)
 
-2. Execute o comando a seguir para instalar o IIS na máquina virtual: 
+2. Altere a configuração de localização do seu ambiente e execute o seguinte comando para instalar o IIS na máquina virtual: 
 
    ```azurepowershell-interactive
           Set-AzVMExtension `
@@ -221,7 +222,7 @@ Neste exemplo, você instala IIS nas máquinas virtuais apenas para verificar se
             -ExtensionType CustomScriptExtension `
             -TypeHandlerVersion 1.4 `
             -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}' `
-            -Location EastUS
+            -Location <location>
    ```
 
 3. Crie uma segunda máquina virtual e instale o IIS usando as etapas que você concluiu anteriormente. Use *myVM2* para o nome da máquina virtual e a configuração **VMName** do cmdlet **Set-AzVMExtension**.
@@ -234,9 +235,11 @@ Neste exemplo, você instala IIS nas máquinas virtuais apenas para verificar se
 
 3. Selecione **myBackendPool**.
 
-4. Em **Destinos**, selecione **Máquina virtual** na lista suspensa.
+4. Em **Tipo de destino**, selecione **Máquina virtual** na lista suspensa.
 
-5. Em **MÁQUINA VIRTUAL** e **INTERFACES DE REDE**, selecione as máquinas virtuais **myVM** e **myVM2** e suas interfaces de rede associadas nas listas suspensas.
+5. Em **Destino**, selecione um adaptador de rede em **myVM** na lista suspensa.
+
+6. Repita para adicionar um adaptador de rede para **myVM2**.
 
     ![Adicionar servidores de back-end](./media/application-gateway-create-gateway-portal/application-gateway-backend.png)
 

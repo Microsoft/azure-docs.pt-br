@@ -1,14 +1,14 @@
 ---
 title: Visão geral do Azure Blueprint
 description: Entenda como o serviço do Azure Blueprints permite criar, definir e implantar artefatos no seu ambiente do Azure.
-ms.date: 05/06/2020
+ms.date: 01/27/2021
 ms.topic: overview
-ms.openlocfilehash: a8cec34bb5bdd52b22063a4109153c7f455aaa65
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: f4ba77f5fcb376bf600d94997b0d6ba569f04f82
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87530371"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919335"
 ---
 # <a name="what-is-azure-blueprints"></a>O que é o Azure Blueprints?
 
@@ -25,7 +25,7 @@ O serviço do Azure BluePrint é apoiado pelo [Azure Cosmos DB](../../cosmos-db/
 
 ## <a name="how-its-different-from-arm-templates"></a>Como ele difere dos modelos do ARM
 
-O serviço foi projetado para ajudá-lo na _configuração do ambiente_. Essa configuração geralmente consiste em um conjunto de grupos de recursos, políticas, atribuições de função e implantações de modelo do ARM. Um blueprint é um pacote para reunir cada um desses _artefatos_ e permitir que você componha e versione esse pacote, inclusive por meio de um pipeline de CI/CD. Por fim, cada um é atribuído a uma assinatura em uma única operação que pode ser auditada e rastreada.
+O serviço foi projetado para ajudá-lo na _configuração do ambiente_. Essa configuração geralmente consiste em um conjunto de grupos de recursos, políticas, atribuições de função e implantações de modelo do ARM. Um blueprint é um pacote para reunir cada um desses _artefatos_ e permitir que você componha e versione esse pacote, inclusive por meio de um pipeline de CI/CD (integração contínua e entrega contínua). Por fim, cada um é atribuído a uma assinatura em uma única operação que pode ser auditada e rastreada.
 
 Quase tudo o que você deseja incluir na implantação no Azure Blueprints pode ser feito com um modelo do ARM. No entanto, um modelo do ARM é um documento que não existe nativamente no Azure. Cada um está armazenado localmente ou no controle do código-fonte. O modelo é usado para implantações de um ou mais recursos do Azure, mas, quando esses recursos são implantados, não há relação ou conexão ativa com o modelo.
 
@@ -45,7 +45,7 @@ Uma política pode ser incluída como um dos muitos _artefatos_ em uma definiç�
 
 ## <a name="blueprint-definition"></a>Definição de planta
 
-Um plano gráfico é composto por _artefatos_. O Azure Blueprints atualmente dá suporte aos seguintes recursos como artefatos:
+Um blueprint é composto por _artefatos_. O Azure Blueprints atualmente dá suporte aos seguintes recursos como artefatos:
 
 |Recurso  | Opções de hierarquia| Descrição  |
 |---------|---------|---------|
@@ -74,11 +74,16 @@ Quando um plano gráfico é criado, ele é considerado para estar no modo **rasc
 
 ## <a name="blueprint-assignment"></a>Atribuição de planta
 
-Cada **Versão** **Publicada** de um blueprint pode ser atribuída (com um comprimento de nome máximo de 90 caracteres) a uma assinatura existente. No portal, o blueprint usará como padrão a **Versão** em vez do que foi **Publicado** mais recentemente. Se houver parâmetros de artefatos (ou parâmetros de blueprint), os parâmetros serão definidos durante o processo de atribuição.
+Cada **Versão** **Publicada** de um blueprint pode ser atribuída (com um tamanho de nome máximo de 90 caracteres) a uma assinatura ou um grupo de gerenciamento existente. No portal, o blueprint usará como padrão a **Versão** em vez do que foi **Publicado** mais recentemente. Se houver parâmetros de artefato ou de blueprint, eles serão definidos durante o processo de atribuição.
+
+> [!NOTE]
+> A atribuição de uma definição de blueprint a um grupo de gerenciamento significa que o objeto de atribuição existe no grupo de gerenciamento. A implantação de artefatos ainda é direcionada a uma assinatura. Para executar uma atribuição de grupo de gerenciamento, a [API REST Criar ou Atualizar](/rest/api/blueprints/assignments/createorupdate) precisa ser usada e o corpo da solicitação precisa incluir um valor para `properties.scope` a fim de definir a assinatura de destino.
 
 ## <a name="permissions-in-azure-blueprints"></a>Permissões nos Blueprints do Azure
 
-Para usar blueprints, você deverá receber permissões por meio do [RBAC](../../role-based-access-control/overview.md) (controle de acesso baseado em função). Para criar planos gráficos, sua conta precisa das seguintes permissões:
+Para usar blueprints, você deverá receber permissões por meio do [Azure RBAC (controle de acesso baseado em função)](../../role-based-access-control/overview.md). Para ler ou ver um blueprint no portal do Azure, sua conta deve ter acesso de leitura ao escopo no qual a definição do blueprint está localizada.
+
+Para criar planos gráficos, sua conta precisa das seguintes permissões:
 
 - `Microsoft.Blueprint/blueprints/write` -Criar uma definição de planta
 - `Microsoft.Blueprint/blueprints/artifacts/write` -Criar artefatos em uma definição de planta

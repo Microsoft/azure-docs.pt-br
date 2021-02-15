@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 05/29/2018
 ms.author: ccompy
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 6dc002b0ed9e68ea15eaa58c226249837c7df32d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 95a4d00a27a0da363561f469b4c5e9e2ad16463c
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85830852"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97510491"
 ---
 # <a name="configure-your-app-service-environment-with-forced-tunneling"></a>Configurar seu Ambiente de Serviço de Aplicativo com tunelamento forçado
 
@@ -73,7 +73,7 @@ Para encaminhar todo o tráfego de saída de seu ASE, exceto o que vai para o SQ
 
 2. Habilite os Pontos de Extremidade de Serviço com o SQL do Azure e o Armazenamento do Azure com sua sub-rede do ASE.  Após essa etapa estar concluída, você pode configurar sua rede virtual com o túnel forçado.
 
-Para criar seu ASE em uma rede virtual que já está configurada para rotear todo o tráfego no local, você precisa criar seu ASE usando um modelo do gerenciador de recursos.  Não é possível criar um ASE com o portal em uma sub-rede já existente.  Ao implantar seu ASE em uma rede virtual que já está configurada para rotear o tráfego de saída no local, você precisa criar seu ASE usando um modelo de gerenciador de recursos, que permitem que você especifique uma sub-rede já existente. Para obter detalhes sobre como implantar um ASE com um modelo, leia [Criando um Ambiente do Serviço de Aplicativo usando um modelo][template].
+Para obter detalhes sobre como implantar um ASE com um modelo, leia [Criando um Ambiente do Serviço de Aplicativo usando um modelo][template].
 
 Os Pontos de Extremidade de Serviço permitem restringir o acesso aos serviços de vários locatários para um conjunto de sub-redes e redes virtuais do Azure. Você pode saber mais sobre os Pontos de Extremidade de Serviço na documentação [Pontos de Extremidade de Serviço de Rede Virtual][serviceendpoints]. 
 
@@ -131,7 +131,7 @@ _Para criar seu ASE com os endereços de saída_: siga as instruções em [Criar
 
 Essas alterações enviam tráfego para o Armazenamento do Azure diretamente a partir do ASE e permitem o acesso para o SQL do Azure de endereços adicionais que não sejam o VIP do ASE.
 
-   ![Túnel forçado com lista de permissões do SQL][3]
+   ![Túnel forçado com lista de permitidos do SQL][3]
 
 ## <a name="preventing-issues"></a>Como evitar problemas ##
 

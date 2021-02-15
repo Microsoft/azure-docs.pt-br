@@ -4,12 +4,12 @@ description: Saiba como gerenciar e monitorar backups de agente MARS (Serviços 
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: b46303bdb7fc6c39aafd3046a4bcbc5e0ba75766
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 25f0c41b535f9403d0a7027687cc5261cd437275
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88893061"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368589"
 ---
 # <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>Gerenciar backups de agente MARS (Serviços de Recuperação do Microsoft Azure) usando o serviço de backup do Azure
 
@@ -100,7 +100,7 @@ Há duas maneiras de interromper a proteção de arquivos e pastas backup:
 
 ### <a name="stop-protection-and-retain-backup-data"></a>Interromper a proteção e manter os dados de backup
 
-1. Abra o console de gerenciamento do MARS, vá para o **painel Ações**e **selecione agendar backup**.
+1. Abra o console de gerenciamento do MARS, vá para o **painel Ações** e **selecione agendar backup**.
 
     ![Selecione agendar backup](./media/backup-azure-manage-mars/mars-actions.png)
 1. Na página **selecionar item de política** , selecione **modificar um agendamento de backup para seus arquivos e pastas** e selecione **Avançar**.
@@ -125,7 +125,7 @@ Há duas maneiras de interromper a proteção de arquivos e pastas backup:
 
     ![Pare um backup agendado e selecione concluir](./media/backup-azure-delete-vault/stop-schedule-backup.png)
 4. Você será solicitado a inserir um PIN de segurança (número de identificação pessoal), que deve ser gerado manualmente. Para fazer isso, primeiro entre no portal do Azure.
-5. Vá para **serviços de recuperação**  >  **configurações**do cofre  >  **Propriedades**.
+5. Vá para **serviços de recuperação**  >  **configurações** do cofre  >  **Propriedades**.
 6. Em **PIN de segurança**, selecione **gerar**. Copie este PIN. O PIN é válido por apenas cinco minutos.
 7. No console de gerenciamento, Cole o PIN e selecione **OK**.
 
@@ -173,7 +173,7 @@ Uma frase secreta é usada para criptografar e descriptografar dados durante o b
 
 Esta seção discute um cenário em que o computador de origem que foi protegido com MARS não está mais disponível porque foi excluído, corrompido, infectado com malware/ransomware ou encerrado.
 
-Para esses computadores, o serviço de backup do Azure garante que o último ponto de recuperação não expire (ou seja, não seja removido) de acordo com as regras de retenção especificadas na política de backup. Portanto, você pode restaurar o computador com segurança.  Considere os seguintes cenários que você pode executar nos dados de backup:
+Para esses computadores, o serviço de backup do Azure garante que o ponto de recuperação mais recente não expire (ou seja, não seja removido) de acordo com as regras de retenção especificadas na política de backup. Portanto, você pode restaurar o computador com segurança.  Considere os seguintes cenários que você pode executar nos dados de backup:
 
 ### <a name="scenario-1-the-source-machine-is-unavailable-and-you-no-longer-need-to-retain-backup-data"></a>Cenário 1: o computador de origem está indisponível e você não precisa mais manter os dados de backup
 
@@ -189,6 +189,19 @@ O gerenciamento da política de backup para MARS é feito por meio do console do
   1. Instalar o agente e registrar novamente no mesmo cofre e com a mesma senha
   1. Inicie o cliente MARS para estender a duração da retenção de acordo com seus requisitos
 - Seu computador recentemente restaurado, protegido com MARS, continuará a fazer backups.  
+
+## <a name="configuring-antivirus-for-the-mars-agent"></a>Configurando o antivírus para o agente MARS
+
+Recomendamos a configuração a seguir para seu software antivírus para evitar conflitos com a operação do agente MARS.
+
+1. **Adicionar exclusões de caminho**: para evitar degradação de desempenho e possíveis conflitos, exclua os seguintes caminhos do monitoramento em tempo real pelo software antivírus:
+    1. `%ProgramFiles%\Microsoft Azure Recovery Services Agent` e subpastas
+    1. **Pasta de rascunho**: se a pasta de rascunho não estiver no local padrão, adicione-a também às exclusões.  [Consulte aqui para obter as etapas](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible) para determinar o local da pasta de rascunho.
+1. **Adicionar exclusões binárias**: para evitar a degradação de atividades de backup e de console, exclua processos para os seguintes binários do monitoramento em tempo real pelo software antivírus:
+    1. `%ProgramFiles%\Microsoft Azure Recovery Services Agent\bin\cbengine.exe`
+
+>[!NOTE]
+>Embora a exclusão desses caminhos seja suficiente para a maioria dos softwares antivírus, algumas delas ainda podem continuar a interferir nas operações do agente MARS. Se você estiver vendo falhas inesperadas, desinstale o software antivírus temporariamente e monitore para ver se o problema desaparece. Se isso resolver o problema, entre em contato com seu fornecedor de software antivírus para obter assistência com a configuração adequada de seus produtos.
 
 ## <a name="next-steps"></a>Próximas etapas
 

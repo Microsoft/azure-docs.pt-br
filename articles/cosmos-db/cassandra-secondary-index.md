@@ -3,18 +3,20 @@ title: Indexação na conta de API do Cassandra Azure Cosmos DB
 description: Saiba como a indexação secundária funciona no Azure Azure Cosmos DB conta de API do Cassandra.
 author: TheovanKraay
 ms.service: cosmos-db
+ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 04/04/2020
 ms.author: thvankra
 ms.reviewer: sngun
-ms.openlocfilehash: 7de38097acdbfa1f9c9b90f3051c68dec5465b32
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 98e8f713ad2e4eef47e40d89a23dbf49a98ad67c
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80758021"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339879"
 ---
 # <a name="secondary-indexing-in-azure-cosmos-db-cassandra-api"></a>Indexação secundária no Azure Cosmos DB API do Cassandra
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 O API do Cassandra no Azure Cosmos DB aproveita a infraestrutura de indexação subjacente para expor a força de indexação que é inerente à plataforma. No entanto, ao contrário da API do SQL principal, API do Cassandra em Azure Cosmos DB não indexa todos os atributos por padrão. Em vez disso, ele dá suporte à indexação secundária para criar um índice em determinados atributos, que se comportam da mesma forma que o Apache Cassandra.  
 

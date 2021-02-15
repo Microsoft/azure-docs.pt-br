@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 08/10/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: f79b198b512547b1d93fbbd458af8251b109e62f
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 4b25458cc934097b5477c174ae7ecc47762e2929
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88066654"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91280293"
 ---
 # <a name="enable-and-manage-soft-delete-for-containers-preview"></a>Habilitar e gerenciar a exclusão reversível para contêineres (visualização)
 
@@ -22,7 +22,7 @@ A exclusão reversível de contêiner (versão prévia) protege seus dados contr
 
 Se houver uma possibilidade de que seus dados possam ser acidentalmente modificados ou excluídos por um aplicativo ou outro usuário da conta de armazenamento, a Microsoft recomenda ativar a exclusão reversível de contêiner. Este artigo mostra como habilitar a exclusão reversível para contêineres. Para obter mais detalhes sobre exclusão reversível de contêiner, incluindo como registrar-se para a versão prévia, consulte [exclusão reversível para contêineres (versão prévia)](soft-delete-container-overview.md).
 
-Para proteção de dados de ponta a ponta, a Microsoft recomenda que você também habilite a exclusão reversível para BLOBs e controle de versão de BLOB (visualização). Para saber como habilitar também a exclusão reversível para BLOBs, consulte [habilitar e gerenciar a exclusão reversível para BLOBs](soft-delete-blob-enable.md). Para saber como habilitar o controle de versão de BLOB, consulte [controle de versão de BLOB (visualização)](versioning-overview.md).
+Para proteção de dados de ponta a ponta, a Microsoft recomenda que você também habilite a exclusão reversível para BLOBs e controle de versão de BLOB. Para saber como habilitar também a exclusão reversível para BLOBs, consulte [habilitar e gerenciar a exclusão reversível para BLOBs](soft-delete-blob-enable.md). Para saber como habilitar o controle de versão de BLOB, consulte [controle de versão de blob](versioning-overview.md).
 
 ## <a name="enable-container-soft-delete"></a>Habilitar exclusão reversível de contêiner
 
@@ -86,19 +86,19 @@ Para exibir contêineres excluídos de modo reversível no portal do Azure, siga
 1. Navegue até sua conta de armazenamento no portal do Azure e exiba a lista de seus contêineres.
 1. Alterne a opção Mostrar contêineres excluídos para incluir contêineres excluídos na lista.
 
-    :::image type="content" source="media/soft-delete-container-enable/soft-delete-container-portal-list.png" alt-text="Captura de tela mostrando como exibir contêineres com exclusão reversível no portal do Azure":::
+    :::image type="content" source="media/soft-delete-container-enable/soft-delete-container-portal-list.png" alt-text="Captura de tela mostrando como habilitar a exclusão reversível de contêiner no portal do Azure":::
 
 ## <a name="restore-a-soft-deleted-container"></a>Restaurar um contêiner excluído por software
 
 Você pode restaurar um contêiner excluído de maneira reversível e seu conteúdo dentro do período de retenção. Para restaurar um contêiner excluído de maneira reversível no portal do Azure, siga estas etapas:
 
 1. Navegue até sua conta de armazenamento no portal do Azure e exiba a lista de seus contêineres.
-1. Exiba o menu de contexto do contêiner que você deseja excluir e escolha **restaurar** no menu.
+1. Exiba o menu de contexto do contêiner que você deseja restaurar e escolha **Cancelar exclusão** no menu.
 
-    :::image type="content" source="media/soft-delete-container-enable/soft-delete-container-portal-restore.png" alt-text="Captura de tela mostrando como restaurar um contêiner excluído de forma reversível no portal do Azure":::
+    :::image type="content" source="media/soft-delete-container-enable/soft-delete-container-portal-restore.png" alt-text="Captura de tela mostrando como habilitar a exclusão reversível de contêiner no portal do Azure":::
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Exclusão reversível para contêineres (visualização)](soft-delete-container-overview.md)
-- [Exclusão reversível para BLOBs](soft-delete-blob-overview.md)
-- [Controle de versão de blob (versão prévia)](versioning-overview.md)
+- [Exclusão reversível para blobs](soft-delete-blob-overview.md)
+- [Controle de versão de BLOB](versioning-overview.md)

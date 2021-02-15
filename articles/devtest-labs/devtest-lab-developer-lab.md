@@ -3,12 +3,12 @@ title: Usar o Azure DevTest Labs para desenvolvedores | Microsoft Docs
 description: Saiba mais sobre os recursos do Azure DevTest Labs que podem ser usados para atender aos requisitos do desenvolvedor e as etapas detalhadas que você pode seguir para configurar um laboratório.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 3fd8ae93c873d1450d4b09496dca3ad9014baa6d
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: b4f195f843e30ad1a56bad7d5b9ca9e73888783b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87293029"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89296236"
 ---
 # <a name="use-azure-devtest-labs-for-developers"></a>Usar o Azure DevTest Labs para desenvolvedores
 O Azure DevTest Labs pode ser usado para implementar vários cenários importantes, mas um dos principais cenários envolve o uso DevTest Labs para hospedar computadores de desenvolvimento para desenvolvedores. Neste cenário, o DevTest Labs oferece estes benefícios:
@@ -43,7 +43,7 @@ Neste artigo, você aprenderá sobre os diversos recursos do Azure DevTest Labs 
    
    | Tarefa | O que você aprenderá |
    | --- | --- |
-   | [Configurar imagens do Azure Marketplace](devtest-lab-configure-marketplace-images.md) |Saiba como você pode colocar imagens do Azure Marketplace na lista de permissões, disponibilizando para seleção apenas as imagens você deseja para os desenvolvedores.|
+   | [Configurar imagens do Azure Marketplace](devtest-lab-configure-marketplace-images.md) |Saiba como você pode permitir imagens do Azure Marketplace, disponibilizando para seleção apenas as imagens desejadas para os desenvolvedores.|
    | [Criar uma imagem personalizada](devtest-lab-create-template.md) |Crie uma imagem personalizada instalando previamente o software de que você precisa para que os desenvolvedores possam criar rapidamente uma máquina virtual usando a imagem personalizada.|
    | [Saiba mais sobre a fábrica de imagem](./devtest-lab-faq.md#blog-post) |Assista a um vídeo que descreve como configurar e usar uma fábrica de imagem.|
 

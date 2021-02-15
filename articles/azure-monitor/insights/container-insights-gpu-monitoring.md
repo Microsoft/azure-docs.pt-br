@@ -3,12 +3,12 @@ title: Configurar o monitoramento de GPU com Azure Monitor para contêineres | M
 description: Este artigo descreve como você pode configurar o monitoramento de clusters kubernetes com os nós habilitados para NVIDIA e AMD GPU com Azure Monitor para contêineres.
 ms.topic: conceptual
 ms.date: 03/27/2020
-ms.openlocfilehash: 958f5ab33edcd280f5673391eba907728f1153c7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e391117ab57211aa5d178d11c27b934b4ccd37f8
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80373304"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905580"
 ---
 # <a name="configure-gpu-monitoring-with-azure-monitor-for-containers"></a>Configurar o monitoramento de GPU com Azure Monitor para contêineres
 
@@ -22,7 +22,10 @@ Azure Monitor para contêineres dá suporte ao monitoramento de clusters GPU dos
 
 - [AMD](https://github.com/RadeonOpenCompute/k8s-device-plugin)
 
-Azure Monitor para contêineres inicia automaticamente o monitoramento do uso de GPU em nós e a GPU solicitando pods e cargas de trabalho coletando as seguintes métricas em intervalos de 60sec e armazenando-as na tabela **InsightMetrics** :
+Azure Monitor para contêineres inicia automaticamente o monitoramento do uso de GPU em nós e a GPU solicitando pods e cargas de trabalho coletando as seguintes métricas em intervalos de 60sec e armazenando-as na tabela **InsightMetrics** .
+
+>[!NOTE]
+>Depois de provisionar o cluster com nós GPU, verifique se o [Driver GPU](../../aks/gpu-cluster.md) está instalado conforme exigido pelo AKs para executar cargas de trabalho de GPU. Azure Monitor para contêineres coletam métricas de GPU por meio de pods de driver de GPU em execução no nó. 
 
 |Nome da métrica |Dimensão métrica (marcas) |Descrição |
 |------------|------------------------|------------|
@@ -36,7 +39,7 @@ Azure Monitor para contêineres inicia automaticamente o monitoramento do uso de
 
 ## <a name="gpu-performance-charts"></a>Gráficos de desempenho de GPU 
 
-Azure Monitor para contêineres inclui gráficos pré-configurados para as métricas listadas anteriormente na tabela como uma pasta de trabalho GPU para cada cluster. Você pode encontrar a GPU do **nó** da pasta de trabalho GPU diretamente de um cluster AKs selecionando **pastas de trabalho** no painel esquerdo e na lista suspensa **exibir pastas de trabalho** no Insight.
+Azure Monitor para contêineres inclui gráficos pré-configurados para as métricas listadas anteriormente na tabela como uma pasta de trabalho GPU para cada cluster. Consulte [pastas de trabalho no Azure monitor para contêineres](container-insights-reports.md) para obter uma descrição das pastas de trabalho disponíveis para Azure monitor para contêineres.
 
 ## <a name="next-steps"></a>Próximas etapas
 

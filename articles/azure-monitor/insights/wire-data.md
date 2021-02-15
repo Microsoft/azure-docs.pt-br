@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/29/2020
-ms.openlocfilehash: 340eb1a983f074a5ab934a30c55649852ec08b62
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 06698ad3ab2ceb76278e23bc1ac0002b9c2284f9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325144"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91445770"
 ---
 # <a name="wire-data-20-preview-solution-in-azure-monitor"></a>Solução Wire Data 2.0 (versão prévia) no Azure Monitor
 
@@ -183,7 +183,7 @@ O Dependency Agent é instalado em computadores que executam o Windows por meio 
 Use as etapas a seguir para instalar o agente de dependência em cada computador que executa o Windows:
 
 1. Instale o agente do Log Analytics seguindo as etapas em [Coletar dados de computadores Windows hospedados em seu ambiente](../platform/agent-windows.md).
-2. Baixe o agente de dependência do Windows usando o link na seção anterior e execute-o usando o seguinte comando:`InstallDependencyAgent-Windows.exe`
+2. Baixe o agente de dependência do Windows usando o link na seção anterior e execute-o usando o seguinte comando: `InstallDependencyAgent-Windows.exe`
 3. Acompanhe o assistente para instalar o agente.
 4. Se o Agente de Dependência não for iniciado, verifique os logs para obter informações de erro detalhadas. Para Agentes do Windows, o diretório de log será %Programfiles%\Microsoft Dependency Agent\logs.
 
@@ -364,15 +364,15 @@ Na página **Visão geral** do seu espaço de trabalho do Log Analytics no Porta
 
 Você pode usar a folha **Agentes capturando tráfego de rede** para determinar quanta largura de banda de rede está sendo consumida pelos computadores. Essa folha pode ajudá-lo a localizar facilmente o computador _chattiest_ no seu ambiente. Esses computadores podem estar sobrecarregados, operando de modo anormal ou usando mais recursos de rede que o normal.
 
-![exemplo de pesquisa de logs](./media/wire-data/log-search-example01.png)
+![Captura de tela dos agentes capturando a folha de tráfego de rede no painel de Wire Data 2.0 mostrando a largura de banda de rede consumida por cada computador.](./media/wire-data/log-search-example01.png)
 
 De modo parecido, você pode usar a folha **Sub-Redes Locais** para determinar quanto tráfego de rede está passando pelas sub-redes. Os usuários geralmente definem sub-redes em torno de áreas críticas para seus aplicativos. Esta folha oferece uma exibição dessas áreas.
 
-![exemplo de pesquisa de logs](./media/wire-data/log-search-example02.png)
+![Captura de tela da folha de sub-redes locais no painel de Wire Data 2.0 mostrando a largura de banda de rede consumida por um LocalSubnet.](./media/wire-data/log-search-example02.png)
 
 A folha **Protocolos em Nível de Aplicativo** é interessante porque é útil saber quais protocolos estão em uso. Por exemplo, você pode esperar que SSH não esteja em uso no seu ambiente de rede. Exibir informações disponíveis na folha pode rapidamente confirmar ou v. refutar suas expectativas.
 
-![exemplo de pesquisa de logs](./media/wire-data/log-search-example03.png)
+![Captura de tela da folha protocolos de nível de aplicativo no painel Wire Data 2.0 mostrando a largura de banda de rede consumida por cada protocolo.](./media/wire-data/log-search-example03.png)
 
 Também é útil saber se o tráfego do protocolo está aumentando ou diminuindo ao longo do tempo. Por exemplo, se a quantidade de dados que está sendo transmitida por um aplicativo estiver aumentando, isso pode ser algo a que você deve estar atento ou pode considerar importante.
 
@@ -393,9 +393,9 @@ Um registro com um tipo de _WireData_ é criado para cada tipo de dados de entra
 | ReceivedBytes | Quantidade de bytes recebidos |
 | ProtocolName | Nome do protocolo de rede usado |
 | IPVersion | Versão IP |
-| Direção | Entrada ou saída |
+| Direction | Entrada ou saída |
 | MaliciousIP | Endereço IP de uma fonte mal-intencionada conhecida |
-| Severidade | Gravidade de suspeita de malware |
+| Severity | Gravidade de suspeita de malware |
 | RemoteIPCountry | País/região do endereço IP remoto |
 | ManagementGroupName | Nome do grupo de gerenciamento do Operations Manager |
 | SourceSystem | Fonte na qual o dados foram coletados |

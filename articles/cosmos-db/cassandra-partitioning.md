@@ -7,14 +7,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: 26df3c49e44dd79d87a1e0a982ceb8133f425447
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: ba615d3e41393afe007238a0fe1e694732ad123e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423313"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93087631"
 ---
 # <a name="partitioning-in-azure-cosmos-db-cassandra-api"></a>Particionamento no Azure Cosmos DB API do Cassandra
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 Este artigo descreve como o particionamento funciona no Azure Cosmos DB API do Cassandra. 
 
@@ -25,7 +26,7 @@ Da perspectiva do desenvolvedor, o particionamento se comporta da mesma maneira 
 
 ## <a name="differences-between-apache-cassandra-and-azure-cosmos-db"></a>Diferenças entre o Apache Cassandra e o Azure Cosmos DB
 
-No Azure Cosmos DB, cada máquina em que as partições são armazenadas é chamada de [partição física](partition-data.md#physical-partitions). A partição física é semelhante a uma máquina virtual; uma unidade de computação dedicada ou um conjunto de recursos físicos. Cada partição armazenada nessa unidade de computação é chamada de [partição lógica](partition-data.md#logical-partitions) no Azure Cosmos DB. Se você já estiver familiarizado com o Apache Cassandra, poderá considerar as partições lógicas da mesma maneira que considera partições regulares no Cassandra. 
+No Azure Cosmos DB, cada máquina em que as partições são armazenadas é chamada de [partição física](partitioning-overview.md#physical-partitions). A partição física é semelhante a uma máquina virtual; uma unidade de computação dedicada ou um conjunto de recursos físicos. Cada partição armazenada nessa unidade de computação é chamada de [partição lógica](partitioning-overview.md#logical-partitions) no Azure Cosmos DB. Se você já estiver familiarizado com o Apache Cassandra, poderá considerar as partições lógicas da mesma maneira que considera partições regulares no Cassandra. 
 
 O Apache Cassandra recomenda um limite de 100 MB no tamanho de dados que podem ser armazenados em uma partição. O API do Cassandra para Azure Cosmos DB permite até 20 GB por partição lógica e até 30 GB de dados por partição física. Em Azure Cosmos DB, diferentemente do Apache Cassandra, a capacidade de computação disponível na partição física é expressa usando uma única métrica chamada [unidades de solicitação](request-units.md), o que permite que você considere sua carga de trabalho em termos de solicitações (leituras ou gravações) por segundo, em vez de núcleos, memória ou IOPS. Isso pode tornar o planejamento de capacidade mais direto, uma vez que você entende o custo de cada solicitação. Cada partição física pode ter até 10000 RUs de computação disponíveis para ela. Você pode aprender mais sobre as opções de escalabilidade lendo nosso artigo sobre [escala elástica](manage-scale-cassandra.md) em API do Cassandra. 
 
@@ -58,7 +59,7 @@ Neste design, definimos o `id` campo como a chave primária. A chave primária f
 
 ## <a name="compound-primary-key"></a>Chave primária composta
 
-O Apache Cassandra também tem um conceito de `compound keys` . Um composto `primary key` consiste em mais de uma coluna; a primeira coluna é o `partition key` , e todas as colunas adicionais são as `clustering keys` . A sintaxe de um `compound primary key` é mostrada abaixo:
+O Apache Cassandra também tem um conceito de  `compound keys` . Um composto `primary key` consiste em mais de uma coluna; a primeira coluna é o `partition key` , e todas as colunas adicionais são as `clustering keys` . A sintaxe de um `compound primary key` é mostrada abaixo:
 
 ```shell
 PRIMARY KEY (partition_key_column_name, clustering_column_name [, ...])
@@ -112,6 +113,6 @@ CREATE TABLE uprofile.user (
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Saiba mais sobre [particionamento e dimensionamento horizontal em Azure Cosmos DB](partition-data.md).
+* Saiba mais sobre [particionamento e dimensionamento horizontal em Azure Cosmos DB](partitioning-overview.md).
 * Saiba mais sobre a [taxa de transferência provisionada no Azure Cosmos DB](request-units.md).
 * Saiba mais sobre a [distribuição global no Azure Cosmos DB](distribute-data-globally.md).

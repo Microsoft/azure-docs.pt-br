@@ -2,20 +2,20 @@
 title: Métricas e alertas no Gerenciador de Tráfego do Azure
 description: Neste artigo, Aprenda as métricas e os alertas disponíveis para o Gerenciador de tráfego no Azure.
 services: traffic-manager
-author: rohinkoul
+author: duongau
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/11/2018
-ms.author: rohink
-ms.openlocfilehash: 521e6ac605d187c0f95545611a17a86cfda6e1dd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: bd3588c207fe8828744a665539830d81805bd7b3
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76938595"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98184264"
 ---
 # <a name="traffic-manager-metrics-and-alerts"></a>Alertas e métricas do Gerenciador de Tráfego
 
@@ -58,10 +58,10 @@ Essa métrica pode ser exibida como um valor de agregação que representa o sta
 
 *Figura 4: Exibição dividida das métricas de status do ponto de extremidade*
 
-Você pode consumir essas métricas no portal do [serviço do Azure Monitor](../azure-monitor/platform/metrics-supported.md), na [API REST](https://docs.microsoft.com/rest/api/monitor/), na [CLI do Azure](https://docs.microsoft.com/cli/azure/monitor) e no [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.applicationinsights), ou por meio da seção de métricas da experiência do portal do Gerenciador de Tráfego.
+Você pode consumir essas métricas no portal do [serviço do Azure Monitor](../azure-monitor/platform/metrics-supported.md), na [API REST](/rest/api/monitor/), na [CLI do Azure](/cli/azure/monitor) e no [Azure PowerShell](/powershell/module/az.applicationinsights), ou por meio da seção de métricas da experiência do portal do Gerenciador de Tráfego.
 
 ## <a name="alerts-on-traffic-manager-metrics"></a>Alertas em métricas do Gerenciador de Tráfego
-Além de processar e exibir métricas do Gerenciador de Tráfego, o Azure Monitor permite aos clientes configurar e receber alertas associados a essas métricas. Você pode escolher quais condições devem ser atendidas nessas métricas para que um alerta ocorra, a frequência com que essas condições precisam ser monitoradas e como os alertas devem ser enviados a você. Para saber mais, confira a [documentação sobre os alertas do Azure Monitor](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).
+Além de processar e exibir métricas do Gerenciador de Tráfego, o Azure Monitor permite aos clientes configurar e receber alertas associados a essas métricas. Você pode escolher quais condições devem ser atendidas nessas métricas para que um alerta ocorra, a frequência com que essas condições precisam ser monitoradas e como os alertas devem ser enviados a você. Para saber mais, confira a [documentação sobre os alertas do Azure Monitor](../azure-monitor/platform/alerts-metric.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 - Saiba mais sobre o [serviço do Azure Monitor](../azure-monitor/platform/metrics-supported.md)

@@ -3,18 +3,18 @@ title: Criar e gerenciar grupos de ações no portal do Azure
 description: Este artigo mostra como criar e gerenciar grupos de ações no portal do Azure.
 author: dkamstra
 ms.topic: conceptual
-ms.date: 07/28/2020
+ms.date: 01/28/2021
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: a9d0fa9efaa07582212344e617d9a42f264b99ee
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 08cf66edaa67ab1853a3b246afb9364b431445c6
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337702"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99055103"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Criar e gerenciar grupos de ações no portal do Azure
-Um grupo de ações é uma coleção de preferências de notificação definidas pelo proprietário de uma assinatura do Azure. Alertas do Azure Monitor e da Integridade do Serviço usam grupos de ações para notificar usuários de que um alerta foi disparado. Vários alertas podem usar o mesmo grupo de ação ou grupos de ações diferentes dependendo dos requisitos do usuário. Você pode configurar até 2 mil grupos de ação em uma assinatura.
+Um grupo de ações é uma coleção de preferências de notificação definidas pelo proprietário de uma assinatura do Azure. Alertas do Azure Monitor e da Integridade do Serviço usam grupos de ações para notificar usuários de que um alerta foi disparado. Vários alertas podem usar o mesmo grupo de ação ou grupos de ações diferentes dependendo dos requisitos do usuário. 
 
 Este artigo mostra como criar e gerenciar grupos de ação no Portal do Azure.
 
@@ -30,11 +30,11 @@ Para saber mais sobre como usar modelos do Azure Resource Manager para configura
 
 1. No [portal do Azure](https://portal.azure.com), pesquise e selecione **Monitor**. O painel **Monitor** consolida todas as configurações e dados de monitoramento em uma exibição.
 
-1. Selecione **alertas**e, em seguida, selecione **Gerenciar ações**.
+1. Selecione **alertas** e, em seguida, selecione **Gerenciar ações**.
 
     ![Botão Gerenciar Ações](./media/action-groups/manage-action-groups.png)
     
-1. Selecione **Adicionar grupo de ação**e preencha os campos relevantes na experiência do assistente.
+1. Selecione **Adicionar grupo de ação** e preencha os campos relevantes na experiência do assistente.
 
     ![O comando "Adicionar grupo de ações"](./media/action-groups/add-action-group.PNG)
 
@@ -67,7 +67,7 @@ Em **Detalhes da instância**:
 
     c. **Detalhes**: com base no tipo de notificação selecionado, insira um endereço de email, número de telefone, etc.
     
-    d. **Esquema comum de alertas**: Você pode optar por habilitar o [esquema de alerta comum](https://aka.ms/commonAlertSchemaDocs), que fornece a vantagem de ter um conteúdo de alerta extensível e unificado em todos os serviços de alerta no Azure Monitor.
+    d. **Esquema comum de alertas**: Você pode optar por habilitar o [esquema de alerta comum](./alerts-common-schema.md), que fornece a vantagem de ter um conteúdo de alerta extensível e unificado em todos os serviços de alerta no Azure Monitor.
 
     ![A guia notificações](./media/action-groups/action-group-2-notifications.png)
     
@@ -83,7 +83,7 @@ Em **Detalhes da instância**:
 
     c. **Detalhes**: com base no tipo de ação, insira um URI de webhook, um aplicativo do Azure, uma conexão de ITSM ou um runbook de automação. Para Ação do ITSM, além disso, especifique **Item de Trabalho** e outros campos necessários para a ferramenta de ITSM.
     
-    d. **Esquema comum de alertas**: Você pode optar por habilitar o [esquema de alerta comum](https://aka.ms/commonAlertSchemaDocs), que fornece a vantagem de ter um conteúdo de alerta extensível e unificado em todos os serviços de alerta no Azure Monitor.
+    d. **Esquema comum de alertas**: Você pode optar por habilitar o [esquema de alerta comum](./alerts-common-schema.md), que fornece a vantagem de ter um conteúdo de alerta extensível e unificado em todos os serviços de alerta no Azure Monitor.
     
     ![A guia ações](./media/action-groups/action-group-3-actions.png)
 
@@ -131,10 +131,24 @@ Os emails serão enviados dos endereços de email a seguir. Certifique-se de que
 ### <a name="email-azure-resource-manager-role"></a>Email para a Função do Azure Resource Manager
 Envie o email aos membros da função de assinatura. O email será enviado somente aos membros do **usuário do Azure AD** da função. O email não será enviado aos grupos ou às entidades de serviço do Azure AD.
 
+Um email de notificação é enviado somente para o endereço de *email principal* .
+
+Se você não estiver recebendo notificações em seu *email primário*, poderá tentar as seguintes etapas:
+
+1. Em portal do Azure vá para *Active Directory*.
+2. Clique em todos os usuários (no painel esquerdo), você verá a lista de usuários (no painel direito).
+3. Selecione o usuário para o qual você deseja examinar as informações de *email primário* .
+
+  :::image type="content" source="media/action-groups/active-directory-user-profile.png" alt-text="Exemplo de como examinar o perfil do usuário."border="true":::
+
+4. Em perfil do usuário em informações de contato, se a guia "email" estiver em branco, clique no botão *Editar* na parte superior e adicione seu *email principal* e pressione o botão *salvar* na parte superior.
+
+  :::image type="content" source="media/action-groups/active-directory-add-primary-email.png" alt-text="Exemplo de como adicionar email primário."border="true":::
+
 É possível ter um número limitado de ações de email em um grupo de ações. Confira o artigo [informações de limitação da taxa](./alerts-rate-limiting.md).
 
 ### <a name="function"></a>Função
-Chama um ponto de extremidade de gatilho HTTP existente no [Azure Functions](../../azure-functions/functions-create-first-azure-function.md#create-a-function-app).
+Chama um ponto de extremidade de gatilho HTTP existente no [Azure Functions](../../azure-functions/functions-get-started.md).
 
 É possível ter um número limitado de ações de função em um grupo de ações.
 
@@ -147,6 +161,11 @@ Ação de ITSM exige uma Conexão de ITSM. Saiba como criar uma [Conexão de ITS
 É possível ter um número limitado de ações de aplicativo lógico em um grupo de ações.
 
 ### <a name="secure-webhook"></a>Webhook Seguro
+
+> [!NOTE]
+> Usar a ação de webhook requer que o ponto de extremidade de webhook de destino não exija que os detalhes do alerta funcionem com êxito ou seja capaz de analisar as informações de contexto de alerta fornecidas como parte da operação de POSTAgem. Se o ponto de extremidade do webhook não puder manipular as informações de contexto de alerta por conta própria, você poderá usar uma solução como uma [ação de aplicativo lógico](./action-groups-logic-app.md) para uma manipulação personalizada das informações de contexto de alerta para corresponder ao formato de dados esperado do webhook.
+> O usuário deve ser o **proprietário** da entidade de serviço de webhook para garantir que a segurança não seja violada. Como qualquer cliente do Azure pode acessar todas as IDs de objeto por meio do portal, sem verificar o proprietário, qualquer pessoa pode adicionar o webhook seguro a seu próprio grupo de ação para a notificação de alerta do Azure monitor que viola a segurança.
+
 A ação de webhook dos grupos de ações permite que você aproveite o Azure Active Directory para proteger a conexão entre o grupo de ações e a API Web protegida (ponto de extremidade do webhook). O fluxo de trabalho geral para aproveitar essa funcionalidade é descrito abaixo. Para obter uma visão geral dos aplicativos do Azure AD e das entidades de serviço, confira a [Visão geral da plataforma de identidade da Microsoft (v2.0)](../../active-directory/develop/v2-overview.md).
 
 1. Crie um aplicativo do Azure AD para sua API Web protegida. Consulte [API Web protegida: registro de aplicativo](../../active-directory/develop/scenario-protected-web-api-app-registration.md).
@@ -155,7 +174,7 @@ A ação de webhook dos grupos de ações permite que você aproveite o Azure Ac
 2. Habilite grupos de ações para usar seu aplicativo Azure AD.
 
     > [!NOTE]
-    > Você deve ser membro da [função Administrador do aplicativo Azure AD](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#available-roles) para executar esse script.
+    > Você deve ser membro da [função Administrador do aplicativo Azure AD](../../active-directory/roles/permissions-reference.md#available-roles) para executar esse script.
     
     - Modifique a chamada Connect-AzureAD do script do PowerShell para usar sua ID de locatário do Azure AD.
     - Modifique a variável do script do PowerShell $myAzureADApplicationObjectId para usar a ID de objeto do seu aplicativo do Azure AD.
@@ -244,7 +263,47 @@ Confira as [informações de limitação de taxa](./alerts-rate-limiting.md) e o
 > Se a interface do usuário do grupo de ações do portal do Azure não permitir que você selecione o código do país/região, o SMS não terá suporte para seu país/região.  Se o código de seu país/região não estiver disponível, você poderá votar no [UserVoice](https://feedback.azure.com/forums/913690-azure-monitor/suggestions/36663181-add-more-country-codes-for-sms-alerting-and-voice) para que seu país/região seja adicionado. Enquanto isso, uma solução alternativa é fazer com que seu grupo de ações chame um webhook para um provedor de SMS de terceiros com suporte em seu país/região.  
 
 Os preços de países/regiões com suporte são listados na [página de preços do Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
-  
+
+**Lista de países em que há suporte para notificação de SMS**
+
+| Código do país | Nome do país |
+|:---|:---|
+| 61 | Austrália |
+| 43 | Áustria |
+| 32 | Bélgica |
+| 55 | Brasil |
+| 1 |Canadá |
+| 56 | Chile |
+| 86 | China |
+| 420 | República Tcheca |
+| 45 | Dinamarca |
+| 372 | Estônia |
+| 358 | Finlândia |
+| 33 | França |
+| 49 | Alemanha |
+| 852 | RAE de Hong Kong |
+| 91 | Índia |
+| 353 | Irlanda |
+| 972 | Israel |
+| 39 | Itália |
+| 81 | Japão |
+| 352 | Luxemburgo |
+| 60 | Malásia |
+| 52 | México |
+| 31 | Países Baixos |
+| 64 | Nova Zelândia |
+| 47 | Noruega |
+| 351 | Portugal |
+| 1 | Porto Rico |
+| 40 | Romênia |
+| 65 | Singapura |
+| 27 | África do Sul |
+| 82 | Coreia do Sul |
+| 34 | Espanha |
+| 41 | Suíça |
+| 886 | Taiwan |
+| 44 | Reino Unido |
+| 1 | Estados Unidos |
 
 ### <a name="voice"></a>Voz
 Confira o artigo sobre [informações de limitação de taxa](./alerts-rate-limiting.md) para comportamento adicional importante.
@@ -253,10 +312,15 @@ Confira o artigo sobre [informações de limitação de taxa](./alerts-rate-limi
 
 > [!NOTE]
 > Se a interface do usuário do grupo de ações do portal do Azure não permitir que você selecione o código do país/região, as chamadas de voz não terão suporte para seu país/região. Se o código de seu país/região não estiver disponível, você poderá votar no [UserVoice](https://feedback.azure.com/forums/913690-azure-monitor/suggestions/36663181-add-more-country-codes-for-sms-alerting-and-voice) para que seu país/região seja adicionado.  Enquanto isso, uma solução alternativa é fazer com que seu grupo de ações chame um webhook para um provedor de chamada de voz de terceiros com suporte em seu país/região.  
+> Somente o código de país com suporte hoje no grupo de ação portal do Azure para notificação por voz é + 1 (Estados Unidos). 
 
 Os preços de países/regiões com suporte são listados na [página de preços do Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
 
 ### <a name="webhook"></a>webhook
+
+> [!NOTE]
+> Usar a ação de webhook requer que o ponto de extremidade de webhook de destino não exija que os detalhes do alerta funcionem com êxito ou seja capaz de analisar as informações de contexto de alerta fornecidas como parte da operação de POSTAgem. Se o ponto de extremidade do webhook não puder manipular as informações de contexto de alerta por conta própria, você poderá usar uma solução como uma [ação de aplicativo lógico](./action-groups-logic-app.md) para uma manipulação personalizada das informações de contexto de alerta para corresponder ao formato de dados esperado do webhook.
+
 WebHooks são processados usando as seguintes regras
 - Uma chamada de webhook é tentada no máximo três vezes.
 - A chamada será repetida se uma resposta não for recebida dentro do período de tempo limite ou se um dos seguintes códigos de status HTTP for retornado: 408, 429, 503 ou 504.
@@ -264,27 +328,7 @@ WebHooks são processados usando as seguintes regras
 - A segunda e terceira tentativas aguardarão 30 segundos por uma resposta.
 - Depois que as 3 tentativas de chamar o webhook falharam, nenhum grupo de ação chamará o ponto de extremidade por 15 minutos.
 
-Intervalos de endereços IP de fonte
- - 13.72.19.232
- - 13.106.57.181
- - 13.106.54.3
- - 13.106.54.19
- - 13.106.38.142
- - 13.106.38.148
- - 13.106.57.196
- - 13.106.57.197
- - 52.244.68.117
- - 52.244.65.137
- - 52.183.31.0
- - 52.184.145.166
- - 51.4.138.199
- - 51.5.148.86
- - 51.5.149.19
-
-Para receber atualizações sobre as alterações para esses endereços IP, é recomendável que você configure um alerta de Integridade do Serviço, que monitora notificações informativas sobre o serviço de grupos de ação.
-
-É possível ter um número limitado de ações de webhook em um grupo de ações.
-
+Consulte os [endereços IP do grupo de ações](../app/ip-addresses.md) para os intervalos de endereços IP de origem.
 
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -294,4 +338,3 @@ Para receber atualizações sobre as alterações para esses endereços IP, é r
 * Saiba mais sobre a [limitação de taxa](./alerts-rate-limiting.md) para alertas.
 * Obtenha uma [visão geral dos alertas do log de atividades](./alerts-overview.md) e saiba como receber alertas.  
 * Saiba como [configurar alertas sempre que uma notificação de integridade do serviço é postada](../../service-health/alerts-activity-log-service-notifications-portal.md).
-

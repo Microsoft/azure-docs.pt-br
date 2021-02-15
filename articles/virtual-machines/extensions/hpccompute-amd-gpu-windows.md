@@ -6,21 +6,22 @@ documentationcenter: ''
 author: vikancha-MSFT
 manager: jkabat
 ms.service: virtual-machines-windows
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/10/2020
 ms.author: vikancha
-ms.openlocfilehash: bc7bfecbcb387fa0da0809a9a2287b243e861c49
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e0a5074061b190088441ed4f6787b112fb11fe5a
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87010862"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965996"
 ---
 # <a name="amd-gpu-driver-extension-for-windows"></a>Extensão de driver de GPU AMD para Windows
 
-Este artigo fornece uma visão geral da extensão de VM para implantar drivers de GPU AMD em VMs da [série NVv4](../nvv4-series.md) do Windows. Ao instalar os drivers AMD usando essa extensão, você está aceitando e concordando com os termos do [contrato de licença de usuário final AMD](https://amd.com/radeonsoftwarems). Durante o processo de instalação, a VM pode ser reinicializada para concluir a configuração do driver.
+Este artigo fornece uma visão geral da extensão de VM para implantar drivers de GPU AMD em VMs da [série NVv4](../nvv4-series.md) do Windows. Ao instalar os drivers AMD usando essa extensão, você estará aceitando e concordando com os termos do [contrato de licença do amd End-User](https://amd.com/radeonsoftwarems). Durante o processo de instalação, a VM pode ser reinicializada para concluir a configuração do driver.
 
 Instruções sobre a instalação manual dos drivers e as versões atuais com suporte estão disponíveis [aqui](../windows/n-series-amd-driver-setup.md).
 
@@ -153,7 +154,7 @@ A saída de execução da extensão é registrada no seguinte local:
 C:\WindowsAzure\Logs\Plugins\Microsoft.HpcCompute.NvidiaGpuDriverMicrosoft\
 ```
 
-### <a name="error-codes"></a>Códigos de erro
+### <a name="error-codes"></a>Códigos do Erro
 
 | Código do Erro | Significado | Ação possível |
 | :---: | --- | --- |

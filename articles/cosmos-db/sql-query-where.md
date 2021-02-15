@@ -3,17 +3,19 @@ title: Cláusula WHERE em Azure Cosmos DB
 description: Saiba mais sobre a cláusula WHERE do SQL para Azure Cosmos DB
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 03/06/2020
 ms.author: tisande
-ms.openlocfilehash: ceffb203ccc2cca1ff6e1c53644cde955c2e0acb
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5620a9fb95fb52a487095afd75d5f30c82a8bce1
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86523495"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341460"
 ---
 # <a name="where-clause-in-azure-cosmos-db"></a>Cláusula WHERE em Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 A cláusula WHERE opcional ( `WHERE <filter_condition>` ) especifica a (s) condição (ões) que os itens JSON de origem devem satisfazer para que a consulta as inclua nos resultados. Um item JSON deve avaliar as condições especificadas a serem `true` consideradas para o resultado. A camada de índice usa a cláusula WHERE para determinar o menor subconjunto de itens de origem que podem fazer parte do resultado.
   
@@ -73,7 +75,7 @@ Você pode usar os seguintes operadores binários com suporte:
 |---------|---------|
 |Aritmético | +,-,*,/,% |
 |Bit a bit    | \|, &, ^, <<, >>, >>> (deslocamento à direita com preenchimento com zero) |
-|Lógica    | AND, OR, NOT      |
+|Lógico    | AND, OR, NOT      |
 |Comparação | =, !=, &lt;, &gt;, &lt;=, &gt;=, <> |
 |Cadeia de caracteres     |  \|\| (concatenar) |
 

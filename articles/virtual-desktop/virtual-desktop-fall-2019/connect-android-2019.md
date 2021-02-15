@@ -7,10 +7,10 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: b0fadcc592f5dd52bf1b72dc9d5658866ffba7f4
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88008467"
 ---
 # <a name="connect-to-windows-virtual-desktop-classic-with-the-android-client"></a>Conectar-se à área de trabalho virtual do Windows (clássico) com o cliente Android

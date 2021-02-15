@@ -7,20 +7,21 @@ author: msjuergent
 manager: bburns
 editor: ''
 tags: azure-resource-manager
-keywords: ''
+keywords: SAP, Azure HANA, ultra Disk de armazenamento, armazenamento Premium
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 08/11/2020
+ms.date: 02/03/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: aa6aba12af08e2b5e044eaeb299ec6090ab6d750
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 48d1c04e59d316ac19000f5b890c0cb1c96fb213
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88650461"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99549432"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Configurações de armazenamento de máquina virtual do SAP HANA no Azure
 
@@ -37,7 +38,7 @@ O Azure oferece dois métodos de implantação para VHDs no armazenamento Standa
 Para obter uma lista de tipos de armazenamento e os respectivos SLAs em IOPS e taxa de transferência de armazenamento, revise a [documentação do Azure para discos gerenciado](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 > [!IMPORTANT]
-> Independentemente do tipo de armazenamento do Azure escolhido, o sistema de arquivos usado nesse armazenamento precisa ter suporte do SAP para o sistema operacional específico e o DBMS. [Nota de suporte nº 405827 do SAP](https://launchpad.support.sap.com/#/notes/405827) lista os sistemas de arquivos com suporte para diferentes sistemas operacionais e bancos de dados, incluindo o SAP HANA. Isso se aplica a todos os volumes que o SAP HANA pode acessar para leitura e gravação de qualquer tarefa. Especificamente usando o NFS no Azure para o SAP HANA, restrições adicionais de versões do NFS se aplicam conforme mencionado mais adiante neste artigo 
+> Independentemente do tipo de armazenamento do Azure escolhido, o sistema de arquivos usado nesse armazenamento precisa ter suporte do SAP para o sistema operacional específico e o DBMS. [Nota de suporte SAP #2972496](https://launchpad.support.sap.com/#/notes/2972496) lista os sistemas de arquivos com suporte para diferentes sistemas operacionais e bancos de dados, incluindo SAP Hana. Isso se aplica a todos os volumes que o SAP HANA pode acessar para leitura e gravação de qualquer tarefa. Especificamente usando o NFS no Azure para o SAP HANA, restrições adicionais de versões do NFS se aplicam conforme mencionado mais adiante neste artigo 
 
 
 As condições mínimas certificadas pelo SAP HANA para os diferentes tipos de armazenamento são: 
@@ -46,7 +47,7 @@ As condições mínimas certificadas pelo SAP HANA para os diferentes tipos de a
 - Ultra Disk do Azure pelo menos para o volume **/Hana/log** . O volume **/Hana/data** pode ser colocado em um armazenamento Premium sem o Azure acelerador de gravação ou para obter tempos de reinicialização mais rápidos
 - Volumes **NFS v 4.1** sobre Azure NetApp Files para **/Hana/log e/Hana/data**. O volume de/Hana/Shared pode usar o protocolo NFS v3 ou NFS v 4.1
 
-Alguns tipos de armazenamento podem ser combinados. Por exemplo, é possível colocar **/Hana/data** no armazenamento Premium e **/Hana/log** pode ser colocado em armazenamento de ultra disco para obter a baixa latência necessária. Se você usar um volume baseado em seja para **/Hana/data**, o  **/Hana/log** volume também precisará ser baseado em NFS na parte superior do seja. **Não há suporte**para o uso de NFS sobre seja para um dos volumes (como/Hana/Data) e armazenamento Premium do Azure ou ultra Disk para o outro volume (como **/Hana/log**).
+Alguns tipos de armazenamento podem ser combinados. Por exemplo, é possível colocar **/Hana/data** no armazenamento Premium e **/Hana/log** pode ser colocado em armazenamento de ultra disco para obter a baixa latência necessária. Se você usar um volume baseado em seja para **/Hana/data**, o  **/Hana/log** volume também precisará ser baseado em NFS na parte superior do seja. **Não há suporte** para o uso de NFS sobre seja para um dos volumes (como/Hana/Data) e armazenamento Premium do Azure ou ultra Disk para o outro volume (como **/Hana/log**).
 
 No mundo local, você raramente precisava preocupar-se com os subsistemas de E/S e as funcionalidades. O motivo era que o fornecedor do dispositivo precisava certificar-se de que os requisitos mínimos de armazenamento fossem atendidos para o SAP HANA. Ao criar a infraestrutura do Azure por conta própria, você deve estar ciente de alguns desses requisitos emitidos pelo SAP. Algumas das características mínimas de taxa de transferência que o SAP recomenda, são:
 
@@ -62,20 +63,38 @@ Alguns princípios de orientação na seleção da configuração de armazenamen
 - Decida sobre o tipo de armazenamento com base nos [tipos de armazenamento do Azure para carga de trabalho SAP](./planning-guide-storage.md) e [Selecione um tipo de disco](../../disks-types.md)
 - A taxa de transferência de e/s de VM geral e os limites de IOPS em mente ao dimensionar ou decidir uma VM. A taxa de transferência geral do armazenamento de VM está documentada no artigo [tamanhos de máquina virtual com otimização de memória](../../sizes-memory.md)
 - Ao decidir pela configuração de armazenamento, tente ficar abaixo da taxa de transferência geral da VM com a configuração do volume **/Hana/data** . Escrevendo pontos de salvamento, SAP HANA pode ser a emissão agressiva de e/SS. É fácil enviar até limites de taxa de transferência do volume **/Hana/data** ao escrever um salvamento de pontos. Se os discos que criam o volume **/Hana/data** tiverem uma taxa de transferência maior do que a sua VM permitir, você poderá se deparar com situações em que a taxa de transferência utilizada pela gravação do ponto de salvamento está interferindo com as demandas de taxa de transferência das gravações de log de restauração. Uma situação que pode afetar a taxa de transferência do aplicativo
-- Se você estiver usando o armazenamento Premium do Azure, a configuração menos dispendiosa será usar gerenciadores de volume lógico para criar conjuntos de distribuição para criar os volumes **/Hana/data** e **/Hana/log**
+
 
 > [!IMPORTANT]
 > As sugestões para as configurações de armazenamento são destinadas como instruções para começar. Executando a carga de trabalho e analisando os padrões de utilização de armazenamento, você pode perceber que não está utilizando toda a largura de banda de armazenamento ou IOPS fornecidos. Em seguida, você pode considerar o downsizing no armazenamento. Ou, em contrário, sua carga de trabalho pode precisar de mais taxa de transferência de armazenamento do que o sugerido com essas configurações. Como resultado, talvez seja necessário implantar mais capacidade, IOPS ou taxa de transferência. No campo de tensão entre a capacidade de armazenamento necessária, a latência de armazenamento necessária, a taxa de transferência de armazenamento e o IOPS necessários e a configuração menos dispendiosa, o Azure oferece tipos de armazenamento diferentes suficientes com diferentes recursos e pontos de preço diferentes para localizar e ajustar para o comprometimento correto para você e sua carga de trabalho do HANA.
 
+
+## <a name="stripe-sets-versus-sap-hana-data-volume-partitioning"></a>Conjuntos de distribuição versus SAP HANA particionamento de volume de dados
+Usando o armazenamento Premium do Azure, você pode atingir a melhor taxa de preço/desempenho ao distribuir o volume de **/Hana/data** e/ou **/Hana/log** em vários discos do Azure. Em vez de implantar volumes de disco maiores que fornecem mais informações sobre IOPS ou taxa de transferência necessária. Até agora, isso foi feito com os gerenciadores de volumes LVM e MDADM que fazem parte do Linux. O método de distribuição de discos é décadas antigos e bem conhecidos. Tão benéfico quanto os volumes distribuídos para chegar aos recursos de IOPS ou de taxa de transferência que você pode precisar, ele adiciona complexidades ao gerenciamento desses volumes distribuídos. Especialmente em casos em que os volumes precisam ser estendidos na capacidade. Pelo menos para **/Hana/data**, o SAP introduziu um método alternativo que alcança a mesma meta que a distribuição entre vários discos do Azure. Desde SAP HANA 2,0 SPS03, o HANA indexserver é capaz de distribuir sua atividade de e/s em vários arquivos de dados do HANA que estão localizados em diferentes discos do Azure. A vantagem é que você não precisa cuidar da criação e do gerenciamento de um volume distribuído em diferentes discos do Azure. A funcionalidade SAP HANA do particionamento de volume de dados é descrita em detalhes em:
+
+- [O guia do administrador do HANA](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.05/en-US/40b2b2a880ec4df7bac16eae3daef756.html?q=hana%20data%20volume%20partitioning)
+- [Blog sobre SAP HANA – Particionando volumes de dados](https://blogs.sap.com/2020/10/07/sap-hana-partitioning-data-volumes/)
+- [Observação SAP #2400005](https://launchpad.support.sap.com/#/notes/2400005)
+- [Observação SAP #2700123](https://launchpad.support.sap.com/#/notes/2700123)
+
+Lendo os detalhes, é aparente que aproveitar essa funcionalidade retira as complexidades dos conjuntos de distribuição baseados no Gerenciador de volumes. Você também percebe que o particionamento do volume de dados do HANA não está funcionando apenas para o armazenamento de blocos do Azure, como o armazenamento Premium do Azure. Você pode usar essa funcionalidade também para distribuir entre compartilhamentos NFS caso esses compartilhamentos tenham limitações de IOPS ou taxa de transferência.  
+
+
 ## <a name="linux-io-scheduler-mode"></a>Modo Agendador de E/S do Linux
-O Linux possui vários modos de agendamento de E/S diferentes. A recomendação comum por meio de fornecedores do Linux e do SAP é reconfigurar o modo de agendador de E/S para volumes de disco do modo **mq-deadline** ou **kyber** para o modo **noop** (não multifila) ou **none** (multifila). Detalhes são referenciados na [Nota SAP Nº 1984787](https://launchpad.support.sap.com/#/notes/1984787). 
+O Linux possui vários modos de agendamento de E/S diferentes. A recomendação comum por meio de fornecedores do Linux e do SAP é reconfigurar o modo do Agendador de e/s para volumes de disco do modo **Kyber** ou do **data limite do MQ** para o modo **NOOP** (não-multifila) ou **nenhum** para (Multiqueue), se ainda não for feito pelos perfis do SLES saptune. Os detalhes são referenciados em: 
+
+- [Observação SAP #1984787](https://launchpad.support.sap.com/#/notes/1984787)
+- [Observação SAP #2578899](https://launchpad.support.sap.com/#/notes/2578899) 
+- [Problema com a configuração NOOP no SLES 12 SP4](https://www.suse.com/support/kb/doc/?id=000019547)
+
+No Red Hat, deixe as configurações estabelecidas pelos perfis de ajuste específicos para os diferentes aplicativos SAP.
 
 
 ## <a name="solutions-with-premium-storage-and-azure-write-accelerator-for-azure-m-series-virtual-machines"></a>Soluções com armazenamento Premium e Acelerador de Gravação do Azure para máquinas virtuais da série M do Azure
 O Acelerador de Gravação do Azure é uma funcionalidade disponível exclusivamente para VMs da Série M do Azure. Como o nome indica, a finalidade da funcionalidade é melhorar a latência de e/s de gravações no armazenamento Premium do Azure. Para o SAP HANA, acelerador de gravação deve ser usado em relação a **hana/log** somente no volume. Portanto, **/hana/data** e **/gana/log** são volumes separados com o Acelerador de Gravação do Azure que dão suporte apenas ao volume **/hana/log**. 
 
 > [!IMPORTANT]
-> Ao usar o armazenamento Premium do Azure, o uso do Azure [acelerador de gravação](../../how-to-enable-write-accelerator.md) para o volume **/Hana/log** é obrigatório. Acelerador de Gravação está disponível apenas para VMs de armazenamento Premium e série M e série Mv2. Acelerador de Gravação não está funcionando em combinação com outras famílias de VM do Azure, como Esv3 ou Edsv4.
+> Ao usar o armazenamento Premium do Azure, o uso do Azure [acelerador de gravação](../../how-to-enable-write-accelerator.md) para o volume **/Hana/log** é obrigatório. Acelerador de Gravação está disponível para armazenamento Premium e somente para VMs da série M e do Mv2-Series. Acelerador de Gravação não está funcionando em combinação com outras famílias de VM do Azure, como Esv3 ou Edsv4.
 
 As recomendações de cache para os discos Premium do Azure abaixo estão supondo as características de e/s para SAP HANA essa lista, como:
 
@@ -88,7 +107,7 @@ As recomendações de cache para os discos Premium do Azure abaixo estão supond
 **Recomendação: como resultado desses padrões de e/s observados por SAP HANA, o cache para os diferentes volumes usando o armazenamento Premium do Azure deve ser definido como:**
 
 - **/Hana/data** -sem cache ou cache de leitura
-- **/hana/log** – sem cache – exceção para a série M e Mv2 em que Acelerador de Gravação deve ser habilitado sem cache de leitura. 
+- **/Hana/log** -sem cache-exceção para VMs M-e Mv2-Series em que o acelerador de gravação do Azure deve ser habilitado 
 - **hana/shared** - ler o cache
 - **Disco do sistema operacional** -não altere o cache padrão definido pelo Azure no momento da criação da VM
 
@@ -111,7 +130,7 @@ A acumulação de vários VHDs do Azure sob um conjunto de distribuição é acu
 
 
 ### <a name="azure-burst-functionality-for-premium-storage"></a>Funcionalidade de intermitência do Azure para armazenamento Premium
-Para discos de armazenamento Premium do Azure menores ou iguais a 512 GiB em capacidade, a funcionalidade de intermitência é oferecida. A maneira exata de como funciona a intermitência de disco é descrita no artigo [intermitência de disco](../../linux/disk-bursting.md). Ao ler o artigo, você entende o conceito de acumular IOPS e taxa de transferência nos momentos em que a carga de trabalho de e/s está abaixo do IOPS nominal e da taxa de transferência dos discos (para obter detalhes sobre a taxa de transferência nominal, consulte [preço do disco gerenciado](https://azure.microsoft.com/pricing/details/managed-disks/)). Você vai acumular o Delta de IOPS e a taxa de transferência entre o uso atual e os valores nominais do disco. As intermitências são limitadas a um máximo de 30 minutos.
+Para discos de armazenamento Premium do Azure menores ou iguais a 512 GiB em capacidade, a funcionalidade de intermitência é oferecida. A maneira exata de como funciona a intermitência de disco é descrita no artigo [intermitência de disco](../../disk-bursting.md). Ao ler o artigo, você entende o conceito de acumular IOPS e taxa de transferência nos momentos em que a carga de trabalho de e/s está abaixo do IOPS nominal e da taxa de transferência dos discos (para obter detalhes sobre a taxa de transferência nominal, consulte [preço do disco gerenciado](https://azure.microsoft.com/pricing/details/managed-disks/)). Você vai acumular o Delta de IOPS e a taxa de transferência entre o uso atual e os valores nominais do disco. As intermitências são limitadas a um máximo de 30 minutos.
 
 Os casos ideais em que essa funcionalidade de intermitência pode ser planejada provavelmente serão os volumes ou discos que contêm arquivos de dados para o DBMS diferente. A carga de trabalho de e/s esperada nesses volumes, especialmente com sistemas de pequeno a médio porte, deve parecer com a seguinte aparência:
 
@@ -133,7 +152,7 @@ Especialmente em sistemas DBMS menores em que sua carga de trabalho está lidand
 > Certificação do SAP HANA para máquinas virtuais da série M do Azure é exclusivamente com o Acelerador de gravação do Azure para o **hana/log** volume. Como resultado, as implantações de SAP HANA de cenário de produção em máquinas virtuais da série M do Azure devem ser configurados com o Acelerador de gravação do Azure para o **hana/log** volume.  
 
 > [!NOTE]
-> Em cenários que envolvem o armazenamento Premium do Azure, estamos implementando recursos de intermitência na configuração. Como você está usando as ferramentas de teste de armazenamento de qualquer forma ou formulário, mantenha o [funcionamento do Azure Premium Disk Burst](../../linux/disk-bursting.md) em mente. Executando os testes de armazenamento fornecidos por meio da ferramenta SAP HWCCT ou HCMT, não estamos esperando que todos os testes passem os critérios, já que alguns dos testes excederão os créditos de intermitência que você pode acumular. Especialmente quando todos os testes são executados sequencialmente sem interrupção.
+> Em cenários que envolvem o armazenamento Premium do Azure, estamos implementando recursos de intermitência na configuração. Como você está usando as ferramentas de teste de armazenamento de qualquer forma ou formulário, mantenha o [funcionamento do Azure Premium Disk Burst](../../disk-bursting.md) em mente. Executando os testes de armazenamento fornecidos por meio da ferramenta SAP HWCCT ou HCMT, não estamos esperando que todos os testes passem os critérios, já que alguns dos testes excederão os créditos de intermitência que você pode acumular. Especialmente quando todos os testes são executados sequencialmente sem interrupção.
 
 
 > [!NOTE]
@@ -143,44 +162,44 @@ Especialmente em sistemas DBMS menores em que sua carga de trabalho está lidand
 
 Configuração do volume do SAP **/Hana/data** :
 
-| SKU da VM | RAM | Máx. VM E/S<br /> Produtividade | /hana/data | Taxa de transferência máxima de intermitência | IOPS | IOPS de intermitência |
+| SKU da VM | RAM | Máx. VM E/S<br /> Produtividade | /hana/data | Taxa de transferência provisionada | Taxa de transferência máxima de intermitência | IOPS | IOPS de intermitência |
 | --- | --- | --- | --- | --- | --- | --- | 
-| M32ts | 192 GiB | 500 MBps | 4 x P6 | 680 MBps | 960 | 14.000 |
-| M32ls | 256 GiB | 500 MBps | 4 x P6 | 680 MBps | 960 | 14.000 |
-| M64ls | 512 GiB | 1\.000 MBps | 4 x P10 |  680 MBps | 2\.000 | 14.000 |
-| M64s | 1\.000 GiB | 1\.000 MBps | 4 x P15 | 680 MBps | 4.400 | 14.000 |
-| M64ms | 1\.750 GiB | 1\.000 MBps | 4 x P20 | 680 MBps | 9.200 | 14.000 |  
-| M128s | 2\.000 GiB | 2.000 MBps | 4 x P20 | 680 MBps | 9.200| 14.000 | 
-| M128ms | 3\.800 GiB | 2.000 MBps | 4 x P30 | 800 MBps (provisionado) | 20.000 | sem intermitência | 
-| M208s_v2 | 2\.850 GiB | 1\.000 MBps | 4 x P30 | 800 MBps (provisionado) | 20.000| sem intermitência | 
-| M208ms_v2 | 5\.700 GiB | 1\.000 MBps | 4 x P40 | 1.000 MBps (provisionado) | 25.000 | sem intermitência |
-| M416s_v2 | 5\.700 GiB | 2.000 MBps | 4 x P40 | 1.000 MBps (provisionado) | 25.000 | sem intermitência |
-| M416ms_v2 | 11.400 GiB | 2.000 MBps | 4 x P50 | 2.000 MBps (provisionado) | 25.000 | sem intermitência |
+| M32ts | 192 GiB | 500 MBps | 4 x P6 | 200 MBps | 680 MBps | 960 | 14.000 |
+| M32ls | 256 GiB | 500 MBps | 4 x P6 | 200 MBps | 680 MBps | 960 | 14.000 |
+| M64ls | 512 GiB | 1\.000 MBps | 4 x P10 | 400 MBps | 680 MBps | 2.000 | 14.000 |
+| M64s | 1\.000 GiB | 1\.000 MBps | 4 x P15 | 500 MBps | 680 MBps | 4.400 | 14.000 |
+| M64ms | 1\.750 GiB | 1\.000 MBps | 4 x P20 | 600 MBps | 680 MBps | 9.200 | 14.000 |  
+| M128s | 2\.000 GiB | 2.000 MBps | 4 x P20 | 600 MBps | 680 MBps | 9.200| 14.000 | 
+| M128ms | 3\.800 GiB | 2.000 MBps | 4 x P30 | 800 MBps | sem intermitência | 20.000 | sem intermitência | 
+| M208s_v2 | 2\.850 GiB | 1\.000 MBps | 4 x P30 | 800 MBps | sem intermitência | 20.000| sem intermitência | 
+| M208ms_v2 | 5\.700 GiB | 1\.000 MBps | 4 x P40 | 1\.000 MBps | sem intermitência | 30,000 | sem intermitência |
+| M416s_v2 | 5\.700 GiB | 2.000 MBps | 4 x P40 | 1\.000 MBps | sem intermitência | 30,000 | sem intermitência |
+| M416ms_v2 | 11.400 GiB | 2.000 MBps | 4 x P50 | 2.000 MBps | sem intermitência | 30,000 | sem intermitência |
 
 
 Para o volume **/Hana/log** . a configuração teria a seguinte aparência:
 
-| SKU da VM | RAM | Máx. VM E/S<br /> Produtividade | volume **/Hana/log** | Taxa de transferência máxima de intermitência | IOPS | IOPS de intermitência |
+| SKU da VM | RAM | Máx. VM E/S<br /> Produtividade | volume **/Hana/log** | Taxa de transferência provisionada | Taxa de transferência máxima de intermitência | IOPS | IOPS de intermitência |
 | --- | --- | --- | --- | --- | --- | --- | 
-| M32ts | 192 GiB | 500 MBps | 3 x P10 | 510 MBps | 1\.500 | 10.500 | 
-| M32ls | 256 GiB | 500 MBps | 3 x P10 | 510 MBps | 1\.500 | 10.500 | 
-| M64ls | 512 GiB | 1\.000 MBps | 3 x P10 | 510 MBps | 1\.500 | 10.500 | 
-| M64s | 1\.000 GiB | 1\.000 MBps | 3 x P15 | 510 MBps | 3.300 | 10.500 | 
-| M64ms | 1\.750 GiB | 1\.000 MBps | 3 x P15 | 510 MBps | 3.300 | 10.500 |  
-| M128s | 2\.000 GiB | 2.000 MBps | 3 x P15 | 510 MBps | 3.300 | 10.500|  
-| M128ms | 3\.800 GiB | 2.000 MBps | 3 x P15 | 510 MBps | 3.300 | 10.500 | 
-| M208s_v2 | 2\.850 GiB | 1\.000 MBps | 3 x P15 | 510 MBps | 3.300 | 10.500 |  
-| M208ms_v2 | 5\.700 GiB | 1\.000 MBps | 3 x P15 | 510 MBps | 3.300 | 10.500 |  
-| M416s_v2 | 5\.700 GiB | 2.000 MBps | 3 x P15 | 510 MBps | 3.300 | 10.500 |  
-| M416ms_v2 | 11.400 GiB | 2.000 MBps | 3 x P15 | 510 MBps | 3.300 | 10.500 | 
+| M32ts | 192 GiB | 500 MBps | 3 x P10 | 300 MBps | 510 MBps | 1\.500 | 10.500 | 
+| M32ls | 256 GiB | 500 MBps | 3 x P10 | 300 MBps | 510 MBps | 1\.500 | 10.500 | 
+| M64ls | 512 GiB | 1\.000 MBps | 3 x P10 | 300 MBps | 510 MBps | 1\.500 | 10.500 | 
+| M64s | 1\.000 GiB | 1\.000 MBps | 3 x P15 | 375 MBps | 510 MBps | 3.300 | 10.500 | 
+| M64ms | 1\.750 GiB | 1\.000 MBps | 3 x P15 | 375 MBps | 510 MBps | 3.300 | 10.500 |  
+| M128s | 2\.000 GiB | 2.000 MBps | 3 x P15 | 375 MBps | 510 MBps | 3.300 | 10.500|  
+| M128ms | 3\.800 GiB | 2.000 MBps | 3 x P15 | 375 MBps | 510 MBps | 3.300 | 10.500 | 
+| M208s_v2 | 2\.850 GiB | 1\.000 MBps | 3 x P15 | 375 MBps | 510 MBps | 3.300 | 10.500 |  
+| M208ms_v2 | 5\.700 GiB | 1\.000 MBps | 3 x P15 | 375 MBps | 510 MBps | 3.300 | 10.500 |  
+| M416s_v2 | 5\.700 GiB | 2.000 MBps | 3 x P15 | 375 MBps | 510 MBps | 3.300 | 10.500 |  
+| M416ms_v2 | 11.400 GiB | 2.000 MBps | 3 x P15 | 375 MBps | 510 MBps | 3.300 | 10.500 | 
 
 
 Para os outros volumes, a configuração teria a seguinte aparência:
 
 | SKU da VM | RAM | Máx. VM E/S<br /> Produtividade | /hana/shared | /root volume | /usr/sap |
 | --- | --- | --- | --- | --- | --- | --- | --- | -- |
-| M32ts | 192 GiB | 500 MBps | 1 x P20 | 1 x P6 | 1 x P6 |
-| M32ls | 256 GiB | 500 MBps |  1 x P20 | 1 x P6 | 1 x P6 |
+| M32ts | 192 GiB | 500 MBps | 1 x P15 | 1 x P6 | 1 x P6 |
+| M32ls | 256 GiB | 500 MBps |  1 x P15 | 1 x P6 | 1 x P6 |
 | M64ls | 512 GiB | 1000 MBps | 1 x P20 | 1 x P6 | 1 x P6 |
 | M64s | 1\.000 GiB | 1\.000 MBps | 1 x P30 | 1 x P6 | 1 x P6 |
 | M64ms | 1\.750 GiB | 1\.000 MBps | 1 x P30 | 1 x P6 | 1 x P6 | 
@@ -198,13 +217,13 @@ O Acelerador de Gravação do Azure funciona somente em conjunto com o [Azure Ma
 
 Para as VMs certificadas do HANA da família Azure [Esv3](../../ev3-esv3-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#esv3-series) e do [Edsv4](../../edv4-edsv4-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#edsv4-series), você precisará seja para o volume **/Hana/data** e **/Hana/log** . Ou você precisa aproveitar o armazenamento do Azure ultra Disk em vez do armazenamento Premium do Azure somente para o volume **/Hana/log** . Como resultado, as configurações para o volume **/Hana/data** no armazenamento Premium do Azure poderiam ser semelhantes a:
 
-| SKU da VM | RAM | Máx. VM E/S<br /> Produtividade | /hana/data | Taxa de transferência máxima de intermitência | IOPS | IOPS de intermitência |
+| SKU da VM | RAM | Máx. VM E/S<br /> Produtividade | /hana/data | Taxa de transferência provisionada | Taxa de transferência máxima de intermitência | IOPS | IOPS de intermitência |
 | --- | --- | --- | --- | --- | --- | --- |
-| E20ds_v4 | 160 GiB | 480 MBps | 3 x P10 | 510 MBps | 1\.500 | 10.500 |
-| E32ds_v4 | 256 GiB | 768 MBps | 3 x P10 |  510 MBps | 1\.500 | 10.500|
-| E48ds_v4 | 384 GiB | 1.152 MBps | 3 x P15 |  510 MBps | 3.300  | 10.500 | 
-| E64ds_v4 | 504 GiB | 1\.200 MBps | 3 x P15 |  510 MBps | 3.300 | 10.500 | 
-| E64s_v3 | 432 GiB | 1\.200 MB/s | 3 x P15 |  510 MBps | 3.300 | 10.500 | 
+| E20ds_v4 | 160 GiB | 480 MBps | 3 x P10 | 300 MBps | 510 MBps | 1\.500 | 10.500 |
+| E32ds_v4 | 256 GiB | 768 MBps | 3 x P10 |  300 MBps | 510 MBps | 1\.500 | 10.500|
+| E48ds_v4 | 384 GiB | 1.152 MBps | 3 x P15 |  375 MBps |510 MBps | 3.300  | 10.500 | 
+| E64ds_v4 | 504 GiB | 1\.200 MBps | 3 x P15 |  375 MBps | 510 MBps | 3.300 | 10.500 | 
+| E64s_v3 | 432 GiB | 1\.200 MB/s | 3 x P15 |  375 MBps | 510 MBps | 3.300 | 10.500 | 
 
 Para os outros volumes, incluindo **/Hana/log** no ultra Disk, a configuração poderia ser semelhante a:
 
@@ -229,12 +248,16 @@ O disco Ultra oferece a possibilidade de definir um único disco que atenda a se
 Outras vantagens do ultra Disk podem ser a melhor latência de leitura em comparação com o armazenamento Premium. A latência de leitura mais rápida pode ter vantagens quando você deseja reduzir os tempos de inicialização do HANA e a carga subsequente dos dados na memória. As vantagens do armazenamento de disco Ultra também podem ser sentidas quando o HANA está escrevendo pontos de salvamento. 
 
 > [!NOTE]
-> O disco Ultra ainda não está presente em todas as regiões do Azure e também ainda não está dando suporte a todos os tipos de VM listados abaixo. Para obter informações detalhadas sobre onde o disco Ultra está disponível para quais famílias de VM há suporte, consulte o artigo [Quais tipos de disco estão disponíveis no Azure?](../../windows/disks-types.md#ultra-disk).
+> O disco Ultra ainda não está presente em todas as regiões do Azure e também ainda não está dando suporte a todos os tipos de VM listados abaixo. Para obter informações detalhadas sobre onde o disco Ultra está disponível para quais famílias de VM há suporte, consulte o artigo [Quais tipos de disco estão disponíveis no Azure?](../../disks-types.md#ultra-disk).
 
 ### <a name="production-recommended-storage-solution-with-pure-ultra-disk-configuration"></a>Solução de armazenamento recomendada para produção com configuração de disco Ultra pura
 Nessa configuração, você mantém os volumes **/Hana/data** e **/Hana/log** separadamente. Os valores sugeridos são derivados dos KPIs que o SAP precisa certificar para tipos de VM para SAP HANA e as configurações de armazenamento, conforme recomendado no [Whitepaper de armazenamento do SAP TDI](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html).
 
 As recomendações geralmente estão excedendo os requisitos mínimos do SAP, conforme mencionado anteriormente neste artigo. As recomendações listadas são um comprometimento entre as recomendações de tamanho do SAP e a taxa de transferência de armazenamento máxima que os diferentes tipos de VM fornecem.
+
+> [!NOTE]
+> O ultra Disk do Azure está impondo um mínimo de 2 IOPS por capacidade de Gigabyte de um disco
+
 
 | SKU da VM | RAM | Máx. VM E/S<br /> Produtividade | Volume /hana/data | Taxa de transferência de E/S /hana/data | IOPS /hana/data | Volume /hana/log | Taxa de transferência de E/S /hana/log | IOPS /hana/log |
 | --- | --- | --- | --- | --- | --- | --- | --- | -- |
@@ -249,11 +272,11 @@ As recomendações geralmente estão excedendo os requisitos mínimos do SAP, co
 | M64s | 1\.000 GiB | 1\.000 MB/s |  1\.200 GB | 600 MBps | 5\.000 | 512 GB | 250 MBps  | 2\.500 |
 | M64ms | 1\.750 GiB | 1\.000 MB/s | 2\.100 GB | 600 MBps | 5\.000 | 512 GB | 250 MBps  | 2\.500 |
 | M128s | 2\.000 GiB | 2\.000 MB/s |2\.400 GB | 750 MBps | 7.000 | 512 GB | 250 MBps  | 2\.500 | 
-| M128ms | 3\.800 GiB | 2\.000 MB/s | 4\.800 GB | 750 MBps |7.000 | 512 GB | 250 MBps  | 2\.500 | 
+| M128ms | 3\.800 GiB | 2\.000 MB/s | 4\.800 GB | 750 MBps |9.600 | 512 GB | 250 MBps  | 2\.500 | 
 | M208s_v2 | 2\.850 GiB | 1\.000 MB/s | 3\.500 GB | 750 MBps | 7.000 | 512 GB | 250 MBps  | 2\.500 | 
-| M208ms_v2 | 5\.700 GiB | 1\.000 MB/s | 7\.200 GB | 750 MBps | 7.000 | 512 GB | 250 MBps  | 2\.500 | 
-| M416s_v2 | 5\.700 GiB | 2\.000 MB/s | 7\.200 GB | 1\.000 MBps | 9\.000 | 512 GB | 400 MBps  | 4.000 | 
-| M416ms_v2 | 11.400 GiB | 2\.000 MB/s | 14.400 GB | 1\.500 MBps | 9\.000 | 512 GB | 400 MBps  | 4.000 |   
+| M208ms_v2 | 5\.700 GiB | 1\.000 MB/s | 7\.200 GB | 750 MBps | 14.400 | 512 GB | 250 MBps  | 2\.500 | 
+| M416s_v2 | 5\.700 GiB | 2\.000 MB/s | 7\.200 GB | 1\.000 MBps | 14.400 | 512 GB | 400 MBps  | 4.000 | 
+| M416ms_v2 | 11.400 GiB | 2\.000 MB/s | 14.400 GB | 1\.500 MBps | 28.800 | 512 GB | 400 MBps  | 4.000 |   
 
 **Os valores listados se destinam a ser um ponto de partida e precisam ser avaliados em relação às demandas reais.** A vantagem com o Disco Ultra do Azure é que os valores de IOPS e taxa de transferência podem ser adaptados sem a necessidade de desligar a VM ou de interromper a carga de trabalho aplicada ao sistema.   
 
@@ -262,69 +285,13 @@ As recomendações geralmente estão excedendo os requisitos mínimos do SAP, co
 
 
 ## <a name="nfs-v41-volumes-on-azure-netapp-files"></a>Volumes NFS v4.1 em Azure NetApp Files
-O Azure NetApp Files fornece compartilhamentos NFS nativos que podem ser usados para volumes **/Hana/Shared**, **/Hana/data**e **/Hana/log** . O uso de compartilhamentos NFS baseados em seja para os volumes **/Hana/data** e **/Hana/log** requer o uso do protocolo v 4.1 NFS. Não há suporte para o protocolo de NFS v3 para o uso de volumes **/Hana/data** e **/Hana/log** ao basear os compartilhamentos em seja. 
-
-> [!IMPORTANT]
-> O protocolo NFS v3 implementado em Azure NetApp Files **não** tem suporte para ser usado para **/Hana/data** e **/Hana/log**. O uso do NFS 4,1 é obrigatório para volumes **/Hana/data** e **/Hana/log** de um ponto de vista funcional. Enquanto para o volume **/Hana/Shared** , o NFS v3 ou o protocolo NFS v 4.1 podem ser usados a partir de um ponto de vista funcional.
-
-### <a name="important-considerations"></a>Considerações importantes
-Ao considerar Azure NetApp Files para o SAP Netweaver e o SAP HANA, esteja ciente das seguintes considerações importantes:
-
-- O pool de capacidade mínima é de 4 TiB.  
-- O tamanho mínimo do volume é 100 GiB
-- O Azure NetApp Files e todas as máquinas virtuais, em que os volumes do Azure NetApp Files serão montados, devem estar na mesma Rede Virtual do Azure ou em [redes virtuais emparelhadas](../../../virtual-network/virtual-network-peering-overview.md) na mesma região.  
-- A rede virtual selecionada deve ter uma sub-rede, delegada ao Azure NetApp Files.
-- A taxa de transferência de um volume do Azure NetApp é uma função da cota de volume e do nível de serviço, conforme documentado no [Nível de serviço para Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-service-levels.md). Ao dimensionar os volumes Azure NetApp do HANA, verifique se a taxa de transferência resultante atende aos requisitos do sistema do HANA.  
-- Azure NetApp Files oferece a [política de exportação](../../../azure-netapp-files/azure-netapp-files-configure-export-policy.md): você pode controlar os clientes permitidos e o tipo de acesso (leitura e gravação, somente leitura etc.). 
-- O recurso do Azure NetApp Files ainda não tem reconhecimento de zona. No momento, o recurso do Azure NetApp Files não está implantado em todas as zonas de disponibilidade em uma região do Azure. Esteja atendo às possíveis implicações de latência em algumas regiões do Azure.  
-- É importante que as máquinas virtuais sejam implantadas bem próximas ao armazenamento do Azure NetApp para ter baixa latência. 
-- A ID de Usuário para <b>sid</b>adm e a ID de Grupo para `sapsys` nas máquinas virtuais devem corresponder com a configuração no Azure NetApp Files. 
-
-> [!IMPORTANT]
-> Para cargas de trabalho do SAP HANA, baixa latência é fundamental. Trabalhe com seu representante da Microsoft para verificar se as máquinas virtuais e os volumes do Azure NetApp Files foram implantados bem próximos.  
-
-> [!IMPORTANT]
-> Se houver uma incompatibilidade entre a ID de usuário para <b>sid</b>adm e a ID de Grupo para `sapsys` entre a máquina virtual e a configuração do Azure NetApp, as permissões dos arquivos em volumes do Azure NetApp, montadas em máquinas virtuais, serão exibidas como `nobody`. Especifique a ID de Usuário correta para <b>sid</b>adm e a ID do Grupo para `sapsys`, ao [integrar um novo sistema](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxjSlHBUxkJBjmARn57skvdUQlJaV0ZBOE1PUkhOVk40WjZZQVJXRzI2RC4u) ao Azure NetApp Files.
-
-### <a name="sizing-for-hana-database-on-azure-netapp-files"></a>Dimensionar o banco de dados do HANA no Azure NetApp Files
-
-A taxa de transferência de um volume do Azure NetApp é uma função do tamanho de volume e do nível de serviço, conforme documentado no [Nível de serviço para Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-service-levels.md). 
-
-Ao criar a infraestrutura para o SAP no Azure, você deve estar ciente de alguns requisitos de taxa de transferência mínima de armazenamento do SAP, que são convertidos em características de taxa de transferência mínima de:
-
-- Habilitar a leitura/gravação em **/hana/log** de 250 MB/s com tamanhos de E/S de 1 MB  
-- Habilite a atividade de leitura de pelo menos 400MB/seg para **/hana/data** para tamanhos de E / S de 16MB e 64MB  
-- Habilite a atividade gravação de pelo menos 250 MB/seg para **/hana/data** para tamanhos de E / S de 16MB e 64MB  
-
-Os [limites de taxa de transferência do Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-service-levels.md) por 1 TiB de cota de volume são:
-- Camada de armazenamento Premium-64 MiB/s  
-- Camada de Armazenamento Ultra – 128 MiB/s  
-
-> [!IMPORTANT]
-> Independentemente da capacidade que você implanta em um único volume NFS, espera-se que a taxa de transferência fique estável no intervalo de largura de banda de 1,2 a 1,4 GB/s utilizada por um consumidor em uma máquina virtual. Isso tem a ver com a arquitetura subjacente da oferta do ANF e com os limites de sessão do Linux relacionados em relação ao NFS. Os números de desempenho e taxa de transferência, conforme documentado no artigo [Resultados do teste de benchmark de desempenho para Azure NetApp Files](../../../azure-netapp-files/performance-benchmarks-linux.md) foram realizados em um volume NFS compartilhado com várias VMs de cliente e como resultado com várias sessões. Esse cenário é diferente para o cenário que medimos no SAP. Nele, medimos a taxa de transferência de uma única VM com relação a um volume NFS. hospedado no ANF.
-
-Para atender aos requisitos de taxa de transferência mínima do SAP para dados e log e, de acordo com as diretrizes de `/hana/shared`, os tamanhos recomendados seriam semelhantes a:
-
-| Volume | Tamanho<br /> Camada de armazenamento Premium | Tamanho<br /> Camada de armazenamento Ultra | Protocolo do NFS com suporte |
-| --- | --- | --- |
-| /hana/log/ | 4 TiB | 2 TiB | v4.1 |
-| /hana/data | 6,3 TiB | 3,2 TiB | v4.1 |
-| /hana/shared | Max(512 GB, 1xRAM) por 4 nós de trabalho | Max(512 GB, 1xRAM) por 4 nós de trabalho | v3 ou v4.1 |
+Para obter detalhes sobre o seja para HANA, leia os volumes do documento [NFS v 4.1 em Azure NetApp Files para SAP Hana](./hana-vm-operations-netapp.md)
 
 
-> [!NOTE]
-> As recomendações de dimensionamento do Azure NetApp Files declaradas aqui estão visando os requisitos mínimos que o SAP expressa para seus provedores de infraestrutura. Em implantações de clientes e cenários de carga de trabalho reais, isso pode não ser suficiente. Use essas recomendações como um ponto de partida e adapte-se, com base nos requisitos de sua carga de trabalho específica.  
-
-Portanto, você pode considerar implantar uma taxa de transferência semelhante para os volumes do ANF conforme já listado para o armazenamento de disco Ultra. Além disso, considere os tamanhos listados para os volumes dos diferentes SKUs de VM, como já foi feito nas tabelas do disco Ultra.
-
-> [!TIP]
-> Você pode redimensionar os volumes do Azure NetApp Files dinamicamente, sem a necessidade de `unmount` os volumes, parar as máquinas virtuais ou parar o SAP HANA. Isso oferece flexibilidade para você atender às demandas de taxa de transferência tanto esperadas quanto imprevistas do seu aplicativo.
-
-A documentação sobre como implantar uma configuração de expansão do SAP HANA com o nó em espera usando volumes NFS v4.1 hospedados no ANF foi publicada na [Expansão do SAP HANA com o nó em espera em VMs do Azure com o Azure NetApp Files no SUSE Linux Enterprise Server](./sap-hana-scale-out-standby-netapp-files-suse.md).
 
 
 ## <a name="cost-conscious-solution-with-azure-premium-storage"></a>Solução consciente de custo com o armazenamento Premium do Azure
-Até agora, a solução de armazenamento Premium do Azure descrita neste documento na seção [soluções com armazenamento Premium e acelerador de gravação do Azure para máquinas virtuais da série M do Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage#solutions-with-premium-storage-and-azure-write-accelerator-for-azure-m-series-virtual-machines) foi destinada para SAP Hana cenários com suporte de produção. Uma das características das configurações com suporte de produção é a separação dos volumes para SAP HANA dados e o log de restauração em dois volumes diferentes. A razão para essa separação é que as características de carga de trabalho nos volumes são diferentes. E isso com as configurações de produção sugeridas, um tipo diferente de cache ou até mesmo tipos diferentes de armazenamento de bloco do Azure poderia ser necessário. As configurações de produção com suporte usando o destino de armazenamento de bloco do Azure para serem compatíveis com o [SLA de VM única para máquinas virtuais do Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) também.  Para cenários de não produção, algumas das considerações tomadas para sistemas de produção podem não se aplicar a sistemas de não produção mais baixos. Como resultado, o volume de dados e de log do HANA pode ser combinado. Embora, eventualmente, com alguns culpados, como eventualmente não atender a determinados KPIs de taxa de transferência ou latência que são necessários para sistemas de produção. Outro aspecto para reduzir os custos em tais ambientes pode ser o uso do [armazenamento de SSD standard do Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide-storage#azure-standard-ssd-storage). Embora seja uma opção que invalida o [SLA de VM única para máquinas virtuais do Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/). 
+Até agora, a solução de armazenamento Premium do Azure descrita neste documento na seção [soluções com armazenamento Premium e acelerador de gravação do Azure para máquinas virtuais da série M do Azure](#solutions-with-premium-storage-and-azure-write-accelerator-for-azure-m-series-virtual-machines) foi destinada para SAP Hana cenários com suporte de produção. Uma das características das configurações com suporte de produção é a separação dos volumes para SAP HANA dados e o log de restauração em dois volumes diferentes. A razão para essa separação é que as características de carga de trabalho nos volumes são diferentes. E isso com as configurações de produção sugeridas, um tipo diferente de cache ou até mesmo tipos diferentes de armazenamento de bloco do Azure poderia ser necessário. Para cenários de não produção, algumas das considerações tomadas para sistemas de produção podem não se aplicar a sistemas de não produção mais baixos. Como resultado, o volume de dados e de log do HANA pode ser combinado. Embora, eventualmente, com alguns culpados, como eventualmente não atender a determinados KPIs de taxa de transferência ou latência que são necessários para sistemas de produção. Outro aspecto para reduzir os custos em tais ambientes pode ser o uso do [armazenamento de SSD standard do Azure](./planning-guide-storage.md#azure-standard-ssd-storage). Tenha em mente que a escolha de SSD Standard ou HDD Standard o armazenamento do Azure tenha impacto sobre seus SLAs de VM única, conforme documentado no artigo  [SLA para máquinas virtuais](https://azure.microsoft.com/support/legal/sla/virtual-machines).
 
 Uma alternativa menos dispendiosa para essas configurações poderia ser semelhante a:
 

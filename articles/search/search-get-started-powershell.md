@@ -3,29 +3,30 @@ title: 'Início Rápido: Criar um índice de pesquisa no PowerShell usando APIs 
 titleSuffix: Azure Cognitive Search
 description: Neste início rápido da API REST, saiba como criar um índice, carregar dados e executar consultas usando o Invoke-RestMethod do PowerShell e a API REST do Azure Cognitive Search.
 manager: nitinme
-author: tchristiani
-ms.author: terrychr
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.devlang: rest-api
-ms.date: 08/17/2020
-ms.openlocfilehash: b74deaecd1a71fec14e31f0a6aca2fed34361d76
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.date: 11/17/2020
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 9dd9de9dcb01e9be200e07e5925d8b856432b620
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88505998"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94742370"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-powershell-using-rest-apis"></a>Início Rápido: Criar um índice da Pesquisa Cognitiva do Azure no PowerShell usando as APIs REST
 > [!div class="op_single_selector"]
-> * [PowerShell (REST)](search-create-index-rest-api.md)
-> * [C#](search-create-index-dotnet.md)
-> * [Postman (REST)](search-get-started-postman.md)
+> * [PowerShell (REST)]()
+> * [C#](./search-get-started-dotnet.md)
+> * [REST](search-get-started-rest.md)
 > * [Python](search-get-started-python.md)
 > * [Portal](search-get-started-portal.md)
 > 
 
-Este artigo percorre o processo de criação, carregamento e consulta de um índice da Pesquisa Cognitiva do Azure usando o PowerShell e as [APIs REST da Pesquisa Cognitiva do Azure](https://docs.microsoft.com/rest/api/searchservice/). Este artigo explica como executar os comandos do PowerShell interativamente. Como alternativa, você pode [baixar e executar um script do PowerShell](https://github.com/Azure-Samples/azure-search-powershell-samples/tree/master/Quickstart) que executa as mesmas operações.
+Este artigo percorre o processo de criação, carregamento e consulta de um índice da Pesquisa Cognitiva do Azure usando o PowerShell e as [APIs REST da Pesquisa Cognitiva do Azure](/rest/api/searchservice/). Este artigo explica como executar os comandos do PowerShell interativamente. Como alternativa, você pode [baixar e executar um script do PowerShell](https://github.com/Azure-Samples/azure-search-powershell-samples/tree/master/Quickstart) que executa as mesmas operações.
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -33,11 +34,11 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 Os serviços e as ferramentas a seguir são necessários para este início rápido. 
 
-+ [PowerShell 5.1 ou posterior](https://github.com/PowerShell/PowerShell), usando [Invoke-RestMethod](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Invoke-RestMethod) para etapas sequenciais e interativas.
++ [PowerShell 5.1 ou posterior](https://github.com/PowerShell/PowerShell), usando [Invoke-RestMethod](/powershell/module/Microsoft.PowerShell.Utility/Invoke-RestMethod) para etapas sequenciais e interativas.
 
 + [Crie um serviço da Pesquisa Cognitiva do Azure](search-create-service-portal.md) ou [localize um serviço existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) na assinatura atual. É possível usar um serviço gratuito para este início rápido. 
 
-## <a name="get-a-key-and-url"></a>Obter uma chave e uma URL
+## <a name="copy-a-key-and-url"></a>Copiar uma chave e URL
 
 As chamadas REST exigem a URL do serviço e uma chave de acesso em cada solicitação. Um serviço de pesquisa é criado com ambos, portanto, se você adicionou a Pesquisa Cognitiva do Azure à sua assinatura, siga estas etapas para obter as informações necessárias:
 
@@ -45,7 +46,7 @@ As chamadas REST exigem a URL do serviço e uma chave de acesso em cada solicita
 
 2. Em **Configurações** > **Chaves**, obtenha uma chave de administração para adquirir todos os direitos sobre o serviço. Há duas chaves de administração intercambiáveis, fornecidas para a continuidade dos negócios, caso seja necessário sobrepor uma. É possível usar a chave primária ou secundária em solicitações para adicionar, modificar e excluir objetos.
 
-![Obter um ponto de extremidade HTTP e uma chave de acesso](media/search-get-started-postman/get-url-key.png "Obter um ponto de extremidade HTTP e uma chave de acesso")
+![Obter um ponto de extremidade HTTP e uma chave de acesso](media/search-get-started-rest/get-url-key.png "Obter um ponto de extremidade HTTP e uma chave de acesso")
 
 Todas as solicitações requerem uma chave de api em cada pedido enviado ao serviço. Ter uma chave válida estabelece a relação de confiança, para cada solicitação, entre o aplicativo que envia a solicitação e o serviço que lida com ela.
 
@@ -85,7 +86,7 @@ Todas as solicitações requerem uma chave de api em cada pedido enviado ao serv
 
 ## <a name="1---create-an-index"></a>1 - Criar um índice
 
-A menos que você esteja usando o portal, deve haver um índice no serviço antes que você possa carregar dados. Esta etapa define o índice e o envia por push para o serviço. A [API REST Criar Índice](https://docs.microsoft.com/rest/api/searchservice/create-index) é usada para essa etapa.
+A menos que você esteja usando o portal, deve haver um índice no serviço antes que você possa carregar dados. Esta etapa define o índice e o envia por push para o serviço. A [API REST Criar Índice](/rest/api/searchservice/create-index) é usada para essa etapa.
 
 Os elementos necessários de um índice incluem um nome e uma coleção de campos. A coleção de campos define a estrutura de um *documento*. Cada campo tem um nome, tipo e atributos que determinam como ele é usado (por exemplo, se for pesquisável de texto completo, filtrável ou recuperável nos resultados da pesquisa). Dentro de um índice, um dos campos do tipo `Edm.String` deve ser designado como a *chave* para a identidade do documento.
 
@@ -179,7 +180,7 @@ Esse índice é denominado "hotels-quickstart" e tem as definições de campo qu
 
 ## <a name="2---load-documents"></a>2 - Carregar documentos
 
-Para efetuar push de documentos, use uma solicitação HTTP POST para o ponto de extremidade de URL do índice. A API REST desta tarefa é [Adicionar, Atualizar ou Excluir Comentários](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
+Para efetuar push de documentos, use uma solicitação HTTP POST para o ponto de extremidade de URL do índice. A API REST desta tarefa é [Adicionar, Atualizar ou Excluir Comentários](/rest/api/searchservice/addupdate-or-delete-documents).
 
 1. Cole este exemplo no PowerShell para criar um objeto **$body** que contém os documentos que você deseja carregar. 
 
@@ -281,7 +282,7 @@ Para efetuar push de documentos, use uma solicitação HTTP POST para o ponto de
     ```powershell
     Invoke-RestMethod -Uri $url -Headers $headers -Method Post -Body $body | ConvertTo-Json
     ```
-    Os resultados devem ser semelhantes ao exemplo a seguir. Você deverá ver um [código de status de 201](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes).
+    Os resultados devem ser semelhantes ao exemplo a seguir. Você deverá ver um [código de status de 201](/rest/api/searchservice/HTTP-status-codes).
 
     ```
     {
@@ -317,7 +318,7 @@ Para efetuar push de documentos, use uma solicitação HTTP POST para o ponto de
 
 ## <a name="3---search-an-index"></a>3 - Pesquisar um índice
 
-Esta etapa mostra como consultar um índice usando a [API Pesquisar Documentos](https://docs.microsoft.com/rest/api/searchservice/search-documents).
+Esta etapa mostra como consultar um índice usando a [API Pesquisar Documentos](/rest/api/searchservice/search-documents).
 
 Use aspas simples na pesquisa $urls. As cadeias de consulta incluem os caracteres **$** , e você poderá omitir a necessidade de usar o caractere de escape com elas se toda a cadeia de caracteres estiver entre aspas simples.
 

@@ -1,18 +1,15 @@
 ---
 title: Otimizar o Apache Pig com o Apache Ambari no Azure HDInsight
 description: Use a interface do usuário da Web do Apache amAmbari para configurar e otimizar o Apache Pig.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 05/04/2020
-ms.openlocfilehash: d6f20780ccd90d83631ce07411820fb8c9280c3e
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 690cfc66d0f08e63ac6ef1d21b6722fed59eca14
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86084079"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98939020"
 ---
 # <a name="optimize-apache-pig-with-apache-ambari-in-azure-hdinsight"></a>Otimizar o Apache Pig com o Apache Ambari no Azure HDInsight
 
@@ -51,7 +48,7 @@ De forma semelhante ao Hive, o modo local é usado para acelerar trabalhos com q
 
 O Pig copia os arquivos JAR exigidos pelo UDFs para um cache distribuído para torná-los disponíveis para nós de tarefa. Esses jars não são alterados com frequência. Se habilitada, a configuração `pig.user.cache.enabled` permite que os jars sejam colocados em um cache para reutilizá-los para trabalhos executados pelo mesmo usuário. Essa configuração resulta em um aumento secundário no desempenho do trabalho.
 
-1. Para habilitar, defina `pig.user.cache.enabled` como true. O padrão é false.
+1. Para habilitar, defina `pig.user.cache.enabled` como true. O padrão é falso.
 
 1. Para definir o caminho base dos jars armazenado em cache, defina `pig.user.cache.location` como o caminho base. O padrão é `/tmp`.
 

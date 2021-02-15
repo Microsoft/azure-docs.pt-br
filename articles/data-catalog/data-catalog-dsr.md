@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: ec716924d3cebf8e78b0505b95837b91c568813a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ead1a324d342f818551ac05ac385ba4fa5b8b877
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78898157"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89439077"
 ---
 # <a name="supported-data-sources-in-azure-data-catalog"></a>Fontes de dados com suporte no Catálogo de Dados do Azure
 
@@ -143,7 +143,7 @@ Você pode publicar os metadados usando uma API pública, uma ferramenta de regi
       <td></td>
     </tr>
     <tr>
-      <td>Tabela do SQL Data Warehouse do Azure</td>
+      <td>Tabela do Azure Synapse Analytics</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -151,7 +151,7 @@ Você pode publicar os metadados usando uma API pública, uma ferramenta de regi
       <td></td>
     </tr>
     <tr>
-      <td>Exibição de SQL Data Warehouse do Azure</td>
+      <td>Exibição do Azure Synapse Analytics</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -932,7 +932,7 @@ Se você quiser ver uma fonte de dados específica com suporte, sugira-a (ou man
       </td>
     </tr>
     <tr>
-      <td>SQL Data Warehouse</td>
+      <td>Azure Synapse Analytics </td>
       <td>Command</td>
       <td>Stored procedure</td>
       <td>
@@ -948,7 +948,7 @@ Se você quiser ver uma fonte de dados específica com suporte, sugira-a (ou man
       </td>
     </tr>
     <tr>
-      <td>SQL Data Warehouse</td>
+      <td>Azure Synapse Analytics </td>
       <td>TableValuedFunction</td>
       <td>Table-valued function</td>
       <td>
@@ -964,7 +964,7 @@ Se você quiser ver uma fonte de dados específica com suporte, sugira-a (ou man
       </td>
     </tr>
     <tr>
-      <td>SQL Data Warehouse</td>
+      <td>Azure Synapse Analytics </td>
       <td>Container</td>
       <td>Database</td>
       <td>
@@ -978,7 +978,7 @@ Se você quiser ver uma fonte de dados específica com suporte, sugira-a (ou man
       </td>
     </tr>
     <tr>
-      <td>SQL Data Warehouse</td>
+      <td>Azure Synapse Analytics </td>
       <td>Table</td>
       <td>Table, view</td>
       <td>

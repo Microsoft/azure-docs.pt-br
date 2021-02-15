@@ -1,22 +1,25 @@
 ---
-title: Esquema de Def. LoadBalancerProbe do Azure Cloud Services | Microsoft Docs
+title: Esquema de Def. LoadBalancerProbe de serviços de nuvem do Azure (clássico) | Microsoft Docs
 description: O LoadBalancerProbe definido pelo cliente é uma investigação de integridade de pontos de extremidade em instâncias de função. Ele combina com funções Web ou de trabalho em um arquivo de definição de serviço.
-ms.custom: ''
-ms.date: 04/14/2015
-services: cloud-services
+ms.topic: article
 ms.service: cloud-services
-ms.topic: reference
-caps.latest.revision: 14
-author: georgewallace
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 6d0e84b6724d9df4162d4be3e06a9952087a53a6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 3dca519f7fb4523ce9d9267f7629c1177cc5e3b6
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79537339"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98739778"
 ---
-# <a name="azure-cloud-services-definition-loadbalancerprobe-schema"></a>Esquema LoadBalancerProbe de definição dos Serviços de Nuvem do Azure
+# <a name="azure-cloud-services-classic-definition-loadbalancerprobe-schema"></a>Esquema LoadBalancerProbe de definição de serviços de nuvem do Azure (clássico)
+
+> [!IMPORTANT]
+> Os [serviços de nuvem do Azure (suporte estendido)](../cloud-services-extended-support/overview.md) são um novo modelo de implantação baseado em Azure Resource Manager para o produto de serviços de nuvem do Azure.Com essa alteração, os serviços de nuvem do Azure em execução no modelo de implantação baseado no Azure Service Manager foram renomeados como serviços de nuvem (clássicos) e todas as novas implantações devem usar os [serviços de nuvem (suporte estendido)](../cloud-services-extended-support/overview.md).
+
 A sonda do balanceador de carga é uma sonda de integridade definida pelo cliente de pontos de extremidade UDP e pontos de extremidade em instâncias de função. O `LoadBalancerProbe` não é um elemento autônomo; ele é combinado com a função web ou a função de trabalho em um arquivo de definição de serviço. Um `LoadBalancerProbe` pode ser usado por mais de uma função.
 
 A extensão padrão do arquivo de definição de serviço é .csdef.
@@ -47,10 +50,10 @@ O elemento `LoadBalancerProbes` do arquivo de definição de serviço inclui os 
 - [Elemento LoadBalancerProbes](#LoadBalancerProbes)
 - [Elemento LoadBalancerProbe](#LoadBalancerProbe)
 
-##  <a name="loadbalancerprobes-element"></a><a name="LoadBalancerProbes"></a>Elemento LoadBalancerProbes
+##  <a name="loadbalancerprobes-element"></a><a name="LoadBalancerProbes"></a> Elemento LoadBalancerProbes
 O elemento `LoadBalancerProbes` descreve a coleção de sondas do balanceador de carga. Esse elemento é o pai do [Elemento LoadBalancerProbe](#LoadBalancerProbe). 
 
-##  <a name="loadbalancerprobe-element"></a><a name="LoadBalancerProbe"></a>Elemento LoadBalancerProbe
+##  <a name="loadbalancerprobe-element"></a><a name="LoadBalancerProbe"></a> Elemento LoadBalancerProbe
 O elemento `LoadBalancerProbe` define a sonda de integridade de um modelo. É possível definir várias sondas do balanceador de carga. 
 
 A tabela a seguir descreve os atributos do elemento `LoadBalancerProbe`:
@@ -59,7 +62,7 @@ A tabela a seguir descreve os atributos do elemento `LoadBalancerProbe`:
 | ------------------- | -------- | -----------------|
 | `name`              | `string` | Obrigatórios. O nome da sonda do balanceador de carga. O nome deve ser exclusivo.|
 | `protocol`          | `string` | Obrigatórios. Especifica o protocolo do ponto de extremidade. Os possíveis valores são `http` ou `tcp`. Se `tcp` for especificado, será necessário um ACK recebido para que a sonda tenha êxito. Se `http` for especificado, uma resposta 200 OK do URI especificado será necessária para que a sonda tenha êxito.|
-| `path`              | `string` | O URI usado para solicitar o status de integridade da VM. `path` será necessário se `protocol` for definido como `http`. Caso contrário, não será permitido.<br /><br /> Sem valor padrão.|
+| `path`              | `string` | O URI usado para solicitar o status de integridade da VM. `path` será necessário se `protocol` for definido como `http`. Caso contrário, não será permitido.<br /><br /> Nenhum valor padrão.|
 | `port`              | `integer` | Opcional. A porta para se comunicar com a sonda. Isso é opcional para qualquer ponto de extremidade, uma vez que a mesma porta será usada para a sonda. É possível configurar uma porta diferente para sua investigação também. Os valores possíveis variam de 1 a 65535, inclusive.<br /><br /> O valor padrão é definido pelo ponto de extremidade.|
 | `intervalInSeconds` | `integer` | Opcional. O intervalo, em segundos, para a frequência de investigação do status de integridade no ponto de extremidade. Normalmente, o intervalo é ligeiramente menor do que a metade do período de tempo limite alocado (em segundos) que permite duas sondas completas antes de tirar a instância de rotação.<br /><br /> O valor padrão é 15, o valor mínimo é 5.|
 | `timeoutInSeconds`  | `integer` | Opcional. O período de tempo limite, em segundos, aplicado à sonda em que nenhuma resposta resultará na interrupção adicional da entrega do tráfego ao ponto de extremidade. Este valor permite que pontos de extremidade sejam tirados de rotação mais rapidamente ou mais lentamente do que os tempos normais usados no Azure (os padrões).<br /><br /> O valor padrão é 31, o valor mínimo é 11.|

@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: sachins
-ms.openlocfilehash: 2daa88d258e0bf761d9afce48b94e6cd6ff2fb95
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 9a5c5f9a4033b70a664071d6077a69f38c905093
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85981428"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452228"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen1"></a>Melhores práticas para utilizar o Microsoft Azure Data Lake Storeage Gen1
 
@@ -23,7 +23,7 @@ ms.locfileid: "85981428"
 
 Neste artigo, você aprenderá sobre as melhores práticas e considerações para trabalhar com o Azure Data Lake Storage Gen1. Este artigo fornece informações sobre segurança, desempenho, resiliência e monitoramento do Data Lake Storage Gen1. Antes do Data Lake Storage Gen1, trabalhar com Big Data em serviços como o Microsoft Azure HDInsight era realmente complexo. Era necessário fragmentar dados em várias contas de Armazenamento de Blobs para que o armazenamento de petabyte e o desempenho ideal nessa escala pudessem ser alcançados. Com o Data Lake Storage Gen1, a maioria dos limites rígidos para tamanho e desempenho foi removida. No entanto, ainda há algumas considerações que este artigo abrange para que seja possível obter o melhor desempenho com o Data Lake Storage Gen1.
 
-## <a name="security-considerations"></a>Considerações sobre segurança
+## <a name="security-considerations"></a>Considerações de segurança
 
 O Azure Data Lake Storage Gen1 oferece controles de acesso POSIX e auditoria detalhada para usuários, grupos e entidades de serviço do Microsoft Azure AD (Azure Active Directory). Esses controles de acesso podem ser configurados para arquivos e pastas existentes. Os controles de acesso também podem ser utilizados para criar padrões que podem ser aplicados a novos arquivos ou pastas. Quando as permissões forem definidas para pastas existentes e objetos secundários, as permissões deverão ser propagadas recursivamente em cada objeto. Se houver um grande número de arquivos, a propagação das permissões poderá demorar muito tempo. O tempo escolhido pode variar entre 30 e 50 objetos processados por segundo. Portanto, planeje a estrutura de pasta e os grupos de usuários adequadamente. Caso contrário, atrasos e problemas imprevistos poderão ocorrer ao trabalhar com os dados.
 
@@ -33,7 +33,7 @@ Suponha que você tenha uma pasta com 100.000 objetos filho. Se você aceitar o 
 
 Ao trabalhar com Big Data no Data Lake Storage Gen1, é provável que uma entidade de serviço seja usada para permitir que serviços como o Azure HDInsight trabalhem com os dados. No entanto, poderá haver casos em que usuários individuais também precisarão ter acesso aos dados. Nesses casos, será necessário utilizar os [grupos de segurança](data-lake-store-secure-data.md#create-security-groups-in-azure-active-directory) do Azure Active Directory, em vez de atribuir usuários individuais a pastas e arquivos.
 
-Quando permissões são atribuídas a um grupo de segurança, adicionar ou remover usuários do grupo não exigirá atualizações para o Data Lake Storage Gen1. Isso também ajuda a garantir que você não exceda o limite de [32 ACLs de acesso e padrão](../azure-resource-manager/management/azure-subscription-service-limits.md#data-lake-store-limits) (isso inclui as quatro ACLs de estilo POSIX que sempre estão associadas a cada arquivo e pasta: [o usuário proprietário](data-lake-store-access-control.md#the-owning-user), [o grupo proprietário](data-lake-store-access-control.md#the-owning-group), [a máscara](data-lake-store-access-control.md#the-mask) e outros).
+Quando permissões são atribuídas a um grupo de segurança, adicionar ou remover usuários do grupo não exigirá atualizações para o Data Lake Storage Gen1. Isso também ajuda a garantir que você não exceda o limite de [32 ACLs de acesso e padrão](../azure-resource-manager/management/azure-subscription-service-limits.md#data-lake-storage-limits) (isso inclui as quatro ACLs de estilo POSIX que sempre estão associadas a cada arquivo e pasta: [o usuário proprietário](data-lake-store-access-control.md#the-owning-user), [o grupo proprietário](data-lake-store-access-control.md#the-owning-group), [a máscara](data-lake-store-access-control.md#the-mask) e outros).
 
 ### <a name="security-for-groups"></a>Segurança para grupos
 
@@ -49,7 +49,7 @@ Um Data Lake Storage Gen1 dá suporte para a opção de ativar um firewall e lim
 
 ![Configurações de firewall no Data Lake Storage Gen1](./media/data-lake-store-best-practices/data-lake-store-firewall-setting.png "Configurações de firewall no Data Lake Storage Gen1")
 
-Quando o firewall estiver habilitado, apenas os serviços do Azure, como HDInsight, Data Factory, SQL Data Warehouse etc., terão acesso ao Data Lake Storage Gen1. Devido à conversão de endereços de rede interna utilizadas pelo Azure, o firewall do Data Lake Storage Gen1 não fornece suporte para restringir serviços por IP específicos e é destinado apenas para restrições de pontos de extremidade fora do Azure, como locais.
+Quando o firewall está habilitado, somente os serviços do Azure, como HDInsight, Data Factory, Azure Synapse Analytics, etc. têm acesso ao Data Lake Storage Gen1. Devido à conversão de endereços de rede interna utilizadas pelo Azure, o firewall do Data Lake Storage Gen1 não fornece suporte para restringir serviços por IP específicos e é destinado apenas para restrições de pontos de extremidade fora do Azure, como locais.
 
 ## <a name="performance-and-scale-considerations"></a>Considerações de desempenho e escala
 
@@ -102,7 +102,7 @@ A seguir, são apresentadas as três principais opções recomendadas para orque
 |---------|---------|---------|---------|
 |**Limites de escala**     | Limitado por nós de trabalho        | Limitado por unidades de Movimentação de Dados de Nuvem        | Limitado por unidades do Analytics        |
 |**Oferece suporte à cópia deltas**     |   Sim      | Não         | Não         |
-|**Orquestração interna**     |  Não (utilize trabalhos cron ou ventilação excessiva Oozie)       | Sim        | Não (utilize a Automação do Azure ou o Agendador de Tarefas do Windows)         |
+|**Orquestração interna**     |  Não (utilize trabalhos cron ou ventilação excessiva Oozie)       | Yes        | Não (utilize a Automação do Azure ou o Agendador de Tarefas do Windows)         |
 |**Com suporte para sistemas de arquivos**     | ADL, HDFS, WASB, S3, GS, CFS        |Vários, consulte [Conectores](../data-factory/connector-azure-blob-storage.md).         | ADL para ADL, WASB para ADL (mesma região somente)        |
 |**Suporte SO**     |Qualquer SO executando Hadoop         | N/D          | Windows 10         |
 
@@ -114,7 +114,7 @@ Trabalhos de cópia podem ser disparados por fluxos de trabalho do Apache Oozie 
 
 ### <a name="use-azure-data-factory-to-schedule-copy-jobs"></a>Usar Azure Data Factory para agendar trabalhos de cópia
 
-Azure Data Factory também pode ser usado para agendar trabalhos de cópia usando uma **atividade de cópia**e pode até mesmo ser configurado em uma frequência por meio do **Assistente de cópia**. Tenha em mente que o Azure Data Factory possui um limite de DMUs (unidades de movimentação de dados na nuvem) e, eventualmente, eleva a taxa de transferência/computação para cargas de trabalho de dados grandes. Além disso, o Azure Data Factory atualmente não oferece atualizações delta entre as contas do Data Lake Storage Gen1, de modo que pastas como as tabelas de Hive exigiriam uma cópia completa para serem replicadas. Consulte o [Guia de ajuste da atividade de cópia](../data-factory/copy-activity-performance.md) para obter mais informações sobre como copiar com o Data Factory.
+Azure Data Factory também pode ser usado para agendar trabalhos de cópia usando uma **atividade de cópia** e pode até mesmo ser configurado em uma frequência por meio do **Assistente de cópia**. Tenha em mente que o Azure Data Factory possui um limite de DMUs (unidades de movimentação de dados na nuvem) e, eventualmente, eleva a taxa de transferência/computação para cargas de trabalho de dados grandes. Além disso, o Azure Data Factory atualmente não oferece atualizações delta entre as contas do Data Lake Storage Gen1, de modo que pastas como as tabelas de Hive exigiriam uma cópia completa para serem replicadas. Consulte o [Guia de ajuste da atividade de cópia](../data-factory/copy-activity-performance.md) para obter mais informações sobre como copiar com o Data Factory.
 
 ### <a name="adlcopy"></a>AdlCopy
 

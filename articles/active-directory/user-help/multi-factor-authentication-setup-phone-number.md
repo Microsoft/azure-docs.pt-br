@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: end-user-help
 ms.date: 08/12/2019
 ms.author: curtand
-ms.openlocfilehash: 76809a41400502ec48c2dd674f8976bb168ec9f9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: HT
+ms.openlocfilehash: 40af9ac692a226b12f984db447db9635cba655e4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83735983"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91530248"
 ---
 # <a name="set-up-a-mobile-device-as-your-two-factor-verification-method"></a>Configurar um dispositivo móvel como o método de verificação de dois fatores
 
@@ -30,7 +30,7 @@ Configure seu dispositivo móvel para funcionar como o método de verificação 
 
 2. Selecione **Enviar-me um código por mensagem de texto** na área **Método** e, em seguida, selecione **Avançar**.
 
-    ![Página Verificação de segurança adicional, com telefone de autenticação e mensagem de texto](media/multi-factor-authentication-verification-methods/multi-factor-authentication-text-message.png)
+    ![Captura de tela que mostra a página "verificação de segurança adicional", com "telefone de autenticação" e "enviar um código por mensagem de texto" selecionado.](media/multi-factor-authentication-verification-methods/multi-factor-authentication-text-message.png)
 
 3. Digite o código de verificação da mensagem de texto enviada da Microsoft na área **Etapa 2: Enviamos uma mensagem de texto para o seu telefone** e, em seguida, selecione **Verificar**.
 

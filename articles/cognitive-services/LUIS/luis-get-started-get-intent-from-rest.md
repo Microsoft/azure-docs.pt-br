@@ -1,20 +1,22 @@
 ---
-title: 'Início Rápido: Obter a intenção com as APIs REST – LUIS'
-description: Neste início rápido da API REST, use um aplicativo LUIS público disponível para determinar a intenção de um usuário com base no texto de conversa.
-ms.topic: quickstart
-ms.date: 05/18/2020
-ms.custom: devx-track-python, devx-track-javascript
+title: Como obter uma intenção usando a API REST
+description: Neste artigo, use um aplicativo LUIS público disponível para determinar a intenção do usuário com base em textos de conversa.
+ms.service: cognitive-services
+ms.subservice: language-understanding
+ms.topic: conceptual
+ms.date: 11/30/2020
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: 2fd52011ed0d139e98740c8de077987edfae2c32
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: b49d90ffe2a262895727fdd4ef5f8a7950104102
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87873153"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96437007"
 ---
-# <a name="quickstart-get-intent-with-rest-apis"></a>Início Rápido: Obter a intenção com as APIs REST
+# <a name="how-to-get-an-intent-using-the-rest-apis"></a>Como obter uma intenção usando as APIs REST
 
-Neste início rápido, você usará um aplicativo LUIS para determinar a intenção do usuário com base no texto de conversa. Envie a intenção do usuário como texto para o ponto de extremidade de previsão de HTTP do aplicativo Pizza. No ponto de extremidade, o LUIS aplica o modelo do aplicativo Pizza para analisar o texto de linguagem natural quanto ao significado, determinando a intenção geral e extraindo dados relevantes para o domínio do assunto do aplicativo.
+Neste artigo, você usará um aplicativo LUIS para determinar a intenção do usuário com base em textos de conversa. Envie a intenção do usuário como texto para o ponto de extremidade de previsão de HTTP do aplicativo Pizza. No ponto de extremidade, o LUIS aplica o modelo do aplicativo Pizza para analisar o texto de linguagem natural quanto ao significado, determinando a intenção geral e extraindo dados relevantes para o domínio do assunto do aplicativo.
 
 Para este artigo, você precisará de uma conta gratuita do [LUIS](https://www.luis.ai).
 

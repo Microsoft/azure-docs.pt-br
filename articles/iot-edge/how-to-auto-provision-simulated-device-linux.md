@@ -8,16 +8,16 @@ ms.date: 6/30/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 3bc9344459802f4bb4268093d905a051525d78dc
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: fccd1bd6f808fad11946c6f0b0dff1f453b61d66
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684449"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430621"
 ---
 # <a name="create-and-provision-an-iot-edge-device-with-a-tpm-on-linux"></a>Criar e provisionar um dispositivo IoT Edge com um TPM no Linux
 
-Este artigo mostra como testar o provisionamento automático em um dispositivo IoT Edge Linux usando um Trusted Platform Module (TPM). Você pode provisionar automaticamente Azure IoT Edge dispositivos com o [serviço de provisionamento de dispositivos](../iot-dps/index.yml). Se você não estiver familiarizado com o processo de provisionamento automático, examine os [conceitos de provisionamento automático](../iot-dps/concepts-auto-provisioning.md) antes de continuar.
+Este artigo mostra como testar o provisionamento automático em um dispositivo IoT Edge Linux usando um Trusted Platform Module (TPM). Você pode provisionar automaticamente Azure IoT Edge dispositivos com o [serviço de provisionamento de dispositivos](../iot-dps/index.yml). Se você não estiver familiarizado com o processo de provisionamento automático, examine a visão geral de [provisionamento](../iot-dps/about-iot-dps.md#provisioning-process) antes de continuar.
 
 As tarefas são as seguintes:
 
@@ -33,7 +33,7 @@ As tarefas são as seguintes:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Um computador de desenvolvimento do Windows com [Hyper-V habilitado](https://docs.microsoft.com/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v). Este artigo usa o Windows 10 em execução de uma VM do Ubuntu Server.
+* Um computador de desenvolvimento do Windows com [Hyper-V habilitado](/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v). Este artigo usa o Windows 10 em execução de uma VM do Ubuntu Server.
 * Um Hub IoT ativo.
 
 > [!NOTE]
@@ -91,7 +91,7 @@ Depois que a VM for criada, abra suas configurações para habilitar o TPM (Trus
 
 ### <a name="start-the-virtual-machine-and-collect-tpm-data"></a>Iniciar a máquina virtual e coletar dados TPM
 
-Na máquina virtual, crie uma ferramenta que você possa usar para recuperar a **ID de registro** e a **chave de endosso**do dispositivo.
+Na máquina virtual, crie uma ferramenta que você possa usar para recuperar a **ID de registro** e a **chave de endosso** do dispositivo.
 
 1. No Gerenciador do Hyper-V, inicie sua VM e conecte-se a ela.
 
@@ -147,7 +147,7 @@ Recuperar as informações de provisionamento da sua máquina virtual e usá-la 
 Ao criar uma inscrição no DPS, tem a oportunidade de declarar um **Estado inicial do dispositivo duplo**. No dispositivo gêmeo, você pode definir tags para agrupar dispositivos por qualquer métrica que precisar em sua solução, como região, ambiente, local ou tipo de dispositivo. Essas marcas são usadas para criar [implantações automáticas](how-to-deploy-at-scale.md).
 
 > [!TIP]
-> No CLI do Azure, você pode criar um [registro](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/dps/enrollment) e usar o sinalizador **habilitado para borda** para especificar que um dispositivo é um dispositivo IOT Edge.
+> No CLI do Azure, você pode criar um [registro](/cli/azure/ext/azure-iot/iot/dps/enrollment) e usar o sinalizador **habilitado para borda** para especificar que um dispositivo é um dispositivo IOT Edge.
 
 1. Na [portal do Azure](https://portal.azure.com), navegue até sua instância do serviço de provisionamento de dispositivos do Hub IOT.
 
@@ -178,11 +178,40 @@ Agora que um registro existe para esse dispositivo, o tempo de execução do IoT
 
 O runtime do IoT Edge é implantado em todos os dispositivos IoT Edge. Seus componentes são executados em contêineres e permitem implantar contêineres adicionais no dispositivo para que você possa executar o código na borda. Instale o runtime do IoT Edge em sua máquina virtual.
 
-Saiba seu DPS **Escopo da ID** e do dispositivo **ID de registro** antes de começar o artigo que combine com o seu tipo de dispositivo. Se você instalou o servidor do Ubuntu de exemplo, use as instruções **x64**. Certifique-se de configurar o runtime do IoT Edge para provisionamento automático, não manual.
+Siga as etapas em [instalar o Azure IOT Edge Runtime](how-to-install-iot-edge.md)e, em seguida, retorne a este artigo para provisionar o dispositivo.
 
-Quando você chegar à etapa de configurar o daemon de segurança, certifique-se de escolher a [opção 2 provisionamento automático](how-to-install-iot-edge-linux.md#option-2-automatic-provisioning) e configurar para atestado de TPM.
+## <a name="configure-the-device-with-provisioning-information"></a>Configurar o dispositivo com informações de provisionamento
 
-[Instalar o runtime do Azure IoT Edge no Linux](how-to-install-iot-edge-linux.md)
+Depois que o tempo de execução for instalado em seu dispositivo, configure o dispositivo com as informações que ele usa para se conectar ao serviço de provisionamento de dispositivos e ao Hub IoT.
+
+1. Conheça o **escopo da ID** de DPS e a **ID de registro** do dispositivo que foram coletadas nas seções anteriores.
+
+1. Abra o arquivo de configuração no dispositivo IoT Edge.
+
+   ```bash
+   sudo nano /etc/iotedge/config.yaml
+   ```
+
+1. Localize a seção Configurações de provisionamento do arquivo. Remova a marca de comentário das linhas do provisionamento do TPM e verifique se todas as outras linhas de provisionamento foram comentadas.
+
+   A `provisioning:` linha não deve ter nenhum espaço em branco anterior e itens aninhados devem ser recuados em dois espaços.
+
+   ```yml
+   # DPS TPM provisioning configuration
+   provisioning:
+     source: "dps"
+     global_endpoint: "https://global.azure-devices-provisioning.net"
+     scope_id: "<SCOPE_ID>"
+     attestation:
+       method: "tpm"
+       registration_id: "<REGISTRATION_ID>"
+   # always_reprovision_on_startup: true
+   # dynamic_reprovisioning: false
+   ```
+
+   Opcionalmente, use as `always_reprovision_on_startup` `dynamic_reprovisioning` linhas ou para configurar o comportamento de reprovisionamento do seu dispositivo. Se um dispositivo estiver configurado para reprovisionar na inicialização, ele sempre tentará provisionar com o DPS primeiro e, em seguida, retornará para o backup de provisionamento se isso falhar. Se um dispositivo estiver definido para reprovisionar dinamicamente, IoT Edge será reiniciado e reprovisionado se um evento de reprovisionamento for detectado. Para obter mais informações, consulte [conceitos de reprovisionamento de dispositivo do Hub IOT](../iot-dps/concepts-device-reprovision.md).
+
+1. Atualize os valores de `scope_id` e `registration_id` com suas informações de dispositivo e DPS.
 
 ## <a name="give-iot-edge-access-to-the-tpm"></a>Conceder acesso de IoT Edge no TPM
 

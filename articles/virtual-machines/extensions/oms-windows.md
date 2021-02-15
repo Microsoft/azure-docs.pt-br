@@ -9,17 +9,18 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: feae6176-2373-4034-b5d9-a32c6b4e1f10
 ms.service: virtual-machines-windows
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: akjosh
-ms.openlocfilehash: 19d94c7ec08dbf2556ae72da2f0e5645fb228569
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 22cc9bf1bdfdb8a3026bb09f44e007ab3438325a
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020500"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98046814"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-windows"></a>Extensão da máquina virtual do Log Analytics para Windows
 
@@ -36,15 +37,17 @@ A tabela a seguir fornece um mapeamento da versão da extensão de VM do Windows
 
 | Log Analytics versão do pacote do agente do Windows | Log Analytics versão da extensão de VM do Windows | Data de lançamento | Notas sobre a versão |
 |--------------------------------|--------------------------|--------------------------|--------------------------|
+| 10.20.18053| 1.0.18053.0 | Outubro de 2020   | <ul><li>Novo solucionador de problemas do agente</li><li>Atualizações de como o agente lida com as alterações de certificado nos serviços do Azure</li></ul> |
+| 10.20.18040 | 1.0.18040.2 | Agosto de 2020   | <ul><li>Resolve um problema no arco do Azure</li></ul> |
 | 10.20.18038 | 1.0.18038 | Abril de 2020   | <ul><li>Habilita a conectividade sobre o link privado usando Azure Monitor escopos de link privado</li><li>Adiciona limitação de ingestão para evitar um influxo repentino e acidental na ingestão para um espaço de trabalho</li><li>Adiciona suporte para nuvens e regiões adicionais do Azure governamental</li><li>Resolve um bug em que HealthService.exe falhou</li></ul> |
 | 10.20.18029 | 1.0.18029 | Março de 2020   | <ul><li>Adiciona suporte à assinatura de código SHA-2</li><li>Melhora a instalação e o gerenciamento da extensão de VM</li><li>Resolve um bug no Azure ARC para integração de servidores</li><li>Adiciona uma ferramenta de solução de problemas interna para atendimento ao cliente</li><li>Adiciona suporte para regiões adicionais do Azure governamental</li> |
 | 10.20.18018 | 1.0.18018 | Outubro de 2019 | <ul><li> Correções de bugs e melhorias de estabilização secundárias </li></ul> |
 | 10.20.18011 | 1.0.18011 | Julho de 2019 | <ul><li> Correções de bugs e melhorias de estabilização secundárias </li><li> Aumento de MaxExpressionDepth para 10000 </li></ul> |
 | 10.20.18001 | 1.0.18001 | Junho de 2019 | <ul><li> Correções de bugs e melhorias de estabilização secundárias </li><li> Capacidade adicional de desabilitar as credenciais padrão ao fazer a conexão proxy (suporte para WINHTTP_AUTOLOGON_SECURITY_LEVEL_HIGH) </li></ul>|
 | 10.19.13515 | 1.0.13515 | Março de 2019 | <ul><li>Correções secundárias de estabilização </li></ul> |
-| 10.19.10006 | N/D | Dec 2018 | <ul><li> Correções secundárias de estabilização </li></ul> | 
-| 8.0.11136 | N/D | Setembro de 2018 |  <ul><li> Suporte adicionado para detectar a alteração da ID de recurso na movimentação da VM </li><li> Adicionado suporte para relatar a ID de recurso ao usar a instalação sem extensão </li></ul>| 
-| 8.0.11103 | N/D |  Abril de 2018 | |
+| 10.19.10006 | n/a | Dec 2018 | <ul><li> Correções secundárias de estabilização </li></ul> | 
+| 8.0.11136 | n/a | Setembro de 2018 |  <ul><li> Suporte adicionado para detectar a alteração da ID de recurso na movimentação da VM </li><li> Adicionado suporte para relatar a ID de recurso ao usar a instalação sem extensão </li></ul>| 
+| 8.0.11103 | n/a |  Abril de 2018 | |
 | 8.0.11081 | 1.0.11081 | 2017 de novembro | | 
 | 8.0.11072 | 1.0.11072 | 2017 de setembro | |
 | 8.0.11049 | 1.0.11049 | Fevereiro de 2017 | |

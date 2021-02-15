@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 85499839992f872896153e360507d7d1ba7fea38
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 4db85357ee970d13d6b4fcce195cae66932bed18
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037194"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95912783"
 ---
 # <a name="tune-performance-storm-hdinsight--azure-data-lake-storage-gen2"></a>Ajustar o desempenho: o Storm, o HDInsight & Azure Data Lake Storage Gen2
 
@@ -22,9 +22,9 @@ Entenda os fatores que devem ser considerados ao ajustar o desempenho de uma top
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Uma conta de Azure data Lake Storage Gen2**. Para obter instruções sobre como criar uma, consulte [início rápido: criar uma conta de armazenamento para análise](data-lake-storage-quickstart-create-account.md).
-* **Cluster do Azure HDInsight** com acesso a uma conta do Azure Data Lake Storage Gen2. Consulte [Usar o Azure Data Lake Storage Gen2 com clusters de HDInsight do Azure](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2). Certifique-se de habilitar a área de trabalho remota para o cluster.
-* **Executando um cluster do Storm no Data Lake Storage Gen2**. Para obter mais informações, consulte [Storm no HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-overview).
+* **Uma conta de Azure data Lake Storage Gen2**. Para obter instruções sobre como criar uma, consulte [início rápido: criar uma conta de armazenamento para análise](../common/storage-account-create.md).
+* **Cluster do Azure HDInsight** com acesso a uma conta do Azure Data Lake Storage Gen2. Consulte [Usar o Azure Data Lake Storage Gen2 com clusters de HDInsight do Azure](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md). Certifique-se de habilitar a área de trabalho remota para o cluster.
+* **Executando um cluster do Storm no Data Lake Storage Gen2**. Para obter mais informações, consulte [Storm no HDInsight](../../hdinsight/storm/apache-storm-overview.md).
 * **Diretrizes de ajuste de desempenho no Data Lake Storage Gen2**.  Para obter os conceitos gerais de desempenho, confira [Diretrizes de ajuste de desempenho do Data Lake Storage Gen2](data-lake-storage-performance-tuning-guidance.md).   
 
 ## <a name="tune-the-parallelism-of-the-topology"></a>Ajuste do paralelismo da topologia
@@ -110,10 +110,10 @@ Se atingir os limites de largura de banda fornecidos pelo Data Lake Storage Gen2
 
 Para verificar se há problemas de limitação, habilite o log de depuração no lado do cliente:
 
-1. Em **Ambari**  >  **Storm**  >  **config**  >  **avançado Storm-Worker-Log4J**, altere ** &lt; raiz Level = "info" &gt; ** para ** &lt; root Level = "debug" &gt; **. Reinicie todos os nós/serviços para que a configuração entre em vigor.
+1. Em **Ambari**  >  **Storm**  >  **config**  >  **avançado Storm-Worker-Log4J**, altere **&lt; raiz Level = "info" &gt;** para **&lt; root Level = "debug" &gt;**. Reinicie todos os nós/serviços para que a configuração entre em vigor.
 2. Monitore logs de topologia do Storm em nós de trabalho (em /var/log/storm/worker-artifacts/&lt;TopologyName&gt;/&lt;porta&gt;/worker.log) para ver as exceções de limitação do Data Lake Storage Gen2.
 
 ## <a name="next-steps"></a>Próximas etapas
-Ajuste de desempenho adicional para o Storm pode ser referenciado [neste blog](https://blogs.msdn.microsoft.com/shanyu/2015/05/14/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs/).
+Ajuste de desempenho adicional para o Storm pode ser referenciado [neste blog](/archive/blogs/shanyu/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs).
 
 Para obter um exemplo adicional de execução, consulte [esse aqui no GitHub](https://github.com/hdinsight/storm-performance-automation).

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/06/2020
+ms.date: 12/24/2020
 ms.author: jeedes
-ms.openlocfilehash: 3e1386fdfafdea3112e26ce6480c7d20061236ba
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: f2168715d59f9698cba58b7e91bbc897a8cd94f6
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549663"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98727226"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-litmus"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Litmus
 
@@ -25,8 +25,6 @@ Neste tutorial, você aprenderá a integrar o Litmus ao Azure AD (Azure Active D
 * Controlar, no Azure AD, quem tem acesso ao Litmus.
 * Permitir que seus usuários sejam conectados automaticamente ao Litmus com as contas do Azure AD deles.
 * Gerenciar suas contas em um local central: o portal do Azure.
-
-Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -40,13 +38,12 @@ Para começar, você precisará dos seguintes itens:
 Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste.
 
 * O Litmus é compatível com SSO iniciado por **SP e IDP**
-* Depois de configurar o Litmus, você poderá impor o controle de sessão, que protege contra o vazamento e a infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do Acesso Condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-litmus-from-the-gallery"></a>Adicionar o Litmus da galeria
 
 Para configurar a integração do Litmus ao Azure AD, é necessário adicionar o Litmus da galeria à sua lista de aplicativos SaaS gerenciados.
 
-1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
+1. Entre no portal do Azure usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
 1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory**.
 1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos**.
 1. Para adicionar um novo aplicativo, escolha **Novo aplicativo**.
@@ -54,11 +51,11 @@ Para configurar a integração do Litmus ao Azure AD, é necessário adicionar o
 1. Selecione **Litmus** no painel de resultados e adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-litmus"></a>Configurar e testar o logon único do Azure AD para o Litmus
+## <a name="configure-and-test-azure-ad-sso-for-litmus"></a>Configurar e testar o SSO do Azure AD para o Litmus
 
 Configure e teste o SSO do Azure AD com o Litmus usando uma usuária de teste chamada **B.Fernandes**. Para que o SSO funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no Litmus.
 
-Para configurar e testar o SSO do Azure AD com o Litmus, conclua os seguintes blocos de construção:
+Para configurar e testar o SSO do Azure AD com o Litmus, execute as seguintes etapas:
 
 1. **[Configurar o SSO do Azure AD](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
     1. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** para testar o logon único do Azure AD com B.Fernandes.
@@ -71,7 +68,7 @@ Para configurar e testar o SSO do Azure AD com o Litmus, conclua os seguintes bl
 
 Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Litmus**, localize a seção **Gerenciar** e selecione **logon único**.
+1. No portal do Azure, na página de integração de aplicativos do **Litmus**, localize a seção **Gerenciar** e selecione **logon único**.
 1. Na página **Selecionar um método de logon único**, escolha **SAML**.
 1. Na página **Configurar o logon único com o SAML**, clique no ícone de edição/caneta da **Configuração Básica do SAML** para editar as configurações.
 
@@ -113,27 +110,31 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 1. Na lista de aplicativos, selecione **Litmus**.
 1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e escolha **Usuários e grupos**.
 
-   ![O link “Usuários e grupos”](common/users-groups-blade.png)
-
 1. Escolha **Adicionar usuário** e, em seguida, **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
 
-    ![O link Adicionar Usuário](common/add-assign-user.png)
-
 1. Na caixa de diálogo **Usuários e grupos**, selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
-1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função**, escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
+1. Se você estiver esperando que uma função seja atribuída aos usuários, escolha-a na lista suspensa **Selecionar uma função**. Se nenhuma função tiver sido configurada para esse aplicativo, você verá a função "Acesso Padrão" selecionada.
 1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
 ## <a name="configure-litmus-sso"></a>Configurar o SSO do Litmus
 
-1. Em outra janela do navegador da Web, entre no aplicativo do Litmus como administrador.
+1. Para automatizar a configuração no Litmus, é necessário instalar a **extensão do navegador Entrada Segura dos Meus Aplicativos** clicando em **Instalar a extensão**.
+
+    ![Extensão Meus Aplicativos](common/install-myappssecure-extension.png)
+
+2. Após a adição da extensão ao navegador, clique em **Configurar o Litmus** e você será direcionado ao aplicativo Litmus. Nele, forneça as credenciais de administrador para entrar no Litmus. A extensão do navegador configurará automaticamente o aplicativo e automatizará as etapas de 3 a 6.
+
+    ![Configuração da instalação](common/setup-sso.png)
+
+3. Se desejar configurar o Litmus manualmente, em uma janela diferente do navegador da Web, entre no site da empresa do Litmus como administrador.
 
 1. Clique em **Segurança** do painel de navegação esquerdo.
 
-    ![Configuração do Litmus](./media/litmus-tutorial/security-img.png)
+    ![A captura de tela mostra o item Segurança selecionado.](./media/litmus-tutorial/security-img.png)
 
 1. Na seção **Configurar Autenticação SAML**, siga estas etapas:
 
-    ![Configuração do Litmus](./media/litmus-tutorial/configure1.png)
+    ![A captura de tela mostra a seção Configurar Autenticação SAML em que você pode inserir os valores descritos.](./media/litmus-tutorial/configure1.png)
 
     a. Ative a opção **Habilitar SAML**.
 
@@ -143,7 +144,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
 1. Execute as seguintes etapas:
 
-    ![Configuração do Litmus](./media/litmus-tutorial/configure3.png)
+    ![A captura de tela mostra a seção em que você pode inserir os valores descritos.](./media/litmus-tutorial/configure3.png)
 
     a. Na caixa de texto **Ponto de Extremidade do SAML 2.0 (HTTP)** , cole o valor da **URL de Logon** copiado do portal do Azure.
 
@@ -157,17 +158,17 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
 1. Clique nas **Contas** no painel de navegação esquerdo.
 
-    ![Configuração do Litmus](./media/litmus-tutorial/accounts-img.png)
+    ![A captura de tela mostra o item Conta selecionado.](./media/litmus-tutorial/accounts-img.png)
 
 1. Clique na guia **Adicionar Novo Usuário**.
 
-    ![Configuração do Litmus](./media/litmus-tutorial/add-new-user.png)
+    ![A captura de tela mostra o item Adicionar Novo Usuário selecionado.](./media/litmus-tutorial/add-new-user.png)
 
 1. Na seção **Adicionar Usuário**, siga estas etapas:
 
-    ![Configuração do Litmus](./media/litmus-tutorial/user-profile.png)
+    ![A captura de tela mostra a seção Adicionar Usuário em que você pode inserir os valores descritos.](./media/litmus-tutorial/user-profile.png)
 
-    a. Na caixa de texto **Email**, digite o endereço de email do usuário, como **B.Simon@contoso.com**
+    a. Na caixa de texto **Email**, insira o endereço de email do usuário como **B.Fernandes\@contoso.com**
 
     b. Na caixa de texto **Nome**, insira o nome do usuário como **B**.
 
@@ -177,20 +178,20 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
 ## <a name="test-sso"></a>Testar o SSO 
 
-Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
+Nesta seção, você testará a configuração de logon único do Azure AD com as opções a seguir.
 
-Ao clicar no bloco do Litmus no Painel de Acesso, você deverá ser conectado automaticamente ao Litmus para o qual você configurou um SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+#### <a name="sp-initiated"></a>Iniciado por SP:
 
-## <a name="additional-resources"></a>Recursos adicionais
+* Clique em **Testar este aplicativo** no portal do Azure. Isso redirecionará você para a URL de Logon do Litmus, na qual poderá iniciar o fluxo de logon.
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+* Acesse a URL de Logon do Litmus diretamente e inicie dela o fluxo de logon.
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+#### <a name="idp-initiated"></a>Iniciado por IdP:
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+* Clique em **Testar este aplicativo** no portal do Azure e você deverá ser conectado automaticamente ao Litmus para o qual configurou o SSO
 
-- [Experimente o Litmus com o Azure AD](https://aad.portal.azure.com/)
+Use também os Meus Aplicativos da Microsoft para testar o aplicativo em qualquer modo. Quando você clicar no bloco do Litmus nos Meus Aplicativos, se ele estiver configurado no modo SP, você será redirecionado à página de logon do aplicativo para iniciar o fluxo de logon e, se ele estiver configurado no modo IDP, você será conectado automaticamente ao Litmus para o qual configurou o SSO. Para obter mais informações sobre os Meus Aplicativos, confira [Introdução aos Meus Aplicativos](../user-help/my-apps-portal-end-user-access.md).
 
-- [O que é controle de sessão no Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+## <a name="next-steps"></a>Próximas etapas
 
-- [Como proteger o Litmus com visibilidade e controles avançados](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+Depois de configurar o Litmus, você poderá impor o controle de sessão, que protege contra o vazamento e a infiltração dos dados confidenciais da organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

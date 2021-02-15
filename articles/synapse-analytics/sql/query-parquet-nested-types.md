@@ -1,32 +1,32 @@
 ---
-title: Consultar tipos aninhados do Parquet usando SQL sob demanda (versão prévia)
-description: Neste artigo, você aprenderá a consultar os tipos aninhados do Parquet.
+title: Consultar tipos aninhados do parquet usando o pool SQL sem servidor
+description: Neste artigo, você aprenderá a consultar os tipos aninhados do parquet usando o pool SQL sem servidor.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: sql
 ms.date: 05/20/2020
-ms.author: v-stazar
-ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: fb56c4da77ddeb87ebc3724a3b138994e4da98e7
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.author: stefanazaric
+ms.reviewer: jrasnick
+ms.openlocfilehash: 6df8c3238ed6dfeb37fd10d0a7e97aa839e7bf26
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87489683"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98681070"
 ---
-# <a name="query-nested-types-in-parquet-and-json-files-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Consultar tipos aninhados em arquivos parquet e JSON usando o SQL sob demanda (versão prévia) na análise de Synapse do Azure
+# <a name="query-nested-types-in-parquet-and-json-files-by-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Consultar tipos aninhados em arquivos parquet e JSON usando o pool SQL sem servidor no Azure Synapse Analytics
 
-Neste artigo, você aprenderá a escrever uma consulta usando o SQL sob demanda (versão prévia) no Azure Synapse Analytics. Essa consulta lerá os tipos aninhados do Parquet.
+Neste artigo, você aprenderá a escrever uma consulta usando o pool SQL sem servidor no Azure Synapse Analytics. A consulta lerá os tipos aninhados parquet.
 Tipos aninhados são estruturas complexas que representam objetos ou matrizes. Tipos aninhados podem ser armazenados em: 
-- [PARQUET](query-parquet-files.md) , em que você pode ter várias colunas complexas contendo matrizes e objetos.
-- [Arquivos JSON](query-json-files.md) hierárquicos em que você pode ler documentos JSON complexos como uma única coluna.
-- Coleção CosmosDB em que cada documento pode conter propriedades aninhadas complexas (atualmente em visualização pública restrita).
+- [Parquet](query-parquet-files.md), onde você pode ter várias colunas complexas que contêm matrizes e objetos.
+- [Arquivos JSON](query-json-files.md)hierárquicos, nos quais você pode ler um documento JSON complexo como uma única coluna.
+- Azure Cosmos DB coleções (atualmente em visualização pública restrita), em que cada documento pode conter propriedades aninhadas complexas.
 
-O Synapse SQL sob demanda formata todos os tipos aninhados como objetos JSON e matrizes, para que você possa [extrair ou modificar objetos complexos usando funções JSON](https://docs.microsoft.com/sql/relational-databases/json/validate-query-and-change-json-data-with-built-in-functions-sql-server) ou [analisar dados JSON usando a função OPENJSON](https://docs.microsoft.com/sql/relational-databases/json/convert-json-data-to-rows-and-columns-with-openjson-sql-server). 
+O pool SQL sem servidor formata todos os tipos aninhados como objetos JSON e matrizes. Portanto, você pode [extrair ou modificar objetos complexos usando funções JSON](/sql/relational-databases/json/validate-query-and-change-json-data-with-built-in-functions-sql-server) ou [analisar dados JSON usando a função OPENJSON](/sql/relational-databases/json/convert-json-data-to-rows-and-columns-with-openjson-sql-server). 
 
-Um exemplo de consulta que extrai valores escalares e objetos do [COVID-19 Open Research DataSet](https://azure.microsoft.com/services/open-datasets/catalog/covid-19-open-research/) File JSON com objetos aninhados é mostrado abaixo. 
+Veja um exemplo de uma consulta que extrai valores escalares e de objeto do arquivo JSON [COVID-19 Open Research DataSet](https://azure.microsoft.com/services/open-datasets/catalog/covid-19-open-research/) , que contém objetos aninhados: 
 
 ```sql
 SELECT
@@ -42,18 +42,18 @@ FROM
     WITH ( doc varchar(MAX) ) AS docs;
 ```
 
-`JSON_VALUE`a função retorna um valor escalar do campo no caminho especificado. `JSON_QUERY`a função retorna um objeto formatado como JSON a partir do campo no caminho especificado.
+A `JSON_VALUE` função retorna um valor escalar do campo no caminho especificado. A `JSON_QUERY` função retorna um objeto formatado como JSON a partir do campo no caminho especificado.
 
 > [!IMPORTANT]
-> Este exemplo usa um arquivo do [conjunto de COVID-19 Open Research](https://azure.microsoft.com/services/open-datasets/catalog/covid-19-open-research/). Consulte licença do desse e a estrutura de dados nesta página.
+> Este exemplo usa um arquivo do conjunto de COVID-19 Open Research. [Veja a licença e a estrutura dos dados aqui](https://azure.microsoft.com/services/open-datasets/catalog/covid-19-open-research/).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-A primeira etapa é **criar um banco de dados** com uma fonte de dados que faça referências. Em seguida, inicialize os objetos executando o [script de instalação](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) nesse banco de dados. Esse script de instalação criará as fontes de dados, as credenciais no escopo do banco de dados e os formatos de arquivo externos que são usados nestas amostras.
+A primeira etapa é criar um banco de dados onde o DataSource será criado. Em seguida, você inicializará os objetos executando um [script de instalação](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) no banco de dados. O script de instalação criará as fontes de dados, as credenciais no escopo do banco de dado e os formatos de arquivo externo que são usados nos exemplos.
 
 ## <a name="project-nested-or-repeated-data"></a>Dados de projeto aninhados ou repetidos
 
-O arquivo PARQUET pode ter várias colunas com tipos complexos. Os valores dessas colunas são formatados como texto JSON e retornados como uma coluna VARCHAR. A consulta a seguir lê o arquivo *structExample. parquet* e mostra como ler os valores das colunas aninhadas: 
+Um arquivo parquet pode ter várias colunas com tipos complexos. Os valores dessas colunas são formatados como texto JSON e retornados como colunas VARCHAR. A consulta a seguir lê o arquivo structExample. parquet e mostra como ler os valores das colunas aninhadas: 
 
 ```sql
 SELECT
@@ -73,14 +73,14 @@ FROM
     ) AS [r];
 ```
 
-Essa consulta retornará o seguinte resultado, em que o conteúdo de cada objeto aninhado é retornado como texto JSON:
+Essa consulta retorna o resultado a seguir. O conteúdo de cada objeto aninhado é retornado como texto JSON.
 
 | DateStruct    | Timestruct    | TimestampStruct   | DecimalStruct | FloatStruct |
 | --- | --- | --- | --- | --- |
 |{"Date": "2009-04-25"}| {"Hora": "20:51:54.3598000"}|    {"Timestamp": "5501-04-08 12:13:57.4821000"}|    {"Decimal": 11143412.25350}| {"Float": 0.5}|
 |{"Date": "1916-04-29"}| {"Hora": "00:16:04.6778000"}|    {"Timestamp": "1990-06-30 20:50:52.6828000"}|    {"Decimal": 1963545.62800}|  {"Float":-2,125}|
 
-A consulta a seguir lê o arquivo *justSimpleArray.parquet*. Ela projeta todas as colunas do arquivo Parquet, incluindo dados aninhados ou repetidos.
+A consulta a seguir lê o arquivo justSimpleArray.parquet. Ele projeta todas as colunas do arquivo parquet, incluindo dados aninhados e repetidos.
 
 ```sql
 SELECT
@@ -102,7 +102,7 @@ Essa consulta retornará o seguinte resultado:
 
 ## <a name="read-properties-from-nested-object-columns"></a>Ler propriedades de colunas de objeto aninhado
 
-`JSON_VALUE`a função permite retornar valores da coluna formatada como texto JSON:
+A `JSON_VALUE` função permite que você retorne valores de colunas formatadas como texto JSON:
 
 ```sql
 SELECT
@@ -117,15 +117,15 @@ FROM
 
 O resultado é mostrado na tabela a seguir:
 
-|title  | first_author_name | body_text | complex_column |
+|título  | first_author_name | body_text | complex_column |
 | --- | --- | --- | --- |
 | Informações complementares de um epidemiolo de eco... | Julien   | -Figura S1: Phylogeny de... | `{    "paper_id": "000b7d1517ceebb34e1e3e817695b6de03e2fa78",    "metadata": {        "title": "Supplementary Information An eco-epidemiological study of Morbilli-related paramyxovirus infection in Madagascar bats reveals host-switching as the dominant macro-evolutionary mechanism",        "authors": [            {                "first": "Julien"` |
 
-Ao contrário dos arquivos JSON que, na maioria dos casos, retornam uma única coluna contendo um objeto JSON complexo. Os arquivos PARQUET podem ter vários complexos. Você pode ler as propriedades de coluna aninhada usando a `JSON_VALUE` função em cada coluna. `OPENROWSET`permite que você especifique diretamente os caminhos da cláusula aninhada Properties in `WITH` . Os caminhos podem ser definidos como um nome da coluna ou você pode adicionar uma [expressão de caminho JSON](https://docs.microsoft.com/sql/relational-databases/json/json-path-expressions-sql-server) após o tipo de coluna.
+Ao contrário dos arquivos JSON, que na maioria dos casos retornam uma única coluna que contém um objeto JSON complexo, os arquivos parquet podem ter várias colunas complexas. Você pode ler as propriedades de colunas aninhadas usando a `JSON_VALUE` função em cada coluna. `OPENROWSET` permite que você especifique diretamente os caminhos das propriedades aninhadas em uma `WITH` cláusula. Você pode definir os caminhos como o nome de uma coluna ou pode adicionar uma expressão de [caminho JSON](/sql/relational-databases/json/json-path-expressions-sql-server) após o tipo de coluna.
 
-A consulta a seguir lê o arquivo *structExample. parquet* e mostra como Surface elementos de uma coluna aninhada. Você tem duas maneiras de referenciar o valor aninhado:
-- Especificando a expressão de caminho de valor aninhado após especificação de tipo.
-- Formatando o nome da coluna como um caminho aninhado usando "." para fazer referência aos campos.
+A consulta a seguir lê o arquivo structExample. parquet e mostra como Surface elementos de uma coluna aninhada. Há duas maneiras de fazer referência a um valor aninhado:
+- Especificando a expressão de caminho de valor aninhado após a especificação de tipo.
+- Ao Formatar o nome da coluna como um caminho aninhado usando "." para fazer referência aos campos.
 
 ```sql
 SELECT
@@ -147,7 +147,7 @@ FROM
 
 ## <a name="access-elements-from-repeated-columns"></a>Acessar elementos de colunas repetidas
 
-A consulta a seguir lê o arquivo *justSimpleArray.parquet* e usa [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) para recuperar um elemento **escalar** de uma coluna repetida, como uma Matriz ou Mapa:
+A consulta a seguir lê o arquivo justSimpleArray. parquet e usa [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) para recuperar um elemento escalar de dentro de uma coluna repetida, como uma matriz ou um mapa:
 
 ```sql
 SELECT
@@ -163,7 +163,7 @@ FROM
     ) AS [r];
 ```
 
-O resultado é mostrado na tabela a seguir:
+Eis o resultado:
 
 |SimpleArray    | Nome do primeiro  | Segundoelement | Terceiroelement |
 | --- | --- | --- | --- |
@@ -172,7 +172,7 @@ O resultado é mostrado na tabela a seguir:
 
 ## <a name="access-sub-objects-from-complex-columns"></a>Acessar subobjetos de colunas complexas
 
-A consulta a seguir lê o arquivo *mapExample.parquet* e usa [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) para recuperar um elemento **não escalar** de uma coluna repetida, como uma Matriz ou Mapa:
+A consulta a seguir lê o arquivo mapExample. parquet e usa [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) para recuperar um elemento não escalar de dentro de uma coluna repetida, como uma matriz ou um mapa:
 
 ```sql
 SELECT
@@ -186,7 +186,7 @@ FROM
     ) AS [r];
 ```
 
-Você também pode referenciar explicitamente as colunas que deseja retornar na `WITH` cláusula:
+Você também pode referenciar explicitamente as colunas que deseja retornar em uma `WITH` cláusula:
 
 ```sql
 SELECT DocId,
@@ -201,11 +201,11 @@ FROM
     WITH (DocId bigint, MapOfPersons VARCHAR(max)) AS [r];
 ```
 
-A estrutura `MapOfPersons` é retornada como `VARCHAR` coluna e formatada como cadeia de caracteres JSON.
+A estrutura `MapOfPersons` é retornada como uma coluna varchar e formatada como uma cadeia de caracteres JSON.
 
 ## <a name="project-values-from-repeated-columns"></a>Valores de projeto de colunas repetidas
 
-Se você tiver uma matriz de valores escalares (por exemplo `[1,2,3]` ) em algumas colunas, poderá expandi-los facilmente e associá-los com a linha principal usando o seguinte script:
+Se você tiver uma matriz de valores escalares (por exemplo `[1,2,3]` ) em algumas colunas, poderá expandi-los facilmente e associá-los com a linha principal usando este script:
 
 ```sql
 SELECT

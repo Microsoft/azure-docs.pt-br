@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 10/2/2017
 ms.author: sumukhs
 ms.openlocfilehash: cdb115bd57cf3d5af4388f4efa03c2522feef9ca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75609767"
 ---
 # <a name="configuring-reliable-actors--kvsactorstateprovider"></a>Configurando Reliable Actors--KVSActorStateProvider
@@ -41,7 +41,7 @@ A configuração padrão é gerada pelo modelo do Visual Studio e deve ser sufic
 &lt;ActorName&gt;ServiceReplicatorConfig
 
 ### <a name="configuration-names"></a>Nomes de configuração
-| Nome | Unidade | Valor padrão | Comentários |
+| Nome | Unit | Valor padrão | Comentários |
 | --- | --- | --- | --- |
 | BatchAcknowledgementInterval |Segundos |0,015 |Período de tempo pelo qual o replicador no secundário espera após o recebimento de uma operação antes de enviar novamente uma confirmação ao primário. Todas as outras confirmações a serem enviadas para operações e processadas dentro deste intervalo são enviadas como uma única resposta. |
 | ReplicatorEndpoint |N/D |Nenhum parâmetro padrão obrigatório |Endereço IP e porta que o replicador primário/secundário usará para se comunicar com outros replicadores no conjunto de réplicas. Eles devem fazer referência a um ponto de extremidade do recurso de TCP no manifesto do serviço. Consulte [Recursos do manifesto do serviço](service-fabric-service-manifest-resources.md) para saber mais sobre como definir os recursos de ponto de extremidade no manifesto de serviço. |
@@ -58,7 +58,7 @@ A configuração padrão é gerada pelo modelo do Visual Studio e deve ser sufic
 &lt;ActorName&gt;ServiceLocalStoreConfig
 
 ### <a name="configuration-names"></a>Nomes de configuração
-| Nome | Unidade | Valor padrão | Comentários |
+| Nome | Unit | Valor padrão | Comentários |
 | --- | --- | --- | --- |
 | MaxAsyncCommitDelayInMilliseconds |Milissegundos |200 |Define o intervalo máximo de envio em lotes para a confirmação do local de armazenamento durável . |
 | MaxVerPages |Número de páginas |16384 |O número máximo de páginas de versão no banco de dados do armazenamento local. Ele determina o número máximo de transações pendentes. |

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: pdecarlo
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e70b22b3edaae96e00306d5d0a93d229e11aac41
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 0e044e8102308fce4145d4aa6c887cefaa99be34
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87494070"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98629955"
 ---
 # <a name="run-azure-iot-edge-on-ubuntu-virtual-machines"></a>Executar Azure IoT Edge em Máquinas Virtuais do Ubuntu
 
@@ -50,7 +50,7 @@ O [botão implantar no Azure](../azure-resource-manager/templates/deploy-to-azur
 
     **Nome de usuário do administrador**: um nome de usuário, que será fornecido com privilégios de raiz na implantação.
 
-    **Cadeia de conexão do dispositivo**: uma [cadeia de conexão de dispositivo](how-to-register-device.md) para um dispositivo que foi criado no [Hub IOT](../iot-hub/about-iot-hub.md)pretendido.
+    **Cadeia de conexão do dispositivo**: uma [cadeia de conexão de dispositivo](./how-to-register-device.md) para um dispositivo que foi criado no [Hub IOT](../iot-hub/about-iot-hub.md)pretendido.
 
     **Tamanho da VM**: o [tamanho](../cloud-services/cloud-services-sizes-specs.md) da máquina virtual a ser implantada
 
@@ -71,7 +71,7 @@ O [botão implantar no Azure](../azure-resource-manager/templates/deploy-to-azur
     > [!div class="mx-imgBorder"]
     > [![Captura de tela mostrando o nome DNS da VM iotedge](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-dns-name.png)](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-dns-name.png)
 
-1. Se você quiser usar o SSH nessa VM após a instalação, use o **nome DNS** associado com o comando:`ssh <adminUsername>@<DNS_Name>`
+1. Se você quiser usar o SSH nessa VM após a instalação, use o **nome DNS** associado com o comando:  `ssh <adminUsername>@<DNS_Name>`
 
 ## <a name="deploy-from-azure-cli"></a>Implantar da CLI do Azure
 
@@ -117,7 +117,7 @@ O [botão implantar no Azure](../azure-resource-manager/templates/deploy-to-azur
    --template-uri "https://aka.ms/iotedge-vm-deploy" \
    --parameters dnsLabelPrefix='my-edge-vm1' \
    --parameters adminUsername='<REPLACE_WITH_USERNAME>' \
-   --parameters deviceConnectionString=$(az iot hub device-identity show-connection-string --device-id <REPLACE_WITH_DEVICE-NAME> --hub-name <REPLACE-WITH-HUB-NAME> -o tsv) \
+   --parameters deviceConnectionString=$(az iot hub device-identity connection-string show --device-id <REPLACE_WITH_DEVICE-NAME> --hub-name <REPLACE-WITH-HUB-NAME> -o tsv) \
    --parameters authenticationType='password' \
    --parameters adminPasswordOrKey="<REPLACE_WITH_SECRET_PASSWORD>"
    ```
@@ -134,7 +134,7 @@ O [botão implantar no Azure](../azure-resource-manager/templates/deploy-to-azur
     --template-uri "https://aka.ms/iotedge-vm-deploy" \
     --parameters dnsLabelPrefix='my-edge-vm1' \
     --parameters adminUsername='<REPLACE_WITH_USERNAME>' \
-    --parameters deviceConnectionString=$(az iot hub device-identity show-connection-string --device-id <REPLACE_WITH_DEVICE-NAME> --hub-name <REPLACE-WITH-HUB-NAME> -o tsv) \
+    --parameters deviceConnectionString=$(az iot hub device-identity connection-string show --device-id <REPLACE_WITH_DEVICE-NAME> --hub-name <REPLACE-WITH-HUB-NAME> -o tsv) \
     --parameters authenticationType='sshPublicKey' \
     --parameters adminPasswordOrKey="$(< ~/.ssh/iotedge-vm-key.pub)"
     ```
@@ -157,7 +157,7 @@ O [botão implantar no Azure](../azure-resource-manager/templates/deploy-to-azur
     > [!div class="mx-imgBorder"]
     > [![Captura de tela mostrando o nome DNS da VM iotedge](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-dns-name.png)](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-dns-name.png)
 
-1. Se você quiser usar o SSH nessa VM após a instalação, use o **nome DNS** associado com o comando:`ssh <adminUsername>@<DNS_Name>`
+1. Se você quiser usar o SSH nessa VM após a instalação, use o **nome DNS** associado com o comando:  `ssh <adminUsername>@<DNS_Name>`
 
 ## <a name="next-steps"></a>Próximas etapas
 

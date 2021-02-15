@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
-ms.openlocfilehash: 82e542eafe1578a969c4348fe7562ba1da106e2c
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: ac9828ca61009eb3ee39412169b2b454b9ecbd00
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683395"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131863"
 ---
 # <a name="group-and-filter-options-in-cost-analysis"></a>Opções agrupar e filtrar na Análise de custo
 
@@ -49,10 +49,10 @@ A tabela a seguir lista algumas das opções mais comuns de agrupamento e filtra
 | **Nome do serviço** ou **Categoria do medidor** | Detalhe o custo por serviço do Azure. | As compras e o uso do Marketplace aparecerão como **Não aplicável** ou **não atribuído**. |
 | **Camada de serviço** ou **Subcategoria de medidor** | Detalhe o custo por subclassificação do medidor de uso do Azure. | As compras e o uso do Marketplace aparecerão como **Não aplicável** ou **não atribuído**. |
 | **Assinatura** | Divida os custos segundo a assinatura do Azure e a conta vinculada da AWS. | As compras e os recursos de locatário podem aparecer como **não aplicável**. |
-| **Tag** | Detalhe os custos por valores de tag para uma chave de tag específica. | As tags não estão disponíveis para compras, recursos de locatário não associados a assinaturas, recursos de assinatura não implantados em um grupo de recursos ou recursos clássicos. Alguns serviços não incluem tags nos dados de uso. Saiba mais sobre o [suporte a marcas para cada tipo de recurso](https://docs.microsoft.com/azure/azure-resource-manager/management/tag-support). |
+| **Tag** | Detalhe os custos por valores de tag para uma chave de tag específica. | As tags não estão disponíveis para compras, recursos de locatário não associados a assinaturas, recursos de assinatura não implantados em um grupo de recursos ou recursos clássicos. Alguns serviços não incluem tags nos dados de uso. Saiba mais sobre o [suporte a marcas para cada tipo de recurso](../../azure-resource-manager/management/tag-support.md). |
 
 Para obter mais informações sobre termos, confira [Compreender os termos usados no arquivo de preços e uso do Azure](../understand/understand-usage.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Começar a analisar os custos](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis).
+- [Começar a analisar os custos](./quick-acm-cost-analysis.md).

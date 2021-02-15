@@ -6,112 +6,154 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 10/29/2018
-ms.openlocfilehash: d61e052b10b7255cac37531f889324075d596f3c
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: e9a1bef582053eccdbfef63c2159cf540ffd9bfb
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87828448"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186585"
 ---
 # <a name="troubleshoot-log-alerts-in-azure-monitor"></a>Solucionar problemas de alertas de log no Azure Monitor  
 
 Este artigo mostra como resolver problemas comuns com alertas de log no Azure Monitor. Ele também fornece soluções para problemas comuns com a funcionalidade e a configuração de alertas de log.
 
-O termo *alertas de log* descreve as regras que são acionadas com base em uma consulta de log em um [espaço de trabalho log Analytics do Azure](../log-query/get-started-portal.md) ou no [aplicativo Azure insights](../log-query/log-query-overview.md). Saiba mais sobre funcionalidade, terminologia e tipos em [alertas de log em Azure monitor](./alerts-unified-log.md).
+Os alertas de log permitem que os usuários usem uma consulta [log Analytics](../log-query/log-analytics-tutorial.md) para avaliar os logs de recursos a cada frequência definida e acionar um alerta com base nos resultados. As regras podem disparar uma ou mais ações usando [grupos de ações](./action-groups.md). [Saiba mais sobre a funcionalidade e a terminologia de alertas de log](alerts-unified-log.md).
 
 > [!NOTE]
-> Este artigo não considera casos em que a portal do Azure mostra uma regra de alerta disparada e uma notificação não é executada por um grupo de ação associado. Para esses casos, consulte os detalhes em [criar e gerenciar grupos de ações no portal do Azure](./action-groups.md).
+> Este artigo não considera casos em que a portal do Azure mostra uma regra de alerta disparada e uma notificação não é executada por um grupo de ação associado. Para esses casos, consulte os detalhes sobre solução de problemas [aqui](./alerts-troubleshoot.md#action-or-notification-on-my-alert-did-not-work-as-expected).
 
 ## <a name="log-alert-didnt-fire"></a>Alerta de log não acionado
 
-Aqui estão alguns motivos comuns pelos quais o estado de uma [regra de alerta de log](./alerts-log.md) configurada no Azure monitor não é exibido [como *acionado* quando esperado](./alerts-managing-alert-states.md).
-
 ### <a name="data-ingestion-time-for-logs"></a>Tempo de ingestão de dados para logs
 
-Um alerta de log executa periodicamente sua consulta com base em [log Analytics](../log-query/get-started-portal.md) ou [Application insights](../log-query/log-query-overview.md). Como o Azure Monitor processa muitos terabytes de dados de milhares de clientes de fontes variadas em todo o mundo, o serviço é suscetível a diferentes atrasos de tempo. Para obter mais informações, consulte [tempo de ingestão de dados em logs de Azure monitor](./data-ingestion-time.md).
+O Azure Monitor processa terabytes de logs de clientes de todo o mundo, o que pode causar a [latência de ingestão de logs](./data-ingestion-time.md).
 
-Para atenuar os atrasos, o sistema aguarda e repete a consulta de alerta várias vezes se encontrar os dados necessários ainda não está ingerido. O sistema tem um tempo de espera de aumento exponencial. O alerta de log é disparado somente depois que os dados estão disponíveis, portanto, o atraso pode ser devido à ingestão lenta de dados de log.
+Os logs são dados semiestruturados e inerentemente mais Lates do que as métricas. Se você estiver enfrentando um atraso de mais de 4 minutos em alertas acionados, considere o uso de [alertas de métrica](alerts-metric-overview.md). Você pode enviar dados para o repositório de métricas de logs usando [alertas de métricas para logs](alerts-metric-logs.md).
 
-### <a name="incorrect-time-period-configured"></a>Período de tempo incorreto configurado
+O sistema tenta novamente a avaliação do alerta várias vezes para reduzir a latência. Depois que os dados chegam, o alerta é disparado, o que, na maioria dos casos, não é igual ao tempo de registro de log.
 
-Conforme descrito no artigo sobre [terminologia para alertas de log](./alerts-unified-log.md#log-search-alert-rule---definition-and-types), o período de tempo indicado na configuração especifica o intervalo de tempo para a consulta. A consulta retorna somente os registros que foram criados nesse intervalo.
+### <a name="incorrect-query-time-range-configured"></a>Intervalo de tempo de consulta incorreto configurado
 
-O período de tempo restringe os dados buscados para uma consulta de log para evitar abusos e evita qualquer comando de tempo (como **atrás**) usado em uma consulta de log. Por exemplo, se o período de tempo estiver definido como 60 minutos e a consulta for executada às 13h15, somente registros criados entre 12h15 e 13h15 serão usados para a consulta de log. Se a consulta de log usar um comando de tempo como **atrás (1D)**, a consulta ainda usará apenas dados entre 12:15 pm e 1:15, pois o período de tempo é definido para esse intervalo.
+O intervalo de tempo de consulta é definido na definição de condição de regra. Esse campo é chamado **período** para espaços de trabalho e Application insights e chamado **intervalo de tempo de consulta de substituição** para todos os outros tipos de recursos. Assim como no log Analytics, o intervalo de tempo limita os dados de consulta ao período especificado. Mesmo que o comando **atrás** seja usado na consulta, o intervalo de tempo será aplicado. 
 
-Verifique se o período de tempo na configuração corresponde à sua consulta. Para o exemplo mostrado anteriormente, se a consulta de log usar **atrás (1D)** com o marcador verde, o período de tempo deve ser definido como 24 horas ou 1.440 minutos (indicado em vermelho). Essa configuração garante que a consulta seja executada conforme o esperado.
+Por exemplo, uma consulta examina 60 minutos, quando o intervalo de tempo é de 60 minutos, mesmo se o texto contiver **atrás (1D)**. O intervalo de tempo e a filtragem de tempo de consulta precisam corresponder. No caso de exemplo, alterar o **Period**  /  **intervalo de tempo de consulta de substituição** de período para um dia funcionaria como esperado.
 
 ![Período de tempo](media/alert-log-troubleshoot/LogAlertTimePeriod.png)
 
-### <a name="suppress-alerts-option-is-set"></a>A opção Suprimir Alertas está definida
+### <a name="actions-are-muted-in-the-alert-rule"></a>As ações estão sem áudio na regra de alerta
 
-Conforme descrito na etapa 8 do artigo sobre como [criar uma regra de alerta de log na portal do Azure, os](./alerts-log.md#create-a-log-alert-rule-with-the-azure-portal)alertas de log fornecem uma opção de **supressão de alertas** para suprimir ações de disparo e de notificação por um período de tempo configurado. Como resultado, você pode imaginar que um alerta não foi acionado. Na verdade, ele foi acionado, mas foi suprimido.  
+Os alertas de log fornecem uma opção para ativar mudo de ações de alerta para um determinado período de tempo. Esse campo é chamado de **supressão de alertas** em espaços de trabalho e Application insights. Em todos os outros tipos de recursos, ele é chamado de **ações de mudo**. 
+
+Um problema comum é que você imagina que o alerta não acionasse as ações devido a um problema de serviço. Ainda assim, a configuração da regra foi mudo.
 
 ![Suprimir alertas](media/alert-log-troubleshoot/LogAlertSuppress.png)
 
-### <a name="metric-measurement-alert-rule-is-incorrect"></a>A regra de alerta com medição métrica está incorreta
+### <a name="metric-measurement-alert-rule-with-splitting-using-the-legacy-log-analytics-api"></a>Regra de alerta de medição métrica com divisão usando a API de Log Analytics herdada
 
-Os *alertas de log de medição de métrica* são um subtipo de alertas de log que têm recursos especiais e uma sintaxe de consulta de alerta restrita. Uma regra para um alerta de log de medição de métrica exige que a saída da consulta seja uma série temporal. Ou seja, a saída é uma tabela com períodos de tempo distintos e uniformemente dimensionados, juntamente com valores agregados correspondentes.
+[Medição de métrica](alerts-unified-log.md#calculation-of-measure-based-on-a-numeric-column-such-as-cpu-counter-value) é um tipo de alerta de log baseado em resultados de série temporal resumidos. Essas regras permitem agrupar por colunas para [dividir os alertas](alerts-unified-log.md#split-by-alert-dimensions). Se você estiver usando a API de Log Analytics herdada, a divisão não funcionará conforme o esperado. Não há suporte para a escolha do agrupamento na API herdada.
 
-Você pode optar por ter variáveis adicionais na tabela junto com **AggregatedValue**. Essas variáveis podem ser usadas para classificar a tabela.
-
-Por exemplo, suponha que uma regra para um alerta de log de medição de métrica foi configurada como:
-
-- Consulta de`search *| summarize AggregatedValue = count() by $table, bin(timestamp, 1h)`  
-- Período de 6 horas
-- Limite de 50
-- Lógica de alerta de três violações consecutivas
-- **Agregar após** escolhido como **$Table**
-
-Porque o comando inclui **resumir... por** e fornece duas variáveis (**timestamp** e **$Table**), o sistema escolhe **$Table** para **agregação**. O sistema classifica a tabela de resultados pelo campo **$Table** , conforme mostrado na captura de tela a seguir. Em seguida, ele examina as várias instâncias de **AggregatedValue** para cada tipo de tabela (como **availabilityResults**) para ver se havia três ou mais violações consecutivas.
-
-![Execução de consulta de medição métrica com vários valores](media/alert-log-troubleshoot/LogMMQuery.png)
-
-Como **Aggregate** on é definido em **$Table**, os dados são classificados em uma coluna **$Table** (indicada em vermelho). Em seguida, agrupamos e procuramos tipos de **agregação no** campo.
-
-Por exemplo, para **$Table**, os valores de **availabilityResults** serão considerados como um gráfico/uma entidade (indicado em laranja). Nesse valor de plotagem/entidade, o serviço de alerta verifica três violações consecutivas (indicadas em verde). As violações disparam um alerta para o valor de tabela **availabilityResults**.
-
-Da mesma forma, se três violações consecutivas ocorrerem para qualquer outro valor de **$Table**, outra notificação de alerta será disparada para a mesma coisa. O serviço de alerta classifica automaticamente os valores em um gráfico/entidade (indicado em laranja) por tempo.
-
-Agora suponha que a regra para o alerta do log de medição de métrica foi modificada e a consulta foi `search *| summarize AggregatedValue = count() by bin(timestamp, 1h)` . O restante da configuração permaneceu o mesmo que antes, incluindo a lógica de alerta para três violações consecutivas. A opção **agregar sobre** , nesse caso, é **carimbo de data/hora** por padrão. Apenas um valor é fornecido na consulta para **resumir... por** (ou seja, **carimbo de data/hora**). Como no exemplo anterior, a saída no final da execução seria conforme ilustrado a seguir.
-
-   ![Execução de consulta de medição métrica com valor singular](media/alert-log-troubleshoot/LogMMtimestamp.png)
-
-Como **Aggregate** on é definido no **timestamp**, os dados são classificados na coluna **timestamp** (indicada em vermelho). Em seguida, agrupamos por **carimbo de data/hora**. Por exemplo, os valores para `2018-10-17T06:00:00Z` serão considerados como um gráfico/uma entidade (indicado em laranja). Nesse valor de plotagem/entidade, o serviço de alerta não encontrará violações consecutivas (porque cada valor de **carimbo de data/hora** tem apenas uma entrada). Portanto, o alerta nunca é disparado. Nesse caso, o usuário deve:
-
-- Adicione uma variável fictícia ou uma variável existente (como **$Table**) para classificar corretamente usando o campo **agregar sobre** .
-- Reconfigure a regra de alerta para usar a lógica de alerta com base na **violação total** .
+A API ScheduledQueryRules atual permite que você defina a **agregação** em regras de [medição métricas](alerts-unified-log.md#calculation-of-measure-based-on-a-numeric-column-such-as-cpu-counter-value) , que funcionarão conforme o esperado. [Saiba mais sobre como alternar para a API ScheduledQueryRules atual](alerts-log-api-switch.md).
 
 ## <a name="log-alert-fired-unnecessarily"></a>Alerta de log disparado desnecessariamente
 
-Uma [regra de alerta de log](./alerts-log.md) configurada no Azure monitor pode ser disparada inesperadamente quando você a exibe nos [alertas do Azure](./alerts-managing-alert-states.md). As seções a seguir descrevem alguns motivos comuns.
+Uma [regra de alerta de log](./alerts-log.md) configurada no Azure monitor pode ser disparada inesperadamente. As seções a seguir descrevem alguns motivos comuns.
 
 ### <a name="alert-triggered-by-partial-data"></a>Alerta disparado por dados parciais
 
-Log Analytics e Application Insights estão sujeitos a atrasos de ingestão e processamento. Ao executar uma consulta de alerta de log, você pode achar que nenhum dado está disponível ou apenas alguns dados estão disponíveis. Para obter mais informações, veja [tempo de ingestão de dados de log em Azure monitor](./data-ingestion-time.md).
+O Azure Monitor processa terabytes de logs de clientes de todo o mundo, o que pode causar a [latência de ingestão de logs](./data-ingestion-time.md).
 
-Dependendo de como você configurou a regra de alerta, o erro de acionamento pode ocorrer se não houver dados ou dados parciais em logs no momento da execução do alerta. Nesses casos, aconselhamos que você altere a configuração ou a consulta de alerta.
+Os logs são dados semiestruturados e inerentemente mais Lates do que as métricas. Se você estiver enfrentando muitos incêndios inadequados em alertas acionados, considere o uso de [alertas de métrica](alerts-metric-overview.md). Você pode enviar dados para o repositório de métricas de logs usando [alertas de métricas para logs](alerts-metric-logs.md).
 
-Por exemplo, se você configurar a regra de alerta de log para ser disparada quando o número de resultados de uma consulta de análise for menor que 5, o alerta será disparado quando não houver dados (registro zero) ou resultados parciais (um registro). Mas, após o atraso de ingestão de dados, a mesma consulta com dados completos pode fornecer um resultado de 10 registros.
+Os alertas de log funcionam melhor quando você tenta detectar dados nos logs. Ele funciona menos bem quando você tenta detectar falta de dados nos logs. Por exemplo, alertas na pulsação da máquina virtual. 
 
-### <a name="alert-query-output-is-misunderstood"></a>A saída da consulta de alerta é mal compreendida
+Embora haja recursos internos para evitar falsos alertas, eles ainda podem ocorrer em dados muito latentes (mais de aproximadamente 30 minutos) e dados com picos de latência.
 
-Você fornece a lógica para alertas de log em uma consulta de análise. A consulta de análise pode usar várias funções Big Data e matemáticas. O serviço de alerta executa sua consulta em intervalos especificados com dados por um período de tempo especificado. O serviço de alerta faz alterações sutis na consulta com base no tipo de alerta. Você pode exibir essa alteração na seção **consulta a ser executada** na tela **Configurar lógica de sinal** :
+### <a name="query-optimization-issues"></a>Problemas de otimização de consulta
+
+O serviço de alerta altera sua consulta para otimizar a latência de alerta e carga inferior. O fluxo de alertas foi criado para transformar os resultados que indicam o problema para um alerta. Por exemplo, em um caso de uma consulta como:
+
+``` Kusto
+SecurityEvent
+| where EventID == 4624
+```
+
+Se a intenção do usuário for alertar, quando esse tipo de evento ocorrer, a lógica de alerta acrescentará `count` à consulta. A consulta que será executada será:
+
+``` Kusto
+SecurityEvent
+| where EventID == 4624
+| count
+```
+
+Não há necessidade de adicionar lógica de alerta à consulta e fazer isso pode até mesmo causar problemas. No exemplo acima, se você incluir `count` em sua consulta, ela sempre resultará no valor 1, pois o serviço de alerta fará `count` do `count` .
+
+A consulta otimizada é o que o serviço de alerta de log executa. Você pode executar a consulta modificada no [portal](../log-query/log-query-overview.md) log Analytics ou na [API](/rest/api/loganalytics/).
+
+Para espaços de trabalho e Application Insights, ele é chamado de **consulta a ser executada** no painel condição. Em todos os outros tipos de recursos, selecione **Ver consulta de alerta final** na guia condição.
 
 ![Consulta a ser executada](media/alert-log-troubleshoot/LogAlertPreview.png)
 
-A caixa **consulta a ser executada** é o que o serviço de alerta de log executa. Se você quiser entender o que a saída de consulta de alerta pode ser antes de criar o alerta, você pode executar a consulta declarada e o período por meio do [portal de análise](../log-query/log-query-overview.md) ou da [API de análise](/rest/api/loganalytics/).
-
 ## <a name="log-alert-was-disabled"></a>O alerta de log foi desabilitado
 
-As seções a seguir listam alguns motivos pelos quais Azure Monitor pode desabilitar a [regra de alerta de log](./alerts-log.md).
+As seções a seguir listam alguns motivos pelos quais Azure Monitor pode desabilitar uma regra de alerta de log. Também incluímos um [exemplo do log de atividades que é enviado quando uma regra é desabilitada](#activity-log-example-when-rule-is-disabled).
 
-### <a name="resource-where-the-alert-was-created-no-longer-exists"></a>O recurso no qual o alerta foi criado não existe mais
+### <a name="alert-scope-no-longer-exists-or-was-moved"></a>O escopo do alerta não existe mais ou foi movido
 
-As regras de alerta de log criadas no Azure Monitor alvo de um recurso específico, como um espaço de trabalho do Azure Log Analytics, um aplicativo do insights Aplicativo Azure e um recurso do Azure. Em seguida, o serviço de alerta de log executará uma consulta de análise fornecida na regra para o destino especificado. Mas, após a criação da regra, os usuários costumam continuar a excluir do Azure – ou mover para dentro do Azure – o destino da regra de alerta de log. Como o destino da regra de alerta não é mais válido, a execução da regra falhará.
+Quando os recursos de escopo de uma regra de alerta não forem mais válidos, a execução da regra falhará. Nesse caso, a cobrança também é interrompida.
 
-Nesses casos, Azure Monitor desabilita o alerta de log e garante que você não seja cobrado desnecessariamente quando a regra não puder ser executada continuamente por período dimensionável (como uma semana). Você pode descobrir o momento exato em que Azure Monitor desabilitou o alerta de log por meio do [log de atividades do Azure](../../azure-resource-manager/management/view-activity-logs.md). No log de atividades do Azure, um evento é adicionado quando Azure Monitor desabilita a regra de alerta de log.
+Azure Monitor desabilitará o alerta de log após uma semana se ele falhar continuamente.
 
-O seguinte evento de exemplo no log de atividades do Azure é para uma regra de alerta que foi desabilitada devido a uma falha contínua.
+### <a name="query-used-in-a-log-alert-isnt-valid"></a>A consulta usada em um alerta de log não é válida
+
+Quando uma regra de alerta de log é criada, a consulta é validada para a sintaxe correta. Mas, às vezes, a consulta fornecida na regra de alerta de log pode começar a falhar. Alguns motivos comuns são:
+
+- As regras foram criadas por meio da API e a validação foi ignorada pelo usuário.
+- A consulta [é executada em vários recursos](../log-query/cross-workspace-query.md) e um ou mais dos recursos foram excluídos ou movidos.
+- A [consulta falha](https://dev.loganalytics.io/documentation/Using-the-API/Errors) porque:
+    - A solução de log não foi [implantada no espaço de trabalho](../insights/solutions.md#install-a-monitoring-solution), portanto, as tabelas não são criadas.
+    - Os dados interromperam o fluxo para uma tabela na consulta por mais de 30 dias.
+    - As [tabelas de logs personalizados](data-sources-custom-logs.md) ainda não foram criadas, pois o fluxo de dados não foi iniciado.
+- As alterações na [linguagem de consulta](/azure/kusto/query/) incluem um formato revisado para comandos e funções. Portanto, a consulta fornecida anteriormente não é mais válida.
+
+O [Azure Advisor](../../advisor/advisor-overview.md) avisa você sobre esse comportamento. Ele adiciona uma recomendação sobre a regra de alerta de log afetada. A categoria usada é ' alta disponibilidade ' com impacto médio e uma descrição de ' reparar sua regra de alerta de log para garantir o monitoramento '.
+
+## <a name="alert-rule-quota-was-reached"></a>A cota da regra de alerta foi atingida
+
+O número de regras de alerta da pesquisa de logs por assinatura e recurso está sujeito aos limites de cota descritos [aqui](../service-limits.md).
+
+### <a name="recommended-steps"></a>Etapas Recomendadas
+    
+Se você atingiu o limite de cota, as etapas a seguir podem ajudar a resolver o problema.
+
+1. Tente excluir ou desabilitar as regras de alerta de pesquisa de logs que não são mais usadas.
+1. Tente usar a [divisão de alertas por dimensões](alerts-unified-log.md#split-by-alert-dimensions) para reduzir a contagem de regras. Essas regras podem monitorar muitos recursos e casos de detecção.
+1. Se você precisar que o limite de cota seja aumentado, continue a abrir uma solicitação de suporte e forneça as seguintes informações:
+
+    - IDs de assinatura e IDs de recurso para os quais o limite de cota precisa ser aumentado.
+    - Motivo para aumento de cota.
+    - Tipo de recurso para o aumento de cota: **log Analytics**, **Application insights** e assim por diante.
+    - Limite de cota solicitado.
+
+
+### <a name="to-check-the-current-usage-of-new-log-alert-rules"></a>Para verificar o uso atual de novas regras de alerta de log
+    
+#### <a name="from-the-azure-portal"></a>No portal do Azure
+
+1. Abra a tela *alertas* e selecione *gerenciar regras de alerta*
+2. Filtrar para a assinatura relevante usando o controle suspenso *Assinatura*
+3. Certifique-se de não filtrar para um grupo de recursos, tipo de recurso ou recurso específico
+4. No controle suspenso *Tipo de sinal*, selecione 'Pesquisa de logs'
+5. Verifique se o controle suspenso *Status* está definido como 'Habilitado'
+6. O número total de regras de alerta de pesquisa de logs será exibido acima da lista de regras
+
+#### <a name="from-api"></a>Na API
+
+- PowerShell- [Get-AzScheduledQueryRule](/powershell/module/az.monitor/get-azscheduledqueryrule)
+- API REST - [Lista por assinatura](/rest/api/monitor/scheduledqueryrules/listbysubscription)
+
+## <a name="activity-log-example-when-rule-is-disabled"></a>Exemplo de log de atividades quando a regra está desabilitada
+
+Se a consulta falhar por sete dias continuamente, Azure Monitor desabilitará o alerta do log e interromperá a cobrança da regra. Você pode descobrir o momento exato em que Azure Monitor desabilitou o alerta de log no [log de atividades do Azure](../../azure-resource-manager/management/view-activity-logs.md). Consulte este exemplo:
 
 ```json
 {
@@ -174,55 +216,8 @@ O seguinte evento de exemplo no log de atividades do Azure é para uma regra de 
 }
 ```
 
-### <a name="query-used-in-a-log-alert-is-not-valid"></a>A consulta usada em um alerta de log não é válida
-
-Cada regra de alerta de log criada em Azure Monitor como parte de sua configuração deve especificar uma consulta de análise que o serviço de alerta irá executar periodicamente. A consulta do Analytics pode ter a sintaxe correta no momento da criação ou atualização da regra. Mas, às vezes, ao longo de um período de tempo, a consulta fornecida na regra de alerta de log pode desenvolver problemas de sintaxe e fazer com que a execução da regra falhe. Alguns motivos comuns pelos quais uma consulta de análise fornecida em uma regra de alerta de log pode desenvolver erros são:
-
-- A consulta é gravada para ser [executada em vários recursos](../log-query/cross-workspace-query.md). E um ou mais dos recursos especificados não existem mais.
-- O [alerta de log do tipo de medição métrica](./alerts-unified-log.md#metric-measurement-alert-rules) configurado tem uma consulta de alerta que não está em conformidade com as normas de sintaxe
-- Não houve fluxo de dados para a plataforma de análise. A [execução da consulta gera um erro](https://dev.loganalytics.io/documentation/Using-the-API/Errors) porque não há dados para a consulta fornecida.
-- As alterações na [linguagem de consulta](/azure/kusto/query/) incluem um formato revisado para comandos e funções. Portanto, a consulta fornecida anteriormente em uma regra de alerta não é mais válida.
-
-O [Azure Advisor](../../advisor/advisor-overview.md) avisa você sobre esse comportamento. Uma recomendação é adicionada para a regra de alerta de log específica no Azure Advisor, sob a categoria de alta disponibilidade com impacto médio e uma descrição de "reparar sua regra de alerta de log para garantir o monitoramento".
-
-> [!NOTE]
-> Se uma consulta de alerta na regra de alerta de log não for corrigida depois que o Azure Advisor tiver fornecido uma recomendação por sete dias, Azure Monitor desabilitará o alerta de log e garantirá que você não seja cobrado desnecessariamente quando a regra não puder ser executada continuamente por um período dimensionável (7 dias). Você pode encontrar a hora exata em que Azure Monitor desabilitou a regra de alerta de log procurando um evento no [log de atividades do Azure](../../azure-resource-manager/management/view-activity-logs.md).
-
-## <a name="alert-rule-quota-was-reached"></a>A cota da regra de alerta foi atingida
-
-O número de regras de alerta de pesquisa de logs por assinatura e recurso estão sujeitos aos limites de cota descritos [aqui](../service-limits.md).
-
-### <a name="recommended-steps"></a>Etapas Recomendadas
-    
-Se você tiver atingido o limite de cota, as etapas a seguir podem ajudar a resolver o problema.
-
-1. Tente excluir ou desabilitar as regras de alerta de pesquisa de logs que não são mais usadas.
-2. Se você precisar aumentar o limite de cota, abra uma solicitação de suporte e forneça as seguintes informações:
-
-    - IDs de assinatura que requerem aumento dos limites de cota
-    - Motivo para aumento de cota
-    - Tipo de recurso para o aumento de cota: **log Analytics**, **Application insights**, etc.
-    - Limite de cota solicitado
-
-
-### <a name="to-check-the-current-usage-of-new-log-alert-rules"></a>Para verificar o uso atual de novas regras de alerta de log
-    
-#### <a name="from-the-azure-portal"></a>No portal do Azure
-
-1. Na página *Alertas*, clique em *Gerenciar Regras de Alerta*
-2. Filtrar para a assinatura relevante usando o controle suspenso *Assinatura*
-3. Assegure-se de NÃO filtrar para um grupo de recursos, tipo de recurso ou recurso específico
-4. No controle suspenso *tipo de sinal* , selecione ' pesquisa de logs '
-5. Verifique se o controle suspenso *Status* está definido como 'Habilitado'
-6. O número total de regras de alerta de pesquisa de logs será exibido acima da lista de regras
-
-#### <a name="from-api"></a>Na API
-
-- PowerShell- [Get-AzScheduledQueryRule](/powershell/module/az.monitor/get-azscheduledqueryrule?view=azps-3.7.0)
-- API REST - [Lista por assinatura](/rest/api/monitor/scheduledqueryrules/listbysubscription)
-
 ## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre os [alertas de log no Azure](./alerts-unified-log.md).
-- Saiba mais sobre o [Application Insights](../log-query/log-query-overview.md).
+- Saiba mais sobre como [configurar alertas de log](../log-query/log-query-overview.md).
 - Saiba mais sobre [consultas de log](../log-query/log-query-overview.md).

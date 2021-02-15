@@ -1,30 +1,31 @@
 ---
-title: Atualizar RU/s para um keyspace e uma tabela do Cassandra para Azure Cosmos DB
-description: Atualizar RU/s para um keyspace e uma tabela do Cassandra para Azure Cosmos DB
+title: Scripts da CLI do Azure para operações de taxa de transferência (RU/s) para recursos da API do Cassandra do Azure Cosmos DB
+description: Scripts da CLI do Azure para operações de taxa de transferência (RU/s) para recursos da API do Cassandra do Azure Cosmos DB
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: sample
-ms.date: 07/29/2020
-ms.openlocfilehash: 292ffb977ea729e87fc23bc94bb0153663f1d721
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.date: 10/07/2020
+ms.openlocfilehash: 1979c59af53ebeccdbd7c910a87fb4c2536fe403
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432331"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565569"
 ---
-# <a name="update-rus-for-a-cassandra-keyspace-and-table-using-azure-cli"></a>Atualizar RU/s para um keyspace e uma tabela do Cassandra usando a CLI do Azure
+# <a name="throughput-rus-operations-with-azure-cli-for-a-keyspace-or-table-for-azure-cosmos-db---cassandra-api"></a>Operações de taxa de transferência (RU/s) com a CLI do Azure para um keyspace ou uma tabela do Azure Cosmos DB – API do Cassandra
+[!INCLUDE[appliesto-cassandra-api](../../../includes/appliesto-cassandra-api.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../../../includes/azure-cli-prepare-your-environment.md)]
 
-Se você optar por instalar e usar a CLI localmente, este tópico exigirá a execução da CLI do Azure versão 2.9.1 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
+- Este artigo exige a versão 2.12.1 ou posterior da CLI do Azure. Se você está usando o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ## <a name="sample-script"></a>Exemplo de script
 
-Este script cria um keyspace do Cassandra com uma taxa de transferência compartilhada e uma tabela do Cassandra com taxa de transferência dedicada e, em seguida, atualiza a taxa de transferência para o keyspace e a tabela.
+Este script cria um keyspace do Cassandra com uma taxa de transferência compartilhada e uma tabela do Cassandra com taxa de transferência dedicada e, em seguida, atualiza a taxa de transferência para o keyspace e a tabela. Em seguida, o script faz a migração da taxa de transferência padrão para a de dimensionamento automático e lê o valor da taxa de transferência de dimensionamento automático após a migração.
 
-[!code-azurecli-interactive[main](../../../../../cli_scripts/cosmosdb/cassandra/throughput.sh "Update RU/s for Cassandra keyspace and table.")]
+[!code-azurecli-interactive[main](../../../../../cli_scripts/cosmosdb/cassandra/throughput.sh "Throughput operations for Cassandra keyspace and table.")]
 
 ## <a name="clean-up-deployment"></a>Limpar a implantação
 
@@ -44,8 +45,10 @@ Este script usa os comandos a seguir. Cada comando da tabela é vinculado à doc
 | [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) | Cria uma conta do Banco de Dados Cosmos do Azure. |
 | [az cosmosdb cassandra keyspace create](/cli/azure/cosmosdb/cassandra/keyspace#az-cosmosdb-cassandra-keyspace-create) | Cria um keyspace do Cassandra do Azure Cosmos. |
 | [az cosmosdb cassandra table create](/cli/azure/cosmosdb/cassandra/table#az-cosmosdb-cassandra-table-create) | Cria uma tabela do Cassandra do Azure Cosmos. |
-| [az cosmosdb cassandra keyspace throughput update](/cli/azure/cosmosdb/cassandra/keyspace/throughput?view=azure-cli-latest#az-cosmosdb-cassandra-keyspace-throughput-update) | Atualizar RU/s para um keyspace do Cassandra do Azure Cosmos. |
+| [az cosmosdb cassandra keyspace throughput update](/cli/azure/cosmosdb/cassandra/keyspace/throughput#az-cosmosdb-cassandra-keyspace-throughput-update) | Atualizar RU/s para um keyspace do Cassandra do Azure Cosmos. |
 | [az cosmosdb cassandra table throughput update](/cli/azure/cosmosdb/cassandra/table/throughput#az-cosmosdb-cassandra-table-throughput-update) | Atualizar RU/s para uma tabela do Cassandra do Azure Cosmos. |
+| [az cosmosdb cassandra keyspace throughput migrate](/cli/azure/cosmosdb/cassandra/keyspace/throughput#az_cosmosdb_cassandra_keyspace_throughput_migrate) | Migra a taxa de transferência de um keyspace do Cassandra do Azure Cosmos. |
+| [az cosmosdb cassandra table throughput migrate](/cli/azure/cosmosdb/cassandra/table/throughput#az_cosmosdb_cassandra_table_throughput_migrate) | Migra a taxa de transferência de uma tabela do Cassandra do Azure Cosmos. |
 | [az group delete](/cli/azure/resource#az-resource-delete) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
 
 ## <a name="next-steps"></a>Próximas etapas

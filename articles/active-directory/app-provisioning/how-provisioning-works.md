@@ -3,20 +3,21 @@ title: Entenda como funciona o provisionamento do Azure Active Directory | Micro
 description: Entenda como funciona o provisionamento do Azure Active Directory
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/20/2020
+ms.date: 11/04/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 69ea1964449143a25f447375f2aae15d9feeff10
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: 048adee21d5c2e49ef02f518002a1dc6025c1ecd
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88235716"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988973"
 ---
 # <a name="how-provisioning-works"></a>Como funciona o provisionamento
 
@@ -42,9 +43,7 @@ Para solicitar um conector de provisionamento automático do Azure Active Direct
 
 ## <a name="authorization"></a>Autorização
 
-As credenciais são necessárias para que o Azure Active Directory se conecte à API de gerenciamento de usuários do aplicativo. Enquanto estiver configurando o provisionamento automático de usuário para um aplicativo, você precisará inserir credenciais válidas. Para encontrar os requisitos e tipos de credenciais do aplicativo, você pode consultar o tutorial do aplicativo. No portal do Azure, para testar as credenciais, faça com que o Azure Active Directory tente se conectar ao aplicativo de provisionamento de aplicativo com as credenciais fornecidas.
-
-Se o logon único baseado em SAML também estiver configurado para o aplicativo, o limite de armazenamento por aplicativo interno do Azure Active Directory será de 1024 bytes. Esse limite inclui todos os certificados, tokens secretos, credenciais e dados de configuração relacionados associados a uma única instância de um aplicativo (também conhecido como registro de entidade de serviço no Azure Active Directory). Ao configurar o logon único baseado no SAML, o certificado usado para assinar os tokens SAML geralmente consome mais 50% do espaço. Itens adicionais (tokens secretos, URIs, endereços de email de notificação, nomes de usuário e senhas) inseridos durante a configuração de provisionamento do usuário podem exceder o limite de armazenamento. Para obter mais informações, consulte [Problema ao salvar credenciais do administrador ao configurar o provisionamento do usuário](./application-provisioning-config-problem-storage-limit.md).
+As credenciais são necessárias para que o Azure Active Directory se conecte à API de gerenciamento de usuários do aplicativo. Enquanto estiver configurando o provisionamento automático de usuário para um aplicativo, você precisará inserir credenciais válidas. Para aplicativos da galeria, você pode encontrar os requisitos e tipos de credenciais para o aplicativo consultando o tutorial do aplicativo. Para aplicativos que não são da galeria, você pode consultar a documentação do [scim](./use-scim-to-provision-users-and-groups.md#authorization-to-provisioning-connectors-in-the-application-gallery) para entender os tipos de credenciais e os requisitos. No portal do Azure, para testar as credenciais, faça com que o Azure Active Directory tente se conectar ao aplicativo de provisionamento de aplicativo com as credenciais fornecidas.
 
 ## <a name="mapping-attributes"></a>Atributos de mapeamento
 
@@ -65,15 +64,15 @@ Para o provisionamento de saída do Azure Active Directory para um aplicativo Sa
 
 * **Grupos.** Com um plano de licença Azure AD Premium, você pode usar grupos para atribuir acesso a um aplicativo SaaS. Em seguida, quando o escopo de provisionamento estiver definido como **Sincronizar somente usuários e grupos atribuídos**, o serviço de provisionamento do Azure Active Directory provisionará ou desprovisionará os usuários com base em sua associação a um grupo que é atribuído ao aplicativo. O objeto de grupo em si não é provisionado, a menos que o aplicativo dê suporte a objetos de grupo. Verifique se os grupos atribuídos ao seu aplicativo têm a propriedade "SecurityEnabled" definida como "True".
 
-* **Grupos dinâmicos.** O serviço de provisionamento de usuários do Azure Active Directory pode ler e provisionar usuários em [grupos dinâmicos](../users-groups-roles/groups-create-rule.md). Observe estas advertências e recomendações:
+* **Grupos dinâmicos.** O serviço de provisionamento de usuários do Azure Active Directory pode ler e provisionar usuários em [grupos dinâmicos](../enterprise-users/groups-create-rule.md). Observe estas advertências e recomendações:
 
   * Grupos dinâmicos podem afetar o desempenho do provisionamento de ponta a ponta do Azure Active Directory para aplicativos SaaS.
 
-  * A rapidez em que um usuário em um grupo dinâmico é provisionado ou desprovisionado em um aplicativo SaaS depende de quanto tempo o grupo dinâmico pode avaliar as alterações de associação. Para informações sobre como verificar o status de processamento de um grupo dinâmico, consulte [Verificar o status de processamento para uma regra de associação](../users-groups-roles/groups-create-rule.md).
+  * A rapidez em que um usuário em um grupo dinâmico é provisionado ou desprovisionado em um aplicativo SaaS depende de quanto tempo o grupo dinâmico pode avaliar as alterações de associação. Para informações sobre como verificar o status de processamento de um grupo dinâmico, consulte [Verificar o status de processamento para uma regra de associação](../enterprise-users/groups-create-rule.md).
 
   * Um usuário perder a associação no grupo dinâmico é considerado um evento de desprovisionamento. Considere este cenário ao criar regras para grupos dinâmicos.
 
-* **Grupos aninhados.** O serviço de provisionamento de usuário do Azure Active Directory não pode ler ou provisionar usuários em grupos aninhados. O serviço só pode ler e provisionar usuários que são membros imediatos de um grupo explicitamente atribuído. Essa limitação de "atribuições baseadas em grupo a aplicativos" também afeta o logon único (consulte [Usar um grupo para gerenciar o acesso a aplicativos SaaS](../users-groups-roles/groups-saasapps.md)). Em vez disso, atribua ou, de outra forma, [coloque em escopo](define-conditional-rules-for-provisioning-user-accounts.md) os grupos que contêm os usuários que precisam ser provisionados.
+* **Grupos aninhados.** O serviço de provisionamento de usuário do Azure Active Directory não pode ler ou provisionar usuários em grupos aninhados. O serviço só pode ler e provisionar usuários que são membros imediatos de um grupo explicitamente atribuído. Essa limitação de "atribuições baseadas em grupo a aplicativos" também afeta o logon único (consulte [Usar um grupo para gerenciar o acesso a aplicativos SaaS](../enterprise-users/groups-saasapps.md)). Em vez disso, atribua ou, de outra forma, [coloque em escopo](define-conditional-rules-for-provisioning-user-accounts.md) os grupos que contêm os usuários que precisam ser provisionados.
 
 ### <a name="attribute-based-scoping"></a>Escopo baseado em atributo 
 
@@ -169,22 +168,46 @@ O desempenho depende se o seu trabalho de provisionamento está executando um ci
 Todas as operações executadas pelo serviço de provisionamento de usuário são registradas nos [Logs de provisionamento (versão prévia)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) do Azure Active Directory. Os logs incluem todas as operações de gravação feitas para os sistemas de origem e destino, e os dados de usuário que foram lidos ou gravados durante cada operação. Para informações sobre como ler os logs de provisionamento no portal do Azure, consulte o [guia de relatório de provisionamento](./check-status-user-account-provisioning.md).
 
 ## <a name="de-provisioning"></a>Desprovisionamento
+O serviço de provisionamento do Azure AD mantém os sistemas de origem e de destino sincronizados por contas de provisionamento quando o acesso do usuário é removido.
 
-O serviço de provisionamento do Azure Active Directory mantém os sistemas de origem e de destino sincronizados por contas de desprovisionamento quando os usuários não devem mais ter acesso. 
+O serviço de provisionamento dá suporte à exclusão e à desabilitação (às vezes conhecida como exclusão reversível) dos usuários. A definição exata de Disable e Delete varia de acordo com a implementação do aplicativo de destino, mas, em geral, uma desabilitação indica que o usuário não pode entrar. Uma exclusão indica que o usuário foi removido completamente do aplicativo. Para aplicativos SCIM, uma desabilitação é uma solicitação para definir a propriedade *ativa* como false em um usuário. 
 
-O serviço de provisionamento do Azure AD excluirá de forma reversível um usuário em um aplicativo quando o aplicativo oferecer suporte a exclusões reversívels (solicitação de atualização com Active = false) e qualquer um dos seguintes eventos ocorrer:
+**Configurar seu aplicativo para desabilitar um usuário**
 
-* A conta de usuário é excluída no Azure Active Directory
-*   O usuário não é desatribuído do aplicativo
-*   O usuário não atende mais a um filtro de escopo e sai de escopo
-    * Por padrão, o serviço de provisionamento do Azure Active Directory exclui ou desabilita usuários que saem de escopo. Se quiser substituir esse comportamento padrão, poderá definir um sinalizador para [ignorar exclusões fora do escopo](../app-provisioning/skip-out-of-scope-deletions.md).
-*   A propriedade AccountEnabled está definida como False
+Verifique se você selecionou a caixa de seleção para atualizações.
 
-Se um dos quatro eventos acima ocorrer e o aplicativo de destino não oferecer suporte a exclusões reversíveis, o serviço de provisionamento enviará uma solicitação de EXCLUSÃO para excluir permanentemente o usuário do aplicativo. 
+Verifique se você tem o mapeamento para *ativo* para seu aplicativo. Se você estiver usando um aplicativo da Galeria de aplicativos, o mapeamento poderá ser um pouco diferente. Verifique se você usa o mapeamento padrão/pronto para os aplicativos da galeria.
 
-Trinta dias após a exclusão de um usuário no Azure Active Directory, eles serão excluídos permanentemente do locatário. Neste ponto, o serviço de provisionamento enviará uma solicitação de EXCLUSÃO para excluir permanentemente o usuário no aplicativo. Durante o período de 30 dias, você pode [excluir manualmente um usuário de forma permanente](../fundamentals/active-directory-users-restore.md), o que envia uma solicitação de exclusão ao aplicativo.
+:::image type="content" source="./media/how-provisioning-works/disable-user.png" alt-text="Desabilitar um usuário" lightbox="./media/how-provisioning-works/disable-user.png":::
 
-Se você vir um atributo IsSoftDeleted em seus mapeamentos de atributo, ele será usado para determinar o estado do usuário e se deseja enviar uma solicitação de atualização com active = false para excluir a exclusão reversível do usuário. 
+
+**Configurar seu aplicativo para excluir um usuário**
+
+Os cenários a seguir dispararão uma desabilitação ou uma exclusão: 
+* Um usuário é excluído de maneira reversível no Azure AD (enviado para a propriedade da lixeira/AccountEnabled definida como false).
+    Trinta dias após a exclusão de um usuário no Azure Active Directory, eles serão excluídos permanentemente do locatário. Neste ponto, o serviço de provisionamento enviará uma solicitação de EXCLUSÃO para excluir permanentemente o usuário no aplicativo. Durante o período de 30 dias, você pode [excluir manualmente um usuário de forma permanente](../fundamentals/active-directory-users-restore.md), o que envia uma solicitação de exclusão ao aplicativo.
+* Um usuário é excluído/removido permanentemente da lixeira no Azure AD.
+* Um usuário não é atribuído de um aplicativo.
+* Um usuário vai de um escopo para fora do escopo (o não passa mais um filtro de escopo).
+
+:::image type="content" source="./media/how-provisioning-works/delete-user.png" alt-text="Excluir um usuário" lightbox="./media/how-provisioning-works/delete-user.png":::
+
+Por padrão, o serviço de provisionamento do Azure Active Directory exclui ou desabilita usuários que saem de escopo. Se você quiser substituir esse comportamento padrão, poderá definir um sinalizador para [ignorar exclusões fora do escopo.](skip-out-of-scope-deletions.md)
+
+Se um dos quatro eventos acima ocorrer e o aplicativo de destino não oferecer suporte a exclusões reversíveis, o serviço de provisionamento enviará uma solicitação de EXCLUSÃO para excluir permanentemente o usuário do aplicativo.
+
+Se você vir um atributo IsSoftDeleted em seus mapeamentos de atributo, ele será usado para determinar o estado do usuário e se deseja enviar uma solicitação de atualização com active = false para excluir a exclusão reversível do usuário.
+
+**Limitações conhecidas**
+
+* Se um usuário que foi gerenciado anteriormente pelo serviço de provisionamento não tiver sido atribuído de um aplicativo ou de um grupo atribuído a um aplicativo, enviaremos uma solicitação de desabilitação. Nesse ponto, o usuário não é gerenciado pelo serviço e não enviaremos uma solicitação de exclusão quando eles forem excluídos do diretório.
+* Não há suporte para o provisionamento de um usuário que está desabilitado no Azure AD. Eles devem estar ativos no Azure AD antes de serem provisionados.
+* Quando um usuário passa de excluído de forma reversível para ativo, o serviço de provisionamento do Azure AD ativará o usuário no aplicativo de destino, mas não irá restaurar automaticamente as associações de grupo. O aplicativo de destino deve manter as associações de grupo para o usuário no estado inativo. Se o aplicativo de destino não oferecer suporte a isso, você poderá reiniciar o provisionamento para atualizar as associações de grupo. 
+
+**Recomendação**
+
+Ao desenvolver um aplicativo, o sempre dá suporte a exclusões reversível e exclusões rígidas. Ele permite que os clientes se recuperem quando um usuário é desabilitado acidentalmente.
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

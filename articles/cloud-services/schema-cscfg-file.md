@@ -1,22 +1,25 @@
 ---
-title: Esquema de definição (arquivo .cscfg) dos Serviços de Nuvem do Azure | Microsoft Docs
+title: Esquema de definição dos serviços de nuvem do Azure (clássico) (arquivo. cscfg) | Microsoft Docs
 description: Um arquivo de configuração de serviço (. cscfg) especifica quantas instâncias de função implantar para cada função, valores de configuração e impressões digitais de certificado para uma função.
-services: cloud-services
-ms.custom: ''
-ms.date: 12/07/2016
+ms.topic: article
 ms.service: cloud-services
-ms.topic: reference
-caps.latest.revision: 35
-author: tgore03
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: cb77181e00c97b7f426429793f17af3cb5e84ebe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: ba933d4981fb7ed209a7fb5d5c41113750f312de
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79534738"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743467"
 ---
-# <a name="azure-cloud-services-config-schema-cscfg-file"></a>Esquema de configuração dos Serviços de Nuvem do Azure (arquivo .cscfg)
+# <a name="azure-cloud-services-classic-config-schema-cscfg-file"></a>Esquema de configuração dos serviços de nuvem do Azure (clássico) (arquivo. cscfg)
+
+> [!IMPORTANT]
+> Os [serviços de nuvem do Azure (suporte estendido)](../cloud-services-extended-support/overview.md) são um novo modelo de implantação baseado em Azure Resource Manager para o produto de serviços de nuvem do Azure.Com essa alteração, os serviços de nuvem do Azure em execução no modelo de implantação baseado no Azure Service Manager foram renomeados como serviços de nuvem (clássicos) e todas as novas implantações devem usar os [serviços de nuvem (suporte estendido)](../cloud-services-extended-support/overview.md).
+
 O arquivo de configuração de serviço especifica o número de instâncias de função a ser implantado para cada função no serviço, os valores das configurações e as impressões digitais de todos os certificados associados a uma função. Se o serviço fizer parte de uma Rede Virtual, as informações de configuração da rede deverão ser fornecidas no arquivo de configuração de serviço, bem como no arquivo de configuração de rede virtual. A extensão padrão do arquivo de configuração de serviço é .cscfg.
 
 O modelo de serviço é descrito pelo [Esquema de definição do Serviço de Nuvem (clássico)](schema-csdef-file.md).

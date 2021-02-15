@@ -1,15 +1,16 @@
 ---
 title: Perguntas frequentes
 description: Respostas para perguntas frequentes relacionadas ao serviço de instâncias de contêiner do Azure
-author: dkkapur
+author: macolso
+ms.author: macolso
 ms.topic: article
 ms.date: 06/02/2020
-ms.openlocfilehash: 95190496df4037a973207e14292911225094782e
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 5de1188ee018e796f918d7559c0e2c24c77834f4
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421273"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98186185"
 ---
 # <a name="frequently-asked-questions-about-azure-container-instances"></a>Perguntas frequentes sobre as instâncias de contêiner do Azure
 
@@ -39,10 +40,10 @@ Veja [diretrizes mais detalhadas](container-instances-troubleshooting.md#contain
 #### <a name="windows-server-2016-base-images"></a>Imagens base do Windows Server 2016
 
 * [Nano Server](https://hub.docker.com/_/microsoft-windows-nanoserver): `sac2016` `10.0.14393.3506` ou mais recente
-* [Windows Server Core](https://hub.docker.com/_/microsoft-windows-servercore): `ltsc2016` `10.0.14393.3506` ou mais recente
+* [Windows Server Core](https://hub.docker.com/_/microsoft-windows-servercore): `ltsc2016`  `10.0.14393.3506` ou mais recente
 
 > [!NOTE]
-> Não há suporte para imagens do Windows baseadas em versão semestral 1709 ou 1803 do canal semianual.
+> Não há suporte para imagens do Windows baseadas em Semi-Annual versão 1709 ou 1803 do canal.
 
 #### <a name="windows-server-2019-and-client-base-images-preview"></a>Imagens base do Windows Server 2019 e do cliente (versão prévia)
 
@@ -52,7 +53,11 @@ Veja [diretrizes mais detalhadas](container-instances-troubleshooting.md#contain
 
 ### <a name="what-net-or-net-core-image-layer-should-i-use-in-my-container"></a>Qual camada de imagem .NET ou .NET Core devo usar em meu contêiner? 
 
-Use a menor imagem que atenda às suas necessidades. Para o Linux, você poderia usar uma imagem de *tempo de execução* do .NET Core, que tem suporte desde o lançamento do .net Core 2,1. Para o Windows, se você estiver usando o .NET Framework completo, precisará usar uma imagem do Windows Server Core (imagem somente de tempo de execução, como *4.7.2-windowsservercore-ltsc2016*). As imagens somente de tempo de execução são menores, mas não dão suporte a cargas de trabalho que exigem o SDK do .NET.
+Use a menor imagem que atenda às suas necessidades. Para o Linux, você poderia usar uma imagem de *tempo de execução* do .NET Core, que tem suporte desde o lançamento do .net Core 2,1. Para o Windows, se você estiver usando o .NET Framework completo, precisará usar uma imagem do Windows Server Core (imagem somente de tempo de execução, como  *4.7.2-windowsservercore-ltsc2016*). As imagens somente de tempo de execução são menores, mas não dão suporte a cargas de trabalho que exigem o SDK do .NET.
+
+### <a name="what-types-of-container-registries-are-compatible-with-aci"></a>Quais tipos de registros de contêiner são compatíveis com o ACI?
+
+O ACI dá suporte a pulls de imagem do ACR e de outros registros de contêiner de terceiros, como DockerHub. O ACI também dá suporte a pulls de imagem de registros locais, desde que eles sejam compatíveis com OCR e tenham um ponto de extremidade que seja exposto publicamente à Internet.
 
 ## <a name="availability-and-quotas"></a>Disponibilidade e cotas
 
@@ -60,7 +65,7 @@ Use a menor imagem que atenda às suas necessidades. Para o Linux, você poderia
 
 Isso realmente depende de sua carga de trabalho. Inicie o desempenho pequeno e teste para ver como seus contêineres fazem. [Monitore o uso de recursos de CPU e memória](container-instances-monitor.md)e, em seguida, adicione núcleos ou memória com base no tipo de processo que você implanta no contêiner.
 
-Verifique também a [disponibilidade de recursos](container-instances-region-availability.md#availability---general) para a região em que você está implantando para os limites superiores em núcleos de CPU e memória disponível por grupo de contêineres. 
+Verifique também a [disponibilidade de recursos](container-instances-region-availability.md) para a região em que você está implantando para os limites superiores em núcleos de CPU e memória disponível por grupo de contêineres. 
 
 > [!NOTE]
 > Uma pequena quantidade de recursos de um grupo de contêineres é usada pela infraestrutura subjacente do serviço. Seus contêineres poderão acessar a maioria, mas não todos os recursos alocados para o grupo. Por esse motivo, planeje um pequeno buffer de recursos ao solicitar recursos para contêineres no grupo.
@@ -79,7 +84,7 @@ Ainda não. Atualmente, esses são os máximos para um grupo de contêineres. Co
 
 ### <a name="when-will-aci-be-in-a-specific-region"></a>Quando o ACI estará em uma região específica?
 
-A disponibilidade da região atual é publicada [aqui](container-instances-region-availability.md#availability---general). Se você tiver um requisito para uma região específica, entre em contato com o suporte do Azure.
+A disponibilidade da região atual é publicada [aqui](container-instances-region-availability.md). Se você tiver um requisito para uma região específica, entre em contato com o suporte do Azure.
 
 ## <a name="features-and-scenarios"></a>Recursos e cenários
 

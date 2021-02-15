@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/18/2019
+ms.date: 9/30/2020
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: aeef0c4f139f9721449ba2c503f08fafa2c627d3
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: f1ff679bddf2afc355516f2a04b3307d4a260a5c
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88166307"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98063613"
 ---
 # <a name="confidential-client-assertions"></a>Asserções confidenciais do cliente
 
@@ -48,16 +48,16 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
                                           .Build();
 ```
 
-As declarações esperadas pelo Azure AD são:
+As [declarações esperadas pelo Azure ad](active-directory-certificate-credentials.md) são:
 
 Tipo de declaração | Valor | Descrição
 ---------- | ---------- | ----------
-aud | `https://login.microsoftonline.com/{tenantId}/v2.0` | A declaração "AUD" (público) identifica os destinatários para os quais o JWT se destina (aqui Azure AD) consulte [RFC 7519, section 4.1.3]
-exp | Qui Jun 27 2019 15:04:17 GMT + 0200 (horário de Verão de romance) | A declaração "exp" (hora de expiração) identifica a hora de expiração ou a hora após ela na qual o JWT NÃO DEVE ser aceito para processamento. Consulte [RFC 7519, seção 4.1.4]
-iss | ClientID | A declaração "ISS" (emissor) identifica a entidade de segurança que emitiu o JWT. O processamento dessa declaração é específico do aplicativo. O valor "ISS" é uma cadeia de caracteres que diferencia maiúsculas de minúsculas contendo um valor StringOrURI. [RFC 7519, seção 4.1.1]
-jti | (um GUID) | A declaração "JTI" (ID JWT) fornece um identificador exclusivo para o JWT. O valor do identificador deve ser atribuído de maneira que garanta que haja uma probabilidade insignificante de que o mesmo valor será acidentalmente atribuído a um objeto de dados diferente; Se o aplicativo usar vários emissores, as colisões deverão ser evitadas entre os valores produzidos por diferentes emissores também. A declaração "JTI" pode ser usada para impedir que o JWT seja reproduzido. O valor "JTI" é uma cadeia de caracteres que diferencia maiúsculas de minúsculas. [RFC 7519, seção 4.1.7]
-nbf | Qui Jun 27 2019 14:54:17 GMT + 0200 (horário de Verão de romance) | A declaração "nbf" (não antes) identifica a hora antes da qual o JWT NÃO DEVE ser aceito para processamento. [RFC 7519, seção 4.1.5]
-sub | ClientID | A declaração "sub" (Subject) identifica o assunto do JWT. As declarações em um JWT normalmente são instruções sobre o assunto. O valor da entidade deve ter o escopo definido para ser local exclusivo no contexto do emissor ou ser globalmente exclusivo. Veja [RFC 7519, section 4.1.2]
+aud | `https://login.microsoftonline.com/{tenantId}/v2.0` | A declaração "AUD" (público) identifica os destinatários para os quais o JWT se destina (aqui Azure AD) consulte [RFC 7519, seção 4.1.3](https://tools.ietf.org/html/rfc7519#section-4.1.3).  Nesse caso, esse destinatário é o servidor de logon (login.microsoftonline.com).
+exp | 1601519414 | A declaração "exp" (hora de expiração) identifica a hora de expiração ou a hora após ela na qual o JWT NÃO DEVE ser aceito para processamento. Consulte [RFC 7519, seção 4.1.4](https://tools.ietf.org/html/rfc7519#section-4.1.4).  Isso permite que a asserção seja usada até lá, portanto, mantenha-a curta a 5-10 minutos após `nbf` no máximo.  O Azure AD não coloca restrições no `exp` tempo atualmente. 
+iss | ClientID | A declaração "ISS" (emissor) identifica a entidade de segurança que emitiu o JWT, neste caso, o aplicativo cliente.  Use a ID do aplicativo GUID.
+jti | (um GUID) | A declaração "JTI" (ID JWT) fornece um identificador exclusivo para o JWT. O valor do identificador deve ser atribuído de maneira que garanta que haja uma probabilidade insignificante de que o mesmo valor será acidentalmente atribuído a um objeto de dados diferente; Se o aplicativo usar vários emissores, as colisões deverão ser evitadas entre os valores produzidos por diferentes emissores também. O valor "JTI" é uma cadeia de caracteres que diferencia maiúsculas de minúsculas. [RFC 7519, seção 4.1.7](https://tools.ietf.org/html/rfc7519#section-4.1.7)
+nbf | 1601519114 | A declaração "nbf" (não antes) identifica a hora antes da qual o JWT NÃO DEVE ser aceito para processamento. [RFC 7519, seção 4.1.5](https://tools.ietf.org/html/rfc7519#section-4.1.5).  O uso da hora atual é apropriado. 
+sub | ClientID | A declaração "sub" (Subject) identifica o assunto do JWT, neste caso, também seu aplicativo. Use o mesmo valor de `iss` . 
 
 Aqui está um exemplo de como criar essas declarações:
 
@@ -181,7 +181,7 @@ Depois de ter a declaração de cliente assinada, você pode usá-la com as APIs
 
 ### <a name="withclientclaims"></a>WithClientClaims
 
-`WithClientClaims(X509Certificate2 certificate, IDictionary<string, string> claimsToSign, bool mergeWithDefaultClaims = true)`Por padrão, produzirá uma asserção assinada contendo as declarações esperadas pelo Azure AD mais declarações de cliente adicionais que você deseja enviar. Aqui está um trecho de código sobre como fazer isso.
+`WithClientClaims(X509Certificate2 certificate, IDictionary<string, string> claimsToSign, bool mergeWithDefaultClaims = true)` Por padrão, produzirá uma asserção assinada contendo as declarações esperadas pelo Azure AD mais declarações de cliente adicionais que você deseja enviar. Aqui está um trecho de código sobre como fazer isso.
 
 ```csharp
 string ipAddress = "192.168.1.2";

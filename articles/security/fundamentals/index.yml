@@ -11,13 +11,13 @@ metadata:
   author: TerryLanfear
   ms.author: terrylan
   manager: rkarlin
-  ms.date: 10/28/2019
-  ms.openlocfilehash: 62a0bc67624c27ccd8185edb8be1a8cb3f16a9b1
-  ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+  ms.date: 02/03/2021
+  ms.openlocfilehash: 87584400894b97f0ef0522d8f7c421100a673cba
+  ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 04/10/2020
-  ms.locfileid: "81115236"
+  ms.lasthandoff: 02/04/2021
+  ms.locfileid: "99550295"
 landingContent:
 - title: Sobre a segurança do Azure
   linkLists:
@@ -46,12 +46,12 @@ landingContent:
   - linkListType: overview
     links:
     - text: Central de Segurança do Azure
-      url: ../../security-center/security-center-intro.md
+      url: ../../security-center/security-center-introduction.md
   - linkListType: concept
     links:
     - text: Gerenciamento e monitoramento
       url: management-monitoring-overview.md
-    - text: Detecção avançada de ameaças
+    - text: Proteção contra ameaças
       url: threat-detection.md
 - title: Melhores práticas para proteger as soluções de nuvem
   linkLists:
@@ -76,7 +76,7 @@ landingContent:
     - text: Criptografia em repouso
       url: encryption-atrest.md
     - text: Proteção de dados
-      url: database-security-overview.md
+      url: ../../azure-sql/database/security-overview.md
     - text: Segurança de rede
       url: network-overview.md
     - text: Segurança de máquinas virtuais
@@ -86,16 +86,16 @@ landingContent:
   - linkListType: learn
     links:
     - text: Proteger os aplicativos de nuvem no Azure
-      url: https://docs.microsoft.com/learn/paths/secure-your-cloud-apps/
+      url: /learn/paths/secure-your-cloud-apps/
 - title: Criar habilidades de segurança
   linkLists:
   - linkListType: learn
     links:
     - text: Implementar segurança de rede
-      url: https://docs.microsoft.com/learn/paths/implement-network-security
+      url: /learn/paths/implement-network-security
     - text: Gerenciar identidade e acesso
-      url: https://docs.microsoft.com/learn/paths/manage-identity-and-access
+      url: /learn/paths/manage-identity-and-access
     - text: Implementar segurança no gerenciamento de recursos
-      url: https://docs.microsoft.com/learn/paths/implement-resource-mgmt-security
+      url: /learn/paths/implement-resource-mgmt-security
     - text: Implementar segurança na hospedagem de máquinas virtuais
       url: https://docs.microsoft.com/learn/paths/implement-host-security

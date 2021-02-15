@@ -7,15 +7,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 23af7ff9e4740b88d3d1f8cffb3d79a46c8d0d61
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
-ms.translationtype: MT
+ms.openlocfilehash: ff377b0f93968eb6743187e4e659f4e888e5010e
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544444"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358892"
 ---
 # <a name="tutorial-configure-gotomeeting-for-automatic-user-provisioning"></a>Tutorial: Configurar GoToMeeting para provisionamento automático de usuário
 
@@ -35,7 +35,7 @@ O Azure Active Directory usa um conceito chamado "atribuições" para determinar
 
 Antes de configurar e habilitar o serviço de provisionamento, você precisa decidir quais usuários e/ou grupos no Azure AD representam os usuários que precisam de acesso ao seu aplicativo GoToMeeting. Depois de decidir, você pode atribuir esses usuários ao seu aplicativo GoToMeeting seguindo estas instruções:
 
-[Atribuir um usuário ou um grupo a um aplicativo empresarial](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+[Atribuir um usuário ou um grupo a um aplicativo empresarial](../manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-gotomeeting"></a>Dicas importantes para atribuir usuários ao GoToMeeting
 
@@ -58,9 +58,9 @@ Esta seção orienta você quanto à conexão do Azure AD com a API de provision
 
 1. Selecione sua instância do GoToMeeting e selecione a guia **Provisionamento**.
 
-1. Defina o modo de **provisionamento** como **automático**. 
+1. Defina o **Modo de Provisionamento** como **Automático**. 
 
-    ![provisionamento](./media/citrixgotomeeting-provisioning-tutorial/provisioning.png)
+    ![Captura de tela da guia Provisionamento para o GoToMeeting no portal do Azure. O Modo de Provisionamento está definido como Automático e Nome do Usuário Administrador, Senha e Testar Conectividade estão realçados.](./media/citrixgotomeeting-provisioning-tutorial/provisioning.png)
 
 1. Na seção “Credenciais de Administrador”, realize as seguintes etapas:
    
@@ -90,6 +90,4 @@ Para saber mais sobre como ler os logs de provisionamento do Azure AD, consulte 
 
 * [Gerenciamento do provisionamento de conta de usuário para Aplicativos Empresariais](tutorial-list.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-* [Configurar logon único](https://docs.microsoft.com/azure/active-directory/active-directory-saas-citrix-gotomeeting-tutorial)
-
-
+* [Configurar Logon Único](./citrix-gotomeeting-tutorial.md)

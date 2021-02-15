@@ -10,41 +10,41 @@ ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
 ms.date: 05/18/2020
 ms.author: derekol
-ms.openlocfilehash: 55c5e6c5b718dc2de295b9b4418ddc8607a69f8f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 95ce90dbbf47ffe527fe6f25704d9cd28b834ea9
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84871356"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026688"
 ---
 # <a name="peering-service-faq"></a>Perguntas frequentes sobre o serviço de emparelhamento
 
 Este artigo explica as perguntas mais frequentes sobre as conexões do serviço de emparelhamento do Azure.
 
 
-**P. quem são os clientes-alvo?**
+**Perguntas. Quem são os clientes-alvo?**
 
 a. Clientes de destino são empresas que se conectam ao Microsoft Cloud usando a Internet como transporte.
 
-**P. os clientes podem se inscrever para o serviço de emparelhamento com vários provedores?** 
+**Perguntas. Os clientes podem se inscrever para o serviço de emparelhamento com vários provedores?** 
 
 a. Sim, os clientes podem se inscrever no serviço de emparelhamento com vários provedores na mesma região ou em regiões diferentes, mas não para o mesmo prefixo.
 
-**P. os clientes podem selecionar um ISP exclusivo para seus sites por região geográfica?**
+**Perguntas. Os clientes podem selecionar um ISP exclusivo para seus sites por região geográfica?**
 
 a. Sim, os clientes podem fazer isso. Selecione o provedor de provedores de parceiros por região que atenda às suas necessidades operacionais e de negócios.
 
-**P. o que é um PoP do Microsoft Edge?**
+**Perguntas. O que é um PoP do Microsoft Edge?**
 
-a. É um local físico onde a Microsoft se conecta com outras redes. No local PoP do Microsoft Edge, serviços como a porta de front-end do Azure e a CDN do Azure são hospedados. Para saber mais, confira [CDN do Azure](https://docs.microsoft.com/azure/cdn/cdn-features).
+a. É um local físico onde a Microsoft se conecta com outras redes. No local PoP do Microsoft Edge, serviços como a porta de front-end do Azure e a CDN do Azure são hospedados. Para saber mais, confira [CDN do Azure](../cdn/cdn-features.md).
 
 ## <a name="peering-service-unique-characteristics"></a>Serviço de emparelhamento: características exclusivas
 
-**P. como o serviço de emparelhamento é diferente do acesso normal à Internet?**
+**Perguntas. Como o serviço de emparelhamento é diferente do acesso normal à Internet?**
 
 a. Os parceiros que se registraram com o serviço de emparelhamento da Microsoft estão trabalhando com a Microsoft para oferecer roteamento otimizado e conectividade confiável aos serviços da Microsoft.  
 
-**P. como o serviço de emparelhamento é diferente do ExpressRoute?**
+**Perguntas. Como o serviço de emparelhamento é diferente do ExpressRoute?**
 
 a. O Azure ExpressRoute é uma conexão privada e dedicada de um ou vários locais de clientes. Enquanto o serviço de emparelhamento oferece conectividade pública otimizada e não dá suporte a nenhuma conectividade privada, ele também oferece conectividade otimizada para debates locais da Internet.
 

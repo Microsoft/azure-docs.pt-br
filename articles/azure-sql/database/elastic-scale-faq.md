@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 8998f03fa44529a5f006936a01f711a279178245
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 51e15a8dc5e9f918c630397d6d6593f5bf561755
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84032017"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92786897"
 ---
 # <a name="elastic-database-tools-frequently-asked-questions-faq"></a>FAQ (perguntas frequentes) sobre ferramentas de banco de dados elástico
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -39,11 +39,11 @@ Não use credenciais na forma de “ID do Usuário=username@servername”, em ve
 
 ## <a name="do-i-need-to-create-a-shard-map-manager-and-populate-shards-every-time-i-start-my-applications"></a>É necessário criar um Gerenciador de Mapa de Fragmento e popular os fragmentos sempre que iniciar meus aplicativos
 
-Não, a criação do Gerenciador de mapa de fragmento (por exemplo, [ShardMapManagerFactory.CreateSqlShardMapManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager)) é uma operação única.  Seu aplicativo deve usar a chamada [ShardMapManagerFactory.TryGetSqlShardMapManager()](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager) em tempo de inicialização do aplicativo.  Deve haver apenas uma chamada, por domínio de aplicativo.
+Não, a criação do Gerenciador de mapa de fragmento (por exemplo, [ShardMapManagerFactory.CreateSqlShardMapManager](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager)) é uma operação única.  Seu aplicativo deve usar a chamada [ShardMapManagerFactory.TryGetSqlShardMapManager()](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager) em tempo de inicialização do aplicativo.  Deve haver apenas uma chamada, por domínio de aplicativo.
 
 ## <a name="i-have-questions-about-using-elastic-database-tools-how-do-i-get-them-answered"></a>Tenho dúvidas sobre o uso das ferramentas de banco de dados elástico, como obter respostas para elas
 
-Entre em contato conosco na [página de perguntas e respostas da Microsoft sobre o banco de dados SQL](https://docs.microsoft.com/answers/topics/azure-sql-database.html).
+Entre em contato conosco na [página de perguntas e respostas da Microsoft sobre o banco de dados SQL](/answers/topics/azure-sql-database.html).
 
 ## <a name="when-i-get-a-database-connection-using-a-sharding-key-i-can-still-query-data-for-other-sharding-keys-on-the-same-shard--is-this-by-design"></a>Quando recebo uma conexão de banco de dados usando uma chave de fragmentação, ainda posso consultar dados para outras chaves de fragmentação no mesmo fragmento.  Isso é proposital
 

@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 10/18/2018
-ms.openlocfilehash: b50922d129fb4c72db1d6077a49c4d1309d5fe55
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d4a7f1453ec686cfa16d260101ba81f429ce1da0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86512972"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89469449"
 ---
 # <a name="quickstart-for-powershell-in-azure-cloud-shell"></a>Início rápido do PowerShell no Azure Cloud Shell
 
@@ -261,7 +261,7 @@ Para autenticar servidores ou VMs usando o SSH, gere o par de chaves privadas/p�
 
 ### <a name="using-ssh"></a>Usando o SSH
 
-Siga as instruções [aqui](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-powershell) para criar uma nova configuração de VM usando cmdlets Azure PowerShell.
+Siga as instruções [aqui](../virtual-machines/linux/quick-create-powershell.md) para criar uma nova configuração de VM usando cmdlets Azure PowerShell.
 Antes de chamar em `New-AzVM` para iniciar a implantação, adicione chave pública SSH à configuração da VM.
 A VM recém-criada conterá a chave pública no local `~\.ssh\authorized_keys`, permitindo assim a sessão SSH sem credenciais para a VM.
 
@@ -345,6 +345,6 @@ Digite `exit` para encerrar a sessão.
 [bashqs]:quickstart.md
 [gallery]:https://www.powershellgallery.com/
 [customex]:https://docs.microsoft.com/azure/virtual-machines/windows/extensions-customscript
-[profile]: https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.core/about/about_profiles
-[azmount]: https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows
+[profile]: /powershell/module/microsoft.powershell.core/about/about_profiles
+[azmount]: ../storage/files/storage-how-to-use-files-windows.md
 [githubtoken]: https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/

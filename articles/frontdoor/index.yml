@@ -7,15 +7,15 @@ metadata:
   services: frontdoor
   ms.service: frontdoor
   ms.topic: landing-page
-  author: vhorne
-  ms.author: victorh
-  ms.date: 03/03/2020
-  ms.openlocfilehash: f6059ee181095a7f60da02e192c32818fe5b542f
-  ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+  author: duongau
+  ms.author: duau
+  ms.date: 09/09/2020
+  ms.openlocfilehash: 844a2e070f5918352044c878657dc2dcee1902d4
+  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 06/24/2020
-  ms.locfileid: "85321495"
+  ms.lasthandoff: 10/09/2020
+  ms.locfileid: "89657247"
 landingContent:
 - title: Saiba mais sobre o Azure Front Door
   linkLists:
@@ -23,8 +23,6 @@ landingContent:
     links:
     - text: O que é o Azure Front Door?
       url: front-door-overview.md
-    - text: Novidades
-      url: front-door-whats-new.md
 - title: Criar um Front Door
   linkLists:
   - linkListType: quickstart

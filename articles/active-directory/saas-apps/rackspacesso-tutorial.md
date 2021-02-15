@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: jeedes
-ms.openlocfilehash: a2c2e7358c32453daf53c40a9322df4fe30642d8
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: eed0ea075c5e9eb39810259be2aa6781a59f2f22
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548867"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92511623"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rackspace-sso"></a>Tutorial: Integração do Azure Active Directory ao Rackspace SSO
 
@@ -27,7 +27,7 @@ A integração do Rackspace SSO ao Microsoft Azure AD oferece os seguintes benef
 * Você pode permitir que os usuários sejam conectados automaticamente ao Rackspace SSO (Logon Único) com suas contas do Azure AD.
 * Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](../manage-apps/what-is-single-sign-on.md).
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -49,11 +49,11 @@ Para configurar a integração do Rackspace SSO ao Microsoft Azure AD, é necess
 
 **Para adicionar o Rackspace SSO da galeria, execute as etapas abaixo:**
 
-1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory** .
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
-2. Navegue até **Aplicativos Empresariais** e, em seguida, selecione a opção **Todos os Aplicativos**.
+2. Navegue até **Aplicativos Empresariais** e, em seguida, selecione a opção **Todos os Aplicativos** .
 
     ![A folha Aplicativos empresariais](common/enterprise-applications.png)
 
@@ -61,13 +61,13 @@ Para configurar a integração do Rackspace SSO ao Microsoft Azure AD, é necess
 
     ![O botão Novo aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, digite **Rackspace SSO**, selecione **Rackspace SSO** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa, digite **Rackspace SSO** , selecione **Rackspace SSO** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
      ![Rackspace SSO na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
-Nesta seção, você configurará e testará o logon único do Microsoft Azure AD com o Rackspace SSO, com base em um usuário de teste chamado **Brenda Fernandes**.
+Nesta seção, você configurará e testará o logon único do Microsoft Azure AD com o Rackspace SSO, com base em um usuário de teste chamado **Brenda Fernandes** .
 Ao usar o logon único com Rackspace, os usuários Rackspace serão automaticamente criados na primeira vez que entrarem no portal do Rackspace. 
 
 Para configurar e testar o logon único do Microsoft Azure AD com o Rackspace SSO, é necessário concluir os seguintes blocos de construção:
@@ -85,35 +85,35 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure.
 
 Para configurar o logon único do Microsoft Azure AD com o Rackspace SSO, siga as etapas abaixo:
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração do aplicativo **Rackspace SSO**, selecione **Logon único**.
+1. No [portal do Azure](https://portal.azure.com/), na página de integração do aplicativo **Rackspace SSO** , selecione **Logon único** .
 
     ![Link Configurar logon único](common/select-sso.png)
 
-2. Na caixa de diálogo **Selecionar um método de logon único**, selecione o modo **SAML/WS-Fed** para habilitar o logon único.
+2. Na caixa de diálogo **Selecionar um método de logon único** , selecione o modo **SAML/WS-Fed** para habilitar o logon único.
 
     ![Modo de seleção de logon único](common/select-saml-option.png)
 
-3. Na página **Definir logon único com SAML**, clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML**.
+3. Na página **Definir logon único com SAML** , clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML** .
 
     ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-4. Na seção **Configuração básica de SAML**, carregue o **arquivo de metadados do Provedor de Serviço** que você pode baixar da [URL](https://login.rackspace.com/federate/sp.xml) e execute as seguintes etapas:
+4. Na seção **Configuração básica de SAML** , carregue o **arquivo de metadados do Provedor de Serviço** que você pode baixar da [URL](https://login.rackspace.com/federate/sp.xml) e execute as seguintes etapas:
 
-    a. Clique em **Carregar arquivo de metadados**.
+    a. Clique em **Carregar arquivo de metadados** .
 
-    ![image](common/upload-metadata.png)
+    ![A captura de tela mostra a Configuração Básica do SAML com o link Carregar arquivo de metadados.](common/upload-metadata.png)
 
-    b. Clique no **logotipo da pasta** para selecionar o arquivo de metadados e depois em **Carregar**.
+    b. Clique no **logotipo da pasta** para selecionar o arquivo de metadados e depois em **Carregar** .
 
-    ![image](common/browse-upload-metadata.png)
+    ![A captura de tela mostra a caixa de diálogo em que você pode selecionar e carregar um arquivo.](common/browse-upload-metadata.png)
 
     c. Depois que o arquivo de metadados tiver sido carregado com êxito, as URLs necessárias são automaticamente preenchidas.
 
-    d. Na caixa de texto **URL de Logon**, digite uma URL: `https://login.rackspace.com/federate/`
+    d. Na caixa de texto **URL de Logon** , digite uma URL: `https://login.rackspace.com/federate/`
 
     ![Informações de logon único em Domínio e URLs do Rackspace SSO](common/sp-signonurl.png)   
 
-5. Na página **Configurar Logon Único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Baixar** para baixar o **XML de Metadados de Federação** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
+5. Na página **Configurar Logon Único com SAML** , na seção **Certificado de Autenticação SAML** , clique em **Baixar** para baixar o **XML de Metadados de Federação** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
     ![O link de download do Certificado](common/metadataxml.png)
 
@@ -121,7 +121,7 @@ Esse arquivo será carregado para Rackspace para preencher as definições de co
 
 ### <a name="configure-rackspace-sso-single-sign-on"></a>Configurar logon único do Rackspace SSO
 
-Para configurar o logon único no lado de **SSO do Rackspace SSO**:
+Para configurar o logon único no lado de **SSO do Rackspace SSO** :
 
 1. Veja a documentação em [Adicionar um Provedor de Identidade ao Painel de Controle](https://developer.rackspace.com/docs/rackspace-federation/gettingstarted/add-idp-cp/)
 1. Ele o guiará pelas etapas para:
@@ -135,7 +135,7 @@ Isso configurará corretamente as definições básicas de SSO necessárias para
 
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
-1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, **Todos os usuários**.
+1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory** , selecione **Usuários** e, em seguida, **Todos os usuários** .
 
     ![Os links “Usuários e grupos” e “Todos os usuários”](common/users.png)
 
@@ -147,39 +147,39 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
-    a. No campo **Nome**, insira **BrendaFernandes**.
+    a. No campo **Nome** , insira **BrendaFernandes** .
   
-    b. No campo **Nome de usuário**, digite `brittasimon@yourcompanydomain.extension`. Por exemplo, BrittaSimon@contoso.com
+    b. No campo **Nome de usuário** , digite `brittasimon@yourcompanydomain.extension`. Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
 
-    d. Clique em **Criar**.
+    d. Clique em **Criar** .
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
 Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure concedendo acesso ao Rackspace SSO.
 
-1. No portal do Azure, selecione **Aplicativos Empresariais**, **Todos os aplicativos** e, em seguida, **Rackspace SSO**.
+1. No portal do Azure, selecione **Aplicativos Empresariais** , **Todos os aplicativos** e, em seguida, **Rackspace SSO** .
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicativos, selecione **Rackspace SSO**.
+2. Na lista de aplicativos, selecione **Rackspace SSO** .
 
     ![O link do Rackspace SSO na lista de Aplicativos](common/all-applications.png)
 
-3. No menu à esquerda, selecione **Usuários e grupos**.
+3. No menu à esquerda, selecione **Usuários e grupos** .
 
     ![O link “Usuários e grupos”](common/users-groups-blade.png)
 
-4. Escolha o botão **Adicionar usuário** e, em seguida, escolha **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
+4. Escolha o botão **Adicionar usuário** e, em seguida, escolha **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição** .
 
     ![O painel Adicionar Atribuição](common/add-assign-user.png)
 
-5. Na caixa de diálogo **Usuários e grupos**, escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+5. Na caixa de diálogo **Usuários e grupos** , escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
 
-6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função**, escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
+6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função** , escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
 
-7. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
+7. Na caixa de diálogo **Adicionar atribuição** , clique no botão **Atribuir** .
 
 ### <a name="set-up-attribute-mapping-in-the-rackspace-control-panel"></a>Configurar o Mapeamento de Atributos no painel de controle do Rackspace
 
@@ -228,17 +228,16 @@ Consulte a [documentação de Noções básicas de mapeamento de atributo](https
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Ao clicar no bloco do Rackspace SSO no Painel de Acesso, você deverá ser conectado automaticamente ao Rackspace SSO, para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao clicar no bloco do Rackspace SSO no Painel de Acesso, você deverá ser conectado automaticamente ao Rackspace SSO, para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
 
-Você também pode usar o botão **Validar** nas configurações de logon único de **SSO do Rackspace**:
+Você também pode usar o botão **Validar** nas configurações de logon único de **SSO do Rackspace** :
 
    ![Botão Validar de SSO](common/sso-validate-sign-on.png)
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](./tutorial-list.md)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [O que é o Acesso Condicional no Azure Active Directory?](../conditional-access/overview.md)

@@ -7,12 +7,12 @@ ms.custom: devx-track-csharp
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: eebdf053cc3eea1dfc91476bff3817891bec42a3
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 4a22602dd9638b981cfe3d8bae9b5cdaacbf90dc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88959045"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91652033"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Introdução ao SDK do Azure WebJobs para o processamento em segundo plano controlado por evento
 
@@ -264,13 +264,13 @@ Nesta seção, você compila e executa o projeto localmente e dispara a função
 
 1. Digite *queue* como o nome para a fila e selecione **OK**.
 
-   ![Criar fila](./media/webjobs-sdk-get-started/create-queue.png)
+   ![Captura de tela que mostra onde você cria a fila e o nomeie como "fila". ](./media/webjobs-sdk-get-started/create-queue.png)
 
 1. Clique no botão direito do mouse para a nova fila e selecione **Exibir Fila**.
 
 1. Selecione o ícone **Adicionar Mensagem**.
 
-   ![Criar fila](./media/webjobs-sdk-get-started/create-queue-message.png)
+   ![Captura de tela que realça o ícone Adicionar mensagem.](./media/webjobs-sdk-get-started/create-queue-message.png)
 
 1. Na caixa de diálogo **Adicionar Mensagem**, digite *Olá, Mundo!* como o **Texto da mensagem**e, em seguida, selecione **OK**. Agora há uma mensagem na fila.
 

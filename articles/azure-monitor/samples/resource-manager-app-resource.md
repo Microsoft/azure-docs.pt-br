@@ -3,15 +3,15 @@ title: Exemplos de modelo do Resource Manager para recursos do Application Insig
 description: Realize amostragem de modelos do Azure Resource Manager para implantar recursos do Application Insights no Azure Monitor.
 ms.subservice: application-insights
 ms.topic: sample
-author: mrbullwinkle
-ms.author: mbullwin
+author: lgayhardt
+ms.author: lagayhar
 ms.date: 07/08/2020
-ms.openlocfilehash: d7a8a7b7fa75d7d9bb4dc45a3432370bac4cb4d6
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 88c657aa89476f3be21226544e64512bd433776c
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86498637"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98210266"
 ---
 # <a name="resource-manager-template-samples-for-creating-application-insights-resources"></a>Exemplos de modelo do Resource Manager para criar recursos do Application Insights
 

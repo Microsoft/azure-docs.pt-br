@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 6efc6b27090ecc7171bb66deb303a4764d9b6f04
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 7d94a681fa987a4b23dbcda744c2f8516da4437a
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87128549"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92891658"
 ---
 # <a name="add-a-map-layer-from-the-open-geospatial-consortium-ogc"></a>Adicionar uma camada do mapa do Open Geospatial Consortium (OGC)
 
@@ -23,7 +23,7 @@ As seções a seguir descrevem os recursos do serviço de mapa da Web que são s
 
 **Serviço de mapa da Web (WMS)**
 
-- Versões com suporte: `1.0.0` , `1.1.0` , `1.1.1` e`1.3.0`
+- Versões com suporte: `1.0.0` , `1.1.0` , `1.1.1` e `1.3.0`
 - O serviço deve dar suporte ao `EPSG:3857` sistema de projeção ou lidar com as reprojeções.
 - O GetFeatureInfo exige que o serviço ofereça suporte `EPSG:4326` ou lide com as reprojeções. 
 - Operações com suporte:
@@ -36,9 +36,9 @@ As seções a seguir descrevem os recursos do serviço de mapa da Web que são s
 
 **Serviço de bloco do mapa da Web (WMTS)**
 
-- Versões com suporte:`1.0.0`
+- Versões com suporte: `1.0.0`
 - Os blocos devem ser quadrados, de modo que `TileWidth == TileHeight` .
-- CRS com suporte: `EPSG:3857` ou`GoogleMapsCompatible` 
+- CRS com suporte: `EPSG:3857` ou `GoogleMapsCompatible` 
 - O identificador TileMatrix deve ser um valor inteiro que corresponda a um nível de zoom no mapa. Em um mapa do Azure, o nível de zoom é um valor entre `"0"` e `"22"` . Portanto, o tem `"0"` suporte, mas `"00"` não tem suporte.
 - Operações com suporte:
 
@@ -83,10 +83,10 @@ Você também pode especificar as configurações de mapa para usar um serviço 
 Saiba mais sobre as classes e métodos usados neste artigo:
 
 > [!div class="nextstepaction"]
-> [OgcMapLayer](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.layer.ogcmaplayer)
+> [OgcMapLayer](/javascript/api/azure-maps-spatial-io/atlas.layer.ogcmaplayer)
 
 > [!div class="nextstepaction"]
-> [OgcMapLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.ogcmaplayeroptions)
+> [OgcMapLayerOptions](/javascript/api/azure-maps-spatial-io/atlas.ogcmaplayeroptions)
 
 Consulte os artigos a seguir, que contêm exemplos de código que você pode adicionar a seus mapas:
 

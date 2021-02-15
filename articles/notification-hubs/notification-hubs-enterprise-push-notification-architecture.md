@@ -18,10 +18,10 @@ ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 018315b7ed468e24fb922337848d14703ffdcd4d
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89003619"
 ---
 # <a name="enterprise-push-architectural-guidance"></a>Orientação arquitetural do push corporativo
@@ -52,7 +52,7 @@ A parte mais importante neste diagrama de arquitetura é o Barramento de Serviç
 1. Aplicativo Móvel
    * Recebe e exibe a notificação
 
-### <a name="benefits"></a>Benefícios
+### <a name="benefits"></a>Vantagens
 
 1. A separação entre o receptor (aplicativo/serviço móvel via Hub de Notificação) e o remetente (sistemas de back-end) permite que os sistemas de back-end adicionais sejam integrados com alterações mínimas.
 1. Isso também cria o cenário de vários aplicativos móveis, podendo receber eventos de um ou mais sistemas de back-end.  

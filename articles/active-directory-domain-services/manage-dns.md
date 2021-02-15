@@ -1,7 +1,7 @@
 ---
 title: Gerenciar o DNS para Azure AD Domain Services | Microsoft Docs
 description: Saiba como instalar as ferramentas do servidor DNS para gerenciar o DNS e criar encaminhadores condicionais para um Azure Active Directory Domain Services domínio gerenciado.
-author: iainfoulds
+author: justinha
 manager: daveba
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
 ms.service: active-directory
@@ -9,13 +9,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
-ms.author: iainfou
-ms.openlocfilehash: af321f4e9ef9e340026852a759bb70b9f03c77f6
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.author: justinha
+ms.openlocfilehash: afa6920a36a5a7218571239b36815004d8f2d450
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88722935"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96619344"
 ---
 # <a name="administer-dns-and-create-conditional-forwarders-in-an-azure-active-directory-domain-services-managed-domain"></a>Administrar o DNS e criar encaminhadores condicionais em um Azure Active Directory Domain Services domínio gerenciado
 
@@ -69,7 +69,7 @@ Com as ferramentas do servidor DNS instaladas, você pode administrar os registr
 > Para administrar o DNS em um domínio gerenciado, você deve estar conectado a uma conta de usuário que seja membro do grupo de *Administradores de DC do AAD* .
 
 1. Na tela iniciar, selecione **Ferramentas administrativas**. Uma lista de ferramentas de gerenciamento disponíveis é mostrada, incluindo o **DNS** instalado na seção anterior. Selecione **DNS** para iniciar o console de gerenciamento do DNS.
-1. Na caixa de diálogo **conectar ao servidor DNS** , selecione **o seguinte computador**e, em seguida, insira o nome de domínio DNS do domínio gerenciado, como *aaddscontoso.com*:
+1. Na caixa de diálogo **conectar ao servidor DNS** , selecione **o seguinte computador** e, em seguida, insira o nome de domínio DNS do domínio gerenciado, como *aaddscontoso.com*:
 
     ![Conectar-se ao domínio gerenciado no console DNS](./media/manage-dns/connect-dns-server.png)
 

@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: cynthn
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 4c57ec2edf43bf0a710f3c15f30836f751c4d52b
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: a96c0f7c6fb767b96be273a615149143043e8bc1
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500156"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91975120"
 ---
 # <a name="open-ports-and-endpoints-to-a-vm-with-the-azure-cli"></a>Abrir portas e pontos de extremidade para uma VM com o CLI do Azure
 
@@ -89,4 +89,4 @@ Para aplicativos Web altamente disponíveis, você deve colocar suas VMs atrás 
 Neste exemplo, você criou uma regra simples para permitir o tráfego HTTP. Você pode encontrar informações sobre a criação de ambientes mais detalhados nos seguintes artigos:
 
 * [Visão geral do Azure Resource Manager](../../azure-resource-manager/management/overview.md)
-* [O que é um Grupo de Segurança de Rede (NSG)?](../../virtual-network/security-overview.md)
+* [O que é um Grupo de Segurança de Rede (NSG)?](../../virtual-network/network-security-groups-overview.md)

@@ -4,10 +4,10 @@ description: Saiba como iniciar máquinas virtuais em um laboratório no Azure D
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 231e79d594aab7c59fa21f9ee512abaa9ac67043
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87282255"
 ---
 # <a name="start-virtual-machines-in-a-lab-in-order-by-using-azure-automation-runbooks"></a>Iniciar máquinas virtuais em um laboratório em ordem usando runbooks de automação do Azure
@@ -16,7 +16,7 @@ O recurso de [inicialização](devtest-lab-set-lab-policy.md#set-autostart) auto
 ## <a name="setup"></a>Instalação
 Neste exemplo, as VMs no laboratório precisam ter a marca **StartupOrder** adicionada com o valor apropriado (0, 1, 2, etc.). Designe qualquer computador que não precise ser iniciado como-1.
 
-## <a name="create-an-azure-automation-account"></a>Criar uma conta da Automação do Azure
+## <a name="create-an-azure-automation-account"></a>Criar uma conta de Automação do Azure
 Crie uma conta de automação do Azure seguindo as instruções neste [artigo](../automation/automation-create-standalone-account.md). Escolha a opção **contas Executar como** ao criar a conta. Depois que a conta de automação for criada, abra a página **módulos** e selecione **Atualizar módulos do Azure** na barra de menus. Os módulos padrão são várias versões antigas e sem a atualização o script pode não funcionar.
 
 ## <a name="add-a-runbook"></a>Adicionar um runbook

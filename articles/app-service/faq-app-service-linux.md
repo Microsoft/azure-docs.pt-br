@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: c35647a46cd252ce045d10e8dfefcf78236ba74b
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 6faec27bf368b3eb45e05a91307df6027bda93b1
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88961713"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100093991"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Perguntas frequentes sobre o Serviço de Aplicativo do Azure no Linux
 
@@ -94,7 +94,7 @@ Sim, desabilite `perMessageDeflate` no código Node.js do servidor. Por exemplo,
 
 ```nodejs
 const io = require('socket.io')(server,{
-  perMessageDeflate :false
+  perMessageDeflate :false
 });
 ```
 
@@ -110,7 +110,7 @@ Sim, durante uma implantação do Git, o Kudu deve detectar que você está impl
 
 **Estou usando meu próprio contêiner personalizado. Quero que a plataforma monte um compartilhamento SMB no `/home/` diretório.**
 
-Se `WEBSITES_ENABLE_APP_SERVICE_STORAGE` a configuração não for **especificada** ou definida como *true*, o `/home/` diretório **será compartilhado** entre as instâncias de escala e os arquivos gravados **persistirão** entre as reinicializações. Definir explicitamente `WEBSITES_ENABLE_APP_SERVICE_STORAGE` como *false* desabilitará a montagem.
+Se `WEBSITES_ENABLE_APP_SERVICE_STORAGE` a configuração não for **especificada** ou definida como *false*, o `/home/` diretório **não será compartilhado** entre instâncias de escala e os arquivos gravados **não serão mantidos** entre as reinicializações. Definir explicitamente `WEBSITES_ENABLE_APP_SERVICE_STORAGE` como *true* permitirá a montagem.
 
 **Meu contêiner personalizado demora para iniciar e a plataforma o reinicia antes que ele termine a inicialização.**
 
@@ -122,7 +122,7 @@ Forneça a URL completa do registro, incluindo `http://` ou `https://`.
 
 **Qual é o formato do nome da imagem na opção de Registro privado?**
 
-Adicione o nome de imagem completa, incluindo a URL de registro particular (por exemplo, myacr.azurecr.io/dotnet:latest). Os nomes de imagem que usam a porta personalizada [não podem ser inseridos por meio do portal](https://feedback.azure.com/forums/169385-web-apps/suggestions/31304650). Para definir `docker-custom-image-name` , use a [ `az` ferramenta de linha de comando](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set).
+Adicione o nome de imagem completa, incluindo a URL de registro particular (por exemplo, myacr.azurecr.io/dotnet:latest). Os nomes de imagem que usam a porta personalizada [não podem ser inseridos por meio do portal](https://feedback.azure.com/forums/169385-web-apps/suggestions/31304650). Para definir `docker-custom-image-name` , use a [ `az` ferramenta de linha de comando](/cli/azure/webapp/config/container#az-webapp-config-container-set).
 
 **Posso expor mais de uma porta em minha imagem de contêiner personalizados?**
 

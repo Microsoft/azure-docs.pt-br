@@ -6,14 +6,14 @@ services: internet-peering
 author: prmitiki
 ms.service: internet-peering
 ms.topic: how-to
-ms.date: 11/27/2019
+ms.date: 12/15/2020
 ms.author: prmitiki
-ms.openlocfilehash: ec83778d034cfc512582eddf79995412dad405c2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 97430d86cba1107ef67264a181925d2a4d7c12c3
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84710721"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97586815"
 ---
 # <a name="exchange-peering-walkthrough"></a>Passo a passo do emparelhamento do Exchange
 

@@ -1,31 +1,34 @@
 ---
-title: Coletar e analisar contadores de desempenho no Azure Monitor | Microsoft Docs
+title: Coletar fontes de dados de desempenho do Windows e do Linux com Log Analytics Agent no Azure Monitor
 description: Os contadores de desempenho são coletados pelo Azure Monitor para analisar o desempenho em agentes do Windows e do Linux.  Este artigo descreve como configurar a coleta de contadores de desempenho para agentes do Linux e do Windows, cujos detalhes são armazenados no workspace, e como analisá-los no portal do Azure.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/28/2018
-ms.openlocfilehash: 49f944aa98bf0bf8090b10d2feeb50af4a2d42b2
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.date: 10/21/2020
+ms.openlocfilehash: 533d4a83ea73b98e26a57febc077a607bcb25465
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85955481"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96532288"
 ---
-# <a name="windows-and-linux-performance-data-sources-in-azure-monitor"></a>Fontes de dados de desempenho do Windows e do Linux no Azure Monitor
-Os contadores de desempenho no Windows e Linux fornecem informações sobre o desempenho de componentes de hardware, sistemas operacionais e aplicativos.  O Azure Monitor pode coletar contadores de desempenho em intervalos frequentes para análises NRT (Near Real Time), além de agregar dados de desempenho para análise e relatório de longo prazo.
+# <a name="collect-windows-and-linux-performance-data-sources-with-log-analytics-agent"></a>Coletar fontes de dados de desempenho do Windows e do Linux com o agente de Log Analytics
+Os contadores de desempenho no Windows e Linux fornecem informações sobre o desempenho de componentes de hardware, sistemas operacionais e aplicativos.  Azure Monitor pode coletar contadores de desempenho de Log Analytics agentes em intervalos frequentes para análise NRT (quase em tempo real), além de agregar dados de desempenho para análise e relatórios de longo prazo.
+
+> [!IMPORTANT]
+> Este artigo aborda a coleta de dados de desempenho com o [agente de log Analytics](log-analytics-agent.md) , que é um dos agentes usados pelo Azure monitor. Outros agentes coletam dados diferentes e são configurados de forma diferente. Consulte [visão geral dos agentes de Azure monitor](agents-overview.md) para obter uma lista dos agentes disponíveis e os dados que eles podem coletar.
 
 ![Contadores de desempenho](media/data-sources-performance-counters/overview.png)
 
 ## <a name="configuring-performance-counters"></a>Configurando os contadores de desempenho
-Configure contadores de Desempenho usando o [menu Dados em Configurações Avançadas](agent-data-sources.md#configuring-data-sources).
+Configure contadores de desempenho [no menu dados em configurações avançadas](agent-data-sources.md#configuring-data-sources) para o espaço de trabalho log Analytics.
 
 Ao configurar os contadores de desempenho do Windows ou do Linux para um novo workspace pela primeira vez, você terá a opção de criar rapidamente vários contadores comuns.  Eles são listados com uma caixa de seleção ao lado de cada um.  Garanta que todos os contadores que deseja criar inicialmente estejam marcados e clique em **Add the selected performance counters**(Adicionar os contadores de desempenho selecionados).
 
 Para os contadores de desempenho do Windows, você pode escolher uma instância específica para cada contador de desempenho. Para os contadores de desempenho do Linux, a instância de cada contador escolhido se aplicará a todos os contadores filhos do contador pai. A tabela a seguir mostra as instâncias comuns disponíveis para os contadores de desempenho do Linux e do Windows.
 
-| Nome da instância | Descrição |
+| Nome da instância | Description |
 | --- | --- |
 | \_Total |Total de todas as instâncias |
 | \* |Todas as instâncias |
@@ -35,7 +38,7 @@ Para os contadores de desempenho do Windows, você pode escolher uma instância 
 
 ![Configurar contadores de desempenho do Windows](media/data-sources-performance-counters/configure-windows.png)
 
-Siga este procedimento para adicionar um novo contador de desempenho do Windows para coletar.
+Siga este procedimento para adicionar um novo contador de desempenho do Windows para coletar. Observe que não há suporte para os contadores de desempenho do Windows v2.
 
 1. Digite o nome do contador na caixa de texto no formato *objeto(instâncias)\contador*.  Quando você começar a digitar, verá uma lista de correspondência dos contadores comuns.  Você pode selecionar um contador na lista ou digitar um dos seus.  Você também pode retornar todas as instâncias de um determinado contador especificando *objeto\contador*.  
 
@@ -47,15 +50,14 @@ Siga este procedimento para adicionar um novo contador de desempenho do Windows 
 
 ### <a name="linux-performance-counters"></a>Contadores de desempenho do Linux
 
-![Configurar contadores de desempenho do Linux](media/data-sources-performance-counters/configure-linux.png)
+![Configurar contadores de desempenho do Linux](media/data-sources-performance-counters/configure-linux-1.png)
 
 Siga este procedimento para adicionar um novo contador de desempenho do Linux para coletar.
 
-1. Por padrão, todas as alterações de configuração são automaticamente envidas por push para todos os agentes.  Para agentes do Linux, um arquivo de configuração é enviado para o coletor de dados Fluentd.  Se você quiser modificar esse arquivo manualmente em cada agente do Linux, desmarque a caixa *Aplicar as configurações abaixo aos computadores Linux* e siga a diretriz abaixo.
-2. Digite o nome do contador na caixa de texto no formato *objeto(instâncias)\contador*.  Quando você começar a digitar, verá uma lista de correspondência dos contadores comuns.  Você pode selecionar um contador na lista ou digitar um dos seus.  
-3. Clique **+** ou pressione **Enter** para adicionar o contador à lista de outros contadores para o objeto.
-4. Todos os contadores para um objeto usam o mesmo **Intervalo de Amostragem**.  O padrão é 10 segundos.  Você altera para um valor mais alto de até 1800 segundos (30 minutos) se desejar reduzir os requisitos de armazenamento dos dados de desempenho coletados.
-5. Quando terminar de adicionar contadores, clique no botão **Salvar** na parte superior da tela para salvar a configuração.
+1. Digite o nome do contador na caixa de texto no formato *objeto(instâncias)\contador*.  Quando você começar a digitar, verá uma lista de correspondência dos contadores comuns.  Você pode selecionar um contador na lista ou digitar um dos seus.  
+1. Clique **+** ou pressione **Enter** para adicionar o contador à lista de outros contadores para o objeto.
+1. Todos os contadores para um objeto usam o mesmo **Intervalo de Amostragem**.  O padrão é 10 segundos.  Você altera para um valor mais alto de até 1800 segundos (30 minutos) se desejar reduzir os requisitos de armazenamento dos dados de desempenho coletados.
+1. Quando terminar de adicionar contadores, clique no botão **Salvar** na parte superior da tela para salvar a configuração.
 
 #### <a name="configure-linux-performance-counters-in-configuration-file"></a>Configurar contadores de desempenho do Linux no arquivo de configuração
 Em vez de configurar contadores de desempenho do Linux usando o portal do Azure, existe a opção de editar arquivos de configuração no agente do Linux.  As métricas de desempenho a serem coletadas são controladas pela configuração no **/etc/opt/Microsoft/omsagent/ \<workspace id\> /conf/omsagent.conf**.
@@ -121,10 +123,10 @@ A tabela a seguir lista os objetos e contadores que você pode especificar no ar
 | Disco Físico | Média de segundos/Transferência do Disco |
 | Disco Físico | Média de segundos/Gravação do Disco |
 | Disco Físico | Bytes/s do Disco Físico |
-| Processar | % de Tempo Privilegiado |
-| Processar | % de Tempo do Usuário |
-| Processar | KBytes de Memória Usada |
-| Processar | Memória Virtual Compartilhada |
+| Processo | % de Tempo Privilegiado |
+| Processo | % de Tempo do Usuário |
+| Processo | KBytes de Memória Usada |
+| Processo | Memória Virtual Compartilhada |
 | Processador | % de Tempo de DPC |
 | Processador | % de Tempo Ocioso |
 | Processador | % de Tempo de Interrupção |
@@ -156,7 +158,7 @@ A seguir está a configuração padrão para as métricas de desempenho.
 <source>
     type oms_omi
     object_name "Logical Disk"
-    instance_regex ".*
+    instance_regex ".*"
     counter_name_regex ".*"
     interval 5m
 </source>
@@ -164,7 +166,7 @@ A seguir está a configuração padrão para as métricas de desempenho.
 <source>
     type oms_omi
     object_name "Processor"
-    instance_regex ".*
+    instance_regex ".*"
     counter_name_regex ".*"
     interval 30s
 </source>
@@ -184,7 +186,7 @@ O Azure Monitor coleta todos os contadores de desempenho especificados em seu in
 ## <a name="performance-record-properties"></a>Propriedades do registro de desempenho
 Os registros de desempenho têm um tipo de **Perf** e têm as propriedades na tabela a seguir.
 
-| Property | Descrição |
+| Propriedade | Descrição |
 |:--- |:--- |
 | Computador |Computador do qual o evento foi coletado. |
 | CounterName |Nome do contador de desempenho |

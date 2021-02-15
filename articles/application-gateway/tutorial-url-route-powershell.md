@@ -8,25 +8,24 @@ ms.topic: how-to
 ms.date: 07/31/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: fccc7281ed2978ccc63cd7b53a82c8a00b57d3c2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2a73208ef7014c1f21c78485fc613a26ce3bfc76
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84805989"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397137"
 ---
 # <a name="route-web-traffic-based-on-the-url-using-azure-powershell"></a>Rotear o tráfego da web baseado na URL usando Azure PowerShell
 
-Você pode usar o Azure PowerShell para configurar o roteamento de tráfego da web para pools de servidor escalonável específico com base na URL que é usado para acessar o aplicativo. Neste artigo, você cria um [Gateway de aplicativo Azure](application-gateway-introduction.md) com três pools de back-end usando [conjuntos de dimensionamento de máquinas virtuais](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Cada um dos pools de back-end serve a uma finalidade específica, como dados comuns, imagens e vídeo.  Rotear o tráfego para separar pools garante que seus clientes obtenham as informações de que precisam, quando necessário.
+Você pode usar o Azure PowerShell para configurar o roteamento de tráfego da web para pools de servidor escalonável específico com base na URL que é usado para acessar o aplicativo. Neste artigo, você cria um [Gateway de aplicativo Azure](./overview.md) com três pools de back-end usando [conjuntos de dimensionamento de máquinas virtuais](../virtual-machine-scale-sets/overview.md). Cada um dos pools de back-end serve a uma finalidade específica, como dados comuns, imagens e vídeo.  Rotear o tráfego para separar pools garante que seus clientes obtenham as informações de que precisam, quando necessário.
 
-Para habilitar o roteamento de tráfego, você deve criar [regras de roteamento](application-gateway-url-route-overview.md) atribuídas aos ouvintes que escutam em portas específicas para garantir que o tráfego da web chegue aos servidores apropriados nos pools.
+Para habilitar o roteamento de tráfego, você deve criar [regras de roteamento](./url-route-overview.md) atribuídas aos ouvintes que escutam em portas específicas para garantir que o tráfego da web chegue aos servidores apropriados nos pools.
 
 Neste artigo, você aprenderá como:
 
-> [!div class="checklist"]
-> * Configurar a rede
-> * Criar ouvintes, mapa de caminho de URL e regras
-> * Criar pools de back-end escalonáveis
+* Configurar a rede
+* Criar ouvintes, mapa de caminho de URL e regras
+* Criar pools de back-end escalonáveis
 
 ![Exemplo de roteamento de URL](./media/tutorial-url-route-powershell/scenario.png)
 
@@ -313,7 +312,7 @@ Set-AzApplicationGateway -ApplicationGateway $appgw
 
 ## <a name="create-virtual-machine-scale-sets"></a>Criar conjuntos de dimensionamento de máquinas virtuais
 
-Neste exemplo, você cria três conjuntos de dimensionamento de máquinas virtuais que oferecem suporte a três pools de back-end que você criou. Os conjuntos de dimensionamento que você cria são denominados *myvmss1*, *myvmss2*, e *myvmss3*. Você atribui o conjunto de dimensionamento para o pool de back-end quando define as configurações de IP.
+Neste exemplo, você cria três conjuntos de dimensionamento de máquinas virtuais que oferecem suporte a três pools de back-end que você criou. Os conjuntos de dimensionamento que você cria são denominados *myvmss1* , *myvmss2* , e *myvmss3*. Você atribui o conjunto de dimensionamento para o pool de back-end quando define as configurações de IP.
 
 ```azurepowershell-interactive
 $vnet = Get-AzVirtualNetwork `

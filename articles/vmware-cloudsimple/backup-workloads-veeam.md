@@ -1,19 +1,19 @@
 ---
 title: Solução do Azure VMware por CloudSimple-fazer backup de máquinas virtuais de carga de trabalho na nuvem privada usando o Veeam
 description: Descreve como você pode fazer backup de suas máquinas virtuais que estão sendo executadas em uma nuvem privada do CloudSimple com base no Azure usando o Veeam B&R 9,5
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/16/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: e661485e58c7e00c4eee41d808f727153a7761c9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 7be606b3e23a594e67acf3f169d88353403d8577
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525034"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97899330"
 ---
 # <a name="back-up-workload-vms-on-cloudsimple-private-cloud-using-veeam-br"></a>Fazer backup de VMs de carga de trabalho na nuvem privada do CloudSimple usando o Veeam B&R
 
@@ -54,9 +54,9 @@ Para ambientes com menos de 30 TB para backup, o CloudSimple recomenda a seguint
 
 * Servidor de backup do Veeam e servidor proxy instalados na mesma VM na nuvem privada.
 * Um repositório de backup primário baseado em Linux no Azure configurado como um destino para trabalhos de backup.
-* `azcopy`usado para copiar os dados do repositório de backup primário para um contêiner de blob do Azure que é replicado para outra região.
+* `azcopy` usado para copiar os dados do repositório de backup primário para um contêiner de blob do Azure que é replicado para outra região.
 
-![Cenários de implantação básica](media/veeam-basicdeployment.png)
+![Diagrama que mostra cenários básicos de implantação de Veeam.](media/veeam-basicdeployment.png)
 
 **Implantação avançada**
 
@@ -65,7 +65,7 @@ Para ambientes com mais de 30 TB para fazer backup, o CloudSimple recomenda a se
 * Um servidor proxy por nó no cluster vSAN, conforme recomendado pelo Veeam.
 * Repositório de backup primário baseado no Windows na nuvem privada para armazenar em cache cinco dias de dados para restaurações rápidas.
 * Repositório de backup do Linux no Azure como um destino para trabalhos de cópia de backup para retenção de duração mais longa. Esse repositório deve ser configurado como um repositório de backup de expansão.
-* `azcopy`usado para copiar os dados do repositório de backup primário para um contêiner de blob do Azure que é replicado para outra região.
+* `azcopy` usado para copiar os dados do repositório de backup primário para um contêiner de blob do Azure que é replicado para outra região.
 
 ![Cenários de implantação básica](media/veeam-advanceddeployment.png)
 

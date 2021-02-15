@@ -1,6 +1,6 @@
 ---
 title: Criar um conjunto de dimensionamento com base em uma imagem generalizada com CLI do Azure
-description: Crie um conjunto de dimensionamento usando uma imagem generalizada em uma galeria de imagens compartilhada.
+description: Crie um conjunto de dimensionamento usando uma imagem generalizada em uma galeria de imagens compartilhada usando o CLI do Azure.
 author: cynthn
 ms.service: virtual-machine-scale-sets
 ms.subservice: imaging
@@ -9,16 +9,16 @@ ms.topic: how-to
 ms.date: 05/01/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 3cde06b652befa8fbb655273c19f65bd2f38e850
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e360ae3cf0c463add9e6445a96c118d9f40ce9cb
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87069848"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878029"
 ---
 # <a name="create-a-scale-set-from-a-generalized-image-with-azure-cli"></a>Criar um conjunto de dimensionamento com base em uma imagem generalizada com CLI do Azure
 
-Crie um conjunto de dimensionamento de uma versão de imagem generalizada armazenada em uma [Galeria de imagens compartilhada](shared-image-galleries.md) usando o CLI do Azure. Se desejar criar um conjunto de dimensionamento usando uma versão de imagem especializada, consulte [criar instâncias do conjunto de dimensionamento de uma imagem especializada](instance-specialized-image-version-cli.md).
+Crie um conjunto de dimensionamento de uma versão de imagem generalizada armazenada em uma [Galeria de imagens compartilhada](../virtual-machines/shared-image-galleries.md) usando o CLI do Azure. Se desejar criar um conjunto de dimensionamento usando uma versão de imagem especializada, consulte [criar instâncias do conjunto de dimensionamento de uma imagem especializada](instance-specialized-image-version-cli.md).
 
 Se você optar por instalar e usar a CLI localmente, este tutorial exigirá que execute a CLI do Azure versão 2.4.0 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
 
@@ -55,7 +55,7 @@ az vmss create \
 Leva alguns minutos para criar e configurar todos os recursos e as VMs do conjunto de dimensionamento.
 
 ## <a name="next-steps"></a>Próximas etapas
-O [Construtor de imagens do Azure (visualização)](../virtual-machines/linux/image-builder-overview.md) pode ajudar a automatizar a criação da versão da imagem, até mesmo usá-la para atualizar e [criar uma nova versão da imagem a partir de uma versão de imagem existente](../virtual-machines/linux/image-builder-gallery-update-image-version.md). 
+O [Construtor de imagens do Azure (visualização)](../virtual-machines/image-builder-overview.md) pode ajudar a automatizar a criação da versão da imagem, até mesmo usá-la para atualizar e [criar uma nova versão da imagem a partir de uma versão de imagem existente](../virtual-machines/linux/image-builder-gallery-update-image-version.md). 
 
 Você também pode criar um recurso de Galeria de imagens compartilhadas usando modelos. Há vários Modelos de Início Rápido do Azure disponíveis: 
 
@@ -63,4 +63,4 @@ Você também pode criar um recurso de Galeria de imagens compartilhadas usando 
 - [Criar uma Definição de Imagem em uma Galeria de Imagens Compartilhadas](https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/)
 - [Criar uma Versão da Imagem em uma Galeria de Imagens Compartilhadas](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
 
-Para obter mais informações sobre galerias de imagens compartilhadas, confira a [Visão geral](shared-image-galleries.md). Se você enfrentar problemas, confira [Solução de problemas de galerias de imagens compartilhadas](troubleshooting-shared-images.md).
+Para obter mais informações sobre galerias de imagens compartilhadas, confira a [Visão geral](../virtual-machines/shared-image-galleries.md). Se você enfrentar problemas, confira [Solução de problemas de galerias de imagens compartilhadas](../virtual-machines/troubleshooting-shared-images.md).

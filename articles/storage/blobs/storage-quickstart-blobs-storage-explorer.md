@@ -9,12 +9,12 @@ ms.subservice: blobs
 ms.topic: quickstart
 ms.date: 12/04/2019
 ms.author: tamram
-ms.openlocfilehash: f8768a1b2542eb0461ef0c50c96e22c80eced57a
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 2477107105b6dbcab96db8d44ac982554dc0c48d
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836455"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95543163"
 ---
 # <a name="quickstart-use-azure-storage-explorer-to-create-a-blob"></a>Início Rápido: Usar o Gerenciador de Armazenamento do Azure para criar um blob
 
@@ -38,7 +38,7 @@ Na primeira inicialização, é exibida a janela **Gerenciador de Armazenamento 
 
 Selecione **Adicionar uma Conta do Azure** e clique em **Entrar...** . Siga os avisos da tela para entrar na sua conta do Azure.
 
-![Gerenciador de Armazenamento do Microsoft Azure – Janela Conexão](media/storage-quickstart-blobs-storage-explorer/connect.png)
+![Captura de tela que mostra a janela Gerenciador de Armazenamento do Microsoft Azure – Conectar.](media/storage-quickstart-blobs-storage-explorer/connect.png)
 
 Ao concluir a conexão, o Gerenciador de Armazenamento do Azure carrega exibindo a guia **Explorer**. Essa exibição lhe dá informações de todas suas contas de armazenamento do Azure e do armazenamento local, configuradas por meio do [emulador de armazenamento do Azurite](../common/storage-use-azurite.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json), das contas do [Cosmos DB](../../cosmos-db/storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) ou dos ambientes do [Azure Stack](/azure-stack/user/azure-stack-storage-connect-se?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
@@ -70,7 +70,7 @@ Ao selecionar **OK**, os arquivos selecionados são colocados na fila para carre
 
 No aplicativo **Gerenciador de Armazenamento do Azure**, selecione um contêiner em uma conta de armazenamento. O painel principal mostra uma lista dos blobs no contêiner selecionado.
 
-![Gerenciador de Armazenamento do Microsoft Azure – listar blobs em um contêiner](media/storage-quickstart-blobs-storage-explorer/listblobs.png)
+![Captura de tela que mostra onde você seleciona um contêiner no Gerenciador de Armazenamento do Microsoft Azure.](media/storage-quickstart-blobs-storage-explorer/listblobs.png)
 
 ## <a name="download-blobs"></a>Baixar blobs
 
@@ -78,9 +78,9 @@ Para baixa blobs usando o **Gerenciador de Armazenamento do Azure**, com um blob
 
 ## <a name="manage-snapshots"></a>Gerenciar instantâneos
 
-O Gerenciador de Armazenamento do Azure fornece a capacidade de obter e gerenciar [instantâneos](storage-blob-snapshots.md) de seus blobs. Para obter um instantâneo de um blob, clique com o botão direito do mouse no blob e selecione **Criar Instantâneo**. Para exibir instantâneos de um blob, clique com o botão direito do mouse no blob e selecione **Gerenciar Instantâneos**. Uma lista de instantâneos do blob é mostrada na guia atual.
+O Gerenciador de Armazenamento do Azure fornece a capacidade de obter e gerenciar [instantâneos](./snapshots-overview.md) de seus blobs. Para obter um instantâneo de um blob, clique com o botão direito do mouse no blob e selecione **Criar Instantâneo**. Para exibir instantâneos de um blob, clique com o botão direito do mouse no blob e selecione **Gerenciar Instantâneos**. Uma lista de instantâneos do blob é mostrada na guia atual.
 
-![Gerenciador de Armazenamento do Microsoft Azure – listar blobs em um contêiner](media/storage-quickstart-blobs-storage-explorer/snapshots.png)
+![Captura de tela que mostra uma lista de blobs no Gerenciador de Armazenamento do Microsoft Azure.](media/storage-quickstart-blobs-storage-explorer/snapshots.png)
 
 ## <a name="manage-access-policies"></a>Gerenciar políticas de acesso
 
@@ -99,4 +99,4 @@ Assinaturas de Acesso Compartilhado (SAS) podem ser recuperadas por meio do Gere
 Neste guia de início rápido, você aprendeu a transferir arquivos entre um disco local e o armazenamento de Blobs do Azure usando o **Gerenciador de Armazenamento do Azure**. Para saber mais sobre como trabalhar com o Armazenamento de Blobs, prossiga para as instruções do Armazenamento de Blobs.
 
 > [!div class="nextstepaction"]
-> [Instruções de operações do Armazenamento de Blobs](storage-how-to-use-blobs-powershell.md)
+> [Instruções de operações do Armazenamento de Blobs](./storage-quickstart-blobs-powershell.md)

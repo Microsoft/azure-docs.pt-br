@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 12/15/2019
 tags: connectors
-ms.openlocfilehash: 5b61b51e79c71736e18aaa63ab032c05c512c8d7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f4cad2b658547d56d00efdd5e1496110f8e4a5e6
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80656340"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999563"
 ---
 # <a name="create-monitor-and-manage-ftp-files-by-using-azure-logic-apps"></a>Criar, monitorar e gerenciar arquivos FTP usando Aplicativos Lógicos do Azure
 
@@ -71,9 +71,9 @@ Quando um gatilho encontra um novo arquivo, o gatilho verifica se ele está conc
 
 1. Para aplicativos lógicos em branco, na caixa de pesquisa, insira `ftp` como seu filtro. Na lista de **gatilhos** , selecione o gatilho desejado.
 
-   -ou-
+   - ou -
 
-   Para os aplicativos lógicos existentes, na última etapa em que você deseja adicionar uma ação, selecione **nova etapa**e, em seguida, selecione **Adicionar uma ação**. Na caixa de pesquisa, insira `ftp` como o filtro. Na lista **ações** , selecione a ação desejada.
+   Para os aplicativos lógicos existentes, na última etapa em que você deseja adicionar uma ação, selecione **nova etapa** e, em seguida, selecione **Adicionar uma ação**. Na caixa de pesquisa, insira `ftp` como o filtro. Na lista **ações** , selecione a ação desejada.
 
    Para adicionar uma ação entre as etapas, mova o ponteiro sobre a seta entre as etapas. Selecione o sinal de adição ( **+** ) que aparece e, em seguida, selecione **Adicionar uma ação**.
 
@@ -167,11 +167,11 @@ Para verificar se o fluxo de trabalho retorna o conteúdo esperado, adicione out
 
    ![Fornecer informações sobre a ação de email](./media/connectors-create-api-ftp/selected-send-email-action.png)
 
-1. Salve seu aplicativo lógico. Para executar e disparar o aplicativo lógico, na barra de ferramentas, selecione **executar**e, em seguida, adicione um arquivo à pasta de FTP que seu aplicativo lógico agora monitora.
+1. Salve seu aplicativo lógico. Para executar e disparar o aplicativo lógico, na barra de ferramentas, selecione **executar** e, em seguida, adicione um arquivo à pasta de FTP que seu aplicativo lógico agora monitora.
 
 ## <a name="connector-reference"></a>Referência de conector
 
-Para obter mais detalhes técnicos sobre esse conector, como gatilhos, ações e limites, conforme descrito pelo arquivo Swagger do conector, consulte a [página de referência do conector](https://docs.microsoft.com/connectors/ftpconnector/).
+Para obter mais detalhes técnicos sobre esse conector, como gatilhos, ações e limites, conforme descrito pelo arquivo Swagger do conector, consulte a [página de referência do conector](/connectors/ftpconnector/).
 
 > [!NOTE]
 > Para aplicativos lógicos em um [ambiente do serviço de integração (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), a versão rotulada do ISE do conector usa os [limites de mensagem do ISE](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) em vez disso.
@@ -179,3 +179,4 @@ Para obter mais detalhes técnicos sobre esse conector, como gatilhos, ações e
 ## <a name="next-steps"></a>Próximas etapas
 
 * Saiba mais sobre outros [conectores de Aplicativos Lógicos](../connectors/apis-list.md)
+

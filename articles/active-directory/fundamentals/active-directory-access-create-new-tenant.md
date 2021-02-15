@@ -12,12 +12,12 @@ ms.date: 09/10/2018
 ms.author: ajburnle
 ms.custom: it-pro, seodec18, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f658b5670c42ab03770a3082f8eca740f6869dc3
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: eeea88d8c21ba754fbeadbb24891126b639616c7
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87797637"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96437211"
 ---
 # <a name="quickstart-create-a-new-tenant-in-azure-active-directory"></a>Início Rápido: Crie um novo locatário no Azure Active Directory
 É possível realizar todas as tarefas administrativas usando o portal do Azure AD (Azure Active Directory), incluindo a criação de um novo locatário para a organização. 
@@ -33,25 +33,29 @@ Após entrar no portal do Azure, é possível criar um novo locatário para a or
 
 1. Entre no [portal do Azure](https://portal.azure.com/) da sua organização.
 
-1. No menu do portal do Azure, selecione **Criar um recurso**.  
+1. No menu do portal do Azure, selecione **Azure Active Directory**.  
 
-    ![Página "Criar recurso" do Azure Active Directory](media/active-directory-access-create-new-tenant/azure-ad-portal.png)
+    <kbd>![Azure Active Directory – Página Visão geral – Criar um locatário](media/active-directory-access-create-new-tenant/azure-ad-portal.png)</kbd>  
 
-1. Selecione **Identidade** e, em seguida, selecione **Azure Active Directory**.
+1. Selecione **Criar um locatário**.
 
-    A página **Criar diretório** será exibida.
+1. Na guia Noções Básicas, selecione o tipo de locatário que você deseja criar, seja **Azure Active Directory** ou **Azure Active Directory (B2C)** .
 
-    ![Página "Criar" do Azure Active Directory](media/active-directory-access-create-new-tenant/azure-ad-create-new-tenant.png)
+1. Selecione **Avançar: Configuração** para passar para a guia Configuração.
 
-1.  Na página **Criar diretório**, insira as seguintes informações:
+    <kbd>![Azure Active Directory – Página Criar um locatário – guia de configuração ](media/active-directory-access-create-new-tenant/azure-ad-create-new-tenant.png)</kbd>
+
+1.  Na guia Configuração, insira as seguintes informações:
     
-    - Digite _Contoso_ na caixa **Nome da organização**.
+    - Digite _Organização da Contoso_ na caixa **Nome da organização**.
 
-    - Digite _Contoso_ na caixa **Nome de domínio inicial**.
+    - Digite _Contosoorg_ na caixa **Nome de domínio inicial**.
 
     - Mantenha a opção _Estados Unidos_ na caixa **País ou região** box.
 
-1. Selecione **Criar**.
+1. Selecione **Avançar: Examinar + Criar**. Examine as informações inseridas e, se elas estiverem corretas, selecione **criar**.
+
+    <kbd>![Azure Active Directory – Página Examinar e criar locatário](media/active-directory-access-create-new-tenant/azure-ad-review.png)</kbd>
 
 O novo locatário será criado com o domínio contoso.onmicrosoft.com.
 
@@ -63,7 +67,7 @@ Se você não quiser continuar usando este aplicativo, poderá excluir o locatá
 
     O locatário e suas informações associadas serão excluídos.
 
-    ![Página de visão geral, com o botão de diretório Excluir realçado](media/active-directory-access-create-new-tenant/azure-ad-delete-new-tenant.png)
+    <kbd>![Página de visão geral, com o botão de diretório Excluir realçado](media/active-directory-access-create-new-tenant/azure-ad-delete-new-tenant.png)</kbd>
 
 ## <a name="next-steps"></a>Próximas etapas
 - Para alterar ou adicionar nomes de domínio, confira [Como adicionar um nome de domínio personalizado ao Azure Active Directory](add-custom-domain.md)
@@ -72,6 +76,6 @@ Se você não quiser continuar usando este aplicativo, poderá excluir o locatá
 
 - Para adicionar grupos e membros, confira [Criar um grupo básico e adicionar membros](active-directory-groups-create-azure-portal.md)
 
-- Saiba mais sobre o [acesso baseado em função usando o Privileged Identity Management](../../role-based-access-control/pim-azure-resource.md) e o [Acesso Condicional](../../role-based-access-control/conditional-access-azure-management.md) para ajudar a gerenciar o acesso a aplicativos e recursos da organização.
+- Saiba mais sobre o [acesso baseado em função usando o Privileged Identity Management](../../role-based-access-control/best-practices.md) e o [Acesso Condicional](../../role-based-access-control/conditional-access-azure-management.md) para ajudar a gerenciar o acesso a aplicativos e recursos da organização.
 
 - Saiba mais sobre o Azure AD, incluindo [informações básicas de licenciamento, terminologia e recursos associados](active-directory-whatis.md).

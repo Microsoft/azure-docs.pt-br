@@ -13,19 +13,16 @@ ms.author: ryanwi
 ms.reviewer: saeeda, hirsin, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, negoe
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: c6e59ab0432ad2b7bdccb5ce9916e85eb6d95048
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 8f6170de65ae5e1ca8ecb5f7cc8a78f4f194ac41
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88116386"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92055283"
 ---
 # <a name="why-update-to-microsoft-identity-platform-v20"></a>Por que atualizar para plataforma de identidade da Microsoft (v2.0)?
 
 Ao desenvolver um novo aplicativo, é importante conhecer as diferenças entre os pontos de extremidade da plataforma de identidade da Microsoft (v 2.0) e do Azure Active Directory (v 1.0). Este artigo aborda as principais diferenças entre os pontos de extremidade e algumas limitações existentes para a plataforma Microsoft Identity.
-
-> [!NOTE]
-> O ponto de extremidade da plataforma de identidade da Microsoft não dá suporte a todos os cenários e recursos do Azure AD. Para determinar se você deve usar o ponto de extremidade da plataforma de identidade da Microsoft, leia sobre as [limitações da plataforma de identidade da Microsoft](#limitations).
 
 ## <a name="who-can-sign-in"></a>Quem pode entrar
 
@@ -35,7 +32,7 @@ Ao desenvolver um novo aplicativo, é importante conhecer as diferenças entre o
 * O ponto de extremidade da plataforma de identidade da Microsoft permite contas corporativas e de estudante do Azure AD e do MSA (contas pessoais da Microsoft), como hotmail.com, outlook.com e msn.com, para entrar.
 * Os dois pontos de extremidade também aceitam entradas de *[usuários convidados](../external-identities/what-is-b2b.md)* de um diretório do Azure ad para aplicativos configurados como *[locatário único](../develop/single-and-multi-tenant-apps.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)* ou para aplicativos *multilocatários* configurados para apontarem para o ponto de extremidade específico do locatário ( `https://login.microsoftonline.com/{TenantId_or_Name}` ).
 
-O ponto de extremidade da plataforma de identidade da Microsoft permite que você escreva aplicativos que aceitem entradas de contas pessoais da Microsoft e contas corporativas e de estudante. Isso lhe dá a capacidade de escrever seu aplicativo completamente independente de conta. Por exemplo, se seu aplicativo chamar o [Microsoft Graph](https://graph.microsoft.io), alguns recursos e dados adicionais estarão disponíveis para contas de trabalho, como seus sites do SharePoint ou dados do Diretório. Mas, para muitas ações, como [a leitura de um e-mail de um usuário](/graph/api/user-list-messages?view=graph-rest-1.0), o mesmo código pode acessar o e-mail para contas pessoais e de trabalho e escola.
+O ponto de extremidade da plataforma de identidade da Microsoft permite que você escreva aplicativos que aceitem entradas de contas pessoais da Microsoft e contas corporativas e de estudante. Isso lhe dá a capacidade de escrever seu aplicativo completamente independente de conta. Por exemplo, se seu aplicativo chamar o [Microsoft Graph](https://graph.microsoft.io), alguns recursos e dados adicionais estarão disponíveis para contas de trabalho, como seus sites do SharePoint ou dados do Diretório. Mas, para muitas ações, como [a leitura de um e-mail de um usuário](/graph/api/user-list-messages), o mesmo código pode acessar o e-mail para contas pessoais e de trabalho e escola.
 
 Para o ponto de extremidade da plataforma Microsoft Identity, você pode usar a MSAL (biblioteca de autenticação da Microsoft) para obter acesso aos mundos do consumidor, da educação e da empresa. O ponto de extremidade do Azure AD v1.0 aceita logins apenas de contas do trabalho e da escola.
 
@@ -114,7 +111,7 @@ Esse escopo permite que você codifique seu aplicativo com uma divulgação mín
 O ponto de extremidade da plataforma de identidade da Microsoft emite um conjunto menor de declarações em seus tokens por padrão para manter as cargas pequenas. Se você tiver aplicativos e serviços que têm uma dependência em uma declaração específica em um token v 1.0 que não é mais fornecido por padrão em um token da plataforma de identidade da Microsoft, considere usar o recurso de [declarações opcionais](../develop/active-directory-optional-claims.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) para incluir essa declaração.
 
 > [!IMPORTANT]
-> os tokens v 1.0 e v 2.0 podem ser emitidos pelos pontos de extremidade v 1.0 e v 2.0! id_tokens *sempre* corresponder ao ponto de extremidade de onde são solicitados e os tokens de acesso *sempre* correspondem ao formato esperado pela API Web, o cliente chamará usando esse token.  Portanto, se seu aplicativo usar o ponto de extremidade v 2.0 para obter um token para chamar Microsoft Graph, que espera tokens de acesso de formato v 1.0, seu aplicativo receberá um token no formato v 1.0.  
+> os tokens v 1.0 e v 2.0 podem ser emitidos pelos pontos de extremidade v 1.0 e v 2.0! id_tokens *sempre* corresponder ao ponto de extremidade de onde são solicitados e os tokens de acesso *sempre* correspondem ao formato esperado pela API Web, o cliente chamará usando esse token.  Portanto, se seu aplicativo usar o ponto de extremidade v 2.0 para obter um token para chamar Microsoft Graph, que espera tokens de acesso de formato v 1.0, seu aplicativo receberá um token no formato v 1.0.
 
 ## <a name="limitations"></a>Limitações
 
@@ -153,18 +150,22 @@ Atualmente, o suporte à biblioteca para o ponto de extremidade da plataforma Mi
 * Se você estiver criando um aplicativo móvel ou desktop, poderá usar uma das MSAL (bibliotecas de autenticação da Microsoft). Essas bibliotecas estão geralmente disponíveis ou em uma versão prévia com suporte de produção, portanto, é seguro usá-las em aplicativos de produção. Leia mais sobre os termos da versão prévia e as bibliotecas disponíveis na [referência de bibliotecas de autenticação](../develop/reference-v2-libraries.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
 * Para plataformas não cobertas pelas bibliotecas da Microsoft, você pode integrar-se ao ponto de extremidade da plataforma de identidade da Microsoft enviando e recebendo diretamente mensagens de protocolo no código do aplicativo. Os protocolos do OpenID Connect e do OAuth [são documentados explicitamente](../develop/active-directory-v2-protocols.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) para ajudá-lo a fazer essa integração.
 * Por fim, você pode usar o OpenID Connect e as bibliotecas do OAuth de software livre para integrar com o ponto de extremidade da plataforma de identidade da Microsoft. O ponto de extremidade da plataforma de identidade da Microsoft deve ser compatível com muitas bibliotecas de protocolo de código aberto sem alterações. A disponibilidade desses tipos de bibliotecas varia por idioma e plataforma. Os sites do [Open ID Connect](https://openid.net/connect/) e do [OAuth 2.0](https://oauth.net/2/) mantêm uma lista das implementações populares. Para obter mais informações, consulte [plataforma de identidade da Microsoft e bibliotecas de autenticação](../develop/reference-v2-libraries.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)e a lista de bibliotecas de cliente de software livre e exemplos que foram testados com o ponto de extremidade da plataforma Microsoft Identity.
-* Para referência, o `.well-known` ponto de extremidade para o ponto de extremidade comum da plataforma de identidade da Microsoft é `https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration` . Substitua `common` pela ID do locatário para obter dados específicos para o locatário.  
+* Para referência, o `.well-known` ponto de extremidade para o ponto de extremidade comum da plataforma de identidade da Microsoft é `https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration` . Substitua `common` pela ID do locatário para obter dados específicos para o locatário.
 
 ### <a name="protocol-changes"></a>Alterações do protocolo
 
-O ponto de extremidade da plataforma de identidade da Microsoft não oferece suporte a SAML ou WS-Federation; Ele só dá suporte a OpenID Connect e a OAuth 2,0.  As alterações importantes para os protocolos OAuth 2.0 do ponto de extremidade v1.0 são: 
+O ponto de extremidade da plataforma de identidade da Microsoft não oferece suporte a SAML ou WS-Federation; Ele só dá suporte a OpenID Connect e a OAuth 2,0.  As alterações importantes para os protocolos OAuth 2.0 do ponto de extremidade v1.0 são:
 
-* A declaração `email` será retornada somente se uma declaração opcional estiver configurada **ou** scope=email tiver sido especificado na solicitação. 
-* O parâmetro `scope` agora tem suporte em vez do `resource` parâmetro.  
-* Muitas respostas foram modificadas para torná-lo mais compatível com a especificação do OAuth 2.0, por exemplo, retornando corretamente `expires_in` como um int em vez de uma cadeia de caracteres.  
+* A declaração `email` será retornada somente se uma declaração opcional estiver configurada **ou** scope=email tiver sido especificado na solicitação.
+* O parâmetro `scope` agora tem suporte em vez do `resource` parâmetro.
+* Muitas respostas foram modificadas para torná-lo mais compatível com a especificação do OAuth 2.0, por exemplo, retornando corretamente `expires_in` como um int em vez de uma cadeia de caracteres.
 
 Para entender melhor o escopo da funcionalidade de protocolo com suporte no ponto de extremidade da plataforma de identidade da Microsoft, consulte [OpenID Connect e referência de protocolo OAuth 2,0](../develop/active-directory-v2-protocols.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
 
-#### <a name="saml-restrictions"></a>Restrições de SAML
+#### <a name="saml-usage"></a>Uso de SAML
 
-Se você usou o Biblioteca de Autenticação do Active Directory (ADAL) em aplicativos do Windows, você pode ter aproveitado a autenticação integrada do Windows, que usa a concessão de asserção do Security Assertion Markup Language (SAML). Com essa concessão, os usuários de locatários do Azure AD federados se autenticam com suas instâncias do Active Directory local sem inserir as credenciais. A concessão de Asserção SAML não tem suporte no ponto de extremidade da plataforma de identidade da Microsoft.
+Se você usou o Biblioteca de Autenticação do Active Directory (ADAL) em aplicativos do Windows, você pode ter aproveitado a autenticação integrada do Windows, que usa a concessão de asserção do Security Assertion Markup Language (SAML). Com essa concessão, os usuários de locatários do Azure AD federados se autenticam com suas instâncias do Active Directory local sem inserir as credenciais. Embora o [SAML ainda seja um protocolo com suporte](../develop/active-directory-saml-protocol-reference.md) para uso com usuários corporativos, o ponto de extremidade v 2.0 é usado apenas com aplicativos OAuth 2,0.
+
+## <a name="next-steps"></a>Próximas etapas
+
+Saiba mais na [documentação da plataforma de identidade da Microsoft](../develop/index.yml).

@@ -9,14 +9,15 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 12/26/2018
 ms.custom: devx-track-python
-ms.openlocfilehash: 1ed15182e700f125072c69ba9bcf60caf4da5c88
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 3d066005ac18bf42f913885558bf6f0ee5fc50c4
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87873034"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349156"
 ---
 # <a name="quickstart-build-a-python-app-using-azure-cosmos-dbs-api-for-mongodb"></a>Início Rápido: Criar um aplicativo do Python usando a API para MongoDB do Azure Cosmos DB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -127,7 +128,7 @@ Agora, você atualizou o aplicativo com todas as informações necessárias para
 
 ## <a name="deploy-to-azure"></a>Implantar no Azure
 
-Para implantar esse aplicativo, você pode criar um novo aplicativo Web no Azure e habilitar a implantação contínua com um fork deste repositório do GitHub. Siga este [tutorial](https://docs.microsoft.com/azure/app-service/deploy-continuous-deployment) para configurar a implantação contínua com o GitHub no Azure.
+Para implantar esse aplicativo, você pode criar um novo aplicativo Web no Azure e habilitar a implantação contínua com um fork deste repositório do GitHub. Siga este [tutorial](../app-service/deploy-continuous-deployment.md) para configurar a implantação contínua com o GitHub no Azure.
 
 Ao implantar no Azure, você deve remover as chaves do aplicativo e verificar se a seção abaixo não está comentada:
 
@@ -137,7 +138,7 @@ Ao implantar no Azure, você deve remover as chaves do aplicativo e verificar se
     db.authenticate(name=os.getenv("MONGO_USERNAME"),password=os.getenv("MONGO_PASSWORD"))
 ```
 
-Em seguida, você precisa adicionar as suas informações de MONGOURL, MONGO_PASSWORD e MONGO_USERNAME nas configurações do aplicativo. Você pode seguir este [tutorial](https://docs.microsoft.com/azure/app-service/configure-common#configure-app-settings) para saber mais sobre as configurações de aplicativo em aplicativos Web do Azure.
+Em seguida, você precisa adicionar as suas informações de MONGOURL, MONGO_PASSWORD e MONGO_USERNAME nas configurações do aplicativo. Você pode seguir este [tutorial](../app-service/configure-common.md#configure-app-settings) para saber mais sobre as configurações de aplicativo em aplicativos Web do Azure.
 
 Caso não deseje criar um fork deste repositório, selecione o botão **Implantar no Azure** abaixo. Em seguida, acesse o Azure e defina as configurações de aplicativo com as informações da sua conta do Azure Cosmos DB.
 
@@ -161,4 +162,4 @@ Caso não deseje criar um fork deste repositório, selecione o botão **Implanta
 Neste início rápido, você aprendeu a criar uma conta da API do MongoDB para Azure Cosmos DB e usar o Emulador do Azure Cosmos DB para executar um aplicativo Web de tarefas pendentes do Python Flask clonado do GitHub. Agora, é possível importar outros dados para sua conta do Azure Cosmos DB. 
 
 > [!div class="nextstepaction"]
-> [Importar dados do MongoDB no Azure Cosmos DB](mongodb-migrate.md)
+> [Importar dados do MongoDB no Azure Cosmos DB](../dms/tutorial-mongodb-cosmos-db.md?toc=%2fazure%2fcosmos-db%2ftoc.json%253ftoc%253d%2fazure%2fcosmos-db%2ftoc.json)

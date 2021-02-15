@@ -2,18 +2,18 @@
 title: incluir arquivo
 description: incluir arquivo
 services: active-directory
-author: rolyon
+author: barclayn
 ms.service: active-directory
 ms.topic: include
-ms.date: 05/26/2020
+ms.date: 12/07/2020
 ms.author: barclayn
 ms.custom: include file
-ms.openlocfilehash: ee02200f1fb32d430a858d218e27534561ebc24a
-ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
+ms.openlocfilehash: cbcd4b459faa3bf67f591cc7afab0bf0027062e1
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83868011"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96842302"
 ---
 ## <a name="create-one-or-more-access-reviews"></a>Criar uma ou mais revisões de acesso
 
@@ -53,6 +53,7 @@ ms.locfileid: "83868011"
 
     - **Usuários selecionados** – Use essa opção quando você não souber quem precisa de acesso. Com essa opção, você pode atribuir a revisão a um proprietário de recurso ou ao gerente do grupo para conclusão.
     - **Membros (próprio)** – Use essa opção para fazer com que os usuários examinem suas próprias atribuições de função.
+    - **(Visualização) Gerenciador** – Use essa opção para fazer com que o gerente do usuário examine sua atribuição de função. Ao selecionar (visualização) Gerenciador, você também terá a opção de especificar um revisor de fallback. Os revisores de fallback são solicitados a revisar um usuário quando o usuário não tem nenhum Gerenciador especificado no diretório.
 
 ### <a name="upon-completion-settings"></a>Após configurações de conclusão
 
@@ -82,3 +83,6 @@ ms.locfileid: "83868011"
 1. Definir **Notificações por email** para **Habilitar** para que o Azure Active Directory envie notificações por email para os revisores quando uma revisão de acesso começar e para os administradores quando uma revisão terminar.
 
 1. Defina **Lembretes** para **Habilitar** para que o Azure Active Directory envie lembretes de análises de acesso em andamento para os revisores que não concluíram a sua análise.
+1. O conteúdo do email enviado aos revisores é gerado automaticamente com base nos detalhes da revisão, como nome da revisão, nome do recurso, data de vencimento, etc. Se você precisar de uma maneira de comunicar informações adicionais, como instruções adicionais ou informações de contato, poderá especificar esses detalhes no **conteúdo adicional do email do revisor** que será incluído nos emails de convite e lembrete enviados aos revisores atribuídos. A seção realçada abaixo é onde essas informações serão exibidas.
+
+    ![Conteúdo do email enviado aos revisores com destaques](./media/active-directory-privileged-identity-management-access-reviews/email-info.png)

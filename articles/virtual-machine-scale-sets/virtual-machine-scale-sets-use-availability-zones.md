@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: availability
 ms.date: 08/08/2018
 ms.reviewer: jushiman
-ms.custom: mimckitt
-ms.openlocfilehash: e1c91bf9138e37c6de381ab34ab80413d3040981
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: mimckitt, devx-track-azurecli
+ms.openlocfilehash: c5ddd5846be91e9fc99a251d6ad45ade8bde2937
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87029307"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016651"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Criar um conjunto de dimensionamento de máquinas virtuais que use Zonas de Disponibilidade
 
@@ -22,13 +22,17 @@ Para proteger seus conjuntos de dimensionamento de máquinas virtuais contra fal
 
 ## <a name="availability-considerations"></a>Considerações sobre disponibilidade
 
-Quando você implanta um conjunto de dimensionamento em uma ou mais zonas a partir da versão de API *2017-12-01*, você tem a opção de implantar com "distribuição máx." ou "distribuição estática de 5 domínios de falha". Com a distribuição máxima, o conjunto de dimensionamento distribui suas VMs em no máximo de domínios de falha possíveis dentro de cada zona. Essa distribuição pode ser entre mais ou menos de cinco domínios de falha por zona. Com "distribuição estática de 5 domínios de falha", o conjunto de dimensionamento distribui suas VMs em exatamente cinco domínios de falha por zona. Se o conjunto de dimensionamento não conseguir localizar cinco domínios de falha distintos por zona para atender à solicitação de alocação, a solicitação falhará.
+Quando você implanta um conjunto de dimensionamento regional (não zonal) em uma ou mais zonas a partir da versão de API *2017-12-01*, você tem as seguintes opções de disponibilidade:
+- Distribuição máxima (platformFaultDomainCount = 1)
+- Difusão fixa estática (platformFaultDomainCount = 5)
+- Propagação alinhada com domínios de falha de disco de armazenamento (platforFaultDomainCount = 2 ou 3)
+
+Com a distribuição máxima, o conjunto de dimensionamento distribui suas VMs em no máximo de domínios de falha possíveis dentro de cada zona. Essa distribuição pode ser entre mais ou menos de cinco domínios de falha por zona. Com a difusão fixa estática, o conjunto de dimensionamento distribui suas VMs em exatamente cinco domínios de falha por zona. Se o conjunto de dimensionamento não conseguir localizar cinco domínios de falha distintos por zona para atender à solicitação de alocação, a solicitação falhará.
 
 **É recomendável implantar com distribuição máxima para a maioria das cargas de trabalho**, uma vez que esse método fornece a melhor distribuição na maioria dos casos. Se você precisar que réplicas sejam distribuídas em unidades de isolamento de hardware diferentes, é recomendável distribuir por Zonas de Disponibilidade e utilizar a distribuição máxima dentro de cada região.
 
-Com a distribuição máxima, você verá apenas um domínio de falha na exibição da VM do conjunto de dimensionamento e nos metadados de instância, independentemente de em quantos domínios de falha as VMs estão espalhadas. A distribuição dentro de cada região é implícita.
-
-Para usar a distribuição máxima, defina *platformFaultDomainCount* como *1*. Para usar a distribuição estática de cinco domínios de falha, defina *platformFaultDomainCount* como *5*. Na API versão *2017-12-01*, *platformFaultDomainCount* usa como padrão *1* para conjuntos de dimensionamento de zona única e entre zonas. Atualmente, somente a distribuição estática de cinco domínios de falha tem suporte para conjuntos de dimensionamento regionais (não zonais).
+> [!NOTE]
+> Com a distribuição máxima, você verá apenas um domínio de falha na exibição da VM do conjunto de dimensionamento e nos metadados de instância, independentemente de em quantos domínios de falha as VMs estão espalhadas. A distribuição dentro de cada região é implícita.
 
 ### <a name="placement-groups"></a>Grupos de posicionamento
 

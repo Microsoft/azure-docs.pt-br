@@ -1,6 +1,6 @@
 ---
 title: Visão geral da anexação do aplicativo MSIX do Windows Virtual Desktop – Azure
-description: O que é o anexo de aplicativo MSIX? Descubra neste artigo.
+description: O que é a anexação de aplicativo MSIX? Descubra neste artigo.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -9,13 +9,13 @@ ms.date: 08/17/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: c6bf296b5173a662b1e9dd7b025648e3f16d23c8
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88556204"
 ---
-# <a name="what-is-msix-app-attach"></a>O que é o anexo de aplicativo MSIX?
+# <a name="what-is-msix-app-attach"></a>O que é a anexação de aplicativo MSIX?
 
 O MSIX é um novo formato de empacotamento que oferece muitos recursos destinados a melhorar a experiência de empacotamento para todos os aplicativos do Windows. Para saber mais sobre o MSIX, consulte a [visão geral do MSIX](/windows/msix/overview).
 

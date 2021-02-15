@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: c44effe0bde3c7e880e53706fcb59d91a8605e7b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 867cdc97ff91d5932230b733dee4d7660d499c39
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67171973"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96026325"
 ---
 #### <a name="to-complete-the-minimum-storsimple-device-setup"></a>Para concluir a configuração mínima do dispositivo StorSimple
 
@@ -30,7 +30,7 @@ ms.locfileid: "67171973"
 
        2. Forneça os endereços IP fixos para os Controladores 0 e 1. **Os endereços IP fixos do controlador precisam ser IPs gratuitos dentro da sub-rede acessível pelo endereço IP do dispositivo.**  Se a interface DADOS 0 foi configurada para o IPv4, os endereços IP fixos precisam ser fornecidos no formato IPv4. Se você forneceu um prefixo para a configuração de IPv6, os endereços IP fixos serão preenchidos automaticamente nesses campos.
 
-            ![Interfaces de rede da instalação mínima do dispositivo do StorSimple](./media/storsimple-8000-complete-minimum-device-setup-u2/step4minconfig2.png)
+            ![Interfaces de rede de configuração mínima do dispositivo StorSimple 2](./media/storsimple-8000-complete-minimum-device-setup-u2/step4minconfig2.png)
 
             Os endereços IP fixos do controlador são usados para atender às atualizações do dispositivo e para a coleta de lixo. Portanto, os IPs fixos devem ser roteáveis e conseguir se conectar à Internet. Você pode verificar se seus IPs de controlador fixos são roteáveis usando o cmdlet [Test-HcsmConnection][Test]. O exemplo a seguir mostra IPs de controlador fixos que são roteados para a Internet e podem acessar os servidores do Microsoft Update.
 
@@ -38,7 +38,7 @@ ms.locfileid: "67171973"
 
 1. Clique em **OK**. Começa a configuração do dispositivo. Após a conclusão da configuração do dispositivo, você será notificado. O status do dispositivo muda para **Online** na folha **Dispositivos**.
 
-    ![Interfaces de rede da instalação mínima do dispositivo do StorSimple](./media/storsimple-8000-complete-minimum-device-setup-u2/step4minconfig4.png)
+    ![Interfaces de rede de configuração mínima do dispositivo StorSimple 3](./media/storsimple-8000-complete-minimum-device-setup-u2/step4minconfig4.png)
 
 <!--Link reference-->
-[Test]: https://technet.microsoft.com/library/dn715782(v=wps.630).aspx
+[Test]: /previous-versions/windows/powershell-scripting/dn715782(v=wps.630)

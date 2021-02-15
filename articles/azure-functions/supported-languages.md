@@ -3,12 +3,12 @@ title: Linguagens com suporte no Azure Functions
 description: Saiba quais idiomas têm suporte (GA) e quais estão em versão prévia e maneiras de estender o desenvolvimento de funções para outras linguagens.
 ms.topic: conceptual
 ms.date: 11/27/2019
-ms.openlocfilehash: 91a6ea886c3828678771b24d69bb7987af1fb105
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: da3100521faae61e9803aaa82dbf91045a7ecbc9
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83994894"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108544"
 ---
 # <a name="supported-languages-in-azure-functions"></a>Linguagens com suporte no Azure Functions
 
@@ -27,9 +27,9 @@ Há dois níveis de suporte:
 
 [!INCLUDE [functions-supported-languages](../../includes/functions-supported-languages.md)]
 
-## <a name="custom-handlers-preview"></a>Manipuladores personalizados (versão prévia) 
+## <a name="custom-handlers"></a>Manipuladores personalizados
 
-Os manipuladores personalizados são servidores Web leves que recebem eventos do host Azure Functions. Qualquer linguagem que ofereça suporte a primitivos HTTP pode implementar um manipulador personalizado. Isso significa que os manipuladores personalizados podem ser usados para criar funções em linguagens que não são oficialmente suportadas. Para saber mais, consulte [Azure Functions manipuladores personalizados (versão prévia)](functions-custom-handlers.md).
+Os manipuladores personalizados são servidores Web leves que recebem eventos do host Azure Functions. Qualquer linguagem que ofereça suporte a primitivos HTTP pode implementar um manipulador personalizado. Isso significa que os manipuladores personalizados podem ser usados para criar funções em linguagens que não são oficialmente suportadas. Para saber mais, confira [Azure Functions manipuladores personalizados](functions-custom-handlers.md).
 
 ## <a name="language-extensibility"></a>Extensibilidade de linguagem
 

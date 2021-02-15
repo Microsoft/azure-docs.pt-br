@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: e63cb73b726c495d4124447028b681a81b8fcca9
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 97eb134a22bbf2304c39fe7c55457e394467f1d2
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286199"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99095267"
 ---
 # <a name="updated-ndv2-series"></a>Série NDv2 atualizada
 
@@ -24,23 +24,25 @@ As instâncias de NDv2 fornecem excelente desempenho para cargas de trabalho do 
 
 De forma crucial, o NDv2 é criado para expansão computacionalmente intensa (aproveitando 8 GPUs por VM) e escalar horizontalmente (aproveitando várias VMs trabalhando juntas) cargas de trabalho. A série NDv2 agora dá suporte à rede de back-end InfiniBand EDR de 100-Gigabit, semelhante àquela disponível na série HB da VM HPC, para permitir o clustering de alto desempenho para cenários paralelos, incluindo treinamento distribuído para ia e ML. Essa rede de back-end dá suporte a todos os principais protocolos InfiniBand, incluindo aqueles empregados pelas bibliotecas NCCL2 da NVIDIA, permitindo um clustering contínuo de GPUs.
 
+> [!IMPORTANT]
 > Ao [habilitar a InfiniBand](./workloads/hpc/enable-infiniband.md) na VM ND40rs_v2, use o driver 4.7-1.0.0.1 Mellanox ofed.
 >
-> Devido à maior memória da GPU, o novo ND40rs_v2 VM requer o uso de [VMs de geração 2](./windows/generation-2.md) e imagens do Marketplace. 
+> Devido à maior memória da GPU, o novo ND40rs_v2 VM requer o uso de [VMs de geração 2](./generation-2.md) e imagens do Marketplace. 
 >
 > Observação: o ND40s_v2 incluindo 16 GB de memória por GPU não está mais disponível para visualização e foi substituído pelo ND40rs_v2 atualizado.
 
 <br>
 
-Armazenamento Premium:  Com suporte
-
-Cache de Armazenamento Premium:  Com suporte
-
-Migração ao Vivo: Sem suporte
-
-Atualizações de preservação de memória: Sem suporte
-
-InfiniBand: com suporte
+[Armazenamento Premium](premium-storage-performance.md): com suporte<br>
+[Cache de armazenamento Premium](premium-storage-performance.md): com suporte<br>
+[Migração ao vivo](maintenance-and-updates.md): sem suporte<br>
+[Atualizações de preservação de memória](maintenance-and-updates.md): sem suporte<br>
+[Suporte à geração de VM](generation-2.md): geração 2<br>
+[Rede acelerada](../virtual-network/create-vm-accelerated-networking-cli.md): com suporte<br>
+[Discos do sistema operacional efêmero](ephemeral-os-disks.md): sem suporte <br>
+InfiniBand: com suporte<br>
+Interconexão NVIDIA NVLink: com suporte<br>
+<br>
 
 | Tamanho | vCPU | Memória: GiB | Armazenamento temporário (SSD): GiB | GPU | Memória da GPU: GiB | Discos de dados máximos | Taxa de transferência máxima do disco não armazenado em cache: IOPS / MBps | Largura de banda de rede máxima | Máximo de NICs |
 |---|---|---|---|---|---|---|---|---|---|

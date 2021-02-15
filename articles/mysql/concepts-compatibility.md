@@ -1,17 +1,17 @@
 ---
 title: Compatibilidade de drivers e ferramentas-banco de dados do Azure para MySQL
 description: Esse artigo descreve os drivers MySQL e as ferramentas de gerenciamento compatíveis com o Banco de Dados do Azure para MySQL.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 8d222eca76f020703f89dd1bdd5848cec4bc52ca
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: c2faf8e8b6a814989fa9e1693fddeedb525df13a
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89006526"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100006846"
 ---
 # <a name="mysql-drivers-and-management-tools-compatible-with-azure-database-for-mysql"></a>Drivers MySQL e as ferramentas de gerenciamento compatíveis com o Banco de Dados do Azure para MySQL
 Esse artigo descreve os drivers e as ferramentas de gerenciamento compatíveis com o Banco de Dados do Azure para MySQL.
@@ -30,7 +30,7 @@ O Banco de Dados do Azure para MySQL usa a edição de comunidade mais popular d
 | Python | Conector do MySQL/Python | https://pypi.python.org/pypi/mysql-connector-python | 1.2.3, 2,0, 2,1, 2,2, use 8.0.16 + com MySQL 8,0  | 1.2.2 e anterior | |
 | Python | PyMySQL | https://pypi.org/project/PyMySQL/ | 0.7.11, 0.8.0, 0.8.1, 0.9.3 + | 0.9.0-0.9.2 (regressão em web2py) | |
 | Java | Conector do MariaDB/J | https://downloads.mariadb.org/connector-java/ | 2.1, 2.0, 1.6 | 1.5.5 e anterior | | 
-| Java | Conector do MySQL/J | https://github.com/mysql/mysql-connector-j | 5.1.21 +, use 8.0.17 + com MySQL 8,0 | 5.1.20 e abaixo | |
+| Java | MySQL Connector/J | https://github.com/mysql/mysql-connector-j | 5.1.21 +, use 8.0.17 + com MySQL 8,0 | 5.1.20 e abaixo | |
 | C | Conector do MySQL/C (libmysqlclient) | https://dev.mysql.com/doc/refman/5.7/en/c-api-implementations.html | 6.0.2 + | | |
 | C | Conector do MySQL/ODBC (MyODBC) | https://github.com/mysql/mysql-connector-odbc | 3.51.29 + | | |
 | C++ | Conector do MySQL/C++ | https://github.com/mysql/mysql-connector-cpp | 1.1.9 + | 1.1.3 e abaixo | | 
@@ -43,16 +43,16 @@ O Banco de Dados do Azure para MySQL usa a edição de comunidade mais popular d
 ## <a name="management-tools"></a>Ferramentas de gerenciamento
 A vantagem de compatibilidade se estende para as ferramentas de gerenciamento de banco de dados também. Suas ferramentas existentes devem continuar trabalhando com o Banco de Dados do Azure para MySQL, contanto que a manipulação do banco de dados seja operada dentro dos limites das permissões de usuário. Três ferramentas comuns de gerenciamento de banco de dados que foram testadas e identificadas como compatíveis com o Banco de Dados do Azure para MySQL 5.6 e 5.7 estão listadas na tabela a seguir:
 
-|                                     | **MySQL Workbench 6.x e superior** | **Navicat 12** | **PHPMyAdmin 4.x e superior** |
-| :---------------------------------- | :----------------------------- | :------------- | :-------------------------|
-| **Criar, atualizar, ler, gravar, excluir** | X | X | X |
-| **Conexão SSL** | X | X | X |
-| **Preenchimento automático da consulta SQL** | X | X |  |
-| **Importar e exportar dados** | X | X | X |
-| **Exportar para vários formatos** | X | X | X |
-| **Backup e restauração** |  | X |  |
-| **Exibir parâmetros do servidor** | X | X | X |
-| **Exibir conexões de cliente** | X | X | X |
+|                                     | **MySQL Workbench 6.x e superior** | **Navicat 12** | **PHPMyAdmin 4.x e superior** | **dbForge Studio para MySQL 9,0** |
+| :---------------------------------- | :----------------------------- | :------------- | :-------------------------| :------------------------------- |
+| **Criar, atualizar, ler, gravar, excluir** | X | X | X | X |
+| **Conexão SSL** | X | X | X | X |
+| **Preenchimento automático da consulta SQL** | X | X |  | X |
+| **Importar e exportar dados** | X | X | X | X |
+| **Exportar para vários formatos** | X | X | X | X |
+| **Backup e restauração** |  | X |  | X |
+| **Exibir parâmetros do servidor** | X | X | X | X |
+| **Exibir conexões de cliente** | X | X | X | X |
 
 ## <a name="next-steps"></a>Próximas etapas
 

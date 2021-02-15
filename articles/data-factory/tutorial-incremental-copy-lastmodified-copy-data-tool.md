@@ -1,23 +1,18 @@
 ---
 title: Ferramenta de dados para copiar arquivos novos e atualizados incrementalmente
 description: Crie um data factory do Azure e, em seguida, use a ferramenta Copiar Dados para carregar incrementalmente novos arquivos com base em LastModifiedDate.
-services: data-factory
 author: dearandyxu
 ms.author: yexu
-ms.reviewer: ''
-manager: ''
 ms.service: data-factory
-ms.workload: data-services
-ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 6/10/2020
-ms.openlocfilehash: 402214da75bffd278e12db94f089d64acd62221e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 11/09/2020
+ms.openlocfilehash: f2f0b3e452b39cb81f435dbee4a3b0f524b0213d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84730129"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100361134"
 ---
 # <a name="incrementally-copy-new-and-changed-files-based-on-lastmodifieddate-by-using-the-copy-data-tool"></a>Copiar arquivos novos e alterados incrementalmente com base em LastModifiedDate usando a ferramenta de Copiar Dados
 
@@ -50,9 +45,9 @@ Prepare o armazenamento de BLOBs para o tutorial ao concluir estas etapas:
 
 2. Crie um contêiner chamado **destino**.
 
-## <a name="create-a-data-factory"></a>Criar uma data factory
+## <a name="create-a-data-factory"></a>Criar um data factory
 
-1. No painel esquerdo, selecione **Criar um recurso**. Selecione **Analytics**  >  **Data Factory**de análise:
+1. No painel esquerdo, selecione **Criar um recurso**. Selecione   >  **Data Factory** de integração:
 
    ![Selecionar Data Factory](./media/doc-common-process/new-azure-data-factory-menu.png)
 
@@ -104,7 +99,7 @@ Prepare o armazenamento de BLOBs para o tutorial ao concluir estas etapas:
 
 3. Na página **armazenamento de dados de origem** , conclua estas etapas:
 
-    a. Selecione **criar nova conexão** para adicionar uma conexão.
+    a. Selecione  **criar nova conexão** para adicionar uma conexão.
 
     b. Selecione **armazenamento de BLOBs do Azure** na galeria e selecione **continuar**:
 
@@ -164,7 +159,7 @@ Prepare o armazenamento de BLOBs para o tutorial ao concluir estas etapas:
 
     ![Criar file1.txt e carregá-lo no contêiner de origem](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs3-1.png)
 
-13. Para voltar à exibição de **execuções de pipeline** , selecione **todas as execuções de pipeline**e aguarde até que o mesmo pipeline seja disparado automaticamente.  
+13. Para voltar à exibição de **execuções de pipeline** , selecione **todas as execuções de pipeline** e aguarde até que o mesmo pipeline seja disparado automaticamente.  
 
 14. Quando a segunda execução de pipeline for concluída, siga as mesmas etapas mencionadas anteriormente para examinar os detalhes da execução da atividade.  
 

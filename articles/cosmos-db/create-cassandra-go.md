@@ -8,14 +8,15 @@ ms.subservice: cosmosdb-cassandra
 ms.devlang: go
 ms.topic: quickstart
 ms.date: 07/14/2020
-ms.openlocfilehash: ba53fb786b1d1f61535168cda2152049a12dfb99
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 595ec1aaa4aedc3916d1b4d46986dcabae887aaf
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86535470"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93076394"
 ---
 # <a name="quickstart-build-a-go-app-with-the-gocql-client-to-manage-azure-cosmos-db-cassandra-api-data"></a>Início Rápido: Criar um aplicativo Go com o cliente do `gocql` para gerenciar dados da API do Cassandra para Azure Cosmos DB
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](create-cassandra-dotnet.md)
@@ -85,7 +86,7 @@ func GetSession(cosmosCassandraContactPoint, cosmosCassandraPort, cosmosCassandr
 }
 ```
 
-O host do Cassandra para Azure Cosmos DB é passado para a função [`gocql.NewCluster`](https://godoc.org/github.com/gocql/gocql#NewCluster) a fim de obter um struct [`*gocql.ClusterConfig`](https://godoc.org/github.com/gocql/gocql#ClusterConfig) que é configurado para usar o nome de usuário, a senha, a porta e a versão do TLS apropriada ([requisito de segurança de criptografia HTTPS/SSL/TLS](https://docs.microsoft.com/azure/cosmos-db/database-security?WT.mc_id=cassandrago-docs-abhishgu#how-does-azure-cosmos-db-secure-my-database))
+O host do Cassandra para Azure Cosmos DB é passado para a função [`gocql.NewCluster`](https://godoc.org/github.com/gocql/gocql#NewCluster) a fim de obter um struct [`*gocql.ClusterConfig`](https://godoc.org/github.com/gocql/gocql#ClusterConfig) que é configurado para usar o nome de usuário, a senha, a porta e a versão do TLS apropriada ([requisito de segurança de criptografia HTTPS/SSL/TLS](./database-security.md?WT.mc_id=cassandrago-docs-abhishgu#how-does-azure-cosmos-db-secure-my-database))
 
 A função `GetSession` é então chamada por meio da função `main` (`main.go`).
 

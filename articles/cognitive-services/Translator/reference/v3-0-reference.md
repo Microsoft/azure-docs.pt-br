@@ -3,19 +3,19 @@ title: Referência do tradutor V 3.0
 titleSuffix: Azure Cognitive Services
 description: Documentação de referência para o tradutor V 3.0. A versão 3 do tradutor fornece uma API da Web moderna baseada em JSON.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 8/11/2020
-ms.author: swmachan
-ms.openlocfilehash: 6b211dd8ca735ea9ee4a5209aa6030398cca472e
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.author: lajanuar
+ms.openlocfilehash: 021a65ba69b9d1909df4a86d92b660c0c1033a3b
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121010"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895451"
 ---
 # <a name="translator-v30"></a>Tradutor v 3.0
 
@@ -39,9 +39,9 @@ O Microsoft Translator é distribuído a partir de vários locais de datacenter.
 
 As solicitações para o Microsoft Translator estão na maioria dos casos manipulados pelo datacenter mais próximo de onde a solicitação foi originada. No caso de uma falha de datacenter, a solicitação pode ser roteada para fora da geografia do Azure.
 
-Para forçar a manipulação da solicitação por uma geografia do Azure específica, altere o ponto de extremidade global na solicitação de API para o ponto de extremidade regional desejado:
+Para forçar a manipulação da solicitação por uma geografia do Azure específica, altere o ponto de extremidade global na solicitação de API para o ponto de extremidade geográfico desejado:
 
-|Descrição|Geografia do Azure|URL base|
+|Descrição|Geografia do Azure|URL base (ponto de extremidade geográfico)|
 |:--|:--|:--|
 |Azure|Global (não regional)|   api.cognitive.microsofttranslator.com|
 |Azure|Estados Unidos|   api-nam.cognitive.microsofttranslator.com|
@@ -147,7 +147,7 @@ Um token de autenticação é válido por 10 minutos. O token deve ser reutiliza
 
 ## <a name="virtual-network-support"></a>Suporte para Rede Virtual
 
-O serviço do tradutor agora está disponível com recursos de rede virtual (VNET) em todas as regiões da nuvem pública do Azure. Para habilitar a rede virtual, consulte [Configurando redes virtuais de serviços cognitivas do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal). 
+O serviço do tradutor agora está disponível com recursos de rede virtual (VNET) em todas as regiões da nuvem pública do Azure. Para habilitar a rede virtual, consulte [Configurando redes virtuais de serviços cognitivas do Azure](../../cognitive-services-virtual-networks.md?tabs=portal). 
 
 Depois de ativar esse recurso, você deve usar o ponto de extremidade personalizado para chamar o tradutor. Você não pode usar o ponto de extremidade do tradutor global ("api.cognitive.microsofttranslator.com") e não pode autenticar com um token de acesso.
 
@@ -156,7 +156,7 @@ Você pode encontrar o ponto de extremidade personalizado depois de criar um [re
 |Cabeçalhos|Descrição|
 |:-----|:----|
 |Ocp-Apim-Subscription-Key| O valor é a chave secreta do Azure para sua assinatura do tradutor.|
-|Ocp-Apim-Subscription-Region| O valor é a região do recurso do tradutor. Esse valor será opcional se o recurso for`global`|
+|Ocp-Apim-Subscription-Region| O valor é a região do recurso do tradutor. Esse valor será opcional se o recurso for `global`|
 
 Aqui está um exemplo de solicitação para chamar o tradutor usando o ponto de extremidade personalizado
 
@@ -230,7 +230,7 @@ O código de erro é um número de 6 dígitos que combina o código de status HT
 | 503000| O serviço está temporariamente indisponível. Tente novamente. Se o erro persistir, informe-o com data / hora do erro, solicite o identificador do cabeçalho de resposta X-RequestId e o identificador de cliente do cabeçalho de solicitação X-ClientTraceId.|
 
 ## <a name="metrics"></a>Métricas 
-As métricas permitem que você exiba as informações de uso e disponibilidade do tradutor em portal do Azure, na seção métricas, conforme mostrado na captura de tela abaixo. Para obter mais informações, consulte [métricas de dados e plataforma](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics).
+As métricas permitem que você exiba as informações de uso e disponibilidade do tradutor em portal do Azure, na seção métricas, conforme mostrado na captura de tela abaixo. Para obter mais informações, consulte [métricas de dados e plataforma](../../../azure-monitor/platform/data-platform-metrics.md).
 
 ![Métricas do Tradutor](../media/translatormetrics.png)
 

@@ -8,10 +8,10 @@ ms.prod: kinect-dk
 ms.topic: conceptual
 keywords: Kinect, Azure, configurar, profundidade, cor, RGB, câmera, sensor, SDK, IMU, sensor de movimento, movimento, giroscópio, giro, acelerômetro, FPS
 ms.openlocfilehash: 649dd5b9de62d43d59e74d53adff1ec7de8dfd32
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85276343"
 ---
 # <a name="retrieve-azure-kinect-imu-samples"></a>Recuperar exemplos do IMU do Azure Kinect
@@ -63,7 +63,7 @@ Como há algumas filas internas de exemplos de IMU, você pode usar o seguinte p
 3. Recupere todos os exemplos de IMU em fila.
 4. Repetir a espera na próxima captura.
 
-Para recuperar todos os exemplos de IMU em fila no momento, você pode chamar [`k4a_device_get_imu_sample()`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga8e5913b3bb94a453c7143bbd6e399a0e.html#ga8e5913b3bb94a453c7143bbd6e399a0e) com um `timeout_in_ms` de 0 em um loop até que a função retorne `K4A_WAIT_RESULT_TIMEOUT` . `K4A_WAIT_RESULT_TIMEOUT`indica que não há amostras em fila e que nenhuma tenha chegado no tempo limite especificado.
+Para recuperar todos os exemplos de IMU em fila no momento, você pode chamar [`k4a_device_get_imu_sample()`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga8e5913b3bb94a453c7143bbd6e399a0e.html#ga8e5913b3bb94a453c7143bbd6e399a0e) com um `timeout_in_ms` de 0 em um loop até que a função retorne `K4A_WAIT_RESULT_TIMEOUT` . `K4A_WAIT_RESULT_TIMEOUT` indica que não há amostras em fila e que nenhuma tenha chegado no tempo limite especificado.
 
 ## <a name="usage-example"></a>Exemplo de uso
 

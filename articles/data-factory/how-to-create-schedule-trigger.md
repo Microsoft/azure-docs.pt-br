@@ -1,23 +1,19 @@
 ---
 title: Criar gatilhos de agendamento no Azure Data Factory
 description: Saiba como criar um gatilho no Azure Data Factory que execute um pipeline em um agendamento.
-services: data-factory
-documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
-manager: jroth
+author: chez-charlie
+ms.author: chez
 ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
-ms.date: 01/23/2018
+ms.date: 10/30/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 5dd51f7bcaaa876285f6f514ea98603ff28e7ffa
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 3673dd9eba717d2bdb569b4248936bbb59a8eae7
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87872592"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100387573"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>Criar um gatilho que executa um pipeline com base em um agendamento
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -48,12 +44,19 @@ Crie um **gatilho de agendamento** para agendar a execução periódica de um pi
 
 1. Na página **novo gatilho** , execute as seguintes etapas: 
 
-    1. Confirme se **Agendamento** está selecionado para **Tipo**. 
-    1. Especifique o datetime de início do gatilho em **Data de Início (UTC)**. Ele está definido como o datetime atual por padrão. 
-    1. Especifique **Recorrência** para o gatilho. Selecione um dos valores na lista suspensa (A Cada minuto, Por hora, Diariamente, Semanalmente e Mensalmente). Insira o multiplicador na caixa de texto. Por exemplo, se você deseja que o gatilho seja executado uma vez a cada 15 minutos, selecione **A Cada Minuto** e insira **15** na caixa de texto. 
-    1. Para o campo **Término**, caso não deseje especificar um datetime de término para o gatilho, selecione **Sem Término**. Para especificar uma data e hora de término, selecione **na data**e especifique end DateTime e, em seguida, selecione **OK**. Há um custo associado a cada execução do pipeline. Se estiver testando, recomendamos garantir que o pipeline é disparado apenas algumas vezes. No entanto, verifique se há tempo suficiente para a execução do pipeline entre a hora da publicação e a hora de término. O gatilho só entra em vigor depois de você publicar a solução no Data Factory, e não ao salvar o gatilho na interface do usuário.
+    1. Confirme se **Agendamento** está selecionado para **Tipo**.
+    1. Especifique o DateTime inicial do gatilho para a **data de início**. Ele é definido como o DateTime atual em UTC (tempo Universal Coordenado) por padrão.
+    1. Especifique o fuso horário no qual o gatilho será criado. A configuração de fuso horário será aplicada a **data de início**, data de **término** e tempos de **execução de agendamento** nas opções de recorrência avançadas. Alterar a configuração de fuso horário não alterará automaticamente a data de início. Certifique-se de que a data de início esteja correta no fuso horário especificado. Observe que o tempo de execução agendado do gatilho será considerado após a data de início (verifique se a data de início é pelo menos 1 minuto menor do que o tempo de execução. em seguida, ele disparará o pipeline na próxima recorrência). 
 
-        ![Configurações do gatilho](./media/how-to-create-schedule-trigger/trigger-settings.png)
+        > [!NOTE]
+        > Para os fusos horários que observam o horário de verão, o tempo de disparo será ajustado automaticamente para a alteração de um ano duas vezes. Para recusar a alteração de salvamento de horário de verão, selecione um fuso horário que não observe o horário de verão, por exemplo, UTC
+
+    1. Especifique **Recorrência** para o gatilho. Selecione um dos valores na lista suspensa (A Cada minuto, Por hora, Diariamente, Semanalmente e Mensalmente). Insira o multiplicador na caixa de texto. Por exemplo, se você deseja que o gatilho seja executado uma vez a cada 15 minutos, selecione **A Cada Minuto** e insira **15** na caixa de texto. 
+    1. Para especificar uma data e hora de término, selecione **especificar uma data de término** e especifique _termina em_ e selecione **OK**. Há um custo associado a cada execução do pipeline. Se estiver testando, recomendamos garantir que o pipeline é disparado apenas algumas vezes. No entanto, verifique se há tempo suficiente para a execução do pipeline entre a hora da publicação e a hora de término. O gatilho só entra em vigor depois de você publicar a solução no Data Factory, e não ao salvar o gatilho na interface do usuário.
+
+        ![Configurações do gatilho](./media/how-to-create-schedule-trigger/trigger-settings-01.png)
+
+        ![Configurações do gatilho para data de término](./media/how-to-create-schedule-trigger/trigger-settings-02.png)
 
 1. Na janela **novo gatilho** , selecione **Sim** na opção **ativado** e, em seguida, selecione **OK**. Use essa caixa de seleção para desativar o gatilho mais tarde. 
 
@@ -71,7 +74,7 @@ Crie um **gatilho de agendamento** para agendar a execução periódica de um pi
 
     ![Monitorar execuções disparadas](./media/how-to-create-schedule-trigger/monitor-triggered-runs.png)
 
-1. Alterne para o modo de exibição de **execuções de gatilho** . 
+1. Alterne para o modo de exibição de agendamento de **execuções de gatilho**  \   . 
 
     ![Monitorar execuções de gatilho](./media/how-to-create-schedule-trigger/monitor-trigger-runs.png)
 
@@ -95,8 +98,9 @@ Esta seção mostra como usar o Azure PowerShell para criar, iniciar e monitorar
                 "recurrence": {
                     "frequency": "Minute",
                     "interval": 15,
-                    "startTime": "2017-12-08T00:00:00",
-                    "endTime": "2017-12-08T01:00:00"
+                    "startTime": "2017-12-08T00:00:00Z",
+                    "endTime": "2017-12-08T01:00:00Z",
+                    "timeZone": "UTC"
                 }
             },
             "pipelines": [{
@@ -115,11 +119,18 @@ Esta seção mostra como usar o Azure PowerShell para criar, iniciar e monitorar
     ```
 
     No snippet JSON:
-    - O elemento **type** do gatilho é definido como “ScheduleTrigger”.
-    - O elemento **frequency** é definido como “Minutes” e o elemento **interval** é definido como 15. Portanto, o gatilho executa o pipeline a cada 15 minutos entre os horários de início e término.
-    - O elemento **endTime** é uma hora após o valor do elemento **startTime**. Portanto, o gatilho executa o pipeline 15 minutos, 30 minutos e 45 minutos após a hora de início. Não se esqueça de atualizar a hora de início para a hora UTC atual e a hora de término para uma hora após a hora de início. 
+    - O elemento **Type** do gatilho é definido como "ScheduleTrigger".
+    - O elemento **frequency** é definido como “Minutes” e o elemento **interval** é definido como 15. Assim, o gatilho executa o pipeline a cada 15 minutos entre as horas de início e término.
+    - O elemento **timeZone** especifica o fuso horário em que o gatilho é criado. Essa configuração afeta tanto **StartTime** quanto **EndTime**.
+    - O elemento **endTime** é uma hora após o valor do elemento **startTime**. Assim, o gatilho executa o pipeline 15 minutos, 30 minutos e 45 minutos após a hora de início. Não se esqueça de atualizar a hora de início para a hora UTC atual e a hora de término para uma hora após a hora de início. 
+
+        > [!IMPORTANT]
+        > Para o fuso horário UTC, StartTime e endTime precisam seguir o formato ' AAAA-MM-ddTHH: mm: SS **Z**', enquanto para outras zonas de tempo, StartTime e EndTime seguem ' aaaa-mm-ddThh: mm: SS '. 
+        > 
+        > Por padrão ISO 8601, o sufixo _Z_ para timestamp marca carimbo de data/hora como fuso horário UTC e renderizar o campo de fuso horário como inútil. Embora o sufixo _Z_ ausente para o fuso horário UTC resultará em um erro na _ativação_ do gatilho.
+
     - O gatilho está associado ao pipeline **Adfv2QuickStartPipeline**. Para associar vários pipelines a um gatilho, adicione mais seções **pipelineReference**.
-    - O pipeline no Início Rápido usa dois valores de **parameters**: **inputPath** e **outputPath**. Portanto, você passa os valores para esses parâmetros por meio do gatilho.
+    - O pipeline no Início Rápido usa dois valores de **parameters**: **inputPath** e **outputPath**. E você passa valores para esses parâmetros do gatilho.
 
 1. Crie um gatilho usando o cmdlet **set-AzDataFactoryV2Trigger** :
 
@@ -151,7 +162,11 @@ Esta seção mostra como usar o Azure PowerShell para criar, iniciar e monitorar
     Get-AzDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "MyTrigger" -TriggerRunStartedAfter "2017-12-08T00:00:00" -TriggerRunStartedBefore "2017-12-08T01:00:00"
     ```
     
+    > [!NOTE]
+    > O tempo de gatilho de gatilhos de agendamento é especificado no carimbo de data/hora UTC. _TriggerRunStartedAfter_ e _TriggerRunStartedBefore_ também esperam carimbo de data/hora UTC
+
     Para monitorar as execuções de gatilho e de pipeline no portal do Azure, consulte [Monitorar execuções de pipeline](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).
+
 
 
 ## <a name="net-sdk"></a>SDK .NET
@@ -207,6 +222,16 @@ Para criar e iniciar um gatilho de agendamento que é executado a cada 15 minuto
             client.Triggers.Start(resourceGroup, dataFactoryName, triggerName);
 ```
 
+Para criar gatilhos em um fuso horário diferente, exceto o UTC, as seguintes configurações são necessárias:
+```csharp
+<<ClientInstance>>.SerializationSettings.DateFormatHandling = Newtonsoft.Json.DateFormatHandling.IsoDateFormat;
+<<ClientInstance>>.SerializationSettings.DateTimeZoneHandling = Newtonsoft.Json.DateTimeZoneHandling.Unspecified;
+<<ClientInstance>>.SerializationSettings.DateParseHandling = DateParseHandling.None;
+<<ClientInstance>>.DeserializationSettings.DateParseHandling = DateParseHandling.None;
+<<ClientInstance>>.DeserializationSettings.DateFormatHandling = Newtonsoft.Json.DateFormatHandling.IsoDateFormat;
+<<ClientInstance>>.DeserializationSettings.DateTimeZoneHandling = Newtonsoft.Json.DateTimeZoneHandling.Unspecified;
+```
+
 Para monitorar uma execução de gatilho, adicione o seguinte código antes da última instrução `Console.WriteLine` na amostra:
 
 ```csharp
@@ -240,7 +265,7 @@ Esta seção mostra como usar o SDK do Python para criar, iniciar e monitorar um
 ```python
     # Create a trigger
     tr_name = 'mytrigger'
-    scheduler_recurrence = ScheduleTriggerRecurrence(frequency='Minute', interval='15',start_time='2017-12-12T04:00:00', end_time='2017-12-12T05:00:00', time_zone='UTC')
+    scheduler_recurrence = ScheduleTriggerRecurrence(frequency='Minute', interval='15',start_time='2017-12-12T04:00:00Z', end_time='2017-12-12T05:00:00Z', time_zone='UTC')
     pipeline_parameters = {'inputPath':'adftutorial/input', 'outputPath':'adftutorial/output'}
     pipelines_to_run = []
     pipeline_reference = PipelineReference('copyPipeline')
@@ -322,24 +347,46 @@ A seguinte tabela fornece uma visão geral de alto nível dos principais element
 
 | Propriedade JSON | Descrição |
 |:--- |:--- |
-| **startTime** | Um valor de Data/Hora. Para agendamentos simples, o valor da propriedade **startTime** aplica-se à primeira ocorrência. Para agendamentos complexos, o gatilho não é iniciado antes do valor de **startTime** especificado. |
-| **Final** | A data e a hora de início do gatilho. O gatilho não é executado após a data e a hora de término especificadas. O valor da propriedade não pode estar no passado. Essa propriedade é opcional. |
-| **Fuso horário** | O fuso horário. Atualmente, há suporte apenas para o fuso horário UTC. |
-| **Recurrence** | Um objeto de recorrência que especifica as regras de recorrência para o gatilho. O objeto de recorrência dá suporte aos elementos **frequência**, **intervalo**, **EndTime**, **contagem**e **agendamento** . Quando um objeto de recorrência é definido, o elemento **frequency** é obrigatório. Os outros elementos do objeto de recorrência são opcionais. |
+| **startTime** | Um valor de Data/Hora. Para agendamentos simples, o valor da propriedade **startTime** aplica-se à primeira ocorrência. Para agendamentos complexos, o gatilho não é iniciado antes do valor de **startTime** especificado. <br> Para o fuso horário UTC, o formato é `'yyyy-MM-ddTHH:mm:ssZ'` , para outro fuso horário, o formato é `'yyyy-MM-ddTHH:mm:ss'` . |
+| **Final** | A data e a hora de início do gatilho. O gatilho não é executado após a data e a hora de término especificadas. O valor da propriedade não pode estar no passado. Essa propriedade é opcional.  <br> Para o fuso horário UTC, o formato é `'yyyy-MM-ddTHH:mm:ssZ'` , para outro fuso horário, o formato é `'yyyy-MM-ddTHH:mm:ss'` . |
+| **Fuso horário** | O fuso horário em que o gatilho é criado. Essa configuração afeta **StartTime**, **EndTime** e **Schedule**. Ver a [lista de fuso horário com suporte](#time-zone-option) |
+| **Recurrence** | Um objeto de recorrência que especifica as regras de recorrência para o gatilho. O objeto de recorrência dá suporte aos elementos **frequência**, **intervalo**, **EndTime**, **contagem** e **agendamento** . Quando um objeto de recorrência é definido, o elemento **frequency** é obrigatório. Os outros elementos do objeto de recorrência são opcionais. |
 | **frequência** | A unidade de frequência com a qual o gatilho se repete. Os valores com suporte incluem “minute”, “hour”, “day”, “week” e “month”. |
 | **intervalo** | Um inteiro positivo que indica o intervalo para o valor de **frequência**, que determina a frequência com a qual o gatilho é executado. Por exemplo, se **interval** for 3 e **frequency** é "week", o gatilho é repetido a cada 3 semanas. |
 | **agendamento** | O agendamento de recorrência do gatilho. Um gatilho com um valor de **frequency** especificado altera sua recorrência com base em um agendamento de recorrência. A propriedade **schedule** contém modificações para a recorrência que se baseiam em minutos, horas, dias da semana, dias do mês e número da semana.
 
+> [!IMPORTANT]
+> Para o fuso horário UTC, StartTime e endTime precisam seguir o formato ' AAAA-MM-ddTHH: mm: SS **Z**', enquanto para outras zonas de tempo, StartTime e EndTime seguem ' aaaa-mm-ddThh: mm: SS '. 
+> 
+> Por padrão ISO 8601, o sufixo _Z_ para timestamp marca carimbo de data/hora como fuso horário UTC e renderizar o campo de fuso horário como inútil. Embora o sufixo _Z_ ausente para o fuso horário UTC resultará em um erro na _ativação_ do gatilho.
 
 ### <a name="schema-defaults-limits-and-examples"></a>Padrões, limites e exemplos de esquema
 
-| Propriedade JSON | Type | Obrigatório | Valor padrão | Valores válidos | Exemplo |
+| Propriedade JSON | Tipo | Obrigatório | Valor padrão | Valores válidos | Exemplo |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| **startTime** | String | Sim | Nenhum | Data e hora ISO 8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
+| **startTime** | String | Sim | Nenhum | Data e hora ISO 8601 | para fuso horário UTC `"startTime" : "2013-01-09T09:30:00-08:00Z"` <br> para outro fuso horário `"2013-01-09T09:30:00-08:00"` |
+| **Fuso horário** | String | Sim | Nenhum | [Valores de fuso horário](#time-zone-option)  | `"UTC"` |
 | **Recurrence** | Objeto | Sim | Nenhum | Objeto de recorrência | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
 | **intervalo** | Número | Não | 1 | 1 a 1.000 | `"interval":10` |
-| **Final** | String | Sim | Nenhum | Um valor de Data/Hora que representa uma hora no futuro. | `"endTime" : "2013-02-09T09:30:00-08:00"` |
+| **Final** | String | Sim | Nenhum | Um valor de Data/Hora que representa uma hora no futuro. | para fuso horário UTC `"endTime" : "2013-02-09T09:30:00-08:00Z"` <br> para outro fuso horário `"endTime" : "2013-02-09T09:30:00-08:00"`|
 | **agendamento** | Objeto | Não | Nenhum | Objeto Agendamento | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
+
+### <a name="time-zone-option"></a>Opção de fuso horário
+
+Aqui estão alguns dos fusos horários com suporte para gatilhos de agendamento:
+
+| Fuso horário | Diferença UTC (salvamento não-verão) | Valor do fuso horário | Observe o horário de verão | Formato de carimbo de data/hora |
+| :--- | :--- | :--- | :--- | :--- |
+| Tempo universal coordenado | 0 | `UTC` | Não | `'yyyy-MM-ddTHH:mm:ssZ'`|
+| Hora do Pacífico (PT) | -8 | `Pacific Standard Time` | Sim | `'yyyy-MM-ddTHH:mm:ss'` |
+| Hora central (CT) | -6 | `Central Standard Time` | Sim | `'yyyy-MM-ddTHH:mm:ss'` |
+| Hora do leste (ET) | -5 | `Eastern Standard Time` | Sim | `'yyyy-MM-ddTHH:mm:ss'` |
+| Greenwich Mean Time (GMT) | 0 | `GMT Standard Time` | Sim | `'yyyy-MM-ddTHH:mm:ss'` |
+| Hora oficial da Europa Central | +1 | `W. Europe Standard Time` | Sim | `'yyyy-MM-ddTHH:mm:ss'` |
+| Hora padrão da Índia (IST) | + 5:30 | `India Standard Time` | Não | `'yyyy-MM-ddTHH:mm:ss'` |
+| Hora oficial da China | + 8 | `China Standard Time` | Não | `'yyyy-MM-ddTHH:mm:ss'` |
+
+Esta lista está incompleta. Para obter uma lista completa das opções de fuso horário, explore na [página de criação de gatilho](#data-factory-ui) do portal data Factory
 
 ### <a name="starttime-property"></a>Propriedade startTime
 A seguinte tabela mostra como a propriedade **startTime** controla uma execução de gatilho:
@@ -351,9 +398,9 @@ A seguinte tabela mostra como a propriedade **startTime** controla uma execuçã
 
 Vejamos um exemplo do que acontece quando a hora de início está no passado, com uma recorrência, mas sem agendamento. Suponha que a hora atual seja `2017-04-08 13:00`, a hora de início seja `2017-04-07 14:00` e a recorrência seja a cada dois dias. (O valor de **recorrência** é definido definindo a propriedade **Frequency** como "Day" e a propriedade **Interval** como 2.) Observe que o valor **StartTime** está no passado e ocorre antes da hora atual.
 
-Sob essas condições, a primeira execução será em `2017-04-09 at 14:00`. O mecanismo do Agendador calcula as ocorrências de execução desde a hora de início. As instâncias no passado serão descartadas. O mecanismo usa a próxima instância que ocorrer no futuro. Neste cenário, a hora de início é `2017-04-07 at 2:00pm` e, portanto, a próxima instância ocorrerá dois dias depois dessa hora, que será em `2017-04-09 at 2:00pm`.
+Sob essas condições, a primeira execução está em `2017-04-09` às `14:00` . O mecanismo do Agendador calcula as ocorrências de execução desde a hora de início. As instâncias no passado serão descartadas. O mecanismo usa a próxima instância que ocorrer no futuro. Nesse cenário, a hora de início é `2017-04-07` em `2:00pm` , portanto, a próxima instância é de dois dias a partir dessa hora, que está `2017-04-09` em `2:00pm` .
 
-A primeira hora de execução é igual, mesmo que o valor de **startTime** seja `2017-04-05 14:00` ou `2017-04-01 14:00`. Após a primeira execução, as execuções seguintes são calculadas com o uso do agendamento. Portanto, as execuções seguintes serão em `2017-04-11 at 2:00pm`, depois em `2017-04-13 at 2:00pm`, em `2017-04-15 at 2:00pm` e assim por diante.
+A primeira hora de execução é igual, mesmo que o valor de **startTime** seja `2017-04-05 14:00` ou `2017-04-01 14:00`. Após a primeira execução, as execuções seguintes são calculadas com o uso do agendamento. Portanto, as execuções subsequentes estão em, em seguida, em, depois em e `2017-04-11` `2:00pm` assim por `2017-04-13` `2:00pm` `2017-04-15` `2:00pm` diante.
 
 Por fim, quando as horas ou os minutos não estiverem definidos no agendamento de um gatilho, as horas ou os minutos da primeira execução serão usados como padrões.
 

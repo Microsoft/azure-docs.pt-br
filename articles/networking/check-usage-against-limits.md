@@ -12,12 +12,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/05/2018
-ms.openlocfilehash: cffa5677c5531f3887639c049998523d7d07586a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5c53eb65f31e32d3edebcbf31d48d166f5464a92
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79455555"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98233331"
 ---
 # <a name="check-resource-usage-against-limits"></a>Verificar o uso de recursos em relação aos limites
 
@@ -27,7 +27,7 @@ Neste artigo, você aprenderá como ver o número de cada tipo de recurso de red
 
 1. Faça logon no [portal](https://portal.azure.com)do Azure.
 2. No canto superior esquerdo do portal do Azure, selecione **Todos os serviços**.
-3. Insira *Assinaturas* na caixa **Filtrar**. Quando **Assinaturas** for exibido nos resultados da pesquisa, selecione-as.
+3. Insira *Assinaturas* na caixa **Filtrar**. Quando **Assinaturas** for exibido nos resultados da pesquisa, selecione-o.
 4. Selecione o nome da assinatura para a qual você deseja exibir as informações de uso.
 5. Em **CONFIGURAÇÕES**, selecione **Uso + cota**.
 6. É possível selecionar as seguintes opções:
@@ -48,7 +48,7 @@ Neste artigo, você aprenderá como ver o número de cada tipo de recurso de red
 
 É possível executar os comandos a seguir no [Azure Cloud Shell](https://shell.azure.com/powershell) ou executando o PowerShell no computador. O Azure Cloud Shell é um shell interativo gratuito. Ele tem ferramentas do Azure instaladas e configuradas para usar com sua conta. Se você executar o PowerShell do seu computador, precisará do módulo Azure PowerShell, versão 1.0.0 ou posterior. Execute `Get-Module -ListAvailable Az` no computador para localizar a versão instalada. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps). Se estiver executando o PowerShell localmente, também será possível executar o `Login-AzAccount` para fazer logon no Azure.
 
-Exiba seu uso em relação aos limites com [Get-AzNetworkUsage](https://docs.microsoft.com/powershell/module/az.network/get-aznetworkusage). O exemplo a seguir obtém o uso dos recursos em que pelo menos um recurso é implantado no local Leste dos EUA:
+Exiba seu uso em relação aos limites com [Get-AzNetworkUsage](/powershell/module/az.network/get-aznetworkusage). O exemplo a seguir obtém o uso dos recursos em que pelo menos um recurso é implantado no local Leste dos EUA:
 
 ```azurepowershell-interactive
 Get-AzNetworkUsage `

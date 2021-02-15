@@ -4,16 +4,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 07/30/2019
 ms.author: erhopf
-ms.openlocfilehash: ffefde7d692950fc272ab2502ad8afe254bf48f1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.openlocfilehash: c9d73804484ea7cc72e0198b857099fd8fba46d5
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73590326"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95558339"
 ---
-Os limites a seguir são para o número de recursos de serviços cognitivas por assinatura do Azure. Cada um dos serviços cognitivas pode ter limitações adicionais, para obter mais informações, consulte [Serviços cognitivas do Azure](https://docs.microsoft.com/azure/cognitive-services/).
+Os limites a seguir são para o número de recursos dos Serviços Cognitivos por assinatura do Azure. Cada um dos Serviços Cognitivos poderá ter limitações adicionais. Para obter mais informações, confira [Serviços Cognitivos do Azure](../articles/cognitive-services/index.yml).
 
-| Tipo | Limite | Exemplo |
+| Type | Limite | Exemplo |
 |------|-------|---------|
-| Uma mistura de recursos de serviços cognitivas | Máximo de 200 recursos de serviços cognitivas de total. | 100 Pesquisa Visual Computacional recursos no oeste dos EUA 2, 50 recursos do serviço de fala no oeste dos EUA e 50 Análise de Texto recursos no leste dos EUA. |
-| Um único tipo de recursos de serviços cognitivas. | Máximo de 100 recursos por região, com um máximo de 200 recursos de serviços cognitivas totais. | 100 Pesquisa Visual Computacional recursos no oeste dos EUA 2 e 100 Pesquisa Visual Computacional recursos no leste dos EUA. |
+| Uma mistura de recursos dos Serviços Cognitivos | Máximo de 200 recursos dos Serviços Cognitivos no total. | São 100 recursos da Pesquisa Visual Computacional na região Oeste dos EUA 2, 50 recursos do Serviço de Fala na região Oeste dos EUA e 50 recursos de Análise de Texto na região Leste dos EUA. |
+| Um tipo de recurso dos Serviços Cognitivos. | Máximo de 100 recursos por região com no máximo 200 recursos dos Serviços Cognitivos no total. | São 100 recursos da Pesquisa Visual Computacional na região Oeste dos EUA 2 e 100 recursos da Pesquisa Visual Computacional na região Leste dos EUA. |

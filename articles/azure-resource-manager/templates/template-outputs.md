@@ -1,18 +1,20 @@
 ---
 title: Saídas em modelos
-description: Descreve como definir valores de saída em um modelo de Azure Resource Manager.
+description: Descreve como definir valores de saída em um modelo de Azure Resource Manager (modelo ARM).
 ms.topic: conceptual
-ms.date: 02/25/2020
-ms.openlocfilehash: 203bfc66e9515ef14a5fe1315ef5b9ee07075041
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 11/24/2020
+ms.openlocfilehash: f8f13b6caf063cea79dc71775fb936f406a3ee6c
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79460017"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97964007"
 ---
-# <a name="outputs-in-azure-resource-manager-template"></a>Saídas no modelo de Azure Resource Manager
+# <a name="outputs-in-arm-templates"></a>Saídas em modelos ARM
 
-Este artigo descreve como definir valores de saída em seu modelo de Azure Resource Manager. Você usa saídas quando precisa retornar valores dos recursos implantados.
+Este artigo descreve como definir valores de saída em seu modelo de Azure Resource Manager (modelo ARM). Você usa `outputs` quando precisa retornar valores dos recursos implantados.
+
+O formato de cada valor de saída deve corresponder a um dos [tipos de dados](template-syntax.md#data-types).
 
 ## <a name="define-output-values"></a>Definir valores de saída
 
@@ -29,7 +31,7 @@ O exemplo a seguir mostra como retornar a ID de recurso para um endereço IP pú
 
 ## <a name="conditional-output"></a>Saída condicional
 
-Na seção de saídas, você pode retornar um valor condicionalmente. Normalmente, você usa a condição nas saídas quando [implantou condicionalmente](conditional-resource-deployment.md) um recurso. O exemplo a seguir mostra como retornar condicionalmente a ID de recurso para um endereço IP público com base no fato de um novo ter sido implantado:
+Na `outputs` seção, você pode retornar um valor condicionalmente. Normalmente, você usa `condition` o no `outputs` quando tiver [implantado condicionalmente](conditional-resource-deployment.md) um recurso. O exemplo a seguir mostra como retornar condicionalmente a ID de recurso para um endereço IP público com base no fato de um novo ter sido implantado:
 
 ```json
 "outputs": {
@@ -45,7 +47,7 @@ Para obter um exemplo simples de saída condicional, consulte [modelo de saída 
 
 ## <a name="dynamic-number-of-outputs"></a>Número dinâmico de saídas
 
-Em alguns cenários, você não sabe o número de instâncias de um valor que precisa retornar ao criar o modelo. Você pode retornar um número variável de valores usando o elemento **Copy** .
+Em alguns cenários, você não sabe o número de instâncias de um valor que precisa retornar ao criar o modelo. Você pode retornar um número variável de valores usando o `copy` elemento.
 
 ```json
 "outputs": {
@@ -59,7 +61,7 @@ Em alguns cenários, você não sabe o número de instâncias de um valor que pr
 }
 ```
 
-Para obter mais informações, consulte [iteração de saída em modelos de Azure Resource Manager](copy-outputs.md).
+Para obter mais informações, consulte [Iteration de saída em modelos ARM](copy-outputs.md).
 
 ## <a name="linked-templates"></a>Modelos vinculados
 
@@ -118,4 +120,4 @@ Os exemplos a seguir demonstram cenários para o uso de saídas.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para saber mais sobre as propriedades disponíveis para saídas, consulte [entender a estrutura e a sintaxe de modelos de Azure Resource Manager](template-syntax.md).
+* Para saber mais sobre as propriedades disponíveis para saídas, consulte [entender a estrutura e a sintaxe de modelos ARM](template-syntax.md).

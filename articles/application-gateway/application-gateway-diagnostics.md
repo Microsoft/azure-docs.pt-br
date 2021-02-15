@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/22/2019
 ms.author: victorh
-ms.openlocfilehash: f752604b86634948954dd670d0b7f4edb5b3e2be
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e18267d5a810826e41e05eb3dde3cd82a8eb9197
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86517868"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98065313"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>Integridade de back-end e logs de diagnóstico para o gateway de aplicativo
 
@@ -41,7 +41,7 @@ O relatório de integridade do back-end reflete o resultado da investigação de
 
 No portal, a integridade do back-end é fornecida automaticamente. Em um gateway de aplicativo existente, selecione **monitoramento**  >  **integridade de back-end**.
 
-Cada membro no pool de back-end é listado nesta página (seja uma NIC, um IP ou um FQDN). São mostrados o nome do pool de back-end, a porta, as configurações de HTTP do back-end e o status de integridade. Os valores válidos para o status de integridade são **íntegros**, não **íntegros**e **desconhecidos**.
+Cada membro no pool de back-end é listado nesta página (seja uma NIC, um IP ou um FQDN). São mostrados o nome do pool de back-end, a porta, as configurações de HTTP do back-end e o status de integridade. Os valores válidos para o status de integridade são **íntegros**, não **íntegros** e **desconhecidos**.
 
 > [!NOTE]
 > Se o status **Desconhecido** de integridade do back-end for exibido, verifique se o acesso ao back-end não está bloqueado por uma regra do NSG, uma UDR (rota definida pelo usuário) ou um DNS personalizado na rede virtual.
@@ -95,7 +95,7 @@ O seguinte snippet mostra um exemplo da resposta:
 
 Você pode usar tipos diferentes de logs no Azure para gerenciar e solucionar problemas de gateways de aplicativo. Você pode acessar alguns desses logs por meio do portal. Todos os logs podem ser extraídos de um Armazenamento de blobs do Azure e exibidos em diferentes ferramentas, como [logs do Azure Monitor](../azure-monitor/insights/azure-networking-analytics.md), Excel e Power BI. Saiba mais sobre os tipos diferentes de logs na lista a seguir:
 
-* **Log de atividades**: você pode usar os [logs de atividades do Azure](../monitoring-and-diagnostics/insights-debugging-with-events.md) (anteriormente conhecidos como logs operacionais e logs de auditoria) para exibir todas as operações que estão sendo enviadas à sua assinatura do Azure, bem como seu status. As entradas do log de atividades são coletadas por padrão e podem ser exibidas no portal do Azure.
+* **Log de atividades**: você pode usar os [logs de atividades do Azure](../azure-resource-manager/management/view-activity-logs.md) (anteriormente conhecidos como logs operacionais e logs de auditoria) para exibir todas as operações que estão sendo enviadas à sua assinatura do Azure, bem como seu status. As entradas do log de atividades são coletadas por padrão e podem ser exibidas no portal do Azure.
 * **Log de acesso**: você pode usar esse log para exibir padrões de acesso do gateway de aplicativo e analisar informações importantes. Isso inclui o IP do chamador, a URL solicitada, a latência de resposta, o código de retorno e os bytes de entrada e saída. Um log de acesso é coletado a cada 60 segundos. Esse log contém um registro por instância do Gateway de Aplicativo. A instância do Gateway de Aplicativo é identificada pela propriedade instanceId.
 * **Log de desempenho**: você pode usar esse log para exibir o desempenho das instâncias do Gateway de Aplicativo. Esse log captura informações de desempenho de cada instância, incluindo o total de solicitações atendidas, a vazão de dados em bytes, o total de solicitações atendidas, a contagem de solicitações com falha e a contagem de instâncias de back-end íntegras ou não íntegras. Um log de desempenho é coletado a cada 60 segundos. O log de desempenho está disponível apenas para a SKU v1. Para a SKU v2, use [métricas](application-gateway-metrics.md) para dados de desempenho.
 * **Logs de firewall**: use esse log para exibir as solicitações registradas por meio do modo de detecção ou prevenção de um gateway de aplicativo configurado com o firewall do aplicativo Web. Os logs de firewall são coletados a cada 60 segundos. 
@@ -152,7 +152,7 @@ O log de atividade é habilitado automaticamente para todos os recursos do Resou
 
 ### <a name="activity-log"></a>Log de atividades
 
-O Azure gera o log de atividades por padrão. Os logs são preservados por 90 dias no armazenamento de logs de eventos do Azure. Saiba mais sobre esses logs lendo o artigo [Exibir eventos e o log de atividades](../monitoring-and-diagnostics/insights-debugging-with-events.md).
+O Azure gera o log de atividades por padrão. Os logs são preservados por 90 dias no armazenamento de logs de eventos do Azure. Saiba mais sobre esses logs lendo o artigo [Exibir eventos e o log de atividades](../azure-resource-manager/management/view-activity-logs.md).
 
 ### <a name="access-log"></a>Log de acesso
 
@@ -208,7 +208,6 @@ O log de acesso é gerado apenas se você o habilitou em cada instância do Gate
 |---------|---------|
 |instanceId     | Instância do Gateway de Aplicativo que atendeu à solicitação.        |
 |clientIP     | IP de origem da solicitação.        |
-|clientPort     | Porta de origem da solicitação.       |
 |httpMethod     | Método HTTP usado pela solicitação.       |
 |requestUri     | URI da solicitação recebida.        |
 |UserAgent     | Agente do usuário do cabeçalho da solicitação HTTP.        |
@@ -223,7 +222,7 @@ O log de acesso é gerado apenas se você o habilitou em cada instância do Gate
 |serverRouted| O servidor back-end para o qual o gateway de aplicativo roteia a solicitação.|
 |serverStatus| Código de status HTTP do servidor de back-end.|
 |serverResponseLatency| Latência da resposta do servidor de back-end.|
-|host| Endereço listado no cabeçalho do host da solicitação. Se reescrito, esse campo conterá o nome de host atualizado|
+|host| Endereço listado no cabeçalho do host da solicitação. Se reescrito usando a reescrita de cabeçalho, esse campo conterá o nome de host atualizado|
 |originalRequestUriWithArgs| Este campo contém a URL de solicitação original |
 |requestUri| Este campo contém a URL após a operação de regravação no gateway de aplicativo |
 |originalHost| Este campo contém o nome do host de solicitação original
@@ -236,7 +235,6 @@ O log de acesso é gerado apenas se você o habilitou em cada instância do Gate
     "properties": {
         "instanceId": "appgw_1",
         "clientIP": "191.96.249.97",
-        "clientPort": 46886,
         "httpMethod": "GET",
         "requestUri": "/phpmyadmin/scripts/setup.php",
         "userAgent": "-",
@@ -353,7 +351,7 @@ O log de firewall é gerado apenas se você o habilitou em cada gateway de aplic
 Você pode exibir e analisar os dados do log de atividades usando um dos seguintes métodos:
 
 * **Ferramentas do Azure**: recupere informações do log de atividades por meio do Azure PowerShell, da CLI do Azure, da API REST do Azure ou do portal do Azure. As instruções passo a passo para cada método são detalhadas no artigo [Activity operations with Resource Manager](../azure-resource-manager/management/view-activity-logs.md) (Operações de atividade com o Resource Manager).
-* **Power BI**: se ainda não tiver uma conta do [Power BI](https://powerbi.microsoft.com/pricing), experimente uma gratuitamente. Usando os [aplicativos de modelo de Power bi](https://docs.microsoft.com/power-bi/service-template-apps-overview), você pode analisar seus dados.
+* **Power BI**: se ainda não tiver uma conta do [Power BI](https://powerbi.microsoft.com/pricing), experimente uma gratuitamente. Usando os [aplicativos de modelo de Power bi](/power-bi/service-template-apps-overview), você pode analisar seus dados.
 
 ### <a name="view-and-analyze-the-access-performance-and-firewall-logs"></a>Exibir e analisar os logs de acesso, de desempenho e de firewall
 

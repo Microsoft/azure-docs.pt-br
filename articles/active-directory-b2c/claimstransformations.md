@@ -11,10 +11,10 @@ ms.date: 09/10/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 37d9bd78a80ac52d2a790537bf47e33807720349
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85202952"
 ---
 # <a name="claimstransformations"></a>ClaimsTransformations
@@ -159,9 +159,9 @@ Por exemplo, você pode armazenar a última versão dos termos de serviços que 
 
 Para obter exemplos de transformações de declarações, confira as seguintes páginas de referência:
 
-- [Boolean](boolean-transformations.md)
+- [Booliano](boolean-transformations.md)
 - [Data](date-transformations.md)
-- [Integer](integer-transformations.md)
+- [Inteiro](integer-transformations.md)
 - [JSON](json-transformations.md)
 - [Número de telefone](phone-number-claims-transformations.md)
 - [Geral](general-transformations.md)

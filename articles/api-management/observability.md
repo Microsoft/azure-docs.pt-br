@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 06/01/2020
 ms.author: apimpm
 ms.openlocfilehash: 1ebebed465952bbb5d3e8f82ae1c7776c441c6b0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87095653"
 ---
 # <a name="observability-in-azure-api-management"></a>Observação no gerenciamento de API do Azure
@@ -29,7 +29,7 @@ O gerenciamento de API do Azure ajuda as organizações a centralizar o gerencia
 
 A tabela a seguir resume todas as ferramentas com suporte do gerenciamento de API para observar as APIs, cada uma é útil para um ou mais cenários:
 
-| Ferramenta        | Útil para    | Atraso de dados | Retenção | amostragem | Tipo de dados | habilitado|
+| Ferramenta        | Útil para    | Atraso de dados | Retenção | amostragem | Tipo de dados | Habilitada|
 |:------------- |:-------------|:---- |:----|:---- |:--- |:---- 
 | **[Inspetor de API](api-management-howto-api-inspector.md)** | Testando e depurando | Instantâneo | Últimos rastreamentos 100 | Ativado por solicitação | Rastreamentos de solicitação | Sempre
 | **Análise interna** | Relatórios e monitoramento | minutos | Tempo de vida | 100% | Relatórios e logs | Sempre |

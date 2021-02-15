@@ -1,8 +1,8 @@
 ### YamlMime:Landing
-title: Documentação da Versão Prévia dos Gêmeos Digitais do Azure
+title: Documentação dos Gêmeos Digitais do Azure
 summary: Saiba como usar os Gêmeos Digitais do Azure para criar não só uma representação digital de seus ativos, de seus ambientes e de seus sistemas de negócios, mas também soluções de IoT da próxima geração que modelem o mundo real.
 metadata:
-  title: Documentação da Versão Prévia dos Gêmeos Digitais do Azure – Tutoriais, Referência da API | Microsoft Docs
+  title: Documentação dos Gêmeos Digitais do Azure - Tutoriais, Referência da API | Microsoft Docs
   description: Saiba como usar os Gêmeos Digitais do Azure para conectar pessoas, lugares e coisas, e criar soluções de IoT com inteligência espacial.
   ms.service: digital-twins
   ms.topic: landing-page
@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 02/12/2020
-  ms.openlocfilehash: eabae1050b4892de8c30f460834d1ae4da934198
-  ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+  ms.openlocfilehash: 29f3b0bf0a00c9e4e238e8bb514f80e7451d30a6
+  ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 08/26/2020
-  ms.locfileid: "88890929"
+  ms.lasthandoff: 02/09/2021
+  ms.locfileid: "100007747"
 landingContent:
 - title: Sobre os Gêmeos Digitais do Azure
   linkLists:
@@ -23,6 +23,14 @@ landingContent:
     links:
     - text: O que são Gêmeos Digitais do Azure?
       url: overview.md
+  - linkListType: concept
+    links:
+    - text: Modelos personalizados
+      url: concepts-models.md
+    - text: Gêmeos digitais e o grafo de gêmeos
+      url: concepts-twins-graph.md
+    - text: Idioma de consulta
+      url: concepts-query-language.md
 - title: Comece com o guia de início rápido
   linkLists:
   - linkListType: quickstart
@@ -43,20 +51,6 @@ landingContent:
     links:
     - text: Conectar uma solução de ponta a ponta
       url: tutorial-end-to-end.md
-- title: Saiba mais
-  linkLists:
-  - linkListType: concept
-    links:
-    - text: Modelos personalizados
-      url: concepts-models.md
-  - linkListType: concept
-    links:
-    - text: Gêmeos digitais e o grafo de gêmeos
-      url: concepts-twins-graph.md
-  - linkListType: concept
-    links:
-    - text: Idioma de consulta
-      url: concepts-query-language.md
 - title: Desenvolver
   linkLists:
   - linkListType: how-to-guide
@@ -66,22 +60,68 @@ landingContent:
   - linkListType: how-to-guide
     links:
     - text: Configurar uma instância e uma autenticação
-      url: how-to-set-up-instance-scripted.md
+      url: how-to-set-up-instance-portal.md
   - linkListType: how-to-guide
     links:
     - text: Escrever código de autenticação do aplicativo
       url: how-to-authenticate-client.md
-- title: Referência de API
+- title: Descobrir as APIs
   linkLists:
+  - linkListType: reference
+    links:
+    - text: APIs REST
+      url: /rest/api/azure-digitaltwins/
   - linkListType: how-to-guide
     links:
     - text: Usar as APIs e os SDKs dos Gêmeos Digitais do Azure
       url: how-to-use-apis-sdks.md
   - linkListType: how-to-guide
     links:
+    - text: Fazer solicitações com o Postman
+      url: how-to-use-postman.md
+  - linkListType: how-to-guide
+    links:
     - text: Criar SDKs personalizados com o AutoRest
       url: how-to-create-custom-sdks.md
-  - linkListType: reference
+- title: Explorar exemplos de código
+  linkLists:
+  - linkListType: sample
     links:
-    - text: APIs REST
-      url: https://docs.microsoft.com/rest/api/azure-digitaltwins/
+    - text: Exemplos de ponta a ponta
+      url: /samples/azure-samples/digital-twins-samples/digital-twins-samples/
+  - linkListType: sample
+    links:
+    - text: Gerenciador de Gêmeos Digitais do Azure (exemplo)
+      url: /samples/azure-samples/digital-twins-explorer/digital-twins-explorer
+  - linkListType: sample
+    links:
+    - text: Validador DTDL (exemplo)
+      url: /samples/azure-samples/dtdl-validator/dtdl-validator/
+  - linkListType: sample
+    links:
+    - text: Exemplo de integração do DPS e do Hub IoT
+      url: /samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/
+  - linkListType: sample
+    links:
+    - text: Exemplo de integração do SignalR
+      url: /samples/azure-samples/digitaltwins-signalr-webapp-sample/digital-twins-samples/
+  - linkListType: sample
+    links:
+    - text: Swaggers personalizados para o conector de Aplicativos Lógicos
+      url: /samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/
+- title: Aprendizado baseado em cenários usando o Microsoft Learn
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: 'Roteiro de aprendizagem: Desenvolver com os Gêmeos Digitais do Azure'
+      url: /learn/paths/develop-azure-digital-twins/
+  - linkListType: learn
+    links:
+    - text: 'Módulo do Learn: Introdução aos Gêmeos Digitais do Azure'
+      url: /learn/modules/develop-with-azure-digital-twins/introduction-to-azure-digital-twins/
+    - text: 'Módulo do Learn: Criar um grafo dos Gêmeos Digitais do Azure para a linha de produção de uma fábrica de chocolate'
+      url: /learn/modules/develop-with-azure-digital-twins/build-azure-digital-twins-graph-for-chocolate-factory/
+    - text: 'Módulo do Learn: Ingerir dados nos Gêmeos Digitais do Azure'
+      url: /learn/modules/develop-with-azure-digital-twins/ingest-data-into-azure-digital-twins/
+    - text: 'Módulo do Learn: Saída dos Gêmeos Digitais do Azure para serviços de downstream'
+      url: /learn/modules/develop-with-azure-digital-twins/route-output-from-azure-digital-twins-to-downstream-services/

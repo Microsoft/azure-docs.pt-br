@@ -3,13 +3,13 @@ title: Retransmissão do Azure Conexões Híbridas-solicitações HTTP no nó
 description: Escreva um aplicativo de console Node.js para Conexões Híbridas da Retransmissão do Azure de pedidos HTTP em Nó.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: ff6b4e6b99299091910df537bf90984f493405e3
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.custom: devx-track-js
+ms.openlocfilehash: 249b4fa231cd54a1a8054b32985ed0e48fcc16f1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87382858"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91263752"
 ---
 # <a name="get-started-with-relay-hybrid-connections-http-requests-in-node"></a>Introdução às Conexões Híbridas de Retransmissão de pedidos HTTP no Nó
 

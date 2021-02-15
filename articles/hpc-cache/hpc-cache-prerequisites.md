@@ -4,14 +4,14 @@ description: Pré-requisitos para usar o cache HPC do Azure
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 06/24/2020
+ms.date: 11/05/2020
 ms.author: v-erkel
-ms.openlocfilehash: 1ead2a34b3617093fcbbb63d053f223fc96d698d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a31aee3f4548d3137fa1241aaa3a0f6171cf6895
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87095773"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94412503"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Pré-requisitos para o cache HPC do Azure
 
@@ -37,9 +37,6 @@ Leia o restante deste artigo para obter recomendações específicas.
 
 Uma assinatura paga é recomendada.
 
-> [!NOTE]
-> A equipe de cache do HPC do Azure deve adicionar sua assinatura à lista de acesso antes de poder ser usada para criar uma instância de cache. Esse procedimento ajuda a garantir que cada cliente obtenha capacidade de resposta de alta qualidade de seus caches. Preencha [este formulário](https://aka.ms/onboard-hpc-cache) para solicitar acesso.
-
 ## <a name="network-infrastructure"></a>Infraestrutura da rede
 
 Dois pré-requisitos relacionados à rede devem ser configurados antes que você possa usar o cache:
@@ -62,13 +59,26 @@ A prática recomendada é criar uma nova sub-rede para cada cache. Você pode cr
 O cache precisa do DNS para acessar recursos fora de sua rede virtual. Dependendo de quais recursos você está usando, talvez seja necessário configurar um servidor DNS personalizado e configurar o encaminhamento entre esse servidor e os servidores DNS do Azure:
 
 * Para acessar os pontos de extremidade do armazenamento de BLOBs do Azure e outros recursos internos, você precisa do servidor DNS baseado no Azure.
-* Para acessar o armazenamento local, você precisa configurar um servidor DNS personalizado que possa resolver seus nomes de host de armazenamento.
+* Para acessar o armazenamento local, você precisa configurar um servidor DNS personalizado que possa resolver seus nomes de host de armazenamento. Você deve fazer isso **antes** de criar o cache.
 
 Se você só precisar de acesso ao armazenamento de BLOBs, poderá usar o servidor DNS padrão fornecido pelo Azure para seu cache. No entanto, se você precisar de acesso a outros recursos, deverá criar um servidor DNS personalizado e configurá-lo para encaminhar as solicitações de resolução específicas do Azure para o servidor DNS do Azure.
 
+Para usar um servidor DNS personalizado, você precisa executar estas etapas de instalação antes de criar o cache:
+
+* Crie a rede virtual que hospedará o cache do HPC do Azure.
+* Crie o servidor DNS.
+* Adicione o servidor DNS à rede virtual do cache.
+
+  Siga estas etapas para adicionar o servidor DNS à rede virtual no portal do Azure:
+
+  1. Abra a rede virtual no portal do Azure.
+  1. Escolha **servidores DNS** no menu **configurações** na barra lateral.
+  1. Selecionar **Personalizado**
+  1. Insira o endereço IP do servidor DNS no campo.
+
 Um servidor DNS simples também pode ser usado para balancear a carga de conexões de cliente entre todos os pontos de montagem de cache disponíveis.
 
-Saiba mais sobre as configurações de servidor DNS e redes virtuais do Azure na [resolução de nomes para recursos em redes virtuais do Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances).
+Saiba mais sobre as configurações de servidor DNS e redes virtuais do Azure na [resolução de nomes para recursos em redes virtuais do Azure](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 ## <a name="permissions"></a>Permissões
 
@@ -76,7 +86,7 @@ Verifique esses pré-requisitos relacionados à permissão antes de começar a c
 
 * A instância de cache precisa ser capaz de criar NICs (interfaces de rede virtual). O usuário que cria o cache deve ter privilégios suficientes na assinatura para criar NICs.
 
-* Se estiver usando o armazenamento de BLOB, o cache HPC do Azure precisará de autorização para acessar sua conta de armazenamento. Use o RBAC (controle de acesso baseado em função) para conceder ao cache acesso ao armazenamento de BLOBs. São necessárias duas funções: colaborador de conta de armazenamento e colaborador de dados de blob de armazenamento.
+* Se estiver usando o armazenamento de BLOB, o cache HPC do Azure precisará de autorização para acessar sua conta de armazenamento. Use o Azure RBAC (controle de acesso baseado em função) para fornecer ao cache acesso ao seu armazenamento de BLOBs. São necessárias duas funções: colaborador de conta de armazenamento e colaborador de dados de blob de armazenamento.
 
   Siga as instruções em [Adicionar destinos de armazenamento](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) para adicionar as funções.
 
@@ -113,7 +123,7 @@ Se estiver usando um sistema de armazenamento NFS (por exemplo, um sistema de NA
 
 Mais informações estão incluídas em [solucionar problemas de configuração de nas e destino de armazenamento NFS](troubleshoot-nas.md).
 
-* **Conectividade de rede:** O cache HPC do Azure precisa de acesso à rede de largura de banda alta entre a sub-rede de cache e o data center do sistema NFS. O [ExpressRoute](https://docs.microsoft.com/azure/expressroute/) ou acesso semelhante é recomendado. Se estiver usando uma VPN, talvez seja necessário configurá-la como fixe TCP MSS em 1350 para garantir que os pacotes grandes não sejam bloqueados. Leia [restrições de tamanho do pacote VPN](troubleshoot-nas.md#adjust-vpn-packet-size-restrictions) para obter ajuda adicional Solucionando problemas de configurações de VPN.
+* **Conectividade de rede:** O cache HPC do Azure precisa de acesso à rede de largura de banda alta entre a sub-rede de cache e o data center do sistema NFS. O [ExpressRoute](../expressroute/index.yml) ou acesso semelhante é recomendado. Se estiver usando uma VPN, talvez seja necessário configurá-la como fixe TCP MSS em 1350 para garantir que os pacotes grandes não sejam bloqueados. Leia [restrições de tamanho do pacote VPN](troubleshoot-nas.md#adjust-vpn-packet-size-restrictions) para obter ajuda adicional Solucionando problemas de configurações de VPN.
 
 * **Acesso à porta:** O cache precisa de acesso a portas TCP/UDP específicas em seu sistema de armazenamento. Tipos diferentes de armazenamento têm requisitos de porta diferentes.
 
@@ -146,7 +156,7 @@ Mais informações estão incluídas em [solucionar problemas de configuração 
 * **Acesso ao diretório:** Habilite o `showmount` comando no sistema de armazenamento. O cache HPC do Azure usa esse comando para verificar se a configuração de destino de armazenamento aponta para uma exportação válida e também para garantir que várias montagens não acessem os mesmos subdiretórios (um risco para a colisão de arquivos).
 
   > [!NOTE]
-  > Se o sistema de armazenamento NFS usar o sistema operacional ONTAP 9,2 da NetApp, não **habilite `showmount` **o. [Contate o serviço e suporte da Microsoft](hpc-cache-support-ticket.md) para obter ajuda.
+  > Se o sistema de armazenamento NFS usar o sistema operacional ONTAP 9,2 da NetApp, não **habilite `showmount`** o. [Contate o serviço e suporte da Microsoft](hpc-cache-support-ticket.md) para obter ajuda.
 
   Saiba mais sobre o acesso de listagem de diretório no [artigo solução de problemas](troubleshoot-nas.md#enable-export-listing)de destino de armazenamento NFS.
 

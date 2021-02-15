@@ -5,15 +5,15 @@ author: dalekoetke
 services: azure-monitor
 ms.topic: conceptual
 ms.date: 10/28/2019
-ms.author: mbullwin
+ms.author: lagayhar
 ms.reviewer: Dale.Koetke
 ms.subservice: ''
-ms.openlocfilehash: eb96537f67c61fb31759da020068f784d0e89993
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: c90c2519b03d02da19da62fde5065984d379aa86
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323393"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98208498"
 ---
 # <a name="monitoring-usage-and-estimated-costs-in-azure-monitor"></a>Monitorar o uso e os custos estimados no Azure Monitor
 
@@ -70,11 +70,11 @@ A partir daqui, você pode analisar esse Resumo de custo acumulado para obter os
 Mais detalhes do seu uso estão disponíveis [baixando seu uso do portal do Azure](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md#download-usage-in-azure-portal). Na planilha baixada, você pode ver o uso diário por recurso do Azure. Nessa planilha do Excel, o uso de seus recursos do Application Insights pode ser encontrado ao filtrar primeiro a coluna "Categoria do Medidor" para mostrar "Application Insights" e "Log Analytics" e, em seguida, adicionar um filtro na coluna "ID da Instância", que é "contains microsoft.insights/components".  A maior parte do uso do Application Insights é relatada em medidores com a Categoria de Medidor do Log Analytics, já que há um único back-end de logs para todos os componentes do Azure Monitor.  Somente recursos do Application Insights em tipos de preço herdados e testes na Web de várias etapas são relatados com uma Categoria de Medidor do Application Insights.  O uso é mostrado na coluna "Quantidade Consumida", e a unidade de cada entrada é mostrada na coluna "Unidade de Medida".  Há mais detalhes disponíveis para ajudar você a [entender sua fatura do Microsoft Azure](../../cost-management-billing/understand/review-individual-bill.md). 
 
 > [!NOTE]
-> Usar o **Gerenciamento de custos** no gerenciamento de custos **do Azure +** Hub de cobrança é a abordagem preferida para compreender amplamente os custos de monitoramento.  As experiências de **uso e custos estimadas** para [log Analytics](./manage-cost-storage.md#understand-your-usage-and-estimate-costs) e [Application insights](../app/pricing.md#understand-your-usage-and-estimate-costs) fornecem informações mais aprofundadas para cada uma dessas partes do Azure monitor.
+> Usar o **Gerenciamento de custos** no gerenciamento de custos **do Azure +** Hub de cobrança é a abordagem preferida para compreender amplamente os custos de monitoramento.  As experiências de **uso e custos estimadas** para [log Analytics](./manage-cost-storage.md#understand-your-usage-and-estimate-costs)  e [Application insights](../app/pricing.md#understand-your-usage-and-estimate-costs) fornecem informações mais aprofundadas para cada uma dessas partes do Azure monitor.
 
 Outra opção para exibir o uso de Azure Monitor é a página **uso e custos estimados** no Hub do monitor. Isso mostra o uso dos principais recursos de monitoramento, como [alertas, métricas, notificações](https://azure.microsoft.com/pricing/details/monitor/), [log Analytics do Azure](https://azure.microsoft.com/pricing/details/log-analytics/)e [insights de aplicativo Azure](https://azure.microsoft.com/pricing/details/application-insights/). Para clientes nos planos de preços disponíveis antes de abril de 2018, isso também inclui o uso do Log Analytics adquirido por meio das ofertas do Insights e do Analytics.
 
-Nesta página, os usuários podem exibir o uso de recursos para os últimos 31 dias, agregados por assinatura. `Drill-ins`mostrar tendências de uso no período de 31 dias. São necessários vários dados para se juntar e fazer essa estimativa, portanto, seja paciente enquanto a página é carregada.
+Nesta página, os usuários podem exibir o uso de recursos para os últimos 31 dias, agregados por assinatura. `Drill-ins` mostrar tendências de uso no período de 31 dias. São necessários vários dados para se juntar e fazer essa estimativa, portanto, seja paciente enquanto a página é carregada.
 
 Este exemplo mostra o uso de monitoramento e uma estimativa dos custos resultantes:
 

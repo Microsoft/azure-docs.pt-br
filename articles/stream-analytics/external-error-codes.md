@@ -1,17 +1,17 @@
 ---
 title: Códigos de erros externos - Azure Stream Analytics
 description: Solucionar problemas do Azure Stream Analytics com códigos de erros externos.
-ms.author: mamccrea
-author: mamccrea
+ms.author: sidram
+author: sidramadoss
 ms.topic: troubleshooting
 ms.date: 05/07/2020
 ms.service: stream-analytics
-ms.openlocfilehash: f963f4c3538146b7f9929960092a18294659be5d
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 9f55a715b11b126ea340e665e008d7245e578190
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045239"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98016381"
 ---
 # <a name="azure-stream-analytics-external-error-codes"></a>Códigos de erros externos do Azure Stream Analytics
 
@@ -85,11 +85,11 @@ Você pode usar logs de atividade e logs de recursos para ajudar a depurar compo
 
 ## <a name="sqldwoutputinitializationerror"></a>SQLDWOutputInitializationError
 
-* **Causa**: Erro ao inicializar uma saída do pool do SQL do Synapse.
+* **Causa**: ocorreu um erro ao inicializar uma saída de pool de SQL dedicada.
 
 ## <a name="sqldwoutputwriteerror"></a>SQLDWOutputWriteError
 
-* **Causa**: Erro ao gravar a saída em um pool de SQL do Synapse.
+* **Causa**: ocorreu um erro ao gravar a saída em um pool SQL dedicado.
 
 ## <a name="next-steps"></a>Próximas etapas
 

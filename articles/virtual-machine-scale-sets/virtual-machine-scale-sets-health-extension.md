@@ -10,10 +10,10 @@ ms.date: 05/06/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt
 ms.openlocfilehash: a38a715b45ab4d0810862ef4d016e4187ea507ab
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84783037"
 ---
 # <a name="using-application-health-extension-with-virtual-machine-scale-sets"></a>Usando a extensão do Application Health com os conjuntos de dimensionamento de máquinas virtuais
@@ -69,8 +69,8 @@ O JSON a seguir mostra o esquema para a extensão para VM do Application Health.
 | Nome | Valor/Exemplo | Tipo de Dados
 | ---- | ---- | ----
 | protocolo | `http` ou `https` ou `tcp` | string |
-| porta | Opcional quando o protocolo é `http` ou `https` , obrigatório quando o protocolo é`tcp` | INT |
-| requestPath | Obrigatório quando o protocolo está `http` ou `https` não é permitido quando o protocolo é`tcp` | string |
+| porta | Opcional quando o protocolo é `http` ou `https` , obrigatório quando o protocolo é `tcp` | INT |
+| requestPath | Obrigatório quando o protocolo está `http` ou `https` não é permitido quando o protocolo é `tcp` | string |
 
 ## <a name="deploy-the-application-health-extension"></a>Implantar a Extensão de Integridade do Aplicativo
 Há várias maneiras de implantar a integridade da extensão do Application Health para o dimensionamento conforme detalhado nos exemplos a seguir.

@@ -2,30 +2,43 @@
 title: Filtros de tópico do Barramento de Serviço do Azure | Microsoft Docs
 description: Este artigo explica como os assinantes podem definir quais mensagens desejam receber de um tópico especificando filtros.
 ms.topic: conceptual
-ms.date: 06/23/2020
-ms.openlocfilehash: 5df343ff63c01a7cf10315b758e3d6fba8ac5674
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.date: 01/22/2021
+ms.openlocfilehash: 63cf6e67d4fa32c5c7f52f569094e1165554108c
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88066739"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98742957"
 ---
 # <a name="topic-filters-and-actions"></a>Ações e filtros de tópico
 
-Os assinantes podem definir quais mensagens desejam receber de um tópico. Essas mensagens são especificadas na forma de uma ou mais regras de assinatura nomeadas. Cada regra consiste em uma condição que seleciona mensagens específicas e uma ação que anota a mensagem selecionada. Para cada condição de regra com correspondência, a assinatura produz uma cópia da mensagem, que pode ser anotada de forma diferente para cada regra com correspondência.
+Os assinantes podem definir quais mensagens desejam receber de um tópico. Essas mensagens são especificadas na forma de uma ou mais regras de assinatura nomeadas. Cada regra consiste em uma condição de **filtro** que seleciona mensagens específicas e, **opcionalmente** , contém uma **ação** que anota a mensagem selecionada. 
+
+Todas as regras **sem ações** são combinadas usando uma `OR` condição e resultam em uma **única mensagem** na assinatura mesmo que você tenha várias regras de correspondência. 
+
+Cada regra **com uma ação** produz uma cópia da mensagem. Essa mensagem terá uma propriedade chamada `RuleName` onde o valor é o nome da regra de correspondência. A ação pode adicionar ou atualizar propriedades ou excluir propriedades da mensagem original para produzir uma mensagem na assinatura. 
+
+Considere o seguinte cenário:
+
+- A assinatura tem cinco regras.
+- Duas regras contêm ações.
+- Três regras não contêm ações.
+
+Neste exemplo, se você enviar uma mensagem que corresponda a todas as cinco regras, receberá três mensagens na assinatura. Essas são duas mensagens para duas regras com ações e uma mensagem para três regras sem ações. 
 
 Cada assinatura de tópico recém-criada tem uma regra de assinatura padrão inicial. Se você não especificar explicitamente uma condição de filtro para a regra, o filtro aplicado é o filtro **true** que permite que todas as mensagens sejam selecionadas na assinatura. A regra padrão não tem nenhuma ação de anotação associada.
 
+## <a name="filters"></a>Filtros
 O Barramento de Serviço dá suporte a três condições de filtro:
 
--   *Filtros boolianos* – o **TrueFilter** e **FalseFilter** fazem com que todas as mensagens recebidas (**true**) ou nenhuma das mensagens recebidas (**false**) seja selecionada para a assinatura.
-
 -   *Filtros SQL* – um **SqlFilter** contém uma expressão condicional do tipo SQL que é avaliada no agente em relação às propriedades do sistema e propriedades definidas pelo usuário das mensagens recebidas. Todas as propriedades de sistema devem ser prefixadas com `sys.` na expressão condicional. O [subconjunto de idiomas SQL para filtrar condições](service-bus-messaging-sql-filter.md) testa a existência de Propriedades ( `EXISTS` ), valores nulos ( `IS NULL` ), não lógicos e/ou operadores relacionais, aritmética de numérico simples e correspondência de padrão de texto simples com `LIKE` .
+
+-   *Filtros boolianos* – o **TrueFilter** e **FalseFilter** fazem com que todas as mensagens recebidas (**true**) ou nenhuma das mensagens recebidas (**false**) seja selecionada para a assinatura. Esses dois filtros derivam do filtro SQL. 
 
 -   *Filtros de correlação* – um **CorrelationFilter** contém um conjunto de condições que são comparadas com uma ou mais das propriedades do sistema e do usuário de uma mensagem recebida. Um uso comum é fazer a correspondência com a propriedade **CorrelationId** , mas o aplicativo também pode optar por corresponder às seguintes propriedades:
 
     - **ContentType**
-     - **Rotular**
+     - **Chamada**
      - **MessageId**
      - **ReplyTo**
      - **ReplyToSessionId**
@@ -52,6 +65,9 @@ Os filtros e as ações permitem dois grupos de padrões adicionais: particionam
 O particionamento usa filtros para distribuir mensagens através de várias assinaturas de tópico existentes de maneira previsível e mutuamente exclusiva. O padrão de particionamento é usado quando um sistema é escalado horizontalmente para lidar com muitos contextos diferentes em compartimentos funcionalmente idênticos que mantêm um subconjunto dos dados dos gerais. Por exemplo, informações de perfil do cliente. Com o particionamento, um editor envia a mensagem em um tópico sem a necessidade de qualquer conhecimento do modelo de particionamento. Depois, a mensagem é movida para a assinatura correta da qual ela pode ser recuperada pelo manipulador de mensagens da partição.
 
 O roteamento usa filtros para distribuir mensagens através de assinaturas de tópico de maneira previsível, mas não necessariamente exclusiva. Em conjunto com o recurso de [encaminhamento automático](service-bus-auto-forwarding.md), os filtros de tópico podem ser usados para criar grafos de roteamento complexos dentro de um namespace do Barramento de Serviço para a distribuição de mensagens dentro de uma região do Azure. Com o Azure Functions ou os Aplicativos Lógicos do Azure atuando como uma ponte entre os namespaces do Barramento de Serviço do Azure, você pode criar tecnologias globais complexas com integração direta em aplicativos de linhas de negócios.
+
+[!INCLUDE [service-bus-filter-examples](../../includes/service-bus-filter-examples.md)]
+
 
 
 > [!NOTE]

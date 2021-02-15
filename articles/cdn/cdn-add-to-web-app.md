@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/14/2018
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 470324799cd157c8b33311e1cae8b5b698433e1f
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 3f1dacb57931913edfb181f023bdf98717777d50
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88079902"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97562235"
 ---
 # <a name="tutorial-add-azure-cdn-to-an-azure-app-service-web-app"></a>Tutorial: Adicionar o CDN do Azure para um aplicativo Web do Serviço de Aplicativo do Azure
 
@@ -43,7 +43,7 @@ O que você aprenderá:
 Para concluir este tutorial:
 
 - [Instalar o Git](https://git-scm.com/)
-- [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli)
+- [Instalar a CLI do Azure](/cli/azure/install-azure-cli)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -135,7 +135,7 @@ Confirme as alterações para implantá-las no aplicativo web.
 
 ```bash
 git commit -am "version 2"
-git push azure master
+git push azure main
 ```
 
 Depois de concluir a implantação, navegue até a URL do aplicativo web e confira a alteração.
@@ -230,7 +230,7 @@ Abra *index.html*, altere *V2* para *V3*, em seguida, implante a alteração.
 
 ```bash
 git commit -am "version 3"
-git push azure master
+git push azure main
 ```
 
 Em um navegador, acesse a URL de ponto de extremidade do CDN com uma cadeia de caracteres de consulta nova, como `q=2`. O CDN do Azure obtém o arquivo *index.html* atual e exibe *V3*. Contudo, se você navegar até o ponto de extremidade do CDN com a cadeia de caracteres de consulta `q=1`, você verá *V2*.
@@ -269,5 +269,3 @@ Aprenda a otimizar o desempenho da CDN nos seguintes artigos:
 
 > [!div class="nextstepaction"]
 > [Tutorial: Adicionar um domínio personalizado ao seu ponto de extremidade da CDN do Azure](cdn-map-content-to-custom-domain.md)
-
-

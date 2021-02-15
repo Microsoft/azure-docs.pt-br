@@ -1,18 +1,18 @@
 ---
 title: Início Rápido para adicionar sinalizadores de recursos ao Spring Boot com a Configuração de Aplicativos do Azure
 description: Adicionar sinalizadores de recursos a aplicativos Spring Boot e gerenciá-los usando a Configuração de Aplicativos do Azure
-author: lisaguthrie
+author: AlexandraKemperMS
 ms.service: azure-app-configuration
 ms.topic: quickstart
-ms.date: 04/18/2020
-ms.author: lcozzens
+ms.date: 08/06/2020
+ms.author: alkemper
 ms.custom: devx-track-java
-ms.openlocfilehash: 615815f11264578bc2a5930553c8e6f5bfed937f
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: e931b974fc48d07237b2698e7782c48be20745d9
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121894"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96930698"
 ---
 # <a name="quickstart-add-feature-flags-to-a-spring-boot-app"></a>Início Rápido: Adicionar sinalizadores de recursos a um aplicativo Spring Boot
 
@@ -23,14 +23,14 @@ As bibliotecas do Gerenciamento de Recursos do Spring Boot estendem a estrutura 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Assinatura do Azure - [criar uma gratuitamente](https://azure.microsoft.com/free/)
-* Um [SDK do Java Development Kit](https://docs.microsoft.com/java/azure/jdk) com suporte na versão 8.
+* Um [SDK do Java Development Kit](/java/azure/jdk) com suporte na versão 8.
 * [Apache Maven](https://maven.apache.org/download.cgi), versão 3.0 ou posterior.
 
 ## <a name="create-an-app-configuration-instance"></a>Criar uma instância de Configuração de Aplicativos
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Selecione **Gerenciador de Recursos** >  **+Adicionar** para adicionar um sinalizador de recurso chamado `Beta`.
+7. Selecione **Gerenciador de Recursos** >  **+Adicionar** para adicionar um sinalizador de recurso chamado `Beta`.
 
     > [!div class="mx-imgBorder"]
     > ![Habilitar o sinalizador de recurso chamado Beta](media/add-beta-feature-flag.png)
@@ -97,7 +97,7 @@ Use o [Spring Initializr](https://start.spring.io/) para criar um novo projeto S
     ```
 
 > [!Note]
-> Há uma Biblioteca de Gerenciamento de Recursos não Web que não tem uma dependência do spring-web. Veja a [documentação](https://github.com/microsoft/spring-cloud-azure/tree/master/spring-cloud-azure-feature-management) do GitHub para obter diferenças.
+> Há uma Biblioteca de Gerenciamento de Recursos não Web que não tem uma dependência do spring-web. Veja a [documentação](https://github.com/microsoft/spring-cloud-azure) do GitHub para obter diferenças.
 
 ## <a name="connect-to-an-app-configuration-store"></a>Conectar um repositório de Configuração de Aplicativos
 
@@ -228,7 +228,7 @@ Use o [Spring Initializr](https://start.spring.io/) para criar um novo projeto S
         </header>
         <div class="container body-content">
             <h1 class="mt-5">Welcome</h1>
-            <p>Learn more about <a href="https://github.com/microsoft/spring-cloud-azure/blob/master/spring-cloud-azure-feature-management/README.md">Feature Management with Spring Cloud Azure</a></p>
+            <p>Learn more about <a href="https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/appconfiguration/azure-spring-cloud-feature-management/README.md">Feature Management with Spring Cloud Azure</a></p>
 
         </div>
         <footer class="footer">
@@ -286,7 +286,7 @@ Use o [Spring Initializr](https://start.spring.io/) para criar um novo projeto S
 
 1. Abra uma nova janela do navegador e acesse a URL: `http://localhost:8080/welcome`.
 
-    ![Inicialização local do aplicativo do Início Rápido](./media/quickstarts/spring-boot-feature-flag-local-before.png)
+    ![A captura de tela mostra uma janela de navegador com uma mensagem de boas-vindas.](./media/quickstarts/spring-boot-feature-flag-local-before.png)
 
 1. No portal da Configuração de Aplicativos, selecione **Gerenciador de Recursos** e altere o estado da chave **Beta** para **Ativado**:
 
@@ -296,7 +296,7 @@ Use o [Spring Initializr](https://start.spring.io/) para criar um novo projeto S
 
 1. Atualize a página do navegador para ver as novas definições de configuração.
 
-    ![Inicialização local do aplicativo do Início Rápido](./media/quickstarts/spring-boot-feature-flag-local-after.png)
+    ![A captura de tela mostra uma janela do navegador com uma mensagem de boas-vindas e um link Beta destacado.](./media/quickstarts/spring-boot-feature-flag-local-after.png)
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
@@ -304,7 +304,7 @@ Use o [Spring Initializr](https://start.spring.io/) para criar um novo projeto S
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste início rápido, você criou um novo repositório de configurações de aplicativos e o usou para gerenciar recursos em um aplicativo Web Spring Boot por meio das [bibliotecas do Gerenciamento de Recursos](https://go.microsoft.com/fwlink/?linkid=2074664).
+Neste início rápido, você criou um novo repositório de configurações de aplicativos e o usou para gerenciar recursos em um aplicativo Web Spring Boot por meio das [bibliotecas do Gerenciamento de Recursos](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration).
 
 * Saiba mais sobre o [gerenciamento de recursos](./concept-feature-management.md).
 * [Gerenciar sinalizadores de recursos](./manage-feature-flags.md).

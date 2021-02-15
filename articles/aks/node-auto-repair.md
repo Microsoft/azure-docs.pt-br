@@ -3,21 +3,17 @@ title: Reparando automaticamente os nós do AKS (serviço kubernetes do Azure)
 description: Saiba mais sobre a funcionalidade de reparo automático do nó e como o AKS corrige os nós de trabalho interrompidos.
 services: container-service
 ms.topic: conceptual
-ms.date: 06/02/2020
-ms.openlocfilehash: 7fcb7b380f3694aaf34328019c3e09f5157c9e64
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.date: 08/24/2020
+ms.openlocfilehash: 781a1ffebb40b0cce9f18699d308db90633e8626
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542035"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89490098"
 ---
 # <a name="azure-kubernetes-service-aks-node-auto-repair"></a>Reparo automático do nó do AKS (serviço de kubernetes do Azure)
 
-O AKS verifica continuamente o estado de integridade dos nós de trabalho e executa o reparo automático dos nós se eles se tornarem não íntegros. Este documento informa os operadores sobre como a funcionalidade automática de reparo de nó se comporta. Além dos reparos do AKS, a plataforma de VM do Azure [executa a manutenção em máquinas virtuais][vm-updates] que também têm problemas. O AKS e as VMs do Azure trabalham em conjunto para minimizar as interrupções de serviço para clusters.
-
-## <a name="limitations"></a>Limitações
-
-* Atualmente, não há suporte para pools de nós do Windows.
+O AKS verifica continuamente o estado de integridade dos nós de trabalho e executa o reparo automático dos nós se eles se tornarem não íntegros. Este documento informa os operadores sobre como a funcionalidade automática de reparo de nó se comporta para nós do Windows e do Linux. Além dos reparos do AKS, a plataforma de VM do Azure [executa a manutenção em máquinas virtuais][vm-updates] que também têm problemas. O AKS e as VMs do Azure trabalham em conjunto para minimizar as interrupções de serviço para clusters.
 
 ## <a name="how-aks-checks-for-unhealthy-nodes"></a>Como o AKS verifica se há nós não íntegros
 
@@ -37,9 +33,13 @@ kubectl get nodes
 > [!Note]
 > AKS inicia as operações de reparo com a conta de usuário **AKs-remediator**.
 
-Se um nó for considerado não íntegro com base nas regras acima e permanecer não íntegro por 10 minutos consecutivos, o AKS reinicializará o nó. Se os nós permanecerem não íntegros após a operação de reparo inicial, as correções adicionais serão investigadas por engenheiros de AKS.
-  
-Se vários nós não estiverem íntegros durante uma verificação de integridade, cada nó será reparado individualmente antes do início de outro reparo.
+Se um nó não estiver íntegro com base nas regras acima e permanecer não íntegro por 10 minutos consecutivos, as ações a seguir serão executadas.
+
+1. Reinicializar o nó
+1. Se a reinicialização não for bem-sucedida, refazer a imagem do nó
+1. Se a reimagem for malsucedida, criar e refazer a imagem de um novo nó
+
+Se nenhuma das ações for bem-sucedida, correções adicionais serão investigadas por engenheiros de AKS. Se vários nós não estiverem íntegros durante uma verificação de integridade, cada nó será reparado individualmente antes do início de outro reparo.
 
 ## <a name="next-steps"></a>Próximas etapas
 

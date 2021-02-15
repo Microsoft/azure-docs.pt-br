@@ -2,17 +2,17 @@
 title: Tratar erros de conectividade transitórios-banco de dados do Azure para PostgreSQL-servidor único
 description: Saiba como lidar com erros de conectividade transitórios para o banco de dados do Azure para PostgreSQL-servidor único.
 keywords: conexão do postgresql, cadeia de conexão, problemas de conectividade, erro transitório, erro de conexão
-author: rachel-msft
-ms.author: raagyema
+author: niklarin
+ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 026a0edf24d349c4b445d6229d3b1ad73decf87d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7c70c82615df111f265604ff0984aa452d68565f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82097822"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91704343"
 ---
 # <a name="handling-transient-connectivity-errors-for-azure-database-for-postgresql---single-server"></a>Manipulação de erros de conectividade transitória para Banco de Dados do Azure para PostgreSQL – servidor único
 

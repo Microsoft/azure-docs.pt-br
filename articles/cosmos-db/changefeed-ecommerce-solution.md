@@ -3,19 +3,21 @@ title: Usar feed de alterações do Azure Cosmos DB para visualizar análise de 
 description: Este artigo descreve como o feed de alterações pode ser usado por uma empresa de varejo para entender os padrões do usuário, executar análise e visualização de dados em tempo real
 author: SnehaGunda
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: how-to
 ms.date: 05/28/2019
 ms.author: sngun
 ms.custom: devx-track-java
-ms.openlocfilehash: c9abc4dc89651eec7df635fb415314b2c12da3a6
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e7b75c71d64054e38630677ecd38f8e3e2483c12
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319755"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97606327"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Usar feed de alterações do Azure Cosmos DB para visualizar análise de dados em tempo real
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 O feed de alteração Azure Cosmos DB é um mecanismo para obter um feed contínuo e incremental de registros de um contêiner Cosmos do Azure, pois esses registros estão sendo criados ou modificados. O suporte do feed de alterações funciona através de escuta de contêiner para quaisquer alterações. Ele gera a lista classificada de documentos que foram alterados na ordem em que eles foram modificados. Para saber mais sobre o feed de alterações, consulte o artigo [trabalhando com feed de alterações](change-feed.md). 
 
@@ -33,14 +35,14 @@ O diagrama a seguir representa o fluxo de dados e os componentes envolvidos na s
  
 1. **Geração de dados:** o simulador de dados é usado para gerar dados de varejo que representam eventos como um usuário visualizando um item, adicionando um item ao carrinho e comprando um item. É possível gerar um grande conjunto de dados de exemplo usando o gerador de dados. Os dados de exemplo gerados contêm documentos no seguinte formato:
    
-   ```json
-   {      
-     "CartID": 2486,
-     "Action": "Viewed",
-     "Item": "Women's Denim Jacket",
-     "Price": 31.99
-   }
-   ```
+    ```json
+    {
+      "CartID": 2486,
+      "Action": "Viewed",
+      "Item": "Women's Denim Jacket",
+      "Price": 31.99
+    }
+    ```
 
 2. **Cosmos DB:** Os dados gerados são armazenados em um contêiner Cosmos do Azure.  
 
@@ -50,7 +52,7 @@ O diagrama a seguir representa o fluxo de dados e os componentes envolvidos na s
 
 5. **Hub de Eventos:** o Hub de Eventos do Azure armazena esses eventos e envia-os para o [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) para executar análises adicionais.  
 
-6. **Azure Stream Analytics:** o Azure Stream Analytics define consultas para processar os eventos e executar análise de dados em tempo real. Em seguida, esses dados são enviados para o [Microsoft Power BI](https://docs.microsoft.com/power-bi/desktop-what-is-desktop).  
+6. **Azure Stream Analytics:** o Azure Stream Analytics define consultas para processar os eventos e executar análise de dados em tempo real. Em seguida, esses dados são enviados para o [Microsoft Power BI](/power-bi/desktop-what-is-desktop).  
 
 7. **Power BI:** o Power BI é usado para visualizar os dados enviados pelo Azure Stream Analytics. É possível criar um painel para ver como as métricas são alteradas em tempo real.  
 
@@ -209,7 +211,7 @@ O Azure Stream Analytics é um serviço de nuvem totalmente gerenciado para proc
 
 5. Navegue de volta para a página de trabalho do Stream Analytics e selecione **Saídas**.  
 
-6. Selecione **+ Adicionar**. Em seguida, selecione**Power BI** no menu suspenso.  
+6. Selecione **+ Adicionar**. Em seguida, selecione **Power BI** no menu suspenso.  
 
 7. Para criar uma nova saída do Power BI para visualizar o preço médio, execute as seguintes ações:
 
@@ -315,15 +317,15 @@ O Power BI é um conjunto de ferramentas de análise de negócios para analisar 
 
    Um painel de amostra é semelhante a estes gráficos:
 
-   :::image type="content" source="./media/changefeed-ecommerce-solution/visualizations.png" alt-text="visualizações":::
+   :::image type="content" source="./media/changefeed-ecommerce-solution/visualizations.png" alt-text="Captura de tela mostra um painel de exemplo com gráficos denominados preço médio de itens por ação, visitantes exclusivos, receita e 5 principais itens comprados.":::
 
 ## <a name="optional-visualize-with-an-e-commerce-site"></a>Opcional: visualizar com um site de comércio eletrônico
 
 Agora, você observará como é possível usar a nova ferramenta de análise de dados para conectar um site de comércio eletrônico real. Para criar o site de comércio eletrônico, use um banco de dados Cosmos do Azure para armazenar a lista de categorias de produtos (mulheres, homens, unissex), o catálogo de produtos e uma lista dos itens mais populares.
 
-1. Navegue de volta para o [portal do Azure](https://portal.azure.com/), em seguida, para sua **conta de Cosmos DB**e, em seguida, para **Data Explorer**.  
+1. Navegue de volta para o [portal do Azure](https://portal.azure.com/), em seguida, para sua **conta de Cosmos DB** e, em seguida, para **Data Explorer**.  
 
-   Adicione duas coleções em **changefeedlabdatabase**  -  **produtos** e **categorias** do changefeedlabdatabase com capacidade de armazenamento fixo.
+   Adicione duas coleções em   -  **produtos** e **categorias** do changefeedlabdatabase com capacidade de armazenamento fixo.
 
    Adicione outra coleção em **changefeedlabdatabase** chamada **topItems** e **/Item** como a chave de partição.
 
@@ -377,11 +379,11 @@ Agora, você observará como é possível usar a nova ferramenta de análise de 
 
 6. Abra **EcommerceWebApp.sln** e navegue até o arquivo **Web.config** no **Gerenciador de Soluções**.  
 
-7. No bloco `<appSettings>`, adicione o **URI** e a **CHAVE PRIMÁRIA** que você salvou anteriormente, onde informa **seu URI aqui ** e **sua chave primária aqui**. Em seguida, adicione o **nome do banco de dados** e o **nome da coleção**, conforme indicado. (Esses nomes devem ser **changefeedlabdatabase** e **changefeedlabcollection**, a menos que você queira nomeá-los de maneira diferente.)
+7. No bloco `<appSettings>`, adicione o **URI** e a **CHAVE PRIMÁRIA** que você salvou anteriormente, onde informa **seu URI aqui** e **sua chave primária aqui**. Em seguida, adicione o **nome do banco de dados** e o **nome da coleção**, conforme indicado. (Esses nomes devem ser **changefeedlabdatabase** e **changefeedlabcollection**, a menos que você queira nomeá-los de maneira diferente.)
 
-   Preencha o **nome da coleção de produtos**, **nome da coleção de categorias ** e o **nome da coleção dos principais itens**, conforme indicado. (Esses nomes devem ser **produtos, categorias e topItems**, a menos que você queira nomeá-los de maneira diferente.)  
+   Preencha o **nome da coleção de produtos**, **nome da coleção de categorias** e o **nome da coleção dos principais itens**, conforme indicado. (Esses nomes devem ser **produtos, categorias e topItems**, a menos que você queira nomeá-los de maneira diferente.)  
 
-8. Navegue e abra a **Pasta de check-out ** em **EcommerceWebApp.sln.** Em seguida, abra o arquivo **Web.config** dentro dessa pasta.  
+8. Navegue e abra a **Pasta de check-out** em **EcommerceWebApp.sln.** Em seguida, abra o arquivo **Web.config** dentro dessa pasta.  
 
 9. No bloco `<appSettings>`, adicione o **URI** e a **CHAVE PRIMÁRIA** que você salvou anteriormente onde indicado. Em seguida, adicione o **nome do banco de dados** e o **nome da coleção**, conforme indicado. (Esses nomes devem ser **changefeedlabdatabase** e **changefeedlabcollection**, a menos que você queira nomeá-los de maneira diferente.)  
 
@@ -395,4 +397,4 @@ Para excluir os recursos que você criou durante este laboratório, navegue até
 
 ## <a name="next-steps"></a>Próximas etapas 
   
-* Para saber mais sobre feed de alterações, consulte [como trabalhar com suporte de feed de alterações no Azure Cosmos DB](change-feed.md) 
+* Para saber mais sobre feed de alterações, consulte [como trabalhar com suporte de feed de alterações no Azure Cosmos DB](change-feed.md)

@@ -2,26 +2,26 @@
 title: 'Emparelhamento privado do Azure ExpressRoute: configurar o modo de transporte IPsec-hosts do Windows'
 description: Como habilitar o modo de transporte IPsec entre as VMs do Windows do Azure e os hosts do Windows local usando GPOs e UOs de emparelhamento privado do ExpressRoute.
 services: expressroute
-author: fabferri
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 10/17/2018
-ms.author: fabferri
+ms.date: 01/07/2021
+ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 32ad4f643ff0b217460403245cbb4e99f139aef9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cfcc515787cee2bc90a2100e84337a3c96219d8a
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84737250"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98017265"
 ---
 # <a name="configure-ipsec-transport-mode-for-expressroute-private-peering"></a>Configurar o modo de transporte IPsec para emparelhamento privado do ExpressRoute
 
-Este artigo ajuda você a criar túneis IPsec no modo de transporte por meio do emparelhamento privado do ExpressRoute entre VMs do Azure executando Windows e hosts do Windows locais. As etapas neste artigo criam essa configuração usando objetos de política de grupo. Embora seja possível criar esta configuração sem usar UOs (unidades organizacionais) e GPOs (objetos de política de grupo), a combinação de UOs e GPOs ajudará a simplificar o controle de suas políticas de segurança e permitirá que você aumente a escala rapidamente. As etapas neste artigo pressupõem que você já tem uma configuração do Active Directory e está familiarizado com o uso de UOs e GPOs.
+Este artigo ajuda você a criar túneis IPsec no modo de transporte por meio do emparelhamento privado do ExpressRoute. O túnel é criado entre as VMs do Azure que executam o Windows e os hosts Windows locais. As etapas neste artigo para essa configuração usam objetos de política de grupo. Embora seja possível criar essa configuração sem usar UOs (unidades organizacionais) e GPOs (objetos de diretiva de grupo). A combinação de UOs e GPOs ajudará a simplificar o controle de suas políticas de segurança e permite que você amplie rapidamente. As etapas neste artigo pressupõem que você já tem uma configuração de Active Directory e está familiarizado com o uso de UOs e GPOs.
 
 ## <a name="about-this-configuration"></a>Sobre esta configuração
 
-A configuração nas etapas a seguir usam uma única VNet (rede virtual) do Azure com o emparelhamento privado do ExpressRoute. No entanto, essa configuração pode abranger mais redes virtuais do Azure e redes locais. Este artigo ajudará você a definir uma política de criptografia IPsec e aplicá-la a um grupo de hosts e VMs do Azure locais que fazem parte da mesma UO. Você configura a criptografia entre as VMs do Azure (vm1 e vm2) e o host1 local somente para tráfego HTTP com a porta de destino 8080. Diferentes tipos de política de IPsec podem ser criados com base nos seus requisitos.
+A configuração nas etapas a seguir usa uma única rede virtual do Azure (VNet) com emparelhamento privado do ExpressRoute. No entanto, essa configuração pode abranger outras VNets do Azure e redes locais. Este artigo o ajudará a definir uma política de criptografia IPsec que você pode aplicar a um grupo de VMs do Azure ou a hosts locais. Essas VMs do Azure ou hosts locais fazem parte da mesma UO. Você configura a criptografia entre as VMs do Azure (vm1 e vm2) e o host1 local somente para tráfego HTTP com a porta de destino 8080. Diferentes tipos de política de IPsec podem ser criados com base nos seus requisitos.
 
 ### <a name="working-with-ous"></a>Como trabalhar com UOs 
 
@@ -49,7 +49,7 @@ Ao configurar a política de IPsec, é importante compreender a terminologia de 
 
 * **Política IPsec:** uma coleção de regras. Apenas uma política pode estar ativa ("atribuída") em um determinado momento. Cada política pode ter uma ou mais regras, podendo estar todas elas ativas simultaneamente. É possível atribuir apenas uma política de IPsec a um computador por vez. No entanto, na política de IPsec, você pode definir várias ações que podem ser executadas em situações diferentes. Cada conjunto de regras de IPsec está associado a uma lista de filtros que afeta o tipo de tráfego de rede ao qual a regra se aplica.
 
-* **Listas de filtros:** são listas de filtros de pacote de um ou mais filtros. Uma lista pode conter vários filtros. O filtro define se a comunicação é permitida, protegida ou bloqueada, de acordo com os intervalos de endereços IP, protocolos ou mesmo portas de protocolo específicas. Cada filtro corresponde a um determinado conjunto de condições. Por exemplo, os pacotes enviados de uma sub-rede específica a um computador específico em uma porta de destino específica. Quando as condições de rede correspondem a um ou mais desses filtros, a lista de filtros é ativada. Cada filtro é definido dentro de uma lista de filtros específica. Filtros não podem ser compartilhados entre as listas de filtro. No entanto, uma lista de filtro fornecidos pode ser incorporada em várias políticas de IPsec. 
+* **Listas de filtros:** são listas de filtros de pacote de um ou mais filtros. Uma lista pode conter vários filtros. Um filtro define se a comunicação é bloqueada, permitida ou protegida com base nos seguintes critérios: intervalos de endereços IP, protocolos ou até mesmo portas específicas. Cada filtro corresponde a um determinado conjunto de condições. Por exemplo, os pacotes enviados de uma sub-rede específica a um computador específico em uma porta de destino específica. Quando as condições de rede correspondem a um ou mais desses filtros, a lista de filtros é ativada. Cada filtro é definido dentro de uma lista de filtros específica. Filtros não podem ser compartilhados entre as listas de filtro. No entanto, uma lista de filtro fornecidos pode ser incorporada em várias políticas de IPsec. 
 
 * **Ações de filtro:** um método de segurança define um conjunto de algoritmos de segurança, protocolos e chaves que um computador oferece durante as negociações de IKE. Ações de filtro são listas de métodos de segurança, classificados em ordem de preferência.  Quando um computador negocia uma sessão IPsec, ela aceita ou envia propostas com base na configuração de segurança armazenada na lista de ações de filtro.
 
@@ -65,7 +65,7 @@ Ao configurar a política de IPsec, é importante compreender a terminologia de 
 
 Verifique se os seguintes pré-requisitos foram atendidos:
 
-* Você deve ter uma configuração funcional do Active Directory que pode usar para implementar as configurações de Política de Grupo. Para obter mais informações sobre GPOs, confira [Objetos de Política de Grupo](https://msdn.microsoft.com/library/windows/desktop/aa374162(v=vs.85).aspx).
+* Você deve ter uma configuração funcional do Active Directory que pode usar para implementar as configurações de Política de Grupo. Para obter mais informações sobre GPOs, confira [Objetos de Política de Grupo](/previous-versions/windows/desktop/Policy/group-policy-objects).
 
 * Você deve ter um circuito do ExpressRoute ativo.
   * Para obter mais informações sobre como criar um circuito do ExpressRoute, confira [Criar um circuito do ExpressRoute](expressroute-howto-circuit-arm.md). 
@@ -79,7 +79,7 @@ Verifique se os seguintes pré-requisitos foram atendidos:
 
 * Verifique se há conectividade entre os hosts locais e as VMs do Azure.
 
-* Verifique se as VMs do Windows do Azure e os hosts locais estão aptos a usar o DNS para resolver nomes corretamente.
+* Verifique se as VMs do Windows do Azure e os hosts locais podem usar o DNS para resolver nomes corretamente.
 
 ### <a name="workflow"></a>Fluxo de trabalho
 
@@ -101,13 +101,13 @@ Verifique se os seguintes pré-requisitos foram atendidos:
 
 ## <a name="1-create-a-gpo"></a><a name="creategpo"></a>1. criar um GPO
 
-1. Para criar um novo GPO vinculado a uma UO, abra o snap-in de Gerenciamento de Política de Grupo e localize a UO à qual o GPO será vinculado. No exemplo, a UO é denominada **IPSecOU**. 
+1. Crie um novo GPO vinculado a uma UO abrindo o snap-in de gerenciamento de Política de Grupo. Em seguida, localize a UO à qual o GPO será vinculado. No exemplo, a UO é denominada **IPSecOU**. 
 
    [![9]][9]
-2. No snap-in Gerenciamento de Política de Grupo, selecione a UO e clique com o botão direito do mouse. No menu suspenso, clique em "**Criar uma GPO neste domínio e vinculá-la aqui…**".
+2. No snap-in Gerenciamento de Política de Grupo, selecione a UO e clique com o botão direito do mouse. Na lista suspensa, selecione "**criar um GPO neste domínio e vincule-o aqui...**".
 
    [![10]][10]
-3. Dê ao GPO um nome intuitivo para que você possa localizá-lo facilmente mais tarde. Clique em **OK** para criar e vincular o GPO.
+3. Dê ao GPO um nome intuitivo para que você possa localizá-lo facilmente mais tarde. Selecione **OK** para criar e vincular o GPO.
 
    [![11]][11]
 
@@ -122,32 +122,32 @@ Para aplicar o GPO à UO, o GPO deve não apenas ser vinculado a UO, mas o link 
 
 ## <a name="3-define-the-ip-filter-action"></a><a name="filteraction"></a>3. definir a ação de filtro IP
 
-1. Na lista suspensa, clique com o botão direito do mouse em **Política de Segurança de IP no Active Directory** e, em seguida, clique em **Gerenciar listas de filtro IP e ações de filtro...**.
+1. Na lista suspensa, clique com o botão direito do mouse em **política de segurança IP em Active Directory** e, em seguida, selecione **gerenciar listas de filtros IP e ações de filtro...**.
 
    [![15]][15]
-2. Na guia "**Gerenciar Ações de filtro**", clique em **Adicionar**.
+2. Na guia "**Gerenciar ações de filtro**", selecione **Adicionar**.
 
    [![16]][16]
 
-3. No **Assistente de Ação de Filtro de Segurança de IP**, clique em **Avançar**.
+3. No **Assistente de ação de filtro de segurança de IP**, selecione **Avançar**.
 
    [![17]][17]
-4. Dê à ação de filtro um nome intuitivo para que você possa encontrá-lo posteriormente. Neste exemplo, a ação de filtro é denominada **myEncryption**. Também é possível adicionar uma descrição. Em seguida, clique em **Próximo**.
+4. Dê à ação de filtro um nome intuitivo para que você possa encontrá-lo posteriormente. Neste exemplo, a ação de filtro é denominada **myEncryption**. Também é possível adicionar uma descrição. Em seguida, selecione **Avançar**.
 
    [![18]][18]
-5. **Negociar segurança** permite que você defina o comportamento caso o IPsec não possa ser estabelecido com outro computador. Selecione **Negociar segurança** e, em seguida, clique em **Avançar**.
+5. **Negociar segurança** permite que você defina o comportamento caso o IPsec não possa ser estabelecido com outro computador. Selecione **negociar segurança** e, em seguida, selecione **Avançar**.
 
    [![19]][19]
-6. Na página **Comunicação com computadores que não dão suporte a IPsec**, selecione **Não permitir comunicação não segura** e, em seguida, clique em **Avançar**.
+6. Na página **comunicando-se com computadores que não dão suporte a IPSec** , selecione não **Permitir comunicação não segura** e, em seguida, selecione **Avançar**.
 
    [![20]][20]
-7. Na página **Tráfego e Segurança de IP**, selecione **Personalizado** e clique em **Configurações...**.
+7. Na página **tráfego e segurança de IP** , selecione **personalizado** e, em seguida, selecione **configurações...**.
 
    [![21]][21]
-8. Na página **Configurações de Método de Segurança Personalizado**, selecione **Integridade de dados e criptografia (ESP): SHA1, 3DES**. Depois, clique em **OK**.
+8. Na página **Configurações de Método de Segurança Personalizado**, selecione **Integridade de dados e criptografia (ESP): SHA1, 3DES**. Depois, selecione **OK**.
 
    [![22]][22]
-9. Na página **Gerenciar Ações de Filtro**, você pode ver que o filtro **myEncryption** foi adicionado com êxito. Clique em **Fechar**.
+9. Na página **Gerenciar Ações de Filtro**, você pode ver que o filtro **myEncryption** foi adicionado com êxito. Selecione **Fechar**.
 
    [![23]][23]
 
@@ -155,28 +155,28 @@ Para aplicar o GPO à UO, o GPO deve não apenas ser vinculado a UO, mas o link 
 
 Crie uma lista de filtros que especifica o tráfego HTTP criptografado com a porta de destino 8080.
 
-1. Para qualificar os tipos de tráfego que devem ser criptografados, use uma **lista de filtros IP**. Na guia **Gerenciar Listas de Filtros IP**, clique em **Adicionar** para adicionar uma nova lista de filtros IP.
+1. Para qualificar os tipos de tráfego que devem ser criptografados, use uma **lista de filtros IP**. Na guia **gerenciar listas de filtros IP** , selecione **Adicionar** para adicionar uma nova lista de filtros IP.
 
    [![24]][24]
-2. No campo **Nome:**, digite um nome para sua lista de filtros IP. Por exemplo, **azure-onpremises-HTTP8080**. Em seguida, clique em **Adicionar**.
+2. No campo **Nome:**, digite um nome para sua lista de filtros IP. Por exemplo, **azure-onpremises-HTTP8080**. Em seguida, selecione **Adicionar**.
 
    [![25]][25]
-3. Na página **Descrição do filtro IP e propriedade espelhada**, selecione **Espelhado**. A configuração espelhada corresponde a pacotes que vão em ambos os sentidos, o que permite comunicação bidirecional. Clique em **Avançar**.
+3. Na página **Descrição do filtro IP e propriedade espelhada**, selecione **Espelhado**. A configuração espelhada corresponde a pacotes que vão em ambos os sentidos, o que permite comunicação bidirecional. Em seguida, selecione **Avançar**.
 
    [![26]][26]
 4. Na página **Origem do Tráfego IP**, na lista suspensa **Endereço de origem:**, escolha **Uma Sub-rede ou Endereço IP Específico**. 
 
    [![27]][27]
-5. Especifique **Sub-rede ou Endereço IP:** do endereço de origem do tráfego IP e clique em **Avançar**.
+5. Especifique o endereço **IP ou a sub-rede** do endereço de origem: do tráfego IP e, em seguida, selecione **Avançar**.
 
    [![28]][28]
-6. Especifique a Sub-rede ou o Endereço IP do **Endereço de destino:**. Em seguida, clique em **Próximo**.
+6. Especifique a Sub-rede ou o Endereço IP do **Endereço de destino:**. Em seguida, selecione **Avançar**.
 
    [![29]][29]
-7. Na página **Tipo de Protocolo IP**, selecione **TCP**. Em seguida, clique em **Próximo**.
+7. Na página **Tipo de Protocolo IP**, selecione **TCP**. Em seguida, selecione **Avançar**.
 
    [![30]][30]
-8. Na página **Porta do Protocolo IP**, selecione **De qualquer porta** e **Para esta porta:**. Digite **8080** na caixa de texto. Essas configurações especificam que apenas o tráfego HTTP na porta 8080 do destino será criptografado. Em seguida, clique em **Próximo**.
+8. Na página **Porta do Protocolo IP**, selecione **De qualquer porta** e **Para esta porta:**. Digite **8080** na caixa de texto. Essas configurações especificam que apenas o tráfego HTTP na porta 8080 do destino será criptografado. Em seguida, selecione **Avançar**.
 
    [![31]][31]
 9. Exibir a lista de filtro IP.  A configuração da Lista de Filtro IP **azure-onpremises-HTTP8080** dispara a criptografia para todo o tráfego que corresponde aos critérios a seguir:
@@ -190,12 +190,12 @@ Crie uma lista de filtros que especifica o tráfego HTTP criptografado com a por
 
 ## <a name="5-edit-the-ip-filter-list"></a><a name="filterlist2"></a>5. editar a lista de filtros IP
 
-Para criptografar o mesmo tipo de tráfego na direção oposta (do host local para a VM do Azure), é necessário um segundo filtro IP. O processo de configuração do novo filtro é o mesmo processo usado para configurar o primeiro filtro IP. As únicas diferenças são as sub-redes de origem e de destino.
+Para criptografar o mesmo tipo de tráfego do host local para a VM do Azure, você precisa de um segundo filtro IP. Siga as mesmas etapas que você usou para configurar o primeiro filtro IP e criar um novo filtro de IP. As únicas diferenças são as sub-redes de origem e de destino.
 
 1. Para adicionar um novo filtro IP à lista de filtros IP, selecione **Editar**.
 
    [![33]][33]
-2. Na página **Lista de Filtros IP**, clique em **Adicionar**.
+2. Na página **lista de filtros IP** , selecione **Adicionar**.
 
    [![34]][34]
 3. Crie um segundo filtro IP usando as configurações no exemplo a seguir:
@@ -205,7 +205,7 @@ Para criptografar o mesmo tipo de tráfego na direção oposta (do host local pa
 
    [![36]][36]
 
-Se a criptografia for necessária entre um caminho local e uma sub-rede do Azure para proteger um aplicativo, em vez de modificar a lista de filtros de IP existente, você poderá adicionar uma nova lista de filtros de IP em vez disso. Associar duas listas de filtros à mesma política de IPsec oferece maior flexibilidade porque uma lista de filtros IP específica pode ser modificada ou removida a qualquer momento sem afetar as outras listas de filtro IP.
+Se a criptografia for necessária entre uma localização local e uma sub-rede do Azure para proteger um aplicativo. Em vez de modificar a lista de filtros IP existente, você pode adicionar uma nova lista de filtros IP. A associação de duas ou mais listas de filtros IP à mesma diretiva IPsec fornecerá mais flexibilidade. Você pode modificar ou remover uma lista de filtros IP sem afetar as outras listas de filtros IP.
 
 ## <a name="6-create-an-ipsec-security-policy"></a><a name="ipsecpolicy"></a>6. criar uma política de segurança IPsec 
 
@@ -214,13 +214,13 @@ Criar uma Política de IPsec com regras de segurança.
 1. Selecione **Políticas de IPSecurity no Active Directory** associado à UO. Clique com o botão direito do mouse e selecione **Criar Política de Segurança de IP**.
 
    [![37]][37]
-2. Dê um nome à política de segurança. Por exemplo, **policy-azure-onpremises**. Em seguida, clique em **Próximo**.
+2. Dê um nome à política de segurança. Por exemplo, **policy-azure-onpremises**. Em seguida, selecione **Avançar**.
 
    [![38]][38]
-3. Clique em **Avançar** sem marcar a caixa de seleção.
+3. Selecione **Avançar** sem marcar a caixa de seleção.
 
    [![39]][39]
-4. Verifique se a caixa de seleção **Editar propriedades** está selecionada e, em seguida, clique em **Concluir**.
+4. Verifique se a caixa de seleção **Editar propriedades** está marcada e, em seguida, selecione **concluir**.
 
    [![40]][40]
 
@@ -228,10 +228,10 @@ Criar uma Política de IPsec com regras de segurança.
 
 Adicione à política de IPsec a **Lista de Filtros IP** e a **Ação de Filtro** que você configurou anteriormente.
 
-1. Na guia **Regras** de Propriedades da política HTTP, clique em **Adicionar**.
+1. Na guia **regras** de propriedades de política http, selecione **Adicionar**.
 
    [![41]][41]
-2. Na página de Boas-vindas, clique em **Avançar**.
+2. Sobre o boas-vindas página, selecione **próxima**.
 
    [![42]][42]
 3. Uma regra fornece a opção de definir o modo de IPsec: modo de túnel ou modo de transporte.
@@ -240,26 +240,26 @@ Adicione à política de IPsec a **Lista de Filtros IP** e a **Ação de Filtro*
 
    * O modo de transporte criptografa apenas o payload e o trailer ESP; o cabeçalho IP do pacote original não é criptografado. No modo de transporte, o IP de origem e o IP de destino dos pacotes são inalterados.
 
-   Selecione **Esta regra não especifica um túnel** e, em seguida, clique em **Avançar**.
+   Selecione **esta regra não especifica um túnel** e, em seguida, selecione **Avançar**.
 
    [![43]][43]
-4. **Tipo de Rede** define qual conexão de rede se associa à política de segurança. Selecione **Todas as conexões de rede** e, em seguida, clique em **Avançar**.
+4. **Tipo de Rede** define qual conexão de rede se associa à política de segurança. Selecione **todas as conexões de rede** e, em seguida, selecione **Avançar**.
 
    [![44]][44]
-5. Selecione a lista de filtros IP que você criou anteriormente, **azure-onpremises-HTTP8080** e, em seguida, clique em **Avançar**.
+5. Selecione a lista de filtros IP que você criou anteriormente,  **Azure-onlocal-HTTP8080** e, em seguida, selecione **Avançar**.
 
    [![45]][45]
 6. Selecione a Ação de Filtro **myEncryption** existente que você criou anteriormente.
 
    [![46]][46]
-7. O Windows dá suporte a quatro tipos distintos de autenticações: Kerberos, certificados, NTLMv2 e chave pré-compartilhada. Como estamos trabalhando com hosts adicionados a domínio, selecione **Padrão do Active Directory (protocolo Kerberos V5)** e, em seguida, clique em **Avançar**.
+7. O Windows dá suporte a quatro tipos distintos de autenticações: Kerberos, certificados, NTLMv2 e chave pré-compartilhada. Como estamos trabalhando com hosts ingressados no domínio, selecione **Active Directory padrão (protocolo Kerberos V5)** e, em seguida, selecione **Avançar**.
 
    [![47]][47]
-8. A nova política cria a regra de segurança: **azure-onpremises-HTTP8080**. Clique em **OK**.
+8. A nova política cria a regra de segurança: **azure-onpremises-HTTP8080**. Selecione **OK**.
 
    [![48]][48]
 
-A política IPsec requer que todas as conexões de HTTP na porta 8080 usem o modo de transporte IPsec de destino. Uma vez que HTTP é um protocolo de texto não criptografado, ter a política de segurança habilitada garante que os dados sejam criptografados quando forem transferidos por meio de emparelhamento privado do ExpressRoute. É mais complexo configurar a política de Segurança de IP para o Active Directory do que o Firewall do Windows com segurança avançada, mas ela permite mais personalização da conexão IPsec.
+A política IPsec requer que todas as conexões de HTTP na porta 8080 usem o modo de transporte IPsec de destino. Como HTTP é um protocolo de texto não criptografado, ter a política de segurança habilitada, o garante que os dados sejam criptografados quando transferidos por meio do emparelhamento privado do ExpressRoute. A diretiva IPsec para Active Directory é mais complexa de configurar do que o Firewall do Windows com segurança avançada. No entanto, ele permite mais personalização da conexão IPsec.
 
 ## <a name="8-assign-the-ipsec-gpo-to-the-ou"></a><a name="assigngpo"></a>8. atribuir o GPO IPsec à UO
 
@@ -310,7 +310,7 @@ A captura de rede a seguir mostra que os resultados para host1 local com o filtr
 
 [![51]][51]
 
-Se você executar o script PowerShell localmente (cliente HTTP), a captura de rede na VM do Azure mostrará um rastreamento semelhante.
+Se você executar o script do PowerShell local (cliente HTTP), a captura de rede na VM do Azure mostrará um rastreamento semelhante.
 
 ## <a name="next-steps"></a>Próximas etapas
 

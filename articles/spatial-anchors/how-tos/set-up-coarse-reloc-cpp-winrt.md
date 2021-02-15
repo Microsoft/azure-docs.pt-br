@@ -1,19 +1,19 @@
 ---
 title: Relocalização grosseira no C++/WinRT
 description: Explicação detalhada de como criar e localizar âncoras usando relocalização de alta granularidade em C++/WinRT.
-author: bucurb
-manager: dacoghl
+author: msftradford
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
-ms.author: bobuc
-ms.date: 09/19/2019
+ms.author: parkerra
+ms.date: 11/20/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 6d2bb4c563bd7bae186ce9832ff0472f17a8afd3
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7068ecb7fcfe888118396523e0e3d997e5a59e9a
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76548281"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "96005003"
 ---
 # <a name="how-to-create-and-locate-anchors-using-coarse-relocalization-in-cwinrt"></a>Como criar e localizar âncoras usando relocalização de alta granularidade em C++/WinRT
 
@@ -31,7 +31,7 @@ As Âncoras Espaciais do Azure podem associar dados de sensor de posicionamento 
 
 Para concluir este guia, verifique se você tem:
 
-- Conhecimento básico sobre o C++ e as <a href="https://docs.microsoft.com/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt" target="_blank">APIs do Windows Runtime</a>.
+- Conhecimento básico sobre o C++ e as <a href="/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt" target="_blank">APIs do Windows Runtime</a>.
 - Leia a [Visão geral de Âncoras Espaciais do Azure](../overview.md).
 - Concluído um dos [Inícios Rápidos de 5 minutos](../index.yml).
 - Leia as [Instruções de criação e localização de âncoras](../create-locate-anchors-overview.md).

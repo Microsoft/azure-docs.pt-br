@@ -4,62 +4,30 @@ description: Saiba como usar grupos de posicionamento de proximidade para reduzi
 services: container-service
 manager: gwallace
 ms.topic: article
-ms.date: 07/10/2020
-author: jluk
-ms.openlocfilehash: 5b3dc3803cfb89f4a74d082b5913e69df1d03a00
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.date: 10/19/2020
+ms.openlocfilehash: c30051008474a32ae6c847ee3f840c8ae35b469b
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87986705"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98726791"
 ---
-# <a name="reduce-latency-with-proximity-placement-groups-preview"></a>Reduzir a latência com grupos de posicionamento de proximidade (visualização)
+# <a name="reduce-latency-with-proximity-placement-groups"></a>Reduzir a latência com grupos de posicionamento de proximidade
 
 > [!Note]
 > Ao usar grupos de posicionamento de proximidade em AKS, a colocação se aplica somente aos nós de agente. O nó para o nó e o Pod hospedado correspondente à latência de Pod foram aprimorados. A colocalização não afeta o posicionamento do plano de controle de um cluster.
 
-Ao implantar seu aplicativo no Azure, a difusão de instâncias de máquina virtual (VM) em regiões ou zonas de disponibilidade cria a latência de rede, o que pode afetar o desempenho geral do seu aplicativo. Um grupo de posicionamento de proximidade é um agrupamento lógico usado para garantir que os recursos de computação do Azure estejam fisicamente localizados próximos um do outro. Alguns aplicativos como jogos, simulações de engenharia e HFT (transações de alta frequência) exigem baixa latência e tarefas que são concluídas rapidamente. Para cenários de HPC (computação de alto desempenho) como esses, considere o uso de PPG ( [grupos de posicionamento de proximidade](../virtual-machines/linux/co-location.md#proximity-placement-groups) ) para pools de nós do cluster.
+Ao implantar seu aplicativo no Azure, a difusão de instâncias de máquina virtual (VM) em regiões ou zonas de disponibilidade cria a latência de rede, o que pode afetar o desempenho geral do seu aplicativo. Um grupo de posicionamento de proximidade é um agrupamento lógico usado para garantir que os recursos de computação do Azure estejam fisicamente localizados próximos um do outro. Alguns aplicativos como jogos, simulações de engenharia e HFT (transações de alta frequência) exigem baixa latência e tarefas que são concluídas rapidamente. Para cenários de HPC (computação de alto desempenho) como esses, considere o uso de PPG ( [grupos de posicionamento de proximidade](../virtual-machines/co-location.md#proximity-placement-groups) ) para pools de nós do cluster.
 
-## <a name="limitations"></a>Limitações
+## <a name="before-you-begin"></a>Antes de começar
+
+Este artigo requer que você esteja executando o CLI do Azure versão 2,14 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure][azure-cli-install].
+
+### <a name="limitations"></a>Limitações
 
 * Um grupo de posicionamento de proximidade pode ser mapeado para no máximo uma zona de disponibilidade.
 * Um pool de nós deve usar conjuntos de dimensionamento de máquinas virtuais para associar um grupo de posicionamento de proximidade.
 * Um pool de nós pode associar um grupo de posicionamento de proximidade no pool de nós apenas a tempo de criação.
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
-
-## <a name="before-you-begin"></a>Antes de começar
-
-Você deve ter os seguintes recursos instalados:
-
-- A extensão 0.4.53 AKs-Preview
-
-### <a name="set-up-the-preview-feature-for-proximity-placement-groups"></a>Configurar o recurso de visualização para grupos de posicionamento de proximidade
-
-> [!IMPORTANT]
-> Ao usar grupos de posicionamento de proximidade com pools de nós AKS, a colocação se aplica somente aos nós de agente. O nó para o nó e o Pod hospedado correspondente à latência de Pod foram aprimorados. A colocalização não afeta o posicionamento do plano de controle de um cluster.
-
-```azurecli-interactive
-# register the preview feature
-az feature register --namespace "Microsoft.ContainerService" --name "ProximityPlacementGroupPreview"
-```
-
-Pode levar vários minutos para o registro. Use o comando abaixo para verificar se o recurso está registrado:
-
-```azurecli-interactive
-# Verify the feature is registered:
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/ProximityPlacementGroupPreview')].{Name:name,State:properties.state}"
-```
-
-Durante a visualização, você precisa da extensão da CLI de *AKs* para usar grupos de posicionamento de proximidade. Use o comando [AZ Extension Add][az-extension-add] e, em seguida, verifique se há atualizações disponíveis usando o comando [AZ Extension Update][az-extension-update] :
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
 
 ## <a name="node-pools-and-proximity-placement-groups"></a>Pools de nós e grupos de posicionamento de proximidade
 
@@ -165,7 +133,7 @@ az group delete --name myResourceGroup --yes --no-wait
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
-[proximity-placement-groups]: ../virtual-machines/linux/co-location.md#proximity-placement-groups
+[proximity-placement-groups]: ../virtual-machines/co-location.md#proximity-placement-groups
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [system-pool]: ./use-system-pools.md
 [az-aks-nodepool-add]: /cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-add

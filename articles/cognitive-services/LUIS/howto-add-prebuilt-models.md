@@ -3,19 +3,17 @@ title: Modelos predefinidos para Reconhecimento vocal
 titleSuffix: Azure Cognitive Services
 description: O LUIS inclui um conjunto de modelos predefinidos para adicionar rapidamente cenários de usuário de conversação comuns.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/17/2020
-ms.author: diberry
-ms.openlocfilehash: abf149d621d283744a71e08ea4ac2199a1994d57
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 2080139732d71aa5df9a9d4ad13fcc4545128dff
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680946"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91541910"
 ---
 # <a name="add-prebuilt-models-for-common-usage-scenarios"></a>Adicionar modelos predefinidos para cenários de uso comuns
 
@@ -23,7 +21,7 @@ O LUIS inclui um conjunto de modelos predefinidos para adicionar rapidamente cen
 
 ## <a name="add-a-prebuilt-domain"></a>Adicionar um domínio predefinido
 
-1. Entre no portal do [Luis](https://www.luis.ai)e selecione sua **assinatura** e recurso de **criação** para ver os aplicativos atribuídos a esse recurso de criação.
+1. Entre no [portal do LUIS](https://www.luis.ai) selecione sua **Assinatura** e **Recurso de criação** para ver os aplicativos atribuídos a esse recurso.
 1. Abra seu aplicativo selecionando seu nome na página **meus aplicativos** .
 
 1. Selecione **domínios predefinidos** na barra de ferramentas à esquerda.
@@ -35,7 +33,7 @@ O LUIS inclui um conjunto de modelos predefinidos para adicionar rapidamente cen
 
 ## <a name="add-a-prebuilt-intent"></a>Adicionar uma intenção predefinida
 
-1. Entre no portal do [Luis](https://www.luis.ai)e selecione sua **assinatura** e recurso de **criação** para ver os aplicativos atribuídos a esse recurso de criação.
+1. Entre no [portal do LUIS](https://www.luis.ai) selecione sua **Assinatura** e **Recurso de criação** para ver os aplicativos atribuídos a esse recurso.
 1. Abra seu aplicativo selecionando seu nome na página **meus aplicativos** .
 
 1. Na página **tentativas** , selecione **Adicionar intenção de domínio predefinido** na barra de ferramentas acima da lista de intenções.
@@ -48,7 +46,7 @@ O LUIS inclui um conjunto de modelos predefinidos para adicionar rapidamente cen
 1. Selecione o botão **Concluído**.
 
 ## <a name="add-a-prebuilt-entity"></a>Adicionar uma entidade predefinida
-1. Entre no portal do [Luis](https://www.luis.ai)e selecione sua **assinatura** e recurso de **criação** para ver os aplicativos atribuídos a esse recurso de criação.
+1. Entre no [portal do LUIS](https://www.luis.ai) selecione sua **Assinatura** e **Recurso de criação** para ver os aplicativos atribuídos a esse recurso.
 1. Abra seu aplicativo selecionando seu nome na página **meus aplicativos** .
 1. Selecione **entidades** no lado esquerdo.
 
@@ -62,7 +60,7 @@ O LUIS inclui um conjunto de modelos predefinidos para adicionar rapidamente cen
 1. Selecione **Concluído**. Depois que a entidade é adicionada, você precisa treinar o aplicativo.
 
 ## <a name="add-a-prebuilt-domain-entity"></a>Adicionar uma entidade de domínio predefinida
-1. Entre no portal do [Luis](https://www.luis.ai)e selecione sua **assinatura** e recurso de **criação** para ver os aplicativos atribuídos a esse recurso de criação.
+1. Entre no [portal do LUIS](https://www.luis.ai) selecione sua **Assinatura** e **Recurso de criação** para ver os aplicativos atribuídos a esse recurso.
 1. Abra seu aplicativo selecionando seu nome na página **meus aplicativos** .
 1. Selecione **entidades** no lado esquerdo.
 

@@ -6,17 +6,17 @@ ms.service: sql-db-mi
 ms.subservice: performance
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, carlrab
+ms.reviewer: wiassaf, sstein
 ms.date: 12/03/2019
-ms.openlocfilehash: 94ffe2852380d238e9829a8ab0cc69ebe82b74fe
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 35e2a73b0cfae104cee417e7d4a159e7fd169a17
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373497"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500896"
 ---
 # <a name="enable-automatic-tuning-in-the-azure-portal-to-monitor-queries-and-improve-workload-performance"></a>Habilitar o ajuste automático no portal do Azure para monitorar consultas e melhorar o desempenho da carga de trabalho
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -28,7 +28,7 @@ O ajuste automático pode ser habilitado no nível do servidor ou do banco de da
 
 - O [Portal do Azure](automatic-tuning-enable.md#azure-portal)
 - Chamadas à [API REST](automatic-tuning-enable.md#rest-api)
-- Comandos [T-SQL](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current)
+- Comandos [T-SQL](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current&preserve-view=true)
 
 > [!NOTE]
 > Para o Azure SQL Instância Gerenciada, a opção com suporte FORCE_LAST_GOOD_PLAN só pode ser configurada por meio [de T-SQL](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management) . A configuração baseada em portal do Azure e as opções de ajuste de índice automático descritas neste artigo não se aplicam ao Azure SQL Instância Gerenciada.
@@ -51,7 +51,7 @@ No nível do servidor, você pode escolher entre herdar ou não a configuração
 
 Para habilitar o ajuste automático em um [servidor](logical-servers.md) no banco de dados SQL do Azure, navegue até o servidor na portal do Azure e, em seguida, selecione **ajuste automático** no menu.
 
-![Servidor](./media/automatic-tuning-enable/server.png)
+![A captura de tela mostra o ajuste automático no portal do Azure, onde você pode aplicar opções para um servidor.](./media/automatic-tuning-enable/server.png)
 
 > [!NOTE]
 > Observe que a opção **DROP_INDEX** no momento não é compatível com aplicativos que usam a alternância de partição e dicas de índice e não deve ser habilitada nesses casos. Não há suporte para a remoção de índices não utilizados para as camadas de serviço Premium e Comercialmente Crítico.
@@ -77,7 +77,7 @@ Para habilitar o ajuste automático em um **único banco de dados**, navegue at�
 
 As configurações de ajustes automático individuais podem ser definidas separadamente para cada banco de dados. Manualmente, você pode configurar uma opção de ajuste automático individual ou especificar que uma opção herde as configurações do servidor.
 
-![Banco de dados](./media/automatic-tuning-enable/database.png)
+![A captura de tela mostra o ajuste automático no portal do Azure, onde você pode aplicar opções para um único banco de dados.](./media/automatic-tuning-enable/database.png)
 
 Observe que a opção DROP_INDEX no momento não é compatível com aplicativos que usam dicas de índice e de alternância de partição e não deve ser habilitada nesses casos.
 
@@ -109,7 +109,7 @@ Definir a opção de ajuste individual como ON substituirá qualquer configuraç
 > No caso da [replicação geográfica ativa](auto-failover-group-overview.md), o ajuste automático precisa ser configurado somente no banco de dados primário. Automaticamente as ações de ajuste aplicadas, como por exemplo, criar ou excluir índice serão replicadas automaticamente para o secundário somente leitura. A tentativa de habilitar o Ajuste automático por meio do T-SQL no secundário somente leitura resultará em uma falha, pois não há suporte para uma configuração de ajuste diferente no secundário somente leitura.
 >
 
-Para obter mais opções do T-SQL está confinado no para configurar o ajuste automático, consulte [Opções ALTER DATABASE SET (Transact-SQL)](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current).
+Para obter mais opções do T-SQL está confinado no para configurar o ajuste automático, consulte [Opções ALTER DATABASE SET (Transact-SQL)](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current&preserve-view=true).
 
 ## <a name="disabled-by-the-system"></a>Desabilitado pelo sistema
 

@@ -8,23 +8,23 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/19/2020
 ms.author: aahi
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 7cf28df4f009b017699c926d1ca54b7e5320a179
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.custom: devx-track-js
+ms.openlocfilehash: fa1ecb24649d9355e6104bff8add5430fdd64c3c
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87404100"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91376842"
 ---
 Use este guia de início rápido para começar a pesquisar notícias com a biblioteca de clientes da Pesquisa de Vídeo do Bing para o JavaScript. Embora a Pesquisa de Vídeo do Bing tenha uma API REST compatível com a maioria das linguagens de programação, a biblioteca de clientes é uma forma fácil de integrar o serviço aos seus aplicativos. O código-fonte desta amostra pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/videoSearch.js). Ele contém mais recursos e anotações.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- [Node.js](https://www.nodejs.org/)
-
-Para configurar um aplicativo de console usando a biblioteca de clientes da Pesquisa de Vídeo do Bing:
-* Execute `npm install ms-rest-azure` no seu ambiente de desenvolvimento.
-* Execute `npm install azure-cognitiveservices-videosearch` no seu ambiente de desenvolvimento.
+* A versão mais recente do [Node.js](https://nodejs.org/en/download/).
+* O [SDK da Pesquisa de Vídeo do Bing para JavaScript](https://www.npmjs.com/package/@azure/cognitiveservices-videosearch)
+     *  Para instalar, execute `npm install @azure/cognitiveservices-videosearch`
+* A classe `CognitiveServicesCredentials` do pacote `@azure/ms-rest-azure-js` para autenticar o cliente.
+     * Para instalar, execute `npm install @azure/ms-rest-azure-js`
 
 [!INCLUDE [cognitive-services-bing-video-search-signup-requirements](~/includes/cognitive-services-bing-video-search-signup-requirements.md)]
 
@@ -33,8 +33,8 @@ Para configurar um aplicativo de console usando a biblioteca de clientes da Pesq
 1. Crie um arquivo JavaScript em seu IDE ou editor favorito e adicione uma instrução `require()` à biblioteca de clientes da Pesquisa de Vídeo do Bing e o módulo `CognitiveServicesCredentials`. Criar uma variável para a chave de assinatura. 
     
     ```javascript
-    const CognitiveServicesCredentials = require('ms-rest-azure').CognitiveServicesCredentials;
-    const VideoSearchAPIClient = require('azure-cognitiveservices-videosearch');
+    const CognitiveServicesCredentials = require('@azure/ms-rest-azure-js').CognitiveServicesCredentials;
+    const VideoSearchAPIClient = require('@azure/cognitiveservices-videosearch');
     ```
 
 2. Crie uma instância de `CognitiveServicesCredentials` com sua chave. Em seguida, use-a para criar uma instância do cliente de pesquisa de vídeo.

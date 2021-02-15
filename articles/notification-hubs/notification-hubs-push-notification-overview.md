@@ -18,10 +18,10 @@ ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 04/30/2019
 ms.openlocfilehash: b8ac964c62ac4b30e9280e4ae921297ba860d7c2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "86529923"
 ---
 # <a name="what-is-azure-notification-hubs"></a>O que são Hubs de Notificação do Azure?

@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: article
 ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: e29e568786881f663414dcdf3eff72d4d72ab181
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c0bd2f6a021baae80dafcc3d544e1062d8e022e8
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610601"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94653327"
 ---
 # <a name="fqdn-tags-overview"></a>Visão geral de marcas FQDN
 
@@ -30,10 +30,10 @@ A tabela a seguir mostra as marcas FQDN atuais que você pode usar. A Microsoft 
 
 |Marca FQDN  |Descrição  |
 |---------|---------|
-|Windows Update     |Permitir acesso de saída ao Microsoft Update, conforme descrito em [Como configurar um Firewall para atualizações de software](https://technet.microsoft.com/library/bb693717.aspx).|
-|Diagnóstico do Windows|Permitir acesso de saída para todos os [pontos de extremidade de diagnóstico do Windows](https://docs.microsoft.com/windows/privacy/configure-windows-diagnostic-data-in-your-organization#endpoints).|
+|Windows Update     |Permitir acesso de saída ao Microsoft Update, conforme descrito em [Como configurar um Firewall para atualizações de software](/mem/configmgr/sum/get-started/install-a-software-update-point).|
+|Diagnóstico do Windows|Permitir acesso de saída para todos os [pontos de extremidade de diagnóstico do Windows](/windows/privacy/configure-windows-diagnostic-data-in-your-organization#endpoints).|
 |MAPS (Microsoft Active Protection Service)|Permitir acesso de saída ao [MAPS](https://cloudblogs.microsoft.com/enterprisemobility/2016/05/31/important-changes-to-microsoft-active-protection-service-maps-endpoint/).|
-|ASE (Ambiente do Serviço de Aplicativo)|Permite acesso de saída para tráfego de plataforma do ASE. Essa marca não cobre pontos de extremidade de Armazenamento e SQL específicos ao cliente criados pelo ASE. Eles devem ser habilitados por meio dos [Pontos de Extremidade de Serviço](../virtual-network/tutorial-restrict-network-access-to-resources.md) ou adicionados manualmente.<br><br>Para obter mais informações sobre a integração do Firewall do Azure com o ASE, confira [Bloquear um Ambiente do Serviço de Aplicativo](../app-service/environment/firewall-integration.md#configuring-azure-firewall-with-your-ase).|
+|ASE (Ambiente do Serviço de Aplicativo)|Permite acesso de saída para tráfego de plataforma do ASE. Essa marca não cobre pontos de extremidade de Armazenamento e SQL específicos ao cliente criados pelo ASE. Eles devem ser habilitados por meio de [pontos de extremidade de serviço](../virtual-network/tutorial-restrict-network-access-to-resources.md) ou adicionados manualmente.<br><br>Para obter mais informações sobre como integrar o Firewall do Azure com o ASE, consulte [bloquear um ambiente do serviço de aplicativo](../app-service/environment/firewall-integration.md#configuring-azure-firewall-with-your-ase).|
 |Serviço de Backup do Azure|Permite acesso de saída para os serviços de Backup do Azure.|
 |Azure HDInsight|Permite o acesso de saída para o tráfego da plataforma HDInsight. Essa marca não abrange o armazenamento específico do cliente ou o tráfego do SQL do HDInsight. Habilite-os usando [pontos de extremidade de serviço](../virtual-network/tutorial-restrict-network-access-to-resources.md) ou adicione-os manualmente.|
 |WindowsVirtualDesktop (WVD)|Permite o tráfego de saída da plataforma de área de trabalho virtual do Windows. Essa marca não abrange o armazenamento específico da implantação e os pontos de extremidade do barramento de serviço criados por WVD. Além disso, as regras de rede DNS e KMS são necessárias. Para obter mais informações sobre como integrar o Firewall do Azure ao WVD, consulte [usar o Firewall do Azure para proteger as implantações de área de trabalho virtual do Windows](protect-windows-virtual-desktop.md).|

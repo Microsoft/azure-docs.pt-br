@@ -1,19 +1,19 @@
 ---
 title: Gerenciar regras de firewall-CLI do Azure-banco de dados do Azure para MariaDB
 description: Este artigo descreve como criar e gerenciar as regras de firewall do Banco de Dados do Azure para MariaDB usando a linha de comando CLI do Azure.
-author: ajlam
-ms.author: andrela
-ms.service: mariadb
+author: savjani
+ms.author: pariks
+ms.service: jroth
 ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 3/18/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 3edf6248d42878bb79115fad925ef38e3353c979
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: f4ae1f3b736f6d263b8d769e241d969d058a69f4
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502264"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98665031"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-firewall-rules-by-using-the-azure-cli"></a>Criar e gerenciar regras de firewall do Banco de Dados do Azure para MariaDB usando a CLI do Azure
 As regras de firewall no nível de servidor podem ser usadas para gerenciar o acesso a um banco de dados do Azure para MariaDB Server a partir de um endereço IP específico ou de um intervalo de endereços IP. Usando comandos convenientes da CLI do Azure, você pode criar, atualizar, excluir, listar e mostrar as regras de firewall para gerenciar o servidor. Para obter uma visão geral do banco de dados do Azure para firewalls MariaDB, consulte [regras de firewall do banco de dados do Azure para MariaDB de servidor](./concepts-firewall-rules.md).
@@ -21,7 +21,7 @@ As regras de firewall no nível de servidor podem ser usadas para gerenciar o ac
 As regras de rede virtual (VNet) também podem ser usadas para proteger o acesso ao seu servidor. Saiba mais sobre como [criar e gerenciar pontos de extremidade de serviço de rede virtual e regras usando o CLI do Azure](howto-manage-vnet-cli.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* [Instale o CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* [Instale o CLI do Azure](/cli/azure/install-azure-cli).
 * Um [banco de dados do Azure para servidor MariaDB e banco de dados](quickstart-create-mariadb-server-database-using-azure-cli.md).
 
 ## <a name="firewall-rule-commands"></a>Comandos de regra de firewall:

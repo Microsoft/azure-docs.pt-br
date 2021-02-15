@@ -30,9 +30,9 @@
     - name: Automação com entidades de serviço
       href: analysis-services-service-principal.md
     - name: Bibliotecas de cliente
-      href: 'https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current'
+      href: /analysis-services/client-libraries?view=azure-analysis-services-current&preserve-view=true
     - name: Nível de Compatibilidade
-      href: 'https://docs.microsoft.com/analysis-services/tabular-models/compatibility-level-for-tabular-models-in-analysis-services?view=azure-analysis-services-current'
+      href: /analysis-services/tabular-models/compatibility-level-for-tabular-models-in-analysis-services?view=azure-analysis-services-current&preserve-view=true
     - name: Conectando-se a fontes de dados locais
       href: analysis-services-gateway.md
     - name: Conectando-se a servidores
@@ -76,7 +76,7 @@
     - name: Modelo
       items:
         - name: Modelagem de tabela
-          href: 'https://docs.microsoft.com/analysis-services/tabular-models/tabular-models-ssas'
+          href: /analysis-services/tabular-models/tabular-models-ssas
         - name: Implantar com o Visual Studio
           href: analysis-services-deploy.md
         - name: Atualizar com a API REST
@@ -108,13 +108,13 @@
     - name: Modelo do Resource Manager
       href: /azure/templates/microsoft.analysisservices/servers
     - name: DAX
-      href: 'https://docs.microsoft.com/dax/data-analysis-expressions-dax-reference'
+      href: /dax/data-analysis-expressions-dax-reference
     - name: Power Query M
-      href: 'https://docs.microsoft.com/powerquery-m/power-query-m-reference'
+      href: /powerquery-m/power-query-m-reference
     - name: TMSL (Linguagem de Scripts do Modelo de Tabela)
-      href: 'https://docs.microsoft.com/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference?view=asallproducts-allversions'
+      href: /analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference?view=azure-analysis-services-current&preserve-view=true
     - name: TOM (Modelo de Objeto Tabular)
-      href: 'https://docs.microsoft.com/analysis-services/tom/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo?view=asallproducts-allversions'
+      href: /analysis-services/tom/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo?view=azure-analysis-services-current&preserve-view=true
     - name: Limites de recursos e objetos
       href: analysis-services-capacity-limits.md
 - name: Recursos

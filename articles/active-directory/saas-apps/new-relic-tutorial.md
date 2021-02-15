@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/16/2020
 ms.author: jeedes
-ms.openlocfilehash: 19a471b9339828250baa190b1de57c86eb22b30c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 2a7d191af78da417d0ee2ade12b1576912643b6c
+ms.sourcegitcommit: 42922af070f7edf3639a79b1a60565d90bb801c0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554444"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97827437"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-new-relic-by-account"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao New Relic by Account
 
@@ -26,7 +26,7 @@ Neste tutorial, você aprenderá a integrar o New Relic by Account ao Azure AD (
 * Permitir que os usuários sejam conectados automaticamente ao New Relic by Account com suas contas do Azure AD.
 * Gerenciar suas contas em um local central: o portal do Azure.
 
-Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -41,7 +41,7 @@ Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente d
 
 * O New Relic by Account é compatível com SSO iniciado por **SP**
 
-* Após configurar o New Relic by Account, você poderá impor controles de sessão, que protegem contra a exfiltração e a infiltração de dados confidenciais de sua organização em tempo real. Os controles da sessão são estendidos do Acesso Condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Após configurar o New Relic by Account, você poderá impor controles de sessão, que protegem contra a exfiltração e a infiltração de dados confidenciais de sua organização em tempo real. Os controles da sessão são estendidos do Acesso Condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-new-relic-by-account-from-the-gallery"></a>Adicionar o New Relic by Account por meio da Galeria
 
@@ -80,7 +80,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão:
 
-    `https://rpm.newrelic.com/accounts/{acc_id}/sso/saml/login` – Substitua `acc_id` pela sua ID da conta do New Relic by Account.
+    `https://rpm.newrelic.com:443/accounts/{acc_id}/sso/saml/finalize` – Substitua `acc_id` pela sua ID da conta do New Relic by Account.
 
     b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL: `rpm.newrelic.com`
 
@@ -134,7 +134,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 
 2. No menu na parte superior, clique em **Configurações de Conta**.
    
-    ![Configurações da Conta](./media/new-relic-tutorial/ic797036.png "Configurações da Conta")
+    ![A captura de tela mostra a página inicial com a opção Configurações de Conta selecionada.](./media/new-relic-tutorial/ic797036.png "Configurações da Conta")
 
 3. Clique na guia **Segurança e autenticação** e na guia **Logon único**.
    
@@ -158,11 +158,11 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 
 2. No menu na parte superior, clique em **Configurações de Conta**.
    
-    ![Configurações da Conta](./media/new-relic-tutorial/ic797040.png "Configurações da Conta")
+    ![A captura de tela mostra a opção Configurações de conta selecionada na página inicial.](./media/new-relic-tutorial/ic797040.png "Configurações da Conta")
 
 3. No painel **Conta** no lado esquerdo, clique em **Resumo** e em **Adicionar usuário**.
    
-    ![Configurações da Conta](./media/new-relic-tutorial/ic797041.png "Configurações da Conta")
+    ![A captura de tela mostra o painel Resumo em que você pode selecionar Adicionar usuário.](./media/new-relic-tutorial/ic797041.png "Configurações da Conta")
 
 4. No diálogo **Usuários ativos** , realize as seguintes etapas:
    
@@ -181,16 +181,16 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Ao clicar no bloco do New Relic by Account no Painel de Acesso, você deverá ser conectado automaticamente ao New Relic by Account, para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao clicar no bloco do New Relic by Account no Painel de Acesso, você deverá ser conectado automaticamente ao New Relic by Account, para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](./tutorial-list.md)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)
 
 - [Experimentar o New Relic by Account com o Azure AD](https://aad.portal.azure.com/)
 
-- [O que é controle de sessão no Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [O que é controle de sessão no Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)

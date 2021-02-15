@@ -1,30 +1,31 @@
 ---
-title: Atualizar RU/s para um banco de dados e uma coleção para a API do MongoDB para Azure Cosmos DB
-description: Atualizar RU/s para um banco de dados e uma coleção para a API do MongoDB para Azure Cosmos DB
+title: Scripts da CLI do Azure para operações de taxa de transferência (RU/s) para recursos da API do Azure Cosmos DB para MongoDB
+description: Scripts da CLI do Azure para operações de taxa de transferência (RU/s) para recursos da API do Azure Cosmos DB para MongoDB
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: sample
-ms.date: 07/29/2020
-ms.openlocfilehash: 6f3bd23f11abf0e72dc4b7affe54ada42e0cf712
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.date: 10/07/2020
+ms.openlocfilehash: 54aebb48986b94dbebea400e6b6ee155a54f514b
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432163"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566207"
 ---
-# <a name="update-rus-for-a-database-and-collection-for-mongodb-api-for-azure-cosmos-db-using-azure-cli"></a>Atualizar RU/s para um banco de dados e uma coleção para a API do MongoDB para Azure Cosmos DB usando a CLI do Azure
+# <a name="throughput-rus-operations-with-azure-cli-for-a-database-or-graph-for-azure-cosmos-db-api-for-mongodb"></a>Operações de taxa de transferência (RU/s) com a CLI do Azure para um banco de dados ou grafo para a API do Azure Cosmos DB para MongoDB
+[!INCLUDE[appliesto-mongodb-api](../../../includes/appliesto-mongodb-api.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../../../includes/azure-cli-prepare-your-environment.md)]
 
-Se você optar por instalar e usar a CLI localmente, este tópico exigirá a execução da CLI do Azure versão 2.9.1 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
+- Este artigo exige a versão 2.12.1 ou posterior da CLI do Azure. Se você está usando o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ## <a name="sample-script"></a>Exemplo de script
 
-Esse script cria um banco de dados com taxa de transferência compartilhada e uma coleção com taxa de transferência dedicada para Azure Cosmos DB para a API do MongoDB; em seguida, atualiza a taxa de transferência para o banco de dados e a coleção.
+Esse script cria um banco de dados do MongoDB com coleção e taxa de transferência compartilhadas com taxa de transferência dedicada e atualiza a taxa de transferência de ambas. Em seguida, o script faz a migração da taxa de transferência padrão para a de dimensionamento automático e lê o valor da taxa de transferência de dimensionamento automático após a migração.
 
-[!code-azurecli-interactive[main](../../../../../cli_scripts/cosmosdb/mongodb/throughput.sh "Update RU/s for an Azure Cosmos DB MongoDB API database and collection.")]
+[!code-azurecli-interactive[main](../../../../../cli_scripts/cosmosdb/mongodb/throughput.sh "Throughput operations for Azure Cosmos DB API for MongoDB.")]
 
 ## <a name="clean-up-deployment"></a>Limpar a implantação
 
@@ -46,6 +47,8 @@ Este script usa os comandos a seguir. Cada comando da tabela é vinculado à doc
 | [az cosmosdb mongodb collection create](/cli/azure/cosmosdb/mongodb/collection#az-cosmosdb-mongodb-collection-create) | Cria uma coleção de API do MongoDB do Azure Cosmos. |
 | [az cosmosdb mongodb database throughput update](/cli/azure/cosmosdb/mongodb/database/throughput#az-cosmosdb-mongodb-database-throughput-update) | Atualizar RUs para um banco de dados da API do MongoDB do Azure Cosmos. |
 | [az cosmosdb mongodb collection throughput update](/cli/azure/cosmosdb/mongodb/collection/throughput#az-cosmosdb-mongodb-collection-throughput-update) | Atualizar RUs para uma coleção da API do MongoDB do Azure Cosmos. |
+| [az cosmosdb mongodb database throughput migrate](/cli/azure/cosmosdb/mongodb/database/throughput#az-cosmosdb-mongodb-database-throughput-migrate) | Migrar a taxa de transferência para um banco de dados. |
+| [az cosmosdb mongodb collection throughput migrate](/cli/azure/cosmosdb/mongodb/collection/throughput#az-cosmosdb-mongodb-collection-throughput-migrate) | Migrar a taxa de transferência para uma coleção. |
 | [az group delete](/cli/azure/resource#az-resource-delete) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
 
 ## <a name="next-steps"></a>Próximas etapas

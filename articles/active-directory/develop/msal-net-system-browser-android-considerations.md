@@ -1,7 +1,7 @@
 ---
 title: Considerações do navegador do sistema do Xamarin Android (MSAL.NET) | Azure
 titleSuffix: Microsoft identity platform
-description: Saiba mais sobre as considerações para usar os navegadores do sistema no Xamarin Android com a MSAL.NET (biblioteca de autenticação da Microsoft para .NET).
+description: Saiba mais sobre as considerações para usar os navegadores do sistema no Xamarin Android com a biblioteca de autenticação da Microsoft para .NET (MSAL.NET).
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -13,12 +13,12 @@ ms.date: 10/30/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 8f755b42249a88a2d37117003d561f79aea6b170
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 4230a194fb18587a209c100a39b0924e6170502d
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88165984"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98063460"
 ---
 #  <a name="xamarin-android-system-browser-considerations-for-using-msalnet"></a>Considerações do navegador do sistema do Xamarin Android para uso do MSAL.NET
 
@@ -42,10 +42,10 @@ Além de identificar navegadores que oferecem suporte a guias personalizadas, no
 ## <a name="tested-devices-and-browsers"></a>Dispositivos e navegadores testados
 A tabela a seguir lista os dispositivos e navegadores que foram testados quanto à compatibilidade de autenticação.
 
-| Dispositivo | Navegador     |  Result  | 
+| Dispositivo | Navegador     |  Resultado  | 
 | ------------- |:-------------:|:-----:|
 | Huawei/um + | Chrome\* | Aprovado|
-| Huawei/um + | Microsoft Edge\* | Aprovado|
+| Huawei/um + | Edge\* | Aprovado|
 | Huawei/um + | Firefox\* | Aprovado|
 | Huawei/um + | Corajoso\* | Aprovado|
 | Um + | Ecosia\* | Aprovado|
@@ -60,7 +60,7 @@ A tabela a seguir lista os dispositivos e navegadores que foram testados quanto 
 | Um + | Navegador CM | Usuário cancelou a autenticação|
 | Huawei/um + | Nenhum instalado | Exceção AndroidActivityNotFound|
 
-\*Dá suporte a guias personalizadas
+\* Dá suporte a guias personalizadas
 
 ## <a name="known-issues"></a>Problemas conhecidos
 

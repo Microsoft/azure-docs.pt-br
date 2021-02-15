@@ -3,12 +3,12 @@ title: Usar o Servidor de Backup do Azure para fazer backup de cargas de trabalh
 description: Neste artigo, veja como preparar o ambiente para proteger e fazer backup de cargas de trabalho usando o MABS (Servidor de Backup do Microsoft Azure).
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: 18225fab8b4f1ebe9fd34095108492a0902ca1d1
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: d476c228a619f03f798c1a2cd6854a8d603c3637
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89001154"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98987015"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Instalar e atualizar o Servidor de Backup do Azure
 
@@ -59,7 +59,7 @@ Se você não quiser executar o servidor base no Azure, poderá executar o servi
 | Windows Server 2019 |64 bits |Standard, Datacenter, Essentials |
 | Windows Server 2016 e SPs mais recentes |64 bits |Standard, Datacenter, Essentials  |
 
-Você pode eliminar duplicadas do armazenamento DPM usando a Eliminação de Duplicação do Windows Server. Saiba mais sobre como o [DPM e a eliminação de duplicação](/system-center/dpm/deduplicate-dpm-storage?view=sc-dpm-2019) funcionam juntos quando implantados em VMs do Hyper-V.
+Você pode eliminar duplicadas do armazenamento DPM usando a Eliminação de Duplicação do Windows Server. Saiba mais sobre como o [DPM e a eliminação de duplicação](/system-center/dpm/deduplicate-dpm-storage) funcionam juntos quando implantados em VMs do Hyper-V.
 
 > [!NOTE]
 > O Servidor de Backup do Azure foi projetado para ser executado em um servidor dedicado de finalidade única. Não é possível instalar o Servidor de Backup do Azure em:
@@ -80,7 +80,7 @@ Se você enviar dados de backup para o Azure ou mantê-los localmente, o Servido
 
 ### <a name="set-storage-replication"></a>Definir replicação de armazenamento
 
-A opção de replicação de armazenamento permite que você escolha entre o armazenamento com redundância geográfica e armazenamento com redundância local. Por padrão, os cofres dos Serviços de Recuperação usam armazenamento com redundância geográfica. Se este cofre for o primário, deixe a opção de armazenamento definida como armazenamento com redundância geográfica. Escolha o armazenamento com redundância local se quiser uma opção mais barata que não seja tão durável. Leia mais sobre as opções de armazenamento com [redundância geográfica](../storage/common/storage-redundancy.md) e [redundância local](../storage/common/storage-redundancy.md) na [Visão geral da replicação do Armazenamento do Azure](../storage/common/storage-redundancy.md).
+A opção de replicação de armazenamento permite que você escolha entre o armazenamento com redundância geográfica e armazenamento com redundância local. Por padrão, os cofres dos Serviços de Recuperação usam armazenamento com redundância geográfica. Se este cofre for o primário, deixe a opção de armazenamento definida como armazenamento com redundância geográfica. Escolha o armazenamento com redundância local se quiser uma opção mais barata que não seja tão durável. Leia mais sobre as opções de armazenamento [com redundância geográfica](../storage/common/storage-redundancy.md#geo-redundant-storage), [localmente redundante](../storage/common/storage-redundancy.md#locally-redundant-storage)e [com redundância de zona](../storage/common/storage-redundancy.md#zone-redundant-storage) na [visão geral da replicação de armazenamento do Azure](../storage/common/storage-redundancy.md).
 
 Para editar a configuração de replicação de armazenamento:
 
@@ -89,7 +89,7 @@ Para editar a configuração de replicação de armazenamento:
 
 3. Selecione o tipo de replicação de armazenamento e selecione **salvar**.
 
-     ![Definir a configuração de armazenamento para o novo cofre](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration.png)
+     ![Definir a configuração de armazenamento para o novo cofre](./media/backup-create-rs-vault/recovery-services-vault-backup-configuration.png)
 
 ## <a name="software-package"></a>Pacote de software
 
@@ -199,7 +199,10 @@ Quando o processo de extração for concluído, marque a caixa para iniciar o *s
 
     ![Fornecer local para a instalação de arquivos](./media/backup-azure-microsoft-azure-backup/space-screen.png)
 
-    O local temporário é um requisito para o backup do Azure. Verifique se o local temporário é de pelo menos 5% dos dados planejados para fazer backup na nuvem. Para proteção de disco, será necessário configurar discos separados após a conclusão da instalação. Para obter mais informações sobre pools de armazenamento, consulte [preparar o armazenamento de dados](/system-center/dpm/plan-long-and-short-term-data-storage?view=sc-dpm-2019).
+    O local temporário é um requisito para o backup do Azure. Verifique se o local temporário é de pelo menos 5% dos dados planejados para fazer backup na nuvem. Para proteção de disco, será necessário configurar discos separados após a conclusão da instalação. Para obter mais informações sobre pools de armazenamento, consulte [preparar o armazenamento de dados](/system-center/dpm/plan-long-and-short-term-data-storage).
+
+    Os requisitos de capacidade para armazenamento em disco dependem principalmente do tamanho dos dados protegidos, do tamanho do ponto de recuperação diário, da taxa de crescimento de dados de volume esperados e dos objetivos do período de retenção. Recomendamos que o armazenamento em disco seja o dobro do tamanho dos dados protegidos. Isso pressupõe um tamanho de ponto de recuperação diário que tenha 10% do tamanho dos dados protegidos e um período de retenção de 10 dias. Para obter uma boa estimativa de tamanho, examine o [planejador de capacidade do DPM](https://www.microsoft.com/download/details.aspx?id=54301). 
+
 5. Forneça uma senha forte para contas de usuário locais restritas e selecione **Avançar**.
 
     ![Fornecer senha forte](./media/backup-azure-microsoft-azure-backup/security-screen.png)
@@ -210,7 +213,7 @@ Quando o processo de extração for concluído, marque a caixa para iniciar o *s
    >
    >
 
-    ![Microsoft Update aceitar](./media/backup-azure-microsoft-azure-backup/update-opt-screen2.png)
+    ![Microsoft Update Opt-In](./media/backup-azure-microsoft-azure-backup/update-opt-screen2.png)
 7. Examine o *Resumo das configurações* e selecione **instalar**.
 
     ![Resumo das configurações](./media/backup-azure-microsoft-azure-backup/summary-screen.png)
@@ -275,11 +278,11 @@ Aqui são apresentadas as etapas, caso seja necessário mover o MABS para um nov
 9. No SQL, restaure o DPMDB.
 10. Execute CMD (como administrador) no novo servidor. Vá para a Backup do Microsoft Azure local de instalação e pasta bin
 
-    Exemplo de caminho: C:\windows\system32>cd "c:\Program Files\Microsoft Azure Backup\DPM\DPM\bin\"
+    Exemplo de caminho: `C:\windows\system32>cd "c:\Program Files\Microsoft Azure Backup\DPM\DPM\bin\"`
 
 11. Para se conectar ao backup do Azure, execute `DPMSYNC -SYNC`
 
-    Se você tiver adicionado **novos** discos ao pool de armazenamento do DPM em vez de mover os antigos, execute `DPMSYNC -Reallocatereplica`
+    Se você tiver adicionado **novos** discos ao pool de armazenamento do DPM em vez de mover os antigos, execute `DPMSYNC -Reallocatereplica` .
 
 ## <a name="network-connectivity"></a>Conectividade de rede
 
@@ -300,13 +303,18 @@ Quando você souber o estado da conectividade do Azure e da assinatura do Azure,
 
 ### <a name="recovering-from-loss-of-connectivity"></a>Recuperação de perda de conectividade
 
-Se você tiver um firewall ou um proxy que esteja impedindo o acesso ao Azure, você precisará permitir os seguintes endereços de domínio no perfil de firewall/proxy:
+Se o seu computador tiver acesso limitado à Internet, verifique se as configurações de firewall no computador ou proxy permitem as seguintes URLs e endereços IP:
 
-* `http://www.msftncsi.com/ncsi.txt`
-* \*.Microsoft.com
-* \*.WindowsAzure.com
-* \*.microsoftonline.com
-* \*.windows.net
+* URLs
+  * `www.msftncsi.com`
+  * `*.Microsoft.com`
+  * `*.WindowsAzure.com`
+  * `*.microsoftonline.com`
+  * `*.windows.net`
+  * `www.msftconnecttest.com`
+* Endereços IP
+  * 20.190.128.0/18
+  * 40.126.0.0/18
 
 Se você estiver usando o emparelhamento da Microsoft do ExpressRoute, selecione os seguintes serviços/regiões:
 
@@ -362,7 +370,7 @@ Você também pode consultar as [Perguntas frequentes relacionadas ao Backup do 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-É possível obter informações detalhadas aqui sobre como [preparar seu ambiente para o DPM](/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-2019). Ele também contém informações sobre as configurações com suporte, nas quais o Servidor de Backup do Azure pode ser implantado e usado. Você pode usar uma série de [cmdlets do PowerShell](/powershell/module/dataprotectionmanager/) para executar várias operações.
+É possível obter informações detalhadas aqui sobre como [preparar seu ambiente para o DPM](/system-center/dpm/prepare-environment-for-dpm). Ele também contém informações sobre as configurações com suporte, nas quais o Servidor de Backup do Azure pode ser implantado e usado. Você pode usar uma série de [cmdlets do PowerShell](/powershell/module/dataprotectionmanager/) para executar várias operações.
 
 Você pode usar estes artigos para obter um entendimento mais profundo sobre a proteção da carga de trabalho usando o servidor de Backup do Microsoft Azure.
 

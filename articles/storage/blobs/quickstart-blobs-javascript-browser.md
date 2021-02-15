@@ -7,13 +7,13 @@ ms.date: 07/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 1f3ec5b2b1c46b40c6f99836fc10778c98b59d4c
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.custom: devx-track-js
+ms.openlocfilehash: 998d49e91d38a1f2fdc2503165ee99635e153027
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432007"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001891"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -26,7 +26,7 @@ Recursos adicionais:
 * [Documentação de referência da API](/javascript/api/@azure/storage-blob)
 * [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob)
 * [Pacote (npm)](https://www.npmjs.com/package/@azure/storage-blob)
-* [Amostras](https://docs.microsoft.com/azure/storage/common/storage-samples-javascript?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
+* [Amostras](../common/storage-samples-javascript.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -66,7 +66,7 @@ Esta seção o orienta na preparação de um projeto para trabalhar com a biblio
 
 ### <a name="create-a-cors-rule"></a>Criar uma regra CORS
 
-Antes de seu aplicativo Web poder acessar um Armazenamento de Blobs do cliente, a conta precisará ser configurada para habilitar o [Compartilhamento de recursos entre origens](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services), ou CORS.
+Antes de seu aplicativo Web poder acessar um Armazenamento de Blobs do cliente, a conta precisará ser configurada para habilitar o [Compartilhamento de recursos entre origens](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services), ou CORS.
 
 No portal do Azure, selecione a conta de armazenamento. Para definir uma nova regra de CORS, navegue até a seção **Configurações** e selecione **CORS**. Para este início rápido, crie uma regra de CORS aberta:
 
@@ -76,10 +76,10 @@ A tabela a seguir descreve cada configuração de CORS e explica os valores usad
 
 |Configuração  |Valor  | Descrição |
 |---------|---------|---------|
-| **ORIGENS PERMITIDAS** | **\*** | Aceita uma lista de domínios definidos como origens aceitáveis delimitada por vírgulas. Definir o valor como `*` permite o acesso de todos os domínios à conta de armazenamento. |
+| **ORIGENS PERMITIDAS** | **\** _ | Aceita uma lista de domínios definidos como origens aceitáveis delimitada por vírgulas. Definir o valor como `_` permite o acesso de todos os domínios à conta de armazenamento. |
 | **MÉTODOS PERMITIDOS** | **DELETE**, **GET**, **HEAD**, **MERGE**, **POST**, **OPTIONS** e **PUT** | Lista os verbos HTTP que podem ser executados na conta de armazenamento. Para este início rápido, selecione todas as opções disponíveis. |
-| **CABEÇALHOS PERMITIDOS** | **\*** | Define uma lista de cabeçalhos de solicitação (inclusive cabeçalhos prefixados) permitidos pela conta de armazenamento. Definir o valor como `*` permite o acesso de todos os cabeçalhos. |
-| **CABEÇALHOS EXPOSTOS** | **\*** | Lista os cabeçalhos de resposta permitidos pela conta. Definir o valor como `*` permite que a conta envie qualquer cabeçalho. |
+| **CABEÇALHOS PERMITIDOS** | **\** _ | Define uma lista de cabeçalhos de solicitação (inclusive cabeçalhos prefixados) permitidos pela conta de armazenamento. Definir o valor como `_` permite o acesso de todos os cabeçalhos. |
+| **CABEÇALHOS EXPOSTOS** | **\** _ | Lista os cabeçalhos de resposta permitidos pela conta. Definir o valor como `_` permite que a conta envie qualquer cabeçalho. |
 | **IDADE MÁX.** | **86400** | O tempo máximo em segundos pelo qual o navegador armazena em cache a solicitação OPTIONS de simulação. Um valor de *86.400* permite que o cache permaneça um dia inteiro. |
 
 Depois de preencher os campos com os valores dessa tabela, clique no botão **Salvar**.

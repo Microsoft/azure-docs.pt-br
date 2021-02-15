@@ -8,14 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
-ms.date: 06/29/2020
+ms.date: 01/29/2021
 ms.author: pafarley
-ms.openlocfilehash: ff56a3e9c15d6f4bf04765c30084a9ca68df0e73
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 211f58e26ec89c393bf9f91cc3a05044c6b1e802
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544750"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99221271"
 ---
 # <a name="tutorial-moderate-e-commerce-product-images-with-azure-content-moderator"></a>Tutorial: Moderar imagens de produto de comércio eletrônico com o Azure Content Moderator
 
@@ -36,7 +37,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Uma chave de assinatura do Content Moderator. Siga as instruções descritas em [Criar uma conta dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para assinar o serviço Content Moderator e obter sua chave.
+- Uma chave de assinatura do Content Moderator. Siga as instruções descritas em [Criar uma conta dos Serviços Cognitivos](../cognitive-services-apis-create-account.md) para assinar o serviço Content Moderator e obter sua chave.
 - Uma chave de assinatura da Pesquisa Visual Computacional (mesmas instruções acima).
 - Qualquer edição do [Visual Studio 2015 ou 2017](https://www.visualstudio.com/downloads/).
 - Um conjunto de imagens para cada rótulo que será usado pelo classificador da Visão Personalizada (nesse caso, brinquedos, canetas e bandeiras dos EUA).
@@ -47,14 +48,14 @@ Veja o início rápido [Familiarize-se com o Content Moderator](quick-start.md) 
 
 ## <a name="create-custom-moderation-tags"></a>Criar marcas de moderação personalizadas
 
-Em seguida, crie marcas personalizadas na ferramenta de Análise (confira o artigo [Marcas](https://docs.microsoft.com/azure/cognitive-services/content-moderator/review-tool-user-guide/tags) caso precise obter ajuda com esse processo). Nesse caso, adicionaremos as seguintes marcas: **celebridade**, **EUA**, **bandeira**, **brinquedo** e **caneta**. Nem todas as marcas precisam ser categorias detectáveis na Pesquisa Visual Computacional (como **celebridade**); você pode adicionar suas próprias marcas personalizadas, desde que treine o classificador da Visão Personalizada para detectá-las mais tarde.
+Em seguida, crie marcas personalizadas na ferramenta de Análise (confira o artigo [Marcas](./review-tool-user-guide/configure.md#tags) caso precise obter ajuda com esse processo). Nesse caso, adicionaremos as seguintes marcas: **celebridade**, **EUA**, **bandeira**, **brinquedo** e **caneta**. Nem todas as marcas precisam ser categorias detectáveis na Pesquisa Visual Computacional (como **celebridade**); você pode adicionar suas próprias marcas personalizadas, desde que treine o classificador da Visão Personalizada para detectá-las mais tarde.
 
 ![Configurar marcas personalizadas](images/tutorial-ecommerce-tags2.PNG)
 
 ## <a name="create-visual-studio-project"></a>Criar um projeto do Visual Studio
 
 1. No Visual Studio, abra o diálogo Novo Projeto. Expanda **Instalado**, **Visual C#** e, em seguida, selecione **Aplicativo de console (.NET Framework)** .
-1. Nomeie o aplicativo **EcommerceModeration** e, em seguida, clique em **OK**.
+1. Nomeie o aplicativo **EcommerceModeration** e, em seguida, selecione **OK**.
 1. Se estiver adicionando esse projeto a uma solução existente, selecione esse projeto como o único projeto de inicialização.
 
 Este tutorial realça o código fundamental para o projeto, mas não abordará todas as linhas de código. Copie o conteúdo completo de _Program.cs_ no projeto de exemplo ([Amostras de Moderação de Catálogo de Comércio Eletrônico](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration)) para o arquivo _Program.cs_ do novo projeto. Em seguida, siga as próximas seções para saber mais sobre como funciona o projeto e como usá-lo por conta própria.
@@ -89,11 +90,11 @@ O próximo método usa uma URL de imagem e suas informações de assinatura da P
 
 ## <a name="evaluatecustomvisiontags-method"></a>Método EvaluateCustomVisionTags
 
-Em seguida, confira o método **EvaluateCustomVisionTags**, que classifica os produtos reais – nesse caso, bandeiras, brinquedos e canetas. Siga as instruções do guia [Como criar um classificador](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) para criar seu próprio classificador de imagens personalizado e detectar bandeiras, brinquedos e canetas (ou qualquer coisa que você escolha como marcas personalizadas) nas imagens. Você pode usar as imagens na pasta **sample-images** do [repositório GitHub](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration) para treinar rapidamente algumas das categorias neste exemplo.
+Em seguida, confira o método **EvaluateCustomVisionTags**, que classifica os produtos reais – nesse caso, bandeiras, brinquedos e canetas. Siga as instruções do guia [Como criar um classificador](../custom-vision-service/getting-started-build-a-classifier.md) para criar seu próprio classificador de imagens personalizado e detectar bandeiras, brinquedos e canetas (ou qualquer coisa que você escolha como marcas personalizadas) nas imagens. Você pode usar as imagens na pasta **sample-images** do [repositório GitHub](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration) para treinar rapidamente algumas das categorias neste exemplo.
 
 ![Página da Web da Visão Personalizada com imagens de treinamento de canetas, brinquedos e bandeiras](images/tutorial-ecommerce-custom-vision.PNG)
 
-Depois de treinar o classificador, obtenha a chave de previsão e a URL de ponto de extremidade de previsão (confira [Obter a URL e a chave de previsão](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/use-prediction-api#get-the-url-and-prediction-key) caso precise de ajuda para recuperá-las) e atribua esses valores aos campos `CustomVisionKey` e `CustomVisionUri`, respectivamente. O método usa esses valores para consultar o classificador. Se o classificador encontrar uma ou mais das marcas personalizadas na imagem, esse método definirá os valores correspondentes na matriz **ReviewTags** como **True**.
+Depois de treinar o classificador, obtenha a chave de previsão e a URL de ponto de extremidade de previsão (confira [Obter a URL e a chave de previsão](../custom-vision-service/use-prediction-api.md#get-the-url-and-prediction-key) caso precise de ajuda para recuperá-las) e atribua esses valores aos campos `CustomVisionKey` e `CustomVisionUri`, respectivamente. O método usa esses valores para consultar o classificador. Se o classificador encontrar uma ou mais das marcas personalizadas na imagem, esse método definirá os valores correspondentes na matriz **ReviewTags** como **True**.
 
 [!code-csharp[define EvaluateCustomVisionTags method](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=148-171)]
 

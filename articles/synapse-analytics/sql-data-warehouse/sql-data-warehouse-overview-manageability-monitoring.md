@@ -1,6 +1,6 @@
 ---
 title: Gerenciabilidade e monitoramento-visão geral
-description: Visão geral de monitoramento e capacidade de gerenciamento para utilização de recursos, atividade de log e consulta, recomendações e proteção de dados (backup e restauração) com o pool SQL Synapse.
+description: Visão geral de monitoramento e capacidade de gerenciamento para utilização de recursos, atividade de log e consulta, recomendações e proteção de dados (backup e restauração) com o pool SQL dedicado no Azure Synapse Analytics.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 08/27/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 19b2b4aecedbaa66c258b9076c517b02034a46fb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4792842eddac3e8082be2d3a67736824a02dfebd
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85200980"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93317504"
 ---
-# <a name="manageability-and-monitoring-with-synapse-sql-pool"></a>Gerenciabilidade e monitoramento com o pool SQL do Synapse
+# <a name="manageability-and-monitoring-with-dedicated-sql-pool-in-azure-synapse-analytics"></a>Gerenciabilidade e monitoramento com o pool dedicado do SQL no Azure Synapse Analytics
 
-Synapse SQL permite que você provisione um data warehouse por meio do pool do SQL. Os artigos a seguir ajudarão você a gerenciar e monitorar seu data warehouse. Você também aprenderá maneiras de otimizar o uso e o desempenho do data warehouse.
+Synapse SQL permite que você provisione um data warehouse por meio do pool dedicado do SQL. Os artigos a seguir ajudarão você a gerenciar e monitorar seu data warehouse. Você também aprenderá maneiras de otimizar o uso e o desempenho do data warehouse.
 
 ## <a name="overview"></a>Visão geral
 
@@ -33,4 +33,4 @@ Synapse SQL permite que você provisione um data warehouse por meio do pool do S
 
 
 ## <a name="next-steps"></a>Próximas etapas
-Para obter os guias de instruções, consulte [monitorar e ajustar seu pool de SQL](sql-data-warehouse-manage-monitor.md).
+Para obter os guias de instruções, consulte [monitorar e ajustar seu pool SQL dedicado](sql-data-warehouse-manage-monitor.md).

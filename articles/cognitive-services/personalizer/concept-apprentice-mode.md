@@ -1,14 +1,16 @@
 ---
 title: Modo aprendiz – personalizador
-description: ''
+description: Saiba como usar o modo aprendiz para obter confiança em um modelo sem alterar nenhum código.
+ms.service: cognitive-services
+ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 5ee8242fbc9ab5bed4e3eed8997feb122b131062
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 531917d9c48915f71354b4cd35747ecd9d33a6f8
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087190"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100385023"
 ---
 # <a name="use-apprentice-mode-to-train-personalizer-without-affecting-your-existing-application"></a>Use o modo aprendiz para treinar o personalizador sem afetar o aplicativo existente
 
@@ -61,7 +63,7 @@ Aprender quando no modo aprendiz difere do modo online das seguintes maneiras.
 |--|--|--|
 |Impacto na experiência do usuário|Você pode usar o comportamento do usuário existente para treinar o personalizado ao deixá-lo observar (não afetar) o que a **ação padrão** teria e a recompensa obtida. Isso significa que a experiência dos usuários e os resultados de negócios deles não serão afetados.|Exibir a ação superior retornada da chamada de classificação para afetar o comportamento do usuário.|
 |Velocidade de aprendizagem|O personalizador irá aprender mais lentamente quando estiver no modo de aprendiz do que ao aprender no modo online. O modo aprendiz só pode aprender observando as recompensas obtidas por sua **ação padrão**, o que limita a velocidade de aprendizado, pois nenhuma exploração pode ser executada.|Aprende mais rápido porque pode explorar o modelo atual e explorar novas tendências.|
-|"Teto" de eficiência de aprendizagem|O personalizador pode aproximar, raramente correspondência e nunca exceder o desempenho de sua lógica de negócios base (o total de recompensa alcançado pela **ação padrão** de cada chamada de classificação).|O personalizador deve exceder a linha de base dos aplicativos e, ao longo do tempo, você deve realizar a avaliação offline e a avaliação dos recursos para continuar a obter melhorias no modelo. |
+|"Teto" de eficiência de aprendizagem|O personalizador pode aproximar, raramente correspondência e nunca exceder o desempenho de sua lógica de negócios base (o total de recompensa alcançado pela **ação padrão** de cada chamada de classificação). Esse teto de aproximação é reduzido pela exploração. Por exemplo, com a exploração de 20%, é muito improvável que o desempenho do modo aprendiz exceda 80%, e 60% é um destino razoável no qual se formou no modo online.|O personalizador deve exceder a linha de base dos aplicativos e, ao longo do tempo, você deve realizar a avaliação offline e a avaliação dos recursos para continuar a obter melhorias no modelo. |
 |Valor da API de classificação para rewardActionId|A experiência dos usuários não é afetada, pois _rewardActionId_ é sempre a primeira ação que você envia na solicitação de classificação. Em outras palavras, a API de classificação não faz nada visível para seu aplicativo durante o modo aprendiz. As APIs de recompensa em seu aplicativo não devem alterar como ele usa a API de recompensa entre um modo e outro.|A experiência dos usuários será alterada pelo _rewardActionId_ que o personalizador escolhe para seu aplicativo. |
 |Avaliações|O personalizador mantém uma comparação dos totais de recompensa que sua lógica de negócios padrão está obtendo, e o personalizador de recompensas será a obtenção se estiver no modo online nesse ponto. Uma comparação está disponível no portal do Azure para esse recurso|Avalie a eficácia do personalizado executando [avaliações offline](concepts-offline-evaluation.md), o que permite comparar o personalizado de recompensas total obtido com as recompensas em potencial da linha de base do aplicativo.|
 
@@ -88,7 +90,7 @@ Só é útil fazer testes A/B de tratamentos do personalizador depois que ele ti
 
 Mesmo que o personalizador seja apenas o _tratamento_, o mesmo desafio estará presente quando a validação dos dados for boa para o personalizador de treinamento. O modo aprendiz poderia ser usado, com 100% do tráfego, e com todos os usuários obtendo a experiência de controle (não afetado).
 
-Quando você tem um caso de uso usando o personalizador e o learning online, experimentos A/B permitem fazer coortes e comparação científica de resultados que podem ser mais complexos do que os sinais usados para recompensas. Uma pergunta de exemplo que um teste A/B pode responder é:`In a retail website, Personalizer optimizes a layout and gets more users to _check out_ earlier, but does this reduce total revenue per transaction?`
+Quando você tem um caso de uso usando o personalizador e o learning online, experimentos A/B permitem fazer coortes e comparação científica de resultados que podem ser mais complexos do que os sinais usados para recompensas. Uma pergunta de exemplo que um teste A/B pode responder é: `In a retail website, Personalizer optimizes a layout and gets more users to _check out_ earlier, but does this reduce total revenue per transaction?`
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -9,11 +9,11 @@ ms.date: 08/07/2019
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: 3386cb51a8a728576f6615002d6154d89ca662c1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "68883839"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993224"
 ---
 <!-- This tells how to get the connection string for the registryReadWrite shared access policy of your IoT hub -->
 

@@ -6,25 +6,25 @@ ms.service: security
 ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
-ms.openlocfilehash: fd195fee513b2eed9049c7841f791d73a41b876b
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: 99c02644649e133a7634418a5edaaf228d52f0d3
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87366821"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201273"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-mariadb"></a>Linha de base de segurança do Azure para banco de dados do Azure para MariaDB
 
 A linha de base de segurança do Azure para o banco de dados do Azure para MariaDB contém recomendações que o ajudarão a melhorar a postura de segurança de sua implantação.
 
-A linha de base para esse serviço é extraída do [Azure Security Benchmark versão 1.0](https://docs.microsoft.com/azure/security/benchmarks/overview), que fornece recomendações sobre como proteger suas soluções de nuvem no Azure com nossas diretrizes de melhores práticas.
+A linha de base para esse serviço é extraída do [Azure Security Benchmark versão 1.0](../security/benchmarks/overview.md), que fornece recomendações sobre como proteger suas soluções de nuvem no Azure com nossas diretrizes de melhores práticas.
 
-Para obter mais informações, consulte [Visão geral sobre linhas de base de segurança do Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview).
+Para obter mais informações, consulte [Visão geral sobre linhas de base de segurança do Azure](../security/benchmarks/security-baselines-overview.md).
 
 ## <a name="network-security"></a>Segurança de rede
 
-*Para obter mais informações, consulte [Controle de segurança: Segurança de rede](https://docs.microsoft.com/azure/security/benchmarks/security-control-network-security).*
+*Para obter mais informações, consulte [Controle de segurança: Segurança de rede](../security/benchmarks/security-control-network-security.md).*
 
 ### <a name="11-protect-resources-using-network-security-groups-or-azure-firewall-on-your-virtual-network"></a>1.1: proteger recursos usando grupos de segurança de rede ou o Firewall do Azure em sua Rede Virtual
 
@@ -34,11 +34,11 @@ Como alternativa, você pode usar pontos de extremidade de serviço de rede virt
 
 Você também pode proteger seu banco de dados do Azure para MariaDB com regras de firewall. O firewall do servidor impede todo acesso ao seu servidor de banco de dados até que você especifique quais computadores têm permissão. Para configurar seu firewall, você deve criar regras de firewall que especifiquem intervalos de endereços IP aceitáveis. Você pode criar regras de firewall no nível de servidor.
 
-Como configurar o link privado para o banco de dados do Azure para MariaDB:https://docs.microsoft.com/azure/mariadb/howto-configure-privatelink-portal
+Como configurar o link privado para o banco de dados do Azure para MariaDB: https://docs.microsoft.com/azure/mariadb/howto-configure-privatelink-portal
 
-Como criar e gerenciar pontos de extremidade de serviço VNet e regras de VNet no banco de dados do Azure para o servidor MariaDB:https://docs.microsoft.com/azure/mariadb/howto-manage-vnet-portal
+Como criar e gerenciar pontos de extremidade de serviço VNet e regras de VNet no banco de dados do Azure para o servidor MariaDB: https://docs.microsoft.com/azure/mariadb/howto-manage-vnet-portal
 
-Como configurar o banco de dados do Azure para regras de firewall do MariaDB:https://docs.microsoft.com/azure/mariadb/concepts-firewall-rules
+Como configurar o banco de dados do Azure para regras de firewall do MariaDB: https://docs.microsoft.com/azure/mariadb/concepts-firewall-rules
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -48,9 +48,9 @@ Como configurar o banco de dados do Azure para regras de firewall do MariaDB:htt
 
 **Orientação**: quando o banco de dados do Azure para o servidor MariaDB é protegido para um ponto de extremidade privado, você pode implantar máquinas virtuais na mesma rede virtual. Use um NSG (grupo de segurança de rede) para reduzir o risco de vazamento de dados. Habilite logs de fluxo de NSG e envie logs para uma conta de armazenamento para auditoria de tráfego. Também envie logs de fluxo de NSG para um workspace do Log Analytics e use a Análise de Tráfego para fornecer insights sobre o fluxo de tráfego em sua nuvem do Azure. Algumas vantagens da Análise de Tráfego são a capacidade de visualizar a atividade de rede e identificar pontos de acesso, identificar ameaças à segurança, compreender os padrões de fluxo de tráfego e identificar configurações incorretas de rede de pinpoint.
 
-Como configurar o link privado para o banco de dados do Azure para MariaDB:https://docs.microsoft.com/azure/mariadb/howto-configure-privatelink-portal
+Como configurar o link privado para o banco de dados do Azure para MariaDB: https://docs.microsoft.com/azure/mariadb/howto-configure-privatelink-portal
 
-Como habilitar os logs de fluxo do NSG: https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal como habilitar e usar análise de tráfego:https://docs.microsoft.com/azure/network-watcher/traffic-analytics
+Como habilitar os logs de fluxo do NSG: https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal como habilitar e usar análise de tráfego: https://docs.microsoft.com/azure/network-watcher/traffic-analytics
 
 
 
@@ -72,7 +72,7 @@ Como habilitar os logs de fluxo do NSG: https://docs.microsoft.com/azure/network
 
 Habilite a proteção contra DDoS Standard nas redes virtuais associadas ao banco de dados do Azure para instâncias de MariaDB para proteger contra ataques de DDoS. Use a inteligência contra ameaças integrada da Central de Segurança do Azure para negar comunicações com endereços IP da Internet maliciosos conhecidos ou não usados.
 
-Como configurar a proteção avançada contra ameaças para o banco de dados do Azure para MariaDB:https://docs.microsoft.com/azure/mariadb/howto-database-threat-protection-portal
+Como configurar a proteção avançada contra ameaças para o banco de dados do Azure para MariaDB: https://docs.microsoft.com/azure/mariadb/howto-database-threat-protection-portal
 
 Como configurar a proteção contra DDoS: https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection
 
@@ -86,7 +86,7 @@ Como configurar a proteção contra DDoS: https://docs.microsoft.com/azure/virtu
 
 **Orientação**: quando o banco de dados do Azure para o servidor MariaDB é protegido para um ponto de extremidade privado, você pode implantar máquinas virtuais na mesma rede virtual. Em seguida, você pode configurar um NSG (grupo de segurança de rede) para reduzir o risco de vazamento de dados. Habilite logs de fluxo de NSG e envie logs para uma conta de armazenamento para auditoria de tráfego. Também envie logs de fluxo de NSG para um workspace do Log Analytics e use a Análise de Tráfego para fornecer insights sobre o fluxo de tráfego em sua nuvem do Azure. Algumas vantagens da Análise de Tráfego são a capacidade de visualizar a atividade de rede e identificar pontos de acesso, identificar ameaças à segurança, compreender os padrões de fluxo de tráfego e identificar configurações incorretas de rede de pinpoint.
 
-Como habilitar os logs de fluxo do NSG: https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal como habilitar e usar análise de tráfego:https://docs.microsoft.com/azure/network-watcher/traffic-analytics
+Como habilitar os logs de fluxo do NSG: https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal como habilitar e usar análise de tráfego: https://docs.microsoft.com/azure/network-watcher/traffic-analytics
 
 
 
@@ -97,7 +97,7 @@ Como habilitar os logs de fluxo do NSG: https://docs.microsoft.com/azure/network
 ### <a name="16-deploy-network-based-intrusion-detectionintrusion-prevention-systems-idsips"></a>1.6: implantar sistemas de detecção/prevenção de intrusões (IDS/IPS) baseados em rede
 
 **Diretrizes**: Use a proteção avançada contra ameaças para o banco de dados do Azure para MariaDB. A Proteção Avançada contra Ameaças detecta atividades anômalas que indicam tentativas incomuns e potencialmente prejudiciais de acesso ou exploração dos bancos de dados.
-Como configurar a proteção avançada contra ameaças para o banco de dados do Azure para MariaDB:https://docs.microsoft.com/azure/mariadb/howto-database-threat-protection-portal
+Como configurar a proteção avançada contra ameaças para o banco de dados do Azure para MariaDB: https://docs.microsoft.com/azure/mariadb/howto-database-threat-protection-portal
 
 
 **Monitoramento da Central de Segurança do Azure**: Sim
@@ -118,7 +118,7 @@ Como configurar a proteção avançada contra ameaças para o banco de dados do 
 **Orientação**: para recursos que precisam de acesso ao banco de dados do Azure para instâncias MariaDB, use marcas de serviço de rede virtual para definir controles de acesso à rede em grupos de segurança de rede ou no firewall do Azure. Você pode usar marcas de serviço em vez de endereços IP específicos ao criar regras de segurança. Ao especificar o nome da marca de serviço (por exemplo, SQL.WestUs) no campo correto de origem ou destino de uma regra, você poderá permitir ou negar o tráfego para o serviço correspondente. A Microsoft gerencia os prefixos de endereço englobados pela marca de serviço e atualiza automaticamente a marca de serviço em caso de alteração de endereços.
 Observação: o banco de dados do Azure para MariaDB usa a marca de serviço "Microsoft. SQL".
 
-Para obter mais informações sobre como usar marcas https://docs.microsoft.com/azure/virtual-network/service-tags-overview de serviço: compreenda o uso da marca de serviço para o banco de dados do Azure para MariaDB:https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-vnet#terminology-and-description
+Para obter mais informações sobre como usar marcas https://docs.microsoft.com/azure/virtual-network/service-tags-overview de serviço: compreenda o uso da marca de serviço para o banco de dados do Azure para MariaDB: https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-vnet#terminology-and-description
 
 
 
@@ -164,7 +164,7 @@ Como criar e usar marcas: https://docs.microsoft.com/azure/azure-resource-manage
 ### <a name="111-use-automated-tools-to-monitor-network-resource-configurations-and-detect-changes"></a>1.11: usar ferramentas automatizadas para monitorar as configurações de recursos de rede e detectar alterações
 
 **Orientação**: Use o log de atividades do Azure para monitorar as configurações de recursos de rede e detectar alterações de recursos de rede relacionados ao banco de dados do Azure para instâncias MariaDB. Crie alertas no Azure Monitor que serão disparados quando ocorrerem alterações em recursos de rede críticos.
-Como exibir e recuperar eventos do log de atividades do Azure: https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view como criar alertas no Azure monitor:https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
+Como exibir e recuperar eventos do log de atividades do Azure: https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view como criar alertas no Azure monitor: https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 
 
 
@@ -174,7 +174,7 @@ Como exibir e recuperar eventos do log de atividades do Azure: https://docs.micr
 
 ## <a name="logging-and-monitoring"></a>Registro em log e monitoramento
 
-*Para obter mais informações, consulte [Controle de segurança: registro em log e monitoramento](https://docs.microsoft.com/azure/security/benchmarks/security-control-logging-monitoring).*
+*Para obter mais informações, consulte [Controle de segurança: registro em log e monitoramento](../security/benchmarks/security-control-logging-monitoring.md).*
 
 ### <a name="21-use-approved-time-synchronization-sources"></a>2.1: usar fontes de sincronização de tempo aprovadas
 
@@ -188,9 +188,9 @@ Como exibir e recuperar eventos do log de atividades do Azure: https://docs.micr
 ### <a name="22-configure-central-security-log-management"></a>2.2: configurar o gerenciamento central de log de segurança
 
 **Orientação**: Habilitar configurações de diagnóstico e logs de servidor e logs de ingestão para agregar dados de segurança gerados pelo banco de dado do Azure para instâncias MariaDB. No Azure Monitor, use o Workspace do Log Analytics para consultar e realizar análises, e use contas de Armazenamento do Microsoft Azure para armazenamento de longo prazo/arquivamento. Como alternativa, você pode habilitar e integrar dados ao Azure Sentinel ou a um SIEM de terceiros.
-Como configurar e acessar logs de servidor para o banco de dados do Azure para MariaDB:https://docs.microsoft.com/azure/mariadb/concepts-server-logs
+Como configurar e acessar logs de servidor para o banco de dados do Azure para MariaDB: https://docs.microsoft.com/azure/mariadb/concepts-server-logs
 
-Como configurar e acessar os logs de auditoria do banco de dados do Azure para MariaDB: https://docs.microsoft.com/azure/mariadb/howto-configure-audit-logs-portal como carregar o Azure Sentinel:https://docs.microsoft.com/azure/sentinel/quickstart-onboard
+Como configurar e acessar os logs de auditoria do banco de dados do Azure para MariaDB: https://docs.microsoft.com/azure/mariadb/howto-configure-audit-logs-portal como carregar o Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
 
 
@@ -202,7 +202,7 @@ Como configurar e acessar os logs de auditoria do banco de dados do Azure para M
 
 **Diretrizes**: habilite as configurações de diagnóstico no banco de dados do Azure para instâncias MariaDB para acesso a logs de auditoria, segurança e diagnóstico. Certifique-se de que você habilitou especificamente o log de auditoria do MariaDB. Logs de atividade, que estão automaticamente disponíveis, incluem origem do evento, data, usuário, carimbo de data/hora, endereços de origem, endereços de destino e outros elementos úteis. Você também pode habilitar as configurações de diagnóstico do log de atividades do Azure e enviar os logs para o mesmo workspace do Log Analytics ou conta de armazenamento.
 
-Como configurar e acessar os logs de servidor do banco de dados do Azure para MariaDB: https://docs.microsoft.com/azure/mariadb/concepts-server-logs como configurar e acessar os logs de auditoria do banco de dados do Azure para MariaDB: https://docs.microsoft.com/azure/mariadb/howto-configure-audit-logs-portal como definir as configurações de diagnóstico para o log de atividades do Azure:https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy
+Como configurar e acessar os logs de servidor do banco de dados do Azure para MariaDB: https://docs.microsoft.com/azure/mariadb/concepts-server-logs como configurar e acessar os logs de auditoria do banco de dados do Azure para MariaDB: https://docs.microsoft.com/azure/mariadb/howto-configure-audit-logs-portal como definir as configurações de diagnóstico para o log de atividades do Azure: https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy
 
 
 
@@ -222,7 +222,7 @@ Como configurar e acessar os logs de servidor do banco de dados do Azure para Ma
 ### <a name="25-configure-security-log-storage-retention"></a>2.5: Configurar a retenção de armazenamento do log de segurança
 
 **Diretrizes**: dentro de Azure monitor, para o espaço de trabalho log Analytics que está sendo usado para armazenar o banco de dados do Azure para logs do MariaDB, defina o período de retenção de acordo com os regulamentos de conformidade da sua organização. Use contas de Armazenamento do Microsoft Azure para armazenamentos de longo prazo/arquivamento.
-Como definir parâmetros de retenção de log para espaços de trabalho de Log Analytics: https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period armazenando logs de recursos em uma conta de armazenamento do Azure:https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-storage
+Como definir parâmetros de retenção de log para espaços de trabalho de Log Analytics: https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period armazenando logs de recursos em uma conta de armazenamento do Azure: https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-storage
 
 
 
@@ -236,7 +236,7 @@ Como definir parâmetros de retenção de log para espaços de trabalho de Log A
 
 Como integrar o Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
-Para obter mais informações sobre o espaço de trabalho Log Analytics:https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal
+Para obter mais informações sobre o espaço de trabalho Log Analytics: https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal
 
 Como realizar consultas personalizadas no Azure Monitor: https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries
 
@@ -250,11 +250,11 @@ Como realizar consultas personalizadas no Azure Monitor: https://docs.microsoft.
 
 Além disso, você pode habilitar logs do servidor e configurações de diagnóstico para MariaDB e enviar logs para um espaço de trabalho Log Analytics. Integre seu Workspace do Log Analytics ao Azure Sentinel, pois ele fornece uma solução de resposta automatizada de orquestração de segurança (SOAR). Assim os guias estratégicos (soluções automatizadas) podem ser criados e usados para corrigir problemas de segurança.
 
-Como habilitar a proteção avançada contra ameaças para o MariaDB:https://docs.microsoft.com/azure/mariadb/howto-database-threat-protection-portal
+Como habilitar a proteção avançada contra ameaças para o MariaDB: https://docs.microsoft.com/azure/mariadb/howto-database-threat-protection-portal
 
-Como configurar e acessar os logs do servidor para MariDB:https://docs.microsoft.com/azure/mariadb/concepts-server-logs
+Como configurar e acessar os logs do servidor para MariDB: https://docs.microsoft.com/azure/mariadb/concepts-server-logs
 
-Como configurar e acessar os logs de auditoria do MariaDB:https://docs.microsoft.com/azure/mariadb/howto-configure-audit-logs-portal
+Como configurar e acessar os logs de auditoria do MariaDB: https://docs.microsoft.com/azure/mariadb/howto-configure-audit-logs-portal
 
 Como integrar o Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
@@ -288,15 +288,15 @@ Como integrar o Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quicks
 
 ## <a name="identity-and-access-control"></a>Identidade e controle de acesso
 
-*Para obter mais informações, consulte [Controle de segurança: Identidade e controle de acesso](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control).*
+*Para obter mais informações, consulte [Controle de segurança: Identidade e controle de acesso](../security/benchmarks/security-control-identity-access-control.md).*
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: manter um inventário de contas administrativas
 
 **Diretrizes**: Mantenha um inventário das contas de usuário que têm acesso administrativo ao plano de gerenciamento (portal do Azure/Azure Resource Manager) de suas instâncias do MariaDB. Além disso, mantenha um inventário das contas administrativas que têm acesso ao plano de dados de suas instâncias do MariaDB. (Ao criar o servidor MariaDB, você fornece credenciais para um usuário administrador. Esse administrador pode ser usado para criar usuários MariaDB adicionais.)
 
-Entender o gerenciamento de acesso para MariaDB:https://docs.microsoft.com/azure/mariadb/concepts-security#access-management
+Entender o gerenciamento de acesso para MariaDB: https://docs.microsoft.com/azure/mariadb/concepts-security#access-management
 
-Entenda as funções internas do Azure para assinaturas do Azure:https://docs.microsoft.com/azure/role-based-access-control/built-in-roles
+Entenda as funções internas do Azure para assinaturas do Azure: https://docs.microsoft.com/azure/role-based-access-control/built-in-roles
 
 
 **Monitoramento da Central de Segurança do Azure**: Sim
@@ -309,7 +309,7 @@ Entenda as funções internas do Azure para assinaturas do Azure:https://docs.mi
 
 Após a criação do recurso MariaDB, o Azure força a criação de um usuário administrativo com uma senha forte. No entanto, depois que a instância de MariaDB tiver sido criada, você poderá usar a primeira conta de administrador de servidor que criou conta para criar usuários adicionais e conceder acesso administrativo a eles. Configure uma senha forte diferente para cada conta ao criá-las.
 
-Como criar contas adicionais para o MariaDB:https://docs.microsoft.com/azure/mariadb/howto-create-users
+Como criar contas adicionais para o MariaDB: https://docs.microsoft.com/azure/mariadb/howto-create-users
 
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
@@ -330,7 +330,7 @@ Entenda a identidade e o acesso à Central de Segurança do Azure: https://docs.
 
 **Orientação**: o acesso do plano de dados ao MariaDB é controlado por identidades armazenadas no banco de dado e não oferece suporte a SSO. O acesso do plano de controle para MariaDB está disponível por meio da API REST e dá suporte a SSO. Para autenticar, defina o cabeçalho de autorização para suas solicitações como um Token Web JSON que você obtém no Azure Active Directory.
 
-Entender a API REST do banco de dados do Azure para MariaDB:https://docs.microsoft.com/rest/api/mariadb/
+Entender a API REST do banco de dados do Azure para MariaDB: https://docs.microsoft.com/rest/api/mariadb/
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -352,7 +352,7 @@ Como monitorar identidade e acesso na Central de Segurança do Azure: https://do
 
 **Diretrizes**: Use PAWs (estações de trabalho com acesso privilegiado) com a MFA configurada para fazer logon e configurar recursos do Azure.
 
-Saiba mais sobre estações de trabalho com acesso privilegiado: https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations
+Saiba mais sobre estações de trabalho com acesso privilegiado: https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/
 
 Como habilitar a MFA no Azure: https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
 
@@ -366,7 +366,7 @@ Como habilitar a MFA no Azure: https://docs.microsoft.com/azure/active-directory
 
 Além disso, você pode usar o PIM (Privileged Identity Management) do Azure AD para geração de logs e alertas quando atividades suspeitas ou inseguras ocorrem no ambiente. Use as detecções de risco do Azure AD para ver alertas e relatórios sobre o comportamento do usuário suspeito.
 
-Como configurar a proteção avançada contra ameaças para o MariaDB:https://docs.microsoft.com/azure/mariadb/howto-database-threat-protection-portal
+Como configurar a proteção avançada contra ameaças para o MariaDB: https://docs.microsoft.com/azure/mariadb/howto-database-threat-protection-portal
 
 Como implantar o PIM: https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-deployment-plan
 
@@ -392,7 +392,7 @@ Como configurar localizações nomeadas no Azure: https://docs.microsoft.com/azu
 
 A autenticação do Azure AD não pode ser usada para acesso direto ao plano de dados MariaDB. no entanto, as credenciais do Azure AD podem ser usadas para administração no nível do plano de gerenciamento (por exemplo, o portal do Azure) para controlar contas de administrador do MariaDB.
 
-Como atualizar a senha de administrador para o MariaDB:https://docs.microsoft.com/azure/mariadb/howto-create-manage-server-portal#update-admin-password
+Como atualizar a senha de administrador para o MariaDB: https://docs.microsoft.com/azure/mariadb/howto-create-manage-server-portal#update-admin-password
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -414,9 +414,9 @@ Como usar as revisões de acesso de identidade do Azure: https://docs.microsoft.
 
 **Diretrizes**: habilite as configurações de diagnóstico para MariaDB e Azure Active Directory, enviando todos os logs para um espaço de trabalho log Analytics. Configure os alertas desejados (como tentativas de autenticação com falha) no espaço de trabalho Log Analytics.
 
-Como configurar e acessar os logs do servidor para MariaDB:https://docs.microsoft.com/azure/mariadb/concepts-server-logs
+Como configurar e acessar os logs do servidor para MariaDB: https://docs.microsoft.com/azure/mariadb/concepts-server-logs
 
-Como configurar e acessar os logs de auditoria do MariaDB:https://docs.microsoft.com/azure/mariadb/howto-configure-audit-logs-portal
+Como configurar e acessar os logs de auditoria do MariaDB: https://docs.microsoft.com/azure/mariadb/howto-configure-audit-logs-portal
 
 Como integrar os logs de atividades do Azure ao Azure Monitor: https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics
 
@@ -430,9 +430,9 @@ Como integrar os logs de atividades do Azure ao Azure Monitor: https://docs.micr
 
 Use os recursos da Azure Active Directory Identity Protection e de detecção de riscos do Azure Active Directory para configurar respostas automatizadas para ações suspeitas detectadas. Você pode habilitar respostas automatizadas por meio do Azure Sentinel para implementar as respostas de segurança da sua organização.
 
-Como habilitar a proteção avançada contra ameaças para o MariaDB:https://docs.microsoft.com/azure/mariadb/howto-database-threat-protection-portal
+Como habilitar a proteção avançada contra ameaças para o MariaDB: https://docs.microsoft.com/azure/mariadb/howto-database-threat-protection-portal
 
-Como configurar e habilitar políticas de risco de proteção de identidade:https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies
+Como configurar e habilitar políticas de risco de proteção de identidade: https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies
 
 Como exibir entradas suspeitas do Azure AD: https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins
 
@@ -454,7 +454,7 @@ Lista de serviços suportados do Sistema de Proteção de Dados do Cliente: http
 
 ## <a name="data-protection"></a>Proteção de dados
 
-*Para obter mais informações, consulte [Controle de segurança: proteção de dados](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-protection).*
+*Para obter mais informações, consulte [Controle de segurança: proteção de dados](../security/benchmarks/security-control-data-protection.md).*
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1: manter um inventário de informações confidenciais
 
@@ -474,11 +474,11 @@ Como criar assinaturas adicionais do Azure: https://docs.microsoft.com/azure/bil
 
 Como criar Grupos de Gerenciamento: https://docs.microsoft.com/azure/governance/management-groups/create
 
-Como configurar o link privado para o banco de dados do Azure para MariaDB:https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-private-link
+Como configurar o link privado para o banco de dados do Azure para MariaDB: https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-private-link
 
-Como configurar pontos de extremidade de serviço para o banco de dados do Azure para MariaDB:https://docs.microsoft.com/azure/mariadb/howto-manage-vnet-portal
+Como configurar pontos de extremidade de serviço para o banco de dados do Azure para MariaDB: https://docs.microsoft.com/azure/mariadb/howto-manage-vnet-portal
 
-Como configurar regras de firewall para o banco de dados do Azure para MariaDB:https://docs.microsoft.com/azure/mariadb/concepts-firewall-rules
+Como configurar regras de firewall para o banco de dados do Azure para MariaDB: https://docs.microsoft.com/azure/mariadb/concepts-firewall-rules
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível
 
@@ -490,9 +490,9 @@ Como configurar regras de firewall para o banco de dados do Azure para MariaDB:h
 
 A Microsoft gerencia a infraestrutura subjacente do MariaDB e implementou controles estritos para evitar a perda ou a exposição dos dados do cliente.
 
-Como mitigar o data vazamento para o banco de dados do Azure para MariaDB:https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-private-link
+Como mitigar o data vazamento para o banco de dados do Azure para MariaDB: https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-private-link
 
-Entender a proteção de dados do cliente no Azure: https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
+Entenda a proteção de dados do cliente no Azure: https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -502,7 +502,7 @@ Entender a proteção de dados do cliente no Azure: https://docs.microsoft.com/a
 
 **Diretrizes**: o banco de dados do Azure para MariaDB dá suporte à conexão do banco de dados do Azure para o servidor MariaDB para aplicativos cliente usando TLS (segurança de camada de transporte), anteriormente conhecido como SSL (protocolo SSL). Impor conexões TLS entre seu servidor de banco de dados e os aplicativos clientes ajuda a proteger contra ataques de “intermediários” ao criptografar o fluxo de dados entre o servidor e seu aplicativo. No portal do Azure, certifique-se de que "impor conexão SSL" esteja habilitado para todas as suas instâncias de MariaDB.
 
-Como configurar a criptografia em trânsito para MariaDB:https://docs.microsoft.com/azure/mariadb/howto-configure-ssl
+Como configurar a criptografia em trânsito para MariaDB: https://docs.microsoft.com/azure/mariadb/howto-configure-ssl
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível
 
@@ -522,11 +522,11 @@ Entenda a proteção de dados do cliente no Azure: https://docs.microsoft.com/az
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: usar o RBAC do Azure para controlar o acesso a recursos
 
-**Orientação**: Use o RBAC do Azure ad para controlar o acesso ao banco de dados do Azure para o plano de gerenciamento do MariaDB (portal do Azure/Azure Resource Manager). Para o acesso do plano de dados (dentro do próprio banco de dados), use consultas SQL para criar usuários e configurar permissões de usuário.
+**Orientação**: Use o controle de acesso baseado em função do Azure (RBAC do Azure) para controlar o acesso ao banco de dados do Azure para o plano de gerenciamento MariaDB (portal do Azure/Azure Resource Manager). Para o acesso do plano de dados (dentro do próprio banco de dados), use consultas SQL para criar usuários e configurar permissões de usuário.
 
 Como configurar o RBAC do Azure: https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal
 
-Como configurar o acesso do usuário com o SQL para MariaDB:https://docs.microsoft.com/azure/mariadb/howto-create-users
+Como configurar o acesso do usuário com o SQL para MariaDB: https://docs.microsoft.com/azure/mariadb/howto-create-users
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -538,7 +538,7 @@ Como configurar o acesso do usuário com o SQL para MariaDB:https://docs.microso
 
 A Microsoft gerencia a infraestrutura subjacente do MariaDB e implementou controles estritos para evitar a perda ou a exposição dos dados do cliente.
 
-Entender a proteção de dados do cliente no Azure: https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
+Entenda a proteção de dados do cliente no Azure: https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -548,7 +548,7 @@ Entender a proteção de dados do cliente no Azure: https://docs.microsoft.com/a
 
 **Orientação**: o banco de dados do Azure para o serviço MariaDB usa o módulo de criptografia FIPS 140-2 validado para criptografia de armazenamento de dados em repouso. Os dados, incluindo backups, são criptografados no disco, com exceção dos arquivos temporários criados durante a execução de consultas. O serviço usa a criptografia AES de 256 bits incluída na criptografia de armazenamento do Azure e as chaves são gerenciadas pelo sistema. A criptografia de armazenamento está sempre ativada e não pode ser desabilitada.
 
-Entenda a criptografia em repouso para MariaDB:https://docs.microsoft.com/azure/mariadb/concepts-security
+Entenda a criptografia em repouso para MariaDB: https://docs.microsoft.com/azure/mariadb/concepts-security
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -566,7 +566,7 @@ Como criar alertas para eventos do log de atividades do Azure: https://docs.micr
 
 ## <a name="vulnerability-management"></a>Gerenciamento de vulnerabilidades
 
-*Para obter mais informações, consulte [Controle de segurança: gerenciamento de vulnerabilidades](https://docs.microsoft.com/azure/security/benchmarks/security-control-vulnerability-management).*
+*Para obter mais informações, consulte [Controle de segurança: gerenciamento de vulnerabilidades](../security/benchmarks/security-control-vulnerability-management.md).*
 
 ### <a name="51-run-automated-vulnerability-scanning-tools"></a>5.1: executar ferramentas automatizadas de verificação de vulnerabilidade
 
@@ -579,7 +579,7 @@ Como criar alertas para eventos do log de atividades do Azure: https://docs.micr
 
 ### <a name="52-deploy-automated-operating-system-patch-management-solution"></a>5.2: Implantar solução automatizada de gerenciamento de patch de sistema operacional
 
-**Diretriz**: não aplicável; essa recomendação destina-se a recursos de computação.
+**Diretriz**: Não aplicável. Esta recomendação destina-se a recursos de computação.
 
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
@@ -588,7 +588,7 @@ Como criar alertas para eventos do log de atividades do Azure: https://docs.micr
 
 ### <a name="53-deploy-automated-third-party-software-patch-management-solution"></a>5.3: Implantar uma solução automatizada de gerenciamento de patch de software de terceiros
 
-**Diretriz**: não aplicável; essa recomendação destina-se a recursos de computação.
+**Diretriz**: Não aplicável. Esta recomendação destina-se a recursos de computação.
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -596,7 +596,7 @@ Como criar alertas para eventos do log de atividades do Azure: https://docs.micr
 
 ### <a name="54-compare-back-to-back-vulnerability-scans"></a>5.4: Comparar verificações de vulnerabilidade consecutivas
 
-**Diretriz**: não aplicável; essa recomendação destina-se a recursos de computação.
+**Diretriz**: Não aplicável. Esta recomendação destina-se a recursos de computação.
 
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
@@ -614,7 +614,7 @@ Como criar alertas para eventos do log de atividades do Azure: https://docs.micr
 
 ## <a name="inventory-and-asset-management"></a>Inventário e gerenciamento de ativos
 
-*Para obter mais informações, consulte [Controle de segurança: inventário e gerenciamento de ativos](https://docs.microsoft.com/azure/security/benchmarks/security-control-inventory-asset-management).*
+*Para obter mais informações, consulte [Controle de segurança: inventário e gerenciamento de ativos](../security/benchmarks/security-control-inventory-asset-management.md).*
 
 ### <a name="61-use-azure-asset-discovery"></a>6.1: usar a descoberta de ativos do Azure
 
@@ -622,7 +622,7 @@ Como criar alertas para eventos do log de atividades do Azure: https://docs.micr
 
 Como criar consultas com o Azure Resource Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
-Como exibir suas assinaturas do Azure: https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
+Como exibir suas assinaturas do Azure: https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription
 
 Entenda o RBAC do Azure: https://docs.microsoft.com/azure/role-based-access-control/overview
 
@@ -766,7 +766,7 @@ Como configurar o acesso condicional para bloquear o acesso ao Azure Resource Ma
 
 ## <a name="secure-configuration"></a>Configuração segura
 
-*Para obter mais informações, consulte [Controle de segurança: configuração segura](https://docs.microsoft.com/azure/security/benchmarks/security-control-secure-configuration).*
+*Para obter mais informações, consulte [Controle de segurança: configuração segura](../security/benchmarks/security-control-secure-configuration.md).*
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7.1: estabelecer configurações seguras para todos os recursos do Azure
 
@@ -774,7 +774,7 @@ Como configurar o acesso condicional para bloquear o acesso ao Azure Resource Ma
 
 - O backup com redundância geográfica deve ser habilitado para o Banco de Dados do Azure para MariaDB
 
-Como exibir os aliases do Azure Policy disponíveis: https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
+Como exibir os aliases do Azure Policy disponíveis: https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias
 
 Como configurar e gerenciar o Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -818,9 +818,9 @@ Compreender os efeitos do Azure Policy: https://docs.microsoft.com/azure/governa
 
 **Orientação**: se estiver usando definições de Azure Policy personalizadas para o banco de dados do Azure para servidores MariaDB e recursos relacionados, use Azure Repos para armazenar e gerenciar seu código com segurança.
 
-Como armazenar código no Azure DevOps: https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
+[Como armazenar código no Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops&preserve-view=true)
 
-Documentação do Azure Repos: https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
+[Documentação do Azure Repos](/azure/devops/repos/index?view=azure-devops&preserve-view=true)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -880,11 +880,11 @@ Como configurar e gerenciar o Azure Policy: https://docs.microsoft.com/azure/gov
 
 Como integrar-se às Identidades Gerenciadas do Azure: https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
 
-Como criar um cofre de chaves: https://docs.microsoft.com/azure/key-vault/quick-create-portal
+Como criar um cofre de chaves: https://docs.microsoft.com/azure/key-vault/general/quick-create-portal
 
-Como fornecer a autenticação do cofre de chaves com uma identidade gerenciada: https://docs.microsoft.com/azure/key-vault/managed-identity 
+Como autenticar para o Key Vault: https://docs.microsoft.com/azure/key-vault/general/authentication
 
-
+Como atribuir uma política de acesso de Key Vault: https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -916,11 +916,11 @@ Como configurar o verificador de credenciais: https://secdevtools.azurewebsites.
 
 ## <a name="malware-defense"></a>Defesa contra malwares
 
-*Para obter mais informações, consulte [Controle de segurança: defesa contra malwares](https://docs.microsoft.com/azure/security/benchmarks/security-control-malware-defense).*
+*Para obter mais informações, consulte [Controle de segurança: defesa contra malwares](../security/benchmarks/security-control-malware-defense.md).*
 
 ### <a name="81-use-centrally-managed-anti-malware-software"></a>8.1: usar software antimalware gerenciado centralmente
 
-**Diretriz**: Não aplicável. Esta recomendação destina-se a recursos de computação.
+**Diretriz**: Não aplicável; esta recomendação destina-se a recursos de computação.
 
 O antimalware da Microsoft está habilitado no host subjacente que oferece suporte aos serviços do Azure (por exemplo, Serviço de Aplicativo do Azure), mas não é executado no conteúdo do cliente.
 
@@ -952,15 +952,15 @@ O antimalware da Microsoft está habilitado no host subjacente que dá suporte a
 
 ## <a name="data-recovery"></a>Recuperação de dados
 
-*Para obter mais informações, consulte [Controle de segurança: recuperação de dados](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-recovery).*
+*Para obter mais informações, consulte [Controle de segurança: recuperação de dados](../security/benchmarks/security-control-data-recovery.md).*
 
 ### <a name="91-ensure-regular-automated-back-ups"></a>9.1: garantir backups automatizados regulares
 
 **Diretrizes**: o banco de dados do Azure para MariaDB usa backups completos, diferenciais e de log de transações.  O Banco de Dados do Azure para MariaDB cria backups de servidor automaticamente e os armazena no armazenamento com redundância local ou geográfica configurado pelo usuário. Os backups podem ser usados para restaurar o servidor pontualmente. Os recursos de backup e restauração são uma parte essencial de qualquer estratégia de continuidade dos negócios, pois eles protegem seus dados contra exclusão ou corrupção acidentais.  O período de retenção de backup padrão é de sete dias. Você pode, opcionalmente, configurá-lo para até 35 dias. Todos os backups são criptografados usando a criptografia AES de 256 bits.
 
-Entender os backups do MariaDB:https://docs.microsoft.com/azure/mariadb/concepts-backup
+Entender os backups do MariaDB:  https://docs.microsoft.com/azure/mariadb/concepts-backup
 
-Entender a configuração inicial do MariaDB:https://docs.microsoft.com/azure/mariadb/tutorial-design-database-using-portal
+Entender a configuração inicial do MariaDB: https://docs.microsoft.com/azure/mariadb/tutorial-design-database-using-portal
 
 
 
@@ -974,7 +974,7 @@ Entender a configuração inicial do MariaDB:https://docs.microsoft.com/azure/ma
 
 Se estiver usando Key Vault para criptografia de dados do lado do cliente para dados armazenados em seu servidor MariaDB, garanta backups regulares automatizados de suas chaves.
 
-Entender os backups do MariaDB:https://docs.microsoft.com/azure/mariadb/concepts-backup
+Entender os backups do MariaDB:  https://docs.microsoft.com/azure/mariadb/concepts-backup
 
 Como fazer backup de chaves do cofre de chaves: https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey
 
@@ -989,7 +989,7 @@ Como fazer backup de chaves do cofre de chaves: https://docs.microsoft.com/power
 
 O tempo estimado de recuperação dependerá de vários fatores, incluindo os tamanhos dos bancos de dados, o tamanho do log de transações, a largura de banda de rede e o número total de bancos de dados de recuperação na mesma região e ao mesmo tempo. Normalmente, o tempo de recuperação é menor do que 12 horas.
 
-Entenda o backup e a restauração no banco de dados do Azure para MariaDB:https://docs.microsoft.com/azure/mariadb/concepts-backup#restore
+Entenda o backup e a restauração no banco de dados do Azure para MariaDB:  https://docs.microsoft.com/azure/mariadb/concepts-backup#restore
 
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
@@ -1000,7 +1000,7 @@ Entenda o backup e a restauração no banco de dados do Azure para MariaDB:https
 
 **Diretrizes**: o banco de dados do Azure para MariaDB usa backups completos, diferenciais e de log de transações. Esses backups permitem que você restaure um servidor pontualmente dentro de seu período de retenção de backup configurado. O período de retenção de backup padrão é de sete dias. Você pode, opcionalmente, configurá-lo para até 35 dias. Todos os backups são criptografados usando a criptografia AES de 256 bits.
 
-Entenda o backup e a restauração no banco de dados do Azure para MariaDB:https://docs.microsoft.com/azure/mariadb/concepts-backup
+Entenda o backup e a restauração no banco de dados do Azure para MariaDB:  https://docs.microsoft.com/azure/mariadb/concepts-backup
 
 
 **Monitoramento da Central de Segurança do Azure**: Sim
@@ -1009,7 +1009,7 @@ Entenda o backup e a restauração no banco de dados do Azure para MariaDB:https
 
 ## <a name="incident-response"></a>Resposta a incidentes
 
-*Para obter mais informações, consulte [Controle de segurança: resposta a incidentes](https://docs.microsoft.com/azure/security/benchmarks/security-control-incident-response).*
+*Para obter mais informações, consulte [Controle de segurança: resposta a incidentes](../security/benchmarks/security-control-incident-response.md).*
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1: criar um guia de resposta a incidentes
 
@@ -1029,9 +1029,9 @@ Entenda o backup e a restauração no banco de dados do Azure para MariaDB:https
 
 Além disso, marque claramente as assinaturas (por exemplo, produção, não produção) usando marcas e crie um sistema de nomeação para identificar claramente e categorizar os recursos do Azure, em especial aqueles que processam dados confidenciais.  É sua responsabilidade priorizar a correção de alertas com base na criticalidade dos recursos do Azure e do ambiente em que o incidente ocorreu.
 
-- Alertas de segurança na central de segurança do Azure:https://docs.microsoft.com/azure/security-center/security-center-alerts-overview
+- Alertas de segurança na central de segurança do Azure: https://docs.microsoft.com/azure/security-center/security-center-alerts-overview
 
-- Use marcas para organizar os recursos do Azure:https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
+- Use marcas para organizar os recursos do Azure: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -1081,7 +1081,7 @@ Como configurar a automação de fluxo de trabalho e os Aplicativos Lógicos: ht
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>Testes de penetração e exercícios de Red Team
 
-*Para obter mais informações, consulte [Controle de segurança: testes de penetração e exercícios de Red Team](https://docs.microsoft.com/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
+*Para obter mais informações, consulte [Controle de segurança: testes de penetração e exercícios de Red Team](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings-within-60-days"></a>11.1: realizar testes de penetração regulares de seus recursos do Azure e garanta a correção de todas as constatações de segurança críticas em 60 dias
 
@@ -1089,7 +1089,7 @@ Como configurar a automação de fluxo de trabalho e os Aplicativos Lógicos: ht
 
 https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1
 
-Você pode encontrar mais informações sobre a estratégia da Microsoft e a execução de equipes vermelhas e testes de penetração de sites ativos em infraestrutura, serviços e aplicativos de nuvem gerenciados pela Microsoft, aqui:https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
+Você pode encontrar mais informações sobre a estratégia da Microsoft e a execução de equipes vermelhas e testes de penetração de sites ativos em infraestrutura, serviços e aplicativos de nuvem gerenciados pela Microsoft, aqui:  https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
 
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
@@ -1098,5 +1098,5 @@ Você pode encontrar mais informações sobre a estratégia da Microsoft e a exe
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Consulte o [Parâmetro de segurança do Azure](https://docs.microsoft.com/azure/security/benchmarks/overview)
-- Saiba mais sobre as [Linhas de base de segurança do Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)
+- Consulte o [Parâmetro de segurança do Azure](../security/benchmarks/overview.md)
+- Saiba mais sobre as [Linhas de base de segurança do Azure](../security/benchmarks/security-baselines-overview.md)

@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 7b586edd7adce8bcea61419005a3ce8cfc814fb3
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86254921"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013525"
 ---
 # <a name="how-to-authorize-developer-accounts-by-using-azure-active-directory-b2c-in-azure-api-management"></a>Como autorizar contas de desenvolvedor usando o Azure Active Directory B2C no Gerenciamento de API do Azure
 
@@ -56,11 +56,11 @@ O Azure Active Directory B2C é uma solução de gerenciamento de identidade na 
 
    ![Registrar um novo aplicativo 2][api-management-howto-aad-b2c-add-button]
 
-1. Na folha **Novo aplicativo**, insira um nome para o aplicativo. Escolha **Sim** em **API da Web do aplicativo Web**e escolha **Sim** em **permitir fluxo implícito**. Em seguida, cole a **URL de redirecionamento** copiada na etapa 3 na caixa de texto **URL de resposta**.
+1. Na folha **Novo aplicativo**, insira um nome para o aplicativo. Escolha **Sim** em **API da Web do aplicativo Web** e escolha **Sim** em **permitir fluxo implícito**. Em seguida, cole a **URL de redirecionamento** copiada na etapa 3 na caixa de texto **URL de resposta**.
 
    ![Registrar um novo aplicativo 3][api-management-howto-aad-b2c-app-details]
 
-1. Se você estiver usando o novo portal do desenvolvedor (não o portal do desenvolvedor herdado), inclua o **nome**, o **sobrenome**e a **ID de objeto do usuário** em declarações do aplicativo.
+1. Se você estiver usando o novo portal do desenvolvedor (não o portal do desenvolvedor herdado), inclua o **nome**, o **sobrenome** e a **ID de objeto do usuário** em declarações do aplicativo.
 
     ![Declarações do aplicativo](./media/api-management-howto-aad-b2c/api-management-application-claims.png)
 

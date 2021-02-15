@@ -2,13 +2,13 @@
 title: Tópicos do sistema na grade de eventos do Azure
 description: Descreve os tópicos do sistema na grade de eventos do Azure.
 ms.topic: conceptual
-ms.date: 08/27/2020
-ms.openlocfilehash: f5ca472ab5141207222987d476284813c2aacf56
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.date: 09/24/2020
+ms.openlocfilehash: b1fbecb1e372602f9c252d43d2a1f93524ef1846
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89019089"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052958"
 ---
 # <a name="system-topics-in-azure-event-grid"></a>Tópicos do sistema na grade de eventos do Azure
 Um tópico do sistema na grade de eventos representa um ou mais eventos publicados pelos serviços do Azure, como o armazenamento do Azure e os hubs de eventos do Azure. Por exemplo, um tópico do sistema pode representar **todos os eventos de blob** ou apenas **BLOBs criados** e eventos **excluídos de blob** publicados para uma **conta de armazenamento específica**. Neste exemplo, quando um blob é carregado na conta de armazenamento, o serviço de armazenamento do Azure publica um evento de **blob criado** no tópico sistema na grade de eventos, que, em seguida, encaminha o evento para os [assinantes](event-handlers.md) do tópico que recebem e processam o evento. 
@@ -22,6 +22,7 @@ Aqui está a lista atual de serviços do Azure que dão suporte à criação de 
 - [Configuração de Aplicativos do Azure](event-schema-app-configuration.md)
 - [Serviço de Aplicativo do Azure](event-schema-app-service.md)
 - [Armazenamento de Blobs do Azure](event-schema-blob-storage.md)
+- [Serviços de Comunicação do Azure](event-schema-communication-services.md) 
 - [Registro de Contêiner do Azure](event-schema-container-registry.md)
 - [Hubs de eventos do Azure](event-schema-event-hubs.md)
 - [Hub IoT do Azure](event-schema-iot-hub.md)
@@ -33,6 +34,7 @@ Aqui está a lista atual de serviços do Azure que dão suporte à criação de 
 - [Barramento de Serviço do Azure](event-schema-service-bus.md)
 - [Azure SignalR](event-schema-azure-signalr.md)
 - [Assinaturas do Azure](event-schema-subscriptions.md)
+- [Cache Redis do Azure](event-schema-azure-cache.md)
 
 ## <a name="system-topics-as-azure-resources"></a>Tópicos do sistema como recursos do Azure
 No passado, um tópico do sistema era implícito e não estava exposto para simplificar. Os tópicos do sistema agora estão visíveis como recursos do Azure e fornecem os seguintes recursos:
@@ -48,7 +50,7 @@ Você pode criar um tópico do sistema de duas maneiras:
 - Crie uma [assinatura de evento em um recurso do Azure como um recurso de extensão](/rest/api/eventgrid/version2020-06-01/eventsubscriptions/createorupdate), que cria automaticamente um tópico do sistema com o nome no formato: `<Azure resource name>-<GUID>` . O tópico do sistema criado dessa maneira é automaticamente excluído quando a última assinatura de evento do tópico é excluída. 
 - Crie um tópico do sistema para um recurso do Azure e, em seguida, crie uma assinatura de evento para esse tópico do sistema. Ao usar esse método, você pode especificar um nome para o tópico do sistema. O tópico do sistema não é excluído automaticamente quando a última assinatura de evento é excluída. Você precisa excluí-lo manualmente. 
 
-    Ao usar o portal do Azure, você sempre está usando esse método. Quando você cria uma assinatura de evento usando a [página **eventos** de um recurso do Azure](blob-event-quickstart-portal.md#subscribe-to-the-blob-storage), o tópico do sistema é criado primeiro e, em seguida, a assinatura do tópico é criada. Você pode criar explicitamente um tópico do sistema primeiro usando a [página de **Tópicos do sistema de grade de eventos** ](create-view-manage-system-topics.md#create-a-system-topic) e, em seguida, criar uma assinatura para esse tópico. 
+    Ao usar o portal do Azure, você sempre está usando esse método. Quando você cria uma assinatura de evento usando a [página **eventos** de um recurso do Azure](blob-event-quickstart-portal.md#subscribe-to-the-blob-storage), o tópico do sistema é criado primeiro e, em seguida, a assinatura do tópico é criada. Você pode criar explicitamente um tópico do sistema primeiro usando a [página de **Tópicos do sistema de grade de eventos**](create-view-manage-system-topics.md#create-a-system-topic) e, em seguida, criar uma assinatura para esse tópico. 
 
 Ao usar a [CLI](create-view-manage-system-topics-cli.md), [REST](/rest/api/eventgrid/version2020-06-01/eventsubscriptions/createorupdate)ou [Azure Resource Manager modelo](create-view-manage-system-topics-arm.md), você pode escolher um dos métodos acima. Recomendamos que você crie um tópico do sistema primeiro e, em seguida, crie uma assinatura no tópico, pois essa é a maneira mais recente de criar tópicos do sistema.
 

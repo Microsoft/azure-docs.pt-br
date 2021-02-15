@@ -1,18 +1,18 @@
 ---
 title: Definir configurações personalizadas
 description: Defina as configurações que se aplicam a todo o Ambiente do Serviço de Aplicativo do Azure. Saiba como fazer isso com modelos do Azure Resource Manager.
-author: stefsch
+author: ccompy
 ms.assetid: 1d1d85f3-6cc6-4d57-ae1a-5b37c642d812
 ms.topic: tutorial
-ms.date: 12/19/2019
-ms.author: stefsch
+ms.date: 01/29/2021
+ms.author: ccompy
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 09c41c7480b262e6f1a912ad4b708e485d86bf56
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 5c1e81d02aa35a40a296f04e456be09eeed10331
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85833495"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226382"
 ---
 # <a name="custom-configuration-settings-for-app-service-environments"></a>Definições de configuração personalizadas para Ambientes de Serviço de Aplicativo
 ## <a name="overview"></a>Visão geral
@@ -61,18 +61,18 @@ Por exemplo, se um Ambiente de Serviço de Aplicativo tiver quatro front-ends, l
 
 ## <a name="enable-internal-encryption"></a>Habilitar criptografia interna
 
-O Ambiente do Serviço de Aplicativo funciona como um sistema de caixa preta em que você não pode ver os componentes internos nem a comunicação dentro do sistema. Para habilitar uma taxa de transferência mais alta, a criptografia não é habilitada por padrão entre os componentes internos. O sistema é seguro, pois o tráfego está totalmente inacessível para ser monitorado ou acessado. Se você tiver um requisito de conformidade, embora exija a criptografia completa do caminho de dados de ponta a ponta, há uma maneira de habilitar isso com um clusterSetting.  
+O Ambiente do Serviço de Aplicativo funciona como um sistema de caixa preta em que você não pode ver os componentes internos nem a comunicação dentro do sistema. Para habilitar uma taxa de transferência mais alta, a criptografia não é habilitada por padrão entre os componentes internos. O sistema é seguro, pois o tráfego não pode ser monitorado nem acessado. Se você tiver um requisito de conformidade, embora exija a criptografia completa do caminho de dados de ponta a ponta, há um modo de habilitar a criptografia do caminho de dados completo com um clusterSetting.  
 
 ```json
 "clusterSettings": [
     {
         "name": "InternalEncryption",
-        "value": "1"
+        "value": "true"
     }
 ],
 ```
+A definição de InternalEncryption para true criptografa o tráfego de rede interno em seu ASE entre os front-ends e as funções de trabalho, criptografa o arquivo de paginação e criptografa os discos das funções de trabalho. Depois que o InternalEncryption clusterSetting estiver habilitado, o desempenho do sistema poderá ser afetado. Ao fazer a alteração para habilitar InternalEncryption, seu ASE estará em um estado instável até que a alteração seja totalmente propagada. A propagação completa da alteração pode levar algumas horas para ser concluída, dependendo de quantas instâncias você tem em seu ASE. É altamente recomendável não habilitar InternalEncryption em um ASE enquanto ele está em uso. Se você precisa habilitar InternalEncryption em um ASE usado ativamente, recomendamos desviar o tráfego para um ambiente de backup até o fim da operação. 
 
-Depois que o InternalEncryption clusterSetting estiver habilitado, o desempenho do sistema poderá ser afetado. Ao fazer a alteração para habilitar InternalEncryption, seu ASE estará em um estado instável até que a alteração seja totalmente propagada. A propagação completa da alteração pode levar algumas horas para ser concluída, dependendo de quantas instâncias você tem em seu ASE. É altamente recomendável não habilitar isso em um ASE enquanto ele estiver em uso. Se você precisa habilitá-lo em um ASE usado ativamente, recomendamos desviar o tráfego para um ambiente de backup até o fim da operação. 
 
 ## <a name="disable-tls-10-and-tls-11"></a>Desabilitar o TLS 1.0 e TLS 1.1
 
@@ -92,13 +92,13 @@ Se desejar desabilitar todo o tráfego de TLS 1.0 e TLS 1.1 para todos os aplica
 O nome da configuração informa 1.0, mas quando configurado, ele desabilita o TLS 1.0 e TLS 1.1.
 
 ## <a name="change-tls-cipher-suite-order"></a>Mudar a ordem do pacote de criptografia TLS
-Outra pergunta feita pelos clientes é se eles podem modificar a lista de criptografia negociada pelo seu servidor e isso pode ser feito modificando **clusterSettings** conforme mostrado abaixo. A lista de pacotes de criptografia disponíveis pode ser recuperada [neste artigo do MSDN](https://msdn.microsoft.com/library/windows/desktop/aa374757\(v=vs.85\).aspx).
+O ASE dá suporte à alteração do conjunto de criptografia padrão. O conjunto de criptografia padrão é o mesmo conjunto usado no serviço multilocatário. A alteração dos conjuntos de criptografia afeta uma implantação do Serviço de Aplicativo inteira, tornando isso possível somente no ASE de apenas um locatário. Há dois conjuntos de criptografia necessários para um ASE; TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 e TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256. Se você quiser operar seu ASE com o conjunto mais alto e mínimo de conjuntos de codificação, use apenas as duas criptografias necessárias. Para configurar seu ASE para usar apenas as criptografias que ele requer, modifique o **clusterSettings** conforme mostrado abaixo. 
 
 ```json
 "clusterSettings": [
     {
         "name": "FrontEndSSLCipherSuiteOrder",
-        "value": "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384_P256,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256_P256,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384_P256,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA_P256,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA_P256"
+        "value": "TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256"
     }
 ],
 ```

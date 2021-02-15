@@ -7,16 +7,16 @@ ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: 9d9cc377ead0c297e8334d34255bd2c7c7cd39fc
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86499402"
 ---
 # <a name="configure-application-insights-profiler"></a>Configurar o Profiler do Application Insights
 
 ## <a name="updated-profiler-agent"></a>Agente do criador de perfil atualizado
-Os recursos do gatilho funcionam apenas com a versão 2,6 ou mais recente do agente do criador de perfil. Se você estiver executando um serviço de Azure App, o agente será atualizado automaticamente. Você pode ver qual versão do agente está executando se você vai para a URL do kudu para seu site e acrescentar \DiagnosticServices ao final dele, desta forma: `https://yourwebsite.scm.azurewebsites.net/diagnosticservices` . A Application Insights Profiler Webjob deve ter a versão 2,6 ou mais recente. Você pode forçar uma atualização reiniciando seu aplicativo Web. 
+Os recursos do gatilho funcionam apenas com a versão 2,6 ou mais recente do agente do criador de perfil. Se você estiver executando um serviço de Azure App, o agente será atualizado automaticamente. Você pode ver qual versão do agente está executando se você vai para a URL do kudu para seu site e acrescentar \DiagnosticServices ao final dele, desta forma:  `https://yourwebsite.scm.azurewebsites.net/diagnosticservices` . A Application Insights Profiler Webjob deve ter a versão 2,6 ou mais recente. Você pode forçar uma atualização reiniciando seu aplicativo Web. 
 
 Se você estiver executando o criador de perfil em um serviço de nuvem ou VM, precisará ter a extensão do Windows Diagnóstico do Azure (WAD) 16.0.4 ou mais recente instalada. Você pode verificar a versão do WAD fazendo logon em sua VM e procurando este diretório: C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\1.16.0.4. O nome do diretório é a versão do WAD que está instalada. O agente de VM do Azure atualizará o WAD automaticamente quando novas versões estiverem disponíveis.
 
@@ -68,7 +68,7 @@ Rastrear | Número de rastreamentos que foram anexados a solicitações individu
 CPU (%) | Porcentagem da CPU que estava sendo usada enquanto o criador de perfil estava em execução.
 Memória | Porcentagem de memória que estava sendo usada enquanto o criador de perfil estava em execução.
 
-## <a name="use-web-performance-tests-to-generate-traffic-to-your-application"></a><a id="profileondemand"></a>Usar testes de desempenho da Web para gerar tráfego para seu aplicativo
+## <a name="use-web-performance-tests-to-generate-traffic-to-your-application"></a><a id="profileondemand"></a> Usar testes de desempenho da Web para gerar tráfego para seu aplicativo
 
 Você pode disparar o Profiler manualmente com um único clique. Imagine que você está executando um teste de desempenho Web. Você precisará de rastreamentos para ajudá-lo a entender como seu aplicativo Web está sendo executado sob carga. Ter controle sobre quando os rastreamentos são capturados é crucial, pois você sabe quando o teste de carga será executado. Mas o intervalo de amostragem aleatória poderá não detectar isso.
 

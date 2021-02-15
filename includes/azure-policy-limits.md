@@ -4,16 +4,17 @@ description: incluir arquivo
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 08/07/2020
+ms.date: 09/30/2020
 ms.author: dacoulte
-ms.openlocfilehash: 9fcaca3f89217f649eb970ec70514a5735222782
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: f3f706789e14cb20214bf17fd91f6ec1e503848f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88854055"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91605956"
 ---
-Há uma contagem máxima para cada tipo de objeto do Azure Policy. Uma entrada do _Escopo_ significa a assinatura ou o [grupo de gerenciamento](../articles/governance/management-groups/overview.md).
+Há uma contagem máxima para cada tipo de objeto do Azure Policy. Para as definições, uma entrada de _Escopo_ significa o [grupo de gerenciamento](../articles/governance/management-groups/overview.md) ou a assinatura.
+Para as atribuições e isenções, uma entrada de _Escopo_ significa o [grupo de gerenciamento](../articles/governance/management-groups/overview.md), a assinatura, o grupo de recursos ou um recurso individual.
 
 | Where | O que | Contagem máxima |
 |---|---|---|
@@ -21,6 +22,7 @@ Há uma contagem máxima para cada tipo de objeto do Azure Policy. Uma entrada d
 | Escopo | Definições de iniciativa | 200 |
 | Locatário | Definições de iniciativa | 2\.500 |
 | Escopo | Atribuições de iniciativa ou política | 200 |
+| Escopo | Isenções | 1000 |
 | Definição de política | Parâmetros | 20 |
 | Definição de iniciativa | Políticas | 1000 |
 | Definição de iniciativa | Parâmetros | 100 |

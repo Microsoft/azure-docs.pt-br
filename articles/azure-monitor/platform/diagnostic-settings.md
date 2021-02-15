@@ -5,17 +5,17 @@ author: bwren
 ms.author: bwren
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 04/27/2020
+ms.date: 02/08/2021
 ms.subservice: logs
-ms.openlocfilehash: 74e0a63da87a79cbd582cd6da5992251fc256504
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: 5e1a1c62cafd982d44be3e06b98fc8c30461021c
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88135429"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979973"
 ---
 # <a name="create-diagnostic-settings-to-send-platform-logs-and-metrics-to-different-destinations"></a>Criar configurações de diagnóstico para enviar logs e métricas de plataforma para destinos diferentes
-[Os logs de plataforma](platform-logs-overview.md) no Azure, incluindo o log de atividades do Azure e os logs de recursos, fornecem informações detalhadas de diagnóstico e auditoria para recursos do Azure e a plataforma do Azure da qual dependem. As [métricas de plataforma](data-platform-metrics.md) são coletadas por padrão e normalmente armazenadas no banco de dados de métricas Azure monitor. Este artigo fornece detalhes sobre como criar e definir configurações de diagnóstico para enviar métricas de plataforma e logs de plataforma para destinos diferentes.
+Os [logs de plataforma](platform-logs-overview.md) no Azure, incluindo logs de recursos e log de atividades do Azure, apresentam informações detalhadas de diagnóstico e auditoria para recursos do Azure e para a plataforma do Azure da qual eles dependem. As [métricas da plataforma](data-platform-metrics.md) são coletadas por padrão e normalmente armazenadas no banco de dados de métricas do Azure Monitor. Este artigo fornece detalhes sobre como criar e definir configurações de diagnóstico para enviar métricas de plataforma e logs de plataforma para diferentes destinos.
 
 > [!IMPORTANT]
 > Antes de criar uma configuração de diagnóstico para o log de atividades, primeiro você deve desabilitar qualquer configuração herdada. Consulte [métodos de coleta herdados](activity-log.md#legacy-collection-methods) para obter detalhes.
@@ -46,23 +46,25 @@ Os logs e as métricas da plataforma podem ser enviados para os destinos na tabe
 | Destino | Descrição |
 |:---|:---|
 | [Espaço de Trabalho do Log Analytics](design-logs-deployment.md) | O envio de logs e métricas para um espaço de trabalho Log Analytics permite analisá-los com outros dados de monitoramento coletados por Azure Monitor usando consultas de log poderosas e também para aproveitar outros recursos de Azure Monitor, como alertas e visualizações. |
-| [Hubs de Eventos](/azure/event-hubs/) | O envio de logs e métricas para hubs de eventos permite transmitir dados para sistemas externos, como SIEMs de terceiros e outras soluções do log Analytics.  |
-| [Conta de armazenamento do Azure](/azure/storage/blobs/) | O arquivamento de logs e métricas para uma conta de armazenamento do Azure é útil para auditoria, análise estática ou backup. Em comparação com os logs de Azure Monitor e um espaço de trabalho Log Analytics, o armazenamento do Azure é menos dispendioso e os logs podem ser mantidos indefinidamente.  |
+| [Hubs de Eventos](../../event-hubs/index.yml) | O envio de logs e métricas para hubs de eventos permite transmitir dados para sistemas externos, como SIEMs de terceiros e outras soluções do log Analytics.  |
+| [Conta de Armazenamento do Azure](../../storage/blobs/index.yml) | O arquivamento de logs e métricas para uma conta de armazenamento do Azure é útil para auditoria, análise estática ou backup. Em comparação com os logs de Azure Monitor e um espaço de trabalho Log Analytics, o armazenamento do Azure é menos dispendioso e os logs podem ser mantidos indefinidamente.  |
 
 
 ### <a name="destination-requirements"></a>Requisitos de destino
 
-Todos os destinos para a configuração de diagnóstico devem ser criados antes da criação das configurações de diagnóstico. O destino não precisa estar na mesma assinatura que o recurso que envia os logs, contanto que o usuário que define a configuração tenha acesso RBAC apropriado a ambas as assinaturas. A tabela a seguir fornece requisitos exclusivos para cada destino, incluindo quaisquer restrições regionais.
+Todos os destinos para a configuração de diagnóstico devem ser criados antes da criação das configurações de diagnóstico. O destino não precisa estar na mesma assinatura que o recurso que envia os logs, contanto que o usuário que define a configuração tenha o acesso RBAC do Azure apropriado a ambas as assinaturas. A tabela a seguir fornece requisitos exclusivos para cada destino, incluindo quaisquer restrições regionais.
 
 | Destino | Requisitos |
 |:---|:---|
-| Workspace do Log Analytics | O espaço de trabalho não precisa estar na mesma região que o recurso que está sendo monitorado.|
+| Espaço de trabalho do Log Analytics | O espaço de trabalho não precisa estar na mesma região que o recurso que está sendo monitorado.|
 | Hubs de Eventos | A política de acesso compartilhado para o namespace define as permissões que o mecanismo de streaming tem. O streaming para hubs de eventos requer permissões de gerenciar, enviar e escutar. Para atualizar a configuração de diagnóstico para incluir streaming, você deve ter a permissão ListKey nessa regra de autorização de hubs de eventos.<br><br>O namespace do hub de eventos precisa estar na mesma região que o recurso que está sendo monitorado se o recurso for regional. |
 | Conta de Armazenamento do Azure | Você não deve usar uma conta de armazenamento existente que tenha outros dados de não monitoramento armazenados nele para que você possa controlar melhor o acesso aos dados. Se você estiver arquivando o log de atividades e os logs de recursos juntos, poderá optar por usar a mesma conta de armazenamento para manter todos os dados de monitoramento em um local central.<br><br>Para enviar os dados para o armazenamento imutável, defina a política imutável para a conta de armazenamento, conforme descrito em [definir e gerenciar políticas de imutabilidade para o armazenamento de BLOBs](../../storage/blobs/storage-blob-immutability-policies-manage.md). Você deve seguir todas as etapas neste artigo, incluindo a habilitação de gravações de blobs de acréscimo protegidos.<br><br>A conta de armazenamento precisa estar na mesma região que o recurso que está sendo monitorado se o recurso for regional. |
 
 > [!NOTE]
 > Atualmente, contas de Azure Data Lake Storage Gen2 não são compatíveis como destino para configurações de diagnóstico, embora elas possam estar listadas como uma opção válida na portal do Azure.
 
+> [!NOTE]
+> Azure Monitor (configurações de diagnóstico) não pode acessar recursos de hubs de eventos quando as redes virtuais estão habilitadas. Você precisa habilitar a opção permitir que os serviços confiáveis da Microsoft ignorem essa configuração de firewall no Hub de eventos, para que o serviço de Azure Monitor (configurações de diagnóstico) receba acesso aos seus recursos de hubs de eventos. 
 
 
 ## <a name="create-in-azure-portal"></a>Criar no portal do Azure
@@ -73,15 +75,15 @@ Você pode definir as configurações de diagnóstico no portal do Azure no menu
 
    - Para um único recurso, clique em **configurações de diagnóstico** em **Monitor** no menu do recurso.
 
-        ![Configurações de Diagnóstico](media/diagnostic-settings/menu-resource.png)
+        ![Captura de tela da seção monitoramento de um menu de recursos no portal do Azure com as configurações de diagnóstico realçadas.](media/diagnostic-settings/menu-resource.png)
 
    - Para um ou mais recursos, clique em **configurações de diagnóstico** em **configurações** no menu Azure monitor e clique no recurso.
 
-      ![Configurações de Diagnóstico](media/diagnostic-settings/menu-monitor.png)
+        ![Captura de tela da seção configurações no menu Azure Monitor com configurações de diagnóstico realçadas.](media/diagnostic-settings/menu-monitor.png)
 
    - Para o log de atividades, clique em **log de atividades** no menu **Azure monitor** e, em seguida, **configurações de diagnóstico**. Certifique-se de desabilitar qualquer configuração herdada para o log de atividades. Consulte [desabilitar configurações existentes](./activity-log.md#legacy-collection-methods) para obter detalhes.
 
-        ![Configurações de Diagnóstico](media/diagnostic-settings/menu-activity-log.png)
+        ![Captura de tela do menu de Azure Monitor com o log de atividades selecionado e as configurações de diagnóstico realçadas na barra de menus do Monitor-Activity log.](media/diagnostic-settings/menu-activity-log.png)
 
 2. Se nenhuma configuração existir no recurso que você selecionou, será solicitada a criação de uma configuração. Clique em **Adicionar configuração de diagnóstico**.
 
@@ -97,10 +99,10 @@ Você pode definir as configurações de diagnóstico no portal do Azure no menu
 
 4. **Detalhes da categoria (o que rotear)** – marque a caixa para cada categoria de dados que você deseja enviar para os destinos especificados mais tarde. A lista de categorias varia para cada serviço do Azure.
 
-     - As **biometrias roteiam** as métricas de plataforma de um recurso para o repositório de logs do Azure, mas no formulário de log. Essas métricas geralmente são enviadas somente para o banco de dados de série temporal de Azure Monitor métricas. Enviá-los para o repositório de logs de Azure Monitor (que é pesquisável via Log Analytics) para integrá-los em consultas que pesquisam em outros logs. Essa opção pode não estar disponível para todos os tipos de recurso. Quando há suporte, [Azure monitor métricas com suporte](metrics-supported.md) lista as métricas coletadas para quais tipos de recursos.
+     - As **biometrias roteiam** as métricas de plataforma de um recurso para o repositório de logs do Azure, mas no formulário de log. Essas métricas geralmente são enviadas somente para o banco de dados de série temporal de Azure Monitor métricas. Enviá-los para o repositório de logs de Azure Monitor (que é pesquisável via Log Analytics) ajuda a integrá-los em consultas que pesquisam em outros logs. Essa opção pode não estar disponível para todos os tipos de recurso. Quando há suporte, [Azure monitor métricas com suporte](metrics-supported.md) lista as métricas coletadas para quais tipos de recursos.
 
        > [!NOTE]
-       > Consulte limitatation para obter métricas de roteamento para Azure Monitor logs anteriormente neste artigo.  
+       > Consulte limitação para métricas de roteamento para logs de Azure Monitor anteriormente neste artigo.  
 
 
      - **Logs** lista as diferentes categorias disponíveis dependendo do tipo de recurso. Verifique todas as categorias que você deseja rotear para um destino.
@@ -137,7 +139,7 @@ Após alguns instantes, a nova configuração aparecerá na lista de configuraç
 Use o cmdlet [set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) para criar uma configuração de diagnóstico com [Azure PowerShell](../samples/powershell-samples.md). Consulte a documentação deste cmdlet para obter descrições de seus parâmetros.
 
 > [!IMPORTANT]
-> Você não pode usar esse método para o log de atividades do Azure. Em vez disso, use a [configuração criar diagnóstico no Azure monitor usando um modelo do Resource Manager](diagnostic-settings-template.md) para criar um modelo do Resource Manager e implantá-lo com o PowerShell.
+> Você não pode usar esse método para o log de atividades do Azure. Em vez disso, use a [configuração criar diagnóstico no Azure monitor usando um modelo do Resource Manager](../samples/resource-manager-diagnostic-settings.md) para criar um modelo do Resource Manager e implantá-lo com o PowerShell.
 
 Veja a seguir um exemplo de cmdlet do PowerShell para criar uma configuração de diagnóstico usando todos os três destinos.
 
@@ -147,10 +149,10 @@ Set-AzDiagnosticSetting -Name KeyVault-Diagnostics -ResourceId /subscriptions/xx
 
 ## <a name="create-using-azure-cli"></a>Criar usando CLI do Azure
 
-Use o comando [AZ monitor Diagnostics-Settings Create](/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az-monitor-diagnostic-settings-create) para criar uma configuração de diagnóstico com [CLI do Azure](/cli/azure/monitor?view=azure-cli-latest). Consulte a documentação deste comando para obter descrições de seus parâmetros.
+Use o comando [AZ monitor Diagnostics-Settings Create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) para criar uma configuração de diagnóstico com [CLI do Azure](/cli/azure/monitor). Consulte a documentação deste comando para obter descrições de seus parâmetros.
 
 > [!IMPORTANT]
-> Você não pode usar esse método para o log de atividades do Azure. Em vez disso, use a [configuração criar diagnóstico no Azure monitor usando um modelo do Resource Manager](diagnostic-settings-template.md) para criar um modelo do Resource Manager e implantá-lo com a CLI.
+> Você não pode usar esse método para o log de atividades do Azure. Em vez disso, use a [configuração criar diagnóstico no Azure monitor usando um modelo do Resource Manager](../samples/resource-manager-diagnostic-settings.md) para criar um modelo do Resource Manager e implantá-lo com a CLI.
 
 Veja a seguir um exemplo de comando da CLI para criar uma configuração de diagnóstico usando todos os três destinos.
 
@@ -173,6 +175,24 @@ Consulte [configurações de diagnóstico](/rest/api/monitor/diagnosticsettings)
 
 ## <a name="create-using-azure-policy"></a>Criar usando Azure Policy
 Como uma configuração de diagnóstico precisa ser criada para cada recurso do Azure, Azure Policy pode ser usada para criar automaticamente uma configuração de diagnóstico à medida que cada recurso é criado. Consulte [implantar Azure monitor em escala usando Azure Policy](../deploy-scale.md) para obter detalhes.
+
+## <a name="metric-category-is-not-supported-error"></a>O erro de categoria de métrica não é suportado
+Ao implantar uma configuração de diagnóstico, você receberá a seguinte mensagem de erro:
+
+   "Não há suporte para a categoria de métrica '*xxxx*'"
+
+Por exemplo: 
+
+   "Não há suporte para a categoria de métrica ' ActionsFailed '"
+
+onde anteriormente sua implantação foi bem-sucedida. 
+
+O problema ocorre ao usar um modelo do Resource Manager, a API REST de configurações de diagnóstico, CLI do Azure ou Azure PowerShell. As configurações de diagnóstico criadas por meio do portal do Azure não são afetadas, pois apenas os nomes de categoria com suporte são apresentados.
+
+O problema é causado por uma alteração recente na API subjacente. Não há suporte para categorias de métrica diferentes de ' biometria ' e nunca foram feitas, exceto, por alguns serviços do Azure muito específicos. No passado, outros nomes de categoria foram ignorados durante a implantação de uma configuração de diagnóstico. O back-end de Azure Monitor simplesmente redirecionava essas categorias para ' Biometrics '.  A partir de fevereiro de 2021, o back-end foi atualizado para confirmar especificamente que a categoria de métrica fornecida é precisa. Essa alteração causou a falha de algumas implantações.
+
+Se você receber esse erro, atualize suas implantações para substituir quaisquer nomes de categoria de métricas por ' Biometrics ' para corrigir o problema. Se a implantação tiver sido adicionada anteriormente a várias categorias, somente uma com a referência ' Biometrics ' deverá ser mantida. Se você continuar tendo o problema, entre em contato com o suporte do Azure por meio do portal do Azure. 
+
 
 
 ## <a name="next-steps"></a>Próximas etapas

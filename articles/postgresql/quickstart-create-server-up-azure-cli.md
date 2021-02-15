@@ -1,19 +1,19 @@
 ---
 title: 'Início Rápido: Criar servidor – az postgres up – Banco de Dados do Azure para PostgreSQL – Servidor único'
 description: Guia de início rápido para criar o Banco de Dados do Azure para PostgreSQL– Servidor único usando o comando up da CLI (interface de linha de comando) do Azure.
-author: rachel-msft
-ms.author: raagyema
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 05/06/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 1a2b7ceea74091931c92d28f8fa47b9046b545fc
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: c11a98c04f81e7c111faf4aa449ab2bf9a4890bb
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496569"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92485215"
 ---
 # <a name="quickstart-use-an-azure-cli-command-az-postgres-up-preview-to-create-an-azure-database-for-postgresql---single-server"></a>Início Rápido: Use um comando da CLI do Azure, az postgres up (versão prévia), para criar um Banco de Dados do Azure para PostgreSQL – Servidor único
 
@@ -28,7 +28,7 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
 
 Este artigo exige que você esteja executando a CLI do Azure versão 2.0 ou posterior localmente. Para ver a versão instalada, execute o comando `az --version`. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
-Você precisará entrar na sua conta usando o comando [az login](/cli/azure/authenticate-azure-cli?view=interactive-log-in). Observe a propriedade **ID** da saída do comando para obter o nome da assinatura correspondente.
+Você precisará entrar na sua conta usando o comando [az login](/cli/azure/authenticate-azure-cli). Observe a propriedade **ID** da saída do comando para obter o nome da assinatura correspondente.
 
 ```azurecli
 az login
@@ -75,7 +75,7 @@ admin-password | Gerada pelo sistema | A senha do usuário administrador.
 
 Depois que o servidor é criado, ele vem com as seguintes configurações:
 
-- É criada uma regra de firewall denominada “devbox”. A CLI do Azure tenta detectar o endereço IP do computador, o comando `az postgres up` é executado a partir daí e coloca esse endereço IP.
+- É criada uma regra de firewall denominada “devbox”. A CLI do Azure tenta detectar o endereço IP do computador no qual o comando `az postgres up` é executado e permite esse endereço IP.
 - “Permitir acesso aos Serviços do Azure” está definido como ATIVADO. Isso configura o firewall do servidor para aceitar conexões de todos os recursos do Azure, incluindo os recursos que não estão na sua assinatura.
 - É criado um banco de dados vazio chamado "sampledb"
 - É criado um novo usuário denominado "raiz" com privilégios para "sampledb"

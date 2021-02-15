@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: pafarley
-ms.openlocfilehash: 164e5a8c107f445b376d26f9be7db92a7983b0d3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 00dadf8a91b7ed01ab9f91933d296744305a95af
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73743066"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518799"
 ---
 # <a name="face-recognition-concepts"></a>Conceitos de reconhecimento facial
 
@@ -45,7 +45,7 @@ A operação de [verificação](https://westus.dev.cognitive.microsoft.com/docs/
 
 A operação [Localizar semelhante](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) usa uma ID de face de DetectedFace ou PersistedFace e uma facelist ou uma matriz de outras IDs de face. Com uma Facelist, ele retorna uma face de rostos menor que é semelhante à face fornecida. Com uma matriz de IDs de face, ela retorna, de forma semelhante, uma matriz menor.
 
-### <a name="group"></a>Agrupar
+### <a name="group"></a>Grupo
 
 A operação de [grupo](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238) usa uma matriz de IDs de face asclassificadas de DetectedFace ou PersistedFace e retorna as mesmas IDs agrupadas em várias matrizes menores. Cada matriz de "grupos" contém IDs de face que parecem semelhantes. Uma única matriz "bagunça" contém IDs de face para as quais nenhuma semelhança foi encontrada.
 
@@ -58,7 +58,7 @@ A operação de [identificação](https://westus.dev.cognitive.microsoft.com/doc
 Use as seguintes dicas para garantir que suas imagens de entrada forneçam os resultados de reconhecimento mais precisos:
 
 * Os formatos de imagem de entrada com suporte são JPEG, PNG, GIF (o primeiro quadro), BMP.
-* O tamanho do arquivo de imagem não deve ser maior que 4 MB.
+* O tamanho do arquivo de imagem não deve ser maior que 6 MB.
 * Quando você cria objetos Person, use fotos que apresentam diferentes tipos de ângulos e iluminação.
 * Algumas faces podem não ser reconhecidas devido a desafios técnicos, como:
   * Imagens com iluminação extrema, por exemplo, baixa iluminação excessiva.
@@ -69,6 +69,6 @@ Use as seguintes dicas para garantir que suas imagens de entrada forneçam os re
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora que você está familiarizado com os conceitos de reconhecimento facial, saiba como escrever um script que identifica rostos em relação a um funcionário treinado.
+Agora que você está familiarizado com os conceitos de reconhecimento facial, escreva um script que identifique rostos em relação a um funcionário treinado.
 
-* [Identificar faces em imagens](../Face-API-How-to-Topics/HowtoIdentifyFacesinImage.md)
+* [Início rápido da biblioteca de clientes de Detecção Facial](../Quickstarts/client-libraries.md)

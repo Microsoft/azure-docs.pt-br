@@ -1,35 +1,35 @@
 ---
-title: Consultar dados no armazenamento usando o SQL sob demanda (versão prévia)
-description: Este artigo descreve como consultar o armazenamento do Azure usando o recurso SQL sob demanda (versão prévia) no Azure Synapse Analytics.
+title: Consultar o armazenamento de dados com o pool de SQL sem servidor
+description: Este artigo descreve como consultar o armazenamento do Azure usando o recurso de pool de SQL sem servidor no Azure Synapse Analytics.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql
 ms.date: 04/15/2020
-ms.author: v-stazar
-ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 93e6b373aa125facb3a3eddecc926438c919b335
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.author: stefanazaric
+ms.reviewer: jrasnick
+ms.openlocfilehash: b5025aa322ae26f9dd7c683d0e54762fd33eb355
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87489734"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735373"
 ---
-# <a name="query-storage-files-using-sql-on-demand-preview-resources-within-synapse-sql"></a>Consultar arquivos de armazenamento usando recursos de SQL sob demanda (versão prévia) no Synapse SQL
+# <a name="query-storage-files-with-serverless-sql-pool-in-azure-synapse-analytics"></a>Consultar os arquivos de armazenamento com o pool de SQL sem servidor no Azure Synapse Analytics
 
-O SQL sob demanda (versão prévia) permite que você consulte dados em seu data lake. Ele oferece uma área de superfície de consulta T-SQL que acomoda consultas de dados semiestruturados e não estruturados. Para consulta, os seguintes aspectos do T-SQL são compatíveis:
+O pool de SQL sem servidor permite que você consulte dados no data lake. Ele oferece uma área de superfície de consulta T-SQL que acomoda consultas de dados semiestruturados e não estruturados. Para consulta, os seguintes aspectos do T-SQL são compatíveis:
 
-- Área de superfície de [SELECT](/sql/t-sql/queries/select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) completa, incluindo a maioria das [funções e operadores SQL](overview-features.md).
+- Área de superfície de [SELECT](/sql/t-sql/queries/select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) completa, incluindo a maioria das [funções e operadores SQL](overview-features.md).
 - [CETAS](develop-tables-cetas.md) (CREATE EXTERNAL TABLE AS SELECT) cria uma [tabela externa](develop-tables-external-tables.md) e, em seguida, exporta em paralelo os resultados de uma instrução SELECT de Transact-SQL para o Armazenamento do Azure.
 
-Para obter mais informações sobre o que é e o que não é compatível atualmente, leia o artigo [Visão geral do SQL sob demanda](on-demand-workspace-overview.md) ou os seguintes artigos:
+Para obter mais informações sobre o que é e o que não é compatível atualmente, leia o artigo [Visão geral do pool de SQL sem servidor](on-demand-workspace-overview.md) ou os seguintes artigos:
 - [Desenvolver o acesso de armazenamento](develop-storage-files-overview.md), em que você pode aprender a usar [Tabela externa](develop-tables-external-tables.md) e a função [OPENROWSET](develop-openrowset.md) para ler dados do armazenamento.
 - [Controle o acesso de armazenamento](develop-storage-files-storage-access-control.md), em que você pode aprender a habilitar o SQL do Synapse a acessar o armazenamento usando a autenticação SAS ou a identidade gerenciada do workspace.
 
 ## <a name="overview"></a>Visão geral
 
-Para dar suporte a uma experiência tranquila para a consulta de dados localizados em arquivos do Armazenamento do Azure, o SQL sob demanda usa a função [OPENROWSET](develop-openrowset.md) com recursos adicionais:
+Para dar suporte a uma experiência tranquila para a consulta no local de dados localizados em arquivos do Armazenamento do Azure, o pool de SQL sem servidor usa a função [OPENROWSET](develop-openrowset.md) com funcionalidades adicionais:
 
 - [Consultar vários arquivos ou pastas](#query-multiple-files-or-folders)
 - [Formato de arquivo PARQUET](#query-parquet-files)
@@ -47,7 +47,7 @@ Para consultar dados de origem Parquet, use FORMAT = 'PARQUET'
 ```syntaxsql
 SELECT * FROM
 OPENROWSET( BULK N'https://myaccount.dfs.core.windows.net//mycontainer/mysubfolder/data.parquet', FORMAT = 'PARQUET') 
-WITH (C1 int, C2 varchar(20), C3 as varchar(max)) as rows
+WITH (C1 int, C2 varchar(20), C3 varchar(max)) as rows
 ```
 
 Examine o artigo [Consultar arquivos Parquet](query-parquet-files.md) para obter exemplos de uso.
@@ -59,7 +59,7 @@ Para consultar dados de origem CSV, use FORMAT = 'CSV'. Você pode especificar o
 ```sql
 SELECT * FROM
 OPENROWSET( BULK N'https://myaccount.dfs.core.windows.net/mycontainer/mysubfolder/data.csv', FORMAT = 'CSV', PARSER_VERSION='2.0') 
-WITH (C1 int, C2 varchar(20), C3 as varchar(max)) as rows
+WITH (C1 int, C2 varchar(20), C3 varchar(max)) as rows
 ```
 
 Há algumas outras opções que podem ser usadas para ajustar as regras de análise para o formato CSV personalizado:
@@ -85,7 +85,7 @@ OPENROWSET( BULK N'https://myaccount.dfs.core.windows.net/mycontainer/mysubfolde
 WITH (
       C1 int, 
       C2 varchar(20),
-      C3 as varchar(max)
+      C3 varchar(max)
 ) as rows
 ```
 
@@ -146,7 +146,7 @@ O tipo de dados retornado é nvarchar (1024). Para obter um desempenho ideal, se
 
 ## <a name="work-with-complex-types-and-nested-or-repeated-data-structures"></a>Trabalhar com tipos complexos e estruturas de dados aninhadas ou repetidas
 
-Para permitir uma experiência tranquila com os dados armazenados em tipos de dados aninhados ou repetidos, como em arquivos [Parquet](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#nested-types), o SQL sob demanda adicionou as extensões a seguir.
+Para permitir uma experiência tranquila com os dados armazenados em tipos de dados aninhados ou repetidos, como em arquivos [Parquet](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#nested-types), o pool de SQL sem servidor adicionou as extensões a seguir.
 
 #### <a name="project-nested-or-repeated-data"></a>Dados de projeto aninhados ou repetidos
 
@@ -184,21 +184,21 @@ Por padrão, a função `OPENROWSET` corresponde ao nome e ao caminho do campo d
 - A função retorna um valor escalar como int, decimal e varchar, do elemento especificado e no caminho especificado, para todos os tipos de Parquet que não estão no grupo Tipo Aninhado.
 - Se o caminho aponta para um elemento que é de um Tipo Aninhado, a função retorna um fragmento JSON começando do elemento superior no caminho especificado. O fragmento JSON é do tipo varchar (8000).
 - Se a propriedade não puder ser encontrada na column_name especificada, a função retornará um erro.
-- Se a propriedade não puder ser encontrada no column_path especificado, dependendo do [Modo de caminho](/sql/relational-databases/json/json-path-expressions-sql-server?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest#PATHMODE), a função retornará um erro quando estiver no modo estrito ou nulo quando estiver no modo lax.
+- Se a propriedade não puder ser encontrada no column_path especificado, dependendo do [Modo de caminho](/sql/relational-databases/json/json-path-expressions-sql-server?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true#PATHMODE), a função retornará um erro quando estiver no modo estrito ou nulo quando estiver no modo lax.
 
 Para obter exemplos de consulta, examine a seção Elementos de acesso de colunas aninhadas no artigo [Consultar tipos aninhados de Parquet](query-parquet-nested-types.md#read-properties-from-nested-object-columns).
 
 #### <a name="access-elements-from-repeated-columns"></a>Acessar elementos de colunas repetidas
 
-Para acessar elementos de uma coluna repetida, como um elemento de uma Matriz ou um Mapa, use a função [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) para cada elemento escalar que você precisa projetar e fornecer:
+Para acessar elementos de uma coluna repetida, como um elemento de uma Matriz ou um Mapa, use a função [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) para cada elemento escalar que você precisa projetar e fornecer:
 
 - Coluna aninhada ou repetida, como o primeiro parâmetro
-- Um [caminho JSON](/sql/relational-databases/json/json-path-expressions-sql-server?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) que especifica o elemento ou a propriedade a ser acessada, como um segundo parâmetro
+- Um [caminho JSON](/sql/relational-databases/json/json-path-expressions-sql-server?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) que especifica o elemento ou a propriedade a ser acessada, como um segundo parâmetro
 
-Para acessar elementos não escalares de uma coluna repetida, use a função [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) para cada elemento não escalar que você precisa projetar e fornecer:
+Para acessar elementos não escalares de uma coluna repetida, use a função [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) para cada elemento não escalar que você precisa projetar e fornecer:
 
 - Coluna aninhada ou repetida, como o primeiro parâmetro
-- Um [caminho JSON](/sql/relational-databases/json/json-path-expressions-sql-server?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) que especifica o elemento ou a propriedade a ser acessada, como um segundo parâmetro
+- Um [caminho JSON](/sql/relational-databases/json/json-path-expressions-sql-server?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) que especifica o elemento ou a propriedade a ser acessada, como um segundo parâmetro
 
 Veja o fragmento de sintaxe abaixo:
 
@@ -222,13 +222,13 @@ Você pode aprender mais sobre como consultar vários tipos de dados usando as c
 ### <a name="tools"></a>Ferramentas
 
 As ferramentas de que você precisa para emitir consultas:
-    - Azure Synapse Studio (versão prévia)
+    - Azure Synapse Studio 
     - Azure Data Studio
     - SQL Server Management Studio
 
 ### <a name="demo-setup"></a>Configuração de demonstração
 
-A primeira etapa é **criar um banco de dados** em que as consultas serão executadas. Em seguida, você vai inicializar os objetos executando o [script de instalação](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) nesse banco de dados. 
+A primeira etapa é **criar um banco de dados** no qual você executará as consultas. Em seguida, você vai inicializar os objetos executando o [script de instalação](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) nesse banco de dados. 
 
 Esse script de instalação criará as fontes de dados, as credenciais no escopo do banco de dados e os formatos de arquivo externos que são usados para ler os dados nestas amostras.
 

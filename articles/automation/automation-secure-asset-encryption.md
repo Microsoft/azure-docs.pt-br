@@ -10,10 +10,10 @@ ms.date: 01/11/2020
 ms.topic: conceptual
 manager: kmadnani
 ms.openlocfilehash: 7d59ca60c7f90c227885927086511bd1f8ac7ca1
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86185833"
 ---
 # <a name="encryption-of-secure-assets-in-azure-automation"></a>Criptografia de ativos seguros na Automação do Azure

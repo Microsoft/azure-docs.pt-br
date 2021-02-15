@@ -1,23 +1,21 @@
 ---
 title: Visão geral das Pastas de Trabalho do Azure Monitor
-description: Simplifique a emissão de relatórios complexos com pastas de trabalho parametrizadas predefinidas e personalizadas
-author: mrbullwinkle
+description: Saiba como as pastas de trabalho fornecem uma tela flexível para análise de dados e a criação de relatórios visuais avançados dentro do portal do Azure.
 manager: carmonm
 services: azure-monitor
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.author: mbullwin
-ms.openlocfilehash: 1d85f011289bfa27bcf1e94d8da8cd7a32092c2c
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 5dd553f0a41f82991c467ab256a87beabbff25ee
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87799558"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92143631"
 ---
 # <a name="azure-monitor-workbooks"></a>Pastas de trabalho do Azure Monitor
 
-As pastas de trabalho fornecem uma tela flexível para análise de dados e a criação de relatórios visuais avançados dentro do portal do Azure. Eles permitem que você toque em várias fontes de dados em todo o Azure e combine-as em experiências interativas unificadas. 
+As pastas de trabalho fornecem uma tela flexível para análise de dados e a criação de relatórios visuais avançados no portal do Azure. Eles permitem que você toque em várias fontes de dados em todo o Azure e combine-as em experiências interativas unificadas. 
 
 Aqui está uma explicação em vídeo sobre como criar pastas de trabalho.
 
@@ -25,11 +23,11 @@ Aqui está uma explicação em vídeo sobre como criar pastas de trabalho.
 
 ## <a name="data-sources"></a>Fontes de dados
 
-As pastas de trabalho podem consultar dados de várias fontes no Azure. Os autores de pastas de trabalho podem transformar esses dados para fornecer informações sobre a disponibilidade, o desempenho, o uso e a integridade geral dos componentes subjacentes. Por exemplo, analisar os logs de desempenho de máquinas virtuais para identificar altas instâncias de CPU ou memória insuficiente e exibir os resultados como uma grade em um relatório interativo.
+As pastas de trabalho podem consultar dados de várias fontes no Azure. Os autores de pastas de trabalho podem transformar esses dados para fornecer insights sobre a disponibilidade, o desempenho, o uso e a integridade geral dos componentes subjacentes. Por exemplo, analisar os logs de desempenho de máquinas virtuais para identificar altas instâncias de CPU ou memória insuficiente e exibir os resultados como uma grade em um relatório interativo.
   
-Mas o poder real das pastas de trabalho é a capacidade de combinar dados de fontes diferentes em um único relatório. Isso permite a criação de modos de exibição de recursos compostos ou junções entre recursos, permitindo dados e informações mais ricos que seriam impossíveis.
+Mas o poder real das pastas de trabalho é a capacidade de combinar dados de diferentes fontes em um só relatório. Isso permite a criação de modos de exibição de recursos compostos ou junções entre recursos, permitindo dados e informações mais ricos que seriam impossíveis.
 
-As pastas de trabalho são atualmente compatíveis com as seguintes fontes de dados:
+Atualmente, as pastas de trabalho são compatíveis com as seguintes fontes de dados:
 
 * [Logs](workbooks-data-sources.md#logs)
 * [Métricas](workbooks-data-sources.md#metrics)
@@ -43,12 +41,13 @@ As pastas de trabalho são atualmente compatíveis com as seguintes fontes de da
 
 As pastas de trabalho fornecem um conjunto avançado de recursos para visualizar seus dados. Para obter exemplos detalhados de cada tipo de visualização, você pode consultar os links de exemplo abaixo:
 
-* [Texto](workbooks-visualizations.md#text)
-* [Gráficos](workbooks-visualizations.md#charts)
-* [Grades](workbooks-visualizations.md#grids)
-* [Blocos](workbooks-visualizations.md#tiles)
-* [Árvores](workbooks-visualizations.md#trees)
-* [Gráficos](workbooks-visualizations.md#graphs)
+* [Text](workbooks-text-visualizations.md)
+* [Gráficos](workbooks-chart-visualizations.md)
+* [Grades](workbooks-grid-visualizations.md)
+* [Blocos](workbooks-tile-visualizations.md)
+* [Árvores](workbooks-tree-visualizations.md)
+* [Gráficos](workbooks-graph-visualizations.md)
+* [Barra de composição](workbooks-composite-bar.md)
 
 ![Exemplos de visualizações de pastas de trabalho](./media/workbooks-overview/visualizations.png)
 
@@ -86,9 +85,9 @@ No caso dessa pasta de trabalho específica, a experiência é interativa. Você
 
 ### <a name="editing-mode"></a>Modo de edição
 
-Para entender como esse modelo de pasta de trabalho é agrupado, você precisa alternar para o modo de edição selecionando **Editar**. 
+Para entender como esse modelo de pasta de trabalho é agrupado, você precisa alternar para o modo de edição selecionando **Editar**.
 
-![Captura de tela do modelo de análise de falha de aplicativo](./media/workbooks-overview/edit.png)
+![Captura de tela do botão Editar em pastas de trabalho.](./media/workbooks-overview/edit.png)
 
 Depois de alternar para o modo de edição, você observará que várias caixas de **edição** aparecem à direita correspondentes a cada aspecto individual de sua pasta de trabalho.
 
@@ -98,7 +97,7 @@ Se selecionarmos o botão Editar imediatamente sob a grade de dados de solicita�
 
 ![Captura de tela da consulta Kusto subjacente](./media/workbooks-overview/kusto.png)
 
-Clicar nos outros botões de **edição** à direita revelará um número de componentes principais que compõem pastas de trabalho como caixas de [texto](workbooks-visualizations.md#text)baseadas em redução, elementos de interface do usuário de [seleção de parâmetros](workbooks-parameters.md) e outros [tipos de gráfico/visualização](workbooks-visualizations.md). 
+Clicar nos outros botões de **edição** à direita revelará um número de componentes principais que compõem pastas de trabalho como caixas de [texto](workbooks-text-visualizations.md)baseadas em redução, elementos de interface do usuário de [seleção de parâmetros](workbooks-parameters.md) e outros [tipos de gráfico/visualização](#visualizations). 
 
 Explorar os modelos pré-criados no modo de edição e, em seguida, modificá-los de acordo com suas necessidades e salvar sua própria pasta de trabalho personalizada é uma maneira excelente de começar a aprender o que é possível com Azure Monitor pastas de trabalho.
 
@@ -130,5 +129,5 @@ Depois de começar a criar seus próprios modelos de pasta de trabalho, você ta
 
 ## <a name="next-step"></a>Próxima etapa
 
-* [Comece a aprender mais](workbooks-visualizations.md) sobre pastas de trabalho muitas opções de visualizações ricas.
+* [Comece a aprender mais](#visualizations) sobre pastas de trabalho muitas opções de visualizações ricas.
 * [Controle](workbooks-access-control.md) e compartilhe o acesso aos recursos da pasta de trabalho.

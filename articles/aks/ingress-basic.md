@@ -5,12 +5,12 @@ description: Aprenda a instalar e configurar um controlador de entrada NGINX bá
 services: container-service
 ms.topic: article
 ms.date: 08/17/2020
-ms.openlocfilehash: 9ab177e2756227f3893d13c97d12ad67cfb1ff62
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 9b51ee2767a9595f5732f558cfa25f5064944e49
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855828"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131183"
 ---
 # <a name="create-an-ingress-controller-in-azure-kubernetes-service-aks"></a>Criar um controlador de entrada no AKS (Serviço de Kubernetes do Azure)
 
@@ -33,15 +33,15 @@ Este artigo também requer que você esteja executando o CLI do Azure versão 2.
 
 ## <a name="create-an-ingress-controller"></a>Criar um controlador de entrada
 
-Para criar o controlador de entrada, use Helm para instalar o *Nginx-ingress*. Para redundância adicional, duas réplicas dos controladores de entrada NGINX são implementadas com o parâmetro `--set controller.replicaCount`. Para se beneficiar totalmente da execução de réplicas do controlador de entrada, verifique se há mais de um nó em seu cluster AKS.
+Para criar o controlador de entrada, use Helm para instalar o *Nginx-ingress* . Para redundância adicional, duas réplicas dos controladores de entrada NGINX são implementadas com o parâmetro `--set controller.replicaCount`. Para se beneficiar totalmente da execução de réplicas do controlador de entrada, verifique se há mais de um nó em seu cluster AKS.
 
 O controlador de entrada também precisa ser agendado em um nó do Linux. Os nós do Windows Server não devem executar o controlador de entrada. Um seletor de nó é especificado usando o parâmetro `--set nodeSelector` para instruir o agendador do Kubernetes a executar o controlador de entrada NGINX em um nó baseado em Linux.
 
 > [!TIP]
-> O exemplo a seguir cria um namespace kubernetes para os recursos de entrada chamados *ingress-Basic*. Especifique um namespace para seu próprio ambiente, conforme necessário.
+> O exemplo a seguir cria um namespace kubernetes para os recursos de entrada chamados *ingress-Basic* . Especifique um namespace para seu próprio ambiente, conforme necessário.
 
 > [!TIP]
-> Se você quiser habilitar a [preservação de IP de origem do cliente][client-source-ip] para solicitações a contêineres em seu cluster, adicione `--set controller.service.externalTrafficPolicy=Local` ao comando Helm install. O IP de origem do cliente é armazenado no cabeçalho da solicitação em *X-forwardd-for*. Ao usar um controlador de entrada com preservação de IP de origem do cliente habilitada, a passagem SSL não funcionará.
+> Se você quiser habilitar a [preservação de IP de origem do cliente][client-source-ip] para solicitações a contêineres em seu cluster, adicione `--set controller.service.externalTrafficPolicy=Local` ao comando Helm install. O IP de origem do cliente é armazenado no cabeçalho da solicitação em *X-forwardd-for* . Ao usar um controlador de entrada com preservação de IP de origem do cliente habilitada, a passagem SSL não funcionará.
 
 ```console
 # Create a namespace for your ingress resources
@@ -55,7 +55,8 @@ helm install nginx-ingress ingress-nginx/ingress-nginx \
     --namespace ingress-basic \
     --set controller.replicaCount=2 \
     --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux \
-    --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux
+    --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux \
+    --set controller.admissionWebhooks.patch.nodeSelector."beta\.kubernetes\.io/os"=linux
 ```
 
 Quando o serviço de balanceador de carga do Kubernetes é criado para o controlador de entrada NGINX, um endereço IP público dinâmico é atribuído, conforme mostrado na seguinte saída de exemplo:
@@ -92,7 +93,7 @@ spec:
     spec:
       containers:
       - name: aks-helloworld-one
-        image: neilpeterson/aks-helloworld:v1
+        image: mcr.microsoft.com/azuredocs/aks-helloworld:v1
         ports:
         - containerPort: 80
         env:
@@ -130,7 +131,7 @@ spec:
     spec:
       containers:
       - name: aks-helloworld-two
-        image: neilpeterson/aks-helloworld:v1
+        image: mcr.microsoft.com/azuredocs/aks-helloworld:v1
         ports:
         - containerPort: 80
         env:
@@ -222,11 +223,11 @@ ingress.extensions/hello-world-ingress-static created
 
 ## <a name="test-the-ingress-controller"></a>Testar o controlador de entrada
 
-Para testar as rotas para o controlador de entrada, navegue até os dois aplicativos. Abra um navegador da Web para o endereço IP do controlador de entrada do NGINX, como *EXTERNAL_IP*. O primeiro aplicativo de demonstração é exibido no navegador da Web, conforme mostrado no exemplo a seguir:
+Para testar as rotas para o controlador de entrada, navegue até os dois aplicativos. Abra um navegador da Web para o endereço IP do controlador de entrada do NGINX, como *EXTERNAL_IP* . O primeiro aplicativo de demonstração é exibido no navegador da Web, conforme mostrado no exemplo a seguir:
 
 ![Primeiro aplicativo em execução por trás do controlador de entrada](media/ingress-basic/app-one.png)
 
-Agora, adicione o caminho */Hello-World-Two* ao endereço IP, como *EXTERNAL_IP/Hello-World-Two*. O segundo aplicativo de demonstração com o título personalizado é mostrado:
+Agora, adicione o caminho */Hello-World-Two* ao endereço IP, como *EXTERNAL_IP/Hello-World-Two* . O segundo aplicativo de demonstração com o título personalizado é mostrado:
 
 ![Segundo aplicativo em execução por trás do controlador de entrada](media/ingress-basic/app-two.png)
 
@@ -244,7 +245,7 @@ kubectl delete namespace ingress-basic
 
 ### <a name="delete-resources-individually"></a>Excluir recursos individualmente
 
-Como alternativa, uma abordagem mais granular é excluir os recursos individuais criados. Liste as versões Helm com o `helm list` comando. Procure gráficos nomeados *nginx -gresso* e *aks-helloworld*, conforme mostrado na saída do exemplo a seguir:
+Como alternativa, uma abordagem mais granular é excluir os recursos individuais criados. Liste as versões Helm com o `helm list` comando. Procure gráficos nomeados *nginx -gresso* e *aks-helloworld* , conforme mostrado na saída do exemplo a seguir:
 
 ```
 $ helm list --namespace ingress-basic

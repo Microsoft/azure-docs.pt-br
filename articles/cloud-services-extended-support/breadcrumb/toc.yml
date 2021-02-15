@@ -1,0 +1,14 @@
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+    - name: Serviços de Nuvem (suporte estendido)
+      tocHref: /azure/cloud-services-extended-support/
+      topicHref: /azure/cloud-services-extended-support/index
+      items:
+        - name: Serviços de Nuvem
+          tocHref: /azure/cloud-services/
+          topicHref: /azure/cloud-services/index
+        - name: Implantar Visual Studio
+          tocHref: /visualstudio-docs/docs/
+          topicHref: /visualstudio/deployment

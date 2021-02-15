@@ -10,20 +10,20 @@ ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/20/2020
-ms.openlocfilehash: 483f60138dcaa6252999b9d15e846fbd1c68e9a2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e6f94c006de8914fe3ae27cdb8ac4d75a0ac49cc
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84021510"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94962987"
 ---
 # <a name="redeploy-ssis-packages-to-azure-sql-database-with-azure-database-migration-service"></a>Reimplantar pacotes SSIS no banco de dados SQL do Azure com o serviço de migração de banco de dados Azure
 
 Se você usar SQL Server Integration Services (SSIS) e quiser migrar seus projetos/pacotes do SSIS do SSISDB de origem hospedado por SQL Server para o SSISDB de destino armazenado pelo banco de dados SQL do Azure, você poderá reimplantá-los usando o assistente de implantação do Integration Services. Você pode iniciar o Assistente de dentro do SSMS (SQL Server Management Studio).
 
-Se a versão do SSIS que você usa for anterior a 2012, antes de reimplantar os projetos/pacotes do SSIS no modelo de implantação de projeto, primeiro será necessário convertê-los usando o 	Assistente de Conversão de Projetos do Integration Services, que também pode ser iniciado pelo SSMS. Para obter mais informações, consulte o artigo [Converter projetos para o modelo de implantação de projeto](https://docs.microsoft.com/sql/integration-services/packages/deploy-integration-services-ssis-projects-and-packages?view=sql-server-2017#convert).
+Se a versão do SSIS que você usa for anterior a 2012, antes de reimplantar os projetos/pacotes do SSIS no modelo de implantação de projeto, primeiro será necessário convertê-los usando o 	Assistente de Conversão de Projetos do Integration Services, que também pode ser iniciado pelo SSMS. Para obter mais informações, consulte o artigo [Converter projetos para o modelo de implantação de projeto](/sql/integration-services/packages/deploy-integration-services-ssis-projects-and-packages?view=sql-server-2017#convert).
 
 > [!NOTE]
 > O serviço de migração de banco de dados do Azure (DMS) atualmente não oferece suporte à migração de um SSISDB de origem para o banco de dados SQL do Azure, mas você pode reimplantar seus projetos/pacotes do SSIS usando o processo a seguir.
@@ -40,7 +40,7 @@ Para concluir essas etapas, você precisa:
 
 * SSMS versão 17.2 ou posterior.
 * Uma instância de servidor de banco de dados de destino para hospedar o SSISDB. Se você ainda não tiver um, crie um [SQL Server lógico](../azure-sql/database/logical-servers.md) (sem um banco de dados) usando o portal do Azure navegando até o [formulário](https://ms.portal.azure.com/#create/Microsoft.SQLServer)SQL Server (somente servidor lógico).
-* O SSIS deve ser provisionado em Azure Data Factory (ADF) contendo Azure-SSIS Integration Runtime (IR) com o arquivo de destino SSISDB hospedado pelo banco de dados SQL (conforme descrito no artigo [provisionar o Azure-SSIS Integration Runtime no Azure data Factory](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure)).
+* O SSIS deve ser provisionado em Azure Data Factory (ADF) contendo Azure-SSIS Integration Runtime (IR) com o arquivo de destino SSISDB hospedado pelo banco de dados SQL (conforme descrito no artigo [provisionar o Azure-SSIS Integration Runtime no Azure data Factory](../data-factory/tutorial-deploy-ssis-packages-azure.md)).
 
 ## <a name="assess-source-ssis-projectspackages"></a>Avaliar projetos/pacotes do SSIS de origem
 
@@ -107,7 +107,7 @@ Para migrar projetos/pacotes do SSIS para o banco de dados SQL do Azure, execute
 
 14. Após a conclusão do processo de implantação, você pode exibir a página de resultados, que exibe o êxito ou a falha de cada ação de implantação.
     a. Se qualquer ação falhou, na coluna **Resultado**, selecione **Falhou** para exibir uma explicação do erro.
-    b. Opcionalmente, selecione **Salvar Relatório** para salvar os resultados em um arquivo XML.
+    b. Opcionalmente, selecione **Salvar relatório** para salvar os resultados em um arquivo XML.
 
 15. Selecione **Fechar** para sair do Assistente de Implantação do Integration Services.
 

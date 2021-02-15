@@ -1,19 +1,19 @@
 ---
 title: Backup e restauração-Azure PowerShell-banco de dados do Azure para PostgreSQL
 description: Saiba como fazer backup e restaurar um servidor no banco de dados do Azure para PostgreSQL usando Azure PowerShell.
-author: rachel-msft
-ms.author: raagyema
+author: sr-msft
+ms.author: srranga
 ms.service: postgresql
 ms.devlang: azurepowershell
 ms.topic: how-to
 ms.date: 06/08/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: f582159b0ce1355b34c42496dc7516264b62d365
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 63fffb5998b0b6a245db3f1c8fcf16f2d576936e
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87902024"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489754"
 ---
 # <a name="how-to-back-up-and-restore-an-azure-database-for-postgresql-server-using-powershell"></a>Como fazer backup e restaurar um servidor do Banco de Dados do Azure para PostgreSQL usando o PowerShell
 
@@ -23,14 +23,14 @@ O backup do banco de dados do Azure para servidores PostgreSQL é feito periodic
 
 Para concluir este guia de instruções, você precisa:
 
-- O [módulo AZ PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) instalado localmente ou [Azure cloud Shell](https://shell.azure.com/) no navegador
+- O [módulo AZ PowerShell](/powershell/azure/install-az-ps) instalado localmente ou [Azure cloud Shell](https://shell.azure.com/) no navegador
 - Um [servidor de Banco de Dados do Azure para PostgreSQL](quickstart-create-postgresql-server-database-using-azure-powershell.md)
 
 > [!IMPORTANT]
 > Enquanto o módulo Az.PostgreSql PowerShell está em versão prévia, você precisa instalá-lo separadamente do módulo Az PowerShell usando o seguinte comando: `Install-Module -Name Az.PostgreSql -AllowPrerelease`.
 > Depois que o módulo Az.PostgreSql PowerShell estiver em disponibilidade geral, ele passará a fazer parte das versões futuras do módulo do Az PowerShell e estará disponível nativamente no Azure Cloud Shell.
 
-Se você optar por usar o PowerShell localmente, conecte-se à sua conta do Azure usando o cmdlet [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) .
+Se você optar por usar o PowerShell localmente, conecte-se à sua conta do Azure usando o cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) .
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -75,9 +75,9 @@ Get-AzPostgreSqlServer -Name mydemoserver -ResourceGroupName myresourcegroup |
 
 O conjunto de parâmetros **PointInTimeRestore** do `Restore-AzPostgreSqlServer` cmdlet requer os seguintes parâmetros:
 
-| Configuração | Valor sugerido | Descrição  |
+| Configuração | Valor sugerido | Descrição  |
 | --- | --- | --- |
-| ResourceGroupName |  myresourcegroup |  O grupo de recursos em que o servidor de origem existe.  |
+| ResourceGroupName |  myresourcegroup |  O grupo de recursos em que o servidor de origem existe.  |
 | Nome | mydemoserver-restored | O nome do novo servidor que é criado pelo comando de restauração. |
 | RestorePointInTime | 2020-03-13T13:59:00Z | Selecione um ponto no tempo para restaurar. Essa data e hora devem estar dentro do período de retenção de backup do servidor de origem. Use o formato ISO8601 de data e hora. Por exemplo, você pode usar seu próprio fuso horário local, como **2020-03-13T05:59:00-08:00**. Você também pode usar o formato UTC Zulu, por exemplo, **2018-03-13T13:59:00Z**. |
 | UsePointInTimeRestore | `<SwitchParameter>` | Use o modo point-in-time para restaurar. |
@@ -117,7 +117,7 @@ Get-AzPostgreSqlServer -Name mydemoserver -ResourceGroupName myresourcegroup |
 
 O conjunto de parâmetros **Georestore** do `Restore-AzPostgreSqlServer` cmdlet requer os seguintes parâmetros:
 
-| Configuração | Valor sugerido | Descrição  |
+| Configuração | Valor sugerido | Descrição  |
 | --- | --- | --- |
 |ResourceGroupName | myresourcegroup | O nome do grupo de recursos ao qual o novo servidor pertence.|
 |Nome | mydemoserver-georestored | O nome do novo servidor. |

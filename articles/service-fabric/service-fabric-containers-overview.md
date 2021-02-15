@@ -4,10 +4,10 @@ description: Uma visão geral do Service Fabric e o uso de contêineres para imp
 ms.topic: conceptual
 ms.date: 7/9/2020
 ms.openlocfilehash: cd0ec7dd2247fdd791df362fa34542178c17df4d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87091650"
 ---
 # <a name="service-fabric-and-containers"></a>Service Fabric e contêineres

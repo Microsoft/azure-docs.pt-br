@@ -1,6 +1,6 @@
 ---
-title: Início rápido – Usar uma chave simétrica para provisionar um dispositivo simulado ao Hub IoT do Azure usando C
-description: Neste início rápido, você usará o SDK do dispositivo C para criar um dispositivo simulado que usa a chave simétrica com o DPS (Serviço de Provisionamento de Dispositivos) no Hub IoT do Azure
+title: Guia de Início Rápido – Usar uma chave simétrica para provisionar dispositivos no Hub IoT do Azure usando C
+description: Neste início rápido, você usará o SDK do dispositivo C para provisionar um dispositivo que usa a chave simétrica com o DPS (Serviço de Provisionamento de Dispositivos) no Hub IoT do Azure
 author: wesmc7777
 ms.author: wesmc
 ms.date: 01/14/2020
@@ -9,20 +9,20 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 6047051a36459d61bb5f02907dde9e73a70e86ec
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 7df7c9ab6bfbc8a39050b78a76114ae2a0a9d9b7
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75945209"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746498"
 ---
-# <a name="quickstart-provision-a-simulated-device-with-symmetric-keys"></a>Início Rápido: Provisionar um dispositivo simulado com chaves simétricas
+# <a name="quickstart-provision-a-device-with-symmetric-keys"></a>Início rápido: Provisionar um dispositivo com chaves simétricas
 
-Neste início rápido, você aprenderá como criar e executar um simulador de dispositivo em um computador de desenvolvimento do Windows. Você configurará esse dispositivo simulado para usar uma chave simétrica para autenticar com uma instância de Serviço de Provisionamento de Dispositivos e ser atribuído a um Hub IoT. O código de exemplo do [SDK de C do IoT do Azure](https://github.com/Azure/azure-iot-sdk-c) será usado para simular uma sequência de inicialização para o dispositivo que inicia o provisionamento. O dispositivo será reconhecido com base em um registro individual com uma instância de serviço de provisionamento e atribuído a um Hub IoT.
+Neste guia de início rápido, você aprenderá a executar o código de provisionamento de dispositivos em um computador de desenvolvimento Windows para conectá-lo a um hub IoT como um dispositivo IoT. Você configurará esse dispositivo para usar uma chave simétrica para fazer a autenticação com uma instância de Serviço de Provisionamento de Dispositivos e ser atribuído a um hub IoT. O código de exemplo do [SDK do C para o IoT do Azure](https://github.com/Azure/azure-iot-sdk-c) será usado para provisionar o dispositivo. O dispositivo será reconhecido com base em um registro individual com uma instância de serviço de provisionamento e atribuído a um Hub IoT.
 
 Embora este artigo demonstre o provisionamento com um registro individual, é possível usar grupos de registros. Há algumas diferenças ao usar grupos de registro. Por exemplo, você precisa usar uma chave de dispositivo derivada com uma ID de registro exclusiva para o dispositivo. Embora os grupos de registros de chave simétrica não sejam limitados apenas a dispositivos herdados, [Como provisionar dispositivos herdados usando atestado de chave simétrica](how-to-legacy-device-symm-key.md) fornece um exemplo de grupo de registros. Para obter mais informações, consulte [Registros de grupo para atestado de chave simétrica](concepts-symmetric-key-attestation.md#group-enrollments).
 
-Se você não estiver familiarizado com o processo de provisionamento automático, analise os [Conceitos de provisionamento automático](concepts-auto-provisioning.md). 
+Se você não estiver familiarizado com o processo de provisionamento automático, examine a visão geral de [provisionamento](about-iot-dps.md#provisioning-process). 
 
 Não se esqueça de concluir as etapas em [Configurar o Serviço de Provisionamento de Dispositivos no Hub IoT com o Portal do Azure](./quick-setup-auto-provision.md) antes de continuar com este início rápido. Este início rápido requer que você já tenha criado a instância de Serviço de Provisionamento de Dispositivos.
 
@@ -32,11 +32,11 @@ Este artigo é orientado para uma estação de trabalho baseada no Windows. No e
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Os pré-requisitos a seguir são para um ambiente de desenvolvimento do Windows. Para Linux ou macOS, confira a seção apropriada em [Preparar seu ambiente de desenvolvimento](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) na documentação do SDK.
 
-* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) com a carga de trabalho ["Desenvolvimento para desktop com C++"](https://docs.microsoft.com/cpp/?view=vs-2019#pivot=workloads) habilitada. Também há suporte para o Visual Studio 2015 e o Visual Studio 2017.
+* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) com a carga de trabalho ["Desenvolvimento para desktop com C++"](/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) habilitada. Também há suporte para o Visual Studio 2015 e o Visual Studio 2017.
 
 * Versão mais recente do [Git](https://git-scm.com/download/) instalada.
 
@@ -46,7 +46,7 @@ Os pré-requisitos a seguir são para um ambiente de desenvolvimento do Windows.
 
 Nesta seção, você preparará um ambiente de desenvolvimento usado para compilar o [SDK de C do IoT do Azure](https://github.com/Azure/azure-iot-sdk-c). 
 
-O SDK inclui o código de exemplo para um dispositivo simulado. Este dispositivo simulado tentará realizar provisionamento durante a sequência de inicialização do dispositivo.
+O SDK inclui o código de exemplo de provisionamento para dispositivos. Esse código tentará realizar provisionamento durante a sequência de inicialização do dispositivo.
 
 1. Baixe o [sistema de build CMake](https://cmake.org/download/).
 
@@ -73,13 +73,13 @@ O SDK inclui o código de exemplo para um dispositivo simulado. Este dispositivo
     cd cmake
     ```
 
-5. Execute o comando a seguir, que cria uma versão do SDK específica para a plataforma cliente de desenvolvimento. Uma solução do Visual Studio para o dispositivo simulado será gerada no diretório `cmake`. 
+5. Execute o comando a seguir, que cria uma versão do SDK específica para a plataforma cliente de desenvolvimento. Uma solução do Visual Studio para o código de provisionamento de dispositivos será gerada no diretório `cmake`. 
 
     ```cmd
     cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
     ```
     
-    Se `cmake` não encontrar o compilador do C++, você poderá obter erros de build ao executar o comando acima. Se isso acontecer, tente executar esse comando no [prompt de comando do Visual Studio](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs). 
+    Se `cmake` não encontrar o compilador do C++, você poderá obter erros de build ao executar o comando acima. Se isso acontecer, tente executar esse comando no [prompt de comando do Visual Studio](/dotnet/framework/tools/developer-command-prompt-for-vs). 
 
     Após o sucesso da compilação, as últimas linhas de saída serão semelhantes à seguinte saída:
 
@@ -105,13 +105,13 @@ O SDK inclui o código de exemplo para um dispositivo simulado. Este dispositivo
 
 3. No painel **Adicionar Registro**, insira as informações a seguir e pressione o botão **Salvar**.
 
-   - **Mecanismo**: Selecione **Chave Simétrica** como o *Mecanismo* do atestado de identidade.
+   - **Mecanismo:** selecione **Chave Simétrica** como o *Mecanismo* do atestado de identidade.
 
-   - **Gerar chaves automaticamente**: Marque essa caixa.
+   - **Autogerar Chaves**: marque essa caixa.
 
-   - **ID de registro**: Insira uma ID de registro para identificar o registro. Use apenas caracteres alfanuméricos minúsculos e traço ('-'). Por exemplo, **symm-key-device-007**.
+   - **ID de registro**: insira uma ID de registro para identificar o registro. Use apenas caracteres alfanuméricos minúsculos e traço ('-'). Por exemplo, **symm-key-device-007**.
 
-   - **ID do Dispositivo de Hub IoT:** Insira um identificador de dispositivo. Por exemplo, **dispositivo-007**.
+   - **ID do dispositivo do IoT Hub:** insira um identificador de dispositivo. Por exemplo, **dispositivo-007**.
 
      ![Adicionar registro individual para atestado de chave simétrica no portal](./media/quick-create-simulated-device-symm-key/create-individual-enrollment.png)
 
@@ -123,13 +123,13 @@ O SDK inclui o código de exemplo para um dispositivo simulado. Este dispositivo
 
 <a id="firstbootsequence"></a>
 
-## <a name="simulate-first-boot-sequence-for-the-device"></a>Simular a primeira sequência de inicialização para o dispositivo
+## <a name="run-the-provisioning-code-for-the-device"></a>Executar o código de provisionamento para o dispositivo
 
 Nesta seção, atualize o código de exemplo para enviar a sequência de inicialização do dispositivo para a instância do Serviço de Provisionamento de Dispositivos. Essa sequência de inicialização fará com que o dispositivo seja reconhecido e atribuído a um hub IoT vinculado à instância do Serviço de Provisionamento de Dispositivo.
 
 
 
-1. No portal do Azure, selecione a guia **Visão Geral** de seu serviço de Provisionamento de Dispositivos e anote o valor de **_Escopo da ID_** .
+1. No portal do Azure, selecione a guia **Visão Geral** de seu serviço de Provisionamento de Dispositivos e anote o valor de **_Escopo da ID_**.
 
     ![Extrair informações do ponto de extremidade do Serviço de Provisionamento de Dispositivo na folha do portal](./media/quick-create-simulated-device-x509/extract-dps-endpoints.png) 
 
@@ -176,9 +176,9 @@ Nesta seção, atualize o código de exemplo para enviar a sequência de inicial
 
 7. Clique com botão direito do mouse no projeto **prov\_dev\_client\_sample** e selecione **Definir como Projeto de Inicialização**. 
 
-8. No menu do Visual Studio, selecione **Depurar** > **Iniciar sem depuração** para executar a solução. No prompt para recompilar o projeto, selecione **Sim** para recompilar o projeto antes da execução.
+8. No menu do Visual Studio, selecione **Depurar** > **Iniciar sem depuração** para executar a solução. Na recompilação do prompt de projeto, selecione **Sim** para recompilar o projeto antes da execução.
 
-    A saída a seguir é um exemplo do dispositivo simulado inicializando com êxito e conectando a instância de Serviço de provisionamento a ser atribuída a um Hub IoT:
+    A seguinte saída é um exemplo do dispositivo que se conecta com êxito à instância de Serviço de provisionamento a ser atribuída a um hub IoT:
 
     ```cmd
     Provisioning API Version: 1.2.8
@@ -194,7 +194,7 @@ Nesta seção, atualize o código de exemplo para enviar a sequência de inicial
     Press enter key to exit:
     ```
 
-9. No portal, navegue até o Hub IoT ao qual o dispositivo simulado foi atribuído e selecione a guia **Dispositivos IoT**. No provisionamento com êxito do simulado para o Hub, a ID de dispositivo aparece na folha **Dispositivos IoT**, com o *STATUS* como **habilitado**. Talvez seja necessário pressionar o botão **Atualizar** na parte superior. 
+9. No portal, navegue até o hub IoT ao qual o dispositivo foi atribuído e selecione a guia **dispositivos IoT**. No provisionamento bem-sucedido do dispositivo no hub, a identificação do dispositivo será exibida na folha **Dispositivos IoT** com o *STATUS* como **habilitado**. Talvez seja necessário pressionar o botão **Atualizar** na parte superior. 
 
     ![Dispositivo é registrado no Hub IoT](./media/quick-create-simulated-device-symm-key/hub-registration.png) 
 
@@ -209,7 +209,7 @@ Se planejar continuar a trabalhar e explorar o dispositivo cliente de exemplo, n
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste início rápido, você criou um dispositivo simulado no computador Windows e o provisionou para o Hub IoT usando a chave Simétrica com o Serviço de Provisionamento de Dispositivos no Hub IoT do Azure no portal. Para saber como registrar o dispositivo programaticamente, continue no início rápido para registro programático de dispositivos X.509. 
+Neste guia de início rápido, você executou o código de provisionamento de dispositivos em seu computador Windows.  O dispositivo foi autenticado e provisionado em seu hub IoT usando uma chave simétrica. Para saber como provisionar um dispositivo de certificado X.509, prossiga para o guia de início rápido para dispositivos X.509. 
 
 > [!div class="nextstepaction"]
-> [Início rápido do Azure – Registrar dispositivos X.509 no Serviço de Provisionamento de Dispositivos no Hub IoT do Azure](quick-enroll-device-x509-java.md)
+> [Início Rápido do Azure – Provisionar um dispositivo X.509 usando o SDK do C para o IoT do Azure](quick-create-simulated-device-x509.md)

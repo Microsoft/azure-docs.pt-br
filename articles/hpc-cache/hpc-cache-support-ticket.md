@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: v-erkel
 ms.openlocfilehash: 95247985be955b71403a5c2c78962792c6451183
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87061437"
 ---
 # <a name="open-a-support-ticket-for-azure-hpc-cache"></a>Abrir um tíquete de suporte para o cache do Azure HPC

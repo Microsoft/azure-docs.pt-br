@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: f84fe995e65d2b67aaaf4ff9acc4a6a44ce607dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 45b2ac73ffcb4b777572f9ad62d8aae0e8277e1c
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67171962"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95561628"
 ---
 > [!NOTE]
 > Ao fazer alterações na configuração do Adaptador StorSimple para SharePoint RBS, você deve estar conectado com uma conta de usuário que pertença ao grupo Administradores do Domínio. Além disso, você deve acessar a página de configuração em um navegador em execução no mesmo host que a Administração Central.
@@ -115,5 +115,5 @@ ms.locfileid: "67171962"
    
 9. Vá para a próxima etapa: [Configurar a coleta de lixo](#configure-garbage-collection).
 
-[6]: https://technet.microsoft.com/library/ff628254(v=office.15).aspx
-[7]: https://technet.microsoft.com/library/ff628255(v=office.14).aspx
+[6]: /SharePoint/administration/migrate-content-into-or-out-of-rbs
+[7]: /previous-versions/office/sharepoint-foundation-2010/ff628255(v=office.14)

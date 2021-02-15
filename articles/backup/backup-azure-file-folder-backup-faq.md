@@ -3,12 +3,12 @@ title: Agente de Serviços de Recuperação do Microsoft Azure (MARS) – pergun
 description: Aborda perguntas comuns sobre como fazer backup de arquivos e pastas com o backup do Azure.
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: e50e424f1a9f044aa1ed8e95c1bce002d134bffe
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 1edfaed99e60409774496c5ae75df8be99a8fe1f
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87874615"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917351"
 ---
 # <a name="frequently-asked-questions---microsoft-azure-recovery-services-mars-agent"></a>Agente de perguntas frequentes – Serviços de Recuperação do Microsoft Azure (MARS)
 
@@ -32,7 +32,7 @@ As credenciais do cofre expiram após 10 dias. Se o arquivo de credenciais expir
 
 ### <a name="what-characters-are-allowed-for-the-passphrase"></a>Quais caracteres são permitidos para a frase secreta?
 
-A frase secreta deve usar caracteres do conjunto de caracteres ASCII, com [valores ASCII menores ou iguais a 127](https://docs.microsoft.com/office/vba/language/reference/user-interface-help/character-set-0127).
+A frase secreta deve usar caracteres do conjunto de caracteres ASCII, com [valores ASCII menores ou iguais a 127](/office/vba/language/reference/user-interface-help/character-set-0127).
 
 ### <a name="from-what-drives-can-i-back-up-files-and-folders"></a>De quais unidades posso fazer backup de arquivos e pastas?
 
@@ -72,6 +72,10 @@ Sim. O agente MARS converte os dados com eliminação de duplicação em dados n
 
 Sim, a instalação do agente MARS e a configuração de backups usando o console MARS precisam que o usuário seja um administrador local no servidor protegido.
 
+### <a name="what-is-the-impact-on-mars-agent-backups-of-transferring-the-vault-subscription-to-a-different-azure-ad-directory"></a>Qual é o impacto nos backups do agente MARS de transferir a assinatura do cofre para um diretório diferente do Azure AD?
+
+A alteração do diretório do AD do Azure não terá impacto sobre os backups do agente MARS. 
+
 ## <a name="manage-backups"></a>Gerenciar backups
 
 ### <a name="what-happens-if-i-rename-a-windows-machine-configured-for-backup"></a>O que acontece se eu renomear um computador Windows configurado para backup?
@@ -109,7 +113,7 @@ O tamanho da pasta de cache determina a quantidade de dados que você está faze
 
 ### <a name="how-to-check-if-scratch-folder-is-valid-and-accessible"></a>Como verificar se a pasta de rascunho é válida e acessível?
 
-1. Por padrão, a pasta de rascunho está localizada em`\Program Files\Microsoft Azure Recovery Services Agent\Scratch`
+1. Por padrão, a pasta de rascunho está localizada em `\Program Files\Microsoft Azure Recovery Services Agent\Scratch`
 2. Verifique se o caminho do local da pasta de rascunho corresponde aos valores das entradas da chave do registro mostradas abaixo:
 
     | Caminho do registro | Chave do Registro | Valor |
@@ -123,7 +127,7 @@ O tamanho da pasta de cache determina a quantidade de dados que você está faze
 
     ```Net stop obengine```
 2. Se você tiver configurado o backup do estado do sistema, abra o gerenciamento de disco e desmonte os discos com nomes no formato `"CBSSBVol_<ID>"` .
-3. Por padrão, a pasta de rascunho está localizada em`\Program Files\Microsoft Azure Recovery Services Agent\Scratch`
+3. Por padrão, a pasta de rascunho está localizada em `\Program Files\Microsoft Azure Recovery Services Agent\Scratch`
 4. Copie a `\Scratch` pasta inteira para uma unidade diferente que tenha espaço suficiente. Certifique-se de que o conteúdo seja copiado, não movido.
 5. Atualize as entradas de registro a seguir com o caminho da pasta de rascunho recentemente movida.
 
@@ -199,7 +203,7 @@ Se você tiver a mesma senha (que você forneceu durante o registro) da máquina
 
 ### <a name="my-backup-jobs-have-been-failing-or-not-running-for-a-long-time-im-past-the-retention-period-can-i-still-restore"></a>Meus trabalhos de backup estavam falhando ou não em execução há muito tempo. Estou além do período de retenção. Ainda posso restaurar?
 
-Como medida de segurança, o backup do Azure preservará o último ponto de recuperação, mesmo que ele esteja além do período de retenção. Quando os backups forem retomados e novos pontos de recuperação forem disponibilizados, o ponto de recuperação mais antigo será removido de acordo com a retenção especificada.
+Como medida de segurança, o backup do Azure preservará o ponto de recuperação mais recente, mesmo que ele esteja além do período de retenção. Quando os backups forem retomados e novos pontos de recuperação forem disponibilizados, o ponto de recuperação mais antigo será removido de acordo com a retenção especificada.
 
 ### <a name="what-happens-if-i-cancel-an-ongoing-restore-job"></a>O que acontecerá se eu cancelar um trabalho de restauração em andamento?
 

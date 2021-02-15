@@ -4,12 +4,12 @@ description: Saiba como implementar temporizadores duráveis na extensão de Fun
 ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: azfuncdf
-ms.openlocfilehash: 0226e5141b100aa3fcf89dd1a5cade8f3cd6cf1c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: bb91f205a9b83b0b4b410644ef6c0fcbbf60876a
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87056222"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91876440"
 ---
 # <a name="timers-in-durable-functions-azure-functions"></a>Temporizadores nas Funções Duráveis (Azure Functions)
 
@@ -22,7 +22,7 @@ Você cria um temporizador durável chamando o `CreateTimer` método (.net) ou o
 Quando você cria um temporizador que expira às 4:30 PM, o Framework de tarefa durável subjacente enfileira uma mensagem que se torna visível somente às 4:30 PM. Ao executar no plano de consumo de Azure Functions, a mensagem de temporizador recentemente visível garantirá que o aplicativo de funções seja ativado em uma VM apropriada.
 
 > [!NOTE]
-> * Temporizadores duráveis atualmente estão limitados a 7 dias. Se forem necessários atrasos maiores, eles poderão ser simulados usando as APIs do temporizador em um `while` loop.
+> * A partir da [versão 2.3.0](https://github.com/Azure/azure-functions-durable-extension/releases/tag/v2.3.0) da extensão durável, os temporizadores duráveis são ilimitados. Em versões anteriores da extensão, os temporizadores duráveis são limitados a sete dias. Quando você estiver usando uma versão anterior e precisar de um atraso de mais de sete dias, use as APIs do temporizador em um `while` loop para simular esse atraso.
 > * Sempre use em `CurrentUtcDateTime` vez de `DateTime.UtcNow` em .net ou em `currentUtcDateTime` vez de `Date.now` ou `Date.UTC` em JavaScript ao calcular o tempo de acionamento para temporizadores duráveis. Para obter mais informações, consulte o artigo [restrições de código de função do Orchestrator](durable-functions-code-constraints.md) .
 
 ## <a name="usage-for-delay"></a>Uso para atrasos

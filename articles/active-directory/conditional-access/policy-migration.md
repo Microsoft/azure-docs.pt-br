@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 33b1f76dd1489e00115d0f805add8d754038df84
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d1811d5b9ae4d3e34b48e1cdc156438f2bad98d1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77185921"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "90601647"
 ---
 # <a name="conditional-access-classic-policy-migration"></a>Migração de política clássica de acesso condicional
 
@@ -73,9 +73,9 @@ Os seguintes aspectos são importantes no contexto de consolidação de uma pol�
    - Combine várias condições se exigido por seu cenário. 
    - Selecione vários requisitos como acesso de controle e combine-os com uma lógica *OR* (requer um dos controles selecionados) ou com uma lógica *AND* (requer todos os controles selecionados).
 
-### <a name="office-365-exchange-online"></a>Office 365 Exchange online
+### <a name="exchange-online"></a>Exchange Online
 
-Se você deseja migrar as políticas de clássicas para **Office 365 Exchange online** que incluem **Exchange Active Sync** como condição de aplicativos cliente, você não pode consolidá-las em uma nova política. 
+Se você quiser migrar políticas clássicas para o **Exchange Online** que incluem **Exchange Active Sync** como condição de aplicativos cliente, talvez não seja possível consolidá-las em uma nova política. 
 
 Isso é, por exemplo, o caso se você deseja dar suporte a todos os tipos de aplicativo cliente. Em uma nova política que tem **Exchange Active Sync** como condição de aplicativos cliente, não será possível selecionar outros aplicativos cliente.
 
@@ -89,7 +89,7 @@ Se você tiver uma nova política que tem **Exchange Active Sync** como condiç�
 
 ![Condições de acesso condicional](./media/policy-migration/16.png)
  
-As políticas clássicas baseadas em aplicativo para o Office 365 Exchange Online que incluem o **Exchange Active Sync** como condição de aplicativos cliente permitem plataformas de dispositivo **com** e sem **suporte** . Uma vez que você não pode configurar plataformas de dispositivos individuais em uma nova política relacionada, você pode limitar o suporte somente para [plataformas de dispositivo com suporte](concept-conditional-access-conditions.md#device-platforms). 
+As políticas clássicas baseadas em aplicativo para o Exchange Online que incluem o **Exchange Active Sync** como condição de aplicativos cliente permitem plataformas de dispositivo **com** e sem **suporte** . Uma vez que você não pode configurar plataformas de dispositivos individuais em uma nova política relacionada, você pode limitar o suporte somente para [plataformas de dispositivo com suporte](concept-conditional-access-conditions.md#device-platforms). 
 
 ![Acesso condicional selecione Exchange ActiveSync](./media/policy-migration/65.png)
 

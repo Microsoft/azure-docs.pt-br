@@ -12,10 +12,10 @@ ms.date: 04/02/2019
 ms.author: pafarley
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 7f1939536e033d2cf964dd2f4ee562e4ee20061b
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88934745"
 ---
 # <a name="use-your-model-with-the-prediction-api"></a>Usar seu modelo com a API de previsão
@@ -43,7 +43,7 @@ Depois que o modelo tiver sido publicado, você poderá recuperar as informaçõ
 
 ![A guia desempenho é mostrada com um retângulo vermelho ao redor do botão URL de previsão.](./media/use-prediction-api/published-iteration-prediction-url.png)
 
-![A guia desempenho é mostrada com um retângulo vermelho ao redor do valor da URL de previsão para usar um arquivo de imagem e o valor da chave de previsão.](./media/use-prediction-api/prediction-api-info.png)
+![A guia desempenho é mostrada com um retângulo vermelho ao redor do valor da URL de previsão para usar um arquivo de imagem e o valor Prediction-Key.](./media/use-prediction-api/prediction-api-info.png)
 
 
 Neste guia, você usará uma imagem local, portanto, copie a URL em **se você tiver um arquivo de imagem** em um local temporário. Copie também o valor da __chave de previsão__ correspondente.

@@ -10,18 +10,19 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: cbf18abe-41cb-44f7-bdec-966f32c89325
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/12/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a4856b2578a007f72aeeec64588ac7f9c58158de
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 4dfbffcaedb6c544a34e347633d5adc173fab33e
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88860763"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97655978"
 ---
 # <a name="sap-ascsscs-instance-multi-sid-high-availability-with-windows-server-failover-clustering-and-azure-shared-disk"></a>Alta disponibilidade da instância do SAP ASCS/SCS com clustering de failover do Windows Server e disco compartilhado do Azure
 
@@ -34,13 +35,13 @@ Este artigo se concentra em como migrar de uma única instalação do ASCS/SCS p
 
 No momento, você pode usar os discos do Azure SSD Premium como um disco compartilhado do Azure para a instância do SAP ASCS/SCS. As seguintes limitações estão em vigor:
 
--  O [ultra Disk do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#ultra-disk) não tem suporte como disco compartilhado do Azure para cargas de trabalho do SAP. Atualmente, não é possível posicionar VMs do Azure, usando o ultra Disk do Azure no conjunto de disponibilidade
--  O [disco compartilhado do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/disks-shared) com discos SSD Premium só tem suporte com VMs no conjunto de disponibilidade. Não há suporte na implantação Zonas de Disponibilidade. 
--  O valor do disco compartilhado do Azure [maxShares](https://docs.microsoft.com/azure/virtual-machines/windows/disks-shared-enable?tabs=azure-cli#disk-sizes) determina quantos nós de cluster podem usar o disco compartilhado. Normalmente, para a instância do SAP ASCS/SCS, você configurará dois nós no cluster de failover do Windows, portanto, o valor de `maxShares` deve ser definido como dois.
--  Todas as VMs de cluster do SAP ASCS/SCS devem ser implantadas no mesmo [grupo de posicionamento de proximidade do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/proximity-placement-groups).   
+-  O [ultra Disk do Azure](../../disks-types.md#ultra-disk) não tem suporte como disco compartilhado do Azure para cargas de trabalho do SAP. Atualmente, não é possível posicionar VMs do Azure, usando o ultra Disk do Azure no conjunto de disponibilidade
+-  O [disco compartilhado do Azure](../../disks-shared.md) com discos SSD Premium só tem suporte com VMs no conjunto de disponibilidade. Não há suporte na implantação Zonas de Disponibilidade. 
+-  O valor do disco compartilhado do Azure [maxShares](../../disks-shared-enable.md?tabs=azure-cli#disk-sizes) determina quantos nós de cluster podem usar o disco compartilhado. Normalmente, para a instância do SAP ASCS/SCS, você configurará dois nós no cluster de failover do Windows, portanto, o valor de `maxShares` deve ser definido como dois.
+-  Todas as VMs de cluster do SAP ASCS/SCS devem ser implantadas no mesmo [grupo de posicionamento de proximidade do Azure](../../windows/proximity-placement-groups.md).   
    Embora você possa implantar VMs de cluster do Windows no conjunto de disponibilidade com o disco compartilhado do Azure sem PPG, o PPG garantirá o fechamento da proximidade física dos discos compartilhados do Azure e das VMs do cluster, portanto, alcançando a latência mais baixa entre as VMs e a camada de armazenamento.    
 
-Para obter mais detalhes sobre as limitações do disco compartilhado do Azure, Examine cuidadosamente a seção [limitações](https://docs.microsoft.com/azure/virtual-machines/linux/disks-shared#limitations) da documentação do disco compartilhado do Azure.  
+Para obter mais detalhes sobre as limitações do disco compartilhado do Azure, Examine cuidadosamente a seção [limitações](../../disks-shared.md#limitations) da documentação do disco compartilhado do Azure.  
 
 > [!IMPORTANT]
 > Ao implantar o cluster de failover do Windows do SAP ASCS/SCS com o disco compartilhado do Azure, lembre-se de que sua implantação estará operando com um único disco compartilhado em um cluster de armazenamento. A instância do SAP ASCS/SCS será afetada, em caso de problemas com o cluster de armazenamento, em que o disco compartilhado do Azure é implantado.  
@@ -95,7 +96,7 @@ O ERS1 (Queue Replication Server 1) e o ERS2 (Enqueue Replication Server 2) têm
 
 ## <a name="infrastructure-preparation"></a>Preparação da infraestrutura
 
-Instalaremos um novo **PR2**de SID do SAP, além da instância existente do SAP **PR1** ASCS/SCS **clusterizada** .  
+Instalaremos um novo **PR2** de SID do SAP, além da instância existente do SAP **PR1** ASCS/SCS **clusterizada** .  
 
 ### <a name="host-names-and-ip-addresses"></a>Nomes de host e endereços IP
 
@@ -103,15 +104,15 @@ Instalaremos um novo **PR2**de SID do SAP, além da instância existente do SAP 
 | --- | --- | --- |---| ---|
 | primeiro cluster do ASCS/SCS do nó do cluster |PR1-ASCs-10 |10.0.0.4 |PR1-ASCs-avset |PR1PPG |
 | segundo cluster do nó do cluster ASCS/SCS |PR1-ASCs-11 |10.0.0.5 |PR1-ASCs-avset |PR1PPG |
-| Nome da rede de clusters | pr1clust |10.0.0.42 (**somente** para cluster do Win 2016) | n/d | n/d |
-| **SID1** Nome da rede do cluster ASCS | PR1-ascscl |10.0.0.43 | n/d | n/d |
-| **SID1** Nome de rede de cluster ERS (**somente** para ERS2) | PR1-erscl |10.0.0.44 | n/d | n/d |
-| **SID2** Nome da rede do cluster ASCS | PR2-ascscl |10.0.0.45 | n/d | n/d |
-| **SID2** Nome de rede de cluster ERS (**somente** para ERS2) | PR1-erscl |10.0.0.46 | n/d | n/d |
+| Nome da rede de clusters | pr1clust |10.0.0.42 (**somente** para cluster do Win 2016) | N/D | N/D |
+| **SID1** Nome da rede do cluster ASCS | PR1-ascscl |10.0.0.43 | N/D | N/D |
+| **SID1** Nome de rede de cluster ERS (**somente** para ERS2) | PR1-erscl |10.0.0.44 | N/D | N/D |
+| **SID2** Nome da rede do cluster ASCS | PR2-ascscl |10.0.0.45 | N/D | N/D |
+| **SID2** Nome de rede de cluster ERS (**somente** para ERS2) | PR1-erscl |10.0.0.46 | N/D | N/D |
 
 ### <a name="create-azure-internal-load-balancer"></a>Criar um balanceador de carga interno do Azure
 
-SAP ASCS, SAP SCS e o novo SAP ERS2, use o nome de host virtual e endereços IP virtuais. No Azure, é necessário um [balanceador de carga](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) para usar um endereço IP virtual. É altamente recomendável usar o [balanceador de carga padrão](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal). 
+SAP ASCS, SAP SCS e o novo SAP ERS2, use o nome de host virtual e endereços IP virtuais. No Azure, é necessário um [balanceador de carga](../../../load-balancer/load-balancer-overview.md) para usar um endereço IP virtual. É altamente recomendável usar o [balanceador de carga padrão](../../../load-balancer/quickstart-load-balancer-standard-public-portal.md). 
 
 Você precisará adicionar a configuração ao balanceador de carga existente para a segunda instância do SAP SID ASCS/SCS/ERS **PR2**. A configuração do primeiro **PR1** de SID do SAP já deve estar em vigor.  
 
@@ -121,17 +122,17 @@ Você precisará adicionar a configuração ao balanceador de carga existente pa
 - Configuração de back-end  
     Já está em vigor-as VMs já foram adicionadas ao pool de back-end, ao configurar para SAP SID **PR1**
 - Porta de Investigação
-    - Porta 620**NR** [**62002**] deixe a opção padrão para protocolo (TCP), intervalo (5), limite não íntegro (2)
+    - Porta 620 **NR** [**62002**] deixe a opção padrão para protocolo (TCP), intervalo (5), limite não íntegro (2)
 - Regras de balanceamento de carga
     - Se estiver usando o Standard Load Balancer, selecione portas de HA
     - Se estiver usando o Load Balancer Básico, crie regras de balanceamento de carga para as portas a seguir
-        - 32**NR** TCP [**3202**]
-        - 36**NR** TCP [**3602**]
-        - 39**NR** TCP [**3902**]
-        - 81**NR** TCP [**8102**]
-        - 5**NR**13 TCP [**50213**]
-        - 5**NR**14 TCP [**50214**]
-        - 5**NR**16 TCP [**50216**]
+        - 32 **NR** TCP [**3202**]
+        - 36 **NR** TCP [**3602**]
+        - 39 **NR** TCP [**3902**]
+        - 81 **NR** TCP [**8102**]
+        - 5 **NR** 13 TCP [**50213**]
+        - 5 **NR** 14 TCP [**50214**]
+        - 5 **NR** 16 TCP [**50216**]
         - Associe com o IP de front-end **PR2** ASCS, investigação de integridade e o pool de back-ends existente.  
 
     - Verifique se o tempo limite de ociosidade (minutos) está definido como o valor máximo 30 e se o IP flutuante (retorno de servidor direto) está habilitado.
@@ -146,16 +147,16 @@ Como o enqueue Replication Server 2 (ERS2) também é clusterizado, o endereço 
   As VMs já foram adicionadas ao pool de back-end ILB.  
 
 - Nova porta de investigação
-    - Porta 621**NR**  [**62112**] deixe a opção padrão para protocolo (TCP), intervalo (5), limite não íntegro (2)
+    - Porta 621 **NR**  [**62112**] deixe a opção padrão para protocolo (TCP), intervalo (5), limite não íntegro (2)
 
 - Novas regras de balanceamento de carga
     - Se estiver usando o Standard Load Balancer, selecione portas de HA
     - Se estiver usando o Load Balancer Básico, crie regras de balanceamento de carga para as portas a seguir
-        - 32**NR** TCP [**3212**]
-        - 33**NR** TCP [**3312**]
-        - 5**NR**13 TCP [**51212**]
-        - 5**NR**14 TCP [**51212**]
-        - 5**NR**16 TCP [**51212**]
+        - 32 **NR** TCP [**3212**]
+        - 33 **NR** TCP [**3312**]
+        - 5 **NR** 13 TCP [**51212**]
+        - 5 **NR** 14 TCP [**51212**]
+        - 5 **NR** 16 TCP [**51212**]
         - Associe com o IP de front-end **PR2** ERS2, investigação de integridade e o pool de back-ends existente.  
 
     - Verifique se o tempo limite de ociosidade (minutos) está definido como o valor máximo, por exemplo, 30, e se o IP flutuante (retorno de servidor direto) está habilitado.
@@ -235,9 +236,9 @@ Execute este comando em um dos nós de cluster. Você precisará ajustar os valo
 
 4. Registre o disco no cluster.  
    ```powershell
-    # Add the disk to cluster 
+     # Add the disk to cluster 
     Get-ClusterAvailableDisk -All | Add-ClusterDisk
-    # Example output     
+    # Example output 
     # Name           State  OwnerGroup        ResourceType 
     # ----           -----  ----------        ------------ 
     # Cluster Disk 2 Online Available Storage Physical Disk
@@ -259,7 +260,7 @@ Execute este comando em um dos nós de cluster. Você precisará ajustar os valo
  
    _Definir a entrada DNS para o nome virtual e o endereço IP do cluster ERS2 do SAP_
 
-3. Para definir o endereço IP atribuído ao nome de host virtual, selecione domínio do **Gerenciador DNS**  >  **Domain**.
+3. Para definir o endereço IP atribuído ao nome de host virtual, selecione domínio do **Gerenciador DNS**  >  .
 
    ![Novo nome virtual e endereço IP para a configuração de cluster do SAP ASCS/SCS e do ERS2][sap-ha-guide-figure-6011]
 
@@ -293,7 +294,7 @@ Use a funcionalidade de investigação do balanceador interno de carga para faze
 No entanto, isso não funcionará em algumas configurações de cluster porque apenas uma instância está ativa. A outra instância é passiva e não pode aceitar parte da carga de trabalho. Uma funcionalidade de investigação ajuda quando o balanceador de carga interno do Azure detecta qual instância está ativa e só tem como alvo a instância ativa.  
 
 > [!IMPORTANT]
-> Nesta configuração de exemplo, **ProbePort** é definido como 620**NR**. Para a instância do SAP ASCS com o número **02** , é 620**02**.
+> Nesta configuração de exemplo, **ProbePort** é definido como 620 **NR**. Para a instância do SAP ASCS com o número **02** , é 620 **02**.
 > Você precisará ajustar a configuração para corresponder aos números de instância do SAP e ao seu SID do SAP.
 
 Para adicionar uma porta de investigação, execute este módulo do PowerShell em uma das VMs do cluster:
@@ -345,7 +346,7 @@ Para adicionar uma porta de investigação, execute este módulo do PowerShell e
     
     .EXAMPLE 
     # Set probe port to 62000, on SAP cluster resource 'SAP AB1 IP'. SAP cluster group 'SAP AB1' IS NOT restarted, therefore changes are NOT active.
-    # To activate the changes you need to manualy restart 'SAP AB1' cluster group.
+    # To activate the changes you need to manually restart 'SAP AB1' cluster group.
     Set-AzureLoadBalancerHealthCheckProbePortOnSAPClusterIPResource -SAPSID AB1 -ProbePort 62000 -RestartSAPClusterGroup $False
     
     .EXAMPLE 
@@ -361,7 +362,7 @@ Para adicionar uma porta de investigação, execute este módulo do PowerShell e
             [ValidateNotNullOrEmpty()]  
             [ValidateLength(3,3)]      
             [string]$SAPSID,
-                  
+
             [Parameter(Mandatory=$True)]
             [ValidateNotNullOrEmpty()]        
             [int] $ProbePort,

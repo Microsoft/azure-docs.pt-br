@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/27/2020
-ms.openlocfilehash: 4ecce689e287673a3b08f8f90f87c28e021106d6
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 64cdb41540d9750be8664dc60c2b6ceda6c324ca
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037807"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99831919"
 ---
 # <a name="tutorial-create-an-iot-edge-instance-for-video-analytics-intel-nuc"></a>Tutorial: Criar uma instância do IoT Edge para análise de vídeo (Intel NUC)
 
@@ -35,15 +35,15 @@ Neste tutorial, você aprende a:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Antes de começar, você deverá concluir o tutorial anterior [Criar um aplicativo da Análise Dinâmica de Vídeo no Azure IoT Central](./tutorial-video-analytics-create-app.md).
+* Antes de começar, você deverá concluir o tutorial anterior [Criar um aplicativo da Análise Dinâmica de Vídeo no Azure IoT Central (YOLO v3)](./tutorial-video-analytics-create-app-yolo-v3.md) ou [Criar uma análise de vídeo no Azure IoT Central (OpenVINO&trade;)](tutorial-video-analytics-create-app-openvino.md).
 * Um dispositivo, como um Intel NUC, executando o Linux, que possa executar contêineres do Docker e tenha capacidade de processamento suficiente para executar a análise de vídeo.
-* O [runtime do IoT Edge instalado](../../iot-edge/how-to-install-iot-edge-linux.md) e em execução no dispositivo.
+* O [runtime do IoT Edge instalado](../../iot-edge/how-to-install-iot-edge.md) e em execução no dispositivo.
 * Para se conectar ao dispositivo do IoT Edge no computador Windows, você precisará do [cliente SSH PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) ou um utilitário equivalente.
 * Você também precisará ter uma assinatura do Azure. Caso você não tenha uma assinatura do Azure, crie uma gratuitamente na [página de inscrição do Azure](https://aka.ms/createazuresubscription).
 
 ## <a name="configure-the-iot-edge-device"></a>Configurar o dispositivo IoT Edge
 
-Caso não tenha o runtime do IoT Edge instalado no computador do Intel NUC, confira as instruções de [Instalar o runtime do Azure IoT Edge em sistemas Linux baseados em Debian](../../iot-edge/how-to-install-iot-edge-linux.md).
+Caso não tenha o runtime do IoT Edge instalado no computador do Intel NUC, confira as instruções de [Instalar o runtime do Azure IoT Edge em sistemas Linux baseados em Debian](../../iot-edge/how-to-install-iot-edge.md).
 
 Para atualizar o runtime do IoT Edge:
 
@@ -117,9 +117,9 @@ Configure o IoT Edge para se registrar e se conectar ao aplicativo do IoT Centra
 
 1. Substitua `{scope_id}` pelo **Escopo da ID** que você anotou no arquivo *scratchpad.txt* no tutorial anterior.
 
-1. Substitua `{registration_id}` por *lva-gateway-001*, o dispositivo criado no tutorial anterior.
+1. Substitua `{registration_id}` por *gateway-001*, o dispositivo criado no tutorial anterior.
 
-1. Substitua `{symmetric_key}` pela **Chave primária** do dispositivo **lva-gateway-001** que você anotou no arquivo *scratchpad.txt* no tutorial anterior.
+1. Substitua `{symmetric_key}` pela **Chave primária** do dispositivo **gateway-001** que você anotou no arquivo *scratchpad.txt* no tutorial anterior.
 
 1. Execute o seguinte comando para reiniciar o daemon do IoT Edge:
 
@@ -140,7 +140,7 @@ Configure o IoT Edge para se registrar e se conectar ao aplicativo do IoT Centra
 
 Se os módulos do IoT Edge não forem iniciados corretamente, confira [Solução de problemas do dispositivo do IoT Edge](../../iot-edge/troubleshoot.md).
 
-## <a name="collect-the-rstp-stream-from-your-camera"></a>Coletar o fluxo do RSTP na câmera
+## <a name="collect-the-rtsp-stream-from-your-camera"></a>Coletar o fluxo do RSTP da sua câmera
 
 Identifique as URLs de fluxo do RTSP das câmeras conectadas ao dispositivo do IoT Edge, por exemplo:
 
@@ -148,6 +148,14 @@ Identifique as URLs de fluxo do RTSP das câmeras conectadas ao dispositivo do I
 
 > [!TIP]
 > Tente ver o fluxo da câmera no computador IoT Edge usando um player de mídia, como o VLC.
+
+## <a name="clean-up-resources"></a>Limpar recursos
+
+Se você tiver concluído o aplicativo, remova todos os recursos criados da seguinte maneira:
+
+1. No aplicativo do IoT Central, procure a página **Seu aplicativo** na seção **Administração**. Em seguida, selecione **Excluir**.
+1. No portal do Azure, exclua o grupo de recursos **lva-rg**.
+1. No computador local, pare o contêiner **amp-viewer** do Docker.
 
 ## <a name="next-steps"></a>Próximas etapas
 

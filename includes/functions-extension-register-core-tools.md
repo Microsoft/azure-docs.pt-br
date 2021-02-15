@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 08/07/2020
 ms.author: glenga
 ms.openlocfilehash: a4f03223b5067d18f5d6e747b3bb630a86031b8f
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88689534"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020324"
 ---
 Se não for possível usar os pacotes de extensão, você poderá usar Azure Functions Core Tools localmente para instalar os pacotes de extensão específicos exigidos pelo seu projeto.
 

@@ -7,18 +7,18 @@ ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 3fc8f205bff52fad6e55b7aa6692ec80ae5e954a
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 12e57361b9e275fc441df27a3a1381989d48751c
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212148"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98788563"
 ---
 # <a name="azure-service-bus-output-binding-for-azure-functions"></a>Associação de saída do barramento de serviço do Azure para Azure Functions
 
 Use a associação de saída do barramento de serviço do Azure para enviar mensagens de fila ou de tópico.
 
-Para obter informações sobre a instalação e detalhes de configuração, confira a [visão geral](functions-bindings-service-bus-output.md).
+Para obter informações sobre a instalação e detalhes de configuração, confira a [visão geral](functions-bindings-service-bus.md).
 
 ## <a name="example"></a>Exemplo
 
@@ -87,6 +87,41 @@ public static async Task Run(TimerInfo myTimer, ILogger log, IAsyncCollector<str
 }
 ```
 
+# <a name="java"></a>[Java](#tab/java)
+
+O exemplo a seguir mostra uma função Java que envia uma mensagem para uma fila do barramento de serviço `myqueue` quando disparada por uma solicitação HTTP.
+
+```java
+@FunctionName("httpToServiceBusQueue")
+@ServiceBusQueueOutput(name = "message", queueName = "myqueue", connection = "AzureServiceBusConnection")
+public String pushToQueue(
+  @HttpTrigger(name = "request", methods = {HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS)
+  final String message,
+  @HttpOutput(name = "response") final OutputBinding<T> result ) {
+      result.setValue(message + " has been sent.");
+      return message;
+ }
+```
+
+ Na [biblioteca de runtime das funções Java](/java/api/overview/azure/functions/runtime), use a anotação `@QueueOutput` nos parâmetros da função cujo valor poderia ser gravado em uma fila do Barramento de Serviço.  O tipo de parâmetro deve ser `OutputBinding<T>`, onde T é qualquer tipo Java nativo de um POJO.
+
+As funções Java também podem gravar em um tópico do barramento de serviço. O exemplo a seguir usa a `@ServiceBusTopicOutput` anotação para descrever a configuração da Associação de saída. 
+
+```java
+@FunctionName("sbtopicsend")
+    public HttpResponseMessage run(
+            @HttpTrigger(name = "req", methods = {HttpMethod.GET, HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Optional<String>> request,
+            @ServiceBusTopicOutput(name = "message", topicName = "mytopicname", subscriptionName = "mysubscription", connection = "ServiceBusConnection") OutputBinding<String> message,
+            final ExecutionContext context) {
+        
+        String name = request.getBody().orElse("Azure Functions");
+
+        message.setValue(name);
+        return request.createResponseBuilder(HttpStatus.OK).body("Hello, " + name).build();
+        
+    }
+```
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 O exemplo a seguir mostra uma associação de saída de Barramento de Serviço em um arquivo *function.json* e uma [função JavaScript C#](functions-reference-node.md) que usa a associação. A função usa um gatilho de timer para enviar uma mensagem da fila a cada 15 segundos.
@@ -139,6 +174,39 @@ module.exports = function (context, myTimer) {
 };
 ```
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+O exemplo a seguir mostra uma associação de saída do barramento de serviço em um *function.jsno* arquivo e uma [função do PowerShell](functions-reference-powershell.md) que usa a associação. 
+
+Aqui estão os dados de associação no arquivo *function.json*:
+
+```json
+{
+  "bindings": [
+    {
+      "type": "serviceBus",
+      "direction": "out",
+      "connection": "AzureServiceBusConnectionString",
+      "name": "outputSbMsg",
+      "queueName": "outqueue",
+      "topicName": "outtopic"
+    }
+  ]
+}
+```
+
+Aqui está o PowerShell que cria uma mensagem como a saída da função.
+
+```powershell
+param($QueueItem, $TriggerMetadata) 
+
+Push-OutputBinding -Name outputSbMsg -Value @{ 
+    name = $QueueItem.name 
+    employeeId = $QueueItem.employeeId 
+    address = $QueueItem.address 
+} 
+```
+
 # <a name="python"></a>[Python](#tab/python)
 
 O exemplo a seguir demonstra como gravar em uma fila do barramento de serviço em Python.
@@ -175,7 +243,7 @@ Uma definição de associação do barramento de serviço é definida em *functi
 }
 ```
 
-Em * _ \_ init_ \_ . py*, você pode gravar uma mensagem na fila passando um valor para o `set` método.
+Em *_\_ init_ \_ . py*, você pode gravar uma mensagem na fila passando um valor para o `set` método.
 
 ```python
 import azure.functions as func
@@ -187,41 +255,6 @@ def main(req: func.HttpRequest, msg: func.Out[str]) -> func.HttpResponse:
     msg.set(input_msg)
 
     return 'OK'
-```
-
-# <a name="java"></a>[Java](#tab/java)
-
-O exemplo a seguir mostra uma função Java que envia uma mensagem para uma fila do barramento de serviço `myqueue` quando disparada por uma solicitação HTTP.
-
-```java
-@FunctionName("httpToServiceBusQueue")
-@ServiceBusQueueOutput(name = "message", queueName = "myqueue", connection = "AzureServiceBusConnection")
-public String pushToQueue(
-  @HttpTrigger(name = "request", methods = {HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS)
-  final String message,
-  @HttpOutput(name = "response") final OutputBinding<T> result ) {
-      result.setValue(message + " has been sent.");
-      return message;
- }
-```
-
- Na [biblioteca de runtime das funções Java](/java/api/overview/azure/functions/runtime), use a anotação `@QueueOutput` nos parâmetros da função cujo valor poderia ser gravado em uma fila do Barramento de Serviço.  O tipo de parâmetro deve ser `OutputBinding<T>`, onde T é qualquer tipo Java nativo de um POJO.
-
-As funções Java também podem gravar em um tópico do barramento de serviço. O exemplo a seguir usa a `@ServiceBusTopicOutput` anotação para descrever a configuração da Associação de saída. 
-
-```java
-@FunctionName("sbtopicsend")
-    public HttpResponseMessage run(
-            @HttpTrigger(name = "req", methods = {HttpMethod.GET, HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Optional<String>> request,
-            @ServiceBusTopicOutput(name = "message", topicName = "mytopicname", subscriptionName = "mysubscription", connection = "ServiceBusConnection") OutputBinding<String> message,
-            final ExecutionContext context) {
-        
-        String name = request.getBody().orElse("Azure Functions");
-
-        message.setValue(name);
-        return request.createResponseBuilder(HttpStatus.OK).body("Hello, " + name).build();
-        
-    }
 ```
 
 ---
@@ -262,17 +295,21 @@ Você pode usar o atributo `ServiceBusAccount` para especificar a conta do Barra
 
 O script C# não dá suporte a atributos.
 
+# <a name="java"></a>[Java](#tab/java)
+
+As `ServiceBusQueueOutput` `ServiceBusTopicOutput` anotações e estão disponíveis para gravar uma mensagem como uma saída de função. O parâmetro decorado com essas anotações deve ser declarado como um `OutputBinding<T>` onde `T` é o tipo correspondente ao tipo da mensagem.
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 O JavaScript não dá suporte a atributos.
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Não há suporte para atributos pelo PowerShell.
+
 # <a name="python"></a>[Python](#tab/python)
 
 O Python não dá suporte a atributos.
-
-# <a name="java"></a>[Java](#tab/java)
-
-As `ServiceBusQueueOutput` `ServiceBusTopicOutput` anotações e estão disponíveis para gravar uma mensagem como uma saída de função. O parâmetro decorado com essas anotações deve ser declarado como um `OutputBinding<T>` onde `T` é o tipo correspondente ao tipo da mensagem.
 
 ---
 
@@ -330,15 +367,19 @@ Ao trabalhar com funções C#:
 
 * Para acessar a ID da sessão, associe a um [`Message`](/dotnet/api/microsoft.azure.servicebus.message) tipo e use a `sessionId` propriedade.
 
+# <a name="java"></a>[Java](#tab/java)
+
+Use o [SDK do barramento de serviço do Azure](../service-bus-messaging/index.yml) em vez da Associação de saída interna.
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Acesse a fila ou o tópico usando `context.bindings.<name from function.json>` . Você pode atribuir uma cadeia de caracteres, uma matriz de bytes ou um objeto JavaScript (desserializado em JSON) para `context.binding.<name>` .
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+A saída para o barramento de serviço está disponível por meio do `Push-OutputBinding` cmdlet em que você passa argumentos que correspondem ao nome designado pelo parâmetro de nome da associação na *function.jsno* arquivo.
+
 # <a name="python"></a>[Python](#tab/python)
-
-Use o [SDK do barramento de serviço do Azure](../service-bus-messaging/index.yml) em vez da Associação de saída interna.
-
-# <a name="java"></a>[Java](#tab/java)
 
 Use o [SDK do barramento de serviço do Azure](../service-bus-messaging/index.yml) em vez da Associação de saída interna.
 
@@ -388,7 +429,7 @@ Se você tiver `isSessionsEnabled` definido como `true` , o `sessionHandlerOptio
 |---------|---------|---------|
 |prefetchCount|0|Obtém ou define o número de mensagens que o destinatário da mensagem pode solicitar simultaneamente.|
 |maxAutoRenewDuration|00:05:00|A duração máxima na qual o bloqueio de mensagem será renovado automaticamente.|
-|autoComplete|true|Se o gatilho deve chamar automaticamente Complete após o processamento ou se o código de função chamará manualmente.<br><br>A configuração para `false` tem suporte apenas em C#.<br><br>Se definido como `true` , o gatilho concluirá a mensagem automaticamente se a execução da função for concluída com êxito e abandonará a mensagem de outra forma.<br><br>Quando definido como `false` , você é responsável por chamar métodos [MessageReceiver](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver?view=azure-dotnet) para concluir, abandonar ou incorrer a mensagem. Se uma exceção for lançada (e nenhum dos `MessageReceiver` métodos for chamado), o bloqueio permanecerá. Depois que o bloqueio expirar, a mensagem será colocada em fila novamente com o `DeliveryCount` incremento e o bloqueio será renovado automaticamente.<br><br>Em funções não C #, as exceções na função resultam em chamadas de tempo de execução `abandonAsync` em segundo plano. Se nenhuma exceção ocorrer, `completeAsync` será chamado em segundo plano. |
+|autoComplete|true|Se o gatilho deve chamar automaticamente Complete após o processamento ou se o código de função chamará manualmente.<br><br>A configuração para `false` tem suporte apenas em C#.<br><br>Se definido como `true` , o gatilho concluirá a mensagem automaticamente se a execução da função for concluída com êxito e abandonará a mensagem de outra forma.<br><br>Quando definido como `false` , você é responsável por chamar métodos [MessageReceiver](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver?view=azure-dotnet&preserve-view=true) para concluir, abandonar ou incorrer a mensagem. Se uma exceção for lançada (e nenhum dos `MessageReceiver` métodos for chamado), o bloqueio permanecerá. Depois que o bloqueio expirar, a mensagem será colocada em fila novamente com o `DeliveryCount` incremento e o bloqueio será renovado automaticamente.<br><br>Em funções não C #, as exceções na função resultam em chamadas de tempo de execução `abandonAsync` em segundo plano. Se nenhuma exceção ocorrer, `completeAsync` será chamado em segundo plano. |
 |maxConcurrentCalls|16|O número máximo de chamadas simultâneas para o retorno de chamada que a bomba de mensagem deve iniciar por instância dimensionada. Por padrão, o runtime do Functions processa várias mensagens simultaneamente.|
 |maxConcurrentSessions|2000|O número máximo de sessões que podem ser manipuladas simultaneamente por instância dimensionada.|
 

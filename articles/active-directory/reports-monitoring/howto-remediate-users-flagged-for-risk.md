@@ -15,12 +15,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3037dd2e03062ebab0c48438aa4345a766a22fc8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 23bd7a26bc6215f50a2860ab4aac84f1b46301f5
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85608918"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92308955"
 ---
 # <a name="remediate-users-flagged-for-risk-in-the-azure-active-directory-portal"></a>Corrigir usuários sinalizados como de risco no portal do Azure Active Directory
 
@@ -40,11 +40,11 @@ Usuários sinalizados como risco, você pode executar as seguintes ações para 
 - Exigir que o usuário redefina a senha de forma segura na próxima vez que ele se conectar
 - Ignorar o risco de usuário sem realizar nenhuma ação de correção.
 
-Para obter mais informações, consulte [Usuários sinalizados para o relatório de segurança de risco](concept-user-at-risk.md).
+Para obter mais informações, consulte [Usuários sinalizados para o relatório de segurança de risco](../identity-protection/overview-identity-protection.md).
 
-### <a name="azure-ad-subscription-for-office-365-customers"></a>Assinatura do Azure AD para clientes do Office 365
+### <a name="azure-ad-subscription-for-microsoft-365-customers"></a>Assinatura do Azure AD para clientes Microsoft 365
 
-Você também pode usar suas credenciais do Office 365 para acessar o **Azure Admin Center**. Após ativar seu acesso ao Azure AD, você será redirecionado para o portal do Azure AD. No nível de assinatura básica, a quantidade de detalhes fornecida nos relatórios é limitada. Outras análises e dados estão disponíveis para assinantes Premium do Azure.
+Você também pode usar suas credenciais de Microsoft 365 para acessar o **centro de administração do Azure**. Após ativar seu acesso ao Azure AD, você será redirecionado para o portal do Azure AD. No nível de assinatura básica, a quantidade de detalhes fornecida nos relatórios é limitada. Outras análises e dados estão disponíveis para assinantes Premium do Azure.
 
 Para acessar os **usuários sinalizados para** relatórios de risco no centro de administração Microsoft 365:
 
@@ -60,7 +60,7 @@ Para acessar os **usuários sinalizados para** relatórios de risco no centro de
 Execute as seguintes ações para ajudar a corrigir as contas afetadas e proteger seu ambiente:
 
 1.  [Valide as informações corretas](https://aka.ms/MFAValid) para autenticação de vários fatores e redefinição de senha de autoatendimento. 
-2.  [Habilite a autenticação multifator](https://aka.ms/MFAuth) para todos os usuários. 
+2.  [Habilite a autenticação multifator](/microsoft-365/admin/security-and-compliance/set-up-multi-factor-authentication) para todos os usuários. 
 3.  Use esta [script de correção](https://aka.ms/remediate) para cada conta afetada, para executar automaticamente as etapas a seguir: 
 
     a. Redefina a senha para proteger a conta e elimine as sessões ativas.
@@ -75,21 +75,21 @@ Execute as seguintes ações para ajudar a corrigir as contas afetadas e protege
 
     f. Definir a complexidade da senha na conta como alta.
 
-    (por exemplo, Habilitar auditoria na caixa de correio.
+    g. Habilitar auditoria na caixa de correio.
 
     h. Produza um log de auditoria para o administrador revisar.
 
-4. Investigue o seu locatário do Office 365 e outras infraestruturas de TI, incluindo uma revisão de todas as configurações de locatário, contas de usuário e configurações por usuário para ver as modificações possíveis. Verifique se há indicadores de métodos de persistência e indicadores de que um invasor possa se aproveitado de alguma forma para obter credenciais de VPN ou acesso a outros recursos organizacionais. 
+4. Investigue seu locatário de Microsoft 365 e outra infraestrutura de ti, incluindo uma revisão de todas as configurações de locatário, contas de usuário e definições de configuração por usuário para uma possível modificação. Verifique se há indicadores de métodos de persistência e indicadores de que um invasor possa se aproveitado de alguma forma para obter credenciais de VPN ou acesso a outros recursos organizacionais. 
 
 5.  Como parte da sua investigação, considere se você deve notificar as autoridades do governo, incluindo a aplicação da lei.
 
 Além disso, você deve:
 
-- Leia e implemente essas [diretrizes sobre como lidar com atividades incomuns](https://aka.ms/fixaccount). 
-- [ Ative o pipeline de auditoria ](https://aka.ms/improvesecurity) para ajudá-lo a analisar a atividade em seu locatário. Depois de concluído, seu armazenamento de auditoria começa a ser preenchido com logs de atividades. Nesse ponto, você também pode aproveitar o recurso de pesquisa e investigação do [Security e Compliance Center](https://aka.ms/sccsearch). 
+- Leia e implemente essas [diretrizes sobre como lidar com atividades incomuns](/archive/blogs/office365security/how-to-fix-a-compromised-hacked-microsoft-office-365-account). 
+- [ Ative o pipeline de auditoria ](/archive/blogs/office365security/using-office-365-activity-data-to-improve-your-cybersecurity-stance-and-capability) para ajudá-lo a analisar a atividade em seu locatário. Depois de concluído, seu armazenamento de auditoria começa a ser preenchido com logs de atividades. Nesse ponto, você também pode aproveitar o recurso de pesquisa e investigação do [Security e Compliance Center](https://aka.ms/sccsearch). 
 - Examine as permissões de representante e as regras de encaminhamento para todas as suas caixas de correio de email. Você pode usar este [script do PowerShell](https://aka.ms/delegateforwardrules) para executar a tarefa. 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)
-* [Usuários sinalizados por risco](concept-user-at-risk.md)
+* [Azure Active Directory Identity Protection](../identity-protection/overview-identity-protection.md)
+* [Usuários sinalizados por risco](../identity-protection/overview-identity-protection.md)

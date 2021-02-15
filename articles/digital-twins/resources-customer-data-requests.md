@@ -8,12 +8,12 @@ ms.date: 05/05/2020
 ms.topic: conceptual
 ms.service: digital-twins
 services: digital-twins
-ms.openlocfilehash: 31da6a6b5375571f53cd7b478e957cc350ef591c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9942056e59a46c61b4e9da32aab191d4b72db968
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86522339"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461752"
 ---
 # <a name="azure-digital-twins-customer-data-request-features"></a>Recursos de solicitação de dados do cliente do Azure digital gêmeos
 
@@ -25,7 +25,7 @@ As representações digitais chamadas *digital gêmeos* no Azure digital gêmeos
 
 Muitas das gêmeos digitais no Azure digital gêmeos não representam diretamente entidades pessoais – objetos típicos representados podem ser uma sala de reunião do Office ou um piso de fábrica. No entanto, os usuários podem considerar que algumas entidades sejam identificáveis pessoalmente e, a seu critério, podem manter seus próprios métodos de ativos ou de acompanhamento de estoque que unem gêmeos digitais a indivíduos. O Azure digital gêmeos gerencia e armazena todos os dados associados ao gêmeos digital como se fossem dados pessoais.
 
-Para exibir, exportar e excluir dados pessoais que podem ser referenciados em uma solicitação de entidade de dados, um administrador de gêmeos digital do Azure pode usar o [**portal do Azure**](https://portal.azure.com/) para usuários e funções ou as [**APIs REST do Azure digital gêmeos**](how-to-use-apis-sdks.md) para gêmeos digital. As APIs portal do Azure e REST fornecem métodos diferentes para os usuários atenderem a tais solicitações de entidade de dados.
+Para exibir, exportar e excluir dados pessoais que podem ser referenciados em uma solicitação de entidade de dados, um administrador de gêmeos digital do Azure pode usar o [**portal do Azure**](https://portal.azure.com/) para usuários e funções ou as [**APIs REST do Azure digital gêmeos**](/rest/api/azure-digitaltwins/) para gêmeos digital. As APIs portal do Azure e REST fornecem métodos diferentes para os usuários atenderem a tais solicitações de entidade de dados.
 
 ## <a name="identifying-customer-data"></a>Identificando os dados do cliente
 
@@ -35,7 +35,7 @@ O Azure digital gêmeos armazena a *ID de objeto* [Azure Active Directory](../ac
 
 ## <a name="deleting-customer-data"></a>Excluindo os dados do cliente
 
-Os administradores do gêmeos digital do Azure podem usar o portal do Azure para excluir dados relacionados aos usuários. Também é possível executar operações de exclusão em gêmeos digitais individuais usando as APIs REST do Azure digital gêmeos. Para obter mais informações sobre as APIs disponíveis, consulte a [documentação de APIs REST do Azure digital gêmeos](https://docs.microsoft.com/rest/api/azure-digitaltwins/).
+Os administradores do gêmeos digital do Azure podem usar o portal do Azure para excluir dados relacionados aos usuários. Também é possível executar operações de exclusão em gêmeos digitais individuais usando as APIs REST do Azure digital gêmeos. Para obter mais informações sobre as APIs disponíveis, consulte a [documentação de APIs REST do Azure digital gêmeos](/rest/api/azure-digitaltwins/).
 
 ## <a name="exporting-customer-data"></a>Exportando os dados do cliente
 
@@ -45,4 +45,4 @@ Os dados do cliente, incluindo funções de usuário e atribuições de função
 
 ## <a name="links-to-additional-documentation"></a>Links para documentação adicional
 
-Para obter uma lista completa das APIs do serviço de gêmeos digital do Azure, consulte a [documentação de APIs REST do Azure digital gêmeos](https://docs.microsoft.com/rest/api/azure-digitaltwins/).
+Para obter uma lista completa das APIs do serviço de gêmeos digital do Azure, consulte a [documentação de APIs REST do Azure digital gêmeos](/rest/api/azure-digitaltwins/).

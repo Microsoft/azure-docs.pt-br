@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: how-to
 ms.date: 07/30/2020
-ms.openlocfilehash: 2a986afa1916d179834c516a26f76a2789f82452
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: cc400922115f348090677661cd1b30434be19b72
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87511880"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92910467"
 ---
 # <a name="monitor-azure-data-share"></a>Monitorar o Azure Data Share  
 
@@ -36,13 +36,13 @@ Há três Estados em que seu convite pode estar:
 
 ## <a name="monitor-share-subscriptions"></a>Monitorar assinaturas de compartilhamento
 
-Exiba o status de suas assinaturas de compartilhamento navegando para compartilhamentos enviados-> compartilhar assinaturas. Isso fornecerá detalhes sobre as assinaturas ativas criadas por seus consumidores de dados depois de aceitar seu convite. Você pode parar as atualizações futuras para o consumidor de dados selecionando a assinatura de compartilhamento e selecionando *revogar*. 
+Exiba o status de suas assinaturas de compartilhamento navegando para compartilhamentos enviados-> compartilhar assinaturas. Isso fornecerá detalhes sobre as assinaturas ativas criadas por seus consumidores de dados depois de aceitar seu convite. Você pode parar as atualizações futuras para o consumidor de dados selecionando a assinatura de compartilhamento e selecionando *revogar* . 
 
 ## <a name="snapshot-history"></a>Histórico de instantâneos 
 
 Na guia **histórico** de um compartilhamento, você pode exibir quando os dados são copiados do provedor de dados para o armazenamento de dados do consumidor de dados. Você pode monitorar a frequência, a duração e o status de cada instantâneo. 
 
-![Histórico de instantâneos](./media/sent-shares.png "Histórico de instantâneos") 
+![A captura de tela mostra os compartilhamentos enviados no portal do Azure.](./media/sent-shares.png "Histórico de instantâneos") 
 
 Você pode exibir mais detalhes sobre cada execução de instantâneo clicando na data de início da execução. Em seguida, clique no status de cada conjunto de dados para exibir a quantidade de data de transferência, o número de arquivos/registros copiados, a duração do instantâneo, o número de vCores usadas e a mensagem de erro, se houver algum. 
 
@@ -50,9 +50,9 @@ São exibidos até 30 dias de histórico de instantâneo. Se você precisar salv
 
 ## <a name="diagnostic-setting"></a>Configuração de diagnóstico
 
-Você pode definir a configuração de diagnóstico para salvar dados de log ou eventos. Navegue até monitoramento-> configurações de diagnóstico e selecione **Adicionar configuração de diagnóstico**. Selecione os dados de log ou eventos nos quais você está interessado e onde deseja armazená-los ou enviá-los. 
+Você pode definir a configuração de diagnóstico para salvar dados de log ou eventos. Navegue até monitoramento-> configurações de diagnóstico e selecione **Adicionar configuração de diagnóstico** . Selecione os dados de log ou eventos nos quais você está interessado e onde deseja armazená-los ou enviá-los. 
 
-![Histórico de instantâneos](./media/diagnostic-settings.png "Configurações de Diagnóstico") 
+![Captura de tela mostra a página Configurações de diagnóstico no portal do Azure.](./media/diagnostic-settings.png "Configurações de Diagnóstico") 
 
 ## <a name="next-steps"></a>Próximas etapas 
 

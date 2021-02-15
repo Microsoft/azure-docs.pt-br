@@ -9,15 +9,16 @@ ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: jopapa
 ms.reviewer: sngun
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 8fbf06d6bd93de578039959d9f0235f1f55d448e
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-js
+ms.openlocfilehash: 1425b89e42450123c1696ddcee4458e1f69b8a6c
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87424266"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348561"
 ---
 # <a name="create-a-mongodb-app-with-react-and-azure-cosmos-db"></a>Criar um aplicativo do MongoDB com React e Azure Cosmos DB  
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 Este tutorial em vídeo com várias partes demonstra como criar um aplicativo de acompanhamento de hero com um front-end em React. O aplicativo usa o Node e o Express para o servidor, conecta-se ao banco de dados Cosmos configurado com a [API do Azure Cosmos DB para MongoDB](mongodb-introduction.md) e conecta o front-end React com a parte de servidor do aplicativo. O tutorial também demonstra como fazer o dimensionamento de apontar e clicar do Cosmos DB no portal do Azure e como implantar o aplicativo na Internet para que todos possam acompanhar seus heroes favoritos. 
 
@@ -107,5 +108,4 @@ Neste tutorial, você aprendeu a:
 Agora, você pode seguir para o próximo tutorial e saber como importar dados do MongoDB para o Azure Cosmos DB.  
 
 > [!div class="nextstepaction"]
-> [Importar dados do MongoDB no Azure Cosmos DB](mongodb-migrate.md)
- 
+> [Importar dados do MongoDB no Azure Cosmos DB](../dms/tutorial-mongodb-cosmos-db.md?toc=%2fazure%2fcosmos-db%2ftoc.json%253ftoc%253d%2fazure%2fcosmos-db%2ftoc.json)

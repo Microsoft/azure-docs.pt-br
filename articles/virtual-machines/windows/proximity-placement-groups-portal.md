@@ -1,5 +1,5 @@
 ---
-title: Criar um grupo de posicionamento de proximidade usando o portal
+title: Criar um grupo de posicionamento por proximidade usando o portal
 description: Saiba como criar um grupo de posicionamento de proximidade usando o portal do Azure.
 author: cynthn
 ms.service: virtual-machines
@@ -7,16 +7,16 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 04/24/2020
 ms.author: cynthn
-ms.openlocfilehash: 6a14e2bd7385430c3d0fbec06259a876af556e38
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 45d7977dda4870be9a087b3277dd1db828c91178
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82190394"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98871427"
 ---
-# <a name="create-a-proximity-placement-group-using-the-portal"></a>Criar um grupo de posicionamento de proximidade usando o portal
+# <a name="create-a-proximity-placement-group-using-the-portal"></a>Criar um grupo de posicionamento por proximidade usando o portal
 
-Para obter as VMs o mais próximo possível, alcançando a menor latência possível, você deve implantá-las em um [grupo de posicionamento de proximidade](co-location.md#proximity-placement-groups).
+Para obter as VMs o mais próximo possível, alcançando a menor latência possível, você deve implantá-las em um [grupo de posicionamento de proximidade](../co-location.md#proximity-placement-groups).
 
 Um grupo de posicionamento por proximidade é um agrupamento lógico usado para garantir que os recursos de computação do Azure estejam fisicamente localizados próximos uns dos outros. Os grupos de posicionamento por proximidade são úteis para cargas de trabalho em que a baixa latência é um requisito.
 
@@ -58,7 +58,7 @@ Se a VM fizer parte do conjunto de disponibilidade, você precisará adicionar o
 1. No [portal](https://portal.azure.com) , pesquise por *conjuntos de disponibilidade* e selecione seu conjunto de disponibilidade nos resultados.
 1. Stop\deallocate cada VM no conjunto de disponibilidade selecionando a VM, em seguida, selecionando **parar** na página da VM e, em seguida, selecione **OK** para interromper a VM.
 1. Na página de seu conjunto de disponibilidade, verifique se todas as VMs têm o **status** listado como **parado (desalocado)**.
-1. No menu à esquerda, selecione **configuração**.
+1. No menu à esquerda, selecione **Configuração**.
 1. Em **grupo de posicionamento de proximidade**, selecione um grupo de posicionamento na lista suspensa e, em seguida, selecione **salvar**.
 1. Selecione **visão geral** no menu à esquerda para ver a lista de VMs novamente. 
 1. Selecione cada VM no conjunto de disponibilidade e, em seguida, selecione **Iniciar** na página para cada VM. 
@@ -77,4 +77,3 @@ Se a VM fizer parte do conjunto de disponibilidade, você precisará adicionar o
 ## <a name="next-steps"></a>Próximas etapas
 
 Você também pode usar o [Azure PowerShell](proximity-placement-groups.md) para criar grupos de posicionamento de proximidade.
-

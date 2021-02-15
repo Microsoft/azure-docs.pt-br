@@ -13,12 +13,12 @@ ms.date: 05/17/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c3d681dd06f07f6174e31b59cccf42df5dc16a1e
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 895355b5acebffe6ad24b15b0c709d21e8f20be4
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "68779844"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90016641"
 ---
 # <a name="what-is-hybrid-identity-with-azure-active-directory"></a>O que é a identidade híbrida com o Azure Active Directory?
 
@@ -36,7 +36,7 @@ Para obter a identidade híbrida com o Azure AD, pode ser usado um dos três mé
 
 Esses métodos de autenticação também fornecem funcionalidades de [logon único](how-to-connect-sso.md).  O logon único faz logon automaticamente dos seus usuários quando eles estão em seus dispositivos corporativos, conectados à sua rede corporativa.
 
-Para saber mais, confira [Escolha o método de autenticação certo para sua solução de identidade híbrida do Azure Active Directory](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn). 
+Para saber mais, confira [Escolha o método de autenticação certo para sua solução de identidade híbrida do Azure Active Directory](./choose-ad-authn.md). 
 
 ## <a name="common-scenarios-and-recommendations"></a>Cenários e recomendações comuns 
 
@@ -45,7 +45,7 @@ Aqui estão alguns dos cenários comuns de gerenciamento de acesso e identidade 
 |Eu preciso de:|PHS e SSO<sup>1</sup>| PTA e SSO<sup>2</sup> | AD FS<sup>3</sup>| 
 |-----|-----|-----|-----| 
 |Sincronizar automaticamente na nuvem as contas de novo usuário, de contato e de grupo criadas no meu Active Directory local.|![Recomendadas](./media/whatis-hybrid-identity/ic195031.png)| ![Recomendadas](./media/whatis-hybrid-identity/ic195031.png) |![Recomendadas](./media/whatis-hybrid-identity/ic195031.png)| 
-|Configurar meu locatário para cenários híbridos do Office 365.|![Recomendadas](./media/whatis-hybrid-identity/ic195031.png)| ![Recomendadas](./media/whatis-hybrid-identity/ic195031.png) |![Recomendadas](./media/whatis-hybrid-identity/ic195031.png)| 
+|Configurar meu locatário para cenários híbridos do Microsoft 365.|![Recomendadas](./media/whatis-hybrid-identity/ic195031.png)| ![Recomendadas](./media/whatis-hybrid-identity/ic195031.png) |![Recomendadas](./media/whatis-hybrid-identity/ic195031.png)| 
 |Habilitar os usuários a entrar e acessar serviços de nuvem usando suas senhas locais.|![Recomendadas](./media/whatis-hybrid-identity/ic195031.png)| ![Recomendadas](./media/whatis-hybrid-identity/ic195031.png) |![Recomendadas](./media/whatis-hybrid-identity/ic195031.png)| 
 |Implementar o logon único usando credenciais corporativas.|![Recomendadas](./media/whatis-hybrid-identity/ic195031.png)| ![Recomendadas](./media/whatis-hybrid-identity/ic195031.png) |![Recomendadas](./media/whatis-hybrid-identity/ic195031.png)|  
 |Assegurar que nenhum hash de senha seja armazenado na nuvem.| |![Recomendadas](./media/whatis-hybrid-identity/ic195031.png)|![Recomendadas](./media/whatis-hybrid-identity/ic195031.png)| 
@@ -60,7 +60,7 @@ Aqui estão alguns dos cenários comuns de gerenciamento de acesso e identidade 
 > 
 > <sup>3</sup> Logon único federado com o AD FS.  
 >  
-> <sup>4</sup> O AD FS pode ser integrado com a Enterprise PKI para permitir a entrada usando certificados. Esses certificados podem ser certificados suaves implantados por meio dos canais de provisionamento confiáveis como certificados de cartão inteligente (incluindo cartões PIV/CAC), MDM, GPO ou Hello for Business (certificado confiável). Para obter mais informações sobre o suporte à autenticação de cartão inteligente, consulte [este blog](https://blogs.msdn.microsoft.com/samueld/2016/07/19/adfs-certauth-aad-o365/). 
+> <sup>4</sup> O AD FS pode ser integrado com a Enterprise PKI para permitir a entrada usando certificados. Esses certificados podem ser certificados suaves implantados por meio dos canais de provisionamento confiáveis como certificados de cartão inteligente (incluindo cartões PIV/CAC), MDM, GPO ou Hello for Business (certificado confiável). Para obter mais informações sobre o suporte à autenticação de cartão inteligente, consulte [este blog](/archive/blogs/samueld/adfs-certauth-aad-o365). 
 > 
 
 ## <a name="license-requirements-for-using-azure-ad-connect"></a>Requisitos de licença para usar o Azure AD Connect
@@ -73,5 +73,4 @@ Aqui estão alguns dos cenários comuns de gerenciamento de acesso e identidade 
 - [O que é PHS (sincronização de hash de senha)?](whatis-phs.md) 
 - [O que é PTA (autenticação de passagem)?](how-to-connect-pta.md) 
 - [O que é federação?](whatis-fed.md) 
-- [O que é logon único?](how-to-connect-sso.md) 
-
+- [O que é logon único?](how-to-connect-sso.md)

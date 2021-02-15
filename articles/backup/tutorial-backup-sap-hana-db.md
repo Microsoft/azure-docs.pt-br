@@ -3,12 +3,12 @@ title: Tutorial – fazer backup de bancos de dados do SAP HANA em VMs do Azure
 description: Neste tutorial, saiba o backup de bancos de dados SAP HANA executados em uma VM do Azure pode ser realizado no cofre dos Serviços de Recuperação do Backup do Azure.
 ms.topic: tutorial
 ms.date: 02/24/2020
-ms.openlocfilehash: 50c71d58a2409d0062c414b4328eaf8a919e338b
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 31a0a773096ec0f69e87bfd4a05f8ba98185e6cf
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757482"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94695207"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>Tutorial: Fazer backup de bancos de dados do SAP HANA em uma VM do Azure
 
@@ -36,7 +36,9 @@ Antes de configurar backups, verifique se você fez o seguinte:
   * Ela deve estar presente no **hdbuserstore** padrão. O padrão é a conta `<sid>adm` sob a qual o SAP HANA está instalado.
   * Para MDC, a chave deve apontar para a porta SQL de **NAMESERVER**. No caso do SDC, ele deve apontar para a porta SQL de **INDEXSERVER**
   * Ela deve ter credenciais para adicionar e excluir usuários
+  * Observe que essa chave pode ser excluída após executar o script de pré-registro com êxito.
 * Executar o script de configuração de backup do SAP HANA (script de pré-registro) na máquina virtual em que o HANA está instalado como o usuário raiz. [Esse script](https://aka.ms/scriptforpermsonhana) faz o sistema HANA ficar pronto para backup. Veja a seção [O que o script de pré-registro faz](#what-the-pre-registration-script-does) para entender mais sobre o script de pré-registro.
+* Se a instalação do HANA usar pontos de extremidade privados, execute o [script de pré-registro](https://aka.ms/scriptforpermsonhana) com o parâmetro *-sn* ou *--skip-network-checks*.
 
 >[!NOTE]
 >O script de pré-registro instala o **compat-unixODBC234** para cargas de trabalho de SAP HANA em execução no RHEL (7.4, 7.6 e 7.7) e **unixODBC** para RHEL 8.1. [Esse pacote está localizado no repositório de RPMs (Serviços de Atualização para Soluções SAP) do RHEL for SAP HANA (para RHEL 7 Server)](https://access.redhat.com/solutions/5094721).  Para obter uma imagem do RHEL do Azure Marketplace, o repositório será **rhui-rhel-sap-hana-for-rhel-7-server-rhui-e4s-rpms**.
@@ -63,7 +65,7 @@ Os pontos de extremidade privados permitem que você se conecte com segurança d
 
 ### <a name="nsg-tags"></a>Marcas do NSG
 
-Se você usar o NSG (grupo de segurança de rede), use a tag de serviço *AzureBackup* para permitir o acesso de saída ao Backup do Azure. Além da tag do Backup do Azure, também será necessário permitir a conectividade para autenticação e transferência de dados criando [regras de NSG](../virtual-network/security-overview.md#service-tags) semelhantes para o *Azure AD* e o *Armazenamento do Azure*.  As seguintes etapas descrevem o processo para criar uma regra para a tag do Backup do Azure:
+Se você usar o NSG (grupo de segurança de rede), use a tag de serviço *AzureBackup* para permitir o acesso de saída ao Backup do Azure. Além da marca do Backup do Azure, você também precisará permitir a conectividade para autenticação e transferência de dados criando [regras de NSG](../virtual-network/network-security-groups-overview.md#service-tags) semelhantes para o Azure AD (*AzureActiveDirectory*) e o Armazenamento do Azure (*Armazenamento*). As seguintes etapas descrevem o processo para criar uma regra para a tag do Backup do Azure:
 
 1. Em **Todos os Serviços**, acesse **Grupos de segurança de rede** e selecione o grupo de segurança de rede.
 
@@ -71,9 +73,9 @@ Se você usar o NSG (grupo de segurança de rede), use a tag de serviço *AzureB
 
 1. Selecione **Adicionar**. Insira todos os detalhes necessários para criar uma regra, conforme descrito em [Configurações da regra de segurança](../virtual-network/manage-network-security-group.md#security-rule-settings). Verifique se a opção **Destino** está definida como *Tag de Serviço* e se **Marca de serviço de destino** está definida como *AzureBackup*.
 
-1. Clique em **Adicionar** para salvar a regra de segurança de saída recém-criada.
+1. Selecione **Adicionar** para salvar a regra de segurança de saída recém-criada.
 
-De maneira semelhante, é possível criar regras de segurança de saída de NSG para o Armazenamento do Azure e o Azure AD. Para obter mais informações sobre as marcas de serviço, confira este [artigo](../virtual-network/service-tags-overview.md).
+De maneira semelhante, é possível criar [regras de segurança de saída de NSG](../virtual-network/network-security-groups-overview.md#service-tags) para o Armazenamento do Azure e o Azure AD. Para obter mais informações sobre as marcas de serviço, confira este [artigo](../virtual-network/service-tags-overview.md).
 
 ### <a name="azure-firewall-tags"></a>Marcas do Firewall do Azure
 
@@ -103,11 +105,12 @@ O script de pré-registro executa as seguintes funções:
 
 * Com base em sua distribuição do Linux, o script instala ou atualiza todos os pacotes necessários exigidos pelo agente do Backup do Azure.
 * Executa verificações de conectividade de rede de saída com servidores de Backup do Azure e serviços dependentes como Azure Active Directory e o Armazenamento do Azure.
-* Ele faz logon em seu sistema HANA usando a chave de usuário listada como parte dos [pré-requisitos](#prerequisites). A chave do usuário é usada para criar um usuário de backup (AZUREWLBACKUPHANAUSER) no sistema HANA e pode ser excluída após a execução bem-sucedida do script de pré-registro.
+* Ele faz logon em seu sistema HANA usando a chave de usuário listada como parte dos [pré-requisitos](#prerequisites). A chave do usuário é usada para criar um usuário de backup (AZUREWLBACKUPHANAUSER) no sistema HANA e **pode ser excluída após a execução bem-sucedida do script de pré-registro**.
 * Estas funções e permissões necessárias são atribuídas a AZUREWLBACKUPHANAUSER:
-  * ADMINISTRADOR DE BANCO DE DADOS (no caso de MDC) e ADMINISTRADOR DE BACKUP (no caso de SDC): para criar bancos de dados durante a restauração.
+  * Para MDC: ADMINISTRADOR DE BANCO DE DADOS e ADMINISTRADOR DE BACKUP (no caso do HANA 2.0 SPS05 em diante): para criar bancos de dados durante a restauração.
+  * Para SDC: ADMIN DO BANCO DE DADOS: para criar bancos de dados durante a restauração.
   * LEITURA DO CATÁLOGO: para ler o catálogo de backup.
-  * SAP_INTERNAL_HANA_SUPPORT: para acessar algumas tabelas privadas.
+  * SAP_INTERNAL_HANA_SUPPORT: para acessar algumas tabelas privadas. Necessário apenas para versões SDC e MDC anteriores ao HANA 2.0 SPS04 Rev 46. Isso não é necessário para o HANA 2.0 SPS04 Rev 46 e versões posteriores, já que estamos obtendo as informações necessárias de tabelas públicas agora com a correção da equipe do HANA.
 * O script adiciona uma chave a **hdbuserstore** para AZUREWLBACKUPHANAUSER para o plug-in de backup do HANA lidar com todas as operações (consultas de banco de dados, operações de restauração, configuração e execução de backup).
 
 >[!NOTE]
@@ -163,24 +166,24 @@ O cofre dos Serviços de Recuperação agora está criado.
 
 ## <a name="discover-the-databases"></a>Descobrir os bancos de dados
 
-1. No cofre, em **Introdução**, clique em **Backup**. Em **Em que local sua carga de trabalho é executada?** , selecione **SAP HANA em VM do Azure**.
-2. Clique em **Iniciar Descoberta**. Isso inicia a descoberta de VMs do Linux desprotegidas na região do cofre. Você verá a VM do Azure que deseja proteger.
-3. Em **Selecionar Máquinas Virtuais**, clique no link para baixar o script que fornece permissões para que o serviço de Backup do Azure acesse as VMs SAP HANA para descoberta de banco de dados.
+1. No cofre, em **Introdução**, selecione **Backup**. Em **Em que local sua carga de trabalho é executada?** , selecione **SAP HANA em VM do Azure**.
+2. Selecione **Iniciar Descoberta**. Isso inicia a descoberta de VMs do Linux desprotegidas na região do cofre. Você verá a VM do Azure que deseja proteger.
+3. Em **Selecionar Máquinas Virtuais**, selecione o link para baixar o script que fornece permissões para que o serviço de Backup do Azure acesse as VMs SAP HANA para descoberta de banco de dados.
 4. Execute o script na VM que hospeda os bancos de dados do SAP HANA dos quais você deseja fazer backup.
-5. Depois de executar o script na VM, em **Selecionar Máquinas Virtuais**, selecione a VM. Em seguida, clique em **Descobrir BDs**.
+5. Depois de executar o script na VM, em **Selecionar Máquinas Virtuais**, selecione a VM. Em seguida, selecione **Descobrir BDs**.
 6. O Backup do Azure descobre todos os bancos de dados do SAP HANA na VM. Durante a descoberta, o Backup do Azure registra a VM com o cofre e instala uma extensão na VM. Nenhum agente é instalado no banco de dados.
 
    ![Descobrir os bancos de dados](./media/tutorial-backup-sap-hana-db/database-discovery.png)
 
-## <a name="configure-backup"></a>Configurar o backup
+## <a name="configure-backup"></a>Configurar backup
 
 Agora que os bancos de dados dos quais desejamos fazer backup foram descobertos, vamos habilitar o backup.
 
-1. Clique em **Configurar Backup**.
+1. Selecione **Configurar Backup**.
 
-   ![Configurar o backup](./media/tutorial-backup-sap-hana-db/configure-backup.png)
+   ![Configurar backup](./media/tutorial-backup-sap-hana-db/configure-backup.png)
 
-2. Em **Selecionar os itens para fazer backup**, selecione um ou mais bancos de dados que você deseja proteger e clique em **OK**.
+2. Em **Selecionar os itens para fazer backup**, selecione um ou mais bancos de dados que você deseja proteger e selecione **OK**.
 
    ![Selecionar itens para fazer backup](./media/tutorial-backup-sap-hana-db/select-items-to-backup.png)
 
@@ -188,9 +191,9 @@ Agora que os bancos de dados dos quais desejamos fazer backup foram descobertos,
 
    ![Escolher política de backup](./media/tutorial-backup-sap-hana-db/backup-policy.png)
 
-4. Depois de criar a política, no **menu Backup**, clique em **Habilitar o backup**.
+4. Depois de criar a política, no menu **Backup**, selecione **Habilitar backup**.
 
-   ![Clique em Habilitar o backup](./media/tutorial-backup-sap-hana-db/enable-backup.png)
+   ![Selecione Habilitar backup.](./media/tutorial-backup-sap-hana-db/enable-backup.png)
 
 5. Acompanhe o progresso da configuração de backup na área de **Notificações** do portal.
 
@@ -217,20 +220,25 @@ Especifique as configurações de política da seguinte maneira:
    * Os pontos de recuperação são marcados para retenção com base em seu intervalo de retenção. Por exemplo, se você selecionar um backup completo diário, apenas um backup completo será disparado a cada dia.
    * O backup para um dia específico é marcado e mantido com base na configuração e no período de retenção semanal.
    * Os intervalos de retenção mensal e anual comportam-se de maneira semelhante.
-4. No menu de **Política de Backup Completo**, clique em **OK** para aceitar as configurações.
+4. No menu de **política de Backup Completo**, clique em **OK** para aceitar as configurações.
 5. Em seguida, selecione **Backup Diferencial** para adicionar uma política diferencial.
 6. Em **Política de Backup Diferencial**, selecione **Habilitar** para abrir os controles de retenção e frequência. Habilitamos um backup diferencial a cada **Domingo** às **02:00**, que é mantido por **30 dias**.
 
    ![Política de backup diferencial](./media/tutorial-backup-sap-hana-db/differential-backup-policy.png)
 
    >[!NOTE]
-   >Atualmente, backups incrementais não são compatíveis.
+   >Backups incrementais já estão disponíveis em versão prévia pública. Você pode escolher um diferencial ou um incremental como um backup diário, mas não ambos.
    >
+7. Em **Política de Backup Incremental**, selecione **Habilitar** para abrir os controles de retenção e frequência.
+    * No máximo, você pode disparar um backup incremental por dia.
+    * Backups incrementais podem ser retidos por até 180 dias. Se você precisar de retenção mais longa, deverá usar os backups completos.
 
-7. Clique em **OK** para salvar a política e retornar para o menu principal da **Política de backup**.
-8. Selecione **Backup de Log** para adicionar uma política de backup de log transacional.
+    ![Política de backup incremental](./media/backup-azure-sap-hana-database/incremental-backup-policy.png)
+
+8. Selecione **OK** para salvar a política e retornar para o menu principal da **Política de backup**.
+9. Selecione **Backup de Log** para adicionar uma política de backup de log transacional.
    * **Backup de Log** é definido por padrão como **Habilitar**. Isso não pode ser desabilitado, pois o SAP HANA gerencia todos os backups de log.
-   * Definimos **2 horas** como o agendamento de backup e **15 dias** de período de retenção.
+   * Definimos **duas horas** como a agenda de backup e **15 dias** de período de retenção.
 
     ![Política de backup de log](./media/tutorial-backup-sap-hana-db/log-backup-policy.png)
 
@@ -238,8 +246,8 @@ Especifique as configurações de política da seguinte maneira:
    > Os backups de log só começam a fluir depois que um backup completo bem-sucedido é concluído.
    >
 
-9. Clique em **OK** para salvar a política e retornar para o menu principal da **Política de backup**.
-10. Depois de terminar de definir a política de backup, clique em **OK**.
+10. Selecione **OK** para salvar a política e retornar para o menu principal da **Política de backup**.
+11. Depois de terminar de definir a política de backup, selecione **OK**.
 
 Você configurou com êxito os backups para seus bancos de dados do SAP HANA.
 

@@ -10,10 +10,10 @@ ms.date: 06/12/2020
 ms.author: jodowns
 ms.custom: fasttrack-new
 ms.openlocfilehash: 578bb511175d88a1507af9520265a1acd068b27c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87095688"
 ---
 # <a name="versions-in-azure-api-management"></a>Versões no gerenciamento de API do Azure

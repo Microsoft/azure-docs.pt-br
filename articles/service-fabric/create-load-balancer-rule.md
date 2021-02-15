@@ -3,12 +3,12 @@ title: Criar uma regra do Azure Load Balancer para um cluster
 description: Configure um Azure Load Balancer para abrir portas para seu cluster do Azure Service Fabric.
 ms.topic: conceptual
 ms.date: 12/06/2017
-ms.openlocfilehash: 049afb88b5552c92294180069b54d49574a410fa
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 7e09c7b0b3e2bfa5a5ff834e243f5098cbbd947b
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259042"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92319896"
 ---
 # <a name="open-ports-for-a-service-fabric-cluster"></a>Abrir portas para um cluster do Service Fabric
 
@@ -60,7 +60,7 @@ O comando da CLI do Azure tem alguns parâmetros que são descritos na seguinte 
 
 
 >[!NOTE]
->Para saber mais sobre como criar um balanceador de carga com a CLI do Azure, confira [Criar um balanceador de carga com a CLI do Azure](../load-balancer/load-balancer-get-started-ilb-arm-cli.md).
+>Para saber mais sobre como criar um balanceador de carga com a CLI do Azure, confira [Criar um balanceador de carga com a CLI do Azure](../load-balancer/quickstart-load-balancer-standard-internal-cli.md).
 
 ## <a name="powershell"></a>PowerShell
 
@@ -96,7 +96,7 @@ $lb | Set-AzLoadBalancer
 Em relação ao comando `New-AzLoadBalancerRuleConfig`, o `-FrontendPort` representa a porta que o balanceador de carga expõe para conexões externas e o `-BackendPort` representa a porta em que o aplicativo do Service Fabric está escutando.
 
 >[!NOTE]
->Para saber mais sobre como criar um balanceador de carga com o PowerShell, confira [Criar um balanceador de carga com o PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md).
+>Para saber mais sobre como criar um balanceador de carga com o PowerShell, confira [Criar um balanceador de carga com o PowerShell](../load-balancer/quickstart-load-balancer-standard-internal-powershell.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

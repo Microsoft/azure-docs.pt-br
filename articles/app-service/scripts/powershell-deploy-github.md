@@ -5,13 +5,13 @@ tags: azure-service-management
 ms.assetid: 0f9c8bc5-3789-4eb3-8deb-ae6e2200795a
 ms.topic: sample
 ms.date: 03/20/2017
-ms.custom: mvc
-ms.openlocfilehash: 28a022c21f102a7959ba7c317a435e828efd7d4e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: mvc, devx-track-azurepowershell
+ms.openlocfilehash: 303cb562d4489412cf16a3c064cdb7770c19bdd0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083269"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89073745"
 ---
 # <a name="create-a-web-app-and-deploy-code-from-github"></a>Como criar um aplicativo Web e implantar o código do GitHub
 

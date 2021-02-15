@@ -10,19 +10,19 @@ ms.subservice: sql-dw
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 2e76f48466d084d448cceea0490e44041e7d062e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: seo-lt-2019, azure-synapse
+ms.openlocfilehash: 3d1d8d3ce3afece5a979aadc27cd82dc7ddaf0d5
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85212132"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98676215"
 ---
-# <a name="connect-to-synapse-sql-pool-with-sqlcmd"></a>Conectar-se ao pool SQL do Synapse com o sqlcmd
+# <a name="connect-to-sql-pool-in-azure-synapse-analytics-with-sqlcmd"></a>Conectar-se ao pool do SQL no Azure Synapse Analytics com sqlcmd
 
 > [!div class="op_single_selector"]
 >
-> * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
+> * [Power BI](/power-bi/connect-data/service-azure-sql-data-warehouse-with-direct-connect)
 > * [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 > * [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 > * [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
@@ -32,10 +32,10 @@ Use o utilitário de linha de comando [sqlcmd] [sqlcmd] para se conectar e consu
 
 ## <a name="1-connect"></a>1. Conectar
 
-Para começar a usar o [sqlcmd] [sqlcmd], abra o prompt de comando e insira **sqlcmd** seguido pela cadeia de conexão para o banco de dados do pool SQL. A cadeia de conexão precisará dos seguintes parâmetros:
+Para começar a usar o [sqlcmd] [sqlcmd], abra o prompt de comando e insira **sqlcmd** seguido pela cadeia de conexão para o pool do SQL. A cadeia de conexão precisará dos seguintes parâmetros:
 
 * **Servidor (-S):** servidor no formato `<`Nome do Servidor`>`.database.windows.net
-* **Banco de dados (-d):** Nome do banco de dados.
+* **Banco de dados (-d):** Nome do pool SQL.
 * **Habilitar identificadores entre aspas (-I):** Os identificadores entre aspas devem ser habilitados para se conectar a uma instância do pool SQL.
 
 Para usar a Autenticação do SQL Server, você precisa adicionar os parâmetros do nome de usuário/senha:
@@ -85,4 +85,4 @@ sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@sswor
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre os detalhes sobre as opções disponíveis no SQLCMD, consulte a [documentação do sqlcmd](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+Para obter mais informações sobre os detalhes sobre as opções disponíveis no SQLCMD, consulte a [documentação do sqlcmd](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).

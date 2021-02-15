@@ -5,15 +5,15 @@ ms.service: virtual-machines-linux
 ms.topic: conceptual
 ms.date: 04/29/2020
 ms.reviewer: davberg
-ms.openlocfilehash: efbd90eee8d072c1979565209c8c04a4ee5c55f9
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 939b5f6005dcb0b320852aece60db5bcf36dddbd
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87830522"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201171"
 ---
 # <a name="compute-benchmark-scores-for-linux-vms"></a>Pontuações de parâmetro de comparação de computação de VMs do Linux
-As pontuações de parâmetro de comparação CoreMark a seguir mostram o desempenho de computação de uma lista organizada de VMs de alto desempenho do Azure que executam o Ubuntu. As pontuações de parâmetro de comparação de computação também estão disponíveis para [VMs do Windows](../windows/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+As pontuações de parâmetro de comparação CoreMark a seguir mostram o desempenho de computação de uma lista organizada de VMs de alto desempenho do Azure que executam o Ubuntu. As pontuações de parâmetro de comparação de computação também estão disponíveis para [VMs do Windows](../windows/compute-benchmark-scores.md).
 
 ## <a name="standard_das_v4"></a>Standard_Das_v4
 (12/11/2019 2:28:52 AM PBI 5851281)
@@ -73,9 +73,9 @@ As pontuações de parâmetro de comparação CoreMark a seguir mostram o desemp
 
 | Tamanho da VM | CPU | vCPUs | Nós NUMA | Memória (GiB) | Pontuação Média | Desvio padrão | % De desenvolvimento padrão | #Execuções |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| Standard_A1_v2 | Intel(R) Xeon(R) CPU E5-2660 0 @ 2,20 GHz | 1 | 1 | 1.9 | 6.483 | 120 | 1,85% | 273 |
-| Standard_A1_v2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2,40 GHz | 1 | 1 | 1.9 | 6.059 | 208 | 3,43% | 217 |
-| Standard_A1_v2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2,30 GHz | 1 | 1 | 1.9 | 6.367 | 453 | 7,12% | 217 |
+| Standard_A1_v2 | Intel(R) Xeon(R) CPU E5-2660 0 @ 2,20 GHz | 1 | 1 | 1,9 | 6.483 | 120 | 1,85% | 273 |
+| Standard_A1_v2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2,40 GHz | 1 | 1 | 1,9 | 6.059 | 208 | 3,43% | 217 |
+| Standard_A1_v2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2,30 GHz | 1 | 1 | 1,9 | 6.367 | 453 | 7,12% | 217 |
 | Standard_A2_v2 | Intel(R) Xeon(R) CPU E5-2660 0 @ 2,20 GHz | 2 | 1 | 3.9 | 13.161 | 194 | 1,48% | 266 |
 | Standard_A2_v2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2,40 GHz | 2 | 1 | 3.9 | 12.067 | 401 | 3,32% | 203 |
 | Standard_A2_v2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2,30 GHz | 2 | 1 | 3.9 | 12.527 | 797 | 6,37% | 238 |
@@ -103,10 +103,10 @@ As pontuações de parâmetro de comparação CoreMark a seguir mostram o desemp
 
 | Tamanho da VM | CPU | vCPUs | Nós NUMA | Memória (GiB) | Pontuação Média | Desvio padrão | % De desenvolvimento padrão | #Execuções |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| Standard_B1ms | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2,40 GHz | 1 | 1 | 1.9 | 13.593 | 307 | 2,26% | 28 |
-| Standard_B1ms | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2,30 GHz | 1 | 1 | 1.9 | 14.069 | 495 | 3,52% | 672 |
-| Standard_B1s | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2,40 GHz | 1 | 1 | 0.9 | 13.736 | 211 | 1,54% | 28 |
-| Standard_B1s | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2,30 GHz | 1 | 1 | 0.9 | 13.965 | 457 | 3,27% | 672 |
+| Standard_B1ms | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2,40 GHz | 1 | 1 | 1,9 | 13.593 | 307 | 2,26% | 28 |
+| Standard_B1ms | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2,30 GHz | 1 | 1 | 1,9 | 14.069 | 495 | 3,52% | 672 |
+| Standard_B1s | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2,40 GHz | 1 | 1 | 0,9 | 13.736 | 211 | 1,54% | 28 |
+| Standard_B1s | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2,30 GHz | 1 | 1 | 0,9 | 13.965 | 457 | 3,27% | 672 |
 | Standard_B2ms | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2,40 GHz | 2 | 1 | 7.8 | 27.361 | 1.110 | 4,06% | 28 |
 | Standard_B2ms | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2,30 GHz | 2 | 1 | 7.8 | 27.432 | 771 | 2,81% | 672 |
 | Standard_B2s | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2,40 GHz | 2 | 1 | 3.9 | 27.488 | 822 | 2,99% | 28 |
@@ -296,8 +296,8 @@ As pontuações de parâmetro de comparação CoreMark a seguir mostram o desemp
 
 | Tamanho da VM | CPU | vCPUs | Nós NUMA | Memória (GiB) | Pontuação Média | Desvio padrão | % De desenvolvimento padrão | #Execuções |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| Standard_F1s | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2,40 GHz | 1 | 1 | 1.9 | 14.552 | 504 | 3,46% | 350 |
-| Standard_F1s | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2,30 GHz | 1 | 1 | 1.9 | 14.784 | 858 | 5,80% | 357 |
+| Standard_F1s | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2,40 GHz | 1 | 1 | 1,9 | 14.552 | 504 | 3,46% | 350 |
+| Standard_F1s | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2,30 GHz | 1 | 1 | 1,9 | 14.784 | 858 | 5,80% | 357 |
 | Standard_F2s | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2,40 GHz | 2 | 1 | 3.9 | 28.664 | 895 | 3,12% | 245 |
 | Standard_F2s | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2,30 GHz | 2 | 1 | 3.9 | 29.188 | 1.228 | 4,21% | 455 |
 | Standard_F4s | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2,40 GHz | 4 | 1 | 7.8 | 57.192 | 1.700 | 2,97% | 259 |
@@ -313,8 +313,8 @@ As pontuações de parâmetro de comparação CoreMark a seguir mostram o desemp
 
 | Tamanho da VM | CPU | vCPUs | Nós NUMA | Memória (GiB) | Pontuação Média | Desvio padrão | % De desenvolvimento padrão | #Execuções |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| Standard_F1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2,40 GHz | 1 | 1 | 1.9 | 14.937 | 593 | 3,97% | 350 |
-| Standard_F1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2,30 GHz | 1 | 1 | 1.9 | 15.460 | 1.326 | 8,58% | 350 |
+| Standard_F1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2,40 GHz | 1 | 1 | 1,9 | 14.937 | 593 | 3,97% | 350 |
+| Standard_F1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2,30 GHz | 1 | 1 | 1,9 | 15.460 | 1.326 | 8,58% | 350 |
 | Standard_F2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2,40 GHz | 2 | 1 | 3.9 | 29.324 | 1.196 | 4, 8% | 343 |
 | Standard_F2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2,30 GHz | 2 | 1 | 3.9 | 29.299 | 1.908 | 6,51% | 364 |
 | Standard_F4 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2,40 GHz | 4 | 1 | 7.8 | 58.314 | 1.245 | 2,14% | 364 |
@@ -469,5 +469,5 @@ As pontuações de parâmetro de comparação CoreMark a seguir mostram o desemp
 Os números do Linux foram calculados com a execução do [CoreMark](https://www.eembc.org/coremark/faq.php) no Ubuntu. O CoreMark foi configurado com o número de threads definidos como o número de CPUs virtuais e a simultaneidade definida como PThreads. O número de iterações de destino foi ajustado com base no desempenho esperado para fornecer um runtime de pelo menos 20 segundos (normalmente muito mais). A pontuação final representa o número de iterações concluídas dividido pelo número de segundos necessário para executar o teste. Cada teste foi executado, no mínimo, sete vezes em cada VM. Datas de execuções de teste mostradas acima. Execução de teste em várias VMs em regiões públicas do Azure tinham suporte na execução da data. Séries básicas A e B (expansíveis) não mostradas porque o desempenho é variável. Séries N não mostrada, pois elas centralizadas em GPU e a Coremark não mede o desempenho de GPU.
 
 ## <a name="next-steps"></a>Próximas etapas
-* Para obter capacidades de armazenamento, detalhes do disco e considerações adicionais sobre como escolher um dos diferentes tamanhos de VM, veja [Tamanhos das máquinas virtuais](../sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* Para obter capacidades de armazenamento, detalhes do disco e considerações adicionais sobre como escolher um dos diferentes tamanhos de VM, veja [Tamanhos das máquinas virtuais](../sizes.md).
 * Para executar os scripts do CoreMark nas VMs do Linux, baixe o [pacote de scripts do CoreMark](https://download.microsoft.com/download/3/0/5/305A3707-4D3A-4599-9670-AAEB423B4663/AzureCoreMarkScriptPack.zip).

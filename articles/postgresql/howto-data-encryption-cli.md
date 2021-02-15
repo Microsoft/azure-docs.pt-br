@@ -1,18 +1,18 @@
 ---
 title: Data Encryption-CLI do Azure-for Azure Database para PostgreSQL-servidor único
 description: Saiba como configurar e gerenciar a criptografia de dados para o servidor único para PostgreSQL usando o CLI do Azure.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 7494135cd4912ec8e59a32592ebcca0e0a6813b0
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 757782e8842fbcaca9c8d95ec8086dd5791a817b
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87797807"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93240606"
 ---
 # <a name="data-encryption-for-azure-database-for-postgresql-single-server-by-using-the-azure-cli"></a>Criptografia de dados para um servidor único para PostgreSQL para Azure usando o CLI do Azure
 
@@ -49,7 +49,7 @@ Saiba como usar o CLI do Azure para configurar e gerenciar a criptografia de dad
 * A chave deve ter os seguintes atributos para usar como uma chave gerenciada pelo cliente:
   * Sem data de validade
   * Não desabilitado
-  * Executar operações de **obtenção**, **encapsulamento** e **desencapsulamento**
+  * Executar operações de **obtenção** , **encapsulamento** e **desencapsulamento**
 
 ## <a name="set-the-right-permissions-for-key-operations"></a>Definir as permissões corretas para operações de chave
 
@@ -67,7 +67,7 @@ Saiba como usar o CLI do Azure para configurar e gerenciar a criptografia de dad
     az postgres server update --resource-group <resource_group> --name <server_name> --assign-identity
     ```
 
-2. Defina as **permissões de chave** (**Get**, **Wrap**, sem **encapsulamento**) para a **entidade de segurança**, que é o nome do servidor de servidor único PostgreSQL.
+2. Defina as **permissões de chave** ( **Get** , **Wrap** , sem **encapsulamento** ) para a **entidade de segurança** , que é o nome do servidor de servidor único PostgreSQL.
 
     ```azurecli-interactive
     az keyvault set-policy --name -g <resource_group> --key-permissions get unwrapKey wrapKey --object-id <principal id of the server>
@@ -81,7 +81,7 @@ Saiba como usar o CLI do Azure para configurar e gerenciar a criptografia de dad
     az postgres server key create --name <server_name> -g <resource_group> --kid <key_url>
     ```
 
-    URL da chave:`https://YourVaultName.vault.azure.net/keys/YourKeyName/01234567890123456789012345678901>`
+    URL da chave:  `https://YourVaultName.vault.azure.net/keys/YourKeyName/01234567890123456789012345678901>`
 
 ## <a name="using-data-encryption-for-restore-or-replica-servers"></a>Usando a criptografia de dados para servidores de restauração ou de réplica
 
@@ -125,7 +125,7 @@ az postgres server key create –name  <server name> -g <resource_group> --kid <
 az postgres server key show --name <server name>  -g <resource_group> --kid <key url>
 ```
 
-URL da chave:`https://YourVaultName.vault.azure.net/keys/YourKeyName/01234567890123456789012345678901>`
+URL da chave: `https://YourVaultName.vault.azure.net/keys/YourKeyName/01234567890123456789012345678901>`
 
 ### <a name="list-the-key-used"></a>Listar a chave usada
 

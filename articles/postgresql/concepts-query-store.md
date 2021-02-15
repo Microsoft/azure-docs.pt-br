@@ -1,17 +1,17 @@
 ---
 title: Repositório de Consultas-banco de dados do Azure para PostgreSQL-servidor único
 description: Este artigo descreve o recurso Repositório de Consultas no banco de dados do Azure para PostgreSQL-servidor único.
-author: rachel-msft
-ms.author: raagyema
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/01/2020
-ms.openlocfilehash: 49eea969f987a72872cda58ae6a7c41e50a14c10
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5dff78989eef17f95d8b8dd108baafc53a3f761a
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85830274"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97657015"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>Monitorar o desempenho com o Repositório de Consultas
 
@@ -124,8 +124,8 @@ Essa exibição retorna todos os dados no Repositório de Consultas. Há uma lin
 |query_id   |BIGINT  || Código hash interno, computado da árvore de análise da instrução|
 |query_sql_text |Varchar(10000)  || Texto de uma instrução representativa. Consultas diferentes com a mesma estrutura são agrupadas. Este texto é o da primeira das consultas no cluster.|
 |plan_id    |BIGINT |   |ID do plano correspondente a essa consulta, ainda não disponível|
-|start_time |timestamp  ||  Consultas são agregadas por buckets de tempo: o período de um bucket é de 15 minutos por padrão. Essa é a hora de início correspondente ao bucket de tempo para esta entrada.|
-|end_time   |timestamp  ||  Hora de término correspondente ao bucket de tempo para esta entrada.|
+|start_time | timestamp  ||  Consultas são agregadas por buckets de tempo: o período de um bucket é de 15 minutos por padrão. Essa é a hora de início correspondente ao bucket de tempo para esta entrada.|
+|end_time   | timestamp  ||  Hora de término correspondente ao bucket de tempo para esta entrada.|
 |chamadas  |BIGINT  || Número de vezes que a consulta foi executada|
 |total_time |double precision   ||  Tempo total de execução da consulta em milissegundos|
 |min_time   |double precision   ||  Tempo mínimo de execução da consulta em milissegundos|
@@ -149,25 +149,25 @@ Essa exibição retorna todos os dados no Repositório de Consultas. Há uma lin
 ### <a name="query_storequery_texts_view"></a>query_store.query_texts_view
 Essa exibição retorna os dados de texto da consulta no Repositório de Consultas. Há uma linha para cada query_text distinto.
 
-|**Nome**|  **Tipo**|   **Descrição**|
-|---|---|---|
-|query_text_id  |BIGINT     |ID da tabela query_texts|
-|query_sql_text |Varchar(10000)     |Texto de uma instrução representativa. Consultas diferentes com a mesma estrutura são agrupadas. Este texto é o da primeira das consultas no cluster.|
+| **Nome** | **Tipo** | **Descrição** |
+|--|--|--|
+| query_text_id | BIGINT | ID da tabela query_texts |
+| query_sql_text | Varchar(10000) | Texto de uma instrução representativa. Consultas diferentes com a mesma estrutura são agrupadas. Este texto é o da primeira das consultas no cluster. |
 
 ### <a name="query_storepgms_wait_sampling_view"></a>query_store.pgms_wait_sampling_view
 Essa exibição retorna os dados de eventos de espera no Repositório de Consultas. Há uma linha para cada ID de banco de dados, ID de usuário, ID de consulta e evento distinto.
 
-|**Nome**|  **Tipo**|   **Referências**| **Descrição**|
-|---|---|---|---|
-|user_id    |oid    |pg_authid.oid  |OID do usuário que executou a instrução|
-|db_id  |oid    |pg_database.oid    |OID do banco de dados no qual a instrução foi executada|
-|query_id   |BIGINT     ||Código hash interno, computado da árvore de análise da instrução|
-|event_type |text       ||O tipo de evento pelo qual o back-end está esperando|
-|event  |text       ||O nome do evento de espera se o back-end estiver esperando no momento|
-|chamadas  |Integer        ||Número do mesmo evento capturado|
-
+| **Nome** | **Tipo** | **Referências** | **Descrição** |
+|--|--|--|--|
+| user_id | oid | pg_authid.oid | OID do usuário que executou a instrução |
+| db_id | oid | pg_database.oid | OID do banco de dados no qual a instrução foi executada |
+| query_id | BIGINT |  | Código hash interno, computado da árvore de análise da instrução |
+| event_type | texto |  | O tipo de evento pelo qual o back-end está esperando |
+| event | texto |  | O nome do evento de espera se o back-end estiver esperando no momento |
+| chamadas | Integer |  | Número do mesmo evento capturado |
 
 ### <a name="functions"></a>Funções
+
 Query_store.qs_reset() retorna void
 
 `qs_reset` descarta todas as estatísticas coletadas até o momento pelo Repositório de Consultas. Essa função só pode ser executada pela função de administrador de servidor.
@@ -250,7 +250,7 @@ As tabelas a seguir descrevem os campos para os dois tipos de log. Dependendo do
 ## <a name="limitations-and-known-issues"></a>Limitações e problemas conhecidos
 - Se um servidor PostgreSQL tem o parâmetro default_transaction_read_only ativo, o Repositório de Consultas não é capaz de capturar dados.
 - A funcionalidade do Repositório de Consultas poderá ser interrompida se ele encontrar consultas Unicode longas (> = 6.000 bytes).
-- As [réplicas de leitura](concepts-read-replicas.md) replicam dados de repositório de consultas do servidor mestre. Isso significa que a Repositório de Consultas de uma réplica de leitura não fornece estatísticas sobre as consultas executadas na réplica de leitura.
+- As [réplicas de leitura](concepts-read-replicas.md) replicam repositório de consultas dados do servidor primário. Isso significa que a Repositório de Consultas de uma réplica de leitura não fornece estatísticas sobre as consultas executadas na réplica de leitura.
 
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -5,10 +5,10 @@ ms.date: 09/05/2019
 ms.topic: article
 ms.reviewer: brendal
 ms.openlocfilehash: 14bd0f84bc9490d95d3dbe0b9f122882f0d2059d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74324501"
 ---
 # <a name="azure-blockchain-workbench-messaging-integration"></a>Integração de mensagens do Azure Blockchain Workbench
@@ -112,7 +112,7 @@ A solicitação exige os seguintes campos:
 | applicationName      | Nome do aplicativo |
 | version              | Versão do aplicativo. Necessário se você tiver várias versões do aplicativo habilitadas. Caso contrário, a versão é opcional. Para obter mais informações sobre o controle de versão do aplicativo, confira [Controle de versão do aplicativo do Azure Blockchain Workbench](version-app.md). |
 | workflowName         | Nome do fluxo de trabalho |
-| parâmetros           | Parâmetros de entrada para criação de contrato |
+| parameters           | Parâmetros de entrada para criação de contrato |
 | ConnectionId         | Identificador exclusivo para a conexão blockchain |
 | messageSchemaVersion | Versão do esquema de mensagens |
 | messageName          | **CreateContractRequest** |
@@ -216,7 +216,7 @@ A solicitação exige os seguintes campos:
 | contractLedgerIdentifier | Endereço do contrato no razão |
 | version                  | Versão do aplicativo. Necessário se você tiver várias versões do aplicativo habilitadas. Caso contrário, a versão é opcional. Para obter mais informações sobre o controle de versão do aplicativo, confira [Controle de versão do aplicativo do Azure Blockchain Workbench](version-app.md). |
 | WorkflowFunctionName     | Nome da função de fluxo de trabalho |
-| parâmetros               | Parâmetros de entrada para criação de contrato |
+| parameters               | Parâmetros de entrada para criação de contrato |
 | ConnectionId             | Identificador exclusivo para a conexão blockchain |
 | messageSchemaVersion     | Versão do esquema de mensagens |
 | messageName              | **CreateContractActionRequest** |
@@ -335,7 +335,7 @@ Consulte [Referência de mensagem de notificação](#notification-message-refere
 
 Se um usuário deseja usar a Grade de Eventos para ser notificado sobre eventos que ocorrem no Blockchain Workbench, é possível consumir eventos de grade de eventos usando o Azure Functions.
 
-1. Criar um **Aplicativo de funções no Azure** no portal do Azure.
+1. Crie uma **aplicativo de funções do Azure** no portal do Azure.
 2. Criar uma nova função.
 3. Localize o modelo para a Grade de Eventos. Código do modelo básico para ler a mensagem que é mostrada. Modifique o código conforme necessário.
 4. Salve a função. 
@@ -561,7 +561,7 @@ Contém informações sobre quando uma função de contrato é invocada, como o 
 | contractId                  | Identificador exclusivo para o contrato dentro do Azure Blockchain Workbench |
 | contractLedgerIdentifier    | Identificador exclusivo do contrato no razão |
 | functionName                | Nome da função |
-| parâmetros                  | [Informações sobre parâmetros](#parameter-information) |
+| parameters                  | [Informações sobre parâmetros](#parameter-information) |
 | transaction                 | Informações sobre a transação |
 | inTransactionSequenceNumber | O número de sequência da transação no bloco |
 | ConnectionId                | Identificador exclusivo para a conexão |
@@ -582,7 +582,7 @@ Contém informações sobre quando uma função de contrato é invocada, como o 
 | Nome | Descrição |
 |------|-------------|
 | name | Nome do parâmetro |
-| value | Valor de parâmetro |
+| value | Valor do parâmetro |
 
 #### <a name="event-message-transaction-information"></a>Informações sobre a transação da mensagem de evento
 
@@ -682,7 +682,7 @@ Contém informações sobre quando um aplicativo é carregado no Workbench, como
 |------|-------------|
 | id | Identificador exclusivo da função de fluxo de trabalho do aplicativo no Azure Blockchain Workbench |
 | name | Nome da função |
-| parâmetros | Parâmetros da função |
+| parameters | Parâmetros da função |
 
 ##### <a name="workflow-state-information"></a>Informações do estado do fluxo de trabalho
 
@@ -698,7 +698,7 @@ Contém informações sobre quando um aplicativo é carregado no Workbench, como
 |------|-------------|
 | id | Identificador exclusivo da propriedade de fluxo de trabalho do aplicativo no Azure Blockchain Workbench |
 | name | Nome da propriedade |
-| tipo | Tipo de propriedade |
+| type | Tipo de propriedade |
 
 Exemplo de uma *EventMessage ApplicationIngestion* do Blockchain Workbench:
 
@@ -855,7 +855,7 @@ Contém informações sobre quando um usuário recebe uma função no Workbench,
 | Nome | Descrição |
 |------|-------------|
 | id | Identificador exclusivo do usuário no Azure Blockchain Workbench |
-| tipo | Tipo do atribuidor |
+| type | Tipo do atribuidor |
 | chainIdentifier | Identificador exclusivo do usuário no razão |
 
 #### <a name="roleassignment-assignee"></a>Destinatário da RoleAssignment
@@ -863,7 +863,7 @@ Contém informações sobre quando um usuário recebe uma função no Workbench,
 | Nome | Descrição |
 |------|-------------|
 | id | Identificador exclusivo do usuário no Azure Blockchain Workbench |
-| tipo | Tipo do destinatário |
+| type | Tipo do destinatário |
 | chainIdentifier | Identificador exclusivo do usuário no razão |
 
 Exemplo de uma *EventMessage RoleAssignment* do Blockchain Workbench:

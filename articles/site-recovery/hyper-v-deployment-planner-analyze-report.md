@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/21/2019
 ms.author: mayg
-ms.openlocfilehash: b2bb351de292ff2015cdcbd388155063a86a7359
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: f230445ecdb046c2b631e89567df71e1d09c3234
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88653572"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999222"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report"></a>Analise o relatório do Planejador de Implantações do Azure Site Recovery
 Este artigo aborda as planilhas contidas no relatório do Excel gerado pelo Planejador de Implantações do Azure Site Recovery em um cenário Hyper-V para Azure.
@@ -99,7 +99,7 @@ Para entender por que o espaço livre é necessário para a replicação, confir
 ### <a name="maximum-copy-frequency"></a>Frequência máxima de cópia
 A frequência máxima de cópia recomendada deve ser definida para que a replicação alcance o RPO desejado. O padrão é de cinco minutos. Você pode definir a frequência de cópia para 30 segundos a fim de alcançar um RPO melhor.
 
-### <a name="what-if-analysis"></a>Teste de hipóteses
+### <a name="what-if-analysis"></a>Análise de hipóteses
 ![Teste de hipóteses](media/hyper-v-deployment-planner-analyze-report/what-if-analysis-h2a.png) Essa análise descreve quantas violações poderiam ocorrer durante o período de criação de perfil quando você define uma largura de banda menor para que o RPO desejado seja atingido somente 90% do tempo. Uma ou mais violações de RPO podem ocorrer em qualquer dia. O grafo mostra o pico de RPO do dia. Com base nesta análise, você pode decidir se o número de violações de RPO em todos os dias e o pico de ocorrências de RPO por dia são aceitáveis com a menor largura de banda especificada. Se for aceitável, você poderá alocar menos largura de banda para replicação. Se for inaceitável, aloque maior largura de banda como sugerido para atender ao RPO desejado 100% do tempo. 
 
 ### <a name="recommendation-for-successful-initial-replication"></a>Recomendação para a replicação inicial com êxito
@@ -154,7 +154,7 @@ Pode haver uma situação em que você saiba que não é possível definir uma l
 
 **Tipo de Armazenamento de Disco**: uma conta de armazenamento standard ou premium, que é usada para replicar todas as VMs correspondentes mencionadas na coluna **VMs para Posicionar**.
 
-**Prefixo Sugerido**: o prefixo de três caracteres sugerido que pode ser usado para nomear a conta de armazenamento. Você pode usar seu próprio prefixo, mas sugestão da ferramenta segue a [convenção de nomenclatura de partição para contas de armazenamento](https://aka.ms/storage-performance-checklist).
+**Prefixo Sugerido**: o prefixo de três caracteres sugerido que pode ser usado para nomear a conta de armazenamento. Você pode usar seu próprio prefixo, mas sugestão da ferramenta segue a [convenção de nomenclatura de partição para contas de armazenamento](/en-in/azure/storage/blobs/storage-performance-checklist).
 
 **Nome de Conta Sugerido**: o nome de conta de armazenamento depois que você inclui o prefixo sugerido. Substitua o nome entre colchetes angulares (< e >) por sua entrada personalizada.
 
@@ -220,7 +220,7 @@ O relatório do Excel gerado pelo Planejador de Implantações do Site Recovery 
 
 **Nome da VM**: o nome da VM que é usado em VMListFile quando um relatório é gerado. Essa coluna também lista os discos (VHDs) que estão anexados às VMs. Os nomes incluem os nomes de host de Hyper-V em que as VMs foram colocadas quando a ferramenta as descobriu durante o período de criação de perfil.
 
-**Compatibilidade de VM**: indica por que a VM específica é incompatível com o Site Recovery. Os motivos são descritos para cada disco incompatível da VM e, com base nos [limites de armazenamento](https://aka.ms/azure-storage-scalbility-performance) publicados, podem ser qualquer um dos seguintes:
+**Compatibilidade de VM**: indica por que a VM específica é incompatível com o Site Recovery. Os motivos são descritos para cada disco incompatível da VM e, com base nos [limites de armazenamento](/en-in/azure/storage/common/scalability-targets-standard-account) publicados, podem ser qualquer um dos seguintes:
 
 * O tamanho do disco é maior que 4095 GB. Atualmente, o Armazenamento do Azure não dá suporte a tamanhos de disco de dados maiores que 4095 GB.
 

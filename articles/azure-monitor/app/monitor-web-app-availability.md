@@ -4,12 +4,12 @@ description: Configure testes da web no Application Insights. Obtenha alertas se
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 6f9c5fa691456195943f97419c1175fd5b586878
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: b0f66608c6e0f23b861e207d0dea07a546b41c2a
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87310269"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98937418"
 ---
 # <a name="monitor-the-availability-of-any-website"></a>Monitorar a disponibilidade de qualquer site
 
@@ -23,9 +23,12 @@ Há três tipos de testes de disponibilidade:
 
 * [Teste de ping de URL](#create-a-url-ping-test): um teste simples que você pode criar no Portal do Azure.
 * [Teste na Web de várias etapas](availability-multistep.md): uma gravação de uma sequência de solicitações da Web, que pode ser reproduzida para testar cenários mais complexos. Os testes na Web de várias etapas são criados no Visual Studio Enterprise e carregados no portal para execução.
-* [Testes de disponibilidade de acompanhamento personalizado](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability?view=azure-dotnet): se você decidir criar um aplicativo personalizado para executar testes de disponibilidade, o `TrackAvailability()` método poderá ser usado para enviar os resultados para Application insights.
+* [Testes de disponibilidade de acompanhamento personalizado](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability): se você decidir criar um aplicativo personalizado para executar testes de disponibilidade, o `TrackAvailability()` método poderá ser usado para enviar os resultados para Application insights.
 
 **Você pode criar até 100 testes de disponibilidade por recurso de Application Insights.**
+
+> [!IMPORTANT]
+> Ambos, o [teste de ping de URL](#create-a-url-ping-test) e o [teste na Web de várias etapas](availability-multistep.md) dependem da infraestrutura de DNS da Internet pública para resolver os nomes de domínio dos pontos de extremidade testados. Isso significa que, se você estiver usando DNS privado, deverá garantir que todos os nomes de domínio do seu teste também sejam resolvidos pelos servidores de nome de domínio público ou, quando não for possível, você poderá usar os [testes de disponibilidade de rastreamento personalizado](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) em vez disso.
 
 ## <a name="create-an-application-insights-resource"></a>Criar um recurso do Application Insights
 
@@ -72,13 +75,48 @@ Para criar sua primeira solicitação de disponibilidade, abra o painel disponib
 |**Clássico** | Não recomendamos o uso de alertas clássicos para novos testes de disponibilidade.|
 |**Limite de locais de alerta**|é recomendável um mínimo de 3/5 locais. A relação ideal entre o limite de alertas locais e o número de locais de teste é o **limite de alertas locais** = **número de locais de teste - 2, com um mínimo de cinco locais de teste.**|
 
+### <a name="location-population-tags"></a>Marcas de população de local
+
+As seguintes marcas de população podem ser usadas para o atributo de localização geográfica ao implantar um teste de ping de URL de disponibilidade usando Azure Resource Manager.
+
+#### <a name="azure-gov"></a>Gov do Azure
+
+| Nome de exibição   | Nome da população     |
+|----------------|---------------------|
+| Gov. EUA – Virgínia | usgov-VA-AZR        |
+| Gov. EUA – Arizona  | usgov-PHX-AZR       |
+| Gov. EUA – Texas    | usgov-TX-AZR        |
+| Leste do USDoD     | usgov-ddeast-AZR    |
+| USDoD Central  | usgov-ddcentral-AZR |
+
+#### <a name="azure"></a>Azure
+
+| Nome de exibição                           | Nome da população   |
+|----------------------------------------|-------------------|
+| Leste da Austrália                         | EMEA-au-Syd-Edge  |
+| Brazil South                           | lata de-br-Gru-Edge |
+| Centro dos EUA                             | US-FL-Mia-Edge    |
+| Leste da Ásia                              | Pacífico-HK-hkn-AZR   |
+| Leste dos EUA                                | US-VA-Ash-AZR     |
+| Sul da França (antiga França central) | EMEA-ch-ZRH-Edge  |
+| França Central                         | EMEA-fr-pra-Edge  |
+| Japan East                             | alta-JP-Kaw-borda  |
+| Norte da Europa                           | EMEA-GB-DB3-AZR   |
+| Centro-Norte dos EUA                       | US-Il-CH1-AZR     |
+| Centro-Sul dos Estados Unidos                       | US-TX-SN1-AZR     |
+| Sudeste Asiático                         | alta-SG-Sin-AZR   |
+| Oeste do Reino Unido                                | EMEA-se-ARM-Edge  |
+| Europa Ocidental                            | EMEA-nl-AMS-AZR   |
+| Oeste dos EUA                                | US-CA-SJC-AZR     |
+| Sul do Reino Unido                               | EMEA-ru-MSA-Edge  |
+
 ## <a name="see-your-availability-test-results"></a>Ver os resultados de teste de disponibilidade
 
 Os resultados do teste de disponibilidade podem ser visualizados com exibições de gráfico de linha e dispersão.
 
 Depois de alguns minutos, clique em **Atualizar** para ver os resultados do teste.
 
-![exibição Linha](./media/monitor-web-app-availability/availability-refresh-002.png)
+![Captura de tela mostra a página disponibilidade com o botão atualizar realçado.](./media/monitor-web-app-availability/availability-refresh-002.png)
 
 A exibição dispersão mostra exemplos dos resultados de teste que têm detalhes da etapa de teste de diagnóstico neles. O mecanismo de teste armazena detalhes de diagnóstico para testes com falhas. Para testes bem-sucedidos, detalhes de diagnóstico são armazenados para um subconjunto das execuções. Passe o mouse sobre qualquer um dos pontos verdes/vermelhos para ver o teste, o nome do teste e o local.
 

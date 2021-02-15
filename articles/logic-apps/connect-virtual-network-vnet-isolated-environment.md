@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 08/25/2020
-ms.openlocfilehash: 624668ad80d72933d6dd1e67fcac799fd210d659
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.date: 12/18/2020
+ms.openlocfilehash: 315de18539bf083515658b40fa70f3c214d7c909
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816653"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97739732"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Conectar redes virtuais do Azure a partir dos Aplicativos Lógicos do Azure, usando um ISE (Ambiente de Serviço de Integração)
 
@@ -44,17 +44,14 @@ Você também pode criar um ISE usando o [exemplo de modelo de início rápido d
   > [!IMPORTANT]
   > Os aplicativos lógicos, os gatilhos internos, as ações internas e os conectores executados no ISE usam um plano de preços diferente do plano baseado em consumo. Para saber como funcionam o preço e a cobrança nos ISEs, confira o [Modelo de preços de Aplicativos Lógicos](../logic-apps/logic-apps-pricing.md#fixed-pricing). Para obter os valores, confira [Preços de Aplicativos Lógicos](../logic-apps/logic-apps-pricing.md).
 
-* Uma [Rede virtual do Azure](../virtual-network/virtual-networks-overview.md). Sua rede virtual precisa ter quatro sub-redes *vazias* , que são necessárias para criar e implantar recursos no ISE e são usadas por componentes de aplicativos lógicos internos, como conectores e cache para desempenho. Você pode criar as sub-redes com antecedência ou pode aguardar até criar o ISE para que possa criar sub-redes ao mesmo tempo. No entanto, antes de criar suas sub-redes, examine os [requisitos de sub-rede](#create-subnet).
+* Uma [rede virtual do Azure](../virtual-network/virtual-networks-overview.md) que tem quatro sub-redes *vazias* , que são necessárias para criar e implantar recursos em seu Ise e são usadas por esses componentes internos e ocultos:
 
-  > [!IMPORTANT]
-  >
-  > Não use os espaços de endereço IP a seguir para sua rede virtual ou sub-redes porque eles não podem ser resolvidos pelos aplicativos lógicos do Azure:<p>
-  > 
-  > * 0.0.0.0/8
-  > * 100.64.0.0/10
-  > * 127.0.0.0/8
-  > * 168.63.129.16/32
-  > * 169.254.169.254/32
+  * Computação de aplicativos lógicos
+  * Ambiente do Serviço de Aplicativo internos (conectores)
+  * Gerenciamento de API interno (conectores)
+  * Redis interno para cache e desempenho
+  
+  Você pode criar as sub-redes antecipadamente ou ao criar o ISE para que possa criar as sub-redes ao mesmo tempo. No entanto, antes de criar suas sub-redes, certifique-se de examinar os [requisitos de sub-rede](#create-subnet).
 
   * Verifique se a sua rede virtual [habilita o acesso ao ISE](#enable-access) para que o ISE possa funcionar corretamente e permanecer acessível.
 
@@ -88,11 +85,11 @@ Para garantir que o ISE esteja acessível e que os aplicativos lógicos nesse IS
    > [!NOTE]
    > Você poderá usar essa abordagem para um único ISE quando seu cenário exigir a limitação do número de endereços IP que precisam de acesso. Considere se os custos adicionais para o firewall ou solução de virtualização de rede fazem sentido para o seu cenário. Saiba mais sobre os [preços do Firewall do Azure](https://azure.microsoft.com/pricing/details/azure-firewall/).
 
-* Se você tiver criado uma rede virtual do Azure e sub-redes sem nenhuma restrição, não precisará configurar [NSGs (grupos de segurança de rede)](../virtual-network/security-overview.md#network-security-groups) em sua rede virtual para controlar o tráfego entre sub-redes.
+* Se você tiver criado uma rede virtual do Azure e sub-redes sem nenhuma restrição, não precisará configurar [NSGs (grupos de segurança de rede)](../virtual-network/network-security-groups-overview.md#network-security-groups) em sua rede virtual para controlar o tráfego entre sub-redes.
 
-* Para uma rede virtual existente, você *tem a opção* de configurar [NSGs (grupos de segurança de rede)](../virtual-network/security-overview.md#network-security-groups) para [filtrar o tráfego de rede entre sub-redes](../virtual-network/tutorial-filter-network-traffic.md). Se você quiser seguir essa rota ou se já estiver usando NSGs, [abra as portas descritas nesta tabela](#network-ports-for-ise) para esses NSGs.
+* Para uma rede virtual existente, você *tem a opção* de configurar [NSGs (grupos de segurança de rede)](../virtual-network/network-security-groups-overview.md#network-security-groups) para [filtrar o tráfego de rede entre sub-redes](../virtual-network/tutorial-filter-network-traffic.md). Se você quiser seguir essa rota ou se já estiver usando NSGs, [abra as portas descritas nesta tabela](#network-ports-for-ise) para esses NSGs.
 
-  Ao configurar [regras de segurança de NSG](../virtual-network/security-overview.md#security-rules), você precisará usar *ambos* os protocolos **TCP** e **UDP** ou poderá selecionar **Qualquer um** em vez disso, para não precisar criar regras separadas para cada protocolo. As regras de segurança de NSG descrevem as portas que você deve abrir para os endereços IP que precisam de acesso a essas portas. Todos os firewalls, roteadores ou outros itens existentes entre esses pontos de extremidade também devem manter essas portas acessíveis a esses endereços IP.
+  Ao configurar [regras de segurança de NSG](../virtual-network/network-security-groups-overview.md#security-rules), você precisará usar *ambos* os protocolos **TCP** e **UDP** ou poderá selecionar **Qualquer um** em vez disso, para não precisar criar regras separadas para cada protocolo. As regras de segurança de NSG descrevem as portas que você deve abrir para os endereços IP que precisam de acesso a essas portas. Todos os firewalls, roteadores ou outros itens existentes entre esses pontos de extremidade também devem manter essas portas acessíveis a esses endereços IP.
 
 * Se você configurar o túnel forçado por meio do firewall para redirecionar o tráfego de entrada na Internet, examine os [requisitos de túnel forçado adicionais](#forced-tunneling).
 
@@ -149,19 +146,29 @@ Além disso, você precisa adicionar regras de saída para [ambiente do serviço
 
 Se você configurar ou usar o [túnel forçado](../firewall/forced-tunneling.md) por meio do firewall, precisará permitir dependências externas adicionais para o ISE. O túnel forçado permite redirecionar o tráfego de entrada pela Internet para um próximo salto designado, como sua VPN (rede virtual privada) ou para um dispositivo virtual, em vez de para a Internet para que você possa inspecionar e auditar o tráfego de rede de saída.
 
-Normalmente, todo o tráfego de dependência de saída do ISE passa pelo VIP (endereço IP virtual) provisionado com o ISE. No entanto, se você alterar o roteamento de tráfego para ou do ISE, será necessário permitir as seguintes dependências de saída no firewall definindo o próximo salto como `Internet` . Se você usar o Firewall do Azure, siga as [instruções para configurar seu firewall com seu ambiente do serviço de aplicativo](../app-service/environment/firewall-integration.md#configuring-azure-firewall-with-your-ase).
+Se você não permitir o acesso a essas dependências, a implantação do ISE falhará e o ISE implantado deixará de funcionar.
 
-Se você não permitir o acesso a essas dependências, a implantação do ISE falhará e o ISE implantado deixará de funcionar:
+* rotas definidas pelo usuário
 
-* [Endereços de gerenciamento de Ambiente de Serviço de Aplicativo](../app-service/environment/management-addresses.md)
+  Para evitar o roteamento assimétrico, você deve definir uma rota para cada endereço IP listado abaixo com a **Internet** como o próximo salto.
+  
+  * [Endereços de gerenciamento de Ambiente de Serviço de Aplicativo](../app-service/environment/management-addresses.md)
+  * [Endereços IP do Azure para conectores na região do ISE, disponíveis neste arquivo de download](https://www.microsoft.com/download/details.aspx?id=56519)
+  * [Endereços de gerenciamento do Gerenciador de tráfego do Azure](https://azuretrafficmanagerdata.blob.core.windows.net/probes/azure/probe-ip-ranges.json)
+  * [Endereços de entrada e saída dos aplicativos lógicos para a região do ISE](../logic-apps/logic-apps-limits-and-config.md#firewall-configuration-ip-addresses-and-service-tags)
+  * [Endereços IP do Azure para conectores na região do ISE, que estão neste arquivo de download](https://www.microsoft.com/download/details.aspx?id=56519)
 
-* [Endereços de gerenciamento de API do Azure](../api-management/api-management-using-with-vnet.md#control-plane-ips)
+* Pontos de extremidade de serviço
 
-* [Endereços de gerenciamento do Gerenciador de tráfego do Azure](https://azuretrafficmanagerdata.blob.core.windows.net/probes/azure/probe-ip-ranges.json)
+  Você precisa habilitar pontos de extremidade de serviço para SQL do Azure, armazenamento, barramento de serviço, keyvault e hubs de eventos, pois não é possível enviar tráfego por meio de um firewall para esses serviços.
 
-* [Endereços de entrada e saída dos aplicativos lógicos para a região do ISE](../logic-apps/logic-apps-limits-and-config.md#firewall-configuration-ip-addresses-and-service-tags)
+*  Outras dependências de entrada e de saída
 
-* Você precisa habilitar pontos de extremidade de serviço para SQL, armazenamento, barramento de serviço e Hub de eventos do Azure, pois não é possível enviar tráfego por meio de um firewall para esses serviços.
+   O firewall *deve* permitir as seguintes dependências de entrada e saída:
+   
+   * [Dependências do serviço Azure App](../app-service/environment/firewall-integration.md#deploying-your-ase-behind-a-firewall)
+   * [Dependências do serviço de cache do Azure](../azure-cache-for-redis/cache-how-to-premium-vnet.md#what-are-some-common-misconfiguration-issues-with-azure-cache-for-redis-and-virtual-networks)
+   * [Dependências do gerenciamento de API do Azure](../api-management/api-management-using-with-vnet.md#-common-network-configuration-issues)
 
 <a name="create-environment"></a>
 
@@ -187,7 +194,7 @@ Se você não permitir o acesso a essas dependências, a implantação do ISE fa
    | **Localidade** | Sim | <*Azure-datacenter-region*> | A região do datacenter do Azure na qual o ambiente será implantado |
    | **SKU** | Sim | **Premium** ou **Desenvolvedor (sem SLA)** | A SKU do ISE a ser criada e usada. Para diferenças entre essas SKUs, confira [SKUs do ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level). <p><p>**Importante**: Essa opção está disponível somente na criação do ISE e não pode ser alterada posteriormente. |
    | **Capacidade adicional** | Premium: <br>Sim <p><p>Desenvolvedor: <br>Não aplicável | Premium: <br>0 a 10 <p><p>Desenvolvedor: <br>Não aplicável | O número de unidades de processamento adicionais a serem usadas no recurso do ISE. Para adicionar capacidade após a criação, confira [Adicionar capacidade do ISE](../logic-apps/ise-manage-integration-service-environment.md#add-capacity). |
-   | **Ponto de extremidade de acesso** | Sim | **Interno** ou **Externo** | O tipo dos pontos de extremidade de acesso a serem usados no ISE. Esses pontos de extremidade determinam se os gatilhos de solicitação ou webhook em Aplicativos Lógicos no ISE podem receber chamadas de fora de sua rede virtual. <p><p>Sua seleção também afeta a maneira como você pode exibir e acessar entradas e saídas em seu histórico de execuções de aplicativo lógico. Para obter mais informações, confira [Acesso do ponto de extremidade do ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access). <p><p>**Importante**: Você pode selecionar o ponto de extremidade de acesso somente durante a criação do ISE e não pode alterar essa opção posteriormente. |
+   | **Ponto de extremidade de acesso** | Sim | **Interno** ou **Externo** | O tipo dos pontos de extremidade de acesso a serem usados no ISE. Esses pontos de extremidade determinam se os gatilhos de solicitação ou webhook em Aplicativos Lógicos no ISE podem receber chamadas de fora de sua rede virtual. <p><p>Por exemplo, se você quiser usar os seguintes gatilhos baseados em webhook, certifique-se de selecionar **externo**: <p><p>-DevOps do Azure <br>-Grade de eventos do Azure <br>-Common Data Service <br>-Office 365 <br>-SAP (versão do ISE) <p><p>Sua seleção também afeta a maneira como você pode exibir e acessar entradas e saídas em seu histórico de execuções de aplicativo lógico. Para obter mais informações, confira [Acesso do ponto de extremidade do ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access). <p><p>**Importante**: Você pode selecionar o ponto de extremidade de acesso somente durante a criação do ISE e não pode alterar essa opção posteriormente. |
    | **Rede virtual** | Sim | <*Azure-virtual-network-name*> | A rede virtual do Azure na qual você deseja injetar seu ambiente para que os aplicativos lógicos no ambiente possam acessar sua rede virtual. Se não tiver uma rede, [primeiro crie uma rede virtual do Azure](../virtual-network/quick-create-portal.md). <p><p>**Importante**: Você pode executar essa injeção *apenas* quando cria seu ISE. |
    | **Sub-redes** | Sim | <*subnet-resource-list*> | Um ISE requer quatro sub-redes *vazias* , que são necessárias para criar e implantar recursos no ISE e são usadas por componentes de aplicativos lógicos internos, como conectores e cache para desempenho. <p>**Importante**: Certifique-se [de examinar os requisitos de sub-rede antes de continuar com estas etapas para criar suas sub-redes](#create-subnet). |
    |||||
@@ -196,13 +203,13 @@ Se você não permitir o acesso a essas dependências, a implantação do ISE fa
 
    **Criar sub-redes**
 
-   O ISE precisa de quatro sub-redes *vazias* , que são necessárias para criar e implantar recursos no ISE e são usadas por componentes de aplicativos lógicos internos, como conectores e cache para desempenho. Você *não pode* alterar esses endereços de sub-rede depois de criar seu ambiente. Se você criar e implantar o ISE por meio do portal do Azure, certifique-se de não delegar essas sub-redes a nenhum serviço do Azure. No entanto, se você criar e implantar o ISE por meio da API REST, Azure PowerShell ou um modelo de Azure Resource Manager, será necessário [delegar](../virtual-network/manage-subnet-delegation.md) uma sub-rede vazia para o `Microsoft.integrationServiceEnvironment` . Para obter mais informações, consulte [Adicionar uma delegação de sub-rede](../virtual-network/manage-subnet-delegation.md).
+   O ISE requer quatro sub-redes *vazias* , que são necessárias para criar e implantar recursos no ISE e são usadas por componentes de aplicativos lógicos internos, como conectores e cache para desempenho. Você *não pode* alterar esses endereços de sub-rede depois de criar seu ambiente. Se você criar e implantar o ISE por meio do portal do Azure, certifique-se de não delegar essas sub-redes a nenhum serviço do Azure. No entanto, se você criar e implantar o ISE por meio da API REST, Azure PowerShell ou um modelo de Azure Resource Manager, será necessário [delegar](../virtual-network/manage-subnet-delegation.md) uma sub-rede vazia para o `Microsoft.integrationServiceEnvironment` . Para obter mais informações, consulte [Adicionar uma delegação de sub-rede](../virtual-network/manage-subnet-delegation.md).
 
    Cada sub-rede precisa atender a estes requisitos:
 
    * Usa um nome que começa com um caractere alfabético ou um sublinhado (sem números) e não usa estes caracteres:,,,,, `<` `>` `%` `&` `\\` `?` , `/` .
 
-   * Usa o [formato CIDR (Roteamento entre Domínios sem Classe)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) e um espaço de endereço de Classe B.
+   * Usa o [formato CIDR (roteamento sem classe Inter-Domain)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
    
      > [!IMPORTANT]
      >
@@ -269,12 +276,35 @@ Se você não permitir o acesso a essas dependências, a implantação do ISE fa
 
 1. Para exibir seu ambiente, selecione **Ir para o recurso** se o Azure não for automaticamente para seu ambiente após a conclusão da implantação.
 
+1. Para um ISE com acesso de ponto de extremidade *externo* , você precisa criar um grupo de segurança de rede, se ainda não tiver um, e adicionar uma regra de segurança de entrada para permitir o tráfego de endereços IP de saída do conector gerenciado. Para configurar essa regra, siga estas etapas:
+
+   1. No menu do ISE, em **configurações**, selecione **Propriedades**.
+
+   1. Em **endereços IP de saída do conector**, copie os intervalos de endereços IP públicos, que também aparecem neste artigo, [limites e endereços IP de saída de configuração](../logic-apps/logic-apps-limits-and-config.md#outbound).
+
+   1. Crie um grupo de segurança de rede, se você ainda não tiver um.
+   
+   1. Com base nas informações a seguir, adicione uma regra de segurança de entrada para os endereços IP de saída públicos que você copiou. Para obter mais informações, consulte [tutorial: filtrar o tráfego de rede com um grupo de segurança de rede usando o portal do Azure](../virtual-network/tutorial-filter-network-traffic.md#create-a-network-security-group).
+
+      | Finalidade | Endereços IP ou marca de serviço de origem | Portas de origem | Endereços IP ou marca de serviço de destino | Portas de destino | Observações |
+      |---------|------------------------------------|--------------|-----------------------------------------|-------------------|-------|
+      | Permitir o tráfego de endereços IP de saída do conector | <*Connector-Public-Outbound-IP-addresses*> | * | Espaço de endereço da rede virtual com sub-redes do ISE | * | |
+      |||||||
+
 1. Para verificar a integridade da rede do ISE, confira [Gerenciar seu ambiente do serviço de integração](../logic-apps/ise-manage-integration-service-environment.md#check-network-health).
+
+   > [!CAUTION]
+   > Se a rede do ISE se tornar não íntegra, o Ambiente do Serviço de Aplicativo interno (ASE) que é usado pelo ISE também pode se tornar não íntegro. Se o ASE não estiver íntegro por mais de sete dias, o ASE será suspenso. Para resolver esse Estado, verifique sua configuração de rede virtual. Resolva os problemas encontrados e reinicie o ISE. Caso contrário, após 90 dias, o ASE suspenso será excluído e o ISE se tornará inutilizável. Portanto, certifique-se de manter seu ISE íntegro para permitir o tráfego necessário.
+   > 
+   > Para saber mais, consulte esses tópicos:
+   >
+   > * [Visão geral de diagnóstico do Serviço de Aplicativo do Azure](../app-service/overview-diagnostics.md)
+   > * [Log de mensagens para Ambiente do Serviço de Aplicativo do Azure](../app-service/environment/using-an-ase.md#logging)
 
 1. Para começar a criar aplicativos lógicos e outros artefatos no ISE, confira [Adicionar recursos aos ambientes de serviço de integração](../logic-apps/add-artifacts-integration-service-environment-ise.md).
 
    > [!IMPORTANT]
-   > Os conectores do ISE gerenciados que se tornam disponíveis depois que você cria o ISE não aparecem automaticamente no seletor de conector no Designer do Aplicativo Lógico. Antes de poder usar esses conectores do ISE, você precisa [adicionar manualmente esses conectores ao ISE](../logic-apps/add-artifacts-integration-service-environment-ise.md#add-ise-connectors-environment) para que eles apareçam no Designer do Aplicativo Lógico.
+   > Depois de criar o ISE, conectores do ISE gerenciados ficam disponíveis para uso, mas eles não aparecem automaticamente no seletor de conector no designer de aplicativo lógico. Antes de poder usar esses conectores do ISE, você precisa [Adicionar e implantar manualmente esses conectores no ISE](../logic-apps/add-artifacts-integration-service-environment-ise.md#add-ise-connectors-environment) para que eles apareçam no designer do aplicativo lógico.
 
 ## <a name="next-steps"></a>Próximas etapas
 

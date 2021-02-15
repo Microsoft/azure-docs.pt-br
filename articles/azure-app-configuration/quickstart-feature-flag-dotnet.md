@@ -3,8 +3,7 @@ title: Início Rápido para adicionar sinalizadores de recursos a aplicativos .N
 description: Um início rápido para adicionar sinalizadores de recursos a aplicativos .NET Framework e gerenciá-los na Configuração de Aplicativos do Azure
 services: azure-app-configuration
 documentationcenter: ''
-author: lisaguthrie
-manager: maiye
+author: AlexandraKemperMS
 editor: ''
 ms.assetid: ''
 ms.service: azure-app-configuration
@@ -13,24 +12,24 @@ ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.tgt_pltfrm: .NET
 ms.workload: tbd
-ms.date: 10/21/2019
-ms.author: lcozzens
-ms.openlocfilehash: 998527a8557db0b0cf271dc8b05d5771660a175c
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.date: 10/19/2020
+ms.author: alkemper
+ms.openlocfilehash: 513c826e11ff9dfe6ea94349c67620da9d1bba48
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88209434"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932040"
 ---
 # <a name="quickstart-add-feature-flags-to-a-net-framework-app"></a>Início Rápido: Adicionar sinalizadores de recursos a um aplicativo .NET Framework
 
 Neste início rápido, você incorporará a Configuração de Aplicativos do Azure a um aplicativo .NET Framework para criar uma implementação de ponta a ponta do gerenciamento de recursos. Você pode usar o serviço de Configuração de Aplicativos para armazenar de forma centralizada todos os sinalizadores de recurso e controlar seus estados. 
 
-As bibliotecas do Gerenciamento de Recursos do .NET estendem a estrutura com suporte abrangente a sinalizadores de recursos. Essas bibliotecas se baseiam no sistema de configuração do .NET. Elas são integradas diretamente à Configuração de Aplicativos por meio de seu provedor de configuração do .NET.
+As bibliotecas do Gerenciamento de Recursos do .NET estendem a estrutura com suporte a sinalizadores de recursos. Essas bibliotecas se baseiam no sistema de configuração do .NET. Elas são integradas à Configuração de Aplicativos por meio do provedor de configuração do .NET.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Assinatura do Azure - [criar uma gratuitamente](https://azure.microsoft.com/free/)
+- Assinatura do Azure - [criar uma gratuitamente](https://azure.microsoft.com/free/dotnet)
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs)
 - [.NET Framework 4.8](https://dotnet.microsoft.com/download)
 
@@ -38,7 +37,7 @@ As bibliotecas do Gerenciamento de Recursos do .NET estendem a estrutura com sup
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Selecione **Gerenciador de Recursos** >  **+Adicionar** para adicionar um sinalizador de recurso chamado `Beta`.
+7. Selecione **Gerenciador de Recursos** >  **+Adicionar** para adicionar um sinalizador de recurso chamado `Beta`.
 
     > [!div class="mx-imgBorder"]
     > ![Habilitar o sinalizador de recurso chamado Beta](media/add-beta-feature-flag.png)
@@ -70,6 +69,7 @@ As bibliotecas do Gerenciamento de Recursos do .NET estendem a estrutura com sup
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
     using Microsoft.FeatureManagement;
+    using System.Threading.Tasks;
     ```
 
 1. Atualize o método `Main` para se conectar à Configuração de Aplicativos, especificando a opção `UseFeatureFlags` para que os sinalizadores de recursos sejam recuperados. Em seguida, exiba uma mensagem se o sinalizador de recursos `Beta` estiver habilitado.
@@ -99,6 +99,8 @@ As bibliotecas do Gerenciamento de Recursos do .NET estendem a estrutura com sup
             }
 
             Console.WriteLine("Hello World!");
+            Console.WriteLine("Press any key to continue ...");
+            Console.Read();
         }
     ```
 

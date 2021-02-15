@@ -13,12 +13,13 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: ryanwi
 ms.reviewer: jeedes
-ms.openlocfilehash: 37f305a7564382b9c6c5a031340d81a22cfedbf2
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ROBOTS: NOINDEX
+ms.openlocfilehash: de0231a49c4f806660ea0cb305fdc1a70e2b36d3
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88120704"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98063120"
 ---
 # <a name="add-a-multitenant-application-to-the-azure-ad-application-gallery"></a>Adicionar um aplicativo multilocatário à galeria de aplicativos do Azure Active Directory
 
@@ -29,9 +30,9 @@ O Azure Active Directory é um serviço de identidade baseado em nuvem. A [galer
 ## <a name="if-your-application-supports-saml-or-openidconnect"></a>Se seu aplicativo der suporte a SAML ou OpenIDConnect
 Se você tiver um aplicativo multilocatário que deseja listar na galeria de aplicativos do Azure Active Directory, será necessário primeiro certificar-se de que o aplicativo fornece suporte a uma das tecnologias de logon único seguir:
 
-- **OpenID Connect**: Para que o aplicativo seja listado, crie o aplicativo multilocatário no Azure AD e implemente a [estrutura de consentimento do Azure AD](./consent-framework.md) para o aplicativo. Envie a solicitação de logon para um ponto de extremidade comum para que qualquer cliente possa dar consentimento ao aplicativo. É possível pode controlar o acesso de um usuário com base na ID do locatário e o UPN do usuário recebido no token. Envie o aplicativo usando o processo descrito em [Listando seu aplicativo na galeria de aplicativos do Azure Active Directory](../azuread-dev/howto-app-gallery-listing.md).
+- **OpenID Connect**: Para que o aplicativo seja listado, crie o aplicativo multilocatário no Azure AD e implemente a [estrutura de consentimento do Azure AD](./consent-framework.md) para o aplicativo. Envie a solicitação de logon para um ponto de extremidade comum para que qualquer cliente possa dar consentimento ao aplicativo. É possível pode controlar o acesso de um usuário com base na ID do locatário e o UPN do usuário recebido no token. Envie o aplicativo usando o processo descrito em [Listando seu aplicativo na galeria de aplicativos do Azure Active Directory](./v2-howto-app-gallery-listing.md).
 
-- **SAML**: Se o aplicativo der suporte ao SAML 2.0, ele poderá ser listado na galeria. Siga as instruções em [Listando seu aplicativo na galeria de aplicativos do Azure Active Directory](../azuread-dev/howto-app-gallery-listing.md).
+- **SAML**: Se o aplicativo der suporte ao SAML 2.0, ele poderá ser listado na galeria. Siga as instruções em [Listando seu aplicativo na galeria de aplicativos do Azure Active Directory](./v2-howto-app-gallery-listing.md).
 
 ## <a name="if-your-application-does-not-support-saml-or-openidconnect"></a>Se seu aplicativo não der suporte a SAML ou OpenIDConnect
 Aplicativos que não têm suporte para SAML ou OpenIDConnect poderão ainda ser integrados na galeria de aplicativos por meio de tecnologia de logon único de senha.
@@ -40,11 +41,11 @@ O logon único de senha, também chamado de cofre de senha, permite que você ge
 
 Se você quiser listar o aplicativo com essa tecnologia:
 1. Crie um aplicativo Web que tenha uma página de logon HTML para configurar o [logon único de senha](../manage-apps/what-is-single-sign-on.md). 
-2. Envie a solicitação, conforme descrito em [Listando seu aplicativo na galeria de aplicativos do Azure Active Directory](../azuread-dev/howto-app-gallery-listing.md).
+2. Envie a solicitação, conforme descrito em [Listando seu aplicativo na galeria de aplicativos do Azure Active Directory](./v2-howto-app-gallery-listing.md).
 
 ## <a name="escalations"></a>Escalonamentos
 
 Para qualquer escalonamentos, envie um email para a [Equipe de Integração de SSO do Azure Active Directory](<mailto:SaaSApplicationIntegrations@service.microsoft.com>) e retornaremos o mais rápido possível.
 
 ## <a name="next-steps"></a>Próximas etapas
-Saiba mais sobre como [listar seu aplicativo na galeria de aplicativos do Azure Active Directory](../azuread-dev/howto-app-gallery-listing.md).
+Saiba mais sobre como [listar seu aplicativo na galeria de aplicativos do Azure Active Directory](./v2-howto-app-gallery-listing.md).

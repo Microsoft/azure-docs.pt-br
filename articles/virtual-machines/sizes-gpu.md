@@ -8,20 +8,20 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 711bcc06a65483921492aaad819b961fc09740d4
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: fb534ae4a59c9a5c87a7eb7ab268a40b9771fdb2
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067028"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91876219"
 ---
 # <a name="gpu-optimized-virtual-machine-sizes"></a>Tamanhos de máquinas virtuais com GPU otimizadas
 
 Os tamanhos de VM otimizadas para GPU são máquinas virtuais especializadas disponíveis com GPUs únicas, múltiplas ou fracionárias. Esses tamanhos são projetados para cargas de trabalho de visualização e com muita computação e muitos gráficos. Este artigo fornece informações sobre o número e o tipo de GPUs, vCPUs, discos de dados e NICs. A taxa de transferência de armazenamento e a largura de banda de rede também são incluídos para cada tamanho neste agrupamento.
 
-- Os tamanhos da série [NC](nc-series.md), série [NCv2](ncv2-series.md), [série NCv3](ncv3-series.md) e [NCT4_v3](nct4-v3-series.md) são otimizados para aplicativos e algoritmos com uso intensivo de computação e rede. Alguns exemplos são aplicativos baseados em CUDA e OpenCL e simulações, ia e aprendizado profundo. A série NCT4v3 se concentra em cargas de trabalho de inferência com a GPU Tesla T4 da NVIDIA e com o processador AMD EPYC2 Roma. A série NCv3 concentra-se em cargas de trabalho de computação de alto desempenho com a tecnologia das GPUs Tesla V100 da NVIDIA. A série NC usa o processador Intel Xeon E5-2690 v3 2,60 GHz (Haswell) e as VMs da série NCv2 e NCv3 usam o processador Intel Xeon E5-2690 V4 (Broadwell).
+- Os tamanhos da série [NCv3](ncv3-series.md) e do [NC T4_v3](nct4-v3-series.md) são otimizados para aplicativos com aceleração de GPU com uso intensivo de computação. Alguns exemplos são aplicativos baseados em CUDA e OpenCL e simulações, ia e aprendizado profundo. O NC T4 v3-Series se concentra em cargas de trabalho de inferência com a GPU Tesla T4 da NVIDIA e o processador AMD EPYC2 Roma. A série NCv3 está concentrada em cargas de trabalho de computação e de ia de alto desempenho com a GPU Tesla V100 da NVIDIA.
 
-- Os tamanhos da série [ND](nd-series.md)e da [série NDv2](ndv2-series.md) se concentram em cenários de treinamento e inferência para aprendizado profundo. Eles usam a GPU NVIDIA Tesla P40 e o processador Intel Xeon E5-2690 V4 (Broadwell). A série NDv2 usa o processador Intel Xeon Platinum 8168 (Skylake).
+- O tamanho da [série NDv2](ndv2-series.md) é voltado para aplicativos de treinamento de aprendizado profundo de expansão e expansão. A série NDv2 usa o NVIDIA voltar V100 e o processador Intel Xeon Platinum 8168 (Skylake).
 
 - Os tamanhos da série [NV](nv-series.md) e da [série NVv3](nvv3-series.md) são otimizados e desenvolvidos para cenários de visualização remota, streaming, jogos, codificação e VDI usando estruturas como OpenGL e DirectX. Essas VMs são apoiadas pela GPU Tesla M60 da NVIDIA.
 
@@ -31,7 +31,7 @@ Os tamanhos de VM otimizadas para GPU são máquinas virtuais especializadas dis
 
 Para aproveitar os recursos de GPU das VMs da série N do Azure, os drivers NVIDIA ou AMD GPU devem ser instalados.
 
-- Para VMs apoiadas por GPUs NVIDIA, a [extensão de Driver Nvidia GPU](./extensions/hpccompute-gpu-windows.md) instala drivers NVIDIA CUDA ou Grid apropriados. Instale ou gerencie a extensão usando o portal do Azure ou ferramentas, como Azure PowerShell ou modelos do Azure Resource Manager. Confira a [documentação da Extensão de Driver de GPU NVIDIA](./extensions/hpccompute-gpu-windows.md) para saber quais são os sistemas operacionais compatíveis e as etapas de implantação. Para obter informações gerais sobre extensões de VM, confira [Recursos e extensões de máquina virtual do Azure](./extensions/overview.md).
+- Para VMs apoiadas por GPUs NVIDIA, a [extensão de Driver Nvidia GPU](./extensions/hpccompute-gpu-windows.md) instala drivers NVIDIA CUDA ou Grid apropriados. Instale ou gerencie a extensão usando o portal do Azure ou ferramentas, como Azure PowerShell ou modelos do Azure Resource Manager. Confira a [documentação da Extensão de Driver de GPU NVIDIA](./extensions/hpccompute-gpu-windows.md) para saber quais são os sistemas operacionais compatíveis e as etapas de implantação. Para obter informações gerais sobre extensões de VM, confira [Recursos e extensões de máquina virtual do Azure](./extensions/overview.md).   
 
    Como alternativa, você pode instalar os drivers NVIDIA GPU manualmente. Confira [instalar drivers NVIDIA GPU em VMs da série n executando o Windows](./windows/n-series-driver-setup.md) ou [instalar drivers NVIDIA GPU em VMs da série n executando o Linux](./linux/n-series-driver-setup.md) para sistemas operacionais, Drivers, instalação e etapas de verificação com suporte.
 

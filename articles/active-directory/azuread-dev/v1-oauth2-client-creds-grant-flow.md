@@ -14,10 +14,10 @@ ms.reviewer: nacanuma
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 977dfea28c5c0dc3f34ada0c138556d70c979e04
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85551707"
 ---
 # <a name="service-to-service-calls-using-client-credentials-shared-secret-or-certificate"></a>Serviço de chamadas de serviço usando as credenciais do cliente (segredo compartilhado ou certificados)
@@ -54,10 +54,10 @@ Ao usar um segredo compartilhado, uma solicitação de token de acesso de servi�
 
 | Parâmetro | Type | Descrição |
 | --- | --- | --- |
-| grant_type |exigido |Especifica o tipo de concessão solicitada. Em um fluxo de Concessão de Credenciais de Cliente, o valor deve ser **client_credentials**. |
-| client_id |exigido |Especifica a ID de cliente do Azure AD do serviço Web de chamada. Para localizar a ID do cliente do aplicativo de chamada, no [portal do Azure](https://portal.azure.com), clique em **Azure Active Directory**, depois em **Registros de aplicativo** e, em seguida, clique no aplicativo. A client_id é a *ID do Aplicativo* |
-| client_secret |exigido |Insira uma chave registrada para a chamada daemon ou o serviço de aplicativo web no AD do Azure. Para criar uma chave no portal do Azure, clique em **Azure Active Directory**, clique em **Registros de aplicativo**, clique no aplicativo, depois em **Configurações**, em **Chaves** e adicione uma chave.  Codifique a URL desse segredo ao fornecê-lo. |
-| recurso |exigido |Insira o URI da ID de Aplicativo do serviço Web de recebimento. Para localizar o URI de ID do aplicativo, no portal do Azure, clique em **Azure Active Directory**, depois em **Registros de aplicativo**, clique no aplicativo de serviço e, em seguida, em **Configurações** e **Propriedades**. |
+| grant_type |obrigatório |Especifica o tipo de concessão solicitada. Em um fluxo de Concessão de Credenciais de Cliente, o valor deve ser **client_credentials**. |
+| client_id |obrigatório |Especifica a ID de cliente do Azure AD do serviço Web de chamada. Para localizar a ID do cliente do aplicativo de chamada, no [portal do Azure](https://portal.azure.com), clique em **Azure Active Directory**, depois em **Registros de aplicativo** e, em seguida, clique no aplicativo. A client_id é a *ID do Aplicativo* |
+| client_secret |obrigatório |Insira uma chave registrada para a chamada daemon ou o serviço de aplicativo web no AD do Azure. Para criar uma chave no portal do Azure, clique em **Azure Active Directory**, clique em **Registros de aplicativo**, clique no aplicativo, depois em **Configurações**, em **Chaves** e adicione uma chave.  Codifique a URL desse segredo ao fornecê-lo. |
+| recurso |obrigatório |Insira o URI da ID de Aplicativo do serviço Web de recebimento. Para localizar o URI de ID do aplicativo, no portal do Azure, clique em **Azure Active Directory**, depois em **Registros de aplicativo**, clique no aplicativo de serviço e, em seguida, em **Configurações** e **Propriedades**. |
 
 #### <a name="example"></a>Exemplo
 O HTTP POST a seguir solicita um [token de acesso](../develop/access-tokens.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) para o serviço Web `https://service.contoso.com/`. O `client_id` identifica o serviço Web que solicita o token de acesso.
@@ -75,11 +75,11 @@ Uma solicitação de token de acesso de serviço a serviço com um certificado c
 
 | Parâmetro | Type | Descrição |
 | --- | --- | --- |
-| grant_type |exigido |Especifica o tipo de resposta solicitada. Em um fluxo de Concessão de Credenciais de Cliente, o valor deve ser **client_credentials**. |
-| client_id |exigido |Especifica a ID de cliente do Azure AD do serviço Web de chamada. Para localizar a ID do cliente do aplicativo de chamada, no [portal do Azure](https://portal.azure.com), clique em **Azure Active Directory**, depois em **Registros de aplicativo** e, em seguida, clique no aplicativo. A client_id é a *ID do Aplicativo* |
-| client_assertion_type |exigido |O valor deve ser `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
+| grant_type |obrigatório |Especifica o tipo de resposta solicitada. Em um fluxo de Concessão de Credenciais de Cliente, o valor deve ser **client_credentials**. |
+| client_id |obrigatório |Especifica a ID de cliente do Azure AD do serviço Web de chamada. Para localizar a ID do cliente do aplicativo de chamada, no [portal do Azure](https://portal.azure.com), clique em **Azure Active Directory**, depois em **Registros de aplicativo** e, em seguida, clique no aplicativo. A client_id é a *ID do Aplicativo* |
+| client_assertion_type |obrigatório |O valor deve ser `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
 | client_assertion |obrigatório | Uma asserção (um Token Web JSON) que você precisa para criar e assinar com o certificado registrado como credenciais do seu aplicativo. Leia mais sobre [credenciais de certificado](../develop/active-directory-certificate-credentials.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) para saber como registrar seu certificado e saber sobre o formato da asserção.|
-| recurso | exigido |Insira o URI da ID de Aplicativo do serviço Web de recebimento. Para localizar o URI de ID do aplicativo, no portal do Azure, clique em **Azure Active Directory**, depois em **Registros de aplicativo**, clique no aplicativo de serviço e, em seguida, em **Configurações** e **Propriedades**. |
+| recurso | obrigatório |Insira o URI da ID de Aplicativo do serviço Web de recebimento. Para localizar o URI de ID do aplicativo, no portal do Azure, clique em **Azure Active Directory**, depois em **Registros de aplicativo**, clique no aplicativo de serviço e, em seguida, em **Configurações** e **Propriedades**. |
 
 Observe que os parâmetros são praticamente os mesmos como no caso da solicitação pelo segredo compartilhado, exceto pelo fato de o parâmetro client_secret ser substituído por dois parâmetros: um client_assertion_type e uma client_assertion.
 

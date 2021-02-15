@@ -3,12 +3,13 @@ title: Recuperação de desastre para tópicos personalizados na Grade de Evento
 description: Este tutorial orientará você ao longo do processo de configurar sua arquitetura de eventos a ser recuperada se o serviço da Grade de Eventos passar a ser não íntegro em uma região.
 ms.topic: tutorial
 ms.date: 07/07/2020
-ms.openlocfilehash: dc893973fe1f6367cd9b95de2014d92c045056f4
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.custom: devx-track-csharp
+ms.openlocfilehash: e37cb6a0679ee2e249de4ed8fa31c40d5082ea4a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87461673"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020136"
 ---
 # <a name="build-your-own-disaster-recovery-for-custom-topics-in-event-grid"></a>Criar sua própria recuperação de desastre para tópicos personalizados na Grade de Eventos
 A recuperação de desastre tem como foco a recuperação após uma perda grave de funcionalidade do aplicativo. Este tutorial o orientará pelo processo de configurar sua arquitetura de eventos a ser recuperada se o serviço de Grade de Eventos se tornar não íntegro em uma região específica.
@@ -71,7 +72,7 @@ Primeiro, crie dois tópicos de Grade de Eventos. Esses tópicos funcionarão co
    * Selecione o Web hook do tipo de ponto de extremidade.
    * Defina o ponto de extremidade como a URL do evento do receptor de eventos, que deve ter esta aparência: `https://<your-event-reciever>.azurewebsites.net/api/updates`
 
-     ![Assinatura do Evento Principal da Grade de Eventos](./media/custom-disaster-recovery/create-primary-es.png)
+     ![Captura de tela que mostra a página "Criar Assinatura de Evento – Básica" com os valores de "Nome", "Tipo de Ponto de Extremidade" e "Ponto de Extremidade" realçados.](./media/custom-disaster-recovery/create-primary-es.png)
 
 1. Repita o mesmo fluxo para criar seu tópico e assinatura secundários. Dessa vez, substitua o sufixo "-primário" por "-secundário" para facilitar o acompanhamento. Por fim, certifique-se de colocá-lo em uma região diferente do Azure. Embora seja possível colocá-lo em qualquer local que você desejar, é recomendável usar as [Regiões Emparelhadas do Azure](../best-practices-availability-paired-regions.md). Colocar o tópico e a assinatura secundários em uma região diferente garante que os novos eventos flutuarão mesmo se a região primária ficar inativa.
 

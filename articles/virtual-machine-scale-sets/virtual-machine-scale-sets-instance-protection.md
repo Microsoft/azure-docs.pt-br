@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: availability
 ms.date: 02/26/2020
 ms.reviewer: jushiman
-ms.custom: avverma
-ms.openlocfilehash: 8c4944da8ffcaa75e6448483918a29809c32830b
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.custom: avverma, devx-track-azurecli
+ms.openlocfilehash: 59720a3e89db29ba3eb0829084dd5252e27e9cc9
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83124050"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746795"
 ---
 # <a name="instance-protection-for-azure-virtual-machine-scale-set-instances"></a>Proteção de instância para instâncias de conjuntos de dimensionamento de máquinas virtuais do Azure
 
@@ -50,11 +50,11 @@ Há várias maneiras de aplicar a proteção contra redução horizontal em suas
 Você pode aplicar a proteção contra redução horizontal por meio do portal do Azure a uma instância no conjunto de dimensionamento. Você não pode ajustar mais de uma instância por vez. Repita as etapas para cada instância que deseja proteger.
  
 1. Acesse um conjunto de dimensionamento de máquinas virtuais existente.
-1. Selecione **Instâncias** no menu à esquerda, em **Configurações**.
+1. Selecione **Instâncias** no menu à esquerda, em **Configurações** .
 1. Selecione o nome da instância que você deseja proteger.
-1. Selecione a guia **Política de Proteção**.
-1. Na folha **Política de Proteção**, selecione a opção **Proteger contra redução horizontal**.
-1. Clique em **Salvar**. 
+1. Selecione a guia **Política de Proteção** .
+1. Na folha **Política de Proteção** , selecione a opção **Proteger contra redução horizontal** .
+1. Clique em **Salvar** . 
 
 ### <a name="rest-api"></a>API REST
 
@@ -118,11 +118,11 @@ Há várias maneiras de aplicar a proteção contra ações do conjunto de dimen
 Você pode aplicar a proteção contra ações do conjunto de dimensionamento por meio do portal do Azure a uma instância no conjunto de dimensionamento. Você não pode ajustar mais de uma instância por vez. Repita as etapas para cada instância que deseja proteger.
  
 1. Acesse um conjunto de dimensionamento de máquinas virtuais existente.
-1. Selecione **Instâncias** no menu à esquerda, em **Configurações**.
+1. Selecione **Instâncias** no menu à esquerda, em **Configurações** .
 1. Selecione o nome da instância que você deseja proteger.
-1. Selecione a guia **Política de Proteção**.
-1. Na folha **Política de Proteção**, selecione a opção **Proteger contra as ações do conjunto de dimensionamento**.
-1. Clique em **Salvar**. 
+1. Selecione a guia **Política de Proteção** .
+1. Na folha **Política de Proteção** , selecione a opção **Proteger contra as ações do conjunto de dimensionamento** .
+1. Clique em **Salvar** . 
 
 ### <a name="rest-api"></a>API REST
 

@@ -1,19 +1,19 @@
 ---
 title: Criar VLANs/sub-redes-solução do Azure VMware por CloudSimple
 description: Soluções do Azure VMware por CloudSimple – descreve como criar e gerenciar VLANs/sub-redes para suas nuvens privadas e, em seguida, aplicar regras de firewall.
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/15/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: c0160513eb9abca54adbc3819b982348dc202c90
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 06bebcb7369f6604fc79c1d3d0a4a6afa8b0a1da
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77565988"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97896304"
 ---
 # <a name="create-and-manage-vlanssubnets-for-your-private-clouds"></a>Criar e gerenciar VLANs/sub-redes para suas nuvens privadas
 

@@ -4,10 +4,10 @@ description: Saiba como criar e implantar um aplicativo do Service Fabric usando
 ms.topic: conceptual
 ms.date: 04/11/2018
 ms.openlocfilehash: 556d8dee4efd492fa98755f1ffd1cdc1c9887856
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82193642"
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>Criar seu primeiro aplicativo do Azure Service Fabric
@@ -33,7 +33,7 @@ O Service Fabric fornece ferramentas de scaffolding que ajudarão a criar um apl
    curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash 
    nvm install node 
    ```
-2. Instalar o gerador de modelos [Yeoman](https://yeoman.io/) em seu computador a partir do NPM
+2. Instalar o gerador de modelos do [Yeoman](https://yeoman.io/) em seu computador por meio do NPM
 
    ```bash
    npm install -g yo

@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 03/09/2020
 ms.author: tamram
 ms.openlocfilehash: 27617da97ced9ac775beae71e4c25202944b2aba
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "78940912"
 ---
-A tabela a seguir descreve a capacidade, escalabilidade e metas de desempenho para o armazenamento de tabelas.
+A tabela a seguir descreve a capacidade, escalabilidade e metas de desempenho para o Armazenamento de Tabelas.
 
 | Recurso | Destino |
 |----------|---------------|
@@ -20,11 +20,11 @@ A tabela a seguir descreve a capacidade, escalabilidade e metas de desempenho pa
 | Número de entidades em uma partição | Limitado apenas pela capacidade da conta de armazenamento |
 | Tamanho máximo de uma única tabela | 500 TiB |
 | Tamanho máximo de uma única entidade, incluindo todos os valores de propriedade | 1 MiB |
-| Número máximo de propriedades em uma entidade de tabela | 255 (incluindo as três propriedades do sistema, **PartitionKey**, **RowKey**e **timestamp**) |
-| Tamanho total máximo de uma propriedade individual em uma entidade | Varia por tipo de propriedade. Para obter mais informações, consulte **tipos de propriedade** em [noções básicas sobre o modelo de dados do serviço tabela](/rest/api/storageservices/understanding-the-table-service-data-model). |
-| Tamanho do **PartitionKey** | Uma cadeia de caracteres de até 1 KiB de tamanho |
-| Tamanho do **RowKey** | Uma cadeia de caracteres de até 1 KiB de tamanho |
-| Tamanho de uma transação de grupo de entidades | Uma transação pode incluir no máximo 100 entidades e a carga deve ter menos de 4 MiB em tamanho. Uma transação de grupo de entidades pode incluir uma atualização para uma entidade somente uma vez. |
+| Número máximo de propriedades em uma entidade de tabela | 255 (incluindo as três propriedades do sistema, **PartitionKey**, **RowKey** e **Timestamp**) |
+| Tamanho total máximo de uma propriedade individual em uma entidade | Varia por tipo de propriedade. Para obter mais informações, confira a seção **Tipos de propriedade** em [Noções básicas sobre o modelo de dados do serviço tabela](/rest/api/storageservices/understanding-the-table-service-data-model). |
+| Tamanho do **PartitionKey** | Uma cadeia de caracteres de até 1 KiB |
+| Tamanho do **RowKey** | Uma cadeia de caracteres de até 1 KiB |
+| Tamanho de uma transação de grupo de entidades | Uma transação pode incluir no máximo 100 entidades e o conteúdo deve ser menor que 4 MiB. Uma transação de grupo de entidades pode incluir uma atualização para uma entidade apenas uma vez. |
 | Número máximo de políticas de acesso armazenadas por tabela | 5 |
-| Taxa máxima de solicitação por conta de armazenamento | 20.000 transações por segundo, que assumem um tamanho de entidade de 1 KiB |
-| Taxa de transferência de destino para uma única partição de tabela (1 KiB-Entities) | Até 2.000 entidades por segundo |
+| Taxa máxima de solicitação por conta de armazenamento | 20 mil transações por segundo, o que supõe um tamanho de entidade de 1 KiB |
+| Taxa de transferência de destino para uma partição de tabela única (entidades de 1 KiB) | Até 2 mil entidades por segundo |

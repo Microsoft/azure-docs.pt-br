@@ -10,14 +10,19 @@ ms.subservice: bing-local-business
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: rosh
-ms.openlocfilehash: 213457bc583494bbe039269b96b25990f7d0a961
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2e72abd777ac4834385fd916b730d438b8540203
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "69906241"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96490254"
 ---
 # <a name="use-geographic-boundaries-to-filter-results-from-the-bing-local-business-search-api"></a>Use limites geográficos para filtrar resultados da API de pesquisa do Bing Local Business
+
+> [!WARNING]
+> As APIs de Pesquisa do Bing estão migrando dos Serviços Cognitivos para os Serviços de Pesquisa do Bing. A partir de **30 de outubro de 2020**, todas as novas instâncias da Pesquisa do Bing precisam ser provisionadas seguindo o processo documentado [aqui](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> As APIs de Pesquisa do Bing provisionadas por meio dos Serviços Cognitivos terão suporte nos próximos três anos ou até o final do seu Contrato Enterprise, o que ocorrer primeiro.
+> Para obter instruções sobre a migração, confira [Serviços de Pesquisa do Bing](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 A API da Pesquisa de empresa local do Bing permite que você defina limites na área geográfica específica que deseja pesquisar usando os parâmetros de consulta `localCircularView` ou `localMapView`. Certifique-se de usar apenas um parâmetro em suas consultas. 
 
@@ -51,6 +56,6 @@ https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search?q=restauran
 
 ## <a name="next-steps"></a>Próximas etapas
 - [Início rápido do Java da pesquisa de negócios local](quickstarts/local-search-java-quickstart.md)
-- [Início Rápido do C# de Pesquisa de negócios local](quickstarts/local-quickstart.md)
+- [Início rápido do C# de pesquisa de negócios local](quickstarts/local-quickstart.md)
 - [Início rápido do nó de pesquisa comercial local](quickstarts/local-search-node-quickstart.md)
 - [Início Rápido do Python em Pesquisa de empresa local](quickstarts/local-search-python-quickstart.md)

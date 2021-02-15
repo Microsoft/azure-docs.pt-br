@@ -1,30 +1,31 @@
 ---
-title: Atualizar RU/s para um banco de dados e um grafo Gremlin para Azure Cosmos DB
-description: Atualizar RU/s para um banco de dados e um grafo Gremlin para Azure Cosmos DB
+title: Scripts da CLI do Azure para operações de taxa de transferência (RU/s) para recursos da API do Gremlin do Azure Cosmos DB
+description: Scripts da CLI do Azure para operações de taxa de transferência (RU/s) para recursos da API do Gremlin do Azure Cosmos DB
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: sample
-ms.date: 07/29/2020
-ms.openlocfilehash: 4774f5b4e74a963a5a4a07873305c79e2e7019f4
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.date: 10/07/2020
+ms.openlocfilehash: 0aa05d165f83eec4bacb588ce974a18034918028
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432182"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565561"
 ---
-# <a name="update-rus-for-a-gremlin-database-and-graph-for-azure-cosmos-db-using-azure-cli"></a>Atualizar RU/s para um banco de dados e um grafo Gremlin para Azure Cosmos DB usando a CLI do Azure
+# <a name="throughput-rus-operations-with-azure-cli-for-a-database-or-graph-for-azure-cosmos-db---gremlin-api"></a>Operações de taxa de transferência (RU/s) com a CLI do Azure para um banco de dados ou grafo para o Azure Cosmos DB – API do Gremlin
+[!INCLUDE[appliesto-gremlin-api](../../../includes/appliesto-gremlin-api.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../../../includes/azure-cli-prepare-your-environment.md)]
 
-Se você optar por instalar e usar a CLI localmente, este tópico exigirá a execução da CLI do Azure versão 2.9.1 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
+- Este artigo exige a versão 2.12.1 ou posterior da CLI do Azure. Se você está usando o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ## <a name="sample-script"></a>Exemplo de script
 
-Esse script cria um banco de dados do Gremlin com taxa de transferência compartilhada e um grafo do Gremlin com taxa de transferência dedicada e, em seguida, atualiza a taxa de transferência para o banco de dados e o grafo.
+Esse script cria um banco de dados do Gremlin com taxa de transferência compartilhada e um grafo do Gremlin com taxa de transferência dedicada e, em seguida, atualiza a taxa de transferência para o banco de dados e o grafo. Em seguida, o script faz a migração da taxa de transferência padrão para a de dimensionamento automático e lê o valor da taxa de transferência de dimensionamento automático após a migração.
 
-[!code-azurecli-interactive[main](../../../../../cli_scripts/cosmosdb/gremlin/throughput.sh "Update RU/s for a Gremlin database and graph.")]
+[!code-azurecli-interactive[main](../../../../../cli_scripts/cosmosdb/gremlin/throughput.sh "Throughput operations for a Gremlin database and graph.")]
 
 ## <a name="clean-up-deployment"></a>Limpar a implantação
 
@@ -46,6 +47,8 @@ Este script usa os comandos a seguir. Cada comando da tabela é vinculado à doc
 | [az cosmosdb gremlin graph create](/cli/azure/cosmosdb/gremlin/graph#az-cosmosdb-gremlin-graph-create) | Cria um grafo Gremlin do Azure Cosmos. |
 | [az cosmosdb gremlin database throughput update](/cli/azure/cosmosdb/gremlin/database/throughput#az-cosmosdb-gremlin-database-throughput-update) | Atualizar RU/s para um banco de dados do Gremlin do Azure Cosmos. |
 | [az cosmosdb gremlin graph throughput update](/cli/azure/cosmosdb/gremlin/graph/throughput#az-cosmosdb-gremlin-graph-throughput-update) | Atualizar RU/s para um grafo do Gremlin do Azure Cosmos. |
+| [az cosmosdb gremlin database throughput migrate](/cli/azure/cosmosdb/gremlin/database/throughput#az_cosmosdb_gremlin_database_throughput_migrate) | Migrar a taxa de transferência para um banco de dados do Gremlin do Azure Cosmos. |
+| [az cosmosdb gremlin graph throughput migrate](/cli/azure/cosmosdb/gremlin/graph/throughput#az_cosmosdb_gremlin_graph_throughput_migrate) | Migrar taxa de transferência para um grafo do Gremlin do Azure Cosmos. |
 | [az group delete](/cli/azure/resource#az-resource-delete) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
 
 ## <a name="next-steps"></a>Próximas etapas

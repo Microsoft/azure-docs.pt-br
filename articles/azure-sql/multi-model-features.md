@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 12/17/2018
-ms.openlocfilehash: 59a709a206eb29b875272674ee19e414023cc37f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d5a067272caf9b072117ba57b7b16f8d78a8b456
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073322"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791640"
 ---
 # <a name="multi-model-capabilities-of-azure-sql-database--sql-managed-instance"></a>Funcionalidades de vários modelos do banco de dados SQL do Azure & SQL Instância Gerenciada
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -44,7 +44,7 @@ A família de produtos SQL do Azure fornece os seguintes recursos de vários mod
 - Os [pares chave-valor](#key-value-pairs) não têm suporte explícito como recursos especiais, uma vez que os pares chave-valor podem ser modelados nativamente como tabelas de duas colunas.
 
   > [!Note]
-  > É possível usar expressões de Caminho JSON, expressões XQuery/XPath, funções espaciais e expressões de consulta de grafo na mesma consulta Transact-SQL para acessar quaisquer dados armazenados no banco de dados. Além disso, qualquer ferramenta ou linguagem de programação que possa executar consultas Transact-SQL também pode usar essa interface de consulta para acessar dados multimodelos. Essa é a principal diferença em comparação com os bancos de dados multimodelos como o [Azure Cosmos DB](/azure/cosmos-db/) que fornece API especializada para diferentes modelos de dados.
+  > É possível usar expressões de Caminho JSON, expressões XQuery/XPath, funções espaciais e expressões de consulta de grafo na mesma consulta Transact-SQL para acessar quaisquer dados armazenados no banco de dados. Além disso, qualquer ferramenta ou linguagem de programação que possa executar consultas Transact-SQL também pode usar essa interface de consulta para acessar dados multimodelos. Essa é a principal diferença em comparação com os bancos de dados multimodelos como o [Azure Cosmos DB](../cosmos-db/index.yml) que fornece API especializada para diferentes modelos de dados.
 
 Nas seções a seguir, você pode aprender sobre os recursos de vários modelos mais importantes da família de produtos SQL do Azure.
 
@@ -142,7 +142,7 @@ CREATE TABLE Collection (
 
 É possível personalizar essa estrutura de chave-valor para atender às suas necessidades sem restrições. Como exemplo, o valor pode ser um documento XML em vez de um tipo `nvarchar(max)` e, se o valor for um documento JSON, você poderá colocar a restrição `CHECK` que verificará a validade do conteúdo JSON. É possível colocar qualquer número de valores relacionados a uma chave nas colunas adicionais, adicionar colunas e índices calculados para simplificar e otimizar o acesso a dados, definir a tabela como tabela somente de esquema otimizada/memória para obter melhor desempenho, etc.
 
-Consulte [como o BWin está usando OLTP in-memory para obter escala e desempenho sem precedentes](https://blogs.msdn.microsoft.com/sqlcat/20../../how-bwin-is-using-sql-server-2016-in-memory-oltp-to-achieve-unprecedented-performance-and-scale/) para a solução de cache do ASP.NET que obteve 1.200.000 lotes por segundo, como um exemplo de como o modelo relacional pode ser efetivamente usado como solução de par chave-valor na prática.
+Consulte [como o BWin está usando OLTP in-memory para obter escala e desempenho sem precedentes](/archive/blogs/sqlcat/how-bwin-is-using-sql-server-2016-in-memory-oltp-to-achieve-unprecedented-performance-and-scale) para a solução de cache do ASP.NET que obteve 1.200.000 lotes por segundo, como um exemplo de como o modelo relacional pode ser efetivamente usado como solução de par chave-valor na prática.
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -151,4 +151,4 @@ Os recursos de vários modelos na família de produtos SQL do Azure também são
 - [Processamento de grafo](/sql/relational-databases/graphs/sql-graph-overview)
 - [Dados JSON](/sql/relational-databases/json/json-data-sql-server)
 - [Suporte espacial](/sql/relational-databases/spatial/spatial-data-sql-server)
-- [Dados XML](/sql/relational-databases/xml/xml-data-sql-server)
+- [dados XML](/sql/relational-databases/xml/xml-data-sql-server)

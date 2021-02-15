@@ -1,24 +1,24 @@
 ---
-title: 'Início Rápido: Criar um perfil para HA de aplicativos – CLI do Azure – Gerenciador de Tráfego do Microsoft Azure'
-description: Este artigo de início rápido descreve como criar um perfil do Gerenciador de Tráfego para criar aplicativos Web altamente disponíveis.
+title: 'Início Rápido: Criar um perfil para HA de aplicativos – CLI do Azure – Gerenciador de Tráfego do Azure'
+description: Este artigo de início rápido descreve como criar um perfil do Gerenciador de Tráfego para criar aplicativos Web altamente disponíveis usando a CLI do Azure.
 services: traffic-manager
-author: rohinkoul
-mnager: twooley
+author: duongau
+mnager: kumud
 Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/29/2019
-ms.author: rohink
+ms.date: 10/09/2020
+ms.author: duau
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 1de651d5321fa3a0dea4da33c5d41839e67ad9dc
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 07fadd7b3129b3ca3351e0416c8aa6f49de82212
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87491180"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201222"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-for-a-highly-available-web-application-using-azure-cli"></a>Início Rápido: Criar um perfil do Gerenciador de Tráfego para um aplicativo Web de alta disponibilidade usando a CLI do Azure
 
@@ -26,14 +26,14 @@ Este início rápido descreve como criar um perfil do Gerenciador de Tráfego qu
 
 Neste início rápido, você criará duas instâncias de um aplicativo Web. Cada uma delas está em execução em uma região diferente do Azure. Você criará um perfil do Gerenciador de Tráfego baseado na [prioridade de ponto de extremidade](traffic-manager-routing-methods.md#priority-traffic-routing-method). O perfil direciona o tráfego de usuário para o site primário executando o aplicativo Web. O Gerenciador de Tráfego monitora o aplicativo Web continuamente. Se o site primário estiver indisponível, ele fornece failover automático para o site de backup.
 
-Caso não tenha uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) agora.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Se optar por instalar e usar a CLI localmente, este tutorial exigirá que você esteja executando a CLI do Azure versão 2.0.28 ou posterior. Para saber qual é a versão, execute `az --version`. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
+- Este artigo exige a versão 2.0.28 ou posterior da CLI do Azure. Se você está usando o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
-Crie um grupo de recursos com [az group create](https://docs.microsoft.com/cli/azure/group). Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados.
+Crie um grupo de recursos com [az group create](/cli/azure/group). Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados.
 
 O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na localização *eastus*:
 
@@ -47,7 +47,7 @@ O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na locali
 
 ## <a name="create-a-traffic-manager-profile"></a>Criar um perfil do Gerenciador de Tráfego
 
-Crie um perfil do Gerenciador de Tráfego usando [az network traffic-manager profile create](https://docs.microsoft.com/cli/azure/network/traffic-manager/profile?view=azure-cli-latest#az-network-traffic-manager-profile-create) que direciona o tráfego de usuário com base na prioridade de ponto de extremidade.
+Crie um perfil do Gerenciador de Tráfego usando [az network traffic-manager profile create](/cli/azure/network/traffic-manager/profile?view=azure-cli-latest#az-network-traffic-manager-profile-create) que direciona o tráfego de usuário com base na prioridade de ponto de extremidade.
 
 No exemplo a seguir, substitua **<profile_name>** por um nome de perfil exclusivo do Gerenciador de Tráfego.
 
@@ -70,7 +70,7 @@ az network traffic-manager profile create \
 Para esse início rápido, você precisará implantar duas instâncias de um aplicativo Web em duas regiões diferentes do Azure (*Leste dos EUA* e *Europa Ocidental*). Cada uma servirá como os pontos de extremidade primário e de failover do Gerenciador de Tráfego.
 
 ### <a name="create-web-app-service-plans"></a>Criar planos de serviço de aplicativo Web
-Crie planos de serviço de aplicativo Web usando [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) para as duas instâncias do aplicativo Web que você implantará em duas regiões diferentes do Azure.
+Crie planos de serviço de aplicativo Web usando [az appservice plan create](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) para as duas instâncias do aplicativo Web que você implantará em duas regiões diferentes do Azure.
 
 No exemplo a seguir, substitua **<appspname_eastus>** e **<appspname_westeurope>** por um Nome de Plano de Serviço de Aplicativo exclusivo
 
@@ -91,7 +91,7 @@ az appservice plan create \
 ```
 
 ### <a name="create-a-web-app-in-the-app-service-plan"></a>Criar um aplicativo Web no plano do Serviço de Aplicativo
-Crie duas instâncias do aplicativo Web usando [az webapp create](https://docs.microsoft.com/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) nas regiões do Azure *Leste dos EUA* e *Oeste da Europa* dos planos do Serviço de Aplicativo.
+Crie duas instâncias do aplicativo Web usando [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) nas regiões do Azure *Leste dos EUA* e *Oeste da Europa* dos planos do Serviço de Aplicativo.
 
 No exemplo a seguir, substitua **<app1name_eastus>** e **<app2name_westeurope>** por um Nome do Aplicativo exclusivo e substitua **<appspname_eastus>** e **<appspname_westeurope>** pelo nome usado para criar os planos do Serviço de Aplicativo na seção anterior.
 
@@ -110,14 +110,14 @@ az webapp create \
 ```
 
 ## <a name="add-traffic-manager-endpoints"></a>Adicionar pontos de extremidade do Gerenciador de Tráfego
-Adicione os dois aplicativos Web como pontos de extremidade do Gerenciador de Tráfego usando [az network traffic-manager endpoint create](https://docs.microsoft.com/cli/azure/network/traffic-manager/endpoint?view=azure-cli-latest#az-network-traffic-manager-endpoint-create) ao perfil do Gerenciador de Tráfego, da seguinte maneira:
+Adicione os dois aplicativos Web como pontos de extremidade do Gerenciador de Tráfego usando [az network traffic-manager endpoint create](/cli/azure/network/traffic-manager/endpoint?view=azure-cli-latest#az-network-traffic-manager-endpoint-create) ao perfil do Gerenciador de Tráfego, da seguinte maneira:
 
-- Determine a ID do aplicativo Web e adicione o aplicativo Web localizado na região do Azure *Leste dos EUA* como o ponto de extremidade principal para rotear todo o tráfego do usuário. 
-- Determine a ID do aplicativo Web e adicione o aplicativo Web localizado na região do Azure *Oeste da Europa* como o ponto de extremidade de failover. 
+- Determine a ID do Aplicativo Web e adicione o Aplicativo Web localizado na região do Azure *Leste dos EUA* como o ponto de extremidade primário para rotear todo o tráfego do usuário. 
+- Determine a ID do Aplicativo Web e adicione o Aplicativo Web localizado na região do Azure *Oeste da Europa* como o ponto de extremidade de failover. 
 
 Quando o ponto de extremidade primário estiver indisponível, o tráfego será encaminhado automaticamente para o ponto de extremidade de failover.
 
-No exemplo a seguir, substitua **<app1name_eastus>** e **<app2name_westeurope>** pelos Nomes de Aplicativo criados para cada região na seção anterior, substitua **<appspname_eastus>** e **<appspname_westeurope>** pelo nome usado para criar os planos do Serviço de Aplicativo na seção anterior e substitua **<profile_name>** pelo nome do perfil usado na seção anterior. 
+No exemplo a seguir, substitua **<app1name_eastus>** e **<app2name_westeurope>** pelos Nomes de Aplicativos criados para cada região na seção anterior. Em seguida, substitua **<profile_name>** pelo nome do perfil usado na seção anterior. 
 
 **Ponto de extremidade do Leste dos EUA**
 
@@ -130,7 +130,7 @@ az webapp show \
 
 ```
 
-Anote a ID exibida na saída e use-a no comando a seguir para adicionar o ponto de extremidade:
+Anote a ID exibida na saída e use-a no seguinte comando para adicionar o ponto de extremidade:
 
 ```azurecli-interactive
 
@@ -155,7 +155,7 @@ az webapp show \
 
 ```
 
-Anote a ID exibida na saída e use-a no comando a seguir para adicionar o ponto de extremidade:
+Anote a ID exibida na saída e use-a no seguinte comando para adicionar o ponto de extremidade:
 
 ```azurecli-interactive
 
@@ -174,11 +174,11 @@ az network traffic-manager endpoint create \
 
 Nesta seção, você verificará o nome de domínio do seu perfil do Gerenciador de Tráfego. Você também configurará o ponto de extremidade primário para ficar indisponível. Por fim, você poderá ver que o aplicativo Web ainda está disponível. É porque o Gerenciador de Tráfego envia o tráfego para o ponto de extremidade de failover.
 
-No exemplo a seguir, substitua **<app1name_eastus>** e **<app2name_westeurope>** pelos Nomes de Aplicativo criados para cada região na seção anterior, substitua **<appspname_eastus>** e **<appspname_westeurope>** pelo nome usado para criar os planos do Serviço de Aplicativo na seção anterior e substitua **<profile_name>** pelo nome do perfil usado na seção anterior.
+No exemplo a seguir, substitua **<app1name_eastus>** e **<app2name_westeurope>** pelos Nomes de Aplicativos criados para cada região na seção anterior. Em seguida, substitua **<profile_name>** pelo nome do perfil usado na seção anterior.
 
 ### <a name="determine-the-dns-name"></a>Determinar o nome DNS
 
-Determine o nome DNS do perfil do Gerenciador de Tráfego usando [az network traffic-manager profile show](https://docs.microsoft.com/cli/azure/network/traffic-manager/profile?view=azure-cli-latest#az-network-traffic-manager-profile-show).
+Determine o nome DNS do perfil do Gerenciador de Tráfego usando [az network traffic-manager profile show](/cli/azure/network/traffic-manager/profile?view=azure-cli-latest#az-network-traffic-manager-profile-show).
 
 ```azurecli-interactive
 
@@ -196,7 +196,7 @@ Copie o valor **RelativeDnsName**. O nome DNS do perfil do Gerenciador de Tráfe
 
     > [!NOTE]
     > Nesse cenário de início rápido, todas as solicitações são encaminhadas para o ponto de extremidade primário. Ele é definido como **Prioridade 1**.
-2. Para exibir o failover do Gerenciador de Tráfego em ação, desabilite o site primário usando [az network traffic-manager endpoint update](https://docs.microsoft.com/cli/azure/network/traffic-manager/endpoint?view=azure-cli-latest#az-network-traffic-manager-endpoint-update).
+2. Para exibir o failover do Gerenciador de Tráfego em ação, desabilite o site primário usando [az network traffic-manager endpoint update](/cli/azure/network/traffic-manager/endpoint?view=azure-cli-latest#az-network-traffic-manager-endpoint-update).
 
    ```azurecli-interactive
 
@@ -214,7 +214,7 @@ Copie o valor **RelativeDnsName**. O nome DNS do perfil do Gerenciador de Tráfe
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Ao terminar, exclua os grupos de recursos, aplicativos Web e todos os recursos relacionados usando [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete).
+Ao terminar, exclua os grupos de recursos, aplicativos Web e todos os recursos relacionados usando [az group delete](/cli/azure/group?view=azure-cli-latest#az-group-delete).
 
 ```azurecli-interactive
 

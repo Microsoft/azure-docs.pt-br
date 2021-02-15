@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/19/2020
-ms.openlocfilehash: 177b79e0a33f4d43d07da9d0dea26df40e2ef11e
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.date: 01/19/2021
+ms.openlocfilehash: d48d72a0ccbec67c6700af9120e0dd914db11f32
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88723853"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100374908"
 ---
 # <a name="data-collection-rules-in-azure-monitor-preview"></a>Regras de coleta de dados no Azure Monitor (versão prévia)
 As regras de coleta de dados (DCR) definem os dados que chegam ao Azure Monitor e especificam onde esses dados devem ser enviados ou armazenados. Este artigo fornece uma visão geral das regras de coleta de dados, incluindo seu conteúdo e estrutura, e como você pode criar e trabalhar com elas.
@@ -48,27 +48,25 @@ Cada fonte de dados tem um tipo de fonte de dados. Cada tipo define um conjunto 
 | windowsEventLogs | Log de eventos do Windows |
 
 
-## <a name="limits"></a>limites
-A tabela a seguir lista os limites que atualmente se aplicam a cada regra de coleta de dados.
-
-| Limite | Valor |
-|:---|:---|
-| Número máximo de fontes de dados | 10 |
-| Número máximo de especificadores de contador no contador de desempenho | 100 |
-| Número máximo de nomes de instalações no syslog | 20 |
-| Número máximo de consultas XPath no log de eventos | 100 |
-| Número máximo de fluxos de dados | 10 |
-| Número máximo de fluxos de dados | 10 |
-| Número máximo de extensões | 10 |
-| Tamanho máximo das configurações de extensão | 32 KB |
-| Número máximo de espaços de trabalho de Log Analytics | 10 |
+## <a name="limits"></a>Limites
+Para os limites que se aplicam a cada regra de coleta de dados, consulte [limites de serviço Azure monitor](../service-limits.md#data-collection-rules).
 
 
 ## <a name="create-a-dcr"></a>Criar um DCR
-Atualmente, há dois métodos disponíveis para criar um DCR:
+No momento, você pode usar qualquer um dos seguintes métodos para criar um DCR:
 
 - [Use o portal do Azure](data-collection-rule-azure-monitor-agent.md) para criar uma regra de coleta de dados e fazer com que ela seja associada a uma ou mais máquinas virtuais.
-- Edite diretamente a regra de coleta de dados em JSON e [envie usando a API REST](https://docs.microsoft.com/rest/api/monitor/datacollectionrules).
+- Edite diretamente a regra de coleta de dados em JSON e [envie usando a API REST](/rest/api/monitor/datacollectionrules).
+- Crie DCR e associações com [CLI do Azure](https://github.com/Azure/azure-cli-extensions/blob/master/src/monitor-control-service/README.md).
+- Crie DCR e associações com Azure PowerShell.
+  - [Get-AzDataCollectionRule](https://github.com/Azure/azure-powershell/blob/master/src/Monitor/Monitor/help/Get-AzDataCollectionRule.md)
+  - [New-AzDataCollectionRule](https://github.com/Azure/azure-powershell/blob/master/src/Monitor/Monitor/help/New-AzDataCollectionRule.md)
+  - [Set-AzDataCollectionRule](https://github.com/Azure/azure-powershell/blob/master/src/Monitor/Monitor/help/Set-AzDataCollectionRule.md)
+  - [Update-AzDataCollectionRule](https://github.com/Azure/azure-powershell/blob/master/src/Monitor/Monitor/help/Update-AzDataCollectionRule.md)
+  - [Remove-AzDataCollectionRule](https://github.com/Azure/azure-powershell/blob/master/src/Monitor/Monitor/help/Remove-AzDataCollectionRule.md)
+  - [Get-AzDataCollectionRuleAssociation](https://github.com/Azure/azure-powershell/blob/master/src/Monitor/Monitor/help/Get-AzDataCollectionRuleAssociation.md)
+  - [New-AzDataCollectionRuleAssociation](https://github.com/Azure/azure-powershell/blob/master/src/Monitor/Monitor/help/New-AzDataCollectionRuleAssociation.md)
+  - [Remove-AzDataCollectionRuleAssociation](https://github.com/Azure/azure-powershell/blob/master/src/Monitor/Monitor/help/Remove-AzDataCollectionRuleAssociation.md)
 
 ## <a name="sample-data-collection-rule"></a>Regra de coleta de dados de exemplo
 A regra de coleta de dados de exemplo abaixo é para máquinas virtuais com o agente de gerenciamento do Azure e tem os seguintes detalhes:
@@ -121,7 +119,7 @@ A regra de coleta de dados de exemplo abaixo é para máquinas virtuais com o ag
           {
             "name": "cloudSecurityTeamEvents",
             "streams": [
-              "Microsoft-WindowsEvent"
+              "Microsoft-Event"
             ],
             "scheduledTransferPeriod": "PT1M",
             "xPathQueries": [
@@ -131,7 +129,7 @@ A regra de coleta de dados de exemplo abaixo é para máquinas virtuais com o ag
           {
             "name": "appTeam1AppEvents",
             "streams": [
-              "Microsoft-WindowsEvent"
+              "Microsoft-Event"
             ],
             "scheduledTransferPeriod": "PT5M",
             "xPathQueries": [
@@ -184,7 +182,7 @@ A regra de coleta de dados de exemplo abaixo é para máquinas virtuais com o ag
           "streams": [
             "Microsoft-Perf",
             "Microsoft-Syslog",
-            "Microsoft-WindowsEvent"
+            "Microsoft-Event"
           ],
           "destinations": [
             "centralWorkspace"

@@ -8,21 +8,21 @@ ms.date: 08/10/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
-ms.openlocfilehash: 238cd5e79fe749052206cfdf25d576f88f1020e8
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: c1de8ebbd9ad381628cfeb19413baa295b42b3db
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88065430"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91739826"
 ---
 # <a name="create-two-web-apps-connected-securely-with-private-endpoint-and-vnet-integration"></a>Criar dois aplicativos Web conectados com segurança por meio da Integração VNET e do ponto de extremidade privado
 
-Este artigo ilustra um exemplo de uso do [ponto de extremidade privado](https://docs.microsoft.com/azure/app-service/networking/private-endpoint) e da [Integração VNET](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet) regional para conectar dois aplicativos Web (front-end e back-end) com segurança seguindo estas etapas:
+Este artigo ilustra um exemplo de uso do [ponto de extremidade privado](../networking/private-endpoint.md) e da [Integração VNET](../web-sites-integrate-with-vnet.md) regional para conectar dois aplicativos Web (front-end e back-end) com segurança seguindo estas etapas:
 - Implantar uma VNET
 - Criar a primeira sub-rede para a integração
 - Criar a segunda sub-rede para o ponto de extremidade privado; é necessário definir um parâmetro específico para desabilitar as políticas de rede
-- Implantar um Plano do Serviço de Aplicativo do tipo PremiumV2, SKU mínimo necessário para o recurso de ponto de extremidade privado
-- Criar o aplicativo Web front-end com algumas configurações de aplicativo específicas para consumir a zona DNS privada; [mais detalhes](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet#azure-dns-private-zones)
+- Implantar um Plano do Serviço de Aplicativo do tipo PremiumV2 ou PremiumV3, necessário para o recurso de Ponto de extremidade privado
+- Criar o aplicativo Web front-end com algumas configurações de aplicativo específicas para consumir a zona DNS privada; [mais detalhes](../web-sites-integrate-with-vnet.md#azure-dns-private-zones)
 - Conectar o aplicativo Web front-end à sub-rede de integração
 - Criar o aplicativo Web de back-end
 - Criar a zona privada DNS com o nome da zona de link privado para o aplicativo Web privatelink.azurewebsites.net
@@ -31,7 +31,7 @@ Este artigo ilustra um exemplo de uso do [ponto de extremidade privado](https://
 
 ## <a name="how-to-use-terraform-in-azure"></a>Como usar o Terraform no Azure
 
-Acesse a [documentação do Azure](https://docs.microsoft.com/azure/developer/terraform/) para saber como usar o Terraform com o Azure.
+Acesse a [documentação do Azure](/azure/developer/terraform/) para saber como usar o Terraform com o Azure.
 
 ## <a name="the-complete-terraform-file"></a>O arquivo completo do Terraform
 
@@ -149,4 +149,4 @@ resource "azurerm_private_endpoint" "privateendpoint" {
 ## <a name="next-steps"></a>Próximas etapas
 
 
-> [Saiba mais sobre como usar o Terraform no Azure](https://docs.microsoft.com/azure/developer/terraform/)
+> [Saiba mais sobre como usar o Terraform no Azure](/azure/developer/terraform/)

@@ -1,5 +1,6 @@
 ---
-title: Configurar aplicativo de página única-plataforma de identidade da Microsoft | Azure
+title: Configurar aplicativo de página única | Azure
+titleSuffix: Microsoft identity platform
 description: Saiba como criar um aplicativo de página única (configuração de código do aplicativo)
 services: active-directory
 author: navyasric
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 02/11/2020
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: b42d720a425b92ec9002f7c2b9797a91f70dafe2
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 5cbb576a7fcfb2daf492a149130aa7c99fe10ac5
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89003016"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98753609"
 ---
 # <a name="single-page-application-code-configuration"></a>Aplicativo de página única: configuração de código
 
@@ -26,7 +27,7 @@ Saiba como configurar o código para seu aplicativo de página única (SPA).
 
 A plataforma de identidade da Microsoft fornece a seguinte biblioteca de autenticação da Microsoft para JavaScript (MSAL.js) para dar suporte ao fluxo implícito e ao fluxo de código de autorização com o PKCE usando práticas de segurança recomendadas do setor:
 
-| Biblioteca MSAL | Flow | Descrição |
+| Biblioteca MSAL | Fluxo | Descrição |
 |--------------|------|-------------|
 | ![MSAL.js](media/sample-v2-code/logo_js.png) <br/> [MSAL.js (2. x)](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser) | Fluxo de código de autorização (PKCE) | Biblioteca JavaScript simples para uso em qualquer aplicativo Web do lado do cliente criado por meio de estruturas JavaScript ou SPA, como angular, Vue.js e React.js. |
 | ![MSAL.js](media/sample-v2-code/logo_js.png) <br/> [MSAL.js (1. x)](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-core) | Fluxo implícito | Biblioteca JavaScript simples para uso em qualquer aplicativo Web do lado do cliente criado por meio de estruturas JavaScript ou SPA, como angular, Vue.js e React.js. |
@@ -75,5 +76,4 @@ export class AppModule { }
 
 ## <a name="next-steps"></a>Próximas etapas
 
-> [!div class="nextstepaction"]
-> [Entrar e sair](scenario-spa-sign-in.md)
+Vá para o próximo artigo neste cenário, [entrar e](scenario-spa-sign-in.md)sair...

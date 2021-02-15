@@ -1,7 +1,7 @@
 ---
-title: Personalização em experimentos de AutoML
+title: Personalização com o Machine Learning automatizado
 titleSuffix: Azure Machine Learning
-description: Saiba o que as configurações de personalização Azure Machine Learning oferecem e como a engenharia de recursos tem suporte em experimentos de ML automatizados.
+description: Aprenda as configurações de personalização de dados no Azure Machine Learning e como personalizar esses recursos para seus experimentos de ML automatizados.
 author: nibaccam
 ms.author: nibaccam
 ms.reviewer: nibaccam
@@ -9,36 +9,37 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to
-ms.date: 05/28/2020
-ms.openlocfilehash: e5ed84c6daaf01deb67d39bd13de1498dca131c5
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.custom: how-to,automl,contperf-fy21q2
+ms.date: 12/18/2020
+ms.openlocfilehash: c90ef9fe49a87c18c7f4f55175bafaebfd31d722
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88750874"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98610294"
 ---
-# <a name="featurization-in-automated-machine-learning"></a>Personalização no Machine Learning automatizado
+# <a name="data-featurization-in-automated-machine-learning"></a>Personalização de dados no Machine Learning automatizado
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+Saiba mais sobre as configurações de personalização de dados no Azure Machine Learning e como personalizar esses recursos para [experiências automatizadas de aprendizado de máquina](concept-automated-ml.md).
 
-Neste guia, você aprende:
+## <a name="feature-engineering-and-featurization"></a>Engenharia de recursos e personalização
 
-- O que as configurações de personalização Azure Machine Learning oferecem.
-- Como personalizar esses recursos para seus [experimentos de aprendizado de máquina automatizados](concept-automated-ml.md).
+Os dados de treinamento consistem em linhas e colunas. Cada linha é uma observação ou um registro e as colunas de cada linha são os recursos que descrevem cada registro. Normalmente, os recursos que melhor caracterizam os padrões nos dados são selecionados para criar modelos de previsão.
 
-A *engenharia de recursos* é o processo de usar o conhecimento de domínio dos dados para criar recursos que ajudem os algoritmos de ml (aprendizado de máquina) a aprender melhor. Em Azure Machine Learning, as técnicas de escalação de dados e normalização são aplicadas para facilitar a engenharia de recursos. Coletivamente, essas técnicas e essa engenharia de recursos são chamadas de *personalização* em experimentos de aprendizado automático de máquina ou *AutoML*.
+Embora muitos dos campos de dados brutos possam ser usados diretamente para treinar um modelo, muitas vezes é necessário criar recursos adicionais (desenvolvidos) que fornecem informações que diferenciam melhor os padrões dos dados. Esse processo é chamado de **engenharia de recursos**, em que o uso do conhecimento de domínio dos dados é utilizado para criar recursos que, por sua vez, ajudam os algoritmos de aprendizado de máquina a aprender melhor. 
+
+Em Azure Machine Learning, as técnicas de escalação de dados e normalização são aplicadas para facilitar a engenharia de recursos. Coletivamente, essas técnicas e essa engenharia de recursos são chamadas de **personalização** em experimentos de ml automatizados.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este artigo pressupõe que você já sabe como configurar um experimento do AutoML. Para obter informações sobre a configuração, consulte os seguintes artigos:
+Este artigo pressupõe que você já sabe como configurar um experimento de ML automatizado. Para obter informações sobre a configuração, consulte os seguintes artigos:
 
 - Para uma experiência de primeiro código: [Configure os experimentos de ml automatizados usando o SDK do Azure Machine Learning para Python](how-to-configure-auto-train.md).
 - Para uma experiência de baixo código ou sem código: [crie, revise e implante modelos de aprendizado de máquina automatizados usando o Azure Machine Learning Studio](how-to-use-automated-ml-for-ml-models.md).
 
 ## <a name="configure-featurization"></a>Configurar o personalização
 
-Em cada experimento automatizado de aprendizado de máquina, [técnicas de dimensionamento automático e de normalização](#featurization) são aplicadas aos seus dados por padrão. Essas técnicas são tipos de personalização que ajudam *certos* algoritmos que são sensíveis a recursos em escalas diferentes. No entanto, você também pode habilitar personalização adicionais, como *valores ausentes de imputação*, *codificação*e *transformações*.
+Em cada experimento automatizado de aprendizado de máquina, [técnicas de dimensionamento automático e de normalização](#featurization) são aplicadas aos seus dados por padrão. Essas técnicas são tipos de personalização que ajudam *certos* algoritmos que são sensíveis a recursos em escalas diferentes. Você pode habilitar mais personalização, como *valores ausentes de imputação*, *codificação* e *transformações*.
 
 > [!NOTE]
 > As etapas para personalização de Machine Learning automatizadas (como normalização de recursos, manipulação de dados ausentes ou conversão de texto em numeric) se tornam parte do modelo subjacente. Quando você usa o modelo para previsões, as mesmas etapas personalização aplicadas durante o treinamento são aplicadas aos dados de entrada automaticamente.
@@ -49,7 +50,7 @@ A tabela a seguir mostra as configurações aceitas para `featurization` na [cla
 
 |Configuração do personalização | Descrição|
 ------------- | ------------- |
-|`"featurization": 'auto'`| Especifica que, como parte do pré-processamento, [as etapas de guardrails e personalização de dados](#featurization) são feitas automaticamente. Esta é a configuração padrão.|
+|`"featurization": 'auto'`| Especifica que, como parte do pré-processamento, [as etapas](#featurization) de guardrails e personalização de [dados](#data-guardrails) são feitas automaticamente. Essa é a configuração padrão.|
 |`"featurization": 'off'`| Especifica que as etapas do personalização não devem ser feitas automaticamente.|
 |`"featurization":`&nbsp;`'FeaturizationConfig'`| Especifica que as etapas de personalização personalizadas devem ser usadas. [Saiba como personalizar a definição de recursos](#customize-featurization).|
 
@@ -60,18 +61,15 @@ A tabela a seguir mostra as configurações aceitas para `featurization` na [cla
 A tabela a seguir resume as técnicas que são aplicadas automaticamente aos seus dados. Essas técnicas são aplicadas para experimentos que são configurados usando o SDK ou o estúdio. Para desabilitar esse comportamento, defina `"featurization": 'off'` em seu `AutoMLConfig` objeto.
 
 > [!NOTE]
-> Se você planeja exportar seus modelos AutoML para um [modelo ONNX](concept-onnx.md), somente as opções de personalização indicadas com um asterisco ("*") têm suporte no formato ONNX. Saiba mais sobre [conversão de modelos para ONNX](concept-automated-ml.md#use-with-onnx).
+> Se você planeja exportar seus modelos AutoML para um [modelo ONNX](concept-onnx.md), somente as opções de personalização indicadas com um asterisco ("*") têm suporte no formato ONNX. Saiba mais sobre [conversão de modelos para ONNX](how-to-use-automl-onnx-model-dotnet.md).
 
 |Etapas de personalização &nbsp;| Descrição |
 | ------------- | ------------- |
-|**Descartar alta cardinalidade ou nenhum recurso de variação*** |Descartar esses recursos de conjuntos de treinamento e validação. Aplica-se a recursos com todos os valores ausentes, com o mesmo valor em todas as linhas ou com alta cardinalidade (por exemplo, hashes, IDs ou GUIDs).|
-|**Imputar valores ausentes*** |Para recursos numéricos, imputar com a média de valores na coluna.<br/><br/>Para recursos categóricos, imputar com o valor mais frequente.|
-|**Gerar recursos adicionais*** |Para recursos DateTime: Ano, mês, dia, dia da semana, dia do ano, trimestre, semana do ano, hora, minuto, segundo.<br><br> *Para tarefas de previsão,* esses recursos de DateTime adicionais são criados: ano ISO, semestre, mês como cadeia de caracteres, semana, dia da semana como cadeia de caracteres, dia do trimestre, dia do ano, AM/PM (0 se a hora for anterior ao meio-dia (12 PM), 1 caso), AM/PM como cadeia de caracteres, hora do dia (12 horas<br/><br/>Para recursos de texto: a frequência de termos com base em unigrams, bigrams e trigrams. Saiba mais sobre [como isso é feito com o Bert.](#bert-integration)|
-|**Transformar e codificar***|Transforme recursos numéricos que têm poucos valores exclusivos em recursos categóricos.<br/><br/>A codificação One-Hot é usada para recursos categóricos de baixa cardinalidade. A codificação um-Hot-hash é usada para recursos categóricos de alta cardinalidade.|
-|**Inserções de palavras**|Uma featurizer de texto converte vetores de tokens de texto em vetores de sentença usando um modelo pré-treinado. O vetor de incorporação de cada palavra em um documento é agregado com o restante para produzir um vetor de recursos de documento.|
-|**Codificações de destino**|Para recursos categóricos, essa etapa mapeia cada categoria com um valor de destino médio para problemas de regressão e para a probabilidade de classe de cada classe para problemas de classificação. O peso baseado em frequência e a validação cruzada de k-fold são aplicados para reduzir o superajuste do mapeamento e ruído causados por categorias de dados esparsas.|
-|**Codificação de destino de texto**|Para uma entrada de texto, um modelo linear empilhado com um conjunto de palavras é usado para gerar a probabilidade de cada classe.|
-|**Peso de evidência (WoE)**|Calcula o WoE como uma medida de correlação de colunas categóricas para a coluna de destino. WoE é calculado como o log da proporção de probabilidades de classe vs. fora de classe. Esta etapa produz uma coluna de recurso numérico por classe e remove a necessidade de imputar explicitamente os valores ausentes e o tratamento de exceção.|
+|**Descartar alta cardinalidade ou nenhum recurso de variação** _ |Descartar esses recursos de conjuntos de treinamento e validação. Aplica-se a recursos com todos os valores ausentes, com o mesmo valor em todas as linhas ou com alta cardinalidade (por exemplo, hashes, IDs ou GUIDs).|
+|_*Imputar valores ausentes**_ |Para recursos numéricos, imputar com a média de valores na coluna.<br/><br/>Para recursos categóricos, imputar com o valor mais frequente.|
+|_*Gerar mais recursos**_ |Para recursos DateTime: Ano, mês, dia, dia da semana, dia do ano, trimestre, semana do ano, hora, minuto, segundo.<br><br> _For tarefas de previsão, * esses recursos de DateTime adicionais são criados: ano ISO, semestre, mês como cadeia de caracteres, semana, dia da semana como cadeia de caracteres, dia do trimestre, dia do ano, AM/PM (0 se a hora for anterior ao meio-dia (12 PM), 1 caso contrário), AM/PM como cadeia de caracteres, hora do dia<br/><br/>Para recursos de texto: a frequência de termos com base em unigrams, bigrams e trigrams. Saiba mais sobre [como isso é feito com o Bert.](#bert-integration)|
+|**Transformar e codificar** _|Transforme recursos numéricos que têm poucos valores exclusivos em recursos categóricos.<br/><br/>A codificação One-Hot é usada para recursos categóricos de baixa cardinalidade. A codificação um-Hot-hash é usada para recursos categóricos de alta cardinalidade.|
+|_ *Incorporações de palavras**|Uma featurizer de texto converte vetores de tokens de texto em vetores de sentença usando um modelo pré-treinado. O vetor de incorporação de cada palavra em um documento é agregado com o restante para produzir um vetor de recursos de documento.|
 |**Distância do cluster**|Treina um modelo de clustering k-means em todas as colunas numéricas. Produz novos recursos do *k* (um novo recurso numérico por cluster) que contém a distância de cada amostra para o centróide de cada cluster.|
 
 ## <a name="data-guardrails"></a>Verificadores de integridade dos dados
@@ -105,18 +103,18 @@ A tabela a seguir descreve os dados guardrails que têm suporte no momento e os 
 
 Verificador de integridade|Status|Condição&nbsp;para&nbsp;gatilho
 ---|---|---
-**Imputação de valores de recurso ausente** |Aprovado <br><br><br> Concluído| Não foram detectados valores de recursos ausentes em seus dados de treinamento. Saiba mais sobre [imputação de valor ausente.](https://docs.microsoft.com/azure/machine-learning/how-to-use-automated-ml-for-ml-models#advanced-featurization-options) <br><br> Valores de recursos ausentes foram detectados em seus dados de treinamento e foram imputadosdos.
+**Imputação de valores de recurso ausente** |Aprovado <br><br><br> Concluído| Não foram detectados valores de recursos ausentes em seus dados de treinamento. Saiba mais sobre [imputação de valor ausente.](./how-to-use-automated-ml-for-ml-models.md#customize-featurization) <br><br> Valores de recursos ausentes foram detectados em seus dados de treinamento e foram imputadosdos.
 **Tratamento de recursos de alta cardinalidade** |Aprovado <br><br><br> Concluído| Suas entradas foram analisadas e nenhum recurso de alta cardinalidade foi detectado. <br><br> Os recursos de alta cardinalidade foram detectados nas suas entradas e foram manipulados.
-**Tratamento de divisão de validação** |Concluído| A configuração de validação foi definida como `'auto'` e os dados de treinamento continham *menos de 20.000 linhas*. <br> Cada iteração do modelo treinado foi validada usando a validação cruzada. Saiba mais sobre [os dados de validação](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#train-and-validation-data). <br><br> A configuração de validação foi definida como `'auto'` e os dados de treinamento continham *mais de 20.000 linhas*. <br> Os dados de entrada foram divididos em um conjunto de dados de treinamento e um conjunto de dados de validação para a validação do modelo.
-**Detecção de equilíbrio de classe** |Aprovado <br><br><br><br>Alertado <br><br><br>Concluído | Suas entradas foram analisadas, e todas as classes estão equilibradas nos dados de treinamento. Um conjunto de um DataSet é considerado como balanceado se cada classe tem uma boa representação no DataSet, conforme medido por número e proporção de amostras. <br><br> Foram detectadas classes desequilibradas nas suas entradas. Para corrigir a tendência do modelo, corrija o problema de balanceamento. Saiba mais sobre [dados desequilibrados](https://docs.microsoft.com/azure/machine-learning/concept-manage-ml-pitfalls#identify-models-with-imbalanced-data).<br><br> As classes desbalanceadas foram detectadas nas suas entradas e a lógica de varredura determinou para aplicar o balanceamento.
-**Detecção de problemas de memória** |Aprovado <br><br><br><br> Concluído |<br> Os valores selecionados (Horizonte, retardo, janela sem interrupção) foram analisados e nenhum problema potencial de memória insuficiente foi detectado. Saiba mais sobre [as configurações de previsão](https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-forecast#configure-and-run-experiment)de série temporal. <br><br><br>Os valores selecionados (Horizonte, retardo, janela sem interrupção) foram analisados e, potencialmente, farão com que o teste fique sem memória. As configurações de atraso ou janela de rolagem foram desativadas.
-**Detecção de frequência** |Aprovado <br><br><br><br> Concluído |<br> A série temporal foi analisada e todos os pontos de dados estão alinhados com a frequência detectada. <br> <br> A série temporal foi analisada e os pontos de dados que não se alinham com a frequência detectada foram detectados. Esses pontos de dados foram removidos do conjunto de dados. Saiba mais sobre [a preparação de dados para a previsão de série temporal](https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-forecast#preparing-data).
+**Tratamento de divisão de validação** |Concluído| A configuração de validação foi definida como `'auto'` e os dados de treinamento continham *menos de 20.000 linhas*. <br> Cada iteração do modelo treinado foi validada usando a validação cruzada. Saiba mais sobre [os dados de validação](./how-to-configure-auto-train.md#training-validation-and-test-data). <br><br> A configuração de validação foi definida como `'auto'` e os dados de treinamento continham *mais de 20.000 linhas*. <br> Os dados de entrada foram divididos em um conjunto de dados de treinamento e um conjunto de dados de validação para a validação do modelo.
+**Detecção de equilíbrio de classe** |Aprovado <br><br><br><br>Alertado <br><br><br>Concluído | Suas entradas foram analisadas, e todas as classes estão equilibradas nos dados de treinamento. Um conjunto de um DataSet é considerado como balanceado se cada classe tem uma boa representação no DataSet, conforme medido por número e proporção de amostras. <br><br> Foram detectadas classes desequilibradas nas suas entradas. Para corrigir a tendência do modelo, corrija o problema de balanceamento. Saiba mais sobre [dados desequilibrados](./concept-manage-ml-pitfalls.md#identify-models-with-imbalanced-data).<br><br> As classes desbalanceadas foram detectadas nas suas entradas e a lógica de varredura determinou para aplicar o balanceamento.
+**Detecção de problemas de memória** |Aprovado <br><br><br><br> Concluído |<br> Os valores selecionados (Horizonte, retardo, janela sem interrupção) foram analisados e nenhum problema potencial de memória insuficiente foi detectado. Saiba mais sobre [as configurações de previsão](./how-to-auto-train-forecast.md#configuration-settings)de série temporal. <br><br><br>Os valores selecionados (Horizonte, retardo, janela sem interrupção) foram analisados e, potencialmente, farão com que o teste fique sem memória. As configurações de atraso ou janela de rolagem foram desativadas.
+**Detecção de frequência** |Aprovado <br><br><br><br> Concluído |<br> A série temporal foi analisada e todos os pontos de dados estão alinhados com a frequência detectada. <br> <br> A série temporal foi analisada e os pontos de dados que não se alinham com a frequência detectada foram detectados. Esses pontos de dados foram removidos do conjunto de dados. Saiba mais sobre [a preparação de dados para a previsão de série temporal](./how-to-auto-train-forecast.md#preparing-data).
 
 ## <a name="customize-featurization"></a>Personalizar o personalização
 
 Você pode personalizar suas configurações de personalização para garantir que os dados e recursos usados para treinar seu modelo de ML resultem em previsões relevantes.
 
-Para personalizar o featurizations, especifique  `"featurization": FeaturizationConfig` em seu `AutoMLConfig` objeto. Se você estiver usando o Azure Machine Learning Studio para seu experimento, consulte o [artigo de instruções](how-to-use-automated-ml-for-ml-models.md#customize-featurization). Para personalizar o personalização para os tipos de tarefa previsão, consulte a [previsão de instruções](how-to-auto-train-forecast.md#customize-featurization).
+Para personalizar o featurizations, especifique `"featurization": FeaturizationConfig` em seu `AutoMLConfig` objeto. Se você estiver usando o Azure Machine Learning Studio para seu experimento, consulte o [artigo de instruções](how-to-use-automated-ml-for-ml-models.md#customize-featurization). Para personalizar o personalização para os tipos de tarefa previsão, consulte a [previsão de instruções](how-to-auto-train-forecast.md#customize-featurization).
 
 As personalizações com suporte incluem:
 
@@ -126,6 +124,9 @@ As personalizações com suporte incluem:
 |**Atualização de parâmetro do transformador** |Atualize os parâmetros para o transformador especificado. Atualmente dá suporte a *imputer* (média, mais frequente e mediana) e *HashOneHotEncoder*.|
 |**Remover colunas** |Especifica que as colunas a serem descartadas são destacados.|
 |**Bloquear transformadores**| Especifica os transformadores de bloqueio a serem usados no processo personalização.|
+
+>[!NOTE]
+> A funcionalidade **remover colunas** foi preterida a partir da versão 1,19 do SDK. Remova as colunas do conjunto de dados como parte da limpeza, antes de consumi-la em seu experimento de ML automatizado. 
 
 Crie o `FeaturizationConfig` objeto usando chamadas de API:
 
@@ -303,20 +304,22 @@ class_prob = fitted_model.predict_proba(X_test)
 
 Se o modelo subjacente não oferecer suporte à função `predict_proba()` ou o formato estiver incorreto, uma exceção específica para classe de modelo será lançada. Consulte os documentos de referência de [RandomForestClassifier](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html#sklearn.ensemble.RandomForestClassifier.predict_proba) e [XGBoost](https://xgboost.readthedocs.io/en/latest/python/python_api.html) para obter exemplos de como essa função é implementada para diferentes tipos de modelo.
 
-## <a name="bert-integration"></a>Integração do BERT
+<a name="bert-integration"></a>
+
+## <a name="bert-integration-in-automated-ml"></a>Integração do BERT no ML automatizado
 
 [Bert](https://techcommunity.microsoft.com/t5/azure-ai/how-bert-is-integrated-into-azure-automated-machine-learning/ba-p/1194657) é usado na camada personalização de AutoML. Nessa camada, se uma coluna contiver texto livre ou outros tipos de dados como carimbos de data/hora ou números simples, personalização será aplicado de acordo.
 
 Para o BERT, o modelo é ajustado e treinado utilizando os rótulos fornecidos pelo usuário. A partir daqui, as incorporações de documentos são geradas como recursos ao lado de outros, como recursos baseados em carimbo de data/hora, dia da semana. 
 
 
-### <a name="bert-steps"></a>Etapas de BERT
+### <a name="steps-to-invoke-bert"></a>Etapas para invocar BERT
 
-Para invocar BERT, você precisa definir  `enable_dnn: True` em seu automl_settings e usar uma computação de GPU (por exemplo `vm_size = "STANDARD_NC6"` , ou uma GPU superior). Se uma computação de CPU for usada, em vez de BERT, AutoML habilitará o BiLSTM DNN featurizer.
+Para invocar BERT, defina  `enable_dnn: True` em seu automl_settings e use uma computação de GPU ( `vm_size = "STANDARD_NC6"` ou uma GPU superior). Se uma computação de CPU for usada, em vez de BERT, AutoML habilitará o BiLSTM DNN featurizer.
 
 AutoML executa as seguintes etapas para o BERT. 
 
-1. **Pré-processamento e geração de tokens de todas as colunas de texto**. Por exemplo, o transformador "StringCast" pode ser encontrado no Resumo de personalização do modelo final. Um exemplo de como produzir o resumo de personalização do modelo pode ser encontrado neste [bloco de anotações](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-text-dnn/auto-ml-classification-text-dnn.ipynb).
+1. **Pré-processamento e geração de tokens de todas as colunas de texto**. Por exemplo, o transformador "StringCast" pode ser encontrado no Resumo de personalização do modelo final. Um exemplo de como produzir o resumo de personalização do modelo pode ser encontrado neste [bloco de anotações](https://towardsdatascience.com/automated-text-classification-using-machine-learning-3df4f4f9570b).
 
 2. **Concatenar todas as colunas de texto em uma única coluna de texto**, portanto, `StringConcatTransformer` no modelo final. 
 
@@ -327,9 +330,10 @@ AutoML executa as seguintes etapas para o BERT.
 BERT geralmente é executado por mais tempo do que outros featurizers. Para obter um melhor desempenho, recomendamos o uso de "STANDARD_NC24r" ou "STANDARD_NC24rs_V3" para seus recursos RDMA. 
 
 O AutoML distribuirá o treinamento do BERT em vários nós se eles estiverem disponíveis (até um máximo de oito nós). Isso pode ser feito em seu `AutoMLConfig` objeto definindo o `max_concurrent_iterations` parâmetro como maior que 1. 
-### <a name="supported-languages"></a>Idiomas com suporte
 
-O AutoML atualmente dá suporte a idiomas 100 e, dependendo do idioma do conjunto de um, o AutoML escolhe o modelo de BERT apropriado. Para dados em alemão, usamos o modelo alemão BERT. Para o inglês, usamos o modelo BERT em inglês. Para todas as outras linguagens, usamos o modelo BERT multilíngue.
+## <a name="supported-languages-for-bert-in-automl"></a>Idiomas com suporte para BERT no autoML 
+
+O AutoML atualmente dá suporte a idiomas 100 e, dependendo do idioma do conjunto de um, o autoML escolhe o modelo de BERT apropriado. Para dados em alemão, usamos o modelo alemão BERT. Para o inglês, usamos o modelo BERT em inglês. Para todas as outras linguagens, usamos o modelo BERT multilíngue.
 
 No código a seguir, o modelo alemão BERT é disparado, uma vez que a linguagem do conjunto de dado é especificada como `deu` , o código de idioma de três letras para o alemão de acordo com a [classificação ISO](https://iso639-3.sil.org/code/deu):
 

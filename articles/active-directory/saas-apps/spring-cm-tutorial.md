@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/08/2019
 ms.author: jeedes
-ms.openlocfilehash: d043386f7d0a4713c605f87a9f7bc9f65183029b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 9cfc48e3fdb96ba5b63b28288a801095f7b36f43
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88517013"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589807"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-springcm"></a>Tutorial: Integração do Azure Active Directory com SpringCM
 
@@ -27,7 +27,7 @@ A integração do SpringCM ao Azure AD oferece os seguintes benefícios:
 * Você pode permitir que os usuários sejam conectados automaticamente ao SpringCM (logon único) com suas contas do Azure AD.
 * Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](../manage-apps/what-is-single-sign-on.md).
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -125,19 +125,19 @@ Para configurar o logon único do Azure AD com o SpringCM, execute as seguintes 
 1. Em outra janela do navegador da Web, entre em seu site de empresa do **SpringCM** como administrador.
 
 1. No menu na parte superior, clique em **IR PARA**, clique em **Preferências** e, na seção **Preferências da Conta**, clique em **SSO do SAML**.
-   
+
     ![SSO do SAML](./media/spring-cm-tutorial/ic797051.png "SSO do SAML")
 
 1. Na seção Configuração do Provedor de Identidade, execute as seguintes etapas:
-   
+
     ![Configuração do Provedor de Identidade](./media/spring-cm-tutorial/ic797052.png "Configuração do Provedor de Identidade")
-    
+
     a. Para carregar seu certificado baixado do Azure Active Directory, clique em **Selecionar Certificado do Emissor** ou **Alterar Certificado do Emissor**.
-    
+
     b. Na caixa de texto **Emissor**, cole o valor do **Identificador do Azure AD** copiado do portal do Azure.
-    
+
     c. Na caixa de texto **Ponto de Extremidade Iniciado pelo SP (Provedor de Serviços)** , cole o valor da **URL de Logon** copiado do portal do Azure.
-            
+
     d. Selecione **SAML Habilitado** como **Habilitar**.
 
     e. Clique em **Save** (Salvar).
@@ -159,7 +159,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
     a. No campo **Nome**, insira **BrendaFernandes**.
-  
+
     b. No campo **Nome de usuário**, digite `brittasimon@yourcompanydomain.extension`. Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
@@ -204,7 +204,7 @@ Para permitir que os usuários do Azure Active Directory entrem no SpringCM, ele
 1. Entre em seu site de empresa do **SpringCM** como administrador.
 
 1. Clique em **IR PARA** e depois em **CATÁLOGO DE ENDEREÇOS**.
-   
+
     ![Criar Usuário](./media/spring-cm-tutorial/ic797054.png "Criar Usuário")
 
 1. Clique em **Criar Usuário**.
@@ -226,13 +226,12 @@ Para permitir que os usuários do Azure Active Directory entrem no SpringCM, ele
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Ao clicar no bloco do SpringCM no Painel de Acesso, você deverá ser conectado automaticamente ao SpringCM, para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao clicar no bloco do SpringCM no Painel de Acesso, você deverá ser conectado automaticamente ao SpringCM, para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](./tutorial-list.md)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)

@@ -1,29 +1,26 @@
 ---
-title: Processar feed de alterações no armazenamento de BLOBs do Azure (visualização) | Microsoft Docs
+title: Processar feed de alterações no armazenamento de BLOBs do Azure | Microsoft Docs
 description: Saiba como processar logs do feed de alterações em um aplicativo cliente .NET
 author: normesta
 ms.author: normesta
-ms.date: 06/18/2020
+ms.date: 09/08/2020
 ms.topic: article
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
 ms.custom: devx-track-csharp
-ms.openlocfilehash: cc70204a56c3a853c6c6c7f0e1573c71854c0f19
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: f0e89fdfba852fc056cf48efd1b92daabb272cf0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018953"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89568244"
 ---
-# <a name="process-change-feed-in-azure-blob-storage-preview"></a>Processar feed de alterações no armazenamento de BLOBs do Azure (visualização)
+# <a name="process-change-feed-in-azure-blob-storage"></a>Processar feed de alterações no armazenamento de BLOBs do Azure
 
 O feed de alterações fornece logs de transações de todas as alterações que ocorrem nos BLOBs e nos metadados de BLOB em sua conta de armazenamento. Este artigo mostra como ler registros do feed de alterações usando a biblioteca do processador do feed de alterações de BLOB.
 
-Para saber mais sobre o feed de alterações, consulte [alterar feed no armazenamento de BLOBs do Azure (versão prévia)](storage-blob-change-feed.md).
-
-> [!NOTE]
-> O feed de alterações está em visualização pública e está disponível em regiões limitadas. Para saber mais sobre esse recurso juntamente com limitações e problemas conhecidos, consulte [suporte ao feed de alterações no armazenamento de BLOBs do Azure](storage-blob-change-feed.md). A biblioteca do processador do feed de alterações está sujeita a alterações entre agora e quando essa biblioteca se torna disponível de forma geral.
+Para saber mais sobre o feed de alterações, consulte o [feed de alterações no armazenamento de BLOBs do Azure](storage-blob-change-feed.md).
 
 ## <a name="get-the-blob-change-feed-processor-library"></a>Obter a biblioteca do processador do feed de alterações de BLOB
 
@@ -219,4 +216,4 @@ A hora de início que você fornece é arredondada para a hora mais próxima e a
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre os logs do feed de alterações. Consulte o [feed de alterações no armazenamento de BLOBs do Azure (visualização)](storage-blob-change-feed.md)
+Saiba mais sobre os logs do feed de alterações. Consulte o [feed de alterações no armazenamento de BLOBs do Azure](storage-blob-change-feed.md)

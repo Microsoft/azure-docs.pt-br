@@ -3,12 +3,12 @@ title: Hubs de Eventos do Azure – visualizar anomalias de dados nos eventos em
 description: 'Tutorial: Visualizar anomalias de dados nos eventos em tempo real enviados aos Hubs de Eventos do Microsoft Azure'
 ms.topic: tutorial
 ms.date: 06/23/2020
-ms.openlocfilehash: 595c0e06750171c844249a77ecef16c84dc8ada5
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: bd08d611761e125fdd03173ce6027c60e82baed6
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85315617"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98623452"
 ---
 # <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>Tutorial: Visualizar anomalias de dados nos eventos em tempo real enviados aos Hubs de Eventos do Azure
 
@@ -26,14 +26,12 @@ Neste tutorial, você aprenderá como:
 
 Para concluir este tutorial, você precisa de uma assinatura do Azure. Se você não tiver [uma conta gratuita][], crie uma antes de começar.
 
-## <a name="prerequisites"></a>Pré-requisitos
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 - Instalar o [Visual Studio](https://www.visualstudio.com/). 
 - Você precisa de uma conta do Power BI para analisar a saída de um trabalho do Stream Analytics. Você pode [experimentar o Power BI gratuitamente](https://app.powerbi.com/signupredirect?pbi_source=web).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="set-up-resources"></a>Configurar recursos
 
@@ -308,7 +306,7 @@ No trabalho do Stream Analytics, clique em **Iniciar**, **Agora**, **Iniciar**. 
 
    ![Captura de tela da especificação do conjunto de dados.](./media/event-hubs-tutorial-visualize-anomalies/power-bi-dashboard-select-dataset.png)
 
-9. Selecione **Cartão** como tipo de visualização. Em **Campos**, clique em **Adicionar valor** e selecione **fraudulentuses**.
+9. Selecione **Cartão** como tipo de visualização. Em **Campos**, clique em **Adicionar valor** e selecione `fraudulentuses`.
 
    ![Captura de tela da especificação de campos e tipo de visualização.](./media/event-hubs-tutorial-visualize-anomalies/power-bi-add-card-tile.png)
 
@@ -329,9 +327,9 @@ No trabalho do Stream Analytics, clique em **Iniciar**, **Agora**, **Iniciar**. 
 
 12. Em **Tipo de Visualização**, selecione **Gráfico de linhas**.
 
-13. Em **Eixo**, clique em **Adicionar Valor**e selecione **windowend**. 
+13. Em **Eixo**, clique em **Adicionar Valor** e selecione `windowend`. 
 
-14. Em **Valores**, clique em **Adicionar valor** e selecione **fraudulentuses**.
+14. Em **Valores**, clique em **Adicionar valor** e selecione `fraudulentuses`.
 
 15. Em **Janela de tempo para exibir**, selecione os últimos cinco minutos. Clique em **Próximo**.
 
@@ -351,7 +349,7 @@ Faça logon na sua conta do Power BI. Ir para **Meu Workspace**. Na linha com o 
 
 ### <a name="clean-up-resources-using-azure-cli"></a>Limpar recursos usando a CLI do Azure
 
-Para remover o grupo de recursos, use o comando [excluir grupo az](/cli/azure/group?view=azure-cli-latest#az-group-delete).
+Para remover o grupo de recursos, use o comando [excluir grupo az](/cli/azure/group#az-group-delete).
 
 ```azurecli-interactive
 az group delete --name $resourceGroup
@@ -378,6 +376,6 @@ Neste tutorial, você aprendeu a:
 Avance para o próximo artigo para saber mais sobre os Hubs de Eventos do Azure.
 
 > [!div class="nextstepaction"]
-> [Introdução ao envio de mensagens para os Hubs de Eventos do Azure no .NET Standard](get-started-dotnet-standard-send-v2.md)
+> [Introdução ao envio de mensagens para os Hubs de Eventos do Azure no .NET Standard](event-hubs-dotnet-standard-getstarted-send.md)
 
 [uma conta gratuita]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio

@@ -6,10 +6,10 @@ ms.date: 03/27/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 33cc9b52c4b687ca8147867b99dc70e8d71a9223
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88944509"
 ---
 :::row:::
@@ -24,7 +24,7 @@ ms.locfileid: "88944509"
     :::column-end:::
 :::row-end:::
 
-### <a name="system-requirements"></a>Requisitos de sistema
+### <a name="system-requirements"></a>Requisitos do sistema
 
 O SDK do Speech no Windows requer o <a href="https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads" target="_blank">Microsoft Visual C++ redistribuível para o <span class="docon docon-navigate-external x-hidden-focus"></span> Visual Studio 2019</a> no sistema.
 

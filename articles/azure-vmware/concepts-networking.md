@@ -2,41 +2,37 @@
 title: Conceitos-interconectividade de rede
 description: Saiba mais sobre os principais aspectos e casos de uso de rede e interconectividade na solução do Azure VMware.
 ms.topic: conceptual
-ms.date: 07/23/2020
-ms.openlocfilehash: 3420f6aa61ced7632175f3e12edda9de72639517
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.date: 02/02/2021
+ms.openlocfilehash: ddf8f5b6aa06154a6edde7b4a78902d8f13eab78
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88750574"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100364895"
 ---
-# <a name="azure-vmware-solution-preview-networking-and-interconnectivity-concepts"></a>Conceitos de rede e interconectividade da solução Azure VMware Preview
+# <a name="azure-vmware-solution-networking-and-interconnectivity-concepts"></a>Conceitos de rede e interconectividade da solução do Azure VMware
 
-O Azure VMware Solution (AVS) oferece um ambiente de nuvem privada VMware acessível para usuários e aplicativos de ambientes ou recursos locais e baseados no Azure. Serviços como o Azure ExpressRoute e conexões VPN fornecem a conectividade. Esses serviços exigem intervalos de endereços de rede e portas de firewall específicos para habilitar os serviços.  
+[!INCLUDE [avs-networking-description](includes/azure-vmware-solution-networking-description.md)]
 
-Ao implantar uma nuvem privada, as redes privadas para gerenciamento, provisionamento e criação do vMotion são criadas. Eles são usados para acesso ao vCenter e ao NSX-T Manager e à implantação ou ao vMotion da máquina virtual. Todas as redes privadas podem ser acessadas de uma VNet no Azure ou de ambientes locais. O Alcance Global do ExpressRoute é usado para conectar nuvens privadas a ambientes locais. Essa conexão requer uma VNet com um circuito do ExpressRoute em sua assinatura.
+Uma perspectiva útil na interconectividade é considerar os dois tipos de implementações de nuvem privada da solução Azure VMware:
 
-Além disso, ao implantar uma nuvem privada, o acesso à Internet e aos serviços do Azure é provisionado e fornecido para que as VMs em redes de produção possam consumi-las.  Por padrão, o acesso à Internet é desabilitado para novas nuvens privadas e, a qualquer momento, pode ser habilitado ou desabilitado.
+1. A [**interconectividade básica somente do Azure**](#azure-virtual-network-interconnectivity) permite que você gerencie e use sua nuvem privada com apenas uma única rede virtual no Azure. Essa implementação é mais adequada para avaliações ou implementações da solução Azure VMware que não exigem acesso de ambientes locais.
 
-Uma perspectiva útil na interconectividade é considerar os dois tipos de implementações de nuvem privada de AVS:
-
-1. A [**interconectividade básica somente do Azure**](#azure-virtual-network-interconnectivity) permite que você gerencie e use sua nuvem privada com apenas uma única rede virtual no Azure. Essa implementação é mais adequada para avaliações de AVS ou implementações que não exigem acesso de ambientes locais.
-
-1. A [**interconectividade completa de local para nuvem privada**](#on-premises-interconnectivity) estende a implementação básica somente do Azure para incluir a interconectividade entre nuvens privadas locais e AVS.
+1. A [**interconectividade completa de local para nuvem privada**](#on-premises-interconnectivity) estende a implementação básica somente do Azure para incluir a interconectividade entre as nuvens privadas da solução do Azure VMware e locais.
  
-Neste artigo, abordaremos alguns conceitos importantes que estabelecem rede e interconectividade, incluindo requisitos e limitações. Também abordaremos mais informações sobre os dois tipos de implementações de interconectividade de nuvem privada da AVS. Este artigo fornece as informações que você precisa saber para configurar sua rede para trabalhar com a AVS corretamente.
+Neste artigo, abordaremos alguns conceitos importantes que estabelecem rede e interconectividade, incluindo requisitos e limitações. Também abordaremos mais informações sobre os dois tipos de implementações de interconectividade de nuvem privada da solução Azure VMware. Este artigo fornece as informações que você precisa saber para configurar sua rede para trabalhar com a solução do Azure VMware corretamente.
 
-## <a name="avs-private-cloud-use-cases"></a>Casos de uso de nuvem privada AVS
+## <a name="azure-vmware-solution-private-cloud-use-cases"></a>Casos de uso de nuvem privada da solução Azure VMware
 
-Os casos de uso para nuvens do AVS privado incluem:
+Os casos de uso das nuvens privadas da solução Azure VMware incluem:
 - Novas cargas de trabalho de VM VMware na nuvem
-- Carga de trabalho de VM de intermitência para a nuvem (somente local para AVS)
-- Migração de carga de trabalho de VM para a nuvem (somente no local para AVS)
-- Recuperação de desastre (AVS para AVS ou local para AVS)
+- Carga de trabalho de VM intermitente para a nuvem (somente para a solução do Azure VMware)
+- Migração de carga de trabalho de VM para a nuvem (somente para solução de VMware local para Azure)
+- Recuperação de desastre (solução do Azure VMware para solução Azure VMware ou local para solução VMware do Azure)
 - Consumo de serviços do Azure
 
 > [!TIP]
-> Todos os casos de uso do serviço AVS são habilitados com conectividade de nuvem local para privada.
+> Todos os casos de uso para o serviço de solução do Azure VMware são habilitados com conectividade de nuvem local para privada.
 
 ## <a name="azure-virtual-network-interconnectivity"></a>Interconectividade de rede virtual do Azure
 
@@ -59,16 +55,19 @@ O diagrama a seguir mostra a interconectividade de local para nuvem privada, que
 
 :::image type="content" source="media/concepts/adjacency-overview-drawing-double.png" alt-text="Conectividade de nuvem privada completa local e de rede virtual" border="false":::
 
-Para obter a interconectividade completa com sua nuvem privada, habilite o ExpressRoute Alcance Global e, em seguida, solicite uma chave de autorização e uma ID de emparelhamento privado para Alcance Global no portal do Azure. A chave de autorização e a ID de emparelhamento são usadas para estabelecer Alcance Global entre um circuito de ExpressRoute em sua assinatura e o circuito de ExpressRoute para sua nova nuvem privada. Uma vez vinculado, os dois circuitos do ExpressRoute roteiam o tráfego de rede entre seus ambientes locais para sua nuvem privada.  Consulte o [tutorial para criar um ExpressRoute alcance global emparelhamento para uma nuvem privada](tutorial-expressroute-global-reach-private-cloud.md) para que os procedimentos solicitem e usem a chave de autorização e a ID de emparelhamento.
+Para obter a interconectividade completa com sua nuvem privada, habilite o ExpressRoute Alcance Global e, em seguida, solicite uma chave de autorização e uma ID de emparelhamento privado para Alcance Global no portal do Azure. A chave de autorização e a ID de emparelhamento são usadas para estabelecer Alcance Global entre um circuito de ExpressRoute em sua assinatura e o circuito de ExpressRoute para sua nova nuvem privada. Uma vez vinculado, os dois circuitos do ExpressRoute roteiam o tráfego de rede entre seus ambientes locais para sua nuvem privada.  Para obter mais informações sobre os procedimentos para solicitar e usar a chave de autorização e a ID de emparelhamento, consulte o [tutorial para criar um ExpressRoute alcance global emparelhamento para uma nuvem privada](tutorial-expressroute-global-reach-private-cloud.md).
 
 ## <a name="next-steps"></a>Próximas etapas 
 
-- Saiba mais sobre as [considerações e requisitos de conectividade de rede](tutorial-network-checklist.md). 
-- Saiba mais sobre os [conceitos de armazenamento em nuvem privada](concepts-storage.md).
+Agora que você abordou os conceitos de rede e interconectividade da solução do Azure VMware, talvez queira saber mais sobre:
 
+- [Conceitos de armazenamento da solução VMware do Azure](concepts-storage.md).
+- [Conceitos de identidade da solução VMware do Azure](concepts-identity.md).
+- [Como habilitar o recurso de solução VMware do Azure](enable-azure-vmware-solution.md).
 
 <!-- LINKS - external -->
 [enable Global Reach]: ../expressroute/expressroute-howto-set-global-reach.md
 
 <!-- LINKS - internal -->
-
+[concepts-upgrades]: ./concepts-upgrades.md
+[concepts-storage]: ./concepts-storage.md

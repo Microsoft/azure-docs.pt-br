@@ -5,10 +5,10 @@ services: container-service
 ms.topic: article
 ms.date: 11/15/2019
 ms.openlocfilehash: 90526b78e65c335f07a2a9d2d152b54b47233082
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88211037"
 ---
 # <a name="rotate-certificates-in-azure-kubernetes-service-aks"></a>Girar certificados no serviço kubernetes do Azure (AKS)

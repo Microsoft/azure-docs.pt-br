@@ -6,6 +6,7 @@ documentationcenter: na
 author: MashaMSFT
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
+ms.subservice: management
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
@@ -13,25 +14,24 @@ ms.workload: iaas-sql-server
 ms.date: 08/12/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 40c851e5ff5fc83ccf6b6d67e319bb97bd860bd5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 957e458bf21eb4a95b1faba1daf0459271648310
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84669096"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97358683"
 ---
 # <a name="run-sql-server-vm-on-an-azure-dedicated-host"></a>Executar VM do SQL Server em um Host Dedicado do Azure 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-Este artigo tem detalhes específicos sobre o uso de uma VM (máquina virtual) do SQL Server com o [Host Dedicado do Azure](/azure/virtual-machines/windows/dedicated-hosts). Informações adicionais sobre o Host Dedicado do Azure podem ser encontradas na postagem no blog [Apresentando Host Dedicado do Azure](https://azure.microsoft.com/blog/introducing-azure-dedicated-host/). 
+Este artigo tem detalhes específicos sobre o uso de uma VM (máquina virtual) do SQL Server com o [Host Dedicado do Azure](../../../virtual-machines/dedicated-hosts.md). Informações adicionais sobre o Host Dedicado do Azure podem ser encontradas na postagem no blog [Apresentando Host Dedicado do Azure](https://azure.microsoft.com/blog/introducing-azure-dedicated-host/). 
 
 ## <a name="overview"></a>Visão geral
-[O Host Dedicado do Azure](/azure/virtual-machines/windows/dedicated-hosts) é um serviço que fornece servidores físicos - que podem hospedar uma ou mais máquinas virtuais - dedicados a uma assinatura do Azure. Os hosts dedicados são os mesmos servidores físicos usados nos data centers da Microsoft, fornecidos como um recurso. Você pode provisionar hosts dedicados em uma região, uma zona de disponibilidade e em um domínio de falha. Em seguida, você pode posicionar VMs diretamente em seus hosts provisionados, em qualquer configuração que melhor atenda às suas necessidades.
+[O Host Dedicado do Azure](../../../virtual-machines/dedicated-hosts.md) é um serviço que fornece servidores físicos - que podem hospedar uma ou mais máquinas virtuais - dedicados a uma assinatura do Azure. Os hosts dedicados são os mesmos servidores físicos usados nos data centers da Microsoft, fornecidos como um recurso. Você pode provisionar hosts dedicados em uma região, uma zona de disponibilidade e em um domínio de falha. Em seguida, você pode posicionar VMs diretamente em seus hosts provisionados, em qualquer configuração que melhor atenda às suas necessidades.
 
 ## <a name="limitations"></a>Limitações
 
-- Os Conjuntos de Dimensionamento de Máquinas Virtuais não são compatíveis com hosts dedicados atualmente.
-- Há suporte para a seguinte série de VMs: DSv3 e ESv3. 
+- Nem todas as séries de VMs têm suporte em hosts dedicados, e a disponibilidade da série de VMs varia por região. Para obter mais informações, consulte [visão geral dos hosts dedicados do Azure](../../../virtual-machines/dedicated-hosts.md).
 
 ## <a name="licensing"></a>Licenciamento
 
@@ -55,7 +55,7 @@ Opções de nível de host para usar licenças de SQL Server existentes:
 
 
 ## <a name="provisioning"></a>Provisionamento  
-O provisionamento de uma VM do SQL Server para o host dedicado não é diferente de nenhuma outra máquina virtual do Azure. Você pode fazer isso usando o [Azure PowerShell](../../../virtual-machines/windows/dedicated-hosts-powershell.md), o [portal do Azure](../../../virtual-machines/windows/dedicated-hosts-portal.md) e a [CLI do Azure](../../../virtual-machines/linux/dedicated-hosts-cli.md).
+O provisionamento de uma VM do SQL Server para o host dedicado não é diferente de nenhuma outra máquina virtual do Azure. Você pode fazer isso usando o [Azure PowerShell](../../../virtual-machines/windows/dedicated-hosts-powershell.md), o [portal do Azure](../../../virtual-machines/dedicated-hosts-portal.md) e a [CLI do Azure](../../../virtual-machines/linux/dedicated-hosts-cli.md).
 
 O processo de adição de uma VM do SQL Server existente ao host dedicado requer tempo de inatividade, mas não afetará os dados e não haverá perda de dados. No entanto, é necessário fazer backup de todos os bancos de dados, incluindo bancos de dados do sistema, antes da migração.
 
@@ -79,5 +79,3 @@ Para obter mais informações, consulte os seguintes artigos:
 * [Perguntas frequentes sobre o SQL Server em uma VM do Windows](frequently-asked-questions-faq.md)
 * [Diretrizes de preço para o SQL Server em uma VM do Windows](pricing-guidance.md)
 * [Notas sobre a versão do SQL Server em uma VM do Windows](doc-changes-updates-release-notes.md)
-
-

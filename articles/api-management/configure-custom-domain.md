@@ -12,12 +12,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: apimpm
-ms.openlocfilehash: 53442f0727544221f28bfdb58d8069163eb374e5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a7032c64efa486c65830e013373239647a368540
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87024853"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92311147"
 ---
 # <a name="configure-a-custom-domain-name-for-your-azure-api-management-instance"></a>Configurar um nome de domínio personalizado para sua instância do gerenciamento de API do Azure
 
@@ -50,10 +50,10 @@ Para executar as etapas descritas neste artigo, você precisa ter:
     Há vários pontos de extremidade aos quais você pode atribuir um nome de domínio personalizado. No momento, os seguintes pontos de extremidade estão disponíveis:
 
     - **Gateway** (o padrão é: `<apim-service-name>.azure-api.net` ),
-    - **Portal** (o padrão é: `<apim-service-name>.portal.azure-api.net`),
+    - **Portal do desenvolvedor (Herdado)** (o padrão é: `<apim-service-name>.portal.azure-api.net` ),
+    - **Portal do desenvolvedor** (o padrão é: `<apim-service-name>.developer.azure-api.net` ).
     - **Gerenciamento** (o padrão é: `<apim-service-name>.management.azure-api.net`),
     - **SCM** (o padrão é: `<apim-service-name>.scm.azure-api.net` ),
-    - **NewPortal** (o padrão é: `<apim-service-name>.developer.azure-api.net` ).
 
     > [!NOTE]
     > Somente o ponto de extremidade do **Gateway** está disponível para configuração na camada de consumo.

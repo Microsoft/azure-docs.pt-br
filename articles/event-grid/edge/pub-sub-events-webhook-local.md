@@ -8,10 +8,10 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: 2a7cc864366bd9a35c96dd453c0dc68f77d8abd9
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86171441"
 ---
 # <a name="tutorial-publish-subscribe-to-events-locally"></a>Tutorial: publicar, assinar eventos localmente
@@ -37,7 +37,7 @@ Há várias maneiras de implantar módulos em um dispositivo IoT Edge e todos el
 
 ### <a name="select-your-iot-edge-device"></a>Selecione seu dispositivo IoT Edge
 
-1. Entre no [portal do Azure](https://portal.azure.com)
+1. Entre no [Portal do Azure](https://portal.azure.com)
 1. Navegue até seu Hub IoT.
 1. Selecione **IOT Edge** no menu da seção **Gerenciamento de dispositivo automático** . 
 1. Clique na ID do dispositivo de destino na lista de dispositivos
@@ -54,7 +54,7 @@ Um manifesto de implantação é um documento JSON que descreve quais módulos i
 1. Forneça as opções nome, imagem e contêiner criar do contêiner:
 
    * **Nome**: eventgridmodule
-   * **URI da imagem**:`mcr.microsoft.com/azure-event-grid/iotedge:latest`
+   * **URI da imagem**: `mcr.microsoft.com/azure-event-grid/iotedge:latest`
    * **Opções de Criação de Contêiner**:
 
    [!INCLUDE [event-grid-edge-module-version-update](../../../includes/event-grid-edge-module-version-update.md)]
@@ -95,7 +95,7 @@ Esta seção mostra como implantar outro módulo de IoT que atuaria como um mani
 1. Forneça as opções nome, imagem e contêiner criar do contêiner:
 
    * **Nome**: assinante
-   * **URI da imagem**:`mcr.microsoft.com/azure-event-grid/iotedge-samplesubscriber:latest`
+   * **URI da imagem**: `mcr.microsoft.com/azure-event-grid/iotedge-samplesubscriber:latest`
    * **Opções de criação de contêiner**: nenhuma
 1. Clique em **Salvar**
 1. Clique em **Avançar** para continuar na seção rotas
@@ -269,7 +269,7 @@ Os assinantes podem se registrar para eventos publicados em um tópico. Para rec
             }
     ```
 
-## <a name="cleanup-resources"></a>Limpar os recursos
+## <a name="cleanup-resources"></a>Recursos de limpeza
 
 * Execute o comando a seguir para excluir o tópico e todas as suas assinaturas.
 

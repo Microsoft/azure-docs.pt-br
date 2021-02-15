@@ -1,23 +1,23 @@
 ---
-title: incluir arquivo
+title: arquivo de inclusão
 titleSuffix: Azure
-description: incluir arquivo
+description: arquivo de inclusão
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
 ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: 000971878e24c46892aaef1fa0c65237a4219883
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e139954e6550e33edb75d01ab9dbec0bba543ea6
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81678588"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92548144"
 ---
 Depois que o recurso de **emparelhamento** for implantado com êxito, você poderá exibi-lo seguindo estas etapas.
 
-1. Vá para **grupos de recursos**e selecione o grupo de recursos que você selecionou quando criou o recurso de **emparelhamento** . Use a caixa de **filtro** se você tiver muitos grupos de recursos.
+1. Vá para **grupos de recursos** e selecione o grupo de recursos que você selecionou quando criou o recurso de **emparelhamento** . Use a caixa de **filtro** se você tiver muitos grupos de recursos.
 
     > [!div class="mx-imgBorder"]
     > ![Grupos de recursos](../media/setup-direct-get-resourcegroup.png)
@@ -25,7 +25,7 @@ Depois que o recurso de **emparelhamento** for implantado com êxito, você pode
 1. Selecione o recurso de **emparelhamento** que você criou.
 
     > [!div class="mx-imgBorder"]
-    > ![Exibição de recursos de emparelhamento](../media/setup-direct-get-open.png)
+    > ![Captura de tela que mostra o recurso de emparelhamento que você criou.](../media/setup-direct-get-open.png)
 
 1. A página **visão geral** mostra informações de alto nível, como mostrado aqui.
 
@@ -37,14 +37,14 @@ Depois que o recurso de **emparelhamento** for implantado com êxito, você pode
     > [!div class="mx-imgBorder"]
     > ![Informações de ASN do recurso de emparelhamento](../media/setup-direct-get-asninfo.png)
 
-1. À esquerda, selecione **conexões**. Na parte superior da tela, você verá um resumo das conexões de emparelhamento entre o ASN e a Microsoft, em diferentes instalações dentro do metro. Você também pode acessar o resumo de conexões na página **visão geral** selecionando **conexões** no painel central, conforme mostrado.
+1. À esquerda, selecione **conexões** . Na parte superior da tela, você verá um resumo das conexões de emparelhamento entre o ASN e a Microsoft, em diferentes instalações dentro do metro. Você também pode acessar o resumo de conexões na página **visão geral** selecionando **conexões** no painel central, conforme mostrado.
 
     > [!div class="mx-imgBorder"]
     > ![Conexões de recursos de emparelhamento](../media/setup-exchange-get-connectionssummary.png)
 
     * O **estado da conexão** corresponde ao estado da configuração da conexão de emparelhamento. Os Estados exibidos neste campo seguem o diagrama de estado mostrado no [passo a passos de emparelhamento do Exchange](../walkthrough-exchange-all.md).
     * Estado de **sessão IPv4** e **estado de sessão IPv6** correspondem aos Estados de sessão BGP IPv4 e IPv6, respectivamente.  
-    * Quando você seleciona uma linha na parte superior da tela, a seção de **conexão** na parte inferior mostra detalhes de cada conexão. Selecione as setas para expandir a **configuração**, o **endereço IPv4**e o **endereço IPv6**.
+    * Quando você seleciona uma linha na parte superior da tela, a seção de **conexão** na parte inferior mostra detalhes de cada conexão. Selecione as setas para expandir a **configuração** , o **endereço IPv4** e o **endereço IPv6** .
 
     > [!div class="mx-imgBorder"]
-    > ![Exibição de recursos de emparelhamento](../media/setup-exchange-get-connectionsipv4.png)
+    > ![Captura de tela que realça uma seta que expande uma seção.](../media/setup-exchange-get-connectionsipv4.png)

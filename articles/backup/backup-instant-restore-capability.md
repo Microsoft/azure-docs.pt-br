@@ -4,12 +4,12 @@ description: Funcionalidade de restauração instantânea do Azure e perguntas f
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 69348a9902224f9f73f80d5b1900143c885d20ee
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 147fadc92429157ed2f9ba3eb68297a3e1d08d24
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89000372"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "96014441"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Obter o melhor backup e restaurar o desempenho com a funcionalidade de restauração instantânea do Backup do Azure
 
@@ -61,11 +61,13 @@ Os instantâneos incrementais são armazenados na conta de armazenamento da VM, 
 
 ### <a name="using-azure-portal"></a>Usando o Portal do Azure
 
+[!INCLUDE [backup-center.md](../../includes/backup-center.md)]
+
 No portal do Azure, você pode ver um campo adicionado no painel **política de backup de VM** na seção **restauração instantânea** . Você pode alterar a duração da retenção de instantâneo no painel **política de backup de VM** para todas as VMs associadas à política de backup específica.
 
 ![Funcionalidade de restauração instantânea](./media/backup-azure-vms/instant-restore-capability.png)
 
-### <a name="using-powershell"></a>Usando o PowerShell
+### <a name="using-powershell"></a>Usar o PowerShell
 
 >[!NOTE]
 > Em AZ PowerShell Version 1.6.0 em diante, você pode atualizar o período de retenção do instantâneo de restauração instantânea na política usando o PowerShell
@@ -115,3 +117,8 @@ Se o ponto de recuperação tiver um instantâneo e ele for o último ponto de r
 ### <a name="i-dont-need-instant-restore-functionality-can-it-be-disabled"></a>Não preciso da funcionalidade de restauração instantânea. Ele pode ser desabilitado?
 
 O recurso de restauração instantânea está habilitado para todos e não pode ser desabilitado. Você pode reduzir a retenção de instantâneo para um mínimo de um dia.
+
+### <a name="is-it-safe-to-restart-the-vm-during-the-transfer-process-which-can-take-many-hours-will-restarting-the-vm-interrupt-or-slow-down-the-transfer"></a>É seguro reiniciar a VM durante o processo de transferência (que pode levar muitas horas)? Reiniciar a interrupção da VM ou retardar a transferência?
+
+Sim, é seguro, e não há nenhum impacto na velocidade de transferência de dados.
+

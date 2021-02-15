@@ -8,12 +8,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: quickstart
 ms.date: 03/10/2020
-ms.openlocfilehash: 375149047d51574e14df15b6385b8c296d49a8ec
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 4a414b706dffae76eaa9841ee7b1fe6bcc1ac0d3
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85254694"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109837"
 ---
 # <a name="quickstart-set-up-the-data-science-virtual-machine-for-linux-ubuntu"></a>Início Rápido: Configurar a Máquina Virtual de Ciência de Dados para Linux (Ubuntu)
 
@@ -46,7 +46,7 @@ Veja as etapas para criar uma instância da Máquina Virtual de Ciência de Dado
        * **Nome da máquina virtual**: Insira o nome da máquina virtual. Esse nome será usado em seu portal do Azure.
        * **Região**: selecione o datacenter mais apropriado. Para um acesso mais rápido à rede, é o data center que contém a maioria dos seus dados ou que está mais próximo de sua localização física. Leia mais sobre as [Regiões do Azure](https://azure.microsoft.com/global-infrastructure/regions/).
        * **Imagem**: Mantenha o valor padrão.
-       * **Size**: essa opção deve ser populada automaticamente com um tamanho apropriado para cargas de trabalho gerais. Leia mais sobre os [tamanhos de VM do Linux no Azure](../../virtual-machines/linux/sizes.md).
+       * **Size**: essa opção deve ser populada automaticamente com um tamanho apropriado para cargas de trabalho gerais. Leia mais sobre os [tamanhos de VM do Linux no Azure](../../virtual-machines/sizes.md).
        * **Tipo de autenticação**: Para configuração mais rápida, selecione "Senha". 
          
          > [!NOTE]
@@ -73,8 +73,6 @@ Veja as etapas para criar uma instância da Máquina Virtual de Ciência de Dado
   * SSH para sessões de terminal
   * X2Go para sessões gráficas
   * JupyterHub e JupyterLab para notebooks Jupyter
-
-Também é possível anexar uma Máquina Virtual de Ciência de Dados ao Azure Notebooks para executar os notebooks Jupyter na VM e ignorar as limitações da camada de serviço gratuita. Para saber mais, confira [Gerenciar e configurar projetos do Azure Notebooks](../../notebooks/configure-manage-azure-notebooks-projects.md#compute-tier).
 
 ### <a name="ssh"></a>SSH
 
@@ -121,12 +119,16 @@ A DSVM do Ubuntu executa o [JupyterHub](https://github.com/jupyterhub/jupyterhub
 
    1. No computador local, abra um navegador da Web e navegue até https: https:\//seu-IP-de-VM:8000, substituindo "Seu-IP-de-VM" pelo endereço IP que anotou anteriormente.
    1. Seu navegador provavelmente impedirá que você abra a página diretamente, informando que há um erro de certificado. O DSVM está fornecendo segurança por meio de um certificado autoassinado. A maioria dos navegadores permitirá que você clique após esse aviso. Muitos navegadores continuarão a fornecer algum tipo de aviso visual sobre o certificado em toda a sessão da Web.
+
+      >[!NOTE]
+      > Se você vir a mensagem de erro `ERR_EMPTY_RESPONSE` no navegador, acesse o computador usando explicitamente o protocolo *HTTPS* – e não o *HTTP* ou apenas o endereço Web. Se você digitar o endereço Web sem `https://` na linha de endereço, a maioria dos navegadores usará como padrão `http` e você verá esse erro.
+
    1. Insira o nome de usuário e a senha usados para criar a VM e entre. 
 
       ![Insira o logon do Jupyter](./media/dsvm-ubuntu-intro/jupyter-login.png)
 
->[!NOTE]
-> Se você receber um erro 500 neste estágio, é provável que tenha usado letras maiúsculas em seu nome de usuário. Essa é uma interação conhecida entre o Jupyter Hub e o PAMAuthenticator que ele usa. 
+      >[!NOTE]
+      > Se você receber um erro 500 neste estágio, é provável que tenha usado letras maiúsculas em seu nome de usuário. Essa é uma interação conhecida entre o Jupyter Hub e o PAMAuthenticator que ele usa. Se você receber um erro "Não é possível acessar esta página", é provável que suas permissões do Grupo de Segurança de Rede precisem ser ajustadas. No portal do Azure, encontre o recurso de Grupo de Segurança de Rede dentro do Grupo de Recursos. Para acessar o JupyterHub da Internet pública, será preciso que a porta 8000 esteja aberta. (A imagem mostra que essa VM está configurada para acesso just-in-time, o que é altamente recomendado. Confira [Proteja suas portas de gerenciamento com acesso just-in-time](../../security-center/security-center-just-in-time.md).) ![Configuração do Grupo de Segurança de Rede](./media/dsvm-ubuntu-intro/nsg-permissions.png)
 
    1. Procure os vários notebooks de exemplo disponíveis.
 
@@ -144,6 +146,6 @@ Veja como você pode continuar seu aprendizado e exploração:
 
 * O passo a passo [Ciência de dados na Máquina Virtual de Ciência de Dados para Linux](linux-dsvm-walkthrough.md) mostra como executar várias tarefas comuns de ciência de dados com a DSVM Linux provisionada aqui. 
 * Explore as várias ferramentas de ciência de dados na DSVM experimentando as ferramentas descritas neste artigo. Você também pode executar `dsvm-more-info` no shell contido na máquina virtual para uma introdução básica e ponteiros para obter mais informações sobre as ferramentas instaladas na VM.  
-* Saiba como criar soluções de análise sistematicamente usando o [Processo de Ciência de Dados de Equipe](https://aka.ms/tdsp).
+* Saiba como criar soluções de análise sistematicamente usando o [Processo de Ciência de Dados de Equipe](../team-data-science-process/index.yml).
 * Visite a [Galeria de IA do Azure](https://gallery.azure.ai/) para obter exemplos de análise de dados e aprendizado de máquina que usam os serviços de IA do Azure.
 * Consulte a [documentação de referência](./reference-ubuntu-vm.md) apropriada para esta máquina virtual.

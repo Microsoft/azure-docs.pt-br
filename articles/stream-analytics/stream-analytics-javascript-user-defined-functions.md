@@ -5,15 +5,14 @@ author: rodrigoaatmicrosoft
 ms.author: rodrigoa
 ms.service: stream-analytics
 ms.topic: tutorial
-ms.reviewer: mamccrea
-ms.custom: mvc, devx-track-javascript
-ms.date: 06/16/2020
-ms.openlocfilehash: 6540b35925a92ebd6a8bcced427b5457785603db
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.custom: mvc, devx-track-js
+ms.date: 12/15/2020
+ms.openlocfilehash: 70015ef24039694789ce96a6c4853221fe2377c3
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056900"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020376"
 ---
 # <a name="javascript-user-defined-functions-in-azure-stream-analytics"></a>Funções definidas pelo usuário do JavaScript no Azure Stream Analytics
  
@@ -55,7 +54,7 @@ Você deve fornecer as propriedades a seguir e selecionar **Salvar**.
 
 ## <a name="test-and-troubleshoot-javascript-udfs"></a>Testar e solucionar problemas de UDFs do JavaScript 
 
-Você pode testar e depurar a lógica de UDF do JavaScript em qualquer navegador. Atualmente, não há suporte para a depuração e o teste da lógica dessas funções definidas pelo usuário no portal Stream Analytics. Depois que a função funcionar conforme o esperado, você poderá adicioná-la ao trabalho do Stream Analytics conforme mencionado acima e, em seguida, chamá-la diretamente da sua consulta. Você pode testar sua lógica de consulta com a UDF do JavaScript usando as [ferramentas do Stream Analytics para Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-install).
+Você pode testar e depurar a lógica de UDF do JavaScript em qualquer navegador. Atualmente, não há suporte para a depuração e o teste da lógica dessas funções definidas pelo usuário no portal Stream Analytics. Depois que a função funcionar conforme o esperado, você poderá adicioná-la ao trabalho do Stream Analytics conforme mencionado acima e, em seguida, chamá-la diretamente da sua consulta. Você pode testar sua lógica de consulta com a UDF do JavaScript usando as [ferramentas do Stream Analytics para Visual Studio](./stream-analytics-tools-for-visual-studio-install.md).
 
 Os erros de runtime do JavaScript são considerados fatais e exibidos no Log de atividades. Para recuperar o log, no Portal do Azure, vá para o seu trabalho e clique em **Log de atividades**.
 
@@ -186,7 +185,44 @@ FROM
     input A
 ```
 
+### <a name="tolocalestring"></a>toLocaleString()
+O método **toLocaleString** em JavaScript pode ser usado para retornar uma cadeia de caracteres com sensibilidade para linguagem que representa os dados de data e hora de onde esse método é chamado.
+Embora o Azure Stream Analytics aceite apenas data e hora em UTC como carimbo de data/hora do sistema, esse método pode ser usado para converter o carimbo de data/hora do sistema em outra localidade e fuso horário.
+Esse método segue o mesmo comportamento de implementação que o disponível no Internet Explorer.
+
+**Definição de funções definidas pelo usuário de JavaScript:**
+
+```javascript
+function main(datetime){
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    return event.toLocaleDateString('de-DE', options);
+}
+```
+
+**Exemplo de consulta: Passar um datetime como valor de entrada**
+```SQL
+SELECT
+    udf.toLocaleString(input.datetime) as localeString
+INTO
+    output
+FROM
+    input
+```
+
+A saída dessa consulta será o datetime de entrada em **de-DE** com as opções fornecidas.
+```
+Samstag, 28. Dezember 2019
+```
+
+## <a name="user-logging"></a>Registro em log do usuário
+O mecanismo de registro em log permite que você capture informações personalizadas enquanto um trabalho está em execução. Você pode usar dados de log para depurar ou avaliar a exatidão do código personalizado em tempo real. Esse mecanismo está disponível por meio do método Console.Log().
+
+```javascript
+console.log('my error message');
+```
+
+Você pode acessar mensagens de log por meio de [logs de diagnóstico](data-errors.md).
 ## <a name="next-steps"></a>Próximas etapas
 
-* [UDF do Machine Learning](https://docs.microsoft.com/azure/stream-analytics/machine-learning-udf)
-* [UDF do C#](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-edge-csharp-udf-methods)
+* [UDF do Machine Learning](./machine-learning-udf.md)
+* [UDF do C#](./stream-analytics-edge-csharp-udf-methods.md)

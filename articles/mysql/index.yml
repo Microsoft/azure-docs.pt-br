@@ -1,19 +1,19 @@
 ### YamlMime:Landing
 title: Documentação do Banco de Dados do Azure para MySQL
-summary: O Banco de Dados do Azure para MySQL é um serviço de banco de dados relacional da plataforma MySQL Community Edition.  Trata-se de um banco de dados totalmente gerenciado como uma oferta de serviço que pode lidar com cargas de trabalho críticas com desempenho previsível e escalabilidade dinâmica. Desenvolva aplicativos com o Banco de Dados do Azure para MySQL utilizando a plataforma e as ferramentas de software livre de sua escolha. Saiba como usar o Banco de Dados do Azure para MySQL com nossos guias de início rápido, tutoriais e exemplos.
+summary: O Banco de Dados do Azure para MySQL é um serviço de banco de dados relacional da plataforma MySQL Community Edition. É possível usar um servidor único ou um servidor flexível (versão prévia) para hospedar um banco de dados MySQL no Azure. Trata-se de um banco de dados totalmente gerenciado como uma oferta de serviço que pode lidar com cargas de trabalho críticas com desempenho previsível e escalabilidade dinâmica.
 metadata:
-  description: O Banco de Dados do Azure para MySQL é um serviço de banco de dados relacional na nuvem da Microsoft que é voltado para desenvolvedores e que faz parte da plataforma MySQL Community Edition.
-  author: ajlam
-  ms.author: andrela
+  description: O Banco de Dados do Azure para MySQL é um serviço de banco de dados relacional na nuvem da Microsoft que é voltado para desenvolvedores e que faz parte da plataforma MySQL Community Edition. É possível escolher um servidor único ou um servidor flexível (versão prévia) para implantar o banco de dados MySQL no Azure.
+  author: savjani
+  ms.author: pariks
   ms.date: 09/03/2019
   ms.service: mysql
   ms.topic: landing-page
-  ms.openlocfilehash: 2d01ffea7a570eb2f8af203dd1db8777661dc7df
-  ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+  ms.openlocfilehash: 82c736b3256a099aa0dbd2edca14f402a3b935be
+  ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 08/11/2020
-  ms.locfileid: "88078454"
+  ms.lasthandoff: 11/12/2020
+  ms.locfileid: "94543027"
 landingContent:
 - title: Sobre o Banco de Dados do Azure para MySQL
   linkLists:
@@ -21,125 +21,131 @@ landingContent:
     links:
     - text: O que é o Banco de Dados do Azure para MySQL?
       url: overview.md
+    - text: Escolha a opção de MySQL correta
+      url: select-right-deployment-type.md
   - linkListType: whats-new
     links:
     - text: Confira nosso blog
       url: https://techcommunity.microsoft.com/t5/Azure-Database-for-MySQL/bg-p/ADforMySQL
-- title: Criar um servidor
+- title: Servidor único
   linkLists:
+  - linkListType: overview
+    links:
+    - text: O que é o servidor único?
+      url: single-server-overview.md
+    - text: Exibir toda a documentação sobre servidor único
+      url: single-server/index.yml
+  - linkListType: concept
+    links:
+    - text: Entender os tipos de preço
+      url: concepts-pricing-tiers.md
+    - text: Entender as versões do MySQL com suporte
+      url: concepts-supported-versions.md
   - linkListType: quickstart
     links:
     - text: Criar um servidor usando o portal do Azure
       url: quickstart-create-mysql-server-database-using-azure-portal.md
     - text: Criar um servidor usando a CLI do Azure
       url: quickstart-create-mysql-server-database-using-azure-cli.md
+- title: Servidor flexível (versão prévia)
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que é o servidor flexível?
+      url: flexible-server/overview.md
+    - text: Exibir toda a documentação do servidor flexível
+      url: flexible-server/index.yml
   - linkListType: concept
     links:
-    - text: Entender os tipos de preço
-      url: concepts-pricing-tiers.md
-    - text: Entender os limites
-      url: concepts-limits.md
-    - text: Entender as versões do MySQL com suporte
-      url: concepts-supported-versions.md
-    - text: Configurar parâmetros do servidor
-      url: howto-server-parameters.md
-    - text: Planejar para alta disponibilidade
-      url: concepts-high-availability.md
-  - linkListType: tutorial
+    - text: Conceitos de servidor
+      url: flexible-server/concept-servers.md
+    - text: Noções básicas de computação e armazenamento
+      url: flexible-server/concepts-compute-storage.md
+    - text: Limitações
+      url: flexible-server/concepts-limitations.md
+  - linkListType: quickstart
     links:
-    - text: Projetar um banco de dados usando o portal do Azure
-      url: tutorial-design-database-using-portal.md
-    - text: Projetar um banco de dados usando a CLI do Azure
-      url: tutorial-design-database-using-cli.md
-    - text: Implantar o WordPress em contêineres
-      url: ../app-service/tutorial-multi-container-app.md?toc=%2fazure%2fmysql%2ftoc.json&bc=%2Fazure%2Fbread%2Ftoc.json
-    - text: Criar um aplicativo Web usando o PHP na CLI do Azure
-      url: ../app-service/tutorial-php-mysql-app.md?toc=%2fazure%2fmysql%2ftoc.json&bc=%2Fazure%2Fbread%2Ftoc.json
-- title: Fazer backup e migrar dados
+    - text: Criar um servidor usando o portal
+      url: flexible-server/quickstart-create-server-portal.md
+    - text: Criar um servidor usando a CLI
+      url: flexible-server/quickstart-create-server-cli.md
+- title: Conectar e consultar
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Guia de referência Conectar e consultar
+      url: how-to-connect-overview-single-server.md
+  - linkListType: quickstart
+    links:
+    - text: Conectar-se ao servidor único usando MySQL Workbench
+      url: connect-workbench.md
+    - text: Conectar-se a um servidor único usando o Java
+      url: connect-java.md
+    - text: Conectar-se a um servidor único usando PHP
+      url: connect-php.md
+    - text: Conectar-se ao servidor flexível usando MySQL Workbench
+      url: connect-workbench.md
+    - text: Conectar-se a um servidor flexível usando PHP
+      url: flexible-server/connect-php.md
+    - text: Conectar-se a um servidor flexível usando Python
+      url: flexible-server/connect-python.md
+- title: Gerenciar e migrar dados
   linkLists:
   - linkListType: concept
     links:
-    - text: Fazer backup e restaurar
-      url: concepts-backup.md
+    - text: Gerenciar um servidor único com o portal do Azure
+      url: howto-create-manage-server-portal.md
+    - text: Gerenciar um servidor flexível (versão prévia) com o portal do Azure
+      url: flexible-server/how-to-manage-server-portal.md
     - text: Migrar usando o despejo e a restauração
       url: concepts-migrate-dump-restore.md
     - text: Migrar usando a importação e a exportação
       url: concepts-migrate-import-export.md
   - linkListType: how-to-guide
     links:
-    - text: Restaurar um servidor usando o portal do Azure
-      url: howto-restore-server-portal.md
-    - text: Restaurar um servidor usando a CLI do Azure
-      url: howto-restore-server-cli.md
-    - text: Migrações com tempo de inatividade mínimo
+    - text: Migrar usando o Serviço de Migração de Dados
       url: howto-migrate-online.md
-- title: Conectar-se ao Banco de Dados do Azure para MySQL
+    - text: Guia de Migração de Dados do Azure
+      url: https://datamigration.microsoft.com/scenario/mysql-to-azuremysql?step=1
+- title: Desenvolvimento do aplicativo
   linkLists:
   - linkListType: concept
     links:
-    - text: Entender o firewall
-      url: concepts-firewall-rules.md
-    - text: Entender o SSL
-      url: concepts-ssl-connection-security.md
-    - text: Entender as redes virtuais
-      url: concepts-data-access-and-security-vnet.md
-  - linkListType: how-to-guide
+    - text: Resiliência de conexão
+      url: concepts-connectivity.md
+    - text: Práticas recomendadas
+      url: app-development-best-practices.md
+    - text: Drivers e ferramentas compatíveis
+      url: concepts-compatibility.md
+  - linkListType: tutorial
     links:
-    - text: Criar regras de firewall
-      url: howto-manage-firewall-using-portal.md
-    - text: Configurar a conectividade SSL
-      url: howto-configure-ssl.md
-    - text: Conectar um Serviço de Aplicativo do Azure existente
-      url: howto-connect-webapp.md
-    - text: Cadeias de conexão
-      url: howto-connection-string.md
-    - text: Solucionar problemas de conexão
-      url: howto-troubleshoot-common-connection-issues.md
-  - linkListType: get-started
-    links:
-    - text: Conectar usando o MySQL Workbench
-      url: connect-workbench.md
-    - text: Conectar usando o PHP
-      url: connect-php.md
-    - text: Conectar usando o Java
-      url: connect-java.md
-    - text: Conectar usando o .NET
-      url: connect-csharp.md
-    - text: Conectar usando o Python
-      url: connect-python.md
-    - text: Conectar usando o Node.js
-      url: connect-nodejs.md
-    - text: Conectar usando o Ruby
-      url: connect-ruby.md
-    - text: Conectar usando o C++
-      url: connect-cpp.md
-    - text: Conectar usando o Go
-      url: connect-go.md
-- title: Replicar dados
+    - text: Criar um banco de dados em um servidor único
+      url: tutorial-design-database-using-portal.md
+    - text: Criar um aplicativo Web com um servidor flexível na VNET
+      url: flexible-server/tutorial-webapp-server-vnet.md
+    - text: Criar um aplicativo Web PHP (Laravel) com um servidor flexível
+      url: flexible-server/tutorial-php-database-app.md
+    - text: Criar um aplicativo Web PHP (Laravel) com um servidor único
+      url: ../app-service/tutorial-php-mysql-app.md?toc=%2fazure%2fmysql%2ftoc.json&bc=%2Fazure%2Fbread%2Ftoc.json
+- title: Referência
   linkLists:
-  - linkListType: concept
+  - linkListType: download
     links:
-    - text: Entender a replicação de dados
-      url: concepts-data-in-replication.md
-    - text: Entender as réplicas de leitura
-      url: concepts-read-replicas.md
-  - linkListType: how-to-guide
-    links:
-    - text: Configurar replicação nos dados
-      url: howto-data-in-replication.md
-    - text: Criar uma réplica de leitura usando o portal do Azure
-      url: howto-read-replicas-portal.md
-- title: Codificar com as APIs de programação
-  linkLists:
-  - linkListType: get-started
+    - text: Workbench do MySQL
+      url: https://www.mysql.com/products/workbench
+    - text: Conector MySQL do .NET
+      url: https://dev.mysql.com/doc/connector-net/en/
+  - linkListType: deploy
     links:
     - text: Scripts da CLI do Azure para tarefas comuns
-      url: /azure/mysql/sample-scripts-azure-cli
+      url: ./sample-scripts-azure-cli.md
+    - text: Modelos do Azure Resource Manager
+      url: /azure/templates/microsoft.dbformysql/allversions
   - linkListType: reference
     links:
     - text: Referência de desenvolvedor da CLI do Azure
       url: /cli/azure/mysql
     - text: Referência de desenvolvedor da API REST
       url: /rest/api/mysql/
-    - text: Modelos do Azure Resource Manager
-      url: /azure/templates/microsoft.dbformysql/allversions
+    - text: PowerShell
+      url: /powershell/module/az.mysql

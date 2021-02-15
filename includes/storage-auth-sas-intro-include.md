@@ -1,6 +1,6 @@
 ---
-title: incluir arquivo
-description: incluir arquivo
+title: arquivo de inclusão
+description: arquivo de inclusão
 services: storage
 author: tamram
 ms.service: storage
@@ -9,10 +9,10 @@ ms.date: 12/20/2019
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: aec1faa4de1149f08fb6fbc1cc5bf3aa2ab6becd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75371762"
 ---
 Uma SAS (assinatura de acesso compartilhado) permite que você conceda acesso limitado a contêineres e blobs em sua conta de armazenamento. Ao criar uma SAS, você especifica suas restrições, incluindo quais recursos de armazenamento do Azure um cliente tem permissão para acessar, quais permissões eles têm nesses recursos e por quanto tempo a SAS é válida.

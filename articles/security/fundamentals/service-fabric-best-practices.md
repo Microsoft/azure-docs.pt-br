@@ -7,12 +7,12 @@ ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 01/16/2019
-ms.openlocfilehash: 4548bf77c01194802c2e6203bcbf9fbd240370a2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a7396c9a29c7d9f69dbe6a9cc5cd085c72ebafde
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81461643"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94700939"
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Melhores práticas de segurança do Azure Service Fabric
 Implantar um aplicativo no Azure é rápido, fácil e econômico. Antes de implantar seu aplicativo na nuvem em produção, examine a nossa lista de melhores práticas recomendadas e essenciais para a implementação de clusters seguros no seu aplicativo.
@@ -60,7 +60,7 @@ Há três [cenários](../../service-fabric/service-fabric-cluster-security.md) p
 -   Segurança nó a nó: Esse cenário protege a comunicação entre VMs e computadores no cluster. Esse tipo de segurança faz com que somente os computadores autorizados a ingressar no cluster possam hospedar aplicativos e serviços no cluster.
 Nesse cenário, os clusters em execução no Azure ou clusters autônomos que sáo executados no Windows podem usar a [segurança de certificado](../../service-fabric/service-fabric-windows-cluster-x509-security.md) ou então a [segurança do Windows](../../service-fabric/service-fabric-windows-cluster-windows-security.md) para computadores Windows Server.
 -   Segurança cliente a nó: Esse cenário protege a comunicação entre um cliente do Service Fabric e nós individuais do cluster.
--   Controle de acesso baseado em função (RBAC): Esse cenário usa identidades separadas (certificados, o Azure AD, e assim por diante) para cada função de cliente de usuário e administrador que acessa o cluster. Especifique as identidades de função ao criar o cluster.
+-   Service Fabric controle de acesso baseado em função (Service Fabric RBAC): esse cenário usa identidades separadas (certificados, o AD do Azure e assim por diante) para cada função de cliente de administrador e usuário que acessa o cluster. Especifique as identidades de função ao criar o cluster.
 
 >[!NOTE]
 >**Recomendação de segurança para clusters do Azure:** Use a segurança do Azure AD para autenticar clientes e certificados para a segurança de nó a nó.
@@ -172,12 +172,12 @@ Para saber mais sobre como configurar um cofre de chaves, confira [O que é o Az
 Depois de criar os aplicativos para representar o cluster, atribua os usuários às funções com suporte pelo Service Fabric: somente leitura e administrador. Você pode atribuir essas funções usando o portal do Azure.
 
 >[!NOTE]
-> Para obter mais informações sobre como usar funções no Service Fabric, consulte [Controle de acesso baseado em função para clientes do Service Fabric](../../service-fabric/service-fabric-cluster-security-roles.md).
+> Para obter mais informações sobre como usar funções no Service Fabric, consulte [Service Fabric controle de acesso baseado em função para clientes Service Fabric](../../service-fabric/service-fabric-cluster-security-roles.md).
 
 O Azure Service Fabric dá suporte a dois tipos de controle de acesso diferentes para clientes conectados a um [cluster do Service Fabric](../../service-fabric/service-fabric-cluster-creation-via-arm.md): administrador e usuário. O administrador do cluster pode usar o controle de acesso para limitar o acesso a determinadas operações de cluster para diferentes grupos de usuários. O controle de acesso torna o cluster mais seguro.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Lista de verificação de segurança do Service Fabric](service-fabric-checklist.md)
+- [Lista de verificação de segurança do Service Fabric](../../service-fabric/service-fabric-best-practices-security.md)
 - Configurar o [ambiente de desenvolvimento](../../service-fabric/service-fabric-get-started.md) do Service Fabric.
 - Saiba mais sobre as [opções de suporte do Service Fabric](../../service-fabric/service-fabric-support.md).

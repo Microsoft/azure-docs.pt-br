@@ -1,7 +1,7 @@
 ---
-title: incluir arquivo
+title: arquivo de inclusão
 titleSuffix: Azure
-description: incluir arquivo
+description: arquivo de inclusão
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: beffb2babefd86c2807e21e9337cba66f42fcfc2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81678479"
 ---
 Antes de começar a configuração, instale e importe os módulos necessários. Você precisa de privilégios de administrador para instalar os módulos no PowerShell.

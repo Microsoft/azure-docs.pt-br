@@ -8,13 +8,13 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
 ms.custom: subject-moving-resources
-ms.date: 03/24/2020
-ms.openlocfilehash: 71846b8e26efb3853705fabff78831e746727191
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/10/2020
+ms.openlocfilehash: a5050958f01743ff3c6fdcdecfee3067b1d2073e
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88926942"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98934266"
 ---
 # <a name="move-your-azure-cognitive-search-service-to-another-azure-region"></a>Mover o serviço de Pesquisa Cognitiva do Azure para outra região do Azure
 
@@ -23,7 +23,13 @@ Ocasionalmente, os clientes perguntam sobre como mover um serviço de pesquisa p
 > [!NOTE]
 > Na portal do Azure, todos os serviços têm um comando **Exportar modelo** . No caso do Azure Pesquisa Cognitiva, esse comando produz uma definição básica de um serviço (nome, local, camada, réplica e contagem de partições), mas não reconhece o conteúdo do serviço nem carrega chaves, funções ou logs. Embora o comando exista, não é recomendável usá-lo para mover um serviço de pesquisa.
 
-## <a name="guidance-for-moving-a-service"></a>Diretrizes para mover um serviço
+## <a name="prerequisites"></a>Pré-requisitos
+
++ Verifique se os serviços e recursos que sua conta usa têm suporte na região de destino.
+
++ Para recursos de visualização, verifique se sua assinatura foi aprovada para a região de destino.
+
+## <a name="prepare-and-move"></a>Preparar e mover
 
 1. Identifique dependências e serviços relacionados para entender o impacto total da realocação de um serviço, caso você precise mover mais do que apenas o Azure Pesquisa Cognitiva.
 
@@ -41,7 +47,9 @@ Ocasionalmente, os clientes perguntam sobre como mover um serviço de pesquisa p
 
 1. Atualize os aplicativos cliente e os conjuntos de testes para usar o novo nome de serviço e as chaves de API e testar todos os aplicativos.
 
-1. Exclua o serviço antigo depois que o novo serviço for totalmente testado e operacional.
+## <a name="discard-or-clean-up"></a>Descartar ou limpar
+
+Exclua o serviço antigo depois que o novo serviço for totalmente testado e operacional. Excluir o serviço exclui automaticamente todo o conteúdo associado ao serviço.
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -69,7 +77,7 @@ In this article, you'll learn how to:
 
 - Ensure that the services and features that your account uses are supported in the target region.
 
-- For preview features, ensure that your subscription is whitelisted for the target region. For more information about preview features, see [knowledge stores](./knowledge-store-concept-intro.md), [incremental enrichment](./cognitive-search-incremental-indexing-conceptual.md), and [private endpoint](./service-create-private-endpoint.md).
+- For preview features, ensure that your subscription is allowlisted for the target region. For more information about preview features, see [knowledge stores](./knowledge-store-concept-intro.md), [incremental enrichment](./cognitive-search-incremental-indexing-conceptual.md), and [private endpoint](./service-create-private-endpoint.md).
 
 ## Assessment and planning
 

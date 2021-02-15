@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/21/2018
-ms.openlocfilehash: 00fdaf93553c97112c67caa66cb2246756b63c33
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: c59b5646e011afa6b8487e8145a1cb07e6e2a8ff
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207483"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015571"
 ---
 # <a name="splunk-to-azure-monitor-log-query"></a>Splunk para a consulta de log do Azure Monitor
 
@@ -30,7 +30,7 @@ A tabela a seguir compara os conceitos e estruturas de dados entre logs do Splun
  | Registro de dados | event | linha |  Mudança de terminologia apenas. |
  | Atributo de registro de dados | field |  coluna |  No Azure Monitor, isso é predefinido como parte da estrutura de tabela. No Splunk, cada evento tem seu próprio conjunto de campos. |
  | Tipos | tipo de dados |  tipo de dados |  Os tipos de dados do Azure Monitor são mais explícitos, visto que são definidos nas colunas. Ambos têm a capacidade de trabalhar dinamicamente com os tipos de dados e o conjunto praticamente equivalente de tipos de dados, incluindo suporte a JSON. |
- | Consulta e pesquisa  | pesquisar | Consulta |  Os conceitos são essencialmente os mesmos entre o Azure Monitor e o Splunk. |
+ | Consulta e pesquisa  | pequisa | Consulta |  Os conceitos são essencialmente os mesmos entre o Azure Monitor e o Splunk. |
  | Hora da ingestão de evento | Hora do sistema | ingestion_time() |  No Splunk, cada evento obtém um carimbo de data/hora do sistema do momento em que o evento foi indexado. No Azure Monitor, você pode definir uma política chamada ingestion_time que expõe uma coluna do sistema que pode ser referenciada por meio da função ingestion_time(). |
 
 ## <a name="functions"></a>Funções
@@ -65,7 +65,7 @@ As seções a seguir fornecem exemplos do uso de operadores diferentes entre o A
 > [!NOTE]
 > Para fins do exemplo a seguir, o campo do Splunk _rule_ mapeia para uma tabela no Azure Monitor e o carimbo de data/hora padrão do Splunk mapeia para a coluna _ingestion_time()_ do Log Analytics.
 
-### <a name="search"></a>Search
+### <a name="search"></a>Pesquisar
 No Splunk, você pode omitir a palavra-chave `search` e especificar uma cadeia de caracteres sem aspas. No Azure Monitor, você deve iniciar cada consulta com `find`, uma cadeia de caracteres sem aspas é um nome de coluna e o valor de pesquisa deve ser uma cadeia de caracteres entre aspas. 
 
 | | Operador | Exemplo |
@@ -107,7 +107,7 @@ O Splunk também tem uma função `eval`, que não é comparável ao operador `e
 | **Azure Monitor** | **extend** | <code>Office_Hub_OHubBGTaskError<br>&#124; extend state = iif(Data_Exception == 0,"success" ,"error")</code> |
 
 ### <a name="rename"></a>Renomear 
-Azure Monitor usa o `project-rename` operador para renomear um campo. `project-rename`permite que a consulta aproveite todos os índices criados previamente para um campo. Splunk tem um `rename` operador para fazer o mesmo.
+Azure Monitor usa o `project-rename` operador para renomear um campo. `project-rename` permite que a consulta aproveite todos os índices criados previamente para um campo. Splunk tem um `rename` operador para fazer o mesmo.
 
 | | Operador | Exemplo |
 |:---|:---|:---|
@@ -123,11 +123,11 @@ O Splunk não parece ter um operador semelhante a `project-away`. Você pode usa
 | **Azure Monitor** | **project**<br>**project-away** | <code>Office_Hub_OHubBGTaskError<br>&#124; project exception, state</code> |
 
 ### <a name="aggregation"></a>Agregação
-Confira as [Agregações em consultas de log do Azure Monitor](aggregations.md) para as diferentes funções de agregação.
+Confira as [Agregações em consultas de log do Azure Monitor](/azure/data-explorer/kusto/query/samples?&pivots=azuremonitor#aggregations) para as diferentes funções de agregação.
 
 | | Operador | Exemplo |
 |:---|:---|:---|
-| **Splunk** | **stats** |  <code>search (Rule=120502.*)<br>&#124; stats count by OSEnv, Audience</code> |
+| **Splunk** | **Estatísticas** |  <code>search (Rule=120502.*)<br>&#124; stats count by OSEnv, Audience</code> |
 | **Azure Monitor** | **summarize** | <code>Office_Hub_OHubBGTaskError<br>&#124; summarize count() by App_Platform, Release_Audience</code> |
 
 

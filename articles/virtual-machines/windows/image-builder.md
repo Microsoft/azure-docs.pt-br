@@ -7,16 +7,16 @@ ms.date: 05/05/2020
 ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.subservice: imaging
-ms.openlocfilehash: f0d8a37f0edc161cbd73bf7438dc1c9486c4251b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ca9f9ad0fb724884e865469ba118af4c7e6cea2f
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87027930"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202837"
 ---
 # <a name="preview-create-a-windows-vm-with-azure-image-builder"></a>Versão prévia: criar uma VM do Windows com o construtor de imagens do Azure
 
-Este artigo mostra como você pode criar uma imagem personalizada do Windows usando o construtor de imagem de VM do Azure. O exemplo neste artigo usa os [personalizadores](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#properties-customize) para personalizar a imagem:
+Este artigo mostra como você pode criar uma imagem personalizada do Windows usando o construtor de imagem de VM do Azure. O exemplo neste artigo usa os [personalizadores](../linux/image-builder-json.md#properties-customize) para personalizar a imagem:
 - PowerShell (ScriptUri) – Baixe e execute um [script do PowerShell](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/testPsScript.ps1).
 - Reinicialização do Windows – reinicia a VM.
 - PowerShell (embutido) – executar um comando específico. Neste exemplo, ele cria um diretório na VM usando `mkdir c:\\buildActions` .
@@ -161,7 +161,7 @@ vi helloImageTemplateWin.json
 ```
 
 > [!NOTE]
-> Para a imagem de origem, você sempre deve [especificar uma versão](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#image-version-failure), não pode usar `latest` .
+> Para a imagem de origem, você sempre deve [especificar uma versão](../linux/image-builder-troubleshoot.md#build--step-failed-for-image-version), não pode usar `latest` .
 > Se você adicionar ou alterar o grupo de recursos para o qual a imagem é distribuída, deverá fazer com que as [permissões sejam definidas](#create-a-user-assigned-identity-and-set-permissions-on-the-resource-group) no grupo de recursos.
  
 ## <a name="create-the-image"></a>Criar a imagem
@@ -179,13 +179,13 @@ az resource create \
 
 Ao concluir, isso retornará uma mensagem de êxito de volta ao console e criará um `Image Builder Configuration Template` no `$imageResourceGroup` . Você pode ver esse recurso no grupo de recursos na portal do Azure, se você habilitar ' Mostrar tipos ocultos '.
 
-Em segundo plano, o Image Builder também criará um grupo de recursos de preparo em sua assinatura. Esse grupo de recursos é usado para a compilação da imagem. Ele estará neste formato:`IT_<DestinationResourceGroup>_<TemplateName>`
+Em segundo plano, o Image Builder também criará um grupo de recursos de preparo em sua assinatura. Esse grupo de recursos é usado para a compilação da imagem. Ele estará neste formato: `IT_<DestinationResourceGroup>_<TemplateName>`
 
 > [!Note]
 > Você não deve excluir o grupo de recursos de preparo diretamente. Primeiro, exclua o artefato do modelo de imagem. isso fará com que o grupo de recursos de preparo seja excluído.
 
 Se o serviço relatar uma falha durante o envio do modelo de configuração de imagem:
--  Examine essas etapas de [solução de problemas](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#template-submission-errors--troubleshooting) . 
+-  Examine essas etapas de [solução de problemas](../linux/image-builder-troubleshoot.md#troubleshoot-image-template-submission-errors) . 
 - Você precisará excluir o modelo, usando o trecho a seguir, antes de tentar enviar novamente.
 
 ```azurecli-interactive
@@ -208,7 +208,7 @@ az resource invoke-action \
 
 Aguarde até que a compilação seja concluída. Isso pode levar cerca de 15 minutos.
 
-Se você encontrar algum erro, leia essas etapas de [solução de problemas](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#image-build-errors--troubleshooting) .
+Se você encontrar algum erro, leia essas etapas de [solução de problemas](../linux/image-builder-troubleshoot.md#troubleshoot-common-build-errors) .
 
 
 ## <a name="create-the-vm"></a>Criar a VM
@@ -271,4 +271,4 @@ az group delete -n $imageResourceGroup
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre os componentes do arquivo. JSON usado neste artigo, consulte referência de [modelo do Image Builder](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Para saber mais sobre os componentes do arquivo. JSON usado neste artigo, consulte referência de [modelo do Image Builder](../linux/image-builder-json.md).

@@ -1,5 +1,5 @@
 ---
-title: Engenharia de recurso na ciência de dados - Processo da Ciência de dados de Equipe
+title: Engenharia de recursos no Machine Learning – processo de ciência de dados de equipe
 description: Saiba mais sobre a engenharia de recursos e a função dela no processo de melhoria de dados do aprendizado de máquina.
 services: machine-learning
 author: marktab
@@ -10,17 +10,17 @@ ms.subservice: team-data-science-process
 ms.topic: conceptual
 ms.date: 05/14/2020
 ms.author: tdsp
-ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath, contperfq4
-ms.openlocfilehash: c31cf0e5c655f53e8838c92f5463d3a85c2f6f65
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath, contperf-fy20q4
+ms.openlocfilehash: b20a6744644678879fedf44e960854f558eb0f03
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836814"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98610430"
 ---
-# <a name="feature-engineering-in-data-science"></a>Engenharia de recursos em ciência de dados
+# <a name="feature-engineering-in-machine-learning"></a>Engenharia de recursos no Machine Learning
 
-Neste artigo, você aprende sobre a engenharia de recursos e a função dela no aprimoramento de dados no aprendizado de máquina. Aprenda com exemplos ilustrativos desenhados de experimentos do [Azure Machine Learning Studio (clássico)](../studio/what-is-ml-studio.md). 
+Neste artigo, você aprende sobre a engenharia de recursos e a função dela no aprimoramento de dados no aprendizado de máquina. Aprenda com exemplos ilustrativos desenhados de experimentos do [Azure Machine Learning Studio (clássico)](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio). 
 
 * **Engenharia de recursos**: o processo de criação de recursos de dados brutos para aumentar a potência preditiva do algoritmo de aprendizado. Recursos de engenharia devem capturar informações adicionais que não sejam facilmente aparentes no conjunto de recursos original.
 * **Seleção de recursos**: o processo de seleção do subconjunto principal de recursos para reduzir a dimensionalidade do problema de treinamento.
@@ -60,7 +60,7 @@ Além do conjunto de recursos A, que já existe nos dados brutos originais, trê
 
 ### <a name="feature-engineering-using-studio-classic"></a>Engenharia de recursos usando o Studio (clássico)
 
-No experimento do Studio (clássico), esses quatro conjuntos de dados de treinamento são formados por meio de quatro ramificações do conjunto de dados de entrada pré-processado. Exceto pela ramificação mais à esquerda, cada uma dessas ramificações contém um módulo [Executar Script R](https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/), no qual os recursos derivados (conjuntos de recursos B, C e D) são construídos e acrescentados ao conjunto de dados importado.
+No experimento do Studio (clássico), esses quatro conjuntos de dados de treinamento são formados por meio de quatro ramificações do conjunto de dados de entrada pré-processado. Exceto pela ramificação mais à esquerda, cada uma dessas ramificações contém um módulo [Executar Script R](/azure/machine-learning/studio-module-reference/execute-r-script), no qual os recursos derivados (conjuntos de recursos B, C e D) são construídos e acrescentados ao conjunto de dados importado.
 
 A figura a seguir demonstra o script R sendo usado para criar o conjunto de recursos B na segunda ramificação à esquerda.
 
@@ -80,9 +80,9 @@ A engenharia de recursos é amplamente aplicada a tarefas relacionadas à minera
 
 ### <a name="feature-hashing"></a>Hash de recursos
 
-Para realizar essa tarefa, uma técnica chamada [hash de recursos](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/feature-hashing) é aplicada para transformar de maneira eficiente recursos de texto arbitrários em índices. Em vez de associar cada recurso de texto (palavras/expressões) a um índice em particular, este método aplica uma função de hash aos recursos e usando seus valores de hash como índices diretamente.
+Para realizar essa tarefa, uma técnica chamada [hash de recursos](/azure/machine-learning/studio-module-reference/feature-hashing) é aplicada para transformar de maneira eficiente recursos de texto arbitrários em índices. Em vez de associar cada recurso de texto (palavras/expressões) a um índice em particular, este método aplica uma função de hash aos recursos e usando seus valores de hash como índices diretamente.
 
-No Studio (clássico), há um módulo [Hash de Recursos](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/feature-hashing) que cria esses recursos de palavra/expressão de maneira conveniente. A figura a seguir mostra um exemplo de uso deste módulo. O conjunto de dados de entrada contém duas colunas: a classificação do livro, que varia de 1 a 5, e o conteúdo real da resenha. O objetivo desse módulo é recuperar um monte de novos recursos que mostram a frequência de ocorrência das palavras/expressões correspondentes dentro de uma resenha de livro. Para usar este módulo, conclua as seguintes etapas:
+No Studio (clássico), há um módulo [Hash de Recursos](/azure/machine-learning/studio-module-reference/feature-hashing) que cria esses recursos de palavra/expressão de maneira conveniente. A figura a seguir mostra um exemplo de uso deste módulo. O conjunto de dados de entrada contém duas colunas: a classificação do livro, que varia de 1 a 5, e o conteúdo real da resenha. O objetivo desse módulo é recuperar um monte de novos recursos que mostram a frequência de ocorrência das palavras/expressões correspondentes dentro de uma resenha de livro. Para usar este módulo, conclua as seguintes etapas:
 
 * Primeiro, selecione a coluna que contém o texto de entrada ("Col2" neste exemplo).
 * Em segundo lugar, defina "Bitsize de hashing" como 8, o que significa que 2^8 = 256 recursos serão criados. A palavra/expressão em todo o texto será colocada em hash, em 256 índices. O parâmetro "Bitsize de hashing" varia de 1 a 31. As palavras/expressões têm menos probabilidades de serem colocadas em hash no mesmo índice se a configuração for para um número maior.

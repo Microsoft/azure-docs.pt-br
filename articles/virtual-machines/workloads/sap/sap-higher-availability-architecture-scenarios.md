@@ -10,18 +10,19 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: f0b2f8f0-e798-4176-8217-017afe147917
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f43ba78bc9c48b003d4718945dc47b0a076a048f
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 5d7904b950fa79f9ccbf98ec08f09aa6688f8a99
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134529"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94957887"
 ---
 # <a name="utilize-azure-infrastructure-vm-restart-to-achieve-higher-availability-of-an-sap-system"></a>Usar a reinicialização de VM da infraestrutura do Azure para atingir "maior disponibilidade" de um sistema SAP
 
@@ -210,7 +211,7 @@ ms.locfileid: "86134529"
 
 > Esta seção aplica-se a:
 >
-> ![Windows][Logo_Windows] Windows e ![Linux][Logo_Linux] Linux
+> ![Logotipo do Windows.][Logo_Windows] Windows e ![Logotipo do Linux.][Logo_Linux] Linux
 >
 
 Se você decidir não usar funcionalidades como WSFC (Clustering de Failover do Windows Server) ou Pacemaker no Linux (atualmente há suporte apenas para o SLES (SUSE Linux Enterprise Server) 12 e versões posteriores), a reinicialização de VM do Azure será utilizada. Protege os sistemas SAP contra tempo de inatividade planejado e não planejado da infraestrutura do servidor físico do Azure e de toda a plataforma subjacente do Azure.
@@ -228,7 +229,7 @@ Os discos gerenciados do Azure são colocados automaticamente no domínio de fal
 
 Uma arquitetura de exemplo de um sistema SAP NetWeaver que usa alta disponibilidade de infraestrutura e contas de armazenamento do Azure pode ter esta aparência:
 
-![Usar a alta disponibilidade da infraestrutura do Azure para atingir "alta disponibilidade" do aplicativo SAP][planning-guide-figure-2900]
+![Diagrama que mostra a arquitetura de um sistema SAP NetWeaver que usa alta disponibilidade e contas de armazenamento da infraestrutura do Azure.][planning-guide-figure-2900]
 
 Uma arquitetura de exemplo de um sistema SAP NetWeaver que usa alta disponibilidade de infraestrutura e discos gerenciados pode ter esta aparência:
 

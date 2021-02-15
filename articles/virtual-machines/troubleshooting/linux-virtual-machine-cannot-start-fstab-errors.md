@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 10/09/2019
 ms.author: v-six
-ms.openlocfilehash: cf27a842d37e96c82370e9b9b81763c8a5d1f7c9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: fd49993e6825c47bbae8f034715c03191e06ab2d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86509045"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89441656"
 ---
 # <a name="troubleshoot-linux-vm-starting-issues-due-to-fstab-errors"></a>Solucionar problemas de inicialização de VM Linux devido a erros de fstab
 
@@ -107,7 +107,7 @@ Para resolver esse problema, inicie a VM no modo de emergência usando o console
 ### <a name="using-single-user-mode"></a>Usando o modo de usuário único
 
 1. Conecte-se ao [console serial](./serial-console-linux.md).
-2. Usar o console serial para escolher o modo de usuário único [modo de usuário](../linux/serial-console-grub-single-user-mode.md)
+2. Usar o console serial para escolher o modo de usuário único [modo de usuário](serial-console-grub-single-user-mode.md)
 3. Depois que a VM for inicializada no modo de usuário único. Use seu editor de texto favorito para abrir o arquivo fstab. 
 
    ```
@@ -235,7 +235,7 @@ Para resolver esse problema, inicie a VM no modo de emergência usando o console
 13. Depois de criar a VM novamente e você pode se conectar a ela por meio de SSH, execute as seguintes ações:
     * Examine as linhas fstab que foram alteradas ou comentadas durante a recuperação.
     * Verifique se você está usando o UUID e a opção nofail adequadamente.
-    * Teste as alterações fstab antes de reiniciar a VM. Para fazer isso, use o seguinte comando:``$ sudo mount -a``
+    * Teste as alterações fstab antes de reiniciar a VM. Para fazer isso, use o seguinte comando: ``$ sudo mount -a``
     * Crie uma cópia adicional do arquivo fstab corrigido para uso em cenários de recuperação futura.
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -1,14 +1,16 @@
 ---
 title: 'Tutorial: extrair dados estruturados com entidade de aprendizado de máquina – LUIS'
 description: Extrair dados estruturados de um enunciado usando a entidade de aprendizado de máquina. Para aumentar a precisão de extração, adicione subentidades com recursos.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 05/08/2020
-ms.openlocfilehash: eb9761a3d3a98a3318fe0adc6fa170652639a9a1
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: aa2783abe86b90a907510dec8d7eb40162820ad5
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045596"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025252"
 ---
 # <a name="tutorial-extract-structured-data-from-user-utterance-with-machine-learning-entities-in-language-understanding-luis"></a>Tutorial: Extrair dados estruturados do enunciado do usuário usando entidades de aprendizado de máquina no LUIS (Reconhecimento vocal)
 
@@ -70,7 +72,7 @@ Para extrair os detalhes sobre um pedido de pizza, crie uma entidade `Order` de 
     |--|
     |`pickup a cheddar cheese pizza large with extra anchovies`|
 
-    Comece a seleção um pouco antes do texto mais à esquerda de `pickup` (nº 1) e, em seguida, vá um pouco além do texto mais à direita, `anchovies` (nº 2 – isso encerra o processo de rotulagem). Um menu pop-up é exibido. Na caixa pop-up, insira o nome da entidade como `Order` (nº 3). Em seguida, selecione `Order Create new entity` na lista (nº 4).
+    Clique e arraste o cursor sobre o texto do primeiro exemplo de intenção. no menu exibido, insira o nome da entidade como `Order`. Em seguida, selecione `Order Create new entity` na lista.
 
     ![Rotular o início e o fim do texto do pedido concluído](media/tutorial-machine-learned-entity/mark-complete-order.png)
 
@@ -79,12 +81,12 @@ Para extrair os detalhes sobre um pedido de pizza, crie uma entidade `Order` de 
 
 1. Na caixa **Escolher um tipo de entidade**, selecione **Adicionar Estrutura** e, em seguida, selecione **Avançar**. A estrutura é necessária para adicionar subentidades, como tamanho e quantidade.
 
-    ![Adicionar uma estrutura à entidade](media/tutorial-machine-learned-entity/add-structure-to-entity.png)
+    ![A captura de tela mostra a janela Escolher um tipo de entidade com a opção Adicionar estrutura marcada.](media/tutorial-machine-learned-entity/add-structure-to-entity.png)
 
 1. Na caixa **Adicionar subentidades (opcional)** , selecione **+** na linha `Order`, em seguida, adicione `Size` e `Quantity` como subentidades e selecione **Criar**.
 
     > [!div class="mx-imgBorder"]
-    > ![Adicionar uma estrutura à entidade](media/tutorial-machine-learned-entity/add-subentities-when-creating-machine-learned-entity.png)
+    > ![A captura de tela mostra a janela Adicionar subentidades (opcional) com subentidades realçadas.](media/tutorial-machine-learned-entity/add-subentities-when-creating-machine-learned-entity.png)
 
 ## <a name="edit-subentities-to-improve-extraction"></a>Editar subentidades para aprimorar a extração
 
@@ -121,7 +123,7 @@ Adicionar uma lista de tamanhos conhecidos que o aplicativo cliente reconhece ta
 
 
     > [!div class="mx-imgBorder"]
-    > ![Adicionar uma estrutura à entidade](media/tutorial-machine-learned-entity/size-list-entity-with-synonyms.png)
+    > ![A captura de tela mostra a janela SizeList e lista os itens com XLarge selecionado.](media/tutorial-machine-learned-entity/size-list-entity-with-synonyms.png)
 
 ### <a name="add-feature-of-sizelist-entity"></a>Adicionar recurso da entidade SizeList
 
@@ -160,7 +162,7 @@ Adicionar uma entidade de número predefinida também ajudará na extração.
 Na página de detalhes da entidade **Ordem**, selecione o asterisco, `*`, para o recurso **@ SizeList** e o recurso **@ number**. O asterisco aparece no mesmo rótulo que o nome do recurso.
 
 > [!div class="mx-imgBorder"]
-> ![Adicionar uma estrutura à entidade](media/tutorial-machine-learned-entity/set-required-feature-on-subentity.png)
+> ![A captura de tela mostra o recurso @SizeList com o asterisco e o aviso Obrigatório.](media/tutorial-machine-learned-entity/set-required-feature-on-subentity.png)
 
 <a name="label-text-as-entities-in-example-utterances"></a>
 <a name="label-example-utterance-to-teach-luis-about-the-entity"></a>
@@ -200,7 +202,7 @@ Para treinar o aplicativo, selecione **Treinar**. O treinamento aplica as altera
 1. Para alterar a previsão para uma entidade rotulada, selecione a marca de seleção na mesma linha.
 
     > [!div class="mx-imgBorder"]
-    > ![Captura de tela parcial do novo enunciado de exemplo previsto com a entidade](media/tutorial-machine-learned-entity/confirm-entity-prediction-for-new-example-utterance-added.png)
+    > ![A captura de tela mostra um exemplo de enunciado com a marca de seleção realçada.](media/tutorial-machine-learned-entity/confirm-entity-prediction-for-new-example-utterance-added.png)
 
     Neste ponto, a entidade de aprendizado de máquina está funcionando porque pode encontrar a entidade em um novo enunciado de exemplo. Ao adicionar o enunciado de exemplo, se a entidade não for prevista corretamente, rotule a entidade e as subentidades. Se a entidade for prevista corretamente, você precisará confirmar as previsões.
 
@@ -295,7 +297,7 @@ Para receber uma previsão do LUIS em um chat bot ou em outro aplicativo cliente
 
 ## <a name="related-information"></a>Informações relacionadas
 
-* [Tutorial – intenções](luis-quickstart-intents-only.md)
+* [Tutorial – intenções](./tutorial-intents-only.md)
 * [Conceito – informações conceituais sobre entidades](luis-concept-entity-types.md)
 * [Conceito – informações conceituais sobre recursos](luis-concept-feature.md)
 * [Como treinar](luis-how-to-train.md)
@@ -307,4 +309,4 @@ Para receber uma previsão do LUIS em um chat bot ou em outro aplicativo cliente
 Neste tutorial, o aplicativo usa uma entidade de aprendizado de máquina para descobrir a intenção do enunciado de um usuário e extrair detalhes desse enunciado. O uso da entidade de aprendizado de máquina permite decompor os detalhes da entidade.
 
 > [!div class="nextstepaction"]
-> [Adicionar uma entidade de keyphrase predefinida](luis-quickstart-intent-and-key-phrase.md)
+> [Adicionar uma entidade de keyphrase predefinida](./luis-reference-prebuilt-keyphrase.md)

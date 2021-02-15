@@ -4,12 +4,12 @@ ms.service: storage
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
-ms.openlocfilehash: fe4ecc237b56575f99844d3ec074225fadb69d3c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: eeea7b1fed0c2a1f805e21b4dec9ec3cad7fc976
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "67673221"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95996791"
 ---
 ## <a name="configure-your-application-to-access-azure-storage"></a>Configurar seu aplicativo para acessar o Armazenamento de Blob
 Há duas maneiras de autenticar o aplicativo para acessar os serviços de Armazenamento:
@@ -49,5 +49,4 @@ O exemplo a seguir mostra como usar o Gerenciador de Armazenamento do Microsoft 
    
    `"SharedAccessSignature=sv=2015-04-05&ss=b&srt=sco&sp=rw&se=2016-07-21T18%3A00%3A00Z&sig=3ABdLOJZosCp0o491T%2BqZGKIhafF1nlM3MzESDDD3Gg%3D;BlobEndpoint=https://youraccount.blob.core.windows.net"`
 
-Como você pode ver, ao usar um SAS, você não expõe a chave de sua conta em seu aplicativo. Saiba mais sobre a SAS e quais são as melhores práticas de uso dela consultando [Assinaturas de Acesso Compartilhado: noções básicas do modelo de SAS](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md).
-
+Como você pode ver, ao usar um SAS, você não expõe a chave de sua conta em seu aplicativo. Saiba mais sobre a SAS e quais são as melhores práticas de uso dela consultando [Assinaturas de Acesso Compartilhado: noções básicas do modelo de SAS](../articles/storage/common/storage-sas-overview.md).

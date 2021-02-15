@@ -1,7 +1,7 @@
 ---
 title: Implantar modelos de ml no serviço de Azure App (versão prévia)
 titleSuffix: Azure Machine Learning
-description: Saiba como usar Azure Machine Learning para implantar um modelo em um aplicativo Web no serviço Azure App.
+description: Saiba como usar Azure Machine Learning para implantar um modelo de ML treinado em um aplicativo Web usando o serviço Azure App.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,16 +10,16 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 06/23/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 04ae1788dfd3050fdd2042f88a8e1829e9063ad3
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.custom: how-to, devx-track-python, deploy, devx-track-azurecli
+ms.openlocfilehash: 5f3861d43715ed68116d25206efe4347ea96805c
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87851351"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452142"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-app-service-preview"></a>Implantar um modelo de aprendizado de máquina no serviço Azure App (versão prévia)
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Saiba como implantar um modelo de Azure Machine Learning como um aplicativo Web no serviço Azure App.
 
@@ -28,11 +28,11 @@ Saiba como implantar um modelo de Azure Machine Learning como um aplicativo Web 
 
 Com Azure Machine Learning, você pode criar imagens do Docker de modelos de aprendizado de máquina treinados. Essa imagem contém um serviço Web que recebe dados, envia-os para o modelo e, em seguida, retorna a resposta. Azure App serviço pode ser usado para implantar a imagem e fornece os seguintes recursos:
 
-* [Autenticação](/azure/app-service/configure-authentication-provider-aad) avançada para segurança aprimorada. Os métodos de autenticação incluem Azure Active Directory e autenticação multifator.
-* [Dimensionamento automático](/azure/azure-monitor/platform/autoscale-get-started?toc=%2fazure%2fapp-service%2ftoc.json) sem precisar reimplantar.
-* [Suporte a TLS](/azure/app-service/configure-ssl-certificate-in-code) para comunicações seguras entre clientes e o serviço.
+* [Autenticação](../app-service/configure-authentication-provider-aad.md) avançada para segurança aprimorada. Os métodos de autenticação incluem Azure Active Directory e autenticação multifator.
+* [Dimensionamento automático](../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json) sem precisar reimplantar.
+* [Suporte a TLS](../app-service/configure-ssl-certificate-in-code.md) para comunicações seguras entre clientes e o serviço.
 
-Para obter mais informações sobre os recursos fornecidos pelo serviço Azure App, consulte [visão geral do serviço de aplicativo](/azure/app-service/overview).
+Para obter mais informações sobre os recursos fornecidos pelo serviço Azure App, consulte [visão geral do serviço de aplicativo](../app-service/overview.md).
 
 > [!IMPORTANT]
 > Se você precisar da capacidade de registrar em log os dados de Pontuação usados com seu modelo implantado ou os resultados da pontuação, você deverá implantar no serviço kubernetes do Azure. Para obter mais informações, consulte [coletar dados em seus modelos de produção](how-to-enable-data-collection.md).
@@ -40,21 +40,21 @@ Para obter mais informações sobre os recursos fornecidos pelo serviço Azure A
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Um Workspace do Azure Machine Learning. Para obter mais informações, consulte o artigo [criar um espaço de trabalho](how-to-manage-workspace.md) .
-* O [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+* O [CLI do Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
 * Um modelo de aprendizado de máquina treinado registrado em seu espaço de trabalho. Se você não tiver um modelo, use o [tutorial de classificação de imagem: treinar modelo](tutorial-train-models-with-aml.md) para treinar e registrar um.
 
     > [!IMPORTANT]
     > Os trechos de código neste artigo pressupõem que você definiu as seguintes variáveis:
     >
-    > * `ws`-Seu espaço de trabalho do Azure Machine Learning.
-    > * `model`-O modelo registrado que será implantado.
-    > * `inference_config`-A configuração de inferência para o modelo.
+    > * `ws` -Seu espaço de trabalho do Azure Machine Learning.
+    > * `model` -O modelo registrado que será implantado.
+    > * `inference_config` -A configuração de inferência para o modelo.
     >
     > Para obter mais informações sobre como definir essas variáveis, consulte [implantar modelos com Azure Machine Learning](how-to-deploy-and-where.md).
 
 ## <a name="prepare-for-deployment"></a>Preparar para a implantação
 
-Antes de implantar o, você deve definir o que é necessário para executar o modelo como um serviço Web. A lista a seguir descreve os itens básicos necessários para uma implantação:
+Antes de implantar o, você deve definir o que é necessário para executar o modelo como um serviço Web. A lista a seguir descreve os principais itens necessários para uma implantação:
 
 * Um __script de entrada__. Esse script aceita solicitações, pontua a solicitação usando o modelo e retorna os resultados.
 
@@ -66,7 +66,7 @@ Antes de implantar o, você deve definir o que é necessário para executar o mo
     > [!IMPORTANT]
     > O SDK do Azure Machine Learning não fornece uma maneira para o serviço Web acessar seu datastore ou conjuntos de dados. Se você precisar que o modelo implantado acesse dados armazenados fora da implantação, como em uma conta de armazenamento do Azure, você deve desenvolver uma solução de código personalizado usando o SDK relevante. Por exemplo, o [SDK do armazenamento do Azure para Python](https://github.com/Azure/azure-storage-python).
     >
-    > Outra alternativa que pode funcionar para seu cenário é [previsões de lote](how-to-use-parallel-run-step.md), que fornece acesso a repositórios de armazenamento durante a pontuação.
+    > Outra alternativa que pode funcionar para seu cenário é [previsões de lote](./tutorial-pipeline-batch-scoring-classification.md), que fornece acesso a repositórios de armazenamento durante a pontuação.
 
     Para obter mais informações sobre scripts de entrada, confira [Implantar modelos com Azure Machine Learning](how-to-deploy-and-where.md).
 
@@ -75,7 +75,7 @@ Antes de implantar o, você deve definir o que é necessário para executar o mo
 Essas entidades são encapsuladas em uma __configuração de inferência__. A configuração de inferência faz referência ao script de entrada e a outras dependências.
 
 > [!IMPORTANT]
-> Ao criar uma configuração de inferência para uso com Azure App Service, você deve usar um objeto de [ambiente](https://docs.microsoft.com//python/api/azureml-core/azureml.core.environment%28class%29?view=azure-ml-py) . Observe que, se você estiver definindo um ambiente personalizado, deverá adicionar o azureml-padrões com a versão >= 1.0.45 como uma dependência Pip. Esse pacote contém a funcionalidade necessária para hospedar o modelo como um serviço Web. O exemplo a seguir demonstra como criar um objeto de ambiente e usá-lo com uma configuração de inferência:
+> Ao criar uma configuração de inferência para uso com Azure App Service, você deve usar um objeto de [ambiente](/python/api/azureml-core/azureml.core.environment(class)?preserve-view=true&view=azure-ml-py) . Observe que, se você estiver definindo um ambiente personalizado, deverá adicionar o azureml-padrões com a versão >= 1.0.45 como uma dependência Pip. Esse pacote contém a funcionalidade necessária para hospedar o modelo como um serviço Web. O exemplo a seguir demonstra como criar um objeto de ambiente e usá-lo com uma configuração de inferência:
 >
 > ```python
 > from azureml.core.environment import Environment
@@ -101,7 +101,7 @@ Para obter mais informações sobre a configuração de inferência, consulte [i
 
 ## <a name="create-the-image"></a>Criar a imagem
 
-Para criar a imagem do Docker que é implantada no serviço Azure App, use [Model. Package](https://docs.microsoft.com//python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#package-workspace--models--inference-config-none--generate-dockerfile-false-). O trecho de código a seguir demonstra como criar uma nova imagem a partir do modelo e da configuração de inferência:
+Para criar a imagem do Docker que é implantada no serviço Azure App, use [Model. Package](/python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py). O trecho de código a seguir demonstra como criar uma nova imagem a partir do modelo e da configuração de inferência:
 
 > [!NOTE]
 > O trecho de código pressupõe que `model` contém um modelo registrado e que `inference_config` contém a configuração para o ambiente de inferência. Para obter mais informações, consulte [implantar modelos com Azure Machine Learning](how-to-deploy-and-where.md).
@@ -271,7 +271,7 @@ print(response.json())
 ## <a name="next-steps"></a>Próximas etapas
 
 * Saiba como configurar seu aplicativo Web na documentação do [serviço de aplicativo no Linux](/azure/app-service/containers/) .
-* Saiba mais sobre o dimensionamento em introdução [ao dimensionamento automático no Azure](/azure/azure-monitor/platform/autoscale-get-started?toc=%2fazure%2fapp-service%2ftoc.json).
-* [Use um certificado TLS/SSL em seu serviço de Azure app](/azure/app-service/configure-ssl-certificate-in-code).
-* [Configure seu aplicativo do serviço de aplicativo para usar Azure Active Directory entrar](/azure/app-service/configure-authentication-provider-aad).
+* Saiba mais sobre o dimensionamento em introdução [ao dimensionamento automático no Azure](../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json).
+* [Use um certificado TLS/SSL em seu serviço de Azure app](../app-service/configure-ssl-certificate-in-code.md).
+* [Configure seu aplicativo do serviço de aplicativo para usar Azure Active Directory entrar](../app-service/configure-authentication-provider-aad.md).
 * [Consumir um modelo de ML implantado como um serviço Web](how-to-consume-web-service.md)

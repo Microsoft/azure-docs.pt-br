@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: d9f16b612b508a6237c748bd135ff32618015b0b
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 4e07285eca0fd10b73b386fcf139cdad5b94ddc2
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057000"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696397"
 ---
 # <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>Tutorial: Balancear carga de VMs entre zonas de disponibilidade com um Load Balancer Standard utilizando o Portal do Azure
 
@@ -37,9 +37,13 @@ O balanceamento de carga fornece um nível mais alto de disponibilidade, distrib
 
 Para obter mais informações sobre o uso de Zonas de Disponibilidade com o Load Balancer Standard, consulte [Zonas de disponibilidade e Load Balancer Standard](load-balancer-standard-availability-zones.md).
 
-Se preferir, você pode concluir este tutorial usando a [CLI do Azure](load-balancer-standard-public-zone-redundant-cli.md).
+Se preferir, você pode concluir este tutorial usando a [CLI do Azure](./quickstart-load-balancer-standard-public-cli.md).
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+* Uma assinatura do Azure
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
@@ -93,7 +97,7 @@ Crie um grupo de segurança de rede para definir conexões de entrada para sua r
     - *myNetworkSecurityGroup*  - para o nome do grupo de segurança de rede.
     - *myResourceGroupLBAZ* - para o nome do grupo de recursos existente.
    
-![Criar uma rede virtual](./media/load-balancer-standard-public-availability-zones-portal/create-nsg.png)
+![A captura de tela mostra o painel Criar grupo de segurança de rede.](./media/load-balancer-standard-public-availability-zones-portal/create-nsg.png)
 
 ### <a name="create-network-security-group-rules"></a>Criar regras do grupo de segurança de rede
 
@@ -112,7 +116,7 @@ Nesta seção, você cria regras do grupo de segurança de rede para permitir co
     - *Permitir HTTP* – para descrição da regra de balanceador de carga.
 4. Clique em **OK**.
  
-   ![Criar uma rede virtual](./media/load-balancer-standard-public-availability-zones-portal/8-load-balancer-nsg-rules.png)
+   ![A captura de tela mostra o painel Adicionar regra de segurança de entrada.](./media/load-balancer-standard-public-availability-zones-portal/8-load-balancer-nsg-rules.png)
 5. Repita as etapas 2 a 4 para criar outra regra denominada *myRDPRule* para permitir uma conexão de RDP de entrada usando a porta 3389 com os seguintes valores:
     - *Service Tag* – para **Origem**.
     - *Internet* – para **Marca de serviço de origem**
@@ -231,8 +235,10 @@ Para ver o balanceador de carga distribuir o tráfego entre as VMs distribuídas
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Quando não forem mais necessários, exclua o grupo de recursos, o balanceador de carga e todos os recursos relacionados. Para isso, selecione o grupo de recursos que contém o balanceador de carga e clique em **Excluir**.
+Quando não forem mais necessários, exclua o grupo de recursos, o balanceador de carga e todos os recursos relacionados. Para fazer isso, selecione o grupo de recursos que contém o balanceador de carga e selecione **Excluir**.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre o [Load Balancer Standard](load-balancer-standard-overview.md).
+Saiba mais sobre como realizar o balanceamento de carga de uma VM em uma zona de disponibilidade específica.
+> [!div class="nextstepaction"]
+> [Balanceie a carga de VMs em uma zona de disponibilidade específica](tutorial-load-balancer-standard-public-zonal-portal.md)

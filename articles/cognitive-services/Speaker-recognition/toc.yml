@@ -1,9 +1,9 @@
 - name: Documentação do Reconhecimento do Locutor
-  href: Home.md
+  href: ../speech-service/speaker-recognition-overview.md
 - name: Visão geral
   items:
     - name: Saiba sobre o Reconhecimento do Locutor
-      href: Home.md
+      href: ../speech-service/speaker-recognition-overview.md
 - name: Referência
   items:
     - name: Referência de API

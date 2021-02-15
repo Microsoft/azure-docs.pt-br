@@ -7,23 +7,25 @@ ms.author: baanders
 ms.date: 05/25/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 7f13dc3e86b21a3f4113a7a7c6f477f239315a27
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 5e4c49e7aea05b6f430860eb6975713f59ad8080
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87499085"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92635976"
 ---
 # <a name="use-the-azure-digital-twins-cli"></a>Usar a CLI dos Gêmeos Digitais do Azure
 
-Além de gerenciar sua instância do gêmeos digital do Azure no portal do Azure, o gêmeos digital do Azure tem uma **CLI (interface de linha de comando)** que você pode usar para executar a maioria das ações mais importantes com o serviço, incluindo:
+Além de gerenciar sua instância do gêmeos digital do Azure no portal do Azure, o gêmeos digital do Azure tem um **conjunto de comandos para o [CLI do Azure](/cli/azure/what-is-azure-cli)** que você pode usar para executar a maioria das ações principais com o serviço, incluindo:
 * Gerenciando uma instância de gêmeos digital do Azure
 * Gerenciando modelos
 * Gerenciando o digital gêmeos
 * Gerenciando relações de entrelaçamento
 * Configurando pontos de extremidade
 * Gerenciando [rotas](concepts-route-events.md)
-* Configurando a [segurança](concepts-security.md) via RBAC (controle de acesso baseado em função)
+* Configurando a [segurança](concepts-security.md) por meio do Azure RBAC (controle de acesso baseado em função)
+
+O conjunto de comandos é chamado **AZ DT** e faz parte da [extensão do Azure IOT para CLI do Azure](https://github.com/Azure/azure-iot-cli-extension). Você pode exibir a lista completa de comandos e seu uso como parte da documentação de referência para o `az iot` conjunto de comandos: [referência de comando *AZ DT*](/cli/azure/ext/azure-iot/dt?preserve-view=true&view=azure-cli-latest).
 
 ## <a name="uses-deploy-and-validate"></a>Usos (implantar e validar)
 
@@ -31,15 +33,28 @@ Além de geralmente gerenciar sua instância, a CLI também é uma ferramenta ú
 * Os comandos de plano de controle podem ser usados para tornar a implantação de uma nova instância repetível ou automatizada.
 * Os comandos do plano de dados podem ser usados para verificar rapidamente os valores em sua instância e verificar se as operações foram concluídas conforme o esperado.
 
-## <a name="get-the-extension"></a>Obter a extensão
+## <a name="get-the-command-set"></a>Obter o conjunto de comandos
 
-Os comandos do gêmeos digital do Azure fazem parte da [extensão do Azure IOT para CLI do Azure](https://github.com/Azure/azure-iot-cli-extension). Você pode exibir a documentação de referência para esses comandos como parte do `az iot` conjunto de comandos: [AZ DT](https://docs.microsoft.com/cli/azure/ext/azure-iot/dt?view=azure-cli-latest).
+Os comandos do gêmeos digital do Azure fazem parte da [extensão do Azure IOT para CLI do Azure (Azure-IOT)](https://github.com/Azure/azure-iot-cli-extension), portanto, siga estas etapas para verificar se você tem a extensão mais recente `azure-iot` com os comandos **AZ DT** .
 
-Você pode ter certeza de que tem a versão mais recente da extensão com essas etapas. Você pode executar esses comandos no [Azure cloud Shell](../cloud-shell/overview.md) ou em um [CLI do Azure local](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+### <a name="cli-version-requirements"></a>Requisitos de versão da CLI
+
+Se você estiver usando o CLI do Azure com o PowerShell, o pacote de extensão exigirá que sua versão do CLI do Azure seja **2.3.1** ou superior.
+
+Você pode verificar a versão do seu CLI do Azure com este comando da CLI:
+```azurecli
+az --version
+```
+
+Para obter instruções sobre como instalar ou atualizar o CLI do Azure para uma versão mais recente, consulte [*instalar o CLI do Azure*](/cli/azure/install-azure-cli).
+
+### <a name="get-the-extension"></a>Obter a extensão
+
+Você pode ter certeza de que tem a versão mais recente da `azure-iot` extensão com essas etapas. Você pode executar esses comandos no [Azure cloud Shell](../cloud-shell/overview.md) ou em um [CLI do Azure local](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
 
 [!INCLUDE [digital-twins-cloud-shell-extensions.md](../../includes/digital-twins-cloud-shell-extensions.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter uma alternativa aos comandos da CLI, consulte como gerenciar uma instância do gêmeos digital do Azure usando APIs e SDKs:
-* [*Como: usar as APIs e SDKs do gêmeos digital do Azure*](how-to-use-apis-sdks.md)
+Explore a CLI e seu conjunto completo de comandos por meio dos documentos de referência:
+* [referência de comando *AZ DT*](/cli/azure/ext/azure-iot/dt?preserve-view=true&view=azure-cli-latest)

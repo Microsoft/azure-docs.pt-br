@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/06/2020
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: bc5d4e5a8a9607f74eb8733855a216b83520ff11
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: f014ce55dc40723faf1b60f908814f9fa0428b8e
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87503694"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99215293"
 ---
 O Azure fornece as seguintes funções internas do Azure para autorizar o acesso aos dados de blob e fila usando o Azure AD e o OAuth:
 
@@ -26,9 +26,9 @@ O Azure fornece as seguintes funções internas do Azure para autorizar o acesso
 - [Processador de mensagens de dados da fila de armazenamento](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-message-processor): Use para conceder permissões de inspeção, recuperação e exclusão a mensagens em filas do Armazenamento do Azure.
 - [Remetente da mensagem de dados da fila de armazenamento](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-message-sender): Use para conceder permissões de adição a mensagens em filas do Armazenamento do Azure.
 
-Somente as funções explicitamente definidas para acesso a dados permitem que uma entidade de segurança acesse dados de blob ou fila. Funções internas, como **Proprietário**, **Colaborador** e **Colaborador de conta de armazenamento** permitem que uma entidade de segurança gerencie uma conta de armazenamento, mas não fornecem acesso aos dados de blob ou fila nessa conta por meio do Azure AD. No entanto, se uma função incluir a **Microsoft.Storage/storageAccounts/listKeys/action**, um usuário ao qual essa função é atribuída poderá acessar os dados na conta de armazenamento por meio da autorização de Chave Compartilhada com as chaves de acesso da conta. Para obter mais informações, consulte [Usar o portal do Azure para acessar dados de blob ou de fila](../articles/storage/common/storage-access-blobs-queues-portal.md).
+Somente as funções explicitamente definidas para acesso a dados permitem que uma entidade de segurança acesse dados de blob ou fila. Funções internas, como **Proprietário**, **Colaborador** e **Colaborador de conta de armazenamento** permitem que uma entidade de segurança gerencie uma conta de armazenamento, mas não fornecem acesso aos dados de blob ou fila nessa conta por meio do Azure AD. No entanto, se uma função incluir a **Microsoft.Storage/storageAccounts/listKeys/action**, um usuário ao qual essa função é atribuída poderá acessar os dados na conta de armazenamento por meio da autorização de Chave Compartilhada com as chaves de acesso da conta. Para obter mais informações, consulte [Usar o portal do Azure para acessar dados de blob ou de fila](../articles/storage/blobs/authorize-data-operations-portal.md).
 
 Para obter informações detalhadas sobre as funções internas do Azure para o Armazenamento do Azure para os serviços de dados e o serviço de gerenciamento, consulte a seção **Armazenamento** em [Funções internas do Azure para o RBAC do Azure](../articles/role-based-access-control/built-in-roles.md#storage). Além disso, para obter informações sobre os diferentes tipos de funções que fornecem permissões no Azure, consulte [Funções de administrador de assinatura clássicas, funções do Azure e funções do Azure AD](../articles/role-based-access-control/rbac-and-directory-admin-roles.md).
 
 > [!IMPORTANT]
-> As atribuições de função do Azure podem levar até cinco minutos para serem propagadas.
+> As atribuições de função do Azure podem levar até 30 minutos para serem propagadas.

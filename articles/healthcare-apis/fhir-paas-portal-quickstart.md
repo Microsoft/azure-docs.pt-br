@@ -7,13 +7,13 @@ ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
 ms.date: 03/15/2020
-ms.author: matjazl
-ms.openlocfilehash: 8c0448d31cd89e2ca969b81361b30bac3f9610e9
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.author: cavoeg
+ms.openlocfilehash: cabacd5204f4a9ac5c17c7bd66924482b5bf688a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87851929"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023458"
 ---
 # <a name="quickstart-deploy-azure-api-for-fhir-using-azure-portal"></a>Início Rápido: Implantar a API do Azure para FHIR usando o portal do Azure
 
@@ -67,7 +67,10 @@ Quando ele não for mais necessário, você poderá excluir o grupo de recursos,
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste guia de início rápido, você implantou a API do Azure para FHIR em sua assinatura. Para definir configurações adicionais em sua API do Azure para FHIR, vá para o guia de instruções de configurações adicionais.
+Neste guia de início rápido, você implantou a API do Azure para FHIR em sua assinatura. Para definir configurações adicionais em sua API do Azure para FHIR, vá para o guia de instruções de configurações adicionais. Se estiver pronto para começar a usar a API do Azure para FHIR, leia mais sobre como registrar aplicativos.
 
 >[!div class="nextstepaction"]
 >[Configurações adicionais na API do Azure para FHIR](azure-api-for-fhir-additional-settings.md)
+
+>[!div class="nextstepaction"]
+>[Visão geral sobre como Registrar os Aplicativos](fhir-app-registration.md)

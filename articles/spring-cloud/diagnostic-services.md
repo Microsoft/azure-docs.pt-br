@@ -7,14 +7,16 @@ ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 56f392210aac6045a9dc8cc3522d36092162f26c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 11f5fcd74b228fa2d57658f5c268e3bebc3c7e93
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086108"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499519"
 ---
 # <a name="analyze-logs-and-metrics-with-diagnostics-settings"></a>Analisar logs e métricas com configurações de diagnóstico
+
+**Este artigo aplica-se a:** ✔️ Java ✔️ C#
 
 Usando a funcionalidade de diagnóstico do Azure Spring Cloud, você pode analisar os logs e as métricas com qualquer um dos seguintes serviços:
 
@@ -25,7 +27,7 @@ Usando a funcionalidade de diagnóstico do Azure Spring Cloud, você pode analis
 Escolha a categoria de log e a categoria de métrica que você deseja monitorar.
 
 > [!TIP]
-> Deseja apenas transmitir seus logs? Confira este [CLI do Azure comando](https://docs.microsoft.com/cli/azure/ext/spring-cloud/spring-cloud/app?view=azure-cli-latest#ext-spring-cloud-az-spring-cloud-app-logs)!
+> Deseja apenas transmitir seus logs? Confira este [CLI do Azure comando](/cli/azure/ext/spring-cloud/spring-cloud/app?preserve-view=true&view=azure-cli-latest#ext-spring-cloud-az-spring-cloud-app-logs)!
 
 ## <a name="logs"></a>Logs
 
@@ -36,9 +38,9 @@ Escolha a categoria de log e a categoria de métrica que você deseja monitorar.
 
 ## <a name="metrics"></a>Métricas
 
-Para obter uma lista completa de métricas, consulte [métricas de nuvem Spring](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-concept-metrics#user-metrics-options).
+Para obter uma lista completa de métricas, consulte [métricas de nuvem Spring](./spring-cloud-concept-metrics.md#user-metrics-options).
 
-Para começar, habilite um desses serviços para receber os dados. Para saber mais sobre como configurar Log Analytics, consulte [introdução ao log Analytics no Azure monitor](../azure-monitor/log-query/get-started-portal.md).
+Para começar, habilite um desses serviços para receber os dados. Para saber mais sobre como configurar Log Analytics, consulte [introdução ao log Analytics no Azure monitor](../azure-monitor/log-query/log-analytics-tutorial.md).
 
 ## <a name="configure-diagnostics-settings"></a>Definir configurações de diagnóstico
 
@@ -50,7 +52,7 @@ Para começar, habilite um desses serviços para receber os dados. Para saber ma
     * **Enviar para o Log Analytics**
 
 1. Escolha qual categoria de log e categoria de métrica você deseja monitorar e, em seguida, especifique o tempo de retenção (em dias). O tempo de retenção se aplica somente à conta de armazenamento.
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 > [!NOTE]
 > 1. Pode haver um intervalo de até 15 minutos entre o momento em que os logs ou as métricas são emitidos e quando aparecem na sua conta de armazenamento, no Hub de eventos ou Log Analytics.
@@ -106,9 +108,9 @@ Há vários métodos para exibir os logs e as métricas, conforme descrito nos c
     | limit 50
     ```
 > [!NOTE]
-> `==`diferencia maiúsculas de minúsculas, mas `=~` não é.
+> `==` diferencia maiúsculas de minúsculas, mas `=~` não é.
 
-Para saber mais sobre a linguagem de consulta usada no Log Analytics, consulte [Azure monitor consultas de log](../azure-monitor/log-query/query-language.md).
+Para saber mais sobre a linguagem de consulta usada no Log Analytics, consulte [Azure monitor consultas de log](/azure/data-explorer/kusto/query/).
 
 ### <a name="use-your-storage-account"></a>Usar sua conta de armazenamento
 
@@ -129,11 +131,11 @@ Para saber mais sobre como enviar informações de diagnóstico para uma conta d
 1. Para examinar os logs de aplicativo, procure um hub de eventos chamado **insights-logs-applicationconsole**.
 1. Para revisar as métricas do aplicativo, procure um hub de eventos chamado **insights-métricas-PT1M**.
 
-Para saber mais sobre como enviar informações de diagnóstico para um hub de eventos, confira [Streaming diagnóstico do Azure dados no Hot Path usando os hubs de eventos](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-stream-event-hubs).
+Para saber mais sobre como enviar informações de diagnóstico para um hub de eventos, confira [Streaming diagnóstico do Azure dados no Hot Path usando os hubs de eventos](../azure-monitor/platform/diagnostics-extension-stream-event-hubs.md).
 
 ## <a name="analyze-the-logs"></a>Analisar os logs
 
-O Log Analytics do Azure está em execução com um mecanismo de Kusto para que você possa consultar seus logs para análise. Para obter uma breve introdução à consulta de logs usando o Kusto, consulte o [tutorial de log Analytics](../azure-monitor/log-query/get-started-portal.md).
+O Log Analytics do Azure está em execução com um mecanismo de Kusto para que você possa consultar seus logs para análise. Para obter uma breve introdução à consulta de logs usando o Kusto, consulte o [tutorial de log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md).
 
 Os logs de aplicativo fornecem informações críticas e logs detalhados sobre a integridade, o desempenho e muito mais do aplicativo. Nas próximas seções estão algumas consultas simples para ajudá-lo a entender os Estados atuais e antigos do seu aplicativo.
 
@@ -203,3 +205,7 @@ AppPlatformLogsforSpring
 | extend Log = array_strcat(split(Log, '\\n'), '\n')
 ```
 Talvez você possa usar a mesma estratégia para outras bibliotecas de log Java.
+
+## <a name="next-steps"></a>Próximas etapas
+
+* [Início Rápido: Implantar seu primeiro aplicativo do Azure Spring Cloud](spring-cloud-quickstart.md)

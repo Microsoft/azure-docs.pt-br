@@ -1,27 +1,29 @@
 ---
 title: Regiões compatíveis com o workspace do Log Analytics vinculado
-description: Este artigo descreve os mapeamentos de região com suporte entre uma conta de Automação e um workspace do Log Analytics.
+description: Este artigo descreve os mapeamentos de região com suporte entre uma conta de automação e um Log Analytics espaço de trabalho, pois ele se relaciona a determinados recursos da automação do Azure.
+ms.date: 01/21/2021
 services: automation
-ms.service: automation
-ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
-ms.date: 06/12/2020
 ms.topic: conceptual
-manager: carmonm
 ms.custom: references_regions
-ms.openlocfilehash: 4e5cad25c80661f9e707f545929e6ffcb00a1e42
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 3b744127b51b0e0db63c158feaf463af4cd0bdcf
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87447852"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98704314"
 ---
 # <a name="supported-regions-for-linked-log-analytics-workspace"></a>Regiões compatíveis com o workspace do Log Analytics vinculado
 
-Na Automação do Azure, habilite os recursos de Gerenciamento de Atualizações, Controle de Alterações e Inventário, Iniciar/Parar VMs fora do horário comercial para suas VMs. No entanto, somente determinadas regiões têm suporte para vincular um workspace do Log Analytics e uma Conta de Automação na sua assinatura. Os mapeamentos de região se aplicam somente à conta de Automação e ao workspace do Log Analytics. O workspace do Log Analytics e a conta de Automação devem estar na mesma assinatura, mas podem estar em grupos de recursos diferentes implantados na mesma região. Para saber mais informações, veja [Workspace do Log Analytics e conta de Automação](../../azure-monitor/insights/solutions.md#log-analytics-workspace-and-automation-account).
+Na automação do Azure, você pode habilitar o Gerenciamento de Atualizações, Controle de Alterações e inventário e recursos de Iniciar/Parar VMs fora do horário comercial para seus servidores e máquinas virtuais. Esses recursos têm uma dependência em um espaço de trabalho Log Analytics e, portanto, exigem a vinculação do espaço de trabalho com uma conta de automação. No entanto, somente determinadas regiões têm suporte para vinculá-las. Em geral, o mapeamento *não* é aplicável se você planeja vincular uma conta de automação a um espaço de trabalho que não terá esses recursos habilitados.
+
+Este artigo fornece os mapeamentos com suporte para habilitar e usar com êxito esses recursos em sua conta de automação.
+
+Para obter mais informações, consulte [log Analytics espaço de trabalho e conta de automação](../../azure-monitor/insights/solutions.md#log-analytics-workspace-and-automation-account).
 
 ## <a name="supported-mappings"></a>Mapeamentos com suporte
+
+> [!NOTE]
+> Conforme mostrado na tabela a seguir, somente um mapeamento pode existir entre Log Analytics e a automação do Azure.
 
 A tabela abaixo mostra os mapeamentos com suporte:
 
@@ -29,30 +31,43 @@ A tabela abaixo mostra os mapeamentos com suporte:
 |---|---|
 |**EUA**||
 |EastUS<sup>1</sup>|EastUS2|
+|EastUS2<sup>2</sup>|EastUS|
+|WestUS|WestUS|
 |WestUS2|WestUS2|
+|CentralUS|CentralUS|
+|SouthCentralUS|SouthCentralUS|
 |WestCentralUS|WestCentralUS|
 |**Canadá**||
 |Canadá Central|Canadá Central|
 |**Pacífico Asiático**||
+|AustraliaEast|AustraliaEast|
 |AustraliaSoutheast|AustraliaSoutheast|
+|EastAsia|EastAsia|
 |SoutheastAsia|SoutheastAsia|
 |CentralIndia|CentralIndia|
-|ChinaEast2<sup>2</sup>|ChinaEast2|
+|ChinaEast2<sup>3</sup>|ChinaEast2|
 |JapanEast|JapanEast|
 |**Europa**||
+|NorthEurope|NorthEurope|
+|FranceCentral|FranceCentral|
 |UKSouth|UKSouth|
 |WestEurope|WestEurope|
+|SwitzerlandNorth|SwitzerlandNorth|
 |**US Gov**||
 |USGovVirginia|USGovVirginia|
-|USGovArizona<sup>2</sup>|USGovArizona|
+|USGovArizona<sup>3</sup>|USGovArizona|
+
+
 
 <sup>1</sup> O mapeamento EastUS para workspaces do Log Analytics para contas de Automação não é um mapeamento exato de região para região, mas é o mapeamento correto.
 
-<sup>2</sup> nessa região, somente gerenciamento de atualizações tem suporte e outros recursos como controle de alterações e inventário não estão disponíveis no momento.
+<sup>2</sup> o mapeamento EastUS2 para os espaços de trabalho log Analytics para contas de automação não é um mapeamento de região para região exato, mas é o mapeamento correto.
+
+<sup>3</sup> nesta região, somente gerenciamento de atualizações tem suporte e outros recursos como controle de alterações e inventário não estão disponíveis no momento.
 
 ## <a name="unlink-a-workspace"></a>Desvincular um workspace
 
-Caso decida que não quer mais integrar sua conta de Automação ao workspace do Log Analytics, você pode desvincular a conta diretamente no portal do Azure. Antes de continuar, primeiro [remova](move-account.md#remove-features) os recursos Gerenciamento de Atualizações, Controle de Alterações e inventário, e Iniciar/Parar VMs fora do horário comercial se estiver usando-os. Se não os remover, você não poderá concluir a operação de desvinculação. 
+Caso decida que não quer mais integrar sua conta de Automação ao workspace do Log Analytics, você pode desvincular a conta diretamente no portal do Azure. Antes de continuar, primeiro [remova](move-account.md#remove-features) os recursos Gerenciamento de Atualizações, Controle de Alterações e inventário, e Iniciar/Parar VMs fora do horário comercial se estiver usando-os. Se não os remover, você não poderá concluir a operação de desvinculação.
 
 Com os recursos removidos, siga as etapas abaixo para desvincular sua conta de Automação.
 
@@ -83,6 +98,6 @@ Como alternativa, desvincule o workspace da sua conta da Automação no workspac
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para saber mais sobre o Gerenciamento de Atualizações, veja [Visão geral do recurso Gerenciamento de Atualizações](../update-management/update-mgmt-overview.md).
-* Para obter informações sobre os recursos Controle de Alterações e Inventário, veja [Visão geral do recurso Controle de Alterações e Inventário](../change-tracking.md).
+* Para saber mais sobre o Gerenciamento de Atualizações, veja [Visão geral do recurso Gerenciamento de Atualizações](../update-management/overview.md).
+* Para obter informações sobre os recursos Controle de Alterações e Inventário, veja [Visão geral do recurso Controle de Alterações e Inventário](../change-tracking/overview.md).
 * Saiba mais sobre o recurso Iniciar/Parar VMs fora do horário comercial em [Visão geral do recurso Iniciar/Parar VMs fora do horário comercial](../automation-solution-vm-management.md).

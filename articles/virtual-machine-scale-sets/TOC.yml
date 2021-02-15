@@ -63,6 +63,8 @@
       items:
         - name: Criar um conjunto de dimensionamento de máquinas virtuais
           href: ./scripts/cli-sample-create-simple-scale-set.md
+        - name: Criar e gerenciar um conjunto de dimensionamento de máquinas virtuais
+          href: ./scripts/cli-sample-manage-scale-set.md
         - name: Criar um conjunto de dimensionamento com base em uma imagem de VM personalizada
           href: ./scripts/cli-sample-create-scale-set-from-custom-image.md
         - name: Instalar aplicativos em um conjunto de dimensionamento
@@ -93,9 +95,6 @@
           href: ./scripts/powershell-single-av-zone-scale-set.md
         - name: Criar um conjunto de dimensionamento com redundância de zona
           href: ./scripts/powershell-sample-zone-redundant-scale-set.md
-    - name: Itens internos do Azure Policy
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: Conceitos
   items:
     - name: Azure Resource Manager
@@ -108,44 +107,44 @@
         - name: Disponibilidade
           href: ../virtual-machines/availability.md?toc=%2fazure%2fvirtual-machine-scale-sets%2ftoc.json
         - name: Colocalização
-          href: co-location.md
+          href: ../virtual-machines/co-location.md
         - name: Desempenho de rede
           href: ../virtual-network/virtual-network-optimize-network-bandwidth.md?toc=%2fazure%2fvirtual-machine-scale-sets%2fwindows%2ftoc.json
         - name: Gerenciar domínios de falha em conjuntos de dimensionamento
           href: virtual-machine-scale-sets-manage-fault-domains.md
       maintainContext: true
     - name: Imagens
-      href: shared-image-galleries.md
+      href: ../virtual-machines/shared-image-galleries.md?toc=%2fazure%2fvirtual-machine-scale-sets%2fwindows%2ftoc.json
     - name: Tamanhos e tipos de VM
       href: ../virtual-machines/sizes.md
       items:
         - name: Propósito geral
           href: ../virtual-machines/sizes-general.md
-          maintainContext: true
           items:
             - name: Série B expansível
               href: ../virtual-machines/sizes-b-series-burstable.md
               maintainContext: true
+          maintainContext: true
         - name: Otimizado para computação
           href: ../virtual-machines/sizes-compute.md
           maintainContext: true
         - name: Otimizado para memória
           href: ../virtual-machines/sizes-memory.md
-          maintainContext: true
           items:
             - name: VCPUs restritas
               href: ../virtual-machines/constrained-vcpu.md
               maintainContext: true
+          maintainContext: true
         - name: Otimizado para armazenamento
           href: ../virtual-machines/sizes-storage.md
           maintainContext: true
         - name: GPU otimizada
           href: ../virtual-machines/sizes-gpu.md
-          maintainContext: true
           items:
             - name: Configurar drivers de GPU NVIDIA
               href: ../virtual-machines/windows/n-series-driver-setup.md
               maintainContext: true
+          maintainContext: true
         - name: Computação de alto desempenho
           href: ../virtual-machines/sizes-hpc.md
           maintainContext: true
@@ -168,8 +167,6 @@
     - name: Manutenção e atualizações
       href: ../virtual-machines/maintenance-and-updates.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json
       maintainContext: true
-    - name: Modos de orquestração
-      href: orchestration-modes.md
     - name: Armazenamento em disco
       items:
         - name: Managed Disks
@@ -179,7 +176,7 @@
           href: ../virtual-machines/disks-types.md
           maintainContext: true
         - name: Criptografia
-          href: ../virtual-machines/windows/disk-encryption.md?toc=%2fazure%2fvirtual-machine-scale-sets%2ftoc.json
+          href: ../virtual-machines/disk-encryption.md?toc=%2fazure%2fvirtual-machine-scale-sets%2ftoc.json
           maintainContext: true
         - name: Desempenho do armazenamento Premium
           href: ../virtual-machines/premium-storage-performance.md
@@ -187,7 +184,7 @@
         - name: Discos do SO Efêmero
           href: ../virtual-machines/ephemeral-os-disks.md
         - name: Metas da escalabilidade para os discos
-          href: ../virtual-machines/windows/disk-scalability-targets.md
+          href: ../virtual-machines/disks-scalability-targets.md
           maintainContext: true
         - name: Backup e recuperação de desastres para discos
           href: ../virtual-machines/backup-and-disaster-recovery-for-azure-iaas-disks.md
@@ -206,8 +203,6 @@
           href: disk-encryption-overview.md
         - name: Linha de base de segurança do Azure
           href: security-baseline.md
-        - name: Controles de segurança interna
-          href: virtual-machine-scale-sets-security-controls.md
       maintainContext: true
     - name: Monitoramento
       href: ../azure-monitor/insights/monitor-vm-azure.md
@@ -217,6 +212,9 @@
         - name: Cotas do vCPU
           href: ../virtual-machines/windows/quotas.md
           maintainContext: true
+    - name: Chamadas PUT para operações de criação ou atualização
+      href: ../virtual-machines/put-calls-create-or-update.md
+      maintainContext: true
     - name: Perguntas frequentes sobre conjunto de dimensionamento
       href: virtual-machine-scale-sets-faq.md
 - name: Instruções
@@ -277,6 +275,8 @@
             - name: Usar chaves gerenciadas pelo cliente
               displayName: 'SSE, CMK, encrypt'
               href: ../virtual-machines/image-version-encryption.md
+            - name: Registro de aplicativo para compartilhamento
+              href: share-images-across-tenants.md
     - name: Criar um modelo
       items:
         - name: Saiba mais sobre os modelos do conjunto de dimensionamento
@@ -329,6 +329,16 @@
           href: virtual-machine-scale-sets-placement-groups.md
         - name: Converter um modelo do conjunto de dimensionamento para usar disco gerenciado
           href: virtual-machine-scale-sets-convert-template-to-md.md
+        - name: Usar hosts dedicados
+          items:
+            - name: Visão geral
+              href: ../virtual-machines/dedicated-hosts.md
+            - name: CLI
+              href: ../virtual-machines/linux/dedicated-hosts-cli.md
+            - name: PowerShell
+              href: ../virtual-machines/windows/dedicated-hosts-powershell.md
+            - name: Portal
+              href: ../virtual-machines/dedicated-hosts-portal.md
         - name: Usar instância do Spot
           href: use-spot.md
     - name: Gerenciar
@@ -343,8 +353,16 @@
           href: virtual-machine-scale-sets-upgrade-scale-set.md
         - name: Rede para conjuntos de dimensionamento
           href: virtual-machine-scale-sets-networking.md
-        - name: Atualizações automáticas do SO
-          href: virtual-machine-scale-sets-automatic-upgrade.md
+        - name: Atualizações da imagem do SO
+          items:
+            - name: Atualizações automáticas do SO
+              href: virtual-machine-scale-sets-automatic-upgrade.md
+            - name: Controle de manutenção
+              items:
+                - name: Visão geral (versão prévia)
+                  href: ../virtual-machines/virtual-machine-scale-sets-maintenance-control.md
+                - name: PowerShell (versão prévia)
+                  href: ../virtual-machines/virtual-machine-scale-sets-maintenance-control-powershell.md
         - name: Reparos automáticos da instância
           href: virtual-machine-scale-sets-automatic-instance-repairs.md
         - name: Proteção de instância
@@ -353,18 +371,6 @@
           href: virtual-machine-scale-sets-scale-in-policy.md
         - name: Terminar notificação ao excluir
           href: virtual-machine-scale-sets-terminate-notification.md
-        - name: Galerias de imagens compartilhadas
-          items:
-            - name: Visão geral
-              href: shared-image-galleries.md
-            - name: CLI
-              href: shared-images-cli.md
-            - name: PowerShell
-              href: shared-images-powershell.md
-            - name: Compartilhar imagens entre locatários
-              href: share-images-across-tenants.md
-            - name: Solucionar problemas de imagens compartilhadas
-              href: troubleshooting-shared-images.md
         - name: Criar um grupo de posicionamento de proximidade
           href: proximity-placement-groups.md
         - name: Colocação em escala vertical em um conjunto de dimensionamento
@@ -394,6 +400,9 @@
       href: /rest/api/virtualmachinescalesets/
     - name: Modelos do Azure
       href: /azure/templates/microsoft.compute/virtualmachinescalesets
+    - name: Itens internos do Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Recursos
   items:
     - name: Roteiro do Azure

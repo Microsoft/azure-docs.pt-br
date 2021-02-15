@@ -3,12 +3,13 @@ title: Recursos, funções e controle de acesso no Azure Application Insights | 
 description: Proprietários, colaboradores e leitores de percepções de sua organização.
 ms.topic: conceptual
 ms.date: 02/14/2019
-ms.openlocfilehash: 3d69ad7eeb7c8dd32c2e3cb286f9596bed7fe042
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: cd1e69ecd121380353ad6400d473d572b7b7bb3e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926494"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89076677"
 ---
 # <a name="resources-roles-and-access-control-in-application-insights"></a>Recursos, funções e controle de acesso no Application Insights
 
@@ -101,7 +102,7 @@ Se o usuário desejado não estiver no diretório, você poderá convidar qualqu
 
 ## <a name="related-content"></a>Conteúdo relacionado
 
-* [Controle de acesso baseado em função do Azure (RBAC do Azure)](../../role-based-access-control/role-assignments-portal.md)
+* [RBAC do Azure (controle de acesso baseado em função do Azure)](../../role-based-access-control/role-assignments-portal.md)
 
 ## <a name="powershell-query-to-determine-role-membership"></a>Consulta do PowerShell para determinar a associação de função
 

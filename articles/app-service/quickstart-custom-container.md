@@ -3,27 +3,27 @@ title: 'Início Rápido: Executar um contêiner personalizado no Serviço de Apl
 description: Comece a usar contêineres no Serviço de Aplicativo do Azure implantando seu primeiro contêiner personalizado.
 author: msangapu-msft
 ms.author: msangapu
-ms.date: 08/28/2019
+ms.date: 10/21/2019
 ms.topic: quickstart
 ms.custom: devx-track-csharp
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 2aed6a2fea38f10a2e06ea51edb7fb529c8a2dde
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 360da015f012822593dbb6390cb7df0017ba85b1
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212523"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745070"
 ---
 # <a name="run-a-custom-container-in-azure"></a>Executar um contêiner personalizado no Azure
 
 ::: zone pivot="container-windows"
-[O Serviço de Aplicativo do Azure](overview.md) fornece pilhas de aplicativos predefinidos em Windows, como ASP.NET ou Node.js, em execução no IIS. O ambiente de contêiner do Windows pré-configurado (versão prévia) impede o sistema operacional de executar, entre outras funções, o acesso administrativo, instalações de software e alterações do cache de assembly global. Para saber mais, confira [Funcionalidade do sistema operacional no Serviço de Aplicativo do Azure](operating-system-functionality.md). Se o aplicativo exigir mais acesso que o permitido pelo ambiente pré-configurado, você pode implantar um contêiner personalizado do Windows como alternativa.
+[O Serviço de Aplicativo do Azure](overview.md) fornece pilhas de aplicativos predefinidos em Windows, como ASP.NET ou Node.js, em execução no IIS. O ambiente de contêiner do Windows pré-configurado impede o sistema operacional de executar o acesso administrativo, instalações de software e alterações do cache de assembly global e assim por diante. Para saber mais, confira [Funcionalidade do sistema operacional no Serviço de Aplicativo do Azure](operating-system-functionality.md). Se o aplicativo exigir mais acesso que o permitido pelo ambiente pré-configurado, você pode implantar um contêiner personalizado do Windows como alternativa.
 
 Este início rápido mostra como implantar um aplicativo ASP.NET em uma imagem do Windows para o [Docker Hub](https://hub.docker.com/) do Visual Studio. O aplicativo é executado em um contêiner personalizado no Serviço de Aplicativo do Azure.
 
 > [!NOTE]
-> O Serviço de Aplicativo em contêineres do Windows está na versão prévia.
->
+> Os Contêineres do Windows são limitados aos Arquivos do Azure e não dão suporte ao Blob do Azure no momento.
+
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -31,7 +31,7 @@ Para concluir este tutorial:
 
 - <a href="https://hub.docker.com/" target="_blank">Inscrever-se em uma conta do Hub do Docker</a>
 - <a href="https://docs.docker.com/docker-for-windows/install/" target="_blank">Instalar o Docker for Windows</a>.
-- <a href="https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10" target="_blank">Mudar o Docker para executar contêineres do Windows</a>.
+- <a href="/virtualization/windowscontainers/quick-start/quick-start-windows-10" target="_blank">Mudar o Docker para executar contêineres do Windows</a>.
 - <a href="https://www.visualstudio.com/downloads/" target="_blank">Instale o Visual Studio 2019</a> com as cargas de trabalho de **desenvolvimento do ASP.NET e para a Web** e **desenvolvimento do Azure**. Se você já instalou o Visual Studio 2019:
 
     - Instale as atualizações mais recentes no Visual Studio selecionando **Ajuda** > **Verificar Atualizações**.
@@ -57,7 +57,7 @@ Crie um aplicativo Web ASP.NET seguindo estas etapas:
 
 1. Se o arquivo _Dockerfile_ não for aberto automaticamente, abra-o no **Gerenciador de Soluções**.
 
-1. Você precisa de uma [imagem pai com suporte](#use-a-different-parent-image). Altere a imagem pai, substituindo a linha `FROM` pelo código a seguir e salve o arquivo:
+1. Você precisa de uma [imagem pai com suporte](configure-custom-container.md#supported-parent-images). Altere a imagem pai, substituindo a linha `FROM` pelo código a seguir e salve o arquivo:
 
    ```dockerfile
    FROM mcr.microsoft.com/dotnet/framework/aspnet:4.7.2-windowsservercore-ltsc2019
@@ -81,7 +81,7 @@ Crie um aplicativo Web ASP.NET seguindo estas etapas:
 
    Aguarde até que a implantação seja concluída. A página **Publicar** agora mostra o nome do repositório que você usará mais tarde.
 
-   ![Publicar na página de visão geral do projeto](./media/quickstart-custom-container/published-docker-repository-vs2019.png)
+   ![Captura de tela que realça o nome do repositório.](./media/quickstart-custom-container/published-docker-repository-vs2019.png)
 
 1. Copie esse nome de repositório para uso posterior.
 
@@ -103,7 +103,7 @@ Crie um aplicativo Web ASP.NET seguindo estas etapas:
 
    ![Configurar seu Aplicativo Web para Contêineres](media/quickstart-custom-container/configure-web-app-continer.png)
 
-    Se você tiver uma imagem personalizada em outro lugar para seu aplicativo Web, como no [Registro de Contêiner do Azure](/azure/container-registry/) ou em outro repositório privado, configure-a aqui.
+    Se você tiver uma imagem personalizada em outro lugar para seu aplicativo Web, como no [Registro de Contêiner do Azure](../container-registry/index.yml) ou em outro repositório privado, configure-a aqui.
 
 1. Selecione **Examinar e Criar** e, em seguida, **Criar** e espere o Azure criar os recursos necessários.
 
@@ -169,26 +169,20 @@ Os logs transmitidos têm esta aparência:
 
 ![Aplicativo Web atualizado no Azure](./media/quickstart-custom-container/azure-web-app-updated.png)
 
-## <a name="use-a-different-parent-image"></a>Usar uma imagem pai diferente
-
-Você pode usar uma imagem personalizada do Docker diferente para executar seu aplicativo. No entanto, você deverá escolher a melhor [imagem pai (imagem de base)](https://docs.docker.com/develop/develop-images/baseimages/) para a estrutura desejada:
-
-- Para implantar aplicativos do .NET Framework, use uma imagem pai com base na versão do [LTSC (Canal de Manutenção em Longo Prazo)](https://docs.microsoft.com/windows-server/get-started-19/servicing-channels-19#long-term-servicing-channel-ltsc) do Windows Server Core 2019. 
-- Para implantar aplicativos .NET Core, use uma imagem pai baseada na versão do [SAC (Canal de Manutenção em Longo Prazo)](https://docs.microsoft.com/windows-server/get-started-19/servicing-channels-19#semi-annual-channel) do Windows Server Nano 1809. 
-
-Leva algum tempo para baixar uma imagem pai durante a inicialização do aplicativo. No entanto, você pode reduzir o tempo de inicialização usando uma das seguintes imagens pai já armazenadas em cache no Serviço de Aplicativo do Azure:
-
-- [mcr.microsoft.com/dotnet/framework/aspnet](https://hub.docker.com/_/microsoft-dotnet-framework-aspnet/):4.7.2-windowsservercore-ltsc2019
-- [mcr.microsoft.com/windows/nanoserver](https://hub.docker.com/_/microsoft-windows-nanoserver/):1809 – esta imagem é o contêiner base usado em todas as imagens do Nano Server do Microsoft Windows e do Microsoft [ASP.NET Core](https://hub.docker.com/_/microsoft-dotnet-core-aspnet/).
-
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
 > [Migrar para o contêiner do Windows no Azure](tutorial-custom-container.md)
+
+Se preferir, confira outros recursos:
+
+> [!div class="nextstepaction"]
+> [Configurar um contêiner personalizado](configure-custom-container.md)
+
 ::: zone-end  
 
 ::: zone pivot="container-linux"
-O Serviço de Aplicativo no Linux fornece pilhas de aplicativos predefinidos em Linux com suporte para linguagens como .NET, PHP, Node.js e outras. Também é possível usar uma imagem personalizada do Docker para executar seu aplicativo Web em uma pilha de aplicativos que ainda não foi definida no Azure. Este guia de início rápido mostra como implantar uma imagem de um [ACR (Registro de Contêiner do Azure)](/azure/container-registry) para o Serviço de Aplicativo.
+O Serviço de Aplicativo no Linux fornece pilhas de aplicativos predefinidos em Linux com suporte para linguagens como .NET, PHP, Node.js e outras. Também é possível usar uma imagem personalizada do Docker para executar seu aplicativo Web em uma pilha de aplicativos que ainda não foi definida no Azure. Este guia de início rápido mostra como implantar uma imagem de um [ACR (Registro de Contêiner do Azure)](../container-registry/index.yml) para o Serviço de Aplicativo.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -200,7 +194,7 @@ O Serviço de Aplicativo no Linux fornece pilhas de aplicativos predefinidos em 
 
 ## <a name="create-an-image"></a>Criar uma imagem
 
-Para concluir este guia de início rápido, você precisará de uma imagem de aplicativo Web adequada armazenada em um [Registro de Contêiner do Azure](/azure/container-registry). Siga as instruções em [Início rápido: Criar um registro de contêiner privado usando o portal do Azure](/azure/container-registry/container-registry-get-started-portal), mas use a imagem `mcr.microsoft.com/azuredocs/go` em vez da imagem `hello-world`. Para referência, o [Dockerfile de exemplo é encontrado no repositório de Exemplos do Azure](https://github.com/Azure-Samples/go-docs-hello-world).
+Para concluir este guia de início rápido, você precisará de uma imagem de aplicativo Web adequada armazenada em um [Registro de Contêiner do Azure](../container-registry/index.yml). Siga as instruções em [Início rápido: Criar um registro de contêiner privado usando o portal do Azure](../container-registry/container-registry-get-started-portal.md), mas use a imagem `mcr.microsoft.com/azuredocs/go` em vez da imagem `hello-world`. Para referência, o [Dockerfile de exemplo é encontrado no repositório de Exemplos do Azure](https://github.com/Azure-Samples/go-docs-hello-world).
 
 > [!IMPORTANT]
 > Certifique-se de definir a opção de **Usuário Administrador** como **Habilitar** ao criar o registro de contêiner. Você também pode defini-la na seção **Chaves de acesso** da página do registro no portal do Azure. Essa configuração é necessária para o acesso ao Serviço de Aplicativo.
@@ -225,7 +219,7 @@ docker --version
 
 Por fim, verifique se o Registro de Contêiner do Azure está conectado. Para fazer isso, selecione o logotipo do Docker na Barra de Atividade e, em seguida, navegue até **REGISTROS**.
 
-![Registros](./media/quickstart-docker/registries.png)
+![A captura de tela mostra o valor de Registros com o Azure expandido e um arquivo com a extensão de nome de arquivo .io.](./media/quickstart-docker/registries.png)
 
 ## <a name="deploy-the-image-to-azure-app-service"></a>Implantar a imagem no Serviço de Aplicativo do Azure
 
@@ -261,4 +255,9 @@ Em seguida, confira as outras extensões do Azure.
 
 Ou obtenha todas elas instalando o pacote de extensão [Ferramenta do Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack).
 
-::: zone-end  
+Confira outros recursos:
+
+> [!div class="nextstepaction"]
+> [Configurar um contêiner personalizado](configure-custom-container.md)
+
+::: zone-end

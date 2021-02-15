@@ -2,15 +2,15 @@
 title: Solucionar problemas de implantação do recurso de Automação do Azure
 description: Este artigo informa como solucionar e resolver problemas que surgem ao implantar os recursos de Automação do Azure.
 services: automation
+ms.subservice: ''
 ms.date: 06/30/2020
-ms.topic: conceptual
-ms.service: automation
-ms.openlocfilehash: ca2f866dc882e003469163a22d32d3d72031443a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.topic: troubleshooting
+ms.openlocfilehash: 41388e46f5204acaa53f376bc05cebf975361dad
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85801022"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100008155"
 ---
 # <a name="troubleshoot-feature-deployment-issues"></a>Solucionar problemas de implantação de recurso
 
@@ -82,7 +82,7 @@ Failed to configure automation account for diagnostic logging
 
 #### <a name="cause"></a>Causa
 
-Este erro pode ser causado se o tipo de preço não corresponder ao modelo de cobrança da assinatura. Para saber mais, confira [Monitorar o uso e os custos estimados no Azure Monitor](https://aka.ms/PricingTierWarning).
+Este erro pode ser causado se o tipo de preço não corresponder ao modelo de cobrança da assinatura. Para saber mais, confira [Monitorar o uso e os custos estimados no Azure Monitor](../../azure-monitor/platform/usage-estimated-costs.md).
 
 #### <a name="resolution"></a>Resolução
 
@@ -148,7 +148,7 @@ Remova os recursos dos seguintes recursos do seu espaço de trabalho se você os
 Depois de remover os recursos, você poderá desvincular seu espaço de trabalho. É importante limpar todos os artefatos existentes desses recursos do seu espaço de trabalho e sua conta de automação:
 
 * Para Gerenciamento de Atualizações, remova **Atualizar implantações (agendas)** da sua conta de automação.
-* Para Iniciar/Parar VMs fora do horário comercial, remova os bloqueios nos componentes de recurso em sua conta de automação em **Configurações** > **Bloqueios**. Para saber mais, confira [Remover o recurso](../automation-solution-vm-management.md#remove-the-feature).
+* Para Iniciar/Parar VMs fora do horário comercial, remova os bloqueios nos componentes de recurso em sua conta de automação em **Configurações** > **Bloqueios**. Para saber mais, confira [Remover o recurso](../automation-solution-vm-management-remove.md).
 
 ## <a name="log-analytics-for-windows-extension-failures"></a><a name="mma-extension-failures"></a>Log Analytics para falhas de extensão do Windows
 

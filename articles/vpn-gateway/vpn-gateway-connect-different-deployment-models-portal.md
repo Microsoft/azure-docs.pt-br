@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/24/2019
+ms.date: 02/10/2021
 ms.author: cherylmc
-ms.openlocfilehash: d3ab49d0ad24c2b2c8859408ed103178cede5b8b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9d31bcaad01b9b762e57bd619d45c1f53ffb201e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082096"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100376795"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Conectar redes virtuais de diferentes modelos de implantação usando o portal
 
@@ -78,7 +78,7 @@ A seguinte tabela mostra um exemplo de como as VNets e os sites locais de exempl
 | Rede Virtual | Espaço de endereço | Região | Conecta ao site de rede local |
 |:--- |:--- |:--- |:--- |
 | ClassicVNet |(10.0.0.0/24) |Oeste dos EUA | RMVNetLocal (192.168.0.0/16) |
-| RMVNet | (192.168.0.0/16) |East US |ClassicVNetLocal (10.0.0.0/24) |
+| RMVNet | (192.168.0.0/16) |Leste dos EUA |ClassicVNetLocal (10.0.0.0/24) |
 
 ## <a name="section-1---configure-the-classic-vnet-settings"></a><a name="classicvnet"></a>Seção 1 – Definir as configurações da VNet clássica
 
@@ -86,7 +86,7 @@ Nesta seção, você cria a VNet clássica, a rede local (site local) e o gatewa
 
 ### <a name="1-create-a-classic-vnet"></a>1. <a name="classicvnet"></a> criar uma VNet clássica
 
-Caso não tenha uma VNet clássica e esteja executando estas etapas como um exercício, você pode criar uma VNet usando [este artigo](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) e os valores de configurações de [Exemplo](#values) acima.
+Caso não tenha uma VNet clássica e esteja executando estas etapas como um exercício, você pode criar uma VNet usando [este artigo](/previous-versions/azure/virtual-network/virtual-networks-create-vnet-classic-pportal) e os valores de configurações de [Exemplo](#values) acima.
 
 Caso já tenha uma VNet com um gateway de VPN, verifique se o gateway é Dinâmico. Se ele for Estático, primeiro você deve excluir o gateway de VPN antes de prosseguir para [Configurar o site local](#local).
 
@@ -162,7 +162,7 @@ Nesta etapa, você cria o gateway de rede virtual para sua rede virtual. Criar u
 * GatewaySubnet = 192.168.0.0/26 <br>
 * Configuração do primeiro IP = rmgwpip <br>
 
-[!INCLUDE [vpn-gateway-add-gw-rm-portal](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
+[!INCLUDE [Add gateway](../../includes/vpn-gateway-add-gw-rm-portal-empty.md)]
 
 [!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
 
@@ -173,11 +173,11 @@ Nesta etapa, você cria o gateway de rede virtual para sua rede virtual. Criar u
 | Rede Virtual | Espaço de endereço | Região | Conecta ao site de rede local |Endereço IP público do gateway|
 |:--- |:--- |:--- |:--- |:--- |
 | ClassicVNet |(10.0.0.0/24) |Oeste dos EUA | RMVNetLocal (192.168.0.0/16) |O endereço IP público que é atribuído ao gateway ClassicVNet|
-| RMVNet | (192.168.0.0/16) |East US |ClassicVNetLocal (10.0.0.0/24) |O endereço IP público que é atribuído ao gateway RMVNet.|
+| RMVNet | (192.168.0.0/16) |Leste dos EUA |ClassicVNetLocal (10.0.0.0/24) |O endereço IP público que é atribuído ao gateway RMVNet.|
 
 O gateway de rede local especifica o intervalo de endereços e o endereço IP público associado à VNet clássica e seu gateway de rede virtual. Se estiver seguindo estas etapas como um exercício, consulte os Valores de exemplo.
 
-[!INCLUDE [vpn-gateway-add-lng-rm-portal](../../includes/vpn-gateway-add-lng-rm-portal-include.md)]
+[!INCLUDE [Add local network gateway](../../includes/vpn-gateway-add-local-network-gateway-portal-ip-empty.md)]
 
 ## <a name="section-3---modify-the-classic-vnet-local-site-settings"></a><a name="modifylng"></a>Seção 3 – Modificar as configurações de site local de VNet clássicas
 

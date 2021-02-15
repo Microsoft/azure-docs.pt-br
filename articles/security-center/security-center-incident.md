@@ -5,21 +5,21 @@ services: security-center
 author: memildin
 manager: rkarlin
 ms.service: security-center
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/15/2020
 ms.author: memildin
-ms.openlocfilehash: 28a6ea4ed40df909b4d74ff52703babb8e8cd949
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2b5dc30de19704b5e8950515cfa6224b4bbdbaf0
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84791717"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341339"
 ---
 # <a name="manage-security-incidents-in-azure-security-center"></a>Gerenciar incidentes de segurança na central de segurança do Azure
 
 A triagem e a investigação de alertas de segurança podem ser demoradas para até mesmo os analistas de segurança mais qualificados. Para muitos, é difícil saber por onde começar. 
 
-A central de segurança usa a [análise](security-center-detection-capabilities.md) para conectar as informações entre [alertas de segurança](security-center-managing-and-responding-alerts.md)distintos. Usando essas conexões, a central de segurança pode fornecer uma única exibição de uma campanha de ataque e seus alertas relacionados para ajudá-lo a entender as ações do invasor e os recursos afetados.
+A central de segurança usa a [análise](./security-center-alerts-overview.md) para conectar as informações entre [alertas de segurança](security-center-managing-and-responding-alerts.md)distintos. Usando essas conexões, a central de segurança pode fornecer uma única exibição de uma campanha de ataque e seus alertas relacionados para ajudá-lo a entender as ações do invasor e os recursos afetados.
 
 Esta página fornece uma visão geral dos incidentes na central de segurança.
 
@@ -62,6 +62,5 @@ Na Central de Segurança, um incidente de segurança é uma agregação de todos
 
 Esta página explicou os recursos de incidente de segurança da central de segurança. Para obter informações relacionadas, consulte as seguintes páginas:
 
-* [Proteção contra ameaças na central de segurança](threat-protection.md)
-* [Alertas de segurança na central de segurança](security-center-alerts-overview.md)
-* [Gerenciar e responder aos alertas de segurança](security-center-managing-and-responding-alerts.md)
+- [Alertas de segurança na central de segurança](security-center-alerts-overview.md)
+- [Gerenciar e responder aos alertas de segurança](security-center-managing-and-responding-alerts.md)

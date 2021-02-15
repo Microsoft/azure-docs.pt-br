@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/2/2019
 ms.author: terrylan
-ms.openlocfilehash: d2862d5ab2c42ebdd1787022dc86119bc4e0f596
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: ed2cb967b24ce5abdebadfe29847ae1a16b4e745
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86229356"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498737"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Visão geral de segurança de máquinas virtuais do Azure
 Este artigo fornece uma visão geral dos principais recursos de segurança do Azure que podem ser usados com máquinas virtuais.
@@ -51,11 +51,11 @@ Saiba mais sobre o [Microsoft antimalware para Azure](antimalware.md) e os princ
 Saiba mais sobre o software antimalware para ajudar a proteger suas máquinas virtuais:
 
 * [Implantando soluções antimalware em máquinas virtuais do Azure](https://azure.microsoft.com/blog/deploying-antimalware-solutions-on-azure-virtual-machines/)
-* [Como instalar e configurar o Trend Micro Deep Security as a Service em uma VM do Windows](/azure/virtual-machines/windows/classic/install-trend)
-* [Como instalar e configurar o Symantec Endpoint Protection em uma VM do Windows](/azure/virtual-machines/windows/classic/install-symantec)
+* [Como instalar e configurar o Trend Micro Deep Security as a Service em uma VM do Windows](../../virtual-machines/extensions/trend.md)
+* [Como instalar e configurar o Symantec Endpoint Protection em uma VM do Windows](../../virtual-machines/extensions/symantec.md)
 * [Soluções de segurança no Azure Marketplace](https://azure.microsoft.com/marketplace/?term=security)
 
-Para uma proteção ainda mais poderosa, considere o uso da [Proteção Avançada contra Ameaças do Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/windows-defender-advanced-threat-protection). Com o Windows Defender ATP, você obtém:
+Para uma proteção ainda mais poderosa, considere o uso da [Proteção Avançada contra Ameaças do Windows Defender](/windows/security/threat-protection/windows-defender-atp/windows-defender-advanced-threat-protection). Com o Windows Defender ATP, você obtém:
 
 * [Redução da superfície de ataque](/windows/security/threat-protection/windows-defender-atp/overview-attack-surface-reduction)  
 * [Proteção de próxima geração](/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10)  
@@ -75,22 +75,22 @@ Saiba mais:
 
 A melhoria da segurança das chaves pode aprimorar as proteções de criptografia e de autenticação. Você pode simplificar o gerenciamento e a segurança dos seus principais segredos e chaves armazenando-os no Cofre de Chaves do Azure.
 
-O Cofre de Chaves oferece a opção de armazenar as chaves em HSMs (módulos de segurança de hardware) certificados para os padrões FIPS 140-2 nível 2. Suas chaves de criptografia do SQL Server para backup ou [Transparent Data Encryption](https://msdn.microsoft.com/library/bb934049.aspx) podem ser armazenadas no Cofre de Chaves com quaisquer chaves ou segredos dos seus aplicativos. As permissões e o acesso a esses itens protegidos são gerenciados pelo [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/).
+O Cofre de Chaves oferece a opção de armazenar as chaves em HSMs (módulos de segurança de hardware) certificados para os padrões FIPS 140-2 nível 2. Suas chaves de criptografia do SQL Server para backup ou [Transparent Data Encryption](/sql/relational-databases/security/encryption/transparent-data-encryption) podem ser armazenadas no Cofre de Chaves com quaisquer chaves ou segredos dos seus aplicativos. As permissões e o acesso a esses itens protegidos são gerenciados pelo [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/).
 
 Saiba mais:
 
-* [O que é o Azure Key Vault?](/azure/key-vault/key-vault-overview)
-* [Blog do Cofre de Chaves do Azure](https://blogs.technet.microsoft.com/kv/)
+* [O que é o Cofre da Chave do Azure?](../../key-vault/general/overview.md)
+* [Blog do Cofre de Chaves do Azure](/archive/blogs/kv/)
 
 ## <a name="virtual-machine-disk-encryption"></a>Criptografia de disco da máquina virtual
 
-O Azure Disk Encryption é uma nova funcionalidade para criptografia de discos de máquinas virtuais do Windows e Linux. O Azure Disk Encryption usa o recurso [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) padrão do setor do Windows e o recurso [DM-cript](https://en.wikipedia.org/wiki/Dm-crypt) do Linux para fornecer criptografia de volume para o sistema operacional e os discos de dados.
+O Azure Disk Encryption é uma nova funcionalidade para criptografia de discos de máquinas virtuais do Windows e Linux. O Azure Disk Encryption usa o recurso [BitLocker](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc732774(v=ws.11)) padrão do setor do Windows e o recurso [DM-cript](https://en.wikipedia.org/wiki/Dm-crypt) do Linux para fornecer criptografia de volume para o sistema operacional e os discos de dados.
 
 A solução é integrada ao Azure Key Vault para ajudá-lo a controlar e gerenciar os segredos e as chaves de criptografia de disco em sua assinatura do cofre de chaves. Ela também garante que todos os dados nos discos da máquina virtual sejam criptografados em repouso no Armazenamento do Azure.
 
 Saiba mais:
 
-* [Azure Disk Encryption para VMs de IaaS](/azure/security/azure-security-disk-encryption-overview)
+* [Azure Disk Encryption para VMs de IaaS](./azure-disk-encryption-vms-vmss.md)
 * [Início Rápido: Criptografar uma VM de IaaS do Windows com o Azure PowerShell](../../virtual-machines/linux/disk-encryption-powershell-quickstart.md)
 
 ## <a name="virtual-machine-backup"></a>Backup de máquinas virtuais
@@ -99,8 +99,8 @@ O Backup do Azure é uma solução escalonável que ajuda a proteger os dados de
 
 Saiba mais:
 
-* [O que é o Backup do Azure?](/azure/backup/backup-introduction-to-azure-backup)
-* [Perguntas frequentes do serviço de backup do Azure](/azure/backup/backup-azure-backup-faq)
+* [O que é o Backup do Azure?](../../backup/backup-overview.md)
+* [Perguntas frequentes do serviço de backup do Azure](../../backup/backup-azure-backup-faq.md)
 
 ## <a name="azure-site-recovery"></a>Azure Site Recovery
 
@@ -116,9 +116,9 @@ Recuperação de Site:
 
 Saiba mais:
 
-* [O que é Azure Site Recovery?](/azure/site-recovery/site-recovery-overview)
-* [Como funciona Azure Site Recovery?](/azure/site-recovery/site-recovery-components)
-* [Quais cargas de trabalho são protegidas por Azure Site Recovery?](/azure/site-recovery/site-recovery-workload)
+* [O que é Azure Site Recovery?](../../site-recovery/site-recovery-overview.md)
+* [Como funciona Azure Site Recovery?](../../site-recovery/azure-to-azure-architecture.md)
+* [Quais cargas de trabalho são protegidas por Azure Site Recovery?](../../site-recovery/site-recovery-workload.md)
 
 ## <a name="virtual-networking"></a>Rede Virtual
 
@@ -129,7 +129,7 @@ Uma Rede Virtual do Azure é um constructo lógico criado na malha de rede físi
 Saiba mais:
 
 * [Visão geral da segurança de rede do Azure](network-overview.md)
-* [Visão geral da Rede Virtual](/azure/virtual-network/virtual-networks-overview)
+* [Visão geral da Rede Virtual](../../virtual-network/virtual-networks-overview.md)
 * [Recursos de rede e parcerias para cenários empresariais](https://azure.microsoft.com/blog/networking-enterprise/)
 
 ## <a name="security-policy-management-and-reporting"></a>Gerenciamento de política de segurança e emissão de relatórios
@@ -138,14 +138,14 @@ A Central de Segurança do Azure ajuda você a evitar, detectar e responder a am
 
 A Central de Segurança ajuda você a otimizar e monitorar a segurança de suas máquinas virtuais:
 
-* Fornecendo [recomendações de segurança](/azure/security-center/security-center-recommendations) para as máquinas virtuais. Entre os exemplos de recomendações estão a aplicação de atualizações do sistema, a configuração de pontos de extremidade de ACLs, a habilitação de antimalware, a habilitação de grupos de segurança de rede e a aplicação da criptografia de disco.
+* Fornecendo [recomendações de segurança](../../security-center/security-center-recommendations.md) para as máquinas virtuais. Entre os exemplos de recomendações estão a aplicação de atualizações do sistema, a configuração de pontos de extremidade de ACLs, a habilitação de antimalware, a habilitação de grupos de segurança de rede e a aplicação da criptografia de disco.
 * Monitorando o estado das máquinas virtuais.
 
 Saiba mais:
 
-* [Introdução à Central de Segurança do Azure](/azure/security-center/security-center-intro)
-* [Perguntas frequentes sobre a Central de Segurança do Azure](/azure/security-center/security-center-faq)
-* [Planejamento e operações da Central de Segurança do Azure](/azure/security-center/security-center-planning-and-operations-guide)
+* [Introdução à Central de Segurança do Azure](../../security-center/security-center-introduction.md)
+* [Perguntas frequentes sobre a Central de Segurança do Azure](../../security-center/faq-general.md)
+* [Planejamento e operações da Central de Segurança do Azure](../../security-center/security-center-planning-and-operations-guide.md)
 
 ## <a name="compliance"></a>Conformidade
 
@@ -160,7 +160,7 @@ Saiba mais:
 
 Embora a computação confidencial não seja tecnicamente parte da segurança da máquina virtual, o tópico da segurança da máquina virtual pertence ao assunto de "computação" de nível superior. A computação confidencial pertence dentro da categoria de segurança de "computação".
 
-A computação confidencial garante que quando os dados estiverem "em claro", o que é necessário para um processamento eficiente, os dados serão protegidos dentro de um ambiente de execução confiável https://en.wikipedia.org/wiki/Trusted_execution_environment (também conhecido como enclave), um exemplo do que é mostrado na figura abaixo.  
+A computação confidencial garante que quando os dados estiverem "em claro", o que é necessário para um processamento eficiente, os dados serão protegidos dentro de um ambiente de execução confiável  https://en.wikipedia.org/wiki/Trusted_execution_environment (também conhecido como enclave), um exemplo do que é mostrado na figura abaixo.  
 
 Os TEEs garantem que não há como visualizar os dados ou as operações internas de fora, mesmo com um depurador. Eles até garantem que apenas o código autorizado tenha permissão para acessar os dados. Se o código for alterado ou adulterado, as operações serão negadas e o ambiente desativado. O TEE aplica essas proteções durante a execução do código dentro dele.
 

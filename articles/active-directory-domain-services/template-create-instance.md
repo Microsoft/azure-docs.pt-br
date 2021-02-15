@@ -2,20 +2,20 @@
 title: Habilitar o Azure DS Domain Services usando um modelo | Microsoft Docs
 description: Saiba como configurar e habilitar o Azure Active Directory Domain Services usando um modelo do Azure Resource Manager
 services: active-directory-ds
-author: iainfoulds
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: sample
 ms.date: 07/09/2020
-ms.author: iainfou
-ms.openlocfilehash: 316f77b2447bd75b03a05c4e6466d153bf51201d
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.author: justinha
+ms.openlocfilehash: e18825da64d0d200f55ce72985ac843b93b1e612
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88722629"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96618783"
 ---
 # <a name="create-an-azure-active-directory-domain-services-managed-domain-using-an-azure-resource-manager-template"></a>Criar um domínio gerenciado do Azure Active Directory Domain Services usando um modelo do Azure Resource Manager
 
@@ -71,10 +71,10 @@ Primeiro, registre o provedor de recursos do Azure AD Domain Services usando o c
 Register-AzResourceProvider -ProviderNamespace Microsoft.AAD
 ```
 
-Crie uma entidade de serviço do Azure AD usando o cmdlet [New-AzureADServicePrincipal][New-AzureADServicePrincipal] para o Azure AD DS se comunicar e autenticar-se. É usada uma ID de aplicativo específica denominada *Serviços de Controlador de Domínio* com uma ID de *2565bd9d-da50-47d4-8b85-4c97f669dc36*. Não altere essa ID de aplicativo.
+Crie uma entidade de serviço do Azure AD usando o cmdlet [New-AzureADServicePrincipal][New-AzureADServicePrincipal] para o Azure AD DS se comunicar e autenticar-se. É usada uma ID de aplicativo específica denominada *Serviços de Controlador de Domínio* com uma ID de *6ba9a5d4-8456-4118-b521-9c5ca10cdf84*. Não altere essa ID de aplicativo.
 
 ```powershell
-New-AzureADServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
+New-AzureADServicePrincipal -AppId "6ba9a5d4-8456-4118-b521-9c5ca10cdf84"
 ```
 
 Agora crie um grupo do Azure AD chamado *Administradores do AAD DC* usando o cmdlet [New-AzureADGroup][New-AzureADGroup]. Os usuários adicionados a esse grupo recebem permissões para executar tarefas de administração no domínio gerenciado.

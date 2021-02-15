@@ -1,17 +1,17 @@
 ---
 title: 'Tutorial: Monitorar e ajustar – Banco de Dados do Azure para PostgreSQL – Servidor único'
 description: Este tutorial descreve o monitoramento e o ajuste no Banco de Dados do Azure para PostgreSQL – Servidor único.
-author: rachel-msft
-ms.author: raagyema
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: tutorial
 ms.date: 5/6/2019
-ms.openlocfilehash: d1958c6ef0f7ed52e939967b5e82886fe1373ed8
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: a12068259d82e833826bcac5e6c58059fb51c56c
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74774730"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93336972"
 ---
 # <a name="tutorial-monitor-and-tune-azure-database-for-postgresql---single-server"></a>Tutorial: Monitorar e ajustar o Banco de Dados do Azure para PostgreSQL – Servidor único
 
@@ -23,11 +23,11 @@ Banco de Dados do Azure para PostgreSQL tem recursos que ajudam você a compreen
 > * Analisar um banco de dados para obter as recomendações de desempenho
 > * Aplicar recomendações do desempenho
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="prerequisites"></a>Pré-requisitos
 Você precisa de um Banco de Dados do Azure para PostgreSQL versão 9.6 ou 10. Você pode seguir as etapas no [Tutorial de criação ](tutorial-design-database-using-azure-portal.md) para criar um servidor.
 
 > [!IMPORTANT]
-> **Repositório de Consultas**, **Análise de Desempenho de Consultas**, e **Recomendação de Desempenho** estão em Visualização Pública.
+> **Repositório de Consultas** , **Análise de Desempenho de Consultas** , e **Recomendação de Desempenho** estão em Visualização Pública.
 
 ## <a name="enabling-data-collection"></a>Habilitar coleta de dados
 O [Repositório de Consultas](concepts-query-store.md) captura um histórico das consultas e estatísticas de espera em seu servidor e os armazena no banco de dados **azure_sys** em seu servidor. É um recurso opcional. Para habilitá-lo:
@@ -40,7 +40,7 @@ O [Repositório de Consultas](concepts-query-store.md) captura um histórico das
 
 4. Definir **pg_qs.query_capture_mode** a **superior** para começar a coletar dados de desempenho de consulta. Definir **pgms_wait_sampling.query_capture_mode** à **todos os** para iniciar a coltar as estatísticas de espera. Salve.
    
-   ![Parâmetros de consulta do servidor Repositório de Consultas](./media/tutorial-performance-intelligence/query-store-parameters.png)
+   :::image type="content" source="./media/tutorial-performance-intelligence/query-store-parameters.png" alt-text="Parâmetros de consulta do servidor Repositório de Consultas":::
 
 5. Permita que o primeiro lote de dados persista no banco de dados **azure_sys** por até 20 minutos.
 
@@ -52,7 +52,7 @@ A visualização da [Análise de Desempenho de Consultas](concepts-query-perform
 
 2. A guia **consultas de Longa execução** mostra as 5 consultas superiores por duração média por execução, agregadas em intervalos de 15 minutos. 
    
-   ![Página de aterrissagem de Análise de Desempenho de Consultas](./media/tutorial-performance-intelligence/query-performance-insight-landing-page.png)
+   :::image type="content" source="./media/tutorial-performance-intelligence/query-performance-insight-landing-page.png" alt-text="Página de aterrissagem de Análise de Desempenho de Consultas":::
 
    Você pode exibir mais consultas, selecionando a partir do **Número de consultas** lista suspensa. As cores do gráfico pode ser alteradas para uma ID de consulta específica ao fazer isso.
 
@@ -64,7 +64,7 @@ A visualização da [Análise de Desempenho de Consultas](concepts-query-perform
 
 6. Selecione a guia das **Estatísticas de Espera** guia para exibir as visualizações correspondentes em espera no servidor.
    
-   ![Estatísticas de espera de Análise de Desempenho de Consultas](./media/tutorial-performance-intelligence/query-performance-insight-wait-statistics.png)
+   :::image type="content" source="./media/tutorial-performance-intelligence/query-performance-insight-wait-statistics.png" alt-text="Estatísticas de espera de Análise de Desempenho de Consultas":::
 
 ### <a name="permissions"></a>Permissões
 **Permissões do Proprietário** ou **Colaborador** necessárias para exibir o texto das consultas na Análise de Desempenho de Consultas **Leitor** podem exibir gráficos e tabelas, mas não o texto da consulta.
@@ -75,7 +75,7 @@ O recurso das [Recomendações de Desempenho](concepts-performance-recommendatio
 
 1. Abra **Recomendações de Desempenho** da seção **suporte + solução de problemas** da barra de menus, na página do portal do Azure para seu servidor PostgreSQL.
    
-   ![Página das Recomendações de Desempenho](./media/tutorial-performance-intelligence/performance-recommendations-landing-page.png)
+   :::image type="content" source="./media/tutorial-performance-intelligence/performance-recommendations-landing-page.png" alt-text="Página das Recomendações de Desempenho":::
 
 2. Selecione **Analisar** e escolha um banco de dados. Isso iniciará a análise.
 
@@ -83,14 +83,20 @@ O recurso das [Recomendações de Desempenho](concepts-performance-recommendatio
 
 4. A janela **Recomendações de Desempenho** Mostrará uma lista de recomendações, caso seja encontrada. 
 
-5. Uma recomendação mostrará informações sobre os relevantes **banco de dados**, **tabela**, **coluna**, e **tamanho de índice**.
+5. Uma recomendação mostrará informações sobre os relevantes **banco de dados** , **tabela** , **coluna** , e **tamanho de índice**.
 
-   ![Recomendações de Desempenho](./media/tutorial-performance-intelligence/performance-recommendations-result.png)
+   :::image type="content" source="./media/tutorial-performance-intelligence/performance-recommendations-result.png" alt-text="Recomendações de Desempenho":::
 
 6. Para implementar a recomendação, copie o texto da consulta e executá-lo do seu cliente de escolha.
 
 ### <a name="permissions"></a>Permissões
 **Permissões de Proprietário** ou **Colaborador** necessárias para executar a análise usando o recurso de recomendações de desempenho.
 
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+Nas etapas anteriores, você criou recursos do Azure em um grupo de servidores. Caso esses recursos não sejam mais necessários no futuro, exclua o grupo de servidores. Pressione o botão *Excluir* na página *Visão geral* do grupo de servidores. Quando solicitado em uma página pop-up, confirme o nome do grupo de servidores e clique no botão *Excluir* final.
+
 ## <a name="next-steps"></a>Próximas etapas
-- Saiba mais sobre [monitoramento e ajuste](concepts-monitoring.md) no Banco de Dados do Azure para PostgreSQL.
+
+> [!div class="nextstepaction"]
+> Saiba mais sobre [monitoramento e ajuste](concepts-monitoring.md) no Banco de Dados do Azure para PostgreSQL.

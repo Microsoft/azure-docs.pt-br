@@ -7,17 +7,17 @@ ms.service: sql-managed-instance
 ms.subservice: operations
 ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: sstein, bonova, carlrab
+ms.reviewer: sstein, bonova
 ms.date: 02/22/2019
-ms.openlocfilehash: 562766ada8fb9a2620fa83875dc98d02ab752d95
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 156a4c74eea24b20c28df88be85cb32c0ebe2981
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85338559"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012436"
 ---
 # <a name="determine-required-subnet-size--range-for-azure-sql-managed-instance"></a>Determinar o tamanho de sub-rede necessário & intervalo para o SQL Instância Gerenciada do Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -28,7 +28,7 @@ O número de instâncias gerenciadas que podem ser implantadas na sub-rede de um
 
 Quando você cria uma instância gerenciada, o Azure aloca um número de máquinas virtuais dependendo da camada selecionada durante o provisionamento. Como essas máquinas virtuais estão associadas à sua sub-rede, elas exigem endereços IP. Para garantir alta disponibilidade durante operações regulares e manutenção do serviço, o Azure pode alocar máquinas virtuais adicionais. Como resultado, o número de endereços IP necessários em uma sub-rede é maior do que o número de instâncias gerenciadas nessa sub-rede.
 
-Por design, uma instância gerenciada precisa de um mínimo de 32 endereços IP em uma sub-rede. Como resultado, você pode usar a máscara de sub-rede mínima de/27 ao definir os intervalos de IP de sub-rede. É recomendável um planejamento cuidadoso de tamanho de sub-rede para suas implantações de instância gerenciada. As entradas que devem ser levadas em consideração durante o planejamento são:
+Por padrão, uma instância gerenciada precisa de um mínimo de 32 endereços IP em uma sub-rede. Como resultado, você pode usar a máscara de sub-rede mínima de /27 ao definir os intervalos de IP de sub-rede. É recomendável um planejamento cuidadoso de tamanho de sub-rede para suas implantações da instância gerenciada. As entradas que devem ser levadas em consideração durante o planejamento são:
 
 - Número de instâncias gerenciadas, incluindo os seguintes parâmetros de instância:
   - camada de serviço
@@ -48,18 +48,18 @@ Dimensione sua sub-rede de acordo com as necessidades de implantação e dimensi
 - Cada instância gerenciada usa o número de endereços que dependem do tipo de preço e da geração de hardware
 
 > [!IMPORTANT]
-> Não é possível alterar o intervalo de endereços de sub-rede se existir algum recurso na sub-rede. Também não é possível mover instâncias gerenciadas de uma sub-rede para outra. Sempre que possível, considere o uso de sub-redes maiores, em vez de menores, para evitar problemas no futuro.
+> Não é possível alterar o intervalo de endereços de sub-rede, se houver recursos na sub-rede. Também não é possível migrar as instâncias gerenciadas de uma sub-rede para outra. Sempre que possível, considere o uso de sub-redes maiores, em vez de menores, para evitar problemas no futuro.
 
 GP = uso geral; BC = comercialmente crítico; VC = cluster virtual
 
-| **Ger de hardware** | **Tipo de preços** | **Uso do Azure** | **Uso do VC** | **Uso da instância** | **Completa*** |
+| **Ger de hardware** | **Tipo de preços** | **Uso do Azure** | **Uso do VC** | **Uso da instância** | **Total** _ |
 | --- | --- | --- | --- | --- | --- |
 | Gen4 | GP | 5 | 1 | 5 | 11 |
 | Gen4 | BC | 5 | 1 | 5 | 11 |
 | Gen5 | GP | 5 | 6 | 3 | 14 |
 | Gen5 | BC | 5 | 6 | 5 | 16 |
 
-  \*Total da coluna exibe o número de endereços que seriam tomadas quando uma instância é implantada na sub-rede. Cada instância adicional na sub-rede Adiciona o número de endereços representados com a coluna uso da instância. Os endereços representados com a coluna uso do Azure são compartilhados entre vários clusters virtuais, enquanto os endereços representados com a coluna uso do VC são compartilhados entre instâncias colocadas nesse cluster virtual.
+  \_ Total da coluna exibe o número de endereços que seriam tomadas quando uma instância é implantada na sub-rede. Cada instância adicional na sub-rede Adiciona o número de endereços representados com a coluna uso da instância. Os endereços representados com a coluna uso do Azure são compartilhados entre vários clusters virtuais, enquanto os endereços representados com a coluna uso do VC são compartilhados entre instâncias colocadas nesse cluster virtual.
 
 A operação de atualização normalmente requer redimensionamento de cluster virtual. Em algumas circunstâncias, a operação de atualização exigirá a criação do cluster virtual (para obter mais detalhes, consulte o [artigo operações de gerenciamento](sql-managed-instance-paas-overview.md#management-operations)). No caso da criação do cluster virtual, o número de endereços adicionais necessários é igual ao número de endereços representados pela coluna uso do VC somada com os endereços necessários para as instâncias colocadas nesse cluster virtual (coluna uso da instância).
 
@@ -74,12 +74,12 @@ Conforme mencionado acima, em algumas circunstâncias, a operação de atualiza�
 
 Durante o dimensionamento, as instâncias de operação requerem temporariamente a capacidade de IP adicional que depende do tipo de preço e da geração de hardware
 
-| **Ger de hardware** | **Tipo de preços** | **Cenário** | **Endereços adicionais*** |
+| **Ger de hardware** | **Tipo de preços** | **Cenário** | **Endereços adicionais** _ |
 | --- | --- | --- | --- |
 | Gen4 | GP ou BC | Dimensionamento de vCores | 5 |
 | Gen4 | GP ou BC | Dimensionando o armazenamento | 5 |
 | Gen4 | GP ou BC | Alternando de GP para BC ou BC para GP | 5 |
-| Gen4 | GP | Alternando para Gen5 * | 9 |
+| Gen4 | GP | Alternando para Gen5_ | 9 |
 | Gen4 | BC | Alternando para Gen5 * | 11 |
 | Gen5 | GP | Dimensionamento de vCores | 3 |
 | Gen5 | GP | Dimensionando o armazenamento | 0 |
@@ -88,7 +88,7 @@ Durante o dimensionamento, as instâncias de operação requerem temporariamente
 | Gen5 | BC | Dimensionando o armazenamento | 5 |
 | Gen5 | BC | Alternando para GP | 3 |
 
-  \*O hardware Gen4 está sendo descontinuado e não está mais disponível para novas implantações. Atualize a geração de hardware de Gen4 para Gen5 para aproveitar os recursos específicos da geração de hardware Gen5.
+  \* O hardware Gen4 está sendo descontinuado e não está mais disponível para novas implantações. Atualize a geração de hardware de Gen4 para Gen5 para aproveitar os recursos específicos da geração de hardware Gen5.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -6,17 +6,17 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.subservice: alerts
-ms.openlocfilehash: 24897826c6a70d0810b239b9b8f639787c3dac2a
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: dc0be351253a15bf9039839c8cae2246681d41e2
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87843378"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526646"
 ---
 # <a name="prepare-your-logic-apps-and-runbooks-for-migration-of-classic-alert-rules"></a>Preparar seus aplicativos lógicos e runbooks para a migração de regras de alerta clássicos
 
 > [!NOTE]
-> Como [anunciado anteriormente](monitoring-classic-retirement.md), os alertas clássicos no Azure monitor são desativados, embora ainda estejam em uso limitado para recursos que ainda não dão suporte aos novos alertas. A data de aposentadoria para esses alertas foi ainda mais estendida. Uma nova data será anunciada em breve.
+> Como [anunciado anteriormente](monitoring-classic-retirement.md), os alertas clássicos no Azure monitor são desativados para usuários de nuvem pública, embora ainda estejam em uso limitado para recursos que ainda não dão suporte aos novos alertas. A data de aposentadoria para esses alertas foi ainda mais estendida. Uma nova data será anunciada em breve.
 >
 
 Se você optar por migrar voluntariamente suas regras de alerta clássicas para novas regras de alerta, lembre-se de que há algumas diferenças entre os dois sistemas. Este artigo explica essas diferenças e como você pode se preparar para a alteração.
@@ -30,7 +30,7 @@ A tabela a seguir é uma referência às interfaces programáticas para alertas 
 | Tipo de script de implantação | Alertas clássicos | Novos alertas de métrica |
 | ---------------------- | -------------- | ----------------- |
 |API REST     | [Microsoft. insights/alertrules](/rest/api/monitor/alertrules)         | [microsoft.insights/metricalerts](/rest/api/monitor/metricalerts)       |
-|CLI do Azure     | [az monitor alert](/cli/azure/monitor/alert?view=azure-cli-latest)        | [alerta AZ monitor de métricas](/cli/azure/monitor/metrics/alert?view=azure-cli-latest)        |
+|CLI do Azure     | [az monitor alert](/cli/azure/monitor/alert)        | [alerta AZ monitor de métricas](/cli/azure/monitor/metrics/alert)        |
 |PowerShell      | [Referência](/powershell/module/az.monitor/add-azmetricalertrule)       |  [Referência](/powershell/module/az.monitor/add-azmetricalertrulev2)    |
 | Modelo do Azure Resource Manager | [Para alertas clássicos](./alerts-enable-template.md)|[Para novos alertas de métrica](./alerts-metric-create-templates.md)|
 
@@ -76,7 +76,7 @@ Se você estiver usando aplicativos lógicos com alertas clássicos, deverá mod
 
 1. Use o modelo "manipulador de alerta de métricas de Azure Monitor". Este modelo tem um gatilho de **solicitação HTTP** com o esquema apropriado definido.
 
-    ![lógica-aplicativo-modelo](media/alerts-migration/logic-app-template.png "Modelo de alerta de métrica")
+    ![Captura de tela mostra dois botões, aplicativo lógico em branco e Azure Monitor – manipulador de alerta de métricas.](media/alerts-migration/logic-app-template.png "Modelo de alerta de métrica")
 
 1. Adicione uma ação para hospedar sua lógica de processamento.
 

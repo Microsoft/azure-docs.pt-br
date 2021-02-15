@@ -3,15 +3,15 @@ title: Integrações de parceiros de área de trabalho virtual do Windows – Az
 description: Saiba mais sobre os parceiros da área de trabalho virtual do Windows e acesse a documentação sobre como integrá-los a eles.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 07/17/2020
+ms.date: 09/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 94da428862e1af66ee58e739b3ad3b5b95be3310
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: e116c590e07ffcdb1b7c8ae2e30b2e76bb909bff
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612360"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97802704"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Integrações de parceiros de área de trabalho virtual do Windows
 
@@ -46,7 +46,8 @@ a tecnologia 10ZiG, com hardware e software de cliente fino e zero de ponta, é 
 
 a liderança do mercado mundial de 10ZiG's em dispositivos de ponto de extremidade de cliente fino e zero e software de gerenciamento para áreas de trabalho virtuais é exemplificado por meio de como eles funcionam para seus clientes. Seu hardware de cliente fino é fornecido com recursos e opções de benefício construídos de acordo com o objetivo de garantir que os clientes recebam os dispositivos de cliente corretos com base em suas necessidades. o 10ZiG personaliza seus dispositivos para caber em ambientes de clientes com clientes baseados em Windows e Linux que fornecem o melhor desempenho possível em áreas de trabalho virtuais, dentro e fora da nuvem.
 
-- [Acesse o site do parceiro](https://www.10zig.com/about/microsoft-wvd).
+- [Veja o resumo da solução conjunta](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4FaeR).
+- [Acesse o site do parceiro](https://www.10zig.com/about/microsoft-windows-virtual-desktop).
 
 ## <a name="automai"></a>Automai
 
@@ -61,7 +62,7 @@ Quando estiver pronto para a inicialização, você poderá usar todos os script
 O Automai permite que você use os mesmos scripts para testes de desempenho, testes funcionais, monitoramento de desempenho e até mesmo automação de processo robótica, tudo em uma plataforma.
 
 - [Veja o resumo da solução conjunta](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4B76N).
-- [Acesse o site do parceiro](https://www.automai.com/wvd-testing-monitoring?hs_preview=EyZXkOWu-30742040580).
+- [Acesse o site do parceiro](https://www.automai.com/windows-virtual-desktop-performance-testing/).
 
 ## <a name="cloudhouse"></a>Cloudhouse
 
@@ -101,7 +102,7 @@ Quando usado com a área de trabalho virtual do Windows, o ControlUp fornece rec
 
 Os clientes finos da Dell Technologies são otimizados para acessar Microsoft Azure e serviços de área de trabalho virtual do Windows. Capaz de atender às necessidades de profissionais de conhecimento colaborativos com usuários avançados com uso intensivo de gráficos, Wyse thin clients oferecem uma experiência de computação de alta qualidade para aproveitar ao máximo o número crescente de aplicativos e conteúdo. Ideal para ambientes com restrições de espaço, os clientes Wyse finos se adaptam à maneira como as pessoas trabalham com fatores forma versáteis e uma ampla gama de opções para a montagem de opção.
 
-Os clientes finos Wyse são projetados com a segurança em mente com a superfície de ataque limitada, suporte para padrões de conformidade de segurança e soluções avançadas de autenticação multifator. Implante clientes finos altamente seguros com Wyse ThinOS exclusivos da Dell ou experimente o acesso seguro a aplicativos de nuvem e espaços de trabalho virtuais do Wyse ThinLinux protegido com um design comprovado comercial e o Windows 10 IoT Enterprise com recursos de segurança adicionados pela Dell. Com comunicações seguras, baseadas em HTTPS e autenticação do Active Directory para administração baseada em funções, o Wyse Management Suite mantém os pontos de extremidade do Wyse sempre atualizados, e o aplicativo móvel para o WMS Pro permite que ele exiba alertas críticos e envie comandos em tempo real com um toque a qualquer momento.
+Os clientes finos Wyse são projetados com a segurança em mente com superfícies de ataque limitadas, suporte para padrões de conformidade de segurança e soluções avançadas de autenticação multifator. Implante clientes finos altamente seguros com o Windows 10 IoT Enterprise e recursos de segurança adicionados pela Dell. Dadas as comunicações seguras, baseadas em HTTPS e a autenticação do Active Directory para a administração baseada em funções, o Wyse Management Suite mantém os pontos de extremidade do Wyse sempre atualizados, e o aplicativo móvel para o WMS Pro permite que ele exiba alertas críticos e envie comandos em tempo real com um toque a qualquer momento.
 
 - [Acesse o site do parceiro](https://www.delltechnologies.com/en-us/wyse/index.htm#scroll=off&overlay=//www.dellemc.com/en-us/collaterals/unauth/brochures/products/thin-clients/Wyse_Windows_Embedded_Standard_thin_clients_brochure.pdf).
 
@@ -113,7 +114,7 @@ deviceTRUST é um provedor de serviços de valor agregado da área de trabalho v
 
 deviceTRUST estende o valor da área de trabalho virtual do Windows com sua tecnologia de segurança contextual. o deviceTRUST habilita o acesso condicional para um acesso de área de trabalho virtual seguro do Windows, acesso condicional a aplicativos na área de trabalho virtual do Windows e aplica políticas condicionais de área de trabalho virtual do Windows sem nenhuma infraestrutura adicional. O uso do deviceTRUST permite um espaço de trabalho móvel e flexível que atende a todos os requisitos de segurança, conformidade e regulamentação.
 
-- [Acesse o site do parceiro](https://devicetrust.com/wvd).
+- [Acesse o site do parceiro](https://devicetrust.com/).
 
 ## <a name="ekran-system"></a>Sistema ekran
 
@@ -190,6 +191,15 @@ A solução de monitoramento de experiência digital, SysTrack, da Lakeside soft
 - [Veja o resumo da solução conjunta](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3oL8Q).
 - [Acesse o site do parceiro](https://www.lakesidesoftware.com/assessments/wvd).
 
+## <a name="lenovo"></a>Lenovo
+
+![Logotipo da Lenovo](./media/partners/lenovo.png)
+
+Os clientes do Lenovo Thin dão à sua rede a flexibilidade de um computador cliente em execução no seu servidor, mas com capacidade e potência do PC nativo. Os clientes do Lenovo fino oferecem implantações de área de trabalho virtual do Windows e desempenho intuitivo e capacidade de gerenciamento intuitiva, elevando a rede da sua empresa para o próximo nível de confiabilidade. Cada cliente fino é equipado com uma licença do Gerenciador de terminais da Lenovo sem custo adicional, fornecendo às organizações opções de implantação e gerenciamento de hardware diretas e econômicas. Eles também são pequenos e versáteis, facilitando a adição de implantações existentes do Lenovo.
+
+- [Veja o resumo da solução conjunta](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4FnaB).
+- [Acesse o site do parceiro](https://www.lenovo.com/us/en/desktops-and-all-in-ones/thinkcentre/m-series-thin-clients/c/M-Series-Thin-Clients).
+
 ## <a name="liquidware"></a>Liquidez
 
 ![Logotipo de liquidez](./media/partners/liquidware.png)
@@ -220,6 +230,17 @@ O VSI de logon é um provedor de serviços de valor agregado da área de trabalh
 
 - [Acesse o site do parceiro](https://www.loginvsi.com/use-cases-initiatives/windows-virtual-desktop).
 
+## <a name="nasuni"></a>Nasuni
+
+![Logotipo do Nasuni](./media/partners/nasuni.png)
+
+A Nasuni Corp., o principal provedor de serviços de arquivos em nuvem e um parceiro ISV global do Azure, oferece a plataforma de software como serviço do Nasuni como a solução de armazenamento de arquivos moderna para áreas de trabalho virtuais modernas. O Nasuni, quando combinado com o armazenamento de BLOBs do Azure, consolida o armazenamento de arquivos primário (NAS), backup de arquivos, recuperação de desastres e sincronização de arquivos entre regiões em uma solução unificada. Com o Nasuni, as empresas podem implantar áreas de trabalho virtuais do Windows para mais casos de uso e em mais regiões do Azure, simplificar a administração e garantir a continuidade dos negócios. 
+
+Sendo uma solução de VDI de nuvem moderna, a área de trabalho virtual do Windows requer o armazenamento de arquivos de nuvem moderno. Tradicionalmente, o armazenamento de arquivos do VDI se baseia no armazenamento de Network-Attached (NAS) e no hardware de servidor de arquivos localizado no local e na tecnologia necessária que o acompanha para fornecer backups de arquivos, restauração e recuperação de desastres. Essas abordagens tradicionais são caras, complexas de manter e administrar e não podem ser dimensionadas facilmente. Eles também introduzirão latência se forem usados com uma solução de VDI de nuvem moderna, como área de trabalho virtual do Windows, devido à distância física e às conexões WAN mais lentas entre os desktops baseados no Azure e o armazenamento de arquivos com base no local. O Nasuni, uma plataforma de serviços de arquivos criada especificamente para o Azure, oferece capacidade de armazenamento de arquivos ilimitada e acesso de arquivos de alto desempenho. O Nasuni pode ser colocalizado com a área de trabalho virtual do Windows nas mesmas regiões do Azure para fornecer acesso econômico a um arquivo de alto desempenho a um único namespace global. O Nasuni oferece armazenamento de arquivos de área de trabalho virtual do Windows a uma fração do custo de servidores de arquivos NAS e Windows tradicionais e inclui backups internos e recuperação de desastres para reduzir ainda mais os custos e liberar recursos de ti.
+
+- [Acesse o site do parceiro](https://www.nasuni.com/partner/microsoft/#wvd).
+- [Veja o resumo da solução conjunta](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4FaeS).
+
 ## <a name="nerdio"></a>Nerdio
 
 ![Logotipo do Nerdio](./media/partners/nerdio.png)
@@ -230,6 +251,17 @@ O Nerdio estende o valor da área de trabalho virtual do Windows, facilitando o 
 
 - [Veja o resumo da solução conjunta](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3p0Mh).
 - [Acesse o site do parceiro](https://getnerdio.com/windows-virtual-desktop/).
+
+## <a name="nexthink"></a>Nexthink
+
+![Logotipo do Nexthink](./media/partners/nexthink.png)
+
+Nexthink é um provedor de valor agregado da área de trabalho virtual do Windows que ajuda as organizações a medir, gerenciar e melhorar a produtividade e a experiência digital de seus funcionários com confiança. Com uma constante leitura sobre o pulso da experiência digital do funcionário, ele pode melhorar continuamente a capacidade da tecnologia de envolver, capacitar e fascinamr as pessoas, independentemente de onde elas trabalham. 
+
+Ao fornecer soluções com recursos visíveis do local de trabalho, o Nexthink fornece o contexto e a percepção da sua base de usuários. A poderosa plataforma de gerenciamento de experiência do Nexthink ajuda as equipes de ti a garantir que as migrações para a área de trabalho virtual do Windows sejam planejadas e colocadas em ação de maneira oportuna e bem-sucedida.
+
+- [Acesse o site do parceiro](https://www.nexthink.com/initiative/desktop-virtualization/).
+- [Veja o resumo da solução conjunta](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4FaeT).
 
 ## <a name="numecent"></a>Numecent
 
@@ -287,12 +319,16 @@ As soluções Área de Trabalho Remota Commander do RDPSoft aprimoram a administ
 
 ![Logotipo da Rimo3](./media/partners/rimo3.png)
 
-O Rimo3 aprimora a experiência de área de trabalho virtual do Windows acelerando a implantação e melhorando o gerenciamento de alterações em andamento. O Rimo3 equipa as equipes de ti com o conhecimento de que precisam para dar suporte ao seu portfólio de aplicativos para a prontidão de migração do Azure de cargas de trabalho de aplicativos. Os usuários podem integrar aplicativos e testá-los em seu espaço de trabalho de área de trabalho virtual do Windows de destino de forma rápida e simples. Os usuários também podem entender proativamente o impacto de quaisquer alterações à medida que sua organização distribui novos aplicativos e atualizações. Por fim, os administradores de ti podem aproveitar o recurso de teste de fumaça inteligente Rimo3's e automatizar os testes de funcionalidade sem interromper as sessões do usuário.
+O Rimo3 aprimora a experiência de área de trabalho virtual do Windows com sua plataforma de modernização de aplicativo fácil de usar, escalonável e baseada em nuvem.
 
-O Rimo3 oferece uma plataforma de teste de aplicativos fácil de usar, escalonável e automatizada. Essa plataforma inclui recursos para todos os três conceitos básicos de teste de aplicativos: compatibilidade, funcionalidade e desempenho. Ele permite que organizações, líderes e equipes aprimorem a continuidade dos negócios, adotem alterações mais rapidamente e otimizem a experiência do usuário.
+Para as equipes de ti, o Rimo3 ajuda a descobrir, modernizar e gerenciar cargas de trabalho de aplicativos para a mudança para a área de desktop virtual do Windows. Os usuários podem verificar automaticamente seu portfólio de aplicativos para descobrir candidatos adequados para integração na área de trabalho virtual do Windows ou modernizando para o MSIX.  
+
+Os usuários podem automatizar o teste prévio de seus aplicativos, convertendo aplicativos para MSIX e teste após a conversão ao aplicar a correção automatizada se os aplicativos não forem convertidos corretamente. O resultado é um pacote de MSIX modernizado e pronto para implantação. Com cada versão e atualização do recurso de área de trabalho virtual do Windows, os usuários podem testar totalmente os aplicativos automaticamente antes da implantação, fornecendo confiança total e gerenciamento contínuo.
+
+Para provedores de serviços gerenciados, o Rimo3 ajuda a estender sua capacidade de serviços gerenciados a melhorar as margens e a ajudá-los a preencher a receita baseada em projetos para receita recorrente com base em assinatura e agregar valor aos clientes que precisam modernizar e mudar para a área de trabalho virtual do Windows e gerenciar atualizações regulares em seus espaços de trabalho de área de trabalho.
 
 - [Veja o resumo da solução conjunta](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4yj7B).
-- [Acesse o site do parceiro](https://rimo3.com/outcomes/).
+- [Acesse o site do parceiro](https://rimo3.com/windows-virtual-desktop/).
 
 ## <a name="sepago"></a>sepago
 
@@ -304,6 +340,17 @@ o laboratório de inovação e desenvolvimento de sepago cria soluções intelig
 
 - [Veja o resumo da solução conjunta](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4qMsm).
 - [Acesse o site do parceiro](https://www.sepago.de/en/).
+
+## <a name="ssh2"></a>SSH2
+
+![Logotipo do SSH2](./media/partners/ssh2.png)
+
+SSH2 é um provedor de serviços de valor agregado da área de trabalho virtual do Windows que equipa suas equipes de ti com software para acelerar a entrega de aplicativos da plataforma atual para a área de trabalho virtual do Windows no Azure. O SSH2 permite acelerar a captura de aplicativos para simplificar o processo de migração. O SSH2's appCURE captura aplicativos em execução no ponto de extremidade, permite a atualização e a correção para criar uma mudança de etapa abrangente na velocidade em que os ambientes de usuário final podem ser executados. 
+
+o appCURE captura detalhes do aplicativo da execução de aplicativos para garantir que todos os pontos que possam afetar os aplicativos do usuário final sejam compreendidos. em seguida, o appCURE atualiza e entrega para sua nova área de trabalho virtual do Windows. Ao capturar todos os pontos de integração do aplicativo em seu ambiente atual, o appCURE fornece a velocidade para otimizar os recursos de ti e planejar suas migrações melhor e mais rápido do que nunca, permitindo, assim, que as organizações cheguem mais rapidamente à produção.
+
+- [Veja o resumo da solução conjunta](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4Fs38).
+- [Acesse a página do parceiro](#ssh2).
 
 ## <a name="thinprint"></a>ThinPrint
 
@@ -334,6 +381,7 @@ os vastos limites, a empresa uberAgent, fornece visibilidade nas implantações 
 
 o uberAgent é um produto de monitoramento e análise projetado para computação de usuário final que não apenas coleta dados — fornece aos clientes as informações que são importantes. o uberAgent tem suas próprias métricas, cobrindo os principais aspectos da experiência do usuário, do desempenho do aplicativo e da segurança do ponto de extremidade, informando a você tudo o que você precisa saber sobre suas VMs de área de trabalho virtual do Windows sem afetar a densidade de usuário dos sistemas o uberAgent simplifica a solução de problemas, ajuda com o dimensionamento e fornece informações valiosas essenciais para a segurança das informações.
 
+- [Veja o resumo da solução conjunta](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4Fs39).
 - [Acesse o site do parceiro](https://uberagent.com/docs/uberagent/latest/about-uberagent/system-requirements/#windows-virtual-desktop).
 
 ## <a name="workspace-365"></a>Espaço de trabalho 365

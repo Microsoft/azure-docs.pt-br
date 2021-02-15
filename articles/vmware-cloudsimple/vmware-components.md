@@ -10,10 +10,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: ff9aec1904be754990958869666e9d67038e4fb3
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/12/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88142495"
 ---
 # <a name="private-cloud-vmware-components"></a>Componentes de nuvem privada do VMware
@@ -48,7 +48,7 @@ o dispositivo vCenter Server (VCSA) fornece as funções de autenticação, gere
 
 ### <a name="vcenter-single-sign-on"></a>logon único do vCenter
 
-O controlador de serviços de plataforma inserido no VCSA está associado a um **domínio de logon único do vCenter**.  O nome de domínio é **cloudsimple. local**.  Um usuário padrão **CloudOwner@cloudsimple.com** é criado para que você acesse o vCenter.  Você pode adicionar suas fontes de identidade locais/do Azure Active Directory [para o vCenter](set-vcenter-identity.md).
+O controlador de serviços de plataforma inserido no VCSA está associado a um **domínio de Sign-On único do vCenter**.  O nome de domínio é **cloudsimple. local**.  Um usuário padrão **CloudOwner@cloudsimple.com** é criado para que você acesse o vCenter.  Você pode adicionar suas fontes de identidade locais/do Azure Active Directory [para o vCenter](set-vcenter-identity.md).
 
 ## <a name="vsan-storage"></a>armazenamento vSAN
 

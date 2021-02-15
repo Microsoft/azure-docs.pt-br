@@ -1,19 +1,17 @@
 ---
 title: Dimensionar tamanhos de cluster – Azure HDInsight
 description: Dimensionar um cluster Apache Hadoop de forma elástica para corresponder à sua carga de trabalho no Azure HDInsight
-author: ashishthaps
 ms.author: ashish
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/29/2020
-ms.openlocfilehash: a9d419052f000b220c993109e45d371398607275
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3524b5d2274c52aa94fa1c3420fb0d3245d9b730
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87006443"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98932058"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Dimensionar clusters do Azure HDInsight
 
@@ -32,19 +30,19 @@ A Microsoft fornece os seguintes utilitários para dimensionar clusters:
 
 |Utilitário | Descrição|
 |---|---|
-|[PowerShell Az](https://docs.microsoft.com/powershell/azure)|[`Set-AzHDInsightClusterSize`](https://docs.microsoft.com/powershell/module/az.hdinsight/set-azhdinsightclustersize) `-ClusterName CLUSTERNAME -TargetInstanceCount NEWSIZE`|
-|[AzureRM do PowerShell](https://docs.microsoft.com/powershell/azure/azurerm) |[`Set-AzureRmHDInsightClusterSize`](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) `-ClusterName CLUSTERNAME -TargetInstanceCount NEWSIZE`|
-|[CLI do Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) | [`az hdinsight resize`](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) `--resource-group RESOURCEGROUP --name CLUSTERNAME --workernode-count NEWSIZE`|
+|[PowerShell Az](/powershell/azure)|[`Set-AzHDInsightClusterSize`](/powershell/module/az.hdinsight/set-azhdinsightclustersize) `-ClusterName CLUSTERNAME -TargetInstanceCount NEWSIZE`|
+|[AzureRM do PowerShell](/powershell/azure/azurerm) |[`Set-AzureRmHDInsightClusterSize`](/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) `-ClusterName CLUSTERNAME -TargetInstanceCount NEWSIZE`|
+|[CLI do Azure](/cli/azure/) | [`az hdinsight resize`](/cli/azure/hdinsight#az-hdinsight-resize) `--resource-group RESOURCEGROUP --name CLUSTERNAME --workernode-count NEWSIZE`|
 |[CLI clássica do Azure](hdinsight-administer-use-command-line.md)|`azure hdinsight cluster resize CLUSTERNAME NEWSIZE` |
-|[Portal do Azure](https://portal.azure.com)|Abra o painel do cluster HDInsight, selecione **tamanho do cluster** no menu à esquerda e, no painel tamanho do cluster, digite o número de nós de trabalho e selecione salvar.|  
+|[Azure portal](https://portal.azure.com)|Abra o painel do cluster HDInsight, selecione **tamanho do cluster** no menu à esquerda e, no painel tamanho do cluster, digite o número de nós de trabalho e selecione salvar.|  
 
 ![Opção portal do Azure dimensionar cluster](./media/hdinsight-scaling-best-practices/azure-portal-settings-nodes.png)
 
 Usando qualquer um desses métodos, você pode aumentar ou reduzir verticalmente seu cluster HDInsight em apenas alguns minutos.
 
 > [!IMPORTANT]  
-> * A CLI clássica do Azure foi preterida e só deve ser usada com o modelo de implantação clássico. Para todas as outras implantações, use o [CLI do Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
-> * O módulo AzureRM do PowerShell foi preterido.  Use o [módulo AZ](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-1.4.0) sempre que possível.
+> * A CLI clássica do Azure foi preterida e só deve ser usada com o modelo de implantação clássico. Para todas as outras implantações, use o [CLI do Azure](/cli/azure/).
+> * O módulo AzureRM do PowerShell foi preterido.  Use o [módulo AZ](/powershell/azure/new-azureps-module-az) sempre que possível.
 
 ## <a name="impact-of-scaling-operations"></a>Impacto das operações de dimensionamento
 
@@ -60,7 +58,7 @@ O impacto da alteração do número de nós de dados varia em cada tipo de clust
 
     Quando um cluster Hadoop é reduzido com menos nós de dados, alguns serviços são reiniciados. Esse comportamento faz com que todos os trabalhos em execução e pendentes falhem após a conclusão da operação de dimensionamento. Você pode, no entanto, reenviar os trabalhos quando a operação for concluída.
 
-* Apache HBase
+* HBase no Apache
 
     Você pode adicionar ou remover nós diretamente em seu cluster HBase enquanto ele está em execução. Servidores Regionais são equilibrados automaticamente em alguns minutos após o término da operação de dimensionamento. No entanto, você pode balancear manualmente os servidores regionais. Faça logon no cluster cabeçalho e execute os seguintes comandos:
 
@@ -111,9 +109,9 @@ O impacto da alteração do número de nós de dados varia em cada tipo de clust
 
     Após o dimensionamento para os `N` nós de trabalho, o HDInsight definirá automaticamente as configurações a seguir e reiniciará o hive.
 
-  * Total de consultas simultâneas máximas:`hive.server2.tez.sessions.per.default.queue = min(N, 32)`
-  * Número de nós usados pelo LLAP do hive:`num_llap_nodes  = N`
-  * Número de nó (s) para executar o daemon LLAP do hive:`num_llap_nodes_for_llap_daemons = N`
+  * Total de consultas simultâneas máximas: `hive.server2.tez.sessions.per.default.queue = min(N, 32)`
+  * Número de nós usados pelo LLAP do hive: `num_llap_nodes  = N`
+  * Número de nó (s) para executar o daemon LLAP do hive: `num_llap_nodes_for_llap_daemons = N`
 
 ## <a name="how-to-safely-scale-down-a-cluster"></a>Como reduzir com segurança um cluster
 
@@ -152,7 +150,7 @@ Por exemplo:
 yarn application -kill "application_1499348398273_0003"
 ```
 
-### <a name="getting-stuck-in-safe-mode"></a>Travando no modo de segurança
+### <a name="getting-stuck-in-safe-mode"></a>Travamento no modo de segurança
 
 Quando você reduz verticalmente um cluster, o HDInsight usa as interfaces de gerenciamento do Apache Ambari para primeiro encerrar os nós de trabalho adicionais. Os nós replicam seus blocos HDFS para outros nós de trabalho online. Depois disso, o HDInsight dimensiona com segurança o cluster para baixo. O HDFS entra em modo de segurança durante a operação de dimensionamento. O HDFS deve sair quando o dimensionamento for concluído. Em alguns casos, no entanto, o HDFS fica preso no modo de segurança durante uma operação de dimensionamento devido à replicação do bloco de arquivos.
 
@@ -254,7 +252,7 @@ hdfs dfsadmin -D 'fs.default.name=hdfs://mycluster/' -safemode leave
 
 Os servidores de região são balanceados automaticamente em alguns minutos após a conclusão de uma operação de dimensionamento. Para balancear manualmente os servidores de região, conclua as seguintes etapas:
 
-1. Conecte-se ao cluster HDInsight usando SSH. Para obter mais informações, consulte [usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+1. Conecte-se ao cluster HDInsight usando SSH. Para obter mais informações, confira [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. Inicie o shell do HBase:
 

@@ -1,20 +1,18 @@
 ---
 title: Ajustar cotas e limites no Azure Data Lake Analytics
 description: Saiba como ajustar e aumentar cotas e limites em contas do ADLA (Azure Data Lake Analytics).
-services: data-lake-analytics
 ms.service: data-lake-analytics
 author: omidm1
 ms.author: omidm
 ms.reviewer: jasonh
-ms.assetid: 49416f38-fcc7-476f-a55e-d67f3f9c1d34
 ms.topic: how-to
 ms.date: 03/15/2018
-ms.openlocfilehash: 0025e35f516543c8fe703daa647ca29ed3fb87e6
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: fd032235f286b5db1930e9c9c6d730b5424aa4eb
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87127580"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92220832"
 ---
 # <a name="adjust-quotas-and-limits-in-azure-data-lake-analytics"></a>Ajustar cotas e limites no Azure Data Lake Analytics
 
@@ -27,8 +25,9 @@ Saiba como ajustar e aumentar as cotas e os limites em contas do ADLA (Azure Dat
 Você recebe o erro "Você atingiu o número máximo de contas do Data Lake Analytics permitidas (5) na região sob o nome da assinatura" ao tentar criar a sexta conta do ADLA.
 
 Se você deseja ultrapassar esse limite, tente estas opções:
-* escolha outra região, se adequado
-* entre em contato com o suporte do Azure [abrindo um tíquete de suporte](#increase-maximum-quota-limits) para solicitar um aumento de cota.
+
+- escolha outra região, se adequado
+- entre em contato com o suporte do Azure [abrindo um tíquete de suporte](#increase-maximum-quota-limits) para solicitar um aumento de cota.
 
 ## <a name="default-adla-account-limits"></a>Limites padrão da conta do ADLA
 
@@ -36,8 +35,8 @@ Se você deseja ultrapassar esse limite, tente estas opções:
 
 Esse é o número máximo de AUs que podem ser executadas simultaneamente em sua conta. Se o número total de AUs em execução em todos os trabalhos exceder esse limite, novos trabalhos serão colocados na fila automaticamente. Por exemplo:
 
-* Caso você tenha um só trabalho em execução com 32 AUs, ao enviar um segundo trabalho, ele permanecerá na fila até que o primeiro trabalho seja concluído.
-* Se você já tiver quatro trabalhos em execução e cada um deles estiver usando 8 AUs, ao adicionar um quinto trabalho que precise de 8 AUs, ele permanecerá na fila até que 8 AUs fiquem disponíveis.
+- Caso você tenha um só trabalho em execução com 32 AUs, ao enviar um segundo trabalho, ele permanecerá na fila até que o primeiro trabalho seja concluído.
+- Se você já tiver quatro trabalhos em execução e cada um deles estiver usando 8 AUs, ao adicionar um quinto trabalho que precise de 8 AUs, ele permanecerá na fila até que 8 AUs fiquem disponíveis.
 
     ![Azure Data Lake Analytics a página limites e cotas](./media/data-lake-analytics-quota-limits/adjust-quota-limits.png)
 
@@ -62,18 +61,21 @@ Encontre mais informações sobre os limites do Azure na [documentação sobre o
 
 1. Abra uma solicitação de suporte no Portal do Azure.
 
-    ![Página do portal do Azure Data Lake Analytics](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-help-support.png)
+   ![Portal de Azure Data Lake Analytics-ajuda e suporte](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-help-support.png)
 
-    ![Página do portal do Azure Data Lake Analytics](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-support-request.png)
+   ![Nova solicitação de suporte do portal Azure Data Lake Analytics](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-support-request.png)
+
 2. Selecione o tipo de problema **Cota**.
+
 3. Selecione sua **assinatura** (verifique se ela não é uma assinatura de "avaliação").
+
 4. Selecione o tipo de cota **Data Lake Analytics**.
 
-    ![Página do portal do Azure Data Lake Analytics](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-support-request-basics.png)
+   ![Tipo de cota de solicitação de suporte de Azure Data Lake Analytics](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-support-request-basics.png)
 
 5. Na página do problema, explique seu limite de aumento solicitado com **Detalhes**, informando o motivo da necessidade dessa capacidade extra.
 
-    ![Página do portal do Azure Data Lake Analytics](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-support-request-details.png)
+   ![Detalhes da solicitação de suporte do Azure Data Lake Analytics](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-support-request-details.png)
 
 6. Verifique suas informações de contato e crie a solicitação de suporte.
 
@@ -81,6 +83,6 @@ A Microsoft examina sua solicitação e tenta acomodar suas necessidades de neg�
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Visão geral da Análise Microsoft Azure Data Lake](data-lake-analytics-overview.md)
-* [Gerenciar a Análise Azure Data Lake usando o Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
-* [Monitorar e solucionar problemas de trabalhos do Azure Data Lake Analytics usando portal do Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+- [Visão geral da Análise Microsoft Azure Data Lake](data-lake-analytics-overview.md)
+- [Gerenciar a Análise Azure Data Lake usando o Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
+- [Monitorar e solucionar problemas de trabalhos do Azure Data Lake Analytics usando portal do Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 6/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 10b74f7b795df2cf8c19d044fce44da3f798af7a
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: a0f2b971eae5d37e8fb0771e213075289af6c519
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88587626"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98045250"
 ---
 # <a name="understand-event-data"></a>Entender os dados do evento
 
@@ -202,7 +202,7 @@ Aqui estão os campos no corpo de uma notificação de alteração de borda.
 
 #### <a name="body-details"></a>Detalhes do corpo
 
-O corpo é a carga de uma relação, também no formato JSON. Ele usa o mesmo formato que uma `GET` solicitação para uma relação por meio da [API DigitalTwins](how-to-use-apis-sdks.md). 
+O corpo é a carga de uma relação, também no formato JSON. Ele usa o mesmo formato que uma `GET` solicitação para uma relação por meio da [API DigitalTwins](/rest/api/digital-twins/dataplane/twins). 
 
 "Atualizar uma relação" significa que as propriedades da relação foram alteradas. 
 
@@ -262,20 +262,7 @@ O corpo da `Twin.Update` notificação é um documento de patch JSON que contém
 
 Por exemplo, digamos que uma atualização digital tenha sido atualizada usando o patch a seguir.
 
-```json
-[
-    {
-        "op": "replace",
-        "value": 40,
-        "path": "/Temperature"
-    },
-    {
-        "op": "add",
-        "value": 30,
-        "path": "/comp1/prop1"
-    }
-]
-```
+:::code language="json" source="~/digital-twins-docs-samples/models/patch-component-2.json":::
 
 A notificação correspondente (se executada de forma síncrona pelo serviço, como o Azure digital gêmeos atualizando um texto digital) teria um corpo como:
 

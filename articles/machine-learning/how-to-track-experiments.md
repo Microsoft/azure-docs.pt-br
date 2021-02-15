@@ -1,7 +1,7 @@
 ---
 title: Registrar em log experimentos e métricas de ML
 titleSuffix: Azure Machine Learning
-description: Monitore seus experimentos do Azure ML e monitore as métricas de execução para aprimorar o processo de criação de modelo. Adicione o log ao script de treinamento usando execute. log, Run. start_logging ou ScriptRunConfig.
+description: Habilite o log em suas execuções de treinamento de ML para monitorar as métricas de execução em tempo real e para ajudar a diagnosticar erros e avisos.
 services: machine-learning
 author: likebupt
 ms.author: keli19
@@ -11,54 +11,57 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 18c7e5b3a1401540d7a94186fda647d413d562c0
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.openlocfilehash: 9e5f64d9ef61a272da488ad70e690db4c07ddccc
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88723836"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99625070"
 ---
-# <a name="enable-logging-in-azure-ml-training-runs"></a>Habilitar o registro em log nas execuções de treinamento do Azure ML
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+# <a name="enable-logging-in-ml-training-runs"></a>Habilitar log em execuções de treinamento de ML
 
-O SDK do Python Azure Machine Learning permite que você registre informações em tempo real usando o pacote de log do Python padrão e a funcionalidade específica do SDK. Você pode fazer logon localmente e enviar logs para seu espaço de trabalho no Portal.
 
-Os logs podem ajudá-lo a diagnosticar erros e avisos ou rastrear métricas de desempenho como parâmetros e desempenho do modelo. Neste artigo, você aprenderá a habilitar o log nos seguintes cenários:
+O SDK do Python do Azure Machine Learning permite que você registre em log informações em tempo real usando o pacote de log padrão do Python e a funcionalidade específica do SDK. Você pode fazer logon localmente e enviar os logs para o seu workspace no portal.
+
+Os logs podem ajudar você a diagnosticar erros e avisos ou acompanhar métricas de desempenho como parâmetros e desempenho do modelo. Neste artigo, você aprenderá a habilitar o log nos seguintes cenários:
 
 > [!div class="checklist"]
 > * Sessões de treinamento interativo
-> * Enviando trabalhos de treinamento usando o ScriptRunConfig
-> * Configurações nativas do Python `logging`
-> * Registro em log de fontes adicionais
+> * Envio de trabalhos de treinamento por meio do ScriptRunConfig
+> * Configurações do `logging` nativo do Python
+> * Log em fontes adicionais
 
 
 > [!TIP]
-> Este artigo mostra como monitorar o processo de treinamento do modelo. Se você estiver interessado em monitorar o uso de recursos e eventos do Azure Machine Learning, como cotas, execuções de treinamento concluídas ou implantações de modelo concluídas, consulte [monitoramento Azure Machine Learning](monitor-azure-machine-learning.md).
+> Este artigo mostra como monitorar o processo de treinamento do modelo. Se você estiver interessado em monitorar o uso de recursos e os eventos do Azure Machine Learning, como cotas, execuções de treinamento concluídas ou implantações de modelo concluídas, confira [Monitoramento do Azure Machine Learning](monitor-azure-machine-learning.md).
 
 ## <a name="data-types"></a>Tipos de dados
 
-Você pode registrar vários tipos de dados, incluindo valores escalares, listas, tabelas, imagens, diretórios e muito mais. Para obter mais informações e exemplos de código do Python para diferentes tipos de dados, consulte a [página de referência de classe Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py).
+Registre em log vários tipos de dados, incluindo valores escalares, listas, tabelas, imagens, diretórios, entre outros. Para obter mais informações e exemplos de código Python para diferentes tipos de dados, confira a [página de referência da Classe de execução](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py).
 
-## <a name="interactive-logging-session"></a>Sessão de log interativa
+## <a name="interactive-logging-session"></a>Sessão de log interativo
 
-As sessões de log interativo normalmente são usadas em ambientes de notebook. O método [experimento. start_logging ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment(class)?view=azure-ml-py#start-logging--args----kwargs-) inicia uma sessão de log interativa. Todas as métricas registradas durante a sessão são adicionadas ao registro de execução no experimento. O método [Execute. Complete ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#complete--set-status-true-) encerra as sessões e marca a execução como concluída.
+As sessões de log interativo normalmente são usadas em ambientes de notebook. O método [Experiment.start_logging()](/python/api/azureml-core/azureml.core.experiment%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truestart-logging--args----kwargs-) inicia uma sessão de log interativo. Qualquer métrica registrada em log durante a sessão é adicionada ao registro de execução no experimento. O método [run.complete()](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truecomplete--set-status-true-) encerra as sessões e marca a execução como concluída.
 
-## <a name="scriptrunconfig-logs"></a>Logs do ScriptRunConfig
+## <a name="scriptrun-logs"></a>Logs do ScriptRun
 
-Nesta seção, você aprenderá a adicionar o código de registro em log dentro de execuções do ScriptConfig. Você pode usar a classe [**ScriptRunConfig**](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) para encapsular scripts e ambientes para execuções repetíveis. Você também pode usar essa opção para mostrar um widget Visual Jupyter notebooks para monitoramento.
+Nesta seção, você aprenderá a adicionar o código de log dentro de execuções criadas durante a configuração do ScriptRunConfig. Use a classe [**ScriptRunConfig**](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py) para encapsular scripts e ambientes de execuções repetíveis. Use também essa opção para mostrar um widget de visual do Jupyter Notebooks para monitoramento.
 
-Este exemplo executa um parâmetro de limpeza em valores Alfa e captura os resultados usando o método [Run. log ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#log-name--value--description----) .
+Este exemplo executa uma limpeza de parâmetro em valores alfa e captura os resultados usando o método [run.log()](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truelog-name--value--description----).
 
-1. Crie um script de treinamento que inclua a lógica de log, `train.py` .
+1. Crie um script de treinamento que inclua a lógica de log, `train.py`.
 
-   [!code-python[] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/train.py)]
+   [!code-python[](~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/train.py)]
 
 
-1. Envie o ```train.py``` script para ser executado em um ambiente gerenciado pelo usuário. A pasta de script inteira é enviada para treinamento.
+1. Envie o script ```train.py``` para execução em um ambiente gerenciado pelo usuário. Toda a pasta de script é enviada para treinamento.
 
-   [!notebook-python[] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/train-on-local.ipynb?name=src)] [!notebook-python[] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/train-on-local.ipynb?name=run)]
+   [! Notebook-Python [] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/train-on-local.ipynb? Name = src)]
 
-    O `show_output` parâmetro ativa o log detalhado, o que permite que você veja os detalhes do processo de treinamento, bem como informações sobre os destinos de computação ou recursos remotos. Use o código a seguir para ativar o log detalhado ao enviar o experimento.
+
+   [! Notebook-Python [] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/train-on-local.ipynb? Name = Run)]
+
+    O parâmetro `show_output` ativa o log detalhado, o que permite visualizar os detalhes do processo de treinamento, bem como as informações sobre os recursos remotos ou os destinos de computação. Use o código a seguir para ativar o log detalhado ao enviar o experimento.
 
 ```python
 run = exp.submit(src, show_output=True)
@@ -70,9 +73,9 @@ run = exp.submit(src, show_output=True)
 run.wait_for_completion(show_output=True)
 ```
 
-## <a name="native-python-logging"></a>Registro em log do Python nativo
+## <a name="native-python-logging"></a>Log nativo do Python
 
-Alguns logs no SDK podem conter um erro que instrui você a definir o nível de log para depurar. Para definir o nível de log, adicione o seguinte código ao script.
+Alguns logs do SDK poderão conter um erro que instrui você a definir o nível de registros em log como DEBUG. Para definir o nível de log, adicione o seguinte código ao script.
 
 ```python
 import logging
@@ -81,9 +84,9 @@ logging.basicConfig(level=logging.DEBUG)
 
 ## <a name="additional-logging-sources"></a>Fontes de log adicionais
 
-Azure Machine Learning também pode registrar informações de outras fontes durante o treinamento, como execuções automatizadas do Machine Learning ou contêineres do Docker que executam os trabalhos. Esses logs não estão documentados, mas se você encontrar problemas e entrar em contato com o suporte da Microsoft, eles poderão usar esses logs durante a solução de problemas.
+O Azure Machine Learning também pode registrar em log informações de outras fontes durante o treinamento, como execuções de machine learning automatizado ou contêineres do Docker que executam os trabalhos. Esses logs não são documentados, mas se você enfrentar problemas e entrar em contato com o Suporte da Microsoft, eles poderão usar esses logs na solução de problemas.
 
-Para obter informações sobre as métricas de log no designer de Azure Machine Learning (versão prévia), consulte [como registrar métricas no designer (versão prévia)](how-to-track-designer-experiments.md)
+Para obter informações sobre como registrar métricas em log no designer do Azure Machine Learning, confira [Como registrar métricas em log no designer](how-to-track-designer-experiments.md)
 
 ## <a name="example-notebooks"></a>Blocos de anotações de exemplo
 
@@ -95,8 +98,8 @@ Os seguintes blocos de anotações demonstram conceitos neste artigo:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Consulte estes artigos para saber mais sobre como usar Azure Machine Learning:
+Confira estes artigos para saber mais sobre como usar o Azure Machine Learning:
 
-* Saiba como [registrar métricas no designer de Azure Machine Learning (versão prévia)](how-to-track-designer-experiments.md).
+* Saiba como [registrar métricas em log no designer do Azure Machine Learning](how-to-track-designer-experiments.md).
 
 * Veja um exemplo de como registrar o melhor modelo e implantá-lo no tutorial [Treinar um modelo de classificação de imagem com o Azure Machine Learning](tutorial-train-models-with-aml.md).

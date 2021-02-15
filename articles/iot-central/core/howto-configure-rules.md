@@ -3,17 +3,17 @@ title: Configurar regras e ações no Azure IoT Central | Microsoft Docs
 description: Este tutorial mostra a você, como um construtor, como configurar regras e ações baseadas em telemetria em seu aplicativo do Azure IoT Central.
 author: vavilla
 ms.author: vavilla
-ms.date: 11/27/2019
+ms.date: 12/23/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: c4d0639831d2f6f60a719637c5158fba5caf6f43
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 378a1dbcfbc89cdf9b24dc2490db583f1135b9a2
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83659361"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97796781"
 ---
 # <a name="configure-rules"></a>Configurar regras
 
@@ -33,7 +33,7 @@ As condições são as regras acionadas. Atualmente, quando você adiciona vári
 
 Na captura de tela a seguir, as condições verificam quando a temperatura é maior que 70&deg; F e a umidade é menor que 10. Quando ambas as instruções são true, a regra é avaliada como true e dispara uma ação.
 
-![Condições](media/howto-configure-rules/conditions.png)
+![Captura de tela mostra um monitor de refrigerador com condições especificadas para temperatura e umidade.](media/howto-configure-rules/conditions.png)
 
 ### <a name="use-a-cloud-property-in-a-value-field"></a>Usar uma propriedade de nuvem em um campo de valor
 

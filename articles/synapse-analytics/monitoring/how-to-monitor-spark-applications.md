@@ -1,22 +1,22 @@
 ---
 title: Como monitorar Apache Spark aplicativos no Synapse Studio
-description: Use o Synapse Studio para monitorar seus aplicativos Apache Spark.
+description: Saiba como monitorar seus aplicativos Apache Spark usando o Synapse Studio.
 services: synapse-analytics
 author: matt1883
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: monitoring
-ms.date: 04/15/2020
+ms.date: 11/30/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: b5ad9e6a448747ac8f33829b1137b1af434e7a9c
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 5f9733866e85d79bdb85b8a24d1878e1169c2479
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87385578"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97586033"
 ---
-# <a name="use-synapse-studio-preview-to-monitor-your-apache-spark-applications"></a>Use o Synapse Studio (versão prévia) para monitorar seus aplicativos Apache Spark
+# <a name="how-to-use-synapse-studio-to-monitor-your-apache-spark-applications"></a>Como usar o Synapse Studio para monitorar seus aplicativos Apache Spark
 
 Com o Azure Synapse Analytics, você pode usar o Spark para executar blocos de anotações, trabalhos e outros tipos de aplicativos em seus pools do Spark em seu espaço de trabalho.
 
@@ -34,15 +34,13 @@ Depois de abrir seu espaço de trabalho, selecione a seção **Monitor** à esqu
 
 Selecione **Apache Spark aplicativos** para exibir a lista de aplicativos Apache Spark.
 
- ![Selecionar aplicativos Spark](./media/how-to-monitor-spark-applications/monitor-hub-nav-sparkapplications.png)
+ ![Selecionar aplicativos Spark](./media/how-to-monitor-spark-applications/monitor-hub-nav-spark-applications.png)
 
 ## <a name="filter-your-apache-spark-applications"></a>Filtrar seus aplicativos Apache Spark
 
 Você pode filtrar a lista de aplicativos Apache Spark para aqueles nos quais está interessado. Os filtros na parte superior da tela permitem especificar um campo no qual você deseja filtrar.
 
 Por exemplo, você pode filtrar a exibição para ver apenas os Apache Spark aplicativos que contêm o nome "vendas":
-
-![Botão Filtrar](./media/common/filter-button.png)
 
 ![Filtro de exemplo](./media/how-to-monitor-spark-applications/filter-example.png)
 

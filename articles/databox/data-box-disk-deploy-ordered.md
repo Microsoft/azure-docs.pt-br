@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: de481abd82b4fc7dd2eae3763f82b8dd96cc14a9
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: c83e46932e8d2a28d8503fe3fb6514988c364d97
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266518"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92125262"
 ---
 # <a name="tutorial-order-an-azure-data-box-disk"></a>Tutorial: Solicitar um Azure Data Box Disk
 
@@ -49,7 +49,7 @@ Antes de começar, verifique se:
 Entrar em:
 
 * O portal do Azure nesta URL: https://portal.azure.com a ordem do Data Box Disk.
-* Ou no portal do Azure Governamental nesta URL: https://portal.azure.us. Para obter mais detalhes, acesse [Conectar-se ao Azure Governamental usando o portal](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal).
+* Ou no portal do Azure Governamental nesta URL: https://portal.azure.us. Para obter mais detalhes, acesse [Conectar-se ao Azure Governamental usando o portal](../azure-government/documentation-government-get-started-connect-with-portal.md).
 
 Faça o seguinte para solicitar o Data Box Disk.
 
@@ -72,7 +72,7 @@ Faça o seguinte para solicitar o Data Box Disk.
   
 4. Selecione **Data Box Disk**. A capacidade máxima da solução para um único pedido de 5 discos é de 35 TB. É possível criar vários pedidos de tamanhos maiores de dados.
 
-     ![Selecionar a opção Data Box Disk](media/data-box-disk-deploy-ordered/select-data-box-sku-zoom.png)
+     ![Selecionar a opção de Data Box Disk 2](media/data-box-disk-deploy-ordered/select-data-box-sku-zoom.png)
 
 5. No **Pedido**, especifique os **Detalhes do pedido**. Insira ou selecione as seguintes informações.
 
@@ -83,7 +83,7 @@ Faça o seguinte para solicitar o Data Box Disk.
     |Região do Azure de destino| Selecione uma região para sua conta de armazenamento.<br> Atualmente, há suporte para contas de armazenamento em todas as regiões nos EUA, no Norte da Europa e na Europa Ocidental, no Canadá e na Austrália. |
     |Tamanho estimado de dados em TB| Insira uma estimativa em TB. <br>Com base no tamanho dos dados, a Microsoft envia um número apropriado de SSDs de 8 TB (7 TB de capacidade utilizável). <br>A capacidade máxima de uso de 5 discos é de 35 TB. |
     |Chave de acesso do disco| Forneça a chave de acesso do disco se você marcar **Usar chave personalizada em vez da chave de acesso gerada pelo Azure**. <br> Forneça uma chave de 12 a 32 caracteres alfanuméricos que tenha pelo menos um caractere numérico e um caractere especial. Os caracteres especiais permitidos são `@?_+`. <br> Você pode optar por ignorar essa opção e usar a chave de acesso gerada pelo Azure para desbloquear os discos.|
-    |Destino de armazenamento     | Escolha entre conta de armazenamento, discos gerenciados ou ambos. <br> Com base na região especificada do Azure, selecione uma conta de armazenamento na lista filtrada de uma conta de armazenamento existente. O Data Box Disk pode ser vinculado a apenas 1 conta de armazenamento. <br> Você também pode criar uma nova conta de **Uso geral v1**, **Uso geral v2** ou de **Armazenamento de Blobs**. <br>Contas de armazenamento com redes virtuais são compatíveis. Para permitir que o serviço do Data Box trabalhe com contas de armazenamento protegido, habilite os serviços confiáveis em definições de firewall de rede da conta de armazenamento. Para obter mais informações, confira como [Adicionar o Azure Data Box como um serviço confiável](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).|
+    |Destino de armazenamento     | Escolha entre conta de armazenamento, discos gerenciados ou ambos. <br> Com base na região especificada do Azure, selecione uma conta de armazenamento na lista filtrada de uma conta de armazenamento existente. O Data Box Disk pode ser vinculado a apenas 1 conta de armazenamento. <br> Você também pode criar uma nova conta de **Uso geral v1**, **Uso geral v2** ou de **Armazenamento de Blobs**. <br>Contas de armazenamento com redes virtuais são compatíveis. Para permitir que o serviço do Data Box trabalhe com contas de armazenamento protegido, habilite os serviços confiáveis em definições de firewall de rede da conta de armazenamento. Para obter mais informações, confira como [Adicionar o Azure Data Box como um serviço confiável](../storage/common/storage-network-security.md#exceptions).|
 
     Se usar a conta de armazenamento como o destino de armazenamento, você verá a seguinte captura de tela:
 

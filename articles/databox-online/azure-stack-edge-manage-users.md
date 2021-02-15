@@ -1,23 +1,23 @@
 ---
-title: Azure Stack borda gerenciar usuários | Microsoft Docs
-description: Descreve como usar o portal do Azure para gerenciar usuários em seu Azure Stack Edge.
+title: Azure Stack Edge pro FPGA gerenciar usuários | Microsoft Docs
+description: Descreve como usar o portal do Azure para gerenciar usuários em seu Azure Stack Edge pro.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/11/2019
+ms.date: 01/05/2021
 ms.author: alkohli
-ms.openlocfilehash: 1012ce417fb4952878dada29a9080c70954ed21f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 27ca190f3bad7f75175e5206d48e13dae1f5687e
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84339630"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97913274"
 ---
-# <a name="use-the-azure-portal-to-manage-users-on-your-azure-azure-stack-edge"></a>Usar o portal do Azure para gerenciar usuários no seu Azure Azure Stack Edge
+# <a name="use-the-azure-portal-to-manage-users-on-your-azure-stack-edge-pro-fpga"></a>Use o portal do Azure para gerenciar usuários em seu Azure Stack Edge pro FPGA
 
-Este artigo descreve como gerenciar usuários em seu Azure Stack Edge. Você pode gerenciar o Azure Stack Edge por meio da portal do Azure ou por meio da interface do usuário da Web local. Use o portal do Azure para adicionar, modificar ou excluir usuários.
+Este artigo descreve como gerenciar usuários em seu dispositivo Azure Stack Edge pro FPGA. Você pode gerenciar o Azure Stack Edge pro via portal do Azure ou por meio da interface do usuário da Web local. Use o portal do Azure para adicionar, modificar ou excluir usuários.
 
 Neste artigo, você aprenderá como:
 
@@ -33,13 +33,13 @@ Os usuários podem ter privilégio completo ou somente leitura. Como o nome indi
  - **Usuário com privilégios completo** – um usuário local com acesso completo.
  - **Usuário somente leitura** – um usuário local com acesso somente leitura. Esses usuários estão associados a compartilhamentos que permitem operações somente leitura.
 
-As permissões do usuário são definidas quando o usuário é criado durante a criação do compartilhamento. No momento, não há suporte para a modificação de permissões de nível de compartilhamento.
+As permissões do usuário são definidas quando o usuário é criado durante a criação do compartilhamento. No momento, não há suporte para a modificação de permissões no nível de compartilhamento.
 
 ## <a name="add-a-user"></a>Adicionar um usuário
 
 Para adicionar um usuário, siga estas etapas no portal do Azure.
 
-1. Na portal do Azure, vá para o recurso de borda do Azure Stack e, em seguida, vá para **visão geral > usuários**. Selecione **+ Adicionar usuário** na barra de comandos.
+1. Na portal do Azure, vá para o recurso de borda do Azure Stack e vá para **usuários**. Selecione **+ Adicionar usuário** na barra de comandos.
 
     ![Selecionar Adicionar usuário](media/azure-stack-edge-manage-users/add-user-1.png)
 
@@ -65,7 +65,7 @@ Você pode alterar a senha associada a um usuário após ele ser criado. Selecio
 Para excluir um usuário, siga estas etapas no portal do Azure.
 
 
-1. Na portal do Azure, vá para o recurso de borda do Azure Stack e, em seguida, vá para **visão geral > usuários**.
+1. Na portal do Azure, vá para o recurso de borda do Azure Stack e vá para **usuários**.
 
     ![Selecionar o usuário a ser excluído](media/azure-stack-edge-manage-users/delete-user-1.png)
 

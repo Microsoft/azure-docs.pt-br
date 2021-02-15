@@ -7,12 +7,12 @@ ms.date: 07/23/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 4cdd6f63c9e5e717a533b88702b2886387fe3e39
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 5f82206a7c86c5ae1e6477419faee0dca88ef883
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475236"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95495280"
 ---
 # <a name="use-iot-plug-and-play-models-in-an-iot-solution"></a>Usar modelos de Plug and Play de IoT em uma solução de IoT
 
@@ -26,7 +26,7 @@ Há duas categorias amplas de uma solução de IoT:
 
 Para usar um modelo de Plug and Play IoT, uma solução de IoT:
 
-1. Identifica a ID do modelo implementada pelo dispositivo IoT Plug and Play conectado à solução.
+1. Identifica a ID do modelo implementada pelo dispositivo Plug and Play de IoT, módulo ou módulo IoT Edge conectado à solução.
 
 1. Usa a ID do modelo para recuperar a definição do modelo do dispositivo conectado de um repositório de modelos ou de um repositório personalizado.
 
@@ -40,7 +40,10 @@ Uma solução pode obter a ID do modelo do dispositivo IoT Plug and Play usando 
 
 ### <a name="get-device-twin-api"></a>Obter API de dispositivo
 
-A solução pode usar a API de [obtenção de dispositivo](https://docs.microsoft.com/rest/api/iothub/service/twin/getdevicetwin) para recuperar a ID de modelo do dispositivo de plug and Play de IOT.
+A solução pode usar a API de [obtenção de dispositivo](/java/api/com.microsoft.azure.sdk.iot.device.deviceclient.getdevicetwin?preserve-view=true&view=azure-java-stable) para recuperar a ID de modelo do dispositivo de plug and Play de IOT.
+
+> [!TIP]
+> Para módulos e módulos de IoT Edge, use [ModuleClient. Getentrelaçar](/java/api/com.microsoft.azure.sdk.iot.device.moduleclient.gettwin?preserve-view=true&view=azure-java-stable).
 
 No trecho de resposta do dispositivo de dispositivos a seguir, `modelId` contém a ID do modelo de um dispositivo de plug and Play IOT:
 
@@ -68,7 +71,7 @@ No trecho de resposta do dispositivo de dispositivos a seguir, `modelId` contém
 
 ### <a name="get-digital-twin-api"></a>Obter a API de entrelaça digital
 
-A solução pode usar a API de [obtenção digital](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin/getdigitaltwin) para recuperar a ID do modelo implementado pelo dispositivo de plug and Play de IOT.
+A solução pode usar a API de [obtenção digital](/rest/api/iothub/service/digitaltwin/getdigitaltwin) para recuperar a ID do modelo implementado pelo dispositivo de plug and Play de IOT.
 
 No seguinte trecho de resposta digital de FileUp, `$metadata.$model` contém a ID do modelo de um dispositivo de plug and Play IOT:
 
@@ -118,11 +121,11 @@ As soluções podem usar o [repositório](concepts-model-repository.md) de model
 
 Depois de identificar a ID do modelo para uma nova conexão de dispositivo, siga estas etapas:
 
-1. Recupere a definição do modelo usando a ID do modelo do repositório de modelos. Para obter mais informações, consulte [obter modelos](https://docs.microsoft.com/rest/api/iothub/digitaltwinmodelrepositoryservice/getmodelasync/getmodelasync).
+1. Recupere a definição do modelo usando a ID do modelo do repositório de modelos. Para obter mais informações, consulte [repositório de modelos de dispositivo](concepts-model-repository.md).
 
 1. Usando a definição de modelo do dispositivo conectado, você pode enumerar os recursos do dispositivo.
 
-1. Usando os recursos enumerados do dispositivo, você pode permitir que os usuários [interajam com o dispositivo](quickstart-service-node.md).
+1. Usando os recursos enumerados do dispositivo, você pode permitir que os usuários [interajam com o dispositivo](quickstart-service.md).
 
 ### <a name="custom-store"></a>Repositório personalizado
 
@@ -134,12 +137,12 @@ Depois de identificar a ID do modelo para uma nova conexão de dispositivo, siga
 
 1. Usando a definição de modelo do dispositivo conectado, você pode enumerar os recursos do dispositivo. 
 
-1. Usando os recursos enumerados do dispositivo, você pode permitir que os usuários [interajam com o dispositivo](quickstart-service-node.md).  
+1. Usando os recursos enumerados do dispositivo, você pode permitir que os usuários [interajam com o dispositivo](quickstart-service.md).  
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Agora que você aprendeu a integrar os modelos de IoT Plug and Play em uma solução de IoT, algumas próximas etapas sugeridas são:
 
-- [Interagir com um dispositivo da sua solução](quickstart-service-node.md)
-- [API REST de monodigital de IoT](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin)
-- [Gerenciador de IoT do Azure](howto-use-iot-explorer.md)
+- [Interagir com um dispositivo da sua solução](quickstart-service.md)
+- [API REST de monodigital de IoT](/rest/api/iothub/service/digitaltwin)
+- [Azure IoT Explorer](howto-use-iot-explorer.md)

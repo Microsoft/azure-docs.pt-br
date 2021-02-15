@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: a9528b31bfd1be40b478f3c47fd0a16047a7f6ff
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 4ba7b8af9b50b9173f5e2040bb8b623eeafdd538
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86028130"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96453852"
 ---
 # <a name="platforms-and-tools-for-data-science-projects"></a>Plataformas e ferramentas para projetos de ciência de dados
 
@@ -25,7 +25,7 @@ Os recursos de análise disponíveis para equipes de ciência de dados que usam 
 
 - Máquinas Virtuais de Ciência de Dados (Windows e Linux CentOS)
 - Clusters do HDInsight Spark
-- Synapse Analytics
+- Azure Synapse Analytics
 - Azure Data Lake
 - Clusters do HDInsight Hive
 - Armazenamento de Arquivos do Azure
@@ -63,11 +63,11 @@ Quando você cria um cluster do Spark no HDInsight, cria recursos de computaçã
 A equipe de TDSP da Microsoft publicou duas explicações passo a passo completas sobre como usar os clusters do Azure HDInsight Spark para criar soluções de ciência de dados, uma usando Python e outra usando o Scala. Para saber mais sobre os **clusters do Azure HDInsight Spark**, confira [Visão geral: Apache Spark no HDInsight Linux](../../hdinsight/spark/apache-spark-overview.md). Para aprender a criar uma solução de ciência de dados usando **Python** em um cluster do Azure HDInsight Spark, consulte [Visão geral de Ciência de Dados usando o Spark no Azure HDInsight](spark-overview.md). Para aprender a criar uma solução de ciência de dados usando **Scala** em um cluster do Azure HDInsight Spark, consulte [Ciência de Dados usando o Scala e o Spark no Azure](scala-walkthrough.md). 
 
 
-##  <a name="azure-sql-data-warehouse"></a>SQL Data Warehouse do Azure
+##  <a name="azure-synapse-analytics"></a>Azure Synapse Analytics
 
-O SQL Data Warehouse do Azure permite que você dimensione recursos de computação facilmente e em segundos sem excesso de provisionamento ou excesso de pagamento. Ele também oferece a opção exclusiva de fazer uma pausa nos recursos de computação, dando mais liberdade para você gerenciar melhor seus custos de nuvem. A capacidade de implantar recursos de computação escalonáveis torna possível colocar todos os seus dados no SQL Data Warehouse do Azure. Os custos de armazenamento são mínimos e você pode executar a computação somente nas partes dos conjuntos de dados que você deseja analisar. 
+O Azure Synapse Analytics permite que você dimensione recursos de computação com facilidade e em segundos, sem excesso de provisionamento ou excesso de pagamento. Ele também oferece a opção exclusiva de fazer uma pausa nos recursos de computação, dando mais liberdade para você gerenciar melhor seus custos de nuvem. A capacidade de implantar recursos de computação escalonáveis torna possível reunir todos os seus dados no Azure Synapse Analytics. Os custos de armazenamento são mínimos e você pode executar a computação somente nas partes dos conjuntos de dados que você deseja analisar. 
 
-Para mais informações sobre o SQL Data Warehouse do Azure, confira o site [SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse). Para aprender a criar soluções de análise avançada de ponta a ponta com o SQL Data Warehouse, consulte [O Processo de Ciência de Dados de Equipe em ação: usando o SQL Data Warehouse](sqldw-walkthrough.md).
+Para obter mais informações sobre o Azure Synapse Analytics, consulte o site do [Azure Synapse Analytics](https://azure.microsoft.com/services/sql-data-warehouse) . Para saber como criar soluções de análise avançada de ponta a ponta com o Azure Synapse Analytics, consulte [o processo de ciência de dados de equipe em ação: usando a análise de Synapse do Azure](sqldw-walkthrough.md).
 
 
 ## <a name="azure-data-lake"></a>Azure Data Lake
@@ -92,16 +92,16 @@ Para obter mais informações sobre clusters do Azure HDInsight Hive, consulte [
 
 O Armazenamento de Arquivos do Azure é um serviço que oferece compartilhamentos de arquivos na nuvem usando o Protocolo SMB padrão. Há suporte ao SMB 2.1 e ao 3.0 SMB. Com o armazenamento de Arquivos do Azure, você pode migrar aplicativos herdados que dependem de compartilhamentos de arquivos para o Azure rapidamente e sem regravações caras. Os aplicativos executados em máquinas virtuais do Azure ou serviços de nuvem ou em clientes locais podem montar um compartilhamento de arquivos na nuvem, exatamente como um aplicativo de desktop monta um compartilhamento SMB típico. Qualquer quantidade de componentes de aplicativos pode montar e acessar o compartilhamento de armazenamento de arquivos simultaneamente.
 
-Especialmente útil para projetos de ciência de dados é a capacidade de criar um armazenamento de arquivo do Azure como o lugar para compartilhar dados do projeto com os membros da equipe de projeto. Cada um deles tem acesso à mesma cópia dos dados no armazenamento de arquivos do Azure. Eles também podem usar esse armazenamento de arquivo para compartilhar conjuntos de recursos gerados durante a execução do projeto. Se o projeto é uma interação de cliente, os clientes podem criar um armazenamento de arquivo do Azure em sua própria assinatura do Azure para compartilhar os dados do projeto e os recursos com você. Dessa forma, o cliente tem controle total sobre os ativos de dados do projeto. Para obter mais informações sobre o Armazenamento de Arquivos do Azure, confira [Introdução ao Armazenamento de Arquivos do Azure no Windows](https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-files) e [Como usar o Armazenamento de Arquivos do Azure com o Linux](../../storage/files/storage-how-to-use-files-linux.md).
+Especialmente útil para projetos de ciência de dados é a capacidade de criar um armazenamento de arquivo do Azure como o lugar para compartilhar dados do projeto com os membros da equipe de projeto. Cada um deles tem acesso à mesma cópia dos dados no armazenamento de arquivos do Azure. Eles também podem usar esse armazenamento de arquivo para compartilhar conjuntos de recursos gerados durante a execução do projeto. Se o projeto é uma interação de cliente, os clientes podem criar um armazenamento de arquivo do Azure em sua própria assinatura do Azure para compartilhar os dados do projeto e os recursos com você. Dessa forma, o cliente tem controle total sobre os ativos de dados do projeto. Para obter mais informações sobre o Armazenamento de Arquivos do Azure, confira [Introdução ao Armazenamento de Arquivos do Azure no Windows](../../storage/files/storage-dotnet-how-to-use-files.md) e [Como usar o Armazenamento de Arquivos do Azure com o Linux](../../storage/files/storage-how-to-use-files-linux.md).
 
 
 ## <a name="sql-server-2019-r-and-python-services"></a>SQL Server 2019 R e serviços Python
 
 Os Serviços de R (no banco de dados) fornecem uma plataforma para desenvolver e implantar aplicativos inteligentes que podem descobrir novos insights. Você pode usar a linguagem avançada e poderosa do R e os vários pacotes fornecidos pela comunidade de R para criar modelos e gerar previsões para seus dados do SQL Server. Como os Serviços de R (no banco de dados) integram a linguagem R com o SQL Server, a análise é mantida próxima aos dados, o que elimina os custos e os riscos de segurança associados à movimentação de dados.
 
-Os Serviços de R (no banco de dados) dão suporte à linguagem R de software livre com um conjunto abrangente de tecnologias e ferramentas do SQL Server. Eles oferecem capacidade de gerenciamento, segurança, confiabilidade e desempenho superiores. Você pode implantar soluções de R usando ferramentas familiares e convenientes. Os aplicativos de produção podem chamar o runtime de R e recuperar previsões e visuais usando Transact-SQL. Você também pode usar as bibliotecas de ScaleR para melhorar a escala e o desempenho de suas soluções de R. Para obter mais informações, confira [SQL Server R Services](https://docs.microsoft.com/sql/advanced-analytics/r/sql-server-r-services).
+Os Serviços de R (no banco de dados) dão suporte à linguagem R de software livre com um conjunto abrangente de tecnologias e ferramentas do SQL Server. Eles oferecem capacidade de gerenciamento, segurança, confiabilidade e desempenho superiores. Você pode implantar soluções de R usando ferramentas familiares e convenientes. Os aplicativos de produção podem chamar o runtime de R e recuperar previsões e visuais usando Transact-SQL. Você também pode usar as bibliotecas de ScaleR para melhorar a escala e o desempenho de suas soluções de R. Para obter mais informações, confira [SQL Server R Services](/sql/advanced-analytics/r/sql-server-r-services).
 
-A equipe de TDSP da Microsoft publicou duas orientações de ponta a ponta que mostram como criar soluções de ciência de dados nos Serviços de R do SQL Server 2016: uma para programadores de R e outra para desenvolvedores de SQL. Para **programadores de R**, consulte [Passo a passo de ponta a ponta de Ciência de Dados](https://docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough). Para **desenvolvedores de SQL**, consulte [Análise avançada no banco de dados para desenvolvedores de SQL (tutorial)](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers).
+A equipe de TDSP da Microsoft publicou duas orientações de ponta a ponta que mostram como criar soluções de ciência de dados nos Serviços de R do SQL Server 2016: uma para programadores de R e outra para desenvolvedores de SQL. Para **programadores de R**, consulte [Passo a passo de ponta a ponta de Ciência de Dados](/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough). Para **desenvolvedores de SQL**, consulte [Análise avançada no banco de dados para desenvolvedores de SQL (tutorial)](/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers).
 
 
 ## <a name="appendix-tools-to-set-up-data-science-projects"></a><a name="appendix"></a>Apêndice: Ferramentas para configurar projetos de ciência de dados
@@ -142,7 +142,7 @@ Se estiver usando computadores Linux (CentOS) para executar os comandos git, voc
     
    ![Clique no nome e em segurança](./media/platforms-and-tools/resources-2-user-setting.png)
 
-1. Clique em **Chaves públicas SSH**e clique em **+Adicionar**. 
+1. Clique em **Chaves públicas SSH** e clique em **+Adicionar**. 
 
    ![Clique nas chaves públicas SSH e em +Adicionar](./media/platforms-and-tools/resources-3-add-ssh.png)
 
@@ -153,4 +153,4 @@ Se estiver usando computadores Linux (CentOS) para executar os comandos git, voc
 
 Também serão fornecidos passo a passos completos que demonstram todas as etapas do processo para **cenários específicos** . Eles serão listados e vinculados a descrições em miniatura no tópico [Instruções passo a passo de exemplo](walkthroughs.md). Eles ilustram como combinar a nuvem, as ferramentas locais e os serviços em um fluxo de trabalho ou pipeline para criar um aplicativo inteligente. 
 
-Para ver exemplos da execução das etapas no Processo de ciência de dados de equipe usando o Azure Machine Learning Studio (clássico), consulte o roteiro de aprendizagem [Com o Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
+Para ver exemplos da execução das etapas no Processo de ciência de dados de equipe usando o Azure Machine Learning Studio (clássico), consulte o roteiro de aprendizagem [Com o Azure Machine Learning](./index.yml).

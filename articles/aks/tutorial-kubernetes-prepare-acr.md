@@ -3,14 +3,14 @@ title: Tutorial de Kubernetes no Azure - Criar um registro de contêiner
 description: Neste tutorial do Serviço de Kubernetes do Azure (AKS), você cria uma instância de Registro de Contêiner do Azure e carrega uma imagem de contêiner do aplicativo de exemplo.
 services: container-service
 ms.topic: tutorial
-ms.date: 12/19/2018
-ms.custom: mvc
-ms.openlocfilehash: 197e5c7bed569e67376f9c28fe0d2e050016cce8
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.date: 01/31/2021
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 9f6ec14cea20192aef7d3010201e6613c5d03a9e
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87922397"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430957"
 ---
 # <a name="tutorial-deploy-and-use-azure-container-registry"></a>Tutorial: implantar e usar o Registro de Contêiner do Azure
 
@@ -22,7 +22,7 @@ O ACR (Registro de Contêiner do Azure) é um registro particular de imagens de 
 > * Carregar a imagem para ACR
 > * Exibir imagens no seu registro
 
-Em tutoriais adicionais, essa instância do ACR será integrada a um cluster do Kubernetes no AKS e um aplicativo será implantado com base na imagem.
+Em tutoriais posteriores, essa instância do ACR será integrada a um cluster do Kubernetes no AKS e um aplicativo será implantado com base na imagem.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -60,16 +60,16 @@ O comando retorna uma mensagem de *Logon bem-sucedido* quando é concluído.
 
 Para ver uma lista das imagens locais atuais, use o comando [docker images][docker-images]:
 
-```azurecli
-$ docker images
+```console
+docker images
 ```
-A saída de comando acima mostra a lista de suas imagens locais atuais:
+A saída do comando acima mostra uma lista das imagens locais atuais:
 
-```
-REPOSITORY                   TAG                 IMAGE ID            CREATED             SIZE
-azure-vote-front             latest              4675398c9172        13 minutes ago      694MB
-redis                        latest              a1b99da73d05        7 days ago          106MB
-tiangolo/uwsgi-nginx-flask   flask               788ca94b2313        9 months ago        694MB
+```output
+REPOSITORY                                     TAG                 IMAGE ID            CREATED             SIZE
+mcr.microsoft.com/azuredocs/azure-vote-front   v1                  84b41c268ad9        7 minutes ago       944MB
+mcr.microsoft.com/oss/bitnami/redis            6.0.8               3a54a920bb6c        2 days ago          103MB
+tiangolo/uwsgi-nginx-flask                     python3.6           a16ce562e863        6 weeks ago         944MB
 ```
 
 Para usar a imagem de contêiner *azure-vote-front* com o ACR, a imagem precisa ser marcada com o endereço do servidor de logon do seu registro. Essa marca é usada para roteamento ao enviar imagens de contêiner por push a um registro da imagem.
@@ -83,23 +83,23 @@ az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginSe
 Agora, marque a imagem local *azure-vote-front* com o endereço *acrLoginServer* do registro de contêiner. Para indicar a versão da imagem, adicione *:v1* no final do nome da imagem:
 
 ```console
-docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v1
+docker tag mcr.microsoft.com/azuredocs/azure-vote-front:v1 <acrLoginServer>/azure-vote-front:v1
 ```
 
-Para verificar se as marcas foram aplicadas, execute [docker images][docker-images] novamente. 
+Para verificar se as marcas foram aplicadas, execute [docker images][docker-images] novamente.
 
-```azurecli
-$ docker images
+```console
+docker images
 ```
 
 Uma imagem é marcada com o endereço de instância do ACR e um número de versão.
 
 ```
-REPOSITORY                                           TAG           IMAGE ID            CREATED             SIZE
-azure-vote-front                                     latest        eaf2b9c57e5e        8 minutes ago       716 MB
-mycontainerregistry.azurecr.io/azure-vote-front      v1            eaf2b9c57e5e        8 minutes ago       716 MB
-redis                                                latest        a1b99da73d05        7 days ago          106MB
-tiangolo/uwsgi-nginx-flask                           flask         788ca94b2313        8 months ago        694 MB
+REPOSITORY                                      TAG                 IMAGE ID            CREATED             SIZE
+mcr.microsoft.com/azuredocs/azure-vote-front    v1                  84b41c268ad9        16 minutes ago      944MB
+mycontainerregistry.azurecr.io/azure-vote-front v1                  84b41c268ad9        16 minutes ago      944MB
+mcr.microsoft.com/oss/bitnami/redis             6.0.8               3a54a920bb6c        2 days ago          103MB
+tiangolo/uwsgi-nginx-flask                      python3.6           a16ce562e863        6 weeks ago         944MB
 ```
 
 ## <a name="push-images-to-registry"></a>Efetuar push de imagens para registro
@@ -122,7 +122,7 @@ az acr repository list --name <acrName> --output table
 
 A saída de exemplo a seguir lista a imagem *azure-vote-front* como disponível no registro:
 
-```
+```output
 Result
 ----------------
 azure-vote-front
@@ -136,7 +136,7 @@ az acr repository show-tags --name <acrName> --repository azure-vote-front --out
 
 A saída de exemplo a seguir mostra a imagem *v1* marcada em uma etapa anterior:
 
-```
+```output
 Result
 --------
 v1

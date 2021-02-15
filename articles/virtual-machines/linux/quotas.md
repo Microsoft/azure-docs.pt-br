@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 05/31/2018
 ms.author: cynthn
 ms.openlocfilehash: 028da1fa9d2b16b4d87c345d8435c99b565e1774
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88949687"
 ---
 # <a name="check-vcpu-quotas-using-the-azure-cli"></a>Verifique as cotas do vCPU usando o CLI do Azure

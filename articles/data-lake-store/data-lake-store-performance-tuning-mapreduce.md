@@ -1,17 +1,17 @@
 ---
 title: Ajuste de desempenho Azure Data Lake Storage Gen1 – MapReduce
 description: Saiba mais sobre o ajuste de desempenho para o MapReduce no Azure Data Lake Storage Gen1, incluindo parâmetros, diretrizes, um cálculo de exemplo e limitações.
-author: stewu
+author: twooley
 ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 12/19/2016
-ms.author: stewu
-ms.openlocfilehash: 03c35d0af97cf24d1683d0ff21f10a0371391616
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.author: twooley
+ms.openlocfilehash: 2549413241e422fb1e0e5e1f079c287e0b7cf005
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88190209"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97723721"
 ---
 # <a name="performance-tuning-guidance-for-mapreduce-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Orientação de ajuste de desempenho para o MapReduce no HDInsight e no Armazenamento de Data Lake do Azure Gen1
 
@@ -20,8 +20,8 @@ ms.locfileid: "88190209"
 * **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Uma conta do Azure Data Lake Storage Gen1**. Para obter instruções sobre como criar uma, consulte Introdução [ao Azure data Lake Storage Gen1](data-lake-store-get-started-portal.md)
 * **Cluster Azure HDInsight** com acesso a uma conta do Azure Data Lake Storage Gen1. Veja [Criar um cluster HDInsight com Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md). Certifique-se de habilitar a área de trabalho remota para o cluster.
-* **Usando o MapReduce no HDInsight**. Para obter mais informações, consulte [Usar o MapReduce no Hadoop no HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-use-mapreduce)
-* **Examine as diretrizes de ajuste de desempenho para data Lake Storage Gen1**. Para obter conceitos gerais de desempenho, consulte [diretrizes de ajuste de desempenho data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance)
+* **Usando o MapReduce no HDInsight**. Para obter mais informações, consulte [Usar o MapReduce no Hadoop no HDInsight](../hdinsight/hadoop/hdinsight-use-mapreduce.md)
+* **Examine as diretrizes de ajuste de desempenho para data Lake Storage Gen1**. Para obter conceitos gerais de desempenho, consulte [diretrizes de ajuste de desempenho data Lake Storage Gen1](./data-lake-store-performance-tuning-guidance.md)
 
 ## <a name="parameters"></a>Parâmetros
 
@@ -42,7 +42,7 @@ Ajuste esse número com base na quantidade de memória necessária para o mapa e
 
 Isso determina o número máximo de Mapeadores ou redutores a serem criados. O número de divisões determina quantos Mapeadores são criados para o trabalho MapReduce. Portanto, você pode obter menos Mapeadores do que o solicitado se houver menos divisões do que o número de Mapeadores solicitados.
 
-## <a name="guidance"></a>Diretrizes
+## <a name="guidance"></a>Orientação
 
 ### <a name="step-1-determine-number-of-jobs-running"></a>Etapa 1: determinar o número de trabalhos em execução
 

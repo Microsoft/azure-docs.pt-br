@@ -7,12 +7,12 @@ manager: rochakm
 ms.topic: article
 ms.date: 3/29/2019
 ms.author: sutalasi
-ms.openlocfilehash: 182b4f262361db001dcb6d47bf3e8f2aac6bc9b3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1570bd9dfa62caa749d5a3983b93c2555be058ec
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091514"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348722"
 ---
 # <a name="set-up-disaster-recovery-for-azure-virtual-machines-using-azure-powershell"></a>Configurar a recuperação de desastre para máquinas virtuais do Azure usando o Azure PowerShell
 
@@ -40,18 +40,18 @@ Você aprenderá como:
 
 Antes de começar:
 - Verifique se você entende os [componentes e a arquitetura do cenário](azure-to-azure-architecture.md).
-- Examine os [requisitos de suporte](azure-to-azure-support-matrix.md) para todos os componentes.
-- Você tem o `Az` módulo Azure PowerShell. Se precisar instalar ou atualizar o Azure PowerShell, siga este [Guia para instalar e configurar o Azure PowerShell](/powershell/azure/install-az-ps).
+- Examine os [requisitos de suporte](azure-to-azure-support-matrix.md) de todos os componentes.
+- Você precisa ter o módulo `Az` do Azure PowerShell. Se precisar instalar ou atualizar o Azure PowerShell, siga este [Guia para instalar e configurar o Azure PowerShell](/powershell/azure/install-az-ps).
 
-## <a name="sign-in-to-your-microsoft-azure-subscription"></a>Entrar em sua assinatura do Microsoft Azure
+## <a name="sign-in-to-your-microsoft-azure-subscription"></a>Entrar na assinatura do Microsoft Azure
 
-Entre em sua assinatura do Azure com o `Connect-AzAccount` cmdlet.
+Entre em sua assinatura do Azure com o cmdlet `Connect-AzAccount`.
 
 ```azurepowershell
 Connect-AzAccount
 ```
 
-Selecione sua assinatura do Azure. Use o `Get-AzSubscription` cmdlet para obter a lista de assinaturas do Azure às quais você tem acesso. Selecione a assinatura do Azure com a qual trabalhar usando o `Set-AzContext` cmdlet.
+Selecione sua assinatura do Azure. Use o cmdlet `Get-AzSubscription` para obter a lista de assinaturas do Azure a que você tem acesso. Selecione a assinatura do Azure com a qual trabalhar usando o `Set-AzContext` cmdlet.
 
 ```azurepowershell
 Set-AzContext -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -249,6 +249,15 @@ Write-Output $TempASRJob.State
 $RecoveryProtContainer = Get-AzRecoveryServicesAsrProtectionContainer -Fabric $RecoveryFabric -Name "A2AWestUSProtectionContainer"
 ```
 
+#### <a name="fabric-and-container-creation-when-enabling-zone-to-zone-replication"></a>Criação de malha e contêiner ao habilitar a replicação de zona para zona
+
+Ao habilitar a replicação de zona para zona, somente uma malha será criada. Mas haverá dois contêineres. Supondo que a região seja Europa Ocidental, use os comandos a seguir para obter os contêineres primário e de proteção-
+
+```azurepowershell
+$primaryProtectionContainer = Get-AzRecoveryServicesAsrProtectionContainer -Fabric $fabric -Name "asr-a2a-default-westeurope-container"
+$recoveryPprotectionContainer = Get-AzRecoveryServicesAsrProtectionContainer -Fabric $fabric -Name "asr-a2a-default-westeurope-t-container"
+```
+
 ### <a name="create-a-replication-policy"></a>Criar uma política de replicação
 
 ```azurepowershell
@@ -287,6 +296,14 @@ Write-Output $TempASRJob.State
 $EusToWusPCMapping = Get-AzRecoveryServicesAsrProtectionContainerMapping -ProtectionContainer $PrimaryProtContainer -Name "A2APrimaryToRecovery"
 ```
 
+#### <a name="protection-container-mapping-creation-when-enabling-zone-to-zone-replication"></a>Criação de mapeamento de contêiner de proteção ao habilitar a replicação de zona para zona
+
+Ao habilitar a replicação de zona para zona, use o comando abaixo para criar o mapeamento de contêiner de proteção. Supondo que a região seja Europa Ocidental, o comando será-
+
+```azurepowershell
+$protContainerMapping = Get-AzRecoveryServicesAsrProtectionContainerMapping -ProtectionContainer $PrimprotectionContainer -Name "westeurope-westeurope-24-hour-retention-policy-s"
+```
+
 ### <a name="create-a-protection-container-mapping-for-failback-reverse-replication-after-a-failover"></a>Criar um mapeamento de contêiner de proteção para failback (replicação inversa após um failover)
 
 Após um failover, quando você estiver pronto para trazer a máquina virtual que falhou de volta para a região original do Azure, faça um failback. Para fazer failback, a máquina virtual com failover é revertida da região com failover para a região original. Para replicação inversa das funções da região original e a opção da região de recuperação. A região original agora se torna a nova região de recuperação e o que era originalmente a região de recuperação agora se torna a região principal. O mapeamento de contêiner de proteção para replicação inversa representa as funções comutadas das regiões original e de recuperação.
@@ -316,7 +333,7 @@ Uma conta de armazenamento de cache é uma conta de armazenamento padrão na mes
 $EastUSCacheStorageAccount = New-AzStorageAccount -Name "a2acachestorage" -ResourceGroupName "A2AdemoRG" -Location 'East US' -SkuName Standard_LRS -Kind Storage
 ```
 
-Para máquinas virtuais que **não usam discos gerenciados**, a conta de armazenamento de destino é a conta de armazenamento na região de recuperação na qual os discos da máquina virtual são replicados. A conta de armazenamento de destino pode ser uma conta de armazenamento padrão ou uma conta de armazenamento premium. Selecione o tipo de conta de armazenamento necessário com base na taxa de alteração de dados (taxa de gravação de e/s) para os discos e o Azure Site Recovery limites de rotatividade com suporte para o tipo de armazenamento.
+Para máquinas virtuais que **não usam discos gerenciados** , a conta de armazenamento de destino é a conta de armazenamento na região de recuperação na qual os discos da máquina virtual são replicados. A conta de armazenamento de destino pode ser uma conta de armazenamento padrão ou uma conta de armazenamento premium. Selecione o tipo de conta de armazenamento necessário com base na taxa de alteração de dados (taxa de gravação de e/s) para os discos e o Azure Site Recovery limites de rotatividade com suporte para o tipo de armazenamento.
 
 ```azurepowershell
 #Create Target storage account in the recovery region. In this case a Standard Storage account
@@ -623,7 +640,7 @@ Após a conclusão da nova proteção, você pode realizar o failover na direç�
 Você pode desabilitar a replicação com o `Remove-AzRecoveryServicesAsrReplicationProtectedItem` cmdlet.
 
 ```azurepowershell
-Remove-AzRecoveryServicesAsrReplicationProtectedItem -ReplicationProtectedItem $ReplicatedItem
+Remove-AzRecoveryServicesAsrReplicationProtectedItem -ReplicationProtectedItem $ReplicationProtectedItem
 ```
 
 ## <a name="next-steps"></a>Próximas etapas

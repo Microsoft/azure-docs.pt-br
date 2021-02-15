@@ -7,18 +7,18 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: robinsh
-ms.openlocfilehash: 60d0ef30a1c7d948a9e837a8bc37c76ace415545
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0b8b499613f8234f449e6d72f6ed6ec1f2f21287
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82024958"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545405"
 ---
-# <a name="automatic-iot-device-and-module-management-using-the-azure-cli"></a>Gerenciamento automático de módulos e dispositivos IoT usando o CLI do Azure
+# <a name="automatic-iot-device-and-module-management-using-the-azure-cli"></a>Gerenciamento automático de módulos e dispositivos IoT usando a CLI do Azure
 
 [!INCLUDE [iot-edge-how-to-deploy-monitor-selector](../../includes/iot-hub-auto-device-config-selector.md)]
 
-O gerenciamento automático de dispositivo no Hub IoT do Azure automatiza muitas das tarefas repetitivas e complexas de gerenciamento de grande frotas de dispositivos. Com o gerenciamento automático de dispositivo, você pode direcionar um conjunto de dispositivos com base em suas propriedades, definir uma configuração desejada e permitir que o Hub IoT atualize dispositivos sempre que entrem no escopo. Essa atualização é feita usando uma _configuração automática de dispositivo_ ou _configuração automática de módulo_, que permite resumir a conclusão e a conformidade, tratar a mesclagem e os conflitos e implementar configurações em uma abordagem em fases.
+O gerenciamento automático de dispositivo no Hub IoT do Azure automatiza muitas das tarefas repetitivas e complexas de gerenciamento de grande frotas de dispositivos. Com o gerenciamento automático de dispositivo, você pode direcionar um conjunto de dispositivos com base em suas propriedades, definir uma configuração desejada e permitir que o Hub IoT atualize dispositivos sempre que entrem no escopo. Essa atualização é feita usando uma _configuração automática de dispositivo_ ou _configuração automática de módulo_ , que permite resumir a conclusão e a conformidade, tratar a mesclagem e os conflitos e implementar configurações em uma abordagem em fases.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -28,7 +28,7 @@ O gerenciamento automático de dispositivo trabalha atualizando um conjunto de d
 
 * O **conteúdo de destino** define as propriedades desejadas para serem adicionadas ou atualizadas nos dispositivos gêmeos ou módulos gêmeos de destino. O conteúdo inclui um caminho para a seção de propriedades desejadas a ser alterado.
 
-* As **métricas** definem as contagens de resumos de vários estados de configuração como **êxito**, **em andamento**, e **erro**. Métricas personalizadas são especificadas como consultas nas propriedades reportadas do gêmeo.  As métricas do sistema são métricas padrão que medem o status de atualização do gêmeo, como o número de gêmeos definidos como destino e o número de gêmeos que foram atualizados com êxito.
+* As **métricas** definem as contagens de resumos de vários estados de configuração como **êxito** , **em andamento** , e **erro** . Métricas personalizadas são especificadas como consultas nas propriedades reportadas do gêmeo.  As métricas do sistema são métricas padrão que medem o status de atualização do gêmeo, como o número de gêmeos definidos como destino e o número de gêmeos que foram atualizados com êxito.
 
 As configurações automáticas são executadas pela primeira vez logo após a configuração ser criada e, em seguida, em intervalos de cinco minutos. As consultas de métricas são executadas cada vez que a configuração automática é executada.
 
@@ -36,7 +36,7 @@ As configurações automáticas são executadas pela primeira vez logo após a c
 
 * Um [Hub IoT](../iot-hub/iot-hub-create-using-cli.md) na assinatura do Azure. 
 
-* [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) em seu ambiente. No mínimo, a versão da CLI do Azure deve ser 2.0.70 ou superior. Use `az –-version` para validar. Esta versão dá suporte aos comandos da extensão az e introduz a estrutura de comandos Knack. 
+* [CLI do Azure](/cli/azure/install-azure-cli) em seu ambiente. No mínimo, a versão da CLI do Azure deve ser 2.0.70 ou superior. Use `az –-version` para validar. Esta versão dá suporte aos comandos da extensão az e introduz a estrutura de comandos Knack. 
 
 * A [extensão de IoT para a CLI do Azure](https://github.com/Azure/azure-cli).
 
@@ -136,7 +136,7 @@ Use o comando a seguir para criar uma configuração:
 
 * --**hub-name** - Nome do Hub IoT no qual a configuração será criada. O hub deve estar na assinatura atual. Alterne para a assinatura desejada com o comando `az account set -s [subscription name]`
 
-* --**destino-condição** -Insira uma condição de destino para determinar quais dispositivos ou módulos serão direcionados a essa configuração.Para configuração automática de dispositivo, a condição é baseada nas marcas de dispositivo ou nas propriedades de dispositivo de dispositivos de entrelaçamento e deve corresponder ao formato de expressão.Por exemplo, `tags.environment='test'` ou `properties.desired.devicemodel='4000x'`.Para a configuração automática de módulo, a condição é baseada nas marcas de módulo ou propriedades de módulo de entrelaçamento. Por exemplo, `from devices.modules where tags.environment='test'` ou `from devices.modules where properties.reported.chillerProperties.model='4000x'`.
+* --**destino-condição** -Insira uma condição de destino para determinar quais dispositivos ou módulos serão direcionados a essa configuração. Para configuração automática de dispositivo, a condição é baseada nas marcas de dispositivo ou nas propriedades de dispositivo de dispositivos de entrelaçamento e deve corresponder ao formato de expressão. Por exemplo, `tags.environment='test'` ou `properties.desired.devicemodel='4000x'`. Para a configuração automática de módulo, a condição é baseada nas marcas de módulo ou propriedades de módulo de entrelaçamento. Por exemplo, `from devices.modules where tags.environment='test'` ou `from devices.modules where properties.reported.chillerProperties.model='4000x'`.
 
 * --**Priority** -um inteiro positivo. Caso duas ou mais configurações sejam destinadas ao mesmo dispositivo ou módulo, a configuração com o maior valor numérico para prioridade será aplicada.
 
@@ -155,7 +155,7 @@ az iot hub configuration show --config-id [configuration id] \
 
 * --**hub-name** - Nome do Hub IoT no qual a configuração existe. O hub deve estar na assinatura atual. Alterne para a assinatura desejada com o comando `az account set -s [subscription name]`
 
-Inspecione a configuração na janela de comando. A propriedade **Metrics** lista uma contagem para cada métrica avaliada por cada hub:
+Inspecione a configuração na janela de comando.  A propriedade **Metrics** lista uma contagem para cada métrica avaliada por cada hub:
 
 * **targetedCount** -uma métrica do sistema que especifica o número de dispositivos gêmeos ou do módulo gêmeos no Hub IOT que correspondem à condição de destino.
 
@@ -229,14 +229,13 @@ az iot hub configuration delete --config-id [configuration id] \
 Neste artigo, você aprendeu a configurar e monitorar dispositivos IoT em escala. Para saber mais sobre o gerenciamento do Hub IoT do Azure, siga estes links:
 
 * [Gerencie suas identidades de dispositivo do Hub IoT em massa](iot-hub-bulk-identity-mgmt.md)
-* [Métricas do IoT Hub](iot-hub-metrics.md)
-* [Monitoramento de operações](iot-hub-operations-monitoring.md)
+* [Monitorar o Hub IoT](monitor-iot-hub.md)
 
 Para explorar melhor as funcionalidades do Hub IoT, consulte:
 
 * [Guia do desenvolvedor do Hub IoT](iot-hub-devguide.md)
-* [Implantando o AI em dispositivos de borda com o Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Implantando o AI em dispositivos de borda com o Azure IoT Edge](../iot-edge/quickstart-linux.md)
 
 Para explorar usando o Serviço de Provisionamento de Dispositivos do Hub IoT para habilitar o provisionamento sem toque e Just-In-Time, consulte: 
 
-* [Serviço de Provisionamento de Dispositivos no Hub IoT do Azure](/azure/iot-dps)
+* [Serviço de Provisionamento de Dispositivos no Hub IoT do Azure](../iot-dps/index.yml)

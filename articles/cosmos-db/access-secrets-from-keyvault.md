@@ -4,19 +4,19 @@ description: Use o Azure Key Vault para armazenar e acessar a cadeia de conexão
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: how-to
 ms.date: 05/23/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 50a9d5e3d3bbb608160ee160c5f1aede8f70e530
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a9bea0664f99a21ac734de666c802e9875ff00b5
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85262660"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359312"
 ---
 # <a name="secure-azure-cosmos-keys-using-azure-key-vault"></a>Proteger chaves do Azure Cosmos usando o Azure Key Vault 
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 >[!IMPORTANT]
 > A solução recomendada para acessar Azure Cosmos DB chaves é usar uma [identidade gerenciada atribuída pelo sistema](managed-identity-based-authentication.md). Se o serviço não puder tirar proveito das identidades gerenciadas, use a [solução baseada em certificado](certificate-based-authentication.md). Se a solução de identidade gerenciada e a solução baseada em certificado não atenderem às suas necessidades, use a solução Key Vault abaixo.
@@ -49,7 +49,7 @@ As etapas a seguir são necessárias para armazenar e ler as chaves de acesso do
 
    * Selecione **manual** para **Opções de upload**.
    * Forneça um **Nome** para seu segredo
-   * Insira a cadeia de conexão da sua conta do Cosmos DB no campo **Valor**. E, em seguida, selecione **Criar**.
+   * Insira a cadeia de conexão da sua conta do Cosmos DB no campo **Valor**. Em seguida, selecione **Criar**.
 
    :::image type="content" source="./media/access-secrets-from-keyvault/create-a-secret.png" alt-text="Criar um segredo":::
 
@@ -59,7 +59,7 @@ As etapas a seguir são necessárias para armazenar e ler as chaves de acesso do
 
 ## <a name="create-an-azure-web-application"></a>Criar um aplicativo Web do Azure
 
-1. Crie um aplicativo Web do Azure ou baixe o aplicativo do [Repositório do GitHub](https://github.com/Azure/azure-cosmosdb-dotnet/tree/master/Demo/keyvaultdemo). Trata-se de um aplicativo MVC simples.  
+1. Crie um aplicativo Web do Azure ou baixe o aplicativo do [Repositório do GitHub](https://github.com/Azure/azure-cosmos-dotnet-v2/tree/master/Demo/keyvaultdemo). Trata-se de um aplicativo MVC simples.  
 
 2. Descompacte o aplicativo baixado e abra o arquivo **HomeController.cs**. Atualize a ID do segredo na linha a seguir:
 
@@ -94,5 +94,5 @@ Da mesma forma, você pode adicionar um usuário para acessar o Key Vault. Você
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para configurar um firewall para Azure Cosmos DB consulte o artigo de [suporte do firewall](firewall-support.md) .
-* Para configurar o ponto de extremidade de serviço de rede virtual, confira o artigo [Proteger o acesso usando o ponto de extremidade de serviço da VNET](vnet-service-endpoint.md).
+* Para configurar um firewall para Azure Cosmos DB consulte o artigo de [suporte do firewall](how-to-configure-firewall.md) .
+* Para configurar o ponto de extremidade de serviço de rede virtual, confira o artigo [Proteger o acesso usando o ponto de extremidade de serviço da VNET](how-to-configure-vnet-service-endpoint.md).

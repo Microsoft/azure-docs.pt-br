@@ -4,12 +4,12 @@ description: Fornece um resumo das configurações de suporte e limitações ao 
 ms.topic: conceptual
 ms.date: 03/05/2020
 ms.custom: references_regions
-ms.openlocfilehash: 41511abaa071bd0f64ee699c52486b71ec036a68
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 78436981c515b95ccda763d8ac916738b4364953
+ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926443"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97734786"
 ---
 # <a name="support-matrix-for-sql-server-backup-in-azure-vms"></a>Matriz de suporte para backup SQL Server em VMs do Azure
 
@@ -22,12 +22,12 @@ Você pode usar o backup do Azure para fazer backup de bancos de dados SQL Serve
 **Implantações com suporte** | Há suporte para VMs do Azure no Marketplace do SQL e VMs que não são do Marketplace (do SQL Server instaladas manualmente).
 **Regiões com suporte** | ASE (Sudeste da Austrália), AE (Leste da Austrália), Leste da Austrália, AC (Austrália Central), AC (Austrália Central 2) <br> Sul do Brasil (BRS)<br> Canadá Central (CNC), Leste do Canadá (CE)<br> Sudeste da Ásia (SEA), Leste da Ásia (EA) <br> Leste dos EUA (EUS), Leste dos EUA 2 (EUS2), Centro-Oeste dos EUA (WCUS), Oeste dos EUA (WUS); Oeste dos EUA 2 (WUS 2) Centro-Norte dos EUA (NCUS) EUA Central (CUS) Centro-Sul dos EUA (SCUS) <br> INC (Índia Central), INS (Sul da Índia), Oeste da Índia <br> Oeste do Japão (JPE), Leste do Japão (JPW) <br> Coreia Central (KRC), Sul da Coreia (KRS) <br> Norte da Europa (NE), Oeste da Europa <br> Sul do Reino Unido (UKS), Oeste do Reino Unido (UKW) <br> US Gov – Arizona, US Gov – Virgínia, US Gov – Texas, Região Central do US DoD, Leste do US DoD <br> Norte da Alemanha, Centro-oeste da Alemanha <br> Norte da Suíça, Oeste da Suíça <br> França Central <br> Leste da China, Leste da China 2, Norte da China, Norte da China 2
 **Sistemas operacionais com suporte** | Windows Server 2019, Windows Server 2016, Windows Server 2012, Windows Server 2008 R2 SP1 <br/><br/> Não há suporte para Linux no momento.
-**Versões do SQL Server com suporte** | SQL Server 2019, SQL Server 2017, conforme detalhado na [página Pesquisar ciclo de vida de produto](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202017), SQL Server 2016 e SPs conforme detalhado na [página Pesquisar ciclo de vida do produto](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202016%20service%20pack), SQL Server 2014, SQL Server 2012, SQL Server 2008 R2, SQL Server 2008 <br/><br/> Enterprise, Standard, Web, Developer e Express.
+**Versões do SQL Server com suporte** | SQL Server 2019, SQL Server 2017, conforme detalhado na [página Pesquisar ciclo de vida de produto](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202017), SQL Server 2016 e SPs conforme detalhado na [página Pesquisar ciclo de vida do produto](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202016%20service%20pack), SQL Server 2014, SQL Server 2012, SQL Server 2008 R2, SQL Server 2008 <br/><br/> Enterprise, Standard, Web, Developer e Express.<br><br>Não há suporte para versões expressas do BD local.
 **Versões do .NET com suporte** | .NET Framework 4.5.2 ou posterior instalado na VM
 
 ## <a name="feature-considerations-and-limitations"></a>Considerações e limitações de recursos
 
-|Setting  |Limite máximo |
+|Configuração  |Limite máximo |
 |---------|---------|
 |Número de bancos de dados que podem ser protegidos em um servidor (e em um cofre)    |   2000      |
 |Tamanho do banco de dados com suporte (Além disso, problemas de desempenho podem surgir)   |   2 TB      |
@@ -39,9 +39,9 @@ Você pode usar o backup do Azure para fazer backup de bancos de dados SQL Serve
 * O Backup do SQL Server pode ser configurado no portal do Azure ou **PowerShell**. Não há suporte para a CLI.
 * A solução é compatível em ambos os tipos de [implantações](../azure-resource-manager/management/deployment-models.md) – VMs do Azure Resource Manager e VMs clássicas.
 * Há suporte para todos os tipos de backup (completo/diferencial/log) e modelos de recuperação (simples/completo/bulk-logged).
-* Os tipos de backup completo e somente cópia são compatíveis com bancos de dados **somente leitura** .
+* Para bancos de dados **somente leitura** : backups completos e somente cópia são os únicos tipos de backup com suporte.
 * A compactação nativa do SQL tem suporte se habilitada explicitamente pelo usuário na política de backup. O backup do Azure substitui os padrões em nível de instância pela cláusula COMPRESSION/NO_COMPRESSION, dependendo do valor desse controle, conforme definido pelo usuário.
-* Há suporte para backup de banco de dados habilitado para TDE. Para restaurar um banco de dados criptografado com TDE para outro SQL Server, primeiro você precisa [restaurar o certificado para o servidor de destino](https://docs.microsoft.com/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server). A compactação de backup para bancos de dados habilitados para TDE para o SQL Server 2016 e versões mais recentes está disponível, mas com tamanho de transferência mais baixo, conforme explicado [aqui](https://techcommunity.microsoft.com/t5/sql-server/backup-compression-for-tde-enabled-databases-important-fixes-in/ba-p/385593).
+* Há suporte para backup de banco de dados habilitado para TDE. Para restaurar um banco de dados criptografado com TDE para outro SQL Server, primeiro você precisa [restaurar o certificado para o servidor de destino](/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server). A compactação de backup para bancos de dados habilitados para TDE para o SQL Server 2016 e versões mais recentes está disponível, mas com tamanho de transferência mais baixo, conforme explicado [aqui](https://techcommunity.microsoft.com/t5/sql-server/backup-compression-for-tde-enabled-databases-important-fixes-in/ba-p/385593).
 * Não há suporte para operações de backup e restauração para bancos de dados de espelho e instantâneos do banco de dados.
 * Não há suporte para SQL Server **FCI (instância de cluster de failover)** .
 * Usar mais de uma solução de backup para fazer backup da instância SQL Server autônoma ou do grupo de disponibilidade AlwaysOn do SQL pode levar a uma falha de backup. Evite fazer isso. Fazer backup de dois nós de um grupo de disponibilidade individualmente com soluções iguais ou diferentes, também poderá levar à falha de backup.
@@ -64,7 +64,7 @@ Dependendo da preferência de backup e os tipos de backups (completo/diferencial
 --- | ---
 Completo | Primário
 Diferencial | Primário
-Log |  Primário
+Registro |  Primário
 Completo somente de cópia |  Primário
 
 #### <a name="backup-preference-secondary-only"></a>Preferência de backup: somente secundário
@@ -73,7 +73,7 @@ Completo somente de cópia |  Primário
 --- | ---
 Completo | Primário
 Diferencial | Primário
-Log |  Secundário
+Registro |  Secundário
 Completo somente de cópia |  Secundário
 
 #### <a name="backup-preference-secondary"></a>Preferência de backup: secundária
@@ -82,7 +82,7 @@ Completo somente de cópia |  Secundário
 --- | ---
 Completo | Primário
 Diferencial | Primário
-Log |  Secundário
+Registro |  Secundário
 Completo somente de cópia |  Secundário
 
 #### <a name="no-backup-preference"></a>Nenhuma preferência de Backup
@@ -91,7 +91,7 @@ Completo somente de cópia |  Secundário
 --- | ---
 Completo | Primário
 Diferencial | Primário
-Log |  Secundário
+Registro |  Secundário
 Completo somente de cópia |  Secundário
 
 ## <a name="next-steps"></a>Próximas etapas

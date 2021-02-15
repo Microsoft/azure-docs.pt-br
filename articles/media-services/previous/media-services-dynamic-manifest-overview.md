@@ -14,14 +14,16 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: d86cca609f0a494bb012d3393facc14ec23dbbe2
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 2d83b114487f882b7ee38d3d71c84b6abec04a2b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86054688"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89266911"
 ---
 # <a name="filters-and-dynamic-manifests"></a>Filtros e manifestos dinâmicos
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!div class="op_single_selector" title1="Selecione a versão dos serviços de mídia que você está usando:"]
 > * [Versão 2](media-services-dynamic-manifest-overview.md)
@@ -100,7 +102,7 @@ Para obter mais informações sobre como fornecer seu conteúdo e criar URLs de 
 > 
 > 
 
-### <a name="filters"></a><a id="filters"></a>Filtros
+### <a name="filters"></a><a id="filters"></a>Filter
 Há dois tipos de filtros de ativo: 
 
 * Filtros globais (podem ser aplicados a qualquer ativo na conta de Serviços de Mídia do Azure, têm a vida útil da conta) e 

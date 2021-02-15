@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: bdf69a9ff7b3260b47042f296a47826e3c52387b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 71b018da6b54ebf2b45a261378ea521a397159e5
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81460640"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94964976"
 ---
 # <a name="storsimple-virtual-array-best-practices"></a>Práticas recomendadas do StorSimple Virtual Array
 
@@ -119,7 +119,7 @@ Se a matriz virtual estiver associada a um domínio, os GPOs poderão ser aplica
 Portanto, recomendamos que você:
 
 * Certifique-se de que a matriz virtual esteja em sua própria OU (unidade organizacional) do Active Directory.
-* Certifique-se de que nenhum GPO (objeto de política de grupo) seja aplicado à matriz virtual. Você pode bloquear a herança para garantir que a matriz virtual (nó filho) não herde automaticamente qualquer GPO do pai. Para saber mais, acesse [bloquear herança](https://technet.microsoft.com/library/cc731076.aspx).
+* Certifique-se de que nenhum GPO (objeto de política de grupo) seja aplicado à matriz virtual. Você pode bloquear a herança para garantir que a matriz virtual (nó filho) não herde automaticamente qualquer GPO do pai. Para saber mais, acesse [bloquear herança](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731076(v=ws.11)).
 
 ### <a name="networking"></a>Rede
 A configuração de rede para sua matriz virtual é feita por meio da interface do usuário da Web local. Uma interface de rede virtual é habilitada por meio do hipervisor em que a matriz virtual é provisionada. Use a página [Configurações de Rede](storsimple-virtual-array-deploy3-fs-setup.md) para configurar o endereço IP da interface de rede virtual, a sub-rede e o gateway.  Você também pode configurar o servidor DNS primário e secundário, as configurações de hora e as configurações de proxy opcionais para o seu dispositivo. A maior parte da configuração de rede é uma configuração única. Examine os [requisitos de rede do StorSimple](storsimple-ova-system-requirements.md#networking-requirements) antes de implantar a matriz virtual.
@@ -287,6 +287,5 @@ Talvez seja necessário implantar várias matrizes virtuais para responder por u
 * Se você estiver implantando várias matrizes, recomendamos que, da perspectiva do balanceamento de carga, distribua a matriz por vários hosts de hipervisor diferentes.
 * Várias matrizes virtuais (quando configuradas como um servidor de arquivos ou como um servidor iSCSI) podem ser implantadas em um Namespace de Sistema de Arquivos Distribuído . Para ver as etapas detalhadas, acesse [Distributed File System Namespace Solution with Hybrid Cloud Storage Deployment Guide (Guia de solução de namespace de sistema de arquivos distribuído com armazenamento em nuvem híbrida)](https://www.microsoft.com/download/details.aspx?id=45507). Atualmente, a replicação DFS não é recomendada para uso com a matriz virtual. 
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 Saiba como [administrar o StorSimple Virtual Array](storsimple-virtual-array-manager-service-administration.md) por meio do serviço StorSimple Manager.
-

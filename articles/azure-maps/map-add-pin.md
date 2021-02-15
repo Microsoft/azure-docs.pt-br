@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: d705a43da2b2db37c6601f5865ad6e569688b2a7
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.custom: codepen, devx-track-js
+ms.openlocfilehash: c5434406af1f912c1c89123baa344dd3f9c7ff91
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88010184"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92891047"
 ---
 # <a name="add-a-symbol-layer-to-a-map"></a>Adicionar uma camada de símbolo a um mapa
 
@@ -59,13 +59,13 @@ Há quatro tipos diferentes de dados de ponto que podem ser adicionados ao mapa:
 - Geometria de ponto geojson-esse objeto contém apenas uma coordenada de um ponto e nada mais. A `atlas.data.Point` classe auxiliar pode ser usada para criar esses objetos com facilidade.
 - Geojson MultiPoint Geometry-este objeto contém as coordenadas de vários pontos e nada mais. A `atlas.data.MultiPoint` classe auxiliar pode ser usada para criar esses objetos com facilidade.
 - Recurso geojson – esse objeto consiste em qualquer geometria geojson e um conjunto de propriedades que contêm metadados associados à geometria. A `atlas.data.Feature` classe auxiliar pode ser usada para criar esses objetos com facilidade.
-- `atlas.Shape`a classe é semelhante ao recurso geojson. Ambos consistem em uma geometria geojson e um conjunto de propriedades que contêm metadados associados à geometria. Se um objeto geojson for adicionado a uma fonte de dados, ele poderá ser facilmente renderizado em uma camada. No entanto, se a propriedade coordenadas desse objeto geojson for atualizada, a fonte de dados e o mapa não serão alterados. Isso porque não há nenhum mecanismo no objeto JSON para disparar uma atualização. A classe Shape fornece funções para atualizar os dados que ela contém. Quando uma alteração é feita, a fonte de dados e o mapa são automaticamente notificados e atualizados. 
+- `atlas.Shape` a classe é semelhante ao recurso geojson. Ambos consistem em uma geometria geojson e um conjunto de propriedades que contêm metadados associados à geometria. Se um objeto geojson for adicionado a uma fonte de dados, ele poderá ser facilmente renderizado em uma camada. No entanto, se a propriedade coordenadas desse objeto geojson for atualizada, a fonte de dados e o mapa não serão alterados. Isso porque não há nenhum mecanismo no objeto JSON para disparar uma atualização. A classe Shape fornece funções para atualizar os dados que ela contém. Quando uma alteração é feita, a fonte de dados e o mapa são automaticamente notificados e atualizados. 
 
 O exemplo de código a seguir cria uma geometria de ponto geojson e a passa para a `atlas.Shape` classe para facilitar a atualização. O centro do mapa é usado inicialmente para renderizar um símbolo. Um evento de clique é adicionado ao mapa de tal forma que, quando ele é acionado, as coordenadas do mouse são usadas com a função Shapes `setCoordinates` . As coordenadas do mouse são registradas no momento do evento de clique. Em seguida, o `setCoordinates` atualiza o local do símbolo no mapa.
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Mudar localização de fixação' src='//codepen.io/azuremaps/embed/ZqJjRP/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Confira a Caneta <a href='https://codepen.io/azuremaps/pen/ZqJjRP/'>Mudar localização de fixação</a> por Azure Mapas (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) em <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Mudar localização de fixação' src='//codepen.io/azuremaps/embed/ZqJjRP/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Confira a Caneta <a href='https://codepen.io/azuremaps/pen/ZqJjRP/'>Mudar localização de fixação</a> por Azure Mapas (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 > [!TIP]
@@ -77,7 +77,7 @@ As camadas de símbolo são renderizadas usando o WebGL. Assim, todos os recurso
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Ícone de Imagem de Símbolo Personalizado' src='//codepen.io/azuremaps/embed/WYWRWZ/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Confira a Caneta <a href='https://codepen.io/azuremaps/pen/WYWRWZ/'>Ícone de Imagem do Símbolo Personalizado</a> do Azure Mapas (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) em <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Ícone de Imagem de Símbolo Personalizado' src='//codepen.io/azuremaps/embed/WYWRWZ/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Confira a Caneta <a href='https://codepen.io/azuremaps/pen/WYWRWZ/'>Ícone de Imagem do Símbolo Personalizado</a> do Azure Mapas (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 > [!TIP]
@@ -89,7 +89,7 @@ A camada de símbolo tem muitas opções de estilo disponíveis. Veja a seguir u
 
 <br/>
 
-<iframe height='700' scrolling='no' title='Opções da camada de símbolo' src='//codepen.io/azuremaps/embed/PxVXje/?height=700&theme-id=0&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Confira a Caneta <a href='https://codepen.io/azuremaps/pen/PxVXje/'>Opções de Camada de Símbolo</a> do Azure Mapas (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) em <a href='https://codepen.io'>CodePen</a>.
+<iframe height='700' scrolling='no' title='Opções da camada de símbolo' src='//codepen.io/azuremaps/embed/PxVXje/?height=700&theme-id=0&default-tab=result' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Confira a Caneta <a href='https://codepen.io/azuremaps/pen/PxVXje/'>Opções de Camada de Símbolo</a> do Azure Mapas (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 > [!TIP]
@@ -100,16 +100,16 @@ A camada de símbolo tem muitas opções de estilo disponíveis. Veja a seguir u
 Saiba mais sobre as classes e métodos usados neste artigo:
 
 > [!div class="nextstepaction"]
-> [SymbolLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest)
+> [SymbolLayer](/javascript/api/azure-maps-control/atlas.layer.symbollayer)
 
 > [!div class="nextstepaction"]
-> [SymbolLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.symbollayeroptions?view=azure-iot-typescript-latest)
+> [SymbolLayerOptions](/javascript/api/azure-maps-control/atlas.symbollayeroptions)
 
 > [!div class="nextstepaction"]
-> [IconOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.iconoptions?view=azure-iot-typescript-latest)
+> [IconOptions](/javascript/api/azure-maps-control/atlas.iconoptions)
 
 > [!div class="nextstepaction"]
-> [TextOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.textoptions?view=azure-iot-typescript-latest)
+> [TextOptions](/javascript/api/azure-maps-control/atlas.textoptions)
 
 Consulte os artigos a seguir para obter mais exemplos de código para adicionar aos seus mapas:
 

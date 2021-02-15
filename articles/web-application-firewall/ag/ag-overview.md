@@ -1,30 +1,27 @@
 ---
-title: Introdução ao Firewall do Aplicativo Web do Azure
+title: O que é o Firewall do aplicativo Web do Azure no Gateway de Aplicativo do Azure?
 titleSuffix: Azure Web Application Firewall
 description: Este artigo fornece uma visão geral do WAF (Firewall do Aplicativo Web) no Gateway de Aplicativo
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 11/14/2019
+ms.date: 12/04/2020
 ms.author: victorh
-ms.topic: overview
-ms.openlocfilehash: d7eaff980b50cc463efc09e49febd4a947a7543c
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.topic: conceptual
+ms.openlocfilehash: 2de8a47b841a4a5c82aaeb92419ec3d9714268ea
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86142857"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879420"
 ---
-# <a name="azure-web-application-firewall-on-azure-application-gateway"></a>Firewall do aplicativo Web Azure no Gateway de Aplicativo do Azure
+# <a name="what-is-azure-web-application-firewall-on-azure-application-gateway"></a>O que é o Firewall do aplicativo Web do Azure no Gateway de Aplicativo do Azure?
 
 O Firewall do aplicativo Web (WAF) no Gateway de Aplicativo Azure fornece proteção centralizada de seus aplicativos Web contra vulnerabilidades e explorações comuns. Os aplicativos Web cada vez mais são alvos de ataques mal-intencionados que exploram vulnerabilidades conhecidas comuns. A injeção de SQL e o script entre sites estão entre os ataques mais comuns.
 
 O WAF no Gateway de Aplicativo é baseado [Conjunto de Regras Principais](https://owasp.org/www-project-modsecurity-core-rule-set/) 3.1, 3.0 ou 2.2.9 do OWASP (Open Web Application Security Project). O WAF é atualizado automaticamente para incluir proteção contra novas vulnerabilidades, sem necessidade de configuração adicional. 
 
 Todos os recursos de WAF listados abaixo existem dentro de uma política de WAF. Você poderá criar várias políticas e elas poderão ser associadas a um Gateway de Aplicativo, a ouvintes individuais ou a regras de roteamento baseadas em caminhos em um Gateway de Aplicativo. Dessa forma, você pode ter políticas separadas para cada site por trás do seu Gateway de Aplicativo, se necessário. Para obter mais informações sobre políticas de WAF, consulte [Criar uma política de WAF](create-waf-policy-ag.md).
-
-   > [!NOTE]
-   > As políticas de WAF por URI estão em versão prévia pública. Isso significa que esse recurso está sujeito aos Termos de Uso Suplementares da Microsoft. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ![Diagrama do WAF do Gateway de Aplicativo](../media/ag-overview/waf1.png)
 
@@ -74,10 +71,23 @@ Esta seção descreve os principais benefícios oferecidos pelo WAF no Gateway d
 - Crie regras personalizadas para atender às necessidades específicas dos seus aplicativos.
 - Filtre o tráfego pela geografia para permitir ou impedir que determinados países/regiões tenham acesso a seus aplicativos. (versão prévia)
 - Proteja seus aplicativos de bots com o conjunto de regras de mitigação de bots. (versão prévia)
+- Inspecionar JSON e XML no corpo da solicitação
 
-## <a name="waf-policy"></a>Política do WAF
+## <a name="waf-policy-and-rules"></a>Política e regras do WAF
 
-Para habilitar um firewall do aplicativo Web em um Gateway de Aplicativo, você deve criar uma política de WAF. Essa política é onde existem todas as regras gerenciadas, regras personalizadas, exclusões e outras personalizações, como o limite de carregamento de arquivos. 
+Para habilitar um Firewall de Aplicativo Web em um Gateway de Aplicativo, crie uma política de WAF. Essa política é o local em que se encontram todas as regras gerenciadas, as regras personalizadas, as exclusões e outras personalizações, como o limite de upload de arquivos.
+
+Você pode configurar uma política de WAF e associá-la a um ou mais gateways de aplicativo para proteção. Uma política do WAF consiste em dois tipos de regras de segurança:
+
+- Regras personalizadas criadas por você
+
+- Conjuntos de regras gerenciados que são uma coleção do conjunto de regras pré-configurado gerenciado pelo Azure
+
+Quando ambas estiverem presentes, as regras personalizadas serão processadas antes das regras em um conjunto de regras gerenciado. Uma regra é composta por uma condição de correspondência, uma prioridade e uma ação. Os tipos de ação com suporte são: ALLOW, BLOCK e LOG. Você pode criar uma política totalmente personalizada que atenda aos seus requisitos de proteção de aplicativo específicos combinando regras gerenciadas e personalizadas.
+
+As regras em uma política são processadas em uma ordem de prioridade. A prioridade é um inteiro exclusivo que define a ordem de regras a serem processadas. Um valor inteiro menor denota uma prioridade maior. Essas regras são avaliadas antes daquelas com um valor inteiro mais alto. Quando há correspondência de uma regra, a ação relevante definida na regra é aplicada à solicitação. Depois de essa correspondência ser processada, as regras com prioridades menores não serão mais processadas.
+
+Um aplicativo Web entregue pelo Gateway de Aplicativo pode ter uma política de WAF associada no nível global, em um nível por site ou em um nível por URI.
 
 ### <a name="core-rule-sets"></a>Conjuntos de regras principais
 
@@ -133,7 +143,7 @@ No modo de Pontuação de anomalias, o tráfego que corresponde a qualquer regra
 Há um limite de 5 para a pontuação de anomalias bloquear o tráfego. Portanto, uma única correspondência de regra *Crítica* é suficiente para que o WAF do Gateway de Aplicativo bloqueie uma solicitação, mesmo no modo de Prevenção. Mas uma correspondência de regra de *Aviso* aumenta apenas a pontuação de anomalias em 3, o que não é suficiente para bloquear o tráfego.
 
 > [!NOTE]
-> A mensagem registrada quando uma regra WAF corresponde ao tráfego inclui o valor de ação "Bloqueado". Mas o tráfego é, na verdade, bloqueado apenas para uma pontuação de anomalias de 5 ou mais.  
+> A mensagem registrada quando uma regra WAF corresponde ao tráfego inclui o valor de ação "Bloqueado". Mas o tráfego é, na verdade, bloqueado apenas para uma pontuação de anomalias de 5 ou mais. Para obter mais informações, confira [Solucionar problemas de WAF (Firewall de Aplicativo Web) no Gateway de Aplicativo do Azure](web-application-firewall-troubleshoot.md#understanding-waf-logs). 
 
 ### <a name="waf-monitoring"></a>Monitoramento de WAF
 
@@ -147,7 +157,7 @@ Os logs do Gateway de Aplicativo são integrados ao [Azure Monitor](../../azure-
 
 #### <a name="azure-security-center"></a>Central de Segurança do Azure
 
-A [Central de Segurança](../../security-center/security-center-intro.md) ajuda você a evitar, detectar e responder a ameaças. Ela proporciona a você maior visibilidade e controle da segurança de seus recursos do Azure. O Gateway de Aplicativo é [integrado à Central de Segurança](../../application-gateway/application-gateway-integration-security-center.md). A Central de Segurança verifica seu ambiente para detectar aplicativos Web desprotegidos. Ela pode recomendar o WAF de Gateway de Aplicativo para proteger esses recursos vulneráveis. Você cria os firewalls diretamente na Central de Segurança. Essas instâncias do WAF estão integradas à Central de Segurança. Elas enviam informações de alertas e de integridade para a Central de Segurança com a finalidade de geração de relatórios.
+A [Central de Segurança](../../security-center/security-center-introduction.md) ajuda você a evitar, detectar e responder a ameaças. Ela proporciona a você maior visibilidade e controle da segurança de seus recursos do Azure. O Gateway de Aplicativo é [integrado à Central de Segurança](../../security-center/security-center-partner-integration.md#integrated-azure-security-solutions). A Central de Segurança verifica seu ambiente para detectar aplicativos Web desprotegidos. Ela pode recomendar o WAF de Gateway de Aplicativo para proteger esses recursos vulneráveis. Você cria os firewalls diretamente na Central de Segurança. Essas instâncias do WAF estão integradas à Central de Segurança. Elas enviam informações de alertas e de integridade para a Central de Segurança com a finalidade de geração de relatórios.
 
 ![Janela de Visão geral da Central de Segurança](../media/ag-overview/figure1.png)
 
@@ -158,7 +168,12 @@ O Microsoft Azure Sentinel é uma solução escalonável e nativa da nuvem que o
 Com a pasta de trabalho interna de eventos de firewall WAF do Azure, você poderá obter uma visão geral dos eventos de segurança em seu WAF. Isso inclui eventos, regras de correspondentes e bloqueadas e todo o resto que é registrado nos logs do firewall. Confira mais sobre o registro em log abaixo. 
 
 
-![Sentinel](../media/ag-overview/sentinel.png)
+![Pasta de trabalho de eventos de firewall do WAF do Azure](../media/ag-overview/sentinel.png)
+
+
+#### <a name="azure-monitor-workbook-for-waf"></a>Pasta de trabalho do Azure Monitor para o WAF
+
+Esta pasta de trabalho permite a visualização personalizada de eventos do WAF relevantes para a segurança em vários painéis filtráveis. Ela funciona com todos os tipos de WAF, incluindo o Gateway de Aplicativo, o Front Door e a CDN, podendo ser filtrada com base no tipo de WAF ou em uma instância de WAF específica. Faça a importação por meio de um modelo do ARM ou um modelo da Galeria. Para implantar essa pasta de trabalho, confira [Pasta de trabalho do WAF](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20WAF/Azure%20Monitor%20Workbook).
 
 #### <a name="logging"></a>Registro em log
 
@@ -206,10 +221,12 @@ O WAF do Gateway de Aplicativo fornece relatórios detalhados sobre cada ameaça
 
 Os modelos de preços são diferentes para as SKUs de WAF_v1 e WAF_v2. Consulte a página de [preços do Gateway de Aplicativo](https://azure.microsoft.com/pricing/details/application-gateway/) para saber mais. 
 
+## <a name="whats-new"></a>Novidades
+
+Para conhecer as novidades do Firewall do aplicativo Web do Azure, confira [Atualizações do Azure](https://azure.microsoft.com/updates/?category=networking&query=Web%20Application%20Firewall).
+
 ## <a name="next-steps"></a>Próximas etapas
 
-- Comece [criando uma política de WAF](create-waf-policy-ag.md)
 - Saiba mais sobre as [Regras gerenciadas de WAF](application-gateway-crs-rulegroups-rules.md)
 - Saiba mais sobre as [Regras personalizadas](custom-waf-rules-overview.md)
 - Saiba mais sobre o [Firewall do Aplicativo Web no Azure Front Door](../afds/afds-overview.md)
-

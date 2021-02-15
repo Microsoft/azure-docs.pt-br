@@ -1,34 +1,33 @@
 ---
 title: Backup e restauração-CLI do Azure-banco de dados do Azure para MariaDB
 description: Aprenda a fazer backup e restaurar um servidor no Banco de Dados do Azure para MariaDB usando a CLI do Azure.
-author: ajlam
-ms.author: andrela
-ms.service: mariadb
+author: savjani
+ms.author: pariks
+ms.service: jroth
 ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 3/27/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 5073cd33d9dada666324e92f3418b2548d9af374
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: ceda6c99493818042aa281ab545465e91493a80e
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502555"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664827"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mariadb-using-the-azure-cli"></a>Como fazer backup e restaurar um servidor no Banco de Dados do Azure para MariaDB usando a CLI do Azure
 
 O backup dos servidores do Banco de Dados do Azure para MariaDB é realizado periodicamente para habilitar recursos de restauração. Com esse recurso de backup automático, você pode restaurar o servidor e todos os seus bancos de dados para um ponto anterior em um novo servidor.
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este guia de instruções, você precisa:
+- Você precisa de um [banco de dados do Azure para o servidor MariaDB e o banco de dados](quickstart-create-mariadb-server-database-using-azure-cli.md).
 
-- Um [banco de dados e um servidor do Banco de Dados do Azure para MariaDB](quickstart-create-mariadb-server-database-using-azure-cli.md)
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-> [!IMPORTANT]
-> Este guia de instruções requer que você use a CLI do Azure versão 2.0 ou posterior. Para confirmar a versão, no prompt de comando da CLI do Azure, digite `az --version`. Para instalar ou atualizar, confira [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
+- Este guia de instruções requer a versão 2,0 ou posterior do CLI do Azure. Se você está usando o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ## <a name="set-backup-configuration"></a>Definir configuração de backup
 
@@ -70,9 +69,9 @@ az mariadb server restore --resource-group myresourcegroup --name mydemoserver-r
 
 O comando `az mariadb server restore` exige os seguintes parâmetros:
 
-| Configuração | Valor sugerido | Descrição  |
+| Configuração | Valor sugerido | Descrição  |
 | --- | --- | --- |
-| resource-group |  myresourcegroup |  O grupo de recursos em que o servidor de origem existe.  |
+| resource-group |  myresourcegroup |  O grupo de recursos em que o servidor de origem existe.  |
 | name | mydemoserver-restored | O nome do novo servidor que é criado pelo comando de restauração. |
 | restore-point-in-time | 2018-03-13T13:59:00Z | Selecione um ponto no tempo para o qual restaurar. Essa data e hora devem estar dentro do período de retenção de backup do servidor de origem. Use o formato ISO8601 de data e hora. Por exemplo, você pode usar seu fuso horário local, como `2018-03-13T05:59:00-08:00`. Você também pode usar o formato UTC Zulu, por exemplo, `2018-03-13T13:59:00Z`. |
 | source-server | mydemoserver | O nome ou ID para restaurar a partir do servidor de origem. |
@@ -112,7 +111,7 @@ az mariadb server georestore --resource-group newresourcegroup --name mydemoserv
 
 O comando `az mariadb server georestore` exige os seguintes parâmetros:
 
-| Configuração | Valor sugerido | Descrição  |
+| Configuração | Valor sugerido | Descrição  |
 | --- | --- | --- |
 |resource-group| myresourcegroup | O nome do grupo de recursos a qual o novo servidor pertencerá.|
 |name | mydemoserver-georestored | O nome do novo servidor. |

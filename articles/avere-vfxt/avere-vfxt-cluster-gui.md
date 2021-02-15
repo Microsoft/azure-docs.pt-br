@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: how-to
 ms.date: 12/14/2019
 ms.author: rohogue
-ms.openlocfilehash: 69395a27500b8e7bd066536b367b8e6cb385602c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 79e7c5db2a2c445ae740a21744a0bdfe0736c01a
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85505606"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342426"
 ---
 # <a name="access-the-vfxt-cluster"></a>Acessar o cluster do vFXT
 
@@ -27,7 +27,7 @@ Há duas etapas básicas:
 > [!NOTE]
 > Este artigo pressupõe que você definiu um endereço IP público no controlador do cluster ou em outra VM na rede virtual de seu cluster. Este artigo descreve como usar essa VM como um host para acessar o cluster. Se você estiver usando uma VPN ou ExpressRoute para acesso à rede virtual, pule para [conectar-se ao painel de controle do avere](#connect-to-the-avere-control-panel-in-a-browser).
 
-Antes de se conectar, certifique-se de que o par de chaves pública/privada SSH que você usou ao criar o controlador do cluster esteja instalado no computador local. Leia a documentação das chaves SSH para [Windows](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows) ou para [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys) se você precisar de ajuda. Se você usou uma senha em vez de uma chave pública, será solicitado a inseri-la ao se conectar.
+Antes de se conectar, certifique-se de que o par de chaves pública/privada SSH que você usou ao criar o controlador do cluster esteja instalado no computador local. Leia a documentação das chaves SSH para [Windows](../virtual-machines/linux/ssh-from-windows.md) ou para [Linux](../virtual-machines/linux/mac-create-ssh-keys.md) se você precisar de ajuda. Se você usou uma senha em vez de uma chave pública, será solicitado a inseri-la ao se conectar.
 
 ## <a name="create-an-ssh-tunnel"></a>Criar um túnel SSH
 

@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 06/22/2019
-ms.openlocfilehash: e58cbe85f30ea09adde45d55bb7b80c710c45495
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8e3805fae5bf6cc5ad8cf759d3ba75220c6ddbd8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74792429"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91565064"
 ---
 # <a name="add-trading-partners-to-integration-accounts-for-azure-logic-apps"></a>Adicionar parceiros comerciais a contas de integração para Aplicativos Lógicos do Azure
 
@@ -47,7 +47,7 @@ Em um contrato, você especifica os detalhes para lidar com mensagens de entrada
 
 1. Escolha o bloco **Parceiros**.
 
-   ![Escolher o bloco "Parceiros"](./media/logic-apps-enterprise-integration-partners/choose-partners.png)
+   ![Captura de tela que mostra o bloco parceiros.](./media/logic-apps-enterprise-integration-partners/choose-partners.png)
 
 1. Em **parceiros**, escolha **Adicionar**. Em **Adicionar parceiro**, forneça os detalhes do parceiro, conforme descrito na tabela a seguir.
 
@@ -100,7 +100,7 @@ Escolha o bloco **Parceiros**.
 
 1. No [portal do Azure](https://portal.azure.com), encontre e selecione sua conta de integração. Escolha o bloco **Parceiros**.
 
-   ![Escolher o bloco "Parceiros"](./media/logic-apps-enterprise-integration-partners/choose-partners-to-delete.png)
+   ![Captura de tela que mostra o bloco parceiros que você seleciona quando deseja excluir um parceiro.](./media/logic-apps-enterprise-integration-partners/choose-partners-to-delete.png)
 
 1. Em **Parceiros**, selecione o parceiro que deseja excluir. Escolha **excluir**.
 

@@ -6,18 +6,16 @@ documentationcenter: ''
 author: rolyon
 manager: mtillman
 ms.service: role-based-access-control
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/13/2020
+ms.date: 12/11/2020
 ms.author: rolyon
-ms.openlocfilehash: 91d2605dddd6107d09e635969f5e5d98c2a02d60
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ecda0edcd34999e8cbb6c7ab9039953d17c119e5
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86511714"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97369219"
 ---
 # <a name="create-or-update-azure-custom-roles-using-the-azure-portal"></a>Criar ou atualizar as funções personalizadas do Azure usando o portal do Azure
 
@@ -31,14 +29,12 @@ Para criar funções personalizadas, você precisará:
 
 ## <a name="step-1-determine-the-permissions-you-need"></a>Etapa 1: determinar as permissões necessárias
 
-O Azure tem milhares de permissões que podem ser potencialmente incluídas em sua função personalizada. Estas são as quatro maneiras pelas quais você pode determinar as permissões que deseja adicionar à sua função personalizada:
+O Azure tem milhares de permissões que podem ser potencialmente incluídas em sua função personalizada. Aqui estão alguns métodos que podem ajudá-lo a determinar as permissões que você deseja adicionar à sua função personalizada:
 
-| Método | Descrição |
-| --- | --- |
-| Examinar as funções existentes | Você pode examinar as funções existentes para ver quais permissões estão sendo usadas. Para obter mais informações, veja [Funções internas do Azure](built-in-roles.md). |
-| Procurar permissões por palavra-chave | Ao criar uma função personalizada usando o portal do Azure, você pode procurar permissões por palavra-chave. Por exemplo, você pode pesquisar por *máquina virtual* ou permissões de *cobrança* . Essa funcionalidade de pesquisa é descrita mais adiante na [etapa 4: permissões](#step-4-permissions). |
-| Baixar todas as permissões | Ao criar uma função personalizada usando o portal do Azure, você pode baixar todas as permissões como um arquivo CSV e, em seguida, pesquisar esse arquivo. No painel **adicionar permissões** , clique no botão **baixar todas as permissões** para baixar todas as permissões. Para obter mais informações sobre o painel adicionar permissões, consulte [etapa 4: permissões](#step-4-permissions). |
-| Exibir as permissões no docs | Você pode exibir as permissões disponíveis em [Azure Resource Manager operações do provedor de recursos](resource-provider-operations.md). |
+- Examine as [funções internas](built-in-roles.md)existentes.
+- Lista os serviços do Azure aos quais você deseja conceder acesso.
+- Determine os [provedores de recursos que são mapeados para os serviços do Azure](../azure-resource-manager/management/azure-services-resource-providers.md). Um método de pesquisa é descrito posteriormente na [etapa 4: permissões](#step-4-permissions).
+- Pesquise as [permissões disponíveis](resource-provider-operations.md) para localizar as permissões que você deseja incluir. Um método de pesquisa é descrito posteriormente na [etapa 4: permissões](#step-4-permissions).
 
 ## <a name="step-2-choose-how-to-start"></a>Etapa 2: escolher como iniciar
 
@@ -331,7 +327,7 @@ Siga estas etapas para exibir suas funções personalizadas.
 
 1. Clique nas reticências (**...**) para a função personalizada que você deseja excluir e clique em **excluir**.
 
-    ![Menu de função personalizada](./media/custom-roles-portal/delete-menu.png)
+    ![Captura de tela que mostra uma lista de funções personalizadas que podem ser selecionadas para exclusão.](./media/custom-roles-portal/delete-menu.png)
 
     Pode levar alguns minutos para que sua função personalizada seja completamente excluída.
 
@@ -339,4 +335,4 @@ Siga estas etapas para exibir suas funções personalizadas.
 
 - [Tutorial: Criar uma função personalizada do Azure usando o Azure PowerShell](tutorial-custom-role-powershell.md)
 - [Funções personalizadas do Azure](custom-roles.md)
-- [Operações do provedor de recursos do Azure Resource Manager](resource-provider-operations.md)
+- [Operações do provedor de recursos do Azure](resource-provider-operations.md)

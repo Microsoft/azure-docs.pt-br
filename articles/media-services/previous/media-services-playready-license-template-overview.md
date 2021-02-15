@@ -14,14 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 1fcb935a7a07629ba3d7424a39f6c8542628a842
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8cdf5915396fc40c12644552bb24a044279ea32d
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084612"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019334"
 ---
 # <a name="media-services-playready-license-template-overview"></a>Visão geral do modelo de licença do PlayReady dos Serviços de Mídia
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 Os Serviços de Mídia do Azure fornecem um serviço de distribuição de licenças do PlayReady. Quando o player (por exemplo, Silverlight) tenta reproduzir o conteúdo protegido por PlayReady, uma solicitação é enviada para o serviço de entrega de licença para a obtenção de uma licença. Se o serviço de licença aprovar a solicitação, ele emite a licença que é enviada ao cliente e é usada para descriptografar e reproduzir o conteúdo especificado.
 
 Os Serviços de Mídia também fornecem as APIs que podem ser usadas para configurar suas licenças do PlayReady. As licenças contêm os direitos e as restrições que você deseja que o runtime do gerenciamento de direitos digitais (DRM) do PlayReady imponha quando um usuário tentar reproduzir conteúdo protegido.
@@ -83,7 +86,7 @@ Como a classe “nível superior” na hierarquia de modelo, o modelo de respost
 > 
 > 
 
-Para obter um exemplo dos níveis de proteção para os quais o Silverlight dá suporte, consulte [Suporte do Silverlight para proteções de saída](https://go.microsoft.com/fwlink/?LinkId=617318).
+Para obter um exemplo dos níveis de proteção para os quais o Silverlight dá suporte, consulte [Suporte do Silverlight para proteções de saída](/previous-versions/windows/silverlight/dotnet-windows-silverlight/cc838192(v=vs.95)).
 
 ## <a name="playready-license-template-xml-schema"></a><a id="schema"></a>Esquema XML do modelo de licença do PlayReady
 ```xml

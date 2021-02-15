@@ -2,7 +2,7 @@
 title: Solução de problemas Azure Active Directory Domain Services | Microsoft Docs '
 description: Saiba como solucionar erros comuns ao criar ou gerenciar Azure Active Directory Domain Services
 services: active-directory-ds
-author: iainfoulds
+author: justinha
 manager: daveba
 ms.assetid: 4bc8c604-f57c-4f28-9dac-8b9164a0cf0b
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/06/2020
-ms.author: iainfou
-ms.openlocfilehash: 7642a32ce69dbbbb5ddebbe56b74f3202b2e6422
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.author: justinha
+ms.openlocfilehash: 89b04f86d41f8e4828580f70a9aec8acea3e0053
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86039561"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96618443"
 ---
 # <a name="common-errors-and-troubleshooting-steps-for-azure-active-directory-domain-services"></a>Erros comuns e etapas de solução de problemas para Azure Active Directory Domain Services
 
@@ -121,7 +121,7 @@ Para verificar o status desse aplicativo e habilitá-lo, se necessário, conclua
 1. No portal do Azure, selecione **Azure Active Directory** no menu de navegação à esquerda.
 1. Selecione **Aplicativos empresariais**. Selecione *Todos os aplicativos* no menu suspenso **Tipo de aplicativo** e, sem seguida, **Aplicar**.
 1. Na caixa de pesquisa, digite *00000002-0000-0000-C000-00000000000*. Selecione o aplicativo e, em seguida, escolha **Propriedades**.
-1. Se **habilitado para que os usuários se conectem** estiver definido como *não*, defina o valor como *Sim*e, em seguida, selecione **salvar**.
+1. Se **habilitado para que os usuários se conectem** estiver definido como *não*, defina o valor como *Sim* e, em seguida, selecione **salvar**.
 1. Após habilitar o aplicativo, tente habilitar o Azure AD DS novamente.
 
 ## <a name="users-are-unable-to-sign-in-to-the-azure-ad-domain-services-managed-domain"></a>Os usuários não conseguem entrar no domínio gerenciado pelos Serviços de Domínio do AD do Azure

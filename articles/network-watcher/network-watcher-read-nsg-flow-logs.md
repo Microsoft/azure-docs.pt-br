@@ -9,20 +9,20 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/13/2017
+ms.date: 01/04/2021
 ms.author: damendo
-ms.openlocfilehash: 18023f5a5b36dd971080d7a62fdd44698a205bb4
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: d465106725e9b936172fb74e1cc265c14942f662
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88272528"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97898089"
 ---
 # <a name="read-nsg-flow-logs"></a>Ler logs de fluxo NSG
 
 Saiba como ler entradas de logs de fluxo NSG com o PowerShell.
 
-Logs de fluxo NSG são armazenados em uma conta de armazenamento no [blobs de blocos](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs). Blobs de bloco são compostos por blocos menores. Cada log é um blob de blocos separado gerado a cada hora. Novos logs são gerados a cada hora, os logs são atualizados com as novas entradas intervalos de alguns minutos com os dados mais recentes. Neste artigo, você aprenderá a ler partes dos logs de fluxo.
+Logs de fluxo NSG são armazenados em uma conta de armazenamento no [blobs de blocos](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs). Blobs de bloco são compostos por blocos menores. Cada log é um blob de blocos separado gerado a cada hora. Novos logs são gerados a cada hora, os logs são atualizados com as novas entradas intervalos de alguns minutos com os dados mais recentes. Neste artigo, você aprenderá a ler partes dos logs de fluxo.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -37,7 +37,7 @@ Antes de começar, você deve habilitar o registro em log de fluxo do grupo de s
 
 ## <a name="retrieve-the-block-list"></a>Recuperar a lista de blocos
 
-O PowerShell a seguir define as variáveis necessárias para consultar o blob de log do fluxo NSG e lista de blocos dentro do blob de blocos [CloudBlockBlob](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudblockblob). Atualize o script para conter os valores válidos para o seu ambiente.
+O PowerShell a seguir define as variáveis necessárias para consultar o blob de log do fluxo NSG e lista de blocos dentro do blob de blocos [CloudBlockBlob](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob). Atualize o script para conter os valores válidos para o seu ambiente.
 
 ```powershell
 function Get-NSGFlowLogCloudBlockBlob {
@@ -189,6 +189,6 @@ Esse cenário é um exemplo de como ler entradas nos logs de fluxo NSG sem preci
 
 Visite [Usar Pilha Elástica](network-watcher-visualize-nsg-flow-logs-open-source-tools.md), [Usar Grafana](network-watcher-nsg-grafana.md), e [Usar Graylog](network-watcher-analyze-nsg-flow-logs-graylog.md) para saber mais sobre outras maneiras de exibir logs de fluxo NSG. Uma abordagem de função do Azure de software livre para o consumo direto dos BLOBs e a emissão de vários consumidores do log Analytics podem ser encontradas aqui: [conector de logs de fluxo NSG do observador de rede do Azure](https://github.com/Microsoft/AzureNetworkWatcherNSGFlowLogsConnector).
 
-Você pode usar o [Azure análise de tráfego](https://docs.microsoft.com/azure/network-watcher/traffic-analytics) para obter informações sobre seus fluxos de tráfego. Análise de Tráfego usa [log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) para tornar seu fluxo de tráfego passível de consulta.
+Você pode usar o [Azure análise de tráfego](./traffic-analytics.md) para obter informações sobre seus fluxos de tráfego. Análise de Tráfego usa [log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md) para tornar seu fluxo de tráfego passível de consulta.
 
 Para saber mais sobre blobs de armazenamento, acesse: [Associações de armazenamento de Blobs do Azure Functions](../azure-functions/functions-bindings-storage-blob.md)

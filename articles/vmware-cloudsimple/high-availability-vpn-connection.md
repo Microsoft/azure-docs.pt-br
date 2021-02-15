@@ -1,19 +1,19 @@
 ---
 title: Solução do Azure VMware por CloudSimple-configure a alta disponibilidade do gateway de VPN local para CloudSimple
 description: Descreve como configurar uma conexão de alta disponibilidade do seu ambiente local para um gateway de VPN CloudSimple habilitado para alta disponibilidade
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/14/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 6e3118814eacc6cc63b5db59bd7f1877c1d347dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 80805aaa172518c40c7ad123ca24361ee0f15e69
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77025258"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97895692"
 ---
 # <a name="configure-a-high-availability-connection-from-on-premises-to-cloudsimple-vpn-gateway"></a>Configurar uma conexão de alta disponibilidade do gateway de VPN local para CloudSimple
 
@@ -44,7 +44,7 @@ Para habilitar a fase 1 (IKEv1) na interface externa, insira o comando da CLI a 
 
 ### <a name="2-create-an-ikev1-policy"></a>2. criar uma política IKEv1
 
-Crie uma política IKEv1 que defina os algoritmos e métodos a serem usados para hash, autenticação, grupo Diffie-Hellman, tempo de vida e criptografia.
+Crie uma política IKEv1 que define os algoritmos e métodos a serem usados para hash, autenticação, Diffie-Hellman grupo, tempo de vida e criptografia.
 
 ```
 crypto ikev1 policy 1
@@ -147,7 +147,7 @@ Para que a VPN site a site funcione, você deve permitir UDP 500/4500 e ESP (pro
 
 ### <a name="1-create-primary-and-secondary-tunnel-interfaces"></a>1. criar interfaces de encapsulamento primário e secundário
 
-Entre no Palo Alto firewall, selecione **Network**  >  **interface**  >  de rede**túnel**  >  **Adicionar**, configure os campos a seguir e clique em **OK**.
+Entre no Palo Alto firewall, selecione   >  **interface**  >  de rede **túnel**  >  **Adicionar**, configure os campos a seguir e clique em **OK**.
 
 * Nome da interface. O primeiro campo é preenchido automaticamente com a palavra-chave ' Tunnel '. No campo adjacente, insira qualquer número entre 1 e 9999. Essa interface será usada como uma interface de túnel primária para transportar o tráfego site a site entre o datacenter local e a nuvem privada.
 * Mente. Insira comentários para facilitar a identificação da finalidade do túnel
@@ -162,7 +162,7 @@ Como essa configuração é para uma VPN de alta disponibilidade, são necessár
 
 As rotas são necessárias para que as sub-redes locais alcancem sub-redes de nuvem privada do CloudSimple.
 
-Selecione **Network**  >  **roteadores virtuais**de rede  >  *default*  >  **rotas estáticas**padrão  >  **Adicionar**, configure os campos a seguir e clique em **OK**.
+Selecione   >  **roteadores virtuais** de rede  >    >  **rotas estáticas** padrão  >  **Adicionar**, configure os campos a seguir e clique em **OK**.
 
 * Nome. Insira qualquer nome para facilitar a identificação da finalidade da rota.
 * Destino. Especifique as sub-redes da nuvem privada do CloudSimple a serem acessadas pelas interfaces de túnel S2S do local
@@ -247,7 +247,7 @@ Selecione **rede**  >  **expandir rede perfis**  >  **Monitor**  >  **Adicionar*
 
 ### <a name="7-set-up-primary-and-secondary-ipsec-tunnels"></a>7. Configure túneis IPsec primários e secundários.
 
-Selecione **Network**  >  **túneis IPsec**  >  de rede**Adicionar**, configure os campos a seguir e clique em **OK**.
+Selecione   >  **túneis IPsec**  >  de rede **Adicionar**, configure os campos a seguir e clique em **OK**.
 
 Guia Geral:
 

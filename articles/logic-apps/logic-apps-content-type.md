@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 07/20/2018
-ms.openlocfilehash: ae0abe288edda2ce01311d8533b1f104409efce0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 04642e69adba82cf33b933829d72c51109ad2ee1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75666866"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91578166"
 ---
 # <a name="handle-content-types-in-azure-logic-apps"></a>Manipular tipos de conteúdo em Aplicativos Lógicos do Azure
 
@@ -61,7 +61,7 @@ Os Aplicativos Lógicos possibilitam gerar tokens amigáveis que representam as 
   
   2. Em **Inserir ou colar um conteúdo JSON de amostra**, forneça um conteúdo de exemplo e, em seguida, escolha **Concluído**. Por exemplo: 
 
-     ![Fornecer conteúdo JSON de amostra](./media/logic-apps-content-type/request-trigger.png)
+     ![Captura de tela que mostra a ação "quando uma solicitação HTTP é recebida" com um conteúdo JSON de exemplo.](./media/logic-apps-content-type/request-trigger.png)
 
      O esquema gerado agora aparece no gatilho.
 
@@ -141,8 +141,8 @@ Esta lista descreve como os Aplicativos Lógicos convertem o conteúdo quando vo
 * `binary()`: Converte dados em `application/octet-stream`
 * `string()`: Converte dados em `text/plain`
 * `base64()`: Converte o conteúdo em uma cadeia de caracteres codificada em base64
-* `base64toString()`: Converte uma cadeia de caracteres codificada em base64 em`text/plain`
-* `base64toBinary()`: Converte uma cadeia de caracteres codificada em base64 em`application/octet-stream`
+* `base64toString()`: Converte uma cadeia de caracteres codificada em base64 em `text/plain`
+* `base64toBinary()`: Converte uma cadeia de caracteres codificada em base64 em `application/octet-stream`
 * `dataUri()`: Converte uma cadeia de caracteres em um URI de dados
 * `dataUriToBinary()`: Converte um URI de dados em uma cadeia de caracteres binária
 * `dataUriToString()`: Converte um URI de dados em uma cadeia de caracteres

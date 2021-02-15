@@ -15,12 +15,12 @@ ms.date: 08/18/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06e61bb966313265f7e3772dbbf6017a03a42386
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 48c4473cfafce1215219251c47bce1d5730645fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88869619"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91534413"
 ---
 # <a name="assign-eligibility-for-a-privileged-access-group-preview-in-privileged-identity-management"></a>Atribuir qualificação para um grupo de acesso privilegiado (versão prévia) no Privileged Identity Management
 
@@ -48,7 +48,7 @@ Siga estas etapas para tornar um usuário qualificado para ser um membro ou prop
 
 1. Selecione os membros ou proprietários que você deseja tornar qualificados para o grupo de acesso privilegiado.
 
-    ![Selecione um painel de membro ou grupo](./media/groups-assign-member-owner/add-assignments.png)
+    ![Captura de tela que mostra a página "Adicionar atribuições" com o painel "selecionar um membro ou grupo" aberto e o botão "selecionar" realçado.](./media/groups-assign-member-owner/add-assignments.png)
 
 1. Selecione **Avançar** para definir a duração da associação ou propriedade.
 

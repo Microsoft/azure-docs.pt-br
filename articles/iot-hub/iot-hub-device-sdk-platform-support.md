@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/08/2019
 ms.author: robinsh
-ms.openlocfilehash: aef468d919e6f09722045f98c68383785d10b137
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: b8f8403617a5fc8b442e8a3f74ab9226fe1479fe
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423075"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97588753"
 ---
 # <a name="azure-iot-device-sdks-platform-support"></a>Suporte à plataforma de SDKs do dispositivo IoT do Azure
 
@@ -34,7 +34,7 @@ A Microsoft publica SDKs de código aberto no GitHub para os seguintes idiomas: 
 
 Para cada um dos SDKs listados, Microsoft:
 
-* Compila e executa continuamente testes de ponta a ponta em relação à ramificação mestre do SDK relevante no GitHub em várias plataformas populares.  Para fornecer cobertura de teste entre diferentes versões do compilador, geralmente testamos a versão mais recente do LTS e a versão mais popular.
+* Compila e executa continuamente testes de ponta a ponta em relação à ramificação principal do SDK relevante no GitHub em várias plataformas populares.  Para fornecer cobertura de teste entre diferentes versões do compilador, geralmente testamos a versão mais recente do LTS e a versão mais popular.
 
 * Fornece diretrizes de instalação ou pacotes de instalação, se aplicável.
 
@@ -60,7 +60,7 @@ O [SDK do dispositivo Python do Hub IOT do Azure](https://github.com/Azure/azure
 | Sistema operacional                  | Compilador                          |
 |---------------------|-----------------------------------|
 | Linux               | Python 2,7. *, 3,5 ou posterior |
-| MacOS High Sierra   | Python 2,7. *, 3,5 ou posterior |
+| macOS High Sierra   | Python 2,7. *, 3,5 ou posterior |
 | Família Windows 10   | Python 2,7. *, 3,5 ou posterior |
 
 Somente o Python versão 3.5.3 ou posterior dá suporte às APIs assíncronas, recomendamos o uso da versão 3,7 ou posterior.
@@ -74,7 +74,7 @@ O [SDK do dispositivo .net (C#) do Hub IOT do Azure](https://github.com/Azure/az
 | Linux                                | .NET Core 2.1                                              |
 | SKUs do Windows 10 desktop e Server   | .NET Core 2,1, .NET Framework 4.5.1 ou .NET Framework 4,7 |
 
-O SDK do .NET também pode ser usado com o Windows IoT core com o [agente de dispositivo do Azure](https://github.com/ms-iot/azure-client-tools/blob/master/docs/device-agent/device-agent.md) ou [um NTService personalizado que pode usar o RPC para se comunicar com os aplicativos UWP](https://docs.microsoft.com/samples/microsoft/windows-iotcore-samples/ntservice-rpc/).
+O SDK do .NET também pode ser usado com o Windows IoT core com o [agente de dispositivo do Azure](https://github.com/ms-iot/azure-client-tools/blob/master/docs/device-agent/device-agent.md) ou [um NTService personalizado que pode usar o RPC para se comunicar com os aplicativos UWP](/samples/microsoft/windows-iotcore-samples/ntservice-rpc/).
 
 ### <a name="nodejs-sdk"></a>SDK do Node.js
 
@@ -99,7 +99,7 @@ O [SDK do dispositivo Java do Hub IOT do Azure](https://github.com/Azure/azure-i
 
 A Microsoft trabalha com vários parceiros para fornecer kits de desenvolvimento para várias arquiteturas de microprocessador. Esses parceiros portaram o SDK do Azure IoT C para sua plataforma. Os parceiros criam e mantêm a PAL (camada de abstração de plataforma) do SDK. A Microsoft trabalha com esses parceiros para fornecer suporte estendido.
 
-| Partner (parceiro)             | Dispositivos                            | Link                     | Suporte |
+| Parceiro             | Dispositivos                            | Link                     | Suporte |
 |---------------------|------------------------------------|--------------------------|---------|
 | Espressif           | ESP32 <br/> ESP8266                              | [Esp-azure](https://github.com/espressif/esp-azure)                | [GitHub](https://github.com/espressif/esp-azure)  
 | Qualcomm            | Qualcomm MDM9206 LTE IoT Modem     | [Qualcomm LTE para SDK de IoT](https://developer.qualcomm.com/software/lte-iot-sdk) | [Fórum](https://developer.qualcomm.com/forums/software/lte-iot-sdk)   |
@@ -120,11 +120,11 @@ A Microsoft trabalha com vários parceiros para expandir continuamente o univers
 
 ## <a name="connecting-to-iot-hub-without-an-sdk"></a>Conectando-se ao Hub IoT sem um SDK
 
-Se não for possível usar um dos SDKs de dispositivo do Hub IoT, você poderá se conectar diretamente ao Hub IoT usando as [APIs REST do Hub IOT](https://docs.microsoft.com/rest/api/iothub/) de qualquer aplicativo capaz de enviar e receber solicitações e respostas HTTPS.
+Se não for possível usar um dos SDKs de dispositivo do Hub IoT, você poderá se conectar diretamente ao Hub IoT usando um protocolo de comunicação com suporte. Para saber mais, confira [desenvolver sem um SDK do Azure IOT](iot-hub-devguide-no-sdk.md).
 
 ## <a name="support-and-other-resources"></a>Suporte e outros recursos
 
-Se você tiver problemas ao usar os SDKs do dispositivo IoT do Azure, há várias maneiras de buscar o suporte resumido abaixo. Para obter informações completas sobre todas as suas opções de suporte, consulte [suporte do Azure IOT e opções de ajuda](https://aka.ms/iothelp). 
+Se você tiver problemas ao usar os SDKs do dispositivo IoT do Azure, há várias maneiras de buscar o suporte resumido abaixo. Para obter informações completas sobre todas as suas opções de suporte, consulte [suporte do Azure IOT e opções de ajuda](../iot-fundamentals/iot-support-help.md). 
 
 **Relatando bugs** – os bugs nos SDKs do dispositivo podem ser relatados na página problemas do projeto do GitHub relevante. As correções passam rapidamente do projeto para as atualizações do produto.
 
@@ -138,7 +138,7 @@ Se você tiver problemas ao usar os SDKs do dispositivo IoT do Azure, há vária
 
 * [Problemas do SDK do Python no Hub IoT do Azure](https://github.com/Azure/azure-iot-sdk-python/issues)
 
-**Perguntas técnicas** – você pode fazer perguntas técnicas no [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-iot-sdk.html) e [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-iot-sdk) usando a marca *Azure-IOT-SDK*.
+**Perguntas técnicas** – você pode fazer perguntas técnicas no [Microsoft Q&A](/answers/topics/azure-iot-sdk.html) e [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-iot-sdk) usando a marca *Azure-IOT-SDK*.
 
 **Equipe de suporte ao cliente da Microsoft** – os usuários que têm um [plano de suporte](https://azure.microsoft.com/support/plans/) podem envolver a equipe de suporte ao cliente da Microsoft criando uma nova solicitação de suporte diretamente do [portal do Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
@@ -147,4 +147,4 @@ Se você tiver problemas ao usar os SDKs do dispositivo IoT do Azure, há vária
 ## <a name="next-steps"></a>Próximas etapas
 
 * [SDKs de serviço e dispositivo](iot-hub-devguide-sdks.md)
-* [Diretrizes de Portabilidade](https://github.com/Azure/azure-c-shared-utility/blob/master/devdoc/porting_guide.md)
+* [Diretrizes de portabilidade](https://github.com/Azure/azure-c-shared-utility/blob/master/devdoc/porting_guide.md)

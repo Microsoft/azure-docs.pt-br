@@ -6,12 +6,12 @@ ms.service: virtual-machines-linux
 ms.topic: how-to
 ms.date: 06/05/2018
 ms.author: cynthn
-ms.openlocfilehash: d6e5195f43991f4d40af57c1ab4b87aaca475b64
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: b3eeaf5f343b6026e02d17e4d3bd90dba4b991c4
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373395"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737038"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>Criar uma máquina virtual do Linux que usa autenticação SSH com a API REST
 
@@ -26,7 +26,7 @@ Este artigo mostra a você como usar a API REST para criar uma VM do Linux que e
 Antes de criar e enviar a solicitação, você precisará de:
 
 * O `{subscription-id}` para sua assinatura
-  * Se você tiver várias assinaturas, confira [Trabalhando com várias assinaturas](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest)
+  * Se você tiver várias assinaturas, confira [Trabalhando com várias assinaturas](/cli/azure/manage-azure-subscriptions-azure-cli)
 * Um `{resourceGroupName}` criado com antecedência
 * Um [adaptador de rede virtual](../../virtual-network/virtual-network-network-interface.md) no mesmo grupo de recursos
 * Um par de chaves SSH (você pode [gerar um novo](mac-create-ssh-keys.md) caso não tenha)
@@ -46,7 +46,7 @@ Os cabeçalhos a seguir são necessários:
 | Cabeçalho da solicitação   | Descrição |
 |------------------|-----------------|
 | *Tipo de Conteúdo:*  | Obrigatórios. Defina como `application/json`. |
-| *Autorização:* | Obrigatórios. Defina como um  [token de acesso](/rest/api/azure/#authorization-code-grant-interactive-clients)`Bearer` válido. |
+| *Autorização:* | Obrigatórios. Defina como um [token de acesso](/rest/api/azure/#authorization-code-grant-interactive-clients) `Bearer` válido. |
 
 Para obter informações gerais sobre como trabalhar com solicitações da API REST, confira [Componentes de uma solicitação/resposta da API REST](/rest/api/azure/#components-of-a-rest-api-requestresponse).
 
@@ -54,9 +54,9 @@ Para obter informações gerais sobre como trabalhar com solicitações da API R
 
 As definições comuns a seguir são usadas para criar um corpo de solicitação:
 
-| Nome                       | Obrigatório | Type                                                                                | DESCRIÇÃO  |
+| Nome                       | Obrigatório | Type                                                                                | Descrição  |
 |----------------------------|----------|-------------------------------------------------------------------------------------|--------------|
-| local                   | True     | cadeia de caracteres                                                                              | Local do recurso. |
+| local                   | True     | string                                                                              | Local do recurso. |
 | name                       |          | string                                                                              | Nome da máquina virtual. |
 | properties.hardwareProfile |          | [HardwareProfile](/rest/api/compute/virtualmachines/createorupdate#hardwareprofile) | Especifica as configurações de hardware da máquina virtual. |
 | properties.storageProfile  |          | [StorageProfile](/rest/api/compute/virtualmachines/createorupdate#storageprofile)   | Especifica as configurações de armazenamento dos discos da máquina virtual. |
@@ -128,7 +128,7 @@ Para obter uma lista completa das definições disponíveis no corpo da solicita
 
 Há duas respostas bem-sucedidas para a operação criar ou atualizar uma máquina virtual:
 
-| Nome        | Type                                                                              | DESCRIÇÃO |
+| Nome        | Tipo                                                                              | Descrição |
 |-------------|-----------------------------------------------------------------------------------|-------------|
 | 200 OK      | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | OK          |
 | 201 Criado | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | Criado     |

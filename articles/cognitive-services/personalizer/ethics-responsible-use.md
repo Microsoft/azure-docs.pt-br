@@ -9,11 +9,11 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.openlocfilehash: 602da28f0c235fb0e797a493bc1160631c042a9d
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132714"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005972"
 ---
 # <a name="guidelines-for-responsible-implementation-of-personalizer"></a>Diretrizes para a implementação responsável do Personalizador
 
@@ -54,7 +54,7 @@ Exemplos de usos do Personalizador com maior potencial para efeitos colaterais n
 * **Finanças**: Personalizando ofertas em produtos de empréstimo, financeiros e de seguros, nos quais os fatores de risco se baseiam em dados que os indivíduos não conhecem, não conseguem obter nem fazer contestação.
 * **Educação**: personalizar classificações para cursos escolares e instituições educacionais em que as recomendações podem propagar tendências e reduzir a conscientização dos usuários de outras opções.
 * **Participação de democracia e cívico**: a personalização de conteúdo para usuários com o objetivo de influenciar opiniões é CONSEQÜENCIAL e Manipulative.
-* **Avaliação de recompensa**de terceiros: Personalizando itens nos quais a recompensa se baseia em uma avaliação de terceiros do usuário, em vez de ter uma recompensa gerada pelo próprio comportamento do usuário.
+* **Avaliação de recompensa** de terceiros: Personalizando itens nos quais a recompensa se baseia em uma avaliação de terceiros do usuário, em vez de ter uma recompensa gerada pelo próprio comportamento do usuário.
 * **Intolerância à exploração**: qualquer situação na qual o comportamento de exploração do personalizado possa causar danos.
 
 Ao escolher casos de uso para o Personalizador:
@@ -128,20 +128,20 @@ Veja abaixo as áreas de criação para implementações responsáveis de IA. Sa
 * Arquive informações e ativos (como modelos, políticas de aprendizado e outros dados) que o Personalizador usa para funcionar, para poder reproduzir os resultados.
 
 ### <a name="transparency"></a>Transparência
-*Os sistemas de IA devem ser compreensíveis*. Com o Personalizador:
+Os *sistemas de ia devem ser compreensíveis*. Com o Personalizador:
 
 * *Forneça aos usuários informações sobre como o conteúdo foi personalizado.* Por exemplo, é possível mostrar aos usuários um botão rotulado `Why These Suggestions?` mostrando quais recursos principais do usuário e ações desempenharam um papel nos resultados do Personalizador.
 * Verifique se os termos de uso mencionam que você usará informações sobre usuários e seu comportamento para personalizar a experiência.
 
 ### <a name="fairness"></a>Imparcialidade
-*Os Sistemas de IA devem tratar todas as pessoas com imparcialidade*.
+*Os sistemas de ia devem tratar todas as pessoas* de forma justa.
 
 * Não use o Personalizador para casos de uso em que os resultados são de longo prazo, consequenciais ou que envolvam dano real.
 * Não use informações inadequadas com as quais você pode personalizar o conteúdo ou que possam propagar propensões indesejadas. Por exemplo, pessoas com circunstâncias financeiras semelhantes devem ver as mesmas recomendações personalizadas para produtos financeiros.
 * Entenda as propensões que podem existir nas informações originárias de editores, de ferramentas algorítmicas ou dos próprios usuários.
 
 ### <a name="reliability-and-safety"></a>Confiabilidade e segurança
-*Os Sistemas de IA devem ter um desempenho seguro e confiável*. Para o Personalizador:
+Os *sistemas de ia devem ser executados de forma confiável e segura*. Para o Personalizador:
 
 * *Não forneça ações para o Personalizador que não devem ser escolhidas*. Por exemplo, filmes inadequados devem ser filtrados das ações de personalização ao fazer uma recomendação para um usuário anônimo ou menor de idade.
 * *Gerencie o modelo do Personalizador como um ativo de negócios*.  Considere com que frequência você salva e faz backup do modelo e de políticas de aprendizado por trás do loop do Personalizador e, de outra forma, trate-o como um importante ativo de negócios. A reprodução de resultados passados é importante para a melhoria da auto-auditoria e da medição.
@@ -150,7 +150,7 @@ Veja abaixo as áreas de criação para implementações responsáveis de IA. Sa
 * *Estabeleça um processo para detectar e tomar medidas sobre manipulação mal-intencionada*. Há atores que aproveitarão o aprendizado de máquina e a capacidade dos sistemas de IA para aprender com seu ambiente a mudar o curso do seu resultado em direção às metas. Se o uso do Personalizador estiver em condições de influenciar escolhas importantes, verifique se você tem um meio adequado para detectar e mitigar essas classes de ataques, incluindo análise humana em circunstâncias adequadas.
 
 ### <a name="security-and-privacy"></a>Segurança e privacidade
-*Os Sistemas de IA devem ser seguros e respeitar a privacidade*. Ao usar o Personalizador:
+Os *sistemas de ia devem ser seguros e respeitar a privacidade*. Ao usar o Personalizador:
 
 * *Informe os usuários com antecedência sobre os dados coletados e como eles são usados e obtenha o consentimento deles antecipadamente*, seguindo as normas locais e do setor.
 * *Forneça controles de usuário que protegem a privacidade.* Para aplicativos que armazenam informações pessoais, considere fornecer um botão fácil de encontrar para funções como:

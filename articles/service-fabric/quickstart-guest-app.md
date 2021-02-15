@@ -3,13 +3,13 @@ title: Implantar rapidamente um aplicativo existente em um cluster
 description: Use um cluster do Azure Service Fabric para hospedar um aplicativo Node.js existente com o Visual Studio.
 ms.topic: conceptual
 ms.date: 12/06/2017
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 9b39e14b18a784274f1bac12072f4fa39de2bb87
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.custom: devx-track-js
+ms.openlocfilehash: dfd1fe9db54925bc17a53a7686fa34d5ea53cd5a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87430732"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013591"
 ---
 # <a name="host-a-nodejs-application-on-azure-service-fabric"></a>Hospedar um aplicativo Node.js no Azure Service Fabric
 
@@ -31,7 +31,7 @@ Criar um projeto com `CTRL`+`SHIFT`+`N`
 
 Na caixa de diálogo **Novo Projeto**, escolha **Nuvem > Aplicativo do Service Fabric**.
 
-Nomeie o aplicativo **MyGuestApp** e pressione **OK**.
+Nomeie o aplicativo **MyGuestApp** e pressione **criar**.
 
 >[!IMPORTANT]
 >O Node.js pode interromper o limite de 260 caracteres para caminhos do Windows facilmente. Use um caminho curto para o projeto, como **c:\code\svc1**. Opcionalmente, você pode seguir **[estas instruções](https://stackoverflow.com/a/41687101/1664231)** para habilitar caminhos de arquivo longos no Windows 10.
@@ -90,7 +90,7 @@ Abra o arquivo **ServiceManifest.xml** no projeto. Na parte inferior do manifest
 
 Se você pressionar **F5** e executar o projeto, ele será implantado no cluster local. No entanto, vamos implantar no Azure.
 
-Clique com botão direito do mouse no projeto e escolha **Publicar... ** para abrir um diálogo Publicar no Azure.
+Clique com botão direito do mouse no projeto e escolha **Publicar...** para abrir um diálogo Publicar no Azure.
 
 ![Diálogo Publicar no Azure para um serviço Service Fabric][publish]
 
@@ -98,13 +98,13 @@ Selecione o perfil de destino **PublishProfiles\Cloud.xml**.
 
 Se você já não fez isso, escolha uma conta do Azure para implantação. Se você ainda não tiver uma conta, [inscreva-se][create-account].
 
-Em **Ponto de Extremidade de Conexão**, selecione o cluster do Service Fabric para implantação. Se você não tiver um, selecione ** &lt; criar novo cluster... &gt; ** que abre a janela do navegador da Web para a Portal do Azure. Para saber mais, confira [Criar um cluster no portal](service-fabric-cluster-creation-via-portal.md#create-cluster-in-the-azure-portal). 
+Em **Ponto de Extremidade de Conexão**, selecione o cluster do Service Fabric para implantação. Se você não tiver um, selecione **&lt; criar novo cluster... &gt;** que abre a janela do navegador da Web para a Portal do Azure. Para saber mais, confira [Criar um cluster no portal](service-fabric-cluster-creation-via-portal.md#create-cluster-in-the-azure-portal). 
 
 Quando você cria o cluster do Service Fabric, defina a configuração **Pontos de extremidade personalizados** como **80**.
 
 ![Configuração de tipo de nó do Service Fabric com o ponto de extremidade personalizado][custom-endpoint]
 
-A criação de um novo cluster do Service Fabric leva algum tempo para concluir. Depois que ele tiver sido criado, volte para a caixa de diálogo de publicação e selecione ** &lt; Atualizar &gt; **. O novo cluster está listado na caixa suspensa. Selecione-o.
+A criação de um novo cluster do Service Fabric leva algum tempo para concluir. Depois que ele tiver sido criado, volte para a caixa de diálogo de publicação e selecione **&lt; Atualizar &gt;**. O novo cluster está listado na caixa suspensa. Selecione-o.
 
 Pressione **Publicar** e aguarde até que a implantação seja concluída.
 

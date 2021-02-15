@@ -1,27 +1,25 @@
 ---
-title: Solucionar problemas de implantação do serviço de nuvem | Microsoft Docs
+title: Solucionar problemas de implantação do serviço de nuvem (clássico) | Microsoft Docs
 description: Existem alguns problemas comuns que você experimentar ao implantar um serviço de nuvem no Azure. Este artigo fornece soluções para alguns deles.
-services: cloud-services
-documentationcenter: ''
-author: simonxjx
-manager: dcscontentpm
-editor: ''
-tags: top-support-issue
-ms.assetid: a18ae415-0d1c-4bc4-ab6c-c1ddea02c870
+ms.topic: article
 ms.service: cloud-services
-ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload: tbd
-ms.date: 06/15/2018
-ms.author: v-six
-ms.openlocfilehash: ccb08f853ae0f941dd5f9c0eca8c77f0f650905a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 10/14/2020
+ms.author: tagore
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 7b3d7a9a674aab3976da9399f71ff4d8df08eb62
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "71122743"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98741070"
 ---
-# <a name="troubleshoot-cloud-service-deployment-problems"></a>Solucionar problemas de implantação do serviço de nuvem
+# <a name="troubleshoot-azure-cloud-services-classic-deployment-problems"></a>Solucionar problemas de implantação dos serviços de nuvem do Azure (clássico)
+
+> [!IMPORTANT]
+> Os [serviços de nuvem do Azure (suporte estendido)](../cloud-services-extended-support/overview.md) são um novo modelo de implantação baseado em Azure Resource Manager para o produto de serviços de nuvem do Azure.Com essa alteração, os serviços de nuvem do Azure em execução no modelo de implantação baseado no Azure Service Manager foram renomeados como serviços de nuvem (clássicos) e todas as novas implantações devem usar os [serviços de nuvem (suporte estendido)](../cloud-services-extended-support/overview.md).
+
 Quando você implanta um pacote de aplicativos do serviço de nuvem no Azure, é possível obter informações sobre a implantação no painel **Propriedades** no portal do Azure. Você pode usar os detalhes nesse painel para ajudá-lo a solucionar problemas com o serviço de nuvem, e pode fornecer essas informações ao suporte do Azure ao abrir uma nova solicitação de suporte.
 
 Você pode encontrar o painel **Propriedades** da seguinte maneira:
@@ -49,7 +47,7 @@ A recuperação de serviço ocorre automaticamente quando o Azure detecta nós c
 2. No painel **Propriedades** do Portal do Azure, examine as informações e determine se a recuperação de serviço ocorreu durante o tempo em que você observou a reciclagem das funções.
 
 As funções também serão recicladas aproximadamente uma vez por mês durante as atualizações do SO host e do SO convidado.  
-Para saber mais, confira a postagem no blog [A instância de função é reinicializada devido às atualizações do SO](https://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx)
+Para saber mais, confira a postagem no blog [A instância de função é reinicializada devido às atualizações do SO](/archive/blogs/kwill/role-instance-restarts-due-to-os-upgrades)
 
 ## <a name="problem-i-cannot-do-a-vip-swap-and-receive-an-error"></a>Problema: não consigo fazer uma permuta de VIP. Recebi uma mensagem de erro
 Uma permuta de VIP não é permitida se uma atualização de implantação estiver em andamento. As atualizações de implantação podem ocorrer automaticamente quando:
@@ -67,14 +65,14 @@ Para descobrir se uma atualização automática está impedindo que você faça 
 ## <a name="problem-a-role-instance-is-looping-between-started-initializing-busy-and-stopped"></a>Problema: uma instância de função está alternando entre os estados Iniciado, Inicializando, Ocupado e Parado
 Essa condição pode indicar um problema com o código, pacote ou arquivo de configuração do aplicativo. Nesse caso, você deverá ver o status sendo alterado em intervalos de alguns minutos e o Portal do Azure poderá indicar algo como **Reciclando**, **Ocupado** ou **Inicializando**. Isso indica que há algo errado com o aplicativo que está impedindo a execução da instância de função.
 
-Para saber mais sobre como solucionar o problema, confira a postagem de blog [Dados de Diagnóstico de Computação do Azure PaaS](https://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx) e [Problemas comuns que fazem as funções serem recicladas](cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md).
+Para saber mais sobre como solucionar o problema, confira a postagem de blog [Dados de Diagnóstico de Computação do Azure PaaS](/archive/blogs/kwill/windows-azure-paas-compute-diagnostics-data) e [Problemas comuns que fazem as funções serem recicladas](cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md).
 
 ## <a name="problem-my-application-stopped-working"></a>Problema: meu aplicativo parou de funcionar
 1. No portal do Azure, clique na instância de função.
 2. No painel **Propriedades** do Portal do Azure, considere as seguintes condições para resolver o problema:
    * Se a instância de função tiver sido interrompida recentemente (você pode verificar o valor de **Contagem de anulações**), a implantação pode estar sendo atualizada. Aguarde para ver se a instância de função retoma o funcionamento por conta própria.
    * Se a instância de função estiver **Ocupada**, verifique o código do aplicativo para ver se o evento [StatusCheck](/previous-versions/azure/reference/ee758135(v=azure.100)) foi manipulado. Talvez seja necessário adicionar ou corrigir algum código que manipula esse evento.
-   * Examine os dados de diagnóstico e os cenários de solução de problemas na postagem no blog [Dados de diagnóstico de computação de PaaS do Azure](https://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
+   * Examine os dados de diagnóstico e os cenários de solução de problemas na postagem no blog [Dados de diagnóstico de computação de PaaS do Azure](/archive/blogs/kwill/windows-azure-paas-compute-diagnostics-data).
 
 > [!WARNING]
 > Se você reciclar o serviço de nuvem, redefina as propriedades da implantação apagando de maneira efetiva as informações do problema original.
@@ -82,6 +80,6 @@ Para saber mais sobre como solucionar o problema, confira a postagem de blog [Da
 >
 
 ## <a name="next-steps"></a>Próximas etapas
-Confira mais [artigos sobre solução de problemas](https://docs.microsoft.com/azure/cloud-services/cloud-services-allocation-failures) para serviços de nuvem.
+Confira mais [artigos sobre solução de problemas](./cloud-services-allocation-failures.md) para serviços de nuvem.
 
-Para saber como solucionar problemas das funções do serviço de nuvem usando os dados de diagnóstico do computador Azure PaaS, confira a [série de blogs de Kevin Williamson](https://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
+Para saber como solucionar problemas das funções do serviço de nuvem usando os dados de diagnóstico do computador Azure PaaS, confira a [série de blogs de Kevin Williamson](/archive/blogs/kwill/windows-azure-paas-compute-diagnostics-data).

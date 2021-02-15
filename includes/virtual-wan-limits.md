@@ -8,20 +8,24 @@ ms.topic: include
 ms.date: 09/26/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 0cf30666ab9950459f2a48f8fe271fd770f4efe1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.openlocfilehash: 85c66aa6a8f0cb0efa231acee44f8fa02169d27b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "71839238"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "88602372"
 ---
 | Recurso |  Limite |
 | --- | --- |
-| Hubs de WAN virtuais por região | 1  |
-| Hubs de WAN virtual por Wan virtual |Regiões do Azure |
-| Conexões VPN (Branch) por Hub |1,000 |
-| Conexões VNet por Hub  | 500 |
-| Usuários de ponto a site por Hub|10.000 |
-| Taxa de transferência agregada por gateway de VPN de WAN virtual |20 Gbps |
-| Taxa de transferência por conexão VPN virtual WAN (2 túneis) | 2 Gbps com túnel de 1 Gbps/IPsec |
-| Taxa de transferência agregada por gateway de ExpressRoute de WAN virtual |20 Gbps 
+| Hubs da WAN Virtual por região | 1  |
+| Hubs da WAN Virtual por WAN virtual |Regiões do Azure |
+| Conexões VPN (branch) por hub | 1,000 |
+| Agregar a taxa de transferência por gateway de VPN site a site da WAN Virtual | 20 Gbps |
+| Taxa de transferência por conexão VPN da WAN Virtual (2 túneis) | 2 Gbps com 1 Gbps/túnel IPsec |
+| Usuários de ponto a site por hub| 10.000 |
+| Agregar a taxa de transferência por gateway de VPN (ponto a site) de Usuário da WAN Virtual | 20 Gbps |
+| Agregar a taxa de transferência por gateway do ExpressRoute da WAN Virtual | 20 Gbps |
+| Conexões de Circuito do ExpressRoute por hub | 4 |
+| Conexões de VNet por hub  | 500 menos o número total de hubs na WAN Virtual |
+| Agregar a taxa de transferência por Roteador de Hub da WAN Virtual | 50 Gbps para o trânsito de VNet para VNet |
+| A carga de trabalho da VM em todas as VNets conectadas a um hub da WAN Virtual | 2000 

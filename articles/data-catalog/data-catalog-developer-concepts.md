@@ -7,10 +7,10 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.openlocfilehash: b65697c224f612a1bc9d5bfa193355832cafd73f
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88799240"
 ---
 # <a name="azure-data-catalog-developer-concepts"></a>Conceitos de desenvolvedor do Catálogo de Dados do Azure
@@ -74,7 +74,7 @@ A UX pode escolher como exibir a combinação. Existem três padrões diferentes
 Como apresentado na seção Conceitos Principais, o modelo de objeto **Catálogo de Dados do Azure** inclui itens que podem ser ativos ou anotações. Itens têm propriedades que podem ser obrigatórias ou opcionais. Algumas propriedades se aplicam a todos os itens. Algumas propriedades se aplicam a todos os ativos. Algumas propriedades se aplicam somente alguns tipos específicos de ativo.
 
 ### <a name="system-properties"></a>Propriedades do sistema
-<table><tr><td><b>Nome da propriedade</b></td><td><b>Tipo de Dados</b></td><td><b>Comentários</b></td></tr><tr><td>timestamp</td><td>Datetime</td><td>A hora da última modificação do item. Esse campo é gerado pelo servidor quando um item é inserido e sempre que um item é atualizado. O valor dessa propriedade é ignorado na entrada de operações de publicação.</td></tr><tr><td>ID</td><td>Uri</td><td>URL absoluta do item (somente leitura). É o URI endereçável exclusivo do item.  O valor dessa propriedade é ignorado na entrada de operações de publicação.</td></tr><tr><td>tipo</td><td>String</td><td>O tipo de ativo (somente leitura).</td></tr><tr><td>etag</td><td>String</td><td>Uma cadeia de caracteres correspondente à versão do item que pode ser usado para controle de simultaneidade otimista ao executar operações que atualizam itens no catálogo. "*" pode ser usado para fazer correspondência com qualquer valor.</td></tr></table>
+<table><tr><td><b>Nome da propriedade</b></td><td><b>Tipo de Dados</b></td><td><b>Comentários</b></td></tr><tr><td>timestamp</td><td>Datetime</td><td>A hora da última modificação do item. Esse campo é gerado pelo servidor quando um item é inserido e sempre que um item é atualizado. O valor dessa propriedade é ignorado na entrada de operações de publicação.</td></tr><tr><td>ID</td><td>Uri</td><td>URL absoluta do item (somente leitura). É o URI endereçável exclusivo do item.  O valor dessa propriedade é ignorado na entrada de operações de publicação.</td></tr><tr><td>type</td><td>Cadeia de caracteres</td><td>O tipo de ativo (somente leitura).</td></tr><tr><td>etag</td><td>Cadeia de caracteres</td><td>Uma cadeia de caracteres correspondente à versão do item que pode ser usado para controle de simultaneidade otimista ao executar operações que atualizam itens no catálogo. "*" pode ser usado para fazer correspondência com qualquer valor.</td></tr></table>
 
 ### <a name="common-properties"></a>Propriedades comuns
 Essas propriedades se aplicam a todos os tipos de ativos de raiz e todos os tipos de anotação.
@@ -88,21 +88,21 @@ Essas propriedades se aplicam a todos os tipos de ativos de raiz e todos os tipo
 <p>
 Essas propriedades se aplicam a todos os tipos de ativos de raiz.
 
-<table><tr><td><b>Nome da propriedade</b></td><td><b>Tipo de Dados</b></td><td><b>Comentários</b></td></tr><tr><td>name</td><td>String</td><td>Um nome derivado das informações de local da fonte de dados</td></tr><tr><td>dsl</td><td>DataSourceLocation</td><td>Descreve com exclusividade a fonte de dados e é um dos identificadores do ativo. (Consulte a seção de identidade dupla).  A estrutura da dsl varia de acordo com o protocolo e o tipo de origem.</td></tr><tr><td>dataSource</td><td>DataSourceInfo</td><td>Mais detalhes sobre o tipo de ativo.</td></tr><tr><td>lastRegisteredBy</td><td>SecurityPrincipal</td><td>Descreve o usuário que registrou esse ativo por último.  Contém a ID exclusiva para o usuário (o UPN) e um nome de exibição (lastName e firstName).</td></tr><tr><td>containerID</td><td>String</td><td>ID do ativo de contêiner para a fonte de dados. Não há suporte para essa propriedade para o tipo Contêiner.</td></tr></table>
+<table><tr><td><b>Nome da propriedade</b></td><td><b>Tipo de Dados</b></td><td><b>Comentários</b></td></tr><tr><td>name</td><td>String</td><td>Um nome derivado das informações de local da fonte de dados</td></tr><tr><td>dsl</td><td>DataSourceLocation</td><td>Descreve com exclusividade a fonte de dados e é um dos identificadores do ativo. (Consulte a seção de identidade dupla).  A estrutura da dsl varia de acordo com o protocolo e o tipo de origem.</td></tr><tr><td>dataSource</td><td>DataSourceInfo</td><td>Mais detalhes sobre o tipo de ativo.</td></tr><tr><td>lastRegisteredBy</td><td>SecurityPrincipal</td><td>Descreve o usuário que registrou esse ativo por último.  Contém a ID exclusiva para o usuário (o UPN) e um nome de exibição (lastName e firstName).</td></tr><tr><td>containerID</td><td>Cadeia de caracteres</td><td>ID do ativo de contêiner para a fonte de dados. Não há suporte para essa propriedade para o tipo Contêiner.</td></tr></table>
 
 ### <a name="common-non-singleton-annotation-properties"></a>Propriedades comuns de anotação não singleton
 Essas propriedades se aplicam a todos os tipos de anotação não singleton (anotações com permissão para existir em número superior a uma por ativo).
 
 <table>
 <tr><td><b>Nome da propriedade</b></td><td><b>Tipo de Dados</b></td><td><b>Comentários</b></td></tr>
-<tr><td>chave</td><td>String</td><td>Um usuário especificado chave que identifica exclusivamente a anotação na coleção atual. O comprimento da chave não pode exceder 256 caracteres.</td></tr>
+<tr><td>chave</td><td>Cadeia de caracteres</td><td>Um usuário especificado chave que identifica exclusivamente a anotação na coleção atual. O comprimento da chave não pode exceder 256 caracteres.</td></tr>
 </table>
 
 ### <a name="root-asset-types"></a>Tipos de ativos de raiz
 Tipos de ativos de raiz são os tipos que representam os vários tipos de ativos de dados que podem ser registrados no catálogo. Para cada tipo de raiz, há uma exibição que descreve o ativo e anotações incluídas na exibição. O nome da exibição deve ser usado no segmento de URL correspondente {view_name} ao publicar um ativo usando a API REST.
 
-<table><tr><td><b>Tipo de ativo (Exibir nome)</b></td><td><b>Propriedades Adicionais</b></td><td><b>Tipo de Dados</b></td><td><b>Anotações Permitidas</b></td><td><b>Comentários</b></td></tr><tr><td>Tabela ("tabelas")</td><td></td><td></td><td>Description<p>FriendlyName<p>Marca<p>Esquema<p>ColumnDescription<p>ColumnTag<p> Especialista<p>Versão Prévia<p>AccessInstruction<p>TableDataProfile<p>ColumnDataProfile<p>ColumnDataClassification<p>Documentação<p></td><td>Uma Tabela representa quaisquer dados tabulares.  Por exemplo: Tabela SQL, Exibição SQL, Tabela Tabular do Analysis Services, dimensão do multidimensional do Analysis Services, Tabela do Oracle, etc.   </td></tr><tr><td>Medida ("medidas")</td><td></td><td></td><td>Description<p>FriendlyName<p>Marca<p>Especialista<p>AccessInstruction<p>Documentação<p></td><td>Esse tipo representa uma medida do Analysis Services.</td></tr><tr><td></td><td>medida</td><td>Coluna</td><td></td><td>Metadados que descrevem a medida</td></tr><tr><td></td><td>isCalculated </td><td>Booliano</td><td></td><td>Especifica se a medida é calculada ou não.</td></tr><tr><td></td><td>measureGroup</td><td>String</td><td></td><td>Contêiner físico para medidas</td></tr><td>KPI ("kpis")</td><td></td><td></td><td>Description<p>FriendlyName<p>Marca<p>Especialista<p>AccessInstruction<p>Documentação</td><td></td></tr><tr><td></td><td>measureGroup</td><td>String</td><td></td><td>Contêiner físico para medidas</td></tr><tr><td></td><td>goalExpression</td><td>String</td><td></td><td>Uma expressão numérica MDX ou um cálculo que retorna o valor alvo do KPI.</td></tr><tr><td></td><td>valueExpression</td><td>String</td><td></td><td>Uma expressão numérica MDX que retorna o valor real do KPI.</td></tr><tr><td></td><td>statusExpression</td><td>String</td><td></td><td>Uma expressão MDX que representa o estado do KPI em um point-in-time.</td></tr><tr><td></td><td>trendExpression</td><td>String</td><td></td><td>Uma expressão MDX que avalia o valor do KPI ao longo do tempo. A tendência pode ser qualquer critério com base no tempo e que seja útil em um contexto empresarial específico.</td>
-<tr><td>Relatório ("relatórios")</td><td></td><td></td><td>Description<p>FriendlyName<p>Marca<p>Especialista<p>AccessInstruction<p>Documentação<p></td><td>Esse tipo representa um relatório do SQL Server Reporting Services </td></tr><tr><td></td><td>assetCreatedDate</td><td>String</td><td></td><td></td></tr><tr><td></td><td>assetCreatedBy</td><td>String</td><td></td><td></td></tr><tr><td></td><td>assetModifiedDate</td><td>String</td><td></td><td></td></tr><tr><td></td><td>assetModifiedBy</td><td>String</td><td></td><td></td></tr><tr><td>Contêiner ("contêineres")</td><td></td><td></td><td>Description<p>FriendlyName<p>Marca<p>Especialista<p>AccessInstruction<p>Documentação<p></td><td>Esse tipo representa um contêiner de outros ativos, como um banco de dados SQL, um contêiner de Blobs do Azure ou um modelo do Analysis Services.</td></tr></table>
+<table><tr><td><b>Tipo de ativo (Exibir nome)</b></td><td><b>Propriedades Adicionais</b></td><td><b>Tipo de Dados</b></td><td><b>Anotações Permitidas</b></td><td><b>Comentários</b></td></tr><tr><td>Tabela ("tabelas")</td><td></td><td></td><td>Descrição<p>FriendlyName<p>Marca<p>Esquema<p>ColumnDescription<p>ColumnTag<p> Especialista<p>Versão Prévia<p>AccessInstruction<p>TableDataProfile<p>ColumnDataProfile<p>ColumnDataClassification<p>Documentação<p></td><td>Uma Tabela representa quaisquer dados tabulares.  Por exemplo: Tabela SQL, Exibição SQL, Tabela Tabular do Analysis Services, dimensão do multidimensional do Analysis Services, Tabela do Oracle, etc.   </td></tr><tr><td>Medida ("medidas")</td><td></td><td></td><td>Descrição<p>FriendlyName<p>Marca<p>Especialista<p>AccessInstruction<p>Documentação<p></td><td>Esse tipo representa uma medida do Analysis Services.</td></tr><tr><td></td><td>medida</td><td>Coluna</td><td></td><td>Metadados que descrevem a medida</td></tr><tr><td></td><td>isCalculated </td><td>Booliano</td><td></td><td>Especifica se a medida é calculada ou não.</td></tr><tr><td></td><td>measureGroup</td><td>Cadeia de caracteres</td><td></td><td>Contêiner físico para medidas</td></tr><td>KPI ("kpis")</td><td></td><td></td><td>Descrição<p>FriendlyName<p>Marca<p>Especialista<p>AccessInstruction<p>Documentação</td><td></td></tr><tr><td></td><td>measureGroup</td><td>Cadeia de caracteres</td><td></td><td>Contêiner físico para medidas</td></tr><tr><td></td><td>goalExpression</td><td>Cadeia de caracteres</td><td></td><td>Uma expressão numérica MDX ou um cálculo que retorna o valor alvo do KPI.</td></tr><tr><td></td><td>valueExpression</td><td>Cadeia de caracteres</td><td></td><td>Uma expressão numérica MDX que retorna o valor real do KPI.</td></tr><tr><td></td><td>statusExpression</td><td>Cadeia de caracteres</td><td></td><td>Uma expressão MDX que representa o estado do KPI em um point-in-time.</td></tr><tr><td></td><td>trendExpression</td><td>Cadeia de caracteres</td><td></td><td>Uma expressão MDX que avalia o valor do KPI ao longo do tempo. A tendência pode ser qualquer critério com base no tempo e que seja útil em um contexto empresarial específico.</td>
+<tr><td>Relatório ("relatórios")</td><td></td><td></td><td>Descrição<p>FriendlyName<p>Marca<p>Especialista<p>AccessInstruction<p>Documentação<p></td><td>Esse tipo representa um relatório do SQL Server Reporting Services </td></tr><tr><td></td><td>assetCreatedDate</td><td>Cadeia de caracteres</td><td></td><td></td></tr><tr><td></td><td>assetCreatedBy</td><td>Cadeia de caracteres</td><td></td><td></td></tr><tr><td></td><td>assetModifiedDate</td><td>Cadeia de caracteres</td><td></td><td></td></tr><tr><td></td><td>assetModifiedBy</td><td>Cadeia de caracteres</td><td></td><td></td></tr><tr><td>Contêiner ("contêineres")</td><td></td><td></td><td>Descrição<p>FriendlyName<p>Marca<p>Especialista<p>AccessInstruction<p>Documentação<p></td><td>Esse tipo representa um contêiner de outros ativos, como um banco de dados SQL, um contêiner de Blobs do Azure ou um modelo do Analysis Services.</td></tr></table>
 
 ### <a name="annotation-types"></a>Tipos de anotação
 Tipos de anotação representam tipos de metadados que podem ser atribuídos a outros tipos no catálogo.
@@ -123,12 +123,12 @@ Tipos de anotação representam tipos de metadados que podem ser atribuídos a o
 <tr><td></td><td>colunas</td><td>Column[]</td><td>Uma matriz de objetos de coluna. Eles descrevem a coluna com informações derivadas da fonte de dados.</td></tr>
 
 <tr><td>ColumnDescription ("columnDescriptions")</td><td></td><td></td><td>Esta propriedade contém uma descrição de uma coluna.  Cada usuário do sistema pode adicionar suas próprias descrições para várias colunas (no máximo uma por coluna). Somente o usuário que criou os objetos ColumnDescription pode editá-los.  (Os Administradores e Proprietários de ativos podem excluir o objeto ColumnDescription, mas não editá-lo). O sistema mantém as descrições de coluna dos usuários separadamente.  Desta maneira, há uma matriz de objetos ColumnDescription de cada ativo (uma por coluna para cada usuário que contribuiu com seus conhecimentos sobre a coluna, além de possivelmente uma contendo informações derivadas da fonte de dados).  O ColumnDescription está acoplado livremente ao esquema para que ele possa ficar fora de sincronia. O ColumnDescription pode descrever uma coluna que não existe mais no esquema.  Cabe ao escritor manter a descrição e o esquema em sincronia.  A fonte de dados também pode ter informações de descrição de colunas e são objetos ColumnDescription adicionais que seriam criados durante a execução da ferramenta.</td></tr>
-<tr><td></td><td>columnName</td><td>String</td><td>O nome da coluna à qual essa descrição se refere.</td></tr>
-<tr><td></td><td>descrição</td><td>String</td><td>uma descrição resumida (duas a três linhas) da coluna.</td></tr>
+<tr><td></td><td>columnName</td><td>Cadeia de caracteres</td><td>O nome da coluna à qual essa descrição se refere.</td></tr>
+<tr><td></td><td>descrição</td><td>Cadeia de caracteres</td><td>uma descrição resumida (duas a três linhas) da coluna.</td></tr>
 
 <tr><td>ColumnTag ("columnTags")</td><td></td><td></td><td>Esta propriedade contém uma marca de uma coluna. Cada usuário do sistema pode adicionar várias marcas para uma determinada coluna e pode adicionar marcas a múltiplas colunas. Somente o usuário que criou os objetos ColumnTag pode editá-los. (Administradores e Proprietários de Ativos podem excluir o objeto ColumnTag, mas não editá-lo). O sistema mantém as marcas de coluna dos usuários separadamente.  Portanto, há uma matriz de objetos ColumnTag em cada ativo.  O ColumnTag está acoplado livremente ao esquema para que ele possa ficar fora de sincronia. O ColumnTag pode descrever uma coluna que não existe mais no esquema.  É responsabilidade do escritor manter a marca de coluna e o esquema em sincronia.</td></tr>
-<tr><td></td><td>columnName</td><td>String</td><td>O nome da coluna à qual essa marca se refere.</td></tr>
-<tr><td></td><td>marcação</td><td>String</td><td>Uma marca que descreve a coluna.</td></tr>
+<tr><td></td><td>columnName</td><td>Cadeia de caracteres</td><td>O nome da coluna à qual essa marca se refere.</td></tr>
+<tr><td></td><td>marcação</td><td>Cadeia de caracteres</td><td>Uma marca que descreve a coluna.</td></tr>
 
 <tr><td>Especialista ("especialistas")</td><td></td><td></td><td>Essa propriedade contém um usuário que é considerado um especialista no conjunto de dados. As opiniões de especialistas (descrições) surgem na parte superior da UX ao listar as descrições. Cada usuário pode especificar seus próprios especialistas. Somente esse usuário pode editar o objeto experts. (Proprietários de Ativos e Administradores podem excluir o objeto Especialista, mas não editá-lo).</td></tr>
 <tr><td></td><td>especialista</td><td>SecurityPrincipal</td><td></td></tr>
@@ -142,7 +142,7 @@ Tipos de anotação representam tipos de metadados que podem ser atribuídos a o
 
 <tr><td>TableDataProfile ("tableDataProfiles")</td><td></td><td></td><td></td></tr>
 <tr><td></td><td>numberOfRows</td></td><td>INT</td><td>O número de linhas no conjunto de dados</td></tr>
-<tr><td></td><td>tamanho</td><td>long</td><td>O tamanho em bytes do conjunto de dados.  </td></tr>
+<tr><td></td><td>size</td><td>long</td><td>O tamanho em bytes do conjunto de dados.  </td></tr>
 <tr><td></td><td>schemaModifiedTime</td><td>string</td><td>A hora da última modificação do esquema</td></tr>
 <tr><td></td><td>dataModifiedTime</td><td>string</td><td>A hora da última modificação do conjunto de dados (dados foram adicionados, modificados ou excluídos)</td></tr>
 
@@ -150,8 +150,8 @@ Tipos de anotação representam tipos de metadados que podem ser atribuídos a o
 <tr><td></td><td>colunas</td></td><td>ColumnDataProfile[]</td><td>Uma matriz de perfis de dados da coluna.</td></tr>
 
 <tr><td>ColumnDataClassification ("columnDataClassifications")</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>columnName</td><td>String</td><td>O nome da coluna à qual essa classificação se refere.</td></tr>
-<tr><td></td><td>classificação</td><td>String</td><td>A classificação dos dados nesta coluna.</td></tr>
+<tr><td></td><td>columnName</td><td>Cadeia de caracteres</td><td>O nome da coluna à qual essa classificação se refere.</td></tr>
+<tr><td></td><td>classificação</td><td>Cadeia de caracteres</td><td>A classificação dos dados nesta coluna.</td></tr>
 
 <tr><td>Documentação ("documentação")</td><td></td><td></td><td>Um determinado ativo pode ter apenas uma documentação associada a ele.</td></tr>
 <tr><td></td><td>Tipo MIME</td><td>string</td><td>O tipo mime do conteúdo.</td></tr>
@@ -182,7 +182,7 @@ Tipos comuns podem ser usados como os tipos de propriedades, mas não são Itens
 
 <tr><td>Coluna</td><td></td><td></td><td></td></tr>
 <tr><td></td><td>name</td><td>string</td><td>Nome da coluna ou do atributo.</td></tr>
-<tr><td></td><td>tipo</td><td>string</td><td>Tipo de dados da coluna ou do atributo. Os tipos permitidos dependem sourceType de dados do ativo.  Há suporte apenas para um subconjunto de tipos.</td></tr>
+<tr><td></td><td>type</td><td>string</td><td>Tipo de dados da coluna ou do atributo. Os tipos permitidos dependem sourceType de dados do ativo.  Há suporte apenas para um subconjunto de tipos.</td></tr>
 <tr><td></td><td>maxLength</td><td>INT</td><td>O comprimento máximo permitido para a coluna ou atributo. Derivado da fonte de dados. Aplicável somente a alguns tipos de fontes.</td></tr>
 <tr><td></td><td>precisão</td><td>byte</td><td>A precisão para a coluna ou atributo. Derivado da fonte de dados. Aplicável somente a alguns tipos de fontes.</td></tr>
 <tr><td></td><td>isNullable</td><td>Booliano</td><td>Se a coluna tem permissão para ter um valor nulo ou não. Derivado da fonte de dados. Aplicável somente a alguns tipos de fontes.</td></tr>
@@ -190,9 +190,9 @@ Tipos comuns podem ser usados como os tipos de propriedades, mas não são Itens
 
 <tr><td>ColumnDataProfile</td><td></td><td></td><td></td></tr>
 <tr><td></td><td>columnName </td><td>string</td><td>O nome da coluna</td></tr>
-<tr><td></td><td>tipo </td><td>string</td><td>O tipo da coluna</td></tr>
-<tr><td></td><td>min </td><td>string</td><td>O valor mínimo no conjunto de dados</td></tr>
-<tr><td></td><td>máx. </td><td>string</td><td>O valor máximo do conjunto de dados</td></tr>
+<tr><td></td><td>type </td><td>string</td><td>O tipo da coluna</td></tr>
+<tr><td></td><td>Min </td><td>string</td><td>O valor mínimo no conjunto de dados</td></tr>
+<tr><td></td><td>max </td><td>string</td><td>O valor máximo do conjunto de dados</td></tr>
 <tr><td></td><td>avg </td><td>double</td><td>O valor médio do conjunto de dados</td></tr>
 <tr><td></td><td>stdev </td><td>double</td><td>O desvio padrão para o conjunto de dados</td></tr>
 <tr><td></td><td>nullCount </td><td>INT</td><td>A contagem de valores nulos no conjunto de dados</td></tr>
@@ -217,7 +217,7 @@ O conjunto de protocolos com suporte pode ser estendido por meio de programaçã
 
 <tr><td>DataSourceProtocolIdentityProperty</td><td></td><td></td><td></td></tr>
 <tr><td></td><td>name</td><td>string</td><td>O nome da propriedade. Cada parte deve ter de 1 a 100 caracteres, começar com uma letra e conter somente letras e números.</td></tr>
-<tr><td></td><td>tipo</td><td>string</td><td>O tipo da propriedade. Os valores com suporte são: “bool”, “boolean”, “byte”, “guid”, “int”, “integer”, “long”, “string” e “url”</td></tr>
+<tr><td></td><td>type</td><td>string</td><td>O tipo da propriedade. Os valores com suporte são: “bool”, “boolean”, “byte”, “guid”, “int”, “integer”, “long”, “string” e “url”</td></tr>
 <tr><td></td><td>ignoreCase</td><td>bool</td><td>Indica se o caso deve ser ignorado ao usar o valor da propriedade. Só pode ser especificado para propriedades com o tipo "string". O valor padrão é false.</td></tr>
 <tr><td></td><td>urlPathSegmentsIgnoreCase</td><td>bool[]</td><td>Indica se o caso deve ser ignorado para cada segmento do caminho da URL. Só pode ser especificado para propriedades com o tipo "url". O valor padrão é [falso].</td></tr>
 

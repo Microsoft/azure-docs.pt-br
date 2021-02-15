@@ -4,12 +4,12 @@ description: Neste tutorial, você aprenderá a configurar a integração e a im
 ms.topic: tutorial
 ms.date: 08/29/2018
 ms.custom: mvc
-ms.openlocfilehash: 9cf619eddd07bbe55cd7aea5f27051a7d0415c24
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: bb0eb9226a99f139ff10a8da12a1e22017536c67
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75614121"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018844"
 ---
 # <a name="tutorial-deploy-a-container-application-with-cicd-to-a-service-fabric-cluster"></a>Tutorial: Implantar um aplicativo de contêiner com CI/CD em um cluster do Service Fabric
 
@@ -46,11 +46,11 @@ Crie um novo repositório Git local para seu projeto selecionando **Adicionar ao
 
 Na exibição **Push** no **Team Explorer**, selecione o botão **Publicar Repositório Git** em **Efetuar Push para o Azure DevOps**.
 
-![Enviar por push o repositório Git][push-git-repo]
+![Captura de tela da janela de sincronização do Team Explorer no Visual Studio. Em Enviar por Push para o Azure DevOps, o botão Publicar no Repositório Git é realçado.][push-git-repo]
 
 Verifique seu email e selecione sua conta na lista suspensa **Conta**. Talvez seja preciso configurar uma organização, caso ainda não tenha uma. Digite o nome do seu repositório e selecione **Publicar Repositório**.
 
-![Enviar por push o repositório Git][publish-code]
+![Captura de tela da janela Enviar por Push para o Azure DevOps. As configurações de Email, Conta, Nome do repositório e o botão Publicar Repositório são realçadas.][publish-code]
 
 A publicação do repositório cria um novo projeto de equipe em sua conta com o mesmo nome do repositório local. Para criar o repositório em um projeto de equipe existente, clique em **Avançado** ao lado do nome do **Repositório** e escolha um projeto de equipe. Você pode exibir seu código na Web selecionando **Vê-lo na Web**.
 
@@ -71,7 +71,7 @@ Selecione a opção **Pipelines** no painel à esquerda, depois clique em **Novo
 
 ![Novo Pipeline][new-pipeline]
 
-Selecione **Git do Azure Repos** como fonte, o nome do projeto da sua equipe, seu repositório de projeto e o branch Padrão **master** ou builds manuais e agendados.  Clique em **Continuar**.
+Selecione **Git do Azure Repos** como fonte, o nome do projeto da sua equipe, seu repositório de projeto e o branch Padrão **master** ou builds manuais e agendados.  Em seguida, clique em **Continuar**.
 
 Em **Selecionar um modelo**, selecione o modelo **Aplicativo do Azure Service Fabric com suporte para Docker** e clique em **Aplicar**.
 
@@ -126,7 +126,7 @@ Clique em **Configurações do Docker** e, em seguida, clique em **Definir confi
 
 ![Agente do pipeline de lançamento][release-pipeline-agent]
 
-Em seguida, adicione um artefato de compilação ao pipeline para que a definição da versão possa encontrar a saída da compilação. Selecione **Pipeline** e **Artefatos**-> **+Adicionar**.  Em **Fonte (Definição de compilação)** , selecione a definição de compilação criada anteriormente.  Clique em **Adicionar** para salvar o artefato de compilação.
+Em seguida, adicione um artefato de compilação ao pipeline para que a definição da versão possa encontrar a saída da compilação. Selecione **Pipeline** e **Artefatos**->**+Adicionar**.  Em **Fonte (Definição de compilação)**, selecione a definição de compilação criada anteriormente.  Clique em **Adicionar** para salvar o artefato de compilação.
 
 ![Adicionar artefato][add-artifact]
 
@@ -142,7 +142,7 @@ Verifique se a implantação foi bem-sucedida e o aplicativo está em execução
 
 Para verificar se o pipeline de integração contínua está funcionando conferindo algumas alterações de código no Azure DevOps.
 
-Ao escrever seu código, suas alterações são rastreadas automaticamente pelo Visual Studio. Confirme as alterações em seu repositório Git local, selecionando o ícone de alterações pendentes (![Pendente][pending]) na barra de status na parte inferior direita.
+Ao escrever seu código, suas alterações são rastreadas automaticamente pelo Visual Studio. Confirme as alterações em seu repositório Git local, selecionando o ícone de alterações pendentes (![O ícone de alterações pendentes mostra um lápis e um número.][pending]) na barra de status na parte inferior direita.
 
 Na exibição **Alterações** no Team Explorer, adicione uma mensagem que descreva a atualização e confirme suas alterações.
 
@@ -158,7 +158,7 @@ Para verificar o progresso do build, alterne para a guia **Builds** no **Team Ex
 
 Verifique se a implantação foi bem-sucedida e o aplicativo está em execução no cluster.  Abra um navegador da Web e acesse `http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/`.  Observe a versão do aplicativo, neste exemplo é "1.0.0.20170815.3".
 
-![Service Fabric Explorer][sfx1]
+![Captura de tela do aplicativo Voting no Service Fabric Explorer. Na guia Essentials, a versão do aplicativo "1.0.0.20170815.3" é realçada.][sfx1]
 
 ## <a name="update-the-application"></a>Atualizar o aplicativo
 
@@ -166,11 +166,11 @@ Fazer alterações de código no aplicativo.  Salve e confirme as alterações, 
 
 Depois que a atualização do aplicativo se inicia, você pode observar o progresso da atualização no Service Fabric Explorer:
 
-![Service Fabric Explorer][sfx2]
+![Captura de tela do aplicativo Voting no Service Fabric Explorer. Uma mensagem de "Atualização em Andamento" é realçada e o status do aplicativo é "Atualizando".][sfx2]
 
 A atualização do aplicativo pode levar vários minutos. Quando a atualização estiver concluída, o aplicativo estará executado a próxima versão.  Neste exemplo, "1.0.0.20170815.4".
 
-![Service Fabric Explorer][sfx3]
+![Captura de tela do aplicativo Voting no Service Fabric Explorer. Na guia Essentials, a versão atualizada do aplicativo "1.0.0.20170815.4" é realçada.][sfx3]
 
 ## <a name="next-steps"></a>Próximas etapas
 

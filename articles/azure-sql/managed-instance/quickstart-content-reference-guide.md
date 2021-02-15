@@ -12,12 +12,12 @@ author: davidtrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 07/11/2019
-ms.openlocfilehash: 7c7268aa361c77f1d466ab7a58b74aa91090dc4b
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 936e4f8f54e92ba90372fff1c9d8dfc1982bbd62
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84708562"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325107"
 ---
 # <a name="getting-started-with-azure-sql-managed-instance"></a>Introdução à Instância Gerenciada de SQL do Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -44,16 +44,16 @@ Como uma primeira etapa, você precisaria criar sua primeira Instância Gerencia
   > - Também é possível usar a rota expressa ou a conexão site a site da rede local, mas essas abordagens estão fora do escopo desses inícios rápidos.
   > - Se você alterar o período de retenção de 0 (retenção ilimitada) para qualquer outro valor, observe que a retenção será aplicada somente aos logs gravados após a alteração do valor de retenção (os logs gravados durante o período em que a retenção era definida como ilimitada serão preservados, mesmo após a retenção ser habilitada).
 
-Como alternativa à criação manual da Instância Gerenciada de SQL, você pode usar o [PowerShell](scripts/create-configure-managed-instance-powershell.md), o [PowerShell com o modelo do Resource Manager](scripts/create-powershell-azure-resource-manager-template.md) ou a [CLI do Azure](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-create) para criar scripts e automatizar esse processo.
+Como alternativa à criação manual da Instância Gerenciada de SQL, você pode usar o [PowerShell](scripts/create-configure-managed-instance-powershell.md), o [PowerShell com o modelo do Resource Manager](scripts/create-powershell-azure-resource-manager-template.md) ou a [CLI do Azure](/cli/azure/sql/mi#az-sql-mi-create) para criar scripts e automatizar esse processo.
 
 ### <a name="migrate-your-databases"></a>Migrar seus bancos de dados
 
-Após você criar uma Instância Gerenciada de SQL e configurar o acesso, você poderá começar a migrar os bancos de dados do SQL Server. A migração poderá falhar se você tiver alguns recursos sem suporte no banco de dados de origem que deseja migrar. Para evitar falhas e verificar a compatibilidade, você pode usar o [AMD (Assistente de Migração de Dados)](https://www.microsoft.com/download/details.aspx?id=53595), para analisar seus bancos de dados no SQL Server e encontrar qualquer problema que possa bloquear a migração para a Instância Gerenciada de SQL, como a existência de [FileStream](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) ou de vários arquivos de log. Se você resolver esses problemas, seus bancos de dados estarão prontos para migrar para a Instância Gerenciada de SQL. O [Assistente para Experimentos de Banco de Dados](/sql/dea/database-experimentation-assistant-overview) é outra ferramenta útil que pode registrar a carga de trabalho no SQL Server e reproduzi-la em uma Instância Gerenciada de SQL para que você possa determinar se haverá problemas de desempenho se você migrar para uma Instância Gerenciada do SQL.
+Após você criar uma Instância Gerenciada de SQL e configurar o acesso, você poderá começar a migrar os bancos de dados do SQL Server. A migração poderá falhar se você tiver alguns recursos sem suporte no banco de dados de origem que deseja migrar. Para evitar falhas e verificar a compatibilidade, você pode usar o [AMD (Assistente de Migração de Dados)](https://www.microsoft.com/download/details.aspx?id=53595), para analisar seus bancos de dados no SQL Server e encontrar qualquer problema que possa bloquear a migração para a Instância Gerenciada de SQL, como a existência de [FileStream](/sql/relational-databases/blob/filestream-sql-server) ou de vários arquivos de log. Se você resolver esses problemas, seus bancos de dados estarão prontos para migrar para a Instância Gerenciada de SQL. O [Assistente para Experimentos de Banco de Dados](/sql/dea/database-experimentation-assistant-overview) é outra ferramenta útil que pode registrar a carga de trabalho no SQL Server e reproduzi-la em uma Instância Gerenciada de SQL para que você possa determinar se haverá problemas de desempenho se você migrar para uma Instância Gerenciada do SQL.
 
 Após ter a certeza de que você pode migrar o banco de dados para uma Instância Gerenciada de SQL, será possível usar as funcionalidades nativas de restauração do SQL Server para restaurar um banco de dados em uma Instância Gerenciada do SQL com base em um arquivo `.bak`. Você pode usar esse método para migrar bancos de dados do mecanismo de banco de dados do SQL Server instalado localmente ou nas Máquinas Virtuais do Azure. Para um início rápido, confira [Restore from backup to a managed instance](restore-sample-database-quickstart.md) (Restaurar do backup para uma Instância Gerenciada de SQL). Neste início rápido, você restaurará de um arquivo `.bak` armazenado no Armazenamento de Blobs do Azure usando o comando `RESTORE` Transact-SQL.
 
 > [!TIP]
-> Para usar o comando `BACKUP` Transact-SQL para criar um backup do banco de dados no Armazenamento de Blobs do Azure, confira [Backup do SQL Server para URL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url).
+> Para usar o comando `BACKUP` Transact-SQL para criar um backup do banco de dados no Armazenamento de Blobs do Azure, confira [Backup do SQL Server para URL](/sql/relational-databases/backup-restore/sql-server-backup-to-url).
 
 Estes inícios rápidos permitem que você crie, configure e restaure um backup de banco de dados rapidamente para uma Instância Gerenciada de SQL. Em alguns cenários, você precisaria personalizar ou automatizar a implantação da Instância Gerenciada de SQL e do ambiente de rede necessário. Esses cenários serão descritos abaixo.
 
@@ -72,7 +72,7 @@ Os inícios rápidos mencionados anteriormente permitem que você configure rapi
 No entanto, para migrar seu banco de dados de produção ou até mesmo bancos de dados de desenvolvimento/teste que deseja usar para algum teste de desempenho, você precisará considerar o uso de algumas técnicas adicionais, como:
 
 - Teste de desempenho – você deve medir as métricas de desempenho de linha de base da sua instância do SQL Server de origem e compará-las com as métricas de desempenho da Instância Gerenciada de SQL de destino para a qual migrou o banco de dados. Saiba mais sobre as [melhores práticas de comparação de desempenho](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/The-best-practices-for-performance-comparison-between-Azure-SQL/ba-p/683210).
-- Migração online – com o `RESTORE` nativo descrito neste artigo, é necessário aguardar até que os bancos de dados sejam restaurados (e copiados para o Armazenamento de Blobs do Azure caso ainda não estejam armazenados lá). Isso causa algum tempo de inatividade do seu aplicativo, principalmente para bancos de dados maiores. Para mover o banco de dados de produção, use o [DMS (Serviço de Migração de Dados)](https://docs.microsoft.com/azure/dms/tutorial-sql-server-to-managed-instance?toc=/azure/sql-database/toc.json) para migrar o banco de dados com tempo de inatividade mínimo. O DMS faz isso enviando por push as alterações feitas no banco de dados de origem em incrementos para o banco de dados da Instância Gerenciada de SQL que está sendo restaurado. Dessa forma, você pode alternar rapidamente seu aplicativo do banco de dados de origem para o de destino com tempo de inatividade mínimo.
+- Migração online – com o `RESTORE` nativo descrito neste artigo, é necessário aguardar até que os bancos de dados sejam restaurados (e copiados para o Armazenamento de Blobs do Azure caso ainda não estejam armazenados lá). Isso causa algum tempo de inatividade do seu aplicativo, principalmente para bancos de dados maiores. Para mover o banco de dados de produção, use o [DMS (Serviço de Migração de Dados)](../../dms/tutorial-sql-server-to-managed-instance.md?toc=%2fazure%2fsql-database%2ftoc.json) para migrar o banco de dados com tempo de inatividade mínimo. O DMS faz isso enviando por push as alterações feitas no banco de dados de origem em incrementos para o banco de dados da Instância Gerenciada de SQL que está sendo restaurado. Dessa forma, você pode alternar rapidamente seu aplicativo do banco de dados de origem para o de destino com tempo de inatividade mínimo.
 
 Saiba mais sobre o [processo de migração recomendado](migrate-to-instance-from-sql-server.md).
 

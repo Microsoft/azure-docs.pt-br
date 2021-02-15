@@ -6,22 +6,22 @@ ms.service: sql-managed-instance
 ms.subservice: performance
 ms.custom: ''
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, carlrab
+ms.reviewer: wiassaf, sstein
 ms.date: 05/04/2020
-ms.openlocfilehash: ae139dd65242be9456f3498c494e1a7c5a29402f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a85bf6510163c47fa39bdb28debff806e1812f58
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84695687"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499264"
 ---
-# <a name="create-alerts-for-azure-sql-managed-instance-using-the-azure-portal"></a>Criar alertas para o Azure SQL Instância Gerenciada usando o portal do Azure
+# <a name="create-alerts-for-azure-sql-managed-instance-using-the-azure-portal"></a>Criar uma Instância Gerenciada de SQL do Azure usando o portal do Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-Este artigo mostra como configurar alertas para bancos de dados no Azure SQL Instância Gerenciada Database usando o portal do Azure. Os alertas podem enviar um email, chamar um Web Hook, executar o Azure Function, runbook, chamar um sistema de tíquetes compatível com ITSM externo, ligar para você no telefone ou enviar uma mensagem de texto quando alguma métrica, como o tamanho do armazenamento de instância de exemplo ou o uso da CPU, atingir um limite predefinido. Este artigo também fornece as práticas recomendadas para definir os períodos de alerta.
+Este artigo mostra como configurar alertas para bancos de dados no Azure SQL Instância Gerenciada Database usando o portal do Azure. Os alertas podem enviar um email, chamar um web hook, executar o Azure Function, runbook, chamar um sistema de tíquetes compatível com ITSM externo, ligar para você no telefone ou enviar uma mensagem de texto quando alguma métrica, como o tamanho do armazenamento de instância ou a utilização da CPU, atingir um limite predefinido. Este artigo também fornece as práticas recomendadas para definir os períodos de alerta.
 
 
 ## <a name="overview"></a>Visão geral
@@ -56,7 +56,7 @@ As seguintes métricas de instância gerenciada estão disponíveis para a confi
 | Bytes de E/S lidos | Bytes de e/s lidos no período de tempo selecionado. | Bytes |
 | Bytes de E/S gravados | Bytes de e/s gravados no período de tempo selecionado. | Bytes |
 | Contagem de solicitações de E/S | Contagem de solicitações de e/s no período de tempo selecionado. | Numérico |
-| Espaço de armazenamento reservado | Máximo atual. espaço de armazenamento reservado para a instância gerenciada. Alterações com a operação de dimensionamento de recursos. | MB (megabytes) |
+| Espaço de armazenamento reservado | Espaço de armazenamento máximo atual reservado para a instância gerenciada. Alterações com a operação de dimensionamento de recursos. | MB (megabytes) |
 | Espaço de armazenamento usado | Espaço de armazenamento usado no período selecionado. Alterações com consumo de armazenamento por bancos de dados e a instância. | MB (megabytes) |
 | Contagem de núcleos virtuais | vCores provisionado para a instância gerenciada. Alterações com a operação de dimensionamento de recursos. | 4-80 (vCores) |
 
@@ -145,5 +145,5 @@ Para exibir, suspender, ativar, modificar e excluir alertas existentes:
 * Saiba mais sobre Azure Monitor sistema de alertas, confira [visão geral dos alertas no Microsoft Azure](../../azure-monitor/platform/alerts-overview.md)
 * Saiba mais sobre os alertas de métricas, veja [como os alertas de métrica funcionam no Azure monitor](../../azure-monitor/platform/alerts-metric-overview.md)
 * Saiba mais sobre como configurar um webhook em alertas, consulte [chamar um webhook com um alerta de métrica clássico](../../azure-monitor/platform/alerts-webhooks.md)
-* Saiba mais sobre como configurar e gerenciar alertas usando o PowerShell, consulte [regras de ação](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrulev2)
-* Saiba mais sobre como configurar e gerenciar alertas usando a API, consulte [Azure monitor referência da API REST](https://docs.microsoft.com/rest/api/monitor/) 
+* Saiba mais sobre como configurar e gerenciar alertas usando o PowerShell, consulte [regras de ação](/powershell/module/az.monitor/add-azmetricalertrulev2)
+* Saiba mais sobre como configurar e gerenciar alertas usando a API, consulte [Azure monitor referência da API REST](/rest/api/monitor/)

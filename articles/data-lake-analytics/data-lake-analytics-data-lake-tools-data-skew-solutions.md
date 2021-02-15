@@ -1,17 +1,16 @@
 ---
 title: Resolver dados-distorção-Ferramentas do Azure Data Lake para Visual Studio
 description: Solucione problemas em possíveis soluções para problemas de distorção de dados usando as Ferramentas do Azure Data Lake para Visual Studio.
-services: data-lake-analytics
 ms.reviewer: jasonh
 ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 12/16/2016
-ms.openlocfilehash: 5e9359582c07a78feb2d04b2ea87f046887238a1
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 0b82ce187c06afa69e54ea93931e1745f0d52674
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87129926"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92219183"
 ---
 # <a name="resolve-data-skew-problems-by-using-azure-data-lake-tools-for-visual-studio"></a>Resolver problemas de distorção de dados usando as Ferramentas do Azure Data Lake para Visual Studio
 

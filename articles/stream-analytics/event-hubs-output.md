@@ -1,18 +1,17 @@
 ---
 title: Saída dos hubs de eventos de Azure Stream Analytics
 description: Este artigo descreve como gerar dados de saída de Azure Stream Analytics para os hubs de eventos do Azure.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 08/25/2020
-ms.openlocfilehash: d18d4aa4bf9306bcdd667faa53f0d888c090e2fd
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.date: 09/23/2020
+ms.openlocfilehash: c2bde64c17520f4cf66ddecd9fc55a9bdd9edc37
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88875575"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020580"
 ---
 # <a name="event-hubs-output-from-azure-stream-analytics"></a>Saída dos hubs de eventos de Azure Stream Analytics
 
@@ -38,7 +37,7 @@ A tabela a seguir tem os parâmetros necessários para configurar os fluxos de d
 
 ## <a name="partitioning"></a>Particionamento
 
-O particionamento varia dependendo do alinhamento da partição. Quando a chave de partição de saída do hub de eventos estiver alinhada de forma igual com a etapa de consulta (anterior) de upstream, o número de gravadores será o mesmo que o de partições na saída do hub de eventos. Cada gravador usa [a classe EventHubSender](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet) para enviar eventos para a partição específica. Quando a chave de partição de saída do hub de eventos não é alinhada com a etapa de consulta (anterior) de upstream, o número de gravadores será o mesmo que o de partições nessa etapa anterior. Cada gravador usa a [classe SendBatchAsync](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) no **EventHubClient** para enviar eventos para todas as partições de saída. 
+O particionamento varia dependendo do alinhamento da partição. Quando a chave de partição de saída do hub de eventos estiver alinhada de forma igual com a etapa de consulta (anterior) de upstream, o número de gravadores será o mesmo que o de partições na saída do hub de eventos. Cada gravador usa [a classe EventHubSender](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet&preserve-view=true) para enviar eventos para a partição específica. Quando a chave de partição de saída do hub de eventos não é alinhada com a etapa de consulta (anterior) de upstream, o número de gravadores será o mesmo que o de partições nessa etapa anterior. Cada gravador usa a [classe SendBatchAsync](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet&preserve-view=true) no **EventHubClient** para enviar eventos para todas as partições de saída. 
 
 ## <a name="output-batch-size"></a>Tamanho do lote de saída
 
@@ -46,13 +45,25 @@ O tamanho máximo da mensagem é 256 KB ou 1 MB por mensagem. Para obter mais in
 
 ## <a name="custom-metadata-properties-for-output"></a>Personalizar propriedades de metadados para a saída
 
-Você pode anexar colunas de consulta às suas mensagens de saída como propriedades de usuário. Essas colunas não entram no conteúdo. As propriedades estão presentes no formato de um dicionário na mensagem de saída. *Chave* é o nome da coluna e *valor* é o valor da coluna no dicionário de propriedades. Todos os tipos de dados do Stream Analytics têm suporte, exceto Registro e Matriz.  
+Você pode anexar colunas de consulta às suas mensagens de saída como propriedades de usuário. Essas colunas não entram no conteúdo. As propriedades estão presentes no formato de um dicionário na mensagem de saída. *Chave* é o nome da coluna e *valor* é o valor da coluna no dicionário de propriedades. Todos os tipos de dados do Stream Analytics têm suporte, exceto Registro e Matriz.
+
+No exemplo a seguir, os campos `DeviceId` e `DeviceStatus` são adicionados aos metadados.
+
+1. Use a seguinte consulta:
+
+   ```sql
+   select *, DeviceId, DeviceStatus from iotHubInput
+   ```
+
+1. Configure `DeviceId,DeviceStatus` como colunas de propriedade na saída.
+
+   :::image type="content" source="media/event-hubs-output/property-columns.png" alt-text="Colunas da propriedade":::
+
+A imagem a seguir é das propriedades de mensagem de saída esperadas inspecionadas no EventHub usando o [Gerenciador do barramento de serviço](https://github.com/paolosalvatori/ServiceBusExplorer).
+
+:::image type="content" source="media/event-hubs-output/custom-properties.png" alt-text="Propriedades personalizadas do evento":::
 
 ## <a name="next-steps"></a>Próximas etapas
 
+* [Usar identidades gerenciadas para acessar o Hub de eventos de um trabalho de Azure Stream Analytics (versão prévia)](event-hubs-managed-identity.md)
 * [Início Rápido: Criar um trabalho do Stream Analytics usando o portal do Azure](stream-analytics-quick-create-portal.md)
-* [Início Rápido: Criar um trabalho do Azure Stream Analytics usando a CLI do Azure](quick-create-azure-cli.md)
-* [Início Rápido: Criar um trabalho do Azure Stream Analytics usando um modelo do Resource Manager](quick-create-azure-resource-manager.md)
-* [Início rápido: criar um trabalho de Stream Analytics usando Azure PowerShell](stream-analytics-quick-create-powershell.md)
-* [Início Rápido: Criar um trabalho do Azure Stream Analytics usando o Visual Studio](stream-analytics-quick-create-vs.md)
-* [Início rápido: criar um trabalho de Azure Stream Analytics no Visual Studio Code](quick-create-vs-code.md)

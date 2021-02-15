@@ -1,37 +1,21 @@
 ---
-title: Visão geral dos Serviços de Mídia do Azure v3
-titleSuffix: Azure Media Services
-description: Visão geral de alto nível dos Serviços de Mídia do Microsoft Azure v3 com links para guias de início rápido, tutoriais e exemplos de código.
-services: media-services
-documentationcenter: na
-author: Juliako
-manager: femila
-editor: ''
-tags: ''
-keywords: serviços de mídia do azure, transmissão, difusão, ao vivo, offline
-ms.service: media-services
-ms.devlang: multiple
-ms.topic: overview
-ms.tgt_pltfrm: multiple
-ms.workload: media
-ms.date: 03/09/2020
-ms.author: juliako
-ms.custom: mvc
-ms.openlocfilehash: d5f54d65fcfd8a124b30a785697d53ad120fbf9c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87000918"
+Título: Visão geral dos Serviços de Mídia do Azure v3: Descrição dos Serviços de Mídia do Azure: Visão geral de alto nível dos Serviços de Mídia do Microsoft Azure v3 com links para guias de início rápido, tutoriais e exemplos de código.
+services: media-services documentationcenter: na author: IngridAtMicrosoft manager: femila editor: '' tags: '' keywords: azure media services, stream, broadcast, live, offline
+
+ms.service: media-services ms.devlang: multiple ms.topic: overview ms.tgt_pltfrm: multiple ms.workload: media ms.date: 08/31/2020 ms.author: inhenkel ms.custom: mvc
+#<a name="customer-intent-as-a-developer-or-a-content-provider-i-want-to-encode-stream-on-demand-or-live-analyze-my-media-content-so-that-my-customers-can-view-the-content-on-a-wide-variety-of-browsers-and-devices-gain-valuable-insights-from-recorded-content"></a>Intenção do cliente: Como desenvolvedor ou provedor de conteúdo, desejo codificar, transmitir (sob demanda ou ao vivo), analisar meu conteúdo de mídia para que meus clientes possam exibir o conteúdo em uma grande variedade de navegadores e dispositivos e obter insights valiosos do conteúdo registrado.
 ---
+
 # <a name="azure-media-services-v3-overview"></a>Visão geral dos Serviços de Mídia do Azure v3
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Os Serviços de Mídia do Azure são uma plataforma baseada em nuvem que permite a criação de soluções que apresentem uma transmissão de vídeo com qualidade de difusão, aumentem a acessibilidade e a distribuição, analisem o conteúdo e muito mais. Se você é desenvolvedor de aplicativos, call center, órgão governamental ou empresa de entretenimento, os Serviços de Mídia podem ajudar a criar aplicativos que oferecem experiências de mídia de qualidade superior para um público amplo, nos dispositivos móveis e navegadores mais populares da atualidade.
 
 Os SDKs dos Serviços de Mídia v3 são baseados na [Especificação de OpenAPI dos Serviços de Mídia v3 (Swagger)](https://aka.ms/ams-v3-rest-sdk).
 
 > [!NOTE]
-> No momento, você pode usar o [portal do Azure](https://portal.azure.com/) para: gerenciar os [Eventos ao vivo](live-events-outputs-concept.md) dos Serviços de Mídia v3, exibir (não gerenciar) [Ativos](assets-concept.md) do v3 e [obter informações sobre como acessar APIs](./access-api-howto.md). Para todas as outras tarefas de gerenciamento (por exemplo, [Transformações e Trabalhos](transforms-jobs-concept.md) e [Proteção de conteúdo](content-protection-overview.md)), use a [API REST](/rest/api/media/), a [CLI](https://aka.ms/ams-v3-cli-ref) ou um dos [SDKs](media-services-apis-overview.md#sdks) com suporte.
+> No momento, você pode usar o [portal do Azure](https://portal.azure.com/) para: gerenciar os [Eventos ao vivo](live-events-outputs-concept.md) dos Serviços de Mídia v3, exibir (não gerenciar) [Ativos](assets-concept.md) do v3 e [obter informações sobre como acessar APIs](./access-api-howto.md). Para todas as outras tarefas de gerenciamento (por exemplo, [Transformações e Trabalhos](transforms-jobs-concept.md) e [Proteção de conteúdo](content-protection-overview.md)), use a [API REST](/rest/api/media/), a [CLI](/cli/azure/ams) ou um dos [SDKs](media-services-apis-overview.md#sdks) com suporte.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -57,12 +41,12 @@ Os Serviços de Mídia permitem criar diversos fluxos de trabalho de mídia na n
 * Use os Serviços de Mídia do Azure junto com a [API de Serviços Cognitivos do Azure](../../index.yml?pivot=products&panel=ai) para adicionar subtítulos e legendas a vídeos para abranger um público mais amplo (por exemplo, pessoas com deficiência auditiva ou que desejam acompanhar a leitura em um idioma diferente).
 * Habilite a CDN do Azure para conseguir um dimensionamento grande para lidar melhor com altas cargas instantâneas (por exemplo, o início de um evento de lançamento de produto).
 
-## <a name="how-can-i-get-started-with-v3"></a>Como posso começar a v3? 
+## <a name="how-can-i-get-started-with-v3"></a>Como posso começar a v3?
 
 Saiba como codificar e empacotar conteúdo, transmitir vídeos sob demanda, fazer transmissões ao vivo e analisar vídeos com os Serviços de Mídia v3. Tutoriais, referências de API e outras documentações mostram como oferecer com segurança, sob demanda e ao vivo, fluxos de áudio ou vídeos que são dimensionados para milhões de usuários.
 
 > [!TIP]
-> Antes de iniciar o desenvolvimento, examine:<br/>* [Conceitos fundamentais](concepts-overview.md) (inclui conceitos importantes, como empacotamento, codificação e proteção).<br/>* [Desenvolvimento com APIs dos Serviços de Mídia v3](media-services-apis-overview.md) (inclui informações sobre como acessar APIs, convenções de nomenclatura etc.).
+> Antes de iniciar o desenvolvimento, examine: [Conceitos fundamentais](concepts-overview.md) que inclui conceitos importantes, como empacotamento, codificação e proteção, e o [Desenvolvimento com APIs dos Serviços de Mídia v3](media-services-apis-overview.md) que inclui informações sobre como acessar APIs, convenções de nomenclatura e assim por diante.
 
 ### <a name="sdks"></a>SDKs
 

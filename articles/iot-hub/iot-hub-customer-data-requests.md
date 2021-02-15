@@ -7,12 +7,12 @@ ms.date: 05/16/2018
 ms.topic: conceptual
 ms.service: iot-hub
 services: iot-hub
-ms.openlocfilehash: 0bb7b91cd31761b801ad469b8ce556b29e09fd3a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: df1d4f3a12c6e15e2954bb0e02454ef58b22cb73
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87074710"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92535783"
 ---
 # <a name="customer-data-request-features-for-azure-iot-hub-devices"></a>Recursos de solicitação de dados do cliente para dispositivos do Hub IoT do Azure
 
@@ -30,23 +30,23 @@ Se você usar o recurso de roteamento do serviço Hub IoT do Azure para encaminh
 
 Se você usar o recurso de integração da Grade de Eventos do Azure do serviço Hub IoT do Azure, as solicitações de dados deverão ser executadas pelo administrador de locatários para cada assinante desses eventos. Para obter mais informações, consulte [Reagir aos eventos do Hub IoT usando a Grade de Eventos](iot-hub-event-grid.md).
 
-Se você usar o recurso de integração do Azure Monitor do serviço Hub IoT do Azure para criar logs de diagnóstico, as solicitações de dados deverão ser executadas pelo administrador de locatários com base nos logs armazenados. Para obter mais informações, consulte [Monitorar a integridade do Hub IoT do Azure](iot-hub-monitor-resource-health.md).
+Se você usar o recurso de integração de Azure Monitor do serviço de Hub IoT do Azure para criar logs de recursos, as solicitações de dados deverão ser executadas pelo administrador de locatários nos logs armazenados. Para obter mais informações, consulte [monitorar o Hub IOT](monitor-iot-hub.md).
 
 ## <a name="deleting-customer-data"></a>Excluindo os dados do cliente
 
 Os administradores de locatários podem usar a folha de dispositivos de IoT da extensão do Hub IoT do Azure no portal do Azure para excluir um dispositivo, o que exclui os dados associados a esse dispositivo.
 
-Também é possível executar operações de exclusão para dispositivos usando APIs REST. Para obter mais informações, consulte [Serviço - excluir dispositivo](/rest/api/iothub/service/registrymanager/deletedevice).
+Também é possível executar operações de exclusão para dispositivos usando APIs REST. Para obter mais informações, consulte [Serviço - excluir dispositivo](/azure/iot-hub/iot-c-sdk-ref/iothub-registrymanager-h/iothubregistrymanager-deletedevice).
 
 ## <a name="exporting-customer-data"></a>Exportando os dados do cliente
 
 Os administradores de locatários podem utilizar copiar e colar no painel dispositivos IoT da extensão do Hub IoT do Azure no portal do Azure para exportar dados associados a um dispositivo.
 
-Também é possível executar operações de exportação para dispositivos usando APIs REST. Para obter mais informações, consulte [Serviço - obter dispositivo](/rest/api/iothub/service/registrymanager/getdevice).
+Também é possível executar operações de exportação para dispositivos usando APIs REST. Para obter mais informações, consulte [Serviço - obter dispositivo](/azure/iot-hub/iot-c-sdk-ref/iothub-registrymanager-h/iothubregistrymanager-getdevice).
 
 > [!NOTE]
 > Quando você usa os serviços corporativos da Microsoft, a Microsoft gera algumas informações, conhecidas como logs gerados pelo sistema. Alguns logs gerados pelo sistema do Hub IoT do Azure não são acessíveis nem exportáveis por administradores de locatários. Esses logs constituem ações reais conduzidas no serviço e dados de diagnóstico relacionados a dispositivos individuais.
 
 ## <a name="links-to-additional-documentation"></a>Links para documentação adicional
 
-A documentação completa das APIs de Serviço do Hub IoT do Azure está localizada em [APIs de Serviço do Hub IoT](https://docs.microsoft.com/rest/api/iothub/service/configuration).
+A documentação completa das APIs de Serviço do Hub IoT do Azure está localizada em [APIs de Serviço do Hub IoT](/rest/api/iothub/service/configuration).

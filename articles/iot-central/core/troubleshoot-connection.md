@@ -7,14 +7,15 @@ ms.author: dobett
 ms.date: 08/13/2020
 ms.topic: troubleshooting
 ms.service: iot-central
-ms.openlocfilehash: 6a1506de0bf21e44d84925fabeeea860f5807e2c
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.custom: device-developer, devx-track-azurecli
+ms.openlocfilehash: d1a7c94152b611ea0dbea249156add617178d7ca
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88958092"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98673227"
 ---
-# <a name="troubleshoot-why-data-from-your-devices-isnt-showing-up-in-azure-iot-central"></a>Solucionar problemas por que os dados de seus dispositivos não estão aparecendo no Azure IoT Central
+# <a name="troubleshoot-why-data-from-your-devices-isnt-showing-up-in-azure-iot-central"></a>Solucionar problemas do motivo pelo qual os dispositivos não estão sendo exibidos no Azure IoT Central
 
 Este documento ajuda os desenvolvedores de dispositivos a descobrir por que os dados que seus dispositivos estão enviando para IoT Central podem não estar aparecendo no aplicativo.
 
@@ -34,11 +35,11 @@ Esta seção ajuda você a determinar se seus dados estão atingindo IoT Central
 
 Se você ainda não tiver feito isso, instale a `az cli` ferramenta e a `azure-iot` extensão.
 
-Para saber como instalar o `az cli` , consulte [instalar o CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+Para saber como instalar o `az cli` , consulte [instalar o CLI do Azure](/cli/azure/install-azure-cli).
 
-Para [instalar](https://docs.microsoft.com/cli/azure/azure-cli-reference-for-IoT?view=azure-cli-latest#extension-reference-installation) a `azure-iot` extensão, execute o seguinte comando:
+Para [instalar](/cli/azure/azure-cli-reference-for-IoT#extension-reference-installation) a `azure-iot` extensão, execute o seguinte comando:
 
-```cmd/bash
+```azurecli
 az extension add --name azure-iot
 ```
 
@@ -49,20 +50,20 @@ Quando você tiver instalado a `azure-iot` extensão, inicie o dispositivo para 
 
 Use os seguintes comandos para entrar na assinatura em que você tem seu aplicativo IoT Central:
 
-```cmd/bash
+```azurecli
 az login
 az set account --subscription <your-subscription-id>
 ```
 
 Para monitorar a telemetria que seu dispositivo está enviando, use o seguinte comando:
 
-```cmd/bash
-az iot central app monitor-events --app-id <app-id> --device-id <device-name>
+```azurecli
+az iot central diagnostics monitor-events --app-id <app-id> --device-id <device-name>
 ```
 
 Se o dispositivo tiver se conectado com êxito ao IoT Central, você verá uma saída semelhante à seguinte:
 
-```cmd/bash
+```output
 Monitoring telemetry.
 Filtering on device: device-001
 {
@@ -81,13 +82,13 @@ Filtering on device: device-001
 
 Para monitorar as atualizações de propriedade que seu dispositivo está trocando com IoT Central, use o seguinte comando de visualização:
 
-```cmd/bash
-az iot central app monitor-properties --app-id <app-id> --device-id <device-name>
+```azurecli
+az iot central diagnostics monitor-properties --app-id <app-id> --device-id <device-name>
 ```
 
 Se o dispositivo enviar atualizações de propriedade com êxito, você verá uma saída semelhante à seguinte:
 
-```cmd/bash
+```output
 Changes in reported properties:
 version : 32
 {'state': 'true', 'name': {'value': {'value': 'Contoso'}, 'status': 'completed', 'desiredVersion': 7, 'ad': 'completed', 'av': 7, 'ac
@@ -105,8 +106,8 @@ Se você ainda não estiver vendo os dados aparecerem no seu terminal, é prová
 
 Se seus dados não estiverem aparecendo no monitor, verifique o status de provisionamento do seu dispositivo executando o seguinte comando:
 
-```cmd/bash
-az iot central app device registration-info --app-id <app-id> --device-id <device-name>
+```azurecli
+az iot central device registration-info --app-id <app-id> --device-id <device-name>
 ```
 
 A saída a seguir mostra um exemplo de um dispositivo que está impedido de se conectar:
@@ -134,7 +135,7 @@ https://aka.ms/iotcentral-docs-dps-SAS",
 | Provisionado | Nenhum problema imediatamente reconhecível. | N/D |
 | Registrada | O dispositivo ainda não se conectou ao IoT Central. | Verifique os logs do dispositivo para problemas de conectividade. |
 | Bloqueado | O dispositivo está impedido de se conectar ao IoT Central. | O dispositivo está impedido de se conectar ao aplicativo IoT Central. Desbloqueie o dispositivo no IoT Central e tente novamente. Para saber mais, confira [bloquear dispositivos](concepts-get-connected.md#device-status-values). |
-| Não aprovados | O dispositivo não está aprovado. | O dispositivo não está aprovado para se conectar ao aplicativo IoT Central. Aprove o dispositivo em IoT Central e tente novamente. Para saber mais, confira [aprovar dispositivos](concepts-get-connected.md#connect-without-registering-devices) |
+| Não aprovados | O dispositivo não está aprovado. | O dispositivo não está aprovado para se conectar ao aplicativo IoT Central. Aprove o dispositivo em IoT Central e tente novamente. Para saber mais, confira [aprovar dispositivos](concepts-get-connected.md#device-registration) |
 | Não associado | O dispositivo não está associado a um modelo de dispositivo. | Associe o dispositivo a um modelo de dispositivo para que IoT Central saiba como analisar os dados. |
 
 Saiba mais sobre os [códigos de status do dispositivo](concepts-get-connected.md#device-status-values).
@@ -155,7 +156,7 @@ Se você estiver vendo problemas relacionados ao seu fluxo de autenticação:
 | 401 | O token de autorização não pode ser validado. Por exemplo, ele expirou ou não se aplica ao URI da solicitação. Esse código de erro também é retornado para dispositivos como parte do fluxo de atestado do TPM. | Verifique se o dispositivo tem as credenciais corretas. |
 | 404 | A instância do serviço de provisionamento de dispositivos ou um recurso como um registro não existe. | [Arquivar um tíquete com o atendimento ao cliente](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). |
 | 412 | O `ETag` na solicitação não corresponde ao `ETag` do recurso existente, de acordo com o RFC7232. | [Arquivar um tíquete com o atendimento ao cliente](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). |
-| 429 | As operações estão sendo limitadas pelo serviço. Para limites de serviço específicos, consulte [limites do serviço de provisionamento de dispositivos no Hub IOT](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#iot-hub-device-provisioning-service-limits). | Reduzir a frequência da mensagem, dividir as responsabilidades entre mais dispositivos. |
+| 429 | As operações estão sendo limitadas pelo serviço. Para limites de serviço específicos, consulte [limites do serviço de provisionamento de dispositivos no Hub IOT](../../azure-resource-manager/management/azure-subscription-service-limits.md#iot-hub-device-provisioning-service-limits). | Reduzir a frequência da mensagem, dividir as responsabilidades entre mais dispositivos. |
 | 500 | Ocorreu um erro interno. | [Arquivar um tíquete com o](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) atendimento ao cliente para ver se eles podem ajudá-lo. |
 
 ## <a name="payload-shape-issues"></a>Problemas de forma de carga
@@ -175,21 +176,21 @@ Para detectar em quais categorias seu problema está, execute o comando mais apr
 
 - Para validar a telemetria, use o comando de visualização:
 
-    ```cmd/bash
-    az iot central app validate-messages --app-id <app-id> --device-id <device-name>
+    ```azurecli
+    az iot central diagnostics validate-messages --app-id <app-id> --device-id <device-name>
     ```
 
 - Para validar as atualizações de propriedade, use o comando Preview
 
-    ```cmd/bash
-    az iot central app validate-properties --app-id <app-id> --device-id <device-name>
+    ```azurecli
+    az iot central diagnostics validate-properties --app-id <app-id> --device-id <device-name>
     ```
 
 Você pode ser solicitado a instalar a `uamqp` biblioteca na primeira vez em que executar um `validate` comando.
 
 A saída a seguir mostra o exemplo de mensagens de erro e de aviso do comando validar:
 
-```cmd/bash
+```output
 Validating telemetry.
 Filtering on device: v22upeoqx6.
 Exiting after 300 second(s), or 10 message(s) have been parsed (whichever happens first).

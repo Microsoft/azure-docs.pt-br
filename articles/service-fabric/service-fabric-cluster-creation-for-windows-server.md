@@ -1,16 +1,14 @@
 ---
 title: Criar um cluster autônomo do Azure Service Fabric
 description: Crie um cluster do Azure Service Fabric em qualquer computador (físico ou virtual) executando o Windows Server, seja ele local ou em qualquer nuvem.
-author: dkkapur
 ms.topic: conceptual
 ms.date: 2/21/2019
-ms.author: dekapur
-ms.openlocfilehash: 6fa27008ea22e1a2bd9a83ce3888370cf2213935
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 41af655be07ccae2b66e75f5bfe87629cdb54924
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87458069"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98785677"
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>Criar um cluster autônomo em execução no Windows Server
 Você pode usar o Azure Service Fabric para criar clusters do Service Fabric em qualquer máquina virtual ou computador que estiver executando o Windows Server. Isso significa que você pode implantar e executar os aplicativos do Service Fabric em qualquer ambiente que tenha um conjunto de computadores com o Windows Server interconectados, seja localmente ou em qualquer provedor de nuvem. O Service Fabric fornece um pacote de instalação para criar os clusters do Service Fabric denominado pacote do Windows Server autônomo. Os clusters tradicionais do Service Fabric no Azure estão disponíveis como um serviço gerenciado, enquanto os clusters autônomos do Service Fabric são de autoatendimento. Para obter mais informações, consulte [Comparando clusters do Service Fabric autônomos e do Azure](./service-fabric-deploy-anywhere.md).
@@ -118,7 +116,7 @@ O pacote de runtime pode ser baixado separadamente, em outro computador conectad
 *.\ClusterConfig.json* e *.\MicrosoftAzureServiceFabric.cab* são os caminhos para a configuração do cluster e o arquivo .cab de runtime, respectivamente.
 
 ### <a name="step-2-connect-to-the-cluster"></a>Etapa 2: Conectar-se ao cluster
-Conecte-se ao cluster para verificar se o cluster está em execução e disponível. O módulo ServiceFabric do PowerShell é instalado no runtime.  Você pode se conectar ao cluster de um dos nós do cluster ou de um computador remoto com o runtime do Service Fabric.  O cmdlet [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) estabelece uma conexão com o cluster.
+Conecte-se ao cluster para verificar se o cluster está em execução e disponível. O módulo ServiceFabric do PowerShell é instalado no runtime.  Você pode se conectar ao cluster de um dos nós do cluster ou de um computador remoto com o runtime do Service Fabric.  O cmdlet [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster) estabelece uma conexão com o cluster.
 
 Para se conectar a um cluster não seguro, execute o seguinte comando do PowerShell:
 
@@ -131,7 +129,7 @@ Por exemplo:
 Connect-ServiceFabricCluster -ConnectionEndpoint 192.13.123.234:19000
 ```
 
-Confira [Conectar-se a um cluster seguro](service-fabric-connect-to-secure-cluster.md) para obter outros exemplos de como se conectar a um cluster. Depois de se conectar ao cluster, use o script [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) para exibir uma lista de nós de cluster e informações de status para cada nó. **HealthState** deve ser *OK* para cada nó.
+Confira [Conectar-se a um cluster seguro](service-fabric-connect-to-secure-cluster.md) para obter outros exemplos de como se conectar a um cluster. Depois de se conectar ao cluster, use o script [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode) para exibir uma lista de nós de cluster e informações de status para cada nó. **HealthState** deve ser *OK* para cada nó.
 
 ```powershell
 PS C:\temp\Microsoft.Azure.ServiceFabric.WindowsServer> Get-ServiceFabricNode |Format-Table

@@ -3,12 +3,12 @@ title: Respostas a perguntas comuns
 description: 'Respostas para perguntas comuns sobre: recursos de Backup do Azure incluindo cofres dos Serviços de Recuperação, do que ele pode fazer backup, como ele funciona, criptografia e limites. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: 16ee9fa94f8c6d5ee97c35833b4cee908750bc0a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: f819440001180a3c446f366e61e3ac0f983fa67f
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017729"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98806638"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Backup do Azure — Perguntas frequentes
 
@@ -45,7 +45,7 @@ Sim. Para mover um cofre dos Serviços de Recuperação, consulte este [artigo](
 
 Não. Os dados de backup armazenados em um cofre não podem ser movidos para um cofre diferente.
 
-### <a name="can-i-change-from-grs-to-lrs-after-a-backup"></a>Posso alterar de GRS para LRS depois de um backup?
+### <a name="can-i-change-the-storage-redundancy-setting-after-a-backup"></a>Posso alterar a configuração de redundância de armazenamento após um backup?
 
 O tipo de replicação de armazenamento por padrão é definido como GRS (armazenamento com redundância geográfica). Depois de configurar o backup, a opção de modificar é desabilitada e não pode ser alterada.
 
@@ -58,11 +58,19 @@ Se você já tiver configurado o backup e precisar passar de GRS para LRS, consu
 - O ILR tem suporte para VMs do Azure com backup pelo backup de VM do Azure. Para saber mais, confira este [artigo](backup-azure-restore-files-from-vm.md)
 - Não há suporte para ILR para pontos de recuperação online de VMs locais com backup pelo Servidor de Backup do Azure (MABS) ou pelo System Center DPM.
 
+### <a name="how-can-i-move-data-from-the-recovery-services-vault-to-on-premises"></a>Como posso mover dados do cofre dos Serviços de Recuperação para o local?
+
+Não há suporte para a exportação de dados diretamente do cofre dos serviços de recuperação para o local usando o Data Box. Os dados devem ser restaurados para uma conta de armazenamento e, em seguida, podem ser movidos para o local por meio de [Data Box](../databox/data-box-overview.md) ou de [importação/exportação](../import-export/storage-import-export-service.md).
+
+### <a name="what-is-the-difference-between-a-geo-redundant-storage-grs-vault-with-and-without-the-cross-region-restore-crr-capability-enabled"></a>Qual é a diferença entre um cofre de armazenamento com redundância geográfica (GRS) com e sem a capacidade de restauração entre regiões (CRR) habilitada?
+
+No caso de um cofre [grs](azure-backup-glossary.md#grs) sem recurso de [CRR](azure-backup-glossary.md#cross-region-restore-crr) habilitado, os dados na região secundária não podem ser acessados até que o Azure declare um desastre na região primária. Nesse cenário, a restauração ocorre da região secundária. Quando a CRR estiver habilitada, mesmo que a região primária esteja em funcionamento, você poderá disparar uma restauração na região secundária.
+
 ## <a name="azure-backup-agent"></a>Agente de Backup do Azure
 
 ### <a name="where-can-i-find-common-questions-about-the-azure-backup-agent-for-azure-vm-backup"></a>Onde posso encontrar perguntas comuns sobre o agente do Backup do Azure para o backup da VM do Azure?
 
-- Para o agente em execução nas VMs do Azure, leia estas [Perguntas frequentes](backup-azure-vm-backup-faq.md).
+- Para o agente em execução nas VMs do Azure, leia estas [Perguntas frequentes](backup-azure-vm-backup-faq.yml).
 - Para o agente usado para fazer backup de pastas de arquivos do Azure, leia estas [Perguntas frequentes](backup-azure-file-folder-backup-faq.md).
 
 ## <a name="general-backup"></a>Backup geral
@@ -174,7 +182,7 @@ Os produtos típicos de ponto de retenção de longo prazo armazenam dados de ba
 - Os pontos completos *não oferecem economia* de armazenamento, mas são mais fáceis e rápidos de restaurar.
 - As cópias incrementais *oferecem economia* de armazenamento, mas exigem que você restaure uma cadeia de dados, o que afeta o tempo de recuperação.
 
-A arquitetura de armazenamento do Backup do Azure oferece o melhor dos dois recursos, armazenando dados de forma otimizada para restaurações rápidas e incorrendo em baixos custos de armazenamento. Isso garante que a largura de banda de entrada e saída seja usada com eficiência. A quantidade de armazenamento de dados e o tempo necessário para recuperar os dados são mantidos em um mínimo. Saiba mais sobre [backups incrementais](https://azure.microsoft.com/blog/microsoft-azure-backup-save-on-long-term-storage/).
+A arquitetura de armazenamento do Backup do Azure oferece o melhor dos dois recursos, armazenando dados de forma otimizada para restaurações rápidas e incorrendo em baixos custos de armazenamento. Isso garante que a largura de banda de entrada e saída seja usada com eficiência. A quantidade de armazenamento de dados e o tempo necessário para recuperar os dados são mantidos em um mínimo. Saiba mais sobre [backups incrementais](backup-architecture.md#backup-types).
 
 ### <a name="is-there-a-limit-on-the-number-of-recovery-points-that-can-be-created"></a>Há um limite para o número de pontos de recuperação que podem ser criados?
 
@@ -228,5 +236,5 @@ A chave usada para criptografar os dados de backup está presente apenas no seu 
 
 Leia as outras perguntas frequentes:
 
-- [Perguntas comuns](backup-azure-vm-backup-faq.md) sobre backups de VM do Azure.
+- [Perguntas comuns](backup-azure-vm-backup-faq.yml) sobre backups de VM do Azure.
 - [Perguntas comuns](backup-azure-file-folder-backup-faq.md) sobre o agente do Backup do Azure

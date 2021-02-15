@@ -9,28 +9,24 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/22/2019
+ms.date: 12/28/2020
 ms.author: jeedes
-ms.openlocfilehash: e0198fdcfea1656e3aec5179358e69fb6fb55723
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 7b85cc064babf44b14e80abc02669573b4730da2
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547521"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736878"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jira-saml-sso-by-microsoft-v52"></a>Tutorial: Integração do Azure Active Directory ao SSO do SAML para o JIRA da Microsoft (V5.2)
 
-Neste tutorial, você aprenderá a integrar o SSO do JIRA SAML da Microsoft (V5.2) ao Azure AD (Azure Active Directory).
-A integração do SSO do SAML para o JIRA da Microsoft (V5.2) ao Azure AD oferece os seguintes benefícios:
+Neste tutorial, você aprenderá a integrar o SSO do JIRA SAML da Microsoft (V5.2) ao Azure AD (Azure Active Directory). Ao integrar o JIRA SAML SSO by Microsoft (V5.2) ao Azure AD, você pode:
 
-* No Azure AD, é possível controlar quem tem acesso ao SSO do SAML para o JIRA da Microsoft (V5.2).
-* Você pode permitir que os usuários sejam conectados automaticamente ao SSO de SAML para o JIRA da Microsoft (V5.2) (Logon Único) com suas contas do Azure AD.
-* Você pode gerenciar suas contas em um único local central – o portal do Azure.
+* Controlar no Azure AD quem tem acesso ao JIRA SAML SSO by Microsoft (V5.2).
+* Permitir que os usuários sejam conectados automaticamente ao JIRA SAML SSO by Microsoft (V5.2) com suas contas do Azure AD.
+* Gerenciar suas contas em um local central: o portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
-
-## <a name="description"></a>DESCRIÇÃO
+## <a name="description"></a>Descrição
 
 Use sua conta do Microsoft Azure Active Directory com o servidor do Atlassian JIRA para habilitar o logon único. Dessa forma, todos os usuários de sua organização podem usar as credenciais do Azure AD para entrar no aplicativo JIRA. Este plug-in usa o SAML 2.0 para federação.
 
@@ -61,7 +57,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 * O JIRA também fornece suporte a 6.0 para 7.12. Para obter mais detalhes, clique em [SSO do SAML para o JIRA da Microsoft](jiramicrosoft-tutorial.md)
 
 > [!NOTE]
-> Observe que o nosso plug-in do JIRA também funciona no Ubuntu versão 16.04
+> Observe que o nosso plug-in do JIRA também funciona no Ubuntu versão 16.04.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
@@ -73,59 +69,35 @@ Neste tutorial, você configurará e testará o logon único do Azure AD em um a
 
 Para configurar a integração do JIRA SAML SSO pela Microsoft (V5.2) ao Azure AD, você precisa adicionar o JIRA SAML SSO da Microsoft (V5.2) da galeria à sua lista de aplicativos SaaS gerenciados.
 
-**Para adicionar o SSO do SAML para o JIRA da Microsoft (V5.2) por meio da galeria, realize as seguintes etapas:**
+1. Entre no portal do Azure usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
+1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory**.
+1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos**.
+1. Para adicionar um novo aplicativo, escolha **Novo aplicativo**.
+1. Na seção **Adicionar por meio da galeria**, digite **JIRA SAML SSO by Microsoft (V5.2)** na caixa de pesquisa.
+1. Selecione **JIRA SAML SSO by Microsoft (V5.2)** no painel de resultados e adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
-1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+## <a name="configure-and-test-azure-ad-sso-for-jira-saml-sso-by-microsoft-v52"></a>Configurar e testar o SSO do Azure AD para JIRA SAML SSO by Microsoft (V5.2)
 
-    ![O botão Azure Active Directory](common/select-azuread.png)
+Nesta seção, você configura e testa o logon único do Azure AD com o JIRA SAML SSO by Microsoft (V5.2) com base em um usuário de teste chamado **Brenda Fernandes**. Para que o logon único funcione, estabeleça um relacionamento vinculado entre um usuário do Azure AD e o usuário relacionado do JIRA SAML SSO by Microsoft (V5.2).
 
-2. Navegue até **Aplicativos Empresariais** e, em seguida, selecione a opção **Todos os Aplicativos**.
+Para configurar e testar o logon único do Azure AD com o JIRA SAML SSO by Microsoft (V5.2), realize as seguintes etapas:
 
-    ![A folha Aplicativos empresariais](common/enterprise-applications.png)
+1. **[Configurar o SSO do Azure AD](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
+    1. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
+    1. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
+2. **[Configurar o SSO do JIRA SAML SSO by Microsoft (V5.2)](#configure-jira-saml-sso-by-microsoft-v52-sso)** – para definir as configurações de logon único no lado do aplicativo.
+    1. **[Criar usuário de teste do SSO de SAML para o JIRA da Microsoft (V5.2)](#create-jira-saml-sso-by-microsoft-v52-test-user)** – para ter um equivalente de Brenda Fernandes no SSO de SAML para o JIRA da Microsoft (V5.2) que esteja vinculado à representação do usuário do Azure AD.
+1. **[Testar o SSO](#test-sso)** – para verificar se a configuração funciona.
 
-3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
+### <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
-    ![O botão Novo aplicativo](common/add-new-app.png)
+1. No portal do Azure, na página de integração de aplicativos do **JIRA SAML SSO by Microsoft (V5.2)** , localize a seção **Gerenciar** e selecione **Logon único**.
+1. Na página **Escolher um método de logon único**, escolha **SAML**.
+1. Na página **Configurar o Logon Único com o SAML**, clique no ícone de caneta da **Configuração Básica do SAML** para editar as configurações.
 
-4. Na caixa de pesquisa, digite **SSO do SAML para o JIRA da Microsoft (V5.2)** , selecione **SSO do SAML para o JIRA da Microsoft (V5.2)** no painel de resultados e clique no botão **Adicionar** para adicionar o aplicativo.
-
-    ![SSO do SAML para o JIRA da Microsoft (V5.2) na lista de resultados](common/search-new-app.png)
-
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
-
-Nesta seção, você configura e testa o logon único do Azure AD com o SSO de SAML para o JIRA da Microsoft (V5.2) com base em um usuário de teste chamado **Brenda Fernandes**.
-Para que o logon único funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do SSO de SAML para o JIRA da Microsoft (V5.2).
-
-Para configurar e testar o logon único do Azure AD com o SSO do SAML para o JIRA da Microsoft (V5.2), você precisa concluir os seguintes blocos de construção:
-
-1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
-2. **[Configurar o Logon Único do SSO de SAML para o JIRA da Microsoft (V5.2)](#configure-jira-saml-sso-by-microsoft-v52-single-sign-on)** – para definir as configurações de Logon Único no lado do aplicativo.
-3. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
-4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
-5. **[Criar usuário de teste do SSO de SAML para o JIRA da Microsoft (V5.2)](#create-jira-saml-sso-by-microsoft-v52-test-user)** – para ter um equivalente de Brenda Fernandes no SSO de SAML para o JIRA da Microsoft (V5.2) que esteja vinculado à representação do usuário do Azure AD.
-6. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
-
-### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
-
-Nesta seção, você habilitará o logon único do Azure AD no portal do Azure.
-
-Para configurar o logon único do Azure AD com o SSO de SAML para o JIRA da Microsoft (V5.2), realize as seguintes etapas:
-
-1. No [portal do Azure](https://portal.azure.com/), na página de integração do aplicativo **SSO de SAML para o JIRA da Microsoft (V5.2)** , clique em **Logon único**.
-
-    ![Link Configurar logon único](common/select-sso.png)
-
-2. Na caixa de diálogo **Selecionar um método de logon único**, selecione o modo **SAML/WS-Fed** para habilitar o logon único.
-
-    ![Modo de seleção de logon único](common/select-saml-option.png)
-
-3. Na página **Definir logon único com SAML**, clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML**.
-
-    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
+   ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
 4. Na seção **Configuração básica de SAML**, realize as seguintes etapas:
-
-    ![Informações de logon único e domínio do SSO do SAML para o JIRA da Microsoft (V5.2)](common/sp-identifier-reply.png)
 
     a. Na caixa de texto **URL de Entrada** digite uma URL usando o seguinte padrão: `https://<domain:port>/plugins/servlet/saml/auth`
 
@@ -140,29 +112,53 @@ Para configurar o logon único do Azure AD com o SSO de SAML para o JIRA da Micr
 
     ![O link de download do Certificado](common/copy-metadataurl.png)
 
-### <a name="configure-jira-saml-sso-by-microsoft-v52-single-sign-on"></a>Configurar o Logon Único do SSO de SAML para o JIRA da Microsoft (V5.2)
+### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
+
+Nesta seção, você criará um usuário de teste no portal do Azure chamado B.Fernandes.
+
+1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory**, **Usuários** e, em seguida, **Todos os usuários**.
+1. Selecione **Novo usuário** na parte superior da tela.
+1. Nas propriedades do **Usuário**, siga estas etapas:
+    1. No campo **Nome**, insira `B.Simon`.  
+    1. No campo **Nome de usuário**, insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
+    1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha**.
+    1. Clique em **Criar**.
+
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
+
+Nesta seção, você permitirá que B.Fernandes use o logon único do Azure permitindo acesso ao JIRA SAML SSO by Microsoft (V5.2).
+
+1. No portal do Azure, selecione **Aplicativos empresariais** e, em seguida, selecione **Todos os aplicativos**.
+1. Na lista de aplicativos, selecione **SSO do SAML para o JIRA da Microsoft (V5.2)** .
+1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e escolha **Usuários e grupos**.
+1. Escolha **Adicionar usuário** e, em seguida, **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
+1. Na caixa de diálogo **Usuários e grupos**, selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+1. Se você estiver esperando que uma função seja atribuída aos usuários, escolha-a na lista suspensa **Selecionar uma função**. Se nenhuma função tiver sido configurada para esse aplicativo, você verá a função "Acesso Padrão" selecionada.
+1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
+
+## <a name="configure-jira-saml-sso-by-microsoft-v52-sso"></a>Configurar o SSO do JIRA SAML SSO by Microsoft (V5.2)
 
 1. Em outra janela do navegador da Web, entre na instância do JIRA como administrador.
 
 2. Passe o cursor do mouse sobre a engrenagem e clique em **Complementos**.
 
-    ![Configurar o logon único](./media/jira52microsoft-tutorial/addon1.png)
+    ![A captura de tela mostra os Complementos selecionados no menu Configurações.](./media/jira52microsoft-tutorial/addon1.png)
 
 3. Na seção da guia Complementos, clique em **Gerenciar complementos**.
 
-    ![Configurar o logon único](./media/jira52microsoft-tutorial/addon7.png)
+    ![A captura de tela mostra a opção Gerenciar complementos selecionada na guia Complementos.](./media/jira52microsoft-tutorial/addon7.png)
 
 4. Baixe o plug-in no [Centro de Download da Microsoft](https://www.microsoft.com/download/details.aspx?id=56521). Carregar manualmente o plug-in fornecido pela Microsoft usando o menu **Carregar complemento**. O download do plug-in está coberto pelo [Contrato de Serviço da Microsoft](https://www.microsoft.com/servicesagreement/).
 
-    ![Configurar o logon único](./media/jira52microsoft-tutorial/addon12.png)
+    ![A captura de tela mostra Gerenciar complementos com o link Carregar complemento destacado.](./media/jira52microsoft-tutorial/addon12.png)
 
 5. Depois que o plug-in for instalado, ele aparecerá na seção de complementos **Instalado pelo Usuário**. Clique em **Configurar** para configurar o novo plug-in.
 
-    ![Configurar o logon único](./media/jira52microsoft-tutorial/addon13.png)
+    ![A captura de tela mostra a seção Logon Único do SAML do Azure AD para Jira com Configurar selecionado.](./media/jira52microsoft-tutorial/addon13.png)
 
 6. Realize as seguintes etapas na página de configuração:
 
-    ![Configurar o logon único](./media/jira52microsoft-tutorial/addon52.png)
+    ![A captura de tela mostra a página de configuração do Conector de SSO do Jira da Microsoft.](./media/jira52microsoft-tutorial/addon52.png)
 
     > [!TIP]
     > Verifique se há apenas um certificado mapeado no aplicativo, para que não haja nenhum erro na resolução dos metadados. Se houver vários certificados, após a resolução dos metadados, o administrador receberá um erro.
@@ -189,57 +185,7 @@ Para configurar o logon único do Azure AD com o SSO de SAML para o JIRA da Micr
     i. Clique no botão **Salvar** para salvar as alterações.
 
     > [!NOTE]
-    > Para obter mais informações sobre instalação e solução de problemas, visite o [Guia do Administrador do Conector de SSO para MS JIRA](../ms-confluence-jira-plugin-adminguide.md), e há também as [perguntas frequentes](../ms-confluence-jira-plugin-faq.md) para auxiliá-lo
-
-### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
-
-O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
-
-1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, **Todos os usuários**.
-
-    ![Os links “Usuários e grupos” e “Todos os usuários”](common/users.png)
-
-2. Selecione **Novo usuário** na parte superior da tela.
-
-    ![Botão Novo usuário](common/new-user.png)
-
-3. Nas Propriedades do usuário, execute as etapas a seguir.
-
-    ![A caixa de diálogo Usuário](common/user-properties.png)
-
-    a. No campo **Nome**, insira **BrendaFernandes**.
-  
-    b. No campo **Nome de usuário**, digite `brittasimon\@yourcompanydomain.extension`. Por exemplo, BrittaSimon@contoso.com.
-
-    c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
-
-    d. Clique em **Criar**.
-
-### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
-
-Nesta seção, você permite que Brenda Fernandes use o logon único do Azure concedendo acesso ao JIRA SAML SSO pela Microsoft (V5.2).
-
-1. No portal do Azure, selecione **Aplicativos Empresariais**, **Todos os aplicativos** e, em seguida, **SSO de SAML para o JIRA da Microsoft (V5.2)** .
-
-    ![Folha de aplicativos empresariais](common/enterprise-applications.png)
-
-2. Na lista de aplicativos, selecione **SSO do SAML para o JIRA da Microsoft (V5.2)** .
-
-    ![Link do SSO do SAML para o JIRA da Microsoft (V5.2) na lista Aplicativos](common/all-applications.png)
-
-3. No menu à esquerda, selecione **Usuários e grupos**.
-
-    ![O link “Usuários e grupos”](common/users-groups-blade.png)
-
-4. Escolha o botão **Adicionar usuário** e, em seguida, escolha **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
-
-    ![O painel Adicionar Atribuição](common/add-assign-user.png)
-
-5. Na caixa de diálogo **Usuários e grupos**, escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
-
-6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função**, escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
-
-7. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
+    > Para obter mais informações sobre instalação e solução de problemas, visite o [Guia do Administrador do Conector de SSO para MS JIRA](./ms-confluence-jira-plugin-adminguide.md). Além disso, também há as [perguntas frequentes](./ms-confluence-jira-plugin-adminguide.md) para auxiliá-lo.
 
 ### <a name="create-jira-saml-sso-by-microsoft-v52-test-user"></a>Criar usuário de teste do SSO do SAML para o JIRA da Microsoft (V5.2)
 
@@ -251,19 +197,19 @@ Para permitir que os usuários do Azure AD entrem no servidor local do JIRA, ele
 
 2. Passe o cursor do mouse sobre a engrenagem e clique em **Gerenciamento de usuário**.
 
-    ![Adicionar Funcionário](./media/jira52microsoft-tutorial/user1.png)
+    ![A captura de tela mostra o Gerenciamento do usuário selecionado no menu Configurações.](./media/jira52microsoft-tutorial/user1.png)
 
 3. Você será redirecionado à página de acesso de administrador para inserir a **Senha** e clicar no botão **Confirmar**.
 
-    ![Adicionar Funcionário](./media/jira52microsoft-tutorial/user2.png)
+    ![A captura de tela mostra a página Acesso de Administrador em que você insere suas credenciais.](./media/jira52microsoft-tutorial/user2.png)
 
 4. Na seção da guia **Gerenciamento de usuário**, clique em **criar usuário**.
 
-    ![Adicionar Funcionário](./media/jira52microsoft-tutorial/user3.png) 
+    ![A captura de tela mostra a guia Gerenciamento de usuário em que você pode criar um usuário.](./media/jira52microsoft-tutorial/user3.png) 
 
 5. Na página da caixa de diálogo **"Criar novo usuário"** , execute as seguintes etapas:
 
-    ![Adicionar Funcionário](./media/jira52microsoft-tutorial/user4.png)
+    ![A captura de tela mostra a caixa de diálogo Criar usuário em que você pode inserir as informações nesta etapa.](./media/jira52microsoft-tutorial/user4.png)
 
     a. Na caixa de texto **Endereço de email**, digite o endereço de email do usuário, como Brittasimon@contoso.com.
 
@@ -275,16 +221,17 @@ Para permitir que os usuários do Azure AD entrem no servidor local do JIRA, ele
 
     e. Clique em **Criar usuário**.
 
-### <a name="test-single-sign-on"></a>Testar logon único
+## <a name="test-sso"></a>Testar o SSO
 
-Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
+Nesta seção, você testará a configuração de logon único do Azure AD com as opções a seguir. 
 
-Ao clicar no bloco do SSO de SAML para o JIRA da Microsoft (V5.2) no Painel de Acesso, você deverá ser conectado automaticamente ao SSO de SAML para o JIRA da Microsoft (V5.2), para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Clique em **Testar este aplicativo** no portal do Azure. Isso será redirecionado para o SSO do SAML do JIRA pela URL de logon da Microsoft (V5.2), na qual você pode iniciar o fluxo de logon. 
 
-## <a name="additional-resources"></a>Recursos adicionais
+* Acesse o SSO do SAML do JIRA pela URL de logon da Microsoft (V5.2) diretamente e inicie o fluxo de logon de lá.
 
-- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+* Você pode usar os Meus Aplicativos da Microsoft. Quando você clica no bloco JIRA SAML SSO by Microsoft (V5.2) em Meus Aplicativos, isso redirecionará para a URL de logon do JIRA SAML SSO by Microsoft (V5.2). Para obter mais informações sobre os Meus Aplicativos, confira [Introdução aos Meus Aplicativos](../user-help/my-apps-portal-end-user-access.md).
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+## <a name="next-steps"></a>Próximas etapas
+
+Depois de configurar o JIRA SAML SSO by Microsoft (V5.2), você poderá impor o controle de sessão, que fornece proteção contra a exfiltração e infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

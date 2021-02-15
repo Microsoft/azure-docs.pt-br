@@ -4,10 +4,10 @@ description: Saiba como os Laboratórios de Desenvolvimento/Teste podem facilita
 ms.topic: article
 ms.date: 06/20/2020
 ms.openlocfilehash: b7e6493e5fb1c99dfa7962ed464dca3ebc6b0c7e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85480194"
 ---
 # <a name="about-azure-devtest-labs"></a>Sobre os Laboratórios de Desenvolvimento/Teste do Azure
@@ -23,7 +23,7 @@ Usando o DevTest Labs, você pode testar as versões mais recentes de seus aplic
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/What-is-Azure-DevTest-Labs/player]
 
-## <a name="capabilities"></a>Capacidades
+## <a name="capabilities"></a>Funcionalidades
 O DevTest Labs fornece os seguintes recursos para desenvolvedores que trabalham com VMs:
 
 - Crie VMs rapidamente seguindo menos de cinco etapas simples.

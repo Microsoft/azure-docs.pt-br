@@ -7,13 +7,13 @@ ms.service: media-services
 ms.topic: include
 ms.date: 05/01/2019
 ms.author: juliako
-ms.custom: include file
-ms.openlocfilehash: 9d8de8826fc3dfcc2360eb3b6c82b3ff8d65d845
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: include file, devx-track-azurecli
+ms.openlocfilehash: 9a9aaf723b7b89b5b9c5611cea05c22c4003b99a
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79461224"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92755333"
 ---
 ### <a name="access-the-media-services-api"></a>Instalar a API de Serviços de Mídia
 

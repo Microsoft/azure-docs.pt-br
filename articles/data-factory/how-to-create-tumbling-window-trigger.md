@@ -1,22 +1,18 @@
 ---
 title: Criar gatilhos de janela em cascata no Azure Data Factory
 description: Saiba como criar um gatilho no Azure Data Factory que execute um pipeline em uma janela em cascata.
-services: data-factory
-documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
-manager: jroth
+author: chez-charlie
+ms.author: chez
 ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/11/2019
-ms.openlocfilehash: 964190108bb53a349fa1cb1301e2a554c1e32b26
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 10/25/2020
+ms.openlocfilehash: f5bc9951229c61dd988f44b06b8fcd40881226ae
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83996679"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100393693"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>Criar um gatilho que execute um pipeline em uma janela em cascata
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -28,7 +24,7 @@ Os gatilhos de janela em cascata são um tipo de gatilho acionado em um interval
 ## <a name="data-factory-ui"></a>IU do Data Factory
 
 1. Para criar um gatilho de janela do em cascata na interface do usuário do Data Factory, selecione a guia **gatilhos** e, em seguida, selecione **novo**. 
-1. Depois que o painel de configuração do gatilho for aberto, selecione **janela em cascata**e defina as propriedades do gatilho da janela em cascata. 
+1. Depois que o painel de configuração do gatilho for aberto, selecione **janela em cascata** e defina as propriedades do gatilho da janela em cascata. 
 1. Quando terminar, selecione **Salvar**.
 
 ![Criar um gatilho de janela em cascata no portal do Azure](media/how-to-create-tumbling-window-trigger/create-tumbling-window-trigger.png)
@@ -37,7 +33,7 @@ Os gatilhos de janela em cascata são um tipo de gatilho acionado em um interval
 
 Uma janela em cascata tem as seguintes propriedades de tipo de gatilho:
 
-```
+```json
 {
     "name": "MyTriggerName",
     "properties": {
@@ -47,7 +43,7 @@ Uma janela em cascata tem as seguintes propriedades de tipo de gatilho:
             "frequency": <<Minute/Hour>>,
             "interval": <<int>>,
             "startTime": "<<datetime>>",
-            "endTime: <<datetime – optional>>,
+            "endTime": <<datetime – optional>>,
             "delay": <<timespan – optional>>,
             "maxConcurrency": <<int>> (required, max allowed: 50),
             "retryPolicy": {
@@ -117,7 +113,7 @@ A seguinte tabela fornece uma visão geral de alto nível dos principais element
 
 Você pode usar as variáveis de sistema **WindowStart** e **WindowEnd** do gatilho de janela em cascata na sua definição de **pipeline** (ou seja, para a parte de uma consulta). Passar as variáveis de sistema como parâmetros para o pipeline na definição de **gatilho**. O exemplo a seguir mostra como passar essas variáveis como parâmetros:
 
-```
+```json
 {
     "name": "MyTriggerName",
     "properties": {
@@ -147,7 +143,7 @@ Para usar os valores variáveis de sistema de **WindowStart** e **WindowEnd** na
 
 ### <a name="execution-order-of-windows-in-a-backfill-scenario"></a>Ordem de execução de janelas em um cenário de compensação
 
-Se o StartTime de Trigger estiver no passado, com base nessa fórmula, M = (CurrentTime-TriggerStartTime)/TriggerSliceSize, o gatilho gerará {M} aterramento (passado) é executado em paralelo, respeitando a simultaneidade do gatilho antes de executar as execuções futuras. A ordem de execução para o Windows é determinística, do mais antigo aos intervalos mais recentes. Atualmente, esse comportamento não pode ser modificado.
+Se o StartTime de Trigger estiver no passado, com base nessa fórmula, M = (CurrentTime-TriggerStartTime)/TumblingWindowSize, o gatilho gerará {M} aterramento (passado) é executado em paralelo, respeitando a simultaneidade do gatilho antes de executar as execuções futuras. A ordem de execução para o Windows é determinística, do mais antigo aos intervalos mais recentes. Atualmente, esse comportamento não pode ser modificado.
 
 ### <a name="existing-triggerresource-elements"></a>Elementos TriggerResource existentes
 
@@ -162,7 +158,20 @@ No caso de falhas de pipeline, o gatilho de janela em cascata pode repetir a exe
 
 ### <a name="tumbling-window-trigger-dependency"></a>Dependência de gatilho de janela em cascata
 
-Se você quiser garantir que um gatilho de janela em cascata seja executado somente após a execução bem-sucedida de outro gatilho de janela em cascata na data factory, [crie uma dependência de gatilho de janela em cascata](tumbling-window-trigger-dependency.md). 
+Se você quiser garantir que um gatilho de janela em cascata seja executado somente após a execução bem-sucedida de outro gatilho de janela em cascata na data factory, [crie uma dependência de gatilho de janela em cascata](tumbling-window-trigger-dependency.md).
+
+### <a name="cancel-tumbling-window-run"></a>Cancelar a execução da janela em cascata
+
+Você pode cancelar execuções para um gatilho de janela em cascata, se a janela específica estiver em _espera_, _aguardando dependência_ ou _executando_ o estado
+
+* Se a janela estiver em estado de **execução** , cancele a _execução do pipeline_ associado e a execução do gatilho será marcada como _cancelada_ posteriormente
+* Se a janela estiver em **espera** ou **aguardando** o estado de dependência, você poderá cancelar a janela do monitoramento:
+
+![Cancelar um gatilho de janela em cascata da página monitoramento](media/how-to-create-tumbling-window-trigger/cancel-tumbling-window-trigger.png)
+
+Você também pode executar novamente uma janela cancelada. A execução executará as _últimas_ definições publicadas do gatilho, e as dependências para a janela especificada serão _reavaliadas_ após a nova execução
+
+![Executar novamente um gatilho de janela em cascata para execuções canceladas anteriormente](media/how-to-create-tumbling-window-trigger/rerun-tumbling-window-trigger.png)
 
 ## <a name="sample-for-azure-powershell"></a>Exemplo para o Azure PowerShell
 

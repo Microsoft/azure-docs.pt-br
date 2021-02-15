@@ -10,16 +10,16 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: ff50f61fe159c518d488da9f9911e40f1ddb8ca3
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: ee7f7b524225845dc68100ee8ec9292eef111232
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501450"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98882341"
 ---
 # <a name="create-a-shared-image-gallery-with-the-azure-cli"></a>Criar uma galeria de imagens compartilhada com o CLI do Azure
 
-Uma [Galeria de Imagens Compartilhadas](./linux/shared-image-galleries.md) simplifica o compartilhamento da imagem personalizada em sua organização. Imagens personalizadas são como imagens do marketplace, mas você mesmo as cria. As imagens personalizadas podem ser usadas para configurações de inicialização como o pré-carregamento de aplicativos, configurações de aplicativos e outras configurações do sistema operacional. 
+Uma [Galeria de Imagens Compartilhadas](./shared-image-galleries.md) simplifica o compartilhamento da imagem personalizada em sua organização. Imagens personalizadas são como imagens do marketplace, mas você mesmo as cria. As imagens personalizadas podem ser usadas para configurações de inicialização como o pré-carregamento de aplicativos, configurações de aplicativos e outras configurações do sistema operacional. 
 
 A Galeria de Imagens Compartilhadas permite que você compartilhe suas imagens de VM personalizadas com outras pessoas. Escolha quais imagens você deseja compartilhar, em quais regiões deseja torná-las disponíveis e com quem deseja compartilhá-las. 
 
@@ -30,4 +30,4 @@ A Galeria de Imagens Compartilhadas permite que você compartilhe suas imagens d
 
 Crie uma versão de imagem de uma [VM](image-version-vm-cli.md)ou de uma [imagem gerenciada](image-version-managed-image-cli.md) usando o CLI do Azure.
 
-Para obter mais informações sobre galerias de imagens compartilhadas, confira a [Visão geral](./linux/shared-image-galleries.md). Se você enfrentar problemas, confira [Solução de problemas de galerias de imagens compartilhadas](troubleshooting-shared-images.md).
+Para obter mais informações sobre galerias de imagens compartilhadas, confira a [Visão geral](./shared-image-galleries.md). Se você enfrentar problemas, confira [Solução de problemas de galerias de imagens compartilhadas](troubleshooting-shared-images.md).

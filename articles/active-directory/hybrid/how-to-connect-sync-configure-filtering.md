@@ -16,20 +16,20 @@ ms.date: 03/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1879df40122549ddc4c57557017fa2c84c883368
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 595cf2c1dbc105634d33b426c67e5123b9751e6e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88061499"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996535"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Sincronização do Azure AD Connect: configurar a filtragem
-Com a filtragem, você pode controlar quais objetos do seu diretório local devem aparecer no Azure Active Directory (Azure AD). A configuração padrão obtém todos os objetos em todos os domínios nas florestas configuradas. Em geral, essa é a configuração recomendada. Os usuários que utilizarem cargas de trabalho do Office 365, como o Exchange Online e o Skype for Business, receberão uma Lista de Endereços Global completa para poderem enviar emails e fazer chamadas para todos. Com a configuração padrão, eles teriam a mesma experiência de uma implementação local do Exchange ou do Lync.
+Com a filtragem, você pode controlar quais objetos do seu diretório local devem aparecer no Azure Active Directory (Azure AD). A configuração padrão obtém todos os objetos em todos os domínios nas florestas configuradas. Em geral, essa é a configuração recomendada. Os usuários que usam cargas de trabalho Microsoft 365, como o Exchange Online e o Skype for Business, se beneficiam de uma lista de endereços global completa para que possam enviar emails e chamar todos. Com a configuração padrão, eles teriam a mesma experiência de uma implementação local do Exchange ou do Lync.
 
 Em alguns casos, é necessário fazer alterações na configuração padrão. Estes são alguns exemplos:
 
 * Você planeja usar a [topologia de vários diretórios do Azure AD](plan-connect-topologies.md#each-object-only-once-in-an-azure-ad-tenant). Então, você precisa aplicar um filtro para controlar os objetos que devem ser sincronizados com um determinado diretório do Azure AD.
-* Você executa um piloto para o Azure ou o Office 365 e só deseja um subconjunto de usuários no Azure AD. Em um piloto pequeno, não é importante ter uma Lista de Endereços Global completa para demonstrar essa funcionalidade.
+* Você executa um piloto para o Azure ou Microsoft 365 e deseja apenas um subconjunto de usuários no Azure AD. Em um piloto pequeno, não é importante ter uma Lista de Endereços Global completa para demonstrar essa funcionalidade.
 * Você tem muitas contas de serviço e outras contas não pessoais que não deseja adicionar ao Azure AD.
 * Por motivos de conformidade, não exclua contas de usuário locais. Você só pode desabilitá-las. Mas no Azure AD, você deseja ter apenas as contas ativas.
 
@@ -113,7 +113,7 @@ Para definir o filtro de domínio, siga estas etapas:
    ![Propriedades do conector](./media/how-to-connect-sync-configure-filtering/connectorproperties.png)  
 4. Clique em **Configurar Partições de Diretório**.
 5. Na lista **Selecionar partições de diretório**, marque ou desmarque as caixas de seleção dos domínios conforme necessário. Verifique se apenas as partições que você deseja sincronizar estão selecionadas.  
-   ![Partições](./media/how-to-connect-sync-configure-filtering/connectorpartitions.png)  
+   ![Captura de tela que mostra as partições de diretório na janela "Propriedades".](./media/how-to-connect-sync-configure-filtering/connectorpartitions.png)  
    Se você tiver alterado a infraestrutura local do Active Drectory e tiver adicionado ou removido domínios da floresta, clique no botão **Atualizar** para obter uma lista atualizada. Ao atualizar, você precisará fornecer as credenciais. Forneça todas as credenciais com o acesso de leitura para o Windows Server Active Directory. Ele não precisa ser o usuário previamente preenchido na caixa de diálogo.  
    ![Atualização necessária](./media/how-to-connect-sync-configure-filtering/refreshneeded.png)  
 6. Quando terminar, clique em **OK** para fechar a caixa de diálogo **Propriedades**. Se você tiver removido domínios da floresta, será exibida uma mensagem informando que um domínio foi removido e que a configuração será limpa.
@@ -127,7 +127,7 @@ Para definir o filtro de domínio, siga estas etapas:
 3.  Selecione **Personalizar opções de sincronização** e clique em **Avançar**.
 4.  Insira suas credenciais de AD do Azure
 5.  Na tela **diretórios conectados** , clique em **Avançar**.
-6.  Na **página filtragem de domínio e UO,** clique em **Atualizar**.  Novos domínios agora aparecem e os domínios excluídos desaparecerão.
+6.  Na **página filtragem de domínio e UO,** clique em **Atualizar**.  Novos domínios agora serão exibidos e os domínios excluídos desaparecerão.
    ![Partições](./media/how-to-connect-sync-configure-filtering/update2.png)  
 
 ### <a name="update-the-run-profiles"></a>Atualizar perfis de execução
@@ -217,7 +217,7 @@ A filtragem de entrada usa a configuração padrão, na qual objetos em direçã
 Na filtragem de entrada, você usa o **escopo** para determinar quais objetos devem ou não ser sincronizados. Aqui, você faz os ajustes para os requisitos da sua própria organização. O módulo do escopo tem um **grupo** e uma **cláusula** para determinar quando uma regra de sincronização deve estar no escopo. Um grupo contém uma ou muitas cláusulas. Há um “E” lógico entre várias cláusulas e um “OU” lógico entre vários grupos.
 
 Vamos examinar um exemplo:   
-![Escopo](./media/how-to-connect-sync-configure-filtering/scope.png)  
+![Uma captura de tela mostrando um exemplo de adição de filtros de escopo.](./media/how-to-connect-sync-configure-filtering/scope.png)  
 Isso deve ser lido como **(departamento = TI) OU (departamento = Vendas E c = EUA)**.
 
 Nos exemplos e nas etapas abaixo, usaremos o objeto de usuário como um exemplo, mas você poderá usar isso para todos os tipos de objeto.
@@ -275,11 +275,11 @@ Neste exemplo, você altera a filtragem para que somente usuários com emails e 
 1. Entre no servidor que está executando a sincronização do Azure AD Connect usando uma conta que seja membro do grupo de segurança **ADSyncAdmins** .
 2. Inicie o **Editor de regras de sincronização** no menu **Iniciar** .
 3. Em **Tipos de Regra**, clique em **Saída**.
-4. Dependendo da versão do Connect que você usar, localize a regra nomeada **Saída para AAD – Ingresso de usuário** ou **Saída para AAD - Usuário ingressado no SOAInAD** e clique em **Editar**.
+4. Dependendo da versão do Connect que você usa, localize a regra chamada **out to Azure ad – User Join** ou **out to Azure ad-User Join SOAInAD** e clique em **Edit**.
 5. No pop-up, responda **Sim** para criar uma cópia da regra.
 6. Na página **Descrição**, altere **Precedência** para um valor não usado, por exemplo, 50.
-7. Clique em **Filtro de escopo** na barra de navegação à esquerda e clique em **Adicionar cláusula**. Em **Atributo**, selecione **mail**. Em **Operador**, selecione **ENDSWITH**. Em **valor**, digite ** \@ contoso.com**e clique em **Adicionar cláusula**. Em **Atributo**, selecione **userPrincipalName**. Em **Operador**, selecione **ENDSWITH**. Em **valor**, digite ** \@ contoso.com**.
-8. Clique em **Salvar**.
+7. Clique em **Filtro de escopo** na barra de navegação à esquerda e clique em **Adicionar cláusula**. Em **Atributo**, selecione **mail**. Em **Operador**, selecione **ENDSWITH**. Em **valor**, digite **\@ contoso.com** e clique em **Adicionar cláusula**. Em **Atributo**, selecione **userPrincipalName**. Em **Operador**, selecione **ENDSWITH**. Em **valor**, digite **\@ contoso.com**.
+8. Clique em **Save** (Salvar).
 9. Para concluir a configuração, você precisa executar uma **sincronização completa**. Continue lendo a seção [aplicar e verificar as alterações](#apply-and-verify-changes).
 
 ## <a name="apply-and-verify-changes"></a>Aplicar e verificar as alterações
@@ -300,7 +300,7 @@ Após a sincronização, todas as alterações serão preparadas para exportaç�
 
 1. Inicie um prompt de comando e vá para `%ProgramFiles%\Microsoft Azure AD Sync\bin`.
 2. Execute `csexport "Name of Connector" %temp%\export.xml /f:x`.  
-   O nome do conector pode ser encontrado no Serviço de Sincronização. Ele tem um nome semelhante a "contoso.com – AAD" para o Azure AD.
+   O nome do conector pode ser encontrado no Serviço de Sincronização. Ele tem um nome semelhante a "contoso.com – Azure AD" para o Azure AD.
 3. Execute `CSExportAnalyzer %temp%\export.xml > %temp%\export.csv`.
 4. Agora você tem um arquivo em %temp% chamado export.csv que pode ser examinado no Microsoft Excel. Esse arquivo contém todas as alterações que estão prestes a ser exportadas.
 5. Faça as alterações necessárias na configuração ou nos dados e execute essas etapas novamente (importar, sincronizar e verificar) até que você esteja satisfeito com as alterações que serão exportadas.

@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: mathoma, carlrab
+ms.reviewer: mathoma, sstein
 ms.date: 06/21/2019
-ms.openlocfilehash: c6f766dcf69b398aea0978f42f5094809a3e2f6c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e4a6802829d230cebc460df1409b7655534a5b8e
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84038777"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782987"
 ---
 # <a name="restore-your-azure-sql-database-or-failover-to-a-secondary"></a>Restaurar o banco de dados SQL do Azure ou fazer failover para um secundário
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -62,7 +62,7 @@ A operação de recuperação afeta o aplicativo. Ela exige a alteração da cad
 
 Dependendo da tolerância a tempo de inatividade de seu aplicativo e possível responsabilidade comercial, você pode considerar as opções de recuperação a seguir.
 
-Use [Obter Banco de Dados Recuperável](https://msdn.microsoft.com/library/dn800985.aspx) (*LastAvailableBackupDate*) para obter o ponto de restauração com replicação geográfica mais recente.
+Use [Obter Banco de Dados Recuperável](/previous-versions/azure/reference/dn800985(v=azure.100)) ( *LastAvailableBackupDate* ) para obter o ponto de restauração com replicação geográfica mais recente.
 
 ## <a name="wait-for-service-recovery"></a>Aguarde a recuperação de serviço
 

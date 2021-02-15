@@ -3,18 +3,21 @@ title: IS_STRING na linguagem de consulta Azure Cosmos DB
 description: Saiba mais sobre a função do sistema SQL IS_STRING no Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: a717f343b0f46522a3ce2bb56c32e3f15998d777
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9bef240563c2b82074cfd1ebf217fbcbf8117c75
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78303759"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93333895"
 ---
 # <a name="is_string-azure-cosmos-db"></a>IS_STRING (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Retorna um valor booliano que indica se o tipo da expressão especificada é uma cadeia de caracteres.  
   
 ## <a name="syntax"></a>Sintaxe

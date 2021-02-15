@@ -6,17 +6,17 @@ services: active-directory-b2c
 author: msmimart
 manager: celestedg
 ms.author: mimart
-ms.date: 10/14/2019
+ms.date: 10/02/2020
 ms.custom: devx-track-csharp, mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: b23bed8163ffed6a610eda7677099989e966a646
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 9c3c63b6116e02e8a742b69e90c11e182d72ab2e
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88163808"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953016"
 ---
 # <a name="tutorial-enable-authentication-in-a-web-application-using-azure-active-directory-b2c"></a>Tutorial: Habilitar autenticação em um aplicativo Web usando o Azure Active Directory B2C
 
@@ -31,6 +31,9 @@ Neste tutorial, você aprenderá como:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
+> [!NOTE]
+> Este tutorial usa um aplicativo Web ASP.NET de exemplo. Para outros aplicativos de exemplo (incluindo ASP.NET Core, Node.js, Python e mais), confira [Exemplos de código do Azure Active Directory B2C](code-samples.md).
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * [Crie fluxos de usuário](tutorial-create-user-flows.md) para habilitar experiências de usuário em seu aplicativo.
@@ -42,7 +45,7 @@ No tutorial concluído como parte dos pré-requisitos, você registrou um aplica
 
 ### <a name="add-a-redirect-uri-reply-url"></a>Adicionar um URI de redirecionamento (URL de resposta)
 
-Para atualizar um aplicativo no locatário do Azure AD B2C, você pode usar a nossa nova experiência unificada de **Registros de aplicativos** ou a nossa experiência herdada **Aplicativos (Herdado)** . [Saiba mais sobre a nova experiência](https://aka.ms/b2cappregtraining).
+Para atualizar um aplicativo no locatário do Azure AD B2C, você pode usar a nossa nova experiência unificada de **Registros de aplicativos** ou a nossa experiência herdada **Aplicativos (Herdado)** . [Saiba mais sobre a nova experiência](./app-registrations-training-guide.md).
 
 #### <a name="app-registrations"></a>[Registros de aplicativo](#tab/app-reg-ga/)
 
@@ -74,7 +77,7 @@ Em seguida, crie um segredo do cliente para o aplicativo Web registrado. O exemp
 
 ## <a name="configure-the-sample"></a>Configurar o exemplo
 
-Neste tutorial, você deve configurar um exemplo que pode ser baixado do GitHub. O exemplo usa o ASP.NET para fornecer uma lista de tarefas pendentes simples. O exemplo usa os [componentes de middleware OWIN da Microsoft](https://docs.microsoft.com/aspnet/aspnet/overview/owin-and-katana/). [Baixe um arquivo zip](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi/archive/master.zip) ou clone o exemplo do GitHub. Extraia o arquivo de exemplo em uma pasta cujo tamanho total de caracteres do caminho seja menor que 260.
+Neste tutorial, você deve configurar um exemplo que pode ser baixado do GitHub. O exemplo usa o ASP.NET para fornecer uma lista de tarefas pendentes simples. O exemplo usa os [componentes de middleware OWIN da Microsoft](/aspnet/aspnet/overview/owin-and-katana/). [Baixe um arquivo zip](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi/archive/master.zip) ou clone o exemplo do GitHub. Extraia o arquivo de exemplo em uma pasta cujo tamanho total de caracteres do caminho seja menor que 260.
 
 ```
 git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi.git

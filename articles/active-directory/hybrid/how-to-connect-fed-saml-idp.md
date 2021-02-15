@@ -14,21 +14,21 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 274f603fa0d7a48b99a7caed5d465d44bc68e9ca
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b26c24149d422021dcb86f75c915ade89cbccdec
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87019957"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589868"
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>Usar um IdP (provedor de identidade) SAML 2.0 para logon único
 
-Este documento contém informações sobre como usar um provedor de identidade baseado em um perfil de SP-Lite em conformidade com SAML 2.0 como o provedor de identidade/STS (serviço de token de segurança) preferencial. Esse cenário é útil quando você já tem um diretório de usuários e um repositório de senhas locais que podem ser acessados usando SAML 2.0. Esse diretório de usuários existente pode ser usado para fazer logon no Office 365 e em outros recursos protegidos pelo Azure AD. O perfil de SP-Lite compatível com SAML 2.0 baseia-se no padrão de identidade federada amplamente utilizado SAML (Security Assertion Markup Language) para fornecer uma estrutura de logon e troca de atributos.
+Este documento contém informações sobre como usar um provedor de identidade baseado em um perfil de SP-Lite em conformidade com SAML 2.0 como o provedor de identidade/STS (serviço de token de segurança) preferencial. Esse cenário é útil quando você já tem um diretório de usuários e um repositório de senhas locais que podem ser acessados usando SAML 2.0. Esse diretório de usuário existente pode ser usado para logon no Microsoft 365 e em outros recursos protegidos pelo Azure AD. O perfil de SP-Lite compatível com SAML 2.0 baseia-se no padrão de identidade federada amplamente utilizado SAML (Security Assertion Markup Language) para fornecer uma estrutura de logon e troca de atributos.
 
 >[!NOTE]
 >Para obter uma lista de IdPs de terceiros que foram testados para uso com o Azure AD, consulte a [Lista de compatibilidade de federação do Azure AD](how-to-connect-fed-compatibility.md)
 
-A Microsoft dá suporte a esta experiência de logon como a integração de um serviço de nuvem da Microsoft, como o Office 365, com seu IdP baseado em um perfil SAML 2.0 configurado corretamente. Provedores de identidade SAML 2.0 são produtos de terceiros e, portanto, a Microsoft não dá suporte às melhores práticas de implantação, configuração e solução de problemas relacionadas a eles. Depois de configurada corretamente, a integração com o provedor de identidade SAML 2.0 pode ser testada quanto à configuração correta usando a Ferramenta Analisador de Conectividade da Microsoft, que é descrita em mais detalhes abaixo. Para obter mais informações sobre seu provedor de identidade baseado em um perfil de SP-Lite compatível com SAML 2.0, solicite essas informações à organização que o forneceu.
+A Microsoft dá suporte a essa experiência de logon como a integração de um serviço de nuvem da Microsoft, como o Microsoft 365, com o IdP baseado em perfil SAML 2,0 configurado corretamente. Provedores de identidade SAML 2.0 são produtos de terceiros e, portanto, a Microsoft não dá suporte às melhores práticas de implantação, configuração e solução de problemas relacionadas a eles. Depois de configurada corretamente, a integração com o provedor de identidade SAML 2.0 pode ser testada quanto à configuração correta usando a Ferramenta Analisador de Conectividade da Microsoft, que é descrita em mais detalhes abaixo. Para obter mais informações sobre seu provedor de identidade baseado em um perfil de SP-Lite compatível com SAML 2.0, solicite essas informações à organização que o forneceu.
 
 > [!IMPORTANT]
 > Somente um conjunto limitado de clientes está disponível neste cenário de logon com provedores de identidade SAML 2.0, entre os quais:
@@ -44,12 +44,12 @@ A Microsoft dá suporte a esta experiência de logon como a integração de um s
 Todos os outros clientes estão indisponíveis neste cenário de logon com seu provedor de identidade SAML 2.0. Por exemplo, o cliente de desktop do Lync 2010 não pode entrar no serviço com seu Provedor de Identidade SAML 2.0 configurado para logon único.
 
 ## <a name="azure-ad-saml-20-protocol-requirements"></a>Requisitos de protocolo do SAML 2.0 no Azure AD
-Este documento contém os requisitos detalhados para o protocolo e para a formatação de mensagens que seu provedor de identidade SAML 2.0 precisa implementar para estabelecer uma federação com o Azure AD e habilitar o logon em um ou mais serviços em nuvem da Microsoft (como o Office 365). A terceira parte confiável do SAML 2.0 (SP-STS) para o serviço de nuvem da Microsoft neste cenário é o Azure AD.
+Este documento contém requisitos detalhados sobre o protocolo e a formatação de mensagens que seu provedor de identidade SAML 2,0 deve implementar para federar com o Azure AD para habilitar o logon em um ou mais serviços de nuvem da Microsoft (como Microsoft 365). A terceira parte confiável do SAML 2.0 (SP-STS) para o serviço de nuvem da Microsoft neste cenário é o Azure AD.
 
 É recomendável que as mensagens de saída de seu provedor de identidade SAML 2.0 sejam o mais semelhantes possível aos rastreamentos de exemplo fornecidos. Além disso, use os valores de atributo específicos dos metadados do Azure AD fornecidos sempre que possível. Quando estiver satisfeito com suas mensagens de saída, você pode fazer o teste com o Analisador de Conectividade da Microsoft, conforme descrito abaixo.
 
 Os metadados do Azure AD podem ser baixados desta URL: [https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml](https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml).
-Para clientes na China que usam a instância específica da China do Office 365, o seguinte ponto de extremidade de federação deve ser usado: [https://nexus.partner.microsoftonline-p.cn/federationmetadata/saml20/federationmetadata.xml](https://nexus.partner.microsoftonline-p.cn/federationmetadata/saml20/federationmetadata.xml).
+Para clientes na China usando a instância específica da China do Microsoft 365, o seguinte ponto de extremidade de Federação deve ser usado: [https://nexus.partner.microsoftonline-p.cn/federationmetadata/saml20/federationmetadata.xml](https://nexus.partner.microsoftonline-p.cn/federationmetadata/saml20/federationmetadata.xml) .
 
 ## <a name="saml-protocol-requirements"></a>Requisitos do protocolo SAML
 Esta seção detalha como os pares de mensagens de solicitação e resposta são reunidos para ajudá-lo a formatar suas mensagens corretamente.
@@ -60,19 +60,19 @@ O Azure AD pode ser configurado para funcionar com provedores de identidade que 
 Dentro da mensagem de resposta SAML, o nó de Assinatura contém informações sobre a assinatura digital da mensagem em si. O bloco de assinatura tem os seguintes requisitos:
 
 1. O próprio nó de declaração precisa ser assinado
-2.  O algoritmo RSA-sha1 precisa ser usado como o DigestMethod. Outros algoritmos de assinatura digital não são aceitos.
+2. O algoritmo RSA-sha1 precisa ser usado como o DigestMethod. Outros algoritmos de assinatura digital não são aceitos.
    `<ds:DigestMethod Algorithm="https://www.w3.org/2000/09/xmldsig#sha1"/>`
-3.  Você também pode assinar o documento XML. 
-4.  O algoritmo de transformação deve corresponder aos valores no exemplo a seguir: `<ds:Transform Algorithm="https://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
+3. Você também pode assinar o documento XML. 
+4. O algoritmo de transformação deve corresponder aos valores no exemplo a seguir:     `<ds:Transform Algorithm="https://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
        <ds:Transform Algorithm="https://www.w3.org/2001/10/xml-exc-c14n#"/>`
-9.  O algoritmo SignatureMethod deve coincidir com o exemplo a seguir: `<ds:SignatureMethod Algorithm="https://www.w3.org/2000/09/xmldsig#rsa-sha1"/>`
+9. O algoritmo SignatureMethod deve corresponder ao seguinte exemplo:    `<ds:SignatureMethod Algorithm="https://www.w3.org/2000/09/xmldsig#rsa-sha1"/>`
 
 ## <a name="supported-bindings"></a>Associações com suporte
 Associações são os parâmetros de comunicação relacionados ao transporte que são necessários. Os requisitos a seguir se aplicam às associações
 
 1. HTTPS é o transporte obrigatório.
-2.  O Azure AD exigirá o HTTP POST para envio do token durante a conexão.
-3.  O Azure AD usará HTTP POST para a solicitação de autenticação ao provedor de identidade e REDIRECT para a mensagem de logoff ao provedor de identidade.
+2. O Azure AD exigirá o HTTP POST para envio do token durante a conexão.
+3. O Azure AD usará HTTP POST para a solicitação de autenticação ao provedor de identidade e REDIRECT para a mensagem de logoff ao provedor de identidade.
 
 ## <a name="required-attributes"></a>Atributos obrigatórios
 Esta tabela mostra os requisitos para atributos específicos na mensagem SAML 2.0.
@@ -80,7 +80,7 @@ Esta tabela mostra os requisitos para atributos específicos na mensagem SAML 2.
 |Atributo|Descrição|
 | ----- | ----- |
 |NameID|O valor dessa declaração deve ser o mesmo que o ImmutableID do usuário do Azure AD. Ela pode ter até 64 caracteres alfanuméricos. Qualquer caractere seguro não HTML deve ser codificado, por exemplo, um caractere "+" é mostrado como ".2B".|
-|IDPEmail|O nome UPN é listado na resposta SAML como um elemento com o nome IDPEmail. O UPN (UserPrincipalName) do usuário no Azure AD/Office 365. O UPN tem o formato de endereço de email. Valor do UPN no Windows Office 365 (Azure Active Directory).|
+|IDPEmail|O nome principal do usuário (UPN) é listado na resposta SAML como um elemento com o nome Idpemail. o UserPrincipalName (UPN) do usuário no Azure AD/Microsoft 365. O UPN tem o formato de endereço de email. Valor de UPN no Windows Microsoft 365 (Azure Active Directory).|
 |Emissor|Precisa ser um URI do provedor de identidade. Não reutilize o Emissor das mensagens de exemplo. Se você tiver vários domínios de nível superior em seus locatários do Azure AD, o Emissor deverá corresponder à configuração de URI especificada configurada por domínio.|
 
 >[!IMPORTANT]
@@ -91,19 +91,19 @@ Um par de mensagens de solicitação e resposta é mostrado para a troca de mens
 A seguir está um exemplo de mensagem de solicitação que é enviada do Azure AD para um provedor de identidade SAML 2.0 de exemplo. O provedor de identidade SAML 2.0 de exemplo é o Serviços de Federação do Active Directory (AD FS), configurado para usar o protocolo SAML-P. Testes de interoperabilidade também foram concluídos com outros provedores de identidade SAML 2.0.
 
 ```xml
-    <samlp:AuthnRequest 
-        xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol" 
-        xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" 
-        ID="_7171b0b2-19f2-4ba2-8f94-24b5e56b7f1e" 
-        IssueInstant="2014-01-30T16:18:35Z" 
-        Version="2.0" 
-        AssertionConsumerServiceIndex="0" >
-            <saml:Issuer>urn:federation:MicrosoftOnline</saml:Issuer>
-            <samlp:NameIDPolicy Format="urn:oasis:names:tc:SAML:2.0:nameid-format:persistent"/>
-    </samlp:AuthnRequest>
+  <samlp:AuthnRequest 
+    xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol" 
+    xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" 
+    ID="_7171b0b2-19f2-4ba2-8f94-24b5e56b7f1e" 
+    IssueInstant="2014-01-30T16:18:35Z" 
+    Version="2.0" 
+    AssertionConsumerServiceIndex="0" >
+        <saml:Issuer>urn:federation:MicrosoftOnline</saml:Issuer>
+        <samlp:NameIDPolicy Format="urn:oasis:names:tc:SAML:2.0:nameid-format:persistent"/>
+  </samlp:AuthnRequest>
 ```
 
-A seguir está um exemplo de mensagem de resposta que é enviada do provedor de identidade em conformidade com SAML 2.0 de exemplo para o Azure AD/Office 365.
+A seguir está um exemplo de mensagem de resposta que é enviada do provedor de identidade compatível com SAML 2,0 de exemplo para o Azure AD/Microsoft 365.
 
 ```xml
     <samlp:Response ID="_592c022f-e85e-4d23-b55b-9141c95cd2a5" Version="2.0" IssueInstant="2014-01-31T15:36:31.357Z" Destination="https://login.microsoftonline.com/login.srf" Consent="urn:oasis:names:tc:SAML:2.0:consent:unspecified" InResponseTo="_049917a6-1183-42fd-a190-1d2cbaf9b144" xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
@@ -159,7 +159,7 @@ A seguir está um exemplo de mensagem de resposta que é enviada do provedor de 
 ```
 
 ## <a name="configure-your-saml-20-compliant-identity-provider"></a>Configurar seu provedor de identidade em conformidade com SAML 2.0
-Esta seção contém diretrizes de como configurar seu provedor de identidade SAML 2.0 para estabelecer uma federação com o Azure AD e habilitar o acesso de logon único para um ou mais serviços em nuvem da Microsoft (como o Office 365) usando o protocolo SAML 2.0. A terceira parte confiável SAML 2.0 para o serviço de nuvem da Microsoft neste cenário é o Azure AD.
+Esta seção contém diretrizes sobre como configurar seu provedor de identidade SAML 2,0 para federar com o Azure AD para habilitar o acesso de logon único a um ou mais serviços de nuvem da Microsoft (como Microsoft 365) usando o protocolo SAML 2,0. A terceira parte confiável SAML 2.0 para o serviço de nuvem da Microsoft neste cenário é o Azure AD.
 
 ## <a name="add-azure-ad-metadata"></a>Adicionar metadados do Azure AD
 Seu provedor de identidade SAML 2.0 precisa aderir a informações sobre a terceira parte confiável do Azure AD. O Azure AD publica metadados em https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml.
@@ -178,7 +178,7 @@ Você precisa habilitar a comunicação entre seu provedor de identidade SAML 2.
 ## <a name="install-windows-powershell-for-sign-on-with-saml-20-identity-provider"></a>Instalar o Windows PowerShell para fazer logon no provedor de identidade SAML 2.0
 Após ter configurado seu provedor de identidade SAML 2.0 para uso com o logon do Azure AD, a próxima etapa é baixar e instalar o módulo do Azure Active Directory para o Windows PowerShell. Uma vez instalado, você usará os cmdlets para configurar seus domínios do Azure AD como domínios federados.
 
-O módulo do Azure Active Directory para Windows PowerShell é um download para gerenciar os dados de sua organização no Azure AD. Esse módulo instala um conjunto de cmdlets no Windows PowerShell; você executa esses cmdlets para configurar o acesso de logon único ao Azure AD e, por sua vez, em todos os serviços de nuvem em que você se inscreveu. Para obter instruções sobre como baixar e instalar os cmdlets, consulte [https://technet.microsoft.com/library/jj151815.aspx](https://technet.microsoft.com/library/jj151815.aspx)
+O módulo do Azure Active Directory para Windows PowerShell é um download para gerenciar os dados de sua organização no Azure AD. Esse módulo instala um conjunto de cmdlets no Windows PowerShell; você executa esses cmdlets para configurar o acesso de logon único ao Azure AD e, por sua vez, em todos os serviços de nuvem em que você se inscreveu. Para obter instruções sobre como baixar e instalar os cmdlets, consulte [/Previous-Versions/Azure/jj151815 (v = Azure. 100)](/previous-versions/azure/jj151815(v=azure.100))
 
 ## <a name="set-up-a-trust-between-your-saml-identity-provider-and-azure-ad"></a>Configurar uma relação de confiança entre seu provedor de identidade SAML e o Azure AD
 Antes de configurar a federação em um domínio do Azure AD, ele precisa ter um domínio personalizado configurado. Você não pode federar o domínio padrão fornecido pela Microsoft. O domínio padrão da Microsoft termina com "onmicrosoft.com".
@@ -196,61 +196,61 @@ O procedimento a seguir descreve a conversão de um domínio padrão existente e
 
 1. Conecte o diretório do Azure AD como um administrador de locatário:
 
-    ```powershell
-    Connect-MsolService
-    ```
-    
-2. Configure seu domínio do Office 365 desejado para usar a federação com SAML 2.0:
+  ```powershell
+  Connect-MsolService
+  ```
+  
+2. Configure seu domínio de Microsoft 365 desejado para usar a Federação com SAML 2,0:
 
-    ```powershell
-    $dom = "contoso.com" 
-    $BrandName - "Sample SAML 2.0 IDP" 
-    $LogOnUrl = "https://WS2012R2-0.contoso.com/passiveLogon" 
-    $LogOffUrl = "https://WS2012R2-0.contoso.com/passiveLogOff" 
-    $ecpUrl = "https://WS2012R2-0.contoso.com/PAOS" 
-    $MyURI = "urn:uri:MySamlp2IDP" 
-    $MySigningCert = "MIIC7jCCAdagAwIBAgIQRrjsbFPaXIlOG3GTv50fkjANBgkqhkiG9w0BAQsFADAzMTEwLwYDVQQDEyh BREZTIFNpZ25pbmcgLSBXUzIwMTJSMi0wLnN3aW5mb3JtZXIuY29tMB4XDTE0MDEyMDE1MTY0MFoXDT E1MDEyMDE1MTY0MFowMzExMC8GA1UEAxMoQURGUyBTaWduaW5nIC0gV1MyMDEyUjItMC5zd2luZm9yb WVyLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKe+rLVmXy1QwCwZwqgbbp1/kupQ VcjKuKLitVDbssFyqbDTjP7WRjlVMWAHBI3kgNT7oE362Gf2WMJFf1b0HcrsgLin7daRXpq4Qi6OA57 sW1YFMj3sqyuTP0eZV3S4+ZbDVob6amsZIdIwxaLP9Zfywg2bLsGnVldB0+XKedZwDbCLCVg+3ZWxd9 T/jV0hpLIIWr+LCOHqq8n8beJvlivgLmDJo8f+EITnAxWcsJUvVai/35AhHCUq9tc9sqMp5PWtabAEM b2AU72/QlX/72D2/NbGQq1BWYbqUpgpCZ2nSgvlWDHlCiUo//UGsvfox01kjTFlmqQInsJVfRxF5AcC AwEAATANBgkqhkiG9w0BAQsFAAOCAQEAi8c6C4zaTEc7aQiUgvnGQgCbMZbhUXXLGRpjvFLKaQzkwa9 eq7WLJibcSNyGXBa/SfT5wJgsm3TPKgSehGAOTirhcqHheZyvBObAScY7GOT+u9pVYp6raFrc7ez3c+ CGHeV/tNvy1hJNs12FYH4X+ZCNFIT9tprieR25NCdi5SWUbPZL0tVzJsHc1y92b2M2FxqRDohxQgJvy JOpcg2mSBzZZIkvDg7gfPSUXHVS1MQs0RHSbwq/XdQocUUhl9/e/YWCbNNxlM84BxFsBUok1dH/gzBy Sx+Fc8zYi7cOq9yaBT3RLT6cGmFGVYZJW4FyhPZOCLVNsLlnPQcX3dDg9A==" 
-    $uri = "http://WS2012R2-0.contoso.com/adfs/services/trust" 
-    $Protocol = "SAMLP" 
-    Set-MsolDomainAuthentication `
-        -DomainName $dom `
-        -FederationBrandName $BrandName `
-        -Authentication Federated `
-        -PassiveLogOnUri $LogOnUrl `
-        -ActiveLogOnUri $ecpUrl `
-        -SigningCertificate $MySigningCert `
-        -IssuerUri $MyURI `
-        -LogOffUri $LogOffUrl `
-        -PreferredAuthenticationProtocol $Protocol
-    ``` 
+  ```powershell
+  $dom = "contoso.com" 
+  $BrandName - "Sample SAML 2.0 IDP" 
+  $LogOnUrl = "https://WS2012R2-0.contoso.com/passiveLogon" 
+  $LogOffUrl = "https://WS2012R2-0.contoso.com/passiveLogOff" 
+  $ecpUrl = "https://WS2012R2-0.contoso.com/PAOS" 
+  $MyURI = "urn:uri:MySamlp2IDP" 
+  $MySigningCert = "MIIC7jCCAdagAwIBAgIQRrjsbFPaXIlOG3GTv50fkjANBgkqhkiG9w0BAQsFADAzMTEwLwYDVQQDEyh BREZTIFNpZ25pbmcgLSBXUzIwMTJSMi0wLnN3aW5mb3JtZXIuY29tMB4XDTE0MDEyMDE1MTY0MFoXDT E1MDEyMDE1MTY0MFowMzExMC8GA1UEAxMoQURGUyBTaWduaW5nIC0gV1MyMDEyUjItMC5zd2luZm9yb WVyLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKe+rLVmXy1QwCwZwqgbbp1/kupQ VcjKuKLitVDbssFyqbDTjP7WRjlVMWAHBI3kgNT7oE362Gf2WMJFf1b0HcrsgLin7daRXpq4Qi6OA57 sW1YFMj3sqyuTP0eZV3S4+ZbDVob6amsZIdIwxaLP9Zfywg2bLsGnVldB0+XKedZwDbCLCVg+3ZWxd9 T/jV0hpLIIWr+LCOHqq8n8beJvlivgLmDJo8f+EITnAxWcsJUvVai/35AhHCUq9tc9sqMp5PWtabAEM b2AU72/QlX/72D2/NbGQq1BWYbqUpgpCZ2nSgvlWDHlCiUo//UGsvfox01kjTFlmqQInsJVfRxF5AcC AwEAATANBgkqhkiG9w0BAQsFAAOCAQEAi8c6C4zaTEc7aQiUgvnGQgCbMZbhUXXLGRpjvFLKaQzkwa9 eq7WLJibcSNyGXBa/SfT5wJgsm3TPKgSehGAOTirhcqHheZyvBObAScY7GOT+u9pVYp6raFrc7ez3c+ CGHeV/tNvy1hJNs12FYH4X+ZCNFIT9tprieR25NCdi5SWUbPZL0tVzJsHc1y92b2M2FxqRDohxQgJvy JOpcg2mSBzZZIkvDg7gfPSUXHVS1MQs0RHSbwq/XdQocUUhl9/e/YWCbNNxlM84BxFsBUok1dH/gzBy Sx+Fc8zYi7cOq9yaBT3RLT6cGmFGVYZJW4FyhPZOCLVNsLlnPQcX3dDg9A==" 
+  $uri = "http://WS2012R2-0.contoso.com/adfs/services/trust" 
+  $Protocol = "SAMLP" 
+  Set-MsolDomainAuthentication `
+    -DomainName $dom `
+    -FederationBrandName $BrandName `
+    -Authentication Federated `
+    -PassiveLogOnUri $LogOnUrl `
+    -ActiveLogOnUri $ecpUrl `
+    -SigningCertificate $MySigningCert `
+    -IssuerUri $MyURI `
+    -LogOffUri $LogOffUrl `
+    -PreferredAuthenticationProtocol $Protocol
+  ``` 
 
 3.  Você pode obter a cadeia de caracteres codificada em Base64 do certificado de autenticação em seu arquivo de metadados do IDP. Um exemplo desse local foi fornecido, mas ele pode diferir ligeiramente dependendo de sua implementação.
 
-    ```xml
-    <IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
-        <KeyDescriptor use="signing">
-          <KeyInfo xmlns="https://www.w3.org/2000/09/xmldsig#">
-             <X509Data>
-                 <X509Certificate> MIIC5jCCAc6gAwIBAgIQLnaxUPzay6ZJsC8HVv/QfTANBgkqhkiG9w0BAQsFADAvMS0wKwYDVQQDEyRBREZTIFNpZ25pbmcgLSBmcy50ZWNobGFiY2VudHJhbC5vcmcwHhcNMTMxMTA0MTgxMzMyWhcNMTQxMTA0MTgxMzMyWjAvMS0wKwYDVQQDEyRBREZTIFNpZ25pbmcgLSBmcy50ZWNobGFiY2VudHJhbC5vcmcwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCwMdVLTr5YTSRp+ccbSpuuFeXMfABD9mVCi2wtkRwC30TIyPdORz642MkurdxdPCWjwgJ0HW6TvXwcO9afH3OC5V//wEGDoNcI8PV4enCzTYFe/h//w51uqyv48Fbb3lEXs+aVl8155OAj2sO9IX64OJWKey82GQWK3g7LfhWWpp17j5bKpSd9DBH5pvrV+Q1ESU3mx71TEOvikHGCZYitEPywNeVMLRKrevdWI3FAhFjcCSO6nWDiMqCqiTDYOURXIcHVYTSof1YotkJ4tG6mP5Kpjzd4VQvnR7Pjb47nhIYG6iZ3mR1F85Ns9+hBWukQWNN2hcD/uGdPXhpdMVpBAgMBAAEwDQYJKoZIhvcNAQELBQADggEBAK7h7jF7wPzhZ1dPl4e+XMAr8I7TNbhgEU3+oxKyW/IioQbvZVw1mYVCbGq9Rsw4KE06eSMybqHln3w5EeBbLS0MEkApqHY+p68iRpguqa+W7UHKXXQVgPMCpqxMFKonX6VlSQOR64FgpBme2uG+LJ8reTgypEKspQIN0WvtPWmiq4zAwBp08hAacgv868c0MM4WbOYU0rzMIR6Q+ceGVRImlCwZ5b7XKp4mJZ9hlaRjeuyVrDuzBkzROSurX1OXoci08yJvhbtiBJLf3uPOJHrhjKRwIt2TnzS9ElgFZlJiDIA26Athe73n43CT0af2IG6yC7e6sK4L3NEXJrwwUZk=</X509Certificate>
-              </X509Data>
-            </KeyInfo>
-        </KeyDescriptor>
-    </IDPSSODescriptor>
-    ``` 
+  ```xml
+  <IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+    <KeyDescriptor use="signing">
+      <KeyInfo xmlns="https://www.w3.org/2000/09/xmldsig#">
+       <X509Data>
+         <X509Certificate> MIIC5jCCAc6gAwIBAgIQLnaxUPzay6ZJsC8HVv/QfTANBgkqhkiG9w0BAQsFADAvMS0wKwYDVQQDEyRBREZTIFNpZ25pbmcgLSBmcy50ZWNobGFiY2VudHJhbC5vcmcwHhcNMTMxMTA0MTgxMzMyWhcNMTQxMTA0MTgxMzMyWjAvMS0wKwYDVQQDEyRBREZTIFNpZ25pbmcgLSBmcy50ZWNobGFiY2VudHJhbC5vcmcwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCwMdVLTr5YTSRp+ccbSpuuFeXMfABD9mVCi2wtkRwC30TIyPdORz642MkurdxdPCWjwgJ0HW6TvXwcO9afH3OC5V//wEGDoNcI8PV4enCzTYFe/h//w51uqyv48Fbb3lEXs+aVl8155OAj2sO9IX64OJWKey82GQWK3g7LfhWWpp17j5bKpSd9DBH5pvrV+Q1ESU3mx71TEOvikHGCZYitEPywNeVMLRKrevdWI3FAhFjcCSO6nWDiMqCqiTDYOURXIcHVYTSof1YotkJ4tG6mP5Kpjzd4VQvnR7Pjb47nhIYG6iZ3mR1F85Ns9+hBWukQWNN2hcD/uGdPXhpdMVpBAgMBAAEwDQYJKoZIhvcNAQELBQADggEBAK7h7jF7wPzhZ1dPl4e+XMAr8I7TNbhgEU3+oxKyW/IioQbvZVw1mYVCbGq9Rsw4KE06eSMybqHln3w5EeBbLS0MEkApqHY+p68iRpguqa+W7UHKXXQVgPMCpqxMFKonX6VlSQOR64FgpBme2uG+LJ8reTgypEKspQIN0WvtPWmiq4zAwBp08hAacgv868c0MM4WbOYU0rzMIR6Q+ceGVRImlCwZ5b7XKp4mJZ9hlaRjeuyVrDuzBkzROSurX1OXoci08yJvhbtiBJLf3uPOJHrhjKRwIt2TnzS9ElgFZlJiDIA26Athe73n43CT0af2IG6yC7e6sK4L3NEXJrwwUZk=</X509Certificate>
+        </X509Data>
+      </KeyInfo>
+    </KeyDescriptor>
+  </IDPSSODescriptor>
+  ``` 
 
-Para saber mais sobre "Set-MsolDomainAuthentication", consulte: [https://technet.microsoft.com/library/dn194112.aspx](https://technet.microsoft.com/library/dn194112.aspx).
+Para obter mais informações sobre "Set-MsolDomainAuthentication", consulte: [/Previous-Versions/Azure/dn194112 (v = Azure. 100)](/previous-versions/azure/dn194112(v=azure.100)).
 
 >[!NOTE]
 >Use `$ecpUrl = "https://WS2012R2-0.contoso.com/PAOS"` somente se configurar uma extensão ECP para o seu provedor de identidade. Clientes do Exchange Online, exceto pelo aplicativo OWA (Outlook Web Application), dependem de ponto de extremidade ativa baseado em POST. Se o seu STS SAML 2.0 implementar um ponto de extremidade ativo semelhante à implementação de ECP do Shibboleth de um ponto de extremidade ativo, é possível que esses clientes avançados interajam com o serviço do Exchange Online.
 
-Quando a federação estiver federada, você poderá voltar para "não federado" (ou "gerenciado"). No entanto, essa alteração leva até duas horas para ser concluída e requer que novas senhas aleatórias para logon baseado em nuvem sejam atribuídas a cada usuário. Em alguns cenários, pode ser necessário voltar para a configuração "gerenciado" para redefinir um erro em suas configurações. Para saber mais sobre conversão de domínio, confira: [https://msdn.microsoft.com/library/windowsazure/dn194122.aspx](https://msdn.microsoft.com/library/windowsazure/dn194122.aspx).
+Quando a federação estiver federada, você poderá voltar para "não federado" (ou "gerenciado"). No entanto, essa alteração leva até duas horas para ser concluída e requer que novas senhas aleatórias para logon baseado em nuvem sejam atribuídas a cada usuário. Em alguns cenários, pode ser necessário voltar para a configuração "gerenciado" para redefinir um erro em suas configurações. Para obter mais informações sobre conversão de domínio, consulte: [/Previous-Versions/Azure/dn194122 (v = Azure. 100)](/previous-versions/azure/dn194122(v=azure.100)).
 
-## <a name="provision-user-principals-to-azure-ad--office-365"></a>Provisionar entidades de usuários para o Azure AD/Office 365
-Antes que possa autenticar seus usuários no Office 365, você precisa provisionar o Azure AD com entidades de usuários que correspondam à declaração SAML 2.0. Se essas entidades de usuário não foram conhecidas pelo Azure AD com antecedência, elas não poderão ser usadas para logon federado. Tanto o Azure AD Connect quanto o Windows PowerShell pode ser usado para provisionar as entidades de usuário.
+## <a name="provision-user-principals-to-azure-ad--microsoft-365"></a>Provisionar entidades de usuário no Azure AD/Microsoft 365
+Antes de poder autenticar seus usuários para Microsoft 365, você deve provisionar o Azure AD com entidades de usuário que correspondam à asserção na declaração SAML 2,0. Se essas entidades de usuário não foram conhecidas pelo Azure AD com antecedência, elas não poderão ser usadas para logon federado. Tanto o Azure AD Connect quanto o Windows PowerShell pode ser usado para provisionar as entidades de usuário.
 
 O Azure AD Connect pode ser usado para provisionar entidades para seus domínios em seu diretório do Azure AD no Active Directory local. Para obter informações mais detalhadas, consulte [Integrar seus diretórios locais com o Azure Active Directory](whatis-hybrid-identity.md).
 
-O Windows PowerShell também pode ser usado para automatizar a adição de novos usuários ao Azure AD e para sincronizar alterações no diretório local. Para usar os cmdlets do Windows PowerShell, você precisa baixar os [Módulos do Azure Active Directory](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).
+O Windows PowerShell também pode ser usado para automatizar a adição de novos usuários ao Azure AD e para sincronizar alterações no diretório local. Para usar os cmdlets do Windows PowerShell, você precisa baixar os [Módulos do Azure Active Directory](/powershell/azure/active-directory/install-adv2).
 
 Este procedimento mostra como adicionar um único usuário ao Azure AD.
 
@@ -270,21 +270,20 @@ Este procedimento mostra como adicionar um único usuário ao Azure AD.
       -UsageLocation "US" 
     ```
 
-Para saber mais sobre "New-MsolUser", confira [https://technet.microsoft.com/library/dn194096.aspx](https://technet.microsoft.com/library/dn194096.aspx)
+Para obter mais informações sobre o check-out de "New-MsolUser", [/Previous-Versions/Azure/dn194096 (v = Azure. 100)](/previous-versions/azure/dn194096(v=azure.100))
 
 >[!NOTE]
->O valor de "UserPrinciplName" deve corresponder ao valor que você enviará para "IDPEmail" em sua declaração de SAML 2.0 e o valor de "ImmutableID" deve corresponder ao valor enviado na sua declaração de "NameID".
+>O valor "UserPrincipalName" deve corresponder ao valor que você enviará para "Idpemail." em sua declaração SAML 2,0 e o valor "imutávelid" deve corresponder ao valor enviado na sua declaração "NameID".
 
 ## <a name="verify-single-sign-on-with-your-saml-20-idp"></a>Verificar o logon único com seu IDP SAML 2.0
 Como administrador, antes de verificar e gerenciar o logon único (também chamado de federação de identidades), revise as informações e execute as etapas nos artigos a seguir para configurar o logon único com seu provedor de identidade baseado no SP-Lite compatível com SAML 2.0:
 
-
-1.  Você revisou os requisitos de protocolo SAML 2.0 do Azure AD
-2.  Você configurou seu provedor de identidade SAML 2.0
-3.  Instalar o Windows PowerShell para logon único no provedor de identidade SAML 2.0
-4.  Configure uma relação de confiança entre seu provedor de identidade SAML 2.0 e o Azure AD
-5.  Provisione uma entidade de usuário de teste conhecida para o Azure Active Directory (Office 365) por meio do Windows PowerShell ou do Azure AD Connect.
-6.  Configure a sincronização de diretório usando o [Azure AD Connect](whatis-hybrid-identity.md).
+1. Você revisou os requisitos de protocolo SAML 2.0 do Azure AD
+2. Você configurou seu provedor de identidade SAML 2.0
+3. Instalar o Windows PowerShell para logon único no provedor de identidade SAML 2.0
+4. Configure uma relação de confiança entre seu provedor de identidade SAML 2.0 e o Azure AD
+5. Provisionado uma entidade de usuário de teste conhecida para o Azure Active Directory (Microsoft 365) por meio do Windows PowerShell ou Azure AD Connect.
+6. Configure a sincronização de diretório usando o [Azure AD Connect](whatis-hybrid-identity.md).
 
 Após configurar o logon único com seu provedor de identidade baseado em SP-Lite compatível com SAML 2.0, verifique se ele está funcionando corretamente.
 
@@ -302,29 +301,33 @@ A Microsoft fornece uma ferramenta que você pode usar para testar seu provedor 
 
 
 
-1. Baixe o Analisador de Conectividade em [https://testconnectivity.microsoft.com/?tabid=Client](https://testconnectivity.microsoft.com/?tabid=Client).
-2.  Clique em Instalar Agora para começar a baixar e instalar a ferramenta.
-3.  Selecione "Não é possível configurar a federação com o Office 365, o Azure ou outros serviços que usam o Azure Active Directory".
-4.  Quando a ferramenta estiver baixada e em execução, você verá a janela Diagnóstico de Conectividade. A ferramenta orientará você ao longo do teste de sua conexão de federação.
-5.  O Analisador de Conectividade abrirá o IDP SAML 2.0 para fazer logon. Insira as credenciais da entidade de usuário que você está testando: ![SAML](./media/how-to-connect-fed-saml-idp/saml1.png)
+1. Baixe o [analisador de conectividade](https://testconnectivity.microsoft.com/?tabid=Client).
+2. Clique em Instalar Agora para começar a baixar e instalar a ferramenta.
+3. Selecione "Não é possível configurar a federação com o Office 365, o Azure ou outros serviços que usam o Azure Active Directory".
+4. Quando a ferramenta estiver baixada e em execução, você verá a janela Diagnóstico de Conectividade. A ferramenta orientará você ao longo do teste de sua conexão de federação.
+5. O analisador de conectividade abrirá seu IDP SAML 2,0 para você entrar, insira as credenciais para a entidade de usuário que você está testando:
+
+    ![Captura de tela que mostra a janela de entrada do IDP SAML 2,0.](./media/how-to-connect-fed-saml-idp/saml1.png)
+
 6.  Na janela de entrada do teste de Federação, você deve inserir um nome de conta e uma senha para o locatário do Azure AD que está configurado para ser federado com seu provedor de identidade SAML 2.0. A ferramenta tentará entrar usando essas credenciais e os resultados detalhados dos testes realizados durante a tentativa de logon serão fornecidos como saída.
-![SAML](./media/how-to-connect-fed-saml-idp/saml2.png)
+
+    ![SAML](./media/how-to-connect-fed-saml-idp/saml2.png)
+
 7. Esta janela mostra o resultado de um teste com falha. Clicar em “Examinar resultados detalhados” mostrará informações sobre os resultados de cada teste executado. Você também pode salvar os resultados em disco para compartilhá-los.
  
->[!NOTE]
->O Analisador de Conectividade também testa a federação ativa usando os protocolos ECP/PAOS e baseados em WS*. Se você não estiver usando esses protocolos, poderá desconsiderar o seguinte erro: Testando o fluxo de entrada Ativa usando o ponto de extremidade de federação Ativa do provedor de identidade.
+> [!NOTE]
+> O Analisador de Conectividade também testa a federação ativa usando os protocolos ECP/PAOS e baseados em WS*. Se você não estiver usando esses protocolos, poderá desconsiderar o seguinte erro: Testando o fluxo de entrada Ativa usando o ponto de extremidade de federação Ativa do provedor de identidade.
 
 ### <a name="manually-verify-that-single-sign-on-has-been-set-up-correctly"></a>Verifique manualmente se o logon único foi configurado corretamente
+
 A verificação manual fornece etapas adicionais que você pode adotar para garantir que seu provedor de identidade SAML 2.0 esteja funcionando corretamente em diversos cenários.
 Para confirmar que o logon único foi configurado corretamente, execute as etapas a seguir:
 
-
 1. Em um computador ingressado no domínio, entre em seu serviço de nuvem usando o mesmo nome de logon que você usa para suas credenciais corporativas.
-2.  Clique dentro da caixa de senha. Se o logon único estiver configurado, a caixa de senha ficará sombreada e a seguinte mensagem será exibida: "Agora você precisa fazer logon em &lt;sua empresa&gt;."
-3.  Clique em Entrar no link da &lt;sua empresa&gt;. Se você conseguir entrar, isso significa que o logon único foi configurado.
+2. Clique dentro da caixa de senha. Se o logon único estiver configurado, a caixa de senha ficará sombreada e a seguinte mensagem será exibida: "Agora você precisa fazer logon em &lt;sua empresa&gt;."
+3. Clique em Entrar no link da &lt;sua empresa&gt;. Se você conseguir entrar, isso significa que o logon único foi configurado.
 
 ## <a name="next-steps"></a>Próximas etapas
-
 
 - [Gerenciamento e personalização dos Serviços de Federação do Active Directory (AD FS) com o Azure AD Connect](how-to-connect-fed-management.md)
 - [Lista de compatibilidade de federação do AD do Azure](how-to-connect-fed-compatibility.md)

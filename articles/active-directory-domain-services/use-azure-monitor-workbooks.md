@@ -1,20 +1,20 @@
 ---
 title: Usar pastas de trabalho Azure Monitor com Azure AD Domain Services | Microsoft Docs
 description: Saiba como usar pastas de trabalho do Azure Monitor para examinar auditorias de segurança e entender problemas em um domínio Azure Active Directory Domain Services gerenciado.
-author: iainfoulds
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
-ms.author: iainfou
-ms.openlocfilehash: 926f4dd94ba5b1f864a002c282004b3a9f438dca
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.author: justinha
+ms.openlocfilehash: 3067388265fb69b916fe0e179cb896401b7c2dc4
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88722731"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96618154"
 ---
 # <a name="review-security-audit-events-in-azure-active-directory-domain-services-using-azure-monitor-workbooks"></a>Examinar eventos de auditoria de segurança em Azure Active Directory Domain Services usando pastas de trabalho Azure Monitor
 
@@ -58,7 +58,7 @@ Para acessar o modelo de pasta de trabalho para o relatório de visão geral de 
 1. Selecione seu domínio gerenciado, como *aaddscontoso.com*
 1. No menu no lado esquerdo, escolha **monitoramento > pastas de trabalho**
 
-    ![Selecione a opção de menu pastas de trabalho no portal do Azure](./media/use-azure-monitor-workbooks/select-workbooks-in-azure-portal.png)
+    ![Captura de tela que hightlights onde selecionar o relatório de visão geral de segurança e o relatório de atividade da conta.](./media/use-azure-monitor-workbooks/select-workbooks-in-azure-portal.png)
 
 1. Escolha o **relatório visão geral de segurança**.
 1. Nos menus suspensos na parte superior da pasta de trabalho, selecione sua assinatura do Azure e, em seguida, um espaço de trabalho Azure Monitor.
@@ -103,7 +103,7 @@ Assim como no relatório de visão geral de segurança, você pode fazer uma bus
 
 As duas pastas de trabalho de modelo fornecidas pelo Azure AD DS são um bom local para começar com sua própria análise de dados. Se você precisar obter mais granular nas consultas e investigações de dados, poderá salvar suas próprias pastas de trabalho e editar as consultas.
 
-1. Para salvar uma cópia de um dos modelos de pasta de trabalho, selecione **editar > salvar como > relatórios compartilhados**e, em seguida, forneça um nome e salve-o.
+1. Para salvar uma cópia de um dos modelos de pasta de trabalho, selecione **editar > salvar como > relatórios compartilhados** e, em seguida, forneça um nome e salve-o.
 1. Em sua própria cópia do modelo, selecione **Editar** para entrar no modo de edição. Você pode escolher o botão de **edição** azul ao lado de qualquer parte do relatório e alterá-lo.
 
 Todos os gráficos e tabelas em Azure Monitor pastas de trabalho são gerados usando consultas Kusto. Para obter mais informações sobre como criar suas próprias consultas, consulte Azure Monitor o [tutorial][kusto-queries] [consultas de log][azure-monitor-queries] e consultas do Kusto.
@@ -122,5 +122,5 @@ Para problemas com os usuários, saiba como solucionar problemas de [conexão de
 [password-policy]: password-policy.md
 [troubleshoot-sign-in]: troubleshoot-sign-in.md
 [troubleshoot-account-lockout]: troubleshoot-account-lockout.md
-[azure-monitor-queries]: ../azure-monitor/log-query/query-language.md
+[azure-monitor-queries]: /azure/data-explorer/kusto/query/
 [kusto-queries]: /azure/kusto/query/tutorial?pivots=azuredataexplorer

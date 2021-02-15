@@ -7,10 +7,10 @@ ms.date: 05/11/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 90b4c574a03d8dee50beff60304fb5c1f3b52945
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88008620"
 ---
 # <a name="windows-virtual-desktop-classic-session-host-virtual-machine-configuration"></a>Configuração de máquina virtual do host de sessão da área de trabalho virtual (clássica) do Windows
@@ -114,7 +114,7 @@ Siga estas instruções para confirmar se os componentes estão instalados e par
 
 Quando o agente de área de trabalho virtual do Windows é instalado pela primeira vez em VMs de host de sessão (manualmente ou por meio do modelo de Azure Resource Manager e DSC do PowerShell), ele fornece um token de registro. A seção a seguir aborda a solução de problemas aplicáveis ao agente de área de trabalho virtual do Windows e ao token.
 
-### <a name="error-the-status-filed-in-get-rdssessionhost-cmdlet-shows-status-as-unavailable"></a>Erro: o status arquivado no cmdlet Get-RdsSessionHost mostra o status como indisponível
+### <a name="error-the-status-filed-in-get-rdssessionhost-cmdlet-shows-status-as-unavailable"></a>Erro: o status registrado em Get-RdsSessionHost cmdlet mostra o status como indisponível
 
 > [!div class="mx-imgBorder"]
 > ![O cmdlet Get-RdsSessionHost mostra o status como indisponível.](../media/23b8e5f525bb4e24494ab7f159fa6b62.png)
@@ -140,7 +140,7 @@ Quando o agente de área de trabalho virtual do Windows é instalado pela primei
 2. Gerar novo token com RDS-NewRegistrationInfo.
 3. Confirme se o parâmetro-ExpriationHours está definido como 72 (o valor máximo é 99999).
 
-### <a name="error-windows-virtual-desktop-agent-isnt-reporting-a-heartbeat-when-running-get-rdssessionhost"></a>Erro: o agente de área de trabalho virtual do Windows não está relatando uma pulsação ao executar Get-RdsSessionHost
+### <a name="error-windows-virtual-desktop-agent-isnt-reporting-a-heartbeat-when-running-get-rdssessionhost"></a>Erro: o agente de área de trabalho virtual do Windows não relata uma pulsação ao executar Get-RdsSessionHost
 
 **Causa 1:** O serviço RDAgentBootLoader foi interrompido.
 

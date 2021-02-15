@@ -1,25 +1,19 @@
 ---
 title: Visão geral de um cenário de recuperação de desastre do Oracle no ambiente do Azure | Microsoft Docs
 description: Um cenário de recuperação de desastre do banco de dados Oracle Database 12c no ambiente do Azure
-services: virtual-machines-linux
-documentationcenter: virtual-machines
-author: rgardler
-manager: ''
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
+author: dbakevlar
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
 ms.date: 08/02/2018
-ms.author: rogardle
-ms.openlocfilehash: 6d1c7a48332aa49bc5c506ceeae287bc3affef16
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.author: kegorman
+ms.reviewer: cynthn
+ms.openlocfilehash: 8c5281b4fe596cf9807d6f0dacb844562dc152dc
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87074078"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880617"
 ---
 # <a name="disaster-recovery-for-an-oracle-database-12c-database-in-an-azure-environment"></a>Recuperação de desastre para um banco de dados Oracle Database 12c em um ambiente do Azure
 
@@ -49,7 +43,7 @@ Veja aqui um resumo da configuração do Azure:
 - Um jumpbox, um serviço de aplicativo, um banco de dados e um gateway de VPN em sub-redes separadas
 - O NSG imposto em sub-redes de aplicativo e do banco de dados
 
-![Captura de tela da página de topologia de recuperação de desastre](./media/oracle-disaster-recovery/oracle_topology_01.png)
+![Diagrama que mostra os sites primário e de recuperação de desastre no Azure.](./media/oracle-disaster-recovery/oracle_topology_01.png)
 
 ## <a name="scenario-2-primary-site-on-premises-and-dr-site-on-azure"></a>Cenário 2: Site primário local e site de recuperação de desastre no Azure
 
@@ -75,7 +69,7 @@ Veja aqui um resumo da configuração do Azure:
 - Uma política/regra de NSG para permitir entrada na porta TCP 1521 (ou uma porta definida pelo usuário)
 - Adicione a política/regra de NSG para restringir somente endereços IP/locais (BD ou aplicativo) para acessarem a rede virtual
 
-![Captura de tela da página de topologia de recuperação de desastre](./media/oracle-disaster-recovery/oracle_topology_02.png)
+![Diagrama que mostra conexões diretas entre o local e o Azure, exigindo portas TCP abertas no firewall.](./media/oracle-disaster-recovery/oracle_topology_02.png)
 
 ### <a name="approach-2-site-to-site-vpn"></a>Método 2: VPN Site a site
 A VPN site a site é uma abordagem melhor. Para saber mais sobre como configurar uma VPN, veja [Criar uma rede virtual com uma conexão VPN Site a Site usando a CLI](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md).
@@ -100,10 +94,10 @@ Veja aqui um resumo da configuração do Azure:
 - [Projetar e implementar um banco de dados Oracle no Azure](oracle-design.md)
 - [Configurar o Oracle Data Guard](configure-oracle-dataguard.md)
 - [Configurar o Oracle Golden Gate](configure-oracle-golden-gate.md)
-- [Backup e recuperação do Oracle](oracle-backup-recovery.md)
+- [Backup e recuperação do Oracle](./oracle-overview.md)
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Tutorial: criar VMs altamente disponíveis](../../linux/create-cli-complete.md)
-- [Explorar exemplos da CLI do Azure de implantação de VM](../../linux/cli-samples.md)
+- [Explorar exemplos da CLI do Azure de implantação de VM](https://github.com/Azure-Samples/azure-cli-samples/tree/master/virtual-machine)

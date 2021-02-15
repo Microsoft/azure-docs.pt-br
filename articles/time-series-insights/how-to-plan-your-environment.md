@@ -8,16 +8,16 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 76e49393b1d26e6db85146a204911ba164d3ffc0
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: c8d96d7b5952c020493af278ee1ea8ad5ff46716
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289890"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016778"
 ---
-# <a name="plan-your-azure-time-series-insights-gen2-environment"></a>Planejar seu ambiente de Azure Time Series Insights Gen2
+# <a name="plan-your-azure-time-series-insights-gen2-environment"></a>Planejar o ambiente do Azure Time Series Insights Gen2
 
 Este artigo descreve as práticas recomendadas para planejar e começar rapidamente usando o Azure Time Series Insights Gen2.
 
@@ -37,7 +37,6 @@ Azure Time Series Insights emprega um modelo de negócios pago conforme o uso. P
 
 Ao provisionar um ambiente de Azure Time Series Insights Gen2, você cria dois recursos do Azure:
 
-
 * Um ambiente de Azure Time Series Insights Gen2
 * Uma conta de armazenamento do Azure
 
@@ -46,7 +45,7 @@ Como parte do processo de provisionamento, você especifica se deseja habilitar 
 As consultas na loja a quente são gratuitas, enquanto as consultas em armazenamento frio incorrem em custos. É importante entender seus padrões de consulta e planejar sua configuração de armazenamento quente adequadamente. É recomendável que a análise interativa nos dados mais recentes resida em sua loja e análise de padrões quentes e tendências de longo prazo residam em frio.
 
 > [!NOTE]
-> Para ler mais sobre como consultar seus dados quentes, leia a [referência da API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#uri-parameters).
+> Para ler mais sobre como consultar seus dados quentes, leia a [referência da API](/rest/api/time-series-insights/dataaccessgen2/query/execute#uri-parameters).
 
 Para começar, são necessários três itens adicionais:
 
@@ -65,20 +64,17 @@ Para criar um novo ambiente de Azure Time Series Insights, selecione uma ID de s
 > [!IMPORTANT]
 > As IDs de série temporal *não podem ser alteradas posteriormente*. Verifique cada uma antes da seleção final e do primeiro uso.
 
-Você pode selecionar até três chaves para diferenciar exclusivamente seus recursos. Para obter mais informações, leia [as práticas recomendadas para escolher uma ID de série temporal](./time-series-insights-update-how-to-id.md) e [regras de ingestão](concepts-json-flattening-escaping-rules.md).
+Você pode selecionar até três chaves para diferenciar exclusivamente seus recursos. Para obter mais informações, leia [as práticas recomendadas para escolher uma ID de série temporal](./how-to-select-tsid.md) e [regras de ingestão](concepts-json-flattening-escaping-rules.md).
 
 A propriedade **timestamp** também é importante. É possível designar essa propriedade ao adicionar origens de eventos. Cada origem de evento tem uma propriedade opcional de carimbo de data/hora usada para rastrear origens de eventos ao longo do tempo. Os valores de carimbo de data/hora diferenciam maiúsculas de minúsculas e precisam estar formatados de acordo com a especificação individual de cada origem de evento.
 
-> [!TIP]
-> Verifique os requisitos de formatação e análise das origens de evento.
-
-Quando deixado em branco, o Tempo de Enfileiramento do Evento de uma origem do evento é usado como o carimbo de data/hora do evento. Se você enviar dados históricos ou eventos em lote, personalizar a propriedade carimbo de data/hora será mais útil que o padrão Tempo de Enfileiramento do Evento. Para obter mais informações, leia sobre como [adicionar fontes de eventos no Hub IOT do Azure](./time-series-insights-how-to-add-an-event-source-iothub.md).
+Quando deixado em branco, a hora em que o evento foi enfileirado no Hub IoT ou no Hub de eventos é usada como o carimbo de data/hora do evento. Em geral, os usuários devem optar por personalizar a propriedade Timestamp e usar a hora em que o sensor ou a marca gerou a leitura, em vez do tempo enfileirado do Hub. Para obter mais informações e ler sobre deslocamentos de fuso horário, leia [carimbo de data/hora de origem do evento](./concepts-streaming-ingestion-event-sources.md#event-source-timestamp).
 
 ## <a name="understand-the-time-series-model"></a>Entenda o modelo de série temporal
 
 Agora você pode configurar o modelo de série temporal do ambiente de Azure Time Series Insights. O novo modelo facilita localizar e analisar dados IoT. Permite a preservação, a manutenção e o enriquecimento dos dados de série temporal e ajuda a preparar conjuntos de dados prontos para consumo. O modelo usa IDs de série temporal, que mapeiam para uma instância que associa o recurso exclusivo com variáveis, conhecidas como tipos e hierarquias. Leia sobre a visão geral do [modelo de série temporal](./concepts-model-overview.md) para saber mais.
 
-O modelo é dinâmico, portanto, pode ser criado a qualquer momento. Para começar rapidamente, crie e carregue-o antes de enviar dados por push para Azure Time Series Insights. Para criar seu modelo, leia [usar o modelo de série temporal](/azure/time-series-insights/concepts-model-overview).
+O modelo é dinâmico, portanto, pode ser criado a qualquer momento. Para começar rapidamente, crie e carregue-o antes de enviar dados por push para Azure Time Series Insights. Para criar seu modelo, leia [usar o modelo de série temporal](./concepts-model-overview.md).
 
 Para muitos clientes, o modelo de série temporal mapeia um modelo existente do ativo ou sistema ERP já em vigor. Se você não tiver um modelo existente, uma experiência de usuário predefinida será [fornecida](https://github.com/Microsoft/tsiclient) para começar rapidamente. Para prever como um modelo poderá ajudar você, exiba o [exemplo de ambiente de demonstração](https://insights.timeseries.azure.com/preview/demo).
 
@@ -91,14 +87,14 @@ Uma boa regra prática:
 * Armazene metadados no seu modelo de série temporal.
 * Verifique se o modo de série temporal, os campos de instância e os eventos incluem apenas as informações necessárias, como uma ID de série temporal ou uma propriedade Timestamp.
 
-Para obter mais informações, leia [eventos de forma](./time-series-insights-send-events.md#supported-json-shapes).
+Para obter mais informações e entender como os eventos serão mesclados e armazenados, leia as [regras de escape e mesclagem JSON](./concepts-json-flattening-escaping-rules.md).
 
 [!INCLUDE [business-disaster-recover](../../includes/time-series-insights-business-recovery.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Examine o [Azure Advisor](../advisor/advisor-overview.md) para planejar suas opções de configuração de recuperação de negócios.
-- Examine o [Azure Advisor](../advisor/advisor-overview.md) para planejar suas opções de configuração de recuperação de negócios.
-- Leia mais sobre a [ingestão de dados](./concepts-ingestion-overview.md) no Azure Time Series insights Gen2.
-- Examine o artigo sobre [armazenamento de dados](./concepts-storage.md) em Azure Time Series insights Gen2.
-- Saiba mais sobre a [modelagem de dados](./concepts-model-overview.md) no Azure Time Series insights Gen2.
+* Examine o [Azure Advisor](../advisor/advisor-overview.md) para planejar suas opções de configuração de recuperação de negócios.
+* Examine o [Azure Advisor](../advisor/advisor-overview.md) para planejar suas opções de configuração de recuperação de negócios.
+* Leia mais sobre a [ingestão de dados](./concepts-ingestion-overview.md) no Azure Time Series insights Gen2.
+* Examine o artigo sobre [armazenamento de dados](./concepts-storage.md) em Azure Time Series insights Gen2.
+* Saiba mais sobre a [modelagem de dados](./concepts-model-overview.md) no Azure Time Series insights Gen2.

@@ -8,14 +8,14 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 08/12/2019
+ms.date: 10/22/2020
 ms.author: sudbalas
-ms.openlocfilehash: a1c07432dcf90759662e8f4aaedc760abd18157c
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: c55c87cd8ab1b2cd1dbaf2c877eb341744d822ef
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88585926"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93287473"
 ---
 # <a name="azure-key-vault-backup"></a>Backup do Azure Key Vault
 
@@ -25,11 +25,14 @@ Este documento mostra como fazer backup de segredos, chaves e certificados armaz
 
 O Azure Key Vault fornece automaticamente vários recursos para ajudar você a manter a disponibilidade e evitar a perda de dados. Faça backup dos segredos somente se você tiver uma justificativa comercial crítica. O backup de segredos no cofre de chaves pode introduzir desafios operacionais, como a manutenção de vários conjuntos de logs, permissões e backups quando os segredos expiram ou são girados.
 
-O Key Vault mantém a disponibilidade em cenários de desastre e fará automaticamente o failover das solicitações para uma região emparelhada sem exigir nenhuma intervenção por parte do usuário. Para obter mais informações, confira [Disponibilidade e redundância do Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/disaster-recovery-guidance).
+O Key Vault mantém a disponibilidade em cenários de desastre e fará automaticamente o failover das solicitações para uma região emparelhada sem exigir nenhuma intervenção por parte do usuário. Para obter mais informações, confira [Disponibilidade e redundância do Azure Key Vault](./disaster-recovery-guidance.md).
 
-Caso deseje obter proteção contra a exclusão acidental ou mal-intencionada de segredos, configure a exclusão temporária e limpe os recursos de proteção no cofre de chaves. Para obter mais informações, confira [Visão geral da exclusão temporária do Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/soft-delete-overview).
+Caso deseje obter proteção contra a exclusão acidental ou mal-intencionada de segredos, configure a exclusão temporária e limpe os recursos de proteção no cofre de chaves. Para obter mais informações, confira [Visão geral da exclusão temporária do Azure Key Vault](./soft-delete-overview.md).
 
 ## <a name="limitations"></a>Limitações
+
+> [!IMPORTANT]
+> O Key Vault não dá suporte para a capacidade de fazer backup de mais de 500 versões anteriores de um objeto de chave, segredo ou certificado. A tentativa de fazer backup de um objeto de chave, segredo ou certificado poderá resultar em um erro. Não é possível excluir versões anteriores de uma chave, um segredo ou um certificado.
 
 No momento, o Key Vault não fornece uma forma de fazer backup de todo um cofre de chaves em uma só operação. Qualquer tentativa de usar os comandos listados neste documento para fazer um backup automatizado de um cofre de chaves poderá resultar em erros e não terá suporte da Microsoft nem da equipe do Azure Key Vault. 
 
@@ -120,4 +123,4 @@ az keyvault secret restore --file {File Path} --vault-name {Key Vault Name} --su
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Ative o [log e o monitoramento](https://docs.microsoft.com/azure/key-vault/general/logging) para o Key Vault.
+Ative o [log e o monitoramento](./logging.md) para o Key Vault.

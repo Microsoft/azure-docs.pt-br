@@ -3,19 +3,17 @@ title: Tipo de entidade composta-LUIS
 titleSuffix: Azure Cognitive Services
 description: Uma entidade composta é composta por outras entidades, como entidades predefinidas, expressão simples, regular e entidades de lista. As entidades separadas formam uma entidade inteira.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 04/14/2020
-ms.author: diberry
-ms.openlocfilehash: 81299751affe5f59e1132950ccb80844fcc1fae3
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 3d936555a4d9a9c80718a24ba892c762f5a8354a
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681398"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97608385"
 ---
 # <a name="composite-entity"></a>Entidade composta
 
@@ -173,7 +171,6 @@ Esse é o JSON se `verbose=true` estiver definido na cadeia de caracteres de con
 ```
 
 * * *
-
 
 |Objeto de dados|Nome da entidade|Valor|
 |--|--|--|

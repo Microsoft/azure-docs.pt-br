@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: development
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: ajetasin
 ms.author: ajetasi
 ms.reviewer: sstein
 ms.date: 11/04/2019
-ms.openlocfilehash: 945e9019d75f9597d89a63c9322cbd4a8d502f15
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 36a96a1927aeedb5f841083241d487e0c61d6813
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88869857"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96454022"
 ---
 # <a name="stream-data-into-azure-sql-database-using-azure-stream-analytics-integration-preview"></a>Transmitir dados para o banco de dados SQL do Azure usando a integração do Azure Stream Analytics (versão prévia)
 
@@ -31,7 +31,7 @@ Agora, os usuários podem ingerir, processar, exibir e analisar dados de streami
 - Facilidade de uso adicional com dados de visualização: Visualizar dados de entrada da origem de eventos (Hub de eventos/Hub IoT) no contexto da tabela selecionada
 
 > [!IMPORTANT]
-> Um trabalho de Azure Stream Analytics pode gerar saída para o banco de dados SQL do Azure, o SQL Azure Instância Gerenciada ou o Azure Synapse Analytics (anteriormente conhecido como Azure SQL Data Warehouse). Para obter mais informações, consulte [saídas](../../stream-analytics/sql-database-output.md).
+> Um trabalho de Azure Stream Analytics pode gerar saída para o banco de dados SQL do Azure, o SQL Azure Instância Gerenciada ou o Azure Synapse Analytics. Para obter mais informações, consulte [saídas](../../stream-analytics/stream-analytics-define-outputs.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -124,6 +124,5 @@ Para concluir as etapas neste artigo, você precisa dos seguintes recursos:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Documentação do Stream Analytics do Azure](https://docs.microsoft.com/azure/stream-analytics/)
+- [Documentação do Stream Analytics do Azure](../../stream-analytics/index.yml)
 - [Padrões de solução do Azure Stream Analytics](../../stream-analytics/stream-analytics-solution-patterns.md)
- 

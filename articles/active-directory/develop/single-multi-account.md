@@ -12,12 +12,12 @@ ms.date: 09/26/2019
 ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman
-ms.openlocfilehash: 89a383aabf3487a0938604bc28ddb06c0541d13e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5bea1753c87c11094e78f95a1bbadb02fb0b95e2
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80881325"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98752980"
 ---
 # <a name="single-and-multiple-account-public-client-apps"></a>Aplicativos cliente públicos de conta única e múltipla
 
@@ -25,7 +25,7 @@ Este artigo o ajudará a entender os tipos usados em aplicativos cliente públic
 
 A ADAL (biblioteca de autenticação Azure Active Directory) modela o servidor.  Em vez disso, a MSAL (biblioteca de autenticação da Microsoft) modela o aplicativo cliente.  A maioria dos aplicativos Android é considerada clientes públicos. Um cliente público é um aplicativo que não pode manter um segredo com segurança.  
 
-O MSAL especializada a superfície de API do `PublicClientApplication` para simplificar e esclarecer a experiência de desenvolvimento para aplicativos que permitem que apenas uma conta seja usada de cada vez. `PublicClientApplication`é subclasse por `SingleAccountPublicClientApplication` e `MultipleAccountPublicClientApplication` .  O diagrama a seguir mostra a relação entre essas classes.
+O MSAL especializada a superfície de API do `PublicClientApplication` para simplificar e esclarecer a experiência de desenvolvimento para aplicativos que permitem que apenas uma conta seja usada de cada vez. `PublicClientApplication` é subclasse por `SingleAccountPublicClientApplication` e `MultipleAccountPublicClientApplication` .  O diagrama a seguir mostra a relação entre essas classes.
 
 ![Diagrama de classe UML SingleAccountPublicClientApplication](./media/single-multi-account/single-and-multiple-account.png)
 
@@ -35,14 +35,14 @@ A `SingleAccountPublicClientApplication` classe permite que você crie um aplica
 
 - MSAL rastreia a conta atualmente conectada.
   - Se seu aplicativo estiver usando um agente (o padrão durante o registro do aplicativo portal do Azure) e estiver instalado em um dispositivo em que um agente está presente, o MSAL verificará se a conta ainda está disponível no dispositivo.
-- `signIn`permite que você conecte uma conta explicitamente e separadamente dos escopos de solicitação.
-- `acquireTokenSilent`Não requer um parâmetro de conta.  Se você fornecer uma conta e a conta fornecida não corresponder à conta atual controlada pelo MSAL, um `MsalClientException` será gerado.
-- `acquireToken`Não permite que o usuário alterne contas. Se o usuário tentar alternar para uma conta diferente, uma exceção será lançada.
-- `getCurrentAccount`Retorna um objeto de resultado que fornece o seguinte:
+- `signIn` permite que você conecte uma conta explicitamente e separadamente dos escopos de solicitação.
+- `acquireTokenSilent` Não requer um parâmetro de conta.  Se você fornecer uma conta e a conta fornecida não corresponder à conta atual controlada pelo MSAL, um `MsalClientException` será gerado.
+- `acquireToken` Não permite que o usuário alterne contas. Se o usuário tentar alternar para uma conta diferente, uma exceção será lançada.
+- `getCurrentAccount` Retorna um objeto de resultado que fornece o seguinte:
   - Um booliano que indica se a conta foi alterada. Uma conta pode ser alterada como resultado de ser removida do dispositivo, por exemplo.
   - A conta anterior. Isso será útil se você precisar fazer qualquer limpeza de dados local quando a conta for removida do dispositivo ou quando uma nova conta estiver conectada.
   - O currentAccount.
-- `signOut`Remove todos os tokens associados ao cliente do dispositivo.  
+- `signOut` Remove todos os tokens associados ao cliente do dispositivo.  
 
 Quando um agente de autenticação do Android, como Microsoft Authenticator ou Portal da Empresa do Intune, estiver instalado no dispositivo e seu aplicativo estiver configurado para usar o agente, o `signOut` não removerá a conta do dispositivo.
 

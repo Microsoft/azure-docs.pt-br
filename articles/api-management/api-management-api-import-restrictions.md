@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/02/2020
 ms.author: apimpm
-ms.openlocfilehash: 61d43addfdf9008cb7aa8a073dcf3bb702cb55f1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6a53cc2b2ec6d46b4bde54af58b4e5542ff6cf79
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76513364"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91932627"
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>Restrições de importação de API e problemas conhecidos
 
@@ -34,15 +34,16 @@ Caso esteja recebendo erros ao importar seu documento da OpenAPI, verifique se v
 ### <a name="general"></a><a name="open-api-general"> </a>Geral
 
 -   Os parâmetros obrigatórios para o caminho e a consulta precisam ter nomes exclusivos. (Na OpenAPI, um nome de parâmetro só precisa ser exclusivo em uma localização, por exemplo, caminho, consulta, cabeçalho. No entanto, no Gerenciamento de API, permitimos que as operações sejam discriminadas por parâmetros de caminho e de consulta [o que não é compatível com a OpenAPI]. Por isso é necessário que os nomes de parâmetro sejam exclusivos dentro de todo o modelo de URL.)
--   `\$ref`ponteiros não podem referenciar arquivos externos.
--   `x-ms-paths`e `x-servers` são as únicas extensões com suporte.
+-   `\$ref` ponteiros não podem referenciar arquivos externos.
+-   `x-ms-paths` e `x-servers` são as únicas extensões com suporte.
 -   As extensões personalizadas são ignoradas na importação e não são salvas ou preservadas para exportação.
--   `Recursion`-O gerenciamento de API não dá suporte a definições definidas recursivamente (por exemplo, esquemas que se referim a si mesmos).
+-   `Recursion` -O gerenciamento de API não dá suporte a definições definidas recursivamente (por exemplo, esquemas que se referim a si mesmos).
 -   A URL do arquivo de origem (se disponível) é aplicada a URLs de servidor relativo.
 -   As definições de segurança são ignoradas.
 -   Não há suporte para definições de esquema embutidas para operações de API. As definições de esquema são definidas no escopo da API e podem ser referenciadas em escopos de resposta ou solicitação de operações de API.
 -   Um parâmetro de URL definido precisa fazer parte do modelo de URL.
--   `Produces`a palavra-chave, que descreve os tipos MIME retornados por uma API, não tem suporte. 
+-   `server` Não há suporte para o objeto no nível de operação da API.
+-   `Produces` a palavra-chave, que descreve os tipos MIME retornados por uma API, não tem suporte. 
 
 ### <a name="openapi-version-2"></a><a name="open-api-v2"> </a>OpenAPI versão 2
 
@@ -51,13 +52,17 @@ Caso esteja recebendo erros ao importar seu documento da OpenAPI, verifique se v
 ### <a name="openapi-version-3"></a><a name="open-api-v3"> </a>OpenAPI versão 3
 
 -   Se muitos `servers` forem especificados, o gerenciamento de API tentará selecionar a primeira URL https. Se não houver URLs HTTPs, a primeira URL HTTP. Se não houver URLs HTTP, a URL do servidor ficará vazia.
--   `Examples`Não tem suporte, mas `example` é.
+-   `Examples` Não tem suporte, mas `example` é.
 
 ## <a name="openapi-import-update-and-export-mechanisms"></a>Mecanismos de importação, atualização e exportação do OpenAPI
 
+### <a name="general"></a><a name="open-import-export-general"> </a>Geral
+
+-   As definições de API exportadas do serviço de gerenciamento de API são destinadas principalmente a aplicativos externos ao serviço de gerenciamento de API que precisam chamar a API hospedada no serviço de gerenciamento de API. As definições de API exportadas não devem ser importadas novamente para o mesmo serviço de gerenciamento de API ou diferente. Para o gerenciamento de configuração de API defiitions em diferentes serviços/envionments, consulte a documentação sobre como usar o serviço de gerenciamento de API com o git. 
+
 ### <a name="add-new-api-via-openapi-import"></a>Adicionar nova API por meio da importação de OpenAPI
 
-Para cada operação encontrada no documento OpenAPI, uma nova operação será criada com o nome do recurso do Azure e o nome de exibição definido como `operationId` e, `summary` respectivamente. `operationId`o valor é normalizado seguindo as regras descritas abaixo. `summary`o valor é importado como está e seu comprimento é limitado a 300 caracteres.
+Para cada operação encontrada no documento OpenAPI, uma nova operação será criada com o nome do recurso do Azure e o nome de exibição definido como `operationId` e, `summary` respectivamente. `operationId` o valor é normalizado seguindo as regras descritas abaixo. `summary` o valor é importado como está e seu comprimento é limitado a 300 caracteres.
 
 Se `operationId` não for especificado (ou seja, não estiver presente, `null` ou vazio), o valor do nome de recurso do Azure será gerado pela combinação do método http e do modelo de caminho, por exemplo, `get-foo` .
 
@@ -86,7 +91,7 @@ Regras de normalização para operationId
 
 - Converter para letras minúsculas.
 - Substituir cada sequência de caracteres não alfanuméricos por um único traço, por exemplo, `GET-/foo/{bar}?buzz={quix}` será transformado em `get-foo-bar-buzz-quix-` .
-- Os traços de corte em ambos os `get-foo-bar-buzz-quix-` lados, por exemplo, ficarão`get-foo-bar-buzz-quix`
+- Os traços de corte em ambos os `get-foo-bar-buzz-quix-` lados, por exemplo, ficarão `get-foo-bar-buzz-quix`
 - Truncar para se ajustar a 76 caracteres, com quatro caracteres menores que o limite máximo para um nome de recurso.
 - Use os quatro caracteres restantes para um sufixo de eliminação de duplicação, se necessário, na forma de `-1, -2, ..., -999` .
 

@@ -2,21 +2,21 @@
 title: Métricas de Azure Monitor para o gateway de aplicativo
 description: Saiba como usar métricas para monitorar o desempenho do gateway de aplicativo
 services: application-gateway
-author: abshamsft
+author: surajmb
 ms.service: application-gateway
 ms.topic: article
 ms.date: 06/06/2020
-ms.author: absha
-ms.openlocfilehash: ce349a0539986d88f689c53fc2099877df8030bf
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.author: surmb
+ms.openlocfilehash: be629d9f8441ad40fe15f005f4aeb0ec5565a7ec
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87424385"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96437058"
 ---
 # <a name="metrics-for-application-gateway"></a>Métricas para o gateway de aplicativo
 
-O gateway de aplicativo publica pontos de dados, chamados métricas, para [Azure monitor](https://docs.microsoft.com/azure/azure-monitor/overview) para o desempenho do seu gateway de aplicativo e instâncias de back-end. Essas métricas são valores numéricos em um conjunto ordenado de dados de série temporal que descrevem algum aspecto do seu gateway de aplicativo em um determinado momento. Se houver solicitações que fluem pelo gateway de aplicativo, ele medirá e enviará suas métricas em intervalos de 60 segundos. Se não houver nenhuma solicitação fluindo pelo gateway de aplicativo ou nenhum dado para uma métrica, a métrica não será relatada. Para obter mais informações, consulte [Azure monitor métricas](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics).
+O gateway de aplicativo publica pontos de dados, chamados métricas, para [Azure monitor](../azure-monitor/overview.md) para o desempenho do seu gateway de aplicativo e instâncias de back-end. Essas métricas são valores numéricos em um conjunto ordenado de dados de série temporal que descrevem algum aspecto do seu gateway de aplicativo em um determinado momento. Se houver solicitações que fluem pelo gateway de aplicativo, ele medirá e enviará suas métricas em intervalos de 60 segundos. Se não houver nenhuma solicitação fluindo pelo gateway de aplicativo ou nenhum dado para uma métrica, a métrica não será relatada. Para obter mais informações, consulte [Azure monitor métricas](../azure-monitor/platform/data-platform-metrics.md).
 
 ## <a name="metrics-supported-by-application-gateway-v2-sku"></a>Métricas com suporte do SKU do gateway de aplicativo v2
 
@@ -121,7 +121,7 @@ Para o Gateway de Aplicativo, as seguintes métricas estão disponíveis:
 
    Número de bytes por segundo atendidos pelo Gateway de Aplicativo
 
-- **Total de Solicitações**
+- **Total de solicitações**
 
    Contagem de solicitações bem-sucedidas que o gateway de aplicativo serviu. A contagem de solicitações pode ser filtrada para mostrar a contagem por cada/pool de back-end específico-combinação de configurações de http.
 
@@ -162,7 +162,7 @@ Para o Gateway de Aplicativo, as seguintes métricas estão disponíveis:
 
 - **Solicitações com falha**
 
-  Número de solicitações que o gateway de aplicativo serviu com códigos de erro do servidor 5xx. Isso inclui os códigos 5xx gerados a partir do gateway de aplicativo, bem como os códigos 5xx gerados a partir do back-end. A contagem de solicitações pode ser filtrada para mostrar a contagem por cada/pool de back-end específico-combinação de configurações de http.
+  Número de solicitações que falharam devido a problemas de conexão. Essa contagem inclui solicitações que falharam devido à excedeção da configuração de HTTP "tempo limite de solicitação" e solicitações que falharam devido a problemas de conexão entre o gateway de aplicativo e o back-end. Essa contagem não inclui falhas porque nenhum back-end íntegro está disponível. as respostas 4xx e 5xx do back-end também não são consideradas como parte dessa métrica.
 
 - **Status da Resposta**
 
@@ -172,7 +172,7 @@ Para o Gateway de Aplicativo, as seguintes métricas estão disponíveis:
 
   Número de bytes por segundo atendidos pelo Gateway de Aplicativo
 
-- **Total de Solicitações**
+- **Total de solicitações**
 
   Contagem de solicitações bem-sucedidas que o gateway de aplicativo serviu. A contagem de solicitações pode ser filtrada para mostrar a contagem por cada/pool de back-end específico-combinação de configurações de http.
 
@@ -230,7 +230,7 @@ Uma lista de alertas é exibida após a criação de um alerta de métrica. Ela 
 
 ![Lista de alertas e regras][9]
 
-Para saber mais sobre notificações de alerta, consulte [Receber notificações de alerta](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).
+Para saber mais sobre notificações de alerta, consulte [Receber notificações de alerta](../azure-monitor/platform/alerts-overview.md).
 
 Para entender mais sobre webhooks e como eles podem ser usados com alertas, consulte [Configurar um webhook em um alerta de métrica do Azure](../azure-monitor/platform/alerts-webhooks.md).
 

@@ -1,6 +1,6 @@
 ---
 title: Migrar do codificador de mídia do Windows Azure para Media Encoder Standard | Microsoft Docs
-description: Este tópico discute como migrar do codificador de mídia do Azure para o processador de mídia Media Encoder Standard.
+description: Este tópico discute como migrar do codificador de mídia do Windows Azure para o processador de mídia Media Encoder Standard.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -14,14 +14,16 @@ ms.topic: article
 ms.date: 10/17/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4c1a9f98373ac872bb315c1ae621b3895760dc18
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 9125639ab5b563a8db7cfa5730bd9673f383071c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89013377"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "90529240"
 ---
 # <a name="migrate-from-windows-azure-media-encoder-to-media-encoder-standard"></a>Migrar do codificador de mídia do Windows Azure para Media Encoder Standard
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 Este artigo discute as etapas para migrar do processador de mídia herdado do Windows Azure Media Encoder (WAME) (que está sendo desativado) para o processador de mídia Media Encoder Standard. Para ver as datas de desativação, consulte o tópico de [componentes herdados](legacy-components.md).
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: navits09
 ms.author: navits
 ms.date: 04/02/2020
-ms.openlocfilehash: f3699892471a1535cda5fc182a4c9121fd3c250c
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: b02c5bbf2e6accbea9c7a33dc26c4e89e46bb697
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87317596"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97679141"
 ---
 # <a name="power-bi-app-creation-overview"></a>Visão geral da criação de aplicativos Power BI
 
@@ -23,7 +23,7 @@ Este artigo explica como publicar um aplicativo Power BI no Microsoft [AppSource
 Benefícios da publicação no Marketplace comercial:
 
 - Promova sua empresa usando a marca Microsoft.
-- Tenha acesso a mais de 100 milhões de usuários do Office 365 e Dynamics 365 no AppSource e mais de 200.000 organizações pelo Azure Marketplace.
+- Pode alcançar mais de 100 milhões usuários Microsoft 365 e Dynamics 365 em AppSource e mais de 200.000 organizações por meio do Azure Marketplace.
 - Receba clientes potenciais de alta qualidade desses Marketplaces.
 - Faça com que seus serviços sejam promovidos pelas equipes de campo e televendas da Microsoft.
 
@@ -33,22 +33,22 @@ Benefícios da publicação no Marketplace comercial:
 
 Estas são as principais etapas de publicação:
 
-1. Crie seu aplicativo no Power BI. Você receberá um link de instalação de pacote, que é o principal ativo técnico para a oferta. Envie o pacote de teste para pré-produção antes de criar a oferta no Partner Center. Para obter detalhes, consulte [o que são aplicativos Power bi?](https://docs.microsoft.com/power-bi/service-template-apps-overview).
+1. Crie seu aplicativo no Power BI. Você receberá um link de instalação de pacote, que é o principal ativo técnico para a oferta. Envie o pacote de teste para pré-produção antes de criar a oferta no Partner Center. Para obter detalhes, consulte [o que são aplicativos Power bi?](/power-bi/service-template-apps-overview)
 2. Adicione os materiais de marketing, como nome oficial, descrição e logotipos.
 3. Inclua os documentos legais e de suporte da oferta, como termos de uso, política de privacidade, política de suporte e ajuda do usuário.
 4. Crie a oferta – use o Partner Center para editar os detalhes, incluindo a descrição da oferta, materiais de marketing, informações legais, informações de suporte e especificações de ativos.
 5. Envie-o para publicação.
 6. Monitore o processo no Partner Center, em que a equipe de integração do AppSource testa, valida e certifica seu aplicativo.
 7. Depois de certificado, examine o aplicativo em seu ambiente de teste e libere-o. Isso irá listá-lo em AppSource (ele "fica ativo").
-8. Em Power BI, envie o pacote para produção. Para obter detalhes, consulte [gerenciar a versão do aplicativo Power bi](https://docs.microsoft.com/power-bi/service-template-apps-create#manage-the-template-app-release).
+8. Em Power BI, envie o pacote para produção. Para obter detalhes, consulte [gerenciar a versão do aplicativo Power bi](/power-bi/service-template-apps-create#manage-the-template-app-release).
 
 ## <a name="before-you-begin"></a>Antes de começar
 
 Examine os links abaixo, que fornecem modelos, dicas e exemplos.
 
-- [Criar um aplicativo do Power BI](https://docs.microsoft.com/power-bi/service-template-apps-create)
-- [Dicas para criar um aplicativo Power BI](https://docs.microsoft.com/power-bi/service-template-apps-tips)
-- [Amostras](https://docs.microsoft.com/power-bi/service-template-apps-samples)
+- [Criar um aplicativo do Power BI](/power-bi/service-template-apps-create)
+- [Dicas para criar um aplicativo Power BI](/power-bi/service-template-apps-tips)
+- [Amostras](/power-bi/service-template-apps-samples)
 
 ## <a name="requirements"></a>Requisitos
 
@@ -56,13 +56,13 @@ Para ser publicado no Marketplace comercial, sua oferta de aplicativo Power BI d
 
 ### <a name="technical-requirements"></a>Requisitos técnicos
 
-O principal ativo técnico necessário é um [aplicativo Power bi](https://go.microsoft.com/fwlink/?linkid=2028636). Trata-se de uma coleção de conjuntos de gráficos, relatórios ou painéis primários. Ele também inclui serviços conectados opcionais e conjuntos de valores incorporados, anteriormente conhecidos como um [pacote de conteúdo](https://docs.microsoft.com/power-bi/service-organizational-content-pack-introduction). Para obter mais informações sobre como desenvolver esse tipo de aplicativo, consulte [o que são aplicativos Power bi?](https://go.microsoft.com/fwlink/?linkid=2028636).
+O principal ativo técnico necessário é um [aplicativo Power bi](/power-bi/connect-data/service-template-apps-overview). Trata-se de uma coleção de conjuntos de gráficos, relatórios ou painéis primários. Ele também inclui serviços conectados opcionais e conjuntos de valores incorporados, anteriormente conhecidos como um [pacote de conteúdo](/power-bi/service-organizational-content-pack-introduction). Para obter mais informações sobre como desenvolver esse tipo de aplicativo, consulte [o que são aplicativos Power bi?](/power-bi/connect-data/service-template-apps-overview).
 
 #### <a name="get-an-installation-web-address"></a>Obter um endereço da Web de instalação
 
 Você só pode compilar um aplicativo Power BI dentro do ambiente de [Power bi](https://powerbi.microsoft.com/) .
 
-1. Entre com uma [licença Power bi pro](https://docs.microsoft.com/power-bi/service-admin-purchasing-power-bi-pro).
+1. Entre com uma [licença Power bi pro](/power-bi/service-admin-purchasing-power-bi-pro).
 2. Crie e teste seu aplicativo no Power BI.
 3. Ao receber o endereço Web de instalação do aplicativo, adicione-o à página de **configuração técnica** no Partner Center.
 

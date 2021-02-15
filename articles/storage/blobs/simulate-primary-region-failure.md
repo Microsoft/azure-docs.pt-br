@@ -10,13 +10,13 @@ ms.topic: tutorial
 ms.date: 04/16/2020
 ms.author: tamram
 ms.reviewer: artek
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 59eb826d8d17ed2adb3027f0aab11a6933b47ae5
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.custom: devx-track-js
+ms.openlocfilehash: 5a0bef4fbfd4ee9aa720dab430a33bbfcd0b918b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905730"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91280344"
 ---
 # <a name="tutorial-simulate-a-failure-in-reading-data-from-the-primary-region"></a>Tutorial: Simule uma falha na leitura de dados da região primária
 

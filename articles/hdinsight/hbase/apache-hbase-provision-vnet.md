@@ -1,19 +1,16 @@
 ---
 title: Criar clusters HBase na rede virtual do Azure
 description: Introdução ao uso do HBase no Azure HDInsight. Saiba como criar clusters HBase do HDInsight na rede virtual do Azure.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/23/2019
-ms.openlocfilehash: 82e3374491aa119d9985ea7ef31e180c920511d3
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 9f179981aa39402681b4830d58a29f5b1259c7e2
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087734"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946115"
 ---
 # <a name="create-apache-hbase-clusters-on-hdinsight-in-azure-virtual-network"></a>Criar clusters do Apache HBase no HDInsight na rede virtual do Azure
 
@@ -43,7 +40,7 @@ Nesta seção, você cria um cluster Apache HBase baseado em Linux com a conta d
 > * **Nome da sub-rede**: subnet1
 > * **Intervalo de endereços da sub-rede**: 10.0.0.0/24
 >
-> `CLUSTERNAME`é substituído pelo nome do cluster que você fornece ao usar o modelo.
+> `CLUSTERNAME` é substituído pelo nome do cluster que você fornece ao usar o modelo.
 
 1. Selecione a imagem a seguir para abrir o modelo no portal do Azure. O modelo está localizado em [Modelos de início rápido do Azure](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-linux-vnet/).
 
@@ -51,7 +48,7 @@ Nesta seção, você cria um cluster Apache HBase baseado em Linux com a conta d
 
 1. Na caixa de diálogo **implantação personalizada** , selecione **Editar modelo**.
 
-1. Na linha 165, altere o valor `Standard_A3` para `Standard_A4_V2` . Depois, selecione **Salvar**.
+1. Na linha 165, altere o valor `Standard_A3` para `Standard_A4_V2` . Em seguida, selecione **Salvar**.
 
 1. Conclua o modelo restante com as seguintes informações:
 

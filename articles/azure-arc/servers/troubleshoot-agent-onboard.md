@@ -1,18 +1,18 @@
 ---
-title: Solucionar problemas de conexão do agente de servidores habilitados para Arc do Azure (visualização)
-description: Este artigo informa como solucionar problemas com o agente do computador conectado que surge com os servidores habilitados para Arc do Azure (versão prévia) ao tentar se conectar ao serviço.
-ms.date: 07/20/2020
+title: Solucionar problemas de conexão do agente de servidores habilitados para Arc do Azure
+description: Este artigo informa como solucionar problemas com o agente do computador conectado que surge com os servidores habilitados para Arc do Azure ao tentar se conectar ao serviço.
+ms.date: 09/02/2020
 ms.topic: conceptual
-ms.openlocfilehash: aeb370fb6cd4eacf20c1acf29e84c03e5e322d39
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 36feb6a65ec52d99dfd664ae54cb099ea6a7e239
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213547"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "90900671"
 ---
 # <a name="troubleshoot-the-connected-machine-agent-connection-issues"></a>Solucionar problemas de conexão do agente do computador conectado
 
-Este artigo fornece informações sobre como solucionar problemas que podem ocorrer durante a tentativa de configurar o agente de computador conectado de servidores habilitados para Arc do Azure (versão prévia) para Windows ou Linux. Os métodos de instalação interativa e em escala ao configurar a conexão com o serviço são incluídos. Para obter informações gerais, consulte [visão geral de servidores habilitados para Arc](./overview.md).
+Este artigo fornece informações sobre como solucionar problemas que podem ocorrer durante a tentativa de configurar o agente de máquina conectado de servidores habilitados para o Azure ARC para Windows ou Linux. Os métodos de instalação interativa e em escala ao configurar a conexão com o serviço são incluídos. Para obter informações gerais, consulte [visão geral de servidores habilitados para Arc](./overview.md).
 
 ## <a name="agent-verbose-log"></a>Log detalhado do agente
 
@@ -67,7 +67,7 @@ azcmagent connect \
 
 A tabela a seguir lista alguns dos erros conhecidos e as sugestões sobre como solucioná-los e resolvê-los.
 
-|Mensagem |Erro |Causa provável |Solução |
+|Mensagem |Erro do |Causa provável |Solução |
 |--------|------|---------------|---------|
 |Falha ao adquirir o fluxo do dispositivo do token de autorização |`Error occurred while sending request for Device Authorization Code: Post https://login.windows.net/fb84ce97-b875-4d12-b031-ef5e7edf9c8e/oauth2/devicecode?api-version=1.0:  dial tcp 40.126.9.7:443: connect: network is unreachable.` |Não é possível alcançar o `login.windows.net` ponto de extremidade | Verifique a conectividade com o ponto de extremidade. |
 |Falha ao adquirir o fluxo do dispositivo do token de autorização |`Error occurred while sending request for Device Authorization Code: Post https://login.windows.net/fb84ce97-b875-4d12-b031-ef5e7edf9c8e/oauth2/devicecode?api-version=1.0:  dial tcp 40.126.9.7:443: connect: network is Forbidden`. |O proxy ou o firewall está bloqueando o acesso ao `login.windows.net` ponto de extremidade. | Verifique a conectividade com o ponto de extremidade e se ele não está bloqueado por um firewall ou servidor proxy. |

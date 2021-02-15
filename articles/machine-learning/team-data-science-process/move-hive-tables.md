@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 7cce0a927c2ffd69252a22ea4459f789d22721c2
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 5d61c0f5f26bc46b9c4a5bc4a793df1e10710004
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86080730"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006722"
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Criar tabelas do Hive e carregar dados do Armazenamento de Blobs do Azure
 
@@ -101,7 +101,7 @@ hive -e "<hive query>" > <local path in the head node>
 
 No exemplo a seguir, a saída da consulta de Hive é gravada em um arquivo `hivequeryoutput.txt` no diretório `C:\apps\temp`.
 
-![Saída da consulta do Hive](./media/move-hive-tables/output-hive-results-1.png)
+![Captura de tela mostra a saída da consulta de Hive em uma janela de linha de comando do Hadoop.](./media/move-hive-tables/output-hive-results-1.png)
 
 **Exportar a saída de consulta de Hive para um blob do Azure**
 
@@ -113,7 +113,7 @@ insert overwrite directory wasb:///<directory within the default container> <sel
 
 No exemplo a seguir, a saída da consulta de Hive é gravada em um diretório de blob `queryoutputdir` no contêiner padrão do cluster do Hadoop. Aqui, você precisa fornecer apenas o nome do diretório, sem o nome do blob. Um erro será gerado se você fornecer os nomes do blob e do diretório, como `wasb:///queryoutputdir/queryoutput.txt`.
 
-![Saída da consulta do Hive](./media/move-hive-tables/output-hive-results-2.png)
+![Captura de tela mostra o comando anterior na janela de linha de comando do Hadoop.](./media/move-hive-tables/output-hive-results-2.png)
 
 Se abrir o contêiner padrão do cluster do Hadoop usando o Gerenciador de Armazenamento do Azure, você verá a saída da consulta de Hive da forma indicada na imagem a seguir. Você pode aplicar o filtro (destacado pela caixa vermelha) para recuperar apenas o blob com letras específicas nos nomes.
 
@@ -238,7 +238,7 @@ INSERT OVERWRITE TABLE <database name>.<ORC table name>
 ```
 
 > [!NOTE]
-> Se a tabela textfile * \<database name\> . \<external textfile table name\> * tiver partições, na ETAPA 3, o comando `SELECT * FROM <database name>.<external textfile table name>` selecionará a variável de partição como um campo no conjunto de dados retornado. Inserindo-o no * \<database name\> . \<ORC table name\> * falha desde * \<database name\> . \<ORC table name\> * não tem a variável de partição como um campo no esquema de tabela. Nesse caso, você precisa selecionar especificamente os campos a serem inseridos * \<database name\> . \<ORC table name\> * conforme a seguir:
+> Se a tabela textfile *\<database name\> . \<external textfile table name\>* tiver partições, na ETAPA 3, o comando `SELECT * FROM <database name>.<external textfile table name>` selecionará a variável de partição como um campo no conjunto de dados retornado. Inserindo-o no *\<database name\> . \<ORC table name\>* falha desde *\<database name\> . \<ORC table name\>* não tem a variável de partição como um campo no esquema de tabela. Nesse caso, você precisa selecionar especificamente os campos a serem inseridos *\<database name\> . \<ORC table name\>* conforme a seguir:
 >
 >
 
@@ -249,7 +249,7 @@ INSERT OVERWRITE TABLE <database name>.<ORC table name> PARTITION (<partition va
     WHERE <partition variable>=<partition value>;
 ```
 
-É seguro descartar o *\<external text file table name\>* ao usar a consulta a seguir depois que todos os dados tiverem sido inseridos no * \<database name\> . \<ORC table name\> *:
+É seguro descartar o *\<external text file table name\>* ao usar a consulta a seguir depois que todos os dados tiverem sido inseridos no *\<database name\> . \<ORC table name\>*:
 
 ```hiveql
     DROP TABLE IF EXISTS <database name>.<external textfile table name>;

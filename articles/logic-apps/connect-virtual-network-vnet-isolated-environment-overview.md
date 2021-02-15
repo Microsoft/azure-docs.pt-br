@@ -3,19 +3,19 @@ title: Acesso às redes virtuais do Azure
 description: Visão geral sobre como os ambientes de serviço de integração (ISEs) ajudam os aplicativos lógicos a acessar redes virtuais do Azure (VNETs)
 services: logic-apps
 ms.suite: integration
-ms.reviewer: jonfan, logicappspm
+ms.reviewer: estfan, logicappspm, azla
 ms.topic: conceptual
-ms.date: 07/05/2020
-ms.openlocfilehash: f152283b1280cde2a26569b8acf10738e883e39e
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.date: 01/11/2021
+ms.openlocfilehash: 4d83609eea57c2350881360ef757b1a291627c23
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816007"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100374721"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Acessar recursos de rede virtual do Azure a partir dos Aplicativos Lógicos do Azure usando ISEs (Ambientes de Serviço de Integração)
 
-Às vezes, seus aplicativos lógicos precisam acessar recursos protegidos, como VMs (máquinas virtuais) e outros sistemas ou serviços, que estão dentro ou conectados a uma [rede virtual do Azure](../virtual-network/virtual-networks-overview.md). Para configurar esse acesso, você pode [criar um *ambiente do serviço de integração* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md). Um ISE é uma instância do serviço de aplicativos lógicos que usa recursos dedicados e é executado separadamente do serviço de aplicativos lógicos multilocatários "globais".
+Às vezes, seus aplicativos lógicos precisam acessar recursos protegidos, como VMs (máquinas virtuais) e outros sistemas ou serviços, que estão dentro ou conectados a uma [rede virtual do Azure](../virtual-network/virtual-networks-overview.md). Para configurar esse acesso, você pode [criar um *ambiente do serviço de integração* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md). Um ISE é uma instância do serviço de aplicativos lógicos que usa recursos dedicados e é executado separadamente do serviço de aplicativos lógicos multilocatários "globais". Os dados em um ISE permanecem na [mesma região em que você cria e implanta esse ISE](https://azure.microsoft.com/global-infrastructure/data-residency/).
 
 Por exemplo, algumas redes virtuais do Azure usam pontos de extremidade privados, que podem ser configurados por meio [do link privado do Azure](../private-link/private-link-overview.md), para fornecer acesso aos serviços de PaaS do Azure, como o armazenamento do azure, Azure Cosmos DB ou banco de dados SQL do Azure, serviços de parceiro ou serviços de cliente hospedados no Azure. Se seus aplicativos lógicos precisarem de acesso a redes virtuais que usam pontos de extremidade privados, você deverá criar, implantar e executar esses aplicativos lógicos dentro de um ISE.
 
@@ -60,7 +60,7 @@ Ao criar e executar aplicativos lógicos em um ISE, você obtém as mesmas exper
   * Automação do Azure, Azure Key Vault, grade de eventos do Azure e logs de Azure Monitor
   * FTP, SFTP-SSH, sistema de arquivos e SMTP
   * SAP, IBM MQ, IBM DB2 e IBM 3270
-  * SQL Server, SQL Data Warehouse do Azure, Azure Cosmos DB
+  * SQL Server, Azure Synapse Analytics, Azure Cosmos DB
   * AS2, X12 e EDIFACT
 
   Com exceções raras, se um conector do ISE estiver disponível para um sistema local ou fonte de dados, você poderá se conectar diretamente sem usar o [Gateway de dados local](../logic-apps/logic-apps-gateway-connection.md). Para obter mais informações, consulte [acesso a sistemas locais](#on-premises) mais adiante neste tópico.
@@ -87,26 +87,28 @@ Os aplicativos lógicos que são executados dentro de um ISE podem acessar diret
 
   * Os conectores personalizados que você cria *dentro de um ISE* não funcionam com o gateway de dados local. No entanto, esses conectores podem acessar diretamente sistemas locais e fontes de dados que estão dentro ou conectadas à rede virtual que hospeda o ISE. Portanto, os aplicativos lógicos que estão dentro de um ISE geralmente não precisam do gateway de dados ao acessar esses recursos.
 
-Para acessar sistemas locais e fontes de dados que não têm conectores do ISE, estão fora da sua rede virtual ou não estão conectados à sua rede virtual, você ainda precisa usar o gateway de dados local. Os aplicativos lógicos em um ISE podem continuar usando conectores que não têm o rótulo **principal** ou **ISE** . Esses conectores simplesmente são executados no serviço de aplicativos lógicos multilocatários, e não em seu ISE. 
+Para acessar sistemas locais e fontes de dados que não têm conectores do ISE, estão fora da sua rede virtual ou não estão conectados à sua rede virtual, você ainda precisa usar o gateway de dados local. Os aplicativos lógicos em um ISE podem continuar usando conectores que não têm o rótulo **principal** ou **ISE** . Esses conectores são executados no serviço de aplicativos lógicos multilocatários, em vez de em seu ISE. 
 
 <a name="ise-level"></a>
 
 ## <a name="ise-skus"></a>SKUs do ISE
 
-Ao criar o ISE, você pode selecionar a SKU do desenvolvedor ou a SKU Premium. Estas são as diferenças entre estas SKUs:
+Ao criar o ISE, você pode selecionar a SKU do desenvolvedor ou a SKU Premium. Essa opção de SKU está disponível apenas na criação do ISE e não pode ser alterada posteriormente. Estas são as diferenças entre estas SKUs:
 
 * **Desenvolvedor**
 
-  Fornece um ISE de menor custo que você pode usar para experimentação, desenvolvimento e teste, mas não para teste de produção ou de desempenho. A SKU do desenvolvedor inclui gatilhos e ações internos, conectores padrão, conectores corporativos e uma única conta de integração de [camada gratuita](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) para um preço mensal fixo. No entanto, esse SKU não inclui nenhum SLA (contrato de nível de serviço), opções para escalar verticalmente a capacidade ou redundância durante a reciclagem, o que significa que você pode enfrentar atrasos ou tempo de inatividade.
+  Fornece um ISE de menor custo que você pode usar para exploração, experimentos, desenvolvimento e teste, mas não para teste de produção ou de desempenho. A SKU do desenvolvedor inclui gatilhos e ações internos, conectores padrão, conectores corporativos e uma única conta de integração de [camada gratuita](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) para um [preço mensal fixo](https://azure.microsoft.com/pricing/details/logic-apps). 
+
+  > [!IMPORTANT]
+  > Essa SKU não tem SLA (contrato de nível de serviço), capacidade de expansão ou redundância durante a reciclagem, o que significa que você pode enfrentar atrasos ou tempo de inatividade. As atualizações de back-end podem interromper o serviço intermitentemente.
+
+  Para obter informações sobre capacidade e limites, consulte [limites do ISE em aplicativos lógicos do Azure](logic-apps-limits-and-config.md#integration-service-environment-ise). Para saber como a cobrança funciona para o ISEs, consulte o [modelo de preços dos aplicativos lógicos](../logic-apps/logic-apps-pricing.md#fixed-pricing).
 
 * **Premium**
 
-  Fornece um ISE que você pode usar para produção e inclui suporte a SLA, gatilhos e ações internos, conectores padrão, conectores corporativos, uma única conta de integração de [camada Standard](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) , opções para escalar verticalmente a capacidade e redundância durante a reciclagem de um preço mensal fixo.
+  Fornece um ISE que você pode usar para teste de produção e desempenho. O SKU Premium inclui suporte a SLA, gatilhos e ações internas, conectores padrão, conectores corporativos, uma única conta de integração de [camada Standard](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) , capacidade de expansão e redundância durante a reciclagem de um [preço mensal fixo](https://azure.microsoft.com/pricing/details/logic-apps).
 
-> [!IMPORTANT]
-> A opção SKU está disponível apenas na criação do ISE e não pode ser alterada posteriormente.
-
-Para obter os valores, consulte [Preços dos Aplicativos Lógicos](https://azure.microsoft.com/pricing/details/logic-apps/). Para saber como funcionam o preço e a cobrança nos ISEs, consulte o [Modelo de preços dos Aplicativos Lógicos](../logic-apps/logic-apps-pricing.md#fixed-pricing).
+  Para obter informações sobre capacidade e limites, consulte [limites do ISE em aplicativos lógicos do Azure](logic-apps-limits-and-config.md#integration-service-environment-ise). Para saber como a cobrança funciona para o ISEs, consulte o [modelo de preços dos aplicativos lógicos](../logic-apps/logic-apps-pricing.md#fixed-pricing).
 
 <a name="endpoint-access"></a>
 
@@ -120,7 +122,15 @@ Ao criar o ISE, você pode optar por usar pontos de extremidade de acesso intern
 * **Interno**: pontos de extremidade privados permitem chamadas para aplicativos lógicos no ISE, onde você pode exibir e acessar entradas e saídas do histórico de execuções de aplicativos lógicos *somente de dentro de sua rede virtual*.
 
   > [!IMPORTANT]
-  > Verifique se você tem conectividade de rede entre os pontos de extremidade privados e o computador do qual você deseja acessar o histórico de execução. Caso contrário, ao tentar exibir o histórico de execução do aplicativo lógico, você receberá um erro que diz "erro inesperado. Falha ao buscar ".
+  > Se você precisar usar esses gatilhos baseados em webhook, use pontos de extremidade externos, *não* pontos de extremidade internos, ao criar o ISE:
+  > 
+  > * Azure DevOps
+  > * Grade de Eventos do Azure
+  > * Common Data Service
+  > * Office 365
+  > * SAP (versão do ISE)
+  > 
+  > Além disso, verifique se você tem conectividade de rede entre os pontos de extremidade privados e o computador do qual você deseja acessar o histórico de execução. Caso contrário, ao tentar exibir o histórico de execução do aplicativo lógico, você receberá um erro que diz "erro inesperado. Falha ao buscar ".
   >
   > ![Erro de ação de armazenamento do Azure resultante da incapacidade de enviar tráfego por meio do firewall](./media/connect-virtual-network-vnet-isolated-environment-overview/integration-service-environment-error.png)
   >
@@ -128,7 +138,7 @@ Ao criar o ISE, você pode optar por usar pontos de extremidade de acesso intern
 
 * **Externo**: pontos de extremidade públicos permitem chamadas para aplicativos lógicos no ISE, onde você pode exibir e acessar entradas e saídas do histórico de execuções de aplicativos lógicos *de fora da sua rede virtual*. Se você usar NSGs (grupos de segurança de rede), verifique se eles estão configurados com regras de entrada para permitir o acesso às entradas e saídas do histórico de execuções. Para obter mais informações, consulte [habilitar o acesso para ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#enable-access).
 
-Para determinar se o ISE usa um ponto de extremidade de acesso interno ou externo, no menu do ISE, em **configurações**, selecione **Propriedades**e localize a propriedade **ponto de extremidade de acesso** :
+Para determinar se o ISE usa um ponto de extremidade de acesso interno ou externo, no menu do ISE, em **configurações**, selecione **Propriedades** e localize a propriedade **ponto de extremidade de acesso** :
 
 ![Localizar ponto de extremidade de acesso do ISE](./media/connect-virtual-network-vnet-isolated-environment-overview/find-ise-access-endpoint.png)
 
@@ -142,7 +152,7 @@ Os aplicativos lógicos, os gatilhos internos, as ações internas e os conector
 
 ## <a name="integration-accounts-with-ise"></a>Contas de integração com ISE
 
-É possível usar contas de integração com aplicativos lógicos dentro de um ISE (ambiente de serviço de integração). No entanto, essas contas de integração devem usar o *mesmo ISE* que os aplicativos lógicos vinculados. Os aplicativos lógicos em um ISE podem fazer referência somente às contas de integração que estão no mesmo ISE. Ao criar uma conta de integração, é possível selecionar o ISE como local para a conta de integração. Para saber como o preço e a cobrança funcionam para contas de integração com um ISE, consulte o [modelo de preços dos aplicativos lógicos](../logic-apps/logic-apps-pricing.md#fixed-pricing). Para obter os valores, consulte [Preços dos Aplicativos Lógicos](https://azure.microsoft.com/pricing/details/logic-apps/).
+É possível usar contas de integração com aplicativos lógicos dentro de um ISE (ambiente de serviço de integração). No entanto, essas contas de integração devem usar o *mesmo ISE* que os aplicativos lógicos vinculados. Os aplicativos lógicos em um ISE podem fazer referência somente às contas de integração que estão no mesmo ISE. Ao criar uma conta de integração, é possível selecionar o ISE como local para a conta de integração. Para saber como o preço e a cobrança funcionam para contas de integração com um ISE, consulte o [modelo de preços dos aplicativos lógicos](../logic-apps/logic-apps-pricing.md#fixed-pricing). Para obter os valores, consulte [Preços dos Aplicativos Lógicos](https://azure.microsoft.com/pricing/details/logic-apps/). Para obter informações sobre limites, consulte [limites da conta de integração](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits).
 
 ## <a name="next-steps"></a>Próximas etapas
 

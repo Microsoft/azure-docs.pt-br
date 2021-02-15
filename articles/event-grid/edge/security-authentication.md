@@ -8,10 +8,10 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: 42f6107ff79d6262cdc0a35cf972cf65d3a9a802
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86171373"
 ---
 # <a name="security-and-authentication"></a>Segurança e autenticação
@@ -35,7 +35,7 @@ As seções a seguir descrevem detalhadamente como essas configurações são pr
 
 O módulo de grade de eventos hospeda pontos de extremidade HTTP e HTTPS. Cada módulo de IoT Edge recebe um certificado de servidor pelo daemon de segurança do IoT Edge. Usamos o certificado do servidor para proteger o ponto de extremidade. Na expiração, o módulo é atualizado automaticamente com um novo certificado do daemon de segurança IoT Edge.
 
-Por padrão, somente a comunicação HTTPS é permitida. Você pode substituir esse comportamento por meio da configuração do **inbound__serverAuth__tlsPolicy** . A tabela a seguir captura os possíveis valores dessa propriedade.
+Por padrão, somente a comunicação HTTPS é permitida. Você pode substituir esse comportamento por meio da configuração do  **inbound__serverAuth__tlsPolicy** . A tabela a seguir captura os possíveis valores dessa propriedade.
 
 | Valores possíveis | Descrição |
 | ---------------- | ------------ |

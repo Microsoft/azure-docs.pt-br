@@ -9,11 +9,11 @@ ms.date: 11/05/2019
 ms.author: wesmc
 ms.custom: include file
 ms.openlocfilehash: a737e130d616a67bab28c7c96c0372216a6707af
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
-ms.translationtype: MT
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "73720428"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002435"
 ---
 ### <a name="retrieve-host-name-ports-and-access-keys-from-the-azure-portal"></a>Recuperar o nome de host, as portas e as chaves de acesso do portal do Azure
 
@@ -23,7 +23,7 @@ Para conectar-se a uma instância do Cache do Azure para Redis, os clientes de c
   
   ![Chaves do Cache Redis do Azure](media/redis-cache-access-keys/redis-cache-keys.png)
 
-- Para obter o nome do host e as portas, no painel de navegação esquerdo do cache, selecione **Propriedades**. O nome do host está no formato *\<nome DNS>.redis.cache.windows.net*.
+- Para obter o nome do host e as portas, no painel de navegação esquerdo do cache, selecione **Propriedades**. O nome do host está no formato *\<DNS name>.redis.cache.windows.net*.
 
   ![Propriedades do Cache Redis do Azure](media/redis-cache-access-keys/redis-cache-hostname-ports.png)
 

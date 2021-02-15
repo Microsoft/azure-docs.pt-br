@@ -5,12 +5,12 @@ description: Conheça as práticas recomendadas de operador do cluster para usar
 services: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.openlocfilehash: b8077a772d6fdc4b911fabdfa893a15dcd7615db
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 1a8138b4b2fdab2cdef8d2cb4c27de8d12ef38cd
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87530054"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107339"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Práticas recomendadas para os recursos do agendador avançado no Serviço de Kubernetes do Azure (AKS)
 
@@ -52,7 +52,7 @@ metadata:
 spec:
   containers:
   - name: tf-mnist
-    image: microsoft/samples-tf-mnist-demo:gpu
+    image: mcr.microsoft.com/azuredocs/samples-tf-mnist-demo:gpu
     resources:
       requests:
         cpu: 0.5
@@ -86,8 +86,8 @@ Quando você atualiza um pool de nós em AKS, os tolerationss seguem um padrão 
 - **Clusters sem suporte ao conjunto de dimensionamento de máquinas virtuais**
   - Novamente, vamos supor que você tenha um cluster de dois nós- *Node1* e *NODE2*. Quando você atualiza, um nó adicional (*Node3*) é criado.
   - Os de *Node1* são aplicados ao *Node3*, então *Node1* é excluído.
-  - Outro novo nó é criado (chamado *Node1*, uma vez que o *Node1* anterior foi excluído) e *os* os seus *node1* Em seguida, *NODE2* é excluído.
-  - Em essência, *Node1* se torna *Node3*e *NODE2* se torna *Node1*.
+  - Outro novo nó é criado (chamado *Node1*, uma vez que o *Node1* anterior foi excluído) e *os* os seus  Em seguida, *NODE2* é excluído.
+  - Em essência, *Node1* se torna *Node3* e *NODE2* se torna *Node1*.
 
 Quando você dimensiona um pool de nós em AKS, os projetos e Tolerations não são transferidos por design.
 
@@ -113,7 +113,7 @@ metadata:
 spec:
   containers:
   - name: tf-mnist
-    image: microsoft/samples-tf-mnist-demo:gpu
+    image: mcr.microsoft.com/azuredocs/samples-tf-mnist-demo:gpu
     resources:
       requests:
         cpu: 0.5
@@ -131,7 +131,7 @@ Para obter mais informações sobre o uso de seletores de nó, consulte [Atribui
 
 ### <a name="node-affinity"></a>Afinidade de nó
 
-Um seletor de nó é uma maneira básica para atribuir os pods para um determinado nó. Mais flexibilidade do que está disponível usando a *afinidade de nó*. Com afinidade de nó, você define o que acontece se o pod não puder ser correspondido com um nó. Você pode *exigir* que o agendador Kubernetes corresponda a um pod com um host rotulado. Ou, você pode *preferir* uma correspondência, mas permitir que o pod seja agendado em um host diferente, se nenhuma correspondência estiver disponível.
+Um seletor de nó é uma maneira básica para atribuir os pods para um determinado nó. Mais flexibilidade do que está disponível usando a *afinidade de nó*. Com afinidade de nó, você define o que acontece se o pod não puder ser correspondido com um nó. Você pode *exigir* que o agendador Kubernetes corresponda a um pod com um host rotulado. Ou, você pode *preferir* uma correspondência, mas permitir que o Pod seja agendado em um host diferente se nenhuma correspondência estiver disponível.
 
 O exemplo a seguir define a afinidade de nó para *requiredDuringSchedulingIgnoredDuringExecution*. Este afinidade exige o agendamento de Kubernetes para usar um nó com um rótulo correspondente. Se nenhum nó estiver disponível, o pod precisa esperar o agendamento para continuar. Para permitir que o Pod seja agendado em um nó diferente, você pode definir o valor como *preferredDuringSchedulingIgnoreDuringExecution*:
 
@@ -143,7 +143,7 @@ metadata:
 spec:
   containers:
   - name: tf-mnist
-    image: microsoft/samples-tf-mnist-demo:gpu
+    image: mcr.microsoft.com/azuredocs/samples-tf-mnist-demo:gpu
     resources:
       requests:
         cpu: 0.5

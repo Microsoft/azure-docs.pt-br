@@ -16,15 +16,18 @@ ms.date: 04/08/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a14249f28da15f04a214c2a1cb4bd415fb59ce9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 36b7fce2e2ccb6f331e42e8052ef4fb75d35e831
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85356620"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98729983"
 ---
 # <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect: atualização de uma versão anterior para a mais recente
-Este tópico descreve os diferentes métodos que você pode usar para atualizar sua instalação do Azure Active Directory (Azure AD) Connect para a versão mais recente. Recomendamos que você se mantenha atualizado com as versões do Azure AD Connect. Também é possível usar as etapas descritas na seção [migração Swing](#swing-migration) ao fazer uma alteração significativa na configuração.
+Este tópico descreve os diferentes métodos que você pode usar para atualizar sua instalação do Azure Active Directory (Azure AD) Connect para a versão mais recente.  Também é possível usar as etapas descritas na seção [migração Swing](#swing-migration) ao fazer uma alteração significativa na configuração.
+
+>[!NOTE]
+> É importante que você mantenha seus servidores atualizados com as versões mais recentes do Azure AD Connect. Estamos constantemente fazendo atualizações para o AADConnect, e essas atualizações incluem correções para problemas de segurança e bugs, bem como melhorias na capacidade de manutenção, desempenho e escalabilidade. Para ver qual é a versão mais recente e saber quais alterações foram feitas entre versões, consulte o histórico de versões de [lançamento](./reference-connect-version-history.md)
 
 >[!NOTE]
 > Atualmente, há suporte para atualização de qualquer versão do Azure AD Connect para a versão atual. Não há suporte para atualizações in-loco de DirSync ou ADSync e uma migração Swing é necessária.  Se você quiser atualizar do DirSync, consulte [Atualizar da ferramenta de sincronização do AD do Azure (DirSync)](how-to-dirsync-upgrade-get-started.md) ou da seção de [migração Swing](#swing-migration) .  </br>Na prática, os clientes em versões extremamente antigas podem encontrar problemas não relacionados diretamente ao Azure AD Connect. Os servidores que estão em produção há vários anos, normalmente tinham vários patches aplicados e nem todos eles podem ser contados.  Em geral, os clientes que não fizeram a atualização em 12-18 meses devem considerar uma atualização do swing, pois essa é a opção mais conservadora e menos arriscada.
@@ -54,7 +57,7 @@ Se você tiver feito alterações nas regras de sincronização prontas, essas r
 
 Durante a atualização in-loco, poderá haver alterações introduzidas que exijam que atividades de sincronização específicas (incluindo as etapas de importação completa e sincronização completa) sejam executadas após a conclusão da atualização. Para adiar tais atividades, consulte a seção [Como adiar a sincronização completa após a atualização](#how-to-defer-full-synchronization-after-upgrade).
 
-Se estiver usando o Azure AD Connect com um conector não padrão (por exemplo, Conector do LDAP Genérico e Conector do SQL Genérico), atualize a configuração do conector correspondente no [Synchronization Service Manager](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-service-manager-ui-connectors) após a atualização in-loco. Para obter detalhes sobre como atualizar a configuração do conector, consulte a seção do artigo [Histórico de lançamento de versão do conector – Solução de problemas](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-connector-version-history#troubleshooting). Se você não atualizar a configuração, as etapas de execução de importação e exportação não funcionarão corretamente para o conector. Você receberá o seguinte erro no log de eventos do aplicativo com a mensagem *“A versão do assembly na configuração do Conector do AAD (“X.X.XXX.X”) é anterior à versão real (“X.X.XXX.X”) de "C:\Program Files\Microsoft Azure AD Sync\Extensions\Microsoft.IAM.Connector.GenericLdap.dll"”.*
+Se estiver usando o Azure AD Connect com um conector não padrão (por exemplo, Conector do LDAP Genérico e Conector do SQL Genérico), atualize a configuração do conector correspondente no [Synchronization Service Manager](./how-to-connect-sync-service-manager-ui-connectors.md) após a atualização in-loco. Para obter detalhes sobre como atualizar a configuração do conector, consulte a seção do artigo [Histórico de lançamento de versão do conector – Solução de problemas](/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-version-history#troubleshooting). Se você não atualizar a configuração, as etapas de execução de importação e exportação não funcionarão corretamente para o conector. Você receberá o seguinte erro no log de eventos do aplicativo com a mensagem *“A versão do assembly na configuração do Conector do AAD (“X.X.XXX.X”) é anterior à versão real (“X.X.XXX.X”) de "C:\Program Files\Microsoft Azure AD Sync\Extensions\Microsoft.IAM.Connector.GenericLdap.dll"”.*
 
 ## <a name="swing-migration"></a>Migração swing
 Se você tiver uma implantação complexa ou muitos objetos, talvez seja impossível fazer uma atualização in-loco do sistema dinâmico. Para alguns clientes, o processo poderá levar vários dias e, durante esse tempo, nenhuma alteração delta será processada. Você também pode usar esse método quando planejar fazer alterações significativas em sua configuração e quiser experimentá-las antes de enviá-las por push para a nuvem.
@@ -106,7 +109,7 @@ Pode haver situações em que você não deseja que essas substituições ocorra
 
 1. Durante a atualização, **desmarque** a opção **iniciar o processo de sincronização quando a configuração for concluída**. Isso desabilita o agendador de sincronização e impede que o ciclo de sincronização ocorra automaticamente antes que as substituições sejam removidas.
 
-   ![DisableFullSyncAfterUpgrade](./media/how-to-upgrade-previous-version/disablefullsync01.png)
+   ![Captura de tela que realça a opção iniciar o processo de sincronização quando a configuração for concluída, que você precisa limpar.](./media/how-to-upgrade-previous-version/disablefullsync01.png)
 
 2. Após a conclusão da atualização, execute o seguinte cmdlet para descobrir quais substituições foram adicionadas: `Get-ADSyncSchedulerConnectorOverride | fl`
 

@@ -3,12 +3,12 @@ title: Anotações de versão para o Application Insights | Microsoft Docs
 description: Adicione uma implantação ou compile marcadores para seus gráficos do gerenciador de métricas no Application Insights.
 ms.topic: conceptual
 ms.date: 08/14/2020
-ms.openlocfilehash: e21981f134f6a78109d70b1edf6d61e204b64e12
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: c23c973bc02482e7000cfd1d066a322fff93542a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88258420"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100386026"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Anotações sobre gráficos de métricas no Application Insights
 
@@ -42,7 +42,7 @@ Crie uma chave de API separada para cada um dos modelos de versão de Azure Pipe
 
 1. Em uma janela separada do navegador, abra ou crie o modelo de versão que gerencia suas implantações de Azure Pipelines.
    
-1. Selecione **Adicionar tarefa**e, em seguida, selecione a Application insights tarefa de **anotação de liberação** no menu.
+1. Selecione **Adicionar tarefa** e, em seguida, selecione a Application insights tarefa de **anotação de liberação** no menu.
    
    ![Selecione Adicionar tarefa e selecione Application Insights anotação de versão.](./media/annotations/3-add-task.png)
 
@@ -57,7 +57,7 @@ Crie uma chave de API separada para cada um dos modelos de versão de Azure Pipe
    
    ![Na guia acesso à API, selecione criar chave de API.](./media/annotations/5-create-api-key.png)
    
-1. Na janela **criar chave de API** , digite uma descrição, selecione **anotações de gravação**e, em seguida, selecione **gerar chave**. Copie a nova chave.
+1. Na janela **criar chave de API** , digite uma descrição, selecione **anotações de gravação** e, em seguida, selecione **gerar chave**. Copie a nova chave.
    
    ![Na janela criar chave de API, digite uma descrição, selecione anotações de gravação e, em seguida, selecione gerar chave.](./media/annotations/6-create-api-key.png)
    
@@ -81,7 +81,7 @@ Crie uma chave de API separada para cada um dos modelos de versão de Azure Pipe
 
 Agora, sempre que você usar o modelo de versão para implantar uma nova versão, uma anotação será enviada para Application Insights. As anotações podem ser exibidas nos seguintes locais:
 
-O painel de uso em que você também pode criar anotações de versão manualmente:
+O painel de **uso** em que você também pode criar anotações de versão manualmente:
 
 ![Captura de tela do gráfico de barras com o número de visitas do usuário exibidas em um período de horas. As anotações de versão aparecem como marcas de seleção verdes acima do gráfico indicando o momento em que uma liberação ocorreu](./media/annotations/usage-pane.png)
 
@@ -96,9 +96,9 @@ Para habilitar anotações em sua pasta de trabalho, acesse **Configurações av
 Selecione qualquer marcador de anotação para abrir detalhes sobre a versão, incluindo o solicitante, o Branch de controle do código-fonte, o pipeline de liberação e o ambiente.
 
 ## <a name="create-custom-annotations-from-powershell"></a>Criar anotações personalizadas no PowerShell
-Você pode usar o script do PowerShell do [CreateReleaseAnnotation](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1) do GitHub para criar anotações de qualquer processo que desejar, sem usar o DevOps do Azure. 
+Você pode usar o script do PowerShell do [CreateReleaseAnnotation](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1) do GitHub para criar anotações de qualquer processo que desejar, sem usar o DevOps do Azure. 
 
-1. Faça uma cópia local de [CreateReleaseAnnotation.ps1](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1).
+1. Faça uma cópia local de [CreateReleaseAnnotation.ps1](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1).
    
 1. Use as etapas no procedimento anterior para obter sua ID de Application Insights e criar uma chave de API na guia **acesso à api** Application insights.
    

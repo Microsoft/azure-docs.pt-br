@@ -2,19 +2,17 @@
 title: Azure Monitor parâmetros de menu suspenso da pasta de trabalho
 description: Simplifique relatórios complexos com pastas de trabalho parametrizadas predefinidas e personalizadas contendo parâmetros de lista suspensa
 services: azure-monitor
-author: mrbullwinkle
 manager: carmonm
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
-ms.author: mbullwin
-ms.openlocfilehash: 73b6029dfe52a4b32c9a8ce092fcd284ac1ec0e7
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 07a8ece76bffe0fbbcbc211e83730433cdeda2c4
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965020"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92143796"
 ---
 # <a name="workbook-drop-down-parameters"></a>Parâmetros de menu suspenso da pasta de trabalho
 
@@ -28,11 +26,11 @@ A maneira mais fácil de especificar um menu suspenso é fornecendo uma lista es
 2. Escolha _adicionar parâmetros_ nos links na pasta de trabalho.
 3. Clique no botão azul _Adicionar parâmetro_ .
 4. No novo painel de parâmetros que aparece, digite:
-    1. Nome do parâmetro:`Environment`
-    2. Tipo de parâmetro:`Drop down`
-    3. Necessário:`checked`
-    4. Permitir `multiple selection` :`unchecked`
-    5. Obter dados de:`JSON`
+    1. Nome do parâmetro: `Environment`
+    2. Tipo de parâmetro: `Drop down`
+    3. Necessário: `checked`
+    4. Permitir `multiple selection` : `unchecked`
+    5. Obter dados de: `JSON`
 5. No bloco de texto de entrada JSON, insira este trecho de JSON:
     ```json
     [
@@ -70,11 +68,11 @@ Se o resultado da consulta/JSON contiver um campo "grupo", a lista suspensa exib
 2. Escolha _adicionar parâmetros_ nos links na pasta de trabalho.
 3. Clique no botão azul _Adicionar parâmetro_ .
 4. No novo painel de parâmetros que aparece, digite:
-    1. Nome do parâmetro:`RequestName`
-    2. Tipo de parâmetro:`Drop down`
-    3. Necessário:`checked`
-    4. Permitir `multiple selection` :`unchecked`
-    5. Obter dados de:`Query`
+    1. Nome do parâmetro: `RequestName`
+    2. Tipo de parâmetro: `Drop down`
+    3. Necessário: `checked`
+    4. Permitir `multiple selection` : `unchecked`
+    5. Obter dados de: `Query`
 5. No bloco de texto de entrada JSON, insira este trecho de JSON:
 
     ```kusto
@@ -156,5 +154,5 @@ Aqui está um exemplo para a lista suspensa de seleção múltipla no trabalho:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Comece a aprender mais](workbooks-visualizations.md) sobre pastas de trabalho muitas opções de visualizações ricas.
+* [Comece a aprender mais](./workbooks-overview.md#visualizations) sobre pastas de trabalho muitas opções de visualizações ricas.
 * [Controle](workbooks-access-control.md) e compartilhe o acesso aos recursos da pasta de trabalho.

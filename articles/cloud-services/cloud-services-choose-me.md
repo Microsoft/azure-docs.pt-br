@@ -1,20 +1,25 @@
 ---
-title: O que são os Serviços de Nuvem do Azure | Microsoft Docs
+title: O que são os serviços de nuvem do Azure (clássico) | Microsoft Docs
 description: Saiba mais sobre o que são os serviços de nuvem do Azure, especificamente que ele foi projetado para dar suporte a aplicativos escalonáveis, confiáveis e de baixo custo para operar.
-services: cloud-services
-author: tgore03
-ms.service: multiple
 ms.topic: article
-ms.date: 04/19/2017
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 0013a3a29bae9d2dde7896b3ae23d0d358946f2b
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: cbb9aae57b952c05aa722f81309158a11aef826b
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88224281"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98742804"
 ---
-# <a name="overview-of-azure-cloud-services"></a>Visão geral dos Serviços de Nuvem do Azure
+# <a name="overview-of-azure-cloud-services-classic"></a>Visão geral dos serviços de nuvem do Azure (clássico)
+
+> [!IMPORTANT]
+> Os [serviços de nuvem do Azure (suporte estendido)](../cloud-services-extended-support/overview.md) são um novo modelo de implantação baseado em Azure Resource Manager para o produto de serviços de nuvem do Azure.Com essa alteração, os serviços de nuvem do Azure em execução no modelo de implantação baseado no Azure Service Manager foram renomeados como serviços de nuvem (clássicos) e todas as novas implantações devem usar os [serviços de nuvem (suporte estendido)](../cloud-services-extended-support/overview.md).
+
 Os Serviços de Nuvem do Azure são um exemplo de uma [PaaS](https://azure.microsoft.com/overview/what-is-paas/) (Plataforma como Serviço). Como o [Serviço de Aplicativo do Azure](../app-service/overview.md), essa tecnologia foi desenvolvida para dar suporte aos aplicativos escalonáveis, confiáveis e baratos de operar. Da mesma forma que o Serviço de Aplicativo é hospedado em máquinas virtuais (VMs), os Serviços de Nuvem do Azure também são. No entanto, você tem mais controle sobre as VMs. Você pode instalar seu próprio software em VMs que usam os Serviços de Nuvem do Azure acessá-las remotamente.
 
 ![Diagrama dos Serviços de Nuvem do Azure](./media/cloud-services-choose-me/diagram.png)

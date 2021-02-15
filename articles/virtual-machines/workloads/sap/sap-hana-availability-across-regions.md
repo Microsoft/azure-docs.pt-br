@@ -9,18 +9,19 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/12/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 68a393865038722f2fd7fa5e42334f8d5e760951
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 799034d9060e8afe101e86e7b98ac7e01c28d191
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "70078844"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019303"
 ---
 # <a name="sap-hana-availability-across-azure-regions"></a>Disponibilidade do SAP HANA entre regiões do Azure
 
@@ -74,7 +75,7 @@ Uma possível arquitetura com a replicação de vários destinos se pareceria co
 
 Se a organização tiver requisitos de prontidão para alta disponibilidade na segunda região do Azure (recuperação de desastre), a arquitetura se parecerá com:
 
-![Diagrama de três VMs em duas regiões multidestino](./media/sap-hana-availability-two-region/saphanaavailability_hana_system_2region_HA_and_DR_multitarget_4VMs.PNG)
+![Diagrama que mostra uma organização que tem requisitos para prontidão de alta disponibilidade na segunda região do Azure (DR).](./media/sap-hana-availability-two-region/saphanaavailability_hana_system_2region_HA_and_DR_multitarget_4VMs.PNG)
 
 
 Usar logreplay como modo de operação, essa configuração fornece um RPO = 0, com baixo RTO, dentro da região primária. A configuração também fornece o RPO razoável se uma mudança para a segunda região estiver envolvida. Os tempos do RTO na segunda região dependem de se os dados são ou não pré-carregados. Muitos clientes usam a VM na região secundária para executar um sistema de teste. Nesse caso de uso, os dados não podem ser pré-carregados.

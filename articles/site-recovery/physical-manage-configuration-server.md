@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 02/28/2019
 ms.author: mayg
 ms.openlocfilehash: ff612b7c052ead5658ea4bbfafd7aace51ba3c02
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86132495"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017433"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Gerenciar servidor de configuração para recuperação de desastres do servidor físico
 
@@ -33,10 +33,10 @@ A tabela resume os pré-requisitos para implantação do computador do servidor 
 | Espaço livre em disco (disco de retenção) | 600 GB|
 | Sistema operacional  | Windows Server 2012 R2 <br> Windows Server 2016 |
 | Localidade do sistema operacional | Inglês (EUA)|
-| Versão do VMware vSphere PowerCLI | Não é necessária|
+| Versão do VMware vSphere PowerCLI | Não obrigatório|
 | Funções do Windows Server | Não habilite essas funções: <br> - Active Directory Domain Services <br>- Serviços de Informações da Internet <br> - Hyper-V |
 | Políticas de grupo| Não habilite estas políticas de grupo: <br> - Impedir o acesso ao prompt de comando <br> - Impedir o acesso às ferramentas de edição do registro <br> - Lógica de confiança para anexos de arquivo <br> - Ativar a execução do script <br> [Saiba mais](/previous-versions/windows/it-pro/windows-7/gg176671(v=ws.10))|
-| IIS | – Nenhum site da Web padrão já existente <br> -Habilitar [autenticação anônima](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731244(v=ws.10)) <br> - Habilitar configuração [FastCGI](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753077(v=ws.10))  <br> – Nenhum aplicativo/site da Web pré-existente escutando na porta 443<br>|
+| IIS | – Nenhum site da Web padrão já existente <br> -Habilitar  [autenticação anônima](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731244(v=ws.10)) <br> - Habilitar configuração [FastCGI](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753077(v=ws.10))  <br> – Nenhum aplicativo/site da Web pré-existente escutando na porta 443<br>|
 | Tipo de NIC | VMXNET3 (quando implantado como uma VM VMware) |
 | Tipo de endereço IP | Estático |
 | Acesso à Internet | O servidor precisa de acesso a estas URLs: <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - `https://management.azure.com` <br> - *.services.visualstudio.com <br> - https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi (não obrigatório para servidores de processo de expansão) <br> - time.nist.gov <br> - time.windows.com |
@@ -69,7 +69,7 @@ A versão mais recente do arquivo de instalação do servidor de configuração 
     - Se quiser que o Provedor se conecte diretamente, selecione **Conectar diretamente o Azure Site Recovery sem um servidor proxy**.
     - Se o proxy existente exigir autenticação ou se você quiser usar um proxy personalizado para a conexão do provedor, selecione **Conectar-se com as configurações de proxy personalizadas** e especifique o endereço, a porta e as credenciais.
      ![Firewall](./media/physical-manage-configuration-server/combined-wiz4.png)
-6. Em **verificação de pré-requisitos**, a instalação executa uma verificação para garantir que a instalação possa ser executada. Se aparecer um aviso sobre a **verificação de sincronização de tempo global**, verifique se o horário no relógio do sistema (configurações de**data e hora** ) é o mesmo que o fuso horário.
+6. Em **Verificação de Pré-requisitos**, a configuração executa uma verificação para garantir que a instalação pode ser executada. Se aparecer um aviso sobre a **Verificação de sincronização de tempo global**, verifique se a hora no relógio do sistema (configurações de **Data e Hora**) é a mesma que a do fuso horário.
 
     ![Pré-requisitos](./media/physical-manage-configuration-server/combined-wiz5.png)
 7. Em **Configuração do MySQL**, crie credenciais para fazer logon na instância do servidor MySQL instalada.
@@ -87,7 +87,7 @@ A versão mais recente do arquivo de instalação do servidor de configuração 
 11. Em **Resumo**, examine as informações e clique em **Instalar**. Após a conclusão da instalação, uma frase secreta é gerada. Você precisará dela quando habilitar a replicação, portanto copie-a e guarde-a em um local seguro.
 
 
-Após a conclusão do registro, o servidor é exibido na folha de **configurações**  >  **servidores** no cofre.
+Após a conclusão do registro, o servidor é exibido na folha **Configurações** > **Servidores** no cofre.
 
 
 ## <a name="install-from-the-command-line"></a>Instalar usando a linha de comando
@@ -108,7 +108,7 @@ Execute o arquivo de instalação da seguinte maneira:
 
 ### <a name="parameters"></a>Parâmetros
 
-|Nome do Parâmetro| Type | Descrição| Valores|
+|Nome do Parâmetro| Tipo | Descrição| Valores|
 |-|-|-|-|
 | /ServerMode|Obrigatório|Especifica se os servidores de configuração e de processo devem ser instalados ou somente o servidor de processo|CS<br>PS|
 |/InstallLocation|Obrigatório|A pasta na qual os componentes estão instalados| Qualquer pasta no computador|
@@ -288,7 +288,7 @@ Atualize o servidor da seguinte maneira:
     `Remove-AzSiteRecoveryFabric -Fabric $Fabric [-Force]`
 
 > [!NOTE]
-> A opção **-Force** em Remove-AzSiteRecoveryFabric pode ser usada para forçar a remoção/exclusão do servidor de configuração.
+> A opção **-Force** na Remove-AzSiteRecoveryFabric pode ser usada para forçar a remoção/exclusão do servidor de configuração.
 
 ## <a name="renew-tlsssl-certificates"></a>Renovar certificados TLS/SSL
 O servidor de configuração tem uma servidor de Web embutido, que coordena as atividades dos serviços móveis, servidores de processo e servidores de destino conectados a ele. O servidor Web usa um certificado TLS/SSL para autenticar clientes. O certificado expira depois de três anos e pode ser renovado a qualquer momento.
@@ -303,7 +303,7 @@ Para implantações de servidor de configuração antes de maio de 2016, a expir
 
 ### <a name="renew-the-certificate"></a>Renovar o certificado
 
-1. No cofre, abra **site Recovery**  >  **servidor de configuração**de infraestrutura e clique no servidor de configuração necessário.
+1. No cofre, abra **site Recovery**  >  **servidor de configuração** de infraestrutura e clique no servidor de configuração necessário.
 2. A data de expiração aparece em **integridade do servidor de configuração**
 3. Clique em **Renovar certificados**. 
 

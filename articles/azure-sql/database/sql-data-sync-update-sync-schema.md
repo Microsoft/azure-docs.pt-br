@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: data-movement
 ms.custom: data sync
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
+ms.reviewer: ''
 ms.date: 11/14/2018
-ms.openlocfilehash: 4d0800d109d17c1233a18966d84a498596e8e834
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f9997ea737b96185b31a7f51996a396fb5fc46c4
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84188204"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790178"
 ---
 # <a name="automate-the-replication-of-schema-changes-in-azure-sql-data-sync"></a>Automatize a replicação de alterações de esquema no Azure SQL Data Sync
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -84,7 +84,7 @@ INSERT INTO SchemaChanges (SqlStmt, Description)
     VALUES (EVENTDATA().value('(/EVENT_INSTANCE/TSQLCommand/CommandText)[1]', 'nvarchar(max)'), 'From DDL trigger')
 ```
 
-O gatilho insere um registro na tabela de controle de mudança de esquema para cada comando ALTER TABLE. Este exemplo adiciona um filtro para evitar a replicação das alterações de esquema feitas no esquema **sincronização de dados**, pois elas são provavelmente feitas pelo serviço de sincronização de dados. Adicione filtros mais se você deseja replicar certos tipos de alterações de esquema.
+O gatilho insere um registro na tabela de controle de mudança de esquema para cada comando ALTER TABLE. Este exemplo adiciona um filtro para evitar a replicação das alterações de esquema feitas no esquema **sincronização de dados** , pois elas são provavelmente feitas pelo serviço de sincronização de dados. Adicione filtros mais se você deseja replicar certos tipos de alterações de esquema.
 
 Você também pode adicionar mais gatilhos para replicar a outros tipos de alterações de esquema. Por exemplo, crie disparadores CREATE_PROCEDURE, ALTER_PROCEDURE e em DROP_PROCEDURE para replicar alterações em procedimentos armazenados.
 
@@ -201,7 +201,7 @@ A lógica de replicação descrita neste artigo para de funcionar em algumas sit
 
 Se você quiser limpar os registros na tabela de rastreamento de alteração de esquema, use DELETE em vez do TRUNCATE. Nunca propagar novamente a coluna de identidade na tabela de alterações de esquema usando DBCC CHECKIDENT. Você pode criar tabelas de controle de alteração de esquema novo e atualize o nome da tabela no gatilho DDL se propagação é necessária.
 
-## <a name="other-considerations"></a><a name="other"></a>Outras considerações
+## <a name="other-considerations"></a><a name="other"></a> Outras considerações
 
 -   Os usuários de banco de dados que configuram os bancos de dados de hub e o membro precisam ter permissões suficientes para executar os comandos de alteração de esquema.
 
@@ -231,7 +231,7 @@ Para saber mais sobre a Sincronização de Dados SQL, veja:
         -  [Usar o PowerShell para sincronizar entre um banco de dados no banco de dados SQL do Azure e um banco de dados em uma instância do SQL Server](scripts/sql-data-sync-sync-data-between-azure-onprem.md)
 -   Agente de Sincronização de Dados - [Agente de Sincronização de Dados para Sincronização de Dados SQL do Azure](sql-data-sync-agent-overview.md)
 -   Práticas recomendadas - [Práticas recomendadas para a Sincronização de Dados SQL do Azure](sql-data-sync-best-practices.md)
--   Monitor – [monitore a Sincronização de Dados SQL com logs do Azure Monitor](sql-data-sync-monitor-sync.md)
+-   Monitor – [monitore a Sincronização de Dados SQL com logs do Azure Monitor](./monitor-tune-overview.md)
 -   Solucionar problemas - [Solucionar problemas com o SQL Data Sync do Azure]()
 -   Atualizar o esquema de sincronização
     -   Com o PowerShell - [usar o PowerShell para atualizar o esquema de sincronização em um grupo de sincronização existente](scripts/update-sync-schema-in-sync-group.md)

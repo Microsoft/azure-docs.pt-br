@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 08/13/2019
 ms.author: alkohli
 ms.openlocfilehash: 55cc3049e437cc18eac6dc537de3ee1c0d894c23
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87070345"
 ---
 # <a name="storsimple-solution-support"></a>Suporte da solução StorSimple
@@ -111,7 +111,7 @@ O suporte a matrizes de armazenamento do StorSimple 8000 Series é fornecido com
 
 
 
-*<text>* Cobertura Premium não está disponível em todos os locais. Entre em contato com a Microsoft em SSSupOps \@ Microsoft.com para cobertura geográfica antes de comprar o suporte do StorSimple Premium.*
+*<text> * Cobertura Premium não está disponível em todos os locais. Entre em contato com a Microsoft em SSSupOps \@ Microsoft.com para cobertura geográfica antes de comprar o suporte do StorSimple Premium.*
 
 ***O dispositivo StorSimple deve ser implantado em uma região em que o cliente está coberto pelo suporte Premier para qualificar-se para uma atualização gratuita ao suporte da StorSimple premium.*
 

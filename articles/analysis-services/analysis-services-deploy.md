@@ -4,15 +4,15 @@ description: Saiba como implantar um modelo tabular em um servidor do Azure Anal
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 12/01/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: d6b737985bc19aa09b26bb0d4a65696a364a903a
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 9df10760164dcd0d207663c14107f72c46b76d25
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83697600"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96501236"
 ---
 # <a name="deploy-a-model-from-visual-studio"></a>Implantar um modelo no Visual Studio
 
@@ -23,7 +23,7 @@ Depois de criar um servidor em sua assinatura do Azure, você estará pronto par
 Para começar, você precisa do seguinte:
 
 * **Servidor do Analysis Services** no Azure. Para saber mais, veja [Criar um servidor do Azure Analysis Services](analysis-services-create-server.md).
-* **Projeto de modelo tabular** no Visual Studio ou um modelo tabular existente com nível de compatibilidade 1200 ou superior. Nunca criou um? Experimente o [tutorial de modelagem de tabela de vendas na Internet do Adventure Works](https://docs.microsoft.com/analysis-services/tutorial-tabular-1400/as-adventure-works-tutorial).
+* **Projeto de modelo tabular** no Visual Studio ou um modelo tabular existente com nível de compatibilidade 1200 ou superior. Nunca criou um? Experimente o [tutorial de modelagem de tabela de vendas na Internet do Adventure Works](/analysis-services/tutorial-tabular-1400/as-adventure-works-tutorial).
 * **Gateway local** - se uma ou mais fontes de dados estiverem no local na rede de sua organização, você precisará instalar um [Gateway de dados local](analysis-services-gateway.md). O gateway é necessário para que seu servidor na nuvem conecte-se às suas fontes de dados locais, a fim de processar e atualizar os dados no modelo.
 
 > [!TIP]
@@ -63,7 +63,4 @@ Se a implantação falhar em uma tabela, provavelmente o servidor não conseguiu
 
 Agora que seu modelo de tabela foi implantado em seu servidor, você está pronto para se conectar a ele. Você pode [se conectar a ele com o SSMS (SQL Server Management Studio)](analysis-services-manage.md) para gerenciá-lo. E, você pode [conectar-se a ele usando uma ferramenta de cliente](analysis-services-connect.md) como o Power BI, o Power BI Desktop ou o Excel, e começar a criar relatórios.   
 
-Para aprender sobre métodos avançados de implantação, confira [Implementação de solução de modelo tabular](https://docs.microsoft.com/analysis-services/deployment/tabular-model-solution-deployment?view=azure-analysis-services-current).
-
-
-
+Para aprender sobre métodos avançados de implantação, confira [Implementação de solução de modelo tabular](/analysis-services/deployment/tabular-model-solution-deployment?view=azure-analysis-services-current&preserve-view=true).

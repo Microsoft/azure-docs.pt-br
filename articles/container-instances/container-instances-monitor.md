@@ -2,13 +2,13 @@
 title: Monitorar instâncias de contêiner
 description: Como monitorar o consumo de recursos de computação, como CPU e memória, pelos contêineres nas Instâncias de Contêiner do Azure.
 ms.topic: article
-ms.date: 04/24/2019
-ms.openlocfilehash: e8d41e419abe43530186e256ac6253e2d4783f9b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 12/17/2020
+ms.openlocfilehash: 83a8a5ab2c8c49f4044564c2d899685914103b0b
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82116360"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97916059"
 ---
 # <a name="monitor-container-resources-in-azure-container-instances"></a>Monitorar os recursos de contêiner em Instâncias de Contêiner do Azure
 
@@ -27,11 +27,11 @@ Neste momento, as métricas do Azure Monitor estão disponíveis apenas para con
 
 O Azure Monitor fornece as seguintes [métricas para Instâncias de Contêiner do Azure][supported-metrics]. Essas métricas estão disponíveis para um grupo de contêineres e contêineres individuais. Por padrão, as métricas são agregadas como médias.
 
-* **Uso da CPU** – medido em **milinúcleos**. Um millicore é 1/1000th de um núcleo de CPU; portanto, 500 milicores representa o uso do núcleo de CPU de 0,5.
-
-* **Uso de memória** -em bytes.
-
-* **Bytes de rede recebidos por segundo** e **bytes de rede transmitidos por segundo**. 
+- **Uso de CPU** medido em **milicores**. 
+  - Um millicore é 1/1000th de um núcleo de CPU; portanto, 500 milicores representa o uso do núcleo de CPU de 0,5.
+- **Uso de memória** em bytes
+- **Bytes de rede recebidos** por segundo
+- **Bytes de rede transmitidos** por segundo 
 
 ## <a name="get-metrics---azure-portal"></a>Obter métricas – portal do Azure
 
@@ -39,12 +39,12 @@ Quando um grupo de contêineres é criado, os dados do Azure Monitor ficam dispo
 
 ![gráfico duplo][dual-chart]
 
-Em um grupo de contêineres que contém vários deles, use uma [dimensão][monitor-dimension] para apresentar as métricas por contêiner. Para criar um gráfico com métricas individuais do contêiner, execute as seguintes etapas:
+Em um grupo de contêineres que contém vários contêineres, use uma [dimensão][monitor-dimension] para exibir as métricas por contêiner. Para criar um gráfico com métricas individuais do contêiner, execute as seguintes etapas:
 
 1. Na página **Visão geral**, selecione um dos gráficos de métricas, como **CPU**. 
 1. Selecione o botão **Aplicar divisão** e o **Nome do Contêiner**.
 
-![dimensão][dimension]
+![Captura de tela mostra as métricas para uma instância de contêiner com aplicar divisão selecionada e nome do contêiner selecionado.][dimension]
 
 ## <a name="get-metrics---azure-cli"></a>Obter métricas – CLI do Azure
 
@@ -64,18 +64,11 @@ az monitor metrics list --resource $CONTAINER_GROUP --metric CPUUsage --output t
 ```output
 Timestamp            Name       Average
 -------------------  ---------  ---------
-2019-04-23 22:59:00  CPU Usage
-2019-04-23 23:00:00  CPU Usage
-2019-04-23 23:01:00  CPU Usage  0.0
-2019-04-23 23:02:00  CPU Usage  0.0
-2019-04-23 23:03:00  CPU Usage  0.5
-2019-04-23 23:04:00  CPU Usage  0.5
-2019-04-23 23:05:00  CPU Usage  0.5
-2019-04-23 23:06:00  CPU Usage  1.0
-2019-04-23 23:07:00  CPU Usage  0.5
-2019-04-23 23:08:00  CPU Usage  0.5
-2019-04-23 23:09:00  CPU Usage  1.0
-2019-04-23 23:10:00  CPU Usage  0.5
+2020-12-17 23:34:00  CPU Usage
+. . .
+2020-12-18 00:25:00  CPU Usage
+2020-12-18 00:26:00  CPU Usage  0.4
+2020-12-18 00:27:00  CPU Usage  0.0
 ```
 
 Altere o valor do parâmetro `--metric` no comando para obter outras [métricas compatíveis][supported-metrics]. Por exemplo, use o comando a seguir para obter métricas de uso de **memória**. 

@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 04/24/2020
 ms.author: msangapu
 ms.openlocfilehash: c5c84891187c540c0b24162cf5c8c7f96e9e731a
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88962291"
 ---
 # <a name="get-resource-events-in-azure-app-service"></a>Obter eventos de recurso no Serviço de Aplicativo do Azure

@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/27/2020
 ms.author: trbye
-ms.openlocfilehash: 82c45919892721d689bd90b7480158c4eea16c03
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: e7714dcc3e14e3659ca1943507d55d20dfb28fa6
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87375661"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99215428"
 ---
 Ao desenvolver para macOS, há três SDKs de fala disponíveis.
 
@@ -43,7 +43,7 @@ platform :ios, '9.3'
 use_frameworks!
 
 target 'MyApp' do
-  pod 'MicrosoftCognitiveServicesSpeech', '~> 1.13.0'
+  pod 'MicrosoftCognitiveServicesSpeech', '~> 1.15.0'
 end
 ```
 
@@ -71,5 +71,5 @@ end
 
 #### <a name="additional-resources"></a>Recursos adicionais
 
-- <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/objectivec/macos" target="_blank">Guia de início rápido do SDK de fala do macOS-C código-fonte<span class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/swift/macos" target="_blank">código-fonte do QuickStart Swift do SDK de fala do macOS<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/objectivec/macos" target="_blank">Guia de início rápido do SDK de fala do macOS-C código-fonte <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/swift/macos" target="_blank">código-fonte do QuickStart Swift do SDK de fala do macOS <span class="docon docon-navigate-external x-hidden-focus"></span></a>

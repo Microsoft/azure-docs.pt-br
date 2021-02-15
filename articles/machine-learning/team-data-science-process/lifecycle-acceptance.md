@@ -11,19 +11,19 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 7224a7bb26ef491915df9fcb9b6b84ff171a9fc0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f2294ccb1d958b229a71e45bb502b8134d8d5c7f
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76720513"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305659"
 ---
 # <a name="customer-acceptance-stage-of-the-team-data-science-process-lifecycle"></a>Estágio de aceitação do cliente do ciclo de vida do Processo de Ciência de Dados da Equipe
 
 Este artigo descreve as metas, as tarefas e os resultados associados ao estágio de aceitação do cliente do TDSP (Processo de Ciência de Dados da Equipe). Esse processo fornece um ciclo de vida recomendado que você pode usar para estruturar seus projetos de ciência de dados. O ciclo de vida descreve os estágios principais que os projetos normalmente executam, com frequência de modo iterativo:
 
    1. **Noções básicas sobre negócios**
-   2. **Compreensão e aquisição de dados**
+   2. **Aquisição e compreensão de dados**
    3. **Modelagem**
    4. **Implantação**
    5. **Aceitação do cliente**
@@ -34,13 +34,13 @@ Aqui está uma representação visual do ciclo de vida do TDSP:
 
 
 ## <a name="goal"></a>Goal
-**Finalizar resultados finais do projeto**: Confirme se o pipeline, o modelo e sua implantação em um ambiente de produção atendem aos objetivos do cliente.
+**Finalizar resultados finais do projeto** : Confirme se o pipeline, o modelo e sua implantação em um ambiente de produção atendem aos objetivos do cliente.
 
 ## <a name="how-to-do-it"></a>Como fazer
 Há duas tarefas principais abordadas neste estágio:
 
-   * **Validação do sistema**: confirme se o modelo e o pipeline implantados atendem às necessidades do cliente.
-   * **Entrega do projeto**: entregue o projeto a uma entidade que executará o sistema na produção.
+   * **Validação do sistema** : confirme se o modelo e o pipeline implantados atendem às necessidades do cliente.
+   * **Entrega do projeto** : entregue o projeto a uma entidade que executará o sistema na produção.
 
 O cliente deverá validar se o sistema atende às suas necessidades de negócios e se ele responde às perguntas com uma precisão aceitável para implantar o sistema em produção para uso pelo aplicativo do cliente. Toda a documentação é finalizada e revisada. O projeto é entregue à entidade responsável por operações. Essa entidade poderá ser, por exemplo, uma equipe de TI ou de ciência de dados do cliente ou um agente do cliente responsável por executar o sistema na produção. 
 
@@ -53,11 +53,11 @@ O principal artefato produzido neste estágio final é o **Relatório de saída 
 Aqui estão os links para cada etapa do ciclo de vida do TDSP:
 
    1. [Noções básicas sobre negócios](lifecycle-business-understanding.md)
-   2. [Compreensão e aquisição de dados](lifecycle-data.md)
+   2. [Aquisição e compreensão de dados](lifecycle-data.md)
    3. [Modelagem](lifecycle-modeling.md)
    4. [Implantação](lifecycle-deployment.md)
    5. [Aceitação do cliente](lifecycle-acceptance.md)
 
 Fornecemos orientações completas que demonstram todas as etapas no processo para cenários específicos. O artigo [Passo a passos de exemplo](walkthroughs.md) fornece uma lista dos cenários com descrições de links e miniaturas. Os passo a passo ilustram como combinar ferramentas e serviços de nuvem e locais em um fluxo de trabalho ou pipeline para criar um aplicativo inteligente. 
 
-Para obter exemplos de como executar etapas nos TDSPs que usam o Azure Microsoft Azure Machine Learning Studio, consulte [Use the TDSP with Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) (Usar o TDSP com o Azure Machine Learning).
+Para obter exemplos de como executar etapas nos TDSPs que usam o Azure Microsoft Azure Machine Learning Studio, consulte [Use the TDSP with Azure Machine Learning](./index.yml) (Usar o TDSP com o Azure Machine Learning).

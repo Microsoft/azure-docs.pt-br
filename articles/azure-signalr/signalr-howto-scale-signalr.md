@@ -4,21 +4,21 @@ description: Saiba como dimensionar uma instância do serviço de Signaler do Az
 author: sffamily
 ms.service: signalr
 ms.topic: conceptual
-ms.date: 12/11/2019
+ms.date: 9/9/2020
 ms.author: zhshang
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: bd112526c7b36d5636d5d85c66b25b6310d35d1e
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: bb01f2f96e5db4c94e759b114818360e6084255f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500480"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89595760"
 ---
 # <a name="how-to-scale-an-azure-signalr-service-instance"></a>Como dimensionar uma instância do serviço de Signaler do Azure?
 Este artigo mostra como dimensionar sua instância do serviço de Signaler do Azure. Há dois cenários para dimensionar, escalar verticalmente e escalar horizontalmente.
 
 * [Escalar verticalmente](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): Obtenha mais unidades, conexões, mensagens e muito mais. Você escala verticalmente alterando o tipo de preço de gratuito para padrão.
-* [Escalar horizontalmente](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): Aumente o número de unidades do signalr. Você pode escalar horizontalmente até 100 unidades.
+* [Escalar horizontalmente](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): Aumente o número de unidades do signalr. Você pode escalar horizontalmente até 100 unidades. Há opções de unidade limitadas a serem selecionadas para o dimensionamento: 1, 2, 5, 10, 20, 50 e 100 unidades para uma única instância do serviço Signalr.
 
 As configurações de escala levam alguns minutos para serem aplicadas. Em casos raros, pode levar cerca de 30 minutos para ser aplicado. Eles não exigem que você altere seu código ou reimplante o aplicativo do servidor.
 

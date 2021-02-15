@@ -3,7 +3,7 @@ title: Como o Gerenciador de Tráfego do Azure funciona | Microsoft Docs
 description: Este artigo ajudará você a entender como o Traffic Manager roteia tráfego para alto desempenho e disponibilidade de seus aplicativos da Web
 services: traffic-manager
 documentationcenter: ''
-author: rohinkoul
+author: duongau
 manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
@@ -11,13 +11,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/05/2019
-ms.author: rohink
-ms.openlocfilehash: 4863ffd383cfcd46bad462156e26293d145fd418
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: a1e1bd107e8b3b9209f99d1abfc4d7e391c3c4a6
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80294864"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98184332"
 ---
 # <a name="how-traffic-manager-works"></a>Como funciona o Gerenciador de tráfego
 
@@ -62,8 +62,8 @@ Continuando do exemplo anterior, quando um cliente solicita a página `https://p
     - A integridade atual de cada ponto de extremidade, conforme determinado pela integridade Gerenciador de Tráfego. Para obter mais informações, consulte [Monitoramento do Ponto de Extremidade do Gerenciador de Tráfego](traffic-manager-monitoring.md).
     - O método de roteamento de tráfego escolhido. Para obter mais informações, consulte [métodos de roteamento do Traffic Manager](traffic-manager-routing-methods.md).
 
-5. O ponto de extremidade escolhido é retornado como outro registro DNS CNAME. Nesse caso, vamos supor que contoso-us.cloudapp.net seja retornado.
-6. Em seguida, o serviço DNS recursivo localiza os servidores de nomes para o domínio “cloudapp.net”. Ele entra em contato com os servidores de nomes para solicitar o registro DNS de “contoso-us.cloudapp.net”. Um registro DNS “A” que contém o endereço IP do ponto de extremidade de serviço dos EUA é retornado.
+5. O ponto de extremidade escolhido é retornado como outro registro DNS CNAME. Nesse caso, vamos supor que contoso-eu.cloudapp.net seja retornado.
+6. Em seguida, o serviço DNS recursivo localiza os servidores de nomes para o domínio “cloudapp.net”. Ele contata os servidores de nomes para solicitar o registro DNS ' contoso-eu.cloudapp.net '. Um registro de DNS ' A ' que contém o endereço IP do ponto de extremidade de serviço baseado na UE é retornado.
 7. O serviço DNS recursivo consolida os resultados e retorna uma única resposta DNS para o cliente.
 8. O cliente recebe os resultados DNS e conecta-se ao endereço IP fornecido. O cliente se conecta ao ponto de extremidade de serviço do aplicativo diretamente, não pelo Gerenciador de Tráfego. Como é um ponto de extremidade HTTPS, o cliente executa o handshake SSL/TLS necessário e faz uma solicitação HTTP GET para a página “/login.aspx”.
 
@@ -71,27 +71,27 @@ O serviço DNS recursivo armazena em cache as respostas DNS recebidas. O resolve
 
 ## <a name="faqs"></a>Perguntas frequentes
 
-* [Qual endereço IP o Gerenciador de Tráfego usa?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-ip-address-does-traffic-manager-use)
+* [Qual endereço IP o Gerenciador de Tráfego usa?](./traffic-manager-faqs.md#what-ip-address-does-traffic-manager-use)
 
-* [Que tipos de tráfego podem ser roteados usando Gerenciador de Tráfego?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-types-of-traffic-can-be-routed-using-traffic-manager)
+* [Que tipos de tráfego podem ser roteados usando Gerenciador de Tráfego?](./traffic-manager-faqs.md#what-types-of-traffic-can-be-routed-using-traffic-manager)
 
-* [O Gerenciador de tráfego dá suporte a sessões "adesivas"?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#does-traffic-manager-support-sticky-sessions)
+* [O Gerenciador de tráfego dá suporte a sessões "adesivas"?](./traffic-manager-faqs.md#does-traffic-manager-support-sticky-sessions)
 
-* [Por que vejo um erro de HTTP ao usar o Gerenciador de Tráfego?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#why-am-i-seeing-an-http-error-when-using-traffic-manager)
+* [Por que vejo um erro de HTTP ao usar o Gerenciador de Tráfego?](./traffic-manager-faqs.md#why-am-i-seeing-an-http-error-when-using-traffic-manager)
 
-* [Qual é o impacto no desempenho de usar o Gerenciador de Tráfego?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-is-the-performance-impact-of-using-traffic-manager)
+* [Qual é o impacto no desempenho de usar o Gerenciador de Tráfego?](./traffic-manager-faqs.md#what-is-the-performance-impact-of-using-traffic-manager)
 
-* [Quais protocolos de aplicativo posso usar com o Gerenciador de Tráfego?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-application-protocols-can-i-use-with-traffic-manager)
+* [Quais protocolos de aplicativo posso usar com o Gerenciador de Tráfego?](./traffic-manager-faqs.md#what-application-protocols-can-i-use-with-traffic-manager)
 
-* [Posso usar o Gerenciador de tráfego com um nome de domínio "Naked"?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-traffic-manager-with-a-naked-domain-name)
+* [Posso usar o Gerenciador de tráfego com um nome de domínio "Naked"?](./traffic-manager-faqs.md#can-i-use-traffic-manager-with-a-naked-domain-name)
 
-* [O Gerenciador de Tráfego considera o endereço de sub-rede do cliente ao manipular consultas DNS?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#does-traffic-manager-consider-the-client-subnet-address-when-handling-dns-queries)
+* [O Gerenciador de Tráfego considera o endereço de sub-rede do cliente ao manipular consultas DNS?](./traffic-manager-faqs.md#does-traffic-manager-consider-the-client-subnet-address-when-handling-dns-queries)
 
-* [O que é o TTL do DNS e como ele afeta os meus usuários?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-is-dns-ttl-and-how-does-it-impact-my-users)
+* [O que é o TTL do DNS e como ele afeta os meus usuários?](./traffic-manager-faqs.md#what-is-dns-ttl-and-how-does-it-impact-my-users)
 
-* [Como posso definir o nível (alto ou baixo) do TTL para respostas do Gerenciador de Tráfego?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-high-or-low-can-i-set-the-ttl-for-traffic-manager-responses)
+* [Como posso definir o nível (alto ou baixo) do TTL para respostas do Gerenciador de Tráfego?](./traffic-manager-faqs.md#how-high-or-low-can-i-set-the-ttl-for-traffic-manager-responses)
 
-* [Como faço para entender o volume de consultas que chega ao meu perfil?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-can-i-understand-the-volume-of-queries-coming-to-my-profile)
+* [Como faço para entender o volume de consultas que chega ao meu perfil?](./traffic-manager-faqs.md#how-can-i-understand-the-volume-of-queries-coming-to-my-profile)
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -102,4 +102,3 @@ Saiba mais sobre os [métodos de roteamento de tráfego](traffic-manager-routing
 <!--Image references-->
 [1]: ./media/traffic-manager-how-traffic-manager-works/dns-configuration.png
 [2]: ./media/traffic-manager-how-traffic-manager-works/flow.png
-

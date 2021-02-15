@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: logon único contínuo-início rápido | Microsoft Docs'
+title: 'Azure AD Connect: Sign-On simples contínuo-início rápido | Microsoft Docs'
 description: Este artigo descreve como começar a usar o Logon Único Contínuo do Azure Active Directory
 services: active-directory
 keywords: o que é o Azure AD Connect, instalar o Active Directory, componentes necessários do Azure AD, SSO, Logon Único
@@ -16,12 +16,12 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc955fe64ae68cb1248b0e616357bccf82f5f036
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: 59cc50274b291c23aeec4620ec7a09312cc0c1fb
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87115753"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762261"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quickstart"></a>Azure Active Directory logon único contínuo: início rápido
 
@@ -37,10 +37,10 @@ Verifique se os seguintes pré-requisitos estão em vigor:
 
 * **Configurar seu servidor do Azure AD Connect**: se você usa a [Autenticação de Passagem](how-to-connect-pta.md) como seu método de entrada, não é necessária nenhuma verificação de pré-requisitos adicional. Se você usar a [sincronização de hash de senha](how-to-connect-password-hash-synchronization.md) como seu método de entrada e se houver um firewall entre Azure ad Connect e o Azure AD, verifique se:
    - Está usando a versão 1.1.644.0 ou superior do Azure AD Connect. 
-   - Se o firewall ou o proxy permitir, adicione as conexões à lista de permissões para URLs ** \* . msappproxy.net** pela porta 443. Caso contrário, permita o acesso aos [Intervalos de IP do datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653), os quais são atualizados semanalmente. Esse pré-requisito é aplicável somente quando você habilita o recurso. Não é obrigatório para logons de usuário real.
+   - Se o firewall ou o proxy permitir, adicione as conexões à lista de permissões para URLs **\* . msappproxy.net** pela porta 443. Se você precisar de uma URL específica em vez de um curinga para a configuração de proxy, poderá configurar **tenantid.Registration.msappproxy.net**, em que tenantid é o GUID do locatário no qual você está configurando o recurso. Se as exceções de proxy baseadas em URL não forem possíveis em sua organização, você poderá, em vez disso, permitir o acesso aos [intervalos de IP do datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653), que são atualizados semanalmente. Esse pré-requisito é aplicável somente quando você habilita o recurso. Não é obrigatório para logons de usuário real.
 
     >[!NOTE]
-    >As versões 1.1.557.0, 1.1.558.0, 1.1.561.0 e 1.1.614.0 do Azure AD Connect têm um problema relacionado à sincronização de hash de senha. Se você _não_ pretende usar a sincronização de hash de senha em conjunto com a autenticação de passagem, leia as [notas de versão Azure ad Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history#116470) para saber mais.
+    >As versões 1.1.557.0, 1.1.558.0, 1.1.561.0 e 1.1.614.0 do Azure AD Connect têm um problema relacionado à sincronização de hash de senha. Se você _não_ pretende usar a sincronização de hash de senha em conjunto com a autenticação de passagem, leia as [notas de versão Azure ad Connect](./reference-connect-version-history.md) para saber mais.
 
 * **Usar uma topologia do Azure AD Connect com suporte**: verifique se você está usando uma das topologias com suporte do Azure AD Connect descritas [aqui](plan-connect-topologies.md).
 
@@ -51,9 +51,9 @@ Verifique se os seguintes pré-requisitos estão em vigor:
     * Você sincroniza com o Azure AD por meio do Azure AD Connect.
     * Contém os usuários que você deseja habilitar para o SSO Contínuo.
     
-* **Habilitar autenticação moderna**: você precisa habilitar [autenticação moderna](https://docs.microsoft.com/office365/enterprise/modern-auth-for-office-2013-and-2016) em seu locatário para que esse recurso funcione.
+* **Habilitar autenticação moderna**: você precisa habilitar [autenticação moderna](/office365/enterprise/modern-auth-for-office-2013-and-2016) em seu locatário para que esse recurso funcione.
 
-* **Use as versões mais recentes dos clientes do Office 365**: para obter uma experiência de logon silencioso com clientes do Office 365 (Outlook, Word, Excel e outros), seus usuários precisam usar as versões 16.0.8730.xxxx ou acima.
+* **Usar as versões mais recentes de clientes do Microsoft 365**: para obter uma experiência de logon silencioso com Microsoft 365 clientes (Outlook, Word, Excel e outros), os usuários precisam usar as versões 16.0.8730. xxxx ou superior.
 
 ## <a name="step-2-enable-the-feature"></a>Etapa 2: habilitar o recurso
 
@@ -107,7 +107,7 @@ Você pode gradualmente implantar o SSO Contínuo para seus usuários utilizando
 Além disso, você precisa habilitar uma configuração da política de Zona de intranet chamada **Permitir atualizações à barra de status por meio de script** usando a Política de Grupo. 
 
 >[!NOTE]
-> As instruções a seguir só funcionam para o Internet Explorer e o Google Chrome no Windows (se ele usa o mesmo conjunto de URLs de sites confiáveis que o Internet Explorer). Leia a próxima seção para obter instruções sobre como configurar o Mozilla Firefox e o Google Chrome no macOS.
+> As instruções a seguir funcionam apenas para o Internet Explorer, o Microsoft Edge e o Google Chrome no Windows (se ele compartilhar um conjunto de URLs de sites confiáveis com o Internet Explorer). Leia a próxima seção para obter instruções sobre como configurar o Mozilla Firefox e o Google Chrome no macOS.
 
 ### <a name="why-do-you-need-to-modify-users-intranet-zone-settings"></a>Por que você precisa modificar as configurações de Zona da Intranet dos usuários?
 
@@ -124,8 +124,8 @@ Há duas maneiras de modificar as configurações de zona de Intranet dos usuár
 
 1. Abra a ferramenta Editor de Gerenciamento de Política de Grupo.
 2. Edite a política de grupo que é aplicada a alguns ou todos os seus usuários. Este exemplo usa a **Política de domínio padrão**.
-3. Navegue até política de **configuração de usuário**  >  **Policy**  >  **modelos administrativos**  >  **componentes do Windows**  >  **Internet Explorer**  >  **Internet Control Panel**  >  **página segurança**do painel de controle Internet do Internet Explorer. Em seguida, selecione **Lista de atribuição de sites a zonas**.
-    ![Logon Único](./media/how-to-connect-sso-quick-start/sso6.png)
+3. Navegue até políticas de **configuração do usuário**  >    >  **modelos administrativos**  >  **componentes do Windows**  >    >    >  **página segurança** do painel de controle Internet do Internet Explorer. Em seguida, selecione **Lista de atribuição de sites a zonas**.
+    ![Captura de tela que mostra a "página de segurança" com "lista de atribuição de site a zona" selecionada.](./media/how-to-connect-sso-quick-start/sso6.png)
 4. Habilite a política e insira os valores a seguir na caixa de diálogo:
    - **Nome do valor**: a URL do Azure Active Directory para as quais os tíquetes Kerberos são encaminhados.
    - **Valor** (dados): **1** indica a zona da Intranet.
@@ -142,31 +142,31 @@ Há duas maneiras de modificar as configurações de zona de Intranet dos usuár
 
 5. Selecione **OK** e, em seguida, **OK** novamente.
 
-    ![Logon único](./media/how-to-connect-sso-quick-start/sso7.png)
+    ![Captura de tela que mostra a janela "Mostrar conteúdo" com uma atribuição de zona selecionada.](./media/how-to-connect-sso-quick-start/sso7.png)
 
-6. Navegue até a política de **configuração de usuário**  >  **Policy**  >  **modelos administrativos**  >  **componentes do Windows**  >  **Internet Explorer**  >  segurança da área de rede do painel de**controle**  >  **Security Page**  >  **da**Internet. Em seguida, selecione **Permitir atualizações à barra de status por meio de script**.
+6. Navegue até as políticas de **configuração do usuário**  >    >  **modelos administrativos**  >  **componentes do Windows**  >  **Internet Explorer**  >    >  **segurança** da  >  **área** de rede do painel de controle da Internet. Em seguida, selecione **Permitir atualizações à barra de status por meio de script**.
 
-    ![Logon único](./media/how-to-connect-sso-quick-start/sso11.png)
+    ![Captura de tela que mostra a página "zona da intranet" com a seleção de "permitir atualizações na barra de status por meio do script".](./media/how-to-connect-sso-quick-start/sso11.png)
 
 7. Habilite a configuração de política e, em seguida, selecione **OK**.
 
-    ![Logon único](./media/how-to-connect-sso-quick-start/sso12.png)
+    ![Captura de tela que mostra a janela "permitir atualizações na barra de status via script" com a configuração de política habilitada.](./media/how-to-connect-sso-quick-start/sso12.png)
 
 ### <a name="group-policy-preference-option---detailed-steps"></a>Opção "Preferência de política de grupo" – etapas detalhadas
 
 1. Abra a ferramenta Editor de Gerenciamento de Política de Grupo.
 2. Edite a política de grupo que é aplicada a alguns ou todos os seus usuários. Este exemplo usa a **Política de domínio padrão**.
-3. Navegue até **User Configuration**  >  **preferências**configuração do usuário  >  **configurações**  >  **do Windows registro**  >  **novo**  >  **item do registro**.
+3. Navegue até   >  **preferências** configuração do usuário  >  **configurações**  >  **do Windows registro**  >  **novo**  >  **item do registro**.
 
-    ![Logon único](./media/how-to-connect-sso-quick-start/sso15.png)
+    ![Captura de tela que mostra "registro" selecionado e "item do registro" selecionado.](./media/how-to-connect-sso-quick-start/sso15.png)
 
 4. Insira os seguintes valores nos campos apropriados e clique em **OK**.
-   - **Caminho da Chave**: ***Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\microsoftazuread-sso.com\autologon***
-   - **Nome do valor**: ***https***
-   - **Tipo de valor**: ***REG_DWORD***
-   - **Dados do valor**: ***00000001***
+   - **Caminho da chave**: **_Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\microsoftazuread-SSO.com\autologon_* _
+   - _* Nome do valor * *: **_https_*_
+   - _* Tipo de valor * *: **_REG_DWORD_*_
+   - _* Dados de valor * *: **_00000001_*_
  
-     ![Logon único](./media/how-to-connect-sso-quick-start/sso16.png)
+     ![Captura de tela que mostra a janela "novas propriedades do registro".](./media/how-to-connect-sso-quick-start/sso16.png)
  
      ![Logon único](./media/how-to-connect-sso-quick-start/sso17.png)
 
@@ -176,7 +176,7 @@ Há duas maneiras de modificar as configurações de zona de Intranet dos usuár
 
 O Mozilla Firefox não usa a autenticação Kerberos automaticamente. Cada usuário precisa adicionar manualmente as URLs do Azure Active Directory às configurações do Firefox com as seguintes etapas:
 1. Execute o Firefox e digite `about:config` na barra de endereços. Ignore as notificações que aparecerem.
-2. Pesquise a preferência **network.negotiate-auth.trusted-uris**. Esta preferência lista os sites confiáveis do Firefox para a autenticação Kerberos.
+2. Procure a preferência _ *Network. Negotiate-auth. Trusted-URIs**. Esta preferência lista os sites confiáveis do Firefox para a autenticação Kerberos.
 3. Clique com o botão direito do mouse e selecione **Modificar**.
 4. Insira `https://autologon.microsoftazuread-sso.com` no campo.
 5. Selecione **OK** e, em seguida, reabra o navegador.
@@ -187,11 +187,11 @@ Verifique se o computador que está executando o macOS está associado ao AD. In
 
 #### <a name="microsoft-edge-based-on-chromium-all-platforms"></a>Microsoft Edge com base em Chromium (todas as plataformas)
 
-Se você tiver substituído as configurações de política [AuthNegotiateDelegateAllowlist](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#authnegotiatedelegateallowlist) ou [AuthServerAllowlist](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#authserverallowlist) no seu ambiente, certifique-se de adicionar a URL do Azure AD ( `https://autologon.microsoftazuread-sso.com` ) também a elas.
+Se você tiver substituído as configurações de política [AuthNegotiateDelegateAllowlist](/DeployEdge/microsoft-edge-policies#authnegotiatedelegateallowlist) ou [AuthServerAllowlist](/DeployEdge/microsoft-edge-policies#authserverallowlist) no seu ambiente, certifique-se de adicionar a URL do Azure AD ( `https://autologon.microsoftazuread-sso.com` ) também a elas.
 
 #### <a name="microsoft-edge-based-on-chromium-macos-and-other-non-windows-platforms"></a>Microsoft Edge com base em Chromium (macOS e outras plataformas que não sejam Windows)
 
-Para o Microsoft Edge com base em Chromium no macOS e outras plataformas que não sejam Windows, consulte [o Microsoft Edge com base na lista de políticas do Chromium](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#authserverallowlist) para obter informações sobre como adicionar a URL do Azure ad para autenticação integrada à sua lista de permissões.
+Para o Microsoft Edge com base em Chromium no macOS e outras plataformas que não sejam Windows, consulte [o Microsoft Edge com base na lista de políticas do Chromium](/DeployEdge/microsoft-edge-policies#authserverallowlist) para obter informações sobre como adicionar a URL do Azure ad para autenticação integrada à sua lista de permissões.
 
 #### <a name="google-chrome-all-platforms"></a>Google Chrome (todas as plataformas)
 
@@ -211,7 +211,7 @@ O SSO Contínuo não funciona no modo de navegação particular em navegadores F
 
 Para testar o recurso para um usuário específico, verifique se todas as seguintes condições estão em vigor:
   - O usuário entra em um dispositivo corporativo.
-  - O dispositivo está associado ao domínio do Active Directory. O dispositivo _não_ precisa ser [ingressado no Azure AD](../active-directory-azureadjoin-overview.md).
+  - O dispositivo está associado ao domínio do Active Directory. O dispositivo _não_ precisa ser [ingressado no Azure AD](../devices/overview.md).
   - O dispositivo tem uma conexão direta com seu DC (controlador de domínio), seja na rede corporativa com ou sem fio ou por meio de uma conexão de acesso remoto, como uma conexão VPN.
   - Você [distribuiu o recurso](#step-3-roll-out-the-feature) a esse usuário por meio da Política de Grupo.
 

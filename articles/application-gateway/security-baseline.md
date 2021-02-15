@@ -6,33 +6,33 @@ ms.service: security
 ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
-ms.openlocfilehash: 562a0fbd64fca530598a58599160dbdd7e479557
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: 4f28665998dcac9f641d4142a0dea60707fb02e9
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84485519"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99805353"
 ---
 # <a name="azure-security-baseline-for-azure-application-gateway"></a>Linha de base de segurança do Azure para Aplicativo Azure gateway
 
 A linha de base de segurança do Azure para Aplicativo Azure gateway contém recomendações que ajudarão você a melhorar a postura de segurança de sua implantação.
 
-A linha de base para esse serviço é extraída do [Azure Security Benchmark versão 1.0](https://docs.microsoft.com/azure/security/benchmarks/overview), que fornece recomendações sobre como proteger suas soluções de nuvem no Azure com nossas diretrizes de melhores práticas.
+A linha de base para esse serviço é extraída do [Azure Security Benchmark versão 1.0](../security/benchmarks/overview.md), que fornece recomendações sobre como proteger suas soluções de nuvem no Azure com nossas diretrizes de melhores práticas.
 
-Para obter mais informações, confira a [Visão geral sobre linhas de base de segurança do Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview).
+Para obter mais informações, confira a [Visão geral sobre linhas de base de segurança do Azure](../security/benchmarks/security-baselines-overview.md).
 
 ## <a name="network-security"></a>Segurança de rede
 
-*Para saber mais, confira [Controle de segurança: Segurança de rede](https://docs.microsoft.com/azure/security/benchmarks/security-control-network-security).*
+*Para saber mais, confira [Controle de segurança: Segurança de rede](../security/benchmarks/security-control-network-security.md).*
 
 ### <a name="11-protect-azure-resources-within-virtual-networks"></a>1,1: proteger os recursos do Azure em redes virtuais
 
 **Orientação**: Verifique se todas as implantações de sub-rede de gateway aplicativo Azure rede virtual têm um NSG (grupo de segurança de rede) aplicado com controles de acesso à rede específicos para as portas e fontes confiáveis do seu aplicativo. Embora os grupos de segurança de rede tenham suporte no gateway Aplicativo Azure, há algumas restrições e requisitos que devem ser cumpridos para que o NSG e o gateway de Aplicativo Azure funcionem conforme o esperado.
 
-* [Entenda as restrições e os requisitos em relação ao uso do NSGs com o gateway Aplicativo Azure](https://docs.microsoft.com/azure/application-gateway/configuration-overview)
+* [Entenda as restrições e os requisitos em relação ao uso do NSGs com o gateway Aplicativo Azure](./configuration-overview.md)
 
-* [Como criar um NSG com uma configuração de segurança](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
+* [Como criar um NSG com uma configuração de segurança](../virtual-network/tutorial-filter-network-traffic.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -47,13 +47,13 @@ Observação: há alguns casos em que os logs de fluxo do NSG associados às sua
 - Você tem um NSG na sub-rede do gateway de aplicativo
 - Você habilitou os logs de fluxo do NSG no NSG
 
-* [Como habilitar logs de fluxo de NSG](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
+* [Como habilitar logs de fluxo de NSG](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
-* [Como habilitar e usar a Análise de Tráfego](https://docs.microsoft.com/azure/network-watcher/traffic-analytics)
+* [Como habilitar e usar a Análise de Tráfego](../network-watcher/traffic-analytics.md)
 
-* [Entender a segurança de rede fornecida pela central de segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations)
+* [Entender a segurança de rede fornecida pela central de segurança do Azure](../security-center/security-center-network-recommendations.md)
 
-* [Perguntas frequentes para diagnóstico e log para Aplicativo Azure gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-faq#diagnostics-and-logging)
+* [Perguntas frequentes para diagnóstico e log para Aplicativo Azure gateway](./application-gateway-faq.yml#what-types-of-logs-does-application-gateway-provide)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -63,11 +63,11 @@ Observação: há alguns casos em que os logs de fluxo do NSG associados às sua
 
 **Diretrizes**: implante o WAF (firewall do aplicativo Web) do Azure na frente de aplicativos Web críticos para inspeção adicional do tráfego de entrada. O WAF (firewall do aplicativo Web) é um serviço (recurso do gateway de Aplicativo Azure) que fornece proteção centralizada de seus aplicativos Web contra explorações e vulnerabilidades comuns. O Azure WAF pode ajudar a proteger seus aplicativos Web do serviço de Azure App inspecionando o tráfego da Web de entrada para bloquear ataques como injeções de SQL, scripts entre sites, carregamentos de malware e ataques de DDoS. O WAF é baseado em regras dos conjuntos de regras de núcleo do OWASP (Open Web Application Security Project) 3.1 (somente WAF_v2), 3.0 e 2.2.9.
 
-* [Entender Aplicativo Azure recursos de gateway](https://docs.microsoft.com/azure/application-gateway/features)
+* [Entender Aplicativo Azure recursos de gateway](./features.md)
 
-* [Entender o Azure WAF](https://docs.microsoft.com/azure/web-application-firewall/ag/ag-overview)
+* [Entender o Azure WAF](../web-application-firewall/ag/ag-overview.md)
 
-* [Como implantar o Azure WAF](https://docs.microsoft.com/azure/web-application-firewall/ag/create-waf-policy-ag)
+* [Como implantar o Azure WAF](../web-application-firewall/ag/create-waf-policy-ag.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -77,9 +77,9 @@ Observação: há alguns casos em que os logs de fluxo do NSG associados às sua
 
 **Orientação**: habilite a proteção padrão de DDoS em suas redes virtuais do Azure associadas às suas instâncias de produção do Gateway de aplicativo Azure para proteção contra ataques de DDoS. Use a inteligência de ameaças integrada da central de segurança do Azure para negar comunicações com endereços IP mal-intencionados conhecidos.
 
-* [Como configurar a proteção contra DDoS](https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection)
+* [Como configurar a proteção contra DDoS](../ddos-protection/manage-ddos-protection.md)
 
-* [Compreender a inteligência contra ameaças integrada da Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer)
+* [Compreender a inteligência contra ameaças integrada da Central de Segurança do Azure](../security-center/azure-defender.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -94,13 +94,13 @@ Observação: há alguns casos em que os logs de fluxo do NSG associados às sua
 - Você tem um NSG na sub-rede do gateway de aplicativo
 - Você habilitou os logs de fluxo do NSG no NSG
 
-* [Como habilitar logs de fluxo de NSG](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
+* [Como habilitar logs de fluxo de NSG](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
-* [Como habilitar e usar a Análise de Tráfego](https://docs.microsoft.com/azure/network-watcher/traffic-analytics)
+* [Como habilitar e usar a Análise de Tráfego](../network-watcher/traffic-analytics.md)
 
-* [Entender a segurança de rede fornecida pela central de segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations)
+* [Entender a segurança de rede fornecida pela central de segurança do Azure](../security-center/security-center-network-recommendations.md)
 
-* [Perguntas frequentes para diagnóstico e log para Aplicativo Azure gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-faq#diagnostics-and-logging)
+* [Perguntas frequentes para diagnóstico e log para Aplicativo Azure gateway](./application-gateway-faq.yml#what-types-of-logs-does-application-gateway-provide)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -112,13 +112,13 @@ Observação: há alguns casos em que os logs de fluxo do NSG associados às sua
 
 Como alternativa, há várias opções do Marketplace, como o Barracuda WAF para Azure, que estão disponíveis no Azure Marketplace, que incluem recursos de IDS/IPS.
 
-* [Entender Aplicativo Azure recursos de gateway](https://docs.microsoft.com/azure/application-gateway/features)
+* [Entender Aplicativo Azure recursos de gateway](./features.md)
 
-* [Entender o Azure WAF](https://docs.microsoft.com/azure/web-application-firewall/ag/ag-overview)
+* [Entender o Azure WAF](../web-application-firewall/ag/ag-overview.md)
 
-* [Como implantar o Azure WAF](https://docs.microsoft.com/azure/web-application-firewall/ag/create-waf-policy-ag)
+* [Como implantar o Azure WAF](../web-application-firewall/ag/create-waf-policy-ag.md)
 
-* [Entender o serviço de nuvem Barracuda WAF](https://docs.microsoft.com/azure/app-service/environment/app-service-app-service-environment-web-application-firewall#configuring-your-barracuda-waf-cloud-service)
+* [Entender o serviço de nuvem Barracuda WAF](../app-service/environment/app-service-app-service-environment-web-application-firewall.md#configuring-your-barracuda-waf-cloud-service)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -128,11 +128,11 @@ Como alternativa, há várias opções do Marketplace, como o Barracuda WAF para
 
 **Diretrizes**: implante o Gateway de aplicativo Azure para aplicativos Web com HTTPS/SSL habilitado para certificados confiáveis.
 
-* [Como implantar o gateway de aplicativo](https://docs.microsoft.com/azure/application-gateway/quick-create-portal)
+* [Como implantar o gateway de aplicativo](./quick-create-portal.md)
 
-* [Como configurar o gateway de aplicativo para usar HTTPS](https://docs.microsoft.com/azure/application-gateway/create-ssl-portal)
+* [Como configurar o gateway de aplicativo para usar HTTPS](./create-ssl-portal.md)
 
-* [Entender o balanceamento de carga de camada 7 com gateways de aplicativo Web do Azure](https://docs.microsoft.com/azure/application-gateway/overview)
+* [Entender o balanceamento de carga de camada 7 com gateways de aplicativo Web do Azure](./overview.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -144,9 +144,9 @@ Como alternativa, há várias opções do Marketplace, como o Barracuda WAF para
 
 Para os NSGs (grupos de segurança de rede) associados às suas sub-redes de gateway de Aplicativo Azure, você deve permitir o tráfego de entrada na Internet nas portas TCP 65503-65534 para o SKU do gateway de aplicativo v1 e as portas TCP 65200-65535 para a SKU V2 com a sub-rede de destino como qualquer e origem como a marca de serviço Gatewaymanager. Esse intervalo de porta é necessário para a comunicação da infraestrutura do Azure. Essas portas são protegidas (bloqueadas) pelos certificados do Azure. Entidades externas, incluindo os clientes desses gateways, não podem se comunicar nesses pontos de extremidade.
 
-* [Entender e usar marcas de serviço](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)
+* [Entender e usar marcas de serviço](../virtual-network/service-tags-overview.md)
 
-* [Visão geral da configuração do gateway de Aplicativo Azure](https://docs.microsoft.com/azure/application-gateway/configuration-overview)
+* [Visão geral da configuração do gateway de Aplicativo Azure](./configuration-overview.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -156,11 +156,11 @@ Para os NSGs (grupos de segurança de rede) associados às suas sub-redes de gat
 
 **Orientação**: definir e implementar configurações de segurança padrão para as configurações de rede relacionadas às implantações do aplicativo Azure gateway. Use Azure Policy aliases no namespace "Microsoft. Network" para criar políticas personalizadas para auditar ou impor a configuração de rede de seus gateways de Aplicativo Azure, redes virtuais do Azure e grupos de segurança de rede. Você também pode fazer uso da definição de política interna.
 
-Você também pode usar o Azure Blueprints para simplificar implantações do Azure de grande escala por meio do empacotamento de artefatos de ambiente importantes, como modelos do Azure Resource Manager, RBAC (controle de acesso baseado em função) e políticas em uma definição de blueprint. É fácil aplicar o blueprint a novas assinaturas e novos ambientes e ajustar o controle e o gerenciamento por meio do controle de versão.
+Você também pode usar plantas do Azure para simplificar implantações do Azure de grande escala ao empacotar artefatos de ambiente-chave, como modelos de Azure Resource Manager, controle de acesso baseado em função do Azure (RBAC do Azure) e políticas em uma única definição de Blueprint. É fácil aplicar o blueprint a novas assinaturas e novos ambientes e ajustar o controle e o gerenciamento por meio do controle de versão.
 
-* [Como configurar e gerenciar o Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Como configurar e gerenciar o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-* [Como criar um blueprint do Azure](https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal)
+* [Como criar um blueprint do Azure](../governance/blueprints/create-blueprint-portal.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -174,11 +174,11 @@ Use qualquer uma das definições de política internas do Azure relacionadas à
 
 Você pode usar Azure PowerShell ou CLI do Azure para pesquisar ou executar ações em recursos com base em suas marcas.
 
-* [Como criar e usar marcas](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [Como criar e usar marcas](../azure-resource-manager/management/tag-resources.md)
 
-* [Como criar uma Rede Virtual](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
+* [Como criar uma Rede Virtual](../virtual-network/quick-create-portal.md)
 
-* [Como criar um NSG com uma configuração de segurança](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
+* [Como criar um NSG com uma configuração de segurança](../virtual-network/tutorial-filter-network-traffic.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -188,9 +188,9 @@ Você pode usar Azure PowerShell ou CLI do Azure para pesquisar ou executar aç�
 
 **Orientação**: Use o log de atividades do Azure para monitorar as configurações de recursos de rede e detectar alterações de configurações de rede e recursos relacionados às implantações do aplicativo Azure gateway. Crie alertas no Azure Monitor que serão disparados quando ocorrerem alterações em configurações de rede ou recursos críticos.
 
-* [Como exibir e recuperar eventos do log de atividades do Azure](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view)
+* [Como exibir e recuperar eventos do log de atividades do Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
-* [Como criar alertas no Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+* [Como criar alertas no Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -198,7 +198,7 @@ Você pode usar Azure PowerShell ou CLI do Azure para pesquisar ou executar aç�
 
 ## <a name="logging-and-monitoring"></a>Log e monitoramento
 
-*Para saber mais, confira [Controle de segurança: Registro em log e monitoramento](https://docs.microsoft.com/azure/security/benchmarks/security-control-logging-monitoring).*
+*Para saber mais, confira [Controle de segurança: Registro em log e monitoramento](../security/benchmarks/security-control-logging-monitoring.md).*
 
 ### <a name="21-use-approved-time-synchronization-sources"></a>2.1: Usar fontes de sincronização de tempo aprovadas
 
@@ -216,13 +216,13 @@ Além dos logs de atividade, você pode definir configurações de diagnóstico 
 
 Aplicativo Azure gateway também oferece integração interna com o Aplicativo Azure insights. Application Insights coleta dados de log, desempenho e erro. Application Insights detecta automaticamente anomalias de desempenho e inclui ferramentas de análise poderosas para ajudá-lo a diagnosticar problemas e a entender como seus aplicativos Web estão sendo usados. Você pode habilitar a exportação contínua para exportar telemetria de Application Insights para um local centralizado para manter os dados por mais tempo do que o período de retenção padrão.
 
-* [Como habilitar as configurações de diagnóstico para o log de atividades do Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy)
+* [Como habilitar as configurações de diagnóstico para o log de atividades do Azure](../azure-monitor/platform/activity-log.md)
 
-* [Como habilitar as configurações de diagnóstico para Aplicativo Azure gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics)
+* [Como habilitar as configurações de diagnóstico para Aplicativo Azure gateway](./application-gateway-diagnostics.md)
 
-* [Como habilitar Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview)
+* [Como habilitar Application Insights](../azure-monitor/app/app-insights-overview.md)
 
-* [Como configurar a exportação contínua](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry)
+* [Como configurar a exportação contínua](../azure-monitor/app/export-telemetry.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -236,13 +236,13 @@ Além dos logs de atividade, você pode definir configurações de diagnóstico 
 
 Aplicativo Azure gateway também oferece integração interna com o Aplicativo Azure insights. Application Insights coleta dados de log, desempenho e erro. Application Insights detecta automaticamente anomalias de desempenho e inclui ferramentas de análise poderosas para ajudá-lo a diagnosticar problemas e a entender como seus aplicativos Web estão sendo usados. Você pode habilitar a exportação contínua para exportar telemetria de Application Insights para um local centralizado para manter os dados por mais tempo do que o período de retenção padrão.
 
-* [Como habilitar as configurações de diagnóstico para o log de atividades do Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy)
+* [Como habilitar as configurações de diagnóstico para o log de atividades do Azure](../azure-monitor/platform/activity-log.md)
 
-* [Como habilitar as configurações de diagnóstico para Aplicativo Azure gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics)
+* [Como habilitar as configurações de diagnóstico para Aplicativo Azure gateway](./application-gateway-diagnostics.md)
 
-* [Como habilitar Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview)
+* [Como habilitar Application Insights](../azure-monitor/app/app-insights-overview.md)
 
-* [Como configurar a exportação contínua](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry)
+* [Como configurar a exportação contínua](../azure-monitor/app/export-telemetry.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -260,7 +260,7 @@ Aplicativo Azure gateway também oferece integração interna com o Aplicativo A
 
 **Diretriz**: No Azure Monitor, defina o período de retenção do workspace do Log Analytics de acordo com os regulamentos de conformidade da sua organização. Use contas de Armazenamento do Microsoft Azure para armazenamentos de longo prazo/arquivamento.
 
-* [Como definir parâmetros de retenção de log para workspaces do Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+* [Como definir parâmetros de retenção de log para workspaces do Log Analytics](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -274,11 +274,11 @@ Use Azure Monitor para redes para uma visão abrangente da integridade e das mé
 
 Opcionalmente, você pode habilitar e integrar dados ao Azure Sentinel ou a um SIEM de terceiros.
 
-* [Como habilitar as configurações de diagnóstico para o log de atividades do Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy)
+* [Como habilitar as configurações de diagnóstico para o log de atividades do Azure](../azure-monitor/platform/activity-log.md)
 
-* [Como habilitar as configurações de diagnóstico para Aplicativo Azure gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics)
+* [Como habilitar as configurações de diagnóstico para Aplicativo Azure gateway](./application-gateway-diagnostics.md)
 
-* [Como usar Azure Monitor para redes](https://docs.microsoft.com/azure/azure-monitor/insights/network-insights-overview)
+* [Como usar Azure Monitor para redes](../azure-monitor/insights/network-insights-overview.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -292,15 +292,15 @@ Habilite as configurações de diagnóstico do log de atividades do Azure, bem c
 
 Use Azure Monitor para redes para uma visão abrangente da integridade e das métricas de todos os recursos de rede implantados, incluindo seus gateways de Aplicativo Azure. No console do Azure Monitor para redes, você pode exibir e criar alertas para Aplicativo Azure gateway.
 
-* [Como implantar o Azure WAF](https://docs.microsoft.com/azure/web-application-firewall/ag/create-waf-policy-ag)
+* [Como implantar o Azure WAF](../web-application-firewall/ag/create-waf-policy-ag.md)
 
-* [Como habilitar as configurações de diagnóstico para o log de atividades do Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy)
+* [Como habilitar as configurações de diagnóstico para o log de atividades do Azure](../azure-monitor/platform/activity-log.md)
 
-* [Como habilitar as configurações de diagnóstico para Aplicativo Azure gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics)
+* [Como habilitar as configurações de diagnóstico para Aplicativo Azure gateway](./application-gateway-diagnostics.md)
 
-* [Como usar Azure Monitor para redes](https://docs.microsoft.com/azure/azure-monitor/insights/network-insights-overview)
+* [Como usar Azure Monitor para redes](../azure-monitor/insights/network-insights-overview.md)
 
-* [Como criar alertas no Azure](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response)
+* [Como criar alertas no Azure](../azure-monitor/learn/tutorial-response.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -312,9 +312,9 @@ Use Azure Monitor para redes para uma visão abrangente da integridade e das mé
 
 Defina as configurações de diagnóstico para suas implantações do Aplicativo Azure gateway. as configurações de diagnóstico são usadas para configurar a exportação de streaming de logs e métricas de plataforma para um recurso para o destino de sua escolha (contas de armazenamento, hubs de eventos e Log Analytics).
 
-* [Como implantar o Azure WAF](https://docs.microsoft.com/azure/web-application-firewall/ag/create-waf-policy-ag)
+* [Como implantar o Azure WAF](../web-application-firewall/ag/create-waf-policy-ag.md)
 
-* [Como definir configurações de diagnóstico para o Azure WAF](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics)
+* [Como definir configurações de diagnóstico para o Azure WAF](./application-gateway-diagnostics.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -338,15 +338,15 @@ Defina as configurações de diagnóstico para suas implantações do Aplicativo
 
 ## <a name="identity-and-access-control"></a>Identidade e controle de acesso
 
-*Para saber mais, confira [Controle de segurança: Identidade e controle de acesso](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control).*
+*Para saber mais, confira [Controle de segurança: Identidade e controle de acesso](../security/benchmarks/security-control-identity-access-control.md).*
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: Manter um inventário de contas administrativas
 
 **Diretrizes**: o Azure Active Directory (AD) tem funções internas que devem ser explicitamente atribuídas e que podem ser consultadas. Use o módulo do PowerShell do Azure AD para executar consultas ad hoc para descobrir contas que são membros de grupos administrativos.
 
-* [Como obter uma função de diretório no Azure AD com o PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+* [Como obter uma função de diretório no Azure AD com o PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
-* [Como obter membros de uma função de diretório no Azure AD com o PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+* [Como obter membros de uma função de diretório no Azure AD com o PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -369,9 +369,9 @@ Além disso, para ajudá-lo a controlar contas administrativas dedicadas, você 
 - As contas preteridas com permissões de proprietário devem ser removidas de sua assinatura
 - As contas externas com permissões de proprietário devem ser removidas de sua assinatura
 
-* [Como usar a Central de Segurança do Azure para monitorar a identidade e o acesso (versão prévia)](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+* [Como usar a Central de Segurança do Azure para monitorar a identidade e o acesso (versão prévia)](../security-center/security-center-identity-access.md)
 
-* [Como usar o Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Como usar o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -381,11 +381,11 @@ Além disso, para ajudá-lo a controlar contas administrativas dedicadas, você 
 
 **Diretrizes**: Use um registro de aplicativo do Azure (entidade de serviço) para recuperar um token que pode ser usado para interagir com seus gateways de aplicativo Azure por meio de chamadas de API.
 
-* [Como chamar as APIs REST do Azure](https://docs.microsoft.com/rest/api/azure/#how-to-call-azure-rest-apis-with-postman)
+* [Como chamar as APIs REST do Azure](/rest/api/azure/#how-to-call-azure-rest-apis-with-postman)
 
-* [Como registrar seu aplicativo cliente (entidade de serviço) com o Azure AD](https://docs.microsoft.com/rest/api/azure/#register-your-client-application-with-azure-ad)
+* [Como registrar seu aplicativo cliente (entidade de serviço) com o Azure AD](/rest/api/azure/#register-your-client-application-with-azure-ad)
 
-* [Informações da API dos serviços de recuperação do Azure](https://docs.microsoft.com/rest/api/recoveryservices/)
+* [Informações da API dos serviços de recuperação do Azure](/rest/api/recoveryservices/)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -395,9 +395,9 @@ Além disso, para ajudá-lo a controlar contas administrativas dedicadas, você 
 
 **Diretrizes**: Habilite a MFA do Azure AD e siga as recomendações de gerenciamento de acesso e identidade da Central de Segurança do Azure.
 
-* [Como habilitar a MFA no Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+* [Como habilitar a MFA no Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
-* [Como monitorar identidade e acesso na Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+* [Como monitorar identidade e acesso na Central de Segurança do Azure](../security-center/security-center-identity-access.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -407,9 +407,9 @@ Além disso, para ajudá-lo a controlar contas administrativas dedicadas, você 
 
 **Diretrizes**: Use PAWs (estações de trabalho com acesso privilegiado) com a MFA configurada para fazer logon e configurar recursos do Azure.
 
-* [Saiba mais sobre Estações de Trabalho com Acesso Privilegiado](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+* [Saiba mais sobre Estações de Trabalho com Acesso Privilegiado](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
-* [Como habilitar a MFA no Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+* [Como habilitar a MFA no Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -419,9 +419,9 @@ Além disso, para ajudá-lo a controlar contas administrativas dedicadas, você 
 
 **Diretrizes**: Use Azure Active Directory relatórios de segurança para a geração de logs e alertas quando atividades suspeitas ou inseguras ocorrerem no ambiente. Use a Central de Segurança do Azure para monitorar a atividade de identidade e acesso.
 
-* [Como identificar usuários do Azure AD sinalizados em relação a atividades arriscadas](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-user-at-risk)
+* [Como identificar usuários do Azure AD sinalizados em relação a atividades arriscadas](../active-directory/identity-protection/overview-identity-protection.md)
 
-* [Como monitorar a atividade de identidade e acesso dos usuários na Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+* [Como monitorar a atividade de identidade e acesso dos usuários na Central de Segurança do Azure](../security-center/security-center-identity-access.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -431,7 +431,7 @@ Além disso, para ajudá-lo a controlar contas administrativas dedicadas, você 
 
 **Diretrizes**: Use localizações nomeadas de acesso condicional para permitir o acesso somente de agrupamentos lógicos de intervalos de endereços IP ou de países/regiões específicos.
 
-* [Como configurar localizações nomeadas no Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
+* [Como configurar localizações nomeadas no Azure](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -441,7 +441,7 @@ Além disso, para ajudá-lo a controlar contas administrativas dedicadas, você 
 
 **Diretrizes**: Use o AAD (Azure Active Directory) como o sistema de autenticação e autorização central. O AAD protege os dados usando criptografia forte para dados em repouso e em trânsito. O AAD também Salts, hashes e armazena com segurança as credenciais do usuário.
 
-* [Como criar e configurar uma instância do AAD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
+* [Como criar e configurar uma instância do AAD](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -451,9 +451,9 @@ Além disso, para ajudá-lo a controlar contas administrativas dedicadas, você 
 
 **Diretrizes**: O Azure AD fornece logs para ajudar a descobrir contas obsoletas. Além disso, use as revisões de acesso de identidade do Azure para gerenciar com eficiência as associações de grupo, o acesso aos aplicativos empresariais e as atribuições de função. O acesso de usuários pode ser examinado regularmente para garantir que somente os usuários corretos tenham acesso contínuo.
 
-* [Entender os relatórios do Azure AD](https://docs.microsoft.com/azure/active-directory/reports-monitoring/)
+* [Entender os relatórios do Azure AD](../active-directory/reports-monitoring/index.yml)
 
-* [Como usar as revisões de acesso de identidade do Azure](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)
+* [Como usar as revisões de acesso de identidade do Azure](../active-directory/governance/access-reviews-overview.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -465,7 +465,7 @@ Além disso, para ajudá-lo a controlar contas administrativas dedicadas, você 
 
 Você pode simplificar esse processo criando configurações de diagnóstico para Azure Active Directory contas de usuário e enviando os logs de auditoria e os logs de entrada para um espaço de trabalho Log Analytics. Você pode configurar os alertas desejados no workspace do Log Analytics.
 
-* [Como integrar os logs de atividades do Azure ao Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+* [Como integrar os logs de atividades do Azure ao Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -475,11 +475,11 @@ Você pode simplificar esse processo criando configurações de diagnóstico par
 
 **Diretrizes**: Use Azure ad Identity Protection e recursos de detecção de risco para configurar respostas automatizadas para ações suspeitas detectadas relacionadas a identidades de usuário. Você também pode ingerir dados no Azure Sentinel para uma investigação mais aprofundada.
 
-* [Como exibir entradas suspeitas do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+* [Como exibir entradas suspeitas do Azure Active Directory](../active-directory/identity-protection/overview-identity-protection.md)
 
-* [Como configurar e habilitar políticas de risco de proteção de identidade](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies)
+* [Como configurar e habilitar políticas de risco de proteção de identidade](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
-* [Como integrar o Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+* [Como integrar o Azure Sentinel](../sentinel/quickstart-onboard.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -489,7 +489,7 @@ Você pode simplificar esse processo criando configurações de diagnóstico par
 
 **Orientação**: não aplicável; Sistema de Proteção de Dados do Cliente não é aplicável a Aplicativo Azure gateway.
 
-* [Lista de serviços suportados do Sistema de Proteção de Dados do Cliente](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability)
+* [Lista de serviços suportados do Sistema de Proteção de Dados do Cliente](../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-general-availability)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -497,13 +497,13 @@ Você pode simplificar esse processo criando configurações de diagnóstico par
 
 ## <a name="data-protection"></a>Proteção de dados
 
-*Para saber mais, confira [Controle de segurança: Proteção de dados](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-protection).*
+*Para saber mais, confira [Controle de segurança: Proteção de dados](../security/benchmarks/security-control-data-protection.md).*
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1: Manter um inventário de informações confidenciais
 
 **Diretrizes**: use marcas para auxiliar no rastreamento de recursos do Azure que armazenam ou processam informações confidenciais.
 
-* [Como criar e usar marcas](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [Como criar e usar marcas](../azure-resource-manager/management/tag-resources.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -513,15 +513,15 @@ Você pode simplificar esse processo criando configurações de diagnóstico par
 
 **Diretriz**: implemente assinaturas e/ou grupos de gerenciamento separados para desenvolvimento, teste e produção. Certifique-se de que todas as implantações de sub-rede de gateway Aplicativo Azure rede virtual tenham um NSG (grupo de segurança de rede) aplicado com controles de acesso à rede específicos às portas e fontes confiáveis do seu aplicativo. Embora os grupos de segurança de rede tenham suporte no gateway Aplicativo Azure, há algumas restrições e requisitos que devem ser cumpridos para que o NSG e o gateway de Aplicativo Azure funcionem conforme o esperado.
 
-* [Como criar assinaturas adicionais do Azure](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+* [Como criar assinaturas adicionais do Azure](../cost-management-billing/manage/create-subscription.md)
 
-* [Como criar Grupos de Gerenciamento](https://docs.microsoft.com/azure/governance/management-groups/create)
+* [Como criar Grupos de Gerenciamento](../governance/management-groups/create-management-group-portal.md)
 
-* [Como criar e usar marcas](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [Como criar e usar marcas](../azure-resource-manager/management/tag-resources.md)
 
-* [Entenda as restrições e os requisitos em relação ao uso do NSGs com o gateway Aplicativo Azure](https://docs.microsoft.com/azure/application-gateway/configuration-overview)
+* [Entenda as restrições e os requisitos em relação ao uso do NSGs com o gateway Aplicativo Azure](./configuration-overview.md)
 
-* [Como criar um NSG com uma configuração de segurança](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
+* [Como criar um NSG com uma configuração de segurança](../virtual-network/tutorial-filter-network-traffic.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -531,9 +531,9 @@ Você pode simplificar esse processo criando configurações de diagnóstico par
 
 **Orientação**: Verifique se todas as implantações de sub-rede de gateway aplicativo Azure rede virtual têm um NSG (grupo de segurança de rede) aplicado com controles de acesso à rede específicos para as portas e fontes confiáveis do seu aplicativo. Restrinja o tráfego de saída para apenas locais confiáveis para ajudar a mitigar a ameaça de vazamento de dados. Embora os grupos de segurança de rede tenham suporte no gateway Aplicativo Azure, há algumas restrições e requisitos que devem ser cumpridos para que o NSG e o gateway de Aplicativo Azure funcionem conforme o esperado.
 
-* [Entenda as restrições e os requisitos em relação ao uso do NSGs com o gateway Aplicativo Azure](https://docs.microsoft.com/azure/application-gateway/configuration-overview)
+* [Entenda as restrições e os requisitos em relação ao uso do NSGs com o gateway Aplicativo Azure](./configuration-overview.md)
 
-* [Como criar um NSG com uma configuração de segurança](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
+* [Como criar um NSG com uma configuração de segurança](../virtual-network/tutorial-filter-network-traffic.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -543,7 +543,7 @@ Você pode simplificar esse processo criando configurações de diagnóstico par
 
 **Diretrizes**: Configure a criptografia de ponta a ponta com TLS para seus gateways de aplicativo Azure.
 
-* [Como configurar o TLS de ponta a ponta usando o gateway de Aplicativo Azure](https://docs.microsoft.com/azure/application-gateway/end-to-end-ssl-portal)
+* [Como configurar o TLS de ponta a ponta usando o gateway de Aplicativo Azure](./end-to-end-ssl-portal.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -555,17 +555,17 @@ Você pode simplificar esse processo criando configurações de diagnóstico par
 
 A Microsoft gerencia a infraestrutura subjacente para Aplicativo Azure gateway e implementou controles estritos para evitar a perda ou a exposição dos dados do cliente.
 
-* [Entender a proteção de dados do cliente no Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+* [Entender a proteção de dados do cliente no Azure](../security/fundamentals/protection-customer-data.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: usar o controle de acesso baseado em função para controlar o acesso aos recursos
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: usar o RBAC do Azure para controlar o acesso a recursos
 
-**Orientação**: usar o RBAC (controle de acesso baseado em função) do Azure Active Directory (AD) para controlar o acesso ao plano de controle de gateway aplicativo Azure (o portal do Azure).
+**Orientação**: Use o controle de acesso baseado em função do Azure (RBAC do Azure) para controlar o acesso ao plano de controle de gateway aplicativo Azure (o portal do Azure).
 
-* [Como configurar o RBAC no Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
+* [Como configurar o RBAC do Azure](../role-based-access-control/role-assignments-portal.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -591,7 +591,7 @@ A Microsoft gerencia a infraestrutura subjacente para Aplicativo Azure gateway e
 
 **Diretrizes**: Use Azure monitor com o log de atividades do Azure para criar alertas para quando as alterações ocorrerem nas instâncias de gateway aplicativo Azure de produção, bem como outros recursos críticos ou relacionados.
 
-* [Como criar alertas para eventos do log de atividades do Azure](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+* [Como criar alertas para eventos do log de atividades do Azure](../azure-monitor/platform/alerts-activity-log.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -599,7 +599,7 @@ A Microsoft gerencia a infraestrutura subjacente para Aplicativo Azure gateway e
 
 ## <a name="vulnerability-management"></a>Gerenciamento de vulnerabilidades
 
-*Para saber mais, confira [Controle de segurança: Gerenciamento de vulnerabilidades](https://docs.microsoft.com/azure/security/benchmarks/security-control-vulnerability-management).*
+*Para saber mais, confira [Controle de segurança: Gerenciamento de vulnerabilidades](../security/benchmarks/security-control-vulnerability-management.md).*
 
 ### <a name="51-run-automated-vulnerability-scanning-tools"></a>5.1: Executar ferramentas automatizadas de verificação de vulnerabilidade
 
@@ -607,7 +607,7 @@ A Microsoft gerencia a infraestrutura subjacente para Aplicativo Azure gateway e
 
 Plataforma subjacente verificada e corrigida pela Microsoft. Examine os controles de segurança disponíveis para Aplicativo Azure gateway para reduzir as vulnerabilidades relacionadas à configuração de serviço.
 
-* [Cobertura de recurso (incluindo avaliação de vulnerabilidade) para serviços de PaaS do Azure](https://docs.microsoft.com/azure/security-center/features-paas)
+* [Cobertura de recurso (incluindo avaliação de vulnerabilidade) para serviços de PaaS do Azure](../security-center/features-paas.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -635,7 +635,7 @@ Plataforma subjacente verificada e corrigida pela Microsoft. Examine os controle
 
 Plataforma subjacente verificada e corrigida pela Microsoft. Examine os controles de segurança disponíveis para Aplicativo Azure gateway para reduzir as vulnerabilidades relacionadas à configuração de serviço.
 
-* [Cobertura de recurso (incluindo avaliação de vulnerabilidade) para serviços de PaaS do Azure](https://docs.microsoft.com/azure/security-center/features-paas)
+* [Cobertura de recurso (incluindo avaliação de vulnerabilidade) para serviços de PaaS do Azure](../security-center/features-paas.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -647,7 +647,7 @@ Plataforma subjacente verificada e corrigida pela Microsoft. Examine os controle
 
 Plataforma subjacente verificada e corrigida pela Microsoft. Examine os controles de segurança disponíveis para Aplicativo Azure gateway para reduzir as vulnerabilidades relacionadas à configuração de serviço.
 
-* [Cobertura de recurso (incluindo avaliação de vulnerabilidade) para serviços de PaaS do Azure](https://docs.microsoft.com/azure/security-center/features-paas)
+* [Cobertura de recurso (incluindo avaliação de vulnerabilidade) para serviços de PaaS do Azure](../security-center/features-paas.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -655,7 +655,7 @@ Plataforma subjacente verificada e corrigida pela Microsoft. Examine os controle
 
 ## <a name="inventory-and-asset-management"></a>Inventário e gerenciamento de ativos
 
-*Para saber mais, confira [Controle de segurança: Inventário e gerenciamento de ativos](https://docs.microsoft.com/azure/security/benchmarks/security-control-inventory-asset-management).*
+*Para saber mais, confira [Controle de segurança: Inventário e gerenciamento de ativos](../security/benchmarks/security-control-inventory-asset-management.md).*
 
 ### <a name="61-use-automated-asset-discovery-solution"></a>6,1: usar solução de descoberta de ativos automatizada
 
@@ -663,11 +663,11 @@ Plataforma subjacente verificada e corrigida pela Microsoft. Examine os controle
 
 Embora os recursos clássicos do Azure possam ser descobertos por meio do Resource Graph, é altamente recomendável criar e usar recursos do Azure Resource Manager no futuro.
 
-* [Como criar consultas com o Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+* [Como criar consultas com o Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-* [Como exibir suas assinaturas do Azure](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+* [Como exibir suas assinaturas do Azure](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
 
-* [Entender o RBAC do Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)
+* [Entender o RBAC do Azure](../role-based-access-control/overview.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -677,7 +677,7 @@ Embora os recursos clássicos do Azure possam ser descobertos por meio do Resour
 
 **Diretrizes**: Aplique marcas aos recursos do Azure, fornecendo metadados para organizá-los logicamente em uma taxonomia.
 
-* [Como criar e usar marcas](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [Como criar e usar Marcas](../azure-resource-manager/management/tag-resources.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -691,11 +691,11 @@ Além disso, use o Azure Policy para colocar restrições nos tipos de recursos 
 - Tipos de recursos não permitidos
 - Tipos de recursos permitidos
 
-* [Como criar assinaturas adicionais do Azure](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+* [Como criar assinaturas adicionais do Azure](../cost-management-billing/manage/create-subscription.md)
 
-* [Como criar Grupos de Gerenciamento](https://docs.microsoft.com/azure/governance/management-groups/create)
+* [Como criar Grupos de Gerenciamento](../governance/management-groups/create-management-group-portal.md)
 
-* [Como criar e usar marcas](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [Como criar e usar marcas](../azure-resource-manager/management/tag-resources.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -715,9 +715,9 @@ Além disso, use o Azure Policy para colocar restrições nos tipos de recursos 
 
 Use o Azure Resource Graph para consultar/descobrir recursos em suas assinaturas. Verifique se todos os recursos do Azure presentes no ambiente foram aprovados.
 
-* [Como configurar e gerenciar o Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Como configurar e gerenciar o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-* [Como criar consultas com o Azure Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+* [Como criar consultas com o Azure Graph](../governance/resource-graph/first-query-portal.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -753,9 +753,9 @@ Use o Azure Resource Graph para consultar/descobrir recursos em suas assinaturas
 - Tipos de recursos não permitidos
 - Tipos de recursos permitidos
 
-* [Como configurar e gerenciar o Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Como configurar e gerenciar o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-* [Como negar um tipo de recurso específico com o Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types)
+* [Como negar um tipo de recurso específico com o Azure Policy](../governance/policy/samples/index.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -773,7 +773,7 @@ Use o Azure Resource Graph para consultar/descobrir recursos em suas assinaturas
 
 **Diretriz**: Configure o acesso condicional do Azure para limitar a capacidade dos usuários de interagir com o Azure Resource Manager configurando "Bloquear acesso" para o aplicativo de “Gerenciamento do Microsoft Azure”.
 
-* [Como configurar o acesso condicional para bloquear o acesso ao Azure Resource Manager](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
+* [Como configurar o acesso condicional para bloquear o acesso ao Azure Resource Manager](../role-based-access-control/conditional-access-azure-management.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -791,15 +791,15 @@ Use o Azure Resource Graph para consultar/descobrir recursos em suas assinaturas
 
 **Diretriz**: implemente assinaturas e/ou grupos de gerenciamento separados para desenvolvimento, teste e produção. Certifique-se de que todas as implantações de sub-rede de gateway Aplicativo Azure rede virtual tenham um NSG (grupo de segurança de rede) aplicado com controles de acesso à rede específicos às portas e fontes confiáveis do seu aplicativo. Embora os grupos de segurança de rede tenham suporte no gateway Aplicativo Azure, há algumas restrições e requisitos que devem ser cumpridos para que o NSG e o gateway de Aplicativo Azure funcionem conforme o esperado.
 
-* [Como criar assinaturas adicionais do Azure](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+* [Como criar assinaturas adicionais do Azure](../cost-management-billing/manage/create-subscription.md)
 
-* [Como criar Grupos de Gerenciamento](https://docs.microsoft.com/azure/governance/management-groups/create)
+* [Como criar Grupos de Gerenciamento](../governance/management-groups/create-management-group-portal.md)
 
-* [Como criar e usar marcas](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [Como criar e usar marcas](../azure-resource-manager/management/tag-resources.md)
 
-* [Entenda as restrições e os requisitos em relação ao uso do NSGs com o gateway Aplicativo Azure](https://docs.microsoft.com/azure/application-gateway/configuration-overview)
+* [Entenda as restrições e os requisitos em relação ao uso do NSGs com o gateway Aplicativo Azure](./configuration-overview.md)
 
-* [Como criar um NSG com uma configuração de segurança](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
+* [Como criar um NSG com uma configuração de segurança](../virtual-network/tutorial-filter-network-traffic.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -807,15 +807,15 @@ Use o Azure Resource Graph para consultar/descobrir recursos em suas assinaturas
 
 ## <a name="secure-configuration"></a>Configuração segura
 
-*Para saber mais, confira [Controle de segurança: Configuração segura](https://docs.microsoft.com/azure/security/benchmarks/security-control-secure-configuration).*
+*Para saber mais, confira [Controle de segurança: Configuração segura](../security/benchmarks/security-control-secure-configuration.md).*
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7.1: Estabelecer configurações seguras para todos os recursos do Azure
 
 **Orientação**: definir e implementar configurações de segurança padrão para as configurações de rede relacionadas às implantações do aplicativo Azure gateway. Use Azure Policy aliases no namespace "Microsoft. Network" para criar políticas personalizadas para auditar ou impor a configuração de rede de seus gateways de Aplicativo Azure, redes virtuais do Azure e grupos de segurança de rede. Você também pode fazer uso da definição de política interna.
 
-* [Como exibir os aliases disponíveis do Azure Policy](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+* [Como exibir os aliases disponíveis do Azure Policy](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
-* [Como configurar e gerenciar o Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Como configurar e gerenciar o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -833,9 +833,9 @@ Use o Azure Resource Graph para consultar/descobrir recursos em suas assinaturas
 
 **Orientação**: Use a política do Azure [negar] e [implantar se não existir] para impor configurações seguras em seus recursos do Azure.
 
-* [Como configurar e gerenciar o Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Como configurar e gerenciar o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-* [Compreender os efeitos do Azure Policy](https://docs.microsoft.com/azure/governance/policy/concepts/effects)
+* [Compreender os efeitos do Azure Policy](../governance/policy/concepts/effects.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -853,9 +853,9 @@ Use o Azure Resource Graph para consultar/descobrir recursos em suas assinaturas
 
 **Diretrizes**: Se você estiver usando definições personalizadas do Azure Policy, use o Azure DevOps ou Azure Repos para armazenar e gerenciar seu código com segurança.
 
-* [Como armazenar código no Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+* [Como armazenar código no Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
-* [Documentação do Azure Repos](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)
+* [Documentação do Azure Repos](/azure/devops/repos/index?view=azure-devops)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -873,7 +873,7 @@ Use o Azure Resource Graph para consultar/descobrir recursos em suas assinaturas
 
 **Orientação**: Use definições de Azure Policy internas, bem como aliases de Azure Policy no namespace "Microsoft. Network" para criar políticas personalizadas para alertar, auditar e impor configurações do sistema. Desenvolva também um processo e um pipeline para gerenciar exceções de política.
 
-* [Como configurar e gerenciar o Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Como configurar e gerenciar o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -891,7 +891,7 @@ Use o Azure Resource Graph para consultar/descobrir recursos em suas assinaturas
 
 **Orientação**: Use definições de Azure Policy internas, bem como aliases de Azure Policy no namespace "Microsoft. Network" para criar políticas personalizadas para alertar, auditar e impor configurações do sistema. Use a política do Azure [auditoria], [negar] e [implantar se não existir] para impor automaticamente as configurações para os recursos do Azure.
 
-* [Como configurar e gerenciar o Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Como configurar e gerenciar o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -911,7 +911,7 @@ Use o Azure Resource Graph para consultar/descobrir recursos em suas assinaturas
 
 Use Azure Key Vault para armazenar certificados com segurança. Azure Key Vault é um repositório de segredos gerenciado por plataforma que você pode usar para proteger segredos, chaves e certificados SSL. O Gateway de Aplicativo v2 do Azure dá suporte à integração com o Key Vault para certificados de servidor que estejam anexados a ouvintes habilitados para HTTPS. Esse suporte é limitado ao SKU do Gateway de Aplicativo v2.
 
-* [Como configurar a terminação SSL com Key Vault certificados usando Azure PowerShell](https://docs.microsoft.com/azure/application-gateway/configure-keyvault-ps)
+* [Como configurar a terminação SSL com Key Vault certificados usando Azure PowerShell](./configure-keyvault-ps.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -923,7 +923,7 @@ Use Azure Key Vault para armazenar certificados com segurança. Azure Key Vault 
 
 Use Azure Key Vault para armazenar certificados com segurança. Azure Key Vault é um repositório de segredos gerenciado por plataforma que você pode usar para proteger segredos, chaves e certificados SSL. O Gateway de Aplicativo v2 do Azure dá suporte à integração com o Key Vault para certificados de servidor que estejam anexados a ouvintes habilitados para HTTPS. Esse suporte é limitado ao SKU do Gateway de Aplicativo v2.
 
-* [Como configurar a terminação SSL com Key Vault certificados usando Azure PowerShell](https://docs.microsoft.com/azure/application-gateway/configure-keyvault-ps)
+* [Como configurar a terminação SSL com Key Vault certificados usando Azure PowerShell](./configure-keyvault-ps.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -941,7 +941,7 @@ Use Azure Key Vault para armazenar certificados com segurança. Azure Key Vault 
 
 ## <a name="malware-defense"></a>Defesa contra malware
 
-*Para saber mais, confira [Controle de segurança: Defesa contra malware](https://docs.microsoft.com/azure/security/benchmarks/security-control-malware-defense).*
+*Para saber mais, confira [Controle de segurança: Defesa contra malware](../security/benchmarks/security-control-malware-defense.md).*
 
 ### <a name="81-use-centrally-managed-anti-malware-software"></a>8.1: Usar software antimalware gerenciado centralmente
 
@@ -949,9 +949,9 @@ Use Azure Key Vault para armazenar certificados com segurança. Azure Key Vault 
 
 Defina as configurações de diagnóstico para suas implantações do Aplicativo Azure gateway. as configurações de diagnóstico são usadas para configurar a exportação de streaming de logs e métricas de plataforma para um recurso para o destino de sua escolha (contas de armazenamento, hubs de eventos e Log Analytics).
 
-* [Como implantar o Azure WAF](https://docs.microsoft.com/azure/web-application-firewall/ag/create-waf-policy-ag)
+* [Como implantar o Azure WAF](../web-application-firewall/ag/create-waf-policy-ag.md)
 
-* [Como definir configurações de diagnóstico para o Azure WAF](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics)
+* [Como definir configurações de diagnóstico para o Azure WAF](./application-gateway-diagnostics.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -969,7 +969,7 @@ Defina as configurações de diagnóstico para suas implantações do Aplicativo
 
 **Orientação**: ao usar o WAF (firewall do aplicativo Web) do Azure, você pode configurar políticas do WAF. Uma política de WAF consiste em dois tipos de regras de segurança: regras personalizadas que são criadas pelo cliente e conjuntos de regras gerenciadas que são uma coleção de regras pré-configuradas gerenciadas pelo Azure. Os conjuntos de regras gerenciados pelo Azure oferecem uma maneira fácil de implantar a proteção contra um conjunto comum de ameaças de segurança. Como esses conjuntos de regras são gerenciados pelo Azure, as regras são atualizadas conforme necessário para proteção contra novas assinaturas de ataque.
 
-* [Entender os conjuntos de regras de WAF gerenciados pelo Azure](https://docs.microsoft.com/azure/web-application-firewall/ag/ag-overview#waf-policy)
+* [Entender os conjuntos de regras de WAF gerenciados pelo Azure](../web-application-firewall/ag/ag-overview.md#waf-policy-and-rules)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -977,19 +977,19 @@ Defina as configurações de diagnóstico para suas implantações do Aplicativo
 
 ## <a name="data-recovery"></a>Recuperação de dados
 
-*Para saber mais, confira [Controle de segurança: Recuperação de dados](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-recovery).*
+*Para saber mais, confira [Controle de segurança: Recuperação de dados](../security/benchmarks/security-control-data-recovery.md).*
 
 ### <a name="91-ensure-regular-automated-back-ups"></a>9.1: Garantir backups automatizados regulares
 
 **Orientação**: aplicativo Azure gateway não armazena dados do cliente. No entanto, se você estiver usando definições personalizadas de política do Azure, use o Azure DevOps ou Azure Repos para armazenar e gerenciar seu código com segurança.
 
-O Azure DevOps Services aproveita muitos dos recursos de armazenamento do Azure para garantir a disponibilidade de dados em caso de falha de hardware, interrupção de serviço ou desastre de região. Além disso, a equipe do Azure DevOps segue os procedimentos para proteger os dados contra exclusão acidental ou mal-intencionada.
+O Azure DevOps Services aproveita muitos dos recursos de armazenamento do Azure para garantir a disponibilidade de dados em caso de falha de hardware, interrupção de serviço ou desastre na região. Além disso, a equipe do Azure DevOps segue os procedimentos para proteger os dados contra exclusão acidental ou mal-intencionada.
 
-* [Entender a disponibilidade de dados no Azure DevOps](https://docs.microsoft.com/azure/devops/organizations/security/data-protection?view=azure-devops#data-availability)
+* [Entender a disponibilidade de dados no Azure DevOps](/azure/devops/organizations/security/data-protection?view=azure-devops#data-availability)
 
-* [Como armazenar código no Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+* [Como armazenar código no Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
-* [Documentação do Azure Repos](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)
+* [Documentação do Azure Repos](/azure/devops/repos/index?view=azure-devops)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -999,7 +999,7 @@ O Azure DevOps Services aproveita muitos dos recursos de armazenamento do Azure 
 
 **Diretrizes**: fazer backup de certificados gerenciados pelo cliente no Azure Key Vault.
 
-* [Como fazer backup de certificados do cofre de chaves no Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultcertificate)
+* [Como fazer backup de certificados do cofre de chaves no Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultcertificate)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -1009,7 +1009,7 @@ O Azure DevOps Services aproveita muitos dos recursos de armazenamento do Azure 
 
 **Diretrizes**: testar a restauração de backups de certificados gerenciados pelo cliente.
 
-* [Como restaurar certificados do cofre de chaves](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultcertificate)
+* [Como restaurar certificados do cofre de chaves](/powershell/module/azurerm.keyvault/restore-azurekeyvaultcertificate)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -1019,7 +1019,7 @@ O Azure DevOps Services aproveita muitos dos recursos de armazenamento do Azure 
 
 **Orientação**: Verifique se a exclusão reversível está habilitada para Azure Key Vault. A exclusão reversível permite a recuperação de cofres de chaves e objetos de cofre excluídos, como chaves, segredos e certificados.
 
-* [Como usar a exclusão reversível do Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-powershell)
+* [Como usar a exclusão reversível do Azure Key Vault](../key-vault/general/key-vault-recovery.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -1027,13 +1027,13 @@ O Azure DevOps Services aproveita muitos dos recursos de armazenamento do Azure 
 
 ## <a name="incident-response"></a>Resposta a incidentes
 
-*Para saber mais, confira [Controle de segurança: Resposta a incidentes](https://docs.microsoft.com/azure/security/benchmarks/security-control-incident-response).*
+*Para saber mais, confira [Controle de segurança: Resposta a incidentes](../security/benchmarks/security-control-incident-response.md).*
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1: Criar um guia de resposta a incidentes
 
 **Diretriz**: crie um guia de resposta a incidentes para sua organização. Verifique se há planos de resposta a incidentes escritos que definem todas as funções de pessoal, bem como as fases de tratamento/gerenciamento de incidentes, desde a detecção até a revisão após o incidente.
 
-* [Como configurar automações de fluxo de trabalho na Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide)
+* [Como configurar automações de fluxo de trabalho na Central de Segurança do Azure](../security-center/security-center-planning-and-operations-guide.md)
 
 * [Orientação sobre como criar seu processo de resposta a incidentes de segurança](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/)
 
@@ -1069,7 +1069,7 @@ Além disso, marque claramente as assinaturas (por exemplo, produção, não pro
 
 **Diretriz**: as informações de contato do incidente serão usadas pela Microsoft para contatá-lo se o MSRC (Microsoft Security Response Center) descobrir que os dados do cliente foram acessados por uma pessoa não autorizada ou ilegal. Examine os incidentes após o fato para garantir que os problemas sejam resolvidos.
 
-* [Como definir o contato de segurança da Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details)
+* [Como definir o contato de segurança da Central de Segurança do Azure](../security-center/security-center-provide-security-contact-details.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -1077,11 +1077,11 @@ Além disso, marque claramente as assinaturas (por exemplo, produção, não pro
 
 ### <a name="105-incorporate-security-alerts-into-your-incident-response-system"></a>10.5: incorporar alertas de segurança em seu sistema de resposta a incidentes
 
-**Diretriz**: exporte os alertas e recomendações da Central de Segurança do Azure usando o recurso de exportação contínua. A exportação contínua permite exportar alertas e recomendações de forma manual ou contínua. Você pode usar o conector de dados da Central de Segurança do Azure para transmitir os alertas do Sentinel.
+**Diretriz**: exporte os alertas e recomendações da Central de Segurança do Azure usando o recurso de exportação contínua. A exportação contínua permite exportar alertas e recomendações de forma manual ou contínua. Você pode usar o conector de dados da Central de Segurança do Azure para transmitir os alertas do Azure Sentinel.
 
-* [Como configurar a exportação contínua](https://docs.microsoft.com/azure/security-center/continuous-export)
+* [Como configurar a exportação contínua](../security-center/continuous-export.md)
 
-* [Como transmitir alertas para o Azure Sentinel](https://docs.microsoft.com/azure/sentinel/connect-azure-security-center)
+* [Como transmitir alertas para o Azure Sentinel](../sentinel/connect-azure-security-center.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -1091,7 +1091,7 @@ Além disso, marque claramente as assinaturas (por exemplo, produção, não pro
 
 **Diretrizes**: Use o recurso de automação de fluxo de trabalho na Central de Segurança do Azure para disparar automaticamente respostas por meio de "Aplicativos Lógicos" em alertas de segurança e recomendações.
 
-* [Como configurar a automação de fluxo de trabalho e os Aplicativos Lógicos](https://docs.microsoft.com/azure/security-center/workflow-automation)
+* [Como configurar a automação de fluxo de trabalho e os Aplicativos Lógicos](../security-center/workflow-automation.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -1099,7 +1099,7 @@ Além disso, marque claramente as assinaturas (por exemplo, produção, não pro
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>Testes de penetração e exercícios de Red Team
 
-*Para saber mais, confira [Controle de segurança: Testes de penetração e exercícios de Red Team](https://docs.microsoft.com/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
+*Para saber mais, confira [Controle de segurança: Testes de penetração e exercícios de Red Team](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11,1: realize testes de penetração regulares de seus recursos do Azure e garanta a correção de todas as descobertas de segurança críticas
 
@@ -1115,5 +1115,5 @@ Além disso, marque claramente as assinaturas (por exemplo, produção, não pro
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Confira o [Azure Security Benchmark](https://docs.microsoft.com/azure/security/benchmarks/overview)
-- Saiba mais sobre a [Linhas de base de segurança do Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)
+- Confira o [Azure Security Benchmark](../security/benchmarks/overview.md)
+- Saiba mais sobre a [Linhas de base de segurança do Azure](../security/benchmarks/security-baselines-overview.md)

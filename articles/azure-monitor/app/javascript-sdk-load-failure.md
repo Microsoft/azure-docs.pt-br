@@ -5,13 +5,13 @@ ms.topic: conceptual
 author: MSNev
 ms.author: newylie
 ms.date: 06/05/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 83f518326b38e9832c46997a0a2791eb9f35705e
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.custom: devx-track-js
+ms.openlocfilehash: 30c7caef4143b1a7cdba959971ff7689f986cb9e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371627"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91333249"
 ---
 # <a name="troubleshooting-sdk-load-failure-for-javascript-web-apps"></a>Solucionando problemas de falha de carregamento do SDK para aplicativos Web JavaScript
 
@@ -64,7 +64,7 @@ O mesmo também é verdadeiro ao usar o SDK por meio da solução de pacotes NPM
 
 Você também pode tentar usar [pacotes NPM](#use-npm-packages-to-embed-the-application-insight-sdk) para inserir o SDK do Application insights.
 
-Para minimizar a falha de conectividade de rede intermitente, implementamos cabeçalhos de controle de cache em todos os arquivos CDN para que, depois que o navegador do usuário final tenha baixado a versão atual do SDK, ele não precise baixar novamente e o navegador reutilizará a cópia obtida anteriormente (veja [como funciona o Caching](../../cdn/cdn-how-caching-works.md)). Se a verificação de cache falhar ou tiver havido uma nova versão, o navegador do usuário final precisará baixar a versão atualizada. Portanto, você pode ver um nível de plano de fundo de _"ruído"_ no cenário de falha de verificação ou um pico temporário quando uma nova versão ocorre e é disponibilizada de forma geral (implantada na CDN).
+Para minimizar a falha de conectividade de rede intermitente, implementamos Cache-Control cabeçalhos em todos os arquivos CDN para que, depois que o navegador do usuário final tenha baixado a versão atual do SDK, ele não precise baixar novamente e o navegador reutilizará a cópia obtida anteriormente (veja [como funciona o Caching](../../cdn/cdn-how-caching-works.md)). Se a verificação de cache falhar ou tiver havido uma nova versão, o navegador do usuário final precisará baixar a versão atualizada. Portanto, você pode ver um nível de plano de fundo de _"ruído"_ no cenário de falha de verificação ou um pico temporário quando uma nova versão ocorre e é disponibilizada de forma geral (implantada na CDN).
  
 ## <a name="application-insights-cdn-outage"></a>Interrupção Application Insights CDN
 
@@ -115,7 +115,7 @@ Se, ao usar essa configuração mínima, você ainda estiver vendo uma exceção
 
 Se a exceção desaparecer, o problema provavelmente será causado por um valor incompatível ou inesperado de tipo. Comece a adicionar suas opções de configuração de volta uma a uma e teste até que a exceção ocorra novamente. Em seguida, verifique a documentação do item que está causando o problema. Se a documentação não estiver clara ou se você precisar de assistência, [Execute um problema no GitHub](https://github.com/Microsoft/ApplicationInsights-JS/issues).
 
-Se sua configuração foi implantada anteriormente e estava funcionando, mas acabou de começar a relatar essa exceção, talvez seja um problema com uma versão implantada recentemente, verifique se ela está afetando apenas um pequeno conjunto de usuários/navegador e se ele está [relacionado ao GitHub](https://github.com/Microsoft/ApplicationInsights-JS/issues) ou [cria um novo tíquete de suporte](https://azure.microsoft.com/support/create-ticket/).
+Se sua configuração foi implantada anteriormente e estava funcionando, mas acabou de começar a relatar essa exceção, talvez seja um problema com uma versão implantada recentemente, verifique se ela está afetando apenas um pequeno conjunto de usuários/navegador e se ele está [relacionado ao GitHub](https://github.com/Microsoft/ApplicationInsights-JS/issues) ou  [cria um novo tíquete de suporte](https://azure.microsoft.com/support/create-ticket/).
 
 ### <a name="enable-console-debugging"></a>Habilitar a depuração do console
 

@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 09/03/2019
+ms.date: 11/11/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: a0622c7556896b7ae7201ffa3a7ecac8de1106a4
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: c68f76e56f49f055466f7332d7751ac468e034d8
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88053534"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616732"
 ---
 ::: zone target="docs"
 
@@ -72,11 +72,11 @@ Se estiver usando um computador host do Windows Server, siga estas etapas para c
 
 1. O primeiro passo é autenticar e iniciar uma sessão. Vá para **conectar e copiar**. Selecione **SMB** para obter as credenciais de acesso aos compartilhamentos associados à sua conta de armazenamento. 
 
-    ![Obter as credenciais de compartilhamento 1](media/data-box-deploy-copy-data/get-share-credentials1.png)
+    ![Obter credenciais de compartilhamento para compartilhamentos SMB](media/data-box-deploy-copy-data/get-share-credentials1.png)
 
-2. No compartilhamento de acesso e caixa de diálogo de dados de cópia, copie o **nome de usuário** e o **senha** correspondente para o compartilhamento. Selecione **OK**.
+2. No compartilhamento de acesso e caixa de diálogo de dados de cópia, copie o **nome de usuário** e o **senha** correspondente para o compartilhamento. Depois, selecione **OK**.
     
-    ![Obter as credenciais de compartilhamento 1](media/data-box-deploy-copy-data/get-share-credentials2.png)
+    ![Obter nome de usuário e senha para um compartilhamento](media/data-box-deploy-copy-data/get-share-credentials2.png)
 
 3. Para acessar os compartilhamentos associados à sua conta de armazenamento (*utsac1* no exemplo a seguir) no computador host, abra uma janela Comando. No prompt de comando, digite:
 
@@ -87,25 +87,25 @@ Se estiver usando um computador host do Windows Server, siga estas etapas para c
     - Blob de páginas do Azure – `\\10.126.76.138\utSAC1_202006051000_PageBlob`
     - Arquivos do Azure – `\\10.126.76.138\utSAC1_202006051000_AzFile`
 
-4. Quando solicitado, digite a senha do compartilhamento. A amostra a seguir mostra a conexão a um compartilhamento por meio do comando anterior.
+4. Quando solicitado, digite a senha do compartilhamento. Se a senha tiver caracteres especiais, adicione aspas duplas antes e depois dela. A amostra a seguir mostra a conexão a um compartilhamento por meio do comando anterior.
 
     ```
     C:\Users\Databoxuser>net use \\10.126.76.138\utSAC1_202006051000_BlockBlob /u:testuser1
-    Enter the password for 'testuser1' to connect to '10.126.76.138':
+    Enter the password for 'testuser1' to connect to '10.126.76.138': "ab1c2def$3g45%6h7i&j8kl9012345"
     The command completed successfully.
     ```
 
 4. Pressione Windows + R. Na janela **Executar**, especifique o `\\<device IP address>`. Selecione **OK** para abrir o Explorador de Arquivos.
     
-    ![Conecte-se para compartilhar via File Explorer 2](media/data-box-deploy-copy-data/connect-shares-file-explorer1.png)
+    ![Conectar-se ao compartilhamento por meio do Explorador de Arquivos](media/data-box-deploy-copy-data/connect-shares-file-explorer1.png)
 
     Agora você verá os compartilhamentos como pastas.
     
-    ![Conecte-se para compartilhar via File Explorer 2](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png)
+    ![Compartilhamentos mostrados no Explorador de Arquivos](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png)
 
     **Sempre crie uma pasta para os arquivos que você pretende copiar no compartilhamento e, em seguida, copie os arquivos para a pasta**. A pasta criada nos compartilhamentos de blob de blocos e de blob de páginas representa um contêiner no qual os dados são carregados como blobs. Não é possível copiar arquivos diretamente para a pasta *raiz* na conta de armazenamento.
     
-Se estiver usando um cliente Linux, use o seguinte comando para montar o compartilhamento SMB. O parâmetro "vers" abaixo é a versão do SMB compatível com seu host do Linux. Conecte a versão adequada no comando a seguir. Para versões do SMB compatíveis com o Data Box, consulte [Sistemas de arquivo compatíveis para clientes Linux](https://docs.microsoft.com/azure/databox/data-box-system-requirements#supported-file-systems-for-linux-clients) 
+Se estiver usando um cliente Linux, use o seguinte comando para montar o compartilhamento SMB. O parâmetro "vers" abaixo é a versão do SMB compatível com seu host do Linux. Conecte a versão adequada no comando a seguir. Para versões do SMB compatíveis com o Data Box, consulte [Sistemas de arquivo compatíveis para clientes Linux](./data-box-system-requirements.md#supported-file-transfer-protocols-for-clients) 
 
 ```console
 sudo mount -t nfs -o vers=2.1 10.126.76.138:/utSAC1_202006051000_BlockBlob /home/databoxubuntuhost/databox
@@ -116,22 +116,22 @@ sudo mount -t nfs -o vers=2.1 10.126.76.138:/utSAC1_202006051000_BlockBlob /home
 Quando você estiver conectado aos compartilhamentos do Data Box, a próxima etapa será copiar dados. Antes de começar a cópia de dados, examine as considerações a seguir:
 
 * Copie os dados para os compartilhamentos que correspondem ao formato de dados apropriado. Por exemplo, copie os dados blob do bloco para o compartilhamento de blobs de bloco. Copie os VHDs para blob de páginas. Se o formato de dados não corresponder ao tipo de compartilhamento apropriado, em uma etapa posterior, o upload de dados do Azure falhará.
-* Durante a cópia de dados, verifique se o tamanho dos dados está em conformidade com os limites de tamanho descritos nos [Limites do Armazenamento do Azure e do Data Box](data-box-limits.md).
-* Se os dados, que estão sendo carregados pelo Data Box, forem carregados simultaneamente por outros aplicativos fora do Data Box, isso poderá resultar em falhas de trabalho de upload e corrupção de dados.
+* Sempre crie uma pasta no compartilhamento para os arquivos que você pretende copiar e, depois, copie os arquivos nessa pasta. A pasta criada nos compartilhamentos de blob de blocos e de blob de páginas representa um contêiner no qual os dados são carregados como blobs. Não é possível copiar arquivos diretamente na pasta *raiz* na conta de armazenamento.
+* Ao copiar dados, verifique se o tamanho dos dados está de acordo com os limites de tamanho descritos em [Limites de tamanho da conta de armazenamento do Azure](data-box-limits.md#azure-storage-account-size-limits).
+* Se você quiser preservar metadados (ACLs, carimbos de data/hora e atributos de arquivo) ao transferir dados para o serviço Arquivos do Azure, siga as diretrizes em [Preservar ACLs, atributos e carimbos de data/hora de arquivo com o Azure Data Box](data-box-file-acls-preservation.md)  
+* Se os dados que estão sendo carregados pelo Data Box também estiverem sendo carregados por outro aplicativo ao mesmo tempo, além do Data Box, isso poderá resultar em falhas no trabalho de upload e dados corrompidos.
 * Recomendamos que:
   * Você não use o SMB e o NFS ao mesmo tempo.
   * Você copie os mesmos dados para o mesmo destino final no Azure.
-
   Nesses casos, o resultado final não poderá ser determinado.
-* Sempre crie uma pasta para os arquivos que você pretende copiar no compartilhamento e, em seguida, copie os arquivos nessa pasta. A pasta criada nos compartilhamentos de blob de blocos e de blob de páginas representa um contêiner no qual os dados são carregados como blobs. Não é possível copiar arquivos diretamente para a pasta *raiz* na conta de armazenamento.
 
 > [!IMPORTANT]
 > Mantenha uma cópia dos dados de origem até que haja a confirmação de que o Data Box transferiu os seus dados para o Armazenamento do Azure.
 
-Depois de conectar-se ao compartilhamento SMB, comece a cópia de dados. Você pode usar qualquer ferramenta de cópia de arquivos compatível com SMB, como o Robocopy, para copiar seus dados. Vários trabalhos de cópia podem ser iniciados usando o Robocopy. Use o seguinte comando:
+Depois de se conectar ao compartilhamento SMB, comece a cópia dos dados. Você pode usar qualquer ferramenta de cópia de arquivos compatível com SMB, como o Robocopy, para copiar seus dados. Vários trabalhos de cópia podem ser iniciados usando o Robocopy. Use o seguinte comando:
 
 ```console
-robocopy <Source> <Target> * /e /r:3 /w:60 /is /nfl /ndl /np /MT:32 or 64 /fft /Log+:<LogFile>
+robocopy <Source> <Target> * /e /r:3 /w:60 /is /nfl /ndl /np /MT:32 or 64 /fft /Log+:<LogFile>
 ```
 
 Os atributos são descritos na tabela a seguir.
@@ -225,15 +225,15 @@ Para mais informações sobre o comando Robocopy, vá para [Robocopy e alguns ex
 
 Durante o processo de cópia, se houver algum erro, você verá uma notificação.
 
-![Baixar e ver erros em Conectar e copiar](media/data-box-deploy-copy-data/view-errors-1.png)
+![Uma notificação de erro de cópia em Conectar e copiar](media/data-box-deploy-copy-data/view-errors-1.png)
 
 Selecione **Baixar lista de problemas**.
 
-![Baixar e exibir erros em Conectar e copiar](media/data-box-deploy-copy-data/view-errors-2.png)
+![Conectar e copiar – Baixar lista de problemas](media/data-box-deploy-copy-data/view-errors-2.png)
 
 Abra a lista para ver os detalhes do erro e selecione a URL de resolução para ver a resolução recomendada.
 
-![Baixar e exibir erros em Conectar e copiar](media/data-box-deploy-copy-data/view-errors-3.png)
+![Conectar e copiar – Baixar e exibir erros](media/data-box-deploy-copy-data/view-errors-3.png)
 
 Para obter mais informações, veja [Exibir logs de erros durante a cópia de dados para o Data Box](data-box-logs.md#view-error-log-during-data-copy). Para obter uma lista detalhada de erros durante a cópia de dados, veja [Solucionar problemas do Data Box](data-box-troubleshoot.md).
 

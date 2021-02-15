@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: pepogors
 ms.openlocfilehash: aa1499c57ead28bfcee90a2f224ef9c3bb1d7f58
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86247817"
 ---
 # <a name="service-fabric-guardrails"></a>Service Fabric guardrails 
@@ -60,7 +60,7 @@ A seção a seguir contém um exemplo de incompatibilidade de durabilidade entre
 * A durabilidade do conjunto de dimensionamento de máquinas virtuais não corresponde ao nível de durabilidade do tipo de nó de Service Fabric
 * A durabilidade do conjunto de dimensionamento de máquinas virtuais corresponde ao nível de durabilidade atual Service Fabric ou ao nível de durabilidade do tipo de nó de Service Fabric 
 
-### <a name="mitigation"></a>Mitigação
+### <a name="mitigation"></a>Atenuação
 Para corrigir uma incompatibilidade de durabilidade, que é indicada por qualquer uma das mensagens de erro acima:
 1. Atualize o nível de durabilidade na seção extensão do conjunto de dimensionamento de máquinas virtuais ou Service Fabric tipo de nó do modelo de Azure Resource Manager para garantir que os valores correspondam.
 2. Reimplante o modelo de Azure Resource Manager com os valores atualizados.
@@ -75,7 +75,7 @@ A operação de remoção do nó de semente foi detectada e será rejeitada.
 * Essa operação resultaria apenas em {0} possíveis nós de semente permanecerem no cluster, enquanto {1} são necessários no mínimo.
 * Remover {0} nós de semente para fora do {1} resultaria no desligamento do cluster devido à perda do quorum do nó de semente. O número máximo de nós de semente que podem ser removidos por vez é {2} .
  
-### <a name="mitigation"></a>Mitigação 
+### <a name="mitigation"></a>Atenuação 
 Verifique se o tipo de nó primário tem máquinas virtuais suficientes para a confiabilidade especificada no cluster. Você não poderá remover uma máquina virtual se ela for colocar o conjunto de dimensionamento de máquinas virtuais abaixo do número mínimo de nós para a camada de confiabilidade fornecida.
 * Se a camada de confiabilidade for especificada corretamente, verifique se você tem nós suficientes no tipo de nó primário conforme necessário para a camada de confiabilidade. 
 * Se a camada de confiabilidade estiver incorreta, inicie uma alteração no recurso de Service Fabric para reduzir o nível de confiabilidade primeiro antes de iniciar qualquer operação do conjunto de dimensionamento de máquinas virtuais e aguarde a conclusão.

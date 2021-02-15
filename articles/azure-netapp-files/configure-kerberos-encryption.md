@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 07/27/2020
+ms.date: 11/09/2020
 ms.author: b-juche
-ms.openlocfilehash: 05d173b715a8bc060e2f4d9cdcc7e3aef5630109
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 69168060cbce4a904c53d7f79895e909c8c42e01
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87535311"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935216"
 ---
 # <a name="configure-nfsv41-kerberos-encryption-for-azure-netapp-files"></a>Configurar a criptografia Kerberos do NFSv 4.1 para Azure NetApp Files
 
@@ -40,7 +40,7 @@ Os seguintes requisitos se aplicam à criptografia de cliente do NFSv 4.1:
 
 1.  Siga as etapas em [criar um volume de NFS para Azure NetApp files](azure-netapp-files-create-volumes.md) para criar o volume nfsv 4.1.   
 
-    Na página criar um volume, defina a versão do NFS como **nfsv 4.1**e defina Kerberos como **habilitado**.
+    Na página criar um volume, defina a versão do NFS como **nfsv 4.1** e defina Kerberos como **habilitado**.
 
     > [!IMPORTANT] 
     > Você não pode modificar a seleção de habilitação de Kerberos após a criação do volume.
@@ -75,7 +75,7 @@ A configuração do NFSv 4.1 Kerberos cria duas contas de computador no Active D
 * Uma conta de computador para compartilhamentos SMB
 * Uma conta de computador para NFSv 4.1 – você pode identificar essa conta por meio do prefixo `NFS-` . 
 
-Depois de criar o primeiro volume NFSv 4.1, defina o tipo de criptografia ou a conta de computador usando o seguinte comando do PowerShell:
+Depois de criar o primeiro volume NFSv 4.1 Kerberos, defina o tipo de criptografia para a conta de computador usando o seguinte comando do PowerShell:
 
 `Set-ADComputer $NFSCOMPUTERACCOUNT -KerberosEncryptionType AES256`
 
@@ -96,11 +96,11 @@ Siga as instruções em [configurar um cliente NFS para Azure NetApp files](conf
 3. Crie o diretório (ponto de montagem) para o novo volume.  
 
 4. Defina o tipo de criptografia padrão como AES 256 para a conta de computador:  
-    `Set-ADComputer $COMPUTERACCOUNT -KerberosEncryptionType AES256 -Credential $ANFSERVICEACCOUNT`
+    `Set-ADComputer $NFSCOMPUTERACCOUNT -KerberosEncryptionType AES256 -Credential $ANFSERVICEACCOUNT`
 
     * Você precisa executar esse comando apenas uma vez para cada conta de computador.
     * Você pode executar esse comando de um controlador de domínio ou de um PC com o [rsat](https://support.microsoft.com/help/2693643/remote-server-administration-tools-rsat-for-windows-operating-systems) instalado. 
-    * A `$COMPUTERACCOUNT` variável é a conta de computador criada no Active Directory quando você implanta o volume Kerberos. Essa é a conta com o prefixo `NFS-` . 
+    * A `$NFSCOMPUTERACCOUNT` variável é a conta de computador criada no Active Directory quando você implanta o volume Kerberos. Essa é a conta com o prefixo `NFS-` . 
     * A `$ANFSERVICEACCOUNT` variável é uma conta de usuário Active Directory sem privilégios com controles delegados na unidade organizacional em que a conta de computador foi criada. 
 
 5. Monte o volume no host: 
@@ -135,7 +135,7 @@ Esta seção descreve o impacto de desempenho único no lado do cliente das vár
 
 ### <a name="expected-performance-impact"></a>Impacto esperado no desempenho 
 
-Há duas áreas de foco: carga leve e limite superior. As listas a seguir descrevem a configuração de segurança de impacto de desempenho por configuração de segurança e cenário por cenário. Todas as comparações são feitas em relação ao `sec=sys` parâmetro de segurança.
+Há duas áreas de foco: carga leve e limite superior. As listas a seguir descrevem a configuração de segurança de impacto de desempenho por configuração de segurança e cenário por cenário. Todas as comparações são feitas em relação ao `sec=sys` parâmetro de segurança. O teste foi feito em um único volume, usando um único cliente. 
 
 Impacto no desempenho do krb5:
 
@@ -172,7 +172,8 @@ Impacto no desempenho do krb5p:
 
 ## <a name="next-steps"></a>Próximas etapas  
 
+* [Solucionar problemas de volume do NFSv 4.1 Kerberos](troubleshoot-nfsv41-kerberos-volumes.md)
 * [Perguntas frequentes sobre Azure NetApp Files](azure-netapp-files-faqs.md)
 * [Criar um volume NFS para o Azure NetApp Files](azure-netapp-files-create-volumes.md)
 * [Criar uma conexão do Active Directory](azure-netapp-files-create-volumes-smb.md#create-an-active-directory-connection)
-* [Configurar um cliente NFS para Azure NetApp Files](configure-nfs-clients.md) 
+* [Configurar um cliente NFS para o Azure NetApp Files](configure-nfs-clients.md) 

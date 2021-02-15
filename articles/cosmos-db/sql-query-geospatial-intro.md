@@ -3,18 +3,20 @@ title: Dados geoespaciais e de localização geojson em Azure Cosmos DB
 description: Entenda como criar objetos espaciais com Azure Cosmos DB e a API do SQL.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: tisande
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 25150722e2d42625731cb741be80b86645c857e0
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-js
+ms.openlocfilehash: a2e4e14927932575c9da42392329eea279f922fe
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420083"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93336139"
 ---
 # <a name="geospatial-and-geojson-location-data-in-azure-cosmos-db"></a>Dados geoespaciais e de localização geojson em Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Este artigo é uma introdução à funcionalidade geoespacial no Azure Cosmos DB. Atualmente, o armazenamento e o acesso a dados geoespaciais têm suporte apenas Azure Cosmos DB contas da API do SQL. Depois de ler nossa documentação sobre indexação geoespacial, você poderá responder às seguintes perguntas:
 
@@ -210,7 +212,7 @@ await container.CreateItemAsync( new UserProfile
     });
 ```
 
-Se você não tiver as informações de latitude e longitude, mas tiver os endereços físicos ou o nome do local como cidade ou país/região, poderá pesquisar as coordenadas reais usando um serviço de geocodificação, como os serviços REST do Bing Maps. Saiba mais sobre a geocodificação do Bing Mapas [aqui](https://msdn.microsoft.com/library/ff701713.aspx).
+Se você não tiver as informações de latitude e longitude, mas tiver os endereços físicos ou o nome do local como cidade ou país/região, poderá pesquisar as coordenadas reais usando um serviço de geocodificação, como os serviços REST do Bing Maps. Saiba mais sobre a geocodificação do Bing Mapas [aqui](/bingmaps/rest-services/).
 
 ## <a name="next-steps"></a>Próximas etapas
 

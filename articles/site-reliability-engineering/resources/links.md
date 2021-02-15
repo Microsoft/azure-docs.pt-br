@@ -2,17 +2,17 @@
 title: Conjuntos de links e resumos do SRE | Microsoft Docs
 description: Amplie seu conhecimento sobre a engenharia de confiabilidade do site com estes recursos
 author: dnblankedelman
-manager: efreeman
+manager: ScottCa
 ms.service: site-reliability-engineering
 ms.topic: article
-ms.date: 02/18/2020
+ms.date: 09/14/2020
 ms.author: dnb
-ms.openlocfilehash: a891b580b5cb62d111e5d8a6980f4f547345deb6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: becbc3e59663c1898cc4e635f61f63d54360a6f5
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79471244"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "90086531"
 ---
 # <a name="sources-for-site-reliability-engineering-information"></a>Fontes para informações de engenharia de confiabilidade do site
 
@@ -24,7 +24,7 @@ Aqui estão algumas boas listas organizadas de links para tópicos relacionados 
 
 * [Engenharia de confiabilidade do site incrível](https://github.com/dastergon/awesome-sre)
 * [Ferramentas de engenharia de site incrível](https://github.com/SquadcastHub/awesome-sre-tools)
-* [Os padrões de sistemas escalonáveis, confiáveis e com desempenho em larga escala](http://awesome-scalability.com)
+* [Os padrões de sistemas de Large-Scale escalonáveis, confiáveis e de alto desempenho](http://awesome-scalability.com)
 * [Awesome-Distributed-Systems](https://github.com/theanalyst/awesome-distributed-systems)
 * [Consenso incrível](https://github.com/dgryski/awesome-consensus)
 * [incrível – monitoramento](https://github.com/crazy-canux/awesome-monitoring)

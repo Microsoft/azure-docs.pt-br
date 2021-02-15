@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: bpham
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dfc60eacd70576d9cfa79dbc03368c8e8c4a8636
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: f47ae9b087615a77f6bd4d3f14f1b0052037cba6
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87797386"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996739"
 ---
 # <a name="add-your-organizations-privacy-info-using-azure-active-directory"></a>Adicionar informações de privacidade de sua organização usando o Azure Active Directory
 Este artigo explica como um administrador de locatário pode adicionar informações relacionadas à privacidade ao locatário do Azure Active Directory (Azure AD) de uma organização, por meio do portal do Azure.
@@ -34,7 +34,7 @@ Você adiciona informações de privacidade da sua organização na área **Prop
 
 1. Entre no portal do Azure como um administrador de locatário.
 
-2. Na barra de navegação à esquerda, selecione **Azure Active Directory**e, em seguida, selecione **Propriedades**.
+2. Na barra de navegação à esquerda, selecione **Azure Active Directory** e, em seguida, selecione **Propriedades**.
 
     A área **Propriedades** é exibida.
 
@@ -49,12 +49,12 @@ Você adiciona informações de privacidade da sua organização na área **Prop
     - **URL da política de privacidade.** Digite o link para o documento da sua organização que descreve como sua organização lida com a privacidade dos dados do convidado interno e externo.
 
         >[!Important]
-        >Se você não incluir sua própria política de privacidade ou seu contato de privacidade, seus convidados externos verão o texto na caixa de **permissões de revisão** que diz, ** < _o nome da sua organização_> não forneceu links para seus termos para você examinar**. Por exemplo, um usuário convidado verá essa mensagem quando receber um convite para acessar uma organização por meio de colaboração B2B.
+        >Se você não incluir sua própria política de privacidade ou seu contato de privacidade, seus convidados externos verão o texto na caixa de **permissões de revisão** que diz, **< _o nome da sua organização_> não forneceu links para seus termos para você examinar**. Por exemplo, um usuário convidado verá essa mensagem quando receber um convite para acessar uma organização por meio de colaboração B2B.
 
         ![Caixa Permissões de Revisão de Colaboração B2B com mensagem](media/active-directory-properties-area/active-directory-no-privacy-statement-or-contact.png)
 
 4. Clique em **Salvar**.
 
 ## <a name="next-steps"></a>Próximas etapas
-- [Resgate do convite de colaboração do Azure Active Directory B2B](../b2b/redemption-experience.md)
+- [Resgate do convite de colaboração do Azure Active Directory B2B](../external-identities/redemption-experience.md)
 - [Adicionar ou alterar as informações de perfil de um usuário no Azure Active Directory](active-directory-users-profile-azure-portal.md)

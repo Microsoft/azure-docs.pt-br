@@ -4,16 +4,16 @@ description: Exiba, baixe e execute exemplos de código e aplicativos para o Arm
 author: mhopkins-msft
 ms.custom: devx-track-java
 ms.author: mhopkins
-ms.date: 02/13/2020
+ms.date: 10/01/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
-ms.openlocfilehash: b0e0588810fcac239a3647f9b750dd036341ab9f
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 9e3cd6be0da7c6d9401945293283de874c7cd866
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322220"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92359757"
 ---
 # <a name="azure-storage-samples-using-v12-java-client-libraries"></a>Exemplos de Armazenamento do Azure usando bibliotecas de cliente Java v12
 
@@ -453,4 +453,5 @@ Para saber mais sobre exemplos para outras linguagens:
 * .NET: [Exemplos de Armazenamento do Azure usando .NET](storage-samples-dotnet.md)
 * Python: [Exemplos do Armazenamento do Azure usando Python](storage-samples-python.md)
 * JavaScript/Node.js: [Exemplos do Armazenamento do Azure que usam JavaScript](storage-samples-javascript.md)
+* C++: [Exemplos do Armazenamento do Azure usando C++](storage-samples-c-plus-plus.md)
 * Todas as outras linguagens: [Exemplos do Armazenamento do Azure](storage-samples.md)

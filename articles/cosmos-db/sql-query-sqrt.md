@@ -3,18 +3,21 @@ title: SQRT na linguagem de consulta Azure Cosmos DB
 description: Saiba mais sobre a função SQRT do sistema SQL no Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 3d5452e5ba650b487acff03f622cdbb170275dce
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ac504baf0f8c59408327bbbf51392428ffee43b8
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78303453"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93335333"
 ---
 # <a name="sqrt-azure-cosmos-db"></a>SQRT (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Retorna a raiz quadrada do valor numérico especificado.  
   
 ## <a name="syntax"></a>Sintaxe

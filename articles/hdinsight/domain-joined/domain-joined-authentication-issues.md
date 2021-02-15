@@ -1,18 +1,15 @@
 ---
 title: Problemas de autenticação no Azure HDInsight
 description: Problemas de autenticação no Azure HDInsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/24/2020
-ms.openlocfilehash: 6473b6b69ba45138c30e4f2c8a7f1ba1a7f2ae7e
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: b5a55b3b5f9affcd9f34e1c0d4c439a7ada8c0b9
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816840"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99095117"
 ---
 # <a name="authentication-issues-in-azure-hdinsight"></a>Problemas de autenticação no Azure HDInsight
 
@@ -38,7 +35,7 @@ O código de erro 50126 do Azure AD significa que a `AllowCloudPasswordValidatio
 
 ### <a name="resolution"></a>Resolução
 
-O administrador da empresa do locatário do Azure AD deve habilitar o Azure AD a usar hashes de senha para usuários com suporte do ADFS.  Aplique o `AllowCloudPasswordValidationPolicy` conforme mostrado no artigo [usar Enterprise Security Package no HDInsight](../domain-joined/apache-domain-joined-architecture.md).
+O administrador global do locatário do Azure AD deve habilitar o Azure AD a usar hashes de senha para usuários com suporte do ADFS.  Aplique o `AllowCloudPasswordValidationPolicy` conforme mostrado no artigo [usar Enterprise Security Package no HDInsight](../domain-joined/apache-domain-joined-architecture.md).
 
 ---
 
@@ -154,7 +151,7 @@ Maneiras de localizar `sAMAccountName` :
 
 * Se você puder entrar no Ambari usando o administrador do Ambari local, examine a lista de usuários.
 
-* Se você tiver um [computador Windows ingressado no domínio](../../active-directory-domain-services/manage-domain.md), poderá usar as ferramentas padrão do AD do Windows para navegar. Isso requer uma conta de trabalho no domínio.
+* Se você tiver um [computador Windows ingressado no domínio](../../active-directory-domain-services/tutorial-create-management-vm.md), poderá usar as ferramentas padrão do AD do Windows para navegar. Isso requer uma conta de trabalho no domínio.
 
 * No nó de cabeçalho, você pode usar comandos do SAMBA para pesquisar. Isso requer uma sessão Kerberos válida (kinit bem-sucedida). pesquisa do ADS net "(userPrincipalName = Bob *)"
 
@@ -214,10 +211,4 @@ Esse erro ocorre intermitentemente quando os usuários tentam acessar o ADLS Gen
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se você não encontrou seu problema ou não conseguiu resolver seu problema, visite um dos seguintes canais para obter mais suporte:
-
-* Obtenha respostas de especialistas do Azure por meio do [Suporte da Comunidade do Azure](https://azure.microsoft.com/support/community/).
-
-* Conecte-se com [@AzureSupport](https://twitter.com/azuresupport), a conta oficial do Microsoft Azure para melhorar a experiência do cliente. Como se conectar à comunidade do Azure para os recursos certos: respostas, suporte e especialistas.
-
-* Se precisar de mais ajuda, poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **Suporte** na barra de menus ou abra o hub **Ajuda + suporte**. Para obter informações mais detalhadas, consulte [Como criar uma solicitação de Suporte do Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). O acesso ao Gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o suporte técnico é fornecido por meio de um dos [Planos de suporte do Azure](https://azure.microsoft.com/support/plans/).
+[!INCLUDE [troubleshooting next steps](../../../includes/hdinsight-troubleshooting-next-steps.md)]

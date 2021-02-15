@@ -10,14 +10,14 @@ ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
-ms.topic: article
+ms.topic: reference
 ms.date: 01/08/2020
-ms.openlocfilehash: 69926671730e41845cd28df3108ec86b24a57075
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: ae036b7d893eb268ea55026054bf364dad0b610e
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448528"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94961542"
 ---
 # <a name="network-topologies-for-azure-sql-managed-instance-migrations-using-azure-database-migration-service"></a>Topologias de rede para Azure SQL Instância Gerenciada migrações usando o serviço de migração de banco de dados do Azure
 
@@ -29,10 +29,10 @@ Use essa topologia se o Azure SQL Instância Gerenciada estiver conectado à sua
 
 ![Topologia de rede para cargas de trabalho híbridas](media/resource-network-topologies/hybrid-workloads.png)
 
-**Requisitos**
+**Requirements**
 
 - Nesse cenário, o SQL Instância Gerenciada e a instância do serviço de migração de banco de dados do Azure são criados na mesma Rede Virtual do Microsoft Azure, mas usam sub-redes diferentes.  
-- A rede virtual usada neste cenário também está conectada à rede local usando o [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) ou a [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
+- A rede virtual usada neste cenário também está conectada à rede local usando o [ExpressRoute](../expressroute/expressroute-introduction.md) ou a [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
 ## <a name="sql-managed-instance-isolated-from-the-on-premises-network"></a>SQL Instância Gerenciada isolado da rede local
 
@@ -44,10 +44,10 @@ Use essa topologia de rede se o ambiente exigir um ou mais dos seguintes cenári
 
 ![Topologia de rede da Instância Gerenciada isolada da rede local](media/resource-network-topologies/mi-isolated-workload.png)
 
-**Requisitos**
+**Requirements**
 
-- A rede virtual que o serviço de migração de banco de dados do Azure usa para esse cenário também deve estar conectada à rede local usando o ( https://docs.microsoft.com/azure/expressroute/expressroute-introduction) ou [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
-- Configure o [emparelhamento de rede VNet](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) entre a rede virtual usada para o SQL instância gerenciada e o serviço de migração de banco de dados do Azure.
+- A rede virtual que o serviço de migração de banco de dados do Azure usa para esse cenário também deve estar conectada à rede local usando o ( https://docs.microsoft.com/azure/expressroute/expressroute-introduction) ou [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
+- Configure o [emparelhamento de rede VNet](../virtual-network/virtual-network-peering-overview.md) entre a rede virtual usada para o SQL instância gerenciada e o serviço de migração de banco de dados do Azure.
 
 ## <a name="cloud-to-cloud-migrations-shared-virtual-network"></a>Migrações da nuvem para a nuvem: rede virtual compartilhada
 
@@ -55,7 +55,7 @@ Use essa topologia se o SQL Server de origem estiver hospedado em uma VM do Azur
 
 ![Topologia de rede para migrações de nuvem para nuvem com uma VNet compartilhada](media/resource-network-topologies/cloud-to-cloud.png)
 
-**Requisitos**
+**Requirements**
 
 - Nenhum requisito adicional.
 
@@ -69,22 +69,22 @@ Use essa topologia de rede se o ambiente exigir um ou mais dos seguintes cenári
 
 ![Topologia de rede para migrações de nuvem para nuvem com uma VNet isolada](media/resource-network-topologies/cloud-to-cloud-isolated.png)
 
-**Requisitos**
+**Requirements**
 
-- Configure o [emparelhamento de rede VNet](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) entre a rede virtual usada para o SQL instância gerenciada e o serviço de migração de banco de dados do Azure.
+- Configure o [emparelhamento de rede VNet](../virtual-network/virtual-network-peering-overview.md) entre a rede virtual usada para o SQL instância gerenciada e o serviço de migração de banco de dados do Azure.
 
 ## <a name="inbound-security-rules"></a>Regras de segurança de entrada
 
-| **NOME**   | **Porto** | **PROTOCOLO** | **ORIGINAL** | **DESTINO** | **ACTION** |
+| **NOME**   | **Porto** | **PROTOCOLO** | **ORIGINAL** | **DESTINO** | **AÇÃO** |
 |------------|----------|--------------|------------|-----------------|------------|
 | DMS_subnet | Qualquer      | Qualquer          | DMS SUBNET | Qualquer             | Allow      |
 
 ## <a name="outbound-security-rules"></a>Regras de segurança de saída
 
-| **NOME**                  | **Porto**                                              | **PROTOCOLO** | **ORIGINAL** | **DESTINO**           | **ACTION** | **Motivo para a regra**                                                                                                                                                                              |
+| **NOME**                  | **Porto**                                              | **PROTOCOLO** | **ORIGINAL** | **DESTINO**           | **AÇÃO** | **Motivo para a regra**                                                                                                                                                                              |
 |---------------------------|-------------------------------------------------------|--------------|------------|---------------------------|------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | gerenciamento                | 443,9354                                              | TCP          | Qualquer        | Qualquer                       | Allow      | Comunicação do plano de gerenciamento através do barramento de serviço e do armazenamento de BLOBs do Azure. <br/>(Se o emparelhamento da Microsoft é habilitado, você talvez não precise essa regra.)                                                             |
-| Diagnóstico               | 12000                                                 | TCP          | Qualquer        | Qualquer                       | Allow      | DMS usa a regra para coletar informações de diagnóstico para fins de solução de problemas.                                                                                                                      |
+| Diagnósticos               | 12000                                                 | TCP          | Qualquer        | Qualquer                       | Allow      | DMS usa a regra para coletar informações de diagnóstico para fins de solução de problemas.                                                                                                                      |
 | Servidor de origem SQL         | 1433 (ou porta TCP IP que o SQL Server está escutando) | TCP          | Qualquer        | Espaço de endereço local | Allow      | Conectividade de origem do SQL Server do DMS <br/>(Se você tiver conectividade site a site, talvez não seja necessário usar essa regra.)                                                                                       |
 | Instância nomeada do SQL Server | 1434                                                  | UDP          | Qualquer        | Espaço de endereço local | Allow      | Conectividade de origem de instância nomeada do SQL Server do DMS <br/>(Se você tiver conectividade site a site, talvez não seja necessário usar essa regra.)                                                                        |
 | Compartilhamento SMB                 | 445                                                   | TCP          | Qualquer        | Espaço de endereço local | Allow      | Compartilhamento de rede SMB para que o DMS armazene arquivos de backup de banco de dados para migrações para o MI do Banco de Dados SQL do Azure e os SQL Servers na VM do Azure <br/>(Se você tiver conectividade site a site, talvez não seja necessária essa regra). |
@@ -92,9 +92,9 @@ Use essa topologia de rede se o ambiente exigir um ou mais dos seguintes cenári
 
 ## <a name="see-also"></a>Veja também
 
-- [Migrar SQL Server para o SQL Instância Gerenciada](https://docs.microsoft.com/azure/dms/tutorial-sql-server-to-managed-instance)
-- [Visão geral dos pré-requisitos para usar o serviço de migração de banco de dados do Azure](https://docs.microsoft.com/azure/dms/pre-reqs)
-- [Criar uma rede virtual usando o portal do Azure](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
+- [Migrar SQL Server para o SQL Instância Gerenciada](./tutorial-sql-server-to-managed-instance.md)
+- [Visão geral dos pré-requisitos para usar o serviço de migração de banco de dados do Azure](./pre-reqs.md)
+- [Criar uma rede virtual usando o portal do Azure](../virtual-network/quick-create-portal.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 

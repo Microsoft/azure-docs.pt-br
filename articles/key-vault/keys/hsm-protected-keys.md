@@ -1,6 +1,6 @@
 ---
 title: Como gerar e transferir as chaves protegidas por HSM – Azure Key Vault
-description: Use este artigo para ajudá-lo a planejar, gerar e transferir as suas próprias chaves de HSM protegido para usar com o Cofre da Chave do Azure. Também conhecido como BYOK ou Traga sua própria chave.
+description: Saiba como planejar, gerar e transferir suas chaves protegidas por HSM para usá-las com o Azure Key Vault. Também conhecido como BYOK ou Traga sua própria chave.
 services: key-vault
 author: amitbapat
 manager: devtiw
@@ -8,14 +8,14 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: tutorial
-ms.date: 05/29/2020
+ms.date: 02/01/2021
 ms.author: ambapat
-ms.openlocfilehash: 76b10dbd9b6d801d93cd5d9704531eb1a6de36a5
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 17ef0cb7efcd2a76b46a6bb0dbc82268895dae00
+ms.sourcegitcommit: 983eb1131d59664c594dcb2829eb6d49c4af1560
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88585484"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99222193"
 ---
 # <a name="import-hsm-protected-keys-to-key-vault"></a>Importar chaves protegidas por HSM para o Key Vault
 
@@ -38,9 +38,12 @@ Há suporte para a transferência de chaves protegidas por HSM para o Key Vault 
 |Fortanix|Fabricante,<br/>HSM como serviço|<ul><li>SDKMS (Serviço de Gerenciamento de Chaves de Proteção Automática)</li><li>Equinix SmartKey</li></ul>|[usar o novo método BYOK](hsm-protected-keys-byok.md)|
 |Marvell|Fabricante|Todos os HSMs LiquidSecurity com<ul><li>Firmware versão 2.0.4 ou posterior</li><li>Firmware versão 3.2 ou mais recente</li></ul>|[usar o novo método BYOK](hsm-protected-keys-byok.md)|
 |Cryptomathic|ISV (Sistema de Gerenciamento de Chaves Empresariais)|Várias marcas e modelos de HSM, incluindo<ul><li>nCipher</li><li>Thales</li><li>Utimaco</li></ul>Acesse o [site da Cryptomathic para obter detalhes](https://www.cryptomathic.com/azurebyok)|[usar o novo método BYOK](hsm-protected-keys-byok.md)|
-
+|Securosys SA|Fabricante, HSM como serviço|Família HSM Primus, Securosys Clouds HSM|[usar o novo método BYOK](hsm-protected-keys-byok.md)|
+|StorMagic|ISV (Sistema de Gerenciamento de Chaves Empresariais)|Várias marcas e modelos de HSM, incluindo<ul><li>Utimaco</li><li>Thales</li><li>nCipher</li></ul>Confira o [site da StorMagic para obter detalhes](https://stormagic.com/doc/svkms/Content/Integrations/Azure_KeyVault_BYOK.htm)|[usar o novo método BYOK](hsm-protected-keys-byok.md)|
+|IBM|Fabricante|IBM 476x, CryptoExpress|Usar o novo método BYOK](hsm-protected-keys-byok.md)|
+|||||
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Siga [Melhores práticas do Key Vault](../general/best-practices.md) para garantir a segurança, a durabilidade e o monitoramento das suas chaves.
-* Veja [Especificação de BYOK](https://docs.microsoft.com/azure/key-vault/keys/byok-specification) para obter uma descrição completa do novo método BYOK
+* Examine a [Visão geral de segurança do Key Vault](../general/security-overview.md) para garantir a segurança, a durabilidade e o monitoramento das suas chaves.
+* Veja [Especificação de BYOK](./byok-specification.md) para obter uma descrição completa do novo método BYOK

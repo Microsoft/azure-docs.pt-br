@@ -3,17 +3,19 @@ title: Conectar ao Azure Cosmos DB usando ferramentas de análise de BI
 description: Saiba como usar o driver ODBC do Azure Cosmos DB para criar tabelas e exibições, de forma que os dados normalizados possam ser exibidos no software de BI e análise de dados.
 author: SnehaGunda
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/02/2019
 ms.author: sngun
-ms.openlocfilehash: 1bda235e5f3f867762457d0dc8214bbadc88059e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e7d6a67f5322c5bb640430f66ccb0917f6faada1
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084816"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96003490"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Conectar ao Azure Cosmos DB usando ferramentas de análise de BI com o driver ODBC
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 O driver ODBC do Azure Cosmos DB permite que você se conecte ao Azure Cosmos DB usando ferramentas de análise de BI, como SQL Server Integration Services, Power BI Desktop e Tableau, de forma que você possa analisar e criar visualizações dos dados do Cosmos DB nessas soluções.
 
@@ -81,7 +83,7 @@ Vamos começar com o driver ODBC.
     - **Número de tentativas**: insira o número de vezes para tentar novamente uma operação se a solicitação inicial não for concluída devido à limitação de taxa de serviço.
     - **Arquivo de Esquema**: você tem várias opções aqui.
         - Por padrão, deixar essa entrada como está (em branco), o driver examina a primeira página de dados de todos os contêineres para determinar o esquema de cada contêiner. Isso é conhecido como mapeamento de contêiner. Sem um arquivo de esquema definido, o driver deve executar o exame para cada sessão de driver e pode resultar em um tempo de inicialização mais alto de um aplicativo usando o DSN. É recomendável sempre associar um arquivo de esquema para um DSN.
-        - Se você já tiver um arquivo de esquema (possivelmente um criado usando o editor de esquema), poderá clicar em **procurar**, navegar até o arquivo, clicar em **salvar**e, em seguida, clicar em **OK**.
+        - Se você já tiver um arquivo de esquema (possivelmente um criado usando o editor de esquema), poderá clicar em **procurar**, navegar até o arquivo, clicar em **salvar** e, em seguida, clicar em **OK**.
         - Se você desejar criar um novo esquema, clique em **OK** e clique em **Editor de Esquema** na janela principal. Em seguida, vá para as informações do Editor de Esquema. Ao criar o novo arquivo de esquema, não se esqueça de voltar para a janela **Opções Avançadas** para incluir o arquivo de esquema recém-criado.
 
 1. Depois de concluir e fechar a janela **Instalação de DSN do Driver ODBC do Azure Cosmos DB**, o novo DSN de Usuário é adicionado à guia DSN de Usuário.
@@ -107,7 +109,7 @@ Há dois tipos de métodos de amostragem que você pode usar: **mapeamento de co
 
 1. Depois de concluir a definição do esquema, clique em **arquivo**  |  **salvar**, navegue até o diretório para salvar o esquema e, em seguida, clique em **salvar**.
 
-1. Para usar esse esquema com um DSN, abra a **janela instalação de DSN do driver ODBC do Azure Cosmos DB** (por meio do administrador de fonte de dados ODBC), clique em **Opções avançadas**e, em seguida, na caixa **arquivo de esquema** , navegue até o esquema salvo. Salvar um arquivo de esquema em um DSN existente modifica a conexão DSN de escopo para os dados e a estrutura definidos pelo esquema.
+1. Para usar esse esquema com um DSN, abra a **janela instalação de DSN do driver ODBC do Azure Cosmos DB** (por meio do administrador de fonte de dados ODBC), clique em **Opções avançadas** e, em seguida, na caixa **arquivo de esquema** , navegue até o esquema salvo. Salvar um arquivo de esquema em um DSN existente modifica a conexão DSN de escopo para os dados e a estrutura definidos pelo esquema.
 
 ## <a name="step-4-create-a-schema-definition-using-the-table-delimiters-mapping-method"></a><a id="table-mapping"></a>Etapa 4: Criar uma definição de esquema usando o método de mapeamento de delimitadores de tabela
 
@@ -145,7 +147,7 @@ Você pode consultar o Azure Cosmos DB do SQL Server Management Studio (SSMS), c
 
 1. Crie uma fonte de dados do sistema, conforme descrito em [etapa 2](#connect), por exemplo, denominado `SDS Name`.
 
-1. [Instalar o SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) e conecte-se ao servidor. 
+1. [Instalar o SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) e conecte-se ao servidor. 
 
 1. No editor de consulta do SSMS, crie um objeto de servidor vinculado `DEMOCOSMOS` da fonte de dados com os seguintes comandos. Substitua `DEMOCOSMOS` com o nome do seu servidor vinculado e `SDS Name` com o nome da sua fonte de dados do sistema.
 
@@ -203,7 +205,7 @@ Em seguida, na janela **Definições de Exibição**, faça o seguinte:
 
 1. Clique em **Novo**, insira um nome para exibição, por exemplo, EmployeesfromSeattleView e, em seguida, clique em **OK**.
 
-1. Na janela **Editar exibição**, insira uma consulta do Azure Cosmos DB. Ela deve ser uma [consulta SQL do Azure Cosmos DB](how-to-sql-query.md), por exemplo, `SELECT c.City, c.EmployeeName, c.Level, c.Age, c.Manager FROM c WHERE c.City = "Seattle"`. Depois, clique em **OK**.
+1. Na janela **Editar exibição**, insira uma consulta do Azure Cosmos DB. Ela deve ser uma [consulta SQL do Azure Cosmos DB](./sql-query-getting-started.md), por exemplo, `SELECT c.City, c.EmployeeName, c.Level, c.Age, c.Manager FROM c WHERE c.City = "Seattle"`. Depois, clique em **OK**.
 
     :::image type="content" source="./media/odbc-driver/odbc-driver-create-view-2.png" alt-text="Adicionar consulta ao criar um modo de exibição":::
 
@@ -218,7 +220,7 @@ Você pode usar o novo DSN para conectar o Azure Cosmos DB com qualquer ferramen
 
 1. Clique em **Obter Dados**.
 
-    :::image type="content" source="./media/odbc-driver/odbc-driver-power-bi-get-data.png" alt-text="Obter dados no Power BI Desktop":::
+    :::image type="content" source="./media/odbc-driver/odbc-driver-power-bi-get-data.png" alt-text="Obter dados em Power BI Desktop":::
 
 1. Na janela **Obter Dados**, clique em **Outro** | **ODBC** | **Conectar**.
 
@@ -238,7 +240,7 @@ Você pode usar o novo DSN para conectar o Azure Cosmos DB com qualquer ferramen
 
 1. No Power BI Desktop, na extrema esquerda, selecione a guia dados :::image type="icon" source="./media/odbc-driver/odbc-driver-data-tab.png"::: para confirmar que os dados foram importados. 
 
-1. Agora você pode criar visuais usando Power BI clicando na guia relatório :::image type="icon" source="./media/odbc-driver/odbc-driver-report-tab.png"::: , clicando em **novo visual**e, em seguida, personalizando o bloco. Para obter mais informações sobre como criar visualizações no Power BI Desktop, consulte [Tipos de visualização no Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-visualization-types-for-reports-and-q-and-a/). 
+1. Agora você pode criar visuais usando Power BI clicando na guia relatório :::image type="icon" source="./media/odbc-driver/odbc-driver-report-tab.png"::: , clicando em **novo visual** e, em seguida, personalizando o bloco. Para obter mais informações sobre como criar visualizações no Power BI Desktop, consulte [Tipos de visualização no Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-visualization-types-for-reports-and-q-and-a/). 
 
 ## <a name="troubleshooting"></a>Solução de problemas
 

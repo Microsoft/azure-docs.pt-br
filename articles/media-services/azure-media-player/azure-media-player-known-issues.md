@@ -7,13 +7,13 @@ ms.service: media-services
 ms.topic: reference
 ms.date: 05/11/2020
 ms.openlocfilehash: a31c089971b7e70e70c5906480deb2b17c197b9f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87043611"
 ---
-# <a name="known-issues"></a>Problemas Conhecidos #
+# <a name="known-issues"></a>Problemas conhecidos #
 
 A versão atual tem os seguintes problemas conhecidos:
 
@@ -52,7 +52,7 @@ A versão atual tem os seguintes problemas conhecidos:
   - Se você quiser reproduzir ativos sem áudio, poderá fazê-lo inserindo áudio em branco usando a [ferramenta do Gerenciador de serviços de mídia do Azure](https://aka.ms/amse)
   - Instruções sobre como inserir áudio silencioso podem ser encontradas [aqui](../previous/media-services-advanced-encoding-with-mes.md#silent_audio)
 
-## <a name="flash"></a>Piscando ##
+## <a name="flash"></a>Flash ##
 
 - O conteúdo AES não é reproduzido na versão 30.0.0.134 do Flash devido a um bug na lógica de cache da Adobe. A Adobe corrigiu o problema e o liberou no 30.0.0.154
 - Falhas de Tech e http (como tempos limite de rede 404), o Player levará mais tempo para ser recuperado do que outros técnicos.

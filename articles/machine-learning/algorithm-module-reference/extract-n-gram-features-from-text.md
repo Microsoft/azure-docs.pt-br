@@ -1,24 +1,24 @@
 ---
 title: Extrair recursos de N-Gram de referência de módulo de texto
 titleSuffix: Azure Machine Learning
-description: Saiba como usar o módulo extrair N-Gram no Azure Machine Learning para personalizarr dados de texto.
+description: Saiba como usar o módulo extrair N-Gram no designer de Azure Machine Learning para personalizarr dados de texto.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 09/01/2019
-ms.openlocfilehash: efe09c1d516b37c23b024e07ae387772fa7e5992
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 12/08/2019
+ms.openlocfilehash: 37a10d90fa0e277fbe45d9f1377e365cb3d42996
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79477605"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861435"
 ---
 # <a name="extract-n-gram-features-from-text-module-reference"></a>Extrair recursos de N-Gram de referência de módulo de texto
 
-Este artigo descreve um módulo no designer do Azure Machine Learning (versão prévia). Use o módulo extrair recursos N-Gram de texto para *Personalizar* dados de texto não estruturados. 
+Este artigo descreve um módulo no designer de Azure Machine Learning. Use o módulo extrair recursos N-Gram de texto para *Personalizar* dados de texto não estruturados. 
 
 ## <a name="configuration-of-the-extract-n-gram-features-from-text-module"></a>Configuração dos recursos de extrair N-Gram do módulo de texto
 
@@ -28,7 +28,7 @@ O módulo dá suporte aos seguintes cenários para usar um dicionário de n-Gram
 
 * [Use um conjunto existente de recursos de texto](#use-an-existing-n-gram-dictionary) para personalizar uma coluna de texto livre.
 
-* [Pontuar ou publicar um modelo](#score-or-publish-a-model-that-uses-n-grams) que usa n-grams.
+* [Pontuar ou implantar um modelo](#build-inference-pipeline-that-uses-n-grams-to-deploy-a-real-time-endpoint) que usa n-grams.
 
 ### <a name="create-a-new-n-gram-dictionary"></a>Criar um novo dicionário de n-Gram
 
@@ -94,17 +94,23 @@ O módulo dá suporte aos seguintes cenários para usar um dicionário de n-Gram
 
 1.  Envie o pipeline.
 
-### <a name="score-or-publish-a-model-that-uses-n-grams"></a>Pontuar ou publicar um modelo que usa n-grams
+### <a name="build-inference-pipeline-that-uses-n-grams-to-deploy-a-real-time-endpoint"></a>Pipeline de inferência de compilação que usa n-grams para implantar um ponto de extremidade em tempo real
 
-1.  Copie os **recursos de extrair N-Gram do** módulo de texto do fluxo de bits de treinamento para o fluxo de texto de pontuação.
+Um pipeline de treinamento que contém o **recurso extrair N-grams do texto e do** **modelo de Pontuação** para fazer previsão no conjunto de dados de teste, é criado na seguinte estrutura:
 
-1.  Conecte a saída de **vocabulário de resultado** do fluxo de **dados** de treinamento ao vocabulário de entrada no fluxo de informações de pontuação.
+:::image type="content" source="./media/module/extract-n-gram-training-pipeline-score-model.png" alt-text="Exemplo de pipeline de treinamento para extrair N-grams" border="true":::
 
-1.  No fluxo de trabalho de pontuação, modifique os recursos de extrair N-Gram do módulo de texto e defina o parâmetro **modo de vocabulário** como **ReadOnly**. Deixe todas as outras as mesmas.
+**O modo de vocabulário** do **recurso extrair N-grams circulado do módulo de texto** é **criado**, e o modo de **vocabulário** do módulo que se conecta ao módulo **modelo de Pontuação** é **ReadOnly**.
 
-1.  Para publicar o pipeline, salve o **vocabulário de resultado** como um conjunto de uma.
+Depois de enviar o pipeline de treinamento acima com êxito, você pode registrar a saída do módulo circulado como conjunto de registros.
 
-1.  Conecte o conjunto de texto salvo ao módulo extrair os recursos do N-Gram do Text no grafo de pontuação.
+:::image type="content" source="./media/module/extract-n-gram-output-voc-register-dataset.png" alt-text="registrar conjunto de registros" border="true":::
+
+Em seguida, você pode criar um pipeline de inferência em tempo real. Depois de criar o pipeline de inferência, você precisa ajustar seu pipeline de inferência manualmente da seguinte maneira:
+
+:::image type="content" source="./media/module/extract-n-gram-inference-pipeline.png" alt-text="pipeline de inferência" border="true":::
+
+Em seguida, envie o pipeline de inferência e implante um ponto de extremidade em tempo real.
 
 ## <a name="results"></a>Resultados
 

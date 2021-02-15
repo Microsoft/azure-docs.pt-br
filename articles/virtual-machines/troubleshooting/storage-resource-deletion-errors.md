@@ -1,6 +1,6 @@
 ---
 title: Solução de problemas de erros de exclusão de recursos de armazenamento em VMs do Linux no Azure | Microsoft Docs
-description: Como solucionar problemas ao excluir os recursos de armazenamento que contém o VHDs anexados.
+description: Saiba como solucionar problemas em VMs do Linux ao excluir recursos de armazenamento que contêm VHDs anexados.
 keywords: ''
 services: virtual-machines
 author: genlin
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 8f145dcf8d476009d81056b3f4f970460209a5bc
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 8d727bc8bdc8f015504baa57f9596b3bacac9712
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88649730"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022863"
 ---
 # <a name="troubleshoot-storage-resource-deletion-errors"></a>Solucionar problemas de erros de exclusão de recursos de armazenamento
 
@@ -95,7 +95,7 @@ Se o VHD for um disco de dados, desanexe o VHD da VM para remover a concessão:
 7. Selecione **Editar** na parte superior do painel **Discos**.
 8. Clique no **ícone desanexar** do disco de dados a ser excluído.
 
-     ![Captura de tela do portal, com o painel "Metadados de Blob" aberto](./media/troubleshoot-vhds/utd-vm-disks-edit.png)
+     ![Captura de tela do portal, com o painel de armazenamento "metadados de blob" aberto e realça o ícone de desanexação do disco de dados a ser excluído.](./media/troubleshoot-vhds/utd-vm-disks-edit.png)
 
 9. Clique em **Salvar**. Agora, o disco está desconectado da VM, e o VHD não é mais concedido. Talvez demore alguns minutos para o serviço ser liberado. Para verificar se a concessão foi liberada, navegue até o local do blob e, no painel **Propriedades do blob**, o valor **Status de concessão** deve ser **Desbloqueado** ou **Disponível**.
 

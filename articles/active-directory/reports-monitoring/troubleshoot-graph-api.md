@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eec5c5a3d810fdd2d561313e3a355e872fb525c2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: abc8badf261e631dd6ceb7af9a6a0cb3676ae25d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85608085"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017586"
 ---
 # <a name="troubleshoot-errors-in-azure-active-directory-reporting-api"></a>Solucionar erros na API de relatório do Azure Active Directory
 
@@ -50,5 +50,5 @@ Siga as etapas nos [Pré-requisitos para acessar a API de relatório do Azure Ac
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Usar a referência](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) 
- de API de auditoria [Usar a referência de API de relatório de atividade de entrada](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)
+[Usar a referência](/graph/api/resources/directoryaudit?view=graph-rest-beta) 
+ de API de auditoria [Usar a referência de API de relatório de atividade de entrada](/graph/api/resources/signin?view=graph-rest-beta)

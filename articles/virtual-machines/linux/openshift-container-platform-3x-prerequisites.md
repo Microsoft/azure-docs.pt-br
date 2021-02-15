@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 10/23/2019
 ms.author: haroldw
-ms.openlocfilehash: 68bd748e890659e4b79d76e4ccab038f251a937a
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 51f6a2ac4f524ac2a504fb8e0c3dd90ec25c9f93
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87368176"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98734723"
 ---
 # <a name="common-prerequisites-for-deploying-openshift-container-platform-311-in-azure"></a>Pré-requisitos comuns para implantar a plataforma de contêiner do OpenShift 3,11 no Azure
 
@@ -134,11 +134,11 @@ Anote a propriedade appId e a senha retornada do comando:
  > [!WARNING] 
  > Certifique-se de anotar a senha segura, pois não será possível recuperar essa senha novamente.
 
-Para obter mais informações sobre entidades de serviço, confira [Criar entidade de serviço do Azure com a CLI do Azure](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest).
+Para obter mais informações sobre entidades de serviço, confira [Criar entidade de serviço do Azure com a CLI do Azure](/cli/azure/create-an-azure-service-principal-azure-cli).
 
 ## <a name="prerequisites-applicable-only-to-resource-manager-template"></a>Pré-requisitos aplicáveis somente ao modelo do Resource Manager
 
-Os segredos precisarão ser criados para a chave privada SSH (**sshPrivateKey**), o segredo do cliente do Azure AD (**aadClientSecret**), a senha de administrador do OpenShift (**openshiftPassword**) e a senha ou a chave de ativação do Red Hat Subscription Manager (**rhsmPasswordOrActivationKey**).  Além disso, se forem usados certificados TLS/SSL personalizados, seis segredos adicionais precisarão ser criados- **routingcafile**, **routingcertfile**, **routingkeyfile**, **mastercafile**, **mastercertfile**e **masterkeyfile**.  Esses parâmetros serão explicados em mais detalhes.
+Os segredos precisarão ser criados para a chave privada SSH (**sshPrivateKey**), o segredo do cliente do Azure AD (**aadClientSecret**), a senha de administrador do OpenShift (**openshiftPassword**) e a senha ou a chave de ativação do Red Hat Subscription Manager (**rhsmPasswordOrActivationKey**).  Além disso, se forem usados certificados TLS/SSL personalizados, seis segredos adicionais precisarão ser criados- **routingcafile**, **routingcertfile**, **routingkeyfile**, **mastercafile**, **mastercertfile** e **masterkeyfile**.  Esses parâmetros serão explicados em mais detalhes.
 
 O modelo referencia nomes de segredo específicos, portanto, você **deve** usar os nomes em negrito listados acima (diferencia maiúsculas de minúsculas).
 
@@ -173,4 +173,4 @@ Este artigo abordou os seguintes tópicos:
 Agora, implante um cluster de OpenShift:
 
 - [Implantar a plataforma de contêiner do OpenShift](./openshift-container-platform-3x.md)
-- [Implantar a oferta do Marketplace autogerenciado da plataforma de contêiner do OpenShift](./openshift-container-platform-3x-marketplace-self-managed.md)
+- [Implantar a plataforma de contêiner OpenShift Self-Managed oferta do Marketplace](./openshift-container-platform-3x-marketplace-self-managed.md)

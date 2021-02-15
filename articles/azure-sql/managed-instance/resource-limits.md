@@ -7,19 +7,19 @@ ms.service: sql-managed-instance
 ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: reference
 author: bonova
 ms.author: bonova
-ms.reviewer: carlrab, jovanpop, sachinp, sstein
-ms.date: 08/14/2020
-ms.openlocfilehash: 902fa34be149f0b876729409c530186e34c706e5
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.reviewer: sstein, jovanpop, sachinp
+ms.date: 09/14/2020
+ms.openlocfilehash: 9a96da607ceea5a6d5cb6ef02df5a9a4db24562e
+ms.sourcegitcommit: e8bd58dbcfe0eae45979d86e071778b9aec40b6c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88587303"
+ms.lasthandoff: 12/25/2020
+ms.locfileid: "97770954"
 ---
-# <a name="overview-of-azure-sql-managed-instance-resource-limits"></a>Visão geral dos limites de recursos do Azure SQL Instância Gerenciada
+# <a name="overview-of-azure-sql-managed-instance-resource-limits"></a>Visão geral dos limites de recursos da Instância Gerenciada de SQL do Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 Este artigo fornece uma visão geral das características técnicas e dos limites de recursos para o Azure SQL Instância Gerenciada e fornece informações sobre como solicitar um aumento para esses limites.
@@ -36,7 +36,7 @@ O SQL Instância Gerenciada tem características e limites de recursos que depen
 | **Hardware** | Processadores Intel® E5-2673 v3 (Haswell) 2,4 GHz, vCore de SSD anexado = 1 PP (núcleo físico) | Intel® E5-2673 V4 (Broadwell) 2,3 GHz, processadores Intel® SP-8160 (Skylake) e Intel® 8272CL (Cascadey Lake) 2,5 GHz, SSD Fast NVMe, vCore = 1 LP (Hyper-thread) |
 | **Número de vCores** | 8, 16, 24 vCores | 4, 8, 16, 24, 32, 40, 64, 80 vCores |
 | **Memória máxima (taxa de memória/núcleo)** | 7 GB por vCore<br/>Adicione mais vCores para obter mais memória. | 5.1 GB por vCore<br/>Adicione mais vCores para obter mais memória. |
-| **Memória máxima OLTP na memória** | Limite de instância: 1 a 1,5 GB por vCore| Limite de instância: 0,8 a 1,65 GB por vCore |
+| **Memória máxima do OLTP In-Memory** | Limite de instância: 1 a 1,5 GB por vCore| Limite de instância: 0,8 a 1,65 GB por vCore |
 | **Armazenamento reservado de instância máx.** |  Uso Geral: 8 TB<br/>Comercialmente Crítico: 1 TB | Uso Geral: 8 TB<br/> Comercialmente Crítico 1 TB, 2 TB ou 4 TB, dependendo do número de núcleos |
 
 > [!IMPORTANT]
@@ -72,25 +72,25 @@ O SQL Instância Gerenciada tem duas camadas de serviço: [uso geral](../databas
 | Tamanho máximo de armazenamento de instância (reservado) | -2 TB para 4 vCores (somente Gen5)<br/>-8 TB para outros tamanhos | Gen4:1 TB <br/> Gen5: <br/>-1 TB para 4, 8, 16 vCores<br/>- 2 TB para 24 vCores<br/>- 4 TB para 32, 40, 64, 80 vCores |
 | Tamanho máximo do banco de dados | Até o tamanho da instância disponível no momento (máximo de 2 TB-8 TB, dependendo do número de vCores). | Até o tamanho da instância disponível no momento (máximo de 1 TB-4 TB, dependendo do número de vCores). |
 | Tamanho máximo de TempDB | Limitado a 24 GB/vCore (96-1.920 GB) e ao tamanho do armazenamento de instância disponível no momento.<br/>Adicione mais vCores para obter mais espaço de TempDB.<br/> O tamanho do arquivo de log é limitado a 120 GB.| Até o tamanho do armazenamento de instância disponível no momento. |
-| Número máximo de bancos de dados por instância | 100, a menos que o limite de tamanho do armazenamento de instância tenha sido atingido. | 100, a menos que o limite de tamanho do armazenamento de instância tenha sido atingido. |
+| Número máximo de bancos de dados por instância | 100 bancos de dados de usuário, a menos que o limite de tamanho de armazenamento de instância tenha sido atingido. | 100 bancos de dados de usuário, a menos que o limite de tamanho de armazenamento de instância tenha sido atingido. |
 | Número máximo de arquivos de banco de dados por instância | Até 280, a menos que o limite de tamanho do armazenamento de instância ou [do espaço de alocação do armazenamento em disco Premium do Azure](../database/doc-changes-updates-release-notes.md#exceeding-storage-space-with-small-database-files) tenha sido atingido. | 32.767 arquivos por banco de dados, a menos que o limite de tamanho do armazenamento de instância tenha sido atingido. |
 | Tamanho máximo do arquivo de dados | Limitado ao tamanho de armazenamento da instância disponível no momento (máx. 2 TB-8 TB) e ao [espaço de alocação do armazenamento em disco Premium do Azure](../database/doc-changes-updates-release-notes.md#exceeding-storage-space-with-small-database-files). | Limitado ao tamanho de armazenamento de instância disponível no momento (até 1 TB-4 TB). |
 | Tamanho máximo do arquivo de log | Limitado a 2 TB e tamanho de armazenamento de instância disponível no momento. | Limitado a 2 TB e tamanho de armazenamento de instância disponível no momento. |
-| Dados/Log IOPS (aproximado) | Até 30-40 K IOPS por instância *, 500-7500 por arquivo<br/>\*[Aumentar o tamanho do arquivo para obter mais IOPS](#file-io-characteristics-in-general-purpose-tier)| 10 k-200 K (2500 IOPS/vCore)<br/>Adicione mais vCores para obter melhor desempenho de e/s. |
-| Limite de taxa de transferência de gravação de log (por instância) | 3 MB/s por vCore<br/>Máximo de 22 MB/s | 4 MB/s por vCore<br/>Máx. de 48 MB/s |
+| Dados/Log IOPS (aproximado) | Até 30-40 K IOPS por instância *, 500-7500 por arquivo<br/>\*[Aumentar o tamanho do arquivo para obter mais IOPS](#file-io-characteristics-in-general-purpose-tier)| 10 k-200 K (4000 IOPS/vCore)<br/>Adicione mais vCores para obter melhor desempenho de e/s. |
+| Limite de taxa de transferência de gravação de log (por instância) | 3 MB/s por vCore<br/>Máximo de 120 MB/s por instância<br/>22-65 MB/s por BD<br/>\*[Aumente o tamanho do arquivo para obter melhor desempenho de e/s](#file-io-characteristics-in-general-purpose-tier) | 4 MB/s por vCore<br/>Máximo de 96 MB/s |
 | Taxa de transferência de dados (aproximada) | 100 – 250 MB/s por arquivo<br/>\*[Aumente o tamanho do arquivo para obter melhor desempenho de e/s](#file-io-characteristics-in-general-purpose-tier) | Não limitado. |
 | Latência de e/s de armazenamento (aproximada) | 5-10 ms | 1-2 ms |
 | OLTP na memória | Sem suporte | Disponível, o [tamanho depende do número de vCore](#in-memory-oltp-available-space) |
 | Máx. de sessões | 30000 | 30000 |
-| Máximo de trabalhos simultâneos (solicitações) | Gen4:210 * número de vCores + 800<br>Gen5:105 * número de vCores + 800 | Gen4:210 * contagem de vCore + 800<br>Gen5:105 * contagem de vCore + 800 |
+| Máximo de trabalhos simultâneos (solicitações) | Gen4: 210 x número de vCores + 800<br>Gen5: 105 x número de vCores + 800 | Gen4: 210 x contagem de vCore + 800<br>Gen5: 105 * contagem de vCore + 800 |
 | [Réplicas somente leitura](../database/read-scale-out.md) | 0 | 1 (incluído no preço) |
-| Isolamento de computação | Gen5:<br/>-com suporte para 80 vCores<br/>-sem suporte para outros tamanhos<br/><br/>Não há suporte para Gen4 devido à reprovação|Gen5:<br/>-com suporte para 60, 64, 80 vCores<br/>-sem suporte para outros tamanhos<br/><br/>Não há suporte para Gen4 devido à reprovação|
+| Isolamento de computação | Não há suporte para Gen5 porque instâncias de Uso Geral podem compartilhar hardware físico com outras instâncias<br/>Não há suporte para Gen4 devido à reprovação|Gen5:<br/>-com suporte para 40, 64, 80 vCores<br/>-sem suporte para outros tamanhos<br/><br/>Não há suporte para Gen4 devido à reprovação|
 
 
 Algumas considerações adicionais: 
 
 - O **tamanho do armazenamento de instância disponível no momento** é a diferença entre o tamanho da instância reservada e o espaço de armazenamento usado.
-- Os dados e o tamanho do arquivo de log nos bancos de dado do usuário e do sistema são incluídos no tamanho do armazenamento da instância que é comparado com o limite de tamanho máximo de armazenamento. Use a exibição do sistema [Sys. master_files](/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql) para determinar o total de espaço usado por bancos de dados. Logs de erros não são persistentes e não são incluídos no tamanho. Backups não são incluídos no tamanho de armazenamento.
+- Os dados e o tamanho do arquivo de log nos bancos de dado do usuário e do sistema são incluídos no tamanho do armazenamento da instância que é comparado com o limite de tamanho máximo de armazenamento. Use a exibição do sistema [Sys.master_files](/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql) para determinar o total de espaço usado por bancos de dados. Logs de erros não são persistentes e não são incluídos no tamanho. Backups não são incluídos no tamanho de armazenamento.
 - A taxa de transferência e o IOPS na camada de Uso Geral também dependem do [tamanho do arquivo](#file-io-characteristics-in-general-purpose-tier) que não é explicitamente limitado pelo instância gerenciada do SQL.
   Você pode criar outra réplica legível em uma região diferente do Azure usando [grupos de failover automático](../database/auto-failover-group-configure.md)
 - IOPS de instância máxima dependem do layout do arquivo e da distribuição da carga de trabalho. Por exemplo, se você criar arquivos de 7 x 1 TB com 5K IOPS máximos cada e 7 arquivos pequenos (menores que 128 GB) com 500 IOPS cada, poderá obter 38500 IOPS por instância (7x5000 + 7x500) se sua carga de trabalho puder usar todos os arquivos. Observe que alguns IOPS também são usados para backups automáticos.
@@ -99,16 +99,16 @@ Encontre mais informações sobre os [limites de recursos nos pools do SQL inst�
 
 ### <a name="file-io-characteristics-in-general-purpose-tier"></a>Características de e/s de arquivo na camada de Uso Geral
 
-Na camada de serviço do Uso Geral, cada arquivo de banco de dados obtém IOPS dedicados e taxa de transferência que dependem do tamanho do arquivo. Arquivos de dados maiores obtêm mais IOPS e taxa de transferência. As características de e/s dos arquivos de banco de dados são mostradas na tabela a seguir:
+Na camada de serviço do Uso Geral, cada arquivo de banco de dados obtém IOPS dedicados e taxa de transferência que dependem do tamanho do arquivo. Arquivos maiores obtêm mais IOPS e taxa de transferência. As características de e/s dos arquivos de banco de dados são mostradas na tabela a seguir:
 
-| Tamanho do arquivo | >= 0 e <= 128 GiB | >128 e <= 256 GiB | >256 e <= 512 GiB | >0,5 e <= 1 TiB    | >1 e <= 2 TiB    | >2 e <= 4 TiB | >4 e <= 8 TiB |
+| Tamanho do arquivo | >= 0 e <= 128 GiB | >128 e <= 512 GiB | >0,5 e <= 1 TiB    | >1 e <= 2 TiB    | >2 e <= 4 TiB | >4 e <= 8 TiB |
 |---------------------|-------|-------|-------|-------|-------|-------|-------|
-| IOPS por arquivo       | 500   | 1100 | 2300              | 5.000              | 7500              | 7500              | 12.500   |
-| Taxa de transferência por arquivo | 100 MiB/s | 125 MiB/s | 150 MiB/s | 200 MiB/s | 250 MiB/s | 250 MiB/s | 480 MiB/s | 
+| IOPS por arquivo       | 500   | 2300              | 5.000              | 7500              | 7500              | 12.500   |
+| Taxa de transferência por arquivo | 100 MiB/s | 150 MiB/s | 200 MiB/s | 250 MiB/s | 250 MiB/s | 480 MiB/s | 
 
 Se você notar alta latência de e/s em algum arquivo de banco de dados ou se perceber que o IOPS/taxa de transferência está atingindo o limite, você pode melhorar [o desempenho aumentando o tamanho do arquivo](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Increase-data-file-size-to-improve-HammerDB-workload-performance/ba-p/823337).
 
-Também há um limite no nível de instância da taxa de transferência de gravação de log máxima (que é de 22 MB/s), portanto, talvez você não consiga acessar o arquivo máximo no arquivo de log porque está atingindo o limite de taxa de transferência da instância.
+Também há um limite de nível de instância na taxa de transferência de gravação de log máximo (veja acima para obter valores, por exemplo, 22 MB/s), para que você não consiga acessar o arquivo máximo no arquivo de log porque está atingindo o limite de taxa de transferência da instância.
 
 ## <a name="supported-regions"></a>Regiões com suporte
 
@@ -120,7 +120,7 @@ O SQL Instância Gerenciada atualmente dá suporte à implantação somente nos 
 
 - [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/)
 - [Pago conforme o uso](https://azure.microsoft.com/offers/ms-azr-0003p/)
-- [Provedor de Serviços de Nuvem (CSP)](https://docs.microsoft.com/partner-center/csp-documents-and-learning-resources)
+- [Provedor de Serviços de Nuvem (CSP)](/partner-center/csp-documents-and-learning-resources)
 - [Desenvolvimento/Teste Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/)
 - [Desenvolvimento/Teste pré-pago](https://azure.microsoft.com/offers/ms-azr-0023p/)
 - [Assinaturas com crédito Azure mensal para assinantes do Visual Studio](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/)
@@ -150,7 +150,7 @@ A tabela a seguir mostra os **limites regionais padrão** para os tipos de assin
 |Visual Studio Enterprise|2 |64|
 |Visual Studio Professional e Plataformas MSDN|2|32|
 
-\* No planejamento de implantações, leve em consideração que a camada de serviço de Comercialmente Crítico (BC) requer quatro (4) vezes mais capacidade de vCore do que a camada de serviço de Uso Geral (GP). Por exemplo: 1 GP vCore = 1 unidade vCore e 1 BC vCore = 4 unidades vCore. Para simplificar a análise de consumo em relação aos limites padrão, resuma as unidades vCore em todas as sub-redes na região em que o SQL Instância Gerenciada está implantado e compare os resultados com os limites de unidade de instância para o tipo de assinatura. O limite **máximo de unidades vCore** aplica-se a cada assinatura em uma região. Não há limite por sub-redes individuais, exceto que a soma de todos os vCores implantados em várias sub-redes deve ser menor ou igual ao **número máximo de unidades vCore**.
+\* No planejamento de implantações, leve em consideração que a camada de serviço de Comercialmente Crítico (BC) requer quatro (4) vezes mais capacidade de vCore do que a camada de serviço de Uso Geral (GP). Por exemplo: 1 GP vCore = 1 unidade vCore e 1 BC vCore = 4 vCore. Para simplificar a análise de consumo em relação aos limites padrão, resuma as unidades vCore em todas as sub-redes na região em que o SQL Instância Gerenciada está implantado e compare os resultados com os limites de unidade de instância para o tipo de assinatura. O limite **máximo de unidades vCore** aplica-se a cada assinatura em uma região. Não há limite por sub-redes individuais, exceto que a soma de todos os vCores implantados em várias sub-redes deve ser menor ou igual ao **número máximo de unidades vCore**.
 
 \*\* Os limites de maior sub-rede e vCore estão disponíveis nas seguintes regiões: leste da Austrália, leste dos EUA, leste dos EUA 2, Europa Setentrional, Sul EUA Central, Sudeste Asiático, Sul do Reino Unido, Europa Ocidental, oeste dos EUA 2.
 

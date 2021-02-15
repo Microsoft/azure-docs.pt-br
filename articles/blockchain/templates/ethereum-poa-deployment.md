@@ -4,13 +4,13 @@ description: Usar a solução do consórcio de prova de autoridade do Ethereum p
 ms.date: 07/23/2020
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.custom: devx-track-javascript
-ms.openlocfilehash: f0b7d056d37ffb11945a5c50e2705b5d74402007
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.custom: devx-track-js
+ms.openlocfilehash: e680bc601b7f230314c1063523a003e95a849c0a
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386105"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024391"
 ---
 # <a name="deploy-ethereum-proof-of-authority-consortium-solution-template-on-azure"></a>Implantar o modelo de solução do consórcio de prova de autoridade Ethereum no Azure
 
@@ -48,7 +48,9 @@ Cada implantação de membro do consórcio inclui:
 * Azure Monitor para agregar logs e estatísticas de desempenho
 * Gateway de rede virtual para permitir conexões VPN entre redes virtuais privadas (opcional)
 
-Por padrão, o RPC e pontos de extremidade de emparelhamento são acessíveis pela IP público para permitir a conectividade simplificada entre assinaturas e nuvens. Para controles de acesso de nível de aplicativo, você pode usar [contratos de permissão de paridade](https://wiki.parity.io/Permissioning). As redes implantadas atrás de VPNs, que aproveitam gateways de VNet para conectividade entre assinaturas, têm suporte. Como as implantações de VPN e VNet são mais complexas, talvez você queira começar com um modelo de IP público ao fazer um protótipo de uma solução.
+Por padrão, os pontos de extremidade RPC e de emparelhamento são acessíveis por IP público para permitir conectividade simplificada entre
+
+assinaturas e nuvens. Para controles de acesso de nível de aplicativo, você pode usar [contratos de permissão de paridade](https://openethereum.github.io/Permissioning.html). As redes implantadas atrás de VPNs, que aproveitam gateways de VNet para conectividade entre assinaturas, têm suporte. Como as implantações de VPN e VNet são mais complexas, talvez você queira começar com um modelo de IP público ao fazer um protótipo de uma solução.
 
 Os contêineres do Docker são usados para confiabilidade e modularidade. O registro de contêiner do Azure é usado para hospedar e fornecer imagens com versão como parte de cada implantação. As imagens de contêiner consistem em:
 
@@ -92,7 +94,7 @@ Em **noções básicas**, especifique valores para parâmetros padrão para qual
 
 Parâmetro | Descrição | Valor de exemplo
 ----------|-------------|--------------
-Criar uma nova rede ou ingressar na rede existente | Você pode criar uma nova rede Consortium ou ingressar em uma rede consórcio pré-existente. Ingressar em uma rede existente requer parâmetros adicionais. | Create new
+Criar uma nova rede ou ingressar na rede existente | Você pode criar uma nova rede Consortium ou ingressar em uma rede consórcio pré-existente. Ingressar em uma rede existente requer parâmetros adicionais. | Criar Novo
 Endereço de Email | Você receberá uma notificação por email quando sua implantação for concluída com informações sobre sua implantação. | Um endereço de email válido
 Nome de usuário da VM | Nome de usuário de administrador de cada VM implantada | 1-64 caracteres alfanuméricos
 Tipo de autenticação | O método para autenticar para a máquina virtual. | Senha
@@ -167,7 +169,7 @@ O monitoramento permite que você configure um recurso de log para sua rede. O a
 Parâmetro | Descrição | Valor de exemplo
 ----------|-------------|--------------
 Monitoramento | Opção para habilitar o monitoramento | Habilitar
-Conectar-se a logs de Azure Monitor existentes | Opção para criar uma nova instância de logs de Azure Monitor ou ingressar em uma instância existente | Create new
+Conectar-se a logs de Azure Monitor existentes | Opção para criar uma nova instância de logs de Azure Monitor ou ingressar em uma instância existente | Criar Novo
 Location | A região em que a nova instância é implantada | Leste dos EUA
 ID do espaço de trabalho do log Analytics existente (conectar a logs de Azure Monitor existentes = ingressar existente)|ID do espaço de trabalho da instância existente de logs de Azure Monitor||NA
 Chave primária do log Analytics existente (conectar a logs de Azure Monitor existentes = ingressar existente)|A chave primária usada para se conectar à instância existente de logs de Azure Monitor||NA
@@ -279,7 +281,7 @@ O portal exibirá primeiro estatísticas de rede de alto nível como uma visão 
 
 ![Categorias de monitor](./media/ethereum-poa-deployment/monitor-categories.png)
 
-A seleção de **visão geral do nó** mostra as estatísticas de infraestrutura por nó.
+A seleção de **visão geral do nó**  mostra as estatísticas de infraestrutura por nó.
 
 ![Estatísticas de nó](./media/ethereum-poa-deployment/node-stats.png)
 
@@ -325,13 +327,13 @@ Por motivos de segurança, o acesso de porta SSH é negado por uma regra de segu
 
 1. Selecione a regra **Allow-SSH** .
 
-    ![ssh-permitir](./media/ethereum-poa-deployment/ssh-allow.png)
+    ![Captura de tela mostra uma janela de visão geral do ssh-permitir selecionado.](./media/ethereum-poa-deployment/ssh-allow.png)
 
 1. Alterar **ação** para **permitir**
 
     ![habilitar permissão ssh](./media/ethereum-poa-deployment/ssh-enable-allow.png)
 
-1. Clique em **Salvar**. As alterações podem levar alguns minutos para serem aplicadas.
+1. Selecione **Salvar**. As alterações podem levar alguns minutos para serem aplicadas.
 
 Você pode se conectar remotamente às máquinas virtuais para os nós de validador via SSH com o nome de usuário do administrador fornecido e a chave de senha/SSH. O comando SSH para acessar o primeiro nó do validador é listado na saída de implantação do modelo. Por exemplo:
 
@@ -341,7 +343,7 @@ ssh -p 4000 poaadmin\@leader4vb.eastus.cloudapp.azure.com.
 
 Para obter os nós de transação adicionais, aumente o número da porta em um.
 
-Se você implantou em mais de uma região, altere o comando para o nome DNS ou endereço IP do balanceador de carga nessa região. Para localizar o nome DNS ou o endereço IP das outras regiões, localize o recurso com a Convenção de nomenclatura ** \* \* \* \* \* -lbpip- \# reg** e exiba seu nome DNS e suas propriedades de endereço IP.
+Se você implantou em mais de uma região, altere o comando para o nome DNS ou endereço IP do balanceador de carga nessa região. Para localizar o nome DNS ou o endereço IP das outras regiões, localize o recurso com a Convenção de nomenclatura **\* \* \* \* \* -lbpip- \# reg** e exiba seu nome DNS e suas propriedades de endereço IP.
 
 ## <a name="azure-traffic-manager-load-balancing"></a>Balanceamento de carga do Gerenciador de Tráfego
 
@@ -685,7 +687,7 @@ Agora que o seu contrato inteligente está implantado, você pode enviar uma tra
 
 ## <a name="webassembly-wasm-support"></a>Suporte de WebAssembly (WASM)
 
-O Suporte de WebAssembly já está habilitado para você em redes de PoA implantados recentemente. Ele permite desenvolvimento inteligente contrato em qualquer linguagem que transpila ao Assembly de Web (Rust, C, C++). Para obter mais informações, consulte: [visão geral de paridade do Webassembly](https://wiki.parity.io/WebAssembly-Home) e [tutorial da tecnologia de paridade](https://github.com/paritytech/pwasm-tutorial)
+O Suporte de WebAssembly já está habilitado para você em redes de PoA implantados recentemente. Ele permite desenvolvimento inteligente contrato em qualquer linguagem que transpila ao Assembly de Web (Rust, C, C++). Para obter mais informações, consulte: [visão geral de paridade do Webassembly](https://openethereum.github.io/WebAssembly-Home.html) e [tutorial da tecnologia de paridade](https://github.com/paritytech/pwasm-tutorial)
 
 ## <a name="faq"></a>Perguntas frequentes
 

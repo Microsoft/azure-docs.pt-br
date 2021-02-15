@@ -14,12 +14,12 @@ ms.date: 08/27/2020
 ms.author: curtand
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6bfe0fee14ed463e265dc4e7e4177c702b051c81
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 8c9ba7217dfc167a06a1fea389cfc40a5e1251ca
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89050192"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367798"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Implantar o Azure AD Privileged Identity Management (PIM)
 
@@ -58,7 +58,7 @@ Esta seção fornece uma análise para fins de planejamento das partes relevante
 
 ## <a name="roles-that-can-be-managed-by-pim"></a>Funções que podem ser gerenciadas pelo PIM
 
-As **funções do Azure ad** estão todas em Azure Active Directory (como administrador global, administrador do Exchange e administrador de segurança). Você pode ler mais sobre as funções e suas funcionalidades em [Permissões da função de administrador no Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md). Para obter ajuda sobre como determinar quais funções devem ser atribuídas aos administradores, confira [funções com menos privilégios por tarefa](../users-groups-roles/roles-delegate-by-task.md).
+As **funções do Azure ad** estão todas em Azure Active Directory (como administrador global, administrador do Exchange e administrador de segurança). Você pode ler mais sobre as funções e suas funcionalidades em [Permissões da função de administrador no Azure Active Directory](../roles/permissions-reference.md). Para obter ajuda sobre como determinar quais funções devem ser atribuídas aos administradores, confira [funções com menos privilégios por tarefa](../roles/delegate-by-task.md).
 
 As **funções do Azure** são funções vinculadas a um recurso do Azure, grupo de recursos, assinatura ou grupo de gerenciamento. Você pode usar o PIM para fornecer acesso just-in-time a funções internas do Azure, como proprietário, administrador de acesso do usuário e colaborador, e também para [funções personalizadas](../../role-based-access-control/custom-roles.md). Para obter mais informações sobre as funções do Azure, consulte [controle de acesso baseado em função do Azure](../../role-based-access-control/overview.md).
 
@@ -78,7 +78,7 @@ A seção a seguir ajuda a identificar todos os participantes envolvidos no proj
 
 #### <a name="stakeholders-privileged-identity-management-for-azure-ad-roles"></a>Participantes: Privileged Identity Management para funções do Azure AD
 
-| Name | Função | Ação |
+| Nome | Função | Ação |
 | --- | --- | --- |
 | Nome e email | **Arquiteto de identidade ou de Administrador Global do Azure**<br/>Um representante da equipe de gerenciamento de identidades responsável por definir como alinhar essa alteração com a principal infra-estrutura de gerenciamento de identidades em sua organização. | SO/R/I |
 | Nome e email | **Proprietário do serviço / gerente de linha**<br/>Um representante dos proprietários de TI de um serviço ou um grupo de serviços. Eles são fundamentais para tomar decisões e ajudar a distribuir Privileged Identity Management para sua equipe. | SO/R/I |
@@ -88,7 +88,7 @@ A seção a seguir ajuda a identificar todos os participantes envolvidos no proj
 
 #### <a name="stakeholders-privileged-identity-management-for-azure-roles"></a>Participantes: Privileged Identity Management para funções do Azure
 
-| Name | Função | Ação |
+| Nome | Função | Ação |
 | --- | --- | --- |
 | Nome e email | **Proprietário da assinatura / recurso**<br/>Um representante dos proprietários de ti de cada assinatura ou recurso que você deseja implantar Privileged Identity Management | SO/R/I |
 | Nome e email | **Proprietário de segurança**<br/>Um representante da equipe de segurança que pode confirmar que o plano atende aos requisitos de segurança da organização. | SO/R |
@@ -111,7 +111,7 @@ Para funções do Azure AD, é comum que as organizações atribuam a função d
 
 Siga estas etapas para implementar o princípio de privilégios mínimos para suas funções do Azure AD.
 
-1. Entenda a granularidade das funções lendo e compreendendo as [funções de administrador disponíveis do Azure AD](../users-groups-roles/directory-assign-admin-roles.md#available-roles). Você e sua equipe também devem fazer referência às [funções de administrador por tarefa de identidade no Azure AD](../users-groups-roles/roles-delegate-by-task.md), o que explica a função de privilégios mínimos de tarefas específicas.
+1. Entenda a granularidade das funções lendo e compreendendo as [funções de administrador disponíveis do Azure AD](../roles/permissions-reference.md#available-roles). Você e sua equipe também devem fazer referência às [funções de administrador por tarefa de identidade no Azure AD](../roles/delegate-by-task.md), o que explica a função de privilégios mínimos de tarefas específicas.
 
 1. Liste quem tem função com privilégios em sua organização. Você pode usar a descoberta de Privileged Identity Management [e informações (versão prévia)](pim-security-wizard.md) para reduzir sua exposição.
 
@@ -200,11 +200,11 @@ A atribuição de uma função a um grupo em vez de a usuários individuais é u
 
 #### <a name="many-users-are-assigned-to-a-role"></a>Muitos usuários são atribuídos a uma função
 
-Manter o controle de quem é atribuído a uma função e gerenciar suas atribuições com base em quando eles precisam de ti pode levar algum tempo quando feito manualmente. Para atribuir um grupo a uma função, primeiro [crie um grupo de funções atribuíveis](../users-groups-roles/roles-groups-create-eligible.md) e, em seguida, atribua o grupo como qualificado para uma função. Essa ação é sujeita a todos no grupo para o mesmo processo de ativação que os usuários individuais que estão qualificados a elevar a função. Os membros do grupo ativam suas atribuições ao grupo individualmente usando o processo de aprovação e solicitação de ativação Privileged Identity Management. O grupo não está ativado, apenas a associação de grupo do usuário.
+Manter o controle de quem é atribuído a uma função e gerenciar suas atribuições com base em quando eles precisam de ti pode levar algum tempo quando feito manualmente. Para atribuir um grupo a uma função, primeiro [crie um grupo de funções atribuíveis](../roles/groups-create-eligible.md) e, em seguida, atribua o grupo como qualificado para uma função. Essa ação é sujeita a todos no grupo para o mesmo processo de ativação que os usuários individuais que estão qualificados a elevar a função. Os membros do grupo ativam suas atribuições ao grupo individualmente usando o processo de aprovação e solicitação de ativação Privileged Identity Management. O grupo não está ativado, apenas a associação de grupo do usuário.
 
 #### <a name="you-want-to-delegate-assigning-the-role"></a>Você deseja delegar a atribuição da função
 
-Um proprietário de grupo pode gerenciar a associação de um grupo. Para grupos de funções do Azure AD atribuíveis, somente o administrador de função com privilégios, o administrador global e os proprietários do grupo podem gerenciar a associação de grupo. Ao adicionar novos membros ao grupo, o membro obtém acesso às funções às quais o grupo é atribuído, independentemente de a atribuição estar qualificada ou ativa. Use os proprietários do grupo para delegar o gerenciamento de associação de grupo para uma função atribuída a fim de reduzir a amplitude do privilégio necessário. Para obter mais informações sobre como atribuir um proprietário a um grupo ao criar o grupo, consulte [criar um grupo de funções atribuídas no Azure ad](../users-groups-roles/roles-groups-create-eligible.md).
+Um proprietário de grupo pode gerenciar a associação de um grupo. Para grupos de funções do Azure AD atribuíveis, somente o administrador de função com privilégios, o administrador global e os proprietários do grupo podem gerenciar a associação de grupo. Ao adicionar novos membros ao grupo, o membro obtém acesso às funções às quais o grupo é atribuído, independentemente de a atribuição estar qualificada ou ativa. Use os proprietários do grupo para delegar o gerenciamento de associação de grupo para uma função atribuída a fim de reduzir a amplitude do privilégio necessário. Para obter mais informações sobre como atribuir um proprietário a um grupo ao criar o grupo, consulte [criar um grupo de funções atribuídas no Azure ad](../roles/groups-create-eligible.md).
 
 > [!TIP]
 > : heavy_check_mark: a **Microsoft recomenda** que você coloque grupos de funções do Azure ad atribuíveis sob gerenciamento pelo Privileged Identity Management. Depois que um grupo de atribuição de função é trazido sob gerenciamento pelo PIM, ele é chamado de grupo de acesso privilegiado. Use o PIM para exigir que os proprietários do grupo ativem sua atribuição de função de proprietário antes de poderem gerenciar a associação de grupo. Para obter mais informações sobre como colocar grupos sob o gerenciamento do PIM, consulte [colocar grupos de acesso privilegiado (versão prévia) em Privileged Identity Management](groups-discover-groups.md).
@@ -214,7 +214,7 @@ Um proprietário de grupo pode gerenciar a associação de um grupo. Para grupos
 Depois de decidir a lista de funções a serem gerenciadas pelo Privileged Identity Management, você deve decidir quais usuários devem obter a função qualificada versus a função ativa permanentemente. Funções ativas permanentemente são as funções normais atribuídas por meio de Azure Active Directory e recursos do Azure, enquanto as funções qualificadas só podem ser atribuídas em Privileged Identity Management.
 
 > [!TIP]
-> : heavy_check_mark: a **Microsoft recomenda** que você tenha zero atribuições permanentemente ativas para funções do Azure AD e funções do Azure além das [duas contas de acesso de emergência de interrupção](../users-groups-roles/directory-emergency-access.md)recomendadas, que devem ter a função de administrador global permanente.
+> : heavy_check_mark: a **Microsoft recomenda** que você tenha zero atribuições permanentemente ativas para funções do Azure AD e funções do Azure além das [duas contas de acesso de emergência de interrupção](../roles/security-emergency-access.md)recomendadas, que devem ter a função de administrador global permanente.
 
 Apesar de recomendarmos um administrador permanente, às vezes é difícil para as organizações conseguirem isso imediatamente. Veja alguns pontos a considerar ao tomar esta decisão:
 
@@ -230,7 +230,7 @@ Antes de implementar sua solução de Privileged Identity Management, é uma pr�
 
 #### <a name="privileged-identity-management-settings-for-azure-ad-roles"></a>Configurações de Privileged Identity Management para funções do Azure AD
 
-| Função | Exigir MFA | Notificação | Tíquete de incidente | Exigir aprovação | Aprovador | Duração da ativação | Administrador permanente |
+| Função | Exigir MFA | Notification | Tíquete de incidente | Exigir aprovação | Aprovador | Duração da ativação | Administrador permanente |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | Administrador global | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Outros administradores globais | 1 hora | Contas de acesso de emergência |
 | Administrador do Exchange | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: | Nenhum | 2 horas | Nenhum |
@@ -238,11 +238,11 @@ Antes de implementar sua solução de Privileged Identity Management, é uma pr�
 
 #### <a name="privileged-identity-management-settings-for-azure-roles"></a>Configurações de Privileged Identity Management para funções do Azure
 
-| Função | Exigir MFA | Notificação | Exigir aprovação | Aprovador | Duração da ativação | Administradores ativos | Expiração ativa | Expiração qualificada |
+| Função | Exigir MFA | Notification | Exigir aprovação | Aprovador | Duração da ativação | Administradores ativos | Expiração ativa | Expiração qualificada |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| Proprietário de assinaturas críticas | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Outros proprietários da assinatura | 1 hora | Nenhum | N/D | 3 meses |
-| Administrador de Acesso do Usuário de assinaturas menos críticas | :heavy_check_mark: | :heavy_check_mark: | :x: | Nenhum | 1 hora | Nenhum | N/D | 3 meses |
-| Colaborador de Máquina Virtual | :x: | :heavy_check_mark: | :x: | Nenhum | 3 horas | Nenhum | N/D | 6 meses |
+| Proprietário de assinaturas críticas | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Outros proprietários da assinatura | 1 hora | Nenhum | n/a | 3 meses |
+| Administrador de Acesso do Usuário de assinaturas menos críticas | :heavy_check_mark: | :heavy_check_mark: | :x: | Nenhum | 1 hora | Nenhum | n/a | 3 meses |
+| Colaborador de Máquina Virtual | :x: | :heavy_check_mark: | :x: | Nenhum | 3 horas | Nenhum | n/a | 6 meses |
 
 A tabela a seguir descreve cada configuração.
 
@@ -250,7 +250,7 @@ A tabela a seguir descreve cada configuração.
 | --- | --- |
 | Função | Nome da função para a qual você está definindo as configurações. |
 | Exigir MFA | Se o usuário qualificado precisa executar a MFA antes de ativar a função.<br/><br/> : heavy_check_mark: a **Microsoft recomenda** que você aplique a MFA para todas as funções de administrador, especialmente se as funções tiverem usuários convidados. |
-| Notificação | Se configurado como true, o Administrador Global, o Administrador de Função com Privilégios e o Administrador de Segurança da organização receberão uma notificação por email quando um usuário qualificado ativar a função.<br/><br/>**Observação:** Algumas organizações não têm um endereço de email vinculado a suas contas de administrador, para obter essas notificações por email, você deve definir um endereço de email alternativo para que os administradores recebam esses emails. |
+| Notification | Se configurado como true, o Administrador Global, o Administrador de Função com Privilégios e o Administrador de Segurança da organização receberão uma notificação por email quando um usuário qualificado ativar a função.<br/><br/>**Observação:** Algumas organizações não têm um endereço de email vinculado a suas contas de administrador, para obter essas notificações por email, você deve definir um endereço de email alternativo para que os administradores recebam esses emails. |
 | Tíquete de incidente | Se o usuário qualificado precisa registrar um número de tíquete de incidente ao ativar sua função. Essa configuração ajuda uma organização a identificar cada ativação com um número de incidente interno para atenuar ativações indesejadas.<br/><br/> : heavy_check_mark: a **Microsoft recomenda** aproveitar os números de tíquetes de incidentes para vincular Privileged Identity Management ao seu sistema interno. Esse método pode ser útil para Aprovadores que precisam de contexto para a ativação. |
 | Exigir aprovação | Se o usuário qualificado precisa obter aprovação para ativar a função.<br/><br/> : heavy_check_mark: a **Microsoft recomenda** que você configure a aprovação para funções com a maior permissão. Com base nos padrões de uso de todos os Privileged Identity Management clientes, administrador global, administrador de usuário, administrador do Exchange, administrador de segurança e administrador de senha são as funções mais comuns com a configuração de aprovação. |
 | Aprovador | Se a aprovação for necessária para ativar a função qualificada, liste as pessoas que deverão aprovar a solicitação. Por padrão, Privileged Identity Management define o aprovador para ser todos os usuários que são um administrador de função com privilégios, sejam eles permanentes ou qualificados.<br/><br/>**Observação:** Se um usuário estiver qualificado para uma função do Azure AD e um Aprovador da função, ele não poderá se aprovar.<br/><br/> : heavy_check_mark: a **Microsoft recomenda** que você escolha aprovadores para serem usuários mais especializados sobre a função e seus usuários frequentes, em vez de um administrador global. |

@@ -1,24 +1,24 @@
 ---
 title: Criar workspaces com a CLI do Azure
 titleSuffix: Azure Machine Learning
-description: Saiba como usar a CLI do Azure para criar um workspace do Azure Machine Learning.
+description: Saiba como usar a extensão de CLI do Azure para o aprendizado de máquina para criar um novo espaço de trabalho Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.author: larryfr
 author: Blackmist
-ms.date: 07/28/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
-ms.custom: how-to
-ms.openlocfilehash: 0eec9ce6b035b7bf3627c844abb97649ce972693
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.custom: how-to, devx-track-azurecli
+ms.openlocfilehash: 4c457ef2c4957308735c222488ad04dac80235df
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167633"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97740378"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Criar um workspace para o Azure Machine Learning com a CLI do Azure
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Neste artigo, você aprenderá a criar um workspace do Azure Machine Learning usando a CLI do Azure. A CLI do Azure fornece comandos para gerenciar recursos do Azure. A extensão de machine learning para a CLI fornece comandos para trabalhar com recursos do Azure Machine Learning.
 
@@ -26,16 +26,20 @@ Neste artigo, você aprenderá a criar um workspace do Azure Machine Learning us
 
 * Uma **assinatura do Azure**. Se você não tiver uma, experimente a [versão paga ou gratuita do Azure Machine Learning](https://aka.ms/AMLFree).
 
-* Para usar os comandos da CLI deste documento em seu **ambiente local**, você precisará da [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+* Para usar os comandos da CLI deste documento em seu **ambiente local**, você precisará da [CLI do Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
 
     Se você usar o [Azure Cloud Shell](https://azure.microsoft.com//features/cloud-shell/), a CLI será acessada por meio do navegador e residirá na nuvem.
+
+## <a name="limitations"></a>Limitações
+
+[!INCLUDE [register-namespace](../../includes/machine-learning-register-namespace.md)]
 
 ## <a name="connect-the-cli-to-your-azure-subscription"></a>Conectar a CLI à assinatura do Azure
 
 > [!IMPORTANT]
 > Se você estiver usando o Azure Cloud Shell, ignore esta seção. O Cloud Shell autentica automaticamente você usando a conta que você faz logon em sua assinatura do Azure.
 
-Há várias maneiras de se autenticar em sua assinatura do Azure por meio da CLI. O mais básico é autenticar-se interativamente usando um navegador. Para se autenticar interativamente, abra uma linha de comando ou terminal e use o seguinte comando:
+Há várias maneiras de se autenticar em sua assinatura do Azure por meio da CLI. O mais simples é autenticar-se interativamente usando um navegador. Para se autenticar interativamente, abra uma linha de comando ou terminal e use o seguinte comando:
 
 ```azurecli-interactive
 az login
@@ -45,7 +49,7 @@ Se a CLI pode abrir seu navegador padrão, ela irá fazê-lo e carregar uma pág
 
 [!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)] 
 
-Para outros métodos de autenticação, confira [Entrar com a CLI do Azure](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
+Para outros métodos de autenticação, confira [Entrar com a CLI do Azure](/cli/azure/authenticate-azure-cli?preserve-view=true&view=azure-cli-latest).
 
 ## <a name="install-the-machine-learning-extension"></a>Instalar a extensão de machine learning
 
@@ -76,6 +80,8 @@ O workspace do Azure Machine Learning se baseia nos seguintes serviços ou nas s
 | **Cofre da Chave do Azure** | `--keyvault <service-id>` |
 | **Registro de Contêiner do Azure** | `--container-registry <service-id>` |
 
+O ACR (registro de contêiner do Azure) atualmente não dá suporte a caracteres Unicode em nomes de grupos de recursos. Para atenuar esse problema, use um grupo de recursos que não contenha esses caracteres.
+
 ### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
 O workspace do Azure Machine Learning precisa ser criado dentro de um grupo de recursos. É possível usar um grupo de recursos existente ou criar um novo. Para __criar um grupo de recursos__, use o comando a seguir. Substitua `<resource-group-name>` pelo nome a ser usado para esse grupo de recursos. Substitua `<location>` pela região do Azure a ser usada para este grupo de recursos:
@@ -103,14 +109,11 @@ A resposta desse comando é semelhante ao JSON a seguir:
 }
 ```
 
-Para obter mais informações sobre como trabalhar com grupos de recursos, confira [az group](https://docs.microsoft.com//cli/azure/group?view=azure-cli-latest).
+Para obter mais informações sobre como trabalhar com grupos de recursos, confira [az group](/cli/azure/group?preserve-view=true&view=azure-cli-latest).
 
 ### <a name="automatically-create-required-resources"></a>Criar automaticamente os recursos necessários
 
 Para criar um workspace no qual os __serviços são criados automaticamente__, use o seguinte comando:
-
-> [!TIP]
-> Os comandos desta seção criam um workspace básico de edição. Para criar um workspace corporativo, use a opção `--sku enterprise` com o comando `az ml workspace create`. Para obter mais informações sobre as edições do Azure Machine Learning, consulte [O que é o Azure Machine Learning?](overview-what-is-azure-ml.md#sku).
 
 ```azurecli-interactive
 az ml workspace create -w <workspace-name> -g <resource-group-name>
@@ -145,7 +148,7 @@ A saída desse comando é semelhante ao JSON a seguir:
 ### <a name="virtual-network-and-private-endpoint"></a>Rede virtual e ponto de extremidade privado
 
 > [!IMPORTANT]
-> O uso do link privado do Azure com o Azure Machine Learning espaço de trabalho está atualmente em visualização pública. Essa funcionalidade só está disponível nas regiões **leste dos EUA** e **oeste dos EUA 2** . Essa visualização é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> O uso de um espaço de trabalho Azure Machine Learning com o link privado não está disponível nas regiões do Azure governamental ou na 21Vianet do Azure na China.
 
 Se você quiser restringir o acesso ao seu espaço de trabalho a uma rede virtual, poderá usar os seguintes parâmetros:
 
@@ -155,33 +158,35 @@ Se você quiser restringir o acesso ao seu espaço de trabalho a uma rede virtua
 * `--pe-vnet-name`: A rede virtual existente na qual criar o ponto de extremidade privado.
 * `--pe-subnet-name`: O nome da sub-rede para a qual criar o ponto de extremidade privado. O valor padrão é `default`.
 
-Para obter mais informações sobre como usar um ponto de extremidade privado e uma rede virtual com seu espaço de trabalho, consulte [isolamento de rede e privacidade](how-to-enable-virtual-network.md).
+Para obter mais informações sobre como usar um ponto de extremidade privado e uma rede virtual com seu espaço de trabalho, consulte [visão geral de isolamento e privacidade de rede virtual](how-to-network-security-overview.md).
 
 ### <a name="customer-managed-key-and-high-business-impact-workspace"></a>Espaço de trabalho de chave gerenciada pelo cliente e alto impacto nos negócios
 
-Por padrão, as métricas e os metadados para o espaço de trabalho são armazenados em uma instância Azure Cosmos DB que a Microsoft mantém. Esses dados são criptografados usando chaves gerenciadas pela Microsoft. 
+Por padrão, os metadados para o espaço de trabalho são armazenados em uma instância Azure Cosmos DB que a Microsoft mantém. Esses dados são criptografados usando chaves gerenciadas pela Microsoft.
 
-Se você estiver criando uma versão __empresarial__ do Azure Machine Learning, poderá usar o fornecer sua própria chave. Isso cria a instância de Azure Cosmos DB que armazena métricas e metadados em sua assinatura do Azure. Use o `--cmk-keyvault` parâmetro para especificar o Azure Key Vault que contém a chave e `--resource-cmk-uri` para especificar a URL da chave no cofre.
+> [!NOTE]
+> Azure Cosmos DB __não__ é usado para armazenar informações como o desempenho do modelo, informações registradas por experimentos ou informações registradas de suas implantações de modelo. Para obter mais informações sobre como monitorar esses itens, consulte a seção [monitoramento e registro em log](concept-azure-machine-learning-architecture.md) do artigo arquitetura e conceitos.
 
-> [!IMPORTANT]
-> Antes de usar `--cmk-keyvault` os `--resource-cmk-uri` parâmetros e, você deve primeiro executar as seguintes ações:
->
-> 1. Autorize o __aplicativo Machine Learning__ (no gerenciamento de identidade e acesso) com permissões de colaborador em sua assinatura.
-> 1. Siga as etapas em [Configurar chaves gerenciadas pelo cliente](/azure/cosmos-db/how-to-setup-cmk) para:
->     * Registrar o provedor de Azure Cosmos DB
->     * Criar e configurar um Azure Key Vault
->     * Gerar uma chave
->
->     Você não precisa criar manualmente a instância de Azure Cosmos DB, uma será criada para você durante a criação do espaço de trabalho. Esta instância de Azure Cosmos DB será criada em um grupo de recursos separado usando um nome com base neste padrão: `<your-resource-group-name>_<GUID>` .
->
-> Você não pode alterar essa configuração após a criação do espaço de trabalho. Se você excluir o Azure Cosmos DB usado pelo seu espaço de trabalho, também deverá excluir o espaço de trabalho que o está usando.
+Em vez de usar a chave gerenciada pela Microsoft, você pode usar o fornecer sua própria chave. Isso cria a instância de Azure Cosmos DB que armazena metadados em sua assinatura do Azure. Use o `--cmk-keyvault` parâmetro para especificar o Azure Key Vault que contém a chave e `--resource-cmk-uri` para especificar a URL da chave no cofre.
+
+Antes de usar `--cmk-keyvault` os `--resource-cmk-uri` parâmetros e, você deve primeiro executar as seguintes ações:
+
+1. Autorize o __aplicativo Machine Learning__ (no gerenciamento de identidade e acesso) com permissões de colaborador em sua assinatura.
+1. Siga as etapas em [Configurar chaves gerenciadas pelo cliente](../cosmos-db/how-to-setup-cmk.md) para:
+    * Registrar o provedor de Azure Cosmos DB
+    * Criar e configurar um Azure Key Vault
+    * Gerar uma chave
+
+Você não precisa criar manualmente a instância de Azure Cosmos DB, uma será criada para você durante a criação do espaço de trabalho. Esta instância de Azure Cosmos DB será criada em um grupo de recursos separado usando um nome com base neste padrão: `<your-resource-group-name>_<GUID>` .
+
+[!INCLUDE [machine-learning-customer-managed-keys.md](../../includes/machine-learning-customer-managed-keys.md)]
 
 Para limitar os dados que a Microsoft coleta em seu espaço de trabalho, use o `--hbi-workspace` parâmetro. 
 
 > [!IMPORTANT]
 > A seleção de alto impacto nos negócios só pode ser feita durante a criação de um espaço de trabalho. Você não pode alterar essa configuração após a criação do espaço de trabalho.
 
-Para obter mais informações sobre chaves gerenciadas pelo cliente e espaço de trabalho de alto impacto nos negócios, consulte [segurança da empresa para Azure Machine Learning](concept-enterprise-security.md#encryption-at-rest).
+Para obter mais informações sobre chaves gerenciadas pelo cliente e espaço de trabalho de alto impacto nos negócios, consulte [segurança da empresa para Azure Machine Learning](concept-data-encryption.md#encryption-at-rest).
 
 ### <a name="use-existing-resources"></a>Usar recursos existentes
 
@@ -230,7 +235,7 @@ Para criar um workspace que usa os recursos existentes, você precisará fornece
     `"/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/Microsoft.ContainerRegistry/registries/<acr-name>"`
 
     > [!IMPORTANT]
-    > O registro de contêiner precisa ter a [conta do administrador](/azure/container-registry/container-registry-authentication#admin-account) habilitada para ser usada com um workspace do Azure Machine Learning.
+    > O registro de contêiner precisa ter a [conta do administrador](../container-registry/container-registry-authentication.md#admin-account) habilitada para ser usada com um workspace do Azure Machine Learning.
 
 Depois que você tiver as IDs para os recursos que deseja usar com o workspace, use o comando `az workspace create -w <workspace-name> -g <resource-group-name>` base e adicione os parâmetros e as IDs para os recursos existentes. Por exemplo, o seguinte comando cria um workspace que usa um registro de contêiner existente:
 
@@ -286,7 +291,7 @@ A saída desse comando é semelhante ao JSON a seguir:
 ]
 ```
 
-Para obter mais informações, confira a documentação de [az ml workspace list](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-list).
+Para obter mais informações, confira a documentação de [az ml workspace list](/cli/azure/ext/azure-cli-ml/ml/workspace?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-list).
 
 ## <a name="get-workspace-information"></a>Obter informações do workspace
 
@@ -319,7 +324,7 @@ A saída desse comando é semelhante ao JSON a seguir:
 }
 ```
 
-Para obter mais informações, confira a documentação de [az ml workspace show](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-show).
+Para obter mais informações, confira a documentação de [az ml workspace show](/cli/azure/ext/azure-cli-ml/ml/workspace?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-show).
 
 ## <a name="update-a-workspace"></a>Atualizar um workspace
 
@@ -352,7 +357,7 @@ A saída desse comando é semelhante ao JSON a seguir:
 }
 ```
 
-Para obter mais informações, confira a documentação de [az ml workspace update](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-update).
+Para obter mais informações, confira a documentação de [az ml workspace update](/cli/azure/ext/azure-cli-ml/ml/workspace?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-update).
 
 ## <a name="share-a-workspace-with-another-user"></a>Compartilhar um workspace com outro usuário
 
@@ -362,9 +367,9 @@ Para compartilhar um workspace com outro usuário na sua assinatura, use o segui
 az ml workspace share -w <workspace-name> -g <resource-group-name> --user <user> --role <role>
 ```
 
-Para obter mais informações sobre o RBAC (controle de acesso baseado em função) com o Azure Machine Learning, confira [Gerenciar usuários e funções](how-to-assign-roles.md).
+Para obter mais informações sobre o controle de acesso baseado em função do Azure (RBAC do Azure) com Azure Machine Learning, consulte [gerenciar usuários e funções](how-to-assign-roles.md).
 
-Para obter mais informações, confira a documentação de [az ml workspace share](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-share).
+Para obter mais informações, confira a documentação de [az ml workspace share](/cli/azure/ext/azure-cli-ml/ml/workspace?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-share).
 
 ## <a name="sync-keys-for-dependent-resources"></a>Sincronizar chaves para recursos dependentes
 
@@ -376,7 +381,7 @@ az ml workspace sync-keys -w <workspace-name> -g <resource-group-name>
 
 Para obter mais informações, confira [Regenerar chaves de acesso de armazenamento](how-to-change-storage-access-key.md).
 
-Para obter mais informações, confira a documentação de [az ml workspace sync-keys](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-sync-keys).
+Para obter mais informações, confira a documentação de [az ml workspace sync-keys](/cli/azure/ext/azure-cli-ml/ml/workspace?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-sync-keys).
 
 ## <a name="delete-a-workspace"></a>Excluir um workspace
 
@@ -395,7 +400,7 @@ Exclua também o grupo de recursos, o que exclui o workspace e todos os outros r
 az group delete -g <resource-group-name>
 ```
 
-Para obter mais informações, confira a documentação de [az ml workspace delete](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-delete).
+Para obter mais informações, confira a documentação de [az ml workspace delete](/cli/azure/ext/azure-cli-ml/ml/workspace?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-delete).
 
 ## <a name="troubleshooting"></a>Solução de problemas
 
@@ -416,4 +421,4 @@ O workspace do Azure Machine Learning usa o ACR (Registro de Contêiner do Azure
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre a extensão da CLI do Azure para machine learning, confira a documentação de [az ml](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest).
+Para obter mais informações sobre a extensão da CLI do Azure para machine learning, confira a documentação de [az ml](/cli/azure/ext/azure-cli-ml/ml?preserve-view=true&view=azure-cli-latest).

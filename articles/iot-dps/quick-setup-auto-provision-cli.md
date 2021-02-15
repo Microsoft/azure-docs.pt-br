@@ -1,5 +1,5 @@
 ---
-title: Configurar o Serviço de Provisionamento de Dispositivos no Hub IoT do Azure usando a CLI do Azure
+title: Início Rápido – Configurar o Serviço de Provisionamento de Dispositivos no Hub IoT do Azure usando a CLI do Azure
 description: Início Rápido – Configurar o DPS (Serviço de Provisionamento de Dispositivos) no Hub IoT do Azure usando a CLI do Azure
 author: wesmc7777
 ms.author: wesmc
@@ -8,24 +8,24 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 313dfe930dec5233f96b89fdebf978a41fdcdf80
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 611068fa020321be88be6e1d6da663266029c658
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497657"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660178"
 ---
 # <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-azure-cli"></a>Início Rápido: Configurar o Serviço de Provisionamento de Dispositivos no Hub IoT com a CLI do Azure
 
 A CLI do Azure é usada para criar e gerenciar recursos do Azure da linha de comando ou em scripts. Este início rápido detalha o uso da CLI do Azure para criar um Hub IoT e um Serviço de Provisionamento de Dispositivos no Hub IoT e vincular os dois serviços. 
 
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 > [!IMPORTANT]
 > O Hub IoT e o serviço de provisionamento criado neste início rápido serão detectáveis publicamente como pontos de extremidade DNS. Evite usar informações confidenciais se você decidir alterar os nomes usados nesses recursos.
 >
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
@@ -84,7 +84,11 @@ echo $hubConnectionString
 ```
 
 > [!NOTE]
-> Esses dois comandos são válidos para um host executado em Bash. Se você estiver usando um shell CMD/Windows local ou um host do PowerShell, precisará modificar os comandos para usar a sintaxe correta do ambiente.
+> Esses dois comandos são válidos para um host executado em Bash.
+> 
+> Se você estiver usando um shell CMD/Windows local ou um host do PowerShell, modifique os comandos para usar a sintaxe correta do ambiente.
+>
+> Se você estiver usando o Azure Cloud Shell, verifique se a lista suspensa ambiente no lado esquerdo da janela do shell diz **Bash**.
 >
 
 ## <a name="link-the-iot-hub-and-the-provisioning-service"></a>Vincular o Hub IoT ao serviço de provisionamento

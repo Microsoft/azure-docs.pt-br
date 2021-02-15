@@ -4,10 +4,10 @@ description: Este artigo aborda todas as preparações necessárias para executa
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: fa7050bae1ff8681e04b6ab38220be9eaf38a64a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85476131"
 ---
 # <a name="run-an-image-factory-from-azure-devops"></a>Executar uma fábrica de imagem do Azure DevOps
@@ -107,7 +107,7 @@ Se você selecionar a tarefa de compilação, verá todos os detalhes no painel 
 3. Escolha o **ponto de extremidade de serviço**.
 4. Para **caminho de script**, selecione **... (reticências)** à direita.
 5. Navegue até **MakeGoldenImageVMs.ps1** script.
-6. Os parâmetros do script devem ter a seguinte aparência:`-ConfigurationLocation $(System.DefaultWorkingDirectory)$(ConfigurationLocation) -DevTestLabName $(DevTestLabName) -vmSize $(VMSize) -machineUserName $(MachineUserName) -machinePassword (ConvertTo-SecureString -string '$(MachinePassword)' -AsPlainText -Force) -StandardTimeoutMinutes $(StandardTimeoutMinutes)`
+6. Os parâmetros do script devem ter a seguinte aparência: `-ConfigurationLocation $(System.DefaultWorkingDirectory)$(ConfigurationLocation) -DevTestLabName $(DevTestLabName) -vmSize $(VMSize) -machineUserName $(MachineUserName) -machinePassword (ConvertTo-SecureString -string '$(MachinePassword)' -AsPlainText -Force) -StandardTimeoutMinutes $(StandardTimeoutMinutes)`
 
     ![Concluir a definição de compilação](./media/set-up-devops-lab/complete-build-definition.png)
 

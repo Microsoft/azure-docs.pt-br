@@ -2,17 +2,17 @@
 title: 'Microsoft Azure ExpressRoute: Amostras de configuração do roteador'
 description: Use esses exemplos de configuração de interface e roteamento para os roteadores Cisco IOS-XE e Juniper MX Series como exemplos para trabalhar com o Azure ExpressRoute.
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: article
 ms.date: 03/26/2020
-ms.author: osamaz
-ms.openlocfilehash: fdf50dc6b4c0976a713a1d436ac9af7c1bd9701b
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.author: duau
+ms.openlocfilehash: 3bc850f02884ae0547c2ecf56a46a57a4e66a752
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88190792"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89397399"
 ---
 # <a name="router-configuration-samples-to-set-up-and-manage-routing"></a>Exemplos de configuração do roteador para configurar e gerenciar o roteamento
 Esta página fornece modelos de configuração de interface e roteamento para roteadores da série Cisco IOS-XE e Juniper MX ao trabalhar com o Azure ExpressRoute.

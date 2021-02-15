@@ -2,19 +2,19 @@
 title: Exibir métricas de gateway de VPN do Azure
 description: Etapas para exibir as métricas do gateway de VPN
 services: vpn-gateway
-author: kumudD
+author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 07/12/2020
+ms.date: 09/03/2020
 ms.author: alzam
-ms.openlocfilehash: b3a79b8101a55eaf401c20cb118be3b0796b7aca
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 4b33af3e64726e124373f57920836bce145cd891
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86530942"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89443170"
 ---
-# <a name="view-vpn-gateway-metrics"></a>Exibir métricas de gateway de VPN
+# <a name="view-vpn-gateway-metrics"></a>Exibir métricas de Gateway de VPN
 
 Você pode monitorar os gateways de VPN do Azure usando o Azure Monitor. Este artigo discute as métricas que estão disponíveis por meio do Portal. As métricas são leves e podem dar suporte a cenários quase em tempo real, tornando-as úteis para alertas e detecção rápida de problemas.
 

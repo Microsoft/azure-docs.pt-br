@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: how-to
 ms.date: 08/01/2019
-ms.openlocfilehash: 0d0f3a45842638915947f5df04e06e2c81a7f5f1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b27ff631ce13d70d15a6fd2b6dd5ad5bccaf5450
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081178"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021904"
 ---
 # <a name="how-to-data-profile-data-sources-in-azure-data-catalog"></a>Como fontes de dados de perfil de dados no catálogo de dados do Azure
 
@@ -29,7 +29,7 @@ A criação de perfil de dados examina os dados na fonte de dados que está send
 
 As seguintes fontes de dados dão suporte à criação de perfil de dados:
 
-* Tabelas e exibições do SQL Server (incluindo o Banco de Dados SQL do Azure e o Azure SQL Data Warehouse)
+* Tabelas e exibições do SQL Server (incluindo o BD SQL do Azure e o Azure Synapse Analytics)
 * Tabelas e exibições do oracle
 * Tabelas e exibições do Teradata
 * Tabelas do Hive

@@ -5,22 +5,22 @@ ms.service: expressroute
 ms.topic: include
 ms.author: cherylmc
 ms.openlocfilehash: f04861d55c9cea3c79f4983f7be2e1f5a3c6d864
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74926238"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018131"
 ---
-Instale as versões mais recentes dos módulos PowerShell do SM (Gerenciamento de Serviços) do Azure e do módulo ExpressRoute. Você não pode usar o ambiente CloudShell do Azure para executar módulos SM.
+Instale as versões mais recentes dos módulos PowerShell do SM (Gerenciamento de Serviços) do Azure e do módulo ExpressRoute. Você não pode usar o ambiente do Azure Cloud Shell para executar módulos SM.
 
-1. Use as instruções no artigo [instalando o módulo de gerenciamento de serviços](/powershell/azure/servicemanagement/install-azure-ps) para instalar o módulo de gerenciamento de serviços do Azure. Se você tiver o módulo AZ ou RM já instalado, certifique-se de usar '-AllowClobber '.
-2. Importe os módulos instalados. Ao usar o exemplo a seguir, ajuste o caminho para refletir o local e a versão dos seus módulos do PowerShell instalados.
+1. Use as instruções contidas no artigo [Instalação do módulo de gerenciamento de serviços](/powershell/azure/servicemanagement/install-azure-ps) para instalar o Módulo de Gerenciamento de Serviços do Azure. Se você tiver o módulo AZ ou RM já instalado, não se esqueça de usar '-AllowClobber'.
+2. Importe os módulos instalados. Ao usar o exemplo a seguir, ajuste o caminho para refletir a localização e a versão dos módulos do PowerShell instalados.
 
    ```powershell
    Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.3.0\Azure.psd1'
    Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.3.0\ExpressRoute\ExpressRoute.psd1'
    ```
-3. Para entrar em sua conta do Azure, abra o console do PowerShell com direitos elevados e conecte-se à sua conta. Use o exemplo a seguir para ajudá-lo a se conectar usando o módulo de gerenciamento de serviços:
+3. Para entrar na conta do Azure, abra o console do PowerShell com privilégios elevados e conecte-se à conta. Use o seguinte exemplo para obter ajuda ao se conectar usando o módulo de gerenciamento de serviços:
 
    ```powershell
    Add-AzureAccount

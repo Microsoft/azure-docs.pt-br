@@ -8,10 +8,10 @@ ms.date: 07/20/2020
 ms.author: surmb
 ms.topic: conceptual
 ms.openlocfilehash: 53f6f37454de886934a483b40daad24204958baf
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87474318"
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>Hospedagem de vários sites do Gateway de Aplicativo
@@ -20,7 +20,7 @@ A hospedagem de vários sites permite que você configure mais de um aplicativo 
 
 Você também pode definir nomes do host curinga em um ouvinte com vários sites e até cinco nomes do host por ouvinte. Para saber mais, confira [nomes de host curinga no ouvinte](#wildcard-host-names-in-listener-preview).
 
-:::image type="content" source="./media/multiple-site-overview/multisite.png" alt-text="Gateway de aplicativo multissite":::
+:::image type="content" source="./media/multiple-site-overview/multisite.png" alt-text="Gateway de Aplicativo multissite":::
 
 > [!IMPORTANT]
 > As regras são processadas na ordem em que estão listadas no portal para a SKU v1. Para a SKU v2, as correspondências exatas têm precedência mais alta. É altamente recomendável configurar primeiro os ouvintes de vários locais para configurar um ouvinte básico.  Isso irá garantir que o tráfego seja roteado para o back-end correto. Se um ouvinte básico for listado primeiro e corresponder a uma solicitação de entrada, ele é processado por esse ouvinte.
@@ -35,7 +35,7 @@ O gateway de aplicativo permite o roteamento baseado em host usando o ouvinte de
 
 Usando um caractere curinga no nome do host, você pode corresponder a vários nomes de host em um único ouvinte. Por exemplo, `*.contoso.com` pode corresponder a `ecom.contoso.com` , `b2b.contoso.com` bem como `customer1.b2b.contoso.com` e assim por diante. Usando uma matriz de nomes de host, você pode configurar mais de um nome de host para um ouvinte para rotear solicitações para um pool de back-end. Por exemplo, um ouvinte pode conter `contoso.com, fabrikam.com` , que aceitará solicitações para ambos os nomes de host.
 
-:::image type="content" source="./media/multiple-site-overview/wildcard-listener-diag.png" alt-text="Ouvinte curinga":::
+:::image type="content" source="./media/multiple-site-overview/wildcard-listener-diag.png" alt-text="Gateway de Aplicativo multissite":::
 
 >[!NOTE]
 > Este recurso está em visualização e está disponível somente para Standard_v2 e WAF_v2 SKU do gateway de aplicativo. Para saber mais sobre visualizações, confira [termos de uso aqui](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -50,16 +50,16 @@ No [CLI do Azure](tutorial-multiple-sites-cli.md), você deve usar `--host-names
 
 ### <a name="allowed-characters-in-the-host-names-field"></a>Caracteres permitidos no campo nomes de host:
 
-* `(A-Z,a-z,0-9)`-caracteres alfanuméricos
-* `-`-hífen ou menos
-* `.`-período como um delimitador
-*   `*`-pode corresponder com vários caracteres no intervalo permitido
-*   `?`-pode corresponder a um único caractere no intervalo permitido
+* `(A-Z,a-z,0-9)` -caracteres alfanuméricos
+* `-` -hífen ou menos
+* `.` -período como um delimitador
+*   `*` -pode corresponder com vários caracteres no intervalo permitido
+*   `?` -pode corresponder a um único caractere no intervalo permitido
 
 ### <a name="conditions-for-using-wildcard-characters-and-multiple-host-names-in-a-listener"></a>Condições para usar caracteres curinga e vários nomes de host em um ouvinte:
 
 *   Você só pode mencionar até 5 nomes de host em um único ouvinte
-*   O asterisco `*` pode ser mencionado apenas uma vez em um componente de nome de um estilo de domínio ou nome de host. Por exemplo, Component1 *. component2*. component3. `(*.contoso-*.com)`é válido.
+*   O asterisco `*` pode ser mencionado apenas uma vez em um componente de nome de um estilo de domínio ou nome de host. Por exemplo, Component1 *. component2*. component3. `(*.contoso-*.com)` é válido.
 *   Só pode haver até dois asteriscos `*` em um nome de host. Por exemplo, `*.contoso.*` é válido e `*.contoso.*.*.com` é inválido.
 *   Só pode haver um máximo de 4 caracteres curinga em um nome de host. Por exemplo, `????.contoso.com` , `w??.contoso*.edu.*` são válidos, mas `????.contoso.*` são inválidos.
 *   O uso de asterisco `*` e ponto de interrogação `?` juntos em um componente de um nome de host ( `*?` ou `?*` ou `**` ) é inválido. Por exemplo, `*?.contoso.com` e `**.contoso.com` são inválidos.

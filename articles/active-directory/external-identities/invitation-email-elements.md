@@ -5,28 +5,25 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 04/15/2020
+ms.date: 10/20/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0429cfb62c319675806d76b4759b776a7b32dbcb
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: bb134a2fb784e02f5e00c9e88ab0df1794489e0c
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87907960"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860585"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Os elementos do email de convite para colaboração B2B – Azure Active Directory
 
 Emails de convite são um componente essencial para ingressar parceiros como usuários de colaboração B2B no Azure AD. Embora não seja [necessário que você envie um email para convidar alguém usando a colaboração B2B](add-user-without-invite.md), isso dá ao usuário todas as informações necessárias para tomar uma decisão sobre a aceitação de seu convite. Ele também dá a eles um link que eles sempre podem fazer referência no futuro quando precisarem retornar aos seus recursos.
 
 ![Captura de tela mostrando o email do convite B2B](media/invitation-email-elements/invitation-email.png)
-
-> [!NOTE]
-> Esse novo modelo de email ainda está sendo distribuído para todos os locatários, de modo que alguns locatários ainda estão usando um design mais antigo. No final de maio de 2020, os convites de todos os locatários usarão esse modelo.
 
 ## <a name="explaining-the-email"></a>Explicação do email
 
@@ -52,17 +49,11 @@ O email começa com um breve aviso ao usuário sobre phishing, alertando-os de q
 
 ![Imagem do aviso de phishing no email](media/invitation-email-elements/phishing-warning.png)
 
-### <a name="inviters-information"></a>Informações sobre o emissor do convite
+### <a name="inviters-information-and-invitation-message"></a>Informações e mensagem de convite do convite
 
-O email inclui informações sobre o emissor e a organização da qual ele está enviando o convite. Isso inclui o nome do remetente e o endereço de email, bem como o nome e o domínio primário associados à organização. Todas essas informações devem ajudar o convidado a tomar uma decisão informada sobre a aceitação do convite.
+O email inclui o nome e o domínio primário associado à organização que envia o convite. Essas informações devem ajudar o convidado a tomar uma decisão informada sobre a aceitação do convite. Se o emissor incluir uma mensagem como parte de seu convite ao [convidar um usuário convidado para o diretório, grupo ou aplicativo](add-users-administrator.md) ou quando ele [usar a API de convite](customize-invitation-api.md), a mensagem será realçada na seção principal do email. Também estão incluídas as imagens de nome e perfil do emissor, caso tenham definido uma. A própria mensagem é uma área de texto, por isso, por motivos de segurança, ela não processa marcas HTML.
 
-![Imagem das informações do emissor do convite no email](media/invitation-email-elements/inviters-information.png)
-
-### <a name="invitation-message"></a>Mensagem de convite
-
-Se o emissor incluir uma mensagem como parte de seu convite ao [convidar um usuário convidado para o diretório, grupo ou aplicativo](add-users-administrator.md) ou quando ele [usar a API de convite](customize-invitation-api.md), a mensagem será realçada na seção principal do email. Também estão incluídas as imagens de nome e perfil do emissor, caso tenham definido uma. A própria mensagem é uma área de texto, por isso, por motivos de segurança, ela não processa marcas HTML.
-
-![Imagem da mensagem de convite no email](media/invitation-email-elements/invitation-message.png)
+![Imagem da mensagem de convite no email](media/invitation-email-elements/invitation-message-inviters-info.png)
 
 ### <a name="accept-button-and-redirect-url"></a>Aceitar botão e URL de redirecionamento
 
@@ -72,16 +63,30 @@ A próxima seção do email contém informações sobre o local em que o convida
 
 ### <a name="footer-section"></a>Seção de rodapé
 
-O rodapé contém mais informações sobre o convite que está sendo enviado. Sempre há uma opção para o convidado bloquear convites futuros. Se a organização tiver [definido uma política de privacidade](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-properties-area), o link para a instrução será exibido aqui.  Caso contrário, uma observação indica que a organização não definiu uma declaração de privacidade.
+O rodapé contém mais informações sobre o convite que está sendo enviado. Sempre há uma opção para o convidado bloquear convites futuros. Se a organização tiver [definido uma política de privacidade](../fundamentals/active-directory-properties-area.md), o link para a instrução será exibido aqui.  Caso contrário, uma observação indica que a organização não definiu uma declaração de privacidade.
 
 ![Imagem da seção de rodapé no email](media/invitation-email-elements/footer-section.png)
- 
+
+### <a name="blocking-an-organization-unsubscribing"></a>Bloqueando uma organização (cancelando a)
+
+No convite de uma organização, o rodapé contém uma opção para **Bloquear futuros convites**. Um usuário convidado pode selecionar este link para bloquear qualquer convite futuro da organização. Essa ação também adiciona a organização à lista de assinaturas do usuário em [https://invitations.microsoft.com/unsubscribe/manage](https://invitations.microsoft.com/unsubscribe/manage) .
+
+### <a name="viewing-organizations-youve-blocked"></a>Exibindo organizações que você bloqueou
+
+Um usuário convidado pode seguir estas etapas para exibir ou exportar as organizações que bloquearam:
+
+1. Acesse [https://invitations.microsoft.com/unsubscribe/manage](https://invitations.microsoft.com/unsubscribe/manage).
+2. Insira seu email e siga as etapas de entrada para autenticação de senha de uso único de email.
+3. Exiba as organizações que você bloqueou ou exporte os nomes usando copiar e colar.
+   > [!NOTE]
+   > Se quiser permitir que uma organização que você tenha bloqueado para convidá-lo novamente, você poderá escolher a organização e selecionar **Avançar**.
+
 ## <a name="how-the-language-is-determined"></a>Como o idioma é determinado
 
 O idioma apresentado ao usuário convidado no email de convite é determinado pelas configurações a seguir. Elas estão listadas na ordem de precedência. Se uma configuração não estiver definida, a próxima configuração na lista determinará o idioma.
 
-- A propriedade **messageLanguage** do objeto [invitedUserMessageInfo](https://docs.microsoft.com/graph/api/resources/invitedusermessageinfo?view=graph-rest-1.0) quando a API de criação de convite é usada
--   A propriedade **preferredLanguage** especificada no [objeto de usuário](https://docs.microsoft.com/graph/api/resources/user?view=graph-rest-1.0) do convidado
+- A propriedade **messageLanguage** do objeto [invitedUserMessageInfo](/graph/api/resources/invitedusermessageinfo) quando a API de criação de convite é usada
+-   A propriedade **preferredLanguage** especificada no [objeto de usuário](/graph/api/resources/user) do convidado
 -   O **Idioma de notificação** definido nas propriedades do locatário da página inicial do usuário convidado (somente para locatários do Azure AD)
 -   O **Idioma de notificação** definido nas propriedades do locatário do recurso
 

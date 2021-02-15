@@ -3,20 +3,18 @@ title: Todas as entidades predefinidas-LUIS
 titleSuffix: Azure Cognitive Services
 description: Este artigo contém listas das entidades predefinidas incluídas em LUIS (Serviço Inteligente de Reconhecimento Vocal).
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 07/20/2020
-ms.author: diberry
-ms.openlocfilehash: 7ec9cd8aade1edb7d2df2bab5cec8de445af7e44
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 7a4654b8f389ad18010bb4ad211103f2816a18ee
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337969"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91541995"
 ---
 # <a name="entities-per-culture-in-your-luis-model"></a>Entidades por cultura em seu modelo do LUIS
 
@@ -54,7 +52,7 @@ Há suporte para as seguintes entidades:
 
 | Entidade predefinida | zh-CN |
 | --------------- | :---: |
-[Idade](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>dia   |    V2, V3   |
+[Idade](luis-reference-prebuilt-age.md):<br>ano<br>mês<br>week<br>dia   |    V2, V3   |
 [Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidade fracionária (ex: centavo)  |    V2, V3   |
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    V2, V3   |
 [Dimensão](luis-reference-prebuilt-dimension.md):<br>volume<br>área<br>peso<br>informação (ex: bit/byte)<br>comprimento (ex: medidor)<br>velocidade (ex: milhas por hora)  |    V2, V3   |
@@ -62,7 +60,7 @@ Há suporte para as seguintes entidades:
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    -   |
 [Número](luis-reference-prebuilt-number.md)   |    V2, V3   |
-[Numera](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
+[Ordinal](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
 [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
 [Percentual](luis-reference-prebuilt-percentage.md)   |    V2, V3   |
 [PersonName](luis-reference-prebuilt-person.md)   |    V2, V3   |
@@ -76,15 +74,15 @@ Há suporte para as seguintes entidades:
 
 | Entidade predefinida | nl-NL |
 | --------------- | :---: |
-[Idade](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>dia   |    V2, V3   |
+[Idade](luis-reference-prebuilt-age.md):<br>ano<br>mês<br>week<br>dia   |    V2, V3   |
 [Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidade fracionária (ex: centavo)  |    V2, V3   |
-[Horário](luis-reference-prebuilt-deprecated.md)   |    -   |
+[Datetime](luis-reference-prebuilt-deprecated.md)   |    -   |
 [Dimensão](luis-reference-prebuilt-dimension.md):<br>volume<br>área<br>peso<br>informação (ex: bit/byte)<br>comprimento (ex: medidor)<br>velocidade (ex: milhas por hora)  |    V2, V3   |
 [Email](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
 [Número](luis-reference-prebuilt-number.md)   |    V2, V3   |
-[Numera](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
+[Ordinal](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
 [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
 [Percentual](luis-reference-prebuilt-percentage.md)   |    V2, V3   |
 [PersonName](luis-reference-prebuilt-person.md)   |    -   |
@@ -98,7 +96,7 @@ Há suporte para as seguintes entidades:
 
 | Entidade predefinida | pt-BR |
 | --------------- | :---: |
-[Idade](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>dia   |    V2, V3   |
+[Idade](luis-reference-prebuilt-age.md):<br>ano<br>mês<br>week<br>dia   |    V2, V3   |
 [Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidade fracionária (ex: centavo)  |    V2, V3   |
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    V2, V3   |
 [Dimensão](luis-reference-prebuilt-dimension.md):<br>volume<br>área<br>peso<br>informação (ex: bit/byte)<br>comprimento (ex: medidor)<br>velocidade (ex: milhas por hora)  |    V2, V3   |
@@ -106,7 +104,7 @@ Há suporte para as seguintes entidades:
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    V2, V3   |
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
 [Número](luis-reference-prebuilt-number.md)   |    V2, V3   |
-[Numera](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
+[Ordinal](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
 [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    V2, V3   |
 [Percentual](luis-reference-prebuilt-percentage.md)   |    V2, V3   |
 [PersonName](luis-reference-prebuilt-person.md)   |    V2, V3   |
@@ -120,7 +118,7 @@ Há suporte para as seguintes entidades:
 
 | Entidade predefinida | fr-FR |
 | --------------- | :---: |
-[Idade](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>dia   |    V2, V3   |
+[Idade](luis-reference-prebuilt-age.md):<br>ano<br>mês<br>week<br>dia   |    V2, V3   |
 [Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidade fracionária (ex: centavo)  |    V2, V3   |
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    V2, V3   |
 [Dimensão](luis-reference-prebuilt-dimension.md):<br>volume<br>área<br>peso<br>informação (ex: bit/byte)<br>comprimento (ex: medidor)<br>velocidade (ex: milhas por hora)  |    V2, V3   |
@@ -128,7 +126,7 @@ Há suporte para as seguintes entidades:
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
 [Número](luis-reference-prebuilt-number.md)   |    V2, V3   |
-[Numera](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
+[Ordinal](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
 [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
 [Percentual](luis-reference-prebuilt-percentage.md)   |    V2, V3   |
 [PersonName](luis-reference-prebuilt-person.md)   |   -   |
@@ -142,7 +140,7 @@ Há suporte para as seguintes entidades:
 
 | Entidade predefinida | fr-CA |
 | --------------- | :---: |
-[Idade](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>dia   |    V2, V3   |
+[Idade](luis-reference-prebuilt-age.md):<br>ano<br>mês<br>week<br>dia   |    V2, V3   |
 [Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidade fracionária (ex: centavo)  |    V2, V3   |
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    V2, V3   |
 [Dimensão](luis-reference-prebuilt-dimension.md):<br>volume<br>área<br>peso<br>informação (ex: bit/byte)<br>comprimento (ex: medidor)<br>velocidade (ex: milhas por hora)  |    V2, V3   |
@@ -150,7 +148,7 @@ Há suporte para as seguintes entidades:
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
 [Número](luis-reference-prebuilt-number.md)   |    V2, V3   |
-[Numera](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
+[Ordinal](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
 [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
 [Percentual](luis-reference-prebuilt-percentage.md)   |    V2, V3   |
 [PersonName](luis-reference-prebuilt-person.md)   |    -   |
@@ -164,7 +162,7 @@ Há suporte para as seguintes entidades:
 
 |Entidade predefinida | de-DE |
 | -------------- | :---: |
-[Idade](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>dia   |    V2, V3   |
+[Idade](luis-reference-prebuilt-age.md):<br>ano<br>mês<br>week<br>dia   |    V2, V3   |
 [Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidade fracionária (ex: centavo)  |    V2, V3   |
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    V2, V3   |
 [Dimensão](luis-reference-prebuilt-dimension.md):<br>volume<br>área<br>peso<br>informação (ex: bit/byte)<br>comprimento (ex: medidor)<br>velocidade (ex: milhas por hora)  |    V2, V3   |
@@ -172,7 +170,7 @@ Há suporte para as seguintes entidades:
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
 [Número](luis-reference-prebuilt-number.md)   |    V2, V3   |
-[Numera](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
+[Ordinal](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
 [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
 [Percentual](luis-reference-prebuilt-percentage.md)   |    V2, V3   |
 [PersonName](luis-reference-prebuilt-person.md)   |    -   |
@@ -188,15 +186,15 @@ Há suporte para as seguintes entidades:
 
 | Entidade predefinida | it-IT |
 | --------------- | :---: |
-[Idade](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>dia   |    V2, V3   |
+[Idade](luis-reference-prebuilt-age.md):<br>ano<br>mês<br>week<br>dia   |    V2, V3   |
 [Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidade fracionária (ex: centavo)  |    V2, V3   |
-[Horário](luis-reference-prebuilt-deprecated.md)   |    -   |
+[Datetime](luis-reference-prebuilt-deprecated.md)   |    -   |
 [Dimensão](luis-reference-prebuilt-dimension.md):<br>volume<br>área<br>peso<br>informação (ex: bit/byte)<br>comprimento (ex: medidor)<br>velocidade (ex: milhas por hora)  |    V2, V3   |
 [Email](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
 [Número](luis-reference-prebuilt-number.md)   |    V2, V3   |
-[Numera](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
+[Ordinal](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
 [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
 [Percentual](luis-reference-prebuilt-percentage.md)   |    V2, V3   |
 [PersonName](luis-reference-prebuilt-person.md)   |    -   |
@@ -210,15 +208,15 @@ Há suporte para as seguintes entidades:
 
 |Entidade predefinida | ja-JP |
 | -------------- | :---: |
-[Idade](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>dia   |    V2,-   |
+[Idade](luis-reference-prebuilt-age.md):<br>ano<br>mês<br>week<br>dia   |    V2,-   |
 [Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidade fracionária (ex: centavo)  |    V2,-   |
-[Horário](luis-reference-prebuilt-deprecated.md)   |    -   |
+[Datetime](luis-reference-prebuilt-deprecated.md)   |    -   |
 [Dimensão](luis-reference-prebuilt-dimension.md):<br>volume<br>área<br>peso<br>informação (ex: bit/byte)<br>comprimento (ex: medidor)<br>velocidade (ex: milhas por hora)  |    V2,-   |
 [Email](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
 [Número](luis-reference-prebuilt-number.md)   |    V2,-   |
-[Numera](luis-reference-prebuilt-ordinal.md)   |    V2,-   |
+[Ordinal](luis-reference-prebuilt-ordinal.md)   |    V2,-   |
 [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
 [Percentual](luis-reference-prebuilt-percentage.md)   |    V2,-   |
 [PersonName](luis-reference-prebuilt-person.md)   |    -   |
@@ -232,15 +230,15 @@ Há suporte para as seguintes entidades:
 
 | Entidade predefinida | ko-KR |
 | --------------- | :---: |
-[Idade](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>dia   |    -   |
+[Idade](luis-reference-prebuilt-age.md):<br>ano<br>mês<br>week<br>dia   |    -   |
 [Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidade fracionária (ex: centavo)  |    -   |
-[Horário](luis-reference-prebuilt-deprecated.md)   |    -   |
+[Datetime](luis-reference-prebuilt-deprecated.md)   |    -   |
 [Dimensão](luis-reference-prebuilt-dimension.md):<br>volume<br>área<br>peso<br>informação (ex: bit/byte)<br>comprimento (ex: medidor)<br>velocidade (ex: milhas por hora)  |    -   |
 [Email](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
 [Número](luis-reference-prebuilt-number.md)   |    -   |
-[Numera](luis-reference-prebuilt-ordinal.md)   |    -   |
+[Ordinal](luis-reference-prebuilt-ordinal.md)   |    -   |
 [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
 [Percentual](luis-reference-prebuilt-percentage.md)   |    -   |
 [PersonName](luis-reference-prebuilt-person.md)   |    -   |
@@ -254,7 +252,7 @@ Há suporte para as seguintes entidades:
 
 | Entidade predefinida | pt-BR |
 | --------------- | :---: |
-[Idade](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>dia   |    V2, V3   |
+[Idade](luis-reference-prebuilt-age.md):<br>ano<br>mês<br>week<br>dia   |    V2, V3   |
 [Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidade fracionária (ex: centavo)  |    V2, V3   |
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    V2, V3   |
 [Dimensão](luis-reference-prebuilt-dimension.md):<br>volume<br>área<br>peso<br>informação (ex: bit/byte)<br>comprimento (ex: medidor)<br>velocidade (ex: milhas por hora)  |    V2, V3   |
@@ -262,7 +260,7 @@ Há suporte para as seguintes entidades:
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
 [Número](luis-reference-prebuilt-number.md)   |    V2, V3   |
-[Numera](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
+[Ordinal](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
 [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
 [Percentual](luis-reference-prebuilt-percentage.md)   |    V2, V3   |
 [PersonName](luis-reference-prebuilt-person.md)   |    -   |
@@ -276,7 +274,7 @@ Há suporte para as seguintes entidades:
 
 | Entidade predefinida | es-ES |
 | --------------- | :---: |
-[Idade](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>dia   |    V2, V3   |
+[Idade](luis-reference-prebuilt-age.md):<br>ano<br>mês<br>week<br>dia   |    V2, V3   |
 [Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidade fracionária (ex: centavo)  |    V2, V3   |
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    V2, V3   |
 [Dimensão](luis-reference-prebuilt-dimension.md):<br>volume<br>área<br>peso<br>informação (ex: bit/byte)<br>comprimento (ex: medidor)<br>velocidade (ex: milhas por hora)  |    V2, V3   |
@@ -284,7 +282,7 @@ Há suporte para as seguintes entidades:
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
 [Número](luis-reference-prebuilt-number.md)   |    V2, V3   |
-[Numera](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
+[Ordinal](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
 [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
 [Percentual](luis-reference-prebuilt-percentage.md)   |    V2, V3   |
 [PersonName](luis-reference-prebuilt-person.md)   |    -   |
@@ -298,7 +296,7 @@ Há suporte para as seguintes entidades:
 
 | Entidade predefinida | es-MX |
 | --------------- | :---: |
-[Idade](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>dia   |    -   |
+[Idade](luis-reference-prebuilt-age.md):<br>ano<br>mês<br>week<br>dia   |    -   |
 [Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidade fracionária (ex: centavo)  |    -   |
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    -   |
 [Dimensão](luis-reference-prebuilt-dimension.md):<br>volume<br>área<br>peso<br>informação (ex: bit/byte)<br>comprimento (ex: medidor)<br>velocidade (ex: milhas por hora)  |    -   |
@@ -306,7 +304,7 @@ Há suporte para as seguintes entidades:
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
 [Número](luis-reference-prebuilt-number.md)   |    V2, V3   |
-[Numera](luis-reference-prebuilt-ordinal.md)   |    -   |
+[Ordinal](luis-reference-prebuilt-ordinal.md)   |    -   |
 [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
 [Percentual](luis-reference-prebuilt-percentage.md)   |    -   |
 [PersonName](luis-reference-prebuilt-person.md)   |    -   |

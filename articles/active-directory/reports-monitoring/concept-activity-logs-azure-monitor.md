@@ -17,12 +17,12 @@ ms.date: 04/09/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0822bdd886a9a29f2cdb6843d3dc4404d7360f32
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8dbf14b1816d367f864cc3a2977497b34111df3f
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81261016"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97586186"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor"></a>Logs de atividades do Azure AD no Azure Monitor
 
@@ -60,7 +60,7 @@ Para usar esse recurso, você precisa de:
 
 Dependendo do destino de encaminhamento dos dados da trilha de auditoria, você precisa do seguinte:
 
-* Uma conta de armazenamento do Azure para a qual você tem permissões *ListKeys*. Recomendamos que você use uma conta de armazenamento geral e não uma conta do Armazenamento de blobs. Para obter informações sobre preços de armazenamento, confira a [Calculadora de preços do Armazenamento do Azure](https://azure.microsoft.com/pricing/calculator/?service=storage). 
+* Uma conta de armazenamento do Azure para a qual você tem permissões de *ListKeys* . Recomendamos que você use uma conta de armazenamento geral e não uma conta do Armazenamento de blobs. Para saber mais sobre preços do armazenamento, confira a [Calculadora de preços do armazenamento do Azure](https://azure.microsoft.com/pricing/calculator/?service=storage). 
 * Um namespace dos Hubs de Eventos do Azure para integração com soluções de terceiros.
 * Um espaço de trabalho do Log Analytics do Azure para enviar logs aos logs do Azure Monitor.
 
@@ -68,9 +68,9 @@ Dependendo do destino de encaminhamento dos dados da trilha de auditoria, você 
 
 Se você já tiver uma licença do Azure AD, precisará de uma assinatura do Azure para configurar o hub de eventos e a conta de armazenamento. A assinatura do Azure é fornecida sem custo, mas você precisará pagar para utilizar os recursos do Azure, incluindo a conta de armazenamento usada para arquivamento e o hub de eventos usado para streaming. A quantidade de dados e o custo incorrido podem variar bastante dependendo do tamanho do locatário. 
 
-### <a name="storage-size-for-activity-logs"></a>Tamanho do armazenamento para logs de atividades
+### <a name="storage-size-for-activity-logs"></a>Tamanho do armazenamento para logs de atividade
 
-Cada evento de trilha de auditoria usa cerca de 2 KB de armazenamento de dados. Os logs de eventos de entrada são cerca de 4 KB de armazenamento de dados. Para um locatário com 100 mil usuários, o que poderia gerar cerca de 1,5 milhão de eventos por dia, seria necessário cerca de 3 GB de armazenamento de dados por dia. Já que as gravações ocorrem em lotes de aproximadamente cinco minutos, é possível estimar aproximadamente 9 mil operações de gravação por mês. 
+Cada evento de log de auditoria usa cerca de 2 KB de armazenamento de dados. Os logs de eventos de entrada são cerca de 4 KB de armazenamento de dados. Para um locatário com 100 mil usuários, o que poderia gerar cerca de 1,5 milhão de eventos por dia, seria necessário cerca de 3 GB de armazenamento de dados por dia. Já que as gravações ocorrem em lotes de aproximadamente cinco minutos, é possível estimar aproximadamente 9 mil operações de gravação por mês. 
 
 
 A tabela a seguir contém uma estimativa de custo, dependendo do tamanho do locatário, para uma conta de armazenamento de uso geral v2 no Oeste dos EUA com pelo menos um ano de retenção. Para criar uma estimativa mais precisa para o volume de dados que você prevê em seu aplicativo, use a [calculadora de preços do Armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/blobs/).
@@ -103,7 +103,7 @@ A tabela a seguir contém custos estimados por mês para um hub de eventos bási
 | Categoria do log | Número de usuários | Eventos por segundo | Eventos por intervalo de cinco minutos | Volume por intervalo | Mensagens por intervalo | Mensagens por mês | Custo por mês (est.) |
 |--------------|-----------------|-------------------------|----------------------------------------|---------------------|---------------------------------|------------------------------|----------------------------|
 | Audit | 100.000 | 18 | 5.400 | 10.8 MB | 43 | 371.520 | US$ 10,83 |
-| Audit | 1,000 | 0.1 | 52 | 104 KB | 1 | 8.640 | US$ 10,80 |
+| Audit | 1,000 | 0,1 | 52 | 104 KB | 1 | 8.640 | US$ 10,80 |
 | Entradas | 100.000 | 18000 | 5,4 milhões | 10,8 GB | 42188 | 364.504.320 | $23.09 |  
 | Entradas | 1,000 | 178 | 53.400 | 106.8&nbsp;MB | 418 | 3.611.520 | US$ 11,06 |  
 
@@ -111,11 +111,11 @@ A tabela a seguir contém custos estimados por mês para um hub de eventos bási
 
 
 
-| Categoria do log       | Número de usuários | Eventos por dia | Eventos por mês (30 dias) | Custo por mês em USD (est.) |
-| :--                | ---             | ---            | ---                        | --:                          |
-| Auditoria e entradas | 100.000         | 16,5 milhões     | 495 milhões                |  $1093                       |
-| Audit              | 100.000         | 1,5 milhões      | 45.000.000                 |  $246.66                     |
-| Entradas           | 100.000         | 15.000.000     | 450.000.000                |  $847.28                     |
+| Categoria do log | Número de usuários | Eventos por dia | Eventos por mês (30 dias) | Custo por mês em USD (est.) |
+|:-|--|--|--|-:|
+| Auditoria e entradas | 100.000 | 16,5 milhões | 495 milhões | $1093 |
+| Audit | 100.000 | 1,5 milhões | 45.000.000 | $246.66 |
+| Entradas | 100.000 | 15.000.000 | 450.000.000 | $847.28 |
 
 
 
@@ -126,7 +126,7 @@ A tabela a seguir contém custos estimados por mês para um hub de eventos bási
 
 
 
-Para examinar os custos relacionados ao gerenciamento de logs do Azure Monitor, confira [Gerenciar o custo controlando o volume de dados e a retenção em logs do Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-cost-storage).
+Para examinar os custos relacionados ao gerenciamento de logs do Azure Monitor, confira [Gerenciar o custo controlando o volume de dados e a retenção em logs do Azure Monitor](../../azure-monitor/platform/manage-cost-storage.md).
 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
@@ -180,13 +180,13 @@ Esta seção responde a perguntas frequentes e discute problemas conhecidos com 
 
 **P: quais ferramentas de SIEM têm suporte atualmente?** 
 
-**R**: **a**: atualmente, o Azure monitor é suportado por [Splunk](tutorial-integrate-activity-logs-with-splunk.md), IBM QRadar, a [lógica do resumo](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory), [ArcSight](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-arcsight), LogRhythm e LOGZ.IO. Para obter mais informações sobre como funcionam os conectores, consulte [Transmitir dados de monitoramento do Azure por stream a um hub de eventos para consumo por uma ferramenta externa](../../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
+**R**: **a**: atualmente, o Azure monitor é suportado por [Splunk](./howto-integrate-activity-logs-with-splunk.md), IBM QRadar, a [lógica do resumo](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory), [ArcSight](./howto-integrate-activity-logs-with-arcsight.md), LogRhythm e LOGZ.IO. Para obter mais informações sobre como funcionam os conectores, consulte [Transmitir dados de monitoramento do Azure por stream a um hub de eventos para consumo por uma ferramenta externa](../../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
 
 ---
 
 **P: como integrar os logs de atividade do Azure AD com minha instância do Splunk?**
 
-**R**: primeiro, [encaminhe os logs de atividades do Azure AD para um hub de eventos](quickstart-azure-monitor-stream-logs-to-event-hub.md), depois, execute as etapas para [Integrar os logs de atividade ao Splunk](tutorial-integrate-activity-logs-with-splunk.md).
+**R**: primeiro, [encaminhe os logs de atividades do Azure AD para um hub de eventos](./tutorial-azure-monitor-stream-logs-to-event-hub.md), depois, execute as etapas para [Integrar os logs de atividade ao Splunk](./howto-integrate-activity-logs-with-splunk.md).
 
 ---
 
@@ -198,7 +198,7 @@ Esta seção responde a perguntas frequentes e discute problemas conhecidos com 
 
 **P: posso acessar os dados de um hub de eventos sem usar uma ferramenta de SIEM externa?** 
 
-**R**: Sim. Para acessar os logs do aplicativo personalizado, você pode usar a [API dos Hubs de Eventos](../../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md). 
+**R**: Sim. Para acessar os logs do aplicativo personalizado, você pode usar a [API dos Hubs de Eventos](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md). 
 
 ---
 
@@ -206,5 +206,5 @@ Esta seção responde a perguntas frequentes e discute problemas conhecidos com 
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Arquivar os logs de atividades em uma conta de armazenamento](quickstart-azure-monitor-route-logs-to-storage-account.md)
-* [Encaminhar logs de atividades para um hub de eventos](quickstart-azure-monitor-stream-logs-to-event-hub.md)
+* [Encaminhar logs de atividades para um hub de eventos](./tutorial-azure-monitor-stream-logs-to-event-hub.md)
 * [Integrar logs de atividades no Azure Monitor](howto-integrate-activity-logs-with-log-analytics.md)

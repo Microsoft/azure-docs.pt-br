@@ -3,19 +3,21 @@ title: Conversão de LINQ to SQL em Azure Cosmos DB
 description: Conheça os operadores LINQ com suporte e como as consultas LINQ são mapeadas para consultas SQL no Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 7/29/2020
+ms.date: 11/11/2020
 ms.author: tisande
-ms.openlocfilehash: f2a7570b7ebed26a06e1bd075c2904bc29061c21
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 122c95fe9ac017ad7a6957dcdb8323837be34f21
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498847"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96545376"
 ---
 # <a name="linq-to-sql-translation"></a>Tradução de LINQ em SQL
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-O provedor de consulta Azure Cosmos DB executa um mapeamento de melhor esforço de uma consulta LINQ em uma consulta SQL Cosmos DB. Se você quiser obter a consulta SQL que é convertida do LINQ, use o `ToString()` método no objeto gerado `IQueryable` . A descrição a seguir pressupõe uma familiaridade básica com o [LINQ](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries).
+O provedor de consulta Azure Cosmos DB executa um mapeamento de melhor esforço de uma consulta LINQ em uma consulta SQL Cosmos DB. Se você quiser obter a consulta SQL que é convertida do LINQ, use o `ToString()` método no objeto gerado `IQueryable` . A descrição a seguir pressupõe uma familiaridade básica com o [LINQ](/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries). Além do LINQ, o Azure Cosmos DB também dá suporte a [Entity Framework Core](/ef/core/providers/cosmos/?tabs=dotnet-core-cli) que funciona com a API do SQL.
 
 O sistema do tipo de provedor de consulta dá suporte apenas aos tipos primitivos JSON: Numeric, Boolean, String e NULL.
 
@@ -32,7 +34,7 @@ O provedor de consultas oferece suporte às seguintes expressões escalares:
     family.children[n].grade; //n is an int variable
   ```
   
-- Expressões aritméticas, incluindo expressões aritméticas comuns em valores numéricos e boolianos. Para obter a lista completa, consulte a [especificação de Azure Cosmos DB SQL](sql-query-system-functions.md).
+- Expressões aritméticas, incluindo expressões aritméticas comuns em valores numéricos e boolianos. Para obter a lista completa, consulte a [especificação de Azure Cosmos DB SQL](sql-query-aggregate-functions.md).
   
   ```
     2 * family.children[0].grade;
@@ -83,7 +85,7 @@ O provedor LINQ incluído no SDK do .NET do SQL dá suporte aos seguintes operad
 - **Onde**: os filtros são convertidos em [Where](sql-query-where.md)e dão suporte à conversão entre `&&` , `||` e `!` para os operadores SQL
 - **SelectMany**: permite o desenrolamento de matrizes para a cláusula [Join](sql-query-join.md) . Use para encadear ou aninhar expressões para filtrar elementos de matriz.
 - **OrderBy** e **OrderByDescending**: translate para [order by](sql-query-order-by.md) com ASC ou Desc.
-- Operadores **Count**, **sum**, **min**, **Max**e **Average** para [agregação](sql-query-aggregates.md)e seus equivalentes assíncronos **CountAsync**, **SumAsync**, **MinAsync**, **MaxAsync**e **AverageAsync**.
+- Operadores **Count**, **sum**, **min**, **Max** e **Average** para [agregação](sql-query-aggregate-functions.md)e seus equivalentes assíncronos **CountAsync**, **SumAsync**, **MinAsync**, **MaxAsync** e **AverageAsync**.
 - **CompareTo**: é convertido em comparações de intervalo. Comumente usado para cadeias de caracteres, pois não são comparáveis em .NET.
 - **Skip** e **Take**: está relacionado ao [deslocamento e ao limite](sql-query-offset-limit.md) para limitar os resultados de uma consulta e fazer a paginação.
 - **Funções matemáticas**: oferece suporte à conversão de .net,,,,,,,,,,,,, `Abs` `Acos` `Asin` `Atan` `Ceiling` ,, `Cos` `Exp` `Floor` `Log` `Log10` `Pow` `Round` `Sign` `Sin` `Sqrt` `Tan` e `Truncate` para as [funções matemáticas internas](sql-query-mathematical-functions.md)equivalentes.

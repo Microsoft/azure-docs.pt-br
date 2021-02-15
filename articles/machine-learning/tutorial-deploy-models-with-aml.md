@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial de classificação de imagens: Implantar modelos'
 titleSuffix: Azure Machine Learning
-description: Este tutorial, o segundo de uma série de duas partes, mostra como usar o Azure Machine Learning para implantar um modelo de classificação de imagem com o scikit-learn em um Notebook Jupyter Python.
+description: Este tutorial mostra como usar o Azure Machine Learning para implantar um modelo de classificação de imagem com o Scikit-learn em um Python Jupyter Notebook.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,15 +10,15 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 03/18/2020
 ms.custom: seodec18
-ms.openlocfilehash: 680b6ec17b65cd9452dd3bd5c0c470e395688cb8
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: ee6529f36c302cba1dc7b5a4b53aaf96ce58e4a5
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86025668"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94532776"
 ---
 # <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>Tutorial: Implantar um modelo de classificação de imagem em Instâncias de Contêiner do Azure
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Este tutorial é **parte dois de uma série de tutoriais de duas partes**. No [tutorial anterior](tutorial-train-models-with-aml.md), você treinou modelos de machine learning e, depois, registrou um modelo no workspace na nuvem.  Agora, você está pronto para implantar o modelo como um serviço Web. Um serviço Web é uma imagem, neste caso, uma imagem do Docker. Ele encapsula a lógica de pontuação e o próprio modelo. 
 
@@ -358,6 +358,6 @@ service.delete()
 
 + Saiba mais sobre todas as [opções de implantação do Azure Machine Learning](how-to-deploy-and-where.md).
 + Saiba como [criar clientes para o serviço Web](how-to-consume-web-service.md).
-+  [Fazer previsões sobre grandes quantidades de dados](how-to-use-parallel-run-step.md) assincronamente.
++  [Fazer previsões sobre grandes quantidades de dados](./tutorial-pipeline-batch-scoring-classification.md) assincronamente.
 + [Monitorar seus modelos do Azure Machine Learning com o Application Insights](how-to-enable-app-insights.md).
-+ Experimente o tutorial de [seleção automática de algoritmo](tutorial-auto-train-models.md). 
++ Experimente o tutorial de [seleção automática de algoritmo](tutorial-auto-train-models.md).

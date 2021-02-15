@@ -11,19 +11,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/19/2018
 ms.author: rohink
-ms.openlocfilehash: d46e2d31c8d6c5a175239c76795359ad64b1abd3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 6abcca9d9888dc8968d7233e7aee6cd76aa215f7
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84686198"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965741"
 ---
 # <a name="how-to-manage-dns-zones-using-powershell"></a>Como gerenciar as zonas DNS usando o PowerShell
 
 > [!div class="op_single_selector"]
 > * [Portal](dns-operations-dnszones-portal.md)
 > * [PowerShell](dns-operations-dnszones.md)
-> * [CLI clássica do Azure](dns-operations-dnszones-cli-nodejs.md)
+> * [CLI clássica do Azure](./dns-operations-dnszones-cli.md)
 > * [CLI do Azure](dns-operations-dnszones-cli.md)
 
 Este artigo mostra como gerenciar suas zonas DNS usando o Azure PowerShell. Você também pode gerenciar as zonas DNS usando a plataforma cruzada [CLI do Azure](dns-operations-dnszones-cli.md) ou o portal do Azure.
@@ -173,4 +174,3 @@ Saiba como [gerenciar conjuntos de registros e registros](dns-operations-records
 Saiba como [delegar seu domínio ao DNS do Azure](dns-domain-delegation.md).
 <br>
 Examine a [documentação de referência do PowerShell do DNS do Azure](/powershell/module/azurerm.dns).
-

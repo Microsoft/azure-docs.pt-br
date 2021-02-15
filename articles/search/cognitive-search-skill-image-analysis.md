@@ -8,16 +8,16 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: 63a1f8e30be2983c0df93ff5a7229460f8f39214
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 69b84a3edb606ed99b6aaca7db5ad0e57124f1b9
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88936037"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91948928"
 ---
 # <a name="image-analysis-cognitive-skill"></a>Habilidade cognitiva de Análise de Imagens
 
-A habilidade **Análise de Imagens** extrai um conjunto avançado de recursos visuais com base no conteúdo da imagem. Por exemplo, é possível gerar uma legenda de uma imagem, criar marcas ou identificar celebridades e pontos de referência. Essa habilidade usa os modelos de machine learning fornecidos pela [Pesquisa Visual Computacional](../cognitive-services/computer-vision/home.md) nos Serviços Cognitivos. 
+A habilidade **Análise de Imagens** extrai um conjunto avançado de recursos visuais com base no conteúdo da imagem. Por exemplo, é possível gerar uma legenda de uma imagem, criar marcas ou identificar celebridades e pontos de referência. Essa habilidade usa os modelos de machine learning fornecidos pela [Pesquisa Visual Computacional](../cognitive-services/computer-vision/overview.md) nos Serviços Cognitivos. 
 
 > [!NOTE]
 > Volumes pequenos (menos de 20 transações) podem ser executados gratuitamente no Azure Pesquisa Cognitiva, mas cargas de trabalho maiores exigem [a anexação de um recurso de serviços cognitivas cobráveis](cognitive-search-attach-cognitive-services.md). As cobranças são geradas ao chamar APIs nos Serviços Cognitivos e para a extração de imagem, como parte do estágio de quebra de documento na Pesquisa Cognitiva do Azure. Não há encargos para extração de texto em documentos.
@@ -40,7 +40,7 @@ Os parâmetros diferenciam maiúsculas de minúsculas.
 
 ## <a name="skill-inputs"></a>Entradas de habilidades
 
-| Nome de entrada      | DESCRIÇÃO                                          |
+| Nome de entrada      | Descrição                                          |
 |---------------|------------------------------------------------------|
 | `image`         | Tipo complexo. Atualmente só funciona com o campo "/document/normalized_images" produzido pelo indexador de BLOBs do Microsoft Azure quando ```imageAction``` é definido como um valor diferente de ```none```. Para obter mais informações, confira [este exemplo](#sample-output).|
 

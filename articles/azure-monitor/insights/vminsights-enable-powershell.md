@@ -1,5 +1,5 @@
 ---
-title: Habilitar Azure Monitor para VMs usando o PowerShell
+title: Habilitar o Azure Monitor para VMs usando o PowerShell
 description: Descreve como habilitar Azure Monitor para VMs para máquinas virtuais do Azure ou conjuntos de dimensionamento de máquinas virtuais usando Azure PowerShell.
 ms.subservice: ''
 ms.topic: conceptual
@@ -7,13 +7,13 @@ author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
 ms.openlocfilehash: a2cdcab08bba76cb385666956b7663324f32c669
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87824572"
 ---
-# <a name="enable-azure-monitor-for-vms-using-powershell"></a>Habilitar Azure Monitor para VMs usando o PowerShell
+# <a name="enable-azure-monitor-for-vms-using-powershell"></a>Habilitar o Azure Monitor para VMs usando o PowerShell
 Este artigo descreve como habilitar Azure Monitor para VMs em máquinas virtuais do Azure usando o PowerShell. Esse procedimento pode ser usado para o seguinte:
 
 - Máquina virtual do Azure

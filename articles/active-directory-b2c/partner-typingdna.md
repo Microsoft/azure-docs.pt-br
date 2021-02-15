@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 06/25/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: dcf80ffa26ecaeb0f4481b3997146c07bd89be10
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 68617d86fda940c5d3752f2389088a8c729aebec
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85397881"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97108341"
 ---
 # <a name="tutorial-for-configuring-typingdna-with-azure-active-directory-b2c"></a>Tutorial para configurar o TypingDNA com o Azure Active Directory B2C
 
 Neste tutorial, saiba como integrar um aplicativo de pagamento online de exemplo no Azure Active Directory B2C com o aplicativo TypingDNA. Usando o aplicativo TypingDNA, os clientes do Azure AD B2C podem cumprir os requisitos de transação de PSD2 ( [diretiva de serviços de pagamento 2](https://www.typingdna.com/use-cases/sca-strong-customer-authentication) ) por meio do Dynamics de pressionamento de teclas e autenticação de cliente forte. Saiba mais sobre o TypingDNA [aqui](https://www.typingdna.com/).
 
- Azure AD B2C usa as tecnologias do TypingDNA para capturar as características de digitação dos usuários e fazer com que elas sejam registradas e analisadas quanto à familiaridade em cada autenticação. Isso adiciona uma camada de proteção relacionada ao risco de uma autenticação e avalia os níveis de risco. Azure AD B2C pode invocar outros mecanismos para fornecer maior confiança de que o usuário é quem alega ser invocando a MFA do Azure, forçando a verificação de email ou qualquer outra lógica personalizada para seu cenário.
+ Azure AD B2C usa as tecnologias do TypingDNA para capturar as características de digitação dos usuários e fazer com que elas sejam registradas e analisadas quanto à familiaridade em cada autenticação. Isso adiciona uma camada de proteção relacionada ao risco de uma autenticação e avalia os níveis de risco. Azure AD B2C pode invocar outros mecanismos para fornecer maior confiança de que o usuário é quem alega ser invocando a MFA do Azure AD, forçando a verificação de email ou qualquer outra lógica personalizada para seu cenário.
 
 >[!NOTE]
 > Esta política de exemplo se baseia no pacote de início do [SocialAndLocalAccountsWithMfa](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/SocialAndLocalAccountsWithMfa) .
@@ -36,9 +36,9 @@ Neste tutorial, saiba como integrar um aplicativo de pagamento online de exemplo
 
 2. Quando o usuário enviar a página, a biblioteca TypingDNA calculará a característica de digitação do usuário. Depois disso, insira as informações em um campo de texto oculto que Azure AD B2C tenha renderizado. Esse campo é ocultado com CSS.  
 
-    O exemplo contém arquivos HTML com as modificações de JavaScript e CSS e é referenciado pelas `api.selfasserted.tdnasignin` `api.selfasserted.tdnasignup` definições de conteúdo e. Consulte [hospedando o conteúdo da página](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-ui-customization#hosting-the-page-content) para hospedar seus arquivos HTML.
+    O [exemplo contém arquivos HTML](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/TypingDNA/source-code/selfAssertedSignUp.cshtml) com as modificações de JavaScript e CSS e é referenciado pelas `api.selfasserted.tdnasignin` `api.selfasserted.tdnasignup` definições de conteúdo e. Consulte [hospedando o conteúdo da página](./customize-ui-with-html.md#hosting-the-page-content) para hospedar seus arquivos HTML.
 
-3. Azure AD B2C agora tem o padrão de digitação dentro do recipiente de declarações quando o usuário envia suas credenciais. Ele deve chamar uma API (sua) para passar esses dados para o ponto de extremidade da API REST do TypingDNA. Essa API está incluída no exemplo (typingDNA-API-interface).
+3. Azure AD B2C agora tem o padrão de digitação dentro do recipiente de declarações quando o usuário envia suas credenciais. Ele deve chamar uma API (sua) para passar esses dados para o ponto de extremidade da API REST do TypingDNA. Essa API está incluída no [exemplo (typingDNA-API-interface)](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/TypingDNA/source-code/TypingDNA-API-Interface).
 4. Em seguida, a API de camada intermediária passa os dados de padrão de digitação para a API REST do amTypingDNA. Na inscrição, o ponto de [extremidade do usuário de verificação](https://api.typingdna.com/index.html#api-API_Services-GetUser) é chamado para confirmar se o usuário não existe e, em seguida, o ponto de extremidade de [salvar padrão](https://api.typingdna.com/index.html#api-API_Services-saveUserPattern) é chamado para salvar o primeiro padrão de digitação do usuário.
 
 > [!NOTE]
@@ -61,7 +61,7 @@ As chamadas à API REST são modeladas com o `validationTechnicalProfiles` em `L
 
 ### <a name="sign-in"></a>Conexão
 
-Em uma entrada subsequente, o padrão de digitação do usuário é calculado da mesma maneira que na inscrição usando o HTML personalizado. Depois que o perfil de digitação estiver dentro do conjunto de declarações Azure AD B2C, Azure AD B2C chamará sua API para chamar o ponto de extremidade da API REST do TypingDNA. O ponto de extremidade do [usuário de verificação](https://api.typingdna.com/index.html#api-API_Services-GetUser) é chamado para confirmar se o usuário existe. Em seguida, [Verifique se](https://api.typingdna.com/index.html#api-API_Services-verifyTypingPattern) o ponto de extremidade do padrão é chamado para retornar o `net_score` . Essa `net_score` é uma indicação de quão perto o padrão de digitação era o original na inscrição.
+Em uma entrada subsequente, o padrão de digitação do usuário é calculado da mesma maneira que na inscrição usando o [HTML personalizado](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/TypingDNA/source-code/selfAssertedSignIn.cshtml). Depois que o perfil de digitação estiver dentro do conjunto de declarações Azure AD B2C, Azure AD B2C chamará sua API para chamar o ponto de extremidade da API REST do TypingDNA. O ponto de extremidade do [usuário de verificação](https://api.typingdna.com/index.html#api-API_Services-GetUser) é chamado para confirmar se o usuário existe. Em seguida, [Verifique se](https://api.typingdna.com/index.html#api-API_Services-verifyTypingPattern) o ponto de extremidade do padrão é chamado para retornar o `net_score` . Essa `net_score` é uma indicação de quão perto o padrão de digitação era o original na inscrição.
 
 Esse padrão de digitação é modelado com `validationTechnicalProfiles` `SelfAsserted-LocalAccountSignin-Email-TDNA` :
 
@@ -99,7 +99,7 @@ Esse padrão de digitação é modelado com `validationTechnicalProfiles` `SelfA
 
  Se o usuário obtiver um padrão de digitação que tenha um alto `net_score` , você poderá salvá-lo usando o ponto de extremidade do [padrão TypingDNA salvar digitação](https://api.typingdna.com/index.html#api-API_Services-saveUserPattern) .  
 
-Sua API deverá retornar uma declaração `saveTypingPattern` se você quiser que o ponto de extremidade de padrão de digitação TypingDNA Save seja chamado por Azure ad B2C (por meio de sua API).
+Sua API deverá retornar uma declaração  `saveTypingPattern` se você quiser que o ponto de extremidade de padrão de digitação TypingDNA Save seja chamado por Azure ad B2C (por meio de sua API).
 
 O exemplo no repositório contém uma API (TypingDNA-API-interface) que é configurada com as propriedades a seguir.
 
@@ -113,7 +113,7 @@ Esses limites devem ser ajustados em seu caso de uso.
 
 - Depois que a API tiver avaliado o `net_score` , ele deverá retornar uma declaração booliana para B2C `promptMFA` .
 
-- A `promptMFA` declaração é usada em uma pré-condição para executar condicionalmente a MFA do Azure.
+- A `promptMFA` declaração é usada em uma pré-condição para executar a MFA do Azure ad condicionalmente.
 
 ```xml
 
@@ -158,19 +158,19 @@ Esses limites devem ser ajustados em seu caso de uso.
 
 ## <a name="integrate-typingdna-with-azure-ad-b2c"></a>Integrar o TypingDNA ao Azure AD B2C
 
-1. Hospede o TypingDNA-API-interface no seu provedor de Hospedagem de sua escolha
-2. Substitua todas as instâncias de `apiKey` e `apiSecret` na solução TYPINGDNA-API pelas credenciais do seu painel do TypingDNA
-3. Hospede os arquivos HTML no seu provedor de escolha seguindo os requisitos de CORS [aqui](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-ui-customization#3-configure-cors)
+1. Hospede o [TypingDNA-API-interface](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/TypingDNA/source-code/TypingDNA-API-Interface) no seu provedor de Hospedagem de sua escolha
+2. Substitua todas as instâncias de `apiKey` e `apiSecret` na solução [TypingDNA-API](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/TypingDNA/source-code/TypingDNA-API-Interface) pelas credenciais do seu painel do TypingDNA
+3. Hospede os arquivos HTML no seu provedor de escolha seguindo os requisitos de CORS [aqui](./customize-ui-with-html.md#3-configure-cors)
 4. Substitua os elementos LoadURI para as `api.selfasserted.tdnasignup` `api.selfasserted.tdnasignin` definições de conteúdo e no `TrustFrameworkExtensions.xml` arquivo para o URI de seus arquivos HTML hospedados, respectivamente.
 5. Crie uma chave de política do B2C na estrutura de experiência de identidade na folha do Azure AD no **portal do Azure**. Use a `Generate` opção e nomeie essa chave `tdnaHashedId` .
 6. Substituir os Tenantid nos arquivos de política
-7. Substitua as URLs em todos os perfis técnicos da API REST do TypingDNA (REST-TDNA-VerifyUser, REST-TDNA-SaveUser, REST-TDNA-CheckUser) pelo ponto de extremidade para sua API TypingDNA-API-interface.
-8. Carregar arquivos de política para seu locatário.
+7. Substitua as URLs em todos os perfis técnicos da API REST do TypingDNA (REST-TDNA-VerifyUser, REST-TDNA-SaveUser, REST-TDNA-CheckUser) pelo ponto de extremidade para sua [API TypingDNA-API-interface](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/TypingDNA/source-code/TypingDNA-API-Interface).
+8. Carregar [arquivos de política](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/TypingDNA/policy) para seu locatário.
 
 ## <a name="test-the-user-flow"></a>Testar o fluxo de usuário
 
 1. Abra o locatário B2C e escolha Identity Experience Framework.
-2. Selecione o fluxo de **usuário**criado anteriormente.
+2. Selecione o fluxo de **usuário** criado anteriormente.
 3. Selecione **executar** fluxo de usuário
 
     a. **Aplicativo** – selecione o aplicativo registrado (exemplo é JWT)
@@ -194,6 +194,6 @@ Esses limites devem ser ajustados em seu caso de uso.
 
 Para obter informações adicionais, examine os seguintes artigos:
 
-- [Políticas personalizadas no AAD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Políticas personalizadas no AAD B2C](./custom-policy-overview.md)
 
-- [Introdução às políticas personalizadas no AAD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [Introdução às políticas personalizadas no AAD B2C](./custom-policy-get-started.md?tabs=applications)

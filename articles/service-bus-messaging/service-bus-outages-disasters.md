@@ -2,13 +2,13 @@
 title: Isolar aplicativos do barramento de serviço do Azure contra interrupções e desastres
 description: Este artigo fornece técnicas para proteger aplicativos contra uma potencial interrupção do barramento de serviço do Azure.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 4f3ff89e3ec59ad4445ab0b7ee7eeb45d18fa3b8
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.date: 02/10/2021
+ms.openlocfilehash: b9090a54cd58788dbd13f528af4dda4aa96005b7
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88065617"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100374585"
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Práticas recomendadas para isolar aplicativos contra interrupções e desastres do Barramento de Serviço
 
@@ -23,11 +23,13 @@ Os conceitos de Alta disponibilidade e Recuperação de desastres são integrado
 
 ### <a name="geo-disaster-recovery"></a>Recuperação de desastre geográfico
 
-O Barramento de Serviço Premium oferece suporte à recuperação de desastre geográfico no nível do namespace. Para mais informações consulte [Recuperação de desastre em área geográfica do Barramento de Serviço do Azure](service-bus-geo-dr.md). O recurso de recuperação de desastre, disponível apenas para [SKU Premium](service-bus-premium-messaging.md), implementa a recuperação de desastre dos metadados e se baseia em namespaces de recuperação de desastre primário e secundário.
+O Barramento de Serviço Premium oferece suporte à recuperação de desastre geográfico no nível do namespace. Para mais informações consulte [Recuperação de desastre em área geográfica do Barramento de Serviço do Azure](service-bus-geo-dr.md). O recurso de recuperação de desastre, disponível apenas para [SKU Premium](service-bus-premium-messaging.md), implementa a recuperação de desastre dos metadados e se baseia em namespaces de recuperação de desastre primário e secundário. Com a recuperação de Geo-Disaster, somente os metadados para entidades são replicados entre os namespaces primário e secundário.  
 
 ### <a name="availability-zones"></a>Zonas de Disponibilidades
 
 O SKU do Barramento de Serviço Premium oferece suporte às [Zonas de Disponibilidade](../availability-zones/az-overview.md), fornecendo locais isolados de falhas dentro da mesma região do Azure. O barramento de serviço gerencia três cópias do repositório de mensagens (1 primário e 2 secundários). O barramento de serviço mantém todas as três cópias em sincronia para operações de gerenciamento e dados. Se a cópia primária falhar, uma das cópias secundárias será promovida para primária sem nenhum tempo de inatividade percebido. Se os aplicativos conseguirem desconexões transitórias do barramento de serviço, a lógica de repetição no SDK se reconectará automaticamente ao barramento de serviço. 
+
+Quando você usa zonas de disponibilidade, os metadados e os dados (mensagens) são replicados entre data centers na zona de disponibilidade. 
 
 > [!NOTE]
 > O suporte a Zonas de Disponibilidade para o Barramento de Serviço Premium do Azure só é oferecido nas [regiões do Azure](../availability-zones/az-region.md) em que existem zonas de disponibilidade.

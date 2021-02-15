@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 07/23/2020
 ms.openlocfilehash: 178c339f6f47569160a9a748794678c610f35734
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87171637"
 ---
 # <a name="use-azure-active-directory-for-authentication-with-postgresql"></a>Usar Azure Active Directory para autenticação com PostgreSQL
@@ -137,7 +137,7 @@ psql "host=mydb.postgres... user=user@tenant.onmicrosoft.com@mydb dbname=postgre
 
 Considerações importantes ao se conectar:
 
-* `user@tenant.onmicrosoft.com`é o nome do usuário ou grupo do Azure AD ao qual você está tentando se conectar
+* `user@tenant.onmicrosoft.com` é o nome do usuário ou grupo do Azure AD ao qual você está tentando se conectar
 * Sempre acrescentar o nome do servidor após o nome de usuário/grupo do Azure AD (por exemplo, `@mydb` )
 * Certifique-se de usar a maneira exata de que o nome de usuário ou grupo do Azure AD está escrito
 * Os nomes de usuário e grupo do Azure AD diferenciam maiúsculas de minúsculas

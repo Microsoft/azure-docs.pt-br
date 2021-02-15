@@ -10,12 +10,12 @@ ms.author: dobett
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 73eb0b3164a386bb270e42ceba56d5dc7045af1c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d2afd88500801f1e2b1e4da5a1e267bddfa69fc7
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81729001"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96453023"
 ---
 # <a name="what-is-azure-internet-of-things-iot"></a>O que é o Azure IoT (Internet das Coisas)?
 
@@ -74,6 +74,8 @@ Por exemplo, em uma solução de monitoramento remoto de uma estação de bombea
 
 Para obter exemplos da vida real de como as organizações usam o IoT do Azure, confira [Estudos de casos técnicos da Microsoft sobre IoT](https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured). 
 
+Para ver uma análise detalhada da arquitetura IoT, confira a [Arquitetura de Referência do IoT do Microsoft Azure](/azure/architecture/reference-architectures/iot).
+
 ## <a name="next-steps"></a>Próximas etapas
 
 Para ver alguns casos de negócios reais e a arquitetura usada, confira os [Estudos de casos técnicos do Microsoft Azure IoT](https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured).
@@ -81,5 +83,3 @@ Para ver alguns casos de negócios reais e a arquitetura usada, confira os [Estu
 Para alguns projetos de exemplo que você pode experimentar com um Kit de desenvolvimento de IoT, confira o [Catálogo de projetos do Kit de desenvolvimento de IoT](https://microsoft.github.io/azure-iot-developer-kit/docs/projects/). 
 
 Para obter uma explicação mais abrangente dos diferentes serviços e como eles são usados, confira [Tecnologias e serviços de IoT do Azure](iot-services-and-technologies.md).
-
-Para ver uma análise detalhada da arquitetura IoT, confira a [Arquitetura de Referência do IoT do Microsoft Azure](https://aka.ms/iotrefarchitecture).

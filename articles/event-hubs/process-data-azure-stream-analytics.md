@@ -4,10 +4,10 @@ description: Este artigo mostra como processar dados do hub de eventos do Azure 
 ms.date: 06/23/2020
 ms.topic: article
 ms.openlocfilehash: 2db4fba59a1a06a24ee2939c51ecdf65aa06cef3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85312887"
 ---
 # <a name="process-data-from-your-event-hub-using-azure-stream-analytics"></a>Processar dados do seu hub de eventos usando Azure Stream Analytics 
@@ -44,7 +44,7 @@ Aqui estão os principais benefícios dos hubs de eventos do Azure e da integra�
     - Você pode visualizar os dados de entrada no formato de tabela ou no formato bruto. 
     - Se os dados mostrados não estiverem atuais, selecione **Atualizar** para ver os eventos mais recentes. 
 
-        Aqui está um exemplo de dados no **formato de tabela**: ![ resulta no formato de tabela](./media/process-data-azure-stream-analytics/snapshot-results.png)
+        Aqui está um exemplo de dados no **formato de tabela**:   ![ resulta no formato de tabela](./media/process-data-azure-stream-analytics/snapshot-results.png)
 
         Aqui está um exemplo de dados no **formato bruto**: 
 

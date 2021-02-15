@@ -1,22 +1,22 @@
 ---
-title: Alertas e notificações de instalação (o portal do Azure)
+title: Alertas e notificações de instalação no portal do Azure
 description: Use o portal do Azure para criar alertas, que podem disparar notificações ou automação quando as condições especificadas são atendidas.
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: aamalvea
 ms.author: aamalvea
-ms.reviewer: jrasnik, carlrab
+ms.reviewer: wiassaf, sstein
 ms.date: 05/04/2020
-ms.openlocfilehash: d03c1cad9692058c47dd643be9770284b207bb74
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 86ac0f64a6a797b1bc702597ed30e6417f2efe14
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85553491"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500964"
 ---
 # <a name="create-alerts-for-azure-sql-database-and-azure-synapse-analytics-using-the-azure-portal"></a>Criar alertas para o banco de dados SQL do Azure e a análise de Synapse do Azure usando o portal do Azure
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -24,7 +24,7 @@ ms.locfileid: "85553491"
 
 ## <a name="overview"></a>Visão geral
 
-Este artigo mostra como configurar alertas para bancos de dados no banco de dados SQL do Azure e o Azure Synapse Analytics (anteriormente SQL Data Warehouse do Azure) usando o portal do Azure. Os alertas podem enviar a você um email ou chamar um webhook quando alguma métrica (por exemplo, tamanho do banco de dados ou uso da CPU) atinge o limite.
+Este artigo mostra como configurar alertas para bancos de dados no banco de dados SQL do Azure e a análise de Synapse do Azure usando o portal do Azure. Os alertas podem enviar a você um email ou chamar um webhook quando alguma métrica (por exemplo, tamanho do banco de dados ou uso da CPU) atinge o limite.
 
 > [!NOTE]
 > Para o Azure SQL Instância Gerenciada instruções específicas, consulte [criar alertas para o sql instância gerenciada do Azure](../managed-instance/alerts-create.md).
@@ -45,7 +45,7 @@ Você pode configurar e obter informações sobre o uso de regras de alerta
 * [O portal do Azure](../../azure-monitor/platform/alerts-classic-portal.md)
 * [PowerShell](../../azure-monitor/platform/alerts-classic-portal.md)
 * [Uma CLI (interface de linha de comando)](../../azure-monitor/platform/alerts-classic-portal.md)
-* [API REST do Monitor do Azure](https://msdn.microsoft.com/library/azure/dn931945.aspx)
+* [API REST do Azure Monitor](/rest/api/monitor/alertrules)
 
 ## <a name="create-an-alert-rule-on-a-metric-with-the-azure-portal"></a>Criar uma regra de alerta em uma métrica com o Portal do Azure
 
@@ -63,7 +63,7 @@ Você pode configurar e obter informações sobre o uso de regras de alerta
   ![Selecionar sinal](./media/alerts-insights-configure-portal/select-signal.png)
 6. Depois de selecionar um sinal, como **percentual de CPU**, a página **Configurar lógica de sinal** será exibida.
   ![Configurar sinal lógico](./media/alerts-insights-configure-portal/configure-signal-logic.png)
-7. Nessa página, configure esse tipo de limite, operador, tipo de agregação, valor de limite, granularidade de agregação e frequência de avaliação. Em seguida, clique em **concluído**.
+7. Nessa página, configure esse tipo de limite, operador, tipo de agregação, valor de limite, granularidade de agregação e frequência de avaliação. Em seguida, clique em **Concluído**.
 8. Na **regra criar**, selecione um grupo de **ações** existente ou crie um novo grupo. Um grupo de ações permite que você defina a ação a ser executada quando ocorrer uma condição de alerta.
   ![Definir grupo de ação](./media/alerts-insights-configure-portal/action-group.png)
 

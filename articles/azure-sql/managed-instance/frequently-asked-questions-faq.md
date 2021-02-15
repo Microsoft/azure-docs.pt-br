@@ -1,7 +1,7 @@
 ---
-title: Perguntas frequentes (FAQ)
+title: Perguntas frequentes
 titleSuffix: Azure SQL Managed Instance
-description: Perguntas frequentes sobre o Azure SQL Instância Gerenciada
+description: Perguntas frequentes (FAQ) sobre a Instância Gerenciada de SQL do Azure
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: operations
@@ -10,16 +10,16 @@ ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: sstein, carlrab
-ms.date: 03/17/2020
-ms.openlocfilehash: fe779ebf8bb041fb90b8eb38a9469a783127ffd3
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.reviewer: sstein
+ms.date: 09/21/2020
+ms.openlocfilehash: f58811411a447eae4ff9a5c0fd2a9888b4a39a34
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88661411"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99428666"
 ---
-# <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Perguntas frequentes sobre o Azure SQL Instância Gerenciada
+# <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Perguntas frequentes (FAQ) sobre a Instância Gerenciada de SQL do Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 Este artigo contém as perguntas mais comuns sobre o [Azure SQL instância gerenciada](sql-managed-instance-paas-overview.md).
@@ -82,7 +82,7 @@ Para obter recursos novos e de visualização, consulte [notas de versão](../da
 
 **Como posso provisionar o SQL Instância Gerenciada?**
 
-Você pode provisionar uma instância do [portal do Azure](instance-create-quickstart.md), do [PowerShell](scripts/create-configure-managed-instance-powershell.md), [CLI do Azure](https://techcommunity.microsoft.com/t5/azure-sql-database/create-azure-sql-managed-instance-using-azure-cli/ba-p/386281) e [modelos de ARM](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/creating-azure-sql-managed-instance-using-arm-templates).
+Você pode provisionar uma instância nos modelos [portal do Azure](instance-create-quickstart.md), [PowerShell](scripts/create-configure-managed-instance-powershell.md), [CLI do Azure](https://techcommunity.microsoft.com/t5/azure-sql-database/create-azure-sql-managed-instance-using-azure-cli/ba-p/386281) e [ARM](/archive/blogs/sqlserverstorageengine/creating-azure-sql-managed-instance-using-arm-templates).
 
 **Posso provisionar instâncias gerenciadas em uma assinatura existente?**
 
@@ -94,7 +94,7 @@ Essa é uma limitação atual do componente subjacente que verifica o nome da su
 
 **Como posso dimensionar minha instância gerenciada?**
 
-Você pode dimensionar sua instância gerenciada no [portal do Azure](../database/service-tiers-vcore.md?tabs=azure-portal#selecting-a-hardware-generation), [PowerShell](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/change-size-azure-sql-managed-instance-using-powershell), [CLI do Azure](https://docs.microsoft.com/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-update) ou [modelos ARM](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/updating-azure-sql-managed-instance-properties-using-arm-templates).
+Você pode dimensionar sua instância gerenciada de modelos [portal do Azure](../database/service-tiers-vcore.md?tabs=azure-portal#selecting-a-hardware-generation), [PowerShell](/archive/blogs/sqlserverstorageengine/change-size-azure-sql-managed-instance-using-powershell), [CLI do Azure](/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-update&preserve-view=true) ou [ARM](/archive/blogs/sqlserverstorageengine/updating-azure-sql-managed-instance-properties-using-arm-templates).
 
 **Posso mover meu Instância Gerenciada de uma região para outra?**
 
@@ -102,7 +102,7 @@ Sim, você pode. Para obter instruções, consulte [mover recursos entre regiõe
 
 **Como posso excluir meu Instância Gerenciada?**
 
-Você pode excluir instâncias gerenciadas por meio do portal do Azure, [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstance?view=azps-4.3.0), [CLI do Azure](https://docs.microsoft.com/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-delete) ou [APIs REST do Resource Manager](https://docs.microsoft.com/rest/api/sql/managedinstances/delete).
+Você pode excluir instâncias gerenciadas por meio de APIs REST portal do Azure, [PowerShell](/powershell/module/az.sql/remove-azsqlinstance?preserve-view=true&view=azps-4.3.0), [CLI do Azure](/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-delete&preserve-view=true) ou [Resource Manager](/rest/api/sql/managedinstances/delete).
 
 **Quanto tempo leva para criar ou atualizar uma instância, ou para restaurar um banco de dados?**
 
@@ -135,9 +135,9 @@ A instância gerenciada oferece os mesmos níveis de desempenho por computação
 
 Uma opção é [exportar um banco de dados para BACPAC](../database/database-export.md) e, em seguida, [importar o arquivo BACPAC](../database/database-import.md). Essa é a abordagem recomendada caso o banco de dados seja menor que 100 GB.
 
-A [replicação transacional](replication-two-instances-and-sql-server-configure-tutorial.md?view=sql-server-2017) poderá ser usada se todas as tabelas no banco de dados tiverem chaves *primárias* e não houver objetos OLTP na memória no banco de dados.
+A [replicação transacional](replication-two-instances-and-sql-server-configure-tutorial.md?view=sql-server-2017&preserve-view=true) poderá ser usada se todas as tabelas no banco de dados tiverem chaves *primárias* e não houver objetos OLTP na memória no banco de dados.
 
-Os backups de COPY_ONLY nativos obtidos da instância gerenciada não podem ser restaurados para SQL Server porque a instância gerenciada tem uma versão de banco de dados superior em comparação com SQL Server. Para obter mais detalhes, consulte [backup somente cópia](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server?view=sql-server-ver15).
+Os backups de COPY_ONLY nativos obtidos da instância gerenciada não podem ser restaurados para SQL Server porque a instância gerenciada tem uma versão de banco de dados superior em comparação com SQL Server. Para obter mais detalhes, consulte [backup somente cópia](/sql/relational-databases/backup-restore/copy-only-backups-sql-server?preserve-view=true&view=sql-server-ver15).
 
 **Como posso migrar minha instância de SQL Server para o SQL Instância Gerenciada?**
 
@@ -180,15 +180,15 @@ Se sua carga de trabalho consistir em muitas transações pequenas, considere [a
 
 **Quais são as opções de monitoramento e alerta para minha instância gerenciada?**
 
-Para todas as opções possíveis para monitorar e alertar sobre o consumo e o desempenho do SQL Instância Gerenciada, consulte [postagem do blog de opções de monitoramento do instância gerenciada SQL do Azure](https://techcommunity.microsoft.com/t5/azure-sql-database/monitoring-options-available-for-azure-sql-managed-instance/ba-p/1065416). Para o monitoramento de desempenho em tempo real para o SQL MI, consulte [monitoramento de desempenho em tempo real para o Azure SQL DB instância gerenciada](https://docs.microsoft.com/archive/blogs/sqlcat/real-time-performance-monitoring-for-azure-sql-database-managed-instance).
+Para todas as opções possíveis para monitorar e alertar sobre o consumo e o desempenho do SQL Instância Gerenciada, consulte [postagem do blog de opções de monitoramento do instância gerenciada SQL do Azure](https://techcommunity.microsoft.com/t5/azure-sql-database/monitoring-options-available-for-azure-sql-managed-instance/ba-p/1065416). Para o monitoramento de desempenho em tempo real para o SQL MI, consulte [monitoramento de desempenho em tempo real para o Azure SQL DB instância gerenciada](/archive/blogs/sqlcat/real-time-performance-monitoring-for-azure-sql-database-managed-instance).
 
 **Posso usar o SQL Profiler para rastreamento de desempenho?**
 
-Sim, o SQL Profiler tem suporte ou SQL Instância Gerenciada. Para obter mais detalhes, consulte [SQL Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler?view=sql-server-ver15).
+Sim, o SQL Profiler tem suporte ou SQL Instância Gerenciada. Para obter mais detalhes, consulte [SQL Profiler](/sql/tools/sql-server-profiler/sql-server-profiler?preserve-view=true&view=sql-server-ver15).
 
 **Há suporte para Assistente do Banco de Dados e Análise de Desempenho de Consultas para bancos de dados Instância Gerenciada?**
 
-Não, não há suporte para eles. Você pode usar [DMVs](../database/monitoring-with-dmvs.md) e [repositório de consultas](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store?view=sql-server-ver15) junto com o [SQL Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler?view=sql-server-ver15) e o [XEvents](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events?view=sql-server-ver15) para monitorar seus bancos de dados.
+Não, não há suporte para eles. Você pode usar [DMVs](../database/monitoring-with-dmvs.md) e [repositório de consultas](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store?preserve-view=true&view=sql-server-ver15) junto com o [SQL Profiler](/sql/tools/sql-server-profiler/sql-server-profiler?preserve-view=true&view=sql-server-ver15) e o [XEvents](/sql/relational-databases/extended-events/extended-events?preserve-view=true&view=sql-server-ver15) para monitorar seus bancos de dados.
 
 **Posso criar alertas de métrica no SQL Instância Gerenciada?**
 
@@ -228,11 +228,11 @@ Para acompanhar quando os backups automatizados foram executados no Instância G
 
 **Há suporte para backup sob demanda?**
 
-Sim, você pode criar um backup completo somente cópia em seu armazenamento de BLOBs do Azure, mas ele só poderá ser restaurável no Instância Gerenciada. Para obter detalhes, consulte [backup somente cópia](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server?view=sql-server-ver15). No entanto, o backup somente cópia será impossível se o banco de dados for criptografado pelo TDE gerenciado pelo serviço, uma vez que o certificado usado para criptografia é inacessível. Nesse caso, use o recurso de restauração pontual para mover o banco de dados para outro Instância Gerenciada SQL ou alternar para a chave gerenciada pelo cliente.
+Sim, você pode criar um backup completo somente cópia em seu armazenamento de BLOBs do Azure, mas ele só poderá ser restaurável no Instância Gerenciada. Para obter detalhes, consulte [backup somente cópia](/sql/relational-databases/backup-restore/copy-only-backups-sql-server?preserve-view=true&view=sql-server-ver15). No entanto, o backup somente cópia será impossível se o banco de dados for criptografado pelo TDE gerenciado pelo serviço, uma vez que o certificado usado para criptografia é inacessível. Nesse caso, use o recurso de restauração pontual para mover o banco de dados para outro Instância Gerenciada SQL ou alternar para a chave gerenciada pelo cliente.
 
 **A restauração nativa (de arquivos. bak) Instância Gerenciada é suportada?**
 
-Sim, ele tem suporte e está disponível para versões do SQL Server 2005 +.  Para usar a restauração nativa, carregue o arquivo. bak no armazenamento de BLOBs do Azure e execute comandos T-SQL. Para obter mais detalhes, consulte [Native Restore from URL](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-migrate#native-restore-from-url).
+Sim, ele tem suporte e está disponível para versões do SQL Server 2005 +.  Para usar a restauração nativa, carregue o arquivo. bak no armazenamento de BLOBs do Azure e execute comandos T-SQL. Para obter mais detalhes, consulte [Native Restore from URL](./migrate-to-instance-from-sql-server.md#native-restore-from-url).
 
 ## <a name="business-continuity"></a>Continuidade de negócios
 
@@ -254,7 +254,7 @@ Isso é para garantir o fluxo ininterrupto do tráfego de gerenciamento a fim de
 
 **Posso obter os intervalos de IP de origem que são usados para o tráfego de gerenciamento de entrada?**
 
-Sim. Você pode analisar o tráfego proveniente do grupo de segurança de suas redes [Configurando logs de fluxo do observador de rede](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#analyze-traffic-to-or-from-a-network-security-group).
+Sim. Você pode analisar o tráfego proveniente do grupo de segurança de suas redes [Configurando logs de fluxo do observador de rede](../../network-watcher/network-watcher-monitoring-overview.md#analyze-traffic-to-or-from-a-network-security-group).
 
 **Posso definir NSG para controlar o acesso ao ponto de extremidade de dados (porta 1433)?**
 
@@ -273,11 +273,11 @@ Sim. A maneira mais simples de conseguir isso é adicionar a regra 0/0 a um UDR 
  
 **Quantos endereços IP preciso para um Instância Gerenciada?**
 
-A sub-rede deve ter um número suficiente de [endereços IP](connectivity-architecture-overview.md#network-requirements)disponíveis. Para determinar o tamanho da sub-rede VNet para o SQL Instância Gerenciada, consulte [determinar o tamanho e o intervalo de sub-rede necessários para instância gerenciada](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-determine-size-vnet-subnet). 
+A sub-rede deve ter um número suficiente de [endereços IP](connectivity-architecture-overview.md#network-requirements)disponíveis. Para determinar o tamanho da sub-rede VNet para o SQL Instância Gerenciada, consulte [determinar o tamanho e o intervalo de sub-rede necessários para instância gerenciada](./vnet-subnet-determine-size.md). 
 
 **E se não houver endereços IP suficientes para executar a operação de atualização de instância?**
 
-Caso não haja [endereços IP](connectivity-architecture-overview.md#network-requirements) suficientes na sub-rede em que sua instância gerenciada é provisionada, você precisará criar uma nova sub-rede e uma nova instância gerenciada dentro dela. Também sugerimos que a nova sub-rede seja criada com mais endereços IP alocados para que operações de atualização futuras evitem situações semelhantes. Depois que a nova instância for provisionada, você poderá fazer backup e restaurar dados manualmente entre as instâncias novas e antigas ou executar a [restauração pontual](point-in-time-restore.md?tabs=azure-powershell)entre instâncias.
+Caso não haja [endereços IP](connectivity-architecture-overview.md#network-requirements) suficientes na sub-rede em que sua instância gerenciada é provisionada, você precisará criar uma nova sub-rede e uma nova instância gerenciada dentro dela. Também sugerimos que a nova sub-rede seja criada com mais endereços IP alocados para que as operações de atualização futuras evitem uma situação semelhante. Depois que a nova instância for provisionada, você poderá fazer backup e restaurar dados manualmente entre as instâncias novas e antigas ou executar a [restauração pontual](point-in-time-restore.md?tabs=azure-powershell)entre instâncias.
 
 **Preciso de uma sub-rede vazia para criar uma Instância Gerenciada?**
 
@@ -285,7 +285,7 @@ Não. Você pode usar uma sub-rede vazia ou uma sub-rede que já contenha Instâ
 
 **Posso alterar o intervalo de endereços de sub-rede?**
 
-Não se houver instâncias gerenciadas dentro do. Esta é uma limitação da infraestrutura de rede do Azure. Você só tem permissão para [adicionar mais espaço de endereço a uma sub-rede vazia](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-subnet#change-subnet-settings). 
+Não se houver instâncias gerenciadas dentro do. Esta é uma limitação da infraestrutura de rede do Azure. Você só tem permissão para [adicionar mais espaço de endereço a uma sub-rede vazia](../../virtual-network/virtual-network-manage-subnet.md#change-subnet-settings). 
 
 **Posso mover minha instância gerenciada para outra sub-rede?**
 
@@ -293,7 +293,7 @@ Não. Essa é uma limitação de design de Instância Gerenciada atual. No entan
 
 **Preciso de uma rede virtual vazia para criar uma Instância Gerenciada?**
 
-Isso não é necessário. Você pode [criar uma rede virtual para o Azure sql instância gerenciada](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-create-vnet-subnet) ou [Configurar uma rede virtual existente para o SQL instância gerenciada do Azure](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-vnet-subnet).
+Isso não é necessário. Você pode [criar uma rede virtual para o Azure sql instância gerenciada](./virtual-network-subnet-create-arm-template.md) ou [Configurar uma rede virtual existente para o SQL instância gerenciada do Azure](./vnet-existing-add-subnet.md).
 
 **Posso inserir um Instância Gerenciada com outros serviços em uma sub-rede?**
 
@@ -316,17 +316,17 @@ Por esse motivo, é altamente recomendável depender da imutabilidade do endere�
 
 **Instância Gerenciada tem um ponto de extremidade público?**
 
-Sim. Instância Gerenciada tem um ponto de extremidade público que é usado por padrão apenas para o gerenciamento de serviços, mas um cliente também pode habilitá-lo para acesso a dados. Para obter mais detalhes, consulte [usar o SQL instância gerenciada com pontos de extremidade públicos](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-securely). Para configurar o ponto de extremidade público, vá para [Configurar ponto de extremidade público no SQL instância gerenciada](public-endpoint-configure.md).
+Sim. Instância Gerenciada tem um ponto de extremidade público que é usado por padrão apenas para o gerenciamento de serviços, mas um cliente também pode habilitá-lo para acesso a dados. Para obter mais detalhes, consulte [usar o SQL instância gerenciada com pontos de extremidade públicos](./public-endpoint-overview.md). Para configurar o ponto de extremidade público, vá para [Configurar ponto de extremidade público no SQL instância gerenciada](public-endpoint-configure.md).
 
 **Como o Instância Gerenciada controlar o acesso ao ponto de extremidade público?**
 
 Instância Gerenciada controla o acesso ao ponto de extremidade público no nível de rede e de aplicativo.
 
-Os serviços de gerenciamento e implantação se conectam a uma instância gerenciada usando um [ponto de extremidade de gerenciamento](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connectivity-architecture#management-endpoint) que é mapeado para um balanceador de carga externo. O tráfego será roteado para os nós somente se ele for recebido em um conjunto predefinido de portas que apenas os componentes de gerenciamento da instância gerenciada usam. Um firewall interno nos nós é configurado para permitir o tráfego somente de intervalos de IP da Microsoft. Os certificados autenticam mutuamente toda a comunicação entre os componentes de gerenciamento e o plano de gerenciamento. Para obter mais detalhes, consulte [arquitetura de conectividade para o SQL instância gerenciada](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connectivity-architecture#virtual-cluster-connectivity-architecture).
+Os serviços de gerenciamento e implantação se conectam a uma instância gerenciada usando um [ponto de extremidade de gerenciamento](./connectivity-architecture-overview.md#management-endpoint) que é mapeado para um balanceador de carga externo. O tráfego será roteado para os nós somente se ele for recebido em um conjunto predefinido de portas que apenas os componentes de gerenciamento da instância gerenciada usam. Um firewall interno nos nós é configurado para permitir o tráfego somente de intervalos de IP da Microsoft. Os certificados autenticam mutuamente toda a comunicação entre os componentes de gerenciamento e o plano de gerenciamento. Para obter mais detalhes, consulte [arquitetura de conectividade para o SQL instância gerenciada](./connectivity-architecture-overview.md#virtual-cluster-connectivity-architecture).
 
 **Eu poderia usar o ponto de extremidade público para acessar os dados em bancos de Instância Gerenciada?**
 
-Sim. O cliente precisará habilitar o acesso a dados de ponto de extremidade público no [portal do Azure](public-endpoint-configure.md#enabling-public-endpoint-for-a-managed-instance-in-the-azure-portal)  /  [PowerShell](public-endpoint-configure.md#enabling-public-endpoint-for-a-managed-instance-using-powershell) /ARM e configurar o NSG para bloquear o acesso à porta de dados (número da porta 3342). Para obter mais informações, consulte [Configurar o ponto de extremidade público no Azure sql instância gerenciada](public-endpoint-configure.md) e [usar o sql do Azure instância gerenciada com segurança com o ponto de extremidade público](public-endpoint-overview.md). 
+Sim. O cliente precisará habilitar o acesso a dados de ponto de extremidade público do [portal do Azure](public-endpoint-configure.md#enabling-public-endpoint-for-a-managed-instance-in-the-azure-portal)  /  [PowerShell](public-endpoint-configure.md#enabling-public-endpoint-for-a-managed-instance-using-powershell) /ARM e configurar o NSG para bloquear o acesso à porta de dados (número da porta 3342). Para obter mais informações, consulte [Configurar o ponto de extremidade público no Azure sql instância gerenciada](public-endpoint-configure.md) e [usar o sql do Azure instância gerenciada com segurança com o ponto de extremidade público](public-endpoint-overview.md). 
 
 **Posso especificar uma porta personalizada para os pontos de extremidade de dados SQL?**
 
@@ -334,9 +334,12 @@ Não, essa opção não está disponível.  Para o ponto de extremidade de dados
 
 **Qual é a maneira recomendada para conectar as instâncias gerenciadas colocadas em regiões diferentes?**
 
-O emparelhamento de circuito de rota expressa é a maneira preferida de fazer isso. Isso não deve ser misturado com o emparelhamento de rede virtual entre regiões que não tem suporte devido à [restrição](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview)relacionada ao balanceador de carga interno.
+O emparelhamento de circuito de rota expressa é a maneira preferida de fazer isso. Há suporte para o emparelhamento de rede virtual global com a limitação descrita na observação abaixo.  
 
-Se o emparelhamento de circuito de rota expressa não for possível, a única outra opção é criar uma conexão VPN site a site ([portal do Azure](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal), [PowerShell](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell) [CLI do Azure](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli)).
+> [!IMPORTANT]
+> [Em 9/22/2020 anunciamos o emparelhamento de rede virtual global para clusters virtuais recém-criados](https://azure.microsoft.com/en-us/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/). Isso significa que o emparelhamento de rede virtual global tem suporte para instâncias gerenciadas do SQL criadas em sub-redes vazias após a data do anúncio, bem como para todas as instâncias gerenciadas subsequentes criadas nessas sub-redes. Para todas as outras instâncias gerenciadas do SQL, o suporte ao emparelhamento é limitado às redes na mesma região devido às [restrições do emparelhamento de rede virtual global](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). Consulte também a seção relevante do artigo [perguntas frequentes sobre redes virtuais do Azure](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) para obter mais detalhes. 
+
+Se o emparelhamento de circuito de rota expressa e o emparelhamento de rede virtual global não forem possíveis, a única opção é criar uma conexão VPN site a site ([portal do Azure](../../vpn-gateway/tutorial-site-to-site-portal.md), [PowerShell](../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md) [CLI do Azure](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md)).
 
 ## <a name="mitigate-data-exfiltration-risks"></a>Reduzir riscos de vazamento de dados  
 
@@ -344,30 +347,23 @@ Se o emparelhamento de circuito de rota expressa não for possível, a única ou
 
 Para reduzir os riscos de vazamento de dados, é recomendável que os clientes apliquem um conjunto de configurações e controles de segurança:
 
-- Ative a [Transparent Data Encryption (TDE)](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql) em todos os bancos de dados.
+- Ative a [Transparent Data Encryption (TDE)](../database/transparent-data-encryption-tde-overview.md) em todos os bancos de dados.
 - Desative o CLR (Common Language Runtime). Isso também é recomendado no local.
 - Use somente a autenticação Azure Active Directory (AD do Azure).
 - Acesse a instância com uma conta de DBA com poucos privilégios.
 - Configure o acesso Jumpbox JIT para a conta sysadmin.
-- Ative a [auditoria do SQL](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine) e integre-a nos mecanismos de alerta.
-- Ative a [detecção de ameaças](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection) do pacote do [ADS (Advanced Data Security)](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security) .
+- Ative a [auditoria do SQL](/sql/relational-databases/security/auditing/sql-server-audit-database-engine) e integre-a nos mecanismos de alerta.
+- Ative a [detecção de ameaças](../database/threat-detection-configure.md) do [Azure defender para SQL](../database/azure-defender-for-sql.md) Suite.
 
 ## <a name="dns"></a>DNS
 
 **Posso configurar um DNS personalizado para o SQL Instância Gerenciada?**
 
-Sim. Consulte [como configurar um DNS personalizado para o Azure SQL instância gerenciada](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-custom-dns).
+Sim. Consulte [como configurar um DNS personalizado para o Azure SQL instância gerenciada](./custom-dns-configure.md).
 
 **Posso fazer a atualização de DNS?**
 
-Atualmente, não fornecemos um recurso para atualizar a configuração do servidor DNS para o SQL Instância Gerenciada.
-
-A configuração de DNS é, por fim, atualizada:
-
-- Quando a concessão de DHCP expirar.
-- Na atualização da plataforma.
-
-Como alternativa, faça downgrade do SQL Instância Gerenciada para 4 vCores e atualize-o novamente depois. Isso tem um efeito colateral de atualizar a configuração de DNS.
+Sim. Confira a [configuração sincronizar servidores DNS da rede virtual no cluster virtual do SQL instância gerenciada](./synchronize-vnet-dns-servers-setting-on-virtual-cluster.md).
 
 ## <a name="change-time-zone"></a>Alterar fuso horário
 
@@ -375,22 +371,22 @@ Como alternativa, faça downgrade do SQL Instância Gerenciada para 4 vCores e a
 
 A configuração de fuso horário pode ser definida quando uma instância gerenciada é provisionada pela primeira vez. Não há suporte para a alteração do fuso horário de uma instância gerenciada existente. Para obter detalhes, consulte [limitações de fuso horário](timezones-overview.md#limitations).
 
-As soluções alternativas incluem a criação de uma nova instância gerenciada com o fuso horário adequado e a execução de um backup e restauração manuais, ou o que recomendamos, executando uma [restauração pontual de instância cruzada](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/07/cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance/).
+As soluções alternativas incluem a criação de uma nova instância gerenciada com o fuso horário adequado e a execução de um backup e restauração manuais, ou o que recomendamos, executando uma [restauração pontual de instância cruzada](/archive/blogs/sqlserverstorageengine/cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance).
 
 
 ## <a name="security-and-database-encryption"></a>Segurança e criptografia de banco de dados
 
 **A função de servidor sysadmin está disponível para o SQL Instância Gerenciada?**
 
-Sim, os clientes podem criar logons que são membros da função sysadmin.  Os clientes que assumem o privilégio sysadmin também pressupõem a responsabilidade de operar a instância, o que pode afetar negativamente o compromisso do SLA. Para adicionar logon à função de servidor sysadmin, consulte [autenticação do Azure ad](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-aad-security-tutorial#azure-ad-authentication).
+Sim, os clientes podem criar logons que são membros da função sysadmin.  Os clientes que assumem o privilégio sysadmin também pressupõem a responsabilidade de operar a instância, o que pode afetar negativamente o compromisso do SLA. Para adicionar logon à função de servidor sysadmin, consulte [autenticação do Azure ad](./aad-security-configure-tutorial.md#azure-ad-authentication).
 
 **Transparent Data Encryption há suporte para Instância Gerenciada do SQL?**
 
-Sim, há suporte para Transparent Data Encryption para SQL Instância Gerenciada. Para obter detalhes, consulte [Transparent Data Encryption para SQL instância gerenciada](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql?tabs=azure-portal).
+Sim, há suporte para Transparent Data Encryption para SQL Instância Gerenciada. Para obter detalhes, consulte [Transparent Data Encryption para SQL instância gerenciada](../database/transparent-data-encryption-tde-overview.md?tabs=azure-portal).
 
 **Posso aproveitar o modelo "Traga sua própria chave" para TDE?**
 
-Sim, Azure Key Vault para o cenário BYOK está disponível para Instância Gerenciada do Azure SQL. Para obter detalhes, consulte [Transparent Data Encryption com chave gerenciada pelo cliente](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql?view=sql-server-ver15&tabs=azure-portal#customer-managed-transparent-data-encryption---bring-your-own-key).
+Sim, Azure Key Vault para o cenário BYOK está disponível para Instância Gerenciada do Azure SQL. Para obter detalhes, consulte [Transparent Data Encryption com chave gerenciada pelo cliente](../database/transparent-data-encryption-tde-overview.md?tabs=azure-portal#customer-managed-transparent-data-encryption---bring-your-own-key).
 
 **Posso migrar um banco de dados SQL Server criptografado?**
 
@@ -406,8 +402,8 @@ Você pode girar o protetor de TDE para Instância Gerenciada usando Azure Cloud
 
 Sim, você não precisa descriptografar seu banco de dados para restaurá-lo para o SQL Instância Gerenciada. Você precisa fornecer um certificado/chave usado como o protetor de chave de criptografia no sistema de origem para o SQL Instância Gerenciada para poder ler dados do arquivo de backup criptografado. Há duas maneiras possíveis de fazer isso:
 
-- *Carregar o protetor de certificado para o SQL instância gerenciada*. Isso só pode ser feito usando o PowerShell. O [script de exemplo](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-migrate-tde-certificate) descreve todo o processo.
-- *Carregue o protetor de chave assimétrica em Azure Key Vault e aponte instância gerenciada SQL para ele*. Essa abordagem é semelhante ao BYOK (traga sua própria chave) TDE caso de uso que também usa a integração Key Vault para armazenar a chave de criptografia. Se você não quiser usar a chave como um protetor de chave de criptografia e apenas quiser disponibilizar a chave para o SQL Instância Gerenciada restaurar bancos de dados criptografados, siga as instruções para [Configurar BYOK TDE](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql#manage-transparent-data-encryption)e não marque a caixa de seleção **tornar a chave selecionada o protetor de TDE padrão**.
+- *Carregar o protetor de certificado para o SQL instância gerenciada*. Isso só pode ser feito usando o PowerShell. O [script de exemplo](./tde-certificate-migrate.md) descreve todo o processo.
+- *Carregue o protetor de chave assimétrica em Azure Key Vault e aponte instância gerenciada SQL para ele*. Essa abordagem é semelhante ao BYOK (traga sua própria chave) TDE caso de uso que também usa a integração Key Vault para armazenar a chave de criptografia. Se você não quiser usar a chave como um protetor de chave de criptografia e apenas quiser disponibilizar a chave para o SQL Instância Gerenciada restaurar bancos de dados criptografados, siga as instruções para [Configurar BYOK TDE](../database/transparent-data-encryption-tde-overview.md#manage-transparent-data-encryption)e não marque a caixa de seleção **tornar a chave selecionada o protetor de TDE padrão**.
 
 Depois de disponibilizar o protetor de criptografia para o SQL Instância Gerenciada, você pode prosseguir com o procedimento de restauração do banco de dados padrão.
 
@@ -420,17 +416,17 @@ O SQL Instância Gerenciada oferece um [modelo de compra baseado em vCore](sql-m
 **Quais benefícios de custo estão disponíveis para o SQL Instância Gerenciada?**
 
 Você pode economizar custos com os benefícios do SQL Azure das seguintes maneiras:
--   Maximize os investimentos existentes em licenças locais e economize até 55 por cento com [benefício híbrido do Azure](https://docs.microsoft.com/azure/azure-sql/azure-hybrid-benefit?tabs=azure-powershell). 
--   Confirme a uma reserva de recursos de computação e economize até 33 por cento com [benefício de instância reservada](https://docs.microsoft.com/azure/sql-database/sql-database-reserved-capacity). Combine isso com o benefício híbrido do Azure para economizar até 82%. 
+-   Maximize os investimentos existentes em licenças locais e economize até 55 por cento com [benefício híbrido do Azure](../azure-hybrid-benefit.md?tabs=azure-powershell). 
+-   Confirme a uma reserva de recursos de computação e economize até 33 por cento com [benefício de instância reservada](../database/reserved-capacity-overview.md). Combine isso com o benefício híbrido do Azure para economizar até 82%. 
 -   Economize até 55 por cento versus preços de lista com o benefício de preço de desenvolvimento [/teste do Azure](https://azure.microsoft.com/pricing/dev-test/) que oferece tarifas com desconto para suas cargas de trabalho de desenvolvimento e teste em andamento.
 
 **Quem está qualificado para o benefício da instância reservada?**
 
-Para se qualificar para o benefício da instância reservada, o tipo de assinatura deve ser um Enterprise Agreement (números de oferta: MS-AZR-0017P ou MS-AZR-0148P) ou um contrato individual com preço pago conforme o uso (números de oferta: MS-AZR-0003P ou MS-AZR-0023P). Para obter mais informações sobre reservas, consulte [benefício da instância reservada](https://docs.microsoft.com/azure/sql-database/sql-database-reserved-capacity). 
+Para se qualificar para o benefício da instância reservada, o tipo de assinatura deve ser um Enterprise Agreement (números de oferta: MS-AZR-0017P ou MS-AZR-0148P) ou um contrato individual com preço pago conforme o uso (números de oferta: MS-AZR-0003P ou MS-AZR-0023P). Para obter mais informações sobre reservas, consulte [benefício da instância reservada](../database/reserved-capacity-overview.md). 
 
 **É possível cancelar, trocar ou reembolsar reservas?**
 
-Você pode cancelar, trocar ou reembolsar reservas com determinadas limitações. Para saber mais, confira [Trocas e reembolsos via autoatendimento para Reservas do Azure](https://docs.microsoft.com/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations).
+Você pode cancelar, trocar ou reembolsar reservas com determinadas limitações. Para saber mais, confira [Trocas e reembolsos via autoatendimento para Reservas do Azure](../../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
 
 ## <a name="billing-for-managed-instance-and-backup-storage"></a>Cobrança para armazenamento de Instância Gerenciada e backup
 
@@ -440,7 +436,7 @@ Para explorar Instância Gerenciada opções de preços, consulte a [página de 
 
 **Como rastrear o custo de cobrança da minha instância gerenciada?**
 
-Você pode fazer isso usando a [Solução de Gerenciamento de Custos do Azure](https://docs.microsoft.com/azure/cost-management-billing/). Navegue até **Assinaturas** no [portal do Azure](https://portal.azure.com) e selecione **Análise de Custo**. 
+Você pode fazer isso usando a [Solução de Gerenciamento de Custos do Azure](../../cost-management-billing/index.yml). Navegue até **Assinaturas** no [portal do Azure](https://portal.azure.com) e selecione **Análise de Custo**. 
 
 Use a opção **Custos acumulados** e, em seguida, filtre pelo **Tipo de recurso** como `microsoft.sql/managedinstances`.
 
@@ -450,7 +446,7 @@ Você Obtém a quantidade igual de espaço de armazenamento de backup livre que 
 
 **Como posso monitorar o custo de cobrança do meu consumo de armazenamento de backup?**
 
-Você pode monitorar o custo de armazenamento de backup por meio do portal do Azure. Para obter instruções, consulte [monitorar custos para backups automatizados](https://docs.microsoft.com/azure/azure-sql/database/automated-backups-overview?tabs=managed-instance#monitor-costs). 
+Você pode monitorar o custo de armazenamento de backup por meio de portal do Azure. Para obter instruções, consulte [monitorar custos para backups automatizados](../database/automated-backups-overview.md?tabs=managed-instance#monitor-costs). 
 
 **Como posso otimizar meus custos de armazenamento de backup na instância gerenciada?**
 
@@ -487,7 +483,7 @@ Cada logon deve definir sua senha no logon e alterar sua senha depois que atingi
 | Duração máxima da senha | 42 dias |
 | Duração mínima da senha | 1 dia |
 | Comprimento mínimo da senha | 10 caracteres |
-| A senha deve atender aos requisitos de complexidade | habilitado |
+| A senha deve atender aos requisitos de complexidade | Habilitada |
 
 **É possível desabilitar a complexidade e a expiração de senha no SQL Instância Gerenciada no nível de logon?**
 
@@ -510,9 +506,13 @@ ALTER LOGIN <login_name> WITH CHECK_EXPIRATION = OFF;
 
 ## <a name="service-updates"></a>Atualizações de serviço
 
+**Qual é a alteração da AC raiz para o banco de dados SQL do Azure & SQL Instância Gerenciada?**
+
+Consulte [rotação de certificado para o banco de dados SQL do Azure & sql instância gerenciada](../updates/ssl-root-certificate-expiring.md). 
+
 **O que é um evento de manutenção planejada para o SQL Instância Gerenciada?**
 
-Consulte [planejar eventos de manutenção do Azure no SQL instância gerenciada](https://docs.microsoft.com/azure/azure-sql/database/planned-maintenance). 
+Consulte [planejar eventos de manutenção do Azure no SQL instância gerenciada](../database/planned-maintenance.md). 
 
 
 ## <a name="azure-feedback-and-support"></a>Comentários e suporte do Azure
@@ -523,5 +523,4 @@ Você pode votar em um novo recurso de Instância Gerenciada ou em uma nova idei
 
 **Como posso criar uma solicitação de suporte do Azure?**
 
-Para saber como criar uma solicitação de suporte do Azure, consulte [como criar uma solicitação de suporte do Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request).
-
+Para saber como criar uma solicitação de suporte do Azure, consulte [como criar uma solicitação de suporte do Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md).

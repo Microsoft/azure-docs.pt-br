@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: yegu
-ms.openlocfilehash: 2a95aa9e9fccdb7047c2c0901f4349fecfbab672
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 5de4e1b465cfc3ced59f8fe34a7f397324b4a225
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009572"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92537619"
 ---
 # <a name="migrate-to-azure-cache-for-redis"></a>Migrar para o Cache do Azure para Redis
 Este artigo descreve várias abordagens para migrar um cache Redis existente em execução local ou em outro serviço de nuvem para o cache do Azure para Redis.
@@ -34,7 +34,7 @@ Há diferentes maneiras pelas quais você pode alternar de um cache para outro. 
    | ------------ | ---------- | ------------- |
    | Criar um novo cache | Mais simples de implementar. | É necessário preencher novamente os dados para o novo cache, o que pode não funcionar com muitos aplicativos. |
    | Exportar e importar dados por meio do arquivo RDB | Compatível com qualquer cache Redis em geral. | Alguns dados podem ser perdidos, se eles forem gravados no cache existente depois que o arquivo RDB for gerado. | 
-   | Dados de gravação dupla em dois caches | Sem perda de dados nem no centro. Operações ininterruptas do cache existente. Teste mais fácil do novo cache. | Precisa de dois caches por um longo período de tempo. | 
+   | Dados de gravação dupla em dois caches | Nenhuma perda de dados ou tempo de inatividade Operações ininterruptas do cache existente. Teste mais fácil do novo cache. | Precisa de dois caches por um longo período de tempo. | 
    | Migrar dados programaticamente | Controle total sobre como os dados são movidos. | Requer código personalizado. | 
 
 ### <a name="create-a-new-azure-cache-for-redis"></a>Criar um novo cache do Azure para Redis
@@ -64,12 +64,12 @@ As etapas gerais para implementar essa opção são:
 2. Salve um instantâneo do cache Redis existente. Você pode [Configurar o Redis para salvar os instantâneos](https://redis.io/topics/persistence) periodicamente ou executar o processo manualmente usando os comandos [Save](https://redis.io/commands/save) ou [BGSAVE](https://redis.io/commands/bgsave) . O arquivo RDB é denominado "dump. RDB" por padrão e estará localizado no caminho especificado no arquivo de configuração *Redis. conf* .
 
     > [!NOTE]
-    > Se você estiver migrando dados no cache do Azure para Redis, consulte [estas instruções sobre como exportar um arquivo RDB](cache-how-to-import-export-data.md) ou use o [cmdlet de exportação do PowerShell](https://docs.microsoft.com/powershell/module/azurerm.rediscache/export-azurermrediscache?view=azurermps-6.13.0&viewFallbackFrom=azurermps-6.4.0) em vez disso.
+    > Se você estiver migrando dados no cache do Azure para Redis, consulte [estas instruções sobre como exportar um arquivo RDB](cache-how-to-import-export-data.md) ou use o [cmdlet de exportação do PowerShell](/powershell/module/azurerm.rediscache/export-azurermrediscache?view=azurermps-6.13.0&viewFallbackFrom=azurermps-6.4.0) em vez disso.
     >
 
 3. Copie o arquivo RDB para uma conta de armazenamento do Azure na região em que o novo cache está localizado. Você pode usar o AzCopy para esta tarefa.
 
-4. Importe o arquivo RDB para o novo cache usando essas [instruções de importação](cache-how-to-import-export-data.md) ou o [cmdlet de importação do PowerShell](https://docs.microsoft.com/powershell/module/azurerm.rediscache/import-azurermrediscache?view=azurermps-6.13.0&viewFallbackFrom=azurermps-6.4.0).
+4. Importe o arquivo RDB para o novo cache usando essas [instruções de importação](cache-how-to-import-export-data.md) ou o [cmdlet de importação do PowerShell](/powershell/module/azurerm.rediscache/import-azurermrediscache?view=azurermps-6.13.0&viewFallbackFrom=azurermps-6.4.0).
 
 5. Atualize seu aplicativo para usar a nova instância de cache.
 

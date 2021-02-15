@@ -2,19 +2,17 @@
 title: Solucionar problemas do Hybrid Runbook Worker da Automação do Azure
 description: Este artigo informa como solucionar e resolver problemas que surgem com os Hybrid Runbook Workers da Automação do Azure.
 services: automation
-ms.service: automation
 ms.subservice: ''
 author: mgoedtel
 ms.author: magoedte
-ms.date: 11/25/2019
-ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 2149fd68cdf5f2991d6035f245f70515e920045c
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.date: 02/11/2021
+ms.topic: troubleshooting
+ms.openlocfilehash: af432d9c6323bd2328eb8dd84d8572a8a5ae05a7
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187193"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100387998"
 ---
 # <a name="troubleshoot-hybrid-runbook-worker-issues"></a>Solucionar problemas do Hybrid Runbook Worker
 
@@ -30,9 +28,7 @@ O operador de Runbook híbrido depende de um agente para se comunicar com sua co
 
 A execução do runbook falha e você recebe a seguinte mensagem de erro:
 
-```error
-"The job action 'Activate' cannot be run, because the process stopped unexpectedly. The job action was attempted three times."
-```
+`The job action 'Activate' cannot be run, because the process stopped unexpectedly. The job action was attempted three times.`
 
 Seu runbook será suspenso logo depois de tentar executar três vezes. Existem condições que podem interromper a conclusão do runbook. A mensagem de erro relacionada pode não incluir nenhuma informação adicional.
 
@@ -46,7 +42,7 @@ Estas são as possíveis causas:
 
 #### <a name="resolution"></a>Resolução
 
-Verifique se o computador tem acesso de saída para * **.azure-automation.net** na porta 443.
+Verifique se o computador tem acesso de saída para **\* . Azure-Automation.net** na porta 443.
 
 Os computadores que executam o Hybrid Runbook Worker devem atender aos requisitos mínimos de hardware antes de o trabalho ser configurado para hospedar esse recurso. Os Runbooks e o processo em segundo plano que eles usam podem fazer com que o sistema se sobrecarregue e cause atrasos ou tempos limite de trabalho de runbook.
 
@@ -58,15 +54,14 @@ Verifique o log de eventos do **Microsoft SMA** para ver um evento correspondent
 
 #### <a name="issue"></a>Problema
 
-O Hybrid Runbook Worker recebe o evento 15011, indicando que um resultado da consulta não é válido. O erro a seguir é exibido quando o trabalho tenta abrir uma conexão com o [servidor SignalR](/aspnet/core/signalr/introduction?view=aspnetcore-3.1).
+O Hybrid Runbook Worker recebe o evento 15011, indicando que um resultado da consulta não é válido. O erro a seguir é exibido quando o trabalho tenta abrir uma conexão com o [servidor SignalR](/aspnet/core/signalr/introduction).
 
-```error
-[AccountId={c7d22bd3-47b2-4144-bf88-97940102f6ca}]
+`[AccountId={c7d22bd3-47b2-4144-bf88-97940102f6ca}]
 [Uri=https://cc-jobruntimedata-prod-su1.azure-automation.net/notifications/hub][Exception=System.TimeoutException: Transport timed out trying to connect
    at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
    at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
    at JobRuntimeData.NotificationsClient.JobRuntimeDataServiceSignalRClient.<Start>d__45.MoveNext()
-```
+`
 
 #### <a name="cause"></a>Causa
 
@@ -100,17 +95,16 @@ Inicie o computador de trabalho e, em seguida, registre-o novamente com a Automa
 
 Um runbook em execução em um Hybrid Runbook Worker falha com a seguinte mensagem de erro:
 
-```error
-Connect-AzAccount : No certificate was found in the certificate store with thumbprint 0000000000000000000000000000000000000000
-At line:3 char:1
-+ Connect-AzAccount -ServicePrincipal -Tenant $Conn.TenantID -Appl ...
-+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : CloseError: (:) [Connect-AzAccount], ArgumentException
-    + FullyQualifiedErrorId : Microsoft.Azure.Commands.Profile.ConnectAzAccountCommand
-```
+`Connect-AzAccount : No certificate was found in the certificate store with thumbprint 0000000000000000000000000000000000000000`  
+`At line:3 char:1`  
+`+ Connect-AzAccount -ServicePrincipal -Tenant $Conn.TenantID -Appl ...`  
+`+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`  
+`    + CategoryInfo          : CloseError: (:) [Connect-AzAccount],ArgumentException`  
+`    + FullyQualifiedErrorId : Microsoft.Azure.Commands.Profile.ConnectAzAccountCommand`
+
 #### <a name="cause"></a>Causa
 
-Esse erro ocorre quando você tenta usar uma [conta Executar como](../manage-runas-account.md) em um runbook que é executado em um Hybrid Runbook Worker, em que o certificado da conta Executar como não está presente. Os Hybrid Runbook Workers não têm o ativo de certificado localmente por padrão. A conta Executar como requer que este ativo funcione corretamente.
+Esse erro ocorre quando você tenta usar uma [conta Executar como](../automation-security-overview.md#run-as-accounts) em um runbook que é executado em um Hybrid Runbook Worker, em que o certificado da conta Executar como não está presente. Os Hybrid Runbook Workers não têm o ativo de certificado localmente por padrão. A conta Executar como requer que este ativo funcione corretamente.
 
 #### <a name="resolution"></a>Resolução
 
@@ -122,9 +116,7 @@ Se seu Hybrid Runbook Worker for uma VM do Azure, você poderá usar a [autentic
 
 A fase de registro inicial do trabalho falha e você recebe o seguinte erro (403):
 
-```error
-"Forbidden: You don't have permission to access / on this server."
-```
+`Forbidden: You don't have permission to access / on this server.`
 
 #### <a name="cause"></a>Causa
 
@@ -143,6 +135,37 @@ Para verificar se a ID do workspace do agente ou a chave do workspace foi digita
 Seu espaço de trabalho do Log Analytics e a conta de Automação devem estar em uma região vinculada. Para obter uma lista de regiões com suporte, consulte [Mapeamentos do workspace do Log Analytics e da Automação do Azure](../how-to/region-mappings.md).
 
 Você também poderá precisar atualizar a data ou o fuso horário do seu computador. Se você selecionar um intervalo de tempo personalizado, verifique se ele está em UTC, o que pode ser diferente do seu fuso horário local.
+
+### <a name="scenario-set-azstorageblobcontent-fails-on-a-hybrid-runbook-worker"></a><a name="set-azstorageblobcontent-execution-fails"></a>Cenário: o Set-AzStorageBlobContent falha em um Hybrid Runbook Worker 
+
+#### <a name="issue"></a>Problema
+
+O runbook falha quando tenta executar `Set-AzStorageBlobContent` , e você recebe a seguinte mensagem de erro:
+
+`Set-AzStorageBlobContent : Failed to open file xxxxxxxxxxxxxxxx: Illegal characters in path`
+
+#### <a name="cause"></a>Causa
+
+ Esse erro é causado pelo comportamento de nome de arquivo longo de chamadas às `[System.IO.Path]::GetFullPath()` quais o adiciona caminhos UNC.
+
+#### <a name="resolution"></a>Resolução
+
+Como alternativa, você pode criar um arquivo de configuração chamado `OrchestratorSandbox.exe.config` com o seguinte conteúdo:
+
+```azurecli
+<configuration>
+  <runtime>
+    <AppContextSwitchOverrides value="Switch.System.IO.UseLegacyPathHandling=false" />
+  </runtime>
+</configuration>
+```
+
+Coloque esse arquivo na mesma pasta que o arquivo executável `OrchestratorSandbox.exe` . Por exemplo,
+
+`%ProgramFiles%\Microsoft Monitoring Agent\Agent\AzureAutomation\7.3.702.0\HybridAgent`
+
+>[!Note]
+> Se você atualizar o agente, esse arquivo de configuração será excluído e precisará ser recriado.
 
 ## <a name="linux"></a>Linux
 
@@ -196,7 +219,7 @@ Se o agente não estiver em execução, execute o comando a seguir para iniciar 
 
 Se você vir a mensagem de erro `The specified class does not exist..` em **/var/opt/Microsoft/omsconfig/omsconfig.log**, o agente do Log Analytics para Linux precisará ser atualizado. Execute o comando a seguir para reinstalar o agente.
 
-```bash
+```Bash
 wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <WorkspaceID> -s <WorkspaceKey>
 ```
 
@@ -226,7 +249,7 @@ No log de eventos **Application and Services Logs\Operations Manager**, você v�
 
 #### <a name="cause"></a>Causa
 
-Esse problema poderá ocorrer se seu proxy ou firewall de rede estiver bloqueando a comunicação com o Microsoft Azure. Verifique se o computador tem acesso de saída para * **.azure-automation.net** na porta 443.
+Esse problema poderá ocorrer se seu proxy ou firewall de rede estiver bloqueando a comunicação com o Microsoft Azure. Verifique se o computador tem acesso de saída para **\* . Azure-Automation.net** na porta 443.
 
 #### <a name="resolution"></a>Resolução
 
@@ -234,11 +257,11 @@ Os logs são armazenados localmente em cada hybrid worker, em C:\ProgramData\Mic
 
 Os Hybrid Workers enviam [saída de runbook e mensagens](../automation-runbook-output-and-messages.md) para a Automação do Azure da mesma forma que os trabalhos de runbook em execução na nuvem enviam a saída e as mensagens. Você pode habilitar os fluxos Detalhado e de Progresso da mesma forma como faz para os runbooks.
 
-### <a name="scenario-orchestratorsandboxexe-cant-connect-to-office-365-through-proxy"></a><a name="no-orchestrator-sandbox-connect-O365"></a>Cenário: Orchestrator.Sandbox.exe não pode se conectar ao Office 365 por meio do proxy
+### <a name="scenario-orchestratorsandboxexe-cant-connect-to-microsoft-365-through-proxy"></a>Cenário: Orchestrator.Sandbox.exe não pode se conectar ao Microsoft 365 por meio do proxy
 
 #### <a name="issue"></a>Problema
 
-Um script em execução em um Hybrid Runbook Worker do Windows não pode se conectar conforme o esperado para o Office 365 em uma área restrita do Orchestrator. O script está usando [Connect-MsolService](/powershell/module/msonline/connect-msolservice?view=azureadps-1.0) para se conectar. 
+Um script em execução em um Hybrid Runbook Worker do Windows não pode se conectar conforme o esperado para Microsoft 365 em uma área restrita do Orchestrator. O script está usando [Connect-MsolService](/powershell/module/msonline/connect-msolservice) para se conectar. 
 
 Se você ajustar **Orchestrator.Sandbox.exe.config** para definir o proxy e a lista de bypass, a área restrita ainda não se conectará corretamente. Um arquivo **Powershell_ise.exe.config** com as mesmas configurações de lista de proxies e de bypass parece funcionar conforme o esperado. Os logs do Service Management Automation (SMA) e os logs do PowerShell não fornecem nenhuma informação sobre o proxy.
 
@@ -250,7 +273,7 @@ A conexão com Serviços de Federação do Active Directory (AD FS) no servidor 
 
 Você pode resolver o problema para a área restrita do Orchestrator migrando seu script para usar os módulos do Azure Active Directory em vez do módulo MSOnline para cmdlets do PowerShell. Para obter mais informações, consulte [Migrar do Orchestrator para a Automação do Azure (versão beta)](../automation-orchestrator-migration.md).
 
-Se você quiser continuar a usar os cmdlets do módulo MSOnline, altere seu script para usar [Invoke-Command](/powershell/module/microsoft.powershell.core/invoke-command?view=powershell-7). Especifique valores para os parâmetros `ComputerName` e `Credential`. 
+Se você quiser continuar a usar os cmdlets do módulo MSOnline, altere seu script para usar [Invoke-Command](/powershell/module/microsoft.powershell.core/invoke-command). Especifique valores para os parâmetros `ComputerName` e `Credential`. 
 
 ```powershell
 $Credential = Get-AutomationPSCredential -Name MyProxyAccessibleCredential
@@ -271,8 +294,7 @@ Seu computador do Hybrid Runbook Worker está em execução, mas você não ver�
 
 A consulta de exemplo a seguir mostra as máquinas em um workspace e sua última pulsação:
 
-```loganalytics
-// Last heartbeat of each computer
+```kusto
 Heartbeat
 | summarize arg_max(TimeGenerated, *) by Computer
 ```
@@ -293,15 +315,13 @@ Remove-Item -Path 'C:\Program Files\Microsoft Monitoring Agent\Agent\Health Serv
 Start-Service -Name HealthService
 ```
 
-### <a name="scenario-you-cant-add-a-hybrid-runbook-worker"></a><a name="already-registered"></a>Cenário: Você não pode adicionar um Hybrid Runbook Worker
+### <a name="scenario-you-cant-add-a-windows-hybrid-runbook-worker"></a><a name="already-registered"></a>Cenário: não é possível adicionar um Hybrid Runbook Worker do Windows
 
 #### <a name="issue"></a>Problema
 
 Você recebe a seguinte mensagem ao tentar adicionar um Hybrid Runbook Worker usando o cmdlet `Add-HybridRunbookWorker`:
 
-```error
-Machine is already registered
-```
+`Machine is already registered`
 
 #### <a name="cause"></a>Causa
 
@@ -313,10 +333,46 @@ Para resolver esse problema, remova a seguinte chave do registro, reinicie `Heal
 
 `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\HybridRunbookWorker`
 
+### <a name="scenario-you-cant-add-a-linux-hybrid-runbook-worker"></a><a name="already-registered"></a>Cenário: não é possível adicionar um Hybrid Runbook Worker do Linux
+
+#### <a name="issue"></a>Problema
+
+Você recebe a seguinte mensagem ao tentar adicionar um Hybrid Runbook Worker usando o `sudo python /opt/microsoft/omsconfig/.../onboarding.py --register` script Python:
+
+`Unable to register, an existing worker was found. Please deregister any existing worker and try again.`
+
+Além disso, tentar cancelar o registro de um Hybrid Runbook Worker usando o `sudo python /opt/microsoft/omsconfig/.../onboarding.py --deregister` script Python:
+
+`Failed to deregister worker. [response_status=404]`
+
+#### <a name="cause"></a>Causa
+
+Esse problema pode ocorrer se o computador já estiver registrado com uma conta de automação diferente, se o grupo de Hybrid Worker do Azure tiver sido excluído ou se você tentar adicionar novamente o Hybrid Runbook Worker depois de removê-lo de um computador.
+
+#### <a name="resolution"></a>Resolução
+
+Para resolver esse problema:
+
+1. Remova o agente `sudo sh onboard_agent.sh --purge` .
+
+1. Execute estes comandos:
+
+   ```
+   sudo mv -f /home/nxautomation/state/worker.conf /home/nxautomation/state/worker.conf_old
+   sudo mv -f /home/nxautomation/state/worker_diy.crt /home/nxautomation/state/worker_diy.crt_old
+   sudo mv -f /home/nxautomation/state/worker_diy.key /home/nxautomation/state/worker_diy.key_old
+   ```
+
+1. Re-integrar o agente `sudo sh onboard_agent.sh -w <workspace id> -s <workspace key> -d opinsights.azure.com` .
+
+1. Aguarde até que a pasta `/opt/microsoft/omsconfig/modules/nxOMSAutomationWorker` seja populada.
+
+1. Experimente o `sudo python /opt/microsoft/omsconfig/.../onboarding.py --register` script Python novamente.
+
 ## <a name="next-steps"></a>Próximas etapas
 
 Se você não encontrar seu problema aqui ou não conseguir resolvê-lo, visite um dos seguintes canais para obter mais suporte:
 
 * Obtenha respostas de especialistas do Azure nos [Fóruns do Azure](https://azure.microsoft.com/support/forums/).
 * Conecte-se com [@AzureSupport](https://twitter.com/azuresupport), a conta oficial do Microsoft Azure para melhorar a experiência do cliente. O Suporte do Azure conecta a Comunidade do Azure a respostas, suporte e especialistas.
-* Registrar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione **Obter suporte**.
+* Registrar um incidente de suporte do Azure. Acesse o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione **Obter suporte**.

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/10/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 53309023a838f4b256327a37866408f556c81d29
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: ac87d5040cd572635d81be51308f48a57ddd38e3
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87924149"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335461"
 ---
 ::: zone target="docs"
 
@@ -117,9 +117,9 @@ Execute as etapas a seguir para configurar seu dispositivo usando a interface do
 
 1. Configure o adaptador Ethernet no laptop que você está usando para se conectar ao dispositivo com o endereço IP estático de 192.168.100.5 e a sub-rede 255.255.255.0. 
 2. Conecte-se à porta MGMT do dispositivo e acesse sua interface do usuário da Web local em https\://192.168.100.10. Isso pode levar até 5 minutos após a ativação do dispositivo.
-3. Clique em **Detalhes**, depois em **Ir para a página da Web**.
+3. Clique em **Detalhes** , depois em **Ir para a página da Web**.
 
-   ![Conectar-se à interface do usuário da Web local](media/data-box-deploy-set-up/data-box-connect-local-web-ui.png) 
+   ![Conectar-se à interface do usuário da Web local](media/data-box-deploy-set-up/data-box-connect-local-web-ui.png)
 
 4. Você verá uma página **Entrar** da interface do usuário da Web local. Verifique se o número de série do dispositivo corresponde entre a interface do usuário do portal e a interface do usuário da Web local. Nesse momento, o dispositivo está bloqueado.
 5. Faça logon no [Portal do Azure](https://portal.azure.com).
@@ -129,7 +129,7 @@ Execute as etapas a seguir para configurar seu dispositivo usando a interface do
     
     
 7. Forneça a senha do dispositivo que você obteve do portal do Azure na etapa anterior para entrar na interface do usuário da Web local do dispositivo. Clique em **Entrar**.
-8. No **Painel**, verifique se as interfaces de rede estão configuradas. 
+8. No **Painel** , verifique se as interfaces de rede estão configuradas. 
    - Se o DHCP estiver ativado em seu ambiente, as interfaces de rede serão configuradas automaticamente. 
    - Se o DHCP não estiver habilitado, vá até **Definir interfaces de rede** e atribua IPs estáticos se necessário.
 

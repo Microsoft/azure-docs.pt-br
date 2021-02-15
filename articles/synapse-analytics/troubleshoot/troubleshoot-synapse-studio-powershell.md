@@ -1,22 +1,22 @@
 ---
-title: Solucionar problemas de conectividade do Synapse Studio (versão prévia) com o PowerShell
+title: Solucionar problemas de conectividade do Synapse Studio
 description: Solucionar problemas de conectividade do Azure Synapse Studio usando o PowerShell
-author: julieMSFT
+author: saveenr
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.date: 04/15/2020
-ms.author: jrasnick
+ms.date: 10/30/2020
+ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: f4afaf536a9c65758ad030e5cdeeee5fb97074d7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6ff3d985bb24ec852bb5c6cfaedf295fd79a8247
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87046670"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120352"
 ---
-# <a name="diagnose-azure-synapse-studio-preview-connectivity-issues-with-powershell-script"></a>Diagnosticar problemas de conectividade do Azure Synapse Studio (versão prévia) com o script do PowerShell
+# <a name="troubleshoot-synapse-studio-connectivity-with-powershell"></a>Solucionar problemas de conectividade do Synapse Studio com o PowerShell
 
-O Azure Synapse Studio (versão prévia) depende de um conjunto de pontos de extremidade da API Web para funcionar corretamente. Este guia o ajudará a identificar as causas de problemas de conectividade quando você estiver:
+O Azure Synapse Studio depende de um conjunto de pontos de extremidade da API Web para funcionar corretamente. Este guia o ajudará a identificar as causas de problemas de conectividade quando você estiver:
 - configurar sua rede local (como a rede por trás de um firewall corporativo) para acessar o Azure Synapse Studio.
 - enfrentando problemas de conectividade usando o Azure Synapse Studio.
 
@@ -27,13 +27,13 @@ O Azure Synapse Studio (versão prévia) depende de um conjunto de pontos de ext
 
 ## <a name="troubleshooting-steps"></a>Etapas para solucionar problemas
 
-Clique com o botão direito do mouse no link a seguir e clique em "salvar destino como":
+Clique com o botão direito do mouse no link a seguir e selecione "salvar destino como":
 
 - [Test-AzureSynapse.ps1](https://go.microsoft.com/fwlink/?linkid=2119734)
 
 Como alternativa, você pode abrir o link diretamente e salvar o arquivo de script aberto. Não salve o endereço do link acima, pois ele pode ser alterado no futuro.
 
-No explorador de arquivos, clique com o botão direito do mouse no arquivo de script baixado e clique em "executar com o PowerShell".
+No explorador de arquivos, clique com o botão direito do mouse no arquivo de script baixado e selecione "executar com o PowerShell".
 
 ![Executar o arquivo de script baixado com o PowerShell](media/troubleshooting-synapse-studio-powershell/run-with-powershell.png)
 
@@ -58,4 +58,4 @@ Se você for um administrador de rede e ajustar sua configuração de firewall p
 
 
 ## <a name="next-steps"></a>Próximas etapas
-Se as etapas anteriores não ajudarem a resolver o problema, [crie um tíquete de suporte](../../sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md).
+Se as etapas anteriores não ajudarem a resolver o problema, [crie um tíquete de suporte](../sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md).

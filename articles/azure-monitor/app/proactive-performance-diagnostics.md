@@ -4,12 +4,12 @@ description: O Application Insights executa uma análise inteligente da telemetr
 ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
-ms.openlocfilehash: c817e2c7f609bbbec52eff1b898a8d7c53209a28
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: ead71a5ac6e2cfa0df6654c7ba9aa7b5b9238d04
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321302"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763767"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Detecção Inteligente - anomalias de desempenho
 
@@ -99,7 +99,7 @@ Onde está o problema? O servidor responde lentamente, a página é muito longa 
 
 Abra a folha Métrica de navegadores. A exibição segmentada do tempo de carregamento da página do navegador mostra onde o tempo está sendo gasto. 
 
-* Se o **Tempo de Envio da Solicitação** for alto, o servidor estará respondendo lentamente ou a solicitação será uma publicação com uma grande quantidade de dados. Examine as [métricas de desempenho](./web-monitor-performance.md#metrics) para investigar os tempos de resposta.
+* Se o **Tempo de Envio da Solicitação** for alto, o servidor estará respondendo lentamente ou a solicitação será uma publicação com uma grande quantidade de dados. Examine as [métricas de desempenho](./performance-counters.md) para investigar os tempos de resposta.
 * Configure o [rastreamento de dependências](./asp-net-dependencies.md) para verificar se a lentidão ocorre devido a serviços externos ou ao seu banco de dados.
 * Se **Recebendo Resposta** for predominante, sua página e seus componentes dependentes, JavaScript, CSS, imagens e assim por diante (mas não os dados carregados de forma assíncrona) serão longos. Configure um [teste de disponibilidade](./monitor-web-app-availability.md)e não se esqueça de definir a opção para carregar os componentes dependentes. Ao obter alguns resultados, abra os detalhes de um resultado e amplie-os para ver os tempos de carregamento de arquivos diferentes.
 * Um **Tempo de Processamento do Cliente** alto sugere que os scripts estão sendo executados lentamente. Se o motivo não for óbvio, considere a adição de um código de tempo e envie os tempos em chamadas trackMetric.
@@ -175,11 +175,10 @@ Essas ferramentas de diagnóstico ajudam você a inspecionar a telemetria do seu
 
 * [Profiler](profiler.md) 
 * [depurador de instantâneos](./snapshot-debugger.md)
-* [Analytics](../log-query/get-started-portal.md)
+* [Analytics](../log-query/log-analytics-tutorial.md)
 * [Diagnóstico inteligente do Analytics](../log-query/log-query-overview.md)
 
 As detecções inteligentes são totalmente automáticas. Mas talvez você queira configurar alguns outros alertas?
 
 * [Alertas de métrica configurados manualmente](../platform/alerts-log.md)
 * [Testes de disponibilidade na Web](./monitor-web-app-availability.md)
-

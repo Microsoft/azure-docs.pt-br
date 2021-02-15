@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 05/26/2017
-ms.openlocfilehash: 0fc4fb91653f4a764540df0a7bc0cf0deee30fe6
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 3fe98160cc10eb3607b8309a9a263d63380dcfb5
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080823"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89073209"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Criar APIs personalizadas que podem ser chamadas dos Aplicativos Lógicos do Azure
 
@@ -37,7 +37,7 @@ Você pode hospedar suas APIs no [Serviço de Aplicativo do Azure](../app-servic
 > * [Python](../app-service/quickstart-python.md)
 > * [Ruby](../app-service/quickstart-ruby.md)
 >
-> Para obter exemplos de aplicativo de API criados para aplicativos lógicos, visite o [Repositório GitHub de Aplicativos Lógicos do Azure](https://github.com/logicappsio) ou o [blog](https://aka.ms/logicappsblog).
+> Para exemplos de aplicativos de API criados para aplicativos lógicos, visite o [repositório GitHub de aplicativos lógicos do Azure](https://github.com/logicappsio).
 
 ## <a name="how-do-custom-apis-differ-from-custom-connectors"></a>Como as APIs personalizadas diferem dos conectores personalizados?
 

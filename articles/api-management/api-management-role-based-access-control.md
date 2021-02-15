@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
 ms.openlocfilehash: faef2721b48ffab12264c585d2dec55ab9334016
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87015282"
 ---
 # <a name="how-to-use-role-based-access-control-in-azure-api-management"></a>Como usar o Controle de Acesso Baseado em Função no Gerenciamento de API do Azure
@@ -44,7 +44,7 @@ A tabela a seguir fornece breves descrições das funções internas. Atribua es
 
 <sup>[2] Acesso de gravação aos serviços e entidades do Gerenciamento de API, exceto pelas seguintes operações: criação, exclusão e colocação em escala de instância; configuração de VPN; e configuração de nome de domínio personalizado.</sup>
 
-<sup>\*A função editor de serviço estará disponível depois de migrarmos toda a interface do usuário do administrador do portal do Publicador existente para a portal do Azure. A função Gerenciador de conteúdo estará disponível depois que o portal do Publicador for refatorado para conter apenas a funcionalidade relacionada ao gerenciamento do portal do desenvolvedor.</sup>  
+<sup>\* A função editor de serviço estará disponível depois de migrarmos toda a interface do usuário do administrador do portal do Publicador existente para a portal do Azure. A função Gerenciador de conteúdo estará disponível depois que o portal do Publicador for refatorado para conter apenas a funcionalidade relacionada ao gerenciamento do portal do desenvolvedor.</sup>  
 
 ## <a name="custom-roles"></a>Funções personalizadas
 

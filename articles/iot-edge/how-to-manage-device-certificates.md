@@ -8,12 +8,12 @@ ms.date: 06/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 4c49345f7036dfee7d1f37c15a4647202b3e5670
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 1f07f9d481ca8ede29c8b8443dad81a442962a71
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86257837"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044132"
 ---
 # <a name="manage-certificates-on-an-iot-edge-device"></a>Gerenciar certificados em um dispositivo IoT Edge
 
@@ -33,10 +33,13 @@ Para saber mais sobre os diferentes tipos de certificados e suas funções, cons
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-* Um dispositivo IoT Edge, em execução no [Windows](how-to-install-iot-edge-windows.md) ou no [Linux](how-to-install-iot-edge-linux.md).
+* Um dispositivo IoT Edge.
+
+  Se você não tiver um dispositivo IoT Edge configurado, poderá criar um em uma máquina virtual do Azure. Siga as etapas em um dos artigos de início rápido para [criar um dispositivo Linux Virtual](quickstart-linux.md) ou [criar um dispositivo virtual do Windows](quickstart.md).
+
 * Ter um certificado de AC (autoridade de certificação) raiz, autoassinado ou comprado de uma autoridade de certificação comercial confiável, como Baltimore, Verisign, DigiCert ou GlobalSign.
 
-Se você ainda não tiver uma autoridade de certificação raiz, mas quiser experimentar IoT Edge recursos que exigem certificados de produção (como cenários de gateway), poderá [criar certificados de demonstração para testar IOT Edge recursos de dispositivo](how-to-create-test-certificates.md).
+  Se você ainda não tiver uma autoridade de certificação raiz, mas quiser experimentar IoT Edge recursos que exigem certificados de produção (como cenários de gateway), poderá [criar certificados de demonstração para testar IOT Edge recursos de dispositivo](how-to-create-test-certificates.md).
 
 ### <a name="create-production-certificates"></a>Criar certificados de produção
 
@@ -49,7 +52,7 @@ Você deve usar sua própria autoridade de certificação para criar os seguinte
 Neste artigo, o que chamamos de *CA raiz* não é a autoridade de certificação mais alta para uma organização. É a mais alta autoridade de certificação para o cenário de IoT Edge, que o IoT Edge módulo de Hub, os módulos de usuário e os dispositivos downstream usam para estabelecer a confiança entre si.
 
 > [!NOTE]
-> Atualmente, uma limitação no libiothsm impede o uso de certificados que expiram em 1º de janeiro de 2050.
+> Atualmente, uma limitação no libiothsm impede o uso de certificados que expiram em 1º de janeiro de 2038.
 
 Para ver um exemplo desses certificados, examine os scripts que criam certificados de demonstração em [gerenciando certificados de AC de teste para exemplos e tutoriais](https://github.com/Azure/iotedge/tree/master/tools/CACertificates).
 
@@ -57,15 +60,15 @@ Para ver um exemplo desses certificados, examine os scripts que criam certificad
 
 Instale a cadeia de certificados no dispositivo IoT Edge e configure o tempo de execução IoT Edge para fazer referência aos novos certificados.
 
-Por exemplo, se você usou os scripts de exemplo para [criar certificados de demonstração](how-to-create-test-certificates.md), copie os seguintes arquivos para o dispositivo IOT-Edge:
+Por exemplo, se você usou os scripts de exemplo para [criar certificados de demonstração](how-to-create-test-certificates.md), copie os seguintes arquivos para o dispositivo IoT-Edge:
 
-* Certificado de autoridade de certificação do dispositivo:`<WRKDIR>\certs\iot-edge-device-MyEdgeDeviceCA-full-chain.cert.pem`
-* Chave privada da AC do dispositivo:`<WRKDIR>\private\iot-edge-device-MyEdgeDeviceCA.key.pem`
-* AC raiz:`<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem`
+* Certificado de autoridade de certificação do dispositivo: `<WRKDIR>\certs\iot-edge-device-MyEdgeDeviceCA-full-chain.cert.pem`
+* Chave privada da AC do dispositivo: `<WRKDIR>\private\iot-edge-device-MyEdgeDeviceCA.key.pem`
+* AC raiz: `<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem`
 
 1. Copie os três arquivos de certificado e de chave em seu dispositivo IoT Edge.
 
-   Você pode usar um serviço como [Azure Key Vault](https://docs.microsoft.com/azure/key-vault) ou uma função como [Protocolo de cópia segura](https://www.ssh.com/ssh/scp/) para mover os arquivos de certificado.  Se você tiver gerado os certificados no próprio dispositivo IoT Edge, poderá ignorar esta etapa e usar o caminho para o diretório de trabalho.
+   Você pode usar um serviço como [Azure Key Vault](../key-vault/index.yml) ou uma função como [Protocolo de cópia segura](https://www.ssh.com/ssh/scp/) para mover os arquivos de certificado.  Se você tiver gerado os certificados no próprio dispositivo IoT Edge, poderá ignorar esta etapa e usar o caminho para o diretório de trabalho.
 
 1. Abra o artigo de configuração do daemon de segurança do IoT Edge.
 
@@ -96,9 +99,9 @@ Por exemplo, se você usou os scripts de exemplo para [criar certificados de dem
 
 1. Se você tiver usado outros certificados para IoT Edge no dispositivo antes, exclua os arquivos nos dois diretórios a seguir antes de iniciar ou reiniciar IoT Edge:
 
-   * Windows: `C:\ProgramData\iotedge\hsm\certs` e`C:\ProgramData\iotedge\hsm\cert_keys`
+   * Windows: `C:\ProgramData\iotedge\hsm\certs` e `C:\ProgramData\iotedge\hsm\cert_keys`
 
-   * Linux: `/var/lib/iotedge/hsm/certs` e`/var/lib/iotedge/hsm/cert_keys`
+   * Linux: `/var/lib/iotedge/hsm/certs` e `/var/lib/iotedge/hsm/cert_keys`
 
 ## <a name="customize-certificate-lifetime"></a>Personalizar o tempo de vida do certificado
 
@@ -114,7 +117,9 @@ Para esses dois certificados gerados automaticamente, você tem a opção de def
 >[!NOTE]
 >Há um terceiro certificado gerado automaticamente que o IoT Edge Security Manager cria, o certificado de **servidor de Hub de IOT Edge**. Esse certificado sempre tem um tempo de vida de 90 dias, mas é renovado automaticamente antes de expirar. O valor de **auto_generated_ca_lifetime_days** não afeta esse certificado.
 
-Para configurar a expiração do certificado para algo diferente do padrão de 90 dias, adicione o valor em dias à seção **certificados** do arquivo config. YAML.
+Para configurar a expiração do certificado para algo diferente do padrão de 90 dias, adicione o valor em dias à seção **certificados** do arquivo **config. YAML** .
+
+Após a expiração após o número de dias especificado, o daemon de segurança do IoT Edge precisa ser reiniciado para regenerar o certificado de autoridade de certificação do dispositivo, ele não será renovado automaticamente.
 
 ```yaml
 certificates:
@@ -125,15 +130,13 @@ certificates:
 ```
 
 > [!NOTE]
-> Atualmente, uma limitação no libiothsm impede o uso de certificados que expiram em 1º de janeiro de 2050.
+> Atualmente, uma limitação no libiothsm impede o uso de certificados que expiram em 1º de janeiro de 2038.
 
-Se você forneceu seus próprios certificados de AC de dispositivo, esse valor ainda se aplica ao certificado de AC de carga de trabalho, desde que o valor de tempo de vida definido seja menor do que o tempo de vida do certificado de autoridade de certificação do dispositivo.
-
-Depois de especificar o sinalizador no arquivo config. YAML, execute as seguintes etapas:
+Depois de especificar o valor no arquivo config. YAML, execute as seguintes etapas:
 
 1. Exclua o conteúdo da `hsm` pasta.
 
-   Windows: `C:\ProgramData\iotedge\hsm\certs and C:\ProgramData\iotedge\hsm\cert_keys` Linux:`/var/lib/iotedge/hsm/certs and /var/lib/iotedge/hsm/cert_keys`
+   Windows: `C:\ProgramData\iotedge\hsm\certs and C:\ProgramData\iotedge\hsm\cert_keys` Linux: `/var/lib/iotedge/hsm/certs and /var/lib/iotedge/hsm/cert_keys`
 
 1. Reinicie o serviço IoT Edge.
 

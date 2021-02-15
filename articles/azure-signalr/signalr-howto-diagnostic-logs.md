@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: wanl
-ms.openlocfilehash: 55482457058d01162116494b637661db40010a50
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5ad40ca051677ced0c6d8b5c35e8563272ff598f
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85131952"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183967"
 ---
 # <a name="resource-logs-for-azure-signalr-service"></a>Logs de recursos do serviço de Signaler do Azure
 
@@ -20,8 +20,8 @@ Este tutorial discute quais logs de recursos do serviço de Signaler do Azure s�
 ## <a name="prerequisites"></a>Pré-requisitos
 Para habilitar os logs de recursos, você precisará de algum lugar para armazenar os dados de log. Este tutorial usa o armazenamento do Azure e o Log Analytics.
 
-* [Armazenamento do Azure](../azure-monitor/platform/resource-logs-collect-storage.md) – mantém logs de recursos para auditoria de política, análise estática ou backup.
-* [Log Analytics](../azure-monitor/platform/resource-logs-collect-workspace.md) -uma ferramenta de análise e pesquisa de logs flexível que permite a análise de logs brutos gerados por um recurso do Azure.
+* [Armazenamento do Azure](../azure-monitor/platform/resource-logs.md#send-to-azure-storage) – mantém logs de recursos para auditoria de política, análise estática ou backup.
+* [Log Analytics](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace) -uma ferramenta de análise e pesquisa de logs flexível que permite a análise de logs brutos gerados por um recurso do Azure.
 
 ## <a name="set-up-resource-logs-for-an-azure-signalr-service"></a>Configurar logs de recursos para um serviço de Signaler do Azure
 
@@ -66,7 +66,7 @@ Todos os logs são armazenados no formato JSON (JavaScript Object Notation). Cad
 
 As cadeias de caracteres JSON do log de arquivo incluem os elementos listados nas tabelas a seguir:
 
-**Formatar**
+**Formato**
 
 Nome | Descrição
 ------- | -------
@@ -84,7 +84,7 @@ properties | Propriedades detalhadas relacionadas a esse evento de log. Para obt
 Nome | Descrição
 ------- | -------
 type | Tipo do evento de log. Atualmente, fornecemos informações sobre a conectividade com o serviço de Signaler do Azure. Somente o `ConnectivityLogs` tipo está disponível
-collection | Coleção do evento de log. Os valores permitidos são: `Connection` , `Authorization` e`Throttling`
+collection | Coleção do evento de log. Os valores permitidos são: `Connection` , `Authorization` e `Throttling`
 ConnectionId | Identidade da conexão
 transportType | Tipo de transporte da conexão. Os valores permitidos são: `Websockets` \| `ServerSentEvents` \|`LongPolling`
 connectionType | Tipo da conexão. Os valores permitidos são: `Server` \| `Client`. `Server`: conexão do lado do servidor; `Client`: conexão do lado do cliente
@@ -122,7 +122,7 @@ Para exibir os logs de recursos, siga estas etapas:
 
     ![Log Analytics item de menu](./media/signalr-tutorial-diagnostic-logs/log-analytics-menu-item.png)
 
-2. Insira `SignalRServiceDiagnosticLogs` e selecione o intervalo de tempo para consultar os logs de recursos. Para consulta avançada, consulte [introdução ao log Analytics no Azure monitor](../azure-monitor/log-query/get-started-portal.md)
+2. Insira `SignalRServiceDiagnosticLogs` e selecione o intervalo de tempo para consultar os logs de recursos. Para consulta avançada, consulte [introdução ao log Analytics no Azure monitor](../azure-monitor/log-query/log-analytics-tutorial.md)
 
     ![Log de consulta no Log Analytics](./media/signalr-tutorial-diagnostic-logs/query-log-in-log-analytics.png)
 
@@ -131,9 +131,9 @@ As colunas de log de arquivo incluem os elementos listados na tabela a seguir:
 Nome | Descrição
 ------- | ------- 
 TimeGenerated | Hora do evento de log
-Coleção | Coleção do evento de log. Os valores permitidos são: `Connection` , `Authorization` e`Throttling`
+Coleção | Coleção do evento de log. Os valores permitidos são: `Connection` , `Authorization` e `Throttling`
 OperationName | Nome da operação do evento
-Location | Local do serviço de Signaler do Azure
+Localização | Local do serviço de Signaler do Azure
 Nível | Nível de evento de log
 CallerIpAddress | Endereço IP do servidor/cliente
 Mensagem | Mensagem detalhada do evento de log
@@ -182,7 +182,7 @@ Se você receber 401 de solicitações de cliente não autorizadas, verifique os
 
 #### <a name="throttling"></a>Limitação
 
-Se você achar que não é possível estabelecer conexões de cliente do Signalr para o serviço de Signaler do Azure, verifique os logs de recursos. Se você encontrar `Connection count reaches limit` no log de recursos, você estabelecerá conexões demais com o serviço signalr, que alcançará o limite de contagem de conexões. Considere a possibilidade de escalar verticalmente o serviço Signalr. Se você encontrar `Message count reaches limit` no log de recursos, isso significa que você usa a camada gratuita e usa a cota de mensagens. Se você quiser enviar mais mensagens, considere alterar o serviço de sinalização para a camada Standard para enviar mensagens adicionais. Para obter mais informações, consulte [preços do serviço de signaler do Azure](https://azure.microsoft.com/pricing/details/signalr-service/).
+Se você achar que não é possível estabelecer conexões de cliente do Signalr para o serviço de Signaler do Azure, verifique os logs de recursos. Se você encontrar `Connection count reaches limit` no log de recursos, você estabelecerá conexões demais com o serviço signalr, que alcançará o limite de contagem de conexões. Considere a possibilidade de escalar verticalmente o serviço Signalr. Se você encontrar `Message count reaches limit` no log de recursos, isso significa que você usa a camada gratuita e usa a cota de mensagens. Se você quiser enviar mais mensagens, considere alterar o serviço de sinalização para a camada Standard para enviar mensagens adicionais. Para obter mais informações, consulte [preços do serviço de signaler do Azure](https://azure.microsoft.com/pricing/details/signalr-service/).
 
 ### <a name="get-help"></a>Obter ajuda
 

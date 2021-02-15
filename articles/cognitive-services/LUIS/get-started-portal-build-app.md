@@ -1,14 +1,16 @@
 ---
 title: 'Início Rápido: Criar um aplicativo no portal do LUIS'
 description: Neste início rápido, você criará as partes básicas de um aplicativo, intenções e entidades, bem como um teste com enunciado de exemplo no portal do LUIS.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 05/19/2020
-ms.openlocfilehash: 7cf55a7891b7e06c18c80d9d359b19e54f0413a9
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.date: 11/30/2020
+ms.openlocfilehash: a5443dce9fc8bc028232f66f45b537a46858f35a
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83697285"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436667"
 ---
 # <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>Início Rápido: Criar um aplicativo no portal do LUIS
 
@@ -18,21 +20,22 @@ Neste início rápido, você criará um aplicativo no portal do LUIS. Primeiro, 
 
 ## <a name="create-an-app"></a>Criar um aplicativo
 
-1. Selecione **+ Novo aplicativo para conversa** na barra de ferramentas de contexto, em seguida, selecione **+ Novo aplicativo para conversa** novamente.
+Para criar um aplicativo, selecione **+ Novo aplicativo**. 
 
-    > [!div class="mx-imgBorder"]
-    > [![Captura de tela da criação de novo aplicativo no portal do LUIS](./media/create-app-in-portal.png)](./media/create-app-in-portal.png#lightbox)
+Na janela exibida, insira as seguintes informações:
 
-1. Na janela pop-up, configure o aplicativo com as configurações a seguir e, em seguida, selecione **Concluído**.
+|Nome  |Descrição  |
+|---------|---------|
+|Nome     | Um nome para o aplicativo. Por exemplo, "automação residencial". Obrigatórios.        |
+|Cultura     | O idioma que o seu aplicativo compreende e fala. Obrigatórios.   |
+|Descrição | Uma descrição para o aplicativo. Opcional.
+|Recurso de previsão | O recurso de previsão que receberá consultas. Opcional. |
 
-   |Nome da configuração| Valor | Finalidade|
-   |--|--|--|
-   |Nome|`myEnglishApp`|Nome exclusivo de aplicativo LUIS<br>obrigatório|
-   |Cultura|**Inglês**|Linguagem de enunciados de usuários, **pt-br**<br>obrigatório|
-   |Descrição (opcional)|`App made with LUIS Portal`|Descrição do aplicativo<br>opcional|
-   |Recurso de previsão (opcional) |-  |Não selecione. O LUIS fornece uma chave de início para ser usada gratuitamente com a finalidade de criação e 1.000 solicitações de ponto de extremidade de previsão. |
+Selecione **Concluído**.
 
-   ![Captura de tela da inserção de novas configurações do aplicativo](./media/get-started-portal-build-app/create-new-app-settings.png)
+>[!NOTE]
+>A cultura não poderá ser alterada depois que o aplicativo for criado.
+
 
 ## <a name="create-intents"></a>Criar intenções
 
@@ -50,7 +53,7 @@ As duas diferentes _intenções_ do aplicativo se alinham com as seguintes inten
 
 Para criar intenções, conclua as seguintes etapas:
 
-1. Depois que o aplicativo é criado, você está na página **Intenções** da seção **Build**. Selecione **Criar**.
+1. Depois que o aplicativo for criado, verifique se você está na página **Intenções** da seção **Build**. Selecione **Criar**.
 
    [![Captura de tela da seleção “Criar” para criar nova intenção](./media/get-started-portal-build-app/create-new-intent-button.png)](./media/get-started-portal-build-app/create-new-intent-button.png#lightbox)
 
@@ -58,14 +61,9 @@ Para criar intenções, conclua as seguintes etapas:
 
 ## <a name="add-an-example-utterance"></a>Adicionar uma expressão de exemplo
 
-Você adicionará enunciados de exemplo depois de criar intenções. Enunciados de exemplo são um texto que um usuário insere em um chatbot ou em outro aplicativo cliente. Eles mapeiam a intenção de texto do usuário para uma intenção do LUIS.
+Você adicionará enunciados de exemplo depois de criar intenções. Enunciados de exemplo são um texto que um usuário insere em um chatbot ou em outro aplicativo cliente. Eles mapeiam a intenção de texto do usuário para uma intenção do LUIS. Para a intenção `FindForm` deste aplicativo de exemplo, os enunciados de exemplo incluirão o número de formulário. O aplicativo cliente precisa do número de formulário para atender à solicitação do usuário, portanto, é importante incluí-lo no enunciado.
 
-Para a intenção `FindForm` deste aplicativo de exemplo, os enunciados de exemplo incluirão o número de formulário. O aplicativo cliente precisa do número de formulário para atender à solicitação do usuário, portanto, é importante incluí-lo no enunciado.
-
-> [!div class="mx-imgBorder"]
-> [![Captura de tela da inserção dos enunciados de exemplo para a intenção FindForm](./media/get-started-portal-build-app/add-example-utterance.png)](./media/get-started-portal-build-app/add-example-utterance.png#lightbox)
-
-Adicione os 15 enunciados de exemplo a seguir à intenção `FindForm`.
+Na página **Intenções** de `FindForm`, adicione os exemplos de enunciados a seguir em **Exemplo de Enunciado**. 
 
 |#|Exemplo de enunciados|
 |--|--|

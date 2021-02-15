@@ -1,18 +1,21 @@
 ---
 title: Particionando serviços da Malha do Serviço
-description: Descreve como particionar os serviços com estado do Service Fabric. As partições permitem o armazenamento de dados em computadores locais para que dados e computação sejam dimensionados juntos.
+description: Saiba como particionar Service Fabric serviços com e sem estado
 ms.topic: conceptual
 ms.date: 06/30/2017
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d33e7b5ee293cf9dfb49e509bec2e1950033a956
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 199ae9d9844149c1931da638633110f717fe0517
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89005421"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97915888"
 ---
 # <a name="partition-service-fabric-reliable-services"></a>Particionar Reliable Services do Service Fabric
-Este artigo fornece uma introdução aos conceitos básicos de particionamento de Reliable Services do Azure Service Fabric. O código-fonte usado no artigo também está disponível no [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
+Este artigo fornece uma introdução aos conceitos básicos de particionamento de Reliable Services do Azure Service Fabric. O particionamento permite o armazenamento de dados nos computadores locais para que os dados e a computação possam ser dimensionados juntos.
+
+> [!TIP]
+> Um [exemplo completo](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions) do código neste artigo está disponível no github.
 
 ## <a name="partitioning"></a>Particionamento
 O particionamento não é exclusivo para o Service Fabric. Na verdade, é um padrão núcleo da criação de serviços escalonáveis. Em um sentido mais amplo, podemos pensar em particionamento como um conceito de divisão de estado (dados) e computar unidades menores acessíveis para melhorar o desempenho e a escalabilidade. Uma forma bem conhecida de particionamento é o [particionamento de dados][wikipartition], também conhecido como fragmentação.
@@ -116,7 +119,7 @@ Uma vez que queremos literalmente ter uma partição por letra, podemos usar 0 c
 > 
 > 
 
-1. Abra arquivo do **Visual Studio**  >  **File**  >  **novo**  >  **projeto**.
+1. Abra arquivo do **Visual Studio**  >    >  **novo**  >  **projeto**.
 2. Na caixa de diálogo **Novo Projeto** escolha um aplicativo do Service Fabric.
 3. Dê ao projeto o nome de “AlphabetPartitions”.
 4. Na caixa de diálogo **Criar um Serviço**, escolha o serviço **Com Estado** e nomeie-o "Alphabet.Processing".
@@ -348,14 +351,14 @@ Uma vez que queremos literalmente ter uma partição por letra, podemos usar 0 c
     
     ![Captura de tela do navegador](./media/service-fabric-concepts-partitioning/samplerunning.png)
 
-O código-fonte completo do exemplo está disponível no [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
+A solução completa do código usado neste artigo está disponível aqui: https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions .
 
 ## <a name="next-steps"></a>Próximas etapas
-Para obter informações sobre os conceitos de malha do serviço, consulte:
+Saiba mais sobre os serviços de Service Fabric:
 
+* [Conectar e se comunicar com serviços no Service Fabric](service-fabric-connect-and-communicate-with-services.md)
 * [Disponibilidade dos serviços de malha do serviço](service-fabric-availability-services.md)
 * [Escalabilidade de serviços da Malha do Serviço](service-fabric-concepts-scalability.md)
-* [Planejamento de capacidade para Aplicativos do Service Fabric](service-fabric-capacity-planning.md)
 
 [wikipartition]: https://en.wikipedia.org/wiki/Partition_(database)
 

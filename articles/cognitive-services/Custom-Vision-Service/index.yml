@@ -11,19 +11,19 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 09/05/2019
-  ms.openlocfilehash: 556af0c505197170a633cf1f949d87f5d2584690
-  ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+  ms.openlocfilehash: bd06b7cc04f47b517b7dc7913a2716e132b39941
+  ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 04/24/2020
-  ms.locfileid: "82131320"
+  ms.lasthandoff: 02/14/2021
+  ms.locfileid: "100520486"
 landingContent:
 - title: Sobre a Visão Personalizada
   linkLists:
   - linkListType: overview
     links:
     - text: O que é Visão Personalizada?
-      url: home.md
+      url: overview.md
   - linkListType: whats-new
     links:
     - text: Novidades
@@ -38,7 +38,7 @@ landingContent:
     links:
     - text: Usar o portal da Web
       url: getting-started-build-a-classifier.md
-    - text: Usar o SDK da Visão Personalizada
+    - text: Como usar o SDK da Visão Personalizada ou a API REST
       url: quickstarts/image-classification.md
   - linkListType: how-to-guide
     links:
@@ -96,29 +96,25 @@ landingContent:
   linkLists:
   - linkListType: reference
     links:
-    - text: API de treinamento
-      url: https://go.microsoft.com/fwlink/?linkid=865446
-    - text: API de previsão
-      url: https://go.microsoft.com/fwlink/?linkid=865445
+    - text: API REST
+      url: https://docs.microsoft.com/rest/api/custom-vision/
     - text: SDK .NET
-      url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/customvision?view=azure-dotnet
+      url: /dotnet/api/overview/azure/cognitiveservices/client/customvision?view=azure-dotnet
     - text: SDK do Python
-      url: https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-customvision/?view=azure-python
+      url: /python/api/azure-cognitiveservices-vision-customvision/?view=azure-python
     - text: Java SDK
-      url: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/customvision?view=azure-java-stable
+      url: /java/api/overview/azure/cognitiveservices/client/customvision?view=azure-java-stable
     - text: SDK do Go (treinamento)
       url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/customvision/training
     - text: SDK do Go (previsão)
       url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.1/customvision/prediction
     - text: Azure PowerShell
-      url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services
+      url: /powershell/module/az.cognitiveservices/#cognitive_services
     - text: CLI (interface de linha de comando) do Azure
-      url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest
+      url: /cli/azure/cognitiveservices?view=azure-cli-latest
 - title: Ajuda e comentários
   linkLists:
   - linkListType: reference
     links:
-    - text: UserVoice
-      url: https://cognitive.uservoice.com/forums/598141-custom-vision-service
-    - text: Stack Overflow
-      url: https://stackoverflow.com/questions/tagged/microsoft-cognitive
+    - text: Opções de Ajuda e suporte
+      url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/custom-vision-service/context/context

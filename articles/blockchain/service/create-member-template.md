@@ -5,13 +5,13 @@ services: azure-resource-manager
 ms.service: azure-resource-manager
 ms.topic: quickstart
 ms.custom: subject-armqs, references_regions
-ms.date: 07/16/2020
-ms.openlocfilehash: b9d1e3319aaaafded44d25c91720a0d72dcb86f3
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.date: 09/16/2020
+ms.openlocfilehash: e9893336f2e6633519853aceecc945ee6bf0bf4b
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88642003"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91292754"
 ---
 # <a name="quickstart-create-an-azure-blockchain-service-member-using-an-arm-template"></a>Início Rápido: Criar um membro do Azure Blockchain Service usando um modelo do Resource Manager
 
@@ -49,14 +49,16 @@ Os recursos do Azure definidos no modelo:
     --------|------------
     Subscription | Selecione a assinatura do Azure que deseja usar para o serviço. Se você tem várias assinaturas, escolha a assinatura na qual recebe a cobrança do recurso.
     Resource group | Crie um novo nome do grupo de recursos ou escolha um em sua assinatura.
-    Location | Escolha um local para criar o membro. Todos os membros do consórcio devem estar na mesma localização. Os locais disponíveis para a implantação são *westeurope, eastus, southeastasia, westeurope, northeurope, westus2* e *japaneast*. Os recursos podem não estar disponíveis em algumas regiões. O Gerenciador de Dados do Azure Blockchain está disponível atualmente nas seguintes regiões do Azure: Leste dos EUA e Europa Ocidental.
-    Nome do membro | Escolha um nome exclusivo para o membro do Azure Blockchain Service. O nome do membro do blockchain só pode conter letras minúsculas e números. O primeiro caractere precisa ser uma letra. O valor precisa ter entre 2 e 20 caracteres.
+    Região | Escolha uma região na qual criar o grupo de recursos. Todos os membros do consórcio devem estar na mesma localização. Os locais disponíveis para a implantação são *westeurope, eastus, southeastasia, westeurope, northeurope, westus2* e *japaneast*. Os recursos podem não estar disponíveis em algumas regiões. O Gerenciador de Dados do Azure Blockchain está disponível atualmente nas seguintes regiões do Azure: Leste dos EUA e Europa Ocidental.
+    Nome do Membro do Bc | Escolha um nome exclusivo para o membro do Azure Blockchain Service. O nome do membro do blockchain só pode conter letras minúsculas e números. O primeiro caractere precisa ser uma letra. O valor precisa ter entre 2 e 20 caracteres.
     Nome do consórcio | Insira um nome exclusivo. Para obter mais informações sobre os consórcios, confira [Consórcio do Azure Blockchain Service](consortium.md).
-    Senha do membro | A senha da conta do membro é usada para criptografar a chave privada para a conta do Ethereum criada para o membro. Use a conta do membro e a senha da conta do membro para o gerenciamento do consórcio.
-    Camada da SKU | O tipo de preço para seu novo serviço. Escolha entre as camadas **Standard** e **Basic**. Use a camada *Basic* para desenvolvimento, teste e prova de conceitos. Use a camada *Standard* para implantações de nível de produção. Você também deverá usar o nível *Standard* se estiver usando o Gerenciador de Dados do Blockchain ou enviando um alto volume de transações particulares. Não há suporte para a alteração do tipo de preço entre Básico e Standard após a criação do membro.
-    Nome do SKU | A configuração e o custo de nó do novo serviço.
+    Senha do membro | A senha do nó de transação padrão do membro. Use a senha para a autenticação básica ao se conectar ao ponto de extremidade público do nó de transação padrão do membro do blockchain.
+    Senha da conta de gerenciamento do consórcio | A senha da conta do consórcio é usada para criptografar a chave privada para a conta do Ethereum criada para o membro. Ela é usada para gerenciamento do consórcio.
+    Camada da SKU | O tipo de preço para seu novo serviço. Escolha entre as camadas **Standard** e **Basic**. Use a camada *Basic* para desenvolvimento, teste e prova de conceitos. Use a camada *Standard* para implantações de nível de produção. Use também a camada *Standard* se estiver usando o Gerenciador de Dados do Blockchain ou enviando um alto volume de transações particulares. Não há suporte para a alteração do tipo de preço entre Básico e Standard após a criação do membro.
+    Nome do SKU | A configuração e o custo de nó do novo serviço. Use **B0** para Básico e **S0** para Standard.
+    Location | Escolha um local para criar o membro. Por padrão, a localização do grupo de recursos é usado `[resourceGroup().location]`. Todos os membros do consórcio devem estar na mesma localização. Os locais disponíveis para a implantação são *westeurope, eastus, southeastasia, westeurope, northeurope, westus2* e *japaneast*. Os recursos podem não estar disponíveis em algumas regiões. O Gerenciador de Dados do Azure Blockchain está disponível atualmente nas seguintes regiões do Azure: Leste dos EUA e Europa Ocidental.
 
-1. Selecione **Comprar** para implantar o modelo.
+1. Selecione **Examinar + Criar** para verificar e implantar o modelo.
 
   O portal do Azure é usado para implantar o modelo. Use também o Azure PowerShell, a CLI do Azure e a API REST. Para saber mais sobre outros métodos de implantação, confira [Implantar modelos](../../azure-resource-manager/templates/deploy-powershell.md).
 

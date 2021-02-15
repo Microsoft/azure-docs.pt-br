@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 08/21/2020
-ms.openlocfilehash: 62a0b0ec5312b4d00724fe7c13a5e20b5d35e34f
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 02/02/2021
+ms.openlocfilehash: 994ed74750d159dfdb83259e9fe921f870ec2241
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88926857"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99509360"
 ---
 # <a name="service-limits-in-azure-cognitive-search"></a>Limites de serviço no Azure Cognitive Search
 
@@ -50,7 +50,7 @@ Os limites máximos de armazenamento, cargas de trabalho e quantidades de índic
 
 <sup>1</sup> Serviços básicos criados antes de dezembro de 2017 têm menos limites (5 em vez de 15) em índices. A camada tipo Básico é a única SKU com um limite inferior de 100 campos por índice.
 
-<sup>2</sup> Ter um número muito grande de elementos em coleções complexas por documento atualmente causa alta utilização do armazenamento. Esse é um problema conhecido. Enquanto isso, um limite de 3.000 é um limite superior seguro para todas as camadas de serviço. Esse limite é imposto apenas para operações de indexação que utilizam a versão mais antiga da API de disponibilidade geral (GA) que suporta campos de tipo complexo (`2019-05-06`) em diante. Para não interromper os clientes que podem estar usando versões anteriores da API de versão prévia (que dão suporte a campos de tipo complexo), não vamos impor esse limite para operações de indexação que usam essas versões da API de versão prévia. Observe que as versões da API de versão prévia não devem ser usadas para cenários de produção e é altamente recomendável que os clientes migrem para a versão mais recente da API GA.
+<sup>2</sup> há um limite superior para os elementos porque ter um grande número deles aumenta significativamente o armazenamento necessário para o índice. Um elemento de uma coleção complexa é definido como um membro dessa coleção. Por exemplo, suponha um [documento de Hotel com uma coleção complexa de salas](search-howto-complex-data-types.md#indexing-complex-types), cada sala na coleção de salas é considerada um elemento. Durante a indexação, o mecanismo de indexação pode processar com segurança um máximo de 3000 elementos no documento como um todo. [Esse limite](search-api-migration.md#upgrade-to-2019-05-06) foi introduzido em `api-version=2019-05-06` e se aplica apenas a coleções complexas e não a coleções de cadeias de caracteres ou a campos complexos.
 
 <a name="document-limits"></a>
 
@@ -96,10 +96,25 @@ Os tempos máximos de execução existem para fornecer balanceamento e estabilid
 
 <sup>4</sup> Máximo de 30 habilidades por conjunto de habilidades.
 
-<sup>5</sup> O enriquecimento da IA e a análise de imagem fazem uso intensivo dos recursos de computação e consomem uma quantidade desproporcional da capacidade de processamento disponível. O tempo de execução dessas cargas de trabalho foi reduzido para dar a outros trabalhos na fila mais oportunidades de execução.  
+<sup>5</sup> O enriquecimento da IA e a análise de imagem fazem uso intensivo dos recursos de computação e consomem uma quantidade desproporcional da capacidade de processamento disponível. O tempo de execução dessas cargas de trabalho foi reduzido para dar a outros trabalhos na fila mais oportunidades de execução.
 
 > [!NOTE]
 > Conforme indicado nos [Limites de índice](#index-limits), os indexadores também impõem o limite superior de 3.000 elementos em todas as coleções complexas por documento, começando com a versão mais recente da API GA que dá suporte a tipos complexos (`2019-05-06`) em diante. Isso significa que, se criou o indexador com uma versão de API anterior, você não estará sujeito a esse limite. Para preservar a compatibilidade máxima, um indexador criado com uma versão de API anterior e, em seguida, atualizado com uma versão de API `2019-05-06` ou posterior, será **excluído** dos limites mesmo assim. Os clientes devem estar cientes do impacto adverso de ter coleções complexas muito grandes (como declarado anteriormente) e é altamente recomendável criar novos indexadores com a versão mais recente da API GA.
+
+## <a name="shared-private-link-resource-limits"></a>Limites de recurso de link privado compartilhado
+
+Os indexadores podem acessar outros recursos do Azure por meio de [pontos de extremidade privados](search-indexer-howto-access-private.md) gerenciados por meio da [API de recurso de link privado compartilhado](/rest/api/searchmanagement/sharedprivatelinkresources). Esta seção descreve os limites associados a esse recurso.
+
+| Recurso | Grátis | Basic | S1 | S2 | S3 | S3 HD | L1 | L2
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Suporte do indexador de ponto de extremidade privado | Não | Sim | Sim | Sim | Sim | Não | Sim | Sim |
+| Suporte de ponto de extremidade privado para indexadores com o Skills<sup>1</sup> | Não | Não | Não | Sim | Sim | Não | Sim | Sim |
+| Pontos de extremidade privados máximos | N/D | 10 ou 30 | 100 | 400 | 400 | N/D | 20 | 20 |
+| Tipos de recursos distintos máximos<sup>2</sup> | N/D | 4 | 7 | 15 | 15 | N/D | 4 | 4 |
+
+<sup>1</sup> a enriquecimento de ia e a análise de imagem são computacionalmente intensivas e consomem quantidades desproporcionais de capacidade de processamento disponível. Por esse motivo, as conexões privadas são desabilitadas em camadas inferiores para evitar um impacto adverso no desempenho e na estabilidade do próprio serviço de pesquisa.
+
+<sup>2</sup> o número de tipos de recursos distintos é calculado como o número de `groupId` valores exclusivos usados em todos os recursos de link privado compartilhado para um determinado serviço de pesquisa, independentemente do status do recurso.
 
 ## <a name="synonym-limits"></a>Limites de sinônimos
 
@@ -108,15 +123,7 @@ O número máximo de mapas de sinônimos varia por camada. Cada regra pode ter a
 | Recurso | Grátis | Basic | S1 | S2 | S3 | S3-HD |L1 | L2 |
 | -------- | -----|------ |----|----|----|-------|---|----|
 | Mapas máximos de sinônimos |3 |3|5 |10 |20 |20 | 10 | 10 |
-| Número máximo de regras por mapa |5\.000 |20000|20000 |20000 |20000 |20000 | 20000 | 20000  |
-
-## <a name="queries-per-second-qps"></a>Consultas por segundo (QPS)
-
-As estimativas QPS devem ser desenvolvidas independentemente por cada cliente. Tamanho do índice e complexidade, o tamanho da consulta e complexidade e a quantidade de tráfego são determinantes principais de QPS. Não é possível oferecer estimativas significativas quando esses fatores são desconhecidos.
-
-As previsões são mais previsíveis quando calculada em serviços em execução em recursos dedicados (camadas Básico e Standard). No nível padrão, é possível estimar melhor o QPS, porque você tem controle sobre mais parâmetros. Para obter orientação sobre como a estimativa da abordagem, consulte [Desempenho e otimização do Azure Cognitive Search](search-performance-optimization.md).
-
-Para as camadas de Otimizado para armazenamento (L1 e L2), você deve esperar uma taxa de transferência de consulta inferior e uma latência mais alta do que as camadas Standard. 
+| Número máximo de regras por mapa |5.000 |20000|20000 |20000 |20000 |20000 | 20000 | 20000  |
 
 ## <a name="data-limits-ai-enrichment"></a>Limites de dados (enriquecimento de IA)
 
@@ -124,15 +131,19 @@ Um [pipeline de enriquecimento de IA](cognitive-search-concept-intro.md) que faz
 
 ## <a name="throttling-limits"></a>Limitações
 
-As consultas de pesquisa e solicitações de indexação são limitadas à medida que o sistema se aproxima da capacidade máxima. A limitação se comporta de maneira diferente para diferentes APIs. As APIs de consulta (pesquisa/sugestão/preenchimento automático) e as APIs de indexação são limitadas dinamicamente com base na carga no serviço. As APIs de índice têm limites de taxa de solicitação estática. 
+As solicitações de API são limitadas conforme o sistema se aproxima da capacidade de pico. A limitação se comporta de maneira diferente para diferentes APIs. As APIs de consulta (pesquisa/sugestão/preenchimento automático) e as APIs de indexação são limitadas dinamicamente com base na carga no serviço. As APIs de índice e a API de operações de serviço têm limites de taxa de solicitação estáticos. 
 
 Limites de solicitação de taxa estática para operações relacionadas a um índice:
 
-+ Listar índices (GET/índices): 5 por segundo por unidade de pesquisa
++ Listar índices (GET/indexes): 3 por segundo por unidade de pesquisa
 + Obter índice (GET/índices/myindex): 10 por segundo por unidade de pesquisa
 + Criar índice (POST/índices): 12 por minuto por unidade de pesquisa
 + Criar ou atualizar índice (PUT/índices/myindex): 6 por segundo por unidade de pesquisa
 + Excluir índice (DELETE/índices/myindex): 12 por minuto por unidade de pesquisa 
+
+Limites de solicitação de taxa estática para operações relacionadas a um serviço:
+
++ Estatísticas de serviço (GET/servicestats): 4 por segundo por unidade de pesquisa
 
 ## <a name="api-request-limits"></a>Limites de solicitação de API
 * Máximo de 16 MB por solicitação <sup>1</sup>

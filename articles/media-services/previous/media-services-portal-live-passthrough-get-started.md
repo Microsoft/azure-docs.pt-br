@@ -14,14 +14,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 51d3d859bbd176a6e1fac92b75c6120301a5066f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 08d1e9cd281cf41a79d1b30d709062c01abbab33
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084510"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98695434"
 ---
 # <a name="perform-live-streaming-with-on-premises-encoders-using-azure-portal"></a>Executar transmissão ao vivo com codificadores locais usando portal do Azure
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-live-passthrough-get-started.md)
 > * [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
@@ -30,7 +33,7 @@ ms.locfileid: "87084510"
 > 
 
 > [!NOTE]
-> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](../latest/index.yml). Além disso, consulte s [diretrizes de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
+> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](../latest/index.yml). Além disso, consulte s [diretrizes de migração da v2 para a v3](../latest/migrate-v-2-v-3-migration-introduction.md)
 
 Este tutorial orienta você nas etapas de como usar o portal do Azure para criar um **Canal** que é configurado para uma entrega de passagem. 
 
@@ -130,7 +133,7 @@ Para obter mais detalhes sobre os canais de passagem, veja [Transmissão ao vivo
 ## <a name="get-ingest-urls"></a>Obter URLs de ingestão
 Depois que o canal é criado, você pode obter URLs de ingestão que você fornecerá ao codificador ao vivo. O codificador usa essas URLs para gerar entrada de um fluxo ao vivo.
 
-![Criado](./media/media-services-portal-passthrough-get-started/media-services-channel-created.png)
+![Captura de tela que mostra a página "transmissão ao vivo" com um canal selecionado e o painel canal exibido.](./media/media-services-portal-passthrough-get-started/media-services-channel-created.png)
 
 ## <a name="watch-the-event"></a>Assistir ao evento
 Para assistir o evento, clique em **Assistir** no portal do Azure ou copie a URL de transmissão e use um player de sua escolha. 
@@ -139,7 +142,7 @@ Para assistir o evento, clique em **Assistir** no portal do Azure ou copie a URL
 
 O evento ao vivo é convertido automaticamente no conteúdo sob demanda quando estiver parado.
 
-## <a name="clean-up"></a>Limpeza
+## <a name="clean-up"></a>Limpar
 Para obter mais detalhes sobre os canais de passagem, veja [Transmissão ao vivo com codificadores locais que criam fluxos de múltiplas taxas de bits](media-services-live-streaming-with-onprem-encoders.md).
 
 * Um canal pode ser interrompido somente quando todos os eventos/programas nele foram interrompidos.  Depois que o canal estiver parado, ele não incorrerá em nenhum encargo. Quando for necessário iniciá-lo novamente ele terá a mesma URL de ingestão, portanto, você não precisará reconfigurar seu codificador.

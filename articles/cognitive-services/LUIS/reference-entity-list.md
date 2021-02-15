@@ -1,14 +1,16 @@
 ---
 title: Tipo de entidade de lista-LUIS
 description: As entidades de lista representam um conjunto fixo e fechado de palavras relacionadas, juntamente com seus sinônimos. O LUIS não descobre valores adicionais para entidades de lista. Use o recurso Recomendado para consultar sugestões de novas palavras com base na lista atual.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 04/14/2020
-ms.openlocfilehash: 339fb832ef4af069b6f040c5264426002189f93f
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 410b33b5c6078d096fa4b2acaa7b49bc14c95e31
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83588880"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97608265"
 ---
 # <a name="list-entity"></a>Entidade de lista
 
@@ -83,7 +85,6 @@ Na declaração anterior, a palavra `paris` é mapeada para o item paris como pa
 
 #### <a name="v3-prediction-endpoint-response"></a>[Resposta de ponto de extremidade de previsão V3](#tab/V3)
 
-
 Esse é o JSON se `verbose=false` estiver definido na cadeia de caracteres de consulta:
 
 ```json
@@ -128,7 +129,6 @@ Esse é o JSON se `verbose=true` estiver definido na cadeia de caracteres de con
 |Objeto de dados|Nome da entidade|Valor|
 |--|--|--|
 |Listar entidade|`Cities`|`paris`|
-
 
 ## <a name="next-steps"></a>Próximas etapas
 

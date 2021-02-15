@@ -1,14 +1,14 @@
 ---
 title: Etapas de uma implantação de blueprint
-description: Conheça as etapas relacionadas à segurança e ao artefato que os serviços de plantas do Azure passam ao criar uma atribuição de plano gráfico.
-ms.date: 08/27/2020
+description: Conheça as etapas relacionadas à segurança e ao artefato que os serviços de plantas do Azure passam durante a criação de uma atribuição de Blueprint.
+ms.date: 01/27/2021
 ms.topic: conceptual
-ms.openlocfilehash: 73d5d67cf77d4ccc48517c895630b8299081e2e0
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: e686dec1c9d79e42dafee17d8a937284aac4fdd6
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89049767"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98918544"
 ---
 # <a name="stages-of-a-blueprint-deployment"></a>Etapas de uma implantação de blueprint
 

@@ -1,18 +1,15 @@
 ---
 title: Otimização de desempenho para clusters do Apache Kafka HDInsight
 description: Fornece uma visão geral das técnicas para otimizar as cargas de trabalho do Apache Kafka no Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 12/19/2019
-ms.openlocfilehash: 752068af531c4a0ecc832d266f88105c14452ecb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d24527efe6adce6f16b7c890f23c755545f5d5a0
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75494916"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98935879"
 ---
 # <a name="performance-optimization-for-apache-kafka-hdinsight-clusters"></a>Otimização de desempenho para clusters do Apache Kafka HDInsight
 
@@ -50,7 +47,7 @@ A configuração necessária do produtor `acks` determina o número de confirma�
 
 Um produtor do Kafka pode ser configurado para compactar mensagens antes de enviá-las aos agentes. A `compression.type` configuração especifica o codec de compactação a ser usado. Os codecs de compactação com suporte são "gzip," "encaixado" e "lz4". A compactação é benéfica e deve ser considerada se houver uma limitação na capacidade do disco.
 
-Entre os dois codecs de compactação comumente usados `gzip` e o `snappy` `gzip` tem uma taxa maior de compactação, o que resulta em menor uso do disco no custo de maior carga da CPU. O `snappy` codec fornece menos compactação com menos sobrecarga de CPU. Você pode decidir qual codec usar com base nas limitações de disco do agente ou da CPU do produtor. `gzip`pode compactar dados a uma taxa cinco vezes maior que `snappy` .
+Entre os dois codecs de compactação comumente usados `gzip` e o `snappy` `gzip` tem uma taxa maior de compactação, o que resulta em menor uso do disco no custo de maior carga da CPU. O `snappy` codec fornece menos compactação com menos sobrecarga de CPU. Você pode decidir qual codec usar com base nas limitações de disco do agente ou da CPU do produtor. `gzip` pode compactar dados a uma taxa cinco vezes maior que `snappy` .
 
 Usar a compactação de dados aumentará o número de registros que podem ser armazenados em um disco. Ele também pode aumentar a sobrecarga de CPU em casos em que há uma incompatibilidade entre os formatos de compactação usados pelo produtor e o agente. como os dados devem ser compactados antes do envio e depois descompactados antes do processamento.
 

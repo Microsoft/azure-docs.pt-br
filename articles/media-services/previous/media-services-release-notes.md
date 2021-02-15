@@ -14,19 +14,21 @@ ms.topic: article
 ms.date: 10/01/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4ac0b0e0a9c372aebc51af1840491d0f53f9f8f9
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: e1700489b4f3ee37d95b87b1bf026d47c9f1de4d
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89010283"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98694875"
 ---
 # <a name="azure-media-services-release-notes"></a>Notas de versão dos Serviços de Mídia do Azure
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 Estas notas de versão para os Serviços de Mídia do Azure resumem as alterações de versões anteriores e os problemas conhecidos.
 
 > [!NOTE]
-> Não estão sendo adicionados novos recursos aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](../latest/index.yml). Além disso, consulte s [diretrizes de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
+> Não estão sendo adicionados novos recursos aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](../latest/index.yml). Além disso, consulte s [diretrizes de migração da v2 para a v3](../latest/migrate-v-2-v-3-migration-introduction.md)
 
 Queremos ouvir nossos clientes para que possamos focar na correção de problemas que afetam você. Para relatar um problema ou fazer uma pergunta, faça uma postagem no [Fórum MSDN de Serviços de Mídia do Azure]. 
 
@@ -46,6 +48,18 @@ Queremos ouvir nossos clientes para que possamos focar na correção de problema
 
 ## <a name="rest-api-version-history"></a><a name="rest_version_history"></a>Histórico de versão da API REST
 Para obter informações sobre o histórico de versões da API REST dos Serviços de Mídia, consulte a [Referência da API REST dos Serviços de Mídia do Azure].
+
+## <a name="september-2020"></a>Setembro de 2020
+
+As seguintes propriedades v2 não serão mais preenchidas com dados de progresso do trabalho histórico:
+
+* [HistoricalEvents](/dotnet/api/microsoft.windowsazure.mediaservices.client.itask.historicalevents)
+* [PerfMessage](/dotnet/api/microsoft.windowsazure.mediaservices.client.itask.perfmessage)
+
+Para obter o histórico de tarefas, você deve usar as notificações de trabalho v2 por meio de WebHooks ou mensagens de fila usando pontos de extremidade de notificação. Para obter mais informações, consulte:
+
+* [Usar o Armazenamento de Fila do Azure para monitorar as notificações de trabalho dos Serviços de Mídia](media-services-dotnet-check-job-progress-with-queues.md)
+* [Usar WebHooks do Azure para monitorar notificações de trabalho dos serviços de mídia](media-services-dotnet-check-job-progress-with-webhooks.md)
 
 ## <a name="february-2020"></a>Fevereiro de 2020
 
@@ -67,7 +81,7 @@ Consulte também [Migrar do Azure Media Indexer e do Azure Media Indexer 2 para 
 
 Estamos anunciando a substituição dos processadores de mídia *Codificador de Mídia do Azure para Windows* (WAME) e *Codificador de Mídia do Azure* (AME). Para ver as datas de desativação, consulte o tópico de [componentes herdados](legacy-components.md).
 
-Para obter detalhes, consulte [Migrar WAME para Media Encoder Standard](https://go.microsoft.com/fwlink/?LinkId=2101334) e [Migrar AME para Media Encoder Standard](https://go.microsoft.com/fwlink/?LinkId=2101335).
+Para obter detalhes, consulte [Migrar WAME para Media Encoder Standard](./migrate-windows-azure-media-encoder.md) e [Migrar AME para Media Encoder Standard](./migrate-azure-media-encoder.md).
 
 ## <a name="march-2019"></a>Março de 2019
 
@@ -184,7 +198,7 @@ Alguns clientes podem se deparar com um problema de marcas repetidas no manifest
 
 ## <a name="april-2016-release"></a><a id="apr_changes16"></a>Versão de abril de 2016
 ### <a name="media-analytics"></a>Análise de Mídia
- Os Serviços de Mídia do Azure introduziram a Análise de Mídia para proporcionar uma inteligência de vídeo avançada. Para obter mais informações, consulte [Visão geral da Análise dos Serviços de Mídia](media-services-analytics-overview.md).
+ Os Serviços de Mídia do Azure introduziram a Análise de Mídia para proporcionar uma inteligência de vídeo avançada. Para obter mais informações, consulte [Visão geral da Análise dos Serviços de Mídia](./legacy-components.md).
 
 ### <a name="apple-fairplay-preview"></a>Apple FairPlay (versão prévia)
 Os Serviços de Mídia do Azure agora permitem criptografar dinamicamente seu conteúdo HLS (HTTP Live Streaming) com o Apple FairPlay. Ele também mostra como usar o serviço de entrega de licenças dos Serviços de Mídia para entregar licenças do FairPlay aos clientes. Para obter mais informações, confira o artigo "Usar os Serviços de Mídia do Azure para transmitir seu conteúdo de HLS protegido com o Apple FairPlay".
@@ -261,7 +275,7 @@ Para saber mais, confira [este blog](https://azure.microsoft.com/blog/azure-medi
 ## <a name="july-2015-release"></a><a id="july_changes_15"></a>Versão de julho de 2015
 * A disponibilidade geral do Media Encoder Standard foi anunciada. Para saber mais, confira [esta postagem no blog](https://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/).
   
-    O Media Encoder Standard usa as predefinições descritas [nesta seção](https://go.microsoft.com/fwlink/?LinkId=618336). Ao usar uma predefinição para codificações 4K, você obtém o tipo de unidade reservada Premium. Para obter mais informações, consulte [Codificação de escala](media-services-scale-media-processing-overview.md).
+    O Media Encoder Standard usa as predefinições descritas [nesta seção](./media-services-mes-presets-overview.md). Ao usar uma predefinição para codificações 4K, você obtém o tipo de unidade reservada Premium. Para obter mais informações, consulte [Codificação de escala](media-services-scale-media-processing-overview.md).
 * Legendas em tempo real ao vivo foram usadas com os Serviços de Mídia e o Player de Mídia. Para saber mais, confira [esta postagem no blog](https://azure.microsoft.com/blog/2015/07/08/live-real-time-captions-with-azure-media-services-and-player/).
 
 ### <a name="media-services-net-sdk-updates"></a>Atualizações do SDK do .NET dos Serviços de Mídia

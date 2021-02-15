@@ -4,69 +4,68 @@ description: Explicação do recurso de test drive do Marketplace
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 06/19/2020
-ms.openlocfilehash: bd3b77f80a414dd3db1d5106929fa0e215e34c1f
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 193e7bd78046a1d73cb55171c15c9cb6a7278297
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121860"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96490033"
 ---
 # <a name="what-is-a-test-drive"></a>O que é um test drive?
 
-Uma test drive é uma ótima maneira de demonstrar sua oferta a clientes potenciais, fornecendo a eles a opção de *experimentar antes de comprar*, resultando em uma maior conversão e geração de clientes potenciais altamente qualificados. Uma test drive dá vida ao seu produto em um cenário de implementação real, gerando leads altamente qualificados.
+Uma test drive é uma ótima maneira de demonstrar sua oferta a clientes potenciais, fornecendo a eles a opção de experimentar antes de comprar, gerando leads altamente qualificados e resultando em maior conversão. Uma test drive dá vida ao seu produto em um cenário de implementação do mundo real. Os clientes que experimentarem seu produto estão demonstrando uma intenção clara de comprar uma solução semelhante. Use isso para sua vantagem seguindo com leads mais avançados.
 
-Unidades de teste são instâncias gerenciadas que implantam sua solução ou aplicativo sob demanda para clientes que a solicitam. Depois que uma instância de test drive for atribuída, ela estará disponível para uso por um determinado período de tempo e, em seguida, excluída para criar espaço para outro cliente.
+Os clientes também se beneficiam com um test drive. Ao permitir que eles experimentem seu produto primeiro, você está reduzindo o conflito do processo de compra. Além disso, test drive é previamente provisionado, ou seja, os clientes não precisam baixar, configurar ou configurar o produto.
 
-Como Publicador, você gerencia e define as configurações de test drive no Partner Center. Os detalhes de configuração técnica variam dependendo do tipo de oferta com a qual você está trabalhando. Para obter diretrizes detalhadas, consulte o link na [próxima etapa](#next-step) no final deste tópico.
+## <a name="how-does-it-work"></a>Como ele funciona?
 
-Os clientes potenciais detectam seu test drive no mercado comercial. Eles fornecem suas informações de contato e concordam com os termos e a política de privacidade da sua oferta e, em seguida, acessam seu ambiente pré-configurado para testá-lo por um período de tempo fixo. Os clientes recebem uma avaliação prática e Autoguiada dos principais recursos e benefícios do seu produto e você recebe um líder valioso.
+Unidades de teste são instâncias gerenciadas que iniciam sua solução ou aplicativo sob demanda para clientes que a solicitam. Quando uma instância de test drive é atribuída, ela fica disponível para uso por esse cliente por um período definido. Depois que o período terminar, ele será excluído para criar espaço para outro cliente.
 
-## <a name="how-does-it-work"></a>Como ela funciona?
+Como Publicador, você gerencia e define as configurações de test drive no Partner Center. Os detalhes de configuração técnica variam dependendo do tipo de oferta. Para obter diretrizes detalhadas, consulte a [configuração técnica do Test Drive](./test-drive-technical-configuration.md).
 
-Como Publicador, você gerencia e define as configurações de test drive no Partner Center. Após a instalação, ele se torna uma instância gerenciada que será implantada sob demanda para o cliente que a solicita. Depois que uma instância de test drive for atribuída, ela estará disponível para uso por um determinado período de tempo e, em seguida, excluída para criar espaço para outro cliente.
+Os clientes potenciais detectam seu test drive como um CTA em sua oferta no [AppSource](https://appsource.microsoft.com/en-US/). Eles fornecem suas informações de contato e concordam com os termos e a política de privacidade da sua oferta e, em seguida, têm acesso ao ambiente pré-configurado para testá-lo por um período fixo. Os clientes recebem uma avaliação prática e Autoguiada dos principais recursos e benefícios do seu produto e você recebe um líder valioso.
 
 ## <a name="types-of-test-drives"></a>Tipos de unidades de teste
 
 Há diferentes unidades de teste disponíveis no Marketplace comercial para Select offers, dependendo do tipo de produto, cenário e Marketplace em que você está:
 
 - Azure Resource Manager
+    - Aplicativos do Azure
+    - SaaS
+    - Máquinas Virtuais
 - test drive hospedado
-    - Dynamics 365 para Central de Negócios
+    - Dynamics 365 for Business central (atualmente sem suporte)
     - Dynamics 365 for Customer Engagement
     - Dynamics 365 for Operations
-- Aplicativo lógico
+- Aplicativo lógico (somente no modo de suporte)
 - Power BI
 
-Para obter detalhes sobre como configurar um desses drives de teste, consulte o link na [próxima etapa](#next-step) no final deste tópico.
+Para obter detalhes sobre como configurar um desses drives de teste, confira [configuração técnica do Test Drive](./test-drive-technical-configuration.md). 
 
 ### <a name="azure-resource-manager-test-drive"></a>Azure Resource Manager test drive
 
 Este modelo de implantação contém todos os recursos do Azure que compõem sua solução. Os produtos adequados a esse cenário usam somente os recursos do Azure. O test drive de Azure Resource Manager está disponível para esses tipos de oferta: 
 
 - Aplicativos do Azure
-- Dynamics 365 para Central de Negócios
-- Dynamics 365 para compromisso com o cliente & PowerApps
-- Dynamics 365 for Operations
 - SaaS
 - Máquinas virtuais
 
 >[!NOTE]
 >Essa é a única opção test drive para as ofertas de máquina virtual e aplicativo do Azure.
 
-### <a name="hosted-test-drive"></a>test drive hospedado
+### <a name="hosted-test-drive-recommended"></a>Test drive hospedado (recomendado)
 
-Um test drive hospedado remove a complexidade da instalação, permitindo que a Microsoft hospede e mantenha o serviço que executa o provisionamento, a implantação e o desprovisionamento de usuários do test drive. Se você tiver uma oferta em Microsoft AppSource, crie seu test drive para se conectar a uma instância do Dynamics AX/CRM ou a qualquer outro recurso além do Azure. Use este tipo para ofertas do AppSource para se conectar com estas ofertas do Dynamics 365:
+Uma test drive hospedada remove a complexidade da instalação, permitindo que a Microsoft hospede e mantenha o serviço que executa o provisionamento e desprovisionamento de usuários do test drive. Se você tiver uma oferta em Microsoft AppSource, crie seu test drive para se conectar a uma instância do Dynamics AX/CRM. Você pode usar os seguintes tipos de ofertas de AppSource:
 
-- Use o [Dynamics 365 for Business central](partner-center-portal/create-new-operations-offer.md) para um sistema de planejamento de recursos empresariais central de negócios, como finanças, operações, Cadeia de fornecedores e CRM.
 - Use o [Dynamics 365 para o envolvimento do cliente](partner-center-portal/create-new-customer-engagement-offer.md) para um sistema de envolvimento do cliente, como vendas, serviço, serviço de projeto e serviço de campo.
 - Use o [Dynamics 365 para operações](partner-center-portal/create-new-operations-offer.md) para um sistema de planejamento de recursos corporativos de finanças e operações, como finanças, operações e manufatura, Cadeia de suprimentos.
 
 ### <a name="logic-app-test-drive"></a>test drive de aplicativo lógico
 
-Esse tipo de test drive não é hospedado pela Microsoft. Use-o para se conectar a uma oferta do Dynamics 365 ou a outro recurso personalizado.
+Esse tipo de test drive não é hospedado pela Microsoft e usa modelos de Azure Resource Manager (ARM) para tipos de oferta do Dynamics AX/CRM. Você precisará executar o modelo ARM para criar os recursos necessários em sua assinatura do Azure. A unidade de teste do aplicativo lógico está atualmente no modo de suporte somente e não é recomendada pela Microsoft para obter detalhes sobre como configurar uma unidade de teste do aplicativo lógico, consulte [testar a configuração técnica](./test-drive-technical-configuration.md).
 
 ### <a name="power-bi-test-drive"></a>Test Drive do Power BI
 
@@ -92,7 +91,7 @@ Se você fechar um negócio com um Lead test drive, não se esqueça de registr�
 
 Recursos adicionais de test drive:
 
-- [Melhores práticas técnicas](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
+- [Práticas recomendadas do Test Drive](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
 - [Visão geral](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) (PDF; Verifique se o bloqueador de pop-ups está desativado)
 
 ## <a name="next-step"></a>Próxima etapa

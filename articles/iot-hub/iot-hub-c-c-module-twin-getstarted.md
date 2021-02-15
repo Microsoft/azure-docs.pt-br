@@ -11,12 +11,12 @@ ms.author: menchi
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 3cd4277603b96dd1aa07682dd01a6d0e9c61bd82
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0cc874b4df7052c76fa58388bc982b8ffe3acc23
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81733449"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92142913"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-c"></a>Introdução à identidade do módulo do Hub IoT e ao módulo d (C)
 
@@ -391,4 +391,4 @@ int main(void)
 Para continuar a introdução ao Hub IoT e explorar outros cenários de IoT, confira:
 
 * [Introdução ao gerenciamento de dispositivo](iot-hub-node-node-device-management-get-started.md)
-* [Introdução ao IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Introdução ao IoT Edge](../iot-edge/quickstart-linux.md)

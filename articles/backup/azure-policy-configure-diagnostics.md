@@ -3,12 +3,12 @@ title: Definir configurações de diagnóstico de cofre em escala
 description: Definir Log Analytics configurações de diagnóstico para todos os cofres em um determinado escopo usando Azure Policy
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.openlocfilehash: 17a5ee5a541c3317c9ec9a6cfbed57d85f5116b4
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 55461937381f7551c42714c835d4755ab65f175b
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892228"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92171521"
 ---
 # <a name="configure-vault-diagnostics-settings-at-scale"></a>Definir configurações de diagnóstico de cofre em escala
 
@@ -22,11 +22,13 @@ Para simplificar a criação de configurações de diagnóstico em escala (com L
 
 * A política pode ser aplicada de uma vez a todos os cofres dos serviços de recuperação em uma determinada assinatura (ou a um grupo de recursos dentro da assinatura). O usuário que atribui a política precisa ter acesso de **proprietário** à assinatura à qual a política é atribuída.
 
-* O espaço de trabalho LA conforme especificado pelo usuário (para o qual os dados de diagnóstico serão enviados) pode estar em uma assinatura diferente dos cofres aos quais a política é atribuída. O usuário precisa ter acesso de **leitor**, **colaborador** ou **proprietário** à assinatura na qual o espaço de trabalho da la especificada existe.
+* O espaço de trabalho LA conforme especificado pelo usuário (para o qual os dados de diagnóstico serão enviados) pode estar em uma assinatura diferente dos cofres aos quais a política é atribuída. O usuário precisa ter acesso de **leitor**, **colaborador**ou **proprietário** à assinatura na qual o espaço de trabalho especificado existe.
 
 * O escopo do grupo de gerenciamento não tem suporte no momento.
 
 * Atualmente, a política interna não está disponível em nuvens nacionais.
+
+[!INCLUDE [backup-center.md](../../includes/backup-center.md)]
 
 ## <a name="assigning-the-built-in-policy-to-a-scope"></a>Atribuindo a política interna a um escopo
 
@@ -34,7 +36,7 @@ Para atribuir a política para cofres no escopo necessário, siga as etapas abai
 
 1. Entre no portal do Azure e navegue até o painel de **política** .
 2. Selecione **definições** no menu à esquerda para obter uma lista de todas as políticas internas nos recursos do Azure.
-3. Filtre a lista para **Category = Monitoring**. Localize a política denominada **[Preview]: implantar configurações de diagnóstico para o cofre dos serviços de recuperação para log Analytics espaço de trabalho para categorias específicas de recursos**.
+3. Filtre a lista para **Category = backup**. Localize a política denominada **[Preview]: implantar configurações de diagnóstico para o cofre dos serviços de recuperação para log Analytics espaço de trabalho para categorias específicas de recursos**.
 
     ![Painel de definição de política](./media/backup-azure-policy-configure-diagnostics/policy-definition-blade.png)
 

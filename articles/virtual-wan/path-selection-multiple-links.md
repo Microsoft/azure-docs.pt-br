@@ -6,14 +6,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 05/28/2020
+ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: a83a050b65f5673a86dd07ec13842f6009d2c8dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f24696c0db3155a59106e1361b01454b9ac16a20
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84753353"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91267747"
 ---
 # <a name="azure-path-selection-across-multiple-isp-links"></a>Seleção de caminho do Azure entre vários links de ISP
 

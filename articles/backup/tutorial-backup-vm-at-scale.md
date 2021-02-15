@@ -4,12 +4,12 @@ description: Neste tutorial, saiba como criar um cofre dos Serviços de Recupera
 ms.date: 07/26/2020
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 76c09cc02a3545d975de5d6d49b396b12f8abb44
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: a9517ffc1e37d50f7c0e57b9ed53fb8bcf55fd70
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757499"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89180568"
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Use o portal do Azure para fazer backup de várias máquinas virtuais
 
@@ -53,7 +53,7 @@ O cofre dos Serviços de Recuperação contém os dados de backup e a política 
 
     ![Valores do cofre dos Serviços de Recuperação](./media/tutorial-backup-vm-at-scale/review-and-create.png)
 
-    Um Cofre dos Serviços de Recuperação deverá estar no mesmo local que as máquinas virtuais que estão sendo protegidas. Se você tiver máquinas virtuais em várias regiões, crie um cofre de Serviços de Recuperação em cada região. Este tutorial criará um Cofre dos Serviços de Recuperação na *Europa Ocidental* porque este é local em que a *myVM* (a máquina virtual criada com o guia de início rápido) foi criada.
+    Um Cofre dos Serviços de Recuperação deverá estar no mesmo local que as máquinas virtuais que estão sendo protegidas. Se você tiver máquinas virtuais em várias regiões, crie um cofre de Serviços de Recuperação em cada região. Este tutorial cria um cofre dos Serviços de Recuperação no *Oeste da Europa* porque este é local em que a *myVM* (a máquina virtual criada com o guia de início rápido) foi criada.
 
 1. Quando você estiver pronto para criar o cofre dos Serviços de Recuperação, clique em **Criar**.
 

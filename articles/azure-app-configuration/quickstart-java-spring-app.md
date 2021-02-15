@@ -3,20 +3,19 @@ title: Início Rápido para aprender a usar a Configuração de Aplicativos do A
 description: Neste guia de início rápido, crie um aplicativo Java Spring com a Configuração de Aplicativos do Azure para centralizar o armazenamento e o gerenciamento de configurações de aplicativo separadas do seu código.
 services: azure-app-configuration
 documentationcenter: ''
-author: lisaguthrie
-manager: maiye
+author: AlexandraKemperMS
 editor: ''
 ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.date: 04/18/2020
 ms.custom: devx-track-java
-ms.author: lcozzens
-ms.openlocfilehash: 10b38d5c5802ec4f6bc33b15b3ddef12e8256a78
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.author: alkemper
+ms.openlocfilehash: 40c8fae292f465b3ecc8778a21e4903bdf423a3a
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88586437"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932023"
 ---
 # <a name="quickstart-create-a-java-spring-app-with-azure-app-configuration"></a>Início Rápido: Criar um aplicativo Java Spring com a Configuração de Aplicativos do Azure
 
@@ -25,14 +24,14 @@ Neste guia de início rápido, você incorpora a Configuração de Aplicativos d
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Assinatura do Azure - [criar uma gratuitamente](https://azure.microsoft.com/free/)
-- Um [JDK (Java Development Kit)](https://docs.microsoft.com/java/azure/jdk) com suporte na versão 8.
+- Um [JDK (Java Development Kit)](/java/azure/jdk) com suporte na versão 8.
 - [Apache Maven](https://maven.apache.org/download.cgi), versão 3.0 ou posterior.
 
 ## <a name="create-an-app-configuration-store"></a>Criar um repositório de Configuração de Aplicativos
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Selecione **Gerenciador de Configurações** >  **+ Criar** > **Chave-valor** para adicionar os seguintes pares chave-valor:
+7. Selecione **Gerenciador de Configurações** >  **+ Criar** > **Chave-valor** para adicionar os seguintes pares chave-valor:
 
     | Chave | Valor |
     |---|---|
@@ -40,7 +39,7 @@ Neste guia de início rápido, você incorpora a Configuração de Aplicativos d
 
     Deixe **Rótulo** e **Tipo de Conteúdo** vazios por enquanto.
 
-7. Escolha **Aplicar**.
+8. Escolha **Aplicar**.
 
 ## <a name="create-a-spring-boot-app"></a>Criar um aplicativo Spring Boot
 
@@ -188,7 +187,7 @@ Use o [Spring Initializr](https://start.spring.io/) para criar um novo projeto S
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste início rápido, você criou um repositório de Configuração de Aplicativos e o usou com um aplicativo Java Spring. Para obter mais informações, consulte [Spring no Azure](https://docs.microsoft.com/java/azure/spring-framework/). Para saber como habilitar o aplicativo Java Spring a atualizar dinamicamente as configurações, prossiga para o próximo tutorial.
+Neste início rápido, você criou um repositório de Configuração de Aplicativos e o usou com um aplicativo Java Spring. Para obter mais informações, consulte [Spring no Azure](/java/azure/spring-framework/). Para saber como habilitar o aplicativo Java Spring a atualizar dinamicamente as configurações, prossiga para o próximo tutorial.
 
 > [!div class="nextstepaction"]
 > [Habilitar configuração dinâmica](./enable-dynamic-configuration-java-spring-app.md)

@@ -6,13 +6,13 @@ ms.service: virtual-machines-windows
 ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
-ms.openlocfilehash: 4e62fd43c062d9d33292eac36a16d809bc926c98
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: ef5cddc131e25a1966ca86c3c8650452f73be69e
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009827"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879673"
 ---
 # <a name="azure-security-baseline-for-windows-virtual-machines"></a>Linha de base de segurança do Azure para Máquinas Virtuais do Windows
 
@@ -32,7 +32,7 @@ Para obter mais informações, consulte [Visão geral sobre linhas de base de se
 
 Como alternativa, se você tiver um caso de uso específico para um firewall centralizado, o Firewall do Azure também poderá ser usado para atender a esses requisitos.
 
-* [Redes virtuais e máquinas virtuais no Azure](./network-overview.md)
+* [Redes virtuais e máquinas virtuais no Azure](../network-overview.md)
 
 * [Como criar uma Rede Virtual](../../virtual-network/quick-create-portal.md)
 
@@ -76,11 +76,11 @@ Você também pode implantar o WAF (firewall do aplicativo Web) do Azure na fren
 
 Você pode usar o acesso à rede just in time da central de segurança do Azure para limitar a exposição de Máquinas Virtuais do Windows aos endereços IP aprovados por um período limitado. Além disso, use a proteção de rede adaptável da central de segurança do Azure para recomendar configurações de NSG que limitam portas e IPs de origem com base no tráfego real e na inteligência contra ameaças.
 
-* [Como configurar a proteção contra DDoS](../../virtual-network/manage-ddos-protection.md)
+* [Como configurar a proteção contra DDoS](../../ddos-protection/manage-ddos-protection.md)
 
 * [Como implantar o Firewall do Azure](../../firewall/tutorial-firewall-deploy-portal.md)
 
-* [Compreender a inteligência contra ameaças integrada da Central de Segurança do Azure](../../security-center/threat-protection.md)
+* [Compreender a inteligência contra ameaças integrada da Central de Segurança do Azure](../../security-center/azure-defender.md)
 
 * [Entender a proteção de rede adaptável da central de segurança do Azure](../../security-center/security-center-adaptive-network-hardening.md)
 
@@ -146,7 +146,7 @@ Você pode usar o acesso à rede just in time da central de segurança do Azure 
 
 * [Como configurar e gerenciar o Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
-* [Exemplos de Azure Policy para rede](/azure/governance/policy/samples/#network)
+* [Exemplos de Azure Policy para rede](../../governance/policy/samples/built-in-policies.md#network)
 
 * [Como criar um blueprint do Azure](../../governance/blueprints/create-blueprint-portal.md)
 
@@ -180,7 +180,7 @@ Use Azure Policy para validar (e/ou corrigir) as configurações do recurso de r
 
 * [Como configurar e gerenciar o Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
-* [Exemplos de Azure Policy para rede](/azure/governance/policy/samples/#network)
+* [Exemplos de Azure Policy para rede](../../governance/policy/samples/built-in-policies.md#network)
 
 **Monitoramento da central de segurança do Azure**: não disponível
 
@@ -252,7 +252,7 @@ Se sua organização quiser manter os dados do log de eventos de segurança da m
 
 **Orientação**: Verifique se as contas de armazenamento ou os espaços de trabalho log Analytics usados para armazenar logs de máquina virtual têm o período de retenção de log definido de acordo com os regulamentos de conformidade da sua organização.
 
-* [Como monitorar máquinas virtuais no Azure](./monitor.md)
+* [Como monitorar máquinas virtuais no Azure](../../azure-monitor/insights/monitor-vm-azure.md)
 
 * [Como configurar Log Analytics período de retenção do espaço de trabalho](../../azure-monitor/platform/manage-cost-storage.md)
 
@@ -274,7 +274,7 @@ Como alternativa, você pode habilitar o e os dados integrados para o Azure Sent
 
 * [Como integrar o Azure Sentinel](../../sentinel/quickstart-onboard.md)
 
-* [Compreender o workspace do Log Analytics](../../azure-monitor/log-query/get-started-portal.md)
+* [Compreender o workspace do Log Analytics](../../azure-monitor/log-query/log-analytics-tutorial.md)
 
 * [Como realizar consultas personalizadas no Azure Monitor](../../azure-monitor/log-query/get-started-queries.md)
 
@@ -392,7 +392,7 @@ Como alternativa, você pode habilitar o e os dados integrados para o Azure Sent
 
 **Diretrizes**: Use PAWs (estações de trabalho com acesso privilegiado) com a MFA configurada para fazer logon e configurar recursos do Azure.
 
-* [Saiba mais sobre Estações de Trabalho com Acesso Privilegiado](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+* [Saiba mais sobre Estações de Trabalho com Acesso Privilegiado](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 * [Como habilitar a MFA no Azure](../../active-directory/authentication/howto-mfa-getstarted.md)
 
@@ -452,13 +452,13 @@ Como alternativa, você pode habilitar o e os dados integrados para o Azure Sent
 
 **Orientação**: definir configurações de diagnóstico para Azure Active Directory enviar os logs de auditoria e os logs de entrada para um espaço de trabalho log Analytics. Além disso, use Azure Monitor para examinar os logs e executar consultas em dados de log de máquinas virtuais do Azure.
 
-* [Compreender o workspace do Log Analytics](../../azure-monitor/log-query/get-started-portal.md)
+* [Compreender o workspace do Log Analytics](../../azure-monitor/log-query/log-analytics-tutorial.md)
 
 * [Como integrar os logs de atividades do Azure ao Azure Monitor](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 * [Como realizar consultas personalizadas no Azure Monitor](../../azure-monitor/log-query/get-started-queries.md)
 
-* [Como monitorar máquinas virtuais no Azure](./monitor.md)
+* [Como monitorar máquinas virtuais no Azure](../../azure-monitor/insights/monitor-vm-azure.md)
 
 **Monitoramento da central de segurança do Azure**: não disponível
 
@@ -508,7 +508,7 @@ Como alternativa, você pode habilitar o e os dados integrados para o Azure Sent
 
 * [Como criar assinaturas adicionais do Azure](../../cost-management-billing/manage/create-subscription.md)
 
-* [Como criar Grupos de Gerenciamento](../../governance/management-groups/create.md)
+* [Como criar Grupos de Gerenciamento](../../governance/management-groups/create-management-group-portal.md)
 
 * [Como criar e usar marcas](../../azure-resource-manager/management/tag-resources.md)
 
@@ -560,7 +560,7 @@ A Microsoft usa o protocolo TLS para proteger dados quando está viajando entre 
 
 **Orientação**: usando o Azure RBAC (controle de acesso baseado em função), você pode separar as tarefas dentro de sua equipe e conceder apenas a quantidade de acesso aos usuários em sua VM que eles precisam para executar seus trabalhos. Em vez de apresentar todas as permissões irrestritas na VM, você pode permitir que apenas determinadas ações. Você pode configurar o controle de acesso para a VM no portal do Azure, usando a CLI do Azure ou o Azure PowerShell.
 
-* [Azure RBAC](../../role-based-access-control/overview.md)
+* [RBAC do Azure](../../role-based-access-control/overview.md)
 
 * [Funções internas do Azure](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
 
@@ -580,7 +580,7 @@ A Microsoft usa o protocolo TLS para proteger dados quando está viajando entre 
 
 **Diretrizes**: discos virtuais em máquinas virtuais do Windows (VM) são criptografados em repouso usando a criptografia do lado do servidor ou o Ade (Azure Disk Encryption). O Azure Disk Encryption aproveita o recurso BitLocker do Windows para criptografar discos gerenciados com chaves gerenciadas pelo cliente na VM convidada. A criptografia do lado do servidor com chaves gerenciadas pelo cliente aprimora o ADE, permitindo usar quaisquer tipos de sistema operacional e imagens para as VMs, criptografando dados no serviço de armazenamento.
 
-* [Criptografia do lado do servidor de discos gerenciados pelo Azure](./disk-encryption.md)
+* [Criptografia do lado do servidor de discos gerenciados pelo Azure](../disk-encryption.md)
 
 * [Azure Disk Encryption para VMs do Windows](./disk-encryption-overview.md)
 
@@ -596,7 +596,7 @@ A Microsoft usa o protocolo TLS para proteger dados quando está viajando entre 
 
 * [Como criar alertas para eventos do log de atividades do Azure](../../azure-monitor/platform/alerts-activity-log.md)
 
-* [Registro em log da Análise de Armazenamento do Azure](../../storage/common/storage-analytics-logging.md)
+* [Log da análise do Armazenamento do Azure](../../storage/common/storage-analytics-logging.md)
 
 **Monitoramento da central de segurança do Azure**: não disponível
 
@@ -610,7 +610,7 @@ A Microsoft usa o protocolo TLS para proteger dados quando está viajando entre 
 
 **Orientação**: siga as recomendações da central de segurança do Azure sobre como executar avaliações de vulnerabilidade em suas máquinas virtuais do Azure. Use a solução recomendada de segurança do Azure ou de terceiros para executar avaliações de vulnerabilidade para suas máquinas virtuais.
 
-* [Como implementar recomendações de avaliação de vulnerabilidade da central de segurança do Azure](../../security-center/security-center-vulnerability-assessment-recommendations.md)
+* [Como implementar recomendações de avaliação de vulnerabilidade da central de segurança do Azure](../../security-center/deploy-vulnerability-assessment-vm.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -620,9 +620,9 @@ A Microsoft usa o protocolo TLS para proteger dados quando está viajando entre 
 
 **Diretrizes**: Use a solução de gerenciamento de atualizações do Azure para gerenciar atualizações e patches para suas máquinas virtuais. Gerenciamento de Atualizações se baseia no repositório de atualização configurado localmente para corrigir os sistemas Windows com suporte. Ferramentas como System Center Updates Publisher (Updates Publisher) permitem que você publique atualizações personalizadas no Windows Server Update Services (WSUS). Esse cenário permite que Gerenciamento de Atualizações patch de máquinas que usam Configuration Manager como seu repositório de atualizações com software de terceiros.
 
-* [Solução Gerenciamento de Atualizações no Azure](../../automation/update-management/update-mgmt-overview.md)
+* [Solução Gerenciamento de Atualizações no Azure](../../automation/update-management/overview.md)
 
-* [Gerenciar atualizações e patches para suas VMs](../../automation/update-management/update-mgmt-manage-updates-for-vm.md)
+* [Gerenciar atualizações e patches para suas VMs](../../automation/update-management/manage-updates-for-vm.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -632,9 +632,9 @@ A Microsoft usa o protocolo TLS para proteger dados quando está viajando entre 
 
 **Orientação**: você pode usar uma solução de gerenciamento de patches de terceiros. Você pode usar a solução de Gerenciamento de Atualizações do Azure para gerenciar atualizações e patches para suas máquinas virtuais. Gerenciamento de Atualizações se baseia no repositório de atualização configurado localmente para corrigir os sistemas Windows com suporte. Ferramentas como System Center Updates Publisher (Updates Publisher) permitem que você publique atualizações personalizadas no Windows Server Update Services (WSUS). Esse cenário permite que Gerenciamento de Atualizações patch de máquinas que usam Configuration Manager como seu repositório de atualizações com software de terceiros.
 
-* [Solução Gerenciamento de Atualizações no Azure](../../automation/update-management/update-mgmt-overview.md)
+* [Solução Gerenciamento de Atualizações no Azure](../../automation/update-management/overview.md)
 
-* [Gerenciar atualizações e patches para suas VMs](../../automation/update-management/update-mgmt-manage-updates-for-vm.md)
+* [Gerenciar atualizações e patches para suas VMs](../../automation/update-management/manage-updates-for-vm.md)
 
 **Monitoramento da central de segurança do Azure**: não disponível
 
@@ -692,7 +692,7 @@ A Microsoft usa o protocolo TLS para proteger dados quando está viajando entre 
 
 * [Como criar assinaturas adicionais do Azure](../../cost-management-billing/manage/create-subscription.md)
 
-* [Como criar Grupos de Gerenciamento](../../governance/management-groups/create.md)
+* [Como criar Grupos de Gerenciamento](../../governance/management-groups/create-management-group-portal.md)
 
 * [Como criar e usar marcas](../../azure-resource-manager/management/tag-resources.md)
 
@@ -750,7 +750,7 @@ Além de usar Controle de Alterações para o monitoramento de aplicativos de so
 
 * [Uma introdução à Automação do Azure](../../automation/automation-intro.md)
 
-* [Controlar alterações no ambiente com a solução Controle de Alterações](../../automation/change-tracking.md)
+* [Controlar alterações no ambiente com a solução Controle de Alterações](../../automation/change-tracking/overview.md)
 
 * [Visão geral da configuração do estado de automação do Azure](../../automation/automation-dsc-overview.md)
 
@@ -775,7 +775,7 @@ Além de usar Controle de Alterações para o monitoramento de aplicativos de so
 
 * [Como configurar e gerenciar o Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
-* [Como negar um tipo de recurso específico com o Azure Policy](/azure/governance/policy/samples/not-allowed-resource-types)
+* [Como negar um tipo de recurso específico com o Azure Policy](../../governance/policy/samples/index.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -817,13 +817,13 @@ Além de usar Controle de Alterações para o monitoramento de aplicativos de so
 
 **Orientação**: aplicativos de alto risco implantados em seu ambiente do Azure podem ser isolados usando rede virtual, sub-rede, assinaturas, grupos de gerenciamento, etc. e suficientemente protegidos com um firewall do Azure, o WAF (firewall do aplicativo Web) ou o NSG (grupo de segurança de rede).
 
-* [Redes virtuais e máquinas virtuais no Azure](./network-overview.md)
+* [Redes virtuais e máquinas virtuais no Azure](../network-overview.md)
 
 * [Visão geral do Firewall do Azure](../../firewall/overview.md)
 
 * [Visão geral de Firewall de Aplicativo Web](../../web-application-firewall/overview.md)
 
-* [Visão geral da segurança da rede](../../virtual-network/security-overview.md)
+* [Visão geral da segurança da rede](../../virtual-network/network-security-groups-overview.md)
 
 * [Visão geral da rede virtual do Azure](../../virtual-network/virtual-networks-overview.md)
 
@@ -845,7 +845,7 @@ Além de usar Controle de Alterações para o monitoramento de aplicativos de so
 
 * [Como configurar e gerenciar o Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
-* [Informações sobre como baixar o modelo de VM](./download-template.md)
+* [Informações sobre como baixar o modelo de VM](/previous-versions/azure/virtual-machines/windows/download-template)
 
 **Monitoramento da central de segurança do Azure**: não disponível
 
@@ -889,11 +889,11 @@ Além de usar Controle de Alterações para o monitoramento de aplicativos de so
 
 Para a maioria dos cenários, os modelos de VM base da Microsoft combinados com a configuração de estado desejado da automação do Azure podem ajudar na reunião e manutenção dos requisitos de segurança.
 
-* [Informações sobre como baixar o modelo de VM](./download-template.md)
+* [Informações sobre como baixar o modelo de VM](/previous-versions/azure/virtual-machines/windows/download-template)
 
 * [Informações sobre a criação de modelos do ARM](./ps-template.md)
 
-* [Como carregar um VHD de VM personalizado para o Azure](/azure-stack/operator/azure-stack-add-vm-image?view=azs-1910)
+* [Como carregar um VHD de VM personalizado para o Azure](/azure-stack/operator/azure-stack-add-vm-image?view=azs-1910&preserve-view=true)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -969,11 +969,13 @@ Para a maioria dos cenários, os modelos de VM base da Microsoft combinados com 
 
 **Diretrizes**: Use identidade de serviço gerenciada em conjunto com Azure Key Vault para simplificar e proteger o gerenciamento de segredos para seus aplicativos de nuvem.
 
-* [Como integrar com identidades gerenciadas pelo Azure](../../azure-app-configuration/howto-integrate-azure-managed-service-identity.md)
+* [Como integrar com identidades de Azure-Managed](../../azure-app-configuration/howto-integrate-azure-managed-service-identity.md)
 
-* [Como criar um Key Vault](../../key-vault/secrets/quick-create-portal.md)
+* [Como criar um Key Vault](../../key-vault/general/quick-create-portal.md)
 
-* [Como fornecer Key Vault autenticação com uma identidade gerenciada](../../key-vault/general/managed-identity.md)
+* [Como autenticar-se no Key Vault](../../key-vault/general/authentication.md)
+
+* [Como atribuir uma política de acesso de Key Vault](../../key-vault/general/assign-access-policy-portal.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -1179,9 +1181,9 @@ Além disso, marque claramente as assinaturas (por exemplo, produção, não pro
 
 **Diretrizes**: siga as regras de envolvimento da Microsoft para garantir que seus testes de penetração não sejam violações das políticas da Microsoft. Use a estratégia da Microsoft e a execução de equipes vermelhas e testes de penetração de sites ativos em infraestrutura de nuvem, serviços e aplicativos gerenciados pela Microsoft.
 
-* [Regras de teste de penetração do Engagement](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
+* [Regras de participação para testes de penetração](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
-* [Microsoft Cloud o agrupamento vermelho](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+* [Equipes Vermelhas do Microsoft Cloud](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
 **Monitoramento da central de segurança do Azure**: não aplicável
 

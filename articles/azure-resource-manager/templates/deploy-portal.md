@@ -2,24 +2,24 @@
 title: Implantar recursos com portal do Azure
 description: Use portal do Azure e o gerenciamento de recursos do Azure para implantar seus recursos em um grupo de recursos em sua assinatura.
 ms.topic: conceptual
-ms.date: 06/27/2019
-ms.openlocfilehash: 31f80eb617820def871633dac1541c7dc3bed691
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 10/22/2020
+ms.openlocfilehash: d8467bb4e51fc4e6ba89a84f1260a8d2743758d2
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85255255"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028668"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-portal"></a>Implantar recursos com modelos ARM e portal do Azure
 
-Saiba como usar o [portal do Azure](https://portal.azure.com) com [modelos de Azure Resource Manager (ARM)](overview.md) para implantar os recursos do Azure. Para saber mais sobre como gerenciar seus recursos, consulte [gerenciar recursos do Azure usando o portal do Azure](../management/manage-resources-portal.md).
+Saiba como usar o [portal do Azure](https://portal.azure.com) com [modelos de Azure Resource Manager (modelos ARM)](overview.md) para implantar os recursos do Azure. Para saber mais sobre como gerenciar seus recursos, consulte [gerenciar recursos do Azure usando o portal do Azure](../management/manage-resources-portal.md).
 
 A implantação de recursos do Azure usando o portal do Azure geralmente envolve duas etapas:
 
 - Crie um grupos de recursos.
 - Implante recursos no grupo de recursos.
 
-Além disso, você também pode implantar um modelo do ARM para criar recursos do Azure.
+Além disso, você pode criar um modelo de ARM personalizado para implantar recursos do Azure.
 
 Este artigo mostra os dois métodos.
 
@@ -37,7 +37,7 @@ Este artigo mostra os dois métodos.
 
     - **Assinatura**: Selecione uma assinatura do Azure.
     - **Grupo de recursos**: dê um nome ao grupo de recursos.
-    - **Região**: especifique um local do Azure. É aí que o grupo de recursos armazena metadados sobre os recursos. Por motivos de conformidade, talvez você queira especificar onde os metadados são armazenados. Em geral, é recomendável que você especifique um local em que a maioria de seus recursos residirá. Usar o mesmo local pode simplificar seu modelo.
+    - **Região**: especifique um local do Azure. Esse local é onde o grupo de recursos armazena metadados sobre os recursos. Por motivos de conformidade, talvez você queira especificar onde os metadados são armazenados. Em geral, recomendamos que você especifique um local onde a maioria dos seus recursos será. Usar o mesmo local pode simplificar seu modelo.
 
    ![Definir valores de grupo](./media/deploy-portal/set-group-properties.png)
 
@@ -61,7 +61,7 @@ Depois de criar um grupo de recursos, você pode implantar recursos no grupo por
 
    ![Criar grupo de recursos](./media/deploy-portal/select-existing-group.png)
 
-   Como alternativa, você pode optar por criar um grupo de recursos ao implantar seus recursos. Selecione **Criar novo** e dê um nome ao grupo de recursos.
+   Você pode optar por criar um grupo de recursos ao implantar seus recursos. Selecione **Criar novo** e dê um nome ao grupo de recursos.
 
 1. Sua implantação será iniciada. A implantação pode levar vários minutos. Alguns recursos levam mais tempo do que outros recursos. Quando a implantação for concluída, você verá uma notificação. Selecione **ir para o recurso** para abrir
 
@@ -70,6 +70,8 @@ Depois de criar um grupo de recursos, você pode implantar recursos no grupo por
 1. Após implantar seus recursos, adicione mais deles ao grupo de recursos selecionando **Adicionar**.
 
    ![Adicionar recurso](./media/deploy-portal/add-resource.png)
+
+Embora você não o tenha visto, o portal usava um modelo ARM para implantar os recursos selecionados. Você pode encontrar o modelo do histórico de implantação. Para obter mais informações, consulte [Exportar modelo após a implantação](export-template-portal.md#export-template-after-deployment).
 
 ## <a name="deploy-resources-from-custom-template"></a>Implantar recursos de um modelo personalizado
 
@@ -85,9 +87,9 @@ Se quiser executar uma implantação, mas não usar nenhum dos modelos no Market
 1. Selecione **Criar**.
 1. Você verá várias opções para criar um modelo:
 
-    - Crie **seu próprio modelo no editor**: Crie um modelo usando o editor de modelos de Portal.  O editor é capaz de adicionar um esquema de modelo de recurso.
-    - **Modelos comuns**: há quatro modelos comuns para criar uma máquina virtual Linux, uma máquina virtual do Windows, um aplicativo Web e um banco de dados no banco de dados SQL do Azure.
-    - **Carregar um modelo de início rápido do GitHub**: use [modelos de início rápido](https://azure.microsoft.com/resources/templates/)existentes.
+    - **Crie seu próprio modelo no editor**: Crie seu próprio modelo no editor de modelos de Portal.
+    - **Modelos comuns**: Selecione entre soluções comuns.
+    - **Carregar um modelo de início rápido do GitHub**: selecione em [modelos de início rápido](https://azure.microsoft.com/resources/templates/).
 
    ![Opções de exibição](./media/deploy-portal/see-options.png)
 
@@ -100,11 +102,11 @@ Se quiser executar uma implantação, mas não usar nenhum dos modelos no Market
     - **Selecionar modelo**: implantar o modelo.
     - **Editar modelo**: Edite o modelo de início rápido antes de implantá-lo.
 
-1. Selecione **Editar modelo** para explorar o editor de modelo de Portal. O modelo é carregado no editor. Observe que há dois parâmetros: **storageAccountType** e **Location**.
+1. Selecione **Editar modelo** para explorar o editor de modelo de Portal. O modelo é carregado no editor. Observe que há dois parâmetros: `storageAccountType` e `location` .
 
    ![Criar modelo](./media/deploy-portal/show-json.png)
 
-1. Faça uma alteração secundária no modelo. Por exemplo, atualize a variável **storageAccountName** para:
+1. Faça uma alteração secundária no modelo. Por exemplo, atualize a `storageAccountName` variável para:
 
     ```json
     "storageAccountName": "[concat('azstore', uniquestring(resourceGroup().id))]"

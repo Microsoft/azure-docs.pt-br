@@ -15,14 +15,17 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 93b449636282568ab614b42a46d939935f576895
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 70db1ff63e3c2a7e7806e5ef3c55b4e4af4a5259
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021299"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89263562"
 ---
 # <a name="inserting-ads-on-the-client-side"></a>Inserção de anúncios no lado do cliente
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 Este artigo contém informações sobre como inserir vários tipos de anúncios no lado do cliente.
 
 Para obter informações sobre o suporte a legendagem oculta e anúncios em vídeos de transmissão ao vivo, consulte [Padrões de legendagem oculta e inserção de anúncios com suporte](media-services-live-streaming-with-onprem-encoders.md#cc_and_ads).

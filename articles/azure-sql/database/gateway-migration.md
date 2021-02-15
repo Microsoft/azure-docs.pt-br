@@ -4,29 +4,81 @@ description: O artigo fornece um aviso aos usuários sobre a migração de ender
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: service
-ms.custom: sqldbrb=1 
+ms.custom: sqldbrb=1
 ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: af5486630eb89de198b6ed2975a919b04b01a902
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 8fa61855b5647c1caefd939af17b70c9d08c2f8f
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88507489"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100517817"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Migração de tráfego do banco de dados SQL do Azure para gateways mais recentes
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 À medida que a infraestrutura do Azure melhora, a Microsoft atualizará periodicamente o hardware para garantir que forneceremos a melhor experiência possível para o cliente. Nos próximos meses, planejamos adicionar gateways criados em gerações de hardware mais recentes, migrar o tráfego para eles e eventualmente descomissionar os gateways criados em um hardware mais antigo em algumas regiões.  
 
-Os clientes serão notificados por email e na portal do Azure bem antes de qualquer alteração nos gateways disponíveis em cada região. As informações mais atualizadas serão mantidas na tabela [endereços IP do gateway do banco de dados SQL do Azure](connectivity-architecture.md#gateway-ip-addresses) .
+Os clientes serão notificados por meio de notificações de integridade do serviço com antecedência sobre qualquer alteração nos gateways disponíveis em cada região. Os clientes podem [usar o portal do Azure para configurar alertas do log de atividades](https://docs.microsoft.com/azure/service-health/alerts-activity-log-service-notifications-portal).
+
+As informações mais atualizadas serão mantidas na tabela [endereços IP do gateway do banco de dados SQL do Azure](connectivity-architecture.md#gateway-ip-addresses) .
 
 ## <a name="status-updates"></a>Atualizações de status
 
 # <a name="in-progress"></a>[Em Andamento](#tab/in-progress-ip)
+## <a name="march-2021"></a>Março de 2021
+Os seguintes gateways SQL em várias regiões estão no processo de serem desativados:
+
+- Sul do Brasil: 104.41.11.5
+- Ásia Oriental: 191.234.2.139
+- Leste dos EUA: 191.238.6.43
+- Leste do Japão: 191.237.240.43
+- Oeste do Japão: 191.238.68.11
+- Europa Setentrional: 191.235.193.75
+- EUA Central do Sul: 23.98.162.75
+- Sudeste da Ásia: 23.100.117.95
+- Europa Ocidental: 191.237.232.75
+- Oeste dos EUA: 23.99.34.75
+
+Nenhum impacto do cliente é previsto, pois esses gateways (em execução em hardware mais antigo) não estão roteando nenhum tráfego do cliente. Os endereços IP para esses gateways devem ser desativados em 15 de março de 2021.
+
+## <a name="february-2021"></a>Fevereiro de 2021
+Novos gateways do SQL estão sendo adicionados às seguintes regiões:
+
+- EUA Central: 13.89.169.20
+
+Esses gateways do SQL devem começar a aceitar o tráfego do cliente em 28 de fevereiro de 2021.
+
+## <a name="january-2021"></a>Janeiro de 2021
+Novos gateways do SQL estão sendo adicionados às seguintes regiões:
+
+- Austrália Central: 20.36.104.6, 20.36.104.7 
+- Austrália Central 2:20.36.112.6 
+- Sul do Brasil: 191.234.144.16, 191.234.152.3 
+- Leste do Canadá: 40.69.105.9, 40.69.105.10
+- Índia central: 104.211.86.30, 104.211.86.31 
+- Ásia Oriental: 13.75.32.14 
+- França central: 40.79.137.8, 40.79.145.12 
+- Sul da França: 40.79.177.10, 40.79.177.12
+- Coreia central: 52.231.17.22, 52.231.17.23
+- Índia ocidental: 104.211.144.4
+
+Esses gateways do SQL devem começar a aceitar o tráfego do cliente em 31 de janeiro de 2021.
+
+# <a name="completed"></a>[Concluído](#tab/completed-ip)
+As seguintes migrações de gateway estão concluídas: 
+
+### <a name="october-2020"></a>Outubro de 2020
+
+Novos gateways do SQL estão sendo adicionados às seguintes regiões:
+
+- Centro-oeste da Alemanha: 51.116.240.0, 51.116.248.0
+
+Esses gateways do SQL devem começar a aceitar o tráfego do cliente em 12 de outubro de 2020. 
+
 ### <a name="september-2020"></a>Setembro de 2020
 Novos gateways do SQL estão sendo adicionados às regiões a seguir. Esses gateways do SQL devem começar a aceitar o tráfego do cliente em **15 de setembro de 2020**:
 
@@ -59,12 +111,9 @@ Novos gateways do SQL estão sendo adicionados às regiões a seguir. Esses gate
 - Europa Ocidental: 52.236.184.163 
 - EUA Central do Sul: 20.45.121.1, 20.49.88.1 
 
-Os gateways SQL existentes começarão a aceitar o tráfego nas regiões a seguir. Esses gateways do SQL devem começar a aceitar o tráfego do cliente em **1 de setembro de 2020** :
+Os gateways SQL existentes começarão a aceitar o tráfego nas regiões a seguir. Esses gateways do SQL devem começar a aceitar o tráfego do cliente em **1 de setembro de 2020**:
 - Leste do Japão: 40.79.184.8, 40.79.192.5
 
-# <a name="completed"></a>[Concluído](#tab/completed-ip)
-
-As seguintes migrações de gateway estão concluídas: 
 
 ### <a name="august-2020"></a>Agosto de 2020
 
@@ -77,7 +126,7 @@ Novos gateways do SQL estão sendo adicionados às seguintes regiões:
 Esses gateways do SQL devem começar a aceitar o tráfego do cliente em 10 de agosto de 2020. 
 
 ### <a name="october-2019"></a>Outubro de 2019
-- Sul do Brasil
+- Brazil South
 - Oeste dos EUA
 - Europa Ocidental
 - Leste dos EUA
@@ -87,7 +136,7 @@ Esses gateways do SQL devem começar a aceitar o tráfego do cliente em 10 de ag
 - Norte da Europa
 - Centro-Norte dos EUA
 - Oeste do Japão
-- Leste do Japão
+- Japan East
 - Leste dos EUA 2
 - Leste da Ásia
 
@@ -100,7 +149,8 @@ Você poderá ser afetado se:
 
 - O endereço IP embutido em código para qualquer gateway específico em seu firewall local
 - Ter qualquer sub-rede usando Microsoft. SQL como um ponto de extremidade de serviço, mas não pode se comunicar com os endereços IP do gateway
-- Usar a [configuração com redundância de zona](high-availability-sla.md#zone-redundant-configuration) para seu banco de dados
+- Usar a [configuração com redundância de zona para a camada de uso geral](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)
+- Usar a [configuração com redundância de zona para as camadas premium & Business Critical](high-availability-sla.md#premium-and-business-critical-service-tier-zone-redundant-availability)
 
 Você não será afetado se tiver:
  

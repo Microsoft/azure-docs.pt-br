@@ -1,21 +1,23 @@
 ---
-title: Como usar uma identidade gerenciada atribuída pelo sistema para acessar dados de Azure Cosmos DB
+title: Como usar uma identidade gerenciada atribuída pelo sistema da VM do Linux para acessar os dados do Azure Cosmos DB
 description: Saiba como configurar Azure Active Directory uma identidade gerenciada (identidade de serviço gerenciado) atribuída pelo sistema (Azure AD) para acessar chaves de Azure Cosmos DB.
 author: j-patrick
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 03/20/2020
 ms.author: justipat
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 25ec74f3638ce857e4472d73a51e45f24c4df5ec
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 4d9845fad8c9013bd20499c45a8d1714e30e9dbf
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88997720"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98927417"
 ---
 # <a name="use-system-assigned-managed-identities-to-access-azure-cosmos-db-data"></a>Usar identidades gerenciadas atribuídas pelo sistema para acessar dados de Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Neste artigo, você vai configurar uma solução *robusta de rotação de chave independente* para acessar chaves de Azure Cosmos DB usando [identidades gerenciadas](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md). O exemplo neste artigo usa Azure Functions, mas você pode usar qualquer serviço que ofereça suporte a identidades gerenciadas. 
 
@@ -29,7 +31,7 @@ Nesta etapa, você atribuirá uma identidade gerenciada atribuída pelo sistema 
 
 1. No [portal do Azure](https://portal.azure.com/), abra o painel de **funções do Azure** e vá para seu aplicativo de funções. 
 
-1. Abra a **Platform features**  >  guia**identidade** de recursos da plataforma: 
+1. Abra a   >  guia **identidade** de recursos da plataforma: 
 
    :::image type="content" source="./media/managed-identity-based-authentication/identity-tab-selection.png" alt-text="Captura de tela mostrando recursos de plataforma e opções de identidade para o aplicativo de funções.":::
 
@@ -47,7 +49,7 @@ Nesta etapa, você atribuirá uma função à identidade gerenciada atribuída p
 |[Função de leitor de conta do Cosmos DB](../role-based-access-control/built-in-roles.md#cosmos-db-account-reader-role)|Pode ler dados de contas do Azure Cosmos DB. Permite a recuperação de chaves de leitura. |
 
 > [!IMPORTANT]
-> O suporte para controle de acesso baseado em função no Azure Cosmos DB se aplica somente às operações do plano de controle. As operações do plano de dados são protegidas por chaves mestras ou tokens de recurso. Para saber mais, confira o artigo [acesso seguro a dados](secure-access-to-data.md) .
+> O suporte para controle de acesso baseado em função no Azure Cosmos DB se aplica somente às operações do plano de controle. As operações do plano de dados são protegidas por chaves primárias ou tokens de recurso. Para saber mais, confira o artigo [acesso seguro a dados](secure-access-to-data.md) .
 
 > [!TIP] 
 > Ao atribuir funções, atribua apenas o acesso necessário. Se o serviço exigir apenas a leitura de dados, atribua a função de **leitor de conta Cosmos DB** à identidade gerenciada. Para obter mais informações sobre a importância do acesso de privilégios mínimos, consulte o artigo [menor exposição de contas com privilégios](../security/fundamentals/identity-management-best-practices.md#lower-exposure-of-privileged-accounts) .
@@ -128,7 +130,7 @@ namespace Monitor
 }
 ```
 
-Você usará a biblioteca [Microsoft. Azure. Services. AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) para obter o token de identidade gerenciado atribuído pelo sistema. Para saber outras maneiras de obter o token e obter mais informações sobre a `Microsoft.Azure.Service.AppAuthentication` biblioteca, consulte o artigo de [autenticação de serviço a serviço](../key-vault/general/service-to-service-authentication.md) .
+Você usará a biblioteca [Microsoft. Azure. Services. AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) para obter o token de identidade gerenciado atribuído pelo sistema. Para saber outras maneiras de obter o token e obter mais informações sobre a `Microsoft.Azure.Service.AppAuthentication` biblioteca, consulte o artigo de [autenticação de serviço a serviço](/dotnet/api/overview/azure/service-to-service-authentication) .
 
 
 ```csharp
@@ -212,7 +214,7 @@ namespace Monitor
 }
 ```
 
-Agora você está pronto para [implantar seu aplicativo de funções](../azure-functions/functions-create-first-function-vs-code.md).
+Agora você está pronto para [implantar seu aplicativo de funções](../azure-functions/create-first-function-vs-code-csharp.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

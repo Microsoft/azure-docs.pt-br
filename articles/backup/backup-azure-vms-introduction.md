@@ -3,12 +3,12 @@ title: Sobre o backup de VM do Azure
 description: Neste artigo, saiba como o serviço de backup do Azure faz backup de máquinas virtuais do Azure e como seguir as práticas recomendadas.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: f9da75a66d25896e8d977910e2eb7fbe6ea69ca1
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 691fe991ad141696c0c68e915d7225001a1befd0
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89014635"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98733563"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>Uma visão geral do backup de VM do Azure
 
@@ -51,7 +51,7 @@ Quando você faz backup de VMs do Azure com o Backup do Azure, máquinas virtuai
 
 **Criptografia** | **Detalhes** | **Suporte**
 --- | --- | ---
-**SSE** | Com o SSE, o armazenamento do Azure fornece criptografia em repouso criptografando automaticamente os dados antes de armazená-los. O armazenamento do Azure também descriptografa os dados antes de recuperá-los. O backup do Azure dá suporte a backups de VMs com dois tipos de Criptografia do Serviço de Armazenamento:<li> **SSE com chaves gerenciadas por plataforma**: essa criptografia é por padrão para todos os discos em suas VMs. Veja mais [aqui](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#platform-managed-keys).<li> **SSE com chaves gerenciadas pelo cliente**. Com o CMK, você gerencia as chaves usadas para criptografar os discos. Veja mais [aqui](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#customer-managed-keys). | O backup do Azure usa SSE para criptografia em repouso de VMs do Azure.
+**SSE** | Com o SSE, o armazenamento do Azure fornece criptografia em repouso criptografando automaticamente os dados antes de armazená-los. O armazenamento do Azure também descriptografa os dados antes de recuperá-los. O backup do Azure dá suporte a backups de VMs com dois tipos de Criptografia do Serviço de Armazenamento:<li> **SSE com chaves gerenciadas por plataforma**: essa criptografia é por padrão para todos os discos em suas VMs. Veja mais [aqui](../virtual-machines/disk-encryption.md#platform-managed-keys).<li> **SSE com chaves gerenciadas pelo cliente**. Com o CMK, você gerencia as chaves usadas para criptografar os discos. Veja mais [aqui](../virtual-machines/disk-encryption.md#customer-managed-keys). | O backup do Azure usa SSE para criptografia em repouso de VMs do Azure.
 **Criptografia de Disco do Azure** | O Azure Disk Encryption criptografa tanto o sistema operacional quanto os discos de dados para VMs do Azure.<br/><br/> O Azure Disk Encryption se integra com as chaves de criptografia do BitLocker (BEKs), que são protegidas em um cofre de chaves como segredos. O Azure Disk Encryption também se integra com Azure Key Vault chaves de criptografia de chave (KEKs). | O backup do Azure dá suporte ao backup de VMs do Azure gerenciadas e não gerenciadas criptografadas somente com o BEKs ou com o BEKs junto com KEKs.<br/><br/> É feito backup e criptografia de BEKs e KEKs.<br/><br/> Como o backup de KEKs e BEKs é feito, os usuários com as permissões necessárias podem restaurar chaves e segredos de volta para o cofre de chaves, se necessário. Esses usuários também podem recuperar a VM criptografada.<br/><br/> Chaves e segredos criptografados não podem ser lidos por usuários não autorizados ou pelo Azure.
 
 Para VMs do Azure gerenciadas e não gerenciadas, o backup dá suporte a ambas as VMs criptografadas com BEKs somente ou VMs criptografadas com BEKs junto com KEKs.
@@ -106,6 +106,13 @@ Esses cenários comuns podem afetar o tempo total de backup:
 - **Rotatividade de disco:** Se os discos protegidos que estão passando por backup incremental tiverem uma rotatividade diária de mais de 200 GB, o backup poderá levar muito tempo (mais de oito horas) para ser concluído.
 - **Versões de backup:** A versão mais recente do backup (conhecida como a versão de restauração instantânea) usa um processo mais otimizado do que a comparação de soma de verificação para identificar alterações. Mas se você estiver usando a restauração instantânea e tiver excluído um instantâneo de backup, o backup mudará para comparação de soma de verificação. Nesse caso, a operação de backup excederá 24 horas (ou falha).
 
+### <a name="restore-performance"></a>Desempenho de restauração
+
+Esses cenários comuns podem afetar o tempo total de restauração:
+
+- O tempo total de restauração depende das operações de entrada/saída por segundo (IOPS) e da taxa de transferência da conta de armazenamento.
+- O tempo total de restauração poderá ser afetado se a conta de armazenamento de destino for carregada com outras operações de leitura e gravação de aplicativo. Para melhorar a operação de restauração, selecione uma conta de armazenamento que não esteja carregada com outros dados de aplicativo.
+
 ## <a name="best-practices"></a>Práticas recomendadas
 
 Quando você está configurando backups da VM, sugerimos seguir estas práticas:
@@ -114,6 +121,7 @@ Quando você está configurando backups da VM, sugerimos seguir estas práticas:
 - Se você estiver restaurando VMs de um único cofre, é altamente recomendável usar [contas de armazenamento v2 de finalidade geral](../storage/common/storage-account-upgrade.md) diferentes para garantir que a conta de armazenamento de destino não seja limitada. Por exemplo, cada VM deve ter uma conta de armazenamento diferente. Por exemplo, se 10 VMs forem restauradas, use 10 contas de armazenamento diferentes.
 - Para o backup de VMs que estão usando o armazenamento Premium com restauração instantânea, é recomendável alocar *50%* de espaço livre do espaço de armazenamento total alocado, o que é necessário **apenas** para o primeiro backup. O espaço livre de 50% não é um requisito para backups após a conclusão do primeiro backup
 - O limite no número de discos por conta de armazenamento é relativo ao número de acessos nos discos por aplicativos em execução em uma VM de infraestrutura como serviço (IaaS). Como prática geral, se 5 a 10 discos ou mais estiverem presentes em uma única conta de armazenamento, equilibre a carga movendo alguns discos para contas de armazenamento separadas.
+- Para restaurar VMs com discos gerenciados usando o PowerShell, forneça o parâmetro adicional **_TargetResourceGroupName_* _ para especificar o grupo de recursos para o qual os discos gerenciados serão restaurados, [saiba mais aqui](./backup-azure-vms-automation.md#restore-managed-disks).
 
 ## <a name="backup-costs"></a>Custos de backup
 
@@ -123,7 +131,7 @@ A cobrança não é iniciada até que o primeiro backup bem-sucedido seja conclu
 
 A cobrança para uma VM especificada parará somente se a proteção for interrompida e os dados de backup forem excluídos. Quando a proteção for interrompida e não houver nenhum trabalho de backup ativo, o tamanho do último backup bem-sucedido de VM se tornará o tamanho da instância protegida usada para a fatura mensal.
 
-O cálculo do tamanho da instância protegida é baseado no tamanho *real* da VM. O tamanho da VM é a soma de todos os dados na VM, excluindo o armazenamento temporário. O preço é baseado nos dados reais que são armazenados nos discos de dados, não no tamanho máximo com suporte para cada disco de dados anexado à VM.
+O cálculo do tamanho da instância protegida é baseado no tamanho _actual * da VM. O tamanho da VM é a soma de todos os dados na VM, excluindo o armazenamento temporário. O preço é baseado nos dados reais que são armazenados nos discos de dados, não no tamanho máximo com suporte para cada disco de dados anexado à VM.
 
 Da mesma forma, a cobrança de armazenamento de backup é baseada na quantidade de dados armazenados no backup do Azure, que é a soma dos dados reais em cada ponto de recuperação.
 

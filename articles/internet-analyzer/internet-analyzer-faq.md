@@ -8,10 +8,10 @@ ms.topic: guide
 ms.date: 10/16/2019
 ms.author: mebeatty
 ms.openlocfilehash: a4a5b058666fab3e9048a7d92726dccd1360ff37
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74184264"
 ---
 # <a name="azure-internet-analyzer-faq-preview"></a>Perguntas frequentes do Azure Internet Analyzer (versão prévia)
@@ -44,17 +44,17 @@ Não, o Azure Internet Analyzer é gratuito para uso na versão prévia. Não h�
 O Internet Analyzer foi projetado para fornecer informações de desempenho de rede com base em sua população de usuário. Para ajudar a tomar as melhores decisões de desempenho para seus usuários, o Internet Analyzer compara o desempenho de dois pontos de extremidade de Internet usando sua população de usuário distinta. Embora o Analisador de Internet possa responder a várias perguntas, algumas das mais comuns são:
 
 * Qual é o impacto da migração para a nuvem no desempenho? 
-    * *Teste sugerido: personalizado (sua infraestrutura local atual) versus Azure (qualquer ponto de extremidade pré-configurado)*
+    * *Teste sugerido: Personalizado (sua infraestrutura local atual) versus Azure (qualquer ponto de extremidade pré-configurado)*
 * Qual é o valor de colocar meus dados na borda versus em um data center? 
-    *  *Teste sugerido: Azure vs. Azure front door, Azure vs. CDN do Azure da Microsoft*
+    *  *Teste sugerido: Azure versus Azure Front Door, Azure versus CDN do Azure da Microsoft*
 * Qual é o benefício de desempenho do Azure Front Door?
-    *  *Teste sugerido: Custom/Azure/CDN versus Azure front door*
+    *  *Teste sugerido: Personalizado/Azure/CDN versus Azure Front Door*
 * Qual é o benefício de desempenho da CDN do Azure da Microsoft? 
-    *  *Teste sugerido: personalizado/Azure/AFD versus CDN do Azure da Microsoft*
+    *  *Teste sugerido: Personalizado/Azure/AFD versus CDN do Azure da Microsoft*
 * Como a CDN do Azure da Microsoft cresce? 
-    *  *Teste sugerido: personalizado (outro ponto de extremidade da CDN) versus CDN do Azure da Microsoft*
+    *  *Teste sugerido: Personalizado (outro ponto de extremidade de CDN) versus CDN do Azure da Microsoft*
 * Qual é a melhor nuvem para sua população de usuários finais em cada região? 
-    *  *Teste sugerido: personalizado (outro serviço de nuvem) versus Azure (qualquer ponto de extremidade pré-configurado)*
+    *  *Teste sugerido: Personalizado (outro serviço de nuvem) vs. Azure (qualquer ponto de extremidade pré-configurado)*
 
 ## <a name="which-tests-can-i-run-in-preview"></a>Quais testes posso executar na visualização?
 

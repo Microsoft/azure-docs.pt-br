@@ -1,5 +1,5 @@
 ---
-title: Adquirir tokens para chamar uma API Web (aplicativo daemon)-plataforma de identidade da Microsoft | Azure
+title: Adquirir tokens para chamar uma API Web (aplicativo daemon) – a plataforma Microsoft Identity | Azure
 description: Saiba como criar um aplicativo daemon que chama APIs da Web (adquirindo Tokens)
 services: active-directory
 author: jmprieur
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 13000c5a61dc2c4d49aa395271beddef64d32245
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 295897be03a7dd8e397e8202ff1cf10e6d59cdfb
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88119208"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98753860"
 ---
 # <a name="daemon-app-that-calls-web-apis---acquire-a-token"></a>Aplicativo daemon que chama APIs da Web – adquirir um token
 
@@ -91,6 +91,10 @@ catch (MsalServiceException ex) when (ex.Message.Contains("AADSTS70011"))
     // Mitigation: Change the scope to be as expected.
 }
 ```
+
+### <a name="acquiretokenforclient-uses-the-application-token-cache"></a>AcquireTokenForClient usa o cache de token de aplicativo
+
+No MSAL.NET, `AcquireTokenForClient` o usa o cache de token de aplicativo. (Todos os outros métodos AcquireToken *XX* usam o cache de token de usuário.) Não chame `AcquireTokenSilent` antes de chamar `AcquireTokenForClient` , porque `AcquireTokenSilent` o usa o cache de token de *usuário* . `AcquireTokenForClient` verifica o cache do token de *aplicativo* e o atualiza.
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -200,10 +204,6 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 
 Para obter mais informações, consulte a documentação do protocolo: [plataforma de identidade da Microsoft e o fluxo de credenciais do cliente OAuth 2,0](v2-oauth2-client-creds-grant-flow.md).
 
-## <a name="application-token-cache"></a>Cache de token de aplicativo
-
-No MSAL.NET, `AcquireTokenForClient` o usa o cache de token de aplicativo. (Todos os outros métodos AcquireToken*XX* usam o cache de token de usuário.) Não chame `AcquireTokenSilent` antes de chamar `AcquireTokenForClient` , porque `AcquireTokenSilent` o usa o cache de token de *usuário* . `AcquireTokenForClient`verifica o cache do token de *aplicativo* e o atualiza.
-
 ## <a name="troubleshooting"></a>Solução de problemas
 
 ### <a name="did-you-use-the-resourcedefault-scope"></a>Você usou o escopo de recurso/. padrão?
@@ -229,21 +229,24 @@ Content: {
 }
 ```
 
+### <a name="are-you-calling-your-own-api"></a>Você está chamando sua própria API?
+
+Se você chamar sua própria API Web e não foi possível adicionar uma permissão de aplicativo ao registro do aplicativo para seu aplicativo daemon, você expôs uma função de aplicativo em sua API Web?
+
+Para obter detalhes, consulte [expondo permissões de aplicativo (funções de aplicativo)](scenario-protected-web-api-app-registration.md#exposing-application-permissions-app-roles) e, em particular, [garantindo que o Azure ad emita tokens para sua API Web somente para clientes permitidos](scenario-protected-web-api-app-registration.md#ensuring-that-azure-ad-issues-tokens-for-your-web-api-to-only-allowed-clients).
+
 ## <a name="next-steps"></a>Próximas etapas
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
-> [!div class="nextstepaction"]
-> [Aplicativo de daemon – chamando uma API da Web](./scenario-daemon-call-api.md?tabs=dotnet)
+Vá para o próximo artigo neste cenário, [chamando uma API da Web](./scenario-daemon-call-api.md?tabs=dotnet).
 
 # <a name="python"></a>[Python](#tab/python)
 
-> [!div class="nextstepaction"]
-> [Aplicativo de daemon – chamando uma API da Web](./scenario-daemon-call-api.md?tabs=python)
+Vá para o próximo artigo neste cenário, [chamando uma API da Web](./scenario-daemon-call-api.md?tabs=python).
 
 # <a name="java"></a>[Java](#tab/java)
 
-> [!div class="nextstepaction"]
-> [Aplicativo de daemon – chamando uma API da Web](./scenario-daemon-call-api.md?tabs=java)
+Vá para o próximo artigo neste cenário, [chamando uma API da Web](./scenario-daemon-call-api.md?tabs=java).
 
 ---

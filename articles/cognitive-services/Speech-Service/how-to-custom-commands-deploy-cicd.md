@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: f4dde6831902c0d15d5f985208e382963125d200
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 686e342eb68e2e5c97bdbae9cd11bdff5819b5d6
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85307379"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98927601"
 ---
 # <a name="continuous-deployment-with-azure-devops"></a>Implantação contínua com o Azure DevOps
 
@@ -25,7 +25,7 @@ Neste artigo, você aprenderá a configurar a implantação contínua para seus 
 > [!div class = "checklist"]
 > * Um aplicativo de comandos personalizados para desenvolvimento (desenvolvimento)
 > * Um aplicativo de comandos personalizados para produção (PROD)
-> * Inscreva-se para [Azure pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops)
+> * Inscreva-se para [Azure pipelines](/azure/devops/pipelines/get-started/pipelines-sign-up)
 
 ## <a name="exportimportpublish"></a>Exportar/importar/publicar
 
@@ -72,7 +72,7 @@ Os scripts são hospedados em [Serviços cognitivas assistente de voz-comandos p
 1. Observe que esses scripts pressupõem que você está usando a região `westus2` , se esse não for o caso, atualize os argumentos das tarefas de forma adequada
 
     > [!div class="mx-imgBorder"]
-    > ![Enviar carga da atividade](media/custom-commands/cicd-new-pipeline-yaml.png)
+    > ![Captura de tela que realça o valor de região nos argumentos.](media/custom-commands/cicd-new-pipeline-yaml.png)
 
 1. No botão "salvar e executar", abra a lista suspensa e clique em "salvar"
 
@@ -99,7 +99,7 @@ Os scripts são hospedados em [Serviços cognitivas assistente de voz-comandos p
 
 ## <a name="deploy-from-source-code"></a>Implantar do código-fonte
 
-Caso você queira manter a definição do seu aplicativo em um repositório, fornecemos os scripts para implantações do código-fonte. Como os scripts estão em bash, se você estiver usando o Windows, precisará instalar o [subsistema do Linux](https://docs.microsoft.com/windows/wsl/install-win10).
+Caso você queira manter a definição do seu aplicativo em um repositório, fornecemos os scripts para implantações do código-fonte. Como os scripts estão em bash, se você estiver usando o Windows, precisará instalar o [subsistema do Linux](/windows/wsl/install-win10).
 
 Os scripts são hospedados em [Serviços cognitivas assistente de voz-comandos personalizados](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/tree/master/custom-commands). Clone os scripts no diretório bash para seu repositório. Certifique-se de manter o mesmo caminho.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: jeedes
-ms.openlocfilehash: a69b4a068e62c6376660a79b3a7c8ab5402b5704
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 3cb6ee3162c70d2d07c4868ae90ecc54bd489966
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88536247"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98622484"
 ---
 # <a name="tutorial-integrate-displayr-with-azure-active-directory"></a>Tutorial: Integrar o Displayr com o Azure Active Directory
 
@@ -26,7 +26,7 @@ Neste tutorial, você aprenderá a integrar o Displayr ao Azure AD (Azure Active
 * Permitir que os usuários sejam conectados automaticamente ao Displayr com suas contas do Azure AD.
 * Gerenciar suas contas em um local central: o portal do Azure.
 
-Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -78,6 +78,10 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
     a. Na caixa de texto **URL de Entrada** digite uma URL usando o seguinte padrão: `https://<YOURDOMAIN>.displayr.com`
 
     b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `<YOURDOMAIN>.displayr.com`
+    
+    c. Na caixa de texto **URL de Resposta**, digite `https://app.displayr.com/Login/ProcessSamlResponse`.
+    
+    d. Clique em **Save** (Salvar).
 
     >[!NOTE]
     >Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Entre em contato com a [equipe de suporte ao cliente do Displayr](mailto:support@displayr.com) para obter esses valores. Veja também os padrões mostrados na seção "Configuração Básica de SAML" no portal do Azure.
@@ -88,25 +92,23 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. O aplicativo Displayr espera as declarações SAML em um formato específico, o que exige a adição de mapeamentos de atributo personalizado à configuração de atributos do token SAML. A captura de tela a seguir mostra a lista de atributos padrão. Clique no ícone **Editar** para abrir a caixa de diálogo Atributos de usuário.
 
-    ![image](common/edit-attribute.png)
+   ![Captura de tela que mostra a seção "Atributos do Usuário" com o ícone "Editar" realçado.](common/edit-attribute.png)
 
-1. Além do indicado acima, o aplicativo Displayr espera que mais alguns atributos sejam passados novamente na resposta SAML. Na seção**Atributos e Declarações de Usuário** na caixa de diálogo **Declarações de Grupo (Versão Prévia)** , execute as seguintes etapas:
+1. Além do indicado acima, o aplicativo Displayr espera que mais alguns atributos sejam passados novamente na resposta SAML. Na seção **Atributos e Declarações de Usuário** na caixa de diálogo **Declarações de Grupo (Versão Prévia)** , execute as seguintes etapas:
 
-    a. Clique na **caneta** ao lado de **Grupos retornados na declaração**.
+   a. Clique em **Adicionar uma declaração de grupo**.
 
-    ![image](./media/displayr-tutorial/config04.png)
+      ![Captura de tela que mostra a janela "Declarações de Grupo (Versão Prévia)" com configurações selecionadas.](./media/displayr-tutorial/config05.png)
 
-    ![image](./media/displayr-tutorial/config05.png)
+   b. Selecione **Todos os Grupos** na lista de opções.
 
-    b. Selecione **Todos os Grupos** na lista de opções.
+   c. Selecione **Atributo de Origem** da **ID do Grupo**.
 
-    c. Selecione **Atributo de Origem** da **ID do Grupo**.
+   d. Marque **Personalizar o nome da declaração de grupo**.
 
-    d. Marque **Personalizar o nome da declaração de grupo**.
+   e. Marque **Emitir grupos como declarações de função**.
 
-    e. Marque **Emitir grupos como declarações de função**.
-
-    f. Clique em **Save** (Salvar).
+   f. Clique em **Save** (Salvar).
 
 1. Na seção **Configurar o Displayr**, copie as URLs apropriadas de acordo com seus requisitos.
 
@@ -126,11 +128,11 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 4. Clique em **Configurações** e, em seguida, navegue para **Conta**.
 
-    ![Configuração](./media/displayr-tutorial/config01.png)
+    ![Captura de tela que mostra o ícone "Configurações" e "Conta" selecionados.](./media/displayr-tutorial/config01.png)
 
 5. Alterne para **Configurações** no menu superior e role a página para baixo para clicar em **Configurar Logon Único (SAML)** .
 
-    ![Configuração](./media/displayr-tutorial/config02.png)
+    ![Captura de tela que mostra a guia "Configurações" selecionada e a ação "Configurar Logon Único (SAML)" selecionada.](./media/displayr-tutorial/config02.png)
 
 6. Na página **Logon Único (SAML)** , execute as seguintes etapas:
 
@@ -190,11 +192,11 @@ Para permitir que os usuários do Azure AD entrem no Displayr, eles precisam ser
 
 2. Clique em **Configurações** e, em seguida, navegue para **Conta**.
 
-    ![Configuração do Displayr](./media/displayr-tutorial/config01.png)
+    ![Captura de tela que mostra o ícone "Configurações (engrenagem)" com "Conta" selecionado.](./media/displayr-tutorial/config01.png)
 
 3. Alterne para **Configurações** no menu superior e role a página para baixo até a seção **Usuários** e, em seguida, clique em **Novo Usuário**.
 
-    ![Configuração do Displayr](./media/displayr-tutorial/config07.png)
+    ![Captura de tela que mostra a guia "Configurações" com "Usuários" realçado e o botão "Novo Usuário" selecionado.](./media/displayr-tutorial/config07.png)
 
 4. Na página **Novo Usuário**, execute as seguintes etapas:
 
@@ -210,12 +212,12 @@ Para permitir que os usuários do Azure AD entrem no Displayr, eles precisam ser
 
 ### <a name="test-sso"></a>Testar o SSO
 
-Ao clicar no bloco do Displayr no Painel de Acesso, você deverá ser conectado automaticamente ao Displayr, para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao clicar no bloco do Displayr no Painel de Acesso, você deverá ser conectado automaticamente ao Displayr, para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](./tutorial-list.md)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)

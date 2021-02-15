@@ -1,6 +1,6 @@
 ---
 title: Enviar notificações por push para o iOS usando os Hubs de Notificação do Azure e o SDK do iOS versão 3.0.0 versão prévia 1
-description: Neste tutorial, você aprenderá a usar os Hubs de Notificação do Azure e o Apple Push Notification Service para enviar notificações por push para dispositivos iOS específicos.
+description: Neste tutorial, você aprenderá a usar os Hubs de Notificação do Azure e o serviço Apple Push Notification para enviar notificações por push para dispositivos iOS específicos (versão 3.0.0-preview1).
 author: sethmanheim
 ms.author: sethm
 ms.date: 06/19/2020
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: notification-hubs
 ms.reviewer: thsomasu
 ms.lastreviewed: 06/01/2020
-ms.openlocfilehash: bec4b771387854c40045f2b57afe7ead6c52f2c7
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 25f18eb0f55560b7abd250b8511b2e250ea55852
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836030"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001330"
 ---
 # <a name="tutorial-send-push-notifications-to-ios-apps-using-azure-notification-hubs-version-300-preview1"></a>Tutorial: Enviar notificações por push para aplicativos iOS usando os Hubs de Notificação do Microsoft Azure (versão 3.0.0 versão prévia 1)
 
@@ -43,25 +43,25 @@ Antes de prosseguir, siga o tutorial anterior sobre como começar a usar os [Hub
 
 ## <a name="connect-your-ios-app-to-notification-hubs"></a>Conectar seu aplicativo do iOS aos Hubs de Notificação
 
-1. No Xcode, crie um projeto do iOS e selecione o modelo **Aplicativo de Modo de Exibição Único** .
+1. No Xcode, crie um novo projeto do iOS e selecione o modelo **Aplicativo de Modo de Exibição Único** .
 
    :::image type="content" source="media/ios-sdk/image1.png" alt-text="Selecionar modelo":::
 
-2. Ao definir as opções para o novo projeto, lembre-se de usar os mesmos **Nome do Produto** e **Identificador Organizacional** que você usou quando configurou o identificador do pacote no Apple Developer Portal.
+2. Ao definir as opções para o novo projeto, lembre-se de usar os mesmos **Nome do Produto** e **Identificador Organizacional** que você usou quando configurou o identificador do pacote no Portal do Desenvolvedor da Apple.
 
-3. Em Navegador de Projeto, selecione o nome do projeto em **Destinos**e selecione a guia **Assinatura e Funcionalidades** . Verifique se você selecionou a **Equipe** apropriada para sua conta de Desenvolvedor da Apple. O deverá automaticamente efetuar pull do perfil de provisionamento que você criou anteriormente com base em seu identificador de pacote.
+3. Em Navegador de Projeto, selecione o nome do projeto em **Destinos** e selecione a guia **Assinatura e Funcionalidades**. Verifique se você selecionou a **Equipe** apropriada para sua conta de Desenvolvedor da Apple. O deverá automaticamente efetuar pull do perfil de provisionamento que você criou anteriormente com base em seu identificador de pacote.
 
-   Se você não vir o novo perfil de provisionamento que você criou no Xcode, tente atualizar os perfis da sua identidade de assinatura. Clique em **Xcode** na barra de menus, em **Preferências**, na guia **Conta** , no botão **Exibir Detalhes** , em sua identidade de assinatura e depois clique no botão Atualizar no canto inferior direito.
+   Se você não vir o novo perfil de provisionamento que você criou no Xcode, tente atualizar os perfis da sua identidade de assinatura. Clique em **Xcode** na barra de menus, em **Preferências**, na guia **Conta**, no botão **Exibir Detalhes**, em sua identidade de assinatura e depois clique no botão Atualizar no canto inferior direito.
 
    :::image type="content" source="media/ios-sdk/image2.png" alt-text="Exibir detalhes":::
 
-4. Na guia **Assinatura e Funcionalidades** , selecione **+ Funcionalidade**. Clique duas vezes em **Notificações por Push** para habilitá-la.
+4. Na guia **Assinatura e Funcionalidades**, selecione **+ Funcionalidade**. Clique duas vezes em **Notificações por Push** para habilitá-la.
 
    :::image type="content" source="media/ios-sdk/image3.png" alt-text="Recurso":::
 
 5. Adicione os módulos do SDK dos Hubs de Notificação do Microsoft Azure.
 
-   É possível integrar o SDK dos Hubs de Notificação do Microsoft Azure ao aplicativo usando [Cocoapods](https://cocoapods.org/) ou adicionando manualmente os binários ao projeto.
+   Você pode integrar o SDK dos Hubs de Notificação do Azure ao seu aplicativo usando o [CocoaPods](https://cocoapods.org/) ou adicionando manualmente os binários ao seu projeto.
 
    - Integração por meio de Cocoapods: Adicione as seguintes dependências ao seu podfile para incluir o SDK dos Hubs de Notificação do Azure em seu aplicativo:
 
@@ -77,13 +77,13 @@ Antes de prosseguir, siga o tutorial anterior sobre como começar a usar os [Hub
 
       Você pode realizar a integração copiando os binários para seu projeto, da seguinte maneira:
 
-        - Faça o download da estrutura do [SDK dos Hubs de Notificação do Azure](https://github.com/Azure/azure-notificationhubs-iOS/releases/) fornecida como um arquivo zip e descompacte-o.
+        - Baixe a estrutura do [SDK dos Hubs de Notificação do Azure](https://github.com/Azure/azure-notificationhubs-iOS/releases/) fornecida como um arquivo zip e descompacte-o.
 
-        - No Xcode, clique com o botão direito do mouse no projeto e clique na opção **Adicionar Arquivos a** para adicionar a pasta **WindowsAzureMessaging.framework** ao seu projeto do Xcode. Selecione **Opções** , verifique se a opção **Copiar itens se necessário** está selecionada e clique em **Adicionar**.
+        - No Xcode, clique com o botão direito do mouse no projeto e clique na opção **Adicionar Arquivos a** para adicionar a pasta **WindowsAzureMessaging.framework** ao seu projeto do Xcode. Selecione **Opções** e verifique se a opção **Copiar itens se necessário** está selecionada e, em seguida, clique em **Adicionar**.
 
           :::image type="content" source="media/ios-sdk/image4.png" alt-text="Adicionar estrutura":::
 
-6. Adicione um novo arquivo de cabeçalho a seu projeto chamado **Constants.h**. Para fazer isso, clique com o botão direito do mouse no nome do projeto e selecione **Novo Arquivo…** . Em seguida, selecione **Arquivo de Cabeçalho**. Esse arquivo conterá as constantes para o hub de notificação. Depois, selecione **Avançar**. Nomeie o arquivo **Constants.h**.
+6. Adicione um novo arquivo de cabeçalho a seu projeto chamado **Constants.h**. Para fazer isso, clique com o botão direito do mouse no nome do projeto e selecione **Novo Arquivo…** . Em seguida, selecione **Arquivo de Cabeçalho**. Esse arquivo conterá as constantes para o hub de notificação. Em seguida, selecione **Avançar**. Dê ao arquivo o nome **Constants.h**.
 
 7. Adicione o seguinte código ao arquivo Constants.h:
 
@@ -96,11 +96,11 @@ Antes de prosseguir, siga o tutorial anterior sobre como começar a usar os [Hub
    #endif /* Constants_h */
    ```
 
-8. Adicione o arquivo de implementação para Constants.h. Para fazer isso, clique com o botão direito do mouse no nome do projeto e selecione **Novo Arquivo…** . Selecione **Arquivo Objective-C** e clique em **Avançar**. Nomeie o arquivo **Constants.m**.
+8. Adicione o arquivo de implementação para Constants.h. Para fazer isso, clique com o botão direito do mouse no nome do projeto e selecione **Novo Arquivo…** . Selecione **Arquivo Objective-C** e, em seguida, selecione **Próximo**. Dê ao arquivo o nome **Constants.m**.
 
    :::image type="content" source="media/ios-sdk/image5.png" alt-text="Adicionar arquivo de implementação":::
 
-9. Abra o arquivo **Constants.m** e substitua o conteúdo pelo código a seguir. Substitua os espaços reservados de literal de cadeia de caracteres `NotificationHubConnectionString` e `NotificationHubConnectionString` pelo nome do hub e a **DefaultListenSharedAccessSignature**, respectivamente, como você obteve anteriormente do portal:
+9. Abra o arquivo **Constants.m** e substitua o conteúdo pelo código a seguir. Substitua os espaços reservados de literal de cadeia de caracteres `NotificationHubConnectionString` e `NotificationHubConnectionString` pelo nome do hub e a **DefaultListenSharedAccessSignature**, respectivamente, como você obteve anteriormente do portal:
 
    ```objc
    #import <Foundation/Foundation.h>
@@ -110,13 +110,13 @@ Antes de prosseguir, siga o tutorial anterior sobre como começar a usar os [Hub
    NSString* const NHInfoHubName = @"NotificationHubName";NSString* const NHUserDefaultTags = @"notification_tags";
    ```
 
-10. No arquivo **AppDelegate.h** do projeto, adicione a seguinte instrução `import`:
+10. No arquivo **AppDelegate.h** do projeto, adicione a seguinte instrução `import`:
 
     ```objc
     #import "Constants.h"
     ```
 
-11. No mesmo arquivo **AppDelegate.m** , substitua todo o código após `didFinishLaunchingWithOptions` pelo seguinte código:
+11. No mesmo arquivo **AppDelegate.m**, substitua todo o código após `didFinishLaunchingWithOptions` pelo código a seguir:
 
     ```objc
     // Tells the delegate that the app successfully registered with Apple Push Notification service (APNs).
@@ -159,11 +159,11 @@ Antes de prosseguir, siga o tutorial anterior sobre como começar a usar os [Hub
     @end
     ```
 
-    Esse código conecta-se ao hub de notificação usando as informações de conexão que você especificou em **Constants.h**. Esse código fornece o token do dispositivo ao hub de notificação para que o hub possa enviar notificações.
+    Esse código conecta-se ao hub de notificação usando as informações de conexão que você especificou em **Constants.h**. Esse código fornece o token do dispositivo ao hub de notificação para que o hub possa enviar notificações.
 
 ### <a name="create-notificationdetailviewcontroller-header-file"></a>Criar arquivo de cabeçalho de NotificationDetailViewController
 
-1. Assim como as instruções anteriores, adicione outro arquivo de cabeçalho chamado **NotificationDetailViewController.h**. Substitua o conteúdo do novo arquivo de cabeçalho pelo seguinte código:
+1. Assim como nas instruções anteriores, adicione outro arquivo de cabeçalho chamado **NotificationDetailViewController.h**. Substitua o conteúdo do novo arquivo de cabeçalho pelo seguinte código:
 
    ```objc
    #import <UIKit/UIKit.h>
@@ -185,7 +185,7 @@ Antes de prosseguir, siga o tutorial anterior sobre como começar a usar os [Hub
    NS_ASSUME_NONNULL_END
    ```
 
-2. Adicione o arquivo de implementação **NotificationDetailViewController.m**. Substitua o conteúdo do arquivo pelo seguinte código, que implementa os métodos UIViewController:
+2. Adicione o arquivo de implementação **NotificationDetailViewController.m**. Substitua o conteúdo do arquivo pelo seguinte código, que implementa os métodos UIViewController:
 
    ```objc
    #import "NotificationDetailViewController.h"
@@ -250,20 +250,20 @@ Antes de prosseguir, siga o tutorial anterior sobre como começar a usar os [Hub
 
 ### <a name="viewcontroller"></a>ViewController
 
-1. No arquivo **ViewController.m** do projeto, adicione as seguintes instruções `import` :
+1. No arquivo **ViewController.h** do projeto, adicione as seguintes instruções `import`:
 
    ```objc
    #import <WindowsAzureMessaging/WindowsAzureMessaging.h>
    #import <UserNotifications/UserNotifications.h>
    ```
 
-2. Além disso, em **ViewController.h**, adicione as seguintes declarações de propriedade após a declaração `@interface` :
+2. Ainda em **ViewController.h**, adicione a seguinte declaração de propriedade após a declaração `@interface`:
 
    ```objc
    @property (strong, nonatomic) IBOutlet UITextField *tagsTextField;
    ```
 
-3. No arquivo de implementação **ViewController.m** do projeto, substitua o conteúdo do arquivo pelo seguinte código:
+3. No arquivo de implementação **ViewController.m** do projeto, substitua o conteúdo do arquivo pelo código a seguir:
 
    ```objc
    #import "ViewController.h"
@@ -309,7 +309,7 @@ Antes de prosseguir, siga o tutorial anterior sobre como começar a usar os [Hub
 
 ## <a name="send-test-push-notifications"></a>Enviar notificações por push de teste
 
-Você pode testar o recebimento de notificações no aplicativo com a opção **Envio de Teste** no [portal do Azure](https://portal.azure.com/). Isso envia uma notificação por push de teste para seu dispositivo.
+Você pode testar o recebimento de notificações no aplicativo com a opção **Envio de Teste** no [Azure portal](https://portal.azure.com/). Isso envia uma notificação por push de teste para seu dispositivo.
 
 :::image type="content" source="media/ios-sdk/image6.png" alt-text="Envio de teste":::
 
@@ -317,20 +317,20 @@ As notificações por push normalmente são enviadas em um serviço de back-end 
 
 Aqui está uma lista de alguns outros tutoriais que talvez você queira examinar para o envio de notificações:
 
-- Aplicativos Móveis do Azure: para obter um exemplo de como enviar notificações de um back-end dos Aplicativos Móveis integrado aos Hubs de Notificação, confira [Adicionar notificações por push ao seu aplicativo iOS](/previous-versions/azure/app-service-mobile/app-service-mobile-ios-get-started-push).
-- ASP.NET: [use os Hubs de Notificação para enviar notificações por push aos usuários](notification-hubs-aspnet-backend-ios-apple-apns-notification.md).
-- SDK do Java dos Hubs de Notificação do Azure: confira [Como usar os Hubs de Notificação por meio do Java](notification-hubs-java-push-notification-tutorial.md) para enviar notificações no Java. Isso foi testado no Eclipse para desenvolvimento no Android.
-- PHP: [como usar os Hubs de Notificação no PHP](notification-hubs-php-push-notification-tutorial.md).
+- Aplicativos Móveis do Azure: para obter um exemplo de como enviar notificações de um back-end de Aplicativos Móveis integrado aos Hubs de Notificação, veja [Adicionar notificações por push ao seu aplicativo iOS](/previous-versions/azure/app-service-mobile/app-service-mobile-ios-get-started-push).
+- ASP.NET: [use os Hubs de Notificação para enviar notificações por push aos usuários](notification-hubs-aspnet-backend-ios-apple-apns-notification.md).
+- SDK do Java para Hubs de Notificação do Azure: confira [Como usar os Hubs de Notificação do Java](notification-hubs-java-push-notification-tutorial.md) para enviar notificações do Java. Isso foi testado no Eclipse para desenvolvimento no Android.
+- PHP: [como usar Hubs de Notificação do PHP](notification-hubs-php-push-notification-tutorial.md).
 
 ## <a name="verify-that-your-app-receives-push-notifications"></a>Verifique se seu aplicativo recebe notificações por push
 
 Para testar as notificações por push no iOS, você deve implantar o aplicativo em um dispositivo iOS físico. Não é possível enviar notificações por push da Apple com o iOS Simulator.
 
-1. Execute o aplicativo, verifique se o registro foi bem-sucedido e pressione **OK**.
+1. Execute o aplicativo e verifique se o registro foi bem-sucedido e pressione **OK**.
 
    :::image type="content" source="media/ios-sdk/image7.png" alt-text="Registrar":::
 
-2. Em seguida, você pode enviar uma notificação por push de teste do [portal do Azure](https://portal.azure.com/), conforme descrito na seção anterior.
+2. Em seguida, envie uma notificação por push de teste do [portal do Azure](https://portal.azure.com/), conforme descrito na seção anterior.
 
 3. A notificação por push é enviada a todos os dispositivos que estão registrados para receber as notificações do hub de notificação fornecido.
 

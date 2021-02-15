@@ -7,17 +7,18 @@ author: rdeltcheva
 manager: juergent
 editor: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/21/2020
+ms.date: 10/16/2020
 ms.author: radeltch
-ms.openlocfilehash: 2ce3a4116c12065bbaee8e11d5ada3b8c89b1a9d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 277ed8ad5f9888daa911cb3b5c7dcf00fd285bf4
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87088216"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96489149"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-red-hat-enterprise-linux"></a>Alta disponibilidade do SAP HANA em VMs do Azure no Red Hat Enterprise Linux
 
@@ -108,7 +109,7 @@ Para implantar o modelo, siga estas etapas:
     * **Tamanho do Sistema SAP**: Insira o número de SAPS que o novo sistema irá fornecer. Se não tiver certeza de quantos SAPS o sistema precisará, pergunte ao Parceiro de Tecnologia SAP ou ao Integrador de Sistemas.
     * **Disponibilidade do Sistema**: Selecione **HA**.
     * **Chave de Admin Username, a senha de administrador ou SSH**: É criado um novo usuário que pode ser usado para entrar no computador.
-    * **ID da Sub-rede**: Se você deseja implantar a VM em uma rede virtual existente em que você tem uma sub-rede definida para a qual a VM deve ser designada, nomeie a identificação dessa sub-rede específica. A ID geralmente é semelhante a **/subscriptions/ \<subscription ID> /resourceGroups/ \<resource group name> /Providers/Microsoft.Network/virtualNetworks/ \<virtual network name> /Subnets/ \<subnet name> **. Deixe em branco, se você quiser criar uma nova rede virtual
+    * **ID da Sub-rede**: Se você deseja implantar a VM em uma rede virtual existente em que você tem uma sub-rede definida para a qual a VM deve ser designada, nomeie a identificação dessa sub-rede específica. A ID geralmente é semelhante a **/subscriptions/ \<subscription ID> /resourceGroups/ \<resource group name> /Providers/Microsoft.Network/virtualNetworks/ \<virtual network name> /Subnets/ \<subnet name>**. Deixe em branco, se você quiser criar uma nova rede virtual
 
 ### <a name="manual-deployment"></a>Implantação manual
 
@@ -123,6 +124,13 @@ Para implantar o modelo, siga estas etapas:
 1. Crie a máquina virtual 2.  
    Use pelo menos Red Hat Enterprise Linux 7.4 para o SAP HANA. Este exemplo usa o Red Hat Enterprise Linux 7.4 para imagem do SAP HANA <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux75forSAP-ARM> selecionar a conjunto criada na etapa 3 de disponibilidade.
 1. Adicione discos de dados.
+
+> [!IMPORTANT]
+> Não há suporte para IP flutuante em uma configuração de IP secundário de NIC em cenários de balanceamento de carga. Para obter detalhes, consulte [limitações do Azure Load Balancer](../../../load-balancer/load-balancer-multivip-overview.md#limitations). Se você precisar de um endereço IP adicional para a VM, implante uma segunda NIC.    
+
+> [!Note]
+> Quando as VMs sem endereços IP públicos forem colocadas no pool de back-end do Standard Azure Load Balancer (sem endereço IP público), não haverá nenhuma conectividade de saída com a Internet se não houver configuração adicional a fim de permitir o roteamento para pontos de extremidade públicos. Para obter detalhes sobre como alcançar conectividade de saída, veja [Conectividade de ponto de extremidade público para Máquinas Virtuais usando o Azure Standard Load Balancer em cenários de alta disponibilidade do SAP](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
+
 1. Se estiver usando o Standard Load Balancer, siga estas etapas de configuração:
    1. Primeiro, crie um pool de IP de front-end:
 
@@ -145,7 +153,7 @@ Para implantar o modelo, siga estas etapas:
 
       1. Abra o balanceador de carga, selecione **investigações de integridade** e selecione **Adicionar**.
       1. Insira o nome da nova investigação de integridade (por exemplo, **hana-hp**).
-      1. Selecione **TCP** como o protocolo e porta 625**03**. Mantenha o valor do **Intervalo** como 5 e o valor **Limite não íntegro** como 2.
+      1. Selecione **TCP** como o protocolo e porta 625 **03**. Mantenha o valor do **Intervalo** como 5 e o valor **Limite não íntegro** como 2.
       1. Selecione **OK**.
 
    1. Em seguida, crie as regras de balanceamento de carga:
@@ -158,8 +166,6 @@ Para implantar o modelo, siga estas etapas:
       1. Certifique-se de **habilitar IP Flutuante**.
       1. Selecione **OK**.
 
-   > [!Note]
-   > Quando as VMs sem endereços IP públicos forem colocadas no pool de back-end do Standard Azure Load Balancer (sem endereço IP público), não haverá nenhuma conectividade de saída com a Internet se não houver configuração adicional a fim de permitir o roteamento para pontos de extremidade públicos. Para obter detalhes sobre como alcançar conectividade de saída, veja [Conectividade de ponto de extremidade público para Máquinas Virtuais usando o Azure Standard Load Balancer em cenários de alta disponibilidade do SAP](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
 
 1. Como alternativa, se o seu cenário impõe o uso do balanceador de carga básico, siga estas etapas de configuração:
    1. Configure o balanceador de carga. Primeiro, crie um pool de IP de front-end:
@@ -183,41 +189,41 @@ Para implantar o modelo, siga estas etapas:
 
       1. Abra o balanceador de carga, selecione **investigações de integridade** e selecione **Adicionar**.
       1. Insira o nome da nova investigação de integridade (por exemplo, **hana-hp**).
-      1. Selecione **TCP** como o protocolo e porta 625**03**. Mantenha o valor do **Intervalo** como 5 e o valor **Limite não íntegro** como 2.
+      1. Selecione **TCP** como o protocolo e porta 625 **03**. Mantenha o valor do **Intervalo** como 5 e o valor **Limite não íntegro** como 2.
       1. Selecione **OK**.
 
    1. Para o SAP HANA 1.0, crie as regras de balanceamento de carga:
 
       1. Abra o balanceador de carga, selecione **Regras de balanceamento de carga** e selecione **Adicionar**.
-      1. Insira o nome da nova regra do balanceador de carga (por exemplo, hana-lb-3**03**15).
+      1. Insira o nome da nova regra do balanceador de carga (por exemplo, hana-lb-3 **03** 15).
       1. Selecione o endereço IP de front-end, o pool de back-end e a investigação de integridade que você criou anteriormente (por exemplo, **hana-frontend**).
-      1. Mantenha o **Protocolo** definido como **TCP** e insira a porta 3**03**15.
+      1. Mantenha o **Protocolo** definido como **TCP** e insira a porta 3 **03** 15.
       1. Aumente o **tempo limite de ociosidade** para 30 minutos.
       1. Certifique-se de **habilitar IP Flutuante**.
       1. Selecione **OK**.
-      1. Repita essas etapas para a porta 3**03**17.
+      1. Repita essas etapas para a porta 3 **03** 17.
 
    1. Para o SAP HANA 2.0, crie as regras de balanceamento de carga para o banco de dados do sistema:
 
       1. Abra o balanceador de carga, selecione **Regras de balanceamento de carga** e selecione **Adicionar**.
-      1. Insira o nome da nova regra do balanceador de carga (por exemplo, hana-lb-3**03**13).
+      1. Insira o nome da nova regra do balanceador de carga (por exemplo, hana-lb-3 **03** 13).
       1. Selecione o endereço IP de front-end, o pool de back-end e a investigação de integridade que você criou anteriormente (por exemplo, **hana-frontend**).
-      1. Mantenha o **Protocolo** definido como **TCP** e insira a porta 3**03**13.
+      1. Mantenha o **Protocolo** definido como **TCP** e insira a porta 3 **03** 13.
       1. Aumente o **tempo limite de ociosidade** para 30 minutos.
       1. Certifique-se de **habilitar IP Flutuante**.
       1. Selecione **OK**.
-      1. Repita essas etapas para a porta 3**03**14.
+      1. Repita essas etapas para a porta 3 **03** 14.
 
    1. Para o SAP HANA 2.0, primeiro crie as regras de balanceamento de carga para o banco de dados do locatário:
 
       1. Abra o balanceador de carga, selecione **Regras de balanceamento de carga** e selecione **Adicionar**.
-      1. Insira o nome da nova regra do balanceador de carga (por exemplo hana-lb-3**03**40).
+      1. Insira o nome da nova regra do balanceador de carga (por exemplo hana-lb-3 **03** 40).
       1. Selecione o endereço IP de front-end, o pool de back-end e a investigação de integridade criados anteriormente (por exemplo, **hana-frontend**).
-      1. Mantenha o **Protocolo** definido como **TCP** e insira a porta 3**03**40.
+      1. Mantenha o **Protocolo** definido como **TCP** e insira a porta 3 **03** 40.
       1. Aumente o **tempo limite de ociosidade** para 30 minutos.
       1. Certifique-se de **habilitar IP Flutuante**.
       1. Selecione **OK**.
-      1. Repita essas etapas para portas 3**03**41 e 3**03**42.
+      1. Repita essas etapas para portas 3 **03** 41 e 3 **03** 42.
 
 Para obter mais informações sobre as portas necessárias para o SAP HANA, leia o capítulo [Conexões aos bancos de dados de locatário](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) no guia [Bancos de dados de locatário do SAP HANA](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) ou [Nota SAP 2388694][2388694].
 
@@ -342,7 +348,12 @@ As etapas nesta seção usam os seguintes prefixos:
 
 1. **[A]** RHEL para configuração do HANA
 
-   Configurar RHEL, conforme descrito na nota do SAP [2292690] e [2455582] e <https://access.redhat.com/solutions/2447641>.
+   Configure o RHEL conforme descrito em <https://access.redhat.com/solutions/2447641> e nas seguintes notas SAP:  
+   - [2292690 - Banco de dados do SAP HANA: configurações do sistema operacional recomendadas para RHEL 7](https://launchpad.support.sap.com/#/notes/2292690)
+   - [2777782-SAP HANA DB: configurações de so recomendadas para RHEL 8](https://launchpad.support.sap.com/#/notes/2777782)
+   - [2455582-Linux: executando aplicativos SAP compilados com GCC 6. x](https://launchpad.support.sap.com/#/notes/2455582)
+   - [2593824-Linux: executando aplicativos SAP compilados com GCC 7. x](https://launchpad.support.sap.com/#/notes/2593824) 
+   - [2886607-Linux: executando aplicativos SAP compilados com o GCC 9. x](https://launchpad.support.sap.com/#/notes/2886607)
 
 1. **[A]**  Instalar o SAP HANA
 
@@ -551,7 +562,7 @@ Siga as etapas em [Configurando o Pacemaker no Red Hat Enterprise Linux no Azure
 
 ## <a name="create-sap-hana-cluster-resources"></a>Crie os recursos de cluster do SAP HANA
 
-Instale os agentes de recursos do SAP HANA em **todos os nós**. Certifique-se de habilitar um repositório que contém o pacote.
+Instale os agentes de recursos do SAP HANA em **todos os nós**. Certifique-se de habilitar um repositório que contém o pacote. Você não precisa habilitar repositórios adicionais, se estiver usando a imagem habilitada para alta disponibilidade do RHEL 8. x.  
 
 <pre><code># Enable repository that contains SAP HANA resource agents
 sudo subscription-manager repos --enable="rhel-sap-hana-for-rhel-7-server-rpms"
@@ -566,13 +577,18 @@ Em seguida, crie a topologia HANA. Execute os seguintes comandos em um dos nós 
 # Replace the bold string with your instance number and HANA system ID
 sudo pcs resource create SAPHanaTopology_<b>HN1</b>_<b>03</b> SAPHanaTopology SID=<b>HN1</b> InstanceNumber=<b>03</b> \
 op start timeout=600 op stop timeout=300 op monitor interval=10 timeout=600 \
---clone clone-max=2 clone-node-max=1 interleave=true
+clone clone-max=2 clone-node-max=1 interleave=true
 </code></pre>
 
-Em seguida, crie os recursos do HANA:
+Em seguida, crie os recursos HANA.
+
+> [!NOTE]
+> Este artigo contém referências ao termo *subordinado*, um termo que a Microsoft não usa mais. Quando o termo for removido do software, nós o removeremos deste artigo.
+
+Se estiver criando um cluster no **RHEL 7. x**, use os seguintes comandos:  
 
 <pre><code># Replace the bold string with your instance number, HANA system ID, and the front-end IP address of the Azure load balancer.
-
+#
 sudo pcs resource create SAPHana_<b>HN1</b>_<b>03</b> SAPHana SID=<b>HN1</b> InstanceNumber=<b>03</b> PREFER_SITE_TAKEOVER=true DUPLICATE_PRIMARY_TIMEOUT=7200 AUTOMATED_REGISTER=false \
 op start timeout=3600 op stop timeout=3600 \
 op monitor interval=61 role="Slave" timeout=700 \
@@ -581,14 +597,32 @@ op promote timeout=3600 op demote timeout=3600 \
 master notify=true clone-max=2 clone-node-max=1 interleave=true
 
 sudo pcs resource create vip_<b>HN1</b>_<b>03</b> IPaddr2 ip="<b>10.0.0.13</b>"
-
 sudo pcs resource create nc_<b>HN1</b>_<b>03</b> azure-lb port=625<b>03</b>
-
 sudo pcs resource group add g_ip_<b>HN1</b>_<b>03</b> nc_<b>HN1</b>_<b>03</b> vip_<b>HN1</b>_<b>03</b>
 
 sudo pcs constraint order SAPHanaTopology_<b>HN1</b>_<b>03</b>-clone then SAPHana_<b>HN1</b>_<b>03</b>-master symmetrical=false
-
 sudo pcs constraint colocation add g_ip_<b>HN1</b>_<b>03</b> with master SAPHana_<b>HN1</b>_<b>03</b>-master 4000
+
+sudo pcs property set maintenance-mode=false
+</code></pre>
+
+Se estiver criando um cluster no **RHEL 8. x**, use os seguintes comandos:  
+
+<pre><code># Replace the bold string with your instance number, HANA system ID, and the front-end IP address of the Azure load balancer.
+#
+sudo pcs resource create SAPHana_<b>HN1</b>_<b>03</b> SAPHana SID=<b>HN1</b> InstanceNumber=<b>03</b> PREFER_SITE_TAKEOVER=true DUPLICATE_PRIMARY_TIMEOUT=7200 AUTOMATED_REGISTER=false \
+op start timeout=3600 op stop timeout=3600 \
+op monitor interval=61 role="Slave" timeout=700 \
+op monitor interval=59 role="Master" timeout=700 \
+op promote timeout=3600 op demote timeout=3600 \
+promotable meta notify=true clone-max=2 clone-node-max=1 interleave=true
+
+sudo pcs resource create vip_<b>HN1</b>_<b>03</b> IPaddr2 ip="<b>10.0.0.13</b>"
+sudo pcs resource create nc_<b>HN1</b>_<b>03</b> azure-lb port=625<b>03</b>
+sudo pcs resource group add g_ip_<b>HN1</b>_<b>03</b> nc_<b>HN1</b>_<b>03</b> vip_<b>HN1</b>_<b>03</b>
+
+sudo pcs constraint order SAPHanaTopology_<b>HN1</b>_<b>03</b>-clone then SAPHana_<b>HN1</b>_<b>03</b>-clone symmetrical=false
+sudo pcs constraint colocation add g_ip_<b>HN1</b>_<b>03</b> with master SAPHana_<b>HN1</b>_<b>03</b>-clone 4000
 
 sudo pcs property set maintenance-mode=false
 </code></pre>
@@ -638,7 +672,10 @@ Resource Group: g_ip_HN1_03
 
 É possível migrar o nó mestre do SAP HANA executando o comando a seguir:
 
-<pre><code>[root@hn1-db-0 ~]# pcs resource move SAPHana_HN1_03-master
+<pre><code># On RHEL <b>7.x</b> 
+[root@hn1-db-0 ~]# pcs resource move SAPHana_HN1_03-master
+# On RHEL <b>8.x</b>
+[root@hn1-db-0 ~]# pcs resource move SAPHana_HN1_03-clone --master
 </code></pre>
 
 Se você definir `AUTOMATED_REGISTER="false"`, esse comando deverá migrar o nó mestre do SAP HANA e o grupo que contém o endereço IP virtual para hn1-db-1.
@@ -686,6 +723,9 @@ Resource Group: g_ip_HN1_03
 
 ### <a name="test-the-azure-fencing-agent"></a>Testar o agente de isolamento do Azure
 
+> [!NOTE]
+> Este artigo contém referências ao termo *subordinado*, um termo que a Microsoft não usa mais. Quando o termo for removido do software, nós o removeremos deste artigo.  
+
 Estado do recurso antes de iniciar o teste:
 
 <pre><code>Clone Set: SAPHanaTopology_HN1_03-clone [SAPHanaTopology_HN1_03]
@@ -717,7 +757,10 @@ hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> hdbnsutil -sr_register --remoteHost=<b>hn1-d
 
 # Switch back to root and clean up the failed state
 exit
+# On RHEL <b>7.x</b>
 [root@hn1-db-1 ~]# pcs resource cleanup SAPHana_HN1_03-master
+# On RHEL <b>8.x</b>
+[root@hn1-db-1 ~]# pcs resource cleanup SAPHana_HN1_03 node=&lt;hostname on which the resource needs to be cleaned&gt;
 </code></pre>
 
 Estado do recurso após o teste:
@@ -762,7 +805,10 @@ hn1adm@hn1-db-0:/usr/sap/HN1/HDB03> hdbnsutil -sr_register --remoteHost=<b>hn1-d
 
 # Switch back to root and clean up the failed state
 hn1adm@hn1-db-0:/usr/sap/HN1/HDB03> exit
+# On RHEL <b>7.x</b>
 [root@hn1-db-1 ~]# pcs resource cleanup SAPHana_HN1_03-master
+# On RHEL <b>8.x</b>
+[root@hn1-db-1 ~]# pcs resource cleanup SAPHana_HN1_03 node=&lt;hostname on which the resource needs to be cleaned&gt;
 </code></pre>
 
 Estado do recurso após o teste:

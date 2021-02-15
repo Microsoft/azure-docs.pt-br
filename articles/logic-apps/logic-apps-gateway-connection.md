@@ -3,19 +3,19 @@ title: Acessar fontes de dados locais
 description: Conectar-se a fontes de dados locais de aplicativos lógicos do Azure criando um recurso de gateway de dados no Azure
 services: logic-apps
 ms.suite: integration
-ms.reviewer: arthii, divswa, logicappspm
+ms.reviewer: arthii, logicappspm
 ms.topic: article
-ms.date: 08/18/2020
-ms.openlocfilehash: 2dd086ccc45458299cf6b8a7ad83d023055c96ae
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.date: 01/20/2021
+ms.openlocfilehash: 356e63bb0a749ad0f41d886e75971e9b05c7f9dc
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88661190"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99218954"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Conectar-se a fontes de dados locais dos Aplicativos Lógicos do Azure
 
-Depois de [instalar o *Gateway de dados* local em um computador local](../logic-apps/logic-apps-gateway-install.md) e antes de poder acessar as fontes de dados locais de seus aplicativos lógicos, você precisará criar um recurso de gateway no Azure para a instalação do gateway. Você pode selecionar esse recurso de gateway nos gatilhos e ações que deseja usar para os [conectores locais](../connectors/apis-list.md#on-premises-connectors) disponíveis nos aplicativos lógicos do Azure. O aplicativo lógico do Azure dá suporte a operações de leitura e gravação por meio do gateway de dados. No entanto, essas operações têm [limites no tamanho da carga](/data-integration/gateway/service-gateway-onprem#considerations).
+Depois de [instalar o *Gateway de dados* local em um computador local](../logic-apps/logic-apps-gateway-install.md) e antes de poder acessar as fontes de dados locais de seus aplicativos lógicos, você precisa criar um recurso de gateway no Azure para a instalação do gateway. Você pode selecionar esse recurso de gateway nos gatilhos e ações que deseja usar para os [conectores locais](../connectors/apis-list.md#on-premises-connectors) disponíveis nos aplicativos lógicos do Azure. O aplicativo lógico do Azure dá suporte a operações de leitura e gravação por meio do gateway de dados. No entanto, essas operações têm [limites no tamanho da carga](/data-integration/gateway/service-gateway-onprem#considerations).
 
 Este artigo mostra como criar seu recurso de gateway do Azure para um [Gateway instalado anteriormente no computador local](../logic-apps/logic-apps-gateway-install.md). Para obter mais informações sobre o gateway, consulte [como funciona o gateway](../logic-apps/logic-apps-gateway-install.md#gateway-cloud-service).
 
@@ -57,8 +57,11 @@ Você também pode criar [conectores personalizados](../logic-apps/custom-connec
 * Você tem a [mesma conta e assinatura do Azure](../logic-apps/logic-apps-gateway-install.md#requirements) que usou para a instalação do gateway. Essa conta do Azure deve pertencer somente a um único [locatário ou diretório do Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md#terminology). Você precisa usar a mesma conta e assinatura do Azure para criar o recurso de gateway no Azure porque apenas o administrador de gateway pode criar o recurso de gateway no Azure. Atualmente, não há suporte para entidades de serviço.
 
   * Ao criar um recurso de gateway no Azure, você seleciona uma instalação de gateway para vincular com o recurso de gateway e somente esse recurso de gateway. Cada recurso de gateway pode vincular a apenas uma instalação de gateway. Você não pode selecionar uma instalação de gateway que já esteja associada a outro recurso de gateway.
-  
-  * Seu aplicativo lógico e o recurso de gateway não precisam existir na mesma assinatura do Azure. Desde que você tenha acesso à assinatura, em gatilhos e ações que possam acessar fontes de dados locais, você pode selecionar outras assinaturas do Azure que têm recursos de gateway.
+
+  * Seu aplicativo lógico e o recurso de gateway não precisam existir na mesma assinatura do Azure. Em gatilhos e ações em que você pode usar o recurso de gateway, você pode selecionar uma assinatura do Azure diferente que tenha um recurso de gateway, mas somente se essa assinatura existir no mesmo diretório ou locatário do Azure AD que seu aplicativo lógico. Você também precisa ter permissões de administrador no gateway, que outro administrador pode configurar para você. Para obter mais informações, consulte [Gateway de dados: automação usando o PowerShell-parte 1](https://community.powerbi.com/t5/Community-Blog/Data-Gateway-Automation-using-PowerShell-Part-1/ba-p/1117330) e [PowerShell: data gateway-Add-DataGatewayClusterUser](/powershell/module/datagateway/add-datagatewayclusteruser).
+
+    > [!NOTE]
+    > No momento, você não pode compartilhar um recurso de gateway ou uma instalação em várias assinaturas. Para enviar comentários sobre o produto, consulte [Microsoft Azure Fórum de comentários](https://feedback.azure.com/forums/34192--general-feedback).
 
 <a name="create-gateway-resource"></a>
 
@@ -103,10 +106,10 @@ Após criar o recurso de gateway e associar a assinatura do Azure a esse recurso
 
 1. Selecione **Conectar por meio do gateway de dados local**.
 
-1. Em **gateways**, na lista **assinaturas** , selecione sua assinatura do Azure que tenha o recurso de gateway desejado.
+1. Em **Gateway**, na lista **assinatura** , selecione sua assinatura do Azure que tem o recurso de gateway desejado.
 
-   Desde que você tenha acesso à assinatura, você pode selecionar entre diferentes assinaturas do Azure que estão associadas a um recurso de gateway diferente. Seu aplicativo lógico e o recurso de gateway não precisam existir na mesma assinatura do Azure.
-
+   Seu aplicativo lógico e o recurso de gateway não precisam existir na mesma assinatura do Azure. Você pode selecionar entre outras assinaturas do Azure que têm um recurso de gateway, mas somente se essas assinaturas existirem no mesmo locatário ou diretório do Azure AD que o aplicativo lógico, e você tiver permissões de administrador no gateway, o que outro administrador poderá configurar para você. Para obter mais informações, consulte [Gateway de dados: automação usando o PowerShell-parte 1](https://community.powerbi.com/t5/Community-Blog/Data-Gateway-Automation-using-PowerShell-Part-1/ba-p/1117330) e [PowerShell: data gateway-Add-DataGatewayClusterUser](/powershell/module/datagateway/add-datagatewayclusteruser).
+  
 1. Na lista **Gateway de conexão** , que mostra os recursos de gateway disponíveis em sua assinatura selecionada, selecione o recurso de gateway desejado. Cada recurso de gateway é vinculado a uma única instalação de gateway.
 
    > [!NOTE]
@@ -139,7 +142,7 @@ Para atualizar as configurações de uma conexão de gateway, você pode editar 
 
 Para localizar todas as conexões de API associadas à assinatura do Azure:
 
-* No menu portal do Azure, selecione **todos os serviços**  >  conexões de API**da Web**  >  **API Connections**.
+* No menu portal do Azure, selecione **todos os serviços**  >  conexões de API **da Web**  >  .
 * Ou, no menu portal do Azure, selecione **todos os recursos**. Defina o filtro de **tipo** como **conexão de API**.
 
 <a name="change-delete-gateway-resource"></a>
@@ -148,7 +151,7 @@ Para localizar todas as conexões de API associadas à assinatura do Azure:
 
 Para criar um recurso de gateway diferente, vincule a instalação do gateway a um recurso de gateway diferente ou remova o recurso de gateway, você pode excluir o recurso de gateway sem afetar a instalação do gateway.
 
-1. No menu portal do Azure, selecione **todos os recursos**ou pesquise e selecione **todos os recursos** em qualquer página. Localize e selecione o recurso de gateway.
+1. No menu portal do Azure, selecione **todos os recursos** ou pesquise e selecione **todos os recursos** em qualquer página. Localize e selecione o recurso de gateway.
 
 1. Se ainda não estiver selecionado, no menu de recursos do gateway, selecione **Gateway de Dados Local**. Na barra de ferramentas de recursos do gateway, selecione **excluir**.
 

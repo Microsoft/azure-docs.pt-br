@@ -1,6 +1,6 @@
 ---
 title: Estenda o Azure Sentinel entre espaços de trabalho e locatários | Microsoft Docs
-description: Como trabalhar com vários locatários para o Azure Sentinel para provedores de serviço MSSP.
+description: Como usar o Azure Sentinel para consultar e analisar dados entre espaços de trabalho e locatários.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/11/2020
+ms.date: 09/11/2020
 ms.author: yelevin
-ms.openlocfilehash: 596d0f4870d9331a332dfb81bd7d2d224964a593
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9cbafa2a87db9aa59769ac759da9b56a6463874a
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519006"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100006676"
 ---
 # <a name="extend-azure-sentinel-across-workspaces-and-tenants"></a>Estender o Azure Sentinel entre workspaces e locatários
 
@@ -27,23 +27,23 @@ ms.locfileid: "86519006"
 
 O Azure Sentinel é criado sobre um espaço de trabalho Log Analytics. Você observará que a primeira etapa na integração do Azure Sentinel é selecionar o Log Analytics espaço de trabalho que você deseja usar para essa finalidade.
 
-Você pode obter o benefício completo da experiência do Azure Sentinel ao usar um único espaço de trabalho. Mesmo assim, há algumas circunstâncias que podem exigir que você tenha vários espaços de trabalho. A tabela a seguir lista algumas dessas situações e, quando possível, sugere como o requisito pode ser satisfeito com um único espaço de trabalho:
+Você pode obter o benefício completo da experiência do Azure Sentinel ao usar um único workspace. Mesmo assim, há algumas circunstâncias que podem exigir que você tenha vários espaços de trabalho. A tabela a seguir lista algumas dessas situações e, quando possível, sugere como o requisito pode ser satisfeito com um único espaço de trabalho:
 
-| Requisito | Descrição | Maneiras de reduzir a contagem de espaços de trabalho |
+| Requisito | Descrição | Maneiras de reduzir a contagem de workspace |
 |-------------|-------------|--------------------------------|
-| A soberania e conformidade regulatória | Um espaço de trabalho está vinculado a uma região específica. Se os dados precisarem ser mantidos em [geografias diferentes do Azure](https://azure.microsoft.com/global-infrastructure/geographies/) para atender aos requisitos regulatórios, eles deverão ser divididos em espaços de trabalho separados. |  |
+| A soberania e conformidade regulatória | Um workspace está vinculado a uma região específica. Se os dados precisarem ser mantidos em [geografias diferentes do Azure](https://azure.microsoft.com/global-infrastructure/geographies/) para atender aos requisitos regulatórios, eles deverão ser divididos em espaços de trabalho separados. |  |
 | Propriedade dos dados | Os limites de propriedade de dados, por exemplo, por subsidiárias ou empresas afiliadas, são melhores delineados usando espaços de trabalho separados. |  |
-| Vários locatários do Azure | O Azure Sentinel dá suporte à coleta de dados dos recursos Microsoft e SaaS do Azure somente dentro de seu próprio limite de locatário do Azure Active Directory (AD do Azure). Portanto, cada locatário do Azure AD requer um espaço de trabalho separado. |  |
-| Controle de acesso a dados granular | Uma organização pode precisar permitir que diferentes grupos, dentro ou fora da organização, acessem alguns dos dados coletados pelo Azure Sentinel. Por exemplo:<br><ul><li>O acesso dos proprietários de recursos aos dados pertencentes aos seus recursos</li><li>Acesso regional ou subsidiário SOCs aos dados relevantes para suas partes da organização</li></ul> | Usar RBAC de [recurso](https://techcommunity.microsoft.com/t5/azure-sentinel/controlling-access-to-azure-sentinel-data-resource-rbac/ba-p/1301463) ou [RBAC de nível de tabela](https://techcommunity.microsoft.com/t5/azure-sentinel/table-level-rbac-in-azure-sentinel/ba-p/965043) |
+| Vários locatários do Azure | O Azure Sentinel dá suporte à coleta de dados dos recursos Microsoft e SaaS do Azure somente dentro de seu próprio limite de locatário do Azure Active Directory (AD do Azure). Portanto, cada locatário do Azure AD requer um workspace separado. |  |
+| Controle de acesso a dados granular | Uma organização pode precisar permitir que diferentes grupos, dentro ou fora da organização, acessem alguns dos dados coletados pelo Azure Sentinel. Por exemplo:<br><ul><li>O acesso dos proprietários de recursos aos dados pertencentes aos seus recursos</li><li>Acesso regional ou subsidiário SOCs aos dados relevantes para suas partes da organização</li></ul> | Usar [recurso do Azure RBAC](https://techcommunity.microsoft.com/t5/azure-sentinel/controlling-access-to-azure-sentinel-data-resource-rbac/ba-p/1301463) ou do Azure [RBAC de nível de tabela](https://techcommunity.microsoft.com/t5/azure-sentinel/table-level-rbac-in-azure-sentinel/ba-p/965043) |
 | Configurações de retenção granulares | Historicamente, vários espaços de trabalho eram a única maneira de definir diferentes períodos de retenção para diferentes tipos de dados. Isso não é mais necessário em muitos casos, graças à introdução das configurações de retenção de nível de tabela. | Usar [as configurações de retenção de nível de tabela](https://techcommunity.microsoft.com/t5/azure-sentinel/new-per-data-type-retention-is-now-available-for-azure-sentinel/ba-p/917316) ou automatizar a [exclusão de dados](../azure-monitor/platform/personal-data-mgmt.md#how-to-export-and-delete-private-data) |
 | Cobrança dividida | Ao colocar espaços de trabalho em assinaturas separadas, eles podem ser cobrados por partes diferentes. | Relatório de uso e cobrança cruzada |
-| Arquitetura herdada | O uso de vários espaços de trabalho pode ser proveniente de um design histórico que levava em consideração as limitações ou as práticas recomendadas que não são mais verdadeiras. Também pode ser uma opção de design arbitrária que pode ser modificada para acomodar melhor o Sentinela do Azure.<br><br>Os exemplos incluem:<br><ul><li>Usando um espaço de trabalho padrão por assinatura ao implantar a central de segurança do Azure</li><li>A necessidade de controle de acesso granular ou configurações de retenção, as soluções para as quais são relativamente novas</li></ul> | Rearquitetar espaços de trabalho |
+| Arquitetura herdada | O uso de vários espaços de trabalho pode ser proveniente de um design histórico que levava em consideração as limitações ou as práticas recomendadas que não são mais verdadeiras. Também pode ser uma opção de design arbitrária que pode ser modificada para acomodar melhor o Azure Sentinel.<br><br>Os exemplos incluem:<br><ul><li>Usando um espaço de trabalho padrão por assinatura ao implantar a central de segurança do Azure</li><li>A necessidade de controle de acesso granular ou configurações de retenção, as soluções para as quais são relativamente novas</li></ul> | Rearquitetar workspaces |
 
 ### <a name="managed-security-service-provider-mssp"></a>Provedor de serviço de segurança gerenciado (MSSP)
 
 Um caso de uso específico que exige vários espaços de trabalho é um serviço MSSP do Azure Sentinel. Nesse caso, muitos, caso contrário, todos os requisitos acima se aplicam, fazendo vários espaços de trabalho, entre locatários, a prática recomendada. O MSSP pode usar o [Lighthouse do Azure](../lighthouse/overview.md) para estender recursos entre espaços de trabalho do Azure Sentinel entre locatários.
 
-## <a name="azure-sentinel-multiple-workspace-architecture"></a>Arquitetura de vários espaços de trabalho do Azure Sentinel
+## <a name="azure-sentinel-multiple-workspace-architecture"></a>Arquitetura de vários workspaces do Azure Sentinel
 
 Conforme indicado pelos requisitos acima, há casos em que vários espaços de trabalho do Azure Sentinel, potencialmente em locatários Azure Active Directory (Azure AD), precisam ser monitorados centralmente e gerenciados por um único SOC.
 
@@ -63,7 +63,7 @@ Esse modelo oferece vantagens significativas em relação a um modelo totalmente
 
 - Menos desafios relacionados à propriedade de dados, privacidade de dados e conformidade regulatória.
 
-- Latência mínima de rede e encargos.
+- Latência mínima de rede e preços.
 
 - Facilidade de integração e remoção de novas subsidiárias ou clientes.
 
@@ -84,7 +84,7 @@ O Azure Sentinel dá suporte a uma [exibição de incidentes de vários espaços
 O Azure Sentinel dá suporte à consulta de [vários espaços de trabalho em uma única consulta](../azure-monitor/log-query/cross-workspace-query.md), permitindo que você pesquise e correlacione dados de vários espaços de trabalho em uma única consulta. 
 
 - Use a [expressão Workspace ()](../azure-monitor/log-query/workspace-expression.md) para fazer referência a uma tabela em um espaço de trabalho diferente. 
-- Use o [operador Union](https://docs.microsoft.com/azure/data-explorer/kusto/query/unionoperator?pivots=azuremonitor) junto com a expressão de espaço de trabalho () para aplicar uma consulta entre tabelas em vários espaços de trabalho.
+- Use o [operador Union](/azure/data-explorer/kusto/query/unionoperator?pivots=azuremonitor) junto com a expressão de espaço de trabalho () para aplicar uma consulta entre tabelas em vários espaços de trabalho.
 
 Você pode usar [funções](../azure-monitor/log-query/functions.md) salvas para simplificar as consultas entre espaços de trabalho. Por exemplo, se uma referência a um espaço de trabalho for longa, talvez você queira salvar a expressão `workspace("customer-A's-hard-to-remember-workspace-name").SecurityEvent` como uma função chamada `SecurityEventCustomerA` . Em seguida, você pode escrever consultas como `SecurityEventCustomerA | where ...` .
 
@@ -94,11 +94,18 @@ Uma função também pode simplificar uma União comumente usada. Por exemplo, v
 
 Em seguida, você pode escrever uma consulta em ambos os espaços de trabalho começando com `unionSecurityEvent | where ...` .
 
+#### <a name="cross-workspace-analytics-rules"></a>Regras de análise entre espaços de trabalho<a name="scheduled-alerts"></a>
+<!-- Bookmark added for backward compatibility with old heading -->
+As consultas entre espaços de trabalho agora podem ser incluídas em regras de análise agendada, sujeitas às seguintes limitações:
+
+- Até 20 espaços de trabalho podem ser incluídos em uma única consulta.
+- O Azure Sentinel deve ser implantado em todos os espaços de trabalho referenciados na consulta.
+
 > [!NOTE] 
 > Consultar vários espaços de trabalho na mesma consulta pode afetar o desempenho e, portanto, é recomendado somente quando a lógica requer essa funcionalidade.
 
-### <a name="using-cross-workspace-workbooks"></a>Usando pastas de trabalho entre espaços de trabalho
-
+#### <a name="cross-workspace-workbooks"></a>Pastas de trabalho entre espaços de trabalho<a name="using-cross-workspace-workbooks"></a>
+<!-- Bookmark added for backward compatibility with old heading -->
 As [pastas de trabalho](./overview.md#workbooks) fornecem painéis e aplicativos para o Azure Sentinel. Ao trabalhar com vários espaços de trabalho, eles fornecem monitoramento e ações entre espaços de trabalho.
 
 As pastas de trabalho podem fornecer consultas entre espaços de trabalho em um dos três métodos, cada uma das quais atendem a diferentes níveis de experiência do usuário final:
@@ -110,7 +117,7 @@ As pastas de trabalho podem fornecer consultas entre espaços de trabalho em um 
 | Editar a pasta de trabalho interativamente | Um usuário avançado que modifica uma pasta de trabalho existente pode editar as consultas nela, selecionando os espaços de trabalho de destino usando o seletor de espaço de trabalho no editor. | Essa opção permite que um usuário avançado modifique facilmente pastas de trabalho existentes para trabalhar com vários espaços de trabalho. |
 |
 
-### <a name="cross-workspace-hunting"></a>Caça entre espaços de trabalho
+#### <a name="cross-workspace-hunting"></a>Caça entre espaços de trabalho
 
 O Azure Sentinel fornece exemplos de consulta pré-carregados projetados para ajudá-lo a começar e a familiarizar-se com as tabelas e a linguagem de consulta. Essas consultas de busca interna são desenvolvidas pelos pesquisadores de segurança da Microsoft de forma contínua, adicionando novas consultas e ajustando consultas existentes, para fornecer a você um ponto de entrada para procurar novas detecções e identificar sinais de intrusão que podem ter sido despercebidos por suas ferramentas de segurança.  
 
@@ -120,18 +127,11 @@ Os recursos de busca entre espaços de trabalho permitem que suas caçadores de 
 
 Para configurar e gerenciar vários espaços de trabalho do Azure Sentinel, você precisará automatizar o uso da API de gerenciamento do Sentinela do Azure. Para obter mais informações sobre como automatizar a implantação de recursos do Azure Sentinel, incluindo regras de alerta, consultas de busca, pastas de trabalho e guias estratégicos, consulte [estendendo o Azure sentinela: APIs, integração e automação de gerenciamento](https://techcommunity.microsoft.com/t5/azure-sentinel/extending-azure-sentinel-apis-integration-and-management/ba-p/1116885).
 
-Consulte também [Implantando e gerenciando o Azure Sentinel como código](https://techcommunity.microsoft.com/t5/azure-sentinel/deploying-and-managing-azure-sentinel-as-code/ba-p/1131928) e [combinando o Azure Lighthouse com os recursos de DevOps do Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/combining-azure-lighthouse-with-sentinel-s-devops-capabilities/ba-p/1210966) para uma metodologia consolidada, contribuida pela Comunidade para gerenciar o Azure Sentinel como código e para implantar e configurar recursos de um repositório GitHub privado. 
-
-
-## <a name="whats-not-supported-across-workspaces"></a>O que não tem suporte em espaços de trabalho?
-
-Os seguintes recursos não têm suporte em espaços de trabalho:
-
-- Uma regra de alerta agendada não pode ser executada em espaços de trabalho usando uma consulta entre espaços de trabalho.
+Consulte também [Implantando e gerenciando o Azure Sentinel como código](https://techcommunity.microsoft.com/t5/azure-sentinel/deploying-and-managing-azure-sentinel-as-code/ba-p/1131928) e [combinando o Azure Lighthouse com os recursos de DevOps do Azure Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/combining-azure-lighthouse-with-sentinel-s-devops-capabilities/ba-p/1210966) para uma metodologia consolidada e contribuida pela Comunidade para gerenciar o Azure Sentinel como código e para implantar e configurar recursos de um repositório GitHub privado. 
 
 ## <a name="managing-workspaces-across-tenants-using-azure-lighthouse"></a>Gerenciando espaços de trabalho entre locatários usando o Azure Lighthouse
 
-Conforme mencionado acima, em muitos cenários, os diferentes espaços de trabalho do Azure Sentinel podem estar localizados em locatários diferentes do Azure AD. Você pode usar o [Azure Lighthouse](../lighthouse/overview.md) para estender todas as atividades entre espaços de trabalho entre limites de locatário, permitindo que os usuários em seu locatário de gerenciamento trabalhem em espaços de trabalho do Azure Sentinel em todos os locatários. Depois que o Azure Lighthouse estiver [integrado](../lighthouse/how-to/onboard-customer.md), use o [seletor de diretório + assinatura](./multiple-tenants-service-providers.md#how-to-access-azure-sentinel-from-other-tenants) na portal do Azure para selecionar todas as assinaturas que contêm espaços de trabalho que você deseja gerenciar, para garantir que todos estarão disponíveis nos seletores de espaço de trabalho diferentes no Portal.
+Conforme mencionado acima, em muitos cenários, os diferentes espaços de trabalho do Azure Sentinel podem estar localizados em locatários diferentes do Azure AD. Você pode usar o [Azure Lighthouse](../lighthouse/overview.md) para estender todas as atividades entre espaços de trabalho entre limites de locatário, permitindo que os usuários em seu locatário de gerenciamento trabalhem em espaços de trabalho do Azure Sentinel em todos os locatários. Depois que o Azure Lighthouse estiver [integrado](../lighthouse/how-to/onboard-customer.md), use o [seletor de diretório + assinatura](./multiple-tenants-service-providers.md#how-to-access-azure-sentinel-in-managed-tenants) na portal do Azure para selecionar todas as assinaturas que contêm espaços de trabalho que você deseja gerenciar, para garantir que todos estarão disponíveis nos seletores de espaço de trabalho diferentes no Portal.
 
 Ao usar o Azure Lighthouse, é recomendável criar um grupo para cada função de sentinela do Azure e delegar permissões de cada locatário para esses grupos.
 

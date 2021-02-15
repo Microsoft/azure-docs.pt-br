@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 8fa21cc690742a71100c53b4e5b6ce122d1a6147
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8a1af48d89fbf5d303c2a6b8ef85ca3117debd5a
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75864070"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320073"
 ---
 # <a name="walkthroughs-executing-the-team-data-science-process"></a>Passo a passos da execução do Processo de Ciência de Dados de Equipe
 
@@ -32,7 +32,7 @@ Confira aqui descrições resumidas do que esses exemplos de passo a passo forne
 - [Passo a passos do HDInsight Hadoop usando Hive](walkthroughs-hdinsight-hadoop.md) Estes passo a passos usam Hive com um cluster HDInsight Hadoop para realizar análise preditiva.
 - [Passo a passo do Azure Data Lake usando U-SQL](walkthroughs-azure-data-lake.md) Estes passo a passos usam U-SQL com o Azure Data Lake para realizar a análise preditiva.
 - [SQL Server](walkthroughs-sql-server.md) Estes passo a passos usam SQL Server, SQL Server R Services e SQL Server Python Services para realizar a análise preditiva.
-- [SQL Data Warehouse](walkthroughs-sql-data-warehouse.md) Estes passo a passos usam SQL Data Warehouse para realizar análise preditiva. 
+- [Análise de Synapse do Azure](walkthroughs-sql-data-warehouse.md) Essas instruções usam a análise de Synapse do Azure para fazer análises preditivas. 
 
 
 
@@ -42,5 +42,4 @@ Para uma discussão sobre os principais componentes do Processo de Ciência de D
 
 Para obter uma discussão sobre o ciclo de vida do processo de ciência de dados de equipe, consulte [ciclo de vida do processo de ciência de dados](lifecycle.md) Esse ciclo de vida descreve as etapas, do início ao fim, que os projetos geralmente seguem quando são executados. 
 
-Para obter uma visão geral, consulte [processo de ciência de dados](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/). 
-
+Para obter uma visão geral, consulte [processo de ciência de dados](./index.yml).

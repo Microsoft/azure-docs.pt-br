@@ -2,14 +2,14 @@
 title: Tutorial – Tarefa de ACR de várias etapas
 description: Neste tutorial, você aprenderá a configurar uma Tarefa de Registro de Contêiner do Azure para disparar automaticamente um fluxo de trabalho de várias etapas para criar, executar e enviar e imagens de contêiner por push na nuvem ao fazer commit do código-fonte em um repositório Git.
 ms.topic: tutorial
-ms.date: 05/09/2019
-ms.custom: seodec18, mvc
-ms.openlocfilehash: ff32b3095638af6b2b246b99a5dc9219e0020782
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.date: 11/24/2020
+ms.custom: seodec18, mvc, devx-track-azurecli
+ms.openlocfilehash: be5c8c4012267dc7ce6362502c806a9f238732b7
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78402310"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98920267"
 ---
 # <a name="tutorial-run-a-multi-step-container-workflow-in-the-cloud-when-you-commit-source-code"></a>Tutorial: Executar um fluxo de trabalho de contêiner de várias etapas na nuvem ao fazer commit do código-fonte
 
@@ -29,11 +29,8 @@ Neste tutorial:
 
 Este tutorial presume que você já tenha concluído as tarefas no [tutorial anterior](container-registry-tutorial-quick-task.md). Se você ainda não tiver feito isso, conclua as etapas na seção [Pré-requisitos](container-registry-tutorial-quick-task.md#prerequisites) do tutorial anterior antes de continuar.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-Se quiser usar a CLI do Azure localmente, será preciso ter a CLI do Azure versão **2.0.62** ou posterior instalada e conectada com [az login][az-login]. Execute `az --version` para encontrar a versão. Se você precisar instalar ou atualizar a CLI, confira como [instalar a CLI do Azure][azure-cli].
-
 [!INCLUDE [container-registry-task-tutorial-prereq.md](../../includes/container-registry-task-tutorial-prereq.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../includes/azure-cli-prepare-your-environment-h3.md)]
 
 ## <a name="create-a-multi-step-task"></a>Criar uma tarefa de várias etapas
 
@@ -44,7 +41,7 @@ Agora que você concluiu as etapas necessárias para habilitar as Tarefas do ACR
 Você define as etapas para uma tarefa de várias etapas em um [arquivo YAML](container-registry-tasks-reference-yaml.md). A primeira tarefa de várias etapas de exemplo deste tutorial é definida no arquivo `taskmulti.yaml`, que está na raiz do repositório GitHub que você clonou:
 
 ```yml
-version: v1.0.0
+version: v1.1.0
 steps:
 # Build target image
 - build: -t {{.Run.Registry}}/hello-world:{{.Run.ID}} -f Dockerfile .
@@ -69,8 +66,6 @@ Essa tarefa de várias etapa faz o seguinte:
 
 Primeiro, preencha essas variáveis de ambiente de shell com valores apropriados para seu ambiente. Esta etapa não é estritamente necessária, mas torna a execução dos comandos da CLI do Azure com várias linhas neste tutorial um pouco mais fácil. Se não preencher essas variáveis de ambiente, você precisará substituir manualmente cada valor sempre que aparecerem nos comandos de exemplo.
 
-[![Inserir inicialização](https://shell.azure.com/images/launchcloudshell.png "Iniciar o Azure Cloud Shell")](https://shell.azure.com)
-
 ```console
 ACR_NAME=<registry-name>        # The name of your Azure container registry
 GIT_USER=<github-username>      # Your GitHub user account name
@@ -83,12 +78,12 @@ Agora, crie a tarefa executando o seguinte comando [az acr task create][az-acr-t
 az acr task create \
     --registry $ACR_NAME \
     --name example1 \
-    --context https://github.com/$GIT_USER/acr-build-helloworld-node.git \
+    --context https://github.com/$GIT_USER/acr-build-helloworld-node.git#main \
     --file taskmulti.yaml \
     --git-access-token $GIT_PAT
 ```
 
-Esta tarefa especifica que qualquer código de tempo é confirmado para o branch *mestre* no repositório especificado por `--context`, as Tarefas do ACR executarão a tarefa de várias etapas por meio do código desse branch. O arquivo YAML especificado por `--file` da raiz do repositório define as etapas. 
+Essa tarefa especifica que, sempre que for feito commit do código no branch *principal* no repositório especificado por `--context`, as Tarefas do ACR executarão a tarefa de várias etapas por meio do código desse branch. O arquivo YAML especificado por `--file` da raiz do repositório define as etapas. 
 
 A saída de um comando [az acr task create][az-acr-task-create] bem-sucedido é semelhante à seguinte:
 
@@ -97,7 +92,7 @@ A saída de um comando [az acr task create][az-acr-task-create] bem-sucedido é 
   "agentConfiguration": {
     "cpu": 2
   },
-  "creationDate": "2019-05-03T03:14:31.763887+00:00",
+  "creationDate": "2020-11-20T03:14:31.763887+00:00",
   "credentials": null,
   "id": "/subscriptions/<Subscription ID>/resourceGroups/myregistry/providers/Microsoft.ContainerRegistry/registries/myregistry/tasks/taskmulti",
   "location": "westus",
@@ -113,7 +108,7 @@ A saída de um comando [az acr task create][az-acr-task-create] bem-sucedido é 
   "step": {
     "baseImageDependencies": null,
     "contextAccessToken": null,
-    "contextPath": "https://github.com/gituser/acr-build-helloworld-node.git",
+    "contextPath": "https://github.com/gituser/acr-build-helloworld-node.git#main",
     "taskFilePath": "taskmulti.yaml",
     "type": "FileTask",
     "values": [],
@@ -131,8 +126,8 @@ A saída de um comando [az acr task create][az-acr-task-create] bem-sucedido é 
       {
         "name": "defaultSourceTriggerName",
         "sourceRepository": {
-          "branch": "master",
-          "repositoryUrl": "https://github.com/gituser/acr-build-helloworld-node.git",
+          "branch": "main",
+          "repositoryUrl": "https://github.com/gituser/acr-build-helloworld-node.git#main",
           "sourceControlAuthProperties": null,
           "sourceControlType": "Github"
         },
@@ -158,45 +153,41 @@ az acr task run --registry $ACR_NAME --name example1
 Por padrão, o comando `az acr task run` transmite a saída de log para o console quando você executa o comando. A saída mostra o andamento da execução de cada uma das etapas da tarefa. A saída abaixo é condensada para mostrar as principais etapas.
 
 ```output
-Queued a run with ID: cf19
+Queued a run with ID: cab
 Waiting for an agent...
-2019/05/03 03:03:31 Downloading source code...
-2019/05/03 03:03:33 Finished downloading source code
-2019/05/03 03:03:33 Using acb_vol_cfe6bd55-3076-4215-8091-6a81aec3d1b1 as the home volume
-2019/05/03 03:03:33 Creating Docker network: acb_default_network, driver: 'bridge'
-2019/05/03 03:03:34 Successfully set up Docker network: acb_default_network
-2019/05/03 03:03:34 Setting up Docker configuration...
-2019/05/03 03:03:34 Successfully set up Docker configuration
-2019/05/03 03:03:34 Logging in to registry: myregistry.azurecr.io
-2019/05/03 03:03:35 Successfully logged into myregistry.azurecr.io
-2019/05/03 03:03:35 Executing step ID: acb_step_0. Working directory: '', Network: 'acb_default_network'
-2019/05/03 03:03:35 Scanning for dependencies...
-2019/05/03 03:03:36 Successfully scanned dependencies
-2019/05/03 03:03:36 Launching container with name: acb_step_0
+2020/11/20 00:03:31 Downloading source code...
+2020/11/20 00:03:33 Finished downloading source code
+2020/11/20 00:03:33 Using acb_vol_cfe6bd55-3076-4215-8091-6a81aec3d1b1 as the home volume
+2020/11/20 00:03:33 Creating Docker network: acb_default_network, driver: 'bridge'
+2020/11/20 00:03:34 Successfully set up Docker network: acb_default_network
+2020/11/20 00:03:34 Setting up Docker configuration...
+2020/11/20 00:03:34 Successfully set up Docker configuration
+2020/11/20 00:03:34 Logging in to registry: myregistry.azurecr.io
+2020/11/20 00:03:35 Successfully logged into myregistry.azurecr.io
+2020/11/20 00:03:35 Executing step ID: acb_step_0. Working directory: '', Network: 'acb_default_network'
+2020/11/20 00:03:35 Scanning for dependencies...
+2020/11/20 00:03:36 Successfully scanned dependencies
+2020/11/20 00:03:36 Launching container with name: acb_step_0
 Sending build context to Docker daemon  24.06kB
-
 [...]
-
 Successfully built f669bfd170af
 Successfully tagged myregistry.azurecr.io/hello-world:cf19
-2019/05/03 03:03:43 Successfully executed container: acb_step_0
-2019/05/03 03:03:43 Executing step ID: acb_step_1. Working directory: '', Network: 'acb_default_network'
-2019/05/03 03:03:43 Launching container with name: acb_step_1
+2020/11/20 00:03:43 Successfully executed container: acb_step_0
+2020/11/20 00:03:43 Executing step ID: acb_step_1. Working directory: '', Network: 'acb_default_network'
+2020/11/20 00:03:43 Launching container with name: acb_step_1
 279b1cb6e092b64c8517c5506fcb45494cd5a0bd10a6beca3ba97f25c5d940cd
-2019/05/03 03:03:44 Successfully executed container: acb_step_1
-2019/05/03 03:03:44 Executing step ID: acb_step_2. Working directory: '', Network: 'acb_default_network'
-2019/05/03 03:03:44 Pushing image: myregistry.azurecr.io/hello-world:cf19, attempt 1
-
+2020/11/20 00:03:44 Successfully executed container: acb_step_1
+2020/11/20 00:03:44 Executing step ID: acb_step_2. Working directory: '', Network: 'acb_default_network'
+2020/11/20 00:03:44 Pushing image: myregistry.azurecr.io/hello-world:cf19, attempt 1
 [...]
-
-2019/05/03 03:03:46 Successfully pushed image: myregistry.azurecr.io/hello-world:cf19
-2019/05/03 03:03:46 Step ID: acb_step_0 marked as successful (elapsed time in seconds: 7.425169)
-2019/05/03 03:03:46 Populating digests for step ID: acb_step_0...
-2019/05/03 03:03:47 Successfully populated digests for step ID: acb_step_0
-2019/05/03 03:03:47 Step ID: acb_step_1 marked as successful (elapsed time in seconds: 0.827129)
-2019/05/03 03:03:47 Step ID: acb_step_2 marked as successful (elapsed time in seconds: 2.112113)
-2019/05/03 03:03:47 The following dependencies were found:
-2019/05/03 03:03:47
+2020/11/20 00:03:46 Successfully pushed image: myregistry.azurecr.io/hello-world:cf19
+2020/11/20 00:03:46 Step ID: acb_step_0 marked as successful (elapsed time in seconds: 7.425169)
+2020/11/20 00:03:46 Populating digests for step ID: acb_step_0...
+2020/11/20 00:03:47 Successfully populated digests for step ID: acb_step_0
+2020/11/20 00:03:47 Step ID: acb_step_1 marked as successful (elapsed time in seconds: 0.827129)
+2020/11/20 00:03:47 Step ID: acb_step_2 marked as successful (elapsed time in seconds: 2.112113)
+2020/11/20 00:03:47 The following dependencies were found:
+2020/11/20 00:03:47
 - image:
     registry: myregistry.azurecr.io
     repository: hello-world
@@ -205,19 +196,19 @@ Successfully tagged myregistry.azurecr.io/hello-world:cf19
   runtime-dependency:
     registry: registry.hub.docker.com
     repository: library/node
-    tag: 9-alpine
+    tag: 15-alpine
     digest: sha256:8dafc0968fb4d62834d9b826d85a8feecc69bd72cd51723c62c7db67c6dec6fa
   git:
     git-head-revision: 1a3065388a0238e52865db1c8f3e97492a43444c
 
-Run ID: cf19 was successful after 18s
+Run ID: cab was successful after 18s
 ```
 
 ## <a name="trigger-a-build-with-a-commit"></a>Disparar um build com uma confirmação
 
 Agora que você testou a tarefa executando-a manualmente, dispare-a automaticamente com uma alteração de código-fonte.
 
-Primeiro, verifique se você está no diretório que contém o clone local do [repositório][sample-repo]:
+Primeiro, certifique-se de que você esteja no diretório que contém o clone local do [repositório][sample-repo]:
 
 ```console
 cd acr-build-helloworld-node
@@ -229,7 +220,7 @@ Em seguida, execute os seguintes comandos para criar, confirmar e enviar um novo
 echo "Hello World!" > hello.txt
 git add hello.txt
 git commit -m "Testing ACR Tasks"
-git push origin master
+git push origin main
 ```
 
 Você pode ser solicitado a fornecer suas credenciais do GitHub quando executar o comando `git push`. Forneça seu nome de usuário do GitHub e insira o token de acesso pessoal (PAT) que criou anteriormente para a senha.
@@ -249,11 +240,11 @@ A saída é semelhante à seguinte, mostrando a tarefa em execução no momento 
 
 ```output
 Showing logs of the last created run.
-Run ID: cf1d
+Run ID: cad
 
 [...]
 
-Run ID: cf1d was successful after 37s
+Run ID: cad was successful after 37s
 ```
 
 ## <a name="list-builds"></a>Listar builds
@@ -267,20 +258,18 @@ az acr task list-runs --registry $ACR_NAME --output table
 A saída do comando deve ser semelhante ao seguinte. As execuções que as Tarefas do ACR efetuou são exibidas, e “Confirmação de Git” aparece na coluna GATILHO para a tarefa mais recente:
 
 ```output
-RUN ID    TASK       PLATFORM    STATUS     TRIGGER    STARTED               DURATION
---------  ---------  ----------  ---------  ---------  --------------------  ----------
-cf1d      example1   linux       Succeeded  Commit     2019-05-03T04:16:44Z  00:00:37
-cf1c      example1   linux       Succeeded  Commit     2019-05-03T04:16:44Z  00:00:39
-cf1b      example1   linux       Succeeded  Manual     2019-05-03T03:10:30Z  00:00:31
-cf1a      example1   linux       Succeeded  Commit     2019-05-03T03:09:32Z  00:00:31
-cf19      example1   linux       Succeeded  Manual     2019-05-03T03:03:30Z  00:00:21
+RUN ID    TASK            PLATFORM    STATUS     TRIGGER    STARTED               DURATION
+--------  --------------  ----------  ---------  ---------  --------------------  ----------
+cad       example1        linux       Succeeded  Commit     2020-11-20T00:22:15Z  00:00:35
+cac       taskhelloworld  linux       Succeeded  Commit     2020-11-20T00:22:15Z  00:00:22
+cab       example1        linux       Succeeded  Manual     2020-11-20T00:18:36Z  00:00:47
 ```
 
 ## <a name="create-a-multi-registry-multi-step-task"></a>Criar uma tarefa de várias etapas de vários registros
 
 Por padrão, as Tarefas do ACR têm permissões para efetuar push ou pull de imagens do registro no qual a tarefa é executada. Você pode executar uma tarefa de várias etapas que tem como destino um ou mais registros além do registro de execução. Por exemplo, talvez seja necessário criar imagens em um registro e armazenar imagens com marcas diferentes em um segundo registro que é acessado por um sistema de produção. Este exemplo mostra como criar esse tipo de tarefa e fornecer credenciais para outro registro.
 
-Se você ainda não tem um segundo registro, crie um para este exemplo. Se você precisar de um registro, confira o [tutorial anterior](container-registry-tutorial-quick-task.md) ou o [Início Rápido: Criar um registro de contêiner usando a CLI do Azure](container-registry-get-started-azure-cli.md).
+Se você ainda não tem um segundo registro, crie um para este exemplo. Se você precisar de um registro, consulte o [tutorial anterior](container-registry-tutorial-quick-task.md) ou [Início Rápido: criar um registro de contêiner usando a CLI do Azure](container-registry-get-started-azure-cli.md).
 
 Para criar a tarefa, você precisa do nome do servidor de logon do registro, que está no formato *mycontainerregistrydate.azurecr.io* (todas as letras minúsculas). Neste exemplo, você usa o segundo registro para armazenar imagens marcadas por data de build.
 
@@ -289,7 +278,7 @@ Para criar a tarefa, você precisa do nome do servidor de logon do registro, que
 A segunda tarefa de várias etapas de exemplo deste tutorial é definida no arquivo `taskmulti-multiregistry.yaml`, que está na raiz do repositório GitHub que você clonou:
 
 ```yml
-version: v1.0.0
+version: v1.1.0
 steps:
 # Build target images
 - build: -t {{.Run.Registry}}/hello-world:{{.Run.ID}} -f Dockerfile .
@@ -322,7 +311,7 @@ Usando as variáveis de ambiente do shell definidas anteriormente, crie a tarefa
 az acr task create \
     --registry $ACR_NAME \
     --name example2 \
-    --context https://github.com/$GIT_USER/acr-build-helloworld-node.git \
+    --context https://github.com/$GIT_USER/acr-build-helloworld-node.git#main \
     --file taskmulti-multiregistry.yaml \
     --git-access-token $GIT_PAT \
     --set regDate=mycontainerregistrydate.azurecr.io
@@ -332,9 +321,9 @@ az acr task create \
 
 Para efetuar push das imagens ao registro identificado pelo valor de `regDate`, use o comando [az acr task credential add][az-acr-task-credential-add] para adicionar credenciais de logon para esse registro para a tarefa.
 
-Neste exemplo, é recomendável que você crie uma [entidade de serviço](container-registry-auth-service-principal.md) com acesso ao registro no escopo da função *AcrPush*. Para criar a entidade de serviço, confira esse [script da CLI do Azure](https://github.com/Azure-Samples/azure-cli-samples/blob/master/container-registry/service-principal-create/service-principal-create.sh).
+Para este exemplo, recomendamos que você crie uma [entidade de serviço](container-registry-auth-service-principal.md) com acesso ao Registro no escopo da função *AcrPush*, de modo que ela tenha permissões para enviar imagens por push. Para criar a entidade de serviço, confira esse [script da CLI do Azure](https://github.com/Azure-Samples/azure-cli-samples/blob/master/container-registry/service-principal-create/service-principal-create.sh).
 
-Passar a ID do aplicativo e a senha da entidade de serviço no seguinte comando `az acr task credential add`:
+Passe a ID do aplicativo e a senha da entidade de serviço no comando `az acr task credential add` a seguir. Lembre-se de atualizar o nome do servidor de logon *mycontainerregistrydate* com o nome do segundo registro:
 
 ```azurecli-interactive
 az acr task credential add --name example2 \
@@ -361,69 +350,61 @@ Saída:
 ```output
 Queued a run with ID: cf1g
 Waiting for an agent...
-2019/05/03 04:33:39 Downloading source code...
-2019/05/03 04:33:41 Finished downloading source code
-2019/05/03 04:33:42 Using acb_vol_4569b017-29fe-42bd-83b2-25c45a8ac807 as the home volume
-2019/05/03 04:33:42 Creating Docker network: acb_default_network, driver: 'bridge'
-2019/05/03 04:33:43 Successfully set up Docker network: acb_default_network
-2019/05/03 04:33:43 Setting up Docker configuration...
-2019/05/03 04:33:44 Successfully set up Docker configuration
-2019/05/03 04:33:44 Logging in to registry: mycontainerregistry.azurecr.io
-2019/05/03 04:33:45 Successfully logged into mycontainerregistry.azurecr.io
-2019/05/03 04:33:45 Logging in to registry: mycontainerregistrydate.azurecr.io
-2019/05/03 04:33:47 Successfully logged into mycontainerregistrydate.azurecr.io
-2019/05/03 04:33:47 Executing step ID: acb_step_0. Working directory: '', Network: 'acb_default_network'
-2019/05/03 04:33:47 Scanning for dependencies...
-2019/05/03 04:33:47 Successfully scanned dependencies
-2019/05/03 04:33:47 Launching container with name: acb_step_0
+2020/11/20 04:33:39 Downloading source code...
+2020/11/20 04:33:41 Finished downloading source code
+2020/11/20 04:33:42 Using acb_vol_4569b017-29fe-42bd-83b2-25c45a8ac807 as the home volume
+2020/11/20 04:33:42 Creating Docker network: acb_default_network, driver: 'bridge'
+2020/11/20 04:33:43 Successfully set up Docker network: acb_default_network
+2020/11/20 04:33:43 Setting up Docker configuration...
+2020/11/20 04:33:44 Successfully set up Docker configuration
+2020/11/20 04:33:44 Logging in to registry: mycontainerregistry.azurecr.io
+2020/11/20 04:33:45 Successfully logged into mycontainerregistry.azurecr.io
+2020/11/20 04:33:45 Logging in to registry: mycontainerregistrydate.azurecr.io
+2020/11/20 04:33:47 Successfully logged into mycontainerregistrydate.azurecr.io
+2020/11/20 04:33:47 Executing step ID: acb_step_0. Working directory: '', Network: 'acb_default_network'
+2020/11/20 04:33:47 Scanning for dependencies...
+2020/11/20 04:33:47 Successfully scanned dependencies
+2020/11/20 04:33:47 Launching container with name: acb_step_0
 Sending build context to Docker daemon  25.09kB
-
 [...]
-
 Successfully tagged mycontainerregistry.azurecr.io/hello-world:cf1g
-2019/05/03 04:33:55 Successfully executed container: acb_step_0
-2019/05/03 04:33:55 Executing step ID: acb_step_1. Working directory: '', Network: 'acb_default_network'
-2019/05/03 04:33:55 Scanning for dependencies...
-2019/05/03 04:33:56 Successfully scanned dependencies
-2019/05/03 04:33:56 Launching container with name: acb_step_1
+2020/11/20 04:33:55 Successfully executed container: acb_step_0
+2020/11/20 04:33:55 Executing step ID: acb_step_1. Working directory: '', Network: 'acb_default_network'
+2020/11/20 04:33:55 Scanning for dependencies...
+2020/11/20 04:33:56 Successfully scanned dependencies
+2020/11/20 04:33:56 Launching container with name: acb_step_1
 Sending build context to Docker daemon  25.09kB
-
 [...]
-
 Successfully tagged mycontainerregistrydate.azurecr.io/hello-world:20190503-043342z
-2019/05/03 04:33:57 Successfully executed container: acb_step_1
-2019/05/03 04:33:57 Executing step ID: acb_step_2. Working directory: '', Network: 'acb_default_network'
-2019/05/03 04:33:57 Launching container with name: acb_step_2
+2020/11/20 04:33:57 Successfully executed container: acb_step_1
+2020/11/20 04:33:57 Executing step ID: acb_step_2. Working directory: '', Network: 'acb_default_network'
+2020/11/20 04:33:57 Launching container with name: acb_step_2
 721437ff674051b6be63cbcd2fa8eb085eacbf38d7d632f1a079320133182101
-2019/05/03 04:33:58 Successfully executed container: acb_step_2
-2019/05/03 04:33:58 Executing step ID: acb_step_3. Working directory: '', Network: 'acb_default_network'
-2019/05/03 04:33:58 Launching container with name: acb_step_3
+2020/11/20 04:33:58 Successfully executed container: acb_step_2
+2020/11/20 04:33:58 Executing step ID: acb_step_3. Working directory: '', Network: 'acb_default_network'
+2020/11/20 04:33:58 Launching container with name: acb_step_3
 test
-2019/05/03 04:34:09 Successfully executed container: acb_step_3
-2019/05/03 04:34:09 Executing step ID: acb_step_4. Working directory: '', Network: 'acb_default_network'
-2019/05/03 04:34:09 Pushing image: mycontainerregistry.azurecr.io/hello-world:cf1g, attempt 1
+2020/11/20 04:34:09 Successfully executed container: acb_step_3
+2020/11/20 04:34:09 Executing step ID: acb_step_4. Working directory: '', Network: 'acb_default_network'
+2020/11/20 04:34:09 Pushing image: mycontainerregistry.azurecr.io/hello-world:cf1g, attempt 1
 The push refers to repository [mycontainerregistry.azurecr.io/hello-world]
-
 [...]
-
-2019/05/03 04:34:12 Successfully pushed image: mycontainerregistry.azurecr.io/hello-world:cf1g
-2019/05/03 04:34:12 Pushing image: mycontainerregistrydate.azurecr.io/hello-world:20190503-043342z, attempt 1
+2020/11/20 04:34:12 Successfully pushed image: mycontainerregistry.azurecr.io/hello-world:cf1g
+2020/11/20 04:34:12 Pushing image: mycontainerregistrydate.azurecr.io/hello-world:20190503-043342z, attempt 1
 The push refers to repository [mycontainerregistrydate.azurecr.io/hello-world]
-
 [...]
-
-2019/05/03 04:34:19 Successfully pushed image: mycontainerregistrydate.azurecr.io/hello-world:20190503-043342z
-2019/05/03 04:34:19 Step ID: acb_step_0 marked as successful (elapsed time in seconds: 8.125744)
-2019/05/03 04:34:19 Populating digests for step ID: acb_step_0...
-2019/05/03 04:34:21 Successfully populated digests for step ID: acb_step_0
-2019/05/03 04:34:21 Step ID: acb_step_1 marked as successful (elapsed time in seconds: 2.009281)
-2019/05/03 04:34:21 Populating digests for step ID: acb_step_1...
-2019/05/03 04:34:23 Successfully populated digests for step ID: acb_step_1
-2019/05/03 04:34:23 Step ID: acb_step_2 marked as successful (elapsed time in seconds: 0.795440)
-2019/05/03 04:34:23 Step ID: acb_step_3 marked as successful (elapsed time in seconds: 11.446775)
-2019/05/03 04:34:23 Step ID: acb_step_4 marked as successful (elapsed time in seconds: 9.734973)
-2019/05/03 04:34:23 The following dependencies were found:
-2019/05/03 04:34:23
+2020/11/20 04:34:19 Successfully pushed image: mycontainerregistrydate.azurecr.io/hello-world:20190503-043342z
+2020/11/20 04:34:19 Step ID: acb_step_0 marked as successful (elapsed time in seconds: 8.125744)
+2020/11/20 04:34:19 Populating digests for step ID: acb_step_0...
+2020/11/20 04:34:21 Successfully populated digests for step ID: acb_step_0
+2020/11/20 04:34:21 Step ID: acb_step_1 marked as successful (elapsed time in seconds: 2.009281)
+2020/11/20 04:34:21 Populating digests for step ID: acb_step_1...
+2020/11/20 04:34:23 Successfully populated digests for step ID: acb_step_1
+2020/11/20 04:34:23 Step ID: acb_step_2 marked as successful (elapsed time in seconds: 0.795440)
+2020/11/20 04:34:23 Step ID: acb_step_3 marked as successful (elapsed time in seconds: 11.446775)
+2020/11/20 04:34:23 Step ID: acb_step_4 marked as successful (elapsed time in seconds: 9.734973)
+2020/11/20 04:34:23 The following dependencies were found:
+2020/11/20 04:34:23
 - image:
     registry: mycontainerregistry.azurecr.io
     repository: hello-world
@@ -432,7 +413,7 @@ The push refers to repository [mycontainerregistrydate.azurecr.io/hello-world]
   runtime-dependency:
     registry: registry.hub.docker.com
     repository: library/node
-    tag: 9-alpine
+    tag: 15-alpine
     digest: sha256:8dafc0968fb4d62834d9b826d85a8feecc69bd72cd51723c62c7db67c6dec6fa
   git:
     git-head-revision: 9d9023473c46a5e2c315681b11eb4552ef0faccc
@@ -444,7 +425,7 @@ The push refers to repository [mycontainerregistrydate.azurecr.io/hello-world]
   runtime-dependency:
     registry: registry.hub.docker.com
     repository: library/node
-    tag: 9-alpine
+    tag: 15-alpine
     digest: sha256:8dafc0968fb4d62834d9b826d85a8feecc69bd72cd51723c62c7db67c6dec6fa
   git:
     git-head-revision: 9d9023473c46a5e2c315681b11eb4552ef0faccc

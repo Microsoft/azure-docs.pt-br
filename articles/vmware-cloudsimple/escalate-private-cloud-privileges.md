@@ -2,19 +2,19 @@
 title: Escalonar privilégios de nuvem privada
 titleSuffix: Azure VMware Solution by CloudSimple
 description: Descreve como escalonar privilégios em sua nuvem privada para funções administrativas no vCenter
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 06/05/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 628824a3d303184e199452b0974c7f99d99a4933
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c2215bd9a60fdcf76077c3a1f2a91631dc0dbe88
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86998945"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97895815"
 ---
 # <a name="escalate-private-cloud-vcenter-privileges-from-the-cloudsimple-portal"></a>Escalonar privilégios do vCenter da nuvem privada no portal do CloudSimple
 
@@ -63,7 +63,7 @@ O escalonamento de privilégios começa e dura até o final do intervalo selecio
 
 Se precisar de mais tempo para concluir suas tarefas, você poderá estender o período de escalonamento de privilégios.  Escolha o intervalo de tempo de escalonamento adicional que permite que você conclua as tarefas administrativas.
 
-1. Nas **Resources**  >  **nuvens privadas** de recursos no portal do CloudSimple, selecione a nuvem privada para a qual você deseja estender o escalonamento de privilégios.
+1. Nas   >  **nuvens privadas** de recursos no portal do CloudSimple, selecione a nuvem privada para a qual você deseja estender o escalonamento de privilégios.
 
 2. Próximo à parte inferior da guia Resumo, clique em **estender elevação de privilégio**.
 
@@ -77,7 +77,7 @@ Se precisar de mais tempo para concluir suas tarefas, você poderá estender o p
 
 Depois que suas tarefas administrativas forem concluídas, você deverá desescalonar seus privilégios.  
 
-1. Nas **Resources**  >  **nuvens privadas** de recursos no portal do CloudSimple, selecione a nuvem privada para a qual você deseja desescalonar privilégios.
+1. Nas   >  **nuvens privadas** de recursos no portal do CloudSimple, selecione a nuvem privada para a qual você deseja desescalonar privilégios.
 
 2. Clique em **desescalonamento**.
 

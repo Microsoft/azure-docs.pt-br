@@ -1,24 +1,23 @@
 ---
 title: Azure Functions saída de Azure Stream Analytics
 description: Este artigo descreve o Azure Functions como saída para Azure Stream Analytics.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: a8fbf9f2890ef169016108db61c93bfe6dd44326
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: e5ea7a1abbbd6ab4be32955179227fbd539cf641
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88875557"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019611"
 ---
 # <a name="azure-functions-output-from-azure-stream-analytics"></a>Azure Functions saída de Azure Stream Analytics
 
 O Azure Functions é um serviço de computação sem servidor que você pode usar para executar o código sob demanda sem precisar provisionar explicitamente ou gerenciar a infraestrutura. Ele permite que você implemente o código que é disparado por eventos que ocorrem no Azure ou por serviços de parceiros. Essa capacidade do Azure Functions de responder a gatilhos o torna uma saída natural para o Azure Stream Analytics. Esse adaptador de saída habilita aos usuários se conectar o Stream Analytics ao Azure Functions e executar um script ou trecho de código em resposta a vários eventos.
 
-A saída do Azure Functions do Stream Analytics não está disponível atualmente nas regiões Azure China 21Vianet e Azure Alemanha (T-Systems International).
+Azure Functions saída do Stream Analytics não está disponível nas regiões do Azure China 21Vianet e do Azure Alemanha (T-Systems International). Também não há suporte para a conexão com Azure Functions dentro de uma VNet (rede virtual) de um trabalho de Stream Analytics que esteja sendo executado em um cluster de vários locatários.
 
 O Azure Stream Analytics chama o Azure Functions por meio de gatilhos de HTTP. O adaptador de saída do Azure Functions está disponível com as seguintes propriedades configuráveis:
 
@@ -54,4 +53,4 @@ O tamanho de lote padrão é 262.144 bytes (256 KB). A contagem de eventos padr�
 * [Início Rápido: Criar um trabalho do Azure Stream Analytics usando um modelo do Resource Manager](quick-create-azure-resource-manager.md)
 * [Início rápido: criar um trabalho de Stream Analytics usando Azure PowerShell](stream-analytics-quick-create-powershell.md)
 * [Início Rápido: Criar um trabalho do Azure Stream Analytics usando o Visual Studio](stream-analytics-quick-create-vs.md)
-* [Início rápido: criar um trabalho de Azure Stream Analytics no Visual Studio Code](quick-create-vs-code.md)
+* [Início rápido: criar um trabalho de Azure Stream Analytics no Visual Studio Code](quick-create-visual-studio-code.md)

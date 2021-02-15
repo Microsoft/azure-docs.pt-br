@@ -10,16 +10,16 @@ ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
 ms.date: 05/18/2020
 ms.author: derekol
-ms.openlocfilehash: 6646016a4529f46431ecb622c7546140a93a5d88
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 62210105ba4ba84cff4b246c5b7cf8cc794fb5e7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84871476"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91534940"
 ---
 # <a name="register-peering-service-by-using-the-azure-portal"></a>Registrar o serviço de emparelhamento usando o portal do Azure
 
-O Serviço de Emparelhamento do Azure é um serviço de rede que aprimora a conectividade do cliente com os serviços em nuvem da Microsoft, como o Office 365, o Dynamics 365, os serviços de SaaS (software como serviço), o Azure ou qualquer serviço da Microsoft acessível por meio da Internet pública.
+O Serviço de Emparelhamento do Azure é um serviço de rede que aprimora a conectividade do cliente com os serviços em nuvem da Microsoft, como o Microsoft 365, o Dynamics 365, os serviços de SaaS (software como serviço), o Azure ou qualquer serviço da Microsoft acessível por meio da Internet pública.
 
 Neste artigo, você aprenderá a registrar uma conexão de serviço de emparelhamento usando o portal do Azure.
 
@@ -72,14 +72,14 @@ Em um navegador, vá para o portal do Azure e entre com sua conta do Azure.
 1. Selecione **Criar prefixo** na parte inferior da seção **Prefixos** e as caixas de texto aparecerão. Agora, digite o nome do recurso de prefixo e os prefixos associados ao provedor de serviços.
 
 1. Selecione **Chave de Prefixo** e adicione a chave de prefixo que foi atribuída a você pelo seu provedor (ISP ou PTT). Essa chave permite que o MS valide o prefixo e o provedor que alocou o prefixo de IP.
-   > ![Guia Registrar configuração do Serviço de Emparelhamento](./media/peering-service-portal/peering-serviceconfiguration.png)
+   > ![A captura de tela mostra a guia Configuração da página Criar uma conexão de serviço de emparelhamento, em que é possível inserir a chave Prefixo.](./media/peering-service-portal/peering-serviceconfiguration.png)
 
 1. Selecione o botão **Examinar + criar** na parte inferior esquerda da página. A página **Examinar + criar** é exibida e o Azure valida sua configuração.
     
 
 1. Quando a mensagem **Validação aprovada** for exibida, selecione **Criar**.
 
-   > ![Guia Registrar configuração do Serviço de Emparelhamento](./media/peering-service-portal/peering-service-prefix.png)
+   > ![A captura de tela mostra a guia Examinar + criar da página Criar uma conexão de serviço de emparelhamento.](./media/peering-service-portal/peering-service-prefix.png)
 
 
 1. Depois de registrar uma conexão de Serviço de Emparelhamento, a validação adicional é executada nos prefixos incluídos. Você pode examinar o status de validação na seção **Prefixos** do nome do recurso. Se a validação falhar, uma das seguintes mensagens de erro será exibida:

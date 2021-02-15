@@ -1,20 +1,20 @@
 ---
-title: Glossário de termos – IoT Plug and Play Preview | Microsoft Docs
-description: Conceitos – um glossário de termos comuns relacionados ao IoT Plug and Play Preview.
+title: Glossário de termos – Plug and Play de IoT | Microsoft Docs
+description: Conceitos – um glossário de termos comuns relacionados a Plug and Play de IoT.
 author: dominicbetts
 ms.author: dobett
 ms.date: 07/22/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 2320bed07f574c096be1883a9d82da7311e92fa7
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: d44866e2d04ab1bab5d2eca01374350a7d73a0ea
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88854210"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91577332"
 ---
-# <a name="glossary-of-terms-for-iot-plug-and-play-preview"></a>Glossário de termos para o IoT Plug and Play Preview
+# <a name="glossary-of-terms-for-iot-plug-and-play"></a>Glossário de termos para Plug and Play de IoT
 
 Definições de termos comuns, conforme usado nos artigos do IoT Plug and Play.
 
@@ -38,7 +38,7 @@ O Hub IoT é um serviço gerenciado e hospedado na nuvem que atua como um hub ce
 
 ## <a name="azure-iot-device-sdk"></a>SDK do dispositivo IoT do Azure
 
-Há SDKs de dispositivo para vários idiomas que você pode usar para criar aplicativos cliente de dispositivos IoT Plug and Play.
+Há SDKs de dispositivo para vários idiomas que você pode usar para criar aplicativos cliente de dispositivos IoT Plug and Play. Use **DeviceClient** para dispositivos e **ModuleClient** para módulos e módulos de IOT Edge.
 
 ## <a name="commands"></a>Comandos
 
@@ -55,13 +55,19 @@ Uma cadeia de conexão encapsula as informações necessárias para se conectar 
 - As cadeias de conexão do dispositivo permitem que os [dispositivos IoT Plug and Play](#iot-plug-and-play-device) se conectem aos pontos de extremidade voltados para o dispositivo em um hub IoT. O código do cliente em um dispositivo usa a cadeia de conexão para estabelecer uma conexão segura com um hub IoT.
 - Cadeias de conexão do Hub IoT permitem que as soluções e ferramentas de back-end se conectem com segurança aos pontos de extremidade voltados para o dispositivo em um hub IoT. Essas soluções e ferramentas gerenciam o hub IoT e os dispositivos conectados a ele.
 
+## <a name="default-component"></a>Componente padrão
+
+Todos os [modelos de dispositivo](#device-model) têm um componente padrão. Um modelo de dispositivo simples tem apenas um componente padrão-tal modelo também é conhecido como um dispositivo sem componente. Um modelo mais complexo tem vários componentes aninhados sob o componente padrão.
+
 ## <a name="device-certification"></a>Certificado de dispositivo
 
-O programa de certificação de dispositivo IoT Plug and Play verifica se um dispositivo atende aos requisitos de certificação de Plug and Play de IoT. Você pode adicionar um dispositivo certificado ao [Catálogo de dispositivos do Azure IOT com certificação](https://aka.ms/devicecatalog)pública.
+O programa de certificação de dispositivo do IoT Plug and Play verifica se um dispositivo atende aos requisitos de certificação do IoT Plug and Play. Você pode adicionar um dispositivo certificado ao [catálogo de dispositivos Azure Certified para IoT](https://aka.ms/devicecatalog).
 
 ## <a name="device-model"></a>Modelo do dispositivo
 
-Um modelo de dispositivo descreve um [dispositivo Plug and Play IOT](#iot-plug-and-play-device) e define os [componentes](#component) que compõem o dispositivo. Um modelo de dispositivo simples não tem componentes separados e contém uma definição para uma única interface de nível raiz. Um modelo de dispositivo mais complexo inclui vários componentes. Um modelo de dispositivo geralmente corresponde a um dispositivo físico, produto ou SKU. Você usa a [linguagem de definição de gêmeos digital versão 2](#digital-twins-definition-language) para definir um modelo de dispositivo.
+Um modelo de dispositivo descreve um [dispositivo Plug and Play IOT](#iot-plug-and-play-device) e define os [componentes](#component) que compõem o dispositivo. Um modelo de dispositivo simples não tem componentes separados e contém uma definição para uma única interface. A ferramenta Azure IoT Explorer mostra um modelo simples como tendo um único [componente padrão](#default-component).
+
+Um modelo de dispositivo mais complexo inclui vários componentes. Um modelo de dispositivo geralmente corresponde a um dispositivo físico, produto ou SKU. Você usa a [linguagem de definição de gêmeos digital versão 2](#digital-twins-definition-language) para definir um modelo de dispositivo.
 
 ## <a name="device-builder"></a>Construtor de dispositivos
 
@@ -69,7 +75,7 @@ Um construtor de dispositivos usa um [modelo de dispositivo](#device-model) e [i
 
 ## <a name="device-modeling"></a>Modelagem de dispositivo
 
-Um [Construtor de dispositivos](#device-builder) usa a [linguagem de definição de gêmeos digital](#digital-twins-definition-language) para modelar os recursos de um [dispositivo de plug and Play de IOT](#iot-plug-and-play-device). Um [Solution Builder](#solution-builder) pode configurar uma solução de IOT do modelo.
+Um [Construtor de dispositivos](#device-builder) ou [Construtor de módulos](#module-builder)usa a linguagem de definição de [gêmeos digital](#digital-twins-definition-language) para modelar os recursos de um [dispositivo de plug and Play de IOT](#iot-plug-and-play-device). Um [Solution Builder](#solution-builder) pode configurar uma solução de IOT do modelo.
 
 ## <a name="digital-twin"></a>Gêmeo digital
 
@@ -89,15 +95,19 @@ Uma rota configurada em um [Hub IOT](#azure-iot-hub) para entregar [eventos de a
 
 ## <a name="interface"></a>Interface
 
-Uma interface descreve as funcionalidades relacionadas implementadas por um [dispositivo IoT Plug and Play](#iot-plug-and-play-device) ou pelo [gêmeo digital](#digital-twin). Você pode reutilizar interfaces em diferentes [modelos de dispositivo](#device-model). Quando uma interface é usada em um modelo de dispositivo, ela define um [componente](#component) do dispositivo.
+Uma interface descreve as funcionalidades relacionadas implementadas por um [dispositivo IoT Plug and Play](#iot-plug-and-play-device) ou pelo [gêmeo digital](#digital-twin). Você pode reutilizar interfaces em diferentes [modelos de dispositivo](#device-model). Quando uma interface é usada em um modelo de dispositivo, ela define um [componente](#component) do dispositivo. Um dispositivo simples contém apenas uma interface padrão.
 
 ## <a name="iot-hub-query-language"></a>Linguagem de consulta do Hub IoT
 
 A linguagem de consulta do Hub IoT é usada para várias finalidades. Por exemplo, é possível usar a linguagem para pesquisar dispositivos registrados no Hub IoT ou refinar o comportamento do [roteamento de gêmeo digital](#digital-twin-route).
 
+## <a name="iot-plug-and-play-bridge"></a>Ponte do IoT Plug and Play
+
+O IoT Plug and Play Bridge é um aplicativo de software livre que permite que os sensores e periféricos existentes conectados aos gateways do Windows ou do Linux se conectem como [dispositivos de IoT plug and Play](#iot-plug-and-play-device).
+
 ## <a name="iot-plug-and-play-device"></a>Dispositivo IoT Plug and Play
 
-Um dispositivo de Plug and Play IoT normalmente é um dispositivo de computação independente de pequena escala que coleta dados ou controla outros dispositivos, e que executa software ou firmware que implementa um [modelo de dispositivo](#device-model).  Por exemplo, um dispositivo IoT Plug and Play pode ser um dispositivo de monitoramento ambiental ou um controlador para um sistema de irrigação de agricultura inteligente. É possível escrever uma solução de IoT hospedada na nuvem para comandar, controlar e receber dados de dispositivos IoT Plug and Play.
+Um dispositivo de Plug and Play IoT normalmente é um dispositivo de computação independente de pequena escala que coleta dados ou controla outros dispositivos, e que executa software ou firmware que implementa um [modelo de dispositivo](#device-model).  Por exemplo, um dispositivo IoT Plug and Play pode ser um dispositivo de monitoramento ambiental ou um controlador para um sistema de irrigação de agricultura inteligente. Um dispositivo IoT Plug and Play pode ser implementado diretamente ou como um módulo IoT Edge. É possível escrever uma solução de IoT hospedada na nuvem para comandar, controlar e receber dados de dispositivos IoT Plug and Play.
 
 ## <a name="iot-plug-and-play-conventions"></a>Convenções do IoT Plug and Play
 
@@ -114,6 +124,10 @@ Um [repositório de modelos](concepts-model-repository.md) armazena modelos e [i
 ## <a name="model-repository-rest-api"></a>API REST do repositório de modelos
 
 Uma API para gerenciar e interagir com o repositório de modelos. Por exemplo, você pode usar a API para adicionar e Pesquisar [modelos de dispositivo](#device-model).
+
+## <a name="module-builder"></a>Construtor de módulo
+
+Um construtor de módulo usa um [modelo de dispositivo](#device-model) e [interfaces](#interface) ao implementar código para ser executado em um dispositivo de [plug and Play de IOT](#iot-plug-and-play-device). Os construtores de módulo implementam o código como um módulo ou um módulo IoT Edge para implantar no tempo de execução de IoT Edge em um dispositivo.
 
 ## <a name="properties"></a>Propriedades
 

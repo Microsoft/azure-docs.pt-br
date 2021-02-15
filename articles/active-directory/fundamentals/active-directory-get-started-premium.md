@@ -13,22 +13,19 @@ ms.author: ajburnle
 ms.reviewer: piotrci
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f2e3e9376c26bae2c0b3c0dda06b781b5f2f7c4
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 562162e0bd42b0a46b2b0c6d44ca9b37f1841750
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87799150"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052853"
 ---
 # <a name="sign-up-for-azure-active-directory-premium-editions"></a>Inscreva-se nas edições do Azure Active Directory Premium
 Você pode comprar e associar as edições do Azure Active Directory (Azure AD) Premium à sua assinatura do Azure. Se você precisar criar uma nova assinatura do Azure, também precisará ativar seu plano de licenciamento e o acesso ao serviço do Azure AD.
 
-> [!NOTE]
->As edições Azure AD Premium e Básico estão disponíveis para clientes na China por meio da instância mundial do Azure Active Directory. Atualmente, as edições Azure AD Premium e Básico não têm suporte no serviço do Azure operado pela 21Vianet na China. Para obter mais informações, fale conosco usando o [Fórum do Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
-
 Antes de se inscrever no Active Directory Premium 1 ou Premium 2, primeiro determine qual assinatura existente ou plano você deseja usar:
 
-- Por meio da assinatura existente do Azure ou Office 365
+- Por meio de sua assinatura existente do Azure ou Microsoft 365
 
 - Por meio do plano de licenciamento Enterprise Mobility + Security
 
@@ -36,8 +33,8 @@ Antes de se inscrever no Active Directory Premium 1 ou Premium 2, primeiro deter
 
 Se você se inscrever usando sua assinatura do Azure com licenças do Azure AD previamente compradas e ativadas, isso ativará automaticamente as licenças no mesmo diretório. Se não for o caso, você ainda deverá ativar seu plano de licença e o acesso ao Azure AD. Para obter mais informações sobre como ativar seu plano de licença, veja [Ativar seu novo plano de licença](#activate-your-new-license-plan). Para obter mais informações sobre como ativar o acesso ao Azure AD, veja [Ativar o acesso ao Azure AD](#activate-your-azure-ad-access). 
 
-## <a name="sign-up-using-your-existing-azure-or-office-365-subscription"></a>Inscrever-se usando a assinatura existente do Azure ou Office 365
-Como assinante do Azure ou do Office 365, você pode comprar as edições do Azure Active Directory Premium online. Para obter etapas detalhadas, confira [Como adquirir o Azure Active Directory Premium – Novos clientes](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-New-Customers).
+## <a name="sign-up-using-your-existing-azure-or-microsoft-365-subscription"></a>Inscreva-se usando sua assinatura existente do Azure ou do Microsoft 365
+Como assinante do Azure ou Microsoft 365, você pode comprar as edições online do Azure Active Directory Premium. Para obter etapas detalhadas, confira [Como adquirir o Azure Active Directory Premium – Novos clientes](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-New-Customers).
 
 ## <a name="sign-up-using-your-enterprise-mobility--security-licensing-plan"></a>Inscrever-se usando o plano de licenciamento Enterprise Mobility + Security
 O Enterprise Mobility + Security é um pacote composto pelo Azure AD Premium, pela Proteção de Informações do Azure e pelo Microsoft Intune. Se você já tiver uma licença do EMS, poderá começar com o Azure AD usando uma destas opções de licenciamento:
@@ -69,7 +66,7 @@ Se você se inscreveu usando um novo plano de licença do Azure AD, ative-o para
 
     - **Entrar.** Escolha este link se você tiver um locatário existente e entre usando sua conta de administrador existente. Você precisa ser um administrador global no locatário em que as licenças estão sendo ativadas.
 
-    - **Criar conta.** Escolha este link se você quiser abrir a página **Criar Perfil da Conta** e criar um novo locatário do Azure AD para seu plano de licenciamento.
+    - **Inscrição.** Escolha este link se você quiser abrir a página **Criar Perfil da Conta** e criar um novo locatário do Azure AD para seu plano de licenciamento.
 
         ![Criar uma página de perfil de conta, com informações de exemplo](media/active-directory-get-started-premium/MOLSAccountProfile.png)
 

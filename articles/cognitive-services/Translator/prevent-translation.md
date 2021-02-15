@@ -3,23 +3,23 @@ title: Impedir tradução de conteúdo-Tradutor
 titleSuffix: Azure Cognitive Services
 description: Impedir tradução de conteúdo com o tradutor. O tradutor permite que você marque o conteúdo para que ele não seja traduzido.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 05/26/2020
-ms.author: swmachan
-ms.openlocfilehash: 37d2e4c0131569ab50ebf49ff73b6adf7a420713
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.author: lajanuar
+ms.openlocfilehash: e89ff3f4c1f54d9e137d3dd51e325b908c826b03
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83996169"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897469"
 ---
 # <a name="how-to-prevent-translation-of-content-with-the-translator"></a>Como impedir a tradução de conteúdo com o tradutor
 
-O tradutor permite que você marque o conteúdo para que ele não seja traduzido. Por exemplo, você talvez queira marcar o código, um nome de marca ou uma palavra/frase que não precisa ser traduzida.
+O tradutor permite que você marque o conteúdo para que ele não seja traduzido. Por exemplo, você pode querer marcar o código, um nome de marca ou uma palavra/frase que não faça sentido quando localizada.
 
 ## <a name="methods-for-preventing-translation"></a>Métodos para evitar a tradução
 
@@ -37,13 +37,27 @@ O tradutor permite que você marque o conteúdo para que ele não seja traduzido
    <div>This will be translated. </div>
    ```
 
-2. use o [dicionário dinâmico](dynamic-dictionary.md) para prescrever uma tradução específica.
+2. Marcar seu conteúdo com `translate="no"`. Isso só funciona quando o texto de entrada é definido como HTML
 
-3. Não transmita a cadeia de caracteres para o tradutor para tradução.
+   Exemplo:
 
-4. Tradutor personalizado: Use um [dicionário no Tradutor personalizado](custom-translator/what-is-dictionary.md) para prescrever a tradução de uma frase com uma probabilidade de 100%.
+   ```html
+   <span translate="no">This will not be translated.</span>
+   <span>This will be translated. </span>
+   ```
+   
+   ```html
+   <div translate="no">This will not be translated.</div>
+   <div>This will be translated. </div>
+   ```
+   
+3. use o [dicionário dinâmico](dynamic-dictionary.md) para prescrever uma tradução específica.
+
+4. Não transmita a cadeia de caracteres para o tradutor para tradução.
+
+5. Tradutor personalizado: Use um [dicionário no Tradutor personalizado](custom-translator/what-is-dictionary.md) para prescrever a tradução de uma frase com uma probabilidade de 100%.
 
 
 ## <a name="next-steps"></a>Próximas etapas
 > [!div class="nextstepaction"]
-> [Evite a tradução em sua chamada do Tradutor](reference/v3-0-translate.md)
+> [Usar a operação de conversão para traduzir o texto](reference/v3-0-translate.md)

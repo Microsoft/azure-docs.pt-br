@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/13/2019
 ms.author: allensu
-ms.openlocfilehash: bd6b4831b29a99ed6694f75e64202f339385b7ea
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: aa2f00a732a3978524fc017481285859c9535387
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88191155"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018674"
 ---
 # <a name="understanding-azure-cdn-billing"></a>Noções básicas sobre a cobrança da rede de distribuição de conteúdo do Azure
 
@@ -38,7 +38,7 @@ Uma região de cobrança é uma área geográfica usada para determinar qual tax
 
 - Zona 5: Índia
 
-Para obter informações sobre regiões de ponto de presença (POP), consulte [Locais de POP da CDN do Azure por região](https://docs.microsoft.com/azure/cdn/cdn-pop-locations). Por exemplo, um POP localizado no México está na região da América do Norte e, portanto, é incluído na zona 1. 
+Para obter informações sobre regiões de ponto de presença (POP), consulte [Locais de POP da CDN do Azure por região](./cdn-pop-locations.md). Por exemplo, um POP localizado no México está na região da América do Norte e, portanto, é incluído na zona 1. 
 
 Para obter informações sobre preços da CDN do Azure, consulte [Preços de Rede de Distribuição de Conteúdo](https://azure.microsoft.com/pricing/details/cdn/).
 
@@ -116,7 +116,7 @@ Se você usar um dos seguintes serviços do Azure como sua origem de CDN, não s
 - Azure Machine Learning 
 - Banco de Dados SQL do Azure
 - Instância Gerenciada do Azure SQL
-- Cache do Azure para Redis
+- Cache Redis do Azure
 
 ## <a name="how-do-i-manage-my-costs-most-effectively"></a>Como gerencio meus custos com mais eficiência?
-Defina a vida útil mais longa possível em seu conteúdo. 
+Defina a vida útil mais longa possível em seu conteúdo.

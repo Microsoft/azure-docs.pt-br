@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/05/2019
+ms.date: 12/25/2020
 ms.author: jeedes
-ms.openlocfilehash: 9238a65643c9ff24166e9a9b9a05e8c924abfb37
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 34365a8bd7a15f502aa89a966adb14807e802cc4
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544464"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736990"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-confluence-saml-sso-by-microsoft"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao SSO de SAML para o Confluence da Microsoft
 
@@ -26,7 +26,6 @@ Neste tutorial, você aprenderá a integrar o SSO de SAML para o Confluence da M
 * Permitir que os usuários sejam conectados automaticamente ao SSO de SAML para o Confluence da Microsoft com suas contas do Azure AD.
 * Gerenciar suas contas em um local central: o portal do Azure.
 
-Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="description"></a>Descrição:
 
@@ -63,7 +62,7 @@ A partir de agora, há suporte para as seguintes versões do Confluence:
 
 - Confluence: 5.0 a 5.10
 - Confluence: 6.0.1 ao 6.15.9
-- Confluence: 7.0.1 a 7.6.1
+- Confluence: 7.0.1 a 7.9.3
 
 > [!NOTE]
 > Observe que o nosso plug-in do Confluence também funciona no Ubuntu versão 16.04
@@ -78,18 +77,18 @@ Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente d
 
 Para configurar a integração do SSO do SAML para o Confluence da Microsoft ao Azure AD, é necessário adicionar o SSO do SAML para o Confluence da Microsoft à lista de aplicativos SaaS gerenciados por meio da galeria.
 
-1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
+1. Entre no portal do Azure usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
 1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory**.
 1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos**.
 1. Para adicionar um novo aplicativo, escolha **Novo aplicativo**.
 1. Na seção **Adicionar da galeria**, digite **SSO de SAML para o Confluence da Microsoft** na caixa de pesquisa.
 1. Selecione **SSO de SAML para o Confluence da Microsoft** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-confluence-saml-sso-by-microsoft"></a>Configurar e testar o logon único do Azure AD para o SSO de SAML para o Confluence da Microsoft
+## <a name="configure-and-test-azure-ad-sso-for-confluence-saml-sso-by-microsoft"></a>Configurar e testar o SSO do Azure AD para o SSO de SAML para o Confluence da Microsoft
 
 Configure e teste o SSO do Azure AD com o SSO de SAML para o Confluence da Microsoft usando um usuário de teste chamado **B.Fernandes**. Para que o SSO funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do SSO de SAML para o Confluence da Microsoft.
 
-Para configurar e testar o SSO do Azure AD com o SSO de SAML para o Confluence da Microsoft, você precisa concluir os seguintes blocos de construção:
+Para configurar e testar o SSO do Azure AD com o SSO de SAML para o Confluence da Microsoft, realize as seguintes etapas:
 
 1. **[Configurar o SSO do Azure AD](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
     1. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** para testar o logon único do Azure AD com B.Fernandes.
@@ -102,9 +101,9 @@ Para configurar e testar o SSO do Azure AD com o SSO de SAML para o Confluence d
 
 Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **SSO de SAML para o Confluence da Microsoft**, encontre a seção **Gerenciar** e selecione **logon único**.
+1. No portal do Azure, na página de integração de aplicativos do **SSO de SAML para o Confluence da Microsoft**, encontre a seção **Gerenciar** e selecione **logon único**.
 1. Na página **Selecionar um método de logon único**, escolha **SAML**.
-1. Na página **Configurar o logon único com o SAML**, clique no ícone de edição/caneta da **Configuração Básica do SAML** para editar as configurações.
+1. Na página **Configurar o logon único com o SAML**, clique no ícone de caneta da **Configuração Básica do SAML** para editar as configurações.
 
    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
@@ -142,15 +141,9 @@ Nesta seção, você permite que B. Fernandes use o logon único do Azure conced
 1. No portal do Azure, selecione **Aplicativos empresariais** e, em seguida, selecione **Todos os aplicativos**.
 1. Na lista de aplicativos, selecione **SSO do SAML para o Confluence da Microsoft**.
 1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e escolha **Usuários e grupos**.
-
-   ![O link “Usuários e grupos”](common/users-groups-blade.png)
-
 1. Escolha **Adicionar usuário** e, em seguida, **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
-
-    ![O link Adicionar Usuário](common/add-assign-user.png)
-
 1. Na caixa de diálogo **Usuários e grupos**, selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
-1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função**, escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
+1. Se você estiver esperando que uma função seja atribuída aos usuários, escolha-a na lista suspensa **Selecionar uma função**. Se nenhuma função tiver sido configurada para esse aplicativo, você verá a função "Acesso Padrão" selecionada.
 1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
 ## <a name="configure-confluence-saml-sso-by-microsoft-sso"></a>Configurar o logon único do SSO de SAML para o Confluence da Microsoft
@@ -159,11 +152,11 @@ Nesta seção, você permite que B. Fernandes use o logon único do Azure conced
 
 1. Passe o cursor do mouse sobre a engrenagem e clique em **Complementos**.
 
-    ![Configurar o logon único](./media/confluencemicrosoft-tutorial/addon1.png)
+    ![Captura de tela que mostra o ícone de "Engrenagem" selecionado e "Complementos" realçado no menu suspenso.](./media/confluencemicrosoft-tutorial/addon1.png)
 
 1. Baixe o plug-in no [Centro de Download da Microsoft](https://www.microsoft.com/download/details.aspx?id=56503). Carregar manualmente o plug-in fornecido pela Microsoft usando o menu **Carregar complemento**. O download do plug-in está coberto pelo [Contrato de Serviço da Microsoft](https://www.microsoft.com/servicesagreement/).
 
-    ![Configurar o logon único](./media/confluencemicrosoft-tutorial/addon12.png)
+    ![Captura de tela que mostra a página "Gerenciar Complementos" com a ação "Carregar complemento" selecionada.](./media/confluencemicrosoft-tutorial/addon12.png)
 
 1. Para executar o cenário do proxy reverso do Confluence ou o cenário do balanceador de carga, execute as seguintes etapas:
 
@@ -174,19 +167,19 @@ Nesta seção, você permite que B. Fernandes use o logon único do Azure conced
 
     `scheme="https" proxyName="<subdomain.domain.com>" proxyPort="<proxy_port>" secure="true"`
 
-    ![Configurar o logon único](./media/confluencemicrosoft-tutorial/reverseproxy1.png)
+    ![Captura de tela que mostra o arquivo "server.xml" com o atributo adicionado à porta "conector".](./media/confluencemicrosoft-tutorial/reverseproxy1.png)
 
     b. Altere o **URL base** em **Configurações do sistema** de acordo com o balanceador de proxy/carga.
 
-    ![Configurar o logon único](./media/confluencemicrosoft-tutorial/reverseproxy2.png)
+    ![Captura de tela que mostra a página "Administração – Configurações" com a "URL Base" realçada.](./media/confluencemicrosoft-tutorial/reverseproxy2.png)
 
 1. Depois que o plug-in for instalado, ele será exibido na seção de complementos **Instalados pelo Usuário** da seção **Gerenciar Complemento**. Clique em **Configurar** para configurar o novo plug-in.
 
-    ![Configurar o logon único](./media/confluencemicrosoft-tutorial/addon15.png)
+    ![Captura de tela que mostra a seção "Usuário Instalado" com o botão "Configurar" realçado.](./media/confluencemicrosoft-tutorial/addon15.png)
 
 1. Realize as seguintes etapas na página de configuração:
 
-    ![Configurar o logon único](./media/confluencemicrosoft-tutorial/addon54.png)
+    ![Captura de tela que mostra a página de configuração de logon único.](./media/confluencemicrosoft-tutorial/addon54.png)
 
     > [!TIP]
     > Verifique se há apenas um certificado mapeado no aplicativo, para que não haja nenhum erro na resolução dos metadados. Se houver vários certificados, após a resolução dos metadados, o administrador receberá um erro.
@@ -196,7 +189,7 @@ Nesta seção, você permite que B. Fernandes use o logon único do Azure conced
     1. Copie os valores de **Identificador, URL de Resposta e URL de Logon** e cole-os nas caixas de texto **Identificador, URL de Resposta e URL de Logon**, respectivamente, na seção **Configuração Básica do SAML** do portal do Azure.
 
     1. Em **Nome do Botão de Logon**, digite o nome do botão que sua organização deseja que os usuários vejam na tela de logon.
-    
+
     1. Em **Nome do Botão de Logon**, digite a descrição do botão que sua organização deseja que os usuários vejam na tela de logon.
 
     1. Em **Locais da ID de Usuário SAML**, selecione **A ID de Usuário está no elemento NameIdentifier da instrução Subject** ou **A ID de Usuário está em um elemento Attribute**.  Essa ID deve ser a ID de usuário do Confluence. Se a ID de usuário não tiver uma correspondência, o sistema não permitirá que os usuários entrem. 
@@ -221,7 +214,7 @@ Nesta seção, você permite que B. Fernandes use o logon único do Azure conced
     1. Clique no botão **Salvar** para salvar as alterações.
 
        > [!NOTE]
-       > Para obter mais informações sobre a instalação e a solução de problemas, acesse o [Guia do Administrador do Conector de SSO para o MS Confluence](../ms-confluence-jira-plugin-adminguide.md). Há também uma seção de [perguntas frequentes](../ms-confluence-jira-plugin-faq.md) para auxiliá-lo.
+       > Para obter mais informações sobre a instalação e a solução de problemas, acesse o [Guia do Administrador do Conector de SSO para o MS Confluence](./ms-confluence-jira-plugin-adminguide.md). Há também uma seção de [perguntas frequentes](./ms-confluence-jira-plugin-adminguide.md) para auxiliá-lo.
 
 ### <a name="create-confluence-saml-sso-by-microsoft-test-user"></a>Criar um usuário de teste do SSO do SAML para o Confluence da Microsoft
 
@@ -237,7 +230,7 @@ Para permitir que os usuários do Azure AD entrem no servidor local do Confluenc
 
 1. Na seção usuários, clique na guia **Adicionar usuários**. Na página da caixa de diálogo **Adicionar um Usuário**, execute as seguintes etapas:
 
-    ![Adicionar Funcionário](./media/confluencemicrosoft-tutorial/user2.png)
+    ![Captura de tela que mostra "Administração do Confluence" com a guia "Adicionar Usuários" selecionada e informações de "Adicionar um Usuário" inseridas.](./media/confluencemicrosoft-tutorial/user2.png)
 
     a. Na caixa de texto **Nome de usuário**, digite o email do usuário, como B. Fernandes.
 
@@ -251,18 +244,17 @@ Para permitir que os usuários do Azure AD entrem no servidor local do Confluenc
 
     f. Clique no botão **Adicionar**.
 
-## <a name="test-sso"></a>Testar o SSO
+## <a name="test-sso"></a>Testar o SSO 
 
-Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
+Nesta seção, você testará a configuração de logon único do Azure AD com as opções a seguir. 
 
-Ao clicar no bloco do SSO do SAML para o Confluence da Microsoft no Painel de Acesso, você deverá ser conectado automaticamente ao SSO do SAML para o Confluence da Microsoft, para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Clique em **Testar este aplicativo** no portal do Azure. Isso será redirecionado para o SSO do SAML do Confluence pela URL de logon da Microsoft, na qual você pode iniciar o fluxo de logon. 
 
-## <a name="additional-resources"></a>Recursos adicionais
+* Acesse o SSO do SAML do Confluence pela URL de logon da Microsoft diretamente e inicie o fluxo de logon de lá.
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+* Você pode usar os Meus Aplicativos da Microsoft. Quando você clica no bloco Confluence SAML SSO by Microsoft em Meus Aplicativos, isso redirecionará para a URL de logon do Confluence SAML SSO by Microsoft. Para obter mais informações sobre os Meus Aplicativos, confira [Introdução aos Meus Aplicativos](../user-help/my-apps-portal-end-user-access.md).
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+## <a name="next-steps"></a>Próximas etapas
 
-- [Experimentar o SSO de SAML para o Confluence da Microsoft com o Azure AD](https://aad.portal.azure.com/)
+Depois de configurar o Confluence SAML SSO by Microsoft, você poderá impor o controle de sessão, que fornece proteção contra a exfiltração e infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)

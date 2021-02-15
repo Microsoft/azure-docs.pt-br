@@ -9,10 +9,10 @@ ms.date: 04/26/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 7ff633b33a800e1dfe28c63b6ba880233e2b4a1c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/22/2020
 ms.locfileid: "67171760"
 ---
 | **Modelo/método de implantação** | **Azure portal** | **PowerShell** |

@@ -10,12 +10,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
-ms.openlocfilehash: d754f27a1510d9db0837eabb96b3a7cf75f76fc1
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: f62cb6d5277ae202e8ea864aa99a3e19c3beef22
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87835520"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99220744"
 ---
 # <a name="mainframe-rehosting-on-azure-virtual-machines"></a>Hospedagem de mainframe em máquinas virtuais do Azure
 
@@ -33,7 +33,7 @@ Algumas cargas de trabalho de mainframe podem ser migradas para o Azure com uma 
 
 ## <a name="mainframe-migration"></a>Migração de mainframe
 
-Rehospedar, recompilar, substituir ou desativar? IaaS ou PaaS? Para determinar a estratégia de migração certa para seu aplicativo de mainframe, consulte o guia de [migração do mainframe](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/overview) na centro de arquitetura do Azure.
+Rehospedar, recompilar, substituir ou desativar? IaaS ou PaaS? Para determinar a estratégia de migração certa para seu aplicativo de mainframe, consulte o guia de [migração do mainframe](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/overview)  na centro de arquitetura do Azure.
 
 ## <a name="micro-focus-rehosting-platform"></a>Plataforma de rehospedagem micro Focus
 
@@ -70,7 +70,7 @@ Introdução:
 
 O ambiente IBM DB2 pureScale fornece um cluster de banco de dados para o Azure. Ele não é idêntico ao ambiente original, mas oferece disponibilidade e escala semelhantes à medida que o IBM DB2 para z/OS está sendo executado em uma configuração de sysplex paralelo.
 
-Para começar, consulte [IBM DB2 pureScale no Azure](../../linux/ibm-db2-purescale-azure.md).
+Para começar, consulte [IBM DB2 pureScale no Azure](.//ibm/ibm-db2-purescale-azure.md).
 
 ## <a name="considerations"></a>Considerações
 

@@ -9,13 +9,13 @@ metadata:
   ms.collection: collection
   author: DCtheGeek
   ms.author: dacoulte
-  ms.date: 08/10/2020
-  ms.openlocfilehash: 66095427637b52d9bc220cba911c3099fd8f397c
-  ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+  ms.date: 10/26/2020
+  ms.openlocfilehash: 753a2b112929b785526e32df9c9836f48b8675ba
+  ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 08/12/2020
-  ms.locfileid: "88135939"
+  ms.lasthandoff: 01/08/2021
+  ms.locfileid: "98034944"
 landingContent:
 - title: Sobre o Azure Policy
   linkLists:
@@ -27,8 +27,12 @@ landingContent:
       url: ./concepts/effects.md
     - text: Estrutura de definição
       url: ./concepts/definition-structure.md
+    - text: Escopo
+      url: ./concepts/scope.md
     - text: Estrutura de atribuição
       url: ./concepts/assignment-structure.md
+    - text: Estrutura de isenção
+      url: ./concepts/exemption-structure.md
   - linkListType: video
     links:
     - text: Azure Policy no Build 2018
@@ -43,20 +47,28 @@ landingContent:
       url: ./assign-policy-azurecli.md
     - text: Atribuir uma política (Azure PowerShell)
       url: ./assign-policy-powershell.md
+    - text: Atribuir uma política (.NET)
+      url: ./assign-policy-dotnet.md
+    - text: Atribuir uma política (JavaScript)
+      url: ./assign-policy-javascript.md
     - text: Atribuir uma política (Python)
       url: ./assign-policy-python.md
     - text: Atribuir uma política (REST)
       url: ./assign-policy-rest-api.md
     - text: Atribuir uma política (modelo do ARM)
       url: ./assign-policy-template.md
+    - text: Atribuir uma política (Terraform)
+      url: ./assign-policy-terraform.md
   - linkListType: tutorial
     links:
     - text: Criar e gerenciar políticas
       url: ./tutorials/create-and-manage.md
     - text: Usar a extensão do VS Code
       url: ./how-to/extension-for-vscode.md
-    - text: Projetar os fluxos de trabalho da Política como código
+    - text: Projetar os fluxos de trabalho do Azure Policy como código
       url: ./concepts/policy-as-code.md
+    - text: Implementar o Azure Policy como código com o GitHub
+      url: ./tutorials/policy-as-code-github.md
   - linkListType: deploy
     links:
     - text: Índice de exemplos de política
@@ -75,13 +87,15 @@ landingContent:
       url: ./how-to/programmatically-create.md
     - text: Criar políticas para matrizes
       url: ./how-to/author-policies-for-arrays.md
+    - text: Exportação de recursos
+      url: ./how-to/export-resources.md
   - linkListType: concept
     links:
     - text: Conformidade normativa
       url: ./concepts/regulatory-compliance.md
-    - text: Política para Kubernetes
+    - text: Azure Policy para Kubernetes
       url: ./concepts/policy-for-kubernetes.md
-    - text: Política para VMs
+    - text: Azure Policy para VMs
       url: ./concepts/guest-configuration.md
 - title: Revisar e corrigir recursos
   linkLists:
@@ -91,6 +105,8 @@ landingContent:
       url: ./how-to/get-compliance-data.md
     - text: Determinar as causas de não conformidade
       url: ./how-to/determine-non-compliance.md
+    - text: Isentar recursos
+      url: ./concepts/exemption-structure.md
     - text: Corrigir recursos sem conformidade
       url: ./how-to/remediate-resources.md
 - title: Participar
@@ -112,15 +128,17 @@ landingContent:
     - text: CLI do Azure
       url: /cli/azure/policy
     - text: Azure PowerShell (política)
-      url: /powershell/module/az.resources/#policies
+      url: /powershell/module/az.resources/#policy
     - text: Azure PowerShell (insights de política)
-      url: /powershell/module/az.policyinsights#policy_insights
+      url: /powershell/module/az.policyinsights#policy-insights
     - text: REST (Policy Insights)
       url: /rest/api/policy-insights/
     - text: REST (atribuições)
       url: /rest/api/resources/policyassignments
     - text: REST (definições)
       url: /rest/api/resources/policydefinitions
+    - text: REST (isenções)
+      url: /rest/api/resources/policyexemptions
     - text: REST (iniciativas)
       url: /rest/api/resources/policysetdefinitions
     - text: Modelos do Gerenciador de Recursos

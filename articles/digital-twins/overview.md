@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: overview
 ms.service: digital-twins
-ms.openlocfilehash: 0e17ecea6c85329b22310ebe1d06e2fe63cdd773
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: c0bc245a4be1ab7c326fa27cc1422878aca6331d
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88042812"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99071674"
 ---
 # <a name="what-is-azure-digital-twins"></a>O que são Gêmeos Digitais do Azure?
 
@@ -34,17 +34,19 @@ Nos Gêmeos Digitais do Azure, você define as entidades digitais que representa
 
 Você pode considerar essas definições de modelo como um vocabulário especializado para descrever seus negócios. Para uma solução de gerenciamento de edifício, por exemplo, você pode definir modelos como "edifício", "andar" e "elevador". Em seguida, você pode criar **gêmeos digitais** com base nesses modelos a fim de representar seu ambiente específico.
 
+[!INCLUDE [digital-twins-versus-device-twins](../../includes/digital-twins-versus-device-twins.md)]
+
 Os modelos são definidos em uma linguagem semelhante à JSON chamada [DTDL (Linguagem de Definição de Gêmeos Digitais)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) e descrevem os gêmeos em termos de suas propriedades de estado, eventos de telemetria, comandos, componentes e relações.
 * Os modelos definem **relações** semânticas entre as entidades para que você possa conectar os gêmeos a um grafo de conhecimento que reflita as interações deles. Em uma analogia com o mundo real, você pode considerar os modelos como substantivos e as relações como verbos.
 * Você também pode especializar os gêmeos usando a herança entre modelos. Um modelo pode herdar características de outro.
 
-A DTDL é usada para modelos de dados em todos os outros serviços de IoT do Azure, incluindo o [IoT PnP (IoT Plug and Play)](../iot-pnp/overview-iot-plug-and-play.md) e o [TSI (Time Series Insights)](../time-series-insights/time-series-insights-update-overview.md). Isso ajuda a manter a solução dos Gêmeos Digitais do Azure conectada e compatível com as demais partes do ecossistema do Azure.
+A DTDL é usada para modelos de dados em todos os outros serviços de IoT do Azure, incluindo o [IoT PnP (IoT Plug and Play)](../iot-pnp/overview-iot-plug-and-play.md) e o [TSI (Time Series Insights)](../time-series-insights/overview-what-is-tsi.md). Isso ajuda a manter a solução dos Gêmeos Digitais do Azure conectada e compatível com as demais partes do ecossistema do Azure.
 
 ### <a name="live-execution-environment"></a>Ambiente de execução ao vivo
 
 Os modelos digitais dos Gêmeos Digitais do Azure são representações ao vivo e atualizadas do mundo real. Usando as relações dos modelos DTDL personalizados, você conectará os gêmeos a um **grafo ao vivo** que representa o seu ambiente.
 
-Você pode exibir uma visualização do seu grafo de Gêmeos Digitais do Azure com a ajuda de um aplicativo de exemplo, o [**Explorador dos Gêmeos Digitais do Azure**](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/).
+Você pode exibir uma visualização do seu grafo de Gêmeos Digitais do Azure com a ajuda de um aplicativo de exemplo, o [**Explorador dos Gêmeos Digitais do Azure**](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/).
 
 Veja abaixo qual é a aparência da visualização de exemplo:
 
@@ -84,26 +86,18 @@ Uma solução completa usando os Gêmeos Digitais do Azure pode conter as seguin
 * Um ou mais aplicativos cliente que impulsionam a instância dos Gêmeos Digitais do Azure configurando modelos, criando topologia e extraindo insights do grafo gêmeo.
 * Um ou mais recursos externos de computação para processar eventos gerados pelos Gêmeos Digitais do Azure ou fontes de dados conectadas, como dispositivos. Uma forma comum de fornecer recursos de computação é por meio do [Azure Functions](../azure-functions/functions-overview.md).
 * Um Hub IoT para proporcionar o gerenciamento de dispositivos e funcionalidades de fluxo de dados de IoT.
-* Serviços downstream para gerenciar tarefas como a integração do fluxo de trabalho (como [Aplicativos Lógicos](../logic-apps/logic-apps-overview.md), armazenamento frio, integração de série temporal ou análise). 
+* Serviços downstream para gerenciar tarefas como a integração do fluxo de trabalho (como [Aplicativos Lógicos](../logic-apps/logic-apps-overview.md), armazenamento frio, integração de série temporal ou análise).
 
 O diagrama a seguir mostra onde se situam os Gêmeos Digitais do Azure no contexto de uma solução mais ampla de IoT do Azure.
 
 :::image type="content" source="media/overview/solution-context.png" alt-text="Diagrama mostrando fontes de entrada, serviços de saída e comunicação bidirecional com aplicativos cliente e recursos externos de computação." border="false" lightbox="media/overview/solution-context.png":::
 
-## <a name="service-limits-in-public-preview"></a>Limites de serviço em versão prévia pública
+## <a name="service-limits"></a>Limites de serviço
 
-> [!IMPORTANT]
-> No momento, os Gêmeos Digitais do Azure estão em versão prévia pública.
-> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para saber mais, confira os [*Termos de uso complementares das versões prévias do Microsoft Azure*](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Para ver uma lista das limitações dos Gêmeos Digitais do Azure durante a versão prévia pública, confira [*Referência: limites de serviço da versão prévia pública*](reference-service-limits.md).
+Para obter uma lista de limites dos Gêmeos Digitais do Azure, confira [*Limites do serviço dos Gêmeos Digitais do Azure*](reference-service-limits.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se você trabalhou com a versão prévia anterior dos Gêmeos Digitais do Azure, saiba o que mudou:
-* [*Visão geral: diferenças da versão anterior*](overview-differences.md)
+* Aprofunde-se no trabalho com os Gêmeos Digitais do Azure com o auxílio do guia de início rápido: [*Início Rápido: explorar um cenário de exemplo*](quickstart-adt-explorer.md).
 
-Ou aprofunde-se no trabalho com os Gêmeos Digitais do Azure por meio do primeiro tutorial:
-
-> [!div class="nextstepaction"]
-> [*Tutorial: Codificar um aplicativo cliente*](tutorial-code.md)
+* Alternativamente, comece a ler sobre conceitos dos Gêmeos Digitais do Azure com [*Conceitos: modelos personalizados*](concepts-models.md).

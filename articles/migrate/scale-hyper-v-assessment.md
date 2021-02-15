@@ -1,18 +1,17 @@
 ---
 title: Avaliar grandes números de VMs do Hyper-V para migração para o Azure com migrações para Azure | Microsoft Docs
 description: Descreve como avaliar grandes números de VMs do Hyper-V para migração para o Azure usando o serviço migrações para Azure.
-author: rayne-wiselman
-manager: carmonm
-ms.service: azure-migrate
-ms.topic: conceptual
+author: rashi-ms
+ms.author: rajosh
+ms.manager: abhemraj
+ms.topic: how-to
 ms.date: 07/10/2019
-ms.author: raynew
-ms.openlocfilehash: c1ae3a9ed8a775161aaf85ab2c91b1e43113d2e2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 92c275ee3f8e00e71b80e448c9adb94f0b6d21dc
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "70279447"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753715"
 ---
 # <a name="assess-large-numbers-of-hyper-v-vms-for-migration-to-azure"></a>Avaliar grandes números de VMs do Hyper-V para migração para o Azure
 
@@ -30,7 +29,7 @@ Neste artigo, você aprenderá como:
 
 
 > [!NOTE]
-> Se você quiser experimentar uma prova de conceito para avaliar algumas VMs antes de avaliar em escala, siga nossa [série de tutoriais](tutorial-prepare-hyper-v.md)
+> Se você quiser experimentar uma prova de conceito para avaliar algumas VMs antes de avaliar em escala, siga nossa [série de tutoriais](./tutorial-discover-hyper-v.md)
 
 ## <a name="plan-for-assessment"></a>Planejar a avaliação
 
@@ -48,7 +47,7 @@ Use os limites resumidos nesta tabela para planejamento.
 --- | --- 
 **Projetos das Migrações para Azure** | Avalie até 35.000 VMs em um projeto.
 **Dispositivo de Migrações para Azure** | Um dispositivo pode descobrir até 5000 VMs.<br/> Um dispositivo pode se conectar a até 300 hosts do Hyper-V.<br/> Um dispositivo só pode ser associado a um único projeto de migrações para Azure.<br/> Qualquer número de dispositivos pode ser associado a um único projeto de migrações para Azure. <br/><br/> 
-**Group** | Você pode adicionar até 35.000 VMs em um único grupo.
+**Grupo** | Você pode adicionar até 35.000 VMs em um único grupo.
 **Avaliação de migrações para Azure** | É possível avaliar até 35.000 VMs em uma única avaliação.
 
 
@@ -66,7 +65,7 @@ Prepare o Azure e o Hyper-V para avaliação do servidor.
 2. Configurar permissões para sua conta do Azure para interagir com as migrações para Azure
 3. Preparar hosts e VMs do Hyper-V
 
-Siga as instruções neste [tutorial](tutorial-prepare-hyper-v.md) para definir essas configurações.
+Siga as instruções neste [tutorial](./tutorial-discover-hyper-v.md) para definir essas configurações.
 
 ## <a name="create-a-project"></a>Criar um projeto
 
@@ -75,7 +74,7 @@ De acordo com seus requisitos de planejamento, faça o seguinte:
 1. Criar projetos de migrações para Azure.
 2. Adicione a ferramenta de avaliação do servidor de migrações para projetos.
 
-[Saiba mais](how-to-add-tool-first-time.md)
+[Saiba mais](./create-manage-projects.md)
 
 ## <a name="create-and-review-an-assessment"></a>Criar e examinar uma avaliação
 

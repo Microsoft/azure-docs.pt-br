@@ -2,20 +2,20 @@
 title: Tutorial – Criar um conjunto de réplicas no Azure AD Domain Services | Microsoft Docs
 description: Saiba como criar e usar conjuntos de réplicas no portal do Azure para resiliência de serviço com Azure AD Domain Services
 services: active-directory-ds
-author: iainfoulds
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/16/2020
-ms.author: iainfou
-ms.openlocfilehash: 6f166cdcb5f3764d7b264fdb4ebc082ece4c798b
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.author: justinha
+ms.openlocfilehash: 059f711269fd5f1eea9675f238a6003eaf1a0534
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88245087"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96618103"
 ---
 # <a name="tutorial-create-and-use-replica-sets-for-resiliency-or-geolocation-in-azure-active-directory-domain-services-preview"></a>Tutorial: Criar e usar conjuntos de réplicas para resiliência ou geolocalização no Azure Active Directory Domain Services (versão prévia)
 

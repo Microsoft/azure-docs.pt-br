@@ -1,29 +1,30 @@
 ---
-title: Métricas dos serviços de mídia e logs de diagnóstico com Azure Monitor
-titleSuffix: Azure Media Services
+title: Métricas e logs de diagnóstico com Azure Monitor
 description: Saiba como monitorar as métricas dos serviços de mídia do Azure e os logs de diagnóstico por meio de Azure Monitor.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 07/08/2019
-ms.author: juliako
-ms.openlocfilehash: 7058160819c9b6ccc3f63511f86e930fcbfc413b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.topic: conceptual
+ms.date: 11/02/2020
+ms.author: inhenkel
+ms.openlocfilehash: 35b0d9c2937024341be6183ac1438b7c4500d6ef
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87011644"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954979"
 ---
-# <a name="monitor-media-services-metrics-and-diagnostic-logs-via-azure-monitor"></a>Monitorar as métricas dos serviços de mídia e os logs de diagnóstico por meio de Azure Monitor
+# <a name="monitor-media-services-metrics-and-diagnostic-logs-with-azure-monitor"></a>Monitorar as métricas dos serviços de mídia e os logs de diagnóstico com Azure Monitor
 
-[Azure monitor](../../azure-monitor/overview.md) permite que você monitore as métricas e os logs de diagnóstico que ajudam a entender como seus aplicativos estão sendo executados. Todos os dados coletados pelo Azure Monitor se adaptam a um dos dois tipos fundamentais: métricas e logs. Você pode monitorar os logs de diagnóstico dos serviços de mídia e criar alertas e notificações para as métricas e os logs coletados. Você pode visualizar e analisar os dados de métricas usando o [Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md). Você pode enviar logs para o [armazenamento do Azure](https://azure.microsoft.com/services/storage/), transmiti-los para os [hubs de eventos do Azure](https://azure.microsoft.com/services/event-hubs/), exportá-los para [log Analytics](https://azure.microsoft.com/services/log-analytics/)ou usar serviços de terceiros.
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
+
+[Azure monitor](../../azure-monitor/overview.md) permite que você monitore as métricas e os logs de diagnóstico que ajudam a entender como seus aplicativos estão sendo executados. Todos os dados coletados pelo Azure Monitor se enquadram em um dos dois tipos básicos: métricas e logs. Você pode monitorar os logs de diagnóstico dos serviços de mídia e criar alertas e notificações para as métricas e os logs coletados. Você pode visualizar e analisar os dados de métricas usando o [Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md). Você pode enviar logs para o [armazenamento do Azure](https://azure.microsoft.com/services/storage/), transmiti-los para os [hubs de eventos do Azure](https://azure.microsoft.com/services/event-hubs/), exportá-los para [log Analytics](https://azure.microsoft.com/services/log-analytics/)ou usar serviços de terceiros.
 
 Para obter uma visão geral detalhada, consulte [Azure monitor métricas](../../azure-monitor/platform/data-platform.md) e [Azure monitor logs de diagnóstico](../../azure-monitor/platform/platform-logs-overview.md).
 
@@ -65,8 +66,10 @@ As métricas de [pontos de extremidade de streaming](/rest/api/media/streamingen
 |Requests|Requests|Fornece o número total de solicitações HTTP atendidas pelo ponto de extremidade de streaming.|
 |Saída|Saída|Total de bytes de saída por minuto por ponto de extremidade de streaming.|
 |SuccessE2ELatency|Latência de ponta a ponta bem-sucedida|Duração de tempo de quando o ponto de extremidade de streaming recebeu a solicitação para quando o último byte da resposta foi enviado.|
+|Uso da CPU| | Uso da CPU para pontos de extremidade de streaming Premium. Esses dados não estão disponíveis para pontos de extremidade de streaming padrão. |
+|Largura de banda de saída | | Largura de banda de saída em bits por segundo.|
 
-### <a name="why-would-i-want-to-use-metrics"></a>Por que desejo usar métricas?
+### <a name="metrics-are-useful"></a>As métricas são úteis
 
 Aqui estão exemplos de como o monitoramento das métricas dos serviços de mídia pode ajudá-lo a entender como seus aplicativos estão sendo executados. Algumas perguntas que podem ser abordadas com as métricas dos serviços de mídia são:
 
@@ -77,6 +80,8 @@ Aqui estão exemplos de como o monitoramento das métricas dos serviços de míd
 * Como posso ver a divisão das solicitações que falharam e o que está causando a falha?
 * Como posso ver quantas solicitações HLS ou DASH estão sendo extraídas do empacotador?
 * Como fazer definir um alerta para saber quando o valor do limite de n º de solicitações com falha foi atingido?
+
+A simultaneidade se torna uma preocupação para o número de pontos de extremidade de streaming usados em uma única conta ao longo do tempo. Você precisa ter em mente a relação entre o número de fluxos simultâneos com parâmetros de publicação complexos, como empacotamento dinâmico para vários protocolos, várias criptografias DRM etc. Cada transmissão ao vivo publicada adicional adiciona à CPU e à largura de banda de saída no ponto de extremidade de streaming. Com isso em mente, você deve usar Azure Monitor para observar de forma mais adequada a utilização do ponto de extremidade de streaming (capacidade de saída e de CPU) para certificar-se de que você está dimensionando adequadamente (ou divida o tráfego entre vários pontos de extremidade de streaming se estiver entrando em uma simultaneidade muito alta).
 
 ### <a name="example"></a>Exemplo
 
@@ -112,6 +117,6 @@ Consulte [como monitorar os logs de diagnóstico do serviço de mídia](media-se
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Como coletar e consumir dados de log de seus recursos do Azure](../../azure-monitor/platform/platform-logs-overview.md)
-* [Criar, exibir e gerenciar alertas de métrica usando Azure Monitor](../../azure-monitor/platform/alerts-metric.md)
+* [Criar, exibir e gerenciar alertas de métrica usando o Azure Monitor](../../azure-monitor/platform/alerts-metric.md)
 * [Como monitorar as métricas dos serviços de mídia](media-services-metrics-howto.md)
 * [Como monitorar os logs de diagnóstico do serviço de mídia](media-services-diagnostic-logs-howto.md)

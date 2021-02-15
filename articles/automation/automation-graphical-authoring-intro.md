@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: c5d611ddffedc2f69cfc4f2b5600a158b0be9680
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: ec74ca19978a4164289276d44b34eb14b694687f
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186326"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99051574"
 ---
 # <a name="author-graphical-runbooks-in-azure-automation"></a>Criar runbooks gráficos na Automação do Azure
 
@@ -61,7 +61,7 @@ Selecione uma atividade na tela para configurar suas propriedades e parâmetros 
 
 Um conjunto de parâmetros define os parâmetros obrigatórios e opcionais que aceitam valores para determinado cmdlet. Todos os cmdlets têm pelo menos um conjunto de parâmetros, com alguns tendo vários. Se um cmdlet tiver vários conjuntos de parâmetros, você deve selecionar qual deles será usado antes de poder configurar os parâmetros. Você pode alterar o conjunto de parâmetros usado por uma atividade selecionando **Conjunto de Parâmetros** e escolhendo outro conjunto. Nesse caso, todos os valores de parâmetros que você já tenha configurado serão perdidos.
 
-No exemplo a seguir, o cmdlet [Get-AzVM](/powershell/module/az.compute/get-azvm?view=azps-3.5.0) tem três conjuntos de parâmetros. O exemplo usa um conjunto chamado **ListVirtualMachineInResourceGroupParamSet** com um único parâmetro opcional para retornar todas as máquinas virtuais de um grupo de recursos. O exemplo também usa o conjunto de parâmetros **GetVirtualMachineInResourceGroupParamSet** para especificar a máquina virtual que será retornada. Esse conjunto conta com dois parâmetros obrigatórios e um parâmetro opcional.
+No exemplo a seguir, o cmdlet [Get-AzVM](/powershell/module/az.compute/get-azvm?view=azps-3.5.0&preserve-view=true) tem três conjuntos de parâmetros. O exemplo usa um conjunto chamado **ListVirtualMachineInResourceGroupParamSet** com um único parâmetro opcional para retornar todas as máquinas virtuais de um grupo de recursos. O exemplo também usa o conjunto de parâmetros **GetVirtualMachineInResourceGroupParamSet** para especificar a máquina virtual que será retornada. Esse conjunto conta com dois parâmetros obrigatórios e um parâmetro opcional.
 
 ![Conjunto de Parâmetros](media/automation-graphical-authoring-intro/get-azvm-parameter-sets.png)
 
@@ -91,11 +91,11 @@ A funcionalidade de repetição de uma atividade permite que ela seja executada 
 
 Quando você habilita a repetição de uma atividade, é possível definir um atraso e uma condição. O atraso é o tempo (medido em segundos ou minutos) que o runbook aguarda antes de executar novamente a atividade. Caso você não especifique um atraso, a atividade será reexecutada imediatamente após a conclusão.
 
-![Atraso de repetição de atividade](media/automation-graphical-authoring-intro/retry-delay.png)
+:::image type="content" source="media/automation-graphical-authoring-intro/retry-delay.png" alt-text="Captura de tela das configurações Habilitar recurso de repetição.":::
 
 A condição de repetição é uma expressão do PowerShell que é avaliada sempre após a execução da atividade. Se a expressão for resolvida como True, a atividade será executada novamente. Se a expressão for resolvida como False, a atividade não será executada novamente, e o runbook passará para a próxima atividade.
 
-![Atraso de repetição de atividade](media/automation-graphical-authoring-intro/retry-condition.png)
+:::image type="content" source="media/automation-graphical-authoring-intro/retry-condition.png" alt-text="Captura de tela mostrando o campo repetir até que esse critério seja verdadeiro e exemplos de expressões do PowerShell que podem ser usadas na condição de repetição.":::
 
 A condição de repetição pode usar uma variável chamada `RetryData` que fornece acesso às informações sobre as repetições de atividade. Essa variável tem as propriedades na tabela a seguir:
 
@@ -373,7 +373,7 @@ O exemplo a seguir usa a saída de uma atividade chamada `Get Twitter Connection
 
 ## <a name="authenticate-to-azure-resources"></a>Autenticar-se em recursos do Azure
 
-Os runbooks na Automação do Azure que gerenciam os recursos do Azure requerem a autenticação do Azure. A opção [conta Executar como](./manage-runas-account.md), também conhecido como uma entidade de serviço, é o mecanismo padrão que um runbook de Automação usa para acessar recursos do Azure Resource Manager na sua assinatura. Você pode adicionar essa funcionalidade a um runbook gráfico adicionando o ativo de conexão `AzureRunAsConnection` à tela, o qual usa o cmdlet [Get-AutomationConnection](/system-center/sma/manage-global-assets) do PowerShell. Você também pode adicionar o cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount). Esse cenário é ilustrado no seguinte exemplo.
+Os runbooks na Automação do Azure que gerenciam os recursos do Azure requerem a autenticação do Azure. A opção [conta Executar como](./automation-security-overview.md), também conhecido como uma entidade de serviço, é o mecanismo padrão que um runbook de Automação usa para acessar recursos do Azure Resource Manager na sua assinatura. Você pode adicionar essa funcionalidade a um runbook gráfico adicionando o ativo de conexão `AzureRunAsConnection` à tela, o qual usa o cmdlet [Get-AutomationConnection](/system-center/sma/manage-global-assets) do PowerShell. Você também pode adicionar o cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount). Esse cenário é ilustrado no seguinte exemplo.
 
 ![Executa Como Atividades de Autenticação](media/automation-graphical-authoring-intro/authenticate-run-as-account.png)
 
@@ -435,4 +435,4 @@ Você tem a opção de reverter para a versão Publicada de um runbook. Essa ope
 * Para começar a usar os runbooks gráficos, consulte [Tutorial: criar um runbook gráfico](learn/automation-tutorial-runbook-graphical.md).
 * Para saber mais sobre os tipos de runbook, suas vantagens e limitações, confira [Tipos de runbook da Automação do Azure](automation-runbook-types.md).
 * Para entender como autenticar usando a conta Executar Como de automação, consulte [Conta Executar como](automation-security-overview.md#run-as-account).
-* Para obter uma referência de cmdlet do PowerShell, confira [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).
+* Para obter uma referência de cmdlet do PowerShell, confira [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0&preserve-view=true#automation).

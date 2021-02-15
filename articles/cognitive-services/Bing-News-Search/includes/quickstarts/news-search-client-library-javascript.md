@@ -8,24 +8,23 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/12/2020
 ms.author: aahi
-ms.custom: devx-track-javascript
-ms.openlocfilehash: cc96233ea6e2d02f3c3a2036466e3934aa234f5b
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.custom: devx-track-js
+ms.openlocfilehash: 3760213c7f469dfe89599c0f01afe98168efde2d
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87407959"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91377213"
 ---
 Use este guia de início rápido para começar a pesquisar notícias com a biblioteca de clientes da Pesquisa de Notícias do Bing para o JavaScript. Embora a Pesquisa de Notícias do Bing tenha uma API REST compatível com a maioria das linguagens de programação, a biblioteca de clientes é uma forma fácil de integrar o serviço aos seus aplicativos. O código-fonte desta amostra pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/newsSearch.js).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [Node.js](https://nodejs.org/en/)
-
-Para configurar um aplicativo de console usando a biblioteca de clientes da Pesquisa de Notícias do Bing:
-1. Execute `npm install ms-rest-azure` no seu ambiente de desenvolvimento.
-2. Execute `npm install azure-cognitiveservices-newssearch` no seu ambiente de desenvolvimento.
-
+* A versão mais recente do [Node.js](https://nodejs.org/en/download/).
+* O [SDK da Pesquisa de Notícias do Bing para JavaScript](https://www.npmjs.com/package/@azure/cognitiveservices-newssearch)
+     *  Para instalar, execute `npm install @azure/cognitiveservices-newssearch`
+* A classe `CognitiveServicesCredentials` do pacote `@azure/ms-rest-azure-js` para autenticar o cliente.
+     * Para instalar, execute `npm install @azure/ms-rest-azure-js`
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](~/includes/cognitive-services-bing-news-search-signup-requirements.md)]
 
@@ -34,7 +33,7 @@ Para configurar um aplicativo de console usando a biblioteca de clientes da Pesq
 1. Crie uma instância de `CognitiveServicesCredentials`. Crie variáveis para a chave da assinatura e um termo de pesquisa.
 
     ```javascript
-    const CognitiveServicesCredentials = require('ms-rest-azure').CognitiveServicesCredentials;
+    const CognitiveServicesCredentials = require('@azure/ms-rest-azure-js').CognitiveServicesCredentials;
     let credentials = new CognitiveServicesCredentials('YOUR-ACCESS-KEY');
     let search_term = 'Winter Olympics'
     ```
@@ -42,7 +41,7 @@ Para configurar um aplicativo de console usando a biblioteca de clientes da Pesq
 2. crie uma instância do cliente:
     
     ```javascript
-    const NewsSearchAPIClient = require('azure-cognitiveservices-newssearch');
+    const NewsSearchAPIClient = require('@azure/cognitiveservices-newssearch');
     let client = new NewsSearchAPIClient(credentials);
     ```
 

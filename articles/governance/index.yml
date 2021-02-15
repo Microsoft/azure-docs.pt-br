@@ -10,13 +10,13 @@ metadata:
   ms.collection: collection
   author: DCtheGeek
   ms.author: dacoulte
-  ms.date: 06/29/2020
-  ms.openlocfilehash: bd8c72593bf88289234ce281710b8be249e0966b
-  ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+  ms.date: 01/29/2021
+  ms.openlocfilehash: 9f9d2c694196b48aa4905a3783cb16609727b951
+  ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 06/30/2020
-  ms.locfileid: "85564509"
+  ms.lasthandoff: 02/10/2021
+  ms.locfileid: "100099125"
 highlightedContent:
   items:
   - title: Visão geral de governança
@@ -28,9 +28,9 @@ highlightedContent:
   - title: Governança no Cloud Adoption Framework
     itemType: architecture
     url: /azure/architecture/cloud-adoption/governance
-  - title: Aplicar e monitorar padrões de infraestrutura com o Azure Policy
+  - title: Criar uma estratégia de governança de nuvem no Azure
     itemType: learn
-    url: /learn/modules/intro-to-governance/
+    url: /learn/modules/build-cloud-governance-strategy-azure/
 productDirectory:
   title: Componentes e serviços
   items:
@@ -113,8 +113,12 @@ additionalContent:
         url: /powershell/module/az.resources/#resources
       - text: SDK do Azure para .NET
         url: /dotnet/api/overview/azure/managementgroups
+      - text: SDK do Azure para linguagem Go
+        url: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/services/preview/resources/mgmt/2018-03-01-preview/managementgroups
       - text: SDK do Azure para JavaScript
         url: /javascript/api/@azure/arm-managementgroups/managementgroups
+      - text: SDK do Azure para Python
+        url: /python/api/azure-mgmt-managementgroups/azure.mgmt.managementgroups
       - text: REST
         url: /rest/api/resources/managementgroups
       - text: Modelos do Gerenciador de Recursos
@@ -124,10 +128,10 @@ additionalContent:
       - text: CLI do Azure
         url: /cli/azure/policy
       - text: Azure PowerShell
-        url: /powershell/module/az.resources/#policies
+        url: /powershell/module/az.resources/#policy
         note: (Política)
       - text: Azure PowerShell
-        url: /powershell/module/az.policyinsights#policy_insights
+        url: /powershell/module/az.policyinsights#policy-insights
         note: (Informações sobre a política)
       - text: Azure PowerShell
         url: https://www.powershellgallery.com/packages/Az.GuestConfiguration
@@ -141,6 +145,9 @@ additionalContent:
       - text: REST
         url: /rest/api/resources/policydefinitions
         note: (Definições)
+      - text: REST
+        url: /rest/api/resources/policyexemptions
+        note: (Isenções)
       - text: REST
         url: /rest/api/resources/policysetdefinitions
         note: (Iniciativas)
@@ -185,7 +192,7 @@ additionalContent:
       - text: CLI do Azure
         url: /cli/azure/ext/resource-graph/graph
       - text: Azure PowerShell
-        url: /powershell/module/az.resourcegraph/
+        url: /powershell/module/az.resourcegraph/#resourcegraph
       - text: SDK do Azure para .NET
         url: /dotnet/api/Microsoft.Azure.Management.ResourceGraph
       - text: SDK do Azure para .NET
@@ -194,7 +201,7 @@ additionalContent:
       - text: SDK do Azure para linguagem Go
         url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/resourcegraph/mgmt/2019-04-01/resourcegraph
       - text: SDK do Azure para Java
-        url: /java/api/overview/azure/resourcegraph/management?view=azure-java-stable
+        url: /java/api/overview/azure/resourcegraph/management
       - text: SDK do Azure para Java
         url: https://search.maven.org/artifact/com.microsoft.azure.resourcegraph.v2019_04_01/azure-mgmt-resourcegraph/1.0.0-beta/jar
         note: (Maven)

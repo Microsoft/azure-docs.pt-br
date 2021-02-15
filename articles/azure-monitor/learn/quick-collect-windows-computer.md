@@ -13,18 +13,18 @@ ms.topic: quickstart
 ms.date: 08/22/2019
 ms.author: bwren
 ms.custom: mvc, seo-javascript-october2019
-ms.openlocfilehash: 12d87d6d458d6cda21ca581337012e800a3d4bce
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 9cd92075c7e0c4450dbee750fd31efb394dd24f7
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324311"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186738"
 ---
 # <a name="collect-data-from-a-windows-computer-in-a-hybrid-environment-with-azure-monitor"></a>Coletar dados de um computador Windows em um ambiente híbrido com o Azure Monitor
 
 O [Azure Monitor](../overview.md) pode coletar dados diretamente dos computadores Windows físicos ou virtuais em seu ambiente em um único workspace do Log Analytics para correlação e análise detalhadas. A instalação do [agente do Log Analytics](../platform/log-analytics-agent.md) permite que o Azure Monitor colete dados de um datacenter ou de outro ambiente de nuvem. Este guia de início rápido mostra como configurar e coletar dados do computador Windows com algumas etapas simples. Para saber mais sobre VMs do Windows no Microsoft Azure, confira o tópico [Coletar dados sobre máquinas virtuais do Azure](./quick-collect-azurevm.md).  
 
-Para entender a configuração com suporte, confira os tópicos [Suporte para sistemas operacionais Windows](../platform/log-analytics-agent.md#supported-windows-operating-systems) e [Configuração de firewall de rede](../platform/log-analytics-agent.md#network-requirements).
+Para entender a configuração com suporte, confira [Sistemas operacionais com suporte](../platform/agents-overview.md#supported-operating-systems) e [Configuração de firewall de rede](../platform/log-analytics-agent.md#network-requirements).
  
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -165,5 +165,4 @@ Agora que já está coletando dados operacionais e de desempenho do computador W
 Para saber como exibir e analisar os dados, prossiga para o tutorial:
 
 > [!div class="nextstepaction"]
-> [Exibir ou analisar dados no Log Analytics](../log-query/get-started-portal.md)
-
+> [Exibir ou analisar dados no Log Analytics](../log-query/log-analytics-tutorial.md)

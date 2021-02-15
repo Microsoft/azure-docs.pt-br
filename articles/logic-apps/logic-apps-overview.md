@@ -1,20 +1,20 @@
 ---
-title: Automatizar tarefas para integração empresarial
-description: Saiba mais sobre como automatizar os fluxos de trabalho que integram aplicativos, dados, serviços e sistemas com o mínimo de código para integração empresarial usando os Aplicativos Lógicos do Azure.
+title: Visão geral dos Aplicativos Lógicos do Azure
+description: Os Aplicativos Lógicos do Azure são uma solução de nuvem para criar e orquestrar fluxos de trabalho automatizados que integram aplicativos, dados, serviços e sistemas com o mínimo de código para cenários de nível empresarial.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: overview
 ms.custom: mvc
 ms.date: 03/11/2020
-ms.openlocfilehash: 3496dfd7813818ced8963175d73ec0f8ef6892d4
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 4c4e8c8f809452286fee493e20dbef2cc538c8bd
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536225"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96921531"
 ---
-# <a name="overview---what-is-azure-logic-apps"></a>Visão geral – O que são Aplicativos Lógicos do Azure?
+# <a name="what-is-azure-logic-apps"></a>O que são Aplicativos Lógicos do Azure?
 
 Os [Aplicativos Lógicos do Azure](https://azure.microsoft.com/services/logic-apps) são um serviço de nuvem que ajuda você a agendar, automatizar e orquestrar tarefas, processos de negócios e [fluxos de trabalho](#logic-app-concepts) quando você precisar integrar aplicativos, dados, sistemas e serviços entre empresas ou organizações. Os Aplicativos Lógicos simplificam a forma como você projeta e cria soluções escalonáveis para [integração](https://azure.microsoft.com/product-categories/integration/) de aplicativos, integração de dados, integração de sistemas, EAI (Integração de Aplicativos Empresariais) e comunicação B2B (entre empresas), seja na nuvem, localmente ou em ambos.
 

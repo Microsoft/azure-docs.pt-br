@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
-ms.openlocfilehash: 3d6f3a7a5fafc643b346d3df1306820114827049
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0bd895b0c19293a199b2a9b135915b7dc45b9e5e
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84193684"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98702490"
 ---
 # <a name="using-azure-data-lake-storage-gen1-for-big-data-requirements"></a>Usar o Azure Data Lake Storage Gen1 para exigências de big data
 
@@ -48,9 +48,9 @@ Isso representa os dados que podem ser gerados por várias fontes, como aplicati
 
 Veja as ferramentas que você pode usar:
 
-* [Azure Stream Analytics](../stream-analytics/stream-analytics-data-lake-output.md) – os eventos ingeridos nos Hubs de Eventos podem ser gravados no Azure Data Lake Storage Gen1 usando uma saída do Azure Data Lake Storage Gen1.
+* [Azure Stream Analytics](../stream-analytics/stream-analytics-define-outputs.md) – os eventos ingeridos nos Hubs de Eventos podem ser gravados no Azure Data Lake Storage Gen1 usando uma saída do Azure Data Lake Storage Gen1.
 * [Azure HDInsight Storm](../hdinsight/storm/apache-storm-write-data-lake-store.md) – é possível gravar dados diretamente do cluster Storm no Data Lake Storage Gen1.
-* [EventProcessorHost](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md) – é possível receber eventos dos Hubs de Eventos e gravá-los no Data Lake Storage Gen1 usando o [SDK para .NET do Data Lake Storage Gen1](data-lake-store-get-started-net-sdk.md).
+* [EventProcessorHost](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md) – é possível receber eventos dos Hubs de Eventos e gravá-los no Data Lake Storage Gen1 usando o [SDK para .NET do Data Lake Storage Gen1](data-lake-store-get-started-net-sdk.md).
 
 ### <a name="relational-data"></a>Dados relacionais
 Você também pode originar dados nos bancos de dados relacionais. Durante um período, os bancos de dados relacionais coletam grandes volumes de dados que podem fornecer informações importantes se processados por meio de um pipeline de big data. É possível usar as ferramentas a seguir para mover tais dados para o Data Lake Storage Gen1.
@@ -62,7 +62,7 @@ Você também pode originar dados nos bancos de dados relacionais. Durante um pe
 Esse tipo de conjunto de dados é especificamente chamado porque a análise dos dados do log do servidor Web é um caso de uso comum para aplicativos de Big Data e requer que grandes volumes de arquivos de log sejam carregados no Data Lake Storage Gen1. Você pode usar qualquer uma das ferramentas a seguir para escrever seus próprios scripts ou aplicativos para carregar esses dados.
 
 * [CLI do Azure](data-lake-store-get-started-cli-2.0.md)
-* [PowerShell do Azure](data-lake-store-get-started-powershell.md)
+* [Azure PowerShell](data-lake-store-get-started-powershell.md)
 * [SDK do .NET do Azure Data Lake Storage Gen1](data-lake-store-get-started-net-sdk.md)
 * [Azure Data Factory](../data-factory/copy-activity-overview.md)
 
@@ -88,7 +88,7 @@ A maioria dos tipos de cluster HDInsight (Hadoop, HBase, Storm) é compatível c
 Carregar conjuntos de dados que incluem vários terabytes usando os métodos descritos acima, às vezes, pode ser uma tarefa lenta e onerosa. Nesses casos, você pode usar as opções a seguir.
 
 * **Usando o ExpressRoute do Azure**. O Azure ExpressRoute permite criar conexões privadas entre os datacenters do Azure e a infraestrutura presente em seu local. Isso proporciona uma opção confiável para transferir grandes quantidades de dados. Para obter mais informações, confira a [documentação do ExpressRoute do Azure](../expressroute/expressroute-introduction.md).
-* **Carregamento de dados "offline"**. Se o uso do ExpressRoute do Azure não for possível por qualquer motivo, você poderá usar o [serviço de Importação/Exportação do Azure](../storage/common/storage-import-export-service.md) para enviar unidades de disco rígido com seus dados para um datacenter do Azure. Seus dados são carregados pela primeira vez nos Blobs de Armazenamento do Azure. Em seguida, é possível usar o [Azure Data Factory](../data-factory/connector-azure-data-lake-store.md) ou a [ferramenta AdlCopy](data-lake-store-copy-data-azure-storage-blob.md) para copiar dados dos Blobs de Armazenamento do Azure para o Data Lake Storage Gen1.
+* **Carregamento de dados "offline"**. Se o uso do ExpressRoute do Azure não for possível por qualquer motivo, você poderá usar o [serviço de Importação/Exportação do Azure](../import-export/storage-import-export-service.md) para enviar unidades de disco rígido com seus dados para um datacenter do Azure. Seus dados são carregados pela primeira vez nos Blobs de Armazenamento do Azure. Em seguida, é possível usar o [Azure Data Factory](../data-factory/connector-azure-data-lake-store.md) ou a [ferramenta AdlCopy](data-lake-store-copy-data-azure-storage-blob.md) para copiar dados dos Blobs de Armazenamento do Azure para o Data Lake Storage Gen1.
 
   > [!NOTE]
   > Ao usar o serviço Importação/Exportação, os tamanhos dos arquivos nos discos que você envia ao datacenter do Azure não devem ultrapassar 195 GB.
@@ -122,7 +122,7 @@ Nesses casos, você pode usar qualquer uma das opções a seguir:
 Você também pode usar os métodos a seguir para escrever seu próprio script/aplicativo e baixar dados do Data Lake Storage Gen1.
 
 * [CLI do Azure](data-lake-store-get-started-cli-2.0.md)
-* [PowerShell do Azure](data-lake-store-get-started-powershell.md)
+* [Azure PowerShell](data-lake-store-get-started-powershell.md)
 * [SDK do .NET do Azure Data Lake Storage Gen1](data-lake-store-get-started-net-sdk.md)
 
 ## <a name="visualize-data-in-data-lake-storage-gen1"></a>Visualizar dados no Data Lake Storage Gen1
@@ -130,5 +130,5 @@ Você pode usar uma combinação de serviços para criar representações visuai
 
 ![Visualizar dados no Data Lake Storage Gen1](./media/data-lake-store-data-scenarios/visualize-data.png "Visualizar dados no Data Lake Storage Gen1")
 
-* É possível começar usando o [Azure Data Factory para mover dados do Data Lake Storage Gen1 para um SQL Data Warehouse do Azure](../data-factory/copy-activity-overview.md)
-* Depois disso, você pode [integrar o Power BI ao SQL Data Warehouse do Azure](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-get-started-visualize-with-power-bi.md) para criar a representação visual dos dados.
+* Você pode começar usando [Azure data Factory para mover dados de data Lake Storage Gen1 para o Azure Synapse Analytics](../data-factory/copy-activity-overview.md)
+* Depois disso, você pode [integrar Power bi com o Azure Synapse Analytics](/power-bi/connect-data/service-azure-sql-data-warehouse-with-direct-connect) para criar uma representação visual dos dados.

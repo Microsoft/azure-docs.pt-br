@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 7a8c348340be143f7059ce7e64a1c66b66074a45
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 16c0b3e6dc4bd9097312e3a8c43618e66781ef85
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75430784"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92092878"
 ---
 # <a name="how-to-customize-the-azure-api-management-developer-portal-using-templates"></a>Como personalizar o portal de desenvolvedor de Gerenciamento de API do Azure usando modelos
 
@@ -41,7 +41,7 @@ A edição dos modelos é feita no **Portal do desenvolvedor** ao entrar como ad
 
 Para acessar os modelos de portal do desenvolvedor, clique no ícone de personalizar à esquerda para exibir o menu de personalização e clique em **Modelos**.
 
-![Modelos de portal do desenvolvedor][api-management-customize-menu]
+![Captura de tela que realça o ícone Personalizar para exibir o menu de personalização.][api-management-customize-menu]
 
 A lista de modelos exibe várias categorias de modelos que abrangem diferentes páginas no portal do desenvolvedor. Cada modelo é diferente, mas as etapas para editá-los e publicar as alterações são as mesmas. Para editar um modelo, clique no nome do modelo.
 
@@ -145,7 +145,7 @@ Modelos salvos podem ser publicados individualmente ou em conjunto. Para publica
 
 Clique em **Sim** para confirmar e tornar o modelo ativo no portal do desenvolvedor.
 
-![Confirmar publicação][api-management-publish-template-confirm]
+![Captura de tela que mostra onde você seleciona Sim para tornar o modelo ativo.][api-management-publish-template-confirm]
 
 Para publicar todas as versões do modelo atualmente não publicado, clique em **Publicar** na lista de modelos. Modelos não publicados são designados por um asterisco após o nome do modelo. Neste exemplo, os modelos de **Lista de produtos** e **Produtos** estão sendo publicados.
 
@@ -160,11 +160,11 @@ Modelos publicados recentemente entrarão em vigor imediatamente no portal do de
 ## <a name="to-revert-a-template-to-the-previous-version"></a>Para reverter um modelo para a versão anterior
 Para reverter um modelo para a versão publicada anterior, clique em Reverter no editor de modelos.
 
-![Reverter modelo][api-management-revert-template]
+![Captura de tela que realça o ícone usado para reverter um modelo.][api-management-revert-template]
 
 Clique em **Sim** para confirmar.
 
-![Confirmar][api-management-revert-template-confirm]
+![Captura de tela que mostra onde você seleciona Sim para confirmar as alterações.][api-management-revert-template-confirm]
 
 A versão anteriormente publicada de um modelo fica ativa no portal do desenvolvedor quando a operação de reversão é concluída.
 

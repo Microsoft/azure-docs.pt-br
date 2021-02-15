@@ -5,16 +5,15 @@ author: sowmyavenkat86
 ms.author: svenkat
 ms.date: 01/27/2020
 ms.topic: how-to
-ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: e00b1cf11b906390335f257b20787d394b3a8ed4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5db3e538a64e275313e1e0ab01f6cc6350eabb77
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85117158"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745427"
 ---
-# <a name="standard-quota-increase-limits-by-vm-series"></a>Cota padrão: aumentar os limites por série de VMs
+# <a name="standard-quota-increase-limits-by-vm-series"></a>Cota padrão: Aumentar limites por série de VM
 
 O Azure Resource Manager dá suporte a dois tipos de cotas do vCPU para máquinas virtuais:
 
@@ -30,7 +29,7 @@ Sempre que você implantar uma nova VM Spot, o uso total de vCPU novo e existent
 
 Você pode solicitar um aumento no limite de cota de vCPU para a série de VMs usando o portal do Azure. Um aumento na cota da série de VMs aumenta automaticamente o limite de vCPU regional total pelo mesmo valor.
 
-Para saber mais sobre as cotas de vCPU padrão, consulte [cotas de vCPU de máquina virtual](../../virtual-machines/windows/quotas.md) e [limites de serviço e assinatura do Azure](https://docs.microsoft.com/azure/azure-supportability/classic-deployment-model-quota-increase-requests).
+Para saber mais sobre as cotas de vCPU padrão, consulte [cotas de vCPU de máquina virtual](../../virtual-machines/windows/quotas.md) e [limites de serviço e assinatura do Azure](./classic-deployment-model-quota-increase-requests.md).
 
 Para saber mais sobre como aumentar o limite de vCPU por região para a cota padrão, consulte [cota padrão: aumentar os limites por região](regional-quota-requests.md).
 
@@ -91,7 +90,7 @@ Para solicitar um aumento de cota de vCPU padrão por série de VMs de **ajuda +
 
       ![Selecione um novo limite de vCPU](./media/resource-manager-core-quotas-request/quota-details-standard-set-vcpu-limit.png)
 
-1. Para solicitar um aumento de cota para mais de um local, selecione um local adicional em **locais**e, em seguida, selecione um tipo de VM apropriado. Em seguida, você pode inserir um limite que se aplica ao local adicional.
+1. Para solicitar um aumento de cota para mais de um local, selecione um local adicional em **locais** e, em seguida, selecione um tipo de VM apropriado. Em seguida, você pode inserir um limite que se aplica ao local adicional.
 
    ![Especificar locais adicionais nos detalhes da cota](./media/resource-manager-core-quotas-request/quota-details-multiple-locations.png)
 
@@ -130,7 +129,7 @@ Para solicitar um aumento de cota de vCPU padrão por série de VMs das **assina
 
       ![Fornecer detalhes da cota](./media/resource-manager-core-quotas-request/quota-details-deployment-rm-locations.png)
 
-   1. Para o local selecionado, em **tipos**, selecione **selecionar um tipo**e, em seguida, selecione **padrão**.
+   1. Para o local selecionado, em **tipos**, selecione **selecionar um tipo** e, em seguida, selecione **padrão**.
 
       ![Selecionar tipo padrão](./media/resource-manager-core-quotas-request/quota-details-select-standard-type.png)
 
@@ -146,7 +145,7 @@ Para solicitar um aumento de cota de vCPU padrão por série de VMs das **assina
 
       ![Selecione um novo limite de vCPU](./media/resource-manager-core-quotas-request/quota-details-standard-set-vcpu-limit.png)
 
-1. Para solicitar um aumento de cota para mais de um local, selecione um local adicional em **locais**e, em seguida, selecione um tipo de VM apropriado.
+1. Para solicitar um aumento de cota para mais de um local, selecione um local adicional em **locais** e, em seguida, selecione um tipo de VM apropriado.
 
    Esta etapa sobrecarrega a série de SKU que você selecionou para os locais anteriores. Insira os limites de cota que você deseja aplicar à série adicional.
 

@@ -1,22 +1,25 @@
 ---
-title: Conectar-se ao Common Data Service
-description: Criar e gerenciar registros de Common Data Service usando aplicativos lógicos do Azure
+title: Conectar-se ao Common Data Service (Microsoft inverso)
+description: Criar e gerenciar registros Common Data Service (Microsoft dataverso) usando aplicativos lógicos do Azure
 services: logic-apps
 ms.suite: integration
 ms.reviewer: jdaly, logicappspm
 ms.topic: conceptual
-ms.date: 05/08/2020
+ms.date: 02/11/2021
 tags: connectors
-ms.openlocfilehash: 98da7e959e4b59ad2d0f3f3f79364391b4ceddbd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bec3416195358121b85eb61679ab39647e664a9e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82997094"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100382337"
 ---
-# <a name="create-and-manage-records-in-common-data-service-by-using-azure-logic-apps"></a>Criar e gerenciar registros em Common Data Service usando aplicativos lógicos do Azure
+# <a name="create-and-manage-records-in-common-data-service-microsoft-dataverse-by-using-azure-logic-apps"></a>Criar e gerenciar registros em Common Data Service (Microsoft dataverso) usando aplicativos lógicos do Azure
 
-Com os [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md) e o [conector de Common Data Service](https://docs.microsoft.com/connectors/commondataservice/), você pode criar fluxos de trabalho automatizados que gerenciam registros em seu banco de dados [Common Data Service](https://docs.microsoft.com/powerapps/maker/common-data-service/data-platform-intro) . Esses fluxos de trabalho podem criar registros, atualizar registros e executar outras operações. Você também pode obter informações de seu banco de dados Common Data Service e disponibilizar a saída para outras ações a serem usadas em seu aplicativo lógico. Por exemplo, quando um registro é atualizado no banco de dados do Common Data Service, você pode enviar um email usando o conector do Outlook para Office 365.
+> [!NOTE]
+> Em novembro de 2020, Common Data Service foi renomeado para o Microsoft dataverso.
+
+Com os [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md) e o [conector de Common Data Service](/connectors/commondataservice/), você pode criar fluxos de trabalho automatizados que gerenciam registros em seu Common Data Service, agora banco de dados [do Microsoft dataverso](/powerapps/maker/common-data-service/data-platform-intro) . Esses fluxos de trabalho podem criar registros, atualizar registros e executar outras operações. Você também pode obter informações do banco de dados do dataverso e disponibilizar a saída para outras ações a serem usadas em seu aplicativo lógico. Por exemplo, quando um registro é atualizado no banco de dados do dataverso, você pode enviar um email usando o conector do Outlook do Office 365.
 
 Este artigo mostra como você pode criar um aplicativo lógico que cria um registro de tarefa sempre que um novo registro de Lead é criado.
 
@@ -24,12 +27,12 @@ Este artigo mostra como você pode criar um aplicativo lógico que cria um regis
 
 * Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/).
 
-* Um [ambiente de Common Data Service](https://docs.microsoft.com/power-platform/admin/environments-overview), que é um espaço em que sua organização armazena, gerencia e compartilha dados de negócios e um banco de Common Data Service. Para obter mais informações, consulte estes recursos:<p>
+* Um [ambiente de Common Data Service](/power-platform/admin/environments-overview), que é um espaço em que sua organização armazena, gerencia e compartilha dados de negócios e um banco de Common Data Service. Para obter mais informações, consulte estes recursos:<p>
 
-  * [Aprenda: introdução ao Common Data Service](https://docs.microsoft.com/learn/modules/get-started-with-powerapps-common-data-service/)
-  * [Plataforma de energia-visão geral dos ambientes](https://docs.microsoft.com/power-platform/admin/environments-overview)
+  * [Aprenda: introdução ao Common Data Service](/learn/modules/get-started-with-powerapps-common-data-service/)
+  * [Plataforma de energia-visão geral dos ambientes](/power-platform/admin/environments-overview)
 
-* Conhecimento básico sobre [como criar aplicativos lógicos](../logic-apps/quickstart-create-first-logic-app-workflow.md) e o aplicativo lógico de onde você deseja acessar os registros em seu banco de dados Common Data Service. Para iniciar seu aplicativo lógico com um gatilho Common Data Service, você precisa de um aplicativo lógico em branco. Se você for novo no aplicativo lógico do Azure, examine [início rápido: criar seu primeiro fluxo de trabalho usando os aplicativos lógicos do Azure](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* Conhecimento básico sobre [como criar aplicativos lógicos](../logic-apps/quickstart-create-first-logic-app-workflow.md) e o aplicativo lógico de onde você deseja acessar os registros no banco de dados do dataverso. Para iniciar seu aplicativo lógico com um gatilho Common Data Service, você precisa de um aplicativo lógico em branco. Se você for novo no aplicativo lógico do Azure, examine [início rápido: criar seu primeiro fluxo de trabalho usando os aplicativos lógicos do Azure](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="add-common-data-service-trigger"></a>Adicionar Common Data Service gatilho
 
@@ -51,7 +54,7 @@ Para este exemplo, adicione o gatilho Common Data Service que é acionado quando
 
    | Propriedade | Obrigatório | Descrição |
    |----------|----------|-------------|
-   | **Ambiente** | Sim | O ambiente a ser monitorado, por exemplo, "produção de vendas da Fabrikam". Para obter mais informações, consulte [visão geral da plataforma de energia – ambientes](https://docs.microsoft.com/power-platform/admin/environments-overview). |
+   | **Ambiente** | Sim | O ambiente a ser monitorado, por exemplo, "produção de vendas da Fabrikam". Para obter mais informações, consulte [visão geral da plataforma de energia – ambientes](/power-platform/admin/environments-overview). |
    | **Nome da entidade** | Sim | A entidade a ser monitorada, por exemplo, "leads" |
    | **Escopo** | Sim | A origem que criou o novo registro, por exemplo, um usuário em sua unidade de negócios ou qualquer usuário em sua organização. Este exemplo usa "unidade de negócios". |
    ||||
@@ -72,7 +75,7 @@ Agora, adicione uma ação Common Data Service que cria um registro de tarefa pa
 
    | Propriedade | Obrigatório | Descrição |
    |----------|----------|-------------|
-   | **Nome da organização** | Sim | O ambiente no qual você deseja criar o registro, que não precisa ser o mesmo ambiente em seu gatilho, mas é "produção de vendas da Fabrikam" neste exemplo |
+   | **Nome da Organização** | Sim | O ambiente no qual você deseja criar o registro, que não precisa ser o mesmo ambiente em seu gatilho, mas é "produção de vendas da Fabrikam" neste exemplo |
    | **Nome da entidade** | Sim | A entidade na qual você deseja criar o registro, por exemplo, “Tarefas” |
    | **Assunto** | Sim, com base na entidade selecionada neste exemplo | Uma breve descrição sobre o objetivo desta tarefa |
    ||||
@@ -108,7 +111,7 @@ Para gatilhos que são executados quando os registros são atualizados, como a a
 
 1. No gatilho, na lista **Adicionar novo parâmetro** , selecione filtros de **atributo**.
 
-   ![Adicionar a propriedade "filtros de atributo"](./media/connect-common-data-service/when-record-updated-trigger-add-attribute-filters.png)
+   ![Captura de tela que mostra a ação "quando um registro é atualizado" e a lista "Adicionar novo parâmetro" aberta com a propriedade "filtros de atributo" selecionada.](./media/connect-common-data-service/when-record-updated-trigger-add-attribute-filters.png)
 
 1. Para cada **item de filtros de atributo**, selecione o atributo que você deseja monitorar para as atualizações, por exemplo:
 
@@ -122,11 +125,11 @@ Para ações que retornam registros, como a ação **listar registros** , você 
 
    ![Adicionar a propriedade "filtrar consulta"](./media/connect-common-data-service/list-records-action-filter-query.png)
 
-1. Na propriedade de **consulta de filtro** que agora aparece na ação, insira esta consulta de filtro ODATA:`statuscode eq 1`
+1. Na propriedade de **consulta de filtro** que agora aparece na ação, insira esta consulta de filtro ODATA: `statuscode eq 1`
 
    ![Inserir consulta de filtro ODATA para filtrar registros](./media/connect-common-data-service/list-records-action-filter-query-value.png)
 
-Para obter mais informações sobre `$filter` Opções de consulta do sistema, consulte [Common Data Service-resultados do filtro](https://docs.microsoft.com/powerapps/developer/common-data-service/webapi/query-data-web-api#filter-results).
+Para obter mais informações sobre `$filter` Opções de consulta do sistema, consulte [Common Data Service-resultados do filtro](/powerapps/developer/common-data-service/webapi/query-data-web-api#filter-results).
 
 ## <a name="list-records-based-on-an-order"></a>Listar registros com base em um pedido
 
@@ -136,11 +139,11 @@ Para ações que retornam registros, como a ação **listar registros** , você 
 
    ![Adicionar a propriedade "Order By"](./media/connect-common-data-service/list-records-action-order-by.png)
 
-1. Na propriedade **order by** que agora aparece na ação, insira esta consulta de filtro ODATA:`name`
+1. Na propriedade **order by** que agora aparece na ação, insira esta consulta de filtro ODATA: `name`
 
    ![Inserir consulta de filtro ODATA para ordenar registros](./media/connect-common-data-service/list-records-action-order-by-value.png)
 
-Para obter mais informações sobre `$orderby` Opções de consulta do sistema, consulte [resultados de ordem de Common Data Service](https://docs.microsoft.com/powerapps/developer/common-data-service/webapi/query-data-web-api#order-results).
+Para obter mais informações sobre `$orderby` Opções de consulta do sistema, consulte [resultados de ordem de Common Data Service](/powerapps/developer/common-data-service/webapi/query-data-web-api#order-results).
 
 ## <a name="field-data-types"></a>Tipos de dados de campo
 
@@ -166,7 +169,63 @@ Este exemplo mostra como a ação **criar um novo registro** cria um novo regist
 
 ## <a name="connector-reference"></a>Referência de conector
 
-Para obter informações técnicas com base na descrição do Swagger do conector, como gatilhos, ações, limites e outros detalhes, consulte a [página de referência do conector](https://docs.microsoft.com/connectors/commondataservice/).
+Para obter informações técnicas com base na descrição do Swagger do conector, como gatilhos, ações, limites e outros detalhes, consulte a [página de referência do conector](/connectors/commondataservice/).
+
+## <a name="troubleshooting-problems"></a>Solucionando problemas
+
+### <a name="calls-from-multiple-environments"></a>Chamadas de vários ambientes
+
+Ambos os conectores, Common Data Service e Common Data Service (ambiente atual), armazenam informações sobre os fluxos de trabalho do aplicativo lógico que precisam e recebem notificações sobre alterações de entidade usando a `callbackregistrations` entidade em seu Microsoft dataverso. Se você copiar uma organização do dataverso, qualquer webhook também será copiado. Se você copiar sua organização antes de desabilitar os fluxos de trabalho mapeados para sua organização, todos os WebHooks copiados também apontarão para os mesmos aplicativos lógicos, que, por sua vez, receberão notificações de várias organizações.
+
+Para interromper notificações indesejadas, exclua o registro de retorno de chamada da organização que envia essas notificações seguindo estas etapas:
+
+1. Identifique a organização do dataverso de onde você deseja remover as notificações e entre nessa organização.
+
+1. No navegador Chrome, localize o registro de retorno de chamada que você deseja excluir seguindo estas etapas:
+
+   1. Examine a lista genérica para todos os registros de retorno de chamada no seguinte URI do OData para que você possa exibir os dados dentro da `callbackregistrations` entidade:
+
+      `https://{organization-name}.crm{instance-number}.dynamics.com/api/data/v9.0/callbackregistrations`:
+
+      > [!NOTE]
+      > Se nenhum valor for retornado, talvez você não tenha permissões para exibir esse tipo de entidade ou talvez não esteja conectado à organização correta.
+
+   1. Filtre o nome lógico da entidade disparando `entityname` e o evento de notificação que corresponde ao fluxo de trabalho do aplicativo lógico (mensagem). Cada tipo de evento é mapeado para o inteiro da mensagem da seguinte maneira:
+
+      | Tipo de evento | Número inteiro da mensagem |
+      |------------|-----------------|
+      | Criar | 1 |
+      | Excluir | 2 |
+      | Atualização | 3 |
+      | CreateOrUpdate | 4 |
+      | CreateOrDelete | 5 |
+      | UpdateOrDelete | 6 |
+      | CreateOrUpdateOrDelete | 7 |
+      |||
+
+      Este exemplo mostra como você pode filtrar as `Create` notificações em uma entidade chamada `nov_validation` usando o seguinte URI de OData para uma organização de exemplo:
+
+      `https://fabrikam-preprod.crm1.dynamics.com/api/data/v9.0/callbackregistrations?$filter=entityname eq 'nov_validation' and message eq 1`
+
+      ![Captura de tela que mostra a janela do navegador e o URI do OData na barra de endereços.](./media/connect-common-data-service/find-callback-registrations.png)
+
+      > [!TIP]
+      > Se existirem vários gatilhos para a mesma entidade ou evento, você poderá filtrar a lista usando filtros adicionais, como `createdon` os `_owninguser_value` atributos e. O nome do usuário proprietário aparece em `/api/data/v9.0/systemusers({id})` .
+
+   1. Depois de encontrar a ID para o registro de retorno de chamada que você deseja excluir, siga estas etapas:
+   
+      1. No navegador Chrome, abra o Chrome Ferramentas para Desenvolvedores (teclado: F12).
+
+      1. Na janela, na parte superior, selecione a guia **console** .
+
+      1. No prompt de linha de comando, digite este comando, que envia uma solicitação para excluir o registro de retorno de chamada especificado:
+
+         `fetch('http://{organization-name}.crm{instance-number}.dynamics.com/api/data/v9.0/callbackregistrations({ID-to-delete})', { method: 'DELETE'})`
+
+         > [!IMPORTANT]
+         > Certifique-se de fazer a solicitação de uma página de UCI (interface do cliente não unificada), por exemplo, da própria página de resposta do OData ou da API. Caso contrário, a lógica no arquivo de app.js pode interferir nessa operação.
+
+   1. Para confirmar que o registro de retorno de chamada não existe mais, verifique a lista de registros de retorno de chamada.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -1,20 +1,20 @@
 ---
 title: Kit de ferramentas de teste de modelo ARM
-description: Descreve como executar o kit de ferramentas de teste do modelo ARM em seu modelo. O kit de ferramentas permite que você veja se implementou as práticas recomendadas.
+description: Descreve como executar o kit de ferramentas de teste do modelo de Azure Resource Manager (modelo ARM) em seu modelo. O kit de ferramentas permite que você veja se implementou as práticas recomendadas.
 ms.topic: conceptual
-ms.date: 06/19/2020
+ms.date: 09/02/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 7b88096dfdd1c7fb3e2671a369132e75a8885b8d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e5ad0b6dca7718166517b52148fbc6dd49f38869
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85255706"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97674005"
 ---
 # <a name="use-arm-template-test-toolkit"></a>Usar o kit de ferramentas de teste do modelo ARM
 
-O [Kit de ferramentas de teste do modelo ARM](https://aka.ms/arm-ttk) verifica se o modelo usa práticas recomendadas. Quando o modelo não está em conformidade com as práticas recomendadas, ele retorna uma lista de avisos com as alterações sugeridas. Usando o kit de ferramentas de teste, você pode aprender a evitar problemas comuns no desenvolvimento de modelos.
+O [Kit de ferramentas de teste do modelo de Azure Resource Manager (modelo ARM)](https://aka.ms/arm-ttk) verifica se o modelo usa práticas recomendadas. Quando o modelo não está em conformidade com as práticas recomendadas, ele retorna uma lista de avisos com as alterações sugeridas. Usando o kit de ferramentas de teste, você pode aprender a evitar problemas comuns no desenvolvimento de modelos.
 
 O kit de ferramentas de teste fornece um [conjunto de testes padrão](test-cases.md). Esses testes são recomendações, mas não requisitos. Você pode decidir quais testes são relevantes para suas metas e personalizar quais testes são executados.
 
@@ -22,53 +22,103 @@ Este artigo descreve como executar o kit de ferramentas de teste e como adiciona
 
 O kit de ferramentas é um conjunto de scripts do PowerShell que pode ser executado a partir de um comando no PowerShell ou na CLI.
 
-## <a name="download-test-toolkit"></a>Baixar o kit de ferramentas de teste
+## <a name="install-on-windows"></a>Instalar no Windows
 
-Para usar o kit de ferramentas de teste, você pode criar uma bifurcação e clonar o [repositório](https://aka.ms/arm-ttk) que contém os scripts ou [baixar o arquivo. zip mais recente](https://aka.ms/arm-ttk-latest).
+1. Se você ainda não tiver o PowerShell, [Instale o PowerShell no Windows](/powershell/scripting/install/installing-powershell-core-on-windows).
 
-Dependendo da política de execução do computador em que você executa o script, você poderá receber um erro sobre a execução de scripts da Internet. Você precisa alterar a política de [execução](/powershell/module/microsoft.powershell.core/about/about_execution_policies) ou [desbloquear os arquivos de script](/powershell/module/microsoft.powershell.utility/unblock-file).
+1. [Baixe o arquivo. zip mais recente](https://aka.ms/arm-ttk-latest) para o kit de ferramentas de teste e extraia-o.
 
-## <a name="run-on-powershell"></a>Executar no PowerShell
+1. Inicie o PowerShell.
 
-Antes de executar os testes, importe o módulo.
+1. Navegue até a pasta onde você extraiu o kit de ferramentas de teste. Dentro dessa pasta, navegue até a pasta **ARM-TTK** .
 
-```powershell
-Import-Module .\arm-ttk.psd1 # from the same directory as .\arm-ttk.psd1
-```
+1. Se a [política de execução](/powershell/module/microsoft.powershell.core/about/about_execution_policies) bloquear scripts da Internet, você precisará desbloquear os arquivos de script. Verifique se você está na pasta **ARM-TTK** .
 
-Para executar os testes no **PowerShell**, use o seguinte comando:
+   ```powershell
+   Get-ChildItem *.ps1, *.psd1, *.ps1xml, *.psm1 -Recurse | Unblock-File
+   ```
 
-```powershell
-Test-AzTemplate -TemplatePath $TemplateFolder
-```
+1. Importe o módulo.
 
-## <a name="run-on-linux"></a>Executar no Linux
+   ```powershell
+   Import-Module .\arm-ttk.psd1
+   ```
 
-Antes de executar os testes, instale o [PowerShell Core](/powershell/scripting/install/installing-powershell-core-on-linux).
+1. Para executar os testes, use o seguinte comando:
 
-Para executar os testes no **Linux** no bash, use o seguinte comando:
+   ```powershell
+   Test-AzTemplate -TemplatePath \path\to\template
+   ```
 
-```bash
-Test-AzTemplate.sh -TemplatePath $TemplateFolder
-```
+## <a name="install-on-linux"></a>Instalar no Linux
 
-Você também pode executar o teste em pwsh.exe.
+1. Se você ainda não tiver o PowerShell, [Instale o PowerShell no Linux](/powershell/scripting/install/installing-powershell-core-on-linux).
 
-## <a name="run-on-macos"></a>Executar no macOS
+1. [Baixe o arquivo. zip mais recente](https://aka.ms/arm-ttk-latest) para o kit de ferramentas de teste e extraia-o.
 
-Antes de executar os testes, instale o [PowerShell Core](/powershell/scripting/install/installing-powershell-core-on-macos). 
+1. Inicie o PowerShell.
 
-Instale `coreutils`:
+   ```bash
+   pwsh
+   ```
 
-```bash
-brew install coreutils
-```
+1. Navegue até a pasta onde você extraiu o kit de ferramentas de teste. Dentro dessa pasta, navegue até a pasta **ARM-TTK** .
 
-Para executar os testes no **MacOS**, use o seguinte comando:
+1. Se a [política de execução](/powershell/module/microsoft.powershell.core/about/about_execution_policies) bloquear scripts da Internet, você precisará desbloquear os arquivos de script. Verifique se você está na pasta **ARM-TTK** .
 
-```bash
-Test-AzTemplate.sh -TemplatePath $TemplateFolder
-```
+   ```powershell
+   Get-ChildItem *.ps1, *.psd1, *.ps1xml, *.psm1 -Recurse | Unblock-File
+   ```
+
+1. Importe o módulo.
+
+   ```powershell
+   Import-Module ./arm-ttk.psd1
+   ```
+
+1. Para executar os testes, use o seguinte comando:
+
+   ```powershell
+   Test-AzTemplate -TemplatePath /path/to/template
+   ```
+
+## <a name="install-on-macos"></a>Instalar no macOS
+
+1. Se você ainda não tiver o PowerShell, [Instale o PowerShell no MacOS](/powershell/scripting/install/installing-powershell-core-on-macos).
+
+1. Instale `coreutils`:
+
+   ```bash
+   brew install coreutils
+   ```
+
+1. [Baixe o arquivo. zip mais recente](https://aka.ms/arm-ttk-latest) para o kit de ferramentas de teste e extraia-o.
+
+1. Inicie o PowerShell.
+
+   ```bash
+   pwsh
+   ```
+
+1. Navegue até a pasta onde você extraiu o kit de ferramentas de teste. Dentro dessa pasta, navegue até a pasta **ARM-TTK** .
+
+1. Se a [política de execução](/powershell/module/microsoft.powershell.core/about/about_execution_policies) bloquear scripts da Internet, você precisará desbloquear os arquivos de script. Verifique se você está na pasta **ARM-TTK** .
+
+   ```powershell
+   Get-ChildItem *.ps1, *.psd1, *.ps1xml, *.psm1 -Recurse | Unblock-File
+   ```
+
+1. Importe o módulo.
+
+   ```powershell
+   Import-Module ./arm-ttk.psd1
+   ```
+
+1. Para executar os testes, use o seguinte comando:
+
+   ```powershell
+   Test-AzTemplate -TemplatePath /path/to/template
+   ```
 
 ## <a name="result-format"></a>Formato de resultado
 
@@ -232,4 +282,5 @@ O exemplo a seguir mostra como executar os testes.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre os testes padrão, consulte [casos de teste para o kit de ferramentas](test-cases.md).
+- Para saber mais sobre os testes padrão, consulte [casos de teste padrão para o kit de ferramentas de teste do modelo ARM](test-cases.md).
+- Para um módulo Microsoft Learn que abrange o uso do kit de ferramentas de teste, consulte [Visualizar alterações e validar recursos do Azure usando o What-If e o ARM template Test Toolkit](/learn/modules/arm-template-test/).

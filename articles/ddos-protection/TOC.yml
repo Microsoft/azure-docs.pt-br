@@ -1,0 +1,75 @@
+- name: Documentação da Proteção contra DDoS do Azure Standard
+  href: index.yml
+- name: Visão geral
+  items:
+    - name: O que é a Proteção contra DDoS do Azure Standard?
+      href: ddos-protection-overview.md
+- name: Inícios rápidos
+  items:
+    - name: Criar um plano de proteção contra DDoS – Portal
+      href: manage-ddos-protection.md
+    - name: Criar um plano de proteção contra DDoS – PowerShell
+      href: manage-ddos-protection-powershell.md
+    - name: Criar um plano de proteção contra DDoS – CLI
+      href: manage-ddos-protection-cli.md
+    - name: Criar um plano de proteção contra DDoS – modelo do ARM
+      displayName: Resource Manager
+      href: manage-ddos-protection-template.md
+- name: Tutoriais
+  items:
+    - name: Exibir e configurar a telemetria da Proteção contra DDoS
+      href: telemetry.md
+    - name: Exibir e configurar o log de diagnóstico de DDoS
+      href: diagnostic-logging.md
+    - name: Exibir e configurar os alertas da proteção contra DDoS
+      href: alerts.md
+- name: Conceitos
+  items:
+    - name: Tipos de ataques
+      href: types-of-attacks.md
+    - name: Práticas recomendadas fundamentais
+      href: fundamental-best-practices.md
+    - name: Recursos da Proteção contra DDoS do Azure Standard
+      href: ddos-protection-standard-features.md
+    - name: Componentes de uma estratégia de resposta a DDoS
+      href: ddos-response-strategy.md
+    - name: Arquiteturas de referência
+      href: ddos-protection-reference-architectures.md
+    - name: Linha de base de segurança
+      href: ../security/fundamentals/ddos-protection-security-baseline.md?toc=%2fazure%2fddos-protection%2ftoc.json
+- name: Guias de instruções
+  items:
+    - name: Fazer testes por meio de simulações
+      href: test-through-simulations.md
+    - name: Gerenciar permissões e restrições
+      href: manage-permissions.md
+    - name: Envolver a DRR (Resposta Rápida a DDoS)
+      href: ddos-rapid-response.md
+    - name: Integrar parceiros
+      href: ddos-protection-partner-onboarding.md
+- name: Referência
+  items:
+    - name: CLI do Azure
+      href: /cli/azure/network/ddos-protection?view=azure-cli-latest
+    - name: Azure PowerShell
+      href: /powershell/module/Az.Network/New-AzDdosProtectionPlan?view=azps-2.8.0
+    - name: .NET
+      href: /dotnet/api/
+    - name: Java
+      href: /java/api/
+    - name: Node.js
+      href: 'https://azure.microsoft.com/develop/nodejs/#azure-sdk'
+    - name: Python
+      href: 'https://azure.microsoft.com/develop/python/'
+    - name: REST
+      href: /rest/api/virtualnetwork/ddosprotectionplans
+    - name: Azure Resource Manager
+      href: ../azure-resource-manager/management/overview.md
+- name: Recursos
+  items:
+    - name: Perguntas frequentes
+      href: ddos-faq.md
+    - name: Preços
+      href: 'https://azure.microsoft.com/en-us/pricing/details/ddos-protection/'
+    - name: Disponibilidade regional
+      href: 'https://azure.microsoft.com/en-us/global-infrastructure/services/?products=ddos-protection'

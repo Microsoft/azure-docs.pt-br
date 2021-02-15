@@ -1,19 +1,19 @@
 ---
 title: 'Início Rápido: Criar um Firewall do Azure e Grupos de IP – modelo do Resource Manager'
-description: Saiba como usar um modelo do ARM (Azure Resource Manager) para criar um Firewall do Azure e Grupos de IP.
+description: Neste guia de início rápido, saiba como usar um modelo do ARM (Azure Resource Manager) para criar um Firewall do Azure e Grupos de IP.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.date: 04/06/2020
+ms.date: 08/28/2020
 ms.author: victorh
-ms.openlocfilehash: 97d1c14a61e98f98e45e25668841cee1ad9ce0d1
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: 7966cbe44fc8984cf3c3d9e2d08a11bf599ff158
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88705462"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "89079125"
 ---
 # <a name="quickstart-create-an-azure-firewall-and-ip-groups---arm-template"></a>Início Rápido: Criar um Firewall do Azure e Grupos de IP – Modelo do ARM
 
@@ -76,7 +76,7 @@ No portal do Azure, examine os recursos implantados, principalmente as regras de
 
 :::image type="content" source="media/quick-create-ipgroup-template/ipgroups.png" alt-text="Grupos de IP.":::
 
-:::image type="content" source="media/quick-create-ipgroup-template/network-rule.png" alt-text="Regras de rede.":::
+:::image type="content" source="media/quick-create-ipgroup-template/network-rule.png" alt-text="Grupos de IP.":::
 
 Para saber mais sobre a sintaxe e as propriedades de JSON para um firewall em um modelo, confira [referência de modelo Microsoft.Network/azureFirewalls](/azure/templates/Microsoft.Network/2019-11-01/azureFirewalls).
 

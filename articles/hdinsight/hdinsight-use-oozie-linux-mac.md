@@ -3,17 +3,16 @@ title: Usar fluxos de trabalho do Hadoop Oozie no HDInsight baseado em Linux
 description: Usar o Oozie do Hadoop no HDInsight baseado em Linux. Saiba como definir um fluxo de trabalho do Oozie e enviar um trabalho do Oozie.
 author: omidm1
 ms.author: omidm
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/27/2020
-ms.openlocfilehash: 1e88fc64ea297f70f56478588312675fb233f221
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 41c42009252169c141bec5d3dc2ea5c6308d6812
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085932"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98931297"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Usar o Apache Oozie com o Apache Hadoop para definir e executar um fluxo de trabalho no Azure HDInsight baseado no Linux
 
@@ -35,9 +34,9 @@ Você também pode usar o Oozie para agendar trabalhos específicos para um sist
 
 * **Um cliente SSH**. Consulte [conectar-se ao HDInsight (Apache Hadoop) usando SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-* **Um banco de dados SQL do Azure**.  Consulte [criar um banco de dados no banco de dados SQL do Azure no portal do Azure](../sql-database/sql-database-get-started.md).  Este artigo usa um banco de dados chamado **oozietest**.
+* **Um banco de dados SQL do Azure**.  Consulte [criar um banco de dados no banco de dados SQL do Azure no portal do Azure](../azure-sql/database/single-database-create-quickstart.md).  Este artigo usa um banco de dados chamado **oozietest**.
 
-* O esquema de URI do seu armazenamento primário de clusters. `wasb://`para o armazenamento do Azure, `abfs://` por Azure data Lake Storage Gen2 ou `adl://` para Azure data Lake Storage Gen1. Se a transferência segura estiver habilitada para o Armazenamento do Azure, o URI será `wasbs://`. Confira também [Transferência segura](../storage/common/storage-require-secure-transfer.md).
+* O esquema de URI do seu armazenamento primário de clusters. `wasb://` para o armazenamento do Azure, `abfs://` por Azure data Lake Storage Gen2 ou `adl://` para Azure data Lake Storage Gen1. Se a transferência segura estiver habilitada para o Armazenamento do Azure, o URI será `wasbs://`. Confira também [Transferência segura](../storage/common/storage-require-secure-transfer.md).
 
 ## <a name="example-workflow"></a>Fluxo de trabalho de exemplo
 
@@ -130,7 +129,7 @@ Use as etapas a seguir para criar um script de HiveQL (linguagem de consulta Hiv
 
      O arquivo de definição de fluxo de trabalho, workflow.xml neste artigo, passa esses valores para esse script HiveQL em tempo de execução.
 
-1. Para salvar o arquivo, selecione **Ctrl + X**, digite **Y**e, em seguida, selecione **Enter**.  
+1. Para salvar o arquivo, selecione **Ctrl + X**, digite **Y** e, em seguida, selecione **Enter**.  
 
 1. Use o seguinte comando para copiar `useooziewf.hql` para `wasbs:///tutorials/useoozie/useooziewf.hql` :
 
@@ -215,7 +214,7 @@ As definições de fluxo de trabalho do Oozie são codificadas em hPDL (linguage
 
      Observe também a entrada `<archive>mssql-jdbc-7.0.0.jre8.jar</archive>` na seção Sqoop. Essa entrada instrui o Oozie a disponibilizar esse arquivo morto ao Sqoop quando essa ação é executada.
 
-3. Para salvar o arquivo, selecione **Ctrl + X**, digite **Y**e, em seguida, selecione **Enter**.  
+3. Para salvar o arquivo, selecione **Ctrl + X**, digite **Y** e, em seguida, selecione **Enter**.  
 
 4. Use o seguinte comando para copiar o arquivo `workflow.xml` para `/tutorials/useoozie/workflow.xml`:
 
@@ -382,7 +381,7 @@ A definição de trabalho descreve o local em que o workflow.xml se encontra. El
 
 4. Depois que o editor do nano for aberto, Cole o XML editado como o conteúdo do arquivo.
 
-5. Para salvar o arquivo, selecione **Ctrl + X**, digite **Y**e, em seguida, selecione **Enter**.
+5. Para salvar o arquivo, selecione **Ctrl + X**, digite **Y** e, em seguida, selecione **Enter**.
 
 ## <a name="submit-and-manage-the-job"></a>Enviar e gerenciar o trabalho
 
@@ -576,7 +575,7 @@ Você pode usar o coordenador para especificar um início, um fim e a frequênci
     > * `${coordTimezone}`: os trabalhos do coordenador estão em um fuso horário fixo sem horário de verão, geralmente representado com o uso do UTC. Esse fuso horário é chamado de *Oozie de processamento de fuso horário.*
     > * `${wfPath}`: o caminho para workflow.xml.
 
-2. Para salvar o arquivo, selecione **Ctrl + X**, digite **Y**e, em seguida, selecione **Enter**.
+2. Para salvar o arquivo, selecione **Ctrl + X**, digite **Y** e, em seguida, selecione **Enter**.
 
 3. Para copiar o arquivo para o diretório de trabalho para este trabalho, use o seguinte comando:
 
@@ -631,7 +630,7 @@ Você pode usar o coordenador para especificar um início, um fim e a frequênci
 
        Esses valores definem a hora de início como 12:00 PM em 10 de maio de 2018 e a hora de término como 12 de maio de 2018. O intervalo para execução desse trabalho é definido como diário. A frequência está em minutos, então 24 horas x 60 minutos = 1440 minutos. Por fim, o fuso horário é definido como UTC.
 
-5. Para salvar o arquivo, selecione **Ctrl + X**, digite **Y**e, em seguida, selecione **Enter**.
+5. Para salvar o arquivo, selecione **Ctrl + X**, digite **Y** e, em seguida, selecione **Enter**.
 
 6. Para enviar e iniciar o trabalho, use o seguinte comando:
 

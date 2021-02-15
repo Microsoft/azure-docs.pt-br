@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 07/29/2020
+ms.date: 01/19/2021
 ms.author: curtand
-ms.openlocfilehash: 95947a9350f19f0f0ff45b7c65e14729b66f26cf
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 9b9f193dd5b5bad5cf16db7617e1aeea7a9f3bd2
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798152"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100090642"
 ---
 # <a name="what-is-the-my-account-portal"></a>O que é o portal Minha Conta?
 

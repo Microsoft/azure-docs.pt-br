@@ -1,6 +1,6 @@
 ---
 title: Design de identidade híbrida - estratégia de adoção do Azure | Microsoft Docs
-description: Com o controle de acesso condicional, o Azure Active Directory verifica as condições específicas que você escolhe ao autenticar o usuário e antes de permitir o acesso ao aplicativo. Quando essas condições forem atendidas, o usuário é autenticado e autorizado a acessar o aplicativo.
+description: Com o controle de acesso condicional, o Azure AD verifica as condições específicas que você escolhe ao autenticar o usuário e antes de permitir o acesso ao aplicativo.
 documentationcenter: ''
 services: active-directory
 author: billmath
@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7263d6a73a78b4b804cddd77f979898008ebadd6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7f52e46ff9cab7d3d150af9fd7b4f1c432bec74b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85555377"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836182"
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Definir uma estratégia de adoção de identidade híbrida
 Nesta tarefa, você define uma estratégia de adoção para sua solução de identidade híbrida para atender aos requisitos de negócios que abordamos nos tópicos:
@@ -32,7 +32,7 @@ Nesta tarefa, você define uma estratégia de adoção para sua solução de ide
 * [Determinar os requisitos de autenticação multifator](plan-hybrid-identity-design-considerations-multifactor-auth-requirements.md)
 
 ## <a name="define-business-needs-strategy"></a>Definir uma estratégia para as necessidades de negócios
-A primeira tarefa aborda como determinar as necessidades de negócios das organizações.  Isso é muito amplo e pode não atender aos objetivos, se você não atuar com precisão.  Mantenha a simplicidade no início, mas lembre-se sempre de planejar um design adequado para facilitar e ajustar as alterações no futuro.  O Active Directory do Azure é a plataforma de identidade da Microsoft usada para um design simples ou extremamente complexo, que tem suporte para o Office 365, o Microsoft Online Services e os aplicativos com reconhecimento de nuvem.
+A primeira tarefa aborda como determinar as necessidades de negócios das organizações.  Isso é muito amplo e pode não atender aos objetivos, se você não atuar com precisão.  Mantenha a simplicidade no início, mas lembre-se sempre de planejar um design adequado para facilitar e ajustar as alterações no futuro.  Independentemente de ser um design simples ou extremamente complexo, Azure Active Directory é a plataforma de identidade da Microsoft que dá suporte a Microsoft 365, Microsoft Online Services e aplicativos com reconhecimento de nuvem.
 
 ## <a name="define-an-integration-strategy"></a>Definir uma estratégia de integração
 A Microsoft tem três cenários básicos de integração: as identidades de nuvem, as identidades sincronizadas e as identidades federadas.  Planeje a adoção de uma dessas estratégias de integração.  A escolha da estratégia pode variar e as decisões na escolha envolvem: determinar o tipo de experiência de usuário que você pretende fornecer, saber se você já tem uma infraestrutura existente no local e determinar qual é a mais eficiente.  
@@ -55,7 +55,7 @@ A tabela a seguir ajuda a determinar as vantagens e desvantagens de cada uma das
 | Estratégia | Vantagens | Desvantagens |
 | --- | --- | --- |
 | **Identidades de nuvem** |Mais fácil de gerenciar para as organizações de pequeno porte. <br> Nada a instalar localmente. Nenhum hardware adicional necessário<br>Desativado facilmente se o usuário deixar a empresa |Os usuários deverão se conectar ao acessar cargas de trabalho na nuvem <br> As senhas podem ser as mesmas para as identidades locais ou de nuvem |
-| **Realizada** |A senha local autentica ambos os diretórios locais e na nuvem <br>Mais fácil de gerenciar para organizações de pequeno, médio ou grande porte <br>Os usuários podem usar SSO (Logon único) para alguns recursos <br> Método preferido da Microsoft para sincronização <br> Mais fácil de gerenciar |Alguns clientes podem resistir em sincronizar seus diretórios na nuvem devido a determinadas políticas da empresa |
+| **Sincronizado** |A senha local autentica ambos os diretórios locais e na nuvem <br>Mais fácil de gerenciar para organizações de pequeno, médio ou grande porte <br>Os usuários podem usar SSO (Logon único) para alguns recursos <br> Método preferido da Microsoft para sincronização <br> Mais fácil de gerenciar |Alguns clientes podem ser relutados para sincronizar seus diretórios com a nuvem devido às políticas específicas da empresa |
 | **Federado** |Os usuários podem fazer SSO  <br>Se um usuário for encerrado ou sair, a conta poderá ser imediatamente desabilitada e o acesso revogado,<br> Com suporte para cenários avançados que não podem ser realizados com sincronização |Mais etapas para definir e configurar <br> Maior manutenção <br> Pode exigir hardware adicional para a infra-estrutura do STS <br> Pode exigir hardware adicional para instalar o servidor de federação. Um software adicional será necessário se o AD FS for utilizado <br> Requer configuração ampla para SSO <br> Ponto de falha crítico se o servidor de federação estiver desativado, os usuários não conseguirão autenticar |
 
 ### <a name="client-experience"></a>Experiência do cliente
@@ -171,12 +171,12 @@ Os itens a seguir não têm suporte e não devem ser escolhidos como implementa�
 * Diretórios do AD do Azure são isolados por padrão. Não há suporte para alterações da configuração do Azure AD Connect Sync para ler dados de outro diretório do AD do Azure como uma tentativa de criar uma GAL comum e unificada entre os diretórios. Também não há suporte para a exportação de usuários como contatos para outro AD local usando o Azure AD Connect Sync.
 
 > [!NOTE]
-> Caso a organização restrinja o acesso à Internet para os computadores da rede, este artigo relaciona os pontos de extremidade (intervalos de endereços FQDNs, IPv4 e IPv6) que devem ser incluídos nas listas de permissão de saída e na zona de sites confiáveis do Internet Explorer de computadores cliente, para que os computadores usem o Office 365 com êxito. Para saber mais, leia o artigo [Intervalos de endereços IP e URLs do Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2?ui=en-US&rs=en-US&ad=US).
+> Se a sua organização restringe os computadores da rede a se conectarem à Internet, este artigo listará os pontos de extremidade (intervalos de endereços FQDNs, IPv4 e IPv6) que você deve incluir nas listas de permissões de saída e na zona de sites confiáveis do Internet Explorer de computadores cliente para garantir que seus computadores possam usar o Microsoft 365 com êxito. Para saber mais, leia o artigo [Intervalos de endereços IP e URLs do Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2?ui=en-US&rs=en-US&ad=US).
 > 
 > 
 
 ## <a name="define-multi-factor-authentication-strategy"></a>Definir uma estratégia de autenticação multifator
-Nesta tarefa, você define a estratégia de autenticação multifator que vai usar.  A Autenticação Multifator do Microsoft Azure é fornecido em duas versões distintas.  Uma delas é baseada na nuvem e a outra é local usando o servidor Azure MFA.  Com base na avaliação que você fez anteriormente, determine a solução mais adequada para sua estratégia.  Use a tabela abaixo para determinar a opção de design que melhor atende aos requisitos de segurança da empresa:
+Nesta tarefa, você define a estratégia de autenticação multifator que vai usar.  A autenticação multifator do Azure AD vem em duas versões diferentes.  Uma delas é baseada na nuvem e a outra é local usando o servidor Azure MFA.  Com base na avaliação que você fez anteriormente, determine a solução mais adequada para sua estratégia.  Use a tabela abaixo para determinar a opção de design que melhor atende aos requisitos de segurança da empresa:
 
 Opções de design de vários fatores:
 
@@ -185,8 +185,8 @@ Opções de design de vários fatores:
 | Aplicativos da Microsoft |sim |sim |
 | Aplicativos SaaS da Galeria de Aplicativos |sim |sim |
 | Aplicativos IIS publicados por meio da Proxy de aplicativo do Azure AD |sim |sim |
-| Aplicativos do IIS não publicados através do Proxy de Aplicativo do AD do Azure |não |sim |
-| Acesso remoto, como VPN e RDG |não |sim |
+| Aplicativos do IIS não publicados através do Proxy de Aplicativo do AD do Azure |no |sim |
+| Acesso remoto, como VPN e RDG |no |sim |
 
 Mesmo que defina uma solução para sua estratégia, você deve usar a avaliação anterior sobre a localização dos usuários.  Isso pode levar a uma mudança de solução.  Use a tabela abaixo para lhe ajudar a determinar os seguintes itens:
 

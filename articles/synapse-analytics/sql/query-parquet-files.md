@@ -1,28 +1,28 @@
 ---
-title: Consultar arquivos Parquet usando o SQL sob demanda (versão prévia)
-description: Neste artigo, você aprenderá a consultar arquivos Parquet usando o SQL sob demanda (versão prévia).
+title: Consultar arquivos parquet usando o pool SQL sem servidor
+description: Neste artigo, você aprenderá a consultar os arquivos do parquet usando o pool SQL sem servidor.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: sql
 ms.date: 05/20/2020
-ms.author: v-stazar
-ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 8083edaf647f52a07d55dddf21fe5751340783be
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.author: stefanazaric
+ms.reviewer: jrasnick
+ms.openlocfilehash: cce4c6aff986c2e8c3d879d962714e13f6b2e7ae
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496229"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97694687"
 ---
-# <a name="query-parquet-files-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Consultar arquivos Parquet usando o SQL sob demanda (versão prévia) no Azure Synapse Analytics
+# <a name="query-parquet-files-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Consultar arquivos parquet usando o pool SQL sem servidor no Azure Synapse Analytics
 
-Neste artigo, você aprenderá a gravar uma consulta usando o SQL sob demanda (versão prévia) que lerá os arquivos Parquet.
+Neste artigo, você aprenderá a escrever uma consulta usando o pool SQL sem servidor que lerá os arquivos parquet.
 
 ## <a name="quickstart-example"></a>Exemplo de início rápido
 
-`OPENROWSET`a função permite que você leia o conteúdo do arquivo parquet fornecendo a URL para o arquivo.
+`OPENROWSET` a função permite que você leia o conteúdo do arquivo parquet fornecendo a URL para o arquivo.
 
 ### <a name="read-parquet-file"></a>Ler arquivo parquet
 
@@ -35,7 +35,12 @@ from openrowset(
     format = 'parquet') as rows
 ```
 
-Certifique-se de acessar esse arquivo. Se o arquivo estiver protegido com chave SAS ou identidade personalizada do Azure, será necessário configurar a [credencial de nível de servidor para logon do SQL](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential).
+Verifique se você pode acessar esse arquivo. Se o arquivo estiver protegido com a chave SAS ou identidade personalizada do Azure, você precisará configurar a [credencial no nível do servidor para o logon do SQL](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential).
+
+> [!IMPORTANT]
+> Verifique se você está usando um agrupamento de banco de dados UTF-8 (por exemplo `Latin1_General_100_BIN2_UTF8` ) porque os valores de cadeia de caracteres em arquivos PARQUET são codificados usando a codificação UTF-8.
+> Uma incompatibilidade entre a codificação de texto no arquivo PARQUET e o agrupamento pode causar erros de conversão inesperados.
+> Você pode alterar facilmente o agrupamento padrão do banco de dados atual usando a seguinte instrução T-SQL: `alter database current collate Latin1_General_100_BIN2_UTF8`
 
 ### <a name="data-source-usage"></a>Uso da fonte de dados
 
@@ -57,7 +62,7 @@ Se uma fonte de dados estiver protegida com chave SAS ou identidade personalizad
 
 ### <a name="explicitly-specify-schema"></a>Especificar explicitamente o esquema
 
-`OPENROWSET`permite especificar explicitamente quais colunas você deseja ler na cláusula File using `WITH` :
+`OPENROWSET` permite especificar explicitamente quais colunas você deseja ler na cláusula File using `WITH` :
 
 ```sql
 select top 10 *
@@ -67,6 +72,12 @@ from openrowset(
         format = 'parquet'
     ) with ( date_rep date, cases int, geo_id varchar(6) ) as rows
 ```
+
+> [!IMPORTANT]
+> Certifique-se de que você está explicilty especificando algum agrupamento UTF-8 (por exemplo `Latin1_General_100_BIN2_UTF8` ) para todas as colunas de cadeia de caracteres na `WITH` cláusula ou defina algum agrupamento UTF-8 no nível do banco de dados.
+> A incompatibilidade entre a codificação de texto no agrupamento de coluna de arquivo e cadeia de caracteres pode causar erros de conversão inesperados.
+> Você pode alterar facilmente o agrupamento padrão do banco de dados atual usando a seguinte instrução T-SQL: `alter database current collate Latin1_General_100_BIN2_UTF8`
+> Você pode definir facilmente o agrupamento nos tipos de coluna usando a seguinte definição: `geo_id varchar(6) collate Latin1_General_100_BIN2_UTF8`
 
 Nas seções a seguir, você pode ver como consultar vários tipos de arquivos PARQUET.
 
@@ -111,7 +122,7 @@ Não é necessário usar a cláusula OPENROWSET WITH para realizar a leitura de 
 O exemplo a seguir mostra os recursos de inferência de esquema automática para arquivos Parquet. Ele retorna o número de linhas em Setembro de 2017 sem especificar um esquema.
 
 > [!NOTE]
-> Não é necessário especificar colunas na cláusula OPENROWSET WITH ao realizar a leitura de arquivos Parquet. Nesse caso, o serviço de consulta do SQL sob demanda utilizará metadados no arquivo Parquet e associará as colunas por nome.
+> Não é necessário especificar colunas na cláusula OPENROWSET WITH ao realizar a leitura de arquivos Parquet. Nesse caso, o serviço de consulta do pool SQL sem servidor utilizará metadados no arquivo parquet e associará colunas por nome.
 
 ```sql
 SELECT TOP 10 *
@@ -128,7 +139,7 @@ FROM
 O conjunto de dados fornecido neste exemplo foi dividido (particionado) em subpastas separadas. Com a função de linguagem é possível destinar partições específicas. Este exemplo mostra os valores das tarifas por ano, mês e tipo de pagamento nos três primeiros meses de 2017.
 
 > [!NOTE]
-> A consulta SQL sob demanda é compatível com o esquema de particionamento do Hive/Hadoop.
+> A consulta do pool SQL sem servidor é compatível com o esquema de particionamento do hive/Hadoop.
 
 ```sql
 SELECT
@@ -155,43 +166,7 @@ ORDER BY
 
 ## <a name="type-mapping"></a>Mapeamento de tipo
 
-Os arquivos Parquet contêm descrições de tipo para cada coluna. A tabela a seguir descreve como os tipos Parquet são mapeados para tipos nativos do SQL.
-
-| Tipo do Parquet | Tipo lógico do Parquet (anotação) | Tipo de dados SQL |
-| --- | --- | --- |
-| BOOLEAN | | bit |
-| BINARY/BYTE_ARRAY | | varbinary |
-| DOUBLE | | FLOAT |
-| FLOAT | | real |
-| INT32 | | INT |
-| INT64 | | BIGINT |
-| INT96 | |datetime2 |
-| FIXED_LEN_BYTE_ARRAY | |binary |
-| BINARY |UTF8 |varchar \*(ordenação UTF8) |
-| BINARY |STRING |varchar \*(ordenação UTF8) |
-| BINARY |ENUM|varchar \*(ordenação UTF8) |
-| BINARY |UUID |UNIQUEIDENTIFIER |
-| BINARY |DECIMAL |decimal |
-| BINARY |JSON |varchar (max) \*(ordenação UTF8) |
-| BINARY |BSON |varbinary(max) |
-| FIXED_LEN_BYTE_ARRAY |DECIMAL |decimal |
-| BYTE_ARRAY |INTERVAL |varchar (max), serializado em formato padronizado |
-| INT32 |INT(8, true) |SMALLINT |
-| INT32 |INT(16, true) |SMALLINT |
-| INT32 |INT(32, true) |INT |
-| INT32 |INT(8, false) |TINYINT |
-| INT32 |INT(16, false) |INT |
-| INT32 |INT(32, false) |BIGINT |
-| INT32 |DATE |date |
-| INT32 |DECIMAL |decimal |
-| INT32 |TIME (MILLIS)|time |
-| INT64 |INT(64, true) |BIGINT |
-| INT64 |INT(64, false) |decimal(20,0) |
-| INT64 |DECIMAL |decimal |
-| INT64 |TIME (MICROS/NANOS) |time |
-|INT64 |TIMESTAMP (MILLIS/MICROS/NANOS) |datetime2 |
-|[Tipo complexo](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#lists) |LISTA |varchar (max), serializado em JSON |
-|[Tipo complexo](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#maps)|MAP|varchar (max), serializado em JSON |
+Para o mapeamento de tipo parquet para o [mapeamento de tipo](develop-openrowset.md#type-mapping-for-parquet)de verificação de tipo nativo do SQL para parquet.
 
 ## <a name="next-steps"></a>Próximas etapas
 

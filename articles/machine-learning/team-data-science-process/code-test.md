@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=weig, previous-ms.author=weig
-ms.openlocfilehash: fc837405e03ffac41d216a5ba18384208b07aaf1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ce37ee51e549a2bd6f2747f28af8c038c39d8f1f
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090290"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656828"
 ---
 # <a name="data-science-code-testing-on-azure-with-the-team-data-science-process-and-azure-devops-services"></a>Teste de código de ciência de dados no Azure com o Processo de Ciência de Dados da Equipe e o Azure DevOps Services
 Este artigo oferece diretrizes preliminares para testar o código em um fluxo de trabalho de ciência de dados. Esse teste fornece aos cientistas de dados uma maneira sistemática e eficiente de verificar a qualidade e o resultado esperado de seu código. Usamos um projeto [TDSP (Processo de Ciência de Dados de Equipe) que usa o conjunto de dados Renda de Adulto UCI](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome), o qual publicamos anteriormente para mostrar como o teste de código pode ser feito. 
@@ -24,10 +24,10 @@ Este artigo oferece diretrizes preliminares para testar o código em um fluxo de
 ## <a name="introduction-on-code-testing"></a>Introdução ao teste de código
 "Teste de unidade" é uma prática permanente no desenvolvimento de software. Mas, para a ciência de dados, muitas vezes não está claro o que significa "teste de unidade" e como você deve testar o código para diferentes estágios de um ciclo de vida de ciência de dados, como:
 
-* Preparação dos dados
+* Preparação de dados
 * Análise da qualidade dos dados
 * Modelagem
-* Implantação de modelo 
+* Implantação de modelos 
 
 Este artigo substitui o termo "teste de unidade" por "teste do código". Ele se refere a teste como as funções que ajudam a avaliar se o código de uma determinada etapa de um ciclo de vida de ciência de dados está produzindo resultados "esperados". A pessoa que está escrevendo o teste define o que é o "esperado", dependendo do resultado da função, por exemplo, verificação de qualidade de dados ou modelagem.
 
@@ -124,7 +124,7 @@ Use estas etapas para configurar e executar o teste de código e um build automa
 
     ![Lista de modelos e botão "Processo vazio"](./media/code-test/start_empty_process_template.PNG)
 
-    d. Nomeie o build e selecione o agente. Você pode escolher o padrão aqui se quiser usar um DSVM para concluir o processo de compilação. Para saber mais sobre agentes de configuração, consulte [Build e agentes de versão](https://docs.microsoft.com/azure/devops/pipelines/agents/agents?view=vsts).
+    d. Nomeie o build e selecione o agente. Você pode escolher o padrão aqui se quiser usar um DSVM para concluir o processo de compilação. Para saber mais sobre agentes de configuração, consulte [Build e agentes de versão](/azure/devops/pipelines/agents/agents?view=vsts).
     
     ![Seleções de build e agente](./media/code-test/select_agent.PNG)
 
@@ -155,7 +155,7 @@ Se os alertas estiverem configurados corretamente, você receberá uma notifica�
 * Siga a estrutura e os exemplos anteriores do cenário de previsão de receita UCI em seus próprios projetos de ciência de dados.
 
 ## <a name="references"></a>Referências
-* [Processo de ciência de dados de equipe](https://aka.ms/tdsp)
+* [Processo de ciência de dados de equipe](./index.yml)
 * [Ferramentas de Teste do Visual Studio](https://www.visualstudio.com/vs/features/testing-tools/)
 * [Recursos de teste do Azure DevOps](https://www.visualstudio.com/team-services/)
 * [Máquinas Virtuais de Ciência de Dados](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/)

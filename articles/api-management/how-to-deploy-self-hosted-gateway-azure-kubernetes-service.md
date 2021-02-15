@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 04/26/2020
 ms.author: apimpm
 ms.openlocfilehash: 02962e9c5be2c4b73d121a53a7b595c573ad6cd0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87015214"
 ---
 # <a name="deploy-to-azure-kubernetes-service"></a>Implantar no Serviço de Kubernetes do Azure
@@ -23,7 +23,7 @@ Este artigo fornece as etapas para implantar o componente de gateway de hospedag
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- [Criar uma instância de gerenciamento de API do Azure](get-started-create-service-instance.md)
+- [Criar uma instância do Gerenciamento de API do Azure](get-started-create-service-instance.md)
 - [Criar um cluster kubernetes do Azure](../aks/kubernetes-walkthrough-portal.md)
 - [Provisione um recurso de gateway em sua instância de gerenciamento de API](api-management-howto-provision-self-hosted-gateway.md).
 

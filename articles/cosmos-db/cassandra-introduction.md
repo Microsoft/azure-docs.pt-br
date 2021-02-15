@@ -7,19 +7,23 @@ ms.reviewer: sngun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
-ms.date: 05/21/2019
-ms.openlocfilehash: 70dbceb51ed030124d1b793d77c6bc287da91065
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.date: 11/25/2020
+ms.openlocfilehash: 2a778c2e9a44bda148fd40112776858943cffe4e
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81687636"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96188608"
 ---
 # <a name="introduction-to-the-azure-cosmos-db-cassandra-api"></a>Introdução à API do Cassandra do Azure Cosmos DB
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 A API do Cassandra do Azure Cosmos DB pode ser usada como o armazenamento de dados para aplicativos escritos para o [Apache Cassandra](https://cassandra.apache.org). Isso significa que ao usar os [drivers do Apache](https://cassandra.apache.org/doc/latest/getting_started/drivers.html?highlight=driver) em conformidade com CQLv4 existentes, o aplicativo do Cassandra agora pode se comunicar com a API do Cassandra do Azure Cosmos DB. Em muitos casos, é possível alternar entre o uso do Apache Cassandra e da API do Cassandra do Azure Cosmos DB simplesmente alterando uma cadeia de conexão. 
 
 A API do Cassandra permite interagir com os dados armazenados no Azure Cosmos DB usando as ferramentas de CQL (Linguagem de Consulta do Cassandra), baseadas no Cassandra (como cqlsh) e os drivers de cliente do Cassandra com os quais você já está familiarizado.
+
+> [!NOTE]
+> O [modo de capacidade sem servidor](serverless.md) já está disponível na API do Cassandra do Azure Cosmos DB.
 
 ## <a name="what-is-the-benefit-of-using-apache-cassandra-api-for-azure-cosmos-db"></a>Qual é o benefício de usar a API do Apache Cassandra para o Azure Cosmos DB?
 
@@ -31,7 +35,7 @@ A API do Cassandra permite interagir com os dados armazenados no Azure Cosmos DB
 
 **Capacidade de usar o código e as ferramentas existentes**: O Azure Cosmos DB fornece a compatibilidade no nível de protocolo com as ferramentas e os SDKs existentes do Cassandra. Essa compatibilidade garante que você pode usar a base de código existente com a API do Cassandra do Azure Cosmos DB com alterações triviais.
 
-**Elasticidade de armazenamento e taxa de transferência**: O Azure Cosmos DB fornece taxa de transferência garantida em todas as regiões e pode dimensionar a taxa de transferência provisionada com operações no portal do Azure, no PowerShell ou na CLI. É possível [dimensionar elasticamente](manage-scale-cassandra.md) o armazenamento e a taxa de transferência para suas tabelas conforme o necessário e com desempenho previsível.
+**Elasticidade de armazenamento e taxa de transferência**: O Azure Cosmos DB fornece taxa de transferência em todas as regiões e pode dimensionar a taxa de transferência provisionada com operações no portal do Azure, no PowerShell ou na CLI. É possível [dimensionar elasticamente](manage-scale-cassandra.md) o armazenamento e a taxa de transferência para suas tabelas conforme o necessário e com desempenho previsível.
 
 **Distribuição e disponibilidade globais**: O Azure Cosmos DB oferece a capacidade de distribuir os dados globalmente em todas as regiões do Azure e fornecê-los localmente, garantindo o acesso a dados de baixa latência e alta disponibilidade. O Azure Cosmos DB fornece alta disponibilidade de 99,99% em uma região e disponibilidade de leitura e gravação de 99,999% em várias regiões sem sobrecarga de operações. Saiba mais no artigo [Distribuir dados globalmente](distribute-data-globally.md). 
 

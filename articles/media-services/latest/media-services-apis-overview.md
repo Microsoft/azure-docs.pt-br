@@ -1,26 +1,14 @@
 ---
-title: Desenvolver com as APIs v3
-titleSuffix: Azure Media Services
-description: Saiba mais sobre as regras que se aplicam a entidades e APIs ao desenvolver com os serviços de mídia v3.
-services: media-services
-documentationcenter: ''
-author: Juliako
-manager: femila
-editor: ''
-ms.service: media-services
-ms.workload: ''
-ms.topic: article
-ms.date: 10/21/2019
-ms.author: juliako
-ms.custom: seodec18
-ms.openlocfilehash: dcec4d0bc93433c768faf10e4520131aeecc5e77
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
-ms.translationtype: MT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88719182"
+# <a name="mandatory-fields-see-more-on-akamsskyeyemeta"></a>Campos obrigatórios. Veja mais em aka.ms/skyeye/meta.
+Título: desenvolver com APIs V3: descrição dos serviços de mídia do Azure: Saiba mais sobre as regras que se aplicam a entidades e APIs ao desenvolver com os serviços de mídia v3. serviços: Media-Services documentationcenter: ' ' autor: IngridAtMicrosoft gerente: femila editor: ' '
+
+MS. Service: Media-Services MS. Workload: MS. Topic: conceitual MS. Date: 10/23/2020 MS. autor: inhenkel MS. Custom: seodec18
+
 ---
+
 # <a name="develop-with-media-services-v3-apis"></a>Desenvolver com as APIs dos Serviços de Mídia v3
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Como desenvolvedor, você pode usar a [API REST](/rest/api/media/) dos Serviços de Mídia ou bibliotecas de clientes que permitem interagir com a API REST para criar, gerenciar e manter fluxos de trabalho de mídia personalizados com facilidade. A API dos [Serviços de Mídia v3](https://aka.ms/ams-v3-rest-sdk) se baseia na especificação do OpenAPI (anteriormente conhecida como um Swagger).
 
@@ -33,13 +21,13 @@ Para estar autorizado a acessar os recursos e a API dos Serviços de Mídia, pri
 * **Autenticação de entidade de serviço**: Usado para autenticar um serviço (por exemplo: aplicativos Web, aplicativos de funções, aplicativos lógicos, API e microservices). Os aplicativos que geralmente usam esse método de autenticação são aplicativos que executam serviços daemon, serviços de camada intermediária ou trabalhos agendados. Por exemplo, para aplicativos Web, sempre deve haver uma camada intermediária que se conecte aos serviços de mídia com uma entidade de serviço.
 * **Autenticação de usuário**: Usada para autenticar uma pessoa que está usando o aplicativo para interagir com os recursos dos Serviços de Mídia. O aplicativo interativo deve primeiro solicitar ao usuário as credenciais do usuário. Um exemplo é um aplicativo de console de gerenciamento usado por usuários autorizados para monitorar trabalhos de codificação ou uma transmissão ao vivo.
 
-A API dos serviços de mídia requer que o usuário ou aplicativo que faz as solicitações da API REST tenha acesso ao recurso de conta dos serviços de mídia e use uma função de **Colaborador** ou de **Proprietário**. A API pode ser acessada com a função de **Leitor** , mas somente as operações **Get** ou **List** estarão disponíveis. Para saber mais, confira [Controle de acesso baseado em função para as contas dos Serviços de Mídia](rbac-overview.md).
+A API dos serviços de mídia requer que o usuário ou aplicativo que faz as solicitações da API REST tenha acesso ao recurso de conta dos serviços de mídia e use uma função de **Colaborador** ou de **Proprietário**. A API pode ser acessada com a função de **Leitor** , mas somente as operações **Get** ou **List** estarão disponíveis.Para obter mais informações, consulte [controle de acesso baseado em função do Azure (RBAC do Azure) para contas de serviços de mídia](rbac-overview.md).
 
 Em vez de criar uma entidade de serviço, considere o uso de identidades gerenciadas dos recursos do Azure para acessar a API dos serviços de mídia por meio de Azure Resource Manager. Para saber mais sobre as identidades gerenciadas para os recursos do Azure, confira o artigo [O que são as identidades gerenciadas para recursos do Azure](../../active-directory/managed-identities-azure-resources/overview.md).
 
 ### <a name="azure-ad-service-principal"></a>Entidade de serviço do Azure AD
 
-Se você estiver criando um aplicativo do Microsoft Azure AD e uma entidade de serviço, o aplicativo precisará estar no próprio locatário. Depois de criar o aplicativo, conceda o acesso da função de **Colaborado** ou **Proprietário** ao aplicativo à conta dos Serviços de Mídia.
+O aplicativo do Azure AD e a entidade de serviço devem estar no mesmo locatário. Depois de criar o aplicativo, conceda o acesso da função de **Colaborado** ou **Proprietário** ao aplicativo à conta dos Serviços de Mídia.
 
 Se você não tiver certeza se tem permissões para criar um aplicativo do Azure AD, consulte [Permissões necessárias](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
@@ -107,11 +95,11 @@ Os serviços de mídia têm as seguintes operações de execução longa:
 * [Parar StreamingEndpoint](/rest/api/media/streamingendpoints/stop)
 * [Escalar StreamingEndpoint](/rest/api/media/streamingendpoints/scale)
 
-Após o envio bem-sucedido de uma operação longa, você receberá um '202 aceito' e deverá sondar a conclusão da operação usando a ID da operação retornada.
+Após o envio bem-sucedido de uma operação longa, você receberá um ' 201 criado ' e deverá sondar a conclusão da operação usando a ID da operação retornada.
 
 O artigo [Acompanhar as operações assíncronas do Azure](../../azure-resource-manager/management/async-operations.md) explica detalhadamente como acompanhar o status das operações assíncronas do Azure por meio dos valores retornados na resposta.
 
-Somente uma operação de execução longa tem suporte para um determinado evento ao vivo ou qualquer uma de suas saídas dinâmicas associadas. Depois de iniciada, uma operação de execução prolongada deve ser concluída antes de iniciar uma operação de execução prolongada subsequente no mesmo LiveEvent ou em qualquer saída ao vivo associada. Para eventos ao vivo com várias saídas ao vivo, você deve aguardar a conclusão de uma operação de execução prolongada em uma saída dinâmica antes de disparar uma operação de execução prolongada em outra saída ao vivo. 
+Somente uma operação de execução longa tem suporte para um determinado evento ao vivo ou qualquer uma de suas saídas dinâmicas associadas. Depois de iniciada, uma operação de execução prolongada deve ser concluída antes de iniciar uma operação de execução prolongada subsequente no mesmo LiveEvent ou em qualquer saída ao vivo associada. Para eventos ao vivo com várias saídas ao vivo, você deve aguardar a conclusão de uma operação de execução prolongada em uma saída dinâmica antes de disparar uma operação de execução prolongada em outra saída ao vivo.
 
 ## <a name="sdks"></a>SDKs
 
@@ -120,9 +108,9 @@ Somente uma operação de execução longa tem suporte para um determinado event
 
 |.|Referência|
 |---|---|
-|[SDK .NET](https://aka.ms/ams-v3-dotnet-sdk)|[Referência do .NET](https://aka.ms/ams-v3-dotnet-ref)|
-|[Java SDK](https://aka.ms/ams-v3-java-sdk)|[Referência de Java](https://aka.ms/ams-v3-java-ref)|
-|[SDK do Python](https://aka.ms/ams-v3-python-sdk)|[Referência do Python](https://aka.ms/ams-v3-python-ref)|
+|[SDK .NET](https://aka.ms/ams-v3-dotnet-sdk)|[Referência do .NET](/dotnet/api/overview/azure/mediaservices/management)|
+|[Java SDK](https://aka.ms/ams-v3-java-sdk)|[Referência de Java](/java/api/overview/azure/mediaservices/management)|
+|[SDK do Python](https://aka.ms/ams-v3-python-sdk)|[Referência do Python](/python/api/overview/azure/mediaservices/management)|
 |[SDK do Node.js](https://aka.ms/ams-v3-nodejs-sdk) |[Referência do Node.js](/javascript/api/overview/azure/mediaservices/management)| 
 |[SDK do Go](https://aka.ms/ams-v3-go-sdk) |[Referência do Go](https://aka.ms/ams-v3-go-ref)|
 |[SDK do Ruby](https://aka.ms/ams-v3-ruby-sdk)||

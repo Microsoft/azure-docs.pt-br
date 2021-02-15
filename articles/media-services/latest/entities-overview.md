@@ -1,61 +1,62 @@
 ---
-title: Filtragem, ordenação e paginação de entidades de serviços de mídia
-titleSuffix: Azure Media Services
-description: Saiba mais sobre filtragem, ordenação e paginação de entidades dos serviços de mídia do Azure v3.
+title: Filtragem, classificação e paginação de entidades
+description: Saiba mais sobre filtragem, ordenação e paginação de entidades dos Serviços de Mídia do Azure v3.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
-ms.topic: article
-ms.date: 01/21/2020
-ms.author: juliako
+ms.topic: overview
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 4fbd587b99875690a8c95952ce6b11d41e402726
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
-ms.translationtype: MT
+ms.openlocfilehash: 19febc833f087afdfecde3274a1044598d082521
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89009875"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955295"
 ---
-# <a name="filtering-ordering-and-paging-of-media-services-entities"></a>Filtragem, ordenação e paginação de entidades de serviços de mídia
+# <a name="filtering-ordering-and-paging-of-media-services-entities"></a>Filtragem, classificação, paginação de entidades dos Serviços de Mídia
 
-Este tópico discute as opções de consulta OData e o suporte à paginação disponíveis quando você está listando entidades dos serviços de mídia do Azure v3.
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
+
+Este tópico aborda as opções de consulta OData e o suporte à paginação disponíveis quando você lista entidades dos Serviços de Mídia do Azure v3.
 
 ## <a name="considerations"></a>Considerações
 
-* As propriedades de entidades que são do `Datetime` tipo estão sempre no formato UTC.
-* O espaço em branco na cadeia de caracteres de consulta deve ser codificado por URL antes de enviar uma solicitação.
+* As propriedades das entidades que são do tipo `Datetime` estão sempre no formato UTC.
+* O espaço em branco na cadeia de consulta deverá ser codificado em URL antes de você enviar uma solicitação.
 
 ## <a name="comparison-operators"></a>Operadores de comparação
 
-Você pode usar os seguintes operadores para comparar um campo com um valor constante:
+Use os seguintes operadores para comparar um campo com um valor constante:
 
 Operadores de igualdade:
 
-- `eq`: Testar se um campo é *igual a* um valor constante.
-- `ne`: Testar se um campo *não é igual a* um valor constante.
+- `eq`: teste se um campo é *igual a* um valor constante.
+- `ne`: teste se um campo é *diferente de* um valor constante.
 
 Operadores de intervalo:
 
-- `gt`: Testar se um campo é *maior que* um valor constante.
-- `lt`: Testar se um campo é *menor que* um valor constante.
-- `ge`: Testar se um campo é *maior ou igual a* um valor constante.
-- `le`: Testar se um campo é *menor ou igual a* um valor constante.
+- `gt`: teste se um campo é *maior que* um valor constante.
+- `lt`: teste se um campo é *menor que* um valor constante.
+- `ge`: teste se um campo é *superior ou igual a* um valor constante.
+- `le`: teste se um campo é *inferior ou igual a* um valor constante.
 
 ## <a name="filter"></a>Filtrar
 
-Use `$filter` para fornecer um parâmetro de filtro OData para localizar somente os objetos nos quais você está interessado.
+Use `$filter` para fornecer um parâmetro de filtro OData para encontrar apenas os objetos de seu interesse.
 
-O exemplo de REST a seguir filtra o `alternateId` valor de um ativo:
+O seguinte exemplo de REST filtra o conteúdo para mostrar o valor da `alternateId` de um ativo:
 
 ```
 GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01&$filter=properties/alternateId%20eq%20'unique identifier'
 ```
 
-O exemplo de C# a seguir filtra na data de criação do ativo:
+O seguinte exemplo de C# filtra o conteúdo para mostrar a data da criação do ativo:
 
 ```csharp
 var odataQuery = new ODataQuery<Asset>("properties/created lt 2018-05-11T17:39:08.387Z");
@@ -70,22 +71,22 @@ Use `$orderby` para classificar os objetos retornados pelo parâmetro especifica
 GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01$orderby=properties/created%20gt%202018-05-11T17:39:08.387Z
 ```
 
-Para classificar os resultados em ordem crescente ou decrescente, acrescente `asc` ou `desc` ao nome do campo, separado por um espaço. Por exemplo: `$orderby properties/created desc`.
+Para classificar os resultados em ordem ascendente ou decrescente, acrescente `asc` ou `desc` ao nome do campo, separado por um espaço. Por exemplo: `$orderby properties/created desc`.
 
-## <a name="skip-token"></a>Ignorar token
+## <a name="skip-token"></a>Token de omissão
 
-Se uma resposta de consulta contiver muitos itens, o serviço retornará um `$skiptoken` `@odata.nextLink` valor () que você usará para obter a próxima página de resultados. Use-a para paginar todo o conjunto de resultados.
+Se uma resposta de consulta contiver muitos itens, o serviço retornará um valor `$skiptoken` (`@odata.nextLink`) que você usará para obter a próxima página de resultados. Use-o para percorrer o conjunto de resultados inteiro.
 
-No Media Services V3, não é possível configurar o tamanho da página. O tamanho da página varia de acordo com o tipo de entidade. Leia as seções individuais a seguir para obter detalhes.
+Nos Serviços de Mídia v3, não é possível configurar o tamanho da página. O tamanho da página varia de acordo com o tipo de entidade. Leia as seções individuais a seguir para obter detalhes.
 
-Se as entidades forem criadas ou excluídas enquanto você estiver paginando pela coleção, as alterações serão refletidas nos resultados retornados (se essas alterações estiverem na parte da coleção que não foi baixada).
+Se entidades forem criadas ou excluídas durante a paginação por meio da coleção, as alterações serão refletidas nos resultados retornados (se essas alterações estiverem na parte da coleção que não foi baixada).
 
 > [!TIP]
 > Sempre use `nextLink` para enumerar a coleção e não depender de um tamanho de página específico.
 >
-> O `nextLink` valor estará presente somente se houver mais de uma página de entidades.
+> O valor de `nextLink` estará presente somente se houver mais de uma página de entidades.
 
-Considere o exemplo a seguir de onde `$skiptoken` é usado. Certifique-se de substituir *amstestaccount* pelo seu nome de conta e defina o valor *api-version* valor para a versão mais recente.
+Considere o exemplo a seguir, no qual `$skiptoken` é usado. Certifique-se de substituir *amstestaccount* pelo seu nome de conta e defina o valor *api-version* valor para a versão mais recente.
 
 Se você solicitar uma lista de ativos como esta:
 
@@ -95,7 +96,7 @@ x-ms-client-request-id: dd57fe5d-f3be-4724-8553-4ceb1dbe5aab
 Content-Type: application/json; charset=utf-8
 ```
 
-Você receberá uma resposta semelhante a esta:
+Receberá uma resposta semelhante a esta:
 
 ```
 HTTP/1.1 200 OK
@@ -123,7 +124,7 @@ Em seguida, você pode solicitar a próxima página, enviando uma solicitação 
 https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01&$skiptoken=Asset+517
 ```
 
-O exemplo de C# a seguir mostra como enumerar por todos os localizadores de streaming na conta.
+O exemplo em C# a seguir mostra como enumerar todos os localizadores de streaming na conta.
 
 ```csharp
 var firstPage = await MediaServicesArmClient.StreamingLocators.ListAsync(CustomerResourceGroup, CustomerAccountName);
@@ -135,17 +136,17 @@ while (currentPage.NextPageLink != null)
 }
 ```
 
-## <a name="using-logical-operators-to-combine-query-options"></a>Usando operadores lógicos para combinar opções de consulta
+## <a name="using-logical-operators-to-combine-query-options"></a>Como usar operadores lógicos para combinar opções de consulta
 
-Os serviços de mídia v3 oferecem suporte a operadores lógicos **or** e **and** . 
+Os Serviços de Mídia v3 dão suporte aos operadores lógicos **OR** e **AND**. 
 
-O exemplo de REST a seguir verifica o estado do trabalho:
+O seguinte exemplo de REST verifica o estado do trabalho:
 
 ```
 https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/qbtest/providers/Microsoft.Media/mediaServices/qbtest/transforms/VideoAnalyzerTransform/jobs?$filter=properties/state%20eq%20Microsoft.Media.JobState'Scheduled'%20or%20properties/state%20eq%20Microsoft.Media.JobState'Processing'&api-version=2018-07-01
 ```
 
-Você constrói a mesma consulta em C# da seguinte maneira: 
+Você constrói a mesma consulta C# desta forma: 
 
 ```csharp
 var odataQuery = new ODataQuery<Job>("properties/state eq Microsoft.Media.JobState'Scheduled' or properties/state eq Microsoft.Media.JobState'Processing'");
@@ -154,7 +155,7 @@ client.Jobs.List(config.ResourceGroup, config.AccountName, VideoAnalyzerTransfor
 
 ## <a name="filtering-and-ordering-options-of-entities"></a>Opções de filtragem e ordenação de entidades
 
-A tabela a seguir mostra como você pode aplicar as opções de filtragem e ordenação a diferentes entidades:
+A seguinte tabela mostra como aplicar as opções de filtragem e ordenação a diferentes entidades:
 
 |Nome da entidade|Nome da propriedade|Filtrar|Order|
 |---|---|---|---|
@@ -183,7 +184,7 @@ A tabela a seguir mostra como você pode aplicar as opções de filtragem e orde
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Listar ativos](/rest/api/media/assets/list)
-* [Listar políticas de conteúdo de chave](/rest/api/media/contentkeypolicies/list)
+* [Listar políticas de chave de conteúdo](/rest/api/media/contentkeypolicies/list)
 * [Listar trabalhos](/rest/api/media/jobs/list)
 * [Listar políticas de streaming](/rest/api/media/streamingpolicies/list)
 * [Listar localizadores de streaming](/rest/api/media/streaminglocators/list)

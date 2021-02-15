@@ -5,14 +5,14 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 06/20/2017
+ms.date: 09/02/2020
 ms.author: yushwang
-ms.openlocfilehash: 00291373ae1e30eca2fdf5f9435fc2201a492e40
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 484dad65310efaa60e8744b2f122b5e44ae13565
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84988067"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880145"
 ---
 # <a name="overview-of-partner-vpn-device-configurations"></a>Visão geral das configurações de dispositivo VPN de parceiros
 Este artigo apresenta uma visão geral da configuração de dispositivos VPN locais para conexão com gateways de VPN do Azure. Um exemplo de rede virtual do Azure, e a configuração do gateway de VPN, serão usados para mostrar a você como se conectar a diferentes dispositivos VPN locais com os mesmos parâmetros.
@@ -27,7 +27,7 @@ A primeira configuração no exemplo é composta por um único túnel VPN S2S en
 
 ![Diagrama de um único túnel VPN S2S](./media/vpn-gateway-3rdparty-device-config-overview/singletunnel.png)
 
-Para obter instruções passo a passo para configurar um único túnel de VPN, confira [Configurar uma conexão site a site](vpn-gateway-howto-site-to-site-resource-manager-portal.md). As seções a seguir especificam os parâmetros de conexão para o exemplo de configuração e fornecem um script do PowerShell para ajudá-lo a começar.
+Para obter instruções passo a passo para configurar um único túnel de VPN, confira [Configurar uma conexão site a site](./tutorial-site-to-site-portal.md). As seções a seguir especificam os parâmetros de conexão para o exemplo de configuração e fornecem um script do PowerShell para ajudá-lo a começar.
 
 ### <a name="connection-parameters"></a>Parâmetros de conexão
 Esta seção lista os parâmetros para os exemplos descritos nas seções anteriores.
@@ -150,4 +150,3 @@ Quando você cria a conexão VPN S2S, opcionalmente, pode usar o [BGP para o gat
 
 ## <a name="next-steps"></a>Próximas etapas
 Para obter instruções detalhadas de configuração de gateways de VPN ativo-ativo, confira [Configurar gateways de VPN ativo-ativo para conexões locais e de VNet-para-VNet](vpn-gateway-activeactive-rm-powershell.md).
-

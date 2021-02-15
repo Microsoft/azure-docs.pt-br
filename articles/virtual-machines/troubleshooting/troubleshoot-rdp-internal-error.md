@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/22/2018
 ms.author: genli
-ms.openlocfilehash: 299bbfa31584b260f85dfa7bafddea268084f876
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: d4736515d8e011ce1e72c51ecb3ce1cfd2e1e1cd
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88235155"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978519"
 ---
 #  <a name="an-internal-error-occurs-when-you-try-to-connect-to-an-azure-vm-through-remote-desktop"></a>Ocorre um erro interno ao tentar se conectar a uma VM do Azure por meio da área de trabalho remota
 
@@ -26,7 +26,7 @@ Este artigo descreve um erro que você pode enfrentar ao tentar se conectar a um
 
 ## <a name="symptoms"></a>Sintomas
 
-Você não pode se conectar a uma VM do Azure usando o RDP (protocolo de área de trabalho remota). A conexão fica presa na seção “Configuração remota” ou você recebe a seguinte mensagem de erro:
+Você não pode se conectar a uma VM do Azure usando o protocolo RDP (área de trabalho remota). A conexão fica presa na seção **configuração remota** ou você recebe a seguinte mensagem de erro:
 
 - Erro Interno do RDP
 - Ocorreu um erro interno
@@ -37,20 +37,24 @@ Você não pode se conectar a uma VM do Azure usando o RDP (protocolo de área d
 
 Esse problema pode ocorrer pelos seguintes motivos:
 
+- A máquina virtual pode ter sido atacada.
 - As chaves de criptografia RSA locais não podem ser acessadas.
 - O protocolo TLS está desabilitado.
 - O certificado está corrompido ou expirado.
 
 ## <a name="solution"></a>Solução
 
-Antes de seguir essas etapas, tire um instantâneo do disco do SO da VM afetada como um backup. Para obter mais informações, consulte [Instantâneo de um disco](../windows/snapshot-copy-managed-disk.md).
+Para solucionar esse problema, conclua as etapas nas seções a seguir. Antes de começar, tire um instantâneo do disco do sistema operacional da VM afetada como um backup. Para obter mais informações, consulte [Instantâneo de um disco](../windows/snapshot-copy-managed-disk.md).
 
-Para solucionar esse problema, use o Console serial ou [repare a VM off-line](#repair-the-vm-offline) anexando o disco do SO da VM a uma VM de recuperação.
+### <a name="check-rdp-security"></a>Verificar segurança RDP
 
+Primeiro, verifique se o grupo de segurança de rede para a porta RDP 3389 não é seguro (aberto). Se não for seguro e ele aparecer \* como o endereço IP de origem para entrada, restrinja a porta RDP para o endereço IP de um usuário específico e, em seguida, teste o acesso RDP. Se isso falhar, conclua as etapas na próxima seção.
 
 ### <a name="use-serial-control"></a>Usar o Controle serial
 
-Conectar-se ao [Console Serial e abrir uma instância do PowerShell](./serial-console-windows.md#use-cmd-or-powershell-in-serial-console
+Use o console serial ou [Repare a VM offline](#repair-the-vm-offline) anexando o disco do sistema operacional da VM a uma VM de recuperação.
+
+Para começar, conecte-se ao [console serial e abra uma instância do PowerShell](./serial-console-windows.md#use-cmd-or-powershell-in-serial-console
 ). Se o Console Serial não estiver habilitado na sua VM, vá até a seção [reparar a VM offline](#repair-the-vm-offline).
 
 #### <a name="step-1-check-the-rdp-port"></a>Etapa 1: verificar a porta do RDP
@@ -93,7 +97,7 @@ Conectar-se ao [Console Serial e abrir uma instância do PowerShell](./serial-co
         Set-NetFirewallRule -Name "RemoteDesktop-UserMode-In-TCP" -LocalPort <NEW PORT (decimal)>
         ```
 
-    3. [Atualize o grupo de segurança de rede para a nova porta](../../virtual-network/security-overview.md) na porta de RDP do portal do Azure.
+    3. [Atualize o grupo de segurança de rede para a nova porta](../../virtual-network/network-security-groups-overview.md) na porta de RDP do portal do Azure.
 
 #### <a name="step-2-set-correct-permissions-on-the-rdp-self-signed-certificate"></a>Etapa 2: definir as permissões corretas no certificado autoassinado RDP
 

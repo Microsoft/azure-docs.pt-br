@@ -80,7 +80,7 @@
               href: data-factory-azure-search-connector.md
             - name: Banco de Dados SQL do Azure
               href: data-factory-azure-sql-connector.md
-            - name: SQL Data Warehouse do Azure
+            - name: Azure Synapse Analytics
               href: data-factory-azure-sql-data-warehouse-connector.md
             - name: Armazenamento de Tabelas do Azure
               href: data-factory-azure-table-connector.md
@@ -139,9 +139,9 @@
           href: data-factory-hadoop-streaming-activity.md
         - name: Atividade do HDInsight Spark
           href: data-factory-spark.md
-        - name: Atividade de Execução em Lote de Machine Learning
+        - name: Atividade de execução em lotes do Azure Machine Learning Studio (clássico)
           href: data-factory-azure-ml-batch-execution-activity.md
-        - name: Atividade de Atualização de Recursos do Machine Learning
+        - name: Atividade do recurso de atualização do Azure Machine Learning Studio (clássico)
           href: data-factory-azure-ml-update-resource-activity.md
         - name: Atividade de Procedimento Armazenado
           href: data-factory-stored-proc-activity.md
@@ -200,7 +200,7 @@
     - name: Estudos de Caso
       href: data-factory-customer-case-studies.md
     - name: Página de perguntas de P e R da Microsoft
-      href: 'https://docs.microsoft.com/answers/topics/azure-data-factory.html'
+      href: /answers/topics/azure-data-factory.html
     - name: Preços
       href: 'https://azure.microsoft.com/pricing/details/data-factory/'
     - name: Calculadora de preço

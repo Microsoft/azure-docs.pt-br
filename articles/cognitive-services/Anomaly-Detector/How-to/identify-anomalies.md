@@ -3,19 +3,19 @@ title: Como usar a API do detector de anomalias em seus dados de série temporal
 titleSuffix: Azure Cognitive Services
 description: Saiba como detectar anomalias em seus dados como um lote ou em dados de streaming.
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 10/01/2019
-ms.author: aahi
-ms.openlocfilehash: ca93de71f64efaf21c78b37b9c9aee193d13b28d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.author: mbullwin
+ms.openlocfilehash: 74f891ba7f5b400b5782565e670539167f4e2464
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "71840219"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97703425"
 ---
 # <a name="how-to-use-the-anomaly-detector-api-on-your-time-series-data"></a>Como: usar a API do detector de anomalias em seus dados de série temporal  
 
@@ -47,7 +47,7 @@ Ao enviar novos pontos de dados conforme você os gera, você pode monitorar seu
 
 ## <a name="adjusting-lower-and-upper-anomaly-detection-boundaries"></a>Ajustando limites de detecção de anomalias inferiores e superiores
 
-Por padrão, os limites superior e inferior para detecção de anomalias são `expectedValue`calculados `upperMargin`usando, `lowerMargin`e. Se você precisar de limites diferentes, é recomendável `marginScale` aplicar `upperMargin` um `lowerMargin`a ou. Os limites seriam calculados da seguinte maneira:
+Por padrão, os limites superior e inferior para detecção de anomalias são calculados usando `expectedValue` , `upperMargin` e `lowerMargin` . Se você precisar de limites diferentes, é recomendável aplicar um `marginScale` a `upperMargin` ou `lowerMargin` . Os limites seriam calculados da seguinte maneira:
 
 |Limite  |Cálculo  |
 |---------|---------|
@@ -71,4 +71,4 @@ Os exemplos a seguir mostram um resultado da API do detector de anomalias em dif
 ## <a name="next-steps"></a>Próximas etapas
 
 * [O que é a API do Detector de Anomalias?](../overview.md)
-* [Início rápido: detectar anomalias nos dados de série temporal usando a API REST do detector de anomalias](../quickstarts/detect-data-anomalies-csharp.md)
+* [Início rápido: detectar anomalias nos dados de série temporal usando o detector de anomalias](../quickstarts/client-libraries.md)

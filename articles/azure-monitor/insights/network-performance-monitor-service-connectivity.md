@@ -6,21 +6,24 @@ ms.topic: conceptual
 author: abshamsft
 ms.author: absha
 ms.date: 02/20/2018
-ms.openlocfilehash: dd8dcbe136558e997ca16a2d9754cbf1c4e7620b
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 5d7c7068c4a8669cdff782267030d38ac0f73584
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326096"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832922"
 ---
 # <a name="service-connectivity-monitor"></a>Monitor de Conectividade de Serviço
+
+> [!IMPORTANT]
+> A partir de 1 de julho de 2021, você não poderá adicionar novos testes em um espaço de trabalho existente ou habilitar um novo espaço de trabalho no Monitor de Desempenho de Rede. Você pode continuar a usar os testes criados antes de 1 de julho de 2021. Para minimizar a interrupção do serviço para suas cargas de trabalho atuais, [migre seus testes de monitor de desempenho de rede para o novo monitor de conexão](https://docs.microsoft.com/azure/network-watcher/migrate-to-connection-monitor-from-network-performance-monitor) no observador de rede do Azure antes de 29 de fevereiro de 2024.
 
 Você pode usar o recurso Monitor de Conectividade de Serviço em [Monitor de Desempenho de Rede](network-performance-monitor.md) para monitorar a conectividade de rede para qualquer ponto de extremidade que tem uma porta TCP aberta. Esses pontos de extremidade incluem sites, aplicativos SaaS, os aplicativos PaaS e bancos de dados SQL. 
 
 Você pode executar as seguintes funções com o Monitor de Conectividade de Serviço: 
 
-- Monitore a conectividade de rede para seus aplicativos e serviços de rede de vários locais ou de ramificação. Aplicativos e serviços de rede incluem o Office 365, Dynamics CRM, aplicativos de linha de negócios internos e bancos de dados SQL.
-- Use testes internos para monitorar a conectividade de rede para pontos de extremidade do Office 365 e Dynamics365. 
+- Monitore a conectividade de rede para seus aplicativos e serviços de rede de vários locais ou de ramificação. Aplicativos e serviços de rede incluem Microsoft 365, Dynamics CRM, aplicativos internos de linha de negócios e bancos de dados SQL.
+- Use testes internos para monitorar a conectividade de rede com os pontos de extremidade Microsoft 365 e Dynamics 365. 
 - Determinar o tempo de resposta, latência de rede e perda de pacotes apresentados ao se conectar ao ponto de extremidade.
 - Determinar se o desempenho insatisfatório do aplicativo é devido à rede ou devido a algum problema no final do provedor de aplicativo.
 - Identifica pontos de acesso na rede que podem estar causando o desempenho insatisfatório do aplicativo exibindo a latência contribuída por cada salto em um mapa de topologia.
@@ -99,7 +102,7 @@ Determine se o desempenho insatisfatório do aplicativo é devido à rede ou dev
 
 Depois de determinar que o problema é devido à rede, selecione a exibição **Topologia** para identificar o salto problemático no mapa de topologia. Um exemplo é mostrado na imagem a seguir. Fora dos 105ms de latência total entre o nó e o ponto de extremidade do aplicativo, 96ms é devido ao salto marcado em vermelho. Depois de identificar o salto problemático, você pode adotar uma ação corretiva. 
 
-![Testes do Monitor de Conectividade de Serviço](media/network-performance-monitor-service-endpoint/service-endpoint-topology.png)
+![Topologia de ponto de extremidade do monitor de conectividade de serviço](media/network-performance-monitor-service-endpoint/service-endpoint-topology.png)
 
 ## <a name="diagnostics"></a>Diagnósticos 
 
@@ -134,4 +137,3 @@ Para a região da Virgínia do governo dos EUA, somente as URLs do DOD são NPM 
 
 ## <a name="next-steps"></a>Próximas etapas
 [Pesquisar logs](../log-query/log-query-overview.md) para exibir registros de dados de desempenho de rede detalhados.
-

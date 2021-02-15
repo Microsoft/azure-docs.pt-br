@@ -3,17 +3,17 @@ title: O que é Azure IoT Central | Microsoft Docs
 description: Azure IoT Central é uma plataforma de aplicativo IoT que simplifica a criação de soluções IoT, bem como ajuda a reduzir a carga e o custo das operações de gerenciamento e desenvolvimento da IoT. Este artigo fornece uma visão geral dos recursos do Azure IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/10/2019
+ms.date: 11/23/2020
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
-ms.custom: mvc
-ms.openlocfilehash: 1af549feb551eca02bb1ef8df6481eceb959f6d1
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.custom: mvc, contperf-fy21q2
+ms.openlocfilehash: e6971fa129c01fc4cdf64e0dc681ac0fab4f707b
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88042710"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99833806"
 ---
 # <a name="what-is-azure-iot-central"></a>O que é Azure IoT Central?
 
@@ -34,7 +34,7 @@ Este artigo descreve os seguintes tópicos do Azure IoT Central:
 
 A documentação do Azure IoT Central faz referência a quatro personas que interagem com um aplicativo do Azure IoT Central:
 
-- Um _construtor de soluções_ é responsável por [definir os tipos de dispositivos](howto-set-up-template.md) que se conectam ao aplicativo e personalizar o aplicativo para o operador.
+- Um _criador de soluções_ é responsável por [criar um aplicativo](quick-deploy-iot-central.md), [configurar regras e ações](quick-configure-rules.md), [definir integrações a outros serviços](howto-export-data.md) e personalizar ainda mais o aplicativo para operadores e desenvolvedores de dispositivos.
 - Um _operador_ [gerencia os dispositivos](howto-manage-devices.md) conectados ao aplicativo.
 - Um _administrador_ é responsável por tarefas administrativas, como gerenciar [funções de usuários e permissões](howto-administer.md) dentro do aplicativo.
 - Um _desenvolvedor de dispositivo_ [cria o código que é executado em um dispositivo](concepts-telemetry-properties-commands.md) ou no [módulo do IoT Edge](concepts-iot-edge.md) conectado ao seu aplicativo.
@@ -50,14 +50,21 @@ Como construtor se solução, você usa o IoT Central para criar uma solução d
 
 Como construtor de soluções, você usa as ferramentas baseadas na Web para criar um _modelo de dispositivo_ para os dispositivos que se conectam ao seu aplicativo. Um modelo de dispositivo é um blueprint que define as características e o comportamento de um tipo de dispositivo, como:
 
-- A telemetria que ele envia.
-- As propriedades de negócios que um operador pode modificar.
-- As propriedades do dispositivo que são definidas por um dispositivo e são somente leitura no aplicativo.
-- Propriedades, definidas por um operador, que determinam o comportamento do dispositivo.
+- A telemetria que ele envia. Os exemplos incluem temperatura e umidade. A telemetria está transmitindo dados.
+- As propriedades de negócios que um operador pode modificar. Os exemplos incluem um endereço de cliente e uma data em que ele foi atendido pela última vez.
+- As propriedades do dispositivo que são definidas por um dispositivo e são somente leitura no aplicativo. Por exemplo, o estado de uma válvula como aberta ou fechada.
+- Propriedades, definidas por um operador, que determinam o comportamento do dispositivo. Por exemplo, uma temperatura de destino para o dispositivo.
+- Comandos, que um operador pode chamar, que são executados em um dispositivo. Por exemplo, um comando para reinicializar um dispositivo remotamente.
 
 Este [modelo de dispositivo](howto-set-up-template.md) inclui:
 
-- Um _modelo de funcionalidade de dispositivo_ que descreve as funcionalidades que um dispositivo deve implementar, tais como a telemetria que ele envia e as propriedades que ele relata.
+- Um _modelo de dispositivo_ que descreve as funcionalidades que um dispositivo deve implementar. As funcionalidades do dispositivo incluem:
+
+  - A telemetria que ele transmite para o IoT Central.
+  - As propriedades somente leitura que ele usa para relatar o estado para o IoT Central.
+  - As propriedades graváveis que ele recebe do IoT Central para definir o estado do dispositivo.
+  - Os comandos chamados do IoT Central.
+
 - Propriedades de nuvem que não são armazenadas no dispositivo.
 - Personalizações, painéis e formulários que fazem parte do aplicativo do IoT Central.
 
@@ -65,9 +72,9 @@ Este [modelo de dispositivo](howto-set-up-template.md) inclui:
 
 Como construtor de solução, você tem várias opções para criar modelos de dispositivo:
 
-- Crie o modelo de dispositivo no IoT Central e, em seguida, implemente o respectivo modelo de funcionalidade do dispositivo no código do dispositivo.
-- Crie um modelo de funcionalidade do dispositivo usando o Visual Studio Code e publique o modelo em um repositório. Implemente o código do dispositivo do modelo e conecte o dispositivo ao aplicativo do IoT Central. O IoT Central encontra o modelo de funcionalidade do dispositivo no repositório e cria um modelo de dispositivo simples para você.
-- Crie um modelo de funcionalidade do dispositivo usando o Visual Studio Code. Implemente o código do dispositivo do modelo. Importe manualmente o modelo de funcionalidade do dispositivo para o aplicativo do IoT Central e, em seguida, adicione todas as propriedades de nuvem, personalizações e painéis de que seu aplicativo IoT central precisa.
+- Crie o modelo de dispositivo no IoT Central e implementar o modelo de dispositivo dele no código do dispositivo.
+- Crie um modelo de dispositivo usando o Visual Studio Code e publicar o modelo em um repositório. Implemente o código do dispositivo do modelo e conecte o dispositivo ao aplicativo do IoT Central. O IoT Central encontra o modelo de dispositivo no repositório e cria um modelo de dispositivo simples para você.
+- Crie um dispositivo usando o Visual Studio Code. Implemente o código do dispositivo do modelo. Importe manualmente o modelo de dispositivo para o aplicativo do IoT Central e, em seguida, adicione todas as propriedades de nuvem, personalizações e painéis de que seu aplicativo do IoT Central precisa.
 
 Como um construtor de soluções, você pode usar o IoT Central a fim de gerar um código para testar dispositivos e validar seus modelos de dispositivo.
 
@@ -107,7 +114,7 @@ Os [trabalhos](howto-run-a-job.md) permitem que você aplique atualizações ind
 
 ## <a name="integrate-with-other-services"></a>Integrar com outros serviços
 
-Como uma plataforma de aplicativos, o IoT Central permite transformar seus dados de IoT em informações de negócios que geram resultados práticos. As [regras](./tutorial-create-telemetry-rules.md), a [exportação de dados](./howto-export-data.md) e a [API REST pública](https://docs.microsoft.com/learn/modules/manage-iot-central-apps-with-rest-api/) são exemplos de como você pode integrar o IoT Central aos aplicativos de linha de negócios:
+Como uma plataforma de aplicativos, o IoT Central permite transformar seus dados de IoT em informações de negócios que geram resultados práticos. As [regras](./tutorial-create-telemetry-rules.md), a [exportação de dados](./howto-export-data.md) e a [API REST pública](/learn/modules/manage-iot-central-apps-with-rest-api/) são exemplos de como você pode integrar o IoT Central aos aplicativos de linha de negócios:
 
 ![Como o IoT Central pode transformar seus dados de IoT](media/overview-iot-central/transform.png)
 
@@ -130,7 +137,7 @@ Aplicativos do IoT Central são totalmente hospedados pela Microsoft, o que redu
 Você pode criar um aplicativo do IoT Central usando uma avaliação gratuita de 7 dias ou usar um plano de preços Standard.
 
 - Os aplicativos criados com o plano *gratuito* são gratuitos por sete dias e dão suporte a até cinco dispositivos. Você pode convertê-los para usar um plano de preços Standard a qualquer momento antes que eles expirem.
-- Os aplicativos criados com o plano *Standard* são cobrados por dispositivo; você pode escolher o plano de preços **Standard 1** ou **Standard 2** com os dois primeiros dispositivos sendo gratuitos. Saiba mais sobre os [preços do IoT Central](https://aka.ms/iotcentral-pricing).
+- Os aplicativos criados com o plano *Standard* são cobrados por dispositivo; você pode escolher o plano de preços **Standard 0**, **Standard 1** ou **Standard 2** com os dois primeiros dispositivos sendo gratuitos. Saiba mais sobre os [preços do IoT Central](https://aka.ms/iotcentral-pricing).
 
 ## <a name="quotas"></a>Cotas
 
@@ -144,17 +151,11 @@ Cada assinatura do Azure tem cota padrão que podem afetar o escopo de sua solu�
 - Não há compatibilidade com tipos de esquema de matriz.
 - Somente o SDK do dispositivo C e os SDKs do serviço e do dispositivo Node.js são compatíveis.
 - No momento, o IoT Central está disponível nos Estados Unidos, na Europa, no Pacífico Asiático, na Austrália, no Reino Unido e no Japão.
-- Você não pode usar o modelo de aplicativo **Aplicativo personalizado (herdado)** no Reino Unido e no Japão.
-- Os modelos de funcionalidade do dispositivo precisam ter todas as interfaces definidas embutidas no mesmo arquivo.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Agora que você tem uma visão geral do IoT Central, estas são as próximas etapas sugeridas:
 
-- Entenda as [tecnologias e os serviços disponíveis do Azure para criar soluções de IoT](../../iot-fundamentals/iot-services-and-technologies.md) disponíveis.
+- Se você é um desenvolvedor de dispositivos e deseja se aprofundar em algum código, a próxima etapa sugerida é [Criar e conectar um aplicativo cliente ao seu aplicativo do Azure IoT Central](./tutorial-connect-device.md).
 - Familiarizar-se com a [interface do usuário do Azure IoT Central](overview-iot-central-tour.md).
 - Comece com a [criação de um aplicativo do Azure IoT Central](quick-deploy-iot-central.md).
-- Saiba como [Conectar um dispositivo Azure IoT Edge](./tutorial-add-edge-as-leaf-device.md).
-- Saiba mais sobre [as tecnologias e os serviços de IoT do Azure](../../iot-fundamentals/iot-services-and-technologies.md).
-
-Se você é um desenvolvedor de dispositivos e deseja se aprofundar em algum código, a próxima etapa sugerida é [Criar e conectar um aplicativo cliente ao seu aplicativo do Azure IoT Central](./tutorial-connect-device-nodejs.md).

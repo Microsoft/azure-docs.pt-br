@@ -5,17 +5,17 @@ ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: article
 ms.date: 04/30/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: b12b85a2248d7709066ba3218327e0a5d52a0192
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: ef90603e8c8cdd66d43b9f88f6d128d8a472fd8a
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962155"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150331"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurar ambientes de preparo no Serviço de Aplicativo do Azure
 <a name="Overview"></a>
 
-Ao implantar seu aplicativo Web, aplicativo Web no Linux, back-end móvel ou aplicativo de API para [Azure app serviço](https://go.microsoft.com/fwlink/?LinkId=529714), você pode usar um slot de implantação separado em vez do slot de produção padrão quando estiver executando na camada de plano do serviço de aplicativo **padrão**, **Premium**ou **isolado** . Os slots de implantação são aplicativos ao vivo com seus próprios nomes de host. Os elementos de configurações e conteúdo de aplicativo podem ser trocados entre dois slots de implantação, incluindo o slot de produção. 
+Ao implantar seu aplicativo Web, aplicativo Web no Linux, back-end móvel ou aplicativo de API para [Azure app serviço](./overview.md), você pode usar um slot de implantação separado em vez do slot de produção padrão quando estiver executando na camada de plano do serviço de aplicativo **padrão**, **Premium**ou **isolado** . Os slots de implantação são aplicativos ao vivo com seus próprios nomes de host. Os elementos de configurações e conteúdo de aplicativo podem ser trocados entre dois slots de implantação, incluindo o slot de produção. 
 
 A implantação do aplicativo em um slot de não produção traz os seguintes benefícios:
 

@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.custom:
 - seo-lt-2019
 - seo-dt-2019
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 02/20/2020
-ms.openlocfilehash: 9a2e28439efaa1983c4deeff4c6746108fc28e4e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 11659bcbdf77d04c0f4e6f8bc7aca30c716fc924
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090698"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97606882"
 ---
 # <a name="online-migration-issues--limitations-to-azure-db-for-mysql-with-azure-database-migration-service"></a>Problemas de migração online & limitações do Azure DB para MySQL com o serviço de migração de banco de dados do Azure
 
@@ -32,7 +32,7 @@ Os problemas conhecidos e as limitações associados às migrações online do M
 - O Banco de Dados do Azure para MySQL dá suporte a:
   - MySQL Community Edition
   - Mecanismo InnoDB
-- Migração de mesma versão. Não há suporte para a migração do MySQL 5.6 para o Banco de Dados do Azure para MySQL 5.7.
+- Migração de mesma versão. Não há suporte para a migração do MySQL 5.6 para o Banco de Dados do Azure para MySQL 5.7. As migrações para o MySQL 8.0 ou dele não são compatíveis.
 - Habilite o log binário em my.ini (Windows) ou em my.cnf (Unix)
   - Defina Server_id para qualquer número maior ou igual a 1, por exemplo, Server_id=1 (somente para o MySQL 5.6)
   - Defina log-bin = \<path> (somente para o MySQL 5.6)
@@ -42,18 +42,18 @@ Os problemas conhecidos e as limitações associados às migrações online do M
 - As ordenações definidas para o banco de dados MySQL de origem devem ser as mesmas que as definidos no Banco de Dados do Azure para MySQL de destino.
 - O esquema precisa corresponder entre o banco de dados MySQL de origem e o banco de dados de destino no Banco de Dados do Azure para MySQL.
 - O esquema no Banco de Dados do Azure para MySQL de destino não pode ter chaves estrangeiras. Use a consulta a seguir para remover as chaves estrangeiras:
-    ```
+    ```sql
     SET group_concat_max_len = 8192;
     SELECT SchemaName, GROUP_CONCAT(DropQuery SEPARATOR ';\n') as DropQuery, GROUP_CONCAT(AddQuery SEPARATOR ';\n') as AddQuery
     FROM
     (SELECT 
     KCU.REFERENCED_TABLE_SCHEMA as SchemaName, KCU.TABLE_NAME, KCU.COLUMN_NAME,
-        CONCAT('ALTER TABLE ', KCU.TABLE_NAME, ' DROP FOREIGN KEY ', KCU.CONSTRAINT_NAME) AS DropQuery,
+      CONCAT('ALTER TABLE ', KCU.TABLE_NAME, ' DROP FOREIGN KEY ', KCU.CONSTRAINT_NAME) AS DropQuery,
         CONCAT('ALTER TABLE ', KCU.TABLE_NAME, ' ADD CONSTRAINT ', KCU.CONSTRAINT_NAME, ' FOREIGN KEY (`', KCU.COLUMN_NAME, '`) REFERENCES `', KCU.REFERENCED_TABLE_NAME, '` (`', KCU.REFERENCED_COLUMN_NAME, '`) ON UPDATE ',RC.UPDATE_RULE, ' ON DELETE ',RC.DELETE_RULE) AS AddQuery
         FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE KCU, information_schema.REFERENTIAL_CONSTRAINTS RC
         WHERE
-          KCU.CONSTRAINT_NAME = RC.CONSTRAINT_NAME
-          AND KCU.REFERENCED_TABLE_SCHEMA = RC.UNIQUE_CONSTRAINT_SCHEMA
+        KCU.CONSTRAINT_NAME = RC.CONSTRAINT_NAME
+        AND KCU.REFERENCED_TABLE_SCHEMA = RC.UNIQUE_CONSTRAINT_SCHEMA
       AND KCU.REFERENCED_TABLE_SCHEMA = ['schema_name']) Queries
       GROUP BY SchemaName;
     ```
@@ -82,12 +82,12 @@ As colunas de LOB (Objeto Grande) são aquelas cujo tamanho pode aumentar muito.
 
     **Solução alternativa**: substitua chave primária por outros tipos de dados ou colunas que não sejam de LOB.
 
-- **Limitação**: se o tamanho da coluna de LOB (Objeto Grande) for maior que 32 KB, os dados poderão ser truncados no destino. Você pode verificar o tamanho da coluna de LOB usando esta consulta:
+- **Limitação**: se o comprimento da coluna de objeto grande (LOB) for maior do que o parâmetro "limitar tamanho de LOB" (não deve ser maior que 64 KB), os dados poderão ser truncados no destino. Você pode verificar o tamanho da coluna de LOB usando esta consulta:
     ```
     SELECT max(length(description)) as LEN from catalog;
     ```
 
-    **Solução alternativa**: se você tiver um objeto LOB maior que 32 KB, contate a equipe de engenharia em [solicitar migrações de banco de dados do Azure](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
+    **Solução alternativa**: se você tiver um objeto LOB maior que 64 KB, use o parâmetro "permitir tamanho de LOB ilimitado". Observe que as migrações que usam o parâmetro "permitir tamanho de LOB ilimitado" serão mais lentas do que as migrações usando o parâmetro "limitar tamanho de LOB".
 
 ## <a name="limitations-when-migrating-online-from-aws-rds-mysql"></a>Limitações ao migrar online do AWS RDS MySQL
 
@@ -118,7 +118,7 @@ Ao tentar executar uma migração online do AWS RDS MySQL para o banco de dados 
 
   **Limitação**: esse erro ocorre quando o banco de dados de destino do banco de dados do Azure para MySQL não tem o esquema necessário. A migração de esquema é necessária para habilitar a migração de dados para o destino.
 
-  **Solução alternativa**: [migre o esquema](https://docs.microsoft.com/azure/dms/tutorial-mysql-azure-mysql-online#migrate-the-sample-schema) do banco de dados de origem para o banco de dados de destino.
+  **Solução alternativa**: [migre o esquema](./tutorial-mysql-azure-mysql-online.md#migrate-the-sample-schema) do banco de dados de origem para o banco de dados de destino.
 
 ## <a name="other-limitations"></a>Outras limitações
 
@@ -136,7 +136,7 @@ Ao tentar executar uma migração online do AWS RDS MySQL para o banco de dados 
 
 - No Azure Database Migration Service, o limite de bancos de dados a serem migrados em uma única atividade de migração é de quatro.
 
-- O Azure DMS não dá suporte à ação referencial em cascata, que ajuda a excluir ou atualizar automaticamente uma linha correspondente na tabela filho quando uma linha é excluída ou atualizada na tabela pai. Para obter mais informações, na documentação do MySQL, consulte a seção ações referenciais do artigo [restrições de chave estrangeira](https://dev.mysql.com/doc/refman/8.0/en/create-table-foreign-keys.html). O Azure DMS exige que você remova as restrições de chave estrangeira no servidor de banco de dados de destino durante o carregamento inicial e não pode usar ações referenciais. Se sua carga de trabalho depende da atualização de uma tabela filho relacionada por meio dessa ação referencial, recomendamos que você execute um [despejo e uma restauração](https://docs.microsoft.com/azure/mysql/concepts-migrate-dump-restore) em vez disso. 
+- O DMS do Azure não dá suporte à ação referencial CASCADE, que ajuda a excluir ou atualizar automaticamente uma linha correspondente na tabela filho quando uma linha é excluída ou atualizada na tabela pai. Para obter mais informações, na documentação do MySQL, confira a seção Ações Referenciais do artigo [Restrições de FOREIGN KEY](https://dev.mysql.com/doc/refman/8.0/en/create-table-foreign-keys.html). O DMS do Azure exige que você remova as restrições de chave estrangeira do servidor de banco de dados de destino durante o carregamento de dados inicial, e você não pode usar as ações referenciais. Se a sua carga de trabalho depende da atualização de uma tabela filho relacionada por meio dessa ação referencial, recomendamos que você execute [despejo e restauração](../mysql/concepts-migrate-dump-restore.md). 
 
 - **Erro:** Tamanho de linha muito grande (> 8126). A alteração de algumas colunas para texto ou BLOB pode ajudar. No formato de linha atual, o prefixo de BLOB de 0 bytes é armazenado embutido.
 

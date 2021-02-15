@@ -5,12 +5,12 @@ ms.assetid: 6223b6bd-84ec-48df-943f-461d84605694
 ms.topic: article
 ms.date: 10/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: b160f0aa50c30f7856bc09b88b3eb305f32d6f98
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 933ac96d0cf98e0068575e5a70b0f42a157eb611
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88961917"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91827467"
 ---
 # <a name="back-up-your-app-in-azure"></a>Fazer backup de seu aplicativo no Azure
 O recurso de Backup e Restauração no [Serviço de Aplicativo do Azure](overview.md) permite que você crie backups de aplicativos facilmente, de modo manual ou agendado. Você pode configurar os backups para que sejam mantidos até um período indefinido. Você pode restaurar o aplicativo em um instantâneo de um estado anterior, substituindo o aplicativo existente ou restaurando em outro aplicativo.
@@ -60,7 +60,7 @@ As soluções de banco de dados a seguir são compatíveis com o recurso de back
     > [!NOTE]
     > Se você vir a seguinte mensagem, clique nela para atualizar seu plano de Serviço de Aplicativo antes de continuar com os backups.
     > Para obter mais informações, consulte [Escalar verticalmente um aplicativo no Azure](manage-scale-up.md).
-    > ![Escolher uma conta de armazenamento](./media/manage-backup/upgrade-plan.png)
+    > :::image type="content" source="./media/manage-backup/upgrade-plan.png" alt-text="Captura de tela de uma faixa com uma mensagem para atualizar o plano do serviço de aplicativo para acessar o recurso de backup e restauração.":::
     > 
     > 
 
@@ -70,13 +70,13 @@ As soluções de banco de dados a seguir são compatíveis com o recurso de back
 
 3. Na página **Configuração de Backup**, clique em **O armazenamento não está configurado** para configurar uma conta de armazenamento.
 
-    ![Escolher uma conta de armazenamento](./media/manage-backup/configure-storage.png)
+    :::image type="content" source="./media/manage-backup/configure-storage.png" alt-text="Captura de tela de uma faixa com uma mensagem para atualizar o plano do serviço de aplicativo para acessar o recurso de backup e restauração.":::
 
 4. Escolha o destino de seu backup selecionando uma **Conta de Armazenamento** e um **Contêiner**. A conta de armazenamento deve pertencer à mesma assinatura do aplicativo do qual você deseja fazer backup. Se desejar, será possível criar uma nova conta de armazenamento ou um novo contêiner nas respectivas páginas. Quando terminar, clique em **Selecionar**.
 
 5. Na página **configuração de backup** que ainda é deixada aberta, você pode configurar o **banco de dados de backup**e, em seguida, selecionar os bancos que deseja incluir nos backups (banco de dados SQL ou MySQL) e clicar em **OK**.
 
-    ![Escolher uma conta de armazenamento](./media/manage-backup/configure-database.png)
+    :::image type="content" source="./media/manage-backup/configure-database.png" alt-text="Captura de tela de uma faixa com uma mensagem para atualizar o plano do serviço de aplicativo para acessar o recurso de backup e restauração.":::
 
     > [!NOTE]
     > Para que um banco de dados seja exibido nessa lista, sua cadeia de conexão deve constar na seção **Cadeias de conexão** da página **Configurações de aplicativo** do aplicativo. 
@@ -92,7 +92,7 @@ As soluções de banco de dados a seguir são compatíveis com o recurso de back
 
     Você verá uma mensagem informando o andamento do processo de backup.
 
-Após a configuração da conta de armazenamento e do contêiner, será possível iniciar um backup manual a qualquer momento.
+Após a configuração da conta de armazenamento e do contêiner, será possível iniciar um backup manual a qualquer momento. Os backups manuais são mantidos indefinidamente.
 
 <a name="automatedbackups"></a>
 
@@ -141,7 +141,7 @@ Execute backups da mesma maneira que faria normalmente, de modo [manual](#create
 > [!NOTE]
 > Você restaura backups parciais de seu site da mesma maneira como [restauraria um backup regular](web-sites-restore.md). O processo de restauração faz a coisa certa.
 > 
-> Quando um backup completo é restaurado, todo o conteúdo do site é substituído por tudo o que está no backup. Se um arquivo estiver no site mas não no backup, será excluído. Mas, quando um backup parcial é restaurado, qualquer conteúdo que esteja localizado em um dos diretórios não autorizados ou qualquer arquivo não autorizado, é deixado como está.
+> Quando um backup completo é restaurado, todo o conteúdo do site é substituído por tudo o que está no backup. Se um arquivo estiver no site mas não no backup, será excluído. Mas quando um backup parcial é restaurado, qualquer conteúdo localizado em um dos diretórios restritos ou em qualquer arquivo restrito é deixado como está.
 > 
 
 

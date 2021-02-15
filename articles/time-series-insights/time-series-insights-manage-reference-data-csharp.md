@@ -9,18 +9,21 @@ manager: cshankar
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/12/2020
+ms.date: 09/29/2020
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 2d14d45a6cf7147514cf4fdfc2a3ede470c12835
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: d6f0e5230fb3c59cab690620e837f476f3392a48
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017627"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020071"
 ---
 # <a name="manage-reference-data-for-an-azure-time-series-insights-gen-1-environment-using-c-sharp"></a>Gerenciar dados de referência para um ambiente Azure Time Series Insights Gen 1 usando C Sharp
 
-Este artigo demonstra como combinar C#, [MSAL.net](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet)e Azure Active Directory para fazer solicitações de API programáticas para a api de [Gerenciamento de dados de referência](https://docs.microsoft.com/rest/api/time-series-insights/gen1-reference-data-api)do Azure Time Series insights Gen 1.
+> [!CAUTION]
+> Esse é um artigo do Gen1.
+
+Este artigo demonstra como combinar C#, [MSAL.net](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet)e Azure Active Directory para fazer solicitações de API programáticas para a api de [Gerenciamento de dados de referência](/rest/api/time-series-insights/gen1-reference-data-api)do Azure Time Series insights Gen 1.
 
 > [!TIP]
 > Veja os exemplos de código C# GA em [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/gen1-sample/csharp-tsi-gen1-sample).
@@ -30,8 +33,8 @@ Este artigo demonstra como combinar C#, [MSAL.net](https://github.com/AzureAD/mi
 O código de exemplo abaixo demonstra os seguintes recursos:
 
 * Como adquirir um token de acesso usando o **PublicClientApplication** do [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet).
-* Operações sequenciais de criação, leitura, atualização e exclusão em relação à [API de gerenciamento de dados de referência](https://docs.microsoft.com/rest/api/time-series-insights/gen1-reference-data-api)Gen 1.
-* Códigos de resposta comuns, incluindo [códigos de erro comuns](https://docs.microsoft.com/rest/api/time-series-insights/gen1-reference-data-api#validation-and-error-handling).
+* Operações sequenciais de criação, leitura, atualização e exclusão em relação à [API de gerenciamento de dados de referência](/rest/api/time-series-insights/gen1-reference-data-api)Gen 1.
+* Códigos de resposta comuns, incluindo [códigos de erro comuns](/rest/api/time-series-insights/gen1-reference-data-api#validation-and-error-handling).
 
     A API de Gerenciamento de Dados de Referência processa cada item individualmente, e um erro em um item não impede que os outros sejam concluídos com êxito. Por exemplo, se a solicitação tiver 100 itens e um item tiver um erro, 99 itens serão gravados e um será rejeitado.
 
@@ -39,7 +42,7 @@ O código de exemplo abaixo demonstra os seguintes recursos:
 
 Conclua as etapas a seguir antes de usar compilar e executar o código de exemplo:
 
-1. [Provisionar um ambiente de Azure Time Series insights Gen 1](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-get-started
+1. [Provisionar um ambiente de Azure Time Series insights Gen 1](./time-series-insights-get-started.md
 ) .
 
 1. [Criar um conjunto de dados de referência](time-series-insights-add-reference-data-set.md) no ambiente. Use o seguinte esquema de dados de referência:
@@ -310,4 +313,4 @@ namespace CsharpTsiMsalGaSample
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Leia a documentação de referência da [API do gerenciamento de dados de referência](https://docs.microsoft.com/rest/api/time-series-insights/gen1-reference-data-api) do Gen 1.
+* Leia a documentação de referência da [API do gerenciamento de dados de referência](/rest/api/time-series-insights/gen1-reference-data-api) do Gen 1.

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/14/2019
+ms.date: 12/11/2020
 ms.author: jeedes
-ms.openlocfilehash: 38ac4f1bf6a1dd4656b4e7d5783051f3b381940c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b6b8dab3472473082562f1e4c0216886191e4a59
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88546807"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97962798"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sap-netweaver"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao SAP NetWeaver
 
@@ -25,8 +25,6 @@ Neste tutorial, você aprenderá a integrar o SAP NetWeaver ao Azure AD (Azure A
 * Controlar no Microsoft Azure AD que tem acesso ao SAP NetWeaver.
 * Permitir que os usuários sejam conectados automaticamente ao SAP NetWeaver com suas contas do Azure AD.
 * Gerenciar suas contas em um local central: o portal do Azure.
-
-Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -38,7 +36,10 @@ Para começar, você precisará dos seguintes itens:
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-O SAP NetWeaver dá suporte a **SAML** (**SSO iniciado com SP**) e **OAuth**. Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste. 
+* O SAP NetWeaver dá suporte a **SAML** (**SSO iniciado com SP**) e **OAuth**. Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste. 
+
+> [!NOTE]
+> O identificador desse aplicativo é um valor de cadeia de caracteres fixo; portanto apenas uma instância pode ser configurada em um locatário.
 
 > [!NOTE]
 > Configure o aplicativo no SAML ou no OAuth de acordo com os requisitos de sua organização. 
@@ -47,18 +48,18 @@ O SAP NetWeaver dá suporte a **SAML** (**SSO iniciado com SP**) e **OAuth**. Ne
 
 Para configurar a integração do SAP NetWeaver ao Azure AD, você precisará adicionar o SAP NetWeaver da galeria à sua lista de aplicativos SaaS gerenciados.
 
-1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
+1. Entre no portal do Azure usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
 1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory**.
 1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos**.
 1. Para adicionar um novo aplicativo, escolha **Novo aplicativo**.
 1. Na seção **Adicionar da por meio da galeria**, digite **SAP NetWeaver** na caixa de pesquisa.
 1. Selecione **SAP NetWeaver** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-sap-netweaver"></a>Configurar e testar o logon único do Azure AD para o SAP NetWeaver
+## <a name="configure-and-test-azure-ad-sso-for-sap-netweaver"></a>Configurar e testar o SSO do Azure AD para o SAP NetWeaver
 
 Configure e teste o SSO do Azure AD com o SAP NetWeaver com um usuário de teste chamado **B.Fernandes**. Para que o SSO funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do SAP NetWeaver.
 
-Para configurar e testar o SSO do Azure AD com o SAP NetWeaver, conclua os seguintes blocos de construção:
+Para configurar e testar o SSO do Azure AD com o SAP NetWeaver, execute as seguintes etapas:
 
 1. **[Configure o SSO do Azure AD](#configure-azure-ad-sso)** para permitir que os usuários usem esse recurso.
     1. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** para testar o logon único do Azure AD com B. Fernandes.
@@ -99,7 +100,7 @@ Para configurar o logon único do Azure AD com o SAP NetWeaver, execute as segui
 
     c. Clique duas vezes no cliente relevante para habilitar a sessão de segurança HTTP.
 
-    ![O link de download do Certificado](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_profileparameter.png)
+    ![A sessão de segurança HTTP ](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_profileparameter.png)
 
     d. Ative os serviços SICF abaixo:
     ```
@@ -110,22 +111,22 @@ Para configurar o logon único do Azure AD com o SAP NetWeaver, execute as segui
     ```
 1. Vá para o código de transação **SAML2** no cliente de negócios do sistema SAP [T01/122]. Isso abrirá uma interface do usuário em um navegador. Neste exemplo, supomos 122 como cliente do SAP Business.
 
-    ![O link de download do Certificado](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_sapbusinessclient.png)
+    ![Código da transação](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_sapbusinessclient.png)
 
 1. Forneça seu nome de usuário e senha para entrar na interface do usuário e clique em **Editar**.
 
-    ![O link de download do Certificado](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_userpwd.png)
+    ![nome de usuário e senha](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_userpwd.png)
 
 1. Substitua **Nome do Provedor** de T01122 para `http://T01122` e clique em **Salvar**.
 
     > [!NOTE]
     > Por padrão, o nome do provedor vem no formato `<sid><client>`, mas o Azure AD espera o nome no formato `<protocol>://<name>`, recomendando manter o nome do provedor como `https://<sid><client>` para permitir que vários mecanismos SAP NetWeaver ABAP sejam configurados no Azure AD.
 
-    ![O link de download do Certificado](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_providername.png)
+    ![Os vários mecanismos ABAP do SAP NetWeaver](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_providername.png)
 
 1. **Geração de Metadados do Provedor de Serviço**: - uma vez que terminamos de configurar as configurações do **Provedor Local** e **Provedores Confiáveis** na Interface de usuário do SAML 2.0, a próxima etapa seria gerar arquivo de metadados do provedor de serviços (que contém todas as configurações, contextos de autenticação e outras configurações no SAP). Depois que esse arquivo é gerado, precisamos carregá-lo no Microsoft Azure Active Directory.
 
-    ![O link de download do Certificado](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_generatesp.png)
+    ![Como gerar metadados de provedor de serviços](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_generatesp.png)
 
     a. Vá para a **guia do Provedor Local**.
 
@@ -135,9 +136,9 @@ Para configurar o logon único do Azure AD com o SAP NetWeaver, execute as segui
 
 Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **SAP NetWeaver**, localize a seção **Gerenciar** e selecione **Logon único**.
+1. No portal do Azure, na página de integração de aplicativos do **SAP NetWeaver**, localize a seção **Gerenciar** e selecione **Logon único**.
 1. Na página **Escolher um método de logon único**, escolha **SAML**.
-1. Na página **Configurar o Logon Único com SAML**, clique no ícone editar/de caneta da **Configuração Básica de SAML** para editar as configurações.
+1. Na página **Configurar o Logon Único com o SAML**, clique no ícone de caneta da **Configuração Básica do SAML** para editar as configurações.
 
    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
@@ -160,13 +161,13 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. O aplicativo SAP NetWeaver espera as declarações SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados à sua configuração de atributos do token SAML. A captura de tela a seguir mostra a lista de atributos padrão. Clique no ícone **Editar** para abrir a caixa de diálogo Atributos de usuário.
 
-    ![image](common/edit-attribute.png)
+    ![editar atributo](common/edit-attribute.png)
 
 1. Na seção **Declarações de Usuário** do diálogo **Atributos de Usuário**, configure o atributo de token SAML conforme mostrado na imagem acima e execute as seguintes etapas:
 
     a. Clique no **ícone Editar** para abrir a caixa de diálogo **Gerenciar declarações do usuário**.
 
-    ![image](./media/sapnetweaver-tutorial/nameidattribute.png)
+    ![ícone editar](./media/sapnetweaver-tutorial/nameidattribute.png)
 
     ![image](./media/sapnetweaver-tutorial/nameidattribute1.png)
 
@@ -203,15 +204,9 @@ Nesta seção, você permitirá que B. Fernandes use o logon único do Azure con
 1. No portal do Azure, selecione **Aplicativos empresariais** e, em seguida, selecione **Todos os aplicativos**.
 1. Na lista de aplicativos, selecione **SAP NetWeaver**.
 1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e escolha **Usuários e grupos**.
-
-    ![O link “Usuários e grupos”](common/users-groups-blade.png)
-
 1. Escolha **Adicionar usuário** e, em seguida, **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
-
-    ![O link Adicionar Usuário](common/add-assign-user.png)
-
 1. Na caixa de diálogo **Usuários e grupos**, selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
-1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função**, escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
+Se você estiver esperando que uma função seja atribuída aos usuários, escolha-a na lista suspensa **Selecionar uma função**. Se nenhuma função tiver sido configurada para esse aplicativo, você verá a função "Acesso Padrão" selecionada.
 1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
 ## <a name="configure-sap-netweaver-using-saml"></a>Configurar o SAP NetWeaver usando SAML
@@ -220,81 +215,85 @@ Nesta seção, você permitirá que B. Fernandes use o logon único do Azure con
 
 2. Para configurar pontos de extremidade para provedor de Identidade confiável (Microsoft Azure Active Directory) para a guia **Provedores Confiáveis**.
 
-    ![Configurar o logon único](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_samlconfig.png)
+    ![Configurar provedores confiáveis de logon único](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_samlconfig.png)
 
 3. Pressione **Add** e selecione **Carregar arquivo de metadados** no menu de contexto.
 
-    ![Configurar o logon único](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_uploadmetadata.png)
+    ![Configurar Logon Único 2](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_uploadmetadata.png)
 
 4. Carregue o arquivo de metadados que você fez o download do portal do Azure.
 
-    ![Configurar o logon único](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_metadatafile.png)
+    ![Configurar Logon Único 3](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_metadatafile.png)
 
 5. Na próxima tela, digite o nome do alias. Por exemplo, adicione sts e pressione **Avançar** para continuar.
 
-    ![Configurar o logon único](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_aliasname.png)
+    ![Configurar Logon Único 4](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_aliasname.png)
 
 6. Certifique-se de que seu **Algoritmo de código hash** deve ser **SHA-256** e não requer alterações e pressione **Próxima**.
 
-    ![Configurar o logon único](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_identityprovider.png)
+    ![Configurar Logon Único 5](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_identityprovider.png)
 
 7. Nos **pontos de extremidade de logon único**, use **HTTP POST** e clique em **Próxima** para continuar.
 
-    ![Configurar o logon único](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_httpredirect.png)
+    ![Configurar Logon Único 6](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_httpredirect.png)
 
 8. Nos **pontos de extremidade de logout único**, use **HTTP POST** e clique em **Próxima** para continuar.
 
-    ![Configurar o logon único](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_httpredirect1.png)
+    ![Configurar Logon Único 7](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_httpredirect1.png)
 
 9. Nos **pontos de extremidade de artefato**, aperte **Próxima** para continuar.
 
-    ![Configurar o logon único](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_artifactendpoint.png)
+    ![Configurar Logon Único 8](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_artifactendpoint.png)
 
 10. Em **Requisitos de Autenticação**, clique em **Concluir**.
 
-    ![Configurar o logon único](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_authentication.png)
+    ![Configurar Logon Único 9](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_authentication.png)
 
 11. Vá para a guia **Provedor Confiável** > **Federação de Identidades** (na parte inferior da tela). Clique em **Editar**.
 
-    ![Configurar o logon único](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_trustedprovider.png)
+    ![Configurar Logon Único 10](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_trustedprovider.png)
 
 12. Clique em **Adicionar** na guia **Federação de Identidades** (janela inferior).
 
-    ![Configurar o logon único](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_addidentityprovider.png)
+    ![Configurar Logon Único 11](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_addidentityprovider.png)
 
 13. Na janela pop-up, selecione **Não especificado** em **Formatos de NameID com Suporte** e clique em OK.
 
-    ![Configurar o logon único](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_nameid.png)
+    ![Configurar Logon Único 12](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_nameid.png)
 
-14. Observe que os valores de **Fonte de ID de usuário** e **modo de mapeamento de ID de usuário** determinam o vínculo entre o usuário do SAP e a declaração do Azure AD.  
+1. Forneça o valor da **Origem da ID de Usuário** como um **Atributo de Declaração**, o valor de **Modo de mapeamento da ID de usuário** como **Email** e o **Nome do Atributo de Declaração** como `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
 
-    #### <a name="scenario-sap-user-to-azure-ad-user-mapping"></a>Cenário: o usuário do SAP para o mapeamento de usuário do Azure AD.
+    ![Configurar o logon único ](./media/sapnetweaver-tutorial/nameid-format.png)
+
+14. Observe que os valores de **Fonte de ID de Usuário** e **Modo de mapeamento da ID de usuário** determinam o vínculo entre o usuário do SAP e a declaração do Azure AD.
+
+    #### <a name="scenario-sap-user-to-azure-ad-user-mapping"></a>Cenário: o usuário do SAP para o mapeamento de usuário do Azure Active Directory.
 
     a. Captura de tela de detalhes da NameID do SAP.
 
-    ![Configurar o logon único](./media/sapnetweaver-tutorial/nameiddetails.png)
+    ![Configurar Logon Único 13](./media/sapnetweaver-tutorial/nameiddetails.png)
 
     b. Captura de tela mencionando as declarações Obrigatórias do Azure AD.
 
-    ![Configurar o logon único](./media/sapnetweaver-tutorial/claimsaad1.png)
+    ![Configurar Logon Único 14](./media/sapnetweaver-tutorial/claimsaad1.png)
 
     #### <a name="scenario-select-sap-user-id-based-on-configured-email-address-in-su01-in-this-case-email-id-should-be-configured-in-su01-for-each-user-who-requires-sso"></a>Cenário: Selecione a ID de usuário do SAP com base no endereço de email configurado no SU01. Nesse caso, a ID de email deve ser configurada no su01 para cada usuário que precisar do SSO.
 
     a.  Captura de tela de detalhes da NameID do SAP.
 
-    ![Configurar o logon único](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_nameiddetails1.png)
+    ![Configurar Logon Único 15](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_nameiddetails1.png)
 
     b. captura de tela mencionando as declarações Obrigatórias do Azure AD.
 
-    ![Configurar o logon único](./media/sapnetweaver-tutorial/claimsaad2.png)
+    ![Configurar Logon Único 16](./media/sapnetweaver-tutorial/claimsaad2.png)
 
 15. Clique em **Salvar** e, em seguida, clique em **Habilitar** para habilitar o provedor de identidade.
 
-    ![Configurar o logon único](./media/sapnetweaver-tutorial/configuration1.png)
+    ![Configurar Logon Único 17](./media/sapnetweaver-tutorial/configuration1.png)
 
 16. Clique em **OK** quando solicitado.
 
-    ![Configurar o logon único](./media/sapnetweaver-tutorial/configuration2.png)
+    ![Configurar Logon Único 18](./media/sapnetweaver-tutorial/configuration2.png)
 
     ### <a name="create-sap-netweaver-test-user"></a>Criar um usuário de teste do SAP NetWeaver
 
@@ -315,7 +314,7 @@ Nesta seção, você permitirá que B. Fernandes use o logon único do Azure con
 
 2. A URL acima deve levar você para a tela mencionada abaixo. Se você for capaz de alcançar a página abaixo, a instalação do SSO do Microsoft Azure Active Directory é feita com êxito.
 
-    ![Configurar o logon único](./media/sapnetweaver-tutorial/testingsso.png)
+    ![testar Logon Único](./media/sapnetweaver-tutorial/testingsso.png)
 
 3. Se ocorrer o prompt de nome de usuário e senha, diagnostique o problema ap habilitar o rastreamento usando a URL abaixo
 
@@ -327,20 +326,20 @@ Nesta seção, você permitirá que B. Fernandes use o logon único do Azure con
 
 2. Vá até SPRO e localize **Ativar e manter serviços**.
 
-    ![Configurar o logon único](./media/sapnetweaver-tutorial/oauth01.png)
+    ![Ativar e manter serviços](./media/sapnetweaver-tutorial/oauth01.png)
 
 3. Neste exemplo, queremos conectar o serviço OData: `DAAG_MNGGRP` com OAuth ao SSO do Azure AD. Use a pesquisa de nome de serviço técnico para o serviço `DAAG_MNGGRP` e ative-o se ainda não estiver ativo (procure o status `green` na guia de nós do ICF). Verifique se o alias do sistema (o sistema de back-end conectado, onde o serviço está de fato em execução) está correto.
 
-    ![Configurar o logon único](./media/sapnetweaver-tutorial/oauth02.png)
+    ![Serviço Odata](./media/sapnetweaver-tutorial/oauth02.png)
 
     * Em seguida, clique no botão **OAuth** na barra de botões superior e atribua `scope` (mantenha o nome padrão como oferecido).
 
 4. Para nosso exemplo, o escopo é `DAAG_MNGGRP_001`, gerado com base no nome do serviço adicionando automaticamente um número. O relatório `/IWFND/R_OAUTH_SCOPES` pode ser usado para alterar o nome do escopo ou criar manualmente.
 
-    ![Configurar o logon único](./media/sapnetweaver-tutorial/oauth03.png)
+    ![Configurar OAuth](./media/sapnetweaver-tutorial/oauth03.png)
 
     > [!NOTE]
-    > Mensagem `soft state status is not supported` – pode ser ignorada, sem problemas. Para obter mais detalhes, consulte [aqui](https://help.sap.com/doc/saphelp_nw74/7.4.16/1e/c60c33be784846aad62716b4a1df39/content.htm?no_cache=true)
+    > Mensagem `soft state status is not supported` – pode ser ignorada, sem problemas. Para obter mais detalhes, consulte [aqui](https://help.sap.com/doc/saphelp_nw74/7.4.16/1e/c60c33be784846aad62716b4a1df39/content.htm?no_cache=true).
 
 ### <a name="create-a-service-user-for-the-oauth-20-client"></a>Criar um usuário de serviço para o cliente OAuth 2.0
 
@@ -349,7 +348,7 @@ Nesta seção, você permitirá que B. Fernandes use o logon único do Azure con
 2. Ao registrar um cliente OAuth, usamos o `SAML Bearer Grant type`.
 
     >[!NOTE]
-    >Para obter mais detalhes, consulte o Registro de clientes do OAuth 2.0 para conhecer o Tipo de concessão de portador SAML [aqui](https://wiki.scn.sap.com/wiki/display/Security/OAuth+2.0+Client+Registration+for+the+SAML+Bearer+Grant+Type)
+    >Para obter mais detalhes, veja o Registro de clientes do OAuth 2.0 para conhecer o tipo de concessão de portador SAML [aqui](https://wiki.scn.sap.com/wiki/display/Security/OAuth+2.0+Client+Registration+for+the+SAML+Bearer+Grant+Type).
 
 3. tcod: SU01 / create user CLIENT1 como `System type` e atribua a senha, salve conforme necessário para fornecer a credencial ao programador da API, que deve gravá-la com o nome de usuário para o código de chamada. Nenhum perfil ou função deve ser atribuído.
 
@@ -359,32 +358,26 @@ Nesta seção, você permitirá que B. Fernandes use o logon único do Azure con
 
 2. Vá até T-Code: **SOAUTH2** e forneça a descrição e, em seguida, clique em **avançar**.
 
-    ![Configurar o logon único](./media/sapnetweaver-tutorial/oauth04.png)
+    ![SOAUTH2](./media/sapnetweaver-tutorial/oauth04.png)
 
-    ![Configurar o logon único](./media/sapnetweaver-tutorial/oauth05.png)
+    ![ID do cliente do OAuth 2.0](./media/sapnetweaver-tutorial/oauth05.png)
 
 3. Selecione o **SAML2 IdP – Azure AD** já adicionado na lista suspensa e salve.
 
-    ![Configurar o logon único](./media/sapnetweaver-tutorial/oauth06.png)
+    ![IdP SAML2 – Azure AD 1](./media/sapnetweaver-tutorial/oauth06.png)
 
-    ![Configurar o logon único](./media/sapnetweaver-tutorial/oauth07.png)
+    ![IdP SAML2 – Azure AD 2](./media/sapnetweaver-tutorial/oauth07.png)
 
-    ![Configurar o logon único](./media/sapnetweaver-tutorial/oauth08.png)
+    ![IdP SAML2 – Azure AD 3](./media/sapnetweaver-tutorial/oauth08.png)
 
 4. Clique em **Adicionar** na atribuição de escopo para adicionar o escopo criado anteriormente: `DAAG_MNGGRP_001`
 
-    ![Configurar o logon único](./media/sapnetweaver-tutorial/oauth09.png)
+    ![Escopo](./media/sapnetweaver-tutorial/oauth09.png)
 
-    ![Configurar o logon único](./media/sapnetweaver-tutorial/oauth10.png)
+    ![atribuição de escopo](./media/sapnetweaver-tutorial/oauth10.png)
 
 5. Clique em **concluir**.
 
-## <a name="additional-resources"></a>Recursos adicionais
+## <a name="next-steps"></a>Próximas etapas
 
-- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
-
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
-
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
-- [Experimentar o SAP NetWeaver com o Azure AD](https://aad.portal.azure.com/)
+Depois de configurar o Azure AD SAP NetWeaver, você poderá impor o controle de sessão, que fornece proteção contra a exfiltração e infiltração dos dados confidenciais da sua organização em tempo real. O Controle de Sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)

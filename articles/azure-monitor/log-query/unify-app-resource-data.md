@@ -7,12 +7,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/02/2020
-ms.openlocfilehash: 40ce2844e33c9a71f87e434a6a3e9f8e0f7e3cc6
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 360578a36b92711c55b1fc65befa1b3df7927aad
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322101"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91330886"
 ---
 # <a name="unify-multiple-azure-monitor-application-insights-resources"></a>Unificar vários recursos do Application Insights do Azure Monitor 
 Este artigo descreve como consultar e exibir todos os seus Application Insights dados de log em um único local, mesmo quando eles estão em assinaturas diferentes do Azure, como uma substituição para a reprovação da Conector do Application Insights. O número de recursos de Application Insights que você pode incluir em uma única consulta é limitado a 100.
@@ -57,7 +57,7 @@ A consulta usa o esquema do Application Insights, embora ela seja executada no w
 ![Exemplo de resultados de consulta cruzada](media/unify-app-resource-data/app-insights-query-results.png)
 
 >[!NOTE]
->A [consulta de recursos cruzados](./cross-workspace-query.md) nos alertas de log é compatível com a nova [API scheduledQueryRules](/rest/api/monitor/scheduledqueryrules). Por padrão, o Azure Monitor usa a [API herdada de alertas do Log Analytics](../platform/api-alerts.md) para a criação de novas regras de alertas de log do portal do Azure, mas você pode mudar para a [API herdada de alertas de log](../platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api). Após a mudança, a nova API torna-se o padrão para novas regras de alerta no portal do Azure e permite criar regras de alertas de log de consulta de recursos cruzados. Você pode criar regras de alerta do log de [consultas entre recursos](./cross-workspace-query.md) sem fazer a alternância usando o [modelo ARM para a API scheduledQueryRules](../platform/alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template) – mas essa regra de alerta é gerenciável, embora a [api scheduledQueryRules](/rest/api/monitor/scheduledqueryrules) e não de portal do Azure.
+>As [consultas entre recursos](./cross-workspace-query.md) em alertas de log só têm suporte na [API scheduledQueryRules](/rest/api/monitor/scheduledqueryrules)atual. Se você estiver usando a API de alertas de Log Analytics herdados, será necessário [alternar para a API atual](../platform/alerts-log-api-switch.md). [Consulte modelos de exemplo](../platform/alerts-log-create-templates.md).
 
 ## <a name="application-insights-and-log-analytics-workspace-schema-differences"></a>Diferenças de esquema de espaço de trabalho do Application Insights e do Log Analytics
 A tabela a seguir mostra as diferenças de esquema entre o Log Analytics e o Application Insights.  
@@ -70,7 +70,7 @@ A tabela a seguir mostra as diferenças de esquema entre o Log Analytics e o App
 | ApplicationTypeVersion | application_Version |
 | AvailabilityCount | itemCount |
 | AvailabilityDuration | duration |
-| AvailabilityMessage | message |
+| AvailabilityMessage | mensagem |
 | AvailabilityRunLocation | local |
 | AvailabilityTestId | id |
 | AvailabilityTestName | name |
@@ -87,7 +87,7 @@ A tabela a seguir mostra as diferenças de esquema entre o Log Analytics e o App
 | DeviceType | client_Type | 
 | ExceptionCount | itemCount | 
 | ExceptionHandledAt | handledAt |
-| ExceptionMessage | message | 
+| ExceptionMessage | mensagem | 
 | ExceptionType | type |
 | OperationID | operation_id |
 | OperationName | operation_Name | 

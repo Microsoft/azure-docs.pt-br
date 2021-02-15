@@ -6,17 +6,17 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.openlocfilehash: 2149d069ce9cb0b636e461d19963f413b162bc9d
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 8e96c73578a9341f67d90cd4482ed75179c6886d
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88010813"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92537517"
 ---
 # <a name="azure-cache-for-redis-monitoring-and-troubleshooting-faqs"></a>Perguntas frequentes sobre monitoramento e solução de problemas de cache do Azure para Redis
 Este artigo fornece respostas a perguntas comuns sobre como monitorar e solucionar problemas do cache do Azure para Redis.
 
-## <a name="common-questions-and-answers"></a>Perguntas e respostas comuns
+## <a name="common-questions-and-answers"></a>Perguntas comuns e respostas
 Esta seção aborda as seguintes perguntas frequentes:
 
 * [Como monitorar a integridade e o desempenho do meu cache?](#how-do-i-monitor-the-health-and-performance-of-my-cache)
@@ -29,7 +29,7 @@ As instâncias do Cache do Microsoft Azure para Redis podem ser monitoradas no [
 O **menu Recursos** do Cache do Azure para Redis também contém várias ferramentas para monitorar e solucionar problemas em seus caches.
 
 * **Diagnosticar e solucionar problemas** fornece informações sobre problemas comuns e estratégias para resolvê-los.
-* **Resource Health** observa seu recurso e informa se ele está sendo executado conforme o esperado. Para saber mais sobre o serviço Azure Resource Health, confira [Visão geral do Azure Resource Health](../resource-health/resource-health-overview.md).
+* **Resource Health** observa seu recurso e informa se ele está sendo executado conforme o esperado. Para saber mais sobre o serviço Azure Resource Health, confira [Visão geral do Azure Resource Health](../service-health/resource-health-overview.md).
 * **Nova solicitação de suporte** fornece opções para abrir uma solicitação de suporte para seu cache.
 
 Essas ferramentas permitem monitorar a integridade de suas instâncias do Cache do Azure para Redis e ajudá-lo a gerenciar seus aplicativos de cache. Para obter mais informações, consulte a seção “Configurações de solução de problemas e suporte” em [Como configurar o Cache do Azure para Redis](cache-configure.md).

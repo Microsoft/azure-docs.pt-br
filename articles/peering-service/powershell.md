@@ -8,18 +8,18 @@ ms.topic: tutorial
 ms.date: 05/18/2020
 ms.author: derekol
 Customer intent: Customer wants to measure their connection telemetry per prefix to Microsoft services with Azure Peering Service .
-ms.openlocfilehash: 163f93ab93890f27eb2a9b18cc23804595fcb822
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: a12bfa042c8741814cedc70f1dcb67dedbfd331e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84870613"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91400427"
 ---
 # <a name="tutorial-register-a-peering-service-connection-using-azure-powershell"></a>Tutorial: Registrar uma conexão do Serviço de Emparelhamento usando o Azure PowerShell
 
 Neste tutorial, você aprenderá a registrar o Serviço de Emparelhamento usando o Azure PowerShell.
 
-O Serviço de Emparelhamento do Azure é um serviço de rede que aprimora a conectividade do cliente com os serviços em nuvem da Microsoft, como o Office 365, o Dynamics 365, os serviços de SaaS (software como serviço), o Azure ou qualquer serviço da Microsoft acessível por meio da Internet pública. Neste artigo, você aprenderá a registrar uma conexão do Serviço de Emparelhamento usando o Azure PowerShell.
+O Serviço de Emparelhamento do Azure é um serviço de rede que aprimora a conectividade do cliente com os serviços em nuvem da Microsoft, como o Microsoft 365, o Dynamics 365, os serviços de SaaS (software como serviço), o Azure ou qualquer serviço da Microsoft acessível por meio da Internet pública. Neste artigo, você aprenderá a registrar uma conexão do Serviço de Emparelhamento usando o Azure PowerShell.
 
 Caso não tenha uma assinatura do Azure, crie uma [conta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) agora.
 

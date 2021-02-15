@@ -1,15 +1,17 @@
 ---
 title: Crie um recurso do Personalizador
-description: A configuração do serviço inclui como o serviço trata as recompensas, com que frequência o serviço faz explorações, com que frequência o modelo é treinado novamente e quantos dados são armazenados.
+description: Neste artigo, saiba como criar um recurso personalizado no portal do Azure para cada loop de comentários.
+ms.service: cognitive-services
+ms.subservice: personalizer
 ms.topic: how-to
 ms.date: 03/26/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 2ebd5496eb45ed007f47cd34761800f8b54e5a5a
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 0c75d917f1abe72af2f4aa56b0f67dbb7bcd24a1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501245"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91303549"
 ---
 # <a name="create-a-personalizer-resource"></a>Criar um recurso personalizado
 
@@ -18,7 +20,7 @@ Um recurso personalizado é a mesma coisa que um loop de aprendizagem personaliz
 Se você quiser que o personalizador selecione o melhor conteúdo para mais de uma área de conteúdo de uma página da Web, use um loop de aprendizagem diferente para cada.
 
 
-## <a name="create-a-resource-in-the-azure-portal"></a>Criar um recurso no portal do Azure
+## <a name="create-a-resource-in-the-azure-portal"></a>Crie um recurso no portal do Azure
 
 Crie um recurso do Personalizador para cada loop de comentários.
 

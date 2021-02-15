@@ -9,12 +9,12 @@ ms.date: 04/08/2019
 ms.author: tamram
 ms.subservice: tables
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b200782d10ae3637fcade63feab1e638d40acddb
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 2eb109078728b8a9070b3991733450c1da790d9e
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89006339"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879588"
 ---
 # <a name="table-design-patterns"></a>Padrões de design de tabela
 Este artigo descreve alguns padrões adequados para uso com soluções de serviço Tabela. Além disso, você verá como abordar praticamente alguns dos problemas e compensações discutidos em outros artigos de design de armazenamento de Tabela. O diagrama a seguir resume as relações entre os diferentes padrões:  
@@ -22,7 +22,7 @@ Este artigo descreve alguns padrões adequados para uso com soluções de servi�
 ![para pesquisar dados relacionados](media/storage-table-design-guide/storage-table-design-IMAGE05.png)
 
 
-O mapa padrão acima destaca algumas relações entre padrões (azul) e antipadrões (laranja) documentados neste guia. Há muitos outros padrões que vale a pena considerar. Por exemplo, um dos principais cenários para o serviço Tabela é utilizar o [Padrão de Exibição Materializada](https://msdn.microsoft.com/library/azure/dn589782.aspx) do padrão [CQRS (Segregação de Responsabilidade da Consulta de Comando)](https://msdn.microsoft.com/library/azure/jj554200.aspx).  
+O mapa padrão acima destaca algumas relações entre padrões (azul) e antipadrões (laranja) documentados neste guia. Há muitos outros padrões que vale a pena considerar. Por exemplo, um dos principais cenários para o serviço Tabela é utilizar o [Padrão de Exibição Materializada](/previous-versions/msp-n-p/dn589782(v=pandp.10)) do padrão [CQRS (Segregação de Responsabilidade da Consulta de Comando)](/previous-versions/msp-n-p/jj554200(v=pandp.10)).  
 
 ## <a name="intra-partition-secondary-index-pattern"></a>Padrão de índice secundário intrapartição
 Armazene várias cópias de cada entidade usando valores diferentes de **RowKey** (na mesma partição) para permitir pesquisas rápidas e eficientes, bem como ordens de classificação alternativas usando valores diferentes de **RowKey**. Atualizações entre as cópias podem ser mantidas consistentes usando EGTs.  
@@ -49,7 +49,7 @@ Ao consultar um intervalo de entidades de funcionário, você poderá, usando um
 * Para localizar todos os funcionários do departamento de vendas com uma ID de funcionário no intervalo 000100 a 000199, use: $filter=(PartitionKey eq 'Sales') e (RowKey ge 'empid_000100') e (RowKey le 'empid_000199')  
 * Para localizar todos os funcionários do departamento de Vendas com um endereço de email que começa com a letra 'a', use: $filter=(PartitionKey eq 'Sales') and (RowKey ge 'email_a') and (RowKey lt 'email_b')  
   
-  A sintaxe de filtro usada nos exemplos acima é proveniente da API REST do serviço Tabela. Para saber mais, confira [Consultar Entidades](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
+  A sintaxe de filtro usada nos exemplos acima é proveniente da API REST do serviço Tabela. Para saber mais, confira [Consultar Entidades](/rest/api/storageservices/Query-Entities).  
 
 ### <a name="issues-and-considerations"></a>Problemas e considerações
 Considere os seguintes pontos ao decidir como implementar esse padrão:  
@@ -105,7 +105,7 @@ Ao consultar um intervalo de entidades de funcionário, você poderá, usando um
 * Para localizar todos os funcionários do departamento de vendas com uma ID de funcionário no intervalo de **000100** a **000199** classificados em uso de ordem de ID de funcionário: $Filter = (PartitionKey EQ ' empid_Sales ') e (RowKey ge ' 000100 ') e (RowKey Le ' 000199 ')  
 * Para localizar todos os funcionários do departamento de vendas com um endereço de email que comece com 'a', classificados por ordem de endereço de email, use: $filter=(PartitionKey eq 'email_Sales') and (RowKey ge 'a') and (RowKey lt 'b')  
 
-A sintaxe de filtro usada nos exemplos acima é proveniente da API REST do serviço Tabela. Para saber mais, confira [Consultar Entidades](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
+A sintaxe de filtro usada nos exemplos acima é proveniente da API REST do serviço Tabela. Para saber mais, confira [Consultar Entidades](/rest/api/storageservices/Query-Entities).  
 
 ### <a name="issues-and-considerations"></a>Problemas e considerações
 Considere os seguintes pontos ao decidir como implementar esse padrão:  
@@ -156,7 +156,7 @@ Neste exemplo, a etapa 4 insere o funcionário na tabela **Arquivo morto** . Ele
 ### <a name="recovering-from-failures"></a>Recuperando de falhas
 Caso a função de trabalho precise reiniciar a operação de arquivamento, é importante que as operações nas etapas **4** e **5** sejam *idempotentes*. Se estiver usando o serviço Tabela, na etapa **4**, você deverá usar uma operação "inserir ou substituir"; na etapa **5**, você deverá usar uma operação "excluir se existir" na biblioteca de cliente que está usando. Se você estiver usando outro sistema de armazenamento, deve usar uma operação idempotente apropriada.  
 
-Se a função de trabalho nunca concluir a etapa **6**, após um tempo limite a mensagem reaparecerá na fila, pronta para ser reprocessada pela função de trabalho. A função de trabalho pode verificar quantas vezes uma mensagem na fila foi lida e, se necessário, sinalizá-la como uma mensagem "suspeita" para investigação, enviando-a para uma fila separada. Para obter mais informações sobre como ler mensagens da fila e verificar a contagem da remoção da fila, consulte [obter mensagens](https://msdn.microsoft.com/library/azure/dd179474.aspx).  
+Se a função de trabalho nunca concluir a etapa **6**, após um tempo limite a mensagem reaparecerá na fila, pronta para ser reprocessada pela função de trabalho. A função de trabalho pode verificar quantas vezes uma mensagem na fila foi lida e, se necessário, sinalizá-la como uma mensagem "suspeita" para investigação, enviando-a para uma fila separada. Para obter mais informações sobre como ler mensagens da fila e verificar a contagem da remoção da fila, consulte [obter mensagens](/rest/api/storageservices/Get-Messages).  
 
 Alguns erros dos serviços Tabela e Fila são erros transitórios e o aplicativo cliente deve incluir uma lógica de repetição adequada para lidar com eles.  
 
@@ -294,7 +294,7 @@ Em um banco de dados relacional, é neutro usar junções em consultas para reto
 
 Suponhamos que você esteja armazenando entidades de funcionário no serviço Tabela usando a seguinte estrutura:  
 
-![Estrutura de entidade de funcionário](media/storage-table-design-guide/storage-table-design-IMAGE18.png)
+![Captura de tela que mostra como você pode armazenar entidades de funcionário no serviço tabela.](media/storage-table-design-guide/storage-table-design-IMAGE18.png)
 
 Você também precisa armazenar dados históricos relacionados a revisões e desempenho de cada ano que o funcionário trabalhou para a sua organização e precisa ser capaz de acessar essas informações por ano. Uma opção é criar outra tabela que armazena entidades com a seguinte estrutura:  
 
@@ -634,7 +634,7 @@ Uma consulta ideal retorna uma entidade individual com base em um valor de **Par
 
 Você deve sempre testar totalmente o desempenho do seu aplicativo nesses cenários.  
 
-Uma consulta no serviço Tabela pode retornar um máximo de 1.000 entidades de uma só vez e ser executada por um máximo de cinco segundos. Se o conjunto de resultados contiver mais de 1.000 entidades, se a consulta não for concluída em até cinco segundos, ou se a consulta ultrapassar o limite da partição, o serviço Tabela retornará um token de continuação para habilitar o aplicativo cliente a solicitar o próximo conjunto de entidades. Para obter mais informações sobre como os tokens de continuação funcionam, consulte [tempo limite de consulta e paginação](https://msdn.microsoft.com/library/azure/dd135718.aspx).  
+Uma consulta no serviço Tabela pode retornar um máximo de 1.000 entidades de uma só vez e ser executada por um máximo de cinco segundos. Se o conjunto de resultados contiver mais de 1.000 entidades, se a consulta não for concluída em até cinco segundos, ou se a consulta ultrapassar o limite da partição, o serviço Tabela retornará um token de continuação para habilitar o aplicativo cliente a solicitar o próximo conjunto de entidades. Para obter mais informações sobre como os tokens de continuação funcionam, consulte [tempo limite de consulta e paginação](/rest/api/storageservices/Query-Timeout-and-Pagination).  
 
 Se você estiver usando a Biblioteca de Cliente de Armazenamento, ela pode automaticamente controlar os tokens de continuação para você, à medida que retorna entidades do serviço Tabela. O seguinte exemplo de código C# usando a Biblioteca de cliente de armazenamento trata automaticamente os tokens de continuação, se o serviço Tabela retorná-los em uma resposta:  
 
@@ -711,7 +711,7 @@ Exceções geradas quando a Biblioteca de Cliente de Armazenamento executa uma E
 Você também deve considerar como seu design afeta a forma de tratamento, por parte do cliente, das operações de simultaneidade e atualização.  
 
 ### <a name="managing-concurrency"></a>Gerenciando simultaneidade
-Por padrão, o serviço Tabela implementa verificações de simultaneidade otimista no nível de entidades individuais para as operações **Inserir**, **Mesclar** e **Excluir**, embora um cliente possa forçar o serviço Tabela a ignorar essas verificações. Para obter mais informações sobre como o serviço Tabela gerencia a simultaneidade, confira [Gerenciando a simultaneidade no Armazenamento do Microsoft Azure](../../storage/common/storage-concurrency.md).  
+Por padrão, o serviço Tabela implementa verificações de simultaneidade otimista no nível de entidades individuais para as operações **Inserir**, **Mesclar** e **Excluir**, embora um cliente possa forçar o serviço Tabela a ignorar essas verificações. Para obter mais informações sobre como o serviço Tabela gerencia a simultaneidade, confira [Gerenciando a simultaneidade no Armazenamento do Microsoft Azure](../blobs/concurrency-manage.md).  
 
 ### <a name="merge-or-replace"></a>Mesclar ou substituir
 O método **Replace** da classe **TableOperation** sempre substitui a entidade completa no serviço Tabela. Se você não incluir uma propriedade na solicitação quando essa propriedade existe na entidade armazenada, a solicitação removerá a propriedade da entidade armazenada. A menos que você queira remover uma propriedade explicitamente de uma entidade armazenada, você deve incluir todas as propriedades na solicitação.  

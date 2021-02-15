@@ -3,7 +3,7 @@ title: 'Proxy de Aplicativo do AD do Azure: histórico de lançamento de versão
 description: Este artigo lista todas as versões do Azure Proxy de Aplicativo do AD e descreve os novos recursos e problemas corrigidos
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.topic: reference
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/22/2020
 ms.subservice: app-mgmt
 ms.author: kenwith
-ms.openlocfilehash: 3f6b1bb189390f6ddd02e9ea2d636dcaa66a4f19
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: a4b029a1397a2522dfaa6eba9c0206dd5a031875
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88210863"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258126"
 ---
 # <a name="azure-ad-application-proxy-version-release-history"></a>Proxy de Aplicativo do AD do Azure: histórico de lançamento de versão
 Este artigo lista as versões e os recursos do proxy de aplicativo Azure Active Directory (AD do Azure) que foram lançados. A equipe do Azure AD atualiza regularmente o proxy de aplicativo com novos recursos e funcionalidades. Os conectores de proxy de aplicativo são atualizados automaticamente quando uma nova versão é liberada. 
@@ -38,7 +38,7 @@ Download do conector do Azure Proxy de Aplicativo do AD |  [Baixe o conector mai
 22 de julho de 2020: liberado para download esta versão só está disponível para instalação por meio da página de download. Um lançamento de atualização automática desta versão será lançado posteriormente.
 
 ### <a name="new-features-and-improvements"></a>Novos recursos e aprimoramentos
--   Suporte aprimorado para ambientes de nuvem do Azure governamental. Para obter as etapas sobre como instalar corretamente o conector para a nuvem do Azure governamental, examine os [pré-requisitos](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud#allow-access-to-urls) e [as etapas de instalação](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud#install-the-agent-for-the-azure-government-cloud).
+-   Suporte aprimorado para ambientes de nuvem do Azure governamental. Para obter as etapas sobre como instalar corretamente o conector para a nuvem do Azure governamental, examine os [pré-requisitos](../hybrid/reference-connect-government-cloud.md#allow-access-to-urls) e [as etapas de instalação](../hybrid/reference-connect-government-cloud.md#install-the-agent-for-the-azure-government-cloud).
 - Suporte para usar o cliente Web Serviços de Área de Trabalho Remota com o proxy de aplicativo. Consulte [publicar área de trabalho remota com o proxy de aplicativo do AD do Azure](application-proxy-integrate-with-remote-desktop-services.md) para obter mais detalhes.
 - Negociações de extensão de WebSocket aprimoradas. 
 
@@ -83,7 +83,7 @@ Download do conector do Azure Proxy de Aplicativo do AD |  [Baixe o conector mai
 - Adicionado suporte WebSocket para o aplicativo QlikSense. Para saber mais sobre como integrar o QlikSense com o proxy de aplicativo, consulte este [passo a passos](application-proxy-qlik.md). 
 - Assistente de instalação aprimorado para facilitar a configuração de um proxy de saída. 
 - Defina o TLS 1,2 como o protocolo padrão para conectores. 
-- Um novo EULA (contrato de licença de usuário final) foi adicionado.  
+- Um novo contrato de licença do End-User (EULA) foi adicionado.  
 
 ### <a name="fixed-issues"></a>Problemas corrigidos
 

@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 06/17/2020
+ms.date: 12/23/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: def74cccb3ad2c45a18210cc9d5a0d7ff0ba76f6
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: 426e28048ae370919529ea710717a3a3867d999d
+ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783681"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97746245"
 ---
 # <a name="use-azure-ad-access-reviews-to-manage-users-excluded-from-conditional-access-policies"></a>Usar revisões de acesso do Azure AD para gerenciar usuários excluídos das políticas de Acesso Condicional
 
@@ -38,7 +38,7 @@ Em outro exemplo, você pode usar [localizações nomeadas](../conditional-acces
 
 ![Localizações nomeadas no Acesso Condicional](./media/conditional-access-exclusion/named-locations.png)
 
-Alguns usuários ainda podem ter um motivo válido para entrar nesses países/regiões bloqueados. Por exemplo, os usuários podem estar viajando a trabalho e precisam acessar recursos corporativos. Nesse caso, a política de Acesso Condicional para bloquear esses países/essas regiões poderia usar um grupo de segurança de nuvem para os usuários excluídos da política. Usuários que precisam de acesso quando estão viajando podem adicionar a si mesmos ao grupo usando o [Gerenciamento de Grupos de Autoatendimento do Azure AD](../users-groups-roles/groups-self-service-management.md).
+Alguns usuários ainda podem ter um motivo válido para entrar nesses países/regiões bloqueados. Por exemplo, os usuários podem estar viajando a trabalho e precisam acessar recursos corporativos. Nesse caso, a política de Acesso Condicional para bloquear esses países/essas regiões poderia usar um grupo de segurança de nuvem para os usuários excluídos da política. Usuários que precisam de acesso quando estão viajando podem adicionar a si mesmos ao grupo usando o [Gerenciamento de Grupos de Autoatendimento do Azure AD](../enterprise-users/groups-self-service-management.md).
 
 Outro exemplo pode ser quando você tem uma política de Acesso Condicional que [bloqueia a autenticação herdada para a maioria dos usuários](https://cloudblogs.microsoft.com/enterprisemobility/2018/06/07/azure-ad-conditional-access-support-for-blocking-legacy-auth-is-in-public-preview/). No entanto, se houver alguns usuários que precisem usar métodos de autenticação herdados para acessar recursos por meio do Office 2010 ou de clientes baseados em SMTP/IMAP/POP, você poderá excluir esses usuários da política que bloqueia métodos de autenticação herdados.
 

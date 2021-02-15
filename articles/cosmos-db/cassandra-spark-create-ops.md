@@ -8,14 +8,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 09/24/2018
-ms.openlocfilehash: 56899b7d81f17e678026b1aad7f3e2d9f8b9b0b0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3ec44d20b763a98683d9b947c94ad6be75180113
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85260509"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93092229"
 ---
 # <a name="createinsert-data-into-azure-cosmos-db-cassandra-api-from-spark"></a>Criar/inserir dados na API do Cassandra do Azure Cosmos DB do Spark
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
  
 Este artigo descreve como inserir dados de exemplo em uma tabela na API do Cassandra do Azure Cosmos DB do Spark.
 
@@ -140,7 +141,7 @@ Depois de inserir dados na tabela da API do Cassandra do Azure Cosmos DB, prossi
  
 * [Operações de leitura](cassandra-spark-read-ops.md)
 * [Operações de Upsert](cassandra-spark-upsert-ops.md)
-* [Excluir operações](cassandra-spark-delete-ops.md)
+* [Operações de exclusão](cassandra-spark-delete-ops.md)
 * [Operações de agregação](cassandra-spark-aggregation-ops.md)
 * [Operações de cópia de tabela](cassandra-spark-table-copy-ops.md)
 

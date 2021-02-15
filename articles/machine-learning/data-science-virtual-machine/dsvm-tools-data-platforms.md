@@ -4,18 +4,17 @@ titleSuffix: Azure Data Science Virtual Machine
 description: Saiba mais sobre as plataformas de dados e as ferramentas com suporte para o Máquina Virtual de Ciência de Dados do Azure.
 keywords: ferramentas de ciência de dados, máquina virtual de ciência de dados, ferramentas para ciência de dados, ciência de dados do linux
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: data-science-vm
+ms.service: data-science-vm
 author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: 3e1cfa13a3fd568ab2f1253c015880c57f99ce7e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 927e945a0d045abcd1caa2951dbd484224b2f425
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87012478"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100519534"
 ---
 # <a name="data-platforms-supported-on-the-data-science-virtual-machine"></a>Plataformas de dados compatíveis com a Máquina Virtual de Ciência de Dados
 
@@ -31,7 +30,7 @@ As ferramentas de plataforma de dados a seguir têm suporte no DSVM.
 | Edições DSVM com suporte      | Windows 2016: SQL Server 2017, Windows 2019: SQL Server 2019      |
 | Usos típicos      | <ul><li>Desenvolvimento rápido localmente com o menor conjunto de dados</li><li>Executar R no banco de dados</li></ul> |
 | Links para exemplos      | <ul><li>Um pequeno exemplo de um conjunto de dados de cidade de Nova York é carregado no SQL Database:<br/>  `nyctaxi`</li><li>O exemplo de Jupyter mostrando Microsoft Machine Learning Server e análise no banco de dados pode ser encontrado em:<br/> `~notebooks/SQL_R_Services_End_to_End_Tutorial.ipynb`</li></ul> |
-| Ferramentas relacionadas no DSVM       | <ul><li>SQL Server Management Studio</li><li>Drivers ODBC/JDBC</li><li>pyodbc, RODBC</li><li>Análise do Apache</li></ul> |
+| Ferramentas relacionadas no DSVM       | <ul><li>O SQL Server Management Studio</li><li>Drivers ODBC/JDBC</li><li>pyodbc, RODBC</li><li>Análise do Apache</li></ul> |
 
 > [!NOTE]
 > A edição SQL Server Developer pode ser usada somente para fins de desenvolvimento e teste. Você precisa de uma licença ou de uma das VMs do SQL Server para executá-lo em produção.
@@ -53,7 +52,7 @@ Para executar SQL Server Management Studio, você pode pesquisar por "SQL Server
 
 Por padrão, o servidor de banco de dados com a instância de banco de dados padrão é executado automaticamente. Você pode usar ferramentas como o SQL Server Management Studio na VM para acessar o banco de dados do SQL Server localmente. As contas de administrador local têm acesso de administrador no banco de dados.
 
-Além disso, o DSVM vem com drivers ODBC e JDBC para se comunicar com SQL Server, bancos de dados SQL do Azure e SQL Data Warehouse do Azure de aplicativos escritos em várias linguagens, incluindo Python e Machine Learning Server.
+Além disso, o DSVM vem com os drivers ODBC e JDBC para se comunicar com SQL Server, bancos de dados SQL do Azure e análise de Synapse do Azure de aplicativos escritos em várias linguagens, incluindo Python e Machine Learning Server.
 
 ### <a name="how-is-it-configured-and-installed-on-the-dsvm"></a>Como ele é configurado e instalado no DSVM? 
 
@@ -103,5 +102,4 @@ As bibliotecas para acessar dados do armazenamento de BLOBs do Azure ou Azure Da
 
 Para que a instância do Spark no DSVM acesse dados armazenados no armazenamento de BLOBs ou Azure Data Lake Storage, você deve criar e configurar o `core-site.xml` arquivo com base no modelo encontrado em $SPARK _HOME/conf/core-site.xml. Template. Você também deve ter as credenciais apropriadas para acessar o armazenamento de BLOBs e Azure Data Lake Storage. (Observe que os arquivos de modelo usam espaços reservados para o armazenamento de BLOBs e configurações de Azure Data Lake Storage.)
 
-Para obter informações mais detalhadas sobre como criar Azure Data Lake Storage credenciais de serviço, consulte [autenticação com Azure data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-authenticate-using-active-directory). Depois que as credenciais para armazenamento de BLOB ou Azure Data Lake Storage são inseridas no arquivo core-site.xml, você pode fazer referência aos dados armazenados nessas fontes por meio do prefixo URI de wasb://ou adl://.
-
+Para obter informações mais detalhadas sobre como criar Azure Data Lake Storage credenciais de serviço, consulte [autenticação com Azure data Lake Storage Gen1](../../data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory.md). Depois que as credenciais para armazenamento de BLOB ou Azure Data Lake Storage são inseridas no arquivo core-site.xml, você pode fazer referência aos dados armazenados nessas fontes por meio do prefixo URI de wasb://ou adl://.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 08/24/2020
 ms.author: v-miegge
-ms.openlocfilehash: e55fa377f28572901202b4d722bea70786edae22
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: f286542c91ba473d13595d8e8299b1bbd8c93856
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88942045"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632598"
 ---
 # <a name="virtual-machine-is-unresponsive-while-applying-audit-policy-configuration-policy"></a>A máquina virtual não está respondendo ao aplicar a política de configuração de política de auditoria
 
@@ -27,7 +27,7 @@ Este artigo fornece etapas para resolver problemas em que a VM (máquina virtual
 
 ## <a name="symptom"></a>Sintoma
 
-Quando você usar o [diagnóstico de inicialização](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) para exibir a captura de tela da VM, verá que a captura de tela exibe que o sistema operacional (SO) foi suspenso durante uma inicialização com a mensagem **aplicando a política de configuração de política de auditoria**.
+Ao usar o [diagnóstico de inicialização](./boot-diagnostics.md) para exibir a captura de tela da VM, você verá que a captura de tela exibe que o sistema operacional (SO) não estava respondendo durante uma inicialização com a mensagem **aplicando a política de configuração de política de auditoria**.
 
   ![O sistema operacional Inicializando com a mensagem: "aplicando a política de configuração de política de auditoria"](./media/vm-unresponsive-applying-audit-configuration-policy/1.png)
 
@@ -46,6 +46,9 @@ Aqui está a política problemática: *Computer configuração templates \ Syste
 
 ### <a name="process-overview"></a>Visão geral do processo
 
+> [!TIP]
+> Se você tiver um backup recente da VM, poderá tentar [restaurar a VM do backup](../../backup/backup-azure-arm-restore-vms.md) para corrigir o problema de inicialização.
+
 1. Criar e acessar uma VM de reparo.
 1. Desabilitar a política.
 1. Habilitar o console serial e a coleção de despejo de memória.
@@ -54,7 +57,7 @@ Aqui está a política problemática: *Computer configuração templates \ Syste
 
 ### <a name="create-and-access-a-repair-vm"></a>Criar e acessar uma VM de reparo
 
-1. Use as etapas 1-3 dos [Comandos de reparo da VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) para preparar uma VM de reparo.
+1. Use as etapas 1-3 dos [Comandos de reparo da VM](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) para preparar uma VM de reparo.
 1. Use a conexão da área de trabalho remota para conectar-se à VM de reparo.
 
 ### <a name="disable-the-policy"></a>Desabilitar a política
@@ -106,7 +109,7 @@ Aqui está a política problemática: *Computer configuração templates \ Syste
 
       - No comando, substitua `<LETTER OF THE EFI SYSTEM PARTITION>` pela letra da partição do sistema EFI.
       - Pode ser útil iniciar o console de gerenciamento de disco para identificar a partição de sistema apropriada rotulada como **partição do sistema EFI**.
-      - O identificador pode ser um GUID exclusivo ou pode ser o **bootmgr**padrão.
+      - O identificador pode ser um GUID exclusivo ou pode ser o **bootmgr** padrão.
 
 1. Execute os seguintes comandos:
 
@@ -153,7 +156,7 @@ Aqui está a política problemática: *Computer configuração templates \ Syste
    
 ### <a name="rebuild-the-virtual-machine"></a>Recriar a máquina virtual
 
-1. Use a [etapa 5 dos comandos de Reparo da VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) para recompilar a VM.
+1. Use a [etapa 5 dos comandos de Reparo da VM](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) para recompilar a VM.
 
 1. Teste se sua VM é inicializada normalmente para ver se o problema corrigiu o problema.
 
@@ -175,11 +178,11 @@ Para resolver esse problema, você precisaria primeiro coletar o arquivo de desp
 
 #### <a name="attach-the-os-disk-to-a-new-repair-vm"></a>Anexar o disco do sistema operacional a uma nova VM de reparo
 
-1. Use as etapas 1-3 dos [comandos de reparo da VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) para preparar uma nova VM de reparo.
+1. Use as etapas 1-3 dos [comandos de reparo da VM](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) para preparar uma nova VM de reparo.
 1. Use a Conexão de Área de Trabalho Remota para conectar-se à VM de reparo.
 
 #### <a name="locate-the-dump-file-and-submit-a-support-ticket"></a>Localizar o arquivo de despejo e enviar um tíquete de suporte
 
 1. Na VM de reparo, vá para a pasta do Windows no disco do sistema operacional anexado. Se a letra do driver atribuída ao disco do sistema operacional anexado for rotulada como *F*, você precisará ir para `F:\Windows` .
 1. Localize o `memory.dmp` arquivo e, em seguida, [envie um tíquete de suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) com o arquivo de despejo de memória.
-1. Se você estiver tendo problemas para localizar o `memory.dmp` arquivo, use [chamadas de NMI (interrupção não mascarada) no console serial](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-windows#use-the-serial-console-for-nmi-calls) em vez disso. Siga o guia para [gerar um arquivo de despejo de memória usando chamadas NMI aqui](https://docs.microsoft.com/windows/client-management/generate-kernel-or-complete-crash-dump).
+1. Se você estiver tendo problemas para localizar o `memory.dmp` arquivo, use [chamadas de NMI (interrupção não mascarada) no console serial](./serial-console-windows.md#use-the-serial-console-for-nmi-calls) em vez disso. Siga o guia para [gerar um arquivo de despejo de memória usando chamadas NMI aqui](/windows/client-management/generate-kernel-or-complete-crash-dump).

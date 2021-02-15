@@ -13,17 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: 1ca1b8b453be433f7db428f3b256677b9945ce40
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 180965942285e99300c8aa054e638f2f0a2c0580
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87038895"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98695940"
 ---
-# <a name="azure-media-services-concepts"></a>Conceitos dos Serviços de Mídia do Azure 
+# <a name="azure-media-services-concepts"></a>Conceitos dos Serviços de Mídia do Azure
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
-> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](../latest/index.yml). Além disso, consulte s [diretrizes de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
+> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](../latest/index.yml). Além disso, consulte s [diretrizes de migração da v2 para a v3](../latest/migrate-v-2-v-3-migration-introduction.md)
 
 Este tópico fornece uma visão geral dos conceitos mais importantes dos Serviços de Mídia.
 
@@ -49,7 +51,7 @@ Você não deve tentar alterar o conteúdo de contêineres de blob que foram ger
 Dependendo do tipo de conteúdo que você deseja carregar, armazenar e fornecer, o Serviços de Mídia fornece várias opções de criptografia dentre as quais você pode escolher.
 
 >[!NOTE]
->Nenhuma criptografia é usada. Este é o valor padrão. Ao usar essa opção, seu conteúdo não é protegido quando está em trânsito ou em repouso no armazenamento.
+>Nenhuma criptografia é usada. Esse é o valor padrão. Ao usar essa opção, seu conteúdo não é protegido quando está em trânsito ou em repouso no armazenamento.
 
 Se você pretende enviar um MP4 usando o download progressivo, use essa opção para carregar seu conteúdo.
 
@@ -101,12 +103,11 @@ Os Serviços de Mídia fornecem empacotamento dinâmico, o que permite distribui
 
 Para aproveitar o [empacotamento dinâmico](media-services-dynamic-packaging-overview.md), você precisa codificar seu arquivo mezanino (fonte) em um conjunto de arquivos MP4 de taxa de bits adaptável ou arquivos Smooth Streaming de taxa de bits adaptável, além de ter pelo menos um ponto de extremidade de streaming Standard ou Premium no estado iniciado.
 
-Os Serviços de Mídia dão suporte aos seguintes codificadores sob demanda descritos neste artigo:
+Os serviços de mídia oferecem suporte ao seguinte codificador sob demanda que é descrito neste artigo:
 
 * [Media Encoder Standard](media-services-encode-asset.md#media-encoder-standard)
-* [Fluxo de trabalho do Media Encoder Premium](media-services-encode-asset.md#media-encoder-premium-workflow)
 
-Para saber mais sobre codificadores com suporte, consulte [Codificadores](media-services-encode-asset.md)
+Para obter informações sobre esse codificador com suporte, consulte [codificador](media-services-encode-asset.md).
 
 ## <a name="live-streaming"></a>Transmissão ao vivo
 Nos Serviços de Mídia do Azure, um Canal representa um pipeline para processamento de conteúdo de streaming ao vivo. Um Canal recebe transmissões de entrada ao vivo de uma das duas maneiras a seguir:
@@ -154,7 +155,7 @@ A política de autorização de chave de conteúdo pode ter uma ou mais restriç
 
 Ao configurar a política restrita do token, você deve especificar os parâmetros da chave de verificação primária, emissor e audiência. A chave de verificação primária contém a chave que o token foi assinado, o emissor é o serviço de token seguro que emite o token. A audiência (às vezes chamada de escopo) descreve a intenção do token ou o recurso que o token autoriza o acesso. O serviço de distribuição de chaves dos serviços de mídia valida que esses valores no token correspondem aos valores no modelo.
 
-Para obter mais informações, confira os seguintes artigos:
+Para obter mais informações, consulte os seguintes artigos:
 - [Proteger a visão geral do conteúdo](media-services-content-protection-overview.md)
 - [Proteger com AES-128](media-services-protect-with-aes128.md)
 - [Proteger com PlayReady/Widevine](media-services-protect-with-playready-widevine.md)

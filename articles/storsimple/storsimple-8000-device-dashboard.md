@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
-ms.openlocfilehash: ed624fd5fb86b95e0b79c1c7ed4de50749ec7046
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 34bbf4d723e46663efe77560245db74d9dea1fc4
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85512046"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017144"
 ---
 # <a name="use-the-device-summary-in-storsimple-device-manager-service"></a>Usar o resumo de dispositivo do serviço do Gerenciador de Dispositivos do StorSimple
 
@@ -81,12 +81,12 @@ A área de conceitos básicos captura algumas das propriedades importantes, como
      Nesse contexto, *armazenamento primário* refere-se à quantidade total de dados gravados pelo host e pode ser dividido por tipo de volume: o *armazenamento em camadas primário* inclui tanto dados armazenados localmente quanto dados em camadas na nuvem. O *armazenamento primário fixado localmente* inclui apenas os dados armazenados localmente. *Armazenamento em nuvem*, por outro lado, é uma medida da quantidade total de dados armazenados na nuvem. Esse armazenamento inclui dados em camadas e backups. Os dados armazenados na nuvem passam pela eliminação de duplicação e são compactados, enquanto o armazenamento primário indica a quantidade de armazenamento usada antes dos dados passarem pela eliminação de duplicação e serem compactados. (Você pode comparar esses dois números para ter uma ideia da taxa de compactação.) Para o armazenamento primário e na nuvem, os valores mostrados são baseados na frequência de rastreamento que você configura. Por exemplo, se você escolher a frequência de uma semana, o gráfico mostrará dados para cada dia da semana anterior.
 
      Para ver a quantidade de armazenamento em nuvem consumida ao longo do tempo, selecione a opção **ARMAZENAMENTO DE NUVEM USADO**. Para ver o armazenamento total gravado pelo host, selecione as opções **ARMAZENAMENTO PRIMÁRIO EM CAMADAS USADO** e **ARMAZENAMENTO PRIMÁRIO LOCALMENTE AFIXADO USADO**. 
-     Para obter mais informações, consulte [Usar o serviço do Gerenciador de Dispositivos do StorSimple para monitorar seu dispositivo StorSimple](storsimple-monitor-device.md).
+     Para obter mais informações, consulte [Usar o serviço do Gerenciador de Dispositivos do StorSimple para monitorar seu dispositivo StorSimple](./storsimple-8000-monitor-device.md).
 
 
 * O bloco **Capacidade** exibe o armazenamento primário provisionado e restante no dispositivo em relação ao armazenamento total disponível nele. **Provisionado** refere-se à quantidade de armazenamento que é preparada e alocada para uso, enquanto **Restante** refere-se à capacidade restante que pode ser provisionada nesse dispositivo. 
 
-    ![Bloco Uso](./media/storsimple-8000-device-dashboard/device-summary8.png)
+    ![Bloco de uso 2](./media/storsimple-8000-device-dashboard/device-summary8.png)
 
     Clique neste bloco para exibir como a capacidade é provisionada em volumes fixados localmente e em camadas. A capacidade **Restante em Camadas** é a capacidade disponível que pode ser provisionada, incluindo a nuvem, enquanto a capacidade **Restante Local** é a capacidade restante nos discos anexados a esse dispositivo.
 
@@ -96,4 +96,3 @@ A área de conceitos básicos captura algumas das propriedades importantes, como
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre a [folha de resumo do serviço do StorSimple](storsimple-8000-service-dashboard.md).
 * Saiba mais sobre como [usar o serviço Gerenciador de Dispositivos do StorSimple para administrar o dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
-

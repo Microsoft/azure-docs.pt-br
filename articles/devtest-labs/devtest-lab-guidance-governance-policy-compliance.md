@@ -4,12 +4,12 @@ description: Este artigo fornece diretrizes sobre governança da política da em
 ms.topic: article
 ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: fe370ec882fd0462bba6afdf11c718cf46618f0c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 89fe380c3a8e0e0a82cc806bf19f9a3454041d94
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85480925"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97592340"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---company-policy-and-compliance"></a>Governança da infraestrutura do Azure DevTest Labs – política da empresa e conformidade
 Este artigo fornece diretrizes sobre governança da política da empresa e a conformidade para a infraestrutura do Azure DevTest Labs. 
@@ -37,7 +37,7 @@ Como parte da estratégia de gerenciamento de configuração e de governança de
 - Associe o Azure Repos ao mesmo locatário do Azure Active Directory que a assinatura do Azure está usando para autenticação e autorização.
 - Crie um grupo centralmente gerenciado chamado **Todos os desenvolvedores do DevTest Labs** no Azure Active Directory. Qualquer desenvolvedor que contribui para o desenvolvimento de artefatos deve ser colocado nesse grupo.
 - O mesmo grupo do Azure Active Directory pode ser usado para fornecer acesso ao repositório do Azure Repos e ao laboratório.
-- No Azure Repos, a ramificação ou bifurcação deve ser usada para um repositório em desenvolvimento separado do repositório de produção primário. O conteúdo só é adicionado ao branch mestre com uma solicitação de pull após uma revisão de código apropriada. Depois que o revisor de código aprova a alteração, um desenvolvedor-chefe, que é responsável pela manutenção do branch mestre, mescla o código atualizado. 
+- No Azure Repos, a ramificação ou bifurcação deve ser usada para um repositório em desenvolvimento separado do repositório de produção primário. O conteúdo é adicionado somente ao Branch principal com uma solicitação pull após uma revisão de código adequada. Depois que o revisor de código aprovar a alteração, um desenvolvedor líder, responsável pela manutenção da ramificação principal, mesclará o código atualizado. 
 
 ## <a name="corporate-security-policies"></a>Políticas de segurança corporativa
 
@@ -50,7 +50,7 @@ Uma organização pode alcançar esse objetivo realizando as seguintes ações:
 1. Desenvolver e publicar uma política de segurança abrangente. A política articula as regras de uso aceitável associadas ao uso de software e de ativos de nuvem. Ele também define o que claramente viola a política. 
 2. Desenvolva uma imagem personalizada, artefatos personalizados e um processo de implantação que permite a orquestração no realm de segurança que é definido com o Active Directory. Essa abordagem impõe o limite corporativo e define um conjunto comum de controles ambientais. Esses controles determinam o ambiente que um desenvolvedor pode considerar conforme desenvolve e segue um ciclo de vida de desenvolvimento seguro como parte de seu processo geral. O objetivo é também fornecer um ambiente que não seja excessivamente restritivo a ponto de atrapalhar o desenvolvimento, mas sim um conjunto razoável de controles. As políticas de grupo na UO (unidade organizacional) que contém máquinas virtuais do laboratório pode ser um subconjunto das políticas de grupo totais que são encontrados na produção. Como alternativa, elas podem ser um conjunto adicional para mitigar adequadamente todos os riscos identificados.
 
-## <a name="data-integrity"></a>Integridade de dados
+## <a name="data-integrity"></a>Integridade dos dados
 
 ### <a name="question"></a>Pergunta
 Como uma organização pode assegurar a integridade de dados para garantir que os desenvolvedores de comunicação remota não possam remover o código ou introduzir malware ou software não aprovado?

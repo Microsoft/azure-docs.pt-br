@@ -6,11 +6,11 @@ manager: rochakm
 ms.topic: troubleshooting
 ms.date: 11/27/2018
 ms.openlocfilehash: c1915d108bf9465d3e5b8d6a55053b583ee4f580
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88184611"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009697"
 ---
 # <a name="troubleshoot-azure-vm-extension-issues"></a>Solucionar problemas de extensão de VM do Azure
 
@@ -45,7 +45,7 @@ Código de erro: "151099"
 
 Esse erro pode ocorrer se o agente convidado do Azure na máquina virtual não estiver no estado pronto.
 
-Você pode verificar o status do agente convidado do Azure na [portal do Azure](https://portal.azure.com/). Vá para a máquina virtual que você está tentando proteger e verifique o status em configurações da **VM**  >  **Settings**  >  **Properties**  >  **status do agente**de propriedades. Na maioria das vezes, o status do agente estará pronto após a reinicialização da máquina virtual. No entanto, se você não puder reinicializar ou ainda estiver enfrentando o problema, conclua as seguintes etapas de solução de problemas:
+Você pode verificar o status do agente convidado do Azure na [portal do Azure](https://portal.azure.com/). Vá para a máquina virtual que você está tentando proteger e verifique o status em configurações da **VM**  >  **Settings**  >  **Properties**  >  **status do agente** de propriedades. Na maioria das vezes, o status do agente estará pronto após a reinicialização da máquina virtual. No entanto, se você não puder reinicializar ou ainda estiver enfrentando o problema, conclua as seguintes etapas de solução de problemas:
 
 - [O agente é instalado na VM, mas não responde (para VMs do Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)
 - [O agente instalado na VM está desatualizado (para VMs Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)

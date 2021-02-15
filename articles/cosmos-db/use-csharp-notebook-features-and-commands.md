@@ -3,18 +3,20 @@ title: Usar comandos e recursos de notebook integrado nos notebooks C# do Azure 
 description: Saiba como usar comandos e recursos internos para realizar operações comuns usando os notebooks C# internos do Azure Cosmos DB.
 author: deborahc
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: dech
 ms.custom: devx-track-python, devx-track-csharp
-ms.openlocfilehash: 47ac6b4caf97b264df58732f8d031fc63091171e
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 67fe71d8e2d6ab239989cb30e9bf5a1b4d731037
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89019259"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340462"
 ---
 # <a name="use-built-in-notebook-commands-and-features-in-azure-cosmos-db-c-notebooks-preview"></a>Usar comandos e recursos de notebook integrado nos notebooks C# do Azure Cosmos DB (versão prévia)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Os notebooks Jupyter internos do Azure Cosmos DB permitem que você analise e visualize os dados do portal do Azure. Este artigo descreve como usar os recursos e comandos do notebook integrado para realizar operações comuns nos notebooks C#.
 
@@ -113,7 +115,7 @@ for (int i = 0; i < 5; i++) {
 ## <a name="use-built-in-nteract-data-explorer"></a>Usar o explorador de dados interno nteract
 Você pode usar o [explorador de dados interno nteract](https://blog.nteract.io/designing-the-nteract-data-explorer-f4476d53f897) para filtrar e visualizar uma coleção de itens. Em uma célula, coloque a variável que você deseja visualizar na última linha, que é exibida automaticamente em nteract ao executar a célula.
 
-No exemplo *GetingStarted_Csharp.ipynb*, podemos imprimir a variável com nosso resultado, o ``telemetryEvents``. Confira o [notebook GettingStarted_Csharp.ipynb](https://github.com/Azure-Samples/cosmos-notebooks/blob/master/CSharp_quickstarts/GettingStarted_CSharp.ipynb) para ver o exemplo inteiro. 
+No exemplo *GetingStarted_Csharp.ipynb* , podemos imprimir a variável com nosso resultado, o ``telemetryEvents``. Confira o [notebook GettingStarted_Csharp.ipynb](https://github.com/Azure-Samples/cosmos-notebooks/blob/master/CSharp_quickstarts/GettingStarted_CSharp.ipynb) para ver o exemplo inteiro. 
 
 :::image type="content" source="media/use-notebook-features-and-commands/csharp-query-cell.png" alt-text="Célula de consulta do Csharp":::
 

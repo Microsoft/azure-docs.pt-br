@@ -1,24 +1,26 @@
 ---
-title: 'Início Rápido: Usar a biblioteca de clientes de Leitura Avançada'
+title: 'Início Rápido: Biblioteca de clientes de Leitura Avançada'
 titleSuffix: Azure Cognitive Services
-description: A API de Leitura Avançada oferece bibliotecas de clientes que facilitam a integração de funcionalidades de pesquisa aos seus aplicativos. Use este início rápido para começar a enviar solicitações de pesquisa e obter resultados.
+description: A biblioteca de clientes de Leitura Avançada facilita a integração do serviço Leitura Avançada aos seus aplicativos Web para aprimorar a compreensão da leitura. Neste guia de início rápido, você aprenderá a usar a Leitura Avançada para seleção de texto, reconhecimento de partes de fala, leitura do texto selecionado em voz alta, tradução e muito mais.
 services: cognitive-services
-author: pasta
+author: nitinme
 manager: nitinme
 zone_pivot_groups: programming-languages-set-twenty
 ms.service: cognitive-services
 ms.subservice: immersive-reader
 ms.topic: quickstart
-ms.date: 05/20/2020
-ms.author: pasta
-ms.openlocfilehash: da90c60319aff7fea239c107bb8677950ca57125
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.date: 09/14/2020
+ms.author: nitinme
+ms.custom: cog-serv-seo-aug-2020
+keywords: imagens de exibição, partes de fala, leitura de texto selecionado, tradução de palavras, compreensão da leitura
+ms.openlocfilehash: 621be6293b4ac487cafafc14498524c97fdc6d82
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86038099"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "90978332"
 ---
-# <a name="quickstart-use-the-immersive-reader-client-library"></a>Início Rápido: Usar a biblioteca de clientes de Leitura Avançada
+# <a name="quickstart-get-started-with-immersive-reader"></a>Início Rápido: Introdução à Leitura Avançada
 
 ::: zone pivot="programming-language-csharp"
 

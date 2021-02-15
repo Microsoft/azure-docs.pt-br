@@ -4,12 +4,12 @@ description: Fornece um resumo de configurações compatíveis e limitações do
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.custom: references_regions
-ms.openlocfilehash: 9b0698b16d3432c1bfefd3cf909cdfdf5529200e
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 9e20c21694678acf7be13ccbbe9cce9af38c32c5
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892177"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98915702"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matriz de suporte Backup do Azure
 
@@ -25,7 +25,7 @@ Outras matrizes de suporte estão disponíveis:
 
 ## <a name="vault-support"></a>Suporte de cofre
 
-O Backup do Azure usa cofres dos Serviços de Recuperação para orquestrar e gerenciar backups. Ele também usa cofres para armazenar dados de backup.
+O backup do Azure usa cofres dos serviços de recuperação para orquestrar e gerenciar backups para os seguintes tipos de carga de trabalho – VMs do Azure, SQL em VMs do Azure, SAP HANA em VMs do Azure, compartilhamentos de arquivos do Azure e cargas de trabalho locais usando o agente de backup do Azure, Servidor de Backup do Azure e System Center DPM. Ele também usa cofres dos serviços de recuperação para armazenar dados de backup para essas cargas de trabalho.
 
 A tabela a seguir descreve os recursos dos cofres de Serviços de Recuperação:
 
@@ -39,6 +39,7 @@ A tabela a seguir descreve os recursos dos cofres de Serviços de Recuperação:
 **Movimentação de cofres** | Você pode [mover cofres](./backup-azure-move-recovery-services-vault.md) entre assinaturas ou entre grupos de recursos na mesma assinatura. No entanto, não há suporte para a movimentação de cofres entre regiões.
 **Mover dados entre cofres** | Não há suporte para a movimentação de dados de backup entre cofres.
 **Modificar o tipo de armazenamento do cofre** | Você pode modificar o tipo de replicação de armazenamento (armazenamento com redundância geográfica ou armazenamento com redundância local) para um cofre antes que os backups sejam armazenados. Após o início dos backups no cofre, o tipo de replicação não poderá ser modificado.
+**ZRS (armazenamento com redundância de zona)** | Disponível nas regiões Sul do Reino Unido (UKS) e Sul Ásia Oriental (SEA).
 
 ## <a name="on-premises-backup-support"></a>Suporte de backup local
 
@@ -66,7 +67,7 @@ Veja a seguir os itens compatíveis, caso deseje fazer backup de VMs do Azure:
 
 **Computador** | **O que é armazenado em backup** | **Localidade** | **Recursos**
 --- | --- | --- | ---
-**Backup de VM do Azure usando a extensão de VM** | Toda a VM | Fazer backup para o cofre. | Extensão instalada quando você habilita o backup de uma VM.<br/><br/> Backup uma vez por dia.<br/><br/> Backup com reconhecimento de aplicativo para VMs do Windows; backup consistente com arquivo para VMs do Linux. Configure a consistência com aplicativo para computadores Linux usando scripts personalizados.<br/><br/> Restaure a VM ou disco.<br/><br/> Não é possível fazer backup de uma VM do Azure em uma localização local.
+**Backup de VM do Azure usando a extensão de VM** | Toda a VM | Fazer backup para o cofre. | Extensão instalada quando você habilita o backup de uma VM.<br/><br/> Backup uma vez por dia.<br/><br/> Backup com reconhecimento de aplicativo para VMs do Windows; backup consistente com arquivo para VMs do Linux. Configure a consistência com aplicativo para computadores Linux usando scripts personalizados.<br/><br/> Restaure a VM ou disco.<br/><br/>Há suporte para [backup e restauração de Active Directory controladores de domínio](active-directory-backup-restore.md) .<br><br> Não é possível fazer backup de uma VM do Azure em uma localização local.
 **Backup de VM do Azure usando o agente MARS** | Arquivos, pastas, estado do sistema | Fazer backup para o cofre. | Backup três vezes por dia.<br/><br/> O agente MARS poderá ser executado juntamente com a extensão de VM se você quiser fazer backup de arquivos/pastas específicos em vez de toda a VM.
 **VM do Azure com o DPM** | Arquivos, pastas, volumes, estado do sistema e dados de aplicativo | Fazer backup em armazenamento local da VM do Azure que está executando o DPM. Em seguida, o DPM faz backup no cofre. | Instantâneos com reconhecimento de aplicativo.<br/><br/> Granularidade completa de backup e recuperação.<br/><br/> Com suporte do Linux para VMs (Hyper-V/VMware).<br/><br/> Sem suporte para o Oracle.
 **VM do Azure com o MABS** | Arquivos, pastas, volumes, estado do sistema e dados de aplicativo | Fazer backup em armazenamento local da VM do Azure que está executando o MABS. Em seguida, o MABS faz backup no cofre. | Instantâneos com reconhecimento de aplicativo.<br/><br/> Granularidade completa de backup e recuperação.<br/><br/> Com suporte do Linux para VMs (Hyper-V/VMware).<br/><br/> Sem suporte para o Oracle.
@@ -149,10 +150,10 @@ O backup do Azure adicionou o recurso de restauração entre regiões para refor
 
 | Tipo de Gerenciamento de Backup | Com suporte                                                    | Regiões com Suporte |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |
-| VM do Azure               | Sim.   Suporte para VMs criptografadas e VMs com menos de 4 TB de disco | Todas as regiões públicas do Azure.  |
-| Agente do MARS/Local | Não                                                           | N/D               |
-| SQL/SAP HANA          | Não                                                           | N/D               |
-| AFS                    | Não                                                           | N/D               |
+| VM do Azure               | Com suporte para VMs do Azure com discos gerenciados e não gerenciados. Não compatível com VMs clássicas. | Disponível em todas as regiões públicas do Azure, exceto para a França central, Austrália Central, norte da África do Sul, Norte dos EAU, Norte da Suíça, Centro-oeste da Alemanha, leste da Noruega. <br>Para obter informações sobre como usar nessas regiões, entre em contato com [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) |
+| SQL/SAP HANA | Em versão prévia                                                      | Disponível em todas as regiões públicas do Azure, exceto para a França central, Austrália Central, norte da África do Sul, Norte dos EAU, Norte da Suíça, Centro-oeste da Alemanha, leste da Noruega. <br>Para obter informações sobre como usar nessas regiões, entre em contato com [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) |
+| Agente do MARS/Local  | Não                                                           | N/D               |
+| AFS (compartilhamentos de arquivos do Azure)                 | Não                                                           | N/D               |
 
 ## <a name="next-steps"></a>Próximas etapas
 

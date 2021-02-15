@@ -3,14 +3,13 @@ title: Criar um aplicativo de contêiner Linux no Service Fabric no Azure
 description: Nesse início rápido, você construirá uma imagem do Docker com o seu aplicativo, enviará por push a imagem para um registro de contêiner e implantará um contêiner a um cluster do Service Fabric.
 ms.topic: quickstart
 ms.date: 07/22/2019
-ms.author: suhuruli
-ms.custom: mvc
-ms.openlocfilehash: 652c5b7c2df4e1f8bd379390451886914628505d
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: f58b8feda0e88d8a5e7cddaabbc650b0f0ab3973
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88854976"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98788155"
 ---
 # <a name="quickstart-deploy-linux-containers-to-service-fabric"></a>Início Rápido: Implantar contêineres do Linux no Service Fabric
 
@@ -26,7 +25,7 @@ Para concluir este guia de início rápido:
 
 1. Crie uma [conta gratuita do Azure](https://azure.microsoft.com/free/) antes de começar se você não tiver uma assinatura.
 
-2. Instale a [CLI do Azure](/cli/azure/install-azure-cli-apt?view=azure-cli-latest)
+2. Instale a [CLI do Azure](/cli/azure/install-azure-cli-apt)
 
 3. Instalar o [SDK e a CLI do Service Fabric](service-fabric-get-started-linux.md#installation-methods)
 
@@ -169,7 +168,7 @@ Use o script de desinstalação (uninstall.sh) fornecido com o modelo para exclu
 
 A maneira mais simples de excluir o cluster e todos os recursos que ele consume é excluir o grupo de recursos.
 
-Entre no Azure e selecione a ID de assinatura com a qual você deseja remover o cluster. Você pode encontrar sua ID de assinatura fazendo logon no portal do Azure. Exclua o grupo de recursos e todos os recursos do cluster usando o comando [az group delete](/cli/azure/group?view=azure-cli-latest).
+Entre no Azure e selecione a ID de assinatura com a qual você deseja remover o cluster. Você pode encontrar sua ID de assinatura fazendo logon no portal do Azure. Exclua o grupo de recursos e todos os recursos do cluster usando o comando [az group delete](/cli/azure/group).
 
 ```azurecli
 az login

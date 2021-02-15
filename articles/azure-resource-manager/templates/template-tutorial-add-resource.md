@@ -1,21 +1,21 @@
 ---
 title: Tutorial – Adicionar recurso ao modelo
-description: Descreve as etapas para criar seu primeiro modelo do Azure Resource Manager. Você aprende sobre a sintaxe do arquivo de modelo e como implantar uma conta de armazenamento.
+description: Descreve as etapas para criar seu primeiro modelo do ARM (Azure Resource Manager). Você aprende sobre a sintaxe do arquivo de modelo e como implantar uma conta de armazenamento.
 author: mumian
 ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 0163fcc62ea6c813af8e9e5693ca35fa0e650f96
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.custom: ''
+ms.openlocfilehash: 49cee5c98c4099e214a732371269e935db353152
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497521"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106964"
 ---
 # <a name="tutorial-add-a-resource-to-your-arm-template"></a>Tutorial: Adicionar um recurso ao modelo do ARM
 
-No [tutorial anterior](template-tutorial-create-first-template.md), você aprendeu como criar um modelo em branco e implantá-lo. Agora você está pronto para implantar um recurso real. Neste tutorial, você adiciona uma conta de armazenamento. Este tutorial demora cerca de **9 minutos** para ser concluído.
+No [tutorial anterior](template-tutorial-create-first-template.md), você aprendeu a criar um modelo do ARM (Azure Resource Manager) em branco e implantá-lo. Agora você está pronto para implantar um recurso real. Neste tutorial, você adiciona uma conta de armazenamento. Este tutorial demora cerca de **9 minutos** para ser concluído.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -27,7 +27,7 @@ Recomendamos que você conclua o [tutorial introdutório sobre modelos](template
 
 Para adicionar uma definição de conta de armazenamento ao modelo existente, examine o JSON realçado no exemplo a seguir. Em vez de tentar copiar as seções do modelo, copie o arquivo inteiro e substitua o seu modelo pelo conteúdo desse arquivo.
 
-Substitua **{forneça-o-nome-exclusivo}** (incluindo as chaves) por um nome de conta de armazenamento exclusivo.
+Substitua `{provide-unique-name}` e as chaves `{}` por um nome de conta de armazenamento exclusivo.
 
 > [!IMPORTANT]
 > O nome da conta de armazenamento deve ser exclusivo no Azure. O nome deve ter apenas letras minúsculas ou números. Ele não pode ter mais de 24 caracteres. Você pode tentar um padrão de nomenclatura, tal como usar **store1** como um prefixo e, em seguida, adicionar suas iniciais e a data de hoje. Por exemplo, o nome que você usa pode ser semelhante a **store1abc09092019**.
@@ -42,15 +42,15 @@ Você pode estar se perguntando como encontrar as propriedades a serem usadas pa
 
 Cada recurso que você implanta tem pelo menos as três propriedades a seguir:
 
-- **type**: Tipo do recurso. Esse valor é uma combinação do namespace do provedor de recursos e do tipo de recurso (como Microsoft.Storage/storageAccounts).
-- **apiVersion**: Versão da API REST a ser usada para criar o recurso. Cada provedor de recursos publicou as próprias versões de API, portanto, esse valor é específico para o tipo.
-- **nome**: Nome do recurso.
+- `type`: Tipo do recurso. Esse valor é uma combinação do namespace do provedor de recursos e do tipo de recurso como `Microsoft.Storage/storageAccounts`.
+- `apiVersion`: Versão da API REST a ser usada para criar o recurso. Cada provedor de recursos publica as próprias versões de API, portanto, esse valor é específico para o tipo.
+- `name`: Nome do recurso.
 
-A maioria dos recursos também tem uma propriedade **location**, que define a região em que o recurso é implantado.
+A maioria dos recursos também tem uma propriedade `location`, que define a região em que o recurso é implantado.
 
 As outras propriedades variam por tipo de recurso e versão de API. É importante entender a conexão entre a versão da API e as propriedades disponíveis, então vamos ver isso em mais detalhes.
 
-Neste tutorial, você adicionou uma conta de armazenamento ao modelo. Você pode ver essa versão da API em [storageAccounts 2019-04-01](/azure/templates/microsoft.storage/2019-04-01/storageaccounts). Observe que você não adicionou todas as propriedades ao seu modelo. Muitas das propriedades são opcionais. O provedor de recursos Microsoft.Storage pode liberar uma nova versão de API, mas a versão que você está implantando não precisa ser alterada. Você poderá continuar usando essa versão e saber que os resultados da implantação serão consistentes.
+Neste tutorial, você adicionou uma conta de armazenamento ao modelo. Você pode ver essa versão da API em [storageAccounts 2019-04-01](/azure/templates/microsoft.storage/2019-04-01/storageaccounts). Observe que você não adicionou todas as propriedades ao seu modelo. Muitas das propriedades são opcionais. O provedor de recursos `Microsoft.Storage` pode liberar uma nova versão de API, mas a versão que você está implantando não precisa ser alterada. Você poderá continuar usando essa versão e saber que os resultados da implantação serão consistentes.
 
 Se você exibir uma versão de API mais antiga, assim como [storageAccounts 2016-05-01](/azure/templates/microsoft.storage/2016-05-01/storageaccounts), verá que um conjunto menor de propriedades está disponível.
 
@@ -60,7 +60,7 @@ Se você decidir alterar a versão da API para um recurso, será preciso avaliar
 
 Você pode implantar o modelo para criar a conta de armazenamento. Dê um nome diferente à sua implantação para que você possa encontrá-la com facilidade no histórico.
 
-Caso você não tenha criado o grupo de recursos, confira [Criar grupo de recursos](template-tutorial-create-first-template.md#create-resource-group). O exemplo pressupõe que você tenha definido a variável **templateFile** como o caminho para o arquivo de modelo, conforme mostrado no [primeiro tutorial](template-tutorial-create-first-template.md#deploy-template).
+Caso você não tenha criado o grupo de recursos, confira [Criar grupo de recursos](template-tutorial-create-first-template.md#create-resource-group). O exemplo pressupõe que você tenha definido a variável `templateFile` como o caminho para o arquivo de modelo, conforme mostrado no [primeiro tutorial](template-tutorial-create-first-template.md#deploy-template).
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -85,15 +85,15 @@ az deployment group create \
 ---
 
 > [!NOTE]
-> Se a implantação falhar, use a opção **debug** com o comando de implantação para mostrar os logs de depuração.  Use também a opção **verbose** para mostrar os logs de depuração completos.
+> Se a implantação falhar, use a opção `verbose` para obter informações sobre os recursos que estão sendo criados. Use a opção `debug` para obter mais informações de depuração.
 
 Duas possíveis falhas de implantação que você pode encontrar:
 
-- Erro: Code=AccountNameInvalid; Message={provide-unique-name} não é um nome de conta de armazenamento válido. O nome da conta de armazenamento deve ter entre 3 e 24 caracteres, usar números e apenas letras minúsculas.
+- `Error: Code=AccountNameInvalid; Message={provide-unique-name}` não é um nome de conta de armazenamento válido. O nome da conta de armazenamento deve ter entre 3 e 24 caracteres, usar números e apenas letras minúsculas.
 
-    No modelo, substitua **{provide-unique-name}** por um nome exclusivo da conta de armazenamento.  Confira [Adicionar recurso](#add-resource).
+    No modelo, substitua `{provide-unique-name}` por um nome exclusivo da conta de armazenamento. Confira [Adicionar recurso](#add-resource).
 
-- Erro: Code=StorageAccountAlreadyTaken; Message=A conta de armazenamento chamada store1abc09092019 já está em uso.
+- `Error: Code=StorageAccountAlreadyTaken; Message=The storage account named store1abc09092019` já está em uso.
 
     No modelo, experimente um nome de conta de armazenamento diferente.
 
@@ -122,7 +122,7 @@ Se estiver parando agora, o ideal será limpar os recursos implantados excluindo
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Você criou um modelo simples para implantar uma conta do Armazenamento do Azure.  Nos tutoriais posteriores, você aprenderá a adicionar parâmetros, variáveis, recursos e saídas a um modelo. Esses recursos são os blocos de construção para modelos muito mais complexos.
+Você criou um modelo simples para implantar uma conta do Armazenamento do Azure. Nos tutoriais posteriores, você aprenderá a adicionar parâmetros, variáveis, recursos e saídas a um modelo. Esses recursos são os blocos de construção para modelos muito mais complexos.
 
 > [!div class="nextstepaction"]
 > [Adicionar parâmetros](template-tutorial-add-parameters.md)

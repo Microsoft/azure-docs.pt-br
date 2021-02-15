@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.author: cshoe
-ms.openlocfilehash: bf1664a35562b888f9dd7aacd3b1112058bed664
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 673852f8f9aa81c838a7c1db68681bb9ee0b7e0b
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88797693"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97862011"
 ---
 # <a name="tutorial-publish-a-jekyll-site-to-azure-static-web-apps-preview"></a>Tutorial: Publicar um site do Jekyll na Versão Prévia dos Aplicativos Web Estáticos do Azure
 
@@ -146,14 +146,11 @@ Em seguida, você adiciona as definições de configuração que o processo de c
 
 1. Abra o aplicativo do Jekyll em um editor de texto e abra o arquivo _.github/workflows/azure-pages-<NOME_DO_FLUXO_DE_TRABALHO>.yml_.
 
-1. Adicione algumas linhas após o bloco `- uses: actions/checkout@v2` ao bloco de configuração a seguir.
+1. Após a linha `- uses: actions/checkout@v2`, adicione o bloco de configuração a seguir.
 
     ```yml
-    - uses: actions/checkout@v2
-      with:
-        submodules: true
     - name: Set up Ruby
-      uses: ruby/setup-ruby@ec106b438a1ff6ff109590de34ddc62c540232e0
+      uses: ruby/setup-ruby@v1.59.1
       with:
         ruby-version: 2.6
     - name: Install dependencies

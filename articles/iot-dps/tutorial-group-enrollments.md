@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: java
 ms.custom: mvc, devx-track-java
-ms.openlocfilehash: 43ae9bd0e844a23adabf52e7fbb4b8cd077d23bd
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 4cfbfe3e3e3ba620d8292767012c9bb866d8a878
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326708"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968087"
 ---
 # <a name="tutorial-create-and-provision-a-simulated-x509-device-using-java-device-and-service-sdk-and-group-enrollments-for-iot-hub-device-provisioning-service"></a>Tutorial: Criar e provisionar um dispositivo X.509 simulado usando o SDK do serviço e dispositivo Java e registros de grupo para Java para o Serviço de Provisionamento do Dispositivo Hub IoT
 
@@ -23,9 +23,9 @@ Estas etapas mostram como simular um dispositivo X.509 no computador de desenvol
 Conclua as etapas em [Configurar o Serviço de Provisionamento do Dispositivo Hub IoT com o Portal do Azure](./quick-setup-auto-provision.md) antes de continuar.
 
 
-## <a name="prepare-the-environment"></a>Preparar o ambiente 
+## <a name="prerequisites"></a>Pré-requisitos
 
-1. Certifique-se de ter o [Java SE Development Kit 8](https://aka.ms/azure-jdks) instalado no computador.
+1. Certifique-se de ter o [Java SE Development Kit 8](/azure/developer/java/fundamentals/java-jdk-long-term-support) instalado no computador.
 
 1. Baixe e instale o [Maven](https://maven.apache.org/install.html).
 
@@ -260,4 +260,4 @@ Se você planeja continuar a trabalhar e explorar o dispositivo cliente de exemp
 Neste tutorial, você criou um dispositivo simulado X.509 no seu computador Windows e o provisionou no Hub IoT usando o Serviço de Provisionamento de Dispositivos do Hub IoT e grupos de registro. Para saber mais sobre o seu dispositivo X.509, continue para conceitos de dispositivo. 
 
 > [!div class="nextstepaction"]
-> [Conceitos de dispositivo do Serviço de Provisionamento de Dispositivos no Hub IoT](concepts-device.md)
+> [Conceitos do Serviço de Provisionamento de Dispositivos no Hub IoT](concepts-service.md)

@@ -7,14 +7,14 @@ ms.date: 01/30/2020
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: 9a6a56491a327d5d4eafc2c05dc2b54b137096b8
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: db6575894904e6ced2d4be48fec5961f5b8b8a54
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88752068"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602639"
 ---
-# <a name="reduce-costs-with-azure-disks-reservation"></a>Reduzir custos com a reserva de discos do Azure
+# <a name="reduce-costs-with-azure-disks-reservation"></a>Reduzir os custos com a reserva de discos do Azure
 
 Economize em seu uso de Armazenamento em Disco do Azure com capacidade reservada. Armazenamento em Disco do Azure reservas combinadas com as instâncias de máquinas virtuais reservadas do Azure permitem reduzir os custos totais da VM (máquina virtual). O desconto de reserva é aplicado automaticamente aos discos correspondentes no escopo de reserva selecionado. Devido a esse aplicativo automático, você não precisa atribuir uma reserva a um disco gerenciado para obter os descontos.
 
@@ -70,7 +70,7 @@ Siga estas etapas para comprar a capacidade reservada:
    |Elemento  |Descrição  |
    |---------|---------|
    |**Escopo**   |  Quantas assinaturas podem usar o benefício de cobrança associado à reserva. Esse valor também especifica como a reserva é aplicada a assinaturas específicas. <br/><br/> Se você selecionar **compartilhado**, o desconto de reserva será aplicado à capacidade de armazenamento do Azure em cada assinatura no contexto de cobrança. O contexto de cobrança é baseado em como você se inscreveu no Azure. Para clientes empresariais, o escopo compartilhado é o registro e inclui todas as assinaturas no registro. Para clientes pagos conforme o uso, o escopo compartilhado inclui todas as assinaturas individuais com tarifas pagas conforme o uso criadas pelo administrador da conta.  <br/><br/>  Se você selecionar **assinatura única**, o desconto de reserva será aplicado à capacidade de armazenamento do Azure na assinatura selecionada. <br/><br/> Se você selecionar **um único grupo de recursos**, o desconto de reserva será aplicado à capacidade de armazenamento do Azure na assinatura selecionada e no grupo de recursos selecionado da assinatura. <br/><br/> Você pode alterar o escopo de reserva depois de comprar a reserva.  |
-   |**Assinatura**  | A assinatura que você usa para pagar pela reserva de armazenamento do Azure. O método de pagamento na assinatura selecionada é usado para cobrar os custos. A assinatura deve ser um dos seguintes tipos:<br/><ul><li> Enterprise Agreement (números de oferta MS-AZR-0017P e MS-AZR-0148P). Para uma assinatura Enterprise, os encargos são deduzidos do saldo do compromisso monetário do registro ou cobrados como excedente.</li><br/><li>Assinatura individual com tarifas pagas conforme o uso (números de oferta MS-AZR-0003P e MS-AZR-0023P). Para uma assinatura individual com tarifas pagas conforme o uso, os encargos são cobrados no cartão de crédito ou no método de pagamento de fatura na assinatura.</li></ul>    |
+   |**Assinatura**  | A assinatura que você usa para pagar pela reserva de armazenamento do Azure. O método de pagamento na assinatura selecionada é usado para cobrar os custos. A assinatura deve ser um dos seguintes tipos:<br/><ul><li> Enterprise Agreement (números de oferta MS-AZR-0017P e MS-AZR-0148P). Para uma assinatura empresarial, os encargos são deduzidos do saldo antecipado do Azure do registro (anteriormente chamado de compromisso monetário) ou cobrados como excedentes.</li><br/><li>Assinatura individual com tarifas pagas conforme o uso (números de oferta MS-AZR-0003P e MS-AZR-0023P). Para uma assinatura individual com tarifas pagas conforme o uso, os encargos são cobrados no cartão de crédito ou no método de pagamento de fatura na assinatura.</li></ul>    |
    | **Discos** | A SKU que você deseja criar. |
    | **Região** | A região em que a reserva está em vigor. |
    | **Frequência de cobrança** | Com que frequência a conta é cobrada pela reserva. As opções incluem **mensalmente** e **antecipadamente**. |
@@ -89,7 +89,7 @@ Depois de comprar uma reserva, ela é aplicada automaticamente a todos os recurs
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Cancelar, trocar ou reembolsar reservas
 
-Você pode cancelar, trocar ou reembolsar reservas dentro de determinadas limitações. Para saber mais, confira [Trocas e reembolsos via autoatendimento para Reservas do Azure](https://docs.microsoft.com/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations).
+Você pode cancelar, trocar ou reembolsar reservas dentro de determinadas limitações. Para saber mais, confira [Trocas e reembolsos via autoatendimento para Reservas do Azure](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
 
 ## <a name="expiration-of-a-reservation"></a>Expiração de uma reserva
 
@@ -104,4 +104,4 @@ Se você tiver dúvidas ou precisar de ajuda, [crie uma solicitação de suporte
 ## <a name="next-steps"></a>Próximas etapas
 
 - [O que são Reservas do Azure?](../cost-management-billing/reservations/save-compute-costs-reservations.md)
-- [Entenda como o desconto de reserva é aplicado ao Armazenamento em Disco do Azure](../cost-management-billing/reservations/understand-disk-reservations.md)
+- [Entenda como seu desconto de reserva é aplicado a Armazenamento em Disco do Azure](../cost-management-billing/reservations/understand-disk-reservations.md)

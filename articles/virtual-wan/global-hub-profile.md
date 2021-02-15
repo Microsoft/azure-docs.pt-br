@@ -1,18 +1,18 @@
 ---
 title: Baixar perfis VPN do Azure virtual WAN global ou baseado em Hub | Microsoft Docs
-description: Saiba mais sobre conectividade de ramificação por ramificação escalonável automatizada de WAN Virtual, regiões disponíveis e parceiros.
+description: Saiba como a WAN virtual do Azure oferece dois tipos de conectividade para usuários remotos e como baixar um perfil.
 services: virtual-wan
 author: kumudD
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 4/20/2020
+ms.date: 09/22/2020
 ms.author: alzam
-ms.openlocfilehash: d0fc2f608617ca00fea8b9ed5c4b874c65940263
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6d5c4ba0f1f55119d1ec38296e67ae3e90c52650
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87064788"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91313715"
 ---
 # <a name="download-a-global-or-hub-based-profile-for-user-vpn-clients"></a>Baixar um perfil global ou baseado em Hub para clientes VPN de usuário
 

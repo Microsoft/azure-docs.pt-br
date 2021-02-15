@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 01/14/2020
 ms.author: danlep
-ms.openlocfilehash: f3294698f6973437a23fab798e8daf5642cc9b49
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8f2749a18a5ac6aed0822553d59beaacc9060228
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77111773"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98915940"
 ---
 # <a name="use-an-azure-managed-identity-in-acr-tasks"></a>Usar uma identidade gerenciada pelo Azure em tarefas ACR 
 
@@ -58,7 +58,7 @@ Para habilitar uma identidade atribuída pelo sistema, passe `--assign-identity`
 az acr task create \
     --image hello-world:{{.Run.ID}} \
     --name hello-world --registry MyRegistry \
-    --context https://github.com/Azure-Samples/acr-build-helloworld-node.git \
+    --context https://github.com/Azure-Samples/acr-build-helloworld-node.git#main \
     --file Dockerfile \
     --commit-trigger-enabled false \
     --assign-identity
@@ -70,7 +70,7 @@ Para habilitar uma identidade atribuída pelo usuário, passe `--assign-identity
 az acr task create \
     --image hello-world:{{.Run.ID}} \
     --name hello-world --registry MyRegistry \
-    --context https://github.com/Azure-Samples/acr-build-helloworld-node.git \
+    --context https://github.com/Azure-Samples/acr-build-helloworld-node.git#main \
     --file Dockerfile \
     --commit-trigger-enabled false
     --assign-identity <resourceID>
@@ -115,7 +115,7 @@ az acr task credential add \
     --use-identity [system]
 ```
 
-Para adicionar credenciais para uma identidade atribuída pelo usuário para autenticar com o *targetregistry*do registro, passe `use-identity` com um valor da *ID do cliente* da identidade. Por exemplo:
+Para adicionar credenciais para uma identidade atribuída pelo usuário para autenticar com o *targetregistry* do registro, passe `use-identity` com um valor da *ID do cliente* da identidade. Por exemplo:
 
 ```azurecli
 az acr task credential add \

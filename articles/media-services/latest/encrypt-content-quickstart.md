@@ -2,15 +2,17 @@
 title: Criptografar o conteúdo com o portal do Azure
 description: Este início rápido mostra como configurar a criptografia do conteúdo usando os Serviços de Mídia do Azure no portal do Azure.
 ms.topic: quickstart
-ms.date: 06/08/2020
-ms.openlocfilehash: 6ff3c14039f9199053d3d43c6ce4488c2692b336
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.date: 08/31/2020
+ms.openlocfilehash: e42b2d4487f2f51c082f22068160a02b3dcbb0a5
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "84988735"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "89263630"
 ---
 # <a name="quickstart-use-portal-to-encrypt-content"></a>Início Rápido: Usar o portal para criptografar o conteúdo
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Use os Serviços de Mídia do Azure para ajudar a proteger sua mídia desde o momento que ela sai do seu computador até o armazenamento, o processamento e a entrega. Com os Serviços de Mídia, é possível entregar o conteúdo ao vivo e sob demanda criptografado dinamicamente com a criptografia AES (AES-128) ou qualquer um dos três principais sistemas DRM (gerenciamento de direitos digitais): Microsoft PlayReady, Google Widevine e Apple FairPlay. Os serviços de mídia também fornecem um serviço de distribuição de chaves AES e licenças DRM (PlayReady, Widevine e FairPlay) para os clientes autorizados. 
  

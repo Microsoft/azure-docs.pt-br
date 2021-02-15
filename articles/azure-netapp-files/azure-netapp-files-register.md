@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 06/09/2020
 ms.author: b-juche
-ms.openlocfilehash: b8707b6fb006a45d63f1b2b426530a7e25f5b497
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: a61d6ba1f908a7dae56db066bfae329fc26f1c5c
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87512917"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97696134"
 ---
 # <a name="register-for-azure-netapp-files"></a>Registro no Azure NetApp Files
 
@@ -30,7 +30,8 @@ Neste artigo, saiba como registrar-se para Azure NetApp Files para que você pos
 
 ## <a name="submit-a-waitlist-request-for-accessing-the-service"></a><a name="waitlist"></a>Enviar uma solicitação Waitlist para acessar o serviço
 
-1. Envie uma solicitação Waitlist para acessar o serviço de Azure NetApp Files por meio da [página de envio Azure NetApp files Waitlist](https://aka.ms/azurenetappfiles). 
+1. Vá para a página a seguir e envie uma solicitação Waitlist para acessar o serviço de Azure NetApp Files:  
+    [**Página de envio de Azure NetApp Files Waitlist**](https://aka.ms/azurenetappfiles) 
 
     A inscrição de Waitlist não garante o acesso imediato ao serviço. 
 
@@ -50,13 +51,13 @@ Para usar o serviço, é necessário registrar o Provedor de recursos do Azure n
 
       ![ícone do Azure Cloud Shell](../media/azure-netapp-files/azure-netapp-files-azure-cloud-shell.png)
 
-2. Se você tiver várias assinaturas em sua conta do Azure, selecione a que foi incluída na lista de permissões para o Azure NetApp Files:
+2. Se você tiver várias assinaturas em sua conta do Azure, selecione aquela que foi aprovada para Azure NetApp Files:
     
     ```azurepowershell
     az account set --subscription <subscriptionId>
     ```
 
-3. No console do Azure Cloud Shell, insira o seguinte comando para verificar se sua assinatura foi incluída na lista de permissões:
+3. No console do Azure Cloud Shell, digite o seguinte comando para verificar se sua assinatura foi aprovada:
     
     ```azurepowershell
     az feature list | grep NetApp

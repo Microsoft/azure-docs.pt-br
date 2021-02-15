@@ -13,10 +13,10 @@ metadata:
   ms.author: matjazl
   ms.date: 08/13/2020
   ms.openlocfilehash: d633b5376832672ecc7c917e24728666b889e16c
-  ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 08/13/2020
+  ms.lasthandoff: 10/09/2020
   ms.locfileid: "88183438"
 landingContent:
 - title: Comece a usar a API do Azure para FHIR

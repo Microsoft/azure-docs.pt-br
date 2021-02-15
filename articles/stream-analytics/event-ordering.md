@@ -1,28 +1,27 @@
 ---
 title: Configurando políticas de ordenação de eventos para Azure Stream Analytics
 description: Este artigo descreve como definir as configurações de ordenação uniforme no Stream Analytics
-author: sidram
+author: sidramadoss
 ms.author: sidram
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 08/06/2020
-ms.openlocfilehash: b4e34befbf28de2b985ff49ce17a87a25842015e
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: f7ec6f32b48a93a29210311c7ba6747eb2e2d066
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87901684"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98014288"
 ---
 # <a name="configuring-event-ordering-policies-for-azure-stream-analytics"></a>Configurando políticas de ordenação de eventos para Azure Stream Analytics
 
-Este artigo descreve como configurar e usar a chegada tardia e políticas de evento fora de ordem no Azure Stream Analytics. Essas políticas são aplicadas somente quando você usa a cláusula [timestamp by](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics) em sua consulta e elas são aplicadas somente para fontes de entrada na nuvem.
+Este artigo descreve como configurar e usar a chegada tardia e políticas de evento fora de ordem no Azure Stream Analytics. Essas políticas são aplicadas somente quando você usa a cláusula [timestamp by](/stream-analytics-query/timestamp-by-azure-stream-analytics) em sua consulta e elas são aplicadas somente para fontes de entrada na nuvem.
 
 ## <a name="event-time-and-arrival-time"></a>Hora do evento e hora de chegada
 
 Seu trabalho de Stream Analytics pode processar eventos com base na *hora do evento* ou na hora da *chegada*. O **tempo de evento/aplicativo** é o carimbo de data/hora presente na carga do evento (quando o evento foi gerado). O **tempo de chegada** é o carimbo de data/hora em que o evento foi recebido na fonte de entrada (hubs de eventos/Hub IOT/armazenamento de BLOBs). 
 
-Por padrão, o Stream Analytics processa eventos por *hora de chegada*, mas você pode optar por processar eventos por hora do *evento* usando a cláusula [timestamp by](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics) em sua consulta. A chegada tardia e as políticas fora de ordem serão aplicáveis somente se você processar eventos por hora do evento. Ao definir essas configurações, considere os requisitos de latência e exatidão para seu cenário. 
+Por padrão, o Stream Analytics processa eventos por *hora de chegada*, mas você pode optar por processar eventos por hora do *evento* usando a cláusula [timestamp by](/stream-analytics-query/timestamp-by-azure-stream-analytics) em sua consulta. A chegada tardia e as políticas fora de ordem serão aplicáveis somente se você processar eventos por hora do evento. Ao definir essas configurações, considere os requisitos de latência e exatidão para seu cenário. 
 
 ## <a name="what-is-late-arrival-policy"></a>O que é a política de entrada tardia?
 
@@ -83,4 +82,4 @@ Quando uma partição não tem dados para mais do que o limite de chegada em atr
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Considerações sobre o uso do tempo](stream-analytics-time-handling.md)
-* [Métricas disponíveis no Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-monitoring#metrics-available-for-stream-analytics)
+* [Métricas disponíveis no Stream Analytics](./stream-analytics-monitoring.md#metrics-available-for-stream-analytics)

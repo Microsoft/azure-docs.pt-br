@@ -5,14 +5,14 @@ services: dns
 author: rohinkoul
 ms.service: dns
 ms.topic: tutorial
-ms.date: 3/11/2019
+ms.date: 10/20/2020
 ms.author: rohink
-ms.openlocfilehash: 7a250eaeb8ac4d0c8cacfb1748855700c9986bf5
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 369c7dab174f0269797b10635882a6821ade8311
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88079443"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94952838"
 ---
 # <a name="tutorial-create-dns-records-in-a-custom-domain-for-a-web-app"></a>Tutorial: Criar registros DNS em um domínio personalizado para um aplicativo Web 
 
@@ -38,12 +38,9 @@ Neste tutorial, você aprenderá como:
 > * Adicionar nomes de host personalizados a seu aplicativo Web
 > * Testar os nomes de host personalizados
 
+## <a name="prerequisites"></a>Pré-requisitos
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -52,10 +49,12 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 * Crie uma zona DNS no DNS do Azure e delegue a zona no registrador para o DNS do Azure.
 
-   1. Para criar uma zona DNS, siga as etapas em [Criar uma zona DNS](dns-getstarted-create-dnszone.md).
+   1. Para criar uma zona DNS, siga as etapas em [Criar uma zona DNS](./dns-getstarted-powershell.md).
    2. Para delegar sua zona ao DNS do Azure, siga as etapas em [Delegação de domínio DNS](dns-delegate-domain-azure-dns.md).
 
 Após criar uma zona e delegá-la ao DNS do Azure, você pode criar registros para seu domínio personalizado.
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-an-a-record-and-txt-record"></a>Criar um registro A e um registro TXT
 

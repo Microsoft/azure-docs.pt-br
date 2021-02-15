@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 06/09/2020
 ms.custom: subject-moving-resources
 ms.openlocfilehash: 1388dc11254324f74efcbaa55c97cac2ccd0c026
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87073743"
 ---
 # <a name="move-an-app-service-app-to-another-region"></a>Mover um aplicativo do serviço de aplicativo para outra região
@@ -78,7 +78,7 @@ Se você quiser apenas recuperar os arquivos do aplicativo afetado sem restaurá
     Copie três valores de atributo: 
         
     - `publishUrl`: o nome de host do FTP
-    - `userName`e `userPWD` : as credenciais de FTP
+    - `userName` e `userPWD` : as credenciais de FTP
 
 1. Use o cliente FTP de sua escolha, conecte-se ao host FTP do aplicativo afetado usando o nome do host e as credenciais.
 

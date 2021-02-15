@@ -3,12 +3,12 @@ title: Definir configurações de inicialização automática para uma VM no Azu
 description: Saiba como definir configurações de inicialização automática para VMs em um laboratório. Essa configuração permite que as VMs no laboratório sejam iniciadas automaticamente em um agendamento.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 4ff2a156367b6a65e75b1c8b907da91dc3c88eb9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 83e7b0836273a59eaaf66471bd0cb42d63ccf1c3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85482778"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91328472"
 ---
 # <a name="auto-startup-lab-virtual-machines"></a>Máquinas virtuais do laboratório de inicialização automática  
 Azure DevTest Labs permite que você configure máquinas virtuais em seu laboratório para que sejam iniciadas e desligadas automaticamente com base em uma agenda. Para obter informações sobre como definir as configurações de desligamento automático, consulte [gerenciar políticas de desligamento automático para um laboratório no Azure DevTest Labs](devtest-lab-auto-shutdown.md). 
@@ -21,7 +21,7 @@ Este artigo mostra como configurar a política de inicialização automática pa
 1. Navegue até a home page do seu laboratório. 
 2. Selecione **configuração e políticas** no menu à esquerda. 
 
-    ![Menu de configuração e políticas](./media/devtest-lab-auto-startup-vm/configuration-policies-menu.png)
+    ![Captura de tela que mostra o menu "configuração e políticas" no laboratório de DevTest.](./media/devtest-lab-auto-startup-vm/configuration-policies-menu.png)
 3. Na página **configuração e políticas** , execute as seguintes etapas:
     
     1. Selecione **ativado** para **permitir que as máquinas virtuais sejam agendadas para início automático** para habilitar o recurso de inicialização automática para este laboratório. 

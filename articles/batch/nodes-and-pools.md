@@ -2,13 +2,13 @@
 title: Nós e pools no Lote do Azure
 description: Saiba mais sobre nós e pools de computação e como eles são usados em um fluxo de trabalho do Lote do Azure do ponto de vista de desenvolvimento.
 ms.topic: conceptual
-ms.date: 06/16/2020
-ms.openlocfilehash: 16a5309711b9c8633da9ba473c1b55bc2e54c334
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.date: 11/20/2020
+ms.openlocfilehash: e55be57968eae2a371a21b214dbd15921641e31f
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87385748"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98741767"
 ---
 # <a name="nodes-and-pools-in-azure-batch"></a>Nós e pools no Lote do Azure
 
@@ -26,7 +26,7 @@ Todos os nós de computação no Lote também incluem:
 
 - Uma [estrutura de pastas](files-and-directories.md) padrão e as [variáveis de ambiente](jobs-and-tasks.md) associadas disponíveis para a referência por tarefas.
 - **firewall** que são definidas para controlar o acesso.
-- [Acesso remoto](error-handling.md#connect-to-compute-nodes) para os nós do Windows (Remote Desktop Protocol (RDP)) e do Linux (Secure Shell (SSH)).
+- [Acesso remoto](error-handling.md#connect-to-compute-nodes) para os nós do Windows (protocolo RDP (RDP)) e do Linux (Secure Shell (SSH)) (a menos que você [crie seu pool com acesso remoto desabilitado](pool-endpoint-configuration.md)).
 
 Por padrão, os nós podem se comunicar entre si, mas não podem se comunicar com máquinas virtuais que não fazem parte do mesmo pool. Para permitir que os nós se comuniquem com segurança com outras máquinas virtuais, ou com uma rede local, você pode provisionar o pool [em uma sub-rede de uma VNet (rede virtual) do Azure](batch-virtual-network.md). Quando você fizer isso, os nós poderão ser acessados por meio de endereços IP públicos. Esses endereços IP públicos são criados pelo lote e podem ser alterados durante o tempo de vida do pool. Você também pode [criar um pool com endereços IP públicos estáticos](create-pool-public-ip.md) que você controla, o que garante que eles não serão alterados inesperadamente.
 
@@ -40,7 +40,7 @@ Todos os nós adicionados a um pool recebem um nome e um endereço IP exclusivos
 
 Um pool pode ser usado somente pela conta do Lote na qual foi criado. Uma conta do Lote pode criar vários pools para atender aos requisitos de recursos dos aplicativos que serão executados.
 
-O pool pode ser criado manualmente ou automaticamente pelo serviço de Lote quando você especifica o trabalho a ser feito. Ao criar um pool, você pode especificar os seguintes atributos:
+O pool pode ser criado manualmente ou [automaticamente pelo serviço de lote](#autopools) quando você especifica o trabalho a ser feito. Ao criar um pool, você pode especificar os seguintes atributos:
 
 - [Sistema operacional e versão do nó](#operating-system-and-version)
 - [Tipo de nó e número de nós de destino](#node-type-and-target)
@@ -64,17 +64,20 @@ Quando você cria um pool do Lote, especifique a configuração de máquina virt
 
 Existem dois tipos de configuração de pool disponíveis no Lote.
 
+> [!IMPORTANT]
+> Os pools devem ser configurados usando ' configuração de máquina virtual ' e não ' configuração de serviços de nuvem '. Todos os recursos do lote têm suporte dos pools de ' configuração de máquina virtual ' e novos recursos estão sendo adicionados. Os pools de ' configuração de serviços de nuvem ' não dão suporte a todos os recursos e nenhuma nova funcionalidade é planejada.
+
 ### <a name="virtual-machine-configuration"></a>Configuração de Máquina Virtual
 
 A **Configuração de Máquina Virtual** especifica que o pool é composto de máquinas virtuais do Azure. Essas máquinas virtuais podem ser criadas de imagens Linux ou Windows.
 
-Ao criar um pool baseado na Configuração da Máquina Virtual, você deverá especificar não apenas o tamanho dos nós e a origem das imagens usadas para criá-los, mas também a **referência da imagem da máquina virtual** e a **SKU do agente de nó** do Lote a ser instalada nos nós. Para saber mais sobre como especificar essas propriedades de pool, confira [Provisionar nós de computação do Linux em pools do Lote do Azure](batch-linux-nodes.md). Opcionalmente, você pode anexar um ou mais discos de dados vazios ao pool de máquinas virtuais criadas desde imagens do Marketplace ou incluir discos de dados em imagens personalizadas usadas para criar as máquinas virtuais. Quando incluir discos de dados, você precisará montar e formatar os discos de dentro de uma VM para usá-los.
+O [agente de nó de lote](https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md) é um programa executado em cada nó no pool e fornece a interface de comando e controle entre o nó e o serviço de lote. Há diferentes implementações do agente do nó, conhecido como SKUs, para diferentes sistemas operacionais. Ao criar um pool baseado na Configuração da Máquina Virtual, você deverá especificar não apenas o tamanho dos nós e a origem das imagens usadas para criá-los, mas também a **referência da imagem da máquina virtual** e a **SKU do agente de nó** do Lote a ser instalada nos nós. Para saber mais sobre como especificar essas propriedades de pool, confira [Provisionar nós de computação do Linux em pools do Lote do Azure](batch-linux-nodes.md). Opcionalmente, você pode anexar um ou mais discos de dados vazios ao pool de máquinas virtuais criadas desde imagens do Marketplace ou incluir discos de dados em imagens personalizadas usadas para criar as máquinas virtuais. Quando incluir discos de dados, você precisará montar e formatar os discos de dentro de uma VM para usá-los.
 
 ### <a name="cloud-services-configuration"></a>Configuração de Serviços de Nuvem
 
-A **Configuração dos Serviços de Nuvem** especifica que o pool é composto de nós dos Serviços de Nuvem do Azure. Os Serviços de Nuvem fornecem *apenas* nós de computação do Windows.
+A **Configuração dos Serviços de Nuvem** especifica que o pool é composto de nós dos Serviços de Nuvem do Azure. Os serviços de nuvem fornecem apenas nós de computação do Windows.
 
-Os sistemas operacionais disponíveis para pools de Configuração de Serviços de Nuvem são listados na [matriz de compatibilidade de SDK e versões de SO Convidado do Azure](../cloud-services/cloud-services-guestos-update-matrix.md). Quando cria um pool que contém os nós dos Serviços de Nuvem, especifique o tamanho do nó e sua *Família de SOs* (que determina quais versões do .NET são instaladas com o SO). Os Serviços de Nuvem são implantados no Azure mais rapidamente do que as máquinas virtuais que executam o Windows. Se você deseja ter pools de nós de computação do Windows, pode achar os Serviços de Nuvem mais vantajosos no desempenho em relação a tempo de implantação.
+Os sistemas operacionais disponíveis para os pools de configuração dos serviços de nuvem são listados na [matriz de compatibilidade do SDK e versões do SO convidado do Azure](../cloud-services/cloud-services-guestos-update-matrix.md), e os tamanhos de nó de computação disponíveis são listados em [tamanhos para serviços de nuvem](../cloud-services/cloud-services-sizes-specs.md). Ao criar um pool que contém nós de serviços de nuvem, você especifica o tamanho do nó e sua *família de sistemas operacionais* (que determina quais versões do .NET são instaladas com o sistema operacional). Os Serviços de Nuvem são implantados no Azure mais rapidamente do que as máquinas virtuais que executam o Windows. Se você deseja ter pools de nós de computação do Windows, pode achar os Serviços de Nuvem mais vantajosos no desempenho em relação a tempo de implantação.
 
 Assim como ocorre com as funções de trabalho nos Serviços de Nuvem, você pode especificar uma *Versão do SO* (para obter mais informações sobre as funções de trabalho, consulte [Visão geral dos Serviços de Nuvem](../cloud-services/cloud-services-choose-me.md)). É recomendável especificar `Latest (*)` para a *Versão do SO* de forma que os nós sejam automaticamente atualizados e não haja nenhum trabalho necessário para atender as versões recém-lançadas. O caso de uso principal para selecionar uma versão específica do SO é garantir a compatibilidade dos aplicativos, permitindo que os testes de compatibilidade retroativa sejam executados antes de permitir que a versão seja atualizada. Após a validação, a *Versão do SO* para o pool pode ser atualizada e a nova imagem do SO pode ser instalada. As tarefas em execução serão interrompidas e colocadas novamente na fila.
 
@@ -111,7 +114,7 @@ Para informações sobre preços de ambos os nós de baixa prioridade e dedicado
 
 ## <a name="node-size"></a>Tamanho do nó
 
-Ao criar um pool de Lote do Azure, você pode escolher dentre quase todas as famílias de VMs e os tamanhos disponíveis no Azure. O Azure oferece vários tamanhos de VM para diferentes cargas de trabalho, incluindo tamanhos de VM especializados para [HPC](../virtual-machines/sizes-hpc.md) ou [habilitados para GPU](../virtual-machines/sizes-gpu.md). 
+Ao criar um pool de Lote do Azure, você pode escolher dentre quase todas as famílias de VMs e os tamanhos disponíveis no Azure. O Azure oferece vários tamanhos de VM para diferentes cargas de trabalho, incluindo tamanhos de VM especializados para [HPC](../virtual-machines/sizes-hpc.md) ou [habilitados para GPU](../virtual-machines/sizes-gpu.md). Observe que os tamanhos de nó só podem ser escolhidos no momento em que um pool é criado. Em outras palavras, depois que um pool é criado, seu tamanho de nó não pode ser alterado.
 
 Para obter mais informações, confira [Escolha um tamanho de VM para nós de computação em um pool do Lote do Azure](batch-pool-vm-sizes.md).
 
@@ -184,6 +187,10 @@ Em uma extremidade do espectro, você pode criar um pool para cada trabalho envi
 Por outro lado, se ter os trabalhos iniciados imediatamente for a prioridade mais alta, você poderá criar um pool antecipadamente e tornar seus nós disponíveis antes dos trabalhos serem enviados. Nesse cenário, as tarefas podem começar imediatamente, mas os nós poderão ficar ociosos enquanto aguardam a atribuição delas.
 
 Uma abordagem combinada normalmente é usada para lidar com uma carga variável, mas em andamento. Você pode ter um pool no qual vários trabalhos são enviados e pode aumentar ou diminuir o número de nós de acordo com a carga de trabalho. Isso pode ser feito de maneira reativa, com base na carga atual, ou proativamente, se a carga puder ser prevista. Para obter mais informações, veja [Política de dimensionamento automático](#automatic-scaling-policy).
+
+## <a name="autopools"></a>Pools
+
+Um [autopool](/rest/api/batchservice/job/add#autopoolspecification) é um pool criado pelo serviço de lote quando um trabalho é enviado, em vez de ser criado antes dos trabalhos que serão executados no pool. O serviço de lote gerenciará o tempo de vida de um pool autoagrupado de acordo com as características que você especificar. Geralmente, esses pools também são definidos para serem excluídos automaticamente depois que seus trabalhos são concluídos.
 
 ## <a name="security-with-certificates"></a>Segurança com certificados
 

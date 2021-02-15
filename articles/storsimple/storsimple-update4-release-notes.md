@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/23/2018
 ms.author: alkohli
-ms.openlocfilehash: ef95ca7b9f94690b607e37fbf5d9378c2f2bcfda
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 060a52b61dcd43fe0d05b2a8ef594c0ab9f2cc9e
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85847279"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94954045"
 ---
 # <a name="storsimple-8000-series-update-4-release-notes"></a>Notas de versão da Atualização 4 para o StorSimple 8000 Series
 
@@ -47,7 +47,7 @@ Veja a seguir as principais melhorias e correções de bugs feitas na Atualizaç
 
     Um novo recurso é implementado na Atualização 4, que rastreia dados acessados com frequência para criar um mapa de dados quando o dispositivo estiver em uso antes da recuperação de desastre (os trechos de dados mais usados têm grande aquecimento, enquanto os trechos menos usados têm pouco aquecimento). Após a recuperação de desastre, o StorSimple usa o mapa de calor para restaurar e reidratar automaticamente os dados da nuvem. 
 
-    Todas as restaurações agora são restaurações baseadas em mapas de dados. Para saber mais sobre como consultar e cancelar trabalhos de restauração e de reidratação baseados em mapa de dados, vá para [Referência de cmdlet do Windows PowerShell para StorSimple](https://technet.microsoft.com/library/dn688168.aspx).
+    Todas as restaurações agora são restaurações baseadas em mapas de dados. Para saber mais sobre como consultar e cancelar trabalhos de restauração e de reidratação baseados em mapa de dados, vá para [Referência de cmdlet do Windows PowerShell para StorSimple](/powershell/module/hcs/?viewFallbackFrom=winserverr2-ps).
 
 * **Ferramenta de diagnóstico de StorSimple** – na atualização 4, uma ferramenta de diagnóstico do StorSimple está sendo lançada para permitir a fácil de diagnóstico e solução de problemas relacionados à integridade de componentes do sistema, rede, desempenho e hardware. Essa ferramenta é executada por meio do Windows PowerShell para StorSimple. Para obter mais informações, acesse [Solucionar problemas usando a ferramenta de Diagnóstico do StorSimple](storsimple-8000-diagnostics.md).
 
@@ -59,7 +59,7 @@ Veja a seguir as principais melhorias e correções de bugs feitas na Atualizaç
 
 * **Alerta para falhas de disco** -um novo alerta que avisa o usuário sobre falhas iminentes de disco é adicionado nesta versão. Se você encontrar este alerta, entre em contato com o Suporte da Microsoft para enviar um disco de substituição. Para obter mais informações, acesse [Alertas de hardware no dispositivo StorSimple](storsimple-8000-manage-alerts.md#hardware-alerts).
 
-* **Alterações de substituição de controlador** -um cmdlet que permite ao usuário consultar o status do processo de substituição de controlador é adicionado nesta versão. Para obter mais informações, vá para o [cmdlet ao status de substituição de controlador de consulta](https://technet.microsoft.com/library/dn688168.aspx).
+* **Alterações de substituição de controlador** -um cmdlet que permite ao usuário consultar o status do processo de substituição de controlador é adicionado nesta versão. Para obter mais informações, vá para o [cmdlet ao status de substituição de controlador de consulta](/powershell/module/hcs/?viewFallbackFrom=winserverr2-ps).
 
 
 ## <a name="issues-fixed-in-update-4"></a>Problemas corrigidos na Atualização 4
@@ -82,7 +82,7 @@ Não há nenhum problema conhecido de novo na atualização 4. Para obter uma li
 
 ## <a name="serial-attached-scsi-sas-controller-and-firmware-updates-in-update-4"></a>Controlador SCSI (SAS) anexado em série e atualizações na Atualização 4
 
-Esta versão tem controlador SAS e atualizações de firmware e driver LSI. Para saber mais sobre como instalar essas atualizações, veja [instalar a Atualização 4](storsimple-install-update-4.md) no dispositivo StorSimple.
+Esta versão tem controlador SAS e atualizações de firmware e driver LSI. Para saber mais sobre como instalar essas atualizações, veja [instalar a Atualização 4](./storsimple-8000-install-update-4.md) no dispositivo StorSimple.
 
 ## <a name="virtual-device-updates-in-update-4"></a>Atualizações do dispositivo virtual na Atualização 4
 
@@ -90,5 +90,4 @@ Esta atualização não pode ser aplicada ao Dispositivo de Nuvem do StorSimple 
 
 ## <a name="next-step"></a>Próxima etapa
 
-Saiba como [instalar a Atualização 4](storsimple-install-update-4.md) no dispositivo StorSimple.
-
+Saiba como [instalar a Atualização 4](./storsimple-8000-install-update-4.md) no dispositivo StorSimple.

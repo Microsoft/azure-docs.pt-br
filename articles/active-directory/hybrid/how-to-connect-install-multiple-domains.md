@@ -1,6 +1,6 @@
 ---
 title: Vários domínios do Azure AD Connect
-description: Este documento descreve a instalação e a configuração de vários domínios de nível superior com o O365 e o Azure AD.
+description: Este documento descreve como configurar e configurar vários domínios de nível superior com o Microsoft 365 e o Azure AD.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -16,15 +16,15 @@ ms.date: 05/31/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a49abdea9d5b80687c53fbaa3d41480825ed504
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 53a0da5b5db21c9a543d39d1b252b0b4c64e2a56
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85849956"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91306354"
 ---
 # <a name="multiple-domain-support-for-federating-with-azure-ad"></a>Suporte a Vários Domínios para Federação com o Azure AD
-A documentação a seguir fornece orientação sobre como usar vários domínios e subdomínios de nível superior ao estabelecer uma federação com o Office 365 ou com domínios do Azure AD.
+A documentação a seguir fornece orientação sobre como usar vários domínios e subdomínios de nível superior ao federar com domínios do Microsoft 365 ou do AD do Azure.
 
 ## <a name="multiple-top-level-domain-support"></a>Suporte para vários domínios de nível superior
 A federação de vários domínios de nível superior com o Azure AD requer configuração adicional que não é necessária na federação de um único domínio de nível superior.
@@ -38,15 +38,15 @@ Quando um domínio é federado com o Azure AD, várias propriedades são definid
 
 Você pode exibir o IssuerUri usando o comando `Get-MsolDomainFederationSettings -DomainName <your domain>` do PowerShell.
 
-![Get-MsolDomainFederationSettings](./media/how-to-connect-install-multiple-domains/MsolDomainFederationSettings.png)
+![Captura de tela que mostra os resultados depois de inserir o comando "Get-MsolDomainFederationSettings" no PowerShell.](./media/how-to-connect-install-multiple-domains/MsolDomainFederationSettings.png)
 
 Um problema surge quando você adiciona mais de um domínio de nível superior.  Por exemplo, digamos que você tenha configurado a federação entre o Azure AD e seu ambiente local.  Para este documento, usamos o domínio bmcontoso.com.  Agora, adicionamos um segundo domínio de nível superior, bmfabrikam.com.
 
-![Domínios](./media/how-to-connect-install-multiple-domains/domains.png)
+![Uma captura de tela mostrando vários domínios de nível superior](./media/how-to-connect-install-multiple-domains/domains.png)
 
 Quando você tenta converter o domínio bmfabrikam.com em federado, recebe um erro.  A razão para isso é que o Azure AD tem uma restrição que não permite que a propriedade IssuerUri tenha o mesmo valor para mais de um domínio.  
 
-![Erro de federação](./media/how-to-connect-install-multiple-domains/error.png)
+![Captura de tela que mostra um erro de Federação no PowerShell.](./media/how-to-connect-install-multiple-domains/error.png)
 
 ### <a name="supportmultipledomain-parameter"></a>Parâmetro SupportMultipleDomain
 Para solucionar essa restrição, você precisa adicionar um IssuerUri diferente. Isso pode ser feito usando o parâmetro `-SupportMultipleDomain`.  Esse parâmetro é usado com os seguintes cmdlets:
@@ -57,17 +57,17 @@ Para solucionar essa restrição, você precisa adicionar um IssuerUri diferente
 
 Esse parâmetro faz o Azure AD configurar o IssuerUri para se basear no nome do domínio.  Esse IssuerUri será exclusivo nos diretórios no Azure AD.  O uso do parâmetro permite que o comando do PowerShell seja concluído com êxito.
 
-![Erro de federação](./media/how-to-connect-install-multiple-domains/convert.png)
+![Captura de tela que mostra uma conclusão bem-sucedida do comando do PowerShell.](./media/how-to-connect-install-multiple-domains/convert.png)
 
 Analisando as configurações do domínio bmfabrikam.com, dá para ver o seguinte:
 
-![Erro de federação](./media/how-to-connect-install-multiple-domains/settings.png)
+![Captura de tela que mostra as configurações do domínio "bmfabrikam.com".](./media/how-to-connect-install-multiple-domains/settings.png)
 
 `-SupportMultipleDomain` não altera os outros pontos de extremidade que ainda estão configurados para apontar para o serviço de federação em adfs.bmcontoso.com.
 
 O `-SupportMultipleDomain` também garante que o sistema de AD FS inclua o valor de emissor adequado em tokens emitidos para o Azure AD. Esse valor é definido usando a parte do domínio do UPN dos usuários e configurando-o como o domínio no IssuerUri, ou seja, https://{upn suffix}/adfs/services/trust.
 
-Dessa forma, durante a autenticação no Azure AD ou Office 365, o elemento IssuerURI no token do usuário é usado para localizar o domínio no Azure AD.  Se não houver correspondência, a autenticação falhará.
+Portanto, durante a autenticação no Azure AD ou Microsoft 365, o elemento IssuerUri no token do usuário é usado para localizar o domínio no Azure AD. Se não houver correspondência, a autenticação falhará.
 
 Por exemplo, se o UPN de um usuário for bsimon@bmcontoso.com, o elemento IssuerUri as emissões do AD FS de token será definido como `http://bmcontoso.com/adfs/services/trust`. Esse elemento corresponderá à configuração do Azure AD, e à autenticação será bem-sucedida.
 
@@ -88,11 +88,11 @@ Se você não tiver configurado a confiança federada entre o AD FS e a instânc
 
 Se você conseguir adicionar um novo domínio no Portal do Azure AD e tentar convertê-lo usando `Convert-MsolDomaintoFederated -DomainName <your domain>`, obterá o seguinte erro.
 
-![Erro de federação](./media/how-to-connect-install-multiple-domains/trust1.png)
+![Captura de tela que mostra um erro de Federação no PowerShell depois de tentar converter um novo domínio com o comando "Convert-MsolDomaintoFederated".](./media/how-to-connect-install-multiple-domains/trust1.png)
 
 Se você tentar adicionar a opção `-SupportMultipleDomain`, receberá o seguinte erro:
 
-![Erro de federação](./media/how-to-connect-install-multiple-domains/trust2.png)
+![Captura de tela que mostra um erro de Federação depois de adicionar a opção "-SupportMultipleDomain".](./media/how-to-connect-install-multiple-domains/trust2.png)
 
 A simples tentativa de executar `Update-MsolFederatedDomain -DomainName <your domain> -SupportMultipleDomain` no domínio original também resultará em erro.
 
@@ -106,14 +106,14 @@ Use as etapas a seguir para remover a relação de confiança do Microsoft Onlin
 2. À esquerda, expanda **Relações de Confiança** e **Terceira Parte Confiável**
 3. À direita, exclua a entrada **Plataforma de Identidade do Microsoft Office 365** .
    ![Remover o Microsoft Online](./media/how-to-connect-install-multiple-domains/trust4.png)
-4. Em um computador que tenha o [Módulo do Azure Active Directory para Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx) instalado, execute o seguinte: `$cred=Get-Credential`.  
+4. Em um computador que tenha o [Módulo do Azure Active Directory para Windows PowerShell](/previous-versions/azure/jj151815(v=azure.100)) instalado, execute o seguinte: `$cred=Get-Credential`.  
 5. Insira o nome de usuário e a senha de um administrador global para o domínio do Azure AD com o qual você está federando.
 6. No PowerShell, insira `Connect-MsolService -Credential $cred`
 7. No PowerShell, insira `Update-MSOLFederatedDomain -DomainName <Federated Domain Name> -SupportMultipleDomain`.  Essa atualização é para o domínio original.  Usando os domínios acima, seria: `Update-MsolFederatedDomain -DomainName bmcontoso.com -SupportMultipleDomain`
 
 Use as etapas a seguir para adicionar o novo domínio de nível superior usando o PowerShell
 
-1. Em um computador que tenha o [Módulo do Azure Active Directory para Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx) instalado, execute o seguinte: `$cred=Get-Credential`.  
+1. Em um computador que tenha o [Módulo do Azure Active Directory para Windows PowerShell](/previous-versions/azure/jj151815(v=azure.100)) instalado, execute o seguinte: `$cred=Get-Credential`.  
 2. Insira o nome de usuário e a senha de um administrador global para o domínio do Azure AD com o qual você está federando
 3. No PowerShell, insira `Connect-MsolService -Credential $cred`
 4. No PowerShell, insira `New-MsolFederatedDomain –SupportMultipleDomain –DomainName`
@@ -121,7 +121,7 @@ Use as etapas a seguir para adicionar o novo domínio de nível superior usando 
 Use as etapas a seguir para adicionar o novo domínio de nível superior usando o Azure AD Connect.
 
 1. Inicie o Azure AD Connect na área de trabalho ou no menu Iniciar
-2. Escolha "Adicionar um domínio do Azure AD" ![Adicionar um domínio do Azure AD](./media/how-to-connect-install-multiple-domains/add1.png)
+2. Escolha a captura de tela "adicionar um domínio do Azure AD adicional" ![ que mostra a página "tarefas adicionais" com "adicionar um domínio do Azure ad adicional" selecionado.](./media/how-to-connect-install-multiple-domains/add1.png)
 3. Insira as credenciais do Azure AD e do Active Directory
 4. Escolha o segundo domínio que você deseja configurar para federação.
    ![Adicionar um domínio do Azure AD](./media/how-to-connect-install-multiple-domains/add2.png)
@@ -130,7 +130,7 @@ Use as etapas a seguir para adicionar o novo domínio de nível superior usando 
 ### <a name="verify-the-new-top-level-domain"></a>Verifique o novo domínio de nível superior
 Usando o comando `Get-MsolDomainFederationSettings -DomainName <your domain>`do PowerShell, você pode exibir o IssuerUri atualizado.  A captura de tela abaixo mostra que as configurações de federação foram atualizadas no domínio original `http://bmcontoso.com/adfs/services/trust`
 
-![Get-MsolDomainFederationSettings](./media/how-to-connect-install-multiple-domains/MsolDomainFederationSettings.png)
+![Captura de tela que mostra as configurações de Federação atualizadas no domínio original.](./media/how-to-connect-install-multiple-domains/MsolDomainFederationSettings.png)
 
 E o IssuerUri no novo domínio foi sido definido como `https://bmfabrikam.com/adfs/services/trust`
 

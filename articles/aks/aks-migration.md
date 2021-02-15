@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 02/25/2020
 ms.custom: mvc
-ms.openlocfilehash: 9371feb527bbb2d94d43072bb8a44a6705b45055
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 5881d03603002cc8d5bef1680083f6b4145bc77f
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87280215"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526680"
 ---
 # <a name="migrate-to-azure-kubernetes-service-aks"></a>Migrar para o serviço kubernetes do Azure (AKS)
 
@@ -21,7 +21,7 @@ Este documento pode ser usado para ajudar a dar suporte aos seguintes cenários:
 * Migrando um cluster AKS apoiado por [conjuntos de disponibilidade](../virtual-machines/windows/tutorial-availability-sets.md) para conjuntos de [dimensionamento de máquinas virtuais](../virtual-machine-scale-sets/overview.md)
 * Migrando um cluster AKS para usar um [balanceador de carga SKU padrão](./load-balancer-standard.md)
 * Migrando do [serviço de contêiner do Azure (ACS)-desativando 31 de janeiro de 2020](https://azure.microsoft.com/updates/azure-container-service-will-retire-on-january-31-2020/) para AKs
-* Migrando do [mecanismo do AKS](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908) para o AKs
+* Migrando do [mecanismo do AKS](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview) para o AKs
 * Migrando de clusters kubernetes não baseados no Azure para AKS
 * Movendo recursos existentes para uma região diferente
 
@@ -80,7 +80,7 @@ Ao migrar clusters, você pode ter anexado serviços externos do Azure. Eles nã
 * Log Analytics
 * Application Insights
 * Gerenciador de Tráfego
-* Conta de Armazenamento
+* Conta de armazenamento
 * Bancos de dados externos
 
 ## <a name="ensure-valid-quotas"></a>Garantir cotas válidas
@@ -132,7 +132,7 @@ Se seu aplicativo puder hospedar várias réplicas que apontam para o mesmo comp
 * Aponte seu tráfego ao vivo para o novo cluster AKS.
 * Desconecte o cluster antigo.
 
-Se você quiser iniciar com um compartilhamento vazio e fazer uma cópia dos dados de origem, poderá usar os [`az storage file copy`](/cli/azure/storage/file/copy?view=azure-cli-latest) comandos para migrar seus dados.
+Se você quiser iniciar com um compartilhamento vazio e fazer uma cópia dos dados de origem, poderá usar os [`az storage file copy`](/cli/azure/storage/file/copy) comandos para migrar seus dados.
 
 
 #### <a name="migrating-persistent-volumes"></a>Migrando volumes persistentes
@@ -159,7 +159,7 @@ Algumas ferramentas de código-fonte aberto podem ajudá-lo a criar discos geren
 
 ### <a name="deployment-of-your-cluster-configuration"></a>Implantação de sua configuração de cluster
 
-Recomendamos que você use seu pipeline de integração contínua (CI) e entrega contínua (CD) para implantar uma configuração válida em AKS. Você pode usar Azure Pipelines para [Compilar e implantar seus aplicativos no AKs](/azure/devops/pipelines/ecosystems/kubernetes/aks-template?view=azure-devops). Clone suas tarefas de implantação existentes e certifique-se de que `kubeconfig` aponta para o novo cluster AKs.
+Recomendamos que você use seu pipeline de integração contínua (CI) e entrega contínua (CD) para implantar uma configuração válida em AKS. Você pode usar Azure Pipelines para [Compilar e implantar seus aplicativos no AKs](/azure/devops/pipelines/ecosystems/kubernetes/aks-template). Clone suas tarefas de implantação existentes e certifique-se de que `kubeconfig` aponta para o novo cluster AKs.
 
 Se isso não for possível, exporte as definições de recursos do cluster kubernetes existente e aplique-as ao AKS. É possível usar `kubectl` para exportar objetos.
 

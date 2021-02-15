@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 06/02/2020
 ms.author: allensu
 ms.openlocfilehash: 0ea4f167b992ccfbc4156ac06c8f636d2ef4a355
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84343193"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020408"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-features"></a>Recursos do mecanismo de regras da CDN do Azure da Verizon Premium
 
@@ -56,10 +56,10 @@ Esses recursos são projetados para personalizar quando e como o conteúdo é ar
 | Nome       | Finalidade                                                           |
 |------------|-------------------------------------------------------------------|
 | [Parâmetros de Largura de Banda](https://docs.vdms.com/cdn/Content/HRE/F/Bandwidth-Parameters.htm) | Determina se os parâmetros de limitação de largura de banda (isto é, ec_rate e ec_prebuf) estarão ativos. |
-| [Limitação de Largura de Banda](https://docs.vdms.com/cdn/Content/HRE/F/Bandwidth-Throttling.htm) | Limita a largura de banda para a resposta fornecida por nossos servidores de borda. |
+| [Limitação de largura de banda](https://docs.vdms.com/cdn/Content/HRE/F/Bandwidth-Throttling.htm) | Limita a largura de banda para a resposta fornecida por nossos servidores de borda. |
 | [Ignorar o Cache](https://docs.vdms.com/cdn/Content/HRE/F/Bypass-Cache.htm) | Determina se a solicitação pode aproveitar nossa tecnologia de cache. |
 | [Tratamento de Cabeçalho Cache-Control](https://docs.vdms.com/cdn/Content/HRE/F/Cache-Control-Header-Treatment.htm) |  Controla a geração de cabeçalhos de Controle de Cache pelo servidor de borda quando o recurso Idade Máxima Externa está ativo. |
-| [Cadeia de Caracteres da Consulta da Chave de Cache](https://docs.vdms.com/cdn/Content/HRE/F/Cache-Key-Query-String.htm) | Determina se o **cache-Key*** incluirá ou excluirá parâmetros de cadeia de caracteres de consulta associados a uma solicitação. <br> _* Um caminho relativo que identifica exclusivamente um ativo para fins de cache.  Nossos servidores de borda usam esse caminho relativo ao verificar o conteúdo armazenado em cache.  Por padrão, uma chave de cache não conterá parâmetros de cadeia de caracteres de consulta._ |
+| [Cadeia de Caracteres da Consulta da Chave de Cache](https://docs.vdms.com/cdn/Content/HRE/F/Cache-Key-Query-String.htm) | Determina se o **cache-Key** _ incluirá ou excluirá parâmetros de cadeia de caracteres de consulta associados a uma solicitação. <br> _ É um caminho relativo que identifica exclusivamente um ativo para fins de cache.  Nossos servidores de borda usam esse caminho relativo ao verificar o conteúdo armazenado em cache.  Por padrão, uma chave de cache não conterá a cadeia de caracteres de consulta parameters._ |
 | [Regravação da Chave de Cache](https://docs.vdms.com/cdn/Content/HRE/F/Cache-Key-Rewrite.htm) | Regrava a chave de cache associada a uma solicitação. |
 | [Concluir o Preenchimento do Cache](https://docs.vdms.com/cdn/Content/HRE/F/Complete-Cache-Fill.htm) | Determina o que acontece quando uma solicitação resulta em uma perda no cache parcial em um servidor de borda. |
 | [Compactar Tipos de Arquivo](https://docs.vdms.com/cdn/Content/HRE/F/Compress-File-Types.htm) | Define os formatos de arquivo que serão compactados no servidor. | 
@@ -88,7 +88,7 @@ O recurso Comentário permite a adição de detalhes a uma regra.
 
 **[Voltar ao início](#top)**
 
-### <a name="headers"></a><a name="headers"></a>headers
+### <a name="headers"></a><a name="headers"></a>Cabeçalhos
 
 Esses recursos são projetados para adicionar, modificar ou excluir os cabeçalhos da solicitação ou da resposta.
 

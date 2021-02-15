@@ -1,16 +1,16 @@
 ---
-title: Solucionar problemas de desempenho do registro
+title: Solucionar problemas de desempenho de registro
 description: Sintomas, causas e resolução de problemas comuns com o desempenho de um registro
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: 414e3a92b8ebd4ff58528fc5e9ec4794471bd775
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: 15129ebe1da2e52fac106a34863f609c440549ad
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88227045"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148416"
 ---
-# <a name="troubleshoot-registry-performance"></a>Solucionar problemas de desempenho do registro
+# <a name="troubleshoot-registry-performance"></a>Solucionar problemas de desempenho de registro
 
 Este artigo ajuda você a solucionar problemas que podem ser encontrados com o desempenho de um registro de contêiner do Azure. 
 
@@ -115,7 +115,5 @@ Se você não resolver o problema aqui, consulte as opções a seguir.
   * [Solucionar problemas de logon do registro](container-registry-troubleshoot-login.md)
   * [Solucionar problemas de rede com o registro](container-registry-troubleshoot-access.md)
 * Opções de [suporte da Comunidade](https://azure.microsoft.com/support/community/)
-* [P e R da Microsoft](https://docs.microsoft.com/answers/products/)
+* [P e R da Microsoft](/answers/products/)
 * [Abra um tíquete de suporte](https://azure.microsoft.com/support/create-ticket/)
-
-

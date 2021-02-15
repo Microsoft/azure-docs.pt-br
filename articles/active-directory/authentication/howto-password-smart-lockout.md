@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 07/20/2020
-ms.author: iainfou
-author: iainfoulds
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b5734cb76e4ed018778c6858597ec8efe3019bf9
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: a5f501c19da3c2ddc06ad89fe5649789477af7ec
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88065974"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99255366"
 ---
 # <a name="protect-user-accounts-from-attacks-with-azure-active-directory-smart-lockout"></a>Proteger contas de usuário contra ataques com bloqueio inteligente de Azure Active Directory
 
@@ -58,7 +58,7 @@ Para verificar sua política de bloqueio de conta AD DS local, conclua as seguin
 
 1. Abra a ferramenta de Gerenciamento de Política de Grupo.
 2. Edite a política de grupo que inclui a política de bloqueio de conta da sua organização, como a **política de domínio padrão**.
-3. Navegue até **configuração do computador**  >  **políticas**  >  **configurações do Windows**configuração de  >  **segurança**  >  **políticas de conta**  >  **política de bloqueio de conta**.
+3. Navegue até **configuração do computador**  >  **políticas**  >  **configurações do Windows** configuração de  >  **segurança**  >  **políticas de conta**  >  **política de bloqueio de conta**.
 4. Verifique seu **limite de bloqueio de conta** e **redefina o contador de bloqueios de conta após** os valores.
 
 ![Modificar a política de bloqueio de conta Active Directory local](./media/howto-password-smart-lockout/active-directory-on-premises-account-lockout-policy.png)
@@ -70,7 +70,7 @@ Com base em seus requisitos organizacionais, você pode personalizar os valores 
 Para verificar ou modificar os valores de bloqueio inteligente para sua organização, conclua as seguintes etapas:
 
 1. Entre no [portal do Azure](https://portal.azure.com).
-1. Procure e selecione *Azure Active Directory*e, em seguida, selecione **segurança**  >  **métodos de autenticação**  >  **proteção por senha**.
+1. Procure e selecione *Azure Active Directory* e, em seguida, selecione **segurança**  >  **métodos de autenticação**  >  **proteção por senha**.
 1. Coloque o **limite de bloqueio**, baseado em quantas vezes de logins falhados é permitido em uma conta antes do primeiro bloqueio.
 
     O padrão é 10.
@@ -89,6 +89,8 @@ Para verificar ou modificar os valores de bloqueio inteligente para sua organiza
 Quando o limite de bloqueio inteligente for disparado, você receberá a seguinte mensagem enquanto a conta estiver bloqueada:
 
 *Sua conta está temporariamente bloqueada para impedir o uso não autorizado. Tente novamente mais tarde e, se você ainda tiver problemas, entre em contato com seu administrador.*
+
+Quando você testa o bloqueio inteligente, suas solicitações de entrada podem ser tratadas por data centers diferentes devido à natureza distribuída geograficamente e com balanceamento de carga do serviço de autenticação do Azure AD. Nesse cenário, como cada Datacenter do Azure AD acompanha o bloqueio de forma independente, pode levar mais do que o número limite definido de tentativas de bloqueio para causar um bloqueio. Um usuário tem (*threshold_limit * datacenter_count*) número de tentativas inadequadas se o usuário atinge cada datacenter antes de ocorrer um bloqueio.
 
 ## <a name="next-steps"></a>Próximas etapas
 

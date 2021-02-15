@@ -12,10 +12,10 @@ metadata:
   manager: rkarlin
   ms.date: 09/19/2019
   ms.openlocfilehash: 9e592fdb5fa87487f131bb0aca0c6176175e5385
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 03/25/2020
+  ms.lasthandoff: 10/09/2020
   ms.locfileid: "71300094"
 landingContent:
 - title: HSM Dedicado do Azure
@@ -32,7 +32,7 @@ landingContent:
       url: physical-security.md
     - text: Rede
       url: networking.md
-    - text: Suporte
+    - text: Capacidade de suporte
       url: supportability.md
     - text: Monitoramento
       url: monitoring.md

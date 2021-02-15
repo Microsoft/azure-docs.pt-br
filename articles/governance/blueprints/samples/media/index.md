@@ -1,14 +1,14 @@
 ---
 title: Visão geral do exemplo de blueprint de Mídia
 description: Visão geral do exemplo de blueprint de Mídia. Este exemplo de blueprint ajuda os clientes a avaliar controles específicos de Mídia.
-ms.date: 08/13/2020
+ms.date: 01/08/2021
 ms.topic: sample
-ms.openlocfilehash: db7e67cb7f96a19a04efc001bc7752f7c9a02e73
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: f2b9e29d8f5095947587107cc372beb34b18abb7
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88208240"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98034978"
 ---
 # <a name="overview-of-the-media-blueprint-sample"></a>Visão geral do exemplo de blueprint de Mídia
 

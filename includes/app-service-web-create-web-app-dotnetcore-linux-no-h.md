@@ -9,10 +9,10 @@ ms.date: 04/22/2020
 ms.author: cephalin
 ms.custom: include file
 ms.openlocfilehash: d5fe447e8a1467530cd0eb4c9d2f8a20a4273876
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88080874"
 ---
 Crie um [aplicativo Web](../articles/app-service/overview.md#app-service-on-linux) no plano do Serviço de Aplicativo `myAppServicePlan`. 

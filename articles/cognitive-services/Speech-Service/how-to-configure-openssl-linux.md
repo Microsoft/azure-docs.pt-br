@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/16/2020
 ms.author: jhakulin
 ms.openlocfilehash: 42960c25c4124203b64646fdc5cbca833b246e21
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81683158"
 ---
 # <a name="configure-openssl-for-linux"></a>Configurar o OpenSSL para Linux
@@ -31,7 +31,7 @@ A saída em sistemas baseados no Ubuntu/Debian deve ser:
 OPENSSLDIR: "/usr/lib/ssl"
 ```
 
-Verifique se há `certs` subdiretório em OPENSSLDIR. No exemplo acima, seria `/usr/lib/ssl/certs`.
+Verifique se há `certs` subdiretório em OPENSSLDIR. No exemplo acima, seria `/usr/lib/ssl/certs` .
 
 * Se houver `/usr/lib/ssl/certs` e ele contiver muitos arquivos de certificado individuais ( `.crt` com `.pem` extensão ou), não haverá necessidade de mais ações.
 
@@ -39,13 +39,13 @@ Verifique se há `certs` subdiretório em OPENSSLDIR. No exemplo acima, seria `/
 
 ## <a name="examples"></a>Exemplos
 
-- OPENSSLDIR é `/opt/ssl`. `certs` Há um subdiretório com muitos `.crt` arquivos ou `.pem` .
-Defina a variável `SSL_CERT_DIR` de ambiente para `/opt/ssl/certs` apontar para antes de executar um programa que usa o SDK de fala. Por exemplo:
+- OPENSSLDIR é `/opt/ssl` . Há um `certs` subdiretório com muitos `.crt` arquivos ou `.pem` .
+Defina a variável `SSL_CERT_DIR` de ambiente para apontar para `/opt/ssl/certs` antes de executar um programa que usa o SDK de fala. Por exemplo:
 ```bash
 export SSL_CERT_DIR=/opt/ssl/certs
 ```
 
-- OPENSSLDIR é `/etc/pki/tls` (como em sistemas baseados em RHEL/CentOS). `certs` Há subdiretório com um arquivo de pacote de certificado, por exemplo `ca-bundle.crt`.
+- OPENSSLDIR é `/etc/pki/tls` (como em sistemas baseados em RHEL/CentOS). Há `certs` subdiretório com um arquivo de pacote de certificado, por exemplo `ca-bundle.crt` .
 Defina a variável `SSL_CERT_FILE` de ambiente para apontar para esse arquivo antes de executar um programa que usa o SDK de fala. Por exemplo:
 ```bash
 export SSL_CERT_FILE=/etc/pki/tls/certs/ca-bundle.crt

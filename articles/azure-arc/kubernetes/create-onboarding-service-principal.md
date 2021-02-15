@@ -1,31 +1,31 @@
 ---
-title: Criar uma entidade de serviço de integração habilitada para Azure Arc (versão prévia)
+title: Criar uma entidade de serviço de integração habilitada para Arc do Azure (versão prévia)
 services: azure-arc
 ms.service: azure-arc
-ms.date: 05/19/2020
+ms.date: 02/09/2021
 ms.topic: article
 author: mlearned
 ms.author: mlearned
-description: 'Criar uma entidade de serviço de integração habilitada para Azure Arc '
+description: 'Criar uma entidade de serviço de integração habilitada para o Azure Arc '
 keywords: Kubernetes, Arc, Azure, contêineres
-ms.openlocfilehash: 02689dba32c8cc91e4a4a4de4dee98bc990b4dd6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8772cf7634d9a833af120784e3e7868b41d202c4
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87050069"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100390480"
 ---
-# <a name="create-an-azure-arc-enabled-onboarding-service-principal-preview"></a>Criar uma entidade de serviço de integração habilitada para Azure Arc (versão prévia)
+# <a name="create-an-azure-arc-enabled-onboarding-service-principal-preview"></a>Criar uma entidade de serviço de integração habilitada para Arc do Azure (versão prévia)
 
 ## <a name="overview"></a>Visão geral
 
-É possível usar as entidades de serviço que têm uma atribuição de função com privilégios limitados para integração de clusters do Kubernetes ao Azure Arc. Isso é útil em pipelines de integração contínua e implantação contínua (CI/CD), como Azure Pipelines e GitHub Actions.
+Você pode integrar clusters kubernetes ao arco do Azure usando entidades de serviço com atribuições de função de privilégio limitado. Esse recurso é útil em pipelines de integração contínua e implantação contínua (CI/CD), como ações Azure Pipelines e GitHub.
 
-As etapas a seguir fornecem instruções sobre o uso de entidades de serviço para integração de clusters do Kubernetes ao Azure Arc.
+Percorra as etapas a seguir para saber como usar entidades de serviço para integração de clusters kubernetes ao Azure Arc.
 
-## <a name="create-a-new-service-principal"></a>Crie uma nova Entidade de Serviço
+## <a name="create-a-new-service-principal"></a>Criar uma nova entidade de serviço
 
-Crie uma nova Entidade de Serviço com um nome informativo. Observe que esse nome deve ser exclusivo para o locatário do Azure Active Directory:
+Crie uma nova entidade de serviço com um nome informativo que seja exclusivo para seu locatário Azure Active Directory.
 
 ```console
 az ad sp create-for-RBAC --skip-assignment --name "https://azure-arc-for-k8s-onboarding"
@@ -45,16 +45,16 @@ az ad sp create-for-RBAC --skip-assignment --name "https://azure-arc-for-k8s-onb
 
 ## <a name="assign-permissions"></a>Atribuir permissões
 
-Depois de criar a nova entidade de serviço, atribua a função "cluster kubernetes-integração de arco do Azure" com a entidade recém-criada. Essa é uma função interna do Azure com permissões limitadas, que só permite que a entidade de segurança registre clusters no Azure. A entidade de segurança não pode atualizar, excluir ou modificar outros clusters ou recursos na assinatura.
+Atribua a função "cluster kubernetes-integração de arco do Azure" à entidade de serviço recém-criada. Essa função interna do Azure com permissões limitadas permite apenas que a entidade de segurança Registre clusters no Azure. A entidade com essa função atribuída não pode atualizar, excluir ou modificar outros clusters ou recursos dentro da assinatura.
 
 Dadas as capacidades limitadas, os clientes podem facilmente reutilizar essa entidade para integrar vários clusters.
 
-As permissões podem ser ainda mais limitadas passando o argumento `--scope` apropriado ao atribuir a função. Isso permite que os clientes restrinjam o registro do cluster. Os cenários a seguir são compatíveis com vários parâmetros `--scope`:
+Você pode limitar as permissões ainda mais passando o `--scope` argumento apropriado ao atribuir a função. Isso permite que os clientes restrinjam o registro do cluster. Os cenários a seguir são compatíveis com vários parâmetros `--scope`:
 
 | Recurso  | Argumento `scope`| Efeito |
 | ------------- | ------------- | ------------- |
-| Subscription | `--scope /subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333` | A entidade de serviço pode registrar qualquer cluster em um Grupo de Recursos existente na assinatura fornecida |
-| Grupo de recursos | `--scope /subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`  | A entidade de serviço __só__ pode registrar clusters no Grupo de Recursos `myGroup` |
+| Subscription | `--scope /subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333` | A entidade de serviço pode registrar qualquer cluster em um grupo de recursos existente na assinatura em questão. |
+| Grupo de recursos | `--scope /subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`  | A entidade de serviço __só__ pode registrar clusters no grupo de recursos `myGroup` . |
 
 ```console
 az role assignment create \
@@ -78,11 +78,11 @@ az role assignment create \
 }
 ```
 
-## <a name="use-service-principal-with-the-azure-cli"></a>Usar a Entidade de Serviço com a CLI do Azure
+## <a name="use-service-principal-with-the-azure-cli"></a>Usar a entidade de serviço com o CLI do Azure
 
-Referencie a Entidade de Serviço recém-criada:
+Referencie a entidade de serviço recém-criada com os seguintes comandos:
 
-```console
+```azurecli
 az login --service-principal -u mySpnClientId -p mySpnClientSecret --tenant myTenantID
 az connectedk8s connect -n myConnectedClusterName -g myResoureGroupName
 ```

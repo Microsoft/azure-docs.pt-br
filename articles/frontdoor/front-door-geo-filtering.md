@@ -3,30 +3,31 @@ title: Filtragem geográfica em um domínio do Azure Front Door | Microsoft Docs
 description: Neste artigo, você aprenderá sobre a política de filtragem geográfica do Azure Front Door
 services: frontdoor
 documentationcenter: ''
-author: KumudD
+author: duongau
 editor: ''
 ms.service: frontdoor
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2019
-ms.author: kumud
+ms.date: 09/28/2020
+ms.author: duau
 ms.reviewer: tyao
-ms.openlocfilehash: 48e2697cb4793f10e7694aa26e29c48a397fe3a5
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 1cd3d4837c39fdeb0e7addced10ab2e7fd330b9a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86521591"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100369417"
 ---
 # <a name="geo-filtering-on-a-domain-for-azure-front-door"></a>Filtragem geográfica em um domínio para a porta frontal do Azure
 
-Por padrão, o Azure Front Door responde às solicitações de usuário, independentemente do local do usuário que faz a solicitação. No entanto, em alguns casos, é possível restringir o acesso ao conteúdo dos aplicativos Web por país/região. O serviço WAF (firewall do aplicativo Web) no Front Door permite que você defina uma política usando regras personalizadas de acesso para um caminho específico no seu ponto de extremidade para permitir ou bloquear o acesso de países/regiões específicos. 
+Por padrão, a porta frontal do Azure responderá a todas as solicitações de usuário, independentemente do local de origem da solicitação. Em alguns cenários, talvez você queira restringir o acesso ao seu aplicativo Web por países/regiões. O serviço WAF (firewall do aplicativo Web) na porta frontal permite que você defina uma política usando regras de acesso personalizadas para um caminho específico em seu ponto de extremidade para permitir ou bloquear o acesso de países/regiões especificados. 
 
-Uma política de WAF geralmente inclui um conjunto de regras personalizadas. Uma regra é composta de condições de correspondência, uma ação e uma prioridade. Na condição de correspondência, você define uma variável de correspondência, operador e valor de correspondência.  Para a regra de filtragem geográfica, a variável de correspondência é REMOTE_ADDR, o operador é GeoMatch, o valor é o código de interesse do país/região de duas letras. Você pode combinar uma condição GeoMatch e uma condição de correspondência de cadeia de caracteres REQUEST_URI para criar uma regra de filtragem geográfica com base no caminho.
+Uma política de WAF contém um conjunto de regras personalizadas. A regra consiste em condições de correspondência, em uma ação e em uma prioridade. Em uma condição de correspondência, você define uma variável de correspondência, operador e valor de correspondência. Para uma regra de filtragem geográfica, uma variável de correspondência é REMOTE_ADDR, o operador é geocorrespondente e o valor é um código de país/região de duas letras de interesse. O código do país "ZZ" ou o país "desconhecido" captura endereços IP que ainda não foram mapeados para um país em nosso conjunto de nossos conjuntos de nossos. Você pode adicionar ZZ à sua condição de correspondência para evitar falsos positivos. Você pode combinar uma condição de correspondência geográfica e uma condição de correspondência de cadeia de caracteres de REQUEST_URI para criar uma regra de filtro geográfico baseada em caminho. 
 
-Você pode configurar uma política de filtragem geográfica para seu Front Door usando o [Azure PowerShell](front-door-tutorial-geo-filtering.md) ou usando nosso [modelo de início rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-geo-filtering).
+
+Você pode configurar uma política de filtragem geográfica para sua porta frontal usando [Azure PowerShell](front-door-tutorial-geo-filtering.md) ou usando um modelo de [início rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-geo-filtering).
 
 ## <a name="countryregion-code-reference"></a>Referência de código de país/região
 
@@ -212,5 +213,5 @@ Você pode configurar uma política de filtragem geográfica para seu Front Door
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre [segurança da camada de aplicativo com o Front Door](front-door-application-security.md).
 - Saiba como [criar um Front Door](quickstart-create-front-door.md).
+- Saiba o que é possível para [Configurar uma política de WAF de filtragem geográfica](front-door-tutorial-geo-filtering.md).

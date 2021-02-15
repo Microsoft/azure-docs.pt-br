@@ -5,12 +5,12 @@ author: MSEvanhi
 ms.topic: tutorial
 ms.date: 06/24/2020
 ms.author: evanhi
-ms.openlocfilehash: 541d140716e52b4fe1db4bc999682914a380a5f0
-ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
+ms.openlocfilehash: 23ae69f49d37a210dd9fa1bfeedeca6c1b461e20
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85368100"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888854"
 ---
 # <a name="quickstart-create-a-custom-provider-and-deploy-custom-resources"></a>Início Rápido: Criar um provedor personalizado e implantar recursos personalizados
 
@@ -23,8 +23,11 @@ Neste início rápido, você cria seu próprio provedor de recursos e implanta t
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-- Os comandos [custom-providers](/cli/azure/ext/custom-providers/custom-providers/resource-provider) exigem uma extensão. Para obter mais informações, confira [Usar extensões com a CLI do Azure](/cli/azure/azure-cli-extensions-overview).
-- Exemplos da CLI do Azure usam `az rest` para solicitações de `REST`. Para obter mais informações, confira [az rest](/cli/azure/reference-index#az-rest).
+Prepare seu ambiente para a CLI do Azure.
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+Exemplos da CLI do Azure usam `az rest` para solicitações de `REST`. Para obter mais informações, confira [az rest](/cli/azure/reference-index#az-rest).
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -33,8 +36,6 @@ Neste início rápido, você cria seu próprio provedor de recursos e implanta t
 - Depois que o **ARMClient** for instalado, você poderá exibir informações de uso de um prompt de comando do PowerShell digitando: `armclient.exe`. Ou acesse o [wiki do ARMClient](https://github.com/projectkudu/ARMClient/wiki).
 
 ---
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="deploy-custom-provider"></a>Implantar provedor personalizado
 

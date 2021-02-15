@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 4b2068c3944f9e7616b0666c7bafcafc68ee0cd9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "79471278"
 ---
 # <a name="how-to-install-iot-edge-on-kubernetes-preview"></a>Como instalar o IoT Edge no kubernetes (versão prévia)
@@ -25,7 +25,7 @@ IoT Edge pode integrar com o kubernetes usando-o como uma camada de infraestrutu
 >Um bom modelo mental para essa integração é considerar o kubernetes como outro ambiente operacional IoT Edge aplicativos podem ser executados além do Linux e do Windows.
 
 ## <a name="architecture"></a>Arquitetura 
-No kubernetes, IoT Edge fornece *definição de recurso personalizado* (CRD) para implantações de carga de trabalho de borda. IoT Edge Agent assume a função de um *controlador CRD* que reconcilia o estado desejado gerenciado pela nuvem com o estado do cluster local.
+No kubernetes, IoT Edge fornece *definição de recurso personalizado* (CRD) para implantações de carga de trabalho de borda. IoT Edge Agent assume a função de um  *controlador CRD* que reconcilia o estado desejado gerenciado pela nuvem com o estado do cluster local.
 
 O tempo de vida do módulo é gerenciado pelo Agendador kubernetes, que mantém a disponibilidade do módulo e escolhe seu posicionamento. IoT Edge gerencia a plataforma de aplicativo de borda em execução na parte superior, reconciliando continuamente o estado desejado especificado no Hub IoT com o estado no cluster de borda. O modelo de aplicativo ainda é o conhecido modelo com base em módulos e rotas IoT Edge. O controlador do agente de IoT Edge executa o modelo de aplicativo IoT Edge de tradução *automática* para construções nativas kubernetes como pods, implantações, serviços etc.
 

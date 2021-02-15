@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: chlound
 ms.custom: references_regions
-ms.openlocfilehash: 7412a28b53f3b17fb888e3877ecbe50a19c4a3d3
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 8a8d434fca7cab4432f38fc64093cf1fe060bd5f
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87552230"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019079"
 ---
 # <a name="refresh-with-logic-apps"></a>Atualizar com Aplicativos Lógicos
 
@@ -27,7 +27,7 @@ Todas as chamadas devem ser autenticadas com um token válido do Azure Active Di
 ## <a name="design-the-logic-app"></a>Criar o aplicativo lógico
 
 > [!IMPORTANT]
-> Os exemplos a seguir pressupõem que o Firewall do Azure Analysis Services está desabilitado. Se o firewall estiver habilitado, o endereço IP público do iniciador de solicitação deverá estar na lista de permissões no firewall do Azure Analysis Services. Para saber mais sobre intervalos de IP de aplicativos lógicos do Azure por região, consulte [limites e informações de configuração para aplicativos lógicos do Azure](../logic-apps/logic-apps-limits-and-config.md#configuration).
+> Os exemplos a seguir pressupõem que o Firewall do Azure Analysis Services está desabilitado. Se o firewall estiver habilitado, o endereço IP público do iniciador da solicitação deverá ser adicionado à lista aprovada no firewall do Azure Analysis Services. Para saber mais sobre intervalos de IP de aplicativos lógicos do Azure por região, consulte [limites e informações de configuração para aplicativos lógicos do Azure](../logic-apps/logic-apps-limits-and-config.md#configuration).
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
@@ -53,9 +53,9 @@ Esta etapa será preenchida com a URL HTTP POST quando o aplicativo lógico for 
 
 2. Adicione uma nova etapa e pesquise por **http**.  
 
-   ![Adicionar atividade HTTP](./media/analysis-services-async-refresh-logic-app/9.png)
+   ![Captura de tela da seção "escolher uma ação" com o bloco "HTTP" selecionado.](./media/analysis-services-async-refresh-logic-app/9.png)
 
-   ![Adicionar atividade HTTP](./media/analysis-services-async-refresh-logic-app/10.png)
+   ![Captura de tela da janela "HTTP" com o bloco "HTTP-HTTP" selecionado.](./media/analysis-services-async-refresh-logic-app/10.png)
 
 3. Selecione **http** para adicionar esta ação.
 
@@ -98,15 +98,15 @@ Se você não planeja usar uma ferramenta de orquestração como Data Factory pa
 
 Usando o exemplo acima, exclua a primeira atividade e substitua-a por uma atividade de **agendamento** .
 
-![Atividade de agendamento](./media/analysis-services-async-refresh-logic-app/12.png)
+![Captura de tela que mostra a página "aplicativos lógicos" com o bloco "Agenda" selecionado.](./media/analysis-services-async-refresh-logic-app/12.png)
 
-![Atividade de agendamento](./media/analysis-services-async-refresh-logic-app/13.png)
+![Captura de tela que mostra a página "gatilhos".](./media/analysis-services-async-refresh-logic-app/13.png)
 
 Este exemplo usará a **recorrência**.
 
 Depois que a atividade tiver sido adicionada, configure o intervalo e a frequência e, em seguida, adicione um novo parâmetro e escolha **essas horas**.
 
-![Atividade de agendamento](./media/analysis-services-async-refresh-logic-app/16.png)
+![Captura de tela que mostra a seção "recorrência" com o parâmetro "em estas horas" selecionado.](./media/analysis-services-async-refresh-logic-app/16.png)
 
 Selecione as horas desejadas.
 
@@ -117,4 +117,4 @@ Salve o aplicativo lógico.
 ## <a name="next-steps"></a>Próximas etapas
 
 [Amostras](analysis-services-samples.md)  
-[REST API](https://docs.microsoft.com/rest/api/analysisservices/servers)
+[REST API](/rest/api/analysisservices/servers)

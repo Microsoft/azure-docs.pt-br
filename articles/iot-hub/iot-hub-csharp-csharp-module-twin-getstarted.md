@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: menchi
 ms.custom: amqp, devx-track-csharp
-ms.openlocfilehash: e990d122367581c785b411f3f6d3c39b334a14fb
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: daba400b9daadf464c4c125ad266745237e71367
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88998570"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92142517"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-net"></a>Introdução à identidade e módulo do módulo do Hub IoT (.NET)
 
@@ -70,7 +70,7 @@ Antes de começar, obtenha a cadeia de conexão do módulo. Entre no [portal do 
 
 1. Pesquise e selecione **Microsoft. Azure. Devices. Client**e, em seguida, selecione **instalar**.
 
-    ![Instalar a versão atual do SDK do serviço .NET do Hub IoT do Azure](./media/iot-hub-csharp-csharp-module-twin-getstarted/install-client-sdk.png)
+    ![Captura de tela que mostra o "Microsoft. Azure. Devices. Client" selecionado e o botão "instalar" realçado.](./media/iot-hub-csharp-csharp-module-twin-getstarted/install-client-sdk.png)
 
 1. Adicione as instruções `using` abaixo na parte superior do arquivo **Program.cs** :
 
@@ -181,4 +181,4 @@ Para continuar a introdução ao Hub IoT e explorar outros cenários de IoT, con
 
 * [Introdução ao gerenciamento de dispositivo](iot-hub-node-node-device-management-get-started.md)
 
-* [Introdução ao IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Introdução ao IoT Edge](../iot-edge/quickstart-linux.md)

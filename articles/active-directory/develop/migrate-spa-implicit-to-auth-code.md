@@ -11,17 +11,17 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
-ms.custom: aaddev
-ms.openlocfilehash: b7316756aab7875dce50a3783cb95ca42676b970
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
-ms.translationtype: HT
+ms.custom: aaddev, devx-track-js
+ms.openlocfilehash: 3c11334fe1b4d77be6e64febfc1d3de6efa302c3
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87027080"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100365933"
 ---
 # <a name="migrate-a-javascript-single-page-app-from-implicit-grant-to-auth-code-flow"></a>Migrar um aplicativo de página única do JavaScript da concessão implícita para o fluxo do código de autorização
 
-A Biblioteca de Autenticação da Microsoft para JavaScript (MSAL.js) v2.0 oferece suporte ao fluxo do código de autorização com PKCE e CORS para aplicativos de página única na plataforma de identidade da Microsoft. Siga as etapas das seções abaixo para migrar seu aplicativo MSAL.js 1.x usando a concessão implícita para MSAL.js 2.0+ (doravante *2. x*) e o fluxo do código de autorização.
+A biblioteca de autenticação da Microsoft para JavaScript (MSAL.js) v 2.0 oferece suporte para o fluxo de código de autorização com PKCE e CORS para aplicativos de página única na plataforma de identidade da Microsoft. Siga as etapas das seções abaixo para migrar seu aplicativo MSAL.js 1.x usando a concessão implícita para MSAL.js 2.0+ (doravante *2. x*) e o fluxo do código de autorização.
 
 A MSAL.js 2.x tem aprimoramentos em comparação com a MSAL.js 1.x, dando suporte ao fluxo do código de autorização no navegador em vez do fluxo de concessão implícita. A MSAL.js 2.x **NÃO** dá suporte ao fluxo implícito.
 
@@ -41,7 +41,7 @@ Se você quiser continuar usando o registro de aplicativo existente para seus ap
 
 Siga estas etapas para os registros de aplicativo que estão configurados atualmente com URIs de redirecionamento da plataforma **Web**:
 
-1. Entre no [portal do Azure](https://portal.azure.com) e selecione o locatário do **Azure Active Directory**.
+1. Entre no <a href="https://portal.azure.com/" target="_blank">portal do Azure</a> e selecione o locatário do **Azure Active Directory**.
 1. Em **Registros de aplicativo**, selecione seu aplicativo e, em seguida, **Autenticação**.
 1. No bloco da plataforma **Web**, em **URIs de redirecionamento**, selecione a faixa de aviso indicando que você deve migrar seus URIs.
 
@@ -90,10 +90,10 @@ Quando você desmarca as configurações de concessão implícita no registro do
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre o fluxo de código de autorização, incluindo as diferenças entre os fluxos de código implícito e de autenticação, confira [Plataforma de identidade da Microsoft e o fluxo de código de autorização OAuth 2.0](v2-oauth2-auth-code-flow.md).
+Para saber mais sobre o fluxo de código de autorização, incluindo as diferenças entre os fluxos de código implícito e de autenticação, consulte a [plataforma de identidade da Microsoft e o fluxo de código de autorização do OAuth 2,0](v2-oauth2-auth-code-flow.md).
 
 Se quiser se aprofundar no desenvolvimento de aplicativos de página única JavaScript na plataforma de identidade da Microsoft, a série de artigos [Cenário: aplicativo de página única](scenario-spa-overview.md) em várias partes pode ajudar você a começar.
 
 <!-- LINKS - external -->
-[msal-js-useragentapplication]: https://azuread.github.io/microsoft-authentication-library-for-js/ref/msal-core/modules/_useragentapplication_.html
-[msal-js-publicclientapplication]: https://azuread.github.io/microsoft-authentication-library-for-js/ref/msal-browser/classes/_src_app_publicclientapplication_.publicclientapplication.html
+[msal-js-useragentapplication]: https://azuread.github.io/microsoft-authentication-library-for-js/ref/classes/_azure_msal.useragentapplication.html
+[msal-js-publicclientapplication]: https://azuread.github.io/microsoft-authentication-library-for-js/ref/classes/_azure_msal_browser.publicclientapplication.html

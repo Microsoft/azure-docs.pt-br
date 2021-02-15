@@ -9,20 +9,21 @@ ms.topic: tutorial
 ms.date: 05/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 9daa09209818b9e01738630911a1bb926e3c257d
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: b3cb6bf56820da84d17f0b981f461a545bbe5ab6
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88079936"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96549252"
 ---
 # <a name="tutorial-build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Tutorial: Compilar um aplicativo Web Java usando o Azure Cosmos DB e a API de SQL
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
 > * [Java](sql-api-java-application.md)
 > * [Node.js](sql-api-nodejs-application.md)
-> * [Python](sql-api-python-application.md)
+> * [Python](./create-sql-api-python.md)
 > * [Xamarin](mobile-apps-with-xamarin.md)
 > 
 
@@ -47,7 +48,7 @@ Antes de começar este tutorial de desenvolvimento de aplicativo, você deve ter
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-* [Java Development Kit (JDK) 7 +](/java/azure/jdk/?view=azure-java-stable).
+* [Java Development Kit (JDK) 7 +](/java/azure/jdk/?view=azure-java-stable&preserve-view=true).
 * [Eclipse IDE para desenvolvedores de Java EE.](https://www.eclipse.org/downloads/packages/release/luna/sr1/eclipse-ide-java-ee-developers)
 * [Um site do Azure com um Java runtime environment (por exemplo, Tomcat ou Jetty) habilitado.](../app-service/quickstart-java.md)
 
@@ -197,7 +198,7 @@ Sites do Azure tornam a implantação de aplicativos Java tão simples quanto a 
    * Na caixa Destino, escolha um destino para salvar o arquivo WAR.
    * Clique em **Concluir**.
 
-1. Agora que tem um arquivo WAR em mãos, você pode simplesmente carregá-lo no seu diretório **webapps** do site do Azure. Para obter instruções sobre como carregar o arquivo, confira [Adicionar um aplicativo Java aos Aplicativos Web do Serviço de Aplicativo do Azure](../app-service/web-sites-java-add-app.md). Uma vez carregado o arquivo WAR na pasta webapps, o ambiente de runtime detectará que você o adicionou e o carregará automaticamente.
+1. Agora que tem um arquivo WAR em mãos, você pode simplesmente carregá-lo no seu diretório **webapps** do site do Azure. Para obter instruções sobre como carregar o arquivo, confira [Adicionar um aplicativo Java aos Aplicativos Web do Serviço de Aplicativo do Azure](../app-service/quickstart-java.md). Uma vez carregado o arquivo WAR na pasta webapps, o ambiente de runtime detectará que você o adicionou e o carregará automaticamente.
 
 1. Para exibir seu produto final, navegue até `http://YOUR\_SITE\_NAME.azurewebsites.net/azure-java-sample/` e comece a adicionar tarefas!
 
@@ -217,7 +218,7 @@ Todos os exemplos neste tutorial foram incluídos no projeto [tarefas](https://g
 
 1. Na tela **Repositório Git de Origem**, na caixa **URI**, digite https://github.com/Azure-Samples/documentdb-java-todo-app.git e, em seguida, clique em **Avançar**.
 
-1. Na tela **Seleção de Ramificação**, verifique se **master** está selecionado e clique em **Avançar**.
+1. Na tela **Seleção de Branch**, verifique se **main** está selecionado e clique em **Avançar**.
 
 1. Na tela **Destino Local**, clique em **Procurar** para selecionar uma pasta onde o repositório possa ser copiado e clique em **Avançar**.
 

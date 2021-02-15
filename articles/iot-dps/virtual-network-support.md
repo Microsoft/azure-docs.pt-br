@@ -7,12 +7,12 @@ ms.service: iot-dps
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.author: wesmc
-ms.openlocfilehash: 8912ef907641367bda89d7c0e98f9da811c6e577
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: f1409a931195d236b2729e629e4603c606137593
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534593"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94959774"
 ---
 # <a name="azure-iot-hub-device-provisioning-service-dps-support-for-virtual-networks"></a>Suporte do DPS (serviço de provisionamento de dispositivos) do Hub IoT do Azure para redes virtuais
 
@@ -36,9 +36,9 @@ Por vários motivos, os clientes podem querer restringir a conectividade aos rec
 
 * Seguindo os padrões estabelecidos de conectividade de todo o Azure usando [pontos de extremidade privados](../private-link/private-endpoint-overview.md).
 
-Abordagens comuns para restringir a conectividade incluem [regras de filtro IP de DPS](./iot-dps-ip-filtering.md) e rede virtual (VNET) com pontos de [extremidade privados](../private-link/private-endpoint-overview.md). Esse objetivo deste artigo é descrever a abordagem de VNET para o DPS usando pontos de extremidade privados. 
+Abordagens comuns para restringir a conectividade incluem [regras de filtro IP de DPS](./iot-dps-ip-filtering.md) e rede virtual (VNET) com pontos de [extremidade privados](../private-link/private-endpoint-overview.md). O objetivo deste artigo é descrever a abordagem de VNET para o DPS usando pontos de extremidade privados. 
 
-Os dispositivos que operam em redes locais podem usar a [VPN (rede virtual privada)](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) ou o emparelhamento privado do [ExpressRoute](https://azure.microsoft.com/services/expressroute/) para se conectar a uma VNET no Azure e acessar os recursos de DPS por meio de pontos de extremidade privados. 
+Os dispositivos que operam em redes locais podem usar a [VPN (rede virtual privada)](../vpn-gateway/vpn-gateway-about-vpngateways.md) ou o emparelhamento privado do [ExpressRoute](https://azure.microsoft.com/services/expressroute/) para se conectar a uma VNET no Azure e acessar os recursos de DPS por meio de pontos de extremidade privados. 
 
 Um ponto de extremidade privado é um endereço IP privado alocado dentro de uma VNET de Propriedade do cliente pela qual um recurso do Azure está acessível. Ao ter um ponto de extremidade privado para seu recurso de DPS, você poderá permitir que os dispositivos que operam dentro de sua VNET solicitem provisionamento por seu recurso de DPS sem permitir o tráfego para o ponto de extremidade público.
 
@@ -51,7 +51,7 @@ Antes de continuar, verifique se os seguintes pré-requisitos foram atendidos:
 
 * Você provisionou uma VNET do Azure com uma sub-rede na qual o ponto de extremidade privado será criado. Para obter mais informações, consulte [criar uma rede virtual usando CLI do Azure](../virtual-network/quick-create-cli.md).
 
-* Para dispositivos que operam dentro de redes locais, configure a [VPN (rede virtual privada)](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) ou o emparelhamento privado do [EXPRESSROUTE](https://azure.microsoft.com/services/expressroute/) em sua VNET do Azure.
+* Para dispositivos que operam dentro de redes locais, configure a [VPN (rede virtual privada)](../vpn-gateway/vpn-gateway-about-vpngateways.md) ou o emparelhamento privado do [EXPRESSROUTE](https://azure.microsoft.com/services/expressroute/) em sua VNET do Azure.
 
 ## <a name="private-endpoint-limitations"></a>Limitações do ponto de extremidade privado
 
@@ -69,13 +69,13 @@ Observe as seguintes limitações atuais para o DPS ao usar pontos de extremidad
 
 Para configurar um ponto de extremidade privado, siga estas etapas:
 
-1. No [portal do Azure](https://portal.azure.com/), abra o recurso de DPS e clique na guia **rede** . clique em conexões de **ponto de extremidade privado** e **+ ponto de extremidade privado**.
+1. No [portal do Azure](https://portal.azure.com/), abra o recurso de DPS e clique na guia **rede** . Clique em **conexões de ponto de extremidade privado** e **+ ponto de extremidade privado**.
 
     ![Adicionar um novo ponto de extremidade privado para o DPS](./media/virtual-network-support/networking-tab-add-private-endpoint.png)
 
 2. Na página Criar noções básicas do _ponto de extremidade privado_ , insira as informações mencionadas na tabela a seguir.
 
-    ![Configurar o recurso que um novo ponto de extremidade privado mapeia para](./media/virtual-network-support/create-private-endpoint-basics.png)
+    ![Crie noções básicas de pontos de extremidade privados](./media/virtual-network-support/create-private-endpoint-basics.png)
 
     | Campo | Valor |
     | :---- | :-----|
@@ -88,7 +88,7 @@ Para configurar um ponto de extremidade privado, siga estas etapas:
 
 3. Na página _criar um recurso de ponto de extremidade privado_ , insira as informações mencionadas na tabela a seguir.
 
-    ![Configurar o recurso que um novo ponto de extremidade privado mapeia para](./media/virtual-network-support/create-private-endpoint-resource.png)
+    ![Criar recurso de ponto de extremidade privado](./media/virtual-network-support/create-private-endpoint-resource.png)
 
     | Campo | Valor |
     | :---- | :-----|
@@ -105,9 +105,9 @@ Para configurar um ponto de extremidade privado, siga estas etapas:
 
 4. Na página _criar uma configuração de ponto de extremidade privado_ , escolha sua rede virtual e sub-rede para criar o ponto de extremidade privado.
  
-    Clique em **Avançar: marcas**e, opcionalmente, forneça todas as marcas para o recurso.
+    Clique em **Avançar: marcas** e, opcionalmente, forneça todas as marcas para o recurso.
 
-    ![Configurar o recurso que um novo ponto de extremidade privado mapeia para](./media/virtual-network-support/create-private-endpoint-configuration.png)
+    ![Configurar ponto de extremidade privado](./media/virtual-network-support/create-private-endpoint-configuration.png)
 
 6. Clique em **revisar + criar** e em **criar** para criar seu recurso de ponto de extremidade privado.
 
@@ -135,13 +135,13 @@ Você pode solicitar um ponto de extremidade privado para um recurso de DPS por 
 
 3. Na página _criar uma configuração de ponto de extremidade privado_ , escolha a rede virtual e a sub-rede para criar o ponto de extremidade privado.
  
-    Clique em **Avançar: marcas**e, opcionalmente, forneça todas as marcas para o recurso.
+    Clique em **Avançar: marcas** e, opcionalmente, forneça todas as marcas para o recurso.
 
 4. Clique em **revisar + criar** e em **criar** para criar sua solicitação de ponto de extremidade particular.
 
 5. O proprietário do DPS verá a solicitação de ponto de extremidade privado na lista de **conexões do ponto de extremidade privado** na guia rede do DPS. Nessa página, o proprietário pode **aprovar** ou **rejeitar** a solicitação de ponto de extremidade particular, conforme mostrado abaixo.
 
-    ![Guia Propriedades do DPS](./media/virtual-network-support/approve-dps-private-endpoint.png)
+    ![Aprovação de DPS](./media/virtual-network-support/approve-dps-private-endpoint.png)
 
 
 ## <a name="pricing-private-endpoints"></a>Pontos de extremidade privados de preços
@@ -154,5 +154,5 @@ Para obter detalhes de preço, confira [Preço do Link Privado do Azure](https:/
 
 Use os links abaixo para saber mais sobre os recursos de segurança do DPS:
 
-* [Segurança](concepts-security.md)
+* [Segurança](./concepts-service.md#attestation-mechanism)
 * [Suporte a TLS 1,2](tls-support.md)

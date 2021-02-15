@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: c49e92cda89cfc1d72a0550c2a53430f3e6f2844
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: eea3c8525d31a3ca551e9cbc7d21d7dde163b5cc
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87050334"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94697978"
 ---
 # <a name="azure-api-management-faqs"></a>Perguntas frequentes sobre Gerenciamento de API do Azure
 Obtenha as respostas a perguntas comuns, padrões e práticas recomendadas do Gerenciamento de API do Azure.
@@ -53,7 +53,7 @@ Você tem várias opções para proteger a conexão entre o gateway de Gerenciam
 
 * Use a autenticação básica HTTP. Para obter mais informações, consulte [Importar e publicar sua primeira API](import-and-publish.md).
 * Use a autenticação mútua TLS, conforme descrito em [como proteger serviços de back-end usando a autenticação de certificado de cliente no gerenciamento de API do Azure](api-management-howto-mutual-certificates.md).
-* Use a lista de permissões de IPs em seu serviço de back-end. Em todas as camadas do gerenciamento de API com exceção da camada de consumo, o endereço IP do gateway permanece constante, com algumas limitações descritas no [artigo de documentação de IP](api-management-howto-ip-addresses.md).
+* Use a filtragem de IP em seu serviço de back-end. Em todas as camadas do gerenciamento de API com exceção da camada de consumo, o endereço IP do gateway permanece constante, com algumas limitações descritas no [artigo de documentação de IP](api-management-howto-ip-addresses.md).
 * Conecte sua instância de Gerenciamento de API a uma Rede Virtual do Azure.
 
 ### <a name="how-do-i-copy-my-api-management-service-instance-to-a-new-instance"></a>Como copiar minha instância do serviço de Gerenciamento de API para uma nova instância?
@@ -71,18 +71,7 @@ Sim, você pode gerenciar o Gerenciamento de API de forma programática, usando:
 * Os cmdlets do PowerShell [Implantação de serviço](/powershell/module/wds) e [Gerenciamento de serviço](/powershell/azure/servicemanagement/overview).
 
 ### <a name="how-do-i-add-a-user-to-the-administrators-group"></a>Como adicionar um usuário ao grupo Administradores?
-Veja como você pode adicionar um usuário ao grupo Administradores:
-
-1. Entre no [portal do Azure](https://portal.azure.com).
-2. Vá para o grupo de recursos que tem a instância de Gerenciamento de API que você deseja atualizar.
-3. No gerenciamento de API, atribua a função **colaborador do serviço de gerenciamento de API** ao usuário.
-
-Agora o colaborador recém-adicionado pode usar [cmdlets](/powershell/azure/) do Azure PowerShell. Veja como conectar-se como um administrador:
-
-1. Use o cmdlet `Connect-AzAccount` para entrar.
-2. Defina o contexto para a assinatura com o serviço usando `Set-AzContext -SubscriptionID <subscriptionGUID>`.
-3. Obter uma única URL de logon usando `Get-AzApiManagementSsoToken -ResourceGroupName <rgName> -Name <serviceName>`.
-4. Use a URL para acessar o portal de administração.
+Os grupos de administradores são um grupo de sistemas imutáveis. Os administradores de assinatura do Azure são membros deste grupo. Você não pode adicionar um usuário a este grupo. Consulte [como criar e usar grupos para gerenciar contas de desenvolvedor no gerenciamento de API do Azure](./api-management-howto-create-groups.md) para obter mais informações.
 
 ### <a name="why-is-the-policy-that-i-want-to-add-unavailable-in-the-policy-editor"></a>Por que a política que desejo adicionar não está disponível no editor de política?
 Se a política que você deseja adicionar aparecer esmaecida ou sombreada no editor de política, verifique se você está no escopo correto para a política. Cada declaração de política foi projetada para uso nas seções de política e escopos específicas. Para examinar as seções de política e escopos de uma política, confira a seção de uso da política em [Políticas de Gerenciamento de API](./api-management-policies.md).

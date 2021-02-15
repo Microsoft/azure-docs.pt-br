@@ -6,16 +6,16 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 03/14/2019
 ms.author: alkohli
-ms.openlocfilehash: bf41232026fcb51e63cb68d6f42b7b66d14022e1
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 36ed87a75d590a8647e5347b3e90e6f5159dc6b5
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207791"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016838"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-storsimple-alerts"></a>Usar o serviço StorSimple Device Manager para exibir e gerenciar alertas do StorSimple
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 
 A folha **Alertas** do serviço StorSimple Device Manager fornece uma maneira de examinar e limpar os alertas relacionados ao dispositivo StorSimple em tempo real. Nessa folha, você pode monitorar de forma centralizada os problemas de integridade dos dispositivos StorSimple e a solução geral Microsoft Azure StorSimple.
 
@@ -75,7 +75,7 @@ Depois de habilitar a notificação por email para um dispositivo, os membros da
 
 5. Depois de concluir a configuração, clique em **Salvar**. Quando solicitada a confirmação, clique em **Sim**.
 
-     ![Email de notificação de teste de alertas enviado](./media/storsimple-8000-manage-alerts/configure-alerts-email5.png)
+     ![Email de notificação de teste de alertas enviado 2](./media/storsimple-8000-manage-alerts/configure-alerts-email5.png)
 
 ## <a name="view-and-track-alerts"></a>Exibir e controlar os alertas
 

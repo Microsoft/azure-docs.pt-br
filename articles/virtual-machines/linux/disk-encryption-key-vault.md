@@ -1,18 +1,18 @@
 ---
 title: Criar e configurar um cofre de chaves para Azure Disk Encryption
-description: Este artigo fornece etapas para criar e configurar um cofre de chaves para usar com o Azure Disk Encryption
+description: Este artigo fornece etapas para criar e configurar um cofre de chaves para uso com Azure Disk Encryption em uma VM do Linux.
 ms.service: virtual-machines-linux
 ms.topic: conceptual
 author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: ecbc44a3fe376d41b245c88ab11c5937f57155a9
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 03536bbfedc7f5ecf2fe8d8bb6bd3035f27b72c7
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372681"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737873"
 ---
 # <a name="creating-and-configuring-a-key-vault-for-azure-disk-encryption"></a>Criar e configurar um cofre de chaves para Azure Disk Encryption
 
@@ -45,7 +45,7 @@ Embora o portal possa ser acessado através do navegador, a CLI do Azure e o Azu
 
 ### <a name="connect-to-your-azure-account"></a>Conectar-se à sua conta do Azure
 
-Antes de usar a CLI do Azure ou o Azure PowerShell, é necessário se conectar a sua assinatura do Azure. Você faz isso [Entrando com a CLI do Azure](/cli/azure/authenticate-azure-cli?view=azure-cli-latest), [Entrando com Azure Powershell](/powershell/azure/authenticate-azureps?view=azps-2.5.0) ou fornecendo suas credenciais para o portal do Azure quando solicitado.
+Antes de usar a CLI do Azure ou o Azure PowerShell, é necessário se conectar a sua assinatura do Azure. Você faz isso [Entrando com a CLI do Azure](/cli/azure/authenticate-azure-cli), [Entrando com Azure Powershell](/powershell/azure/authenticate-azureps) ou fornecendo suas credenciais para o portal do Azure quando solicitado.
 
 ```azurecli-interactive
 az login

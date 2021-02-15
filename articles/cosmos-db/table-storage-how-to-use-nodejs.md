@@ -1,6 +1,6 @@
 ---
 title: Usar o armazenamento de Tabelas do Azure ou a API de Tabela do Azure Cosmos DB usando o Node.js
-description: Armazene dados estruturados na nuvem usando o Armazenamento de Tabelas do Azure ou a API de Tabelas do Azure Cosmos DB.
+description: Armazene dados estruturados na nuvem usando o Armazenamento de Tabelas do Azure ou a API de Tabela do Azure Cosmos DB do Node.js.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: nodejs
@@ -8,15 +8,16 @@ ms.topic: sample
 ms.date: 07/23/2020
 author: sakash279
 ms.author: akshanka
-ms.custom: devx-track-javascript
-ms.openlocfilehash: cfcb5645a6284214e233758705537486f32967c6
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.custom: devx-track-js
+ms.openlocfilehash: 2d40b70d49b1934c9dd2d911369245b1b2e4f2ff
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88079290"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93079692"
 ---
 # <a name="how-to-use-azure-table-storage-or-the-azure-cosmos-db-table-api-from-nodejs"></a>Como usar o Armazenamento de Tabelas do Azure e a API da Tabela do Azure Cosmos DB do Node.js
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
@@ -115,7 +116,7 @@ Você pode aplicar uma filtragem opcional às operações executadas usando `Tab
 function handle (requestOptions, next)
 ```
 
-Após fazer seu pré-processamento nas opções de solicitação, o método precisará chamar **next**, passando um retorno de chamada com a assinatura abaixo:
+Após fazer seu pré-processamento nas opções de solicitação, o método precisará chamar **next** , passando um retorno de chamada com a assinatura abaixo:
 
 ```javascript
 function (returnObject, finalCallback, next)
@@ -132,12 +133,12 @@ var tableSvc = azure.createTableService().withFilter(retryOperations);
 
 ## <a name="add-an-entity-to-a-table"></a>Adicionar uma entidade a uma tabela
 
-Para adicionar uma entidade, primeiro crie um objeto que defina as propriedades da entidade. Todas as entidades devem conter uma **PartitionKey** e **RowKey**, que são identificadores exclusivos da entidade.
+Para adicionar uma entidade, primeiro crie um objeto que defina as propriedades da entidade. Todas as entidades devem conter uma **PartitionKey** e **RowKey** , que são identificadores exclusivos da entidade.
 
 * **PartitionKey** - determina a partição na qual a entidade está armazenada.
 * **RowKey** - identifica exclusivamente a entidade dentro da partição.
 
-Ambas, **PartitionKey** e **RowKey**, devem ser valores de cadeia de caracteres. Para obter informações, consulte [Noções básicas sobre o modelo de dados do serviço Tabela](https://msdn.microsoft.com/library/azure/dd179338.aspx).
+Ambas, **PartitionKey** e **RowKey** , devem ser valores de cadeia de caracteres. Para obter informações, consulte [Noções básicas sobre o modelo de dados do serviço Tabela](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model).
 
 A seguir, um exemplo de definição de uma entidade. O **dueDate** é definido como um tipo de `Edm.DateTime`. A especificação do tipo é opcional, e os tipos são inferidos, se não forem especificados.
 
@@ -268,7 +269,7 @@ Inspecione as operações adicionadas a um lote exibindo a propriedade `operatio
 
 ## <a name="retrieve-an-entity-by-key"></a>Recuperar uma entidade por chave
 
-Para retornar uma entidade específica com base em **PartitionKey** e **RowKey**, use o método **retrieveEntity**.
+Para retornar uma entidade específica com base em **PartitionKey** e **RowKey** , use o método **retrieveEntity**.
 
 ```javascript
 tableSvc.retrieveEntity('mytable', 'hometasks', '1', function(error, result, response){
@@ -309,7 +310,7 @@ tableSvc.queryEntities('mytable',query, null, function(error, result, response) 
 });
 ```
 
-Se for bem-sucedido, `result.entries` conterá uma matriz de entidades que correspondem à consulta. Se a consulta não tiver sido capaz de retornar todas as entidades, `result.continuationToken` não será*null* e poderá ser usado como terceiro parâmetro de **queryEntities** para recuperar mais resultados. Para a consulta inicial, use *null* como o terceiro parâmetro.
+Se for bem-sucedido, `result.entries` conterá uma matriz de entidades que correspondem à consulta. Se a consulta não tiver sido capaz de retornar todas as entidades, `result.continuationToken` não será *null* e poderá ser usado como terceiro parâmetro de **queryEntities** para recuperar mais resultados. Para a consulta inicial, use *null* como o terceiro parâmetro.
 
 ### <a name="query-a-subset-of-entity-properties"></a>consultar um subconjunto de propriedades da entidade
 
@@ -483,6 +484,6 @@ Para obter mais informações, consulte os recursos a seguir.
 
 * [O Gerenciador de Armazenamento do Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) é um aplicativo autônomo e gratuito da Microsoft que possibilita o trabalho visual com os dados do Armazenamento do Azure no Windows, MacOS e Linux.
 * Repositório [SDK do Armazenamento do Azure para Node.js](https://github.com/Azure/azure-storage-node) no GitHub.
-* [Desenvolvedores do Azure para Node.js](https://docs.microsoft.com/azure/developer/javascript/)
+* [Desenvolvedores do Azure para Node.js](/azure/developer/javascript/)
 * [Criar um aplicativo Web do Node.js no Azure](../app-service/quickstart-nodejs.md)
 * [Criar e implantar um aplicativo Node.js para um serviço de nuvem do AzureServiço de nuvem do Node.js](../cloud-services/cloud-services-nodejs-develop-deploy-app.md) (usando o Windows PowerShell)

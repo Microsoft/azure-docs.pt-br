@@ -1,17 +1,15 @@
 ---
 title: 'Tutorial: Criar um aplicativo Java no Azure Service Fabric'
 description: Neste tutorial, saiba como criar um aplicativo Java de serviço confiável com um front-end, um back-end com estado do Reliable Services e implantar o aplicativo em um cluster.
-author: suhuruli
 ms.topic: tutorial
 ms.date: 09/01/2018
-ms.author: suhuruli
-ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java, devx-track-javascript
-ms.openlocfilehash: a4b5f98a4cb8a437a235f956a556745837f5d564
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java, devx-track-js
+ms.openlocfilehash: d1f66177b1939d612a5ee80c99109c397b56cb37
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432369"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91532186"
 ---
 # <a name="tutorial-create-an-application-with-a-java-api-front-end-service-and-a-stateful-back-end-service-on-azure-service-fabric"></a>Tutorial: Criar um aplicativo com um serviço front-end de API do Java e um serviço back-end com estado no Azure Service Fabric
 

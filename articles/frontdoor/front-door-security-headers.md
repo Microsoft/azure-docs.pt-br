@@ -1,53 +1,63 @@
 ---
-title: Adicionar cabeçalhos de segurança com o Mecanismo de Regras – Azure Front Door
-description: Este artigo ensina como configurar um cabeçalho de segurança por meio do mecanismo de regras no Azure Front Door
+title: 'Tutorial: Adicionar cabeçalhos de segurança com o Mecanismo de Regras – Azure Front Door'
+description: Este tutorial ensina como configurar um cabeçalho de segurança por meio do Mecanismo de Regras no Azure Front Door
 services: frontdoor
 documentationcenter: ''
-author: megan-beatty
+author: duongau
 editor: ''
 ms.service: frontdoor
 ms.devlang: na
-ms.topic: overview
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 6/22/2020
-ms.author: mebeatty
-ms.openlocfilehash: 5f07a57e0d41a5e7c546bc89ca7a0b5ac5fce5de
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 09/14/2020
+ms.author: duau
+ms.openlocfilehash: 1727193faa028a1d681f2a74df950afeb9570ec9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86512224"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91270042"
 ---
-# <a name="add-security-headers-with-rules-engine"></a>Adicionar cabeçalhos de segurança com o Mecanismo de Regras
+# <a name="tutorial-add-security-headers-with-rules-engine"></a>Tutorial: Adicionar cabeçalhos de segurança com o Mecanismo de Regras
 
-Implemente cabeçalhos de segurança para impedir vulnerabilidades baseadas em navegador como HSTS (HTTP Strict-Transport-Security), X-XSS-Protection, Content-Security-Policy ou X-Frame-Options. Os atributos baseados em segurança também podem ser definidos com cookies.
+Este tutorial mostra como implementar cabeçalhos de segurança para impedir vulnerabilidades baseadas em navegador como HSTS (HTTP Strict-Transport-Security), X-XSS-Protection, Content-Security-Policy ou X-Frame-Options. Os atributos baseados em segurança também podem ser definidos com cookies.
 
 O exemplo a seguir mostra como adicionar um cabeçalho Content-Security-Policy a todas as solicitações de entrada que correspondem ao caminho definido na rota à qual a configuração do mecanismo de regras está associada. Aqui, só permitiremos a execução de scripts do nosso site confiável, **https://apiphany.portal.azure-api.net** , no aplicativo.
 
+Neste tutorial, você aprenderá como:
+> [!div class="checklist"]
+> - Configure um Content-Security-Policy no Mecanismo de Regras.
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+* Antes de poder concluir as etapas neste tutorial, é necessário criar primeiro um Front Door. Para saber mais, confira [Início Rápido: Criar um Front Door](quickstart-create-front-door.md).
+* Se esta for a primeira vez que você usa o recurso Mecanismo de Regras, confira como [Configurar um Mecanismo de Regras](front-door-tutorial-rules-engine.md).
+
 ## <a name="add-a-content-security-policy-header-in-azure-portal"></a>Adicionar um cabeçalho Content-Security-Policy no portal do Azure
 
-1. Antes de criar essa regra específica, saiba como [criar um front door](quickstart-create-front-door.md) ou como [criar um mecanismo de regras](front-door-tutorial-rules-engine.md) se esta for a primeira vez que estiver usando o AFD ou o recurso de mecanismo de regras.
+1. Clique em **Adicionar** para adicionar uma nova regra. Forneça um nome para a regra e clique em **Adicionar uma Ação** > **Cabeçalho de Resposta**.
 
-2. Clique em **Adicionar** para adicionar uma nova regra. Forneça um nome para a regra e clique em **Adicionar uma Ação** > **Cabeçalho de Resposta**.
+1. Defina o Operador como **Acréscimo** para adicionar esse cabeçalho como uma resposta a todas as solicitações de entrada para essa rota.
 
-3. Defina o Operador como **Acréscimo** para adicionar esse cabeçalho como uma resposta a todas as solicitações de entrada para essa rota.
+1. Adicione o nome do cabeçalho: **Content-Security-Policy** e defina os valores que esse cabeçalho deverá aceitar. Nesse cenário, escolhemos *"script-src 'self' https://apiphany.portal.azure-api.net".*
 
-4. Adicione o nome do cabeçalho: **Content-Security-Policy** e defina os valores que esse cabeçalho deverá aceitar. Nesse cenário, escolhemos *"script-src 'self' https://apiphany.portal.azure-api.net".*
-
-5. Depois de adicionar todas as regras desejadas à configuração, não se esqueça de acessar sua rota preferencial e associar a configuração do mecanismo de regras à regra de rota. Essa etapa é necessária para permitir que a regra funcione. 
+1. Depois de adicionar todas as regras desejadas à configuração, não se esqueça de acessar sua rota preferencial e associar a configuração do mecanismo de regras à regra de rota. Essa etapa é necessária para permitir que a regra funcione. 
 
 ![amostra do portal](./media/front-door-rules-engine/rules-engine-security-header-example.png)
 
 > [!NOTE]
-> Neste cenário, não adicionamos [condições de correspondência](front-door-rules-engine-match-conditions.md) à regra. Todas as solicitações de entrada que corresponderem ao caminho definido na regra de rota terão essa regra aplicada. Caso deseje que ela só se aplique a um subconjunto dessas solicitações, lembre-se de adicionar as condições de correspondência específicas a essa regra.
+> Neste cenário, não adicionamos [condições de correspondência](front-door-rules-engine-match-conditions.md) à regra. Todas as solicitações de entrada que corresponderem ao caminho definido na regra de rota terão essa regra aplicada. Caso deseje que ela só se aplique a um subconjunto dessas solicitações, lembre-se de adicionar as **condições de correspondência** específicas a essa regra.
 
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+Nas etapas anteriores, você configurou Cabeçalhos de segurança com o Mecanismo de Regras. Se você não quiser mais a regra, poderá removê-la clicando em Excluir regra.
+
+:::image type="content" source="./media/front-door-rules-engine/rules-engine-delete-rule.png" alt-text="Excluir regra":::
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre o [Mecanismo de regras de AFD](front-door-rules-engine.md). 
-- Saiba como [criar um Front Door](quickstart-create-front-door.md).
-- Saiba [como o Front Door funciona](front-door-routing-architecture.md).
-- Saiba mais sobre as [condições de correspondência](front-door-rules-engine-match-conditions.md) do mecanismo de regras
-- Confira mais na [referência da CLI](https://docs.microsoft.com/cli/azure/ext/front-door/network/front-door/rules-engine?view=azure-cli-latest) do Mecanismo de regras do AFD. 
-- Confira mais na [referência do PowerShell](https://docs.microsoft.com/powershell/module/az.frontdoor/?view=azps-3.8.0) do Mecanismo de regras do AFD. 
+Para saber como configurar um Firewall de Aplicativo Web para seu Front Door, prossiga para o próximo tutorial.
+
+> [!div class="nextstepaction"]
+> [Firewall do Aplicativo Web e Front Door](front-door-waf.md)

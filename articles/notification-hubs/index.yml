@@ -10,10 +10,10 @@ metadata:
   ms.author: sethm
   ms.date: 03/11/2020
   ms.openlocfilehash: 7a1724428131cd47ed8bd5fffc779c07e077c2f0
-  ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 07/23/2020
+  ms.lasthandoff: 10/09/2020
   ms.locfileid: "87084272"
 landingContent:
 - title: Sobre os Hubs de Notificação do Azure

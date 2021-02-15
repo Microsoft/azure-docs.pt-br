@@ -9,20 +9,19 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 05/20/2020
+ms.date: 01/27/2021
 ms.author: curtand
-ms.openlocfilehash: 795c68fc063d98bdee6ccf59dba6ee718dc92d03
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
-ms.translationtype: HT
+ms.openlocfilehash: d499417414e560bdaa3fcd0a12255946aca413d9
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84323018"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054831"
 ---
 # <a name="microsoft-authenticator-for-android-in-the-public-cloud-in-china"></a>Microsoft Authenticator para Android na nuvem pública na China
 
 O aplicativo Microsoft Authenticator para Android está disponível para download na China. A Google Play Store não está disponível na China, portanto, o aplicativo deve ser baixado de outros marketplaces de aplicativo chineses. O aplicativo Microsoft Authenticator para Android está disponível atualmente nas seguintes lojas na China:
 
-- [Baidu](https://shouji.baidu.com/software/26638379.html)
 - [Lenovo](https://www.lenovomm.com/appdetail/com.azure.authenticator/20197724)
 - [Huawei](https://appgallery.cloud.huawei.com/uowap/index.html#/detailApp/C100262999?source=appshare&subsource=C100262999&shareTo=weixin&locale=zh_CN)
 - [Samsung Galaxy Store](http://apps.samsung.com/appquery/appDetail.as?appId=com.azure.authenticator)
@@ -57,6 +56,7 @@ Registro/autenticação MFA usando somente códigos de verificação/TOTP | Sim
 Registro de entrada pelo telefone | Não
 Entrada pelo telefone existente usando notificações por push | Não
 Verificação de entrada pelo telefone existente executando verificação manual de solicitações de autenticação | Sim
+Suporte para o aplicativo autenticador para contas pessoais da Microsoft | Não
 
 ## <a name="next-steps"></a>Próximas etapas
 

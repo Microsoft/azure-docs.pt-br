@@ -1,19 +1,17 @@
 ---
 title: Processar arquivos de texto de comprimento fixo com fluxos de dados de mapeamento em Azure Data Factory
 description: Saiba como processar arquivos de texto de comprimento fixo em Azure Data Factory usando fluxos de dados de mapeamento.
-services: data-factory
 author: balakreshnan
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 8/18/2019
 ms.author: makromer
-ms.openlocfilehash: 23b812da8c84ebf055ac4eabdc4649828c139a7f
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 2297364e8f1a531b4512f2497bc4d99963d61179
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89051008"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100386196"
 ---
 # <a name="process-fixed-length-text-files-by-using-data-factory-mapping-data-flows"></a>Processar arquivos de texto de comprimento fixo usando fluxos de dados de mapeamento Data Factory
 

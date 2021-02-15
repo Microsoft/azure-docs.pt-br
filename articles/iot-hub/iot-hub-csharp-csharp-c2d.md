@@ -15,12 +15,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - devx-track-csharp
-ms.openlocfilehash: cf108e0e7036894e045028ec3fce8c2af6b9ce4f
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: d8df9884c0104792240d85d9ebd4235ef2a18741
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89008328"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92142360"
 ---
 # <a name="send-messages-from-the-cloud-to-your-device-with-iot-hub-net"></a>Enviar mensagens de nuvem para seu dispositivo com o Hub IoT (.NET)
 
@@ -91,13 +91,20 @@ Nesta seção, modifique o aplicativo de dispositivo criado em [Enviar telemetri
 
 O método `ReceiveAsync` retorna de forma assíncrona a mensagem recebida no momento em que ela é recebida pelo dispositivo. Ele retorna *nulo* após um período de tempo limite que pode ser especificado. Neste exemplo, o padrão de um minuto é usado. Quando o aplicativo recebe *null*, ele deve continuar aguardando novas mensagens. Esse requisito é o motivo da linha `if (receivedMessage == null) continue`.
 
-A chamada para `CompleteAsync()` notifica o Hub IoT de que a mensagem foi processada com êxito. A mensagem pode ser removida da fila do dispositivo com segurança. Se ocorreu algo que impediu que o aplicativo do dispositivo concluísse o processamento da mensagem, o Hub IoT a entrega novamente. A lógica de processamento de mensagem no aplicativo de dispositivo deve ser *idempotente*, de modo que receber a mesma mensagem várias vezes produz o mesmo resultado.
+A chamada para `CompleteAsync()` Notifica o Hub IOT de que a mensagem foi processada com êxito e que a mensagem pode ser removida com segurança da fila do dispositivo. O dispositivo deve chamar esse método quando seu processamento for concluído com êxito, independentemente do protocolo que estiver usando.
 
-Um aplicativo também pode abandonar temporariamente uma mensagem, o que resulta em um Hub IoT reter a mensagem na fila para consumo futuro. Ou o aplicativo pode rejeitar uma mensagem, o que a remove permanentemente da fila. Para obter mais informações sobre o ciclo de vida da mensagem de nuvem para dispositivo, consulte [Mensagens de dispositivo para nuvem e nuvem para dispositivo com o Hub IoT](iot-hub-devguide-messaging.md).
+Com AMQP e HTTPS, mas não MQTT, o dispositivo também pode:
 
-   > [!NOTE]
-   > Ao usar HTTPS em vez de MQTT ou AMQP como transporte, o método `ReceiveAsync` é retornado imediatamente. O padrão com suporte para mensagens da nuvem para o dispositivo com o HTTPS são dispositivos conectados intermitentemente que verificam mensagens com pouca frequência (menos do que a cada 25 minutos). Emitir mais recebimentos de HTTPS resulta na limitação das solicitações pelo Hub IoT. Para obter mais informações sobre as diferenças entre o suporte de MQTT, AMQP e HTTPS e a limitação do Hub IoT, consulte [Mensagens de dispositivo para nuvem e nuvem para dispositivo com o Hub IoT](iot-hub-devguide-messaging.md).
-   >
+* Abandone uma mensagem, que resulta no Hub IoT reter a mensagem na fila do dispositivo para consumo futuro.
+* Rejeite uma mensagem, que remove permanentemente a mensagem da fila do dispositivo.
+
+Se algo acontecer que impede que o dispositivo conclua, abandone ou rejeite a mensagem, o Hub IoT irá, após um período de tempo limite fixo, enfileirar a mensagem para entrega novamente. Por esse motivo, a lógica de processamento de mensagens no aplicativo do dispositivo deve ser *idempotente*, de modo que o recebimento da mesma mensagem várias vezes produz o mesmo resultado.
+
+Para obter informações mais detalhadas sobre como o Hub IoT processa mensagens da nuvem para o dispositivo, incluindo detalhes do ciclo de vida da mensagem da nuvem para o dispositivo, consulte [enviar mensagens da nuvem para o dispositivo de um hub IOT](iot-hub-devguide-messages-c2d.md).
+
+> [!NOTE]
+> Ao usar HTTPS em vez de MQTT ou AMQP como transporte, o método `ReceiveAsync` é retornado imediatamente. O padrão com suporte para mensagens da nuvem para o dispositivo com HTTPS são dispositivos conectados intermitentemente que verificam mensagens com pouca frequência (um mínimo de cada 25 minutos). Emitir mais recebimentos de HTTPS resulta na limitação das solicitações pelo Hub IoT. Para obter mais informações sobre as diferenças entre o suporte a MQTT, AMQP e HTTPS, consulte [diretrizes de comunicação da nuvem para o dispositivo](iot-hub-devguide-c2d-guidance.md) e [escolha um protocolo de comunicação](iot-hub-devguide-protocols.md).
+>
 
 ## <a name="get-the-iot-hub-connection-string"></a>Obter a cadeia de conexão do hub IoT
 
@@ -164,7 +171,7 @@ Nesta seção, você cria um aplicativo de console .NET que envia mensagens da n
 
 1. Pressione **F5**. Ambos os aplicativos devem ser iniciados. Selecione a janela **SendCloudToDevice** e pressione **Enter**. Você deve ver a mensagem que está sendo recebida pelo aplicativo do dispositivo.
 
-   ![Aplicativo recebendo mensagens](./media/iot-hub-csharp-csharp-c2d/sendc2d1.png)
+   ![Mensagem de recebimento de aplicativo do dispositivo](./media/iot-hub-csharp-csharp-c2d/sendc2d1.png)
 
 ## <a name="receive-delivery-feedback"></a>Receber comentários de entrega
 
@@ -211,7 +218,7 @@ Nesta seção, você modifica o aplicativo **SendCloudToDevice** para solicitar 
 
 1. Execute os aplicativos pressionando **F5**. Você deve ver os dois aplicativos iniciarem. Selecione a janela **SendCloudToDevice** e pressione **Enter**. Você deve ver a mensagem sendo recebida pelo aplicativo do dispositivo e, depois de alguns segundos, a mensagem de comentários sendo recebida pelo aplicativo **SendCloudToDevice**.
 
-   ![Aplicativo recebendo mensagens](./media/iot-hub-csharp-csharp-c2d/sendc2d2.png)
+   ![Aplicativo do dispositivo recebendo mensagem e serviço recebendo comentários](./media/iot-hub-csharp-csharp-c2d/sendc2d2.png)
 
 > [!NOTE]
 > Para simplificar, este tutorial não implementa nenhuma política de repetição. No código de produção, você deve implementar políticas de repetição, como uma retirada exponencial, conforme sugerido em [Tratamento de falhas transitórias](/azure/architecture/best-practices/transient-faults).
@@ -221,6 +228,6 @@ Nesta seção, você modifica o aplicativo **SendCloudToDevice** para solicitar 
 
 Neste guia, você aprendeu a enviar e receber mensagens de nuvem para dispositivo.
 
-Para ver exemplos de soluções completas que usam o Hub IoT, consulte [Acelerador de solução de Monitoramento Remoto do Azure IoT](https://docs.microsoft.com/azure/iot-suite/).
+Para ver exemplos de soluções completas que usam o Hub IoT, consulte [Acelerador de solução de Monitoramento Remoto do Azure IoT](/azure/iot-suite/).
 
 Para saber mais sobre como desenvolver soluções com o Hub IoT, consulte o [Guia do desenvolvedor do Hub IoT](iot-hub-devguide.md).

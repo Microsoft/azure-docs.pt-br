@@ -2,17 +2,17 @@
 title: Exportar um modelo do Azure Resource Manager de um trabalho do Azure Stream Analytics
 description: Este artigo descreve como exportar um modelo de Azure Resource Manager para seu trabalho de Azure Stream Analytics.
 services: stream-analytics
-author: mamccrea
-ms.author: mamccrea
+author: sidramadoss
+ms.author: sidram
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 03/10/2020
-ms.openlocfilehash: 76c2cf7164c3e2d683a9294cb500ed05381811b6
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: aa17d83dcc14675db5ff6aa4597314baffbffdbb
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86043522"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98015412"
 ---
 # <a name="export-an-azure-stream-analytics-job-azure-resource-manager-template"></a>Exportar um modelo do Azure Resource Manager de um trabalho do Azure Stream Analytics
 
@@ -28,7 +28,7 @@ Para exportar um trabalho para um projeto local, localize o trabalho que você d
 
 ![Abrir Stream Analytics trabalho no Visual Studio Code](./media/resource-manager-export/open-job-vs-code.png)
 
-Para obter mais informações sobre como usar Visual Studio Code para gerenciar trabalhos de Stream Analytics, consulte o guia de [início rápido do Visual Studio Code](quick-create-vs-code.md).
+Para obter mais informações sobre como usar Visual Studio Code para gerenciar trabalhos de Stream Analytics, consulte o guia de [início rápido do Visual Studio Code](quick-create-visual-studio-code.md).
 
 ## <a name="compile-the-script"></a>Compilar o script 
 
@@ -58,9 +58,9 @@ Em seguida, conclua o arquivo de parâmetros do modelo do Azure Resource Managem
 
 Você está pronto para implantar seu trabalho de Azure Stream Analytics usando os modelos de Azure Resource Manager gerados na seção anterior.
 
-Em uma janela do PowerShell, execute o comando a seguir. Certifique-se de reaplce o *ResourceGroupName*, o *modelofile*e o *TemplateParameterFile* com o nome do grupo de recursos real, e os caminhos de arquivo completos para o *JobTemplate.js* e *JobTemplate.parameters.jsem* arquivos na **pasta implantar** do espaço de trabalho de trabalho.
+Em uma janela do PowerShell, execute o comando a seguir. Certifique-se de reaplce o *ResourceGroupName*, o *modelofile* e o *TemplateParameterFile* com o nome do grupo de recursos real, e os caminhos de arquivo completos para o *JobTemplate.js* e *JobTemplate.parameters.jsem* arquivos na **pasta implantar** do espaço de trabalho de trabalho.
 
-Se você não tiver Azure PowerShell configurado, siga as etapas em [instalar o módulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
+Se você não tiver Azure PowerShell configurado, siga as etapas em [instalar o módulo Azure PowerShell](/powershell/azure/install-Az-ps).
 
 ```azurepowershell
 New-AzResourceGroupDeployment -ResourceGroupName "<your resource group>" -TemplateFile "<path to JobTemplate.json>" -TemplateParameterFile "<path to JobTemplate.parameters.json>"

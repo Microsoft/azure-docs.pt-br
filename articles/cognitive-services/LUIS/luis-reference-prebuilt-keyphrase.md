@@ -3,20 +3,18 @@ title: Entidade predefinida keyphrase-LUIS
 titleSuffix: Azure Cognitive Services
 description: Este artigo contém informações da entidade pré-compilada KeyPhrase no LUIS (Serviço Inteligente de Reconhecimento Vocal).
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 09/27/2019
-ms.author: diberry
-ms.openlocfilehash: 53be1b13f1e2744e143a4be0777e3a8e3135460e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 02a48c8d106795b970d573bb71f52ba92e0a90ac
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78270521"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91541978"
 ---
 # <a name="keyphrase-prebuilt-entity-for-a-luis-app"></a>Entidade predefinida keyPhrase para um aplicativo LUIS
 A entidade keyPhrase extrai uma variedade de frases-chave de um expressão. Você não precisa adicionar o exemplo declarações que contém keyPhrase ao aplicativo. A entidade keyPhrase tem suporte em [muitas culturas](luis-language-support.md#languages-supported) como parte dos recursos de [análise de texto](../text-analytics/overview.md) .
@@ -29,7 +27,7 @@ Os seguintes objetos de entidade são retornados para a consulta:
 
 #### <a name="v3-response"></a>[Resposta v3](#tab/V3)
 
-O JSON a seguir é com `verbose` o parâmetro definido `false`como:
+O JSON a seguir é com o `verbose` parâmetro definido como `false` :
 
 ```json
 "entities": {
@@ -40,7 +38,7 @@ O JSON a seguir é com `verbose` o parâmetro definido `false`como:
 }
 ```
 #### <a name="v3-verbose-response"></a>[V3, resposta detalhada](#tab/V3-verbose)
-O JSON a seguir é com `verbose` o parâmetro definido `true`como:
+O JSON a seguir é com o `verbose` parâmetro definido como `true` :
 
 ```json
 "entities": {

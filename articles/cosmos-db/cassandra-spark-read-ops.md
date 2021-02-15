@@ -10,14 +10,15 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 06/02/2020
 ms.custom: seodec18
-ms.openlocfilehash: 4ecb7758ee5f58345fccc2c490cee4d23043a20c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ceede96cbf3be12a6129e27d34e318e4c4163458
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85257407"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93073489"
 ---
 # <a name="read-data-from-azure-cosmos-db-cassandra-api-tables-using-spark"></a>Ler dados das tabelas de API do Cassandra do Azure Cosmos DB usando Spark
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
  Este artigo descreve como ler dados armazenados na API do Azure Cosmos DB Cassandra do Spark.
 
@@ -86,17 +87,10 @@ readBooksDF.show
 Você pode enviar predicados para o banco de dados para permitir melhores consultas do Spark otimizadas. Um predicado é uma condição em uma consulta que retorna true ou false, normalmente localizada na cláusula WHERE. Uma ação de predicado filtra os dados na consulta do banco de dados, reduzindo o número de entradas recuperadas do banco e melhorando o desempenho da consulta. Por padrão, a API do conjunto de dados do Spark enviará automaticamente cláusulas de WHERE válidas para o Database. 
 
 ```scala
-val readBooksDF = spark
-  .read
-  .format("org.apache.spark.sql.cassandra")
-  .options(Map( "table" -> "books", "keyspace" -> "books_ks"))
-  .load
-  .select("book_name","book_author", "book_pub_year")
-  .filter("book_pub_year > 1891")
-//.filter("book_name IN ('A sign of four','A study in scarlet')")
-//.filter("book_name='A sign of four' OR book_name='A study in scarlet'")
-//.filter("book_author='Arthur Conan Doyle' AND book_pub_year=1890")
-//.filter("book_pub_year=1903")  
+val df = spark.read.cassandraFormat("books", "books_ks").load
+df.explain
+val dfWithPushdown = df.filter(df("book_pub_year") > 1891)
+dfWithPushdown.explain
 
 readBooksDF.printSchema
 readBooksDF.explain
@@ -145,7 +139,7 @@ select * from books_vw where book_pub_year > 1891
 A seguir estão os artigos adicionais sobre como trabalhar com a API Cassandra do Azure Cosmos DB do Spark:
  
  * [Operações de Upsert](cassandra-spark-upsert-ops.md)
- * [Excluir operações](cassandra-spark-delete-ops.md)
+ * [Operações de exclusão](cassandra-spark-delete-ops.md)
  * [Operações de agregação](cassandra-spark-aggregation-ops.md)
  * [Operações de cópia de tabela](cassandra-spark-table-copy-ops.md)
 

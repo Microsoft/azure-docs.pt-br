@@ -6,21 +6,21 @@ titleSuffix: Azure VPN Gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 02/11/2020
+ms.date: 09/03/2020
 ms.author: yushwang
-ms.openlocfilehash: 5283e20b6121dbdc3ce57587d188ad5ad0e1b6b9
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 168bb9e06c73ec27ec1304813023889c9549b8e6
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86041023"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660688"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection-classic"></a>Adicione uma conexão Site a Site a uma rede virtual com uma conexão de gateway de VPN existente (clássico)
 
 [!INCLUDE [deployment models](../../includes/vpn-gateway-classic-deployment-model-include.md)]
 
 > [!div class="op_single_selector"]
-> * [Azure portal](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
+> * [Portal do Azure](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
 > * [PowerShell (clássico)](vpn-gateway-multi-site.md)
 >
 >
@@ -71,8 +71,8 @@ Se você já tiver uma VPN site a site com um gateway de roteamento dinâmico, �
 2. Configure seu novo gateway e crie seu túnel de VPN. Para obter instruções, consulte [Especificar o tipo VPN e SKU](vpn-gateway-howto-site-to-site-classic-portal.md#sku). Verifique se que você especificou o Tipo de Roteamento como 'Dinâmico'.
 
 ### <a name="if-you-dont-have-a-site-to-site-virtual-network"></a>Se você não tiver uma rede virtual site a site:
-1. Crie a sua rede virtual Site a Site usando estas instruções: [Criar uma rede virtual com uma conexão de VPN site a site](vpn-gateway-site-to-site-create.md).  
-2. Configure um gateway de roteamento dinâmico usando estas instruções: [Configurar um gateway de VPN](vpn-gateway-configure-vpn-gateway-mp.md). Certifique-se de selecionar **roteamento dinâmico** para o seu tipo de gateway.
+1. Crie a sua rede virtual Site a Site usando estas instruções: [Criar uma rede virtual com uma conexão de VPN site a site](./vpn-gateway-howto-site-to-site-classic-portal.md).  
+2. Configure um gateway de roteamento dinâmico usando estas instruções: [Configurar um gateway de VPN](./vpn-gateway-howto-site-to-site-classic-portal.md). Certifique-se de selecionar **roteamento dinâmico** para o seu tipo de gateway.
 
 ## <a name="2-export-the-network-configuration-file"></a><a name="export"></a>2. exportar o arquivo de configuração de rede
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/08/2018
 ms.author: genli
-ms.openlocfilehash: 49f3f44c7de8c700d0093c5eb6f166a1dffb34a4
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: bf19a6f77a87f2424f9e7b889e48119d57d1e2e5
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087241"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97820975"
 ---
 #  <a name="cannot-remote-desktop-to-azure-virtual-machines-because-of-static-ip"></a>Não é possível adicionar o desktop remoto para máquinas virtuais do Azure devido a IP estático
 
@@ -63,13 +63,13 @@ Para resolver esse problema, use o controle Serial para ativar o DHCP ou [redefi
 3. Se o DHCP estiver desativado, reverta a configuração da sua interface de rede para usar o DHCP:
 
     ```console
-    netsh interface ip set address name="<NIC Name>" source=dhc
+    netsh interface ip set address name="<NIC Name>" source=dhcp
     ```
 
     Por exemplo, se o adaptador de rede nomear "Ethernet 2", execute o seguinte comando:
 
     ```console
-    netsh interface ip set address name="Ethernet 2" source=dhc
+    netsh interface ip set address name="Ethernet 2" source=dhcp
     ```
 
 4. Consulte a configuração IP novamente para garantir que a interface de rede esteja configurada corretamente. O novo endereço IP deve corresponder ao que é fornecido pelo Azure.

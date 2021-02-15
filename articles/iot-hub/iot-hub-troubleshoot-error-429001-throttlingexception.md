@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: troubleshooting
 ms.date: 01/30/2020
 ms.author: jlian
-ms.openlocfilehash: 3095e398d7e5cfe59085144d5bb4e8dc33618064
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d2f12a6982886eeaa375151c5b8a73acc573aab9
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76960692"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545354"
 ---
 # <a name="429001-throttlingexception"></a>429001 ExceçãoLimitação
 
@@ -21,7 +21,7 @@ Este artigo descreve as causas e soluções para erros **429001 de limitaçãoex
 
 ## <a name="symptoms"></a>Sintomas
 
-Suas solicitações ao Hub IoT falham com o erro **429001 regulaexception**.
+Suas solicitações ao Hub IoT falham com o erro **429001 regulaexception** .
 
 ## <a name="cause"></a>Causa
 
@@ -29,7 +29,7 @@ Suas solicitações ao Hub IoT falham com o erro **429001 regulaexception**.
 
 ## <a name="solution"></a>Solução
 
-Verifique se você está atingindo o limite de limitação comparando sua métrica de *tentativas de envio de mensagem de telemetria* em relação aos limites especificados acima. Você também pode verificar a métrica *número de erros de limitação* . Para obter mais informações sobre essas e outras métricas disponíveis para o Hub IoT, consulte [métricas do Hub IOT e como usá-las](./iot-hub-metrics.md#iot-hub-metrics-and-how-to-use-them).
+Verifique se você está atingindo o limite de limitação comparando sua métrica de *tentativas de envio de mensagem de telemetria* em relação aos limites especificados acima. Você também pode verificar a métrica *número de erros de limitação* . Para obter informações sobre essas métricas, consulte [métricas de telemetria do dispositivo](monitor-iot-hub-reference.md#device-telemetry-metrics). Para obter informações sobre como usar métricas para ajudá-lo a monitorar o Hub IoT, consulte [monitorar o Hub IOT](monitor-iot-hub.md).
 
 O Hub IoT retorna 429 Throttlingexception somente depois que o limite tiver sido violado por um período muito longo. Isso é feito para que suas mensagens não sejam descartadas se o Hub IoT obtiver tráfego intermitente. Enquanto isso, o Hub IoT processa as mensagens na taxa de limitação da operação, o que pode ser lento se houver muito tráfego na lista de pendências. Para saber mais, consulte [modelagem de tráfego do Hub IoT](./iot-hub-devguide-quotas-throttling.md#traffic-shaping).
 

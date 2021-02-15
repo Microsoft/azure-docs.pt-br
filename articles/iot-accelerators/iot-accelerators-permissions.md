@@ -8,21 +8,21 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: dobett
-ms.openlocfilehash: 87f6b9cef50e4b8c388be835b2aa7bed8177ac4b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5a088cb07fa74b65e497de54be8c97bd51d31c16
+ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "61447415"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97387829"
 ---
 # <a name="use-the-azureiotsolutionscom-site-to-deploy-your-solution-accelerator"></a>Usar o site azureiotsolutions.com para implementar o acelerador de solução
 
-É possível implantar aceleradores de solução do Azure IoT na assinatura do Azure pelo site [AzureIoTSolutions.com](https://www.azureiotsolutions.com/Accelerators). O AzureIoTSolutions.com hospeda ambos os aceleradores de solução de parceiro e software livre da Microsoft. Esses aceleradores de solução estão alinhados com a [Arquitetura de referência do Azure IoT](https://aka.ms/iotrefarchitecture). Você pode usar o site para implantar rapidamente um acelerador de solução como um ambiente de produção ou demonstração.
+É possível implantar aceleradores de solução do Azure IoT na assinatura do Azure pelo site [AzureIoTSolutions.com](https://www.azureiotsolutions.com/Accelerators). O AzureIoTSolutions.com hospeda ambos os aceleradores de solução de parceiro e software livre da Microsoft. Esses aceleradores de solução estão alinhados com a [Arquitetura de referência do Azure IoT](/azure/architecture/reference-architectures/iot). Você pode usar o site para implantar rapidamente um acelerador de solução como um ambiente de produção ou demonstração.
 
-![AzureIoTSolutions.com](media/iot-accelerators-permissions/iotsolutionscom.png)
+:::image type="content" source="media/iot-accelerators-permissions/iotsolutionscom.png" alt-text="home page de soluções de IoT":::
 
 > [!TIP]
-> Se for necessário ter mais controle sobre o processo de implantação, você poderá usar a [CLI para implantar um acelerador de solução](iot-accelerators-remote-monitoring-deploy-cli.md).
+> Se for necessário ter mais controle sobre o processo de implantação, você poderá usar a CLI para implantar um acelerador de solução.
 
 É possível implantar os aceleradores de solução nas seguintes configurações:
 
@@ -38,7 +38,7 @@ Antes de poder implantar um acelerador de solução, você deverá entrar no Azu
 
 As permissões para implantar aceleradores de solução, gerenciar usuários e gerenciar serviços do Azure dependem da sua função no diretório selecionado. As funções comuns do Azure AD associadas aos aceleradores de solução incluem:
 
-* **Administrador global**: pode haver muitos [administradores globais](../active-directory/users-groups-roles/directory-assign-admin-roles.md) por locatário do Azure AD:
+* **Administrador global**: pode haver muitos [administradores globais](../active-directory/roles/permissions-reference.md) por locatário do Azure AD:
 
   * Ao criar um locatário do Azure AD, você será, por padrão, o administrador global desse locatário.
   * O administrador global pode implantar aceleradores de solução padrão e básico.
@@ -64,9 +64,4 @@ Se você for um fabricante de hardware, clique em **Tornar-se um Parceiro** para
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para experimentar um dos aceleradores de solução de IoT, confira os guias de início rápido:
-
-* [Experimente uma solução de monitoramento remoto](quickstart-remote-monitoring-deploy.md)
-* [Experimente uma solução de fábrica conectada](quickstart-connected-factory-deploy.md)
-* [Experimente uma solução de manutenção preditiva](quickstart-predictive-maintenance-deploy.md)
-* [Experimente uma solução de simulação de dispositivo](quickstart-device-simulation-deploy.md)
+Para experimentar um dos aceleradores de solução de IoT, confira o guia de início rápido: [Experimente uma solução de fábrica conectada](quickstart-connected-factory-deploy.md).

@@ -1,6 +1,6 @@
 ---
-title: incluir arquivo
-description: incluir arquivo
+title: arquivo de inclusão
+description: arquivo de inclusão
 services: service-bus-messaging
 author: axisc
 ms.service: service-bus-messaging
@@ -9,10 +9,10 @@ ms.date: 6/9/2020
 ms.author: aschhab
 ms.custom: include file
 ms.openlocfilehash: 9030080d0b8c8e032cb2992a62275efcdb04aabc
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87798130"
 ---
 A tabela a seguir lista os recursos do Java Message Service (JMS) que o barramento de serviço do Azure suporta atualmente. Ele também mostra recursos sem suporte.

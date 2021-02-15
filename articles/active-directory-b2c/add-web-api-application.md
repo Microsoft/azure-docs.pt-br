@@ -10,18 +10,18 @@ ms.custom: mvc
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 438d2fec9efc6a1ad3fcdaa2829573e7205820ff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0eeff0c8c338b09fbe375587db2b955a143138c2
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85385953"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94949812"
 ---
 # <a name="add-a-web-api-application-to-your-azure-active-directory-b2c-tenant"></a>Adicionar um aplicativo de API Web ao locatário do Azure Active Directory B2C
 
  Registre recursos da API Web em seu locatário para que eles possam aceitar e responder a solicitações por aplicativos cliente que apresentem um token de acesso. Este artigo mostra como registrar uma API da Web no Azure Active Directory B2C (Azure AD B2C).
 
-Para registrar um aplicativo no locatário do Azure AD B2C, você pode usar a nossa nova experiência unificada de **Registros de aplicativos** ou a nossa experiência herdada **Aplicativos (Herdado)** . [Saiba mais sobre a nova experiência](https://aka.ms/b2cappregtraining).
+Para registrar um aplicativo no locatário do Azure AD B2C, você pode usar a nossa nova experiência unificada de **Registros de aplicativos** ou a nossa experiência herdada **Aplicativos (Herdado)** . [Saiba mais sobre a nova experiência](./app-registrations-training-guide.md).
 
 #### <a name="app-registrations"></a>[Registros de aplicativo](#tab/app-reg-ga/)
 
@@ -34,7 +34,7 @@ Para registrar um aplicativo no locatário do Azure AD B2C, você pode usar a no
 1. Selecione **Registrar**.
 1. Registre a **ID do aplicativo (cliente)** para uso no código da sua API Web.
 
-Se você tiver um aplicativo que implementa o fluxo de concessão implícita, por exemplo, um aplicativo de página única (SPA) baseado em JavaScript, você poderá habilitar o fluxo seguindo estas etapas:
+Se você tiver um aplicativo que implementa o fluxo de concessão implícita, por exemplo, um [aplicativo de página única (Spa) baseado em JavaScript](tutorial-register-spa.md), você poderá habilitar o fluxo seguindo estas etapas:
 
 1. Em **Gerenciar**, selecione **Autenticação**.
 1. Em **Concessão implícita**, selecione ambas as caixas de seleção **Tokens de acesso** e **Tokens de ID**.

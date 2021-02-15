@@ -1,7 +1,7 @@
 ---
 title: Usar agentes com o Xamarin iOS & Android | Azure
 titleSuffix: Microsoft identity platform
-description: Saiba como configurar aplicativos Xamarin iOS que podem usar Microsoft Authenticator e MSAL.NET (biblioteca de autenticação da Microsoft para .NET). Saiba também como migrar da biblioteca de autenticação do AD do Azure para .NET (ADAL.NET) para a biblioteca de autenticação da Microsoft para .NET (MSAL.NET).
+description: Saiba como configurar aplicativos Xamarin iOS que podem usar o Microsoft Authenticator e a MSAL.NET (biblioteca de autenticação da Microsoft para .NET). Saiba também como migrar da biblioteca de autenticação do AD do Azure para .NET (ADAL.NET) para a biblioteca de autenticação da Microsoft para .NET (MSAL.NET).
 author: jmprieur
 manager: CelesteDG
 ms.service: active-directory
@@ -12,12 +12,12 @@ ms.date: 09/08/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 8e19677adf5fe0f64ad9e1c845f516f81ad89512
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 6958302a429fd88d4e26087b860b7f473bf4a1f9
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88166052"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100103984"
 ---
 # <a name="use-microsoft-authenticator-or-intune-company-portal-on-xamarin-applications"></a>Usar Microsoft Authenticator ou Portal da Empresa do Intune em aplicativos Xamarin
 
@@ -27,15 +27,19 @@ No Android e iOS, os agentes como Microsoft Authenticator e o Microsoft Intune e
 - **Identificação do dispositivo**: o agente acessa o certificado do dispositivo. Esse certificado é criado no dispositivo quando ele é ingressado no local de trabalho.
 - **Verificação da identificação do aplicativo**: quando um aplicativo chama o agente, ele passa sua URL de redirecionamento. O agente verifica a URL.
 
-Para habilitar um desses recursos, use o `WithBroker()` parâmetro ao chamar o `PublicClientApplicationBuilder.CreateApplication` método. O `.WithBroker()` parâmetro é definido como true por padrão. 
+Para habilitar um desses recursos, use o `WithBroker()` parâmetro ao chamar o `PublicClientApplicationBuilder.CreateApplication` método. O `.WithBroker()` parâmetro é definido como true por padrão.
 
-Use também as instruções nas seções a seguir para configurar a autenticação orientada para aplicativos [Ios](#brokered-authentication-for-ios) ou aplicativos [Android](#brokered-authentication-for-android) .
+A configuração da autenticação orientada na biblioteca de autenticação da Microsoft para .NET (MSAL.NET) varia de acordo com a plataforma:
+
+* [Aplicativos iOS](#brokered-authentication-for-ios)
+* [Aplicativos Android](#brokered-authentication-for-android)
 
 ## <a name="brokered-authentication-for-ios"></a>Autenticação orientada para iOS
 
-Use as etapas a seguir para habilitar seu aplicativo Xamarin. iOS para se comunicar com o aplicativo [Microsoft Authenticator](https://itunes.apple.com/us/app/microsoft-authenticator/id983156458) .
+Use as etapas a seguir para habilitar seu aplicativo Xamarin. iOS para se comunicar com o aplicativo [Microsoft Authenticator](https://itunes.apple.com/us/app/microsoft-authenticator/id983156458) . Se você estiver direcionando para o iOS 13, considere ler sobre a [alteração da API de interrupção da Apple](./msal-net-xamarin-ios-considerations.md).
 
 ### <a name="step-1-enable-broker-support"></a>Etapa 1: habilitar o suporte do Broker
+
 Você deve habilitar o suporte do Broker para instâncias individuais do `PublicClientApplication` . O suporte está desabilitado por padrão. Ao criar `PublicClientApplication` por meio `PublicClientApplicationBuilder` do, use o `WithBroker()` parâmetro como mostra o exemplo a seguir. O `WithBroker()` parâmetro é definido como true por padrão.
 
 ```csharp
@@ -53,7 +57,6 @@ Para habilitar o acesso ao conjunto de chaves, você deve ter um grupo de acesso
 ```csharp
 var builder = PublicClientApplicationBuilder
      .Create(ClientId)
-      
      .WithIosKeychainSecurityGroup("com.microsoft.adalcache")
      .Build();
 ```
@@ -61,10 +64,11 @@ var builder = PublicClientApplicationBuilder
 Para obter mais informações, consulte [habilitar o acesso](msal-net-xamarin-ios-considerations.md#enable-keychain-access)ao conjunto de chaves.
 
 ### <a name="step-3-update-appdelegate-to-handle-the-callback"></a>Etapa 3: atualizar AppDelegate para manipular o retorno de chamada
-Quando a MSAL.NET (biblioteca de autenticação da Microsoft para .NET) chama o agente, o agente chama de volta para seu aplicativo por meio do `OpenUrl` método da `AppDelegate` classe. Como MSAL aguarda a resposta do agente, seu aplicativo precisa cooperar para chamar MSAL.NET de volta. Para habilitar essa cooperação, atualize o `AppDelegate.cs` arquivo para substituir o método a seguir.
+
+Quando MSAL.NET chama o agente, o agente chama de volta para o seu aplicativo por meio do `OpenUrl` método da `AppDelegate` classe. Como MSAL aguarda a resposta do agente, seu aplicativo precisa cooperar para chamar MSAL.NET de volta. Para habilitar essa cooperação, atualize o arquivo *AppDelegate.cs* para substituir o método a seguir.
 
 ```csharp
-public override bool OpenUrl(UIApplication app, NSUrl url, 
+public override bool OpenUrl(UIApplication app, NSUrl url,
                              string sourceApplication,
                              NSObject annotation)
 {
@@ -73,35 +77,37 @@ public override bool OpenUrl(UIApplication app, NSUrl url,
       AuthenticationContinuationHelper.SetBrokerContinuationEventArgs(url);
       return true;
     }
-    
+
     else if (!AuthenticationContinuationHelper.SetAuthenticationContinuationEventArgs(url))
-    {                
-         return false;                  
+    {
+         return false;
     }
-    
-    return true;     
-}            
+
+    return true;
+}
 ```
 
 Esse método é invocado toda vez que o aplicativo é iniciado. Ele é usado como uma oportunidade de processar a resposta do agente e concluir o processo de autenticação que o MSAL.NET iniciou.
 
 ### <a name="step-4-set-uiviewcontroller"></a>Etapa 4: definir UIViewController ()
-Ainda no `AppDelegate.cs` arquivo, você precisa definir uma janela de objeto. Normalmente, para o Xamarin iOS, você não precisa definir a janela de objeto. Mas você precisa de uma janela de objeto para enviar e receber respostas do agente. 
 
-Para configurar a janela de objeto: 
-1. No `AppDelegate.cs` arquivo, defina `App.RootViewController` para um novo `UIViewController()` . Essa atribuição garante que a chamada para o agente inclua `UIViewController` . Se essa configuração for atribuída incorretamente, você poderá receber esse erro:
+Ainda no arquivo *AppDelegate.cs* , defina uma janela de objeto. Normalmente, você não precisa definir a janela de objeto para o Xamarin iOS, mas precisa de uma janela de objeto para enviar e receber respostas do agente.
+
+Para configurar a janela de objeto:
+
+1. No arquivo *AppDelegate.cs* , defina `App.RootViewController` para um novo `UIViewController()` . Essa atribuição garante que a chamada para o agente inclua `UIViewController` . Se essa configuração for atribuída incorretamente, você poderá receber esse erro:
 
       `"uiviewcontroller_required_for_ios_broker":"UIViewController is null, so MSAL.NET cannot invoke the iOS broker. See https://aka.ms/msal-net-ios-broker"`
 
 1. Na `AcquireTokenInteractive` chamada, use `.WithParentActivityOrWindow(App.RootViewController)` e, em seguida, passe a referência para a janela de objeto que você usará.
 
-    Em `App.cs`:
+    Em *app.cs*:
 
     ```csharp
        public static object RootViewController { get; set; }
     ```
 
-    Em `AppDelegate.cs`:
+    Em *AppDelegate.cs*:
 
     ```csharp
        LoadApplication(new App());
@@ -117,9 +123,10 @@ Para configurar a janela de objeto:
     ```
 
 ### <a name="step-5-register-a-url-scheme"></a>Etapa 5: registrar um esquema de URL
-O MSAL.NET usa URLs para invocar o agente e, em seguida, retornar a resposta do agente para seu aplicativo. Para concluir a viagem de ida e volta, registre um esquema de URL para seu aplicativo no `Info.plist` arquivo.
 
-O `CFBundleURLSchemes` nome deve incluir `msauth.` como um prefixo. Siga o prefixo com `CFBundleURLName` . 
+O MSAL.NET usa URLs para invocar o agente e, em seguida, retornar a resposta do agente para seu aplicativo. Para concluir a viagem de ida e volta, registre um esquema de URL para seu aplicativo no arquivo *info. plist* .
+
+O `CFBundleURLSchemes` nome deve incluir `msauth.` como um prefixo. Siga o prefixo com `CFBundleURLName` .
 
 No esquema de URL, `BundleId` identifica exclusivamente o aplicativo: `$"msauth.(BundleId)"` . Portanto `BundleId` , se for `com.yourcompany.xforms` , o esquema de URL será `msauth.com.yourcompany.xforms` .
 
@@ -144,9 +151,9 @@ No esquema de URL, `BundleId` identifica exclusivamente o aplicativo: `$"msauth.
 
 ### <a name="step-6-add-the-broker-identifier-to-the-lsapplicationqueriesschemes-section"></a>Etapa 6: Adicionar o identificador do agente à seção LSApplicationQueriesSchemes
 
-O MSAL usa `–canOpenURL:` para verificar se o agente está instalado no dispositivo. No iOS 9, a Apple bloqueou os esquemas que um aplicativo pode consultar. 
+O MSAL usa `–canOpenURL:` para verificar se o agente está instalado no dispositivo. No iOS 9, a Apple bloqueou os esquemas que um aplicativo pode consultar.
 
-Adicione `msauthv2` à `LSApplicationQueriesSchemes` seção do `Info.plist` arquivo, como no exemplo a seguir:
+Adicione `msauthv2` à `LSApplicationQueriesSchemes` seção do arquivo *info. plist* , como no exemplo a seguir:
 
 ```XML
 <key>LSApplicationQueriesSchemes</key>
@@ -156,7 +163,7 @@ Adicione `msauthv2` à `LSApplicationQueriesSchemes` seção do `Info.plist` arq
     </array>
 ```
 
-### <a name="step-7-register-your-redirect-uri-in-the-application-portal"></a>Etapa 7: registrar seu URI de redirecionamento no portal do aplicativo
+### <a name="step-7-add-a-redirect-uri-to-your-app-registration"></a>Etapa 7: adicionar um URI de redirecionamento ao registro do aplicativo
 
 Quando você usa o agente, seu URI de redirecionamento tem um requisito extra. O URI de redirecionamento _deve_ ter o seguinte formato:
 
@@ -164,62 +171,49 @@ Quando você usa o agente, seu URI de redirecionamento tem um requisito extra. O
 $"msauth.{BundleId}://auth"
 ```
 
-Veja um exemplo:
+Aqui está um exemplo:
 
 ```csharp
-public static string redirectUriOnIos = "msauth.com.yourcompany.XForms://auth"; 
+public static string redirectUriOnIos = "msauth.com.yourcompany.XForms://auth";
 ```
 
-Observe que o URI de redirecionamento corresponde ao `CFBundleURLSchemes` nome que você incluiu no `Info.plist` arquivo.
+Observe que o URI de redirecionamento corresponde ao `CFBundleURLSchemes` nome que você incluiu no arquivo *info. plist* .
 
-### <a name="step-8-make-sure-the-redirect-uri-is-registered-with-your-app"></a>Etapa 8: Verifique se o URI de redirecionamento está registrado com seu aplicativo
+Adicione o URI de redirecionamento ao registro do aplicativo no [portal do Azure](https://portal.azure.com). Para gerar um URI de redirecionamento formatado corretamente, use **registros de aplicativo** na portal do Azure para gerar o URI de redirecionamento orientado a partir da ID do pacote.
 
-O URI de redirecionamento precisa ser registrado no [portal de registro de aplicativo](https://portal.azure.com) como um URI de redirecionamento válido para seu aplicativo. 
+**Para gerar o URI de redirecionamento:**
 
-O portal de registro de aplicativo fornece uma nova experiência para ajudá-lo a calcular o URI de resposta orientado da ID do pacote. 
+1. Entre no <a href="https://portal.azure.com/" target="_blank">portal do Azure</a>.
+1. Selecione **Azure Active Directory**  >  **registros de aplicativo** > seu aplicativo registrado
+1. Selecione **autenticação**  >  **Adicionar uma plataforma**  >  **Ios/MacOS**
+1. Insira a ID do pacote e, em seguida, selecione **Configurar**.
 
-Para calcular o URI de redirecionamento:
+    Copie o URI de redirecionamento gerado que aparece na caixa de texto **URI de redirecionamento** para inclusão em seu código:
 
-1. No portal de registro de aplicativo, escolha **autenticação**  >  **Experimente a nova experiência**.
-
-   ![Experimente a nova experiência de registro de aplicativo](media/msal-net-use-brokers-with-xamarin-apps/60799285-2d031b00-a173-11e9-9d28-ac07a7ae894a.png)
-
-1. Selecione **Adicionar uma plataforma**.
-
-   ![Adicionar uma plataforma](media/msal-net-use-brokers-with-xamarin-apps/60799366-4c01ad00-a173-11e9-934f-f02e26c9429e.png)
-
-1. Quando houver suporte para a lista de plataformas, selecione **Ios**.
-
-   ![Configurar o iOS](media/msal-net-use-brokers-with-xamarin-apps/60799411-60de4080-a173-11e9-9dcc-d39a45826d42.png)
-
-1. Insira a ID do pacote conforme solicitado e, em seguida, selecione **Configurar**.
-
-   ![Insira a ID do pacote](media/msal-net-use-brokers-with-xamarin-apps/60799477-7eaba580-a173-11e9-9f8b-431f5b09344e.png)
-
-Quando você terminar as etapas, o URI de redirecionamento será calculado para você.
-
-![Copiar URI de redirecionamento](media/msal-net-use-brokers-with-xamarin-apps/60799538-9e42ce00-a173-11e9-860a-015a1840fd19.png)
+    :::image type="content" source="media/msal-net-use-brokers-with-xamarin-apps/portal-01-ios-platform-settings.png" alt-text="configurações da plataforma iOS com URI de redirecionamento gerado no portal do Azure":::
+1. Selecione **concluído** para concluir a geração do URI de redirecionamento.
 
 ## <a name="brokered-authentication-for-android"></a>Autenticação orientada para Android
 
 ### <a name="step-1-enable-broker-support"></a>Etapa 1: habilitar o suporte do Broker
 
-O suporte do Broker é habilitado por PublicClientApplication. Isso está desabilitado por padrão. Use o `WithBroker()` parâmetro (definido como true por padrão) ao criar o `IPublicClientApplication` através do `PublicClientApplicationBuilder` .
+O suporte do Broker está habilitado por `PublicClientApplication` base. Isso está desabilitado por padrão. Use o `WithBroker()` parâmetro (definido como true por padrão) ao criar o `IPublicClientApplication` através do `PublicClientApplicationBuilder` .
 
-```CSharp
+```csharp
 var app = PublicClientApplicationBuilder
                 .Create(ClientId)
                 .WithBroker()
-                .WithRedirectUri(redirectUriOnAndroid) //(see step 4 below)
+                .WithRedirectUri(redirectUriOnAndroid) // See step #4
                 .Build();
 ```
 
 ### <a name="step-2-update-appdelegate-to-handle-the-callback"></a>Etapa 2: atualizar AppDelegate para manipular o retorno de chamada
 
-Quando o MSAL.NET chama o agente, o agente, por sua vez, retorna de volta para seu aplicativo com o método OnActivityResult (). Como o MSAL aguardará a resposta do agente, seu aplicativo precisará rotear o resultado para MSAL.NET.
-Isso pode ser obtido roteando o resultado para o `SetAuthenticationContinuationEventArgs(int requestCode, Result resultCode, Intent data)` substituindo o método OnActivityResult (), conforme mostrado abaixo
+Quando o MSAL.NET chama o agente, o agente, por sua vez, retorna a chamada para o seu aplicativo com o `OnActivityResult()` método. Como o MSAL aguardará a resposta do agente, seu aplicativo precisará rotear o resultado para MSAL.NET.
 
-```CSharp
+Encaminhe o resultado para o `SetAuthenticationContinuationEventArgs(int requestCode, Result resultCode, Intent data)` método substituindo o `OnActivityResult()` método, como mostrado aqui:
+
+```csharp
 protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
 {
    base.OnActivityResult(requestCode, resultCode, data);
@@ -231,43 +225,37 @@ Esse método é invocado toda vez que o aplicativo agente é iniciado e é usado
 
 ### <a name="step-3-set-an-activity"></a>Etapa 3: definir uma atividade
 
-Para que a autenticação orientada funcione, você precisará definir uma atividade para que o MSAL possa enviar e receber a resposta do agente.
+Para habilitar a autenticação orientada, defina uma atividade para que o MSAL possa enviar e receber a resposta de e para o agente. Para fazer isso, forneça a atividade (geralmente, `MainActivity` ) ao `WithParentActivityOrWindow(object parent)` objeto pai.
 
-Para fazer isso, você precisará fornecer a atividade (geralmente o MainActivity) para o `WithParentActivityOrWindow(object parent)` como o objeto pai. 
+Por exemplo, na chamada para `AcquireTokenInteractive()` :
 
-**Por exemplo:**
-
-Na chamada de aquisição de token:
-
-```CSharp
+```csharp
 result = await app.AcquireTokenInteractive(scopes)
              .WithParentActivityOrWindow((Activity)context))
              .ExecuteAsync();
 ```
 
-### <a name="step-4-register-your-redirecturi-in-the-application-portal"></a>Etapa 4: registrar seu RedirectUri no portal do aplicativo
+### <a name="step-4-add-a-redirect-uri-to-your-app-registration"></a>Etapa 4: adicionar um URI de redirecionamento ao registro do aplicativo
 
-O MSAL usa URLs para invocar o agente e, em seguida, retornar ao seu aplicativo. Para concluir essa viagem de ida e volta, você precisa registrar um esquema de URL para seu aplicativo. Esse URI de redirecionamento precisa ser registrado no portal de registro de aplicativo do Azure AD como um URI de redirecionamento válido para seu aplicativo.
+O MSAL usa URLs para invocar o agente e, em seguida, retornar ao seu aplicativo. Para concluir essa viagem de ida e volta, registre um **URI de redirecionamento** para seu aplicativo usando o [portal do Azure](https://portal.azure.com).
 
-
-O URI de redirecionamento necessário para seu aplicativo depende do certificado usado para assinar o APK.
+O formato do URI de redirecionamento para seu aplicativo depende do certificado usado para assinar o APK. Por exemplo:
 
 ```
-Example: msauth://com.microsoft.xforms.testApp/hgbUYHVBYUTvuvT&Y6tr554365466=
+msauth://com.microsoft.xforms.testApp/hgbUYHVBYUTvuvT&Y6tr554365466=
 ```
 
-A última parte do URI, `hgbUYHVBYUTvuvT&Y6tr554365466=` , é a assinatura com a qual o apk é assinado, codificado em base64.
-No entanto, durante a fase de desenvolvimento do seu aplicativo usando o Visual Studio, se você estiver Depurando seu código sem assinar o apk com um certificado específico, o Visual Studio assinará o apk para você para fins de depuração, dando ao APK uma assinatura exclusiva para o computador no qual ele foi criado. Assim, sempre que você criar seu aplicativo em um computador diferente, precisará atualizar o URI de redirecionamento no código do aplicativo e o registro do aplicativo no portal do Azure para autenticar com o MSAL. 
+A última parte do URI, `hgbUYHVBYUTvuvT&Y6tr554365466=` , é a versão codificada em base64 da assinatura com a qual o apk é assinado. Ao desenvolver seu aplicativo no Visual Studio, se você estiver Depurando seu código sem assinar o APK com um certificado específico, o Visual Studio assinará o APK para você para fins de depuração. Quando o Visual Studio assina o APK para você dessa forma, ele fornece uma assinatura exclusiva para o computador no qual ele foi criado. Assim, sempre que você criar seu aplicativo em um computador diferente, precisará atualizar o URI de redirecionamento no código do aplicativo e o registro do aplicativo no portal do Azure para autenticar com o MSAL.
 
-Durante a depuração, você pode encontrar uma exceção MSAL (ou mensagem de log) informando que o URI de redirecionamento fornecido está incorreto. **Essa exceção também fornecerá o URI de redirecionamento que você deve usar** com o computador atual no qual você está depurando. Você pode usar esse URI de redirecionamento para continuar desenvolvendo por enquanto.
+Durante a depuração, você pode encontrar uma exceção MSAL (ou mensagem de log) informando que o URI de redirecionamento fornecido está incorreto. **A exceção ou a mensagem de log também indica o URI de redirecionamento que você deve usar** com o computador atual no qual você está depurando. Você pode usar o URI de redirecionamento fornecido para continuar desenvolvendo seu aplicativo, desde que atualize o URI de redirecionamento no código e adicione o URI de redirecionamento fornecido ao registro do aplicativo no portal do Azure.
 
-Quando você estiver pronto para finalizar seu código, certifique-se de atualizar o URI de redirecionamento no código e no registro do aplicativo no portal do Azure para usar a assinatura do certificado com o qual você estará assinando o APK.
+Quando você estiver pronto para finalizar seu código, atualize o URI de redirecionamento no código e o registro do aplicativo no portal do Azure para usar a assinatura do certificado com o qual você assina o APK.
 
-Na prática, isso significa que você precisa registrar um URI de redirecionamento para cada membro da equipe, além de um URI de redirecionamento para a versão de produção assinada do APK.
+Na prática, isso significa que você deve considerar a adição de um URI de redirecionamento para cada membro da sua equipe de desenvolvimento, *além* de um URI de redirecionamento para a versão de produção assinada do APK.
 
-Você também pode calcular essa assinatura por conta própria, semelhante a como o MSAL faz isso: 
+Você pode computar a assinatura por conta própria, semelhante a como o MSAL faz isso:
 
-```CSharp
+```csharp
    private string GetRedirectUriForBroker()
    {
       string packageName = Application.Context.PackageName;
@@ -299,11 +287,79 @@ Você também pode calcular essa assinatura por conta própria, semelhante a com
    }
 ```
 
-Você também tem a opção de adquirir a assinatura para seu pacote usando o keytool com os seguintes comandos:
+Você também tem a opção de adquirir a assinatura para seu pacote usando o **keytool** com os seguintes comandos:
 
-No Windows: `keytool.exe -list -v -keystore "%LocalAppData%\Xamarin\Mono for Android\debug.keystore" -alias androiddebugkey -storepass android -keypass android`
+* Windows:
+    ```console
+    keytool.exe -list -v -keystore "%LocalAppData%\Xamarin\Mono for Android\debug.keystore" -alias androiddebugkey -storepass android -keypass android
+    ````
+* macOS:
+    ```console
+    keytool -exportcert -alias androiddebugkey -keystore ~/.android/debug.keystore | openssl sha1 -binary | openssl base64
+    ````
 
-Para Mac:`keytool -exportcert -alias androiddebugkey -keystore ~/.android/debug.keystore | openssl sha1 -binary | openssl base64`
+### <a name="step-5-optional-fall-back-to-the-system-browser"></a>Etapa 5 (opcional): retorne para o navegador do sistema
+
+Se o MSAL estiver configurado para usar o agente, mas o agente não estiver instalado, o MSAL voltará a usar uma exibição da Web (um navegador). O MSAL tentará autenticar usando o navegador do sistema padrão no dispositivo, que falha porque o URI de redirecionamento está configurado para o agente e o navegador do sistema não sabe como usá-lo para navegar de volta para o MSAL. Para evitar a falha, você pode configurar um *filtro de intenção* com o URI de redirecionamento do agente usado na etapa 4.
+
+Modifique o manifesto do aplicativo para adicionar o filtro de intenção:
+
+```xml
+<!-- NOTE the SLASH (required) that prefixes the signature value in the path attribute.
+     The signature value is the Base64-encoded signature discussed above. -->
+<intent-filter>
+      <data android:scheme="msauth"
+                    android:host="Package Name"
+                    android:path="/Package Signature"/>
+```
+
+Por exemplo, se você tiver um URI de redirecionamento de `msauth://com.microsoft.xforms.testApp/hgbUYHVBYUTvuvT&Y6tr554365466=` , seu manifesto deverá ser semelhante ao trecho de código XML a seguir.
+
+É necessária a barra de encaminhamento ( `/` ) na frente da assinatura no `android:path` valor .
+
+```xml
+<!-- NOTE the SLASH (required) that prefixes the signature value in the path attribute.
+     The signature value is the Base64-encoded signature discussed above. -->
+<intent-filter>
+      <data android:scheme="msauth"
+                    android:host="com.microsoft.xforms.testApp"
+                    android:path="/hgbUYHVBYUTvuvT&Y6tr554365466="/>
+```
+
+Como alternativa, você pode configurar o MSAL para fazer fallback para o navegador incorporado, que não depende de um URI de redirecionamento:
+
+```csharp
+.WithUseEmbeddedWebUi(true)
+```
+
+## <a name="troubleshooting-tips-for-android-brokered-authentication"></a>Dicas de solução de problemas para autenticação orientada do Android
+
+Aqui estão algumas dicas sobre como evitar problemas ao implementar a autenticação orientada no Android:
+
+- **URI de redirecionamento** – adicione um URI de redirecionamento ao registro do aplicativo no [portal do Azure](https://portal.azure.com/). Um URI de redirecionamento ausente ou incorreto é um problema comum encontrado pelos desenvolvedores.
+- **Versão do agente** -instale a versão mínima necessária dos aplicativos do agente. Qualquer um desses dois aplicativos pode ser usado para autenticação orientada no Android.
+  - [Portal da empresa do Intune](https://play.google.com/store/apps/details?id=com.microsoft.windowsintune.companyportal) (versão 5.0.4689.0 ou superior)
+  - [Microsoft Authenticator](https://play.google.com/store/apps/details?id=com.azure.authenticator) (versão 6.2001.0140 ou superior).
+- **Precedência do agente** -MSAL se comunica com o *primeiro agente instalado* no dispositivo quando vários agentes são instalados.
+
+    Exemplo: se você instalar primeiro Microsoft Authenticator e, em seguida, instalar o Portal da Empresa do Intune, a autenticação orientada ocorrerá *somente* no Microsoft Authenticator.
+- **Logs** – se você encontrar um problema com a autenticação orientada, a exibição dos logs do agente poderá ajudá-lo a diagnosticar a causa.
+  - Exibir logs de Microsoft Authenticator:
+
+    1. Selecione o botão de menu no canto superior direito do aplicativo.
+    1. Selecione **ajudar**  >  **enviar logs**  >  **Exibir logs**.
+    1. Selecione **copiar tudo** para copiar os logs do agente para a área de transferência do dispositivo.
+
+    A melhor maneira de depurar com esses logs é enviá-los por email para você mesmo e exibi-los em seu computador de desenvolvimento. Talvez você ache mais fácil analisar os logs em seu computador em vez de no próprio dispositivo. Você também pode usar um editor de teste no Android para salvar os logs como um arquivo de texto e, em seguida, usar um cabo USB para copiar o arquivo em um computador.
+
+  - Exibir logs de Portal da Empresa do Intune:
+
+    1. Selecione o botão de menu no canto superior esquerdo do aplicativo
+    1. Selecione **configurações**  >  **dados de diagnóstico**
+    1. Selecione **copiar logs** para copiar os logs do agente para o cartão SD do dispositivo.
+    1. Conecte o dispositivo a um computador usando um cabo USB para exibir os logs em seu computador de desenvolvimento.
+
+    Depois de ter os logs, você pode pesquisá-los para suas tentativas de autenticação por meio da ID de correlação. A ID de correlação é anexada a cada solicitação de autenticação. Para localizar erros retornados pelo ponto de extremidade de autenticação da plataforma de identidade da Microsoft, procure `AADSTS` .
 
 ## <a name="next-steps"></a>Próximas etapas
 

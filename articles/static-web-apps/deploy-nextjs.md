@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Implantar sites do Nuxt.js renderizados no servidor no serviço Aplicativos Web Estáticos do Azure'
+title: 'Tutorial: Implantar sites Next.js estáticos renderizados nos Aplicativos Web Estáticos do Azure'
 description: Gere e implante sites dinâmicos do Next.js com o serviço Aplicativos Web Estáticos do Azure.
 services: static-web-apps
 author: christiannwamba
@@ -7,15 +7,15 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: chnwamba
-ms.custom: devx-track-javascript
-ms.openlocfilehash: c5afd7d912142dd8556e71ba9e0a522b2fa0da1c
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.custom: devx-track-js
+ms.openlocfilehash: a22d06137c3ec17851280605ac85c94ef8b342cd
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684585"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97563068"
 ---
-# <a name="deploy-server-rendered-nextjs-websites-on-azure-static-web-apps-preview"></a>Implantar sites do Next.js renderizados no servidor na versão prévia do serviço Aplicativos Web Estáticos do Azure
+# <a name="deploy-static-rendered-nextjs-websites-on-azure-static-web-apps-preview"></a>Implantar sites Next.js estáticos renderizados na versão prévia dos Aplicativos Web Estáticos do Azure
 
 Neste tutorial, você aprenderá a implantar um site estático gerado por [Next.js](https://nextjs.org) no serviço [Aplicativos Web Estáticos do Azure](overview.md). Para começar, você aprenderá a configurar e implantar um aplicativo Next.js. Durante esse processo, você também aprenderá a lidar com desafios comuns frequentemente enfrentados ao gerar páginas estáticas com o Next.js
 
@@ -29,9 +29,9 @@ Neste tutorial, você aprenderá a implantar um site estático gerado por [Next.
 
 Em vez de usar a CLI do Next.js para criar um aplicativo, você pode usar um repositório inicial que inclua um aplicativo Next.js já existente. Esse repositório apresenta um aplicativo Next.js com rotas dinâmicas, que realça um problema comum de implantação. As rotas dinâmicas precisam de uma configuração de implantação extra, que você aprenderá mais adiante.
 
-Para começar, crie um novo repositório em sua conta do GitHub utilizando um modelo de repositório. 
+Para começar, crie um novo repositório em sua conta do GitHub utilizando um modelo de repositório.
 
-1. Navegue até <http://github.com/staticwebdev/nextjs-starter/generate>
+1. Navegue para [https://github.com/staticwebdev/nextjs-starter/generate](https://github.com/login?return_to=/staticwebdev/nextjs-starter/generate)
 1. Atribua ao repositório o nome **nextjs-starter**.
 1. Em seguida, clone o novo repositório em seu computador. Certifique-se de substituir `<YOUR_GITHUB_ACCOUNT_NAME>` pelo nome da sua conta.
 
@@ -73,7 +73,7 @@ Quando você compila um site Next.js usando `npm run build`, o aplicativo é com
 
     ```javascript
     module.exports = {
-      exportTrailingSlash: true,
+      trailingSlash: true,
       exportPathMap: function() {
         return {
           '/': { page: '/' }
@@ -125,7 +125,7 @@ O serviço Aplicativos Web Estáticos do Azure implanta seu aplicativo de um rep
 1. Envie por push suas alterações para o GitHub.
 
     ```bash
-    git push origin master
+    git push origin main
     ```
 
 ## <a name="deploy-your-static-website"></a>Implantar seu site estático
@@ -155,7 +155,7 @@ A nova conta do serviço Aplicativos Web Estáticos precisa acessar o repositór
 1. Clique no botão **Entrar com o GitHub**
 1. Selecione a **Organização** sob a qual você criou o repositório para o seu projeto Next.js, que pode ser seu nome de usuário do GitHub.
 1. Encontre e selecione o nome do repositório que você criou anteriormente.
-1. Escolha **mestre** como branch, na lista suspensa *Branch*.
+1. Escolha **principal** como o branch na lista suspensa *Branch*.
 
    :::image type="content" source="media/deploy-nextjs/connect-github.png" alt-text="Conectar o GitHub":::
 
@@ -189,7 +189,7 @@ https://github.com/<YOUR_GITHUB_USERNAME>/nextjs-starter/actions
 
 Quando você criou o aplicativo, o serviço Aplicativos Web Estáticos do Azure criou um arquivo de fluxo de trabalho do GitHub Actions em seu repositório. Você precisa colocar esse arquivo em seu repositório local para que seu histórico de git seja sincronizado.
 
-Retorne ao terminal e execute o comando `git pull origin master`.
+Retorne ao terminal e execute o comando `git pull origin main`.
 
 ## <a name="configure-dynamic-routes"></a>Configurar rotas dinâmicas
 
@@ -207,7 +207,7 @@ O motivo para esse erro é porque o Next.js gerou apenas a home page com base na
    const data = require('./utils/projectsData');
 
    module.exports = {
-     exportTrailingSlash: true,
+     trailingSlash: true,
      exportPathMap: async function () {
        const { projects } = data;
        const paths = {

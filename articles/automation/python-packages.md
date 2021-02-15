@@ -3,15 +3,15 @@ title: Gerenciar pacotes do Python 2 no Automação do Azure
 description: Este artigo informa como gerenciar pacotes do Python 2 na Automação do Azure.
 services: automation
 ms.subservice: process-automation
-ms.date: 02/25/2019
+ms.date: 12/17/2020
 ms.topic: conceptual
 ms.custom: devx-track-python
-ms.openlocfilehash: 0b0fab40eb95fabd4b74e809c9e6cd6f6573f513
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: fd830afd5628591019902ca583f9cbc8e2a7ecad
+ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852898"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97683401"
 ---
 # <a name="manage-python-2-packages-in-azure-automation"></a>Gerenciar pacotes do Python 2 no Automação do Azure
 
@@ -21,15 +21,15 @@ A Automação do Azure permite executar runbooks do Python 2 no Azure e no Hybri
 
 Na sua conta de Automação, selecione **Pacotes do Python 2** em **Recursos Compartilhados**. Clique em **+ Adicionar um pacote do Python 2**.
 
-![Adicionar pacote do Python](media/python-packages/add-python-package.png)
+:::image type="content" source="media/python-packages/add-python-package.png" alt-text="A captura de tela da página de pacotes do Python 2 mostra pacotes python 2 no menu à esquerda e adiciona um pacote Python 2 realçado.":::
 
 Na página Adicionar Pacote Python 2, selecione um pacote local para carregar. O pacote pode ser um arquivo **.whl** ou **.tar.gz**. Quando o pacote for selecionado, clique em **OK** para carregá-lo.
 
-![Adicionar pacote do Python](media/python-packages/upload-package.png)
+:::image type="content" source="media/python-packages/upload-package.png" alt-text="Captura de tela mostra a página Adicionar pacote Python 2 com um arquivo tar. gz carregado selecionado.":::
 
 Depois que um pacote tiver sido importado, ele será listado na página de pacotes do Python 2 na sua conta de Automação. Se você precisar remover um pacote, selecione o pacote e clique em **Excluir**.
 
-![Lista de pacotes](media/python-packages/package-list.png)
+:::image type="content" source="media/python-packages/package-list.png" alt-text="Captura de tela mostra a página de pacotes do Python 2 depois que um pacote é importado.":::
 
 ## <a name="import-packages-with-dependencies"></a>Importar pacotes com dependências
 
@@ -47,14 +47,14 @@ Depois que os pacotes forem baixados, você poderá importá-los para sua conta 
 
 ### <a name="runbook"></a>Runbook
 
- Para obter um runbook, [importe os pacotes Python 2 do pypi para a conta de Automação do Azure](https://gallery.technet.microsoft.com/scriptcenter/Import-Python-2-packages-57f7d509), da galeria para sua conta de Automação. Verifique se as configurações de execução estão definidas como **Azure** e inicie o runbook com os parâmetros. O runbook requer uma conta Executar como para que a conta de Automação funcione. Para cada parâmetro, certifique-se de iniciá-lo com a opção conforme mostrado na seguinte lista e imagem:
+ Para obter um runbook, [importe pacotes python 2 do PyPI para a conta de automação do Azure](https://github.com/azureautomation/import-python-2-packages-from-pypi-into-azure-automation-account) da organização GitHub da automação do Azure para sua conta de automação. Verifique se as configurações de execução estão definidas como **Azure** e inicie o runbook com os parâmetros. O runbook requer uma conta Executar como para que a conta de Automação funcione. Para cada parâmetro, certifique-se de iniciá-lo com a opção conforme mostrado na seguinte lista e imagem:
 
-* -s\<subscriptionId\>
-* -g\<resourceGroup\>
-* -a\<automationAccount\>
-* -m\<modulePackage\>
+* -s \<subscriptionId\>
+* -g \<resourceGroup\>
+* -a \<automationAccount\>
+* -m \<modulePackage\>
 
-![Lista de pacotes](media/python-packages/import-python-runbook.png)
+:::image type="content" source="media/python-packages/import-python-runbook.png" alt-text="Captura de tela mostra a página Visão geral de import_py2package_from_pypi com o painel Iniciar runbook no lado direito.":::
 
 O runbook permite que você especifique qual pacote baixar. Por exemplo, o uso do parâmetro `Azure` baixa todos os módulos do Azure e todas as dependências (cerca de 105).
 

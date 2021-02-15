@@ -1,20 +1,20 @@
 ---
-title: Monitorar eventos agendados para VMs do Windows no Azure
+title: Monitorar eventos agendados para suas VMs no Azure
 description: Saiba como monitorar máquinas virtuais do Azure para eventos agendados.
 author: mysarn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.subservice: monitoring
 ms.date: 08/20/2019
 ms.author: sarn
 ms.topic: how-to
-ms.openlocfilehash: 0806c6e0ed89c2c0f4712ec985599810119fcf89
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e3e44019d09927ff700e74b713a1b02136fedbc1
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86999013"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98702263"
 ---
-# <a name="monitoring-scheduled-events"></a>Monitorar Eventos Agendados
+# <a name="monitor-scheduled-events-for-your-azure-vms"></a>Monitorar eventos agendados para suas VMs do Azure
 
 As atualizações são aplicadas a diferentes partes do Azure todos os dias, para manter os serviços em execução neles seguros e atualizados. Além das atualizações planejadas, eventos não planejados talvez ocorram também. Por exemplo, se qualquer degradação ou falha de hardware for detectada, talvez os serviços do Azure precisem executar manutenção não planejada. Na maioria dos casos, eventos como o uso de migração ao vivo, atualizações que preservam a memória e a geralmente a manutenção de uma barra estrita sobre o impacto das atualizações são quase transparentes para os clientes e não têm nenhum impacto ou, no máximo, fazem a máquina virtual ficar congelada por alguns segundos. No entanto, para alguns aplicativos, mesmo alguns segundos de congelamento da máquina virtual poderiam causar um impacto. Saber com antecedência sobre a futura manutenção do Azure é importante para você ter a melhor experiência para esses aplicativos. O [serviço Eventos Agendados](scheduled-events.md) fornece uma interface programática para você ser notificado sobre manutenção futura e permite que você a manipule normalmente. 
 
@@ -39,7 +39,7 @@ Você também vai precisar [criar um workspace do Log Analytics](../../azure-mon
 
 ## <a name="set-up-the-environment"></a>Configurar o ambiente
 
-Agora você deve ter duas VMs iniciais em um conjunto de disponibilidade. Agora, vamos precisar criar uma terceira VM, chamada myCollectorVM, no mesmo conjunto de disponibilidade. 
+Agora você deve ter duas VMs iniciais em um conjunto de disponibilidade. Agora, precisamos criar uma 3ª VM, chamada `myCollectorVM` , no mesmo conjunto de disponibilidade. 
 
 ```azurepowershell-interactive
 New-AzVm `
@@ -132,7 +132,7 @@ Isso instalará o [Microsoft Monitoring Agent](../extensions/oms-windows.md) em 
 ## <a name="creating-an-alert-rule-with-azure-monitor"></a>Criar uma regra de alerta com o Azure Monitor 
 
 
-Depois que os eventos forem enviados por push para o Log Analytics, você poderá executar a [consulta](../../azure-monitor/log-query/get-started-portal.md) a seguir para procurar os eventos agendados.
+Depois que os eventos forem enviados por push para o Log Analytics, você poderá executar a [consulta](../../azure-monitor/log-query/log-analytics-tutorial.md) a seguir para procurar os eventos agendados.
 
 1. Na parte superior da página, selecione **Logs** e cole o seguinte na caixa de texto:
 
@@ -150,7 +150,7 @@ Depois que os eventos forem enviados por push para o Log Analytics, você poder�
     | project-away RenderedDescription,ReqJson
     ```
 
-1. Selecione **Salvar** e, em seguida, digite *logQuery* para o nome, deixe **Consulta** como o tipo, digite *VMLogs* como a **Categoria** e, em seguida, selecione **Salvar**. 
+1. Selecione **salvar** e, em seguida `ogQuery` , digite para o nome, deixe **consulta** como o tipo, digite `VMLogs` como a **categoria** e, em seguida, selecione **salvar**. 
 
     ![Salvar a consulta](./media/notifications/save-query.png)
 
@@ -160,7 +160,7 @@ Depois que os eventos forem enviados por push para o Log Analytics, você poder�
 1. Em **Valor do limite**, insira *0* e, em seguida, selecione **Concluído**.
 1. Em **Ações**, selecione **Criar grupo de ações**. A página **Adicionar grupo de ações** será aberta.
 1. Em **Nome do grupo de ações**, digite *myActionGroup*.
-1. Em **Nome curto**, digite **myActionGroup**.
+1. Em **Nome curto**, digite *myActionGroup*.
 1. Em **Grupo de recursos**, selecione **myResourceGroupAvailability**.
 1. Em Ações, em **NOME DA AÇÃO**, digite **Email** e, em seguida, selecione **Email/SMS/Push/Voz**. A página **Email/SMS/Push/Voz** será aberta.
 1. Selecione **Email**, digite seu endereço de email e, em seguida, selecione **OK**.

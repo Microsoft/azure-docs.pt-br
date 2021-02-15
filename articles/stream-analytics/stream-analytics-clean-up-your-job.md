@@ -1,19 +1,18 @@
 ---
 title: Limpar o trabalho do Azure Stream Analytics
 description: Este artigo mostra diferentes métodos para excluir trabalhos do Azure Stream Analytics.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: f078ab217a5c4911fbd132338883504897db899f
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 31812ac805bd3465b1b735842b45adb372286d66
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044593"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98016058"
 ---
 # <a name="stop-or-delete-your-azure-stream-analytics-job"></a>Parar ou excluir seu trabalho de Azure Stream Analytics
 
@@ -40,7 +39,7 @@ Quando você interrompe um trabalho, os recursos são desprovisionados e o proce
 >[!WARNING] 
 >Um trabalho de Stream Analytics não pode ser recuperado depois de ser excluído.
 
-1. Entre no Portal do Azure. 
+1. Entre no portal do Azure. 
 
 2. Localize o trabalho existente do Stream Analytics e selecione-o.
 
@@ -53,12 +52,12 @@ Quando você interrompe um trabalho, os recursos são desprovisionados e o proce
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Para interromper um trabalho usando o PowerShell, use o cmdlet [Stop-AzStreamAnalyticsJob](https://docs.microsoft.com/powershell/module/az.streamanalytics/stop-azstreamanalyticsjob) . Para excluir um trabalho usando o PowerShell, use o cmdlet [Remove-AzStreamAnalyticsJob](https://docs.microsoft.com/powershell/module/az.streamanalytics/Remove-azStreamAnalyticsJob) .
+Para interromper um trabalho usando o PowerShell, use o cmdlet [Stop-AzStreamAnalyticsJob](/powershell/module/az.streamanalytics/stop-azstreamanalyticsjob) . Para excluir um trabalho usando o PowerShell, use o cmdlet [Remove-AzStreamAnalyticsJob](/powershell/module/az.streamanalytics/Remove-azStreamAnalyticsJob) .
 
 ## <a name="stop-or-delete-a-job-using-azure-sdk-for-net"></a>Parar ou excluir um trabalho usando o SDK do Azure para .NET
 
-Para interromper um trabalho usando o SDK do Azure para .NET, use o método [StreamingJobsOperationsExtensions.BeginStop](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.streamingjobsoperationsextensions.beginstop?view=azure-dotnet). Para excluir um trabalho usando o SDK do Azure para .NET, use o método [StreamingJobsOperationsExtensions.BeginDelete](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.streamingjobsoperationsextensions.begindelete?view=azure-dotnet).
+Para interromper um trabalho usando o SDK do Azure para .NET, use o método [StreamingJobsOperationsExtensions.BeginStop](/dotnet/api/microsoft.azure.management.streamanalytics.streamingjobsoperationsextensions.beginstop). Para excluir um trabalho usando o SDK do Azure para .NET, use o método [StreamingJobsOperationsExtensions.BeginDelete](/dotnet/api/microsoft.azure.management.streamanalytics.streamingjobsoperationsextensions.begindelete).
 
 ## <a name="stop-or-delete-a-job-using-rest-api"></a>Parar ou excluir um trabalho usando a API REST
 
-Para interromper um trabalho usando a API REST, confira o método [Parar](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-job#stop). Para excluir um trabalho usando a API REST, confira o método [Excluir](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-job#delete).
+Para interromper um trabalho usando a API REST, confira o método [Parar](/rest/api/streamanalytics/2016-03-01/streamingjobs/stop). Para excluir um trabalho usando a API REST, confira o método [Excluir](/rest/api/streamanalytics/2016-03-01/streamingjobs/delete).

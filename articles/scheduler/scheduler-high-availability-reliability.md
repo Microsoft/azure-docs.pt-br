@@ -8,12 +8,12 @@ ms.author: deli
 ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 08/16/2016
-ms.openlocfilehash: 20c2054e168a9b17d9b4ab159cfefbf607ab6d11
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 98a6672af7e74fdd0732f3ba03264d2f674eb44f
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78898554"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368138"
 ---
 # <a name="high-availability-and-reliability-for-azure-scheduler"></a>Alta disponibilidade e confiabilidade para Agendador do Azure
 
@@ -22,7 +22,7 @@ ms.locfileid: "78898554"
 >
 > O Agendador não está mais disponível no portal do Azure, mas a [API REST](/rest/api/scheduler) e os [cmdlets do PowerShell do Agendador do Azure](scheduler-powershell-reference.md) permanecem disponíveis no momento para que você possa gerenciar seus trabalhos e suas coleções de trabalhos.
 
-O Agendador do Azure fornece [alta disponibilidade](https://docs.microsoft.com/azure/architecture/framework/#resiliency) e confiabilidade para seus trabalhos. Para obter mais informações, veja [SLA para Agendador](https://azure.microsoft.com/support/legal/sla/scheduler).
+O Agendador do Azure fornece [alta disponibilidade](/azure/architecture/framework/#resiliency) e confiabilidade para seus trabalhos. Para obter mais informações, veja [SLA para Agendador](https://azure.microsoft.com/support/legal/sla/scheduler).
 
 ## <a name="high-availability"></a>Alta disponibilidade
 

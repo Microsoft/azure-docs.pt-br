@@ -1,6 +1,6 @@
 ---
 title: Tutorial – Criar uma instância do IoT Edge para análise de vídeo no Azure IoT Central (VM do Linux)
-description: Este tutorial mostra como criar uma instância do IoT Edge para análise de vídeo a ser usada com o modelo de aplicativo de detecção de objetos e movimentos e análise de vídeo.
+description: Este tutorial mostra como criar uma instância do IoT Edge para análise de vídeo em uma VM Linux a ser usada com o modelo de aplicativo de detecção de objetos e movimentos e análise de vídeo.
 services: iot-central
 ms.service: iot-central
 ms.subservice: iot-central-retail
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: 69e5b757036a2d68fa779e3fc232cc42a034e33c
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 10ddbf3dde62380eb79af685ad41b22e4552cea1
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037827"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832616"
 ---
 # <a name="tutorial-create-an-iot-edge-instance-for-video-analytics-linux-vm"></a>Tutorial: Criar uma instância do IoT Edge para análise de vídeo (VM do Linux)
 
@@ -34,7 +34,7 @@ Neste tutorial, você aprende a:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de começar, você deverá concluir o tutorial anterior [Criar um aplicativo de análise de vídeo no Azure IoT Central](./tutorial-video-analytics-create-app.md).
+Antes de começar, você deverá concluir o tutorial anterior [Criar um aplicativo de análise de vídeo no Azure IoT Central](./tutorial-video-analytics-create-app-yolo-v3.md) ou [Criar uma análise de vídeo no Azure IoT Central (OpenVINO&trade;)](tutorial-video-analytics-create-app-openvino.md).
 
 Você também precisará ter uma assinatura do Azure. Caso você não tenha uma assinatura do Azure, crie uma gratuitamente na [página de inscrição do Azure](https://aka.ms/createazuresubscription).
 
@@ -51,15 +51,15 @@ Use as informações da seguinte tabela para completar o formulário de **Implan
 | Subscription | Selecione sua assinatura do Azure. |
 | Resource group | *lva-rg*: grupo de recursos criado no tutorial anterior. |
 | Região       | *Leste dos EUA* |
-| Prefixo do rótulo DNS | Escolha um prefixo DNS exclusivo para a VM. |
+| Prefixo do rótulo DNS | Escolha um prefixo DNS exclusivo para a VM. Deve conter somente caracteres alfabéticos, sem dígitos nem caracteres especiais. |
 | Nome de Usuário do Administrador | *AzureUser* |
 | Senha do Administrador | Digite uma senha. Anote a senha do arquivo *scratchpad.txt*, pois você a usará mais tarde. |
 | ID de escopo | A **ID de Escopo** que você anotou no arquivo *scratchpad.txt* no tutorial anterior quando adicionou o dispositivo de gateway. |
-| ID do Dispositivo | *lva-gateway-001*: o dispositivo de gateway que você criou no tutorial anterior. |
-| Chave do Dispositivo | A chave primária do dispositivo que você anotou no arquivo *scratchpad.txt* no tutorial anterior quando adicionou o dispositivo de gateway. |
+| ID do Dispositivo | *gateway-001*: o dispositivo de gateway que você criou no tutorial anterior. |
+| Chave do Dispositivo | A **chave primária do dispositivo** que você anotou no arquivo *scratchpad.txt* no tutorial anterior quando adicionou o dispositivo de gateway. |
 | Host de aplicativo do IoT Central | A **URL do Aplicativo** que você anotou no arquivo *scratchpad.txt* no tutorial anterior. Por exemplo, *traders.azureiotcentral.com*. |
-| Token da API do aplicativo do IoT Central | O token da API do operador que você anotou no tutorial anterior. |
-| Chave de provisionamento de dispositivos do IoT Central | O token da Assinatura de Acesso Compartilhado do grupo primário que você anotou no arquivo *scratchpad.txt* no tutorial anterior. |
+| Token da API do aplicativo do IoT Central | O **token da API do operador** que você anotou no arquivo *scratchpad.txt* no tutorial anterior. |
+| Chave de provisionamento de dispositivos do IoT Central | A **chave primária do grupo SAS-IoT-Devices** que você anotou no arquivo *scratchpad.txt* no tutorial anterior. |
 | Tamanho da VM | *Standard_DS1_v2* |
 | Versão do sistema operacional Ubuntu | *18.04-LTS* |
 | Local | *[resourceGroup().location]* |
@@ -94,7 +94,7 @@ A implantação configurou os seguintes cinco módulos do IoT Edge para execuç�
 
 A implantação criou um ambiente personalizado do IoT Edge com os módulos necessários para a Análise Dinâmica de Vídeo. A implantação atualizou o **config.yaml** padrão para verificar se o runtime do IoT Edge usou o Serviço de Provisionamento de Dispositivos IoT para se conectar ao IoT Central. A implantação também criou um arquivo chamado **state.json** na pasta **/data/storage** para fornecer dados de configuração adicionais aos módulos. Para obter mais informações, confira o tutorial [Criar uma instância do IoT Edge para análise de vídeo (Intel NUC)](./tutorial-video-analytics-iot-edge-nuc.md).
 
-Para solucionar problemas do dispositivo do IoT Edge, confira [Solução de problemas do dispositivo do IoT Edge](https://docs.microsoft.com/azure/iot-edge/troubleshoot)
+Para solucionar problemas do dispositivo do IoT Edge, confira [Solução de problemas do dispositivo do IoT Edge](../../iot-edge/troubleshoot.md)
 
 ## <a name="use-the-rtsp-simulator"></a>Usar o simulador RTSP
 
@@ -118,6 +118,14 @@ sudo docker ps
 ```
 
 A lista inclui um contêiner chamado **live555**.
+
+## <a name="clean-up-resources"></a>Limpar recursos
+
+Se você tiver concluído o aplicativo, remova todos os recursos criados da seguinte maneira:
+
+1. No aplicativo do IoT Central, procure a página **Seu aplicativo** na seção **Administração**. Em seguida, selecione **Excluir**.
+1. No portal do Azure, exclua o grupo de recursos **lva-rg**.
+1. No computador local, pare o contêiner **amp-viewer** do Docker.
 
 ## <a name="next-steps"></a>Próximas etapas
 

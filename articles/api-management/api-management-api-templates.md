@@ -15,10 +15,10 @@ ms.date: 11/04/2019
 ms.author: apimpm
 ms.custom: devx-track-python
 ms.openlocfilehash: b63f38609b4b61130e515dd118e8ced9f201defd
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87851707"
 ---
 # <a name="api-templates-in-azure-api-management"></a>Modelos de API no Gerenciamento de API do Azure
@@ -46,7 +46,7 @@ Os modelos desta seção permitem personalizar o conteúdo das páginas de API n
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
-## <a name="api-list"></a><a name="APIList"></a>Lista de APIs  
+## <a name="api-list"></a><a name="APIList"></a> Lista de APIs  
  O modelo **Lista de APIs** possibilita personalizar o corpo da página de lista de APIs no portal do desenvolvedor.  
   
  ![Lista de APIs do portal do desenvolvedor](./media/api-management-api-templates/APIM-Developer-Portal-Templates-API-List.png "Lista de API de modelos do APIM Developer Portal")  
@@ -114,7 +114,7 @@ Os modelos desta seção permitem personalizar o conteúdo das páginas de API n
 }  
 ```  
   
-## <a name="operation"></a><a name="Product"></a>Operacional  
+## <a name="operation"></a><a name="Product"></a> Operacional  
  O modelo **Operação** permite personalizar o corpo da página de operação no portal do desenvolvedor.  
   
  ![Página de operação do portal do desenvolvedor](./media/api-management-api-templates/APIM-Developer-Portal-templates-Operation-page.png "Página de operação de modelos do portal do desenvolvedor do APIM")  
@@ -644,7 +644,7 @@ Os modelos desta seção permitem personalizar o conteúdo das páginas de API n
 }  
 ```  
   
-## <a name="code-samples"></a><a name="CodeSamples"></a>Exemplos de código  
+## <a name="code-samples"></a><a name="CodeSamples"></a> Exemplos de código  
  Os modelos a seguir permitem que você personalize o corpo dos exemplos de código individuais na página de operação.  
   
  ![Exemplos de código de modelos do portal do desenvolvedor](./media/api-management-api-templates/APIM-Developer-Portal-Templates-Code-samples.png "Exemplos de código de modelos do portal do desenvolvedor APIM")  
@@ -665,7 +665,7 @@ Os modelos desta seção permitem personalizar o conteúdo das páginas de API n
   
 -   [Ruby](#Ruby)  
   
-### <a name="curl"></a><a name="Curl"></a>Curl  
+### <a name="curl"></a><a name="Curl"></a> Curl  
  O modelo **DocumentationSamplesCurl** permite que você personalize esse exemplo de código na seção de exemplos de código da página da operação.  
   
 #### <a name="default-template"></a>Modelo padrão  
@@ -897,7 +897,7 @@ namespace CSHttpClientSample
 }  
 ```  
   
-### <a name="java"></a><a name="Stub"></a>Java  
+### <a name="java"></a><a name="Stub"></a> Java  
  O modelo **DocumentationSamplesJava** permite que você personalize esse exemplo de código na seção de exemplos de código da página da operação.  
   
 #### <a name="default-template"></a>Modelo padrão  
@@ -993,7 +993,7 @@ public class JavaSample
 }  
 ```  
   
-### <a name="javascript"></a><a name="JavaScript"></a>Linguagem  
+### <a name="javascript"></a><a name="JavaScript"></a> Linguagem  
  O modelo **DocumentationSamplesJs** permite que você personalize esse exemplo de código na seção de exemplos de código da página da operação.  
   
 #### <a name="default-template"></a>Modelo padrão  
@@ -1194,7 +1194,7 @@ int main(int argc, const char * argv[])
 }  
 ```  
   
-### <a name="php"></a><a name="PHP"></a>DESTINADOS  
+### <a name="php"></a><a name="PHP"></a> DESTINADOS  
  O modelo **DocumentationSamplesPhp** permite que você personalize esse exemplo de código na seção de exemplos de código da página da operação.  
   
 #### <a name="default-template"></a>Modelo padrão  
@@ -1402,7 +1402,7 @@ except Exception as e:
 }  
 ```  
   
-### <a name="ruby"></a><a name="Ruby"></a>Rubi  
+### <a name="ruby"></a><a name="Ruby"></a> Rubi  
  O modelo **DocumentationSamplesRuby** permite que você personalize esse exemplo de código na seção de exemplos de código da página da operação.  
   
 #### <a name="default-template"></a>Modelo padrão  

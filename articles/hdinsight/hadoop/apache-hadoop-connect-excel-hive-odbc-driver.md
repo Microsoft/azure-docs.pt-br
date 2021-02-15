@@ -1,19 +1,16 @@
 ---
 title: Excel & Apache Hadoop com driver ODBC (Open Database Connectivity)-Azure HDInsight
 description: Saiba como configurar e usar o driver ODBC do Microsoft Hive para Excel para consultar dados em clusters HDInsight no Microsoft Excel.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 04/22/2020
-ms.openlocfilehash: b5499a8c4fd6ee200ca0fac800c8c17c92a1cc0c
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 2c528859ea5abc6267c10a2ede9c2ca99f84e22f
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087836"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946801"
 ---
 # <a name="connect-excel-to-apache-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>Conecte o Excel ao Apache Hadoop no HDInsight do Azure com o driver ODBC do Microsoft Hive
 
@@ -21,7 +18,7 @@ ms.locfileid: "86087836"
 
 A solução de Big data da Microsoft integra componentes de BI (Business Intelligence) da Microsoft com clusters Apache Hadoop implantados no HDInsight. Um exemplo é a capacidade de conectar o Excel ao hive data warehouse de um cluster Hadoop. Conecte-se usando o driver ODBC (Microsoft Hive Open Database Connectivity).
 
-Você pode conectar os dados associados a um cluster HDInsight do Excel com o suplemento do Microsoft Power Query para Excel. Para obter mais informações, consulte [conectar o Excel ao HDInsight com o Power Query](../hdinsight-connect-excel-power-query.md).
+Você pode conectar os dados associados a um cluster HDInsight do Excel com o suplemento do Microsoft Power Query para Excel. Para obter mais informações, consulte [conectar o Excel ao HDInsight com o Power Query](./apache-hadoop-connect-excel-power-query.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -48,12 +45,12 @@ As etapas a seguir mostram como criar uma fonte de dados ODBC do Hive.
 
 1. Digite ou selecione os valores a seguir:
 
-   | Property | Descrição |
+   | Propriedade | Descrição |
    | --- | --- |
    |  Nome da Fonte de Dados |Forneça um nome para a sua fonte de dados |
-   |  Hosts |Digite `HDInsightClusterName.azurehdinsight.net`. Por exemplo, `myHDICluster.azurehdinsight.net`. Observação: `HDInsightClusterName-int.azurehdinsight.net` o tem suporte desde que a VM do cliente esteja emparelhada com a mesma rede virtual. |
+   |  Hosts |Insira `HDInsightClusterName.azurehdinsight.net`. Por exemplo, `myHDICluster.azurehdinsight.net`. Observação: `HDInsightClusterName-int.azurehdinsight.net` o tem suporte desde que a VM do cliente esteja emparelhada com a mesma rede virtual. |
    |  Porta |Use **443**. (Essa porta foi alterada de 563 para 443.) |
-   |  Banco de dados |Use **padrão**. |
+   |  Banco de dados |Usar **padrão**. |
    |  Mecanismo |Selecione **Serviço do Microsoft Azure HDInsight** |
    |  Nome do Usuário |Insira o nome de usuário HTTP do cluster HDInsight. O nome de usuário padrão é **admin**. |
    |  Senha |Insira a senha do usuário do cluster HDInsight. Marque a caixa de seleção **Salvar Senha (Criptografada)**.|

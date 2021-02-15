@@ -2,13 +2,13 @@
 title: Contas do Lote e contas do Armazenamento do Microsoft Azure
 description: Saiba mais sobre as Contas do Lote do Azure e como elas são usadas do ponto de vista de desenvolvimento.
 ms.topic: conceptual
-ms.date: 05/12/2020
-ms.openlocfilehash: 20a2a28d0eaa2c7997ea93e66d07ecb99bf297a2
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.date: 01/26/2021
+ms.openlocfilehash: 83108a265f91c9feef2fab424f1819939c2d58c9
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83790903"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896741"
 ---
 # <a name="batch-accounts-and-azure-storage-accounts"></a>Contas do Lote e contas do Armazenamento do Microsoft Azure
 
@@ -20,9 +20,10 @@ Todo o processamento e recursos estão associados a uma conta do Lote. Quando o 
 
 Você pode executar várias cargas de trabalho do Lote em uma única conta do Lote. Você também pode distribuir suas cargas de trabalho entre contas do Lote que estão na mesma assinatura, mas localizadas em diferentes regiões do Azure.
 
+Você pode criar uma conta do Lote usando o [portal do Azure](batch-account-create-portal.md) ou por meio de programação, como com a [biblioteca .NET do Gerenciamento de Lote](batch-management-dotnet.md). Ao criar a conta, você pode associar uma conta de armazenamento do Azure para armazenar dados de entrada e saída ou aplicativos relacionados ao trabalho.
+
 [!INCLUDE [batch-account-mode-include](../../includes/batch-account-mode-include.md)]
 
-Você pode criar uma conta do Lote usando o [portal do Azure](batch-account-create-portal.md) ou por meio de programação, como com a [biblioteca .NET do Gerenciamento de Lote](batch-management-dotnet.md). Ao criar a conta, você pode associar uma conta de armazenamento do Azure para armazenar dados de entrada e saída ou aplicativos relacionados ao trabalho.
 
 ## <a name="azure-storage-accounts"></a>Contas de Armazenamento do Microsoft Azure
 
@@ -41,4 +42,5 @@ Você pode associar uma conta de armazenamento à sua conta do Lote durante a cr
 ## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre [Nós e pools](nodes-and-pools.md).
-- Saiba como criar uma conta do Lote usando o [portal do Azure](batch-account-create-portal.md).
+- Saiba como criar e gerenciar contas do lote usando o [portal do Azure](batch-account-create-portal.md) ou o [.net de gerenciamento do lote](batch-management-dotnet.md).
+- Saiba como usar [pontos de extremidade privados](private-connectivity.md) com contas do lote do Azure.

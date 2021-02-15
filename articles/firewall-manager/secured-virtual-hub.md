@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 10/12/2020
 ms.author: victorh
-ms.openlocfilehash: 56e0d40bcbfb97f57b63dc82da1a6604f83dffad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c840bf9e82b8dcdb1fbf9b380ea847b3d1b08dd9
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85563619"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91948061"
 ---
 # <a name="what-is-a-secured-virtual-hub"></a>O que é um hub virtual seguro?
 
@@ -20,9 +20,9 @@ Um hub virtual é uma rede virtual gerenciada pela Microsoft que permite a conec
 
 Um hub virtual *protegido* é um [Hub de WAN virtual do Azure](../virtual-wan/virtual-wan-about.md#resources) com políticas de roteamento e segurança associadas configuradas pelo Gerenciador de firewall do Azure. Use hubs virtuais protegidos para criar facilmente arquiteturas de Hub e spoke e transitivas com serviços de segurança nativos para governança e proteção de tráfego. 
 
-Você pode usar um hub virtual seguro como uma VNet central gerenciada sem conectividade local. Ele substitui a VNet central que antes era necessária para uma implantação de firewall do Azure. Como o Hub virtual protegido fornece roteamento automatizado, não há necessidade de configurar seu próprio UDRs (rotas definidas pelo usuário) para rotear o tráfego pelo firewall.
+Você pode usar um hub virtual seguro para filtrar o tráfego entre redes virtuais (V2V), redes virtuais e filiais (B2V) e o tráfego para a Internet (B2I/V2I). Um hub virtual protegido fornece roteamento automatizado. Não é necessário configurar seu próprio UDRs (rotas definidas pelo usuário) para rotear o tráfego pelo firewall.
 
-Também é possível usar hubs virtuais protegidos como parte de uma arquitetura WAN virtual completa. Essa arquitetura fornece conectividade de ramificação segura, otimizada e automatizada para e por meio do Azure. Você pode escolher os serviços para proteger e controlar o tráfego de rede, incluindo o Firewall do Azure e outros provedores de SECaaS (segurança como serviço) de terceiros.
+Você pode escolher os provedores de segurança necessários para proteger e governar o tráfego de rede, incluindo o Firewall do Azure, provedores de SECaaS (segurança como serviço) de terceiros ou ambos. Atualmente, um hub protegido não oferece suporte a filtragem e filtragem de B2B (Branch para Branch) em vários hubs. Para saber mais, consulte [o que é o Gerenciador de firewall do Azure?](overview.md#known-issues). 
 
 ## <a name="create-a-secured-virtual-hub"></a>Criar um hub virtual seguro
 

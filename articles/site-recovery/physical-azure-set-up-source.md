@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 07/03/2019
 ms.author: ramamill
-ms.openlocfilehash: d2cc3627222bcd8de5a5cb1b5c83b04c5d4ef880
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 327e995a8fe2f66903548fba054804768d2538ab
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86130192"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001534"
 ---
 # <a name="set-up-the-configuration-server-for-disaster-recovery-of-physical-servers-to-azure"></a>Configurar o servidor de configuração para recuperação de desastre de servidores físicos no Azure
 
@@ -38,7 +38,7 @@ A tabela a seguir lista os requisitos mínimos de hardware, software e rede para
 1. No Portal do Azure, vá até a folha de cofres dos **Serviços de Recuperação** e selecione seu cofre.
 2. No menu de **recursos** do cofre, clique em **introdução**  >  **site Recovery**  >  **etapa 1: preparar a infraestrutura**  >  **meta de proteção**.
 
-    ![Escolher metas](./media/physical-azure-set-up-source/choose-goals.png)
+    ![Captura de tela que mostra onde selecionar a meta de proteção.](./media/physical-azure-set-up-source/choose-goals.png)
 3. Em **Meta de proteção**, escolha **Para o Azure** e **Não virtualizado/Outro** e clique em **OK**.
 
     ![Escolher metas](./media/physical-azure-set-up-source/physical-protection-goal.png)
@@ -47,7 +47,7 @@ A tabela a seguir lista os requisitos mínimos de hardware, software e rede para
 
 1. Em **preparar origem**, se você não tiver um servidor de configuração, clique em **+ servidor de configuração** para adicionar um.
 
-   ![Configurar origem](./media/physical-azure-set-up-source/plus-config-srv.png)
+   ![Captura de tela que mostra como selecionar o servidor de configuração.](./media/physical-azure-set-up-source/plus-config-srv.png)
 2. Na folha **Adicionar Servidor**, verifique se o **Servidor de Configuração** é exibido no **Tipo de servidor**.
 4. Baixe o arquivo de instalação Configuração Unificada da Recuperação de Site.
 5. Baixe a chave do registro do cofre. Você precisa da chave de registro ao executar a Instalação Unificada. A chave é válida por cinco dias após ser gerada.

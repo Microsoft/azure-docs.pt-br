@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 06/18/2020
+ms.date: 12/23/2020
 ms.author: barclayn
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0b8e107fb377a30b35f0941b89c490e11fc458c
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: 4b87fdd7c73d089c46d456491c02d49cb6f8883d
+ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783528"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97745956"
 ---
 # <a name="create-and-manage-a-catalog-of-resources-in-azure-ad-entitlement-management"></a>Criar e gerenciar um catálogo de recursos no gerenciamento de direitos do Azure AD
 
@@ -69,9 +69,9 @@ Para incluir recursos em um pacote do Access, os recursos devem existir em um ca
 
 1. Clique em **Adicionar recursos**.
 
-1. Clique em um tipo de recurso: **grupos e equipes**, **aplicativos**ou **sites do SharePoint**.
+1. Clique em um tipo de recurso: **grupos e equipes**, **aplicativos** ou **sites do SharePoint**.
 
-    Se você não vir um recurso que deseja adicionar ou não puder adicionar um recurso, verifique se você tem a função de gerenciamento de direitos e funções de diretório do Azure AD necessária. Talvez seja necessário ter alguém com as funções necessárias para adicionar o recurso ao seu catálogo. Para obter mais informações, consulte [funções necessárias para adicionar recursos a um catálogo](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog).
+    Se você não vir um recurso que deseja adicionar ou não puder adicionar um recurso, verifique se você tem a função de gerenciamento de direitos e funções de diretório do Azure AD necessária. Talvez seja necessário ter alguém com as funções necessárias para adicionar o recurso ao seu catálogo. Para obter mais informações, confira [Funções necessárias para adicionar recursos a um catálogo](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog).
 
 1. Selecione um ou mais recursos do tipo que você deseja adicionar ao catálogo.
 
@@ -100,6 +100,7 @@ Você pode remover recursos de um catálogo. Um recurso só poderá ser removido
 1. Selecione os recursos que você deseja remover.
 
 1. Clique em **remover** (ou clique nas reticências (**...**) e, em seguida, clique em **remover recurso**).
+
 
 ## <a name="add-additional-catalog-owners"></a>Adicionar proprietários de catálogos adicionais
 
@@ -137,7 +138,7 @@ Você pode editar o nome e a descrição de um catálogo. Os usuários veem essa
 
     ![Editar configurações do catálogo](./media/entitlement-management-shared/catalog-edit.png)
 
-1. Clique em **Salvar**.
+1. Clique em **Save** (Salvar).
 
 ## <a name="delete-a-catalog"></a>Excluir um catálogo
 
@@ -149,7 +150,7 @@ Você pode excluir um catálogo, mas somente se ele não tiver nenhum pacote de 
 
 1. No menu à esquerda, clique em **catálogos** e, em seguida, abra o catálogo que você deseja excluir.
 
-1. Na **visão geral**do catálogo, clique em **excluir**.
+1. Na **visão geral** do catálogo, clique em **excluir**.
 
 1. Na caixa de mensagem que é exibida, clique em **Sim**.
 

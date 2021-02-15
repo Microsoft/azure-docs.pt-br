@@ -1,18 +1,17 @@
 ---
 title: Power BI saída de Azure Stream Analytics
 description: Este artigo descreve como gerar dados de saída de Azure Stream Analytics para Power BI.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: 0fc4e9a794429e7f1c1609fac287e67dabb3c878
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: a94389a075fd62d80345a21e32f1bc977dfdee87
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88875576"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020053"
 ---
 # <a name="power-bi-output-from-azure-stream-analytics"></a>Power BI saída de Azure Stream Analytics
 
@@ -20,7 +19,7 @@ Você pode usar o [Power BI](https://powerbi.microsoft.com/) como saída de um t
 
 A saída do Power BI do Stream Analytics atualmente não está disponível nas regiões Azure China 21Vianet e Azure Alemanha (T-Systems International).
 
-## <a name="ouput-configuration"></a>Configuração de saída
+## <a name="output-configuration"></a>Configuração de saída
 
 A tabela a seguir lista nomes de propriedade e suas descrições para configurar a saída do Power BI.
 
@@ -44,11 +43,14 @@ O Stream Analytics do Azure cria um conjunto de dados do Power BI e um esquema d
 
 O Power BI usa a política de retenção de PEPS (primeiro a entrar, primeiro a sair). Os dados serão coletados em uma tabela até que ela atinja 200.000 linhas.
 
+> [!NOTE]
+> Não recomendamos o uso de várias saídas para gravar no mesmo conjunto de resultados porque isso pode causar vários problemas. Cada saída tenta criar o conjunto de Power BI DataSet independentemente, o que pode resultar em vários conjuntos de valores com o mesmo nome. Além disso, se as saídas não tiverem esquemas consistentes, o conjunto de resultados alterará o esquema em cada gravação, o que leva a muitas solicitações de alteração de esquema. Mesmo que esses problemas sejam evitados, várias saídas serão menos modeladas do que uma única saída mesclada.
+
 ### <a name="convert-a-data-type-from-stream-analytics-to-power-bi"></a>Converter um tipo de dados do Stream Analytics para o Power BI
 
 O Stream Analytics do Azure atualiza o modelo de dados dinamicamente no runtime se o esquema de saída mudar. Alterações de nome de coluna, alterações de tipo de coluna e a adição ou remoção de colunas são controladas.
 
-Esta tabela abrange as conversões de tipo de dados dos [Tipos de dados do Stream Analytics](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics) para [Tipos de EDM (Modelo de Dados de Entidade)](https://docs.microsoft.com/dotnet/framework/data/adonet/entity-data-model) do Power BI caso não existam um conjunto de dados e uma tabela do Power BI.
+Esta tabela abrange as conversões de tipo de dados dos [Tipos de dados do Stream Analytics](/stream-analytics-query/data-types-azure-stream-analytics) para [Tipos de EDM (Modelo de Dados de Entidade)](/dotnet/framework/data/adonet/entity-data-model) do Power BI caso não existam um conjunto de dados e uma tabela do Power BI.
 
 Do Stream Analytics | Para o Power BI
 -----|-----
@@ -73,13 +75,9 @@ Datetime | String | String |  Datetime | String
 
 ## <a name="output-batch-size"></a>Tamanho do lote de saída
 
-Para o tamanho do lote de saída, confira [Power bi limites da API REST](https://msdn.microsoft.com/library/dn950053.aspx).
+Para o tamanho do lote de saída, confira [Power bi limites da API REST](/power-bi/developer/automation/api-rest-api-limitations).
 
 ## <a name="next-steps"></a>Próximas etapas
 
+* [Usar identidade gerenciada para autenticar seu trabalho de Azure Stream Analytics para Power BI (versão prévia)](powerbi-output-managed-identity.md)
 * [Início Rápido: Criar um trabalho do Stream Analytics usando o portal do Azure](stream-analytics-quick-create-portal.md)
-* [Início Rápido: Criar um trabalho do Azure Stream Analytics usando a CLI do Azure](quick-create-azure-cli.md)
-* [Início Rápido: Criar um trabalho do Azure Stream Analytics usando um modelo do Resource Manager](quick-create-azure-resource-manager.md)
-* [Início rápido: criar um trabalho de Stream Analytics usando Azure PowerShell](stream-analytics-quick-create-powershell.md)
-* [Início Rápido: Criar um trabalho do Azure Stream Analytics usando o Visual Studio](stream-analytics-quick-create-vs.md)
-* [Início rápido: criar um trabalho de Azure Stream Analytics no Visual Studio Code](quick-create-vs-code.md)

@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/04/2020
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d957da572bfdd3119dda506ac8f5bb42064d7758
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 9679be03c69090a0c11d007cfc542bae70bd3cbc
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020296"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99592187"
 ---
 # <a name="components"></a>Componentes
 
@@ -27,8 +27,8 @@ Todos esses componentes usam a transformação (posição, rotação, escala) da
 
 ```cs
 // create a point light component
-AzureSession session = GetCurrentlyConnectedSession();
-PointLightComponent lightComponent = session.Actions.CreateComponent(ObjectType.PointLightComponent, ownerEntity) as PointLightComponent;
+RenderingSession session = GetCurrentlyConnectedSession();
+PointLightComponent lightComponent = session.Connection.CreateComponent(ObjectType.PointLightComponent, ownerEntity) as PointLightComponent;
 
 lightComponent.Color = new Color4Ub(255, 150, 20, 255);
 lightComponent.Intensity = 11;
@@ -42,9 +42,9 @@ lightComponent = null;
 
 ```cpp
 // create a point light component
-ApiHandle<AzureSession> session = GetCurrentlyConnectedSession();
+ApiHandle<RenderingSession> session = GetCurrentlyConnectedSession();
 
-ApiHandle<PointLightComponent> lightComponent = session->Actions()->CreateComponent(ObjectType::PointLightComponent, ownerEntity)->as<PointLightComponent>();
+ApiHandle<PointLightComponent> lightComponent = session->Connection()->CreateComponent(ObjectType::PointLightComponent, ownerEntity)->as<PointLightComponent>();
 
 // ...
 
@@ -53,7 +53,6 @@ lightComponent->Destroy();
 lightComponent = nullptr;
 ```
 
-
 Um componente é anexado a uma entidade no momento da criação. Ele não pode ser movido depois para outra entidade. Os componentes são excluídos explicitamente com `Component.Destroy()` ou automaticamente quando a entidade do proprietário é destruída.
 
 Apenas uma instância de cada tipo de componente pode ser adicionada por vez a uma entidade.
@@ -61,6 +60,15 @@ Apenas uma instância de cada tipo de componente pode ser adicionada por vez a u
 ## <a name="unity-specific"></a>Específico ao Unity
 
 A integração do Unity tem funções de extensão adicionais para interação com componentes. Veja [Componentes e objetos de jogos do Unity](../how-tos/unity/objects-components.md).
+
+## <a name="api-documentation"></a>Documentação da API
+
+* [ComponentBase C#](/dotnet/api/microsoft.azure.remoterendering.componentbase)
+* [C# RenderingConnection. CreateComponent ()](/dotnet/api/microsoft.azure.remoterendering.renderingconnection.createcomponent)
+* [Entidade C#. FindComponentOfType ()](/dotnet/api/microsoft.azure.remoterendering.entity.findcomponentoftype)
+* [C++ ComponentBase](/cpp/api/remote-rendering/componentbase)
+* [C++ RenderingConnection:: CreateComponent ()](/cpp/api/remote-rendering/renderingconnection#createcomponent)
+* [Entidade C++:: FindComponentOfType ()](/cpp/api/remote-rendering/entity#findcomponentoftype)
 
 ## <a name="next-steps"></a>Próximas etapas
 

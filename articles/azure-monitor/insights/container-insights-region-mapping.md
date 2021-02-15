@@ -1,15 +1,15 @@
 ---
 title: Azure Monitor para mapeamentos de região de contêineres
-description: Este artigo descreve os mapeamentos de região com suporte entre Azure Monitor para contêineres, espaço de trabalho Log Analytics e métricas personalizadas.
+description: Descreve os mapeamentos de região com suporte entre Azure Monitor para contêineres, espaço de trabalho Log Analytics e métricas personalizadas.
 ms.topic: conceptual
-ms.date: 06/26/2019
+ms.date: 09/22/2020
 ms.custom: references_regions
-ms.openlocfilehash: 3e8ead78c5e0e534e07c1e2ab0e25eb3f5a90c38
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9e3b8635c70dfdf33b0a062be80c948cd77923cc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84194980"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91272898"
 ---
 # <a name="region-mappings-supported-by-azure-monitor-for-containers"></a>Mapeamentos de região com suporte pelo Azure Monitor para contêineres
 
@@ -17,7 +17,8 @@ ms.locfileid: "84194980"
 
 ## <a name="log-analytics-workspace-supported-mappings"></a>Mapeamentos com suporte do Log Analytics Workspace
 
-Os recursos de cluster AKS ou Log Analytics espaço de trabalho podem residir em outras regiões e a tabela a seguir mostra nossos mapeamentos.
+Regiões AKS com suporte são listadas em [produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service). O espaço de trabalho Log Analytics deve estar na mesma região, exceto pelas regiões listadas na tabela a seguir. Assista às [notas de versão do AKS](https://github.com/Azure/AKS/releases) para obter atualizações.
+
 
 |**Região de cluster AKS** | **Região do espaço de trabalho Log Analytics** |
 |-----------------------|------------------------------------|
@@ -25,43 +26,24 @@ Os recursos de cluster AKS ou Log Analytics espaço de trabalho podem residir em
 |SouthAfricaNorth |WestEurope |
 |SouthAfricaWest |WestEurope |
 |**Austrália** | |
-|AustraliaEast |AustraliaEast |
-|AustraliaCentral |AustraliaCentral |
 |AustraliaCentral2 |AustraliaCentral |
-|AustraliaEast |AustraliaEast |
-|**Pacífico Asiático** | |
-|EastAsia |EastAsia |
-|SoutheastAsia |SoutheastAsia |
 |**Brasil** | |
 |BrazilSouth | SouthCentralUS |
 |**Canadá** ||
-|Canadá Central |Canadá Central |
 |CanadaEast |Canadá Central |
 |**Europa** | |
-|FranceCentral |FranceCentral |
 |FranceSouth |FranceCentral |
-|NorthEurope |NorthEurope |
-|UKSouth |UKSouth |
 |UKWest |UKSouth |
-|WestEurope |WestEurope |
 |**Índia** | |
-|CentralIndia |CentralIndia |
 |SouthIndia |CentralIndia |
 |WestIndia |CentralIndia |
 |**Japão** | |
-|JapanEast |JapanEast |
 |JapanWest |JapanEast |
 |**Coreia do Sul** | |
-|KoreaCentral |KoreaCentral |
 |KoreaSouth |KoreaCentral |
 |**EUA** | |
-|CentralUS |CentralUS|
-|EastUS |EastUS |
-|EastUS2 |EastUS2 |
-|WestUS |WestUS |
-|WestUS2 |WestUS2 |
 |WestCentralUS<sup>1</sup>|EastUS<sup>1</sup>|
-|Gov. dos EUA – Virgínia |Gov. dos EUA – Virgínia |
+
 
 <sup>1</sup> devido a restrições de capacidade, a região não está disponível durante a criação de novos recursos. Isso inclui um espaço de trabalho Log Analytics. No entanto, os recursos vinculados preexistentes na região devem continuar funcionando.
 

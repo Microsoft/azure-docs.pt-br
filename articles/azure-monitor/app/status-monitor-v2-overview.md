@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 09/16/2019
-ms.openlocfilehash: 0fa0b0d5e3620fc45a104ea31fd3bcbedd673da1
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: f0ce969a4ab016d6a036d33a0e9bf027bb580a20
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87318939"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186211"
 ---
 # <a name="deploy-azure-monitor-application-insights-agent-for-on-premises-servers"></a>Implantar Azure Monitor agente de Application Insights para servidores locais
 
@@ -45,7 +45,7 @@ Application Insights agente está localizado aqui: https://www.powershellgallery
 - [Set-ApplicationInsightsMonitoringConfig](./status-monitor-v2-api-reference.md#set-applicationinsightsmonitoringconfig)
 - [Start-ApplicationInsightsMonitoringTrace](./status-monitor-v2-api-reference.md#start-applicationinsightsmonitoringtrace)
 
-## <a name="troubleshooting"></a>Solução de problemas
+## <a name="troubleshooting"></a>Solução de Problemas
 - [Solução de problemas](status-monitor-v2-troubleshoot.md)
 - [Problemas conhecidos](status-monitor-v2-troubleshoot.md#known-issues)
 
@@ -67,7 +67,7 @@ Cada uma dessas opções é descrita nas [instruções detalhadas](status-monito
   - O cmdlet [Get-ApplicationInsightsMonitoringStatus](./status-monitor-v2-api-reference.md#get-applicationinsightsmonitoringstatus) pode ser usado para verificar se a habilitação foi bem-sucedida.
   - Recomendamos que você use [métricas em tempo real](./live-stream.md) para determinar rapidamente se seu aplicativo está enviando telemetria.
 
-  - Você também pode usar [log Analytics](../log-query/get-started-portal.md) para listar todas as funções de nuvem que estão enviando telemetria no momento:
+  - Você também pode usar [log Analytics](../log-query/log-analytics-tutorial.md) para listar todas as funções de nuvem que estão enviando telemetria no momento:
       ```Kusto
       union * | summarize count() by cloud_RoleName, cloud_RoleInstance
       ```
@@ -86,4 +86,3 @@ Adicione mais telemetria:
 * [Crie testes na Web](monitor-web-app-availability.md) para ter a certeza de que seu site continua ativo.
 * [Adicione telemetria de cliente Web](./javascript.md) para ver exceções do código de página da Web e para habilitar chamadas de rastreamento.
 * [Adicione o SDK do Application insights ao seu código](./asp-net.md) para que você possa inserir chamadas de rastreamento e log.
-

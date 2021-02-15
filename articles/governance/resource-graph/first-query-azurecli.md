@@ -1,15 +1,15 @@
 ---
 title: 'Início Rápido: sua primeira consulta da CLI do Azure'
 description: Neste início rápido, você segue as etapas para habilitar a extensão do Resource Graph para a CLI do Azure e executar sua primeira consulta.
-ms.date: 08/10/2020
+ms.date: 01/27/2021
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 8132cfb60009739fc2f5fd518ef2a112fea93c4a
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 5111f59eb760afda4e206837ca5bdf8bcc201338
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056441"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98917817"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-cli"></a>Início Rápido: Execute a primeira consulta ao Resource Graph usando a CLI do Azure
 
@@ -25,9 +25,9 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
 
 ## <a name="add-the-resource-graph-extension"></a>Adicionar a extensão do Resource Graph
 
-Para habilitar a CLI do Azure para consultar o Azure Resource Graph, é necessário adicionar a extensão. Essa extensão funcionará sempre que a CLI do Azure puder ser usada, incluindo no [bash no Windows 10](/windows/wsl/install-win10), [Cloud Shell](https://shell.azure.com) (tanto autônomo quanto dentro do portal), na [imagem do Docker da CLI do Azure](https://hub.docker.com/r/microsoft/azure-cli/) ou instalada localmente.
+Para habilitar a CLI do Azure para consultar o Azure Resource Graph, é necessário adicionar a extensão. Essa extensão funcionará sempre que a CLI do Azure puder ser usada, incluindo no [bash no Windows 10](/windows/wsl/install-win10), [Cloud Shell](https://shell.azure.com) (tanto autônomo quanto dentro do portal), na [imagem do Docker da CLI do Azure](https://hub.docker.com/_/microsoft-azure-cli) ou instalada localmente.
 
-1. Verifique se a CLI do Azure mais recente está instalada (pelo menos a versão **2.0.76**). Se ainda não estiver instalado, siga [estas instruções](/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
+1. Verifique se a CLI do Azure mais recente está instalada (pelo menos a versão **2.0.76**). Se ainda não estiver instalado, siga [estas instruções](/cli/azure/install-azure-cli-windows).
 
 1. Em seu ambiente da CLI do Azure preferido, importe-a com o seguinte comando:
 

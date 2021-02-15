@@ -2,17 +2,17 @@
 title: Sobre o Azure ExpressRoute Direct
 description: Saiba mais sobre os principais recursos do Azure ExpressRoute Direct e as informações necessárias para carregar o ExpressRoute Direct, como SKUs disponíveis e requisitos técnicos.
 services: expressroute
-author: jaredr80
+author: duongau
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 08/12/2019
-ms.author: jaredro
-ms.openlocfilehash: f0faa4992b025783e4e5448dcf04fcfa958ba5ed
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.author: duau
+ms.openlocfilehash: 0365fd8d0d04b7d144ca6826d3d5eff976558eb3
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192358"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92202132"
 ---
 # <a name="about-expressroute-direct"></a>Sobre o ExpressRoute Direct
 
@@ -35,7 +35,7 @@ Antes de usar o ExpressRoute Direct, você deve primeiro registrar sua assinatur
 
 ## <a name="expressroute-using-a-service-provider-and-expressroute-direct"></a>ExpressRoute usando um provedor de serviços e ExpressRoute Direct
 
-| **ExpressRoute usando um provedor de serviços** | **ExpressRoute direto** | 
+| **ExpressRoute usando um provedor de serviços** | **ExpressRoute Direct** | 
 | --- | --- |
 | Utiliza provedores de serviços para permitir integração e conectividade rápidas na infraestrutura existente | Requer infraestrutura de 100 Gbps/10 Gbps e gerenciamento completo de todas as camadas
 | Integra-se a centenas de fornecedores, inclusive Ethernet e MPLS | Capacidade direta/dedicada para setores regulamentados e ingestão de dados em massa |
@@ -44,7 +44,7 @@ Antes de usar o ExpressRoute Direct, você deve primeiro registrar sua assinatur
 
 ## <a name="expressroute-direct-circuits"></a>Circuitos do ExpressRoute Direct
 
-O Microsoft Azure ExpressRoute permite que você estenda suas redes locais até a nuvem da Microsoft por meio de uma conexão privada, facilitada por um provedor de conectividade. Com o ExpressRoute, você pode estabelecer conexões com os serviços de nuvem da Microsoft, como Microsoft Azure e Office 365.
+O Microsoft Azure ExpressRoute permite que você estenda suas redes locais até a nuvem da Microsoft por meio de uma conexão privada, facilitada por um provedor de conectividade. Com o ExpressRoute, você pode estabelecer conexões com os serviços de nuvem da Microsoft, como Microsoft Azure e Microsoft 365.
 
 Cada localização de emparelhamento tem acesso à rede global da Microsoft e pode acessar qualquer região em uma zona geopolítica por padrão e todas as regiões globais com um circuito Premium.  
 
@@ -73,7 +73,7 @@ O ExpressRoute Direct dá suporte a cenários de ingestão de dados em massa no 
     * É necessário adicionar a tag VLAN externa (STAG) com base na ID de VLAN especificada pela Microsoft- *aplicável somente em QinQ*
     * Deve oferecer suporte a várias sessões BGP (VLANs) por porta e dispositivo
     * Conectividade IPv4 e IPv6. *Para IPv6, nenhuma subinterface adicional será criada. O endereço IPv6 será adicionado à subinterface existente*. 
-    * Opcional: suporte a [BFD (detecção de encaminhamento bidirecional)](https://docs.microsoft.com/azure/expressroute/expressroute-bfd) , que é configurado por padrão em todos os emparelhamentos privados em circuitos do ExpressRoute
+    * Opcional: suporte a [BFD (detecção de encaminhamento bidirecional)](./expressroute-bfd.md) , que é configurado por padrão em todos os emparelhamentos privados em circuitos do ExpressRoute
 
 ## <a name="vlan-tagging"></a>Marcação de VLAN
 
@@ -87,7 +87,7 @@ O ExpressRoute Direct dá suporte à marcação de VLAN QinQ e Dot1Q.
 
 [![modelo](./media/expressroute-erdirect-about/workflow1.png)](./media/expressroute-erdirect-about/workflow1.png#lightbox)
 
-## <a name="sla"></a>Contrato de Nível de Serviço
+## <a name="sla"></a>SLA
 
 O ExpressRoute Direct fornece o mesmo SLA de nível empresarial com conexões redundantes ativas/ativas à rede global da Microsoft. A infraestrutura do ExpressRoute é redundante e a conectividade com a rede global da Microsoft é redundante, diversificada e pode ser dimensionada de acordo com os requisitos do cliente. 
 

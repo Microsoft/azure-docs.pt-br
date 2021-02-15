@@ -7,12 +7,12 @@ ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: jafreebe
-ms.openlocfilehash: b4581b7e93cde9d6ba9a20d46ee263a879c05402
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 3b49177eb592906e3bf84d359699b354f8c87c6e
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88961866"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185658"
 ---
 # <a name="deployment-best-practices"></a>Práticas recomendadas de implantação
 
@@ -45,9 +45,9 @@ Sempre que possível, use [Slots de implantação](deploy-staging-slots.md) ao i
 
 Se o projeto tiver as ramificações designadas para teste, p e r e preparo, cada uma dessas ramificações deverá ser implantada continuamente em um slot de preparo. (Isso é conhecido como o [design do Gitflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow).) Isso permite que seus participantes avaliem e testem facilmente a ramificação implantada. 
 
-A implantação contínua nunca deve ser habilitada para seu slot de produção. Em vez disso, seu Branch de produção (geralmente mestre) deve ser implantado em um slot de não produção. Quando você estiver pronto para liberar a ramificação de base, troque-a no slot de produção. Alternar para a produção — em vez de implantar na produção — evita o tempo de inatividade e permite reverter as alterações alternando novamente. 
+A implantação contínua nunca deve ser habilitada para seu slot de produção. Em vez disso, sua ramificação de produção (geralmente principal) deve ser implantada em um slot de não produção. Quando você estiver pronto para liberar a ramificação de base, troque-a no slot de produção. Alternar para a produção — em vez de implantar na produção — evita o tempo de inatividade e permite reverter as alterações alternando novamente. 
 
-![Visual de uso do slot](media/app-service-deploy-best-practices/slot_flow_code_diagam.png)
+![Diagrama que mostra o fluxo entre o desenvolvimento, o preparo e os branches principal e os slots para os quais eles são implantados.](media/app-service-deploy-best-practices/slot_flow_code_diagam.png)
 
 ### <a name="continuously-deploy-containers"></a>Implantar contêineres continuamente
 
@@ -84,7 +84,7 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - uses: actions/checkout@master
+    - uses: actions/checkout@main
 
     -name: Authenticate using a Service Principal
       uses: azure/actions/login@v1
@@ -113,7 +113,7 @@ jobs:
 
 As etapas listadas anteriormente se aplicam a outros utilitários de automação, como CircleCI ou Travis CI. No entanto, você precisa usar o CLI do Azure para atualizar os slots de implantação com novas marcas de imagem na etapa final. Para usar o CLI do Azure em seu script de automação, gere uma entidade de serviço usando o comando a seguir.
 
-```shell
+```azurecli
 az ad sp create-for-rbac --name "myServicePrincipal" --role contributor \
    --scopes /subscriptions/{subscription}/resourceGroups/{resource-group} \
    --sdk-auth
@@ -123,7 +123,7 @@ Em seu script, faça logon usando `az login --service-principal` , fornecendo as
 
 - [Como fazer logon no CLI do Azure no CI de círculo](https://circleci.com/orbs/registry/orb/circleci/azure-cli) 
 
-## <a name="language-specific-considerations"></a>Considerações específicas a um idioma
+## <a name="language-specific-considerations"></a>Considerações sobre Language-Specific
 
 ### <a name="java"></a>Java
 

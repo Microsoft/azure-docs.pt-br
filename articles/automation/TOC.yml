@@ -6,6 +6,8 @@
       href: automation-intro.md
     - name: Perguntas frequentes
       href: automation-faq.md
+    - name: Novidades
+      href: whats-new.md
 - name: Inícios rápidos
   items:
     - name: Criar uma conta de Automação
@@ -27,11 +29,8 @@
       href: learn/automation-tutorial-runbook-textual.md
     - name: Criar runbook do Python
       href: learn/automation-tutorial-runbook-textual-python2.md
-- name: Exemplos
-  items:
-    - name: Itens internos do Azure Policy
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
+    - name: Criar runbook do Python 3
+      href: learn/automation-tutorial-runbook-textual-python-3.md
 - name: Conceitos
   items:
     - name: Visão geral da autenticação da conta de automação
@@ -44,6 +43,8 @@
       href: automation-runbook-types.md
     - name: PowerShell DSC
       href: /powershell/scripting/dsc/overview/overview
+    - name: Detalhes de configuração de rede de automação
+      href: automation-network-configuration.md
     - name: Segurança
       items:
         - name: Controles de segurança do Azure Policy
@@ -65,14 +66,20 @@
           href: automation-create-standalone-account.md
         - name: Criar uma conta de Automação com o modelo do Resource Manager
           href: quickstart-create-automation-account-template.md
+        - name: Conta Executar como
+          items:
+            - name: Criar conta Executar como
+              href: create-run-as-account.md
+            - name: Excluir Conta Executar como
+              href: delete-run-as-account.md
+            - name: Gerenciar conta Executar como
+              href: manage-runas-account.md
         - name: Configurar a autenticação com o Amazon Web Services
           href: automation-config-aws-account.md
         - name: Configurar a autenticação com o Azure AD
           href: automation-use-azure-ad.md
-        - name: Gerenciar registro DNS usado pela Automação
+        - name: Gerenciar registros DNS usados pela Automação
           href: how-to/automation-region-dns-records.md
-        - name: Gerenciar uma conta Executar como de Automação
-          href: manage-runas-account.md
         - name: Conectar-se de maneira privada à conta de Automação
           href: how-to/private-link-security.md
         - name: Gerenciar permissões e segurança de funções
@@ -101,6 +108,8 @@
           href: shared-resources/variables.md
         - name: Gerenciar pacotes do Python 2
           href: python-packages.md
+        - name: Gerenciar pacotes do Python 3
+          href: python-3-packages.md
         - name: Solucionar problemas de recursos compartilhados
           href: troubleshoot/shared-resources.md
     - name: Automação de processos
@@ -133,7 +142,7 @@
               href: graphical-runbook-sdk.md
         - name: Monitorar runbooks
           items:
-            - name: Monitorar saída de runbook
+            - name: Configurar saída do runbook
               href: automation-runbook-output-and-messages.md
             - name: Tratar erros em runbooks gráficos
               href: automation-runbook-graphical-error-handling.md
@@ -198,29 +207,33 @@
         - name: Controle de alterações e inventário
           items:
             - name: Visão geral
-              href: change-tracking.md
+              href: change-tracking/overview.md
             - name: Regiões com suporte para o workspace do Log Analytics vinculado
               href: how-to/region-mappings.md
             - name: Habilitar
               items:
-                - name: Habilitar Controle de Alterações e Inventário do portal do Azure
-                  href: automation-enable-changes-from-browse.md
-                - name: Habilitar Controle de Alterações e Inventário de uma VM do Azure
-                  href: automation-enable-changes-from-vm.md
-                - name: Habilitar Controle de Alterações e Inventário de uma conta de Automação
-                  href: automation-enable-changes-from-auto-acct.md
-                - name: Habilitar Controle de Alterações e Inventário de um runbook
-                  href: automation-enable-changes-from-runbook.md
+                - name: Habilitar por meio do portal do Azure
+                  href: change-tracking/enable-from-portal.md
+                - name: Habilitar por meio de uma VM do Azure
+                  href: change-tracking/enable-from-vm.md
+                - name: Habilitar por meio de uma conta da Automação
+                  href: change-tracking/enable-from-automation-account.md
+                - name: Habilitar por meio de um runbook
+                  href: change-tracking/enable-from-runbook.md
             - name: Gerenciar controle de alterações e inventário
-              href: change-tracking-file-contents.md
+              href: change-tracking/manage-change-tracking.md
             - name: Gerenciar coleção de inventário de VMs
-              href: automation-vm-inventory.md
+              href: change-tracking/manage-inventory-vms.md
             - name: Trabalhar com as configurações de escopo
-              href: automation-scope-configurations-change-tracking.md
-            - name: Desvincular o workspace da conta de Automação
-              href: automation-unlink-workspace-change-tracking.md
-            - name: Remover VMs do Controle de Alterações e do Inventário
-              href: automation-remove-vms-from-change-tracking.md
+              href: change-tracking/manage-scope-configurations.md
+            - name: Configurar alertas
+              href: change-tracking/configure-alerts.md
+            - name: Desabilitar
+              items:
+                - name: Remover o Controle de Alterações e Inventário
+                  href: change-tracking/remove-feature.md
+                - name: Remover VMs do Controle de Alterações e do Inventário
+                  href: change-tracking/remove-vms-from-change-tracking.md
             - name: Solucionar problemas
               items:
                 - name: Solucionar problemas de implantação de recurso
@@ -239,54 +252,56 @@
           href: automation-solution-vm-management-config.md
         - name: Logs de consulta de Iniciar/Parar VMs fora do horário comercial
           href: automation-solution-vm-management-logs.md
+        - name: Remover a opção Iniciar/Parar VMs fora do horário comercial
+          href: automation-solution-vm-management-remove.md
         - name: Solucionar problemas de Iniciar/Parar VMs fora do horário comercial
           href: troubleshoot/start-stop-vm.md
     - name: Gerenciamento de atualizações
       items:
         - name: Visão geral
-          href: update-management/update-mgmt-overview.md
+          href: update-management/overview.md
         - name: Regiões compatíveis com o workspace do Log Analytics vinculado
           href: how-to/region-mappings.md
         - name: Habilitar
           items:
-            - name: Habilitar o Gerenciamento de Atualizações usando o modelo do Azure Resource Manager
-              href: update-management/update-mgmt-enable-template.md
-            - name: Habilitar o Gerenciamento de Atualizações do portal do Azure
-              href: update-management/update-mgmt-enable-portal.md
-            - name: Habilitar o Gerenciamento de Atualizações de uma VM do Azure
-              href: update-management/update-mgmt-enable-vm.md
-            - name: Habilitar o Gerenciamento de Atualizações de uma conta de Automação
-              href: update-management/update-mgmt-enable-automation-account.md
-            - name: Habilitar o Gerenciamento de Atualizações de um runbook
-              href: update-management/update-mgmt-enable-runbook.md
+            - name: Habilitar usando modelo do Azure Resource Manager
+              href: update-management/enable-from-template.md
+            - name: Habilitar por meio do portal do Azure
+              href: update-management/enable-from-portal.md
+            - name: Habilitar por meio de uma VM do Azure
+              href: update-management/enable-from-vm.md
+            - name: Habilitar por meio de uma conta da Automação
+              href: update-management/enable-from-automation-account.md
+            - name: Habilitar por meio de um runbook
+              href: update-management/enable-from-runbook.md
         - name: Gerenciar as atualizações de suas VMs
           items:
             - name: Introdução
-              href: update-management/update-mgmt-manage-updates-for-vm.md
+              href: update-management/manage-updates-for-vm.md
             - name: Avaliar a conformidade
-              href: update-management/update-mgmt-view-update-assessments.md
+              href: update-management/view-update-assessments.md
             - name: Implantar atualizações e status da revisão
-              href: update-management/update-mgmt-deploy-updates.md
+              href: update-management/deploy-updates.md
             - name: Usar pré-scripts e pós-scripts
-              href: update-management/update-mgmt-pre-post-scripts.md
+              href: update-management/pre-post-scripts.md
             - name: Configurar alertas
-              href: update-management/update-mgmt-configure-alerts.md
+              href: update-management/configure-alerts.md
         - name: Integrar com o Configuration Manager
-          href: update-management/update-mgmt-mecmintegration.md
+          href: update-management/mecmintegration.md
         - name: Configurar cliente Windows Update
-          href: update-management/update-mgmt-configure-wuagent.md
+          href: update-management/configure-wuagent.md
         - name: Usar grupos dinâmicos
-          href: update-management/update-mgmt-groups.md
+          href: update-management/configure-groups.md
         - name: Consultar os logs do Gerenciamento de Atualizações
-          href: update-management/update-mgmt-query-logs.md
+          href: update-management/query-logs.md
         - name: Trabalhar com as configurações de escopo
-          href: update-management/update-mgmt-scope-configuration.md
+          href: update-management/scope-configuration.md
         - name: Desabilitar
           items:
             - name: Remover Gerenciamento de Atualizações
-              href: update-management/update-mgmt-remove-feature.md
+              href: update-management/remove-feature.md
             - name: Remover VMs do Gerenciamento de Atualizações
-              href: update-management/update-mgmt-remove-vms.md
+              href: update-management/remove-vms.md
         - name: Solucionar problemas
           items:
             - name: Solucionar problemas de implantação de recurso
@@ -325,6 +340,9 @@
       href: /dotnet/api/microsoft.azure.management.automation
     - name: REST
       href: /rest/api/automation
+    - name: Itens internos do Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Recursos
   items:
     - name: Vídeo de introdução a automação

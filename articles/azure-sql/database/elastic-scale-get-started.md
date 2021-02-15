@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: scale-out
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: anumjs
 ms.author: anjangsh
 ms.reviewer: sstein
 ms.date: 01/25/2019
-ms.openlocfilehash: 8a7efdee772c3a871fb8f26655dfc1160c275959
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 74343b2f05bb4a59e475449c87524ff66cdd605d
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84029877"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919537"
 ---
 # <a name="get-started-with-elastic-database-tools"></a>Introdução às ferramentas do Banco de Dados Elástico
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -85,20 +85,22 @@ Para baixar e executar a amostra, siga estas etapas:
 
 1. Baixe as [ferramentas de banco de BD elástico para o SQL do Azure-introdução exemplo](https://github.com/Azure/elastic-db-tools). Descompacte o exemplo em um local de sua escolha.
 
-2. Para criar um projeto, abra a solução *ElasticScaleStarterKit.sln* do diretório *C#*.
+2. Para criar um projeto, abra a solução *ElasticDatabaseTools. sln* no diretório *elástico-DB-Tools-Master* . 
 
-3. Na solução para o exemplo de projeto, abra o arquivo *app.config*. Em seguida, siga as instruções no arquivo para adicionar o nome do servidor e suas informações de entrada (nome de usuário e senha).
+3. Defina o projeto *solução elasticscalestarterkit* como o projeto de inicialização.
 
-4. Criar e executar o aplicativo. Quando você receber a solicitação, permita que o Visual Studio restaure os pacotes NuGet da solução. Essa ação faz o download da versão mais recente das bibliotecas de clientes do banco de dados elástico do NuGet.
+4. No projeto *solução elasticscalestarterkit* , abra o arquivo *App.config* . Em seguida, siga as instruções no arquivo para adicionar o nome do servidor e suas informações de entrada (nome de usuário e senha).
 
-5. Para saber mais sobre os recursos da biblioteca de clientes, experimente com as diferentes opções. Observe as etapas que o aplicativo realiza na saída do console e fique à vontade para explorar o código nos bastidores.
+5. Compile e execute o aplicativo. Quando você receber a solicitação, permita que o Visual Studio restaure os pacotes NuGet da solução. Essa ação faz o download da versão mais recente das bibliotecas de clientes do banco de dados elástico do NuGet.
+
+6. Para saber mais sobre os recursos da biblioteca de clientes, experimente com as diferentes opções. Observe as etapas que o aplicativo realiza na saída do console e fique à vontade para explorar o código nos bastidores.
 
    ![Progresso][4]
 
 Parabéns! Você criou e executou com sucesso seu primeiro aplicativo fragmentado usando as Ferramentas de Banco de Dados Elástico no Banco de Dados SQL. Use o Visual Studio ou SQL Server Management Studio para se conectar ao seu banco de dados e dar uma olhada rápida nos fragmentos que o exemplo criou. Você observará novos bancos de dados de fragmentos de amostra e um banco de dados de gerenciador de mapa de fragmentos que a amostra criou.
 
 > [!IMPORTANT]
-> Recomendamos que você sempre use a versão mais recente do Management Studio a fim de permanecer sincronizado com as atualizações no Azure e no Banco de Dados SQL. [Atualizar o SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+> Recomendamos que você sempre use a versão mais recente do Management Studio a fim de permanecer sincronizado com as atualizações no Azure e no Banco de Dados SQL. [Atualizar o SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms).
 
 ## <a name="key-pieces-of-the-code-sample"></a>Principais partes do exemplo de código
 
@@ -116,7 +118,7 @@ Parabéns! Você criou e executou com sucesso seu primeiro aplicativo fragmentad
 
 * **Mesclagem de fragmentos existentes**: a mesclagem de fragmentos também é realizada usando a ferramenta de divisão e mesclagem. Para saber mais, confira [Mover dados entre bancos de dados na nuvem escalados horizontalmente](elastic-scale-overview-split-and-merge.md).
 
-## <a name="cost"></a>Custo
+## <a name="cost"></a>Cost
 
 A biblioteca das Ferramentas de Banco de Dados Elástico é gratuita. Ao usar as Ferramentas de Banco de Dados Elástico, você não é cobrado por mais nada além do custo de uso do Azure.
 
@@ -134,7 +136,7 @@ Para saber mais sobre as Ferramentas de Banco de Dados Elástico, confira os arq
   * [Elasticidade do fragmento no Script Center](https://gallery.technet.microsoft.com/scriptcenter/Elastic-Scale-Shard-c9530cbe)
 * Blog: [Anúncio da escala elástica](https://azure.microsoft.com/blog/20../../introducing-elastic-scale-preview-for-azure-sql-database/)
 * Channel 9: [Visão geral da Escala Elástica](https://channel9.msdn.com/Shows/Data-Exposed/Azure-SQL-Database-Elastic-Scale)
-* Fórum de discussão: [A Microsoft Q&uma página de perguntas para o banco de dados SQL do Azure](https://docs.microsoft.com/answers/topics/azure-sql-database.html)
+* Fórum de discussão: [A Microsoft Q&uma página de perguntas para o banco de dados SQL do Azure](/answers/topics/azure-sql-database.html)
 * Para medir o desempenho: [Contadores de desempenho do gerenciador de mapas do fragmento](elastic-database-client-library.md)
 
 <!--Anchors-->

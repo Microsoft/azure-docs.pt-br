@@ -8,17 +8,17 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 3/13/2020
 ms.author: raynew
-ms.openlocfilehash: 3cd64de05c44729f1aa714849e12fc8f69998334
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 64d1084fd7025c74676977f065062e5e94dabf1d
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498609"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97652238"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Arquitetura de recuperação de desastre do Azure para o Azure
 
 
-Este artigo descreve a arquitetura, os componentes e os processos usados quando você implanta a recuperação de desastre para VMs (máquinas virtuais) do Azure usando o serviço [Azure Site Recovery](site-recovery-overview.md). Com a recuperação de desastre configurada, as VMs do Azure são replicadas de forma contínua e bidirecionalmente em outra região de destino. Se ocorrer uma interrupção, você poderá fazer failover das VMs para a região secundária e acessá-las nela. Quando tudo voltar a funcionar normalmente, você poderá fazer failback e continuar trabalhando na localização primária.
+Este artigo descreve a arquitetura, os componentes e os processos usados quando você implanta a recuperação de desastre para VMs (máquinas virtuais) do Azure usando o serviço [Azure Site Recovery](site-recovery-overview.md). Com a recuperação de desastres configurada, as VMs do Azure são replicadas continuamente para uma região de destino diferente. Se ocorrer uma interrupção, você poderá fazer failover das VMs para a região secundária e acessá-las nela. Quando tudo voltar a funcionar normalmente, você poderá fazer failback e continuar trabalhando na localização primária.
 
 
 
@@ -26,7 +26,7 @@ Este artigo descreve a arquitetura, os componentes e os processos usados quando 
 
 Os componentes envolvidos na recuperação de desastre para VMs do Azure são resumidos na tabela a seguir.
 
-**Componente** | **Requisitos**
+**Componente** | **Requirements**
 --- | ---
 **VMs na região de origem** | Uma ou mais VMs do Azure em uma [região de origem compatível](azure-to-azure-support-matrix.md#region-support).<br/><br/> As VMs podem executar qualquer [sistema operacional compatível](azure-to-azure-support-matrix.md#replicated-machine-operating-systems).
 **Armazenamento das VMs de origem** | As VMs do Azure podem ser gerenciadas ou ter discos não gerenciados distribuídos em contas de armazenamento.<br/><br/>[Saiba mais](azure-to-azure-support-matrix.md#replicated-machines---storage) sobre o armazenamento do Azure compatível.
@@ -104,7 +104,7 @@ Um instantâneo consistente com falha captura os dados que estavam no disco quan
 
 **Descrição** | **Detalhes** | **Recomendação**
 --- | --- | ---
-Os pontos de recuperação consistentes com aplicativo são criados com base nos instantâneos consistentes com aplicativo.<br/><br/> Um instantâneo consistente com aplicativo contêm todas as informações em um instantâneo consistente com falhas, além de todos os dados na memória e as transações em andamento. | Os instantâneos consistentes com aplicativo usam o VSS (Serviço de Cópias de Sombra de Volume):<br/><br/>   1) Quando um instantâneo é iniciado, o VSS executa uma operação COW (cópia em gravação) no volume.<br/><br/>   2) Antes de executar o COW, o VSS informa todos os aplicativos do computador de que precisa liberar seus dados residentes na memória para o disco.<br/><br/>   3) Em seguida, o VSS permite que o aplicativo de backup/recuperação de desastre (nesse caso, o Site Recovery) leia os dados de instantâneo e continue. | Os instantâneos consistentes com aplicativo são tirados de acordo com a frequência especificada. Essa frequência sempre deve ser inferior àquela definida para a retenção de pontos de recuperação. Por exemplo, se você retém os pontos de recuperação usando a configuração padrão de 24 horas, defina a frequência como inferior a 24 horas.<br/><br/>Eles são mais complexos e levam mais tempo para serem concluídos do que os instantâneos consistentes com falhas.<br/><br/> Elas afetam o desempenho de aplicativos executados em uma VM habilitada para replicação. 
+Os pontos de recuperação consistentes com aplicativo são criados com base nos instantâneos consistentes com aplicativo.<br/><br/> Um instantâneo consistente com aplicativo contêm todas as informações em um instantâneo consistente com falhas, além de todos os dados na memória e as transações em andamento. | Os instantâneos consistentes com aplicativo usam o VSS (Serviço de Cópias de Sombra de Volume):<br/><br/>   1) Azure Site Recovery usa o método de backup somente cópia (VSS_BT_COPY) que não altera o tempo de backup e o número de sequência do log de transações do Microsoft SQL </br></br> 2) quando um instantâneo é iniciado, o VSS executa uma operação vaca (cópia em gravação) no volume.<br/><br/>   3) antes de executar o vaca, o VSS informa todos os aplicativos no computador de que ele precisa para liberar seus dados residentes na memória para o disco.<br/><br/>   4) o VSS permite que o aplicativo de backup/recuperação de desastre (neste caso Site Recovery) Leia os dados do instantâneo e continue. | Os instantâneos consistentes com aplicativo são tirados de acordo com a frequência especificada. Essa frequência sempre deve ser inferior àquela definida para a retenção de pontos de recuperação. Por exemplo, se você retém os pontos de recuperação usando a configuração padrão de 24 horas, defina a frequência como inferior a 24 horas.<br/><br/>Eles são mais complexos e levam mais tempo para serem concluídos do que os instantâneos consistentes com falhas.<br/><br/> Elas afetam o desempenho de aplicativos executados em uma VM habilitada para replicação. 
 
 ## <a name="replication-process"></a>Processo de replicação
 
@@ -130,7 +130,7 @@ Se o acesso de saída para as VMs for controlado com URLs, permita estas URLs.
 
 | **Nome**                  | **Comercial**                               | **Governo**                                 | **Descrição** |
 | ------------------------- | -------------------------------------------- | ---------------------------------------------- | ----------- |
-| Armazenamento                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net`               | Permite que os dados sejam gravados da VM para a conta de armazenamento de cache da região de origem. |
+| Armazenamento                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net` | Permite que os dados sejam gravados da VM para a conta de armazenamento de cache da região de origem. |
 | Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Fornece autorização e autenticação para as URLs do serviço Site Recovery. |
 | Replicação               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`     | Permite que a VM se comunique com o serviço Site Recovery. |
 | Barramento de Serviço               | `*.servicebus.windows.net`                 | `*.servicebus.usgovcloudapi.net`             | Permite que a VM grave o monitoramento do Site Recovery e os dados de diagnóstico. |
@@ -144,7 +144,7 @@ Observe que os detalhes dos requisitos de conectividade de rede podem ser encont
 
 #### <a name="source-region-rules"></a>Regras da região de origem
 
-**Regra** |  **Detalhes** | **Marca de serviço**
+**Regra** |  **Detalhes** | **Marca do serviço**
 --- | --- | --- 
 Permitir HTTPS de saída: porta 443 | Permita intervalos que correspondam às contas de armazenamento na região de origem | Repositório.\<region-name>
 Permitir HTTPS de saída: porta 443 | Permitir intervalos que correspondem a Azure Active Directory (Azure AD)  | AzureActiveDirectory
@@ -155,7 +155,7 @@ Permitir HTTPS de saída: porta 443 | Permitir intervalos que correspondem ao co
 
 #### <a name="target-region-rules"></a>Regras da região de destino
 
-**Regra** |  **Detalhes** | **Marca de serviço**
+**Regra** |  **Detalhes** | **Marca do serviço**
 --- | --- | --- 
 Permitir HTTPS de saída: porta 443 | Permitir intervalos que correspondem às contas de armazenamento na região de destino | Repositório.\<region-name>
 Permitir HTTPS de saída: porta 443 | Permitir intervalos que correspondem ao Azure AD  | AzureActiveDirectory
@@ -167,11 +167,11 @@ Permitir HTTPS de saída: porta 443 | Permitir intervalos que correspondem ao co
 
 #### <a name="control-access-with-nsg-rules"></a>Controlar o acesso com regras do NSG
 
-Se você controlar a conectividade de VM pela filtragem do tráfego de rede bidirecionalmente em redes/sub-redes do Azure usando [regras do NSG](../virtual-network/security-overview.md), observe os seguintes requisitos:
+Se você controlar a conectividade de VM pela filtragem do tráfego de rede bidirecionalmente em redes/sub-redes do Azure usando [regras do NSG](../virtual-network/network-security-groups-overview.md), observe os seguintes requisitos:
 
 - As regras do NSG para a região de origem do Azure devem permitir o acesso de saída para o tráfego de replicação.
 - Recomendamos que você crie regras em um ambiente de teste antes de colocá-las em produção.
-- Use [marcas de serviço](../virtual-network/security-overview.md#service-tags) em vez de permitir endereços IP individuais.
+- Use [marcas de serviço](../virtual-network/network-security-groups-overview.md#service-tags) em vez de permitir endereços IP individuais.
     - As marcas de serviço representam um grupo de prefixos de endereços IP usado para minimizar a complexidade durante a criação de regras de segurança.
     - A Microsoft atualiza automaticamente as marcas de serviço ao longo do tempo. 
  

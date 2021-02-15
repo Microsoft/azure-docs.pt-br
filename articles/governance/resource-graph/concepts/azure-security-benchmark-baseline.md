@@ -6,13 +6,13 @@ ms.service: resource-graph
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
-ms.openlocfilehash: d2ef76a054642807f0d72a758ae084a19557caf8
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: a85fdf1e1e27b1ce5abb0c7890b717d48ba3bd3f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88008994"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89230442"
 ---
 # <a name="azure-resource-graph-security-baseline-for-azure-security-benchmark"></a>Linha de base de segurança do Azure Resource Graph para benchmark de segurança do Azure
 
@@ -41,13 +41,13 @@ Essa linha de base de segurança aplica diretrizes do [benchmark de segurança d
 
 *Para saber mais, confira [Controle de segurança: Proteção de dados](../../../security/benchmarks/security-control-data-protection.md).*
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: usar o controle de acesso baseado em função para controlar o acesso aos recursos
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: usar o RBAC do Azure para controlar o acesso a recursos
 
-**Orientação**: Use o RBAC (controle de acesso baseado em função) para controlar o acesso a dados e recursos. Para usar o grafo de recursos do Azure, você também deve ter acesso apropriado aos recursos que deseja consultar. Esse acesso deve ser definido como somente leitura e concedido somente à equipe necessária.
+**Orientação**: Use o controle de acesso baseado em função do Azure (RBAC do Azure) para controlar o acesso a dados e recursos. Para usar o grafo de recursos do Azure, você também deve ter acesso apropriado aos recursos que deseja consultar. Esse acesso deve ser definido como somente leitura e concedido somente à equipe necessária.
 
 * [Permissões no Azure Resource Graph](../overview.md#permissions-in-azure-resource-graph)
 
-* [Como configurar o RBAC no Azure](../../../role-based-access-control/role-assignments-rest.md)
+* [Como configurar o RBAC do Azure](../../../role-based-access-control/role-assignments-rest.md)
 
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento

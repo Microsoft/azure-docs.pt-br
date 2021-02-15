@@ -8,20 +8,20 @@ ms.date: 08/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 4498e78b408f64ab5bc00b9f8730559b90c95d57
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: ba7d6d8deb2034f8b2a853cf74635687561c41ea
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88817319"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99573595"
 ---
 # <a name="use-the-azure-portal-to-enable-end-to-end-encryption-using-encryption-at-host"></a>Use o portal do Azure para habilitar a criptografia de ponta a ponta usando a criptografia no host
 
 Quando você habilita a criptografia no host, os dados armazenados no host da VM são criptografados em repouso e os fluxos são criptografados para o serviço de armazenamento. Para obter informações conceituais sobre criptografia no host, bem como outros tipos de criptografia de disco gerenciado, consulte:
 
-* Linux: [criptografia na criptografia de ponta a ponta de host para os dados da VM](./linux/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data).
+* Linux: [criptografia na criptografia de ponta a ponta de host para os dados da VM](./disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data).
 
-* Windows: [criptografia na criptografia de ponta a ponta de host para os dados da VM](./windows/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data).
+* Windows: [criptografia na criptografia de ponta a ponta de host para os dados da VM](./disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data).
 
 ## <a name="restrictions"></a>Restrições
 
@@ -37,7 +37,7 @@ Quando você habilita a criptografia no host, os dados armazenados no host da VM
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para poder usar a criptografia no host para suas VMs ou conjuntos de dimensionamento de máquinas virtuais, você deve obter o recurso habilitado em sua assinatura. Envie um email para encryptionAtHost@microsoft. com com suas IDs de assinatura para obter o recurso habilitado para suas assinaturas.
+Para poder usar a criptografia no host para suas VMs ou conjuntos de dimensionamento de máquinas virtuais, você deve obter o recurso habilitado em sua assinatura. Envie um email para encryptionAtHost@microsoft.com com suas IDs de assinatura para obter o recurso habilitado para suas assinaturas.
 
 Entre no portal do Azure usando o [link fornecido](https://aka.ms/diskencryptionupdates).
 

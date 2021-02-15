@@ -1,23 +1,19 @@
 ---
-title: Desempenho do tamanho da VM da série HC-máquinas virtuais do Azure | Microsoft Docs
+title: Desempenho do tamanho da VM da série HC
 description: Saiba mais sobre os resultados de testes de desempenho para tamanhos de VM da série HC no Azure.
-services: virtual-machines
-documentationcenter: ''
 author: vermagit
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
 ms.service: virtual-machines
-ms.workload: infrastructure-services
+ms.subservice: workloads
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 09/10/2020
 ms.author: amverma
-ms.openlocfilehash: cea772f03d5e2838b44d50f3cf5e926d740be5f0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.reviewer: cynthn
+ms.openlocfilehash: e1abe4b87bd5be98dad8e43d604f833eae3854e7
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67707692"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966948"
 ---
 # <a name="hc-series-virtual-machine-sizes"></a>Tamanhos de máquina virtual da série HC
 
@@ -25,87 +21,42 @@ Vários testes de desempenho foram executados em tamanhos da série HC. A seguir
 
 | Carga de trabalho                                        | HB                    |
 |-------------------------------------------------|-----------------------|
-| Tríade de fluxo                                    | ~ 190 GB/s (Intel MLC AVX-512)  |
-| Linpack de alto desempenho (HPL)                  | ~ 3520 GigaFLOPS (Rpeak), ~ 2970 GigaFLOPS (RMAX) |
-| Largura de banda de & de latência RDMA                        | 1,80 microssegundos, 96,3 GB/s   |
-| FIO no SSD de NVMe local                           | aproximadamente 1,3 GB/s de leituras, ~ 900 MB/s gravações |  
-| IOR em 4 Azure SSD Premium (p30 Managed Disks, RAID0) * *  | aproximadamente 780 MB/s leituras, ~ 780 MB/gravações |
+| Tríade de fluxo                                    | 190 GB/s (Intel MLC AVX-512)  |
+| High-Performance Linpack (HPL)                  | 3520 GigaFLOPS (Rpeak), 2970 GigaFLOPS (RMAX) |
+| Largura de banda de & de latência RDMA                        | 1, 5 microssegundos, 96,8 GB/s   |
+| FIO no SSD de NVMe local                           | 1,3 GB/s de leituras, 900 MB/s gravações |  
+| IOR em 4 Azure SSD Premium (p30 Managed Disks, RAID0) * *  | 780 MB/s leituras, 780 MB/gravações |
 
-## <a name="infiniband-send-latency"></a>Latência de envio de InfiniBand
+## <a name="mpi-latency"></a>Latência MPI
 
-Adaptador Mellanox Perftest.
+O teste de latência MPI do OSU MicroBenchMark Suite é executado. Os scripts de exemplo estão no [GitHub](https://github.com/Azure/azhpc-images/blob/04ddb645314a6b2b02e9edb1ea52f079241f1297/tests/run-tests.sh)
 
-```azure-cli
-numactl --physcpubind=[INSERT CORE #]  ib_send_lat -a
-```
-
-|  #bytes         | #iterations     | t_min [microssegundo]     | t_max [microssegundo]     | t_typical [microssegundo] | t_avg [microssegundo]     | t_stdev [microssegundo]   |
-|-----------------|-----------------|-----------------|-----------------|-----------------|-----------------|-----------------|
-| 2               | 1000            | 1,80            | 7.50            | 1,85            | 1,86            | 0,20            |
-| 4               | 1000            | 1,79            | 6, 6            | 1,83            | 1,84            | 0,20            |
-| 8               | 1000            | 1,78            | 5.26            | 1,83            | 1,84            | 0,19            |
-| 16              | 1000            | 1,79            | 6,21            | 1,83            | 1,84            | 0.22            |
-| 32              | 1000            | 1,80            | 6.82            | 1,84            | 1,85            | 0.24            |
-| 64              | 1000            | 1,85            | 5,47            | 1,88            | 1,86            | 0,12            |
-| 128             | 1000            | 1,88            | 5,61            | 1,93            | 1,89            | 0,25            |
-| 256             | 1000            | 2.24            | 6,39            | 2,28            | 2, 2            | 0,18            |
-| 512             | 1000            | 2.32            | 5.42            | 2,36            | 2,30            | 0.17            |
-| 1024            | 1000            | 2,43            | 6,22            | 2,48            | 2,38            | 0,21            |
-| 2.048            | 1000            | 2.68            | 6.14            | 2.75            | 2.52            | 0,20            |
-| 4096            | 1000            | 3,17            | 7, 2            | 3,26            | 2.81            | 0.24            |
-
-## <a name="osu-mpi-latency-test"></a>Teste de latência OSU MPI
-
-OSU 5.4.3 do teste de latência de MPI v.
-
-```azure-cli
+```bash
 ./bin/mpirun_rsh -np 2 -hostfile ~/hostfile MV2_CPU_MAPPING=[INSERT CORE #] ./osu_latency 
 ```
 
-| #bytes  | Latência [microssegundo] (MPICH 3,3 + CH4) | Latência [microssegundo] (OpenMPi 4.0.0) | Latência [microssegundo] (MVAPICH2 2,3) |
-|------|----------|----------|----------|
-| 2    | 1,84     | 1,78     | 2.08     |
-| 4    | 1,84     | 1,79     | 2.08     |
-| 8    | 1,85     | 1,79     | 2.05     |
-| 16   | 1,85     | 1,79     | 2.1      |
-| 32   | 1,87     | 1,82     | 2,12     |
-| 64   | 2        | 1,95     | 2,13     |
-| 128  | 2.05     | 2        | 2,18     |
-| 256  | 2,48     | 2.44     | 2.75     |
-| 512  | 2.57     | 2.52     | 2.81     |
-| 1024 | 2.76     | 2.71     | 2.97     |
-| 2.048 | 3, 9     | 3,11     | 3,34     |
-| 4096 | 3.72     | 3.91     | 4.44     |
+:::image type="content" source="./media/latency-hc.png" alt-text="Latência MPI na HC do Azure.":::
 
 ## <a name="mpi-bandwidth"></a>Largura de banda MPI
 
-OSU MPI Bandwidth Test v 5.4.3.
+O teste de largura de banda MPI do OSU MicroBenchMark Suite é executado. Os scripts de exemplo estão no [GitHub](https://github.com/Azure/azhpc-images/blob/04ddb645314a6b2b02e9edb1ea52f079241f1297/tests/run-tests.sh)
 
-```azure-cli
+```bash
 ./mvapich2-2.3.install/bin/mpirun_rsh -np 2 -hostfile ~/hostfile MV2_CPU_MAPPING=[INSERT CORE #] ./mvapich2-2.3/osu_benchmarks/mpi/pt2pt/osu_bw
 ```
 
-| #Size   | Largura de banda (MB/s) | Largura de banda (GB/s) |
-|---------|------------------|------------------|
-| 2       | 6.18             | 0, 4944          |
-| 4       | 13,27            | 0,10616          |
-| 8       | 26,58            | 0,21264          |
-| 16      | 53,51            | 0,42808          |
-| 32      | 106,81           | 0,85448          |
-| 64      | 211,24           | 1,68992          |
-| 128     | 386,98           | 3, 9584          |
-| 256     | 756,32           | 6, 5056          |
-| 512     | 1434,2           | 11,4736          |
-| 1024    | 2663,8           | 21,3104          |
-| 2.048    | 4396,99          | 35,17592         |
-| 4096    | 6365,86          | 50,92688         |
-| 8192    | 8137,9           | 65,1032          |
-| 16384   | 9218,29          | 73,74632         |
-| 32768   | 10564,61         | 84,51688         |
-| 65536   | 11275,6          | 90,2048          |
-| 131072  | 11633,7          | 93, 696          |
-| 262144  | 11856,27         | 94,85016         |
-| 524288  | 11962,69         | 95,70152         |
-| 1048576 | 12025,43         | 96,20344         |
-| 2097152 | 12038,7          | 96,3096          |
-| 4194304 | 11290,92         | 90,32736         |
+:::image type="content" source="./media/bandwidth-hc.png" alt-text="Largura de banda MPI na HC do Azure.":::
+
+
+## <a name="mellanox-perftest"></a>Adaptador Mellanox Perftest
+
+O [pacote Mellanox Perftest](https://community.mellanox.com/s/article/perftest-package) tem muitos testes de InfiniBand, como latência (ib_send_lat) e largura de banda (ib_send_bw). Um exemplo de comando é mostrado abaixo.
+
+```console
+numactl --physcpubind=[INSERT CORE #]  ib_send_lat -a
+```
+
+## <a name="next-steps"></a>Próximas etapas
+
+- Leia sobre os comunicados mais recentes e alguns exemplos e resultados de HPC (computação de alto desempenho) nos [Blogs da comunidade de computação técnica do Azure](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
+- Para uma exibição arquitetônica de nível superior da execução de cargas de trabalho do HPC, consulte [computação de alto desempenho (HPC) no Azure](/azure/architecture/topics/high-performance-computing/).

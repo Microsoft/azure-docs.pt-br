@@ -1,7 +1,7 @@
 ---
 title: Verificar escopos e funções de aplicativo protegidos por API Web | Azure
 titleSuffix: Microsoft identity platform
-description: Saiba como criar uma API Web protegida e configurar o código do aplicativo.
+description: Verifique se a API é chamada apenas por aplicativos em nome dos usuários que têm os escopos corretos e por aplicativos de daemon que têm as funções de aplicativo corretas.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: c3cf8bfd2810e9c26a6f65c50c1a22baeec892af
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 6d737f107e7a9b1476fdf86ac0320931ea137671
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855468"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94442898"
 ---
 # <a name="protected-web-api-verify-scopes-and-app-roles"></a>API Web protegida: Verificar escopos e funções de aplicativo
 
@@ -152,5 +152,4 @@ A verificação da condição inversa permite somente aplicativos que se conecta
 
 ## <a name="next-steps"></a>Próximas etapas
 
-> [!div class="nextstepaction"]
-> [Mover para ambiente de produção](scenario-protected-web-api-production.md)
+Vá para o próximo artigo neste cenário, [vá para produção](scenario-protected-web-api-production.md).

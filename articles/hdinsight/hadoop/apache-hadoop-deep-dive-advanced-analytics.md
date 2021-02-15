@@ -1,19 +1,16 @@
 ---
 title: Mergulho profundo - Análise avançada - Azure HDInsight
 description: Saiba como a análise avançada usa algoritmos para processar Big Data no Azure HDInsight.
-author: ashishthaps
-ms.author: ashishth
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/01/2020
-ms.openlocfilehash: fa2909055259d7832942f9f47434963f7bbb2aa1
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 4b57eddafbf9a5615dc42e9a3c5a49c5f90781e2
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86079353"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946673"
 ---
 # <a name="deep-dive---advanced-analytics"></a>Mergulho profundo – Análise avançada
 
@@ -91,7 +88,7 @@ Há três tarefas-chave nesse cenário de análise avançada:
 
 1. Criar um cluster de Azure HDInsight Hadoop com uma distribuição do Apache Spark 2.1.0.
 2. Executar um script personalizado para instalar o Kit de Ferramentas Cognitivas da Microsoft em todos os nós de um cluster do Azure HDInsight Spark.
-3. Carregue um Jupyter Notebook pré-compilado no cluster do HDInsight Spark para ver como aplicar um modelo de aprendizado profundo treinado do Microsoft Cognitive Toolkit a arquivos em uma Conta de Armazenamento de Blobs do Azure usando a API Python Spark (PySpark).
+3. Carregue um Jupyter Notebook pré-criado para o seu cluster HDInsight Spark para aplicar um modelo de aprendizado profundo Microsoft Cognitive Toolkit treinado a arquivos em uma conta de armazenamento de BLOBs do Azure usando a API do Python do Spark (PySpark).
 
 Este exemplo usa o conjunto de imagens CIFAR-10 compilado e distribuído por Alex Krizhevsky, Vinod Nair e Geoffrey Hinton. O conjunto de dados CIFAR-10 contém 60.000 imagens coloridas 32x32 que pertencem a 10 classes mutuamente exclusivas:
 

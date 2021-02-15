@@ -2,6 +2,6 @@
   tocHref: /azure/
   topicHref: /azure/index
   items:
-    - name: Conjuntos de dados em aberto
-      tocHref: /azure/machine-learning/service
+    - name: Conjunto de Dados em Aberto no Azure
+      tocHref: /azure/machine-learning
       topicHref: /azure/open-datasets/index

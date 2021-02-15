@@ -3,12 +3,12 @@ title: Perguntas comuns sobre a recuperação de desastres do Hyper-V com o Azur
 description: Este artigo resume perguntas comuns sobre a configuração da recuperação de desastre de VMs do Hyper-V locais para o Azure usando o site do Azure Site Recovery.
 ms.date: 11/12/2019
 ms.topic: conceptual
-ms.openlocfilehash: c168ba9ff14e57f238069e8ca5b0c34a8fb58015
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 649bd69f14cdf8d81fe05d3a5f5cac3389419fc3
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87799881"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879437"
 ---
 # <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>Perguntas comuns - Recuperação de desastre do Hyper-V para o Azure
 
@@ -164,6 +164,10 @@ Quando você Replica seus servidores físicos/máquinas virtuais locais para o a
 ### <a name="how-often-can-i-replicate-to-azure"></a>Com que frequência é possível replicar para o Azure?
 
 As VMs do Hyper-V podem ser replicadas a cada 30 segundos (exceto para armazenamento Premium) ou 5 minutos.
+
+### <a name="can-azure-site-recovery-and-hyper-v-replica-be-configured-together-on-a-hyper-v-machine"></a>O Azure Site Recovery e a réplica do Hyper-V podem ser configurados juntos em uma máquina Hyper-V?
+
+Sim, as réplicas Azure Site Recovery e Hyper-V podem ser configuradas em conjunto para um computador. Mas o computador precisará ser protegido como um computador físico e será replicado para o Azure usando um servidor de configuração/processo. Saiba mais sobre como proteger computadores físicos [aqui](./physical-azure-architecture.md).
 
 ### <a name="can-i-extend-replication"></a>É possível estender replicação?
 Esse tipo de replicação estendida ou encadeada não tem suporte. Solicite esse recurso no [fórum de comentários](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959).

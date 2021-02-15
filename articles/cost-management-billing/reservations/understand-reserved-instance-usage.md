@@ -9,16 +9,16 @@ ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: b1b5a344da20bff31f85a2d3cb20a0a35e4c4bde
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: f6aad15d70157dda110fce233fbdafb7f3d896ad
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88681916"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99055052"
 ---
 # <a name="understand-azure-reservation-usage-for-your-individual-subscription-with-pay-as-you-go-rates-subscription"></a>Entender o uso de reserva do Azure para sua assinatura individual com taxas pagas conforme o uso
 
-Use o ReservationId da [página Reservation](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Reservations&Microsoft_Azure_Reservations=true#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade) e o arquivo de uso do [portal Accounts do Azure](https://account.azure.com) para avaliar o uso de sua reserva.
+Use a ReservationId da [página Reserva](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Reservations&Microsoft_Azure_Reservations=true#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade) e o arquivo de uso do [portal do Azure](https://portal.azure.com) para avaliar o uso da sua reserva.
 
 Se você for um cliente com um Enterprise Agreement, consulte [entender o uso de reserva para seu registro de empresa.](understand-reserved-instance-usage-ea.md).
 
@@ -74,7 +74,7 @@ Suponha que você esteja executando um Banco de Dados SQL Gen 4 na região leste
 
 Filtre no nome do medidor **Uso da Instância Reservada** e escolha a **Categoria do Medidor** necessária: Banco de Dados SQL do Azure ou Azure Cosmos DB. Você vê algo como a seguinte captura de tela:
 
-![Capacidade reservada do arquivo CSV para o banco de dados SQL](./media/understand-reserved-instance-usage/billing-payg-sql-db-reserved-capacity-csv-statements.png)
+![A captura de tela mostra uma entrada Categoria de Medidor.](./media/understand-reserved-instance-usage/billing-payg-sql-db-reserved-capacity-csv-statements.png)
 
 O **uso de instância reservado** linha tem o número total de horas de núcleo coberta pela reserva. A taxa é de $ 0 para esta linha, pois a reserva cobriu o custo.
 
@@ -82,7 +82,7 @@ O **uso de instância reservado** linha tem o número total de horas de núcleo 
 
 Filtrar **informações adicionais** e digite sua **ID de reserva**. A captura de tela a seguir mostra os campos relacionados à reserva de capacidade reservada do Banco de Dados SQL.
 
-![Capacidade reservada do arquivo CSV para o banco de dados SQL](./media/understand-reserved-instance-usage/billing-payg-sql-db-reserved-capacity-csv-details.png)
+![A captura de tela mostra detalhes de um arquivo C S V para capacidade reservada.](./media/understand-reserved-instance-usage/billing-payg-sql-db-reserved-capacity-csv-details.png)
 
 1. A **ReservationId** no campo **Informações Adicionais** é a reserva de capacidade reservada do Banco de Dados SQL que é aplicada ao recurso de Banco de Dados SQL.
 2. **ConsumptionMeter** é o ID do medidor para o recurso Banco de Dados SQL.
@@ -97,7 +97,7 @@ Se você tiver dúvidas ou precisar de ajuda, [crie uma solicitação de suporte
 Para saber mais sobre as Reservas do Azure, consulte os seguintes artigos:
 
 - [O que são Reservas do Azure?](save-compute-costs-reservations.md)
-- [Pré-pagamento para máquinas virtuais com instâncias de VMs reservadas do Azure](../../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Pré-pagamento para máquinas virtuais com instâncias de VMs reservadas do Azure](../../virtual-machines/prepay-reserved-vm-instances.md)
 - [Pagar antecipadamente por recursos de computação de banco de dados SQL com capacidade reservada do Banco de Dados SQL do Azure](../../azure-sql/database/reserved-capacity-overview.md)
 - [Gerenciar Reservas do Azure](manage-reserved-vm-instance.md)
 - [Entender como o desconto de reserva é aplicado](../manage/understand-vm-reservation-charges.md)

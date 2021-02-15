@@ -5,12 +5,12 @@ author: spelluru
 ms.topic: quickstart
 ms.date: 08/12/2020
 ms.author: spelluru
-ms.openlocfilehash: 201ea38c6feabbda2576d8480a9983f00d62d175
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 14892b114f3bb8a0bb6c07f7cdd01a174b931cf9
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88191268"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95810623"
 ---
 # <a name="use-the-azure-cli-to-create-a-service-bus-namespace-and-a-queue"></a>Usar a CLI do Azure para criar um namespace e uma fila do Barramento de Serviço
 Este guia de início rápido mostra como criar um namespace e uma fila do Barramento de Serviço usando a CLI do Azure. Ele também mostra como obter credenciais de autorização que um aplicativo cliente pode usar para enviar/receber mensagens de/para a fila. 
@@ -24,7 +24,7 @@ Neste guia de início rápido, você usa o Azure Cloud Shell, que pode iniciar d
 
 ## <a name="provision-resources"></a>Provisionar recursos
 1. Faça logon no [Portal do Azure](https://portal.azure.com).
-2. Inicie o Azure Cloud Shell selecionando o ícone mostrado na imagem a seguir. Mude para o modo **Bash** se o CloudShell estiver no modo **PowerShell**. 
+2. Inicie o Azure Cloud Shell selecionando o ícone mostrado na imagem a seguir. Mude para o modo **Bash** se o Cloud Shell estiver no modo **PowerShell**. 
 
     :::image type="content" source="./media/service-bus-quickstart-powershell/launch-cloud-shell.png" alt-text="Iniciar o Cloud Shell":::
 3. Execute o comando a seguir para criar um grupo de recursos do Azure. Atualize o nome e a localização do grupo de recursos, se desejar. 
@@ -56,7 +56,7 @@ Neste artigo, você criou um namespace do Barramento de Serviço e uma fila no n
 
 - [.NET](service-bus-dotnet-get-started-with-queues.md)
 - [Java](service-bus-java-how-to-use-queues.md)
-- [JavaScript](service-bus-nodejs-how-to-use-queues-new-package.md)
+- [JavaScript](service-bus-nodejs-how-to-use-queues.md)
 - [Python](service-bus-python-how-to-use-queues.md)
 - [PHP](service-bus-php-how-to-use-queues.md)
 - [Ruby](service-bus-ruby-how-to-use-queues.md)

@@ -8,16 +8,16 @@ metadata:
   ms.service: sql-database
   ms.subservice: single-database
   ms.topic: landing-page
-  author: MashaMSFT
-  ms.author: mathoma
-  ms.reviewer: carlrab
-  ms.date: 05/27/2020
-  ms.openlocfilehash: 65ab57b6036ec8a1dd6c47560a37c5e687601ad1
-  ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+  author: stevestein
+  ms.author: sstein
+  ms.reviewer: 
+  ms.date: 10/13/2020
+  ms.openlocfilehash: 2ef30f2ed2bdbf761110a9530c9a8cf3aa7c4ce2
+  ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 08/19/2020
-  ms.locfileid: "88587235"
+  ms.lasthandoff: 11/13/2020
+  ms.locfileid: "94593613"
 landingContent:
 - title: Banco de Dados SQL do Azure
   linkLists:
@@ -49,6 +49,8 @@ landingContent:
       url: migrate-to-database-from-sql-server.md
     - text: Diferenças entre T-SQL e SQL Server
       url: transact-sql-tsql-differences-sql-server.md
+    - text: Capacidade reservada
+      url: reserved-capacity-overview.md
 - title: Continuidade de negócios
   linkLists:
   - linkListType: how-to-guide
@@ -104,7 +106,7 @@ landingContent:
     - text: SQL do Azure para iniciantes
       url: https://aka.ms/azuresql4beginners
     - text: Princípios Básicos do SQL do Azure
-      url: https://docs.microsoft.com/learn/paths/azure-sql-fundamentals/
+      url: /learn/paths/azure-sql-fundamentals/
     - text: Laboratórios práticos do SQL do Azure
       url: https://aka.ms/asqlworkshop
     - text: Bootcamp do SQL do Azure
@@ -138,11 +140,11 @@ landingContent:
     - text: Transact-SQL (T-SQL)
       url: /sql/t-sql/language-reference
     - text: CLI do Azure
-      url: https://docs.microsoft.com/cli/azure/sql
+      url: /cli/azure/sql
     - text: PowerShell
-      url: https://docs.microsoft.com/powershell/module/az.sql
+      url: /powershell/module/az.sql
     - text: API REST
-      url: https://docs.microsoft.com/rest/api/sql/
+      url: /rest/api/sql/
 - title: Escalabilidade
   linkLists:
   - linkListType: how-to-guide

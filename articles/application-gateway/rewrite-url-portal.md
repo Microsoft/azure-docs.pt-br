@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 7/16/2020
 ms.author: surmb
-ms.openlocfilehash: 160d056447bd53ea01437acd372b5efeb15b4773
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ec58c6f97efdbcb91071bcea98bbbc614833246d
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083150"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92215766"
 ---
 # <a name="rewrite-url-with-azure-application-gateway---azure-portal-preview"></a>Regravar URL com Aplicativo Azure gateway-portal do Azure (versão prévia)
 
@@ -53,13 +53,13 @@ No exemplo abaixo sempre que a URL de solicitação contém */article*, o caminh
     
     c. Selecione **Avançar**.
     
-    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-2.png" alt-text="Associar a uma regra":::
+    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-2.png" alt-text="Adicionar conjunto de regravação":::
 
 5. Criar uma regra de reescrita:
 
     a. Selecione **Adicionar regra de regravação**.
     
-    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-3.png" alt-text="Adicionar regra de reescrita":::
+    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-3.png" alt-text="Adicionar conjunto de regravação":::
     
     b. Insira um nome para a regra de reescrita na caixa **reescrever nome da regra** . Insira um número na caixa **sequência de regras** .
 
@@ -75,13 +75,13 @@ No exemplo abaixo sempre que a URL de solicitação contém */article*, o caminh
     
     e. Na lista **operador** , selecione **igual (=)**.
     
-    f. Insira um padrão de expressão regular. Neste exemplo, usaremos o padrão`.*article/(.*)/(.*)`
+    f. Insira um padrão de expressão regular. Neste exemplo, usaremos o padrão `.*article/(.*)/(.*)`
     
       () é usado para capturar a subcadeia de caracteres para uso posterior na composição da expressão para reescrever o caminho da URL. Para saber mais, clique [aqui](rewrite-http-headers-url.md#capturing).
 
     g. Selecione **OK**.
 
-    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-4.png" alt-text="Condição":::
+    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-4.png" alt-text="Adicionar conjunto de regravação":::
 
  
 
@@ -97,17 +97,17 @@ No exemplo abaixo sempre que a URL de solicitação contém */article*, o caminh
 
    e. No **valor da cadeia de caracteres de consulta de URL**, insira o novo valor da cadeia de caracteres de consulta de URL. Neste exemplo, usaremos **ID = {var_uri_path_1} &título = {var_uri_path_2}**
     
-    `{var_uri_path_1}`e `{var_uri_path_1}` são usados para buscar as subcadeias capturadas ao avaliar a condição nesta expressão`.*article/(.*)/(.*)`
+    `{var_uri_path_1}` e `{var_uri_path_1}` são usados para buscar as subcadeias capturadas ao avaliar a condição nesta expressão `.*article/(.*)/(.*)`
     
    f. Selecione **OK**.
 
-    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-5.png" alt-text="Ação":::
+    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-5.png" alt-text="Adicionar conjunto de regravação":::
 
 8. Clique em **criar** para criar o conjunto de regravação.
 
 9. Verifique se o novo conjunto de regravação aparece na lista de conjuntos de regravação
 
-    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-6.png" alt-text="Adicionar regra de reescrita":::
+    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-6.png" alt-text="Adicionar conjunto de regravação":::
 
 ## <a name="verify-url-rewrite-through-access-logs"></a>Verificar a regravação de URL pelos logs de acesso
 

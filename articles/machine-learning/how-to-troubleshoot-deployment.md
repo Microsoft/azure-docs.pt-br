@@ -1,195 +1,85 @@
 ---
-title: Solução de problemas de implantação do Docker
+title: Solucionando problemas de implantação de modelo remoto
 titleSuffix: Azure Machine Learning
-description: Saiba como solucionar problemas, resolver e solucionar os erros comuns de implantação do Docker com o serviço kubernetes do Azure e as instâncias de contêiner do Azure usando Azure Machine Learning.
+description: Saiba como solucionar problemas, resolver e solucionar alguns erros comuns de implantação do Docker com o serviço kubernetes do Azure e as instâncias de contêiner do Azure.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-author: clauren42
-ms.author: clauren
-ms.reviewer: jmartens
-ms.date: 08/06/2020
-ms.topic: conceptual
-ms.custom: troubleshooting, contperfq4, devx-track-python
-ms.openlocfilehash: 3f8a3c705878e212e6a26670e20b5a81a3f2a6ba
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+author: gvashishtha
+ms.author: gopalv
+ms.date: 11/25/2020
+ms.topic: troubleshooting
+ms.custom: contperf-fy20q4, devx-track-python, deploy, contperf-fy21q2
+ms.openlocfilehash: 2b953fd040b9ba76eacddb91a89ac65d51e340a0
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87904370"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98071656"
 ---
-# <a name="troubleshoot-docker-deployment-of-models-with-azure-kubernetes-service-and-azure-container-instances"></a>Solucionar problemas de implantação do Docker de modelos com o serviço kubernetes do Azure e instâncias de contêiner do Azure 
+# <a name="troubleshooting-remote-model-deployment"></a>Solucionando problemas de implantação de modelo remoto 
 
-Saiba como solucionar problemas e resolver, ou contornar, erros comuns de implantação do Docker com ACI (instâncias de contêiner do Azure) e AKS (serviço kubernetes do Azure) usando Azure Machine Learning.
+Saiba como solucionar problemas e resolver, ou contornar, erros comuns que você pode encontrar ao implantar um modelo em ACI (instâncias de contêiner do Azure) e AKS (serviço kubernetes do Azure) usando o Azure Machine Learning.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma **assinatura do Azure**. Se você não tiver uma, experimente a [versão paga ou gratuita do Azure Machine Learning](https://aka.ms/AMLFree).
-* O [SDK do Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
-* O [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+* Uma **assinatura do Azure**. Experimente a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree).
+* O [SDK do Azure Machine Learning](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
+* O [CLI do Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
 * A [Extensão da CLI do Azure Machine Learning](reference-azure-machine-learning-cli.md).
-* Para depurar localmente, você deve ter uma instalação do Docker em funcionamento no sistema local.
-
-    Para verificar a instalação do Docker, use o comando `docker run hello-world` em um terminal ou prompt de comando. Para obter informações sobre a instalação do Docker ou solução de erros do Docker, confira a [Documentação do Docker](https://docs.docker.com/).
 
 ## <a name="steps-for-docker-deployment-of-machine-learning-models"></a>Etapas para a implantação do Docker de modelos de aprendizado de máquina
 
-Ao implantar um modelo no Azure Machine Learning, o sistema executa uma série de tarefas.
+Quando você implanta um modelo em uma computação não local no Azure Machine Learning, ocorre o seguinte:
 
-A abordagem recomendada para implantação de modelo é por meio da API [Model. Deploy ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) usando um objeto de [ambiente](how-to-use-environments.md) como um parâmetro de entrada. Nesse caso, o serviço cria uma imagem base do Docker durante o estágio de implantação e monta os modelos necessários em uma única chamada. As tarefas básicas de implantação são:
+1. O Dockerfile que você especificou em seu objeto de ambiente em seu InferenceConfig é enviado para a nuvem, juntamente com o conteúdo do seu diretório de origem
+1. Se uma imagem criada anteriormente não estiver disponível no registro de contêiner, uma nova imagem do Docker será criada na nuvem e armazenada no registro de contêiner padrão do seu espaço de trabalho.
+1. A imagem do Docker do registro de contêiner é baixada para seu destino de computação.
+1. O repositório de blob padrão do seu espaço de trabalho é montado em seu destino de computação, dando a você acesso a modelos registrados
+1. O servidor Web é inicializado executando a função do script de entrada `init()`
+1. Quando o modelo implantado recebe uma solicitação, sua `run()` função manipula essa solicitação
 
-1. Registre o modelo no Registro de modelo do workspace.
+A principal diferença ao usar uma implantação local é que a imagem de contêiner é criada em seu computador local, motivo pelo qual você precisa ter o Docker instalado para uma implantação local.
 
-2. Definir configuração de inferência:
-    1. Crie um objeto [Ambiente](how-to-use-environments.md) com base nas dependências especificadas no arquivo YAML do ambiente ou use um dos nossos ambientes adquiridos.
-    2. Crie uma configuração de inferência (objeto InferenceConfig) com base no ambiente e no script de pontuação.
+Entender essas etapas de alto nível deve ajudá-lo a entender onde estão ocorrendo erros.
 
-3. Implante o modelo para o serviço da Instância de Contêiner do Azure (ACI) ou para o Serviço de Kubernetes do Azure (AKS).
+## <a name="get-deployment-logs"></a>Obter logs de implantação
 
-Saiba mais sobre esse processo na introdução a [Gerenciamento de Modelos](concept-model-management-and-deployment.md).
+A primeira etapa na depuração de erros é obter seus logs de implantação. Primeiro, siga as [instruções aqui](how-to-deploy-and-where.md#connect-to-your-workspace) para se conectar ao seu espaço de trabalho.
 
-## <a name="before-you-begin"></a>Antes de começar
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azcli)
 
-Se você tiver qualquer problema, a primeira medida a adotar é dividir a tarefa de implantação (descrita anteriormente) em etapas individuais para isolar o problema.
+Para obter os logs de um serviço Web implantado, faça o:
 
-Supondo que você esteja usando o método de implantação novo/recomendado por meio da API [Model.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) com um objeto [Ambiente](how-to-use-environments.md) como parâmetro de entrada, seu código pode ser dividido em três etapas principais:
+```bash
+az ml service get-logs --verbose --workspace-name <my workspace name> --name <service name>
+```
 
-1. Registre o modelo. Estes são alguns exemplos de código:
-
-    ```python
-    from azureml.core.model import Model
-
-
-    # register a model out of a run record
-    model = best_run.register_model(model_name='my_best_model', model_path='outputs/my_model.pkl')
-
-    # or, you can register a file or a folder of files as a model
-    model = Model.register(model_path='my_model.pkl', model_name='my_best_model', workspace=ws)
-    ```
-
-2. Definir configuração de inferência para implantação:
-
-    ```python
-    from azureml.core.model import InferenceConfig
-    from azureml.core.environment import Environment
+# <a name="python"></a>[Python](#tab/python)
 
 
-    # create inference configuration based on the requirements defined in the YAML
-    myenv = Environment.from_conda_specification(name="myenv", file_path="myenv.yml")
-    inference_config = InferenceConfig(entry_script="score.py", environment=myenv)
-    ```
+Supondo que você tenha um objeto do tipo `azureml.core.Workspace` chamado `ws` , você pode fazer o seguinte:
 
-3. Implante o modelo usando a configuração de inferência criada na etapa anterior:
+```python
+print(ws.webservices)
 
-    ```python
-    from azureml.core.webservice import AciWebservice
+# Choose the webservice you are interested in
 
+from azureml.core import Webservice
 
-    # deploy the model
-    aci_config = AciWebservice.deploy_configuration(cpu_cores=1, memory_gb=1)
-    aci_service = Model.deploy(workspace=ws,
-                           name='my-service',
-                           models=[model],
-                           inference_config=inference_config,
-                           deployment_config=aci_config)
-    aci_service.wait_for_deployment(show_output=True)
-    ```
+service = Webservice(ws, '<insert name of webservice>')
+print(service.get_logs())
+```
 
-Depois de termos dividido o processo de implantação em tarefas individuais, podemos ver alguns dos erros mais comuns.
+---
 
 ## <a name="debug-locally"></a>Depurar Localmente
 
-Se você encontrar problemas ao implantar um modelo para ACI ou AKS, tente implantá-lo como serviço Web local. Usar um serviço Web local facilita a solução de problemas. A imagem do Docker que contém o modelo é baixada e iniciada no sistema local.
+Se você tiver problemas ao implantar um modelo em ACI ou AKS, implante-o como um serviço Web local. Usar um serviço Web local facilita a solução de problemas. Para solucionar problemas de uma implantação localmente, consulte o [artigo solução local de problemas](./how-to-troubleshoot-deployment-local.md).
 
-Você pode encontrar um exemplo de [bloco de anotações de implantação local](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/deploy-to-local/register-model-deploy-local.ipynb) no repositório [MachineLearningNotebooks](https://github.com/Azure/MachineLearningNotebooks) para explorar uma amostra executável.
-
-> [!WARNING]
-> Não há suporte para implantações de serviço Web local para cenários de produção.
-
-Para implantar localmente, modifique o código para usar `LocalWebservice.deploy_configuration()` para criar uma configuração de implantação. Em seguida, use `Model.deploy()` para implantar o serviço. O exemplo a seguir implanta um modelo (contido na variável de modelo) como serviço Web local:
-
-```python
-from azureml.core.environment import Environment
-from azureml.core.model import InferenceConfig, Model
-from azureml.core.webservice import LocalWebservice
-
-
-# Create inference configuration based on the environment definition and the entry script
-myenv = Environment.from_conda_specification(name="env", file_path="myenv.yml")
-inference_config = InferenceConfig(entry_script="score.py", environment=myenv)
-# Create a local deployment, using port 8890 for the web service endpoint
-deployment_config = LocalWebservice.deploy_configuration(port=8890)
-# Deploy the service
-service = Model.deploy(
-    ws, "mymodel", [model], inference_config, deployment_config)
-# Wait for the deployment to complete
-service.wait_for_deployment(True)
-# Display the port that the web service is available on
-print(service.port)
-```
-
-Se você estiver definindo sua própria especificação Conda YAML, deverá listar o azureml-padrões com a versão >= 1.0.45 como uma dependência Pip. Esse pacote contém a funcionalidade necessária para hospedar o modelo como um serviço Web.
-
-A essa altura, você pode trabalhar com o serviço normalmente. Por exemplo, o código a seguir demonstra o envio de dados para o serviço:
-
-```python
-import json
-
-test_sample = json.dumps({'data': [
-    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-    [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
-]})
-
-test_sample = bytes(test_sample, encoding='utf8')
-
-prediction = service.run(input_data=test_sample)
-print(prediction)
-```
-
-Para obter mais informações sobre como personalizar o ambiente do Python, confira [Criar e gerenciar ambientes para treinamento e implantação](how-to-use-environments.md). 
-
-### <a name="update-the-service"></a>Atualizar o serviço
-
-Durante os testes locais, talvez seja necessário atualizar o arquivo `score.py` para adicionar o log ou tentar resolver os problemas detectados. Para recarregar as alterações no arquivo `score.py`, use `reload()`. Por exemplo, o código a seguir recarrega o script para o serviço e depois envia dados a ele. Os dados são pontuados usando o arquivo `score.py` atualizado:
-
-> [!IMPORTANT]
-> O método `reload` só está disponível para implantações locais. Para obter informações sobre como atualizar uma implantação para outro destino de computação, consulte [como atualizar seu WebService](how-to-deploy-update-web-service.md).
-
-```python
-service.reload()
-print(service.run(input_data=test_sample))
-```
-
-> [!NOTE]
-> O script é recarregado no local especificado pelo objeto `InferenceConfig` usado pelo serviço.
-
-Para alterar o modelo, as dependências Conda ou a configuração de implantação, use [update()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#update--args-). O exemplo a seguir atualiza o modelo usado pelo serviço:
-
-```python
-service.update([different_model], inference_config, deployment_config)
-```
-
-### <a name="delete-the-service"></a>Excluir o serviço
-
-Para excluir o serviço, use [delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#delete--).
-
-### <a name="inspect-the-docker-log"></a><a id="dockerlog"></a> Inspecionar o log do Docker
-
-Você pode imprimir mensagens de log do mecanismo do Docker detalhadas do objeto de serviços. Você pode exibir o log para implantações de ACI, AKS e local. O exemplo a seguir demonstra como fazer imprimir os logs.
-
-```python
-# if you already have the service object handy
-print(service.get_logs())
-
-# if you only know the name of the service (note there might be multiple services with the same name but different version number)
-print(ws.webservices['mysvc'].get_logs())
-```
-Se você vir a linha que `Booting worker with pid: <pid>` está ocorrendo várias vezes nos logs, isso significa que não há memória suficiente para iniciar o trabalho.
-Você pode resolver o erro aumentando o valor de `memory_gb` em`deployment_config`
- 
 ## <a name="container-cannot-be-scheduled"></a>Não é possível agendar o contêiner
 
-Ao implantar um serviço em um destino de computação do Serviço de Kubernetes do Azure, o Azure Machine Learning tentará agendar o serviço com a quantidade solicitada de recursos. Se depois de 5 minutos, não houver nós disponíveis no cluster com a quantidade apropriada de recursos disponíveis, a implantação falhará com a mensagem `Couldn't Schedule because the kubernetes cluster didn't have available resources after trying for 00:05:00` . É possível resolver esse erro adicionando mais nós, alterando a SKU dos nós ou alterando os requisitos de recursos do serviço. 
+Ao implantar um serviço em um destino de computação do Serviço de Kubernetes do Azure, o Azure Machine Learning tentará agendar o serviço com a quantidade solicitada de recursos. Se não houver nós disponíveis no cluster com a quantidade apropriada de recursos após 5 minutos, a implantação falhará. A mensagem de falha é `Couldn't Schedule because the kubernetes cluster didn't have available resources after trying for 00:05:00` . Você pode resolver esse erro adicionando mais nós, alterando a SKU de seus nós ou alterando os requisitos de recursos do seu serviço. 
 
 A mensagem de erro normalmente indicará a qual recurso você precisa mais, por exemplo, se você vir uma mensagem de erro indicando `0/3 nodes are available: 3 Insufficient nvidia.com/gpu` que significa que o serviço requer GPUs e que há três nós no cluster que não têm GPUs disponíveis. Isso pode ser resolvido adicionando mais nós, se você estiver usando um SKU de GPU, alternando para um SKU habilitado para GPU, se não estiver, ou alterando o ambiente para não exigir GPUs.  
 
@@ -197,11 +87,11 @@ A mensagem de erro normalmente indicará a qual recurso você precisa mais, por 
 
 Depois que a imagem é criada com êxito, o sistema tenta iniciar um contêiner usando a configuração de implantação. Como parte do processo de inicialização do contêiner, a função `init()` em seu script de pontuação é invocada pelo sistema. Se houver exceções não capturadas na função `init()`, você poderá ver o erro **CrashLoopBackOff** na mensagem de erro.
 
-Use as informações na seção [Inspecionar o log do Docker](#dockerlog) para verificar os logs.
+Use as informações no artigo [inspecionar o log do Docker](how-to-troubleshoot-deployment-local.md#dockerlog) .
 
 ## <a name="function-fails-get_model_path"></a>Falha de função: get_model_path()
 
-Geralmente, na função `init()` no script de pontuação, a função [Model.get_model_path()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#get-model-path-model-name--version-none---workspace-none-) é chamada para localizar um arquivo de modelo ou uma pasta de arquivos de modelo no contêiner. Se o arquivo ou pasta do modelo não puder ser encontrado, a função falhará. A maneira mais fácil para depurar esse erro é executar o código do Python no shell do contêiner abaixo:
+Geralmente, na função `init()` no script de pontuação, a função [Model.get_model_path()](/python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-model-path-model-name--version-none---workspace-none-) é chamada para localizar um arquivo de modelo ou uma pasta de arquivos de modelo no contêiner. Se o arquivo ou pasta do modelo não puder ser encontrado, a função falhará. A maneira mais fácil para depurar esse erro é executar o código do Python no shell do contêiner abaixo:
 
 ```python
 from azureml.core.model import Model
@@ -239,13 +129,16 @@ Um código de status 502 indica que o serviço gerou uma exceção ou falhou no 
 
 ## <a name="http-status-code-503"></a>Código de status HTTP 503
 
-As implantações do Serviço de Kubernetes do Azure dão suporte ao dimensionamento automático, que permite que as réplicas sejam adicionadas para dar suporte à carga adicional. No entanto, o dimensionador automático foi criado para lidar com alterações **gradativas** na carga. Se você receber grandes picos em solicitações por segundo, os clientes podem receber um código de status HTTP 503.
+As implantações do Serviço de Kubernetes do Azure dão suporte ao dimensionamento automático, que permite que as réplicas sejam adicionadas para dar suporte à carga adicional. O dimensionador automático foi projetado para lidar com alterações **graduais** na carga. Se você receber grandes picos em solicitações por segundo, os clientes podem receber um código de status HTTP 503. Mesmo que o dimensionador reatue rapidamente, leva AKS uma quantidade significativa de tempo para criar contêineres adicionais.
+
+As decisões de expansão/redução baseiam-se na utilização das réplicas de contêiner atuais. O número de réplicas ocupadas (processando uma solicitação) dividido pelo número total de réplicas atuais é a utilização atual. Se esse número exceder `autoscale_target_utilization` , mais réplicas serão criadas. Se for menor, as réplicas serão reduzidas. As decisões para adicionar réplicas são ansiosos e rápidas (cerca de 1 segundo). As decisões para remover réplicas são conservadoras (cerca de 1 minuto). Por padrão, a utilização de destino de dimensionamento automático é definida como **70%**, o que significa que o serviço pode lidar com picos em solicitações por segundo (RPS) de **até 30%**.
 
 As duas ações a seguir podem evitar códigos de status 503:
 
-* Altere o nível de utilização no qual o dimensionamento automático cria novas réplicas.
-    
-    Por padrão, a utilização de destino do dimensionamento automático é definida como 70%, o que significa que o serviço pode lidar com picos em solicitações por segundo (RPS) de até 30%. Você pode ajustar o destino de utilização, definindo o `autoscale_target_utilization` como um valor mais baixo.
+> [!TIP]
+> Essas duas abordagens podem ser usadas individualmente ou em combinação.
+
+* Altere o nível de utilização no qual o dimensionamento automático cria novas réplicas. Você pode ajustar o destino de utilização, definindo o `autoscale_target_utilization` como um valor mais baixo.
 
     > [!IMPORTANT]
     > Essa alteração não faz com que as réplicas sejam criadas *mais rapidamente*. Em vez disso, elas são criadas no limite inferior de utilização. Em vez de aguardar até que o serviço seja 70% utilizado, alterar o valor para 30% faz com que as réplicas sejam criadas quando ocorrer uma utilização de 30%.
@@ -276,7 +169,7 @@ As duas ações a seguir podem evitar códigos de status 503:
     > [!NOTE]
     > Se você receber picos de solicitação maiores do que as novas réplicas mínimas podem suportar, você poderá receber códigos 503 novamente. Por exemplo, à medida que o tráfego para o serviço aumenta, talvez seja necessário aumentar as réplicas mínimas.
 
-Para obter mais informações sobre como definir `autoscale_target_utilization`, `autoscale_max_replicas` e `autoscale_min_replicas`, confira a referência do módulo [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py).
+Para obter mais informações sobre como definir `autoscale_target_utilization`, `autoscale_max_replicas` e `autoscale_min_replicas`, confira a referência do módulo [AksWebservice](/python/api/azureml-core/azureml.core.webservice.akswebservice?preserve-view=true&view=azure-ml-py).
 
 ## <a name="http-status-code-504"></a>Código de status HTTP 504
 
@@ -284,9 +177,23 @@ Um código de status 504 indica que a solicitação atingiu o tempo limite. O te
 
 Você pode aumentar o tempo limite ou tentar acelerar o serviço, modificando o score.py para remover as chamadas desnecessárias. Se essas ações não corrigirem o problema, use as informações neste artigo para depurar o arquivo score.py. O código pode estar em um estado sem resposta ou um loop infinito.
 
+## <a name="other-error-messages"></a>Outras mensagens de erro
+
+Execute estas ações para os seguintes erros:
+
+|Error  | Resolução  |
+|---------|---------|
+|Falha na criação da imagem ao implantar o serviço Web     |  Adicionar "pynacl = = 1.2.1" como uma dependência Pip ao arquivo Conda para configuração de imagem       |
+|`['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <Signals.SIGKILL: 9>`     |   Altere a SKU para VMs usadas em sua implantação para uma que tenha mais memória. |
+|Falha de FPGA     |  Não será possível implantar modelos em FPGAs até que você tenha solicitado e recebido aprovação para cota de FPGA. Para solicitar acesso, preencha o formulário de solicitação de cota: https://aka.ms/aml-real-time-ai       |
+
 ## <a name="advanced-debugging"></a>Depuração avançada
 
-Em alguns casos, talvez seja necessário depurar interativamente o código Python contido na implantação de modelo. Por exemplo, se o script de entrada estiver falhando e não for possível determinar o motivo por meio de um registro adicional. Usando Visual Studio Code e debugpy, você pode anexar ao código em execução dentro do contêiner do Docker. Para obter mais informações, visite a [depuração interativa no guia vs Code](how-to-debug-visual-studio-code.md#debug-and-troubleshoot-deployments).
+Talvez seja necessário depurar interativamente o código Python contido na implantação de modelo. Por exemplo, se o script de entrada estiver falhando e não for possível determinar o motivo por meio de um registro adicional. Usando Visual Studio Code e debugpy, você pode anexar ao código em execução dentro do contêiner do Docker.
+
+Para obter mais informações, visite a [depuração interativa no guia vs Code](how-to-debug-visual-studio-code.md#debug-and-troubleshoot-deployments).
+
+## <a name="model-deployment-user-forum"></a>[Fórum do usuário de implantação de modelo](/answers/topics/azure-machine-learning-inference.html)
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -294,3 +201,4 @@ Saiba mais sobre a implantação:
 
 * [Como e onde implantar](how-to-deploy-and-where.md)
 * [Tutorial: Treinar e implantar modelos](tutorial-train-models-with-aml.md)
+* [Como executar e depurar experimentos localmente](./how-to-debug-visual-studio-code.md)

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: menchi
 ms.custom: devx-track-python
-ms.openlocfilehash: 6ed0290abe91453058589b032fb5ed2dd71fe98a
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 665281adc892e6b3655c0b1d0533cb3148e62940
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87872558"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92139400"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-python"></a>Introdução à identidade e módulo do módulo do Hub IoT (Python)
 
@@ -270,4 +270,4 @@ Para continuar a introdução ao Hub IoT e explorar outros cenários de IoT, con
 
 * [Introdução ao gerenciamento de dispositivo](iot-hub-node-node-device-management-get-started.md)
 
-* [Introdução ao IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Introdução ao IoT Edge](../iot-edge/quickstart-linux.md)

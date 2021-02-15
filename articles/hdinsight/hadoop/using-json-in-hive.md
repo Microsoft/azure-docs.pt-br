@@ -1,19 +1,16 @@
 ---
 title: Analisar & processo JSON com Apache Hive-Azure HDInsight
 description: Saiba como usar documentos JSON e analisá-los usando Apache Hive no Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/20/2020
-ms.openlocfilehash: 31fc6fe02559c356f072761c024308f158ae4d9c
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 5bc9acea219e5d111700840149a26c127b47514d
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085439"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943059"
 ---
 # <a name="process-and-analyze-json-documents-by-using-apache-hive-in-azure-hdinsight"></a>Processar e analisar documentos JSON usando o Apache Hive no HDInsight do Azure
 
@@ -154,11 +151,11 @@ SerDe é a melhor opção para análise de documentos JSON aninhados. Ele permit
 
 ## <a name="summary"></a>Resumo
 
-O tipo de operador JSON no hive que você escolher dependerá do seu cenário. Com um documento JSON simples e um campo para pesquisar, escolha o **GET_JSON_OBJECT**UDF do hive. Se você tiver mais de uma chave para pesquisar, poderá usar **json_tuple**. Para documentos aninhados, use o **SerDe JSON**.
+O tipo de operador JSON no hive que você escolher dependerá do seu cenário. Com um documento JSON simples e um campo para pesquisar, escolha o **GET_JSON_OBJECT** UDF do hive. Se você tiver mais de uma chave para pesquisar, poderá usar **json_tuple**. Para documentos aninhados, use o **SerDe JSON**.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Para artigos relacionados, veja:
 
-* [Usar Apache Hive e HiveQL com Apache Hadoop no HDInsight para analisar um exemplo do arquivo log4j do Apache](../hdinsight-use-hive.md)
+* [Usar Apache Hive e HiveQL com Apache Hadoop no HDInsight para analisar um exemplo do arquivo log4j do Apache](./hdinsight-use-hive.md)
 * [Analisar dados de atraso de voo usando a consulta interativa no HDInsight](../interactive-query/interactive-query-tutorial-analyze-flight-data.md)

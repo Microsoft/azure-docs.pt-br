@@ -7,10 +7,10 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 61cf28b0f1ebee6a0312ec3f23f22b01c6c4919e
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88009164"
 ---
 # <a name="expand-an-existing-host-pool-with-new-session-hosts-in-windows-virtual-desktop-classic"></a>Expandir um pool de hosts existente com novos hosts de sessão na área de trabalho virtual do Windows (clássico)
@@ -64,7 +64,7 @@ Veja como reimplantar o modelo de Azure Resource Manager para expandir um pool d
      >[!NOTE]
      >Se você vir um erro que informa para selecionar um grupo de recursos diferente, embora aquele que você inseriu esteja correto, selecione outro grupo de recursos e selecione o grupo de recursos original.
 
-8. Insira a URL a seguir para o *_artifactsLocation*:`https://raw.githubusercontent.com/Azure/RDS-Templates/master/wvd-templates/`
+8. Insira a URL a seguir para o *_artifactsLocation*: `https://raw.githubusercontent.com/Azure/RDS-Templates/master/wvd-templates/`
 9. Insira o novo número total de hosts de sessão que você deseja no *número de RDSH de instâncias*. Por exemplo, se você estiver expandindo o pool de hosts de cinco hosts de sessão para oito, digite **8**.
 10. Insira a mesma senha de domínio existente que você usou para o UPN de domínio existente. Não altere o nome de usuário, pois isso causará um erro quando você executar o modelo.
 11. Insira a mesma senha de administrador de locatário que você usou para a ID de usuário ou aplicativo que você inseriu para o *UPN do administrador de locatário ou a ID do aplicativo*. Mais uma vez, não altere o nome de usuário.
@@ -74,7 +74,7 @@ Veja como reimplantar o modelo de Azure Resource Manager para expandir um pool d
 
 Siga as instruções em [criar um pool de hosts usando o Azure Marketplace](create-host-pools-azure-marketplace-2019.md) até que você atinja [executar a oferta do Azure Marketplace para provisionar um novo pool de hosts](create-host-pools-azure-marketplace-2019.md#run-the-azure-marketplace-offering-to-provision-a-new-host-pool). Quando chegar a esse ponto, você precisará inserir as seguintes informações para cada guia:
 
-### <a name="basics"></a>Básico
+### <a name="basics"></a>Noções básicas
 
 Todos os valores nesta seção devem corresponder ao que você forneceu ao criar pela primeira vez o pool de hosts e VMs de host de sessão, exceto para *usuários de área de trabalho padrão*:
 

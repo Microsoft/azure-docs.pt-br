@@ -8,10 +8,10 @@ services: web-application-firewall
 ms.date: 06/09/2020
 ms.author: victorh
 ms.openlocfilehash: 596374d4f3f188e08a10bd25b36b178cc79a6e57
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84808945"
 ---
 # <a name="azure-web-application-firewall-monitoring-and-logging"></a>Monitoramento e registro em log do firewall do aplicativo Web do Azure
@@ -24,7 +24,7 @@ O WAF com o log do FrontDoor é integrado ao [Azure monitor](../../azure-monitor
 
 Em portal do Azure, vá para tipo de recurso da porta frontal. Na **Monitoring** / guia**métricas** de monitoramento à esquerda, você pode adicionar **WebApplicationFirewallRequestCount** para rastrear o número de solicitações que correspondem às regras de WAF. Os filtros personalizados podem ser criados com base em tipos de ação e nomes de regra.
 
-:::image type="content" source="../media/waf-frontdoor-monitor/waf-frontdoor-metrics.png" alt-text="WAFMetrics":::
+:::image type="content" source="../media/waf-frontdoor-monitor/waf-frontdoor-metrics.png" alt-text="WAFMetrics ":::
 
 ## <a name="logs-and-diagnostics"></a>Logs e diagnósticos
 
@@ -34,7 +34,7 @@ WAF com a porta frontal fornece relatórios detalhados sobre cada ameaça detect
 
 [FrontdoorAccessLog](../../frontdoor/front-door-diagnostics.md) registra todas as solicitações. O FrontdoorWebApplicationFirewallLog registra em log qualquer solicitação que corresponda a uma regra WAF que tenha o esquema abaixo:
 
-| Property  | Descrição |
+| Propriedade  | Descrição |
 | ------------- | ------------- |
 |Ação|Ação executada na solicitação|
 | ClientIp | Endereço IP do cliente que fez a solicitação. Se houver um cabeçalho X-Forwardd-for na solicitação, o IP do cliente será escolhido do campo de cabeçalho. |

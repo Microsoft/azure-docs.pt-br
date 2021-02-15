@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
-ms.openlocfilehash: 149656bebac7e8fab24dc1e1847a4e56bf5f3888
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 3bbd18bc7851d4ccffca4f721f6e2aef45ff3c3d
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547334"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673701"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bime"></a>Tutorial: Integração do Azure Active Directory ao Bime
 
@@ -27,7 +27,7 @@ A integração do Bime ao Azure AD oferece os seguintes benefícios:
 * Você pode permitir que os usuários sejam conectados automaticamente ao Bime (logon único) com suas contas do Azure AD.
 * Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](../manage-apps/what-is-single-sign-on.md).
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Prerequisites
@@ -63,7 +63,7 @@ Para configurar a integração do Bime ao Azure AD, você precisará adicionar o
 
 4. Na caixa de pesquisa, digite **Bime**, selecione **Bime** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
-     ![Bime na lista de resultados](common/search-new-app.png)
+    ![Bime na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
@@ -131,11 +131,11 @@ Para configurar o logon único do Azure AD com o Bime, execute as seguintes etap
 1. Em outra janela do navegador da Web, faça logon em seu site de empresa Bime como um administrador.
 
 2. Na barra de ferramentas, clique em **Administrador** e em **Conta**.
-  
-    ![Administrador](./media/bime-tutorial/ic775558.png "Admin")
+
+    ![Captura de tela mostra o item de Administrador selecionado e a Conta selecionada.](./media/bime-tutorial/ic775558.png "Admin")
 
 3. Na página de configuração da conta, execute as seguintes etapas:
-  
+
     ![Configurar Logon Único](./media/bime-tutorial/ic775559.png "Configurar o logon único")
 
     a. Selecione **Habilitar autenticação SAML**.
@@ -163,7 +163,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
     a. No campo **Nome**, insira **BrendaFernandes**.
-  
+
     b. No campo **Nome de usuário**, digite **brendafernandes\@dominiodaempresa.extensao**  
     Por exemplo, BrittaSimon@contoso.com
 
@@ -207,7 +207,7 @@ Para que possam fazer logon no Bime, os usuários do Azure AD deverão ser provi
 
 2. Na barra de ferramentas, clique em **Administrador** e em **Usuários**.
 
-    ![Administrador](./media/bime-tutorial/ic775561.png "Admin")
+    ![Captura de tela mostra o item de Administrador selecionado e os Usuários selecionados.](./media/bime-tutorial/ic775561.png "Admin")
 
 3. Na **Lista de Usuários**, clique em **Adicionar Novo Usuário** (“+”).
 
@@ -232,13 +232,12 @@ Para que possam fazer logon no Bime, os usuários do Azure AD deverão ser provi
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Ao clicar no bloco do Bime no Painel de Acesso, você deverá ser conectado automaticamente ao Bime, para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao clicar no bloco do Bime no Painel de Acesso, você deverá ser conectado automaticamente ao Bime, para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](./tutorial-list.md)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)

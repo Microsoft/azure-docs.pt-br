@@ -1,17 +1,17 @@
 ---
 title: Ajuste de Azure Data Lake Storage Gen1 desempenho
 description: Saiba como usar toda a taxa de transferência disponível em Azure Data Lake Storage Gen1 é importante para obter o melhor desempenho executando tantos leituras e gravações em paralelo possível.
-author: stewu
+author: twooley
 ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 06/30/2017
-ms.author: stewu
-ms.openlocfilehash: d18440b27d9429a2638a58be40e1ec583b9a85ad
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.author: twooley
+ms.openlocfilehash: c7f16dd9ea450185893164e10928c7022d6ab5a6
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88190244"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724673"
 ---
 # <a name="tune-azure-data-lake-storage-gen1-for-performance"></a>Ajustar Azure Data Lake Storage Gen1 para desempenho
 
@@ -25,7 +25,7 @@ O Data Lake Storage Gen1 pode ser dimensionado para fornecer o throughput necess
 
 Ao ingerir dados de um sistema de origem para Data Lake Storage Gen1, é importante considerar que o hardware de origem, o hardware de rede de origem e a conectividade de rede para Data Lake Storage Gen1 podem ser o afunilamento.
 
-![Desempenho do Data Lake Storage Gen1](./media/data-lake-store-performance-tuning-guidance/bottleneck.png)
+![Diagrama que mostra que o hardware de origem, o hardware de rede de origem e a conectividade de rede para Data Lake Storage Gen1 podem ser o afunilamento.](./media/data-lake-store-performance-tuning-guidance/bottleneck.png)
 
 É importante garantir que a movimentação de dados não seja afetada por esses fatores.
 
@@ -39,15 +39,15 @@ A conectividade de rede entre os dados de origem e o Data Lake Storage Gen1 às 
 
 ### <a name="configure-data-ingestion-tools-for-maximum-parallelization"></a>Configurar ferramentas de ingestão de dados para paralelização máxima
 
-Depois de solucionar os afunilamentos de conectividade de rede e hardware de origem, você estará pronto para configurar suas ferramentas de ingestão. A tabela a seguir resume as configurações de chave para diversas ferramentas de ingestão populares e fornece artigos detalhados de ajuste de desempenho para eles. Para saber mais sobre qual ferramenta usar para seu cenário, visite este [artigo](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-data-scenarios).
+Depois de solucionar os afunilamentos de conectividade de rede e hardware de origem, você estará pronto para configurar suas ferramentas de ingestão. A tabela a seguir resume as configurações de chave para diversas ferramentas de ingestão populares e fornece artigos detalhados de ajuste de desempenho para eles. Para saber mais sobre qual ferramenta usar para seu cenário, visite este [artigo](./data-lake-store-data-scenarios.md).
 
 | Ferramenta          | Configurações | Mais detalhes                                                                 |
 |--------------------|------------------------------------------------------|------------------------------|
-| PowerShell       | PerFileThreadCount, ConcurrentFileCount | [Link](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-powershell) |
-| AdlCopy    | Unidades do Azure Data Lake Analytics | [Link](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob#performance-considerations-for-using-adlcopy)         |
-| DistCp            | -m (mapper) | [Link](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-wasb-distcp#performance-considerations-while-using-distcp)                             |
+| Powershell       | PerFileThreadCount, ConcurrentFileCount | [Link](./data-lake-store-get-started-powershell.md) |
+| AdlCopy    | Unidades do Azure Data Lake Analytics | [Link](./data-lake-store-copy-data-azure-storage-blob.md#performance-considerations-for-using-adlcopy)         |
+| DistCp            | -m (mapper) | [Link](./data-lake-store-copy-data-wasb-distcp.md#performance-considerations-while-using-distcp)                             |
 | Fábrica de dados do Azure| parallelCopies | [Link](../data-factory/copy-activity-performance.md)                          |
-| Sqoop           | fs.azure.block.size, -m (mapper) | [Link](https://docs.microsoft.com/archive/blogs/shanyu/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs)        |
+| Sqoop           | fs.azure.block.size, -m (mapper) | [Link](/archive/blogs/shanyu/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs)        |
 
 ## <a name="structure-your-data-set"></a>Estruturar seu conjunto de dados
 
@@ -100,7 +100,7 @@ Há três camadas em um cluster HDInsight que podem ser ajustadas para aumentar 
 
 **Execute o cluster com mais nós e/ou VMs de tamanhos maior.** Um cluster maior permite executar mais contêineres YARN, conforme mostrado na figura abaixo.
 
-![Desempenho do Data Lake Storage Gen1](./media/data-lake-store-performance-tuning-guidance/VM.png)
+![Diagrama que mostra o uso de mais contêineres YARN.](./media/data-lake-store-performance-tuning-guidance/VM.png)
 
 **Use VMs com mais largura de banda de rede.** A quantidade de largura de banda da rede pode ser um gargalo se houver menos largura de banda de rede do que a taxa de transferência do Data Lake Storage Gen1. Diferentes VMs terão diversos tamanhos de largura de banda de rede. Escolha um tipo de VM com a maior largura de banda de rede possível.
 
@@ -108,7 +108,7 @@ Há três camadas em um cluster HDInsight que podem ser ajustadas para aumentar 
 
 **Use contêineres YARN menores.** Reduza o tamanho de cada contêiner YARN para criar mais contêineres com a mesma quantidade de recursos.
 
-![Desempenho do Data Lake Storage Gen1](./media/data-lake-store-performance-tuning-guidance/small-containers.png)
+![Diagrama que mostra o uso de contêineres YARN menores.](./media/data-lake-store-performance-tuning-guidance/small-containers.png)
 
 Dependendo de sua carga de trabalho, sempre haverá um tamanho de contêiner YARN mínimo necessário. Se você selecionar um contêiner muito pequeno, os trabalhos encontrarão problemas de falta de memória. Normalmente, os contêineres YARN não devem ser menores que 1 GB. É comum ver contêineres YARN de 3 GB. Para algumas cargas de trabalho, talvez contêineres YARN maiores sejam necessários.
 
@@ -118,7 +118,7 @@ Dependendo de sua carga de trabalho, sempre haverá um tamanho de contêiner YAR
 
 **Use todos os contêineres disponíveis.** Defina o número de tarefas como igual ou maior que o número de contêineres disponíveis para que todos os recursos sejam usados.
 
-![Desempenho do Data Lake Storage Gen1](./media/data-lake-store-performance-tuning-guidance/use-containers.png)
+![Diagrama que mostra o uso de todos os contêineres disponíveis.](./media/data-lake-store-performance-tuning-guidance/use-containers.png)
 
 **Tarefas com falha têm alto custo.** Se cada tarefa tem uma grande quantidade de dados a serem processados, a falha de uma tarefa resulta em uma repetição cara. Portanto, é melhor criar mais tarefas, cada uma delas processa uma pequena quantidade de dados.
 
@@ -131,7 +131,7 @@ Além das diretrizes gerais acima, cada aplicativo tem diferentes parâmetros di
 | [MapReduce no HDInsight](data-lake-store-performance-tuning-mapreduce.md)            | <ul><li>Mapreduce.map.memory</li><li>Mapreduce.job.maps</li><li>Mapreduce.reduce.memory</li><li>Mapreduce.job.reduces</li></ul> |
 | [Storm no HDInsight](data-lake-store-performance-tuning-storm.md)| <ul><li>Número de processos de trabalho</li><li>Número de instâncias de spout executor</li><li>Número de instâncias de bolt executor </li><li>Número de tarefas de spout</li><li>Número de tarefas de bolt</li></ul>|
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 
 * [Visão Geral do Azure Data Lake Storage Gen1](data-lake-store-overview.md)
 * [Introdução à Análise Data Lake do Azure](../data-lake-analytics/data-lake-analytics-get-started-portal.md)

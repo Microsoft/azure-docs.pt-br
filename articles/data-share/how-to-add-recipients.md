@@ -5,31 +5,29 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: how-to
-ms.date: 07/30/2020
-ms.openlocfilehash: 999966192d92481a9d3eec68cfe804566a27f71e
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.date: 12/17/2020
+ms.openlocfilehash: a8e3dac620873ab11ae24395310066037f6d2df4
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87513461"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97680635"
 ---
-# <a name="how-to-add-a-recipient-to-an-existing-data-share-in-azure-data-share"></a>Como adicionar um destinatário a um compartilhamento de dados existente no compartilhamento de dados do Azure
+# <a name="how-to-add-a-recipient-to-your-share"></a>Como adicionar um destinatário ao seu compartilhamento
 
-Este artigo mostrará como adicionar destinatários a um compartilhamento de dados pré-existente.
+Você pode adicionar o destinatário ao criar um novo compartilhamento ou a um compartilhamento existente. Na interface do usuário do compartilhamento de dados do Azure, você pode adicionar o destinatário usando o email de logon do Azure do usuário.  Na API, você pode usar uma combinação de entidade de usuário/serviço e ID de locatário. Quando uma ID de locatário é especificada, o convite só pode ser aceito nesse locatário. Além disso, da API, você pode criar um convite sem enviar um email para o destinatário. 
 
-Para obter informações sobre como adicionar destinatários ao criar um compartilhamento, consulte o tutorial [compartilhar dados](share-your-data.md) .
+## <a name="add-recipient-to-an-existing-share"></a>Adicionar um destinatário a um compartilhamento existente
 
-## <a name="navigate-to-a-sent-data-share"></a>Navegar até um compartilhamento de dados enviado
+No compartilhamento de dados do Azure, navegue até o compartilhamento enviado e selecione a guia **convites** . Aqui estão listados todos os destinatários de convites para esse compartilhamento de dados. Para adicionar um novo, clique em **Adicionar destinatário**.
 
-No compartilhamento de dados do Azure, navegue até o compartilhamento enviado e selecione a guia **convites** . listados aqui estão todos os destinatários de convites para esse compartilhamento de dados. Para adicionar um novo, clique em **Adicionar destinatário**.
+![A captura de tela mostra adicionar destinatário selecionado.](./media/how-to/how-to-add-recipients/add-recipient.png)
 
-![Adicionar destinatário](./media/how-to/how-to-add-recipients/add-recipient.png)
+Um painel será exibido no lado direito da página. Clique em **Adicionar destinatário** e preencha o email do novo destinatário na linha em branco. Certifique-se de usar o email de logon do Azure do destinatário (usar seu alias de email não funcionará). 
 
-Um painel será exibido no lado direito da página. Clique em **Adicionar destinatário** e preencha o email do novo destinatário na linha em branco. Adicione quantos destinatários desejar.
+![Captura de tela mostra o painel Adicionar destinatário, no qual você pode adicionar e enviar um convite.](./media/how-to/how-to-add-recipients/add-recipient-side.png)
 
-![Adicionar destinatário](./media/how-to/how-to-add-recipients/add-recipient-side.png)
-
-Clique em **Adicionar e enviar convite**. Os novos destinatários serão enviados emails de convite para esse compartilhamento de dados.
+Clique em **Adicionar e enviar convite**. Os novos destinatários serão enviados emails de convite para esse compartilhamento.
 
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre como [excluir um convite para um compartilhamento](how-to-delete-invitation.md).

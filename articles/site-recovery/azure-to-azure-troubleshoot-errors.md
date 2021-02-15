@@ -7,14 +7,14 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/07/2020
 ms.author: rochakm
-ms.openlocfilehash: d3e70384a99e2dad3f19825cb85b83861e4647e9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6d61a44e671c43754fa7cccbe8ea8fe54eeba387
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083813"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97900409"
 ---
-# <a name="troubleshoot-azure-to-azure-vm-replication-errors"></a>Solucionar erros de replicação de VM do Azure para o Azure
+# <a name="troubleshoot-azure-to-azure-vm-replication-errors"></a>Solucionar problemas de erros de replicação de VMs do Azure para o Azure
 
 Este artigo descreve como solucionar erros comuns no Azure Site Recovery durante a replicação e a recuperação de máquinas virtuais (VM) do Azure de uma região para outra. Para obter mais informações sobre configurações com suporte, consulte a [matriz de suporte para replicar máquinas virtuais do Azure](azure-to-azure-support-matrix.md).
 
@@ -191,18 +191,21 @@ Para verificar se a VM usa uma configuração de DNS personalizada:
 
 Tente acessar o servidor DNS da máquina virtual. Se o servidor DNS não estiver acessível, torne-o acessível ao fazer failover do servidor DNS ou criar a linha de site entre a rede de DR e o DNS.
 
+> [!NOTE]
+> Se você usar pontos de extremidade privados, verifique se as VMs podem resolver os registros DNS privados.
+
 :::image type="content" source="./media/azure-to-azure-troubleshoot-errors/custom_dns.png" alt-text="erro com.":::
 
 ### <a name="issue-2-site-recovery-configuration-failed-151196"></a>Problema 2: falha na configuração do Azure Site Recovery (151196)
 
 #### <a name="possible-cause"></a>Causa possível
 
-Não é possível estabelecer uma conexão com os pontos de extremidade IP4 de autenticação e identidade do Office 365.
+Uma conexão não pode ser estabelecida para Microsoft 365 pontos de extremidade de autenticação e identidade IP4.
 
 #### <a name="fix-the-problem"></a>Corrigir o problema
 
-Azure Site Recovery acesso necessário aos intervalos de IP do Office 365 para autenticação.
-Se você estiver usando regras de NSG (grupo de segurança de rede) do Azure/proxy de firewall para controlar a conectividade de rede de saída na VM, certifique-se de usar a NSG da [marca de serviço do AAD (Azure Active Directory)](../virtual-network/security-overview.md#service-tags) para permitir o acesso ao AAD. Não há mais suporte para regras NSG baseadas em endereço IP.
+Azure Site Recovery acesso necessário para Microsoft 365 intervalos de IP para autenticação.
+Se você estiver usando regras de NSG (grupo de segurança de rede) do Azure/proxy de firewall para controlar a conectividade de rede de saída na VM, certifique-se de usar a NSG da [marca de serviço do AAD (Azure Active Directory)](../virtual-network/network-security-groups-overview.md#service-tags) para permitir o acesso ao AAD. Não há mais suporte para regras NSG baseadas em endereço IP.
 
 ### <a name="issue-3-site-recovery-configuration-failed-151197"></a>Problema 3: falha na configuração do Site Recovery (151197)
 
@@ -225,8 +228,8 @@ As configurações de proxy personalizadas são inválidas e o agente do serviç
 1. O agente do serviço de mobilidade detecta as configurações de proxy do IE no Windows e `/etc/environment` no Linux.
 1. Se você preferir definir o proxy somente para o serviço de mobilidade, poderá fornecer os detalhes do proxy em _ProxyInfo. conf_ localizado em:
 
-   - **Linux**:`/usr/local/InMage/config/`
-   - **Windows**:`C:\ProgramData\Microsoft Azure Site Recovery\Config`
+   - **Linux**: `/usr/local/InMage/config/`
+   - **Windows**: `C:\ProgramData\Microsoft Azure Site Recovery\Config`
 
 1. O _ProxyInfo. conf_ deve ter as configurações de proxy no seguinte formato _ini_ .
 
@@ -300,7 +303,7 @@ Você pode ignorar esse aviso se você nunca pretender proteger essa máquina vi
 > Se você não fizer a limpeza:
 >
 > - Quando você habilita a replicação por meio do cofre dos serviços de recuperação, a máquina virtual não será listada.
-> - Se você tentar proteger a VM usando as configurações de **máquina virtual**  >  **Settings**  >  **recuperação de desastre**, a operação falhará com a **replicação de mensagem não pode ser habilitada devido aos links de recursos obsoletos existentes na VM**.
+> - Se você tentar proteger a VM usando as configurações de **máquina virtual**  >    >  **recuperação de desastre**, a operação falhará com a **replicação de mensagem não pode ser habilitada devido aos links de recursos obsoletos existentes na VM**.
 
 ### <a name="fix-the-problem"></a>Corrigir o problema
 
@@ -312,7 +315,7 @@ Você pode ignorar esse aviso se você nunca pretender proteger essa máquina vi
    :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png" alt-text="Remova o bloqueio da VM.":::
 
 1. Baixe o script para [remover uma configuração de site Recovery obsoleta](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1).
-1. Execute o script _Cleanup-stale-asr-config-Azure-VM.ps1_. Forneça a **ID da assinatura**, o **grupo de recursos da VM**e o nome da **VM** como parâmetros.
+1. Execute o script _Cleanup-stale-asr-config-Azure-VM.ps1_. Forneça a **ID da assinatura**, o **grupo de recursos da VM** e o nome da **VM** como parâmetros.
 1. Se você for solicitado a fornecer as credenciais do Azure, forneça-as. Em seguida, verifique se o script é executado sem falhas.
 
 ## <a name="replication-not-enabled-on-vm-with-stale-resources-error-code-150226"></a>Replicação não habilitada na VM com recursos obsoletos (código de erro 150226)
@@ -337,7 +340,7 @@ Uma configuração obsoleta pode ocorrer em uma VM do Azure se você habilitou a
    :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png" alt-text="Remova o bloqueio da VM.":::
 
 1. Baixe o script para [remover uma configuração de site Recovery obsoleta](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1).
-1. Execute o script _Cleanup-stale-asr-config-Azure-VM.ps1_. Forneça a **ID da assinatura**, o **grupo de recursos da VM**e o nome da **VM** como parâmetros.
+1. Execute o script _Cleanup-stale-asr-config-Azure-VM.ps1_. Forneça a **ID da assinatura**, o **grupo de recursos da VM** e o nome da **VM** como parâmetros.
 1. Se você for solicitado a fornecer as credenciais do Azure, forneça-as. Em seguida, verifique se o script é executado sem falhas.
 
 ## <a name="cant-select-vm-or-resource-group-in-enable-replication-job"></a>Não é possível selecionar VM ou grupo de recursos em Habilitar trabalho de replicação
@@ -370,7 +373,7 @@ Talvez você não veja a VM que deseja habilitar para replicação se houver uma
    :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png" alt-text="Remova o bloqueio da VM.":::
 
 1. Baixe o script para [remover uma configuração de site Recovery obsoleta](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1).
-1. Execute o script _Cleanup-stale-asr-config-Azure-VM.ps1_. Forneça a **ID da assinatura**, o **grupo de recursos da VM**e o nome da **VM** como parâmetros.
+1. Execute o script _Cleanup-stale-asr-config-Azure-VM.ps1_. Forneça a **ID da assinatura**, o **grupo de recursos da VM** e o nome da **VM** como parâmetros.
 1. Se você for solicitado a fornecer as credenciais do Azure, forneça-as. Em seguida, verifique se o script é executado sem falhas.
 
 ## <a name="unable-to-select-a-vm-for-protection"></a>Não é possível selecionar uma VM para proteção
@@ -408,7 +411,7 @@ Durante a configuração de recuperação de desastre, se a VM de origem fizer p
 
 ### <a name="issue-2-you-previously-protected-the-vm-and-then-you-disabled-the-replication"></a>Problema 2: você protegeu anteriormente a VM e, em seguida, desabilitou a replicação
 
-Desabilitar a replicação de uma VM não exclui o mapeamento de rede. O mapeamento deve ser excluído do cofre dos serviços de recuperação onde a VM foi protegida. Selecione o **cofre dos serviços de recuperação** e vá para **gerenciar**a  >  **infraestrutura**  >  de site Recovery para o mapeamento**de rede de máquinas virtuais do Azure**  >  **Network Mapping**.
+Desabilitar a replicação de uma VM não exclui o mapeamento de rede. O mapeamento deve ser excluído do cofre dos serviços de recuperação onde a VM foi protegida. Selecione o **cofre dos serviços de recuperação** e vá para **gerenciar** a  >  **infraestrutura**  >  de site Recovery para o mapeamento **de rede de máquinas virtuais do Azure**  >  .
 
 :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/delete_nw_mapping.png" alt-text="Excluir mapeamento de rede.":::
 
@@ -459,11 +462,11 @@ Verifique se o tamanho do disco está dentro do intervalo de tamanho com suporte
 
 ### <a name="possible-causes"></a>Possíveis causas
 
-Os arquivos de configuração do GRUB (_/boot/grub/menu.lst_, _/boot/grub/grub.cfg_, _/boot/Grub2/grub.cfg_ou _/etc/default/grub_) do Linux de Unificação geral podem especificar os nomes de dispositivo reais em vez de valores de UUID (identificador universal exclusivo) para os `root` `resume` parâmetros e. Site Recovery requer UUIDs porque os nomes de dispositivo podem ser alterados. Após a reinicialização, uma VM pode não vir com o mesmo nome no failover, resultando em problemas.
+Os arquivos de configuração do GRUB (_/boot/grub/menu.lst_, _/boot/grub/grub.cfg_, _/boot/Grub2/grub.cfg_ ou _/etc/default/grub_) do Linux de Unificação geral podem especificar os nomes de dispositivo reais em vez de valores de UUID (identificador universal exclusivo) para os `root` `resume` parâmetros e. Site Recovery requer UUIDs porque os nomes de dispositivo podem ser alterados. Após a reinicialização, uma VM pode não vir com o mesmo nome no failover, resultando em problemas.
 
 Os exemplos a seguir são linhas de arquivos GRUB nos quais os nomes de dispositivo aparecem em vez dos UUIDs necessários:
 
-- _/Boot/Grub2/grub.cfg_do arquivo:
+- _/Boot/Grub2/grub.cfg_ do arquivo:
 
   `linux /boot/vmlinuz-3.12.49-11-default root=/dev/sda2  ${extra_cmdline} resume=/dev/sda1 splash=silent quiet showopts`
 
@@ -494,7 +497,7 @@ Substitua cada nome de dispositivo pelo UUID correspondente:
 
 ### <a name="possible-cause"></a>Causa possível
 
-Os arquivos de configuração do GRUB (_/boot/grub/menu.lst_, _/boot/grub/grub.cfg_, _/boot/Grub2/grub.cfg_ou _/etc/default/grub_) podem conter os parâmetros `rd.lvm.lv` ou `rd_LVM_LV` . Esses parâmetros identificam os dispositivos LVM (Gerenciador de volumes lógicos) que serão descobertos no momento da inicialização. Se esses dispositivos LVM não existirem, o próprio sistema protegido não será inicializado e ficará preso no processo de inicialização. O mesmo problema também será visto com a VM de failover. Veja alguns exemplos:
+Os arquivos de configuração do GRUB (_/boot/grub/menu.lst_, _/boot/grub/grub.cfg_, _/boot/Grub2/grub.cfg_ ou _/etc/default/grub_) podem conter os parâmetros `rd.lvm.lv` ou `rd_LVM_LV` . Esses parâmetros identificam os dispositivos LVM (Gerenciador de volumes lógicos) que serão descobertos no momento da inicialização. Se esses dispositivos LVM não existirem, o próprio sistema protegido não será inicializado e ficará preso no processo de inicialização. O mesmo problema também será visto com a VM de failover. Veja alguns exemplos:
 
 - Arquivo: _/boot/Grub2/grub.cfg_ em RHEL7:
 

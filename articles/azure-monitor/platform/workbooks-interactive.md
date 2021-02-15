@@ -2,19 +2,17 @@
 title: Azure Monitor pastas de trabalho com parâmetros personalizados
 description: Simplifique a emissão de relatórios complexos com pastas de trabalho parametrizadas predefinidas e personalizadas
 services: azure-monitor
-author: mrbullwinkle
 manager: carmonm
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/20/2020
-ms.author: mbullwin
-ms.openlocfilehash: 33da3cd8a72bb4d93011c348db65c5b4d9e687ed
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: daedef3410e32b97f8cf753bcbad6c2bc11bbc41
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87461386"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92143646"
 ---
 # <a name="interactive-workbooks"></a>Pastas de trabalho interativas
 
@@ -45,12 +43,12 @@ Por exemplo, um usuário pode ter uma grade que mostra uma lista de solicitaçõ
     | order by AllRequests desc
     ```
 
-5. `Run query`para ver os resultados
+5. `Run query` para ver os resultados
 6. Selecione o ícone _Configurações avançadas_ no rodapé da consulta (o ícone é semelhante a uma engrenagem). Isso abre o painel Configurações avançadas.
 7. Verifique a configuração: `When an item is selected, export a parameter` .
 8. Na configuração marcada, selecione *Adicionar parâmetro* e preencha com as informações abaixo.
-    1. Campo a ser exportado:`Request`
-    2. Nome do parâmetro:`SelectedRequest`
+    1. Campo a ser exportado: `Request`
+    2. Nome do parâmetro: `SelectedRequest`
     3. Valor padrão: `All requests`
 9. Selecionar Salvar
 
@@ -64,7 +62,7 @@ Por exemplo, um usuário pode ter uma grade que mostra uma lista de solicitaçõ
     | where name == '{SelectedRequest}' or 'All Requests' == '{SelectedRequest}'
     | summarize ['{SelectedRequest}'] = count() by bin(timestamp, 1h)
     ```
-13. `Run query`para ver os resultados.
+13. `Run query` para ver os resultados.
 14. Altere a _Visualização_ para `Area chart` .
 15. Escolha uma linha para selecionar na primeira grade. Observe como o gráfico de área abaixo é filtrado para a solicitação selecionada.
 
@@ -99,10 +97,10 @@ As pastas de trabalho permitem que os autores adicionem interatividade por meio 
     | order by Count desc
     ```
 
-5. `Run query`para ver os resultados
+5. `Run query` para ver os resultados
 6. Selecione _configurações de coluna_ para abrir o painel configurações.
 7. Na seção _colunas_ , defina:
-    1. _Exemplo_ -renderizador de coluna: `Link` , exibição para abrir: `Cell Details` , rótulo de link:`Sample`
+    1. _Exemplo_ -renderizador de coluna: `Link` , exibição para abrir: `Cell Details` , rótulo de link: `Sample`
     2. Processador de _contagem_ de colunas: `Bar` , paleta de cores: `Blue` , valor mínimo:`0`
     3. Renderizador de coluna de _solicitação_ :`Automatic`
     4. Selecione _salvar e fechar_ para aplicar as alterações
@@ -118,8 +116,8 @@ As pastas de trabalho permitem que os autores adicionem interatividade por meio 
 | Ação do link | Ação ao clicar |
 |:------------- |:-------------|
 | `Generic Details` | Mostra os valores de linha em uma guia de contexto de grade de propriedades |
-| `Cell Details` | Mostra o valor da célula em uma guia de contexto da grade de propriedades. útil quando a célula contém um tipo dinâmico com informações (por exemplo, JSON com propriedades de solicitação, como local, instância de função etc.). |
-| `Cell Details` | Mostra o valor da célula em uma guia de contexto da grade de propriedades. útil quando a célula contém um tipo dinâmico com informações (por exemplo, JSON com propriedades de solicitação, como local, instância de função etc.). |
+| `Cell Details` | Mostra o valor da célula em uma guia de contexto da grade de propriedades. Útil quando a célula contém um tipo dinâmico com informações (por exemplo, JSON com propriedades de solicitação, como local, instância de função, etc.). |
+| `Cell Details` | Mostra o valor da célula em uma guia de contexto da grade de propriedades. Útil quando a célula contém um tipo dinâmico com informações (por exemplo, JSON com propriedades de solicitação, como local, instância de função, etc.). |
 | `Custom Event Details` | Abre os detalhes da pesquisa Application Insights com a ID do evento personalizado ( `itemId` ) na célula |
 | `* Details` | Semelhante aos detalhes do evento personalizado, exceto para dependências, exceções, exibições de página, solicitações e rastreamentos. |
 | `Custom Event User Flows` | Abre o Application Insights Fluxos dos Usuários experiência dinamizada no nome do evento personalizado na célula |
@@ -137,30 +135,30 @@ A pasta de trabalho permite que os usuários façam com que determinados control
 1. Siga as etapas na seção [Configurando a interatividade na linha de grade e clique](#setting-up-interactivity-on-grid-row-click) para configurar dois controles interativos.
 2. Adicione um novo parâmetro na parte superior:
     1. Nome: `ShowDetails`
-    2. Tipo de parâmetro:`Drop down`
-    3. Necessário:`checked`
-    4. Obter dados de:`JSON`
-    5. Entrada JSON:`["Yes", "No"]`
+    2. Tipo de parâmetro: `Drop down`
+    3. Necessário: `checked`
+    4. Obter dados de: `JSON`
+    5. Entrada JSON: `["Yes", "No"]`
     6. Salve para confirmar as alterações.
 
     ![Depois de selecionar o botão Adicionar parâmetro, o painel Editar parâmetro é exibido.](./media/workbooks-interactive/edit-parameter.png)
 
-3. Definir valor do parâmetro como`Yes`
+3. Definir valor do parâmetro como `Yes`
 
     ![Acima do botão de edição concluído há uma lista suspensa que permitirá que você defina o valor do parâmetro](./media/workbooks-interactive/set-parameter.png)
 
 4. No controle de consulta com o gráfico de área, selecione o ícone de _Configurações avançadas_ (ícone de engrenagem)
-5. Verifique a configuração`Make this item conditionally visible`
-    1. Este item é visível se o `ShowDetails` valor `equals` do parâmetro`Yes`
+5. Verifique a configuração `Make this item conditionally visible`
+    1. Este item é visível se o `ShowDetails` valor `equals` do parâmetro `Yes`
 6. Selecione _edição concluída_ para confirmar as alterações.
 7. Selecione _edição concluída_ na barra de ferramentas da pasta de trabalho para entrar no modo de leitura.
 8. Alterne o valor do parâmetro `ShowDetails` para `No` . Observe que o gráfico abaixo desaparece.
 
-A imagem abaixo mostra o caso visível em que `ShowDetails` é`Yes`
+A imagem abaixo mostra o caso visível em que `ShowDetails` é `Yes`
 
 ![Captura de tela mostrando a visibilidade condicional em que o gráfico está visível](./media/workbooks-interactive/interactivity-conditional-visibility-visible.png)
 
-A imagem abaixo mostra o caso oculto em que `ShowDetails` é`No`
+A imagem abaixo mostra o caso oculto em que `ShowDetails` é `No`
 
 ![Captura de tela mostrando a visibilidade condicional em que o gráfico está oculto](./media/workbooks-interactive/interactivity-conditional-visibility-invisible.png)
 
@@ -190,5 +188,5 @@ Embora o comportamento padrão seja exportar um parâmetro como texto, se você 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Comece a aprender mais](workbooks-visualizations.md) sobre pastas de trabalho muitas opções de visualizações ricas.
+* [Comece a aprender mais](./workbooks-overview.md#visualizations) sobre pastas de trabalho muitas opções de visualizações ricas.
 * [Controle](workbooks-access-control.md) e compartilhe o acesso aos recursos da pasta de trabalho.

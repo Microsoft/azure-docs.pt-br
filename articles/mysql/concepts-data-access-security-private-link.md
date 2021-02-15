@@ -1,23 +1,23 @@
 ---
 title: Link privado-banco de dados do Azure para MySQL
 description: Saiba como o link privado funciona para o banco de dados do Azure para MySQL.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 6391b21faaf6cd2a61dbe84af50ae12e4289dff9
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 1ae35d1ac35dacfab2690980d57973dce050382b
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87837282"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242850"
 ---
 # <a name="private-link-for-azure-database-for-mysql"></a>Link privado para o banco de dados do Azure para MySQL
 
 O Link Privado permite que você se conecte a vários serviços de PaaS no Azure por meio de um ponto de extremidade privado. O Link Privado do Azure essencialmente traz os serviços do Azure dentro de sua VNet (Rede Virtual privada). Os recursos de PaaS podem ser acessados usando o endereço IP privado, assim como qualquer outro recurso na VNet.
 
-Para obter uma lista dos serviços de PaaS que dão suporte à funcionalidade de link privado, examine a [documentação](https://docs.microsoft.com/azure/private-link/index)do link privado. Um ponto de extremidade privado é um endereço IP privado em uma [VNET](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) e sub-rede específicas.
+Para obter uma lista dos serviços de PaaS que dão suporte à funcionalidade de link privado, examine a [documentação](../private-link/index.yml)do link privado. Um ponto de extremidade privado é um endereço IP privado em uma [VNET](../virtual-network/virtual-networks-overview.md) e sub-rede específicas.
 
 > [!NOTE]
 > O recurso de link privado só está disponível para servidores do banco de dados do Azure para MySQL nos tipos de preço Uso Geral ou com otimização de memória. Verifique se o servidor de banco de dados está em um desses tipos de preço.
@@ -28,7 +28,7 @@ Data ex-filtragem no banco de dados do Azure para MySQL é quando um usuário au
 
 Considere um cenário com um usuário executando o MySQL Workbench dentro de uma VM (máquina virtual) do Azure que está se conectando a um servidor de banco de dados do Azure para MySQL provisionado no oeste dos EUA. O exemplo a seguir mostra como limitar o acesso com pontos de extremidade públicos no banco de dados do Azure para MySQL usando controles de acesso à rede.
 
-* Desabilite todo o tráfego de serviço do Azure para o banco de dados do Azure para MySQL por meio do ponto de extremidade público, configurando *permitir serviços do Azure* para Certifique-se de que nenhum endereço IP ou intervalo tenha permissão para acessar o servidor por meio de [regras de firewall](https://docs.microsoft.com/azure/mysql/concepts-firewall-rules) ou pontos de extremidade de [serviço de rede virtual](https://docs.microsoft.com/azure/mysql/concepts-data-access-and-security-vnet).
+* Desabilite todo o tráfego de serviço do Azure para o banco de dados do Azure para MySQL por meio do ponto de extremidade público, configurando *permitir serviços do Azure* para Certifique-se de que nenhum endereço IP ou intervalo tenha permissão para acessar o servidor por meio de [regras de firewall](./concepts-firewall-rules.md) ou pontos de extremidade de [serviço de rede virtual](./concepts-data-access-and-security-vnet.md).
 
 * Permita o tráfego somente para o banco de dados do Azure para MySQL usando o endereço IP privado da VM. Para obter mais informações, confira os artigos sobre o [ponto de extremidade de serviço](concepts-data-access-and-security-vnet.md) e as [regras de firewall da VNET](howto-manage-vnet-using-portal.md).
 
@@ -45,7 +45,7 @@ Com o link privado, agora você pode configurar controles de acesso à rede como
 
 Quando você se conecta ao ponto de extremidade público de computadores locais, seu endereço IP precisa ser adicionado ao firewall baseado em IP usando uma regra de firewall de nível de servidor. Embora esse modelo funcione bem para permitir o acesso a computadores individuais para cargas de trabalho de desenvolvimento ou teste, é difícil gerenciá-lo em um ambiente de produção.
 
-Com o link privado, você pode habilitar o acesso entre instalações ao ponto de extremidade privado usando o er ( [rota expressa](https://azure.microsoft.com/services/expressroute/) ), o emparelhamento privado ou o [túnel VPN](https://docs.microsoft.com/azure/vpn-gateway/). Em seguida, eles podem desabilitar todo o acesso por meio do ponto de extremidade público e não usar o firewall baseado em IP.
+Com o link privado, você pode habilitar o acesso entre instalações ao ponto de extremidade privado usando o er ( [rota expressa](https://azure.microsoft.com/services/expressroute/) ), o emparelhamento privado ou o [túnel VPN](../vpn-gateway/index.yml). Em seguida, eles podem desabilitar todo o acesso por meio do ponto de extremidade público e não usar o firewall baseado em IP.
 
 > [!NOTE]
 > Em alguns casos, o Banco de Dados do Azure para MySQL e a sub-rede da VNet estão em assinaturas diferentes. Nesses casos, você deve garantir as seguintes configurações:
@@ -57,8 +57,8 @@ Com o link privado, você pode habilitar o acesso entre instalações ao ponto d
 
 Pontos de extremidade privados são necessários para habilitar o link privado. Isso pode ser feito usando os seguintes guias de instruções.
 
-* [Azure portal](https://docs.microsoft.com/azure/mysql/howto-configure-privatelink-portal)
-* [CLI](https://docs.microsoft.com/azure/mysql/howto-configure-privatelink-cli)
+* [Azure portal](./howto-configure-privatelink-portal.md)
+* [CLI](./howto-configure-privatelink-cli.md)
 
 ### <a name="approval-process"></a>Processo de aprovação
 Depois que o administrador de rede cria o ponto de extremidade privado (PE), o administrador do MySQL pode gerenciar a conexão de ponto de extremidade privado (PEC) para o banco de dados do Azure para MySQL. Essa separação de tarefas entre o administrador de rede e o DBA é útil para o gerenciamento da conectividade do banco de dados do Azure para MySQL. 
@@ -68,38 +68,38 @@ Depois que o administrador de rede cria o ponto de extremidade privado (PE), o a
     * Mostra uma lista de todas as conexões de ponto de extremidade privado (PECs)
     * Ponto de extremidade particular correspondente (PE) criado
 
-![Selecione o portal de ponto de extremidade privado](media/concepts-data-access-and-security-private-link/select-private-link-portal.png)
+:::image type="content" source="media/concepts-data-access-and-security-private-link/select-private-link-portal.png" alt-text="Selecione o portal de ponto de extremidade privado":::
 
 * Selecione uma PEC individual na lista selecionando-a.
 
-![Selecione a aprovação de ponto de extremidade particular pendente](media/concepts-data-access-and-security-private-link/select-private-link.png)
+:::image type="content" source="media/concepts-data-access-and-security-private-link/select-private-link.png" alt-text="Selecione a aprovação de ponto de extremidade particular pendente":::
 
 * O administrador do servidor MySQL pode optar por aprovar ou rejeitar um PEC e, opcionalmente, adicionar uma resposta de texto curto.
 
-![Selecione a mensagem de ponto de extremidade particular](media/concepts-data-access-and-security-private-link/select-private-link-message.png)
+:::image type="content" source="media/concepts-data-access-and-security-private-link/select-private-link-message.png" alt-text="Selecione a mensagem de ponto de extremidade particular":::
 
 * Após a aprovação ou rejeição, a lista refletirá o estado apropriado junto com o texto de resposta
 
-![Selecione o estado final do ponto de extremidade privado](media/concepts-data-access-and-security-private-link/show-private-link-approved-connection.png)
+:::image type="content" source="media/concepts-data-access-and-security-private-link/show-private-link-approved-connection.png" alt-text="Selecione o estado final do ponto de extremidade privado":::
 
 ## <a name="use-cases-of-private-link-for-azure-database-for-mysql"></a>Casos de uso de link privado para o banco de dados do Azure para MySQL
 
 Os clientes podem se conectar ao ponto de extremidade privado da mesma VNet, rede virtual emparelhada na mesma região ou via conexão VNet a VNet entre regiões. Além disso, os clientes podem se conectar localmente usando o ExpressRoute, o emparelhamento privado ou o túnel de VPN. Veja abaixo um diagrama simplificado que mostra os casos de uso comuns.
 
-![Selecione a visão geral do ponto de extremidade privado](media/concepts-data-access-and-security-private-link/show-private-link-overview.png)
+:::image type="content" source="media/concepts-data-access-and-security-private-link/show-private-link-overview.png" alt-text="Selecione a visão geral do ponto de extremidade privado":::
 
 ### <a name="connecting-from-an-azure-vm-in-peered-virtual-network-vnet"></a>Como se conectar por meio de uma VM do Azure na VNET (Rede Virtual) emparelhada
-Configure o [emparelhamento VNet](https://docs.microsoft.com/azure/virtual-network/tutorial-connect-virtual-networks-powershell) para estabelecer a conectividade com o banco de dados do Azure para MySQL de uma VM do Azure em uma VNet emparelhada.
+Configure o [emparelhamento VNet](../virtual-network/tutorial-connect-virtual-networks-powershell.md) para estabelecer a conectividade com o banco de dados do Azure para MySQL de uma VM do Azure em uma VNet emparelhada.
 
 ### <a name="connecting-from-an-azure-vm-in-vnet-to-vnet-environment"></a>Como se conectar por meio de uma VM do Azure no ambiente VNET a VNET
-Configure a [conexão de gateway VPN de vnet para vnet](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal) para estabelecer a conectividade com um banco de dados do Azure para MySQL de uma VM do Azure em uma região ou assinatura diferente.
+Configure a [conexão de gateway VPN de vnet para vnet](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) para estabelecer a conectividade com um banco de dados do Azure para MySQL de uma VM do Azure em uma região ou assinatura diferente.
 
 ### <a name="connecting-from-an-on-premises-environment-over-vpn"></a>Como se conectar por meio de um ambiente local pela VPN
 Para estabelecer a conectividade de um ambiente local para o banco de dados do Azure para MySQL, escolha e implemente uma das opções:
 
-* [Conexão ponto a site](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps)
-* [Conexão VPN site a site](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell)
-* [Circuito do ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-howto-linkvnet-portal-resource-manager)
+* [Conexão ponto a site](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
+* [Conexão VPN site a site](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
+* [Circuito do ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md)
 
 ## <a name="private-link-combined-with-firewall-rules"></a>Link Privado combinado com regras de firewall
 
@@ -115,7 +115,7 @@ As seguintes situações e resultados são possíveis quando você usa o Link Pr
 
 Se você quiser confiar apenas nos pontos de extremidade privados para acessar seu banco de dados do Azure para MySQL, você pode desabilitar a configuração de todos os pontos de extremidade públicos (ou seja, [regras de firewall](concepts-firewall-rules.md) e pontos de extremidade de [serviço de VNet](concepts-data-access-and-security-vnet.md)) definindo a configuração de **acesso de rede pública Deny** no servidor de banco de dados. 
 
-Quando essa configuração é definida como *Sim*, somente as conexões por meio de pontos de extremidade privados são permitidas para o banco de dados do Azure para MySQL. Quando essa configuração é definida como *não*, os clientes podem se conectar ao banco de dados do Azure para MySQL com base em suas configurações de firewall ou ponto de extremidade de serviço de VNet. Além disso, quando o valor do acesso à rede privada é definido, os clientes não podem adicionar e/ou atualizar as existentes ' regras de firewall ' e ' regras de ponto de extremidade de serviço de VNet '.
+Quando essa configuração é definida como *Sim* , somente as conexões por meio de pontos de extremidade privados são permitidas para o banco de dados do Azure para MySQL. Quando essa configuração é definida como *não* , os clientes podem se conectar ao banco de dados do Azure para MySQL com base em suas configurações de firewall ou ponto de extremidade de serviço de VNet. Além disso, quando o valor do acesso à rede privada é definido, os clientes não podem adicionar e/ou atualizar as existentes ' regras de firewall ' e ' regras de ponto de extremidade de serviço de VNet '.
 
 > [!Note]
 > Esse recurso está disponível em todas as regiões do Azure em que o banco de dados do Azure para PostgreSQL-o servidor único dá suporte a tipos de preço Uso Geral e com otimização de memória.
@@ -128,11 +128,11 @@ Para saber como definir o **acesso de rede pública Deny** para seu banco de dad
 
 Para saber mais sobre os recursos de segurança do banco de dados do Azure para MySQL, confira os seguintes artigos:
 
-* Para configurar um firewall para o banco de dados do Azure para MySQL, consulte [suporte a firewall](https://docs.microsoft.com/azure/mysql/concepts-firewall-rules).
+* Para configurar um firewall para o banco de dados do Azure para MySQL, consulte [suporte a firewall](./concepts-firewall-rules.md).
 
-* Para saber como configurar um ponto de extremidade de serviço de rede virtual para o banco de dados do Azure para MySQL, consulte [Configurar o acesso de redes virtuais](https://docs.microsoft.com/azure/mysql/concepts-data-access-and-security-vnet).
+* Para saber como configurar um ponto de extremidade de serviço de rede virtual para o banco de dados do Azure para MySQL, consulte [Configurar o acesso de redes virtuais](./concepts-data-access-and-security-vnet.md).
 
-* Para obter uma visão geral do banco de dados do Azure para conectividade MySQL, consulte [arquitetura de conectividade do banco de dados do Azure para MySQL](https://docs.microsoft.com/azure/mysql/concepts-connectivity-architecture)
+* Para obter uma visão geral do banco de dados do Azure para conectividade MySQL, consulte [arquitetura de conectividade do banco de dados do Azure para MySQL](./concepts-connectivity-architecture.md)
 
 <!-- Link references, to text, Within this same GitHub repo. -->
 [resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: tanning
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5043873b18f2d2115fd23e8b52959290393bfb8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: df70891ef090d44769aadbc235273e3193bc780e
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85604532"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837202"
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Solucionando problemas de configurações do Enterprise State Roaming no Azure Active Directory
 
@@ -76,11 +76,11 @@ O Enterprise State Roaming requer que o dispositivo seja registrado com o AD do 
 
 ## <a name="enterprise-state-roaming-and-multi-factor-authentication"></a>Enterprise State Roaming e Autenticação Multifator 
 
-Em determinadas condições, o Roaming de Estado de Empresa poderá não sincronizar dados se a Autenticação Multifator do Azure estiver configurada. Para obter mais informações sobre esses sintomas, consulte o documento de suporte [KB3193683](https://support.microsoft.com/kb/3193683). 
+Em determinadas condições, Enterprise State Roaming pode falhar ao sincronizar dados se a autenticação multifator do Azure AD estiver configurada. Para obter mais informações sobre esses sintomas, consulte o documento de suporte [KB3193683](https://support.microsoft.com/kb/3193683). 
 
-**Possível problema**: se o dispositivo estiver configurado para exigir Autenticação Multifator no portal do Azure Active Directory, você talvez não consiga sincronizar configurações ao entrar em um dispositivo com Windows 10 usando uma senha. Esse tipo de configuração de Autenticação Multifator destina-se a proteger uma conta de administrador do Azure. Os usuários administradores talvez ainda possam executar a sincronização entrando em seus dispositivos Windows 10 com o PIN do Microsoft Passport for Work ou concluindo a Autenticação Multifator durante o acesso a outros serviços do Azure, como o Office 365.
+**Possível problema**: se o dispositivo estiver configurado para exigir Autenticação Multifator no portal do Azure Active Directory, você talvez não consiga sincronizar configurações ao entrar em um dispositivo com Windows 10 usando uma senha. Esse tipo de configuração de Autenticação Multifator destina-se a proteger uma conta de administrador do Azure. Os usuários administradores ainda podem ser capazes de sincronizar entrando em seus dispositivos Windows 10 com seu Microsoft Passport for Work PIN ou concluindo a autenticação multifator ao acessar outros serviços do Azure, como Microsoft 365.
 
-**Possível problema**: a sincronização poderá falhar se o administrador configurar a política de acesso condicional da autenticação multifator serviços de Federação do Active Directory (AD FS) e o token de acesso no dispositivo expirar. Certifique-se de entrar e sair usando o PIN do Microsoft Passport for Work ou conclua a Autenticação Multifator durante o acesso a outros serviços do Azure, como o Office 365.
+**Possível problema**: a sincronização poderá falhar se o administrador configurar a política de acesso condicional da autenticação multifator serviços de Federação do Active Directory (AD FS) e o token de acesso no dispositivo expirar. Certifique-se de entrar e sair usando o Microsoft Passport for Work PIN ou concluir a autenticação multifator ao acessar outros serviços do Azure, como Microsoft 365.
 
 ### <a name="event-viewer"></a>Visualizador de Eventos
 
@@ -108,10 +108,10 @@ Verifique se o cliente v1511 do Windows 10 tem a atualização cumulativa de jul
 
 ### <a name="theme-is-not-syncing-as-well-as-data-protected-with-windows-information-protection"></a>O tema não está sincronizando, assim como os dados protegidos com a Proteção de Informações do Windows 
 
-Para evitar o vazamento de dados, os dados protegidos com a [proteção de informações do Windows](https://technet.microsoft.com/itpro/windows/keep-secure/protect-enterprise-data-using-wip) não serão sincronizados por meio do Enterprise State roaming para dispositivos que usam a atualização de aniversário do Windows 10.
+Para evitar o vazamento de dados, os dados protegidos com a [proteção de informações do Windows](/windows/security/information-protection/windows-information-protection/protect-enterprise-data-using-wip) não serão sincronizados por meio do Enterprise State roaming para dispositivos que usam a atualização de aniversário do Windows 10.
 
 **Ação recomendada**  
-Nenhum. Atualizações futuras do Windows poderão resolver esse problema.
+nenhuma. Atualizações futuras do Windows poderão resolver esse problema.
 
 ---
 
@@ -120,7 +120,7 @@ Nenhum. Atualizações futuras do Windows poderão resolver esse problema.
 Dispositivos associados ao domínio não passarão pela sincronização para a configuração de data, hora e região: horário automático. O uso do horário automático pode substituir as configurações de data, hora e região e fazer com que essas configurações não sincronizem. 
 
 **Ação recomendada**  
-Nenhum. 
+nenhuma. 
 
 ---
 
@@ -138,7 +138,7 @@ Verifique se o cliente v1511 do Windows 10 tem a atualização cumulativa ([KB31
 Se você tentar entrar em seu dispositivo Windows usando um cartão inteligente ou um cartão inteligente Virtual, a sincronização das configurações vai parar de funcionar.     
 
 **Ação recomendada**  
-Nenhum. Atualizações futuras do Windows poderão resolver esse problema.
+nenhuma. Atualizações futuras do Windows poderão resolver esse problema.
 
 ---
 

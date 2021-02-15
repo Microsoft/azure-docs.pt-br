@@ -1,7 +1,7 @@
 ---
 title: Diagnóstico de desempenho de máquinas virtuais do Azure | Microsoft Docs
 description: Apresenta o Diagnóstico de Desempenho do Azure para Windows.
-services: virtual-machines-windows'
+services: virtual-machines-windows
 documentationcenter: ''
 author: anandhms
 manager: cshepard
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 9/20/2018
 ms.author: anandh
-ms.openlocfilehash: 16be3d1695608165405a3490b686a01ba6a2a62c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 70d1a52ff3326fcd3a628cc7f0f9d91edc9274e7
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "70080609"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97655383"
 ---
 # <a name="performance-diagnostics-for-azure-virtual-machines"></a>Diagnóstico de desempenho de máquinas virtuais do Azure
 
@@ -33,18 +33,35 @@ Você pode executar o diagnóstico de desempenho diretamente do portal do Azure,
 
 ### <a name="windows"></a>Windows
 
-Windows 10, Windows 8, Windows 8 Enterprise, Windows 8 Pro, Windows 8.1, Windows Server 2016, Windows Server 2012, Windows Server 2012 Datacenter, Windows Server 2012 R2, Windows Server 2012 R2 Datacenter, Windows Server 2012 R2 Standard, Windows Server 2012 Standard, Windows Server 2008 R2, Windows Server 2008 R2 Datacenter, Windows Server 2008 R2 Enterprise, Windows Server 2008 R2 Foundation, Windows Server 2008 R2 SP1, Windows Server 2008 R2 Standard.
+* Windows Server 2019
+* Windows Server 2016
+* Windows Server 2012 R2
+* Windows Server 2012
+* Windows Server 2008 R2
+* Windows 10
+* Windows 8.1
+* Windows 8
 
 ### <a name="linux"></a>Linux
 
-Oracle Linux Server 6,10 [ `*` ], 7,3, 7,6, 7,5 (Oracle-Database-Ee 13,8 imagem do Marketplace), CentOS 6,5 [ `*` ], 7,6, RHEL 7,2, 7,5, 8,0 [ `*` ], Ubuntu 14, 4, 16, 4, 18, 4, Debian 8, 9, 10 [ `*` ], SLES 12 SP4 [ `*` ]
+- Atualmente, há suporte para as seguintes distribuições:
+
+    | Distribuição               | Versão                                         |
+    |----------------------------|-------------------------------------------------|
+    | Servidor de Oracle Linux        | 6,10 [ `*` ], 7,3, 7,5, 7,6, 7,7, 7,8 |
+    | CentOS                     | 6,5 [ `*` ], 7,6, 7,7, 7,8                                    |
+    | RHEL                       | 7,2, 7,5, 8,0 [ `*` ], 8,1, 8,2                               |
+    | Ubuntu                     | 14, 4, 16, 4, 18, 4, 20, 4                               |
+    | Debian                     | 8, 9, 10 [ `*` ]                                    |
+    | SLES                       | 12 SP4 [ `*` ], 12 SP5 [ `*` ], 15 [ `*` ], 15 SP1 [ `*` ], 15 SP2 [ `*` ]                                      |
+    |                            |                                                   |
 
 >[!Note]
 >[ `*` ] Consulte os [problemas conhecidos](how-to-use-perfinsights-linux.md#known-issues)
 
 ## <a name="install-and-run-performance-diagnostics-on-your-vm"></a>Instalar e executar o diagnóstico de desempenho em sua VM
 
-O diagnóstico de desempenho instala uma extensão de VM que executa uma ferramenta de diagnóstico denominada PerfInsights. O PerfInsights está disponível para [Windows](https://aka.ms/perfinsights) e [Linux](https://aka.ms/perfinsightslinux). Para instalar e executar o diagnóstico de desempenho, siga estas etapas:
+O diagnóstico de desempenho instala uma extensão de VM que executa uma ferramenta de diagnóstico denominada PerfInsights. O PerfInsights está disponível para [Windows](./how-to-use-perfinsights.md) e [Linux](./how-to-use-perfinsights-linux.md). Para instalar e executar o diagnóstico de desempenho, siga estas etapas:
 
 1. Na coluna de comandos esquerda, selecione **Máquinas virtuais**.
 1. Na lista de nomes de VM, selecione a VM em que você deseja executar o diagnóstico.
@@ -74,16 +91,16 @@ O diagnóstico de desempenho instala uma extensão de VM que executa uma ferrame
 Os cenários de análise a seguir estão disponíveis no portal do Azure. Selecione uma análise dependendo do problema de desempenho que você está enfrentando. Selecione as opções de rastreamento e de duração conforme necessário para a análise.
 
 * **Análise rápida de desempenho**  
-    Verifica se há problemas conhecidos, analisa as práticas recomendadas e coleta dados de diagnóstico. Essa análise leva vários minutos para ser executada. Saiba mais [Windows](https://aka.ms/perfinsights/quick) ou [Linux](https://aka.ms/perfinsightslinux/quick)
+    Verifica se há problemas conhecidos, analisa as práticas recomendadas e coleta dados de diagnóstico. Essa análise leva vários minutos para ser executada. Saiba mais [Windows](./how-to-use-perfinsights.md) ou [Linux](./how-to-use-perfinsights-linux.md)
 
 * **Análise de desempenho**  
-    Inclui todas as verificações na análise de desempenho rápido e monitora o alto consumo de recursos. Use esta versão para solucionar problemas de desempenho geral, como alta utilização da CPU, memória e uso do disco. Essa análise demora 30 segundos para 15 minutos, dependendo da duração selecionada. Saiba mais [Windows](https://aka.ms/perfinsights/vmslow) ou [Linux](https://aka.ms/perfinsightslinux/vmslow)
+    Inclui todas as verificações na análise de desempenho rápido e monitora o alto consumo de recursos. Use esta versão para solucionar problemas de desempenho geral, como alta utilização da CPU, memória e uso do disco. Essa análise demora 30 segundos para 15 minutos, dependendo da duração selecionada. Saiba mais [Windows](./how-to-use-perfinsights.md) ou [Linux](./how-to-use-perfinsights-linux.md)
 
 * **Análise de desempenho avançada**`*`  
-    Inclui todas as verificações na análise de desempenho e coleta de um ou mais dos rastreamentos conforme listado nas seções a seguir. Use este cenário para solucionar problemas complexos que exigem rastreamentos adicionais. Executar esse cenário por períodos mais longos aumentará o tamanho geral da saída de diagnóstico, dependendo do tamanho da VM e das opções de rastreamento selecionadas. Essa análise demora 30 segundos para 15 minutos para ser executada, dependendo da duração selecionada. [Saiba mais](https://aka.ms/perfinsights/advanced)
+    Inclui todas as verificações na análise de desempenho e coleta de um ou mais dos rastreamentos conforme listado nas seções a seguir. Use este cenário para solucionar problemas complexos que exigem rastreamentos adicionais. Executar esse cenário por períodos mais longos aumentará o tamanho geral da saída de diagnóstico, dependendo do tamanho da VM e das opções de rastreamento selecionadas. Essa análise demora 30 segundos para 15 minutos para ser executada, dependendo da duração selecionada. [Saiba mais](./how-to-use-perfinsights.md)
 
 * **Análise de arquivos do Azure**`*`  
-    Inclui todas as verificações na análise de desempenho e captura um rastreamento de rede e contadores de SMB. Use este cenário para solucionar problemas de desempenho de Arquivos do Azure. Essa análise demora 30 segundos para 15 minutos para ser executada, dependendo da duração selecionada. [Saiba mais](https://aka.ms/perfinsights/azurefiles)
+    Inclui todas as verificações na análise de desempenho e captura um rastreamento de rede e contadores de SMB. Use este cenário para solucionar problemas de desempenho de Arquivos do Azure. Essa análise demora 30 segundos para 15 minutos para ser executada, dependendo da duração selecionada. [Saiba mais](./how-to-use-perfinsights.md)
 
 >[!Note]
 >[ `*` ] Esses cenários de análise só têm suporte no Windows.

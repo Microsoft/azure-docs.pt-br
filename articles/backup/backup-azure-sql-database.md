@@ -3,12 +3,12 @@ title: Fazer backup de bancos de dados do SQL Server para o Azure
 description: Este artigo explica como fazer backup do SQL Server para o Azure. O artigo também explica a recuperação do SQL Server.
 ms.topic: conceptual
 ms.date: 06/18/2019
-ms.openlocfilehash: d8cdafe215d9271151d8dacee114d40108e907bd
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 510d9637031928e31abaa5f82a5bf58c6ef44719
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892432"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91316827"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Sobre o Backup do SQL Server nas VMs do Azure
 
@@ -33,7 +33,7 @@ Essa solução aproveita as APIs nativas do SQL para fazer backups dos bancos de
 * O plug-in envia os dados diretamente para o cofre dos serviços de recuperação, eliminando assim a necessidade de um local de preparo. Os dados são criptografados e armazenados pelo serviço de Backup do Microsoft Azure em contas de armazenamento.
 * Quando a transferência de dados for concluída, o coordenador confirma com o serviço de backup.
 
-  ![Arquitetura de backup SQL](./media/backup-azure-sql-database/backup-sql-overview.png)
+  ![Arquitetura de backup SQL](./media/backup-azure-sql-database/azure-backup-sql-overview.png)
 
 ## <a name="before-you-start"></a>Antes de começar
 
@@ -66,11 +66,11 @@ Para todas as outras versões, corrija as permissões com as seguintes etapas:
 
       ![Na caixa de diálogo Logon – Novo, selecione Pesquisar](./media/backup-azure-sql-database/new-login-search.png)
 
-  4. A conta de serviço virtual do Windows **NT SERVICE\AzureWLBackupPluginSvc** foi criada durante a fase de descoberta do SQL e do registro da máquina virtual. Insira o nome da conta, conforme mostrado em **Inserir o nome do objeto a ser selecionado**. Selecione **Verificar Nomes** para resolver o nome. Clique em **OK**.
+  4. A conta de serviço virtual do Windows **NT SERVICE\AzureWLBackupPluginSvc** foi criada durante a fase de descoberta do SQL e do registro da máquina virtual. Insira o nome da conta, conforme mostrado em **Inserir o nome do objeto a ser selecionado**. Selecione **Verificar Nomes** para resolver o nome. Selecione **OK**.
 
       ![Selecione Verificar Nomes para resolver o nome de serviço desconhecido](./media/backup-azure-sql-database/check-name.png)
 
-  5. Em **Funções de Servidor**, verifique se a função **sysadmin** está selecionada. Clique em **OK**. As permissões necessárias agora devem existir.
+  5. Em **Funções de Servidor**, verifique se a função **sysadmin** está selecionada. Selecione **OK**. As permissões necessárias agora devem existir.
 
       ![Verifique se a função de servidor sysadmin está selecionada](./media/backup-azure-sql-database/sysadmin-server-role.png)
 
@@ -91,23 +91,23 @@ Adicione logins do **NT AUTHORITY\SYSTEM** e do **NT Service\AzureWLBackupPlugin
 
 1. Vá até a instância do SQL Server no Pesquisador de Objetos.
 2. Navegue até Segurança -> Logons
-3. Clique com o botão direito do mouse em Logons e clique em *Novo Logon…*
+3. Clique com o botão direito do mouse em logons e selecione *novo logon...*
 
     ![Novo logon usando o SSMS](media/backup-azure-sql-database/sql-2k8-new-login-ssms.png)
 
 4. Vá até a guia Geral e insira **NT AUTHORITY\SYSTEM** como o nome de logon.
 
-    ![nome de logon para o SSMS](media/backup-azure-sql-database/sql-2k8-nt-authority-ssms.png)
+    ![Nome de logon do SSMS](media/backup-azure-sql-database/sql-2k8-nt-authority-ssms.png)
 
 5. Vá até *Funções de Servidor* e escolha as funções *public* e *sysadmin*.
 
-    ![escolhendo funções no SSMS](media/backup-azure-sql-database/sql-2k8-server-roles-ssms.png)
+    ![Escolhendo funções no SSMS](media/backup-azure-sql-database/sql-2k8-server-roles-ssms.png)
 
 6. Vá até *Status*. *Conceda* a permissão para conectar ao mecanismo de banco de dados e faça logon como *Habilitado*.
 
     ![Conceder permissões no SSMS](media/backup-azure-sql-database/sql-2k8-grant-permission-ssms.png)
 
-7. Clique em OK.
+7. Selecione OK.
 8. Repita a mesma sequência de etapas (de 1 a 7 acima) para adicionar o logon de NT Service\AzureWLBackupPluginSvc à instância do SQL Server. Se o logon já existe, verifique se tem a função de servidor sysadmin e, em Status, se tem a permissão de concessão para se conectar ao mecanismo de banco de dados e faça logon como Habilitado.
 9. Depois de conceder a permissão, **redescubra os bancos** de trabalho no Portal: **->** backup do cofre infraestrutura **->** de carga em VM do Azure:
 

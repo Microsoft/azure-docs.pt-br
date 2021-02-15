@@ -9,13 +9,13 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
-ms.custom: devx-track-ansible
-ms.openlocfilehash: 8e34f73f1c403e3a7d21c6c30844f8b9073b3113
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.custom: devx-track-ansible, devx-track-azurecli
+ms.openlocfilehash: dd967ad08b628f9073edfe548033f7e97845d047
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373565"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016056"
 ---
 # <a name="post-deployment-tasks"></a>Tarefas de pós-implantação
 
@@ -68,7 +68,7 @@ Se o comando for bem-sucedido, você obterá uma saída JSON semelhante a esta:
 
 Anote a propriedade appId retornada do comando para uma etapa posterior.
 
-No portal do Azure:
+No Portal do Azure:
 
 1. Selecione **Azure Active Directory**  >  **registro de aplicativo**.
 2. Pesquise o Registro do seu aplicativo (ex: OCPAzureAD).

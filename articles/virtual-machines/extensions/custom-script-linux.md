@@ -3,23 +3,24 @@ title: Executar extensão de script personalizado em VMs do Linux no Azure
 description: Automatizar tarefas de configuração de VM do Linux usando a Extensão de Script Personalizado v2
 services: virtual-machines-linux
 documentationcenter: ''
-author: mimckitt
+author: amjads1
 manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: cf17ab2b-8d7e-4078-b6df-955c6d5071c2
 ms.service: virtual-machines-linux
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
-ms.author: mimckitt
-ms.openlocfilehash: 367116948034fd4bedbeec15e655a09b179865d6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.author: amjads
+ms.openlocfilehash: 5ab312dc6da57279ce5cbd4d8efd7912b8a36503
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87085717"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100390106"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>Usar a Versão 2 da Extensão de Script Personalizado do Azure com máquinas virtuais do Linux
 A Versão 2 da Extensão de Script Personalizado baixa e executa scripts em máquinas virtuais do Azure. Essa extensão é útil para a configuração de implantação de postagem, instalação de software ou qualquer outra configuração/tarefa de gerenciamento. Você pode fazer o download de scripts a partir do Armazenamento do Microsoft Azure ou outro local acessível da internet, ou você pode fornecê-los para o runtime da extensão. 
@@ -45,7 +46,7 @@ A extensão de script personalizado para Linux será executada na extensão do s
 Você pode utilizar a extensão para usar suas credenciais do Armazenamento de Blobs do Azure para acessar esse armazenamento. Como alternativa, o local do script pode ser qualquer lugar, desde que a VM possa rotear para esse ponto de extremidade, como GitHub, servidor de arquivos interno, etc.
 
 ### <a name="internet-connectivity"></a>Conectividade com a Internet
-Se você precisar fazer o download um script externamente, como do GitHub ou do Armazenamento do Azure, será necessário abrir portas adicionais do firewall ou do Grupo de Segurança de Rede. Por exemplo, se o seu script estiver localizado no armazenamento do Azure, você poderá permitir o acesso usando as marcas do serviço NSG do Azure para [armazenamento](../../virtual-network/security-overview.md#service-tags).
+Se você precisar fazer o download um script externamente, como do GitHub ou do Armazenamento do Azure, será necessário abrir portas adicionais do firewall ou do Grupo de Segurança de Rede. Por exemplo, se o seu script estiver localizado no armazenamento do Azure, você poderá permitir o acesso usando as marcas do serviço NSG do Azure para [armazenamento](../../virtual-network/network-security-groups-overview.md#service-tags).
 
 Se o script estiver em um servidor local, ainda poderá ser necessário abrir portas adicionais do firewall ou do Grupo de Segurança de Rede.
 
@@ -55,9 +56,10 @@ Se o script estiver em um servidor local, ainda poderá ser necessário abrir po
 * Verifique se os scripts não exigem entrada do usuário quando são executados.
 * É permitido que o script seja executado em até 90 minutos. Um período mais longo resultará em falha na provisão da extensão.
 * Não coloque reinicializações no script, pois isso causará problemas com outras extensões que estão sendo instaladas e, após a reinicialização, a extensão será interrompida. 
+* Não é recomendável executar um script que causará uma parada ou atualização do agente de VM. Isso pode deixar a extensão em um estado de transição e levar a um tempo limite.
 * Se você tiver um script que causará uma reinicialização, instale aplicativos e execute scripts, etc. Você deve agendar a reinicialização usando um trabalho cron ou usando ferramentas como DSC, ou chefe, Puppet Extensions.
 * A extensão executará um script somente uma vez. Se quiser executar um script em cada inicialização, então você poderá usar [imagem de inicialização de nuvem](../linux/using-cloud-init.md) e um módulo [Scripts Por Inicialização](https://cloudinit.readthedocs.io/en/latest/topics/modules.html#scripts-per-boot). Como alternativa, você pode usar o script para criar uma unidade de serviço do sistema.
-* Você só pode ter uma versão de uma extensão aplicada à VM. Para executar um segundo script personalizado, você precisa remover a extensão de script personalizado e reaplicá-la novamente com o script atualizado. 
+* Você só pode ter uma versão de uma extensão aplicada à VM. Para executar um segundo script personalizado, você pode atualizar a extensão existente com a nova configuração. Como alternativa, você pode remover a extensão de script personalizado e reaplicá-la novamente com o script atualizado.
 * Se quiser agendar quando um script será executado, você deverá usar a extensão para criar um trabalho Cron. 
 * Quando o script for executado, você só verá um status da extensão 'em transição' no portal do Azure ou no CLI. Se quiser atualizações de status mais frequentes de um script em execução, você precisará criar sua própria solução.
 * A extensão de script personalizado não dá suporte nativo a servidores proxy, no entanto, você pode usar uma ferramenta de transferência de arquivo que dá suporte a servidores proxy em seu script, como *ondulação*. 
@@ -118,7 +120,7 @@ Esses itens devem ser tratados como dados confidenciais e especificados na confi
 | type | CustomScript | string |
 | typeHandlerVersion | 2.1 | INT |
 | fileUris (por exemplo) | `https://github.com/MyProject/Archive/MyPythonScript.py` | matriz |
-| commandToExecute (por exemplo) | MyPythonScript.py Python\<my-param1> | string |
+| commandToExecute (por exemplo) | MyPythonScript.py Python \<my-param1> | string |
 | Script | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo= | string |
 | skipDos2Unix (exemplo) | false | booleano |
 | carimbo de data/hora (exemplo) | 123456789 | Inteiro de 32 bits |
@@ -127,7 +129,7 @@ Esses itens devem ser tratados como dados confidenciais e especificados na confi
 | managedIdentity (por exemplo) | { } ou { "clientId": "31b403aa-c364-4240-a7ff-d85fb6cd7232" } ou { "objectId": "12dd289c-0583-46e5-b9b4-115d5c19ef4b" } | objeto JSON |
 
 ### <a name="property-value-details"></a>Detalhes de valor de propriedade
-* `apiVersion`: O apiVersion mais atualizado pode ser encontrado usando o [Gerenciador de recursos](https://resources.azure.com/) ou de CLI do Azure usando o comando a seguir`az provider list -o json`
+* `apiVersion`: O apiVersion mais atualizado pode ser encontrado usando o [Gerenciador de recursos](https://resources.azure.com/) ou de CLI do Azure usando o comando a seguir `az provider list -o json`
 * `skipDos2Unix`: (opcional, booliano) ignore a conversão de dos2unix das URLs de arquivos baseado no script ou do script.
 * `timestamp`(opcional, inteiro de 32 bits) use este campo somente para disparar uma nova execução do script ao alterar o valor desse campo.  Qualquer valor inteiro é aceitável. Só deve ser diferente do valor anterior.
 * `commandToExecute`(**obrigatório** se o script não for definido, cadeia de caracteres) o script de ponto de entrada a ser executado. Use este campo se o comando tiver segredos, como senhas.

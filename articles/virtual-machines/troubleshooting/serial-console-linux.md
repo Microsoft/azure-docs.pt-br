@@ -1,6 +1,6 @@
 ---
 title: Console serial do Azure para Linux | Microsoft Docs
-description: Console serial bidirecional para máquinas virtuais do Azure e Conjuntos de Dimensionamento de Máquinas Virtuais.
+description: Bi-Directional console serial para máquinas virtuais do Azure e conjuntos de dimensionamento de máquinas virtuais usando um exemplo do Linux.
 services: virtual-machines-linux
 documentationcenter: ''
 author: asinn826
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: cacb517c783416994fa95bd0f6a6d15a95a52ab4
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 25e3a9cb363ae4e64b953aeb7a6da4e2e66c9fc7
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423449"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977091"
 ---
 # <a name="azure-serial-console-for-linux"></a>Console serial do Azure para Linux
 
@@ -73,7 +73,7 @@ Oracle Linux        | Acesso ao console serial habilitado por padrão.
 ### <a name="custom-linux-images"></a>Imagens personalizadas do Linux
 Para ativar o console serial para sua imagem customizada da VM Linux, ative o acesso ao console no arquivo */ etc / inittab* para executar um terminal em`ttyS0`. Por exemplo: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`. Talvez você também precise gerar um Getty em ttyS0. Isso pode ser feito com `systemctl start serial-getty@ttyS0.service` .
 
-Você também vai querer adicionar ttyS0 como o destino para a saída serial. Para obter mais informações sobre como configurar uma imagem personalizada para trabalhar com o console serial, consulte os requisitos gerais do sistema em [criar e carregar um VHD do Linux no Azure](https://aka.ms/createuploadvhd#general-linux-system-requirements).
+Você também vai querer adicionar ttyS0 como o destino para a saída serial. Para obter mais informações sobre como configurar uma imagem personalizada para trabalhar com o console serial, consulte os requisitos gerais do sistema em [criar e carregar um VHD do Linux no Azure](../linux/create-upload-generic.md#general-linux-system-requirements).
 
 Se você está construindo um kernel personalizado, considere habilitar esses flags do kernel: `CONFIG_SERIAL_8250=y` e `CONFIG_MAGIC_SYSRQ_SERIAL=y`. O arquivo de configuração normalmente está localizado na */boot/* caminho.
 
@@ -128,45 +128,45 @@ Problema                           |   Atenuação
 Pressionando **Enter** depois que o banner de conexão não faz com que um prompt de login seja exibido. | O GRUB pode não estar configurado corretamente. Execute os seguintes comandos: `grub2-mkconfig -o /etc/grub2-efi.cfg` e/ou `grub2-mkconfig -o /etc/grub2.cfg` . Para mais informações, consulte [Hitting enter não faz nada](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Esse problema pode ocorrer se você estiver executando uma VM personalizada, um dispositivo protegido ou uma configuração do GRUB que faz com que o Linux falhe na conexão com a porta serial.
 O texto do console serial ocupa apenas uma parte do tamanho da tela (geralmente depois de usar um editor de texto). | Os consoles seriais não dão suporte à negociação do tamanho da janela ([RFC 1073](https://www.ietf.org/rfc/rfc1073.txt)), o que significa que nenhum sinal SIGWINCH será enviado para atualizar o tamanho da tela e a VM não saberá o tamanho do seu terminal. Instale o xterm ou um utilitário semelhante para fornecer o comando `resize` e, em seguida, execute `resize`.
 Colar longas cadeias de caracteres não funciona. | O console serial limita o comprimento de cadeias de caracteres colados em terminal a 2048 caracteres para impedir a sobrecarga da largura de banda de porta serial.
-Entrada de teclado irregular em imagens SLES BYOS. A entrada do teclado é reconhecida apenas esporadicamente. | Isso é um problema com o pacote Plymouth. Plymouth não deve ser executado no Azure porque você não precisa de uma tela inicial e Plymouth interfere na capacidade da plataforma de usar o console serial. Remova Plymouth com `sudo zypper remove plymouth` e reinicialize. Como alternativa, modifique a linha de kernel da configuração do GRUB anexando `plymouth.enable=0` ao final da linha. Você pode fazer isso [editando a entrada de inicialização no momento da inicialização](https://aka.ms/serialconsolegrub#single-user-mode-in-suse-sles)ou editando a linha de GRUB_CMDLINE_LINUX no `/etc/default/grub` , recriando o grub com `grub2-mkconfig -o /boot/grub2/grub.cfg` e reinicializando.
+Entrada de teclado irregular em imagens SLES BYOS. A entrada do teclado é reconhecida apenas esporadicamente. | Isso é um problema com o pacote Plymouth. Plymouth não deve ser executado no Azure porque você não precisa de uma tela inicial e Plymouth interfere na capacidade da plataforma de usar o console serial. Remova Plymouth com `sudo zypper remove plymouth` e reinicialize. Como alternativa, modifique a linha de kernel da configuração do GRUB anexando `plymouth.enable=0` ao final da linha. Você pode fazer isso [editando a entrada de inicialização no momento da inicialização](./serial-console-grub-single-user-mode.md#single-user-mode-in-suse-sles)ou editando a linha de GRUB_CMDLINE_LINUX no `/etc/default/grub` , recriando o grub com `grub2-mkconfig -o /boot/grub2/grub.cfg` e reinicializando.
 
 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
 **P. Como posso enviar comentários?**
 
-A. Fornecer comentários com a criação de um problema do GitHub em https://aka.ms/serialconsolefeedback. Como alternativa (menos preferencial), você pode enviar comentários por meio azserialhelp@microsoft.com ou na categoria da máquina virtual https://feedback.azure.com.
+a. Fornecer comentários com a criação de um problema do GitHub em https://aka.ms/serialconsolefeedback. Como alternativa (menos preferencial), você pode enviar comentários por meio azserialhelp@microsoft.com ou na categoria da máquina virtual https://feedback.azure.com.
 
 **P. O console serial dá suporte para copiar/colar?**
 
-A. Sim. Use **Ctrl**+**Shift**+**C** e **Ctrl**+**Shift**+**V** para copiar e colar no terminal.
+a. Sim. Use **Ctrl**+**Shift**+**C** e **Ctrl**+**Shift**+**V** para copiar e colar no terminal.
 
-**P. posso usar o console serial em vez de uma conexão SSH?**
+**Perguntas. Posso usar o console serial em vez de uma conexão SSH?**
 
-A. Embora esse uso possa parecer tecnicamente possível, o console serial deve ser usado principalmente como uma ferramenta de solução de problemas em situações em que a conectividade via SSH não é possível. Recomendamos não usar o console serial como substituto de SSH pelos seguintes motivos:
+a. Embora esse uso possa parecer tecnicamente possível, o console serial deve ser usado principalmente como uma ferramenta de solução de problemas em situações em que a conectividade via SSH não é possível. Recomendamos não usar o console serial como substituto de SSH pelos seguintes motivos:
 
 - O console serial não possui muita largura de banda como o SSH. Como é uma conexão somente de texto, mais interações com GUI são difíceis.
 - O acesso ao console serial é atualmente possível apenas usando um nome de usuário e senha. Como as chaves SSH são muito mais seguras do que combinações de nome de usuário / senha, do ponto de vista da segurança de login, recomendamos o SSH no console serial.
 
-**P. quem pode habilitar ou desabilitar o console serial para minha assinatura?**
+**Perguntas. Quem pode habilitar ou desabilitar o console serial para minha assinatura?**
 
-A. Para ativar ou desativar o console serial em um nível de assinatura, você deve ter permissões de gravação para a assinatura. As funções que têm permissão de gravação incluem funções de administrador ou proprietário. Funções personalizadas também podem ter permissões de gravação.
+a. Para ativar ou desativar o console serial em um nível de assinatura, você deve ter permissões de gravação para a assinatura. As funções que têm permissão de gravação incluem funções de administrador ou proprietário. Funções personalizadas também podem ter permissões de gravação.
 
-**P. quem pode acessar o console serial do meu conjunto de dimensionamento de máquinas virtuais/VM?**
+**Perguntas. Quem pode acessar o console serial do meu conjunto de dimensionamento de máquinas virtuais/VM?**
 
-A. Você deve ter a função colaborador da máquina virtual ou superior para uma VM ou conjunto de dimensionamento de máquinas virtuais para acessar o console serial.
+a. Você deve ter a função colaborador da máquina virtual ou superior para uma VM ou conjunto de dimensionamento de máquinas virtuais para acessar o console serial.
 
 **P. Meu console serial não está exibindo nada, o que eu faço?**
 
-A. Sua imagem provavelmente não está configurada corretamente para acesso ao console serial. Para obter informações sobre como configurar sua imagem para ativar o console serial, consulte [Disponibilidade de distribuição Linux do console serial](#serial-console-linux-distribution-availability).
+a. Sua imagem provavelmente não está configurada corretamente para acesso ao console serial. Para obter informações sobre como configurar sua imagem para ativar o console serial, consulte [Disponibilidade de distribuição Linux do console serial](#serial-console-linux-distribution-availability).
 
 **P. O console serial está disponível para conjuntos de escala de máquinas virtuais?**
 
 a. Sim. Confira [Console serial para Conjuntos de Dimensionamento de Máquinas Virtuais](serial-console-overview.md#serial-console-for-virtual-machine-scale-sets)
 
-**P. se eu configuro minha VM ou conjunto de dimensionamento de máquinas virtuais usando apenas a autenticação de chave SSH, ainda posso usar o console serial para se conectar à minha instância de VM/conjunto de dimensionamento de máquinas virtuais?**
+**Perguntas. Se eu configurar minha VM ou conjunto de dimensionamento de máquinas virtuais usando apenas a autenticação de chave SSH, ainda poderei usar o console serial para se conectar à minha instância de VM/conjunto de dimensionamento de máquinas virtuais?**
 
-A. Sim. Como o console serial não requer chaves SSH, você só precisa configurar uma combinação de nome de usuário / senha. Você pode fazer isso selecionando **Redefinir senha** no portal do Azure e usando essas credenciais para entrar no console serial.
+a. Sim. Como o console serial não requer chaves SSH, você só precisa configurar uma combinação de nome de usuário / senha. Você pode fazer isso selecionando **Redefinir senha** no portal do Azure e usando essas credenciais para entrar no console serial.
 
 ## <a name="next-steps"></a>Próximas etapas
 * Use o console serial para [acessar o GRUB e o modo de usuário único](serial-console-grub-single-user-mode.md).

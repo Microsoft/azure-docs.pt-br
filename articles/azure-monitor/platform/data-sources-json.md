@@ -1,17 +1,17 @@
 ---
-title: Coletando dados JSON personalizados no Azure Monitor | Microsoft Docs
+title: Coletando fontes de dados JSON personalizadas com o agente do Log Analytics para Linux no Azure Monitor
 description: As fontes de dados JSON personalizadas podem ser coletadas no Azure Monitor usando o agente do Log Analytics para Linux.  Essas fontes de dados personalizados podem ser scripts simples retornando JSON, assim como curl ou um dos mais de 300 plug-ins do FluentD. Este artigo descreve a configuração necessária para essa coleta de dados.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
-ms.openlocfilehash: 407257dbe9fbfa560153d5044263fc4c947cb05c
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: aa6931fc91838173a856ef500145fa49f2606271
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86111925"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97655196"
 ---
 # <a name="collecting-custom-json-data-sources-with-the-log-analytics-agent-for-linux-in-azure-monitor"></a>Coletando fontes de dados JSON personalizadas com o agente do Log Analytics para Linux no Azure Monitor
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
@@ -96,8 +96,8 @@ Fontes de dados JSON aninhados têm suporte, mas são indexadas sem se basear no
 ```json
 {
     "tag": [{
-        "a":"1",
-        "b":"2"
+      "a":"1",
+      "b":"2"
     }]
 }
 ```

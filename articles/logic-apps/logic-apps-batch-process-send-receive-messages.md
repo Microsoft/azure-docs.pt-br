@@ -9,10 +9,10 @@ ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: article
 ms.date: 07/31/2020
 ms.openlocfilehash: 0985afe3ddfd0d9de3c36ad6b030b6f259708c88
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87458174"
 ---
 # <a name="send-receive-and-batch-process-messages-in-azure-logic-apps"></a>Enviar, receber e processar em lote mensagens nos Aplicativos Lógicos do Azure
@@ -48,7 +48,7 @@ O receptor do lote e o remetente do lote precisam compartilhar a mesma assinatur
 
 Antes de enviar mensagens para um lote, esse lote deverá existir primeiro como o destino para o qual essas mensagens serão enviadas. Portanto, primeiro, é necessário criar o aplicativo lógico "receptor do lote" que inicia com o gatilho do **Lote**. Dessa forma, ao criar o aplicativo lógico "remetente do lote", será possível selecionar o aplicativo lógico do receptor do lote. O receptor do lote continuará coletando mensagens até que seus critérios especificados sejam atendidos para liberar e processar essas mensagens. Embora os receptores dos lotes não precisem saber nada sobre os remetentes dos lotes, os remetentes dos lotes deverão saber o destino para onde enviarão as mensagens.
 
-1. No [portal do Azure](https://portal.azure.com) ou no Visual Studio, crie um aplicativo lógico com este nome:`BatchReceiver`
+1. No [portal do Azure](https://portal.azure.com) ou no Visual Studio, crie um aplicativo lógico com este nome: `BatchReceiver`
 
 1. No designer de aplicativo lógico, adicione o gatilho de **lote** , que inicia o fluxo de trabalho do aplicativo lógico. Na caixa de pesquisa, insira `batch` e selecione este gatilho: **mensagens em lotes**
 
@@ -126,7 +126,7 @@ Agora crie um ou mais aplicativos de lógica de remetente em lote que enviem men
 
 * Verifique se o destinatário do lote e o remetente do lote compartilham a mesma região do Azure *e* a assinatura do Azure. Caso contrário, não será possível selecionar o receptor do lote ao criar o remetente do lote porque não estarão visíveis um para o outro.
 
-1. Crie outro aplicativo lógico com este nome:`BatchSender`
+1. Crie outro aplicativo lógico com este nome: `BatchSender`
 
    1. Na caixa de pesquisa, insira `recurrence` como o filtro. Na lista de gatilhos, selecione este gatilho: **Recorrência**
 

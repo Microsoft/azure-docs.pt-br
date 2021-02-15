@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/31/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 5528607b0559dad246262748c83c9d359ee2144e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c362ce256259606c85af0a7e13ccde1715bb012b
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85385732"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953926"
 ---
 # <a name="migrate-an-owin-based-web-api-to-b2clogincom"></a>Migrar uma API Web baseada em OWIN para b2clogin.com
 
@@ -73,7 +73,7 @@ Se você tiver políticas personalizadas em vez de fluxos de usuário, poderá u
 1. Registrar o `issuer` valor
 1. Execute as etapas 4-6 para o outro domínio, por exemplo, *login.microsoftonline.com*
 
-## <a name="get-the-sample-code"></a>Obter o código de exemplo
+## <a name="get-the-sample-code"></a>Obter o código de amostra
 
 Agora que você tem os dois URIs de ponto de extremidade de token, você precisa atualizar seu código para especificar que ambos os pontos de extremidades sejam emissores válidos. Para percorrer um exemplo, baixe ou clone o aplicativo de exemplo e, em seguida, atualize o exemplo para dar suporte a ambos os pontos de extremidade como emissores válidos.
 
@@ -88,7 +88,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-an
 Nesta seção, você atualiza o código para especificar que ambos os pontos de extremidade do emissor do token sejam válidos.
 
 1. Abra a solução **B2C-WebAPI-dotnet. sln** no Visual Studio
-1. No projeto **TaskService** , abra o arquivo *TaskService \\ App_Start \\ * * Startup.auth.cs** * em seu editor
+1. No projeto **TaskService** , abra o arquivo * TaskService \\ App_Start \\ **Startup.auth.cs** _ em seu editor
 1. Adicione a seguinte `using` diretiva à parte superior do arquivo:
 
     `using System.Collections.Generic;`
@@ -107,7 +107,7 @@ Nesta seção, você atualiza o código para especificar que ambos os pontos de 
     };
     ```
 
-`TokenValidationParameters`é fornecido pelo MSAL.NET e é consumido pelo middleware OWIN na próxima seção do código em *Startup.auth.cs*. Com vários emissores válidos especificados, o pipeline de aplicativo do OWIN é informado de que os dois pontos de extremidade do token são emissores válidos.
+`TokenValidationParameters` é fornecido pelo MSAL.NET e é consumido pelo middleware OWIN na próxima seção do código em _Startup. auth. cs *. Com vários emissores válidos especificados, o pipeline de aplicativo do OWIN é informado de que os dois pontos de extremidade do token são emissores válidos.
 
 ```csharp
 app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions
@@ -123,7 +123,7 @@ Como mencionado anteriormente, outras bibliotecas OWIN geralmente fornecem um re
 
 Agora, com os dois URIs compatíveis com sua API Web, você precisa atualizar seu aplicativo Web para que ele recupere tokens do ponto de extremidade b2clogin.com.
 
-Por exemplo, você pode configurar o aplicativo Web de exemplo para usar o novo ponto de extremidade modificando o `ida:AadInstance` valor no arquivo *TaskWebApp \\ * * Web.config** * do projeto **TaskWebApp** .
+Por exemplo, você pode configurar o aplicativo Web de exemplo para usar o novo ponto de extremidade modificando o `ida:AadInstance` valor no *arquivo TaskWebApp \\ **Web.config** _ do projeto _* TaskWebApp * *.
 
 Altere o `ida:AadInstance` valor na *Web.config* de TaskWebApp para que ele faça referência `{your-b2c-tenant-name}.b2clogin.com` em vez de `login.microsoftonline.com` .
 
@@ -154,6 +154,6 @@ Para obter mais informações sobre os diferentes tipos de tokens de segurança 
 [sample-repo]: https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi
 
 <!-- LINKS - Internal -->
-[katana]: https://docs.microsoft.com/aspnet/aspnet/overview/owin-and-katana/
-[validissuers]: https://docs.microsoft.com/dotnet/api/microsoft.identitymodel.tokens.tokenvalidationparameters.validissuers
-[tokenvalidationparameters]: https://docs.microsoft.com/dotnet/api/microsoft.identitymodel.tokens.tokenvalidationparameters
+[katana]: /aspnet/aspnet/overview/owin-and-katana/
+[validissuers]: /dotnet/api/microsoft.identitymodel.tokens.tokenvalidationparameters.validissuers
+[tokenvalidationparameters]: /dotnet/api/microsoft.identitymodel.tokens.tokenvalidationparameters

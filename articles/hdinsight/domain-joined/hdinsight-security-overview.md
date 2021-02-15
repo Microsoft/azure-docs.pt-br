@@ -1,19 +1,16 @@
 ---
 title: Visão geral da segurança empresarial no Azure HDInsight
 description: Conheça os vários métodos para garantir a segurança empresarial no Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: overview
 ms.custom: seoapr2020
-ms.date: 04/20/2020
-ms.openlocfilehash: 1869671b465b7175cf3160c41debc66cbd0818ad
-ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
+ms.date: 08/24/2020
+ms.openlocfilehash: f4fa1e64e00f2ae027d80960072da7d73d3a89cb
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85367097"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946831"
 ---
 # <a name="overview-of-enterprise-security-in-azure-hdinsight"></a>Visão geral da segurança empresarial no Azure HDInsight
 
@@ -59,7 +56,7 @@ Para acessar os logs de auditoria do Apache Ranger e do Ambari, bem como os logs
 
 A proteção de dados é importante para atender aos requisitos de segurança e conformidade da organização. Além de restringir o acesso a dados de funcionários não autorizados, você deve criptografá-lo.
 
-O armazenamento do Azure e o Data Lake Storage Gen1/Gen2 são compatíveis com [criptografia de dados](../../storage/common/storage-service-encryption.md) em repouso transparente no lado do servidor. A proteção de clusters HDInsight funcionará perfeitamente com essa criptografia do lado do servidor de dados em repouso.
+O HDInsight dá suporte à criptografia de dados em repouso com as [chaves gerenciadas pelo cliente](../disk-encryption.md) e gerenciadas pela plataforma. A criptografia de dados em trânsito é processada com o TLS e o IPSec. Confira [Criptografia em trânsito do Azure HDInsight](encryption-in-transit.md) para obter mais informações.
 
 ### <a name="compliance"></a>Conformidade
 
@@ -78,23 +75,25 @@ A tabela a seguir fornece links para recursos para cada tipo de solução de seg
 | Segurança de acesso a dados | Configurar as [ACLs (listas de controle de acesso)](../../storage/blobs/data-lake-storage-access-control.md) para o Azure Data Lake Storage Gen1 e Gen2  | Cliente |
 |  | Habilitar a propriedade ["Transferência segura obrigatória"](../../storage/common/storage-require-secure-transfer.md) nas contas de armazenamento. | Cliente |
 |  | Configurar redes virtuais e [firewalls do Armazenamento do Azure](../../storage/common/storage-network-security.md) | Cliente |
-|  | Configurar [pontos de extremidade de serviço de rede virtual do Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) para Cosmos DB e [Azure SQL DB](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview) | Cliente |
-|  | Verificar se a [criptografia TLS](../../storage/common/storage-security-tls.md) está habilitada para os dados em trânsito. | Cliente |
-|  | Configurar as [chaves gerenciadas pelo cliente](../../storage/common/storage-encryption-keys-portal.md) para a criptografia do Armazenamento do Azure | Cliente |
-|  | Controlar o acesso aos seus dados pelo Suporte do Azure usando o [Sistema de Proteção de Dados do Cliente](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview) | Cliente |
-| Segurança de aplicativo e middleware | Fazer a integração ao AAD-DS e [configurar a autenticação](apache-domain-joined-configure-using-azure-adds.md) | Cliente |
+|  | Configurar [pontos de extremidade de serviço de rede virtual do Azure](../../virtual-network/virtual-network-service-endpoints-overview.md) para Cosmos DB e [Azure SQL DB](../../azure-sql/database/vnet-service-endpoint-rule-overview.md) | Cliente |
+|  | Verifique se o recurso [Criptografia em trânsito](./encryption-in-transit.md) está habilitado para usar o TLS e o IPSec para a comunicação dentro do cluster. | Cliente |
+|  | Configurar as [chaves gerenciadas pelo cliente](../../storage/common/customer-managed-keys-configure-key-vault.md) para a criptografia do Armazenamento do Azure | Cliente |
+|  | Controlar o acesso aos seus dados pelo Suporte do Azure usando o [Sistema de Proteção de Dados do Cliente](../../security/fundamentals/customer-lockbox-overview.md) | Cliente |
+| Segurança de aplicativo e middleware | Faça a integração ao AAD-DS e [configure o ESP](apache-domain-joined-configure-using-azure-adds.md) ou use [o HIB para Autenticação OAuth](identity-broker.md)| Cliente |
 |  | Configurar políticas de [Autorização do Apache Ranger](apache-domain-joined-run-hive.md) | Cliente |
 |  | Usar os [logs do Azure Monitor](../hdinsight-hadoop-oms-log-analytics-tutorial.md) | Cliente |
 | Segurança do sistema operacional | Criar clusters com a imagem base segura mais recente | Cliente |
 |  | Garantir a [aplicação de patch do sistema operacional](../hdinsight-os-patching.md) em intervalos regulares | Cliente |
+|  | Garantir a [criptografia de disco CMK para VMs](../disk-encryption.md) | Cliente |
 | Segurança de rede | Configurar uma [rede virtual](../hdinsight-plan-virtual-network-deployment.md) |
-|  | Configurar as [regras NSG (grupo de segurança de rede) de entrada](../control-network-traffic.md) | Cliente |
+|  | Configurar as [Regras NSG (grupo de segurança de rede) de entrada](../control-network-traffic.md) ou o [link privado](../hdinsight-private-link.md) | Cliente |
 |  | Configurar a [Restrição de tráfego de saída](../hdinsight-restrict-outbound-traffic.md) com o firewall | Cliente |
+|  | Configurar a [criptografia IPsec em trânsito](encryption-in-transit.md) entre os nós de cluster | Cliente |
 | Infraestrutura virtualizada | N/D | HDInsight (provedor de nuvem) |
 | Segurança de infraestrutura física | N/D | HDInsight (provedor de nuvem) |
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Planejar clusters do HDInsight com ESP](apache-domain-joined-architecture.md)
-* [Configurar clusters do HDInsight com ESP](apache-domain-joined-configure.md)
+* [Configurar clusters do HDInsight com ESP](./apache-domain-joined-configure-using-azure-adds.md)
 * [Gerenciar clusters do HDInsight com ESP](apache-domain-joined-manage.md)

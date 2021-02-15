@@ -4,7 +4,7 @@ titleSuffix: Azure Traffic Manager
 description: Este artigo explica o recurso “Perfis Aninhados” do Gerenciador de Tráfego do Azure
 services: traffic-manager
 documentationcenter: ''
-author: rohinkoul
+author: duongau
 manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/22/2018
-ms.author: rohink
-ms.openlocfilehash: 282099cb274c1ea872a0df9c2753a939ef31421f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: 5f2aa3d05d349880b5eb2d35a2c58af0741b9855
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76938568"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185573"
 ---
 # <a name="nested-traffic-manager-profiles"></a>Perfis aninhados do Gerenciador de Tráfego
 
@@ -97,23 +97,23 @@ As configurações de monitoramento em um perfil do Gerenciador de Tráfego se a
 
 ## <a name="faqs"></a>Perguntas frequentes
 
-* [Como posso configurar perfis aninhados?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#traffic-manager-endpoint-monitoring)
+* [Como posso configurar perfis aninhados?](./traffic-manager-faqs.md#traffic-manager-nested-profiles)
 
-* [A quantas camadas de aninhamento o Gerenciador de Tráfego dá suporte?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-many-layers-of-nesting-does-traffic-manger-support)
+* [A quantas camadas de aninhamento o Gerenciador de Tráfego dá suporte?](./traffic-manager-faqs.md#how-many-layers-of-nesting-does-traffic-manger-support)
 
-* [Posso combinar outros tipos de ponto de extremidade com perfis filho aninhados no mesmo perfil do Gerenciador de Tráfego?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-mix-other-endpoint-types-with-nested-child-profiles-in-the-same-traffic-manager-profile)
+* [Posso combinar outros tipos de ponto de extremidade com perfis filho aninhados no mesmo perfil do Gerenciador de Tráfego?](./traffic-manager-faqs.md#can-i-mix-other-endpoint-types-with-nested-child-profiles-in-the-same-traffic-manager-profile)
 
-* [Como o modelo de cobrança se aplica a perfis aninhados?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-does-the-billing-model-apply-for-nested-profiles)
+* [Como o modelo de cobrança se aplica a perfis aninhados?](./traffic-manager-faqs.md#how-does-the-billing-model-apply-for-nested-profiles)
 
-* [Há impacto no desempenho para perfis aninhados?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#is-there-a-performance-impact-for-nested-profiles)
+* [Há impacto no desempenho para perfis aninhados?](./traffic-manager-faqs.md#is-there-a-performance-impact-for-nested-profiles)
 
-* [Como o Gerenciador de Tráfego calcula a integridade de um ponto de extremidade aninhado em um perfil pai?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-does-traffic-manager-compute-the-health-of-a-nested-endpoint-in-a-parent-profile)
+* [Como o Gerenciador de Tráfego calcula a integridade de um ponto de extremidade aninhado em um perfil pai?](./traffic-manager-faqs.md#how-does-traffic-manager-compute-the-health-of-a-nested-endpoint-in-a-parent-profile)
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre [perfis do Gerenciador de Tráfego](traffic-manager-overview.md)
 
-Saiba como [criar um perfil do Gerenciador de tráfego](traffic-manager-create-profile.md)
+Saiba como [criar um perfil do Gerenciador de tráfego](./quickstart-create-traffic-manager-profile.md)
 
 <!--Image references-->
 [1]: ./media/traffic-manager-nested-profiles/figure-1.png

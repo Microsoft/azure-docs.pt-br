@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/29/2020
+ms.date: 12/11/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 2439bec08c16ce109b271844dc72b8fd2569aa07
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: e5ab583330b46b8f53223500076aa04780e6deac
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88755901"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108714"
 ---
 # <a name="enforce-a-minimum-required-version-of-transport-layer-security-tls-for-requests-to-a-storage-account"></a>Impor uma versão mínima necessária da TLS (segurança da camada de transporte) para solicitações a uma conta de armazenamento
 
@@ -33,13 +33,12 @@ Para obter informações sobre como especificar uma versão específica do TLS a
 
 Ao impor uma versão mínima do TLS para sua conta de armazenamento, você corre o risco de rejeitar solicitações de clientes que estão enviando dados com uma versão mais antiga do TLS. Para entender como a configuração da versão mínima do TLS pode afetar os aplicativos cliente, a Microsoft recomenda que você habilite o registro em log para sua conta de armazenamento do Azure e analise os logs após um intervalo de tempo para detectar quais versões dos aplicativos cliente TLS estão usando.
 
-Para registrar solicitações em sua conta de armazenamento do Azure e determinar a versão do TLS usada pelo cliente, você pode usar o log de armazenamento do Azure no Azure Monitor (visualização). Para obter mais informações, consulte [monitorar o armazenamento do Azure](monitor-storage.md).
+Para registrar solicitações em sua conta de armazenamento do Azure e determinar a versão do TLS usada pelo cliente, você pode usar o log de armazenamento do Azure no Azure Monitor (visualização). Para obter mais informações, consulte [monitorar o armazenamento do Azure](../blobs/monitor-blob-storage.md).
 
-O log de armazenamento do Azure no Azure Monitor dá suporte ao uso de consultas de log para analisar dados de log. Para consultar logs, você pode usar um espaço de trabalho de Log Analytics do Azure. Para saber mais sobre consultas de log, consulte [tutorial: introdução às consultas de log Analytics](../../azure-monitor/log-query/get-started-portal.md).
+O log de armazenamento do Azure no Azure Monitor dá suporte ao uso de consultas de log para analisar dados de log. Para consultar logs, você pode usar um espaço de trabalho de Log Analytics do Azure. Para saber mais sobre consultas de log, consulte [tutorial: introdução às consultas de log Analytics](../../azure-monitor/log-query/log-analytics-tutorial.md).
 
-Para registrar dados do armazenamento do Azure com Azure Monitor e analisá-los com o Azure Log Analytics, você deve primeiro criar uma configuração de diagnóstico que indica quais tipos de solicitações e para quais serviços de armazenamento você deseja registrar dados. Para criar uma configuração de diagnóstico no portal do Azure, siga estas etapas:
+Para registrar dados do armazenamento do Azure com Azure Monitor e analisá-los com o Azure Log Analytics, você deve primeiro criar uma configuração de diagnóstico que indica quais tipos de solicitações e para quais serviços de armazenamento você deseja registrar dados. Os logs do Armazenamento do Microsoft Azure no Azure Monitor estão em versão preliminar pública e disponíveis para teste de versão preliminar em todas as regiões de nuvem pública. Essa visualização habilita logs para BLOBs (incluindo Azure Data Lake Storage Gen2), arquivos, filas e tabelas. Para criar uma configuração de diagnóstico no portal do Azure, siga estas etapas:
 
-1. Registre-se no [log de armazenamento do Azure na versão prévia do Azure monitor](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUM0E0MFdPRFpOVTRYVklDSE1WUTcyTVAwOC4u).
 1. Crie um novo espaço de trabalho Log Analytics na assinatura que contém sua conta de armazenamento do Azure. Depois de configurar o log para sua conta de armazenamento, os logs estarão disponíveis no espaço de trabalho Log Analytics. Para obter mais informações, confira [Criar um workspace do Log Analytics no portal do Azure](../../azure-monitor/learn/quick-create-workspace.md).
 1. Navegue até sua conta de armazenamento no portal do Azure.
 1. Na seção monitoramento, selecione **configurações de diagnóstico (versão prévia)**.
@@ -53,7 +52,7 @@ Para registrar dados do armazenamento do Azure com Azure Monitor e analisá-los 
 
 Depois de criar a configuração de diagnóstico, as solicitações para a conta de armazenamento são registradas subsequentemente de acordo com essa configuração. Para obter mais informações, consulte [criar configuração de diagnóstico para coletar logs de recursos e métricas no Azure](../../azure-monitor/platform/diagnostic-settings.md).
 
-Para obter uma referência dos campos disponíveis nos logs de armazenamento do Azure no Azure Monitor, consulte [logs de recursos (versão prévia)](monitor-storage-reference.md#resource-logs-preview).
+Para obter uma referência dos campos disponíveis nos logs de armazenamento do Azure no Azure Monitor, consulte [logs de recursos (versão prévia)](../blobs/monitor-blob-storage-reference.md#resource-logs-preview).
 
 ### <a name="query-logged-requests-by-tls-version"></a>Consultar solicitações registradas por versão de TLS
 
@@ -87,16 +86,20 @@ StorageBlobLogs
 
 Quando você estiver confiante de que o tráfego de clientes que usam versões mais antigas do TLS é mínimo, ou que é aceitável a falha de solicitações feitas com uma versão mais antiga do TLS, você pode iniciar a imposição de uma versão mínima do TLS em sua conta de armazenamento. Exigir que os clientes usem uma versão mínima do TLS para fazer solicitações em uma conta de armazenamento faz parte de uma estratégia para minimizar os riscos de segurança para seus dados.
 
+> [!IMPORTANT]
+> Se você estiver usando um serviço que se conecta ao armazenamento do Azure, verifique se esse serviço está usando a versão apropriada do TLS para enviar solicitações ao armazenamento do Azure antes de definir a versão mínima necessária para uma conta de armazenamento.
+
 ### <a name="configure-the-minimum-tls-version-for-a-storage-account"></a>Configurar a versão mínima do TLS para uma conta de armazenamento
 
 Para configurar a versão mínima do TLS para uma conta de armazenamento, defina a versão **MinimumTlsVersion** para a conta. Essa propriedade está disponível para todas as contas de armazenamento que são criadas com o modelo de implantação Azure Resource Manager. Para obter mais informações sobre o modelo de implantação Azure Resource Manager, consulte [visão geral da conta de armazenamento](storage-account-overview.md).
 
-> [!NOTE]
-> A propriedade **minimumTlsVersion** não é definida por padrão e não retorna um valor até que você a defina explicitamente. A conta de armazenamento permite solicitações enviadas com o TLS versão 1,0 ou superior se o valor da propriedade for **nulo**.
+A propriedade **MinimumTlsVersion** não é definida por padrão e não retorna um valor até que você a defina explicitamente.  Se o valor da propriedade for **nulo**, a conta de armazenamento permitirá solicitações enviadas com o TLS versão 1,0 ou superior.
 
 # <a name="portal"></a>[Portal](#tab/portal)
 
-Para configurar a versão mínima do TLS para uma conta de armazenamento com o portal do Azure, siga estas etapas:
+Quando você cria uma conta de armazenamento com o portal do Azure, a versão mínima do TLS é definida como 1,2 por padrão.
+
+Para configurar a versão mínima do TLS para uma conta de armazenamento existente com o portal do Azure, siga estas etapas:
 
 1. Navegue até sua conta de armazenamento no portal do Azure.
 1. Selecione a definição de **configuração** .
@@ -116,18 +119,18 @@ $accountName = "<storage-account>"
 $location = "<location>"
 
 # Create a storage account with MinimumTlsVersion set to TLS 1.1.
-New-AzStorageAccount -ResourceGroupName $rgName \
-    -AccountName $accountName \
-    -Location $location \
-    -SkuName Standard_GRS \
+New-AzStorageAccount -ResourceGroupName $rgName `
+    -AccountName $accountName `
+    -Location $location `
+    -SkuName Standard_GRS `
     -MinimumTlsVersion TLS1_1
 
 # Read the MinimumTlsVersion property.
 (Get-AzStorageAccount -ResourceGroupName $rgName -Name $accountName).MinimumTlsVersion
 
 # Update the MinimumTlsVersion version for the storage account to TLS 1.2.
-Set-AzStorageAccount -ResourceGroupName $rgName \
-    -AccountName $accountName \
+Set-AzStorageAccount -ResourceGroupName $rgName `
+    -AccountName $accountName `
     -MinimumTlsVersion TLS1_2
 
 # Read the MinimumTlsVersion property.
@@ -171,8 +174,8 @@ az storage account show \
 Para configurar a versão mínima do TLS para uma conta de armazenamento com um modelo, crie um modelo com a propriedade **MinimumTLSVersion** definida como `TLS1_0` , `TLS1_1` ou `TLS1_2` . As etapas a seguir descrevem como criar um modelo no portal do Azure.
 
 1. Na portal do Azure, escolha **criar um recurso**.
-1. Em **Pesquisar no Marketplace**, digite **implantação de modelo**e pressione **Enter**.
-1. Escolha **implantação de modelo (implantar usando modelos personalizados) (versão prévia)**, escolha **criar**e, em seguida, escolha **criar seu próprio modelo no editor**.
+1. Em **Pesquisar no Marketplace**, digite **implantação de modelo** e pressione **Enter**.
+1. Escolha **implantação de modelo (implantar usando modelos personalizados) (versão prévia)**, escolha **criar** e, em seguida, escolha **criar seu próprio modelo no editor**.
 1. No editor de modelo, Cole o JSON a seguir para criar uma nova conta e definir a versão mínima do TLS como TLS 1,2. Lembre-se de substituir os espaços reservados entre parênteses pelos seus próprios valores.
 
     ```json
@@ -215,7 +218,7 @@ Configurar a versão mínima do TLS requer a versão 2019-04-01 ou posterior do 
 
 ### <a name="check-the-minimum-required-tls-version-for-multiple-accounts"></a>Verificar a versão mínima necessária do TLS para várias contas
 
-Para verificar a versão mínima necessária do TLS em um conjunto de contas de armazenamento com o desempenho ideal, você pode usar o Gerenciador de grafo de recursos do Azure no portal do Azure. Para saber mais sobre como usar o Gerenciador de grafo de recursos, consulte [início rápido: executar sua primeira consulta de grafo de recursos usando o Gerenciador de grafo de recursos do Azure](/azure/governance/resource-graph/first-query-portal).
+Para verificar a versão mínima necessária do TLS em um conjunto de contas de armazenamento com o desempenho ideal, você pode usar o Gerenciador de grafo de recursos do Azure no portal do Azure. Para saber mais sobre como usar o Gerenciador de grafo de recursos, consulte [início rápido: executar sua primeira consulta de grafo de recursos usando o Gerenciador de grafo de recursos do Azure](../../governance/resource-graph/first-query-portal.md).
 
 A execução da consulta a seguir no Gerenciador de grafo de recursos retorna uma lista de contas de armazenamento e exibe a versão mínima do TLS para cada conta:
 
@@ -338,6 +341,23 @@ Depois de criar a política com o efeito de negação e atribuí-la a um escopo,
 A imagem a seguir mostra o erro que ocorre se você tentar criar uma conta de armazenamento com a versão mínima do TLS definida como TLS 1,0 (o padrão para uma nova conta) quando uma política com um efeito de negação exigir que a versão mínima do TLS seja definida como TLS 1,2.
 
 :::image type="content" source="media/transport-layer-security-configure-minimum-version/deny-policy-error.png" alt-text="Captura de tela mostrando o erro que ocorre ao criar uma conta de armazenamento em violação de política":::
+
+## <a name="permissions-necessary-to-require-a-minimum-version-of-tls"></a>Permissões necessárias para exigir uma versão mínima do TLS
+
+Para definir a propriedade **MinimumTlsVersion** para a conta de armazenamento, um usuário deve ter permissões para criar e gerenciar contas de armazenamento. As funções do Azure RBAC (controle de acesso baseado em função) que fornecem essas permissões incluem a ação **Microsoft. Storage/storageAccounts/Write** ou **Microsoft. Storage \* /storageAccounts/* _. As funções internas com essa ação incluem:
+
+- A função de [proprietário](../../role-based-access-control/built-in-roles.md#owner) de Azure Resource Manager
+- A função [colaborador](../../role-based-access-control/built-in-roles.md#contributor) de Azure Resource Manager
+- A função de [colaborador da conta de armazenamento](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
+
+Essas funções não fornecem acesso a dados em uma conta de armazenamento por meio do Azure Active Directory (Azure AD). No entanto, eles incluem o _ * Microsoft. Storage/storageAccounts/listkeys/Action * *, que concede acesso às chaves de acesso da conta. Com essa permissão, um usuário pode usar as chaves de acesso da conta para acessar todos os dados em uma conta de armazenamento.
+
+As atribuições de função devem ser delimitadas ao nível da conta de armazenamento ou superior para permitir que um usuário exija uma versão mínima do TLS para a conta de armazenamento. Para obter mais informações sobre o escopo da função, consulte [entender o escopo do RBAC do Azure](../../role-based-access-control/scope-overview.md).
+
+Tenha cuidado para restringir a atribuição dessas funções somente aos que exigem a capacidade de criar uma conta de armazenamento ou atualizar suas propriedades. Use o princípio de privilégios mínimos para garantir que os usuários tenham as menores permissões necessárias para realizar suas tarefas. Para obter mais informações sobre como gerenciar o acesso com o RBAC do Azure, consulte [práticas recomendadas para o RBAC do Azure](../../role-based-access-control/best-practices.md).
+
+> [!NOTE]
+> O administrador de serviço de funções de administrador de assinatura clássica e Co-Administrator incluem o equivalente da função de [proprietário](../../role-based-access-control/built-in-roles.md#owner) de Azure Resource Manager. A função de **proprietário** inclui todas as ações, de modo que um usuário com uma dessas funções administrativas também pode criar e gerenciar contas de armazenamento. Para obter mais informações, confira [Funções clássicas de administrador da assinatura, funções do Azure e funções de administrador do Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
 
 ## <a name="network-considerations"></a>Considerações de rede
 

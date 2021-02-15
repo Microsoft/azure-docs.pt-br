@@ -1,17 +1,15 @@
 ---
 title: Visão geral da comunicação do Reliable Services
 description: Visão geral do modelo de comunicação dos Reliable Services, incluindo a abertura de ouvintes, a resolução de pontos de extremidade e a comunicação entre serviços.
-author: vturecek
 ms.topic: conceptual
 ms.date: 11/01/2017
-ms.author: vturecek
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9b45ceaed9f0d3d64a0fc6890549542acc6b1c21
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 3436d29446e963faea9bda47f5a5247b7de7d859
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018630"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97912607"
 ---
 # <a name="how-to-use-the-reliable-services-communication-apis"></a>Como usar as APIs de comunicação dos Reliable Services
 O Service Fabric do Azure como uma plataforma é totalmente independente quanto às comunicações entre serviços. Todos os protocolos e pilhas são aceitáveis, de UDP a HTTP. Cabe ao desenvolvedor determinar a forma de comunicação entre os serviços. A estrutura de aplicativo dos Reliable Services fornece algumas pilhas de comunicação internas, bem como APIs que você pode usar para criar componentes de comunicação personalizados.
@@ -290,7 +288,7 @@ public class MyCommunicationClient implements CommunicationClient {
 }
 ```
 
-A fábrica do cliente é responsável principalmente pela criação de clientes de comunicação. Para clientes que não mantém uma conexão persistente, tal como um cliente HTTP, a fábrica só precisa criar e retornar o cliente. Outros protocolos que mantêm uma conexão persistente, tais como alguns protocolos binários, também devem ser validados pela fábrica para determinar se a conexão precisa ou não ser criada novamente.  
+A fábrica do cliente é responsável principalmente pela criação de clientes de comunicação. Para clientes que não mantém uma conexão persistente, tal como um cliente HTTP, a fábrica só precisa criar e retornar o cliente. Outros protocolos que mantêm uma conexão persistente, como alguns protocolos binários, também devem ser validados ( `ValidateClient(string endpoint, MyCommunicationClient client)` ) pela fábrica para determinar se a conexão precisa ser recriada.  
 
 ```csharp
 public class MyCommunicationClientFactory : CommunicationClientFactoryBase<MyCommunicationClient>

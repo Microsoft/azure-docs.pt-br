@@ -1,109 +1,109 @@
-- name: Documentação da IoT Plug and Play
+- name: Documentação do IoT Plug and Play
   href: index.yml
 - name: Visão geral
   items:
     - name: O que é IoT Plug and Play?
       href: overview-iot-plug-and-play.md
-    - name: Atualizações da versão prévia
-      href: overview-iot-plug-and-play-preview-updates.md
+    - name: O que há na versão atual
+      href: overview-iot-plug-and-play-current-release.md
 - name: Inícios rápidos
   expanded: true
   items:
+    - name: Configure seu ambiente
+      href: set-up-environment.md
     - name: Conectar um dispositivo ao Hub IoT
-      items:
-        - name: C
-          href: quickstart-connect-device-c.md
-        - name: Node.js
-          href: quickstart-connect-device-node.md
-        - name: Python
-          href: quickstart-connect-device-python.md
-        - name: C#
-          href: quickstart-connect-device-csharp.md
-        - name: Java
-          href: quickstart-connect-device-java.md
+      href: quickstart-connect-device.md
     - name: Interagir com um dispositivo da sua solução
-      items:
-        - name: Node.js
-          href: quickstart-service-node.md
-        - name: Python
-          href: quickstart-service-python.md
+      href: quickstart-service.md
 - name: Tutoriais
   items:
-    - name: Conectar um dispositivo de vários componentes (C#)
-      href: tutorial-multiple-components-csharp.md
-    - name: Conectar um dispositivo de vários componentes (Java)
-      href: tutorial-multiple-components-java.md
-    - name: Conectar um dispositivo de vários componentes (Node.js)
-      href: tutorial-multiple-components-node.md
-    - name: Conectar um dispositivo de vários componentes (Python)
-      href: tutorial-multiple-components-python.md
+    - name: Conectar um dispositivo de vários componentes
+      href: tutorial-multiple-components.md
     - name: Usar o MQTT para conectar um dispositivo
       href: tutorial-use-mqtt.md
+    - name: Fazer a interação com um dispositivo MXChip (Amostra)
+      href: /samples/azure-samples/mxchip-iot-devkit-pnp-get-started/sample/
+    - name: Conectar um módulo de dispositivo
+      href: tutorial-migrate-device-to-module.md
+    - name: 'Versão prévia: Conectar e analisar dados com o Time Series Insights Gen2'
+      href: tutorial-configure-tsi.md
 - name: Conceitos
   items:
     - name: Arquitetura
       href: concepts-architecture.md
-    - name: Guia do desenvolvedor
-      href: concepts-developer-guide.md
+    - name: Guia do desenvolvedor do dispositivo
+      href: concepts-developer-guide-device.md
+    - name: Guia do desenvolvedor do serviço
+      href: concepts-developer-guide-service.md
     - name: Componentes
       href: concepts-components.md
     - name: Convenções do IoT Plug and Play
       href: concepts-convention.md
+    - name: Ponte do IoT Plug and Play
+      href: concepts-iot-pnp-bridge.md
     - name: Gêmeos Digitais
       href: concepts-digital-twin.md
+    - name: Certificado de dispositivo
+      href: concepts-certification-program.md
     - name: Repositório de modelos
       href: concepts-model-repository.md
     - name: Usar modelos em uma solução
       href: concepts-model-discovery.md
     - name: Analisador de modelo
       href: concepts-model-parser.md
-    - name: Limites e cotas
-      href: concepts-limits-quotas.md
     - name: Glossário
       href: iot-plug-and-play-glossary.md
 - name: Guias de instruções
   items:
     - name: Instalar e usar o IoT Explorer
       href: howto-use-iot-explorer.md
-    - name: Instalar e usar a extensão da CLI do Azure IoT
-      href: howto-use-iot-pnp-cli.md
+    - name: Instalar e usar ferramentas de criação de DTDL
+      href: howto-use-dtdl-authoring-tools.md
+    - name: Usar o C inserido
+      href: howto-use-embedded-c.md
     - name: Gerenciar gêmeos digitais
       href: howto-manage-digital-twin.md
     - name: Certificar um dispositivo
       href: howto-certify-device.md
+    - name: Como conectar um exemplo de ponte do IoT Plug and Play
+      href: howto-use-iot-pnp-bridge.md
+    - name: Criar e implantar a ponte do IoT Plug and Play
+      href: howto-build-deploy-extend-pnp-bridge.md
+    - name: Estender a ponte do IoT Plug and Play
+      href: howto-author-pnp-bridge-adapter.md
 - name: Referência
   items:
     - name: Bibliotecas e SDKs
       href: libraries-sdks.md
     - name: API REST do Gêmeo Digital
-      href: 'https://aka.ms/iot-pnp-preview-rest'
+      href: /rest/api/iothub/service/digitaltwin
     - name: CLI do Azure
       href: /cli/azure/azure-cli-reference-for-IoT
 - name: Recursos
   items:
     - name: Opções de Ajuda e suporte
-      href: /azure/iot-fundamentals/iot-support-help
+      href: ../iot-fundamentals/iot-support-help.md
     - name: Serviços do Azure IoT
       items:
         - name: Hub IoT
-          href: /azure/iot-hub
+          href: ../iot-hub/index.yml
         - name: Provisionamento de Dispositivos no Hub IoT
-          href: /azure/iot-dps
+          href: ../iot-dps/index.yml
         - name: Central da IoT
-          href: 'https://docs.microsoft.com/microsoft-iot-central/'
+          href: /microsoft-iot-central/
         - name: IoT Edge
-          href: /azure/iot-edge
+          href: ../iot-edge/index.yml
         - name: Aceleradores de solução do IoT
-          href: /azure/iot-accelerators
+          href: ../iot-accelerators/index.yml
         - name: IoT Plug and Play
-          href: /azure/iot-pnp
+          href: ./index.yml
         - name: Mapas do Azure
-          href: /azure/azure-maps
+          href: ../azure-maps/index.yml
         - name: Time Series Insights
-          href: /azure/time-series-insights
+          href: ../time-series-insights/index.yml
     - name: SDKs do Azure IoT
       items:
         - name: SDKs do Serviço de IoT
-          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
+          href: ../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks
         - name: SDKs do dispositivo IoT
-          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
+          href: ../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks

@@ -13,13 +13,13 @@ ms.workload: multiple
 ms.topic: sample
 ms.date: 01/18/2018
 ms.author: atsenthi
-ms.custom: mvc
-ms.openlocfilehash: 0093aa2a058621981eb0e42d8b1a2220d4578979
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: mvc, devx-track-azurepowershell
+ms.openlocfilehash: 0f5a7d49200c7dec08f71f9cb0256630728e4711
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076190"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "90090135"
 ---
 # <a name="add-an-application-certificate-to-a-service-fabric-cluster"></a>Adicionar um certificado de aplicativo a um cluster do Service Fabric
 
@@ -81,7 +81,7 @@ $CertConfig = New-AzVmssVaultCertificateConfig -CertificateUrl (Get-AzKeyVaultSe
 $VMSS = Get-AzVmss -ResourceGroupName $ResourceGroupName -VMScaleSetName $VMSSName
 
 # If this KeyVault is already known by the virtual machine scale set, for example if the cluster certificate is deployed from this keyvault, use
-$VMSS.virtualmachineprofile.osProfile.secrets[0].vaultCertificates.Add($certConfig)
+$VMSS.virtualmachineprofile.osProfile.secrets[0].vaultCertificates.Add($CertConfig)
 
 # Otherwise use
 $VMSS = Add-AzVmssSecret -VirtualMachineScaleSet $VMSS -SourceVaultId (Get-AzKeyVault -VaultName $VaultName).ResourceId  -VaultCertificate $CertConfig

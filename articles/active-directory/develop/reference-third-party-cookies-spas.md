@@ -13,12 +13,12 @@ ms.date: 05/19/2020
 ms.author: hirsin
 ms.reviewer: kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: cc93f4062851f01dd127c108ca60bc240a1940e6
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: eed4e919684575bb2c63170d91517b661fac4acf
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87311748"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98753964"
 ---
 # <a name="handle-itp-in-safari-and-other-browsers-where-third-party-cookies-are-blocked"></a>Controle o ITP no Safari e em outros navegadores em que os cookies de terceiros são bloqueados
 
@@ -49,7 +49,7 @@ Os SPAs têm duas restrições adicionais:
 * [O URI de redirecionamento deve ser marcado como o tipo `spa`](v2-oauth2-auth-code-flow.md#redirect-uri-setup-required-for-single-page-apps) para habilitar CORS em pontos de extremidade de logon.
 * Os tokens de atualização emitidos pelo fluxo de código de autorização para URIs de redirecionamento `spa` têm um tempo de vida de 24 horas em vez de um tempo de vida de 90 dias.
 
-![Fluxo de código para aplicativos SPA](media/v2-oauth-auth-code-spa/active-directory-oauth-code-spa.png)
+:::image type="content" source="media/v2-oauth-auth-code-spa/active-directory-oauth-code-spa.svg" alt-text="Diagrama mostrando o fluxo do código de autorização OAuth 2 entre um aplicativo de página única e o ponto de extremidade do serviço de token de segurança." border="false":::
 
 ## <a name="performance-and-ux-implications"></a>Implicações de desempenho e UX
 
@@ -77,7 +77,7 @@ Um padrão comum em aplicativos Web é usar um iframe para inserir um aplicativo
 
 A emissão de tokens de atualização para o navegador é considerada um problema de segurança. Os ataques XSS (script entre sites) ou pacotes JS comprometidos podem roubar o token de atualização e usá-lo remotamente até que ele expire ou seja revogado. Para minimizar o risco de tokens de atualização roubado, os SPAs serão emitidos tokens válidos por apenas 24 horas. Após 24 horas, o aplicativo deve adquirir um novo código de autorização por meio de uma visita de quadro de nível superior para a página de logon.
 
-Esse padrão de token de atualização de tempo de vida limitado foi escolhido como um equilíbrio entre a segurança e a UX degradada. Sem tokens de atualização ou cookies de terceiros, o fluxo do código de autorização (conforme recomendado pelo [rascunho de práticas recomendadas de segurança do OAuth mais recentes](https://tools.ietf.org/html/draft-ietf-oauth-security-topics-14)) torna-se oneroso quando são necessários tokens novos ou adicionais. Um redirecionamento de página completo ou um pop-up é necessário para cada token único, sempre que um token expira (a cada hora, em geral, para tokens da plataforma de identidade da Microsoft).
+Esse padrão de token de atualização de tempo de vida limitado foi escolhido como um equilíbrio entre a segurança e a UX degradada. Sem tokens de atualização ou cookies de terceiros, o fluxo do código de autorização (conforme recomendado pelo [rascunho de práticas recomendadas de segurança do OAuth mais recentes](https://tools.ietf.org/html/draft-ietf-oauth-security-topics-14)) torna-se oneroso quando são necessários tokens novos ou adicionais. Um redirecionamento de página completo ou um pop-up é necessário para cada token único, sempre que um token expira (a cada hora, em geral, para os tokens da plataforma Microsoft Identity).
 
 ## <a name="next-steps"></a>Próximas etapas
 

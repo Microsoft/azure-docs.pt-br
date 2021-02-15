@@ -1,20 +1,17 @@
 ---
 title: Hub de gerenciamento
 description: Gerenciar suas conexões, configuração de controle do código-fonte e propriedades de criação global no Hub de gerenciamento de Azure Data Factory
-services: data-factory
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
-author: djpmsft
-ms.author: daperlov
-manager: anandsub
-ms.date: 06/02/2020
-ms.openlocfilehash: bba49014fd6b082ea015da259402a8e87bf4afff
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+author: dcstwh
+ms.author: weetok
+ms.date: 02/01/2021
+ms.openlocfilehash: b4b9ecef84f8ffcc82107299ad6603466380d1c0
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87851971"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100371491"
 ---
 # <a name="management-hub-in-azure-data-factory"></a>Hub de gerenciamento no Azure Data Factory
 
@@ -30,17 +27,21 @@ Os serviços vinculados definem as informações de conexão para Azure Data Fac
 
 ![Gerenciar serviços vinculados](media/author-management-hub/management-hub-linked-services.png)
 
-### <a name="integration-runtimes"></a>Tempos de execução de integração
+### <a name="integration-runtimes"></a>Runtimes de integração
 
 Um tempo de execução de integração é uma infraestrutura de computação usada pelo Azure Data Factory para fornecer recursos de integração de dados em diferentes ambientes de rede. Para obter mais informações, saiba mais sobre os [conceitos do Integration Runtime](concepts-integration-runtime.md). No Hub de gerenciamento, você pode criar, excluir e monitorar seus tempos de execução de integração.
 
-![Gerenciar tempos de execução de integração](media/author-management-hub/management-hub-integration-runtime.png)
+![Gerenciar runtimes de integração](media/author-management-hub/management-hub-integration-runtime.png)
 
 ## <a name="manage-source-control"></a>Gerenciar controle do código-fonte
 
 ### <a name="git-configuration"></a>Configuração do git
 
-Exiba e edite suas configurações de repositório git configuradas no Hub de gerenciamento. Para obter mais informações, saiba mais sobre o [controle do código-fonte no Azure data Factory](source-control.md).
+Você pode Exibir/editar todas as informações relacionadas ao git nas definições de configuração do git no Hub de gerenciamento. 
+
+As últimas informações de confirmação publicadas também estão listadas e podem ajudar a entender a confirmação exata, que foi publicada/implantada pela última vez entre ambientes. Ele também pode ser útil ao fazer hot fixes em produção.
+
+Para obter mais informações, saiba mais sobre o [controle do código-fonte no Azure data Factory](source-control.md).
 
 ![Gerenciar repositório git](media/author-management-hub/management-hub-git.png)
 
@@ -56,7 +57,7 @@ Para substituir os parâmetros de modelo do Resource Manager gerados ao publicar
 
 Os gatilhos determinam quando uma execução de pipeline deve ser inicializada. Atualmente, os gatilhos podem estar em uma agenda de relógio de parede, operar em um intervalo periódico ou depender de um evento. Para obter mais informações, saiba mais sobre a [execução do gatilho](concepts-pipeline-execution-triggers.md#trigger-execution). No Hub de gerenciamento, você pode criar, editar, excluir ou exibir o estado atual de um gatilho.
 
-![Gerenciar parâmetros personalizados](media/author-management-hub/management-hub-triggers.png)
+![Captura de tela que mostra onde criar, editar, excluir ou exibir o estado atual de um gatilho.](media/author-management-hub/management-hub-triggers.png)
 
 ### <a name="global-parameters"></a>Parâmetros globais
 

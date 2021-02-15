@@ -1,18 +1,15 @@
 ---
 title: Visão geral do HDInsight 4.0 – Azure
 description: Compare o HDInsight 3.6 com os recursos, as limitações e as recomendações de atualização do HDInsight 4.0.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/21/2020
-ms.openlocfilehash: 37f0a8d1f70fa96db505973d097febabe99ab7a8
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 694acc0005e90d8299d46528f83ba68ea3fcf1c0
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88749167"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98931183"
 ---
 # <a name="azure-hdinsight-40-overview"></a>Visão geral do Azure HDInsight 4.0
 
@@ -38,7 +35,12 @@ Agora o Hive é compatível com exibições materializadas dinâmicas ou pré-co
 
 ### <a name="hive-transactional-tables"></a>Tabelas transacionais do Hive
 
-O HDI 4.0 inclui o Apache Hive 3. O Hive 3 requer conformidade de atomicidade, consistência, isolamento e durabilidade para tabelas transacionais que residem no warehouse do Hive. As tabelas e dados de tabela em conformidade com ACID são acessadas e gerenciadas pelo Hive. Os dados em tabelas CRUD (criar, recuperar, atualizar e excluir) devem estar no formato de arquivo ORC (coluna e linha otimizadas). As tabelas somente inserção dão suporte a todos os formatos de arquivo.
+O HDI 4.0 inclui o Apache Hive 3. O Hive 3 requer conformidade de atomicidade, consistência, isolamento e durabilidade para tabelas transacionais que residem no warehouse do Hive. As tabelas e dados de tabela em conformidade com ACID são acessadas e gerenciadas pelo Hive. Os dados em tabelas CRUD (criar, recuperar, atualizar e excluir) devem estar no formato de arquivo ORC (coluna e linha otimizadas). As tabelas somente inserção dão suporte a todos os formatos de arquivo. 
+
+> [!Note]
+> O suporte a ACID/transacional só funciona para tabelas gerenciadas e não para tabelas externas. As tabelas externas do hive são projetadas de forma que as partes externas possam ler e gravar dados da tabela, sem que o hive perfoming qualquer alteração dos dados subjacentes. Para tabelas ACID, o hive pode alterar os dados subjacentes com compactação e transações.
+
+Alguns benefícios das tabelas ACID são os seguintes:
 
 * O ACID v2 tem melhorias de desempenho no formato de armazenamento e no mecanismo de execução.
 
@@ -95,12 +97,16 @@ Não há um caminho de atualização compatível das versões anteriores do HDIn
 * A exibição do hive só está disponível em clusters HDInsight 4,0 com um número de versão igual ou maior que 4,1. Esse número de versão está disponível em versões do > admin – Ambari.
 * O interpretador de shell no Apache Zeppelin não é compatível com clusters do Spark e do Interactive Query.
 * Não é possível *desabilitar* o LLAP em um cluster Spark-LLAP. Você pode apenas desativar o LLAP.
-* O Azure Data Lake Storage Gen2 não é capaz de salvar notebooks do Jupyter em um cluster Spark.
+* Azure Data Lake Storage Gen2 não pode salvar notebooks Jupyter em um cluster Spark.
 * O Apache Pig é executado no Tez por padrão, no entanto, você pode alterá-lo para o MapReduce
 * A integração do Spark SQL Ranger para segurança de linha e coluna foi preterida
 * O Spark 2.4 e o Kafka 2.1 estão disponíveis no HDInsight 4.0, portanto, o Spark 2.3 e o Kafka 1.1 não são mais compatíveis. É recomendável usar o Spark 2.4 e o Kafka 2.1 e superior no HDInsight 4.0.
 
 ## <a name="next-steps"></a>Próximas etapas
 
+* [Guia de migração do HBase](./hbase/apache-hbase-migrate-new-version.md)
+* [Guia de migração do hive](./interactive-query/apache-hive-migrate-workloads.md)
+* [Guia de migração do Kafka](./kafka/migrate-versions.md)
+* [Guia de migração do Spark](./spark/migrate-versions.md)
 * [Documentação do HDInsight do Azure](index.yml)
 * [Notas de Versão](hdinsight-release-notes.md)

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=alokkirpal, previous-ms.author=alok
-ms.openlocfilehash: f3f35bb7002ea976305b31a27fa6efebecf07710
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: e210c1683d5f14181bc0549e73a892eb91d2e746
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087156"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305696"
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>API de detecção de anomalias do Machine Learning
 
@@ -28,9 +28,9 @@ A [API de detecção de anomalias](https://gallery.azure.ai/MachineLearningAPI/A
 
 Esta API pode detectar os seguintes tipos de padrão anômalo nos dados de série temporal:
 
-* **Tendências positivas e negativas**: Por exemplo, ao monitorar o uso de memória na computação, uma tendência de aumento pode ser interessante, pois pode indicar um vazamento de memória.
-* **Alterações no intervalo dinâmico dos valores**: Por exemplo, ao monitorar as exceções geradas por um serviço de nuvem, as alterações no intervalo dinâmico dos valores pode indicar instabilidade na integridade do serviço.
-* **Picos e quedas**: Por exemplo, ao monitorar o número de falhas de logon em um serviço ou o número de check-outs em um site de comércio eletrônico, os picos ou as quedas podem indicar um comportamento anormal.
+* **Tendências positivas e negativas** : Por exemplo, ao monitorar o uso de memória na computação, uma tendência de aumento pode ser interessante, pois pode indicar um vazamento de memória.
+* **Alterações no intervalo dinâmico dos valores** : Por exemplo, ao monitorar as exceções geradas por um serviço de nuvem, as alterações no intervalo dinâmico dos valores pode indicar instabilidade na integridade do serviço.
+* **Picos e quedas** : Por exemplo, ao monitorar o número de falhas de logon em um serviço ou o número de check-outs em um site de comércio eletrônico, os picos ou as quedas podem indicar um comportamento anormal.
 
 Esses detectores de aprendizado da máquina rastreiam as alterações nos valores ao longo do tempo e informam as mudanças contínuas em seus valores como pontuações de anomalia. Eles não precisam de ajuste de limite ad hoc e suas pontuações podem ser usadas para controlar a taxa de falsos positivos. A API de detecção de anomalias é útil em vários cenários, como o monitoramento do serviço ao controlar KPIs ao longo do tempo, monitoramento do uso por meio de métricas, como o número de pesquisas, número de cliques, monitoramento do desempenho por meio de contadores, como memória, CPU, leituras de arquivos etc. ao longo do tempo.
 
@@ -46,13 +46,13 @@ A oferta da Detecção de Anomalias vem com ferramentas úteis para você começ
 -->
 
 ## <a name="api-deployment"></a>Implantação da API
-Para usar a API, você deve implantá-la na sua assinatura do Azure, onde ela será hospedada como um serviço Web do Azure Machine Learning.  Você pode fazer isso na [Galeria de IA do Azure](https://gallery.azure.ai/MachineLearningAPI/Anomaly-Detection-2).  Dois serviços Web do Azure Machine Learning Studio (clássico) (e seus recursos relacionados) serão implantados na sua assinatura do Azure – um para detecção de anomalias com detecção de sazonalidade e outro sem detecção de sazonalidade.  Depois que a implantação for concluída, você poderá gerenciar suas APIs na página de [serviços Web do Azure Machine Learning Studio (clássico)](https://services.azureml.net/webservices/).  Nessa página, você poderá encontrar a localização do seu ponto de extremidade, chaves de API, bem como um código de amostra para chamar a API.  Instruções mais detalhadas estão disponíveis [aqui](/azure/machine-learning/studio/manage-new-webservice).
+Para usar a API, você deve implantá-la na sua assinatura do Azure, onde ela será hospedada como um serviço Web do Azure Machine Learning.  Você pode fazer isso na [Galeria de IA do Azure](https://gallery.azure.ai/MachineLearningAPI/Anomaly-Detection-2).  Dois serviços Web do Azure Machine Learning Studio (clássico) (e seus recursos relacionados) serão implantados na sua assinatura do Azure – um para detecção de anomalias com detecção de sazonalidade e outro sem detecção de sazonalidade.  Depois que a implantação for concluída, você poderá gerenciar suas APIs na página de [serviços Web do Azure Machine Learning Studio (clássico)](https://services.azureml.net/webservices/).  Nessa página, você poderá encontrar a localização do seu ponto de extremidade, chaves de API, bem como um código de amostra para chamar a API.  Instruções mais detalhadas estão disponíveis [aqui](../classic/manage-new-webservice.md).
 
 ## <a name="scaling-the-api"></a>Dimensionando a API
 Por padrão, sua implantação terá um plano de cobrança de Desenvolvimento/Teste gratuito que inclui 1.000 transações/mês e duas horas de computação/mês.  Você pode atualizar para outro plano de acordo com suas necessidades.  Os detalhes sobre o preço de diferentes planos estão disponíveis [aqui](https://azure.microsoft.com/pricing/details/machine-learning/), em "Preço da API Web de produção".
 
 ## <a name="managing-aml-plans"></a>Gerenciando planos do AML
-Você pode gerenciar seu plano de cobrança [aqui](https://services.azureml.net/plans/).  O nome do plano será baseado no nome do grupo de recursos que você escolheu durante a implantação da API, além de uma cadeia de caracteres que é exclusiva à sua assinatura.  As instruções sobre como atualizar seu plano estão disponíveis [aqui](/azure/machine-learning/studio/manage-new-webservice), na seção "Gerenciando planos de cobranças".
+Você pode gerenciar seu plano de cobrança [aqui](https://services.azureml.net/plans/).  O nome do plano será baseado no nome do grupo de recursos que você escolheu durante a implantação da API, além de uma cadeia de caracteres que é exclusiva à sua assinatura.  As instruções sobre como atualizar seu plano estão disponíveis [aqui](../classic/manage-new-webservice.md), na seção "Gerenciando planos de cobranças".
 
 ## <a name="api-definition"></a>Definição da API
 O serviço Web fornece uma API baseada em REST por HTTPS que pode ser consumida de várias maneiras, incluindo um aplicativo Web ou móvel, R, Python, Excel, etc.  Você envia seus dados de série temporal para esse serviço por meio de uma chamada à API REST, e será executada uma combinação dos três tipos de anomalia descritos abaixo.
@@ -197,4 +197,3 @@ A API executa esses detectores em seus dados da série temporal e retorna as pon
 
 [1]: ./media/apps-anomaly-detection-api/anomaly-detection-score.png
 [2]: ./media/apps-anomaly-detection-api/anomaly-detection-seasonal.png
-

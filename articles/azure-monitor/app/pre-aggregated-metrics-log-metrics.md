@@ -6,20 +6,20 @@ author: vgorbenko
 ms.author: vitalyg
 ms.date: 09/18/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 9aba1e5b469e04c6c6d047f78cd202a073e5a769
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9b93ac774dffb837d93853353e83b8da4ab4d8d4
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516933"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027152"
 ---
 # <a name="log-based-and-pre-aggregated-metrics-in-application-insights"></a>Métricas baseadas em log e pré-agregadas no Application Insights
 
-Este artigo explica a diferença entre as métricas de Application Insights "tradicionais" que são baseadas em logs e métricas previamente agregadas que estão atualmente em visualização pública. Ambos os tipos de métricas estão disponíveis para os usuários do Application Insights, e cada um traz um valor exclusivo para o monitoramento da integridade do aplicativo, diagnóstico e análise. Os desenvolvedores que instrumentam aplicativos podem decidir qual tipo de métrica é mais adequada a um cenário específico, dependendo do tamanho do aplicativo, do volume esperado de telemetria e dos requisitos de negócios para precisão de métricas e alertas.
+Este artigo explica a diferença entre as métricas de Application Insights "tradicionais" que são baseadas em logs e métricas previamente agregadas. Ambos os tipos de métricas estão disponíveis para os usuários do Application Insights, e cada um traz um valor exclusivo para o monitoramento da integridade do aplicativo, diagnóstico e análise. Os desenvolvedores que instrumentam aplicativos podem decidir qual tipo de métrica é mais adequada a um cenário específico, dependendo do tamanho do aplicativo, do volume esperado de telemetria e dos requisitos de negócios para precisão de métricas e alertas.
 
 ## <a name="log-based-metrics"></a>Métricas baseadas em log
 
-Até recentemente, o modelo de dados de telemetria de monitoramento de aplicativos no Application Insights era exclusivamente baseado em um pequeno número de tipos predefinidos de eventos, como solicitações, exceções, chamadas de dependência, exibições de página etc. Os desenvolvedores podem usar o SDK para emitir esses eventos manualmente (escrevendo código que invoca explicitamente o SDK) ou podem contar com a coleção automática de eventos da instrumentação automática. Em ambos os casos, o back-end do Application Insights armazena todos os eventos coletados como logs e as folhas do Application Insights no portal do Azure funcionam como uma ferramenta de análise e de diagnóstico para visualizar dados baseados em eventos dos logs.
+No passado, o modelo de dados telemetria de monitoramento de aplicativos no Application Insights era exclusivamente baseado em um pequeno número de tipos predefinidos de eventos, como solicitações, exceções, chamadas de dependência, exibições de página, etc. Os desenvolvedores podem usar o SDK para emitir esses eventos manualmente (escrevendo código que invoca explicitamente o SDK) ou podem contar com a coleção automática de eventos da instrumentação automática. Em ambos os casos, o back-end do Application Insights armazena todos os eventos coletados como logs e as folhas do Application Insights no portal do Azure funcionam como uma ferramenta de análise e de diagnóstico para visualizar dados baseados em eventos dos logs.
 
 O uso de logs para reter um conjunto completo de eventos pode trazer um excelente valor analítico e de diagnóstico. Por exemplo, você pode obter uma contagem exata de solicitações para determinada URL com o número de usuários distintos que fizeram essas chamadas. Ou você pode obter rastreamentos de diagnóstico detalhados, incluindo exceções e chamadas de dependência para qualquer sessão de usuário. Ter esse tipo de informação pode melhorar consideravelmente a visibilidade da integridade e do uso do aplicativo, permitindo reduzir o tempo necessário para diagnosticar problemas com um aplicativo.
 
@@ -35,11 +35,33 @@ Além das métricas baseadas em log, no final de 2018, a equipe de Application I
 > [!IMPORTANT]
 > As métricas baseadas em log e pré-agregadas coexistem no Application Insights. Para diferenciar os dois, no Application Insights UX, as métricas previamente agregadas agora são chamadas de "métricas padrão (versão prévia)", enquanto as métricas tradicionais dos eventos foram renomeadas para "métricas baseadas em log".
 
-Os SDKs mais recentes (SDK do [Application Insights 2.7](https://www.nuget.org/packages/Microsoft.ApplicationInsights/2.7.2) ou posterior para .NET) pré-agregam as métricas durante a coleta, antes do início das técnicas de redução de volume da telemetria. Isso significa que a precisão das novas métricas não é afetada por amostragem e filtragem ao usar os SDKs de Application Insights mais recentes.
+Os SDKs mais recentes ([Application Insights 2,7](https://www.nuget.org/packages/Microsoft.ApplicationInsights/2.7.2) SDK ou posterior para .net) métricas pré-configuradas durante a coleta. Isso se aplica a  [métricas padrão enviadas por padrão](../platform/metrics-supported.md#microsoftinsightscomponents) , portanto, a precisão não é afetada por amostragem ou filtragem. Ele também se aplica a métricas personalizadas enviadas usando [getmetric](./api-custom-events-metrics.md#getmetric) , resultando em menos ingestão de dados e menor custo.
 
 Para os SDKs que não implementam a pré-autenticação (ou seja, versões mais antigas de SDKs de Application Insights ou instrumentação de navegador), o back-end Application Insights ainda preenche as novas métricas agregando os eventos recebidos pelo ponto de extremidade de coleta de eventos Application Insights. Isso significa que, embora você não se beneficie do volume reduzido de dados transmitidos pela rede, ainda poderá usar as métricas previamente agregadas e experimentar um melhor desempenho e suporte do alerta dimensional quase em tempo real com SDKs que não agregam métricas durante a coleta.
 
 Vale a pena mencionar que o ponto de extremidade de coleta pré-agrega eventos antes da amostragem de ingestão, o que significa que a [amostragem de ingestão](./sampling.md) nunca afetará a precisão das métricas pré-agregadas, independentemente da versão de SDK usada com o aplicativo.  
+
+### <a name="sdk-supported-pre-aggregated-metrics-table"></a>Tabela de métricas previamente agregadas com suporte do SDK
+
+| SDKs de produção atuais | Métricas padrão (pré-agregação do SDK) | Métricas personalizadas (sem pré-agregação do SDK) | Métricas personalizadas (com pré-agregação do SDK)|
+|------------------------------|-----------------------------------|----------------------------------------------|---------------------------------------|
+| .NET Core e .NET Framework | Com suporte (V 2.13.1 +)| Com suporte via [TrackMetric](api-custom-events-metrics.md#trackmetric)| Com suporte (V 2.7.2 +) via [Getmetric](get-metric.md) |
+| Java                         | Sem suporte       | Com suporte via [TrackMetric](api-custom-events-metrics.md#trackmetric)| Sem suporte                           |
+| Node.js                      | Sem suporte       | Com suporte via  [TrackMetric](api-custom-events-metrics.md#trackmetric)| Sem suporte                           |
+| Python                       | Sem suporte       | Com suporte                                 | Com suporte via [OpenCensus. stats](opencensus-python.md#metrics) |  
+
+
+### <a name="codeless-supported-pre-aggregated-metrics-table"></a>Tabela de métricas previamente agregadas com suporte sem código
+
+| SDKs de produção atuais | Métricas padrão (pré-agregação do SDK) | Métricas personalizadas (sem pré-agregação do SDK) | Métricas personalizadas (com pré-agregação do SDK)|
+|-------------------------|--------------------------|-------------------------------------------|-----------------------------------------|
+| ASP.NET                 | Com suporte <sup> 1<sup>    | Sem suporte                             | Sem suporte                           |
+| ASP.NET Core            | Com suporte <sup> 2<sup>    | Sem suporte                             | Sem suporte                           |
+| Java                    | Sem suporte            | Sem suporte                             | [Com suporte](java-in-process-agent.md#metrics) |
+| Node.js                 | Sem suporte            | Sem suporte                             | Sem suporte                           |
+
+1. A anexação de código ASP.NET no serviço de aplicativo só emite métricas no modo de monitoramento "completo". A anexação sem código do ASP.NET no serviço de aplicativo, VM/VMSS e no local emite métricas padrão sem dimensões. O SDK é necessário para todas as dimensões.
+2. ASP.NET Core a anexação sem código no serviço de aplicativo emite métricas padrão que não têm dimensões. O SDK é necessário para todas as dimensões.
 
 ## <a name="using-pre-aggregation-with-application-insights-custom-metrics"></a>Usando a pré-agregação com métricas personalizadas do Application Insights
 

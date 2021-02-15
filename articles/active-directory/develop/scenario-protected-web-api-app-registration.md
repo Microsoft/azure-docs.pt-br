@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: c1fab15cade2ce23e053bc73028e6420692c3d8a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5d93df0b6d59e013c22e138942ab4651784421ae
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518267"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584373"
 ---
 # <a name="protected-web-api-app-registration"></a>API Web protegida: registro de aplicativo
 
@@ -27,7 +27,7 @@ Para ver as etapas comuns para registrar um aplicativo, consulte [início rápid
 
 ## <a name="accepted-token-version"></a>Versão do token aceito
 
-O ponto de extremidade da plataforma de identidade da Microsoft pode emitir tokens v 1.0 e v 2.0. Para obter mais informações sobre esses tokens, consulte [tokens de acesso](access-tokens.md).
+A plataforma de identidade da Microsoft pode emitir tokens v 1.0 e tokens v 2.0. Para obter mais informações sobre esses tokens, consulte [tokens de acesso](access-tokens.md).
 
 A versão do token que sua API pode aceitar depende da seleção de **tipos de conta com suporte** ao criar o registro de aplicativo da API web no portal do Azure.
 
@@ -44,7 +44,7 @@ Depois de criar o aplicativo, você pode determinar ou alterar a versão do toke
 1. Se você alterou a versão do token, selecione **salvar**.
 
 > [!NOTE]
-> A API da Web especifica qual versão de token aceita. Quando um cliente solicita um token para sua API Web do ponto de extremidade da plataforma Microsoft Identity (v 2.0), o cliente obtém um token que indica qual versão de token a API da Web aceita.
+> A API da Web especifica qual versão de token aceita. Quando um cliente solicita um token para sua API Web da plataforma de identidade da Microsoft, o cliente obtém um token que indica qual versão de token a API da Web aceita.
 
 ## <a name="no-redirect-uri"></a>Nenhum URI de redirecionamento
 
@@ -58,17 +58,17 @@ Outras configurações específicas para APIs Web são a API exposta e os escopo
 
 Os escopos geralmente têm o formato `resourceURI/scopeName` . Por Microsoft Graph, os escopos têm atalhos. Por exemplo, `User.Read` é um atalho para `https://graph.microsoft.com/user.read` .
 
-Durante o registro do aplicativo, você precisa definir esses parâmetros:
+Durante o registro do aplicativo, defina esses parâmetros:
 
 - O URI do recurso
 - Um ou mais escopos
 - Uma ou mais funções de aplicativo
 
-Por padrão, o portal de registro de aplicativos recomenda que você use o URI de recurso `api://{clientId}` . Esse URI é exclusivo, mas não é legível por humanos. Se você alterar o URI, verifique se o novo valor é exclusivo. O portal de registro de aplicativos garantirá que você use um [domínio de Publicador configurado](howto-configure-publisher-domain.md)
+Por padrão, o portal de registro de aplicativos recomenda que você use o URI de recurso `api://{clientId}` . Esse URI é exclusivo, mas não é legível por humanos. Se você alterar o URI, verifique se o novo valor é exclusivo. O portal de registro de aplicativos garantirá que você use um [domínio de editor configurado](howto-configure-publisher-domain.md).
 
 Para aplicativos cliente, os escopos aparecem como *permissões delegadas e as* funções de aplicativo são exibidas como *permissões de aplicativo* para sua API Web.
 
-Os escopos também aparecem na janela de consentimento que é apresentada aos usuários do seu aplicativo. Portanto, você precisa fornecer as cadeias de caracteres correspondentes que descrevem o escopo:
+Os escopos também aparecem na janela de consentimento que é apresentada aos usuários do seu aplicativo. Portanto, forneça as cadeias de caracteres correspondentes que descrevem o escopo:
 
 - Como visto por um usuário.
 - Como visto por um administrador de locatários, que pode conceder consentimento de administrador.
@@ -99,7 +99,7 @@ Nesta seção, você aprenderá a registrar sua API Web protegida para que os ap
 
 #### <a name="exposing-application-permissions-app-roles"></a>Expondo permissões de aplicativo (funções de aplicativo)
 
-Para expor permissões de aplicativo, você precisa editar o manifesto.
+Para expor permissões de aplicativo, edite o manifesto.
 
 1. No registro do aplicativo para seu aplicativo, selecione **manifesto**.
 1. Para editar o manifesto, localize a `appRoles` configuração e adicione funções de aplicativo. As definições de função são fornecidas no bloco JSON de exemplo a seguir.
@@ -153,5 +153,4 @@ Para adicionar esse aumento de segurança:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-> [!div class="nextstepaction"]
-> [Configuração do código do aplicativo](scenario-protected-web-api-app-configuration.md)
+Vá para o próximo artigo neste cenário, configuração de [código do aplicativo](scenario-protected-web-api-app-configuration.md).

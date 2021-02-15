@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.service: iot-central
 manager: philmea
 ms.openlocfilehash: b447f44d0c95693e560fd5bbfbff8c8daeec964e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80157680"
 ---
 # <a name="group-multiple-actions-to-run-from-one-or-more-rules"></a>Agrupar várias ações para executar a partir de uma ou mais regras
@@ -51,7 +51,7 @@ Escolha um grupo de ação da sua assinatura do Azure:
 
 ![Escolher grupo de ação](media/howto-use-action-groups/chooseactiongroup.png)
 
-Selecione **Salvar**. O grupo de ações agora aparece na lista de ações a serem executadas quando a regra é disparada:
+Clique em **Salvar**. O grupo de ações agora aparece na lista de ações a serem executadas quando a regra é disparada:
 
 ![Grupo de ações salvo](media/howto-use-action-groups/savedactiongroup.png)
 

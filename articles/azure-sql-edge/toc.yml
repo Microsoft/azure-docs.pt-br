@@ -15,52 +15,55 @@
   items:
     - name: Implantar o SQL no Edge
       href: deploy-portal.md
+    - name: Implantar com o Docker
+      href: disconnected-deployment.md
     - name: Implantar Modelos do ONNX no SQL no Edge
       href: deploy-onnx.md
 - name: Tutoriais
+  expanded: true
   items:
+    - name: Implantar no Kubernetes
+      href: deploy-kubernetes.md
     - name: Sincronizar dados ao Azure Data Factory
       href: tutorial-sync-data-factory.md
     - name: Sincronizar dados à Sincronização de Dados SQL
       href: tutorial-sync-data-sync.md
-    - name: Criar uma solução IoT de ponta a ponta com o SQL no Edge
-      items:
-        - name: Configurar recursos do Azure
-          href: tutorial-deploy-azure-resources.md
-        - name: Configurar módulos do IoT Edge
-          href: tutorial-set-up-iot-edge-modules.md
-        - name: Implantar modelo no SQL no Edge
-          href: tutorial-run-ml-model-on-sql-edge.md
-- name: Como
-  items:
-    - name: Implantar trabalhos do Stream Analytics
-      href: stream-analytics.md
-    - name: Configurar replicação
-      href: configure-replication.md
-    - name: Controlar alterações nos dados
-      href: track-data-changes.md
-    - name: Gerenciar trabalhos de streaming do T-SQL
-      href: create-stream-analytics-job.md
-    - name: Conectar-se ao SQL no Edge
-      href: connect.md
-    - name: Configurar o SQL no Edge
-      href: configure.md
-    - name: Implantar pacote de DAC
-      href: deploy-dacpac.md
 - name: Conceitos
   items:
-    - name: Aprendizado de máquina e IA com ONNX
-      href: onnx-overview.md
-    - name: Backup e restauração
-      href: backup-restore.md
-    - name: Streaming de dados no SQL no Edge
+    - name: Implantar
+      items:
+        - name: Implantar usando o portal do Azure
+          href: deploy-portal.md
+        - name: Implantar com o Docker
+          href: disconnected-deployment.md
+        - name: Implantar no Kubernetes
+          href: deploy-kubernetes.md
+        - name: Implantar com o Azure Data Studio
+          href: /sql/azure-data-studio/deploy-azure-sql-edge?toc=%2fazure%2fazure-sql-edge%2ftoc.json
+    - name: Aprendizado de máquina
+      items:
+        - name: Aprendizado de máquina e IA com ONNX
+          href: onnx-overview.md
+        - name: Implantar modelos de ONNX
+          href: deploy-onnx.md
+    - name: Desempenho
+      items:
+        - name: Diretrizes de desempenho
+          href: performance-best-practices.md
+    - name: Configurar a continuidade dos negócios
+      items:
+        - name: Backup e restauração
+          href: backup-restore.md
+        - name: Alta disponibilidade para contêineres
+          href: high-availability-sql-edge-containers.md
+    - name: Streaming de dados
       items:
         - name: Transmitir dados
           href: stream-data.md
+        - name: Criar e gerenciar trabalhos de streaming
+          href: create-stream-analytics-job.md
         - name: Create External Stream (Transact-SQL)
           href: create-external-stream-transact-sql.md
-        - name: Alter External Stream (Transact-SQL)
-          href: alter-external-stream-transact-sql.md
         - name: Drop External Stream (Transact-SQL)
           href: drop-external-stream-transact-sql.md
         - name: Transmitir exibições e DMVs
@@ -69,11 +72,83 @@
               href: streaming-catalog-views.md
             - name: sys.external_job_streams (Transact-SQL)
               href: sys-external-job-streams.md
-            - name: sys.external-streaming_jobs (Transact-SQL)
+            - name: sys.external_streaming_jobs (Transact-SQL)
               href: sys-external-streaming-jobs.md
             - name: sys.external_streams (Transact-SQL)
               href: sys-external-streams.md
     - name: Como processar dados de série temporal
       items:
-        - name: Date_Bucket (T-SQL)
+        - name: Intervalos de tempo e valores ausentes
+          href: imputing-missing-values.md
+        - name: DATE_BUCKET (Transact-SQL)
           href: date-bucket-tsql.md
+        - name: FIRST_VALUE (Transact-SQL)
+          href: /sql/t-sql/functions/first-value-transact-sql?toc=%2fazure%2fazure-sql-edge%2ftoc.json
+        - name: LAST_VALUE (Transact-SQL)
+          href: /sql/t-sql/functions/last-value-transact-sql?toc=%2fazure%2fazure-sql-edge%2ftoc.json
+        - name: Retenção e limpeza de dados
+          items:
+            - name: Visão geral da retenção de dados
+              href: data-retention-overview.md
+            - name: Habilitar ou desabilitar a retenção de dados
+              href: data-retention-enable-disable.md
+            - name: Limpeza da retenção de dados
+              href: data-retention-cleanup.md
+            - name: sys.sp_cleanup_data_retention (Transact-SQL)
+              href: sys-sp-cleanup-data-retention.md
+    - name: Segurança
+      items:
+        - name: Visão geral da segurança
+          href: security-overview.md
+        - name: Recursos de segurança
+          href: /sql/linux/sql-server-linux-security-get-started?toc=%2fazure%2fazure-sql-edge%2ftoc.json
+        - name: Criptografar conexões
+          href: /sql/linux/sql-server-linux-encrypted-connections?toc=%2fazure%2fazure-sql-edge%2ftoc.json
+        - name: Central de Segurança do Azure para IoT
+          href: ../defender-for-iot/overview.md?bc=%2fazure%2fazure-sql-edge%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fazure-sql-edge%2ftoc.json
+- name: Como
+  items:
+    - name: Configurar o SQL no Edge
+      items:
+        - name: Configurar usando variáveis de ambiente
+          href: configure.md#configure-by-using-environment-variables
+        - name: Configurar usando o arquivo mssql.conf
+          href: configure.md#configure-by-using-an-mssqlconf-file
+        - name: Executar como usuário não raiz
+          href: configure.md#run-azure-sql-edge-as-non-root-user
+        - name: Persistir dados
+          href: configure.md#persist-your-data
+        - name: Configurar replicação
+          href: configure-replication.md
+    - name: Conectar-se ao SQL no Edge
+      href: connect.md
+    - name: Implantar pacote de DAC
+      href: deploy-dacpac.md
+    - name: Controlar alterações nos dados
+      href: track-data-changes.md
+    - name: Gerenciar trabalhos de streaming do T-SQL
+      href: create-stream-analytics-job.md
+    - name: Solucionar problemas de implantação
+      href: troubleshoot.md
+- name: Exemplos
+  items:
+    - name: Previsão de sílica de minério de ferro
+      items:
+        - name: Configurar recursos do Azure
+          href: tutorial-deploy-azure-resources.md
+        - name: Configurar módulos do IoT Edge
+          href: tutorial-set-up-iot-edge-modules.md
+        - name: Implantar modelo no SQL no Edge
+          href: tutorial-run-ml-model-on-sql-edge.md
+    - name: Energia renovável – análise de turbinas eólicas
+      href: tutorial-renewable-energy-demo.md
+- name: Referência
+  items:
+    - name: Referência do T-SQL (Transact-SQL)
+      href: /sql/t-sql/language-reference
+- name: Recursos
+  items:
+    - name: Parceiros
+      items:
+        - name: Segurança
+          href: resources-partners-security.md

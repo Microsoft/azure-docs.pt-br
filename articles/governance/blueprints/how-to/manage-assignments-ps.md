@@ -1,14 +1,14 @@
 ---
 title: Como gerenciar atribuições com o PowerShell
 description: Saiba como gerenciar atribuições de plano gráfico com o módulo oficial do PowerShell para plantas oficiais do Azure, AZ. Blueprint.
-ms.date: 08/27/2020
+ms.date: 01/27/2021
 ms.topic: how-to
-ms.openlocfilehash: 3bcb3731bd1270497945fa86406d08b2f9750c85
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: d60fb887e07b4697b8e86a4e2fd74a735ac0bb58
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89051399"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919369"
 ---
 # <a name="how-to-manage-assignments-with-powershell"></a>Como gerenciar atribuições com o PowerShell
 
@@ -164,11 +164,11 @@ Se a atribuição Blueprint ainda não existir, você poderá criá-la com o `Ne
   - Se um parâmetro de grupo de recursos não for fornecido e não tiver **DefaultValue**, o parâmetro de grupo de recursos não será opcional
 - **Atribuição** de (opcional)
   - O caminho para uma representação de arquivo JSON de uma atribuição Blueprint
-  - Esse parâmetro faz parte de um conjunto de parâmetros do PowerShell que inclui apenas **nome**, **plano gráfico**e **SubscriptionId**, além dos parâmetros comuns.
+  - Esse parâmetro faz parte de um conjunto de parâmetros do PowerShell que inclui apenas **nome**, **plano gráfico** e **SubscriptionId**, além dos parâmetros comuns.
 
 ### <a name="example-1-provide-parameters"></a>Exemplo 1: fornecer parâmetros
 
-O exemplo a seguir cria uma nova atribuição da versão ' 1,1 ' da definição do plano gráfico ' meu plano gráfico ' buscada com `Get-AzBlueprint` , define a identidade gerenciada e o local do objeto de atribuição como ' westus2 ', bloqueia os recursos com _AllResourcesReadOnly_e define as tabelas de hash para o **parâmetro** e **ResourceGroupParameter** na assinatura específica representada como `{subId}` :
+O exemplo a seguir cria uma nova atribuição da versão ' 1,1 ' da definição do plano gráfico ' meu plano gráfico ' buscada com `Get-AzBlueprint` , define a identidade gerenciada e o local do objeto de atribuição como ' westus2 ', bloqueia os recursos com _AllResourcesReadOnly_ e define as tabelas de hash para o **parâmetro** e **ResourceGroupParameter** na assinatura específica representada como `{subId}` :
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
@@ -250,7 +250,7 @@ Para obter um exemplo do arquivo de definição de atribuição JSON para uma id
 
 ## <a name="update-blueprint-assignments"></a>Atualizar atribuições do Blueprint
 
-Às vezes, é necessário atualizar uma atribuição de Blueprint que já foi criada. O `Set-AzBlueprintAssignment` cmdlet manipula essa ação. O cmdlet usa a maioria dos mesmos parâmetros que o `New-AzBlueprintAssignment` cmdlet faz, permitindo que qualquer coisa que tenha sido definida na atribuição seja atualizada. As exceções são o _nome_, o _Blueprint_e a _SubscriptionId_. Somente os valores fornecidos são atualizados.
+Às vezes, é necessário atualizar uma atribuição de Blueprint que já foi criada. O `Set-AzBlueprintAssignment` cmdlet manipula essa ação. O cmdlet usa a maioria dos mesmos parâmetros que o `New-AzBlueprintAssignment` cmdlet faz, permitindo que qualquer coisa que tenha sido definida na atribuição seja atualizada. As exceções são o _nome_, o _Blueprint_ e a _SubscriptionId_. Somente os valores fornecidos são atualizados.
 
 Para entender o que acontece ao atualizar uma atribuição de Blueprint, consulte [regras para atualizar atribuições](./update-existing-assignments.md#rules-for-updating-assignments).
 

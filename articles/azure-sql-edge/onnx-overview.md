@@ -1,6 +1,6 @@
 ---
-title: Machine learning e IA com o ONNX no SQL do Azure no Edge (versão prévia)
-description: O aprendizado de máquina no SQL do Azure no Edge (versão prévia) é compatível com os modelos no formato ONNX (Open Neural Network Exchange). O ONNX é um formato aberto que você pode usar para trocar modelos entre várias estruturas e ferramentas de aprendizado de máquina.
+title: Aprendizado de máquina e ia com ONNX no Azure SQL Edge
+description: O Machine Learning no Azure SQL Edge dá suporte a modelos no formato de troca de rede neural aberto (ONNX). O ONNX é um formato aberto que você pode usar para trocar modelos entre várias estruturas e ferramentas de aprendizado de máquina.
 keywords: Implantar o SQL no Edge
 services: sql-edge
 ms.service: sql-edge
@@ -9,16 +9,16 @@ ms.topic: conceptual
 author: dphansen
 ms.author: davidph
 ms.date: 05/19/2020
-ms.openlocfilehash: 2db6c728ac35c6fc2f1fee1a602725371e448104
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5dc3d44ac4396897fd43831d51ee628bb06048cb
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85368049"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93392054"
 ---
-# <a name="machine-learning-and-ai-with-onnx-in-sql-edge-preview"></a>Machine learning e IA com o ONNX no SQL no Edge (versão prévia)
+# <a name="machine-learning-and-ai-with-onnx-in-sql-edge"></a>Machine learning e IA com o ONNX no SQL no Edge
 
-O aprendizado de máquina no SQL do Azure no Edge (versão prévia) é compatível com os modelos no formato [ONNX (Open Neural Network Exchange)](https://onnx.ai/). O ONNX é um formato aberto que você pode usar para trocar modelos entre várias [estruturas e ferramentas de aprendizado de máquina](https://onnx.ai/supported-tools).
+O Machine Learning no Azure SQL Edge dá suporte a modelos no formato de [troca de rede neural aberto (ONNX)](https://onnx.ai/) . O ONNX é um formato aberto que você pode usar para trocar modelos entre várias [estruturas e ferramentas de aprendizado de máquina](https://onnx.ai/supported-tools).
 
 ## <a name="overview"></a>Visão geral
 
@@ -28,7 +28,7 @@ Para inferir modelos de aprendizado de máquina no SQL do Azure no Edge, primeir
 
 Para obter um modelo no formato ONNX:
 
-- **Serviços de compilação de modelo**: Serviços como o [recurso Machine Learning automatizado no Azure Machine Learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb) e o [serviço Visão Personalizada do Azure](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) são compatíveis com a exportação direta do modelo treinado no formato ONNX.
+- **Serviços de compilação de modelo** : Serviços como o [recurso Machine Learning automatizado no Azure Machine Learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb) e o [serviço Visão Personalizada do Azure](../cognitive-services/custom-vision-service/getting-started-build-a-classifier.md) são compatíveis com a exportação direta do modelo treinado no formato ONNX.
 
 - [**Converter e/ou exportar modelos existentes**](https://github.com/onnx/tutorials#converting-to-onnx-format): Várias estruturas de treinamento (por exemplo, [PyTorch](https://pytorch.org/docs/stable/onnx.html), Chainer e Caffe2) são compatíveis com a funcionalidade de exportação nativa para o ONNX, o que permite salvar o modelo treinado em uma versão específica do formato ONNX. Para estruturas incompatíveis com a exportação nativa, há pacotes instaláveis autônomos do conversor de ONNX que permitem converter modelos treinados de diversas estruturas de aprendizado de máquina no formato ONNX.
 
@@ -43,16 +43,16 @@ Para obter um modelo no formato ONNX:
 
 ## <a name="limitations"></a>Limitações
 
-Atualmente, nem todos os modelos ONNX são compatíveis com o SQL do Azure no Edge. A compatibilidade se limita a modelos com **tipos de dados numéricos**:
+Atualmente, nem todos os modelos ONNX são compatíveis com o SQL do Azure no Edge. A compatibilidade se limita a modelos com **tipos de dados numéricos** :
 
-- [int e bigint](https://docs.microsoft.com/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql)
-- [real e float](https://docs.microsoft.com/sql/t-sql/data-types/float-and-real-transact-sql).
+- [int e bigint](/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql)
+- [real e float](/sql/t-sql/data-types/float-and-real-transact-sql).
   
-Outros tipos numéricos podem ser convertidos em tipos compatíveis usando [CAST e CONVERT](https://docs.microsoft.com/sql/t-sql/functions/cast-and-convert-transact-sql).
+Outros tipos numéricos podem ser convertidos em tipos compatíveis usando [CAST e CONVERT](/sql/t-sql/functions/cast-and-convert-transact-sql).
 
 As entradas do modelo devem ser estruturadas de forma que cada entrada para o modelo corresponda a uma única coluna de uma tabela. Por exemplo, se você estiver usando uma estrutura de dados pandas para treinar um modelo, cada entrada deverá ser uma coluna separada para o modelo.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Implantar o SQL do Azure no Edge por meio do portal do Azure](deploy-portal.md)
-- [Implantar um modelo ONNX no SQL do Azure no Edge (versão prévia)](deploy-onnx.md)
+- [Implantar um modelo ONNX no Azure SQL Edge ](deploy-onnx.md)

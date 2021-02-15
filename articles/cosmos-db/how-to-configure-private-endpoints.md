@@ -4,19 +4,23 @@ description: Saiba como configurar o Link Privado do Azure para acessar uma cont
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 07/10/2020
+ms.date: 12/16/2020
 ms.author: thweiss
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: aa8fd911aaf5c61fc8c33ca469798291fca3d3d1
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 9a6db0d25165059581d7ffafa5b8e7fd19330c87
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502113"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97629639"
 ---
 # <a name="configure-azure-private-link-for-an-azure-cosmos-account"></a>Configurar o Link Privado do Azure para uma conta do Azure Cosmos
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Usando o Link Privado do Azure, você pode se conectar a uma conta do Azure Cosmos por meio de um ponto de extremidade privado. O ponto de extremidade privado é um conjunto de endereços IP privados em uma sub-rede dentro da rede virtual. Você pode limitar o acesso a uma conta do Azure Cosmos por meio de endereços IP privados. Quando o Link Privado é combinado com políticas NSG restritas, ele ajuda a reduzir o risco de exfiltração dos dados. Para saber mais sobre pontos de extremidade privados, confira o artigo [Link Privado do Azure](../private-link/private-link-overview.md).
+
+> [!NOTE]
+> O link privado não impede que os pontos de extremidade do Azure Cosmos sejam resolvidos pelo DNS público. A filtragem de solicitações de entrada ocorre no nível do aplicativo, não no nível de transporte ou de rede.
 
 O Link Privado permite que os usuários acessem uma conta do Azure Cosmos de dentro da rede virtual ou de qualquer rede virtual emparelhada. Os recursos mapeados para o Link Privado também podem ser acessados localmente no emparelhamento privado por meio de VPN ou do Azure ExpressRoute. 
 
@@ -613,6 +617,9 @@ Você deve usar a zona DNS privada dentro da sub-rede em que você criou o ponto
 
 Ao criar o ponto de extremidade privado, você pode integrá-lo a uma zona DNS privada no Azure. Se você optar por usar uma zona DNS personalizada, precisará configurá-la para adicionar registros DNS para todos os endereços IP privados reservados para o ponto de extremidade privado.
 
+> [!IMPORTANT]
+> É a resolução DNS de suas solicitações que determina se essas solicitações passam por seus pontos de extremidade privados ou assumem a rota pública padrão. Verifique se o DNS local referencia corretamente o IP privado endereçado mapeado pelo seu ponto de extremidade privado.
+
 ## <a name="private-link-combined-with-firewall-rules"></a>Link Privado combinado com regras de firewall
 
 As seguintes situações e resultados são possíveis quando você usa o Link Privado em combinação com regras de firewall:
@@ -627,7 +634,18 @@ As seguintes situações e resultados são possíveis quando você usa o Link Pr
 
 ## <a name="blocking-public-network-access-during-account-creation"></a>Bloquear o acesso à rede pública durante a criação da conta
 
-Conforme descrito na seção anterior, e a menos que regras de firewall específicas tenham sido definidas, a adição de um ponto de extremidade privado torna sua conta do Azure Cosmos acessível somente por pontos de extremidade privados. Isso significa que a conta do Azure Cosmos poderá ser acessada do tráfego público depois de ser criada e antes de um ponto de extremidade privado ser adicionado. Para verificar se o acesso à rede pública está desabilitado mesmo antes da criação de pontos de extremidade privados, você pode definir o sinalizador `publicNetworkAccess` como `Disabled` durante a criação da conta. Confira [este modelo do Azure Resource Manager](https://azure.microsoft.com/resources/templates/101-cosmosdb-private-endpoint/) para ver um exemplo que mostra como usar esse sinalizador.
+Conforme descrito na seção anterior, e a menos que regras de firewall específicas tenham sido definidas, a adição de um ponto de extremidade privado torna sua conta do Azure Cosmos acessível somente por pontos de extremidade privados. Isso significa que a conta do Azure Cosmos poderá ser acessada do tráfego público depois de ser criada e antes de um ponto de extremidade privado ser adicionado. Para verificar se o acesso à rede pública está desabilitado mesmo antes da criação de pontos de extremidade privados, você pode definir o sinalizador `publicNetworkAccess` como `Disabled` durante a criação da conta. Observe que esse sinalizador tem precedência sobre qualquer regra de rede virtual ou IP; todo o tráfego de rede virtual e pública é bloqueado quando o sinalizador é definido como `Disabled` , mesmo que o IP de origem ou a rede virtual seja permitido na configuração do firewall.
+
+Confira [este modelo do Azure Resource Manager](https://azure.microsoft.com/resources/templates/101-cosmosdb-private-endpoint/) para ver um exemplo que mostra como usar esse sinalizador.
+
+## <a name="adding-private-endpoints-to-an-existing-cosmos-account-with-no-downtime"></a>Adicionando pontos de extremidade privados a uma conta existente do cosmos sem tempo de inatividade
+
+Por padrão, a adição de um ponto de extremidade privado a uma conta existente resulta em um breve tempo de inatividade de aproximadamente 5 minutos. Siga as instruções abaixo para evitar esse tempo de inatividade:
+
+1. Adicione regras de rede virtual ou IP à sua configuração de firewall para permitir explicitamente suas conexões de cliente.
+1. Aguarde 10 minutos para garantir que a atualização da configuração seja aplicada.
+1. Configure seu novo ponto de extremidade privado.
+1. Remova as regras de firewall definidas na etapa 1.
 
 ## <a name="port-range-when-using-direct-mode"></a>Intervalo de portas ao usar o modo direto
 
@@ -635,7 +653,7 @@ Quando você estiver usando um link privado com uma conta do Azure Cosmos por me
 
 ## <a name="update-a-private-endpoint-when-you-add-or-remove-a-region"></a>Atualizar um ponto de extremidade privado ao adicionar ou remover uma região
 
-Adicionar ou remover regiões a uma conta do Azure Cosmos exige que você adicione ou remova entradas DNS para essa conta. Depois que regiões forem adicionadas ou removidas, você poderá atualizar a zona DNS privada da sub-rede para refletir as entradas DNS adicionadas ou removidas e os endereços IP privados correspondentes delas.
+A menos que você esteja usando um grupo de zona DNS privado, adicionar ou remover regiões para uma conta do Azure Cosmos exige que você adicione ou remova entradas DNS para essa conta. Depois que regiões forem adicionadas ou removidas, você poderá atualizar a zona DNS privada da sub-rede para refletir as entradas DNS adicionadas ou removidas e os endereços IP privados correspondentes delas.
 
 Por exemplo, imagine que você implante uma conta do Azure Cosmos em três regiões: "Oeste dos EUA", "EUA Central" e "Oeste da Europa". Quando você cria um ponto de extremidade privado para sua conta, quatro IPs privados são reservados na sub-rede. Há um IP para cada uma das três regiões e há um IP para o ponto de extremidade global/independente de região.
 
@@ -659,7 +677,7 @@ As seguintes limitações se aplicam quando você está usando o Link Privado co
 
 ### <a name="limitations-to-private-dns-zone-integration"></a>Limitações para a integração da zona DNS privada
 
-Os registros DNS na zona DNS privada não são removidos automaticamente quando você exclui um ponto de extremidade privado ou remove uma região da conta do Azure Cosmos. Você deve remover manualmente os registros DNS antes de:
+A menos que você esteja usando um grupo de zona DNS privado, os registros DNS na zona DNS privada não serão removidos automaticamente quando você excluir um ponto de extremidade privado ou remover uma região da conta do Azure Cosmos. Você deve remover manualmente os registros DNS antes de:
 
 * Adicionar um novo ponto de extremidade privado vinculado a esta zona DNS privada.
 * Adicionar uma nova região a qualquer conta de banco de dados que tenha pontos de extremidade privados vinculados a essa zona DNS privada.
@@ -670,7 +688,7 @@ Se você não limpar os registros DNS, poderão ocorrer problemas inesperados no
 
 Para saber mais sobre os recursos de segurança do Azure Cosmos DB, confira os seguintes artigos:
 
-* Para configurar um firewall para o Azure Cosmos DB, confira o [Suporte de firewall](firewall-support.md).
+* Para configurar um firewall para o Azure Cosmos DB, confira o [Suporte de firewall](how-to-configure-firewall.md).
 
 * Para saber como configurar um ponto de extremidade de serviço de rede virtual para sua conta do Azure Cosmos, confira [Configurar o acesso de redes virtuais](how-to-configure-vnet-service-endpoint.md).
 

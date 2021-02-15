@@ -1,6 +1,6 @@
 ---
 title: Importar a coleção Postman com operações de streaming sob demanda do Azure
-description: Este artigo fornece uma definição da coleção Postman para chamadas REST dos Serviços de Mídia do Azure.
+description: Saiba mais sobre a coleção de postmaster que contém solicitações HTTP agrupadas que chamam as APIs REST dos serviços de mídia do Azure.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,14 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 2d3bf8b43bc12a2a8a193ea2708ab1668235edde
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 30a139ca0569a2ada4a66befbf7c56a9f8edaab9
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87047567"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656726"
 ---
-# <a name="import-a-postman-collection-with-on-demand-streaming-operations"></a>Importar uma coleção Postman com operações de streaming sob demanda 
+# <a name="import-a-postman-collection-with-on-demand-streaming-operations"></a>Importar uma coleção Postman com operações de streaming sob demanda
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 Este artigo contém uma definição da coleção **Postman** que contém as solicitações HTTP agrupadas que chamam as APIs REST dos Serviços de Mídia do Azure. Para saber mais sobre como configurar o **Postman** para que possa ser usado para chamar APIs REST dos Serviços de Mídia, consulte o tutorial [Configurar o Postman para chamadas API REST dos Serviços de Mídia](media-rest-apis-with-postman.md).
 
@@ -178,7 +180,7 @@ Este artigo contém uma definição da coleção **Postman** que contém as soli
                                 ]
                             }
                         }
-                    ],                  
+                    ],
                     "request": {
                         "auth": {
                             "type": "bearer",
@@ -3251,7 +3253,7 @@ Este artigo contém uma definição da coleção **Postman** que contém as soli
                                     "key": "access-control-expose-headers",
                                     "value": "request-id, x-ms-request-id",
                                     "name": "access-control-expose-headers",
-                                    "description": "Lets a server whitelist headers that browsers are allowed to access."
+                                    "description": "Lets a server allowlist headers that browsers are allowed to access."
                                 },
                                 {
                                     "key": "request-id",
@@ -3454,7 +3456,7 @@ Este artigo contém uma definição da coleção **Postman** que contém as soli
                                     "key": "access-control-expose-headers",
                                     "value": "request-id, x-ms-request-id",
                                     "name": "access-control-expose-headers",
-                                    "description": "Lets a server whitelist headers that browsers are allowed to access."
+                                    "description": "Lets a server allowlist headers that browsers are allowed to access."
                                 },
                                 {
                                     "key": "request-id",
@@ -5589,3 +5591,4 @@ Este artigo contém uma definição da coleção **Postman** que contém as soli
     ]
 }
 ```
+

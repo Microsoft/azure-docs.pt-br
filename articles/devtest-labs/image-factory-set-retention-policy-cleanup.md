@@ -4,10 +4,10 @@ description: Saiba como configurar uma política de retenção, limpar a fábric
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 115fdff215399a9a51171161191ecf5009e8e20e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85476046"
 ---
 # <a name="set-up-retention-policy-in-azure-devtest-labs"></a>Configurar a política de retenção no Azure DevTest Labs
@@ -47,7 +47,7 @@ Essa tarefa remove todas as imagens antigas, mantendo apenas um histórico corre
 
 ![Tarefa desativar o PowerShell de imagens antigas](./media/set-retention-policy-cleanup/retire-old-image-task.png)
 
-Os parâmetros de script são:`-ConfigurationLocation $(System.DefaultWorkingDirectory)$(ConfigurationLocation) -SubscriptionId $(SubscriptionId) -DevTestLabName $(devTestLabName) -ImagesToSave $(ImageRetention)`
+Os parâmetros de script são: `-ConfigurationLocation $(System.DefaultWorkingDirectory)$(ConfigurationLocation) -SubscriptionId $(SubscriptionId) -DevTestLabName $(devTestLabName) -ImagesToSave $(ImageRetention)`
 
 ## <a name="queue-the-build"></a>Enfileirar a compilação
 Agora que você concluiu a definição de compilação, enfileirar uma nova compilação para certificar-se de que tudo está funcionando. Depois que a compilação for concluída com êxito, as novas imagens personalizadas aparecerão no laboratório de destino e, se você verificar o laboratório da fábrica de imagens, você não verá nenhuma VM provisionada. Além disso, se você enfileirar outras compilações, verá que as tarefas de limpeza desativam imagens personalizadas antigas dos laboratórios de DevTest de acordo com o valor de retenção definido nas variáveis de compilação.

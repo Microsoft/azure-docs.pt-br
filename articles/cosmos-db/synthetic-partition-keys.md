@@ -2,18 +2,20 @@
 title: Criar uma chave de partição sintética no Azure Cosmos DB
 description: Saiba como usar chaves de partição sintéticas em seus contêineres de Cosmos do Azure para distribuir os dados e a carga de trabalho uniformemente entre as chaves de partição
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 12/03/2019
 author: markjbrown
 ms.author: mjbrown
-ms.openlocfilehash: e8786c2d6e93c18a5bf9856a5555d6b528f842c5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6b8bc44f1ba5624c37620205aaa574e618ef395f
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75441214"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340644"
 ---
 # <a name="create-a-synthetic-partition-key"></a>Crie uma chave de partição sintética
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 É a melhor prática ter uma chave de partição com muitos valores distintos, como centenas ou milhares. O objetivo é distribuir seus dados e carga de trabalho uniformemente entre os itens associados a esses valores de chave de partição. Se essa propriedade não existir em seus dados, você poderá construir uma *chave de partição sintética*. Este documento descreve várias técnicas básicas para gerar uma chave de partição sintética para seu contêiner Cosmos.
 
@@ -58,7 +60,7 @@ Com essa estratégia, as gravações são distribuídas uniformemente pelos valo
 
 Você pode aprender mais sobre o conceito de particionamento nos seguintes artigos:
 
-* Saiba mais sobre [partições lógicas](partition-data.md).
+* Saiba mais sobre [partições lógicas](partitioning-overview.md).
 * Saiba mais sobre como [provisionar taxa de transferência para contêineres e bancos de dados do Azure Cosmos DB](set-throughput.md).
 * Saiba como [provisionar taxa de transferência em um contêiner do Azure Cosmos DB](how-to-provision-container-throughput.md).
 * Saiba como [provisionar taxa de transferência em um banco de dados do Azure Cosmos DB](how-to-provision-database-throughput.md).

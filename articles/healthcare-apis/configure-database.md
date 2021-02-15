@@ -7,18 +7,18 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 11/15/2019
 ms.author: matjazl
-ms.openlocfilehash: 652445a96acfa0358211d1d97e0fcf288989d6ba
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 3fe4118a8ecf4479732ba4073b342d3ec9f941b8
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88795772"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93398191"
 ---
 # <a name="configure-database-settings"></a>Definir configurações de banco de dados 
 
 A API do Azure para o FHIR usa o banco de dados para armazenar os seus dados. O desempenho do banco de dados subjacente depende do número de unidades de solicitação (RU) selecionado durante o provisionamento do serviço ou nas configurações do banco de dados depois que o serviço tiver sido provisionado.
 
-A API do Azure para FHIR empresta o conceito de RUs de Cosmos DB (consulte [unidades de solicitação em Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/request-units)) ao definir o desempenho do banco de dados subjacente. 
+A API do Azure para FHIR empresta o conceito de RUs de Cosmos DB (consulte [unidades de solicitação em Azure Cosmos DB](../cosmos-db/request-units.md)) ao definir o desempenho do banco de dados subjacente. 
 
 A taxa de transferência deve ser provisionada para garantir que recursos suficientes do sistema estejam disponíveis para o seu banco de dados em todos os momentos. A quantidade de RUs que você precisa para seu aplicativo depende das operações que você executa. As operações podem variar desde leituras simples e gravações até consultas mais complexas. 
 
@@ -38,7 +38,12 @@ Se a taxa de transferência do banco de dados for maior do que 10.000 RU/s ou se
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste artigo, você aprendeu a atualizar sua RUs para a API do Azure para FHIR. Em seguida, implante uma API do Azure totalmente gerenciada para FHIR:
+Neste artigo, você aprendeu a atualizar sua RUs para a API do Azure para FHIR. Para saber mais sobre como configurar chaves gerenciadas pelo cliente como uma configuração de banco de dados:
+
+>[!div class="nextstepaction"]
+>[Configurar chaves gerenciadas pelo cliente](customer-managed-key.md)
+
+Ou você pode implantar uma API do Azure totalmente gerenciada para FHIR:
  
 >[!div class="nextstepaction"]
 >[Implantar a API do Azure para FHIR](fhir-paas-portal-quickstart.md)

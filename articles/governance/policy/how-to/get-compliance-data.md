@@ -1,14 +1,14 @@
 ---
 title: Obter dados de conformidade da política
 description: Efeitos e avaliações do Azure Policy determinam a conformidade. Saiba como obter os detalhes de conformidade dos seus recursos do Azure.
-ms.date: 08/10/2020
+ms.date: 10/05/2020
 ms.topic: how-to
-ms.openlocfilehash: 7795bba9fec79ee13600d9c72f68e9c763b169e4
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 112badce00ec56df0f80c7b51bb4789a414cdcbd
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88054645"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94920229"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Obter dados de conformidade de recursos do Azure
 
@@ -22,7 +22,7 @@ Há várias maneiras de acessar as informações de conformidade geradas por sua
 Antes de examinar os métodos de relatório de conformidade, vamos ver quando as informações de conformidade são atualizadas, além da frequência e dos eventos que disparam um ciclo de avaliação.
 
 > [!WARNING]
-> Se o estado de conformidade estiver sendo relatado como **Não registrado**, verifique se o **Provedor de Recursos Microsoft.PolicyInsights** está registrado e se o usuário tem as permissões apropriadas de controle de acesso baseado em função (RBAC) descritas no [RBAC no Azure Policy](../overview.md#rbac-permissions-in-azure-policy).
+> Se o estado de conformidade estiver sendo relatado como **não registrado**, verifique se o provedor de recursos **Microsoft. PolicyInsights** está registrado e se o usuário tem as permissões apropriadas de controle de acesso baseado em função (RBAC do Azure), conforme descrito em [permissões de RBAC do Azure no Azure Policy](../overview.md#azure-rbac-permissions-in-azure-policy).
 
 ## <a name="evaluation-triggers"></a>Gatilhos de avaliação
 
@@ -30,11 +30,13 @@ Os resultados de um ciclo de avaliação concluído estão disponíveis no Prove
 
 As avaliações de políticas atribuídas e iniciativas ocorrem como resultado de diversos eventos:
 
-- Uma política ou iniciativa foi recentemente atribuída a um escopo. Demora cerca de 30 minutos para que a atribuição seja aplicada ao escopo definido. Após a aplicação, o ciclo de avaliação começa para recursos dentro desse escopo na política ou iniciativa recentemente atribuída e, dependendo dos efeitos usados pela política ou iniciativa, os recursos serão marcados como em conformidade ou sem conformidade. Uma política ou iniciativa grande avaliada em um grande escopo de recursos pode levar tempo. Como tal, não há nenhuma expectativa predefinida de quando o ciclo de avaliação é concluído. Após a conclusão, os resultados de conformidade atualizados estarão disponíveis no Portal e nos SDKs.
+- Uma política ou iniciativa foi recentemente atribuída a um escopo. Demora cerca de 30 minutos para que a atribuição seja aplicada ao escopo definido. Depois de aplicado, o ciclo de avaliação começa para os recursos dentro desse escopo em relação à política ou iniciativa atribuída recentemente e, dependendo dos efeitos usados pela política ou iniciativa, os recursos são marcados como em conformidade, não compatível ou isento. Uma política ou iniciativa grande avaliada em um grande escopo de recursos pode levar tempo. Como tal, não há nenhuma expectativa predefinida de quando o ciclo de avaliação é concluído. Após a conclusão, os resultados de conformidade atualizados estarão disponíveis no Portal e nos SDKs.
 
 - Uma política ou iniciativa já atribuída a um escopo foi atualizada. O ciclo de avaliação e o tempo desse cenário são iguais aos de uma nova atribuição a um escopo.
 
 - Um recurso é implantado ou atualizado dentro de um escopo com uma atribuição via Azure Resource Manager, API REST ou um SDK com suporte. Nesse cenário, o evento de efeito (anexar, auditar, negar, implantar) e as informações de status compatíveis com o recurso individual ficam disponíveis no portal e nos SDKs por volta de 15 minutos depois. Este evento não causa uma avaliação de outros recursos.
+
+- Uma [isenção de política](../concepts/exemption-structure.md) é criada, atualizada ou excluída. Nesse cenário, a atribuição correspondente é avaliada para o escopo de isenção definido.
 
 - Ciclo de avaliação de conformidade padrão. Uma vez a cada 24 horas, as atribuições são automaticamente reavaliadas. Uma política ou iniciativa de muitos recursos pode demorar, portanto, não há uma expectativa predefinida de quando o ciclo de avaliação é concluído. Após a conclusão, os resultados de conformidade atualizados estarão disponíveis no Portal e nos SDKs.
 
@@ -44,11 +46,41 @@ As avaliações de políticas atribuídas e iniciativas ocorrem como resultado d
 
 ### <a name="on-demand-evaluation-scan"></a>Exame de avaliação sob demanda
 
-Uma verificação de avaliação para uma assinatura ou um grupo de recursos pode ser iniciada com CLI do Azure, Azure PowerShell ou uma chamada para a API REST. Essa verificação é um processo assíncrono.
+Uma verificação de avaliação para uma assinatura ou um grupo de recursos pode ser iniciada com CLI do Azure, Azure PowerShell, uma chamada para a API REST ou usando a [ação do GitHub de verificação de conformidade Azure Policy](https://github.com/marketplace/actions/azure-policy-compliance-scan).
+Essa verificação é um processo assíncrono.
+
+#### <a name="on-demand-evaluation-scan---github-action"></a>Verificação de avaliação sob demanda – ação do GitHub
+
+Use a [ação de verificação de conformidade Azure Policy](https://github.com/marketplace/actions/azure-policy-compliance-scan) para disparar uma verificação de avaliação sob demanda de seu [fluxo de trabalho do GitHub](https://docs.github.com/actions/configuring-and-managing-workflows/configuring-a-workflow#about-workflows) em um ou vários recursos, grupos de recursos ou assinaturas e portão o fluxo de trabalho com base no estado de conformidade dos recursos. Você também pode configurar o fluxo de trabalho para ser executado em um horário agendado para que você obtenha o status de conformidade mais recente em um momento conveniente. Opcionalmente, essa ação do GitHub pode gerar um relatório sobre o estado de conformidade dos recursos verificados para análise posterior ou arquivamento.
+
+O exemplo a seguir executa uma verificação de conformidade para uma assinatura. 
+
+```yaml
+on:
+  schedule:    
+    - cron:  '0 8 * * *'  # runs every morning 8am
+jobs:
+  assess-policy-compliance:    
+    runs-on: ubuntu-latest
+    steps:         
+    - name: Login to Azure
+      uses: azure/login@v1
+      with:
+        creds: ${{secrets.AZURE_CREDENTIALS}} 
+
+    
+    - name: Check for resource compliance
+      uses: azure/policy-compliance-scan@v0
+      with:
+        scopes: |
+          /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+```
+
+Para obter mais informações e exemplos de fluxo de trabalho, consulte a [ação do GitHub para Azure Policy repositório de verificação de conformidade](https://github.com/Azure/policy-compliance-scan).
 
 #### <a name="on-demand-evaluation-scan---azure-cli"></a>Varredura de avaliação sob demanda-CLI do Azure
 
-A verificação de conformidade é iniciada com o comando [AZ Policy estado Trigger-Scan](/cli/azure/policy/state#az-policy-state-trigger-scan) .
+A verificação de conformidade é iniciada com o comando [AZ Policy estado Trigger-Scan](/cli/azure/policy/state#az_policy_state_trigger_scan) .
 
 Por padrão, `az policy state trigger-scan` inicia uma avaliação para todos os recursos na assinatura atual. Para iniciar uma avaliação em um grupo de recursos específico, use o parâmetro **grupo de recursos** . O exemplo a seguir inicia uma verificação de conformidade na assinatura atual do grupo de recursos _MyRG_:
 
@@ -125,41 +157,50 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
 }
 ```
 
+#### <a name="on-demand-evaluation-scan---visual-studio-code"></a>Varredura de avaliação sob demanda-Visual Studio Code
+
+A extensão de Azure Policy para o Visual Studio Code é capaz de executar uma verificação de avaliação para um recurso específico. Essa verificação é um processo síncrono, ao contrário dos métodos Azure PowerShell e REST.
+Para obter detalhes e etapas, consulte [avaliação sob demanda com a extensão vs Code](./extension-for-vscode.md#on-demand-evaluation-scan).
+
 ## <a name="how-compliance-works"></a>Como funciona a conformidade
 
-Em uma atribuição, é um recurso **incompatível** se ele não segue as regras de política ou iniciativa.
-A tabela a seguir mostra como os diferentes efeitos da política funcionam com a avaliação da condição para o estado de conformidade resultante:
+Em uma atribuição, um recurso não é **compatível** se não seguir as regras de política ou de iniciativa e não estiver _isento_. A tabela a seguir mostra como os diferentes efeitos da política funcionam com a avaliação da condição para o estado de conformidade resultante:
 
-| Estado do recurso | Efeito | Avaliação da política | Estado de conformidade |
+| Estado do Recurso | Efeito | Avaliação da política | Estado de conformidade |
 | --- | --- | --- | --- |
-| Exists | Negar, Auditoria, Acrescentar\*, DeployIfNotExist\*, AuditIfNotExist\* | True | Sem conformidade |
-| Exists | Negar, Auditoria, Acrescentar\*, DeployIfNotExist\*, AuditIfNotExist\* | Falso | Em conformidade |
-| Novo | Auditoria, AuditIfNotExist\* | True | Sem conformidade |
-| Novo | Auditoria, AuditIfNotExist\* | Falso | Em conformidade |
+| Novo ou atualizado | Audit, Modify, AuditIfNotExist | True | Sem conformidade |
+| Novo ou atualizado | Audit, Modify, AuditIfNotExist | Falso | Em conformidade |
+| Exists | Deny, Audit, Append, Modify, DeployIfNotExist, AuditIfNotExist | True | Sem conformidade |
+| Exists | Deny, Audit, Append, Modify, DeployIfNotExist, AuditIfNotExist | Falso | Em conformidade |
 
-\* Os efeitos de Acrescentar, DeployIfNotExist e AuditIfNotExist exigem que a instrução IF seja TRUE.
-Os efeitos também exigem que a condição de existência seja FALSE para não estar em conformidade. Quando TRUE, a condição IF dispara a avaliação da condição de existência para os recursos relacionados.
+> [!NOTE]
+> Os efeitos DeployIfNotExist e AuditIfNotExist exigem que a instrução IF seja TRUE e a condição de existência seja FALSE para não estar em conformidade. Quando TRUE, a condição IF dispara a avaliação da condição de existência para os recursos relacionados.
 
 Por exemplo, suponha que você tenha um grupo de recursos – ContsoRG, com algumas contas de armazenamento (realçadas em vermelho) que são expostas para redes públicas.
 
-:::image type="content" source="../media/getting-compliance-data/resource-group01.png" alt-text="Contas de armazenamento expostas a redes públicas" border="false":::
+:::image type="complex" source="../media/getting-compliance-data/resource-group01.png" alt-text="Diagrama de contas de armazenamento expostas a redes públicas no grupo de recursos contoso R G." border="false":::
+   Diagrama mostrando imagens para cinco contas de armazenamento no grupo de recursos contoso R G.  As contas de armazenamento um e três são azuis, enquanto as contas de armazenamento dois, quatro e cinco são vermelhas.
+:::image-end:::
 
-Neste exemplo, você precisa estar atento aos riscos de segurança. Agora que você criou uma atribuição de política, ela é avaliada em relação a todas as contas de armazenamento no grupo de recursos ContosoRG. Ele audita as três contas de armazenamento não compatíveis, consequentemente alterando seus estados para **Não compatíveis.**
+Neste exemplo, você precisa estar atento aos riscos de segurança. Agora que você criou uma atribuição de política, ela é avaliada para todas as contas de armazenamento incluídas e não isentas no grupo de recursos ContosoRG. Ele audita as três contas de armazenamento não compatíveis, consequentemente alterando seus estados para **Não compatíveis.**
 
-:::image type="content" source="../media/getting-compliance-data/resource-group03.png" alt-text="Auditoria de contas de armazenamento sem conformidade" border="false":::
+:::image type="complex" source="../media/getting-compliance-data/resource-group03.png" alt-text="Diagrama de conformidade da conta de armazenamento no grupo de recursos contoso R G." border="false":::
+   Diagrama mostrando imagens para cinco contas de armazenamento no grupo de recursos contoso R G. As contas de armazenamento um e três agora têm marcas de seleção verdes abaixo delas, enquanto as contas de armazenamento dois, quatro e cinco agora têm sinais de aviso vermelhos abaixo delas.
+:::image-end:::
 
-Além de **Compatível** e **Não compatível**, as políticas e os recursos têm três outros estados:
+Além de serem **compatíveis** e **não compatíveis**, as políticas e os recursos têm quatro outros Estados:
 
-- **Conflitante**: duas ou mais políticas existem com regras conflitantes. Por exemplo, duas políticas que acrescentam a mesma tag com valores diferentes.
+- **Isentar**: o recurso está no escopo de uma atribuição, mas tem uma [isenção definida](../concepts/exemption-structure.md).
+- **Conflito**: existem duas ou mais definições de política com regras conflitantes. Por exemplo, duas definições acrescentam a mesma marca com valores diferentes.
 - **Não foi iniciado**: O ciclo de avaliação não foi iniciado para a política ou o recurso.
 - **Não registrado**: o Provedor de Recursos do Azure Policy não foi registrado ou a conta conectada não tem permissão para ler dados de conformidade.
 
-O Azure Policy usa os campos **tipo** e **nome** na definição para determinar se um recurso é uma correspondência. Quando o recurso é correspondido, é considerado aplicável e com um status **Compatível** ou **Não compatível**. Se o **tipo** ou o **nome** for a única propriedade na definição, então todos os recursos serão considerados aplicáveis e serão avaliados.
+Azure Policy usa os campos **tipo**, **nome** ou **tipo** na definição para determinar se um recurso é uma correspondência. Quando o recurso corresponde, ele é considerado aplicável e tem um status de em **conformidade**, **não compatível** ou **isento**. Se o **tipo**, o **nome** ou o **tipo** for a única propriedade na definição, todos os recursos incluídos e não isentos serão considerados aplicáveis e serão avaliados.
 
-A porcentagem de conformidade é determinada pela divisão de **recursos** Compatíveis pelo _total de recursos_.
-_O total de recursos_ é definido como a soma dos recursos **Em conformidade**, **Não-compatível** e **Conflito**. Os números gerais de conformidade são a soma de recursos distintos que são **Compatíveis** divididos pela soma de todos os recursos distintos. Na imagem abaixo, existem 20 recursos distintos que são aplicáveis e apenas um é **Não compatível**. A conformidade geral do recurso é 95 (19 de 20).
+A porcentagem de conformidade é determinada pela divisão de recursos em **conformidade** e **isentos** pelo _total de recursos_. _O total de recursos_ é definido como a soma dos recursos **compatíveis**, **não compatíveis**, **isentos** e **conflitantes** . Os números de conformidade geral são a soma de recursos distintos que são **compatíveis** ou **isentos** divididos pela soma de todos os recursos distintos. Na imagem abaixo, existem 20 recursos distintos que são aplicáveis e apenas um é **Não compatível**.
+A conformidade geral do recurso é 95 (19 de 20).
 
-:::image type="content" source="../media/getting-compliance-data/simple-compliance.png" alt-text="Exemplo de conformidade de política da página conformidade" border="false":::
+:::image type="content" source="../media/getting-compliance-data/simple-compliance.png" alt-text="Captura de tela de detalhes de conformidade de política da página conformidade." border="false":::
 
 > [!NOTE]
 > A conformidade regulatória no Azure Policy é um recurso de visualização. As propriedades de conformidade do SDK e das páginas no portal são diferentes para iniciativas habilitadas. Para obter mais informações, consulte [conformidade regulatória](../concepts/regulatory-compliance.md)
@@ -168,27 +209,27 @@ _O total de recursos_ é definido como a soma dos recursos **Em conformidade**, 
 
 O Portal do Azure apresenta uma experiência gráfica de visualização e compreensão do estado de conformidade em seu ambiente. Na página **Política**, a opção **Visão Geral** fornece detalhes dos escopos disponíveis sobre a conformidade das políticas e iniciativas. Junto com o estado de conformidade e com a contagem por atribuição, ela contém um gráfico mostrando a conformidade nos últimos sete dias. A página **Conformidade** contém muitas dessas mesmas informações (exceto o gráfico), mas fornece opções adicionais de filtragem e classificação.
 
-:::image type="content" source="../media/getting-compliance-data/compliance-page.png" alt-text="Exemplo de página de conformidade do Azure Policy" border="false":::
+:::image type="content" source="../media/getting-compliance-data/compliance-page.png" alt-text="Captura de tela da página conformidade, opções de filtragem e detalhes." border="false":::
 
-Como uma política ou iniciativa pode ser atribuída a escopos diferentes, a tabela inclui o escopo de cada atribuição e o tipo de definição que foi atribuído. O número de recursos não compatíveis e políticas não compatíveis para cada atribuição também são fornecidos. Clicar em uma política ou iniciativa na tabela fornece uma análise mais profunda sobre a conformidade dessa atribuição específica.
+Como uma política ou iniciativa pode ser atribuída a escopos diferentes, a tabela inclui o escopo de cada atribuição e o tipo de definição que foi atribuído. O número de recursos não compatíveis e políticas não compatíveis para cada atribuição também são fornecidos. A seleção de uma política ou iniciativa na tabela fornece uma análise mais profunda da conformidade para essa atribuição específica.
 
-:::image type="content" source="../media/getting-compliance-data/compliance-details.png" alt-text="Exemplo de página de detalhes de conformidade do Azure Policy" border="false":::
+:::image type="content" source="../media/getting-compliance-data/compliance-details.png" alt-text="Captura de tela da página de detalhes de conformidade, incluindo contagens e detalhes de conformidade de recursos." border="false":::
 
 A lista de recursos na guia **Conformidade de recursos** mostra o status de avaliação de recursos existentes para a atribuição atual. O padrão da guia é **Não compatível**, mas pode ser filtrado.
-Os eventos (acrescentar, auditar, negar, implantar) disparados pela solicitação para criar um recurso são mostrados na guia **Eventos**.
+Os eventos (acrescentar, auditar, negar, implantar, modificar) disparados pela solicitação para criar um recurso são mostrados na guia **eventos** .
 
 > [!NOTE]
 > Para uma política de mecanismo AKS, o recurso mostrado é o grupo de recursos.
 
-:::image type="content" source="../media/getting-compliance-data/compliance-events.png" alt-text="Exemplo de eventos de Conformidade do Azure Policy" border="false":::
+:::image type="content" source="../media/getting-compliance-data/compliance-events.png" alt-text="Captura de tela da guia eventos na página de detalhes de conformidade." border="false":::
 
-Para os recursos do [modo de Provedor de recursos](../concepts/definition-structure.md#resource-provider-modes), na guia **Conformidade de recursos**, selecionar o recurso ou clicar com o botão direito do mouse na linha e selecionar **Exibir detalhes de conformidade** abre os detalhes de conformidade do componente. Esta página também oferece guias para ver as políticas que são atribuídas a esse recurso, eventos, eventos de componente e histórico de alterações.
+<a name="component-compliance"></a> Para recursos do [modo provedor de recursos](../concepts/definition-structure.md#resource-provider-modes) , na guia **conformidade de recursos** , selecionar o recurso ou clicar com o botão direito do mouse na linha e selecionar **Exibir detalhes de conformidade** abre os detalhes de conformidade do componente. Esta página também oferece guias para ver as políticas que são atribuídas a esse recurso, eventos, eventos de componente e histórico de alterações.
 
-:::image type="content" source="../media/getting-compliance-data/compliance-components.png" alt-text="Exemplo de página de detalhes de conformidade do Componente do Azure Policy" border="false":::
+:::image type="content" source="../media/getting-compliance-data/compliance-components.png" alt-text="Captura de tela da guia conformidade do componente e detalhes de conformidade para uma atribuição de modo do provedor de recursos." border="false":::
 
 De volta à página de conformidade do recurso, clique com o botão direito na linha do evento para obter mais detalhes e selecione **Mostrar logs de atividade**. A página de registro de atividade é aberta e pré-filtrada na pesquisa, mostrando detalhes da atribuição e dos eventos. O log de atividades fornece um contexto adicional e informações sobre esses eventos.
 
-:::image type="content" source="../media/getting-compliance-data/compliance-activitylog.png" alt-text="Exemplo de Log de atividades de Conformidade do Azure Policy" border="false":::
+:::image type="content" source="../media/getting-compliance-data/compliance-activitylog.png" alt-text="Captura de tela do log de atividades para Azure Policy atividades e avaliações." border="false":::
 
 ### <a name="understand-non-compliance"></a>Entender a não conformidade
 
@@ -600,12 +641,17 @@ PolicyDefinitionAction     : deny
 PolicyDefinitionCategory   : tbd
 ```
 
-Exemplo: obter eventos relacionados aos recursos de rede virtual sem conformidade que ocorreram após uma data específica.
+Exemplo: obtendo eventos relacionados a recursos de rede virtual sem conformidade que ocorreram após uma data específica, convertendo para um objeto CSV e exportando para um arquivo.
 
 ```azurepowershell-interactive
-PS> Get-AzPolicyEvent -Filter "ResourceType eq '/Microsoft.Network/virtualNetworks'" -From '2018-05-19'
+$policyEvents = Get-AzPolicyEvent -Filter "ResourceType eq '/Microsoft.Network/virtualNetworks'" -From '2020-09-19'
+$policyEvents | ConvertTo-Csv | Out-File 'C:\temp\policyEvents.csv'
+```
 
-Timestamp                  : 5/19/2018 5:18:53 AM
+A saída do `$policyEvents` objeto é semelhante ao seguinte:
+
+```output
+Timestamp                  : 9/19/2020 5:18:53 AM
 ResourceId                 : /subscriptions/{subscriptionId}/resourceGroups/RG-Tags/providers/Mi
                              crosoft.Network/virtualNetworks/RG-Tags-vnet
 PolicyAssignmentId         : /subscriptions/{subscriptionId}/resourceGroups/RG-Tags/providers/Mi
@@ -637,9 +683,9 @@ Trent Baker
 
 ## <a name="azure-monitor-logs"></a>Logs do Azure Monitor
 
-Se você tiver um [workspace do Log Analytics](../../../azure-monitor/log-query/log-query-overview.md) com `AzureActivity` da [solução de Análise do Log de Atividades](../../../azure-monitor/platform/activity-log.md) associada à sua assinatura, você também poderá exibir resultados sem conformidade do ciclo de avaliação usando consultas Kusto simples e a tabela `AzureActivity`. Com os detalhes nos logs do Azure Monitor, os alertas poderão ser configurados para inspecionar a não conformidade.
+Se você tiver um [espaço de trabalho log Analytics](../../../azure-monitor/log-query/log-query-overview.md) com `AzureActivity` o da [solução análise do log de atividades](../../../azure-monitor/platform/activity-log.md) vinculada à sua assinatura, também poderá exibir os resultados de não conformidade da avaliação de recursos novos e atualizados usando consultas simples de Kusto e a `AzureActivity` tabela. Com os detalhes nos logs do Azure Monitor, os alertas poderão ser configurados para inspecionar a não conformidade.
 
-:::image type="content" source="../media/getting-compliance-data/compliance-loganalytics.png" alt-text="Conformidade com o Azure Policy usando os logs do Azure Monitor" border="false":::
+:::image type="content" source="../media/getting-compliance-data/compliance-loganalytics.png" alt-text="Captura de tela de logs de Azure Monitor mostrando ações de Azure Policy na tabela AzureActivity." border="false":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -8,10 +8,10 @@ ms.service: azure-education
 ms.subservice: education-hub
 ms.date: 06/30/2020
 ms.openlocfilehash: 276ab2cc1d79235c00ce1bb50ff9b648bb1de6ea
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87095624"
 ---
 # <a name="troubleshooting-student-login-issues"></a>Solucionando problemas de logon de aluno
@@ -19,7 +19,7 @@ Acessar as ferramentas de desenvolvimento do Azure para ensinar requer que um us
 
 Se um aluno tentar fazer logon e receber a seguinte mensagem de erro, use uma das soluções descritas abaixo.
 
-:::image type="content" source="media/troubleshoot-login/error-login-message.png" alt-text="Mensagem de erro de conexão." border="false":::
+:::image type="content" source="media/troubleshoot-login/error-login-message.png" alt-text="Mensagem de erro de entrada." border="false":::
 
 Há duas soluções: criar um novo conta Microsoft ou usar um conta Microsoft existente.
 
@@ -39,16 +39,16 @@ Se um aluno tiver um conta Microsoft existente (por exemplo, Xbox), ele poderá 
 
 1. Clique em **gerenciar como você entra na Microsoft**. Você será solicitado a verificar sua identidade. Um código de segurança será enviado por email.
 
-    :::image type="content" source="media/troubleshoot-accounts/manage-sign-in.png" alt-text="Gerenciar entrada." border="false":::
+    :::image type="content" source="media/troubleshoot-accounts/manage-sign-in.png" alt-text="Mensagem de erro de entrada." border="false":::
 
 1. Insira o código de segurança por email.
 
-    :::image type="content" source="media/troubleshoot-accounts/sign-in-enter-code.png" alt-text="Insira o código de entrada." border="false":::
+    :::image type="content" source="media/troubleshoot-accounts/sign-in-enter-code.png" alt-text="Mensagem de erro de entrada." border="false":::
 
 1. Clique em **Adicionar email** à sua conta e insira seu endereço de email da Universidade.
 Na próxima vez que você entrar, poderá usar seu endereço de email da Universidade para acessar suas ferramentas de desenvolvimento do Azure para ensinar.
 
-    :::image type="content" source="media/troubleshoot-accounts/manage-sign-in-add-email.png" alt-text="Gerencie como entrar na Microsoft." border="false":::
+    :::image type="content" source="media/troubleshoot-accounts/manage-sign-in-add-email.png" alt-text="Mensagem de erro de entrada." border="false":::
 
 ## <a name="next-steps"></a>Próximas etapas
 - [perguntas frequentes](program-faq.md)

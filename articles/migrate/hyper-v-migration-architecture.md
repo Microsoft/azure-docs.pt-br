@@ -1,17 +1,17 @@
 ---
 title: Como funciona a migração do Hyper-V nas migrações para Azure?
 description: Saiba mais sobre a migração do Hyper-V com as migrações para Azure
-author: rayne-wiselman
-ms.service: azure-migrate
+author: bsiva
+ms.author: bsiva
+ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 11/19/2019
-ms.author: raynew
-ms.openlocfilehash: 8bca88fc63a7fc04a22d2a68adbe59259b07f50e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 239918cc19eefbef9e3c3f12d5ddd3bb5434b490
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74185875"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96751012"
 ---
 # <a name="how-does-hyper-v-replication-work"></a>Como funciona a replicação do Hyper-V?
 
@@ -30,7 +30,7 @@ A migração de servidor de migrações para Azure é uma ferramenta para migrar
 
 ## <a name="architectural-components"></a>Componentes de arquitetura
 
-![Arquitetura](./media/hyper-v-replication-architecture/architecture.png)
+![O diagrama mostra uma rede Hyper-V de origem com um canal de dados H T T P para Microsoft Azure, com detalhes explicados em uma tabela.](./media/hyper-v-replication-architecture/architecture.png)
 
 
 
@@ -70,7 +70,7 @@ Você pode limitar a quantidade de largura de banda usada para carregar dados no
 
 
 1. Entre no host do Hyper-V ou no nó do cluster.
-2. Execute **C:\Program Files\Microsoft Azure Recovery Services Agent\bin\wabadmin.msc**para abrir o snap-in MMC do Windows Azure backup.
+2. Execute **C:\Program Files\Microsoft Azure Recovery Services Agent\bin\wabadmin.msc** para abrir o snap-in MMC do Windows Azure backup.
 3. No snap-in, selecione **Alterar as Propriedades**.
 4. Em **limitação**, selecione **habilitar limitação de uso de largura de banda da Internet para operações de backup**. Defina os limites para horas de trabalho e folga. Os intervalos válidos são de 512 Kbps a 1.023 Mbps.
 I
@@ -80,7 +80,7 @@ I
 Se você tiver largura de banda sobressalente para replicação e quiser aumentar os carregamentos, poderá aumentar o número de threads alocados para a tarefa de carregamento, da seguinte maneira:
 
 1. Abra o registro com o regedit.
-2. Navegue até a chave HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\Windows Azure Backup\Replication\UploadThreadsPerVM
+2. Navegue até a chave HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication\UploadThreadsPerVM
 3. Aumente o valor do número de threads usados para upload de dados para cada VM de replicação. O valor padrão é 4 e o valor máximo é 32. 
 
 

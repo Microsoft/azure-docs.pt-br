@@ -5,15 +5,15 @@ description: Aprenda a restringir o tráfego da web com um firewall do aplicativ
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 11/14/2019
+ms.date: 08/31/2020
 ms.author: victorh
-ms.topic: conceptual
-ms.openlocfilehash: a57c5b155f7ab00f781236cfceea59a4277ff06a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.topic: how-to
+ms.openlocfilehash: 1e2fb98d83d1246c54ccb37d68d9b4282701677e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74046285"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89225179"
 ---
 # <a name="enable-web-application-firewall-using-azure-powershell"></a>Ativar firewall do aplicativo Web usando o Azure PowerShell
 
@@ -21,11 +21,10 @@ Você pode restringir tráfego em um gateway de aplicativo com um [Firewall de A
 
 Neste artigo, você aprenderá como:
 
-> [!div class="checklist"]
-> * Configurar a rede
-> * Criar um gateway de aplicativo com o WAF habilitado
-> * Criar um conjunto de dimensionamento de máquinas virtuais
-> * Criar uma conta de armazenamento e configurar diagnósticos
+* Configurar a rede
+* Criar um gateway de aplicativo com o WAF habilitado
+* Criar um conjunto de dimensionamento de máquinas virtuais
+* Criar uma conta de armazenamento e configurar diagnósticos
 
 ![Exemplo de Firewall do aplicativo Web](../media/tutorial-restrict-web-traffic-powershell/scenario-waf.png)
 

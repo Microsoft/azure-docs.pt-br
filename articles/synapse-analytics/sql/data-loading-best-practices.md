@@ -1,6 +1,6 @@
 ---
 title: Melhores práticas de carregamento de dados
-description: Recomendações e otimizações de desempenho para carregar dados no SQL Synapse
+description: Recomendações e otimizações de desempenho para carregar dados em um pool SQL dedicado do Azure Synapse Analytics.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -11,24 +11,24 @@ ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: acfb2af7d482f9c0a51596818b1302584277defb
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 31014d336b5122251cf8be4a166520064776fce3
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87486809"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98118159"
 ---
-# <a name="best-practices-for-loading-data-for-data-warehousing"></a>Melhores práticas para carregar dados no data warehouse
+# <a name="best-practices-for-loading-data-into-a-dedicated-sql-pool-azure-synapse-analytics"></a>Práticas recomendadas para carregar dados em um pool SQL dedicado Azure Synapse Analytics
 
-Recomendações e otimizações de desempenho para carregar dados
+Neste artigo, você encontrará recomendações e otimizações de desempenho para carregar dados.
 
 ## <a name="prepare-data-in-azure-storage"></a>Preparar dados no armazenamento do Azure
 
-Para minimizar a latência, colocalize sua camada de armazenamento e o data warehouse.
+Para minimizar a latência, coloque a camada de armazenamento e o pool SQL dedicado.
 
 Ao exportar dados em um formato de arquivo ORC, você poderá receber erros de falta de memória Java quando houver colunas de texto grandes. Para contornar essa limitação, exporte apenas um subconjunto das colunas.
 
-O PolyBase não consegue carregar linhas que tenham mais de 1.000.000 de bytes de dados. Ao colocar dados nos arquivos de texto no armazenamento de blob do Azure ou do Azure Data Lake Store, eles devem ter menos de 1.000.000 de bytes de dados. Essa limitação de bytes é verdadeira, independentemente do esquema de tabela.
+O polybase não pode carregar linhas que tenham mais de 1 milhão bytes de dados. Ao colocar dados nos arquivos de texto no armazenamento de blob do Azure ou do Azure Data Lake Store, eles devem ter menos de 1.000.000 de bytes de dados. Essa limitação de bytes é verdadeira, independentemente do esquema de tabela.
 
 Todos os formatos de arquivo têm características diferentes de desempenho. Para o carregamento mais rápido, use arquivos de texto delimitados compactados. A diferença entre o desempenho de UTF-16 e UTF-8 é mínima.
 
@@ -36,7 +36,7 @@ Dividir arquivos compactados grandes em arquivos compactados menores.
 
 ## <a name="run-loads-with-enough-compute"></a>Executar cargas com computação suficiente
 
-Para uma velocidade mais alta de carregamento, execute apenas uma carga de trabalho por vez. Se isso não for possível, execute uma quantidade mínima de carregamento simultaneamente. Se você espera um trabalho de carregamento grande, considere escalar verticalmente seu pool SQL antes do carregamento.
+Para uma velocidade mais alta de carregamento, execute apenas uma carga de trabalho por vez. Se isso não for possível, execute uma quantidade mínima de carregamento simultaneamente. Se você espera um trabalho de carregamento grande, considere escalar verticalmente seu pool SQL dedicado antes do carregamento.
 
 Para executar cargas com recursos de computação apropriados, crie usuários de carregamento designados para executar cargas. Atribua cada usuário de carregamento a uma classe de recurso ou grupo de carga de trabalho específico. Para executar uma carga, entre como um dos usuários de carregamento e, em seguida, execute a carga. A carga é executada com a classe de recurso do usuário.  Esse método é mais simples do que tentar alterar a classe de recurso do usuário para se ajustar à necessidade de classe de recurso atual.
 
@@ -64,7 +64,7 @@ Execute cargas sob classes de recursos estáticas em vez de dinâmicas. Usar as 
 
 ## <a name="allow-multiple-users-to-load"></a>Permitir que vários usuários carreguem
 
-Geralmente, há a necessidade de ter vários usuários carregando dados em um data warehouse. Carregar com [CREATE TABLE AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) requer permissões CONTROL do banco de dados.  A permissão CONTROL dá acesso de controle para todos os esquemas. Talvez você não queira que todos os usuários de carregamento tenham acesso de controle em todos os esquemas. Para limitar as permissões, use a instrução DENY CONTROL.
+Geralmente, há a necessidade de ter vários usuários carregando dados em um data warehouse. Carregar com [CREATE TABLE AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) requer permissões CONTROL do banco de dados.  A permissão CONTROL dá acesso de controle para todos os esquemas. Talvez você não queira que todos os usuários de carregamento tenham acesso de controle em todos os esquemas. Para limitar as permissões, use a instrução DENY CONTROL.
 
 Por exemplo: considere os esquemas de banco de dados, schema_A para o departamento A e schema_B para o departamento B. Os usuários de banco de dados user_A e user_B serão usuários de carregamento de PolyBase nos departamentos A e B respectivamente. Ambos receberam permissões de banco de dados CONTROL. Os criadores dos esquemas A e B agora bloquearam seus esquemas usando DENY:
 
@@ -83,10 +83,10 @@ Leve em consideração que o carregamento é geralmente um processo de duas etap
 
 ## <a name="load-to-a-columnstore-index"></a>Carregar para um índice columnstore
 
-Os índices columnstore exigem grandes quantidades de memória para compactar dados em rowgroups de alta qualidade. Para obter a melhor compactação e eficiência de índice, o índice columnstore precisa compactar um máximo de 1.048.576 linhas em cada rowgroup. Quando há pressão de memória, o índice columnstore pode não ser capaz de alcançar as taxas máximas de compactação. Por sua vez, isso afeta o desempenho da consulta. Para uma análise profunda, consulte [Otimizações de memória columnstore](data-load-columnstore-compression.md).
+Os índices columnstore exigem grandes quantidades de memória para compactar dados em rowgroups de alta qualidade. Para obter a melhor compactação e eficiência de índice, o índice columnstore precisa compactar um máximo de 1.048.576 linhas em cada rowgroup. Quando há pressão de memória, o índice columnstore pode não ser capaz de alcançar as taxas máximas de compactação. Isso afeta o desempenho da consulta. Para uma análise profunda, consulte [Otimizações de memória columnstore](data-load-columnstore-compression.md).
 
 - Para garantir que o usuário de carregamento tenha memória suficiente para alcançar as taxas máximas de compactação, use usuários de carregamento que sejam membros de uma classe de recursos média ou grande.
-- Carregue linhas suficientes para preencher completamente novos rowgroups. Durante um carregamento em massa, a cada 1.048.576 linhas são compactadas diretamente para o columnstore como um rowgroup completo. Carregamentos com menos de 102.400 linhas enviam as linhas para o deltastore, onde as linhas são mantidas em um índice de árvore b. Se você carregar um número muito pequeno de linhas, elas podem ir todas para o deltastore e não serem compactadas imediatamente no formato de columnstore.
+- Carregue linhas suficientes para preencher completamente novos rowgroups. Durante uma carga em massa, a cada 1.048.576 linhas são compactadas diretamente no columnstore como um rowgroup completo. Carregamentos com menos de 102.400 linhas enviam as linhas para o deltastore, onde as linhas são mantidas em um índice de árvore b. Se você carregar um número muito pequeno de linhas, elas podem ir todas para o deltastore e não serem compactadas imediatamente no formato de columnstore.
 
 ## <a name="increase-batch-size-when-using-sqlbulkcopy-api-or-bcp"></a>Aumentar o tamanho do lote ao usar a API SQLBulkCopy ou o BCP
 
@@ -100,13 +100,13 @@ Para corrigir os registros sujos, verifique se a tabela externa e as definiçõe
 
 ## <a name="insert-data-into-a-production-table"></a>Inserir dados em uma tabela de produção
 
-Uma única carga para uma pequena tabela com uma [instrução INSERT](/sql/t-sql/statements/insert-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest), ou mesmo uma recarga periódica de uma pesquisa pode ser boa o suficiente com uma instrução como `INSERT INTO MyLookup VALUES (1, 'Type 1')`.  Porém, inserções únicas de toneladas não são tão eficientes como executar um carregamento em massa.
+Uma única carga para uma pequena tabela com uma [instrução INSERT](/sql/t-sql/statements/insert-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true), ou mesmo uma recarga periódica de uma pesquisa pode ser boa o suficiente com uma instrução como `INSERT INTO MyLookup VALUES (1, 'Type 1')`.  No entanto, as inserções singleton não são tão eficientes quanto executar uma carga em massa.
 
 Se você tiver milhares ou mais de inserções únicas ao longo do dia, crie lotes para as inserções para que possa carregá-las em massa.  Desenvolva seus processos para acrescentar as inserções únicas para um arquivo e depois crie outro processo que periodicamente carrega o arquivo.
 
 ## <a name="create-statistics-after-the-load"></a>Criar estatísticas após o carregamento
 
-Para melhorar o desempenho de suas consultas, é importante que as estatísticas sejam criadas em todas as colunas de todas as tabelas após o primeiro carregamento ou ocorrem alterações significativas nos dados.  Isso pode ser feito manualmente ou você pode habilitar [Estatísticas de criação automática](../sql-data-warehouse/sql-data-warehouse-tables-statistics.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+Para melhorar o desempenho da consulta, é importante criar estatísticas em todas as colunas de todas as tabelas após a primeira carga ou grandes alterações ocorrerem nos dados. CREATE STATISTICS pode ser feito manualmente ou você pode habilitar as [Estatísticas de criação automática](../sql-data-warehouse/sql-data-warehouse-tables-statistics.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
 Para obter uma explicação detalhada das estatísticas, confira [Estatísticas](develop-tables-statistics.md). O exemplo a seguir mostra como criar estatísticas manualmente em cinco colunas da tabela Customer_Speed.
 
@@ -124,7 +124,7 @@ create statistics [YearMeasured] on [Customer_Speed] ([YearMeasured]);
 
 Para girar chaves de conta de armazenamento do Azure:
 
-Para cada conta de armazenamento cuja chave foi alterada, execute [ALTER DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/alter-database-scoped-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
+Para cada conta de armazenamento cuja chave foi alterada, execute [ALTER DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/alter-database-scoped-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 Exemplo:
 
@@ -144,6 +144,6 @@ Não é necessária nenhuma outra alteração nas fontes de dados externas subja
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para saber mais sobre o PolyBase e a criação de um processo de Extrair, carregar e transformar (ELT), consulte [Projetar ELT para o SQL Data Warehouse](../sql-data-warehouse/design-elt-data-loading.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
-- Para ver um tutorial de carregamento, [Usar o PolyBase para carregar dados do armazenamento de blobs do Azure para o SQL Data Warehouse do Azure](../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+- Para saber mais sobre o polybase e criar um processo de extração, carregamento e transformação (ELT), consulte [design ELT for Azure Synapse Analytics](../sql-data-warehouse/design-elt-data-loading.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+- Para um tutorial de carregamento, [use o polybase para carregar dados do armazenamento de BLOBs do Azure para o Azure Synapse Analytics](../sql-data-warehouse/load-data-from-azure-blob-storage-using-copy.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json).
 - Para monitorar os carregamentos de dados, consulte [Monitorar sua carga de trabalho usando DMVs](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).

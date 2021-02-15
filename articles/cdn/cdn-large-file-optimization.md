@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 05/01/2018
 ms.author: allensu
-ms.openlocfilehash: 6258baf37d00d35da3b7c95519caabdfcaa34b2a
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: ed5768e89482d32bb140e9ba7064de2d20809892
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192642"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020714"
 ---
 # <a name="large-file-download-optimization-with-azure-cdn"></a>Otimização de download de arquivos grandes com a CDN do Azure
 
@@ -44,10 +44,10 @@ Depois que a parte chega na borda da CDN, ela é armazenada em cache e imediatam
 
 Para obter mais informações sobre a solicitação de intervalo de bytes, consulte [RFC 7233](https://tools.ietf.org/html/rfc7233).
 
-A CDN armazena em cache todas as partes, conforme são recebidas. O arquivo inteiro não precisa ser armazenado em cache no cache da CDN. As solicitações posteriores para os intervalos de bytes ou de arquivo são atendidas no cache da CDN. Se nem todas as partes forem armazenadas em cache na CDN, uma pré-busca será usada para solicitar as partes da origem. Essa otimização depende da capacidade de o servidor de origem dar suporte a solicitações de intervalo de bytes; Se o servidor de origem não dá suporte a solicitações de intervalo de bytes, essa otimização não é eficaz. 
+A CDN armazena em cache todas as partes, conforme são recebidas. O arquivo inteiro não precisa ser armazenado em cache no cache da CDN. As solicitações posteriores para os intervalos de bytes ou de arquivo são atendidas no cache da CDN. Se nem todas as partes forem armazenadas em cache na CDN, uma pré-busca será usada para solicitar as partes da origem. Essa otimização depende da capacidade do servidor de origem para dar suporte a solicitações de intervalo de bytes; Se o servidor de origem não oferecer suporte a solicitações de intervalo de bytes, as solicitações para baixar dados maiores do que 8 MB de tamanho falharão. 
 
 ### <a name="conditions-for-large-file-optimization"></a>Condições para a otimização de arquivo grande
-Os recursos de otimização de arquivos grandes para a **CDN Standard do Azure da Microsoft** estão ativadas por padrão quando você usa o tipo de otimização de entrega web geral. Não há nenhum limite no tamanho máximo do arquivo.
+Não há nenhum limite no tamanho máximo do arquivo.
 
 
 ## <a name="optimize-for-delivery-of-large-files-with-azure-cdn-from-verizon"></a>Otimizar para entrega de arquivos grandes com a Azure CDN da Verizon

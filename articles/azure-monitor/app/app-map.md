@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.custom: devx-track-csharp
 ms.reviewer: sdash
-ms.openlocfilehash: d4067b23c4ff365857c37d7dfdce6dc42e129989
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: db8c84334bfce52d34b9fadf73bb2b070fa93a70
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88936598"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100007101"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Mapa do aplicativo: aplicativos distribuídos por triagem
 
@@ -34,7 +34,7 @@ Ao clicar em "Atualizar componentes do mapa", o mapa será atualizado com todos 
 
 Se todos os componentes são funções em um único recurso do Application Insights, essa etapa de descoberta não é necessária. A carga inicial para esse tipo de aplicativo terá todos os respectivos componentes.
 
-![Captura de tela do mapa do aplicativo](media/app-map/app-map-001.png)
+![Captura de tela mostra um exemplo de um mapa de aplicativo.](media/app-map/app-map-001.png)
 
 Um dos principais objetivos com essa experiência é ser capaz de visualizar topologias complexas com centenas de componentes.
 
@@ -165,10 +165,8 @@ Para o [agente Java 3,0](./java-in-process-agent.md) , o nome da função de nuv
 
 ```json
 {
-  "instrumentationSettings": {
-    "preview": {
-      "roleName": "my cloud role name"
-    }
+  "role": {
+    "name": "my cloud role name"
   }
 }
 ```
@@ -224,6 +222,21 @@ appInsights.addTelemetryInitializer((envelope) => {
   envelope.tags["ai.cloud.roleInstance"] = "your role instance";
 });
 });
+```
+
+# <a name="python"></a>[Python](#tab/python)
+
+Para Python, os [processadores de telemetria do Python OpenCensus](api-filtering-sampling.md#opencensus-python-telemetry-processors) podem ser usados.
+
+```python
+def callback_function(envelope):
+   envelope.tags['ai.cloud.role'] = 'new_role_name'
+   
+# AzureLogHandler
+handler.add_telemetry_processor(callback_function)
+
+# AzureExporter
+exporter.add_telemetry_processor(callback_function)
 ```
 ---
 

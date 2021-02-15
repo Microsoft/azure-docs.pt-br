@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: pabouwer
 ms.openlocfilehash: 3181be62a14ec1b3450bd181172b5323ca176427
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77593760"
 ---
 # <a name="linkerd"></a>Linkerd
@@ -59,7 +59,7 @@ Os princípios de design a seguir [guiam][design-principles] o projeto Linkerd:
 - **Basta trabalhar** – não interrompa os aplicativos existentes e não exija configuração complexa.
 
 
-### <a name="capabilities"></a>Capacidades
+### <a name="capabilities"></a>Funcionalidades
 
 O Linkerd fornece o seguinte conjunto de recursos:
 

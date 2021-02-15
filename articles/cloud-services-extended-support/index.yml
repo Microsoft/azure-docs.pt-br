@@ -1,0 +1,87 @@
+### YamlMime:Landing
+title: Documentação dos Serviços de Nuvem do Azure (suporte estendido)
+summary: Saiba como usar os Serviços de Nuvem para hospedar e executar aplicativos de nuvem e APIs altamente disponíveis, escalonáveis. Mostra como gerenciar hosts da máquina virtual e configurar, corrigir e instalar software.
+metadata:
+  title: Documentação dos Serviços de Nuvem do Azure (suporte estendido)
+  description: Descreve como usar os Serviços de Nuvem para hospedar e executar aplicativos de nuvem e APIs altamente disponíveis e escalonáveis.
+  ms.service: cloud-services-extended-support
+  service: cloud-services-extended-support
+  ms.topic: landing-page
+  author: mimckitt
+  ms.author: mimckitt
+  ms.date: 03/06/2020
+  ms.openlocfilehash: efbdf689b895278445f022d15473591e09a691f9
+  ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+  ms.translationtype: HT
+  ms.contentlocale: pt-BR
+  ms.lasthandoff: 01/27/2021
+  ms.locfileid: "98878724"
+landingContent:
+- title: Sobre os Serviços de Nuvem (suporte estendido)
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que são os Serviços de Nuvem (suporte estendido)?
+      url: overview.md
+    - text: Pré-requisitos da implantação
+      url: deploy-prerequisite.md
+    - text: Arquivos de configuração e empacotamento
+      url: cloud-services-model-and-package.md
+- title: Tutoriais
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Implantar usando o PowerShell
+      url: deploy-powershell.md
+    - text: Implantar usando o portal do Azure
+      url: deploy-portal.md
+    - text: Implantar usando os modelos do ARM
+      url: deploy-template.md
+    - text: Implantar usando Visual Studio
+      url: deploy-visual-studio.md
+- title: Conceitos
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Tamanhos disponíveis
+      url: available-sizes.md
+    - text: Perguntas frequentes
+      url: faq.md
+    - text: Notícias sobre o lançamento do SO convidado
+      url: ../cloud-services/cloud-services-guestos-update-matrix.md?toc=/azure/cloud-services-extended-support/toc.json&bc=/azure/cloud-services-extended-support/breadcrumb/toc.json
+- title: Guias de instruções
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Extensões
+      url: extensions.md
+    - text: Habilitar alertas
+      url: enable-alerts.md
+    - text: Configurar a colocação em escala
+      url: configure-scaling.md
+    - text: Certificados
+      url: certificates-and-key-vault.md
+- title: Exemplos
+  linkLists:
+  - linkListType: sample
+    links:
+    - text: Modelos de exemplo
+      url: https://github.com/Azure-Samples/cloud-services-extended-support
+    - text: Criar uma implantação do Serviço de Nuvem
+      url: sample-create-cloud-service.md
+    - text: Recuperar informações sobre uma implantação do Serviço de Nuvem
+      url: sample-get-cloud-service.md
+    - text: Atualizar uma implantação do Serviço de Nuvem
+      url: sample-update-cloud-service.md
+    - text: Redefinir uma implantação do Serviço de Nuvem
+      url: sample-reset-cloud-service.md
+- title: Informações do esquema
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Esquema de configuração
+      url: schema-cscfg-file.md
+    - text: Esquema de definição
+      url: schema-csdef-file.md
+    - text: Esquema da função de configuração
+      url: schema-cscfg-role.md

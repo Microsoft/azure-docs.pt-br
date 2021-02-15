@@ -8,27 +8,29 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: quickstart
-ms.date: 03/17/2020
+ms.date: 01/25/2021
 ms.author: juliako
-ms.openlocfilehash: f6c3953947e6f7e84f4cf9b565d2f66648b177f7
-ms.sourcegitcommit: 666303748238dfdf9da30d49d89b915af73b0468
+ms.openlocfilehash: 5b38c731db141052e6700472020cd60b6a4d13a5
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85130748"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797796"
 ---
 # <a name="quickstart-how-to-sign-up-and-upload-your-first-video"></a>Início Rápido: Como inscrever-se e atualizar seu primeiro vídeo
 
 Este guia de início rápido de introdução mostra como entrar no site do Video Indexer e como carregar seu primeiro vídeo.
 
-Ao criar uma conta do Video Indexer, você pode escolher uma conta de avaliação gratuita (em que você obtém um determinado número de minutos de indexação gratuitos) ou uma opção paga (onde você não está limitado pela cota). Com o teste gratuito, o Video Indexer fornece até 600 minutos de indexação gratuita para usuários do site e até 2400 minutos de indexação gratuita para usuários da API. Com a opção paga, você cria uma conta do Video Indexer que está [conectada à sua assinatura do Azure e a uma conta dos Serviços de Mídia do Azure](connect-to-azure.md). Você paga pelos minutos indexados, bem como os encargos relacionados à conta dos Serviços de Mídia do Azure. 
+Ao criar uma conta do Video Indexer, você pode escolher uma conta de avaliação gratuita (em que você obtém um determinado número de minutos de indexação gratuitos) ou uma opção paga (onde você não está limitado pela cota). Com o teste gratuito, o Video Indexer fornece até 600 minutos de indexação gratuita para usuários do site e até 2400 minutos de indexação gratuita para usuários da API. Com a opção paga, você cria uma conta do Video Indexer que está [conectada à sua assinatura do Azure e a uma conta dos Serviços de Mídia do Azure](connect-to-azure.md). Você paga pelos minutos indexados. Para obter mais informações, confira [Preços dos Serviços de Mídia](https://azure.microsoft.com/pricing/details/media-services/). 
 
 ## <a name="sign-up-for-video-indexer"></a>Inscrever-se no Video Indexer
 
 Para começar a desenvolver com o Video Indexer, navegue para o site do [Video Indexer](https://www.videoindexer.ai/) e inscreva-se.
 
+Depois de começar a usar o Video Indexer, todos os dados armazenados e o conteúdo carregado serão criptografados em repouso com uma chave gerenciada da Microsoft.
+
 > [!NOTE]
-> Depois de começar a usar o Video Indexer, todos os dados armazenados e o conteúdo carregado serão criptografados em repouso com uma chave gerenciada da Microsoft.
+> Examine [alterações de autenticação planejadas no site do Video Indexer](release-notes.md#planned-video-indexer-website-authenticatication-changes).
 
 ## <a name="upload-a-video-using-the-video-indexer-website"></a>Carregar um vídeo usando o site do Video Indexer
 
@@ -39,24 +41,32 @@ Confira o artigo [contêiner de entrada/formatos de arquivo](../latest/media-enc
 ### <a name="upload-a-video"></a>Carregar um vídeo
 
 1. Conecte-se ao site do [Video Indexer](https://www.videoindexer.ai/).
-2. Para carregar um vídeo, pressione o botão ou o link **Carregar**.
+1. Para carregar um vídeo, pressione o botão ou o link **Carregar**.
 
     > [!NOTE]
     > O nome do vídeo não deve ter mais de 80 caracteres.
 
-    ![Carregar](./media/video-indexer-get-started/video-indexer-upload.png)
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/video-indexer-get-started/video-indexer-upload.png" alt-text="Upload":::
+1. Depois que o seu vídeo tiver sido carregado, o Video Indexer iniciará a indexação e a análise do vídeo. Veja o progresso. 
 
-    Depois que o seu vídeo tiver sido carregado, o Video Indexer iniciará a indexação e a análise do vídeo.
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/video-indexer-get-started/progress.png" alt-text="Progresso do upload":::
+1. Depois que o Video Indexer terminar de analisar, você receberá um email com um link para seu vídeo e uma breve descrição do que foi encontrado nele. Por exemplo: pessoas, palavras faladas e escritas, tópicos e entidades nomeadas.
+1. Posteriormente, você poderá encontrar seu vídeo na lista de bibliotecas e executar operações diferentes. Por exemplo: pesquisar, reindexar, editar.
 
-    ![Carregado](./media/video-indexer-get-started/video-indexer-uploaded.png) 
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/video-indexer-get-started/uploaded.png" alt-text="Carregou o upload":::
 
-    Depois que o Video Indexer terminar de analisar, você receberá uma notificação com um link para seu vídeo e uma breve descrição do que foi encontrado nele. Por exemplo: people (pessoas), topics (tópicos), OCRs.
+## <a name="supported-browsers"></a>Navegadores com suporte
 
-## <a name="see-also"></a>Confira também
+Para mais informações, confira [navegadores com suporte](video-indexer-overview.md#supported-browsers).
+
+## <a name="see-also"></a>Veja também
 
 Confira [Carregar e indexar vídeos](upload-index-videos.md) para obter mais detalhes.
 
-Depois de carregar e indexar um vídeo, você pode começar a usar o site do [Video Indexer](video-indexer-view-edit.md) ou o [Portal do Desenvolvedor do Video Indexer](video-indexer-use-apis.md) para ver as informações do vídeo. 
+Depois de carregar e indexar um vídeo, você poderá começar a usar o site do [Video Indexer](video-indexer-view-edit.md) ou o [Portal do Desenvolvedor do Video Indexer](video-indexer-use-apis.md) para ver os insights do vídeo. 
 
 [Começar a usar APIs](video-indexer-use-apis.md)
 

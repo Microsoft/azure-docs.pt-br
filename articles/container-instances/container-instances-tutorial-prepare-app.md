@@ -3,13 +3,13 @@ title: Tutorial – Preparar imagem de contêiner para implantação
 description: Tutorial das Instâncias de Contêiner do Azure, parte 1 de 3 – Preparar um aplicativo em uma imagem de contêiner para implantação nas Instâncias de Contêiner do Azure
 ms.topic: tutorial
 ms.date: 03/21/2018
-ms.custom: seodec18, mvc, devx-track-javascript
-ms.openlocfilehash: 3a73d68f99c7e2ec4c71e408abbdbc7eec7ee95d
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.custom: seodec18, mvc, devx-track-js
+ms.openlocfilehash: 1eca34fb5da50b15f15322a3b534556bcd3bda09
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87407159"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91303107"
 ---
 # <a name="tutorial-create-a-container-image-for-deployment-to-azure-container-instances"></a>Tutorial: Criar uma imagem de contêiner para implantação nas Instâncias de Contêiner do Azure
 

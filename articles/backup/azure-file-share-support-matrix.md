@@ -4,18 +4,21 @@ description: Fornece um resumo das configurações de suporte e limitações ao 
 ms.topic: conceptual
 ms.date: 5/07/2020
 ms.custom: references_regions
-ms.openlocfilehash: 7d01f0f64fd183204fb7617040325e7d1b6e553e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 38c066c20399b39d676fb0c25aa158993258b979
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289503"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100370981"
 ---
 # <a name="support-matrix-for-azure-file-share-backup"></a>Matriz de suporte para backup de compartilhamento de arquivos do Azure
 
 Você pode usar o [serviço de Backup do Azure](./backup-overview.md) para fazer backup de compartilhamentos de arquivos do Azure. Este artigo resume as configurações de suporte ao fazer backup de compartilhamentos de arquivos do Azure com o Backup do Azure.
 
-## <a name="supported-regions"></a>Regiões compatíveis
+> [!NOTE]
+> O backup do Azure atualmente não dá suporte a compartilhamentos NFS.
+
+## <a name="supported-regions"></a>Regiões com suporte
 
 ### <a name="ga-regions-for-azure-file-shares-backup"></a>Regiões de GA para backup de compartilhamentos de arquivos do Azure
 
@@ -25,7 +28,7 @@ O backup de compartilhamentos de arquivos do Azure está disponível em todas as
 
 | Detalhes da conta de armazenamento | Suporte                                                      |
 | ------------------------ | ------------------------------------------------------------ |
-| Tipo de conta            | O Backup do Azure oferece suporte a compartilhamentos de arquivos do Azure presentes nas contas de armazenamento de uso geral v1, de uso geral v2 e tipo de armazenamento de arquivos |
+| Tipo de conta            | O backup do Azure dá suporte a compartilhamentos de arquivos do Azure presentes nas contas de armazenamento de tipo v1, de finalidade geral, V2 e do armazenamento de arquivos |
 | Desempenho              | O Backup do Azure oferece suporte a compartilhamentos de arquivos nas contas de Armazenamento Premium e padrão |
 | Replicação              | Há suporte para compartilhamentos de arquivos do Azure em contas de armazenamento com qualquer tipo de replicação |
 | Firewall habilitado         | Compartilhamentos de arquivos do Azure em contas de armazenamento com regras de firewall que permitem que os serviços Microsoft Azure acessem a conta de armazenamento têm suporte|
@@ -60,7 +63,7 @@ O backup de compartilhamentos de arquivos do Azure está disponível em todas as
 | Configuração                                                      | Limite   |
 | ------------------------------------------------------------ | ------- |
 | Número máximo de restaurações por dia                           | 10      |
-| Número máximo de arquivos por restauração                         | 10      |
+| Número máximo de arquivos por restauração                         | 99      |
 | Tamanho máximo de restauração recomendado por restauração para compartilhamentos de arquivos grandes | 15 TiB |
 
 ## <a name="retention-limits"></a>Limites de retenção

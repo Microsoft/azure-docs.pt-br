@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: mingshen
 author: mingshen-ms
 ms.date: 06/10/2020
-ms.openlocfilehash: cb134c82f231eb8b6329b1acafb181032edd6936
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 909b818c60932f5b1d6071ea1ccf0ee4c76173b4
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320078"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92280542"
 ---
 # <a name="anomaly-detection-service-for-metered-billing"></a>Serviço de detecção de anomalias para cobrança limitada
 
@@ -74,7 +74,7 @@ Para enviar um tíquete:
     - **Marketplace comercial**  >  **Cobrança limitada**  >  **Uso incorreto enviado para a oferta de SaaS**
 3. Na **próxima etapa**, selecione o botão **examinar soluções** para ser direcionado para entrar no Partner Center para enviar um tíquete de suporte.
 
-Para obter mais opções de suporte do Publicador, consulte [suporte para o programa comercial Marketplace no Partner Center](support.md).
+Para obter mais opções de suporte do Publicador, consulte [suporte para o programa comercial Marketplace no Partner Center](../support.md).
 
 ## <a name="next-step"></a>Próxima etapa
 

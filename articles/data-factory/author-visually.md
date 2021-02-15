@@ -1,21 +1,17 @@
 ---
 title: Criação visual
 description: Saiba como usar a criação visual no Azure Data Factory
-services: data-factory
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
-author: djpmsft
-ms.author: daperlov
-ms.reviewer: ''
-manager: anandsub
-ms.date: 05/15/2020
-ms.openlocfilehash: ac51fd63adcc0328ff67f5fbe13dbfdb768f4bfe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+author: dcstwh
+ms.author: weetok
+ms.date: 09/08/2020
+ms.openlocfilehash: 704360ac37e016de9efe2248181f7db358f5a7cf
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84343099"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100371474"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Criação visual no Azure Data Factory
 
@@ -39,9 +35,17 @@ A experiência de criação visual padrão está trabalhando diretamente com o s
 
 Para recursos de nível superior, como pipelines, conjuntos de dados e fluxos de dados, as propriedades de alto nível são editáveis no painel Propriedades, no lado direito da tela. O painel Propriedades contém nome, descrição, anotações e outras propriedades de alto nível. Os sub-recursos, como atividades de pipeline e transformações de fluxo de dados, são editados usando o painel na parte inferior da tela. 
 
-![Tela de criação](media/author-visually/properties-pane.png)
+![painel Propriedades](media/author-visually/properties-pane.png)
 
 O painel Propriedades só é aberto, por padrão, na criação de recursos. Para editá-lo, clique no ícone do painel Propriedades localizado no canto superior direito da tela.
+
+### <a name="related-resources"></a>Recursos relacionados
+
+No painel Propriedades, você pode ver quais recursos dependem do recurso selecionado selecionando a guia **relacionado** . Qualquer recurso que referencie o recurso atual será listado aqui.
+
+![Recursos relacionados](media/author-visually/related-resources.png)
+
+Por exemplo, na imagem acima, um pipeline e dois fluxos de dados usam o DataSet selecionado no momento.
 
 ## <a name="management-hub"></a>Hub de gerenciamento
 

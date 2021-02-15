@@ -1,17 +1,17 @@
 ---
 title: Solucionar problemas nos projetos de Migrações para Azure
 description: Ajuda a solucionar problemas com a criação e o gerenciamento de projetos de migrações para Azure.
-ms.topic: troubleshooting
-author: musa-57
+author: ms-psharma
+ms.author: panshar
 ms.manager: abhemraj
-ms.author: hamusa
+ms.topic: troubleshooting
 ms.date: 01/01/2020
-ms.openlocfilehash: b56244fccce623827367d504831ca8db517c108d
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: f68a57d3780f388488d48835f322ff04ab7c7187
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121632"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753375"
 ---
 # <a name="troubleshoot-azure-migrate-projects"></a>Solucionar problemas nos projetos de Migrações para Azure
 
@@ -19,7 +19,7 @@ Este artigo ajuda a solucionar problemas ao criar e gerenciar projetos de [migra
 
 ## <a name="how-to-add-new-project"></a>Como adicionar um novo projeto?
 
-Você pode ter vários projetos das Migrações para Azure em uma assinatura. [Saiba como](how-to-add-tool-first-time.md) criar um projeto pela primeira vez ou [Adicionar outros](create-manage-projects.md#create-additional-projects) projetos.
+Você pode ter vários projetos das Migrações para Azure em uma assinatura. [Saiba como](./create-manage-projects.md) criar um projeto pela primeira vez ou [Adicionar outros](create-manage-projects.md#create-additional-projects) projetos.
 
 ## <a name="what-azure-permissions-are-needed"></a>Quais permissões do Azure são necessárias?
 
@@ -40,7 +40,7 @@ Você pode avaliar até 35.000 VMs VMware ou até 35.000 VMs Hyper-V em um únic
 
 ## <a name="can-i-upgrade-old-project"></a>Posso atualizar o projeto antigo?
 
-Os projetos da versão anterior do migrações para Azure não podem ser atualizados. Você precisa [criar um novo projeto](how-to-add-tool-first-time.md)e adicionar ferramentas a ele.
+Os projetos da versão anterior do migrações para Azure não podem ser atualizados. Você precisa [criar um novo projeto](./create-manage-projects.md)e adicionar ferramentas a ele.
 
 ## <a name="cant-create-a-project"></a>Não é possível criar um projeto
 
@@ -52,7 +52,7 @@ Se você tentar criar um projeto e encontrar um erro de implantação:
 - Se você receber o erro "as solicitações devem conter cabeçalhos de identidade do usuário", isso pode indicar que você não tem acesso ao locatário do Azure Active Directory (Azure AD) da organização. Nesse caso:
     - Quando você é adicionado a um locatário do Azure AD pela primeira vez, você recebe um convite por email para ingressar no locatário.
     - Aceite o convite a ser adicionado ao locatário.
-    - Se você não conseguir ver o email, entre em contato com um usuário com acesso ao locatário e peça para [reenviar o convite](../active-directory/b2b/add-users-administrator.md#resend-invitations-to-guest-users) para você.
+    - Se você não conseguir ver o email, entre em contato com um usuário com acesso ao locatário e peça para [reenviar o convite](../active-directory/external-identities/add-users-administrator.md#resend-invitations-to-guest-users) para você.
     - Depois de receber o email de convite, abra-o e selecione o link para aceitar o convite. Em seguida, saia do portal do Azure e entre novamente. (a atualização do navegador não funcionará.) Em seguida, você pode começar a criar o projeto de migração.
 
 ## <a name="how-do-i-delete-a-project"></a>Como fazer excluir um projeto

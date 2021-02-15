@@ -6,24 +6,30 @@ ms.topic: article
 ms.date: 7/01/2019
 ms.author: msangapu
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 8ca3688ad11bc7a694327990be22b8eccd8f8161
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: ab27de9274043439f790a8fecd443223e5f26b08
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962852"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736197"
 ---
-# <a name="access-azure-storage-as-a-network-share-from-a-container-in-app-service"></a>Acessar o armazenamento do Azure como um compartilhamento de rede de um contêiner no serviço de aplicativo
+# <a name="access-azure-storage-preview-as-a-network-share-from-a-container-in-app-service"></a>Acessar o armazenamento do Azure (visualização) como um compartilhamento de rede de um contêiner no serviço de aplicativo
 
 ::: zone pivot="container-windows"
 
 Este guia mostra como anexar arquivos de armazenamento do Azure como um compartilhamento de rede a um contêiner do Windows no serviço de aplicativo. Somente [compartilhamentos de arquivos do Azure](../storage/files/storage-how-to-use-files-cli.md) e [compartilhamentos de arquivos Premium](../storage/files/storage-how-to-create-premium-fileshare.md) têm suporte. Os benefícios incluem conteúdo seguro, portabilidade de conteúdo, acesso a vários aplicativos e vários métodos de transferência.
+
+> [!NOTE]
+>O armazenamento do Azure no serviço de aplicativo está **em versão prévia** e **não tem suporte** para **cenários de produção**.
 
 ::: zone-end
 
 ::: zone pivot="container-linux"
 
 Este guia mostra como anexar o armazenamento do Azure a um serviço de aplicativo de contêiner do Linux. Os benefícios incluem conteúdo protegido, portabilidade de conteúdo, armazenamento persistente, acesso a vários aplicativos e vários métodos de transferência.
+
+> [!NOTE]
+>O armazenamento do Azure no serviço de aplicativo está **em versão prévia** para o serviço de aplicativo no Linux e aplicativo Web para contêineres. **Não há suporte** para **cenários de produção**.
 
 ::: zone-end
 
@@ -33,7 +39,7 @@ Este guia mostra como anexar o armazenamento do Azure a um serviço de aplicativ
 
 - [Um aplicativo de contêiner do Windows existente no serviço Azure App](quickstart-custom-container.md)
 - [Criar compartilhamento de arquivos do Azure](../storage/files/storage-how-to-use-files-cli.md)
-- [Carregar arquivos no compartilhamento de arquivos do Azure](../storage/files/storage-files-deployment-guide.md)
+- [Carregar arquivos no compartilhamento de arquivos do Azure](../storage/files/storage-how-to-create-file-share.md)
 
 ::: zone-end
 
@@ -53,21 +59,18 @@ Este guia mostra como anexar o armazenamento do Azure a um serviço de aplicativ
 
 ::: zone pivot="container-windows"
 
-- O armazenamento do Azure no serviço de aplicativo está **em versão prévia** e **não tem suporte** para **cenários de produção**.
 - No momento, o armazenamento do Azure no serviço de aplicativo **não tem suporte** para trazer seus próprios cenários de código (aplicativos não-contêineres do Windows).
 - O armazenamento do Azure no serviço de aplicativo **não dá suporte** ao uso da configuração de **Firewall de armazenamento** devido a limitações de infraestrutura.
 - O armazenamento do Azure com o serviço de aplicativo permite especificar **até cinco** pontos de montagem por aplicativo.
-- O armazenamento do Azure montado em um aplicativo não pode ser acessado por pontos de extremidade de FTP/FTPs do serviço de aplicativo. Use o [Gerenciador de armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/).
+- O armazenamento do Azure montado em um aplicativo não pode ser acessado por pontos de extremidade de FTP/FTPs do serviço de aplicativo. Usar o [Gerenciador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/).
 
 ::: zone-end
 
 ::: zone pivot="container-linux"
 
-- O armazenamento do Azure no serviço de aplicativo está **em versão prévia** para o serviço de aplicativo no Linux e aplicativo Web para contêineres. **Não há suporte** para **cenários de produção**.
 - O armazenamento do Azure no serviço de aplicativo dá suporte à montagem de **contêineres de arquivos do Azure** (leitura/gravação) e **contêineres de blob do Azure** (somente leitura
-- O armazenamento do Azure no serviço de aplicativo **não dá suporte** ao uso da configuração de **Firewall de armazenamento** devido a limitações de infraestrutura.
 - O armazenamento do Azure no serviço de aplicativo permite que você especifique **até cinco** pontos de montagem por aplicativo.
-- O armazenamento do Azure montado em um aplicativo não pode ser acessado por pontos de extremidade de FTP/FTPs do serviço de aplicativo. Use o [Gerenciador de armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/).
+- O armazenamento do Azure montado em um aplicativo não pode ser acessado por pontos de extremidade de FTP/FTPs do serviço de aplicativo. Usar o [Gerenciador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/).
 
 ::: zone-end
 
@@ -77,7 +80,7 @@ Este guia mostra como anexar o armazenamento do Azure a um serviço de aplicativ
 
 Depois de criar sua [conta de armazenamento do Azure, o compartilhamento de arquivos e o diretório](#prerequisites), agora você pode configurar seu aplicativo com o armazenamento do Azure.
 
-Para montar um compartilhamento de arquivos do Azure em um diretório em seu aplicativo do serviço de aplicativo, use o [`az webapp config storage-account add`](/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-add) comando. O tipo de armazenamento deve ser AzureFiles.
+Para montar um compartilhamento de arquivos do Azure em um diretório em seu aplicativo do serviço de aplicativo, use o [`az webapp config storage-account add`](/cli/azure/webapp/config/storage-account#az-webapp-config-storage-account-add) comando. O tipo de armazenamento deve ser AzureFiles.
 
 ```azurecli
 az webapp config storage-account add --resource-group <group-name> --name <app-name> --custom-id <custom-id> --storage-type AzureFiles --share-name <share-name> --account-name <storage-account-name> --access-key "<access-key>" --mount-path <mount-path-directory of form c:<directory name> >
@@ -91,7 +94,7 @@ Você deve fazer isso para todos os outros diretórios que você deseja que seja
 
 Depois de criar sua [conta de armazenamento do Azure, o compartilhamento de arquivos e o diretório](#prerequisites), agora você pode configurar seu aplicativo com o armazenamento do Azure.
 
-Para montar uma conta de armazenamento em um diretório em seu aplicativo do serviço de aplicativo, use o [`az webapp config storage-account add`](/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-add) comando. Tipo de armazenamento pode ser AzureBlob ou AzureFiles. AzureFiles é usado neste exemplo. A configuração do caminho de montagem corresponde à pasta que você deseja montar do armazenamento do Azure. Configurá-lo como '/' monta todo o armazenamento do Azure.
+Para montar uma conta de armazenamento em um diretório em seu aplicativo do serviço de aplicativo, use o [`az webapp config storage-account add`](/cli/azure/webapp/config/storage-account#az-webapp-config-storage-account-add) comando. Tipo de armazenamento pode ser AzureBlob ou AzureFiles. AzureFiles é usado neste exemplo. A configuração do caminho de montagem corresponde à pasta dentro do contêiner que você deseja montar no armazenamento do Azure. Configurá-lo como '/' monta o contêiner inteiro no armazenamento do Azure.
 
 
 > [!CAUTION]

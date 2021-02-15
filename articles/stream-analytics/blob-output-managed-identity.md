@@ -1,21 +1,21 @@
 ---
 title: Autenticar saída de blob com identidade gerenciada Azure Stream Analytics
 description: Este artigo descreve como usar identidades gerenciadas para autenticar seu trabalho de Azure Stream Analytics para a saída do armazenamento de BLOBs do Azure.
-author: cedarbaum
-ms.author: sacedarb
+author: kim-ale
+ms.author: kimal
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 03/11/2020
-ms.openlocfilehash: 99b23b65a0ce1693bcd04d5828fe062f2f43ea73
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.date: 12/15/2020
+ms.openlocfilehash: 369348133f7395f5db5b5923bd438cec8e4ad733
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044219"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954371"
 ---
-# <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-azure-blob-storage-output"></a>Usar identidade gerenciada para autenticar seu trabalho de Azure Stream Analytics para a saída do armazenamento de BLOBs do Azure
+# <a name="use-managed-identity-preview-to-authenticate-your-azure-stream-analytics-job-to-azure-blob-storage"></a>Usar identidade gerenciada (versão prévia) para autenticar seu trabalho de Azure Stream Analytics para o armazenamento de BLOBs do Azure
 
-A [autenticação de identidade gerenciada](../active-directory/managed-identities-azure-resources/overview.md) para saída para o armazenamento de BLOBs do Azure fornece ao Stream Analytics trabalhos acesso direto a uma conta de armazenamento em vez de usar uma cadeia de conexão. Além da segurança aprimorada, esse recurso também permite que você grave dados em uma conta de armazenamento em uma rede virtual (VNET) no Azure.
+A [autenticação de identidade gerenciada](../active-directory/managed-identities-azure-resources/overview.md) (versão prévia) para saída para o armazenamento de BLOBs do Azure fornece ao Stream Analytics trabalhos acesso direto a uma conta de armazenamento em vez de usar uma cadeia de conexão. Além da segurança aprimorada, esse recurso também permite que você grave dados em uma conta de armazenamento em uma rede virtual (VNET) no Azure.
 
 Este artigo mostra como habilitar a identidade gerenciada para as saídas de blob de um trabalho de Stream Analytics por meio do portal do Azure e de uma implantação de Azure Resource Manager.
 
@@ -33,7 +33,7 @@ Este artigo mostra como habilitar a identidade gerenciada para as saídas de blo
 
 ## <a name="azure-resource-manager-deployment"></a>Implantação do Azure Resource Manager
 
-O uso de Azure Resource Manager permite automatizar totalmente a implantação de seu trabalho de Stream Analytics. Você pode implantar modelos do Resource Manager usando Azure PowerShell ou o [CLI do Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest). Os exemplos a seguir usam o CLI do Azure.
+O uso de Azure Resource Manager permite automatizar totalmente a implantação de seu trabalho de Stream Analytics. Você pode implantar modelos do Resource Manager usando Azure PowerShell ou o [CLI do Azure](/cli/azure/). Os exemplos a seguir usam o CLI do Azure.
 
 
 1. Você pode criar um recurso **Microsoft. StreamAnalytics/streamingjobs** com uma identidade gerenciada, incluindo a seguinte propriedade na seção de recursos do seu modelo do Resource Manager:
@@ -98,7 +98,7 @@ O uso de Azure Resource Manager permite automatizar totalmente a implantação d
     O trabalho acima pode ser implantado para o grupo de recursos de **exemplo** usando o comando a seguir CLI do Azure:
 
     ```azurecli
-    az group deployment create --resource-group ExampleGroup -template-file StreamingJob.json
+    az deployment group create --resource-group ExampleGroup -template-file StreamingJob.json
     ```
 
 2. Depois que o trabalho for criado, você poderá usar Azure Resource Manager para recuperar a definição completa do trabalho.
@@ -181,7 +181,7 @@ A menos que você precise do trabalho para criar contêineres em seu nome, escol
 
 #### <a name="account-level-access"></a>Acesso no nível da conta
 
-1. Navegue até sua conta de armazenamento.
+1. Navegue para sua conta de armazenamento.
 
 2. Selecione **controle de acesso (iam)** no lado esquerdo.
 
@@ -216,13 +216,17 @@ Para conceder acesso à conta inteira, execute o seguinte comando usando o CLI d
 
 ## <a name="enable-vnet-access"></a>Habilitar o acesso à VNET
 
-Ao configurar os **firewalls e as redes virtuais**da sua conta de armazenamento, você pode opcionalmente permitir o tráfego de rede de outros serviços confiáveis da Microsoft. Quando Stream Analytics autentica usando identidade gerenciada, ele fornece uma prova de que a solicitação é originada de um serviço confiável. Abaixo estão as instruções para habilitar essa exceção de acesso VNET.
+Ao configurar os **firewalls e as redes virtuais** da sua conta de armazenamento, você pode opcionalmente permitir o tráfego de rede de outros serviços confiáveis da Microsoft. Quando Stream Analytics autentica usando identidade gerenciada, ele fornece uma prova de que a solicitação é originada de um serviço confiável. Abaixo estão as instruções para habilitar essa exceção de acesso VNET.
 
-1.  Navegue até o painel "firewalls e redes virtuais" no painel de configuração da conta de armazenamento.
-2.  Verifique se a opção "permitir que os serviços confiáveis da Microsoft acessem esta conta de armazenamento" está habilitada.
-3.  Se você o tiver habilitado, clique em **salvar**.
+1.    Navegue até o painel "firewalls e redes virtuais" no painel de configuração da conta de armazenamento.
+2.    Verifique se a opção "permitir que os serviços confiáveis da Microsoft acessem esta conta de armazenamento" está habilitada.
+3.    Se você o tiver habilitado, clique em **salvar**.
 
    ![Habilitar o acesso à VNET](./media/stream-analytics-managed-identities-blob-output-preview/stream-analytics-vnet-exception.png)
+
+## <a name="remove-managed-identity"></a>Remover identidade gerenciada
+
+A identidade gerenciada criada para um trabalho de Stream Analytics é excluída somente quando o trabalho é excluído. Não é possível excluir a identidade gerenciada sem excluir o trabalho. Se você não quiser mais usar a identidade gerenciada, poderá alterar o método de autenticação para a saída. A identidade gerenciada continuará existindo até que o trabalho seja excluído e será usado se você decidir usar a autenticação de identidade gerenciada novamente.
 
 ## <a name="limitations"></a>Limitações
 Abaixo estão as limitações atuais deste recurso:

@@ -4,14 +4,14 @@ description: Neste início rápido, você usa um modelo do Azure Resource Manage
 services: azure-resource-manager
 ms.service: azure-resource-manager
 ms.topic: quickstart
-ms.custom: subject-armqs, devx-track-javascript
+ms.custom: subject-armqs, devx-track-js
 ms.date: 04/30/2020
-ms.openlocfilehash: e501622ca10197796de1097db7b95eddfea8115f
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 621e3e1cef39e34656c094a39d218d5d5866fa26
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88651668"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91309074"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-an-arm-template"></a>Início Rápido: Implantar uma instância de contêiner no Azure usando um modelo do Resource Manager
 

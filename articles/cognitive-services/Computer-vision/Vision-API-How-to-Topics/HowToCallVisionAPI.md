@@ -10,13 +10,13 @@ ms.subservice: computer-vision
 ms.topic: sample
 ms.date: 09/09/2019
 ms.author: kefre
-ms.custom: seodec18
-ms.openlocfilehash: 0d2ef4af8af8ad9545277202f0aa7842ac05ea67
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.custom: seodec18, devx-track-csharp
+ms.openlocfilehash: e5e404e4cc0e4131ba7ade5ec8ec6115e26268a2
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85957895"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91965889"
 ---
 # <a name="call-the-computer-vision-api"></a>Chamar a API da Pesquisa Visual Computacional
 
@@ -254,4 +254,4 @@ Esses erros são idênticos aos de vision.analyze, com o erro adicional NotSuppo
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para usar a API REST, acesse [Referência da API da Pesquisa Visual Computacional](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/56f91f2e778daf14a499f21b).
+Para usar a API REST, acesse [Referência da API da Pesquisa Visual Computacional](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b).

@@ -1,19 +1,18 @@
 ---
 title: Testar um trabalho do Azure Stream Analytics com dados de exemplo
 description: Este artigo descreve como usar o portal do Azure para testar um trabalho do Azure Stream Analytics, uma entrada de exemplo e fazer o upload de dados de exemplo.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: ajetasin
+ms.author: ajetasi
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 3/6/2020
 ms.custom: seodec18
-ms.openlocfilehash: 04d86b0ef8202c1c544524dd2a7331d521245f12
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: eff9103f476e6074ab46198ff8cc78588675569f
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86043948"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020036"
 ---
 # <a name="test-an-azure-stream-analytics-job-in-the-portal"></a>Testar um trabalho de Azure Stream Analytics no portal
 
@@ -23,7 +22,7 @@ No Azure Stream Analytics, você pode testar sua consulta sem iniciar ou parar s
 
 Azure Stream Analytics busca automaticamente eventos de suas entradas de streaming. Você pode executar consultas no exemplo padrão ou definir um intervalo de tempo específico para o exemplo.
 
-1. Entre no Portal do Azure.
+1. Entre no portal do Azure.
 
 2. Localize e selecione seu trabalho de Stream Analytics existente.
 
@@ -71,7 +70,7 @@ Azure Stream Analytics busca automaticamente eventos de suas entradas de streami
 
 Em vez de usar dados dinâmicos, você pode usar dados de exemplo de um arquivo local para testar sua consulta de Azure Stream Analytics.
 
-1. Entre no Portal do Azure.
+1. Entre no portal do Azure.
    
 2. Localize o trabalho existente do Stream Analytics e selecione-o.
 
@@ -79,11 +78,11 @@ Em vez de usar dados dinâmicos, você pode usar dados de exemplo de um arquivo 
 
 4. Para testar sua consulta com um arquivo local, selecione **carregar entrada de exemplo** na guia **visualização de entrada** . 
 
-   ![Azure Stream Analytics carregar arquivo de exemplo](./media/stream-analytics-test-query/asa-upload-sample-file.png)
+   ![Captura de tela mostra a opção carregar entrada de exemplo.](./media/stream-analytics-test-query/asa-upload-sample-file.png)
 
 5. Carregue seu arquivo local para testar a consulta. Você só pode carregar arquivos com os formatos JSON, CSV ou AVRO. Selecione **OK**.
 
-   ![Azure Stream Analytics carregar arquivo de exemplo](./media/stream-analytics-test-query/asa-upload-sample-json-file.png)
+   ![Captura de tela mostra a caixa de diálogo carregar dados de exemplo, em que é possível selecionar um arquivo.](./media/stream-analytics-test-query/asa-upload-sample-json-file.png)
 
 6. Assim que você carregar o arquivo, também poderá ver o conteúdo do arquivo no formato como uma tabela ou no formato bruto. Se você selecionar **Redefinir**, os dados de exemplo serão retornados para os dados de entrada de entrada explicados na seção anterior. Você pode carregar qualquer outro arquivo para testar a consulta a qualquer momento.
 
@@ -97,10 +96,39 @@ Em vez de usar dados dinâmicos, você pode usar dados de exemplo de um arquivo 
 
 10. Depois de verificar os resultados mostrados no navegador, você pode **Iniciar** o trabalho.
 
-## <a name="next-steps"></a>Próximas etapas
-* [Crie uma solução de IOT usando Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-build-an-iot-solution-using-stream-analytics): Este tutorial orientará você a criar uma solução de ponta a ponta com um gerador de dados que simulará o tráfego em um estande de Tarifa.
+## <a name="limitations"></a>Limitações
 
-* [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
+1.  A política de tempo não tem suporte no teste do portal:
+
+    * Fora de ordem: todos os eventos de entrada serão ordenados.
+    * Chegada tardia: não haverá evento de chegada tardia, pois Stream Analytics só poderá usar dados existentes para teste.
+   
+2.  Não há suporte para UDF em C#.
+
+3.  Todos os testes serão executados com um trabalho que tenha uma unidade de streaming.
+
+4.  O tamanho do tempo limite é de um minuto. Portanto, qualquer consulta com um tamanho de janela maior que um minuto não pode obter dados.
+
+5.  Não há suporte para Machine Learning.
+
+6. A API de dados de exemplo é limitada após cinco solicitações em uma janela de 15 minutos. Após o final da janela de 15 minutos, você pode fazer mais solicitações de dados de exemplo. Essa limitação é aplicada no nível de assinatura.
+
+## <a name="troubleshooting"></a>Solução de problemas
+
+1.  Se você receber esse erro "houve um problema de conectividade de rede ao buscar os resultados. Verifique suas configurações de rede e firewall. ", siga as etapas abaixo:
+
+  * Para verificar a conexão com o serviço, abra [https://queryruntime.azurestreamanalytics.com/api/home/index](https://queryruntime.azurestreamanalytics.com/api/home/index) em um navegador. Se você não puder abrir este link, atualize suas configurações de firewall.
+  
+2. Se você receber esse erro "o tamanho da solicitação é muito grande. Reduza o tamanho dos dados de entrada e tente novamente. ", siga as etapas abaixo:
+
+  * Reduzir o tamanho de entrada – teste sua consulta com um arquivo de exemplo de tamanho menor ou com um intervalo de tempo menor.
+  * Reduzir o tamanho da consulta – para testar uma seleção de consulta, selecione uma parte da consulta e clique em **testar consulta selecionada**.
+
+
+## <a name="next-steps"></a>Próximas etapas
+* [Crie uma solução de IOT usando Stream Analytics](./stream-analytics-build-an-iot-solution-using-stream-analytics.md): Este tutorial orientará você a criar uma solução de ponta a ponta com um gerador de dados que simulará o tráfego em um estande de Tarifa.
+
+* [Referência de Linguagem de Consulta do Stream Analytics do Azure](/stream-analytics-query/stream-analytics-query-language-reference)
 
 * [Exemplos de consulta para padrões de uso do Stream Analytics](stream-analytics-stream-analytics-query-patterns.md)
 

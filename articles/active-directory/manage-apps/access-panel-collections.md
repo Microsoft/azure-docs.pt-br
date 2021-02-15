@@ -4,7 +4,7 @@ description: Use coleções de aplicativos para personalizar minhas páginas de 
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -14,19 +14,19 @@ ms.date: 02/10/2020
 ms.author: kenwith
 ms.reviewer: kasimpso
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f520141d36726e94dc8d49d7e5aa95bb35d5484
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 7743a1af54b01f848c4ac6f0cb1d4526d66f8132
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85956229"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99254975"
 ---
 # <a name="create-collections-on-the-my-apps-portal"></a>Criar coleções no portal Meus Aplicativos
 
 Os usuários podem usar o portal meus aplicativos para exibir e iniciar os aplicativos baseados em nuvem aos quais eles têm acesso. Por padrão, todos os aplicativos que um usuário pode acessar são listados juntos em uma única página. Para organizar melhor essa página para seus usuários, se você tiver uma licença Azure AD Premium P1 ou P2, poderá configurar coleções. Com uma coleção, você pode agrupar aplicativos relacionados (por exemplo, por função de trabalho, tarefa ou projeto) e exibi-los em uma guia separada. Uma coleção basicamente aplica um filtro aos aplicativos que um usuário já pode acessar, para que o usuário veja apenas os aplicativos na coleção que foram atribuídos a eles.
 
 > [!NOTE]
-> Este artigo aborda como um administrador pode habilitar e criar coleções. Para obter informações para o usuário final sobre como usar o portal e as coleções de meus aplicativos, consulte [acessar e usar coleções](https://docs.microsoft.com/azure/active-directory/user-help/my-applications-portal-workspaces).
+> Este artigo aborda como um administrador pode habilitar e criar coleções. Para obter informações para o usuário final sobre como usar o portal e as coleções de meus aplicativos, consulte [acessar e usar coleções](../user-help/my-applications-portal-workspaces.md).
 
 ## <a name="enable-the-latest-my-apps-features"></a>Habilitar os recursos mais recentes dos meus aplicativos
 
@@ -57,15 +57,15 @@ Para criar uma coleção, você deve ter uma licença Azure AD Premium P1 ou P2.
 
    ![Nova página de coleção](media/acces-panel-collections/new-collection.png)
 
-5. Selecione a guia **aplicativos** . Selecione **+ Adicionar aplicativo**e, em seguida, na página **adicionar aplicativos** , selecione todos os aplicativos que você deseja adicionar à coleção ou use a caixa de **pesquisa** para localizar aplicativos.
+5. Selecione a guia **aplicativos** . Selecione **+ Adicionar aplicativo** e, em seguida, na página **adicionar aplicativos** , selecione todos os aplicativos que você deseja adicionar à coleção ou use a caixa de **pesquisa** para localizar aplicativos.
 
    ![Adicionar um aplicativo à coleção](media/acces-panel-collections/add-applications.png)
 
 6. Quando terminar de adicionar aplicativos, selecione **Adicionar**. A lista de aplicativos selecionados é exibida. Você pode usar as setas para cima para alterar a ordem dos aplicativos na lista. Para mover um aplicativo para baixo ou para excluí-lo da coleção, selecione o menu **mais** (**...**).
 
-7. Selecione a guia **proprietários** . Selecione **+ Adicionar usuários e grupos**e, em seguida, na página **Adicionar usuários e grupos** , selecione os usuários ou grupos aos quais você deseja atribuir a propriedade. Quando você terminar de selecionar usuários e grupos, escolha **selecionar**.
+7. Selecione a guia **proprietários** . Selecione **+ Adicionar usuários e grupos** e, em seguida, na página **Adicionar usuários e grupos** , selecione os usuários ou grupos aos quais você deseja atribuir a propriedade. Quando você terminar de selecionar usuários e grupos, escolha **selecionar**.
 
-9. Selecione a guia **usuários e grupos** . Selecione **+ Adicionar usuários e grupos**e, na página **Adicionar usuários e grupos** , selecione os usuários ou grupos aos quais você deseja atribuir a coleção. Ou use a caixa de **pesquisa** para localizar usuários ou grupos. Quando você terminar de selecionar usuários e grupos, escolha **selecionar**.
+9. Selecione a guia **usuários e grupos** . Selecione **+ Adicionar usuários e grupos** e, em seguida, na página **Adicionar usuários e grupos** , selecione os usuários ou grupos aos quais você deseja atribuir a coleção. Ou use a caixa de **pesquisa** para localizar usuários ou grupos. Quando você terminar de selecionar usuários e grupos, escolha **selecionar**.
 
    ![Adicionar usuários e grupos](media/acces-panel-collections/add-users-and-groups.png)
 
@@ -87,13 +87,13 @@ Você pode acessar os logs de auditoria no [portal do Azure](https://portal.azur
 
 ## <a name="get-support-for-my-account-pages"></a>Obter suporte para páginas da minha conta
 
-Na página meus aplicativos, um usuário pode selecionar **minha**conta  >  **Exibir minha conta** para abrir suas configurações de conta. Na página **minha conta** do Azure AD, os usuários podem gerenciar suas informações de segurança, dispositivos, senhas e muito mais. Eles também podem acessar suas configurações de conta do Office.
+Na página meus aplicativos, um usuário pode selecionar **minha** conta  >  **Exibir minha conta** para abrir suas configurações de conta. Na página **minha conta** do Azure AD, os usuários podem gerenciar suas informações de segurança, dispositivos, senhas e muito mais. Eles também podem acessar suas configurações de conta do Office.
 
 Caso você precise enviar uma solicitação de suporte para um problema com a página conta do Azure AD ou a página conta do Office, siga estas etapas para que sua solicitação seja roteada corretamente: 
 
 * Para problemas com a página **"minha conta" do Azure ad** , abra uma solicitação de suporte no portal do Azure. Vá para **portal do Azure**  >  **Azure Active Directory**  >  **nova solicitação de suporte**.
 
-* Para problemas com a página **"minha conta" do Office** , abra uma solicitação de suporte no centro de administração do Microsoft 365. Vá para **Microsoft 365 suporte do centro de administração**  >  **Support**. 
+* Para problemas com a página **"minha conta" do Office** , abra uma solicitação de suporte no centro de administração do Microsoft 365. Vá para **Microsoft 365 suporte do centro de administração**  >  . 
 
 ## <a name="next-steps"></a>Próximas etapas
 [Experiências do usuário final para aplicativos no Active Directory Domain Services do Azure](end-user-experiences.md)

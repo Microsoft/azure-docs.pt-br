@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: rwaller
-ms.openlocfilehash: 66a2fde47f71536661431959b957246e28c81d6a
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 2503355a24a7452ca1ff9886a80f2956897889c4
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88639793"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98630388"
 ---
 # <a name="create-an-immersive-reader-resource-and-configure-azure-active-directory-authentication"></a>Criar um recurso de leitor de imersão e configurar a autenticação Azure Active Directory
 
@@ -29,7 +29,7 @@ O script foi projetado para ser flexível. Ele primeiro procurará os recursos e
 
 ## <a name="set-up-powershell-environment"></a>Configurar o ambiente do PowerShell
 
-1. Comece abrindo a [Azure cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview). Verifique se Cloud Shell está definido como PowerShell no menu suspenso superior esquerdo ou digitando `pwsh` .
+1. Comece abrindo a [Azure cloud Shell](../../cloud-shell/overview.md). Verifique se Cloud Shell está definido como PowerShell no menu suspenso superior esquerdo ou digitando `pwsh` .
 
 1. Copie e cole o trecho de código a seguir no Shell.
 
@@ -143,21 +143,27 @@ O script foi projetado para ser flexível. Ele primeiro procurará os recursos e
     }
     ```
 
-1. Execute a função `Create-ImmersiveReaderResource` , fornecendo os parâmetros conforme apropriado.
+1. Execute a função `Create-ImmersiveReaderResource` , fornecendo os espaços reservados ' <PARAMETER_VALUES> ' abaixo com seus próprios valores, conforme apropriado.
 
     ```azurepowershell-interactive
+    Create-ImmersiveReaderResource -SubscriptionName '<SUBSCRIPTION_NAME>' -ResourceName '<RESOURCE_NAME>' -ResourceSubdomain '<RESOURCE_SUBDOMAIN>' -ResourceSKU '<RESOURCE_SKU>' -ResourceLocation '<RESOURCE_LOCATION>' -ResourceGroupName '<RESOURCE_GROUP_NAME>' -ResourceGroupLocation '<RESOURCE_GROUP_LOCATION>' -AADAppDisplayName '<AAD_APP_DISPLAY_NAME>' -AADAppIdentifierUri '<AAD_APP_IDENTIFIER_URI>' -AADAppClientSecret '<AAD_APP_CLIENT_SECRET>' -AADAppClientSecretExpiration '<AAD_APP_CLIENT_SECRET_EXPIRATION>'
+    ```
+
+    O comando completo terá uma aparência semelhante à seguinte. Aqui, colocamos cada parâmetro em sua própria linha para fins de clareza, para que você possa ver o comando inteiro. Não copie ou use este comando como está. Copie e use o comando acima com seus próprios valores. Este exemplo tem valores fictícios para o ' <PARAMETER_VALUES> ' acima. O seu será diferente, pois você criará seus próprios nomes para esses valores.
+
+    ```
     Create-ImmersiveReaderResource
-      -SubscriptionName '<SUBSCRIPTION_NAME>' `
-      -ResourceName '<RESOURCE_NAME>' `
-      -ResourceSubdomain '<RESOURCE_SUBDOMAIN>' `
-      -ResourceSKU '<RESOURCE_SKU>' `
-      -ResourceLocation '<RESOURCE_LOCATION>' `
-      -ResourceGroupName '<RESOURCE_GROUP_NAME>' `
-      -ResourceGroupLocation '<RESOURCE_GROUP_LOCATION>' `
-      -AADAppDisplayName '<AAD_APP_DISPLAY_NAME>' `
-      -AADAppIdentifierUri '<AAD_APP_IDENTIFIER_URI>' `
-      -AADAppClientSecret '<AAD_APP_CLIENT_SECRET>'
-      -AADAppClientSecretExpiration '<AAD_APP_CLIENT_SECRET_Expiration>'
+        -SubscriptionName 'MyOrganizationSubscriptionName'
+        -ResourceName 'MyOrganizationImmersiveReader'
+        -ResourceSubdomain 'MyOrganizationImmersiveReader'
+        -ResourceSKU 'S0'
+        -ResourceLocation 'westus2'
+        -ResourceGroupName 'MyResourceGroupName'
+        -ResourceGroupLocation 'westus2'
+        -AADAppDisplayName 'MyOrganizationImmersiveReaderAADApp'
+        -AADAppIdentifierUri 'https://MyOrganizationImmersiveReaderAADApp'
+        -AADAppClientSecret 'SomeStrongPassword'
+        -AADAppClientSecretExpiration '2021-12-31'
     ```
 
     | Parâmetro | Comentários |
@@ -165,7 +171,7 @@ O script foi projetado para ser flexível. Ele primeiro procurará os recursos e
     | SubscriptionName |Nome da assinatura do Azure a ser usada para o recurso de leitura de imersão. Você deve ter uma assinatura do para criar um recurso. |
     | ResourceName |  Deve ser alfanumérico e pode conter '-', desde que '-' não seja o primeiro ou o último caractere. O comprimento não pode exceder 63 caracteres.|
     | ResourceSubdomain |Um subdomínio personalizado é necessário para o recurso de leitura de imersão. O subdomínio é usado pelo SDK ao chamar o serviço de leitura de imersão para iniciar o leitor. O subdomínio deve ser globalmente exclusivo. O subdomínio deve ser alfanumérico e pode conter '-', desde que '-' não seja o primeiro ou o último caractere. O comprimento não pode exceder 63 caracteres. Esse parâmetro será opcional se o recurso já existir. |
-    | ResourceSKU |Opções: `S0` . Visite nossa [página de preços de serviços cognitivas](https://azure.microsoft.com/pricing/details/cognitive-services/immersive-reader/) para saber mais sobre cada SKU disponível. Esse parâmetro será opcional se o recurso já existir. |
+    | ResourceSKU |Opções: `S0` (camada Standard) ou `S1` (organizações educacionais/sem fins lucrativos). Visite nossa [página de preços de serviços cognitivas](https://azure.microsoft.com/pricing/details/cognitive-services/immersive-reader/) para saber mais sobre cada SKU disponível. Esse parâmetro será opcional se o recurso já existir. |
     | ResourceLocation |Opções:,,,,,, `eastus` `eastus2` `southcentralus` `westus` `westus2` `australiaeast` `southeastasia` , `centralindia` , `japaneast` , `northeurope` , `uksouth` , `westeurope` . Esse parâmetro será opcional se o recurso já existir. |
     | ResourceGroupName |Os recursos são criados em grupos de recursos dentro de assinaturas. Forneça o nome de um grupo de recursos existente. Se o grupo de recursos ainda não existir, um novo com esse nome será criado. |
     | ResourceGroupLocation |Se o grupo de recursos não existir, você precisará fornecer um local no qual criar o grupo. Para localizar uma lista de locais, execute `az account list-locations` . Use a propriedade *Name* (sem espaços) do resultado retornado. Esse parâmetro será opcional se o grupo de recursos já existir. |
@@ -196,7 +202,3 @@ O script foi projetado para ser flexível. Ele primeiro procurará os recursos e
 * Veja o [tutorial do iOS](./tutorial-ios.md) para saber o que mais você pode fazer com o SDK de Leitura Avançada usando o Swift para iOS
 * Confira o [tutorial do Python](./tutorial-python.md) para ver o que mais você pode fazer com o SDK de Leitura Avançada usando Python
 * Explore o [SDK da Leitura Avançada](https://github.com/microsoft/immersive-reader-sdk) e a [Referência de SDK da Leitura Avançada](./reference.md)
-
-
-
-

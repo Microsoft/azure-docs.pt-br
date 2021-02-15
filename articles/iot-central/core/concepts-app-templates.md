@@ -3,16 +3,16 @@ title: O que são modelos de aplicativos no Azure IoT Central | Microsoft Docs
 description: Os modelos de aplicativo IoT Central do Azure permitem que você vá para o desenvolvimento da solução de IoT.
 author: philmea
 ms.author: philmea
-ms.date: 10/25/2019
+ms.date: 12/19/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 0cf343ccd89ac5b00740d8c559538a0f97ec7905
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 27f054cb085e5064ffed0e75b77d53a1406b566e
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88716564"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97797121"
 ---
 # <a name="what-are-application-templates"></a>O que são modelos de aplicativo?
 
@@ -30,12 +30,7 @@ Você escolhe o modelo de aplicativo ao criar seu aplicativo. Você não pode al
 
 ## <a name="custom-templates"></a>Modelos personalizados
 
-Se você quiser criar seu aplicativo do zero, escolha um dos dois modelos de aplicativo personalizados:
-
-- Aplicativo personalizado
-- Aplicativo personalizado (Herdado)
-
-Escolha o modelo de **aplicativo personalizado** , a menos que você tenha um motivo específico para usar o modelo herdado.
+Se você quiser criar seu aplicativo do zero, escolha um modelo de **aplicativo personalizado** .
 
 ## <a name="industry-focused-templates"></a>Modelos focados no setor
 

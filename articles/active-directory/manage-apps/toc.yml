@@ -7,6 +7,8 @@
       href: what-is-application-management.md
     - name: O que é SSO (logon único)?
       href: what-is-single-sign-on.md
+    - name: O que há de novo no Docs?
+      href: whats-new-docs.md
 - name: Inícios rápidos
   expanded: true
   items:
@@ -16,13 +18,17 @@
       href: add-application-portal.md
     - name: Configurar um aplicativo
       href: add-application-portal-configure.md
-    - name: Configurar logon único
+    - name: Atribuir usuários a um aplicativo
+      href: add-application-portal-assign-users.md
+    - name: Configurar o logon único baseado em SAML
       href: add-application-portal-setup-sso.md
+    - name: Configurar o logon único baseado em OIDC
+      href: add-application-portal-setup-oidc-sso.md
     - name: Excluir um aplicativo
       href: delete-application-portal.md
 - name: Tutoriais
   items:
-    - name: 'Aplicativos integrados da galeria (por exemplo, ServiceNow, Salesforce, Dropbox)'
+    - name: Lista de tutoriais de integração de aplicativos
       href: /azure/active-directory/saas-apps/
     - name: Adicionar um aplicativo local por meio do Proxy de Aplicativo
       href: application-proxy-add-on-premises-application.md
@@ -31,7 +37,7 @@
     - name: Exemplos do Azure PowerShell para Proxy de Aplicativo
       href: application-proxy-powershell-samples.md
 - name: Conceitos
-  expanded: false
+  expanded: true
   items:
     - name: Melhores práticas para o gerenciamento de aplicativos
       href: application-management-fundamentals.md
@@ -44,15 +50,31 @@
         - name: Planejar apps não listados na galeria
           href: non-gallery-apps.md
         - name: Planejar uma implantação de Meus Aplicativos
-          href: access-panel-deployment-plan.md
-        - name: Diretrizes para desenvolvedores
-          href: developer-guidance-for-integrating-applications.md
+          href: my-apps-deployment-plan.md
     - name: Logon único
       items:
-        - name: Opções de logon único
-          href: sso-options.md
         - name: Planejar uma implantação de logon único
           href: plan-sso-deployment.md
+        - name: Opções de logon único
+          href: sso-options.md
+        - name: Logon único com aplicativos locais
+          href: application-proxy-config-sso-how-to.md
+        - name: SSO baseado em OIDC
+          href: configure-oidc-single-sign-on.md
+        - name: SSO baseado em SAML
+          href: configure-saml-single-sign-on.md
+        - name: SSO baseado em SAML (aplicativos locais)
+          href: application-proxy-configure-single-sign-on-on-premises-apps.md
+        - name: SSO baseado em senha
+          href: configure-password-single-sign-on-non-gallery-applications.md
+        - name: SSO baseado em senha (aplicativos locais)
+          href: application-proxy-configure-single-sign-on-password-vaulting.md
+        - name: SSO baseado em link
+          href: configure-linked-sign-on.md
+        - name: SSO baseado em cabeçalho (aplicativos locais)
+          href: application-proxy-configure-single-sign-on-with-headers.md
+        - name: SSO baseado em Kerberos (aplicativos locais)
+          href: application-proxy-configure-single-sign-on-with-kcd.md
         - name: SSO com um clique
           href: one-click-sso-tutorial.md
     - name: Segurança do aplicativo
@@ -94,36 +116,34 @@
 - name: Guias de instruções
   expanded: false
   items:
-    - name: Configurar o logon único
-      items:
-        - name: Configurar o logon único baseado em SAML
-          href: configure-saml-single-sign-on.md
-        - name: Configurar logon baseado em senha
-          href: configure-password-single-sign-on-non-gallery-applications.md
-        - name: Configurar o logon vinculado
-          href: configure-linked-sign-on.md
     - name: Atribuir usuários e gerenciar o acesso aos aplicativos
       items:
-        - name: Configurar consentimento do usuário
-          href: configure-user-consent.md
-        - name: Gerenciar e avaliar solicitações de consentimento
-          href: manage-consent-requests.md
-        - name: Conceder consentimento do administrador em todo o locatário
-          href: grant-admin-consent.md
-        - name: Configurar o fluxo de trabalho de consentimento do administrador (versão prévia)
-          href: configure-admin-consent-workflow.md
-        - name: Atribuir um usuário ou um grupo a um aplicativo
+        - name: Consentimentos e permissões
+          items:
+            - name: Configurar consentimento do usuário
+              href: configure-user-consent.md
+            - name: Configurar o consentimento do proprietário do grupo
+              href: configure-user-consent-groups.md
+            - name: Configurar as classificações de permissão
+              href: configure-permission-classifications.md
+            - name: Gerenciar as políticas de consentimento do aplicativo
+              href: manage-app-consent-policies.md
+            - name: Configurar o fluxo de trabalho de consentimento do administrador (versão prévia)
+              href: configure-admin-consent-workflow.md
+            - name: Gerenciar e avaliar solicitações de consentimento
+              href: manage-consent-requests.md
+            - name: Conceder consentimento do administrador em todo o locatário
+              href: grant-admin-consent.md
+            - name: Examinar permissões concedidas a aplicativos
+              href: manage-application-permissions.md
+        - name: Gerenciar a atribuição de usuário para um aplicativo
           href: assign-user-or-group-access-portal.md
-        - name: Examinar permissões concedidas a aplicativos
-          href: manage-application-permissions.md
         - name: Criar coleções em Meus Aplicativos
           href: access-panel-collections.md
         - name: Usar o acesso a aplicativo de autoatendimento
           href: access-panel-manage-self-service-access.md
         - name: Métodos para remover o acesso de um usuário a um aplicativo
           href: methods-for-removing-user-access.md
-        - name: Remover o acesso de usuário ou grupo
-          href: remove-user-or-group-access-portal.md
         - name: Ocultar o aplicativo de um usuário
           href: hide-application-from-user-portal.md
         - name: Desabilitar a entrada de usuário
@@ -136,8 +156,10 @@
       items:
         - name: Recursos de migração
           href: migration-resources.md
-        - name: Migrar um aplicativo do ADFS para o Azure
+        - name: Migrar um aplicativo AD FS para o Azure
           href: migrate-adfs-apps-to-azure.md
+        - name: Migrar a autenticação de aplicativo para o Azure Active Directory
+          href: migrate-application-authentication-to-azure-active-directory.md
         - name: Usar o relatório de atividade do aplicativo do AD FS (versão prévia)
           href: migrate-adfs-application-activity.md
     - name: Configurar conectores locais
@@ -166,24 +188,24 @@
           href: application-proxy-remove-personal-data.md
         - name: Configurar domínio personalizado
           href: application-proxy-configure-custom-domain.md
-        - name: Logon único com Proxy de Aplicativo
+        - name: Proteger aplicativos herdados
           items:
-            - name: KCD (delegação restrita de Kerberos)
-              href: application-proxy-configure-single-sign-on-with-kcd.md
-            - name: Compartimentação de senha
-              href: application-proxy-configure-single-sign-on-password-vaulting.md
-            - name: headers
-              href: application-proxy-configure-single-sign-on-with-ping-access.md
-            - name: SSO do SAML
-              href: application-proxy-configure-single-sign-on-on-premises-apps.md
-        - name: Proteger aplicativos herdados com redes ou controladores de entrega de aplicativos
-          href: secure-hybrid-access.md
+            - name: Proteger o acesso híbrido com o Azure AD
+              href: secure-hybrid-access.md
+            - name: Integração do F5 e Azure AD
+              href: f5-aad-integration.md
+            - name: Implantação do F5 BIG-IP VE na IaaS do Azure
+              href: f5-bigip-deployment-guide.md
+            - name: F5 Big-IP com o Azure AD para VPN sem senha
+              href: f5-aad-password-less-vpn.md
         - name: Orientações de publicação
           items:
             - name: Integrar com o proxy de aplicativo em um servidor NDES
               href: active-directory-app-proxy-protect-ndes.md
+            - name: Integrar com o Proxy de Aplicativo usando o PingAccess
+              href: application-proxy-ping-access-publishing-guide.md
             - name: Integrar ao Azure AD Domain Services
-              href: /azure/active-directory-domain-services/deploy-azure-app-proxy?context=azure/active-directory/manage-apps/context/manage-apps-context
+              href: ../../active-directory-domain-services/deploy-azure-app-proxy.md?context=%2fazure%2factive-directory%2fmanage-apps%2fcontext%2fmanage-apps-context
             - name: Integrar ao Power BI
               href: application-proxy-integrate-with-power-bi.md
             - name: Integrar ao Cloud App Security
@@ -201,63 +223,27 @@
     - name: Solucionar problemas
       items:
         - name: Solucionar problemas de adição de aplicativos
-          items:
-            - name: Problemas comuns - aplicativos da galeria
-              href: adding-gallery-app-common-problems.md
-            - name: Problemas comuns - aplicativos inexistentes na galeria
-              href: adding-non-gallery-app-common-problems.md
+          href: troubleshoot-adding-apps.md
+        - name: Solucionar problemas no logon único baseado em senha
+          href: troubleshoot-password-based-sso.md
+        - name: Solução de problemas de logon único baseado em SAML
+          href: troubleshoot-saml-based-sso.md
+        - name: Depurar logon único baseado em SAML
+          href: debug-saml-sso-issues.md
         - name: Solucionar problemas de entrada de usuário
           items:
             - name: Solicitação de consentimento inesperada
               href: application-sign-in-unexpected-user-consent-prompt.md
             - name: Erro de consentimento do usuário
               href: application-sign-in-unexpected-user-consent-error.md
-            - name: Problemas para entrar no portal personalizado
-              href: application-sign-in-other-problem-deeplink.md
-            - name: Problemas para entrar no painel de acesso
+            - name: Problemas para entrar nos Meus Aplicativos
               href: application-sign-in-other-problem-access-panel.md
             - name: Erro na página de entrada do aplicativo
               href: application-sign-in-problem-application-error.md
-            - name: Problema de logon único com senha - aplicativo inexistente na galeria
-              href: application-sign-in-problem-password-sso-non-gallery.md
-            - name: Problema de logon único com senha - aplicativo da galeria
-              href: application-sign-in-problem-password-sso-gallery.md
             - name: Problema ao entrar em um aplicativo da Microsoft
               href: application-sign-in-problem-first-party-microsoft.md
-            - name: Problema com logon único federado - aplicativo inexistente na galeria
-              href: application-sign-in-problem-federated-sso-non-gallery.md
-            - name: Problema com logon único federado - aplicativo da galeria
+            - name: Problema com logon único
               href: application-sign-in-problem-federated-sso-gallery.md
-            - name: Problema com aplicativo desenvolvido de forma personalizada
-              href: application-sign-in-problem-custom-dev.md
-        - name: Solucionar problemas de logon único
-          items:
-            - name: Problemas comuns ao configurar federados - aplicativos da galeria
-              href: configure-federated-single-sign-on-gallery-applications-problems.md
-            - name: Problemas comuns ao configurar federados - aplicativos inexistentes na galeria
-              href: configure-federated-single-sign-on-non-gallery-applications-problems.md
-            - name: Problemas comuns ao configurar senha - aplicativos da galeria
-              href: configure-password-single-sign-on-gallery-applications-problems.md
-            - name: Problemas comuns ao configurar senha - aplicativos inexistentes na galeria
-              href: configure-password-single-sign-on-non-gallery-applications-problems.md
-        - name: Solucionar problemas de atribuição e de lista de aplicativos
-          items:
-            - name: Gerenciar a lista de aplicativos para seu locatário
-              href: application-types.md
-            - name: Usuário inesperado atribuído
-              href: ways-users-get-assigned-to-applications.md
-        - name: Solucionar problemas em Meus Aplicativos
-          items:
-            - name: Gerenciar extensão do navegador
-              href: manage-access-panel-browser-extension.md
-            - name: Aplicativo não aparece
-              href: access-panel-troubleshoot-application-not-appearing.md
-            - name: Aplicativo inesperado aparece
-              href: access-panel-troubleshoot-unexpected-application.md
-            - name: Não é possível entrar
-              href: access-panel-troubleshoot-web-sign-in-problem.md
-            - name: Erro ao usar o acesso ao aplicativo de autoatendimento
-              href: access-panel-troubleshoot-self-service-access.md
         - name: Solucionar problemas de aplicativos locais
           items:
             - name: Solução de problemas de Proxy de Aplicativo
@@ -276,14 +262,12 @@
               href: application-proxy-connectivity-no-working-connector.md
             - name: Configurar no portal do administrador
               href: application-proxy-config-how-to.md
-            - name: Configurar logon único para meu aplicativo
-              href: application-proxy-config-sso-how-to.md
             - name: Problema ao criar um aplicativo no portal do administrador
               href: application-proxy-config-problem.md
             - name: Configurar a Delegação Restrita de Kerberos
               href: application-proxy-back-end-kerberos-constrained-delegation-how-to.md
             - name: Configurar com PingAccess
-              href: application-proxy-back-end-ping-access-how-to.md
+              href: ./application-proxy-ping-access-publishing-guide.md
             - name: Erro Não é possível acessar este aplicativo corporativo
               href: application-proxy-sign-in-bad-gateway-timeout-error.md
             - name: Problema ao instalar o conector de agente de Application Proxy
@@ -298,14 +282,18 @@
       href: application-proxy-faq.md
     - name: Histórico de versão do Proxy do aplicativo
       href: application-proxy-release-version-history.md
+    - name: Motivos pelos quais os aplicativos aparecem em Aplicativos Empresariais
+      href: application-types.md
+    - name: Motivos pelos quais os usuários são atribuídos a um aplicativo
+      href: ways-users-get-assigned-to-applications.md
 - name: Recursos
   items:
     - name: Opções de suporte e ajuda para desenvolvedores
-      href: /azure/active-directory/develop/developer-support-help-options?context=azure/active-directory/manage-apps/context/manage-apps-context
+      href: ../develop/developer-support-help-options.md?context=%2fazure%2factive-directory%2fmanage-apps%2fcontext%2fmanage-apps-context
     - name: Fórum de comentários do Azure
       href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
     - name: Página de perguntas de P e R da Microsoft
-      href: 'https://docs.microsoft.com/answers/topics/azure-active-directory.html'
+      href: /answers/topics/azure-active-directory.html
     - name: Preços
       href: 'https://azure.microsoft.com/pricing/details/active-directory'
     - name: Atualizações de serviço

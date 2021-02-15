@@ -7,15 +7,15 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 08/07/2020
 ms.author: irenehua
-ms.openlocfilehash: 10a0c186bb1a0d9f974d485e7d2d1d7326bd849c
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 1b7bdbdb9e1d642f2ef4a715d4993e4f449ccd0a
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88033148"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98050690"
 ---
 # <a name="upgrade-azure-internal-load-balancer--no-outbound-connection-required"></a>Atualizar o Load Balancer interno do Azure-nenhuma conexão de saída é necessária
-O [Azure Standard Load Balancer](load-balancer-overview.md) oferece um conjunto avançado de funcionalidades e alta disponibilidade por meio de redundância de zona. Para saber mais sobre Load Balancer SKU, confira [tabela de comparação](https://docs.microsoft.com/azure/load-balancer/skus#skus).
+O [Azure Standard Load Balancer](load-balancer-overview.md) oferece um conjunto avançado de funcionalidades e alta disponibilidade por meio de redundância de zona. Para saber mais sobre Load Balancer SKU, confira [tabela de comparação](./skus.md#skus).
 
 Este artigo apresenta um script do PowerShell que cria um Standard Load Balancer com a mesma configuração que o Load Balancer básico, juntamente com a migração de tráfego do Load Balancer básico para o Standard Load Balancer.
 
@@ -23,23 +23,23 @@ Este artigo apresenta um script do PowerShell que cria um Standard Load Balancer
 
 Há um script de Azure PowerShell disponível que faz o seguinte:
 
-* Cria um Load Balancer SKU interno padrão no local que você especificar. Observe que nenhuma [conexão de saída](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) não será fornecida pelo Load balancer interno padrão.
+* Cria um Load Balancer SKU interno padrão no local que você especificar. Observe que nenhuma [conexão de saída](./load-balancer-outbound-connections.md) não será fornecida pelo Load balancer interno padrão.
 * Copia diretamente as configurações do Load Balancer de SKU básico para o Standard Load Balancer recém-criado.
 * Mova diretamente os IPs privados do Load Balancer básico para o Standard Load Balancer recém-criado.
 * Mova diretamente as VMs do pool de back-end do Load Balancer básico para o pool de back-end do Standard Load Balancer
 
 ### <a name="caveatslimitations"></a>Caveats\Limitations
 
-* O script só dá suporte à atualização de Load Balancer interno, em que nenhuma conexão de saída é necessária. Se você precisar de [conexão de saída](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) para algumas de suas VMs, consulte esta [página](upgrade-InternalBasic-To-PublicStandard.md) para obter instruções. 
+* O script só dá suporte à atualização de Load Balancer interno, em que nenhuma conexão de saída é necessária. Se você precisar de [conexão de saída](./load-balancer-outbound-connections.md) para algumas de suas VMs, consulte esta [página](upgrade-InternalBasic-To-PublicStandard.md) para obter instruções. 
 * O Load Balancer básico precisa estar no mesmo grupo de recursos que as VMs de back-end e NICs.
 * Se o balanceador de carga padrão for criado em uma região diferente, você não poderá associar as VMs existentes na região antiga ao Standard Load Balancer recém-criado. Para contornar essa limitação, certifique-se de criar uma nova VM na nova região.
 * Se seu Load Balancer não tiver nenhuma configuração de IP de front-end ou pool de back-ends, provavelmente você encontrará um erro ao executar o script. Verifique se eles não estão vazios.
 
 ## <a name="change-ip-allocation-method-to-static-for-frontend-ip-configuration-ignore-this-step-if-its-already-static"></a>Altere o método de alocação de IP para estático para configuração de IP de front-end (ignore esta etapa se ela já estiver estática)
 
-1. Selecione **todos os serviços** no menu à esquerda, selecione **todos os recursos**e, em seguida, selecione o Load Balancer básico na lista de recursos.
+1. Selecione **todos os serviços** no menu à esquerda, selecione **todos os recursos** e, em seguida, selecione o Load Balancer básico na lista de recursos.
 
-2. Em **configurações**, selecione **configuração de IP de front-end**e selecione a primeira configuração de IP de front-end. 
+2. Em **configurações**, selecione **configuração de IP de front-end** e selecione a primeira configuração de IP de front-end. 
 
 3. Para **atribuição**, selecione **estático**
 
@@ -48,7 +48,7 @@ Há um script de Azure PowerShell disponível que faz o seguinte:
 
 ## <a name="download-the-script"></a>Baixar o script
 
-Baixe o script de migração do [Galeria do PowerShell](https://www.powershellgallery.com/packages/AzureILBUpgrade/4.0).
+Baixe o script de migração do  [Galeria do PowerShell](https://www.powershellgallery.com/packages/AzureILBUpgrade/5.0).
 ## <a name="use-the-script"></a>Usar o script
 
 Há duas opções para você dependendo da configuração e das preferências do ambiente do PowerShell local:
@@ -58,7 +58,7 @@ Há duas opções para você dependendo da configuração e das preferências do
 
 Para determinar se você tem os módulos AZ do Azure instalados, execute `Get-InstalledModule -Name az` . Se você não vir nenhum módulo AZ instalado, poderá usar o `Install-Script` método.
 
-### <a name="install-using-the-install-script-method"></a>Instalar usando o método Install-Script
+### <a name="install-using-the-install-script-method"></a>Instalar usando o método de Install-Script
 
 Para usar essa opção, você não deve ter os módulos AZ do Azure instalados no seu computador. Se eles estiverem instalados, o comando a seguir exibirá um erro. Você pode desinstalar os módulos AZ do Azure ou usar a outra opção para baixar o script manualmente e executá-lo.
   
@@ -101,10 +101,6 @@ Sim. Consulte [Advertências/limitações](#caveatslimitations).
 ### <a name="does-the-azure-powershell-script-also-switch-over-the-traffic-from-my-basic-load-balancer-to-the-newly-created-standard-load-balancer"></a>O script de Azure PowerShell também alterna o tráfego do meu Load Balancer básico para o Standard Load Balancer recém-criado?
 
 Sim, ele migra o tráfego. Se você quiser migrar o tráfego pessoalmente, use [esse script](https://www.powershellgallery.com/packages/AzureILBUpgrade/1.0) que não move as VMs para você.
-
-### <a name="i-ran-into-some-issues-with-using-this-script-how-can-i-get-help"></a>Ocorreu alguns problemas com o uso desse script. Como posso obter ajuda?
-  
-Você pode enviar um email para o slbupgradesupport@microsoft.com , abrir um caso de suporte com o suporte do Azure ou fazer ambos.
 
 ## <a name="next-steps"></a>Próximas etapas
 

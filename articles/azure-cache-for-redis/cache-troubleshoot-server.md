@@ -7,10 +7,10 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 10/18/2019
 ms.openlocfilehash: 12d78846f5892e71388de6e6e76b868f9b14d4de
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88008909"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-server-side-issues"></a>Solucionar problemas no lado do servidor do Cache do Azure para Redis
@@ -35,12 +35,12 @@ Uma grande demanda da memória do servidor acarreta todo tipo de problemas de de
 
 O Redis expõe duas estatísticas por meio do comando [info](https://redis.io/commands/info) que pode ajudá-lo a identificar esse problema: "used_memory" e "used_memory_rss". Você pode [exibir essas métricas](cache-how-to-monitor.md#view-metrics-with-azure-monitor) usando o Portal.
 
-Há várias alterações possíveis que você pode fazer para ajudar a manter a integridade do uso da memória:
+Há várias alterações que você pode fazer para ajudar a manter a integridade do uso de memória:
 
-- [Configurar uma política de memória](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) e definir tempos de expiração em suas chaves. Essa política pode não ser suficiente se você tiver fragmentação.
-- [Configurar um valor para maxmemory-reserved](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) que seja grande o suficiente para compensar pela fragmentação da memória.
+- [Configure uma política de memória](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) e defina os tempos de expiração em suas chaves. Essa política poderá não ser suficiente se você tiver fragmentação.
+- [Configure um valor de MaxMemory-reservado](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) que seja grande o suficiente para compensar a fragmentação de memória.
 - Dividir os objetos grandes armazenados em cache em objetos menores relacionados.
-- [Crie alertas](cache-how-to-monitor.md#alerts) em métricas como memória usada para ser notificado antecipadamente sobre possíveis impactos.
+- [Crie alertas](cache-how-to-monitor.md#alerts) em métricas, como memória usada, para ser notificado com antecedência sobre possíveis impactos.
 - [Dimensione](cache-how-to-scale.md) para um tamanho de cache maior com mais capacidade de memória.
 
 ## <a name="high-cpu-usage-or-server-load"></a>Alto uso da CPU ou carga do servidor
@@ -70,7 +70,7 @@ As métricas de "leitura de cache" e "gravação de cache" podem ser usadas para
 Para atenuar situações em que o uso de largura de banda de rede está próximo da capacidade máxima:
 
 - Altere o comportamento da chamada do cliente para reduzir a demanda da rede.
-- [Crie alertas](cache-how-to-monitor.md#alerts) em métricas como leitura de cache ou gravação de cache para ser notificado antecipadamente sobre possíveis impactos.
+- [Crie alertas](cache-how-to-monitor.md#alerts) sobre métricas como leitura de cache ou gravação de cache para ser notificado antecipadamente sobre possíveis impactos.
 - [Dimensione](cache-how-to-scale.md) para um tamanho de cache maior com mais capacidade de largura de banda de rede.
 
 ## <a name="additional-information"></a>Informações adicionais

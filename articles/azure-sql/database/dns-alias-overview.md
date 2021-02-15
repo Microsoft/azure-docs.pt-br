@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: genemi, jrasnick, vanto
 ms.date: 06/26/2019
-ms.openlocfilehash: d208a9b9f8e1cc16e2c72aa825a2daf88ad00176
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 25c2157a8de237d0ec66caa72d59c810d419ac76
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86145655"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94989115"
 ---
 # <a name="dns-alias-for-azure-sql-database"></a>Alias do DNS para Banco de Dados SQL do Azure
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -61,7 +61,7 @@ As propriedades a seguir se aplicam a cada alias DNS para seu servidor:
   - Quando você remove um servidor, o sistema do Azure também descarta todos os aliases DNS que se referem ao servidor.
 - *Não associado a nenhuma região:* aliases de DNS não são associados a uma região. Todos os aliases de DNS podem ser atualizados para se referir a um servidor que reside em qualquer região geográfica.
   - No entanto, ao atualizar um alias para se referir a outro servidor, ambos os servidores devem existir na mesma *assinatura* do Azure.
-- *Permissões:* para gerenciar um alias de DNS, o usuário deve ter permissões de *Colaborador do Server* ou superior. Para obter mais informações, consulte [Introdução ao Controle de Acesso Baseado em Função no portal do Azure](../../role-based-access-control/overview.md).
+- *Permissões:* para gerenciar um alias de DNS, o usuário deve ter permissões de *Colaborador do Server* ou superior. Para obter mais informações, consulte Introdução [ao controle de acesso baseado em função do Azure no portal do Azure](../../role-based-access-control/overview.md).
 
 ## <a name="manage-your-dns-aliases"></a>Gerenciar seus aliases de DNS
 
@@ -71,7 +71,7 @@ Os cmdlets do PowerShell e das APIs REST estão disponíveis para que você poss
 
 A documentação das APIs REST está disponível perto do seguinte local:
 
-- [API REST do Banco de Dados SQL do Azure](https://docs.microsoft.com/rest/api/sql/)
+- [API REST do Banco de Dados SQL do Azure](/rest/api/sql/)
 
 Além disso, as APIs REST podem ser vistas no GitHub em:
 
@@ -83,7 +83,7 @@ Além disso, as APIs REST podem ser vistas no GitHub em:
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> O módulo Azure Resource Manager do PowerShell ainda tem suporte, mas todo o desenvolvimento futuro é para o módulo AZ. Sql. Para esses cmdlets, confira [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos.
+> O módulo Azure Resource Manager do PowerShell ainda tem suporte, mas todo o desenvolvimento futuro é para o módulo AZ. Sql. Para esses cmdlets, confira [AzureRM.Sql](/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos.
 
 Os cmdlets do PowerShell que chamam as APIs REST estão disponíveis.
 
@@ -93,10 +93,10 @@ Há um exemplo de código de cmdlets do PowerShell usados para gerenciar aliases
 
 Os cmdlets usados no exemplo de código são os seguintes:
 
-- [New-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/New-azSqlServerDnsAlias): cria um novo alias DNS no sistema de serviço do banco de dados SQL do Azure. O alias se refere ao servidor 1.
-- [Get-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Get-azSqlServerDnsAlias): obter e listar todos os aliases de DNS atribuídos ao servidor 1.
-- [Set-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Set-azSqlServerDnsAlias): modifica o nome do servidor ao qual o alias está configurado para se referir, do servidor 1 ao servidor 2.
-- [Remove-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Remove-azSqlServerDnsAlias): Remove o alias de DNS do servidor 2, usando o nome do alias.
+- [New-AzSqlServerDNSAlias](/powershell/module/az.Sql/New-azSqlServerDnsAlias): cria um novo alias DNS no sistema de serviço do banco de dados SQL do Azure. O alias se refere ao servidor 1.
+- [Get-AzSqlServerDNSAlias](/powershell/module/az.Sql/Get-azSqlServerDnsAlias): obter e listar todos os aliases de DNS atribuídos ao servidor 1.
+- [Set-AzSqlServerDNSAlias](/powershell/module/az.Sql/Set-azSqlServerDnsAlias): modifica o nome do servidor ao qual o alias está configurado para se referir, do servidor 1 ao servidor 2.
+- [Remove-AzSqlServerDNSAlias](/powershell/module/az.Sql/Remove-azSqlServerDnsAlias): Remove o alias de DNS do servidor 2, usando o nome do alias.
 
 ## <a name="limitations-during-preview"></a>Limitações durante a versão prévia
 
@@ -104,7 +104,7 @@ Atualmente, um alias de DNS tem as seguintes limitações:
 
 - *Atraso de até 2 minutos:* leva até 2 minutos para que um alias de DNS seja atualizado ou removido.
   - Independentemente de qualquer breve atraso, o alias interrompe imediatamente as conexões de cliente que fazem referência ao servidor herdado.
-- *Pesquisa de DNS:* por enquanto, a única maneira oficial de verificar a qual servidor um alias de DNS específico faz referência é por meio da execução de uma [pesquisa de DNS](https://docs.microsoft.com/windows-server/administration/windows-commands/nslookup).
+- *Pesquisa de DNS:* por enquanto, a única maneira oficial de verificar a qual servidor um alias de DNS específico faz referência é por meio da execução de uma [pesquisa de DNS](/windows-server/administration/windows-commands/nslookup).
 - _Não há suporte para a auditoria de tabela:_ Você não pode usar um alias DNS em um servidor que tenha a *auditoria de tabela* habilitada em um banco de dados.
   - A auditoria de tabela foi preterida.
   - É recomendável que você mude para a [Auditoria de Blob](../../azure-sql/database/auditing-overview.md).
@@ -112,8 +112,8 @@ Atualmente, um alias de DNS tem as seguintes limitações:
 ## <a name="related-resources"></a>Recursos relacionados
 
 - [Visão geral da continuidade de negócios com o Banco de Dados SQL do Azure](business-continuity-high-availability-disaster-recover-hadr-overview.md), incluindo recuperação de desastre.
-- [Referência de API REST do Azure](https://docs.microsoft.com/rest/api/azure/)
-- [API de aliases de DNS do servidor](https://docs.microsoft.com/rest/api/sql/serverdnsaliases)
+- [Referência de API REST do Azure](/rest/api/azure/)
+- [API de aliases de DNS do servidor](/rest/api/sql/serverdnsaliases)
 
 ## <a name="next-steps"></a>Próximas etapas
 

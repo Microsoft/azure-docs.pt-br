@@ -1,15 +1,15 @@
 ---
 title: Lista de iniciativas de políticas internas
 description: Liste as iniciativas de políticas internas para o Azure Policy. As categorias incluem Conformidade a normas, Configuração de convidado e muito mais.
-ms.date: 07/10/2020
+ms.date: 02/09/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 23286e136a5b74a922c25af2e83a5019b387d64a
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: 11e00c95f023bbbe1e57f258a251fff52270cc64
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86276817"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100091815"
 ---
 # <a name="azure-policy-built-in-initiative-definitions"></a>Definições de iniciativa interna do Azure Policy
 
@@ -19,27 +19,27 @@ O nome em cada interno está vinculado à fonte de definição de iniciativa no 
 
 ## <a name="cosmos-db"></a>Cosmos DB
 
-[!INCLUDE [azure-policy-samples-policysets-cosmos-db](../../../../includes/policy/samples/bycat/policysets-cosmos-db.md)]
+[!INCLUDE [azure-policy-reference-policysets-cosmos-db](../../../../includes/policy/reference/bycat/policysets-cosmos-db.md)]
 
 ## <a name="guest-configuration"></a>Configuração de convidado
 
-[!INCLUDE [azure-policy-samples-policysets-guest-configuration](../../../../includes/policy/samples/bycat/policysets-guest-configuration.md)]
+[!INCLUDE [azure-policy-reference-policysets-guest-configuration](../../../../includes/policy/reference/bycat/policysets-guest-configuration.md)]
 
 ## <a name="kubernetes"></a>Kubernetes
 
-[!INCLUDE [azure-policy-samples-policysets-kubernetes](../../../../includes/policy/samples/bycat/policysets-kubernetes.md)]
+[!INCLUDE [azure-policy-reference-policysets-kubernetes](../../../../includes/policy/reference/bycat/policysets-kubernetes.md)]
 
 ## <a name="monitoring"></a>Monitoramento
 
-[!INCLUDE [azure-policy-samples-policysets-monitoring](../../../../includes/policy/samples/bycat/policysets-monitoring.md)]
+[!INCLUDE [azure-policy-reference-policysets-monitoring](../../../../includes/policy/reference/bycat/policysets-monitoring.md)]
 
 ## <a name="regulatory-compliance"></a>Conformidade normativa
 
-[!INCLUDE [azure-policy-samples-policysets-regulatory-compliance](../../../../includes/policy/samples/bycat/policysets-regulatory-compliance.md)]
+[!INCLUDE [azure-policy-reference-policysets-regulatory-compliance](../../../../includes/policy/reference/bycat/policysets-regulatory-compliance.md)]
 
 ## <a name="security-center"></a>Central de Segurança
 
-[!INCLUDE [azure-policy-samples-policysets-security-center](../../../../includes/policy/samples/bycat/policysets-security-center.md)]
+[!INCLUDE [azure-policy-reference-policysets-security-center](../../../../includes/policy/reference/bycat/policysets-security-center.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
 

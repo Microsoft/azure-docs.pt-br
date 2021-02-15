@@ -13,20 +13,30 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 10/18/2019
+ms.date: 02/10/2021
 ms.author: b-juche
-ms.openlocfilehash: 870caffe2bd286c2eec3390915bc5e64e0103a07
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ac83e5a9366a12c5adce0e08f04f2bb28a7d788d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483458"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100374874"
 ---
 # <a name="troubleshoot-azure-netapp-files-resource-provider-errors"></a>Solucionar problemas de erros do Provedor de Recursos do Azure NetApp Files 
 
 Este artigo descreve os erros comuns do provedor de recursos Azure NetApp Files, suas causas, soluções e soluções alternativas (se disponíveis).
 
 ## <a name="common-azure-netapp-files-resource-provider-errors"></a>Erros comuns do provedor de recursos de Azure NetApp Files
+
+***A criação de `netAppAccounts` foi restrita nessa região.***
+
+Essa situação ocorre quando a assinatura está em espera por Azure NetApp Files e o usuário tenta criar uma conta do NetApp.
+
+* Causa:   
+O provedor de recursos do Azure para Azure NetApp Files não foi registrado com êxito. 
+ 
+* Solução:   
+Conclua todas as etapas descritas no [registro do provedor de recursos do Azure NetApp](azure-netapp-files-register.md#resource-provider) depois que sua assinatura for a espera.
 
 ***BareMetalTenantId não pode ser alterado.***  
 
@@ -126,7 +136,7 @@ Você pode substituir um sublinhado por um hífen ou usar maiúsculas e minúscu
 Esse erro ocorre quando você tenta alterar `FileSystemId` .  `FileSystemdId`A alteração não é uma operação com suporte. 
 
 * Causa:   
-A ID do sistema de arquivos é definida quando o volume é criado. `FileSystemId`Não pode ser alterado subsequentemente.
+A ID do sistema de arquivos é definida quando o volume é criado. `FileSystemId` Não pode ser alterado subsequentemente.
 * Solução:   
 Não inclua `FileSystemId` em uma solicitação de patch e atualização (put).  Como alternativa, verifique se `FileSystemId` é o mesmo na solicitação.
 
@@ -439,7 +449,7 @@ Nenhum.  Consulte a solução acima.
 
 ***Sub-redeid não pode ser alterada.***
 
-Esse erro ocorre quando você tenta alterar o `subnetId` depois que o volume é criado.  `SubnetId`deve ser definido quando o volume é criado e não pode ser alterado posteriormente.
+Esse erro ocorre quando você tenta alterar o `subnetId` depois que o volume é criado.  `SubnetId` deve ser definido quando o volume é criado e não pode ser alterado posteriormente.
 
 * Causa:   
 Você está tentando alterar o `subnetId` depois que o volume foi criado, o que não é uma operação com suporte. 

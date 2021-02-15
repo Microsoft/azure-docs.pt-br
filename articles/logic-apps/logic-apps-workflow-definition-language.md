@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 05/13/2019
 ms.openlocfilehash: 71929cd449f4a00b91cc6c8620b33b0e0c6d506c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87078145"
 ---
 # <a name="schema-reference-guide-for-the-workflow-definition-language-in-azure-logic-apps"></a>Guia de referência de esquema para a linguagem de definição de fluxo de trabalho em aplicativos lógicos do Azure
@@ -74,7 +74,7 @@ Esta é a estrutura geral de uma definição de parâmetro:
 },
 ```
 
-| Atributo | Obrigatório | Type | Description |
+| Atributo | Obrigatório | Type | Descrição |
 |-----------|----------|------|-------------|
 | <*nome do parâmetro*> | Sim | String | O nome do parâmetro que você deseja definir |
 | <*tipo de parâmetro*> | Sim | int, float, String, bool, array, Object, SecureString, secureobject <p><p>**Observação**: para todas as senhas, chaves e segredos, use os `securestring` `secureobject` tipos ou porque a `GET` operação não retorna esses tipos. Para obter mais informações sobre como proteger os parâmetros, consulte [recomendações de segurança para parâmetros de ação e de entrada](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters). | O tipo do parâmetro |
@@ -112,13 +112,13 @@ No `staticResults` atributo, defina a simulação de uma ação `outputs` e `sta
 }
 ```
 
-| Atributo | Obrigatório | Type | Description |
+| Atributo | Obrigatório | Type | Descrição |
 |-----------|----------|------|-------------|
 | <*static-Result-Definition-Name*> | Sim | String | O nome de uma definição de resultado estático que uma definição de ação pode referenciar por meio de um `runtimeConfiguration.staticResult` objeto. Para obter mais informações, consulte [Configurações de runtime](../logic-apps/logic-apps-workflow-actions-triggers.md#runtime-config-options). <p>Você pode usar qualquer nome exclusivo que desejar. Por padrão, esse nome exclusivo é acrescentado com um número, que é incrementado conforme necessário. |
 | <*Output-Attributes-and-Values-retornou*> | Sim | Varia | Os requisitos para esses atributos variam de acordo com as diferentes condições. Por exemplo, quando o `status` é `Succeeded` , o `outputs` atributo inclui atributos e valores retornados como saídas de imitação pela ação. Se `status` for `Failed` , o `outputs` atributo incluirá o `errors` atributo, que é uma matriz com um ou mais `message` objetos de erro que têm informações de erro. |
 | <*valores de cabeçalho*> | Não | JSON | Todos os valores de cabeçalho retornados pela ação |
 | <*status-código-retornado*> | Sim | String | O código de status retornado pela ação |
-| <*ação-status*> | Sim | String | O status da ação, por exemplo, `Succeeded` ou`Failed` |
+| <*ação-status*> | Sim | String | O status da ação, por exemplo, `Succeeded` ou `Failed` |
 |||||
 
 Por exemplo, nessa definição de ação HTTP, o `runtimeConfiguration.staticResult.name` atributo faz referência `HTTP0` dentro do `staticResults` atributo onde as saídas de simulação para a ação são definidas. O `runtimeConfiguration.staticResult.staticResultOptions` atributo especifica que a configuração de resultado estático está `Enabled` na ação http.
@@ -257,7 +257,7 @@ Quando você terminar, a expressão será exibida para a propriedade corresponde
 
 <a name="outputs"></a>
 
-## <a name="outputs"></a>Saídas
+## <a name="outputs"></a>outputs
 
 Na seção `outputs`, defina os dados que o fluxo de trabalho pode retornar quando terminar sua execução. Por exemplo, para rastrear um valor ou status específico em cada execução, especifique que a saída do fluxo de trabalho retorne esses dados.
 

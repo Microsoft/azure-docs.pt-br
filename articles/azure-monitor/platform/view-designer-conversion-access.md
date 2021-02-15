@@ -6,12 +6,12 @@ ms.author: aul
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 02/07/2020
-ms.openlocfilehash: fb53a966b0dc4959253ac0786ef09ef3c497e809
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7614dd1d60bad5c124269ae2af02d30a5aacfe3e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77658839"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "90564025"
 ---
 # <a name="view-designer-to-workbooks-conversion-summary-and-access"></a>Resumo e acesso de conversão do designer de pastas de trabalho
 O [Designer de exibição](view-designer.md) é um recurso do Azure monitor que permite que você crie modos de exibição personalizados para ajudá-lo a Visualizar dados em seu espaço de trabalho do log Analytics, com gráficos, listas e linhas do tempo. Eles estão sendo desativados e substituídos por pastas de trabalho, que fornecem funcionalidade adicional. Este artigo fornece detalhes sobre como você pode criar um resumo de visão geral e as permissões necessárias para acessar pastas de trabalho.
@@ -21,7 +21,7 @@ Os usuários do designer de exibição podem estar familiarizados com um bloco d
 
 Você pode aproveitar o alto nível de recursos de personalização fornecidos com os painéis do Azure, que permite atualização automática, movimentação, dimensionamento e filtragem adicional para seus itens fixados e visualizações. 
 
-![Dashboard](media/view-designer-conversion-access/dashboard.png)
+![Captura de tela mostra um painel do Azure personalizado Resumo do espaço de trabalho intitulado.](media/view-designer-conversion-access/dashboard.png)
 
 Crie um novo painel do Azure ou selecione um painel existente para iniciar a fixação de itens de pastas de trabalho.
 

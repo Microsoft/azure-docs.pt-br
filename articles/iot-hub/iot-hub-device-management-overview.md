@@ -11,12 +11,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - 'Role: System Architecture'
-ms.openlocfilehash: 63497553f7cec2edf3c77ba8690dda2b15d104be
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 9ff8ebeaf7c4a219bc403c81dfea62f4657a1fd8
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324719"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148342"
 ---
 # <a name="overview-of-device-management-with-iot-hub"></a>Visão geral do gerenciamento de dispositivos com o Hub IoT
 
@@ -78,7 +78,7 @@ Em cada um desses cinco estágios, existem vários requisitos de operador de dis
   
     *Leitura adicional*:
     * [Como usar as propriedades do dispositivo gêmeo](tutorial-device-twins.md)
-    * [Configurar e monitorar dispositivos IoT em escala](iot-hub-auto-device-config.md)
+    * [Configurar e monitorar dispositivos IoT em escala](./iot-hub-automatic-device-management.md)
     * [Práticas recomendadas para configuração do dispositivo em uma solução de IoT](iot-hub-configuration-best-practices.md)
 
 * **Monitor**: monitorar a integridade geral da coleção de dispositivos, o status das operações em andamento e alertar os operadores para problemas que podem exigir a atenção.  Aplique o twin de dispositivo para permitir que dispositivos relatem condições operacionais em tempo real e o status de operações de atualização. Crie poderosos relatórios de painel que indicam os problemas mais imediatos por meio de consultas ao twin de dispositivo.
@@ -86,7 +86,7 @@ Em cada um desses cinco estágios, existem vários requisitos de operador de dis
     *Leitura adicional*: 
     * [Como usar as propriedades do dispositivo gêmeo](tutorial-device-twins.md)
     * [Linguagem de consulta do Hub IoT para dispositivos gêmeos, trabalhos e roteamento de mensagens](iot-hub-devguide-query-language.md)
-    * [Configurar e monitorar dispositivos IoT em escala](iot-hub-auto-device-config.md)
+    * [Configurar e monitorar dispositivos IoT em escala](./iot-hub-automatic-device-management.md)
     * [Práticas recomendadas para configuração do dispositivo em uma solução de IoT](iot-hub-configuration-best-practices.md)
 
 * **Desativar**: substituir ou encerrar dispositivos após uma falha, ciclo de atualização ou no final do tempo de vida do serviço.  Use o gêmeo de dispositivo para manter informações sobre o dispositivo, se o dispositivo físico está sendo substituído ou arquivado ou se está sendo desativado. Use o Registro do Hub IoT para revogar com segurança as credenciais e identidades de dispositivos.

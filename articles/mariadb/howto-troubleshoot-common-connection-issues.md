@@ -1,17 +1,17 @@
 ---
 title: Solucionar problemas de conexão-banco de dados do Azure para MariaDB
 description: Saiba como solucionar problemas de conexão com o banco de dados do Azure para MariaDB, incluindo erros transitórios que exigem novas tentativas, problemas de firewall e interrupções.
-author: ajlam
-ms.author: andrela
-ms.service: mariadb
+author: savjani
+ms.author: pariks
+ms.service: jroth
 ms.topic: troubleshooting
 ms.date: 3/18/2020
-ms.openlocfilehash: 521853fd361007159d7e497eb7e7c1f3d200731c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 50bb6fc008e381855923da801b65198bf712f826
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82101443"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664725"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-mariadb"></a>Solucionar problemas de conexão ao Banco de Dados do Azure para MariaDB
 
@@ -47,7 +47,7 @@ Se o aplicativo persistentemente falhar ao se conectar ao Banco de Dados do Azur
 
 * Configuração do firewall: O Banco de Dados do Azure para MariaDB ou o firewall do lado do cliente está bloqueando as conexões.
 * Reconfiguração da rede no lado do cliente: um novo endereço IP ou um servidor proxy foi adicionado.
-* Erro do usuário: por exemplo, você pode ter parâmetros de conexão digitados, como o nome do servidor na cadeia de conexão ou um sufixo * \@ ServerName* ausente no nome de usuário.
+* Erro do usuário: por exemplo, você pode ter parâmetros de conexão digitados, como o nome do servidor na cadeia de conexão ou um sufixo *\@ ServerName* ausente no nome de usuário.
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Etapas para resolver os problemas de conectividade temporários
 

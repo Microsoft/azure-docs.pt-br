@@ -8,12 +8,12 @@ ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 5545acbfd6bb239b9518fbe352b819f300dafaf0
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: df4bd0ae0884feae8bd21e33f4d27b6ceb207337
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962342"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98233977"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Perguntas frequentes sobre configuração e gerenciamento de aplicativos Web no Azure
 
@@ -63,9 +63,11 @@ Para definir o fuso horário do servidor para o meu aplicativo web:
 2. Em **Configurações do aplicativo**, adicionar essa configuração:
     * Chave = WEBSITE_TIME_ZONE
     * Valor = *o fuso horário que você deseja*
-3. Clique em **Salvar**.
+3. Selecione **Salvar**.
 
-Para os serviços de aplicativos que são executados no Windows, consulte a coluna **timezone** no artigo [fusos horários padrão](/windows-hardware/manufacture/desktop/default-time-zones) para obter os valores aceitos. Para os serviços de aplicativos que são executados no Linux, defina o [nome do banco de dados TZ](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) como o valor de fuso horário. Aqui está um exemplo de nome do banco de dados TZ: America/Adak.
+Para os serviços de aplicativos que são executados no Windows, consulte a saída do `tzutil /L` comando do Windows. Use o valor da segunda linha de cada entrada. Por exemplo: "hora padrão de Tonga". Alguns desses valores também estão listados na coluna **timezone** em [fusos horários padrão](/windows-hardware/manufacture/desktop/default-time-zones).
+
+Para os serviços de aplicativos que são executados no Linux, defina um valor do [banco de dados de TZ da IANA](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). Por exemplo: "America/Adak".
 
 ## <a name="why-do-my-continuous-webjobs-sometimes-fail"></a>Por que meus WebJobs contínuos às vezes falham?
 
@@ -315,3 +317,8 @@ Você também pode especificar os tipos MIME específicos para dinâmico e está
 ## <a name="how-do-i-migrate-from-an-on-premises-environment-to-app-service"></a>Como migrar de um ambiente local para o ambiente do Serviço de Aplicativo?
 
 Para migrar sites de servidores de web do Windows e Linux para o Serviço de Aplicativo, você pode usar o Assistente de Migração do Serviço de Aplicativo do Azure. A ferramenta de migração cria bancos de dados e aplicativos web no Azure, conforme necessário e, em seguida, publica o conteúdo. Para saber mais, consulte [Assistente de Migração do Serviço de Aplicativo do Azure](https://appmigration.microsoft.com/).
+
+## <a name="why-is-my-certificate-issued-for-11-months-and-not-for-a-full-year"></a>Por que meu certificado é emitido por 11 meses, em vez de um ano inteiro?
+
+Para todos os certificados emitidos após 01/09/2020, agora a duração máxima é de 397 dias. Os certificados emitidos antes de 01/09/2020 têm uma validade máxima de 825 dias, até que sejam renovados, rechaveados etc. Os certificados renovados após 01/09/2020 serão afetados por essa alteração e os usuários podem observar uma validade menor para os certificados renovados.
+O GoDaddy implementou um serviço de assinatura que atende aos novos requisitos e, ao mesmo tempo, respeita os certificados de clientes existentes. Trinta dias antes do vencimento do certificado emitido recentemente, o serviço emite automaticamente um segundo certificado que estende a duração até a data de validade original. O Serviço de Aplicativo está colaborando com o GoDaddy para resolver essa alteração e garantir que nossos clientes recebam a duração completo dos certificados.

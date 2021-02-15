@@ -1,25 +1,25 @@
 ---
-title: Requisitos de sistema do Microsoft Azure Stack Edge | Microsoft Docs
-description: Saiba mais sobre os requisitos de software e de rede para seu Azure Stack Edge
+title: Requisitos de sistema do Microsoft Azure Stack Edge pro | Microsoft Docs
+description: Saiba mais sobre os requisitos de software e de rede para seu Azure Stack Edge pro
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 07/15/2020
+ms.date: 02/05/2021
 ms.author: alkohli
-ms.openlocfilehash: 921dcb05401c61a9fb581595c20112e67f696c5e
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: c87c8cfd40903f6296f0a36f5c83c0b5c5cb7818
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371288"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99831563"
 ---
-# <a name="azure-stack-edge-system-requirements"></a>Requisitos de sistema do Azure Stack Edge
+# <a name="azure-stack-edge-pro-system-requirements"></a>Requisitos de sistema do Azure Stack Edge pro
 
-Este artigo descreve os requisitos de sistema importantes para sua solução Microsoft Azure Stack Edge e para os clientes que se conectam ao Azure Stack Edge. Recomendamos que você revise as informações cuidadosamente antes de implantar seu Azure Stack Edge. Você pode consultar novamente a essas informações conforme necessário durante a implantação e operação subsequente.
+Este artigo descreve os requisitos de sistema importantes para sua solução Microsoft Azure Stack Edge pro e para os clientes que se conectam ao Azure Stack Edge pro. Recomendamos que você revise as informações cuidadosamente antes de implantar o Azure Stack Edge pro. Você pode consultar novamente a essas informações conforme necessário durante a implantação e operação subsequente.
 
-Os requisitos de sistema para o Azure Stack Edge incluem:
+Os requisitos de sistema para o Azure Stack Edge pro incluem: 
 
 - **Requisitos de software para hosts** – descreve as plataformas com suporte, os navegadores da interface do usuário de configuração local, os clientes SMB e requisitos adicionais para os clientes que acessam o dispositivo.
 - **Requisitos de rede para o dispositivo** – fornece informações sobre os requisitos de rede da operação do dispositivo físico.
@@ -46,9 +46,9 @@ Os requisitos de sistema para o Azure Stack Edge incluem:
 
 ## <a name="networking-port-requirements"></a>Requisitos de porta de rede
 
-### <a name="port-requirements-for-azure-stack-edge"></a>Requisitos de porta para Azure Stack Edge
+### <a name="port-requirements-for-azure-stack-edge-pro"></a>Requisitos de porta para Azure Stack Edge pro
 
-A tabela a seguir lista as portas que devem ser abertas no firewall para permitir o tráfego SMB, de nuvem ou de gerenciamento. Nesta tabela, *entrada* ou *de entrada* refere-se à direção da qual as solicitações do cliente acessam o dispositivo. *Out* ou *Outbound* refere-se à direção em que o dispositivo Azure Stack Edge envia dados externamente, além da implantação, por exemplo, de saída para a Internet.
+A tabela a seguir lista as portas que devem ser abertas no firewall para permitir o tráfego SMB, de nuvem ou de gerenciamento. Nesta tabela, *entrada* ou *de entrada* refere-se à direção da qual as solicitações do cliente acessam o dispositivo. *Out* ou *Outbound* refere-se à direção em que seu dispositivo Azure Stack Edge pro envia dados externamente, além da implantação, por exemplo, de saída para a Internet.
 
 [!INCLUDE [Port configuration for device](../../includes/data-box-edge-gateway-port-config.md)]
 
@@ -62,17 +62,17 @@ Use a tabela a seguir para a configuração de porta dos servidores que hospedam
 |----------|-----------|------------|----------|----------|
 | TCP 443 (HTTPS)| Saída       | WAN        | Sim      | Saída aberta para o provisionamento do IoT Edge. Essa configuração é necessária ao usar scripts manuais ou o DPS (serviço de provisionamento de dispositivos) do Azure IoT.|
 
-Para todas as informações, acesse [Regras de configuração de firewall e de porta para implantação do IoT Edge](https://docs.microsoft.com/azure/iot-edge/troubleshoot).
+Para todas as informações, acesse [Regras de configuração de firewall e de porta para implantação do IoT Edge](../iot-edge/troubleshoot.md).
 
 ## <a name="url-patterns-for-firewall-rules"></a>Padrões de URL para regras de firewall
 
-Os administradores de rede geralmente podem configurar regras avançadas de firewall com base nos padrões de URL para filtrar o tráfego de entrada e de saída. O dispositivo Azure Stack Edge e o serviço dependem de outros aplicativos da Microsoft, como o barramento de serviço do Azure, o controle de acesso Azure Active Directory, as contas de armazenamento e os servidores Microsoft Update. Os padrões de URL associados a esses aplicativos podem ser usados para configurar regras de firewall. É importante entender que os padrões de URL associados a esses aplicativos podem ser alterados. Essas alterações exigem que o administrador de rede monitore e atualize as regras de firewall para seu Azure Stack Edge como e quando necessário.
+Os administradores de rede geralmente podem configurar regras avançadas de firewall com base nos padrões de URL para filtrar o tráfego de entrada e de saída. Seu dispositivo Azure Stack Edge pro e o serviço dependem de outros aplicativos da Microsoft, como o barramento de serviço do Azure, o controle de acesso Azure Active Directory, as contas de armazenamento e os servidores Microsoft Update. Os padrões de URL associados a esses aplicativos podem ser usados para configurar regras de firewall. É importante entender que os padrões de URL associados a esses aplicativos podem ser alterados. Essas alterações exigem que o administrador de rede monitore e atualize regras de firewall para seu Azure Stack Edge pro como e quando necessário.
 
-Recomendamos que você defina suas regras de firewall para o tráfego de saída, com base em endereços IP fixos de borda Azure Stack, livremente na maioria dos casos. No entanto, você pode usar as informações a seguir para definir regras avançadas de firewall que são necessárias para criar ambientes seguros.
+Recomendamos que você defina suas regras de firewall para o tráfego de saída, com base em endereços IP fixos do Azure Stack Edge pro, livremente na maioria dos casos. No entanto, você pode usar as informações a seguir para definir regras avançadas de firewall que são necessárias para criar ambientes seguros.
 
 > [!NOTE]
 > - Os IPs do dispositivo (de origem) sempre devem estar configurados para todas as interfaces de rede habilitadas para a nuvem.
-> - Os IPs de destino devem ser configurados como [Intervalos de IP do datacenter do Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653).
+> - Os IPs de destino devem ser definidos para [intervalos de IP do datacenter do Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653).
 
 ### <a name="url-patterns-for-gateway-feature"></a>Padrões de URL para o recurso de gateway
 
@@ -104,7 +104,7 @@ Recomendamos que você defina suas regras de firewall para o tráfego de saída,
 
 ## <a name="compute-sizing-considerations"></a>Considerações sobre o dimensionamento de computação
 
-Use sua experiência ao desenvolver e testar sua solução para garantir que haja capacidade suficiente em seu dispositivo Azure Stack Edge e você obtenha o desempenho ideal do seu dispositivo.
+Use sua experiência ao desenvolver e testar sua solução para garantir que haja capacidade suficiente em seu dispositivo Azure Stack Edge pro e você obtenha o desempenho ideal do seu dispositivo.
 
 Entre os fatores que você deve considerar estão:
 
@@ -123,16 +123,16 @@ Para entender e refinar o desempenho de sua solução, você pode usar:
 - As métricas de computação disponíveis no portal do Azure. Vá para o recurso de borda do Azure Stack e vá para **monitoramento > métricas**. Examine a **computação de borda – uso de memória** e **porcentagem de CPU de computação** para entender os recursos disponíveis e como os recursos estão sendo consumidos.
 - Os comandos de monitoramento disponíveis por meio da interface do PowerShell do dispositivo, como:
 
-    - `dkr`Estatísticas para obter uma transmissão ao vivo de estatísticas de uso de recursos de contêineres. O comando dá suporte à CPU, uso de memória, limite de memória e métricas de e/s de rede.
-    - `dkr system df`para obter informações sobre a quantidade de espaço em disco usada. 
-    - `dkr image [prune]`para limpar imagens não usadas e liberar espaço.
-    - `dkr ps --size`para exibir o tamanho aproximado de um contêiner em execução. 
+    - `dkr` Estatísticas para obter uma transmissão ao vivo de estatísticas de uso de recursos de contêineres. O comando dá suporte à CPU, uso de memória, limite de memória e métricas de e/s de rede.
+    - `dkr system df` para obter informações sobre a quantidade de espaço em disco usada. 
+    - `dkr image [prune]` para limpar imagens não usadas e liberar espaço.
+    - `dkr ps --size` para exibir o tamanho aproximado de um contêiner em execução. 
 
     Para obter mais informações sobre os comandos disponíveis, vá para [monitorar e solucionar problemas de módulos de computação](azure-stack-edge-connect-powershell-interface.md#monitor-and-troubleshoot-compute-modules).
 
-Por fim, certifique-se de validar sua solução em seu conjunto de e quantificar o desempenho no Azure Stack Edge antes de implantar em produção.
+Por fim, certifique-se de validar sua solução em seu conjunto de e quantificar o desempenho no Azure Stack Edge pro antes de implantar em produção.
 
 
 ## <a name="next-step"></a>Próxima etapa
 
-- [Implantar seu Azure Stack Edge](azure-stack-edge-deploy-prep.md)
+- [Implantar seu Azure Stack Edge pro](azure-stack-edge-deploy-prep.md)

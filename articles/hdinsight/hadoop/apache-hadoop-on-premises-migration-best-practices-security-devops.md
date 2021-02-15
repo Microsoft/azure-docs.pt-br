@@ -1,19 +1,17 @@
 ---
 title: 'Segurança: migrar Apache Hadoop locais para o Azure HDInsight'
 description: Saiba mais sobre as melhores práticas de segurança e de DevOps para a migração de clusters locais do Hadoop para o Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
 ms.reviewer: ashishth
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/19/2019
-ms.openlocfilehash: 99c5ff39820b652a33ab670e63ca709f8747c4cf
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: fa6a4a8686fe5a33a6f240a8e972a687e872732a
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88751287"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98939748"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---security-and-devops-best-practices"></a>Migrar clusters do Apache Hadoop local para o Azure HDInsight – segurança e melhores práticas de DevOps
 
@@ -69,7 +67,7 @@ A segurança empresarial de ponta a ponta pode ser alcançada usando os seguinte
 
 **Autenticação e autorização acesso a dados**
     - Criar clusters do HDInsight ingressados no domínio usando o Azure Active Directory Domain Services. (Enterprise Security Package).
-    - Usar o Ambari para fornecer acesso baseado em função para recursos de cluster a usuários do AD.
+    - Use o Ambari para fornecer acesso baseado em função aos recursos de cluster para usuários do AD.
     - Usar o Apache Ranger para definir políticas de controle de acesso para o Hive no nível da tabela/coluna/linha.
     - O acesso a SSH no cluster pode ser restringido somente ao administrador.
 
@@ -79,12 +77,12 @@ A segurança empresarial de ponta a ponta pode ser alcançada usando os seguinte
 
 **Criptografia**
     - Criptografia transparente no servidor usando chaves gerenciadas pela Microsoft ou pelo cliente.
-    - Criptografia em trânsito usando criptografia do lado do cliente, HTTPS e TLS.
+    - Criptografia em trânsito usando Client-Side criptografia, HTTPS e TLS.
 
 Para obter mais informações, consulte os seguintes artigos:
 
 - [Visão geral das redes virtuais do Azure](../../virtual-network/virtual-networks-overview.md)
-- [Visão geral dos Grupos de Segurança de Rede do Azure](../../virtual-network/security-overview.md)
+- [Visão geral dos Grupos de Segurança de Rede do Azure](../../virtual-network/network-security-groups-overview.md)
 - [Emparelhamento de Rede Virtual do Azure](../../virtual-network/virtual-network-peering-overview.md)
 - [Guia de segurança do Armazenamento do Microsoft Azure](../../storage/blobs/security-recommendations.md)
 - [Criptografia do Serviço de Armazenamento do Azure em repouso](../../storage/common/storage-service-encryption.md)
@@ -93,7 +91,7 @@ Para obter mais informações, consulte os seguintes artigos:
 
 Para saber mais, confira o artigo:
 
-[Visão geral de Azure Monitor](../../azure-monitor/overview.md)
+[Visão Geral do Azure Monitor](../../azure-monitor/overview.md)
 
 ## <a name="upgrade-clusters"></a>Atualizar clusters
 
@@ -122,4 +120,4 @@ Para obter mais informações, consulte o artigo: [aplicação de patch de so pa
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Leia mais sobre o [HDInsight 4.0](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-introduction).
+Leia mais sobre o [HDInsight 4.0](./apache-hadoop-introduction.md).

@@ -3,15 +3,20 @@ title: Monitorar o desempenho do aplicativo Web Java no Linux - Azure | Microsof
 description: Monitoramento estendido do desempenho de aplicativo do seu site Java com o plug-in CollectD para Application Insights.
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.openlocfilehash: 648d0e5adc289dfeb83a54c3dcb9ab7d25fc1cc4
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+author: MS-jgol
+ms.custom: devx-track-java
+ms.author: jgol
+ms.openlocfilehash: 5ec928a0dc3cbcde3c6dd50b1795a05b5e092bde
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322594"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96601264"
 ---
-# <a name="collectd-linux-performance-metrics-in-application-insights"></a>collectd: métricas de desempenho do Linux no Application Insights
+# <a name="collectd-linux-performance-metrics-in-application-insights-deprecated"></a>coletado: métricas de desempenho do Linux no Application Insights [preterido]
 
+> [!IMPORTANT]
+> A **abordagem recomendada** para monitorar aplicativos Java é usar a instrumentação automática sem alterar o código. Siga as diretrizes para **[Application insights o agente do Java 3,0](./java-in-process-agent.md)**.
 
 Para explorar as métricas de desempenho do sistema Linux no [Application Insights](./app-insights-overview.md), instale [collectd](https://collectd.org/) com seu plug-in do Application Insights. Essa solução de software livre reúne várias estatísticas de sistema e de rede.
 
@@ -28,7 +33,7 @@ Faça uma cópia da chave de instrumentação que identifica o recurso.
 Em seus computadores com o servidor Linux:
 
 1. Instale [collectd](https://collectd.org/) versão 5.4.0 ou posterior.
-2. Baixe o [plug-in do gravador collectd do Application Insights](https://github.com/microsoft/ApplicationInsights-Java/tree/master/collectd/src/main/java/com/microsoft/applicationinsights/collectd/internal). Observe o número de versão.
+2. Baixe o [plug-in do gravador collectd do Application Insights](https://github.com/microsoft/ApplicationInsights-Java/tree/master/core/src/main/java/com/microsoft/applicationinsights/internal). Observe o número de versão.
 3. Copie o plug-in JAR em `/usr/share/collectd/java`.
 4. Edite `/etc/collectd/collectd.conf`:
    * Verifique se [o plug-in do Java](https://collectd.org/wiki/index.php/Plugin:Java) está habilitado.

@@ -91,6 +91,8 @@
       href: /dotnet/api/microsoft.azure.webjobs.extensions.durabletask?view=azure-dotnet
     - name: API Node.js
       href: /javascript/api/durable-functions/?view=azure-node-latest
+    - name: API de Python
+      href: /python/api/azure-functions-durable/azure.durable_functions?view=azure-python
 - name: Guias de instruções
   items:
     - name: Desenvolver

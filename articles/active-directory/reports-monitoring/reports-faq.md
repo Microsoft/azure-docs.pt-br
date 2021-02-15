@@ -16,12 +16,12 @@ ms.date: 05/12/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 35aa75fcbd579c3e2c587b370b0926393b4e58c1
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 45b6b182d030c267dcec7ed57c0c0dd1901b0cb1
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87383759"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935080"
 ---
 # <a name="frequently-asked-questions-around-azure-active-directory-reports"></a>Perguntas frequentes sobre os relatórios do Azure Active Directory
 
@@ -37,7 +37,7 @@ Este artigo inclui respostas a perguntas frequentes sobre os relatórios do Azur
 
 **P: atualmente uso as `https://graph.windows.net/<tenant-name>/reports/` APIs de ponto de extremidade para efetuar pull de relatórios de segurança do Azure AD (tipos específicos de detecções, como credenciais vazadas ou entradas de endereços IP anônimos) em nossos sistemas de relatórios programaticamente. O que devo mudar?**
 
-**R:** Você pode usar a [API de detecções de risco da proteção de identidade](../identity-protection/graph-get-started.md)   para acessar as detecções de segurança por meio do Microsoft Graph. Esse novo formato oferece maior flexibilidade na forma como você pode consultar dados, com filtragem avançada, seleção de campo e muito mais, e padroniza as detecções de risco em um tipo para uma integração mais fácil em SIEMs e outras ferramentas de coleta de dados. Uma vez que os dados estão em um formato diferente, você não pode substituir uma nova consulta para suas consultas antigas. No entanto, [a nova API usa o Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent), que é o padrão da Microsoft para essas APIs, como O365 ou Azure AD. Portanto, o trabalho necessário pode estender seus investimentos atuais de Microsoft Graph ou ajudá-lo a começar sua transição para essa nova plataforma padrão.
+**R:** Você pode usar a [API de detecções de risco da proteção de identidade](../identity-protection/howto-identity-protection-graph-api.md) para acessar as detecções de segurança por meio do Microsoft Graph. Esse novo formato oferece maior flexibilidade na forma como você pode consultar dados, com filtragem avançada, seleção de campo e muito mais, e padroniza as detecções de risco em um tipo para uma integração mais fácil em SIEMs e outras ferramentas de coleta de dados. Uma vez que os dados estão em um formato diferente, você não pode substituir uma nova consulta para suas consultas antigas. No entanto, [a nova API usa Microsoft Graph](/graph/api/resources/identityriskevent?view=graph-rest-beta), que é o padrão da Microsoft para tais APIs como Microsoft 365 ou o Azure AD. Portanto, o trabalho necessário pode estender seus investimentos atuais de Microsoft Graph ou ajudá-lo a começar sua transição para essa nova plataforma padrão.
 
 ---
 
@@ -49,7 +49,7 @@ Este artigo inclui respostas a perguntas frequentes sobre os relatórios do Azur
 
 **P: Em quanto tempo deverei ver dados de atividades depois de obter uma licença premium?**
 
-**R:** Se você já tiver dados de atividades como uma licença gratuita, poderá vê-los imediatamente. Se você não tiver dados, levará um ou dois dias para os dados serem exibidos nos relatórios.
+**R:** Se você já tiver dados de atividades como uma licença gratuita, poderá vê-los imediatamente. Se você não tiver dados, levará até três dias para que os dados sejam exibidos nos relatórios.
 
 ---
 
@@ -61,7 +61,7 @@ Este artigo inclui respostas a perguntas frequentes sobre os relatórios do Azur
 
 **P: Eu preciso ser um administrador global para ver as entradas da atividade no portal do Azure ou obter dados por meio da API?**
 
-**R:** Não, você também poderá acessar os dados do relatório por meio do portal ou por meio da API se for um **Leitor de Segurança** ou **Administrador de Segurança** do locatário. É claro que os ** Administradores Globais** também terão acesso a esses dados.
+**R:** Não, você também poderá acessar os dados do relatório por meio do portal ou por meio da API se for um **Leitor de Segurança** ou **Administrador de Segurança** do locatário. É claro que os **Administradores Globais** também terão acesso a esses dados.
 
 ---
 
@@ -81,15 +81,15 @@ Este artigo inclui respostas a perguntas frequentes sobre os relatórios do Azur
 
 ---
 
-**P: Posso obter informações do log de atividades do Office 365 por meio do Portal do Azure?**
+**P: posso obter Microsoft 365 informações do log de atividades por meio do portal do Azure?**
 
-**R:** Embora a atividade do Office 365 e os logs de atividades do Azure AD compartilhem muitos recursos de diretório, se você quiser uma exibição completa dos logs de atividade do Office 365, vá para o [centro de administração Microsoft 365](https://admin.microsoft.com) para obter informações sobre o log de atividades do Office 365.
+**R:** Embora Microsoft 365 atividade e os logs de atividade do Azure AD compartilhem muitos recursos de diretório, se você quiser uma exibição completa dos logs de atividade de Microsoft 365, vá para o [centro de administração do Microsoft 365](https://admin.microsoft.com) para obter informações sobre o log de atividades do Office 365.
 
 ---
 
-**P: Quais APIs devo usar para obter informações sobre logs de atividades do Office 365?**
+**P: quais APIs eu uso para obter informações sobre Microsoft 365 logs de atividades?**
 
-**R:** Use as [APIs de gerenciamento do office 365](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview) para acessar os logs de atividade do Office 365 por meio de uma API.
+**R:** Use as [APIs de gerenciamento de Microsoft 365](/office/office-365-management-api/office-365-management-apis-overview) para acessar os logs de atividade de Microsoft 365 por meio de uma API.
 
 ---
 
@@ -125,7 +125,7 @@ Este artigo inclui respostas a perguntas frequentes sobre os relatórios do Azur
 
 ---
 
-## <a name="conditional-access"></a>Acesso condicional
+## <a name="conditional-access"></a>Acesso Condicional
 
 **P: quais são as novidades com esse recurso?**
 
@@ -143,8 +143,8 @@ Este artigo inclui respostas a perguntas frequentes sobre os relatórios do Azur
 
 **R:** O status de acesso condicional pode ter os seguintes valores:
 
-* **Não aplicado**: isso significa que não havia nenhuma política de autoridade de certificação com o usuário e o aplicativo no escopo. 
-* **Sucesso**: isso significa que havia uma política de autoridade de certificação com o usuário e o aplicativo no escopo e as políticas da autoridade de certificação foram atendidas com êxito. 
+* **Não aplicado**: isso significa que não havia nenhuma política de acesso condicional com o usuário e o aplicativo no escopo. 
+* **Êxito**: isso significa que houve uma política de acesso condicional com o usuário e o aplicativo no escopo e as políticas de acesso condicional foram atendidas com êxito. 
 * **Falha**: a entrada satisfez a condição de usuário e aplicativo de pelo menos uma política de acesso condicional e os controles de concessão não são atendidos ou definidos para bloquear o acesso.
     
 **P: quais são os valores possíveis para o resultado da política de acesso condicional?**
@@ -156,10 +156,10 @@ Este artigo inclui respostas a perguntas frequentes sobre os relatórios do Azur
 * **Não aplicado**: isso pode ocorrer porque não atenderam às condições da política.
 * **Não habilitado**: isso é devido à política no estado desabilitado. 
     
-**P: o nome da política no relatório de entrada All não corresponde ao nome da política na CA. Por?**
+**P: o nome da política no relatório de entrada não corresponde ao nome da política na CA. por quê?**
 
-**R:** O nome da política no relatório todas as entrada baseia-se no nome da política de autoridade de certificação no momento da entrada. Isso pode ser inconsistente com o nome da política na autoridade de certificação, se você tiver atualizado o nome da política mais tarde, ou seja, após o logon.
+**R:** O nome da política no relatório de entrada é baseado no nome da política de acesso condicional no momento da entrada. Isso pode ser inconsistente com o nome da política na autoridade de certificação, se você tiver atualizado o nome da política mais tarde, ou seja, após o logon.
 
 **P: minha entrada foi bloqueada devido a uma política de acesso condicional, mas o relatório de atividade de entrada mostra que a entrada foi bem-sucedida. Por?**
 
-**R:** No momento, o relatório de entrada pode não mostrar resultados precisos para cenários do Exchange ActiveSync quando o acesso condicional é aplicado. Pode haver casos em que o resultado da entrada no relatório mostra uma entrada bem-sucedida, mas a entrada realmente falhou devido a uma política de acesso condicional. 
+**R:** No momento, o relatório de entrada pode não mostrar resultados precisos para cenários do Exchange ActiveSync quando o acesso condicional é aplicado. Pode haver casos em que o resultado da entrada no relatório mostra uma entrada bem-sucedida, mas a entrada realmente falhou devido a uma política de acesso condicional.

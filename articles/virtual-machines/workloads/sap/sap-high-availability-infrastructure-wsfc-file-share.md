@@ -10,18 +10,19 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: 2ce38add-1078-4bb9-a1da-6f407a9bc910
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/12/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 14ffcbf2e111e052f4b45259b0b25664049d3b3d
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 62803bd450db351290bbc12d650d23a4148a4536
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855379"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022336"
 ---
 # <a name="prepare-azure-infrastructure-for-sap-high-availability-by-using-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances"></a>Preparar a infraestrutura do Azure para alta disponibilidade do SAP usando um cluster de failover do Windows e compartilhamento de arquivos para instâncias ASCS/SCS do SAP
 
@@ -259,9 +260,9 @@ Para preparar a infraestrutura do Azure, faça o seguinte:
 * Com o uso do Windows Server 2016, é recomendável configurar a [Testemunha em Nuvem do Azure][deploy-cloud-witness].
 
 
-## <a name="deploy-the-scale-out-file-server-cluster-manually"></a>Implantar manualmente o cluster do Servidor de Arquivos de Escalabilidade Horizontal 
+## <a name="deploy-the-scale-out-file-server-cluster-manually"></a>Implantar manualmente o cluster do Servidor de Arquivos de Escalabilidade Horizontal 
 
-Você pode implantar o cluster do Servidor de Arquivos de Escalabilidade Horizontal Microsoft manualmente, conforme descrito no blog sobre [Espaços de Armazenamento Diretos no Azure][ms-blog-s2d-in-azure], executando o seguinte código:  
+Você pode implantar o cluster do Servidor de Arquivos de Escalabilidade Horizontal Microsoft manualmente, conforme descrito no blog sobre [Espaços de Armazenamento Diretos no Azure][ms-blog-s2d-in-azure], executando o seguinte código:  
 
 
 ```powershell
@@ -312,7 +313,7 @@ Recomendamos o uso de Discos Gerenciados.
 
 ![Figura 1: Tela de interface do usuário do modelo do Resource Manager de Servidor de Arquivos de Escalabilidade Horizontal com discos gerenciados][sap-ha-guide-figure-8010]
 
-_**Figura 1**: tela de interface do usuário para servidor de arquivos de escalabilidade horizontal modelo do Resource Manager com Managed disks_
+_**Figura 1**: tela de interface do usuário para Scale-Out modelo do Gerenciador de recursos do servidor de arquivos com Managed disks_
 
 No modelo, faça o seguinte:
 1. Na caixa **Contagem de Vm**, digite uma contagem mínima de **2**.
@@ -326,13 +327,13 @@ O modelo do Azure Resource Manager para implantação do Servidor de Arquivos de
 
 ![Figura 2: Tela de interface do usuário do modelo do Azure Resource Manager para o Servidor de Arquivos de Escalabilidade Horizontal sem discos gerenciados][sap-ha-guide-figure-8011]
 
-_**Figura 2**: tela de interface do usuário para o modelo de Azure Resource Manager de servidor de arquivos de escalabilidade horizontal sem Managed disks_
+_**Figura 2**: tela de interface do usuário para o Scale-Out servidor de arquivos Azure Resource Manager modelo sem Managed disks_
 
 Na caixa **Tipo de Conta de Armazenamento**, selecione **Armazenamento Premium**. Todas as outras configurações são iguais às dos discos gerenciados.
 
 ## <a name="adjust-cluster-timeout-settings"></a>Ajustar as configurações de tempo limite do cluster
 
-Depois de instalar com êxito o cluster do Windows Servidor de Arquivos de Escalabilidade Horizontal, adapte os limites de tempo limite para detecção de failover em condições no Azure. Os parâmetros a serem alterados estão documentados no blog [Ajustar os limites de rede de cluster de failover][tuning-failover-cluster-network-thresholds]. Supondo que as VMs clusterizadas estejam na mesma sub-rede, altere os seguintes parâmetros para estes valores:
+Depois de instalar com êxito o cluster do servidor de arquivos do Windows Scale-Out, adapte os limites de tempo limite para detecção de failover em condições no Azure. Os parâmetros a serem alterados estão documentados no blog [Ajustar os limites de rede de cluster de failover][tuning-failover-cluster-network-thresholds]. Supondo que as VMs clusterizadas estejam na mesma sub-rede, altere os seguintes parâmetros para estes valores:
 
 - SameSubNetDelay = 2000
 - SameSubNetThreshold = 15

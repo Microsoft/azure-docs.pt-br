@@ -5,12 +5,12 @@ author: sebastianburckhardt
 ms.topic: conceptual
 ms.date: 10/06/2019
 ms.author: azfuncdf
-ms.openlocfilehash: d480b8db69b34eda7ca1ea8e1b2755179f9c673f
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 88d2a23104b67dae8fd480406eb9171e9f3d5652
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88055166"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92740010"
 ---
 # <a name="developers-guide-to-durable-entities-in-net"></a>Guia do desenvolvedor para entidades duráveis no .NET
 
@@ -267,7 +267,7 @@ Também impõem algumas regras adicionais:
 * As interfaces de entidade devem definir apenas métodos.
 * As interfaces de entidade não devem conter parâmetros genéricos.
 * Os métodos de interface de entidade não devem ter mais de um parâmetro.
-* Os métodos de interface de entidade devem retornar `void` , `Task` ou`Task<T>` 
+* Os métodos de interface de entidade devem retornar `void` , `Task` ou `Task<T>` 
 
 Se qualquer uma dessas regras for violada, uma `InvalidOperationException` será lançada em tempo de execução quando a interface for usada como um argumento de tipo para `SignalEntity` ou `CreateProxy` . A mensagem de exceção explica qual regra foi quebrada.
 
@@ -427,7 +427,7 @@ public class HttpEntity
     [JsonIgnore]
     private readonly HttpClient client;
 
-    public class HttpEntity(IHttpClientFactory factory)
+    public HttpEntity(IHttpClientFactory factory)
     {
         this.client = factory.CreateClient();
     }

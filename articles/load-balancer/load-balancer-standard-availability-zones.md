@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/07/2020
 ms.author: allensu
-ms.openlocfilehash: 55a86eeee4f819955e3f8adfcc0f55f24d58bed0
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: fca6b40f4bd871041d14d119eb44e8366d8562ee
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420304"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94700453"
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>Load Balancer Standard e Zonas de Disponibilidade
 
@@ -67,7 +67,7 @@ Além disso, há suporte para o uso de front-ends zonais diretamente para pontos
   <img src="./media/az-zonal/zonal-lb-1.svg" alt="Figure depicts three zonal standard load balancers each directing traffic in a zone to three different subnets in a zonal configuration." width="512" title="NAT de Rede Virtual">
 </p>
 
-*Figura: balanceador de carga com redundância de zona*
+*Figura: balanceador de carga zonal*
 
 Se você deseja mesclar esses conceitos (zonal e com redundância de zona para o mesmo back-end), analise [vários front-ends para Azure Load Balancer](load-balancer-multivip-overview.md).
 
@@ -101,7 +101,7 @@ Ao usar front-ends com redundância de zona, o balanceador de carga expande sua 
 
 Outras zonas que podem alcançar essa VM podem continuar a atender a VM dos respectivos front-ends. Durante os eventos de falha, cada zona pode ter diferentes distribuições de novos fluxos e, ao mesmo tempo, proteger a integridade geral do seu serviço.
 
-## <a name="design-considerations"></a><a name="design"></a>Considerações de design
+## <a name="design-considerations"></a><a name="design"></a> Considerações de design
 
 O balanceador de carga é flexível no contexto de zonas de disponibilidade. Você pode optar por se alinhar às zonas ou ser com redundância de zona para cada regra. A maior disponibilidade pode chegar ao preço de maior complexidade. Design para disponibilidade para desempenho ideal.
 
@@ -151,11 +151,11 @@ Seus recursos em zonas não afetadas pela falha estarão disponíveis. A capacid
   - Quando uma zona falha, o serviço entende essa falha e, se o estado for perdido, como você recuperará?
   - Quando uma zona retorna, o aplicativo é capaz de convergir com segurança?
 
-Examine os [padrões de design de nuvem do Azure](https://docs.microsoft.com/azure/architecture/patterns/) para melhorar a resiliência do seu aplicativo para cenários de falha.
+Examine os [padrões de design de nuvem do Azure](/azure/architecture/patterns/) para melhorar a resiliência do seu aplicativo para cenários de falha.
 
 ## <a name="next-steps"></a>Próximas etapas
 - Saiba mais sobre o [zonas de disponibilidade](../availability-zones/az-overview.md)
-- Saiba mais sobre o [Standard Load Balancer](load-balancer-standard-overview.md)
-- Saiba como [balancear carga de VMs em uma zona usando um Load Balancer Standard com um front-end zonal](load-balancer-standard-public-zonal-cli.md)
-- Saiba como [balancear carga de VMs entre zonas usando um Load Balancer Standard com um front-end com redundância de zona](load-balancer-standard-public-zone-redundant-cli.md)
-- Saiba mais sobre os [padrões de design de nuvem do Azure](https://docs.microsoft.com/azure/architecture/patterns/) para melhorar a resiliência do seu aplicativo para cenários de falha.
+- Saiba mais sobre o [Standard Load Balancer](./load-balancer-overview.md)
+- Saiba como [balancear carga de VMs em uma zona usando um Load Balancer Standard com um front-end zonal](./quickstart-load-balancer-standard-public-cli.md)
+- Saiba como [balancear carga de VMs entre zonas usando um Load Balancer Standard com um front-end com redundância de zona](./quickstart-load-balancer-standard-public-cli.md)
+- Saiba mais sobre os [padrões de design de nuvem do Azure](/azure/architecture/patterns/) para melhorar a resiliência do seu aplicativo para cenários de falha.

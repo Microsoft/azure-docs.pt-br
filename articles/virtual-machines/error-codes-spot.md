@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 03/25/2020
 ms.author: cynthn
 ms.openlocfilehash: 3e151145bd3c4d1db87ef5d1b0d553555a580279
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88816738"
 ---
 # <a name="error-messages-for-spot-vms-and-scale-sets"></a>Mensagens de erro para VMs Spot e conjuntos de dimensionamento

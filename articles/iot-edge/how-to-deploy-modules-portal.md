@@ -4,17 +4,16 @@ description: Use o Hub IoT no portal do Azure para enviar por push um módulo de
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 12/30/2019
+ms.date: 10/13/2020
 ms.topic: conceptual
-ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 754c106db42f3f0695ad023e736993bee82e9757
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ef3f09648e0d9101d07c6d8941ee7f79ae97b2b8
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82133929"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048025"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-the-azure-portal"></a>Implantar módulos do Azure IoT Edge do portal do Azure
 
@@ -25,13 +24,20 @@ Este artigo mostra como o portal do Azure guia você por meio da criação de um
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Um [Hub IoT](../iot-hub/iot-hub-create-through-portal.md) na assinatura do Azure.
-* Um [Dispositivo do IoT Edge](how-to-register-device.md#register-in-the-azure-portal) com o runtime do IoT Edge instalado.
+* Um dispositivo IoT Edge.
+
+  Se você não tiver um dispositivo IoT Edge configurado, poderá criar um em uma máquina virtual do Azure. Siga as etapas em um dos artigos de início rápido para [criar um dispositivo Linux Virtual](quickstart-linux.md) ou [criar um dispositivo virtual do Windows](quickstart.md).
 
 ## <a name="configure-a-deployment-manifest"></a>Configurar um manifesto de implantação
 
 Um manifesto de implantação é um documento JSON que descreve quais módulos implantar, como os dados fluem entre os módulos e as propriedades desejadas dos módulos gêmeos. Para obter mais informações sobre como os manifestos de implantação funcionam e como criá-los, consulte [Entender como os módulos do IoT Edge podem ser utilizados, configurados e reutilizados](module-composition.md).
 
 O portal do Azure tem um assistente que ajuda você por meio da criação de manifesto de implantação, em vez de compilar manualmente o documento JSON. Ele tem três etapas: **Adicionar módulos**, **Especificar rotas**, e **Rever implantação**.
+
+>[!NOTE]
+>As etapas neste artigo refletem a versão de esquema mais recente do IoT Edge Agent e Hub. A versão do esquema 1,1 foi lançada junto com IoT Edge versão 1.0.10 e habilita os recursos de ordem de inicialização do módulo e priorização de rota.
+>
+>Se você estiver implantando em um dispositivo que executa a versão 1.0.9 ou anterior, edite as **configurações de tempo de execução** na etapa **módulos** do assistente para usar a versão de esquema 1,0.
 
 ### <a name="select-device-and-add-modules"></a>Selecionar dispositivo e adicionar módulos
 
@@ -41,21 +47,30 @@ O portal do Azure tem um assistente que ajuda você por meio da criação de man
 1. Na barra superior, selecione **Definir Módulos**.
 1. Na seção **configurações de registro de contêiner** da página, forneça as credenciais para acessar qualquer registro de contêiner privado que contenha suas imagens de módulo.
 1. Na seção **módulos IOT Edge** da página, selecione **Adicionar**.
-1. Examine os tipos de módulos no menu suspenso:
+1. Escolha um dos três tipos de módulos no menu suspenso:
 
    * **Módulo IOT Edge** -você fornece o nome do módulo e o URI da imagem de contêiner. Por exemplo, o URI da imagem para o módulo SimulatedTemperatureSensor de exemplo é `mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0` . Se a imagem do módulo estiver armazenada em um registro de contêiner privado, adicione as credenciais nesta página para acessar a imagem.
    * **Módulo do Marketplace** -módulos hospedados no Azure Marketplace. Alguns módulos do Marketplace exigem configuração adicional, portanto, examine os detalhes do módulo na lista de [módulos de IOT Edge do Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules) .
    * **Módulo Azure Stream Analytics** -módulos gerados de uma carga de trabalho de Azure Stream Analytics.
 
-1. Depois de adicionar um módulo, selecione o nome do módulo na lista para abrir as configurações do módulo. Preencha os campos opcionais se necessário. Para mais informações sobre opções de criação de contêiner, políticas de reinício, e status desejados consulte [propriedades desejadas do EdgeAgent](module-edgeagent-edgehub.md#edgeagent-desired-properties). Para mais informações sobre o módulo gêmeo consulte [Defina ou atualize propriedades desejadas](module-composition.md#define-or-update-desired-properties).
-1. Se necessário, repita as etapas de 5 a 8 para adicionar mais módulos à sua implantação.
+1. Depois de adicionar um módulo, selecione o nome do módulo na lista para abrir as configurações do módulo. Preencha os campos opcionais se necessário.
+
+   Para obter mais informações sobre as configurações de módulo disponíveis, consulte [configuração e gerenciamento de módulo](module-composition.md#module-configuration-and-management).
+
+   Para mais informações sobre o módulo gêmeo consulte [Defina ou atualize propriedades desejadas](module-composition.md#define-or-update-desired-properties).
+
+1. Repita as etapas de 6 a 8 para adicionar mais módulos à sua implantação.
 1. Selecione **Avançar: rotas** para continuar na seção rotas.
 
 ### <a name="specify-routes"></a>Especificar Rotas
 
-Na guia **Rotas**, defina como as mensagens são transmitidas entre os módulos e o Hub IoT. As mensagens são construídas com pares nome/valor. Por padrão, uma rota é chamada de **rota** e definida como **de/messages/ \* para $upstream**, o que significa que qualquer saída de mensagens por qualquer módulo é enviada para o Hub IOT.  
+Na guia **Rotas**, defina como as mensagens são transmitidas entre os módulos e o Hub IoT. As mensagens são construídas com pares nome/valor. Por padrão, a primeira implantação para um novo dispositivo inclui uma rota chamada **rota** e definida como **de/messages/ \* para $upstream**, o que significa que qualquer saída de mensagens por qualquer módulo é enviada para o Hub IOT.  
 
-Adicione ou atualize as rotas com informações de [declarar rotas](module-composition.md#declare-routes)e, em seguida, selecione **Avançar: revisar + criar** para continuar na próxima etapa do assistente.
+Os parâmetros **Priority** e **time to Live** são parâmetros opcionais que você pode incluir em uma definição de rota. O parâmetro Priority permite que você escolha quais rotas devem ter suas mensagens processadas primeiro ou quais rotas devem ser processadas por último. A prioridade é determinada pela definição de um número 0-9, em que 0 é a prioridade mais alta. O parâmetro vida útil permite que você declare por quanto tempo as mensagens nessa rota devem ser mantidas até que sejam processadas ou removidas da fila.
+
+Para obter mais informações sobre como criar rotas, consulte [declarar rotas](module-composition.md#declare-routes).
+
+Depois que as rotas forem definidas, selecione **Avançar: revisar + criar** para continuar na próxima etapa do assistente.
 
 ### <a name="review-deployment"></a>Rever implantação
 

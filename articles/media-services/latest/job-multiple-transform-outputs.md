@@ -1,25 +1,27 @@
 ---
-title: Criar um trabalho dos serviços de mídia do Azure com várias saídas de transformação
+title: Criar um trabalho com várias saídas de transformação
 description: Este tópico demonstra como criar um trabalho dos serviços de mídia do Azure com várias saídas de transformação.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
-ms.topic: article
-ms.date: 02/17/2020
-ms.author: juliako
+ms.topic: how-to
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6a0592af43987e89556aee57ea44e07dc2c00828
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 0396415593f2d0f41abc55433bb8f19c4913ac26
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89006781"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954133"
 ---
 # <a name="create-a-job-with-multiple-transform-outputs"></a>Criar um trabalho com várias saídas de transformação
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Este tópico mostra como criar uma transformação com duas saídas de transformação. A primeira chama a entrada a ser codificada para streaming de taxa de bits adaptável com uma predefinição [AdaptiveStreaming](encoding-concept.md#builtinstandardencoderpreset) interna. A segunda chamada para o sinal de áudio no vídeo de entrada a ser processada com o [AudioAnalyzerPreset](analyzing-video-audio-files-concept.md#built-in-presets). Depois que a transformação for criada, você poderá enviar um trabalho que processará seu vídeo de forma adequada. Como neste exemplo estamos especificando duas saídas de transformação, devemos especificar duas saídas de trabalho. Você pode optar por direcionar as saídas de trabalho para o mesmo ativo (como mostrado abaixo) ou pode fazer com que os resultados sejam gravados em ativos separados.
  

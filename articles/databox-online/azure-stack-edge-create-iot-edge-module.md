@@ -1,6 +1,6 @@
 ---
-title: Módulo de IoT Edge C# para Azure Stack Edge | Microsoft Docs
-description: Saiba como desenvolver um módulo de IoT Edge em C# que pode ser implantado em seu Azure Stack Edge.
+title: Módulo de IoT Edge C# para Azure Stack Edge pro | Microsoft Docs
+description: Saiba como desenvolver um módulo de IoT Edge em C# que pode ser implantado em seu Azure Stack Edge pro.
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,36 +9,36 @@ ms.topic: how-to
 ms.date: 08/06/2019
 ms.author: alkohli
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d8cea74ec24efa7562caab5074d87d436cddaffb
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 96a6692524eca3a2845d648ab3df2932d00ce823
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018477"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951138"
 ---
-# <a name="develop-a-c-iot-edge-module-to-move-files-on-azure-stack-edge"></a>Desenvolver um módulo IoT Edge do C# para mover arquivos na borda Azure Stack
+# <a name="develop-a-c-iot-edge-module-to-move-files-with-azure-stack-edge-pro"></a>Desenvolver um módulo IoT Edge do C# para mover arquivos com o Azure Stack Edge pro
 
-Este artigo explica como criar um módulo IoT Edge para implantação com o dispositivo Azure Stack Edge. O Azure Stack Edge é uma solução de armazenamento que permite processar dados e enviá-los pela rede para o Azure.
+Este artigo explica como criar um módulo IoT Edge para implantação com seu dispositivo Azure Stack Edge pro. O Azure Stack Edge pro é uma solução de armazenamento que permite processar dados e enviá-los pela rede para o Azure.
 
-Você pode usar Azure IoT Edge módulos com sua borda de Azure Stack para transformar os dados conforme movidos para o Azure. O módulo usado neste artigo implementa a lógica para copiar um arquivo de um compartilhamento local para um compartilhamento de nuvem em seu dispositivo de Azure Stack borda.
+Você pode usar os módulos Azure IoT Edge com o Azure Stack Edge pro para transformar os dados conforme movidos para o Azure. O módulo usado neste artigo implementa a lógica para copiar um arquivo de um compartilhamento local para um compartilhamento de nuvem em seu dispositivo Azure Stack Edge pro.
 
 Neste artigo, você aprenderá como:
 
 > [!div class="checklist"]
 >
 > * Criar um registro de contêiner para armazenar e gerenciar seus módulos (imagens do Docker).
-> * Crie um módulo IoT Edge para implantar em seu dispositivo de borda de Azure Stack. 
+> * Crie um módulo IoT Edge para implantar em seu dispositivo do Azure Stack Edge pro. 
 
 
 ## <a name="about-the-iot-edge-module"></a>Sobre o módulo do IoT Edge
 
-O dispositivo Azure Stack Edge pode implantar e executar módulos IoT Edge. Os módulos do Edge são, essencialmente, contêineres do Docker que executam uma tarefa específica, por exemplo, ingerir uma mensagem de um dispositivo, transformar uma mensagem ou enviar uma mensagem para um Hub IoT. Neste artigo, você criará um módulo que copia arquivos de um compartilhamento local para um compartilhamento de nuvem em seu dispositivo Azure Stack Edge.
+O dispositivo pro Edge Azure Stack pode implantar e executar módulos IoT Edge. Os módulos do Edge são, essencialmente, contêineres do Docker que executam uma tarefa específica, por exemplo, ingerir uma mensagem de um dispositivo, transformar uma mensagem ou enviar uma mensagem para um Hub IoT. Neste artigo, você criará um módulo que copia arquivos de um compartilhamento local para um compartilhamento de nuvem em seu dispositivo Azure Stack Edge pro.
 
-1. Os arquivos são gravados no compartilhamento local no dispositivo do Azure Stack Edge.
+1. Os arquivos são gravados no compartilhamento local no dispositivo Azure Stack Edge pro.
 2. O gerador de evento de arquivo cria um evento de arquivo para cada arquivo gravado no compartilhamento local. Os eventos de arquivo também são gerados quando um arquivo é modificado. Depois, os eventos de arquivo são enviados ao Hub IoT Edge (no runtime do IoT Edge).
 3. O módulo personalizado do IoT Edge processa o evento de arquivo para criar um objeto de evento de arquivo que também contém um caminho relativo para o arquivo. O módulo gera um caminho absoluto usando o caminho relativo do arquivo e copia o arquivo do compartilhamento local para o compartilhamento na nuvem. Em seguida, o módulo exclui o arquivo do compartilhamento local.
 
-![Como Azure IoT Edge módulo funciona na borda Azure Stack](./media/azure-stack-edge-create-iot-edge-module/how-module-works-1.png)
+![Como Azure IoT Edge módulo funciona no Azure Stack Edge pro](./media/azure-stack-edge-create-iot-edge-module/how-module-works-1.png)
 
 Assim que o arquivo chega ao compartilhamento na nuvem, ele é carregado automaticamente em sua conta do Armazenamento do Azure.
 
@@ -46,11 +46,11 @@ Assim que o arquivo chega ao compartilhamento na nuvem, ele é carregado automat
 
 Antes de começar, verifique se você tem:
 
-- Um dispositivo de borda Azure Stack que está executando o.
+- Um dispositivo Azure Stack Edge pro que está em execução.
 
     - O dispositivo também tem um recurso do Hub IoT associado.
     - O dispositivo tem a função Computação de borda configurada.
-    Para obter mais informações, vá para [Configurar a computação](azure-stack-edge-deploy-configure-compute.md#configure-compute) para seu Azure Stack Edge.
+    Para obter mais informações, acesse [Configurar a computação](azure-stack-edge-deploy-configure-compute.md#configure-compute) para o Azure Stack Edge pro.
 
 - Os seguintes recursos de desenvolvimento:
 
@@ -259,7 +259,7 @@ Na seção anterior, você criou uma solução do IoT Edge e adicionou o código
  
 3. Após fornecer as credenciais, envie sua imagem de módulo por push para o registro de contêiner do Azure. No explorador do VS Code, clique com o botão direito do mouse no arquivo **module.json** e selecione **Compilar e enviar por push solução IoT Edge**.
 
-    ![Compilar e enviar por push a solução IoT Edge](./media/azure-stack-edge-create-iot-edge-module/build-iot-edge-solution-2.png)
+    ![Criar e enviar por push IoT Edge solução 2](./media/azure-stack-edge-create-iot-edge-module/build-iot-edge-solution-2.png)
  
     Quando você pedir ao Visual Studio Code que desenvolva sua solução, ele executará dois comandos no terminal integrado: docker build e docker push. Esses dois comandos compilam seu código, conteinerizam o CSharpModule.dll e enviam o código por push para o registro de contêiner especificado ao inicializar a solução.
 
@@ -278,4 +278,4 @@ Na seção anterior, você criou uma solução do IoT Edge e adicionou o código
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para implantar e executar esse módulo no Azure Stack Edge, consulte as etapas em [Adicionar um módulo](azure-stack-edge-deploy-configure-compute.md#add-a-module).
+Para implantar e executar esse módulo no Azure Stack Edge pro, consulte as etapas em [Adicionar um módulo](azure-stack-edge-deploy-configure-compute.md#add-a-module).

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/07/2019
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 48a7e5e810e509a97b6010218532f6e7dff0b73f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a0efc4bc8f89b0fbefbba171d80a3f8a1ed5e7f6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77425537"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89318923"
 ---
 # <a name="whats-new-for-azure-active-directory-in-microsoft-365-government"></a>O que há de novo para Azure Active Directory no governo Microsoft 365
 
@@ -53,22 +53,22 @@ A tabela a seguir mostra os pontos de extremidade para todos os clientes:
 
 | Nome | Detalhes do ponto de extremidade |
 |------|------------------|
-| Portais |Microsoft Azure Governamental:https://portal.azure.us<p>Governo Microsoft 365 – GCC alto:https://portal.office365.us<p>Governo Microsoft 365 – DoD:https://portal.apps.mil |
+| Portais |Microsoft Azure Governamental: https://portal.azure.us<p>Governo Microsoft 365 – GCC alto: https://portal.office365.us<p>Governo Microsoft 365 – DoD: https://portal.apps.mil |
 | Ponto de extremidade de autoridade de Azure Active Directory | https://login.microsoftonline.us |
 | API de Microsoft Graph para Microsoft 365 governamental-GCC alto | https://graph.microsoft.us |
 | API de Microsoft Graph para Microsoft 365 governamental-DoD | https://dod-graph.microsoft.us |
-| Pontos de extremidade de serviços do Azure governamental | Para obter detalhes, consulte [Guia do desenvolvedor do Azure governamental](https://docs.microsoft.com/azure/azure-government/documentation-government-developer-guide) |
-| Microsoft 365 os pontos de extremidade mais poestados do governo de GCC | Para obter detalhes, consulte [pontos de extremidade altos do Office 365 no governo dos EUA](https://docs.microsoft.com/office365/enterprise/office-365-u-s-government-gcc-high-endpoints) |
-| Governo Microsoft 365-DoD | Para obter detalhes, consulte [pontos de extremidade do DoD do governo dos EUA do Office 365](https://docs.microsoft.com/office365/enterprise/office-365-u-s-government-dod-endpoints) |
+| Pontos de extremidade de serviços do Azure governamental | Para obter detalhes, consulte [Guia do desenvolvedor do Azure governamental](../../azure-government/documentation-government-developer-guide.md) |
+| Microsoft 365 os pontos de extremidade mais poestados do governo de GCC | Para obter detalhes, consulte [pontos de extremidade altos do Office 365 no governo dos EUA](/office365/enterprise/office-365-u-s-government-gcc-high-endpoints) |
+| Governo Microsoft 365-DoD | Para obter detalhes, consulte [pontos de extremidade do DoD do governo dos EUA do Office 365](/office365/enterprise/office-365-u-s-government-dod-endpoints) |
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Para obter mais informações, confira estes tópicos:
 
-- [O que é o Azure Government?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome)
+- [O que é o Azure Governamental?](../../azure-government/documentation-government-welcome.md)
 
 - [Atualização do ponto de extremidade da autoridade do AAD do Azure governamental](https://devblogs.microsoft.com/azuregov/azure-government-aad-authority-endpoint-update/)
 
 - [Microsoft Graph pontos de extremidade na nuvem do governo dos EUA](https://developer.microsoft.com/graph/blogs/new-microsoft-graph-endpoints-in-us-government-cloud/)
 
-- [Office 365 do governo dos EUA GCC alto e DoD](https://docs.microsoft.com/office365/servicedescriptions/office-365-platform-service-description/office-365-us-government/gcc-high-and-dod)
+- [Office 365 do governo dos EUA GCC alto e DoD](/office365/servicedescriptions/office-365-platform-service-description/office-365-us-government/gcc-high-and-dod)

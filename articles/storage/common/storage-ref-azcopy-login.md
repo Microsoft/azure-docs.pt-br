@@ -8,12 +8,12 @@ ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 98f8554d6313147c03d4a0bec74e36043cdce342
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: e4740870dd2d9748aad55150ce1946e3eb666619
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285264"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878351"
 ---
 # <a name="azcopy-login"></a>azcopy login
 
@@ -37,7 +37,7 @@ azcopy login [flags]
 ## <a name="related-conceptual-articles"></a>Artigos conceituais relacionados
 
 - [Introdução ao AzCopy](storage-use-azcopy-v10.md)
-- [Transferir dados com o armazenamento de BLOBs e AzCopy](storage-use-azcopy-blobs.md)
+- [Transferir dados com o armazenamento de BLOBs e AzCopy](./storage-use-azcopy-v10.md#transfer-data)
 - [Transferir dados com o AzCopy e o Armazenamento de Arquivos](storage-use-azcopy-files.md)
 - [Configurar, otimizar e solucionar problemas do AzCopy](storage-use-azcopy-configure.md)
 
@@ -95,7 +95,7 @@ azcopy login --service-principal --certificate-path /path/to/my/cert --applicati
 
 Tratar `/path/to/my/cert` como um caminho para um arquivo PEM ou PKCS12. AzCopy não chega ao repositório de certificados do sistema para obter seu certificado.
 
-`--certificate-path`é obrigatório ao fazer autenticação de entidade de serviço baseada em certificado.
+`--certificate-path` é obrigatório ao fazer autenticação de entidade de serviço baseada em certificado.
 
 ## <a name="options"></a>Opções
 
@@ -105,7 +105,7 @@ Tratar `/path/to/my/cert` como um caminho para um arquivo PEM ou PKCS12. AzCopy 
 
 **--** caminho da cadeia de caracteres do caminho do certificado para o certificado para autenticação SPN. Necessário para autenticação de entidade de serviço baseada em certificado.
 
-**--** ajuda ajuda para o `azcopy login` comando.
+**--**   ajuda ajuda para o `azcopy login` comando.
 
 **--identidade**   Faça logon usando a identidade da máquina virtual, também conhecida como MSI (identidade de serviço gerenciada).
 

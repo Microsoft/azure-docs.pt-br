@@ -10,10 +10,10 @@ metadata:
   ms.author: azfundocs
   ms.date: 10/04/2019
   ms.openlocfilehash: 1feb34dd87f61dc04365afeeca0eec7b8b511480
-  ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 06/22/2020
+  ms.lasthandoff: 10/09/2020
   ms.locfileid: "85193236"
 landingContent:
 - title: Sobre o Durable Functions

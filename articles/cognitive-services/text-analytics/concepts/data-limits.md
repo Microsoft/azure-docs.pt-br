@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 08/14/2020
+ms.date: 11/19/2020
 ms.author: aahi
 ms.reviewer: chtufts
-ms.openlocfilehash: 068c2dc698e9f0b6d6f2f6486dff863c1343b178
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: 9ba9fe7ca73e874fb55c228e22b884a86de736cf
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88258277"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98661452"
 ---
 # <a name="data-and-rate-limits-for-the-text-analytics-api"></a>Limites de dados e taxa para a API de Análise de Texto
 <a name="data-limits"></a>
 
-Use este artigo para localizar os limites para o tamanho e as tarifas para as quais você pode enviar dados para API de Análise de Texto. 
+Use este artigo para localizar os limites para o tamanho e as tarifas para as quais você pode enviar dados para API de Análise de Texto. Observe que o preço não é afetado pelos limites de dados ou pelos limites de taxa. O preço está sujeito aos [detalhes de preço](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) do recurso Análise de Texto.
 
 ## <a name="data-limits"></a>Limites de dados
 
@@ -31,24 +31,36 @@ Use este artigo para localizar os limites para o tamanho e as tarifas para as qu
 
 | Limite | Valor |
 |------------------------|---------------|
-| Tamanho máximo de um único documento | 5\.120 caracteres conforme medidos por [StringInfo.LengthInTextElements](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements). Também se aplica à Análise de Texto do contêiner de integridade. |
-| Tamanho máximo de toda a solicitação | 1 MB. Também se aplica à Análise de Texto do contêiner de integridade. |
+| Tamanho máximo de um único documento | 5\.120 caracteres conforme medidos por [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements). Também se aplica à Análise de Texto para integridade. |
+| Tamanho máximo de um documento individual (ponto de extremidade `/analyze`)  | 125 mil caracteres, conforme calculado por [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements). Não se aplica à Análise de Texto para integridade. |
+| Tamanho máximo de toda a solicitação | 1 MB. Também se aplica à Análise de Texto para integridade. |
 
-O número máximo de documentos que você pode enviar em uma solicitação dependerá da versão da API e do recurso que você está usando.
+
+Se um documento exceder o limite de caracteres, a API se comportará de maneira diferente, dependendo do ponto de extremidade que você estiver usando:
+
+* Ponto de extremidade `/analyze`:
+  * A API rejeitará toda a solicitação e retornará um erro `400 bad request` se qualquer documento dentro dela exceder o tamanho máximo.
+* Todos os outros pontos de extremidade:  
+  * A API não processará os documentos que excederem o tamanho máximo e retornará um erro de documento inválido para cada um deles. Se uma solicitação de API tiver vários documentos, a API continuará a processá-los se estiverem dentro do limite de caracteres.
+
+O número máximo de documentos que você pode enviar em uma solicitação dependerá da versão da API e do recurso que você está usando, conforme descrito na tabela abaixo.
 
 #### <a name="version-3"></a>[Versão 3](#tab/version-3)
 
-Os limites a seguir mudaram na v3 da API. Exceder os limites abaixo vai gerar um código de erro HTTP 400.
+Os limites a seguir referem-se à API v3 atual. Exceder os limites abaixo vai gerar um código de erro HTTP 400.
 
 
 | Recurso | Máximo de documentos por solicitação | 
 |----------|-----------|
 | Detecção de Idioma | 1000 |
 | Análise de Sentimento | 10 |
+| Mineração de opiniões | 10 |
 | Extração de Frases-Chave | 10 |
 | Reconhecimento de Entidade Nomeada | 5 |
 | Vinculação de Identidade | 5 |
-| Análise de Texto do contêiner de integridade | 1000 |
+| Análise de Texto para integridade  | 10 para a API baseada na Web, 1.000 para o contêiner. |
+| Analisar ponto de extremidade | 25 para todas as operações. |
+
 #### <a name="version-2"></a>[Versão 2](#tab/version-2)
 
 | Recurso | Máximo de documentos por solicitação | 
@@ -74,7 +86,7 @@ O limite de taxa varia de acordo com o [tipo de preço](https://azure.microsoft.
 | S3            | 500                 | 500                 |
 | S4            | 1000                | 1000                |
 
-As solicitações são calculadas separadamente para cada recurso de Análise de Texto. Por exemplo, você pode enviar o número máximo de solicitações para o tipo de preço para cada recurso, ao mesmo tempo.  
+As taxas de solicitações são calculadas separadamente para cada recurso da Análise de Texto. Você pode enviar o número máximo de solicitações do tipo de preço para cada recurso, ao mesmo tempo. Por exemplo, se você estiver na camada `S` e enviar 1.000 solicitações de uma vez, não poderá enviar outra solicitação por 59 segundos.
 
 
 ## <a name="see-also"></a>Confira também

@@ -1,195 +1,220 @@
 ---
-title: 'Início Rápido: Usar tópicos e assinaturas do Barramento de Serviço do Azure com Python'
-description: Este artigo mostra como criar um tópico e uma assinatura do Barramento de Serviço do Azure e enviar mensagens a um tópico e receber mensagens da assinatura.
+title: Usar tópicos e assinaturas do Barramento de Serviço do Azure com o pacote azure-servicebus versão 7.0.0 do Python
+description: Este artigo mostra como usar o Python para enviar mensagens a um tópico e receber mensagens da assinatura.
 documentationcenter: python
 author: spelluru
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 06/23/2020
+ms.date: 11/18/2020
 ms.author: spelluru
 ms.custom: devx-track-python
-ms.openlocfilehash: f6d1b25cb502b8cb208ba5b59c91667e03c77778
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 4eba3ea055e78888d482927fa6eed5c7d41fa0ba
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88064376"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98630040"
 ---
-# <a name="quickstart-use-service-bus-topics-and-subscriptions-with-python"></a>Início Rápido: Usar tópicos e assinaturas do Barramento de Serviço com Python
-
-[!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
-
-Este artigo descreve como usar o Python com tópicos e assinaturas do Barramento de Serviço do Azure. Os exemplos usam o pacote [SDK do Python do Azure][Azure Python package] para: 
-
-- Criar tópicos e assinaturas para tópicos
-- Criar filtros e regras de assinatura
-- Enviar mensagens para tópicos 
-- Receber mensagens de assinaturas
-- Excluir tópicos e assinaturas
+# <a name="send-messages-to-an-azure-service-bus-topic-and-receive-messages-from-subscriptions-to-the-topic-python"></a>Enviar mensagens para um tópico do Barramento de Serviço do Azure e receber mensagens de assinaturas para o tópico (Python)
+Este artigo mostra como usar o Python para enviar mensagens a um tópico do Barramento de Serviço e receber mensagens de uma assinatura para o tópico. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 - Uma assinatura do Azure. Ative seus [benefícios de assinante do Visual Studio ou do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) ou inscreva-se em uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-- Um namespace do Barramento de Serviço, criado seguindo as etapas em [Início Rápido: Usar o portal do Azure para criar assinaturas e um tópico do Barramento de Serviço](service-bus-quickstart-topics-subscriptions-portal.md). Copie o nome do namespace, o nome da chave de acesso compartilhada e o valor da chave primária da tela **Políticas de acesso compartilhado** para usar posteriormente nesse guia de início rápido. 
-- Python 3.4 x ou superior, com o pacote [SDK do Python do Azure][Azure Python package] instalado. Para obter mais informações, consulte o [Guia de instalação do Python](/azure/developer/python/azure-sdk-install).
-
-## <a name="create-a-servicebusservice-object"></a>Criar um objeto ServiceBusService
-
-Um objeto **ServiceBusService** permite que você trabalhe com tópicos e assinaturas para tópicos. Para acessar programaticamente o Barramento de Serviço, adicione a seguinte linha perto da parte superior do arquivo do Python:
-
-```python
-from azure.servicebus.control_client import ServiceBusService, Message, Topic, Rule, DEFAULT_RULE_NAME
-```
-
-Adicione o código a seguir para criar um objeto **ServiceBusService**. Substitua `<namespace>`, `<sharedaccesskeyname>` e `<sharedaccesskeyvalue>` pelo nome do namespace do Barramento de Serviço, o nome da chave de SAS (Assinatura de Acesso Compartilhado) e o valor da chave primária. Você pode encontrar esses valores em **Políticas de acesso compartilhado** no namespace do Barramento de Serviço no [portal do Azure][Azure portal].
-
-```python
-bus_service = ServiceBusService(
-    service_namespace='<namespace>',
-    shared_access_key_name='<sharedaccesskeyname>',
-    shared_access_key_value='<sharedaccesskeyvalue>')
-```
-
-## <a name="create-a-topic"></a>Criar um tópico
-
-O código a seguir usa o método `create_topic` para criar um tópico do Barramento de Serviço chamado `mytopic`, com configurações padrão:
-
-```python
-bus_service.create_topic('mytopic')
-```
-
-Você pode usar as opções de tópico para substituir as configurações de tópico padrão, como TTL (vida útil) da mensagem ou tamanho máximo do tópico. O exemplo a seguir cria um tópico chamado `mytopic` com um tamanho máximo de tópico de 5 GB e TTL da mensagem padrão de um minuto:
-
-```python
-topic_options = Topic()
-topic_options.max_size_in_megabytes = '5120'
-topic_options.default_message_time_to_live = 'PT1M'
-
-bus_service.create_topic('mytopic', topic_options)
-```
-
-## <a name="create-subscriptions"></a>Criar assinaturas
-
-Você também usa o objeto **ServiceBusService** para criar assinaturas para tópicos. Uma assinatura pode ter um filtro para restringir o conjunto de mensagens entregue à sua fila virtual. Se você não especificar um filtro, as novas assinaturas usarão o filtro padrão **MatchAll**, que coloca todas as mensagens publicadas no tópico na fila virtual da assinatura. O exemplo a seguir cria uma assinatura para `mytopic` chamada `AllMessages` que usa o filtro **MatchAll**:
-
-```python
-bus_service.create_subscription('mytopic', 'AllMessages')
-```
-
-### <a name="use-filters-with-subscriptions"></a>Usar filtros com assinaturas
-
-Use o método `create_rule` do objeto **ServiceBusService** para filtrar as mensagens que aparecem em uma assinatura. Você pode especificar regras ao criar a assinatura ou adicionar regras às assinaturas existentes.
-
-O tipo de filtro mais flexível é um **SqlFilter**, que usa um subconjunto de SQL-92. Os filtros SQL operam com base nas propriedades das mensagens publicadas no tópico. Para obter mais informações sobre as expressões que podem ser usadas com um filtro SQL, confira a sintaxe [SqlFilter.SqlExpression][SqlFilter.SqlExpression].
-
-Como o filtro padrão **MatchAll** se aplica automaticamente a todas as novas assinaturas, você deve removê-lo das assinaturas que deseja filtrar, senão o filtro **MatchAll** substituirá todos os outros filtros especificados. Você pode remover a regra padrão usando o método `delete_rule` do objeto **ServiceBusService**.
-
-O exemplo a seguir cria uma assinatura para `mytopic` chamada `HighMessages`, com uma regra **SqlFilter** chamada `HighMessageFilter`. A regra `HighMessageFilter` seleciona apenas as mensagens com uma propriedade `messageposition` personalizada maior que 3:
-
-```python
-bus_service.create_subscription('mytopic', 'HighMessages')
-
-rule = Rule()
-rule.filter_type = 'SqlFilter'
-rule.filter_expression = 'messageposition > 3'
-
-bus_service.create_rule('mytopic', 'HighMessages', 'HighMessageFilter', rule)
-bus_service.delete_rule('mytopic', 'HighMessages', DEFAULT_RULE_NAME)
-```
-
-O exemplo a seguir cria uma assinatura para `mytopic` chamada `LowMessages`, com uma regra **SqlFilter** chamada `LowMessageFilter`. A regra `LowMessageFilter` seleciona apenas as mensagens com uma propriedade `messageposition` menor ou igual a 3:
-
-```python
-bus_service.create_subscription('mytopic', 'LowMessages')
-
-rule = Rule()
-rule.filter_type = 'SqlFilter'
-rule.filter_expression = 'messageposition <= 3'
-
-bus_service.create_rule('mytopic', 'LowMessages', 'LowMessageFilter', rule)
-bus_service.delete_rule('mytopic', 'LowMessages', DEFAULT_RULE_NAME)
-```
-
-Com `AllMessages`, `HighMessages` e `LowMessages` em vigor, as mensagens enviadas para `mytopic` são sempre entregues aos destinatários da assinatura `AllMessages`. As mensagens também são fornecidas seletivamente para a assinatura `HighMessages` ou `LowMessages`, dependendo do valor da propriedade `messageposition` da mensagem. 
+- Siga as etapas no [Início Rápido: Usar o portal do Azure para criar um tópico do Barramento de Serviço e assinaturas para o tópico](service-bus-quickstart-topics-subscriptions-portal.md). Anote a cadeia de conexão, o nome do tópico e o nome de uma assinatura. Você usará apenas uma assinatura neste guia de início rápido. 
+- Python 2.7 ou superior, com o pacote [SDK do Azure para Python][pacote do Azure para Python] instalado. Para obter mais informações, consulte o [Guia de instalação do Python](/azure/developer/python/azure-sdk-install).
 
 ## <a name="send-messages-to-a-topic"></a>Enviar mensagens para um tópico
 
-Os aplicativos usam o método `send_topic_message` do objeto **ServiceBusService** para enviar mensagens para um tópico do Barramento de Serviço.
+1. Adicione a instrução de importação a seguir. 
 
-O exemplo a seguir envia cinco mensagens de teste para o tópico `mytopic`. O valor da propriedade `messageposition` personalizada depende da iteração do loop e determina quais assinaturas recebem as mensagens. 
+    ```python
+    from azure.servicebus import ServiceBusClient, ServiceBusMessage
+    ```
+2. Adicione as constantes a seguir. 
 
-```python
-for i in range(5):
-    msg = Message('Msg {0}'.format(i).encode('utf-8'),
-                  custom_properties={'messageposition': i})
-    bus_service.send_topic_message('mytopic', msg)
-```
+    ```python
+    CONNECTION_STR = "<NAMESPACE CONNECTION STRING>"
+    TOPIC_NAME = "<TOPIC NAME>"
+    SUBSCRIPTION_NAME = "<SUBSCRIPTION NAME>"
+    ```
+    
+    > [!IMPORTANT]
+    > - Substitua `<NAMESPACE CONNECTION STRING>` pela cadeia de conexão do namespace.
+    > - Substitua `<TOPIC NAME>` pelo nome do tópico.
+    > - Substitua `<SUBSCRIPTION NAME>` pelo nome da assinatura para o tópico. 
+3. Adicione um método para enviar uma mensagem individual.
 
-### <a name="message-size-limits-and-quotas"></a>Cotas e limites de tamanho de mensagem
+    ```python
+    def send_single_message(sender):
+        # create a Service Bus message
+        message = ServiceBusMessage("Single Message")
+        # send the message to the topic
+        sender.send_messages(message)
+        print("Sent a single message")
+    ```
 
-Os tópicos do Barramento de Serviço dão suporte ao tamanho máximo de mensagem de 256 KB na [camada Standard](service-bus-premium-messaging.md) e 1 MB na [camada Premium](service-bus-premium-messaging.md). O cabeçalho, que inclui as propriedades de aplicativo padrão e personalizadas, pode ter um tamanho máximo de 64 KB. Não há limite no número de mensagens que um tópico pode conter, mas há um limite no tamanho total das mensagens que o tópico contém. Você pode definir o tamanho do tópico no momento da criação, com um limite superior de 5 GB. 
+    O remetente é um objeto que funciona como um cliente para o tópico criado. Você o criará posteriormente e o enviará como um argumento para essa função. 
+4. Adicione um método para enviar uma lista de mensagens.
 
-Para saber mais sobre cotas, consulte [Cotas do Barramento de Serviço][Service Bus quotas].
+    ```python
+    def send_a_list_of_messages(sender):
+        # create a list of messages
+        messages = [ServiceBusMessage("Message in list") for _ in range(5)]
+        # send the list of messages to the topic
+        sender.send_messages(messages)
+        print("Sent a list of 5 messages")
+    ```
+5. Adicione um método para enviar um lote de mensagens.
 
+    ```python
+    def send_batch_message(sender):
+        # create a batch of messages
+        batch_message = sender.create_message_batch()
+        for _ in range(10):
+            try:
+                # add a message to the batch
+                batch_message.add_message(ServiceBusMessage("Message inside a ServiceBusMessageBatch"))
+            except ValueError:
+                # ServiceBusMessageBatch object reaches max_size.
+                # New ServiceBusMessageBatch object can be created here to send more data.
+                break
+        # send the batch of messages to the topic
+        sender.send_messages(batch_message)
+        print("Sent a batch of 10 messages")
+    ```
+6. Crie um cliente do Barramento de Serviço e, depois, um objeto de remetente do tópico para enviar mensagens.
+
+    ```python
+    # create a Service Bus client using the connection string
+    servicebus_client = ServiceBusClient.from_connection_string(conn_str=CONNECTION_STR, logging_enable=True)
+    with servicebus_client:
+        # get a Topic Sender object to send messages to the topic
+        sender = servicebus_client.get_topic_sender(topic_name=TOPIC_NAME)
+        with sender:
+            # send one message        
+            send_single_message(sender)
+            # send a list of messages
+            send_a_list_of_messages(sender)
+            # send a batch of messages
+            send_batch_message(sender)
+    
+    print("Done sending messages")
+    print("-----------------------")
+    ```
+ 
 ## <a name="receive-messages-from-a-subscription"></a>Receber mensagens de uma assinatura
-
-Os aplicativos usam o método `receive_subscription_message` no objeto **ServiceBusService** para receber mensagens de uma assinatura. O exemplo a seguir recebe mensagens da assinatura `LowMessages` e as exclui conforme elas são lidas:
-
-```python
-msg = bus_service.receive_subscription_message('mytopic', 'LowMessages', peek_lock=False)
-print(msg.body)
-```
-
-O parâmetro opcional `peek_lock` de `receive_subscription_message` determina se o Barramento de Serviço exclui as mensagens da assinatura conforme elas são lidas. O modo padrão para recebimento de mensagens é *PeekLock* ou `peek_lock` definido como **True**, que lê (espia) e bloqueia mensagens sem excluí-las da assinatura. Cada mensagem deve ser explicitamente concluída para removê-la da assinatura.
-
-Para excluir mensagens da assinatura conforme elas são lidas, você pode definir o parâmetro `peek_lock` como **False**, como no exemplo anterior. A exclusão de mensagens como parte da operação de recebimento é o modelo mais simples e funcionará bem se o aplicativo puder tolerar mensagens ausentes caso haja uma falha. Para entender esse comportamento, considere um cenário no qual o aplicativo emite uma solicitação de recebimento e, em seguida, falha antes de processá-la. Se a mensagem foi excluída ao ser recebida, quando o aplicativo for reiniciado e começar a consumir mensagens novamente, ele terá perdido a mensagem recebida antes da falha.
-
-Se seu aplicativo não puder tolerar mensagens perdidas, o recebimento se tornará uma operação de duas fases. O PeekLock localiza a próxima mensagem a ser consumida, bloqueia-a para evitar que outros consumidores a recebam e a retorna para o aplicativo. Após o processamento ou o armazenamento da mensagem, o aplicativo conclui a segunda fase do processo de recebimento chamando o método `complete` no objeto **Message**.  O método `complete` marcará a mensagem como sendo consumida e a removerá da assinatura.
-
-O exemplo a seguir demonstra um cenário de PeekLock:
+Adicione o código a seguir após a instrução print. Esse código recebe continuamente novas mensagens até que não receba nenhuma mensagem nova por 5 (`max_wait_time`) segundos. 
 
 ```python
-msg = bus_service.receive_subscription_message('mytopic', 'LowMessages', peek_lock=True)
-if msg.body is not None:
-    print(msg.body)
-    msg.complete()
+with servicebus_client:
+    # get the Subscription Receiver object for the subscription    
+    receiver = servicebus_client.get_subscription_receiver(topic_name=TOPIC_NAME, subscription_name=SUBSCRIPTION_NAME, max_wait_time=5)
+    with receiver:
+        for msg in receiver:
+            print("Received: " + str(msg))
+            # complete the message so that the message is removed from the subscription
+            receiver.complete_message(msg)
 ```
 
-## <a name="handle-application-crashes-and-unreadable-messages"></a>Tratar falhas do aplicativo e mensagens ilegíveis
-
-O Barramento de Serviço proporciona funcionalidade para ajudá-lo a se recuperar normalmente dos erros no seu aplicativo ou das dificuldades no processamento de uma mensagem. Se um aplicativo receptor não conseguir processar a mensagem por algum motivo, ele chamará o método `unlock` no objeto **Message**. O Barramento de Serviço desbloqueia a mensagem na assinatura e a disponibiliza para ser recebida novamente pelo mesmo aplicativo de consumo ou por outro.
-
-Também há um tempo limite para mensagens bloqueadas na assinatura. Se um aplicativo não conseguir processar uma mensagem antes que o tempo limite de bloqueio expire (por exemplo, se o aplicativo travar), o Barramento de Serviço desbloqueará a mensagem automaticamente e a disponibilizará para ser recebida novamente.
-
-Caso o aplicativo falhe após o processamento da mensagem, mas antes que o método `complete` seja chamado, a mensagem será entregue novamente ao aplicativo quando ele for reiniciado. Esse comportamento geralmente é chamado de *Processamento pelo menos uma vez*. Cada mensagem é processada pelo menos uma vez, mas em determinadas situações, a mesma mensagem poderá ser reenviada. Se o seu cenário não puder tolerar o processamento duplicado, você poderá usar a propriedade **MessageId**, que permanece constante entre as tentativas de entrega, para lidar com a entrega de mensagens duplicada. 
-
-## <a name="delete-topics-and-subscriptions"></a>Excluir tópicos e assinaturas
-
-Para excluir tópicos e assinaturas, use o [portal do Azure][Azure portal] ou o método `delete_topic`. O código a seguir exclui o tópico chamado `mytopic`:
+## <a name="full-code"></a>Código completo
 
 ```python
-bus_service.delete_topic('mytopic')
+from azure.servicebus import ServiceBusClient, ServiceBusMessage
+
+CONNECTION_STR = "<NAMESPACE CONNECTION STRING>"
+TOPIC_NAME = "<TOPIC NAME>"
+SUBSCRIPTION_NAME = "<SUBSCRIPTION NAME>"
+
+def send_single_message(sender):
+    message = ServiceBusMessage("Single Message")
+    sender.send_messages(message)
+    print("Sent a single message")
+
+def send_a_list_of_messages(sender):
+    messages = [ServiceBusMessage("Message in list") for _ in range(5)]
+    sender.send_messages(messages)
+    print("Sent a list of 5 messages")
+
+def send_batch_message(sender):
+    batch_message = sender.create_message_batch()
+    for _ in range(10):
+        try:
+            batch_message.add_message(ServiceBusMessage("Message inside a ServiceBusMessageBatch"))
+        except ValueError:
+            # ServiceBusMessageBatch object reaches max_size.
+            # New ServiceBusMessageBatch object can be created here to send more data.
+            break
+    sender.send_messages(batch_message)
+    print("Sent a batch of 10 messages")
+
+servicebus_client = ServiceBusClient.from_connection_string(conn_str=CONNECTION_STR, logging_enable=True)
+
+with servicebus_client:
+    sender = servicebus_client.get_topic_sender(topic_name=TOPIC_NAME)
+    with sender:
+        send_single_message(sender)
+        send_a_list_of_messages(sender)
+        send_batch_message(sender)
+
+print("Done sending messages")
+print("-----------------------")
+
+with servicebus_client:
+    receiver = servicebus_client.get_subscription_receiver(topic_name=TOPIC_NAME, subscription_name=SUBSCRIPTION_NAME, max_wait_time=5)
+    with receiver:
+        for msg in receiver:
+            print("Received: " + str(msg))
+            receiver.complete_message(msg)
 ```
 
-A exclusão de um tópico exclui todas as assinaturas para o tópico. Você também pode excluir as assinaturas de forma independente. O código a seguir exclui a assinatura chamada `HighMessages` do tópico `mytopic`:
+## <a name="run-the-app"></a>Executar o aplicativo
+Ao executar o aplicativo, você verá a seguinte saída: 
 
-```python
-bus_service.delete_subscription('mytopic', 'HighMessages')
+```console
+Sent a single message
+Sent a list of 5 messages
+Sent a batch of 10 messages
+Done sending messages
+-----------------------
+Received: Single Message
+Received: Message in list
+Received: Message in list
+Received: Message in list
+Received: Message in list
+Received: Message in list
+Received: Message inside a ServiceBusMessageBatch
+Received: Message inside a ServiceBusMessageBatch
+Received: Message inside a ServiceBusMessageBatch
+Received: Message inside a ServiceBusMessageBatch
+Received: Message inside a ServiceBusMessageBatch
+Received: Message inside a ServiceBusMessageBatch
+Received: Message inside a ServiceBusMessageBatch
+Received: Message inside a ServiceBusMessageBatch
+Received: Message inside a ServiceBusMessageBatch
+Received: Message inside a ServiceBusMessageBatch
 ```
 
-Por padrão, os tópicos e as assinaturas são persistentes e existem até você excluí-los. Para excluir assinaturas automaticamente após um determinado período decorrido, você pode definir o parâmetro [auto_delete_on_idle](/python/api/azure-mgmt-servicebus/azure.mgmt.servicebus.models.sbsubscription?view=azure-python) na assinatura. 
+No portal do Azure, acesse o namespace do Barramento de Serviço. Na página **Visão geral**, confirme se as contagens de mensagens de **entrada** e **saída** são 16. Se as contagens não forem exibidas, atualize a página depois de aguardar alguns minutos. 
 
-> [!TIP]
-> É possível gerenciar os recursos do Barramento de Serviço com o [Gerenciador de Barramento de Serviço](https://github.com/paolosalvatori/ServiceBusExplorer/). O Gerenciador de Barramento de Serviço permite que você se conecte a um namespace do Barramento de Serviço e administre facilmente as entidades de mensagens. A ferramenta fornece recursos avançados, como a funcionalidade de importação/exportação e a capacidade de testar tópicos, filas, assinaturas, serviços de retransmissão, hubs de notificação e hubs de eventos. 
+:::image type="content" source="./media/service-bus-python-how-to-use-queues/overview-incoming-outgoing-messages.png" alt-text="Contagem de mensagens de entrada e saída":::
+
+Selecione o tópico no painel inferior para ver a página **Tópico do Barramento de Serviço** do tópico. Nessa página, você verá três mensagens de entrada e três mensagens de saída no gráfico **Mensagens**. 
+
+:::image type="content" source="./media/service-bus-python-how-to-use-topics-subscriptions/topic-page-portal.png" alt-text="Mensagens de entrada e saída":::
+
+Nessa página, se você selecionar uma assinatura, chegará à página **Assinatura do Barramento de Serviço**. Você poderá ver a contagem de mensagens ativas, a contagem de mensagens mortas, entre outros nessa página. Neste exemplo, todas as mensagens foram recebidas e, portanto, a contagem de mensagens ativas é zero. 
+
+:::image type="content" source="./media/service-bus-python-how-to-use-topics-subscriptions/active-message-count.png" alt-text="Contagem de mensagens ativas":::
+
+Se você comentar o código de recebimento, verá a contagem de mensagens ativas como 16. 
+
+:::image type="content" source="./media/service-bus-python-how-to-use-topics-subscriptions/active-message-count-2.png" alt-text="Contagem de mensagens ativas – sem recebimento":::
 
 ## <a name="next-steps"></a>Próximas etapas
+Confira os seguintes exemplos e a documentação: 
 
-Agora que você já sabe os princípios dos tópicos do Barramento de Serviço, acesse estes links para saber mais:
-
-* [Filas, tópicos e assinaturas][Queues, topics, and subscriptions]
-* Referência de [SqlFilter.SqlExpression][SqlFilter.SqlExpression]
-
-[Azure portal]: https://portal.azure.com
-[Azure Python package]: https://pypi.python.org/pypi/azure
-[Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
-[SqlFilter.SqlExpression]: service-bus-messaging-sql-filter.md
-[Service Bus quotas]: service-bus-quotas.md
+- [Biblioteca de clientes do Barramento de Serviço do Azure para Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/servicebus/azure-servicebus)
+- [Exemplos](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/servicebus/azure-servicebus/samples). 
+    - A pasta **sync_samples** traz exemplos que mostram como interagir com o Barramento de Serviço de maneira síncrona. Neste guia de início rápido, você usou esse método. 
+    - A pasta **async_samples** traz exemplos que mostram como interagir com o Barramento de Serviço de maneira assíncrona. 
+- [Documentação de referência de azure-servicebus](/python/api/azure-servicebus/azure.servicebus?preserve-view=true)

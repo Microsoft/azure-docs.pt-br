@@ -1,16 +1,14 @@
 ---
 title: Especificar variáveis de ambiente para serviços
 description: Mostra como usar variáveis de ambiente para aplicativos no Service Fabric
-author: mikkelhegn
 ms.topic: conceptual
 ms.date: 12/06/2017
-ms.author: mikhegn
-ms.openlocfilehash: f4c4f2a1c140e3d0f181c4fd55482056f9f91b62
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 610e44ac98b8b8a2ce5a91fdbcfda145ae36a94b
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75614308"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576733"
 ---
 # <a name="how-to-specify-environment-variables-for-services-in-service-fabric"></a>Como especificar variáveis de ambiente para serviços no Service Fabric
 

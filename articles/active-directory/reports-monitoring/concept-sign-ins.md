@@ -17,12 +17,12 @@ ms.date: 03/24/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6440e71eade32bfea4ed19448fd2f2007b519cc8
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: d61962667953b20f4b542874e902411bb579b9c3
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816075"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93122836"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Relatórios de atividades de entrada no portal do Azure Active Directory
 
@@ -31,9 +31,10 @@ A arquitetura de relatórios no Azure AD (Azure Active Directory) consiste nos s
 - **Atividade** 
     - **Entradas** – Informações sobre o uso de aplicativos gerenciados e atividades de entrada do usuário.
     - **Logs**  -  de auditoria [Os logs de auditoria](concept-audit-logs.md) fornecem informações de atividade do sistema sobre gerenciamento de usuários e de grupos, aplicativos gerenciados e atividades de diretório.
+    - **Logs**  -  de provisionamento Os [logs de provisionamento](./concept-provisioning-logs.md) permitem que os clientes monitorem a atividade pelo serviço de provisionamento, como a criação de um grupo no ServiceNow ou um usuário importado do workday. 
 - **Segurança** 
-    - **Entradas arriscadas** -uma [entrada arriscada](concept-risky-sign-ins.md) é um indicador para uma tentativa de entrada por alguém que não seja o proprietário legítimo de uma conta de usuário.
-    - **Usuários sinalizados para risco** – um [usuário arriscado](concept-user-at-risk.md) é um indicador para uma conta de usuário que pode ter sido comprometida.
+    - **Entradas arriscadas** -uma [entrada arriscada](../identity-protection/overview-identity-protection.md) é um indicador para uma tentativa de entrada por alguém que não seja o proprietário legítimo de uma conta de usuário.
+    - **Usuários sinalizados para risco** – um [usuário arriscado](../identity-protection/overview-identity-protection.md) é um indicador para uma conta de usuário que pode ter sido comprometida.
 
 Este artigo fornece uma visão geral do relatório de entradas.
 
@@ -57,13 +58,13 @@ O relatório de entradas de usuário fornece respostas para as seguintes pergunt
 * Quantos usuários entraram em uma semana?
 * Qual é o status dessas entradas?
 
-No menu [portal do Azure](https://portal.azure.com) , selecione **Azure Active Directory**ou pesquise e selecione **Azure Active Directory** em qualquer página.
+No menu [portal do Azure](https://portal.azure.com) , selecione **Azure Active Directory** ou pesquise e selecione **Azure Active Directory** em qualquer página.
 
 ![Selecione Azure Active Directory](./media/concept-sign-ins/select-azure-active-directory.png "Azure Active Directory")
 
-Em **monitoramento**, selecione **entradas** para abrir o relatório de [entradas](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns).
+Em **monitoramento** , selecione **entradas** para abrir o relatório de [entradas](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns).
 
-![Atividade de entrada](./media/concept-sign-ins/monitoring-sign-ins-in-azure-active-directory.png "Atividade de entrada")
+![A captura de tela mostra as entradas selecionadas no menu monitoramento.](./media/concept-sign-ins/monitoring-sign-ins-in-azure-active-directory.png "Atividade de entrada")
 
 Pode levar até duas horas para que alguns registros de entrada sejam exibidos no Portal.
 
@@ -79,19 +80,19 @@ Um log de entradas tem um modo de exibição de lista padrão que mostra:
 - O status da detecção de riscos
 - O status do requisito de MFA (autenticação multifator)
 
-![Atividade de entrada](./media/concept-sign-ins/sign-in-activity.png "Atividade de entrada")
+![Captura de tela mostra as entradas do Office 365 SharePoint Online.](./media/concept-sign-ins/sign-in-activity.png "Atividade de entrada")
 
 Você pode personalizar o modo de exibição de lista clicando em **colunas** na barra de ferramentas.
 
-![Atividade de entrada](./media/concept-sign-ins/19.png "Atividade de entrada")
+![Captura de tela mostra a opção colunas na página de entradas.](./media/concept-sign-ins/19.png "Atividade de entrada")
 
 A caixa de diálogo **colunas** fornece acesso aos atributos selecionáveis. Em um relatório de entrada, você não pode ter campos que tenham mais de um valor para uma determinada solicitação de entrada como coluna. Isso é, por exemplo, verdadeiro para detalhes de autenticação, dados de acesso condicional e local de rede.   
 
-![Atividade de entrada](./media/concept-sign-ins/columns.png "Atividade de entrada")
+![Captura de tela mostra a caixa de diálogo colunas onde você pode selecionar atributos.](./media/concept-sign-ins/columns.png "Atividade de entrada")
 
 Selecione um item na exibição de lista para obter informações mais detalhadas.
 
-![Atividade de entrada](./media/concept-sign-ins/basic-sign-in.png "Atividade de entrada")
+![Captura de tela mostra uma exibição de informações detalhadas.](./media/concept-sign-ins/basic-sign-in.png "Atividade de entrada")
 
 > [!NOTE]
 > Agora, os clientes podem solucionar problemas de políticas de acesso condicional por meio de todos os relatórios de entrada. Ao clicar na guia **acesso condicional** para um registro de entrada, os clientes podem examinar o status de acesso condicional e aprofundar-se nos detalhes das políticas que foram aplicadas à entrada e ao resultado de cada política.
@@ -103,7 +104,7 @@ Selecione um item na exibição de lista para obter informações mais detalhada
 
 Primeiro, restringir os dados relatados a um nível que funciona para você. Em segundo lugar, filtre os dados de entrada usando o campo de data como filtro padrão. O Azure AD oferece uma ampla variedade de filtros adicionais que você pode definir:
 
-![Atividade de entrada](./media/concept-sign-ins/04.png "Atividade de entrada")
+![Captura de tela mostra a opção Adicionar filtros.](./media/concept-sign-ins/04.png "Atividade de entrada")
 
 **ID da solicitação** -a ID da solicitação sobre a qual você se preocupa.
 
@@ -142,18 +143,18 @@ O **local** -o local do qual a conexão foi iniciada:
 ![Filtro de aplicativo cliente](./media/concept-sign-ins/client-app-filter.png)
 
 
-|Nome|Autenticação moderna|Descrição|
+|Name|Autenticação moderna|Descrição|
 |---|:-:|---|
 |SMTP autenticado| |Usado pelo cliente POP e IMAP para enviar mensagens de email.|
 |Descoberta automática| |Usado pelos clientes do Outlook e do EAS para localizar e conectar-se às caixas de correio no Exchange Online.|
 |Exchange ActiveSync| |Esse filtro mostra todas as tentativas de entrada nas quais o protocolo EAS foi tentado.|
-|Navegador|![Verificação](./media/concept-sign-ins/check.png)|Mostra todas as tentativas de entrada de usuários usando navegadores da Web|
-|Exchange ActiveSync| | Mostra todas as tentativas de entrada de usuários com aplicativos cliente usando o Exchange ActiceSync para se conectar ao Exchange Online|
-|PowerShell do Exchange Online| |Usado para se conectar ao Exchange Online com o PowerShell remoto. Se você bloquear a autenticação básica para o Exchange Online PowerShell, será necessário usar o módulo do PowerShell do Exchange Online para se conectar. Para obter instruções, confira [Conectar ao Exchange Online PowerShell usando a autenticação multifator](https://docs.microsoft.com/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell).|
+|Navegador|![Marca de seleção azul.](./media/concept-sign-ins/check.png)|Mostra todas as tentativas de entrada de usuários usando navegadores da Web|
+|Exchange ActiveSync| | Mostra todas as tentativas de entrada de usuários com aplicativos cliente usando o Exchange ActiveSync para se conectar ao Exchange Online|
+|PowerShell do Exchange Online| |Usado para se conectar ao Exchange Online com o PowerShell remoto. Se você bloquear a autenticação básica para o Exchange Online PowerShell, será necessário usar o módulo do PowerShell do Exchange Online para se conectar. Para obter instruções, confira [Conectar ao Exchange Online PowerShell usando a autenticação multifator](/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell).|
 |Serviços Web do Exchange| |Uma interface de programação usada pelo Outlook, pelo Outlook para Mac e por aplicativos de terceiros.|
 |IMAP4| |Um cliente de email herdado usando IMAP para recuperar email.|
 |MAPI sobre HTTP| |Usado pelo Outlook 2010 e posterior.|
-|Aplicativos móveis e clientes de desktop|![Verificação](./media/concept-sign-ins/check.png)|Mostra todas as tentativas de entrada de usuários que usam aplicativos móveis e clientes de desktop.|
+|Aplicativos móveis e clientes de desktop|![Marca de seleção azul.](./media/concept-sign-ins/check.png)|Mostra todas as tentativas de entrada de usuários que usam aplicativos móveis e clientes de desktop.|
 |Catálogo de endereços offline| |Uma cópia de coleções de listas de endereços que são baixadas e usadas pelo Outlook.|
 |Outlook Anywhere (RPC sobre HTTP)| |Usado pelo Outlook 2016 e anterior.|
 |Serviço do Outlook| |Usado pelo aplicativo de email e calendário para Windows 10.|
@@ -176,11 +177,11 @@ O **local** -o local do qual a conexão foi iniciada:
 
 **Acesso condicional** -o status das regras de acesso condicional aplicadas
 
-- **Não aplicado**: nenhuma política aplicada ao usuário e ao aplicativo durante a entrada.
+- **Não aplicado** : nenhuma política aplicada ao usuário e ao aplicativo durante a entrada.
 
-- **Êxito**: uma ou mais políticas de acesso condicional aplicadas ao usuário e ao aplicativo (mas não necessariamente às outras condições) durante a entrada. 
+- **Êxito** : uma ou mais políticas de acesso condicional aplicadas ao usuário e ao aplicativo (mas não necessariamente às outras condições) durante a entrada. 
 
-- **Falha**: a entrada satisfez a condição de usuário e aplicativo de pelo menos uma política de acesso condicional e os controles de concessão não são atendidos ou definidos para bloquear o acesso.
+- **Falha** : a entrada satisfez a condição de usuário e aplicativo de pelo menos uma política de acesso condicional e os controles de concessão não são atendidos ou definidos para bloquear o acesso.
 
 
 
@@ -213,7 +214,7 @@ O Azure AD e o portal do Azure fornecem pontos de entrada adicionais para os dad
 
 O grafo de entrada do usuário na página Visão geral da **proteção de segurança de identidade** mostra as agregações semanais de entradas. O padrão para o período de tempo é de 30 dias.
 
-![Atividade de entrada](./media/concept-sign-ins/06.png "Atividade de entrada")
+![Captura de tela mostra um grafo de entradas em um mês.](./media/concept-sign-ins/06.png "Atividade de entrada")
 
 Quando você clica em um dia no gráfico de entradas, obtém uma lista detalhada das atividades de entrada do dia.
 
@@ -226,13 +227,13 @@ Cada linha na lista de atividades de entrada mostra:
 
 Ao clicar em um item, você verá mais detalhes sobre a operação de entrada:
 
-- Id de Usuário
+- ID do Usuário
 - Usuário
 - Nome de Usuário
 - ID do aplicativo
 - Aplicativo
 - Cliente
-- Location
+- Localização
 - Endereço IP
 - Data
 - MFA obrigatório
@@ -241,9 +242,9 @@ Ao clicar em um item, você verá mais detalhes sobre a operação de entrada:
 > [!NOTE]
 > Os endereços IP são emitidos de uma forma que não há nenhuma conexão definitiva entre um endereço IP e em que o computador com esse endereço está localizado fisicamente. O mapeamento de endereços IP é dificultado pelo fato de que os provedores móveis e VPNs emitem endereços IP de pools centrais que geralmente estão muito longe de onde o dispositivo cliente realmente é usado. Atualmente, nos relatórios do Azure AD, a conversão do endereço IP em um local físico é um melhor esforço com base em rastreamentos, dados de registro, pesquisas inversas e outras informações.
 
-Na página **Usuários**, você obtém uma visão geral completa de todas as entradas do usuário clicando em **Entradas** na seção **Atividade**.
+Na página **Usuários** , você obtém uma visão geral completa de todas as entradas do usuário clicando em **Entradas** na seção **Atividade** .
 
-![Atividade de entrada](./media/concept-sign-ins/08.png "Atividade de entrada")
+![Captura de tela mostra a seção atividade em que você pode selecionar entradas.](./media/concept-sign-ins/08.png "Atividade de entrada")
 
 ## <a name="usage-of-managed-applications"></a>Uso de aplicativos gerenciados
 
@@ -253,13 +254,13 @@ Com uma exibição centrada no aplicativo de seus dados de entrada, você pode r
 * Quais são os três principais aplicativos em sua organização?
 * Como está o meu aplicativo mais recente?
 
-O ponto de entrada para esses dados são os três principais aplicativos em sua organização. Os dados estão contidos no relatório últimos 30 dias na seção **visão geral** em **aplicativos empresariais**.
+O ponto de entrada para esses dados são os três principais aplicativos em sua organização. Os dados estão contidos no relatório últimos 30 dias na seção **visão geral** em **aplicativos empresariais** .
 
-![Atividade de entrada](./media/concept-sign-ins/10.png "Atividade de entrada")
+![Captura de tela mostra onde você pode selecionar visão geral.](./media/concept-sign-ins/10.png "Atividade de entrada")
 
 Os gráficos de uso de aplicativo geram agregações semanais de entradas para os três principais aplicativos em um determinado período de tempo. O padrão para o período é de 30 dias.
 
-![Atividade de entrada](./media/concept-sign-ins/graph-chart.png "Atividade de entrada")
+![Captura de tela mostra o uso do aplicativo por um período de um mês.](./media/concept-sign-ins/graph-chart.png "Atividade de entrada")
 
 Se desejar, você pode definir o foco em um aplicativo específico.
 
@@ -269,15 +270,14 @@ Quando você clica em um dia no grafo de uso do aplicativo, pode obter uma lista
 
 A opção **Entradas** oferece uma visão geral completa de todos os eventos de entrada para seus aplicativos.
 
-## <a name="office-365-activity-logs"></a>Logs de atividade do Office 365
+## <a name="microsoft-365-activity-logs"></a>Logs de atividades Microsoft 365
 
-Você pode exibir os logs de atividade do Office 365 no [centro de administração do Microsoft 365](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center). Considere o ponto que, a atividade do Office 365 e os logs de atividade do Azure AD compartilham um número significativo de recursos de diretório. Somente o centro de administração Microsoft 365 fornece uma visão completa dos logs de atividades do Office 365. 
+Você pode exibir Microsoft 365 logs de atividades do [centro de administração do Microsoft 365](/office365/admin/admin-overview/about-the-admin-center). Considere o ponto que, Microsoft 365 atividade e os logs de atividade do Azure AD compartilham um número significativo de recursos de diretório. Somente o centro de administração do Microsoft 365 fornece uma exibição completa dos logs de atividade do Microsoft 365. 
 
-Você também pode acessar os logs de atividade do Office 365 programaticamente usando as [APIs de gerenciamento do office 365](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview).
+Você também pode acessar os logs de atividades de Microsoft 365 programaticamente usando as [APIs de gerenciamento do Office 365](/office/office-365-management-api/office-365-management-apis-overview).
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Códigos de erro do relatório de atividade de entrada](reference-sign-ins-error-codes.md)
 * [Políticas de retenção de dados do Azure AD](reference-reports-data-retention.md)
 * [Latências do relatório do Azure AD](reference-reports-latencies.md)
-

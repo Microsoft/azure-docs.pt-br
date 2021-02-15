@@ -1,30 +1,35 @@
 ---
 title: Colabore com outras pessoas – QnA Maker
-description: ''
+description: Saiba como colaborar com outros autores e editores usando o controle de acesso baseado em função do Azure.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 05/15/2020
-ms.openlocfilehash: 080e6549579675e27486e6173d5907d92bbaad70
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: c411250f7d850e56c9c54c27e888cba8f3acfece
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83724914"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100522199"
 ---
 # <a name="collaborate-with-other-authors-and-editors"></a>Colabore com outros autores e editores
 
-Colabore com outros autores e editores usando o RBAC (controle de acesso baseado em função) colocado em seu recurso de QnA Maker.
+Colabore com outros autores e editores usando o Azure RBAC (controle de acesso baseado em função) colocado em seu recurso de QnA Maker.
 
 ## <a name="access-is-provided-on-the-qna-maker-resource"></a>O acesso é fornecido no recurso de QnA Maker
 
 Todas as permissões são controladas pelas permissões colocadas no recurso de QnA Maker. Essas permissões se alinham a leitura, gravação, publicação e acesso completo.
 
-Esse recurso de RBAC inclui:
-* Azure Active Directory (AAD) é 100% compatível com versões anteriores com autenticação baseada em chave para proprietários e colaboradores. Os clientes podem usar a autenticação baseada em chave ou a autenticação baseada em RBAC em suas solicitações.
+Esse recurso do RBAC do Azure inclui:
+* Azure Active Directory (AAD) é 100% compatível com versões anteriores com autenticação baseada em chave para proprietários e colaboradores. Os clientes podem usar a autenticação baseada em chave ou a autenticação baseada no RBAC do Azure em suas solicitações.
 * Adicione rapidamente autores e editores a todas as bases de dados de conhecimento no recurso porque o controle está no nível de recurso, não no nível da base de dados de conhecimento.
+
+> [!NOTE]
+> Certifique-se de adicionar um subdomínio personalizado para o recurso. O [subdomínio personalizado](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains) deve estar presente por padrão, mas, se não estiver, adicione-o
 
 ## <a name="access-is-provided-by-a-defined-role"></a>O acesso é fornecido por uma função definida
 
-[!INCLUDE [RBAC permissions table](../includes/role-based-access-control.md)]
+[!INCLUDE [Azure RBAC permissions table](../includes/role-based-access-control.md)]
 
 ## <a name="authentication-flow"></a>Fluxo de autenticação
 
@@ -40,11 +45,11 @@ O diagrama a seguir mostra o fluxo, da perspectiva do autor, para entrar no port
 |3|API de QnA Maker valida o token.|
 |4 |API de QnA Maker chama o serviço QnAMaker.|
 
-Se você pretende chamar as [APIs de criação](../How-To/collaborate-knowledge-base.md), saiba mais sobre como configurar a autenticação.
+Se você pretende chamar as [APIs de criação](../index.yml), saiba mais sobre como configurar a autenticação.
 
 ## <a name="authenticate-by-qna-maker-portal"></a>Autenticar pelo portal de QnA Maker
 
-Se você criar e colaborar usando o portal de QnA Maker, depois de [Adicionar a função apropriada ao recurso para um colaborador](../How-To/collaborate-knowledge-base.md), o portal de QnA Maker gerenciará todas as permissões de acesso.
+Se você criar e colaborar usando o portal de QnA Maker, depois de adicionar a função apropriada ao recurso para um colaborador, o portal de QnA Maker gerenciará todas as permissões de acesso.
 
 ## <a name="authenticate-by-qna-maker-apis-and-sdks"></a>Autenticar por QnA Maker APIs e SDKs
 
@@ -52,4 +57,4 @@ Se você criar e colaborar usando as APIs, seja por REST ou pelos SDKs, será ne
 
 ## <a name="next-step"></a>Próxima etapa
 
-* Criar uma base de dados de conhecimento para [linguagens](design-language-culture.md) e para [aplicativos cliente](integration-with-other-applications.md)
+* Criar uma base de dados de conhecimento para linguagens e para aplicativos cliente

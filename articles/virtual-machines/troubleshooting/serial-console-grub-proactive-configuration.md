@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/10/2019
 ms.author: mimckitt
-ms.openlocfilehash: c48ef0321ece2e7e0ffcdfcb8c0907c5f839e738
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: aba47500400004c1d6a7044a266bad6f20d5d9c9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87831355"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91360541"
 ---
 # <a name="proactively-ensuring-you-have-access-to-grub-and-sysrq-could-save-you-lots-of-down-time"></a>Garantir de maneira proativa que você tenha acesso ao GRUB e ao SysRq pode economizar muito tempo de inatividade
 
@@ -210,11 +210,11 @@ Interrompa o processo de inicialização e acessar o menu do GRUB.
 
 Selecione opções avançadas para Ubuntu e pressione Enter.
 
-![ubunturec1](./media/virtual-machines-serial-console/ubunturec1.png)
+![Captura de tela mostra o Console serial com opções avançadas para Ubuntu selecionado.](./media/virtual-machines-serial-console/ubunturec1.png)
 
 Selecione a linha que exibe *(modo de recuperação)* e não pressione Enter, mas "e".
 
-![ubunturec2](./media/virtual-machines-serial-console/ubunturec2.png)
+![Captura de tela mostra a Console serial com uma versão do modo de recuperação selecionada.](./media/virtual-machines-serial-console/ubunturec2.png)
 
 Localize a linha que carregará o kernel e substitua o último parâmetro **nomodeset** com destino como **console = ttyS0**.
 
@@ -226,12 +226,12 @@ change to
 linux /boot/vmlinuz-4.15.0-1023-azure root=UUID=21b294f1-25bd-4265-9c4e-d6e4aeb57e97 ro recovery console=ttyS0
 ```
 
-![ubunturec3](./media/virtual-machines-serial-console/ubunturec3.png)
+![Captura de tela mostra a Console serial com o valor alterado.](./media/virtual-machines-serial-console/ubunturec3.png)
 
 Pressione **Ctrl-x** para iniciar e carregar o kernel.
 Se tudo correr bem, você verá essas opções adicionais, que podem ajudar a executar outras opções de recuperação.
 
-![ubunturec4](./media/virtual-machines-serial-console/ubunturec4.png)
+![Captura de tela mostra a Console serial no menu recuperação, que oferece opções de recuperação adicionais.](./media/virtual-machines-serial-console/ubunturec4.png)
 
 
 ## <a name="red-hat-grub-configuration"></a>Configuração do GRUB para Red Hat
@@ -337,11 +337,11 @@ terminal --timeout=5 serial console
 
 A última linha *terminal – timeout = 5 serial console* aumentará o tempo limite do **GRUB** adicionando um prompt de cinco segundos que exibe **Pressione qualquer tecla para continuar.**
 
-![rh6-1](./media/virtual-machines-serial-console/rh6-1.png)
+![Captura de tela mostra um console com saída.](./media/virtual-machines-serial-console/rh6-1.png)
 
 O menu GRUB deve aparecer na tela para o tempo limite configurado = 15 sem a necessidade de pressionar Esc. Certifique-se de clicar no console no navegador para ativar o menu e selecionar o kernel necessário.
 
-![rh6-2](./media/virtual-machines-serial-console/rh6-2.png)
+![Captura de tela mostra um console com duas opções do Linux.](./media/virtual-machines-serial-console/rh6-2.png)
 
 ## <a name="suse"></a>SuSE
 
@@ -405,18 +405,18 @@ Você poderá acessar um shell sem precisar inserir uma senha. Proceda para atua
 O acesso ao GRUB permite interromper o processo de inicialização. Essa interação é útil para muitos procedimentos de recuperação.
 Caso não tenha a senha raiz e o usuário único exigir que você tenha uma, é possível inicializar o kernel substituindo o programa init por um prompt de bash. Essa interrupção pode ser obtida acrescentando init=/bin/bash à linha de inicialização do kernel.
 
-![bash1](./media/virtual-machines-serial-console/bash1.png)
+![Captura de tela mostra um console com a linha de inicialização atualizada.](./media/virtual-machines-serial-console/bash1.png)
 
 Remonte o sistema de arquivos /(raiz) RW usando o comando:
 
 `mount -o remount,rw /`
 
-![bash2](./media/virtual-machines-serial-console/bash2.png)
+![Captura de tela mostra um console com uma ação de remontagem.](./media/virtual-machines-serial-console/bash2.png)
 
 
 Agora você pode alterar a senha raiz ou fazer muitas outras alterações de configuração do Linux.
 
-![bash3](./media/virtual-machines-serial-console/bash3.png)
+![Captura de tela mostra um console em que você pode alterar a senha raiz e outras configurações.](./media/virtual-machines-serial-console/bash3.png)
 
 Reinicie a VM com: 
 

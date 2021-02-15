@@ -31,7 +31,7 @@
         - name: O que é o Azure AD Connect e Connect Health?
           href: whatis-azure-ad-connect.md
         - name: Escolha a autenticação correta
-          href: 'https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn'
+          href: ./choose-ad-authn.md
         - name: Sincronização de identidades e resiliência do atributo duplicado
           href: how-to-connect-syncservice-duplicate-attribute-resiliency.md
     - name: Sincronização de hash de senha
@@ -132,6 +132,8 @@
           href: how-to-connect-install-existing-tenant.md
         - name: Tarefas pós-instalação
           href: how-to-connect-post-installation.md
+        - name: Desinstalar o Azure AD Connect
+          href: how-to-connect-uninstall.md
     - name: Planejar e projetar
       items:
         - name: Conceitos de design
@@ -262,6 +264,8 @@
           href: how-to-connect-health-diagnose-sync-errors.md
         - name: Catálogo de alertas do Azure AD Connect Health
           href: how-to-connect-health-alert-catalog.md
+        - name: Recuperação de dados do Azure AD Connect Health
+          href: how-to-connect-health-data-retrieval.md
     - name: Gerenciar a sincronização do Azure AD Connect
       items:
         - name: Servidor de preparo e recuperação de desastre
@@ -339,7 +343,7 @@
     - name: Histórico de versões do agente da autenticação de passagem do Azure AD
       href: reference-connect-pta-version-history.md
     - name: Histórico de versões do conector
-      href: reference-connect-sync-connector-version-history.md
+      href: /microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-version-history
     - name: Contas e permissões
       href: reference-connect-accounts-permissions.md
     - name: Perguntas frequentes do Azure AD Connect

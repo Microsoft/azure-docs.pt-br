@@ -3,18 +3,21 @@ title: TRUNCAr na linguagem de consulta Azure Cosmos DB
 description: Saiba mais sobre a função de sistema SQL TRUNC no Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 8bad33f593bae2679c83d59ae4567dcab4a64809
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cc6370e9183f897edb65ceb129cd7600729a85aa
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78304218"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341509"
 ---
 # <a name="trunc-azure-cosmos-db"></a>TRUNC (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Retorna um valor numérico, truncado para o valor inteiro mais próximo.  
   
 ## <a name="syntax"></a>Sintaxe

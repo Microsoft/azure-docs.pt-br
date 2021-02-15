@@ -4,12 +4,12 @@ description: Este artigo resume algumas das principais uma visão geral da API d
 ms.topic: article
 ms.custom: devx-track-csharp
 ms.date: 06/23/2020
-ms.openlocfilehash: 44d5800c08b49118e99a678e31d02e5b7a1f550c
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 724fb1a62b82036b4a0fa8b9f4f3608293f608a9
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935663"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98625124"
 ---
 # <a name="azure-relay-hybrid-connections-net-standard-api-overview"></a>Visão geral da API .NET Standard de Conexões Híbridas de Retransmissão do Azure
 
@@ -83,7 +83,7 @@ var hybridConnectionStream = await client.CreateConnectionAsync();
 
 ### <a name="receiving-data"></a>Recebendo dados
 
-A classe [HybridConnectionStream][HCStream] permite comunicação bidirecional. Na maioria dos casos de uso, você recebe continuamente do fluxo. Se estiver lendo o texto do fluxo, recomendamos usar um objeto [StreamReader](/dotnet/api/system.io.streamreader?view=netcore-3.1), que permite uma análise mais fácil dos dados. Por exemplo, você pode ler os dados como texto em vez de como `byte[]`.
+A classe [HybridConnectionStream][HCStream] permite comunicação bidirecional. Na maioria dos casos de uso, você recebe continuamente do fluxo. Se estiver lendo o texto do fluxo, recomendamos usar um objeto [StreamReader](/dotnet/api/system.io.streamreader), que permite uma análise mais fácil dos dados. Por exemplo, você pode ler os dados como texto em vez de como `byte[]`.
 
 O código a seguir lê linhas de texto individuais do fluxo até que um cancelamento seja solicitado:
 
@@ -110,14 +110,14 @@ while (!cancellationToken.IsCancellationRequested)
 
 ### <a name="sending-data"></a>Enviar dados
 
-Quando você tiver uma conexão estabelecida, você poderá enviar uma mensagem para o ponto de extremidade de Retransmissão. Já que o objeto de conexão herda o [Fluxo](/dotnet/api/system.io.stream?view=netcore-3.1), envie os dados como um `byte[]`. O exemplo a seguir mostra como fazer isso:
+Quando você tiver uma conexão estabelecida, você poderá enviar uma mensagem para o ponto de extremidade de Retransmissão. Já que o objeto de conexão herda o [Fluxo](/dotnet/api/system.io.stream), envie os dados como um `byte[]`. O exemplo a seguir mostra como fazer isso:
 
 ```csharp
 var data = Encoding.UTF8.GetBytes("hello");
 await clientConnection.WriteAsync(data, 0, data.Length);
 ```
 
-No entanto, se você deseja enviar texto diretamente, sem a necessidade de codificar a cadeia de caracteres a cada vez, você pode encapsular o objeto `hybridConnectionStream` com um objeto [StreamWriter](/dotnet/api/system.io.streamwriter?view=netcore-3.1).
+No entanto, se você deseja enviar texto diretamente, sem a necessidade de codificar a cadeia de caracteres a cada vez, você pode encapsular o objeto `hybridConnectionStream` com um objeto [StreamWriter](/dotnet/api/system.io.streamwriter).
 
 ```csharp
 // The StreamWriter object only needs to be created once

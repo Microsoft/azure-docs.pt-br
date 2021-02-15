@@ -5,14 +5,14 @@ services: dns
 author: rohinkoul
 ms.service: dns
 ms.topic: article
-ms.date: 6/15/2019
+ms.date: 01/11/2021
 ms.author: rohink
-ms.openlocfilehash: 76b19cfb3c00a26d81eab81f67d8e156a520f377
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cb14cb95ec1362782a634b0e62cfa2f8237a5852
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77121728"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98246375"
 ---
 # <a name="azure-dns-faq"></a>Perguntas frequentes do DNS do Azure
 
@@ -24,7 +24,7 @@ O Sistema de Nomes de Domínio (DNS) traduz ou resolve um nome de site ou servi�
 
 Domínios DNS no DNS do Azure estão hospedados na rede global do Azure de servidores de nomes DNS. Esse sistema usa a rede Anycast para que cada consulta DNS seja respondida pelo servidor DNS mais próximo disponível. O DNS do Azure fornece desempenho rápido e alta disponibilidade para seu domínio.
 
-O DNS do Azure é baseado no Azure Resource Manager. O DNS do Azure se beneficia dos recursos do Resource Manager, como controle de acesso baseado em função, logs de auditoria e bloqueio de recursos. Você pode gerenciar domínios e registros por meio do portal do Azure, dos cmdlets do Azure PowerShell e da CLI do Azure de plataforma cruzada. Os aplicativos que exigem gerenciamento automático de DNS podem se integrar ao serviço por meio da API REST e dos SDKs.
+O DNS do Azure é baseado no Azure Resource Manager. O Azure DNS beneficia-se dos recursos do Resource Manager, como o controle de acesso baseado em função do Azure, os logs de auditoria e o bloqueio de recursos. Você pode gerenciar domínios e registros por meio do portal do Azure, dos cmdlets do Azure PowerShell e da CLI do Azure de plataforma cruzada. Os aplicativos que exigem gerenciamento automático de DNS podem se integrar ao serviço por meio da API REST e dos SDKs.
 
 ### <a name="how-much-does-azure-dns-cost"></a>Quanto custa o DNS do Azure?
 
@@ -80,7 +80,7 @@ O recurso DNSSEC é rastreado no backlog de DNS do Azure. Use o site de feedback
 
 ### <a name="does-azure-dns-support-zone-transfers-axfrixfr"></a>O DNS do Azure dá suporte para transferências de zona (AXFR/IXFR)?
 
-Não. O DNS do Azure não suporta atualmente as transferências de zona. As zonas DNS podem ser [importadas para o DNS do Azure usando a CLI do Azure](dns-import-export.md). Os registros DNS são gerenciados por meio do [portal de gerenciamento do DNS do Azure](dns-operations-recordsets-portal.md), [API REST](https://docs.microsoft.com/powershell/module/az.dns), [SDK](dns-sdk.md), [cmdlets do PowerShell](dns-operations-recordsets.md) ou da [ferramenta CLI](dns-operations-recordsets-cli.md).
+Não. O DNS do Azure não suporta atualmente as transferências de zona. As zonas DNS podem ser [importadas para o DNS do Azure usando a CLI do Azure](dns-import-export.md). Os registros DNS são gerenciados por meio do [portal de gerenciamento do DNS do Azure](dns-operations-recordsets-portal.md), [API REST](/powershell/module/az.dns), [SDK](dns-sdk.md), [cmdlets do PowerShell](dns-operations-recordsets.md) ou da [ferramenta CLI](dns-operations-recordsets-cli.md).
 
 O recurso de transferência de zona é rastreado no backlog de DNS do Azure. Use o site de feedback para [registrar seu suporte para esse recurso](https://feedback.azure.com/forums/217313-networking/suggestions/12925503-extend-azure-dns-to-support-zone-transfers-so-it-c).
 
@@ -110,7 +110,7 @@ Consulte a seção de cenários na [visão geral dos registros de alias do DNS d
 
 Os conjuntos de registros de alias são suportados para os seguintes tipos de registro em uma zona DNS do Azure:
  
-- Um 
+- A 
 - AAAA
 - CNAME 
 
@@ -149,7 +149,7 @@ Sim. O DNS do Azure oferece suporte a domínios de co-hospedagem com outros serv
 
 Para configurar a hospedagem cooperativa, modifique os registros NS para o domínio para apontar para os servidores de nome de ambos os provedores. Os registros do servidor de nomes (NS) controlam quais provedores recebem consultas DNS para o domínio. Você pode modificar esses registros do NS no DNS do Azure, no outro provedor e na zona pai. A zona pai geralmente é configurada por meio do registrador de nomes de domínio. Para saber mais sobre delegação de DNS, veja [Delegação de domínio de DNS](dns-domain-delegation.md).
 
-Além disso, verifique se os registros DNS do domínio estão sincronizados entre os dois provedores de DNS. O DNS do Azure atualmente não oferece suporte a transferências de zona DNS. Os registros DNS devem ser sincronizados usando o [portal de gerenciamento do DNS do Azure](dns-operations-recordsets-portal.md), [API REST](https://docs.microsoft.com/rest/api/dns/), [SDK](dns-sdk.md), [cmdlets do PowerShell](dns-operations-recordsets.md) ou [Ferramenta CLI](dns-operations-recordsets-cli.md).
+Além disso, verifique se os registros DNS do domínio estão sincronizados entre os dois provedores de DNS. O DNS do Azure atualmente não oferece suporte a transferências de zona DNS. Os registros DNS devem ser sincronizados usando o [portal de gerenciamento do DNS do Azure](dns-operations-recordsets-portal.md), [API REST](/rest/api/dns/), [SDK](dns-sdk.md), [cmdlets do PowerShell](dns-operations-recordsets.md) ou [Ferramenta CLI](dns-operations-recordsets-cli.md).
 
 ### <a name="do-i-have-to-delegate-my-domain-to-all-four-azure-dns-name-servers"></a>Preciso delegar meu domínio para todos os quatro servidores de nome de DNS do Azure?
 
@@ -177,7 +177,7 @@ Alterações nos registros DNS existentes podem demorar um pouco mais. Eles gera
 
 ### <a name="how-can-i-protect-my-dns-zones-against-accidental-deletion"></a>Como posso proteger minhas zonas DNS contra exclusão acidental?
 
-O DNS do Azure é gerenciado usando o Azure Resource Manager. O DNS do Azure se beneficia dos recursos de controle de acesso fornecidos pelo Azure Resource Manager. O controle de acesso baseado em função controla quais usuários têm acesso de leitura ou gravação a zonas DNS e conjuntos de registros. Bloqueios de recursos impedem a modificação acidental ou a exclusão de zonas DNS e conjuntos de registros.
+O DNS do Azure é gerenciado usando o Azure Resource Manager. O DNS do Azure se beneficia dos recursos de controle de acesso fornecidos pelo Azure Resource Manager. O controle de acesso baseado em função do Azure pode ser usado para controlar quais usuários têm acesso de leitura ou de gravação a zonas DNS e conjuntos de registros. Bloqueios de recursos impedem a modificação acidental ou a exclusão de zonas DNS e conjuntos de registros.
 
 Para obter mais informações, consulte [Proteger zonas DNS e registros](dns-protect-zones-recordsets.md).
 

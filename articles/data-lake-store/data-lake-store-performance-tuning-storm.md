@@ -1,17 +1,17 @@
 ---
 title: Ajuste de desempenho – Storm com Azure Data Lake Storage Gen1
 description: Entenda os fatores que devem ser considerados ao ajustar o desempenho de uma topologia do Azure Storm, incluindo a solução de problemas comuns.
-author: stewu
+author: twooley
 ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 12/19/2016
-ms.author: stewu
-ms.openlocfilehash: 71207509f20c80cf85311cba7b647aaca0a49e42
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.author: twooley
+ms.openlocfilehash: 95619c75d332ec1bf68af97fc3dddbc67b6706ed
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192809"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97725030"
 ---
 # <a name="performance-tuning-guidance-for-storm-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Diretrizes para o Storm no HDInsight e Azure Data Lake armazenamento Gen1 de ajuste de desempenho
 
@@ -22,8 +22,8 @@ Entenda os fatores que devem ser considerados ao ajustar o desempenho de uma top
 * **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Uma conta do Azure Data Lake Storage Gen1**. Para obter instruções de como criar uma, confira [Introdução ao Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md).
 * **Um cluster Azure HDInsight** com acesso a uma conta do Data Lake armazenamento Gen1. Veja [Criar um cluster HDInsight com Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md). Certifique-se de habilitar a área de trabalho remota para o cluster.
-* **Executando um cluster do Storm no Data Lake armazenamento Gen1**. Para obter mais informações, consulte [Storm no HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-overview).
-* **Diretrizes de ajuste de desempenho no Data Lake Storage Gen1**.  Para ver os conceitos gerais de desempenho, consulte [diretrizes de ajuste Data Lake armazenamento Gen1 desempenho](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance).  
+* **Executando um cluster do Storm no Data Lake armazenamento Gen1**. Para obter mais informações, consulte [Storm no HDInsight](../hdinsight/storm/apache-storm-overview.md).
+* **Diretrizes de ajuste de desempenho no Data Lake Storage Gen1**.  Para ver os conceitos gerais de desempenho, consulte [diretrizes de ajuste Data Lake armazenamento Gen1 desempenho](./data-lake-store-performance-tuning-guidance.md).  
 
 ## <a name="tune-the-parallelism-of-the-topology"></a>Ajuste do paralelismo da topologia
 
@@ -89,7 +89,7 @@ Em topologias com uso intensivo de E/S, é recomendável fazer com que cada thre
 
 No Storm, um spout permanece com uma tupla até que ela seja explicitamente confirmada pelo bolt. Se uma tupla tiver sido lida pelo parafuso, mas ainda não tiver sido confirmada, o bico pode não ter persistido no back end do Data Lake Storage Gen1. Após a confirmação da tupla, o spout pode ter sua persistência garantida pelo bolt e, em seguida, pode excluir os dados de origem de qualquer fonte da qual esteja lendo.  
 
-Para melhor desempenho no Data Lake armazenamento Gen1, ter o bolt do buffer de 4 MB de dados de tupla. Em seguida, grave no back-end de Data Lake Storage Gen1 como uma gravação de 4 MB. Depois que os dados tiverem sido gravados com êxito no repositório (chamando hflush()), o bolt poderá confirmar os dados de volta para o spout. É isso que o bolt de exemplo fornecido aqui faz. Também é aceitável manter um número maior de tuplas antes de fazer a chamada de hflush() e confirmar as tuplas. No entanto, isso aumenta o número de tuplas em voo que o spout precisa armazenar e, portanto, aumenta a quantidade de memória exigida por JVM.
+Para melhor desempenho no Data Lake armazenamento Gen1, ter o bolt do buffer de 4 MB de dados de tupla. Em seguida, grave no back-end de Data Lake Storage Gen1 como 1 4 MB de gravação. Depois que os dados tiverem sido gravados com êxito no repositório (chamando hflush()), o bolt poderá confirmar os dados de volta para o spout. É isso que o bolt de exemplo fornecido aqui faz. Também é aceitável manter um número maior de tuplas antes de fazer a chamada de hflush() e confirmar as tuplas. No entanto, isso aumenta o número de tuplas em voo que o spout precisa armazenar e, portanto, aumenta a quantidade de memória exigida por JVM.
 
 > [!NOTE]
 > Determinados aplicativos podem ter um requisito de confirmar tuplas com maior frequência (em tamanhos de dados menores que 4 MB), por motivos não relacionados a desempenho. No entanto, isso pode afetar a taxa de transferência de E/S para o back-end de armazenamento. Avalie com cuidado essa compensação em relação ao desempenho de E/S do bolt.
@@ -126,10 +126,10 @@ Se você atingir os limites de largura de banda fornecidos pelo Data Lake armaze
 
 Para verificar se há problemas de limitação, habilite o log de depuração no lado do cliente:
 
-1. Em **Ambari**  >  **Storm**  >  **config**  >  **avançado Storm-Worker-Log4J**, altere ** &lt; raiz Level = "info" &gt; ** para ** &lt; root Level = "debug" &gt; **. Reinicie todos os nós/serviços para que a configuração entre em vigor.
+1. Em **Ambari**  >  **Storm**  >  **config**  >  **avançado Storm-Worker-Log4J**, altere **&lt; raiz Level = "info" &gt;** para **&lt; root Level = "debug" &gt;**. Reinicie todos os nós/serviços para que a configuração entre em vigor.
 2. Monitorar logs de topologia do Storm em nós de trabalho (em /var/log/Storm/Worker-artifacts/ /&lt;TopologyName&gt;/&lt;porta&gt;/worker.log) para o Data Lake armazenamento Gen1 exceções de limitação.
 
 ## <a name="next-steps"></a>Próximas etapas
-Ajuste de desempenho adicional para o Storm pode ser referenciado [neste blog](https://blogs.msdn.microsoft.com/shanyu/2015/05/14/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs/).
+Ajuste de desempenho adicional para o Storm pode ser referenciado [neste blog](/archive/blogs/shanyu/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs).
 
 Para obter um exemplo adicional de execução, consulte [esse aqui no GitHub](https://github.com/hdinsight/storm-performance-automation).

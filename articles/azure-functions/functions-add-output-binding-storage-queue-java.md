@@ -7,24 +7,24 @@ ms.author: karler
 ms.date: 10/14/2019
 ms.topic: quickstart
 zone_pivot_groups: java-build-tools-set
-ms.openlocfilehash: 9f512e3bbf7947361fa9890e9514693610c9f99d
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: b4381c4acbea8a3b7d86d9c32aaf9cea24cf15fa
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321948"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422647"
 ---
 # <a name="connect-your-java-function-to-azure-storage"></a>Conectar a função Java ao Armazenamento do Azure
 
 [!INCLUDE [functions-add-storage-binding-intro](../../includes/functions-add-storage-binding-intro.md)]
 
-Este artigo mostra como integrar a função criada no [artigo de início rápido anterior](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java&tabs=bash,browser) com uma fila de Armazenamento do Azure. A associação de saída que você adiciona a essa função escreve dados de uma solicitação HTTP em uma mensagem na fila.
+Este artigo mostra como integrar a função criada no [artigo de início rápido anterior](./create-first-function-cli-java.md?tabs=bash,browser) com uma fila de Armazenamento do Azure. A associação de saída que você adiciona a essa função escreve dados de uma solicitação HTTP em uma mensagem na fila.
 
 A maioria das associações requer uma cadeia de conexão armazenada que o Functions usa para acessar o serviço vinculado. Para facilitar essa conexão, use a conta de armazenamento que você criou com o seu aplicativo de funções. A conexão com essa conta já está armazenada em uma configuração de aplicativo chamada `AzureWebJobsStorage`.  
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de iniciar este artigo, conclua as etapas na [parte 1 do início rápido do Java](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java&tabs=bash,browser).
+Antes de iniciar este artigo, conclua as etapas na [parte 1 do início rápido do Java](./create-first-function-cli-java.md?tabs=bash,browser).
 
 ## <a name="download-the-function-app-settings"></a>Baixar as configurações do aplicativo de funções
 
@@ -112,7 +112,7 @@ Você atualizou a função disparada por HTTP para gravar dados em uma fila de a
 Em seguida, você deve habilitar o monitoramento do Application Insights para seu aplicativo de funções:
 
 > [!div class="nextstepaction"]
-> [Habilitar a integração do Application Insights](functions-monitoring.md#manually-connect-an-app-insights-resource)
+> [Habilitar a integração do Application Insights](configure-monitoring.md#add-to-an-existing-function-app)
 
 
 [Azure Storage Explorer]: https://storageexplorer.com/

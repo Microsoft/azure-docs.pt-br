@@ -4,10 +4,10 @@ description: Uma exibição global da integridade dos serviços do Azure
 ms.topic: overview
 ms.date: 06/11/2019
 ms.openlocfilehash: 6e0813ad5fde19069662c13fcba7bd81b055de2a
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/03/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "82732543"
 ---
 # <a name="azure-status-overview"></a>Visão geral do status do Azure

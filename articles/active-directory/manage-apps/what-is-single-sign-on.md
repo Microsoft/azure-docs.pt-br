@@ -3,7 +3,7 @@ title: O que é SSO (logon único) do Azure?
 description: Saiba como o SSO (logon único) funciona com o Azure Active Directory. Use o SSO para que os usuários não precisem se lembrar das senhas de todos os aplicativos. Além disso, use o SSO para simplificar a administração do gerenciamento de contas.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -11,12 +11,13 @@ ms.topic: overview
 ms.date: 12/03/2019
 ms.author: kenwith
 ms.reviewer: arvindh, japere
-ms.openlocfilehash: 3e845507404e0dd7ec3d11c68aaa553ae75eef0b
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: 36025a5a68e4c3d0de1d6b11a13df656c72745d4
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88164488"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99260190"
 ---
 # <a name="what-is-single-sign-on-sso"></a>O que é SSO (logon único)?
 
@@ -52,7 +53,7 @@ A maneira como você implementa o logon único depende do local em que o aplicat
 > [!TIP]
 > Os aplicativos hospedados na nuvem também são chamados de aplicativos SaaS (software como serviço). 
 
-O logon único para aplicativos hospedados na nuvem é simples. Você permite que o provedor de identidade saiba que está sendo usado para o aplicativo. E, em seguida, você configura o aplicativo para confiar no provedor de identidade. Para saber como usar o Azure AD como um provedor de identidade para um aplicativo, consulte a [Série de guias de início rápido sobre Gerenciamento de Aplicativos](view-applications-portal.md).
+O logon único para aplicativos hospedados na nuvem é simples. Você permite que o provedor de identidade saiba que está sendo usado para o aplicativo. E, em seguida, você configura o aplicativo para confiar no provedor de identidade. Para saber como usar o Azure AD como um provedor de identidade para um aplicativo, consulte a [Série de guias de início rápido sobre Gerenciamento de Aplicativos](add-application-portal.md).
 
 > [!TIP]
 > Os termos nuvem e Internet costumam ser usados de maneira intercambiável. O motivo disso está relacionado aos diagramas de rede. É comum representar grandes redes de computadores com uma forma de nuvem em um diagrama, pois não é viável desenhar todos os componentes. A Internet é a rede mais conhecida e, portanto, é fácil usar os termos de maneira intercambiável. No entanto, qualquer rede de computadores pode ser chamada de nuvem.

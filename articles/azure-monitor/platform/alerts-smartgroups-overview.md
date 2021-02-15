@@ -4,12 +4,12 @@ description: Grupos inteligentes são as agregações de alertas que ajudam voc�
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 05/15/2018
-ms.openlocfilehash: 05b05f8bc079bb3768ac2f1a03593bc9260b41aa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 743bd1a674c034cd6a0350f959289ac3ecb568de
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77665486"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186602"
 ---
 # <a name="smart-groups"></a>Grupos inteligentes
 
@@ -31,9 +31,9 @@ Os seguintes estados de grupo inteligente são compatíveis.
 |:---|:---|
 | Novo | O problema acaba de ser detectado e ainda não foi analisado. |
 | Confirmado | Um administrador examinou o grupo inteligente e começou a trabalhar nele. |
-| Fechado | O problema foi resolvido. Depois que um grupo inteligente for fechado, será possível reabri-lo, alterando-o para outro estado. |
+| Fechadas | O problema foi resolvido. Depois que um grupo inteligente for fechado, será possível reabri-lo, alterando-o para outro estado. |
 
-[Saiba como alterar o estado do seu grupo inteligente.](https://aka.ms/managing-alert-smart-group-states)
+[Saiba como alterar o estado do seu grupo inteligente.](./alerts-managing-alert-states.md?toc=%2fazure%2fazure-monitor%2ftoc.json)
 
 > [!NOTE]
 >  Alterar o estado de um grupo inteligente não altera o estado dos alertas de membro individual.
@@ -58,7 +58,5 @@ O nome de um grupo inteligente é o nome do seu primeiro alerta. Você não pode
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Gerenciar grupos inteligentes](https://aka.ms/managing-smart-groups)
-- [Alterar o estado do grupo inteligente e o alerta](https://aka.ms/managing-alert-smart-group-states)
-
-
+- [Gerenciar grupos inteligentes](./alerts-managing-smart-groups.md?toc=%2fazure%2fazure-monitor%2ftoc.json)
+- [Alterar o estado do grupo inteligente e o alerta](./alerts-managing-alert-states.md?toc=%2fazure%2fazure-monitor%2ftoc.json)

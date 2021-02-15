@@ -6,21 +6,22 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/02/2020
+ms.date: 12/09/2020
 ms.author: tamram
 ms.reviewer: fryu
-ms.openlocfilehash: f46a7927c149009eaf5baddbad2758732d4da758
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.subservice: blobs
+ms.openlocfilehash: 179e60a41a9cd6a2277959b3cd31159c796d845d
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534253"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96937280"
 ---
 # <a name="prevent-anonymous-public-read-access-to-containers-and-blobs"></a>Impedir acesso de leitura público anônimo a contêineres e blobs
 
-O acesso de leitura público anônimo a contêineres e blobs no armazenamento do Azure é uma maneira conveniente de compartilhar dados, mas também pode representar um risco de segurança. É importante gerenciar o acesso anônimo criteriosamente e entender como avaliar o acesso anônimo aos seus dados. A complexidade operacional, erro humano ou ataque mal-intencionado contra dados acessíveis publicamente pode resultar em violações de dados dispendiosas. A Microsoft recomenda que você habilite o acesso anônimo somente quando necessário para o cenário do aplicativo.
+O acesso de leitura público anônimo a contêineres e blobs no Armazenamento do Azure é uma forma conveniente de compartilhar dados, mas também pode representar um risco de segurança. É importante gerenciar o acesso anônimo criteriosamente e entender como avaliar o acesso anônimo aos seus dados. A complexidade operacional, erro humano ou ataque mal-intencionado contra dados acessíveis publicamente pode resultar em violações de dados dispendiosas. A Microsoft recomenda que você habilite o acesso anônimo somente quando necessário para o cenário do aplicativo.
 
-Por padrão, o acesso público aos dados de blob é sempre proibido. No entanto, a configuração padrão para uma conta de armazenamento permite que um usuário com permissões apropriadas configure o acesso público a contêineres e blobs em uma conta de armazenamento. Para aumentar a segurança, você pode proibir todo o acesso público à conta de armazenamento, independentemente da configuração de acesso público para um contêiner individual. A despermissão do acesso público à conta de armazenamento impede que um usuário habilite o acesso público para um contêiner na conta. A Microsoft recomenda que você não permita o acesso público a uma conta de armazenamento, a menos que seu cenário exija isso. A despermissão de acesso público ajuda a evitar violações de dados causadas por acesso anônimo indesejado.
+Por padrão, o acesso público aos dados de blob é sempre proibido. No entanto, a configuração padrão para uma conta de armazenamento permite que um usuário com permissões apropriadas configure o acesso público a contêineres e blobs em uma conta de armazenamento. Para aumentar a segurança, você pode proibir todo o acesso público à conta de armazenamento, independentemente da configuração de acesso público para um contêiner individual. Não permitir o acesso público à conta de armazenamento impede que um usuário habilite o acesso público para um contêiner na conta. A Microsoft recomenda que você não permita o acesso público a uma conta de armazenamento, a menos que seu cenário exija isso. Não permitir o acesso público ajuda a evitar violações de dados causadas por acesso anônimo indesejado.
 
 Quando você não permite acesso de blob público para a conta de armazenamento, o armazenamento do Azure rejeita todas as solicitações anônimas para essa conta. Depois que o acesso público não é permitido para uma conta, os contêineres nessa conta não podem ser subseqüentemente configurados para acesso público. Todos os contêineres que já foram configurados para acesso público não aceitarão mais solicitações anônimas. Para obter mais informações, consulte [Configurar acesso de leitura público anônimo para contêineres e blobs](anonymous-read-access-configure.md).
 
@@ -66,9 +67,12 @@ Você também pode configurar uma regra de alerta para notificá-lo quando um de
 
 Os logs de armazenamento do Azure capturam detalhes sobre as solicitações feitas na conta de armazenamento, incluindo como uma solicitação foi autorizada. Você pode analisar os logs para determinar quais contêineres estão recebendo solicitações anônimas.
 
-Para registrar solicitações em log para sua conta de armazenamento do Azure para avaliar solicitações anônimas, você pode usar o log de armazenamento do Azure no Azure Monitor (versão prévia). Para obter mais informações, consulte [monitorar o armazenamento do Azure](../common/monitor-storage.md).
+Para registrar solicitações em log para sua conta de armazenamento do Azure para avaliar solicitações anônimas, você pode usar o log de armazenamento do Azure no Azure Monitor (versão prévia). Para obter mais informações, consulte [monitorar o armazenamento do Azure](./monitor-blob-storage.md).
 
-O log de armazenamento do Azure no Azure Monitor dá suporte ao uso de consultas de log para analisar dados de log. Para consultar logs, você pode usar um espaço de trabalho de Log Analytics do Azure. Para saber mais sobre consultas de log, consulte [tutorial: introdução às consultas de log Analytics](../../azure-monitor/log-query/get-started-portal.md).
+O log de armazenamento do Azure no Azure Monitor dá suporte ao uso de consultas de log para analisar dados de log. Para consultar logs, você pode usar um espaço de trabalho de Log Analytics do Azure. Para saber mais sobre consultas de log, consulte [tutorial: introdução às consultas de log Analytics](../../azure-monitor/log-query/log-analytics-tutorial.md).
+
+> [!NOTE]
+> Há suporte para a visualização do log de armazenamento do Azure no Azure Monitor apenas na nuvem pública do Azure. As nuvens governamentais não dão suporte ao registro em log para o armazenamento do Azure com Azure Monitor.
 
 #### <a name="create-a-diagnostic-setting-in-the-azure-portal"></a>Criar uma configuração de diagnóstico no portal do Azure
 
@@ -88,7 +92,7 @@ Para registrar dados do armazenamento do Azure com Azure Monitor e analisá-los 
 
 Depois de criar a configuração de diagnóstico, as solicitações para a conta de armazenamento são registradas subsequentemente de acordo com essa configuração. Para obter mais informações, consulte [criar configuração de diagnóstico para coletar logs de recursos e métricas no Azure](../../azure-monitor/platform/diagnostic-settings.md).
 
-Para obter uma referência dos campos disponíveis nos logs de armazenamento do Azure no Azure Monitor, consulte [logs de recursos (versão prévia)](../common/monitor-storage-reference.md#resource-logs-preview).
+Para obter uma referência dos campos disponíveis nos logs de armazenamento do Azure no Azure Monitor, consulte [logs de recursos (versão prévia)](./monitor-blob-storage-reference.md#resource-logs-preview).
 
 #### <a name="query-logs-for-anonymous-requests"></a>Logs de consulta para solicitações anônimas
 
@@ -160,7 +164,9 @@ New-AzStorageContainer -Name $containerName -Permission Blob -Context $ctx
 
 ### <a name="check-the-public-access-setting-for-multiple-accounts"></a>Verificar a configuração de acesso público para várias contas
 
-Para verificar a configuração de acesso público em um conjunto de contas de armazenamento com o desempenho ideal, você pode usar o Gerenciador de grafo de recursos do Azure no portal do Azure. Para saber mais sobre como usar o Gerenciador de grafo de recursos, consulte [início rápido: executar sua primeira consulta de grafo de recursos usando o Gerenciador de grafo de recursos do Azure](/azure/governance/resource-graph/first-query-portal).
+Para verificar a configuração de acesso público em um conjunto de contas de armazenamento com o desempenho ideal, você pode usar o Gerenciador de grafo de recursos do Azure no portal do Azure. Para saber mais sobre como usar o Gerenciador de grafo de recursos, consulte [início rápido: executar sua primeira consulta de grafo de recursos usando o Gerenciador de grafo de recursos do Azure](../../governance/resource-graph/first-query-portal.md).
+
+A propriedade **AllowBlobPublicAccess** não é definida para uma conta de armazenamento por padrão e não retorna um valor até que você a defina explicitamente. A conta de armazenamento permite acesso público quando o valor da propriedade é **nulo** ou **verdadeiro**.
 
 A execução da consulta a seguir no Gerenciador de grafo de recursos retorna uma lista de contas de armazenamento e exibe a configuração de acesso público para cada conta:
 
@@ -170,6 +176,10 @@ resources
 | extend allowBlobPublicAccess = parse_json(properties).allowBlobPublicAccess
 | project subscriptionId, resourceGroup, name, allowBlobPublicAccess
 ```
+
+A imagem a seguir mostra os resultados de uma consulta em uma assinatura. Observe que para contas de armazenamento em que a propriedade **AllowBlobPublicAccess** foi definida explicitamente, ela aparece nos resultados como **true** ou **false**. Se a propriedade **AllowBlobPublicAccess** não tiver sido definida para uma conta de armazenamento, ela aparecerá como em branco (ou NULL) nos resultados da consulta.
+
+:::image type="content" source="media/anonymous-read-access-prevent/check-public-access-setting-accounts.png" alt-text="Captura de tela mostrando resultados da consulta para configuração de acesso público entre contas de armazenamento":::
 
 ## <a name="use-azure-policy-to-audit-for-compliance"></a>Usar Azure Policy para auditar a conformidade
 
@@ -277,6 +287,23 @@ Depois de criar a política com o efeito de negação e atribuí-la a um escopo,
 A imagem a seguir mostra o erro que ocorre se você tentar criar uma conta de armazenamento que permita acesso público (o padrão para uma nova conta) quando uma política com um efeito de negação exigir que o acesso público não seja permitido.
 
 :::image type="content" source="media/anonymous-read-access-prevent/deny-policy-error.png" alt-text="Captura de tela mostrando o erro que ocorre ao criar uma conta de armazenamento em violação de política":::
+
+## <a name="permissions-for-allowing-or-disallowing-public-access"></a>Permissões para permitir ou não permitir acesso público
+
+Para definir a propriedade **AllowBlobPublicAccess** para a conta de armazenamento, um usuário deve ter permissões para criar e gerenciar contas de armazenamento. As funções do Azure RBAC (controle de acesso baseado em função) que fornecem essas permissões incluem a ação **Microsoft. Storage/storageAccounts/Write** ou **Microsoft. Storage \* /storageAccounts/* _. As funções internas com essa ação incluem:
+
+- A função de [proprietário](../../role-based-access-control/built-in-roles.md#owner) de Azure Resource Manager
+- A função [colaborador](../../role-based-access-control/built-in-roles.md#contributor) de Azure Resource Manager
+- A função de [colaborador da conta de armazenamento](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
+
+Essas funções não fornecem acesso a dados em uma conta de armazenamento por meio do Azure Active Directory (Azure AD). No entanto, eles incluem o _ * Microsoft. Storage/storageAccounts/listkeys/Action * *, que concede acesso às chaves de acesso da conta. Com essa permissão, um usuário pode usar as chaves de acesso da conta para acessar todos os dados em uma conta de armazenamento.
+
+As atribuições de função devem ser delimitadas ao nível da conta de armazenamento ou superior para permitir que um usuário permita ou proíba o acesso público para a conta de armazenamento. Para obter mais informações sobre o escopo da função, consulte [entender o escopo do RBAC do Azure](../../role-based-access-control/scope-overview.md).
+
+Tenha cuidado para restringir a atribuição dessas funções somente aos que exigem a capacidade de criar uma conta de armazenamento ou atualizar suas propriedades. Use o princípio de privilégios mínimos para garantir que os usuários tenham as menores permissões necessárias para realizar suas tarefas. Para obter mais informações sobre como gerenciar o acesso com o RBAC do Azure, consulte [práticas recomendadas para o RBAC do Azure](../../role-based-access-control/best-practices.md).
+
+> [!NOTE]
+> O administrador de serviço de funções de administrador de assinatura clássica e Co-Administrator incluem o equivalente da função de [proprietário](../../role-based-access-control/built-in-roles.md#owner) de Azure Resource Manager. A função de **proprietário** inclui todas as ações, de modo que um usuário com uma dessas funções administrativas também pode criar e gerenciar contas de armazenamento. Para obter mais informações, confira [Funções clássicas de administrador da assinatura, funções do Azure e funções de administrador do Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
 
 ## <a name="next-steps"></a>Próximas etapas
 

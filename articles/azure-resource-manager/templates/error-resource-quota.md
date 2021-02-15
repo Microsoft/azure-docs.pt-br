@@ -3,12 +3,12 @@ title: Erros de cota
 description: Descreve como resolver erros de cota de recursos ao implantar recursos com Azure Resource Manager.
 ms.topic: troubleshooting
 ms.date: 03/09/2018
-ms.openlocfilehash: 410b086b39d63d03491d390364f4aec6300fc7c1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 75e8abf31d035a1e3a106bc0c6561624762db5d5
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87007785"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "90530413"
 ---
 # <a name="resolve-errors-for-resource-quotas"></a>Resolva erros de cota de recursos
 
@@ -95,11 +95,11 @@ Para solicitar um aumento de cota, vá ao portal e registre um problema de supor
 
 1. Selecione **Assinaturas**.
 
-   ![Assinaturas](./media/error-resource-quota/subscriptions.png)
+   ![Captura de tela mostra o menu do portal do Azure com assinaturas selecionadas.](./media/error-resource-quota/subscriptions.png)
 
 2. Selecione a assinatura que precisa de uma cota maior.
 
-   ![Selecionar assinatura](./media/error-resource-quota/select-subscription.png)
+   ![Selecionar uma assinatura](./media/error-resource-quota/select-subscription.png)
 
 3. Selecionar **uso + cotas**
 

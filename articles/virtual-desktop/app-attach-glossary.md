@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f3cc8495f673c8b428aa9e6ace2747a70c5b0847
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 7132eae073f3d53a104536076ae801ec9ff93e5f
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88556206"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518661"
 ---
 # <a name="msix-app-attach-glossary"></a>Glossário de anexação de aplicativo MSIX
 
@@ -25,7 +25,7 @@ Um contêiner MSIX é onde os aplicativos MSIX são executados. Para saber mais,
 
 ## <a name="msix-application"></a>Aplicativo MSIX 
 
-Um aplicativo armazenado em um arquivo MSIX.
+Um aplicativo armazenado em um. Arquivo MSIX.
 
 ## <a name="msix-package"></a>Pacote MSIX 
 
@@ -35,13 +35,17 @@ Um pacote MSIX é um arquivo ou aplicativo MSIX.
 
 Um compartilhamento MSIX é um compartilhamento de rede que mantém pacotes MSIX expandidos. Compartilhamentos MSIX dão suporte a SMB 3 ou posterior. Os aplicativos são preparados deste compartilhamento de MSIX sem a necessidade de mover os arquivos de aplicativo para a unidade do sistema.
 
+## <a name="msix-image"></a>Imagem MSIX
+
+Uma imagem MSIX é um arquivo VHD, VHDx ou CIM que contém um ou mais aplicativos empacotados do MSIX. Cada aplicativo é entregue na imagem MSIX usando a ferramenta MSIXMGR.
+
 ## <a name="repackage"></a>Reempacotar
 
 O reempacotamento usa um aplicativo não MSIX e o converte em MSIX usando a ferramenta de empacotamento MSIX (MPT). Para obter mais informações, consulte [visão geral da ferramenta de empacotamento MSIX](/windows/msix/packaging-tool/tool-overview).
 
-## <a name="expand"></a>Expanda
+## <a name="expand-an-msix-package"></a>Expandir um pacote MSIX
 
-Expandir o pacote MSIX é um processo de várias etapas. Ele usa o arquivo MSIX e coloca seu conteúdo em um arquivo VHD (x) ou CIM. 
+Expandir um pacote MSIX é um processo de várias etapas. A expansão usa o arquivo MSIX e coloca seu conteúdo em um arquivo VHD (x) ou CIM. 
 
 Para expandir um pacote MSIX:
 
@@ -63,15 +67,15 @@ Carregar um pacote MSIX envolve carregar o VHD (x) ou [CIM](#cim) que contém um
 
 Na área de trabalho virtual do Windows, os carregamentos acontecem uma vez por compartilhamento MSIX. Depois de carregar um pacote, todos os pools de hosts na mesma assinatura podem fazer referência a ele.
 
-## <a name="publish-an-msix-package"></a>Publicar um pacote MSIX
+## <a name="add-an-msix-package"></a>Adicionar um pacote MSIX
 
-Na área de trabalho virtual do Windows, a publicação de um pacote MSIX vincula-o a um aplicativo ou área de trabalho remota.
+Na área de trabalho virtual do Windows, a adição de um pacote MSIX o vincula a um pool de hosts.
 
-## <a name="assign-an-msix-package"></a>Atribuir um pacote MSIX 
+## <a name="publish-an-msix-package"></a>Publicar um pacote MSIX 
 
 Na área de trabalho virtual do Windows, um pacote MSIX publicado deve ser atribuído a um usuário ou grupo de usuários do Domínio do Active Directory (AD DS) ou Azure Active Directory (Azure AD).
 
-## <a name="staging"></a>Preparo
+## <a name="staging"></a>Staging
 
 O preparo envolve duas coisas:
 
@@ -106,7 +110,19 @@ A desmontagem notifica o sistema operacional que um pacote ou aplicativo MSIX qu
 
 . CIM é uma nova extensão de arquivo associada ao CimFS (Composite Image Files System). Montar e desmontar arquivos CIM é mais rápido que os arquivos VHD. O CIM também consome menos CPU e memória do que o VHD.
 
-A tabela a seguir é uma comparação de desempenho entre VHD e CimFS. Esses números foram o resultado de uma execução de teste com arquivos de 800 MB em cada formato executado em um computador DSv4.
+Um arquivo CIM é um arquivo com um. Extensão CIM que contém metadados e pelo menos seis arquivos adicionais que contêm dados reais. Os arquivos no arquivo CIM não têm extensões. A tabela a seguir é uma lista de arquivos de exemplo que você encontraria dentro de um CIM:
+
+| Nome do arquivo | Extensão | Tamanho |
+|-----------|-----------|------|
+| VSC | CIM | 1 KB |
+| objectid_b5742e0b-1b98-40B3-94a6-9cb96f497e56_0 | NA | 27 KB |
+| objectid_b5742e0b-1b98-40B3-94a6-9cb96f497e56_1 | NA | 20 KB |
+| objectid_b5742e0b-1b98-40B3-94a6-9cb96f497e56_2 | NA | 42 KB |
+| region_b5742e0b-1b98-40B3-94a6-9cb96f497e56_0 | NA | 428 KB |
+| region_b5742e0b-1b98-40B3-94a6-9cb96f497e56_1 | NA | 217 KB |
+| region_b5742e0b-1b98-40B3-94a6-9cb96f497e56_2 | NA | 264.132 KB |
+
+A tabela a seguir é uma comparação de desempenho entre VHD e CimFS. Esses números foram o resultado de uma execução de teste com arquivos de 500 300 MB em cada formato executado em um computador DSv4.
 
 |  Especificações                          | VHD                     | CimFS   |
 |---------------------------------|--------------------------|-----------|
@@ -118,4 +134,3 @@ A tabela a seguir é uma comparação de desempenho entre VHD e CimFS. Esses nú
 ## <a name="next-steps"></a>Próximas etapas
 
 Se você quiser saber mais sobre o anexo de aplicativo do MSIX, Confira nossa [visão geral](what-is-app-attach.md) e [perguntas frequentes](app-attach-faq.md). Caso contrário, comece a [Configurar a anexação de aplicativo](app-attach.md).
-

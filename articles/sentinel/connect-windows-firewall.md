@@ -15,23 +15,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/05/2020
 ms.author: yelevin
-ms.openlocfilehash: b2cf984e629d6b86beef9292dac819b554f49749
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: cf7e389fc4a8a8dfa88691dc034611cae3471731
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87850688"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655333"
 ---
 # <a name="connect-windows-defender-firewall-with-advanced-security-to-azure-sentinel"></a>Conectar o Windows Defender firewall com segurança avançada ao Azure Sentinel
 
-O conector do [Windows Defender firewall com segurança avançada](https://docs.microsoft.com/windows/security/threat-protection/windows-firewall/windows-firewall-with-advanced-security) permite que o Azure Sentinel ingerir facilmente o Windows Defender firewall com logs de segurança avançados de qualquer computador com Windows em seu espaço de trabalho. Essa conexão permite exibir e analisar eventos de firewall do Windows em suas pastas de trabalho, usá-los na criação de alertas personalizados e incorporá-los em suas investigações de segurança, fornecendo mais informações sobre a rede da sua organização e aprimorando seus recursos de operações de segurança. 
+O conector do [Windows Defender firewall com segurança avançada](/windows/security/threat-protection/windows-firewall/windows-firewall-with-advanced-security) permite que o Azure Sentinel ingerir facilmente o Windows Defender firewall com logs de segurança avançados de qualquer computador com Windows em seu espaço de trabalho. Essa conexão permite exibir e analisar eventos de firewall do Windows em suas pastas de trabalho, usá-los na criação de alertas personalizados e incorporá-los em suas investigações de segurança, fornecendo mais informações sobre a rede da sua organização e aprimorando seus recursos de operações de segurança. 
 
 A solução coleta eventos de firewall do Windows dos computadores Windows nos quais um agente de Log Analytics está instalado. 
 
 > [!NOTE]
 > - Os dados serão armazenados na localização geográfica do espaço de trabalho no qual você está executando o Azure Sentinel.
 >
-> - Se o Azure Sentinel e a central de segurança do Azure forem coletados para o mesmo espaço de trabalho, não será necessário habilitar a solução de firewall do Windows por meio desse conector. Se você habilitá-lo mesmo assim, ele não causará dados duplicados. 
+> - Se os alertas do Azure defender da central de segurança do Azure já estiverem coletados para o espaço de trabalho do Azure Sentinel, não será necessário habilitar a solução de firewall do Windows por meio desse conector. No entanto, se você o tiver habilitado, ele não causará dados duplicados. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -67,7 +67,7 @@ A solução coleta eventos de firewall do Windows dos computadores Windows nos q
 
     1. No painel **Gerenciamento de agentes** , selecione **baixar o agente do Windows (64 bits)** ou baixar o **agente do Windows (32 bits)**, conforme necessário.
 
-    1. Copie a **ID do espaço de trabalho**, a **chave primária**e as cadeias de caracteres de **chave secundária** para um arquivo de texto. Copie esse arquivo e o arquivo de instalação baixado para seu computador Windows. Execute o arquivo de instalação e, quando solicitado, insira as cadeias de caracteres de ID e chave no arquivo de texto durante a instalação.
+    1. Copie a **ID do espaço de trabalho**, a **chave primária** e as cadeias de caracteres de **chave secundária** para um arquivo de texto. Copie esse arquivo e o arquivo de instalação baixado para seu computador Windows. Execute o arquivo de instalação e, quando solicitado, insira as cadeias de caracteres de ID e chave no arquivo de texto durante a instalação.
 
     1. Retorne ao painel **Firewall do Windows** .
 
@@ -81,10 +81,9 @@ A solução coleta eventos de firewall do Windows dos computadores Windows nos q
 
 ## <a name="validate-connectivity"></a>Validar a conectividade
  
-Como os logs do firewall do Windows são enviados para o Azure Sentinel somente quando o arquivo de log local atinge a capacidade, deixar o log em seu tamanho padrão de 4096 KB provavelmente resultará em alta latência de coleta. Você pode diminuir a latência reduzindo o tamanho do arquivo de log. Consulte as instruções para [Configurar o log do firewall do Windows](https://docs.microsoft.com/windows/security/threat-protection/windows-firewall/configure-the-windows-firewall-log). Observe que, embora a definição do tamanho mínimo possível do log (1 KB) elimine praticamente a latência da coleção, ela também pode afetar negativamente o desempenho do computador local. 
+Como os logs do firewall do Windows são enviados para o Azure Sentinel somente quando o arquivo de log local atinge a capacidade, deixar o log em seu tamanho padrão de 4096 KB provavelmente resultará em alta latência de coleta. Você pode diminuir a latência reduzindo o tamanho do arquivo de log. Consulte as instruções para [Configurar o log do firewall do Windows](/windows/security/threat-protection/windows-firewall/configure-the-windows-firewall-log). Observe que, embora a definição do tamanho mínimo possível do log (1 KB) elimine praticamente a latência da coleção, ela também pode afetar negativamente o desempenho do computador local. 
 
 ## <a name="next-steps"></a>Próximas etapas
 Neste documento, você aprendeu a conectar o Firewall do Windows ao Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [obter visibilidade dos seus dados e possíveis ameaças](quickstart-get-visibility.md).
 - Comece a [detectar ameaças com o Azure Sentinel](tutorial-detect-threats-built-in.md).
-

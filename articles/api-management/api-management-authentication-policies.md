@@ -11,19 +11,19 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 06/12/2020
+ms.date: 01/27/2021
 ms.author: apimpm
-ms.openlocfilehash: 4d077f6b3c84b0279a7a1c99243240192c2b45d1
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 22d2960801cac2222f868c384a55b4bf436bc75b
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86243708"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99492596"
 ---
 # <a name="api-management-authentication-policies"></a>Políticas de autenticação de Gerenciamento de API
-Este tópico fornece uma referência para as políticas de Gerenciamento de API a seguir. Para obter mais informações sobre como adicionar e configurar políticas, consulte [Políticas de Gerenciamento de API](https://go.microsoft.com/fwlink/?LinkID=398186).
+Este tópico fornece uma referência para as políticas de Gerenciamento de API a seguir. Para obter mais informações sobre como adicionar e configurar políticas, consulte [Políticas de Gerenciamento de API](./api-management-policies.md).
 
-##  <a name="authentication-policies"></a><a name="AuthenticationPolicies"></a>Políticas de autenticação
+##  <a name="authentication-policies"></a><a name="AuthenticationPolicies"></a> Políticas de autenticação
 
 -   [Autenticar com o Basic](api-management-authentication-policies.md#Basic) - Autenticar com um serviço de back-end usando a autenticação Básica.
 
@@ -56,7 +56,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 
 |Nome|Descrição|Obrigatório|Padrão|
 |----------|-----------------|--------------|-------------|
-|nome de usuário|Especifica o nome de usuário da credencial do Basic.|Sim|N/D|
+|Nome de Usuário|Especifica o nome de usuário da credencial do Basic.|Sim|N/D|
 |password|Especifica a senha da credencial do Basic.|Sim|N/D|
 
 ### <a name="usage"></a>Uso
@@ -67,7 +67,10 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 -   **Escopos da política:** todos os escopos
 
 ##  <a name="authenticate-with-client-certificate"></a><a name="ClientCertificate"></a> Autenticar com o certificado de cliente
- Use a política `authentication-certificate` para autenticar com um serviço de back-end usando um certificado de cliente. O certificado precisa ser [instalado no Gerenciamento de API](https://go.microsoft.com/fwlink/?LinkID=511599) primeiro e é identificado por sua impressão digital.
+ Use a `authentication-certificate` política para autenticar com um serviço de back-end usando um certificado de cliente. O certificado precisa ser [instalado no gerenciamento de API](./api-management-howto-mutual-certificates.md) primeiro e é identificado por sua impressão digital ou ID do certificado (nome do recurso). 
+
+> [!CAUTION]
+> Se o certificado fizer referência a um certificado armazenado em Azure Key Vault, identifique-o usando a ID do certificado. Quando um certificado do Key Vault for girado, sua impressão digital no gerenciamento de API será alterada e a política não resolverá o novo certificado se ele for identificado pela impressão digital.
 
 ### <a name="policy-statement"></a>Declaração de política
 
@@ -77,18 +80,17 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 
 ### <a name="examples"></a>Exemplos
 
-Neste exemplo, o certificado do cliente é identificado por sua impressão digital:
-
-```xml
-<authentication-certificate thumbprint="CA06F56B258B7A0D4F2B05470939478651151984" />
-```
-
-Neste exemplo, o certificado do cliente é identificado pelo nome do recurso:
+Neste exemplo, o certificado do cliente é identificado pela ID do certificado:
 
 ```xml  
 <authentication-certificate certificate-id="544fe9ddf3b8f30fb490d90f" />  
 ``` 
 
+Neste exemplo, o certificado do cliente é identificado por sua impressão digital:
+
+```xml
+<authentication-certificate thumbprint="CA06F56B258B7A0D4F2B05470939478651151984" />
+```
 Neste exemplo, o certificado do cliente é definido na política em vez de ser recuperado do repositório de certificados interno:
 
 ```xml
@@ -117,7 +119,7 @@ Neste exemplo, o certificado do cliente é definido na política em vez de ser r
   
 -   **Escopos da política:** todos os escopos  
 
-##  <a name="authenticate-with-managed-identity"></a><a name="ManagedIdentity"></a>Autenticar com identidade gerenciada  
+##  <a name="authenticate-with-managed-identity"></a><a name="ManagedIdentity"></a> Autenticar com identidade gerenciada  
  Use a `authentication-managed-identity` política para autenticar com um serviço de back-end usando a identidade gerenciada. Essa política usa basicamente a identidade gerenciada para obter um token de acesso de Azure Active Directory para acessar o recurso especificado. Depois de obter o token com êxito, a política definirá o valor do token no `Authorization` cabeçalho usando o `Bearer` esquema.
 
 Tanto a identidade atribuída pelo sistema quanto qualquer uma das várias identidades atribuídas pelo usuário podem ser usadas para solicitar o token. Se `client-id` não for fornecida, a identidade atribuída pelo sistema será assumida. Se a `client-id` variável for fornecida, o token será solicitado para essa identidade atribuída pelo usuário de Azure Active Directory
@@ -200,4 +202,4 @@ Para obter mais informações sobre como trabalhar com políticas, consulte:
 + [Políticas no Gerenciamento de API](api-management-howto-policies.md)
 + [Transformar APIs](transform-api.md)
 + [Referência de Política](./api-management-policies.md) para uma lista completa das instruções de política e suas configurações
-+ [Exemplos de política](policy-samples.md)
++ [Exemplos de política](./policy-reference.md)

@@ -1,6 +1,6 @@
 ---
-title: Dimensionar a computação para o pool de SQL do Synapse (Azure PowerShell)
-description: Você pode dimensionar a computação para o pool de SQL do Synapse (data warehouse) usando o Azure PowerShell.
+title: 'Início rápido: Escalar a computação para o pool de SQL dedicado (antigo SQL DW) (Azure PowerShell)'
+description: Escale a computação para o pool de SQL dedicado (antigo SQL DW) usando o Azure PowerShell.
 services: synapse-analytics
 author: Antvgski
 manager: craigg
@@ -10,17 +10,17 @@ ms.subservice: sql-dw
 ms.date: 04/17/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 19548aa76d3dd08ebb8a1edd0cf726db6d458d67
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.custom: seo-lt-2019, devx-track-azurepowershell
+ms.openlocfilehash: 87e10740e6081431bad96daa930f61238ca495bd
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85212965"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96921912"
 ---
-# <a name="quickstart-scale-compute-for-synapse-sql-pool-with-azure-powershell"></a>Início Rápido: Dimensionar a computação para o pool de SQL do Synapse com o Azure PowerShell
+# <a name="quickstart-scale-compute-for-dedicated-sql-pool-formerly-sql-dw-with-azure-powershell"></a>Início rápido: Escalar a computação para o pool de SQL dedicado (antigo SQL DW) com o Azure PowerShell
 
-Você pode dimensionar a computação para o pool de SQL do Synapse (data warehouse) usando o Azure PowerShell. [Escale horizontalmente a computação](sql-data-warehouse-manage-compute-overview.md) para melhorar o desempenho ou reduza a escala da computação para economizar custos.
+Escale a computação para o pool de SQL dedicado (antigo SQL DW) usando o Azure PowerShell. [Escale horizontalmente a computação](sql-data-warehouse-manage-compute-overview.md) para melhorar o desempenho ou reduza a escala da computação para economizar custos.
 
 Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -28,7 +28,7 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Este início rápido pressupõe que você já tenha um pool de SQL que possa ser dimensionado. Se precisar, use [Criar e conectar – portal](create-data-warehouse-portal.md) para criar um pool de SQL chamado **mySampleDataWarehouse**.
+Este guia de início rápido pressupõe que você já tenha um pool de SQL dedicado (antigo SQL DW) que possa ser dimensionado. Caso precise criar um, use [Criar e conectar – portal](create-data-warehouse-portal.md) para criar um pool de SQL dedicado (antigo SQL DW) chamado **mySampleDataWarehouse**.
 
 ## <a name="log-in-to-azure"></a>Fazer logon no Azure
 
@@ -67,7 +67,7 @@ Siga estas etapas para localizar informações de local de seu Data Warehouse.
 
 ## <a name="scale-compute"></a>Computação de escala
 
-No pool de SQL, você pode aumentar ou diminuir os recursos de computação ao ajustar as unidades de data warehouse. O [Criar e conectar – portal](create-data-warehouse-portal.md) criou o **mySampleDataWarehouse** e o inicializou com 400 DWUs. As seguintes etapas ajustam as DWUs do **mySampleDataWarehouse**.
+No pool de SQL dedicado (antigo SQL DW), você pode aumentar ou diminuir recursos de computação ajustando as unidades de data warehouse. O [Criar e conectar – portal](create-data-warehouse-portal.md) criou o **mySampleDataWarehouse** e o inicializou com 400 DWUs. As seguintes etapas ajustam as DWUs do **mySampleDataWarehouse**.
 
 Para alterar as unidades de data warehouse, use o cmdlet [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) do PowerShell. O exemplo a seguir define as unidades de data warehouse como DW300c para o banco de dados **mySampleDataWarehouse**, que é hospedado no Grupo de recursos **resourcegroupname** no servidor **sqlpoolservername**.
 
@@ -121,7 +121,7 @@ $database | Select-Object DatabaseName,Status
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora você aprendeu a escalar a computação para o pool de SQL. Para saber mais sobre o pool de SQL, prossiga para o tutorial de carregamento de dados.
+Você acabou de aprender a escalar a computação para o pool de SQL dedicado (antigo SQL DW). Para saber mais sobre o pool de SQL dedicado (antigo SQL DW), continue no tutorial para carregar os dados.
 
 > [!div class="nextstepaction"]
->[Carregar dados em um pool de SQL](load-data-from-azure-blob-storage-using-polybase.md)
+>[Carregar dados em um pool de SQL dedicado](load-data-from-azure-blob-storage-using-copy.md)

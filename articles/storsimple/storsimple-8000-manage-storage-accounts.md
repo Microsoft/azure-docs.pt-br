@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
-ms.openlocfilehash: 306d3a14d759ac73e78626a4c2ec6abc69d3df85
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0df0c12d5942179e2492bfdc932fa25d126a2426
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85515028"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016856"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-your-storage-account-credentials"></a>Usar o serviço do Gerenciador de Dispositivos do StorSimple para gerenciar as credenciais da sua conta de armazenamento
 
@@ -33,7 +33,7 @@ A seção **Configuração** da folha do serviço do Gerenciador de Dispositivos
 
 Este tutorial explica como adicionar, editar ou excluir as credenciais da conta de armazenamento ou girar entre as chaves de segurança para uma conta de armazenamento.
 
- ![Lista de credenciais de conta de armazenamento](./media/storsimple-8000-manage-storage-accounts/createnewstorageacct6.png)  
+ ![Lista de credenciais de conta de armazenamento 1](./media/storsimple-8000-manage-storage-accounts/createnewstorageacct6.png)  
 
 As contas de armazenamento contém as credenciais que o dispositivo StorSimple usa para acessar sua conta de armazenamento com seu provedor de serviços de nuvem. Para contas de armazenamento do Microsoft Azure, essas credenciais podem ser o nome da conta e a chave de acesso primário, por exemplo. 
 
@@ -55,7 +55,7 @@ As tarefas mais comuns relacionadas a contas de armazenamento que podem ser exec
 Há três tipos de contas de armazenamento que podem ser usadas com o dispositivo StorSimple.
 
 * **Contas de armazenamento geradas automaticamente** – Como o nome sugere, esse tipo de conta de armazenamento é gerada automaticamente quando o serviço é criado pela primeira vez. Para saber mais sobre como essa conta de armazenamento é criada, consulte a [Etapa 1: criar um novo serviço](storsimple-8000-deployment-walkthrough-u2.md#step-1-create-a-new-service) em [Implantar seu dispositivo StorSimple local](storsimple-8000-deployment-walkthrough-u2.md). 
-* **Contas de armazenamento na assinatura do serviço** – Essas são as contas de armazenamento do Azure que estão associadas à mesma assinatura do serviço. Para saber mais sobre como essas contas de armazenamento são criadas, consulte [Sobre Contas de Armazenamento do Azure](../storage/common/storage-create-storage-account.md). 
+* **Contas de armazenamento na assinatura do serviço** – Essas são as contas de armazenamento do Azure que estão associadas à mesma assinatura do serviço. Para saber mais sobre como essas contas de armazenamento são criadas, consulte [Sobre Contas de Armazenamento do Azure](../storage/common/storage-account-create.md). 
 * **Contas de armazenamento fora do serviço de assinatura** – Essas são as contas de armazenamento do Azure que não estão associadas ao serviço e provavelmente existiam antes de o serviço ter sido criado.
 
 ## <a name="add-a-storage-account"></a>Adicionar uma conta de armazenamento
@@ -102,11 +102,11 @@ Você pode editar uma conta de armazenamento usada por um contêiner de volume. 
 
 1. Vá até o seu serviço do Gerenciador de Dispositivos StorSimple. Na seção **Configuração**, clique em **Credenciais da conta de armazenamento**.
 
-    ![Credenciais da conta de armazenamento](./media/storsimple-8000-manage-storage-accounts/editstorageacct1.png)
+    ![Credenciais da conta de armazenamento 2](./media/storsimple-8000-manage-storage-accounts/editstorageacct1.png)
 
 2. Na folha **Credenciais da conta de armazenamento**, na lista de credenciais de conta de armazenamento, selecione e clique naquela que você deseja editar. 
 
-3. É possível modificar a seleção em **Habilitar SSL**. Você também pode clicar em **Mais... ** e selecionar **Sincronizar chave de acesso para girar** suas chaves de acesso da conta de armazenamento. Acesse [Rotação de chaves das contas de armazenamento](#key-rotation-of-storage-accounts) para obter mais informações sobre como executar a rotação de chaves. Depois de modificar as configurações, clique em **Salvar**. 
+3. É possível modificar a seleção em **Habilitar SSL**. Você também pode clicar em **Mais...** e selecionar **Sincronizar chave de acesso para girar** suas chaves de acesso da conta de armazenamento. Acesse [Rotação de chaves das contas de armazenamento](#key-rotation-of-storage-accounts) para obter mais informações sobre como executar a rotação de chaves. Depois de modificar as configurações, clique em **Salvar**. 
 
     ![Salvar as credenciais editadas da conta de armazenamento](./media/storsimple-8000-manage-storage-accounts/editstorageacct3.png)
 
@@ -159,11 +159,11 @@ Para informar o serviço do Gerenciador de Dispositivos do StorSimple da altera�
 
 3. Clique em **...Mais** e selecione **Sincronizar chave de acesso para girar**.   
 
-    ![sincronizar chaves](./media/storsimple-8000-manage-storage-accounts/syncaccesskey2.png)
+    ![sincronizar chaves 2](./media/storsimple-8000-manage-storage-accounts/syncaccesskey2.png)
 
 4. No serviço Gerenciador de Dispositivos StorSimple, você precisa atualizar a chave que foi alterada anteriormente no serviço Armazenamento do Microsoft Azure. Se a chave de acesso primária tiver sido alterada (gerada novamente), selecione a chave **primária**. Se a chave secundária tiver sido alterada, selecione a chave **secundária**. Clique em **Sincronizar chave**.
       
-      ![sincronizar chaves](./media/storsimple-8000-manage-storage-accounts/syncaccesskey3.png)
+      ![sincronizar chaves 3](./media/storsimple-8000-manage-storage-accounts/syncaccesskey3.png)
 
 Você será notificado depois que a chave tiver sido sincronizada com êxito.
 
@@ -179,4 +179,3 @@ Você será notificado depois que a chave tiver sido sincronizada com êxito.
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre a [segurança do StorSimple](storsimple-8000-security.md).
 * Saiba mais sobre como [usar o serviço Gerenciador de Dispositivos do StorSimple para administrar o dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
-

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
-ms.openlocfilehash: 734dc55cbcd9c7b5eaf6455d63bcb773b7d85367
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 79e3ce8c1605e5d68ff44901f53854d2f5f10abc
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514002"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014373"
 ---
 # <a name="use-storsimple-device-manager-service-to-manage-volumes-on-the-storsimple-virtual-array"></a>Usar o Gerenciador de Dispositivos StorSimple para gerenciar volumes na Matriz Virtual StorSimple
 
@@ -73,7 +73,7 @@ Use as instruções neste tutorial para executar as seguintes tarefas:
 
 1. Na folha Resumo do serviço StorSimple, clique em **+ Adicionar volume** na barra de comandos. Isso abre a folha **Adicionar volume**.
    
-    ![Adicionar volume](./media/storsimple-virtual-array-manage-volumes/add-volume.png)
+    ![Captura de tela mostra o botão Adicionar volume e o painel Adicionar volume.](./media/storsimple-virtual-array-manage-volumes/add-volume.png)
 2. Na folha **Adicionar volume**, faça o seguinte:
    
    * No campo **Nome do volume**, insira um nome exclusivo para o seu volume. O nome deve ser uma cadeia de caracteres contendo entre 3 e 127 caracteres.
@@ -82,7 +82,7 @@ Use as instruções neste tutorial para executar as seguintes tarefas:
    * * Clique em **Hosts conectados**, selecione um ACR (registro de controle de acesso) correspondente ao iniciador iSCSI ao qual você deseja conectar esse volume e clique em **Selecionar**.
 3. Para adicionar um novo host conectado, clique em **Adicionar novo**, insira um nome para o host e seu IQN (nome qualificado) iSCSI e clique em **Adicionar**.
    
-    ![Adicionar volume](./media/storsimple-virtual-array-manage-volumes/volume-add-acr.png)
+    ![Captura de tela mostra o painel hosts conectados, onde você pode adicionar novo.](./media/storsimple-virtual-array-manage-volumes/volume-add-acr.png)
 4. Quando você tiver terminado de configurar o volume, clique em **Criar**. Um volume será criado com as configurações especificadas e você verá uma notificação quando ele for criado com êxito. Por padrão, o backup estará habilitado para o volume.
 5. Para confirmar se o volume foi criado com êxito, vá para a folha **Volumes** . Você deve ver o volume listado.
    

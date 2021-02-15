@@ -4,18 +4,18 @@ description: Aprenda a criar seu primeiro banco de dados relacional em um Banco 
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
-ms.custom: seo-lt-2019, sqldbrb=1
+ms.custom: seo-lt-2019, sqldbrb=1, devx-track-csharp
 ms.topic: tutorial
 author: MightyPen
 ms.author: genemi
-ms.reviewer: carlrab
+ms.reviewer: sstein
 ms.date: 07/29/2019
-ms.openlocfilehash: 057ffcdc8a21567e909d768236e454ee10036115
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 4b3235f457f1c6475c18045886c49d3dd2ca2242
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84216551"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92671170"
 ---
 # <a name="tutorial-design-a-relational-database-in-azure-sql-database-cx23-and-adonet"></a>Tutorial: Criar um banco de dados relacional em um Banco de Dados SQL do Azure em C&#x23; e ADO.NET
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -34,7 +34,7 @@ O Banco de Dados SQL do Azure é um DBaaS (banco de dados como serviço) no Micr
 *Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 > [!TIP]
-> O módulo do Microsoft Learn a seguir ajuda você a aprender gratuitamente como [Desenvolver e configurar um aplicativo ASP.NET que consulta um Banco de Dados SQL do Azure](https://docs.microsoft.com/learn/modules/develop-app-that-queries-azure-sql/), incluindo a criação de um banco de dados simples.
+> O módulo do Microsoft Learn a seguir ajuda você a aprender gratuitamente como [Desenvolver e configurar um aplicativo ASP.NET que consulta um Banco de Dados SQL do Azure](/learn/modules/develop-app-that-queries-azure-sql/), incluindo a criação de um banco de dados simples.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -47,7 +47,7 @@ Um banco de dados no Banco de Dados SQL do Azure é criado com um conjunto defin
 Siga estas etapas para criar um banco de dados em branco.
 
 1. Clique em **Criar um recurso** no canto superior esquerdo do Portal do Azure.
-2. Na página **Novo**, selecione **Bancos de Dados** na seção do Azure Marketplace e, em seguida, clique em **Banco de Dados SQL** na seção **Em Destaque**.
+2. Na página **Novo** , selecione **Bancos de Dados** na seção do Azure Marketplace e, em seguida, clique em **Banco de Dados SQL** na seção **Em Destaque** .
 
    ![criar banco de dados vazio](./media/design-first-database-csharp-tutorial/create-empty-database.png)
 
@@ -71,18 +71,18 @@ Siga estas etapas para criar um banco de dados em branco.
 
     ![criar database-server](./media/design-first-database-csharp-tutorial/create-database-server.png)
 
-5. Clique em **Selecionar**.
+5. Clique em **Selecionar** .
 6. Clique em **Tipo de preço** para especificar a camada de serviço, o número de DTUs ou vCores e a quantidade de armazenamento. Você pode explorar as opções para o número de DTUs/vCores e o armazenamento disponível em cada camada de serviço.
 
-    Depois de selecionar a camada de serviço, o número de DTUs ou vCores e a quantidade de armazenamento, clique em **Aplicar**.
+    Depois de selecionar a camada de serviço, o número de DTUs ou vCores e a quantidade de armazenamento, clique em **Aplicar** .
 
 7. Insira uma **Ordenação** para o banco de dados em branco (para este tutorial, use o valor padrão). Para obter mais informações sobre ordenações, confira [Ordenações](/sql/t-sql/statements/collations)
 
-8. Agora que você concluiu o formulário do **Banco de Dados SQL**, clique em **Criar** para provisionar o banco de dados. Esta etapa pode levar alguns minutos.
+8. Agora que você concluiu o formulário do **Banco de Dados SQL** , clique em **Criar** para provisionar o banco de dados. Esta etapa pode levar alguns minutos.
 
 9. Na barra de ferramentas, clique em **Notificações** para monitorar o processo de implantação.
 
-   ![notificação](./media/design-first-database-csharp-tutorial/notification.png)
+   ![A captura de tela mostra Notificações no portal do Azure com a Implantação em andamento.](./media/design-first-database-csharp-tutorial/notification.png)
 
 ## <a name="create-a-server-level-ip-firewall-rule"></a>Criar uma regra de firewall de IP no nível do servidor
 
@@ -91,7 +91,7 @@ O Banco de Dados SQL cria um firewall de IP no nível do servidor. Esse firewall
 > [!IMPORTANT]
 > O Banco de Dados SQL se comunica pela porta 1433. Se você estiver tentando se conectar a esse serviço de dentro de uma rede corporativa, o tráfego de saída pela porta 1433 poderá não ser permitido pelo firewall da sua rede. Se isso acontecer, você não poderá conectar-se ao banco de dados, a menos que o administrador abra a porta 1433.
 
-1. Depois da implantação ser concluída, clique em **Bancos de dados SQL** no menu à esquerda, depois, clique em *yourDatabase* na página **Bancos de dados SQL**. A página de visão geral de seu banco de dados é aberta, mostrando o **nome do servidor** totalmente qualificado (como *yourserver.database.windows.net*) e fornece opções para configurações adicionais.
+1. Depois da implantação ser concluída, clique em **Bancos de dados SQL** no menu à esquerda, depois, clique em *yourDatabase* na página **Bancos de dados SQL** . A página de visão geral de seu banco de dados é aberta, mostrando o **nome do servidor** totalmente qualificado (como *yourserver.database.windows.net* ) e fornece opções para configurações adicionais.
 
 2. Copie esse nome totalmente qualificado do servidor para usá-lo para se conectar ao seu servidor e bancos de dados do SQL Server Management Studio.
 
@@ -105,7 +105,7 @@ O Banco de Dados SQL cria um firewall de IP no nível do servidor. Esse firewall
 
 5. Clique em **Save** (Salvar). Uma regra de firewall de IP no nível do servidor é criada para o endereço IP atual que abre a porta 1433 no servidor.
 
-6. Clique em **OK**, em seguida, feche a página **Configurações do Firewall**.
+6. Clique em **OK** , em seguida, feche a página **Configurações do Firewall** .
 
 Agora seu endereço IP pode passar pelo firewall de IP. Agora, é possível se conectar ao seu banco de dados usando o SQL Server Management Studio ou outra ferramenta de sua escolha. Use a conta do administrador do servidor criada anteriormente.
 

@@ -1,6 +1,7 @@
 - name: Documentação do Azure Data Share
   href: index.yml
 - name: Visão geral
+  expanded: true
   items:
     - name: O que é o Azure Data Share?
       href: overview.md
@@ -8,9 +9,9 @@
       href: supported-data-stores.md
 - name: Inícios rápidos
   items:
-    - name: Criar compartilhamento de dados – portal do Azure
+    - name: Compartilhar dados – portal do Azure
       href: share-your-data-portal.md
-    - name: Criar compartilhamento de dados – modelo do Resource Manager
+    - name: Compartilhar dados – modelo do Resource Manager
       displayName: Resource Manager
       href: share-your-data-arm.md
 - name: Tutoriais
@@ -18,10 +19,18 @@
   items:
     - name: Compartilhar dados
       href: share-your-data.md
+      displayName: 'Azure CLI, az datashare account create, az datashare create'
     - name: Aceitar e receber dados
       href: subscribe-to-data-share.md
+      displayName: 'Azure CLI, az datashare consumer invitation, az datashare consumer share-subscription'
 - name: Conceitos
   items:
+    - name: Segurança
+      items:
+        - name: Visão geral da segurança
+          href: security.md
+        - name: Linha de base de segurança
+          href: security-baseline.md
     - name: Terminologia do Azure Data Share
       href: terminology.md
     - name: Requisitos e funções
@@ -30,16 +39,19 @@
       href: concepts-pricing.md
 - name: Exemplos
   items:
-    - name: Exemplos de código
-      href: 'https://docs.microsoft.com/samples/browse/?service=data-share/'
     - name: Azure PowerShell
       href: samples-powershell.md
 - name: Guias de instruções
   items:
-    - name: Monitoramento
-      href: how-to-monitor.md
-    - name: Solucionar problemas
-      href: data-share-troubleshoot.md
+    - name: Compartilhar e receber dados por origem
+      items:
+        - name: Compartilhar do Armazenamento do Azure
+          href: how-to-share-from-storage.md
+        - name: Compartilhar do Banco de Dados SQL do Azure ou do Azure Synapse Analytics
+          href: how-to-share-from-sql.md
+        - name: Compartilhar do Azure Data Explorer
+          href: /azure/data-explorer/data-share
+          maintainContext: true
     - name: Adicionar conjuntos de dados
       href: how-to-add-datasets.md
     - name: Configurar mapeamentos de conjuntos de dados
@@ -50,27 +62,26 @@
       href: how-to-delete-invitation.md
     - name: Revogar uma assinatura de compartilhamento
       href: how-to-revoke-share-subscription.md
-    - name: Segurança
-      href: security.md
+    - name: Monitoramento
+      href: how-to-monitor.md
     - name: Recuperação de desastre
       href: disaster-recovery.md
-    - name: Compartilhar dados do Azure Data Explorer
-      href: /azure/data-explorer/data-share
-      maintainContext: true
+    - name: Solucionar problemas
+      href: data-share-troubleshoot.md
 - name: Referência
   items:
     - name: .NET
       href: /dotnet/api/overview/azure/datashare
     - name: Azure PowerShell
-      href: 'https://docs.microsoft.com/powershell/module/az.datashare/?view=azps-2.6.0'
+      href: /powershell/module/az.datashare/?view=azps-2.6.0
     - name: API REST
       href: /rest/api/datashare
     - name: CLI do Azure
-      href: 'https://docs.microsoft.com/cli/azure/azure-cli-reference-for-data-share?view=azure-cli-latest'
+      href: /cli/azure/azure-cli-reference-for-data-share?view=azure-cli-latest
 - name: Recursos
   items:
     - name: Página de perguntas de P e R da Microsoft
-      href: 'https://docs.microsoft.com/answers/topics/azure-data-share.html'
+      href: /answers/topics/azure-data-share.html
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-data-share'
     - name: Blog

@@ -1,19 +1,19 @@
 ---
-title: Criando e configurando um cofre de chaves para Azure Disk Encryption com o Azure AD (versão anterior)
-description: Este artigo fornece os pré-requisitos para usar o Microsoft Azure Disk Encryption para VMs IaaS.
+title: Criar e configurar um cofre de chaves para Azure Disk Encryption com o Azure AD (versão anterior)
+description: Neste artigo, saiba como criar e configurar um cofre de chaves para Azure Disk Encryption com o Azure AD.
 author: msmbaldwin
 ms.service: virtual-machines-windows
 ms.subservice: security
 ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 03/15/2019
-ms.custom: seodec18
-ms.openlocfilehash: eb625624fa6faa4fdf3ef4fba3b49a0d2d5d7e09
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: fd239b52e647d7a0dfa3b60ee1dc31ea7005311b
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284533"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99805948"
 ---
 # <a name="creating-and-configuring-a-key-vault-for-azure-disk-encryption-with-azure-ad-previous-release"></a>Criando e configurando um cofre de chaves para Azure Disk Encryption com o Azure AD (versão anterior)
 
@@ -36,7 +36,7 @@ Consulte o artigo principal [criando e configurando um cofre de chaves para Azur
 > As etapas neste artigo são automatizadas no [Script de CLI de pré-requisitos do Azure Disk Encryption](https://github.com/ejarvi/ade-cli-getting-started) e no [Script do PowerShell de pré-requisitos do Azure Disk Encryption](https://github.com/Azure/azure-powershell/tree/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts).
 
 
-## <a name="create-a-key-vault"></a>Criar um cofre de chave 
+## <a name="create-a-key-vault"></a>Criar um cofre de chaves 
 O Azure Disk Encryption se integra [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/) para ajudá-lo a controlar e gerenciar as chaves de criptografia de disco e segredos em sua assinatura do Cofre de chaves. Você pode criar um cofre de chaves ou usar um existente para o Azure Disk Encryption. Para obter mais informações sobre cofres-chave, consulte [Introdução ao Cofre de Chaves do Azure](../../key-vault/general/overview.md) e [Proteja seu cofre de chaves](../../key-vault/general/secure-your-key-vault.md). Você pode usar um modelo do Resource Manager, o Azure PowerShell ou a CLI do Azure para criar um cofre de chaves. 
 
 
@@ -61,7 +61,7 @@ Você pode criar um cofre de chaves com Azure PowerShell usando o cmdlet [New-Az
      New-AzKeyVault -VaultName 'MySecureVault' -ResourceGroupName 'MyKeyVaultResourceGroup' -Location 'East US'
      ```
 
-4. Observe a **nome do cofre**, **nome do grupo de recursos**, **ID do recurso**, **URI do cofre**e o **ID de objeto** que são retornados para uso posterior ao criptografar os discos. 
+4. Observe a **nome do cofre**, **nome do grupo de recursos**, **ID do recurso**, **URI do cofre** e o **ID de objeto** que são retornados para uso posterior ao criptografar os discos. 
 
 
 ### <a name="create-a-key-vault-with-azure-cli"></a> Criar um cofre de chaves com CLI do Azure
@@ -80,14 +80,14 @@ Você pode gerenciar o Cofre de chaves com CLI do Azure usando os comandos [keyv
      az keyvault create --name "MySecureVault" --resource-group "MyKeyVaultResourceGroup" --location "East US"
      ```
 
-4. Observação o **nome do cofre** (nome), **nome do grupo de recursos**, **ID do recurso** (ID), **URI do cofre**e o **deIDdeobjeto** que são retornados para uso posterior. 
+4. Observação o **nome do cofre** (nome), **nome do grupo de recursos**, **ID do recurso** (ID), **URI do cofre** e o **deIDdeobjeto** que são retornados para uso posterior. 
 
 ### <a name="create-a-key-vault-with-a-resource-manager-template"></a> Criar um cofre de chaves com um modelo do Resource Manager
 
 Você pode criar um cofre de chaves usando o modelo [Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create).
 
 1. No modelo de início rápido do Azure, clique em **Implantar no Azure**.
-2. Selecione a assinatura, o grupo de recursos, o local do grupo de recursos, o nome do Key Vault, o ID do Objeto, os termos legais e o contrato e clique em **Compra**. 
+2. Selecione a assinatura, o grupo de recursos, o local do grupo de recursos, o nome do Key Vault, a ID do objeto, os termos legais e o contrato e clique em **comprar**. 
 
 
 ## <a name="set-up-an-azure-ad-app-and-service-principal"></a> Configurar um aplicativo do Azure AD e o serviço de entidade 
@@ -175,9 +175,9 @@ az keyvault set-policy --name "MySecureVault" --spn "<spn created with CLI/the A
 A plataforma Azure precisa acessar as chaves de criptografia ou os segredos no cofre de chaves para disponibilizá-los para a máquina virtual para inicialização e descriptografar os volumes. Habilite a criptografia de disco no cofre da chave ou as implantações falharão.  
 
 ### <a name="set-key-vault-advanced-access-policies-with-azure-powershell"></a> Definir políticas de acesso avançado ao cofre de chaves com o Azure PowerShell
- Use o cmdlet do PowerShell do cofre de chaves [set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) para habilitar a criptografia de disco para o cofre de chaves.
+ Use o cmdlet de cofre de chaves [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) do PowerShell para habilitar a criptografia de disco para o cofre da chaves.
 
-  - ** Ative o Key Vault para criptografia de disco: ** EnabledForDiskEncryption é necessário para a criptografia do Azure Disk.
+  - **Ative o Key Vault para criptografia de disco:** EnabledForDiskEncryption é necessário para a criptografia do Azure Disk.
       
      ```azurepowershell-interactive 
      Set-AzKeyVaultAccessPolicy -VaultName 'MySecureVault' -ResourceGroupName 'MyKeyVaultResourceGroup' -EnabledForDiskEncryption
@@ -232,13 +232,13 @@ Se você quiser usar uma chave de criptografia (KEK) para uma camada adicional d
 
 * O segredo do cofre de chaves e as URLs KEK devem ter controle de versão. O Azure impõe essa restrição de controle de versão. Para um segredo válido e URLs KEK, confira os seguintes exemplos:
 
-  * Exemplo de uma URL secreta válida:*https://contosovault.vault.azure.net/secrets/EncryptionSecretWithKek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
-  * Exemplo de uma URL KEK válida:*https://contosovault.vault.azure.net/keys/diskencryptionkek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+  * Exemplo de uma URL secreta válida:   *https://contosovault.vault.azure.net/secrets/EncryptionSecretWithKek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+  * Exemplo de uma URL KEK válida:   *https://contosovault.vault.azure.net/keys/diskencryptionkek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 * o Azure Disk Encryption não dá suporte à especificação de números de portas como parte de segredos do cofre de chaves e URLs KEK. Para exemplos de URLs do cofre de chaves não suportados e suportados, consulte os seguintes exemplos:
 
-  * URL do cofre de chaves inaceitável*https://contosovault.vault.azure.net:443/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
-  * URL do cofre de chaves aceitável:*https://contosovault.vault.azure.net/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+  * URL do cofre de chaves inaceitável  *https://contosovault.vault.azure.net:443/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+  * URL do cofre de chaves aceitável:   *https://contosovault.vault.azure.net/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 ### <a name="set-up-a-key-encryption-key-with-azure-powershell"></a> Configurar uma chave de criptografia chave com o Azure PowerShell 
 Antes de usar o script do PowerShell, você deve estar familiarizado com os pré-requisitos do Azure Disk Encryption para entender as etapas no script. O script de amostra pode precisar de mudanças para seu ambiente. Esse script cria todos os pré-requisitos da criptografia de disco do Azure e criptografa uma VM IaaS existente, envolvendo a chave de criptografia de disco usando uma chave de criptografia de chave. 

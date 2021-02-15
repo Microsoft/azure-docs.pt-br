@@ -3,26 +3,24 @@ title: Examinar usuário declarações-LUIS
 titleSuffix: Azure Cognitive Services
 description: Examine o declarações capturado pelo aprendizado ativo para selecionar entidades de intenção e marca para declarações do mundo de leitura; aceitar alterações, treinar e publicar.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 05/07/2020
-ms.author: diberry
-ms.openlocfilehash: 58674bf38ec1efb970fa8e79f7d970ecefb36712
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.date: 12/08/2020
+ms.openlocfilehash: ea2b44d05d25756a16b6b84f0734966b1f579848
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86055606"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007595"
 ---
 # <a name="how-to-improve-the-luis-app-by-reviewing-endpoint-utterances"></a>Como melhorar o aplicativo LUIS examinando o ponto de extremidade declarações
 
-O processo de revisão do ponto de extremidade declarações para previsões corretas é chamado de [aprendizado ativo](luis-concept-review-endpoint-utterances.md). O aprendizado ativo captura consultas de ponto de extremidade e seleciona o ponto de extremidade do usuário declarações que não tem certeza de. Revise essas declarações para selecionar as entidades de intenção e marca para essas declarações reais. Aceite essas alterações em seu exemplo declarações, em seguida, treine e publique. LUIS, em seguida, identifica declarações com mais precisão.
+O processo de revisão do ponto de extremidade declarações para previsões corretas é chamado de [aprendizado ativo](luis-concept-review-endpoint-utterances.md). O aprendizado ativo captura consultas de ponto de extremidade e seleciona o ponto de extremidade do usuário declarações que não tem certeza de. Revise essas declarações para selecionar as entidades de intenção e marca para essas declarações reais. Aceite essas alterações no seu exemplo de enunciado e, em seguida, treine e publique. LUIS, em seguida, identifica declarações com mais precisão.
 
-## <a name="enable-active-learning"></a>Habilitar o aprendizado ativo
+## <a name="log-user-queries-to-enable-active-learning"></a>Registrar consultas de usuário para habilitar o aprendizado ativo
 
 Para habilitar o aprendizado ativo, você deve registrar as consultas de usuário. Isso é feito chamando a [consulta de ponto de extremidade](luis-get-started-create-app.md#query-the-v3-api-prediction-endpoint) com o `log=true` parâmetro e o valor de QueryString.
 
@@ -34,7 +32,7 @@ Use o portal do LUIS para construir a consulta de ponto de extremidade correta.
 1. Para o recurso de previsão atribuído, selecione **alterar parâmetros de consulta**.
 
     > [!div class="mx-imgBorder"]
-    > ![Use o portal do LUIS para salvar logs, o que é necessário para o aprendizado ativo.](./media/luis-tutorial-review-endpoint-utterances/azure-portal-change-query-url-settings.png)
+    > ![Captura de tela mostra o link alterar parâmetros de consulta.](./media/luis-tutorial-review-endpoint-utterances/azure-portal-change-query-url-settings.png)
 
 1. Alterne **salvar logs** e salve selecionando **concluído**.
 

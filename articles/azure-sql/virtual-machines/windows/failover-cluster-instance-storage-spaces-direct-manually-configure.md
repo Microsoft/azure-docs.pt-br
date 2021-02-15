@@ -7,18 +7,19 @@ author: MashaMSFT
 editor: monicar
 tags: azure-service-management
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 ms.custom: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/18/2020
 ms.author: mathoma
-ms.openlocfilehash: fb253845330a139b04fa79090a27a135f67cab46
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 6ed5e11a8492314e99b9f105d259fa910dcdb77d
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85954768"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97357799"
 ---
 # <a name="create-an-fci-with-storage-spaces-direct-sql-server-on-azure-vms"></a>Criar um FCI com Espaços de Armazenamento Diretos (SQL Server em VMs do Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -57,7 +58,7 @@ Antes de concluir as instruções neste artigo, você já deve ter:
 - Uma assinatura do Azure. Comece [gratuitamente](https://azure.microsoft.com/free/). 
 - [Duas ou mais máquinas virtuais do Windows Azure](failover-cluster-instance-prepare-vm.md) preparadas em um [conjunto de disponibilidade](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set).
 - Uma conta que tenha permissões para criar objetos em máquinas virtuais do Azure e no Active Directory.
-- A versão mais recente do [PowerShell](/powershell/azure/install-az-ps?view=azps-4.2.0). 
+- A versão mais recente do [PowerShell](/powershell/azure/install-az-ps). 
 
 
 ## <a name="add-the-windows-cluster-feature"></a>Adicionar o recurso de cluster do Windows
@@ -81,7 +82,7 @@ Antes de concluir as instruções neste artigo, você já deve ter:
    Invoke-Command  $nodes {Install-WindowsFeature Failover-Clustering -IncludeAllSubFeature -IncludeManagementTools}
    ```
 
-Para obter mais informações sobre as próximas etapas, consulte as instruções na seção "etapa 3: configurar Espaços de Armazenamento Diretos" da [solução hiperconvergente usando espaços de armazenamento diretos no Windows Server 2016](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-3-configure-storage-spaces-direct).
+Para obter mais informações sobre as próximas etapas, consulte as instruções na seção "etapa 3: configurar Espaços de Armazenamento Diretos" da [solução hiperconvergente usando espaços de armazenamento diretos no Windows Server 2016](/windows-server/storage/storage-spaces/deploy-storage-spaces-direct#step-3-configure-storage-spaces-direct).
 
 
 ## <a name="validate-the-cluster"></a>Validar o cluster
@@ -150,9 +151,9 @@ Configure a solução de quorum mais adequada às suas necessidades de negócios
 
 ## <a name="add-storage"></a>Adicionar armazenamento
 
-Os discos para os Espaços de Armazenamento Diretos precisam estar vazios. Eles não podem conter partições nem outros dados. Para limpar os discos, siga as instruções em [implantar espaços de armazenamento diretos](https://docs.microsoft.com/windows-server/storage/storage-spaces/deploy-storage-spaces-direct?redirectedfrom=MSDN#step-31-clean-drives).
+Os discos para os Espaços de Armazenamento Diretos precisam estar vazios. Eles não podem conter partições nem outros dados. Para limpar os discos, siga as instruções em [implantar espaços de armazenamento diretos](/windows-server/storage/storage-spaces/deploy-storage-spaces-direct#step-31-clean-drives).
 
-1. [Habilitar espaços de armazenamento diretos](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-35-enable-storage-spaces-direct).
+1. [Habilitar espaços de armazenamento diretos](/windows-server/storage/storage-spaces/deploy-storage-spaces-direct#step-35-enable-storage-spaces-direct).
 
    O seguinte script do PowerShell habilita os Espaços de Armazenamento Diretos:  
 
@@ -162,9 +163,9 @@ Os discos para os Espaços de Armazenamento Diretos precisam estar vazios. Eles 
 
    No **Gerenciador de Cluster de Failover**, agora você pode ver o pool de armazenamento.
 
-1. [Criar um volume](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-36-create-volumes).
+1. [Criar um volume](/windows-server/storage/storage-spaces/deploy-storage-spaces-direct#step-36-create-volumes).
 
-   Os Espaços de Armazenamento Diretos criam automaticamente um pool de armazenamento quando você os habilita. Agora você está pronto para criar um volume. O cmdlet do PowerShell `New-Volume` automatiza o processo de criação de volume. Esse processo inclui a formatação, a adição do volume ao cluster e a criação de um CSV. Este exemplo cria um CSV de 800 GB (gigabytes):
+   Os Espaços de Armazenamento Diretos criam automaticamente um pool de armazenamento quando você os habilita. Agora você está pronto para criar um volume. O cmdlet do PowerShell `New-Volume` automatiza o processo de criação de volume. Esse processo inclui a formatação, a adição do volume ao cluster e a criação de um CSV. Este exemplo cria um CSV de 800 gigabytes (GB):
 
    ```powershell
    New-Volume -StoragePoolFriendlyName S2D* -FriendlyName VDisk01 -FileSystem CSVFS_REFS -Size 800GB
@@ -180,7 +181,7 @@ Os discos para os Espaços de Armazenamento Diretos precisam estar vazios. Eles 
 
 ## <a name="test-cluster-failover"></a>Testar failover de cluster
 
-Teste o failover do cluster. Em **Gerenciador de cluster de failover**, clique com o botão direito do mouse no cluster, selecione **mais ações**  >  **mover recurso de cluster principal**  >  **selecione nó**e, em seguida, selecione o outro nó do cluster. Mova o recurso principal de cluster para cada nó do cluster e mova-o novamente para o nó primário. Se você puder mover o cluster para cada nó com êxito, estará pronto para instalar o SQL Server.  
+Teste o failover do cluster. Em **Gerenciador de cluster de failover**, clique com o botão direito do mouse no cluster, selecione **mais ações**  >  **mover recurso de cluster principal**  >  **selecione nó** e, em seguida, selecione o outro nó do cluster. Mova o recurso principal de cluster para cada nó do cluster e mova-o novamente para o nó primário. Se você puder mover o cluster para cada nó com êxito, estará pronto para instalar o SQL Server.  
 
 :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/test-cluster-failover.png" alt-text="Testar o failover de cluster movendo o recurso principal para os outros nós":::
 
@@ -211,13 +212,13 @@ Depois de configurar o cluster de failover e todos os componentes do cluster, in
 1. Selecione **Adicionar um nó a um cluster de failover do SQL Server**. Siga as instruções no assistente para instalar o SQL Server e adicionar o servidor à FCI.
 
    >[!NOTE]
-   >Se você usou uma imagem da galeria do Azure Marketplace que contém o SQL Server, as ferramentas do SQL Server foram incluídas com a imagem. Se você não usou uma dessas imagens, instale as ferramentas do SQL Server separadamente. Para obter mais informações, consulte [Baixar o SSMS (SQL Server Management Studio)](https://msdn.microsoft.com/library/mt238290.aspx).
+   >Se você usou uma imagem da galeria do Azure Marketplace que contém o SQL Server, as ferramentas do SQL Server foram incluídas com a imagem. Se você não usou uma dessas imagens, instale as ferramentas do SQL Server separadamente. Para obter mais informações, consulte [Baixar o SSMS (SQL Server Management Studio)](/sql/ssms/download-sql-server-management-studio-ssms).
    >
 
 
 ## <a name="register-with-the-sql-vm-rp"></a>Registrar com a VM do SQL RP
 
-Para gerenciar sua VM SQL Server no portal, registre-a com o provedor de recursos de VM do SQL (RP) no [modo de gerenciamento leve](sql-vm-resource-provider-register.md#lightweight-management-mode), atualmente o único modo com suporte com FCI e SQL Server em VMs do Azure. 
+Para gerenciar sua VM SQL Server no portal, registre-a com a extensão do SQL IaaS Agent (RP) no [modo de gerenciamento leve](sql-agent-extension-manually-register-single-vm.md#lightweight-management-mode), atualmente o único modo com suporte com FCI e SQL Server em VMs do Azure. 
 
 
 Registrar uma VM SQL Server no modo leve com o PowerShell:  
@@ -233,22 +234,22 @@ New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $v
 
 ## <a name="configure-connectivity"></a>Configurar a conectividade 
 
-Para rotear o tráfego adequadamente para o nó primário atual, configure a opção de conectividade adequada para o seu ambiente. Você pode criar um [balanceador de carga do Azure](hadr-vnn-azure-load-balancer-configure.md) ou, se estiver usando SQL Server 2019 e o Windows Server 2019, poderá visualizar o recurso de [nome de rede distribuída](hadr-distributed-network-name-dnn-configure.md) em vez disso. 
+Para rotear o tráfego adequadamente para o nó primário atual, configure a opção de conectividade adequada para o seu ambiente. Você pode criar um [balanceador de carga do Azure](failover-cluster-instance-vnn-azure-load-balancer-configure.md) ou, se você estiver usando SQL Server 2019 Cu2 (ou posterior) e o Windows Server 2016 (ou posterior), poderá usar o recurso de [nome de rede distribuída](failover-cluster-instance-distributed-network-name-dnn-configure.md) em vez disso. 
 
 ## <a name="limitations"></a>Limitações
 
-- As máquinas virtuais do Azure dão suporte ao Microsoft Coordenador de Transações Distribuídas (MSDTC) no Windows Server 2019 com armazenamento no CSVs e um [balanceador de carga padrão](../../../load-balancer/load-balancer-standard-overview.md).
+- As máquinas virtuais do Azure dão suporte ao Microsoft Coordenador de Transações Distribuídas (MSDTC) no Windows Server 2019 com armazenamento no CSVs e um [balanceador de carga padrão](../../../load-balancer/load-balancer-overview.md).
 - Os discos que foram anexados como discos formatados com NTFS podem ser usados com Espaços de Armazenamento Diretos somente se a opção de qualificação de disco estiver desmarcada ou desmarcada quando o armazenamento estiver sendo adicionado ao cluster. 
-- Há suporte apenas para o registro com o provedor de recursos de VM do SQL no [modo de gerenciamento leve](sql-vm-resource-provider-register.md#management-modes) .
+- Há suporte apenas para o registro com a extensão do SQL IaaS Agent no [modo de gerenciamento leve](sql-server-iaas-agent-extension-automate-management.md#management-modes) .
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se você ainda não tiver feito isso, configure a conectividade com o FCI com um [nome de rede virtual e um balanceador de carga do Azure](hadr-vnn-azure-load-balancer-configure.md) ou [DNN (nome de rede distribuída)](hadr-distributed-network-name-dnn-configure.md). 
+Se você ainda não tiver feito isso, configure a conectividade com o FCI com um [nome de rede virtual e um balanceador de carga do Azure](failover-cluster-instance-vnn-azure-load-balancer-configure.md) ou [DNN (nome de rede distribuída)](failover-cluster-instance-distributed-network-name-dnn-configure.md). 
 
 Se Espaços de Armazenamento Diretos não for a solução de armazenamento FCI apropriada para você, considere criar seu FCI usando os [discos compartilhados do Azure](failover-cluster-instance-azure-shared-disks-manually-configure.md) ou os [compartilhamentos de arquivos Premium](failover-cluster-instance-premium-file-share-manually-configure.md) em vez disso. 
 
 Para saber mais, confira uma visão geral do [FCI com SQL Server em VMs do Azure](failover-cluster-instance-overview.md) e [práticas recomendadas de configuração de cluster](hadr-cluster-best-practices.md). 
 
-Para obter informações adicionais, consulte: 
+Para obter mais informações, consulte: 
 - [Tecnologias de cluster do Windows](/windows-server/failover-clustering/failover-clustering-overview)   
-- [SQL Server instâncias de cluster de failover](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
+- [Instâncias de cluster de failover do SQL Server](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)

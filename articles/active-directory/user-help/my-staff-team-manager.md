@@ -13,12 +13,12 @@ ms.date: 04/14/2020
 ms.author: curtand
 ms.reviewer: sahenry
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: d692302df1f5c03a7dce60858b31e0ca66de4c80
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 56ee7df52abf97c920dfe2fa4ba5d1d858975f7d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744530"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91537083"
 ---
 # <a name="delegate-user-management-with-my-staff-preview"></a>Delegar o gerenciamento de usuários com Minha Equipe (versão prévia)
 
@@ -104,7 +104,7 @@ Se a entrada com um número de telefone como um nome de usuário (entrada por SM
 
 1. Selecione **OK** quando terminar.
 
-    ![Remover o número de telefone de um membro da equipe em Minha Equipe](media/my-staff-team-manager/enableforms2.png)
+    ![Captura de tela que mostra o "Habilitar número de telefone para entrar?" janela com o botão "OK" selecionado.](media/my-staff-team-manager/enableforms2.png)
 
 ### <a name="remove-a-phone-number"></a>Remover um número de telefone
 

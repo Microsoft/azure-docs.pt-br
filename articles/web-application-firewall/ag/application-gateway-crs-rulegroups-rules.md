@@ -8,12 +8,12 @@ ms.service: web-application-firewall
 ms.date: 11/14/2019
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 37e09612491d41887c5945920488569d3620bf0b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e2c88091072921f1ca674868e401c34d354418de
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85052025"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746502"
 ---
 # <a name="web-application-firewall-crs-rule-groups-and-rules"></a>Regras e grupos de regras CRS do firewall do aplicativo Web
 
@@ -99,7 +99,7 @@ As regras e os grupos de regras a seguir estão disponíveis ao usar o Firewall 
 
 # <a name="owasp-31"></a>[OWASP 3,1](#tab/owasp31)
 
-## <a name="rule-sets"></a><a name="owasp31"></a>Conjuntos de regras
+## <a name="rule-sets"></a><a name="owasp31"></a> Conjuntos de regras
 
 ### <a name="p-x-ms-format-detectionnonegeneralp"></a><a name="general-31"></a> <p x-ms-format-detection="none">Geral</p>
 
@@ -240,9 +240,9 @@ As regras e os grupos de regras a seguir estão disponíveis ao usar o Firewall 
 |933131|Ataque de injeção de PHP: variáveis encontradas|
 |933140|Ataque de injeção de PHP: fluxo de e/s encontrado|
 |933150|Ataque de injeção de PHP = nome da função PHP de alto risco encontrado|
-|933151|Ataque de injeção de PHP: nome de função PHP de médio risco encontrado|
+|933151|Ataque de injeção de PHP: nome de função PHP Medium-Risk encontrado|
 |933160|Ataque de injeção de PHP = chamada de função PHP de alto risco encontrada|
-|933161|Ataque de injeção de PHP: chamada de função PHP de valor baixo encontrada|
+|933161|Ataque de injeção de PHP: chamada de função PHP Low-Value encontrada|
 |933170|Ataque de injeção de PHP: injeção de objeto serializado|
 |933180|Ataque de injeção de PHP = chamada de função de variável encontrada|
 |933190|Ataque de injeção de PHP: marca de fechamento de PHP encontrada|
@@ -259,7 +259,7 @@ As regras e os grupos de regras a seguir estão disponíveis ao usar o Firewall 
 |941150|Filtro XSS - Categoria 5 = atributos HTML não permitidos|
 |941160|NoScript XSS InjectionChecker: injeção de HTML|
 |941170|NoScript XSS InjectionChecker: injeção de atributo|
-|941180|Palavras-chave da lista negra do validador de nós|
+|941180|Palavras-chave de Node-Validator blocklist|
 |941190|XSS usando folhas de estilo|
 |941200|XSS usando quadros VML|
 |941210|XSS usando JavaScript ofuscado|
@@ -347,7 +347,7 @@ As regras e os grupos de regras a seguir estão disponíveis ao usar o Firewall 
 
 # <a name="owasp-30"></a>[OWASP 3.0](#tab/owasp30)
 
-## <a name="rule-sets"></a><a name="owasp30"></a>Conjuntos de regras
+## <a name="rule-sets"></a><a name="owasp30"></a> Conjuntos de regras
 
 ### <a name="p-x-ms-format-detectionnonegeneralp"></a><a name="general-30"></a> <p x-ms-format-detection="none">Geral</p>
 
@@ -487,7 +487,7 @@ As regras e os grupos de regras a seguir estão disponíveis ao usar o Firewall 
 |941130|Filtro XSS - Categoria 3 = vetor de atributo|
 |941140|Filtro XSS - Categoria 4 = Vector de URI de Javascript|
 |941150|Filtro XSS - Categoria 5 = atributos HTML não permitidos|
-|941180|Palavras-chave da lista negra do validador de nós|
+|941180|Palavras-chave de Node-Validator blocklist|
 |941190|XSS usando folhas de estilo|
 |941200|XSS usando quadros VML|
 |941210|XSS usando JavaScript ofuscado|
@@ -547,9 +547,9 @@ As regras e os grupos de regras a seguir estão disponíveis ao usar o Firewall 
 
 # <a name="owasp-229"></a>[OWASP 2.2.9](#tab/owasp2)
 
-## <a name="rule-sets"></a><a name="owasp229"></a>Conjuntos de regras
+## <a name="rule-sets"></a><a name="owasp229"></a> Conjuntos de regras
 
-### <a name="crs_20_protocol_violations"></a><a name="crs20"></a>crs_20_protocol_violations
+### <a name="crs_20_protocol_violations"></a><a name="crs20"></a> crs_20_protocol_violations
 
 |RuleId|Descrição|
 |---|---|
@@ -575,7 +575,7 @@ As regras e os grupos de regras a seguir estão disponíveis ao usar o Firewall 
 |960901|Caractere inválido na solicitação|
 |960018|Caractere inválido na solicitação|
 
-### <a name="crs_21_protocol_anomalies"></a><a name="crs21"></a>crs_21_protocol_anomalies
+### <a name="crs_21_protocol_anomalies"></a><a name="crs21"></a> crs_21_protocol_anomalies
 
 |RuleId|Descrição|
 |---|---|
@@ -588,7 +588,7 @@ As regras e os grupos de regras a seguir estão disponíveis ao usar o Firewall 
 |960904|A solicitação tem conteúdo, mas o cabeçalho Content-Type está ausente|
 |960017|O cabeçalho de host é um endereço IP numérico|
 
-### <a name="crs_23_request_limits"></a><a name="crs23"></a>crs_23_request_limits
+### <a name="crs_23_request_limits"></a><a name="crs23"></a> crs_23_request_limits
 
 |RuleId|Descrição|
 |---|---|
@@ -599,7 +599,7 @@ As regras e os grupos de regras a seguir estão disponíveis ao usar o Firewall 
 |960342|Tamanho do arquivo carregado muito grande|
 |960343|Tamanho total de arquivos carregados muito grande|
 
-### <a name="crs_30_http_policy"></a><a name="crs30"></a>crs_30_http_policy
+### <a name="crs_30_http_policy"></a><a name="crs30"></a> crs_30_http_policy
 
 |RuleId|Descrição|
 |---|---|
@@ -609,7 +609,7 @@ As regras e os grupos de regras a seguir estão disponíveis ao usar o Firewall 
 |960035|A extensão de arquivo da URL é restrita pela política|
 |960038|O cabeçalho HTTP é restrita pela política|
 
-### <a name="crs_35_bad_robots"></a><a name="crs35"></a>crs_35_bad_robots
+### <a name="crs_35_bad_robots"></a><a name="crs35"></a> crs_35_bad_robots
 
 |RuleId|Descrição|
 |---|---|
@@ -618,7 +618,7 @@ As regras e os grupos de regras a seguir estão disponíveis ao usar o Firewall 
 |990902|A solicitação indica que um verificador de segurança verificou o site|
 |990012|Rastreador do site invasor|
 
-### <a name="crs_40_generic_attacks"></a><a name="crs40"></a>crs_40_generic_attacks
+### <a name="crs_40_generic_attacks"></a><a name="crs40"></a> crs_40_generic_attacks
 
 |RuleId|Descrição|
 |---|---|
@@ -684,7 +684,7 @@ As regras e os grupos de regras a seguir estão disponíveis ao usar o Firewall 
 |981253|Detecta injeções de função/procedimento armazenado em MySQL e PostgreSQL|
 |981251|Detecta injeção de UDF MySQL e outras tentativas de manipulação de dados/estrutura|
 
-### <a name="crs_41_xss_attacks"></a><a name="crs41xss"></a>crs_41_xss_attacks
+### <a name="crs_41_xss_attacks"></a><a name="crs41xss"></a> crs_41_xss_attacks
 
 |RuleId|Descrição|
 |---|---|
@@ -789,7 +789,7 @@ As regras e os grupos de regras a seguir estão disponíveis ao usar o Firewall 
 |973329|Filtros XSS do IE - ataque detectado.|
 |973328|Filtros XSS do IE - ataque detectado.|
 
-### <a name="crs_42_tight_security"></a><a name="crs42"></a>crs_42_tight_security
+### <a name="crs_42_tight_security"></a><a name="crs42"></a> crs_42_tight_security
 
 |RuleId|Descrição|
 |---|---|

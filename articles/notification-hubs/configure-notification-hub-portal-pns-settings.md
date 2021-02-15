@@ -12,12 +12,12 @@ ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 02/14/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: c8e2372e22c9db3aa5ea8b0bd953f18a2c01fbe2
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: 5dd1044895ba55d1fbc6be7f4f4a2d7f615daa16
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87761018"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94887256"
 ---
 # <a name="quickstart-set-up-push-notifications-in-a-notification-hub"></a>Início Rápido: Configurar notificações por push em um hub de notificação
 
@@ -67,14 +67,11 @@ Quando você concluir essas etapas, um alerta indica que o hub de notificação 
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-### <a name="prerequisites"></a>Pré-requisitos
+Você precisará da **Chave de API** para seu projeto do Google FCM (Firebase Cloud Messaging).
 
-Antes de começar, você deverá ter o seguinte:
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-h3.md)]
 
-* A [CLI do Azure](/cli/azure/install-azure-cli) versão 2.0.67 ou posterior.
-
-* A extensão da [CLI do Azure para Hubs de Notificação](/cli/azure/ext/notification-hub/notification-hub).
-* A **chave de API** para um projeto do Google FCM (Firebase Cloud Messaging).
+- Este artigo exige a versão 2.0.67 ou posterior da CLI do Azure. Se você está usando o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ### <a name="set-up-push-notifications-for-google-fcm"></a>Configurar notificações por push para o Google FCM
 
@@ -110,6 +107,8 @@ Antes de começar, você deverá ter o seguinte:
 Obtenha as referências da CLI do Azure para outras plataformas com o comando [az notification-hub credential](/cli/azure/ext/notification-hub/notification-hub/credential).
 
 Para obter mais informações sobre como enviar notificações para um aplicativo Android, confira [Enviar notificações por push para dispositivos Android usando o Firebase](notification-hubs-android-push-notification-google-fcm-get-started.md).
+
+---
 
 ## <a name="windows-push-notification-service"></a>Serviço de Notificação por Push do Windows
 

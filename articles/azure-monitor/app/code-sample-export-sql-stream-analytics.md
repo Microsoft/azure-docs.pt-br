@@ -3,12 +3,12 @@ title: Exportar para o SQL do Azure Application Insights | Microsoft Docs
 description: Exportar dados continuamente do Application Insights para o SQL usando o Stream Analytics
 ms.topic: conceptual
 ms.date: 09/11/2017
-ms.openlocfilehash: 9c559a61794b36ea1bc33abc14271151fbea9d4c
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 5fb7093dd9945893b17f1b8f5e596cfe5181c3b6
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87311221"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98942423"
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>Passo a passo: exportar para SQL do Application Insights usando o Stream Analytics
 Este artigo mostra como mover os dados de telemetria do [aplicativo Azure insights][start] para o Azure SQL Database usando a exportação e a [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) [contínuas][export] . 
@@ -64,7 +64,7 @@ Exportação contínua sempre gera dados para uma conta de armazenamento do Azur
 1. Deixe que alguns dados sejam acumulados. Agora relaxe e deixe as pessoas usarem seu aplicativo por um tempo. A telemetria chegará e você verá os gráficos estatísticos no [gerenciador de métricas](../platform/metrics-charts.md) e eventos individuais na [pesquisa de diagnóstico](./diagnostic-search.md). 
    
     E, além disso, os dados serão exportados para seu armazenamento. 
-2. Inspecione os dados exportados no portal – escolha **Procurar**, selecione sua conta de armazenamento e depois **Contêineres** – ou no Visual Studio. No Visual Studio, escolha **Exibir/Cloud Explorer**e abra Azure/Armazenamento. (se você não tiver essa opção de menu, será necessário instalar o SDK do Azure: Abra a caixa de diálogo Novo Projeto e abra o Visual C# / Cloud / Get Microsoft Azure SDK for .NET.)
+2. Inspecione os dados exportados no portal – escolha **Procurar**, selecione sua conta de armazenamento e depois **Contêineres** – ou no Visual Studio. No Visual Studio, escolha **Exibir/Cloud Explorer** e abra Azure/Armazenamento. (se você não tiver essa opção de menu, será necessário instalar o SDK do Azure: Abra a caixa de diálogo Novo Projeto e abra o Visual C# / Cloud / Get Microsoft Azure SDK for .NET.)
    
     ![No Visual Studio, abra o Navegador do Servidor, Azure e Armazenamento](./media/code-sample-export-sql-stream-analytics/087-explorer.png)
    
@@ -82,7 +82,7 @@ Verifique se o servidor permite acesso aos serviços do Azure:
 ![Navegar, Servidores, seu servidor, Configurações, Firewall, Permitir Acesso ao Azure](./media/code-sample-export-sql-stream-analytics/100-sqlaccess.png)
 
 ## <a name="create-a-table-in-azure-sql-database"></a>Criar uma tabela no banco de dados SQL do Azure
-Conecte-se ao banco de dados criado na seção anterior com sua ferramenta de gerenciamento preferida. Neste passo a passo, usaremos as SSMS ( [Ferramentas de Gerenciamento do SQL Server](/sql/ssms/sql-server-management-studio-ssms?view=sql-server-ver15) ).
+Conecte-se ao banco de dados criado na seção anterior com sua ferramenta de gerenciamento preferida. Neste passo a passo, usaremos as SSMS ( [Ferramentas de Gerenciamento do SQL Server](/sql/ssms/sql-server-management-studio-ssms) ).
 
 ![Conectar-se ao Banco de Dados SQL do Azure](./media/code-sample-export-sql-stream-analytics/31-sql-table.png)
 
@@ -133,21 +133,21 @@ Neste exemplo, estamos usando dados de modos de exibição de página. Para ver 
 ## <a name="create-an-azure-stream-analytics-instance"></a>Criar uma instância do Azure Stream Analytics
 No [Portal do Azure](https://portal.azure.com/), selecione o serviço do Azure Stream Analytics e crie um novo trabalho do Stream Analytics:
 
-![Configurações do Stream analytics](./media/code-sample-export-sql-stream-analytics/SA001.png)
+![Captura de tela mostra a página de trabalho do Stream Analytics com o botão criar realçado.](./media/code-sample-export-sql-stream-analytics/SA001.png)
 
 ![Novo trabalho do Stream Analytics](./media/code-sample-export-sql-stream-analytics/SA002.png)
 
 Após a criação do novo trabalho, escolha **Ir para o recurso**.
 
-![Configurações do Stream analytics](./media/code-sample-export-sql-stream-analytics/SA003.png)
+![Captura de tela mostra a mensagem implantação bem-sucedida e ir para o botão recurso.](./media/code-sample-export-sql-stream-analytics/SA003.png)
 
 #### <a name="add-a-new-input"></a>Adicionar uma nova entrada
 
-![Configurações do Stream analytics](./media/code-sample-export-sql-stream-analytics/SA004.png)
+![Captura de tela mostra a página entradas com o botão Adicionar selecionado.](./media/code-sample-export-sql-stream-analytics/SA004.png)
 
 Defina a entrada do seu blob de Exportação Contínua:
 
-![Configurações do Stream analytics](./media/code-sample-export-sql-stream-analytics/SA0005.png)
+![Captura de tela mostra a nova janela de entrada com as opções de menu suspenso de alias de entrada, origem e conta de armazenamento selecionadas.](./media/code-sample-export-sql-stream-analytics/SA0005.png)
 
 Agora, você precisará da Chave de Acesso Primária da sua Conta de Armazenamento, previamente anotada. Defina isso como a chave da conta de armazenamento.
 

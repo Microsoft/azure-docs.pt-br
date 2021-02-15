@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
 ms.openlocfilehash: 28c5a3085d84b25deb7c5ee09a9c9cc4d7a06819
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87374058"
 ---
 # <a name="azure-serial-console"></a>Console serial do Azure
@@ -45,7 +45,7 @@ O console serial para VMs e conjunto de dimensionamento de máquinas virtuais po
 
 ### <a name="serial-console-for-virtual-machines"></a>Console serial para Máquinas Virtuais
 É simples usar o console serial para VMs. Basta clicar em **Console serial** na seção **Suporte + Solucionar problemas** no portal do Azure.
-  1. Abra o [portal do Azure](https://portal.azure.com).
+  1. Abra o [Portal do Azure](https://portal.azure.com).
 
   1. Navegue até **Todos os recursos** e selecione uma Máquina Virtual. A página de visão geral da VM é aberta.
 

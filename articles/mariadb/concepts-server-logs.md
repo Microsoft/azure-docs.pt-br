@@ -1,22 +1,24 @@
 ---
 title: Logs de consulta lentos-banco de dados do Azure para MariaDB
 description: Descreve os logs disponíveis no Banco de Dados do Azure para MariaDB para os parâmetros disponíveis para habilitar níveis de log diferentes.
-author: ajlam
-ms.author: andrela
-ms.service: mariadb
+author: savjani
+ms.author: pariks
+ms.service: jroth
 ms.topic: conceptual
-ms.date: 4/13/2020
-ms.openlocfilehash: ffd4ab463080001dbab5b0ed9ece69c4b5f91382
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 11/6/2020
+ms.openlocfilehash: 2d3c3c92cc4d0da38f18c7895f4f7f3f3385c653
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81272076"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664156"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mariadb"></a>Logs de consulta lentos no banco de dados do Azure para MariaDB
 No Banco de Dados do Azure para MariaDB, o log de consultas lentas está disponível para os usuários. No entanto, não há suporte para acesso ao log de transação. O log de consultas lentas pode ser usado para identificar gargalos de desempenho para solução de problemas.
 
 Para obter mais informações sobre o log de consulta lenta, leia a documentação do MariaDB para [log de consulta lenta](https://mariadb.com/kb/en/library/slow-query-log-overview/).
+
+Quando o [repositório de consultas](concepts-query-store.md) estiver habilitado no servidor, você poderá ver as consultas como " `CALL mysql.az_procedure_collect_wait_stats (900, 30);` " registradas em log em seus logs de consulta lentos. Esse comportamento é esperado, pois o recurso de Repositório de Consultas coleta estatísticas sobre suas consultas. 
 
 ## <a name="configure-slow-query-logging"></a>Configurar o log de consultas lentas
 Por padrão, o log de consultas lentas está desabilitado. Para habilitá-lo, defina `slow_query_log` como ativado. Isso pode ser habilitado usando o portal do Azure ou CLI do Azure. 
@@ -59,7 +61,7 @@ A tabela a seguir descreve o que está em cada log. Dependendo do método de sa�
 |---|---|
 | `TenantId` | Sua ID de locatário |
 | `SourceSystem` | `Azure` |
-| `TimeGenerated`HORÁRIO | Carimbo de data/hora quando o log foi gravado, em UTC |
+| `TimeGenerated` HORÁRIO | Carimbo de data/hora quando o log foi gravado, em UTC |
 | `Type` | Tipo do log. Sempre `AzureDiagnostics` |
 | `SubscriptionId` | GUID para a assinatura a que o servidor pertence |
 | `ResourceGroup` | Nome do grupo de recursos ao qual o servidor pertence |
@@ -70,7 +72,7 @@ A tabela a seguir descreve o que está em cada log. Dependendo do método de sa�
 | `Category` | `MySqlSlowLogs` |
 | `OperationName` | `LogEvent` |
 | `Logical_server_name_s` | Nome do servidor |
-| `start_time_t`HORÁRIO | Horário em que a consulta começou |
+| `start_time_t` HORÁRIO | Horário em que a consulta começou |
 | `query_time_s` | Tempo total que a consulta levou para executar |
 | `lock_time_s` | Tempo total em que a consulta foi bloqueada |
 | `user_host_s` | Nome de Usuário |

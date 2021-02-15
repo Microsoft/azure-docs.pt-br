@@ -3,20 +3,19 @@ title: Integração do painel de controle do Power BI com o Azure Stream Analyti
 description: Este artigo descreve como usar um painel do Power BI em tempo real para visualizar dados de um trabalho do Azure Stream Analytics.
 author: jseb225
 ms.author: jeanb
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 8/6/2020
-ms.openlocfilehash: 4c6d1d3877629150493ee2a57a04573760d2772a
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.date: 11/16/2020
+ms.openlocfilehash: 3bd35df91e836245de52d8959dff0671582ebc3f
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88870010"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98012437"
 ---
 # <a name="stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Stream Analytics e Power BI: Um painel de análise em tempo real para dados de streaming
 
-O Stream Analytics do Azure permite aproveitar uma das principais ferramentas de business intelligence, o [Microsoft Power BI](https://powerbi.com/). Neste artigo, você saberá como criar ferramentas de business intelligence usando o Power BI como uma saída de seus trabalhos do Stream Analytics do Azure. Você também aprenderá a criar e usar um painel em tempo real.
+O Stream Analytics do Azure permite aproveitar uma das principais ferramentas de business intelligence, o [Microsoft Power BI](https://powerbi.com/). Neste artigo, você saberá como criar ferramentas de business intelligence usando o Power BI como uma saída de seus trabalhos do Stream Analytics do Azure. Você também aprenderá a criar e usar um painel em tempo real que é atualizado continuamente pelo trabalho de Stream Analytics.
 
 Este artigo continua no tutorial [Detecção de fraude em tempo real](stream-analytics-real-time-fraud-detection.md) do Stream Analytics. Ele amplia o fluxo de trabalho criado neste tutorial e adiciona uma saída do Power BI para que você pode visualizar chamadas telefônicas fraudulentas que são detectadas por um trabalho do Stream Analytics. 
 
@@ -42,7 +41,7 @@ No tutorial de detecção de fraudes em tempo real, a saída é enviada para o A
 3. Escolha **+ Adicionar** > **Power BI**. Em seguida, preencha o formulário com os detalhes a seguir e selecione **autorizar** para usar sua própria identidade de usuário para se conectar ao Power bi (o token é válido por 90 dias). 
 
 >[!NOTE]
->Para trabalhos de produção, é recomendável conectar-se para [usar a identidade gerenciada para autenticar seu trabalho de Azure Stream Analytics para Power bi](https://docs.microsoft.com/azure/stream-analytics/powerbi-output-managed-identity).
+>Para trabalhos de produção, é recomendável conectar-se para [usar a identidade gerenciada para autenticar seu trabalho de Azure Stream Analytics para Power bi](./powerbi-output-managed-identity.md).
 
    |**Configuração**  |**Valor sugerido**  |
    |---------|---------|
@@ -64,11 +63,11 @@ No tutorial de detecção de fraudes em tempo real, a saída é enviada para o A
 O conjunto de dados é criado com as seguintes configurações:
 
 * **defaultRetentionPolicy: BasicFIFO**: os dados são FIFO, com um máximo de 200.000 linhas.
-* **defaultMode: pushStreaming**: o conjunto de dados dá suporte a blocos de streaming e objetos visuais com base em relatórios tradicionais (também conhecido como push).
+* **: híbrido** -o conjunto de um é compatível com blocos de streaming (também conhecidos como push) e visuais baseados em relatórios tradicionais. Para o conteúdo de push, os dados são atualizados continuamente do trabalho do Stream Analytics nesse caso, sem a necessidade de agendar a atualização do lado do Power BI.
 
 Atualmente, não é possível criar conjuntos de dados com outros sinalizadores.
 
-Para saber mais sobre conjuntos de dados do Power BI, consulte a referência à [API REST do Power BI](https://msdn.microsoft.com/library/mt203562.aspx).
+Para saber mais sobre conjuntos de dados do Power BI, consulte a referência à [API REST do Power BI](/rest/api/power-bi/).
 
 
 ## <a name="write-the-query"></a>Gravar a consulta
@@ -221,7 +220,7 @@ Dada essa configuração, você pode alterar a consulta original para o seguinte
 ```
 
 ### <a name="renew-authorization"></a>Renovar autorização
-Caso sua senha tenha sido alterada depois de seu trabalho ser criado ou autenticado pela última vez, será necessário autenticar novamente sua conta do Power BI. Se a Autenticação Multifator estiver configurada no locatário do Azure Active Directory (Azure AD) também será necessário renovar a autorização do Power BI a cada duas semanas. Se você não renovar, você poderá ver os sintomas, como falta de saída do trabalho ou um `Authenticate user error` nos logs de operação.
+Caso sua senha tenha sido alterada depois de seu trabalho ser criado ou autenticado pela última vez, será necessário autenticar novamente sua conta do Power BI. Se a autenticação multifator do Azure AD estiver configurada no locatário do Azure Active Directory (Azure AD), você também precisará renovar a autorização Power BI a cada duas semanas. Se você não renovar, você poderá ver os sintomas, como falta de saída do trabalho ou um `Authenticate user error` nos logs de operação.
 
 De modo similar, se um trabalho iniciar depois que o token tiver expirado, ocorrerá um erro e o trabalho falhará. Para resolver esse problema, pare o trabalho em execução e vá para a saída do Power BI. Para evitar a perda de dados, selecione **Renovar autorização** e reinicie o trabalho a partir da Hora da **Última Interrupção**.
 
@@ -231,6 +230,6 @@ Depois que a autorização foi atualizada com o Power BI, um alerta verde é exi
 * [Introdução ao Stream Analytics do Azure](stream-analytics-introduction.md)
 * [Introdução ao uso do Stream Analytics do Azure](stream-analytics-real-time-fraud-detection.md)
 * [Saídas do Stream Analytics](stream-analytics-define-outputs.md)
-* [Referência de linguagem de consulta do Stream Analytics do Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Referência da API REST do Gerenciamento do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-* [Use a identidade gerenciada para autenticar seu trabalho de Azure Stream Analytics para Power BI](https://docs.microsoft.com/azure/stream-analytics/powerbi-output-managed-identity)
+* [Referência de linguagem de consulta do Stream Analytics do Azure](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Referência da API REST do Gerenciamento do Stream Analytics do Azure](/rest/api/streamanalytics/)
+* [Use a identidade gerenciada para autenticar seu trabalho de Azure Stream Analytics para Power BI](./powerbi-output-managed-identity.md)

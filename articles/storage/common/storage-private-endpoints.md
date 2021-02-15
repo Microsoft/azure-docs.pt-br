@@ -10,12 +10,12 @@ ms.date: 03/12/2020
 ms.author: santoshc
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 7a216b9e430c10f42d48df01746e111355cf91b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7af2e6794d0d2f37c342a86b2f36b94c9601cc7e
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85513279"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617248"
 ---
 # <a name="use-private-endpoints-for-azure-storage"></a>Usar pontos de extremidade privados para o armazenamento do Azure
 
@@ -46,18 +46,22 @@ Os proprietários da conta de armazenamento podem gerenciar solicitações de co
 
 Você pode proteger sua conta de armazenamento para aceitar somente conexões de sua VNet, [Configurando o firewall de armazenamento](storage-network-security.md#change-the-default-network-access-rule) para negar o acesso por meio de seu ponto de extremidade público por padrão. Você não precisa de uma regra de firewall para permitir o tráfego de uma VNet que tem um ponto de extremidade privado, já que o firewall de armazenamento controla apenas o acesso por meio do ponto de extremidade público. Em vez disso, pontos de extremidade privados dependem do fluxo de autorização para conceder acesso de sub-redes ao serviço de armazenamento.
 
+> [!NOTE]
+> Ao copiar BLOBs entre contas de armazenamento, o cliente deve ter acesso à rede para ambas as contas. Portanto, se você optar por usar um link privado para apenas uma conta (a origem ou o destino), verifique se o cliente tem acesso à rede para a outra conta. Para saber mais sobre outras maneiras de configurar o acesso à rede, consulte [configurar redes virtuais e firewalls de armazenamento do Azure](storage-network-security.md?toc=/azure/storage/blobs/toc.json). 
+
 ### <a name="private-endpoints-for-azure-storage"></a>Pontos de extremidade privados para o armazenamento do Azure
 
 Ao criar o ponto de extremidade privado, você deve especificar a conta de armazenamento e o serviço de armazenamento ao qual ele se conecta. Você precisa de um ponto de extremidade privado separado para cada serviço de armazenamento em uma conta de armazenamento que você precisa acessar, ou seja, [BLOBs](../blobs/storage-blobs-overview.md), [Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md), [arquivos](../files/storage-files-introduction.md), [filas](../queues/storage-queues-introduction.md), [tabelas](../tables/table-storage-overview.md)ou [sites estáticos](../blobs/storage-blob-static-website.md).
 
 > [!TIP]
 > Crie um ponto de extremidade privado separado para a instância secundária do serviço de armazenamento para melhor desempenho de leitura em contas RA-GRS.
+> Certifique-se de criar uma conta de armazenamento de uso geral v2 (Standard ou Premium).
 
 Para acesso de leitura à região secundária com uma conta de armazenamento configurada para armazenamento com redundância geográfica, você precisa de pontos de extremidade privados separados para as instâncias primária e secundária do serviço. Você não precisa criar um ponto de extremidade privado para a instância secundária para **failover**. O ponto de extremidade privado se conectará automaticamente à nova instância primária após o failover. Para obter mais informações sobre opções de redundância de armazenamento, consulte [redundância de armazenamento do Azure](storage-redundancy.md).
 
 Para obter informações mais detalhadas sobre como criar um ponto de extremidade privado para sua conta de armazenamento, consulte os seguintes artigos:
 
-- [Conecte-se de forma privada a uma conta de armazenamento da experiência de conta de armazenamento no portal do Azure](../../private-link/create-private-endpoint-storage-portal.md)
+- [Conecte-se de forma privada a uma conta de armazenamento da experiência de conta de armazenamento no portal do Azure](../../private-link/tutorial-private-endpoint-storage-portal.md)
 - [Criar um ponto de extremidade privado usando o centro de links privado no portal do Azure](../../private-link/create-private-endpoint-portal.md)
 - [Criar um ponto de extremidade privado usando a CLI do Azure](../../private-link/create-private-endpoint-cli.md)
 - [Criar um ponto de extremidade privado usando Azure PowerShell](../../private-link/create-private-endpoint-powershell.md)
@@ -114,8 +118,8 @@ Os nomes de zona DNS recomendados para pontos de extremidade privados para servi
 
 Para obter mais informações sobre como configurar seu próprio servidor DNS para dar suporte a pontos de extremidade privados, consulte os seguintes artigos:
 
-- [Resolução de nomes para recursos em redes virtuais do Azure](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
-- [Configuração de DNS para pontos de extremidade privados](/azure/private-link/private-endpoint-overview#dns-configuration)
+- [Resolução de nomes para recursos em redes virtuais do Azure](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)
+- [Configuração de DNS para pontos de extremidade privados](../../private-link/private-endpoint-overview.md#dns-configuration)
 
 ## <a name="pricing"></a>Preços
 
@@ -125,10 +129,6 @@ Para obter detalhes de preço, confira [Preço do Link Privado do Azure](https:/
 
 Tenha em mente os seguintes problemas conhecidos sobre pontos de extremidade privados para o armazenamento do Azure.
 
-### <a name="copy-blob-support"></a>Copiar suporte de BLOB
-
-Se a conta de armazenamento estiver protegida por um firewall e a conta for acessada por meio de pontos de extremidade privados, essa conta não poderá servir como a origem de uma operação de [cópia de blob](/rest/api/storageservices/copy-blob) .
-
 ### <a name="storage-access-constraints-for-clients-in-vnets-with-private-endpoints"></a>Restrições de acesso de armazenamento para clientes no VNets com pontos de extremidade privados
 
 Os clientes no VNets com pontos de extremidade privados existentes enfrentam restrições ao acessar outras contas de armazenamento que têm pontos de extremidade privados. Por exemplo, suponha que uma VNet N1 tenha um ponto de extremidade privado para uma conta de armazenamento a1 para o armazenamento de BLOBs. Se a conta de armazenamento a2 tiver um ponto de extremidade privado em um N2 de VNet para o armazenamento de BLOBs, os clientes na VNet N1 também deverão acessar o armazenamento de blob na conta a2 usando um ponto de extremidade privado. Se a conta de armazenamento a2 não tiver nenhum ponto de extremidade privado para o armazenamento de BLOBs, os clientes na VNet N1 poderão acessar o armazenamento de BLOBs nessa conta sem um ponto de extremidade privado.
@@ -137,7 +137,7 @@ Essa restrição é um resultado das alterações de DNS feitas quando a conta a
 
 ### <a name="network-security-group-rules-for-subnets-with-private-endpoints"></a>Regras de grupo de segurança de rede para sub-redes com pontos de extremidade privados
 
-No momento, não é possível configurar as regras do NSG ( [grupo de segurança de rede](../../virtual-network/security-overview.md) ) e as rotas definidas pelo usuário para pontos de extremidade privados. As regras de NSG aplicadas à sub-rede que hospeda o ponto de extremidade privado são aplicadas somente a outros pontos de extremidade (por exemplo, NICs) do que o ponto final privado. Uma solução alternativa limitada para esse problema é implementar suas regras de acesso para pontos de extremidade privados nas sub-redes de origem, embora essa abordagem possa exigir uma sobrecarga de gerenciamento maior.
+No momento, não é possível configurar as regras do NSG ( [grupo de segurança de rede](../../virtual-network/network-security-groups-overview.md) ) e as rotas definidas pelo usuário para pontos de extremidade privados. As regras de NSG aplicadas à sub-rede que hospeda o ponto de extremidade privado são aplicadas somente a outros pontos de extremidade (por exemplo, NICs) do que o ponto final privado. Uma solução alternativa limitada para esse problema é implementar suas regras de acesso para pontos de extremidade privados nas sub-redes de origem, embora essa abordagem possa exigir uma sobrecarga de gerenciamento maior.
 
 ## <a name="next-steps"></a>Próximas etapas
 

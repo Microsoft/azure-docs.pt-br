@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: damendo
-ms.openlocfilehash: 4d07feb54a689c32e119d997275416a5dd8f0aad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d522d305c70214009b8aa2886d07d2d5403dd2b1
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84725079"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656301"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-using-network-watcher-and-grafana"></a>Gerenciar e analisar os logs de fluxo do Grupo de Segurança de Rede usando o Observador de Rede e o Grafana
 
@@ -104,11 +104,11 @@ Você pode usar o Logstash para mesclar os logs de fluxo formatados em JSON para
           "protocol" => "%{[records][properties][flows][flows][flowTuples][5]}"
           "trafficflow" => "%{[records][properties][flows][flows][flowTuples][6]}"
           "traffic" => "%{[records][properties][flows][flows][flowTuples][7]}"
-      "flowstate" => "%{[records][properties][flows][flows][flowTuples][8]}"
-      "packetsSourceToDest" => "%{[records][properties][flows][flows][flowTuples][9]}"
-      "bytesSentSourceToDest" => "%{[records][properties][flows][flows][flowTuples][10]}"
-      "packetsDestToSource" => "%{[records][properties][flows][flows][flowTuples][11]}"
-      "bytesSentDestToSource" => "%{[records][properties][flows][flows][flowTuples][12]}"
+    "flowstate" => "%{[records][properties][flows][flows][flowTuples][8]}"
+    "packetsSourceToDest" => "%{[records][properties][flows][flows][flowTuples][9]}"
+    "bytesSentSourceToDest" => "%{[records][properties][flows][flows][flowTuples][10]}"
+    "packetsDestToSource" => "%{[records][properties][flows][flows][flowTuples][11]}"
+    "bytesSentDestToSource" => "%{[records][properties][flows][flows][flowTuples][12]}"
         }
         add_field => {
           "time" => "%{[records][time]}"
@@ -199,7 +199,7 @@ Agora que você configurou com êxito o Grafana para ler o índice do ElasticSea
 
 A captura de tela a seguir mostra um gráfico e um grafo mostrando os fluxos principais e sua frequência. Os fluxos também são mostrados por regra do NSG e fluxos por decisão. O Grafana é altamente personalizável, portanto, é recomendável que você crie painéis para atender às suas necessidades de monitoramentos específicas. O exemplo a seguir mostra um painel típico:
 
-![Grafo do painel](./media/network-watcher-nsg-grafana/network-watcher-nsg-grafana-fig4.png)
+![Captura de tela que mostra a configuração de grafo de exemplo com fluxos segmentados pela regra NSG.](./media/network-watcher-nsg-grafana/network-watcher-nsg-grafana-fig4.png)
 
 ## <a name="conclusion"></a>Conclusão
 

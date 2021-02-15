@@ -1,7 +1,7 @@
 ---
 title: 'Executar script Python: referência de módulo'
 titleSuffix: Azure Machine Learning
-description: Saiba como usar o módulo executar script Python no Azure Machine Learning para executar o código Python.
+description: Saiba como usar o módulo executar script Python no Azure Machine Learning designer para executar o código Python.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,17 +9,17 @@ ms.topic: reference
 ms.custom: devx-track-python
 author: likebupt
 ms.author: keli19
-ms.date: 07/27/2020
-ms.openlocfilehash: e3e14001758cadc8df5af3c82cb4386659a59d6a
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.date: 01/02/2021
+ms.openlocfilehash: 7b5bc77375d684340116a21b7f95cf576d99dad2
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87843718"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98065347"
 ---
 # <a name="execute-python-script-module"></a>Executar módulo de script Python
 
-Este artigo descreve o módulo executar script Python no designer de Azure Machine Learning (versão prévia).
+Este artigo descreve o módulo executar script Python no designer de Azure Machine Learning.
 
 Use este módulo para executar o código Python. Para obter mais informações sobre os princípios de arquitetura e design do Python, consulte [como executar código Python no designer de Azure Machine Learning](../how-to-designer-python.md).
 
@@ -57,8 +57,43 @@ if spec is None:
 > [!NOTE]
 > Se o pipeline contiver vários módulos executar script Python que precisam de pacotes que não estão na lista pré-instalada, instale os pacotes em cada módulo.
 
+> [!WARNING]
+> O módulo script excute Python não dá suporte à instalação de pacotes que dependem de bibliotecas nativas extras com comando como "apt-get", como Java, PyODBC e etc. Isso ocorre porque esse módulo é executado em um ambiente simples com Python pré-instalado apenas e com permissão de não administrador.  
+
+## <a name="access-to-current-workspace-and-registered-datasets"></a>Acesso ao espaço de trabalho atual e conjuntos de valores registrados
+
+Você pode consultar o seguinte código de exemplo para acessar os [conjuntos de valores registrados](../how-to-create-register-datasets.md) em seu espaço de trabalho:
+
+```Python
+def azureml_main(dataframe1 = None, dataframe2 = None):
+
+    # Execution logic goes here
+    print(f'Input pandas.DataFrame #1: {dataframe1}')
+    from azureml.core import Run
+    run = Run.get_context(allow_offline=True)
+    #access to current workspace
+    ws = run.experiment.workspace
+
+    #access to registered dataset of current workspace
+    from azureml.core import Dataset
+    dataset = Dataset.get_by_name(ws, name='test-register-tabular-in-designer')
+    dataframe1 = dataset.to_pandas_dataframe()
+     
+    # If a zip file is connected to the third input port,
+    # it is unzipped under "./Script Bundle". This directory is added
+    # to sys.path. Therefore, if your zip file contains a Python file
+    # mymodule.py you can import it using:
+    # import mymodule
+
+    # Return value must be of a sequence of pandas.DataFrame
+    # E.g.
+    #   -  Single return value: return dataframe1,
+    #   -  Two return values: return dataframe1, dataframe2
+    return dataframe1,
+```
+
 ## <a name="upload-files"></a>Carregar arquivos
-O módulo executar script Python dá suporte ao carregamento de arquivos usando o [SDK Azure Machine Learning Python](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py#upload-file-name--path-or-stream-).
+O módulo executar script Python dá suporte ao carregamento de arquivos usando o [SDK Azure Machine Learning Python](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py#upload-file-name--path-or-stream-).
 
 O exemplo a seguir mostra como carregar um arquivo de imagem no módulo executar script Python:
 
@@ -117,9 +152,50 @@ O módulo executar script Python contém o código Python de exemplo que você p
 
     ![Executar mapa de entrada do Python](media/module/python-module.png)
 
-4. Para incluir novos pacotes ou códigos do Python, adicione o arquivo compactado que contém esses recursos personalizados no **pacote de script**. A entrada para o **grupo de script** deve ser um arquivo compactado carregado em seu espaço de trabalho como um tipo de arquivo de conjunto de dados. Você pode carregar o conjunto de recursos na página de ativos de **conjuntos de valores** . Você pode arrastar o módulo DataSet da lista **My** DataSets na árvore de módulo à esquerda na página criação do designer. 
+4. Para incluir novos pacotes ou códigos do Python, conecte o arquivo compactado que contém esses recursos personalizados à porta do **pacote de script** . Ou, se o seu script tiver mais de 16 KB, use a porta de **pacote de script** para evitar erros como *CommandLine excede o limite de 16597 caracteres*. 
 
-    Qualquer arquivo contido no arquivo compactado carregado pode ser usado durante a execução do pipeline. Se o arquivo incluir uma estrutura de diretório, a estrutura será preservada, mas você deverá preceder um diretório chamado **src** para o caminho.
+    
+    1. Agrupe o script e outros recursos personalizados em um arquivo zip.
+    1. Carregue o arquivo zip como um **conjunto** de um arquivo para o estúdio. 
+    1. Arraste o módulo DataSet da lista *DataSets* no painel do módulo à esquerda na página criação do designer. 
+    1. Conecte o módulo DataSet à porta do **pacote de script** do módulo **Executar script Python** .
+    
+    Qualquer arquivo contido no arquivo compactado carregado pode ser usado durante a execução do pipeline. Se o arquivo incluir uma estrutura de diretório, a estrutura será preservada.
+ 
+    > [!WARNING]
+    > **Não** use o **aplicativo** como o nome da pasta ou do seu script, pois o **aplicativo** é uma palavra reservada para serviços internos. Mas você pode usar outros namespaces como o `app123` .
+   
+    Veja a seguir um exemplo de pacote de script, que contém um arquivo de script Python e um arquivo txt:
+      
+    > [!div class="mx-imgBorder"]
+    > ![Exemplo de pacote de script](media/module/python-script-bundle.png)  
+
+    Veja a seguir o conteúdo de `my_script.py` :
+
+    ```python
+    def my_func(dataframe1):
+    return dataframe1
+    ```
+    Veja a seguir um código de exemplo que mostra como consumir os arquivos no pacote de script:    
+
+    ```python
+    import pandas as pd
+    from my_script import my_func
+ 
+    def azureml_main(dataframe1 = None, dataframe2 = None):
+ 
+        # Execution logic goes here
+        print(f'Input pandas.DataFrame #1: {dataframe1}')
+ 
+        # Test the custom defined python function
+        dataframe1 = my_func(dataframe1)
+ 
+        # Test to read custom uploaded files by relative path
+        with open('./Script Bundle/my_sample.txt', 'r') as text_file:
+            sample = text_file.read()
+    
+        return dataframe1, pd.DataFrame(columns=["Sample"], data=[[sample]])
+    ```
 
 5. Na caixa de texto **script do Python** , digite ou cole script Python válido.
 
@@ -140,9 +216,14 @@ O módulo executar script Python contém o código Python de exemplo que você p
 
     Dois conjuntos de valores podem ser retornados para o designer, que deve ser uma sequência do tipo `pandas.DataFrame` . Você pode criar outras saídas em seu código Python e gravá-las diretamente no armazenamento do Azure.
 
-6. Envie o pipeline ou selecione o módulo e selecione **executar selecionado** para executar apenas o script Python.
+    > [!WARNING]
+    > **Não** é recomendável conectar-se a um banco de dados ou a outros armazenamentos externos no **módulo executar script Python**. Você pode usar [módulo importar dados](./import-data.md) e [Exportar módulo de dados](./export-data.md)     
 
-    Todos os dados e o código são carregados em uma máquina virtual e executados usando o ambiente do Python especificado.
+6. Envie o pipeline.
+
+    Se o módulo estiver concluído, verifique a saída se for o esperado.
+
+    Se o módulo falhar, você precisará fazer algumas soluções de problemas. Selecione o módulo e abra **saídas + logs** no painel direito. Abra **70_driver_log.txt** e pesquise **no azureml_main**, em seguida, você pode descobrir qual linha causou o erro. Por exemplo, "File"/tmp/tmp01_ID/user_script. py ", line 17, in azureml_main" indica que o erro ocorreu na linha 17 do seu script Python.
 
 ## <a name="results"></a>Resultados
 
@@ -268,4 +349,4 @@ Os pacotes pré-instalados são:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Confira o [conjunto de módulos disponíveis](module-reference.md) no Azure Machine Learning. 
+Confira o [conjunto de módulos disponíveis](module-reference.md) no Azure Machine Learning.

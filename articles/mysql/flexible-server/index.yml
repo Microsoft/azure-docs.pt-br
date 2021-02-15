@@ -1,0 +1,103 @@
+### YamlMime:Landing
+title: Documentação do servidor flexível
+summary: O Banco de Dados do Azure para MySQL – servidor flexível é uma oferta de banco de dados MySQL como serviço totalmente gerenciado que pode lidar com cargas de trabalho críticas com desempenho previsível e escalabilidade dinâmica. Desenvolva aplicativos com o Banco de Dados do Azure para MySQL utilizando a plataforma e as ferramentas de software livre de sua escolha. Saiba como usar o Banco de Dados do Azure para MySQL com nossos guias de início rápido, tutoriais e exemplos.
+metadata:
+  description: O Banco de Dados do Azure para MySQL – servidor flexível é um serviço de banco de dados relacional na nuvem da Microsoft que é voltado para desenvolvedores e que faz parte da plataforma MySQL Community Edition.
+  author: mksuni
+  ms.author: sumuth
+  ms.date: 09/21/2020
+  ms.service: mysql
+  ms.topic: landing-page
+  ms.openlocfilehash: 09086af6cee517f9e30657802934d0f7fb1b14a9
+  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.translationtype: HT
+  ms.contentlocale: pt-BR
+  ms.lasthandoff: 10/09/2020
+  ms.locfileid: "90928652"
+landingContent:
+- title: Sobre o servidor flexível (versão prévia)
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que é o servidor flexível?
+      url: overview.md
+  - linkListType: quickstart
+    links:
+    - text: Criar um servidor flexível
+      url: quickstart-create-server-portal.md
+  - linkListType: tutorial
+    links:
+    - text: Criar um aplicativo PHP com o servidor flexível
+      url: tutorial-php-database-app.md
+  - linkListType: whats-new
+    links:
+    - text: Confira nosso blog
+      url: https://techcommunity.microsoft.com/t5/Azure-Database-for-MySQL/bg-p/ADforMySQL
+- title: Gerenciar
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Opções de armazenamento e de computação
+      url: concepts-compute-storage.md
+    - text: Versões do MySQL
+      url: concepts-supported-versions.md
+    - text: Rede
+      url: concepts-networking.md
+    - text: Monitoramento
+      url: concepts-monitoring.md
+    - text: Logs de auditoria
+      url: concepts-audit-logs.md
+  - linkListType: how-to-guide
+    links:
+    - text: Gerenciar servidor
+      url: how-to-manage-server-portal.md
+    - text: Iniciar/parar o servidor
+      url: how-to-stop-start-server-portal.md
+    - text: Configurar e acessar logs
+      url: how-to-configure-slow-query-logs-portal.md
+    - text: Manutenção de agendamento
+      url: how-to-maintenance-portal.md
+- title: Continuidade de negócios
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Visão geral da continuidade dos negócios
+      url: concepts-business-continuity.md
+    - text: Alta disponibilidade
+      url: concepts-high-availability.md
+    - text: Backup e restauração
+      url: concepts-backup-restore.md
+  - linkListType: how-to-guide
+    links:
+    - text: Restaurar um servidor
+      url: how-to-restore-server-portal.md
+- title: Conectar
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Conectar usando o PHP
+      url: connect-php.md
+    - text: Conectar usando o MySQL Workbench
+      url: connect-workbench.md
+    - text: Conectar usando o Python
+      url: connect-python.md
+  - linkListType: tutorial
+    links:
+    - text: Conectar um aplicativo Web à rede virtual
+      url: tutorial-webapp-server-vnet.md
+- title: Migrações
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Migrar online
+      url: ../howto-migrate-online.md
+- title: Referência
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Referência de desenvolvedor da CLI do Azure
+      url: /cli/azure/mysql
+    - text: Referência de desenvolvedor da API REST
+      url: /rest/api/mysql/
+    - text: Modelos do Azure Resource Manager
+      url: /azure/templates/microsoft.dbformysql/allversions

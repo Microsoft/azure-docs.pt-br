@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/23/2019
-ms.openlocfilehash: c0f31ddb0e0aeabff06d14d40d254c2577b38b5c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 496dab24f636c97e1c7b27b871e1fded9216277d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84906795"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91448570"
 ---
 # <a name="create-custom-fields-in-a-log-analytics-workspace-in-azure-monitor-preview"></a>Criar campos personalizados em um espaço de trabalho Log Analytics no Azure Monitor (visualização)
 
@@ -23,7 +23,7 @@ ms.locfileid: "84906795"
 
 O recurso **campos personalizados** do Azure monitor permite que você estenda os registros existentes em seu espaço de trabalho log Analytics adicionando seus próprios campos pesquisáveis.  Os campos personalizados são populados automaticamente por meio dos dados extraídos de outras propriedades no mesmo registro.
 
-![Visão geral](media/custom-fields/overview.png)
+![O diagrama mostra um registro original associado a um registro modificado em um espaço de trabalho Log Analytics com pares de valor de propriedade adicionados à propriedade original no registro modificado.](media/custom-fields/overview.png)
 
 Por exemplo, o registro de exemplo abaixo tem dados úteis escondidos na descrição do evento. A extração desses dados em uma propriedade separada torna-o disponível para ações como classificação e filtragem.
 
@@ -81,7 +81,7 @@ A seção a seguir explica passo a passo um exemplo completo de criação de cam
 
 Inserimos a seguinte consulta para retornar todos os eventos do Gerenciador de Controle de Serviço que têm uma ID de Evento de 7036, que é o evento que indica um serviço iniciando ou parando.
 
-![Consulta](media/custom-fields/query.png)
+![Captura de tela mostra uma consulta para uma origem e ID do evento.](media/custom-fields/query.png)
 
 Em seguida, selecionamos e expandimos qualquer registro com a ID de evento 7036.
 
@@ -101,7 +101,7 @@ Realçamos o nome do serviço na propriedade **RenderedDescription** e usamos **
 
 Vemos que o nome do serviço é identificado corretamente para alguns registros, mas não para outros.   Os **Resultados da Pesquisa** mostram que parte do nome do **Adaptador de Desempenho WMI** não foi selecionada.  O **Resumo** mostra que um registro identificou o **instalador de módulos** em vez do **instalador de módulos do Windows**.  
 
-![Resultados da Pesquisa](media/custom-fields/search-results-01.png)
+![Captura de tela mostrando partes do nome do serviço realçadas no painel de resultados da pesquisa e um nome de serviço incorreto realçado no resumo.](media/custom-fields/search-results-01.png)
 
 Começamos com o registro **Adaptador de Desempenho WMI** .  Clicamos em seu ícone de edição e em **Modify this highlight**(Modificar esse realce).  
 
@@ -113,7 +113,7 @@ Aumentaremos o realce para incluir a palavra **WMI** e, em seguida, executamos a
 
 Podemos ver que as entradas para **Adaptador de Desempenho WMI** foram corrigidas e o Log Analytics também usou essa informação para corrigir os registros para **Instalador de Módulo do Windows**.
 
-![Resultados da Pesquisa](media/custom-fields/search-results-02.png)
+![Captura de tela mostrando o nome completo do serviço realçado no painel de resultados da pesquisa e os nomes de serviço corretos realçados no resumo.](media/custom-fields/search-results-02.png)
 
 Agora podemos executar uma consulta que verifica se **Service_CF** foi criado, mas ainda não foi adicionado a nenhum registro. Isso ocorre porque o campo personalizado não funciona com registros existentes, portanto, precisamos aguardar a coleta de novos registros.
 

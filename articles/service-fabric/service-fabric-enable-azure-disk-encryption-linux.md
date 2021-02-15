@@ -4,10 +4,10 @@ description: Este artigo descreve como habilitar a criptografia de disco para n�
 ms.topic: article
 ms.date: 03/22/2019
 ms.openlocfilehash: c600d822d20b0e5a0ca613935b1dfa4be838fcec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "78252827"
 ---
 # <a name="enable-disk-encryption-for-azure-service-fabric-cluster-nodes-in-linux"></a>Habilitar a criptografia de disco para nós de Cluster Service Fabric do Azure no Linux 
@@ -33,7 +33,7 @@ O guia aborda os seguintes tópicos:
 
  **Registro automático**
 
-A visualização de criptografia de disco para o conjunto de dimensionamento de máquinas virtuais requer o auto-registro. Use as etapas a seguir:
+A visualização de criptografia de disco para o conjunto de dimensionamento de máquinas virtuais requer o auto-registro. Use as seguintes etapas:
 
 1. Execute o comando a seguir: 
     ```powershell
@@ -55,11 +55,11 @@ A visualização de criptografia de disco para o conjunto de dimensionamento de 
 3. Instale a versão mais recente do [SDK do Azure da versão Azure PowerShell](https://github.com/Azure/azure-powershell/releases) . Veja a seguir o conjunto de dimensionamento de máquinas virtuais Azure Disk Encryption cmdlets para habilitar ([set](/powershell/module/az.compute/set-azvmssdiskencryptionextension)) a criptografia, recuperar ([Get](/powershell/module/az.compute/get-azvmssvmdiskencryption)) o status de criptografia e remover ([desabilitar](/powershell/module/az.compute/disable-azvmssdiskencryption)) a criptografia na instância do conjunto de dimensionamento.
 
 
-| Comando | Versão |  Origem  |
+| Comando | Versão |  Fonte  |
 | ------------- |-------------| ------------|
 | Get-AzVmssDiskEncryptionStatus   | 1.0.0 ou posterior | Az.Compute |
 | Get-AzVmssVMDiskEncryptionStatus   | 1.0.0 ou posterior | Az.Compute |
-| Desabilitar-AzVmssDiskEncryption   | 1.0.0 ou posterior | Az.Compute |
+| Disable-AzVmssDiskEncryption   | 1.0.0 ou posterior | Az.Compute |
 | Get-AzVmssDiskEncryption   | 1.0.0 ou posterior | Az.Compute |
 | Get-AzVmssVMDiskEncryption   | 1.0.0 ou posterior | Az.Compute |
 | Set-AzVmssDiskEncryptionExtension   | 1.0.0 ou posterior | Az.Compute |

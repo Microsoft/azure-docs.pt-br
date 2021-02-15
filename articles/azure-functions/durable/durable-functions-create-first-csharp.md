@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.date: 03/18/2020
 ms.author: azfuncdf
 zone_pivot_groups: code-editors-set-one
-ms.openlocfilehash: f5eb5f5ce6c6ded3fffc95b73d3ac86ae9e94ba2
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: d5b6ecc12cee983cee0772da8b6f8f26a3b5a8ae
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88055455"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008139"
 ---
 # <a name="create-your-first-durable-function-in-c"></a>Criar sua primeira função durável em C\#
 
@@ -21,7 +21,7 @@ ms.locfileid: "88055455"
 
 Neste artigo, você aprenderá a usar o Visual Studio Code para criar e testar localmente uma função durável "olá, mundo".  Essa função orquestrará e encadeará chamadas para outras funções. Em seguida, você publicará o código de função no Azure. Essas ferramentas estão disponíveis como parte da [extensão do Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) do VS Code.
 
-![Como executar funções duráveis no Azure](./media/durable-functions-create-first-csharp/functions-vscode-complete.png)
+![A captura de tela mostra uma janela Visual Studio Code com uma função durável.](./media/durable-functions-create-first-csharp/functions-vscode-complete.png)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -165,7 +165,7 @@ Você usou o Visual Studio Code para criar e publicar um aplicativo de funções
 
 Neste artigo, você aprenderá a usar o Visual Studio 2019 para criar e testar localmente uma função durável "olá, mundo".  Essa função orquestrará e encadeará chamadas para outras funções. Em seguida, você publicará o código de função no Azure. Essas ferramentas estão disponíveis como parte da carga de trabalho de desenvolvimento do Azure no Visual Studio 2019.
 
-![Como executar funções duráveis no Azure](./media/durable-functions-create-first-csharp/functions-vs-complete.png)
+![A captura de tela mostra uma janela do Visual Studio 2019 com uma função durável.](./media/durable-functions-create-first-csharp/functions-vs-complete.png)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -237,7 +237,7 @@ As Ferramentas Principais do Azure Functions permitem executar um projeto do Azu
 
 3. Cole a URL da solicitação HTTP na barra de endereços do navegador e execute a solicitação. O exemplo a seguir mostra a resposta no navegador à solicitação GET local retornada pela função:
 
-    ![Resposta da função localhost no navegador](./media/durable-functions-create-first-csharp/functions-vs-status.png)
+    ![A captura de tela mostra uma janela do navegador com statusQueryGetUri.](./media/durable-functions-create-first-csharp/functions-vs-status.png)
 
     A resposta é o resultado inicial da função HTTP informando que a orquestração durável foi iniciada com êxito.  A resposta ainda não é o resultado final da orquestração.  A resposta inclui algumas URLs úteis.  Por enquanto, vamos consultar o status da orquestração.
 

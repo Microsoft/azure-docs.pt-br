@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: memildin
-ms.openlocfilehash: d18258d62267c931a39947611dda038ff6e65205
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7d7ecf4751e9f3fe2051feb64a94e828e00bf106
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84718692"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92339485"
 ---
 # <a name="strengthen-your-security-posture-with-azure-security-center"></a>Fortaleça sua postura de segurança com a Central de Segurança do Azure
 Este artigo ajuda você a fortalecer sua postura de segurança. Use os recursos de monitoramento da Central de Segurança do Azure para garantir que a segurança do recurso seja a mais justa possível e monitorar a conformidade com as políticas.
@@ -28,26 +28,14 @@ Costumamos pensar em monitoramento como assistir e esperar até que um evento oc
 
 Depois de habilitar as [políticas de segurança](tutorial-security-policy.md) para os recursos de uma assinatura, a Central de Segurança analisa a segurança de seus recursos para identificar as possíveis vulnerabilidades. Informações sobre a configuração de rede estão disponíveis imediatamente. Dependendo do número deVMs e computadores que tenham o agente instalado, pode levar uma hora ou mais para que a coleta de informações sobre VMs e configuração do computador, como o status das atualizações de segurança e a configuração do sistema operacional, se torne disponível. Você pode visualizar uma lista completa de problemas e formas de proteger sua rede e remediar riscos no bloco **Recomendações**.
 
-Você pode ver o estado de segurança de seus recursos e quaisquer problemas por tipo de recurso:
-
-- Para monitorar a integridade dos recursos do computador e seus aplicativos e receber recomendações para melhorar a segurança, consulte [Protegendo seus computadores e aplicativos na Central de Segurança do Azure](security-center-virtual-machine-protection.md)
-- Para monitorar seus recursos de rede, como máquinas virtuais, grupos de segurança de rede e endpoints, e receber recomendações para melhorar sua segurança, consulte [Protegendo sua rede na Central de Segurança do Azure](security-center-network-recommendations.md) para obter mais informações. 
-- Para monitorar seus dados e recursos de armazenamento, como servidores SQL e contas de armazenamento, e receber recomendações para melhorar a segurança, consulte [Protegendo o serviço e os dados do Azure SQL na Central de Segurança do Azure](security-center-sql-service-recommendations.md) para obter mais informações. 
-- Para monitorar seus recursos de identidade e acesso, incluindo permissões de conta e MFA e receber recomendações para melhorar a segurança, consulte [monitorar a identidade e acesso na Central de segurança do Azure](security-center-identity-access.md) para obter mais informações. 
-- Para monitorar o acesso just-in-time aos seus recursos, consulte [gerenciar o acesso à máquina virtual usando o just-in-time](security-center-just-in-time.md) para obter mais informações.
-
+Você pode exibir o estado de segurança de seus recursos e quaisquer problemas por tipo de recurso na [página inventário de ativos e gerenciamento](asset-inventory.md).
 
 Para obter mais informações sobre como aplicar recomendações, leia [Implementar as recomendações de segurança na Central de segurança do Azure](security-center-recommendations.md).
 
 
-
-![Bloco de integridade de segurança de recursos](./media/security-center-monitoring/security-center-monitoring-fig1-newUI-2017.png)
-
-
-
-## <a name="see-also"></a>Consulte também
+## <a name="next-steps"></a>Próximas etapas
 Neste artigo, você aprendeu como usar os recursos de monitoramento na Central de segurança do Azure. Para saber mais sobre a Central de Segurança do Azure, veja o seguinte:
 
 * [Configurando políticas de segurança na Central de Segurança do Azure](tutorial-security-policy.md): saiba como configurar políticas de segurança na Central de Segurança do Azure.
 * [Gerenciando e respondendo aos alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md): aprenda a gerenciar e responder aos alertas de segurança.
-* [Monitorando as soluções de parceiros com a Central de Segurança do Azure](security-center-partner-solutions.md): saiba como monitorar o status de integridade de suas soluções de parceiros.
+* [Monitorando as soluções de parceiros com a Central de Segurança do Azure](./security-center-partner-integration.md): saiba como monitorar o status de integridade de suas soluções de parceiros.

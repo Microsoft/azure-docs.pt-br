@@ -3,21 +3,21 @@ title: Conceitos - Princípios básicos do Kubernetes para o Azure Kubernetes Se
 description: Conheça os cluster básico e os componentes de carga de trabalho do Kubernetes e como elas se relacionam aos recursos no serviço de Kubernetes do Azure (AKS)
 services: container-service
 ms.topic: conceptual
-ms.date: 06/03/2019
-ms.openlocfilehash: 2fe687ddd63ee85faec2d1aa4c02fa2636a3058f
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.date: 12/07/2020
+ms.openlocfilehash: 7485631660395e03c558167c321e6091c6fac755
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86251851"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100373225"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Conceitos de Kubernetes para o serviço de Kubernetes do Azure (AKS)
 
 À medida que o desenvolvimento de aplicativos se move para uma abordagem baseada em contêiner, a necessidade de orquestrar e gerenciar recursos é importante. O Kubernetes é a plataforma líder que fornece a capacidade de fornecer agendamento confiável de cargas de trabalho de aplicativos tolerantes a falhas. O Azure Kubernetes Service (AKS) é uma oferta gerenciada da Kubernetes que simplifica ainda mais a implantação e o gerenciamento de aplicativos baseados em contêiner.
 
-Este artigo apresenta os principais componentes da infraestrutura kubernetes, como o *plano de controle*, *nós*e *pools de nós*. Recursos de carga de trabalho, como *pods*, *implantações* e *conjuntos*, também são apresentados, além de como agrupar recursos em *namespaces*.
+Este artigo apresenta os principais componentes da infraestrutura kubernetes, como o *plano de controle*, *nós* e *pools de nós*. Recursos de carga de trabalho, como *pods*, *implantações* e *conjuntos*, também são apresentados, além de como agrupar recursos em *namespaces*.
 
-## <a name="what-is-kubernetes"></a>O que é o Kubernetes?
+## <a name="what-is-kubernetes"></a>O que é Kubernetes?
 
 O Kubernetes é uma plataforma em rápida evolução que gerencia aplicativos baseados em contêiner e seus componentes de rede e armazenamento associados. O foco está nas cargas de trabalho de aplicativos, não nos componentes de infraestrutura subjacentes. O Kubernetes fornece uma abordagem declarativa para implementações, apoiada por um conjunto robusto de APIs para operações de gerenciamento.
 
@@ -31,8 +31,8 @@ O Serviço de Kubernetes do Azure (AKS) fornece um serviço de Kubernetes gerenc
 
 Um cluster Kubernetes é dividido em dois componentes:
 
-- Nós de *plano de controle* fornecem os principais serviços Kubernetess e a orquestração de cargas de trabalho de aplicativo.
-- *Nós* executar suas cargas de trabalho do aplicativo.
+- O *plano de controle* fornece os principais serviços Kubernetess e a orquestração de cargas de trabalho de aplicativos.
+- *Nós* que executam as cargas de trabalho do aplicativo.
 
 ![Componentes de plano e nó de controle de kubernetes](media/concepts-clusters-workloads/control-plane-and-nodes.png)
 
@@ -78,7 +78,6 @@ Os recursos de nó são utilizados pelo AKS para fazer a função de nó como pa
 Para localizar os recursos de localização de um nó, execute:
 ```kubectl
 kubectl describe node [NODE_NAME]
-
 ```
 
 Para manter o desempenho e a funcionalidade do nó, os recursos são reservados em cada nó por AKS. À medida que um nó cresce mais em recursos, a reserva de recursos aumenta devido a uma quantidade maior de pods implantados pelo usuário que precisam de gerenciamento.
@@ -86,22 +85,24 @@ Para manter o desempenho e a funcionalidade do nó, os recursos são reservados 
 >[!NOTE]
 > O uso de Complementos do AKS, como o OMS (insights de contêiner), consumirá recursos de nó adicionais.
 
+Dois tipos de recursos são reservados:
+
 - A CPU reservada para **CPU** depende do tipo de nó e da configuração de cluster, o que pode causar menos inlocalizável de CPU devido à execução de recursos adicionais
 
-| Núcleos de CPU no host | 1    | 2    | 4    | 8    | 16 | 32|64|
-|---|---|---|---|---|---|---|---|
-|Kube-reservado (milicores)|60|100|140|180|260|420|740|
+   | Núcleos de CPU no host | 1    | 2    | 4    | 8    | 16 | 32|64|
+   |---|---|---|---|---|---|---|---|
+   |Kube-reservado (milicores)|60|100|140|180|260|420|740|
 
 - **Memória** -memória utilizada por AKs inclui a soma de dois valores.
 
-1. O daemon do kubelet é instalado em todos os nós de agente do kubernetes para gerenciar a criação e o encerramento do contêiner. Por padrão, em AKS, esse daemon tem a seguinte regra de remoção: *memória. disponível<750Mi*, o que significa que um nó sempre deve ter pelo menos 750 de a $ locais de mi.  Quando um host está abaixo desse limite de memória disponível, o kubelet encerrará um dos pods em execução para liberar memória no computador host e protegê-lo. Essa ação é disparada quando a memória disponível diminui além do limite de 750Mi.
+   1. O daemon do kubelet é instalado em todos os nós de agente do kubernetes para gerenciar a criação e o encerramento do contêiner. Por padrão, em AKS, esse daemon tem a seguinte regra de remoção: *memória. disponível<750Mi*, o que significa que um nó sempre deve ter pelo menos 750 de a $ locais de mi.  Quando um host está abaixo desse limite de memória disponível, o kubelet encerrará um dos pods em execução para liberar memória no computador host e protegê-lo. Essa ação é disparada quando a memória disponível diminui além do limite de 750Mi.
 
-2. O segundo valor é uma taxa de regressão de reservas de memória para o daemon kubelet funcionar adequadamente (Kube).
-    - 25% dos primeiros 4 GB de memória
-    - 20% dos próximos 4 GB de memória (até 8 GB)
-    - 10% dos próximos 8 GB de memória (até 16 GB)
-    - 6% dos próximos 112 GB de memória (até 128 GB)
-    - 2% de qualquer memória acima de 128 GB
+   2. O segundo valor é uma taxa de regressão de reservas de memória para o daemon kubelet funcionar adequadamente (Kube).
+      - 25% dos primeiros 4 GB de memória
+      - 20% dos próximos 4 GB de memória (até 8 GB)
+      - 10% dos próximos 8 GB de memória (até 16 GB)
+      - 6% dos próximos 112 GB de memória (até 128 GB)
+      - 2% de qualquer memória acima de 128 GB
 
 As regras acima para a alocação de memória e CPU são usadas para manter os nós de agente íntegros, incluindo alguns pods de sistema de hospedagem que são essenciais para a integridade do cluster. Essas regras de alocação também fazem com que o nó reporte menos memória e CPU do que normalmente faria se não fosse parte de um cluster kubernetes. As reservas de recursos acima não podem ser alteradas.
 
@@ -138,7 +139,7 @@ metadata:
 spec:
   containers:
     - name: myfrontend
-      image: nginx:1.15.12
+      image: mcr.microsoft.com/oss/nginx/nginx:1.15.12-alpine
   nodeSelector:
     "beta.kubernetes.io/os": linux
 ```
@@ -153,7 +154,7 @@ Ao criar um pod, você pode definir *solicitações de recursos* para solicitar 
 
 Para obter mais informações, consulte [pods Kubernetes][kubernetes-pods] e [ciclo de vida de pod Kubernetes][kubernetes-pod-lifecycle].
 
-Um pod é um recurso lógico, mas o (s) contêiner (es) é onde as cargas de trabalho do aplicativo são executadas. Pods são recursos descartáveis, normalmente efêmeros e pods programados individualmente perderem alguns dos recursos de redundância e disponibilidade alta que kubernetes fornece. Em vez disso, os pods são implantados e gerenciados por *controladores*kubernetes, como o controlador de implantação.
+Um pod é um recurso lógico, mas o (s) contêiner (es) é onde as cargas de trabalho do aplicativo são executadas. Pods são recursos descartáveis, normalmente efêmeros e pods programados individualmente perderem alguns dos recursos de redundância e disponibilidade alta que kubernetes fornece. Em vez disso, os pods são implantados e gerenciados por *controladores* kubernetes, como o controlador de implantação.
 
 ## <a name="deployments-and-yaml-manifests"></a>Manifestos de implantações e YAML
 
@@ -184,7 +185,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: nginx:1.15.2
+        image: mcr.microsoft.com/oss/nginx/nginx:1.15.2-alpine
         ports:
         - containerPort: 80
         resources:

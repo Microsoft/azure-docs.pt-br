@@ -1,18 +1,15 @@
 ---
 title: Diretrizes gerais de segurança da empresa no Azure HDInsight
 description: Algumas práticas recomendadas que devem facilitar a implantação e o gerenciamento do Enterprise Security Package.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/13/2020
-ms.openlocfilehash: 8d97886232eecc369746e33df484cbfb9d40da72
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 92ad8362f75cdf0613d4ee95f39c23aa6d4819bb
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87530258"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98933573"
 ---
 # <a name="enterprise-security-general-information-and-guidelines-in-azure-hdinsight"></a>Informações gerais e diretrizes de segurança corporativa no Azure HDInsight
 
@@ -95,7 +92,7 @@ O [Azure Active Directory](../../active-directory/fundamentals/active-directory-
 
 * Desabilite a política de acesso condicional usando a política baseada em endereço IP. Isso requer que os pontos de extremidade de serviço sejam habilitados no VNETs em que os clusters são implantados. Se você usar um serviço externo para MFA (algo diferente do AAD), a política baseada em endereço IP não funcionará
 
-* `AllowCloudPasswordValidation`a política é necessária para usuários federados. Como o HDInsight usa o nome de usuário/senha diretamente para obter tokens do Azure AD, essa política deve ser habilitada para todos os usuários federados.
+* `AllowCloudPasswordValidation` a política é necessária para usuários federados. Como o HDInsight usa o nome de usuário/senha diretamente para obter tokens do Azure AD, essa política deve ser habilitada para todos os usuários federados.
 
 * Habilite pontos de extremidade de serviço se você precisar de bypass de acesso condicional usando IPs confiáveis.
 

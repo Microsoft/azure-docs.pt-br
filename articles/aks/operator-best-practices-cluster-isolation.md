@@ -6,11 +6,11 @@ services: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.openlocfilehash: cdeecabf569e3c6f9b280e6b0179e5378f5b1c95
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88003106"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011363"
 ---
 # <a name="best-practices-for-cluster-isolation-in-azure-kubernetes-service-aks"></a>Práticas recomendadas para isolamento de cluster no Azure Kubernetes Service (AKS)
 
@@ -28,7 +28,7 @@ O Kubernetes fornece recursos que permitem isolar logicamente equipes e cargas d
 
 * **O agendamento** inclui o uso de recursos básicos, como cotas de recursos e orçamentos de interrupção de conjuntos. Para obter mais informações sobre esses recursos, consulte [Práticas recomendadas para recursos básicos do agendador no AKS][aks-best-practices-scheduler].
   * Os recursos mais avançados do planejador incluem manchas e tolerâncias, seletores de nó e afinidade de nó e pod ou antiafinidade. Para obter mais informações sobre esses recursos, consulte [Práticas recomendadas para recursos avançados do agendador no AKS][aks-best-practices-advanced-scheduler].
-* ** Rede ** inclui o uso de políticas de rede para controlar o fluxo de tráfego dentro e fora dos pods.
+* **Rede** inclui o uso de políticas de rede para controlar o fluxo de tráfego dentro e fora dos pods.
 * **Autenticação e autorização** incluem o usuário de RBAC (controle de acesso baseado em função) e integração do Azure Active Directory (AD), identidades de conjuntos e segredos no Cofre de Chaves do Azure. Para obter mais informações sobre esses recursos, consulte [Práticas recomendadas para autenticação e autorização no AKS][aks-best-practices-identity].
 * Os **contêineres** incluem o complemento Azure Policy para AKs para impor a segurança de Pod, o uso de contextos de segurança pod e a verificação de imagens e o tempo de execução de vulnerabilidades. Envolve também o uso do App Armor ou do Seccomp (Secure Computing) para restringir o acesso ao contêiner ao nó subjacente.
 
@@ -46,7 +46,7 @@ Os ambientes do Kubernetes, no AKS ou em outro lugar, não estão completamente 
 
 ## <a name="physically-isolate-clusters"></a>Isolar fisicamente clusters
 
-**Orientação sobre práticas recomendadas**: minimize o uso de isolamento físico para cada equipe ou implantação de aplicativo separada. Em vez disso, use o isolamento * lógico *, conforme discutido na seção anterior.
+**Orientação sobre práticas recomendadas**: minimize o uso de isolamento físico para cada equipe ou implantação de aplicativo separada. Em vez disso, use o isolamento *lógico*, conforme discutido na seção anterior.
 
 Uma abordagem comum para o isolamento de cluster é usar clusters AKS fisicamente separados. Neste modelo de isolamento, as equipes ou cargas de trabalho são atribuídas a seu próprio cluster AKS. Essa abordagem geralmente se parece com a maneira mais fácil de isolar cargas de trabalho ou equipes, mas adiciona mais sobrecarga administrativa e financeira. Agora você precisa manter esses vários clusters e ter que fornecer acesso e atribuir permissões individualmente. Você também é cobrado por todos os nós individuais.
 

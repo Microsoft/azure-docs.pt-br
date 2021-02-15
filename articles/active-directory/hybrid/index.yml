@@ -3,7 +3,7 @@ title: Documentação de identidade híbrida
 summary: As soluções de identidade da Microsoft abrangem locais e recursos baseados em nuvem, criando uma identidade de usuário único para autenticação e autorização em todos os recursos, independentemente do local. Chamamos isso de identidade híbrida.
 metadata:
   author: billmath
-  description: O Azure AD Connect integrará seus diretórios locais com o Azure Active Directory. Isso permite que você forneça uma identidade comum para os usuários dos aplicativos do Office 365, Azure e SaaS integrados ao AD do Azure.
+  description: O Azure AD Connect integrará seus diretórios locais com o Azure Active Directory. Isso permite que você forneça uma identidade comum para os usuários dos aplicativos do Microsoft 365, Azure e SaaS integrados ao Azure AD.
   manager: daveba
   ms.author: billmath
   ms.collection: na
@@ -12,12 +12,12 @@ metadata:
   ms.subservice: na
   ms.topic: landing-page
   services: active-directory
-  ms.openlocfilehash: b2596145f500d3bc3c08c754abdb3703501dc4d9
-  ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+  ms.openlocfilehash: b23c57561a866318a6dbf38dc2d669f0e9d13d32
+  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 06/25/2020
-  ms.locfileid: "85356552"
+  ms.lasthandoff: 10/09/2020
+  ms.locfileid: "89661112"
 landingContent:
 - title: Sobre a Identidade Híbrida
   linkLists:
@@ -54,7 +54,7 @@ landingContent:
   - linkListType: concept
     links:
     - text: Determine qual método de autenticação é melhor para você
-      url: /azure/security/fundamentals/choose-ad-authn
+      url: ./choose-ad-authn.md
 - title: Introdução à identidade híbrida
   linkLists:
   - linkListType: how-to-guide

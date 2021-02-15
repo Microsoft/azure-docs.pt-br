@@ -6,10 +6,10 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.openlocfilehash: e9bcabc05f0a967c788c5811dce0d99dc5cf38c9
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86207691"
 ---
 # <a name="azure-remote-rendering-tutorials"></a>Tutoriais do Azure Remote Rendering

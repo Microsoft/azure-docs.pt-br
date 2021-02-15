@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 83e9ae4aa68bc0c819d02a0cc6c39758549811cb
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88928846"
 ---
 # <a name="odata-expression-syntax-reference-for-azure-cognitive-search"></a>Referência de sintaxe de expressão OData para Pesquisa Cognitiva do Azure
@@ -34,7 +34,7 @@ Este artigo descreve todas essas formas de expressões OData usando uma gramáti
 
 ## <a name="formal-grammar"></a>Gramática formal
 
-Podemos descrever o subconjunto da linguagem OData com suporte pelo Azure Pesquisa Cognitiva usando uma gramática EBNF ([Backus estendido-Naur Form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)). As regras são listadas "de cima para baixo", começando com as expressões mais complexas e dividindo-as em expressões mais primitivas. Na parte superior estão as regras de gramática que correspondem aos parâmetros específicos da API REST do Azure Pesquisa Cognitiva:
+Podemos descrever o subconjunto da linguagem OData com suporte pelo Azure Pesquisa Cognitiva usando uma gramática EBNF ([formulário estendido Backus-Naur](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)). As regras são listadas "de cima para baixo", começando com as expressões mais complexas e dividindo-as em expressões mais primitivas. Na parte superior estão as regras de gramática que correspondem aos parâmetros específicos da API REST do Azure Pesquisa Cognitiva:
 
 - [`$filter`](search-query-odata-filter.md), definido pela `filter_expression` regra.
 - [`$orderby`](search-query-odata-orderby.md), definido pela `order_by_expression` regra.

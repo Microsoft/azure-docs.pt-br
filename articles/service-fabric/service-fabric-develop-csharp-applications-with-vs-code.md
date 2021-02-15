@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: article
 ms.date: 06/29/2018
 ms.author: pepogors
-ms.openlocfilehash: 1d7478e6b81ef2c53ca6194197336e91d3ff250b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5fbd523a38b3c4860316e45b8b7c03a17de19499
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75614516"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92678333"
 ---
 # <a name="develop-c-service-fabric-applications-with-visual-studio-code"></a>Desenvolver aplicativos C# do Microsoft Azure Service Fabric com o Visual Studio Code
 
@@ -34,7 +34,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-core-getting-st
 ## <a name="open-the-application-in-vs-code"></a>Abra o aplicativo no Visual Studio Code
 
 ### <a name="windows"></a>Windows
-Clique com o botão direito do mouse no ícone do Visual Studio Code no Menu Iniciar e escolha **Executar como administrador**. Para anexar o depurador aos serviços, você precisa executar o Visual Studio Code como administrador.
+Clique com o botão direito do mouse no ícone do Visual Studio Code no Menu Iniciar e escolha **Executar como administrador** . Para anexar o depurador aos serviços, você precisa executar o Visual Studio Code como administrador.
 
 ### <a name="linux"></a>Linux
 Usando o terminal, navegue até o caminho /service-fabric-dotnet-core-getting-started/Services/CounterService do diretório que o aplicativo foi clonado localmente.
@@ -50,14 +50,14 @@ O aplicativo agora deve aparecer no seu workspace do Visual Studio Code.
 
 ## <a name="build-the-application"></a>Compilar o aplicativo
 1. Aperte (Ctrl + Shift + p) para abrir a **Paleta de comandos** no visual Studio Code.
-2. Pesquise e selecione o **Service Fabric: criar comando do Aplicativo**. A saída de compilação é enviada para o terminal integrado.
+2. Pesquise e selecione o **Service Fabric: criar comando do Aplicativo** . A saída de compilação é enviada para o terminal integrado.
 
    ![Compilar comando de aplicativo no Visual Studio Code](./media/service-fabric-develop-csharp-applications-with-vs-code/sf-build-application.png)
 
 ## <a name="deploy-the-application-to-the-local-cluster"></a>Implantar um aplicativo no cluster local
 Após a compilação do aplicativo, você pode implantá-lo no cluster local. 
 
-1. Da **Paleta de Comandos**, selecione o **Service Fabric: comando implantar o aplicativo (Localhost)**. A saída do processo de instalação é enviada para o terminal integrado.
+1. Da **Paleta de Comandos** , selecione o **Service Fabric: comando implantar o aplicativo (Localhost)** . A saída do processo de instalação é enviada para o terminal integrado.
 
    ![Implantar o comando de aplicativo no Visual Studio Code](./media/service-fabric-develop-csharp-applications-with-vs-code/sf-deploy-application.png)
 
@@ -74,7 +74,7 @@ Juntamente com a implantação do aplicativo no cluster local, você também pod
 
 1. Verifique se você criou seu aplicativo usando as instruções acima. Atualize o arquivo de configuração gerado `Cloud.json` com os detalhes do cluster remoto no qual você deseja publicar.
 
-2. Na **paleta de comandos**, selecione o **comando Service Fabric: publicar aplicativo**. A saída do processo de instalação é enviada para o terminal integrado.
+2. Na **paleta de comandos** , selecione o **comando Service Fabric: publicar aplicativo** . A saída do processo de instalação é enviada para o terminal integrado.
 
    ![Comando publicar aplicativo no VS Code](./media/service-fabric-develop-csharp-applications-with-vs-code/sf-publish-application.png)
 
@@ -91,7 +91,7 @@ Para definir um ponto de interrupção, conclua as seguintes etapas:
 
 2. Selecione **anexar .NET Core** do menu de configuração de depuração.
 
-   ![Depurar o ícone no workspace de código VS](./media/service-fabric-develop-csharp-applications-with-vs-code/debug-start.png)
+   ![Captura de tela que mostra o anexo do .NET Core selecionado no menu de configuração de depuração.](./media/service-fabric-develop-csharp-applications-with-vs-code/debug-start.png)
 
 3. Abra Service Fabric Explorer em um navegador: http: \/ /localhost: 19080/Explorer. Clique em **Aplicativos** e faça uma busca detalhada para determinar o nó primário que o CounterService está executando. Na imagem abaixo, o nó primário para o CounterService é o nó 0.
 

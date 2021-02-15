@@ -8,10 +8,10 @@ metadata:
   ms.author: edoyle
   ms.date: 12/02/2019
   ms.openlocfilehash: eb24b0b0b4a143e82c2b93f158db0a3d0647ed7c
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 03/25/2020
+  ms.lasthandoff: 10/09/2020
   ms.locfileid: "74790163"
 landingContent:
 - title: Saiba a Malha do Service Fabric

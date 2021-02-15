@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 06/15/2020
+ms.date: 11/24/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.custom: contperfq4
-ms.openlocfilehash: 08e236d798f700a3c48dd41ba61941bc0037d613
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.custom: contperf-fy20q4
+ms.openlocfilehash: 777fc60f76692734ea34ff3cdf8f6bc6e5e8316b
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88055370"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97615704"
 ---
 # <a name="using-the-location-condition-in-a-conditional-access-policy"></a>Usando a condição de localização em uma política de acesso condicional 
 
@@ -37,7 +37,7 @@ O local de rede é determinado pelo endereço IP público que um cliente fornece
 
 ## <a name="named-locations"></a>Localizações nomeadas
 
-Os locais são designados no portal do Azure em **Azure Active Directory**  >  **Security**  >  **acesso condicional**de segurança  >  **nomear locais nomeados**. Esses locais de rede nomeados podem incluir locais como intervalos de rede da sede de uma organização, intervalos de rede VPN ou intervalos que você deseja bloquear. 
+Os locais são designados no portal do Azure em **Azure Active Directory**  >    >  **acesso condicional** de segurança  >  **nomear locais nomeados**. Esses locais de rede nomeados podem incluir locais como intervalos de rede da sede de uma organização, intervalos de rede VPN ou intervalos que você deseja bloquear. 
 
 ![Locais nomeados no portal do Azure](./media/location-condition/new-named-location.png)
 
@@ -64,13 +64,13 @@ Essa opção pode considerar as políticas de acesso condicional, em que você p
 Algumas organizações podem optar por definir os limites de IP de países ou regiões inteiros como locais nomeados para políticas de acesso condicional. Eles podem usar esses locais ao bloquear o tráfego desnecessário quando sabem que usuários válidos nunca virão de um local como a Coreia do Norte. Esses mapeamentos do endereço IP para o país são atualizados periodicamente. 
 
 > [!NOTE]
-> Os países não incluem intervalos de endereços IPv6, apenas intervalos de endereços IPv4 conhecidos e não podem ser marcados como confiáveis.
+> Os intervalos de endereços IPv6 não podem ser mapeados para países. Somente endereços IPv4 são mapeados para países.
 
 ![Criar um novo local baseado em país ou região na portal do Azure](./media/location-condition/new-named-location-country-region.png)
 
 #### <a name="include-unknown-areas"></a>Incluir áreas desconhecidas
 
-Alguns endereços IP não são mapeados para um país ou região específica. Para capturar esses locais de IP, marque a caixa **incluir áreas desconhecidas** ao definir um local. Esta opção permite que você escolha se esses endereços IP devem ser incluídos na localização nomeada. Use essa configuração quando a política usando a localização nomeada deve aplicar-se a localizações desconhecidas.
+Alguns endereços IP não são mapeados para um país ou região específica, incluindo todos os endereços IPv6. Para capturar esses locais de IP, marque a caixa **incluir áreas desconhecidas** ao definir um local. Esta opção permite que você escolha se esses endereços IP devem ser incluídos na localização nomeada. Use essa configuração quando a política usando a localização nomeada deve aplicar-se a localizações desconhecidas.
 
 ### <a name="configure-mfa-trusted-ips"></a>Configurar IPs confiáveis de MFA
 
@@ -114,7 +114,7 @@ Com a versão prévia, agora há duas opções de criação:
 - **Local dos intervalos de IP**
 
 > [!NOTE]
-> Os países não incluem intervalos de endereços IPv6, apenas intervalos de endereços IPv4 conhecidos e não podem ser marcados como confiáveis.
+> Os intervalos de endereços IPv6 não podem ser mapeados para países. Somente endereços IPv4 são mapeados para países.
 
 ![Interface de visualização de locais nomeados](./media/location-condition/named-location-preview.png)
 
@@ -157,7 +157,7 @@ A maior parte do tráfego IPv6 que recebe o proxy do Azure AD vem do Microsoft E
 Esses são os motivos mais comuns de que talvez seja necessário configurar intervalos de IPv6 em seus locais nomeados. Além disso, se você estiver usando o Azure VNets, terá o tráfego proveniente de um endereço IPv6. Se você tiver o tráfego de VNet bloqueado por uma política de acesso condicional, verifique seu log de entrada do Azure AD. Depois de identificar o tráfego, você pode obter o endereço IPv6 que está sendo usado e excluí-lo da política. 
 
 > [!NOTE]
-> Se você quiser especificar um intervalo de CIDR de IP para um único endereço, aplique a máscara de bits/32. Se você disser o endereço IPv6 2607: fb90: b27a: 6f69: f8d5: dea0: fb39:74a e quisesse excluir esse endereço único como um intervalo, você usaria 2607: fb90: b27a: 6f69: f8d5: dea0: fb39:74a/32.
+> Se você quiser especificar um intervalo de CIDR de IP para um único endereço, aplique a máscara de bits/128. Se você disser o endereço IPv6 2607: fb90: b27a: 6f69: f8d5: dea0: fb39:74a e quisesse excluir esse endereço único como um intervalo, você usaria 2607: fb90: b27a: 6f69: f8d5: dea0: fb39:74a/128.
 
 ### <a name="identifying-ipv6-traffic-in-the-azure-ad-sign-in-activity-reports"></a>Identificando o tráfego IPv6 nos relatórios de atividade de entrada do Azure AD
 
@@ -195,6 +195,9 @@ Quando um proxy de nuvem está em vigor, uma política usada para exigir um disp
 ### <a name="api-support-and-powershell"></a>Suporte à API e PowerShell
 
 Uma versão de visualização do API do Graph para locais nomeados está disponível. para obter mais informações, consulte a [API namedLocation](/graph/api/resources/namedlocation?view=graph-rest-beta).
+
+> [!NOTE]
+> Os locais nomeados que você cria usando o PowerShell são exibidos somente em locais nomeados (versão prévia). Você não pode ver locais nomeados na exibição antiga.  
 
 ## <a name="next-steps"></a>Próximas etapas
 

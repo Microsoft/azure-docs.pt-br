@@ -1,30 +1,33 @@
 ---
 title: Proteger seu conteúdo com a criptografia dinâmica dos serviços de mídia v3
-titleSuffix: Azure Media Services
 description: Saiba mais sobre a proteção de conteúdo com criptografia dinâmica, protocolos de streaming e tipos de criptografia nos serviços de mídia do Azure.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/17/2020
-ms.author: juliako
+ms.topic: conceptual
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: e21aba7b06e6c692337344477bfb52e7f7acb27c
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: edea46e86475f1731ecfae465f969ca45d63f0a2
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89012188"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897621"
 ---
 # <a name="protect-your-content-with-media-services-dynamic-encryption"></a>Proteger seu conteúdo com a criptografia dinâmica dos serviços de mídia
 
-Use os Serviços de Mídia do Azure para ajudar a proteger sua mídia desde o momento que ela sai do seu computador até o armazenamento, o processamento e a entrega. Com os Serviços de Mídia, é possível entregar o conteúdo ao vivo e sob demanda criptografado dinamicamente com a criptografia AES (AES-128) ou qualquer um dos três principais sistemas DRM (gerenciamento de direitos digitais): Microsoft PlayReady, Google Widevine e Apple FairPlay. Os serviços de mídia também fornecem um serviço de distribuição de chaves AES e licenças DRM (PlayReady, Widevine e FairPlay) para os clientes autorizados. Se o conteúdo for criptografado com uma chave não criptografada AES e for enviado por HTTPS, ele não estará em claro até alcançar o cliente. 
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
+
+Use os Serviços de Mídia do Azure para ajudar a proteger sua mídia desde o momento que ela sai do seu computador até o armazenamento, o processamento e a entrega. Com os Serviços de Mídia, é possível entregar o conteúdo ao vivo e sob demanda criptografado dinamicamente com a criptografia AES (AES-128) ou qualquer um dos três principais sistemas DRM (gerenciamento de direitos digitais): Microsoft PlayReady, Google Widevine e Apple FairPlay. Os serviços de mídia também fornecem um serviço de distribuição de chaves AES e licenças DRM (PlayReady, Widevine e FairPlay) para os clientes autorizados. Se o conteúdo for criptografado com uma chave não criptografada AES e for enviado por HTTPS, ele não estará em claro até alcançar o cliente.
+
+[!INCLUDE [Widevine is not available in the GovCloud region.](./includes/widevine-not-available-govcloud.md)]
 
 No Media Services V3, uma chave de conteúdo é associada ao localizador de streaming (consulte [Este exemplo](protect-with-aes128.md)). Se estiver usando o serviço de distribuição de chaves dos serviços de mídia, você poderá permitir que os serviços de mídia do Azure gerem a chave de conteúdo para você. A chave de conteúdo deve ser gerada por você mesmo se você estiver usando o serviço de distribuição de chaves próprio ou se precisar lidar com um cenário de alta disponibilidade em que você precisa ter a mesma chave de conteúdo em dois data centers.
 
@@ -134,7 +137,7 @@ HLS/CMAF + FairPlay (incluindo HEVC/H. 265) tem suporte nos seguintes dispositiv
 
 * iOS 11 ou posterior.
 * iPhone 8 ou posterior.
-* MacOS High Sierra com CPU Intel 7 geração.
+* macOS High Sierra com CPU Intel 7 geração.
 
 ### <a name="mpeg-dash"></a>MPEG-DASH
 
@@ -154,6 +157,10 @@ O protocolo Smooth Streaming dá suporte aos seguintes formatos de contêiner e 
 |---|---|---|
 |fMP4|AES|`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(encryption=cbc)`|
 |fMP4 | CENC (PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(encryption=cenc)`|
+|fMP4 | PIFF 1,1 (PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(encryption=piff)`|
+
+> [!NOTE]
+> O suporte do PIFF 1,1 é fornecido como uma solução compatível com versões anteriores para Smart TV (Samsung, LG) que implementou a versão "Silverlight" inicial do Criptografia Comum. É recomendável usar apenas o formato PIFF, quando necessário, para o suporte do legacey Samsung ou LG Smart TVs fornecidos entre 2009-2015 com suporte para a versão PIFF 1,1 da criptografia PlayReady. 
 
 ### <a name="browsers"></a>Navegadores
 

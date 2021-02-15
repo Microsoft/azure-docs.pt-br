@@ -1,18 +1,18 @@
 ---
 title: 'WAN virtual: locatário do Azure AD para grupos de usuários diferentes: autenticação do Azure AD'
-description: Você pode usar a VPN P2S para se conectar à sua VNet usando a autenticação do Azure AD
+description: Configure um locatário do Azure AD para autenticação P2S OpenVPN e crie e registre vários aplicativos no Azure AD para permitir acesso diferente para diferentes usuários e grupos.
 services: virtual-wan
-author: kumudD
+author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 03/19/2020
+ms.date: 09/22/2020
 ms.author: alzam
-ms.openlocfilehash: 5ca57ccc40669a607cd0541dc738e3a3eacf3e88
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e25ef7f55492be4ee491b9ebbbef4aa1eb03c80b
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86507685"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98898080"
 ---
 # <a name="create-an-azure-active-directory-ad-tenant-for-p2s-openvpn-protocol-connections"></a>Criar um locatário Azure Active Directory (AD) para conexões de protocolo P2S OpenVPN
 
@@ -53,13 +53,13 @@ Uma configuração P2S define os parâmetros para conexão de clientes remotos.
 
 2. Selecione o hub ao qual deseja associar a configuração do servidor de VPN e clique nas reticências (...).
 
-    ![novo site](media/openvpn-azure-ad-tenant-multi-app/p2s4.jpg)
+    ![A captura de tela mostra editar Hub virtual selecionado no menu.](media/openvpn-azure-ad-tenant-multi-app/p2s4.jpg)
 
 3. Clique em **Editar hub virtual**.
 
 4. Marque a caixa de seleção **Incluir gateway ponto a site** e selecione a **Unidade de escala do gateway** desejada.
 
-    ![novo site](media/openvpn-azure-ad-tenant-multi-app/p2s2.jpg)
+    ![Captura de tela mostra a caixa de diálogo Editar Hub virtual, onde você pode selecionar a unidade de escala do gateway.](media/openvpn-azure-ad-tenant-multi-app/p2s2.jpg)
 
 5. Insira o **Pool de endereços** do qual os endereços IP serão atribuídos aos clientes VPN.
 
@@ -101,51 +101,59 @@ Use este [link](https://go.microsoft.com/fwlink/?linkid=2117554) para baixar o C
 
 1. Na página, selecione **Importar**.
 
-    ![import](./media/openvpn-azure-ad-tenant-multi-app/import/import1.jpg)
+    ![A captura de tela mostra a importação selecionada no menu mais.](./media/openvpn-azure-ad-tenant-multi-app/import/import1.jpg)
 
 2. Navegue até o arquivo XML do perfil e selecione-o. Com o arquivo selecionado, selecione **Abrir**.
 
-    ![import](./media/openvpn-azure-ad-tenant-multi-app/import/import2.jpg)
+    ![Captura de tela mostra uma caixa de diálogo aberta onde você pode selecionar um arquivo.](./media/openvpn-azure-ad-tenant-multi-app/import/import2.jpg)
 
 3. Especifique o nome do perfil e selecione **Salvar**.
 
-    ![import](./media/openvpn-azure-ad-tenant-multi-app/import/import3.jpg)
+    ![Captura de tela mostra o nome da conexão adicionado e o botão salvar selecionado.](./media/openvpn-azure-ad-tenant-multi-app/import/import3.jpg)
 
 4. Selecione **Conectar** para se conectar à VPN.
 
-    ![import](./media/openvpn-azure-ad-tenant-multi-app/import/import4.jpg)
+    ![Captura de tela mostra o botão conectar para a conexão que você acabou de criar.](./media/openvpn-azure-ad-tenant-multi-app/import/import4.jpg)
 
 5. Uma vez conectado, o ícone ficará verde e mostrará o texto **Conectado**.
 
-    ![import](./media/openvpn-azure-ad-tenant-multi-app/import/import5.jpg)
+    ![Captura de tela mostra a conexão em um status conectado com a opção de desconectar.](./media/openvpn-azure-ad-tenant-multi-app/import/import5.jpg)
 
 #### <a name="to-delete-a-client-profile"></a><a name="delete"></a>Para excluir um perfil de cliente
 
 1. Selecione as reticências (...) ao lado do perfil do cliente que você deseja excluir. Em seguida, selecione **Remover**.
 
-    ![excluir](./media/openvpn-azure-ad-tenant-multi-app/delete/delete1.jpg)
+    ![Captura de tela mostra remover selecionado no menu.](./media/openvpn-azure-ad-tenant-multi-app/delete/delete1.jpg)
 
 2. Selecione **Remover** para excluir.
 
-    ![excluir](./media/openvpn-azure-ad-tenant-multi-app/delete/delete2.jpg)
+    ![Captura de tela mostra uma caixa de diálogo de confirmação com a opção de remover ou cancelar.](./media/openvpn-azure-ad-tenant-multi-app/delete/delete2.jpg)
 
 #### <a name="to-diagnose-connection-issues"></a><a name="diagnose"></a>Para diagnosticar problemas de conexão
 
 1. Para diagnosticar problemas de conexão, você pode usar a ferramenta **Diagnosticar**. Selecione as reticências (...) ao lado da conexão VPN que você deseja diagnosticar para revelar o menu. Em seguida, selecione **Diagnosticar**.
 
-    ![diagnose](./media/openvpn-azure-ad-tenant-multi-app/diagnose/diagnose1.jpg)
+    ![Captura de tela mostra o diagnóstico selecionado no menu.](./media/openvpn-azure-ad-tenant-multi-app/diagnose/diagnose1.jpg)
 
 2. Na página **Propriedades de Conexão**, selecione **Executar Diagnóstico**.
 
-    ![diagnose](./media/openvpn-azure-ad-tenant-multi-app/diagnose/diagnose2.jpg)
+    ![Captura de tela mostra o botão Executar diagnóstico para uma conexão.](./media/openvpn-azure-ad-tenant-multi-app/diagnose/diagnose2.jpg)
 
 3. Entre com suas credenciais.
 
-    ![diagnose](./media/openvpn-azure-ad-tenant-multi-app/diagnose/diagnose3.jpg)
+    ![diagnosticar 3](./media/openvpn-azure-ad-tenant-multi-app/diagnose/diagnose3.jpg)
 
 4. Exiba os resultados do diagnóstico.
 
-    ![diagnose](./media/openvpn-azure-ad-tenant-multi-app/diagnose/diagnose4.jpg)
+    ![Captura de tela mostra o botão Executar diagnóstico para uma conexão.](./media/openvpn-azure-ad-tenant-multi-app/diagnose/diagnose2.jpg)
+
+3. Entre com suas credenciais.
+
+    ![Captura de tela mostra a caixa de diálogo entrar para esta ação.](./media/openvpn-azure-ad-tenant-multi-app/diagnose/diagnose3.jpg)
+
+4. Exiba os resultados do diagnóstico.
+
+    ![Captura de tela mostra os resultados do diagnóstico.](./media/openvpn-azure-ad-tenant-multi-app/diagnose/diagnose4.jpg)
 
 ## <a name="10-view-your-virtual-wan"></a><a name="viewwan"></a>10. exibir sua WAN virtual
 

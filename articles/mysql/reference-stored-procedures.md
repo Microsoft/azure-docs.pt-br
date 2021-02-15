@@ -1,17 +1,17 @@
 ---
 title: Procedimentos armazenados de gerenciamento-banco de dados do Azure para MySQL
 description: Saiba quais procedimentos armazenados no banco de dados do Azure para MySQL são úteis para ajudá-lo a configurar a replicação de dados, definir o fuso horário e eliminar as consultas.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 6a3fa40eaae174d3616fd0318f81576b7c59eac7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7a1aa061bb8c8be3a676e0e5bb690b2a9749b6c8
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80067692"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94536125"
 ---
 # <a name="azure-database-for-mysql-management-stored-procedures"></a>Procedimentos armazenados de gerenciamento do banco de dados do Azure para MySQL
 
@@ -21,17 +21,17 @@ Os procedimentos armazenados estão disponíveis no banco de dados do Azure para
 
 A Replicação nos dados permite sincronizar dados de um Servidor MySQL em execução local, em máquinas virtuais ou em serviços de banco de dados hospedados por outros provedores de nuvem com o serviço do Banco de Dados do Azure para MySQL.
 
-Os procedimentos armazenados a seguir são usados para configurar ou remover a Replicação de Dados entre um mestre e uma réplica.
+Os procedimentos armazenados a seguir são usados para configurar ou remover Replicação de Dados entre uma origem e uma réplica.
 
 |**Nome do procedimento armazenado**|**Parâmetros de entrada**|**Parâmetros de saída**|**Observação de uso**|
 |-----|-----|-----|-----|
 |*mysql.az_replication_change_master*|master_host<br/>master_user<br/>master_password<br/>master_port<br/>master_log_file<br/>master_log_pos<br/>master_ssl_ca|N/D|Para transferir dados com o modo SSL, passe o contexto do certificado de autoridade de certificação para o parâmetro master_ssl_ca. </br><br>Para transferir dados sem SSL, passe uma cadeia de caracteres vazia para o parâmetro master_ssl_ca.|
 |*mysql.az_replication _start*|N/D|N/D|Inicia a replicação.|
 |*mysql.az_replication _stop*|N/D|N/D|Para a replicação.|
-|*mysql.az_replication _remove_master*|N/D|N/D|Remove o relacionamento de replicação entre o mestre e a réplica.|
+|*mysql.az_replication _remove_master*|N/D|N/D|Remove a relação de replicação entre a origem e a réplica.|
 |*mysql.az_replication_skip_counter*|N/D|N/D|Ignora um erro de replicação.|
 
-Para configurar Replicação de Dados entre um mestre e uma réplica no banco de dados do Azure para MySQL, consulte [como configurar o replicação de dados](howto-data-in-replication.md).
+Para configurar Replicação de Dados entre uma origem e uma réplica no banco de dados do Azure para MySQL, consulte [como configurar o replicação de dados](howto-data-in-replication.md).
 
 ## <a name="other-stored-procedures"></a>Outros procedimentos armazenados
 
@@ -39,9 +39,9 @@ Os procedimentos armazenados a seguir estão disponíveis no banco de dados do A
 
 |**Nome do procedimento armazenado**|**Parâmetros de entrada**|**Parâmetros de saída**|**Observação de uso**|
 |-----|-----|-----|-----|
-|*MySQL. az_kill*|processlist_id|N/D|Equivalente a [`KILL CONNECTION`](https://dev.mysql.com/doc/refman/8.0/en/kill.html) Command. Encerrará a conexão associada ao processlist_id fornecido depois de encerrar qualquer instrução que a conexão estiver executando.|
-|*MySQL. az_kill_query*|processlist_id|N/D|Equivalente a [`KILL QUERY`](https://dev.mysql.com/doc/refman/8.0/en/kill.html) Command. Encerrará a instrução que a conexão está executando no momento. Deixa a própria conexão ativa.|
-|*MySQL. az_load_timezone*|N/D|N/D|Carrega tabelas de fuso horário para permitir que o `time_zone` parâmetro seja definido para valores nomeados (ex. "EUA/Pacífico").|
+|*mysql.az_kill*|processlist_id|N/D|Equivalente a [`KILL CONNECTION`](https://dev.mysql.com/doc/refman/8.0/en/kill.html) Command. Encerrará a conexão associada ao processlist_id fornecido depois de encerrar qualquer instrução que a conexão estiver executando.|
+|*mysql.az_kill_query*|processlist_id|N/D|Equivalente a [`KILL QUERY`](https://dev.mysql.com/doc/refman/8.0/en/kill.html) Command. Encerrará a instrução que a conexão está executando no momento. Deixa a própria conexão ativa.|
+|*mysql.az_load_timezone*|N/D|N/D|Carrega tabelas de fuso horário para permitir que o `time_zone` parâmetro seja definido para valores nomeados (ex. "EUA/Pacífico").|
 
 ## <a name="next-steps"></a>Próximas etapas
 - Saiba como configurar [replicação de dados](howto-data-in-replication.md)

@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/26/2019
 ms.author: mametcal
 ms.custom: mvc, devx-track-java
-ms.openlocfilehash: 83c437cb613e3dad04dee17f0f67040532066c3b
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 0dcf85add4e1c9f1d701c4ce4a122c8d6b31382a
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326589"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077823"
 ---
 # <a name="tutorial-use-feature-flags-in-a-spring-boot-app"></a>Tutorial: Usar sinalizadores de recursos em um aplicativo Spring Boot
 
@@ -185,5 +185,5 @@ public String getOldFeature() {
 
 Neste tutorial, você aprendeu a implementar sinalizadores de recursos no aplicativo Spring Boot usando as bibliotecas `spring-cloud-azure-feature-management-web`. Para obter mais informações sobre o suporte de gerenciamento de recursos no Spring Boot e na Configuração de Aplicativos, confira os seguintes recursos:
 
-* [Código de exemplo do sinalizador de recursos do Spring Boot](/azure/azure-app-configuration/quickstart-feature-flag-spring-boot)
+* [Código de exemplo do sinalizador de recursos do Spring Boot](./quickstart-feature-flag-spring-boot.md)
 * [Gerenciar sinalizadores de recursos](./manage-feature-flags.md)

@@ -1,14 +1,14 @@
 ---
 title: Implantar a amostra de blueprint SWIFT CSP-CSCF v2020
 description: Etapas de implantação do modelo de blueprint da SWIFT CSP-CSCF v2020, incluindo detalhes do parâmetro do artefato de blueprint.
-ms.date: 08/18/2020
+ms.date: 01/08/2021
 ms.topic: sample
-ms.openlocfilehash: b65dc9cdd601f9fd2d7972b74435702a00244e8e
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: c3672dabb7f4c0a977b8140f470ddfc9fcea9c6d
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612717"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98048752"
 ---
 # <a name="deploy-the-swift-csp-cscf-v2020-blueprint-sample"></a>Implantar a amostra de blueprint SWIFT CSP-CSCF v2020
 
@@ -93,7 +93,7 @@ A seguinte tabela fornece uma lista dos parâmetros de artefato de blueprint:
 
 |Nome do artefato|Tipo de artefato|Nome do parâmetro|Descrição|
 |-|-|-|-|
-|\[Versão Prévia\]: Auditar os controles SWIFT CSP-CSCF v2020 e implantar extensões de VM específicas para dar suporte aos requisitos de auditoria|Atribuição de política|Lista de tipos de recurso que devem ter os logs de diagnóstico habilitados|Lista de tipos de recurso a serem auditados se a configuração do log de diagnóstico não estiver habilitada. Os valores aceitáveis podem ser encontrados em [Esquemas de logs de diagnóstico do Azure Monitor](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type).|
+|\[Versão Prévia\]: Auditar os controles SWIFT CSP-CSCF v2020 e implantar extensões de VM específicas para dar suporte aos requisitos de auditoria|Atribuição de política|Lista de tipos de recurso que devem ter os logs de diagnóstico habilitados|Lista de tipos de recurso a serem auditados se a configuração do log de diagnóstico não estiver habilitada. Os valores aceitáveis podem ser encontrados em [Categorias de logs de recursos do Azure Monitor](../../../../azure-monitor/platform/resource-logs-categories.md#supported-log-categories-per-resource-type).|
 |\[Versão Prévia\]: Auditar os controles SWIFT CSP-CSCF v2020 e implantar extensões de VM específicas para dar suporte aos requisitos de auditoria|Atribuição de política|IDs de workspace conectado|Uma lista separada por ponto e vírgula das IDs de workspace às quais o agente do Log Analytics deve estar conectado|
 |\[Versão Prévia\]: Auditar os controles SWIFT CSP-CSCF v2020 e implantar extensões de VM específicas para dar suporte aos requisitos de auditoria|Atribuição de política|Lista de usuários que devem ser incluídos no grupo de administradores de VM do Windows|Uma lista separada por ponto e vírgula de membros que devem ser incluídos no grupo local de Administradores. Por exemplo: Administrador; myUser1; myUser2|
 |\[Versão Prévia\]: Auditar os controles SWIFT CSP-CSCF v2020 e implantar extensões de VM específicas para dar suporte aos requisitos de auditoria|Atribuição de política|Nome de domínio (FQDN)|O FQDN (nome de domínio totalmente qualificado) no qual as VMs do Windows devem ser ingressadas|

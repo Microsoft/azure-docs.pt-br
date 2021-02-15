@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/22/2020
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: 07779769dae4c43148bbf4a8205feceea85ed363
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: d015cec30e516541b50c2acfac38fad898965e1b
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320044"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436344"
 ---
 # <a name="managed-application-metered-billing"></a>Cobrança limitada do aplicativo gerenciado 
 
@@ -22,7 +22,7 @@ Com o serviço de medição do Marketplace, você pode criar planos de aplicativ
 
 Para que um plano de aplicativo gerenciado use a cobrança limitada, ele deve:
 
-* Atenda a todos os requisitos de oferta, conforme descrito em [criar uma oferta de aplicativo do Azure](create-new-azure-apps-offer.md).
+* Atenda a todos os requisitos de oferta, conforme descrito em [criar uma oferta de aplicativo do Azure](../create-new-azure-apps-offer.md).
 * Configure os **preços** para cobrar os clientes pelo custo por mês para seu serviço. O preço pode ser zero se você não quiser cobrar uma taxa fixa e, em vez disso, confiar inteiramente na cobrança limitada.
 * Defina as **dimensões de cobrança** para os eventos de medição que o cliente pagará por cima da taxa fixa.
 * Integre-se com as [APIs do serviço de medição do Marketplace](./marketplace-metering-service-apis.md) para informar à Microsoft sobre eventos faturáveis.
@@ -107,7 +107,7 @@ Depois que um plano é publicado, os detalhes de nível de plano não podem mais
 
 ### <a name="upper-limits"></a>Limites superiores
 
-O número máximo de dimensões que podem ser configuradas para uma única oferta é 18 dimensões exclusivas.
+O número máximo de dimensões que podem ser configuradas para uma única oferta é de 30 dimensões exclusivas.
 
 ## <a name="get-support"></a>Obter suporte
 
@@ -117,7 +117,7 @@ Se você tiver um dos seguintes problemas, poderá abrir um tíquete de suporte.
 * Um problema que precisa ser escalonado devido a um erro ou bug no seu lado (por exemplo, evento de uso incorreto).
 * Quaisquer outros problemas relacionados à cobrança limitada.
 
-Siga a instrução em [suporte para o programa do Marketplace comercial no Partner Center](./support.md) para entender as opções de suporte do Publicador e abrir o tíquete de suporte com a Microsoft.
+Siga a instrução em [suporte para o programa do Marketplace comercial no Partner Center](../support.md) para entender as opções de suporte do Publicador e abrir o tíquete de suporte com a Microsoft.
 
 ## <a name="next-steps"></a>Próximas etapas
 

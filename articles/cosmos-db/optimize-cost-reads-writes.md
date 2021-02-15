@@ -1,44 +1,120 @@
 ---
-title: Otimizar o custo de leituras e gravações no Azure Cosmos DB
-description: Este artigo explica como reduzir os custos do Azure Cosmos DB ao executar a leitura e gravar operações nos dados.
+title: Otimizando o custo de suas solicitações no Azure Cosmos DB
+description: Este artigo explica como otimizar os custos ao emitir solicitações em Azure Cosmos DB.
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/24/2020
-ms.openlocfilehash: 38084bf30df2a597e7a7bc46ba4c52cf371c3c7e
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.date: 10/14/2020
+ms.openlocfilehash: 3f4c33a88d9a8fbf2c3d64135d93da54cf75fab3
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87318242"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097491"
 ---
-# <a name="optimize-reads-and-writes-cost-in-azure-cosmos-db"></a>Otimizar o custo das leituras e gravações no Azure Cosmos DB
+# <a name="optimize-request-cost-in-azure-cosmos-db"></a>Otimizar o custo da solicitação no Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-Este artigo descreve o custo necessário para ler e gravar dados do Azure Cosmos DB que é calculado. As operações de leitura incluem [leituras de ponto e consultas](sql-query-getting-started.md). As operações de gravação incluem inserir, substituir, excluir e Upsert de itens.  
+Este artigo descreve como as solicitações de leitura e gravação são transvertidas em [unidades de solicitação](request-units.md) e como otimizar o custo dessas solicitações. As operações de leitura incluem leituras de ponto e consultas. As operações de gravação incluem inserir, substituir, excluir e Upsert de itens.
 
-## <a name="cost-of-reads-and-writes"></a>Custo de leituras e gravações
+O Azure Cosmos DB oferece um conjunto avançado de operações de banco de dados que operam nos itens de um contêiner. O custo associado a cada uma dessas operações varia com base na CPU, E/S e memória necessárias para concluir a operação. Em vez de pensar e gerenciar recursos de hardware, você pode pensar em uma RU (unidade de solicitação) como uma medida única para os recursos necessários para executar várias operações de banco de dados para atender a uma solicitação.
 
-O Azure Cosmos DB garante um desempenho previsível em termos de taxa de transferência e latência, usando um modelo de taxa de transferência provisionada. A taxa de transferência provisionada é representada em termos de [Unidades de Solicitação](request-units.md) por segundo ou RU/s. Uma Unidade de Solicitação (RU) é uma abstração lógica de recursos de computação como CPU, memória, e/s, etc. que são necessárias para executar uma solicitação. Taxa de transferência (RUs) é reservada e dedicada ao contêiner ou banco de dados para fornecer latência e taxa de transferência previsível. Taxa de transferência provisionada permite que o Azure Cosmos DB forneça um desempenho previsível e consistente, a garantia de baixa latência e alta disponibilidade em qualquer escala. Unidades de solicitação representam a moeda normalizada que simplifica o raciocínio sobre quantos recursos um aplicativo precisa.
+## <a name="measuring-the-ru-charge-of-a-request"></a>Medindo a cobrança de RU de uma solicitação
 
-Você não precisa pensar em diferenciar unidades de solicitação entre leituras e gravações. O modelo unificado de moeda de unidades de solicitação cria eficiência alternadamente, use a mesma capacidade de taxa de transferência para leituras e gravações. A tabela a seguir mostra o custo de leituras de ponto e gravações em termos de RU/s para itens que são de 1 KB e 100 KB de tamanho.
+É importante medir a cobrança de RU de suas solicitações para entender seu custo real e também avaliar a eficácia de suas otimizações. Você pode buscar esse custo usando o portal do Azure ou inspecionando a resposta enviada de Azure Cosmos DB por meio de um dos SDKs. Consulte [localizar o encargo de unidade de solicitação em Azure Cosmos DB](find-request-unit-charge.md) para obter instruções detalhadas sobre como fazer isso.
 
-|**Tamanho do item**  |**Custo de uma leitura de ponto** |**Custo de uma gravação**|
-|---------|---------|---------|
-|1 KB |1 RU |5 RUs |
-|100 KB |10 RUs |50 RUs |
+## <a name="reading-data-point-reads-and-queries"></a>Lendo dados: leituras de ponto e consultas
 
-Fazer uma leitura pontual para um item que é de 1 KB de tamanho custa um RU. Gravar um item de 1 KB custa cinco RUs. Os custos de leitura e gravação são aplicáveis ao usar a sessão padrão [nível de consistência](consistency-levels.md).  As considerações a respeito de RUs incluem: item de tamanho, contagem de propriedades, consistência de dados, propriedades indexadas, indexação e padrões de consulta.
+As operações de leitura em Azure Cosmos DB normalmente são ordenadas de forma mais rápida/mais eficiente para mais lenta/menos eficiente em termos de consumo de RU da seguinte maneira:  
 
-As [leituras pontuais](sql-query-getting-started.md) custam significativamente menos ru do que as consultas. As leituras de ponto, diferentemente das consultas, não precisam usar o mecanismo de consulta para acessar dados podem economizar RU. A cobrança de RU da consulta depende da complexidade da consulta e do número de itens que o mecanismo de consulta precisa carregar.
+* Leituras de ponto (pesquisa de chave/valor em uma única ID de item e chave de partição).
+* Consulta com uma cláusula de filtro em uma chave de partição única.
+* Consulta sem uma cláusula de filtro de igualdade ou intervalo em qualquer propriedade.
+* Consulta sem filtros.
 
-## <a name="optimize-the-cost-of-writes-and-reads"></a>Otimizar o custo de leituras e gravações
+### <a name="role-of-the-consistency-level"></a>Função do nível de consistência
 
-Ao executar operações de gravação, você deve provisionar capacidade suficiente para dar suporte ao número de gravações necessárias por segundo. Você pode aumentar a taxa de transferência provisionada usando o SDK, portal, CLI antes de executar as gravações e, em seguida, reduzir a taxa de transferência depois que as gravações são concluídas. Sua taxa de transferência para o período de gravação é a taxa de transferência mínima necessária para os dados fornecidos, além de produtividade necessária para inserir a carga de trabalho supondo que sem outras cargas de trabalho estão em execução.
+Ao usar os [níveis de consistência](consistency-levels.md) **forte** ou de desatualização **limitada** , o custo de ru de qualquer operação de leitura (ponto de leitura ou consulta) é duplicado.
 
-Se você estiver executando outras cargas de trabalho simultaneamente, por exemplo, consulta/leitura/atualização/exclusão, adicione as unidades de solicitação adicionais necessárias para essas operações também. Se as operações de gravação são limitadas por taxa, você pode personalizar a política de repetição/retirada usando os SDKs do Azure Cosmos DB. Por exemplo, você pode aumentar a carga até que uma pequena taxa de solicitações seja limitada pela taxa. Em caso de limite de taxa, o aplicativo cliente deve retornar nas solicitações de limitação de taxa para o intervalo de repetição especificada. Antes de repetir as gravações, você deve ter uma quantidade mínima de espaço de tempo entre as repetições. O suporte à política de repetição está incluído no SQL .NET, Java, Node. js, além de SDKs Python e todas as versões com suporte dos SDKs do .NET Core.
+### <a name="point-reads"></a>Leituras de ponto
 
-Você também pode inserir dados em massa para o Azure Cosmos DB ou copiar dados de qualquer armazenamento de dados de origem com suporte para o Azure Cosmos DB usando o [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md). O Azure Data Factory integra-se nativamente com a API do Azure Cosmos DB em massa para fornecer o melhor desempenho ao gravar dados.
+O único fator que afeta a carga de RU de um ponto lido (além do nível de consistência usado) é o tamanho do item recuperado. A tabela a seguir mostra o custo de RU de leituras de ponto para itens que são de 1 KB e 100 KB de tamanho.
+
+| **Tamanho do item** | **Custo de uma leitura de ponto** |
+| --- | --- |
+| 1 KB | 1 RU |
+| 100 KB | 10 RUs |
+
+Como as leituras de ponto (pesquisas de chave/valor na ID do item) são o tipo mais eficiente de leitura, você deve verificar se a ID do item tem um valor significativo para que você possa buscar seus itens com um ponto de leitura (em vez de uma consulta) quando possível.
+
+### <a name="queries"></a>Consultas
+
+As unidades de solicitação para consultas dependem de uma série de fatores. Por exemplo, o número de itens do Azure Cosmos carregados/retornados, o número de pesquisas em relação ao índice, o tempo de compilação da consulta, etc. detalhes. O Azure Cosmos DB garante que a mesma consulta, quando executada nos mesmos dados, sempre consumirá o mesmo número de unidades de solicitação, mesmo com execuções repetidas. O perfil de consulta usando métricas de execução de consulta dá uma boa ideia de como as unidades de solicitação são gastas.  
+
+Em alguns casos, você poderá ver uma sequência de 200 e 429 respostas, e unidades de solicitação de variável em uma execução paginada de consultas, porque as consultas serão executadas o mais rápido possível com base nas RUs disponíveis. Você poderá ver uma execução de consulta se desmembrar em várias páginas/viagens de ida e volta entre servidor e cliente. Por exemplo, 10.000 itens poderão ser retornados como várias páginas, cada uma cobrada com base no cálculo executado para a página. Quando você soma essas páginas, deve obter o mesmo número de RUs que receberia de toda a consulta.
+
+#### <a name="metrics-for-troubleshooting-queries"></a>Métricas para solução de problemas de consultas
+
+O desempenho e a taxa de transferência consumida por consultas (incluindo funções definidas pelo usuário) dependem principalmente do corpo da função. A maneira mais fácil de descobrir quanto tempo a execução da consulta é gasta no UDF e o número de RUs consumidas, é habilitando as métricas de consulta. Se você usar o SDK do .NET, aqui estão as métricas de consulta de exemplo retornadas pelo SDK:
+
+```bash
+Retrieved Document Count                 :               1              
+Retrieved Document Size                  :           9,963 bytes        
+Output Document Count                    :               1              
+Output Document Size                     :          10,012 bytes        
+Index Utilization                        :          100.00 %            
+Total Query Execution Time               :            0.48 milliseconds 
+  Query Preparation Times 
+    Query Compilation Time               :            0.07 milliseconds 
+    Logical Plan Build Time              :            0.03 milliseconds 
+    Physical Plan Build Time             :            0.05 milliseconds 
+    Query Optimization Time              :            0.00 milliseconds 
+  Index Lookup Time                      :            0.06 milliseconds 
+  Document Load Time                     :            0.03 milliseconds 
+  Runtime Execution Times 
+    Query Engine Execution Time          :            0.03 milliseconds 
+    System Function Execution Time       :            0.00 milliseconds 
+    User-defined Function Execution Time :            0.00 milliseconds 
+  Document Write Time                    :            0.00 milliseconds 
+  Client Side Metrics 
+    Retry Count                          :               1              
+    Request Charge                       :            3.19 RUs  
+```
+
+#### <a name="best-practices-to-cost-optimize-queries"></a>Melhores práticas para otimizar consultas pelo custo 
+
+Considere as seguintes melhores práticas ao otimizar consultas pelo custo:
+
+* **Colocar vários tipos de entidade**
+
+   Tente colocar vários tipos de entidade em um único contêiner ou na menor quantidade possível. Esse método gera benefícios não apenas em termos de preço, mas também em termos de transações e execução da consulta. As consultas têm como escopo um único contêiner, e as transações atômicas em vários registros por meio de procedimentos armazenados/gatilhos têm como escopo uma chave de partição em um único contêiner. A colocação de entidades no mesmo contêiner pode reduzir o número de viagens de ida e volta na rede para resolver relacionamentos entre registros. Assim, ela aumenta o desempenho de ponta a ponta, permite transações atômicas em vários registros em um conjunto de dados maior e, como resultado, reduz os custos. Se a colocação de vários tipos de entidade em um único contêiner (ou poucos) costuma ser difícil em seu cenário, talvez porque você esteja migrando um aplicativo existente e não deseje fazer alterações de código, considere provisionar a taxa de transferência no nível do banco de dados.  
+
+* **Medir e ajustar para o uso mais baixo de unidades/segundo da solicitação**
+
+   A complexidade de uma consulta afeta a quantidade de RUs (unidades de solicitação) consumida para uma operação. O número de predicados, a natureza dos predicados, o número de UDFs e o tamanho do conjunto de dados de origem. Todos esses fatores influenciam o custo das operações de consulta. 
+
+Azure Cosmos DB fornece desempenho previsível em termos de taxa de transferência e latência usando um modelo de taxa de transferência provisionado. A taxa de transferência provisionada é representada em termos de [Unidades de Solicitação](request-units.md) por segundo ou RU/s. Uma Unidade de Solicitação (RU) é uma abstração lógica de recursos de computação como CPU, memória, e/s, etc. que são necessárias para executar uma solicitação. Taxa de transferência (RUs) é reservada e dedicada ao contêiner ou banco de dados para fornecer latência e taxa de transferência previsível. Taxa de transferência provisionada permite que o Azure Cosmos DB forneça um desempenho previsível e consistente, a garantia de baixa latência e alta disponibilidade em qualquer escala. Unidades de solicitação representam a moeda normalizada que simplifica o raciocínio sobre quantos recursos um aplicativo precisa.
+
+A carga de solicitação retornada no cabeçalho da solicitação indica o custo de uma determinada consulta. Por exemplo, se uma consulta retorna 1.000 itens de 1 KB, o custo da operação é 1.000. Assim, em um segundo, o servidor mantém apenas duas dessas solicitações antes de limitar as solicitações subsequentes. Para saber mais, consulte o artigo [Unidades de solicitação](request-units.md) e a calculadora de unidades de solicitação.
+
+## <a name="writing-data"></a>Gravação de dados
+
+O custo de RU de escrever um item depende de:
+
+- O tamanho do item.
+- O número de propriedades cobertas pela [política de indexação](index-policy.md) e que precisaram ser indexadas.
+
+Inserindo um item de 1 KB com menos de 5 Propriedades para indexar custos em cerca de 5 RUs. Substituir um item custa duas vezes o encargo necessário para inserir o mesmo item.
+
+### <a name="optimizing-writes"></a>Otimizando gravações
+
+A melhor maneira de otimizar o custo de RU das operações de gravação é asrightar os itens e o número de propriedades que são indexadas.
+
+- Armazenar itens muito grandes em Azure Cosmos DB resulta em encargos de RU altos e pode ser considerado um antipadrão. Em particular, não armazene conteúdo binário ou grandes partes de texto que você não precisa consultar. Uma prática recomendada é colocar esse tipo de dados no [armazenamento de BLOBs do Azure](../storage/blobs/storage-blobs-introduction.md) e armazenar uma referência (ou link) no blob no item que você escreve para Azure Cosmos DB.
+- Otimizar a política de indexação para indexar apenas as propriedades em que seu filtro de consultas pode fazer uma grande diferença no RUs consumido por suas operações de gravação. Ao criar um novo contêiner, a política de indexação padrão indexa cada e todas as propriedades encontradas em seus itens. Embora esse seja um bom padrão para atividades de desenvolvimento, é altamente recomendável reavaliar e [personalizar sua política de indexação](how-to-manage-indexing-policy.md) ao passar para a produção ou quando a carga de trabalho começar a receber tráfego significativo.
+
+Ao executar a ingestão em massa de dados, também é recomendável usar o [Azure Cosmos DB biblioteca de executores em massa](bulk-executor-overview.md) , pois ele foi projetado para otimizar o consumo de ru dessas operações. Opcionalmente, você também pode usar [Azure data Factory](../data-factory/introduction.md) que é criado na mesma biblioteca.
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -48,5 +124,5 @@ A seguir, você poderá saber mais sobre a otimização de custos no Azure Cosmo
 * Saiba mais sobre [Entender sua cobrança do Azure Cosmos DB](understand-your-bill.md)
 * Saiba mais sobre [Otimizando o custo da taxa de transferência](optimize-cost-throughput.md)
 * Saiba mais sobre [Otimizando o custo de armazenamento](optimize-cost-storage.md)
-* Saiba mais sobre [Otimizando o custo de consultas](optimize-cost-queries.md)
 * Saiba mais sobre [Otimizando o custo de contas do Azure Cosmos em várias regiões](optimize-cost-regions.md)
+* Saiba mais sobre [Azure Cosmos DB capacidade reservada](cosmos-db-reserved-capacity.md)

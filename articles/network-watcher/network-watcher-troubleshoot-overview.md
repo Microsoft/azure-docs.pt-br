@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: damendo
-ms.openlocfilehash: 675038189fdc9c9626fee409a90e17341cf9b6cd
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 0d0597c2df8731171505a090de6959d8a112c004
+ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207359"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98569973"
 ---
 # <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Introdução à solução de problemas do recurso no Observador de Rede do Azure
 
 Os Gateways de Rede Virtual fornecem conectividade entre os recursos locais e outras redes virtuais no Azure. Para garantir que a comunicação não seja quebrada, é essencial monitorar os gateways e suas conexões. O Observador de Rede fornece a capacidade de solucionar problemas das conexões e dos gateways. Essa capacidade pode ser chamada pelo Portal, pelo PowerShell, pela CLI do Azure ou pela API REST. Quando chamado, o Observador de Rede diagnostica a integridade da conexão ou do gateway e retorna os resultados adequados. A solicitação é uma transação de longa execução. Os resultados são retornados quando o diagnóstico for concluído.
 
-![portal][2]
+![Captura de tela mostra diagnósticos V P N do observador de rede.][2]
 
 ## <a name="results"></a>Resultados
 
@@ -54,11 +54,11 @@ As tabelas a seguir mostram os diversos tipos de falha (id em resultados da list
 | PlannedMaintenance |  A instância do gateway está em manutenção  |Não|
 | UserDrivenUpdate | Essa falha ocorre quando uma atualização de um usuário está em andamento. A atualização pode ser uma operação de redimensionamento. | Não |
 | VipUnResponsive | Essa falha ocorre quando a instância primária do gateway não pode ser acessada devido a uma falha de investigação de integridade. | Não |
-| PlatformInActive | Há um problema com a plataforma. | Não|
-| ServiceNotRunning | O serviço subjacente não está em execução. | Não|
-| NoConnectionsFoundForGateway | Não existem conexões no gateway. Essa falha é apenas um aviso.| Não|
-| ConnectionsNotConnected | As conexões não estão conectadas. Essa falha é apenas um aviso.| Sim|
-| GatewayCPUUsageExceeded | O uso de CPU do gateway atual é > 95%. | Sim |
+| PlatformInActive | Há um problema com a plataforma. | No|
+| ServiceNotRunning | O serviço subjacente não está em execução. | No|
+| NoConnectionsFoundForGateway | Não existem conexões no gateway. Essa falha é apenas um aviso.| No|
+| ConnectionsNotConnected | As conexões não estão conectadas. Essa falha é apenas um aviso.| Yes|
+| GatewayCPUUsageExceeded | O uso de CPU do gateway atual é > 95%. | Yes |
 
 ### <a name="connection"></a>Conexão
 
@@ -68,15 +68,15 @@ As tabelas a seguir mostram os diversos tipos de falha (id em resultados da list
 | GatewayNotFound | Não é possível localizar o gateway ou o gateway não está provisionado |Não|
 | PlannedMaintenance | A instância do gateway está em manutenção  |Não|
 | UserDrivenUpdate | Essa falha ocorre quando uma atualização de um usuário está em andamento. A atualização pode ser uma operação de redimensionamento.  | Não |
-| VipUnResponsive | Essa falha ocorre quando a instância primária do gateway não pode ser acessada devido a uma falha de investigação de integridade. | Não |
-| ConnectionEntityNotFound | A configuração da conexão está ausente | Não |
-| ConnectionIsMarkedDisconnected | A conexão está marcada como "desconectada" |Não|
-| ConnectionNotConfiguredOnGateway | O serviço subjacente não tem a conexão configurada. | Sim |
-| ConnectionMarkedStandby | O serviço subjacente está marcado como em espera.| Sim|
-| Autenticação | Incompatibilidade de chave pré-compartilhada | Sim|
-| PeerReachability | O gateway correspondente não está acessível. | Sim|
-| IkePolicyMismatch | O gateway de mesmo nível tem diretivas IKE que não são suportadas pelo Azure. | Sim|
-| WfpParse Error | Ocorreu um erro ao analisar o log WFP. |Sim|
+| VipUnResponsive | Essa falha ocorre quando a instância primária do gateway não pode ser acessada devido a uma falha de investigação de integridade. | No |
+| ConnectionEntityNotFound | A configuração da conexão está ausente | No |
+| ConnectionIsMarkedDisconnected | A conexão está marcada como "desconectada" |No|
+| ConnectionNotConfiguredOnGateway | O serviço subjacente não tem a conexão configurada. | Yes |
+| ConnectionMarkedStandby | O serviço subjacente está marcado como em espera.| Yes|
+| Autenticação | Incompatibilidade de chave pré-compartilhada | Yes|
+| PeerReachability | O gateway correspondente não está acessível. | Yes|
+| IkePolicyMismatch | O gateway de mesmo nível tem diretivas IKE que não são suportadas pelo Azure. | Yes|
+| WfpParse Error | Ocorreu um erro ao analisar o log WFP. |Yes|
 
 ## <a name="supported-gateway-types"></a>Tipos de gateway com suporte
 
@@ -105,7 +105,7 @@ Os arquivos de log para solução de problemas de recursos são armazenados em u
 > [!NOTE]
 > Em alguns casos, somente um subconjunto dos arquivos de log é gravado no armazenamento.
 
-Para obter instruções sobre como baixar os arquivos de contas de armazenamento do Azure, confira [Introdução ao armazenamento de Blobs do Azure usando o .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Outra ferramenta que pode ser usada é o Gerenciador de armazenamento. Mais informações sobre Gerenciador de Armazenamento podem ser encontradas aqui no seguinte link: [Gerenciador de armazenamento](https://storageexplorer.com/)
+Para obter instruções sobre como baixar arquivos de contas de armazenamento do Azure, consulte Introdução ao [armazenamento de BLOBs do Azure usando o .net](../storage/blobs/storage-quickstart-blobs-dotnet.md). Outra ferramenta que pode ser usada é o Gerenciador de armazenamento. Mais informações sobre Gerenciador de Armazenamento podem ser encontradas aqui no seguinte link: [Gerenciador de armazenamento](https://storageexplorer.com/)
 
 ### <a name="connectionstatstxt"></a>ConnectionStats.txt
 
@@ -207,6 +207,11 @@ Elapsed Time            330 sec
 |         6    ikeext               ike_sa_management_c3162  7857a320-42ee-6e90-d5d9-3f414e3ea2d3|
 |        12    ikeext               ike_sa_management_c3307  7857a320-42ee-6e90-d5d9-3f414e3ea2d3|
 ```
+
+## <a name="considerations"></a>Considerações 
+* Somente uma operação de solução de problemas pode ser executada de cada vez por assinatura. Para executar outra operação de solução de problemas, aguarde até que o anterior seja concluído. Disparar mais operações enquanto uma anterior não foi concluída fará com que as operações subsequentes falhem. 
+* Bug da CLI: se você estiver usando CLI do Azure para executar o comando, o gateway de VPN e a conta de armazenamento precisarão estar no mesmo grupo de recursos. Os clientes com os recursos em grupos de recursos diferentes podem usar o PowerShell ou o portal do Azure em vez disso.  
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -10,14 +10,19 @@ ms.subservice: bing-image-search
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: ca3821b6088e45730334d1b0971e270b1d86dfce
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 14dacc4351af444c75517df4d4e02ecca3bbf40a
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68881916"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350068"
 ---
 # <a name="language-and-region-support-for-the-bing-image-search-api"></a>Suporte de idioma e região para a API de Pesquisa de Imagem do Bing
+
+> [!WARNING]
+> As APIs de Pesquisa do Bing estão migrando dos Serviços Cognitivos para os Serviços de Pesquisa do Bing. A partir de **30 de outubro de 2020**, todas as novas instâncias da Pesquisa do Bing precisam ser provisionadas seguindo o processo documentado [aqui](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> As APIs de Pesquisa do Bing provisionadas por meio dos Serviços Cognitivos terão suporte nos próximos três anos ou até o final do seu Contrato Enterprise, o que ocorrer primeiro.
+> Para obter instruções sobre a migração, confira [Serviços de Pesquisa do Bing](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 A API de Pesquisa de Imagem do Bing dá suporte a mais de trinta países/regiões, muitos com mais de um idioma. Especificar um país/região com uma consulta serve principalmente para refinar os resultados da pesquisa com base nos interesses nesse país/região. Além disso, os resultados podem conter links para o Bing e esses links podem localizar a experiência do usuário do Bing, de acordo com o país/região ou idioma especificado.
 
@@ -34,7 +39,7 @@ Como alternativa, é possível especificar o país/região usando o parâmetro d
 
 ## <a name="countriesregions"></a>Países/regiões
 
-|País/região|Código|
+|País/Região|Código|
 |-------|----|
 |Argentina|AR|
 |Austrália|AU|
@@ -50,7 +55,7 @@ Como alternativa, é possível especificar o país/região usando o parâmetro d
 |RAE de Hong Kong|HK|
 |Índia|IN|
 |Indonésia|ID|
-|Itália|TI|
+|Itália|IT|
 |Japão|JP|
 |Coreia do Sul|KR|
 |Malásia|MY|
@@ -76,7 +81,7 @@ Como alternativa, é possível especificar o país/região usando o parâmetro d
 
 ## <a name="markets"></a>Mercados
 
-|País/região|Linguagem|Código de mercado|
+|País/Região|Idioma|Código de mercado|
 |-------|--------|-----------|
 |Argentina|Espanhol|es-AR|
 |Austrália|Inglês|en-AU|
@@ -84,8 +89,8 @@ Como alternativa, é possível especificar o país/região usando o parâmetro d
 |Bélgica|Holandês|nl-BE|
 |Bélgica|Francês|fr-BE|
 |Brasil|Português|pt-BR|
-|Canada|Inglês|en-CA|
-|Canada|Francês|fr-CA|
+|Canadá|Inglês|en-CA|
+|Canadá|Francês|fr-CA|
 |Chile|Espanhol|es-CL|
 |Dinamarca|Dinamarquês|da-DK|
 |Finlândia|Finlandês|fi-FI|
@@ -114,9 +119,9 @@ Como alternativa, é possível especificar o país/região usando o parâmetro d
 |Suíça|Alemão|de-CH|
 |Taiwan|Chinês tradicional|zh-TW|
 |Turquia|Turco|tr-TR|
-|United Kingdom|Inglês|en-GB|
-|Estados Unidos|Inglês|pt-BR|
+|Reino Unido|Inglês|en-GB|
+|Estados Unidos|Inglês|en-US|
 |Estados Unidos|Espanhol|es-US|
 
 ## <a name="next-steps"></a>Próximas etapas
-Para obter mais informações sobre os pontos de extremidade da Pesquisa de Notícias do Bing, confira [Referência da API de Pesquisa de Imagem v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference).
+Para obter mais informações sobre os pontos de extremidade da Pesquisa de Notícias do Bing, confira [Referência da API de Pesquisa de Imagem v7](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference).

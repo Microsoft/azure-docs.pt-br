@@ -1,7 +1,7 @@
 ---
 title: Sintaxe de consulta de pesquisa de grafo
 titleSuffix: Azure Machine Learning
-description: Saiba como usar a sintaxe de consulta de pesquisa para procurar nós no grafo de pipeline.
+description: Saiba como usar a sintaxe de consulta de pesquisa no designer de Azure Machine Learning para procurar nós no grafo de pipeline.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 8/24/2020
-ms.openlocfilehash: 122da78206ef2055b4867727b174293e74133c05
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 762581ea5b3183d62913e9ea6935bf7e4c4ae67f
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88817294"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420760"
 ---
 # <a name="graph-search-query-syntax"></a>Sintaxe de consulta de pesquisa de grafo
 
@@ -36,7 +36,7 @@ A pesquisa de grafo usa a consulta simples Lucene como sintaxe de pesquisa de te
 
  
 - E/OU
-- Correspondência de curinga com **?** **\*** operadores and.
+- Correspondência de curinga com **?** e * *\** _ operadores.
 
 ### <a name="examples"></a>Exemplos
 
@@ -49,7 +49,7 @@ A pesquisa de grafo usa a consulta simples Lucene como sintaxe de pesquisa de te
  
 - Correspondência de curinga: 
     - `machi?e learning`
-    -   `mach*ing`
+    - `mach_ing`
  
 >[!NOTE]
 > Não é possível iniciar uma consulta Lucene com um caractere "*".
@@ -59,7 +59,7 @@ A pesquisa de grafo usa a consulta simples Lucene como sintaxe de pesquisa de te
  
 As consultas de filtro usam o seguinte padrão:
  
-    **[key1] [operator1] [value1]; [key2] [operator1] [value2];**
+`**[key1] [operator1] [value1]; [key2] [operator1] [value2];**`
 
  
 Você pode usar as seguintes propriedades de nó como chaves:

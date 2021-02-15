@@ -7,15 +7,15 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 3af2705fedbb9c19d4f128e8e997d3fa73f8b5a7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a7806cf9518090539ba540a9a522af1aae2691f0
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84807963"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397409"
 ---
 # <a name="enable-cookie-based-affinity-with-an-application-gateway"></a>Habilitar afinidade baseada em cookie com um gateway de aplicativo
-Conforme descrito na [documentação do gateway de aplicativo Azure](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#http-settings), o gateway de aplicativo dá suporte à afinidade baseada em cookie, o que significa que ele pode direcionar o tráfego subsequente de uma sessão de usuário para o mesmo servidor para processamento.
+Conforme descrito na [documentação do gateway de aplicativo Azure](./application-gateway-components.md#http-settings), o gateway de aplicativo dá suporte à afinidade baseada em cookie, o que significa que ele pode direcionar o tráfego subsequente de uma sessão de usuário para o mesmo servidor para processamento.
 
 ## <a name="example"></a>Exemplo
 ```yaml

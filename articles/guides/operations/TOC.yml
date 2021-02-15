@@ -18,7 +18,7 @@
           items:
             - name: Usar as atribuições de função para gerenciar recursos
               href: ../../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
-        - name: Azure Stack
+        - name: Azure Stack Hub
           items:
             - name: Visão geral da implantação do Azure Stack
               href: /azure-stack/asdk/asdk-download
@@ -39,21 +39,21 @@
             - name: Criar e gerenciar VMs Linux
               href: ../../virtual-machines/linux/tutorial-manage-vm.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
             - name: Pipeline de CI/CD do Jenkins
-              href: ../../jenkins/tutorial-jenkins-github-docker-cicd.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
+              href: /azure/developer/jenkins/pipeline-with-github-and-docker?toc=%2fazure%2fguides%2foperations%2ftoc.json
             - name: VMs de balanceamento de carga
               href: ../../virtual-machines/linux/tutorial-load-balancer.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
             - name: Criando modelos do Gerenciador de Recursos do Azure
-              href: ../../resource-group-authoring-templates.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
+              href: ../../azure-resource-manager/templates/template-syntax.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
             - name: Fazer Backup das VMs em Escala
               href: ../../backup/tutorial-backup-vm-at-scale.md
     - name: Guias de instruções
       items:
         - name: Como baixar sua fatura de cobrança e dados de uso diário do Azure
-          href: ../../billing/billing-download-azure-invoice-daily-usage-date.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
+          href: ../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
     - name: Recursos
       items:
         - name: Catálogo de Produtos do Azure
-          href: 'https://docs.microsoft.com/azure/#pivot=products'
+          href: ../../index.yml
         - name: Roteiro do Azure
           href: 'https://azure.microsoft.com/roadmap/'
         - name: Calculadora de preço

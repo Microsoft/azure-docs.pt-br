@@ -1,17 +1,17 @@
 ---
 title: Tipos de preço-banco de dados do Azure para PostgreSQL-servidor único
 description: Este artigo descreve as opções de computação e armazenamento no banco de dados do Azure para PostgreSQL-servidor único.
-author: rachel-msft
-ms.author: raagyema
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/25/2020
-ms.openlocfilehash: 77ce6c8112e8c694b4ccb6a657b24649437d2f07
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.date: 10/14/2020
+ms.openlocfilehash: 74d2654c54d1ab2ac5d47aa24449c41c20a90b74
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87279229"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791131"
 ---
 # <a name="pricing-tiers-in-azure-database-for-postgresql---single-server"></a>Tipos de preço no Banco de Dados do Azure para PostgreSQL - Servidor único
 
@@ -51,7 +51,7 @@ O armazenamento provisionado é a quantidade de capacidade de armazenamento disp
 | IOPS | Variável |3 IOPS/GB<br/>Mín 100 IOPS<br/>IOPS máx. 20.000 | 3 IOPS/GB<br/>Mín 100 IOPS<br/>IOPS máx. 20.000 |
 
 > [!NOTE]
-> O armazenamento de até 16TB e 20.000 IOPS tem suporte nas seguintes regiões: leste dos EUA, leste dos EUA 2, EUA Central, oeste dos EUA, norte EUA Central, Sul EUA Central, Europa Setentrional, Europa Ocidental, Sul do Reino Unido, Oeste do Reino Unido, Sudeste Asiático, Ásia Oriental, leste do Japão, oeste do Japão, Coreia central, Coreia do Sul, leste da Austrália, sudeste da Austrália, oeste dos EUA 2 e Oeste EUA Central.
+> Há suporte para o armazenamento de até 16TB e 20.000 IOPS nas seguintes regiões: leste da Austrália, leste da Austrália, sul do Brasil, centro do Canadá, leste do Canadá, EUA Central, Leste da China 2, Norte da China 2, Ásia Oriental, leste dos EUA, leste dos EUA 1, leste dos EUA 2, leste do Japão, oeste do Japão, centro da Coreia, sul da Coreia, EUA Central do Sul , Oeste da Suíça, US Gov leste, US Gov centro, US Gov sudoeste, Sul do Reino Unido, Oeste do Reino Unido, Europa Ocidental, Oeste EUA Central, oeste dos EUA e oeste dos EUA 2.
 >
 > Todas as outras regiões dão suporte a até 4 TB de armazenamento e 6000 IOPS.
 >
@@ -59,7 +59,7 @@ O armazenamento provisionado é a quantidade de capacidade de armazenamento disp
 Você pode adicionar capacidade de armazenamento adicional durante e após a criação do servidor e permitir que o sistema aumente o armazenamento automaticamente com base no consumo de armazenamento de sua carga de trabalho.
 
 >[!NOTE]
-> O armazenamento só pode ser escalado verticalmente, não inativo.
+> O armazenamento só pode ser escalado verticalmente, não horizontalmente.
 
 A camada Básico não oferece garantia de IOPS. Nos tipos de preço Uso Geral e Otimizado para Memória, o IOPS é dimensionado com o tamanho de armazenamento provisionado a uma taxa de 3:1.
 

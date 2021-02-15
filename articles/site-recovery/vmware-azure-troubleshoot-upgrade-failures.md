@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 11/10/2019
 ms.author: raynew
 ms.openlocfilehash: 5a6e4b415a9fe8ea80a84e415879df9d2f359478
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84434380"
 ---
 # <a name="troubleshoot-microsoft-azure-site-recovery-provider-upgrade-failures"></a>Solucionar problemas de falhas de atualização do provedor do Microsoft Azure Site Recovery
@@ -73,8 +73,8 @@ Ao atualizar Microsoft Azure provedor de Site Recovery (DRA), a instalação do 
 
 Isso pode ser devido a um valor nulo para um parâmetro na chave do registro. Para resolver o problema-
 
-1. Inicie o editor do registro (regedit.exe) e abra o HKEY_LOCAL_MACHINE \SOFTWARE\Wow6432Node\InMage Systems\Installed Products\4 Branch.
+1. Inicie o editor do registro (regedit.exe) e abra a ramificação HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\InMage Systems\Installed Products\4.
 1. Inspecione o valor da chave ' Diretóriodeinstalação '.Se for NULL, adicione o valor do diretório de instalação atual.
-1. Da mesma forma, abra o HKEY_LOCAL_MACHINE \SOFTWARE\Wow6432Node\InMage Systems\Installed Products\5 Branch no editor do registro.
+1. Da mesma forma, abra a ramificação do HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\InMage Systems\Installed Products\5 no editor do registro.
 1. Inspecione o valor da chave ' Diretóriodeinstalação ' e adicione o valor do diretório de instalação atual.
 1. Execute novamente o instalador de instalação unificada.

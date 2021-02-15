@@ -1,24 +1,21 @@
 ---
 title: Controle do tráfego de rede no Azure HDInsight
 description: Aprenda técnicas para controlar o tráfego de entrada e de saída para clusters do Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 05/04/2020
-ms.openlocfilehash: 54a55789cf867c97cf2384b48f1e5545ee54dafc
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.date: 09/02/2020
+ms.openlocfilehash: 0cbda0b533a64e627bfeef9589ab95c4163ae73e
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83773399"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943362"
 ---
 # <a name="control-network-traffic-in-azure-hdinsight"></a>Controle do tráfego de rede no Azure HDInsight
 
 O tráfego de rede em Redes Virtuais do Azure pode ser controlado com os seguintes métodos:
 
-* Os **NSGs** (grupos de segurança de rede) permitem filtrar o tráfego de entrada e de saída para a rede. Para obter mais informações, consulte o documento [Filtrar o tráfego de rede com grupos de segurança de rede](../virtual-network/security-overview.md).
+* Os **NSGs** (grupos de segurança de rede) permitem filtrar o tráfego de entrada e de saída para a rede. Para obter mais informações, consulte o documento [Filtrar o tráfego de rede com grupos de segurança de rede](../virtual-network/network-security-groups-overview.md).
 
 * **As soluções de virtualização de rede** (NVA) podem ser usadas apenas com o tráfego de saída. As NVAs replicam a funcionalidade de dispositivos, como firewalls e roteadores. Para obter mais informações, consulte o documento [Dispositivos de rede](https://azure.microsoft.com/solutions/network-appliances).
 
@@ -32,13 +29,17 @@ Se você pretende usar **grupos de segurança de rede** para controlar o tráfeg
 
 1. Identifique a região do Azure que você pretende usar para o HDInsight.
 
-2. Identifique as marcas de serviço exigidas pelo HDInsight para a sua região. Para obter mais informações, veja [Marcas de serviço do grupo de segurança de rede (NSG) para o Azure HDInsight](hdinsight-service-tags.md).
+2. Identifique as marcas de serviço exigidas pelo HDInsight para a sua região. Há várias maneiras de obter essas marcas de serviço:
+    1. Consulte a lista de marcas de serviço publicadas em [marcas de serviço do NSG (grupo de segurança de rede) para o Azure HDInsight](hdinsight-service-tags.md). 
+    2. Se sua região não estiver presente na lista, use a [API de descoberta de marca de serviço](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview) para localizar uma marca de serviço para sua região.
+    3. Se não for possível usar a API, baixe o [arquivo JSON da marca de serviço](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) e procure a região desejada.
+
 
 3. Crie ou modifique os grupos de segurança de rede da sub-rede na qual você pretende instalar o HDInsight.
 
     * __Grupos de segurança de rede__: permita o tráfego de __entrada__ na porta __443__ dos endereços IP. Isso garantirá que os serviços de gerenciamento do HDInsight podem acessar o cluster de fora da rede virtual. Para clusters habilitados do __proxy REST do Kafka__, permita tráfego de __entrada__ na porta __9400__. Dessa maneira, o servidor proxy REST do Kafka fica acessível.
 
-Para saber mais sobre os grupos de segurança de rede, confira [visão geral dos grupos de segurança de rede](../virtual-network/security-overview.md).
+Para saber mais sobre os grupos de segurança de rede, confira [visão geral dos grupos de segurança de rede](../virtual-network/network-security-groups-overview.md).
 
 ## <a name="controlling-outbound-traffic-from-hdinsight-clusters"></a>Controle do tráfego de saída de clusters HDInsight
 
@@ -52,13 +53,9 @@ Os clientes que estão interessados em configurar o túnel forçado devem usar [
 
 Para ver um exemplo de configuração do UDR com o Firewall do Azure, veja [Configuração de restrição de tráfego de rede de saída para clusters do Azure HDInsight](hdinsight-restrict-outbound-traffic.md).
 
-## <a name="required-ip-addresses"></a>Endereços IP obrigatórios
-
-Se usar grupos de segurança de rede ou rotas definidas pelo usuário para controlar o tráfego, veja [Endereço IP de gerenciamento do HDInsight](hdinsight-management-ip-addresses.md).
-
 ## <a name="required-ports"></a>Portas obrigatórias
 
-Se você pretende usar um **firewall** e acessar o cluster de fora em determinadas portas, será preciso permitir o tráfego nas portas necessárias para o seu cenário. Por padrão, nenhuma lista de permissões especial de portas é necessária desde que o tráfego de gerenciamento do Azure, explicado na seção anterior, tenha permissão para acessar o cluster na porta 443.
+Se você pretende usar um **firewall** e acessar o cluster de fora em determinadas portas, será preciso permitir o tráfego nas portas necessárias para o seu cenário. Por padrão, nenhuma filtragem especial de portas é necessária, contanto que o tráfego de gerenciamento do Azure explicado na seção anterior tenha permissão para alcançar o cluster na porta 443.
 
 Para obter uma lista de portas para serviços específicos, consulte o documento [Portas usadas pelos serviços do Apache Hadoop no HDInsight](hdinsight-hadoop-port-settings-for-services.md).
 
@@ -69,6 +66,6 @@ Para obter mais informações sobre as regras de firewall para soluções de vir
 * Para obter exemplos de código e exemplos de criação de Redes Virtuais do Azure, veja [Criação de redes virtuais para clusters do Azure HDInsight](hdinsight-create-virtual-network.md).
 * Para obter um exemplo de ponta a ponta de como configurar o HDInsight para se conectar a uma rede local, consulte [Conectar o HDInsight a uma rede local](./connect-on-premises-network.md).
 * Para obter mais informações sobre redes virtuais do Azure, consulte a [Visão geral da Rede Virtual do Azure](../virtual-network/virtual-networks-overview.md).
-* Para obter mais informações sobre os Grupos de Segurança de Rede, veja [Grupos de segurança de rede](../virtual-network/security-overview.md).
+* Para obter mais informações sobre os Grupos de Segurança de Rede, veja [Grupos de segurança de rede](../virtual-network/network-security-groups-overview.md).
 * Para obter mais informações sobre as rotas definidas pelo usuário, confira [Rotas definidas pelo usuário e encaminhamento IP](../virtual-network/virtual-networks-udr-overview.md).
 * Para obter mais informações sobre redes virtuais, veja [Planejamento de redes virtuais para o HDInsight](./hdinsight-plan-virtual-network-deployment.md).

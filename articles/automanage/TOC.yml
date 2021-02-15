@@ -1,0 +1,34 @@
+- name: Autogerenciamento do Azure
+  href: automanage-virtual-machines.md
+- name: Inícios rápidos
+  expanded: true
+  items:
+    - name: Habilitar em VMs no portal do Azure
+      href: quick-create-virtual-machines-portal.md
+- name: Conceitos
+  expanded: true
+  items:
+    - name: Máquinas virtuais
+      href: automanage-virtual-machines.md
+    - name: Melhores práticas para VMs
+      href: virtual-machines-best-practices.md
+- name: Como
+  expanded: true
+  items:
+    - name: Criar preferências personalizadas
+      href: virtual-machines-custom-preferences.md
+    - name: Habilitar em VMs por meio do Azure Policy
+      href: virtual-machines-policy-enable.md
+    - name: Solucionar erros de integração
+      href: common-errors.md
+    - name: Reparar uma conta de Gerenciamento Automatizado corrompida
+      href: repair-automanage-account.md
+    - name: Mover uma máquina virtual autogerenciada entre regiões
+      href: move-automanaged-vms.md
+- name: Recursos
+  expanded: true
+  items:
+    - name: Perguntas frequentes
+      href: faq.md
+    - name: Cloud Adoption Framework
+      href: 'https://docs.microsoft.com/azure/cloud-adoption-framework/manage/azure-server-management'

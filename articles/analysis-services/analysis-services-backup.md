@@ -8,16 +8,16 @@ ms.date: 07/13/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: 66d09c2faa52cee3e94402be708d654b548c0de1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: af1850f77c1d13c761bfc2a143074b5067b349b4
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86506988"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012996"
 ---
 # <a name="analysis-services-database-backup-and-restore"></a>Backup e restauração de banco de dados Analysis Services
 
-O backup de bancos de dados de modelos tabulares no Azure Analysis Services é muito semelhante ao do Analysis Services local. A principal diferença é onde você armazena seus arquivos de backup. Os arquivos de backup devem ser salvos em um contêiner em uma [conta de armazenamento do Azure](../storage/common/storage-create-storage-account.md). Você pode usar uma conta de armazenamento e um contêiner que já existam ou eles podem ser criados ao definir as configurações de armazenamento para o seu servidor.
+O backup de bancos de dados de modelos tabulares no Azure Analysis Services é muito semelhante ao do Analysis Services local. A principal diferença é onde você armazena seus arquivos de backup. Os arquivos de backup devem ser salvos em um contêiner em uma [conta de armazenamento do Azure](../storage/common/storage-account-create.md). Você pode usar uma conta de armazenamento e um contêiner que já existam ou eles podem ser criados ao definir as configurações de armazenamento para o seu servidor.
 
 > [!NOTE]
 > A criação de uma conta de armazenamento pode resultar em um novo serviço faturável. Para saber mais, consulte [Preços de Armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/blobs/).
@@ -25,7 +25,7 @@ O backup de bancos de dados de modelos tabulares no Azure Analysis Services é m
 > 
 
 > [!NOTE]
-> Se a conta de armazenamento estiver em uma região diferente, defina as configurações de firewall da conta de armazenamento para permitir o acesso de **redes selecionadas**. Em **intervalo de endereços**do firewall, especifique o intervalo de endereços IP para a região em que o servidor Analysis Services está. A definição de configurações de firewall da conta de armazenamento para permitir o acesso de todas as redes tem suporte, no entanto, escolher redes selecionadas e especificar um intervalo de endereços IP é preferencial. Para saber mais, consulte [perguntas frequentes sobre conectividade de rede](analysis-services-network-faq.md#backup-and-restore).
+> Se a conta de armazenamento estiver em uma região diferente, defina as configurações de firewall da conta de armazenamento para permitir o acesso de **redes selecionadas**. Em **intervalo de endereços** do firewall, especifique o intervalo de endereços IP para a região em que o servidor Analysis Services está. A definição de configurações de firewall da conta de armazenamento para permitir o acesso de todas as redes tem suporte, no entanto, escolher redes selecionadas e especificar um intervalo de endereços IP é preferencial. Para saber mais, consulte [perguntas frequentes sobre conectividade de rede](analysis-services-network-faq.md#backup-and-restore).
 
 Os backups são salvos com uma extensão. ABF. Para modelos tabular na memória, ambos os dados de modelo e metadados são armazenados. Para modelos tabulares do DirectQuery, somente os metadados do modelo são armazenados. Os backups podem ser compactados e criptografados, dependendo das opções escolhidas.
 
@@ -75,10 +75,10 @@ Antes de fazer backup, é necessário definir as configurações de armazenament
 
 
 ### <a name="powershell"></a>PowerShell
-Use o cmdlet [Backup-ASDatabase](https://docs.microsoft.com/powershell/module/sqlserver/backup-asdatabase).
+Use o cmdlet [Backup-ASDatabase](/powershell/module/sqlserver/backup-asdatabase).
 
 ## <a name="restore"></a>Restaurar
-Durante a restauração, o arquivo de backup deve ser na conta de armazenamento que você configurou para o servidor. Se você precisar mover um arquivo de backup de um local para sua conta de armazenamento, use [Microsoft Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer) ou [AzCopy](../storage/common/storage-use-azcopy.md) utilitário de linha de comando. 
+Durante a restauração, o arquivo de backup deve ser na conta de armazenamento que você configurou para o servidor. Se você precisar mover um arquivo de backup de um local para sua conta de armazenamento, use [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) ou [AzCopy](../storage/common/storage-use-azcopy-v10.md) utilitário de linha de comando. 
 
 
 
@@ -102,11 +102,11 @@ Durante a restauração, o arquivo de backup deve ser na conta de armazenamento 
 
 ### <a name="powershell"></a>PowerShell
 
-Use o cmdlet [Restore-ASDatabase](https://docs.microsoft.com/powershell/module/sqlserver/restore-asdatabase).
+Use o cmdlet [Restore-ASDatabase](/powershell/module/sqlserver/restore-asdatabase).
 
 
 ## <a name="related-information"></a>Informações relacionadas
 
-[Contas de Armazenamento do Azure](../storage/common/storage-create-storage-account.md)  
+[Contas de Armazenamento do Azure](../storage/common/storage-account-create.md)  
 [Alta disponibilidade](analysis-services-bcdr.md)      
 [Perguntas frequentes sobre conectividade de rede Analysis Services](analysis-services-network-faq.md)

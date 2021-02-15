@@ -5,18 +5,18 @@ author: cynthn
 ms.service: virtual-machines
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 04/20/2020
+ms.date: 11/20/2020
 ms.author: cynthn
-ms.openlocfilehash: 56f9873828e2f93008498beed986827a01872bf1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d94cd649df9da6b36ac484d4fc1e6acef7a21bb7
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84675849"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026158"
 ---
 # <a name="control-updates-with-maintenance-control-and-the-azure-cli"></a>Controlar atualizações com o controle de manutenção e o CLI do Azure
 
-O controle de manutenção permite que você decida quando aplicar atualizações às VMs isoladas e aos hosts dedicados do Azure. Este tópico aborda as opções de CLI do Azure para o controle de manutenção. Para obter mais informações sobre os benefícios de usar o controle de manutenção, suas limitações e outras opções de gerenciamento, consulte [gerenciando atualizações de plataforma com o controle de manutenção](maintenance-control.md).
+O controle de manutenção permite que você decida quando aplicar atualizações de plataforma à infraestrutura de host de suas VMs isoladas e hosts dedicados do Azure. Este tópico aborda as opções de CLI do Azure para o controle de manutenção. Para obter mais informações sobre os benefícios de usar o controle de manutenção, suas limitações e outras opções de gerenciamento, consulte [gerenciando atualizações de plataforma com o controle de manutenção](maintenance-control.md).
 
 ## <a name="create-a-maintenance-configuration"></a>Criar uma configuração de manutenção
 
@@ -28,22 +28,46 @@ az group create \
    --name myMaintenanceRG
 az maintenance configuration create \
    -g myMaintenanceRG \
-   --name myConfig \
-   --maintenanceScope host\
+   --resource-name myConfig \
+   --maintenance-scope host\
    --location eastus
 ```
 
 Copie a ID de configuração da saída para usar mais tarde.
 
-O uso de `--maintenanceScope host` garante que a configuração de manutenção seja usada para controlar atualizações para o host.
+O uso de `--maintenance-scope host` garante que a configuração de manutenção seja usada para controlar atualizações na infraestrutura de host.
 
-Se você tentar criar uma configuração com o mesmo nome, mas em um local diferente, receberá um erro. Os nomes de configuração devem ser exclusivos para sua assinatura.
+Se você tentar criar uma configuração com o mesmo nome, mas em um local diferente, receberá um erro. Os nomes de configuração devem ser exclusivos para seu grupo de recursos.
 
 Você pode consultar as configurações de manutenção disponíveis usando `az maintenance configuration list` .
 
 ```azurecli-interactive
 az maintenance configuration list --query "[].{Name:name, ID:id}" -o table 
 ```
+
+### <a name="create-a-maintenance-configuration-with-scheduled-window"></a>Criar uma configuração de manutenção com a janela agendada
+Você também pode declarar uma janela agendada quando o Azure aplicará as atualizações em seus recursos. Este exemplo cria uma configuração de manutenção chamada myconfig com uma janela agendada de 5 horas na quarta segunda-feira de cada mês. Depois de criar uma janela agendada, você não precisa mais aplicar as atualizações manualmente.
+
+```azurecli-interactive
+az maintenance configuration create \
+   -g myMaintenanceRG \
+   --resource-name myConfig \
+   --maintenance-scope host \
+   --location eastus \
+   --maintenance-window-duration "05:00" \
+   --maintenance-window-recur-every "Month Fourth Monday" \
+   --maintenance-window-start-date-time "2020-12-30 08:00" \
+   --maintenance-window-time-zone "Pacific Standard Time"
+```
+
+> [!IMPORTANT]
+> A **duração** da manutenção deve ser de *2 horas* ou mais. A **recorrência** de manutenção deve ser definida para pelo menos ocorrer uma vez em 35 dias.
+
+A recorrência da manutenção pode ser expressa como diária, semanal ou mensal. Alguns exemplos são:
+- **diário**-manutenção-janela-recorrência-a cada: "dia" **ou** "3Days"
+- **semanalmente**-manutenção-janela-recorrência-a cada: "3Weeks" **ou** "semana sábado, domingo"
+- **mensal**-manutenção-janela-recorrência-a cada: "month day23, day24" **ou** "month Last domingo" **ou** "month quarta segunda-feira"
+
 
 ## <a name="assign-the-configuration"></a>Atribuir a configuração
 
@@ -251,7 +275,7 @@ Use `az maintenance configuration delete` para excluir uma configuração de man
 az maintenance configuration delete \
    --subscription 1111abcd-1a11-1a2b-1a12-123456789abc \
    -g myResourceGroup \
-   --name myConfig
+   --resource-name myConfig
 ```
 
 ## <a name="next-steps"></a>Próximas etapas

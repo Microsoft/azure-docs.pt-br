@@ -3,18 +3,21 @@ title: Solucionar problemas Azure Cosmos DB exceções não encontradas
 description: Saiba como diagnosticar e corrigir exceções não encontradas.
 author: j82w
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.date: 07/13/2020
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 1d778b4330389d23b0fe7179a005abfbd7d66d5c
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 7b112cc80984a761e780f134731476f9dff4f687
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88871098"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99525764"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-not-found-exceptions"></a>Diagnosticar e solucionar problemas Azure Cosmos DB exceções não encontradas
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
 O código de status HTTP 404 representa que o recurso não existe mais.
 
 ## <a name="expected-behavior"></a>Comportamento esperado
@@ -23,12 +26,17 @@ Há muitos cenários válidos em que um aplicativo espera um código 404 e manip
 ## <a name="a-not-found-exception-was-returned-for-an-item-that-should-exist-or-does-exist"></a>Uma exceção não encontrada foi retornada para um item que deveria existir ou existe
 Aqui estão os possíveis motivos para um código de status 404 ser retornado se o item deve existir ou existir.
 
+### <a name="the-read-session-is-not-available-for-the-input-session-token"></a>A sessão de leitura não está disponível para o token de sessão de entrada
+
+#### <a name="solution"></a>Solução:
+1. Atualize seu SDK atual para a versão mais recente disponível. As causas mais comuns para esse erro específico foram corrigidas nas versões mais recentes do SDK.
+
 ### <a name="race-condition"></a>Condição de corrida
 Há várias instâncias de cliente SDK e a leitura aconteceu antes da gravação.
 
 #### <a name="solution"></a>Solução:
 1. A consistência de conta padrão para Azure Cosmos DB é a consistência da sessão. Quando um item é criado ou atualizado, a resposta retorna um token de sessão que pode ser passado entre as instâncias do SDK para garantir que a solicitação de leitura esteja lendo de uma réplica com essa alteração.
-1. Altere o [nível de consistência](consistency-levels-choosing.md) para um [nível mais forte](consistency-levels-tradeoffs.md).
+1. Altere o [nível de consistência](./consistency-levels.md) para um [nível mais forte](./consistency-levels.md).
 
 ### <a name="invalid-partition-key-and-id-combination"></a>Combinação de chave de partição e ID inválida
 A combinação de chave de partição e ID não é válida.
@@ -37,10 +45,10 @@ A combinação de chave de partição e ID não é válida.
 Corrija a lógica do aplicativo que está causando a combinação incorreta. 
 
 ### <a name="invalid-character-in-an-item-id"></a>Caractere inválido em uma ID de item
-Um item é inserido em Azure Cosmos DB com um [caractere inválido](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.resource.id?view=azure-dotnet#remarks) na ID do item.
+Um item é inserido em Azure Cosmos DB com um [caractere inválido](/dotnet/api/microsoft.azure.documents.resource.id?preserve-view=true&view=azure-dotnet#remarks) na ID do item.
 
 #### <a name="solution"></a>Solução:
-Altere a ID para um valor diferente que não contenha os caracteres especiais. Se a alteração da ID não for uma opção, você poderá codificar a ID em base64 para escapar os caracteres especiais.
+Altere a ID para um valor diferente que não contenha os caracteres especiais. Se a alteração da ID não for uma opção, você poderá codificar a ID em base64 para escapar os caracteres especiais. A base64 ainda pode produzir um nome com um caractere inválido '/' que precisa ser substituído.
 
 Os itens já inseridos no contêiner para a ID podem ser substituídos usando valores de RID em vez de referências baseadas em nome.
 ```c#
@@ -52,7 +60,7 @@ string containerRid = selfLinkSegments[3];
 Container containerByRid = this.cosmosClient.GetContainer(databaseRid, containerRid);
 
 // Invalid characters are listed here.
-//https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.resource.id?view=azure-dotnet#remarks
+//https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.resource.id?view=azure-dotnet&preserve-view=true#remarks
 FeedIterator<JObject> invalidItemsIterator = this.Container.GetItemQueryIterator<JObject>(
     @"select * from t where CONTAINS(t.id, ""/"") or CONTAINS(t.id, ""#"") or CONTAINS(t.id, ""?"") or CONTAINS(t.id, ""\\"") ");
 while (invalidItemsIterator.HasMoreResults)
@@ -62,7 +70,7 @@ while (invalidItemsIterator.HasMoreResults)
         // Choose a new ID that doesn't contain special characters.
         // If that isn't possible, then Base64 encode the ID to escape the special characters.
         byte[] plainTextBytes = Encoding.UTF8.GetBytes(itemWithInvalidId["id"].ToString());
-        itemWithInvalidId["id"] = Convert.ToBase64String(plainTextBytes);
+        itemWithInvalidId["id"] = Convert.ToBase64String(plainTextBytes).Replace('/', '!');
 
         // Update the item with the new ID value by using the RID-based container reference.
         JObject item = await containerByRid.ReplaceItemAsync<JObject>(
@@ -79,7 +87,7 @@ while (invalidItemsIterator.HasMoreResults)
 ```
 
 ### <a name="time-to-live-purge"></a>Limpeza de vida útil
-O item tinha a propriedade [TTL (vida útil)](https://docs.microsoft.com/azure/cosmos-db/time-to-live) definida. O item foi limpo porque a propriedade TTL expirou.
+O item tinha a propriedade [TTL (vida útil)](./time-to-live.md) definida. O item foi limpo porque a propriedade TTL expirou.
 
 #### <a name="solution"></a>Solução:
 Altere a propriedade TTL para impedir que o item seja limpo.
@@ -94,9 +102,17 @@ Aguarde até que a indexação acompanhe ou altere a política de indexação.
 O banco de dados ou o contêiner no qual o item existe foi excluído.
 
 #### <a name="solution"></a>Solução:
-1. [Restaure](https://docs.microsoft.com/azure/cosmos-db/online-backup-and-restore#backup-retention-period) o recurso pai ou recrie os recursos.
+1. [Restaure](./configure-periodic-backup-restore.md#request-restore) o recurso pai ou recrie os recursos.
 1. Crie um novo recurso para substituir o recurso excluído.
+
+### <a name="7-containercollection-names-are-case-sensitive"></a>7. os nomes de contêiner/coleção diferenciam maiúsculas de minúsculas
+Os nomes de contêiner/coleção diferenciam maiúsculas de minúsculas em Cosmos DB.
+
+#### <a name="solution"></a>Solução:
+Certifique-se de usar o nome exato ao conectar-se a Cosmos DB.
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Diagnostique e solucione](troubleshoot-dot-net-sdk.md) problemas ao usar o SDK do .net Azure Cosmos DB.
 * Saiba mais sobre as diretrizes de desempenho para o [.net v3](performance-tips-dotnet-sdk-v3-sql.md) e o [.net v2](performance-tips.md).
+* [Diagnostique e solucione](troubleshoot-java-sdk-v4-sql.md) problemas ao usar o SDK do Azure Cosmos DB Java v4.
+* Saiba mais sobre as diretrizes de desempenho para o [SDK do Java v4](performance-tips-java-sdk-v4-sql.md).

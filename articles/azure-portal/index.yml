@@ -5,19 +5,15 @@ metadata:
   title: Documentação do portal do Azure
   description: Saiba como gerenciar suas assinaturas e recursos do Azure usando o console baseado na Web do portal do Azure. O portal do Azure é uma alternativa ao uso de ferramentas de linha de comando.
   services: Azure portal
-  ms.service: azure-portal
-  ms.subservice: 
   ms.topic: landing-page
   ms.collection: collection
-  author: mblythe
-  ms.author: mblythe
   ms.date: 08/05/2020
-  ms.openlocfilehash: f45fc98073dcc6eeee10c691fe9f93860e0fb654
-  ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+  ms.openlocfilehash: c1617f295a101ae645743d60fdbe82a09d936ea2
+  ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 08/14/2020
-  ms.locfileid: "88212079"
+  ms.lasthandoff: 12/07/2020
+  ms.locfileid: "96749004"
 landingContent:
 - title: Sobre o portal do Azure
   linkLists:
@@ -43,13 +39,13 @@ landingContent:
     links:
     - text: Coloque as URLs do portal do Azure em uma lista segura
       url: azure-portal-safelist-urls.md
-    - text: Controle de acesso baseado em função para painéis
+    - text: Controle de acesso baseado em função do Azure para painéis
       url: azure-portal-dashboard-share-access.md
   - linkListType: learn
     links:
     - text: Gerenciar recursos no Azure
       url: /learn/paths/manage-resources-in-azure/
-    - text: Proteger os recursos do Azure com o RBAC (controle de acesso baseado em função)
+    - text: Proteger seus recursos do Azure com o Azure RBAC (controle de acesso baseado em função)
       url: /learn//modules/secure-azure-resources-with-rbac/
 - title: Introdução
   linkLists:
@@ -71,7 +67,7 @@ landingContent:
   linkLists:
   - linkListType: reference
     links:
-    - text: Atalhos do teclado
+    - text: Atalhos de teclado
       url: azure-portal-keyboard-shortcuts.md
   - linkListType: how-to-guide
     links:

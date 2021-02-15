@@ -1,18 +1,18 @@
 ---
 title: Tutorial – adicionar um modelo de exemplo – Azure Analysis Services | Microsoft Docs
-description: Saiba como adicionar um modelo de exemplo no Azure Analysis Services neste tutorial.
+description: Neste tutorial, aprenda a adicionar um modelo de exemplo no Azure Analysis Services.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: tutorial
-ms.date: 05/19/2020
+ms.date: 08/31/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 88ed58ea1eea80b4b890c31260fc65153377eaaa
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: f882a40940a5c7202e9cf1f5c8b8927f008f4a39
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "83697511"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92013603"
 ---
 # <a name="tutorial-add-a-sample-model-from-the-portal"></a>Tutorial: Adicionar um modelo de exemplo do portal
 
@@ -24,13 +24,13 @@ Neste tutorial, você deve adicionar um modelo de tabela de banco de dados de ex
 
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, você precisará:
 
 - Um servidor do Analysis Services do Azure. Para saber mais, consulte [Criar um servidor - portal](analysis-services-create-server.md).
 - Permissões de administrador do servidor
-- [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)
+- [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)
 
 
 ## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
@@ -45,7 +45,7 @@ Entre no [portal](https://portal.azure.com/).
 
 2. Em **Novo modelo** > **Escolha uma fonte de dados**, verifique se **Dados de exemplo** está selecionado e, em seguida, clique em **Adicionar**.
 
-    ![Selecionar dados de exemplo](./media/analysis-services-create-sample-model/aas-create-sample-data.png)
+    ![Selecionar Novo modelo](./media/analysis-services-create-sample-model/aas-create-sample-data.png)
 
 3. Em **Visão geral**, verifique se o modelo de exemplo `adventureworks` foi adicionado.
 
@@ -74,5 +74,3 @@ Neste tutorial, você aprendeu como adicionar um modelo de exemplo básico, ao s
 
 > [!div class="nextstepaction"]
 > [Tutorial: Configurar funções de usuário e administrador do servidor](tutorials/analysis-services-tutorial-roles.md)
-
-

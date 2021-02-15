@@ -9,10 +9,10 @@ ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.openlocfilehash: 97ded67b9f9daa2652b2740a21a4b7d6a0ac2bdd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87068260"
 ---
 # <a name="create-an-app-service-app-and-deploy-private-endpoint-using-powershell"></a>Criar um aplicativo do Serviço de Aplicativo e implantar um ponto de extremidade privado usando o PowerShell

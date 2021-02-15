@@ -8,15 +8,15 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/02/2020
-ms.openlocfilehash: 02f4fe4f97d3e976675757835e3931666d1c6410
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 23dfee7b78f2606c54525391e1260af69a9b0779
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85857725"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "90898400"
 ---
 # <a name="score-vowpal-wabbit-model"></a>Pontuar o modelo Vowpal Wabbit
-Este artigo descreve como usar o módulo **modelo de Pontuação Vowpal Wabbit** no designer de Azure Machine Learning (versão prévia) para gerar pontuações para um conjunto de dados de entrada, usando um modelo Vowpal Wabbit treinado existente.  
+Este artigo descreve como usar o módulo **modelo de Pontuação Vowpal Wabbit** no designer de Azure Machine Learning, para gerar pontuações para um conjunto de dados de entrada, usando um modelo Vowpal Wabbit treinado existente.  
 
 Este módulo fornece a versão mais recente do Vowpal Wabbit Framework, versão 8.8.1. Use este módulo para pontuar dados usando um modelo treinado salvo no formato VW versão 8.  
 
@@ -74,7 +74,7 @@ Vowpal Wabbit tem muitas opções de linha de comando para escolher e ajustar al
 
 Os parâmetros a seguir não têm suporte no Azure Machine Learning Studio (clássico).  
 
--   As opções de entrada/saída especificadas em[https://github.com/JohnLangford/vowpal_wabbit/wiki/Command-line-arguments](https://github.com/JohnLangford/vowpal_wabbit/wiki/Command-line-arguments)  
+-   As opções de entrada/saída especificadas em [https://github.com/JohnLangford/vowpal_wabbit/wiki/Command-line-arguments](https://github.com/JohnLangford/vowpal_wabbit/wiki/Command-line-arguments)  
   
      Essas propriedades já estão configuradas automaticamente pelo módulo.  
   

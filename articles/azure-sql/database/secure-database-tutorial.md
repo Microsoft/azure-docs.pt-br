@@ -7,15 +7,15 @@ ms.subservice: security
 ms.topic: tutorial
 author: VanMSFT
 ms.author: vanto
-ms.reviewer: carlrab
-ms.date: 09/03/2019
+ms.reviewer: ''
+ms.date: 09/21/2020
 ms.custom: seoapril2019 sqldbrb=1
-ms.openlocfilehash: 12c3a35e12e3f432345ea788893d0d0ae6e6433f
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: f42db48e0fa0e85d919d6894e5476b7ef5380698
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496909"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99089285"
 ---
 # <a name="tutorial-secure-a-database-in-azure-sql-database"></a>Tutorial: Proteger um banco de dados no Banco de Dados SQL do Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -27,7 +27,7 @@ Neste tutorial, você aprenderá a:
 > - Criar regras de firewall no nível do servidor e do banco de dados
 > - Configurar um administrador do Azure AD (Azure Active Directory)
 > - Gerenciar o acesso do usuário com a autenticação do SQL, a autenticação do Azure AD e cadeias de conexão seguras
-> - Habilitar recursos de segurança, como a segurança de dados avançada, a auditoria, a máscara de dados e a criptografia
+> - Habilitar recursos de segurança, como o Azure defender para SQL, auditoria, mascaramento de dados e criptografia
 
 O Banco de Dados SQL do Azure protege os dados permitindo que você:
 
@@ -39,10 +39,10 @@ O Banco de Dados SQL do Azure protege os dados permitindo que você:
 > [!NOTE]
 > A Instância Gerenciada de SQL do Azure é protegida usando regras de segurança de rede e pontos de extremidade privados, conforme descrito em [Instância Gerenciada do SQL do Azure](../managed-instance/sql-managed-instance-paas-overview.md) e [Arquitetura de conectividade](../managed-instance/connectivity-architecture-overview.md).
 
-Para obter mais informações, confira os artigos [Visão geral](/azure/sql-database/sql-database-security-index) e [Recursos de segurança do Banco de Dados SQL do Azure](security-overview.md).
+Para obter mais informações, confira os artigos [Visão geral](./security-overview.md) e [Recursos de segurança do Banco de Dados SQL do Azure](security-overview.md).
 
 > [!TIP]
-> O módulo do Microsoft Learn a seguir ajuda você a aprender gratuitamente sobre como [Proteger seu banco de dados no Banco de Dados SQL do Azure](https://docs.microsoft.com/learn/modules/secure-your-azure-sql-database/).
+> O módulo do Microsoft Learn a seguir ajuda você a aprender gratuitamente sobre como [Proteger seu banco de dados no Banco de Dados SQL do Azure](/learn/modules/secure-your-azure-sql-database/).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -62,7 +62,7 @@ Para obter todas as etapas do tutorial, entre no [portal do Azure](https://porta
 
 Os bancos de dados no Banco de Dados SQL são protegidos por firewalls no Azure. Por padrão, todas as conexões ao servidor e aos bancos de dados são rejeitadas. Para saber mais, confira [Regras de firewall no nível do servidor e do banco de dados](firewall-configure.md).
 
-Defina **Permitir acesso aos serviços do Azure** como **DESATIVADO** para a configuração mais segura. Em seguida, crie um [IP reservado (implantação clássica)](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip) para o recurso que precisa se conectar, como uma VM do Azure ou um serviço de nuvem, e só permita a esse endereço IP o acesso por meio do firewall. Se você estiver usando o modelo de implantação do [Resource Manager](/azure/virtual-network/virtual-network-ip-addresses-overview-arm), um endereço IP público dedicado será necessário para cada recurso.
+Defina **Permitir acesso aos serviços do Azure** como **DESATIVADO** para a configuração mais segura. Em seguida, crie um [IP reservado (implantação clássica)](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip) para o recurso que precisa se conectar, como uma VM do Azure ou um serviço de nuvem, e só permita a esse endereço IP o acesso por meio do firewall. Se você estiver usando o modelo de implantação do [Resource Manager](../../virtual-network/public-ip-addresses.md), um endereço IP público dedicado será necessário para cada recurso.
 
 > [!NOTE]
 > O Banco de Dados SQL se comunica pela porta 1433. Se você estiver tentando conectar-se a partir de uma rede corporativa, o tráfego de saída pela porta 1433 poderá não ser permitido pelo firewall de sua rede. Se isso acontecer, você não poderá se conectar ao servidor, a menos que o administrador abra a porta 1433.
@@ -124,14 +124,14 @@ Para definir o administrador do Azure AD:
     ![selecionar active directory](./media/secure-database-tutorial/admin-settings.png)  
 
     > [!IMPORTANT]
-    > Você precisa ser um "Administrador da Empresa" ou um "Administrador Global" para executar essa tarefa.
+    > Você precisa ser "Administrador global" para executar essa tarefa.
 
 1. Na página **Adicionar administrador**, pesquise e selecione o usuário ou o grupo do AD e escolha **Selecionar**. Todos os membros e grupos do Active Directory serão listados, e não há suporte para entradas esmaecidas como administradores do Azure AD. Confira [Recursos e limitações do Azure AD](authentication-aad-overview.md#azure-ad-features-and-limitations).
 
     ![selecionar administrador](./media/secure-database-tutorial/admin-select.png)
 
     > [!IMPORTANT]
-    > O RBAC (controle de acesso baseado em função) se aplica somente ao portal e não é propagado para o SQL Server.
+    > O Azure RBAC (controle de acesso baseado em função do Azure) se aplica somente ao portal e não é propagado para o SQL Server.
 
 1. Na parte superior da página **Administrador do Active Directory**, selecione **Salvar**.
 
@@ -233,30 +233,30 @@ Para copiar uma cadeia de conexão segura:
 
 ## <a name="enable-security-features"></a>Habilitar recursos de segurança
 
-O Banco de Dados SQL do Azure fornece recursos de segurança que são acessados usando o portal do Azure. Esses recursos estão disponíveis para o banco de dados e o servidor, exceto a máscara de dados, que só está disponível no banco de dados. Para saber mais, consulte [Segurança de dados avançada](advanced-data-security.md), [Auditoria](../../azure-sql/database/auditing-overview.md), [Máscara de dados dinâmicos](dynamic-data-masking-overview.md) e [Transparent Data Encryption](transparent-data-encryption-tde-overview.md).
+O Banco de Dados SQL do Azure fornece recursos de segurança que são acessados usando o portal do Azure. Esses recursos estão disponíveis para o banco de dados e o servidor, exceto a máscara de dados, que só está disponível no banco de dados. Para saber mais, confira [Azure Defender para SQL](azure-defender-for-sql.md), [Auditoria](../../azure-sql/database/auditing-overview.md), [Máscara dinâmica de dados](dynamic-data-masking-overview.md) e [Transparent data encryption](transparent-data-encryption-tde-overview.md).
 
-### <a name="advanced-data-security"></a>Segurança de dados avançada
+### <a name="azure-defender-for-sql"></a>Azure Defender para SQL
 
-O recurso de segurança de dados avançada detecta ameaças potenciais conforme elas ocorrem e fornece alertas de segurança sobre atividades anormais. Os usuários podem explorar esses eventos suspeitos usando o recurso de auditoria e determinar se o evento tinha o objetivo de acessar, violar ou explorar os dados no banco de dados. Os usuários também obtêm uma visão geral de segurança que inclui uma avaliação de vulnerabilidade e a ferramenta de descoberta e classificação de dados.
+O recurso Azure Defender para SQL detecta ameaças potenciais conforme elas ocorrem e fornece alertas de segurança sobre atividades anormais. Os usuários podem explorar esses eventos suspeitos usando o recurso de auditoria e determinar se o evento tinha o objetivo de acessar, violar ou explorar os dados no banco de dados. Os usuários também obtêm uma visão geral de segurança que inclui uma avaliação de vulnerabilidade e a ferramenta de descoberta e classificação de dados.
 
 > [!NOTE]
 > Uma ameaça de exemplo é a injeção de SQL, um processo em que os invasores injetam um SQL mal-intencionado em entradas de aplicativo. Em seguida, um aplicativo poderá inadvertidamente executar o SQL mal-intencionado e permitir que os invasores obtenham acesso para violar ou modificar dados no banco de dados.
 
-Para habilitar a segurança de dados avançada:
+Para habilitar o Azure Defender para SQL:
 
 1. No portal do Azure, selecione **Bancos de dados SQL** no menu à esquerda e selecione seu banco de dados na página **Bancos de dados SQL**.
 
 1. Na página **Visão geral**, selecione o link **Nome do servidor**. A página do servidor será aberta.
 
-1. Na página **SQL Server**, encontre a seção **Segurança** e selecione **Segurança de Dados Avançada**.
+1. Na página **SQL Server**, encontre a seção **Segurança** e selecione **Central de segurança**.
 
-   1. Selecione **ATIVADO** em **Segurança de Dados Avançada** para habilitar o recurso. Escolha uma conta de armazenamento para salvar os resultados da avaliação de vulnerabilidade. Em seguida, selecione **Salvar**.
+   1. Selecione **LIGADO** em **Azure Defender para SQL** para habilitar o recurso. Escolha uma conta de armazenamento para salvar os resultados da avaliação de vulnerabilidade. Em seguida, selecione **Salvar**.
 
       ![Painel de navegação](./media/secure-database-tutorial/threat-settings.png)
 
       Configure também emails para receber alertas de segurança, detalhes de armazenamento e tipos de detecção de ameaças.
 
-1. Retorne à página **Bancos de dados SQL** de seu banco de dados e selecione **Segurança de Dados Avançada** na seção **Segurança**. Aqui você encontrará vários indicadores de segurança disponíveis para o banco de dados.
+1. Retorne à página **Bancos de dados SQL** de seu banco de dados e selecione **Central de segurança** na seção **Segurança**. Aqui você encontrará vários indicadores de segurança disponíveis para o banco de dados.
 
     ![Status da ameaça](./media/secure-database-tutorial/threat-status.png)
 
@@ -347,7 +347,7 @@ Neste tutorial, você aprendeu a aprimorar a segurança de seu banco de dados co
 > - Criar regras de firewall no nível do servidor e do banco de dados
 > - Configurar um administrador do Azure AD (Active Directory)
 > - Gerenciar o acesso do usuário com a autenticação do SQL, a autenticação do Azure AD e cadeias de conexão seguras
-> - Habilitar recursos de segurança, como a segurança de dados avançada, a auditoria, a máscara de dados e a criptografia
+> - Habilitar recursos de segurança, como o Azure defender para SQL, auditoria, mascaramento de dados e criptografia
 
 Avance para o próximo tutorial para saber como implementar a distribuição geográfica.
 

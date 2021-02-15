@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: 76e72e8fd134c65cc9334e635375cc25e9b09a75
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: fbfef094cd062e437f2a28369162de96631ef41b
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88719063"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832599"
 ---
 # <a name="tutorial-monitor-and-manage-a-video-analytics---object-and-motion-detection-application"></a>Tutorial: Monitorar e gerenciar um aplicativo de detecção de objetos e movimentos e análise de vídeo
 
@@ -26,8 +26,8 @@ Neste tutorial, você aprende a:
 
 Antes de começar, você deverá concluir:
 
-* O tutorial [Criar um aplicativo da Análise Dinâmica de Vídeo no Azure IoT Central](./tutorial-video-analytics-create-app.md).
-* Um dos tutoriais anteriores [Criar uma instância do IoT Edge da Análise Dinâmica de Vídeo (VM do Linux)](tutorial-video-analytics-iot-edge-vm.md) ou [Criar uma instância do IoT Edge da Análise Dinâmica de Vídeo (VM do Linux)](tutorial-video-analytics-iot-edge-nuc.md).
+* Um dos tutoriais anteriores [Criar um aplicativo da Análise Dinâmica de Vídeo no Azure IoT Central](./tutorial-video-analytics-create-app-yolo-v3.md) ou [Criar uma análise de vídeo no Azure IoT Central (OpenVINO&trade;)](tutorial-video-analytics-create-app-openvino.md).
+* Um dos tutoriais anteriores [Criar uma instância do IoT Edge da Análise Dinâmica de Vídeo (VM do Linux)](tutorial-video-analytics-iot-edge-vm.md) ou [Criar uma instância do IoT Edge da Análise Dinâmica de Vídeo (Intel NUC)](tutorial-video-analytics-iot-edge-nuc.md).
 
 Você deverá ter o [Docker](https://www.docker.com/products/docker-desktop) instalado no computador local para executar o aplicativo de exibição de vídeo.
 
@@ -195,7 +195,7 @@ Pause o processamento da Análise Dinâmica de Vídeo no aplicativo:
     * Clique no recurso **Ponto de Extremidade de Streaming**.
     * Na página **Detalhes do ponto de extremidade de streaming**, selecione **Parar**.
 
-## <a name="tidy-up"></a>Limpar
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se você tiver concluído o aplicativo, remova todos os recursos criados da seguinte maneira:
 

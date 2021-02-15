@@ -9,12 +9,12 @@ metadata:
   author: twooley
   ms.author: twooley
   ms.date: 03/11/2020
-  ms.openlocfilehash: bf688b1230c8fd4eecba08ce361e92b9030a241f
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: 09685af7a10c8624cb8b1442189cd68057031e9d
+  ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "79410084"
+  ms.lasthandoff: 10/16/2020
+  ms.locfileid: "92106528"
 landingContent:
 - title: Sobre o Azure Data Lake Storage Gen1
   linkLists:
@@ -25,7 +25,7 @@ landingContent:
     - text: Comparar com o Armazenamento do Azure
       url: data-lake-store-comparison-with-blob-storage.md
     - text: Mudar para documentação do Data Lake Storage Gen2
-      url: ../storage/data-lake-storage/introduction.md
+      url: ../storage/blobs/data-lake-storage-introduction.md
 - title: Introdução
   linkLists:
   - linkListType: get-started

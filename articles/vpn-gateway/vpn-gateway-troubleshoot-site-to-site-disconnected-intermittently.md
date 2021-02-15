@@ -6,14 +6,14 @@ titleSuffix: Azure VPN Gateway
 author: chadmath
 ms.service: vpn-gateway
 ms.topic: troubleshooting
-ms.date: 10/30/2018
+ms.date: 02/10/2021
 ms.author: genli
-ms.openlocfilehash: 82054099a5a496e99c49135ab98ee1163af19784
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 582077c46f5fc7176b457cf0d392af48fbe7d40b
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75862553"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100369332"
 ---
 # <a name="troubleshooting-azure-site-to-site-vpn-disconnects-intermittently"></a>Solução de problemas: desconexão intermitente da VPN Site a Site do Azure
 
@@ -27,7 +27,7 @@ Você poderá observar o problema em que uma conexão VPN Site a Site nova ou ex
 
 Verifique o tipo de gateway de rede virtualdo  Azure:
 
-1. Vá para o [portal do Azure](https://portal.azure.com).
+1. Vá para [portal do Azure](https://portal.azure.com).
 2. Verifique a página **Visão Geral** do gateway de rede virtual para os tipos de informações.
     
     ![Visão geral do gateway](media/vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently/gatewayoverview.png)
@@ -66,6 +66,5 @@ O recurso **PFS** pode causar problemas de desconexão. Se o dispositivo VPN tiv
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Configurar uma conexão Site a Site para uma rede virtual](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+- [Configurar uma conexão Site a Site para uma rede virtual](./tutorial-site-to-site-portal.md)
 - [Configurar a política de IPsec/IKE para conexões VPN site a site](vpn-gateway-ipsecikepolicy-rm-powershell.md)
-

@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: ac708eb2ac79a74b8f4e09a7306a42665b3aca94
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "67171979"
 ---
 #### <a name="to-delete-a-cloud-appliance"></a>Para excluir um dispositivo de nuvem
 
-1. Entre no Portal do Azure.
+1. Entre no portal do Azure.
 2. Você só pode excluir um dispositivo desativado que não contenha dados. Exclua os dados do dispositivo pela primeira vez ou faça [failover dos dados](../articles/storsimple/storsimple-8000-device-failover-cloud-appliance.md) em contêineres de volume para outro dispositivo. Depois que os dados forem excluídos, você estará pronto para desativar o dispositivo.
 3. Na página de serviço do StorSimple Device Manager, clique em **Dispositivos** e selecione o dispositivo. Clique com o botão direito do mouse e selecione **Desativar**.
 4. Assim que o dispositivo for desativado, clique com o botão direito do mouse no dispositivo e selecione **Excluir**.

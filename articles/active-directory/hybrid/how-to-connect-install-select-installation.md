@@ -17,16 +17,16 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7275d115210100bdd4a3a2eb683c867a6a4a4f4a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85358694"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996603"
 ---
 # <a name="select-which-installation-type-to-use-for-azure-ad-connect"></a>Selecione o tipo de instalação para o Azure AD Connect
 O Azure AD Connect oferece dois tipos de instalação para uma nova instalação: Expressa e personalizado. Este tópico ajuda você a decidir qual opção usar durante a instalação.
 
-## <a name="express"></a>Expressa
+## <a name="express"></a>Express
 Expressa é a opção mais comum e é usada por cerca de 90% de todas as novas instalações. Ela foi projetada para fornecer uma configuração que funcione para os cenários mais comuns dos clientes.
 
 Ela pressupõe que:

@@ -4,13 +4,13 @@ ms.author: dobett
 ms.service: iot-pnp
 ms.topic: include
 ms.date: 03/17/2020
-ms.custom: references_regions
-ms.openlocfilehash: adc621f932462422202d9f16fd539f5ecc7c3d8e
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.custom: references_regions, devx-track-azurecli
+ms.openlocfilehash: ea5d4ef26fb14e22b871bb4bfa1054cb749d38e8
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87336882"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673011"
 ---
 ## <a name="prepare-an-iot-hub"></a>Preparar um hub IoT
 
@@ -34,9 +34,6 @@ az group create --name my-pnp-resourcegroup \
 az iot hub create --name <YourIoTHubName> \
     --resource-group my-pnp-resourcegroup --sku F1
 ```
-
-> [!NOTE]
-> O IoT Plug and Play está disponível atualmente nos Hubs IoT criados nas regiões EUA Central, Norte da Europa e Leste do Japão. O suporte a IoT Plug and Play não está incluído em Hubs IoT da camada básica.
 
 Use o comando a seguir para criar uma identidade do dispositivo no Hub IoT. Substitua os espaços reservados `<YourIoTHubName>` e `<YourDeviceID>` pelo seu _nome do Hub IoT_ e uma _ID do dispositivo_ de sua escolha.
 

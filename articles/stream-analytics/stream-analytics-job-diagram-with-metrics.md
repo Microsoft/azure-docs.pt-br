@@ -3,16 +3,15 @@ title: Depuração controlada por dados no Azure Stream Analytics
 description: Este artigo descreve como solucionar problemas de trabalhos no Azure Stream Analytics usando métrica e diagrama do trabalho no Portal do Azure.
 author: jseb225
 ms.author: jeanb
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 05/01/2017
-ms.openlocfilehash: fdb3c5c12af8e9022f5babc84126badda890dce5
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 6d20454515088ccca87665d9b3b27c0d82c3cdf9
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044474"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020393"
 ---
 # <a name="data-driven-debugging-by-using-the-job-diagram"></a>Depuração orientada a dados usando o diagrama de trabalho
 
@@ -75,15 +74,15 @@ Se a etapa de consulta anterior for um processador de entrada, use as métricas 
  
 ### <a name="are-we-falling-behind-in-reading-data"></a>Estamos ficando para trás na leitura dos dados?
 
-*   **Input Events Backlogged (Total)** informa quantas mensagens mais precisam ser lidas das entradas dos Hubs de Eventos e do Hub IoT do Azure. Quando esse número for maior que 0, significa que seu trabalho não pode processar os dados tão rápido quanto entram. Nesse caso, pode ser necessário aumentar o número de Unidades de Streaming e/ou verificar se que o trabalho pode ser colocado em paralelo. Você pode ver mais informações sobre isso na [página de paralelização de consulta](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization). 
+*   **Input Events Backlogged (Total)** informa quantas mensagens mais precisam ser lidas das entradas dos Hubs de Eventos e do Hub IoT do Azure. Quando esse número for maior que 0, significa que seu trabalho não pode processar os dados tão rápido quanto entram. Nesse caso, pode ser necessário aumentar o número de Unidades de Streaming e/ou verificar se que o trabalho pode ser colocado em paralelo. Você pode ver mais informações sobre isso na [página de paralelização de consulta](./stream-analytics-parallelization.md). 
 
 
 ## <a name="get-help"></a>Obter ajuda
-Para obter mais assistência, experimente a nossa [página de Perguntas e respostas da Microsoft do Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html). 
+Para obter mais assistência, experimente a nossa [página de Perguntas e respostas da Microsoft do Azure Stream Analytics](/answers/topics/azure-stream-analytics.html). 
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Introdução ao Stream Analytics](stream-analytics-introduction.md)
 * [Introdução ao Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Dimensionar trabalhos do Stream Analytics](stream-analytics-scale-jobs.md)
-* [Referência da linguagem de consulta do Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Referência da API REST de gerenciamento do Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Referência da linguagem de consulta do Stream Analytics](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Referência da API REST de gerenciamento do Stream Analytics](/rest/api/streamanalytics/)

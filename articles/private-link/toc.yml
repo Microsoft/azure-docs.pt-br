@@ -1,4 +1,4 @@
-- name: Documentação do Link Privado do Azure
+- name: Documentação do Link Privado
   href: index.yml
 - name: Visão geral
   items:
@@ -24,6 +24,23 @@
     - name: Criar um serviço de Link Privado – Modelo do ARM
       displayName: Resource Manager
       href: create-private-link-service-template.md
+  expanded: true
+- name: Tutoriais
+  items:
+    - name: Conectar-se a uma conta de armazenamento
+      href: tutorial-private-endpoint-storage-portal.md
+    - name: Conectar-se a uma conta do Cosmos DB
+      href: tutorial-private-endpoint-cosmosdb-portal.md
+    - name: Conectar-se a um aplicativo Web
+      href: tutorial-private-endpoint-webapp-portal.md
+    - name: SQL
+      items:
+        - name: Conectar-se a um SQL Server – Portal
+          href: tutorial-private-endpoint-sql-portal.md
+        - name: Conectar-se a um SQL Server – PowerShell
+          href: tutorial-private-endpoint-sql-powershell.md
+        - name: Conectar-se a um SQL Server – CLI do Azure
+          href: tutorial-private-endpoint-sql-cli.md
 - name: Conceitos
   items:
     - name: Ponto de extremidade privado
@@ -32,20 +49,20 @@
       href: private-link-service-overview.md
     - name: Integração do DNS do Ponto de Extremidade Privado
       href: private-endpoint-dns.md
-- name: Como
+    - name: Segurança
+      items:
+        - name: Linha de base de segurança
+          href: security-baseline.md
+- name: Como fazer
   items:
-    - name: Conectar-se de modo privado a uma conta de armazenamento
-      href: create-private-endpoint-storage-portal.md
-    - name: Conectar-se de modo privado a uma conta do Cosmos DB
-      href: create-private-endpoint-cosmosdb-portal.md
-    - name: Conectar-se de modo privado a um aplicativo Web
-      href: create-private-endpoint-webapp-portal.md
     - name: Desabilitar políticas de rede para um ponto de extremidade privado
       href: disable-private-endpoint-network-policy.md
     - name: Desabilitar políticas de rede para um serviço de Link Privado
       href: disable-private-link-service-network-policy.md
     - name: Gerenciar pontos de extremidade privados
       href: manage-private-endpoint.md
+    - name: Inspecionar o tráfego com o Firewall do Azure
+      href: inspect-traffic-with-azure-firewall.md
     - name: Solucionar problemas
       items:
         - name: Solucionar problemas de conectividade de ponto de extremidade privado
@@ -63,7 +80,7 @@
     - name: Java
       href: /java/api/
     - name: Node.js
-      href: 'https://docs.microsoft.com/javascript/azure#azure-sdk'
+      href: /javascript/azure#azure-sdk
     - name: Python
       href: 'https://azure.microsoft.com/develop/python/'
     - name: REST
@@ -81,7 +98,7 @@
     - name: Blog de rede
       href: 'https://azure.microsoft.com/blog/topics/networking'
     - name: Página de perguntas de P e R da Microsoft para Rede
-      href: 'https://docs.microsoft.com/answers/topics/azure-virtual-network.html'
+      href: /answers/topics/azure-virtual-network.html
     - name: Comentários sobre a rede
       href: 'https://feedback.azure.com/forums/217313-networking?category_id=77469'
     - name: Preços

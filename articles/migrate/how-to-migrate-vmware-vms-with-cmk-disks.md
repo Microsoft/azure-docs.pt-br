@@ -1,18 +1,17 @@
 ---
 title: Migrar máquinas virtuais VMware para o Azure com a SSE (criptografia do lado do servidor) e CMK (chaves gerenciadas pelo cliente) usando a migração de servidor de migrações para Azure
 description: Saiba como migrar VMs VMware para o Azure com criptografia do lado do servidor (SSE) e chaves gerenciadas pelo cliente (CMK) usando a migração de servidor de migrações para Azure
-author: bsiva
-ms.service: azure-migrate
-ms.manager: carmonm
-ms.topic: article
+author: anvar-ms
+ms.author: anvar
+ms.manager: bsiva
+ms.topic: how-to
 ms.date: 03/12/2020
-ms.author: raynew
-ms.openlocfilehash: 01f30305529e7f142be0ca6ddffa0f5a12a235bb
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 8a174c3b2bfb390eb7d691ae1bdcb0e28dde9032
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86260023"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96751080"
 ---
 # <a name="migrate-vmware-vms-to-azure-vms-enabled-with-server-side-encryption-and-customer-managed-keys"></a>Migrar VMs VMware para VMs do Azure habilitadas com criptografia do lado do servidor e chaves gerenciadas pelo cliente
 
@@ -22,12 +21,12 @@ A experiência do portal de migração do servidor de migrações para Azure per
 
 Os exemplos neste artigo usam [Azure PowerShell](/powershell/azure/new-azureps-module-az) para executar as tarefas necessárias para criar e implantar o modelo do Resource Manager.
 
-[Saiba mais](../virtual-machines/windows/disk-encryption.md) sobre criptografia do lado do servidor (SSE) com CMK (chaves gerenciadas pelo cliente) para discos gerenciados.
+[Saiba mais](../virtual-machines/disk-encryption.md) sobre criptografia do lado do servidor (SSE) com CMK (chaves gerenciadas pelo cliente) para discos gerenciados.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - [Examine o tutorial](tutorial-migrate-vmware.md) sobre migração de VMs VMware para o Azure com replicação sem agente para entender os requisitos da ferramenta.
-- [Siga estas instruções](how-to-add-tool-first-time.md) para criar um projeto de migrações para Azure e adicionar a ferramenta **migrações para Azure: Server Migration** para o projeto.
+- [Siga estas instruções](./create-manage-projects.md) para criar um projeto de migrações para Azure e adicionar a ferramenta **migrações para Azure: Server Migration** para o projeto.
 - [Siga estas instruções](how-to-set-up-appliance-vmware.md) para configurar o dispositivo de migração do Azure para VMware em seu ambiente local e concluir a descoberta.
 
 ## <a name="prepare-for-replication"></a>Preparar a replicação

@@ -1,23 +1,24 @@
 ---
 title: Usar o conector do Ethereum Blockchain com o aplicativo lógico do Azure-serviço Blockchain do Azure
 description: Use o conector do Ethereum Blockchain com os Aplicativos Lógicos do Azure para disparar funções de contrato inteligente e responder a eventos de contrato inteligente.
-ms.date: 10/14/2019
+ms.date: 08/31/2020
 ms.topic: how-to
-ms.reviewer: chrisseg
-ms.openlocfilehash: 61dbda7cd7f486c7a8d838084875b34803833502
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.reviewer: caleteet
+ms.openlocfilehash: 411337908553e58c252a0ed1a42d17f76195c720
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077037"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763784"
 ---
 # <a name="use-the-ethereum-blockchain-connector-with-azure-logic-apps"></a>Usar o conector do Ethereum Blockchain com os Aplicativos Lógicos do Azure
 
-Use o [conector do Ethereum Blockchain](/connectors/blockchainethereum/) com os [Aplicativos Lógicos do Azure](../../logic-apps/index.yml) para executar ações de contrato inteligente e responder a eventos de contrato inteligente. Por exemplo, digamos que você deseje criar um microsserviço baseado em REST que retorna informações de um razão do blockchain. Usando um aplicativo lógico, você pode aceitar solicitações HTTP que consultam informações armazenadas em um razão do blockchain.
+Use o [conector do Ethereum Blockchain](/connectors/blockchainethereum/) com os [Aplicativos Lógicos do Azure](../../logic-apps/index.yml) para executar ações de contrato inteligente e responder a eventos de contrato inteligente. Este artigo explica como você pode usar o conector Ethereum Blockchain para enviar informações de Blockchain para outro serviço ou chamar uma função Blockchain. Por exemplo, digamos que você deseje criar um microsserviço baseado em REST que retorna informações de um razão do blockchain. Usando um aplicativo lógico, você pode aceitar solicitações HTTP que consultam informações armazenadas em um razão do blockchain.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Conclua o início rápido de pré-requisito opcional [: Use Visual Studio Code para se conectar a uma rede do Azure Blockchain Service Consortium](connect-vscode.md). O início rápido orienta você pela instalação do [Azure Blockchain Development Kit para Ethereum](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain) e pela configuração do ambiente de desenvolvimento do blockchain.
+- Conclua o início rápido de pré-requisito opcional [: Use Visual Studio Code para se conectar a uma rede do Azure Blockchain Service Consortium](connect-vscode.md). O início rápido orienta você pela instalação do [Azure Blockchain Development Kit para Ethereum](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain) e pela configuração do ambiente de desenvolvimento do blockchain.
+- Se você for novo no aplicativo lógico do Azure, considere examinar os módulos de Microsoft Learn [introdução aos aplicativos lógicos do Azure](/learn/modules/intro-to-logic-apps/) e [chamar uma API de um fluxo de trabalho de aplicativos lógicos usando um conector personalizado](/learn/modules/logic-apps-and-custom-connectors/).
 
 ## <a name="create-a-logic-app"></a>Criar um aplicativo lógico
 
@@ -33,7 +34,7 @@ Os Aplicativos Lógicos do Azure ajudam você a agendar e automatizar processos 
 
 Cada aplicativo lógico deve começar com um gatilho, que é disparado quando um evento específico ocorre ou quando uma condição específica é atendida. Cada vez que o disparador é acionado, o mecanismo de Aplicativos Lógicos cria uma instância de aplicativo lógico que inicia e executa o fluxo de trabalho.
 
-O conector do Ethereum Blockchain tem um gatilho e várias ações. O gatilho ou a ação que você usará depende do cenário.
+O conector do Ethereum Blockchain tem um gatilho e várias ações. O gatilho ou a ação que você usará depende do cenário. Siga a seção neste artigo que melhor corresponde ao seu cenário.
 
 Se o fluxo de trabalho:
 
@@ -128,7 +129,7 @@ Por exemplo, as seguintes etapas geram um aplicativo lógico do microsserviço b
 
     ![Exibição do Designer com a seleção de Conexões](./media/ethereum-logic-app/microservice-logic-app.png)
 
-1. Agora você pode usar seu aplicativo lógico. Para testar o microsserviço baseado em REST, emita uma solicitação HTTP POST para a URL de solicitação do aplicativo lógico. Copie o conteúdo de **URL HTTP POST** da etapa **Quando uma solicitação HTTP for recebida**.
+1. Agora você pode usar seu aplicativo lógico. Para testar o microsserviço baseado em REST, emita uma solicitação HTTP POST para a URL de solicitação do aplicativo lógico. Copie o conteúdo da **URL http post** da etapa **quando uma solicitação HTTP é recebida** .
 
     ![Painel do Designer de Aplicativos Lógicos com a URL HTTP POST](./media/ethereum-logic-app/post-url.png)
 
@@ -193,7 +194,7 @@ O endereço do ponto de extremidade RPC do Azure Blockchain Service é necessár
 Use a chave privada da conta do Ethereum para autenticação ao enviar uma transação para o blockchain. As chaves pública e privada da conta do Ethereum são geradas com base em um mnemônico de 12 palavras. O Azure Blockchain Development Kit para Ethereum gera um mnemônico quando você se conecta a um membro do consórcio do Azure Blockchain Service. Obtenha o endereço do ponto de extremidade usando a extensão do kit de desenvolvimento.
 
 1. No Visual Studio Code, abra a paleta de comandos (F1).
-1. Selecione **Azure Blockchain: recuperar chave privada**.
+1. Selecione **Blockchain: recuperar chave privada**.
 1. Selecione o mnemônico que você salvou ao se conectar ao membro do consórcio.
 
     ![Paleta de comandos com uma opção para selecionar o mnemônico](./media/ethereum-logic-app/private-key.png)

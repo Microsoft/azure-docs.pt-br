@@ -11,21 +11,24 @@ ms.date: 04/14/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39acc0373f5748f57f4fef5a5cee5fb038071523
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: e163ea34948906060996ee952f45ec0cdb467557
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080174"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97504348"
 ---
 # <a name="hybrid-identity-considerations-for-the-azure-government-cloud"></a>Considerações de identidade híbrida para a nuvem do Azure Governamental
 
 Este artigo descreve as considerações para a integração de um ambiente híbrido com a nuvem do Microsoft Azure Governamental. Essas informações são fornecidas como uma referência para administradores e arquitetos que trabalham com a nuvem do Azure Governamental.
 
 > [!NOTE]
-> Para integrar um ambiente do Microsoft Azure Active Directory (Azure AD) local com a nuvem do Azure Governamental, você precisa atualizar para a versão mais recente do [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594).
+> Para integrar um ambiente de Active Directory da Microsoft (local ou hospedado em uma IaaS que faz parte da mesma instância de nuvem) com a nuvem do Azure governamental, você precisa atualizar para a versão mais recente do [Azure ad Connect](https://www.microsoft.com/download/details.aspx?id=47594).
 
-Para obter uma lista completa dos pontos de extremidade do departamento de defesa do governo dos Estados Unidos, consulte a [documentação](https://docs.microsoft.com/office365/enterprise/office-365-u-s-government-dod-endpoints).
+> [!NOTE]
+> Este artigo contém referências ao termo *lista* de permissões, um termo que a Microsoft não usa mais. Quando o termo for removido do software, nós o removeremos deste artigo.
+
+Para obter uma lista completa dos pontos de extremidade do departamento de defesa do governo dos Estados Unidos, consulte a [documentação](/office365/enterprise/office-365-u-s-government-dod-endpoints).
 
 ## <a name="azure-ad-pass-through-authentication"></a>O que é a Autenticação de Passagem do Azure AD
 
@@ -36,7 +39,7 @@ As informações a seguir descrevem a implementação da Autenticação de Passa
 Antes de implantar o agente de Autenticação de Passagem, verifique se existe um firewall entre os servidores e o Azure AD. Se o firewall ou o proxy permitir programas bloqueados ou seguros do Sistema de Nomes de Domínio (DNS), adicione as seguintes conexões.
 
 > [!NOTE]
-> As diretrizes a seguir também se aplicam à instalação do [conector de Proxy de Aplicativo do Azure AD](https://aka.ms/whyappproxy) para ambientes do Azure Governamental.
+> As diretrizes a seguir também se aplicam à instalação do [conector de Proxy de Aplicativo do Azure AD](../manage-apps/what-is-application-proxy.md) para ambientes do Azure Governamental.
 
 |URL |Como ele é usado|
 |-----|-----|

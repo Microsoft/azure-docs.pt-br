@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 40761b8b187d864c7b93b8aa4ee49233683fcad7
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 350962aed89d04c5508e7b2c50e8a838cd5a7174
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502742"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566139"
 ---
 # <a name="create-an-application-gateway-that-hosts-multiple-web-sites-using-the-azure-cli"></a>Criar um gateway de aplicativo que hospeda vários sites usando a CLI do Azure
 
@@ -22,23 +22,22 @@ Você pode usar a CLI do Azure para configurar [a hospedagem de vários sites da
 
 Neste artigo, você aprenderá como:
 
-> [!div class="checklist"]
-> * Configurar a rede
-> * Criar um Gateway de Aplicativo
-> * Criar ouvintes de back-end
-> * Criar regras de roteamento
-> * Criar conjuntos de dimensionamento de máquinas virtuais com pools de back-end
-> * Criar um registro CNAME no seu domínio
+* Configurar a rede
+* Criar um Gateway de Aplicativo
+* Criar ouvintes de back-end
+* Criar regras de roteamento
+* Criar conjuntos de dimensionamento de máquinas virtuais com pools de back-end
+* Criar um registro CNAME no seu domínio
 
-:::image type="content" source="./media/tutorial-multiple-sites-cli/scenario.png" alt-text="Gateway de aplicativo multissite":::
+:::image type="content" source="./media/tutorial-multiple-sites-cli/scenario.png" alt-text="Gateway de Aplicativo multissite":::
 
 Se preferir, você poderá concluir este procedimento usando o [Azure PowerShell](tutorial-multiple-sites-powershell.md).
 
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Se você optar por instalar e usar a CLI localmente, este artigo exigirá que você esteja executando o CLI do Azure versão 2.0.4 ou posterior. Para saber qual é a versão, execute `az --version`. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
+ - Este tutorial requer a versão 2.0.4 ou posterior do CLI do Azure. Se você está usando o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -125,7 +124,7 @@ Adicione ouvintes que são necessários para rotear o tráfego usando [AZ Networ
 
 >[!NOTE]
 > Com a SKU do gateway de aplicativo ou do WAF v2, você também pode configurar até 5 nomes de host por ouvinte e pode usar caracteres curinga no nome do host. Consulte [nomes de host curinga no ouvinte](multiple-site-overview.md#wildcard-host-names-in-listener-preview) para obter mais informações.
->Para usar vários nomes de host e caracteres curinga em um ouvinte usando CLI do Azure, você deve usar `--host-names` em vez de `--host-name` . Com os nomes de host, você pode mencionar até 5 nomes de host como valores separados por vírgulas. Por exemplo, `--host-names "*.contoso.com,*.fabrikam.com"`
+>Para usar vários nomes de host e caracteres curinga em um ouvinte usando CLI do Azure, você deve usar `--host-names` em vez de `--host-name` . Com nomes de host, você pode mencionar até cinco nomes de host como valores separados por espaços. Por exemplo, `--host-names "*.contoso.com *.fabrikam.com"`
 
 ```azurecli-interactive
 az network application-gateway http-listener create \
@@ -176,7 +175,7 @@ az network application-gateway rule delete \
 
 ## <a name="create-virtual-machine-scale-sets"></a>Criar conjuntos de dimensionamento de máquinas virtuais
 
-Neste exemplo, você cria três conjuntos de dimensionamento de máquinas virtuais que oferecem suporte a três pools de back-end no gateway de aplicativo. Os conjuntos de dimensionamento que você cria são denominados *myvmss1*, *myvmss2*, e *myvmss3*. Cada conjunto de dimensionamento contém duas instâncias de máquina virtual no qual você instala o IIS.
+Neste exemplo, você cria três conjuntos de dimensionamento de máquinas virtuais que oferecem suporte a três pools de back-end no gateway de aplicativo. Os conjuntos de dimensionamento que você cria são denominados *myvmss1* , *myvmss2* , e *myvmss3*. Cada conjunto de dimensionamento contém duas instâncias de máquina virtual no qual você instala o IIS.
 
 ```azurecli-interactive
 for i in `seq 1 2`; do

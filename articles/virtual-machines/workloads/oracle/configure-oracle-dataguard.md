@@ -1,25 +1,19 @@
 ---
 title: Implementar o Oracle Data Guard em uma máquina virtual Linux do Azure | Microsoft Docs
 description: Execute rapidamente o Oracle Data Guard no ambiente do Azure.
-services: virtual-machines-linux
-documentationcenter: virtual-machines
-author: rgardler
-manager: ''
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
+author: dbakevlar
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
 ms.date: 08/02/2018
-ms.author: rogardle
-ms.openlocfilehash: c6b064df1fe8943f9202446fb2857d50bcb4e0e1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.author: kegorman
+ms.reviewer: cynthn
+ms.openlocfilehash: d9ff355ac81d3375a7c41b18df687f6068ee7069
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083371"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98926964"
 ---
 # <a name="implement-oracle-data-guard-on-an-azure-linux-virtual-machine"></a>Implementar o Oracle Data Guard em uma máquina virtual Linux do Azure 
 
@@ -57,7 +51,7 @@ az group create --name myResourceGroup --location westus
 
 ### <a name="create-an-availability-set"></a>Criar um conjunto de disponibilidade
 
-A criação de um conjunto de disponibilidade é opcional, mas é recomendável. Para obter mais informações, confira [Diretrizes de conjuntos de disponibilidade do Azure](../../windows/infrastructure-example.md).
+A criação de um conjunto de disponibilidade é opcional, mas é recomendável. Para obter mais informações, confira [Diretrizes de conjuntos de disponibilidade do Azure](/previous-versions/azure/virtual-machines/windows/infrastructure-example).
 
 ```azurecli
 az vm availability-set create \
@@ -273,16 +267,16 @@ SQL> ALTER DATABASE FORCE LOGGING;
 SQL> ALTER SYSTEM SWITCH LOGFILE;
 ```
 
-Criar logs de restauração em espera:
+Crie logs de refazer em espera, definindo o mesmo tamanho e quantidade que os logs de restauração do banco de dados primário:
 
 ```bash
-SQL> ALTER DATABASE ADD STANDBY LOGFILE ('/u01/app/oracle/oradata/cdb1/standby_redo01.log') SIZE 50M;
-SQL> ALTER DATABASE ADD STANDBY LOGFILE ('/u01/app/oracle/oradata/cdb1/standby_redo02.log') SIZE 50M;
-SQL> ALTER DATABASE ADD STANDBY LOGFILE ('/u01/app/oracle/oradata/cdb1/standby_redo03.log') SIZE 50M;
-SQL> ALTER DATABASE ADD STANDBY LOGFILE ('/u01/app/oracle/oradata/cdb1/standby_redo04.log') SIZE 50M;
+SQL> ALTER DATABASE ADD STANDBY LOGFILE ('/u01/app/oracle/oradata/cdb1/standby_redo01.log') SIZE 200M;
+SQL> ALTER DATABASE ADD STANDBY LOGFILE ('/u01/app/oracle/oradata/cdb1/standby_redo02.log') SIZE 200M;
+SQL> ALTER DATABASE ADD STANDBY LOGFILE ('/u01/app/oracle/oradata/cdb1/standby_redo03.log') SIZE 200M;
+SQL> ALTER DATABASE ADD STANDBY LOGFILE ('/u01/app/oracle/oradata/cdb1/standby_redo04.log') SIZE 200M;
 ```
 
-Ative o flashback (o que torna a recuperação muito mais fácil) e defina o \_ \_ Gerenciamento de arquivos em espera como automático. Saia do SQL * Plus depois disso.
+Ative o flashback (o que torna a recuperação muito mais fácil) e defina o \_ \_ Gerenciamento de arquivos em espera como automático. saia do SQL * Plus depois disso.
 
 ```bash
 SQL> ALTER DATABASE FLASHBACK ON;
@@ -703,4 +697,4 @@ az group delete --name myResourceGroup
 
 [Tutorial: criar máquinas virtuais altamente disponíveis](../../linux/create-cli-complete.md)
 
-[Explorar exemplos da CLI do Azure de implantação de VM](../../linux/cli-samples.md)
+[Explorar exemplos da CLI do Azure de implantação de VM](https://github.com/Azure-Samples/azure-cli-samples/tree/master/virtual-machine)

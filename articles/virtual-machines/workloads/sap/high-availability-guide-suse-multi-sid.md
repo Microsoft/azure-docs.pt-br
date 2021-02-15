@@ -10,17 +10,18 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/04/2020
+ms.date: 10/16/2020
 ms.author: radeltch
-ms.openlocfilehash: 16c37c1492b042e9f2f19e631f7801bfbed2d247
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: 2ce57911434aa0fdf1a5e624090633e75d98a5ad
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87761205"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484236"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications-multi-sid-guide"></a>Alta disponibilidade para SAP NetWeaver em VMs do Azure em SUSE Linux Enterprise Server para aplicativos SAP guia de vários SIDs
 
@@ -89,14 +90,14 @@ Antes de começar, consulte as seguintes notas e documentos do SAP primeiro:
 * [Aplicativos SAP NetApp no Microsoft Azure usando o Azure NetApp Files][anf-sap-applications-azure]
 ## <a name="overview"></a>Visão geral
 
-As máquinas virtuais, que participam do cluster, devem ser dimensionadas para poder executar todos os recursos, caso ocorra um failover. Cada SID do SAP pode fazer failover de forma independente uma da outra no cluster de alta disponibilidade de vários SIDs.  Se estiver usando o isolamento SBD, os dispositivos SBD poderão ser compartilhados entre vários clusters.  
+As máquinas virtuais que participam do cluster devem ser dimensionadas para poder executar todos os recursos, caso ocorra um failover. Cada SID do SAP pode fazer failover de forma independente uma da outra no cluster de alta disponibilidade de vários SIDs.  Se estiver usando o isolamento SBD, os dispositivos SBD poderão ser compartilhados entre vários clusters.  
 
 Para obter alta disponibilidade, o SAP NetWeaver requer compartilhamentos NFS altamente disponíveis. Neste exemplo, supomos que os compartilhamentos NFS do SAP sejam hospedados no [servidor de arquivos NFS](./high-availability-guide-suse-nfs.md)altamente disponível, que pode ser usado por vários sistemas SAP. Ou os compartilhamentos são implantados em [volumes Azure NetApp files NFS](../../../azure-netapp-files/azure-netapp-files-create-volumes.md).  
 
-![Visão geral da Alta Disponibilidade do SAP NetWeaver](./media/high-availability-guide-suse/ha-suse-multi-sid.png)
+![O cluster pacemaker mostra informações detalhadas sobre dois clusters de vários SID, msidcl1 e msidcl2.](./media/high-availability-guide-suse/ha-suse-multi-sid.png)
 
 > [!IMPORTANT]
-> O suporte para clustering de vários SIDs do SAP ASCS/ERS com o SUSE Linux como sistema operacional convidado em VMs do Azure é limitado a **cinco** SIDs do SAP no mesmo cluster. Cada novo SID aumenta a complexidade. **Não há suporte para**uma combinação do servidor de replicação de enfileiramento do SAP 1 e do servidor de replicação de enfileiramento 2 no mesmo cluster. O clustering de vários SID descreve a instalação de várias instâncias do SAP ASCS/ERS com SIDs diferentes em um cluster pacemaker. Atualmente, o clustering de vários SIDs só tem suporte para ASCS/ERS.  
+> O suporte para clustering de vários SIDs do SAP ASCS/ERS com o SUSE Linux como sistema operacional convidado em VMs do Azure é limitado a **cinco** SIDs do SAP no mesmo cluster. Cada novo SID aumenta a complexidade. **Não há suporte para** uma combinação do servidor de replicação de enfileiramento do SAP 1 e do servidor de replicação de enfileiramento 2 no mesmo cluster. O clustering de vários SID descreve a instalação de várias instâncias do SAP ASCS/ERS com SIDs diferentes em um cluster pacemaker. Atualmente, o clustering de vários SIDs só tem suporte para ASCS/ERS.  
 
 > [!TIP]
 > O clustering de vários SIDs do SAP ASCS/ERS é uma solução com maior complexidade. É mais complexo implementar. Ele também envolve um esforço administrativo maior, ao executar atividades de manutenção (como aplicação de patch de so). Antes de iniciar a implementação real, Reserve um tempo para planejar cuidadosamente a implantação e todos os componentes envolvidos, como VMs, montagens NFS, VIPs, configurações do balanceador de carga e assim por diante.  
@@ -112,7 +113,7 @@ A lista a seguir mostra a configuração do (a) SCS e ERS Load Balancer para est
   * Endereço IP para NW2:10.3.1.16
   * Endereço IP para NW3:10.3.1.13
 * Portas de investigação
-  * Porta 620<strong> &lt; NR &gt; </strong>, portanto para as portas de investigação NW1, NW2 e NW3 620**00**, 620**10** e 620**20**
+  * Porta 620 <strong> &lt; NR &gt;</strong>, portanto para as portas de investigação NW1, NW2 e NW3 620 **00**, 620 **10** e 620 **20**
 * Regras de balanceamento de carga- 
 * Crie um para cada instância, ou seja, NW1/ASCS, NW2/ASCS e NW3/ASCS.
   * Se estiver usando o Standard Load Balancer, selecione **portas de HA**
@@ -132,7 +133,7 @@ A lista a seguir mostra a configuração do (a) SCS e ERS Load Balancer para est
   * Endereço IP para NW2 10.3.1.17
   * Endereço IP para NW3 10.3.1.19
 * Porta de Investigação
-  * Porta 621<strong> &lt; NR &gt; </strong>, portanto, para NW1, NW2 e N # portas de investigação 621**02**, 621**12** e 621**22**
+  * Porta 621 <strong> &lt; NR &gt;</strong>, portanto, para NW1, NW2 e N # portas de investigação 621 **02**, 621 **12** e 621 **22**
 * Regras de balanceamento de carga – crie uma para cada instância, ou seja, NW1/ERS, NW2/ERS e NW3/ERS.
   * Se estiver usando o Standard Load Balancer, selecione **portas de HA**
   * Se estiver usando o Load Balancer Básico, crie regras de balanceamento de carga para as portas a seguir
@@ -145,6 +146,8 @@ A lista a seguir mostra a configuração do (a) SCS e ERS Load Balancer para est
 * Configuração de back-end
   * Conectado aos adaptadores de rede primários de todas as máquinas virtuais que devem ser parte do cluster (A)SCS/ERS
 
+> [!IMPORTANT]
+> Não há suporte para IP flutuante em uma configuração de IP secundário de NIC em cenários de balanceamento de carga. Para obter detalhes, consulte [limitações do Azure Load Balancer](../../../load-balancer/load-balancer-multivip-overview.md#limitations). Se você precisar de um endereço IP adicional para a VM, implante uma segunda NIC.  
 
 > [!Note]
 > Quando as VMs sem endereços IP públicos forem colocadas no pool de back-end do Standard Azure Load Balancer (sem endereço IP público), não haverá nenhuma conectividade de saída com a Internet se não houver configuração adicional a fim de permitir o roteamento para pontos de extremidade públicos. Para obter detalhes sobre como alcançar conectividade de saída, confira [Conectividade de ponto de extremidade público para Máquinas Virtuais usando o Azure Standard Load Balancer em cenários de alta disponibilidade do SAP](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
@@ -296,7 +299,7 @@ Esta documentação pressupõe que:
       sudo swpm/sapinst SAPINST_REMOTE_ACCESS_USER=sapadmin SAPINST_USE_HOSTNAME=virtual_hostname
      ```
 
-   Se a instalação falhar ao criar uma subpasta no/usr/SAP/**Sid**/ASCS**Instance #**, tente definir o proprietário como **Sid**ADM e o grupo como SAPs da instância de ASCS **#** e tente novamente.
+   Se a instalação falhar ao criar uma subpasta no/usr/SAP/**Sid**/ASCS **Instance #**, tente definir o proprietário como **Sid** ADM e o grupo como SAPs da instância de ASCS **#** e tente novamente.
 
 3. **[1]** crie um IP virtual e recursos de cluster de investigação de integridade para a instância ers do sistema SAP adicional que você está implantando no cluster. O exemplo mostrado aqui é para **NW2** e **NW3** ers, usando o servidor NFS altamente disponível. 
 
@@ -349,7 +352,7 @@ Esta documentação pressupõe que:
    > [!NOTE]
    > Use SWPM SP 20 PL 05 ou superior. Versões anteriores não configurarão as permissões corretamente e a instalação falhará.
 
-   Se a instalação falhar ao criar uma subpasta no/usr/SAP/**NW2**/ers**Instance #**, tente definir o proprietário como **Sid**ADM e o grupo como SAPs da pasta ers **# #** e tente novamente.
+   Se a instalação falhar ao criar uma subpasta no/usr/SAP/**NW2**/ers **Instance #**, tente definir o proprietário como **Sid** ADM e o grupo como SAPs da pasta ers **# #** e tente novamente.
 
    Se fosse necessário migrar o grupo ERS do sistema SAP implantado recentemente para um nó de cluster diferente, não se esqueça de remover a restrição de local do grupo ERS. Você pode remover a restrição executando o comando a seguir (o exemplo é fornecido para os sistemas SAP **NW2** e **NW3**).  
 
@@ -770,7 +773,7 @@ Os testes apresentados estão em um cluster de dois nós, vários SID com três 
          rsc_sap_NW3_ERS22  (ocf::heartbeat:SAPInstance):   Started slesmsscl1
    ```
 
-   Execute os comandos a seguir como **NW2**ADM para migrar a instância NW2 ASCS.
+   Execute os comandos a seguir como **NW2** ADM para migrar a instância NW2 ASCS.
 
    ```
     slesmsscl2:nw2adm 53> sapcontrol -nr 10 -host msnw2ascs -user nw2adm password -function HAFailoverToNode ""
@@ -915,17 +918,20 @@ Os testes apresentados estão em um cluster de dois nós, vários SID com três 
 
    Use os comandos a seguir para iniciar o Pacemaker no nó eliminado, limpar as mensagens SBD e limpar os recursos com falha.
 
-   ```# run as root
+   ```bash
+   # run as root
    # list the SBD device(s)
-   slesmsscl2:~ # cat /etc/sysconfig/sbd | grep SBD_DEVICE=
+   cat /etc/sysconfig/sbd | grep SBD_DEVICE=
+
+   # output is like:
    # SBD_DEVICE="/dev/disk/by-id/scsi-36001405772fe8401e6240c985857e116;/dev/disk/by-id/scsi-36001405034a84428af24ddd8c3a3e9e1;/dev/disk/by-id/scsi-36001405cdd5ac8d40e548449318510c3"
    
-   slesmsscl2:~ # sbd -d /dev/disk/by-id/scsi-36001405772fe8401e6240c985857e116 -d /dev/disk/by-id/scsi-36001405034a84428af24ddd8c3a3e9e1 -d /dev/disk/by-id/scsi-36001405cdd5ac8d40e548449318510c3 message slesmsscl2 clear
+   sbd -d /dev/disk/by-id/scsi-36001405772fe8401e6240c985857e116 -d /dev/disk/by-id/scsi-36001405034a84428af24ddd8c3a3e9e1 -d /dev/disk/by-id/scsi-36001405cdd5ac8d40e548449318510c3 message slesmsscl2 clear
    
-   slesmsscl2:~ # systemctl start pacemaker
-   slesmsscl2:~ # crm resource cleanup rsc_sap_NW1_ERS02
-   slesmsscl2:~ # crm resource cleanup rsc_sap_NW2_ERS12
-   slesmsscl2:~ # crm resource cleanup rsc_sap_NW3_ERS22
+   systemctl start pacemaker
+   crm resource cleanup rsc_sap_NW1_ERS02
+   crm resource cleanup rsc_sap_NW2_ERS12
+   crm resource cleanup rsc_sap_NW3_ERS22
    ```
 
    Estado do recurso após o teste:

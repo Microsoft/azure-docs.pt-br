@@ -1,33 +1,37 @@
 ---
-title: 'Início Rápido: Biblioteca de clientes do Reconhecimento de Formulários | Microsoft Docs'
-description: Introdução à biblioteca de clientes do [Nome do Produto].
+title: 'Início Rápido: Biblioteca de clientes do Reconhecimento de Formulários ou API REST'
+titleSuffix: Azure Cognitive Services
+description: Use a biblioteca de clientes do Reconhecimento de Formulários ou a API REST para criar um aplicativo de processamento de formulários que extraia pares chave/valor e dados de tabela dos documentos personalizados.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 08/17/2020
+ms.date: 01/29/2021
 ms.author: pafarley
-ms.custom: devx-track-javascript
-zone_pivot_groups: programming-languages-set-ten
-ms.openlocfilehash: 9b6759fedab8d72b883698b9d04c0e2b7df2fdcc
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+zone_pivot_groups: programming-languages-set-formre
+ms.custom: devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
+keywords: forms processing, automated data processing
+ms.openlocfilehash: d468f40d9de7fd7efb4ac7d8021a667e0c6c31f6
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88505386"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584576"
 ---
-# <a name="quickstart-use-the-form-recognizer-client-library"></a>Início Rápido: Usar a biblioteca de clientes do Reconhecimento de Formulários
+# <a name="quickstart-use-the-form-recognizer-client-library-or-rest-api"></a>Início Rápido: Usar a biblioteca de clientes do Reconhecimento de Formulários ou a API REST
 
-Introdução à biblioteca de clientes do Reconhecimento de Formulários. O Reconhecimento de Formulários é um serviço cognitivo que usa a tecnologia de aprendizado de máquina para identificar e extrair pares chave-valor e dados de tabela de documentos de formulário. Em seguida, ele gera dados estruturados que incluem as relações no arquivo original. Siga essas etapas para instalar o pacote do SDK e testar o código de exemplo para tarefas básicas.
+Introdução ao Reconhecimento de Formulários usando uma linguagem de desenvolvimento de sua escolha. O Reconhecimento de Formulários do Azure é um serviço cognitivo que permite criar software de processamento de dados automatizado usando a tecnologia de machine learning. Identifique e extraia texto, pares chave/valor, marcas de seleção, dados de tabela e mais dos documentos de formulário&mdash;o serviço gera dados estruturados que incluem as relações no arquivo original. Você pode usar o Reconhecimento de Formulários por meio da API REST ou do SDK. Siga essas etapas para instalar o pacote do SDK e testar o código de exemplo para tarefas básicas. 
 
-Use a biblioteca de clientes do Reconhecimento de Formulários para:
+Use o Reconhecimento de Formulários para:
 
-* [Reconhecer o conteúdo do formulário](#recognize-form-content)
-* [Reconhecer recibos](#recognize-receipts)
+* [Analisar Layout](#analyze-layout)
+* [Analisar faturas](#analyze-invoices)
 * [Treinar um modelo personalizado](#train-a-custom-model)
 * [Analisar formulários com um modelo personalizado](#analyze-forms-with-a-custom-model)
+* [Analisar recibos](#analyze-receipts)
+* [Analisar cartões de visita](#analyze-business-cards)
 * [Gerenciar seus modelos personalizados](#manage-your-custom-models)
 
 ::: zone pivot="programming-language-csharp"
@@ -51,5 +55,11 @@ Use a biblioteca de clientes do Reconhecimento de Formulários para:
 ::: zone pivot="programming-language-python"
 
 [!INCLUDE [Python SDK quickstart](../includes/quickstarts/python-sdk.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-rest-api"
+
+[!INCLUDE [REST API quickstart](../includes/quickstarts/rest-api.md)]
 
 ::: zone-end

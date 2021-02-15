@@ -1,21 +1,21 @@
 ---
 title: Tutorial – adicionar saídas ao modelo
-description: Adicione saídas ao modelo do Azure Resource Manager para simplificar a sintaxe.
+description: Adicione saídas ao modelo do ARM (modelo do Azure Resource Manager) para simplificar a sintaxe.
 author: mumian
 ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 4c90f1ce4bc3f3f5ed91bee86bb1f6f9093876c7
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.custom: ''
+ms.openlocfilehash: 7acfb168462354017168ee333ea0b1ecaea434c1
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497776"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107117"
 ---
 # <a name="tutorial-add-outputs-to-your-arm-template"></a>Tutorial: Adicionar saídas ao seu modelo do ARM
 
-Neste tutorial, você aprenderá a retornar um valor do seu modelo do ARM (Azure Resource Manager). Você usa saídas quando precisa de um valor de um recurso implantado. Este tutorial leva **7 minutos** para ser concluído.
+Neste tutorial, você aprenderá a retornar um valor por meio do modelo do ARM (modelo do Azure Resource Manager). Você usa saídas quando precisa de um valor de um recurso implantado. Este tutorial leva **7 minutos** para ser concluído.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -41,17 +41,17 @@ O exemplo a seguir realça a alteração em seu modelo para adicionar um valor d
 
 Há alguns itens importantes a serem observados sobre o valor de saída adicionado.
 
-O tipo de valor retornado é definido como **object**, o que significa que ele retorna um objeto JSON.
+O tipo de valor retornado é definido como `object`, o que significa que ele retorna um objeto JSON.
 
 Ele usa a função [reference](template-functions-resource.md#reference) para obter o estado do runtime da conta de armazenamento. Para obter o estado do runtime de um recurso, você passa o nome ou a ID de um recurso. Nesse caso, você usa a mesma variável que usou para criar o nome da conta de armazenamento.
 
-Por fim, ele retorna a propriedade **primaryEndpoints** da conta de armazenamento
+Por fim, ele retorna a propriedade `primaryEndpoints` da conta de armazenamento
 
 ## <a name="deploy-template"></a>Implantar modelo
 
 Você está pronto para implantar o modelo e examinar o valor retornado.
 
-Caso você não tenha criado o grupo de recursos, confira [Criar grupo de recursos](template-tutorial-create-first-template.md#create-resource-group). O exemplo pressupõe que você tenha definido a variável **templateFile** como o caminho para o arquivo de modelo, conforme mostrado no [primeiro tutorial](template-tutorial-create-first-template.md#deploy-template).
+Caso você não tenha criado o grupo de recursos, confira [Criar grupo de recursos](template-tutorial-create-first-template.md#create-resource-group). O exemplo pressupõe que você tenha definido a variável `templateFile` como o caminho para o arquivo de modelo, conforme mostrado no [primeiro tutorial](template-tutorial-create-first-template.md#deploy-template).
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -92,7 +92,7 @@ Na saída do comando de implantação, você verá um objeto semelhante ao segui
 ```
 
 > [!NOTE]
-> Se a implantação falhar, use a opção **debug** com o comando de implantação para mostrar os logs de depuração.  Use também a opção **verbose** para mostrar os logs de depuração completos.
+> Se a implantação falhar, use a opção `verbose` para obter informações sobre os recursos que estão sendo criados. Use a opção `debug` para obter mais informações de depuração.
 
 ## <a name="review-your-work"></a>Examinar seu trabalho
 

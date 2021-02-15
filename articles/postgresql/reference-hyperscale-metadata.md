@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: reference
 ms.date: 08/10/2020
-ms.openlocfilehash: c11fd7a9cb6fdd3eb976d0b9e6a91fdc69bf9fba
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: 74403365fe48584fa5d1db0e349c9dfc3772d874
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88136706"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97652835"
 ---
 # <a name="system-tables-and-views"></a>Tabelas e exibições do sistema
 
@@ -27,13 +27,13 @@ Você pode exibir e consultar essas tabelas usando o SQL depois de fazer logon n
 
 > [!NOTE]
 >
-> Os grupos de servidores de hiperescala que executam versões mais antigas do mecanismo do Citus podem não oferecer todas as tabelas listadas abaixo.
+> Os grupos de servidores de hiperescala (Citus) que executam versões mais antigas do mecanismo do Citus podem não oferecer todas as tabelas listadas abaixo.
 
 ### <a name="partition-table"></a>Tabela de partição
 
 A tabela de partição do PG \_ dist \_ armazena metadados sobre quais tabelas no banco de dados são distribuídas. Para cada tabela distribuída, ela também armazena informações sobre o método de distribuição e informações detalhadas sobre a coluna de distribuição.
 
-| Nome         | Type     | Descrição                                                                                                                                                                                                                                           |
+| Nome         | Tipo     | Descrição                                                                                                                                                                                                                                           |
 |--------------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | logicalrelid | regclass | Tabela distribuída à qual essa linha corresponde. Esse valor faz referência à coluna relfilenode na tabela pg_class catálogo do sistema.                                                                                                                   |
 | partmethod   | char     | O método usado para particionamento/distribuição. Os valores desta coluna correspondentes a métodos de distribuição diferentes são Append: ' a ', hash: ' h ', tabela de referência: ' n'                                                                          |
@@ -54,7 +54,7 @@ SELECT * from pg_dist_partition;
 A tabela de fragmento do PG \_ dist \_ armazena metadados sobre fragmentos individuais de uma tabela. Pg_dist_shard tem informações sobre a quais fragmentos de tabela distribuída pertencem e estatísticas sobre a coluna de distribuição para fragmentos.
 Para acrescentar tabelas distribuídas, essas estatísticas correspondem aos valores mín./máx. da coluna de distribuição. Para tabelas distribuídas por hash, elas são intervalos de token de hash atribuídos a esse fragmento. Essas estatísticas são usadas para remover fragmentos não relacionados durante consultas SELECT.
 
-| Nome          | Type     | Descrição                                                                                                                                                                                  |
+| Nome          | Tipo     | Descrição                                                                                                                                                                                  |
 |---------------|----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | logicalrelid  | regclass | Tabela distribuída à qual essa linha corresponde. Esse valor faz referência à coluna relfilenode na tabela pg_class catálogo do sistema.                                                          |
 | fragmentoid       | BIGINT   | Identificador global exclusivo atribuído a este fragmento.                                                                                                                                           |
@@ -87,7 +87,7 @@ A coluna shardstorage no \_ fragmento de dist \_ do PG indica o tipo de armazena
 
 A tabela de posicionamento do PG \_ dist \_ controla o local das réplicas de fragmento em nós de trabalho. Cada réplica de um fragmento atribuído a um nó específico é chamada de posicionamento de fragmento. Esta tabela armazena informações sobre a integridade e o local de cada posicionamento do fragmento.
 
-| Nome        | Type   | Descrição                                                                                                                               |
+| Nome        | Tipo   | Descrição                                                                                                                               |
 |-------------|--------|-------------------------------------------------------------------------------------------------------------------------------------------|
 | fragmentoid     | BIGINT | Identificador de fragmento associado a este posicionamento. Esse valor faz referência à coluna fragmentid na tabela pg_dist_shard Catalog.             |
 | fragmentostate  | INT    | Descreve o estado desse posicionamento. Diferentes Estados de fragmento são discutidos na seção abaixo.                                         |
@@ -122,7 +122,7 @@ O Citus (hiperscale) gerencia a integridade do fragmento em uma base por posicio
 
 A \_ tabela do \_ nó dist. do PG contém informações sobre os nós de trabalho no cluster.
 
-| Nome             | Type    | Descrição                                                                                                                                                                                |
+| Nome             | Tipo    | Descrição                                                                                                                                                                                |
 |------------------|---------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | NodeId           | INT     | Identificador gerado automaticamente para um nó individual.                                                                                                                                          |
 | groupid          | INT     | Identificador usado para indicar um grupo de um servidor primário e zero ou mais servidores secundários, quando o modelo de replicação de streaming é usado. Por padrão, é o mesmo que NodeId.         |
@@ -149,12 +149,12 @@ SELECT * from pg_dist_node;
 
 A \_ tabela de objeto citus.PG dist \_ contém uma lista de objetos, como tipos e funções que foram criados no nó de coordenador e propagados para nós de trabalho. Quando um administrador adiciona novos nós de trabalho ao cluster, o Citus (hiperescala) cria automaticamente cópias dos objetos distribuídos nos novos nós (na ordem correta para satisfazer as dependências de objeto).
 
-| Nome                        | Type    | Descrição                                          |
+| Nome                        | Tipo    | Descrição                                          |
 |-----------------------------|---------|------------------------------------------------------|
 | ClassID                     | oid     | Classe do objeto distribuído                      |
 | objid                       | oid     | ID de objeto do objeto distribuído                  |
 | objsubid                    | inteiro | Subid do objeto do objeto distribuído, por exemplo, Attn |
-| type                        | texto    | Parte do endereço estável usado durante as atualizações de PG   |
+| tipo                        | texto    | Parte do endereço estável usado durante as atualizações de PG   |
 | object_names                | text []  | Parte do endereço estável usado durante as atualizações de PG   |
 | object_args                 | text []  | Parte do endereço estável usado durante as atualizações de PG   |
 | distribution_argument_index | inteiro | Válido somente para funções/procedimentos distribuídos      |
@@ -212,7 +212,7 @@ A \_ tabela de \_ colocalização do PG dist contém informações sobre quais \
 Quando duas tabelas estão no mesmo grupo de colocalização, o Citus (hiperescala) garante que os fragmentos com os mesmos valores de partição serão colocados nos mesmos nós de trabalho.
 A colocação permite otimizações de junção, determinados rollups distribuídos e suporte de chave estrangeira. A colocação de fragmento é inferida quando as contagens de fragmentos, fatores de replicação e tipos de coluna de partição correspondem a todas as duas tabelas; no entanto, um grupo de colocalização personalizado pode ser especificado ao criar uma tabela distribuída, se desejado.
 
-| Nome                   | Type | Descrição                                                                   |
+| Nome                   | Tipo | Descrição                                                                   |
 |------------------------|------|-------------------------------------------------------------------------------|
 | colocationid           | INT  | Identificador exclusivo do grupo de colocal para o qual esta linha corresponde.          |
 | shardcount             | INT  | Contagem de fragmentos para todas as tabelas neste grupo de colocalização                          |
@@ -231,7 +231,7 @@ SELECT * from pg_dist_colocation;
 
 Esta tabela define estratégias que [rebalance_table_shards](reference-hyperscale-functions.md#rebalance_table_shards) podem usar para determinar onde mover fragmentos.
 
-| Nome                           | Type    | Descrição                                                                                                                                       |
+| Nome                           | Tipo    | Descrição                                                                                                                                       |
 |--------------------------------|---------|---------------------------------------------------------------------------------------------------------------------------------------------------|
 | default_strategy               | booleano | Se rebalance_table_shards deve escolher essa estratégia por padrão. Usar citus_set_default_rebalance_strategy para atualizar esta coluna             |
 | shard_cost_function            | regproc | Identificador para uma função de custo, que deve usar um fragmentid como bigint e retornar sua noção de um custo, como o tipo real                                |
@@ -329,7 +329,7 @@ O Citus (hiperscale) fornece `citus_stat_statements` estatísticas sobre como as
 
 Esse modo de exibição pode rastrear consultas para locatários de origem em um aplicativo multilocatário, que ajuda a decidir quando fazer o isolamento do locatário.
 
-| Nome          | Type   | Descrição                                                                      |
+| Nome          | Tipo   | Descrição                                                                      |
 |---------------|--------|----------------------------------------------------------------------------------|
 | QueryId       | BIGINT | identificador (bom para junções de pg_stat_statements)                                   |
 | userid        | oid    | usuário que executou a consulta                                                           |
@@ -394,9 +394,9 @@ Restrições:
 
 O Citus (hiperescala) fornece exibições especiais para observar consultas e bloqueios em todo o cluster, incluindo consultas específicas de fragmentos usadas internamente para criar resultados para consultas distribuídas.
 
--   ** \_ atividade de \_ estatísticas \_ de dist de citus**: mostra as consultas distribuídas que estão sendo executadas em todos os nós. Um superconjunto de `pg_stat_activity` , utilizável onde for o último.
--   ** \_ \_ \_ atividade stat do citus Worker**: mostra consultas em trabalhadores, incluindo consultas de fragmento em fragmentos individuais.
--   ** \_ \_ esperas de bloqueio citus**: consultas bloqueadas em todo o cluster.
+-   **\_ atividade de \_ estatísticas \_ de dist de citus**: mostra as consultas distribuídas que estão sendo executadas em todos os nós. Um superconjunto de `pg_stat_activity` , utilizável onde for o último.
+-   **\_ \_ \_ atividade stat do citus Worker**: mostra consultas em trabalhadores, incluindo consultas de fragmento em fragmentos individuais.
+-   **\_ \_ esperas de bloqueio citus**: consultas bloqueadas em todo o cluster.
 
 As duas primeiras exibições incluem todas as colunas da [ \_ \_ atividade PG stat](https://www.postgresql.org/docs/current/static/monitoring-stats.html#PG-STAT-ACTIVITY-VIEW) mais o host/porta do host do trabalho que iniciou a consulta e o host/porta do nó de coordenador do cluster.
 
@@ -524,5 +524,5 @@ Neste exemplo, as consultas foram originadas no coordenador, mas a exibição ta
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Saiba como algumas [funções de hiperescala](reference-hyperscale-functions.md) alteram tabelas do sistema
+* Saiba como algumas [funções de hiperescala (Citus)](reference-hyperscale-functions.md) alteram tabelas do sistema
 * Examinar os conceitos de [nós e tabelas](concepts-hyperscale-nodes.md)

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/12/2019
 ms.author: apimpm
-ms.openlocfilehash: fb252ac0b4863138fb2a9c3008dc6475bc988e5f
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.openlocfilehash: 18cc42c3447de733447c27db52a9a6d664539464
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88723938"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89400341"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Como salvar e definir a configuração de seu serviço de Gerenciamento de API usando o Git
 
@@ -47,7 +47,7 @@ Este artigo descreve como habilitar e usar o Git para gerenciar a configuração
 
 ## <a name="access-git-configuration-in-your-service"></a>Acessar a configuração GIT em seu serviço
 
-Para exibir e definir as configurações do Git, clique no menu **Segurança** e navegue até a guia **Repositório de configuração**.
+Para exibir e definir as definições de configuração do git, você pode clicar no menu **implantação e infraestrutura** e navegar até a guia **repositório** .
 
 ![Habilitar o GIT][api-management-enable-git]
 
@@ -62,7 +62,7 @@ Para saber mais sobre como habilitar ou desabilitar o acesso ao Git usando a API
 
 A primeira etapa antes de clonar o repositório é salvar o estado atual da configuração do serviço no repositório. Clique em **Salvar no repositório**.
 
-Faça as alterações desejadas na tela de confirmação e clique em **Ok** para salvar.
+Faça as alterações desejadas na tela de confirmação e clique em **salvar** para salvar.
 
 Após alguns instantes, a configuração será salva e o status da configuração do repositório será exibido, incluindo a data e a hora da última alteração de configuração e a última sincronização entre a configuração do serviço e o repositório.
 
@@ -112,7 +112,7 @@ Assim que o repositório for clonado, você poderá exibi-lo e trabalhar com ele
 
 ## <a name="to-update-your-local-repository-with-the-most-current-service-instance-configuration"></a>Para atualizar seu repositório local com a configuração mais recente da instância do serviço
 
-Se você fizer alterações na instância de seu serviço de Gerenciamento de API no portal do Azure, ou usando a API REST, será necessário salvar essas alterações no repositório antes de poder atualizar seu repositório local com as alterações mais recentes. Para fazer isso, clique em **Salvar configuração no repositório** na guia **Repositório de configuração** no portal do Azure e emita o seguinte comando em seu repositório local.
+Se você fizer alterações na instância de seu serviço de Gerenciamento de API no portal do Azure, ou usando a API REST, será necessário salvar essas alterações no repositório antes de poder atualizar seu repositório local com as alterações mais recentes. Para fazer isso, clique em **salvar no repositório** na guia **repositório** na portal do Azure e, em seguida, emita o seguinte comando no repositório local.
 
 ```
 git pull
@@ -198,7 +198,7 @@ A pasta `api-management` raiz contém um arquivo `configuration.json` com inform
 }
 ```
 
-As primeiras quatro configurações (`RegistrationEnabled`, `UserRegistrationTerms`, `UserRegistrationTermsEnabled` e `UserRegistrationTermsConsentRequired`) são mapeadas para as seguintes configurações na guia **Identidades** da seção **Segurança**.
+As quatro primeiras configurações ( `RegistrationEnabled` , `UserRegistrationTerms` , e `UserRegistrationTermsEnabled` ) são `UserRegistrationTermsConsentRequired` mapeadas para as configurações a seguir na guia **identidades** na seção **portal do desenvolvedor** .
 
 | Configuração de identidade | É mapeada para |
 | --- | --- |
@@ -208,7 +208,7 @@ As primeiras quatro configurações (`RegistrationEnabled`, `UserRegistrationTer
 | UserRegistrationTermsConsentRequired |**Exigir consentimento** |
 | RequireUserSigninEnabled |**Redirecionar usuários anônimos para a página de entrada** |
 
-As quatro configurações seguintes (`DelegationEnabled`, `DelegationUrl`, `DelegatedSubscriptionEnabled` e `DelegationValidationKey`) são mapeadas para as seguintes configurações na guia **Delegação** da seção **Segurança**.
+As próximas quatro configurações ( `DelegationEnabled` , `DelegationUrl` , `DelegatedSubscriptionEnabled` e `DelegationValidationKey` ) são mapeadas para as configurações a seguir na guia **delegação** na seção **portal do desenvolvedor** .
 
 | Configuração de delegação | É mapeada para |
 | --- | --- |

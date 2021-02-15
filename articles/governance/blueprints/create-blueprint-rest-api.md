@@ -1,14 +1,14 @@
 ---
 title: 'Início Rápido: Criar um blueprint com a API REST'
 description: Neste início rápido, você usa o Azure Blueprints para criar, definir e implantar artefatos usando a API REST.
-ms.date: 06/29/2020
+ms.date: 01/27/2021
 ms.topic: quickstart
-ms.openlocfilehash: e3cdf28cfe523e52aceefe20294042d28b98e1e2
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: eaf6dbb2ff14106ba8d2798d86a8f093855de85e
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85971191"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98915617"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-rest-api"></a>Início Rápido: Definir e atribuir um Azure Blueprint com a API REST
 
@@ -329,7 +329,7 @@ Em cada URI da API REST, há variáveis usadas que precisam ser substituídas co
 - `{YourMG}` – substitua isso pela ID do grupo de gerenciamento
 - `{subscriptionId}`: substitua por sua ID da assinatura
 
-1. Forneça à entidade de serviço do Azure Blueprint a função **Proprietário** na assinatura de destino. A AppId é estática (`f71766dc-90d9-4b7d-bd9d-4499c4331c3f`), mas a ID da entidade de serviço varia por locatário. Os detalhes podem ser solicitados para seu locatário usando a API REST a seguir. Ele usa a [API do Graph do Azure Active Directory](../../active-directory/develop/active-directory-graph-api.md) que tem uma autorização diferente.
+1. Forneça à entidade de serviço do Azure Blueprint a função **Proprietário** na assinatura de destino. A AppId é estática (`f71766dc-90d9-4b7d-bd9d-4499c4331c3f`), mas a ID da entidade de serviço varia por locatário. Os detalhes podem ser solicitados para seu locatário usando a API REST a seguir. Ela usa a [API do Graph do Azure Active Directory](../../active-directory/develop/active-directory-graph-api.md) que tem uma autorização diferente.
 
    - URI da API REST
 

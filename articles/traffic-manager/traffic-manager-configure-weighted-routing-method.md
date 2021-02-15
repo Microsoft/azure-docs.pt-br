@@ -1,22 +1,22 @@
 ---
-title: 'Tutorial: Configurar o roteamento de tráfego round-robin ponderado com o Gerenciador de Tráfego do Microsoft Azure'
+title: 'Tutorial: Configurar o roteamento de tráfego round robin ponderado com o Gerenciador de Tráfego do Azure'
 description: Este tutorial explica como balancear a carga do tráfego usando um método round robin no Gerenciador de Tráfego
 services: traffic-manager
 documentationcenter: ''
-author: rohinkoul
+author: duongau
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/20/2017
-ms.author: rohink
-ms.openlocfilehash: b06df3814661b64f7fa46cd5e3b8f4dea9d51710
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.date: 10/19/2020
+ms.author: duau
+ms.openlocfilehash: abcfce43b90c7371d5b38aa5b7a6d478e9d6a0dd
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "84711659"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207794"
 ---
 # <a name="tutorial-configure-the-weighted-traffic-routing-method-in-traffic-manager"></a>Tutorial: Configurar o método de roteamento de tráfego ponderado no Gerenciador de Tráfego
 
@@ -25,31 +25,102 @@ Um padrão comum de roteamento de tráfego é fornecer um conjunto de pontos de 
 > [!NOTE]
 > O Aplicativo Web do Azure já fornece a funcionalidade de balanceamento de carga round robin para sites em uma Região do Azure (que pode conter vários datacenters). O Gerenciador de Tráfego permite que você distribua o tráfego entre sites em datacenters diferentes.
 
-## <a name="to-configure-the-weighted-traffic-routing-method"></a>Como configurar o método de roteamento de tráfego ponderado
+Neste tutorial, você aprenderá como:
+> [!div class="checklist"]
+> - Criar um perfil do Gerenciador de Tráfego com roteamento ponderado.
+> - Usar o perfil do Gerenciador de Tráfego.
+> - Excluir o perfil do Gerenciador de Tráfego.
 
-1. Usando um navegador, entre no [portal do Azure](https://portal.azure.com). Se você ainda não tiver uma conta, poderá se inscrever para obter uma [avaliação gratuita de um mês](https://azure.microsoft.com/free/). 
-2. Na barra de pesquisa do portal, pesquise os **perfis do Gerenciador de Tráfego** e, em seguida, clique no nome de perfil do qual você deseja configurar o método de roteamento.
-3. Na folha **Perfil do Gerenciador de Tráfego**, verifique se os serviços de nuvem e os sites que você deseja incluir na configuração estão presentes.
-4. Na seção **Configurações**, clique em **Configuração** e, na folha **Configuração**, preencha da seguinte maneira:
-    1. Para **configurações do método de roteamento de tráfego**, verifique se o método de roteamento de tráfego é **Ponderado**. Se não for, clique em **Ponderado** na lista suspensa.
-    2. Defina as **Configurações do monitor de ponto de extremidade** de forma idêntica para todos os pontos de extremidade nesse perfil, da seguinte maneira:
-        1. Selecione o **Protocolo** apropriado e especifique o número da **Porta**. 
-        2. Para **Caminho**, digite uma barra "/" */* . Para monitorar os pontos de extremidade, especifique um caminho e um nome de arquivo. A barra "/" é uma entrada válida para o caminho relativo e implica que o arquivo está no diretório raiz (padrão).
-        3. Na parte superior da página, clique em **Salvar**.
-5. Teste as alterações na configuração da seguinte maneira:
-    1.  Na barra de pesquisa do portal, pesquise o nome do perfil do Gerenciador de Tráfego e clique no perfil do Gerenciador de Tráfego nos resultados exibidos.
-    2.  Na folha do perfil do **Gerenciador de Tráfego**, clique em **Visão Geral**.
-    3.  A folha **Perfil do Gerenciador de Tráfego** exibe o nome DNS do perfil do Gerenciador de Tráfego recém-criado. Isso pode ser usado por todos os clientes (por exemplo, navegando até ele usando um navegador da Web) para ser roteado para o ponto de extremidade correto, conforme determinado pelo tipo de roteamento. Nesse caso, todas as solicitações são roteadas para cada ponto de extremidade da em round robin.
-6. Depois que o perfil do Gerenciador de Tráfego estiver funcionando, edite o registro DNS no servidor DNS autoritativo para que o nome de domínio de sua empresa aponte para o nome de domínio do Gerenciador de Tráfego.
+## <a name="prerequisites"></a>Pré-requisitos
 
-![Configurando o método de roteamento de tráfego ponderado usando o Gerenciador de Tráfego][1]
+* Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/).
+
+## <a name="configure-the-weighted-traffic-routing-method"></a>Configurar o método de roteamento de tráfego ponderado
+
+1. Usando um navegador, entre no [portal do Azure](https://portal.azure.com).
+
+1. Na barra de pesquisa do portal, pesquise o nome do **Perfil do Gerenciador de Tráfego** que você criou na seção anterior e selecione o perfil do gerenciador de tráfego nos resultados exibidos.
+
+    :::image type="content" source="./media/traffic-manager-weighted-routing-method/search-traffic-manager-weighted-profile.png" alt-text="Pesquisar perfil do Gerenciador de Tráfego&quot;:::
+
+1. Selecione **Configuração** ou insira as seguintes configurações:
+
+    | Configuração         | Valor                                              |
+    | ---             | ---                                                |
+    | Método de roteamento            | Selecione **Ponderado** . |    
+    | TTL (vida útil) do DNS | Esse valor controla com que frequência o servidor de nome do cache local do cliente consultará o sistema do Gerenciador de Tráfego para ver se há entradas DNS atualizadas. Qualquer alteração que ocorrer no Gerenciador de Tráfego, como alterações no método de roteamento de tráfego ou alterações na disponibilidade de pontos de extremidade adicionados, fará com que esse período de tempo seja atualizado em todo o sistema global dos servidores DNS. |
+    | Protocolo    | Selecione um protocolo para monitoramento de ponto de extremidade. *Opções: HTTP, HTTPS e TCP* |
+    | Porta | Especifique o número da porta. |
+    | Caminho | Para monitorar os pontos de extremidade, especifique um caminho e um nome de arquivo. A barra &quot;/" é uma entrada válida para o caminho relativo e implica que o arquivo está no diretório raiz (padrão). |
+    | Configurações personalizadas de cabeçalho | Configure os Cabeçalhos Personalizados no formato host:contoso.com,newheader:newvalue. O par máximo com suporte é 8. Aplicável para os protocolos Http e Https. Aplicável para todos os pontos de extremidade no perfil |
+    | Intervalos de Códigos de Status Esperados (padrão: 200) | Configure os Intervalos de Códigos de Status no formato 200-299,301-301. O intervalo máximo com suporte é 8. Aplicável para os protocolos Http e Https. Aplicável para todos os pontos de extremidade no perfil |
+    | Intervalo de sondagem | Configure o intervalo de tempo entre as investigações de integridade do ponto de extremidade. Você pode escolher 10 ou 30 segundos. |
+    | Número de falhas tolerado | Configure o número de falhas da investigação de integridade toleradas antes que uma falha do ponto de extremidade seja disparada. É possível inserir um número entre 0 e 9. | 
+    | Tempo limite da investigação | Configure o tempo necessário antes que uma investigação de integridade do ponto de extremidade atinja o tempo limite. Esse valor precisa ser pelo menos 5 e ser menor do que o valor do intervalo de investigação. |
+
+1. Selecione **Salvar** para completar a configuração.
+
+    :::image type="content" source="./media/traffic-manager-weighted-routing-method/traffic-manager-weighted-configuration.png" alt-text="Pesquisar perfil do Gerenciador de Tráfego&quot;:::
+
+1. Selecione **Configuração** ou insira as seguintes configurações:
+
+    | Configuração         | Valor                                              |
+    | ---             | ---                                                |
+    | Método de roteamento            | Selecione **Ponderado** . |    
+    | TTL (vida útil) do DNS | Esse valor controla com que frequência o servidor de nome do cache local do cliente consultará o sistema do Gerenciador de Tráfego para ver se há entradas DNS atualizadas. Qualquer alteração que ocorrer no Gerenciador de Tráfego, como alterações no método de roteamento de tráfego ou alterações na disponibilidade de pontos de extremidade adicionados, fará com que esse período de tempo seja atualizado em todo o sistema global dos servidores DNS. |
+    | Protocolo    | Selecione um protocolo para monitoramento de ponto de extremidade. *Opções: HTTP, HTTPS e TCP* |
+    | Porta | Especifique o número da porta. |
+    | Caminho | Para monitorar os pontos de extremidade, especifique um caminho e um nome de arquivo. A barra &quot;/"::: 
+
+1. Selecione **Ponto de extremidade** e configure o peso de cada ponto de extremidade. O peso pode estar entre 1 e 1000. Quanto maior o peso, maior a prioridade.  
+
+    :::image type="content" source="./media/traffic-manager-weighted-routing-method/traffic-manager-configure-endpoints-weighted.png" alt-text="Pesquisar perfil do Gerenciador de Tráfego&quot;:::
+
+1. Selecione **Configuração** ou insira as seguintes configurações:
+
+    | Configuração         | Valor                                              |
+    | ---             | ---                                                |
+    | Método de roteamento            | Selecione **Ponderado** . |    
+    | TTL (vida útil) do DNS | Esse valor controla com que frequência o servidor de nome do cache local do cliente consultará o sistema do Gerenciador de Tráfego para ver se há entradas DNS atualizadas. Qualquer alteração que ocorrer no Gerenciador de Tráfego, como alterações no método de roteamento de tráfego ou alterações na disponibilidade de pontos de extremidade adicionados, fará com que esse período de tempo seja atualizado em todo o sistema global dos servidores DNS. |
+    | Protocolo    | Selecione um protocolo para monitoramento de ponto de extremidade. *Opções: HTTP, HTTPS e TCP* |
+    | Porta | Especifique o número da porta. |
+    | Caminho | Para monitorar os pontos de extremidade, especifique um caminho e um nome de arquivo. A barra &quot;/"::: 
+
+## <a name="use-the-traffic-manager-profile"></a>Usar o perfil do Gerenciador de Tráfego
+
+O **Perfil do Gerenciador de Tráfego** exibe o nome DNS do perfil do Gerenciador de Tráfego criado recentemente. Esse nome pode ser usado por todos os clientes (por exemplo, navegando até ele usando um navegador da Web) para ser roteado para o ponto de extremidade correto, conforme determinado pelo tipo de roteamento. Nesse caso, todas as solicitações são roteadas para cada ponto de extremidade em round robin.
+
+:::image type="content" source="./media/traffic-manager-weighted-routing-method/traffic-manager-weighted-overview.png" alt-text="Pesquisar perfil do Gerenciador de Tráfego&quot;:::
+
+1. Selecione **Configuração** ou insira as seguintes configurações:
+
+    | Configuração         | Valor                                              |
+    | ---             | ---                                                |
+    | Método de roteamento            | Selecione **Ponderado** . |    
+    | TTL (vida útil) do DNS | Esse valor controla com que frequência o servidor de nome do cache local do cliente consultará o sistema do Gerenciador de Tráfego para ver se há entradas DNS atualizadas. Qualquer alteração que ocorrer no Gerenciador de Tráfego, como alterações no método de roteamento de tráfego ou alterações na disponibilidade de pontos de extremidade adicionados, fará com que esse período de tempo seja atualizado em todo o sistema global dos servidores DNS. |
+    | Protocolo    | Selecione um protocolo para monitoramento de ponto de extremidade. *Opções: HTTP, HTTPS e TCP* |
+    | Porta | Especifique o número da porta. |
+    | Caminho | Para monitorar os pontos de extremidade, especifique um caminho e um nome de arquivo. A barra &quot;/"::: 
+
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+Se você não precisar mais do perfil do Gerenciador de Tráfego, localize o perfil e selecione **Excluir perfil** .
+
+:::image type="content" source="./media/traffic-manager-weighted-routing-method/delete-traffic-manager-weighted-profile.png" alt-text="Pesquisar perfil do Gerenciador de Tráfego&quot;:::
+
+1. Selecione **Configuração** ou insira as seguintes configurações:
+
+    | Configuração         | Valor                                              |
+    | ---             | ---                                                |
+    | Método de roteamento            | Selecione **Ponderado** . |    
+    | TTL (vida útil) do DNS | Esse valor controla com que frequência o servidor de nome do cache local do cliente consultará o sistema do Gerenciador de Tráfego para ver se há entradas DNS atualizadas. Qualquer alteração que ocorrer no Gerenciador de Tráfego, como alterações no método de roteamento de tráfego ou alterações na disponibilidade de pontos de extremidade adicionados, fará com que esse período de tempo seja atualizado em todo o sistema global dos servidores DNS. |
+    | Protocolo    | Selecione um protocolo para monitoramento de ponto de extremidade. *Opções: HTTP, HTTPS e TCP* |
+    | Porta | Especifique o número da porta. |
+    | Caminho | Para monitorar os pontos de extremidade, especifique um caminho e um nome de arquivo. A barra &quot;/":::
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre o [método de roteamento de tráfego de prioridade](traffic-manager-configure-priority-routing-method.md).
-- Saiba mais sobre o [método de roteamento de tráfego de desempenho](traffic-manager-configure-performance-routing-method.md).
-- Saiba mais sobre o [método de roteamento geográfico](traffic-manager-configure-geographic-routing-method.md).
-- Saiba como [testar as configurações do Gerenciador de Tráfego](traffic-manager-testing-settings.md).
+Para saber mais sobre o método de roteamento ponderado, confira:
 
-<!--Image references-->
-[1]: ./media/traffic-manager-weighted-routing-method/traffic-manager-weighted-routing-method.png
+> [!div class="nextstepaction"]
+> [Método de roteamento de tráfego ponderado](traffic-manager-routing-methods.md#weighted)

@@ -1,21 +1,19 @@
 ---
 title: Migrar tabelas do banco de dados SQL do Azure para o Azure CosmosDB com Azure Data Factory
 description: Pegue um esquema de banco de dados normalizado existente do banco de dados SQL do Azure e migre para um contêiner desnormalizado do Azure CosmosDB com Azure Data Factory.
-services: data-factory
 author: kromerm
+ms.author: makromer
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/29/2020
-ms.author: makromer
-ms.openlocfilehash: 3d2ef6fb0cd7af444b9bff755eee4eee70d03d15
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3d67ac9474704fac39dbe7eb91aead5c4babc4ce
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82691894"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100383935"
 ---
-# <a name="migrate-normalized-database-schema-from-azure-sql-database-to-azure-cosmosdb-denormalized-container"></a>Migrar o esquema de banco de dados normalizado do banco de dados SQL do Azure para o contêiner desnormalizado do Azure CosmosDB
+# <a name="migrate-normalized-database-schema-from-azure-sql-database-to-azure-cosmosdb-denormalized-container"></a>Migrar um esquema de banco de dados normalizado do Banco de Dados SQL do Azure para um contêiner desnormalizado do Azure CosmosDB
 
 Este guia explicará como pegar um esquema de banco de dados normalizado existente no banco de dados SQL do Azure e convertê-lo em um esquema desnormalizado do Azure CosmosDB para carregar no Azure CosmosDB.
 
@@ -96,11 +94,11 @@ O contêiner CosmosDB resultante incorporará a consulta interna em um único do
 
 19. Em configurações do coletor, chave de partição para ```\SalesOrderID``` e ação de coleção para "recriar". Verifique se a guia mapeamento tem esta aparência:
 
-![Configurações do coletor](media/data-flow/cosmosb7.png)
+![Captura de tela mostra a guia mapeamento.](media/data-flow/cosmosb7.png)
 
 20. Clique em visualização de dados para certificar-se de que você está vendo essas 32 linhas definidas como inserir como novos documentos no novo contêiner:
 
-![Configurações do coletor](media/data-flow/cosmosb8.png)
+![Captura de tela mostra a guia Visualização de dados.](media/data-flow/cosmosb8.png)
 
 Se tudo estiver correto, agora você estará pronto para criar um novo pipeline, adicionar essa atividade de fluxo de dados a esse pipeline e executá-lo. Você pode executar a partir de debug ou de uma execução disparada. Após alguns minutos, você deve ter um novo contêiner desnormalizado de pedidos chamado "pedidos" no banco de dados CosmosDB.
 

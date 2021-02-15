@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 2b99d032b953caecfca2b34d5eadafe94f45f307
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: bd95acf5c07786f725398416f220d3ba638c515e
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87809366"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98555688"
 ---
 # <a name="manage-instances-in-durable-functions-in-azure"></a>Gerenciar instâncias em Durable Functions no Azure
 
@@ -158,11 +158,11 @@ async def main(req: func.HttpRequest, starter: str) -> func.HttpResponse:
 
 Você também pode iniciar uma instância diretamente usando o comando [Azure Functions Core Tools](../functions-run-local.md) `durable start-new` . Ele usa os seguintes parâmetros:
 
-* ** `function-name` (obrigatório)**: o nome da função a ser iniciada.
-* ** `input` (opcional)**: entrada para a função, seja embutida ou por meio de um arquivo JSON. Para arquivos, adicione um prefixo ao caminho para o arquivo com `@` , como `@path/to/file.json` .
-* ** `id` (opcional)**: ID da instância de orquestração. Se você não especificar esse parâmetro, o comando usará um GUID aleatório.
-* ** `connection-string-setting` (opcional)**: nome da configuração do aplicativo que contém a cadeia de conexão de armazenamento a ser usada. O padrão é AzureWebJobsStorage.
-* ** `task-hub-name` (opcional)**: nome do hub de tarefas Durable Functions a ser usado. O padrão é DurableFunctionsHub. Você também pode definir isso em [host.js](durable-functions-bindings.md#host-json) usando DurableTask: HubName.
+* **`function-name` (obrigatório)**: o nome da função a ser iniciada.
+* **`input` (opcional)**: entrada para a função, seja embutida ou por meio de um arquivo JSON. Para arquivos, adicione um prefixo ao caminho para o arquivo com `@` , como `@path/to/file.json` .
+* **`id` (opcional)**: ID da instância de orquestração. Se você não especificar esse parâmetro, o comando usará um GUID aleatório.
+* **`connection-string-setting` (opcional)**: nome da configuração do aplicativo que contém a cadeia de conexão de armazenamento a ser usada. O padrão é AzureWebJobsStorage.
+* **`task-hub-name` (opcional)**: nome do hub de tarefas Durable Functions a ser usado. O padrão é DurableFunctionsHub. Você também pode definir isso em [host.js](durable-functions-bindings.md#host-json) usando DurableTask: HubName.
 
 > [!NOTE]
 > Os comandos de ferramentas principais pressupõem que você está executando-os do diretório raiz de um aplicativo de funções. Se você fornecer explicitamente os `connection-string-setting` `task-hub-name` parâmetros e, poderá executar os comandos de qualquer diretório. Embora seja possível executar esses comandos sem um host de aplicativo de funções em execução, você pode achar que não é possível observar alguns efeitos, a menos que o host esteja em execução. Por exemplo, o `start-new` comando enfileira uma mensagem de início no Hub de tarefas de destino, mas a orquestração não é realmente executada, a menos que haja um processo de host de aplicativo de funções em execução que possa processar a mensagem.
@@ -255,11 +255,11 @@ async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.Ht
 
 Também é possível obter o status de uma instância de orquestração diretamente, usando o comando [Azure Functions Core Tools](../functions-run-local.md) `durable get-runtime-status` . Ele usa os seguintes parâmetros:
 
-* ** `id` (obrigatório)**: ID da instância de orquestração.
-* ** `show-input` (opcional)**: se definido como `true` , a resposta contém a entrada da função. O valor padrão é `false`.
-* ** `show-output` (opcional)**: se definido como `true` , a resposta contém a saída da função. O valor padrão é `false`.
-* ** `connection-string-setting` (opcional)**: nome da configuração do aplicativo que contém a cadeia de conexão de armazenamento a ser usada. O padrão é `AzureWebJobsStorage`.
-* ** `task-hub-name` (opcional)**: nome do hub de tarefas Durable Functions a ser usado. O padrão é `DurableFunctionsHub`. Ele também pode ser definido no [host.jsem](durable-functions-bindings.md#host-json), usando DurableTask: HubName.
+* **`id` (obrigatório)**: ID da instância de orquestração.
+* **`show-input` (opcional)**: se definido como `true` , a resposta contém a entrada da função. O valor padrão é `false`.
+* **`show-output` (opcional)**: se definido como `true` , a resposta contém a saída da função. O valor padrão é `false`.
+* **`connection-string-setting` (opcional)**: nome da configuração do aplicativo que contém a cadeia de conexão de armazenamento a ser usada. O padrão é `AzureWebJobsStorage`.
+* **`task-hub-name` (opcional)**: nome do hub de tarefas Durable Functions a ser usado. O padrão é `DurableFunctionsHub`. Ele também pode ser definido no [host.jsem](durable-functions-bindings.md#host-json), usando DurableTask: HubName.
 
 O comando a seguir recupera o status (incluindo entrada e saída) de uma instância com uma ID de instância de orquestração de 0ab8c55a66644d68a3a8b220b12d209c. Ele pressupõe que você está executando o `func` comando do diretório raiz do aplicativo de funções:
 
@@ -269,9 +269,9 @@ func durable get-runtime-status --id 0ab8c55a66644d68a3a8b220b12d209c --show-inp
 
 Você pode usar o `durable get-history` comando para recuperar o histórico de uma instância de orquestração. Ele usa os seguintes parâmetros:
 
-* ** `id` (obrigatório)**: ID da instância de orquestração.
-* ** `connection-string-setting` (opcional)**: nome da configuração do aplicativo que contém a cadeia de conexão de armazenamento a ser usada. O padrão é `AzureWebJobsStorage`.
-* ** `task-hub-name` (opcional)**: nome do hub de tarefas Durable Functions a ser usado. O padrão é `DurableFunctionsHub`. Ele também pode ser definido no host.jsem, usando durableTask: HubName.
+* **`id` (obrigatório)**: ID da instância de orquestração.
+* **`connection-string-setting` (opcional)**: nome da configuração do aplicativo que contém a cadeia de conexão de armazenamento a ser usada. O padrão é `AzureWebJobsStorage`.
+* **`task-hub-name` (opcional)**: nome do hub de tarefas Durable Functions a ser usado. O padrão é `DurableFunctionsHub`. Ele também pode ser definido no host.jsem, usando durableTask: HubName.
 
 ```bash
 func durable get-history --id 0ab8c55a66644d68a3a8b220b12d209c
@@ -300,6 +300,10 @@ public static async Task Run(
     {
         log.LogInformation(JsonConvert.SerializeObject(instance));
     }
+    
+    // Note: ListInstancesAsync only returns the first page of results.
+    // To request additional pages provide the result.ContinuationToken
+    // to the OrchestrationStatusQueryCondition's ContinuationToken property.
 }
 ```
 
@@ -347,10 +351,10 @@ Consulte [Iniciar instâncias](#javascript-function-json) para o function.jsna c
 
 Também é possível consultar instâncias diretamente, usando o comando [Azure Functions Core Tools](../functions-run-local.md) `durable get-instances` . Ele usa os seguintes parâmetros:
 
-* ** `top` (opcional)**: esse comando dá suporte à paginação. Esse parâmetro corresponde ao número de instâncias recuperadas por solicitação. O padrão é 10.
-* ** `continuation-token` (opcional)**: um token para indicar qual página ou seção de instâncias recuperar. Cada `get-instances` execução retorna um token para o próximo conjunto de instâncias.
-* ** `connection-string-setting` (opcional)**: nome da configuração do aplicativo que contém a cadeia de conexão de armazenamento a ser usada. O padrão é `AzureWebJobsStorage`.
-* ** `task-hub-name` (opcional)**: nome do hub de tarefas Durable Functions a ser usado. O padrão é `DurableFunctionsHub`. Ele também pode ser definido no [host.jsem](durable-functions-bindings.md#host-json), usando DurableTask: HubName.
+* **`top` (opcional)**: esse comando dá suporte à paginação. Esse parâmetro corresponde ao número de instâncias recuperadas por solicitação. O padrão é 10.
+* **`continuation-token` (opcional)**: um token para indicar qual página ou seção de instâncias recuperar. Cada `get-instances` execução retorna um token para o próximo conjunto de instâncias.
+* **`connection-string-setting` (opcional)**: nome da configuração do aplicativo que contém a cadeia de conexão de armazenamento a ser usada. O padrão é `AzureWebJobsStorage`.
+* **`task-hub-name` (opcional)**: nome do hub de tarefas Durable Functions a ser usado. O padrão é `DurableFunctionsHub`. Ele também pode ser definido no [host.jsem](durable-functions-bindings.md#host-json), usando DurableTask: HubName.
 
 ```bash
 func durable get-instances
@@ -453,13 +457,13 @@ async def main(req: func.HttpRequest, starter: str) -> func.HttpResponse:
 
 No Azure Functions Core Tools, você também pode usar o `durable get-instances` comando com filtros. Além dos `top` parâmetros,, e mencionados anteriormente `continuation-token` `connection-string-setting` `task-hub-name` , você pode usar três parâmetros de filtro ( `created-after` , `created-before` , e `runtime-status` ).
 
-* ** `created-after` (opcional)**: recuperar as instâncias criadas após esta data/hora (UTC). Datetimes formato ISO 8601 aceito.
-* ** `created-before` (opcional)**: recuperar as instâncias criadas antes desta data/hora (UTC). Datetimes formato ISO 8601 aceito.
-* ** `runtime-status` (opcional)**: recuperar as instâncias com um status específico (por exemplo, executando ou concluído). Pode fornecer o status de vários (separado por espaço).
-* ** `top` (opcional)**: número de instâncias recuperadas por solicitação. O padrão é 10.
-* ** `continuation-token` (opcional)**: um token para indicar qual página ou seção de instâncias recuperar. Cada `get-instances` execução retorna um token para o próximo conjunto de instâncias.
-* ** `connection-string-setting` (opcional)**: nome da configuração do aplicativo que contém a cadeia de conexão de armazenamento a ser usada. O padrão é `AzureWebJobsStorage`.
-* ** `task-hub-name` (opcional)**: nome do hub de tarefas Durable Functions a ser usado. O padrão é `DurableFunctionsHub`. Ele também pode ser definido no [host.jsem](durable-functions-bindings.md#host-json), usando DurableTask: HubName.
+* **`created-after` (opcional)**: recuperar as instâncias criadas após esta data/hora (UTC). Datetimes formato ISO 8601 aceito.
+* **`created-before` (opcional)**: recuperar as instâncias criadas antes desta data/hora (UTC). Datetimes formato ISO 8601 aceito.
+* **`runtime-status` (opcional)**: recuperar as instâncias com um status específico (por exemplo, executando ou concluído). Pode fornecer o status de vários (separado por espaço).
+* **`top` (opcional)**: número de instâncias recuperadas por solicitação. O padrão é 10.
+* **`continuation-token` (opcional)**: um token para indicar qual página ou seção de instâncias recuperar. Cada `get-instances` execução retorna um token para o próximo conjunto de instâncias.
+* **`connection-string-setting` (opcional)**: nome da configuração do aplicativo que contém a cadeia de conexão de armazenamento a ser usada. O padrão é `AzureWebJobsStorage`.
+* **`task-hub-name` (opcional)**: nome do hub de tarefas Durable Functions a ser usado. O padrão é `DurableFunctionsHub`. Ele também pode ser definido no [host.jsem](durable-functions-bindings.md#host-json), usando DurableTask: HubName.
 
 Se você não fornecer filtros ( `created-after` , `created-before` ou `runtime-status` ), o comando simplesmente recupera `top` instâncias, sem considerar o status do tempo de execução ou o tempo de criação.
 
@@ -528,10 +532,10 @@ Uma instância terminada eventualmente fará a transição para o `Terminated` e
 
 Você também pode encerrar uma instância de orquestração diretamente, usando o comando [Azure Functions Core Tools](../functions-run-local.md) `durable terminate` . Ele usa os seguintes parâmetros:
 
-* ** `id` (obrigatório)**: ID da instância de orquestração a ser encerrada.
-* ** `reason` (opcional)**: motivo da rescisão.
-* ** `connection-string-setting` (opcional)**: nome da configuração do aplicativo que contém a cadeia de conexão de armazenamento a ser usada. O padrão é `AzureWebJobsStorage`.
-* ** `task-hub-name` (opcional)**: nome do hub de tarefas Durable Functions a ser usado. O padrão é `DurableFunctionsHub`. Ele também pode ser definido no [host.jsem](durable-functions-bindings.md#host-json), usando DurableTask: HubName.
+* **`id` (obrigatório)**: ID da instância de orquestração a ser encerrada.
+* **`reason` (opcional)**: motivo da rescisão.
+* **`connection-string-setting` (opcional)**: nome da configuração do aplicativo que contém a cadeia de conexão de armazenamento a ser usada. O padrão é `AzureWebJobsStorage`.
+* **`task-hub-name` (opcional)**: nome do hub de tarefas Durable Functions a ser usado. O padrão é `DurableFunctionsHub`. Ele também pode ser definido no [host.jsem](durable-functions-bindings.md#host-json), usando DurableTask: HubName.
 
 O comando a seguir encerra uma instância de orquestração com uma ID de 0ab8c55a66644d68a3a8b220b12d209c:
 
@@ -604,11 +608,11 @@ async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.Ht
 
 Você também pode gerar um evento para uma instância de orquestração diretamente, usando o comando [Azure Functions Core Tools](../functions-run-local.md) `durable raise-event` . Ele usa os seguintes parâmetros:
 
-* ** `id` (obrigatório)**: ID da instância de orquestração.
+* **`id` (obrigatório)**: ID da instância de orquestração.
 * **`event-name`**: O nome do evento a ser gerado.
-* ** `event-data` (opcional)**: dados a serem enviados para a instância de orquestração. Esse pode ser o caminho para um arquivo JSON ou você pode fornecer os dados diretamente na linha de comando.
-* ** `connection-string-setting` (opcional)**: nome da configuração do aplicativo que contém a cadeia de conexão de armazenamento a ser usada. O padrão é `AzureWebJobsStorage`.
-* ** `task-hub-name` (opcional)**: nome do hub de tarefas Durable Functions a ser usado. O padrão é `DurableFunctionsHub`. Ele também pode ser definido no [host.jsem](durable-functions-bindings.md#host-json), usando DurableTask: HubName.
+* **`event-data` (opcional)**: dados a serem enviados para a instância de orquestração. Esse pode ser o caminho para um arquivo JSON ou você pode fornecer os dados diretamente na linha de comando.
+* **`connection-string-setting` (opcional)**: nome da configuração do aplicativo que contém a cadeia de conexão de armazenamento a ser usada. O padrão é `AzureWebJobsStorage`.
+* **`task-hub-name` (opcional)**: nome do hub de tarefas Durable Functions a ser usado. O padrão é `DurableFunctionsHub`. Ele também pode ser definido no [host.jsem](durable-functions-bindings.md#host-json), usando DurableTask: HubName.
 
 ```bash
 func durable raise-event --id 0ab8c55a66644d68a3a8b220b12d209c --event-name MyEvent --event-data @eventdata.json
@@ -860,10 +864,10 @@ async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.Ht
 
 Você também pode rebobinar uma instância de orquestração diretamente usando o comando [Azure Functions Core Tools](../functions-run-local.md) `durable rewind` . Ele usa os seguintes parâmetros:
 
-* ** `id` (obrigatório)**: ID da instância de orquestração.
-* ** `reason` (opcional)**: motivo para retroceder a instância de orquestração.
-* ** `connection-string-setting` (opcional)**: nome da configuração do aplicativo que contém a cadeia de conexão de armazenamento a ser usada. O padrão é `AzureWebJobsStorage`.
-* ** `task-hub-name` (opcional)**: nome do hub de tarefas Durable Functions a ser usado. Por padrão, o nome do hub de tarefas no [host.jsno](durable-functions-bindings.md#host-json) arquivo é usado.
+* **`id` (obrigatório)**: ID da instância de orquestração.
+* **`reason` (opcional)**: motivo para retroceder a instância de orquestração.
+* **`connection-string-setting` (opcional)**: nome da configuração do aplicativo que contém a cadeia de conexão de armazenamento a ser usada. O padrão é `AzureWebJobsStorage`.
+* **`task-hub-name` (opcional)**: nome do hub de tarefas Durable Functions a ser usado. Por padrão, o nome do hub de tarefas no [host.jsno](durable-functions-bindings.md#host-json) arquivo é usado.
 
 ```bash
 func durable rewind --id 0ab8c55a66644d68a3a8b220b12d209c --reason "Orchestrator failed and needs to be revived."
@@ -988,8 +992,8 @@ from datetime import datetime, timedelta
 
 async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.HttpResponse:
     client = df.DurableOrchestrationClient(starter)
-    created_time_from = datetime.datetime()
-    created_time_to = datetime.datetime.today + timedelta(days = -30)
+    created_time_from = datetime.min
+    created_time_to = datetime.today() + timedelta(days = -30)
     runtime_statuses = [OrchestrationRuntimeStatus.Completed]
 
     return client.purge_instance_history_by(created_time_from, created_time_to, runtime_statuses)
@@ -997,17 +1001,17 @@ async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.Ht
 ---
 
 > [!NOTE]
-> Para que a operação limpar histórico seja concluída com êxito, o status de tempo de execução da instância de destino deve ser **concluído**, **encerrado**ou **com falha**.
+> Para que a operação limpar histórico seja concluída com êxito, o status de tempo de execução da instância de destino deve ser **concluído**, **encerrado** ou **com falha**.
 
 ### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
 
 Você pode limpar o histórico de uma instância de orquestração usando o comando [Azure Functions Core Tools](../functions-run-local.md) `durable purge-history` . Semelhante ao segundo exemplo de C# na seção anterior, ele limpa o histórico de todas as instâncias de orquestração criadas durante um intervalo de tempo especificado. Você pode filtrar ainda mais as instâncias limpas por status de tempo de execução. O comando tem vários parâmetros:
 
-* ** `created-after` (opcional)**: limpar o histórico de instâncias criadas após esta data/hora (UTC). Datetimes formato ISO 8601 aceito.
-* ** `created-before` (opcional)**: limpar o histórico de instâncias criadas antes desta data/hora (UTC). Datetimes formato ISO 8601 aceito.
-* ** `runtime-status` (opcional)**: limpar o histórico de instâncias com um status específico (por exemplo, executando ou concluído). Pode fornecer o status de vários (separado por espaço).
-* ** `connection-string-setting` (opcional)**: nome da configuração do aplicativo que contém a cadeia de conexão de armazenamento a ser usada. O padrão é `AzureWebJobsStorage`.
-* ** `task-hub-name` (opcional)**: nome do hub de tarefas Durable Functions a ser usado. Por padrão, o nome do hub de tarefas no [host.jsno](durable-functions-bindings.md#host-json) arquivo é usado.
+* **`created-after` (opcional)**: limpar o histórico de instâncias criadas após esta data/hora (UTC). Datetimes formato ISO 8601 aceito.
+* **`created-before` (opcional)**: limpar o histórico de instâncias criadas antes desta data/hora (UTC). Datetimes formato ISO 8601 aceito.
+* **`runtime-status` (opcional)**: limpar o histórico de instâncias com um status específico (por exemplo, executando ou concluído). Pode fornecer o status de vários (separado por espaço).
+* **`connection-string-setting` (opcional)**: nome da configuração do aplicativo que contém a cadeia de conexão de armazenamento a ser usada. O padrão é `AzureWebJobsStorage`.
+* **`task-hub-name` (opcional)**: nome do hub de tarefas Durable Functions a ser usado. Por padrão, o nome do hub de tarefas no [host.jsno](durable-functions-bindings.md#host-json) arquivo é usado.
 
 O comando a seguir exclui o histórico de todas as instâncias com falha criadas antes de 14 de novembro de 2018 às 7:35 PM (UTC).
 
@@ -1019,8 +1023,8 @@ func durable purge-history --created-before 2018-11-14T19:35:00.0000000Z --runti
 
 Usando o comando [Azure Functions Core Tools](../functions-run-local.md) `durable delete-task-hub` , você pode excluir todos os artefatos de armazenamento associados a um hub de tarefas específico, incluindo tabelas de armazenamento do Azure, filas e blobs. O comando tem dois parâmetros:
 
-* ** `connection-string-setting` (opcional)**: nome da configuração do aplicativo que contém a cadeia de conexão de armazenamento a ser usada. O padrão é `AzureWebJobsStorage`.
-* ** `task-hub-name` (opcional)**: nome do hub de tarefas Durable Functions a ser usado. Por padrão, o nome do hub de tarefas no [host.jsno](durable-functions-bindings.md#host-json) arquivo é usado.
+* **`connection-string-setting` (opcional)**: nome da configuração do aplicativo que contém a cadeia de conexão de armazenamento a ser usada. O padrão é `AzureWebJobsStorage`.
+* **`task-hub-name` (opcional)**: nome do hub de tarefas Durable Functions a ser usado. Por padrão, o nome do hub de tarefas no [host.jsno](durable-functions-bindings.md#host-json) arquivo é usado.
 
 O comando a seguir exclui todos os dados do armazenamento do Azure associados ao `UserTest` Hub de tarefas.
 

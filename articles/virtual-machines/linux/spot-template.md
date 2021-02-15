@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 03/25/2020
 ms.author: cynthn
 ms.reviewer: jagaveer
-ms.openlocfilehash: 7b1d6aa36653733197791554451d28332403906a
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 0cf6fc1b37064ef6193f35334711dcc5b8d01088
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816041"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98200780"
 ---
 # <a name="deploy-spot-vms-using-a-resource-manager-template"></a>Implantar VMs Spot usando um modelo do Resource Manager
 
@@ -173,8 +173,25 @@ Aqui está um modelo de exemplo com as propriedades adicionadas para uma VM Spot
 }
 ```
 
+## <a name="simulate-an-eviction"></a>Simular uma remoção
+
+Você pode [simular uma remoção](/rest/api/compute/virtualmachines/simulateeviction) de uma VM Spot, para testar o quão bem seu aplicativo responderá a uma remoção repentina. 
+
+Substitua o seguinte pelas suas informações: 
+
+- `subscriptionId`
+- `resourceGroupName`
+- `vmName`
+
+
+```http
+POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}/simulateEviction?api-version=2020-06-01
+```
+
 ## <a name="next-steps"></a>Próximas etapas
 
 Você também pode criar uma VM Spot usando [Azure PowerShell](../windows/spot-powershell.md) ou a [CLI do Azure](spot-cli.md).
 
-Se você encontrar um erro, consulte [códigos de erro](../error-codes-spot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Consulte as informações de preços atuais usando a [API de preços de varejo do Azure](/rest/api/cost-management/retail-prices/azure-retail-prices) para obter informações sobre preços especiais. O `meterName` e `skuName` os dois conterão `Spot` .
+
+Se você encontrar um erro, consulte [códigos de erro](../error-codes-spot.md).

@@ -4,10 +4,10 @@ description: Saiba mais sobre o tratamento de erros em fluxos de trabalho de ser
 ms.topic: article
 ms.date: 05/15/2020
 ms.openlocfilehash: 3bd460598dae08fa18415e1c9865249f3ca4c9c2
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85964270"
 ---
 # <a name="error-handling-and-detection-in-azure-batch"></a>Tratamento e detecção de erro no Lote do Azure

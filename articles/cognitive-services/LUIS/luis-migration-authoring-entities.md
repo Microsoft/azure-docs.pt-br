@@ -1,14 +1,16 @@
 ---
 title: Migrar para a entidade de aprendizado de máquina v3
 description: A criação v3 fornece um novo tipo de entidade, a entidade de aprendizado de máquina, juntamente com a capacidade de adicionar relações à entidade de aprendizado de máquina e a outras entidades ou recursos do aplicativo.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/08/2020
-ms.openlocfilehash: aaa5472f25a5eca5ceadf979c57a83874ce4cb6e
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 667226770d25ef1687420b1c13bc71863f987e33
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684598"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91324681"
 ---
 # <a name="migrate-to-v3-authoring-entity"></a>Migrar para a entidade de criação v3
 
@@ -106,7 +108,7 @@ A tabela a seguir demonstra a migração:
 
 |Modelos v2|Modelos v3|
 |--|--|
-|Entidade pai-componente nomeada`Order`|Entidade pai-Machine-Learning chamada`Order`|
+|Entidade pai-componente nomeada `Order`|Entidade pai-Machine-Learning chamada `Order`|
 |DatetimeV2 predefinido filho|* Migre a entidade predefinida para o novo aplicativo.<br>* Adicione o recurso necessário no pai para datetimeV2 predefinidos.|
 |Entidade de lista de filhos para ingredientes|* Migre a entidade de lista para o novo aplicativo.<br>* Em seguida, adicione um recurso necessário no pai para a entidade de lista.|
 
@@ -132,7 +134,7 @@ A tabela a seguir demonstra a migração:
 
 |Modelos v2|Modelos v3|
 |--|--|
-|Entidade pai-componente nomeada`Order`|Entidade pai-Machine-Learning chamada`Order`|
+|Entidade pai-componente nomeada `Order`|Entidade pai-Machine-Learning chamada `Order`|
 |Entidade filho-hierárquica com topo de pizza original e final|* Adicionar função a `Order` para cada ingredientes.|
 
 ## <a name="api-change-constraint-replaced-with-required-feature"></a>Restrição de alteração de API substituída pelo recurso necessário

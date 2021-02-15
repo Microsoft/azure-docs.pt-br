@@ -6,21 +6,23 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 08/01/2020
+ms.date: 12/09/2020
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: 8870c83506b1d962b94cd4d671bd3acd3e96c17c
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 5559e491be15f8f848329405736fc977267c70cc
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905356"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938589"
 ---
 # <a name="high-performance-computing-vm-sizes"></a>Tamanhos de VM de computação de alto desempenho
 
-As máquinas virtuais (VMs) da série H do Azure foram projetadas para fornecer desempenho de nível de liderança, escalabilidade MPI e eficiência de custo para uma variedade de cargas de trabalho do HPC do mundo real.
+As VMs (máquinas virtuais) da série H do Azure foram projetadas para fornecer desempenho, escalabilidade e eficiência de custo da classe de liderança para uma variedade de cargas de trabalho do HPC do mundo real.
 
-[Série HBv2](hbv2-series.md) O recurso VMs tem 200 GB/s Mellanox HDR InfiniBand, enquanto as VMs da série HB e HC apresentam 100 GB/s Mellanox EDR InfiniBand. Cada um desses tipos de VM é conectado em uma árvore Fat sem bloqueio para desempenho de RDMA otimizado e consistente. As VMs HBv2 dão suporte ao roteamento adaptável e ao transporte conectado dinâmico (DCT, em outros transportes Standard RC e UD). Esses recursos aprimoram o desempenho, a escalabilidade e a consistência do aplicativo e o uso deles é altamente recomendável.
+[Série HBv2](hbv2-series.md) As VMs são otimizadas para aplicativos orientados pela largura de banda da memória, como dinâmica de fluidos, análise de elemento finito e simulação de reservatório. HBv2 VMs Feature 120 AMD EPYC 7742 núcleos de processador, 4 GB de RAM por núcleo de CPU e nenhum multithread simultâneo. Cada VM HBv2 fornece até 340 GB/s de largura de banda de memória e até 4 teraFLOPS de computação FP64.
+
+O recurso de VMs HBv2 de 200 GB/s Mellanox HDR InfiniBand, enquanto as VMs da série HB e HC apresentam 100 GB/s Mellanox EDR InfiniBand. Cada um desses tipos de VM é conectado em uma árvore Fat sem bloqueio para desempenho de RDMA otimizado e consistente. As VMs HBv2 dão suporte ao roteamento adaptável e ao transporte conectado dinâmico (DCT, em outros transportes Standard RC e UD). Esses recursos aprimoram o desempenho, a escalabilidade e a consistência do aplicativo e o uso deles é altamente recomendável.
 
 [Série HB](hb-series.md) As VMs são otimizadas para aplicativos orientados por largura de banda de memória, como dinâmica de fluidos, análise de elemento finito explícito e modelagem de clima. As VMs HB apresentam 60 AMD EPYC 7551 núcleos de processador, 4 GB de RAM por núcleo de CPU e nenhum hyperthreading. A plataforma AMD EPYC fornece mais de 260 GB/s de largura de banda de memória.
 
@@ -29,22 +31,26 @@ As máquinas virtuais (VMs) da série H do Azure foram projetadas para fornecer 
 [Série H](h-series.md) As VMs são otimizadas para aplicativos orientados por altas frequências de CPU ou grandes requisitos de memória por núcleo. As VMs da série H apresentam 8 ou 16 núcleos de processador Intel Xeon E5 2667 v3, 7 ou 14 GB de RAM por núcleo de CPU e nenhum hyperthreading. A série H apresenta 56 GB/s Mellanox FDR InfiniBand em uma configuração de árvore de Fat sem bloqueio para desempenho consistente de RDMA. As VMs da série H dão suporte ao Intel MPI 5. x e ao MS-MPI.
 
 > [!NOTE]
-> As VMs A8 – A11 estão planejadas para serem desativadas em 3/2021. Para obter mais informações, confira o [Guia de migração de HPC](https://azure.microsoft.com/resources/hpc-migration-guide/).
+> Todas as VMs da série HBv2, HB e HC têm acesso exclusivo aos servidores físicos. Há apenas 1 VM por servidor físico e não há multilocação compartilhada com outras VMs para esses tamanhos de VM.
+
+> [!NOTE]
+> As [VMs A8 – a11](./sizes-previous-gen.md#a-series---compute-intensive-instances) estão planejadas para aposentadoria em 3/2021. Para obter mais informações, confira o [Guia de migração de HPC](https://azure.microsoft.com/resources/hpc-migration-guide/).
 
 ## <a name="rdma-capable-instances"></a>Instâncias compatíveis com RDMA
 
-A maioria dos tamanhos de VM HPC (HBv2, HB, HC, H16r, H16mr, A8 e A9) tem um recurso de interface de rede para conectividade RDMA (acesso remoto direto à memória). Os tamanhos de [série N](./nc-series.md) selecionados designados com ' r ' (ND40rs_v2, ND24rs, NC24rs_v3, NC24rs_v2 e NC24r) também são compatíveis com RDMA. Essa interface é além da interface de rede padrão do Azure disponível nos outros tamanhos de VM.
+A maioria dos tamanhos de VM HPC (HBv2, HB, HC, H16r, H16mr, A8 e A9) tem um recurso de interface de rede para conectividade RDMA (acesso remoto direto à memória). Os tamanhos de [série N](./nc-series.md) selecionados designados com ' r ' (ND40rs_v2, ND24rs, NC24rs_v3, NC24rs_v2 e NC24r) também são compatíveis com RDMA. Essa interface é além da interface de rede Ethernet padrão do Azure disponível nos outros tamanhos de VM.
 
-Essa interface permite que as instâncias compatíveis com RDMA comuniquem-se por uma rede InfiniBand (IB), operando com tarifas HDR para HBv2, taxas de EDR para HB, HC, NDv2, taxas de FDR para H16r, H16mr e outras máquinas virtuais da série N compatíveis com RDMA e taxas de QDR para VMs A8 e A9. Esses recursos RDMA podem melhorar a escalabilidade e o desempenho de determinados aplicativos MPI (Interface de Transmissão de Mensagens). Para obter mais informações sobre velocidade, consulte os detalhes nas tabelas desta página.
+Essa interface permite que as instâncias compatíveis com RDMA comuniquem-se por uma rede InfiniBand (IB), operando com tarifas HDR para HBv2, taxas de EDR para HB, HC, NDv2, taxas de FDR para H16r, H16mr e outras máquinas virtuais da série N compatíveis com RDMA e taxas de QDR para VMs A8 e A9. Esses recursos RDMA podem melhorar a escalabilidade e o desempenho de determinados aplicativos MPI (Interface de Transmissão de Mensagens).
 
 > [!NOTE]
-> No Azure HPC, há duas classes de VMs, dependendo se elas estão habilitadas para a InfiniBand. Atualmente, o SR-IOV para VMs habilitadas para InfiniBand são: HBv2, HB, HC, NCv3 e NDv2. O restante das VMs habilitadas para InfiniBand não são habilitadas para o SR-IOV atualmente.
-> O RDMA sobre IB tem suporte para todas as VMs compatíveis com RDMA.
+> No Azure HPC, há duas classes de VMs, dependendo se elas estão habilitadas para a InfiniBand. Atualmente, quase todas as VMs habilitadas para RDMA ou de geração mais recentes no Azure são SR-IOV habilitado, exceto para H16r, H16mr, NC24r, A8, A9.
+> O RDMA só é habilitado pela rede InfiniBand (IB) e tem suporte para todas as VMs compatíveis com RDMA.
 > Só há suporte para IP sobre IB em VMs habilitadas para SR-IOV.
+> O RDMA não está habilitado pela rede Ethernet.
 
 - **Sistema operacional** -o Linux tem suporte muito bem para VMs HPC; distribuições como CentOS, RHEL, Ubuntu, SUSE são usados com frequência. Em relação ao suporte do Windows, o Windows Server 2016 e versões mais recentes têm suporte em todas as VMs da série HPC. O Windows Server 2012 R2, Windows Server 2012 também tem suporte em VMs não habilitadas para SR-IOV (H16r, H16mr, A8 e A9). Observe que o [Windows Server 2012 R2 não tem suporte no HBv2 e em outras VMs com mais de 64 núcleos (virtuais ou físicos)](/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows). Consulte [imagens de VM](./workloads/hpc/configure.md) para obter uma lista de imagens de VM com suporte no Marketplace e como elas podem ser configuradas adequadamente.
 
-- **Drivers InfiniBand e RDMA** -em VMs habilitadas para InfiniBand, os drivers apropriados são necessários para habilitar o RDMA. No Linux, para VMs de SR-IOV e não habilitadas para SR-IOV, as imagens de VM do CentOS-HPC no Marketplace são pré-configuradas com os drivers apropriados. As imagens de VM Ubuntu podem ser configuradas com os drivers corretos usando as [instruções aqui](https://techcommunity.microsoft.com/t5/azure-compute/configuring-infiniband-for-ubuntu-hpc-and-gpu-vms/ba-p/1221351). Consulte [configurar e otimizar VMs para o sistema operacional Linux](./workloads/hpc/configure.md) para obter mais detalhes sobre imagens de SO Linux de VM prontas para uso.
+- **InfiniBand e drivers** -em VMs habilitadas para InfiniBand, os drivers apropriados são necessários para habilitar o RDMA. No Linux, para VMs de SR-IOV e não habilitadas para SR-IOV, as imagens de VM do CentOS-HPC no Marketplace são pré-configuradas com os drivers apropriados. As imagens de VM Ubuntu podem ser configuradas com os drivers corretos usando as [instruções aqui](https://techcommunity.microsoft.com/t5/azure-compute/configuring-infiniband-for-ubuntu-hpc-and-gpu-vms/ba-p/1221351). Consulte [configurar e otimizar VMs para o sistema operacional Linux](./workloads/hpc/configure.md) para obter mais detalhes sobre imagens de SO Linux de VM prontas para uso.
 
    No Linux, a [extensão de VM InfiniBandDriverLinux](./extensions/hpc-compute-infiniband-linux.md) pode ser usada para instalar os drivers Mellanox ofed e habilitar o InfiniBand nas VMs das séries H e N habilitadas para Sr-iov. Saiba mais sobre como habilitar o InfiniBand em VMs compatíveis com RDMA em [cargas de trabalho de HPC](./workloads/hpc/enable-infiniband.md).
 
@@ -52,7 +58,7 @@ Essa interface permite que as instâncias compatíveis com RDMA comuniquem-se po
 
    Para adicionar a extensão de VM a uma VM, use cmdlets do [Azure PowerShell](/powershell/azure/). Para obter mais informações, consulte [Recursos e extensões da máquina virtual](./extensions/overview.md). Também é possível trabalhar com extensões de VMs implantadas no [modelo de implantação clássico](/previous-versions/azure/virtual-machines/windows/classic/agents-and-extensions-classic).
 
-- **MPI** -os tamanhos de VM habilitados para Sr-IOV no Azure (HBV2, HB, HC, NCv3, NDv2) permitem que quase qualquer tipo de MPI seja usado com o Mellanox ofed. Em VMs não habilitadas para SR-IOV, as implementações MPI com suporte usam a interface do Microsoft Network Direct (ND) para se comunicar entre as VMs. Portanto, somente as versões do Microsoft MPI (MS-MPI) 2012 R2 ou posterior e do Intel MPI 5. x têm suporte. Versões posteriores (2017, 2018) da biblioteca de tempo de execução do Intel MPI podem ou não ser compatíveis com os drivers RDMA do Azure. Consulte [Setup MPI for HPC](./workloads/hpc/setup-mpi.md) para obter mais detalhes sobre como configurar MPI em VMs do HPC no Azure.
+- **MPI** -os tamanhos de VM habilitados para Sr-IOV no Azure permitem que quase qualquer tipo de MPI seja usado com o Mellanox ofed. Em VMs não habilitadas para SR-IOV, as implementações MPI com suporte usam a interface do Microsoft Network Direct (ND) para se comunicar entre as VMs. Portanto, somente as versões do Microsoft MPI (MS-MPI) 2012 R2 ou posterior e do Intel MPI 5. x têm suporte. Versões posteriores (2017, 2018) da biblioteca de tempo de execução do Intel MPI podem ou não ser compatíveis com os drivers RDMA do Azure. Consulte [Setup MPI for HPC](./workloads/hpc/setup-mpi.md) para obter mais detalhes sobre como configurar MPI em VMs do HPC no Azure.
 
 - **Espaço de endereço de rede RDMA** - A rede RDMA no Azure reserva o espaço de endereço 172.16.0.0/16. Para executar aplicativos MPI em instâncias implantadas em uma rede virtual do Azure, verifique se o espaço do endereço de rede virtual não se sobrepõe à rede RDMA.
 
@@ -60,7 +66,7 @@ Essa interface permite que as instâncias compatíveis com RDMA comuniquem-se po
 
 O Azure fornece várias opções para criar clusters de VMs do Windows HPC que podem se comunicar usando a rede RDMA, incluindo: 
 
-- **Máquinas virtuais** – implante as VMs HPC compatíveis com RDMA no mesmo conjunto de dimensionamento ou conjunto de disponibilidade (ao usar o modelo de implantação Azure Resource Manager). Se você usar o modelo de implantação clássico, implante as VMs no mesmo serviço de nuvem.
+- **Máquinas virtuais**  – implante as VMs HPC compatíveis com RDMA no mesmo conjunto de dimensionamento ou conjunto de disponibilidade (ao usar o modelo de implantação Azure Resource Manager). Se você usar o modelo de implantação clássico, implante as VMs no mesmo serviço de nuvem.
 
 - **Conjuntos de dimensionamento de máquinas virtuais** – em um conjunto de dimensionamento de máquinas virtuais, certifique-se de limitar a implantação a um único grupo de posicionamento para comunicação InfiniBand dentro do conjunto de dimensionamento. Por exemplo, em um modelo do Resource Manager, defina a `singlePlacementGroup`propriedade como`true`. Observe que o tamanho máximo do conjunto de dimensionamento que pode ser girado com a `singlePlacementGroup` propriedade para `true` é limitado às VMs 100 por padrão. Se suas necessidades de escala de trabalho do HPC forem maiores que 100 VMs em um único locatário, você poderá solicitar um aumento, [abrir uma solicitação](../azure-portal/supportability/how-to-create-azure-support-request.md) de atendimento ao cliente online sem encargos. O limite do número de VMs em um único conjunto de dimensionamento pode ser aumentado para 300. Observe que, ao implantar VMs usando conjuntos de disponibilidade, o limite máximo é de 200 VMs por conjunto de disponibilidade.
 
@@ -100,5 +106,5 @@ O Azure fornece várias opções para criar clusters de VMs do Windows HPC que p
 ## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre como [configurar suas VMs](./workloads/hpc/configure.md), [habilitar a INFINIBAND](./workloads/hpc/enable-infiniband.md), [Configurar MPI](./workloads/hpc/setup-mpi.md) e otimizar aplicativos HPC para o Azure em [cargas de trabalho do HPC](./workloads/hpc/overview.md).
-- Leia sobre os comunicados mais recentes e alguns exemplos e resultados do HPC nos [Blogs da comunidade de computação técnica do Azure](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
-- Para uma exibição de arquitetura de nível superior da execução de cargas de trabalho do HPC, consulte [computação de alto desempenho (HPC) no Azure](/azure/architecture/topics/high-performance-computing/).
+- Leia os comunicados mais recentes e alguns exemplos e resultados da HPC nos [Blogs da Tech Community da Computação do Azure](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
+- Para obter uma visão de nível superior da arquitetura de execução de cargas de trabalho de HPC, confira [HPC (computação de alto desempenho) no Azure](/azure/architecture/topics/high-performance-computing/).

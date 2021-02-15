@@ -1,16 +1,14 @@
 ---
 title: Atualize a versão de um cluster independente
 description: Atualize o código do Azure Service Fabric que executa um cluster do Service Fabric autônomo.
-author: dkkapur
 ms.topic: conceptual
 ms.date: 11/09/2018
-ms.author: dekapur
-ms.openlocfilehash: 31712ce4f661b13802d9a0f2d798c1fe87fdebf3
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 5831fcffe718e4966c3444a29d35c5bbd55e5f57
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261000"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91842930"
 ---
 # <a name="upgrade-the-service-fabric-version-that-runs-on-your-cluster"></a>Atualize a versão do Service Fabric que é executada em seu cluster 
 

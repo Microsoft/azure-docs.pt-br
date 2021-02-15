@@ -1,17 +1,17 @@
 ---
 title: Alta disponibilidade-banco de dados do Azure para MariaDB
 description: Este artigo fornece informações sobre alta disponibilidade no banco de dados do Azure para MariaDB
-author: kummanish
-ms.author: manishku
-ms.service: mariadb
+author: mksuni
+ms.author: sumuth
+ms.service: jroth
 ms.topic: conceptual
 ms.date: 7/7/2020
-ms.openlocfilehash: bea32b3b60c9013ea223513c95629092b9ab231b
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: dc37474a56ddb7d2c48c7acfce881fb812f0b8a4
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86203320"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664326"
 ---
 # <a name="high-availability-in-azure-database-for-mariadb"></a>Alta disponibilidade no banco de dados do Azure para MariaDB
 O banco de dados do Azure para o serviço MariaDB fornece um alto nível de disponibilidade garantido com o SLA (contrato de nível de serviço) com suporte financeiro de [99,99%](https://azure.microsoft.com/support/legal/sla/MariaDB) de tempo de atividade. O banco de dados do Azure para MariaDB fornece alta disponibilidade durante eventos planejados, como a operação de computação de escala de usuário iniciada pelo, e também quando ocorrem eventos não planejados, como hardware subjacente, software ou falhas de rede. O banco de dados do Azure para MariaDB pode se recuperar rapidamente das circunstâncias mais críticas, garantindo praticamente nenhum tempo de inatividade do aplicativo ao usar esse serviço.
@@ -60,8 +60,8 @@ Aqui estão alguns cenários de falha que exigem a recuperação da ação do us
 
 | **Cenário** | **Plano de recuperação** |
 | ---------- | ---------- |
-| <b>Falha de região | A falha de uma região é um evento raro. No entanto, se você precisar de proteção de uma falha de região, poderá configurar uma ou mais réplicas de leitura em outras regiões para recuperação de desastre (DR). (Consulte [Este artigo](howto-read-replicas-portal.md) sobre como criar e gerenciar réplicas de leitura para obter detalhes). No caso de uma falha de nível de região, você pode promover manualmente a réplica de leitura configurada na outra região para ser seu servidor de banco de dados de produção. |
-| <b>Erros lógicos/de usuário | A recuperação de erros do usuário, como tabelas descartadas acidentalmente ou dados atualizados incorretamente, envolve a execução de uma PITR ( [recuperação pontual](concepts-backup.md) ), restaurando e recuperando os dados até o momento anterior da ocorrência do erro.<br> <br>  Se você quiser restaurar apenas um subconjunto de bancos de dados ou tabelas específicas, em vez de todos os bancos de dados no servidor de banco, poderá restaurar o servidor de banco de dados em uma nova instância, exportar as tabelas via [mysqldump](howto-migrate-dump-restore.md)e, em seguida, usar [Restore](howto-migrate-dump-restore.md#restore-your-mariadb-database) para restaurar essas tabelas em seu banco de dados. |
+| <b> Falha de região | A falha de uma região é um evento raro. No entanto, se você precisar de proteção de uma falha de região, poderá configurar uma ou mais réplicas de leitura em outras regiões para recuperação de desastre (DR). (Consulte [Este artigo](howto-read-replicas-portal.md) sobre como criar e gerenciar réplicas de leitura para obter detalhes). No caso de uma falha de nível de região, você pode promover manualmente a réplica de leitura configurada na outra região para ser seu servidor de banco de dados de produção. |
+| <b> Erros lógicos/de usuário | A recuperação de erros do usuário, como tabelas descartadas acidentalmente ou dados atualizados incorretamente, envolve a execução de uma PITR ( [recuperação pontual](concepts-backup.md) ), restaurando e recuperando os dados até o momento anterior da ocorrência do erro.<br> <br>  Se você quiser restaurar apenas um subconjunto de bancos de dados ou tabelas específicas, em vez de todos os bancos de dados no servidor de banco, poderá restaurar o servidor de banco de dados em uma nova instância, exportar as tabelas via [mysqldump](howto-migrate-dump-restore.md)e, em seguida, usar [Restore](howto-migrate-dump-restore.md#restore-your-mariadb-database) para restaurar essas tabelas em seu banco de dados. |
 
 
 

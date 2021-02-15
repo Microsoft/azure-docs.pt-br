@@ -4,12 +4,12 @@ description: Neste artigo, saiba como configurar, iniciar e gerenciar operaçõe
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
-ms.openlocfilehash: aa072cb48e12ac89af3be28a9633a82b50122275
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 9ba22c51c7a6c26a232ed20aec21fc83d2c54b37
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89006288"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92171455"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>Fazer backup de uma VM do Azure usando o Backup do Azure por meio da API REST
 
@@ -274,6 +274,35 @@ Depois que a operação for concluída, ele retornará 200 (OK) com o conteúdo 
 
 Isso confirma que a proteção está habilitada para a VM e o primeiro backup será disparado de acordo com o agendamento da política.
 
+### <a name="excluding-disks-in-azure-vm-backup"></a>Excluindo discos no backup de VM do Azure
+
+O backup do Azure também fornece uma maneira de fazer backup seletivo de um subconjunto de discos na VM do Azure. Mais detalhes são fornecidos [aqui](selective-disk-backup-restore.md). Se você quiser fazer backup seletivo de alguns discos durante a habilitação da proteção, o trecho de código a seguir deverá ser o [corpo da solicitação durante a habilitação da proteção](#example-request-body).
+
+```json
+{
+"properties": {
+    "protectedItemType": "Microsoft.Compute/virtualMachines",
+    "sourceResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRG/providers/Microsoft.Compute/virtualMachines/testVM",
+    "policyId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/microsoft.recoveryservices/vaults/testVault/backupPolicies/DefaultPolicy",
+    "extendedProperties":  {
+      "diskExclusionProperties":{
+          "diskLunList":[0,1],
+          "isInclusionList":true
+        }
+    }
+}
+}
+```
+
+No corpo da solicitação acima, a lista de discos de backup é fornecida na seção Propriedades estendidas.
+
+|Propriedade  |Valor  |
+|---------|---------|
+|diskLunList     | A lista de LUN de disco é uma lista de *LUNs de discos de dados*. O **disco do so sempre é submetido a backup e não precisa ser mencionado**.        |
+|Isinclusõeslist     | Deve ser **verdadeiro** para que os LUNs sejam incluídos durante o backup. Se for **false**, os LUNs mencionados anteriormente serão excluídos.         |
+
+Portanto, se o requisito for fazer backup apenas do disco do sistema operacional, _todos os_ discos de dados deverão ser excluídos. Uma maneira mais fácil é dizer que nenhum disco de dados deve ser incluído. Portanto, a lista de LUN de disco estará vazia e a **Isinclusõeslist** será **verdadeira**. Da mesma forma, imagine qual é a maneira mais fácil de selecionar um subconjunto: alguns discos devem ser sempre excluídos ou alguns discos devem ser sempre incluídos. Escolha a lista de LUNs e o valor da variável booliano de acordo.
+
 ## <a name="trigger-an-on-demand-backup-for-a-protected-azure-vm"></a>Disparar um backup sob demanda para uma VM do Azure protegida
 
 Depois que uma VM do Azure é configurada para backup, os backups acontecem de acordo com o agendamento da política. Você pode esperar pelo primeiro backup agendado ou disparar um backup sob demanda a qualquer momento. A retenção dos backups sob demanda é separada da retenção da política de backup e pode ser especificada para uma determinada data e hora. Se não for especificada, presume-se que ela ocorra 30 dias a partir do dia em que o backup sob demanda foi disparado.
@@ -389,7 +418,7 @@ Como a tarefa de backup é uma operação longa, ela precisa ser rastreada confo
 
 Para alterar a política com que a VM é protegida, você pode usar o mesmo formato que para [habilitar a proteção](#enabling-protection-for-the-azure-vm). Basta fornecer a ID da nova política no [corpo da solicitação](#example-request-body) e enviar a solicitação. Por exemplo: para alterar a política de testVM de ' DefaultPolicy ' para ' ProdPolicy ', forneça a ID ' ProdPolicy ' no corpo da solicitação.
 
-```http
+```json
 {
   "properties": {
     "protectedItemType": "Microsoft.Compute/virtualMachines",
@@ -400,6 +429,15 @@ Para alterar a política com que a VM é protegida, você pode usar o mesmo form
 ```
 
 A resposta seguirá o mesmo formato mencionado [para habilitar a proteção](#responses-to-create-protected-item-operation)
+
+#### <a name="excluding-disks-during-azure-vm-protection"></a>Excluindo discos durante a proteção de VM do Azure
+
+Se o backup da VM do Azure já tiver sido feito, você poderá especificar a lista de discos para backup ou exclusão, alterando a política de proteção. Basta preparar a solicitação no mesmo formato que [excluir discos durante a habilitação da proteção](#excluding-disks-in-azure-vm-backup)
+
+> [!IMPORTANT]
+> O corpo da solicitação acima é sempre a cópia final dos discos de dados a ser excluída ou incluída. Isso não é *adicionado* à configuração anterior. Por exemplo: se você primeiro atualizar a proteção como "excluir disco de dados 1" e, em seguida, repetir com "excluir disco de dados 2", *somente o disco de dados 2 será excluído* nos backups subsequentes e o disco de dados 1 será incluído. Essa é sempre a lista final que será incluída/excluída nos backups subsequentes.
+
+Para obter a lista atual de discos que são excluídos ou incluídos, obtenha as informações do item protegido, conforme mencionado [aqui](/rest/api/backup/protecteditems/get). A resposta fornecerá a lista de LUNs de disco de dados e indicará se eles estão incluídos ou excluídos.
 
 ### <a name="stop-protection-but-retain-existing-data"></a>Interromper a proteção, mas manter os dados existentes
 

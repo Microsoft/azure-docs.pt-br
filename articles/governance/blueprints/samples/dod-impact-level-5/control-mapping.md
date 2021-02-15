@@ -1,24 +1,24 @@
 ---
 title: Controles do modelo de blueprint do Nível de Impacto 5 do DoD
-description: Mapeamento de controle do modelo de blueprint do Nível de Impacto 5 do DoD. Cada controle é mapeado para uma ou mais Políticas do Azure que auxiliam na avaliação.
-ms.date: 06/30/2020
+description: Mapeamento de controle do modelo de blueprint do Nível de Impacto 5 do DoD. Cada controle é mapeado para uma ou mais definições do Azure Policy que auxiliam na avaliação.
+ms.date: 01/08/2021
 ms.topic: sample
-ms.openlocfilehash: a7d1439a73cf387cee773d558ced50ce1c07f6dc
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 01f786684e5f8d73f57eb9f4741593c01fe1c8d4
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87921309"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98034774"
 ---
 # <a name="control-mapping-of-the-dod-impact-level-5-blueprint-sample"></a>Mapeamento de controle do modelo de blueprint do Nível de Impacto 5 do DoD
 
-O artigo a seguir detalha como o modelo do blueprint do Departamento de Defesa do Azure Blueprints DoD IL5 (Nível de Impacto 5 do DoD) é mapeado para os controles do Nível 5 de Impacto do DoD. Para obter mais informações sobre os controles, confira [Guia de requisitos de segurança da computação em nuvem do DoD (SRG)](https://dl.dod.cyber.mil/wp-content/uploads/cloud/pdf/Cloud_Computing_SRG_v1r3.pdf). A DISA (Agência de Sistemas de Informação de Defesa) é uma agência do Departamento de Defesa dos EUA (DoD) responsável pelo desenvolvimento e manutenção do SRG (Guia de Requisitos de Segurança de Computação em Nuvem) do DoD. O SRG define os requisitos básicos de segurança para CSPs (provedores de serviços de nuvem) que hospedam informações, sistemas e aplicativos do DoD e para o uso do DoD de serviços em nuvem.  
+O artigo a seguir detalha como o modelo do blueprint do Departamento de Defesa do Azure Blueprints DoD IL5 (Nível de Impacto 5 do DoD) é mapeado para os controles do Nível 5 de Impacto do DoD. Para obter mais informações sobre os controles, confira [Guia de requisitos de segurança da computação em nuvem do DoD (SRG)](https://dl.dod.cyber.mil/wp-content/uploads/cloud/pdf/Cloud_Computing_SRG_v1r3.pdf).
+A DISA (Agência de Sistemas de Informação de Defesa) é uma agência do Departamento de Defesa dos EUA (DoD) responsável pelo desenvolvimento e manutenção do SRG (Guia de Requisitos de Segurança de Computação em Nuvem) do DoD. O SRG define os requisitos básicos de segurança para CSPs (provedores de serviços de nuvem) que hospedam informações, sistemas e aplicativos do DoD e para o uso do DoD de serviços em nuvem.  
 
 Os mapeamentos a seguir referem-se aos controles **Nível 5 de Impacto do DoD**. Use a navegação no lado direito para ir diretamente para um mapeamento de controle específico. Muitos dos controles mapeados são implementados com uma iniciativa do [Azure Policy](../../../policy/overview.md). Para examinar a iniciativa completa, abra **Política** no portal do Azure e selecione a página **Definições**. Em seguida, localize e selecione a iniciativa de política interna **\[Versão prévia\]: Iniciativa de política do Nível de Impacto 5** do DoD.
 
 > [!IMPORTANT]
-> Cada controle abaixo está associado com uma ou mais definições do [Azure Policy](../../../policy/overview.md). Essas políticas podem ajudar você a [avaliar a conformidade](../../../policy/how-to/get-compliance-data.md) com o controle. No entanto, geralmente não há uma correspondência 1:1 ou completa entre um controle e uma ou mais políticas. Dessa forma, **Conformidade** no Azure Policy refere-se somente às próprias políticas. Não garante que você está totalmente em conformidade com todos os requisitos de um controle. Além disso, o padrão de conformidade inclui controles que não são abordados por nenhuma definição do Azure Policy no momento. Portanto, a conformidade no Azure Policy é somente uma exibição parcial do status de conformidade geral. As associações entre controles e definições do Azure Policy desta amostra de blueprint de conformidade podem ser alteradas ao longo do tempo.
-> Para exibir o histórico de alterações, confira o [Histórico de Confirmações do GitHub](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/dod-impact-level-5/control-mapping.md).
+> Cada controle abaixo está associado com uma ou mais definições do [Azure Policy](../../../policy/overview.md). Essas políticas podem ajudar você a [avaliar a conformidade](../../../policy/how-to/get-compliance-data.md) com o controle. No entanto, geralmente não há uma correspondência um para um ou completa entre um controle e uma ou mais políticas. Dessa forma, **Conformidade** no Azure Policy refere-se somente às próprias políticas. Não garante que você está totalmente em conformidade com todos os requisitos de um controle. Além disso, o padrão de conformidade inclui controles que não são abordados por nenhuma definição do Azure Policy no momento. Portanto, a conformidade no Azure Policy é somente uma exibição parcial do status de conformidade geral. As associações entre controles e definições do Azure Policy desta amostra de blueprint de conformidade podem ser alteradas ao longo do tempo. Para exibir o histórico de alterações, confira o [Histórico de Confirmações do GitHub](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/dod-impact-level-5/control-mapping.md).
 
 ## <a name="ac-2-account-management"></a>AC-2 Gerenciamento de conta
 
@@ -32,7 +32,7 @@ Este blueprint ajuda você a examinar as contas que possam não estar em conform
 
 ## <a name="ac-2-7-account-management--role-based-schemes"></a>AC-2 (7) Gerenciamento de conta | Esquemas baseados em função
 
-O Azure implementa o [Azure RBAC (controle de acesso baseado em função do Azure)](../../../../role-based-access-control/overview.md) para ajudar você a gerenciar quem tem acesso aos recursos no Azure. Usando o portal do Azure, você pode examinar quem tem acesso aos recursos do Azure e suas permissões. Este blueprint também atribui definições do [Azure Policy](../../../policy/overview.md) para auditar o uso da autenticação do Azure Active Directory para servidores SQL e o Service Fabric. O uso da autenticação do Azure Active Directory permite o gerenciamento simplificado de permissões e o gerenciamento centralizado de identidades dos usuários de banco de dados e de outros serviços da Microsoft. Além disso, este blueprint atribui uma definição do Azure Policy para auditar o uso de regras RBAC personalizadas. Entender o local em que as regras RBAC personalizadas são implementadas pode ajudar você a verificar a necessidade e a implementação apropriada, pois as regras RBAC personalizadas estão sujeitas a erros.
+O Azure implementa o [Azure RBAC (controle de acesso baseado em função do Azure)](../../../../role-based-access-control/overview.md) para ajudar você a gerenciar quem tem acesso aos recursos no Azure. Usando o portal do Azure, você pode examinar quem tem acesso aos recursos do Azure e suas permissões. Este blueprint também atribui definições do [Azure Policy](../../../policy/overview.md) para auditar o uso da autenticação do Azure Active Directory para servidores SQL e o Service Fabric. O uso da autenticação do Azure Active Directory permite o gerenciamento simplificado de permissões e o gerenciamento centralizado de identidades dos usuários de banco de dados e de outros serviços da Microsoft. Além disso, este blueprint atribui uma definição do Azure Policy para auditar o uso de regras personalizadas do Azure RBAC. Entender o local em que as regras personalizadas do Azure RBAC são implementadas pode ajudar você a verificar a necessidade e a implementação apropriada, pois as regras personalizadas do Azure RBAC estão sujeitas a erros.
 
 - Um administrador do Azure Active Directory deve ser provisionado para servidores SQL
 - Auditar o uso de regras personalizadas do RBAC
@@ -238,7 +238,8 @@ Esse blueprint fornece definições de políticas que auditam registros com a an
 
 ## <a name="ra-5-vulnerability-scanning"></a>RA-5 Verificação de Vulnerabilidade
 
-Este blueprint ajuda você a gerenciar as vulnerabilidades do sistema de informações por meio da atribuição de definições do [Azure Policy](../../../policy/overview.md) que monitoram vulnerabilidades do sistema operacional, vulnerabilidades do SQL e vulnerabilidades da máquina virtual na Central de Segurança do Azure. A Central de Segurança do Azure fornece funcionalidades de relatórios que permitem ter insights em tempo real sobre o estado de segurança de recursos implantados do Azure. Este blueprint também atribui definições de política que auditam e impõem a Segurança de Dados Avançada em servidores SQL. A segurança de dados avançada inclui recursos de avaliação de vulnerabilidade e proteção avançada contra ameaças para ajudá-lo a entender as vulnerabilidades de seus recursos implantados.
+Este blueprint ajuda você a gerenciar as vulnerabilidades do sistema de informações por meio da atribuição de definições do [Azure Policy](../../../policy/overview.md) que monitoram vulnerabilidades do sistema operacional, vulnerabilidades do SQL e vulnerabilidades da máquina virtual na Central de Segurança do Azure.
+A Central de Segurança do Azure fornece funcionalidades de relatórios que permitem ter insights em tempo real sobre o estado de segurança de recursos implantados do Azure. Este blueprint também atribui definições de política que auditam e impõem a Segurança de Dados Avançada em servidores SQL. A segurança de dados avançada inclui recursos de avaliação de vulnerabilidade e proteção avançada contra ameaças para ajudá-lo a entender as vulnerabilidades de seus recursos implantados.
 
 - A Segurança de Dados Avançada deve ser habilitada na Instância Gerenciada de SQL
 - A Segurança de Dados Avançada deve ser habilitada nos servidores SQL
@@ -255,8 +256,7 @@ O nível Standard da proteção contra DDoS (ataque de negação de serviço dis
 
 ## <a name="sc-7-boundary-protection"></a>SC-7 Proteção de Limite
 
-Este blueprint ajuda você a gerenciar e controlar o limite do sistema por meio da atribuição de uma definição do [Azure Policy](../../../policy/overview.md) que monitora as recomendações de proteção do grupo de segurança de rede na Central de Segurança do Azure. A Central de Segurança do Azure analisa padrões de tráfego de máquinas virtuais voltadas para a Internet e fornece recomendações de regras de grupo de segurança de rede para reduzir a superfície de ataque potencial.
-Além disso, este blueprint atribui definições de política que monitoram pontos de extremidade, contas de armazenamento e aplicativos desprotegidos. Os pontos de extremidade e os aplicativos que não estão protegidos por um firewall e as contas de armazenamento com acesso irrestrito podem permitir o acesso não intencional às informações contidas no sistema de informações.
+Este blueprint ajuda você a gerenciar e controlar o limite do sistema por meio da atribuição de uma definição do [Azure Policy](../../../policy/overview.md) que monitora as recomendações de proteção do grupo de segurança de rede na Central de Segurança do Azure. A Central de Segurança do Azure analisa padrões de tráfego de máquinas virtuais voltadas para a Internet e fornece recomendações de regras de grupo de segurança de rede para reduzir a superfície de ataque potencial. Além disso, este blueprint atribui definições de política que monitoram pontos de extremidade, contas de armazenamento e aplicativos desprotegidos. Os pontos de extremidade e os aplicativos que não estão protegidos por um firewall e as contas de armazenamento com acesso irrestrito podem permitir o acesso não intencional às informações contidas no sistema de informações.
 
 - O acesso pelo ponto de extremidade para a Internet deve ser restrito
 - As contas de armazenamento devem restringir o acesso da rede
@@ -307,11 +307,8 @@ Este blueprint ajuda você a gerenciar as falhas do sistema de informações por
 
 ## <a name="si-02-06-flaw-remediation--removal-of-previous-versions-of-software--firmware"></a>Correção de falhas SI-02 (06) | Remoção de versões anteriores do software/firmware
 
-Esse blueprint atribui definições de política que ajudam você a garantir que os aplicativos estejam usando a versão mais recente do .NET Framework, HTTP, Java, PHP, Python e TLS. Esse blueprint também atribui uma definição de política que garante que os Serviços do Kubernetes sejam atualizados para uma versão não vulnerável do Kubernetes.
+Esse blueprint atribui definições de política que ajudam você a garantir que os aplicativos estejam usando a versão mais recente do HTTP, Java, PHP, Python e TLS. Esse blueprint também atribui uma definição de política que garante que os Serviços do Kubernetes sejam atualizados para uma versão não vulnerável do Kubernetes.
 
-- Verificar se a versão do '.NET Framework' é a última, se usada como parte do aplicativo de API
-- Verificar se a versão do '.NET Framework' é a última, se usada como parte do aplicativo de funções
-- Verificar se a versão do '.NET Framework' é a última, se usada como parte do aplicativo Web
 - Garantir que a 'Versão do HTTP' seja a última, se usada para executar o aplicativo de API
 - Garantir que a 'Versão do HTTP' seja a última, se usada para executar o aplicativo de funções
 - Garantir que a 'Versão do HTTP' seja a última, se usada para executar o aplicativo Web
@@ -319,7 +316,6 @@ Esse blueprint atribui definições de política que ajudam você a garantir que
 - Garantir que a "versão do Java" seja a mais recente, se usada como parte do aplicativo de funções
 - Garantir que a 'versão do Java' seja a última, se usada como parte do aplicativo Web
 - Garantir que a 'versão do PHP' seja a última, se usada como parte do aplicativo de API
-- Garantir que a 'versão do PHP' seja a última, se usada como parte do aplicativo de funções
 - Garantir que a 'versão do PHP' seja a última, se usada como parte do aplicativo Web
 - Garantir que a 'versão do Python' seja a última, se usada como parte do aplicativo de API
 - Garantir que a 'versão do Python' seja a última, se usada como parte do aplicativo de funções

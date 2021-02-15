@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
-ms.openlocfilehash: c3dbd01faf61c164c88f09b0da03c07be4abd187
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3975a57c095a8593e392e932bd125308853d3756
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75429114"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92541512"
 ---
 # <a name="message-enrichments-for-device-to-cloud-iot-hub-messages"></a>Aprimoramentos de mensagem para mensagens do Hub IoT do dispositivo para a nuvem
 
@@ -35,9 +35,9 @@ O **valor** pode ser qualquer um dos seguintes exemplos:
 
 * Qualquer cadeia de caracteres estática. Valores dinâmicos, como condições, lógica, operações e funções, não são permitidos. Por exemplo, se você desenvolver um aplicativo SaaS que é usado por vários clientes, poderá atribuir um identificador a cada cliente e torná-lo disponível no aplicativo. Quando o aplicativo for executado, o Hub IoT carimbará as mensagens de telemetria do dispositivo com o identificador do cliente, tornando possível processar as mensagens de forma diferente para cada cliente.
 
-* O nome do Hub IoT que envia a mensagem. Esse valor é *$iothubname*.
+* O nome do Hub IoT que envia a mensagem. Esse valor é *$iothubname* .
 
-* Informações do dispositivo de dados, como seu caminho. Os exemplos são *$Twin. Tags. Field* e *$Twin. Tags. latitude*.
+* Informações do dispositivo de dados, como seu caminho. Os exemplos são *$Twin. Tags. Field* e *$Twin. Tags. latitude* .
 
    > [!NOTE]
    > Neste momento, somente $iothubname, $twin. Tags, $twin. Properties. Desired e $twin. Properties. Reported são variáveis com suporte para o enriquecimento de mensagens.
@@ -62,9 +62,9 @@ Os aprimoramentos podem ser configurados usando os seguintes métodos:
 
 | **Método** | **Comando** |
 | ----- | -----| 
-| Portal | [Azure portal](https://portal.azure.com) | Consulte o [tutorial de aprimoramentos de mensagem](tutorial-message-enrichments.md) | 
-| CLI do Azure   | [enriquecimento de mensagem AZ Hub IOT](https://docs.microsoft.com/cli/azure/iot/hub/message-enrichment?view=azure-cli-latest) |
-| Azure PowerShell | [Add-AzIotHubMessageEnrichment](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubmessageenrichment?view=azps-2.8.0) |
+| Portal | [Portal do Azure](https://portal.azure.com) | Consulte o [tutorial de aprimoramentos de mensagem](tutorial-message-enrichments.md) | 
+| CLI do Azure   | [enriquecimento de mensagem AZ Hub IOT](/cli/azure/iot/hub/message-enrichment) |
+| Azure PowerShell | [Add-AzIotHubMessageEnrichment](/powershell/module/az.iothub/add-aziothubmessageenrichment) |
 
 Adicionar aprimoramentos de mensagem não adiciona latência ao roteamento de mensagens.
 
@@ -84,9 +84,9 @@ Para experimentar os aprimoramentos de mensagens, consulte o [tutorial de aprimo
 
 * As atualizações em um dispositivo de atualização podem levar até cinco minutos para serem refletidas no valor de enriquecimento correspondente.
 
-* O tamanho total da mensagem, incluindo os aprimoramentos, não pode exceder 256 KB. Se um tamanho de mensagem exceder 256 KB, o Hub IoT removerá a mensagem. Você pode usar [métricas do Hub IOT](iot-hub-metrics.md) para identificar e depurar erros quando as mensagens são descartadas. Por exemplo, você pode monitorar D2C. telemetria. egresso. Invalid.
+* O tamanho total da mensagem, incluindo os aprimoramentos, não pode exceder 256 KB. Se um tamanho de mensagem exceder 256 KB, o Hub IoT removerá a mensagem. Você pode usar [métricas do Hub IOT](monitor-iot-hub-reference.md#metrics) para identificar e depurar erros quando as mensagens são descartadas. Por exemplo, você pode monitorar a métrica *mensagens de telemetria incompatíveis* ( *D2C. telemetria. egresso. inválida* ) nas [métricas de roteamento](monitor-iot-hub-reference.md#routing-metrics). Para saber mais, consulte [monitorar o Hub IOT](monitor-iot-hub.md).
 
-* Os aprimoramentos de mensagens não se aplicam a eventos de alteração de troca digital (parte da [Visualização pública de IoT plug and Play](../iot-pnp/overview-iot-plug-and-play.md)).
+* Os aprimoramentos de mensagens não se aplicam a eventos de alteração de troca digital.
 
 ## <a name="pricing"></a>Preços
 

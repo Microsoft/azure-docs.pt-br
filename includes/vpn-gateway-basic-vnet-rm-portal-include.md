@@ -5,55 +5,47 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/03/2020
+ms.date: 10/20/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: d2cf1a2e2ab9cf2d6e35aa12b5b0f8ddc04ad0e7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.openlocfilehash: a66596ecb926c1bf3c6b61cc99e1eb1b56e99158
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78301923"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "92328413"
 ---
-É possível criar uma VNet com um modelo de implantação do Resource Manager e com o portal do Azure seguindo estas etapas. Para obter mais informações sobre redes virtuais, confira [Visão geral da rede virtual](../articles/virtual-network/virtual-networks-overview.md).
-
->[!NOTE]
->Ao usar uma rede virtual como parte de uma arquitetura entre locais, lembre-se de coordenar com o administrador de rede local para que ele possa fazer o intervalo de endereços IP que você pode usar especificamente para essa rede virtual. Se houver um intervalo de endereços duplicado nos dois lados da conexão de VPN, o tráfego será roteado inesperadamente. Além disso, se você quiser conectar essa rede virtual a outra rede virtual, o espaço de endereço não poderá se sobrepor com a outra rede virtual. Planeje sua configuração de rede de forma adequada.
->
->
-
 1. Entre no [portal do Azure](https://portal.azure.com).
-1. Em **Pesquisar recursos, serviço e documentos (G +/)**, digite *rede virtual*.
+1. Em **Pesquisar recursos, serviço e documentos (G+/)** , digite *rede virtual*.
 
-   ![Página localizar recurso de rede virtual](./media/vpn-gateway-basic-vnet-rm-portal-include/marketplace.png "Página localizar recurso de rede virtual")
-1. Selecione **rede virtual** nos resultados do **Marketplace** .
+   ![Localizar a página de recursos de Rede Virtual](./media/vpn-gateway-basic-vnet-rm-portal-include/marketplace.png "Localizar a página de recursos de rede virtual")
+1. Selecione **Rede Virtual** nos resultados do **Marketplace**.
 
-   ![Selecionar rede virtual](./media/vpn-gateway-basic-vnet-rm-portal-include/marketplace-results.png "Página localizar recurso de rede virtual")
-1. Na página **rede virtual** , selecione **criar**.
+   ![Selecione a rede virtual](./media/vpn-gateway-basic-vnet-rm-portal-include/marketplace-results.png "Localizar a página de recursos de rede virtual")
+1. Na página **Rede Virtual**, selecione **Criar**.
 
-   ![página rede virtual](./media/vpn-gateway-basic-vnet-rm-portal-include/vnet-click-create.png "Selecione Criar")
-1. Depois de selecionar **criar**, a página **criar rede virtual** é aberta.
-1. Na guia **noções básicas** , configure **detalhes do projeto** e **detalhes da instância** configurações de VNet.
+   ![página de rede virtual](./media/vpn-gateway-basic-vnet-rm-portal-include/vnet-click-create.png "Selecione Criar")
+1. Depois que você selecionar, **Criar**, a página **Criar rede virtual** será aberta.
+1. Na guia **Básico**, configure os **Detalhes do projeto** e as definições de VNet dos **Detalhes da instância**.
 
-   ![Guia básico](./media/vpn-gateway-basic-vnet-rm-portal-include/basics.png "Guia Básico") Ao preencher os campos, você verá uma marca de seleção verde quando os caracteres inseridos no campo forem validados. Alguns valores são preenchidos automaticamente, que podem ser substituídos por seus próprios valores:
+   ![Guia Básico](./media/vpn-gateway-basic-vnet-rm-portal-include/basics.png "Guia Básico") Quando você preencher os campos, verá a marca de seleção verde quando os caracteres inseridos no campo forem validados. Alguns valores são preenchidos automaticamente, que podem ser substituídos por seus próprios valores:
 
    - **Assinatura**: verifique se a assinatura listada é a correta. Você pode alterar as assinaturas usando o menu suspenso.
-   - **Grupo de recursos**: selecione um grupo de recursos existente ou clique em **criar novo** para criar um novo. Para obter mais informações sobre grupos de recursos, consulte [Azure Resource Manager visão geral](../articles/azure-resource-manager/management/overview.md#resource-groups).
-   - **Nome**: Insira o nome da sua rede virtual.
-   - **Região**: selecione o local para sua VNet. A localização determina onde ficarão os recursos que você implanta nessa rede virtual.
+   - **Grupo de recursos**: Selecione um grupo de recursos ou clique em **Criar** para criar um. Para saber mais sobre os grupos de recursos, confira [Visão geral do Azure Resource Manager](../articles/azure-resource-manager/management/overview.md#resource-groups).
+   - **Name**: insira o nome de sua rede virtual.
+   - **Região**: selecione a localização de sua VNet. A localização determina onde ficarão os recursos que você implanta nessa rede virtual.
 
-1. Na guia **endereços IP** , configure os valores. Os valores mostrados nos exemplos a seguir são para fins de demonstração. Ajuste esses valores de acordo com as configurações que você precisa.
+1. Na guia **endereços IP**, configure os valores. Os valores mostrados nos exemplos a seguir servem para fins de demonstração. Ajuste esses valores de acordo com as configurações que você precisa.
 
-   ![Guia endereços IP](./media/vpn-gateway-basic-vnet-rm-portal-include/addresses.png "Guia endereços IP")  
-   - **Espaço de endereço IPv4**: por padrão, um espaço de endereço é criado automaticamente. Você pode clicar no espaço de endereço para ajustá-lo para refletir seus próprios valores. Você também pode adicionar espaços de endereço adicionais.
-   - **IPv6**: se sua configuração exigir espaço de endereço IPv6, selecione a caixa **adicionar espaço de endereço IPv6** para inserir essas informações.
-   - **Sub-rede**: se você usar o espaço de endereço padrão, uma sub-rede padrão será criada automaticamente. Se você alterar o espaço de endereço, precisará adicionar uma sub-rede. Selecione **+ Adicionar sub-rede** para abrir a janela **Adicionar sub-rede** . Defina as seguintes configurações e, em seguida, selecione **Adicionar** para adicionar os valores:
-      - **Nome da sub-rede**: neste exemplo, nomeamos a sub-rede "frontend".
-      - **Intervalo de endereços de sub-rede**: o intervalo de endereços para essa sub-rede.
+   ![Guia de endereços IP](./media/vpn-gateway-basic-vnet-rm-portal-include/addresses.png "Guia de endereços IP")  
+   - **Espaço de endereço IPv4**: por padrão, um espaço de endereço é criado automaticamente. Você pode clicar no espaço de endereço para ajustá-lo a fim de refletir seus valores. Também é possível adicionar outros espaços de endereço.
+   - **Sub-rede**: se você usar o espaço de endereço padrão, uma sub-rede padrão será criada automaticamente. Se você alterar o espaço de endereço, precisará adicionar uma sub-rede. Selecione **+ Adicionar sub-rede** para abrir a janela **Adicionar sub-rede**. Defina as seguintes configurações e selecione **Adicionar** para adicionar os valores:
+      - **Nome da sub-rede**: neste exemplo, nomeamos a sub-rede "FrontEnd".
+      - **Intervalo de endereços da sub-rede**: o intervalo de endereços para esta sub-rede.
 
-1. Na guia **segurança** , no momento, deixe os valores padrão:
+1. Na guia **Segurança**, neste momento, deixe os valores padrão:
 
-   - **Proteção contra DDoS**: básica
-   - **Firewall**: desabilitado
-1. Selecione **examinar + criar** para validar as configurações de rede virtual.
-1. Depois que as configurações forem validadas, selecione **criar**.
+   - **Proteção contra DDoS**: Basic
+   - **Firewall**: Desabilitado
+1. Selecione **Examinar + criar** para validar as configurações de rede virtual.
+1. Depois que as configurações forem validadas, selecione **Criar**.

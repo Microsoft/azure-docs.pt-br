@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/04/2017
 ms.author: alkohli
-ms.openlocfilehash: 556a84acb3461fb39b3eb0390b54878254bafabf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3adbd292d42fd6fd2a0e149e103c17968a6f084b
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514545"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94950747"
 ---
 # <a name="safely-install-and-operate-your-storsimple-device"></a>Instalar e operar seu dispositivo StorSimple com segurança
 ![Ícone de aviso](./media/storsimple-safety/IC740879.png)
@@ -30,7 +30,7 @@ Leia todas as informações de segurança e integridade neste artigo, que aplica
 ## <a name="safety-icon-conventions"></a>Convenções de ícones de segurança
 Estes são os ícones que você encontrará ao ler as precauções de segurança a serem observadas ao configurar e executar seu dispositivo Microsoft Azure StorSimple.
 
-| Ícone | Descrição |
+| ícone | Descrição |
 |:--- |:--- |
 | ![Ícone de perigo](./media/storsimple-safety/IC740879.png) **PERIGO!** |Indica uma situação perigosa que, se não for evitada, resultará em morte ou lesões graves. Essa palavra limitas-e às situações mais graves. |
 | ![Aviso de ícone de aviso ](./media/storsimple-safety/IC740879.png) **!** |Indica uma situação perigosa que, se não for evitada, pode causar lesões graves ou de morte. |
@@ -114,7 +114,7 @@ Este dispositivo foi projetado para operar com dois PCMs. Cada PCMs tem uma font
 
 Para reduzir a probabilidade de lesões, choque elétrico ou morte:
 
-* Não remova as tampas do PCM. Há risco de choque elétrico no interior. Para devolver o PCM e obter um substituto, [contate o Suporte da Microsoft](storsimple-contact-microsoft-support.md).
+* Não remova as tampas do PCM. Há risco de choque elétrico no interior. Para devolver o PCM e obter um substituto, [contate o Suporte da Microsoft](./storsimple-8000-contact-microsoft-support.md).
 
 ![Ícone de observação](./media/storsimple-safety/IC740881.png) **OBSERVAÇÃO:**
 
@@ -148,7 +148,7 @@ Para reduzir o risco de curto, incêndio, explosão, lesões ou morte:
 
 ![Ícone de observação](./media/storsimple-safety/IC740881.png) **OBSERVAÇÃO:**
 
-Ao enviar ou transportar de outra forma as baterias por ar, siga o documento de diretrizes de bateria de lítio IATA disponível em[https://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx](https://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx)
+Ao enviar ou transportar de outra forma as baterias por ar, siga o documento de diretrizes de bateria de lítio IATA disponível em [https://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx](https://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx)
 
 Depois de revisar esses avisos de segurança, as próximas etapas serão desembalar, montar no rack e cabear o dispositivo.
 

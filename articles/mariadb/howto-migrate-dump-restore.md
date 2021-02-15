@@ -1,17 +1,17 @@
 ---
 title: Migrar com despejo e restauração-banco de dados do Azure para MariaDB
 description: Este artigo explica duas maneiras comuns de fazer backup e restaurar bancos de dados no Banco de Dados do Azure para MariaDB, usando ferramentas como mysqldump, MySQL Workbench e PHPMyAdmin.
-author: ajlam
-ms.author: andrela
-ms.service: mariadb
+author: savjani
+ms.author: pariks
+ms.service: jroth
 ms.topic: how-to
 ms.date: 2/27/2020
-ms.openlocfilehash: 674622e6210c3cceda5af3b53bf4ba1851f7179b
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 8f7cb0710c11e0db9628ad19e2ede7ff05a19f88
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118844"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664963"
 ---
 # <a name="migrate-your-mariadb-database-to-azure-database-for-mariadb-using-dump-and-restore"></a>Migrar seu banco de dados MariaDB para o banco de dados do Azure para MariaDB usando despejo e restauração
 Este artigo explica duas maneiras comuns de fazer backup e restaurar bancos de dados no banco de dados do Azure para MariaDB

@@ -1,19 +1,17 @@
 ---
 title: Gerenciar o Azure Data Lake Analytics usando o SDK do Java do Azure
 description: Este artigo descreve como usar o SDK do Java do Azure para escrever aplicativos que gerenciam fontes de dados, trabalhos e usuários do Data Lake Analytics.
-services: data-lake-analytics
 ms.service: data-lake-analytics
 ms.reviewer: jasonh
-ms.assetid: 07830b36-2fe3-4809-a846-129cf67b6a9e
 ms.topic: how-to
 ms.date: 08/20/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: bac13f187c99166bc868112792d80833387a84dc
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 86e84d825bd1dd3774cfd2774e0b96e540bb3cd2
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373769"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92218469"
 ---
 # <a name="manage-azure-data-lake-analytics-using-a-java-app"></a>Gerenciar o Azure Data Lake Analytics usando um aplicativo Java
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -318,6 +316,6 @@ Forneça os valores para os parâmetros destacados no snippet de código:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para conhecer o U-SQL, consulte [Introdução à linguagem U-SQL do Azure Data Lake Analytics](data-lake-analytics-u-sql-get-started.md) e [Referência à linguagem U-SQL](https://docs.microsoft.com/u-sql/).
+* Para conhecer o U-SQL, consulte [Introdução à linguagem U-SQL do Azure Data Lake Analytics](data-lake-analytics-u-sql-get-started.md) e [Referência à linguagem U-SQL](/u-sql/).
 * Para obter as tarefas de gerenciamento, confira [Gerenciar o Azure Data Lake Analytics usando o portal do Azure](data-lake-analytics-manage-use-portal.md).
 * Para obter uma visão geral da Análise do Data Lake, veja [Visão geral da Análise do Azure Data Lake](data-lake-analytics-overview.md).

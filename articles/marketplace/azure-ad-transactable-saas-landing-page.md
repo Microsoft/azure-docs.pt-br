@@ -7,13 +7,13 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 07/10/2020
-ms.openlocfilehash: 737e2fc682e630775b763dd2f22f904d895a120f
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.date: 09/02/2020
+ms.openlocfilehash: 04137fef640da46ca8876811e127e109a8c3d445
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87921259"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348297"
 ---
 # <a name="build-the-landing-page-for-your-transactable-saas-offer-in-the-commercial-marketplace"></a>Crie a página de aterrissagem para sua oferta de SaaS transactável no Marketplace comercial
 
@@ -38,31 +38,31 @@ A página de aterrissagem normalmente inclui o seguinte:
 As seções a seguir irão orientá-lo pelo processo de criação de uma página de aterrissagem:
 
 1. [Crie um registro de aplicativo do Azure ad](#create-an-azure-ad-app-registration) para a página de aterrissagem.
-2. [Use um exemplo de código como um ponto de partida](#use-a-code-sample-as-a-starting-point) para seu aplicativo.
-3. [Resolva o token de identificação de compra do Marketplace](#resolve-the-marketplace-purchase-identification-token) adicionado à URL pelo Marketplace comercial.
-4. [Ler informações de declarações codificadas no token de ID](#read-information-from-claims-encoded-in-the-id-token), que foi recebido do Azure ad após o logon, que foi enviado com a solicitação.
-5. [Use a API Microsoft Graph](#use-the-microsoft-graph-api) para coletar informações adicionais, conforme necessário.
-6. [Use dois aplicativos do Azure ad para melhorar a segurança na produção](#use-two-azure-ad-apps-to-improve-security-in-production).
+1. [Use um exemplo de código como um ponto de partida](#use-a-code-sample-as-a-starting-point) para seu aplicativo.
+1. [Use dois aplicativos do Azure ad para melhorar a segurança na produção](#use-two-azure-ad-apps-to-improve-security-in-production).
+1. [Resolva o token de identificação de compra do Marketplace](#resolve-the-marketplace-purchase-identification-token) adicionado à URL pelo Marketplace comercial.
+1. [Ler informações de declarações codificadas no token de ID](#read-information-from-claims-encoded-in-the-id-token), que foi recebido do Azure ad depois de entrar, que foi enviado com a solicitação.
+1. [Use a API Microsoft Graph](#use-the-microsoft-graph-api) para coletar informações adicionais, conforme necessário.
 
 ## <a name="create-an-azure-ad-app-registration"></a>Criar um registro de aplicativo do Azure AD
 
-O Marketplace comercial está totalmente integrado ao Azure AD. Os compradores chegam ao Marketplace autenticado com uma [conta do Azure ad ou conta Microsoft (MSA)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#terminology). Após a compra, o comprador vai do mercado comercial para a URL da página de aterrissagem para ativar e gerenciar sua assinatura de seu aplicativo SaaS. Você deve permitir que o comprador entre no seu aplicativo com o SSO do Azure AD. (A URL da página de aterrissagem é especificada na página de [configuração técnica](partner-center-portal/offer-creation-checklist.md#technical-configuration-page) da oferta.
+O Marketplace comercial está totalmente integrado ao Azure AD. Os compradores chegam ao Marketplace autenticado com uma [conta do Azure ad ou conta Microsoft (MSA)](../active-directory/fundamentals/active-directory-whatis.md#terminology). Após a compra, o comprador vai do mercado comercial para a URL da página de aterrissagem para ativar e gerenciar sua assinatura de seu aplicativo SaaS. Você deve permitir que o comprador entre no seu aplicativo com o SSO do Azure AD. (A URL da página de aterrissagem é especificada na página de [configuração técnica](plan-saas-offer.md#technical-information) da oferta.
 
 A primeira etapa para usar a identidade é verificar se sua página de aterrissagem está registrada como um aplicativo do Azure AD. O registro do aplicativo permite que você use o Azure AD para autenticar usuários e solicitar acesso aos recursos do usuário. Ele pode ser considerado a definição do aplicativo, o que permite que o serviço saiba como emitir tokens para o aplicativo com base nas configurações do aplicativo.
 
 ### <a name="register-a-new-application-using-the-azure-portal"></a>Registrar um novo aplicativo usando o portal do Azure
 
-Para começar, siga as instruções para [registrar um novo aplicativo](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app). Para permitir que os usuários de outras empresas visitem o aplicativo, você deve escolher uma das opções de multilocatário quando for perguntado quem pode usar o aplicativo.
+Para começar, siga as instruções para [registrar um novo aplicativo](../active-directory/develop/quickstart-register-app.md). Para permitir que os usuários de outras empresas visitem o aplicativo, você deve escolher uma das opções de multilocatário quando for perguntado quem pode usar o aplicativo.
 
-Se você pretende consultar a API de Microsoft Graph, [configure seu novo aplicativo para acessar APIs da Web](https://docs.microsoft.com/azure/active-directory/develop/quickstart-configure-app-access-web-apis). Quando você seleciona as permissões de API para este aplicativo, o padrão de **User. Read** é suficiente para reunir informações básicas sobre o comprador para tornar o processo de integração suave e automático. Não solicite nenhuma permissão de API rotulada **precisa de consentimento do administrador**, pois isso impedirá que todos os usuários não administradores visitem sua página de aterrissagem.
+Se você pretende consultar a API de Microsoft Graph, [configure seu novo aplicativo para acessar APIs da Web](../active-directory/develop/quickstart-configure-app-access-web-apis.md). Quando você seleciona as permissões de API para este aplicativo, o padrão de **User. Read** é suficiente para reunir informações básicas sobre o comprador para tornar o processo de integração suave e automático. Não solicite nenhuma permissão de API rotulada **precisa de consentimento do administrador** , pois isso impedirá que todos os usuários não administradores visitem sua página de aterrissagem.
 
-Se você precisar de permissões elevadas como parte de sua integração ou processo de provisionamento, considere usar a funcionalidade de [consentimento incremental](https://aka.ms/incremental-consent) do Azure ad para que todos os compradores enviados do Marketplace possam interagir inicialmente com a página de aterrissagem.
+Se você precisar de permissões elevadas como parte de sua integração ou processo de provisionamento, considere usar a funcionalidade de [consentimento incremental](../active-directory/azuread-dev/azure-ad-endpoint-comparison.md) do Azure ad para que todos os compradores enviados do Marketplace possam interagir inicialmente com a página de aterrissagem.
 
 ## <a name="use-a-code-sample-as-a-starting-point"></a>Usar um exemplo de código como um ponto de partida
 
 Fornecemos vários aplicativos de exemplo que implementam um site simples com o logon do Azure AD habilitado. Depois que o aplicativo é registrado no Azure AD, a folha **início rápido** oferece uma lista de tipos de aplicativos comuns e pilhas de desenvolvimento, como mostrado na Figura 1. Escolha aquele que corresponda ao seu ambiente e siga as instruções para baixar e configurar.
 
-***Figura 1: folha de início rápido no portal do Azure***
+**_Figura 1: folha de início rápido na portal do Azure_* _
 
 :::image type="content" source="./media/azure-ad-saas/azure-ad-quickstart-blade.png" alt-text="Ilustra a folha de início rápido no portal do Azure.":::
 
@@ -75,14 +75,14 @@ Este artigo apresenta uma versão simplificada da arquitetura para implementar u
 - Primeiro, o aplicativo de página de aterrissagem multilocatário foi descrito até este ponto, exceto sem a funcionalidade de entrar em contato com as APIs de preenchimento de SaaS. Essa funcionalidade será descarregada para outro aplicativo, conforme descrito abaixo.
 - Em segundo lugar, um aplicativo para possuir as comunicações com as APIs de preenchimento de SaaS. Esse aplicativo deve ser um único locatário, apenas para ser usado pela sua organização, e uma lista de controle de acesso pode ser estabelecida para limitar o acesso às APIs somente a partir desse aplicativo.
 
-Isso permite que a solução funcione em cenários que observam o princípio [da separação de preocupações](https://docs.microsoft.com/dotnet/architecture/modern-web-apps-azure/architectural-principles#separation-of-concerns) . Por exemplo, a página de aterrissagem usa o primeiro aplicativo registrado do Azure AD para conectar o usuário. Depois que o usuário estiver conectado, a página de aterrissagem usará o segundo Azure AD para solicitar um token de acesso para chamar a API de preenchimento de SaaS e chamar a operação de resolução.
+Isso permite que a solução funcione em cenários que observam o princípio [da separação de preocupações](/dotnet/architecture/modern-web-apps-azure/architectural-principles#separation-of-concerns) . Por exemplo, a página de aterrissagem usa o primeiro aplicativo registrado do Azure AD para conectar o usuário. Depois que o usuário estiver conectado, a página de aterrissagem usará o segundo Azure AD para solicitar um token de acesso para chamar a API de preenchimento de SaaS e chamar a operação de resolução.
 
 ## <a name="resolve-the-marketplace-purchase-identification-token"></a>Resolver o token de identificação de compra do Marketplace
 
 Quando o comprador é enviado para a página de aterrissagem, um token é adicionado ao parâmetro de URL. Esse token é diferente do token emitido pelo Azure AD e do token de acesso usado para autenticação de serviço a serviço e é usado como uma entrada para as [APIs de preenchimento de SaaS](./partner-center-portal/pc-saas-fulfillment-api-v2.md#resolve-a-purchased-subscription) resolverem chamada para obter os detalhes da assinatura. Assim como acontece com todas as chamadas para as APIs de preenchimento de SaaS, sua solicitação de serviço a serviço será autenticada com um token de acesso baseado no usuário da ID de aplicativo do Azure AD do aplicativo para autenticação de serviço a serviço.
 
 > [!NOTE]
-> Na maioria dos casos, é preferível fazer essa chamada a partir de um segundo aplicativo de locatário único. Consulte [usar dois aplicativos do Azure ad para melhorar a segurança em produção](#use-two-azure-ad-apps-to-improve-security-in-production) posteriormente neste artigo.
+> Na maioria dos casos, é preferível fazer essa chamada a partir de um segundo aplicativo de locatário único. Consulte [usar dois aplicativos do Azure ad para melhorar a segurança na produção](#use-two-azure-ad-apps-to-improve-security-in-production) anteriormente neste artigo.
 
 ### <a name="request-an-access-token"></a>Solicitar um token de acesso
 
@@ -94,7 +94,7 @@ As APIs de preenchimento de SaaS implementam o ponto de extremidade de [resoluç
 
 ## <a name="read-information-from-claims-encoded-in-the-id-token"></a>Ler informações de declarações codificadas no token de ID
 
-Como parte do fluxo do [OpenID Connect](https://docs.microsoft.com/azure/active-directory/develop/v2-protocols-oidc) , o Azure ad adiciona um [token de ID](https://docs.microsoft.com/azure/active-directory/develop/id-tokens) à solicitação quando o comprador é enviado para a página de aterrissagem. Esse token contém várias partes de informações básicas que podem ser úteis no processo de ativação, incluindo as informações vistas nesta tabela.
+Como parte do fluxo do [OpenID Connect](../active-directory/develop/v2-protocols-oidc.md) , o Azure ad adiciona um [token de ID](../active-directory/develop/id-tokens.md) à solicitação quando o comprador é enviado para a página de aterrissagem. Esse token contém várias partes de informações básicas que podem ser úteis no processo de ativação, incluindo as informações vistas nesta tabela.
 
 | Valor | Descrição |
 | ------------ | ------------- |
@@ -109,7 +109,7 @@ Como parte do fluxo do [OpenID Connect](https://docs.microsoft.com/azure/active-
 
 ## <a name="use-the-microsoft-graph-api"></a>Usar a API do Microsoft Graph
 
-O token de ID contém informações básicas para identificar o comprador, mas seu processo de ativação pode exigir detalhes adicionais, como a empresa do comprador, para concluir o processo de integração. Use a [API Microsoft Graph](https://docs.microsoft.com/graph/use-the-api) para solicitar essas informações para evitar forçar o usuário a inserir esses detalhes novamente. As permissões **User. Read** padrão incluem as informações a seguir, por padrão.
+O token de ID contém informações básicas para identificar o comprador, mas seu processo de ativação pode exigir detalhes adicionais, como a empresa do comprador, para concluir o processo de integração. Use a [API Microsoft Graph](/graph/use-the-api) para solicitar essas informações para evitar forçar o usuário a inserir esses detalhes novamente. As permissões Standard _ *User. Read* * incluem as informações a seguir, por padrão.
 
 | Valor | Descrição |
 | ------------ | ------------- |
@@ -122,13 +122,13 @@ O token de ID contém informações básicas para identificar o comprador, mas s
 | sobrenome | Sobrenome do usuário. |
 |||
 
-Propriedades adicionais — como o nome da empresa do usuário ou o local do usuário (país) — podem ser selecionadas para inclusão na solicitação. Consulte [Propriedades para o tipo de recurso de usuário](https://docs.microsoft.com/graph/api/resources/user?view=graph-rest-1.0#properties) para obter mais detalhes.
+Propriedades adicionais — como o nome da empresa do usuário ou o local do usuário (país) — podem ser selecionadas para inclusão na solicitação. Consulte [Propriedades para o tipo de recurso de usuário](/graph/api/resources/user?view=graph-rest-1.0&preserve-view=true#properties) para obter mais detalhes.
 
-A maioria dos aplicativos registrados com o Azure AD concede permissões delegadas para ler as informações do usuário do locatário do Azure AD da sua empresa. Qualquer solicitação para Microsoft Graph para essas informações deve ser acompanhada por um token de acesso para autenticação. As etapas específicas para gerar o token de acesso dependerão da pilha de tecnologia que você está usando, mas o código de exemplo conterá um exemplo. Para obter mais informações, consulte [obter acesso em nome de um usuário](https://docs.microsoft.com/graph/auth-v2-user).
+A maioria dos aplicativos registrados com o Azure AD concede permissões delegadas para ler as informações do usuário do locatário do Azure AD da sua empresa. Qualquer solicitação para Microsoft Graph para essas informações deve ser acompanhada por um token de acesso para autenticação. As etapas específicas para gerar o token de acesso dependerão da pilha de tecnologia que você está usando, mas o código de exemplo conterá um exemplo. Para obter mais informações, consulte [obter acesso em nome de um usuário](/graph/auth-v2-user).
 
 > [!NOTE]
 > As contas do locatário MSA (com a ID de locatário ``9188040d-6c67-4c5b-b112-36a304b66dad`` ) não retornarão mais informações do que já foram coletadas com o token de ID. Portanto, você pode ignorar essa chamada para o API do Graph para essas contas.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Criar uma oferta de SaaS no Marketplace comercial](./partner-center-portal/create-new-saas-offer.md)
+- [Como criar uma oferta de SaaS no Marketplace comercial](create-new-saas-offer.md)

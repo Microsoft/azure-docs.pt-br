@@ -9,10 +9,10 @@ ms.date: 03/25/2019
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: 5680bd1c3fadab8edcde1634c708ca8683c0e99c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76021139"
 ---
 ## <a name="create-base-resources"></a>Criar recursos de base

@@ -9,25 +9,25 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 06/16/2020
+ms.date: 12/01/2020
 ms.author: radeltch
-ms.openlocfilehash: a0dc9f673abcac549fffc7291b8ac376c297da6b
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 62b235fa9ea84409a5c29609a5dc0fde1671684c
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836115"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878758"
 ---
 # <a name="public-endpoint-connectivity-for-virtual-machines-using-azure-standard-load-balancer-in-sap-high-availability-scenarios"></a>Conectividade de ponto de extremidade público para Máquinas Virtuais usando o Azure Standard Load Balancer em cenários de alta disponibilidade do SAP
 
 O escopo deste artigo é descrever as configurações que permitirão a conectividade de saída para pontos de extremidade públicos. As configurações estão principalmente no contexto de Alta Disponibilidade com Pacemaker para SUSE/RHEL.  
 
-Se você estiver usando o Pacemaker com o agente de isolamento do Azure em sua solução de alta disponibilidade, as VMs precisarão ter conectividade de saída para a API de gerenciamento do Azure.  
-O artigo apresenta várias opções para permitir que você selecione a opção mais adequada para seu cenário.  
+Se você estiver usando o Pacemaker com o agente de isolamento do Azure em sua solução de alta disponibilidade, as VMs precisarão ter conectividade de saída para a API de gerenciamento do Azure. O artigo apresenta várias opções para permitir que você selecione a opção mais adequada para seu cenário.  
 
 ## <a name="overview"></a>Visão geral
 
@@ -41,12 +41,12 @@ Quando as VMs sem endereços IP públicos são colocadas no pool de back-end do 
 
 Se uma VM receber um endereço IP público, ou se estiver no pool de back-end de um balanceador de carga com endereço IP público, ela terá conectividade de saída para pontos de extremidade públicos.  
 
-Os sistemas SAP geralmente contêm dados comerciais confidenciais. Raramente é aceitável que as VMs que hospedam sistemas SAP tenham endereços IP públicos. Ao mesmo tempo, há cenários que poderiam exigir conectividade de saída da VM para pontos de extremidade públicos.  
+Os sistemas SAP geralmente contêm dados comerciais confidenciais. Raramente é aceitável que as VMs que hospedam sistemas SAP possam ser acessadas por meio de endereços IP públicos. Ao mesmo tempo, há cenários que poderiam exigir conectividade de saída da VM para pontos de extremidade públicos.  
 
 Exemplos de cenários que exigem acesso a um ponto de extremidade público do Azure são:  
-- Uso do agente de isolamento do Azure como um mecanismo de isolamento em clusters do Pacemaker
-- Serviço de Backup do Azure
-- Azure Site Recovery  
+- O agente de isolamento do Azure requer acesso a **Management.Azure.com** e **login.microsoftonline.com**  
+- [Backup do Azure](../../../backup/tutorial-backup-sap-hana-db.md#set-up-network-connectivity)
+- [Azure Site Recovery](../../../site-recovery/azure-to-azure-about-networking.md#outbound-connectivity-for-urls)  
 - Uso de repositório público para aplicar patch ao sistema operacional
 - O fluxo de dados do aplicativo SAP pode exigir conectividade de saída para o ponto de extremidade público
 
@@ -67,12 +67,12 @@ Leia os seguintes documentos primeiro:
   * [Visão geral do Firewall do Azure](../../../firewall/overview.md): visão geral do Firewall do Azure
   * [Tutorial: Implantar e configurar o Firewall do Azure](../../../firewall/tutorial-firewall-deploy-portal.md): instruções sobre como configurar o Firewall do Azure por meio do portal do Azure
 * [Redes virtuais – regras definidas pelo usuário](../../../virtual-network/virtual-networks-udr-overview.md#user-defined): conceitos e regras de roteamento do Azure  
-* [Marcas de Serviço de Grupos de Segurança](../../../virtual-network/security-overview.md#service-tags): como simplificar os Grupos de Segurança de Rede e a configuração do Firewall com marcas de serviço
+* [Marcas de Serviço de Grupos de Segurança](../../../virtual-network/network-security-groups-overview.md#service-tags): como simplificar os Grupos de Segurança de Rede e a configuração do Firewall com marcas de serviço
 
-## <a name="additional-external-azure-standard-load-balancer-for-outbound-connections-to-internet"></a>Standard Azure Load Balancer adicionais externos para conexões de saída com a Internet
+## <a name="option-1-additional-external-azure-standard-load-balancer-for-outbound-connections-to-internet"></a>Opção 1: Standard Load Balancer do Azure externo adicional para conexões de saída com a Internet
 
 Uma opção para ter conectividade de saída para pontos de extremidade públicos, sem permitir a entrada da conectividade do ponto de extremidade público para a VM, é criar um segundo balanceador de carga com o endereço IP público, adicionar as VMs ao pool de back-end do segundo balanceador de carga e definir somente [regras de saída](../../../load-balancer/load-balancer-outbound-connections.md#outboundrules).  
-Use [Grupos de Segurança de Rede](../../../virtual-network/security-overview.md) para controlar os pontos de extremidade públicos que podem ser acessados para chamadas de saída da VM.  
+Use [Grupos de Segurança de Rede](../../../virtual-network/network-security-groups-overview.md) para controlar os pontos de extremidade públicos que podem ser acessados para chamadas de saída da VM.  
 Para obter mais informações, confira o Cenário 2 no documento [Conexões de saída](../../../load-balancer/load-balancer-outbound-connections.md#scenarios).  
 A configuração tem a seguinte aparência:  
 
@@ -81,11 +81,11 @@ A configuração tem a seguinte aparência:
 ### <a name="important-considerations"></a>Considerações importantes
 
 - Você pode usar um Load Balancer Público adicional em várias VMs na mesma sub-rede para obter conectividade de saída para o ponto de extremidade público e otimizar o custo  
-- Use [Grupos de Segurança de Rede](../../../virtual-network/security-overview.md) para controlar quais pontos de extremidade públicos podem ser acessados nas VMs. Você pode atribuir o Grupo de Segurança de Rede à sub-rede ou a cada VM. Sempre que possível, use [Marcas de serviço](../../../virtual-network/security-overview.md#service-tags) para reduzir a complexidade das regras de segurança.  
+- Use [Grupos de Segurança de Rede](../../../virtual-network/network-security-groups-overview.md) para controlar quais pontos de extremidade públicos podem ser acessados nas VMs. Você pode atribuir o Grupo de Segurança de Rede à sub-rede ou a cada VM. Sempre que possível, use [Marcas de serviço](../../../virtual-network/network-security-groups-overview.md#service-tags) para reduzir a complexidade das regras de segurança.  
 - O Azure Standard Load Balancer com o endereço IP público e as regras de saída permite o acesso direto ao ponto de extremidade público. Se você tiver requisitos de segurança corporativa de que todo o tráfego de saída deva passar por meio da solução corporativa centralizada para auditoria e registro em log, talvez não seja possível atender ao requisito nesse cenário.  
 
 >[!TIP]
->Sempre que possível, use [Marcas de serviço](../../../virtual-network/security-overview.md#service-tags) para reduzir a complexidade do Grupo de Segurança de Rede. 
+>Sempre que possível, use [Marcas de serviço](../../../virtual-network/network-security-groups-overview.md#service-tags) para reduzir a complexidade do Grupo de Segurança de Rede. 
 
 ### <a name="deployment-steps"></a>Etapas de implantação.
 
@@ -100,7 +100,7 @@ A configuração tem a seguinte aparência:
 2. Crie um pool de back-end **MyBackendPoolOfPublicILB** e adicione as VMs.  
    1. Selecione a rede virtual  
    1. Selecione as VMs e seus endereços IP e adicione-as ao pool de back-end  
-3. [Criar regras de saída](../../../load-balancer/quickstart-load-balancer-standard-public-cli.md?tabs=option-1-create-load-balancer-standard%3ftabs%3doption-1-create-load-balancer-standard#create-outbound-rule-configuration). No momento, não é possível criar regras de saída do portal do Azure. Você pode criar regras de saída com a [CLI do Azure](../../../cloud-shell/overview.md?view=azure-cli-latest).  
+3. [Criar regras de saída](../../../load-balancer/quickstart-load-balancer-standard-public-cli.md?tabs=option-1-create-load-balancer-standard%3ftabs%3doption-1-create-load-balancer-standard#create-outbound-rule-configuration). No momento, não é possível criar regras de saída do portal do Azure. Você pode criar regras de saída com a [CLI do Azure](../../../cloud-shell/overview.md).  
 
    ```azurecli
     az network lb outbound-rule create --address-pool MyBackendPoolOfPublicILB --frontend-ip-configs MyPublicILBFrondEndIP --idle-timeout 30 --lb-name MyPublicILB --name MyOutBoundRules  --outbound-ports 10000 --enable-tcp-reset true --protocol All --resource-group MyResourceGroup
@@ -117,9 +117,9 @@ A configuração tem a seguinte aparência:
 
    ![Conexão de saída com um segundo Load Balancer com IP público](./media/high-availability-guide-standard-load-balancer/high-availability-guide-standard-load-balancer-network-security-groups.png)
 
-   Para obter mais informações sobre os grupos de segurança de rede do Azure, confira [Grupos de Segurança](../../../virtual-network/security-overview.md). 
+   Para obter mais informações sobre os grupos de segurança de rede do Azure, confira [Grupos de Segurança](../../../virtual-network/network-security-groups-overview.md). 
 
-## <a name="azure-firewall-for-outbound-connections-to-internet"></a>Firewall do Azure para conexões de saída com a Internet
+## <a name="option-2-azure-firewall-for-outbound-connections-to-internet"></a>Opção 2: Firewall do Azure para conexões de saída para a Internet
 
 Outra opção para obter a conectividade de saída para pontos de extremidade públicos sem permitir a conectividade de entrada para a VM de pontos de extremidade públicos é com o Firewall do Azure. O Firewall do Azure é um serviço gerenciado, com alta disponibilidade interna, e pode abranger várias Zonas de Disponibilidade.  
 Você também precisará implantar uma [Rota Definida pelo Usuário](../../../virtual-network/virtual-networks-udr-overview.md#custom-routes), associada à sub-rede em que as VMs e o Azure Load Balancer estão implantados e apontando para o Firewall do Azure, para rotear o tráfego pelo Firewall do Azure.  
@@ -137,7 +137,7 @@ A arquitetura seria semelhante a:
 - Se a solução de firewall corporativo não for o Firewall do Azure e você tiver requisitos de segurança que façam com que todo o tráfego de saída deva passar por uma solução corporativa centralizada, essa solução poderá não ser prática.  
 
 >[!TIP]
->Sempre que possível, use [Marcas de serviço](../../../virtual-network/security-overview.md#service-tags) para reduzir a complexidade das regras do Firewall do Azure.  
+>Sempre que possível, use [Marcas de serviço](../../../virtual-network/network-security-groups-overview.md#service-tags) para reduzir a complexidade das regras do Firewall do Azure.  
 
 ### <a name="deployment-steps"></a>Etapas de implantação.
 
@@ -162,14 +162,14 @@ A arquitetura seria semelhante a:
    1. Insira o nome MyRouteTable, selecione Assinatura, Grupo de recursos e Local (que deve corresponder ao local da Rede virtual e do Firewall).  
    1. Salvar  
 
-   A regra de firewall tem a seguinte aparência: ![Conexão de saída com o Firewall do Azure](./media/high-availability-guide-standard-load-balancer/high-availability-guide-standard-load-balancer-firewall-rule.png)
+   A regra de firewall teria a seguinte aparência: ![ diagrama que mostra a aparência do firewall.](./media/high-availability-guide-standard-load-balancer/high-availability-guide-standard-load-balancer-firewall-rule.png)
 
 6. Crie uma Rota Definida pelo Usuário da sub-rede de suas VMs para o IP privado do **MyAzureFirewall**.
    1. Como você está na Tabela de Roteamento, clique em Rotas. Selecione Adicionar. 
    1. Nome da rota: ToMyAzureFirewall, Prefixo de endereço: **0.0.0.0/0** Tipo do próximo salto: Selecione Solução de Virtualização. Endereço do próximo salto: insira o endereço IP privado do firewall que você configurou: **11.97.1.4**.  
    1. Salvar
 
-## <a name="using-proxy-for-pacemaker-calls-to-azure-management-api"></a>Usando proxy para chamadas do Pacemaker à API de Gerenciamento do Azure
+## <a name="option-3-using-proxy-for-pacemaker-calls-to-azure-management-api"></a>Opção 3: usando proxy para chamadas de pacemaker para a API de gerenciamento do Azure
 
 Você pode usar proxy para permitir chamadas do Pacemaker para o ponto de extremidade público da API de gerenciamento do Azure.  
 
@@ -220,11 +220,11 @@ Para permitir que o Pacemaker se comunique com a API de gerenciamento do Azure, 
      sudo pcs property set maintenance-mode=false
      ```
 
-## <a name="other-solutions"></a>Outras soluções
+## <a name="other-options"></a>Outras opções
 
-Se o tráfego de saída for roteado por meio de firewall de terceiros:
+Se o tráfego de saída for roteado por meio de proxy de firewall baseado em URL de terceiros:
 
-- Se estiver usando o agente de isolamento do Azure, verifique se a configuração do firewall permite a conectividade de saída com a API de gerenciamento do Azure: `https://management.azure.com` e`https://login.microsoftonline.com`   
+- Se estiver usando o agente de isolamento do Azure, verifique se a configuração do firewall permite a conectividade de saída com a API de gerenciamento do Azure: `https://management.azure.com` e `https://login.microsoftonline.com`   
 - se usar a infraestrutura de atualização de nuvem pública do Azure do SUSE para aplicar atualizações e patches, consulte [infraestrutura de atualização de nuvem pública do azure 101](https://suse.com/c/azure-public-cloud-update-infrastructure-101/)
 
 ## <a name="next-steps"></a>Próximas etapas

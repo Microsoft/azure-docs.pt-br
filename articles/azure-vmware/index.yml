@@ -8,13 +8,13 @@ metadata:
   ms.topic: landing-page
   author: dikamath
   ms.author: dikamath
-  ms.date: 05/04/2020
-  ms.openlocfilehash: aad6bc60066d76c96dd38fa3ba1e94069bb9e25a
-  ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+  ms.date: 11/19/2020
+  ms.openlocfilehash: f5b22f1211076ee0d7990103586659c12eae66c9
+  ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 08/22/2020
-  ms.locfileid: "88752123"
+  ms.lasthandoff: 02/10/2021
+  ms.locfileid: "100092682"
 landingContent:
 - title: Sobre a Solução VMware no Azure
   linkLists:
@@ -22,15 +22,119 @@ landingContent:
     links:
     - text: O que é a Solução VMware no Azure?
       url: introduction.md
-  - linkListType: get-started
+  - linkListType: concept
     links:
-    - text: Lista de verificação de rede
-      url: tutorial-network-checklist.md
+    - text: Nuvem privada e clusters
+      url: concepts-private-clouds-clusters.md
+    - text: Rede e interconectividade de nuvem privada
+      url: concepts-networking.md
+    - text: Armazenamento em nuvens privadas
+      url: concepts-storage.md
+    - text: Acesso e identidade para nuvens privadas
+      url: concepts-identity.md
+    - text: Controle de acesso baseado em função do vSphere
+      url: concepts-role-based-access-control.md
+    - text: Monitorar e reparar nuvens privadas
+      url: concepts-monitor-repair-private-cloud.md
+    - text: Upgrades de nuvem privada
+      url: concepts-upgrades.md
+- title: Introdução
+  linkLists:
+  - linkListType: deploy
+    links:
+    - text: 0 – Planejar a implantação
+      url: production-ready-deployment-steps.md
+    - text: 1 – Implantar a Solução VMware no Azure
+      url: deploy-azure-vmware-solution.md
+    - text: 2 – Conectar-se ao local
+      url: azure-vmware-solution-on-premises.md
+    - text: 3 – Implantar e configurar o HCX
+      url: tutorial-deploy-vmware-hcx.md
   - linkListType: tutorial
     links:
-    - text: Criar uma nuvem privada da AVS
+    - text: Lista de verificação de planejamento de rede
+      url: tutorial-network-checklist.md
+    - text: Criar uma nuvem privada
       url: tutorial-create-private-cloud.md
+    - text: Acessar uma nuvem privada
+      url: tutorial-access-private-cloud.md
     - text: Configurar a rede
       url: tutorial-configure-networking.md
-    - text: Acessar a Nuvem Privada
-      url: tutorial-access-private-cloud.md
+    - text: Criar um segmento de rede do NSX-T
+      url: tutorial-nsx-t-network-segment.md
+    - text: Examinar o local para a nuvem privada
+      url: tutorial-expressroute-global-reach-private-cloud.md
+    - text: Escalar uma nuvem privada
+      url: tutorial-scale-private-cloud.md
+    - text: Excluir uma nuvem privada
+      url: tutorial-delete-private-cloud.md
+- title: Estender a Solução VMware no Azure
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Habilitar a Solução VMware no Azure
+      url: enable-azure-vmware-solution.md
+    - text: Economize custos com uma instância reservada
+      url: reserved-instance.md
+    - text: Avaliação da migração
+      url: ../migrate/how-to-create-azure-vmware-solution-assessment.md?context=/azure/migrate/context/migrate-context.json
+    - text: Gerenciar DHCP
+      url: manage-dhcp.md
+    - text: Implantar a recuperação de desastre para VMs
+      url: disaster-recovery-for-virtual-machines.md
+    - text: Implantar VM por meio da biblioteca de conteúdo
+      url: ./deploy-vm-content-library.md
+    - text: Configurar o GitHub Enterprise Server
+      url: github-enterprise-server.md
+    - text: Uso de IP público
+      url: public-ip-usage.md
+    - text: Criar um túnel IPSec
+      url: create-ipsec-tunnel.md
+- title: Integração nativa do Azure
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Gerenciamento de API
+      url: concepts-api-management.md
+    - text: Hub e spoke
+      url: concepts-hub-and-spoke.md
+    - text: Central de Segurança do Azure
+      url: azure-security-integration.md
+    - text: Servidor de Backup do Azure
+      url: set-up-backup-server-for-azure-vmware-solution.md
+    - text: Gerenciamento do ciclo de vida em VMs
+      url: lifecycle-management-of-azure-vmware-solution-vms.md
+    - text: Gateway de Aplicativo
+      url: protect-azure-vmware-solution-with-application-gateway.md
+    - text: Gerenciador de Tráfego
+      url: deploy-traffic-manager-balance-workloads.md
+- title: Soluções VMware
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Configurar Operações vRealize
+      url: vrealize-operations-for-azure-vmware-solution.md
+    - text: Implantar o VMware Horizon
+      url: azure-vmware-solution-horizon.md
+- title: Ecossistema do VMware
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Backup de soluções para VMs
+      url: ecosystem-back-up-vms.md
+- title: Recursos
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: CLI do Azure
+      url: /cli/azure/ext/vmware/vmware
+    - text: Azure PowerShell
+      url: /powershell/module/az.vmware
+    - text: Perguntas frequentes
+      url: faq.yml
+- title: Solução de problemas
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Abrir uma solicitação de suporte para falhas de implantação
+      url: fix-deployment-provisioning-failures.md

@@ -1,32 +1,32 @@
 ---
 title: Suporte a ordenações
-description: Tipos de agrupamento com suporte no Azure Synapse SQL
+description: Suporte a tipos de agrupamento para Synapse SQL no Azure Synapse Analytics
 author: filippopovic
 ms.service: synapse-analytics
 ms.topic: reference
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 1099c4e4dd69a8dc8caee96ec5dda633ce8b9d12
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 436dbac814197556385a33d956928f97fd4716bf
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496195"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311915"
 ---
-# <a name="database-collation-support-for-synapse-sql"></a>Suporte a agrupamento de banco de dados para Synapse SQL
+# <a name="database-collation-support-for-synapse-sql-in-azure-synapse-analytics"></a>Suporte a agrupamento de banco de dados para Synapse SQL no Azure Synapse Analytics 
 
 Os agrupamentos fornecem a localidade, a página de código, a ordem de classificação e as regras de sensibilidade de caracteres para tipos de dados baseados em caracteres. Depois de escolhido, todas as colunas e expressões que exigem informações de agrupamento herdam o agrupamento escolhido da configuração do banco de dados. A herança padrão pode ser substituída informando explicitamente um agrupamento diferente para um tipo de dados baseado em caractere.
 
-Você pode alterar o agrupamento de banco de dados padrão do portal do Azure ao criar um novo banco de dados de pool do SQL. Esse recurso facilita ainda mais a criação de um novo banco de dados usando um dos agrupamentos de banco de dados com suporte 3800.
+Você pode alterar o agrupamento de banco de dados padrão do portal do Azure ao criar um novo banco de dados do pool SQL dedicado. Esse recurso facilita ainda mais a criação de um novo banco de dados usando um dos agrupamentos de banco de dados com suporte 3800.
 
-Você pode especificar o agrupamento padrão do banco de dados do Synapse SQL sob demanda no momento da criação usando a instrução CREATE DATABASE.
+Você pode especificar o agrupamento de banco de dados do pool SQL sem servidor padrão no momento da criação usando a instrução CREATE DATABASE.
 
 ## <a name="change-collation"></a>Alterar agrupamento
-Para alterar o agrupamento padrão do banco de dados do pool SQL, você atualiza simples para o campo agrupamento na experiência de provisionamento. Por exemplo, se você quisesse alterar o agrupamento padrão para diferenciar maiúsculas de minúsculas, bastaria renomear o agrupamento de SQL_Latin1_General_CP1_CI_AS para SQL_Latin1_General_CP1_CS_AS. 
+Para alterar o agrupamento padrão do banco de dados do pool SQL dedicado, atualize para o campo agrupamento na experiência de provisionamento. Por exemplo, se você quisesse alterar o agrupamento padrão para diferenciar maiúsculas de minúsculas, renomearia o agrupamento de SQL_Latin1_General_CP1_CI_AS para SQL_Latin1_General_CP1_CS_AS. 
 
-Para alterar o agrupamento padrão do banco de dados do SQL sob demanda, você pode usar a instrução ALTER DATABASE.
+Para alterar o agrupamento padrão de um banco de dados do pool SQL sem servidor, você pode usar a instrução ALTER DATABASE.
 
 ## <a name="list-of-unsupported-collation-types"></a>Lista de tipos de agrupamentos sem suporte
 *    Japanese_Bushu_Kakusu_140_BIN
@@ -98,7 +98,7 @@ Para alterar o agrupamento padrão do banco de dados do SQL sob demanda, você p
 *    Japanese_XJIS_140_CS_AS_KS
 *    Japanese_XJIS_140_CS_AS_KS_WS
 
-Além disso, o pool do SQL não oferece suporte aos seguintes tipos de agrupamento:
+Além disso, o pool SQL dedicado não dá suporte aos seguintes tipos de agrupamento:
 
 *    SQL_EBCDIC1141_CP1_CS_AS
 *    SQL_EBCDIC277_2_CP1_CS_AS
@@ -113,9 +113,9 @@ Quando passou ' collation ' como o parâmetro Property, a função DatabasePrope
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Encontre mais informações sobre as melhores práticas do pool de SQL e do SQL sob demanda nos seguintes artigos:
+Informações adicionais sobre as práticas recomendadas para pool de SQL dedicado e pool SQL sem servidor podem ser encontradas nos seguintes artigos:
 
-- [Melhores práticas do pool de SQL](best-practices-sql-pool.md)
-- [Melhores práticas do SQL sob demanda](best-practices-sql-on-demand.md)
+- [Práticas recomendadas para o pool do SQL dedicado](best-practices-sql-pool.md)
+- [Práticas recomendadas para o pool SQL sem servidor](best-practices-sql-on-demand.md)
 
 

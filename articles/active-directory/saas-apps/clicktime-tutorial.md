@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/21/2019
 ms.author: jeedes
-ms.openlocfilehash: ed39064d4aee07554ce795be73732024e1b47f84
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 3337d66934c1fe317296cffaa9a663e212cce12d
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549323"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673164"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clicktime"></a>Tutorial: integração do Active Directory do Azure ao ClickTime
 
@@ -27,7 +27,7 @@ A integração do ClickTime ao Azure AD oferece os seguintes benefícios:
 * Você pode permitir que seus usuários entrem automaticamente no ClickTime (logon único) usando suas contas do Azure AD.
 * Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](../manage-apps/what-is-single-sign-on.md).
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Prerequisites
@@ -63,7 +63,7 @@ Para configurar a integração do ClickTime com o Azure AD, você precisará adi
 
 4. Na caixa de pesquisa, digite **ClickTime**, selecione **ClickTime** no painel de resultados e clique no botão **Adicionar** para adicionar o aplicativo.
 
-     ![ClickTime na lista de resultados](common/search-new-app.png)
+    ![ClickTime na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
@@ -104,7 +104,7 @@ Para configurar o logon único do Azure AD com o ClickTime, execute as seguintes
     a. Na caixa de texto **Identificador**, digite uma URL: `https://app.clicktime.com/sp/`
 
     b. Na caixa de texto **URL de Resposta**, digite uma URL usando o seguinte padrão:
-    
+
     ```http
     https://app.clicktime.com/Login/
     https://app.clicktime.com/App/Login/Consume.aspx
@@ -131,15 +131,15 @@ Para configurar o logon único do Azure AD com o ClickTime, execute as seguintes
 1. Na barra de ferramentas na parte superior, clique em **Preferências** e em **Configurações de Segurança**.
 
 1. Na seção de configuração de **Preferências de Logon Único** , realize as seguintes etapas:
-   
+
     ![Configurações de Segurança](./media/clicktime-tutorial/tic777280.png "Configurações de segurança")
-   
+
     a.  Selecione **Permitir** a entrada usando o SSO (Logon Único) com **Azure AD**.
-   
+
     b. Na caixa de texto **Ponto de Extremidade do Provedor de Identidade**, cole a **URL de Logon** que você copiou do portal do Azure.
-   
+
     c.  Abra o **certificado codificado em Base 64** baixado no Portal do Azure no **Bloco de notas**, copie o conteúdo e cole-o na caixa de texto **Certificado X.509**.
-   
+
     d.  Clique em **Save** (Salvar).
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD 
@@ -159,7 +159,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
     a. No campo **Nome**, insira **BrendaFernandes**.
-  
+
     b. No campo **Nome de usuário**, digite **brendafernandes\@dominiodaempresa.extensao**  
     Por exemplo, BrittaSimon@contoso.com
 
@@ -206,37 +206,36 @@ No caso do ClickTime, o provisionamento é uma tarefa manual.
 1. Faça logon em seu locatário do **ClickTime** .
 
 1. Na barra de ferramentas na parte superior, clique na **Empresa** e em **Pessoas**.
-   
-    ![Pessoas](./media/clicktime-tutorial/tic777282.png "Pessoas")
+
+    ![Captura de tela que mostra o locatário do ClickTime com as opções Empresa e Pessoas selecionadas.](./media/clicktime-tutorial/tic777282.png "Pessoas")
 
 1. Clique em **Adicionar Pessoa**.
-   
+
     ![Adicionar Pessoa](./media/clicktime-tutorial/tic777283.png "Adicionar Pessoa")
 
 1. Na seção Nova Pessoa, execute as etapas a seguir:
-   
-    ![Pessoas](./media/clicktime-tutorial/tic777284.png "Pessoas")
-   
+
+    ![Captura de tela que mostra a seção Adicionar Pessoa, na qual você pode adicionar as informações nesta etapa.](./media/clicktime-tutorial/tic777284.png "Pessoas")
+
     a.  Na caixa de texto **nome completo**, digite o nome completo do usuário, por exemplo, **Brenda Fernandes**. 
-  
+
     b.  Na caixa de texto **Endereço de email**, insira o email do usuário como **brendafernandes\@contoso.com**.
-       
+
     > [!NOTE]
     > Se quiser, defina propriedades adicionais do novo objeto pessoa.
-   
+
     c.  Clique em **Save** (Salvar).
 
 ### <a name="test-single-sign-on"></a>Testar logon único 
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Ao clicar no bloco do ClickTime no Painel de Acesso, você deverá ser conectado automaticamente ao ClickTime, para o qual configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao clicar no bloco do ClickTime no Painel de Acesso, você deverá ser conectado automaticamente ao ClickTime, para o qual configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](./tutorial-list.md)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 03/26/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 2457952051f575306de46e3e8145cc26678a1ef8
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5f83f4871d5cde23194ff51a90a22031b526cf91
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86526530"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632556"
 ---
 # <a name="windows-vm-cannot-boot-due-to-windows-boot-manager"></a>A VM do Windows não pode ser inicializada devido ao Gerenciador de inicialização do Windows
 
@@ -40,6 +40,9 @@ A figura 1
 O erro ocorre devido a um sinalizador BCD *DISPLAYBOOTMENU* no Gerenciador de inicialização do Windows. Quando o sinalizador está habilitado, o Gerenciador de inicialização do Windows solicita o usuário, durante o processo de inicialização, para selecionar qual carregador deseja executar, causando um atraso de inicialização. No Azure, esse recurso pode ser adicionado ao tempo necessário para inicializar uma VM.
 
 ## <a name="solution"></a>Solução
+
+> [!TIP]
+> Se você tiver um backup recente da VM, poderá tentar [restaurar a VM do backup](../../backup/backup-azure-arm-restore-vms.md) para corrigir o problema de inicialização.
 
 Visão geral do processo:
 
@@ -82,7 +85,7 @@ Se você tiver acesso ao console serial, há duas maneiras de alcançar tempos d
 
 ### <a name="configure-for-faster-boot-time-on-a-repair-vm"></a>Configurar o tempo de inicialização mais rápido em uma VM de reparo
 
-1. Abra um prompt de comandos com privilégios elevados.
+1. Abra um prompt de comando com privilégios elevados.
 2. Insira o seguinte para habilitar DisplayBootMenu:
 
    Use este comando para **VMs de geração 1**:

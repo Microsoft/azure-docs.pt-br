@@ -4,12 +4,12 @@ description: Saiba como a exclusão reversível pode proteger seus compartilhame
 ms.topic: conceptual
 ms.date: 02/02/2020
 ms.custom: references_regions
-ms.openlocfilehash: 0ec2d3bf84aed19b608a92b6f21cd1674ba5b7cf
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 52a116320e07c25d4ee7f00b8063ca15faeb8560
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282697"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89179905"
 ---
 # <a name="accidental-delete-protection-for-azure-file-shares-using-azure-backup"></a>Proteção acidental de exclusão para compartilhamentos de arquivos do Azure usando o backup do Azure
 
@@ -53,7 +53,7 @@ Se você tiver pelo menos um compartilhamento de arquivos protegido em uma conta
 >Você deve executar a etapa 2 antes que o próximo trabalho de backup agendado seja executado em relação ao compartilhamento de arquivos protegido em sua conta de armazenamento. Como sempre que o trabalho de backup é executado, ele habilita novamente a exclusão reversível para todos os compartilhamentos de arquivos na conta de armazenamento.
 
 >[!WARNING]
->Depois de desabilitar a exclusão reversível na etapa 2, qualquer operação de exclusão executada em relação aos compartilhamentos de arquivos é uma operação de exclusão permanente. Isso significa que se você excluir acidentalmente o compartilhamento de arquivos de backup depois de desabilitar a exclusão reversível, perderá todos os instantâneos e não poderá recuperar seus dados.
+>Depois de desabilitar a exclusão reversível na etapa 2, qualquer operação de exclusão executada em relação aos compartilhamentos de arquivos é uma operação de exclusão permanente. Portanto, se você excluir acidentalmente o compartilhamento de arquivos de backup depois de desabilitar a exclusão reversível, perderá todos os instantâneos e não poderá recuperar seus dados.
 
 ### <a name="in-the-context-of-a-file-shares-soft-delete-setting-what-changes-does-azure-backup-do-when-i-unregister-a-storage-account"></a>No contexto da configuração de exclusão reversível de um compartilhamento de arquivos, quais alterações o backup do Azure faz quando eu desregistro uma conta de armazenamento?
 

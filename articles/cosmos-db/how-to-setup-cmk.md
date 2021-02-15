@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 08/05/2020
 ms.author: thweiss
-ms.openlocfilehash: 9fa899e0f0de3b263baad7e44ed24d32d735b001
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: e87f6f158265fd8ac210a0a071e35b0bb77df4d9
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836501"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96338246"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-cosmos-account-with-azure-key-vault"></a>Configurar chaves gerenciadas pelo cliente para sua conta do Azure Cosmos DB com o Azure Key Vault
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Os dados armazenados em sua conta do Azure Cosmos são criptografados de forma automática e direta, com as chaves gerenciadas pela Microsoft (**chaves gerenciadas pelo serviço**). Você pode optar por adicionar uma segunda camada de criptografia com chaves gerenciadas por você (**chaves gerenciadas pelo cliente**).
 
@@ -44,8 +45,8 @@ Se você criar uma nova instância do Azure Key Vault, habilite essas propriedad
 
 Se estiver usando uma instância existente do Azure Key Vault, você poderá verificar se essas propriedades estão habilitadas examinando a seção **Propriedades** no portal do Azure. Se qualquer uma dessas propriedades não estiver habilitada, consulte as seções “Habilitar a exclusão reversível” e “Habilitar a proteção de limpeza” em um dos seguintes artigos:
 
-- [Como usar a exclusão reversível com o PowerShell](../key-vault/general/soft-delete-powershell.md)
-- [Como usar a exclusão reversível com a CLI do Azure](../key-vault/general/soft-delete-cli.md)
+- [Como usar a exclusão reversível com o PowerShell](../key-vault/general/key-vault-recovery.md)
+- [Como usar a exclusão reversível com a CLI do Azure](../key-vault/general/key-vault-recovery.md)
 
 ## <a name="add-an-access-policy-to-your-azure-key-vault-instance"></a>Adicionar uma política de acesso à sua instância do Azure Key Vault
 
@@ -257,7 +258,7 @@ A versão de chave ou chave anterior pode ser desabilitada após 24 horas, ou de
     
 ## <a name="error-handling"></a>Tratamento de erros
 
-Ao usar chaves gerenciadas pelo cliente (CMK) no Azure Cosmos DB, se houver erros, Azure Cosmos DB retornará os detalhes do erro junto com um código de substatus HTTP na resposta. Você pode usar esse código de substatus para depurar a causa raiz do problema. Consulte o artigo [códigos de status HTTP para Azure Cosmos DB](/rest/api/cosmos-db/http-status-codes-for-cosmosdb) para obter a lista de códigos de substatus HTTP com suporte.
+Ao usar chaves de Customer-Managed (CMK) em Azure Cosmos DB, se houver erros, Azure Cosmos DB retornará os detalhes do erro junto com um código de substatus HTTP na resposta. Você pode usar esse código de substatus para depurar a causa raiz do problema. Consulte o artigo [códigos de status HTTP para Azure Cosmos DB](/rest/api/cosmos-db/http-status-codes-for-cosmosdb) para obter a lista de códigos de substatus HTTP com suporte.
 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
@@ -279,7 +280,7 @@ Quando chaves gerenciadas pelo cliente são usadas, as [Unidades de Solicitaçã
 
 Todos os dados armazenados em sua conta do Azure Cosmos são criptografados com as chaves gerenciadas pelo cliente, exceto os seguintes metadados:
 
-- Os nomes das suas [contas, bancos de dados e contêineres](./account-overview.md#elements-in-an-azure-cosmos-account) do Azure Cosmos DB
+- Os nomes das suas [contas, bancos de dados e contêineres](./account-databases-containers-items.md#elements-in-an-azure-cosmos-account) do Azure Cosmos DB
 
 - Os nomes dos seus [procedimentos armazenados](./stored-procedures-triggers-udfs.md)
 

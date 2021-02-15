@@ -5,13 +5,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: conceptual
-ms.date: 07/30/2020
-ms.openlocfilehash: 84d1ba6ff343b5f3d1f88d7ae5c618601f416e2c
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.date: 10/15/2020
+ms.openlocfilehash: ed4b4d9c1de1e9024e8ea86d4661b42d6c68b0ae
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87513757"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460993"
 ---
 # <a name="roles-and-requirements-for-azure-data-share"></a>Funções e requisitos do Azure Data Share 
 
@@ -35,16 +35,15 @@ Veja abaixo um resumo das funções atribuídas à identidade gerenciada do recu
 |Armazenamento do Blobs do Azure| Leitor de Dados do Blob de Armazenamento | Colaborador de dados de blob de armazenamento
 |Azure Data Lake Gen1 | Proprietário | Sem suporte
 |Azure Data Lake Gen2 | Leitor de Dados do Blob de Armazenamento | Colaborador de dados de blob de armazenamento
-|Azure SQL Server | Colaborador do banco de dados SQL | Colaborador do banco de dados SQL
 |Cluster do Azure Data Explorer | Colaborador | Colaborador
 |
 
-Para o compartilhamento baseado em SQL, um usuário do SQL precisa ser criado a partir de um provedor externo no banco de dados SQL do Azure com o mesmo nome que o recurso de compartilhamento do Azure data share. Veja abaixo um resumo da permissão exigida pelo usuário do SQL.
+Para o compartilhamento baseado em SQL, um usuário do SQL precisa ser criado a partir de um provedor externo no banco de dados SQL do Azure com o mesmo nome que o recurso de compartilhamento do Azure data share. Azure Active Directory permissão de administrador é necessária para criar esse usuário. Veja abaixo um resumo da permissão exigida pelo usuário do SQL.
 
 |**Tipo de banco de dados SQL**|**Permissão de usuário do Provedor de Dados SQL**|**Permissão de usuário SQL de consumidor de dados**|
 |---|---|---|
 |Banco de Dados SQL do Azure | db_datareader | db_datareader, db_datawriter, db_ddladmin
-|Azure Synapse Analytics (antigo SQL DW) | db_datareader | db_datareader, db_datawriter, db_ddladmin
+|Azure Synapse Analytics | db_datareader | db_datareader, db_datawriter, db_ddladmin
 |
 
 ### <a name="data-provider"></a>Provedor de dados
@@ -55,16 +54,18 @@ Isso é feito automaticamente pelo serviço de compartilhamento de dados do Azur
 
 Como alternativa, o usuário pode ter o proprietário do armazenamento de dados do Azure adicionar a identidade gerenciada do recurso de compartilhamento de dados ao armazenamento de dados do Azure manualmente. Essa ação só precisa ser executada uma vez por recurso de compartilhamento de dados.
 
-Para criar uma atribuição de função para a identidade gerenciada do recurso de compartilhamento de dados, siga as etapas abaixo:
+Para criar uma atribuição de função para a identidade gerenciada do recurso de compartilhamento de dados manualmente, siga as etapas abaixo.  
 
 1. Navegue até o armazenamento de dados do Azure.
 1. Selecione **Controle de Acesso (IAM)** .
 1. Selecione **Adicionar uma atribuição de função**.
 1. Em *função*, selecione a função na tabela atribuição de função acima (por exemplo, para conta de armazenamento, selecione *leitor de dados de blob de armazenamento*).
 1. Em *selecionar*, digite o nome do recurso de compartilhamento de dados do Azure.
-1. Clique em *Salvar*.
+1. Clique em *Save* (Salvar).
 
-Para fontes baseadas em SQL, além das etapas acima, um usuário do SQL precisa ser criado a partir de um provedor externo no banco de dados SQL com o mesmo nome que o recurso de compartilhamento do Azure data share. Esse usuário precisa receber a permissão *db_datareader* . Um script de exemplo junto com outros pré-requisitos para o compartilhamento baseado em SQL pode ser encontrado no tutorial [compartilhar seus dados](share-your-data.md) . 
+Para saber mais sobre a atribuição de função, consulte [Adicionar ou remover atribuições de função do Azure usando o portal do Azure](../role-based-access-control/role-assignments-portal.md#add-a-role-assignment). Se você estiver compartilhando dados usando APIs REST, poderá criar uma atribuição de função usando a API fazendo referência [a adicionar ou remover atribuições de função do Azure usando a API REST](../role-based-access-control/role-assignments-rest.md). 
+
+Para fontes baseadas em SQL, um usuário do SQL precisa ser criado a partir de um provedor externo no banco de dados SQL com o mesmo nome que o recurso de compartilhamento de data do Azure ao se conectar ao banco de dados SQL usando a autenticação Azure Active Directory. Esse usuário precisa receber a permissão *db_datareader* . Um script de exemplo junto com outros pré-requisitos para o compartilhamento baseado em SQL pode ser encontrado no tutorial [compartilhamento do banco de dados SQL do Azure ou do Azure Synapse Analytics](how-to-share-from-sql.md) . 
 
 ### <a name="data-consumer"></a>Consumidor de dados
 Para receber dados, a identidade gerenciada do recurso de compartilhamento de dados do consumidor precisa receber acesso ao armazenamento de dados do Azure de destino. Por exemplo, no caso da conta de armazenamento, a identidade gerenciada do recurso de compartilhamento de dados recebe a função de colaborador de dados de blob de armazenamento. 
@@ -73,20 +74,18 @@ Isso é feito automaticamente pelo serviço de compartilhamento de dados do Azur
 
 Como alternativa, o usuário pode ter o proprietário do armazenamento de dados do Azure adicionar a identidade gerenciada do recurso de compartilhamento de dados ao armazenamento de dados do Azure manualmente. Essa ação só precisa ser executada uma vez por recurso de compartilhamento de dados.
 
-Para criar uma atribuição de função para a identidade gerenciada do recurso de compartilhamento de dados manualmente, siga as etapas abaixo:
+Para criar uma atribuição de função para a identidade gerenciada do recurso de compartilhamento de dados manualmente, siga as etapas abaixo. 
 
 1. Navegue até o armazenamento de dados do Azure.
 1. Selecione **Controle de Acesso (IAM)** .
 1. Selecione **Adicionar uma atribuição de função**.
 1. Em *função*, selecione a função na tabela atribuição de função acima (por exemplo, para conta de armazenamento, selecione *leitor de dados de blob de armazenamento*).
 1. Em *selecionar*, digite o nome do recurso de compartilhamento de dados do Azure.
-1. Clique em *Salvar*.
+1. Clique em *Save* (Salvar).
 
-Para destino baseado em SQL, além das etapas acima, um usuário do SQL precisa ser criado a partir de um provedor externo no banco de dados SQL com o mesmo nome que o recurso de compartilhamento do Azure data share. Esse usuário precisa receber a permissão *db_datareader, db_datawriter db_ddladmin* . Um script de exemplo junto com outros pré-requisitos para o compartilhamento baseado em SQL pode ser encontrado no tutorial [aceitar e receber dados](subscribe-to-data-share.md) . 
+Para saber mais sobre a atribuição de função, consulte [Adicionar ou remover atribuições de função do Azure usando o portal do Azure](../role-based-access-control/role-assignments-portal.md#add-a-role-assignment). Se você estiver recebendo dados usando APIs REST, poderá criar uma atribuição de função usando a API fazendo referência [a adicionar ou remover atribuições de função do Azure usando a API REST](../role-based-access-control/role-assignments-rest.md). 
 
-Se você estiver compartilhando dados usando APIs REST, precisará criar essas atribuições de função manualmente. 
-
-Para saber mais sobre como adicionar uma atribuição de função, consulte [esta documentação,](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#add-a-role-assignment). 
+Para o destino baseado em SQL, um usuário do SQL precisa ser criado a partir de um provedor externo no banco de dados SQL com o mesmo nome que o recurso de compartilhamento do Azure data ao se conectar ao banco de dado SQL usando a autenticação Azure Active Directory. Esse usuário precisa receber a permissão *db_datareader, db_datawriter db_ddladmin* . Um script de exemplo junto com outros pré-requisitos para o compartilhamento baseado em SQL pode ser encontrado no tutorial [compartilhamento do banco de dados SQL do Azure ou do Azure Synapse Analytics](how-to-share-from-sql.md) . 
 
 ## <a name="resource-provider-registration"></a>Registro do provedor de recursos 
 
@@ -103,6 +102,8 @@ Siga estas etapas para registrar o provedor de recursos Microsoft. DataShare em 
 1. Clique em **provedores de recursos**.
 1. Procure Microsoft. DataShare.
 1. Clique em **Registrar**.
+ 
+Para saber mais sobre o provedor de recursos, consulte [tipos e provedores de recursos do Azure](../azure-resource-manager/management/resource-providers-and-types.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

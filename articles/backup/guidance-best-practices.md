@@ -3,12 +3,12 @@ title: Diretrizes e melhores práticas
 description: Descubra as práticas recomendadas e as diretrizes para fazer backup da carga de trabalho local e na nuvem para a nuvem
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: db6eec5351a9015b136226610d2bb3deb8bdc651
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 7b65556d8dd9b5b12e8da25055f6e39732c83afd
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89000355"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258754"
 ---
 # <a name="backup-cloud-and-on-premises-workloads-to-cloud"></a>Fazer backup de cargas de trabalho locais e na nuvem para a nuvem
 
@@ -42,13 +42,13 @@ O backup do Azure permite a proteção de dados para várias cargas de trabalho 
 
 * **Proteção contra exclusão mal-intencionada –** Proteja-se contra qualquer tentativa acidental e mal-intencionada de excluir seus backups por meio da exclusão reversível de backups. Os dados de backup excluídos são armazenados por 14 dias gratuitamente e permitem que ele seja recuperado a partir desse Estado.
 
-* **Backups criptografados seguros-** O backup do Azure garante que os dados de backup sejam armazenados de maneira segura, aproveitando os recursos de segurança internos da plataforma Azure, como RBAC e Encryption.
+* **Backups criptografados seguros-** O backup do Azure garante que os dados de backup sejam armazenados de maneira segura, aproveitando os recursos de segurança internos da plataforma Azure, como o RBAC do Azure e a criptografia.
 
 * **Gerenciamento do ciclo de vida de dados de backup-** O backup do Azure limpa automaticamente os dados de backup mais antigos para atender às políticas de retenção. Você também pode hierarquizar seus dados do armazenamento operacional para o armazenamento de cofre.
 
 ### <a name="management-plane"></a>Plano de gerenciamento
 
-* **Controle de acesso** – o cofre dos serviços de recuperação fornece os recursos de gerenciamento e é acessível por meio do portal do Azure, SDK, CLI e até mesmo APIs REST. Ele também é um limite de RBAC, fornecendo a opção de restringir o acesso a backups somente para administradores de backup autorizados.
+* **Controle de acesso** – cofres (serviços de recuperação e cofres de backup) fornecem os recursos de gerenciamento e podem ser acessados por meio de portal do Azure, centro de backup, painéis de cofre, SDK, CLI e até mesmo APIs REST. Ele também é um limite do RBAC do Azure, fornecendo a opção de restringir o acesso a backups somente para administradores de backup autorizados.
 
 * **Gerenciamento de políticas** – as políticas de backup do Azure em cada cofre definem quando os backups devem ser disparados e por quanto tempo eles precisam ser retidos. Você também pode gerenciar essas políticas e aplicá-las em vários itens.
 
@@ -58,7 +58,7 @@ O backup do Azure permite a proteção de dados para várias cargas de trabalho 
 
 ## <a name="vault-considerations"></a>Considerações sobre o cofre
 
-O Backup do Azure usa cofres dos Serviços de Recuperação para orquestrar e gerenciar backups. Ele também usa cofres para armazenar dados de backup. O design de cofre efetivo ajuda as organizações a estabelecer uma estrutura para organizar e gerenciar ativos de backup no Azure para dar suporte às suas prioridades de negócios. Considere as seguintes diretrizes ao criar um cofre:  
+O backup do Azure usa cofres (serviços de recuperação e cofres de backup) para orquestrar e gerenciar backups. Ele também usa cofres para armazenar dados de backup. O design de cofre efetivo ajuda as organizações a estabelecer uma estrutura para organizar e gerenciar ativos de backup no Azure para dar suporte às suas prioridades de negócios. Considere as seguintes diretrizes ao criar um cofre:  
 
 ### <a name="align-to-subscription-design-strategy"></a>Alinhar à estratégia de design da assinatura
 
@@ -71,8 +71,9 @@ Você pode usar um único cofre ou vários cofres para organizar e gerenciar o b
 * Se suas cargas de trabalho forem todas gerenciadas por uma única assinatura e um único recurso, você poderá usar um único cofre para monitorar e gerenciar seu espaço de backup.
 
 * Se suas cargas de trabalho forem distribuídas entre assinaturas, você poderá criar vários cofres, um ou mais por assinatura.
-  * Para simplificar o monitoramento de atividades operacionais em todos os cofres, assinaturas e locatários, você pode usar o Gerenciador de backup e os relatórios. [Saiba mais aqui](monitor-azure-backup-with-backup-explorer.md) para obter uma exibição agregada.
-  * Se você precisar de uma política consistente entre os cofres, poderá usar a política do Azure para propagar a política de backup em vários cofres. Você pode escrever uma [definição de Azure Policy](../governance/policy/concepts/definition-structure.md) personalizada que usa o efeito [' deployifnotexists '](../governance/policy/concepts/effects.md#deployifnotexists) para propagar uma política de backup em vários cofres. Você atribui pode [atribuir](../governance/policy/assign-policy-portal.md) esse Azure Policy definição a um escopo específico (assinatura ou RG), para que ele implante um recurso de ' política de backup ' em todos os cofres dos serviços de recuperação no escopo da atribuição de Azure Policy. As configurações da política de backup (como frequência de backup, retenção e assim por diante) devem ser especificadas pelo usuário como parâmetros na atribuição de Azure Policy.
+  * O centro de backup permite que você tenha um único painel de vidro para gerenciar todas as tarefas relacionadas ao backup. [Saiba mais aqui]().
+  * Você pode personalizar suas exibições com modelos de pasta de trabalho. O Gerenciador de backup é um desses modelos para VMs do Azure. [Saiba mais aqui](monitor-azure-backup-with-backup-explorer.md).
+  * Se você precisar de uma política consistente entre os cofres, poderá usar a política do Azure para propagar a política de backup em vários cofres. Você pode escrever uma [definição de Azure Policy](../governance/policy/concepts/definition-structure.md) personalizada que usa o efeito [' deployifnotexists '](../governance/policy/concepts/effects.md#deployifnotexists) para propagar uma política de backup em vários cofres. Você também pode [atribuir](../governance/policy/assign-policy-portal.md) essa definição de Azure Policy a um escopo específico (assinatura ou RG), para que ele implante um recurso de ' política de backup ' em todos os cofres dos serviços de recuperação no escopo da atribuição de Azure Policy. As configurações da política de backup (como frequência de backup, retenção e assim por diante) devem ser especificadas pelo usuário como parâmetros na atribuição de Azure Policy.
 
 * À medida que sua superfície organizacional cresce, convém mover as cargas de trabalho entre as assinaturas pelos seguintes motivos: alinhar por política de backup, consolidar cofres, compensação de redundância menor para economizar no custo (mover de GRS para LRS).  O backup do Azure dá suporte à movimentação de um cofre de serviços de recuperação entre assinaturas do Azure ou a outro grupo de recursos na mesma assinatura. [Saiba mais aqui](backup-azure-move-recovery-services-vault.md).
 
@@ -253,7 +254,7 @@ Como um usuário ou administrador de backup, você deve ser capaz de monitorar t
 
 * Se você precisar **criar alertas personalizados** (por exemplo, alertas de trabalhos com êxito), use log Analytics. No Azure Monitor, você pode criar seus alertas em um workspace do Log Analytics. As cargas de trabalho híbridas (DPM/MABS) também podem enviar dados para LA e usar LA para fornecer alertas comuns entre cargas de trabalho com suporte do backup do Azure.
 
-* Você também pode obter notificações por meio de **logs de atividade**do cofre de serviços de recuperação internos. No entanto, ele dá suporte a cenários limitados e não é adequado para operações como backup agendado, que se alinha melhor com os logs de recursos do que com os logs de atividade. Para saber mais sobre essas limitações e como você pode usar Log Analytics espaço de trabalho para monitoramento e alertas em escala para todas as suas cargas que são protegidas pelo backup do Azure, consulte este [artigo](backup-azure-monitoring-use-azuremonitor.md#using-log-analytics-to-monitor-at-scale).
+* Você também pode obter notificações por meio de **logs de atividade** do cofre de serviços de recuperação internos. No entanto, ele dá suporte a cenários limitados e não é adequado para operações como backup agendado, que se alinha melhor com os logs de recursos do que com os logs de atividade. Para saber mais sobre essas limitações e como você pode usar Log Analytics espaço de trabalho para monitoramento e alertas em escala para todas as suas cargas que são protegidas pelo backup do Azure, consulte este [artigo](backup-azure-monitoring-use-azuremonitor.md#using-log-analytics-to-monitor-at-scale).
 
 ## <a name="next-steps"></a>Próximas etapas
 

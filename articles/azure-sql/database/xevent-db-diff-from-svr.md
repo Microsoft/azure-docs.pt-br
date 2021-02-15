@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: performance
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
-author: MightyPen
-ms.author: genemi
-ms.reviewer: jrasnik
+ms.topic: reference
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.reviewer: sstein
 ms.date: 12/19/2018
-ms.openlocfilehash: 7f0f50de3f74f0e8040118035e28b3e905ed5616
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 139673e46421aa0dc19298697872fbff5fe587af
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84033837"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96501202"
 ---
 # <a name="extended-events-in-azure-sql-database"></a>Eventos estendidos no Banco de Dados SQL do Azure 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -29,7 +29,7 @@ O conjunto de recursos de eventos estendidos no banco de dados SQL do Azure é u
 
 Informações adicionais sobre eventos estendidos estão disponíveis em:
 
-- [Início Rápido: eventos estendidos em SQL Server](/sql/relational-databases/extended-events/quick-start-extended-events-in-sql-server)
+- [Início rápido: eventos estendidos no SQL Server](/sql/relational-databases/extended-events/quick-start-extended-events-in-sql-server)
 - [Eventos estendidos](/sql/relational-databases/extended-events/extended-events)
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -51,12 +51,12 @@ A exposição prévia aos itens a seguir é útil ao escolher o Arquivo de Event
 
 Os tópicos relacionados fornecem dois exemplos de código:
 
-- [Código de destino do buffer de anéis para eventos estendidos no banco de dados SQL do Azure](xevent-code-ring-buffer.md)
+- [Código de destino do Buffer de Anéis para eventos estendidos no Banco de Dados SQL do Azure](xevent-code-ring-buffer.md)
 
   - Script curto e simples de Transact-SQL.
   - Enfatizamos no tópico do exemplo de código que, quando você concluir um destino de Buffer de Anéis, será necessário liberar seus recursos executando uma instrução alter-drop `ALTER EVENT SESSION ... ON DATABASE DROP TARGET ...;` . Mais tarde, você poderá adicionar outra instância do Buffer de Anéis com `ALTER EVENT SESSION ... ON DATABASE ADD TARGET ...`.
 
-- [Código de destino do arquivo de evento para eventos estendidos no banco de dados SQL do Azure](xevent-code-event-file.md)
+- [Código de destino do arquivo de evento para eventos estendidos no Banco de Dados SQL do Azure](xevent-code-event-file.md)
 
   - A Fase 1 é PowerShell a fim de criar o contêiner de Armazenamento do Azure
   - Fase 2 é Transact-SQL que usa o contêiner de Armazenamento do Azure.
@@ -71,7 +71,7 @@ Os tópicos relacionados fornecem dois exemplos de código:
 
 ## <a name="new-catalog-views"></a>Novas exibições do catálogo
 
-O recurso de eventos estendidos recebe suporte de várias [exibições do catálogo](https://msdn.microsoft.com/library/ms174365.aspx). As exibições do catálogo mostram *metadados ou definições* de sessões de eventos criadas pelo usuário no banco de dados atual. As exibições não retornam informações sobre as instâncias de sessões de eventos ativas.
+O recurso de eventos estendidos recebe suporte de várias [exibições do catálogo](/sql/relational-databases/system-catalog-views/catalog-views-transact-sql). As exibições do catálogo mostram *metadados ou definições* de sessões de eventos criadas pelo usuário no banco de dados atual. As exibições não retornam informações sobre as instâncias de sessões de eventos ativas.
 
 | Nome da<br/>exibição do catálogo | Descrição |
 |:--- |:--- |
@@ -83,19 +83,19 @@ O recurso de eventos estendidos recebe suporte de várias [exibições do catál
 
 No Microsoft SQL Server, exibições do catálogo semelhantes têm nomes que incluem *.server\_* em vez de *.database\_*. O nome padrão é **sys.server_event_%**.
 
-## <a name="new-dynamic-management-views-dmvs"></a>Novas exibições de gerenciamento dinâmico [(DMVs)](https://msdn.microsoft.com/library/ms188754.aspx)
+## <a name="new-dynamic-management-views-dmvs"></a>Novas exibições de gerenciamento dinâmico [(DMVs)](/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views)
 
-O Banco de Dados SQL do Azure tem [exibições de gerenciamento dinâmico (DMVs)](https://msdn.microsoft.com/library/bb677293.aspx) que dão suporte a eventos estendidos. DMVs mostram as sessões de evento *ativas* .
+O Banco de Dados SQL do Azure tem [exibições de gerenciamento dinâmico (DMVs)](/sql/relational-databases/system-dynamic-management-views/extended-events-dynamic-management-views) que dão suporte a eventos estendidos. DMVs mostram as sessões de evento *ativas* .
 
 | Nome da DMV | Descrição |
 |:--- |:--- |
 | **sys.dm_xe_database_session_event_actions** |Retorna informações sobre ações da sessão de evento. |
 | **sys.dm_xe_database_session_events** |Retorna informações sobre os eventos da sessão. |
 | **sys.dm_xe_database_session_object_columns** |Mostra os valores de configuração de objetos associados a uma sessão. |
-| **sys. dm_xe_database_session_targets** |Retorna informações sobre os destinos da sessão. |
-| **sys. dm_xe_database_sessions** |Retorna uma linha para cada sessão de evento com escopo no banco de dados atual. |
+| **sys.dm_xe_database_session_targets** |Retorna informações sobre os destinos da sessão. |
+| **sys.dm_xe_database_sessions** |Retorna uma linha para cada sessão de evento com escopo no banco de dados atual. |
 
-No Microsoft SQL Server, exibições de catálogo semelhantes são nomeadas sem a parte do * \_ banco de dados* do nome, como:
+No Microsoft SQL Server, exibições de catálogo semelhantes são nomeadas sem a parte do *\_ banco de dados* do nome, como:
 
 - **sys.dm_xe_sessions**, em vez de nome<br/>**sys.dm_xe_database_sessions**.
 
@@ -140,11 +140,11 @@ SELECT
 
 Aqui estão os destinos que podem capturar resultados de suas sessões de evento no banco de dados SQL do Azure:
 
-- [Destino de Buffer de Anéis](https://msdn.microsoft.com/library/ff878182.aspx) - armazena dados na memória por um curto período.
-- [Destino de Contador de eventos](https://msdn.microsoft.com/library/ff878025.aspx) - conta todos os eventos que ocorrem durante uma sessão de eventos estendidos.
-- [Destino de Arquivo de evento](https://msdn.microsoft.com/library/ff878115.aspx) - grava buffers completos em um contêiner de Armazenamento do Azure.
+- [Destino de Buffer de Anéis](/previous-versions/sql/sql-server-2016/bb630339(v=sql.130)) - armazena dados na memória por um curto período.
+- [Destino de Contador de eventos](/previous-versions/sql/sql-server-2016/ff878025(v=sql.130)) - conta todos os eventos que ocorrem durante uma sessão de eventos estendidos.
+- [Destino de Arquivo de evento](/previous-versions/sql/sql-server-2016/ff878115(v=sql.130)) - grava buffers completos em um contêiner de Armazenamento do Azure.
 
-A API do [ETW (rastreamento de eventos para Windows)](https://msdn.microsoft.com/library/ms751538.aspx) não está disponível para eventos estendidos no banco de dados SQL do Azure.
+A API do [ETW (rastreamento de eventos para Windows)](/dotnet/framework/wcf/samples/etw-tracing) não está disponível para eventos estendidos no banco de dados SQL do Azure.
 
 ## <a name="restrictions"></a>Restrições
 
@@ -183,11 +183,11 @@ O destino **Arquivo de Evento** pode enfrentar latência de rede ou falhas ao pe
 ## <a name="related-links"></a>Links relacionados
 
 - [Usando Azure PowerShell com o armazenamento do Azure](/powershell/module/az.storage/).
-- [Cmdlets do Armazenamento do Azure](https://docs.microsoft.com/powershell/module/Azure.Storage)
+- [Cmdlets do Armazenamento do Azure](/powershell/module/Azure.Storage)
 - [Usando o PowerShell do Azure com o Armazenamento do Azure](/powershell/module/az.storage/)
 - [Como usar o Armazenamento de blob do .NET](../../storage/blobs/storage-quickstart-blobs-dotnet.md)
-- [CREATE CREDENTIAL (Transact-SQL)](https://msdn.microsoft.com/library/ms189522.aspx)
-- [CREATE EVENT SESSION (Transact-SQL)](https://msdn.microsoft.com/library/bb677289.aspx)
+- [CREATE CREDENTIAL (Transact-SQL)](/sql/t-sql/statements/create-credential-transact-sql)
+- [CREATE EVENT SESSION (Transact-SQL)](/sql/t-sql/statements/create-event-session-transact-sql)
 - [Postagens do blog de Jonathan Kehayias sobre eventos estendidos no Microsoft SQL Server](https://www.sqlskills.com/blogs/jonathan/category/extended-events/)
 - A página Web *Atualizações de Serviço* do Azure, limitada com o parâmetro para o Banco de Dados SQL do Azure:
   - [https://azure.microsoft.com/updates/?service=sql-database](https://azure.microsoft.com/updates/?service=sql-database)
@@ -195,6 +195,6 @@ O destino **Arquivo de Evento** pode enfrentar latência de rede ou falhas ao pe
 <!--
 ('lock_acquired' event.)
 
-- Code sample for SQL Server: [Determine Which Queries Are Holding Locks](https://msdn.microsoft.com/library/bb677357.aspx)
-- Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](https://msdn.microsoft.com/library/bb630355.aspx)
+- Code sample for SQL Server: [Determine Which Queries Are Holding Locks](/sql/relational-databases/extended-events/determine-which-queries-are-holding-locks)
+- Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](/sql/relational-databases/extended-events/find-the-objects-that-have-the-most-locks-taken-on-them)
 -->

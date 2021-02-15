@@ -6,14 +6,14 @@ ms.author: suvetriv
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 08/11/2020
-ms.openlocfilehash: c066931cece60d14767b86254020ea5ba4bad1be
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 5b5ae695ac11ae687a9b076005a765feaa46f83c
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88854508"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98049500"
 ---
-# <a name="support-lifecycle-for-azure-red-hat-openshift-4"></a>Ciclo de vida de suporte para o Azure Red Hat OpenShift 4
+# <a name="support-lifecycle-for-azure-red-hat-openshift-4"></a>Dar suporte ao ciclo de vida para Red Hat OpenShift no Azure 4
 
 O Red Hat lança versões secundárias da OpenShift (plataforma de contêiner do Red Hat) aproximadamente a cada três meses. Essas versões incluem novos recursos e melhorias. As versões de patch são mais frequentes (geralmente semanalmente) e são destinadas apenas a correções de bugs críticos em uma versão secundária. Essas versões de patch podem incluir correções para vulnerabilidades de segurança ou principais bugs.
 
@@ -97,12 +97,10 @@ Consulte o seguinte guia para o [histórico de lançamento da plataforma de cont
 
 |Versão OCP|Versão de upstream|Disponibilidade geral do Azure Red Hat OpenShift|Fim de vida|
 |-|-|-|-|
-|4.3|Fevereiro de 2020|Maio de 2020|Agosto de 2020|
-|4.4|Maio de 2020|Agosto de 2020|4.6 GA|
-|4.5|Julho de 2020|Outubro de 2020|4,7 GA
-|4.6|* Primeiro trimestre, 2020|* No final do quarto trimestre, 2020|4,8 GA|
-
-\*_Confirmação de data de lançamento de upstream pendente._
+|4.3|Janeiro de 2020|Abril de 2020| Agosto de 2020|
+|4.4|Maio de 2020|Julho de 2020|4.6 GA|
+|4.5|Julho de 2020| Novembro de 2020|4,7 GA
+|4.6|Outubro de 2020| Fevereiro de 2021|4,8 GA|
 
 ## <a name="faq"></a>Perguntas frequentes
 

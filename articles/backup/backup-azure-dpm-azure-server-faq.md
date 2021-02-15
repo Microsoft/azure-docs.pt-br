@@ -4,12 +4,12 @@ description: Neste artigo, descubra respostas para perguntas comuns sobre o MABS
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 07/05/2019
-ms.openlocfilehash: 00eb064aaf549ee0d83d0cf7d9c9b47c2dc5ef78
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 1663a842b7e00c611543451d4caef96b5b5a913f
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88827198"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97954984"
 ---
 # <a name="azure-backup-server-and-dpm---faq"></a>Servidor de Backup do Azure e o DPM-perguntas frequentes
 
@@ -39,7 +39,7 @@ Para os servidores DPM com fontes de dados protegidas na nuvem (usando um pacote
 
 ### <a name="are-there-recommendations-for-configuring-exclusions-for-antivirus-software"></a>Há recomendações para configurar exclusões para software antivírus?
 
-Sim, é recomendável configurar a exclusão de antivírus. Para exclusões do DPM, consulte [executar software antivírus no servidor DPM](https://docs.microsoft.com/system-center/dpm/run-antivirus-server?view=sc-dpm-2019). Para obter exclusões para MABS, consulte [Configurar o antivírus para o servidor mAbs](backup-azure-mabs-troubleshoot.md#configure-antivirus-for-mabs-server).
+Sim, é recomendável configurar a exclusão de antivírus. Para exclusões do DPM, consulte [executar software antivírus no servidor DPM](/system-center/dpm/run-antivirus-server). Para obter exclusões para MABS, consulte [Configurar o antivírus para o servidor mAbs](backup-azure-mabs-troubleshoot.md#configure-antivirus-for-mabs-server).
 
 ## <a name="vmware-and-hyper-v-backup"></a>Backup do VMware e Hyper-V
 
@@ -56,6 +56,10 @@ Você não precisa separar licenciamento para a proteção de VMware/Hyper-V.
 
 - Se você for um cliente do System Center, use o System Center Data Protection Manager (DPM) para proteger as VMs do VMware.
 - Se você não for um cliente do System Center, você pode usar o Servidor de Backup do Azure (pré-pago) para proteger as VMs VMware.
+
+### <a name="can-i-restore-a-backup-of-a-hyper-v-or-vmware-vm-stored-in-azure-to-azure-as-an-azure-vm"></a>Posso restaurar um backup de uma VM Hyper-V ou VMware, armazenada no Azure, no Azure como uma VM do Azure?
+
+Não, isso não é possível no momento. Você só pode restaurar para um host local.
 
 ## <a name="sharepoint"></a>SharePoint
 

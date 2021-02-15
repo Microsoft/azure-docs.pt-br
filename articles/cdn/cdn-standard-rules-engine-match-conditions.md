@@ -8,17 +8,17 @@ ms.topic: article
 ms.date: 11/01/2019
 ms.author: allensu
 ms.openlocfilehash: b8050b973027ac91ede0ba98f4d1c76831da9828
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81259912"
 ---
 # <a name="match-conditions-in-the-standard-rules-engine-for-azure-cdn"></a>Condições de correspondência no mecanismo de regras padrão para a CDN do Azure
 
 No [mecanismo de regras padrão](cdn-standard-rules-engine.md) para a rede de distribuição de conteúdo do Azure (CDN do Azure), uma regra consiste em uma ou mais condições de correspondência e uma ação. Este artigo fornece descrições detalhadas das condições de correspondência que você pode usar no mecanismo de regras padrão para a CDN do Azure.
 
-A primeira parte de uma regra é uma condição de correspondência ou um conjunto de condições de correspondência. No mecanismo de regras padrão para a CDN do Azure, cada regra pode ter até quatro condições de correspondência. Uma condição de correspondência identifica tipos específicos de solicitações para as quais as ações definidas são executadas. Se você usar várias condições de correspondência, as condições de correspondência serão agrupadas em conjunto usando AND lógica.
+A primeira parte de uma regra é uma condição de correspondência ou um conjunto de condições de correspondência. No mecanismo de regras padrão para a CDN do Azure, cada regra pode ter até quatro condições de correspondência. Uma condição de correspondência identifica tipos específicos de solicitações para as quais as ações definidas são executadas. Se você usar várias condições de correspondência, as condições de correspondência serão agrupadas em conjunto usando a lógica AND.
 
 Por exemplo, você pode usar uma condição de correspondência para:
 
@@ -38,7 +38,7 @@ Identifica solicitações feitas de um dispositivo móvel ou dispositivo de desk
 
 Operador | Valores com suporte
 ---------|----------------
-Equals, não é igual a | Móvel, área de trabalho
+Igual, não igual | Dispositivo móvel, desktop
 
 ### <a name="http-version"></a>Versão HTTP
 
@@ -48,7 +48,7 @@ Identifica solicitações com base na versão HTTP da solicitação.
 
 Operador | Valores com suporte
 ---------|----------------
-Equals, não é igual a | 2,0, 1,1, 1,0, 0,9, todos
+Igual, não igual | 2,0, 1,1, 1,0, 0,9, todos
 
 ### <a name="request-cookies"></a>Solicitar cookies
 
@@ -56,9 +56,9 @@ Identifica solicitações com base nas informações de cookie na solicitação 
 
 #### <a name="required-fields"></a>Campos obrigatórios
 
-Nome do cookie | Operador | Valor do cookie | Transformação de caso
+Nome do cookie | Operador | Valor do cookie | Transformação de maiúsculas e minúsculas
 ------------|----------|--------------|---------------
-String | [Lista de operadores padrão](#standard-operator-list) | Cadeia de caracteres, int | Nenhuma transformação, para letras maiúsculas, para minúsculas
+String | [Lista de operadores padrão](#standard-operator-list) | Cadeia de Caracteres, Int | Nenhuma transformação, para letras maiúsculas, para minúsculas
 
 #### <a name="key-information"></a>Principais informações
 
@@ -71,48 +71,48 @@ String | [Lista de operadores padrão](#standard-operator-list) | Cadeia de cara
 
 ### <a name="post-argument"></a>Argumento post
 
-Identifica solicitações com base em argumentos definidos para o método POST Request que é usado na solicitação. 
+Identifica solicitações com base em argumentos definidos para o método de solicitação POST usado na solicitação. 
 
 #### <a name="required-fields"></a>Campos obrigatórios
 
-Nome do argumento | Operador | Valor do argumento | Transformação de caso
+Nome do argumento | Operador | Valor do argumento | Transformação de maiúsculas e minúsculas
 --------------|----------|----------------|---------------
-String | [Lista de operadores padrão](#standard-operator-list) | Cadeia de caracteres, int | Nenhuma transformação, para letras maiúsculas, para minúsculas
+String | [Lista de operadores padrão](#standard-operator-list) | Cadeia de Caracteres, Int | Nenhuma transformação, para letras maiúsculas, para minúsculas
 
 ### <a name="query-string"></a>Cadeia de consulta
 
-Identifica solicitações que contêm um parâmetro de cadeia de caracteres de consulta específico. Esse parâmetro é definido como um valor que corresponde a um padrão específico. Os parâmetros de cadeia de caracteres de consulta (por exemplo, **parâmetro = valor**) na URL da solicitação determinam se essa condição é atendida. Essa condição de correspondência identifica um parâmetro de cadeia de caracteres de consulta por seu nome e aceita um ou mais valores para o valor do parâmetro.
+Identifica as solicitações que contêm um parâmetro de cadeia de caracteres de consulta específico. Esse parâmetro é definido como um valor que corresponde a um padrão específico. Parâmetros de cadeia de caracteres de consulta (por exemplo, **parameter=value**) na URL de solicitação determinam se essa condição é atendida. Essa condição de correspondência identifica um parâmetro de cadeia de caracteres de consulta por seu nome e aceita um ou mais valores para o valor do parâmetro.
 
 #### <a name="required-fields"></a>Campos obrigatórios
 
-Operador | Cadeia de consulta | Transformação de caso
+Operador | Cadeia de consulta | Transformação de maiúsculas e minúsculas
 ---------|--------------|---------------
-[Lista de operadores padrão](#standard-operator-list) | Cadeia de caracteres, int | Nenhuma transformação, para letras maiúsculas, para minúsculas
+[Lista de operadores padrão](#standard-operator-list) | Cadeia de Caracteres, Int | Nenhuma transformação, para letras maiúsculas, para minúsculas
 
 ### <a name="remote-address"></a>Endereço remoto
 
-Identifica solicitações com base no local ou endereço IP do solicitante.
+Identifica solicitações com base na localização ou no endereço IP do solicitante.
 
 #### <a name="required-fields"></a>Campos obrigatórios
 
 Operador | Valores com suporte
 ---------|-----------------
 Qualquer | N/D
-Correspondência geográfica | Código do país
+Correspondência Geográfica | Código do país
 Correspondência de IP | Endereço IP (separado por espaços)
 Não qualquer | N/D
-Não correspondência geográfica | Código do país
-Não correspondência de IP | Endereço IP (separado por espaços)
+Sem correspondência geográfica | Código do país
+Não Correspondência de IP | Endereço IP (separado por espaços)
 
 #### <a name="key-information"></a>Principais informações
 
 - Use a notação CIDR.
-- Para especificar vários endereços IP e blocos de endereço IP, use um único espaço entre os valores:
-  - **Exemplo de IPv4**: *1.2.3.4 10.20.30.40* corresponde a todas as solicitações que chegam de um endereço 1.2.3.4 ou 10.20.30.40.
-  - **Exemplo de IPv6**: *1:2:3:4:5:6:7:8 10:20:30:40:50:60:70:80* corresponde a todas as solicitações que chegam de um dos endereços 1:2:3:4:5:6:7:8 ou 10:20:30:40:50:60:70:80.
+- Para especificar vários endereços IP e blocos de endereço IP, use um só espaço entre os valores:
+  - **Exemplo de IPv4**: *1.2.3.4 10.20.30.40* corresponde a qualquer solicitação que chega dos endereços 1.2.3.4 ou 10.20.30.40.
+  - **Exemplo de IPv6**: *1:2:3:4:5:6:7:8 10:20:30:40:50:60:70:80* corresponde a qualquer solicitação que chega dos endereços 1:2:3:4:5:6:7:8 ou 10:20:30:40:50:60:70:80.
 - A sintaxe para um bloco de endereços IP é o endereço IP básico seguido por uma barra invertida e o tamanho do prefixo. Por exemplo:
-  - **Exemplo de IPv4**: *5.5.5.64/26* corresponde a todas as solicitações que chegam de endereços 5.5.5.64 por meio de 5.5.5.127.
-  - **Exemplo de IPv6**: *1:2:3:/48* corresponde a todas as solicitações que chegam de endereços 1:2:3:0:0:0:0:0 a 1:2: 3: ffff: ffff: ffff: ffff: ffff.
+  - **Exemplo de IPv4**: *5.5.5.64/26* corresponde a qualquer solicitação que chega dos endereços 5.5.5.64 a 5.5.5.127.
+  - **Exemplo de IPv6**: *1:2:3:/48* corresponde a qualquer solicitação que chega dos endereços 1:2:3:0:0:0:0:0 por meio de 1:2:3:ffff:ffff:ffff:ffff:ffff.
 
 ### <a name="request-body"></a>Corpo da solicitação
 
@@ -120,9 +120,9 @@ Identifica solicitações com base em um texto específico que aparece no corpo 
 
 #### <a name="required-fields"></a>Campos obrigatórios
 
-Operador | Corpo da solicitação | Transformação de caso
+Operador | Corpo da solicitação | Transformação de maiúsculas e minúsculas
 ---------|--------------|---------------
-[Lista de operadores padrão](#standard-operator-list) | Cadeia de caracteres, int | Nenhuma transformação, para letras maiúsculas, para minúsculas
+[Lista de operadores padrão](#standard-operator-list) | Cadeia de Caracteres, Int | Nenhuma transformação, para letras maiúsculas, para minúsculas
 
 ### <a name="request-header"></a>Cabeçalho da solicitação
 
@@ -130,9 +130,9 @@ Identifica as solicitações que usam um cabeçalho específico na solicitação
 
 #### <a name="required-fields"></a>Campos obrigatórios
 
-Nome do cabeçalho | Operador | Valor do cabeçalho | Transformação de caso
+Nome do cabeçalho | Operador | Valor do cabeçalho | Transformação de maiúsculas e minúsculas
 ------------|----------|--------------|---------------
-String | [Lista de operadores padrão](#standard-operator-list) | Cadeia de caracteres, int | Nenhuma transformação, para letras maiúsculas, para minúsculas
+String | [Lista de operadores padrão](#standard-operator-list) | Cadeia de Caracteres, Int | Nenhuma transformação, para letras maiúsculas, para minúsculas
 
 ### <a name="request-method"></a>Método de solicitação
 
@@ -142,7 +142,7 @@ Identifica as solicitações que usam o método de solicitação especificado.
 
 Operador | Valores com suporte
 ---------|----------------
-Equals, não é igual a | OBTER, POSTAR, COLOCAR, EXCLUIR, CABEÇALHO, OPÇÕES, RASTREAMENTO
+Igual, não igual | GET, POST, PUT, DELETE, HEAD, OPTIONS, TRACE
 
 #### <a name="key-information"></a>Principais informações
 
@@ -156,21 +156,21 @@ Identifica as solicitações que usam o protocolo especificado usado.
 
 Operador | Valores com suporte
 ---------|----------------
-Equals, não é igual a | HTTP, HTTPS
+Igual, não igual | HTTP, HTTPS
 
-### <a name="request-url"></a>URL da solicitação
+### <a name="request-url"></a>URL de Solicitação
 
 Identifica as solicitações que correspondem à URL especificada.
 
 #### <a name="required-fields"></a>Campos obrigatórios
 
-Operador | URL da solicitação | Transformação de caso
+Operador | URL de Solicitação | Transformação de maiúsculas e minúsculas
 ---------|-------------|---------------
-[Lista de operadores padrão](#standard-operator-list) | Cadeia de caracteres, int | Nenhuma transformação, para letras maiúsculas, para minúsculas
+[Lista de operadores padrão](#standard-operator-list) | Cadeia de Caracteres, Int | Nenhuma transformação, para letras maiúsculas, para minúsculas
 
 #### <a name="key-information"></a>Principais informações
 
-- Ao usar essa condição de regra, certifique-se de incluir informações de protocolo. Por exemplo: * https://www . \<yourdomain\> . com*.
+- Ao usar essa condição de regra, inclua informações de protocolo. Por exemplo: *https://www.\<yourdomain\>.com*.
 
 ### <a name="url-file-extension"></a>Extensão de arquivo de URL
 
@@ -178,13 +178,13 @@ Identifica solicitações que incluem a extensão de arquivo especificada no nom
 
 #### <a name="required-fields"></a>Campos obrigatórios
 
-Operador | Extensão | Transformação de caso
+Operador | Extensão | Transformação de maiúsculas e minúsculas
 ---------|-----------|---------------
-[Lista de operadores padrão](#standard-operator-list) | Cadeia de caracteres, int | Nenhuma transformação, para letras maiúsculas, para minúsculas
+[Lista de operadores padrão](#standard-operator-list) | Cadeia de Caracteres, Int | Nenhuma transformação, para letras maiúsculas, para minúsculas
 
 #### <a name="key-information"></a>Principais informações
 
-- Para extensão, não inclua um ponto à esquerda; por exemplo, use *HTML* em vez de *. html*.
+- Para extensão, não inclua um ponto à esquerda; por exemplo, use *html*, em vez de *.html*.
 
 ### <a name="url-file-name"></a>Nome do arquivo da URL
 
@@ -192,9 +192,9 @@ Identifica solicitações que incluem o nome de arquivo especificado na URL soli
 
 #### <a name="required-fields"></a>Campos obrigatórios
 
-Operador | Nome do Arquivo | Transformação de caso
+Operador | Nome do arquivo | Transformação de maiúsculas e minúsculas
 ---------|-----------|---------------
-[Lista de operadores padrão](#standard-operator-list) | Cadeia de caracteres, int | Nenhuma transformação, para letras maiúsculas, para minúsculas
+[Lista de operadores padrão](#standard-operator-list) | Cadeia de Caracteres, Int | Nenhuma transformação, para letras maiúsculas, para minúsculas
 
 #### <a name="key-information"></a>Principais informações
 
@@ -206,9 +206,9 @@ Identifica solicitações que incluem o caminho especificado na URL solicitante.
 
 #### <a name="required-fields"></a>Campos obrigatórios
 
-Operador | Valor | Transformação de caso
+Operador | Valor | Transformação de maiúsculas e minúsculas
 ---------|-------|---------------
-[Lista de operadores padrão](#standard-operator-list) | Cadeia de caracteres, int | Nenhuma transformação, para letras maiúsculas, para minúsculas
+[Lista de operadores padrão](#standard-operator-list) | Cadeia de Caracteres, Int | Nenhuma transformação, para letras maiúsculas, para minúsculas
 
 #### <a name="key-information"></a>Principais informações
 
@@ -221,7 +221,7 @@ Operador | Valor | Transformação de caso
 Para regras que aceitam valores da lista de operadores padrão, os seguintes operadores são válidos:
 
 - Qualquer
-- Igual a 
+- É igual a 
 - Contém 
 - Começa com 
 - Termina com 
@@ -234,11 +234,11 @@ Para regras que aceitam valores da lista de operadores padrão, os seguintes ope
 - Não começa com 
 - Não termina com 
 - Não é menor que
-- Não é menor ou igual a
+- Não é menor nem igual a
 - Não é maior que
-- Não é maior ou igual a
+- Não é maior nem igual a
 
-Para operadores numéricos como *menor* que e *maior ou igual*a, a comparação usada é baseada no comprimento. Nesse caso, o valor na condição de correspondência deve ser um inteiro igual ao comprimento que você deseja comparar. 
+Para operadores numéricos como *Menor que* e *Maior ou igual a*, a comparação usada é baseada no comprimento. Nesse caso, o valor na condição de correspondência deve ser um inteiro igual ao comprimento que você deseja comparar. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

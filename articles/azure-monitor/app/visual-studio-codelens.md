@@ -2,17 +2,14 @@
 title: Application Insights Telemetry no Visual Studio CodeLens | Microsoft Docs
 description: Acesse rapidamente a solicitação do Application Insights e a telemetria de exceções com o CodeLens no Visual Studio.
 ms.topic: conceptual
-author: NumberByColors
-ms.author: daviste
 ms.date: 03/17/2017
-ms.reviewer: mbullwin
 ms.custom: vs-azure
-ms.openlocfilehash: 2a562378ae626351922e43d33f38e62331ab58de
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 2cfc4e06dcb5671f34ff98794c9569b6ed5ddae7
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323478"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94538488"
 ---
 # <a name="application-insights-telemetry-in-visual-studio-codelens"></a>Telemetria do Application Insights no Visual Studio CodeLens
 Métodos no código de seu aplicativo Web podem ser anotados com telemetria sobre exceções de tempo de execução e tempos de resposta de solicitação. Se você instalar o [Application Insights do Azure](./app-insights-overview.md) em seu aplicativo, a telemetria aparecerá no Visual Studio [CodeLens](/visualstudio/ide/find-code-changes-and-other-history-with-codelens?view=vs-2015) -as anotações na parte superior de cada função em que você está acostumado a ver informações úteis, como o número de casas em que a função é referenciada ou a última pessoa que o editou.
@@ -33,7 +30,7 @@ Procure a telemetria do Application Insights nos indicadores do CodeLens dos mé
 > 
 
 ## <a name="exceptions-in-codelens"></a>Exceções em CodeLens
-![TBD](./media/visual-studio-codelens/codelens-exceptions.png)
+![A captura de tela mostra 47 exceções exibidas em CodeLens.](./media/visual-studio-codelens/codelens-exceptions.png)
 
 O indicador de exceção do CodeLens mostra o número de exceções que ocorreram nas últimas 24 horas das 15 exceções mais frequentes no aplicativo durante esse período, enquanto processa a solicitação fornecida pelo método.
 
@@ -55,7 +52,7 @@ Para obter mais detalhes, clique no indicador de exceções do CodeLens:
 > 
 
 ## <a name="requests-in-codelens"></a>Solicitações no CodeLens
-![TBD](./media/visual-studio-codelens/codelens-requests.png)
+![Captura de tela mostra detalhes de 684 solicitações, incluindo 7% de falhas.](./media/visual-studio-codelens/codelens-requests.png)
 
 A solicitação de indicador do CodeLens mostra o número de solicitações HTTP que foram atendidas por um método nas últimas 24 horas, mais a porcentagem de solicitações que falharam.
 
@@ -68,9 +65,6 @@ Para obter mais detalhes, clique nas solicitações no indicador do CodeLens:
 * Escolha o nome do recurso do Application Insights no canto superior esquerdo da exibição de detalhes do CodeLens para alterar o recurso que é a fonte de dados do CodeLens.
 
 ## <a name="next-steps"></a><a name="next"></a>Próximas etapas
-|  |  |
-| --- | --- |
-| **[Trabalhar com o Application Insights no Visual Studio](./visual-studio.md)**<br/>Pesquisar telemetria, ver dados em CodeLens e configurar o Application Insights. Tudo no Visual Studio. |![Clique com o botão direito no projeto e escolha Application Insights, Pesquisar.](./media/visual-studio-codelens/34.png) |
-| **[Adicionar mais dados](./asp-net-more.md)**<br/>Monitorar o uso, a disponibilidade, as dependências e as exceções. Integrar rastreamentos de estruturas de logs. Escrever telemetria personalizada. |![Visual Studio](./media/visual-studio-codelens/64.png) |
-| **[Trabalhando com o portal do Application Insights](./overview-dashboard.md)**<br/>Painéis, poderosas ferramentas de diagnóstico e análise, alertas, um mapa de dependências em tempo real de seu aplicativo e a exportação de telemetria. |![Visual Studio](./media/visual-studio-codelens/62.png) |
+* **[Trabalhando com Application insights no Visual Studio](./visual-studio.md)**. Pesquisar telemetria, ver dados em CodeLens e configurar o Application Insights. Tudo no Visual Studio. 
+* **[Trabalhando com o portal de Application insights](./overview-dashboard.md)**. Painéis, poderosas ferramentas de diagnóstico e análise, alertas, um mapa de dependências em tempo real de seu aplicativo e a exportação de telemetria. 
 

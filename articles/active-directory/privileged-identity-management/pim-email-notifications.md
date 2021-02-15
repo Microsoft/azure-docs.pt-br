@@ -16,12 +16,12 @@ ms.author: curtand
 ms.reviewer: hanki
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 02fbfc83c16cb13376cce820f19b247a7cd7db59
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fe57a44a5a6fa9a631604d92419fd8f5ebcce50a
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82232301"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93394723"
 ---
 # <a name="email-notifications-in-pim"></a>Notificações por email no PIM
 
@@ -31,7 +31,7 @@ Privileged Identity Management (PIM) permite que você saiba quando eventos impo
 
 Os emails enviados de Privileged Identity Management para as funções de recurso do Azure AD e do Azure têm o seguinte endereço de email do remetente:
 
-- Endereço de email: **Azure-noresponder \@ Microsoft.com**
+- Endereço de email:  **Azure-noresponder \@ Microsoft.com**
 - Nome de exibição: Microsoft Azure
 
 Esses emails incluem um prefixo **PIM** na linha de assunto. Aqui está um exemplo:
@@ -68,7 +68,7 @@ Um email de resumo Privileged Identity Management semanal para funções do Azur
 
 O email inclui quatro blocos:
 
-| Bloco | Descrição |
+| Tile | Descrição |
 | --- | --- |
 | **Usuários ativados** | Número de vezes que os usuários ativaram sua função qualificada dentro da organização. |
 | **Usuários tornados permanentes** | Número de vezes que usuários com uma atribuição qualificada tornam-se permanentes. |
@@ -79,10 +79,13 @@ A **visão geral da seção de funções principais** lista as cinco principais 
 
 ## <a name="email-timing-for-activation-approvals"></a>Tempo de email para aprovações de ativação
 
-Quando os usuários ativam sua função e a configuração de função requer aprovação, os aprovadores receberão três emails para cada aprovação:
+Quando os usuários ativam sua função e a configuração de função requer aprovação, os aprovadores receberão dois emails para cada aprovação:
 
 - Solicitação para aprovar ou negar a solicitação de ativação do usuário (enviada pelo mecanismo de aprovação de solicitação)
 - A solicitação do usuário é aprovada (enviada pelo mecanismo de aprovação de solicitação)
+
+Além disso, os administradores globais e os administradores de função com privilégios recebem um email para cada aprovação:
+
 - A função do usuário é ativada (enviada por Privileged Identity Management)
 
 Os dois primeiros emails enviados pelo mecanismo de aprovação de solicitação podem ser atrasados. Atualmente, 90% dos emails levam de três a dez minutos, mas para clientes de 1%, pode ser muito mais demorado, até quinze minutos.

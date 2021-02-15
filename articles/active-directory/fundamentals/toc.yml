@@ -25,6 +25,30 @@
   items:
     - name: Segurança
       items:
+        - name: Colaboração externa segura
+          items:
+            - name: Visão geral da proteção contra o acesso externo a recursos
+              href: secure-external-access-resources.md
+            - name: 1 Determinar a postura de segurança
+              href: 1-secure-access-posture.md
+            - name: 2 Determinar o estado atual
+              href: 2-secure-access-current-state.md
+            - name: 3 Criar um plano de segurança
+              href: 3-secure-access-plan.md
+            - name: 4 Proteger o acesso com grupos
+              href: 4-secure-access-groups.md
+            - name: 5 Proteger o acesso com colaboração B2B
+              href: 5-secure-access-b2b.md
+            - name: 6 Proteger o acesso com o Gerenciamento de Direitos
+              href: 6-secure-access-entitlement-managment.md
+            - name: 7 Proteger o acesso com acesso condicional
+              href: 7-secure-access-conditional-access.md
+            - name: 8 Proteger o acesso com rótulos de confidencialidade
+              href: 8-secure-access-sensitivity-labels.md
+            - name: '9 Proteger o acesso ao Teams, SharePoint e OneDrive'
+              href: 9-secure-access-teams-sharepoint.md
+        - name: Proteger o Microsoft 365 de ataques locais
+          href: protect-m365-from-on-premises-attacks.md
         - name: Habilitar MFA
           href: concept-fundamentals-mfa-get-started.md
         - name: Padrões de segurança
@@ -35,8 +59,6 @@
           href: identity-secure-score.md
         - name: Trabalhadores remotos seguros
           href: concept-secure-remote-workers.md
-        - name: Avaliação contínua de acesso
-          href: concept-fundamentals-continuous-access-evaluation.md
     - name: Grupos e usuários
       items:
         - name: Gerenciamento de grupos e de acesso
@@ -51,6 +73,80 @@
           href: active-directory-architecture.md
         - name: Integração de todos os seus aplicativos com o Azure AD
           href: five-steps-to-full-application-integration-with-azure-ad.md
+        - name: Protocolos de autenticação e provisionamento
+          items:
+            - name: Visão geral
+              href: auth-sync-overview.md
+            - name: Autenticação baseada em cabeçalho
+              href: auth-header-based.md
+            - name: Autenticação LDAP
+              href: auth-ldap.md
+            - name: Autenticação OAuth 2.0
+              href: auth-oauth2.md
+            - name: Autenticação do Open ID Connect
+              href: auth-oidc.md
+            - name: Autenticação baseada em senha
+              href: auth-password-based-sso.md
+            - name: Autenticação Radius
+              href: auth-radius.md
+            - name: Autenticação de gateway de área de trabalho remota
+              href: auth-remote-desktop-gateway.md
+            - name: Autenticação de SAML
+              href: auth-saml.md
+            - name: Autenticação SSH
+              href: auth-ssh.md
+            - name: Autenticação do Windows – KCD
+              href: auth-kcd.md
+            - name: Sincronização de diretório
+              href: sync-directory.md
+            - name: Sincronização de LDAP
+              href: sync-ldap.md
+            - name: Sincronização do SCIM
+              href: sync-scim.md
+        - name: Criação para resiliência
+          items:
+            - name: Visão geral
+              href: resilience-overview.md
+            - name: Diretrizes de infraestrutura
+              items:
+                - name: Visão geral de infraestrutura
+                  href: resilience-in-infrastructure.md
+                - name: Gerenciamento de credenciais
+                  href: resilience-in-credentials.md
+                - name: Estados do dispositivo
+                  href: resilience-with-device-states.md
+                - name: Avaliação contínua de acesso
+                  href: resilience-with-continuous-access-evaluation.md
+                - name: Autenticação do usuário externo
+                  href: resilience-b2b-authentication.md
+                - name: Autenticação híbrida
+                  href: resilience-in-hybrid.md
+                - name: Proxy do Aplicativo
+                  href: resilience-on-premises-access.md
+            - name: Diretrizes do Azure AD B2C
+              items:
+                - name: Introdução do Azure AD B2C à resiliência
+                  href: resilience-b2c.md
+                - name: Experiência do usuário final
+                  href: resilient-end-user-experience.md
+                - name: Interfaces com processos externos
+                  href: resilient-external-processes.md
+                - name: Melhores práticas do desenvolvedor do Azure AD B2C
+                  href: resilience-b2c-developer-best-practices.md
+                - name: Monitoramento e análise
+                  href: resilience-with-monitoring-alerting.md
+            - name: Diretrizes para o desenvolvimento de aplicativos
+              items:
+                - name: Visão geral do desenvolvimento
+                  href: resilience-app-development-overview.md
+                - name: Aplicativos cliente
+                  href: resilience-client-app.md
+                - name: Aplicativos de daemon
+                  href: resilience-daemon-app.md
+            - name: Monitorar a integridade do aplicativo para obter resiliência
+              href: monitor-sign-in-health-for-resilience.md
+        - name: Autoridades de certificação usadas no Azure
+          href: certificate-authorities.md
     - name: Guia de implantação
       items:
         - name: 'Implantação de 30, 90 e muito mais'
@@ -90,6 +186,8 @@
           href: customize-branding.md
         - name: Configurar 'Permanecer conectado?'
           href: keep-me-signed-in.md
+        - name: Como localizar a ID do locatário
+          href: active-directory-how-to-find-tenant.md
         - name: Associar uma assinatura do Azure
           href: active-directory-how-subscriptions-associated-directory.md
         - name: Adicionar suas informações de privacidade

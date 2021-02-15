@@ -2,17 +2,14 @@
 title: Apache HBase e Enterprise Security Package – Azure HDInsight
 description: Tutorial - Aprenda a configurar as políticas do Apache Ranger para HBase no Azure HDInsight com o Enterprise Security Package.
 ms.service: hdinsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.topic: tutorial
 ms.date: 09/04/2019
-ms.openlocfilehash: 89e9faeb3c67d0fd0c57adea3a3f69ec5438e3a0
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: deefda126602e9b276b74752330a14cc3eb2aa95
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "73044656"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98933717"
 ---
 # <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package"></a>Tutorial: Configurar políticas do Apache HBase no HDInsight com o Enterprise Security Package
 
@@ -45,7 +42,7 @@ Neste tutorial, você aprenderá como:
 
 ## <a name="create-domain-users"></a>Crie usuários de domínio
 
-Visite [Criar um cluster do HDInsight com o Enterprise Security Package](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds) para saber como criar os usuários de domínio **sales_user1** e **marketing_user1**. Em um cenário de produção, os usuários do domínio vêm do seu locatário do Active Directory.
+Visite [Criar um cluster do HDInsight com o Enterprise Security Package](./apache-domain-joined-configure-using-azure-adds.md) para saber como criar os usuários de domínio **sales_user1** e **marketing_user1**. Em um cenário de produção, os usuários do domínio vêm do seu locatário do Active Directory.
 
 ## <a name="create-hbase-tables-and-import-sample-data"></a>Criar tabelas do HBase e importar dados de exemplo
 

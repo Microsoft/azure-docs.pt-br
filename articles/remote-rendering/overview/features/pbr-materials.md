@@ -5,18 +5,18 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: article
-ms.openlocfilehash: e4ee6abe7481fef4d56c980da80e319624975384
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e9908c106e57801cb1b7def8b3353a983cc97de0
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84021306"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99591932"
 ---
 # <a name="pbr-materials"></a>Materiais de PBR
 
 Os *materiais de PBR* são um dos [tipos de material](../../concepts/materials.md) com suporte na renderização remota do Azure. Eles são usados para [malhas](../../concepts/meshes.md) que devem receber iluminação realista.
 
-PBR significa **P**hysically **B**ased **R**endering e significa que o material descreve as propriedades visuais de uma superfície de uma maneira realmente plausível, de modo que os resultados realistas sejam possíveis em todas as condições de iluminação. A maioria dos mecanismos de jogo e ferramentas de criação de conteúdo modernos dão suporte aos materiais do PBR porque eles são considerados a melhor aproximação de cenários do mundo real para renderização em tempo real.
+PBR significa **P** hysically **B** ased **R** endering e significa que o material descreve as propriedades visuais de uma superfície de uma maneira realmente plausível, de modo que os resultados realistas sejam possíveis em todas as condições de iluminação. A maioria dos mecanismos de jogo e ferramentas de criação de conteúdo modernos dão suporte aos materiais do PBR porque eles são considerados a melhor aproximação de cenários do mundo real para renderização em tempo real.
 
 ![Modelo de exemplo de capacete glTF renderizado por ARR](media/helmet.png)
 
@@ -26,7 +26,7 @@ No entanto, os materiais de PBR não são uma solução universal. Há materiais
 
 Essas propriedades são comuns a todos os materiais:
 
-* **albedoColor:** Essa cor é multiplicada por outras cores, como *albedoMap* ou * :::no-loc text="vertex "::: cores*. Se a *transparência* estiver habilitada em um material, o canal alfa será usado para ajustar a opacidade, com `1` significado totalmente opaco e `0` significado totalmente transparente. O padrão é branco.
+* **albedoColor:** Essa cor é multiplicada por outras cores, como *albedoMap* ou *:::no-loc text="vertex "::: cores*. Se a *transparência* estiver habilitada em um material, o canal alfa será usado para ajustar a opacidade, com `1` significado totalmente opaco e `0` significado totalmente transparente. O padrão é branco.
 
   > [!NOTE]
   > Quando um material de PBR é totalmente transparente, como um pedaço de vidro perfeitamente limpo, ele ainda reflete o ambiente. Pontos brilhantes, como o sol, ainda estão visíveis na reflexão. Isso é diferente para [materiais de cores](color-materials.md).
@@ -41,9 +41,17 @@ Essas propriedades são comuns a todos os materiais:
 
 * **isDoubleSided:** Se Double-sidedness for definido como true, os triângulos com esse material serão renderizados mesmo se a câmera estiver observando suas faces de apoio. Para a iluminação de materiais do PBR também é computada corretamente para faces traseiras. Por padrão, essa opção está desabilitada. Consulte também [ :::no-loc text="Single-sided"::: renderização](single-sided-rendering.md).
 
+* **TransparencyWritesDepth:** Se o sinalizador TransparencyWritesDepth estiver definido no material e o material for transparente, os objetos que usam esse material também contribuirão para o buffer de profundidade final. Consulte o sinalizador de material do PBR *transparente* na próxima seção. Habilitar esse recurso é recomendado se o caso de uso precisar de uma [Reprojeção de estágio tardia](late-stage-reprojection.md) mais plausível de cenas totalmente transparentes. Para cenas mistas/transparentes misturadas, essa configuração pode introduzir comportamento de Reprojeção inplausível ou artefatos de Reprojeção. Por esse motivo, a configuração padrão e recomendada para o caso de uso geral é desabilitar esse sinalizador. Os valores de profundidade gravados são obtidos da camada de profundidade por pixel do objeto mais próximo da câmera.
+
+* **FresnelEffect:** Esse sinalizador de material habilita o [efeito Fresnel](../../overview/features/fresnel-effect.md) aditivo no respectivo material. A aparência do efeito é regida pelos outros parâmetros de Fresnel explicados a seguir. 
+
+* **FresnelEffectColor:** A cor Fresnel usada para este material. Somente importante quando o bit de efeito Fresnel tiver sido definido neste material (veja acima). Essa propriedade controla a cor base do brilho Fresnel (consulte [Fresnel Effect](../../overview/features/fresnel-effect.md) para obter uma explicação completa). No momento, apenas os valores de canal RGB são importantes e o valor alfa será ignorado.
+
+* **FresnelEffectExponent:** O expoente Fresnel usado para este material. Somente importante quando o bit de efeito Fresnel tiver sido definido neste material (veja acima). Essa propriedade controla a disseminação do Fresnel brilhar. O valor mínimo 0, 1 causa uma propagação em todo o objeto. O valor máximo 10,0 restringe o brilho para apenas as bordas mais gracing visíveis.
+
 ## <a name="pbr-material-properties"></a>Propriedades do material PBR
 
-A ideia principal da renderização com base fisicamente é usar as propriedades *BaseColor*, *metal*e *de propriedade* para emular uma ampla gama de materiais do mundo real. Uma descrição detalhada do PBR está além do escopo deste artigo. Para obter mais informações sobre o PBR, consulte [outras fontes](http://www.pbr-book.org). As propriedades a seguir são específicas para os materiais do PBR:
+A ideia principal da renderização com base fisicamente é usar as propriedades *BaseColor*, *metal* e *de propriedade* para emular uma ampla gama de materiais do mundo real. Uma descrição detalhada do PBR está além do escopo deste artigo. Para obter mais informações sobre o PBR, consulte [outras fontes](http://www.pbr-book.org). As propriedades a seguir são específicas para os materiais do PBR:
 
 * **baseColor:** Em materiais de PBR, a *cor albedo* é conhecida como a *cor base*. Na renderização remota do Azure, a propriedade de *cor albedo* já está presente nas propriedades de material comuns, portanto, não há nenhuma propriedade de cor de base adicional.
 
@@ -55,7 +63,7 @@ A ideia principal da renderização com base fisicamente é usar as propriedades
 
   Se um valor de metal e um mapa de metal forem fornecidos, o valor final será o produto dos dois.
 
-  ![metal e áspero](./media/metalness-roughness.png)
+  ![As várias são renderizadas com valores de metal e de irregularidades diferentes](./media/metalness-roughness.png)
 
   Na imagem acima, a esfera no canto inferior direito se parece com um material de metal real, a parte inferior esquerda é como Ceramic ou plástico. A cor albedo também é alterada de acordo com as propriedades físicas. Com o aumento da nitidez, o material perde a necessidade de reflexo.
 
@@ -63,23 +71,30 @@ A ideia principal da renderização com base fisicamente é usar as propriedades
 
 * **occlusionMap** e **aoScale:** [ambiente oclusão](https://en.wikipedia.org/wiki/Ambient_occlusion) faz com que os objetos com crevices pareçam mais realistas adicionando sombras a obstruído áreas. Oclusão valor intervalo de `0.0` a `1.0` , onde `0.0` significa a escuridão (obstruído) e `1.0` significa que não há occlusions. Se uma textura 2D for fornecida como um mapa oclusão, o efeito será habilitado e *aoScale* agirá como um multiplicador.
 
-  ![Mapa oclusão](./media/boom-box-ao2.gif)
+  ![Um objeto renderizado com e sem oclusão ambiente](./media/boom-box-ao2.gif)
 
 * **transparente:** Para materiais de PBR, há apenas uma configuração de transparência: ela está habilitada ou não. A opacidade é definida pelo canal alfa da cor albedo. Quando habilitado, um pipeline de renderização mais complexo é invocado para desenhar superfícies semitransparentes. A renderização remota do Azure implementa a OIT ( [transparência de ordem](https://en.wikipedia.org/wiki/Order-independent_transparency) verdadeira).
 
   A geometria transparente é cara para renderizar. Se você precisar apenas de buracos em uma superfície, por exemplo, para as folhas de uma árvore, será melhor usar o recorte alfa em vez disso.
 
-  ![Aviso de transparência ](./media/transparency.png) na imagem acima, como a esfera mais à direita é totalmente transparente, mas a reflexão ainda está visível.
+  ![As esferas renderizadas com zero para aviso de transparência total ](./media/transparency.png) na imagem acima, como a esfera mais à direita é totalmente transparente, mas a reflexão ainda está visível.
 
   > [!IMPORTANT]
   > Se algum material deve ser alternado de opaco para transparente no tempo de execução, o renderizador deve usar o [modo de renderização](../../concepts/rendering-modes.md) *TileBasedComposition* . Essa limitação não se aplica aos materiais convertidos como materiais transparentes para começar.
 
 ## <a name="technical-details"></a>Detalhes técnicos
 
-A renderização remota do Azure usa o Torrance micro-faceta BRDF com GGX NDF, Schlick Fresnel e um termo de visibilidade correlacionado de GGX Smith com um termo difuso de Lambert. Esse modelo é o padrão do setor de fato no momento. Para obter detalhes mais detalhados, consulte este artigo: [processamento com base fisicamente em Torrance de cookie](http://www.codinglabs.net/article_physically_based_rendering_cook_torrance.aspx)
+A renderização remota do Azure usa o Cook-Torrance micro-faceta BRDF com GGX NDF, Schlick Fresnel e um termo de visibilidade correlacionado de GGX Smith com um termo difuso Lambert. Esse modelo é o padrão do setor de fato no momento. Para obter detalhes mais detalhados, consulte este artigo: [processamento com base fisicamente em Torrance de cookie](http://www.codinglabs.net/article_physically_based_rendering_cook_torrance.aspx)
 
  Uma alternativa para o modelo de PBR de realce de *metal* usado na renderização remota do Azure é o modelo de PBR *de glossários de especulação* . Esse modelo pode representar uma gama mais ampla de materiais. No entanto, ele é mais caro e geralmente não funciona bem para casos em tempo real.
 Nem sempre é possível converter de glossários de *especulação* para a *irregularidade* , pois há pares de valores *(difuso, especular)* que não podem ser convertidos em *(BaseColor, metalness)*. A conversão na outra direção é mais simples e mais precisa, já que todos os pares *(BaseColor, metal)* correspondem aos pares bem definidos *(difuso, especular)* .
+
+## <a name="api-documentation"></a>Documentação da API
+
+* [Classe C# PbrMaterial](/dotnet/api/microsoft.azure.remoterendering.pbrmaterial)
+* [C# RenderingConnection. creatematerial ()](/dotnet/api/microsoft.azure.remoterendering.renderingconnection.creatematerial)
+* [Classe C++ PbrMaterial](/cpp/api/remote-rendering/pbrmaterial)
+* [C++ RenderingConnection:: creatematerial ()](/cpp/api/remote-rendering/renderingconnection#creatematerial)
 
 ## <a name="next-steps"></a>Próximas etapas
 

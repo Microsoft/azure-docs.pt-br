@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: trbye
-ms.openlocfilehash: ad26fe0d869a2e892a419b1732727c3ff1d1e9a2
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 597a7c3954912a3a86b5db9f92ba75e8aaee63f6
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88870707"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98601820"
 ---
 # <a name="about-the-speech-sdk"></a>Sobre o SDK de Fala
 
@@ -29,7 +29,7 @@ O SDK de fala expõe muitos recursos do serviço de fala, mas não todos eles. O
 
 ### <a name="speech-to-text"></a>Conversão de fala em texto
 
-A [conversão de fala em texto](speech-to-text.md) (também conhecida como reconhecimento de *fala*) transcreve fluxos de áudio para o texto que seus aplicativos, ferramentas ou dispositivos podem consumir ou exibir. Use a conversão de fala em texto com o [LUIS (Reconhecimento vocal)](../luis/index.yml) para derivar intenções do usuário de dados de fala transcrita e agir com base em comandos de voz. Use a [tradução de fala](speech-translation.md) para traduzir a entrada de fala para um idioma diferente com uma única chamada. Para obter mais informações, consulte [noções básicas de conversão de fala em texto](speech-to-text-basics.md).
+A [conversão de fala em texto](speech-to-text.md) (também conhecida como reconhecimento de *fala*) transcreve fluxos de áudio para o texto que seus aplicativos, ferramentas ou dispositivos podem consumir ou exibir. Use a conversão de fala em texto com o [LUIS (Reconhecimento vocal)](../luis/index.yml) para derivar intenções do usuário de dados de fala transcrita e agir com base em comandos de voz. Use a [tradução de fala](speech-translation.md) para traduzir a entrada de fala para um idioma diferente com uma única chamada. Para obter mais informações, consulte [noções básicas de conversão de fala em texto](./get-started-speech-to-text.md).
 
 O **reconhecimento de fala (Sr), a lista de frases, a intenção, a tradução e os contêineres locais** estão disponíveis nas seguintes plataformas:
 
@@ -58,7 +58,7 @@ A **conversão de texto em fala (TTS)** está disponível nas seguintes platafor
 
 ### <a name="voice-assistants"></a>Assistentes de voz
 
-Os [assistentes de voz](voice-assistants.md) que usam o SDK de fala permitem que os desenvolvedores criem interfaces de conversação naturais e humanas para seus aplicativos e experiências. O serviço assistente de voz fornece uma interação rápida e confiável entre um dispositivo e um assistente. A implementação usa o canal de fala de linha direta da estrutura de bot ou o serviço de comandos personalizados integrados (versão prévia) para a conclusão da tarefa. Além disso, os assistentes de voz podem usar vozes personalizadas criadas no [portal de voz personalizado](https://aka.ms/customvoice) para adicionar uma experiência de saída de voz exclusiva.
+Os [assistentes de voz](voice-assistants.md) que usam o SDK de fala permitem que os desenvolvedores criem interfaces de conversação naturais e humanas para seus aplicativos e experiências. O serviço assistente de voz fornece uma interação rápida e confiável entre um dispositivo e um assistente. A implementação usa o canal de fala de linha direta da estrutura de bot ou o serviço de comandos personalizados integrados para a conclusão da tarefa. Além disso, os assistentes de voz podem usar vozes personalizadas criadas no [portal de voz personalizado](https://aka.ms/customvoice) para adicionar uma experiência de saída de voz exclusiva.
 
 Os **assistentes de voz** estão disponíveis nas seguintes plataformas:
 
@@ -68,7 +68,7 @@ Os **assistentes de voz** estão disponíveis nas seguintes plataformas:
 
 #### <a name="keyword-spotting"></a>Palavra-chave parando
 
-O conceito de decepções de [palavra-chave](speech-devices-sdk-create-kws.md) tem suporte no SDK de fala. A palavra-chave que está sendo demarcada é o ato de identificar uma palavra-chave em fala, seguida de uma ação após ouvir a palavra-chave. Por exemplo, "Ei Cortana" ativaria o assistente da Cortana.
+O conceito de decepções de [palavra-chave](./custom-keyword-basics.md) tem suporte no SDK de fala. A palavra-chave que está sendo demarcada é o ato de identificar uma palavra-chave em fala, seguida de uma ação após ouvir a palavra-chave. Por exemplo, "Ei Cortana" ativaria o assistente da Cortana.
 
 A **palavra-chave (KWs)** está disponível nas seguintes plataformas:
 
@@ -133,7 +133,7 @@ A [transcrição em lote](batch-transcription.md) permite a transcrição de fal
 
 O serviço de fala oferece excelente funcionalidade com seus modelos padrão entre conversão de fala em texto, texto em fala e tradução de fala. Às vezes, talvez você queira aumentar o desempenho da linha de base para funcionar ainda melhor com seu caso de uso exclusivo. O serviço de fala tem uma variedade de ferramentas de personalização sem código que facilitam e permitem que você crie uma vantagem competitiva com modelos personalizados com base em seus próprios dados. Esses modelos só estarão disponíveis para você e para sua organização.
 
-### <a name="custom-speech-to-text"></a>Fala Personalizada para texto
+### <a name="custom-speech-to-text"></a>Conversão de fala em texto personalizada
 
 Ao usar a conversão de fala em texto para reconhecimento e transcrição em um ambiente exclusivo, você pode criar e treinar modelos acústicos, de linguagem e de pronúncia personalizados para resolver o ruído de ambiente ou vocabulário específico do setor. A criação e o gerenciamento de modelos de Fala Personalizada sem código estão disponíveis por meio do [portal de fala personalizada](https://aka.ms/customspeech). Depois que o modelo de Fala Personalizada for publicado, ele poderá ser consumido pelo SDK de fala.
 
@@ -180,4 +180,4 @@ Conversão de texto em fala personalizada, também conhecida como voz personaliz
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Criar uma conta gratuita do Azure](https://azure.microsoft.com/free/cognitive-services/)
-* [Veja como reconhecer fala em C#](quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet)
+* [Veja como reconhecer fala em C#](./get-started-speech-to-text.md?pivots=programming-language-csharp&tabs=dotnet)

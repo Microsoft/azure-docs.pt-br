@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/23/2018
 ms.author: memildin
-ms.openlocfilehash: bf715d872fab421de30ebcb146a1981a7d008738
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4e270185550fac5a06d800d74d5fcd751aceb25d
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80585981"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342222"
 ---
 # <a name="manage-user-data-in-azure-security-center"></a>Gerenciar dados de usuário na Central de Segurança do Azure
 Este artigo fornece informações sobre como é possível gerenciar dados de usuário na Central de Segurança do Azure. O gerenciamento de dados de usuário inclui a capacidade de acessar, excluir ou exportar dados.
@@ -27,7 +27,7 @@ Este artigo fornece informações sobre como é possível gerenciar dados de usu
 
 Um usuário da Central de Segurança com a função de Leitor, Proprietário, Colaborador ou Administrador da Conta pode acessar os dados do cliente dentro da ferramenta. Para saber mais sobre a função de administrador da conta, consulte [funções internas para o controle de acesso baseado em função do Azure](../role-based-access-control/built-in-roles.md) para saber mais sobre as funções leitor, proprietário e colaborador. Consulte [Administradores de assinatura do Azure](../cost-management-billing/manage/add-change-subscription-administrator.md).
 
-## <a name="searching-for-and-identifying-personal-data"></a>Pesquisar e identificar dados pessoais
+## <a name="searching-for-and-identifying-personal-data"></a>Pesquisando e identificando dados pessoais
 Um usuário da Central de Segurança pode exibir os dados pessoais por meio do portal do Azure. A Central de Segurança armazena apenas detalhes de contato de segurança, como endereços de email e números de telefone. Para obter mais informações, consulte [fornecer detalhes de contato de segurança na central de segurança do Azure](security-center-provide-security-contact-details.md).
 
 No portal do Azure, um usuário pode exibir as configurações de IP permitidas usando o recurso de acesso à VM just-in-time da central de segurança. Para obter mais informações, consulte [gerenciar o acesso à máquina virtual usando just-in-time](security-center-just-in-time.md).
@@ -48,21 +48,21 @@ Um usuário da central de segurança atribuiu a função de leitor, proprietári
 
 Um usuário da Central de Segurança com a função Leitor, Proprietário, Colaborador ou Administrador da Conta pode exibir [alertas](security-center-managing-and-responding-alerts.md).
 
-## <a name="updating-personal-data"></a>Atualizar dados pessoais
+## <a name="updating-personal-data"></a>Atualizando dados pessoais
 Um usuário da Central de Segurança atribuído à função Proprietário, Colaborador ou Administrador da Conta pode atualizar [dados de contato de segurança](security-center-provide-security-contact-details.md) por meio do portal do Azure.
 
 Um usuário da central de segurança que atribuiu a função de proprietário, colaborador ou administrador da conta pode atualizar suas [políticas just-in-time](security-center-just-in-time.md).
 
 Um administrador de conta não pode editar incidentes de alerta. Um [incidente de alerta](security-center-managing-and-responding-alerts.md) é considerado dados de segurança e é somente leitura.
 
-## <a name="deleting-personal-data"></a>Excluir dados pessoais
+## <a name="deleting-personal-data"></a>Excluindo dados pessoais
 Um usuário da Central de Segurança atribuído à função Proprietário, Colaborador ou Administrador da Conta pode excluir [dados de contato de segurança](security-center-provide-security-contact-details.md) por meio do portal do Azure.
 
 Um usuário da central de segurança que atribuiu a função de proprietário, colaborador ou administrador da conta pode excluir as [políticas just-in-time](security-center-just-in-time.md) por meio do portal do Azure.
 
 Um usuário da central de segurança não pode excluir incidentes de alerta. Por motivos de segurança, um [incidente de alerta](security-center-managing-and-responding-alerts.md) é considerado dados somente leitura.
 
-## <a name="exporting-personal-data"></a>Exportar dados pessoais
+## <a name="exporting-personal-data"></a>Exportando dados pessoais
 Um usuário da Central de Segurança com a função Leitor, Proprietário, Colaborador ou Administrador da Conta pode exportar [dados de contato de segurança](security-center-provide-security-contact-details.md):
 
 - Copiando do portal do Azure
@@ -87,7 +87,7 @@ Um Administrador da Conta pode exportar os detalhes do alerta:
   GET https://<endpoint>/subscriptions/{subscriptionId}/providers/microsoft.Security/alerts?api-version={api-version}
   ```
 
-Para obter mais informações, consulte [obter alertas de segurança (obter coleção)](https://msdn.microsoft.com/library/mt704050.aspx).
+Para obter mais informações, consulte [obter alertas de segurança (obter coleção)](/previous-versions/azure/reference/mt704050(v=azure.100)).
 
 ## <a name="restricting-the-use-of-personal-data-for-profiling-or-marketing-without-consent"></a>Restringir o uso de dados pessoais para criação de perfil ou marketing sem consentimento
 Um usuário da Central de Segurança pode optar por excluir seus [dados de contato de segurança](security-center-provide-security-contact-details.md).

@@ -2,18 +2,21 @@
 title: Visão geral do processamento de transações no barramento de serviço do Azure
 description: Este artigo fornece uma visão geral do processamento de transações e do recurso enviar via no barramento de serviço do Azure.
 ms.topic: article
-ms.date: 06/23/2020
+ms.date: 10/28/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f51e570775fbce8a316d98b5198fa906173dc755
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 9a95a200b57d348109884a319b5433f0ffd5dde1
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88999947"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684784"
 ---
 # <a name="overview-of-service-bus-transaction-processing"></a>Visão geral do processamento de transações do Barramento de Serviço
 
 Este artigo aborda as funcionalidades de transação do Barramento de Serviço do Microsoft Azure. Grande parte da discussão é ilustrada pelo [exemplo transações de AMQP com o barramento de serviço](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/TransactionsAndSendVia/TransactionsAndSendVia/AMQPTransactionsSendVia). Este artigo é limitado a uma visão geral do processamento de transações e ao recurso *Enviar por* do Barramento de Serviço, enquanto a amostra Transações atômicas tem um escopo mais amplo e complexo.
+
+> [!NOTE]
+> A camada básica do barramento de serviço não oferece suporte a transações. As camadas Standard e Premium dão suporte a transações. Para conferir as diferenças entre essas camadas, consulte [preços do Barramento de Serviço](https://azure.microsoft.com/pricing/details/service-bus/).
 
 ## <a name="transactions-in-service-bus"></a>Transações no Barramento de Serviço
 
@@ -27,7 +30,7 @@ O Barramento de Serviço dá suporte a operações de agrupamento em uma única 
 
 As operações que podem ser executadas em um escopo de transação são as seguintes:
 
-* ** [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient), [MessageSender](/dotnet/api/microsoft.azure.servicebus.core.messagesender), [TopicClient](/dotnet/api/microsoft.azure.servicebus.topicclient)**: `Send` , `SendAsync` , `SendBatch` ,`SendBatchAsync`
+* **[QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient), [MessageSender](/dotnet/api/microsoft.azure.servicebus.core.messagesender), [TopicClient](/dotnet/api/microsoft.azure.servicebus.topicclient)**: `Send` , `SendAsync` , `SendBatch` ,`SendBatchAsync`
 * **[BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)**:,,,,,,,, `Complete` `CompleteAsync` `Abandon` `AbandonAsync` `Deadletter` `DeadletterAsync` `Defer` `DeferAsync` `RenewLock` , `RenewLockAsync` 
 
 As operações de recebimento não são incluídas, pois presume-se que o aplicativo obtenha as mensagens usando o modo [ReceiveMode.PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode) em algum loop de recebimento ou com um retorno de chamada [OnMessage](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage) e só então abre um escopo de transação para o processamento da mensagem.
@@ -36,9 +39,9 @@ Em seguida, a disposição da mensagem (conclusão, abandono, mensagens mortas, 
 
 ## <a name="transfers-and-send-via"></a>Transferências e “enviar por”
 
-Para habilitar a transferência transacional dos dados de uma fila para um processador e, em seguida, para outra fila, o Barramento de Serviço dá suporte a *transferências*. Em uma operação de transferência, um remetente primeiro envia uma mensagem para uma *fila de transferência*, e a fila de transferência move imediatamente a mensagem para a fila de destino pretendida usando a mesma implementação de transferência robusta da qual o recurso de avanço depende. A mensagem nunca é confirmada no log da fila de transferência de modo que fique visível para os consumidores da fila de transferência.
+Para habilitar a transferência transacional de dados de uma fila ou de um tópico para um processador e, em seguida, para outra fila ou tópico, o barramento de serviço dá suporte a *transferências*. Em uma operação de transferência, um remetente primeiro envia uma mensagem para uma *fila de transferência ou tópico*, e a fila de transferência ou o tópico move imediatamente a mensagem para a fila ou tópico de destino pretendido usando a mesma implementação de transferência robusta da qual o recurso de encaminhamento automático depende. A mensagem nunca é confirmada na fila de transferência ou no log do tópico de forma que fique visível para os consumidores da fila de transferência ou do tópico.
 
-A potência dessa funcionalidade transacional se torna aparente quando a própria fila de transferência é a origem das mensagens de entrada do remetente. Em outras palavras, o Barramento de Serviço pode transferir a mensagem para a fila de destino por meio da fila de transferência, ao mesmo tempo que executa uma operação de conclusão (ou adiamento ou mensagens mortas) nas mensagens de entrada, tudo em uma única operação atômica. 
+O poder desse recurso transacional se torna aparente quando a fila de transferência ou o próprio tópico é a origem das mensagens de entrada do remetente. Em outras palavras, o barramento de serviço pode transferir a mensagem para a fila de destino ou tópico "por meio" da fila de transferência ou do tópico, enquanto executa uma operação completa (ou adiada ou inativa) na mensagem de entrada, tudo em uma operação atômica. 
 
 ### <a name="see-it-in-code"></a>Ver em código
 

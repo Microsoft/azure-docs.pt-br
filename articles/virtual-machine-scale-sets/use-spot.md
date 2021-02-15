@@ -1,20 +1,20 @@
 ---
 title: Criar um conjunto de dimensionamento que usa VMs do Azure Spot
 description: Saiba como criar conjuntos de dimensionamento de máquinas virtuais do Azure que usam VMs do Spot para economizar nos custos.
-author: cynthn
-ms.author: cynthn
+author: JagVeerappan
+ms.author: jagaveer
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
 ms.subservice: spot
 ms.date: 03/25/2020
-ms.reviewer: jagaveer
-ms.custom: jagaveer, devx-track-azurecli
-ms.openlocfilehash: de8cfa66d6d52fe16cc40c5df0f41a39fff134fd
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.reviewer: cynthn
+ms.custom: jagaveer, devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: 03bf5e0ef7e6268e68139b6d73685f67d88f6231
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87832630"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100385924"
 ---
 # <a name="azure-spot-vms-for-virtual-machine-scale-sets"></a>VMs do Azure Spot para conjuntos de dimensionamento de máquinas virtuais 
 
@@ -29,6 +29,24 @@ O preço para instâncias do Spot varia com base na região e SKU. Para obter ma
 
 
 Como o preço é variável, você tem a opção de definir um preço máximo, em dólares americanos (USD), usando até 5 casas decimais. Por exemplo, o valor `0.98765`seria um preço máximo de $0,98765 USD por hora. Se você definir o preço máximo como `-1`, a instância não será removida com base no preço. O preço da instância será o preço atual para o Spot ou o preço de uma instância padrão, o que for menor, desde que haja capacidade e cota disponíveis.
+
+
+## <a name="limitations"></a>Limitações
+
+Não há suporte para os seguintes tamanhos no Azure spot:
+ - Série B
+ - Versões promocionais de qualquer tamanho (como Dv2, NV, NC, tamanhos promocionais de H)
+
+O Azure Spot pode ser implantado em qualquer região, exceto Microsoft Azure a 21Vianet da China.
+
+<a name="channel"></a>
+
+Atualmente, há suporte para os seguintes [tipos de oferta](https://azure.microsoft.com/support/legal/offer-details/) :
+
+-   Contrato Enterprise
+-   Código de oferta pago conforme o uso 003P
+-   Patrocinado
+- Para provedor de serviços de nuvem (CSP), entre em contato com seu parceiro
 
 ## <a name="eviction-policy"></a>Política de remoção
 
@@ -163,23 +181,7 @@ Para excluir a instância depois que ela tiver sido removida, altere o parâmetr
 
 **P:**  O dimensionamento automático funciona com as políticas de remoção (deslocar e excluir)?
 
-**R:** Recomenda-se definir sua política de remoção para excluir ao usar o dimensionamento automático. Isso ocorre porque instâncias desalocadas são contadas em relação a sua capacidade de contagem no conjunto de dimensionamento. Ao usar o dimensionamento automático, você provavelmente atingirá sua contagem de instâncias de destino rapidamente devido a instâncias desalocadas, removidas. 
-
-
-**P:** Quais canais dão suporte a VMs do Spot?
-
-**R:** Consulte a tabela abaixo para encontrar a disponibilidade da VM do Spot.
-
-<a name="channel"></a>
-
-| Canais do Azure               | Disponibilidade de VMs do Azure Spot       |
-|------------------------------|-----------------------------------|
-| Contrato Enterprise         | Sim                               |
-| Pré-pago                | Sim                               |
-| Provedor de Serviços de Nuvem (CSP) | [Entre em contato com seu parceiro](/partner-center/azure-plan-get-started) |
-| Benefícios                     | Não disponível                     |
-| Patrocinado                    | Sim                               |
-| Avaliação gratuita                   | Não disponível                     |
+**R:** Sim, no entanto, é recomendável que você defina sua política de remoção para excluir ao usar o dimensionamento automático. Isso ocorre porque instâncias desalocadas são contadas em relação a sua capacidade de contagem no conjunto de dimensionamento. Ao usar o dimensionamento automático, você provavelmente atingirá sua contagem de instâncias de destino rapidamente devido a instâncias desalocadas, removidas. Além disso, suas operações de dimensionamento podem ser afetadas por remoções de spot. Por exemplo, as instâncias do conjunto de dimensionamento de máquinas virtuais podem ficar abaixo da contagem mínima definida devido a várias remoções de spot durante operações de dimensionamento. 
 
 
 **P:** Onde posso postar perguntas?

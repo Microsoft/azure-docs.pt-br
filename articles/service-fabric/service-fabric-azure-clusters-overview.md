@@ -1,18 +1,16 @@
 ---
 title: Criar clusters no Windows Server e no Linux
-description: Os clusters do Service Fabric são executados no Windows Server e Linux, o que significa que você poderá implantar e hospedar aplicativos do Service Fabric em qualquer lugar que possa executar o Windows Server ou Linux.
+description: Service Fabric clusters são executados no Windows Server e no Linux. Você pode implantar e hospedar aplicativos Service Fabric em qualquer lugar em que possa executar o Windows Server ou o Linux.
 services: service-fabric
 documentationcenter: .net
-author: dkkapur
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.author: dekapur
-ms.openlocfilehash: 03b9cce0d8e4666630aa6568597e08d1f13386ff
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: bbfdc0a30aa673e8602ec9233fde4236c99ef5aa
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422803"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882204"
 ---
 # <a name="overview-of-service-fabric-clusters-on-azure"></a>Visão geral dos clusters do Service Fabric no Azure
 Um cluster do Service Fabric é um conjunto de computadores físicos ou virtuais conectados via rede, nos quais os microsserviços são implantados e gerenciados. Um computador ou VM que faz parte de um cluster é chamado de nó de cluster. Os clusters podem ser dimensionados para milhares de nós. Se você adiciona novos nós ao cluster, o Service Fabric reequilibra as réplicas de partição de serviço e instâncias entre o número aumentado de nós. O desempenho geral do aplicativo é melhorado e a contenção para o acesso à memória é reduzida. Se os nós no cluster não estiverem sendo usados com eficiência, você poderá diminuir o número de nós no cluster. O Service Fabric redistribui novamente as réplicas de partição e instâncias entre o número reduzido de nós, para fazer melhor uso do hardware em cada nó.
@@ -48,9 +46,9 @@ Você pode usar os conjuntos de dimensionamento para implantar e gerenciar uma c
 Para saber mais, confira os [tipos de nós do Service Fabric e os conjuntos de dimensionamento de máquina virtual](service-fabric-cluster-nodetypes.md).
 
 ### <a name="azure-load-balancer"></a>Azure Load Balancer
-As instâncias de VM são unidas atrás de um [balanceador de carga do Azure](../load-balancer/load-balancer-overview.md), que está associado a um [endereço IP público](../virtual-network/public-ip-addresses.md) e a um rótulo de DNS.  Quando você provisiona um cluster com * &lt; ClusterName &gt; *, o nome DNS, * &lt; ClusterName &gt; . &lt; Location &gt; . cloudapp.Azure.com* é o rótulo DNS associado ao balanceador de carga na frente do conjunto de dimensionamento.
+As instâncias de VM são unidas atrás de um [balanceador de carga do Azure](../load-balancer/load-balancer-overview.md), que está associado a um [endereço IP público](../virtual-network/public-ip-addresses.md) e a um rótulo de DNS.  Quando você provisiona um cluster com *&lt; ClusterName &gt;*, o nome DNS, *&lt; ClusterName &gt; . &lt; Location &gt; . cloudapp.Azure.com* é o rótulo DNS associado ao balanceador de carga na frente do conjunto de dimensionamento.
 
-As VMs em um cluster têm apenas [endereços IP privados](../virtual-network/private-ip-addresses.md).  O tráfego de gerenciamento e de serviço são roteados por meio do balanceador de carga voltado ao público.  O tráfego de rede é roteado para essas máquinas por meio de regras NAT (os clientes se conectam a nós/instâncias específicas) ou de regras de balanceamento de carga (o tráfego vai para as VMs round robin).  Um balanceador de carga tem um IP público associado com um nome DNS no formato: * &lt; ClusterName &gt; . &lt; Location &gt; . cloudapp.Azure.com*.  Um IP público é outro recurso do Azure no grupo de recursos.  Se você definir vários tipos de nós em um cluster, é criado um balanceador de carga para cada tipo de nó/conjunto de dimensionamento. Ou, é possível configurar um balanceador de carga único para vários tipos de nó.  O tipo de nó primário tem o rótulo DNS * &lt; ClusterName &gt; . &lt; Location &gt; . cloudapp.Azure.com*, outros tipos de nó têm o rótulo DNS * &lt; ClusterName &gt; - &lt; NodeType &gt; . &lt; Location &gt; . cloudapp.Azure.com*.
+As VMs em um cluster têm apenas [endereços IP privados](../virtual-network/private-ip-addresses.md).  O tráfego de gerenciamento e de serviço são roteados por meio do balanceador de carga voltado ao público.  O tráfego de rede é roteado para essas máquinas por meio de regras NAT (os clientes se conectam a nós/instâncias específicas) ou de regras de balanceamento de carga (o tráfego vai para as VMs round robin).  Um balanceador de carga tem um IP público associado com um nome DNS no formato: *&lt; ClusterName &gt; . &lt; Location &gt; . cloudapp.Azure.com*.  Um IP público é outro recurso do Azure no grupo de recursos.  Se você definir vários tipos de nós em um cluster, é criado um balanceador de carga para cada tipo de nó/conjunto de dimensionamento. Ou, é possível configurar um balanceador de carga único para vários tipos de nó.  O tipo de nó primário tem o rótulo DNS *&lt; ClusterName &gt; . &lt; Location &gt; . cloudapp.Azure.com*, outros tipos de nó têm o rótulo DNS *&lt; ClusterName &gt; - &lt; NodeType &gt; . &lt; Location &gt; . cloudapp.Azure.com*.
 
 ### <a name="storage-accounts"></a>Contas de armazenamento
 A [conta de armazenamento do Azure](../storage/common/storage-introduction.md) e os Managed Disks oferecem suporte a cada tipo de nó de cluster.
@@ -70,19 +68,19 @@ Além de certificados de cliente, o Azure Active Directory também pode ser conf
 
 Para saber mais, leia [Segurança de cliente para nó](service-fabric-cluster-security.md#client-to-node-security)
 
-### <a name="role-based-access-control"></a>Controle de Acesso Baseado em Função
-O Controle de Acesso Baseado em Função (RBAC) permite atribuir controles de acesso refinado a recursos do Azure.  Você pode atribuir regras de acesso diferentes para assinaturas, grupos de recursos e recursos.  As regras de RBAC são herdadas ao longo da hierarquia de recursos, a menos que sejam substituídas em um nível inferior.  Você pode atribuir qualquer usuário ou grupos de usuários em seu AAD com regras de RBAC, de modo que esses usuários e grupos designados possam modificar o cluster.  Para saber mais, confira a [visão geral do RBAC do Azure](../role-based-access-control/overview.md).
+### <a name="role-based-access-control"></a>Controle de acesso baseado em função
+O Azure RBAC (controle de acesso baseado em função) do Azure permite que você atribua controles de acesso refinados nos recursos do Azure.  Você pode atribuir regras de acesso diferentes para assinaturas, grupos de recursos e recursos.  As regras RBAC do Azure são herdadas ao longo da hierarquia de recursos, a menos que sejam substituídas em um nível inferior.  Você pode atribuir qualquer usuário ou grupo de usuários em seu AAD com as regras de RBAC do Azure para que usuários e grupos designados possam modificar o cluster.  Para saber mais, confira a [visão geral do RBAC do Azure](../role-based-access-control/overview.md).
 
 O Service Fabric também dá suporte ao controle de acesso para limitar o acesso a determinadas operações de cluster para diferentes grupos de usuários. Isso ajuda a tornar o cluster mais seguro. Dois tipos de controle de acesso têm suporte para clientes que se conectam a um cluster: função de Administrador e função de Usuário.  
 
-Para saber mais, confira o item sobre o [Controle de Acesso Baseado em Função (RBAC) do Service Fabric](service-fabric-cluster-security.md#role-based-access-control-rbac).
+Para obter mais informações, leia [Service Fabric controle de acesso baseado em função](service-fabric-cluster-security.md#service-fabric-role-based-access-control).
 
 ### <a name="network-security-groups"></a>Grupos de segurança de rede 
 Grupos de segurança de rede (NSGs) controlam o tráfego de entrada e de saída de uma sub-rede, VM ou NIC específica.  Por padrão, quando várias VMs são colocadas na mesma rede virtual, elas podem se comunicar entre si por meio de qualquer porta.  Se quiser restringir a comunicação entre as máquinas, é possível definir os NSGs para segmentar a rede ou isolar as VMs umas das outras.  Se tiver vários tipos de nó em um cluster, é possível aplicar os NSGs a sub-redes para impedir que as máquinas que pertencem a diferentes tipos de nó se comuniquem entre si.  
 
-Para saber mais, confira o artigo sobre os [Grupos de segurança](../virtual-network/security-overview.md)
+Para saber mais, confira o artigo sobre os [Grupos de segurança](../virtual-network/network-security-groups-overview.md)
 
-## <a name="scaling"></a>Scaling
+## <a name="scaling"></a>Dimensionamento
 
 As demandas de aplicativos alteram ao longo do tempo. Talvez seja necessário aumentar os recursos de cluster para atender ao aumento do tráfego ou de carga de trabalho do aplicativo ou diminuir os recursos de cluster quando houver queda de demanda. Após criar um cluster do Service Fabric, será possível dimensionar o cluster horizontalmente (alterar o número de nós) ou verticalmente (alterar os recursos dos nós). É possível dimensionar o cluster a qualquer momento, mesmo quando as cargas de trabalho estiverem em execução no cluster. Na medida em que o cluster for dimensionado, os aplicativos também serão dimensionados automaticamente.
 
@@ -96,16 +94,17 @@ Para saber mais, leia [Upgrade de clusters](service-fabric-cluster-upgrade.md).
 ## <a name="supported-operating-systems"></a>Sistemas operacionais compatíveis
 É possível criar clusters em máquinas virtuais que executem estes sistemas operacionais:
 
-| Sistema operacional | Versão de Service Fabric mais antiga com suporte |
-| --- | --- |
-| Windows Server 2012 R2 | Todas as versões |
-| Windows Server 2016 | Todas as versões |
-| Windows Server 1709 | 6.0 |
-| Windows Server 1803 | 6.4 |
-| Windows Server 1809 | 6.4.654.9590 |
-| Windows Server 2019 | 6.4.654.9590 |
-| Linux Ubuntu 16.04 | 6.0 |
-| Linux Ubuntu 18, 4 | 7.1 |
+| Sistema operacional | Versão de Service Fabric mais antiga com suporte | Última versão de Service Fabric com suporte |
+| --- | --- | --- | 
+| Windows Server 2019 | 6.4.654.9590 | N/D |
+| Windows Server 2016 | Todas as versões | N/D |
+| 20H2 do Windows Server | 7.2.445.9590 | N/D |
+| Windows Server 1809 | 6.4.654.9590 | 7.2.445.9590 |
+| Windows Server 1803 | 6.4 | 7.2.445.9590 |
+| Windows Server 1709 | 6.0 | 7.2.445.9590 |
+| Windows Server 2012 | Todas as versões | N/D | 
+| Linux Ubuntu 16.04 | 6.0 | N/D |
+| Linux Ubuntu 18, 4 | 7.1 | N/D |
 
 Para obter informações adicionais, consulte [versões de cluster com suporte no Azure](./service-fabric-versions.md#supported-operating-systems)
 

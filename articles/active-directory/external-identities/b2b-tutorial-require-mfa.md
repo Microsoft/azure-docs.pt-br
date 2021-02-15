@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bddf1642b2013567fbc23278b3d8d32692601d55
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 1f5f7f823d6c5f5860c2e78fe8cacdd1d788c581
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87906797"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95974112"
 ---
 # <a name="tutorial-enforce-multi-factor-authentication-for-b2b-guest-users"></a>Tutorial: impor a autenticação multifator para usuários convidados de B2B
 
@@ -89,7 +89,7 @@ Para concluir o cenário deste tutorial, você precisa de:
 
 12. Na página **Selecionar**, escolha **Gerenciamento do Microsoft Azure** e escolha **Selecionar**.
 
-    ![Captura de tela mostrando o aplicativo de Gerenciamento do Microsoft Azure selecionado](media/tutorial-mfa/tutorial-mfa-policy-11.png)
+    ![Captura de tela que realça a opção de Gerenciamento do Microsoft Azure.](media/tutorial-mfa/tutorial-mfa-policy-11.png)
 
 13. Na página **Aplicativos de nuvem**, selecione **Concluído**.
 14. Na página **Novo**, na seção **Controles de acesso**, selecione **Conceder**.
@@ -107,7 +107,7 @@ Para concluir o cenário deste tutorial, você precisa de:
 
 1.  Na página **Acesso condicional – Políticas**, selecione **What If**. 
 
-    ![Captura de tela mostrando onde selecionar a opção What if](media/tutorial-mfa/tutorial-mfa-whatif-1.png)
+    ![Captura de tela que realça onde selecionar a opção What if na página Acesso Condicional – Políticas.](media/tutorial-mfa/tutorial-mfa-whatif-1.png)
 
 2.  Selecione **Usuário**, escolha seu usuário convidado de teste e escolha **Selecionar**.
 

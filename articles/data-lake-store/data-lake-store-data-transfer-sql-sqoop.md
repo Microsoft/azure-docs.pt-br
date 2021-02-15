@@ -7,12 +7,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 07/30/2019
 ms.author: twooley
-ms.openlocfilehash: c61862ccc7bac839627e9e7a9fbff9859155c6a2
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 9bb787138267fd8a9fab4dea233c1c828b457d67
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323070"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "92109180"
 ---
 # <a name="copy-data-between-data-lake-storage-gen1-and-azure-sql-database-using-sqoop"></a>Copiar dados entre o Data Lake Storage Gen1 e o Azure SQL Database usando o Sqoop
 
@@ -31,7 +31,7 @@ Antes de começar, você deverá ter o seguinte:
 * **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Uma conta do Azure Data Lake Storage Gen1**. Para obter instruções sobre como criar a conta, consulte Introdução [ao Azure data Lake Storage Gen1](data-lake-store-get-started-portal.md)
 * **Cluster Azure HDInsight** com acesso a uma conta do Azure Data Lake Storage Gen1. Veja [Criar um cluster HDInsight com Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md). Este artigo pressupõe que você tenha um cluster HDInsight Linux com acesso ao Azure Data Lake Storage Gen1.
-* **Banco de dados SQL do Azure**. Para obter instruções sobre como criar um banco de dados no banco de dados SQL do Azure, consulte [criar um banco de dados no banco de dados SQL do Azure](../sql-database/sql-database-get-started.md)
+* **Banco de dados SQL do Azure**. Para obter instruções sobre como criar um banco de dados no banco de dados SQL do Azure, consulte [criar um banco de dados no banco de dados SQL do Azure](../azure-sql/database/single-database-create-quickstart.md)
 
 ## <a name="create-sample-tables-in-the-database"></a>Criar tabelas de exemplo no banco de dados
 
@@ -99,7 +99,7 @@ Um cluster HDInsight já tem os pacotes Sqoop disponíveis. Se você tiver confi
 
    O espaço reservado **SQL-Database-Server-Name** representa o nome do servidor no qual o banco de dados está em execução. **sql-database-name** representa o nome do banco de dados real.
 
-   Por exemplo:
+   Por exemplo,
 
     ```console
     sqoop-import --connect "jdbc:sqlserver://mysqoopserver.database.windows.net:1433;username=user1@mysqoopserver;password=<password>;database=mysqoopdatabase" --table Table1 --target-dir adl://myadlsg1store.azuredatalakestore.net/Sqoop/SqoopImportTable1
@@ -121,7 +121,7 @@ Um cluster HDInsight já tem os pacotes Sqoop disponíveis. Se você tiver confi
     -rwxrwxrwx   0 sshuser hdfs         18 2016-02-26 21:09 adl://hdiadlsg1store.azuredatalakestore.net/Sqoop/SqoopImportTable1/part-m-00003
     ```
 
-   Cada arquivo **Part-m-*** corresponde a uma linha na tabela de origem, **Table1**. Você pode exibir o conteúdo dos arquivos part-m-* para verificação.
+   Cada arquivo **Part-m-** _ corresponde a uma linha na tabela de origem, _ *table1 * *. Você pode exibir o conteúdo dos arquivos Part-m-* para verificar.
 
 ### <a name="export-data-from-data-lake-storage-gen1-into-azure-sql-database"></a>Exportar dados do Data Lake Storage Gen1 para o Banco de Dados SQL do Azure
 
@@ -131,7 +131,7 @@ Um cluster HDInsight já tem os pacotes Sqoop disponíveis. Se você tiver confi
     sqoop-export --connect "jdbc:sqlserver://<sql-database-server-name>.database.windows.net:1433;username=<username>@<sql-database-server-name>;password=<password>;database=<sql-database-name>" --table Table2 --export-dir adl://<data-lake-storage-gen1-name>.azuredatalakestore.net/Sqoop/SqoopImportTable1 --input-fields-terminated-by ","
     ```
 
-   Por exemplo:
+   Por exemplo,
 
     ```console
     sqoop-export --connect "jdbc:sqlserver://mysqoopserver.database.windows.net:1433;username=user1@mysqoopserver;password=<password>;database=mysqoopdatabase" --table Table2 --export-dir adl://myadlsg1store.azuredatalakestore.net/Sqoop/SqoopImportTable1 --input-fields-terminated-by ","
@@ -156,7 +156,7 @@ Um cluster HDInsight já tem os pacotes Sqoop disponíveis. Se você tiver confi
 
 ## <a name="performance-considerations-while-using-sqoop"></a>Considerações de desempenho ao usar o Sqoop
 
-Para obter informações sobre ajuste de desempenho do trabalho do Sqoop para copiar dados para Data Lake Storage Gen1, consulte a [postagem do blog de desempenho do Sqoop](https://docs.microsoft.com/archive/blogs/shanyu/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs).
+Para obter informações sobre ajuste de desempenho do trabalho do Sqoop para copiar dados para Data Lake Storage Gen1, consulte a [postagem do blog de desempenho do Sqoop](/archive/blogs/shanyu/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs).
 
 ## <a name="next-steps"></a>Próximas etapas
 

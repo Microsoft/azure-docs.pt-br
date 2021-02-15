@@ -1,19 +1,16 @@
 ---
 title: Backup & replicação para Apache HBase, Phoenix – Azure HDInsight
 description: Configurar o backup e a replicação para o Apache HBase e o Apache Phoenix no Azure HDInsight
-author: ashishthaps
-ms.author: ashishth
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/19/2019
-ms.openlocfilehash: 5a3760956dfe9a713d344fd6684d75ea240ab7de
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: 1d5bcf9c04ad02eaf297f8971aa0f4ff599888c7
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88705717"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943002"
 ---
 # <a name="set-up-backup-and-replication-for-apache-hbase-and-apache-phoenix-on-hdinsight"></a>Configurar backup e replicação para Apache HBase e Apache Phoenix no HDInsight
 
@@ -52,7 +49,7 @@ Depois de excluir o cluster, você pode deixar os dados no local ou copiar os da
 
 * Crie uma nova instância do HDInsight apontando para o local de armazenamento atual. A nova instância é criada com todos os dados existentes.
 
-* Copie a pasta `hbase` para um contêiner de blob de Armazenamento do Azure diferente ou local do Data Lake Storage e, em seguida, inicie um novo cluster com esses dados. Para o Armazenamento do Azure, use [AzCopy](../../storage/common/storage-use-azcopy.md), e para o Data Lake Storage, use [AdlCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md).
+* Copie a pasta `hbase` para um contêiner de blob de Armazenamento do Azure diferente ou local do Data Lake Storage e, em seguida, inicie um novo cluster com esses dados. Para o Armazenamento do Azure, use [AzCopy](../../storage/common/storage-use-azcopy-v10.md), e para o Data Lake Storage, use [AdlCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md).
 
 ## <a name="export-then-import"></a>Exportar e importar
 
@@ -219,6 +216,12 @@ Se você não tiver uma conta de armazenamento do Azure secundária anexada ao s
 hbase org.apache.hadoop.hbase.snapshot.ExportSnapshot -Dfs.azure.account.key.myaccount.blob.core.windows.net=mykey -snapshot 'Snapshot1' -copy-to 'wasbs://secondcluster@myaccount.blob.core.windows.net/hbase'
 ```
 
+Se o cluster de destino for um cluster ADLS Gen 2, altere o comando anterior para ajustar as configurações usadas pelo ADLS Gen 2:
+
+```console
+hbase org.apache.hadoop.hbase.snapshot.ExportSnapshot -Dfs.azure.account.key.<account_name>.dfs.core.windows.net=<key> -Dfs.azure.account.auth.type.<account_name>.dfs.core.windows.net=SharedKey -Dfs.azure.always.use.https.<account_name>.dfs.core.windows.net=false -Dfs.azure.account.keyprovider.<account_name>.dfs.core.windows.net=org.apache.hadoop.fs.azurebfs.services.SimpleKeyProvider -snapshot 'Snapshot1' -copy-to 'abfs://<container>@<account_name>.dfs.core.windows.net/hbase'
+```
+
 Depois que o instantâneo for exportado, use o SSH no nó principal do cluster de destino e restaure o instantâneo usando o `restore_snapshot` comando, conforme descrito anteriormente.
 
 Os instantâneos fornecem um backup completo de uma tabela no momento do comando `snapshot`. Os instantâneos não fornecem a capacidade de executar instantâneos incrementais por janelas de tempo, nem para especificar subconjuntos de famílias de colunas a serem incluídas no instantâneo.
@@ -245,4 +248,4 @@ Para habilitar a replicação no HDInsight, aplique uma Ação de Script ao seu 
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Configure a replicação do Apache HBase](apache-hbase-replication.md)
-* [Trabalhando com o utilitário de importação e exportação do HBase](https://blogs.msdn.microsoft.com/data_otaku/2016/12/21/working-with-the-hbase-import-and-export-utility/)
+* [Trabalhando com o utilitário de importação e exportação do HBase](/archive/blogs/data_otaku/working-with-the-hbase-import-and-export-utility)

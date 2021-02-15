@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 07/10/2019
 ms.author: stevelas
 ms.openlocfilehash: b483317960409fe1fbea181706f12375606fe659
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75445745"
 ---
 # <a name="recommendations-for-tagging-and-versioning-container-images"></a>Recomendações para marcação e controle de versão de imagens de contêiner
@@ -29,7 +29,7 @@ Ao enviar por push as imagens de contêiner para um registro de contêiner e, em
 
 Uma equipe de estrutura vem com A versão 1,0. Eles sabem que enviarão atualizações, incluindo atualizações secundárias. Para dar suporte a marcas estáveis para uma determinada versão principal e secundária, elas têm dois conjuntos de marcas estáveis.
 
-* `:1`– uma marca estável para a versão principal. `1`representa a versão "mais nova" ou "1. * mais recente".
+* `:1` – uma marca estável para a versão principal. `1` representa a versão "mais nova" ou "1. * mais recente".
 * `:1.0`-uma marca estável para a versão 1,0, permitindo que um desenvolvedor se vincule às atualizações de 1,0 e não seja rolado para a 1,1 quando for liberado.
 
 A equipe também usa a `:latest` marca, que aponta para a marca estável mais recente, não importa qual é a versão principal atual.
@@ -49,7 +49,7 @@ Se uma imagem com uma marca estável for atualizada, a imagem marcada anteriorme
 A marcação exclusiva significa simplesmente que cada imagem enviada por push a um registro tem uma marca exclusiva. As marcas não são reutilizadas. Há vários padrões que você pode seguir para gerar marcas exclusivas, incluindo:
 
 * **Carimbo de data/hora** – essa abordagem é bastante comum, pois você pode dizer claramente quando a imagem foi criada. Mas como correlacioná-lo de volta ao seu sistema de compilação? Você precisa encontrar a compilação que foi concluída ao mesmo tempo? Em qual fuso horário você está? Todos os sistemas de compilação são calibrados para o UTC?
-* **Confirmação do git** – essa abordagem funciona até que você comece a dar suporte a atualizações da imagem base. Se ocorrer uma atualização de imagem base, o sistema de compilação iniciará a mesma confirmação de git que a compilação anterior. No entanto, a imagem base tem um novo conteúdo. Em geral, uma *confirmação de git fornece uma marca*semiestável.
+* **Confirmação do git**  – essa abordagem funciona até que você comece a dar suporte a atualizações da imagem base. Se ocorrer uma atualização de imagem base, o sistema de compilação iniciará a mesma confirmação de git que a compilação anterior. No entanto, a imagem base tem um novo conteúdo. Em geral, uma *confirmação de git fornece uma marca*semiestável.
 * **Resumo do manifesto** -cada imagem de contêiner enviada por push para um registro de contêiner é associada a um manifesto, identificado por um hash SHA-256 exclusivo ou resumo. Embora seja exclusivo, o resumo é longo, difícil de ler e não correlacionado ao seu ambiente de compilação.
 * **ID da compilação** -essa opção pode ser melhor, pois provavelmente é incremental e permite que você se correlacione de volta à compilação específica para localizar todos os artefatos e logs. No entanto, como um resumo de manifesto, pode ser difícil para uma leitura humana.
 

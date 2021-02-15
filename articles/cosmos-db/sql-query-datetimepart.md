@@ -3,18 +3,20 @@ title: DateTimePart na linguagem de consulta Azure Cosmos DB
 description: Saiba mais sobre a função do sistema SQL DateTimePart no Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 08/14/2020
 ms.author: tisande
 ms.custom: query-reference
-ms.openlocfilehash: 87663c18ddaa5da6740a0f54aa5f2812cbb06af8
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: 97eaff405086190b60279ac7d5cf8bf441c8f840
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88227011"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93336343"
 ---
 # <a name="datetimepart-azure-cosmos-db"></a>DateTimePart (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Retorna o valor do DateTimePart especificado entre o DateTime especificado.
   
@@ -31,8 +33,8 @@ DateTimePart (<DateTimePart> , <DateTime>)
 
 | DateTimePart | abreviações        |
 | ------------ | -------------------- |
-| Ano         | "Year", "yyyy", "AA" |
-| Month        | "month", "mm", "m"   |
+| Year         | "Year", "yyyy", "AA" |
+| Mês        | "month", "mm", "m"   |
 | Dia          | "Day", "dd", "d"     |
 | Hora         | "hora", "HH"         |
 | Minuto       | "minuto", "mi", "n"  |

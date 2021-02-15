@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/15/2020
 ms.author: apimpm
-ms.openlocfilehash: 262d12e1b0ff74570b44b7794f8b55619a9afa97
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: eec913237ba978e52bb64fbd4c1f043a9214ffc8
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905135"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077840"
 ---
 # <a name="feature-based-comparison-of-the-azure-api-management-tiers"></a>Comparação baseada em recursos dos níveis de gerenciamento de API do Azure
 
@@ -37,9 +37,9 @@ Cada [tipo de preço](https://aka.ms/apimpricing) de Gerenciamento de API oferec
 | Análise integrada                                                                           | Não          | Sim       | Sim   | Sim      | Sim     |
 | [Gateway auto-hospedado](self-hosted-gateway-overview.md)<sup>3</sup>                           | Não          | Sim       | Não    | Não       | Sim     |
 | [Configurações de protocolo TLS](api-management-howto-manage-protocols-ciphers.md)                             | Sim         | Sim       | Sim   | Sim      | Sim     |
-| [Cache externo](https://aka.ms/apimbyoc)                                                    | Sim         | Sim       | Sim   | Sim      | Sim     |
+| [Cache externo](./api-management-howto-cache-external.md)                                                    | Sim         | Sim       | Sim   | Sim      | Sim     |
 | [Autenticação de certificado de cliente](api-management-howto-mutual-certificates-for-clients.md) | Sim         | Sim       | Sim   | Sim      | Sim     |
-| [Backup e Restauração](api-management-howto-disaster-recovery-backup-restore.md)               | Não          | Sim       | Sim   | Sim      | Sim     |
+| [Backup e restauração](api-management-howto-disaster-recovery-backup-restore.md)               | Não          | Sim       | Sim   | Sim      | Sim     |
 | [Gerenciamento via Git](api-management-configuration-repository-git.md)                        | Não          | Sim       | Sim   | Sim      | Sim     |
 | API de Gerenciamento                                                                        | Não          | Sim       | Sim   | Sim      | Sim     |
 | Métricas e logs do Azure Monitor                                                               | Sim         | Sim       | Sim   | Sim      | Sim     |

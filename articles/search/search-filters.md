@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4d1e120073e5bf4306c89628fc4e2e9c9f7ed2cf
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 6d83e5c39f97db49e2cc9b77cc806cff0a1fa6de
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89002412"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94355977"
 ---
 # <a name="filters-in-azure-cognitive-search"></a>Filtros no Azure Pesquisa Cognitiva 
 
@@ -104,7 +104,7 @@ Os exemplos a seguir ilustram vários padrões de uso para cenários de filtro. 
    search=*&$filter=Rooms/any(room: room/BaseRate ge 60 and room/BaseRate lt 300) and Address/City eq 'Honolulu'
    ```
 
-+ A combinação de cadeia de caracteres de consulta e **$filter**, em que o filtro cria o subconjunto e a cadeia de caracteres de consulta fornece as entradas do termo de pesquisa de texto completo no subconjunto filtrado. A adição de termos (percorrendo teatros de distância) apresenta as pontuações de pesquisa nos resultados, onde os documentos que melhor correspondam aos termos são classificados como mais altos. O uso de um filtro com uma cadeia de caracteres de consulta é o padrão de uso mais comum.
++ A combinação de cadeia de caracteres de consulta e **$filter** , em que o filtro cria o subconjunto e a cadeia de caracteres de consulta fornece as entradas do termo de pesquisa de texto completo no subconjunto filtrado. A adição de termos (percorrendo teatros de distância) apresenta as pontuações de pesquisa nos resultados, onde os documentos que melhor correspondam aos termos são classificados como mais altos. O uso de um filtro com uma cadeia de caracteres de consulta é o padrão de uso mais comum.
 
    ```
   search=walking distance theaters&$filter=Rooms/any(room: room/BaseRate ge 60 and room/BaseRate lt 300) and Address/City eq 'Seattle'&$count=true
@@ -138,11 +138,11 @@ Confira estes artigos para obter orientação abrangente sobre casos de uso espe
 
 Na API REST, filtrável está *ativado* por padrão para campos simples. Campos que podem ser filtrados aumentam o tamanho do índice. Certifique-se de definir `"filterable": false` para os campos que não planeja usar em um filtro. Para obter mais informações sobre como configurar definições de campo, consulte [Criar índice](/rest/api/searchservice/create-index).
 
-No SDK .NET, filtrável está *desabilitado* por padrão. Você pode tornar um campo filtrável definindo a [Propriedade Isfiltrável](/dotnet/api/microsoft.azure.search.models.field.isfilterable?view=azure-dotnet) do objeto [Field](/dotnet/api/microsoft.azure.search.models.field?view=azure-dotnet) correspondente como `true` . Você também pode fazer isso de forma declarativa usando o [atributo Isfiltráable](/dotnet/api/microsoft.azure.search.isfilterableattribute). No exemplo a seguir, o atributo é definido na `BaseRate` propriedade de uma classe de modelo que é mapeada para a definição de índice.
+No SDK .NET, filtrável está *desabilitado* por padrão. Você pode tornar um campo filtrável definindo a [Propriedade Isfiltráable](/dotnet/api/azure.search.documents.indexes.models.searchfield.isfilterable) do objeto [searchfield](/dotnet/api/azure.search.documents.indexes.models.searchfield) correspondente como `true` . No exemplo a seguir, o atributo é definido na `BaseRate` propriedade de uma classe de modelo que é mapeada para a definição de índice.
 
 ```csharp
-    [IsFilterable, IsSortable, IsFacetable]
-    public double? BaseRate { get; set; }
+[IsFilterable, IsSortable, IsFacetable]
+public double? BaseRate { get; set; }
 ```
 
 ### <a name="making-an-existing-field-filterable"></a>Tornando um campo existente filtrável
@@ -160,7 +160,7 @@ Cadeias de caracteres de texto diferenciam minúsculas e maiúsculas. Não há l
 | Abordagem | Descrição | Quando usar |
 |----------|-------------|-------------|
 | [`search.in`](search-query-odata-search-in-function.md) | Uma função que corresponde a um campo em uma lista delimitada de cadeias de caracteres. | Recomendado para [filtros de segurança](search-security-trimming-for-azure-search.md) e para todos os filtros em que muitos valores de texto brutos precisam ser correspondidos com um campo de cadeia de caracteres. A função **Search.in** é projetada para velocidade e é muito mais rápida do que comparar explicitamente o campo com cada cadeia de caracteres usando `eq` e `or` . | 
-| [`search.ismatch`](search-query-odata-full-text-search-functions.md) | Uma função que permite a combinação de operações de pesquisa de texto completo com operações de filtro estritamente booliano na mesma expressão de filtro. | Use **Search. IsMatch** (ou seu equivalente de pontuação, **Search. ismatchscoring**) quando desejar várias combinações de filtro de pesquisa em uma solicitação. Você também pode usá-la para um filtro de *contém* para filtrar em uma cadeia de caracteres parcial dentro de uma cadeia de caracteres maior. |
+| [`search.ismatch`](search-query-odata-full-text-search-functions.md) | Uma função que permite a combinação de operações de pesquisa de texto completo com operações de filtro estritamente booliano na mesma expressão de filtro. | Use **Search. IsMatch** (ou seu equivalente de pontuação, **Search. ismatchscoring** ) quando desejar várias combinações de filtro de pesquisa em uma solicitação. Você também pode usá-la para um filtro de *contém* para filtrar em uma cadeia de caracteres parcial dentro de uma cadeia de caracteres maior. |
 | [`$filter=field operator string`](search-query-odata-comparison-operators.md) | Uma expressão definida pelo usuário é composta por campos, operadores e valores. | Use isso quando desejar localizar correspondências exatas entre um campo de cadeia de caracteres e um valor de cadeia de caracteres. |
 
 ## <a name="numeric-filter-fundamentals"></a>Conceitos básicos do filtro numérico
@@ -196,7 +196,7 @@ search=John Leclerc&$count=true&$select=source,city,postCode,baths,beds&$filter=
 
 Para trabalhar com mais exemplos, consulte [Sintaxe de expressão de filtro OData > Exemplos](./search-query-odata-filter.md#examples).
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 + [Como funciona a pesquisa de texto completo no Azure Cognitive Search](search-lucene-query-architecture.md)
 + [API REST para pesquisar documentos](/rest/api/searchservice/search-documents)

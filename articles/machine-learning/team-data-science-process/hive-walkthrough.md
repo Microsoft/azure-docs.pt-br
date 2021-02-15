@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: cb144aa7b6c717ada3a51fe3286f349bc3d8b325
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: 53f50e98bcec4b8ace342808f0bcfd96770834b0
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86273907"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002214"
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>O Processo de Ciência de Dados de Equipe em ação: usar clusters Hadoop do Azure HDInsight
 Neste passo a passo, usamos o [TDSP (Processo de ciência de dados da equipe)](overview.md) em um cenário de ponta a ponta. Usamos um [cluster Hadoop do Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) para armazenar, explorar e apresentar dados de engenharia do conjunto de dados publicamente disponível [Corridas de táxi em NYC](https://www.andresmh.com/nyctaxitrips/) e reduzir os dados da amostra. Para manipular a classificação binária e multiclasse e tarefas preditivas de regressão, criamos modelos dos dados com o Azure Machine Learning. 
@@ -85,11 +85,11 @@ Determine o tipo de previsões que você deseja fazer com base na análise de da
 Você pode configurar um ambiente do Azure para análises avançadas que empregue um cluster HDInsight em três etapas:
 
 1. [Criar uma conta de armazenamento](../../storage/common/storage-account-create.md): essa conta de armazenamento é usada para armazenar dados no armazenamento de BLOBs do Azure. Os dados usados em clusters HDInsight também estão localizados aqui.
-2. [Personalizar os clusters do Hadoop do Azure HDInsight para Processo e Tecnologia de Análise Avançada](customize-hadoop-cluster.md). Esta etapa cria um cluster HDInsight Hadoop com o Anaconda Python 2.7 de 64 bits instalado em todos os nós. Há duas etapas importantes a serem lembradas durante a personalização de seu cluster HDInsight.
+2. [Personalizar os clusters do Hadoop do Azure HDInsight para Processo e Tecnologia de Análise Avançada](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). Esta etapa cria um cluster HDInsight Hadoop com o Anaconda Python 2.7 de 64 bits instalado em todos os nós. Há duas etapas importantes a serem lembradas durante a personalização de seu cluster HDInsight.
    
    * Lembre-se de vincular a conta de armazenamento criada na etapa 1 ao cluster HDInsight ao criá-lo. Essa conta de armazenamento acessa dados que são processados no cluster.
    * Depois de criar o cluster, habilite o Acesso Remoto no nó de cabeçalho do cluster. Navegue para a guia **Configuração** e selecione **Habilitar Remoto**. Esta etapa especifica as credenciais de usuário usadas para logon remoto.
-3. [Criar um workspace do Azure Machine Learning](../studio/create-workspace.md): use esse workspace para criar modelos de aprendizado de máquina. Essa tarefa é abordada depois de concluir uma exploração inicial e redução de dados usando o cluster HDInsight.
+3. [Criar um workspace do Azure Machine Learning](../classic/create-workspace.md): use esse workspace para criar modelos de aprendizado de máquina. Essa tarefa é abordada depois de concluir uma exploração inicial e redução de dados usando o cluster HDInsight.
 
 ## <a name="get-the-data-from-a-public-source"></a><a name="getdata"></a>Obter os dados de uma fonte de pública
 > [!NOTE]
@@ -99,7 +99,7 @@ Você pode configurar um ambiente do Azure para análises avançadas que empregu
 
 Para copiar o conjunto de dados [Corridas de Táxi em NYC](https://www.andresmh.com/nyctaxitrips/) para seu computador de seu local público, use um dos métodos descritos em [Mover dados bidirecionalmente no armazenamento de Blobs do Azure](move-azure-blob.md).
 
-Aqui, descrevemos como usar o AzCopy para transferir os arquivos que contêm dados. Para baixar e instalar o AzCopy, siga as instruções em [introdução ao utilitário de linha de comando AzCopy](../../storage/common/storage-use-azcopy.md).
+Aqui, descrevemos como usar o AzCopy para transferir os arquivos que contêm dados. Para baixar e instalar o AzCopy, siga as instruções em [introdução ao utilitário de linha de comando AzCopy](../../storage/common/storage-use-azcopy-v10.md).
 
 1. Em uma janela de prompt de comando, execute os seguintes comandos AzCopy, substituindo *\<path_to_data_folder>* pelo destino desejado:
 
@@ -117,23 +117,23 @@ Aqui, descrevemos como usar o AzCopy para transferir os arquivos que contêm dad
 
 Nos comandos de AzCopy a seguir, substitua os seguintes parâmetros pelos valores reais especificados ao criar o cluster de Hadoop e extrair os arquivos de dados.
 
-* ***\<path_to_data_folder>*** O diretório (junto com o caminho) em seu computador que contém os arquivos de dados descompactados.  
-* ***\<storage account name of Hadoop cluster>*** A conta de armazenamento associada ao cluster HDInsight.
-* ***\<default container of Hadoop cluster>*** O contêiner padrão usado pelo seu cluster. O nome do contêiner padrão geralmente é o mesmo nome que o próprio cluster. Por exemplo, se o cluster se chamar "abc123.azurehdinsight.net", o contêiner padrão será abc123.
-* ***\<storage account key>*** A chave para a conta de armazenamento usada pelo cluster.
+* ***\<path_to_data_folder>** _ O diretório (junto com o caminho) em seu computador que contém os arquivos de dados descompactados.  
+_ * **\<storage account name of Hadoop cluster>** _ A conta de armazenamento associada ao cluster HDInsight.
+_ * **\<default container of Hadoop cluster>** _ O contêiner padrão usado pelo seu cluster. O nome do contêiner padrão geralmente é o mesmo nome que o próprio cluster. Por exemplo, se o cluster se chamar "abc123.azurehdinsight.net", o contêiner padrão será abc123.
+_ * **\<storage account key>** _ A chave para a conta de armazenamento usada pelo cluster.
 
 Em um prompt de comando ou uma janela do Windows PowerShell, execute os dois comandos do AzCopy a seguir.
 
-Esse comando carrega os dados de corrida no diretório ***nyctaxitripraw*** no contêiner padrão do cluster Hadoop.
+Esse comando carrega os dados de viagem no diretório _*_nyctaxitripraw_*_ no contêiner padrão do cluster do Hadoop.
 
 ```console
-"C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:<path_to_unzipped_data_files> /Dest:https://<storage account name of Hadoop cluster>.blob.core.windows.net/<default container of Hadoop cluster>/nyctaxitripraw /DestKey:<storage account key> /S /Pattern:trip_data_*.csv
+"C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:<path_to_unzipped_data_files> /Dest:https://<storage account name of Hadoop cluster>.blob.core.windows.net/<default container of Hadoop cluster>/nyctaxitripraw /DestKey:<storage account key> /S /Pattern:trip_data__.csv
 ```
 
-Esse comando carrega os dados de tarifa no diretório ***nyctaxifareraw*** no contêiner padrão do cluster Hadoop.
+Esse comando carrega os dados de Tarifa no diretório ***nyctaxifareraw** _ no contêiner padrão do cluster do Hadoop.
 
 ```console
-"C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:<path_to_unzipped_data_files> /Dest:https://<storage account name of Hadoop cluster>.blob.core.windows.net/<default container of Hadoop cluster>/nyctaxifareraw /DestKey:<storage account key> /S /Pattern:trip_fare_*.csv
+"C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:<path_to_unzipped_data_files> /Dest:https://<storage account name of Hadoop cluster>.blob.core.windows.net/<default container of Hadoop cluster>/nyctaxifareraw /DestKey:<storage account key> /S /Pattern:trip_fare__.csv
 ```
 
 Os dados agora devem estar no armazenamento de Blobs e prontos para serem consumidos dentro do cluster HDInsight.
@@ -144,7 +144,7 @@ Os dados agora devem estar no armazenamento de Blobs e prontos para serem consum
 > 
 > 
 
-Para acessar o nó de cabeçalho do cluster para a análise exploratória e redução dos dados, siga o procedimento descrito em [Acessar o nó de cabeçalho do cluster Hadoop](customize-hadoop-cluster.md).
+Para acessar o nó de cabeçalho do cluster para a análise exploratória e redução dos dados, siga o procedimento descrito em [Acessar o nó de cabeçalho do cluster Hadoop](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md).
 
 Neste passo a passo, podemos usar principalmente consultas escritas em [Hive](https://hive.apache.org/), uma linguagem de consulta do tipo SQL, para realizar explorações de dados preliminares. As consultas do hive são armazenadas em arquivos '. HQL '. Podemos então reduzir esses dados a serem usados no Machine Learning para criar modelos.
 
@@ -156,7 +156,7 @@ set script='https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataSc
 @powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString(%script%))"
 ```
 
-Esses dois comandos baixam todos os arquivos '. HQL ' necessários neste passo a passos para o diretório local ***C:\temp&#92;*** no nó de cabeçalho.
+Esses dois comandos baixam todos os arquivos '. HQL ' necessários neste passo a passos para o diretório local ***C:\temp&#92;** _ no nó de cabeçalho.
 
 ## <a name="create-hive-database-and-tables-partitioned-by-month"></a><a name="#hive-db-tables"></a>Criar banco de dados e tabelas Hive particionadas por mês
 > [!NOTE]
@@ -182,7 +182,7 @@ No prompt do diretório do hive, execute o seguinte comando na linha de comando 
 hive -f "C:\temp\sample_hive_create_db_and_tables.hql"
 ```
 
-Aqui está o conteúdo do arquivo **arquivo c:\Temp\sample \_ Hive \_ Create \_ DB \_ e \_ Tables. HQL** que cria o banco de dados Hive **nyctaxidb**e as tabelas **Trip** e **Tarifa**.
+Aqui está o conteúdo do arquivo _ *arquivo c:\Temp\sample \_ Hive \_ Create \_ DB \_ e \_ Tables. HQL** que cria o banco de dados Hive **nyctaxidb**, e as tabelas **Trip** e **Tarifa**.
 
 ```hiveql
 create database if not exists nyctaxidb;
@@ -669,7 +669,7 @@ Uma das principais vantagens de os dados residirem em um blob do Azure é que po
 Após a fase de análise exploratória de dados, agora estamos prontos para reduzir os dados para a criação de modelos no Machine Learning. Nesta seção, mostramos como usar uma consulta do Hive para reduzir os dados de amostra. Em seguida, o Machine Learning acessa-os no módulo [Importar Dados][import-data].
 
 ### <a name="down-sampling-the-data"></a>Reduzindo os dados
-Há duas etapas neste procedimento. Primeiro, juntamos as tabelas **nyctaxidb. Trip** e **nyctaxidb. Tarifa** em três chaves que estão presentes em todos os registros: **Medallion**, ** \_ licença de hack**e ** \_ DateTime de retirada**. Em seguida, geramos um rótulo de classificação binária **tipped** e um rótulo de classificação multiclasse **tip\_class**.
+Há duas etapas neste procedimento. Primeiro, juntamos as tabelas **nyctaxidb. Trip** e **nyctaxidb. Tarifa** em três chaves que estão presentes em todos os registros: **Medallion**, **\_ licença de hack** e **\_ DateTime de retirada**. Em seguida, geramos um rótulo de classificação binária **tipped** e um rótulo de classificação multiclasse **tip\_class**.
 
 Para usar os dados reduzidos diretamente no módulo [Importar Dados][import-data] do Machine Learning, é necessário armazenar os resultados da consulta anterior em uma tabela interna do Hive. No que vem em seguida, criamos uma tabela interna do Hive e preenchemos seus conteúdos com os dados unidos e reduzidos.
 
@@ -862,7 +862,7 @@ Agora você pode continuar a criação e a implantação do modelo no [Machine L
 
   **Aprendiz usado:** regressão logística de classe dois
 
-  a. Para esse problema, o rótulo (ou a classe) de destino é **tipped**. O conjunto de dados original convertidos tem algumas colunas que são vazamentos de destino para esse teste de classificação. Em particular, **a \_ classe Tip**, o ** \_ valor Tip**e o ** \_ valor total** revelam informações sobre o rótulo de destino que não está disponível no momento do teste. Deixamos de considerar essas colunas usando o módulo [Selecionar Colunas no Conjunto de Dados][select-columns].
+  a. Para esse problema, o rótulo (ou a classe) de destino é **tipped**. O conjunto de dados original convertidos tem algumas colunas que são vazamentos de destino para esse teste de classificação. Em particular, **a \_ classe Tip**, o **\_ valor Tip** e o **\_ valor total** revelam informações sobre o rótulo de destino que não está disponível no momento do teste. Deixamos de considerar essas colunas usando o módulo [Selecionar Colunas no Conjunto de Dados][select-columns].
 
   O seguinte diagrama mostra nosso experimento para prever se uma gorjeta foi paga ou não para determinada corrida:
 
@@ -915,7 +915,7 @@ Agora você pode continuar a criação e a implantação do modelo no [Machine L
   Aqui, o coeficiente de determinação é 0,709, implicando que aproximadamente 71% da variação é explicada pelos coeficientes de modelo.
 
 > [!IMPORTANT]
-> Para saber mais sobre o Machine Learning e como acessá-lo e usá-lo, consulte [O que é o Machine Learning](../studio/what-is-machine-learning.md). Além disso, a [galeria de IA do Azure](https://gallery.cortanaintelligence.com/) abrange uma gama de experimentos e fornece uma introdução abrangente às várias funcionalidades do Machine Learning.
+> Para saber mais sobre o Machine Learning e como acessá-lo e usá-lo, consulte [O que é o Machine Learning](../classic/index.yml). Além disso, a [galeria de IA do Azure](https://gallery.cortanaintelligence.com/) abrange uma gama de experimentos e fornece uma introdução abrangente às várias funcionalidades do Machine Learning.
 > 
 > 
 
@@ -924,8 +924,8 @@ Este passo a passo do exemplo e os scripts que o acompanham são compartilhados 
 
 ## <a name="references"></a>Referências
 •   [Página de download de Viagens de Táxi de NYC, de Andrés Monroy](https://www.andresmh.com/nyctaxitrips/)  
-• [Frustrando os dados de corrida de táxi de NYC por Chris Whong](https://chriswhong.com/open-data/foil_nyc_taxi/)   
-• [Pesquisa e estatísticas de NYC táxi e limusines Commission](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
+•    [Frustrando os dados de corrida de táxi de NYC por Chris Whong](https://chriswhong.com/open-data/foil_nyc_taxi/)   
+•    [Pesquisa e estatísticas de NYC táxi e limusines Commission](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
 
 [2]: ./media/hive-walkthrough/output-hive-results-3.png
 [11]: ./media/hive-walkthrough/hive-reader-properties.png
@@ -935,8 +935,5 @@ Este passo a passo do exemplo e os scripts que o acompanham são compartilhados 
 [15]: ./media/hive-walkthrough/amlreader.png
 
 <!-- Module References -->
-[select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
-[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
-
-
-
+[select-columns]: /azure/machine-learning/studio-module-reference/select-columns-in-dataset
+[import-data]: /azure/machine-learning/studio-module-reference/import-data

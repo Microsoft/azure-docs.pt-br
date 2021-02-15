@@ -3,18 +3,21 @@ title: StringToObject na linguagem de consulta Azure Cosmos DB
 description: Saiba mais sobre a função do sistema SQL StringToObject no Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: c3e61d1efe20910d84ef4ff583d74982b3ea9f3d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 369c86c8fc2ef4d125c3f13db4eb3af88b7e726e
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78296374"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93337839"
 ---
 # <a name="stringtoobject-azure-cosmos-db"></a>StringToObject (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Retorna a expressão convertida em um objeto. Se a expressão não puder ser convertida, retornará indefinido.  
   
 ## <a name="syntax"></a>Sintaxe

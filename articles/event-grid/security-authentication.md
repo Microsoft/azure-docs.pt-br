@@ -2,13 +2,13 @@
 title: Autenticar a entrega de eventos para manipuladores de eventos (grade de eventos do Azure)
 description: Este artigo descreve diferentes maneiras de autenticar a entrega para manipuladores de eventos na grade de eventos do Azure.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: abe16c9598c8c10caa832150aafac997dd7f1624
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.date: 01/07/2021
+ms.openlocfilehash: 98d7a4a0dee6c355ec340668bef7d8b306f97496
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87460636"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98633113"
 ---
 # <a name="authenticate-event-delivery-to-event-handlers-azure-event-grid"></a>Autenticar a entrega de eventos para manipuladores de eventos (grade de eventos do Azure)
 Este artigo fornece informações sobre como autenticar a entrega de eventos para manipuladores de eventos. Ele também mostra como proteger os pontos de extremidade do webhook que são usados para receber eventos da grade de eventos usando Azure Active Directory (Azure AD) ou um segredo compartilhado.
@@ -35,12 +35,15 @@ Você pode proteger o ponto de extremidade do webhook que é usado para receber 
 ### <a name="using-client-secret-as-a-query-parameter"></a>Usando o segredo do cliente como um parâmetro de consulta
 Também é possível proteger o ponto de extremidade do webhook adicionando parâmetros de consulta à URL de destino do webhook como parte da criação de uma Assinatura de Evento. Defina um dos parâmetros de consulta como o segredo do cliente; por exemplo, um [token de acesso](https://en.wikipedia.org/wiki/Access_token) ou um segredo compartilhado. O serviço da Grade de Eventos inclui todos esses parâmetros de consulta em cada solicitação de entrega de evento para o webhook. O serviço de webhook pode recuperar e validar o segredo. Se o segredo do cliente for atualizado, a assinatura do evento também precisará de atualização. Para evitar falhas na entrega durante essa rotação de segredo, faça com que o webhook aceite segredos novos e antigos por um período limitado antes de atualizar a assinatura do evento com o novo segredo. 
 
-Como os parâmetros de consulta podem conter segredos do cliente, eles são tratados com cuidado extra. Eles são armazenados criptografados e não ficam acessíveis a operadores de serviço. Eles não são registrados como parte dos logs/rastreamentos do serviço. Ao recuperar as propriedades da Assinatura do Evento, os parâmetros de consulta de destino não são retornados por padrão. Por exemplo: o parâmetro [--include-Full-Endpoint-URL](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-show) deve ser usado na [CLI](/cli/azure?view=azure-cli-latest) do Azure.
+Como os parâmetros de consulta podem conter segredos do cliente, eles são tratados com cuidado extra. Eles são armazenados criptografados e não ficam acessíveis a operadores de serviço. Eles não são registrados como parte dos logs/rastreamentos do serviço. Ao recuperar as propriedades da Assinatura do Evento, os parâmetros de consulta de destino não são retornados por padrão. Por exemplo: o parâmetro [--include-Full-Endpoint-URL](/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-show) deve ser usado na [CLI](/cli/azure) do Azure.
 
 Para obter mais informações sobre como entregar eventos a webhooks, confira [Entrega de eventos do webhook](webhook-event-delivery.md)
 
 > [!IMPORTANT]
 A Grade de Eventos do Azure é compatível somente com pontos de extremidade **HTTPS** do webhook. 
+
+## <a name="endpoint-validation-with-cloudevents-v10"></a>Validação de ponto de extremidade com CloudEvents v 1.0
+Se você já estiver familiarizado com a grade de eventos, talvez esteja ciente do handshake de validação do ponto de extremidade para evitar abusos. O CloudEvents v 1.0 implementa sua própria [semântica de proteção de abuso](webhook-event-delivery.md) usando o método de **Opções http** . Para ler mais sobre isso, confira [ganchos da Web HTTP 1,1 para entrega de eventos-versão 1,0](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#4-abuse-protection). Quando você usa o esquema CloudEvents para saída, a grade de eventos usa a proteção de abuso do CloudEvents v 1.0 em vez do mecanismo de evento de validação da grade de eventos. Para obter mais informações, consulte [usar o esquema CloudEvents v 1.0 com a grade de eventos](cloudevents-schema.md). 
 
 
 ## <a name="next-steps"></a>Próximas etapas

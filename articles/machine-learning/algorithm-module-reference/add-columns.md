@@ -1,7 +1,7 @@
 ---
 title: 'Adicionar colunas: referência de módulo'
 titleSuffix: Azure Machine Learning
-description: Saiba como usar o módulo adicionar colunas no Azure Machine Learning para concatenar dois conjuntos de valores.
+description: Saiba como usar o módulo adicionar colunas no designer de Azure Machine Learning do tipo "arrastar e soltar" para concatenar dois conjuntos de valores.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: f2e067f76d6ed7d89a38e9b8920c407f161969a8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 36de827dff239dbeebc66e330a76b7a65fefb909
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79456771"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421950"
 ---
 # <a name="add-columns-module"></a>Adicionar módulo de colunas
 
-Este artigo descreve um módulo no designer do Azure Machine Learning (versão prévia).
+Este artigo descreve um módulo no designer de Azure Machine Learning.
 
 Use este módulo para concatenar dois conjuntos de valores. Você combina todas as colunas dos dois conjuntos de valores que você especifica como entradas para criar um único conjunto de informações. Se você precisar concatenar mais de dois conjuntos de os, use várias instâncias de **adicionar colunas**.
 

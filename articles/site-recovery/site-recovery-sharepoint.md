@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 6/27/2019
 ms.author: sutalasi
 ms.openlocfilehash: 08e971e52f994ec5fa5663708fa9f173daf33d80
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135406"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013744"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Configurar a recuperação de desastre para um aplicativo do SharePoint de várias camadas para recuperação de desastres usando o Azure Site Recovery
 
-Este artigo descreve detalhadamente como proteger um aplicativo do SharePoint usando o [Azure site Recovery](site-recovery-overview.md).
+Este artigo descreve detalhadamente como proteger um aplicativo do SharePoint usando o  [Azure site Recovery](site-recovery-overview.md).
 
 
 ## <a name="overview"></a>Visão geral
@@ -102,7 +102,7 @@ Siga [estas diretrizes](./vmware-azure-tutorial.md) para começar a replicar a m
 Para sites voltados para a Internet, [crie um perfil do Gerenciador de Tráfego do tipo 'Prioridade'](../traffic-manager/quickstart-create-traffic-manager-profile.md) na assinatura do Azure. Em seguida, configure seu perfil do Gerenciador de Tráfego e de DNS da maneira descrita a seguir.
 
 
-| **Where** | **Origem** | **Destino**|
+| **Onde** | **Origem** | **Target (destino)**|
 | --- | --- | --- |
 | DNS público | DNS público para sites do SharePoint <br/><br/> Por exemplo: sharepoint.contoso.com | Gerenciador de Tráfego <br/><br/> contososharepoint.trafficmanager.net |
 | DNS local | sharepointonprem.contoso.com | IP público no farm local |

@@ -1,19 +1,16 @@
 ---
 title: Planejar uma rede virtual para o Azure HDInsight
 description: Saiba como planejar uma implantação de rede virtual do Azure para conectar o HDInsight a outros recursos de nuvem ou recursos em seu datacenter.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
-ms.date: 05/04/2020
-ms.openlocfilehash: e2db6d1d60026a00fa8e766fbaa1c72975fa2e99
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 01/12/2021
+ms.openlocfilehash: fe974a96b7f349c9d525d0cd0bb01a83ace57a4f
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82786607"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98939284"
 ---
 # <a name="plan-a-virtual-network-for-azure-hdinsight"></a>Planejar uma rede virtual para o Azure HDInsight
 
@@ -51,7 +48,8 @@ Estas são as perguntas que você deve responder ao planejar a instalação do H
 Use as etapas descritas nesta seção para descobrir como adicionar um novo HDInsight a uma Rede Virtual do Azure existente.
 
 > [!NOTE]  
-> Não é possível adicionar um cluster HDInsight existente a uma rede virtual.
+> - Não é possível adicionar um cluster HDInsight existente a uma rede virtual.
+> - A VNET e o cluster que está sendo criado devem estar na mesma assinatura.
 
 1. Você está usando um modelo de implantação clássico ou do Resource Manager para a rede virtual?
 
@@ -84,7 +82,7 @@ Use as etapas descritas nesta seção para descobrir como adicionar um novo HDIn
         Para obter mais informações, consulte o documento [Solução de problemas dos grupos de segurança de rede](../virtual-network/diagnose-network-traffic-filter-problem.md).
 
         > [!IMPORTANT]  
-        > As regras do grupo de segurança de rede são aplicadas em ordem, com base na prioridade da regra. A primeira regra que corresponde ao padrão de tráfego é aplicada e nenhuma outra é aplicada ao tráfego. Ordene as regras da mais permissiva para a menos permissiva. Para obter mais informações, consulte o documento [Filtrar o tráfego de rede com grupos de segurança de rede](../virtual-network/security-overview.md).
+        > As regras do grupo de segurança de rede são aplicadas em ordem, com base na prioridade da regra. A primeira regra que corresponde ao padrão de tráfego é aplicada e nenhuma outra é aplicada ao tráfego. Ordene as regras da mais permissiva para a menos permissiva. Para obter mais informações, consulte o documento [Filtrar o tráfego de rede com grupos de segurança de rede](../virtual-network/network-security-groups-overview.md).
 
     * Rotas definidas pelo usuário
 
@@ -210,6 +208,6 @@ Quando você cria um cluster HDInsight, um balanceador de carga também é criad
 * Para obter exemplos de código e exemplos de criação de Redes Virtuais do Azure, veja [Criação de redes virtuais para clusters do Azure HDInsight](hdinsight-create-virtual-network.md).
 * Para obter um exemplo de ponta a ponta de como configurar o HDInsight para se conectar a uma rede local, consulte [Conectar o HDInsight a uma rede local](./connect-on-premises-network.md).
 * Para obter mais informações sobre redes virtuais do Azure, consulte a [Visão geral da Rede Virtual do Azure](../virtual-network/virtual-networks-overview.md).
-* Para obter mais informações sobre os Grupos de Segurança de Rede, veja [Grupos de segurança de rede](../virtual-network/security-overview.md).
+* Para obter mais informações sobre os Grupos de Segurança de Rede, veja [Grupos de segurança de rede](../virtual-network/network-security-groups-overview.md).
 * Para obter mais informações sobre as rotas definidas pelo usuário, confira [Rotas definidas pelo usuário e encaminhamento IP](../virtual-network/virtual-networks-udr-overview.md).
-* Para obter mais informações sobre como controlar o tráfego, consulte [controlar o tráfego de rede](./control-network-traffic.md).
+* Para obter mais informações sobre como controlar o tráfego, incluindo a integração de firewall, consulte [controlar o tráfego de rede](./control-network-traffic.md).

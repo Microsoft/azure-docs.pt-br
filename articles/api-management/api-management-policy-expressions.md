@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: apimpm
-ms.openlocfilehash: 7117ffcbaf4eba8d83a6e968f4fed7422673610b
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: aec1967f0652e18c4a24ca258c14a103355b22af
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87844233"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99219308"
 ---
 # <a name="api-management-policy-expressions"></a>Expressões de política de Gerenciamento de API
 Este artigo discute a sintaxe de expressões de política no C# 7. Toda expressão tem acesso à variável de [contexto](api-management-policy-expressions.md#ContextVariables) fornecida implicitamente e a um [subconjunto](api-management-policy-expressions.md#CLRTypes) permitido de tipos do .NET Framework.
@@ -74,143 +74,143 @@ Expressões podem ser usadas como valores de atributo ou de texto em qualquer [p
 ## <a name="net-framework-types-allowed-in-policy-expressions"></a><a name="CLRTypes"></a> Tipos do .NET framework permitidos em expressões de política
 A tabela a seguir lista os tipos do .NET Framework e seus membros permitidos em expressões de política.
 
-|Type|Membros com suporte|
+|Tipo|Membros com suporte|
 |--------------|-----------------------|
-|Newtonsoft.Jsem. Formatação|Todos|
+|Newtonsoft.Jsem. Formatação|Tudo|
 |Newtonsoft.Json.Jsonconvert|SerializeObject, desserializaobject|
-|Newtonsoft.Json.Linq.Extensions|Todos|
-|Newtonsoft.Json.Linq.JArray|Todos|
-|Newtonsoft.Json.Linq.JConstructor|Todos|
-|Newtonsoft.Json.Linq.JContainer|Todos|
-|Newtonsoft.Json.Linq.JObject|Todos|
-|Newtonsoft.Json.Linq.JProperty|Todos|
-|Newtonsoft.Json.Linq.JRaw|Todos|
-|Newtonsoft.Json.Linq.JToken|Todos|
-|Newtonsoft.Json.Linq.JTokenType|Todos|
-|Newtonsoft.Json.Linq.JValue|Todos|
-|System.Array|Todos|
-|System.BitConverter|Todos|
-|System.Boolean|Todos|
-|System.Byte|Todos|
-|System.Char|Todos|
-|System.Collections.Generic.Dictionary<TKey, TValue>|Todos|
-|System. Collections. Generic. HashSet\<T>|Todos|
-|System. Collections. Generic. ICollection\<T>|Todos|
-|System. Collections. Generic. IDictionary<TKey, TValue>|Todos|
-|System.Collections.Generic.IEnumerable\<T>|Todos|
-|System. Collections. Generic. IEnumerator\<T>|Todos|
-|System.Collections.Generic.IList\<T>|Todos|
-|System. Collections. Generic. IReadOnlyCollection\<T>|Todos|
-|System. Collections. Generic. IReadOnlyDictionary<TKey, TValue>|Todos|
-|System. Collections. Generic. ISet\<T>|Todos|
-|System. Collections. Generic. KeyValuePair<TKey, TValue>|Todos|
-|System. coleções. Generic. List\<T>|Todos|
-|System. coleções. Generic. Queue\<T>|Todos|
-|System. coleções. Generic. Stack\<T>|Todos|
-|System.Convert|Todos|
+|Newtonsoft.Json.Linq.Extensions|Tudo|
+|Newtonsoft.Json.Linq.JArray|Tudo|
+|Newtonsoft.Json.Linq.JConstructor|Tudo|
+|Newtonsoft.Json.Linq.JContainer|Tudo|
+|Newtonsoft.Json.Linq.JObject|Tudo|
+|Newtonsoft.Json.Linq.JProperty|Tudo|
+|Newtonsoft.Json.Linq.JRaw|Tudo|
+|Newtonsoft.Json.Linq.JToken|Tudo|
+|Newtonsoft.Json.Linq.JTokenType|Tudo|
+|Newtonsoft.Json.Linq.JValue|Tudo|
+|System.Array|Tudo|
+|System.BitConverter|Tudo|
+|System.Boolean|Tudo|
+|System.Byte|Tudo|
+|System.Char|Tudo|
+|System.Collections.Generic.Dictionary<TKey, TValue>|Tudo|
+|System. Collections. Generic. HashSet\<T>|Tudo|
+|System. Collections. Generic. ICollection\<T>|Tudo|
+|System. Collections. Generic. IDictionary<TKey, TValue>|Tudo|
+|System.Collections.Generic.IEnumerable\<T>|Tudo|
+|System. Collections. Generic. IEnumerator\<T>|Tudo|
+|System.Collections.Generic.IList\<T>|Tudo|
+|System. Collections. Generic. IReadOnlyCollection\<T>|Tudo|
+|System. Collections. Generic. IReadOnlyDictionary<TKey, TValue>|Tudo|
+|System. Collections. Generic. ISet\<T>|Tudo|
+|System. Collections. Generic. KeyValuePair<TKey, TValue>|Tudo|
+|System. coleções. Generic. List\<T>|Tudo|
+|System. coleções. Generic. Queue\<T>|Tudo|
+|System. coleções. Generic. Stack\<T>|Tudo|
+|System.Convert|Tudo|
 |System.DateTime|(Construtor), adicionar, AddDays, addhora, addmilésimos de segundo, addminutos, addmeses, addsegundos, addtiques, subyears, data, Day, DayOfWeek, DayOfYear, DaysInMonth, hour, IsDaylightSavingTime, IsLeapYear, MaxValue, milissegundo, minute, MinValue, month, Now, Parse, Second, subtrair, Ticks, TimeOfDay, hoje, ToString, UtcNow|
 |System.DateTimeKind|Utc|
-|System.DateTimeOffset|Todos|
-|System.Decimal|Todos|
-|System.Double|Todos|
-|System.Exception|Todos|
-|System.Guid|Todos|
-|System.Int16|Todos|
-|System.Int32|Todos|
-|System.Int64|Todos|
-|System. IO. StringReader|Todos|
-|System. IO. StringWriter|Todos|
-|System. Linq. Enumerable|Todos|
-|System.Math|Todos|
-|System.MidpointRounding|Todos|
-|System.Net.WebUtility|Todos|
-|System.Nullable|Todos|
-|System.Random|Todos|
-|System.SByte|Todos|
-|System.Security.Cryptography.AsymmetricAlgorithm|Todos|
-|System. Security. Cryptography. CipherMode|Todos|
-|System.Security.Cryptography.HashAlgorithm|Todos|
-|System. Security. Cryptography. HashAlgorithmname|Todos|
-|System.Security.Cryptography.HMAC|Todos|
-|System.Security.Cryptography.HMACMD5|Todos|
-|System.Security.Cryptography.HMACSHA1|Todos|
-|System.Security.Cryptography.HMACSHA256|Todos|
-|System.Security.Cryptography.HMACSHA384|Todos|
-|System.Security.Cryptography.HMACSHA512|Todos|
-|System.Security.Cryptography.KeyedHashAlgorithm|Todos|
-|System.Security.Cryptography.MD5|Todos|
-|System. Security. Cryptography. Oid|Todos|
-|System. Security. Cryptography. PaddingMode|Todos|
-|System.Security.Cryptography.RNGCryptoServiceProvider|Todos|
-|System.Security.Cryptography.RSA|Todos|
-|System. Security. Cryptography. RSAEncryptionPadding|Todos|
-|System. Security. Cryptography. RSASignaturePadding|Todos|
-|System.Security.Cryptography.SHA1|Todos|
-|System.Security.Cryptography.SHA1Managed|Todos|
-|System.Security.Cryptography.SHA256|Todos|
-|System.Security.Cryptography.SHA256Managed|Todos|
-|System.Security.Cryptography.SHA384|Todos|
-|System.Security.Cryptography.SHA384Managed|Todos|
-|System.Security.Cryptography.SHA512|Todos|
-|System.Security.Cryptography.SHA512Managed|Todos|
-|System. Security. Cryptography. SymmetricAlgorithm|Todos|
-|System. Security. Cryptography. X509Certificates. PublicKey|Todos|
-|System. Security. Cryptography. X509Certificates. RSACertificateExtensions|Todos|
+|System.DateTimeOffset|Tudo|
+|System.Decimal|Tudo|
+|System.Double|Tudo|
+|System.Exception|Tudo|
+|System.Guid|Tudo|
+|System.Int16|Tudo|
+|System.Int32|Tudo|
+|System.Int64|Tudo|
+|System. IO. StringReader|Tudo|
+|System. IO. StringWriter|Tudo|
+|System. Linq. Enumerable|Tudo|
+|System.Math|Tudo|
+|System.MidpointRounding|Tudo|
+|System.Net.WebUtility|Tudo|
+|System.Nullable|Tudo|
+|System.Random|Tudo|
+|System.SByte|Tudo|
+|System.Security.Cryptography.AsymmetricAlgorithm|Tudo|
+|System. Security. Cryptography. CipherMode|Tudo|
+|System.Security.Cryptography.HashAlgorithm|Tudo|
+|System. Security. Cryptography. HashAlgorithmname|Tudo|
+|System.Security.Cryptography.HMAC|Tudo|
+|System.Security.Cryptography.HMACMD5|Tudo|
+|System.Security.Cryptography.HMACSHA1|Tudo|
+|System.Security.Cryptography.HMACSHA256|Tudo|
+|System.Security.Cryptography.HMACSHA384|Tudo|
+|System.Security.Cryptography.HMACSHA512|Tudo|
+|System.Security.Cryptography.KeyedHashAlgorithm|Tudo|
+|System.Security.Cryptography.MD5|Tudo|
+|System. Security. Cryptography. Oid|Tudo|
+|System. Security. Cryptography. PaddingMode|Tudo|
+|System.Security.Cryptography.RNGCryptoServiceProvider|Tudo|
+|System.Security.Cryptography.RSA|Tudo|
+|System. Security. Cryptography. RSAEncryptionPadding|Tudo|
+|System. Security. Cryptography. RSASignaturePadding|Tudo|
+|System.Security.Cryptography.SHA1|Tudo|
+|System.Security.Cryptography.SHA1Managed|Tudo|
+|System.Security.Cryptography.SHA256|Tudo|
+|System.Security.Cryptography.SHA256Managed|Tudo|
+|System.Security.Cryptography.SHA384|Tudo|
+|System.Security.Cryptography.SHA384Managed|Tudo|
+|System.Security.Cryptography.SHA512|Tudo|
+|System.Security.Cryptography.SHA512Managed|Tudo|
+|System. Security. Cryptography. SymmetricAlgorithm|Tudo|
+|System. Security. Cryptography. X509Certificates. PublicKey|Tudo|
+|System. Security. Cryptography. X509Certificates. RSACertificateExtensions|Tudo|
 |System. Security. Cryptography. X509Certificates. X500DistinguishedName|Nome|
-|System. Security. Cryptography. X509Certificates. X509Certificate|Todos|
-|System.Security.Cryptography.X509Certificates.X509Certificate2|Todos|
-|System. Security. Cryptography. X509Certificates. X509ContentType|Todos|
-|System. Security. Cryptography. X509Certificates. X509NameType|Todos|
-|System.Single|Todos|
-|System.String|Todos|
-|System.StringComparer|Todos|
-|System.StringComparison|Todos|
-|System.StringSplitOptions|Todos|
-|System.Text.Encoding|Todos|
+|System. Security. Cryptography. X509Certificates. X509Certificate|Tudo|
+|System.Security.Cryptography.X509Certificates.X509Certificate2|Tudo|
+|System. Security. Cryptography. X509Certificates. X509ContentType|Tudo|
+|System. Security. Cryptography. X509Certificates. X509NameType|Tudo|
+|System.Single|Tudo|
+|System.String|Tudo|
+|System.StringComparer|Tudo|
+|System.StringComparison|Tudo|
+|System.StringSplitOptions|Tudo|
+|System.Text.Encoding|Tudo|
 |System.Text.RegularExpressions.Capture|Index, Length, Value|
 |System.Text.RegularExpressions.CaptureCollection|Count, Item|
 |System.Text.RegularExpressions.Group|Captures, Success|
 |System.Text.RegularExpressions.GroupCollection|Count, Item|
 |System.Text.RegularExpressions.Match|Empty, Groups, Result|
 |System.Text.RegularExpressions.Regex|(Construtor), IsMatch, corresponder, corresponder, substituir, cancelar escape, dividir|
-|System.Text.RegularExpressions.RegexOptions|Todos|
-|System.Text.StringBuilder|Todos|
-|System.TimeSpan|Todos|
-|System.TimeZone|Todos|
-|System. TimeZoneInfo. AdjustmentRule|Todos|
-|System. TimeZoneInfo. Transicionatime|Todos|
-|System.TimeZoneInfo|Todos|
-|System.Tuple|Todos|
-|System.UInt16|Todos|
-|System.UInt32|Todos|
-|System.UInt64|Todos|
-|System.Uri|Todos|
-|System.UriPartial|Todos|
-|System.Xml.Linq.Extensions|Todos|
-|System.Xml.Linq.XAttribute|Todos|
-|System.Xml.Linq.XCData|Todos|
-|System.Xml.Linq.XComment|Todos|
-|System.Xml.Linq.XContainer|Todos|
-|System.Xml.Linq.XDeclaration|Todos|
+|System.Text.RegularExpressions.RegexOptions|Tudo|
+|System.Text.StringBuilder|Tudo|
+|System.TimeSpan|Tudo|
+|System.TimeZone|Tudo|
+|System. TimeZoneInfo. AdjustmentRule|Tudo|
+|System. TimeZoneInfo. Transicionatime|Tudo|
+|System.TimeZoneInfo|Tudo|
+|System.Tuple|Tudo|
+|System.UInt16|Tudo|
+|System.UInt32|Tudo|
+|System.UInt64|Tudo|
+|System.Uri|Tudo|
+|System.UriPartial|Tudo|
+|System.Xml.Linq.Extensions|Tudo|
+|System.Xml.Linq.XAttribute|Tudo|
+|System.Xml.Linq.XCData|Tudo|
+|System.Xml.Linq.XComment|Tudo|
+|System.Xml.Linq.XContainer|Tudo|
+|System.Xml.Linq.XDeclaration|Tudo|
 |System.Xml.Linq.XDocument|Todos, exceto de: Load|
-|System.Xml.Linq.XDocumentType|Todos|
-|System.Xml.Linq.XElement|Todos|
-|System.Xml.Linq.XName|Todos|
-|System.Xml.Linq.XNamespace|Todos|
-|System.Xml.Linq.XNode|Todos|
-|System.Xml.Linq.XNodeDocumentOrderComparer|Todos|
-|System.Xml.Linq.XNodeEqualityComparer|Todos|
-|System.Xml.Linq.XObject|Todos|
-|System.Xml.Linq.XProcessingInstruction|Todos|
-|System.Xml.Linq.XText|Todos|
-|System.Xml.XmlNodeType|Todos|
+|System.Xml.Linq.XDocumentType|Tudo|
+|System.Xml.Linq.XElement|Tudo|
+|System.Xml.Linq.XName|Tudo|
+|System.Xml.Linq.XNamespace|Tudo|
+|System.Xml.Linq.XNode|Tudo|
+|System.Xml.Linq.XNodeDocumentOrderComparer|Tudo|
+|System.Xml.Linq.XNodeEqualityComparer|Tudo|
+|System.Xml.Linq.XObject|Tudo|
+|System.Xml.Linq.XProcessingInstruction|Tudo|
+|System.Xml.Linq.XText|Tudo|
+|System.Xml.XmlNodeType|Tudo|
 
-## <a name="context-variable"></a><a name="ContextVariables"></a>Variável de contexto
+## <a name="context-variable"></a><a name="ContextVariables"></a> Variável de contexto
 Uma variável chamada `context` está implicitamente disponível em cada [expressão](api-management-policy-expressions.md#Syntax) de política. Seus membros fornecem informações pertinentes para `\request`. Todos os membros de `context` são somente leitura.
 
 |Variável de contexto|Valores de métodos, propriedades e parâmetros permitidos|
 |----------------------|-------------------------------------------------------|
-|contexto|[API](#ref-context-api): [IApi](#ref-iapi)<br /><br /> [Implantação](#ref-context-deployment)<br /><br /> Decorrido: TimeSpan - intervalo de tempo entre o valor de carimbo de data/hora e a hora atual<br /><br /> [lastError](#ref-context-lasterror)<br /><br /> [Operação](#ref-context-operation)<br /><br /> [Product](#ref-context-product)<br /><br /> [Solicitação](#ref-context-request)<br /><br /> RequestId: Guid - identificador exclusivo de solicitação<br /><br /> [Resposta](#ref-context-response)<br /><br /> [Assinatura](#ref-context-subscription)<br /><br /> Carimbo de data/hora: DataHora - ponto no tempo em que a solicitação foi recebida<br /><br /> Rastreamento: bool - indica que se o rastreamento está ativado ou desativado <br /><br /> [Usuário](#ref-context-user)<br /><br /> [Variables](#ref-context-variables): IReadOnlyDictionary<string,> de objeto<br /><br /> void Trace(message: string)|
+|contexto|[API](#ref-context-api): [IApi](#ref-iapi)<br /><br /> [Implantação](#ref-context-deployment)<br /><br /> Decorrido: TimeSpan - intervalo de tempo entre o valor de carimbo de data/hora e a hora atual<br /><br /> [LastError](#ref-context-lasterror)<br /><br /> [Operação](#ref-context-operation)<br /><br /> [Product](#ref-context-product)<br /><br /> [Solicitação](#ref-context-request)<br /><br /> RequestId: Guid - identificador exclusivo de solicitação<br /><br /> [Resposta](#ref-context-response)<br /><br /> [Assinatura](#ref-context-subscription)<br /><br /> Carimbo de data/hora: DataHora - ponto no tempo em que a solicitação foi recebida<br /><br /> Rastreamento: bool - indica que se o rastreamento está ativado ou desativado <br /><br /> [Usuário](#ref-context-user)<br /><br /> [Variables](#ref-context-variables): IReadOnlyDictionary<string,> de objeto<br /><br /> void Trace(message: string)|
 |<a id="ref-context-api"></a>context.Api|Id: string<br /><br /> IsCurrentRevision: bool<br /><br />  Name: string<br /><br /> Path: string<br /><br /> Revision: string<br /><br /> ServiceUrl: [IUrl](#ref-iurl)<br /><br /> Version: string |
 |<a id="ref-context-deployment"></a>context.Deployment|Region: string<br /><br /> ServiceName: string<br /><br /> Certificados: IReadOnlyDictionary<string, X509Certificate2>|
 |<a id="ref-context-lasterror"></a>context.LastError|Source: string<br /><br /> Reason: string<br /><br /> Message: string<br /><br /> Scope: string<br /><br /> Section: string<br /><br /> Path: string<br /><br /> PolicyId: string<br /><br /> Para obter mais informações sobre context.LastError, consulte [Error handling](api-management-error-handling-policies.md) (Tratamento de erro).|
@@ -220,7 +220,7 @@ Uma variável chamada `context` está implicitamente disponível em cada [expres
 |<a id="ref-context-request-headers"></a>string context.Request.Headers.GetValueOrDefault(headerName: string, defaultValue: string)|headerName: string<br /><br /> defaultValue: string<br /><br /> Retorna valores de cabeçalho de solicitação separados por vírgula ou `defaultValue` se o cabeçalho não for encontrado.|
 |<a id="ref-context-response"></a>context.Response|Corpo: [IMessageBody](#ref-imessagebody)<br /><br /> [Cabeçalhos](#ref-context-response-headers): IReadOnlyDictionary<cadeia de caracteres, Cadeia de caracteres [] ><br /><br /> StatusCode: int<br /><br /> StatusReason: string|
 |<a id="ref-context-response-headers"></a>string context.Response.Headers.GetValueOrDefault(headerName: string, defaultValue: string)|headerName: string<br /><br /> defaultValue: string<br /><br /> Retorna valores de cabeçalho de resposta separados por vírgula ou `defaultValue` se o cabeçalho não for encontrado.|
-|<a id="ref-context-subscription"></a>context.Subscription|CreatedTime: DateTime<br /><br /> EndDate: DateTime?<br /><br /> Id: string<br /><br /> Key: string<br /><br /> Name: string<br /><br /> PrimaryKey: string<br /><br /> SecondaryKey: string<br /><br /> StartDate: DateTime?|
+|<a id="ref-context-subscription"></a>context.Subscription|CreatedDate: DateTime<br /><br /> EndDate: DateTime?<br /><br /> Id: string<br /><br /> Key: string<br /><br /> Name: string<br /><br /> PrimaryKey: string<br /><br /> SecondaryKey: string<br /><br /> StartDate: DateTime?|
 |<a id="ref-context-user"></a>context.User|Email: string<br /><br /> FirstName: string<br /><br /> Grupos: IEnumerable<[IGroup](#ref-igroup)\><br /><br /> Id: string<br /><br /> Identidades: IEnumerable<[IUserIdentity](#ref-iuseridentity)\><br /><br /> LastName: string<br /><br /> Note: string<br /><br /> RegistrationDate: DateTime|
 |<a id="ref-iapi"></a>IApi|Id: string<br /><br /> Name: string<br /><br /> Path: string<br /><br /> Protocols: IEnumerable<string\><br /><br /> ServiceUrl: [IUrl](#ref-iurl)<br /><br /> SubscriptionKeyParameterNames: [ISubscriptionKeyParameterNames](#ref-isubscriptionkeyparameternames)|
 |<a id="ref-igroup"></a>IGroup|Id: string<br /><br /> Name: string|
@@ -253,4 +253,4 @@ Para obter mais informações sobre como trabalhar com políticas, consulte:
 + [Políticas no Gerenciamento de API](api-management-howto-policies.md)
 + [Transformar APIs](transform-api.md)
 + [Referência de Política](./api-management-policies.md) para uma lista completa das instruções de política e suas configurações
-+ [Exemplos de política](policy-samples.md)
++ [Exemplos de política](./policy-reference.md)

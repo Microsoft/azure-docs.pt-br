@@ -11,45 +11,51 @@ metadata:
   author: memildin
   ms.author: memildin
   ms.date: 08/17/2020
-  ms.openlocfilehash: a8f457b392aee3e91f0a1685543bec8ad07350de
-  ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+  ms.openlocfilehash: 0ee97ba1d0190cfb3331372329677b8ffe740439
+  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 08/20/2020
-  ms.locfileid: "88688531"
+  ms.lasthandoff: 10/09/2020
+  ms.locfileid: "90883856"
 landingContent:
 - title: Sobre a Central de Segurança
   linkLists:
   - linkListType: overview
     links:
     - text: Quais são os principais recursos da Central de Segurança?
-      url: security-center-intro.md
+      url: security-center-introduction.md
     - text: Quais versões do Windows Server e do Linux são compatíveis?
       url: security-center-os-coverage.md
+    - text: O que é o Azure Defender?
+      url: azure-defender.md
 - title: Mantenha-se atualizado
   linkLists:
   - linkListType: whats-new
     links:
     - text: Notas sobre a versão da Central de Segurança
       url: release-notes.md
-    - text: Gerenciar seus recursos com o inventário de ativos
-      url: asset-inventory.md
-    - text: Página de controle de aplicativo adaptável reescrita
-      url: security-center-adaptive-application.md
-    - text: Descrições completas dos novos controles de segurança
-      url: secure-score-security-controls.md#security-controls-and-their-recommendations
+    - text: Explorar a nova página de visão geral
+      url: overview-page.md
+    - text: Proteger as cargas de trabalho do Kubernetes
+      url: kubernetes-workload-protections.md
+    - text: Responder a alertas do Azure Defender para Key Vault
+      url: defender-for-key-vault-usage.md
     - text: API de classificação de segurança
-      url: secure-score-security-controls.md#getting-your-secure-score-from-the-rest-api
+      url: secure-score-security-controls.md#get-your-secure-score-from-the-rest-api
 - title: Introdução
   linkLists:
   - linkListType: get-started
     links:
+    - text: Introdução à Central de Segurança
+      url: security-center-get-started.md
     - text: Configurar as políticas de segurança
       url: tutorial-security-policy.md
     - text: Avaliar a postura de segurança
       url: secure-score-security-controls.md
-    - text: Atualização para segurança avançada
-      url: security-center-onboarding.md
+    - text: Conectar-se à sua conta da AWS
+      url: quickstart-onboard-aws.md
+    - text: Conectar-se à sua conta da GCP
+      url: quickstart-onboard-gcp.md
 - title: Aprimorar sua classificação de segurança
   linkLists:
   - linkListType: how-to-guide
@@ -58,12 +64,12 @@ landingContent:
       url: secure-score-security-controls.md
     - text: Corrigir recomendações de segurança
       url: security-center-remediate-recommendations.md
-    - text: Personalizar as recomendações de segurança
-      url: tutorial-security-policy.md
+    - text: Isentar um recurso de uma recomendação
+      url: exempt-resource.md
     - text: Usar recomendações para aumentar a segurança
       url: security-center-using-recommendations.md
     - text: Acompanhe a API de classificação de segurança
-      url: secure-score-security-controls.md#getting-your-secure-score-from-the-rest-api
+      url: secure-score-security-controls.md#get-your-secure-score-from-the-rest-api
 - title: Atenuar as ameaças
   linkLists:
   - linkListType: how-to-guide
@@ -74,3 +80,7 @@ landingContent:
       url: security-center-adaptive-application.md
     - text: Implementar a proteção de rede adaptável
       url: security-center-adaptive-network-hardening.md
+    - text: Experimente o Azure Defender gratuitamente por 30 dias
+      url: security-center-pricing.md#try-azure-defender-free-for-30-days
+    - text: Usar o painel do Azure Defender
+      url: azure-defender-dashboard.md

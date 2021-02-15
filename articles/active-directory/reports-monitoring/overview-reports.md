@@ -13,16 +13,16 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 09/30/2020
 ms.author: markvi
-ms.reviewer: dhanyahk
+ms.reviewer: sarbar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c2ae9e7654fa468d499ca6ef8543b98b1e372ca
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: 4f9a51c10a4f390e5627bccf35ab5dc74689e9c6
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85481384"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91566815"
 ---
 # <a name="what-are-azure-active-directory-reports"></a>O que são os relatórios do Azure Active Directory?
 
@@ -44,9 +44,9 @@ A arquitetura de relatório se baseia em dois pilares principais:
 
 Os relatórios de segurança ajudam a proteger as identidades da organização. Há dois tipos de relatórios de segurança:
 
-- **Usuários sinalizados como risco**: no [relatório de usuários sinalizados como risco de segurança](concept-user-at-risk.md), obtenha uma visão geral das contas de usuário que podem ter sido comprometidas.
+- **Usuários sinalizados como risco**: no [relatório de usuários sinalizados como risco de segurança](../identity-protection/overview-identity-protection.md), obtenha uma visão geral das contas de usuário que podem ter sido comprometidas.
 
-- **Entradas de risco**: com o [relatório de entradas de risco](concept-risky-sign-ins.md), você tem um indicador de tentativas de logon que pode ter sido realizadas por alguém que não é o proprietário legítimo de uma conta de usuário. 
+- **Entradas de risco**: com o [relatório de entradas de risco](../identity-protection/overview-identity-protection.md), você tem um indicador de tentativas de logon que pode ter sido realizadas por alguém que não é o proprietário legítimo de uma conta de usuário. 
 
 ### <a name="what-azure-ad-license-do-you-need-to-access-a-security-report"></a>Qual licença do Azure AD você precisa para acessar a atividade de entrada?  
 
@@ -68,6 +68,12 @@ Os relatórios de atividade ajudam você a compreender o comportamento de usuár
 - **Entradas**: com o [relatório de atividades de entradas](concept-sign-ins.md), você pode determinar quem realizou as tarefas indicadas pelo relatório dos logs de auditoria.
 
 
+
+> [!VIDEO https://www.youtube.com/embed/ACVpH6C_NL8]
+
+
+
+
 ### <a name="audit-logs-report"></a>Relatório de logs de auditoria 
 
 O [relatório dos logs de auditoria](concept-audit-logs.md) fornece logs de atividades de sistema para fins de conformidade. Esses dados permitem abordar cenários comuns, como:
@@ -81,7 +87,7 @@ O [relatório dos logs de auditoria](concept-audit-logs.md) fornece logs de ativ
 
 #### <a name="what-azure-ad-license-do-you-need-to-access-the-audit-logs-report"></a>Qual é a licença do Azure AD necessária para acessar o relatório dos logs de auditoria?  
 
-O relatório dos logs de auditoria está disponível para os recursos para os quais você possui licenças. Se você tem uma licença para um recurso específico, também tem acesso às informações da trilha de auditoria dele. Veja uma comparação detalhada dos recursos conforme os [diferentes tipos de licenças](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#what-are-the-azure-ad-licenses) na [página de preços do Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/). Para obter mais detalhes, veja [Recursos e funcionalidades do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#which-features-work-in-azure-ad).
+O relatório dos logs de auditoria está disponível para os recursos para os quais você possui licenças. Se você tem uma licença para um recurso específico, também tem acesso às informações da trilha de auditoria dele. Veja uma comparação detalhada dos recursos conforme os [diferentes tipos de licenças](../fundamentals/active-directory-whatis.md#what-are-the-azure-ad-licenses) na [página de preços do Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/). Para obter mais detalhes, veja [Recursos e funcionalidades do Azure Active Directory](../fundamentals/active-directory-whatis.md#which-features-work-in-azure-ad).
 
 ### <a name="sign-ins-report"></a>Relatório de entradas
 
@@ -101,6 +107,6 @@ Além da interface do usuário, o Azure AD também oferece a você [acesso progr
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Relatório de entradas de risco](concept-risky-sign-ins.md)
+- [Relatório de entradas de risco](../identity-protection/overview-identity-protection.md)
 - [Relatório de logs de auditoria](concept-audit-logs.md)
 - [Relatório de logs de entrada](concept-sign-ins.md)

@@ -1,39 +1,33 @@
 ---
 title: Configurar conjunto de dimensionamento de máquinas virtuais com um Azure Load Balancer existente-CLI do Azure
-description: Saiba como configurar um conjunto de dimensionamento de máquinas virtuais com um Azure Load Balancer existente.
+description: Saiba como configurar um conjunto de dimensionamento de máquinas virtuais com um Azure Load Balancer existente usando o CLI do Azure.
 author: asudbring
 ms.author: allensu
 ms.service: load-balancer
 ms.topic: how-to
 ms.date: 03/25/2020
-ms.openlocfilehash: 2d734e5242ff2a250d332de78cfa3b7f017a3fff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a60a6889217ce6ca8dccd5ebf5ee74b8f67a7757
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84809458"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94518202"
 ---
 # <a name="configure-a-virtual-machine-scale-set-with-an-existing-azure-load-balancer-using-the-azure-cli"></a>Configurar um conjunto de dimensionamento de máquinas virtuais com um Azure Load Balancer existente usando o CLI do Azure
 
-Neste artigo, você aprenderá a configurar um conjunto de dimensionamento de máquinas virtuais com um Azure Load Balancer existente. 
+Neste artigo, você aprenderá a configurar um conjunto de dimensionamento de máquinas virtuais com um Azure Load Balancer existente.
 
-## <a name="prerequisites"></a>Pré-requisitos
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-- Uma assinatura do Azure.
-- Um balanceador de carga de SKU padrão existente na assinatura em que o conjunto de dimensionamento de máquinas virtuais será implantado.
-- Uma rede virtual do Azure para o conjunto de dimensionamento de máquinas virtuais.
+## <a name="prerequisites"></a>Pré-requisitos 
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
+- Você precisa de um balanceador de carga de SKU padrão existente na assinatura em que o conjunto de dimensionamento de máquinas virtuais será implantado.
 
-Se você optar por usar a CLI localmente, este artigo exigirá que você tenha uma versão do CLI do Azure versão 2.0.28 ou posterior instalada. Para saber qual é a versão, execute `az --version`. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli).
+- Você precisa de uma rede virtual do Azure para o conjunto de dimensionamento de máquinas virtuais.
+ 
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-## <a name="sign-in-to-azure-cli"></a>Entrar na CLI do Azure
-
-Entre no Azure.
-
-```azurecli-interactive
-az login
-```
+- Este artigo requer a versão 2.0.28 ou posterior do CLI do Azure. Se você está usando o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ## <a name="deploy-a-virtual-machine-scale-set-with-existing-load-balancer"></a>Implantar um conjunto de dimensionamento de máquinas virtuais com o balanceador de carga existente
 

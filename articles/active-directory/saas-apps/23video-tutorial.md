@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/07/2019
 ms.author: jeedes
-ms.openlocfilehash: d4271c2d298744f339ac577a0db585dd8c309b16
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 5ade2f0c2afcb15541003cc8c1e5fccdb22de35b
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88538817"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92319142"
 ---
 # <a name="tutorial-integrate-23-video-with-azure-active-directory"></a>Tutorial: Integrar o 23 Video ao Azure Active Directory
 
@@ -26,7 +26,7 @@ Neste tutorial, você aprenderá a integrar o 23 Video ao Azure AD (Azure Active
 * Permitir que os usuários sejam conectados automaticamente ao 23 Video com suas contas do Azure AD.
 * Gerenciar suas contas em um local central: o portal do Azure.
 
-Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -138,11 +138,11 @@ O objetivo desta seção é criar um usuário chamado B.Fernandes no 23 Video.
 
 3. Na seção **Usuários**, clique em **Configurar**.
 
-    ![Atribuir usuário](./media/23video-tutorial/tutorial-23video-10.png)
+    ![Captura de tela que realça a seção Usuários.](./media/23video-tutorial/tutorial-23video-10.png)
 
 4. Clique em **Adicionar um novo usuário**.
 
-    ![Atribuir usuário](./media/23video-tutorial/tutorial-23video-11.png)
+    ![Captura de tela que realça o botão Adicionar um novo usuário.](./media/23video-tutorial/tutorial-23video-11.png)
 
 5. Na seção **Convidar alguém para participar deste site** , execute as seguintes etapas:
 
@@ -156,12 +156,12 @@ O objetivo desta seção é criar um usuário chamado B.Fernandes no 23 Video.
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Ao clicar no bloco do 23 Video no Painel de Acesso, você deverá ser conectado automaticamente ao 23 Video, para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao clicar no bloco do 23 Video no Painel de Acesso, você deverá ser conectado automaticamente ao 23 Video, para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](./tutorial-list.md)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)

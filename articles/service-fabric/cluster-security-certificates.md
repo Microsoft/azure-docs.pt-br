@@ -3,13 +3,12 @@ title: Autenticação baseada em certificado X. 509 em um Cluster Service Fabric
 description: Saiba mais sobre a autenticação baseada em certificado em clusters Service Fabric e como detectar, atenuar e corrigir problemas relacionados a certificados.
 ms.topic: conceptual
 ms.date: 03/16/2020
-ms.custom: sfrev
-ms.openlocfilehash: 36717f526f88af753f3929d62e84ee65be4320e9
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 8af0246e0e576f9877c4c5e3b1f1a4314ae29827
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259022"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97901242"
 ---
 # <a name="x509-certificate-based-authentication-in-service-fabric-clusters"></a>Autenticação baseada em certificado X. 509 em clusters Service Fabric
 
@@ -171,7 +170,10 @@ Os certificados de tipo de nó também podem ser declarados pelo nome comum da e
   </NodeTypes>
 ```
 
-Para qualquer tipo de declaração, um nó Service Fabric lerá a configuração na inicialização, localizará e carregará os certificados especificados e os classificará em ordem decrescente de seu atributo não após; os certificados expirados são ignorados e o primeiro elemento da lista é selecionado como a credencial do cliente para qualquer conexão de Service Fabric tentada por esse nó. (Na verdade, Service Fabric favorece o certificado de expiração mais distante.)
+Para qualquer tipo de declaração, um nó Service Fabric lerá a configuração na inicialização, localizará e carregará os certificados especificados e os classificará em ordem decrescente de seu atributo nobefore; os certificados expirados são ignorados e o primeiro elemento da lista é selecionado como a credencial do cliente para qualquer conexão de Service Fabric tentada por esse nó. (Na verdade, Service Fabric favorece o certificado emitido mais recentemente.)
+
+> [!NOTE]
+> Antes da versão 7.2.445 (7,2 CU4), Service Fabric selecionou o certificado de expiração mais distante (o certificado com a propriedade ' não após ' mais distante)
 
 Observe que, para declarações de apresentação com base em nome comum, um certificado será considerado uma correspondência se o nome comum da entidade for igual ao campo X509FindValue (ou X509FindValueSecondary) da declaração como uma comparação de cadeia de caracteres exata e diferenciada de maiúsculas e minúsculas. Isso está em contraste com as regras de validação, que dão suporte à correspondência de curinga, bem como comparações de cadeias de caracteres que não diferenciam maiúsculas de minúsculas.  
 

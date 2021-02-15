@@ -2,13 +2,13 @@
 title: Criar arquivo de parâmetros
 description: Criar arquivo de parâmetros para passar valores durante a implantação de um modelo do Azure Resource Manager
 ms.topic: conceptual
-ms.date: 06/19/2020
-ms.openlocfilehash: 8039b63978e52b69b0f8ffb4dd4e052769f3c5e6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 09/01/2020
+ms.openlocfilehash: 2b6d942b21594fa608127bb8f403e72295671005
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082929"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89276636"
 ---
 # <a name="create-resource-manager-parameter-file"></a>Criar um arquivo de parâmetro do Resource Manager
 
@@ -148,6 +148,8 @@ Por fim, examine os valores permitidos e as restrições como comprimento máxim
 }
 ```
 
+O arquivo de parâmetro só pode conter valores para parâmetros definidos no modelo. Se o arquivo de parâmetro contiver parâmetros extras que não correspondem aos parâmetros no modelo, você receberá um erro.
+
 ## <a name="parameter-type-formats"></a>Formatos do tipo de parâmetro
 
 O exemplo a seguir mostra os formatos de tipos de parâmetros diferentes.
@@ -184,10 +186,30 @@ O exemplo a seguir mostra os formatos de tipos de parâmetros diferentes.
 
 ## <a name="deploy-template-with-parameter-file"></a>Implantar modelo com arquivo de parâmetro
 
-Consulte:
+Para passar um arquivo de parâmetro local com CLI do Azure, use @ e o nome do arquivo de parâmetro.
 
-- [Implantar recursos com modelos do Resource Manager e a CLI do Azure](./deploy-cli.md#parameters)
-- [Implantar recursos com modelos do Resource Manager e o Azure PowerShell](./deploy-powershell.md#pass-parameter-values)
+```azurecli
+az deployment group create \
+  --name ExampleDeployment \
+  --resource-group ExampleGroup \
+  --template-file storage.json \
+  --parameters @storage.parameters.json
+```
+
+Para obter mais informações, consulte [implantar recursos com modelos ARM e CLI do Azure](./deploy-cli.md#parameters).
+
+Para passar um arquivo de parâmetro local com Azure PowerShell, use o `TemplateParameterFile` parâmetro.
+
+```azurepowershell
+New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
+  -TemplateFile c:\MyTemplates\azuredeploy.json `
+  -TemplateParameterFile c:\MyTemplates\storage.parameters.json
+```
+
+Para obter mais informações, consulte [implantar recursos com modelos ARM e Azure PowerShell](./deploy-powershell.md#pass-parameter-values)
+
+> [!NOTE]
+> Não é possível usar um arquivo de parâmetro com a folha modelo personalizado no Portal.
 
 ## <a name="file-name"></a>Nome do arquivo
 
@@ -199,7 +221,7 @@ Para implantar em ambientes diferentes, crie mais de um arquivo de parâmetros. 
 
 Você pode usar parâmetros embutidos e um arquivo de parâmetro local na mesma operação de implantação. Por exemplo, você pode especificar alguns valores no arquivo de parâmetro local e adicionar outros valores embutidos durante a implantação. Se você fornecer valores para um parâmetro no arquivo de parâmetros local e embutido, o valor embutido terá precedência.
 
-É possível usar um arquivo de parâmetros externo, fornecendo o URI para o arquivo. Quando você faz isso, não é possível transmitir outros valores em linha ou em um arquivo local. Todos os parâmetros embutidos são ignorados. Forneça todos os valores de parâmetro no arquivo externo.
+É possível usar um arquivo de parâmetros externo, fornecendo o URI para o arquivo. Quando você usa um arquivo de parâmetro externo, não pode passar outros valores embutidos ou de um arquivo local. Todos os parâmetros embutidos são ignorados. Forneça todos os valores de parâmetro no arquivo externo.
 
 ## <a name="parameter-name-conflicts"></a>Conflitos de nome de parâmetro
 

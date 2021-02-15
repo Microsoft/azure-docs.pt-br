@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: yolasors
-ms.openlocfilehash: 61c5917c1e4cb9dbf96e90af9a30777ea7c2e66c
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: f8f2e352ae458e3e2825c9701437ea652ba07375
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83594105"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91825664"
 ---
 # <a name="review-pull-requests-in-pre-production-environments-in-azure-static-web-apps-preview"></a>Examinar solicitações de pull em ambientes de pré-produção na Versão Prévia dos Aplicativos Web Estáticos do Azure
 
@@ -51,11 +51,11 @@ Comece fazendo uma alteração em seu repositório. Você pode fazer isso direta
 
 1. Vá até a pasta do _aplicativo_ e altere algum conteúdo do texto. Por exemplo, você pode alterar um título ou parágrafo. Assim que você tiver encontrado o arquivo que deseja editar, clique em **Editar** para fazer a alteração.
 
-    :::image type="content" source="./media/review-publish-pull-requests/edit-file.png" alt-text="Botão Editar arquivo na interface do GitHub":::
+    :::image type="content" source="./media/review-publish-pull-requests/edit-file.png" alt-text="Como criar um novo Branch usando a interface do GitHub":::
 
 1. Depois de fazer as alterações, clique em **Confirmar alterações** para confirmar suas alterações no branch.
 
-    :::image type="content" source="./media/review-publish-pull-requests/commit-changes.png" alt-text="Botão Confirmar alterações na interface do GitHub":::
+    :::image type="content" source="./media/review-publish-pull-requests/commit-changes.png" alt-text="Como criar um novo Branch usando a interface do GitHub":::
 
 ## <a name="create-a-pull-request"></a>Crie uma solicitação de pull
 
@@ -63,13 +63,13 @@ Em seguida, crie uma solicitação de pull com base nessa alteração.
 
 1. Abra a gruia **Solicitação de pull** do seu projeto no GitHub:
 
-    :::image type="content" source="./media/review-publish-pull-requests/tab.png" alt-text="Guia Solicitação de pull em um repositório GitHub":::
+    :::image type="content" source="./media/review-publish-pull-requests/tab.png" alt-text="Como criar um novo Branch usando a interface do GitHub":::
 
 1. Clique no botão **Comparação e solicitação de pull** do seu Branch.
 
 1. Opcionalmente, você pode preencher alguns detalhes sobre suas alterações e clicar em **Criar solicitação de pull**.
 
-    :::image type="content" source="./media/review-publish-pull-requests/open.png" alt-text="Criação de solicitação de pull no GitHub":::
+    :::image type="content" source="./media/review-publish-pull-requests/open.png" alt-text="Como criar um novo Branch usando a interface do GitHub":::
 
 Você pode atribuir revisores e adicionar comentários para discutir suas alterações, se necessário.
 
@@ -82,7 +82,7 @@ Depois que a solicitação de pull for criada, o fluxo de trabalho de implantaç
 
 Depois que o fluxo de trabalho tiver concluído a criação e implantação do seu aplicativo, o bot do GitHub adicionará um comentário à sua solicitação de pull que contém a URL do ambiente de pré-produção. Você pode clicar neste link para ver as alterações preparadas.
 
-:::image type="content" source="./media/review-publish-pull-requests/bot-comment.png" alt-text="Comentário de solicitação de pull com a URL de pré-produção":::
+:::image type="content" source="./media/review-publish-pull-requests/bot-comment.png" alt-text="Como criar um novo Branch usando a interface do GitHub":::
 
 Clique na URL gerada para ver as alterações.
 
@@ -96,7 +96,7 @@ Depois que as alterações forem aprovadas, você poderá publicar suas alteraç
 
 Clique em **mesclar solicitação de pull**:
 
-:::image type="content" source="./media/review-publish-pull-requests/merge.png" alt-text="Mesclar botão de solicitação de pull na interface do GitHub":::
+:::image type="content" source="./media/review-publish-pull-requests/merge.png" alt-text="Como criar um novo Branch usando a interface do GitHub":::
 
 Mesclar as cópias das suas alterações na ramificação rastreada (o branch de "produção"). Em seguida, o fluxo de trabalho de implantação é iniciado na ramificação rastreada e as alterações ficam ativas depois que o aplicativo é recriado.
 

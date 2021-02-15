@@ -1,14 +1,14 @@
 ---
 title: Entender como funcionam os efeitos
 description: As definições do Azure Policy têm vários efeitos que determinam como a conformidade é gerenciada e relatada.
-ms.date: 08/27/2020
+ms.date: 10/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: 83566cc638c4db1b00dbe40a48064a7c94250d8c
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: e72e94766dce2660409e729bc43eb107fb9ab39a
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88958755"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97883071"
 ---
 # <a name="understand-azure-policy-effects"></a>Compreender os efeitos do Azure Policy
 
@@ -22,9 +22,9 @@ Atualmente, estes efeitos têm suporte em uma definição de política:
 - [Deny](#deny)
 - [DeployIfNotExists](#deployifnotexists)
 - [Desabilitado](#disabled)
-- [Modify](#modify)
+- [Modificar](#modify)
 
-Os seguintes efeitos estão sendo _preteridos_:
+Os seguintes efeitos foram _preteridos_:
 
 - [EnforceOPAConstraint](#enforceopaconstraint)
 - [EnforceRegoPolicy](#enforceregopolicy)
@@ -42,6 +42,8 @@ As solicitações para criar ou atualizar um recurso são avaliadas pela Azure P
 - A **auditoria** é avaliada por último.
 
 Depois que o provedor de recursos retornar um código de êxito em uma solicitação do modo do Gerenciador de recursos, **AuditIfNotExists** e **DeployIfNotExists** serão avaliados para determinar se o log ou a ação de conformidade adicional é necessária.
+
+Além disso, `PATCH` as solicitações que modificam apenas `tags` campos relacionados restringem a avaliação de política para políticas que contêm condições que inspecionam os `tags` campos relacionados.
 
 ## <a name="append"></a>Acrescentar
 
@@ -98,7 +100,7 @@ Audit é usado para criar um evento de aviso no log de atividades ao avaliar um 
 
 ### <a name="audit-evaluation"></a>Avaliação de auditoria
 
-Audit é o último efeito verificado pelo Azure Policy durante a criação ou a atualização de um recurso. Para um modo do Gerenciador de recursos, Azure Policy envia o recurso para o provedor de recursos. Audit funciona da mesma forma para uma solicitação de recurso e um ciclo de avaliação. O Azure Policy adiciona uma operação `Microsoft.Authorization/policies/audit/action` ao log de atividades e marca o recurso como fora de conformidade.
+Audit é o último efeito verificado pelo Azure Policy durante a criação ou a atualização de um recurso. Para um modo do Gerenciador de recursos, Azure Policy envia o recurso para o provedor de recursos. Audit funciona da mesma forma para uma solicitação de recurso e um ciclo de avaliação. Para recursos novos e atualizados, Azure Policy adiciona uma `Microsoft.Authorization/policies/audit/action` operação ao log de atividades e marca o recurso como sem conformidade.
 
 ### <a name="audit-properties"></a>Propriedades de auditoria
 
@@ -145,7 +147,7 @@ O AuditIfNotExists habilita a auditoria de recursos _relacionados_ ao recurso qu
 
 ### <a name="auditifnotexists-evaluation"></a>Avaliação de AuditIfNotExists
 
-O efeito AuditIfNotExists é executado depois de um provedor de recursos ter tratado uma solicitação de criação ou atualização de recurso e ter retornado um código de status de êxito. A auditoria ocorre quando não existem recursos relacionados ou se os recursos definidos por **ExistenceCondition** não são avaliados como verdadeiros. O Azure Policy adiciona uma operação `Microsoft.Authorization/policies/audit/action` ao log de atividades da mesma maneira que o efeito Audit. Quando disparado, o recurso que atendeu à condição **se** é o recurso marcado como não compatível.
+O efeito AuditIfNotExists é executado depois de um provedor de recursos ter tratado uma solicitação de criação ou atualização de recurso e ter retornado um código de status de êxito. A auditoria ocorre quando não existem recursos relacionados ou se os recursos definidos por **ExistenceCondition** não são avaliados como verdadeiros. Para recursos novos e atualizados, Azure Policy adiciona uma `Microsoft.Authorization/policies/audit/action` operação ao log de atividades e marca o recurso como sem conformidade. Quando disparado, o recurso que atendeu à condição **se** é o recurso marcado como não compatível.
 
 ### <a name="auditifnotexists-properties"></a>Propriedades de AuditIfNotExists
 
@@ -156,7 +158,8 @@ A propriedade **detalhes** dos efeitos AuditIfNotExists tem todas as subpropried
   - Se **details.type** for um tipo de recurso abaixo do recurso de condição **if**, a política consultará os recursos desse **tipo** dentro do escopo do recurso avaliado. Caso contrário, a política consultará dentro do mesmo grupo de recursos que o recurso avaliado.
 - **Nome** (opcional)
   - Especifica o nome exato do recurso a ser correspondido e faz com que a política busque um recurso específico em vez de todos os recursos do tipo especificado.
-  - Quando há correspondência nos valores de condição para **if.field.type** e **then.details.type**, **Nome** se torna _obrigatório_ e deverá ser `[field('name')]`. No entanto, um efeito [Audit](#audit) deve ser considerado em seu lugar.
+  - Quando os valores de condição para **If. Field. Type** e **. Details. Type** correspondem, o **nome** torna-se _obrigatório_ e deve ser `[field('name')]` ou `[field('fullName')]` para um recurso filho.
+    No entanto, um efeito [Audit](#audit) deve ser considerado em seu lugar.
 - **ResourceGroupName** (opcional)
   - Permite que a correspondência do recurso relacionado venha de um grupo de recursos diferente.
   - Não se aplica se **type** for um recurso que estaria sob o recurso de condição **if**.
@@ -277,7 +280,7 @@ A propriedade **details** do efeito DeployIfNotExists tem todas as subpropriedad
   - Começa tentando buscar um recurso sob o recurso de condição **se**, depois consulta dentro do mesmo grupo de recursos como o recurso de condição **se**.
 - **Nome** (opcional)
   - Especifica o nome exato do recurso a ser correspondido e faz com que a política busque um recurso específico em vez de todos os recursos do tipo especificado.
-  - Quando há correspondência nos valores de condição para **if.field.type** e **then.details.type**, **Nome** se torna _obrigatório_ e deverá ser `[field('name')]`.
+  - Quando os valores de condição para **If. Field. Type** e **. Details. Type** correspondem, o **nome** torna-se _obrigatório_ e deve ser `[field('name')]` ou `[field('fullName')]` para um recurso filho.
 - **ResourceGroupName** (opcional)
   - Permite que a correspondência do recurso relacionado venha de um grupo de recursos diferente.
   - Não se aplica se **type** for um recurso que estaria sob o recurso de condição **if**.
@@ -373,8 +376,8 @@ Quando **enforcementMode** é _Disabled_, os recursos ainda são avaliados. Não
 
 Esse efeito é usado com um _modo_ de definição de política de `Microsoft.Kubernetes.Data`. Ele é usado para passar as regras de controle de admissão do Gatekeeper v3 definidas com a [OPA Constraint Framework](https://github.com/open-policy-agent/frameworks/tree/master/constraint#opa-constraint-framework) para [OPA (Open Policy Agent)](https://www.openpolicyagent.org/) para clusters Kubernetes no Azure.
 
-> [!NOTE]
-> [Azure Policy para Kubernetes](./policy-for-kubernetes.md) está em versão prévia e só dá suporte a pools de nós do Linux e definições de política internas. As definições de políticas internas estão na categoria **Kubernetes**. As definições de política de visualização limitada com efeito **EnforceOPAConstraint** e a categoria de **serviço kubernetes** relacionado estão sendo _preteridas_. Em vez disso, use a _auditoria_ de efeitos e a _negação_ com o modo do provedor de recursos `Microsoft.Kubernetes.Data` .
+> [!IMPORTANT]
+> As definições de política de visualização limitada com efeito **EnforceOPAConstraint** e a categoria de **serviço kubernetes** relacionado são _preteridas_. Em vez disso, use a _auditoria_ de efeitos e a _negação_ com o modo do provedor de recursos `Microsoft.Kubernetes.Data` .
 
 ### <a name="enforceopaconstraint-evaluation"></a>Avaliação do EnforceOPAConstraint
 
@@ -429,8 +432,8 @@ Exemplo: regra de controle de admissão do Gatekeeper V3 para definição de lim
 
 Esse efeito é usado com um _modo_ de definição de política de `Microsoft.ContainerService.Data`. Ele é usado para passar as regras de controle de admissão do Gatekeeper v2 definidas com o [Rego](https://www.openpolicyagent.org/docs/latest/policy-language/#what-is-rego) para [OPA (Open Policy Agent)](https://www.openpolicyagent.org/) no [Serviço de Kubernetes do Azure](../../../aks/intro-kubernetes.md).
 
-> [!NOTE]
-> [Azure Policy para Kubernetes](./policy-for-kubernetes.md) está em versão prévia e só dá suporte a pools de nós do Linux e definições de política internas. As definições de políticas internas estão na categoria **Kubernetes**. As definições de política de visualização limitadas com o efeito **EnforceRegoPolicy** e a categoria relacionada do **Serviço de Kubernetes** estão sendo _preteridas_. Em vez disso, use a _auditoria_ de efeitos e a _negação_ com o modo do provedor de recursos `Microsoft.Kubernetes.Data` .
+> [!IMPORTANT]
+> As definições de política de visualização limitadas com o efeito **EnforceRegoPolicy** e a categoria relacionada do **Serviço de Kubernetes** foram _preteridas_. Em vez disso, use a _auditoria_ de efeitos e a _negação_ com o modo do provedor de recursos `Microsoft.Kubernetes.Data` .
 
 ### <a name="enforceregopolicy-evaluation"></a>Avaliação de EnforceRegoPolicy
 
@@ -488,7 +491,7 @@ As seguintes operações são suportadas pela modificação:
 - Adicionar ou substituir o valor do tipo de identidade gerenciada ( `identity.type` ) de máquinas virtuais e conjuntos de dimensionamento de máquinas virtuais.
 - Adicionar ou substituir os valores de determinados aliases (versão prévia).
   - Use `Get-AzPolicyAlias | Select-Object -ExpandProperty 'Aliases' | Where-Object { $_.DefaultMetadata.Attributes -eq 'Modifiable' }`.
-    em Azure PowerShell para obter uma lista de aliases que podem ser usados com Modify.
+    no Azure PowerShell **4.6.0** ou superior para obter uma lista de aliases que podem ser usados com Modify.
 
 > [!IMPORTANT]
 > Se você estiver gerenciando marcas, é recomendável usar modificar em vez de acrescentar como modificar fornece tipos de operação adicionais e a capacidade de corrigir recursos existentes. No entanto, Append é recomendado se você não conseguir criar uma identidade gerenciada ou Modify ainda não oferecer suporte ao alias para a propriedade de recurso.
@@ -502,7 +505,7 @@ Quando um alias é especificado, as seguintes verificações adicionais são exe
 - A propriedade mapeada pelo alias é marcada como "modificável" na versão da API da solicitação.
 - O tipo de token na operação de modificação corresponde ao tipo de token esperado para a propriedade na versão de API da solicitação.
 
-Se uma dessas verificações falhar, a avaliação da política retornará para o **conflictEffect**especificado.
+Se uma dessas verificações falhar, a avaliação da política retornará para o **conflictEffect** especificado.
 
 > [!IMPORTANT]
 > É Recommeneded que modificar as definições que incluem aliases usam o **efeito de conflito** de _auditoria_ para evitar solicitações com falha usando versões de API em que a propriedade mapeada não é ' modificável '. Se o mesmo alias se comporta de forma diferente entre as versões de API, as operações de modificação condicional podem ser usadas para determinar a operação de modificação usada para cada versão de API.

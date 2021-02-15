@@ -11,13 +11,13 @@ metadata:
   ms.collection: na
   author: mumian
   ms.author: jgao
-  ms.date: 07/30/2020
-  ms.openlocfilehash: 6a21841d24fcafefe25473e428e1926849f5e9cf
-  ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+  ms.date: 11/06/2020
+  ms.openlocfilehash: 72129eb10de042252c33784d7d98081f0f22a8b9
+  ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 07/30/2020
-  ms.locfileid: "87446737"
+  ms.lasthandoff: 12/11/2020
+  ms.locfileid: "97346615"
 landingContent:
 - title: Sobre modelos ARM
   linkLists:
@@ -49,20 +49,24 @@ landingContent:
       url: quickstart-create-templates-use-the-portal.md
     - text: Criar modelos - Visual Studio Code
       url: quickstart-create-templates-use-visual-studio-code.md
+    - text: Criar e implantar especificações de modelo
+      url: quickstart-create-template-specs.md
   - linkListType: tutorial
     links:
     - text: Tutoriais para iniciantes
       url: template-tutorial-create-first-template.md
-    - text: Implantação
-      url: deployment-tutorial-local-template.md
   - linkListType: learn
     links:
-    - text: Infraestrutura consistente
-      url: /learn/modules/create-azure-resource-manager-template-vs-code/
-    - text: Vários ambientes
-      url: /learn/modules/modify-azure-resource-manager-template-reuse/
+    - text: Fazer a implantação com modelos do Resource Manager
+      url: /learn/paths/deploy-manage-resource-manager-templates/
 - title: Desenvolver modelos
   linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Modelos avançados
+      url: template-tutorial-use-template-reference.md
+    - text: Especificações de modelo
+      url: template-specs-create-linked.md
   - linkListType: how-to-guide
     links:
     - text: Usar funções
@@ -83,6 +87,10 @@ landingContent:
       url: https://azure.microsoft.com/resources/templates/
 - title: Implantar modelos
   linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Implantação
+      url: deployment-tutorial-local-template.md
   - linkListType: how-to-guide
     links:
     - text: PowerShell
@@ -95,20 +103,26 @@ landingContent:
       url: deploy-rest.md
     - text: Botão Implantar no Azure
       url: deploy-to-azure-button.md
+    - text: Cloud Shell
+      url: deploy-cloud-shell.md
     - text: Implantação de hipóteses
       url: template-deploy-what-if.md
 - title: Implantações com escopo
   linkLists:
   - linkListType: how-to-guide
     links:
+    - text: Resource group
+      url: deploy-to-resource-group.md
     - text: Subscription
       url: deploy-to-subscription.md
     - text: Grupo de gerenciamento
       url: deploy-to-management-group.md
     - text: Locatário
       url: deploy-to-tenant.md
-    - text: Implantações de escopo cruzado
-      url: cross-scope-deployment.md
+    - text: Recurso de extensão de escopo
+      url: scope-extension-resources.md
+    - text: Funções de modelo entre escopos
+      url: scope-functions.md
 - title: Explorar o conteúdo de referência
   linkLists:
   - linkListType: reference

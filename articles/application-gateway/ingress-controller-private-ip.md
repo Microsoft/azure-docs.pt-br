@@ -7,19 +7,19 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 33b70ba8ab7ffef90c42f53e58a2d27e619862f0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8be37ed1da0da4da3db43ef4c1cd01ed962f24ed
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84806793"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397301"
 ---
 # <a name="use-private-ip-for-internal-routing-for-an-ingress-endpoint"></a>Usar o IP privado para roteamento interno para um ponto de extremidade de entrada 
 
 Esse recurso permite expor o ponto de extremidade de entrada dentro do `Virtual Network` usando um IP privado.
 
 ## <a name="pre-requisites"></a>Pré-requisitos  
-Gateway de aplicativo com uma [configuração de IP privada](https://docs.microsoft.com/azure/application-gateway/configure-application-gateway-with-private-frontend-ip)
+Gateway de aplicativo com uma [configuração de IP privada](./configure-application-gateway-with-private-frontend-ip.md)
 
 Há duas maneiras de configurar o controlador para usar o IP privado para entrada,
 
@@ -66,4 +66,4 @@ Isso fará com que o controlador de entrada filtre as configurações de endere�
 AGIC entrarão em pane e falharão se `usePrivateIP: true` e nenhum IP privado for atribuído.
 
 > [!NOTE]
-> O SKU do gateway de aplicativo v2 requer um IP público. Se você precisar que o gateway de aplicativo seja privado, anexe um [`Network Security Group`](https://docs.microsoft.com/azure/virtual-network/security-overview) à sub-rede do gateway de aplicativo para restringir o tráfego.
+> O SKU do gateway de aplicativo v2 requer um IP público. Se você precisar que o gateway de aplicativo seja privado, anexe um [`Network Security Group`](../virtual-network/network-security-groups-overview.md) à sub-rede do gateway de aplicativo para restringir o tráfego.

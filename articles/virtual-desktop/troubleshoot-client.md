@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 08/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: d1862e2e0dd9b1e566c6ee5d01a09213a0be4f8e
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: 097c97d16cf62793d03ac42662267e0553383bc1
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88134472"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539623"
 ---
 # <a name="troubleshoot-the-remote-desktop-client"></a>Solucionar problemas do cliente do Área de Trabalho Remota
 
@@ -84,10 +84,25 @@ Se o cliente Web continuar solicitando credenciais, siga estas instruções:
 4. Limpe o cache do navegador. Para obter mais informações, consulte [limpar o cache do navegador para seu navegador](https://binged.it/2RKyfdU).
 5. Abra seu navegador em modo privado.
 
+## <a name="windows-client-blocks-windows-virtual-desktop-classic-feed"></a>O Windows Client bloqueia o feed da área de trabalho virtual do Windows (clássico)
+
+Se o feed do cliente do Windows não mostrar aplicativos da área de trabalho virtual do Windows (clássico), siga estas instruções:
+
+1. Verifique se a política de acesso condicional inclui as IDs de aplicativo associadas à área de trabalho virtual do Windows (clássico).
+2. Verifique se a política de acesso condicional bloqueia todo o acesso, exceto as IDs de aplicativo da área de trabalho virtual do Windows (clássica). Nesse caso, você precisará adicionar a ID do aplicativo **9cdead84-A844-4324-93f2-b2e6bb768d07** à política para permitir que o cliente descubra os feeds.
+
+Se não for possível localizar a ID do aplicativo 9cdead84-A844-4324-93f2-b2e6bb768d07 na lista, você precisará registrar o provedor de recursos da área de trabalho virtual do Windows. Para registrar o provedor de recursos:
+
+1. Entre no portal do Azure.
+2. Acesse **assinatura** e selecione sua assinatura.
+3. No menu no lado esquerdo da página, selecione **provedor de recursos**.
+4. Localize e selecione **Microsoft. DesktopVirtualization** e, em seguida, selecione **registrar novamente**.
+
 ## <a name="next-steps"></a>Próximas etapas
 
 - Confira uma visão geral da solução de problemas da Área de Trabalho Virtual do Windows e das faixas de escalonamento em [Visão geral da solução de problemas, comentários e suporte](troubleshoot-set-up-overview.md).
 - Para solucionar problemas ao criar um ambiente de Área de Trabalho Virtual do Windows e pool de host em um ambiente da Área de Trabalho Virtual do Windows, consulte [Criação de ambiente e pool de host](troubleshoot-set-up-issues.md).
 - Veja como solucionar problemas ao configurar uma VM (máquina virtual) na Área de Trabalho Virtual do Windows em [Configuração da máquina virtual do host da sessão](troubleshoot-vm-configuration.md).
+- Para solucionar problemas relacionados ao agente de área de trabalho virtual do Windows ou conectividade de sessão, consulte [solucionar problemas comuns do agente de área de trabalho virtual do Windows](troubleshoot-agent.md).
 - Veja como solucionar problemas ao usar o PowerShell com a Área de Trabalho Virtual do Windows em [PowerShell da Área de Trabalho Virtual do Windows](troubleshoot-powershell.md).
 - Acompanhe um tutorial de solução de problemas em [Tutorial: Solucionar problemas de implantações de modelos do Resource Manager](../azure-resource-manager/templates/template-tutorial-troubleshoot.md).

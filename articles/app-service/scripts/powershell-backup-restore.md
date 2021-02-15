@@ -7,13 +7,13 @@ ms.assetid: a2a27d94-d378-4c17-a6a9-ae1e69dc4a72
 ms.topic: sample
 ms.date: 11/21/2018
 ms.author: msangapu
-ms.custom: mvc, seodec18
-ms.openlocfilehash: 46f5a64e88172316af7d5f875183ecc48dfe8a3e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: mvc, seodec18, devx-track-azurepowershell
+ms.openlocfilehash: f5e36122ef1362672e5cdee4f742b98354f0bc75
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87088131"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89075882"
 ---
 # <a name="restore-a-web-app-from-a-backup-using-azure-powershell"></a>Restaurar um aplicativo Web de um backup usando o Azure PowerShell
 

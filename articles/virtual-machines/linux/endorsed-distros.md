@@ -11,14 +11,14 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: conceptual
-ms.date: 08/02/2020
+ms.date: 01/03/2021
 ms.author: guybo
-ms.openlocfilehash: 0b3a598213545bbad833e9b8036f65b999df1c76
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 9d278582840404702bfef3e5fc9af395f659d844
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607014"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97898072"
 ---
 # <a name="endorsed-linux-distributions-on-azure"></a>Distribuições do Linux endossadas no Azure
 
@@ -36,10 +36,10 @@ O agente Linux do Azure já está pré-instalado nas imagens do Azure Marketplac
 | --- | --- | --- | --- |
 | CentOS por software de Wave não autorizado |CentOS 6. x, 7. x, 8. x |CentOS 6,3: [download do LIS](https://www.microsoft.com/download/details.aspx?id=55106)<p>CentOS 6.4 +: no kernel |Pacote: no [repositório](http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/) em "WALinuxAgent" <br/>Código-fonte: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | [CoreOS](https://coreos.com/docs/running-coreos/cloud-providers/azure/)<p> CoreOS agora é o [fim da vida](https://coreos.com/os/eol/) de 26 de maio de 2020. |Não está mais disponível | | |
-| Debian da Credativ |8.x, 9.x |No kernel |Pacote: no repositório, em "waagent"  <br/>Código-fonte: [GitHub](https://github.com/Azure/WALinuxAgent) |
-|Flatcar contêiner Linux por Kinvolk| Estável, Edge| | |
+| Debian da Credativ |8. x, 9. x, 10. x |No kernel |Pacote: no repositório, em "waagent"  <br/>Código-fonte: [GitHub](https://github.com/Azure/WALinuxAgent) |
+|Flatcar contêiner Linux por Kinvolk| Pro, estável, beta| No kernel | o wa-Linux-Agent já está instalado em/usr/share/OEM/bin/waagent |
 | Oracle Linux pela Oracle |6.x, 7.x, 8.x |No kernel |Pacote: no repositório, em "WALinuxAgent"  <br/>Código-fonte: [GitHub](https://go.microsoft.com/fwlink/p/?LinkID=250998) |
-| [Red Hat Enterprise Linux por Red Hat](https://docs.microsoft.com/azure/virtual-machines/workloads/redhat/overview) |6.x, 7.x, 8.x |No kernel |Pacote: no repositório, em "WALinuxAgent"  <br/>Código-fonte: [GitHub](https://github.com/Azure/WALinuxAgent) |
+| [Red Hat Enterprise Linux por Red Hat](../workloads/redhat/overview.md) |6.x, 7.x, 8.x |No kernel |Pacote: no repositório, em "WALinuxAgent"  <br/>Código-fonte: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | SUSE Linux Enterprise pelo SUSE |SLES/SLES para SAP 11. x, 12. x, 15. x <br/> [Ciclo de vida da imagem de nuvem pública SUSE](https://www.suse.com/c/suse-public-cloud-image-life-cycle/) |No kernel |Pacote:<p> para 11, no repositório [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools)<br>para 12, incluído no módulo "Public Cloud" em "python-azure-agent"<br/>Código-fonte: [GitHub](https://go.microsoft.com/fwlink/p/?LinkID=250998) |
 | openSUSE por SUSE |openSUSE Leap 15.x |No kernel |Pacote: no repositório [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) em "python-azure-agent" <br/>Código-fonte: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | Ubuntu por Canonical |Servidor Ubuntu e pro. 16. x, 18. x, 20. x<p>Informações sobre o suporte estendido para Ubuntu 12, 4 e 14, 4 podem ser encontradas aqui: [manutenção de segurança estendida do Ubuntu](https://www.ubuntu.com/esm). |No kernel |Pacote: no repositório, em "WALinuxAgent"  <br/>Código-fonte: [GitHub](https://github.com/Azure/WALinuxAgent) |
@@ -50,14 +50,15 @@ O Azure exige que os editores das distribuições do Linux endossadas atualizem 
 
 ## <a name="azure-tuned-kernels"></a>Kernels ajustados para o Azure
 
-O Azure trabalha em conjunto com várias distribuições do Linux endossadas para otimizar as imagens publicadas no Azure Marketplace. Um aspecto dessa colaboração é o desenvolvimento de kernels do Linux "ajustados" que são otimizados para a plataforma Azure e fornecidos como componentes totalmente suportados da distribuição do Linux. Os kernels ajustados para o Azure incorporam novos recursos e melhorias de desempenho e em uma cadência mais rápida (normalmente trimestral) em comparação com os kernels padrão ou genéricos que estão disponíveis na distribuição.
+O Azure trabalha em conjunto com várias distribuições do Linux endossadas para otimizar as imagens publicadas no Azure Marketplace. Um aspecto dessa colaboração é o desenvolvimento de kernels do Linux "ajustados" que são otimizados para a plataforma Azure e fornecidos como componentes totalmente suportados da distribuição do Linux. Os kernels Azure-Tuned incorporam novos recursos e aprimoramentos de desempenho e em uma cadência mais rápida (normalmente trimestral) em comparação com os kernels padrão ou genéricos que estão disponíveis na distribuição.
 
-Na maioria dos casos, você encontrará esses kernels pré-instalados nas imagens padrão no Azure Marketplace para que os clientes obtenham imediatamente os benefícios desses kernels otimizados. Mais informações sobre esses kernels ajustados para o Azure podem ser encontradas nos links a seguir:
+Na maioria dos casos, você encontrará esses kernels pré-instalados nas imagens padrão no Azure Marketplace para que os clientes obtenham imediatamente os benefícios desses kernels otimizados. Mais informações sobre esses Azure-Tuned kernels podem ser encontradas nos links a seguir:
 
-- [Kernel do CentOS Azure ajustado – disponível por meio do CentOS Virtualization SIG](https://wiki.centos.org/SpecialInterestGroup/Virtualization)
+- [CentOS Azure-Tuned kernel – disponível por meio de SIG de virtualização CentOS](https://wiki.centos.org/SpecialInterestGroup/Virtualization)
 - [Kernel de nuvem Debian-disponível com a imagem "backports" do Debian 10 e Debian 9 no Azure](https://wiki.debian.org/Cloud/MicrosoftAzure)
-- [Kernel do SLES ajustado para o Azure](https://www.suse.com/c/a-different-builtin-kernel-for-azure-on-demand-images/)
-- [Kernel do Ubuntu ajustado para Azure](https://blog.ubuntu.com/2017/09/21/microsoft-and-canonical-increase-velocity-with-azure-tailored-kernel)
+- [Kernel SLES Azure-Tuned](https://www.suse.com/c/a-different-builtin-kernel-for-azure-on-demand-images/)
+- [Kernel do Ubuntu Azure-Tuned](https://blog.ubuntu.com/2017/09/21/microsoft-and-canonical-increase-velocity-with-azure-tailored-kernel)
+- [Flatcar contêiner Linux pro](https://azuremarketplace.microsoft.com/marketplace/apps/kinvolk.flatcar_pro)
 
 ## <a name="partners"></a>Parceiros
 
@@ -69,11 +70,11 @@ A Microsoft tem dois (2) canais de migração para usuários do CoreOS.
 - Flatcar by Kinvolk (consulte a entrada "flatcar contêiner Linux por Kinvolk".)
 - [Sistema operacional Fedora Core](https://docs.fedoraproject.org/en-US/fedora-coreos/provisioning-azure/) (os clientes devem carregar suas próprias imagens. Aqui está a [documentação de migração](https://docs.fedoraproject.org/en-US/fedora-coreos/migrate-cl/)).
 
-### <a name="credativ"></a>Credativ
+### <a name="credativ"></a>credativ
 
-[https://www.credativ.co.uk/credativ-blog/debian-images-microsoft-azure](https://www.credativ.co.uk/credativ-blog/debian-images-microsoft-azure)
+[https://www.credativ.de/en/portfolio/support/open-source-support-center/](https://www.credativ.de/en/portfolio/support/open-source-support-center/)
 
-A Credativ é uma empresa de serviços e consultoria independente, especializada no desenvolvimento e na implementação de soluções profissionais com o uso de software gratuito. A Credative, por ser especialista e líder em software gratuito, é reconhecida internacionalmente com vários departamentos de TI que usam o suporte que a empresa fornece. Em conjunto com a Microsoft, a Credativ está preparando imagens correspondentes do Debian para Debian 8 (Jessie) e Debian antes do 7 (Wheezy). As duas imagens são especialmente projetadas para execução no Azure e podem ser facilmente gerenciadas por meio da plataforma. A empresa também dará suporte a atualização e manutenção de longo prazo das imagens Debian para Azure por meio de seus Centros de Suporte de Software Livre.
+o credativ é uma empresa independente de consultoria e serviços que é especializada no desenvolvimento e na implementação de soluções profissionais usando software gratuito. Como especialistas de código-fonte aberto, a credativ tem reconhecimento internacional com muitos departamentos de ti que usam o seu suporte. Em conjunto com a Microsoft, o credativ está preparando imagens Debian. As imagens são especialmente projetadas para serem executadas no Azure e podem ser facilmente gerenciadas por meio da plataforma. o credativ também dará suporte à manutenção e à atualização de longo prazo das imagens Debian para o Azure por meio de seus centros de suporte de software livre.
 
 ### <a name="kinvolk"></a>Kinvolk
 [https://www.kinvolk.io/flatcar-container-linux/](https://www.kinvolk.io/flatcar-container-linux/)

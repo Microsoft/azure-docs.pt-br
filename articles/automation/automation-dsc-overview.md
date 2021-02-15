@@ -7,15 +7,15 @@ ms.service: automation
 ms.subservice: dsc
 author: mgoedtel
 ms.author: magoedte
-ms.date: 06/22/2020
+ms.date: 01/26/2021
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 437a917e0f9b6e7a7370e828c8e3ee95218cea3f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 752d7f86941967c218b3a57fa163698b9f502057
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079733"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897013"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Visão geral do State Configuration da Automação do Azure
 
@@ -37,7 +37,7 @@ Além disso, se você não estiver pronto para gerenciar a configuração do com
 
 A State Configuration da Automação do Azure oferece várias vantagens em comparação com o uso do DSC fora do Azure. Esse serviço permite a escalabilidade entre milhares de computadores rápida e facilmente, de um local central e seguro. Você pode facilmente habilitar computadores, atribuir a eles configurações declarativas e exibir relatórios que mostram a conformidade de cada computador com o estado desejado especificado.
 
-O serviço State Configuration da Automação do Azure representa para o DSC o mesmo que os runbooks da Automação do Azure representam para o script do PowerShell. Em outras palavras, da mesma forma que a Automação do Azure ajuda você a gerenciar os scripts do PowerShell, ela também ajuda a gerenciar configurações do DSC. 
+O serviço State Configuration da Automação do Azure representa para o DSC o mesmo que os runbooks da Automação do Azure representam para o script do PowerShell. Em outras palavras, da mesma forma que a Automação do Azure ajuda você a gerenciar os scripts do PowerShell, ela também ajuda a gerenciar configurações do DSC.
 
 ### <a name="built-in-pull-server"></a>Servidor de pull interno
 
@@ -83,20 +83,11 @@ Para todos os nós do Linux em execução no Azure, o [DSC do PowerShell para Li
 
 ### <a name="configuration-of-private-networks"></a><a name="network-planning"></a>Configuração de redes privadas
 
-Se os nós estiverem localizados em uma rede privada, a porta e as URLs a seguir serão necessárias. Esses recursos fornecem conectividade de rede para o nó gerenciado e permitem que a DSC se comunique com a Automação do Azure.
-
-* Porta: Somente a TCP 443 é necessária para acesso à Internet de saída
-* URL global: * **.azure-automation.net**
-* URL global do US Gov – Virgínia: * **.azure-automation.us**
-* Serviço do agente: **https:// \<workspaceId\> . AgentSvc.Azure-Automation.net**
-
-Se você estiver usando recursos de DSC que se comunicam entre os nós, como os recursos [WaitFor*](/powershell/scripting/dsc/reference/resources/windows/waitForAllResource), também será necessário permitir o tráfego entre os nós. Confira a documentação de cada recurso de DSC para entender esses requisitos de rede.
-
-Para entender os requisitos do cliente para o TLS 1,2, confira [imposição tls 1,2 para a automação do Azure](automation-managing-data.md#tls-12-enforcement-for-azure-automation).
+Verifique a [configuração da rede de automação do Azure](automation-network-configuration.md#hybrid-runbook-worker-and-state-configuration) para obter informações detalhadas sobre as portas, URLs e outros detalhes de rede necessários para os nós em uma rede privada.
 
 #### <a name="proxy-support"></a>Suporte a proxy
 
-O suporte a proxy para o agente DSC está disponível no Windows versão 1809 e posterior. Essa opção é habilitada definindo os valores para as propriedades `ProxyURL` e `ProxyCredential` no [script de metaconfiguração](automation-dsc-onboarding.md#generate-dsc-metaconfigurations) usado para registrar nós. 
+O suporte a proxy para o agente DSC está disponível no Windows versão 1809 e posterior. Essa opção é habilitada definindo os valores para as propriedades `ProxyURL` e `ProxyCredential` no [script de metaconfiguração](automation-dsc-onboarding.md#generate-dsc-metaconfigurations) usado para registrar nós.
 
 >[!NOTE]
 >A State Configuration da Automação do Azure não é compatível com proxy de DSC para versões anteriores do Windows.
@@ -114,4 +105,4 @@ Para os nós do Linux, o agente DSC oferece suporte a proxy e usa a variável `h
 - Para saber como compilar configurações DSC para que possam ser atribuídas a nós de destino, confira [Compilar configurações DSC no State Configuration da Automação do Azure](automation-dsc-compile.md).
 - Para ver um exemplo de uso do State Configuration da Automação do Azure em um pipeline de implantação contínua, confira [Configurar a implantação contínua com o Chocolatey](automation-dsc-cd-chocolatey.md).
 - Para saber mais sobre preços, confira [Preços do State Configuration da Automação do Azure](https://azure.microsoft.com/pricing/details/automation/).
-- Para obter uma referência de cmdlet do PowerShell, confira [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).
+- Para obter uma referência de cmdlet do PowerShell, confira [Az.Automation](/powershell/module/az.automation).

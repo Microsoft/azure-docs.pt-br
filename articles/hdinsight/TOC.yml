@@ -8,6 +8,7 @@
         - name: O que é o Azure HDInsight?
           href: ./hdinsight-overview.md
     - name: Tutoriais
+      expanded: true
       items:
         - name: Criar clusters do HDInsight
           href: ./hdinsight-hadoop-provision-linux-clusters.md
@@ -63,8 +64,14 @@
           href: ./hdinsight-capacity-planning.md
         - name: Práticas recomendadas para o gerenciamento de cluster
           href: ./cluster-management-best-practices.md
-        - name: Disponibilidade e confiabilidade
-          href: ./hdinsight-high-availability-linux.md
+        - name: Continuidade de negócios
+          items:
+            - name: Visão geral da continuidade dos negócios
+              href: hdinsight-business-continuity.md
+            - name: Arquitetura de continuidade dos negócios
+              href: ./hdinsight-business-continuity-architecture.md
+            - name: Estudo de caso de alta disponibilidade
+              href: ./hdinsight-high-availability-case-study.md
         - name: Entender identidades gerenciadas
           href: ./hdinsight-managed-identities.md
         - name: Comparar opções de armazenamento
@@ -99,12 +106,16 @@
               iconUrl: null
         - name: Usar o armazenamento de cluster
           items:
-            - name: Usando o Armazenamento do Azure
+            - name: Usar o Armazenamento do Azure
               href: hdinsight-hadoop-use-blob-storage.md
-            - name: Usando o Azure Data Lake Storage Gen2
+            - name: Usar o Data Lake Storage Gen2
               href: hdinsight-hadoop-use-data-lake-storage-gen2.md
-            - name: Usando o Azure Data Lake Storage Gen1
-              href: hdinsight-hadoop-use-data-lake-store.md
+            - name: Usar o Data Lake Storage Gen2 no portal
+              href: hdinsight-hadoop-use-data-lake-storage-gen2-portal.md
+            - name: Usar o Data Lake Storage Gen2 com a CLI do Azure
+              href: hdinsight-hadoop-use-data-lake-storage-gen2-azure-cli.md
+            - name: Usar o Data Lake Storage Gen1
+              href: hdinsight-hadoop-use-data-lake-storage-gen1.md
         - name: Estender clusters
           items:
             - name: Instalar aplicativos HDInsight
@@ -126,7 +137,7 @@
                 - name: Instalar aplicativos personalizados
                   href: hdinsight-apps-install-custom-applications.md
                 - name: Usar REST para instalar aplicativos
-                  href: 'https://msdn.microsoft.com/library/mt706515.aspx'
+                  href: /rest/api/hdinsight/hdinsight-application
                 - name: Publicar aplicativos HDInsight no Azure Marketplace
                   href: hdinsight-apps-publish-applications.md
         - name: Seguro
@@ -252,11 +263,11 @@
         - name: Azure PowerShell
           href: /powershell/module/az.hdinsight
         - name: SDK para .NET
-          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet'
+          href: /dotnet/api/overview/azure/hdinsight?view=azure-dotnet&preserve-view=true
         - name: SDK para Python
-          href: 'https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python'
+          href: /python/api/overview/azure/hdinsight?view=azure-python&preserve-view=true
         - name: SDK para Java
-          href: 'https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable'
+          href: /java/api/overview/azure/hdinsight
         - name: SDK para linguagem Go
           href: ./hdinsight-go-sdk-overview.md
         - name: .NET (Apache HBase)
@@ -267,6 +278,8 @@
           href: /rest/api/hdinsightspark/
         - name: Modelo do Resource Manager
           href: /azure/templates/microsoft.hdinsight/allversions
+        - name: Itens internos do Azure Policy
+          href: ./policy-reference.md
     - name: Recursos
       items:
         - name: Lançamentos
@@ -290,7 +303,7 @@
         - name: Habilitar despejos de heap para serviços do Apache Hadoop
           href: ./hdinsight-hadoop-collect-debug-heap-dump-linux.md
         - name: Obter ajuda na página de perguntas de P e R da Microsoft
-          href: 'https://docs.microsoft.com/answers/topics/azure-hdinsight.html'
+          href: /answers/topics/azure-hdinsight.html
         - name: Calculadora de preço
           href: 'https://azure.microsoft.com/pricing/calculator/'
         - name: Ferramentas do Windows para HDInsight
@@ -344,6 +357,8 @@
               href: ./spark/optimize-cluster-configuration.md
         - name: Migrar para o Spark 2.3 ou 2.4
           href: ./spark/migrate-versions.md
+        - name: Atualizar .NET para Apache Spark para a versão 1.0
+          href: ./spark/spark-dotnet-version-update.md
     - name: Guias de instruções
       items:
         - name: Usar ferramentas
@@ -392,24 +407,28 @@
                   href: ./spark/apache-spark-analyze-application-insight-logs.md
         - name: Gerenciar
           items:
+            - name: Gerenciar dependências
+              items:
+                - name: Gerenciar dependências do aplicativo Spark
+                  href: ./spark/apache-spark-manage-dependencies.md
+                - name: Gerenciar dependências do JAR com segurança
+                  href: ./spark/safely-manage-jar-dependency.md
+                - name: Gerenciar o ambiente do Python com segurança
+                  href: ./spark/apache-spark-python-package-installation.md
             - name: Gerenciar recursos de cluster
               href: ./spark/apache-spark-resource-manager.md
             - name: Gerenciar aplicativos do Apache Spark usando o Servidor de Histórico estendido
               href: ./spark/apache-azure-spark-history-server.md
             - name: Habilitar o cache com o Cache de E/S
               href: ./spark/apache-spark-improve-performance-iocache.md
-            - name: Gerenciar dependências do Jar
-              href: ./spark/manage-jar-dependency.md
             - name: Usar blocos de anotações com o Apache Spark
               items:
-                - name: Usar um bloco de anotações Jupyter local
+                - name: Usar um Jupyter Notebook local
                   href: ./spark/apache-spark-jupyter-notebook-install-locally.md
-                - name: Kernels de bloco de anotações do Jupyter
+                - name: Kernels do Jupyter Notebook
                   href: ./spark/apache-spark-jupyter-notebook-kernels.md
                 - name: Usar pacotes externos com o Jupyter usando uma célula mágica
                   href: ./spark/apache-spark-jupyter-notebook-use-external-packages.md
-                - name: Gerenciar com segurança o ambiente do Python no Azure HDInsight usando a Ação de Script
-                  href: ./spark/apache-spark-python-package-installation.md
                 - name: Usar blocos de anotações do Apache Zeppelin
                   href: ./spark/apache-spark-zeppelin-notebook.md
             - name: Usar com outros serviços do Azure
@@ -418,13 +437,11 @@
                   href: ./spark/apache-spark-use-with-data-lake-store.md
                 - name: Conectar-se ao Banco de Dados SQL do Azure
                   href: ./spark/apache-spark-connect-to-sql-database.md
-                - name: Implementar uma arquitetura de lambda usando o Apache Spark e o Cosmos DB
-                  href: ../cosmos-db/lambda-architecture.md
                 - name: Executar cargas de trabalho do Azure ML com AutoML
                   href: ./spark/apache-spark-run-machine-learning-automl.md
         - name: Solucionar problemas
           items:
-            - name: Não é possível criar um notebook Jupyter
+            - name: Não é possível criar um Jupyter Notebook
               href: ./spark/troubleshoot-jupyter-notebook-convert.md
             - name: Exceção OutOfMemoryError
               href: ./spark/apache-spark-troubleshoot-outofmemory.md
@@ -487,7 +504,7 @@
           items:
             - name: Usar MapReduce com Apache Hadoop
               items:
-                - name: Visão geral do MapReduce
+                - name: Usar MapReduce
                   href: ./hadoop/hdinsight-use-mapreduce.md
                 - name: Usar SSH
                   href: ./hadoop/apache-hadoop-use-mapreduce-ssh.md
@@ -632,6 +649,8 @@
               href: ./kafka/apache-kafka-auto-create-topics.md
             - name: Usar Apache Kafka com o Hub IoT
               href: ./kafka/apache-kafka-connector-iot-hub.md
+            - name: Registro de Esquema Confluente
+              href: ./kafka/schema-registry.md
             - name: Criar pipelines de transmissão
               items:
                 - name: 'Apache Spark, Apache Kafka e Azure Cosmos DB'
@@ -673,6 +692,10 @@
       items:
         - name: Usar Apache HBase no HDInsight
           href: ./hbase/apache-hbase-tutorial-get-started-linux.md
+    - name: Conceitos
+      items:
+        - name: Otimizar para recomendações do assistente
+          href: ./hbase/apache-hbase-advisor.md
     - name: Guias de instruções
       items:
         - name: Desenvolver
@@ -752,6 +775,8 @@
           href: ./interactive-query/gateway-best-practices.md
         - name: Diretrizes de dimensionamento
           href: ./interactive-query/sizing-guidelines.md
+        - name: Replicação do Hive
+          href: ./interactive-query/apache-hive-replication.md
     - name: Guias de instruções
       items:
         - name: Desenvolver
@@ -828,6 +853,8 @@
               href: ./hdinsight-troubleshoot-hive.md
             - name: Os logs do Apache Hive ocupam todo o espaço em disco no nó de cabeçalho
               href: ./interactive-query/interactive-query-troubleshoot-hive-logs-diskspace-full-headnodes.md
+            - name: Opções de segurança para o Hive
+              href: ./interactive-query/hdinsight-security-options-for-hive.md
 - name: ML Services
   items:
     - name: Visão geral
@@ -937,6 +964,8 @@
           href: ./domain-joined/apache-domain-joined-architecture.md
         - name: Arquitetura de rede virtual do HDInsight
           href: ./hdinsight-virtual-network-architecture.md
+        - name: Link privado
+          href: ./hdinsight-private-link.md
         - name: Protocolo TLS
           href: ./transport-layer-security.md
         - name: Planejar VNETs para o HDInsight
@@ -949,6 +978,8 @@
           href: ./disk-encryption.md
         - name: Sincronização LDAP no Ranger e no Apache Ambari
           href: ./domain-joined/ldap-sync.md
+        - name: Criptografia dupla em trânsito
+          href: ./domain-joined/encryption-in-transit.md
     - name: Guias de instruções
       items:
         - name: Usar o agente de IDs para o gerenciamento de credenciais

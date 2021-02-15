@@ -6,16 +6,16 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 01/08/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: fffb83fe680572c2448323a61b767a401c9a4834
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 7393c36099795bbc989ae4b690100284d53f08e5
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323699"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92678389"
 ---
 # <a name="impact-analysis-with-application-insights"></a>Análise do Impact com o Application Insights
 
-O Impact analisa como tempos de carregamento e outras propriedades influenciam taxas de conversão de várias partes do aplicativo. Para sermos mais precisos, ele descobre como **qualquer dimensão** de uma **exibição de página**, **evento personalizado** ou **solicitação** afeta o uso de uma **exibição de página** diferente ou um **evento personalizado**. 
+O Impact analisa como tempos de carregamento e outras propriedades influenciam taxas de conversão de várias partes do aplicativo. Para sermos mais precisos, ele descobre como **qualquer dimensão** de uma **exibição de página** , **evento personalizado** ou **solicitação** afeta o uso de uma **exibição de página** diferente ou um **evento personalizado** . 
 
 ![Ferramenta Impact](./media/usage-impact/0001-impact.png)
 
@@ -36,11 +36,11 @@ Mas, a análise do desempenho é apenas um subconjunto dos recursos do Impact. C
 
 Para começar a responder a perguntas com a ferramenta Impact, escolha uma exibição de página inicial, um evento personalizado ou uma solicitação.
 
-![Ferramenta Impact](./media/usage-impact/0002-dropdown.png)
+![Captura de tela que mostra onde escolher uma exibição de página inicial, evento personalizado ou solicitação.](./media/usage-impact/0002-dropdown.png)
 
-1. Selecione uma exibição de página no menu suspenso **Para a exibição de página**.
-2. Deixe o menu suspenso **analisar como** na seleção padrão de **Duração** (neste contexto, **Duração** é um alias para **o Tempo de Carregamento da Página**).
-3. Para o menu suspenso **afeta o uso do**, selecione um evento personalizado. Esse evento deve corresponder a um elemento de interface do usuário na exibição de página que você selecionou na etapa 1.
+1. Selecione uma exibição de página no menu suspenso **Para a exibição de página** .
+2. Deixe o menu suspenso **analisar como** na seleção padrão de **Duração** (neste contexto, **Duração** é um alias para **o Tempo de Carregamento da Página** ).
+3. Para o menu suspenso **afeta o uso do** , selecione um evento personalizado. Esse evento deve corresponder a um elemento de interface do usuário na exibição de página que você selecionou na etapa 1.
 
 ![Captura de tela dos resultados](./media/usage-impact/0003-results.png)
 
@@ -52,9 +52,9 @@ O Impact dá suporte a propriedades padrão e personalizadas, além de medidas. 
 
 ## <a name="do-users-from-different-countries-or-regions-convert-at-different-rates"></a>Usuários de países ou regiões diferentes são convertidos em taxas diferentes?
 
-1. Selecione uma exibição de página no menu suspenso **Para a exibição de página**.
+1. Selecione uma exibição de página no menu suspenso **Para a exibição de página** .
 2. Escolha “País ou região” no menu suspenso **analisar como o**
-3. Para o menu suspenso **afeta o uso do**, selecione um evento personalizado que corresponda a um elemento de interface do usuário na exibição de página que você escolheu na etapa 1.
+3. Para o menu suspenso **afeta o uso do** , selecione um evento personalizado que corresponda a um elemento de interface do usuário na exibição de página que você escolheu na etapa 1.
 
 Neste caso, os resultados deixam de se ajustar a um modelo de eixo x contínuo como fizeram no primeiro exemplo. Em vez disso, uma visualização semelhante a um funil segmentado é apresentada. Classifique por **Uso** para exibir a variação de conversão do evento personalizado com base no país/região.
 
@@ -65,18 +65,18 @@ Nos bastidores, a ferramenta Impact depende do [coeficiente de correlação Pear
 
 A análise básica de como o Impact Analysis funciona é a seguinte:
 
-Sendo _A_ = a exibição de página principal/evento personalizado/solicitação selecionada no primeiro menu suspenso. (**Para a exibição de página**).
+Sendo _A_ = a exibição de página principal/evento personalizado/solicitação selecionada no primeiro menu suspenso. ( **Para a exibição de página** ).
 
-Sendo _B_ = a exibição de página secundária/evento personalizado selecionada (**afeta o uso do**).
+Sendo _B_ = a exibição de página secundária/evento personalizado selecionada ( **afeta o uso do** ).
 
-Impact analisa um exemplo de todas as sessões de usuários no intervalo de tempo selecionado. Para cada sessão, ela procura cada ocorrência de _A_.
+Impact analisa um exemplo de todas as sessões de usuários no intervalo de tempo selecionado. Para cada sessão, ela procura cada ocorrência de _A_ .
 
 Em seguida, as sessões são divididas em dois tipos diferentes de _subsessões_ com base em uma das duas condições:
 
-- Uma subsessão convertida consiste em uma sessão que termina com um evento _B_ evento e abrange todos os eventos _A_ ocorridos antes de _B_.
-- Uma subsessão não convertida ocorre quando todos os _A_s ocorrem sem um terminal _B_.
+- Uma subsessão convertida consiste em uma sessão que termina com um evento _B_ evento e abrange todos os eventos _A_ ocorridos antes de _B_ .
+- Uma subsessão não convertida ocorre quando todos os _A_ s ocorrem sem um terminal _B_ .
 
-Como o impacto acaba sendo calculado varia de acordo com a análise feita por métrica ou dimensão. Para métricas, a média de todos os _A_s em uma subsessão é calculada. Embora para dimensões o valor de cada _A_ contribua _1/N_ para o valor atribuído a _B_ em que _N_ é o número de _A_s na subsessão.
+Como o impacto acaba sendo calculado varia de acordo com a análise feita por métrica ou dimensão. Para métricas, a média de todos os _A_ s em uma subsessão é calculada. Embora para dimensões o valor de cada _A_ contribua _1/N_ para o valor atribuído a _B_ em que _N_ é o número de _A_ s na subsessão.
 
 ## <a name="next-steps"></a>Próximas etapas
 

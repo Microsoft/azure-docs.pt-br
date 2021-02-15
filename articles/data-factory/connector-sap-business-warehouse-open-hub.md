@@ -1,25 +1,21 @@
 ---
 title: Copiar dados do SAP Business Warehouse via hub aberto
 description: Saiba como copiar dados do SAP BW (Business Warehouse) via Open Hub para armazenamentos de dados de coletor com suporte usando uma atividade de cópia em um pipeline do Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 06/12/2020
-ms.openlocfilehash: 930c7e7881a00cd0cb1f4abc6b219c0fbdeebac5
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.date: 02/02/2020
+ms.openlocfilehash: b766ce248a3543ef3323e026d760e550a0e3dd75
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533403"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100386672"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>Copiar dados do SAP Business Warehouse via Open Hub com o Azure Data Factory
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Este artigo descreve como usar a atividade de cópia no Azure Data Factory para copiar dados de um banco de dados SAP BW (Business Warehouse) via Open Hub. Ele amplia o artigo [Visão geral da atividade de cópia](copy-activity-overview.md) que apresenta uma visão geral da atividade de cópia.
@@ -38,8 +34,8 @@ Você pode copiar dados do SAP Business Warehouse via Open Hub para qualquer arm
 
 Especificamente, este conector do SAP Business Warehouse Open Hub dá suporte a:
 
-- SAP Business Warehouse **versão 7, 1 ou superior (em uma pilha recente do pacote de suporte SAP lançada após o ano 2015)**. Não há suporte para o SAP BW4/HANA neste conector.
-- Cópia de dados por meio da tabela de local de destino do Open Hub que pode ser, por baixo, DSO, InfoCube, MultiProvider, DataSource etc.
+- SAP Business Warehouse **versão 7, 1 ou superior (em uma pilha recente do pacote de suporte SAP lançada após o ano 2015)**. Não há suporte para SAP BW/4HANA por este conector.
+- Copiar dados por meio da tabela local de destino de Hub aberto, que embaixo pode ser DSO, InfoCube, multifornecedor, DataSource, etc.
 - À cópia de dados usando a autenticação Básica.
 - Conectando-se a um servidor de aplicativos SAP ou servidor de mensagens SAP.
 - Recuperando dados via RFC.
@@ -56,7 +52,7 @@ O SAP BW OHD (Destino de Open Hub) define o destino ao qual os dados do SAP são
 
 O ADF SAP BW Open Hub Connector oferece duas propriedades opcionais: `excludeLastRequest` e `baseRequestId` que podem ser usadas para lidar com a carga Delta do Open Hub. 
 
-- **excludeLastRequestId**: se os registros da última solicitação devem ser excluídos. O valor padrão é True. 
+- **excludeLastRequestId**: se os registros da última solicitação devem ser excluídos. O valor padrão é true. 
 - **baseRequestId**: a ID da solicitação de carregamento Delta. Depois que ele for definido, somente os dados com requestId maior do que o valor dessa propriedade serão recuperados. 
 
 Em geral, a extração do SAP InfoProviders para Azure Data Factory (ADF) consiste em duas etapas: 
@@ -90,7 +86,7 @@ Para usar esse conector do SAP Business Warehouse Open Hub, você precisa:
     - Autorização para RFC e SAP BW. 
     - Permissões para a Atividade de "Executar" do Objeto de Autorização "S_SDSAUTH".
 
-- Criar tipo de Destino do SAP Open Hub como **Tabela de Banco de Dados** com opção "Chave Técnica" marcada.  Também é recomendável deixar a opção Excluir Dados da Tabela desmarcada, embora não seja necessário. Aproveite o DTP (execute ou integre diretamente na cadeia de processo existente) para descarregar dados do objeto de origem (como um cubo) que você escolheu para a tabela de destino do Open Hub.
+- Criar tipo de Destino do SAP Open Hub como **Tabela de Banco de Dados** com opção "Chave Técnica" marcada.  Também é recomendável deixar a opção Excluir Dados da Tabela desmarcada, embora não seja necessário. Use o DTP (executar ou integrar diretamente na cadeia de processo existente) para esterrar dados do objeto de origem (como cubo) que você escolheu para a tabela de destino de Hub aberto.
 
 ## <a name="getting-started"></a>Introdução
 

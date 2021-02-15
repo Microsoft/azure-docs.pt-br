@@ -3,13 +3,13 @@ title: Início rápido – enviar eventos para a grade de eventos
 description: Neste início rápido, você habilita os eventos da Grade de Eventos para o registro de contêiner e, em seguida, efetua push de imagens de contêiner e exclui eventos para um aplicativo de exemplo.
 ms.topic: article
 ms.date: 08/23/2018
-ms.custom: seodec18
-ms.openlocfilehash: dbeba56820a520e3435eeb0c5c8dbc5aae981241
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: b4038bb232c14278e838f2c34706dcc103def7e4
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78403229"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919639"
 ---
 # <a name="quickstart-send-events-from-private-container-registry-to-event-grid"></a>Início rápido: enviar eventos do registro de contêiner privado para a grade de eventos
 
@@ -19,11 +19,11 @@ Após concluir as etapas neste artigo, os eventos enviados do registro de contê
 
 ![Navegador da Web que renderiza o aplicativo Web de exemplo com três eventos recebidos][sample-app-01]
 
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita][azure-account] antes de começar.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Os comandos da CLI do Azure neste artigo são formatados para o shell de **Bash**. Se você estiver usando um shell diferente, como PowerShell ou Prompt de Comando, talvez seja necessário ajustar os caracteres de continuação de linha ou as linhas de atribuição de variáveis apropriadamente. Este artigo usa variáveis para minimizar a quantidade de edição de comando necessária.
+- Os comandos da CLI do Azure neste artigo são formatados para o shell de **Bash**. Se você estiver usando um shell diferente, como PowerShell ou Prompt de Comando, talvez seja necessário ajustar os caracteres de continuação de linha ou as linhas de atribuição de variáveis apropriadamente. Este artigo usa variáveis para minimizar a quantidade de edição de comando necessária.
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -78,7 +78,7 @@ Para implantar o aplicativo de exemplo, defina `SITE_NAME` como um nome exclusiv
 ```azurecli-interactive
 SITE_NAME=<your-site-name>
 
-az group deployment create \
+az deployment group create \
     --resource-group $RESOURCE_GROUP_NAME \
     --template-uri "https://raw.githubusercontent.com/Azure-Samples/azure-event-grid-viewer/master/azuredeploy.json" \
     --parameters siteName=$SITE_NAME hostingPlanName=$SITE_NAME-plan
@@ -144,7 +144,7 @@ Agora que o aplicativo de exemplo está em execução e você assinou o registro
 Execute o seguinte comando da CLI do Azure para compilar uma imagem de contêiner do conteúdo de um repositório GitHub. Por padrão, as Tarefas de ACR efetuam push automaticamente de uma imagem compilada com êxito para o Registro, o que gera o evento `ImagePushed`.
 
 ```azurecli-interactive
-az acr build --registry $ACR_NAME --image myimage:v1 -f Dockerfile https://github.com/Azure-Samples/acr-build-helloworld-node.git
+az acr build --registry $ACR_NAME --image myimage:v1 -f Dockerfile https://github.com/Azure-Samples/acr-build-helloworld-node.git#main
 ```
 
 Você deverá ver uma saída semelhante à seguinte, enquanto as Tarefas de ACR compilam e, em seguida, efetuam push da imagem. A seguinte saída de exemplo foi truncada por questões de brevidade.
@@ -202,7 +202,7 @@ A captura de tela a seguir mostra o aplicativo de exemplo com os três eventos e
 
 Parabéns! Se você visualizar os eventos `ImagePushed` e `ImageDeleted`, isso significa que o registro está enviando eventos para a Grade de Eventos e a Grade de Eventos está encaminhando esses eventos para o ponto de extremidade do aplicativo Web.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Após concluir os recursos criados neste início rápido, você poderá excluí-los com o seguinte comando da CLI do Azure. Quando você excluir um grupo de recursos, todos os recursos nele contidos serão permanentemente excluídos.
 

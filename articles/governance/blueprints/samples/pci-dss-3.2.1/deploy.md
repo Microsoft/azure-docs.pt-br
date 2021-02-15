@@ -1,14 +1,14 @@
 ---
 title: Implantar a amostra de blueprint do PCI-DSS v3.2.1
 description: Etapas de implantação para a amostra de blueprint do Padrão de Segurança de Dados do Setor de Cartões de Pagamento v3.2.1, incluindo detalhes do parâmetro de artefato de blueprint.
-ms.date: 08/19/2020
+ms.date: 01/08/2021
 ms.topic: sample
-ms.openlocfilehash: a7917f09e5e5ff898bd155f0961e5c9765b8d791
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 37e39231ee7395b951f69035cd98f2e14028ba1c
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88649203"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98045046"
 ---
 # <a name="deploy-the-pci-dss-v321-blueprint-sample"></a>Implantar amostra de blueprint do PCI-DSS v3.2.1
 
@@ -93,7 +93,7 @@ A seguinte tabela fornece uma lista dos parâmetros de artefato de blueprint:
 
 |Nome do artefato|Tipo de artefato|Nome do parâmetro|Descrição|
 |-|-|-|-|
-|\[Versão prévia\] auditar os controles do PCI v3.2.1:2018 e implantar Extensões de VM específicas para dar suporte aos requisitos de auditoria|Atribuição de política|Lista de tipos de recursos | Auditar configuração de diagnóstico para tipos de recursos selecionado. O valor padrão é todos os recursos selecionados| 
+|PCI v3.2.1:2018|Atribuição de política|Lista de tipos de recursos | Auditar configuração de diagnóstico para tipos de recursos selecionado. O valor padrão é todos os recursos selecionados| 
 |Locais permitidos|Atribuição de política|Lista de locais permitidos|Lista de locais de data center permitidos para qualquer recurso a ser implantado. Essa lista é personalizável para os locais desejados do Azure globalmente. Selecione os locais que você deseja permitir.| 
 |Localizações permitidas para grupos de recursos|Atribuição de política |Localização permitida |Esta política permite que você restrinja os locais em que sua organização pode criar grupos de recursos. Use para impor seus requisitos de conformidade geográfica.| 
 |Implantar Auditoria em servidores SQL|Atribuição de política|Dias de retenção|Retenção de dados em número de dias. O valor padrão é 180, mas o PCI requer 365.| 

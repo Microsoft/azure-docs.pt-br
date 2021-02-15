@@ -68,7 +68,7 @@
     - name: Atalhos de teclado do Catálogo de Dados do Azure
       href: data-catalog-keyboard-shortcuts.md
     - name: Página de perguntas de P e R da Microsoft
-      href: 'https://docs.microsoft.com/answers/topics/azure-data-catalog.html'
+      href: /answers/topics/azure-data-catalog.html
     - name: Preços
       href: 'https://azure.microsoft.com/pricing/details/data-catalog/'
     - name: Calculadora de preço

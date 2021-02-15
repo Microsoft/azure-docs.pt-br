@@ -1,26 +1,19 @@
 ---
 title: SAP Business One em Máquinas Virtuais do Microsoft Azure | Microsoft Docs
 description: SAP Business One no Azure.
-services: virtual-machines-linux,virtual-machines-windows
-documentationcenter: ''
 author: msjuergent
-manager: patfilot
-editor: ''
-tags: azure-resource-manager
-keywords: ''
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.subservice: workloads
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
 ms.date: 07/15/2018
 ms.author: juergent
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ccec58f012dcd4b6371c15e79fa964600e775f54
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.reviewer: cynthn
+ms.openlocfilehash: 1201ff91634a1f63c8fe0e545ca6d6dee33abe35
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654643"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94957377"
 ---
 # <a name="sap-business-one-on-azure-virtual-machines"></a>SAP Business One em Máquinas Virtuais do Microsoft Azure
 Este documento fornece diretrizes para implantar o SAP Business One em Máquinas Virtuais do Microsoft Azure. A documentação não substitui a documentação de instalação do Business One para SAP. A documentação deve abranger as diretrizes básicas de planejamento e implantação da infraestrutura do Azure para executar os aplicativos do Business One.
@@ -95,7 +88,7 @@ A infraestrutura de rede necessária para implantar no Azure, depende se você i
 A configuração simplificada apresentada introduz várias instâncias de segurança que permitem controlar e limitar roteamento. Isso inicia com 
 
 - O roteador/firewall no lado local do cliente.
-- A próxima instância é o [Grupo de Segurança de Rede do Azure](../../../virtual-network/security-overview.md) que é possível usar para introduzir regras de roteamento e segurança para a VNet do Azure na qual executa a configuração do SAP Business.
+- A próxima instância é o [Grupo de Segurança de Rede do Azure](../../../virtual-network/network-security-groups-overview.md) que é possível usar para introduzir regras de roteamento e segurança para a VNet do Azure na qual executa a configuração do SAP Business.
 - Para evitar que usuários do cliente Business One também vejam o servidor que executa o servidor do Business One, o qual executa o banco de dados, separe a VM que hospeda o cliente Business One e o servidor do Business Onde em duas sub-redes diferentes dentro da VNet.
 - Você usaria o NSG do Azure atribuído às duas sub-redes diferentes novamente para limitar o acesso ao servidor do Business One.
 
@@ -111,7 +104,7 @@ Para o tipo de banco de dados, o SQL Server e o SAP HANA estão disponíveis. In
 
 Embora enfatizado nos documentos de banco de dados específicos e genéricos, é necessário que você esteja familiarizado com:
 
-- [Gerenciar a disponibilidade de máquinas virtuais do Windows no Azure](../../windows/manage-availability.md) e [Gerenciar a disponibilidade de máquinas virtuais do Linux no Azure](../../linux/manage-availability.md)
+- [Gerenciar a disponibilidade de máquinas virtuais do Windows no Azure](../../manage-availability.md) e [Gerenciar a disponibilidade de máquinas virtuais do Linux no Azure](../../manage-availability.md)
 - [SLA para Máquinas Virtuais](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/)
 
 Esses documentos devem ajudá-lo a decidir sobre a seleção de tipos de armazenamento e a configuração de alta disponibilidade.
@@ -147,7 +140,7 @@ Para as estratégias de backup e restauração do SAP HANA, é necessário ler o
 
  
 ### <a name="business-one-client-server"></a>Servidor do cliente Business One
-Para esses componentes, considerações de armazenamento não são a principal preocupação. no entanto, você quer ter uma plataforma confiável. Portanto, é necessário usar o Armazenamento Premium do Azure para essa VM, mesmo para o VHD de base. Dimensionar a VM, com os dados fornecidos no [Guia de Requisitos de Hardware do SAP Business One](https://help.sap.com/http.svc/rc/011000358700000244612011e/9.3/en-US/B1_Hardware_Requirements_Guide.pdf). Para o Azure, é necessário focar e calcular os requisitos estabelecidos no capítulo 2.4 do documento. Ao calcular os requisitos, é necessário compará-los com os documentos a seguir para encontrar a VM ideal às suas necessidades:
+Para esses componentes, considerações de armazenamento não são a principal preocupação. no entanto, você quer ter uma plataforma confiável. Portanto, é necessário usar o Armazenamento Premium do Azure para essa VM, mesmo para o VHD de base. Dimensionar a VM, com os dados fornecidos no [Guia de Requisitos de Hardware do SAP Business One](https://help.sap.com/doc/bfa9770d12284cce8509956dcd4c5fcb/9.3/en-US/B1_Hardware_Requirements_Guide.pdf). Para o Azure, é necessário focar e calcular os requisitos estabelecidos no capítulo 2.4 do documento. Ao calcular os requisitos, é necessário compará-los com os documentos a seguir para encontrar a VM ideal às suas necessidades:
 
 - [Tamanhos das máquinas virtuais do Windows no Azure](../../sizes.md)
 - [Observação SAP #1928533](https://launchpad.support.sap.com/#/notes/1928533)

@@ -2,13 +2,13 @@
 title: Configuração de regras de firewall IP para o Barramento de Serviço do Azure
 description: Como usar Regras de Firewall para permitir conexões de endereços IP específicos para o Barramento de Serviço do Azure.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 699ece2e78ff0605ff4076b09c023d14e289b1f7
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.date: 02/12/2021
+ms.openlocfilehash: 11a17575e65bc8878819767804d7f69f3d590ad3
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88064631"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100516542"
 ---
 # <a name="allow-access-to-azure-service-bus-namespace-from-specific-ip-addresses-or-ranges"></a>Permitir acesso ao namespace do barramento de serviço do Azure de intervalos ou endereços IP específicos
 Por padrão, os namespaces de Barramento de Serviço são acessíveis pela Internet, desde que a solicitação acompanhe uma autenticação e uma autorização válidas. Com o firewall de IP, você pode restringir ainda mais a um conjunto de endereços IPv4 ou intervalos de endereços IPv4 na notação [CIDR (roteamento entre domínios sem classificação)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
@@ -22,19 +22,11 @@ Esse recurso é útil em cenários nos quais o Barramento de Serviço do Azure d
 As regras de firewall de IP são aplicadas no nível de namespace do Barramento de Serviço. Portanto, as regras se aplicam a todas as conexões de clientes que usam qualquer protocolo com suporte. Qualquer tentativa de conexão de um endereço IP que não corresponda a uma regra IP permitida no namespace do Barramento de Serviço será rejeitada como não autorizada. A resposta não menciona a regra IP. As regras de filtro IP são aplicadas na ordem e a primeira regra que corresponde ao endereço IP determina a ação de aceitar ou rejeitar.
 
 >[!WARNING]
-> Implementar as regras de Firewall pode impedir outros serviços do Azure de interagir com o Barramento de Serviço.
->
-> Não há suporte para serviços confiáveis da Microsoft para quando a Filtragem de IP (regras de Firewall) é implementada e serão disponibilizados em breve.
->
-> Cenários comuns do Azure que não funcionam com a Filtragem de IP (observe que a lista **NÃO** é exaustiva):
-> - Integração com a Grade de Eventos do Azure
-> - Rotas do Hub IoT do Azure
-> - Device Explorer do Azure IoT
+> Implementar as regras de Firewall pode impedir outros serviços do Azure de interagir com o Barramento de Serviço. Como exceção, você pode permitir o acesso aos recursos do barramento de serviço de determinados serviços confiáveis, mesmo quando a filtragem de IP está habilitada. Para obter uma lista de serviços confiáveis, consulte [serviços confiáveis](#trusted-microsoft-services). 
 >
 > Os serviços da Microsoft a seguir devem estar em uma rede virtual
 > - Serviço de aplicativo do Azure
 > - Funções do Azure
-> - Azure Monitor (configuração de diagnóstico)
 
 ## <a name="use-azure-portal"></a>Usar o portal do Azure
 Esta seção mostra como usar o portal do Azure para criar regras de firewall de IP para um namespace do Barramento de Serviço. 
@@ -45,13 +37,14 @@ Esta seção mostra como usar o portal do Azure para criar regras de firewall de
     > [!NOTE]
     > Você vê a guia **rede** somente para namespaces **Premium** .  
     
-    Por padrão, a opção **redes selecionadas** é selecionada. Se você não adicionar pelo menos uma regra de firewall IP ou uma rede virtual nessa página, o namespace poderá ser acessado pela Internet pública (usando a chave de acesso).
+    >[!WARNING]
+    > Se você selecionar a opção **redes selecionadas** e não adicionar pelo menos uma regra de firewall IP ou uma rede virtual nessa página, o namespace poderá ser acessado pela Internet pública (usando a tecla de acesso).
 
     :::image type="content" source="./media/service-bus-ip-filtering/default-networking-page.png" alt-text="Página de rede-padrão" lightbox="./media/service-bus-ip-filtering/default-networking-page.png":::
     
     Se você selecionar a opção **todas as redes** , o namespace do barramento de serviço aceitará conexões de qualquer endereço IP. Essa configuração padrão é equivalente a uma regra que aceita o intervalo de endereços IP 0.0.0.0/0. 
 
-    ![Firewall – opção "Todas as redes" selecionada](./media/service-bus-ip-filtering/firewall-all-networks-selected.png)
+    ![Captura de tela da página de rede portal do Azure. A opção para permitir o acesso de todas as redes é selecionada na guia firewalls e redes virtuais.](./media/service-bus-ip-filtering/firewall-all-networks-selected.png)
 1. Para permitir o acesso apenas do endereço IP especificado, selecione a opção **redes selecionadas** se ela ainda não estiver selecionada. Na seção **Firewall**, siga estas etapas:
     1. Selecione a opção **Adicionar o endereço IP do cliente** para permitir ao IP do cliente atual acesso ao namespace. 
     2. Para **intervalo de endereços**, insira um endereço IPv4 específico ou um intervalo de endereços IPv4 na notação CIDR. 
@@ -60,35 +53,21 @@ Esta seção mostra como usar o portal do Azure para criar regras de firewall de
         > [!WARNING]
         > Se escolher a opção **Redes selecionadas** e não especificar um endereço IP ou intervalo de endereços, o serviço permitirá o tráfego de todas as redes. 
 
-        ![Firewall – opção "Todas as redes" selecionada](./media/service-bus-ip-filtering/firewall-selected-networks-trusted-access-disabled.png)
+        ![Captura de tela da página de rede portal do Azure. A opção para permitir o acesso de redes selecionadas é selecionada e a seção firewall é realçada.](./media/service-bus-ip-filtering/firewall-selected-networks-trusted-access-disabled.png)
 3. Selecione **Salvar** na barra de ferramentas para salvar as configurações. Aguarde alguns minutos para que a confirmação seja exibida nas notificações do portal.
 
     > [!NOTE]
     > Para restringir o acesso a redes virtuais específicas, consulte [permitir o acesso de redes específicas](service-bus-service-endpoints.md).
 
+[!INCLUDE [service-bus-trusted-services](../../includes/service-bus-trusted-services.md)]
+
 ## <a name="use-resource-manager-template"></a>Usar modelo do Resource Manager
-Esta seção tem um modelo do Azure Resource Manager de exemplo que cria uma rede virtual e uma regra de firewall.
+Esta seção tem um modelo de Azure Resource Manager de exemplo que adiciona uma rede virtual e uma regra de firewall a um namespace de barramento de serviço existente.
 
+A **ipMask** é um endereço IPv4 único ou um bloco de endereços IP na notação CIDR. Por exemplo, na notação CIDR 70.37.104.0/24, representa os 256 endereços IPv4 de 70.37.104.0 a 70.37.104.255, em que 24 indica o número de bits de prefixo significativos para o intervalo.
 
-O modelo do Resource Manager a seguir permite incluir uma regra da rede virtual em um namespace de Barramento de Serviço existente.
+Ao adicionar regras de rede virtual ou firewalls, defina o valor de `defaultAction` como `Deny` .
 
-Parâmetros de modelo:
-
-- A **ipMask** é um endereço IPv4 único ou um bloco de endereços IP na notação CIDR. Por exemplo, na notação CIDR 70.37.104.0/24, representa os 256 endereços IPv4 de 70.37.104.0 a 70.37.104.255, em que 24 indica o número de bits de prefixo significativos para o intervalo.
-
-> [!NOTE]
-> Embora não haja nenhuma regra de negação possível, o modelo do Azure Resource Manager tem a ação padrão definida como **"Allow"** , que não restringe as conexões.
-> Ao criar as regras de rede virtual ou de firewalls, devemos alterar a ***"defaultAction"***
-> 
-> de
-> ```json
-> "defaultAction": "Allow"
-> ```
-> para
-> ```json
-> "defaultAction": "Deny"
-> ```
->
 
 ```json
 {
@@ -126,7 +105,7 @@ Parâmetros de modelo:
       {
         "apiVersion": "2018-01-01-preview",
         "name": "[variables('namespaceNetworkRuleSetName')]",
-        "type": "Microsoft.ServiceBus/namespaces/networkruleset",
+        "type": "Microsoft.ServiceBus/namespaces/networkrulesets",
         "dependsOn": [
           "[concat('Microsoft.ServiceBus/namespaces/', parameters('servicebusNamespaceName'))]"
         ],
@@ -153,6 +132,10 @@ Parâmetros de modelo:
 ```
 
 Para implantar o modelo, siga as instruções para o [Azure Resource Manager][lnk-deploy].
+
+> [!IMPORTANT]
+> Se não houver nenhuma regra de rede virtual e IP, todo o tráfego fluirá para o namespace mesmo se você definir `defaultAction` como `deny` . O namespace pode ser acessado pela Internet pública (usando a chave de acesso). Especifique pelo menos uma regra de IP ou regra de rede virtual para o namespace para permitir o tráfego somente dos endereços IP ou da sub-rede de uma rede virtual especificada.  
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -4,10 +4,10 @@ description: Descreve as propriedades exportadas de exportação contínua em JS
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.openlocfilehash: 29ad999c307d1c11e7a584b61d85ed73b9448cb4
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87324379"
 ---
 # <a name="application-insights-export-data-model"></a>Modelo de dados de exportação do Application Insights
@@ -111,132 +111,132 @@ Todos os tipos de telemetria são acompanhados por uma seção de contexto. Nem 
 | --- | --- | --- |
 | context.custom.dimensions [0] |object [ ] |Pares de cadeira de caractere chave-valor definidos pelo parâmetro das propriedades personalizadas. Comprimento máximo da chave 100, comprimento máximo dos valores 1024. Mais de 100 valores exclusivos, é possível pesquisar na propriedade, mas não usá-la para segmentação. Máximo de 200 chaves por ikey. |
 | context.custom.metrics [0] |object [ ] |Pares de chave-valor definidos pelo parâmetro de medidas personalizadas e por TrackMetrics. Comprimento máximo da chave 100, os valores podem ser numéricos. |
-| context.data.eventTime |cadeia de caracteres |UTC |
-| context.data.isSynthetic |boolean |A solicitação parece ser proveniente de um teste na Web ou de um bot. |
+| context.data.eventTime |string |UTC |
+| context.data.isSynthetic |booleano |A solicitação parece ser proveniente de um teste na Web ou de um bot. |
 | context.data.samplingRate |número |Porcentagem de telemetria gerada pelo SDK enviado ao portal. Intervalo 0.0-100.0. |
-| context.device |object |Dispositivo de cliente |
-| context.device.browser |cadeia de caracteres |IE, Chrome, ... |
-| context.device.browserVersion |cadeia de caracteres |Chrome 48.0, ... |
-| context.device.deviceModel |cadeia de caracteres | |
-| context.device.deviceName |cadeia de caracteres | |
-| context.device.id |cadeia de caracteres | |
-| context.device.locale |cadeia de caracteres |en-GB, de-DE, ... |
-| context.device.network |cadeia de caracteres | |
-| context.device.oemName |cadeia de caracteres | |
-| context.device.os |cadeia de caracteres | |
-| context.device.osVersion |cadeia de caracteres |Sistema operacional do host |
-| context.device.roleInstance |cadeia de caracteres |ID do host do servidor |
-| context.device.roleName |cadeia de caracteres | |
-| context.device.screenResolution |cadeia de caracteres | |
-| context.device.type |cadeia de caracteres |PC, navegador,... |
-| context.location |object |Derivada de `clientip`. |
-| context.location.city |cadeia de caracteres |Derivado de `clientip` , se conhecido |
-| context.location.clientip |cadeia de caracteres |Último octógono tornado anônimo pelo valor 0. |
-| context.location.continent |cadeia de caracteres | |
-| context.location.country |cadeia de caracteres | |
-| context.location.province |cadeia de caracteres |Estado ou província |
-| context.operation.id |cadeia de caracteres |Os itens que têm o mesmo `operation id` são mostrados como itens relacionados no Portal. Geralmente, o `request id` . |
-| context.operation.name |cadeia de caracteres |nome solicitação ou url |
-| context.operation.parentId |cadeia de caracteres |Permite itens relacionados aninhados. |
-| context.session.id |cadeia de caracteres |`Id`de um grupo de operações da mesma fonte. Um período de 30 minutos sem uma operação sinaliza o término de uma sessão. |
-| context.session.isFirst |boolean | |
-| context.user.accountAcquisitionDate |cadeia de caracteres | |
-| context.user.accountId |cadeia de caracteres | |
-| context.user.anonAcquisitionDate |cadeia de caracteres | |
-| context.user.anonId |cadeia de caracteres | |
-| context.user.authAcquisitionDate |cadeia de caracteres |[Usuário Autenticado](./api-custom-events-metrics.md#authenticated-users) |
-| context.user.authId |cadeia de caracteres | |
-| context.user.isAuthenticated |boolean | |
-| context.user.storeRegion |cadeia de caracteres | |
-| internal.data.documentVersion |cadeia de caracteres | |
-| internal.data.id |cadeia de caracteres | `Unique id`que é atribuído quando um item é ingerido para Application Insights |
+| context.device |objeto |Dispositivo de cliente |
+| context.device.browser |string |IE, Chrome, ... |
+| context.device.browserVersion |string |Chrome 48.0, ... |
+| context.device.deviceModel |string | |
+| context.device.deviceName |string | |
+| context.device.id |string | |
+| context.device.locale |string |en-GB, de-DE, ... |
+| context.device.network |string | |
+| context.device.oemName |string | |
+| context.device.os |string | |
+| context.device.osVersion |string |SO host |
+| context.device.roleInstance |string |ID do host do servidor |
+| context.device.roleName |string | |
+| context.device.screenResolution |string | |
+| context.device.type |string |PC, navegador,... |
+| context.location |objeto |Derivada de `clientip`. |
+| context.location.city |string |Derivado de `clientip` , se conhecido |
+| context.location.clientip |string |Último octógono tornado anônimo pelo valor 0. |
+| context.location.continent |string | |
+| context.location.country |string | |
+| context.location.province |string |Estado ou província |
+| context.operation.id |string |Os itens que têm o mesmo `operation id` são mostrados como itens relacionados no Portal. Geralmente, o `request id` . |
+| context.operation.name |string |nome solicitação ou url |
+| context.operation.parentId |string |Permite itens relacionados aninhados. |
+| context.session.id |string |`Id` de um grupo de operações da mesma fonte. Um período de 30 minutos sem uma operação sinaliza o término de uma sessão. |
+| context.session.isFirst |booleano | |
+| context.user.accountAcquisitionDate |string | |
+| context.user.accountId |string | |
+| context.user.anonAcquisitionDate |string | |
+| context.user.anonId |string | |
+| context.user.authAcquisitionDate |string |[Usuário Autenticado](./api-custom-events-metrics.md#authenticated-users) |
+| context.user.authId |string | |
+| context.user.isAuthenticated |booleano | |
+| context.user.storeRegion |string | |
+| internal.data.documentVersion |string | |
+| internal.data.id |string | `Unique id` que é atribuído quando um item é ingerido para Application Insights |
 
 ## <a name="events"></a>Eventos
 Eventos personalizados gerados por [TrackEvent()](./api-custom-events-metrics.md#trackevent).
 
 | Caminho | Type | Observações |
 | --- | --- | --- |
-| event [0] count |inteiro |100/(taxa de[amostragem](./sampling.md) ). Por exemplo, 4 =&gt; 25%. |
-| event [0] name |cadeia de caracteres |Nome do evento.  Comprimento máximo 250. |
-| event [0] url |cadeia de caracteres | |
-| event [0] urlData.base |cadeia de caracteres | |
-| event [0] urlData.host |cadeia de caracteres | |
+| event [0] count |Número inteiro |100/(taxa de[amostragem](./sampling.md) ). Por exemplo, 4 =&gt; 25%. |
+| event [0] name |string |Nome do evento.  Comprimento máximo 250. |
+| event [0] url |string | |
+| event [0] urlData.base |string | |
+| event [0] urlData.host |string | |
 
 ## <a name="exceptions"></a>Exceções
 [Exceções](./asp-net-exceptions.md) do relatório no servidor e no navegador.
 
 | Caminho | Type | Observações |
 | --- | --- | --- |
-| basicException [0] assembly |cadeia de caracteres | |
-| basicException [0] count |inteiro |100/(taxa de[amostragem](./sampling.md) ). Por exemplo, 4 =&gt; 25%. |
-| basicException [0] exceptionGroup |cadeia de caracteres | |
-| basicException [0] exceptionType |cadeia de caracteres | |
-| basicException [0] failedUserCodeMethod |cadeia de caracteres | |
-| basicException [0] failedUserCodeAssembly |cadeia de caracteres | |
-| basicException [0] handledAt |cadeia de caracteres | |
-| basicException [0] hasFullStack |boolean | |
-| basicexception [0]`id` |cadeia de caracteres | |
-| basicException [0] method |cadeia de caracteres | |
-| basicException [0] message |cadeia de caracteres |Mensagem de exceção. Comprimento máximo 10k. |
-| basicException [0] outerExceptionMessage |cadeia de caracteres | |
-| basicException [0] outerExceptionThrownAtAssembly |cadeia de caracteres | |
-| basicException [0] outerExceptionThrownAtMethod |cadeia de caracteres | |
-| basicException [0] outerExceptionType |cadeia de caracteres | |
-| basicException [0] outerId |cadeia de caracteres | |
-| basicException [0] parsedStack [0] assembly |cadeia de caracteres | |
-| basicException [0] parsedStack [0] fileName |cadeia de caracteres | |
-| basicException [0] parsedStack [0] level |inteiro | |
-| basicException [0] parsedStack [0] line |inteiro | |
-| basicException [0] parsedStack [0] method |cadeia de caracteres | |
-| basicException [0] stack |cadeia de caracteres |Comprimento máximo 10k |
-| basicException [0] typeName |cadeia de caracteres | |
+| basicException [0] assembly |string | |
+| basicException [0] count |Número inteiro |100/(taxa de[amostragem](./sampling.md) ). Por exemplo, 4 =&gt; 25%. |
+| basicException [0] exceptionGroup |string | |
+| basicException [0] exceptionType |string | |
+| basicException [0] failedUserCodeMethod |string | |
+| basicException [0] failedUserCodeAssembly |string | |
+| basicException [0] handledAt |string | |
+| basicException [0] hasFullStack |booleano | |
+| basicexception [0] `id` |string | |
+| basicException [0] method |string | |
+| basicException [0] message |string |Mensagem de exceção. Comprimento máximo 10k. |
+| basicException [0] outerExceptionMessage |string | |
+| basicException [0] outerExceptionThrownAtAssembly |string | |
+| basicException [0] outerExceptionThrownAtMethod |string | |
+| basicException [0] outerExceptionType |string | |
+| basicException [0] outerId |string | |
+| basicException [0] parsedStack [0] assembly |string | |
+| basicException [0] parsedStack [0] fileName |string | |
+| basicException [0] parsedStack [0] level |Número inteiro | |
+| basicException [0] parsedStack [0] line |Número inteiro | |
+| basicException [0] parsedStack [0] method |string | |
+| basicException [0] stack |string |Comprimento máximo 10k |
+| basicException [0] typeName |string | |
 
 ## <a name="trace-messages"></a>Mensagens de rastreamento
 Enviado por [TrackTrace](./api-custom-events-metrics.md#tracktrace) e pelos [adaptadores de log](./asp-net-trace-logs.md).
 
 | Caminho | Type | Observações |
 | --- | --- | --- |
-| message [0] loggerName |cadeia de caracteres | |
-| message [0] parameters |cadeia de caracteres | |
-| message [0] raw |cadeia de caracteres |A mensagem de log, comprimento máximo de 10 mil. |
-| message [0] severityLevel |cadeia de caracteres | |
+| message [0] loggerName |string | |
+| message [0] parameters |string | |
+| message [0] raw |string |A mensagem de log, comprimento máximo de 10 mil. |
+| message [0] severityLevel |string | |
 
 ## <a name="remote-dependency"></a>Dependência remota
 Enviado por TrackDependency. Usado para indicar o desempenho e o uso das [chamadas para dependências](./asp-net-dependencies.md) no servidor, e chamadas do AJAX no navegador.
 
 | Caminho | Type | Observações |
 | --- | --- | --- |
-| remoteDependency [0] async |boolean | |
-| remoteDependency [0] baseName |cadeia de caracteres | |
-| remoteDependency [0] commandName |cadeia de caracteres |Por exemplo, "home/index" |
-| remoteDependency [0] count |inteiro |100/(taxa de[amostragem](./sampling.md) ). Por exemplo, 4 =&gt; 25%. |
-| remoteDependency [0] dependencyTypeName |cadeia de caracteres |HTTP, SQL, ... |
+| remoteDependency [0] async |booleano | |
+| remoteDependency [0] baseName |string | |
+| remoteDependency [0] commandName |string |Por exemplo, "home/index" |
+| remoteDependency [0] count |Número inteiro |100/(taxa de[amostragem](./sampling.md) ). Por exemplo, 4 =&gt; 25%. |
+| remoteDependency [0] dependencyTypeName |string |HTTP, SQL, ... |
 | remoteDependency [0] durationMetric.value |número |Tempo desde a chamada até a conclusão da resposta por dependência |
-| remoteDependency [0]`id` |cadeia de caracteres | |
-| remoteDependency [0] name |cadeia de caracteres |Url. Comprimento máximo 250. |
-| remoteDependency [0] resultCode |cadeia de caracteres |da dependência de HTTP |
-| remoteDependency [0] success |boolean | |
-| remoteDependency [0] type |cadeia de caracteres |Http, Sql,... |
-| remoteDependency [0] url |cadeia de caracteres |Comprimento máximo 2000 |
-| remoteDependency [0] urlData.base |cadeia de caracteres |Comprimento máximo 2000 |
-| remoteDependency [0] urlData.hashTag |cadeia de caracteres | |
-| remoteDependency [0] urlData.host |cadeia de caracteres |Comprimento máximo 200 |
+| remoteDependency [0] `id` |string | |
+| remoteDependency [0] name |string |Url. Comprimento máximo 250. |
+| remoteDependency [0] resultCode |string |da dependência de HTTP |
+| remoteDependency [0] success |booleano | |
+| remoteDependency [0] type |string |Http, Sql,... |
+| remoteDependency [0] url |string |Comprimento máximo 2000 |
+| remoteDependency [0] urlData.base |string |Comprimento máximo 2000 |
+| remoteDependency [0] urlData.hashTag |string | |
+| remoteDependency [0] urlData.host |string |Comprimento máximo 200 |
 
 ## <a name="requests"></a>Requests
 Enviado por [TrackRequest](./api-custom-events-metrics.md#trackrequest). Os módulos padrão usam isso para indicar o tempo de resposta do servidor, medido no servidor.
 
 | Caminho | Type | Observações |
 | --- | --- | --- |
-| request [0] count |inteiro |100/(taxa de[amostragem](./sampling.md) ). Por exemplo: 4 =&gt; 25%. |
+| request [0] count |Número inteiro |100/(taxa de[amostragem](./sampling.md) ). Por exemplo: 4 =&gt; 25%. |
 | request [0] durationMetric.value |número |Tempo de chegada da solicitação até a resposta. 1e7 == 1s |
-| solicitação [0]`id` |cadeia de caracteres |`Operation id` |
-| request [0] name |cadeia de caracteres |GET/POST + url base.  Comprimento máximo 250 |
-| request [0] responseCode |inteiro |Resposta HTTP enviada ao cliente |
-| request [0] success |boolean |Padrão == (responseCode &lt; 400) |
-| request [0] url |cadeia de caracteres |Não incluindo o host |
-| request [0] urlData.base |cadeia de caracteres | |
-| request [0] urlData.hashTag |cadeia de caracteres | |
-| request [0] urlData.host |cadeia de caracteres | |
+| solicitação [0] `id` |string |`Operation id` |
+| request [0] name |string |GET/POST + url base.  Comprimento máximo 250 |
+| request [0] responseCode |Número inteiro |Resposta HTTP enviada ao cliente |
+| request [0] success |booleano |Padrão == (responseCode &lt; 400) |
+| request [0] url |string |Não incluindo o host |
+| request [0] urlData.base |string | |
+| request [0] urlData.hashTag |string | |
+| request [0] urlData.host |string | |
 
 ## <a name="page-view-performance"></a>Desempenho de exibição da página
 Enviado pelo navegador. Mede o tempo de processamento de uma página, desde o início da solicitação do usuário até a exibição completa (excluindo as chamadas do AJAX assíncronas).
@@ -245,49 +245,49 @@ Os valores de contexto mostram a versão do navegador e do sistema operacional c
 
 | Caminho | Type | Observações |
 | --- | --- | --- |
-| clientPerformance [0] clientProcess.value |inteiro |Tempo desde o término do recebimento do HTML até a exibição da página. |
-| clientPerformance [0] name |cadeia de caracteres | |
-| clientPerformance [0] networkConnection.value |inteiro |Tempo necessário para estabelecer uma conexão de rede. |
-| clientPerformance [0] receiveRequest.value |inteiro |Tempo desde o término do envio da solicitação até o recebimento do HTML na resposta. |
-| clientPerformance [0] sendRequest.value |inteiro |Tempo necessário para enviar a solicitação HTTP. |
-| clientPerformance [0] total.value |inteiro |Tempo desde o início até o envio da solicitação para exibição da página. |
-| clientPerformance [0] url |cadeia de caracteres |URL dessa solicitação |
-| clientPerformance [0] urlData.base |cadeia de caracteres | |
-| clientPerformance [0] urlData.hashTag |cadeia de caracteres | |
-| clientPerformance [0] urlData.host |cadeia de caracteres | |
-| clientPerformance [0] urlData.protocol |cadeia de caracteres | |
+| clientPerformance [0] clientProcess.value |Número inteiro |Tempo desde o término do recebimento do HTML até a exibição da página. |
+| clientPerformance [0] name |string | |
+| clientPerformance [0] networkConnection.value |Número inteiro |Tempo necessário para estabelecer uma conexão de rede. |
+| clientPerformance [0] receiveRequest.value |Número inteiro |Tempo desde o término do envio da solicitação até o recebimento do HTML na resposta. |
+| clientPerformance [0] sendRequest.value |Número inteiro |Tempo necessário para enviar a solicitação HTTP. |
+| clientPerformance [0] total.value |Número inteiro |Tempo desde o início até o envio da solicitação para exibição da página. |
+| clientPerformance [0] url |string |URL dessa solicitação |
+| clientPerformance [0] urlData.base |string | |
+| clientPerformance [0] urlData.hashTag |string | |
+| clientPerformance [0] urlData.host |string | |
+| clientPerformance [0] urlData.protocol |string | |
 
 ## <a name="page-views"></a>Visualizações de página
 Enviado por trackPageView() ou [stopTrackPage](./api-custom-events-metrics.md#page-views)
 
 | Caminho | Type | Observações |
 | --- | --- | --- |
-| view [0] count |inteiro |100/(taxa de[amostragem](./sampling.md) ). Por exemplo, 4 =&gt; 25%. |
-| view [0] durationMetric.value |inteiro |Valor definido opcionalmente em trackPageView() ou por startTrackPage() - stopTrackPage(). Não é igual aos valores de clientPerformance. |
-| view [0] name |cadeia de caracteres |Título da página.  Comprimento máximo 250 |
-| view [0] url |cadeia de caracteres | |
-| view [0] urlData.base |cadeia de caracteres | |
-| view [0] urlData.hashTag |cadeia de caracteres | |
-| view [0] urlData.host |cadeia de caracteres | |
+| view [0] count |Número inteiro |100/(taxa de[amostragem](./sampling.md) ). Por exemplo, 4 =&gt; 25%. |
+| view [0] durationMetric.value |Número inteiro |Valor definido opcionalmente em trackPageView() ou por startTrackPage() - stopTrackPage(). Não é igual aos valores de clientPerformance. |
+| view [0] name |string |Título da página.  Comprimento máximo 250 |
+| view [0] url |string | |
+| view [0] urlData.base |string | |
+| view [0] urlData.hashTag |string | |
+| view [0] urlData.host |string | |
 
 ## <a name="availability"></a>Disponibilidade
 Relata os [testes de disponibilidade na Web](./monitor-web-app-availability.md).
 
 | Caminho | Type | Observações |
 | --- | --- | --- |
-| availability [0] availabilityMetric.name |cadeia de caracteres |availability |
+| availability [0] availabilityMetric.name |string |availability |
 | availability [0] availabilityMetric.value |número |1.0 ou 0.0 |
-| availability [0] count |inteiro |100/(taxa de[amostragem](./sampling.md) ). Por exemplo, 4 =&gt; 25%. |
-| availability [0] dataSizeMetric.name |cadeia de caracteres | |
-| availability [0] dataSizeMetric.value |inteiro | |
-| availability [0] durationMetric.name |cadeia de caracteres | |
+| availability [0] count |Número inteiro |100/(taxa de[amostragem](./sampling.md) ). Por exemplo, 4 =&gt; 25%. |
+| availability [0] dataSizeMetric.name |string | |
+| availability [0] dataSizeMetric.value |Número inteiro | |
+| availability [0] durationMetric.name |string | |
 | availability [0] durationMetric.value |número |Duração do teste. 1e7==1s |
-| availability [0] message |cadeia de caracteres |Diagnóstico de falha |
-| availability [0] result |cadeia de caracteres |Aprovado/Reprovado |
-| availability [0] runLocation |cadeia de caracteres |Fonte geográfica de solicitações http |
-| availability [0] testName |cadeia de caracteres | |
-| availability [0] testRunId |cadeia de caracteres | |
-| availability [0] testTimestamp |cadeia de caracteres | |
+| availability [0] message |string |Diagnóstico de falha |
+| availability [0] result |string |Aprovado/Reprovado |
+| availability [0] runLocation |string |Fonte geográfica de solicitações http |
+| availability [0] testName |string | |
+| availability [0] testRunId |string | |
+| availability [0] testTimestamp |string | |
 
 ## <a name="metrics"></a>Métricas
 Gerado por TrackMetric().

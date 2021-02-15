@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 08/03/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 5ff2fe74a0dd5064232fcef3178aec2967ef6812
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 46c6eac80ddbff73d99e05c070e66aa1700da174
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683854"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928623"
 ---
 # <a name="tutorial-for-configuring-onfido-with-azure-active-directory-b2c"></a>Tutorial para configurar o Onfido com o Azure Active Directory B2C
 
@@ -30,7 +30,7 @@ Para começar, você precisará de:
 
 - Uma assinatura do Azure AD. Caso você não tenha uma assinatura, obtenha uma [conta gratuita](https://azure.microsoft.com/free/).
 
-- [Um locatário Azure ad B2C](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant) que está vinculado à sua assinatura do Azure.
+- [Um locatário Azure ad B2C](./tutorial-create-tenant.md) que está vinculado à sua assinatura do Azure.
 
 - Uma [conta de avaliação](https://onfido.com/signup/)do Onfido.
 
@@ -74,7 +74,7 @@ Para obter mais informações sobre Onfido, consulte [documentação da API do O
 
 ### <a name="part-1---deploy-the-api"></a>Parte 1-implantar a API
 
-- Implante o [código de API](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/OnFido-Combined/API/Onfido.Api) fornecido em um serviço do Azure. O código pode ser publicado no Visual Studio, seguindo estas [instruções](https://docs.microsoft.com/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
+- Implante o [código de API](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/OnFido-Combined/API/Onfido.Api) fornecido em um serviço do Azure. O código pode ser publicado no Visual Studio, seguindo estas [instruções](/visualstudio/deployment/quickstart-deploy-to-azure).
 - Configurar CORS, adicionar **origem permitida** como https://{your_tenant_name}. b2clogin. com
 
 >[!NOTE]
@@ -82,7 +82,7 @@ Para obter mais informações sobre Onfido, consulte [documentação da API do O
 
 #### <a name="adding-sensitive-configuration-settings"></a>Adicionando definições de configuração confidenciais
 
-As configurações do aplicativo podem ser configuradas no [serviço de aplicativo no Azure](https://docs.microsoft.com/azure/app-service/configure-common#configure-app-settings). O serviço de aplicativo permite que as configurações sejam configuradas com segurança sem verificá-las em um repositório. A API REST precisa das seguintes configurações:
+As configurações do aplicativo podem ser configuradas no [serviço de aplicativo no Azure](../app-service/configure-common.md#configure-app-settings). O serviço de aplicativo permite que as configurações sejam configuradas com segurança sem verificá-las em um repositório. A API REST precisa das seguintes configurações:
 
 | Nome da configuração de aplicativo | Fonte | Observações |
 |:-------------------------|:-------|:-------|
@@ -92,9 +92,9 @@ As configurações do aplicativo podem ser configuradas no [serviço de aplicati
 
 #### <a name="configure-your-storage-location"></a>Configurar o local de armazenamento
 
-1. Configurar um [contêiner de armazenamento de BLOBs em sua conta de armazenamento](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container)
+1. Configurar um [contêiner de armazenamento de BLOBs em sua conta de armazenamento](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)
 
-2. Armazene os arquivos de interface do usuário da pasta de interface do usuário em seu contêiner de BLOB.
+2. Armazene os arquivos de interface do usuário da [pasta de interface do usuário](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/OnFido-Combined/UI) em seu contêiner de BLOB.
 
 3. Permita o acesso CORS ao contêiner de armazenamento criado seguindo estas instruções:
 
@@ -110,7 +110,7 @@ As configurações do aplicativo podem ser configuradas no [serviço de aplicati
 
 2. Abra cada arquivo HTML.
 
-3. Localize e substitua {Your-interface-blob-container-URL} pela URL de onde suas pastas de interface do usuário **ocean_blue**, **dist**e **ativos** estão localizadas
+3. Localize e substitua {Your-interface-blob-container-URL} pela URL de onde suas pastas de interface do usuário **ocean_blue**, **dist** e **ativos** estão localizadas
 
 4. Localize e substitua {Your-intermediário-API-URL} pela URL do serviço de aplicativo de API intermediário.
 
@@ -118,13 +118,13 @@ As configurações do aplicativo podem ser configuradas no [serviço de aplicati
 
 1. Armazene os arquivos de interface do usuário da pasta de interface do usuário em seu contêiner de BLOB.
 
-2. Use [Gerenciador de armazenamento do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/disks-use-storage-explorer-managed-disks) para gerenciar seus arquivos e permissões de acesso.
+2. Use [Gerenciador de armazenamento do Azure](../virtual-machines/disks-use-storage-explorer-managed-disks.md) para gerenciar seus arquivos e permissões de acesso.
 
 ### <a name="part-3---configure-azure-ad-b2c"></a>Parte 3-configurar Azure AD B2C
 
 #### <a name="replace-the-configuration-values"></a>Substituir os valores de configuração
 
-Nas políticas personalizadas fornecidas, localize os seguintes espaços reservados e substitua pelos valores correspondentes da sua instância.
+Nas [políticas personalizadas](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/OnFido-Combined/Policies)fornecidas, localize os seguintes espaços reservados e substitua pelos valores correspondentes da sua instância.
 
 | Espaço reservado | Substituir pelo valor | Exemplo  |
 |:---------------|:----------------|:-------------------|
@@ -135,14 +135,14 @@ Nas políticas personalizadas fornecidas, localize os seguintes espaços reserva
 | {your_tenant_extensions_appid}                         | ID de aplicativo do aplicativo de armazenamento do seu locatário                                      | 01234567-89ab-cdef-0123-456789ABCDEF         |
 | {your_tenant_extensions_app_objectid}                  | ID de objeto do aplicativo de armazenamento do locatário                                   | 01234567-89ab-cdef-0123-456789ABCDEF         |
 | {your_app_insights_instrumentation_key} | Chave de instrumentação de sua instância do App insights *| 01234567-89ab-cdef-0123-456789ABCDEF|
-|{your_ui_file_base_url}| URL do local em que suas pastas de interface do usuário **ocean_blue**, **dist**e **ativos** estão localizadas | https://yourstorage.blob.core.windows.net/UI/|
+|{your_ui_file_base_url}| URL do local em que suas pastas de interface do usuário **ocean_blue**, **dist** e **ativos** estão localizadas | https://yourstorage.blob.core.windows.net/UI/|
 | {your_app_service_URL}                                 | URL do serviço de aplicativo que você configurou                                             | `https://yourapp.azurewebsites.net`          |
 
 * O app insights pode estar em um locatário diferente. Esta etapa é opcional. Remova os TechnicalProfiles e OrchestrationSteps correspondentes se não forem necessários.
 
 ### <a name="part-4---configure-the-azure-ad-b2c-policy"></a>Parte 4-configurar a política de Azure AD B2C
 
-Consulte este [documento](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications#custom-policy-starter-pack) para obter instruções sobre como configurar seu locatário Azure ad B2C e configurar políticas.
+Consulte este [documento](./custom-policy-get-started.md?tabs=applications#custom-policy-starter-pack) para obter instruções sobre como configurar seu locatário Azure ad B2C e configurar políticas.
 
 >[!NOTE]
 > Como prática recomendada, recomendamos que os clientes adicionem notificação de autorização na página coleção de atributos. Notifique os usuários que as informações serão enviadas a serviços de terceiros para verificação de identidade.
@@ -151,7 +151,7 @@ Consulte este [documento](https://docs.microsoft.com/azure/active-directory-b2c/
 
 1. Abra o locatário Azure AD B2C e, em políticas, selecione **estrutura de experiência de identidade**.
 
-2. Selecione o **SignUpSignIn**criado anteriormente.
+2. Selecione o **SignUpSignIn** criado anteriormente.
 
 3. Selecione **executar fluxo de usuário** e selecione as configurações:
 
@@ -169,6 +169,6 @@ Consulte este [documento](https://docs.microsoft.com/azure/active-directory-b2c/
 
 Para obter informações adicionais, examine os seguintes artigos:
 
-- [Políticas personalizadas no Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Políticas personalizadas no Azure AD B2C](./custom-policy-overview.md)
 
-- [Introdução às políticas personalizadas no Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [Introdução às políticas personalizadas no Azure AD B2C](./custom-policy-get-started.md?tabs=applications)

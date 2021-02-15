@@ -8,12 +8,12 @@ ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 16ee2f01e1b7771e71afe49c4b69b1fb39e43f37
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: dc3451a4b46a317dccda0e4292dcb1712b4171f0
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88869432"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878300"
 ---
 # <a name="azcopy-sync"></a>azcopy sync
 
@@ -38,7 +38,7 @@ O comando de sincronização difere do comando de cópia de várias maneiras:
 ## <a name="related-conceptual-articles"></a>Artigos conceituais relacionados
 
 - [Introdução ao AzCopy](storage-use-azcopy-v10.md)
-- [Transferir dados com o armazenamento de BLOBs e AzCopy](storage-use-azcopy-blobs.md)
+- [Transferir dados com o armazenamento de BLOBs e AzCopy](./storage-use-azcopy-v10.md#transfer-data)
 - [Transferir dados com o AzCopy e o Armazenamento de Arquivos](storage-use-azcopy-files.md)
 - [Configurar, otimizar e solucionar problemas do AzCopy](storage-use-azcopy-configure.md)
 
@@ -151,15 +151,15 @@ azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]
 
 **--** cadeia de caracteres de nível de log defina o detalhamento de log para o arquivo de log, níveis disponíveis: `INFO` (todas as solicitações e respostas) `WARNING` (respostas lentas), `ERROR` (somente solicitações com falha) e `NONE` (nenhum log de saída). (padrão `INFO` ). 
 
-**--preserve-SMB-info**     False por padrão.Preserva as informações da propriedade SMB (hora da última gravação, hora de criação, bits de atributo) entre recursos com reconhecimento de SMB (arquivos do Windows e do Azure).Esse sinalizador se aplica a arquivos e pastas, a menos que um filtro somente arquivo seja especificado (por exemplo, include-Pattern).As informações transferidas para pastas são as mesmas para arquivos, exceto para a hora da última gravação que não é preservada para pastas.
+**--preserve-SMB-info**   False por padrão. Preserva as informações da propriedade SMB (hora da última gravação, hora de criação, bits de atributo) entre recursos com reconhecimento de SMB (arquivos do Windows e do Azure). Esse sinalizador se aplica a arquivos e pastas, a menos que um filtro somente arquivo seja especificado (por exemplo, include-Pattern). As informações transferidas para pastas são as mesmas para arquivos, exceto para a hora da última gravação que não é preservada para pastas.
 
-**--preserve-SMB-permissões**     False por padrão.Preserva ACLs SMB entre recursos de reconhecimento (arquivos do Windows e do Azure).Esse sinalizador se aplica a arquivos e pastas, a menos que um filtro somente arquivo seja especificado (por exemplo,  `include-pattern` ).
+**--preserve-SMB-permissões**   False por padrão. Preserva ACLs SMB entre recursos de reconhecimento (arquivos do Windows e do Azure). Esse sinalizador se aplica a arquivos e pastas, a menos que um filtro somente arquivo seja especificado (por exemplo, `include-pattern` ).
 
 **--Put-MD5**     Crie um hash MD5 de cada arquivo e salve o hash como a propriedade Content-MD5 do BLOB ou arquivo de destino. (Por padrão, o hash não é criado.) Disponível somente ao carregar.
 
 **--recursivo** `True` Por padrão, examine os subdiretórios recursivamente ao sincronizar entre diretórios.     (padrão `True` ). 
 
-**--S2S-preserve-acesso-camada**  Preserve a camada de acesso durante a cópia de serviço para serviço. Consulte [armazenamento de BLOBs do Azure: camadas de acesso quentes, frias e de arquivo](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers) para garantir que a conta de armazenamento de destino dê suporte à configuração da camada de acesso. Nos casos em que não há suporte para a configuração da camada de acesso, use s2sPreserveAccessTier = false para ignorar a cópia da camada de acesso. (padrão `true` ). 
+**--S2S-preserve-acesso-camada**  Preserve a camada de acesso durante a cópia de serviço para serviço. Consulte [armazenamento de BLOBs do Azure: camadas de acesso quentes, frias e de arquivo](../blobs/storage-blob-storage-tiers.md) para garantir que a conta de armazenamento de destino dê suporte à configuração da camada de acesso. Nos casos em que não há suporte para a configuração da camada de acesso, use s2sPreserveAccessTier = false para ignorar a cópia da camada de acesso. (padrão `true` ). 
 
 ## <a name="options-inherited-from-parent-commands"></a>Opções herdadas de comandos pai
 

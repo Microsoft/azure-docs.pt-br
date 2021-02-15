@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 7/13/2020
-ms.openlocfilehash: 4ca64a7793d229e7910fb122fb33996b1ac0c4fe
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f8840d5115cb552ed203705d37f8c692b3418947
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87095872"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492328"
 ---
 # <a name="logs-in-azure-database-for-postgresql---hyperscale-citus"></a>Logs no banco de dados do Azure para PostgreSQL-Citus (hiperescala)
 
@@ -22,17 +22,17 @@ Os logs do PostgreSQL estão disponíveis em todos os nós de um grupo de servid
 
 Para acessar os logs do PostgreSQL para um coordenador ou nó de trabalho de hiperescala (Citus), abra o nó no portal do Azure:
 
-![lista de nós](media/howto-hyperscale-logging/choose-node.png)
+:::image type="content" source="media/howto-hyperscale-logging/choose-node.png" alt-text="lista de nós":::
 
-Para o nó selecionado, abra **configurações de diagnóstico**e clique em **+ Adicionar configuração de diagnóstico**.
+Para o nó selecionado, abra **configurações de diagnóstico** e clique em **+ Adicionar configuração de diagnóstico**.
 
-![Botão Adicionar configurações de diagnóstico](media/howto-hyperscale-logging/diagnostic-settings.png)
+:::image type="content" source="media/howto-hyperscale-logging/diagnostic-settings.png" alt-text="Botão Adicionar configurações de diagnóstico":::
 
 Escolha um nome para as novas configurações de diagnóstico e marque a caixa **PostgreSQLLogs** .  Escolha quais destinos devem receber os logs.
 
-![Escolher logs do PostgreSQL](media/howto-hyperscale-logging/diagnostic-create-setting.png)
+:::image type="content" source="media/howto-hyperscale-logging/diagnostic-create-setting.png" alt-text="Escolher logs do PostgreSQL":::
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Introdução às consultas do log Analytics](/azure/azure-monitor/log-query/get-started-portal)
-- Saiba mais sobre os [hubs de eventos do Azure](/azure/event-hubs/event-hubs-about)
+- [Introdução às consultas do log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)
+- Saiba mais sobre os [hubs de eventos do Azure](../event-hubs/event-hubs-about.md)

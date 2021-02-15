@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/19/2020
-ms.openlocfilehash: 023b731216605746e838306ce1ab69ebe8c6c6fd
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 1a1cb7661ae01dd89d45afe004978813ac90eaff
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85955770"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "90905297"
 ---
 # <a name="multiclass-boosted-decision-tree"></a>Árvore de Decisão Aumentada Multiclasse
 
-Este artigo descreve um módulo no designer do Azure Machine Learning (versão prévia).
+Este artigo descreve um módulo no designer de Azure Machine Learning.
 
 Use este módulo para criar um modelo de aprendizado de máquina baseado no algoritmo árvores de decisão aumentada.
 

@@ -4,10 +4,10 @@ description: Compare o Azure DevTest Labs e o Azure Lab Services.
 ms.topic: overview
 ms.date: 06/26/2020
 ms.openlocfilehash: b1cd476faf6c457033ffeace03cd2e37b51e8578
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "85480072"
 ---
 # <a name="compare-azure-devtest-labs-and-azure-lab-services"></a>Comparar o Azure DevTest Labs e o Azure Lab Services

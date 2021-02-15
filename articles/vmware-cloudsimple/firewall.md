@@ -1,19 +1,19 @@
 ---
 title: Solução do Azure VMware por CloudSimple-configure as tabelas e regras de firewall
 description: Descreve como configurar tabelas e regras de firewall de nuvem privada para restringir o tráfego em sub-redes e VLANs.
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/15/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 986f4b0da7254ebac3725a704f32af785c72fbcc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 32dcfb0c6cd26b5f34afad328db8f383fa1c2a6f
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85846867"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97895624"
 ---
 # <a name="set-up-firewall-tables-and-rules-for-private-clouds"></a>Configurar tabelas e regras de firewall para nuvens privadas
 
@@ -55,7 +55,7 @@ As regras de firewall determinam como o firewall trata tipos específicos de tr�
     * **Protocolo**. Selecione o protocolo coberto pela regra (TCP, UDP ou qualquer protocolo).
     * **Direção**. Selecione se a regra é para o tráfego de entrada ou de saída. Você deve definir regras separadas para o tráfego de entrada e de saída.
     * **Ação**. Selecione a ação a ser tomada se a regra corresponder (permitir ou negar).
-    * **Origem**. Especifique as fontes cobertas pela regra (bloco CIDR, interno ou qualquer fonte).
+    * **Fonte**. Especifique as fontes cobertas pela regra (bloco CIDR, interno ou qualquer fonte).
     * **Intervalo de portas de origem**. Especifique o intervalo de portas sujeitas à regra.
     * **Direção**. Selecione entrada ou saída.
     * **Destino**. Especifique os destinos cobertos pela regra (bloco CIDR, interno ou qualquer fonte).
@@ -72,7 +72,7 @@ As regras de firewall determinam como o firewall trata tipos específicos de tr�
 
 Depois de definir uma tabela de firewall, você pode especificar as sub-redes que estão sujeitas às regras na tabela.
 
-1. Na página **Network**  >  **tabelas de firewall** de rede, selecione uma tabela de firewall.
+1. Na página   >  **tabelas de firewall** de rede, selecione uma tabela de firewall.
 2. Abra a guia **VLANs/sub-rede anexadas** .
 3. Clique em **anexar a uma VLAN/sub-rede**.
 4. Selecione a nuvem privada e a VLAN. O nome de sub-rede e o bloco CIDR associados são mostrados.

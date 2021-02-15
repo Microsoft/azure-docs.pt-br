@@ -8,17 +8,15 @@ ms.date: 6/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 0726edae7c5f44fae7f573559d561e7ef5773e71
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 25db7104e565a987f3be9e2d6f3b239cf1884ae4
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85801284"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932329"
 ---
 # <a name="tutorial-create-and-deploy-custom-iot-edge-modules"></a>Tutorial: Criar e implantar módulos do IoT Edge personalizados
-
-> [!NOTE]
-> Este artigo faz parte de uma série para um tutorial sobre como usar o Azure Machine Learning no IoT Edge. Se você acessou este artigo diretamente, incentivamos você a começar com o [primeiro artigo](tutorial-machine-learning-edge-01-intro.md) da série para ter os melhores resultados.
 
 Neste artigo, criamos três módulos do IoT Edge que recebem mensagens de dispositivos IoT folha, executamos os dados por meio do seu modelo de machine learning e encaminhamos os insights para o Hub IoT.
 
@@ -53,6 +51,19 @@ O seguinte diagrama mostra os módulos, as entradas, as saídas e as rotas do hu
 ![Diagrama de arquitetura de três módulos do IoT Edge](media/tutorial-machine-learning-edge-06-custom-modules/modules-diagram.png)
 
 As etapas deste artigo normalmente são realizadas por um desenvolvedor de nuvem.
+
+Nesta seção do tutorial, você aprenderá a:
+
+> [!div class="checklist"]
+>
+> * Criar um módulo do IoT Edge com base em um código personalizado.
+> * Gerar uma imagem do Docker com base no módulo personalizado.
+> * Reconfigurar o roteamento do hub IoT para dar suporte aos módulos personalizados.
+> * Criar, publicar e implantar seus módulos personalizados.
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+Este artigo faz parte de uma série para um tutorial sobre como usar o Azure Machine Learning no IoT Edge. Cada artigo da série se baseia no trabalho do artigo anterior. Se você chegou a este artigo diretamente, acesse o [primeiro artigo](tutorial-machine-learning-edge-01-intro.md) da série.
 
 ## <a name="create-a-new-iot-edge-solution"></a>Criar uma solução do IoT Edge
 
@@ -803,19 +814,15 @@ Ao fazer logon no dispositivo do IoT Edge (em nosso caso, a VM do Linux), é pos
    sudo docker exec -it avroFileWriter bash
    ```
 
+## <a name="clean-up-resources"></a>Limpar recursos
+
+Este tutorial faz parte de um conjunto em que cada artigo se baseia no trabalho feito nos anteriores. Aguarde para limpar todos os recursos até concluir o tutorial final.
+
 ## <a name="next-steps"></a>Próximas etapas
 
 Neste artigo, criamos uma Solução IoT Edge no Visual Studio Code com três módulos: um classificador, um roteador e um gravador/carregador de arquivos. Configuramos as rotas para permitir que os módulos se comuniquem entre si no dispositivo de borda. Modificamos a configuração do dispositivo de borda e atualizamos os Dockerfiles para instalar dependências e adicionar montagens associadas aos contêineres de módulos. 
 
 Em seguida, atualizamos a configuração do Hub IoT para rotear nossas mensagens com base no tipo e para lidar com uploads de arquivo. Com tudo em vigor, implantamos os módulos no dispositivo IoT Edge e verificamos se os módulos estavam sendo executados corretamente.
-
-Confira os seguintes artigos para obter mais diretrizes:
-
-* [Aprenda a implantar módulos e estabelecer rotas no IoT Edge](module-composition.md)
-* [Sintaxe de consulta do roteamento de mensagens do Hub IoT](../iot-hub/iot-hub-devguide-routing-query-syntax.md)
-* [Roteamento de mensagens de Hub IoT: agora com o roteamento no corpo da mensagem](https://azure.microsoft.com/blog/iot-hub-message-routing-now-with-routing-on-message-body/)
-* [Carregar arquivos com o Hub IoT](../iot-hub/iot-hub-devguide-file-upload.md)
-* [Fazer upload de arquivos do seu dispositivo para a nuvem com o Hub IoT](../iot-hub/iot-hub-python-python-file-upload.md)
 
 Passe para o próximo artigo para começar a enviar dados e ver sua solução em ação.
 

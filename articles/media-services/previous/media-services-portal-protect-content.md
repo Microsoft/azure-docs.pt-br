@@ -14,17 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 8d0e2487632971579a1a473375eb2200f3a63a46
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5ddd31f96ca88a02fa667f8809a00e2a4e3ecc50
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084527"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98695417"
 ---
 # <a name="configure-content-protection-policies-by-using-the-azure-portal"></a>Configurar políticas de proteção de conteúdo usando o portal do Azure
 
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 > [!NOTE]
-> Para concluir este tutorial, você precisa de uma conta do Azure. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).   > não há novos recursos ou funcionalidades sendo adicionados aos serviços de mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](../latest/index.yml). Além disso, consulte s [diretrizes de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
+> Para concluir este tutorial, você precisa de uma conta do Azure. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).   > não há novos recursos ou funcionalidades sendo adicionados aos serviços de mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](../latest/index.yml). Além disso, consulte s [diretrizes de migração da v2 para a v3](../latest/migrate-v-2-v-3-migration-introduction.md)
 >
 
  Com os Serviços de Mídia do Azure, você pode proteger sua mídia desde o momento que ela sai do seu computador até o armazenamento, processamento e entrega. É possível usar os Serviços de Mídia para distribuir o conteúdo criptografado dinamicamente com a criptografia AES usando chaves de criptografia de 128 bits. Você também pode usá-los com criptografia comum (CENC) usando o PlayReady e/ou gerenciamento de direitos digitais (DRM) do Widevine e o FairPlay da Apple. 
@@ -73,7 +75,7 @@ Se você configurar uma licença como persistente, ela é salva no armazenamento
 ## <a name="widevine-license-template"></a>Modelo de licença do Widevine
 O modelo de licença do Widevine define a funcionalidade que está habilitada em suas licenças do Widevine.
 
-### <a name="basic"></a>Básico
+### <a name="basic"></a>Basic
 Quando você seleciona **Básico**, o modelo é criado com todos os valores padrões.
 
 ### <a name="advanced"></a>Avançado
@@ -115,7 +117,7 @@ A criptografia da chave de limpeza do AES é habilitada em todos os protocolos d
     
     e. **FairPlay apenas com HLS** – criptografa dinamicamente seu stream HLS com o FairPlay.
 
-1. Para ativar a criptografia de FairPlay, na folha **Configurações Globais de Proteção de Conteúdo**, selecione **Configuração do FairPlay**. Em seguida, selecione o **certificado do aplicativo**e insira a **chave secreta do aplicativo**.
+1. Para ativar a criptografia de FairPlay, na folha **Configurações Globais de Proteção de Conteúdo**, selecione **Configuração do FairPlay**. Em seguida, selecione o **certificado do aplicativo** e insira a **chave secreta do aplicativo**.
 
     ![Tipo de criptografia](./media/media-services-portal-content-protection/media-services-content-protection009.png)
 

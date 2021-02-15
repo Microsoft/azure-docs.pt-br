@@ -1,15 +1,15 @@
 ---
 title: 'Início Rápido: Enviar eventos personalizados para a fila de armazenamento – Grade de Eventos, CLI do Azure'
 description: 'Início Rápido: Use a Grade de Eventos do Azure e a CLI do Azure para publicar um tópico e assinar esse evento. Uma fila de armazenamento é usada para o ponto de extremidade.'
-ms.date: 07/07/2020
+ms.date: 02/02/2021
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e2c017b95493000b3c206aa7b2398bbf7ef464ee
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 00808e7eca13824833673ef820d39b70bf618dd2
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497334"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493253"
 ---
 # <a name="quickstart-route-custom-events-to-azure-queue-storage-with-azure-cli-and-event-grid"></a>Início Rápido: Encaminhar eventos personalizados para o Armazenamento de Filas do Azure com a CLI do Azure e a Grade de Eventos
 
@@ -17,12 +17,11 @@ A Grade de Eventos do Azure é um serviço de eventos para a nuvem. O Armazename
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Se você estiver usando a CLI do Azure ou o Azure PowerShell em seu computador local, em vez de usar o Cloud Shell no portal do Azure, verifique se você tem as seguintes versões da CLI do Azure e do Azure PowerShell. 
+- Este artigo exige a versão 2.0.56 ou posterior da CLI do Azure. Se você está usando o Azure Cloud Shell, a versão mais recente já está instalada.
 
-- CLI do Azure versão 2.0.56 ou superior. Para obter instruções sobre como instalar a versão mais recente da CLI do Azure, confira [Instalar a CLI do Azure](/cli/azure/install-azure-cli). 
-- Azure PowerShell versão 1.1.0 ou superior. Baixe a versão mais recente do Azure PowerShell em seu computador Windows em [Downloads do Azure – Ferramentas de linha de comando](https://azure.microsoft.com/downloads/). 
+- Se você estiver usando o Azure PowerShell no computador local, em vez de usar o Cloud Shell no portal do Azure, verifique se tem o Azure PowerShell versão 1.1.0 ou superior. Baixe a versão mais recente do Azure PowerShell em seu computador Windows em [Downloads do Azure – Ferramentas de linha de comando](https://azure.microsoft.com/downloads/). 
 
 Este artigo fornece comandos para o uso da CLI do Azure. 
 
@@ -117,6 +116,11 @@ done
 Navegue até o Armazenamento em Filas no portal e observe que a Grade de Eventos enviou esses três eventos para a fila.
 
 ![Mostrar mensagens](./media/custom-event-to-queue-storage/messages.png)
+
+> [!NOTE]
+> Se você usar um [gatilho do Armazenamento de Filas do Azure para o Azure Functions](../azure-functions/functions-bindings-storage-queue-trigger.md) para uma fila que recebe mensagens da Grade de Eventos, poderá ver a seguinte mensagem de erro na execução da função: `The input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters.`
+> 
+> O motivo é que, ao usar um [gatilho do Armazenamento de Filas do Azure](../azure-functions/functions-bindings-storage-queue-trigger.md), o Azure Functions espera uma **cadeia de caracteres codificada em base64**, mas a Grade de Eventos envia mensagens para uma fila de armazenamento em um formato de texto sem formatação. No momento, não é possível configurar o gatilho de fila do Azure Functions para aceitar um texto sem formatação. 
 
 
 ## <a name="clean-up-resources"></a>Limpar os recursos

@@ -8,18 +8,18 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: 64b8956c47cbdbf31bb8253dac0c1e1f12833bf7
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86171764"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001041"
 ---
 # <a name="advanced-filtering"></a>Filtragem avançada
 A grade de eventos permite especificar filtros em qualquer propriedade no conteúdo JSON. Esses filtros são modelados como conjunto de `AND` condições, sendo que cada condição externa tem condições internas opcionais `OR` . Para cada `AND` condição, você especifica os seguintes valores:
 
-* `OperatorType`-O tipo de comparação.
-* `Key`-O caminho JSON para a propriedade na qual aplicar o filtro.
-* `Value`-O valor de referência no qual o filtro é executado (ou) `Values` -o conjunto de valores de referência no qual o filtro é executado.
+* `OperatorType` -O tipo de comparação.
+* `Key` -O caminho JSON para a propriedade na qual aplicar o filtro.
+* `Value` -O valor de referência no qual o filtro é executado (ou) `Values` -o conjunto de valores de referência no qual o filtro é executado.
 
 ## <a name="json-syntax"></a>Sintaxe JSON
 
@@ -55,7 +55,7 @@ Para os operadores que dão suporte a vários valores (como `NumberIn` ,, `Numbe
 > [!CAUTION]
 > Os operadores NOT `NumberNotIn` e `StringNotIn` se comportam como e condições em cada valor fornecido no `Values` campo.
 >
-> Não fazer isso fará com que o filtro seja aceito – todos os filtros e derrotar a finalidade da filtragem.
+> Não fazer isso fará com que o filtro seja Accept-All filtro e derrotar a finalidade da filtragem.
 
 ## <a name="floating-point-rounding-behavior"></a>Comportamento de arredondamento de ponto flutuante
 

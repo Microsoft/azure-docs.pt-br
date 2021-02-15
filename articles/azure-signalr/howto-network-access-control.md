@@ -8,12 +8,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: dayshen
-ms.openlocfilehash: 78b9859adbcf61ae3a9fc0d72a63d5973f90a487
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 24e56736e0d033420f9aaf976b0fb7d9727c1a5b
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84302158"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92143218"
 ---
 # <a name="configure-network-access-control"></a>Configurar o controle de acesso à rede
 
@@ -48,7 +48,7 @@ Você pode gerenciar o controle de acesso à rede para o serviço de Signaler do
 1. Para editar a ação padrão, alterne o botão **permitir/negar** .
 
     > [!TIP]
-    > A ação padrão é a ação que executamos quando não há correspondências de regras de ACL. Por exemplo, se a ação padrão for **Deny**, os tipos de solicitação que não estão explicitamente na lista de permissões abaixo serão negados.
+    > A ação padrão é a ação que executamos quando não há correspondências de regras de ACL. Por exemplo, se a ação padrão for **Deny**, os tipos de solicitação que não são explicitamente aprovados abaixo serão negados.
 
 1. Para editar a regra de rede pública, selecione tipos permitidos de solicitações em **rede pública**.
 
@@ -62,4 +62,4 @@ Você pode gerenciar o controle de acesso à rede para o serviço de Signaler do
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre o [Link Privado do Azure](/azure/private-link/private-link-overview).
+Saiba mais sobre o [Link Privado do Azure](../private-link/private-link-overview.md).

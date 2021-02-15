@@ -5,12 +5,12 @@ ms.author: puagarw
 ms.topic: tutorial
 ms.date: 07/12/2019
 author: pulkitaggarwl
-ms.openlocfilehash: 42bdde45b3a289a35c5bf4c4651e5a50a639f049
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 15b0413eabcfae7e3a4b28243caf2a708260ccae
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86251766"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932210"
 ---
 # <a name="deployment-center-for-azure-kubernetes"></a>Centro de implantação para o Kubernetes do Azure
 
@@ -54,9 +54,9 @@ Neste tutorial, você irá:
 
 1. Selecione o cluster do AKS e, em seguida, selecione **Central de Implantação (versão prévia)** na folha à esquerda. Selecione **Introdução**.
 
-   ![configurações](media/deployment-center-launcher/settings.png)
+   ![A captura de tela mostra o portal do Azure com uma seta apontando para o Centro de implantação.](media/deployment-center-launcher/settings.png)
 
-1. Escolha a localização do código e selecione **Avançar**. Em seguida, selecione um dos repositórios compatíveis no momento: **[Azure Repos](/azure/devops/repos/index?view=azure-devops)** ou **GitHub**.
+1. Escolha a localização do código e selecione **Avançar**. Em seguida, selecione um dos repositórios compatíveis no momento: **[Azure Repos](/azure/devops/repos/index)** ou **GitHub**.
 
     O Azure Repos é um conjunto de ferramentas de controle de versão que ajuda você a gerenciar seu código. Independentemente de o projeto de software ser grande ou pequeno, é uma boa ideia usar o controle de versão assim que possível.
 
@@ -66,7 +66,7 @@ Neste tutorial, você irá:
 
     - **GitHub**: Autorize e selecione o repositório para sua conta do GitHub.
 
-        ![GitHub](media/deployment-center-launcher/github.gif)
+        ![A animação mostra um processo no GitHub da seleção do GitHub como a origem e do repositório.](media/deployment-center-launcher/github.gif)
 
 
 1. A Central de Implantação analisa o repositório e detecta o Dockerfile. Se você quiser atualizar o Dockerfile, edite o número da porta identificado.
@@ -75,9 +75,9 @@ Neste tutorial, você irá:
 
     Se o repositório não contiver o Dockerfile, o sistema exibirá uma mensagem para fazer commit de um.
 
-    ![Dockerfile](media/deployment-center-launcher/dockerfile.png)
+    ![A captura de tela mostra o Centro de implantação com uma mensagem Não foi possível localizar o Dockerfile no repositório.](media/deployment-center-launcher/dockerfile.png)
 
-1. Selecione um registro de contêiner existente ou crie um e, em seguida, selecione **Concluir**. O pipeline é criado automaticamente e coloca um build na fila do [Azure Pipelines](/azure/devops/pipelines/index?view=azure-devops).
+1. Selecione um registro de contêiner existente ou crie um e, em seguida, selecione **Concluir**. O pipeline é criado automaticamente e coloca um build na fila do [Azure Pipelines](/azure/devops/pipelines/index).
 
     O Azure Pipelines é um serviço de nuvem que você pode usar para criar e testar automaticamente o projeto de código e disponibilizá-lo para outros usuários. O Azure Pipelines combina a integração contínua e a entrega contínua para testar e criar seu código de forma constante e consistente e enviá-lo para qualquer destino.
 
@@ -87,7 +87,7 @@ Neste tutorial, você irá:
 
 1. Após a conclusão da implantação, você verá os logs bem-sucedidos.
 
-    ![Logs](media/deployment-center-launcher/logs.png)
+    ![A captura de tela mostra o Centro de implantação com Versão-1 marcada com um ícone de marca de seleção verde.](media/deployment-center-launcher/logs.png)
 
 ## <a name="examine-the-ci-pipeline"></a>Examinar o pipeline de CI
 

@@ -9,20 +9,20 @@ editor: ''
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 08/07/2020
+ms.date: 09/15/2020
 ms.author: genli
-ms.openlocfilehash: 38bf652ccefe98c2bd0fb28e8018d41df21651dc
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 738c2a240ad6c88186357e69b02d33b40d366d7f
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88659459"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977058"
 ---
 # <a name="troubleshooting-windows-azure-guest-agent"></a>Solucionando problemas do agente convidado do Windows Azure
 
-O agente convidado do Windows Azure é um agente de VM (máquina virtual). Ele permite que a VM se comunique com o controlador de malha (o servidor físico subjacente no qual a VM está hospedada) no endereço IP 168.63.129.16. Esse é um endereço IP público virtual que facilita a comunicação. Para obter mais informações, consulte [o que é o endereço IP 168.63.129.16](https://docs.microsoft.com/azure/virtual-network/what-is-ip-address-168-63-129-16).
+O agente convidado do Windows Azure é um agente de VM (máquina virtual). Ele permite que a VM se comunique com o controlador de malha (o servidor físico subjacente no qual a VM está hospedada) no endereço IP 168.63.129.16. Esse é um endereço IP público virtual que facilita a comunicação. Para obter mais informações, consulte [o que é o endereço IP 168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md).
 
- A VM que é migrada para o Azure do local ou que é criada usando uma imagem personalizada não tem o agente convidado do Windows Azure instalado. Nesses cenários, você precisa instalar manualmente o agente de VM. Para obter mais informações sobre como instalar o agente de VM, consulte [visão geral do agente de máquina virtual do Azure](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows).
+ A VM que é migrada para o Azure do local ou que é criada usando uma imagem personalizada não tem o agente convidado do Windows Azure instalado. Nesses cenários, você precisa instalar manualmente o agente de VM. Para obter mais informações sobre como instalar o agente de VM, consulte [visão geral do agente de máquina virtual do Azure](../extensions/agent-windows.md).
 
 Depois que o agente convidado do Windows Azure for instalado com êxito, você poderá ver os seguintes serviços listados em Services. msc na VM:
  
@@ -53,7 +53,7 @@ Vá para a página Propriedades da VM em portal do Azure e verifique o **status 
     
     Você pode executar o seguinte comando do PowerShell para verificar se o agente de VM foi implantado na VM:
     
-    `Get-Az VM -ResourceGroup “RGNAME” – Name “VMNAME” -displayhint expand`
+    `Get-AzVM -ResourceGroupName "RGNAME" -Name "VMNAME" -DisplayHint expand`
     
     Na saída, localize a propriedade **ProvisionVMAgent** e verifique se o valor está definido como **true**. Se for, isso significa que o agente está instalado na VM.
     
@@ -74,7 +74,7 @@ Vá para a página Propriedades da VM em portal do Azure e verifique o **status 
 
     No painel de controle, vá para **programas e recursos** para determinar se o serviço do agente convidado do Windows Azure está instalado.
 
-Se você não encontrar pacotes, serviços e processos em execução e nem mesmo ver o agente convidado do Windows Azure instalado em programas e recursos, tente [instalar o serviço de agente convidado do Windows Azure](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows). Se o agente convidado não for instalado corretamente, você poderá [instalar o agente de VM offline](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/install-vm-agent-offline).
+Se você não encontrar pacotes, serviços e processos em execução e nem mesmo ver o agente convidado do Windows Azure instalado em programas e recursos, tente [instalar o serviço de agente convidado do Windows Azure](../extensions/agent-windows.md). Se o agente convidado não for instalado corretamente, você poderá [instalar o agente de VM offline](./install-vm-agent-offline.md).
 
 Se você puder ver os serviços e eles estiverem em execução, reinicie o serviço que veja se o problema foi resolvido. Se os serviços forem interrompidos, inicie-os e aguarde alguns minutos. Em seguida, verifique se o **status do agente** está relatando como **pronto**. Se você descobrir que esses serviços estão falhando, alguns processos de terceiros podem estar causando falhas nesses serviços. Para solucionar problemas desses problemas, entre em contato com [suporte da Microsoft](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
@@ -111,7 +111,7 @@ O agente convidado do Windows Azure tem um recurso de atualização automática.
     ```
     Em seguida, verifique se os serviços de agente convidado são iniciados corretamente.
  
-    Em casos raros em que o agente convidado não é instalado corretamente, você pode [instalar o agente de VM offline](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/install-vm-agent-offline).
+    Em casos raros em que o agente convidado não é instalado corretamente, você pode [instalar o agente de VM offline](./install-vm-agent-offline.md).
     
 
 ### <a name="step-3-check-whether-the-vm-can-connect-to-the-fabric-controller"></a>Etapa 3 verificar se a VM pode se conectar ao controlador de malha
@@ -189,7 +189,7 @@ A VM não pode alcançar o servidor host wireserver.
 1. Se você não conseguir acessar a URL da etapa 1, verifique o adaptador de rede para determinar se ele está definido como habilitado para DHCP e se tem DNS. Para verificar o status do DHCP, na interface de rede, execute o seguinte comando:  `netsh interface ip show config` .
 1. Se o DHCP estiver desabilitado, execute o seguinte, certificando-se de alterar o valor em amarelo para o nome da sua interface: `netsh interface ip set address name="Name of the interface" source=dhcp` .
 1. Verifique se há problemas que possam ser causados por um firewall, um proxy ou outra fonte que possa estar bloqueando o acesso ao endereço IP 168.63.129.16.
-1. Verifique se o Firewall do Windows ou um firewall de terceiros está bloqueando o acesso às portas 80, 443 e 32526. Para obter mais informações sobre por que esse endereço não deve ser bloqueado, consulte [o que é o endereço IP 168.63.129.16](https://docs.microsoft.com/azure/virtual-network/what-is-ip-address-168-63-129-16).
+1. Verifique se o Firewall do Windows ou um firewall de terceiros está bloqueando o acesso às portas 80, 443 e 32526. Para obter mais informações sobre por que esse endereço não deve ser bloqueado, consulte [o que é o endereço IP 168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md).
 
 ### <a name="guest-agent-is-stuck-stopping"></a>O agente convidado está preso em "parando"  
 

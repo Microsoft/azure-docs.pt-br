@@ -4,10 +4,10 @@ description: Referência para carga JSON para solicitações de webhook em um re
 ms.topic: article
 ms.date: 03/05/2019
 ms.openlocfilehash: 8354ef9db24d5825238155ac567d5d829f9b0d7f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74455968"
 ---
 # <a name="azure-container-registry-webhook-reference"></a>Referência de webhook do Registro de Contêiner do Azure
@@ -158,7 +158,7 @@ Webhook disparado quando um repositório ou manifesto de imagem é excluído. N�
 |[destino](#delete_target)|Tipo complexo|O destino do evento que desencadeou o evento do webhook.|
 |[solicitação](#delete_request)|Tipo complexo|A solicitação que gerou o evento do webhook.|
 
-### <a name="target"></a><a name="delete_target"></a>alvo
+### <a name="target"></a><a name="delete_target"></a> alvo
 
 |Elemento|Type|Descrição|
 |------------------|----------|-----------|
@@ -166,7 +166,7 @@ Webhook disparado quando um repositório ou manifesto de imagem é excluído. N�
 |`digest`|String|O resumo da mensagem, conforme definido pela Especificação API HTTP do Registry V2.|
 |`repository`|String|Nome do repositório.|
 
-### <a name="request"></a><a name="delete_request"></a>Quest
+### <a name="request"></a><a name="delete_request"></a> Quest
 
 |Elemento|Type|Descrição|
 |------------------|----------|-----------|
@@ -219,7 +219,7 @@ Webhook disparado quando um gráfico ou repositório Helm é excluído.
 |`action`|String|A ação que disparou o evento do webhook.|
 |[destino](#chart_delete_target)|Tipo complexo|O destino do evento que desencadeou o evento do webhook.|
 
-### <a name="target"></a><a name="chart_delete_target"></a>alvo
+### <a name="target"></a><a name="chart_delete_target"></a> alvo
 
 |Elemento|Type|Descrição|
 |------------------|----------|-----------|

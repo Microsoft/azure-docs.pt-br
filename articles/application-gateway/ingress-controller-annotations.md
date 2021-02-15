@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: f54381ddcd11a2e4a24d30d812468da85b5403de
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4f570f9f18f9c9d484a9bc9c1a5c64d42dbdc714
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80335816"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397443"
 ---
 # <a name="annotations-for-application-gateway-ingress-controller"></a>Anotações para o controlador de entrada do gateway de aplicativo 
 
@@ -29,9 +29,9 @@ Para que um recurso de entrada seja observado pelo AGIC, ele **deve ser anotado*
 | [appgw.ingress.kubernetes.io/backend-path-prefix](#backend-path-prefix) | `string` | `nil` | |
 | [appgw.ingress.kubernetes.io/ssl-redirect](#tls-redirect) | `bool` | `false` | |
 | [appgw.ingress.kubernetes.io/connection-draining](#connection-draining) | `bool` | `false` | |
-| [appgw.ingress.kubernetes.io/connection-draining-timeout](#connection-draining) | `int32`seg | `30` | |
+| [appgw.ingress.kubernetes.io/connection-draining-timeout](#connection-draining) | `int32` seg | `30` | |
 | [appgw.ingress.kubernetes.io/cookie-based-affinity](#cookie-based-affinity) | `bool` | `false` | |
-| [appgw.ingress.kubernetes.io/request-timeout](#request-timeout) | `int32`seg | `30` | |
+| [appgw.ingress.kubernetes.io/request-timeout](#request-timeout) | `int32` seg | `30` | |
 | [appgw.ingress.kubernetes.io/use-private-ip](#use-private-ip) | `bool` | `false` | |
 | [appgw.ingress.kubernetes.io/backend-protocol](#backend-protocol) | `string` | `http` | `http`, `https` |
 
@@ -72,7 +72,7 @@ No exemplo acima, definimos um recurso de entrada chamado `go-server-ingress-bkp
 
 ## <a name="tls-redirect"></a>Redirecionamento de TLS
 
-O gateway de aplicativo [pode ser configurado](https://docs.microsoft.com/azure/application-gateway/application-gateway-redirect-overview) para redirecionar automaticamente URLs HTTP para seus correspondentes HTTPS. Quando essa anotação estiver presente e o TLS estiver configurado corretamente, o controlador de entrada do kubernetes criará uma [regra de roteamento com uma configuração de redirecionamento](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-portal#add-a-routing-rule-with-a-redirection-configuration) e aplicará as alterações ao seu gateway de aplicativo. O redirecionamento criado será o HTTP `301 Moved Permanently` .
+O gateway de aplicativo [pode ser configurado](./redirect-overview.md) para redirecionar automaticamente URLs HTTP para seus correspondentes HTTPS. Quando essa anotação estiver presente e o TLS estiver configurado corretamente, o controlador de entrada do kubernetes criará uma [regra de roteamento com uma configuração de redirecionamento](./redirect-http-to-https-portal.md#add-a-routing-rule-with-a-redirection-configuration) e aplicará as alterações ao seu gateway de aplicativo. O redirecionamento criado será o HTTP `301 Moved Permanently` .
 
 ### <a name="usage"></a>Uso
 
@@ -237,7 +237,7 @@ spec:
 
 ## <a name="backend-protocol"></a>Protocolo de back-end
 
-Essa anotação nos permite especificar o protocolo que o gateway de aplicativo deve usar ao conversar com o pods. Protocolos com suporte: `http` ,`https`
+Essa anotação nos permite especificar o protocolo que o gateway de aplicativo deve usar ao conversar com o pods. Protocolos com suporte: `http` , `https`
 
 > [!NOTE]
 > * Embora os certificados autoassinados tenham suporte no gateway de aplicativo, atualmente, o AGIC dá suporte apenas `https` quando o pods está usando um certificado assinado por uma autoridade de certificação conhecida.

@@ -2,24 +2,29 @@
 title: Analisar vídeos ao vivo usando o OpenVINO™ Model Server – Extensão de IA da Intel
 description: Neste tutorial, você usará um servidor de modelo de IA fornecido pela Intel para analisar o feed de vídeos ao vivo de uma câmera de IP (simulada).
 ms.topic: tutorial
-ms.date: 07/24/2020
+ms.date: 09/08/2020
 titleSuffix: Azure
-ms.openlocfilehash: 2268300f711a939ed808d1f39bbde1653e8832c8
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: db018c5c8d8f3990fd465f4d586ef4dc70980542
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212318"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955709"
 ---
 # <a name="tutorial-analyze-live-video-by-using-openvino-model-server--ai-extension-from-intel"></a>Tutorial: Analisar vídeos ao vivo usando o OpenVINO™ Model Server – Extensão de IA da Intel 
 
-Este tutorial mostra como usar o OpenVINO™ Model Server – Extensão de IA da Intel para analisar um feed de vídeos ao vivo de uma câmera de IP (simulada). Você verá como esse servidor de inferência fornece acesso a modelos para detectar objetos (uma pessoa, um veículo ou uma bicicleta) e um modelo para classificar veículos. Um subconjunto dos quadros no feed de vídeos ao vivo é enviado para um servidor de inferência e os resultados correspondentes são enviados para o Hub do IoT Edge. 
+Este tutorial mostra como usar o OpenVINO™ Model Server – Extensão de IA da Intel para analisar um feed de vídeos ao vivo de uma câmera de IP (simulada). Você verá como esse servidor de inferência fornece acesso a modelos para detectar objetos (uma pessoa, um veículo ou uma bicicleta) e um modelo para classificar veículos. Um subconjunto dos quadros no feed de vídeos ao vivo é enviado para um servidor de inferência e os resultados correspondentes são enviados para o Hub do IoT Edge.
 
-Este tutorial usa uma VM do Azure como dispositivo do IoT Edge, bem como um fluxo de vídeo ao vivo simulado. Ele é baseado em um código de exemplo escrito em C# e no início rápido [Detectar movimento e emitir eventos](detect-motion-emit-events-quickstart.md). 
+Este tutorial usa uma VM do Azure como dispositivo do IoT Edge, bem como um fluxo de vídeo ao vivo simulado. Ele é baseado em um código de exemplo escrito em C# e no início rápido [Detectar movimento e emitir eventos](detect-motion-emit-events-quickstart.md).
+
+> [!NOTE]
+> Este tutorial requer o uso de um computador x86-64 como seu dispositivo Edge.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma conta do Azure que inclua uma assinatura ativa. [Crie uma conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) se não tiver uma.
+  > [!NOTE]
+  > Você precisará ter uma assinatura do Azure com permissões para criar entidades de serviço (a **função de proprietário** fornece isso). Caso não tenha as permissões corretas, entre em contato com o administrador da conta para conceder a você as permissões corretas. 
 * [Visual Studio Code](https://code.visualstudio.com/) com as extensões a seguir:
     * [Ferramentas do Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
     * [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
@@ -30,30 +35,35 @@ Este tutorial usa uma VM do Azure como dispositivo do IoT Edge, bem como um flux
 > Ao instalar o Azure IoT Tools, talvez você receba um prompt para instalar o Docker. Você pode ignorar o prompt.
 
 ## <a name="review-the-sample-video"></a>Examinar o vídeo de exemplo
+
 Quando você configura os recursos do Azure, um vídeo curto de um estacionamento é copiado para a VM do Linux no Azure que você está usando como o dispositivo do IoT Edge. Este guia de início rápido usa o arquivo de vídeo para simular uma transmissão ao vivo.
 
 Abra um aplicativo como o [VLC Media Player](https://www.videolan.org/vlc/). Selecione CTRL + N e cole um link para [o vídeo](https://lvamedia.blob.core.windows.net/public/lots_015.mkv) para iniciar a reprodução. Você vê a filmagem de veículos em um estacionamento, a maioria deles estacionado e um em movimento.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4LUbN]
 
 Neste guia de início rápido, você usará a Análise Dinâmica de Vídeo no IoT Edge junto com o OpenVINO™ Model Server – Extensão de IA da Intel para detectar objetos como veículos ou classificá-los. Você publicará os eventos de inferência resultantes no Hub do IoT Edge.
 
 ## <a name="overview"></a>Visão geral
 
-![Visão geral](./media/use-intel-openvino-tutorial/topology.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/use-intel-openvino-tutorial/http-extension-with-vino.svg" alt-text="Visão geral":::
 
-O diagrama mostra como os sinais fluem neste guia de início rápido. Um [módulo de borda](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) simula uma câmera IP que hospeda um servidor RTSP (Real-Time Streaming Protocol). Um nó de [origem RTSP](media-graph-concept.md#rtsp-source) efetua pull do feed de vídeo desse servidor e envia quadros de vídeo para o nó do [processador de filtro de taxa de quadros](media-graph-concept.md#frame-rate-filter-processor). Esse processador limita a taxa de quadros do fluxo de vídeo que alcança o nó do [processador de extensão HTTP](media-graph-concept.md#http-extension-processor). 
+O diagrama mostra como os sinais fluem neste guia de início rápido. Um [módulo de borda](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) simula uma câmera IP que hospeda um servidor RTSP (Real-Time Streaming Protocol). Um nó de [origem RTSP](media-graph-concept.md#rtsp-source) efetua pull do feed de vídeo desse servidor e envia quadros de vídeo para o nó do [processador de extensão HTTP](media-graph-concept.md#http-extension-processor). 
 
-O nó de extensão HTTP desempenha a função de um proxy. Ele converte os quadros de vídeo no tipo de imagem especificado. Em seguida, ele retransmite a imagem por REST para outro módulo do Edge que executa modelos de IA por trás de um ponto de extremidade HTTP. Neste exemplo, esse módulo do Edge é o OpenVINO™ Model Server – Extensão de IA da Intel. O nó de processador de extensão HTTP reúne os resultados da detecção e publica eventos no nó do [coletor do Hub IoT](media-graph-concept.md#iot-hub-message-sink). Em seguida, o nó envia esses eventos para o [Hub do IoT Edge](../../iot-edge/iot-edge-glossary.md#iot-edge-hub).
+O nó de extensão HTTP desempenha a função de um proxy. Ele amostra os quadros de vídeo de entrada definidos por você, campo `samplingOptions`, e também converte os quadros de vídeo no tipo de imagem especificado. Em seguida, ele retransmite a imagem por REST para outro módulo do Edge que executa modelos de IA por trás de um ponto de extremidade HTTP. Neste exemplo, esse módulo do Edge é o OpenVINO™ Model Server – Extensão de IA da Intel. O nó de processador de extensão HTTP reúne os resultados da detecção e publica eventos no nó do [coletor do Hub IoT](media-graph-concept.md#iot-hub-message-sink). Em seguida, o nó envia esses eventos para o [Hub do IoT Edge](../../iot-edge/iot-edge-glossary.md#iot-edge-hub).
 
 Neste tutorial, você irá:
 
-1. Criar e implantar o grafo de mídia, modificando-o 
+1. Criar e implantar o grafo de mídia, modificando-o.
 1. Interpretar os resultados.
 1. Limpar os recursos.
 
 ## <a name="about-openvino-model-server--ai-extension-from-intel"></a>Sobre o OpenVINO™ Model Server – Extensão de IA da Intel
+
 A Distribuição Intel® do [Kit de ferramentas OpenVINO™](https://software.intel.com/content/www/us/en/develop/tools/openvino-toolkit.html) (inferência visual aberta e otimização de rede neural) é um kit de software gratuito que ajuda os desenvolvedores e cientistas de dados a acelerar as cargas de trabalho da pesquisa visual computacional, simplificar a inferência e as implantações de aprendizado profundo e permitir a execução heterogênea e fácil entre plataformas Intel® da borda para nuvem. Ela inclui o Kit de Ferramentas de Implantação de Aprendizado Profundo da Intel® com o otimizador de modelo e o mecanismo de inferência e o repositório [Open Model Zoo](https://github.com/openvinotoolkit/open_model_zoo), que inclui mais de 40 modelos pré-treinados otimizados.
 
-Para criar soluções de análise dinâmica de vídeo complexas de alto desempenho, a Análise Dinâmica de Vídeo no módulo do IoT Edge deve ser emparelhada com um poderoso mecanismo de inferência que pode aproveitar a escala na borda. Neste tutorial, as solicitações de inferência são enviadas para o [OpenVINO™ Model Server – Extensão de IA da Intel](https://aka.ms/lva-intel-ovms), um módulo do Edge que foi projetado para trabalhar com a Análise Dinâmica de Vídeo no IoT Edge. Esse módulo de servidor de inferência contém o OVMS (OpenVINO™ Model Server), um servidor de inferência da plataforma do kit de ferramentas OpenVINO™, que é altamente otimizado para cargas de trabalho da pesquisa visual computacional e é desenvolvido para arquiteturas Intel. Uma extensão foi adicionada ao OVMS para fácil troca de quadros de vídeo e resultados de inferência entre o servidor de inferência e a Análise Dinâmica de Vídeo no módulo do IoT Edge, permitindo que você execute qualquer modelo com suporte do OpenVINO (você pode personalizar o módulo de servidor de inferência modificando o código [aqui](https://github.com/openvinotoolkit/model_server/tree/master/extras/ams_wrapper)). Você pode selecionar ainda mais na ampla variedade de mecanismos de aceleração fornecidos pelo hardware Intel. Eles incluem CPUs (Atom, Core, Xeon), FPGAs e VPUs.
+Para criar soluções de análise dinâmica de vídeo complexas de alto desempenho, a Análise Dinâmica de Vídeo no módulo do IoT Edge deve ser emparelhada com um poderoso mecanismo de inferência que pode aproveitar a escala na borda. Neste tutorial, as solicitações de inferência são enviadas para o [OpenVINO™ Model Server – Extensão de IA da Intel](https://aka.ms/lva-intel-ovms), um módulo do Edge que foi projetado para trabalhar com a Análise Dinâmica de Vídeo no IoT Edge. Esse módulo de servidor de inferência contém o OVMS (OpenVINO™ Model Server), um servidor de inferência da plataforma do kit de ferramentas OpenVINO™, que é altamente otimizado para cargas de trabalho da Pesquisa Visual Computacional e é desenvolvido para arquiteturas Intel®. Uma extensão foi adicionada ao OVMS para fácil troca de quadros de vídeo e resultados de inferência entre o servidor de inferência e a Análise Dinâmica de Vídeo no módulo do IoT Edge, permitindo que você execute qualquer modelo com suporte do kit de ferramentas do OpenVINO (você pode personalizar o módulo de servidor de inferência modificando o [código](https://github.com/openvinotoolkit/model_server/tree/master/extras/ams_wrapper)). Você pode escolher ainda mais entre a ampla variedade de mecanismos de aceleração fornecidos pelo hardware Intel®. Eles incluem CPUs (Atom, Core, Xeon), FPGAs e VPUs.
 
 Na versão inicial desse servidor de inferência, você tem acesso aos seguintes [modelos](https://github.com/openvinotoolkit/model_server/tree/master/extras/ams_models):
 
@@ -78,11 +88,11 @@ Como parte dos pré-requisitos, você baixou o código de exemplo para uma pasta
 
 1. Vá até a pasta *src/cloud-to-device-console-app*. Aqui, você vê o arquivo *appsettings.json* e alguns outros arquivos:
 
-    * ***c2d-console-app.csproj*** – o arquivo de projeto para o Visual Studio Code.
-    * ***operations.json*** – uma lista das operações que você deseja que o programa execute.
-    * ***Program.cs*** – o código do programa de exemplo. Esse código:
+    * ***c2d-console-app.csproj** _ – o arquivo de projeto para o Visual Studio Code.
+    _ ***operations.json** _ – uma lista das operações que você deseja que o programa execute.
+    _ ***Program.cs** _ – o código do programa de exemplo. Esse código:
 
-        * Carrega as configurações do aplicativo.
+        _ Carrega as configurações do aplicativo.
         * Invoca métodos diretos expostos pelo módulo da Análise Dinâmica de Vídeo no IoT Edge. Use o módulo para analisar fluxos de vídeo ao vivo invocando seus [métodos diretos](direct-methods.md).
         * Pausa para você examinar a saída do programa na janela **TERMINAL** e os eventos que foram gerados pelo módulo na janela **SAÍDA**.
         * Invoca métodos diretos para limpar recursos.
@@ -91,7 +101,7 @@ Como parte dos pré-requisitos, você baixou o código de exemplo para uma pasta
 1. Edite o arquivo *operations.json*:
     * Altere o link para a topologia do grafo:
 
-        `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/httpExtensionOpenVINO/topology.json"`
+        `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/httpExtensionOpenVINO/2.0/topology.json"`
 
     * Em `GraphInstanceSet`, edite o nome da topologia de grafo para corresponder ao valor no link anterior:
 
@@ -115,6 +125,12 @@ Como parte dos pré-requisitos, você baixou o código de exemplo para uma pasta
     
     ![Definir cadeia de conexão do Hub IoT](./media/quickstarts/set-iotconnection-string.png)
 
+> [!NOTE]
+> Talvez você precise fornecer informações sobre o ponto de extremidade interno para o Hub IoT. Para obter essas informações, no portal do Azure, navegue até o Hub IoT e procure a opção **Pontos de extremidade internos** no painel de navegação à esquerda. Clique nele e procure o **Ponto de extremidade compatível com hub de eventos** na seção **Ponto de extremidade compatível com hub de eventos**. Copie e use o texto na caixa. O ponto de extremidade será parecido com este:  
+    ```
+    Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
+    ```
+
 1. Clique com o botão direito do mouse em *src/edge/config/deployment.openvino.amd64.json* e selecione **Criar Implantação para Dispositivo Único**. 
 
     ![Criar implantação para dispositivo único](./media/use-intel-openvino-tutorial/deploy-manifest.png)
@@ -135,6 +151,15 @@ Clique com o botão direito do mouse no dispositivo de Análise Dinâmica de Ví
 ### <a name="run-the-sample-program-to-detect-vehicles"></a>Executar o programa de exemplo para detectar veículos
 Se você abrir a [topologia de grafo](https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/httpExtensionOpenVINO/topology.json) deste tutorial em um navegador, verá que o valor de `inferencingUrl` foi definido como `http://openvino:4000/vehicleDetection`, o que significa que o servidor de inferência retornará resultados após a detecção de veículos, se houver, no vídeo ao vivo.
 
+1. No Visual Studio Code, abra a guia **Extensões** (ou pressione Ctrl+Shift+X) e pesquise pelo Hub IoT do Azure.
+1. Clique com o botão direito do mouse e selecione **Configurações da Extensão**.
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Configurações da Extensão":::
+1. Pesquise e habilite “Mostrar Mensagem Detalhada”.
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Mostrar Mensagem Detalhada":::
 1. Para iniciar uma sessão de depuração, pressione F5. Você verá mensagens impressas na janela **TERMINAL**.
 1. O código *operations.json* começa fazendo chamadas para os métodos diretos `GraphTopologyList` e `GraphInstanceList`. Se você limpou os recursos após a conclusão dos inícios rápidos anteriores, esse processo retornará listas vazias e, em seguida, pausará. Para continuar, pressione Enter.
 
@@ -145,7 +170,7 @@ Se você abrir a [topologia de grafo](https://raw.githubusercontent.com/Azure/li
 
          ```
          {
-           "@apiVersion": "1.0",
+           "@apiVersion": "2.0",
            "name": "Sample-Graph-1",
            "properties": {
              "topologyName": "InferencingWithOpenVINO",
@@ -188,7 +213,7 @@ Nas mensagens a seguir, o módulo da Análise Dinâmica de Vídeo define as prop
 
 ### <a name="mediasessionestablished-event"></a>Evento MediaSessionEstablished
 
-Quando a instância de um grafo de mídia é criada, o nó de origem RTSP tenta se conectar com o servidor RTSP em execução no contêiner rtspsim-live555. Se a conexão for bem-sucedida, o evento a seguir será impresso. O tipo de evento é `Microsoft.Media.MediaGraph.Diagnostics.MediaSessionEstablished`.
+Quando a instância de um grafo de mídia é criada, o nó de origem RTSP tenta se conectar com o servidor RTSP em execução no contêiner rtspsim-live555. Se a conexão for bem-sucedida, o evento a seguir será impresso. O tipo de evento é **Microsoft.Media.MediaGraph.Diagnostics.MediaSessionEstablished**.
 
 ```
 [IoTHubMonitor] [9:42:18 AM] Message received from [lvaedgesample/lvaEdge]:
@@ -377,4 +402,4 @@ Se você pretende experimentar outros guias de início rápido ou tutoriais, man
 Examine os desafios adicionais para usuários avançados:
 
 * Use uma [câmera IP](https://en.wikipedia.org/wiki/IP_camera) compatível com RTSP em vez de usar o simulador RTSP. Pesquise pelas câmeras IP compatíveis com RTSP na página [Produtos em conformidade com ONVIF](https://www.onvif.org/conformant-products/). Procure dispositivos em conformidade com os perfis G, S ou T.
-* Use um dispositivo Linux AMD64 ou x64 em vez de usar uma VM Linux do Azure. Esse dispositivo precisa estar na mesma rede que a câmera IP. Siga as instruções em [Instalar o runtime do Azure IoT Edge no Linux](../../iot-edge/how-to-install-iot-edge-linux.md). Depois, registre o dispositivo no Hub IoT do Azure seguindo as instruções em [Implantar seu primeiro módulo do IoT Edge em um dispositivo virtual Linux](../../iot-edge/quickstart-linux.md).
+* Use um dispositivo Linux AMD64 ou x64 em vez de usar uma VM Linux do Azure. Esse dispositivo precisa estar na mesma rede que a câmera IP. Siga as instruções em [Instalar o runtime do Azure IoT Edge no Linux](../../iot-edge/how-to-install-iot-edge.md). Depois, registre o dispositivo no Hub IoT do Azure seguindo as instruções em [Implantar seu primeiro módulo do IoT Edge em um dispositivo virtual Linux](../../iot-edge/quickstart-linux.md).

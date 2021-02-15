@@ -4,12 +4,12 @@ description: Modelos do Azure Resource Manager para uso nos cofres dos Serviços
 ms.topic: sample
 ms.date: 01/31/2019
 ms.custom: mvc
-ms.openlocfilehash: 29a2499bfd3125cad98e72f7543bb9a29293f624
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: a4c2f444cb821f7979571b9d777895a59450e7c2
+ms.sourcegitcommit: ac7029597b54419ca13238f36f48c053a4492cb6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88755187"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96309572"
 ---
 # <a name="azure-resource-manager-templates-for-azure-backup"></a>Modelos do Azure Resource Manager para o Backup do Azure
 
@@ -29,4 +29,6 @@ A tabela a seguir contém links para modelos do Azure Resource Manager para uso 
 | [Use os logs do Azure Monitor com o Backup do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-backup-oms-monitoring) | O modelo implanta os logs do Azure Monitor com o Backup do Azure, que permite que você monitore os trabalhos de backup e restauração, alertas de backup e armazenamento em Nuvem usado em seus cofres dos Serviços de Recuperação.|  
 |**Fazer backup do SQL Server na VM do Azure** |  |
 | [Fazer backup do SQL Server na VM do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-recovery-services-vm-workload-backup) | O modelo cria um cofre dos Serviços de Recuperação e uma carga de trabalho específica da Política de Backup. Ele registra a VM com o serviço de Backup do Azure e configura a proteção na VM. Atualmente, ele só funciona para imagens da Galeria do SQL. |
+|**Backup de compartilhamentos de arquivos do Azure** |  |
+| [Backup de compartilhamentos de arquivos do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-recovery-services-backup-file-share) | Este modelo configura a proteção para um compartilhamento de arquivo do Azure existente especificando os detalhes apropriados para o cofre dos Serviços de Recuperação e a política de backup. Opcionalmente, ele cria um cofre dos Serviços de Recuperação e uma política de backup e registra a conta de armazenamento que contém o compartilhamento de arquivo no cofre dos Serviços de Recuperação. |
 |   |   |

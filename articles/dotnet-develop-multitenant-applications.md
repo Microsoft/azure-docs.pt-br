@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 06/05/2015
 ms.author: wpickett
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: ad77278d593e4b2165708e0c9110a9ffff19a255
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: d36a2804519e5728dd068cc6c06ad005244e8c95
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017695"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95524089"
 ---
 # <a name="multitenant-applications-in-azure"></a>Aplicativos multilocatários no Azure
-Um aplicativo multilocatário é um recurso compartilhado que permite "usuários em locatários separados" para exibir o aplicativo como se ele fosse seu. Um cenário típico que se presta a um aplicativo multilocatário é aquele em que todos os usuários do aplicativo de locatários diferentes podem querer personalizar a experiência do usuário, mas, caso contrário, têm os mesmos requisitos básicos de negócios. Exemplos de grandes aplicativos multilocatários são o Office 365, o Outlook.com e o visualstudio.com.
+Um aplicativo multilocatário é um recurso compartilhado que permite "usuários em locatários separados" para exibir o aplicativo como se ele fosse seu. Um cenário típico que se presta a um aplicativo multilocatário é aquele em que todos os usuários do aplicativo de locatários diferentes podem querer personalizar a experiência do usuário, mas, caso contrário, têm os mesmos requisitos básicos de negócios. Exemplos de grandes aplicativos multilocatários são Microsoft 365, Outlook.com e visualstudio.com.
 
 Da perspectiva de um provedor de um aplicativo, os benefícios da multilocação na maioria das vezes estão relacionados à eficiência operacional e de custo. Uma versão do seu aplicativo pode atender às necessidades de muitos locatários/clientes permitindo a consolidação das tarefas de administração do sistema, como monitoramento, ajuste de desempenho, manutenção de software e backups de dados.
 
@@ -43,7 +43,7 @@ Um aplicativo multilocatário implementado adequadamente oferece os seguintes be
 
 Em suma, embora haja muitas considerações que você deve levar em conta para fornecer um serviço altamente escalonável, também há várias metas e requisitos que são comuns a muitos aplicativos multilocatários. Alguns podem não ser relevantes em cenários específicos, e a importância de requisitos e metas individuais será diferente em cada cenário. Como um provedor do aplicativo multilocatário, você também terá metas e requisitos como, atendendo às metas e requisitos do locatário, rentabilidade, cobrança, vários níveis de serviço, provisionamento, monitoramento da facilidade de manutenção e automação.
 
-Para obter mais informações sobre considerações de design adicionais de um aplicativo multilocatário, consulte [Hospedando um aplicativo multilocatário no Azure][Hosting a Multi-Tenant Application on Azure]. Para obter informações sobre os padrões comuns da arquitetura de dados dos aplicativos do banco de dados SaaS (software como serviço) multilocatário, consulte [Padrões de Design para Aplicativos SaaS multilocatário com o Banco de Dados SQL do Azure](sql-database/sql-database-design-patterns-multi-tenancy-saas-applications.md). 
+Para obter mais informações sobre considerações de design adicionais de um aplicativo multilocatário, consulte [Hospedando um aplicativo multilocatário no Azure][Hosting a Multi-Tenant Application on Azure]. Para obter informações sobre os padrões comuns da arquitetura de dados dos aplicativos do banco de dados SaaS (software como serviço) multilocatário, consulte [Padrões de Design para Aplicativos SaaS multilocatário com o Banco de Dados SQL do Azure](./azure-sql/database/saas-tenancy-app-design-patterns.md). 
 
 O Azure oferece muitos recursos que permitem resolver os principais problemas encontrados durante a criação de um sistema multilocatário.
 
@@ -55,7 +55,7 @@ O Azure oferece muitos recursos que permitem resolver os principais problemas en
   * Funções de trabalho que normalmente processam dados no back-end de um aplicativo.
   * Funções Web que geralmente agem como o front-end de aplicativos.
 
-**Storage**
+**Armazenamento**
 
 O gerenciamento de dados, como o Azure SQL Database ou os serviços de armazenamento do Azure, como o serviço tabela, que fornece serviços para o armazenamento de grandes quantidades de dados não estruturados e o serviço BLOB, que fornece serviços para armazenar grandes quantidades de texto não estruturado ou dados binários, como vídeo, áudio e imagens.
 
@@ -92,5 +92,5 @@ O Azure fornece várias maneiras de provisionar novos locatários para o aplicat
 
 <!--links-->
 
-[Hosting a Multi-Tenant Application on Azure]: https://msdn.microsoft.com/library/hh534480.aspx
+[Hosting a Multi-Tenant Application on Azure]: /previous-versions/msp-n-p/hh534480(v=pandp.10)
 [Designing Multitenant Applications on Azure]: https://msdn.microsoft.com/library/windowsazure/hh689716

@@ -5,30 +5,30 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 11/04/2019
+ms.date: 10/08/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 8b338f25e9771f5947fd494cfb00d0f6cb9ef67a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 2f5f653fdaf9df5d1bb2cf87d06047510ad46d7b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75450854"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91856698"
 ---
 1. Selecione **Conectar sites VPN** para abrir a página **Conectar sites**.
 
-    ![connect](./media/virtual-wan-tutorial-connect-vpn-site-include/connect.png "conectar")
+    ![A captura de tela mostra o painel Conectar sites do HUB Virtual pronto para uma chave pré-compartilhada e configurações associadas.](./media/virtual-wan-tutorial-connect-vpn-site-include/connect.png "conectar")
 
    Preencha os seguintes campos:
 
    * Insira uma chave pré-compartilhada. Se você não inserir uma chave, o Azure gerará uma automaticamente para você.
-   * Selecione as configurações de Protocolo e IPsec. Veja [detalhes de IPSec padrão/personalizado] (https://docs.microsoft.com/azure/virtual-wan/virtual-wan-ipsec)
+   * Selecione as configurações de Protocolo e IPsec. Para obter mais informações, confira [IPsec padrão/personalizado](../articles/virtual-wan/virtual-wan-ipsec.md).
    * Selecione a opção apropriada para **Propagar Rota Padrão**. A opção **Habilitar** permite que o hub virtual propague uma rota padrão aprendida para essa conexão. Esse sinalizador habilita a propagação da rota padrão para uma conexão somente se já foi aprendida pelo hub de WAN Virtual como resultado da implantação de um firewall no hub ou se a opção de túnel forçado está habilitada em outro site conectado. A rota padrão não se origina no hub da WAN virtual.
 
 2. Selecione **Conectar**.
 3. Dentro de alguns minutos, o site mostrará o status de conexão e conectividade.
 
-   ![status](./media/virtual-wan-tutorial-connect-vpn-site-include/status.png "status")
+   ![A captura de tela mostra uma conexão de site a site de VPN e o status de conectividade.](./media/virtual-wan-tutorial-connect-vpn-site-include/status.png "status")
 
    **Status da conexão:** Esse é o status do recurso do Azure para a conexão entre o site VPN e o gateway de VPN do hub do Azure. Quando essa operação do plano de controle for bem-sucedida, o gateway de VPN do Azure e o dispositivo VPN local continuarão a estabelecer conectividade.
 

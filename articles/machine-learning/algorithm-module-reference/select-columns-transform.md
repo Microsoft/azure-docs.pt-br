@@ -1,24 +1,24 @@
 ---
 title: 'Selecionar colunas de transformação: referência de módulo'
 titleSuffix: Azure Machine Learning
-description: Saiba como usar o módulo selecionar colunas de transformação em Azure Machine Learning para criar uma transformação que seleciona o mesmo subconjunto de colunas que no conjunto de dados fornecido.
+description: Saiba como usar o módulo selecionar colunas de transformação no designer de Azure Machine Learning para executar uma transformação SELECT.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/10/2019
-ms.openlocfilehash: a5264c14294f84858cd489f5892b8cdd19e117d0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 10/10/2020
+ms.openlocfilehash: f03840e55366d7f105ca4b57bd60061c82833e72
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79455903"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420709"
 ---
 # <a name="select-columns-transform"></a>Selecionar colunas para transformação
 
-Este artigo descreve como usar o módulo selecionar colunas de transformação no designer de Azure Machine Learning (versão prévia). A finalidade do módulo selecionar colunas de transformação é garantir que um conjunto de colunas consistente e previsível seja usado em operações de aprendizado de máquina downstream.
+Este artigo descreve como usar o módulo selecionar colunas de transformação no designer de Azure Machine Learning. A finalidade do módulo selecionar colunas de transformação é garantir que um conjunto de colunas consistente e previsível seja usado em operações de aprendizado de máquina downstream.
 
 Esse módulo é útil para tarefas como pontuação, que exigem colunas específicas. As alterações nas colunas disponíveis podem interromper o pipeline ou alterar os resultados.
 
@@ -46,8 +46,14 @@ Esse cenário pressupõe que você deseja usar a seleção de recursos para gera
 
    *Não conecte o conjunto de dados de entrada.* Em vez disso, adicione o módulo [aplicar transformação](apply-transformation.md) e conecte a saída da transformação seleção de recursos.
 
+   A estrutura do pipeline deve ser semelhante à seguinte:
+
+   > [!div class="mx-imgBorder"]
+   > ![Amostra do pipeline](media/module/filter-based-feature-selection-score.png)
+
    > [!IMPORTANT]
    > Você não pode esperar a aplicação da [seleção de recursos baseada em filtro](filter-based-feature-selection.md) ao conjunto de texto de Pontuação e obter os mesmos resultados. Como a seleção de recursos se baseia em valores, ela pode escolher um conjunto diferente de colunas, o que causaria uma falha na operação de pontuação.
+    
 7. Envie o pipeline.
 
 Esse processo de salvar e aplicar uma seleção de coluna garante que o mesmo esquema de dados esteja disponível para treinamento e pontuação.

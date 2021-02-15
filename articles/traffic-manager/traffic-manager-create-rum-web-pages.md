@@ -3,7 +3,7 @@ title: Medidas de Usuário Reais com páginas da Web-Gerenciador de tráfego do 
 description: Neste artigo, saiba como configurar suas páginas da Web para enviar Medidas de Usuário Reais para o Gerenciador de tráfego do Azure.
 services: traffic-manager
 documentationcenter: traffic-manager
-author: rohinkoul
+author: duongau
 manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
@@ -11,14 +11,14 @@ ms.topic: how-to
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 03/16/2018
-ms.author: rohink
+ms.author: duau
 ms.custom: ''
-ms.openlocfilehash: f297057549263cd62783778b363665bfb4368c91
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2bb104fd9cfc3c4ffddb82e4cf442e94c4650550
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84711639"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98184551"
 ---
 # <a name="how-to-send-real-user-measurements-to-azure-traffic-manager-using-web-pages"></a>Como enviar as Medidas Reais de Usuário para o Gerenciador de Tráfego do Azure usando páginas da Web
 
@@ -68,5 +68,4 @@ Depois de obter a chave de RUM, a próxima etapa será inserir esse JavaScript c
 - Saiba mais sobre as [Medidas Reais de Usuário](traffic-manager-rum-overview.md)
 - Saiba [como funciona o Gerenciador de Tráfego](traffic-manager-overview.md)
 - Saiba mais sobre os [métodos de roteamento do tráfego](traffic-manager-routing-methods.md) com suporte pelo Gerenciador de Tráfego
-- Saiba como [criar um perfil do Gerenciador de tráfego](traffic-manager-create-profile.md)
-
+- Saiba como [criar um perfil do Gerenciador de tráfego](./quickstart-create-traffic-manager-profile.md)

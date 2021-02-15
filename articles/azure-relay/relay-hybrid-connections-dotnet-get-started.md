@@ -4,12 +4,12 @@ description: Escreva um aplicativo de console em C# para retransmissão do Azure
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
 ms.date: 06/23/2020
-ms.openlocfilehash: eb204a7bf18ed1c88a6d359cc521130fa19a1c82
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: bf22b8b11dc386644803b43ee4e3a51d04b70419
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88934252"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "90527421"
 ---
 # <a name="get-started-with-relay-hybrid-connections-websockets-in-net"></a>Introdução às WebSockets de Conexões Híbridas de Retransmissão no .NET
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
@@ -52,7 +52,7 @@ No Visual Studio, grave um aplicativo de console em C# para enviar mensagens à 
 2. Execute o aplicativo de cliente e insira algum texto.
 3. Verifique se o console do aplicativo para servidores exibe o texto inserido no aplicativo cliente.
 
-    ![running-applications](./media/relay-hybrid-connections-dotnet-get-started/running-applications.png)
+    ![Janelas de console testando os aplicativos cliente e servidor.](./media/relay-hybrid-connections-dotnet-get-started/running-applications.png)
 
 Parabéns, você criou um aplicativo de Conexões Híbridas completo!
 

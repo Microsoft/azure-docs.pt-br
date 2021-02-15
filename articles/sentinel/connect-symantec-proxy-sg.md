@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: fe49481357b542ce52de5fc9dab3059cb584c229
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 902475ae3e60761fb30620c5ba2fa8cbd905c916
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083898"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100099176"
 ---
 # <a name="connect-your-symantec-proxysg-to-azure-sentinel"></a>Conectar seu Symantec ProxySG ao Azure Sentinel
 

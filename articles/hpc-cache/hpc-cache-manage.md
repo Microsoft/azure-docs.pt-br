@@ -4,14 +4,14 @@ description: Como gerenciar e atualizar o cache HPC do Azure usando o portal do 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 07/08/2020
+ms.date: 08/31/2020
 ms.author: v-erkel
-ms.openlocfilehash: 66b084cca3d1cd54362a538423988755a3d31ced
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 067b12d4dcfd5ba2b730204ef680b900d79f1b72
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86497208"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94648065"
 ---
 # <a name="manage-your-cache"></a>Gerenciar seu cache
 
@@ -28,6 +28,7 @@ Os botões na parte superior da página podem ajudá-lo a gerenciar o cache:
 * **Iniciar** e [**parar**](#stop-the-cache) – retoma ou suspende a operação de cache
 * [**Flush**](#flush-cached-data) -grava dados alterados para destinos de armazenamento
 * [**Atualização**](#upgrade-cache-software) – atualiza o software de cache
+* [**Coletar diagnóstico**](#collect-diagnostics) – carrega informações de depuração
 * **Atualizar** – recarrega a página Visão geral
 * [**Excluir**](#delete-the-cache) – destrói permanentemente o cache
 
@@ -57,7 +58,7 @@ Para reativar um cache interrompido, clique no botão **Iniciar** . Nenhuma conf
 
 ### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[Configurar CLI do Azure para o cache do HPC do Azure](./az-cli-prerequisites.md).
 
 Suspenda temporariamente um cache com o comando [AZ HPC-cache Stop](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-stop) . Essa ação só é válida quando o status de um cache está **íntegro** ou **degradado**.
 
@@ -112,7 +113,7 @@ Para liberar o cache, clique no botão **liberar** e, em seguida, clique em **Si
 
 ### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[Configurar CLI do Azure para o cache do HPC do Azure](./az-cli-prerequisites.md).
 
 Use [AZ HPC-cache flush](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-flush) para forçar o cache a gravar todos os dados alterados para os destinos de armazenamento.
 
@@ -160,7 +161,7 @@ Clique no botão **Atualizar** para iniciar a atualização de software. O statu
 
 ### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[Configurar CLI do Azure para o cache do HPC do Azure](./az-cli-prerequisites.md).
 
 Na CLI do Azure, novas informações de software são incluídas no final do relatório de status do cache. (Use [AZ HPC-cache show](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-show) para verificar.) Procure a cadeia de caracteres "upgradeStatus" na mensagem.
 
@@ -197,6 +198,16 @@ $
 
 ---
 
+## <a name="collect-diagnostics"></a>Coletar diagnóstico
+
+O botão **coletar diagnósticos** inicia manualmente o processo para coletar informações do sistema e carregá-lo para o serviço Microsoft e o suporte para solução de problemas. O cache coleta e carrega automaticamente as mesmas informações de diagnóstico se ocorre um problema grave de cache.
+
+Use este controle se o serviço da Microsoft e o suporte solicitarem.
+
+Depois de clicar no botão, clique em **Sim** para confirmar o carregamento.
+
+![captura de tela da mensagem de confirmação de pop-up ' Iniciar coleta de diagnóstico '. O botão padrão ' Sim ' está realçado.](media/diagnostics-confirm.png)
+
 ## <a name="delete-the-cache"></a>Excluir o cache
 
 O botão **excluir** destrói o cache. Quando você exclui um cache, todos os seus recursos são destruídos e não incorrem mais em encargos de conta.
@@ -214,7 +225,7 @@ Depois de parar o cache, clique no botão **excluir** para remover permanentemen
 
 ### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[Configurar CLI do Azure para o cache do HPC do Azure](./az-cli-prerequisites.md).
 
 Use o comando CLI do Azure [AZ HPC-cache Delete](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-delete) para remover permanentemente o cache.
 

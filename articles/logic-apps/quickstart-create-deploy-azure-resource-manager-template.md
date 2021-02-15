@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: quickstart
-ms.custom: mvc, subject-armqs
+ms.custom: mvc, subject-armqs, devx-track-azurecli
 ms.date: 06/30/2020
-ms.openlocfilehash: 10cc89d1a0cc975df4384e551dddde32be0a4a72
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 689582d73e29cb60cc2ee5294b568b5db2f73244
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87078120"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92739340"
 ---
 # <a name="quickstart-create-and-deploy-a-logic-app-workflow-by-using-an-arm-template"></a>Início Rápido: Criar e implantar um fluxo de trabalho de aplicativo lógico usando um modelo do Resource Manager
 
@@ -20,7 +20,7 @@ Os [Aplicativos Lógicos do Azure](../logic-apps/logic-apps-overview.md) são um
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Se seu ambiente atender aos pré-requisitos e você estiver familiarizado com o uso de modelos ARM, selecione o botão **Implantar no Azure**. O modelo será aberto no portal do Azure.
+Se seu ambiente atender aos pré-requisitos e você estiver familiarizado com o uso de modelos ARM, selecione o botão **Implantar no Azure** . O modelo será aberto no portal do Azure.
 
 [![Implantar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-logic-app-create%2fazuredeploy.json)
 
@@ -62,7 +62,7 @@ Siga a opção que deseja usar para implantar o modelo de início rápido:
 
    [![Implantar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-logic-app-create%2fazuredeploy.json)
 
-1. No portal, na página **Criar um aplicativo lógico usando um modelo**, insira ou selecione estes valores:
+1. No portal, na página **Criar um aplicativo lógico usando um modelo** , insira ou selecione estes valores:
 
    | Propriedade | Valor | Descrição |
    |----------|-------|-------------|
@@ -78,7 +78,7 @@ Siga a opção que deseja usar para implantar o modelo de início rápido:
 
    ![Fornecer informações para o modelo de início rápido](./media/quickstart-create-deploy-azure-resource-manager-template/create-logic-app-template-portal.png)
 
-1. Quando terminar, selecione **Review + create**.
+1. Quando terminar, selecione **Review + create** .
 
 1. Prossiga para as etapas em [Examinar os recursos implantados](#review-deployed-resources).
 
@@ -234,7 +234,7 @@ Para ver o aplicativo lógico, use o portal do Azure, execute um script criado c
 
 1. Quando o Designer de Aplicativo Lógico for aberto, examine o aplicativo lógico criado pelo modelo de início rápido.
 
-1. Para testar o aplicativo lógico, na barra de ferramentas do designer, selecione **Executar**.
+1. Para testar o aplicativo lógico, na barra de ferramentas do designer, selecione **Executar** .
 
 ### <a name="cli"></a>[CLI](#tab/azure-cli)
 
@@ -288,7 +288,7 @@ Se você pretende continuar trabalhando com os tutoriais e os guias de início r
 
 1. No portal do Azure, encontre e selecione o grupo de recursos que deseja excluir, que é `Check-Azure-Status-RG` neste exemplo.
 
-1. No menu do grupo de recursos, escolha **Visão geral**, se essa opção ainda não estiver selecionada. Na página de visão geral, selecione **Excluir grupo de recursos**.
+1. No menu do grupo de recursos, escolha **Visão geral** , se essa opção ainda não estiver selecionada. Na página de visão geral, selecione **Excluir grupo de recursos** .
 
 1. Para confirmar a ação, insira o nome do grupo de recursos.
 

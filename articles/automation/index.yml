@@ -10,12 +10,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 09/06/2019
   ms.author: magoedte
-  ms.openlocfilehash: 8a4f090ae8f4dfe7efe525a21d1c6a724aaa3647
-  ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+  ms.openlocfilehash: c146be313391397c9ecf64314a580175e8220ac5
+  ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 07/30/2020
-  ms.locfileid: "87447773"
+  ms.lasthandoff: 10/20/2020
+  ms.locfileid: "92216412"
 landingContent:
 - title: Introdução à Automação do Azure
   linkLists:
@@ -40,11 +40,11 @@ landingContent:
   - linkListType: overview
     links:
     - text: Visão geral do Gerenciamento de Atualizações
-      url: update-management/update-mgmt-overview.md
+      url: update-management/overview.md
   - linkListType: get-started
     links:
     - text: Gerenciar atualizações de várias VMs
-      url: update-management/update-mgmt-manage-updates-for-vm.md
+      url: update-management/manage-updates-for-vm.md
 - title: Configurar suas VMs com Desired State Configuration
   linkLists:
   - linkListType: overview

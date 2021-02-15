@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/06/2019
-ms.openlocfilehash: ff6bd1a52e05d55d43969644141f39aed8c8eb63
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 62c3d4533dd04dbb5a2ce0c73afa52b81d433913
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87072644"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91570778"
 ---
 # <a name="transform-xml-with-maps-in-azure-logic-apps-with-enterprise-integration-pack"></a>Transformar XML com mapas nos Aplicativos Lógicos do Azure com o Enterprise Integration Pack
 
@@ -69,7 +69,7 @@ Não é necessário um aplicativo lógico durante a criação e adição de mapa
 
 1. Após a página **Assemblies** ser aberta, escolha **Adicionar**.
 
-   ![Escolha "Adicionar"](./media/logic-apps-enterprise-integration-maps/add-assembly.png)
+   ![Captura de tela que realça o botão Adicionar na página assemblies.](./media/logic-apps-enterprise-integration-maps/add-assembly.png)
 
 Com base no tamanho do arquivo de assembly, siga as etapas para carregar um assembly que tenha [até 2 MB](#smaller-assembly) ou [mais de 2 MB, mas até 8 MB](#larger-assembly).
 Para obter os limites das quantidades de assembly nas contas de integração, confira [Limites e configuração para Aplicativos Lógicos do Azure](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits).

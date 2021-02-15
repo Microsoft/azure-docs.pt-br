@@ -1,6 +1,6 @@
 ---
-title: Armazenar os resultados da consulta no armazenamento
-description: Neste artigo, você aprenderá a armazenar os resultados da consulta no armazenamento usando o SQL sob demanda (versão prévia).
+title: Armazenar resultados de consulta do pool de SQL sem servidor
+description: Neste artigo, você aprenderá a armazenar os resultados da consulta no armazenamento usando o pool de SQL sem servidor.
 services: synapse-analytics
 author: vvasic-msft
 ms.service: synapse-analytics
@@ -8,17 +8,17 @@ ms.topic: overview
 ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: vvasic
-ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 610391cefe88f6d066f4af12f6fb88f55b1fe56b
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.reviewer: jrasnick
+ms.openlocfilehash: 12841c747116cc9e14f348dfcf81acaa5da5e8c9
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85206540"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165358"
 ---
-# <a name="store-query-results-to-storage-using-sql-on-demand-preview-using-azure-synapse-analytics"></a>Armazenar os resultados da consulta no armazenamento usando o SQL sob demanda (versão prévia) e o Azure Synapse Analytics
+# <a name="store-query-results-to-storage-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Armazenar os resultados da consulta no armazenamento usando o pool de SQL sem servidor no Azure Synapse Analytics
 
-Neste artigo, você aprenderá a armazenar os resultados da consulta no armazenamento usando o SQL sob demanda (versão prévia).
+Neste artigo, você aprenderá a armazenar os resultados da consulta no armazenamento usando o pool de SQL sem servidor.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -74,6 +74,9 @@ FROM
 
 ```
 
+> [!NOTE]
+> Você deve modificar esse script e alterar a localização de destino para executá-lo novamente. Não é possível criar tabelas externas em uma localização em que você já tenha alguns dados.
+
 ## <a name="use-the-external-table"></a>Usar a tabela externa
 
 Você pode usar a tabela externa criada por meio da CETAS como uma tabela externa normal.
@@ -93,6 +96,14 @@ WHERE
 ORDER BY
     [population] DESC;
 ```
+
+## <a name="remarks"></a>Comentários
+
+Depois de armazenar os resultados, os dados na tabela externa não podem ser modificados. Você não pode repetir esse script porque o CETAS não substituirá os dados subjacentes criados na execução anterior. Vote nos seguintes itens de comentários se alguns deles forem necessários em seus cenários ou proponha novos no site de comentários do Azure:
+- [Habilitar a inserção de novos dados em uma tabela externa](https://feedback.azure.com/forums/307516-azure-synapse-analytics/suggestions/32981347-polybase-allow-insert-new-data-to-existing-exteran)
+- [Habilitar a exclusão de dados da tabela externa](https://feedback.azure.com/forums/307516-azure-synapse-analytics/suggestions/15158034-polybase-delete-from-external-tables)
+- [Especificar partições no CETAS](https://feedback.azure.com/forums/307516-azure-synapse-analytics/suggestions/19520860-polybase-partitioned-by-functionality-when-creati)
+- [Especificar tamanhos e contagens de arquivos](https://feedback.azure.com/forums/307516-azure-synapse-analytics/suggestions/42263617-cetas-specify-number-of-parquet-files-file-size)
 
 ## <a name="next-steps"></a>Próximas etapas
 

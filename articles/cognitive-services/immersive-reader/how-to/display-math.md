@@ -2,20 +2,20 @@
 title: Exibir matemática no leitor de imersão
 titleSuffix: Azure Cognitive Services
 description: Este artigo mostrará como exibir cálculos no leitor de imersão.
-author: pasta
+author: nitinme
 manager: guillasi
 ms.service: cognitive-services
 ms.subservice: immersive-reader
 ms.topic: conceptual
 ms.date: 01/14/2020
-ms.author: pasta
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 6bde75fe0fb856633d7849173faf21db76edc950
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.author: nitinme
+ms.custom: devx-track-js
+ms.openlocfilehash: 75b748604e8faa502970ac71e3fec4fae2774c19
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87406904"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91334507"
 ---
 # <a name="how-to-display-math-in-the-immersive-reader"></a>Como exibir cálculos no leitor de imersão
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: MeirMen
 ms.author: meirm
 ms.date: 02/03/2020
-ms.openlocfilehash: 0869de4ccfe89cc3919ec2d2d80aa3e18749039a
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: d92dd191c8bfe590f6dab392ff679e5d7712ae6c
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87921077"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92143846"
 ---
 # <a name="azure-monitor-logs-for-service-providers"></a>Logs de Azure Monitor para provedores de serviço
 
@@ -35,7 +35,7 @@ Nesta arquitetura, um workspace é implantado no locatário do cliente que é us
 
 Há duas maneiras pelas quais os administradores do provedor de serviços podem obter acesso a um espaço de trabalho Log Analytics em um locatário do cliente:
 
-- Um cliente pode adicionar usuários individuais do provedor de serviços como [Azure Active Directory usuários convidados (B2B)](../../active-directory/b2b/what-is-b2b.md). Os administradores do provedor de serviços precisarão entrar no diretório de cada cliente na portal do Azure para poder acessar esses espaços de trabalho. Isso também exige que os clientes gerenciem o acesso individual para cada administrador do provedor de serviços.
+- Um cliente pode adicionar usuários individuais do provedor de serviços como [Azure Active Directory usuários convidados (B2B)](../../active-directory/external-identities/what-is-b2b.md). Os administradores do provedor de serviços precisarão entrar no diretório de cada cliente na portal do Azure para poder acessar esses espaços de trabalho. Isso também exige que os clientes gerenciem o acesso individual para cada administrador do provedor de serviços.
 - Para obter maior escalabilidade e flexibilidade, os provedores de serviços podem usar o recurso de [Gerenciamento de recursos delegado do Azure](../../lighthouse/concepts/azure-delegated-resource-management.md) do [Azure Lighthouse](../../lighthouse/overview.md) para acessar o locatário do cliente. Com esse método, os administradores do provedor de serviços são incluídos em um grupo de usuários do Azure AD no locatário do provedor de serviços, e esse grupo recebe acesso durante o processo de integração para cada cliente. Esses administradores podem então acessar os espaços de trabalho de cada cliente de dentro de seu próprio locatário do provedor de serviços, em vez de ter que fazer logon no locatário de cada cliente individualmente. Acessar os recursos de espaços de trabalho de Log Analytics de seus clientes dessa maneira reduz o trabalho necessário no lado do cliente e pode facilitar a coleta e análise de dados em vários clientes gerenciados pelo mesmo provedor de serviços por meio de ferramentas como [Azure monitor pastas de trabalho](./workbooks-overview.md). Para obter mais informações, consulte [monitorar recursos do cliente em escala](../../lighthouse/how-to/monitor-at-scale.md).
 
 As vantagens da arquitetura distribuída são:
@@ -81,7 +81,7 @@ Há duas opções para implementar logs em um local central:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Automatizar a criação e configuração de workspaces usando [modelos do Gerenciador de recursos](template-workspace-configuration.md)
+* Automatizar a criação e configuração de workspaces usando [modelos do Gerenciador de recursos](../samples/resource-manager-workspace.md)
 
 * Automatizar a criação de workspaces usando o [PowerShell](./powershell-workspace-configuration.md)
 

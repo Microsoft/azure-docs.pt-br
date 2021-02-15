@@ -8,10 +8,10 @@ ms.topic: sample
 ms.date: 05/18/2020
 ms.subservice: ''
 ms.openlocfilehash: ab869fc8577d4d1934be96404ded5a2051237bbf
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87922721"
 ---
 # <a name="resource-manager-template-samples-for-azure-monitor"></a>Amostras de modelo do Resource Manager para o Azure Monitor

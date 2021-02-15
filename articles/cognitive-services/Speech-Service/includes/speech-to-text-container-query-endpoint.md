@@ -4,18 +4,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 04/29/2020
+ms.date: 08/18/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: debd1eda050e75ea2b9baed45e6e5af0f5a95c46
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 167e33ff4a3af463e2537e2714e9e9bf5e125b61
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88944478"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98947765"
 ---
-### <a name="speech-to-text-or-custom-speech-to-text"></a>Conversão de fala em texto ou Fala Personalizada em texto
-
 O contêiner fornece APIs de ponto de extremidade de consulta baseadas no WebSocket, que são acessadas por meio do [SDK de fala](../index.yml). Por padrão, o SDK de fala usa os serviços de fala online. Para usar o contêiner, você precisa alterar o método de inicialização.
 
 > [!TIP]
@@ -31,7 +29,7 @@ Em vez de usar esta chamada de inicialização de nuvem do Azure:
 var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
 ```
 
-para essa chamada usando o [host](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.fromhost?view=azure-dotnet)do contêiner:
+Para usar essa chamada com o [host](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.fromhost)do contêiner:
 
 ```csharp
 var config = SpeechConfig.FromHost(
@@ -45,6 +43,13 @@ Em vez de usar esta chamada de inicialização de nuvem do Azure:
 ```python
 speech_config = speechsdk.SpeechConfig(
     subscription=speech_key, region=service_region)
+```
+
+Para usar essa chamada com o [ponto de extremidade](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig)do contêiner:
+
+```python
+speech_config = speechsdk.SpeechConfig(
+    endpoint="ws://localhost:5000/speech/recognition/conversation/cognitiveservices/v1"
 ```
 
 ---

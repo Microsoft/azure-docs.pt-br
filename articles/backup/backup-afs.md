@@ -4,10 +4,10 @@ description: Saiba como usar o portal do Azure para fazer backup de compartilham
 ms.topic: conceptual
 ms.date: 01/20/2020
 ms.openlocfilehash: ca49f1ad48ab0534b27b91ad6a5a50b393cda782
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88890341"
 ---
 # <a name="back-up-azure-file-shares"></a>Backup de compartilhamentos de arquivos do Azure
@@ -154,7 +154,7 @@ As etapas a seguir explicam como você pode configurar o backup para compartilha
 
 1. Selecione **habilitar backup** para começar a proteger o compartilhamento de arquivos.
 
-   ![Selecione habilitar backup](./media/backup-afs/select-enable-backup.png)
+   ![Selecione Habilitar backup.](./media/backup-afs/select-enable-backup.png)
 
 1. Você pode acompanhar o progresso da configuração nas notificações do portal ou monitorando os trabalhos de backup no cofre que você está usando para proteger o compartilhamento de arquivos.
 

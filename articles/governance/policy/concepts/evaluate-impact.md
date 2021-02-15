@@ -1,18 +1,18 @@
 ---
 title: Avaliar o impacto de uma nova definição de Azure Policy
 description: Entenda o processo a ser seguido ao introduzir uma nova definição de política em seu ambiente do Azure.
-ms.date: 08/17/2020
+ms.date: 10/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: 243f04cc20e1fb7167306b925a0e494b34cf1267
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 9d73d703c38dce1335a471bfad9171d8b30a83c5
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544695"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91873860"
 ---
 # <a name="evaluate-the-impact-of-a-new-azure-policy-definition"></a>Avaliar o impacto de uma nova definição de Azure Policy
 
-O Azure Policy é uma ferramenta poderosa para gerenciar seus recursos do Azure, fazendo com que eles atendam a padrões de negócios e necessidades de conformidade. Quando as pessoas, os processos ou os pipelines criam ou atualizam recursos, o Azure Policy examina a solicitação. Quando o efeito de definição de política é [Append](./effects.md#deny) ou [DeployIfNotExists](./effects.md#deployifnotexists), o Policy altera a solicitação ou adiciona algo a ela. Quando o efeito de definição de política é [Audit](./effects.md#audit) ou [AuditIfNotExists](./effects.md#auditifnotexists), o Policy faz com que uma entrada no log de atividades seja criada. E quando o efeito de definição de política é [Negar](./effects.md#deny), o Policy interrompe a criação ou alteração da solicitação.
+O Azure Policy é uma ferramenta poderosa para gerenciar seus recursos do Azure, fazendo com que eles atendam a padrões de negócios e necessidades de conformidade. Quando as pessoas, os processos ou os pipelines criam ou atualizam recursos, o Azure Policy examina a solicitação. Quando o efeito de definição de política é [Modificar](./effects.md#modify), [acrescentar](./effects.md#deny) ou [DeployIfNotExists](./effects.md#deployifnotexists), a política altera a solicitação ou a adiciona a ela. Quando o efeito de definição de política é [Audit](./effects.md#audit) ou [AuditIfNotExists](./effects.md#auditifnotexists), Policy faz com que uma entrada do log de atividades seja criada para recursos novos e atualizados. E quando o efeito de definição de política é [Negar](./effects.md#deny), o Policy interrompe a criação ou alteração da solicitação.
 
 Esses resultados são exatamente os desejados quando você sabe que a política está definida corretamente. No entanto, é importante validar que uma nova política funcione como pretendido antes de permitir que ela altere ou bloqueie o trabalho. A validação deve garantir que apenas os recursos pretendidos sejam determinados como fora de conformidade e que nenhum recurso em conformidade seja incluído incorretamente (conhecido como um _falso positivo_) nos resultados.
 

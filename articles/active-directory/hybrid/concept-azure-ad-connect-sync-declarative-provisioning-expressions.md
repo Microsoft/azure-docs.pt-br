@@ -16,19 +16,19 @@ ms.date: 07/18/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cdc7c9dba49bf37db1f039d43b0450c65884c74b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 02490839a9e35695ae2e8b3f750e139ad7413aa4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "60245498"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89280206"
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning-expressions"></a>Sincronização do Azure AD Connect: noções básicas sobre expressões de provisionamento declarativo
 A sincronização do Azure AD Connect criada com base em provisionamento declarativo foi introduzida pela primeira vez no Forefront Identity Manager 2010. Ela permite a você implementar sua lógica completa de negócios de integração de identidade sem a necessidade de escrever código compilado.
 
 Uma parte essencial do provisionamento declarativo é a linguagem de expressão usada nos fluxos de atributo. A linguagem usada é um subconjunto de VBA (Visual Basic® for Applications) da Microsoft. Essa linguagem é usada no Microsoft Office e os usuários com experiência em VBScript também a reconhecerão. A Linguagem de Expressão de Provisionamento Declarativo está apenas usando funções e não é uma linguagem estruturada. Não existem métodos nem instruções. As funções são aninhadas no fluxo do programa expresso.
 
-Para obter mais detalhes, consulte [Bem-vindo ao Visual Basic para referência de linguagem de aplicativos para Office 2013](https://msdn.microsoft.com/library/gg264383.aspx).
+Para obter mais detalhes, consulte [Bem-vindo ao Visual Basic para referência de linguagem de aplicativos para Office 2013](/office/vba/api/overview/language-reference).
 
 Os atributos são fortemente tipados. Uma função aceita somente atributos do tipo correto. Ela também diferencia maiúsculas de minúsculas. Tanto nomes de função, quanto nomes de atributo devem ter a capitalização apropriada, ou um erro será gerado.
 
@@ -100,4 +100,3 @@ Por exemplo:
 **Tópicos de referência**
 
 * [Azure AD Connect Sync: referência de funções](reference-connect-sync-functions-reference.md)
-

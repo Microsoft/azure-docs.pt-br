@@ -2,15 +2,14 @@
 title: Usar o navegador de trabalhos & exibição de trabalho-Azure Data Lake Analytics
 description: Este artigo descrever como usar o Navegador de Trabalhos e a Exibição de Trabalho para trabalhos do Azure Data Lake Analytics.
 ms.service: data-lake-analytics
-ms.assetid: bdf27b4d-6f58-4093-ab83-4fa3a99b5650
 ms.topic: how-to
 ms.date: 08/02/2017
-ms.openlocfilehash: 32684ea72df63de5b82941b3ef44e9d579d09eb4
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: a1e9a9df4c2ec57dfeec8cf5ddd5348228b9cc3e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131881"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018555"
 ---
 # <a name="use-job-browser-and-job-view-for-azure-data-lake-analytics"></a>Usar o Navegador de Trabalhos e a Exibição de Trabalho para o Azure Data Lake Analytics
 O serviço Azure Data Lake Analytics arquiva trabalhos enviados em um repositório de consultas. Neste artigo, você aprende como usar o Navegador de Trabalhos e Exibição de Trabalho nas Ferramentas do Azure Data Lake para Visual Studio para localizar as informações de histórico do trabalho. 
@@ -38,7 +37,7 @@ A Exibição de Trabalho contém:
     
       Status do Trabalho descreve as fases do trabalho:
     
-      ![Status das fases do trabalho do Azure Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-phases.png)
+      ![Captura de tela que mostra as Azure Data Lake Analytics fases de trabalho.](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-phases.png)
     
     * Preparando: carregue o script na nuvem, compilando e otimizando o script usando o serviço de compilação.
     * Na fila: trabalhos estão na fila quando estão esperando por recursos suficientes ou quando os trabalhos excedem a limitação de máximo de trabalhos simultâneos por conta. A configuração de prioridade determina a sequência de trabalhos na fila – quanto menor o número, maior a prioridade.
@@ -50,7 +49,7 @@ A Exibição de Trabalho contém:
     
       As informações básicas do trabalho são mostradas na parte inferior do painel de Resumo do Trabalho.
     
-      ![Status das fases do trabalho do Azure Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-info.png)
+      ![Captura de tela que mostra o resumo do trabalho com descrições em caixas de texto.](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-info.png)
     
     * Resultado do Trabalho: êxito ou falha. O trabalho pode falhar em todas as fases.
     * Duração Total: a hora do relógio (duração) entre a hora do envio e a hora de término.
@@ -60,10 +59,10 @@ A Exibição de Trabalho contém:
     * Conta: a conta do Data Lake Analytics usada para executar o trabalho.
     * Autor: o usuário que enviou o trabalho, pode ser uma conta do sistema ou de uma pessoa real.
     * Prioridade: a prioridade do trabalho. Quanto menor o número, maior a prioridade. Ela afeta somente a sequência dos trabalhos na fila. Definir uma prioridade mais alta não impede trabalhos em execução.
-    * Paralelismo: o número máximo solicitado de ADLAUs (unidades simultâneas do Azure Data Lake Analytics), também conhecidas como vértices. Atualmente, um vértice é igual a uma VM com dois núcleos virtuais e 6 GB de RAM, embora isso possa ser atualizado em atualizações futuras do Data Lake Analytics.
+    * Paralelismo: o número máximo solicitado de ADLAUs (unidades de Azure Data Lake Analytics simultâneas), também conhecido como vértices. Atualmente, um vértice é igual a uma VM com dois núcleos virtuais e 6 GB de RAM, embora isso possa ser atualizado em atualizações futuras do Data Lake Analytics.
     * Bytes Restantes: bytes que precisam ser processados até que o trabalho seja concluído.
     * Bytes lidos/gravados: bytes que foram lidos/gravados desde o início da execução do trabalho.
-    * Total de vértices: o trabalho é dividido em várias partes de trabalho, cada uma delas é chamada de um vértice. Esse valor descreve de quantas partes de trabalho o trabalho consiste. Você pode considerar um vértice como uma unidade de processo básico, também conhecido como ADLAU (Unidade do Azure Data Lake Analytics), sendo que vértices podem ser executados em paralelismo. 
+    * Total de vértices: o trabalho é dividido em várias partes de trabalho, cada uma delas é chamada de um vértice. Esse valor descreve de quantas partes de trabalho o trabalho consiste. Você pode considerar um vértice como uma unidade de processo básica, também conhecida como ADLAU (unidade de Azure Data Lake Analytics) e os vértices podem ser executados em paralelismo. 
     * Concluído/Em execução/Com falha: a contagem de vértices concluídos/em execução/com falha. Vértices podem falhar devido tanto a falhas do sistema quanto ao código do usuário, o sistema volta a tentar usar vértices com falha automaticamente por algumas vezes. Se o vértice ainda falhar após as novas tentativas, todo o trabalho falhará.
 * Grafo do Trabalho
   
@@ -71,7 +70,7 @@ A Exibição de Trabalho contém:
   
     ![Status das fases do trabalho do Azure Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-logical-to-physical-plan.png)
   
-    Um trabalho é dividido em várias partes de trabalho. Cada parte de trabalho é chamada de um vértice. Os vértices são agrupados como um Supervértice (também conhecido como estágio) e visualizados como Grafo do Trabalho. Os letreiros de estágio verdes no grafo de trabalho mostram os estágios.
+    Um trabalho é dividido em várias partes de trabalho. Cada parte de trabalho é chamada de um vértice. Os vértices são agrupados como um super vértice (também conhecido como estágio) e visualizados como grafo de trabalho. Os letreiros de estágio verdes no grafo de trabalho mostram os estágios.
   
     Cada vértice em um estágio está fazendo o mesmo tipo de trabalho com partes diferentes dos mesmos dados. Por exemplo, se você tiver um arquivo com 1 TB de dados e houver centenas de vértices lendo tal arquivo, cada um deles estará lendo uma parte. Esses vértices são agrupados no mesmo estágio e fazem o mesmo trabalho em diferentes partes do mesmo arquivo de entrada.
   

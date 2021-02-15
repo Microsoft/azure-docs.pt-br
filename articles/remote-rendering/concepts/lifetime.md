@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: d031ff4a6ee86da2843f0f18ac428c50f7cfc121
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0945b35f7aff8e93a1a3ba23b89db288db3d8efa
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80681864"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99593884"
 ---
 # <a name="object-and-resource-lifetime"></a>Tempo de vida do objeto e do recurso
 
@@ -32,7 +32,7 @@ Muitos recursos são imutáveis, por [malhas](meshes.md) e [texturas](textures.m
 
 ### <a name="built-in-resources"></a>Recursos internos
 
-A renderização remota do Azure contém alguns recursos internos, que podem ser carregados, predependendo do respectivo identificador com `builtin://` o durante a chamada para `AzureSession.Actions.LoadXYZAsync()` . Os recursos internos disponíveis estão listados na documentação para cada recurso respectivo. Por exemplo, o [capítulo céu](../overview/features/sky.md) lista as texturas do céu interno.
+A renderização remota do Azure contém alguns recursos internos, que podem ser carregados, predependendo do respectivo identificador com `builtin://` o durante a chamada para `RenderingSession.Connection.LoadXYZAsync()` . Os recursos internos disponíveis estão listados na documentação para cada recurso respectivo. Por exemplo, o [capítulo céu](../overview/features/sky.md) lista as texturas do céu interno.
 
 ## <a name="general-lifetime"></a>Tempo de vida geral
 

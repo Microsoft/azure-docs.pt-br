@@ -2,19 +2,19 @@
 title: 'Início Rápido: Exportar dados para o Microsoft Azure Data Box'
 description: Saiba como exportar rapidamente seus dados do Azure Data Box no portal do Azure
 services: databox
-author: twooley
+author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: quickstart
 ms.date: 07/17/2020
-ms.author: twooley
+ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 55366096a9eef7380ad8df855931c4d675973631
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: 789bd2f62673e7faf562d3a407bf2f0a4fd861bf
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783052"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92125485"
 ---
 # <a name="quickstart-get-started-with-azure-data-box-to-export-data-from-azure"></a>Início Rápido: Introdução ao Azure Data Box para exportar dados do Azure
 
@@ -28,7 +28,7 @@ Antes de começar:
 
 * Verifique se a assinatura usada para o serviço Data Box é de um dos seguintes tipos:
   * Microsoft EA (Contrato Enterprise). Leia mais sobre [assinaturas de EA](https://azure.microsoft.com/pricing/enterprise-agreement/).
-  * CSP (Provedor de Soluções na Nuvem). Saiba mais sobre o [programa do Azure CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview).
+  * CSP (Provedor de Soluções na Nuvem). Saiba mais sobre o [programa do Azure CSP](/azure/cloud-solution-provider/overview/azure-csp-overview).
   * Microsoft Azure Sponsorship. Saiba mais sobre o [programa Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/).
 
 * Verifique se você tem acesso de proprietário ou colaborador na assinatura para criar um pedido do Data Box.
@@ -96,7 +96,7 @@ Essa etapa demora cerca de 5 a 7 minutos para ser concluída.
 
 O tempo necessário para concluir essa operação depende do tamanho dos dados e da velocidade da rede.
 
-1. Se estiver usando um cliente Windows, use uma ferramenta de cópia de arquivos compatível com SMB, como o Robocopy. Para o host NFS, use o comando `cp` ou `rsync` para copiar os dados. Para obter mais informações sobre como usar o Robocopy para copiar dados, acesse [Robocopy](https://technet.microsoft.com/library/ee851678.aspx).
+1. Se estiver usando um cliente Windows, use uma ferramenta de cópia de arquivos compatível com SMB, como o Robocopy. Para o host NFS, use o comando `cp` ou `rsync` para copiar os dados. Para obter mais informações sobre como usar o Robocopy para copiar dados, acesse [Robocopy](/previous-versions/technet-magazine/ee851678(v=msdn.10)).
 2. Conecte-se aos compartilhamentos do dispositivo e comece a copiar dados para o computador host.
 <!-- 1. Connect to the device shares using the path:`\\<IP address of your device>\ShareName`. To get the share access credentials, go to the **Connect & copy** page in the local web UI of the Data Box. --> 
 

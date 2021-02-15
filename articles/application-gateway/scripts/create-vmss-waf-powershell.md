@@ -11,13 +11,13 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/29/2018
 ms.author: victorh
-ms.custom: mvc
-ms.openlocfilehash: 0c797c8d0b29304f628b0e4e3b8045c3a9d607f9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: mvc, devx-track-azurepowershell
+ms.openlocfilehash: f20e5271cdca18ad40710e5defdf8175754ef891
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081943"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89078666"
 ---
 # <a name="restrict-web-traffic-using-azure-powershell"></a>Restringir o tráfego da Web usando o Azure PowerShell
 

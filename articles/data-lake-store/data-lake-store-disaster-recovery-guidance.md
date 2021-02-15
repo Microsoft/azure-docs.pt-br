@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: twooley
-ms.openlocfilehash: b124f828c4a6a019c45243528ed2d957e3f781f3
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 48136f8d9172c3674e849e24efca4ae5070f83ab
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88191416"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92109112"
 ---
 # <a name="high-availability-and-disaster-recovery-guidance-for-data-lake-storage-gen1"></a>Diretrizes de alta disponibilidade e recuperação de desastre para Data Lake Storage Gen1
 
@@ -21,8 +21,8 @@ Data Lake Storage Gen1 fornece armazenamento com redundância local (LRS). Porta
 
 É essencial que você prepare um plano de recuperação de desastres. Examine as informações neste artigo e esses recursos adicionais para ajudá-lo a criar seu próprio plano.
 
-* [Recuperação de desastre e alta disponibilidade para aplicativos do Azure](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md)
-* [Orientações técnicas de resiliência do Azure](../resiliency/resiliency-technical-guidance.md)
+* [Recuperação de desastre e alta disponibilidade para aplicativos do Azure](/azure/architecture/framework/resiliency/backup-and-recovery)
+* [Orientações técnicas de resiliência do Azure](/azure/architecture/framework/resiliency/overview)
 
 ### <a name="best-practice-recommendations"></a>Recomendações de melhores práticas
 
@@ -37,8 +37,6 @@ Embora o Data Lake Storage Gen1 forneça resiliência de dados por meio de répl
 Para evitar a exclusão acidental, recomendamos que você primeiro defina as políticas de acesso corretas para sua conta do Data Lake Storage Gen1. Isso inclui a aplicação de [bloqueios de recursos do Azure](../azure-resource-manager/management/lock-resources.md) para bloquear recursos importantes e aplicar o controle de acesso de nível de conta e arquivo usando os [recursos de segurança de data Lake Storage Gen1](data-lake-store-security-overview.md)disponíveis. Também recomendamos que você crie cópias de seus dados críticos rotineiramente usando [ADLCopy](data-lake-store-copy-data-azure-storage-blob.md), [Azure PowerShell](data-lake-store-get-started-powershell.md) ou [Azure Data Factory](../data-factory/connector-azure-data-lake-store.md) em outra conta, pasta ou servidor do Data Lake Storage Gen1. Assinatura do Azure. Isso pode ser usado para a recuperação de um incidente de corrupção ou de exclusão de dados. O Azure Data Factory é um serviço útil para criar e implantar pipelines de movimentação de dados de forma recorrente.
 
 Você também pode habilitar o [log de diagnóstico](data-lake-store-diagnostic-logs.md) para uma conta de data Lake Storage Gen1 para coletar trilhas de auditoria de acesso a dados. As trilhas de auditoria fornecem informações sobre quem pode ter excluído ou atualizado um arquivo.
-
-Você pode tentar restaurar um item excluído usando o módulo [AZ. DataLakeStore](https://docs.microsoft.com/powershell/module/az.datalakestore/) Azure PowerShell para data Lake Storage Gen 1. Especificamente, consulte o comando [Restore-AzDataLakeStoreDeletedItem](https://docs.microsoft.com/powershell/module/az.datalakestore/restore-azdatalakestoredeleteditem) . Certifique-se de examinar a seção [Descrição](https://docs.microsoft.com/powershell/module/az.datalakestore/restore-azdatalakestoredeleteditem#description) antes de tentar usar esse comando.
 
 ## <a name="next-steps"></a>Próximas etapas
 

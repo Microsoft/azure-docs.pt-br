@@ -8,13 +8,13 @@ ms.service: cognitive-services
 ms.subservice: immersive-reader
 ms.topic: conceptual
 ms.date: 06/29/2020
-ms.author: metan
-ms.openlocfilehash: ea066fab713100309103a040d309bac5b984fb99
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.author: metang
+ms.openlocfilehash: 0a6ed6ecea216a36cfc9da4ef36a2bddc69cc6a8
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85486894"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92633137"
 ---
 # <a name="how-to-configure-translation"></a>Como configurar a tradução
 

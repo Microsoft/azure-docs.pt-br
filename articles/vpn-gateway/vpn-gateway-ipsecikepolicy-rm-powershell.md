@@ -6,14 +6,14 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 02/14/2018
+ms.date: 09/02/2020
 ms.author: yushwang
-ms.openlocfilehash: 21c24fba2cbe03b17a057c09f95d9dd0d3665dc2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 96931d2dd94a8a31021ebe62caaefc54f643b007
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87064539"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94649255"
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections"></a>Configurar a política de IPsec/IKE para conexões VPN S2S ou VNet para VNet
 
@@ -34,9 +34,8 @@ Este artigo fornece instruções para criar e configurar uma política de IPsec/
 
 > [!IMPORTANT]
 > 1. Observe que a política IPsec/IKE só funciona nas seguintes SKUs de gateway:
->    * ***VpnGw1, VpnGw2, VpnGw3*** (baseado em rotas)
->    * ***Standard*** e ***HighPerformance*** (baseado em rotas)
-> 2. Você só pode especificar ***uma*** combinação de políticas para uma determinada conexão.
+>    * ***VpnGw1, VpnGw2, VpnGw3** _ (baseado em rota) _ ***Standard** _ e _*_HighPerformance_*_ (baseado em rota)
+> 2. Você só pode especificar _*_uma_*_ combinação de política para uma determinada conexão.
 > 3. Você deve especificar todos os algoritmos e parâmetros para IKE (modo principal) e IPsec (modo rápido). A especificação de política parcial não é permitida.
 > 4. Consulte as especificações do fornecedor do dispositivo VPN para garantir que a política tem suporte em seus dispositivos VPN local. S2S ou conexões VNet para VNet não podem estabelecer se as políticas são incompatíveis.
 
@@ -56,7 +55,7 @@ As instruções neste artigo ajudam você a instalar e configurar políticas de 
 
 A tabela a seguir lista os algoritmos de criptografia compatíveis e restrições de chave configuráveis pelos clientes:
 
-| **IPsec/IKEv2**  | **Opções**    |
+| _ *IPSec/IKEv2**  | **Opções**    |
 | ---  | --- 
 | Criptografia IKEv2 | AES256, AES192, AES128, DES3, DES  
 | Integridade do IKEv2  | SHA384, SHA256, SHA1, MD5  |
@@ -153,7 +152,7 @@ $LNGIP6        = "131.107.72.22"
 
 #### <a name="2-connect-to-your-subscription-and-create-a-new-resource-group"></a>2. Conecte-se à sua assinatura e crie um novo grupo de recursos
 
-Alterne para o modo do PowerShell para usar os cmdlets do Gerenciador de Recursos. Para obter mais informações, consulte [Usando o Windows PowerShell com o Gerenciador de Recursos](../powershell-azure-resource-manager.md).
+Alterne para o modo do PowerShell para usar os cmdlets do Gerenciador de Recursos. Para obter mais informações, consulte [Usando o Windows PowerShell com o Gerenciador de Recursos](../azure-resource-manager/management/manage-resources-powershell.md).
 
 Abra o console do PowerShell e conecte-se à sua conta. Use o exemplo a seguir para ajudar com a conexão:
 

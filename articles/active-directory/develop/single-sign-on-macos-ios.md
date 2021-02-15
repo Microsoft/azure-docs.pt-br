@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: ''
 ms.custom: aaddev
 ms.openlocfilehash: 25389348476552298ddb947ccb59acb8b3d5bc57
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80881241"
 ---
 # <a name="how-to-configure-sso-on-macos-and-ios"></a>Como: configurar o SSO no macOS e no iOS
@@ -97,8 +97,8 @@ Quando os direitos estiverem configurados corretamente, você verá um `entitlem
 #### <a name="add-a-new-keychain-group"></a>Adicionar um novo grupo de conjunto de chaves
 
 Adicione um novo grupo de conjunto de chaves a seus **recursos**de projeto. O grupo de conjunto de chaves deve ser:
-* `com.microsoft.adalcache`no iOS 
-* `com.microsoft.identity.universalstorage`no macOS.
+* `com.microsoft.adalcache` no iOS 
+* `com.microsoft.identity.universalstorage` no macOS.
 
 ![exemplo de conjunto de chaves](media/single-sign-on-macos-ios/keychain-example.png)
 

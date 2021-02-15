@@ -10,16 +10,16 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: 
   ms.topic: landing-page
-  author: MashaMSFT
-  ms.author: mathoma
-  ms.reviewer: carlrab
+  author: stevestein
+  ms.author: sstein
+  ms.reviewer: 
   ms.date: 10/30/2019
-  ms.openlocfilehash: 03f1f908983487bb3ee5be88ced36a0848a731cc
-  ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+  ms.openlocfilehash: 91221735001f55974f6aba4b6fcae39a92834da8
+  ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 08/19/2020
-  ms.locfileid: "88590431"
+  ms.lasthandoff: 11/13/2020
+  ms.locfileid: "94593885"
 landingContent:
 - title: Banco de Dados SQL do Azure
   linkLists:
@@ -117,6 +117,16 @@ landingContent:
       url: virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md
     - text: Diretrizes de desempenho
       url: virtual-machines/windows/performance-guidelines-best-practices.md
+- title: Migrar do SQL Server
+  linkLists:
+  - linkListType: deploy
+    links:
+    - text: Banco de Dados SQL do Azure
+      url: migration-guides/database/sql-server-to-sql-database-overview.md
+    - text: Instância Gerenciada do Azure SQL
+      url: migration-guides/managed-instance/sql-server-to-managed-instance-overview.md
+    - text: SQL Server em VMs do Azure
+      url: migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-migration-overview.md
 - title: Conectar e consultar
   linkLists:
   - linkListType: quickstart
@@ -137,40 +147,6 @@ landingContent:
       url: database/connect-query-dotnet-core.md
     - text: Python
       url: database/connect-query-python.md
-- title: Desenvolvimento
-  linkLists:
-  - linkListType: overview
-    links:
-    - text: Desenvolvimento de aplicativo
-      url: database/develop-overview.md
-    - text: Design de aplicativo de recuperação de desastre
-      url: database/designing-cloud-solutions-for-disaster-recovery.md
-    - text: Gerenciamento de atualizações sem interrupção (BD SQL)
-      url: database/manage-application-rolling-upgrade.md
-    - text: Estratégias de desenvolvimento (VM SQL)
-      url: virtual-machines/windows/application-patterns-development-strategies.md
-    - text: Padrões de locação de banco de dados de SaaS
-      url: database/saas-tenancy-app-design-patterns.md
-  - linkListType: how-to-guide
-    links:
-    - text: Banco de dados design first (SSMS)
-      url: database/design-first-database-tutorial.md
-    - text: Banco de dados design first (C#)
-      url: database/design-first-database-csharp-tutorial.md
-- title: Conheça o SQL do Azure
-  linkLists:
-  - linkListType: learn
-    links:
-    - text: SQL do Azure para iniciantes
-      url: https://aka.ms/azuresql4beginners
-    - text: Princípios Básicos do SQL do Azure
-      url: https://docs.microsoft.com/learn/paths/azure-sql-fundamentals/
-    - text: Laboratórios práticos do SQL do Azure
-      url: https://aka.ms/asqlworkshop
-    - text: Bootcamp do SQL do Azure
-      url: https://aka.ms/azuresqlbootcamp
-    - text: Recursos educativos do SQL
-      url: /sql/sql-server/educational-sql-resources
 - title: Referência
   linkLists:
   - linkListType: deploy
@@ -198,8 +174,42 @@ landingContent:
     - text: Transact-SQL (T-SQL)
       url: /sql/t-sql/language-reference
     - text: CLI do Azure
-      url: https://docs.microsoft.com/cli/azure/sql
+      url: /cli/azure/sql
     - text: PowerShell
-      url: https://docs.microsoft.com/powershell/module/az.sql
+      url: /powershell/module/az.sql
     - text: API REST
-      url: https://docs.microsoft.com/rest/api/sql/
+      url: /rest/api/sql/
+- title: Conheça o SQL do Azure
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: SQL do Azure para iniciantes
+      url: https://aka.ms/azuresql4beginners
+    - text: Princípios Básicos do SQL do Azure
+      url: /learn/paths/azure-sql-fundamentals/
+    - text: Laboratórios práticos do SQL do Azure
+      url: https://aka.ms/asqlworkshop
+    - text: Bootcamp do SQL do Azure
+      url: https://aka.ms/azuresqlbootcamp
+    - text: Recursos educativos do SQL
+      url: /sql/sql-server/educational-sql-resources
+- title: Desenvolvimento
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Desenvolvimento de aplicativo
+      url: database/develop-overview.md
+    - text: Design de aplicativo de recuperação de desastre
+      url: database/designing-cloud-solutions-for-disaster-recovery.md
+    - text: Gerenciamento de atualizações sem interrupção (BD SQL)
+      url: database/manage-application-rolling-upgrade.md
+    - text: Estratégias de desenvolvimento (VM SQL)
+      url: virtual-machines/windows/application-patterns-development-strategies.md
+    - text: Padrões de locação de banco de dados de SaaS
+      url: database/saas-tenancy-app-design-patterns.md
+  - linkListType: how-to-guide
+    links:
+    - text: Banco de dados design first (SSMS)
+      url: database/design-first-database-tutorial.md
+    - text: Banco de dados design first (C#)
+      url: database/design-first-database-csharp-tutorial.md

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/15/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: d05de44343d5d530a367286bec3d82ba3d66f0f6
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: dcfef81f2d7f3413489490d97c143fdec7e11bed
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88817353"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499315"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Perguntas frequentes sobre discos de VM IaaS do Azure e discos premium gerenciados e não gerenciados
 
@@ -76,7 +76,7 @@ Dependendo da região em que o conjunto de disponibilidade que usa o Managed Dis
 
 Você configura uma conta de armazenamento privado para diagnóstico da VM.
 
-**O tipo de suporte ao Controle de Acesso Baseado em Função está disponível para o Managed Disks?**
+**Que tipo de suporte ao controle de acesso baseado em função do Azure está disponível para Managed Disks?**
 
 O Managed Disks oferece suporte a três funções principais padrão:
 
@@ -136,7 +136,7 @@ Para discos gerenciados, você não pode renomeá-los. No entanto, você pode re
 
 As imagens de Geração 1 só podem usar o particionamento GPT em discos de dados, não em discos do sistema operacional. Os discos do sistema operacional devem usar o estilo de partição MBR.
 
-[As imagens de Geração 2](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2) podem usar o particionamento GPT no disco do sistema operacional e nos discos de dados.
+[As imagens de Geração 2](./generation-2.md) podem usar o particionamento GPT no disco do sistema operacional e nos discos de dados.
 
 **Quais tipos de disco dão suporte a instantâneos?**
 
@@ -151,7 +151,7 @@ A reserva de discos do Azure fornece a opção de comprar SSDs Premium nas SKUs 
 As reservas são feitas na forma de discos, não de capacidade. Em outras palavras, ao reservar um disco P80 (32 TiB), você obterá um único disco P80, ou seja, não é possível dividir essa reserva específica em dois discos menores de P70 (16 TiB). É claro que você pode reservar tantos discos quanto desejar, incluindo dois discos P70 (16 TiB) diferentes.
 
 **Como a reserva de discos do Azure funciona?**     
-A reserva de discos segue um modelo semelhante às instâncias de VM (máquina virtual) reservadas. A diferença é que uma reserva de discos não pode ser aplicada a SKUs diferentes, mas uma instância de VM pode. Confira [Economizar custos com Instâncias de VM Reservadas do Azure](./linux/prepay-reserved-vm-instances.md) para obter mais informações sobre instâncias de VM.     
+A reserva de discos segue um modelo semelhante às instâncias de VM (máquina virtual) reservadas. A diferença é que uma reserva de discos não pode ser aplicada a SKUs diferentes, mas uma instância de VM pode. Confira [Economizar custos com Instâncias de VM Reservadas do Azure](./prepay-reserved-vm-instances.md) para obter mais informações sobre instâncias de VM.     
 
 **Posso usar meu armazenamento de dados adquirido por meio da reserva de discos do Azure em várias regiões?**     
 A reserva de discos do Azure é adquirida para uma região e uma SKU específicas (como P30 no Leste dos EUA 2) e, portanto, não pode ser usada fora desses constructos. Você sempre pode comprar uma reserva de discos do Azure adicional para suas necessidades de armazenamento em disco em outras regiões ou SKUs.    
@@ -171,7 +171,7 @@ Não, há suporte apenas para ultra discos e discos gerenciados do SSD Premium.
 
 **Quais regiões dão suporte a discos compartilhados?**
 
-Para obter informações regionais, consulte nosso [artigo conceitual](./linux/disks-shared.md).
+Para obter informações regionais, consulte nosso [artigo conceitual](disks-shared.md).
 
 **Os discos compartilhados podem ser usados como um disco do sistema operacional?**
 
@@ -179,7 +179,7 @@ Não, os discos compartilhados só têm suporte por discos de dados.
 
 **Quais tamanhos de disco dão suporte a discos compartilhados?**
 
-Para tamanhos com suporte, consulte nosso [artigo conceitual](./linux/disks-shared.md).
+Para tamanhos com suporte, consulte nosso [artigo conceitual](disks-shared.md).
 
 **Se eu tiver um disco existente, posso habilitar discos compartilhados nele?**
 
@@ -241,7 +241,7 @@ Não, o upload só pode ser usado durante a criação de um novo disco vazio com
 
 **Como fazer upload para um disco gerenciado?**
 
-Crie um disco gerenciado com a propriedade [createOption](https://docs.microsoft.com/rest/api/compute/disks/createorupdate#diskcreateoption) de [creationData](https://docs.microsoft.com/rest/api/compute/disks/createorupdate#creationdata) definida como "Upload"; em seguida, você poderá carregar dados nele.
+Crie um disco gerenciado com a propriedade [createOption](/rest/api/compute/disks/createorupdate#diskcreateoption) de [creationData](/rest/api/compute/disks/createorupdate#creationdata) definida como "Upload"; em seguida, você poderá carregar dados nele.
 
 **Posso anexar um disco a uma VM enquanto ela está em um estado de upload?**
 
@@ -396,13 +396,19 @@ Não, apenas os Managed Disks SSD Premium dão suporte.
 
 Não, nenhum disco gerenciado SSD Standard de qualquer tamanho pode ser usado com discos não gerenciados ou blobs de páginas.
 
-**Qual é o maior tamanho de disco gerenciado com suporte para o sistema operacional e os discos de dados?**
+**Qual é o maior tamanho de disco gerenciado com suporte para o sistema operacional e discos de dados em VMs Gen1?**
 
-O tipo de partição a que o Azure dá suporte para um disco do sistema operacional é o MBR (registro mestre de inicialização). O formato do MBR dá suporte a tamanho de disco de até 2 TiB. O maior tamanho a que o Azure dá suporte para um disco do sistema operacional é 2 TiB. O Azure dá suporte a até 32 TB em discos de dados.
+O tipo de partição que o Azure dá suporte para discos do sistema operacional Gen1 é o MBR (registro mestre de inicialização). Embora os discos do so Gen1 suportem somente a MBR, os discos de dados dão suporte a GPT. Embora você possa alocar até um disco de sistema operacional de 4 TiB, o tipo de partição MBR só pode usar até 2 TiB desse espaço em disco para o sistema operacional. O Azure dá suporte a até 32 TB em discos de dados.
+
+**Qual é o maior tamanho de disco gerenciado com suporte para o sistema operacional e discos de dados em VMs Gen2?**
+
+O tipo de partição que o Azure dá suporte para discos do sistema operacional Gen2 é GPT (tabela de partição GUID). As VMs Gen2 dão suporte a até um disco de sistema operacional de 4 TiB. O Azure dá suporte a até 32 TB em discos de dados.
+
 
 **Qual é o maior tamanho de disco não gerenciado com suporte para o sistema operacional e os discos de dados?**
 
-O tipo de partição a que o Azure dá suporte para um disco do sistema operacional é o MBR (registro mestre de inicialização). O formato do MBR dá suporte a tamanho de disco de até 2 TiB. O maior tamanho a que o Azure dá suporte para um disco do sistema operacional é 2 TiB. O Azure dá suporte a até 4 TiB em discos de dados não gerenciados.
+O tipo de partição que o Azure dá suporte para um disco do sistema operacional usando discos não gerenciados é o MBR (registro mestre de inicialização).  Embora você possa alocar até um disco de sistema operacional de 4 TiB, o tipo de partição MBR só pode usar até 2 TiB desse espaço em disco para o sistema operacional. O Azure dá suporte a até 4 TiB para discos de dados não gerenciados.
+
 
 **Qual é o maior tamanho de blob de página com suporte?**
 
@@ -421,7 +427,7 @@ Você não precisa atualizar as ferramentas existentes do Azure para criar, anex
 
 **Os tamanhos de disco P4 e P6 têm suporte para discos não gerenciados ou blobs de página?**
 
-Tamanhos de disco P4 (32 GiB) e P6 (64 GiB) não têm suporte como as camadas de disco padrão para discos não gerenciados e blobs de página. Você precisa explicitamente [definir a camada de Blob](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) para P4 e P6 ter seu disco mapeado para essas camadas. Se você implantar um blob de página ou disco não gerenciado com o tamanho do disco ou o comprimento de conteúdo de menor que 32 GiB ou entre 32 GiB para 64 GiB sem definir a camada de Blob, você continuará a chegar em P10 com 500 IOPS e 100 MiB/s e o nível de preço mapeado.
+Tamanhos de disco P4 (32 GiB) e P6 (64 GiB) não têm suporte como as camadas de disco padrão para discos não gerenciados e blobs de página. Você precisa explicitamente [definir a camada de Blob](/rest/api/storageservices/set-blob-tier) para P4 e P6 ter seu disco mapeado para essas camadas. Se você implantar um blob de página ou disco não gerenciado com o tamanho do disco ou o comprimento de conteúdo de menor que 32 GiB ou entre 32 GiB para 64 GiB sem definir a camada de Blob, você continuará a chegar em P10 com 500 IOPS e 100 MiB/s e o nível de preço mapeado.
 
 **Se o meu disco gerenciado premium existente com menos de 64 GiB foi criado antes da habilitação da pequeno disco (por volta de 15 de junho de 2017), como ele é cobrado?**
 
@@ -491,6 +497,6 @@ Não.
 
 ## <a name="what-if-my-question-isnt-answered-here"></a>E se dúvida não foi respondida aqui?
 
-Se sua pergunta não estiver listada aqui, fale conosco e nós ajudaremos a encontrar uma resposta. Você pode postar uma pergunta no final deste artigo nos comentários. Para se comunicar com a equipe do Armazenamento do Azure e outros membros da comunidade sobre este artigo, use o [Página de perguntas e respostas da Microsoft sobre o Armazenamento do Azure](https://docs.microsoft.com/answers/products/azure?product=storage) no MSDN.
+Se sua pergunta não estiver listada aqui, fale conosco e nós ajudaremos a encontrar uma resposta. Você pode postar uma pergunta no final deste artigo nos comentários. Para se envolver com a equipe de armazenamento do Azure e outros membros da Comunidade sobre este artigo, use o [Microsoft Q&uma página de perguntas para o armazenamento do Azure](/answers/products/azure?product=storage).
 
 Para solicitar recursos, envie suas solicitações e ideias para o [Fórum de comentários do Armazenamento do Azure](https://feedback.azure.com/forums/217298-storage).

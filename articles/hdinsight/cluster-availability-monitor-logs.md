@@ -1,18 +1,15 @@
 ---
 title: Como monitorar a disponibilidade do cluster com os logs de Azure Monitor no HDInsight
 description: Saiba como usar os logs de Azure Monitor para monitorar a integridade e a disponibilidade do cluster.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 08/12/2020
-ms.openlocfilehash: 19e3f1a157ee2c042dfebfc96c9b51c3c4698ebc
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: d52cb1c5f3b1dd1b23adb39f2f65d0e66968e482
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88163723"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946961"
 ---
 # <a name="how-to-monitor-cluster-availability-with-azure-monitor-logs-in-hdinsight"></a>Como monitorar a disponibilidade do cluster com os logs de Azure Monitor no HDInsight
 
@@ -22,7 +19,7 @@ Os clusters HDInsight incluem a integração de logs de Azure Monitor, que forne
 
 Os logs de Azure Monitor permitem que os dados gerados por vários recursos, como clusters HDInsight, sejam coletados e agregados em um único local para alcançar uma experiência de monitoramento unificada.
 
-Como pré-requisito, você precisará de um espaço de trabalho Log Analytics para armazenar os dados coletados. Se você ainda não criou uma, você pode seguir as instruções aqui: [criar um log Analytics espaço de trabalho](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
+Como pré-requisito, você precisará de um espaço de trabalho Log Analytics para armazenar os dados coletados. Se você ainda não criou uma, você pode seguir as instruções aqui: [criar um log Analytics espaço de trabalho](../azure-monitor/learn/quick-create-workspace.md).
 
 ## <a name="enable-hdinsight-azure-monitor-logs-integration"></a>Habilitar a integração de logs de Azure Monitor do HDInsight
 
@@ -55,7 +52,7 @@ Por exemplo, execute a consulta de exemplo **taxa de disponibilidade** seleciona
 > [!NOTE]  
 > A taxa de disponibilidade é medida em um período de 24 horas, portanto, o cluster precisará ser executado por pelo menos 24 horas antes de você ver taxas de disponibilidade precisas.
 
-Você pode fixar essa tabela em um painel compartilhado clicando em **fixar** no canto superior direito. Se você não tiver nenhum Dashboard compartilhado gravável, poderá ver como criar um aqui: [criar e compartilhar painéis no portal do Azure](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards#publish-and-share-a-dashboard).
+Você pode fixar essa tabela em um painel compartilhado clicando em **fixar** no canto superior direito. Se você não tiver nenhum Dashboard compartilhado gravável, poderá ver como criar um aqui: [criar e compartilhar painéis no portal do Azure](../azure-portal/azure-portal-dashboards.md#publish-and-share-a-dashboard).
 
 ## <a name="azure-monitor-alerts"></a>Alertas do Azure Monitor
 
@@ -84,7 +81,7 @@ Como essa consulta só retorna nós indisponíveis como resultados, se o número
 
 Na seção **avaliado com base em** , defina o **período** e a **frequência** com base na frequência com que você deseja verificar se há nós indisponíveis.
 
-Para fins deste alerta, você deseja verificar o **período = frequência.** Mais informações sobre o período, a frequência e outros parâmetros de alerta podem ser encontrados [aqui](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log#log-search-alert-rule---definition-and-types).
+Para fins deste alerta, você deseja verificar o **período = frequência.** Mais informações sobre o período, a frequência e outros parâmetros de alerta podem ser encontrados [aqui](../azure-monitor/platform/alerts-unified-log.md#alert-logic-definition).
 
 Selecione **concluído** quando tiver terminado de configurar a lógica de sinal.
 
@@ -94,12 +91,12 @@ Se você ainda não tiver um grupo de ações existente, clique em **criar novo*
 
 ![A regra de alerta cria um novo grupo de ação](media/cluster-availability-monitor-logs/portal-create-new-action-group.png)
 
-Isso abrirá **Adicionar grupo de ação**. Escolha um **nome de grupo de ação**, **nome curto**, **assinatura**e **grupo de recursos.** Na seção **ações** , escolha um **nome de ação** e selecione **email/SMS/Push/voz** como o **tipo de ação.**
+Isso abrirá **Adicionar grupo de ação**. Escolha um **nome de grupo de ação**, **nome curto**, **assinatura** e **grupo de recursos.** Na seção **ações** , escolha um **nome de ação** e selecione **email/SMS/Push/voz** como o **tipo de ação.**
 
 > [!NOTE]
-> Há várias outras ações que um alerta pode disparar além de um email/SMS/Push/voz, como um Azure functions, LogicApp, webhook, ITSM e runbook de automação. [Saiba Mais.](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups#action-specific-information)
+> Há várias outras ações que um alerta pode disparar além de um email/SMS/Push/voz, como um Azure functions, LogicApp, webhook, ITSM e runbook de automação. [Saiba Mais.](../azure-monitor/platform/action-groups.md#action-specific-information)
 
-Isso abrirá **email/SMS/Push/Voice**. Escolha um **nome** para o destinatário, **marque** a caixa **email** e digite um endereço de email para o qual você deseja que o alerta seja enviado. Selecione **OK** em **email/SMS/Push/voz**e, em seguida, em **Adicionar grupo de ação** para concluir a configuração do grupo de ação.
+Isso abrirá **email/SMS/Push/Voice**. Escolha um **nome** para o destinatário, **marque** a caixa **email** e digite um endereço de email para o qual você deseja que o alerta seja enviado. Selecione **OK** em  **email/SMS/Push/voz** e, em seguida, em **Adicionar grupo de ação** para concluir a configuração do grupo de ação.
 
 ![Regra de alerta cria Adicionar grupo de ação](media/cluster-availability-monitor-logs/portal-add-action-group.png)
 

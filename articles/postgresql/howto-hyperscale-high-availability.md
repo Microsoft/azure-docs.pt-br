@@ -6,13 +6,13 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 11/04/2019
-ms.openlocfilehash: 0c7702c8832e22d889a5d785dad845430bfb7d17
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/27/2020
+ms.openlocfilehash: 46b842994cbcf7efe66d5992c79246d77626e268
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86116872"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "90907392"
 ---
 # <a name="configure-hyperscale-citus-high-availability"></a>Configurar alta disponibilidade de Citus (hiperescala)
 
@@ -21,15 +21,15 @@ Banco de dados do Azure para PostgreSQL-o Citus (hiperescala) fornece alta dispo
 > [!IMPORTANT]
 > Como a HA duplica o número de servidores no grupo, ele também dobrará o custo.
 
-Habilitar a HA é possível durante a criação do grupo de servidores ou posteriormente na guia **Configurar** do grupo de servidores na portal do Azure. A interface do usuário é semelhante em ambos os casos. Arraste o controle deslizante para **alta disponibilidade** para Sim:
+Habilitar a HA é possível durante a criação do grupo de servidores ou posteriormente na guia **computação + armazenamento** do grupo de servidores na portal do Azure. A interface do usuário é semelhante em ambos os casos. Arraste o controle deslizante para **alta disponibilidade** de não para Sim:
 
-![controle deslizante de alta disponibilidade](./media/howto-hyperscale-high-availability/01-ha-slider.png)
+:::image type="content" source="./media/howto-hyperscale-high-availability/01-ha-slider.png" alt-text="controle deslizante de alta disponibilidade":::
 
 Clique no botão **salvar** para aplicar sua seleção. Habilitar a HA pode levar algum tempo, pois o grupo de servidores provisiona em espera e transmite dados para eles.
 
 A guia **visão geral** do grupo de servidores listará todos os nós e suas esperas, juntamente com uma coluna de **alta disponibilidade** que indica se a ha está habilitada com êxito para cada nó.
 
-![a coluna de alta disponibilidade na visão geral do grupo de servidores](./media/howto-hyperscale-high-availability/02-ha-column.png)
+:::image type="content" source="./media/howto-hyperscale-high-availability/02-ha-column.png" alt-text="controle deslizante de alta disponibilidade":::
 
 ### <a name="next-steps"></a>Próximas etapas
 

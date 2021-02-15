@@ -3,13 +3,13 @@ title: Aplicativo Azure insights substituir pontos de extremidade do SDK padrão
 description: Modifique o Azure Monitor padrão Application Insights pontos de extremidade do SDK para regiões como o Azure governamental.
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.custom: references_regions, devx-track-javascript
-ms.openlocfilehash: 22f81b327c161df4f6605cfcb64b48b8d75beed3
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.custom: references_regions, devx-track-js
+ms.openlocfilehash: d6cea9044cd4898480fcc30532a05e6c8a407012
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373123"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91333283"
 ---
 # <a name="application-insights-overriding-default-endpoints"></a>Application Insights substituindo pontos de extremidade padrão
 
@@ -79,7 +79,7 @@ using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPuls
 
 Por Azure Functions agora é recomendável usar [cadeias de conexão](./sdk-connection-string.md?tabs=net) definidas nas configurações do aplicativo da função. Para acessar as configurações do aplicativo para sua função no painel funções, selecione **configurações**configurações do aplicativo de  >  **configuração**  >  **Application settings**. 
 
-Nome: `APPLICATIONINSIGHTS_CONNECTION_STRING` valor:`Connection String Value`
+Nome: `APPLICATIONINSIGHTS_CONNECTION_STRING` valor: `Connection String Value`
 
 # <a name="java"></a>[Java](#tab/java)
 

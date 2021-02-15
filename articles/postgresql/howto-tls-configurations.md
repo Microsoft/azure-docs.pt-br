@@ -1,17 +1,17 @@
 ---
 title: Configuração de TLS-portal do Azure-banco de dados do Azure para PostgreSQL-servidor único
 description: Saiba como definir a configuração de TLS usando o portal do Azure para o banco de dados do Azure para PostgreSQL servidor único
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 06/02/2020
-ms.openlocfilehash: 4cf491a27fbe53a5f5bf0e8351e5bb684b3492f1
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 25be6b3c4e3172fc8ee14b97fd890b5948c284ba
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86101980"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242357"
 ---
 # <a name="configuring-tls-settings-in-azure-database-for-postgresql-single---server-using-azure-portal"></a>Definindo configurações de TLS no banco de dados do Azure para PostgreSQL servidor único usando portal do Azure
 
@@ -31,17 +31,17 @@ Siga estas etapas para definir a versão mínima do TLS do PostgreSQL:
 
 1. Na [portal do Azure](https://portal.azure.com/), selecione seu banco de dados do Azure existente para PostgreSQL.
 
-1.  Na página banco de dados do Azure para PostgreSQL – servidor único, em **configurações**, clique em **segurança de conexão** para abrir a página configuração de segurança da conexão.
+1.  Na página banco de dados do Azure para PostgreSQL – servidor único, em **configurações** , clique em **segurança de conexão** para abrir a página configuração de segurança da conexão.
 
-1. Em **versão mínima do TLS**, selecione **1,2** para negar conexões com a versão tls inferior ao TLS 1,2 para seu servidor único PostgreSQL.
+1. Em **versão mínima do TLS** , selecione **1,2** para negar conexões com a versão tls inferior ao TLS 1,2 para seu servidor único PostgreSQL.
 
-    ![Configuração do TLS de servidor único do banco de dados do Azure para PostgreSQL](./media/howto-tls-configurations/setting-tls-value.png)
+    :::image type="content" source="./media/howto-tls-configurations/setting-tls-value.png" alt-text="Configuração do TLS de servidor único do banco de dados do Azure para PostgreSQL":::
 
 1. Clique em **Salvar** para salvar as alterações.
 
 1. Uma notificação confirmará que a configuração de segurança de conexão foi habilitada com êxito.
 
-    ![Banco de dados do Azure para PostgreSQL-êxito na configuração do TLS do servidor único](./media/howto-tls-configurations/setting-tls-value-success.png)
+    :::image type="content" source="./media/howto-tls-configurations/setting-tls-value-success.png" alt-text="Configuração do TLS de servidor único do banco de dados do Azure para PostgreSQL":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

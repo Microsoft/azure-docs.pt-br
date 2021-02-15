@@ -5,14 +5,14 @@ author: KishorIoT
 ms.author: nandab
 ms.service: iot-central
 ms.subservice: iot-central-retail
-ms.topic: overview
+ms.topic: tutorial
 ms.date: 10/20/2019
-ms.openlocfilehash: 430f477422e040e0e7e28fd69a1cbc18bce7d656
-ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
+ms.openlocfilehash: b1b7069cb723bffd758c3603cc957329dd6d2a9b
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "81001275"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96463266"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-smart-inventory-management-application-template"></a>Tutorial: Implantar e usar um modelo de aplicativo de gerenciamento de estoque inteligente
 
@@ -35,22 +35,19 @@ Para criar um aplicativo, faça o seguinte:
 
 1. Navegue até o site do Gerenciador de Aplicativos do Azure IoT Central. Selecione o **Build**, na barra de navegação à esquerda, e clique na guia **Varejo**.
 
-    > [!div class="mx-imgBorder"]
-    > ![Painel de Gerenciamento de Estoque Inteligente](./media/tutorial-iot-central-smart-inventory-management/iotc_retail_homepage.png)
+    :::image type="content" source="media/tutorial-iot-central-smart-inventory-management/iotc_retail_homepage.png" alt-text="Captura de tela mostrando como selecionar o modelo de aplicativo de gerenciamento de estoque inteligente":::
 
 2. Selecione a guia **Varejo** e escolha **Criar aplicativo** sob **Gerenciamento de estoque inteligente**
 
 3. A opção **Criar aplicativo** abrirá o formulário Novo aplicativo e preencherá os detalhes solicitados, conforme mostrado abaixo.
-   **Nome do aplicativo**: use o nome sugerido padrão ou crie um nome de aplicativo amigável.
-   **URL**: use a URL sugerida padrão ou crie uma URL amigável exclusiva de fácil memorização. Em seguida, recomendamos usar a configuração padrão, caso você já tenha uma assinatura do Azure. Você pode começar com o plano de preço de avaliação gratuita de 7 dias e optar por converter em um plano de preço padrão a qualquer momento antes que a avaliação gratuita expire.
-   **Informações de Cobrança**: para provisionar os recursos, é necessário informar os detalhes em Diretório, Assinatura do Azure e Região.
-   **Criar**: selecione Criar, no final da página, para implantar o aplicativo.
+    **Nome do aplicativo**: use o nome sugerido padrão ou crie um nome de aplicativo amigável.
+    **URL**: use a URL sugerida padrão ou crie uma URL amigável exclusiva de fácil memorização. Em seguida, recomendamos usar a configuração padrão, caso você já tenha uma assinatura do Azure. Você pode começar com o plano de preço de avaliação gratuita de 7 dias e optar por converter em um plano de preço padrão a qualquer momento antes que a avaliação gratuita expire.
+    **Informações de Cobrança**: para provisionar os recursos, é necessário informar os detalhes em Diretório, Assinatura do Azure e Região.
+    **Criar**: selecione Criar, no final da página, para implantar o aplicativo.
 
-    > [!div class="mx-imgBorder"]
-    > ![Painel de Gerenciamento de Estoque Inteligente](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_app_create.png)
+    :::image type="content" source="media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_app_create.png" alt-text="Captura de tela mostrando como criar um aplicativo com base no modelo de aplicativo de gerenciamento de estoque inteligente":::
 
-    > [!div class="mx-imgBorder"]
-    > ![Informações de cobrança do Gerenciamento de Estoque Inteligente](./media/tutorial-iot-central-smart-inventory-management/smart-inventory-management-app-create-billinginfo.png)
+    :::image type="content" source="media/tutorial-iot-central-smart-inventory-management/smart-inventory-management-app-create-billinginfo.png" alt-text="Captura de tela mostrando as opções de cobrança quando você cria o aplicativo":::
 
 ## <a name="walk-through-the-application"></a>Explorar o aplicativo 
 
@@ -63,14 +60,14 @@ O painel é dividido logicamente entre duas operações diferentes de gerenciame
    * Exibir a localização, o status e os detalhes relacionados do gateway. 
 
 > [!div class="mx-imgBorder"]
-> ![Painel de Gerenciamento de Estoque Inteligente](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_dashboard1.png)
+> ![Captura de tela mostrando a metade superior do painel de gerenciamento de estoque inteligente](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_dashboard1.png)
 
    * Você pode acompanhar facilmente a quantidade de gateways, bem como as marcas ativas ou desconhecidas.
    * Você pode executar operações de gerenciamento de dispositivos, como atualizar firmware, desabilitar e habilitar sensor, atualizar limite de sensor, atualizar intervalos de telemetria e atualizar contratos de serviço de dispositivo.
    * Os dispositivos de gateway podem executar gerenciamento de estoque sob demanda com uma verificação completa ou incremental.
 
 > [!div class="mx-imgBorder"]
-> ![Painel de Gerenciamento de Estoque Inteligente](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_dashboard2.png)
+> ![Captura de tela mostrando a metade inferior do painel de gerenciamento de estoque inteligente](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_dashboard2.png)
 
 ## <a name="device-template"></a>Modelo de dispositivo
 Clique na guia Modelos de dispositivo para ver o modelo de funcionalidade do gateway. O modelo de funcionalidade é estruturado em duas interfaces diferentes: **Propriedade e telemetria de gateway** e **Comandos de gateway**.
@@ -78,13 +75,13 @@ Clique na guia Modelos de dispositivo para ver o modelo de funcionalidade do gat
 **Telemetria e propriedade de gateway** – essa interface representa toda a telemetria relacionada a sensores, localização, informações do dispositivo, além da capacidade de propriedade do dispositivo gêmeo, como intervalos de atualização e limites de gateway.
 
 > [!div class="mx-imgBorder"]
-> ![Painel de Gerenciamento de Estoque Inteligente](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_devicetemplate1.png)
+> ![Captura de tela mostrando o modelo de dispositivo de gateway de estoque no aplicativo](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_devicetemplate1.png)
 
 
 **Comandos de gateway** – essa interface organiza todas as funcionalidades de comando do gateway.
 
 > [!div class="mx-imgBorder"]
-> ![Painel de Gerenciamento de Estoque Inteligente](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_devicetemplate2.png)
+> ![Captura de tela mostrando a interface de comandos do gateway no modelo de dispositivo de gateway de estoque](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_devicetemplate2.png)
 
 ## <a name="rules"></a>Regras
 Selecione a guia Regras para ver duas regras diferentes neste modelo de aplicativo. Essas regras são configuradas para enviar notificações por email aos operadores para fins de investigações posteriores.
@@ -94,7 +91,7 @@ Selecione a guia Regras para ver duas regras diferentes neste modelo de aplicati
 **Marcas desconhecidas**: é essencial rastrear todas as marcas de BLE e RFID associadas a um ativo. Se o gateway está detectando muitas marcas desconhecidas, é uma indicação de que há problemas de sincronização com os aplicativos que fornecem as marcas.
 
 > [!div class="mx-imgBorder"]
-> ![Painel de Gerenciamento de Estoque Inteligente](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_rules.png)
+> ![Captura de tela mostrando a lista de regras no aplicativo de gerenciamento de estoque inteligente](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_rules.png)
 
 ## <a name="jobs"></a>Trabalhos
 Selecione a guia Trabalhos para exibir cinco trabalhos existentes como parte deste modelo de aplicativo: Você pode usar o recurso Trabalhos para executar operações em toda a solução. Nesse caso, os trabalhos de gerenciamento de estoque estão usando a funcionalidade de gêmeos e os comandos do dispositivo para executar tarefas, como:
@@ -103,16 +100,18 @@ Selecione a guia Trabalhos para exibir cinco trabalhos existentes como parte des
    * Executar verificações de estoque sob demanda em toda a solução.
 
 > [!div class="mx-imgBorder"]
-> ![Painel de Gerenciamento de Estoque Inteligente](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_jobs.png)
+> ![Captura de tela mostrando a lista de trabalhos no aplicativo de gerenciamento de estoque inteligente](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_jobs.png)
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
 Caso não pretenda usar esse aplicativo, acesse **Administração** > **Configurações do Aplicativo** e clique em **Excluir** para excluir o modelo de aplicativo.
 
 > [!div class="mx-imgBorder"]
-> ![Painel de Gerenciamento de Estoque Inteligente](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_cleanup.png)
+> ![Captura de tela mostrando como excluir o aplicativo quando você terminar](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_cleanup.png)
 
 ## <a name="next-steps"></a>Próximas etapas
-* Saiba mais sobre o [conceito de gerenciamento de estoque inteligente](./architecture-smart-inventory-management.md)
+* Saiba mais sobre o gerenciamento de estoque inteligente 
+> [!div class="nextstepaction"]
+> [Conceito de gerenciamento de estoque inteligente](./architecture-smart-inventory-management.md)
 * Saiba mais sobre outros [modelos comerciais do IoT Central](./overview-iot-central-retail.md)
 * Para saber mais sobre o IoT Central, confira [Visão geral do IoT Central](../core/overview-iot-central.md)

@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
 ms.openlocfilehash: 80473aa494b8fbcea5e43870b7717cd3472dd7d1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "79480514"
 ---
 # <a name="disable-monitoring-of-your-vms-in-azure-monitor-for-vms"></a>Desabilite o monitoramento de suas VMs no Azure Monitor para VMs
@@ -24,7 +24,7 @@ O Azure Monitor para VMs depende dos seguintes componentes para fornecer sua exp
 * Um espaço de trabalho Log Analytics, que armazena dados de monitoramento de VMs e outras fontes.
 * Uma coleção de contadores de desempenho configurados no espaço de trabalho. A coleção atualiza a configuração de monitoramento em todas as VMs conectadas ao espaço de trabalho.
 * `VMInsights`, que é uma solução de monitoramento configurada no espaço de trabalho. Essa solução atualiza a configuração de monitoramento em todas as VMs conectadas ao espaço de trabalho.
-* `MicrosoftMonitoringAgent`e `DependencyAgent` que são extensões de VM do Azure. Essas extensões coletam e enviam dados para o espaço de trabalho.
+* `MicrosoftMonitoringAgent` e `DependencyAgent` que são extensões de VM do Azure. Essas extensões coletam e enviam dados para o espaço de trabalho.
 
 Ao se preparar para desabilitar o monitoramento de suas VMs, tenha em mente estas considerações:
 
@@ -39,7 +39,7 @@ Ao se preparar para desabilitar o monitoramento de suas VMs, tenha em mente esta
 Se você ainda precisar do espaço de trabalho Log Analytics, siga estas etapas para remover completamente Azure Monitor para VMs. Você removerá a `VMInsights` solução do espaço de trabalho.  
 
 1. Entre no [portal do Azure](https://portal.azure.com).
-2. No portal do Azure, clique em **Todos os serviços**. Na lista de recursos, digite **Log Analytics**. Conforme você começa a digitar, a lista filtra as sugestões com base em sua entrada. Selecione **log Analytics**.
+2. No portal do Azure, clique em **Todos os serviços**. Na lista de recursos, digite **Log Analytics**. Conforme você começa a digitar, a lista filtra as sugestões com base em sua entrada. Selecione o **Log Analytics**.
 3. Na lista de espaços de trabalho do Log Analytics, selecione o espaço de trabalho que você escolheu quando habilitou Azure Monitor para VMs.
 4. À esquerda, selecione **soluções**.  
 5. Na lista de soluções, selecione **VMInsights (nome do espaço de trabalho)**. Na página **visão geral** da solução, selecione **excluir**. Quando for solicitado a confirmar, selecione **Sim**.

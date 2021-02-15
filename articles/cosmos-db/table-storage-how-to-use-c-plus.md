@@ -1,6 +1,6 @@
 ---
 title: Usar o Armazenamento de Tabelas do Azure e a API de Tabela do Azure Cosmos DB com C++
-description: Armazene dados estruturados na nuvem usando o Armazenamento de Tabelas do Azure ou a API de Tabelas do Azure Cosmos DB.
+description: Armazene dados estruturados na nuvem usando o Armazenamento de Tabelas do Azure ou a API de Tabela do Azure Cosmos DB usando C++.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: cpp
@@ -8,14 +8,15 @@ ms.topic: sample
 ms.date: 10/07/2019
 author: sakash279
 ms.author: akshanka
-ms.openlocfilehash: 3d38fa2afe35976283e5129eab7d7f8ef3a1103b
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 79b58b76954cf15289e85dbf763b7a399897635d
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88236481"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489872"
 ---
 # <a name="how-to-use-azure-table-storage-and-azure-cosmos-db-table-api-with-c"></a>Como usar o Armazenamento de Tabelas do Azure e a API da tabela do Azure Cosmos DB com C++
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
@@ -78,7 +79,7 @@ Este exemplo mostra como declarar um campo estático para armazenar a cadeia de 
 const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=<your_storage_account>;AccountKey=<your_storage_account_key>"));
 ```
 
-Use o nome de sua Conta de armazenamento para `<your_storage_account>`. Para <chave_da_conta_de_armazenamento>, use a chave de acesso da Conta de armazenamento listada no [portal do Azure](https://portal.azure.com). Para obter informações sobre Contas de armazenamento e chaves de acesso, confira [Criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md).
+Use o nome de sua Conta de armazenamento para `<your_storage_account>`. Para <chave_da_conta_de_armazenamento>, use a chave de acesso da Conta de armazenamento listada no [portal do Azure](https://portal.azure.com). Para obter informações sobre Contas de armazenamento e chaves de acesso, confira [Criar uma conta de armazenamento](../storage/common/storage-account-create.md).
 
 ### <a name="set-up-an-azure-cosmos-db-connection-string"></a>Configurar uma cadeia de conexão do Azure Cosmos DB
 
@@ -94,7 +95,7 @@ Use o nome de sua conta do Azure Cosmos DB para `<your_cosmos_db_account>`. Insi
 Para testar o seu aplicativo no computador local baseado em Windows, você pode usar o Emulador de Armazenamento do Azure instalado com o [SDK do Azure](https://azure.microsoft.com/downloads/). O Emulador de Armazenamento é um utilitário que simula os serviços de Tabela, Fila e Blob do Azure disponíveis no seu computador de desenvolvimento local. O exemplo a seguir mostra como declarar um campo estático para manter a cadeia de conexão em seu emulador de armazenamento local:  
 
 ```cpp
-// Define the connection string with Azure storage emulator.
+// Define the connection string with Azure Storage Emulator.
 const utility::string_t storage_connection_string(U("UseDevelopmentStorage=true;"));  
 ```
 
@@ -138,7 +139,7 @@ table.create_if_not_exists();
 
 ### <a name="add-an-entity-to-a-table"></a>Adicionar uma entidade a uma tabela
 
-Para adicionar uma entidade a uma tabela, crie um objeto `table_entity` e passe-o para `table_operation::insert_entity`. O código a seguir usa o primeiro nome do cliente como a chave de linha e o último nome como a chave de partição. Juntas, uma chave de partição e uma chave de linha identificam exclusivamente a entidade na tabela. As entidades com a mesma chave de partição podem ser consultadas mais rápido do que aquelas com chaves de partição diferentes. O uso de diversas chaves de partição permite uma maior escalabilidade de operação paralela. Para obter mais informações, veja [Lista de verificação de escalabilidade e desempenho do Armazenamento do Microsoft Azure](../storage/common/storage-performance-checklist.md).
+Para adicionar uma entidade a uma tabela, crie um objeto `table_entity` e passe-o para `table_operation::insert_entity`. O código a seguir usa o primeiro nome do cliente como a chave de linha e o último nome como a chave de partição. Juntas, uma chave de partição e uma chave de linha identificam exclusivamente a entidade na tabela. As entidades com a mesma chave de partição podem ser consultadas mais rápido do que aquelas com chaves de partição diferentes. O uso de diversas chaves de partição permite uma maior escalabilidade de operação paralela. Para obter mais informações, veja [Lista de verificação de escalabilidade e desempenho do Armazenamento do Microsoft Azure](../storage/blobs/storage-performance-checklist.md).
 
 O código a seguir cria uma instância de `table_entity` com alguns dados do cliente a serem armazenados. O próximo código chama `table_operation::insert_entity` para criar um objeto `table_operation` a fim de inserir uma entidade em uma tabela e associa a nova entidade de tabela a ele. Por fim, o código chama o método `execute` no objeto `cloud_table`. A nova `table_operation` envia uma solicitação ao serviço Tabela para inserir a nova entidade de cliente na tabela `people`.  
 
@@ -499,10 +500,10 @@ else
 
 ## <a name="troubleshooting"></a>Solução de problemas
 
-Para o Visual Studio Community Edition, se seu projeto receber erros de build por causa dos arquivos de inclusão *storage_account.h* e *table.h*, remova o comutador do compilador **/permissive-** :
+Para o Visual Studio Community Edition, se seu projeto receber erros de build por causa dos arquivos de inclusão *storage_account.h* e *table.h* , remova o comutador do compilador **/permissive-** :
 
-1. No **Gerenciador de Soluções**, clique com o botão direito do mouse no seu projeto e selecione **Propriedades**.
-1. Na caixa de diálogo **Páginas de propriedade**, expanda **Propriedades de configuração**, expanda **C/C++** e selecione **Linguagem**.
+1. No **Gerenciador de Soluções** , clique com o botão direito do mouse no seu projeto e selecione **Propriedades**.
+1. Na caixa de diálogo **Páginas de propriedade** , expanda **Propriedades de configuração** , expanda **C/C++** e selecione **Linguagem**.
 1. Defina o **Modo de conformidade** para **Não**.
 
 ## <a name="next-steps"></a>Próximas etapas

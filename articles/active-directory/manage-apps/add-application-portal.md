@@ -3,19 +3,19 @@ title: 'Início Rápido: Adicionar um aplicativo a seu locatário do Azure AD (A
 description: Este início rápido usa o portal do Azure para adicionar um aplicativo de galeria ao locatário do Azure AD (Azure Active Directory).
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/29/2019
 ms.author: kenwith
-ms.openlocfilehash: 0818ab782710e6a102d2034790ff8d997cd54f8e
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 2d3b0be88a23bbbb0573b4d11a2e5a39dc6254da
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87808429"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99259060"
 ---
 # <a name="quickstart-add-an-application-to-your-azure-active-directory-azure-ad-tenant"></a>Início Rápido: Adicionar um aplicativo a seu locatário do Azure AD (Azure Active Directory)
 
@@ -47,18 +47,29 @@ Para adicionar um aplicativo ao locatário do Azure AD:
 3. No painel **Aplicativos empresariais**, selecione **Novo aplicativo**. 
     ![Selecione Novo aplicativo para adicionar um aplicativo da galeria ao seu locatário](media/add-application-portal/new-application.png)
 4. Mude para a nova experiência de versão prévia da galeria: Na faixa na parte superior da **página Adicionar um aplicativo**, selecione o link que diz **Clique aqui para experimentar a galeria de aplicativos nova e aprimorada**.
-5. O painel **Procurar na Galeria do Azure AD (versão prévia)** é aberto e exibe blocos de aplicativos para plataformas de nuvem, aplicativos locais e aplicativos em destaque. Aplicativos listados na seção **Aplicativos em destaque** têm ícones que indicam se eles dão suporte ao SSO (logon único) federado e ao provisionamento.
+5. O painel **Procurar na Galeria do Azure AD (versão prévia)** é aberto e exibe blocos de aplicativos para plataformas de nuvem, aplicativos locais e aplicativos em destaque. Aplicativos listados na seção **Aplicativos em destaque** têm ícones que indicam se eles dão suporte ao SSO (logon único) federado e ao provisionamento. 
     ![Pesquisar por um aplicativo por nome ou categoria](media/add-application-portal/browse-gallery.png)
-6. Você pode procurar na galeria pelo aplicativo que deseja adicionar ou pode pesquisá-lo inserindo seu nome na caixa de pesquisa. Em seguida, selecione o aplicativo entre os resultados. No formulário, você pode editar o nome do aplicativo para atender às necessidades de sua organização. Neste exemplo, selecionamos o GitHub e alteramos o nome para **GitHub-test**.
-    ![Mostra como adicionar um aplicativo da galeria](media/add-application-portal/create-application.png)
-    >[!TIP]
-    >Se o aplicativo que você está procurando não estiver na galeria, clique no link **Criar seu aplicativo** e, em **O que você deseja fazer com o seu aplicativo?** , escolha **Integrar qualquer outro aplicativo que você não encontrar na galeria**. A Microsoft já trabalhou com muitos desenvolvedores de aplicativos para configurá-los para funcionar com o Azure AD. Esses são os aplicativos que aparecem na galeria. Porém, se o aplicativo que você deseja adicionar não estiver listado, você poderá criar um aplicativo genérico e configurá-lo por conta própria ou com diretrizes do desenvolvedor que o criou.
-7. Selecione **Criar**. Uma página de introdução é exibida com as opções para configurar o aplicativo para a organização.
+6. Você pode procurar na galeria pelo aplicativo que deseja adicionar ou pode pesquisá-lo inserindo seu nome na caixa de pesquisa. Em seguida, selecione o aplicativo entre os resultados. 
+7. A próxima etapa depende da maneira como o desenvolvedor do aplicativo implementou o SSO (logon único). O logon único pode ser implementado por desenvolvedores de aplicativos de quatro maneiras. Essas quatro maneiras são SAML, OpenID Connect, por senha ou vinculado. Quando adiciona um aplicativo, você pode optar por filtrar e ver somente os aplicativos que usam uma implementação de SSO específica, conforme mostrado na captura de tela. Por exemplo, um padrão popular para implementar o SSO é o SAML (Security Assertion Markup Language). Outro padrão popular é o OIDC (OpenID Connect). A maneira como você configura o SSO com esses padrões é diferente, sendo assim, tome nota do tipo de SSO implementado pelo aplicativo que você está adicionando.
+
+    :::image type="content" source="media/add-application-portal/sso-types.png" alt-text="Captura de tela mostrando o seletor de tipos de SSO." lightbox="media/add-application-portal/sso-types.png":::
+
+    - Se o desenvolvedor do aplicativo usou o **padrão OIDC** para SSO, selecione **Inscrever-se**. A página de configuração é exibida. Em seguida, vá para o início rápido sobre como configurar o logon único baseado em OIDC.
+    :::image type="content" source="media/add-application-portal/sign-up-oidc-sso.png" alt-text="Captura de tela mostrando o processo de adicionar um aplicativo com SSO baseado em OIDC.":::
+
+    - Se o desenvolvedor do aplicativo usou o **padrão SAML** para o SSO, selecione **Criar**. Uma página de introdução é exibida com as opções para configurar o aplicativo para a organização. No formulário, você pode editar o nome do aplicativo para atender às necessidades de sua organização. Em seguida, vá para o início rápido sobre como configurar o logon único baseado em SAML.
+    :::image type="content" source="media/add-application-portal/create-application.png" alt-text="Captura de tela mostrando o processo de adicionar um aplicativo com SSO baseado em SAML.":::
+
+
+> [!IMPORTANT]
+> Há algumas diferenças importantes entre as implementações de SSO baseadas em SAML e em OIDC. Com os aplicativos baseados em SAML, você pode adicionar várias instâncias do mesmo aplicativo. Por exemplo, GitHub1, GitHub2 etc. Para aplicativos baseados em OIDC, você pode adicionar apenas uma instância de um aplicativo. Se você já tiver adicionado um aplicativo baseado em OIDC e tentar adicioná-lo novamente e fornecer consentimento duas vezes, ele não será adicionado novamente no locatário.
+
+Se o aplicativo que você está procurando não estiver na galeria, selecione o link **Criar seu aplicativo** e, em **O que você deseja fazer com o seu aplicativo?** , escolha **Integrar qualquer outro aplicativo que você não encontrar na galeria**. A Microsoft já trabalhou com muitos desenvolvedores de aplicativos para configurá-los para funcionar com o Azure AD. Os aplicativos pré-configurados aparecem na galeria. Porém, se o aplicativo que você deseja adicionar não estiver listado, você poderá criar um aplicativo genérico e configurá-lo por conta própria ou com diretrizes do desenvolvedor que o criou.
 
 Você terminou de adicionar um aplicativo. O próximo guia de início rápido mostra como alterar o logotipo e editar outras propriedades do aplicativo.
 
 > [!TIP]
-> Para automatizar o gerenciamento de aplicativos usando a API do Graph, confira [Automatizar o gerenciamento de aplicativos com a API do Microsoft Graph](https://docs.microsoft.com/graph/application-saml-sso-configure-api).
+> Para automatizar o gerenciamento de aplicativos usando a API do Graph, confira [Automatizar o gerenciamento de aplicativos com a API do Microsoft Graph](/graph/application-saml-sso-configure-api).
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

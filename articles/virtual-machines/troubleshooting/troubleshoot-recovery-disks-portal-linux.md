@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/19/2019
 ms.author: genli
-ms.openlocfilehash: be124e7677774cbe6b4a0a2730c662f25b619ee0
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: affdee6871649102ef7881fb0f540eba6ab450ca
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525969"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98200950"
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>Solucionar problemas de uma VM do Linux anexando o disco do sistema operacional a uma VM de recuperação usando o portal do Azure
 Se a VM (máquina virtual) do Linux tiver um erro de disco ou de inicialização, talvez você precise realizar etapas de solução de problemas no próprio disco rígido virtual. Um exemplo comum seria uma entrada inválida em `/etc/fstab` que impede que a VM possa ser inicializada corretamente. Este artigo fornece detalhes sobre como usar o portal do Azure para conectar o disco rígido virtual a outra VM do Linux para corrigir erros e recriar a VM original.
@@ -28,7 +28,7 @@ O processo de solução de problemas é o seguinte:
 1. Pare a VM afetada.
 1. Tire um instantâneo do disco do sistema operacional da VM.
 1. Crie um disco rígido virtual a partir do instantâneo.
-1. Anexe e monte o disco rígido virtual em outra VM Windows para fins de solução de problemas.
+1. Anexe e monte o disco rígido virtual em outra VM do Linux para fins de solução de problemas.
 1. Conecte-se à VM de solução de problemas. Edite os arquivos ou execute as ferramentas para corrigir os problemas no disco rígido virtual original.
 1. Desmonte e desanexe o disco rígido virtual da VM de solução de problemas.
 1. Troque o disco do sistema operacional da VM.
@@ -49,7 +49,7 @@ Também é possível clicar em **Captura de tela** na parte superior do log do d
 Um instantâneo é uma cópia completa, somente leitura de um disco rígido virtual (VHD). Recomendamos que você desligue corretamente a VM antes de tirar um instantâneo, para limpar todos os processos em andamento. Para tirar um instantâneo de um disco do sistema operacional, siga estas etapas:
 
 1. Vá para [portal do Azure](https://portal.azure.com). Selecione **máquinas virtuais** na barra lateral e, em seguida, selecione a VM que tem o problema.
-1. No painel esquerdo, selecione **discos**e, em seguida, selecione o nome do disco do sistema operacional.
+1. No painel esquerdo, selecione **discos** e, em seguida, selecione o nome do disco do sistema operacional.
     ![Imagem sobre o nome do disco do sistema operacional](./media/troubleshoot-recovery-disks-portal-windows/select-osdisk.png)
 1. Na página **visão geral** do disco do sistema operacional, selecione **criar instantâneo**.
 1. Crie um instantâneo no mesmo local que o disco do sistema operacional.
@@ -95,7 +95,7 @@ Para criar um disco a partir do instantâneo, siga estas etapas:
 ## <a name="attach-disk-to-another-vm"></a>Anexar disco a outra VM
 Para as próximas etapas, você pode usar outra VM para fins de solução de problemas. Depois de anexar o disco à VM de solução de problemas, você pode procurar e editar o conteúdo do disco. Esse processo permite que você corrija quaisquer erros de configuração ou examine arquivos adicionais de log do sistema ou do aplicativo. Para anexar o disco a outra VM, siga estas etapas:
 
-1. Selecione o grupo de recursos no portal e a VM de solução de problemas. Selecione **discos**, selecione **Editar**e, em seguida, clique em **adicionar disco de dados**:
+1. Selecione o grupo de recursos no portal e a VM de solução de problemas. Selecione **discos**, selecione **Editar** e, em seguida, clique em **adicionar disco de dados**:
 
     ![Anexar um disco existente no portal](./media/troubleshoot-recovery-disks-portal-windows/attach-existing-disk.png)
 
@@ -166,16 +166,16 @@ Depois de resolver os erros, desanexe o disco rígido virtual existente da VM de
 
 ## <a name="swap-the-os-disk-for-the-vm"></a>Trocar o disco do sistema operacional da VM
 
-Portal do Azure agora dá suporte à alteração do disco do sistema operacional da VM. Para fazer isso, siga estas etapas:
+Portal do Azure agora dá suporte à alteração do disco do sistema operacional da VM. Para fazer isso, execute estas etapas:
 
 1. Vá para [portal do Azure](https://portal.azure.com). Selecione **máquinas virtuais** na barra lateral e, em seguida, selecione a VM que tem o problema.
-1. No painel esquerdo, selecione **discos**e, em seguida, selecione **trocar disco do sistema operacional**.
+1. No painel esquerdo, selecione **discos** e, em seguida, selecione **trocar disco do sistema operacional**.
         ![A imagem sobre o disco do sistema operacional de permuta no portal do Azure](./media/troubleshoot-recovery-disks-portal-windows/swap-os-ui.png)
 
 1. Escolha o novo disco que você reparou e digite o nome da VM para confirmar a alteração. Se você não vir o disco na lista, aguarde 10 ~ 15 minutos depois de desanexar o disco da VM de solução de problemas. Verifique também se o disco está no mesmo local que a VM.
 1. Selecione OK.
 
 ## <a name="next-steps"></a>Próximas etapas
-Se você estiver tendo problemas para se conectar à VM, consulte [Solucionar problemas de conexões SSH com uma VM do Azure](troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Para ver problemas com o acesso a aplicativos executados na VM, consulte [Solucionar problemas de conectividade do aplicativo em uma VM do Linux](./troubleshoot-app-connection.md?toc=/azure/virtual-machines/linux/toc.json).
+Se você estiver tendo problemas para se conectar à VM, consulte [Solucionar problemas de conexões SSH com uma VM do Azure](troubleshoot-ssh-connection.md). Para ver problemas com o acesso a aplicativos executados na VM, consulte [Solucionar problemas de conectividade do aplicativo em uma VM do Linux](./troubleshoot-app-connection.md?toc=/azure/virtual-machines/linux/toc.json).
 
-Para obter mais informações sobre como usar o Resource Manager, consulte [Visão geral do Azure Resource Manager](../../azure-resource-manager/management/overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Para obter mais informações sobre como usar o Resource Manager, consulte [Visão geral do Azure Resource Manager](../../azure-resource-manager/management/overview.md).

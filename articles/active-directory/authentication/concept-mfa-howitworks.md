@@ -1,24 +1,24 @@
 ---
-title: Visão geral da autenticação multifator do Azure
-description: Saiba como a autenticação multifator do Azure ajuda a proteger o acesso a dados e aplicativos enquanto atende à demanda do usuário por um processo de entrada simples.
+title: Visão geral da autenticação multifator do Azure AD
+description: Saiba como a autenticação multifator do Azure AD ajuda a proteger o acesso a dados e aplicativos enquanto atende à demanda do usuário por um processo de entrada simples.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.author: iainfou
-author: iainfoulds
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b5f8d08f0814ec69719c002ea9efd39bb38b7d16
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 1cc5227cb4b5de02cba65a60dd469da93d3767e5
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88718009"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96744047"
 ---
-# <a name="how-it-works-azure-multi-factor-authentication"></a>Como funciona: autenticação multifator do Azure
+# <a name="how-it-works-azure-ad-multi-factor-authentication"></a>Como funciona: autenticação multifator do Azure AD
 
 A autenticação multifator é um processo em que um usuário é solicitado durante o processo de conexão para obter uma forma adicional de identificação, como inserir um código no celular ou fornecer uma verificação de impressão digital.
 
@@ -26,34 +26,34 @@ Se você usar apenas uma senha para autenticar um usuário, isso deixará um vet
 
 ![Imagem conceitual das diferentes formas de autenticação multifator](./media/concept-mfa-howitworks/methods.png)
 
-A Autenticação Multifator do Azure funciona exigindo dois ou mais dos seguintes métodos de autenticação:
+A Autenticação Multifator do Azure AD funciona exigindo dois ou mais dos seguintes métodos de autenticação:
 
 * Algo que você sabe, normalmente, uma senha.
 * Algo que você tem, como um dispositivo confiável que não seja facilmente duplicado, como um telefone ou uma chave de hardware.
 * Algo que você é: uma biometria, como uma impressão digital ou uma verificação facial.
 
-Os usuários podem se registrar na redefinição de senha por autoatendimento e na Autenticação Multifator do Azure em uma só etapa para simplificar a experiência de integração. Os administradores podem definir quais formas de autenticação secundária podem ser usadas. A Autenticação Multifator do Azure também pode ser necessária quando os usuários executam uma redefinição de senha por autoatendimento para proteger ainda mais esse processo.
+Os usuários podem se registrar na redefinição de senha por autoatendimento e na Autenticação Multifator do Azure AD em uma etapa para simplificar a experiência de integração. Os administradores podem definir quais formas de autenticação secundária podem ser usadas. A Autenticação Multifator do Azure AD também pode ser necessária quando os usuários executam uma redefinição de senha por autoatendimento para proteger ainda mais esse processo.
 
 ![Métodos de autenticação em uso na tela de login](media/concept-authentication-methods/overview-login.png)
 
-A autenticação multifator do Azure ajuda a proteger o acesso a dados e aplicativos, mantendo a simplicidade para os usuários. Ele fornece segurança adicional exigindo uma segunda forma de autenticação e fornece autenticação forte por meio de uma variedade de [métodos de autenticação](concept-authentication-methods.md) fáceis de usar. Os usuários podem ou não ser desafiados para MFA com base em decisões de configuração tomadas por um administrador.
+A autenticação multifator do Azure AD ajuda a proteger o acesso a dados e aplicativos, mantendo a simplicidade para os usuários. Ele fornece segurança adicional exigindo uma segunda forma de autenticação e fornece autenticação forte por meio de uma variedade de [métodos de autenticação](concept-authentication-methods.md) fáceis de usar. Os usuários podem ou não ser desafiados para MFA com base em decisões de configuração tomadas por um administrador.
 
-Seus aplicativos ou serviços não precisam fazer nenhuma alteração para usar a autenticação multifator do Azure. Os prompts de verificação fazem parte do evento de entrada do Azure AD, que solicita e processa automaticamente o desafio MFA quando necessário.
+Seus aplicativos ou serviços não precisam fazer nenhuma alteração para usar a autenticação multifator do Azure AD. Os prompts de verificação fazem parte do evento de entrada do Azure AD, que solicita e processa automaticamente o desafio MFA quando necessário.
 
 ## <a name="available-verification-methods"></a>Métodos de verificação disponíveis
 
-Quando um usuário entra em um aplicativo ou serviço e recebe um prompt do MFA, ele pode escolher um de seus formulários registrados de verificação adicional. Um administrador pode exigir o registro desses métodos de verificação da autenticação multifator do Azure ou o usuário pode acessar seu próprio [meu perfil](https://myprofile.microsoft.com) para editar ou adicionar métodos de verificação.
+Quando um usuário entra em um aplicativo ou serviço e recebe um prompt do MFA, ele pode escolher um de seus formulários registrados de verificação adicional. Um administrador pode exigir o registro desses métodos de verificação da autenticação multifator do Azure AD ou o usuário pode acessar seu próprio [meu perfil](https://myprofile.microsoft.com) para editar ou adicionar métodos de verificação.
 
-As seguintes formas adicionais de verificação podem ser usadas com a autenticação multifator do Azure:
+As seguintes formas adicionais de verificação podem ser usadas com a autenticação multifator do Azure AD:
 
 * Aplicativo Microsoft Authenticator
 * Token OATH de hardware
 * SMS
 * Chamada de voz
 
-## <a name="how-to-enable-and-use-azure-multi-factor-authentication"></a>Como habilitar e usar a autenticação multifator do Azure
+## <a name="how-to-enable-and-use-azure-ad-multi-factor-authentication"></a>Como habilitar e usar a autenticação multifator do Azure AD
 
-Os usuários e grupos podem ser habilitados para a autenticação multifator do Azure para solicitar verificação adicional durante o evento de entrada. Os [padrões de segurança](../fundamentals/concept-fundamentals-security-defaults.md) estão disponíveis para todos os locatários do Azure ad para habilitar rapidamente o uso do aplicativo Microsoft Authenticator para todos os usuários.
+Os usuários e grupos podem ser habilitados para autenticação multifator do Azure AD para solicitar verificação adicional durante o evento de entrada. Os [padrões de segurança](../fundamentals/concept-fundamentals-security-defaults.md) estão disponíveis para todos os locatários do Azure ad para habilitar rapidamente o uso do aplicativo Microsoft Authenticator para todos os usuários.
 
 Para controles mais granulares, as políticas de [acesso condicional](../conditional-access/overview.md) podem ser usadas para definir eventos ou aplicativos que exigem MFA. Essas políticas podem permitir eventos de entrada regulares quando o usuário está na rede corporativa ou em um dispositivo registrado, mas solicita fatores de verificação adicionais quando remoto ou em um dispositivo pessoal.
 
@@ -61,9 +61,9 @@ Para controles mais granulares, as políticas de [acesso condicional](../conditi
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre licenciamento, consulte [recursos e licenças para a autenticação multifator do Azure](concept-mfa-licensing.md).
+Para saber mais sobre licenciamento, consulte [recursos e licenças para a autenticação multifator do Azure ad](concept-mfa-licensing.md).
 
-Para ver a MFA em ação, habilite a autenticação multifator do Azure para um conjunto de usuários de teste no seguinte tutorial:
+Para ver a MFA em ação, habilite a autenticação multifator do Azure AD para um conjunto de usuários de teste no seguinte tutorial:
 
 > [!div class="nextstepaction"]
-> [Habilitar a Autenticação Multifator do Microsoft Azure](./tutorial-enable-azure-mfa.md)
+> [Habilitar a Autenticação Multifator do Azure AD](./tutorial-enable-azure-mfa.md)

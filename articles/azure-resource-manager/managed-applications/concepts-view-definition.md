@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.author: lazinnat
 author: lazinnat
 ms.date: 06/12/2019
-ms.openlocfilehash: 7a3d2234a140d1fb2eede50e3fe2eef5575da648
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bff846b4b64778d5e40ea7f08f88faf3dde81d9e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81391686"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91371602"
 ---
 # <a name="view-definition-artifact-in-azure-managed-applications"></a>Exibir artefato de definição em aplicativos gerenciados do Azure
 
@@ -131,7 +131,7 @@ Quando você fornece esse modo de exibição no **viewDefinition.jsno**, ele sub
 |descrição|Não|A descrição do seu aplicativo gerenciado.|
 |comandos|Não|A matriz de botões adicionais da barra de ferramentas da página Visão geral, consulte [comandos](#commands).|
 
-![Visão geral](./media/view-definition/overview.png)
+![Captura de tela mostra a visão geral de um aplicativo gerenciado com um controle de ação de teste para executar um aplicativo de demonstração.](./media/view-definition/overview.png)
 
 ## <a name="metrics"></a>Métricas
 
@@ -183,12 +183,12 @@ A exibição de métricas permite coletar e agregar dados de seus recursos de ap
 |Propriedade|Obrigatório|Descrição|
 |---------|---------|---------|
 |name|Sim|O nome da métrica.|
-|aggregationType|Sim|O tipo de agregação a ser usado para essa métrica. Tipos de agregação com suporte:`none, sum, min, max, avg, unique, percentile, count`|
+|aggregationType|Sim|O tipo de agregação a ser usado para essa métrica. Tipos de agregação com suporte: `none, sum, min, max, avg, unique, percentile, count`|
 |namespace|Não|Informações adicionais a serem usadas ao determinar o provedor de métricas correto.|
 |resourceTagFilter|Não|A matriz de marcas de recurso (será separada com `or` o Word) para a qual as métricas seriam exibidas. Aplica-se na parte superior do filtro de tipo de recurso.|
 |resourceType|Sim|O tipo de recurso para o qual as métricas seriam exibidas.|
 
-![Métricas](./media/view-definition/metrics.png)
+![A captura de tela mostra uma página de monitoramento chamada esta é a exibição de métricas para um aplicativo gerenciado.](./media/view-definition/metrics.png)
 
 ## <a name="custom-resources"></a>Recursos personalizados
 
@@ -234,7 +234,7 @@ Nesta exibição, você pode executar operações GET, PUT, DELETE e POST para o
 |comandos|Não|A matriz de botões adicionais da barra de ferramentas da exibição CustomResources, consulte [comandos](#commands).|
 |colunas|Não|A matriz de colunas do recurso personalizado. Se não estiver definido `name` , a coluna será mostrada por padrão. A coluna deve ter `"key"` e `"displayName"` . Para chave, forneça a chave da propriedade a ser exibida em uma exibição. Se estiver aninhado, use ponto como delimitador, por exemplo, `"key": "name"` ou `"key": "properties.property1"` . Para nome de exibição, forneça o nome de exibição da propriedade a ser exibida em uma exibição. Você também pode fornecer uma `"optional"` propriedade. Quando definido como true, a coluna é ocultada em uma exibição por padrão.|
 
-![CustomResources](./media/view-definition/customresources.png)
+![Captura de tela mostra uma página de recursos chamada tipo de recurso de teste personalizado e a ação de contexto personalizado de controle.](./media/view-definition/customresources.png)
 
 ## <a name="commands"></a>Comandos
 
@@ -256,7 +256,7 @@ Os comandos são uma matriz de botões adicionais da barra de ferramentas que s�
 |Propriedade|Obrigatório|Descrição|
 |---------|---------|---------|
 |displayName|Sim|O nome exibido do botão de comando.|
-|path|Sim|O nome da ação do provedor personalizado. A ação deve ser definida no **mainTemplate.jsem**.|
+|caminho|Sim|O nome da ação do provedor personalizado. A ação deve ser definida no **mainTemplate.jsem**.|
 |ícone|Não|O ícone do botão de comando. A lista de ícones de exemplo é definida no [esquema JSON](https://schema.management.azure.com/schemas/viewdefinition/0.0.1-preview/ViewDefinition.json#).|
 |createUIDefinition|Não|Crie o esquema de definição da interface do usuário para o comando. Para obter uma introdução à criação de definições de interface do usuário, consulte [Introdução ao CreateUiDefinition](create-uidefinition-overview.md).|
 

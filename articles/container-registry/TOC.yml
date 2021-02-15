@@ -35,11 +35,6 @@
               href: container-registry-tutorial-deploy-app.md
             - name: 3 - Atualizar aplicativo Web
               href: container-registry-tutorial-deploy-update.md
-    - name: Exemplos
-      items:
-        - name: Itens internos do Azure Policy
-          displayName: 'samples, policies, definitions'
-          href: ./policy-samples.md
     - name: Conceitos
       expanded: false
       items:
@@ -62,8 +57,16 @@
           href: container-registry-image-tag-version.md
         - name: Replicação geográfica
           href: container-registry-geo-replication.md
+        - name: Redundância de zona
+          displayName: availability zone
+          href: zone-redundancy.md
         - name: Práticas recomendadas do registro
           href: container-registry-best-practices.md
+        - name: Imagens de vários arcos
+          href: push-multi-architecture-images.md
+          displayName: multi-architecture
+        - name: Gerenciar imagens públicas
+          href: buffer-gate-public-content.md
     - name: Guias de instruções
       expanded: false
       items:
@@ -101,6 +104,8 @@
               href: container-registry-access-selected-networks.md
             - name: Restringir acesso usando um ponto de extremidade de serviço (versão prévia)
               href: container-registry-vnet.md
+            - name: Permitir o acesso por serviços confiáveis
+              href: allow-access-trusted-services.md
             - name: Criptografar com a chave gerenciada pelo cliente
               href: container-registry-customer-managed-keys.md
             - name: Acessar por trás de um firewall
@@ -123,12 +128,13 @@
                   href: ../aks/cluster-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json
                 - name: Autenticar com um token no escopo do repositório (versão prévia)
                   href: container-registry-repository-scoped-permissions.md
-            - name: Controle de acesso baseado em função
+            - name: Controle de acesso baseado em função do Azure
               href: container-registry-roles.md
+              displayName: 'permissions, authorization'
             - name: Confiança em conteúdo
               href: container-registry-content-trust.md
             - name: Digitalização de imagem com a Central de Segurança
-              href: ../security-center/azure-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json
+              href: ../security-center/defender-for-container-registries-introduction.md?bc=%2fazure%2fcontainer-registry%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fcontainer-registry%2ftoc.json
         - name: Registros e outros serviços do Azure
           expanded: false
           items:
@@ -156,6 +162,7 @@
               href: container-registry-troubleshoot-performance.md
             - name: Detectar problemas comuns
               href: container-registry-check-health.md
+              displayName: 'check, health'
             - name: Perguntas frequentes
               href: container-registry-faq.md
 - name: Tarefas
@@ -212,6 +219,10 @@
               href: container-registry-tasks-authentication-key-vault.md
         - name: Execução rápida de tarefas com o modelo do Resource Manager
           href: container-registry-task-run-template.md
+        - name: Executar tarefa em pool de agentes dedicados (versão prévia)
+          href: tasks-agent-pools.md
+        - name: Consumir e manter conteúdo público
+          href: tasks-consume-public-content.md
         - name: Criar imagem com Buildpacks (versão prévia)
           href: container-registry-tasks-pack-build.md
         - name: Exibir logs de tarefas
@@ -243,6 +254,9 @@
       href: ../event-grid/event-schema-container-registry.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json
     - name: Erros de verificação de integridade
       href: container-registry-health-error-reference.md
+    - name: Itens internos do Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Recursos
   expanded: false
   items:

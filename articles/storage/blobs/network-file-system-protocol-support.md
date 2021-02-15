@@ -9,19 +9,19 @@ ms.date: 08/04/2020
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: 41ad20de6b7a800ff1f97a7ff371c8e0012fed27
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 52f7b328b013fd520787fca420a45ffdc5e9d9b1
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88166970"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98250801"
 ---
 # <a name="network-file-system-nfs-30-protocol-support-in-azure-blob-storage-preview"></a>Suporte ao protocolo NFS (sistema de arquivos de rede) 3,0 no armazenamento de BLOBs do Azure (versão prévia)
 
 O armazenamento de BLOBs agora dá suporte ao protocolo NFS (Network File System) 3,0. Esse suporte permite que clientes Windows ou Linux montem um contêiner no armazenamento de blob de uma VM (máquina virtual) do Azure ou um computador local. 
 
 > [!NOTE]
-> O suporte ao protocolo NFS 3,0 no armazenamento de BLOBs do Azure está em visualização pública e está disponível nas seguintes regiões: leste dos EUA, Centro dos EUA, centro-oeste dos EUA, sudeste da Austrália, Europa Setentrional, Oeste do Reino Unido, Coreia central, sul da Coreia e central do Canadá.
+> O suporte ao protocolo NFS 3,0 no armazenamento de BLOBs do Azure está em visualização pública. Ele dá suporte a contas de armazenamento GPV2 com desempenho de camada Standard nas seguintes regiões: leste da Austrália, centro da Coreia e EUA Central do Sul. A visualização também dá suporte ao blob de blocos com o nível de desempenho premium em todas as regiões públicas.
 
 ## <a name="general-workflow-mounting-a-storage-account-container"></a>Fluxo de trabalho geral: montando um contêiner de conta de armazenamento
 
@@ -64,13 +64,13 @@ Um cliente pode se conectar por meio de um [ponto de extremidade](../common/stor
 
   Você precisará configurar sua conta de armazenamento para permitir o acesso a essa VNet emparelhada. Para saber mais, confira [conceder acesso de uma rede virtual](../common/storage-network-security.md#grant-access-from-a-virtual-network).
 
-- Uma rede local conectada à sua VNet primária usando o [Gateway de VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) ou um gateway de [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-portal-resource-manager). 
+- Uma rede local conectada à sua VNet primária usando o [Gateway de VPN](../../vpn-gateway/vpn-gateway-about-vpngateways.md) ou um gateway de [ExpressRoute](../../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md). 
 
   Para saber mais, confira [Configurando o acesso de redes locais](../common/storage-network-security.md#configuring-access-from-on-premises-networks).
 
 - Uma rede local que está conectada a uma rede emparelhada.
 
-  Isso pode ser feito usando o [Gateway de VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) ou um [Gateway de ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-portal-resource-manager) junto com o tráfego de [Gateway](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/vnet-peering#gateway-transit). 
+  Isso pode ser feito usando o [Gateway de VPN](../../vpn-gateway/vpn-gateway-about-vpngateways.md) ou um [Gateway de ExpressRoute](../../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md) junto com o tráfego de [Gateway](/azure/architecture/reference-architectures/hybrid-networking/vnet-peering#gateway-transit). 
 
 > [!IMPORTANT]
 > Se você estiver se conectando de uma rede local, verifique se o cliente permite a comunicação de saída por meio das portas 111 e 2048. O protocolo NFS 3,0 usa essas portas.
@@ -103,6 +103,8 @@ Os seguintes recursos do NFS 3,0 ainda não têm suporte com o Azure Data Lake S
 
 - Listando exportações (por exemplo: usando o comando `showmount -e` )
 
+- Link físico
+
 - Exportando um contêiner como somente leitura
 
 ## <a name="pricing"></a>Preços
@@ -114,8 +116,3 @@ Uma transação não é cobrada durante a visualização. O preço das transaç�
 ## <a name="next-steps"></a>Próximas etapas
 
 Para começar, consulte [montar o armazenamento de BLOBs usando o protocolo NFS (sistema de arquivos de rede) 3,0 (versão prévia)](network-file-system-protocol-support-how-to.md).
-
-
-
-
-

@@ -10,12 +10,12 @@ ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.custom: mvc
 ms.date: 10/24/2019
-ms.openlocfilehash: eacc104bf7157732f91507f631bcda2cd166bfb3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5e3b6802bab2c5fae97be8e55c8d5c11ff570f78
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77588681"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94651305"
 ---
 # <a name="keep-track-of-data-during-hunting-with-azure-sentinel"></a>Manter o controle dos dados durante a busca com o Azure Sentinel
 
@@ -56,12 +56,12 @@ Também na visualização, você pode visualizar seus dados marcados, clicando e
 
 6. À direita, no painel **Adicionar indicador** , opcionalmente, atualize o nome do indicador, adicione marcas e notas para ajudá-lo a identificar o que era interessante sobre o item.
 
-7. Na seção **informações da consulta** , use as caixas suspensas para extrair informações dos resultados da consulta para os tipos de entidade **conta**, **host**e **endereço IP** . Essa ação mapeia o tipo de entidade selecionado para uma coluna específica do resultado da consulta. Por exemplo:
+7. Na seção **informações da consulta** , use as caixas suspensas para extrair informações dos resultados da consulta para os tipos de entidade **conta**, **host** e **endereço IP** . Essa ação mapeia o tipo de entidade selecionado para uma coluna específica do resultado da consulta. Por exemplo:
     
     > [!div class="mx-imgBorder"]
     > ![Mapear tipos de entidade para o indicador de busca](./media/bookmarks/map-entity-types-bookmark.png)
     
-    Para exibir o indicador no grafo de investigação (atualmente em visualização), você deve mapear pelo menos um tipo de entidade que seja **conta**, **host**ou **endereço IP**. 
+    Para exibir o indicador no grafo de investigação (atualmente em visualização), você deve mapear pelo menos um tipo de entidade que seja **conta**, **host** ou **endereço IP**. 
 
 5. Clique em **salvar** para confirmar suas alterações e adicionar o indicador. Todos os dados marcados são compartilhados com outros investigadores e é uma primeira etapa para uma experiência de investigação colaborativa.
 
@@ -88,9 +88,9 @@ Também na visualização, você pode visualizar seus dados marcados, clicando e
 > Esses recursos são fornecidos sem um contrato de nível de serviço e não são recomendados para cargas de trabalho de produção.
 > Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-1. Na portal do Azure, navegue até a guia **sentinela**de  >  **Gerenciamento de ameaças**  >  **procurando**  >  **indicadores** e selecione o indicador ou indicadores que você deseja investigar.
+1. Na portal do Azure, navegue até a guia **sentinela** de  >  **Gerenciamento de ameaças**  >  **procurando**  >  **indicadores** e selecione o indicador ou indicadores que você deseja investigar.
 
-2. Nos detalhes do indicador, verifique se pelo menos uma entidade está mapeada. Por exemplo, para **entidades**, você vê entradas para **IP**, **máquina**ou **conta**.
+2. Nos detalhes do indicador, verifique se pelo menos uma entidade está mapeada. Por exemplo, para **entidades**, você vê entradas para **IP**, **máquina** ou **conta**.
 
 3. Clique em **investigar** para exibir o indicador no grafo de investigação.
 
@@ -103,7 +103,7 @@ Para obter instruções sobre como usar o grafo de investigação, consulte [usa
 > Esse recurso é fornecido sem um contrato de nível de serviço e não é recomendado para cargas de trabalho de produção.
 > Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-1. Na portal do Azure, navegue até a guia **sentinela**de  >  **Gerenciamento de ameaças**  >  **procurando**  >  **indicadores** e selecione o indicador ou indicadores que você deseja adicionar a um incidente.
+1. Na portal do Azure, navegue até a guia **sentinela** de  >  **Gerenciamento de ameaças**  >  **procurando**  >  **indicadores** e selecione o indicador ou indicadores que você deseja adicionar a um incidente.
 
 2. Selecione **ações de incidente (versão prévia)** na barra de comandos:
     
@@ -115,10 +115,10 @@ Para obter instruções sobre como usar o grafo de investigação, consulte [usa
     - Para um novo incidente: opcionalmente, atualize os detalhes para o incidente e, em seguida, selecione **criar**.
     - Para adicionar um indicador a um incidente existente: selecione um incidente e, em seguida, selecione **Adicionar**. 
 
-Para exibir o indicador dentro do incidente: Navegue até **sentinela**  >  **Threat management**  >  **incidentes** de gerenciamento de ameaças e selecione o incidente com seu indicador. Selecione **Exibir detalhes completos**e, em seguida, selecione a guia **indicadores** .
+Para exibir o indicador dentro do incidente: Navegue até **sentinela**  >  **Threat management**  >  **incidentes** de gerenciamento de ameaças e selecione o incidente com seu indicador. Selecione **Exibir detalhes completos** e, em seguida, selecione a guia **indicadores** .
 
 > [!TIP]
-> Como alternativa à opção de **ações de incidente (versão prévia)** na barra de comandos, você pode usar o menu de contexto (**...**) para um ou mais indicadores para selecionar opções para **criar um novo incidente**, **Adicionar a um incidente existente**e **remover do incidente**. 
+> Como alternativa à opção de **ações de incidente (versão prévia)** na barra de comandos, você pode usar o menu de contexto (**...**) para um ou mais indicadores para selecionar opções para **criar um novo incidente**, **Adicionar a um incidente existente** e **remover do incidente**. 
 
 ## <a name="view-bookmarked-data-in-logs"></a>Exibir dados marcados em logs
 
@@ -128,19 +128,19 @@ Para exibir consultas com indicadores, resultados ou seu histórico, selecione o
 
 - **Exiba os logs de indicadores** para ver todos os metadados de indicador, que incluem quem fez a atualização, os valores atualizados e a hora em que a atualização ocorreu.
 
-Você também pode exibir os dados brutos do indicador para todos os indicadores selecionando **logs de indicadores** na barra de **Hunting**comandos na  >  guia**indicadores** de busca:
+Você também pode exibir os dados brutos do indicador para todos os indicadores selecionando **logs de indicadores** na barra de **Hunting** comandos na  >  guia **indicadores** de busca:
 
 > [!div class="mx-imgBorder"]
 > ![Logs de indicadores](./media/bookmarks/bookmark-logs.png)
 
-Esta exibição mostra todos os indicadores com metadados associados. Você pode usar consultas KQL ( [palavra-chave Query Language](https://docs.microsoft.com/sharepoint/dev/general-development/keyword-query-language-kql-syntax-reference) ) para filtrar a versão mais recente do indicador específico que você está procurando.
+Esta exibição mostra todos os indicadores com metadados associados. Você pode usar consultas KQL ( [palavra-chave Query Language](/sharepoint/dev/general-development/keyword-query-language-kql-syntax-reference) ) para filtrar a versão mais recente do indicador específico que você está procurando.
 
 > [!NOTE]
 > Pode haver um atraso significativo (medido em minutos) entre o momento em que você cria um indicador e quando ele é exibido na guia **indicadores** .
 
 ## <a name="delete-a-bookmark"></a>Excluir um indicador
  
-1.  Na portal do Azure, navegue até a guia **sentinela**de  >  **Gerenciamento de ameaças**  >  **procurando**  >  **indicadores** e selecione o indicador ou indicadores que você deseja excluir. 
+1.  Na portal do Azure, navegue até a guia **sentinela** de  >  **Gerenciamento de ameaças**  >  **procurando**  >  **indicadores** e selecione o indicador ou indicadores que você deseja excluir. 
 
 2. Clique com o botão direito do mouse em suas seleções e selecione a opção para excluir o indicador ou indicadores. Por exemplo, **exclua o indicador** se você selecionou apenas um indicador e **exclua 2 indicadores** se tiver selecionado dois indicadores.
     

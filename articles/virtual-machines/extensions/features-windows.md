@@ -9,18 +9,19 @@ editor: ''
 tags: azure-service-management,azure-resource-manager
 ms.assetid: 999d63ee-890e-432e-9391-25b3fc6cde28
 ms.service: virtual-machines-windows
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 611edb06762b96ded7671b70ec0f5d4f07f51848
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 565f98126cea8cc03874bb4f83ecdc2c65f8d5fb
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87829077"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016447"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Recursos e extensões da máquina virtual para Windows
 
@@ -70,7 +71,7 @@ Os pacotes de extensão são baixados do repositório de extensão do Armazename
 > [!IMPORTANT]
 > Se você tiver bloqueado o acesso ao *168.63.129.16* usando o firewall convidado ou com um proxy, as extensões falharão independentemente das anteriores. As portas 80, 443 e 32526 são necessárias.
 
-Os agentes só podem ser usados para baixar os pacotes de extensão e o status do relatório. Por exemplo, se uma instalação da extensão precisar baixar um script do GitHub (Script Personalizado) ou precisar ter acesso ao Armazenamento do Microsoft Azure (Backup do Azure), então outras portas de firewall/Grupo de Segurança de Rede precisarão ser abertas. Diferentes extensões têm requisitos diferentes, já que são aplicativos por si só. Para extensões que exigem acesso ao armazenamento ou Azure Active Directory do Azure, você pode permitir o acesso usando as [marcas do serviço NSG do Azure](../../virtual-network/security-overview.md#service-tags) para armazenamento ou AzureActiveDirectory.
+Os agentes só podem ser usados para baixar os pacotes de extensão e o status do relatório. Por exemplo, se uma instalação da extensão precisar baixar um script do GitHub (Script Personalizado) ou precisar ter acesso ao Armazenamento do Microsoft Azure (Backup do Azure), então outras portas de firewall/Grupo de Segurança de Rede precisarão ser abertas. Diferentes extensões têm requisitos diferentes, já que são aplicativos por si só. Para extensões que exigem acesso ao armazenamento ou Azure Active Directory do Azure, você pode permitir o acesso usando as [marcas do serviço NSG do Azure](../../virtual-network/network-security-groups-overview.md#service-tags) para armazenamento ou AzureActiveDirectory.
 
 O agente convidado do Windows não tem suporte de servidor proxy para redirecionar solicitações de tráfego do agente por meio do, o que significa que o agente convidado do Windows dependerá do seu proxy personalizado (se você tiver um) para acessar recursos na Internet ou no host por meio de 168.63.129.16 IP.
 
@@ -254,7 +255,7 @@ A movimentação da propriedade **comando para execução** para a configuraçã
 
 Em uma VM IaaS do Azure que usa extensões, no console certificados, você pode ver certificados que têm o assunto **_gerador de certificado do Microsoft Azure CRP_**. Em uma VM RDFE clássica, esses certificados têm o nome da entidade **_Gerenciamento de serviços do Windows Azure para extensões_**.
 
-Esses certificados protegem a comunicação entre a VM e seu host durante a transferência de configurações protegidas (senha, outras credenciais) usadas pelas extensões. Os certificados são criados pelo controlador de malha do Azure e passados para o agente de VM. Se você parar e iniciar a VM todos os dias, um novo certificado poderá ser criado pelo controlador de malha. O certificado é armazenado no repositório de certificados pessoais do computador. Esses certificados podem ser excluídos. O agente de VM recria certificados se necessário.
+Esses certificados protegem a comunicação entre a VM e seu host durante a transferência de configurações protegidas (senha, outras credenciais) usadas pelas extensões. Os certificados são criados pelo controlador de malha do Azure e passados para o agente de VM. Se você parar e iniciar a VM todos os dias, um novo certificado poderá ser criado pelo controlador de malha. O certificado será armazenado no repositório de certificados pessoais do computador. Esses certificados podem ser excluídos. O agente de VM recria certificados se necessário.
 
 ### <a name="how-do-agents-and-extensions-get-updated"></a>Como agentes e extensões são atualizados?
 
@@ -355,7 +356,7 @@ As seguintes etapas de solução de problemas aplicam-se a todas as extensões d
 
 1. Para verificar o log do agente convidado do Windows, examine a atividade quando sua extensão estava sendo provisionada no *C:\WindowsAzure\Logs\WaAppAgent.log*
 
-2. Verifique os logs de extensão reais para obter mais detalhes em *C:\WindowsAzure\Logs\Plugins \<extensionName> *
+2. Verifique os logs de extensão reais para obter mais detalhes em *C:\WindowsAzure\Logs\Plugins \\ <extensionName>*
 
 3. Verifique as seções de solução de problemas da documentação específica da extensão para códigos de erro, problemas conhecidos etc.
 

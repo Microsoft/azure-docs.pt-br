@@ -1,6 +1,6 @@
 ---
-title: Migrar uma imagem gerenciada para uma galeria de imagens compartilhadas
-description: Saiba como usar Azure PowerShell para migrar uma imagem gerenciada para uma versão de imagem em uma galeria de imagens compartilhada.
+title: Clonar uma imagem gerenciada para uma galeria de imagens compartilhadas
+description: Saiba como usar Azure PowerShell para clonar uma imagem gerenciada para uma versão de imagem em uma galeria de imagens compartilhada.
 author: cynthn
 ms.topic: how-to
 ms.service: virtual-machines
@@ -9,16 +9,16 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: c1b40cc8d52ffe5655401f7698790cdc05898331
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: 6bf2054a1b9d42529c3917994e5f446b3c50ecf7
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88225523"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98682708"
 ---
-# <a name="migrate-from-a-managed-image-to-a-shared-image-gallery-image"></a>Migrar de uma imagem gerenciada para uma imagem da Galeria de imagens compartilhadas
+# <a name="clone-a-managed-image-to-a-shared-image-gallery-image"></a>Clonar uma imagem gerenciada para uma imagem da Galeria de imagens compartilhadas
 
-Se você tiver uma imagem gerenciada existente que deseja migrar para uma galeria de imagens compartilhada, poderá criar uma imagem da Galeria de imagens compartilhada diretamente da imagem gerenciada. Depois de testar a nova imagem, você pode excluir a imagem gerenciada de origem. Você também pode migrar de uma imagem gerenciada para uma galeria de imagens compartilhada usando o [CLI do Azure](image-version-managed-image-cli.md).
+Se você tiver uma imagem gerenciada existente que deseja clonar e mover para uma galeria de imagens compartilhada, poderá criar uma imagem da Galeria de imagens compartilhada diretamente da imagem gerenciada. Depois de testar a nova imagem, você pode excluir a imagem gerenciada de origem. Você também pode migrar de uma imagem gerenciada para uma galeria de imagens compartilhada usando o [CLI do Azure](image-version-managed-image-cli.md).
 
 As imagens em uma galeria de imagens têm dois componentes, que serão criados neste exemplo:
 - Uma **definição de imagem** contém informações sobre a imagem e os requisitos para usá-la. Isso inclui se a imagem é Windows ou Linux, especializada ou generalizada, notas de versão e requisitos mínimos e máximos de memória. É uma definição de um tipo de imagem. 
@@ -54,9 +54,9 @@ As definições de imagem criam um agrupamento lógico para as imagens. Eles sã
 
 Ao fazer a definição de imagem, verifique se o tem todas as informações corretas. Como as imagens gerenciadas são sempre generalizadas, você deve definir `-OsState generalized` . 
 
-Para obter mais informações sobre os valores que pode especificar para uma definição de imagem, confira [Definições de imagem](./windows/shared-image-galleries.md#image-definitions).
+Para obter mais informações sobre os valores que pode especificar para uma definição de imagem, confira [Definições de imagem](./shared-image-galleries.md#image-definitions).
 
-Crie a definição de imagem usando [New-AzGalleryImageDefinition](/powershell/module/az.compute/new-azgalleryimageversion). Neste exemplo, a definição da imagem é chamada *myImageDefinition*e é para um sistema operacional generalizado do Windows. Para criar uma definição para imagens usando um sistema operacional Linux, use `-OsType Linux` . 
+Crie a definição de imagem usando [New-AzGalleryImageDefinition](/powershell/module/az.compute/new-azgalleryimageversion). Neste exemplo, a definição da imagem é chamada *myImageDefinition* e é para um sistema operacional generalizado do Windows. Para criar uma definição para imagens usando um sistema operacional Linux, use `-OsType Linux` . 
 
 ```azurepowershell-interactive
 $imageDefinition = New-AzGalleryImageDefinition `
@@ -102,7 +102,7 @@ $job = $imageVersion = New-AzGalleryImageVersion `
    -ResourceGroupName $imageDefinition.ResourceGroupName `
    -Location $imageDefinition.Location `
    -TargetRegion $targetRegions  `
-   -Source $managedImage.Id.ToString() `
+   -SourceImageId $managedImage.Id.ToString() `
    -PublishingProfileEndOfLifeDate '2020-12-31' `
    -asJob 
 ```

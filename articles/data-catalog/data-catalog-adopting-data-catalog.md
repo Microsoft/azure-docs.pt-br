@@ -7,10 +7,10 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.openlocfilehash: 63d1213a2dded41df3f462722b354b03fe9f6e33
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "72801887"
 ---
 # <a name="approach-and-process-for-adopting-azure-data-catalog"></a>Abordagem e processo de adoção do Catálogo de Dados do Azure
@@ -151,7 +151,7 @@ Reúna-se com a equipe regularmente para examinar algumas das anotações. Boas 
 
 E o teste final do projeto é se os usuários podem descobrir e entender as fontes de dados que precisam usar. Os usuários do piloto devem testar regularmente o catálogo para garantir que as fontes de dados que eles usam para seu trabalho diário são relevantes. Quando uma fonte de dados necessária está ausente ou não foi anotada corretamente, isso deve servir como um lembrete para registrar fontes de dados adicionais ou para fornecer anotações adicionais. Essa prática não apenas adiciona valor à iniciativa do piloto, mas também cria hábitos eficazes que são transferidos para outras equipes após a conclusão do piloto.
 
-### <a name="provide-training"></a>Forneça treinamento
+### <a name="provide-training"></a>Fornecer treinamento
 
 O treinamento deve ser suficiente para que os usuários iniciem o trabalho e deve ser adaptado às metas específicas e ao nível de experiência dos membros da equipe-piloto. Para começar com o treinamento, você pode seguir as etapas do artigo [Introdução ao Catálogo de Dados do Azure](data-catalog-get-started.md) . Além disso, você pode baixar a [Apresentação de treinamento de projeto-piloto do Catálogo de Dados do Azure](https://github.com/Azure-Samples/data-catalog-dotnet-get-started/blob/master/Azure%20Data%20Catalog%20Training.pptx?raw=true). Essa apresentação do PowerPoint deve ajudá-lo a apresentar o Catálogo de Dados aos membros da equipe-piloto.
 

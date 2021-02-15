@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: travisw
-ms.openlocfilehash: 0800a287b747a8a421958d20f0b1ce56247d6d01
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: 40736764cf9cec6f652e0147eb25d83f15c5bee2
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85362152"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024935"
 ---
 # <a name="what-is-custom-commands"></a>O que são comandos personalizados?
 
@@ -28,7 +28,7 @@ Os comandos personalizados são mais adequados para os cenários de conclusão d
 > [!TIP]
 > Veja nossas demonstrações de exemplo em nossa página de aterrissagem [https://speech.microsoft.com/customcommands](https://speech.microsoft.com/customcommands) .
 
-Se você estiver interessado em criar aplicativos de conversa complexos, você será incentivado a experimentar a estrutura de bot usando a [solução de assistente virtual](https://docs.microsoft.com/azure/bot-service/bot-builder-enterprise-template-overview). Você pode adicionar voz a qualquer bot da estrutura de bot usando a Direct line Speech.
+Se você estiver interessado em criar aplicativos de conversa complexos, você será incentivado a experimentar a estrutura de bot usando a [solução de assistente virtual](/azure/bot-service/bot-builder-enterprise-template-overview). Você pode adicionar voz a qualquer bot da estrutura de bot usando a Direct line Speech.
 
 Bons candidatos a comandos personalizados têm um vocabulário fixo com conjuntos bem definidos de variáveis. Por exemplo, as tarefas de automação doméstica, como controlar um termostato, são ideais.
 
@@ -52,7 +52,7 @@ Depois de concluir o início rápido, Explore nossos guias de instruções para 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Obter gratuitamente uma chave de assinatura dos Serviços de Fala](get-started.md)
+* [Obter gratuitamente uma chave de assinatura dos Serviços de Fala](overview.md#try-the-speech-service-for-free)
 * [Exibir nosso repositório de assistentes de voz no GitHub para obter exemplos](https://aka.ms/speech/cc-samples)
 * [Vá para o Speech Studio para experimentar comandos personalizados](https://speech.microsoft.com/customcommands)
 * [Obter o SDK de Fala](speech-sdk.md)

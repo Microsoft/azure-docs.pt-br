@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/29/2019
+ms.date: 09/16/2020
 ms.author: yelevin
-ms.openlocfilehash: 4042f7b9d0f6fdf293f338c89d5783fe266c4edf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f9c400b55b0da47495db4f1ff4ceb86aa39fe2cc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77581677"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "90885844"
 ---
 # <a name="remove-azure-sentinel-from-your-workspace"></a>Remover o Azure Sentinel do seu espaço de trabalho
 
-Se você não quiser mais usar o Azure Sentinel, este artigo explica como removê-lo do seu espaço de trabalho.
+Se você não quiser mais usar o Azure Sentinel, este artigo explicará como removê-lo do seu espaço de trabalho.
 
 ## <a name="how-to-remove-azure-sentinel"></a>Como remover o Azure Sentinel
 
@@ -48,13 +48,13 @@ Depois que a desconexão é identificada, o processo de remoção é iniciado.
 
 -   AWS
 
--   Alertas de segurança de serviços da Microsoft (Azure ATP Microsoft Cloud App Security incluindo Cloud Discovery relatório de ti de sombra, Azure AD Identity Protection, Microsoft defender ATP, central de segurança do Azure)
+-   Alertas de segurança de serviços da Microsoft: Microsoft defender para identidade (*anteriormente Azure ATP*), Microsoft Cloud App Security incluindo Cloud Discovery relatório de ti de sombra, Azure ad Identity Protection, Microsoft defender para ponto de extremidade (*anteriormente Microsoft defender ATP*), alertas do Azure defender da central de segurança do Azure
 
 -   Inteligência contra ameaças
 
--   Logs de segurança comuns (incluindo logs baseados em CEF, Barracuda e syslog) (se você tiver a central de segurança do Azure, esses logs continuarão a ser coletados.)
+-   Logs de segurança comuns (incluindo logs baseados em CEF, Barracuda e syslog) (se você obtiver alertas do Azure defender na central de segurança do Azure, esses logs continuarão a ser coletados.)
 
--   Eventos de segurança do Windows (se você tiver a central de segurança do Azure, esses logs continuarão a ser coletados).
+-   Eventos de segurança do Windows (se você obtiver alertas do Azure defender na central de segurança do Azure, esses logs continuarão a ser coletados.)
 
 Nas primeiras 48 horas, as regras de dados e analíticas (incluindo a configuração de automação em tempo real) não estarão mais acessíveis ou consultáveis no Azure Sentinel.
 

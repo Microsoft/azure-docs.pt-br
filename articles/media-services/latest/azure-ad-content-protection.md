@@ -10,17 +10,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/1/2020
+ms.date: 08/31/2020
 ms.author: inhenkel
-ms.custom: devx-track-javascript
-ms.openlocfilehash: ad50b29dbda7c09c9312ebb4a01ebc5da568f3da
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-js
+ms.openlocfilehash: 9415d66c49992bc31f773dec908a861f1126e714
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422089"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427204"
 ---
 # <a name="tutorial-end-to-end-content-protection-using-azure-ad"></a>Tutorial: Proteção de conteúdo de ponta a ponta usando o Azure AD
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Com este tutorial e o exemplo de player fornecido, você pode configurar um subsistema de proteção de conteúdo de mídia de ponta a ponta no AMS (Serviços de Mídia do Azure) e no ADD (Azure Active Directory) para transmitir conteúdo de mídia com todos os formatos de contêiner, codec, protocolos de streaming e DRM/AES-128 compatíveis do AMS. O exemplo é genérico o suficiente para acesso seguro a qualquer API REST protegida pelo OAuth 2 por meio do fluxo de código de autorização com PKCE (chave de prova para troca de código). (O serviço de entrega de licença dos Serviços de Mídia do Azure é apenas um deles.) Ele também funciona para a API do Microsoft Graph ou qualquer API REST desenvolvida personalizada protegida com o Fluxo de Código de Autorização do OAuth 2. Este é o documento complementar para o [código de exemplo](https://github.com/Azure-Samples/media-services-content-protection-azure-ad).
 
@@ -127,11 +129,11 @@ A tela para conexão, aquisição de token, renovação de token e exibição de
 
 A tela para analisar tokens JWT (access_token ou id_token):
 
-![tela para análise de tokens JWT](media/aad-ams-content-protection/parsing-jwt-tokens.png)
+![Captura de tela que mostra a análise de tokens JWT.](media/aad-ams-content-protection/parsing-jwt-tokens.png)
 
 A tela para testar o conteúdo protegido com diferentes combinações de DRM/AES vs. Protocolos de Streaming vs. Formato de Contêiner:
 
-![tela para análise de tokens JWT](media/aad-ams-content-protection/testing-protected-content.png)
+![Captura de tela que mostra o teste de conteúdo protegido com diferentes combinações de DRM ou AES versus Protocolos de Streaming versus Formato de Contêiner](media/aad-ams-content-protection/testing-protected-content.png)
 -->
 
 <!-- You can see a hosted version of the sample at [https://aka.ms/ott](https://aka.ms/ott)-->
@@ -153,7 +155,7 @@ Escolha um locatário do Azure AD a ser usado para nosso exemplo de ponta a pont
 1. Selecione **Registros de aplicativo** no menu.
 1. Clique em **+ Novo Registro**.
 1. Dê ao aplicativo o nome *LicenseDeliveryResource2* (em que 2 indica pontos de extremidade do AAD v2).
-1. Selecione **Contas neste diretório organizacional somente ([*seu nome de locatário*] somente – locatário único)** . Se você quiser habilitar o acesso a vários locatários, selecione uma das outras opções de multilocatário.
+1. Selecione **Contas neste diretório organizacional somente ([ *seu nome de locatário* ] somente – locatário único)** . Se você quiser habilitar o acesso a vários locatários, selecione uma das outras opções de multilocatário.
 1. O **URI de redirecionamento** é opcional e pode ser alterado posteriormente.
 1. Clique em **Registrar**. A exibição Registros de aplicativo aparecerá.
 1. Selecione **Manifesto** no menu. A exibição Manifesto aparecerá.
@@ -180,7 +182,7 @@ Escolha um locatário do Azure AD a ser usado para nosso exemplo de ponta a pont
 1. Selecione **Registros de aplicativo** no menu.
 1. Clique em **+ Novo Registro**.
 1. Forneça um nome ao aplicativo cliente, por exemplo, *Proteção de Conteúdo do AAD do AMS*.
-1. Selecione **Contas neste diretório organizacional somente ([*seu nome de locatário*] somente – locatário único)** . Se você quiser habilitar o acesso a vários locatários, selecione uma das outras opções de multilocatário.
+1. Selecione **Contas neste diretório organizacional somente ([ *seu nome de locatário* ] somente – locatário único)** . Se você quiser habilitar o acesso a vários locatários, selecione uma das outras opções de multilocatário.
 1. O **URI de redirecionamento** é opcional e pode ser alterado posteriormente.
 1. Clique em **Registrar**.
 1. Selecione **Permissões de API** no menu.
@@ -248,7 +250,7 @@ Altere os valores `ida_AADOpenIdDiscoveryDocument`, `ida_audience` e `ida_issuer
 1. Selecione o locatário do AAD que você usou anteriormente, clique em **Registros de aplicativo** no menu e clique no link **Pontos de extremidade**.
 1. Selecione e copie o valor do campo **Documento de metadados do OpenIdConnect** e cole-o no código como o valor `ida_AADOpenIdDiscoveryDocument`.
 1. O valor de `ida_audience` é a ID do aplicativo (cliente) do aplicativo registrado *LicenseDeliveryResource2*.
-1. O valor `ida_issuer` é a URL `https://login.microsoftonline.com/[tenant_id]/v2.0`. Substitua [*id_de_locatário*] pela sua ID de locatário.
+1. O valor `ida_issuer` é a URL `https://login.microsoftonline.com/[tenant_id]/v2.0`. Substitua [ *id_de_locatário* ] pela sua ID de locatário.
 
 ## <a name="set-up-the-sample-player-app"></a>Configurar o aplicativo de player de exemplo
 
@@ -267,7 +269,7 @@ Você tem duas opções para configurar o aplicativo de player:
 1. Substitua `OAUTH2_CONST.CLIENT_ID` pelo `client_id` do seu aplicativo cliente registrado no locatário do AAD.  Você pode encontrar o `client_id` na seção Visão geral do aplicativo registrado no portal do Azure. Observação: é a ID do cliente, não a ID de objeto.
 1. Substitua `OAUTH2_CONST.TENANT_ID` pela `tenant_id` do seu locatário do Azure AD. Você pode encontrar a `tenant_id` clicando no menu Azure Active Directory. A tenant_id aparecerá na seção visão geral.
 1. Substitua `OAUTH2_CONST.SCOPE` pelo escopo que você adicionou ao seu aplicativo cliente registrado. Você pode encontrar o escopo navegando até o aplicativo cliente registrado no menu **Registros de aplicativo** e selecionando seu aplicativo cliente:
-    1. Selecione seu aplicativo cliente, clique no menu **Permissões de API** e selecione o escopo *DRM.License.Delivery* na permissão de API *LicenseDeliveryResource2*. A permissão deve estar em um formato como *api://df4ed433-dbf0-4da6-b328-e1fe05786db5/DRM.License.Delivery*. **Importante**: Mantenha o espaço na frente de `offline_access` no `OAUTH2_CONST.SCOPE`.
+    1. Selecione seu aplicativo cliente, clique no menu **Permissões de API** e selecione o escopo *DRM.License.Delivery* na permissão de API *LicenseDeliveryResource2*. A permissão deve estar em um formato como *api://df4ed433-dbf0-4da6-b328-e1fe05786db5/DRM.License.Delivery*. **Importante** : Mantenha o espaço na frente de `offline_access` no `OAUTH2_CONST.SCOPE`.
 1. Substitua as duas cadeias de caracteres constantes por `AMS_CONST`, conforme mostrado abaixo. Uma é a URL de streaming protegida do seu ativo de teste e a outra é a URL do certificado de aplicativo de FPS se você quiser incluir o caso de teste FairPlay. Caso contrário, você pode deixá-lo como está para `AMS_CONST.APP_CERT_URL`. Em seguida, clique em **Salvar**.
 
 ```javascript
@@ -311,7 +313,7 @@ Se você planeja usar outra plataforma IDE/Web e/ou um servidor Web, como o IIS 
 
 Agora que você concluiu o tutorial e tem um subsistema de trabalho, pode tentar modificá-lo para os seguintes cenários de cliente:
 
-### <a name="role-based-access-control-rbac-for-license-delivery-via-azure-ad-group-membership"></a>RBAC (controle de acesso baseado em função) para entrega de licença por meio da associação de grupo do Azure AD
+### <a name="azure-role-based-access-control-azure-rbac-for-license-delivery-via-azure-ad-group-membership"></a>Azure RBAC (controle de acesso baseado em função do Azure) para entrega de licença por meio da associação de grupo do Azure AD
 
 Até agora, o sistema permite que qualquer usuário que possa entrar para obter uma licença válida e reproduzir o conteúdo protegido.
 
@@ -319,14 +321,14 @@ Até agora, o sistema permite que qualquer usuário que possa entrar para obter 
 
 #### <a name="set-up-the-azure-ad-tenant"></a>Configurar o locatário do Azure AD
 
-1. Configure duas contas em seu locatário. Elas podem ser chamadas *premium_user* e *basic_user*;
+1. Configure duas contas em seu locatário. Elas podem ser chamadas *premium_user* e *basic_user* ;
 1. Crie um grupo de usuários e chame-o de *PremiumGroup*.
 1. Adicione *premium_user* ao *PremiumGroup* como um membro, mas não adicione o *basic_user* ao grupo.
 1. Anote a **ID do objeto** do *PremiumGroup*.
 
 #### <a name="set-up-the-media-services-account"></a>Configurar a conta dos Serviços de Mídia
 
-Modifique `ContentKeyPolicyRestriction` (conforme mostrado na seção acima na configuração da conta de serviço de mídia), adicionando uma declaração denominada *Grupos*, em que `ida_EntitledGroupObjectId` tem a ID de objeto *PremiumGroup* como seu valor:
+Modifique `ContentKeyPolicyRestriction` (conforme mostrado na seção acima na configuração da conta de serviço de mídia), adicionando uma declaração denominada *Grupos* , em que `ida_EntitledGroupObjectId` tem a ID de objeto *PremiumGroup* como seu valor:
 
 ```dotnetcli
 

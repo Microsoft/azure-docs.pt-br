@@ -4,13 +4,13 @@ description: Preparar para failback de VMs do VMware após o failover com Azure 
 ms.topic: conceptual
 ms.date: 12/24/2019
 ms.openlocfilehash: 5a330f8cba31640d0116ca3d5ccab352ce5b3509
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85847730"
 ---
-# <a name="prepare-for-reprotection-and-failback-of-vmware-vms"></a>Prepare-se para a nova proteção e failback de VMs VMware
+# <a name="prepare-for-reprotection-and-failback-of-vmware-vms"></a>Preparar para nova proteção e failback das VMs do VMware
 
 Após o [failover](site-recovery-failover.md) de VMs VMware locais ou servidores físicos para o Azure, você protege novamente as VMs do Azure criadas após o failover, para que elas sejam replicadas de volta para o site local. Com a replicação do Azure para o local no local, você pode fazer failback executando um failover do Azure para o local quando estiver pronto.
 

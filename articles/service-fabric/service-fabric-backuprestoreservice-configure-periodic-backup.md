@@ -1,16 +1,14 @@
 ---
 title: Noções básicas sobre a configuração de backup periódico
-description: Use o recurso de restauração e backup periódico do Service Fabric para habilitar o backup periódico de dados dos dados do seu aplicativo.
-author: hrushib
+description: Use o recurso backup e restauração periódicos do Service Fabric para configurar o backup periódico de seus serviços confiáveis com estado ou Reliable Actors.
 ms.topic: article
 ms.date: 2/01/2019
-ms.author: hrushib
-ms.openlocfilehash: c77f069d93e368652c30cd100b0f99ca55341882
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 2607502af44b178131820d78f23bcdf4e32454a0
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261228"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018878"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>Noções básicas sobre a configuração de backup periódico no Azure Service Fabric
 
@@ -25,6 +23,9 @@ A configuração do backup periódico dos seus serviços com estado confiáveis 
 Uma política de backup é composta pelas seguintes configurações:
 
 * **Restauração automática na perda de dados**: especifica se você deve disparar a restauração automaticamente usando o último backup disponível caso a partição passe por um evento de perda de dados.
+> [!NOTE]
+> É recomendável não definir a restauração automática em clusters de produção
+>
 
 * **Máx. de backups incrementais**: define o número máximo de backups incrementais a serem executados entre dois backups completos. O máximo de backups incrementais especifica o limite superior. Um backup completo pode ser executado antes que um número especificado de backups incrementais seja concluído em uma das seguintes condições
 
@@ -45,7 +46,7 @@ Uma política de backup é composta pelas seguintes configurações:
         ```
 
     2. **Agendamento de backup baseado em tempo**: esse tipo de agendamento deverá ser usado se for necessário executar backup de dados em horários específicos do dia ou semana. O tipo de frequência do agendamento pode ser diário ou semanal.
-        1. **_Agendamento de backup baseado em tempo_ diário**: esse tipo de agendamento deverá ser usado se for necessário executar backup de dados em horários específicos do dia. Para especificar isso, defina `ScheduleFrequencyType` como _Diário_; e defina `RunTimes` como a lista de tempo desejado durante o dia no formato ISO8601, a data especificada junto com a hora será ignorada. Por exemplo, `0001-01-01T18:00:00` representa _18h_ todos os dias, ignorando a parte da data _0001-01-01_. O exemplo abaixo ilustra a configuração para disparar o backup diário às _9h_ e _18h_ todos os dias.
+        1. **Agendamento de backup com base em tempo _diário_**: esse tipo de agendamento deve ser usado se a necessidade for fazer o backup de dados em horários específicos do dia. Para especificar isso, defina `ScheduleFrequencyType` como _Diário_; e defina `RunTimes` como a lista de tempo desejado durante o dia no formato ISO8601, a data especificada junto com a hora será ignorada. Por exemplo, `0001-01-01T18:00:00` representa _18h_ todos os dias, ignorando a parte da data _0001-01-01_. O exemplo abaixo ilustra a configuração para disparar o backup diário às _9h_ e _18h_ todos os dias.
 
             ```json
             {
@@ -58,7 +59,7 @@ Uma política de backup é composta pelas seguintes configurações:
             }
             ```
 
-        2. **_Agendamento de backup baseado em tempos _semanal**: esse tipo de agendamento deverá ser usado se for necessário executar backup de dados em horários específicos do dia. Para especificar isso, defina `ScheduleFrequencyType` como _Semanal_; e defina `RunDays` como a lista de dias em uma semana quando o backup precisa ser disparado e `RunTimes` como a lista de horários desejados durante o dia no formato ISO8601, a data especificada junto com a hora será ignorada. Lista de dias de uma semana quando disparar o backup periódico. O exemplo abaixo ilustra a configuração para disparar um backup diário às _9h_ e às _18h_ de segunda a sexta-feira.
+        2. **Agendamento de backup com base em tempo _semanal_**: esse tipo de agendamento deve ser usado se a necessidade for fazer o backup de dados em horários específicos do dia. Para especificar isso, defina `ScheduleFrequencyType` como _Semanal_; e defina `RunDays` como a lista de dias em uma semana quando o backup precisa ser disparado e `RunTimes` como a lista de horários desejados durante o dia no formato ISO8601, a data especificada junto com a hora será ignorada. Lista de dias de uma semana quando disparar o backup periódico. O exemplo abaixo ilustra a configuração para disparar um backup diário às _9h_ e às _18h_ de segunda a sexta-feira.
 
             ```json
             {
@@ -80,6 +81,7 @@ Uma política de backup é composta pelas seguintes configurações:
 
 * **Armazenamento de backup**: especifica o local para carregar backups. O armazenamento pode ser o armazenamento de blobs do Azure ou o compartilhamento de arquivos.
     1. **Armazenamento de blobs do Azure**: esse tipo de armazenamento deve ser selecionado quando a necessidade é armazenar backups gerados no Azure. Os clusters _autônomos_ e _baseados no Azure_ podem usar esse tipo de armazenamento. Uma descrição para esse tipo de armazenamento requer uma cadeia de conexão e um nome do contêiner, em que os backups precisam ser carregados. Se o contêiner com o nome especificado não estiver disponível, ele será criado durante o carregamento de um backup.
+
         ```json
         {
             "StorageKind": "AzureBlobStore",
@@ -88,6 +90,10 @@ Uma política de backup é composta pelas seguintes configurações:
             "ContainerName": "BackupContainer"
         }
         ```
+
+        > [!NOTE]
+        > O serviço de restauração de backup não funciona com o armazenamento v1 do Azure
+        >
 
     2. **Compartilhamento de arquivos**: esse tipo de armazenamento deve ser selecionado para clusters _autônomos_ quando a necessidade é armazenar o backup de dados no local. Uma descrição desse tipo de armazenamento requer um caminho de compartilhamento de arquivos para o qual os backups precisam ser carregados. O acesso ao compartilhamento de arquivos pode ser configurado usando uma das seguintes opções
         1. _Autenticação Integrada do Windows_, em que o acesso ao compartilhamento de arquivos é fornecido a todos os computadores que pertencem ao cluster do Service Fabric. Nesse caso, defina os campos a seguir para configurar o armazenamento de backup baseado no _compartilhamento de arquivos_.
@@ -131,6 +137,10 @@ Uma política de backup é composta pelas seguintes configurações:
 
 ## <a name="enable-periodic-backup"></a>Habilitar backup periódico
 Após definir a política de backup para atender aos requisitos de backup de dados, a política de backup deverá ser devidamente associada a um _aplicativo_ ou a um _serviço_ ou a uma _partição_.
+
+> [!NOTE]
+> Verifique se não há atualizações de aplicativo em andamento antes de habilitar o backup
+>
 
 ### <a name="hierarchical-propagation-of-backup-policy"></a>Propagação hierárquica da política de backup
 No Service Fabric, a relação entre aplicativo, serviço e partições é hierárquica, conforme explicado no [Modelo de aplicativo](./service-fabric-application-model.md). A política de backup pode ser associada a um _aplicativo_, _serviço_ ou uma _partição_ na hierarquia. A política de backup propaga-se hierarquicamente até o próximo nível. Supondo que haja apenas uma política de backup criada e associada a um _aplicativo_, o backup de todas as partições com estado que pertencem a todos os _serviços com estado confiáveis_ e _Reliable Actors_ do _aplicativo_ será realizado usando a política de backup. Ou, se a política de backup estiver associada a um _Serviço com estado confiável_, o backup de todas as suas partições será realizado usando a política de backup.
@@ -188,6 +198,9 @@ As políticas de backup poderão ser desabilitadas quando não houver necessidad
         "CleanBackup": true 
     }
     ```
+> [!NOTE]
+> Verifique se não há atualizações de aplicativo em andamento antes de desabilitar o backup
+>
 
 ## <a name="suspend--resume-backup"></a>Suspender e retomar o backup
 Uma determinada situação pode demandar a suspensão temporária do backup periódico de dados. Nessa situação, dependendo do requisito, a suspensão da API de backup pode ser usada em um _aplicativo_, em um _serviço_ ou em uma _partição_. A suspensão do backup periódico é transitiva na subárvore da hierarquia do aplicativo do ponto em que é aplicada. 
@@ -215,6 +228,10 @@ Embora a desabilitação possa ser invocada apenas em um nível no qual tenha si
 A partição do serviço pode perder dados devido a falhas inesperadas. Por exemplo, o disco de duas entre três réplicas de uma partição (incluindo a réplica primária) é corrompido ou apagado.
 
 Quando o Service Fabric detecta que a partição está na perda de dados, ele invoca o método de interface `OnDataLossAsync` na partição e espera que ela execute a ação necessária para sair da perda de dados. Nessa situação, se a política de backup em vigor na partição tiver um sinalizador `AutoRestoreOnDataLoss` definido como `true`, então a restauração é será automaticamente usando o backup disponível mais recente para essa partição.
+
+> [!NOTE]
+> É recomendável não definir a restauração automática em clusters de produção
+>
 
 ## <a name="get-backup-configuration"></a>Obter configuração de backup
 As APIs separadas são disponibilizadas para obter informações de configuração de backup em um escopo do _aplicativo_, do _serviço_ e da _partição_. [Obter informações de configuração de backup de aplicativo](/rest/api/servicefabric/sfclient-api-getapplicationbackupconfigurationinfo), [Obter informações de configuração de backup de serviço](/rest/api/servicefabric/sfclient-api-getservicebackupconfigurationinfo) e [Obter informações de configuração de backup de partição](/rest/api/servicefabric/sfclient-api-getpartitionbackupconfigurationinfo) são essas APIs, respectivamente. Principalmente, essas APIs retornam a política de backup aplicável, escopo no qual a política de backup é aplicada e a suspensão de backup é detalhada. A seguir, há uma breve descrição sobre os resultados retornados dessas APIs.

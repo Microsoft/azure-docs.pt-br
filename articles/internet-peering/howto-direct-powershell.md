@@ -8,12 +8,13 @@ ms.service: internet-peering
 ms.topic: how-to
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: 076332ac61359bc793615c2f7c9ea0e22c667bcd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: be4bab10d369fcefe626bbe890acfff7fc7004b0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84700290"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89079057"
 ---
 # <a name="create-or-modify-a-direct-peering-by-using-powershell"></a>Criar ou modificar um emparelhamento direto usando o PowerShell
 

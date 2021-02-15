@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 02/13/2019
 ms.author: curtand
-ms.openlocfilehash: 0fe191ac827c76afd497896611430f6efc6283aa
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: c68e01e0eb7c926f47c99b16efa87d23a10b6711
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747236"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91537026"
 ---
 # <a name="set-up-text-messaging-as-your-verification-method"></a>Configurar mensagens de texto como seu método de verificação
 
@@ -52,7 +52,7 @@ Dependendo das configurações da sua organização, você poderá usar mensagen
 
 4. Na página **Telefone**, digite o número de telefone do seu dispositivo móvel, escolha **Enviar-me um código por texto** e, em seguida, selecione **Avançar**.
 
-    ![Adicionar número de telefone e escolher mensagens de texto](media/security-info/securityinfo-myprofile-phonetext-addnumber.png)
+    ![Captura de tela que mostra a página "telefone", com "Text me a Code" selecionado.](media/security-info/securityinfo-myprofile-phonetext-addnumber.png)
 
 5. Digite o código enviado a você por meio de mensagem de texto para seu dispositivo móvel e, em seguida, selecione **Avançar**.
 

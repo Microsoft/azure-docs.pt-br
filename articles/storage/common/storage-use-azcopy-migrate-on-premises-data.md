@@ -8,12 +8,12 @@ ms.date: 05/14/2019
 ms.author: normesta
 ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: f2b46e37241cf142f751f2f65a1ef9f092166ec8
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 682394329205d74859c1af0c0a68a37539da7872
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86120629"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881021"
 ---
 #  <a name="tutorial-migrate-on-premises-data-to-cloud-storage-with-azcopy"></a>Tutorial: migrar dados do local para a nuvem com o AzCopy
 
@@ -33,7 +33,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 Para concluir este tutorial, baixe a última versão do AzCopy. Confira [Introdução ao AzCopy](storage-use-azcopy-v10.md).
 
-Se você está no Windows, precisa ter o [Schtasks](https://msdn.microsoft.com/library/windows/desktop/bb736357(v=vs.85).aspx), já que este tutorial o usa para agendar uma tarefa. Os usuários do Linux usarão o comando crontab.
+Se você está no Windows, precisa ter o [Schtasks](/windows/win32/taskschd/schtasks), já que este tutorial o usa para agendar uma tarefa. Os usuários do Linux usarão o comando crontab.
 
 [!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
@@ -46,7 +46,7 @@ Execute estas etapas para criar um contêiner:
 1. Selecione o botão **Contas de armazenamento** na página principal e, em seguida, selecione a conta de armazenamento que você criou.
 2. Selecione **Blobs** em **Serviços** e, em seguida, selecione **Contêiner**.
 
-   ![Criar um contêiner](media/storage-azcopy-migrate-on-premises-data/CreateContainer.png)
+   ![Captura de tela mostrando a criação de contêiner](media/storage-azcopy-migrate-on-premises-data/CreateContainer.png)
  
 Nomes de contêiner devem começar com uma letra ou número. Eles podem conter apenas letras, números e o caractere de hífen (-). Para obter mais regras sobre como nomear blobs e contêineres, confira [Nomenclatura e referência de contêineres, blobs e metadados](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 
@@ -62,7 +62,7 @@ Coloque o arquivo do AzCopy em qualquer lugar do computador. Adicione a localiza
 
 ## <a name="authenticate-with-azure-ad"></a>Autenticar com o Azure AD
 
-Primeiro, atribua a função [Colaborador de Dados do Blob de Armazenamento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor) à sua identidade. Confira [Grant access to Azure blob and queue data with RBAC in the Azure portal](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal) (Permitir acesso a dados de blob e fila do Azure com o RBAC no portal do Azure).
+Primeiro, atribua a função [Colaborador de Dados do Blob de Armazenamento](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor) à sua identidade. Confira [Usar o portal do Azure para atribuir uma função do Azure para acesso aos dados de blob e de fila](./storage-auth-aad-rbac-portal.md).
 
 Em seguida, abra um prompt de comando, digite o comando a seguir e pressione a tecla ENTER.
 
@@ -72,13 +72,13 @@ azcopy login
 
 Esse comando retorna um código de autenticação e a URL de um site. Abra o site, forneça o código e, em seguida, escolha o botão **Avançar**.
 
-![Criar um contêiner](media/storage-use-azcopy-v10/azcopy-login.png)
+![Captura de tela mostrando o prompt de logon](media/storage-use-azcopy-v10/azcopy-login.png)
 
 Uma janela de entrada será exibida. Nessa janela, entre em sua conta do Azure usando suas credenciais de conta do Azure. Depois de entrar com êxito, feche a janela do navegador e comece a usar o AzCopy.
 
 ## <a name="upload-contents-of-a-folder-to-blob-storage"></a>Carregar conteúdo de uma pasta para o Armazenamento de Blobs
 
-Você pode usar AzCopy para carregar todos os arquivos em uma pasta para Armazenamento de Blobs em [Windows](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy) ou [Linux](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux). Para carregar todos os blobs em uma pasta, digite o seguinte comando do AzCopy:
+Você pode usar AzCopy para carregar todos os arquivos em uma pasta para Armazenamento de Blobs em [Windows](./storage-use-azcopy-v10.md) ou [Linux](./storage-use-azcopy-v10.md). Para carregar todos os blobs em uma pasta, digite o seguinte comando do AzCopy:
 
 ```AzCopy
 azcopy copy "<local-folder-path>" "https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>" --recursive=true
@@ -108,7 +108,7 @@ azcopy sync "<local-folder-path>" "https://<storage-account-name>.blob.core.wind
 
 * Substitua o espaço reservado `<container-name>` pelo nome do contêiner criado.
 
-Para saber mais sobre o comando `sync`, confira [Sincronizar arquivos](storage-use-azcopy-blobs.md#synchronize-files).
+Para saber mais sobre o comando `sync`, confira [Sincronizar arquivos](./storage-use-azcopy-v10.md#transfer-data).
 
 ## <a name="create-a-scheduled-task"></a>Criar uma tarefa agendada
 
@@ -135,7 +135,7 @@ azcopy sync "C:\myFolder" "https://mystorageaccount.blob.core.windows.net/mycont
 
 ---
 
-Neste tutorial, [Schtasks](https://msdn.microsoft.com/library/windows/desktop/bb736357(v=vs.85).aspx) é usado para criar uma tarefa agendada no Windows. O comando [Crontab](http://crontab.org/) é usado para criar um trabalho Cron no Linux.
+Neste tutorial, [Schtasks](/windows/win32/taskschd/schtasks) é usado para criar uma tarefa agendada no Windows. O comando [Crontab](http://crontab.org/) é usado para criar um trabalho Cron no Linux.
 
  **Schtasks** permite que um administrador crie, exclua, consulte, altere, execute e finalize as tarefas agendadas em um computador local ou remoto. **Cron** permite que os usuários do Linux e Unix executem comandos ou scripts em uma data e hora especificadas usando [expressões Cron](https://en.wikipedia.org/wiki/Cron#CRON_expression).
 
@@ -166,7 +166,7 @@ O comando usa:
 - O parâmetro `/TN` para especificar o nome da tarefa.
 - O parâmetro `/TR` para especificar o caminho para o arquivo `script.bat`.
 
-Para saber mais sobre como criar uma tarefa agendada no Windows, consulte [Schtasks](https://technet.microsoft.com/library/cc772785(v=ws.10).aspx#BKMK_minutes).
+Para saber mais sobre como criar uma tarefa agendada no Windows, consulte [Schtasks](/previous-versions/orphan-topics/ws.10/cc772785(v=ws.10)#BKMK_minutes).
 
 ---
 
@@ -176,13 +176,13 @@ Para validar que o trabalho cron/tarefa agendada seja executada corretamente, cr
 
 Para saber mais sobre as maneiras de mover dados locais para o Armazenamento do Azure e vice-versa, siga este link:
 
-* [Mover dados de e para o Armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-moving-data?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).  
+* [Mover dados de e para o Armazenamento do Azure](./storage-choose-data-transfer-solution.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).  
 
 Para obter mais informações sobre o AzCopy, confira um destes artigos:
 
 * [Introdução ao AzCopy](storage-use-azcopy-v10.md)
 
-* [Transferir dados com o AzCopy e o Armazenamento de Blobs](storage-use-azcopy-blobs.md)
+* [Transferir dados com o AzCopy e o Armazenamento de Blobs](./storage-use-azcopy-v10.md#transfer-data)
 
 * [Transferir dados com o AzCopy e o Armazenamento de Arquivos](storage-use-azcopy-files.md)
 

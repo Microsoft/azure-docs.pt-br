@@ -7,15 +7,15 @@ ms.topic: article
 ms.date: 04/23/2020
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 888118d227529110c209d7c8d5a3bb79cfcf3a9a
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 587ad53fa3a4875f7019a8c094db1b9a5f096519
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88959784"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99509546"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Monitorar aplicativos no Serviço de Aplicativo do Azure
-O [serviço de Azure app](https://go.microsoft.com/fwlink/?LinkId=529714) fornece funcionalidade de monitoramento interna para aplicativos Web, móveis e aplicativos de API no [portal do Azure](https://portal.azure.com).
+O [serviço de Azure app](./overview.md) fornece funcionalidade de monitoramento interna para aplicativos Web, móveis e aplicativos de API no [portal do Azure](https://portal.azure.com).
 
 No portal do Azure, você pode examinar *cotas* e *métricas* para um aplicativo e um plano do serviço de aplicativo e configurar *alertas* e métricas baseadas em regras de *dimensionamento* automático.
 
@@ -39,7 +39,7 @@ As cotas para aplicativos Gratuitos ou Compartilhados são:
 | **Largura de banda** | A quantidade total de largura de banda de saída permitida para esse aplicativo em um dia. Essa cota é definida novamente a cada 24 horas, à meia-noite UTC. |
 | **WPD** | A quantidade total de armazenamento permitida. |
 
-A única cota aplicável a aplicativos hospedados em *Basic*, *Standard*e *Premium* é FileSystem.
+A única cota aplicável a aplicativos hospedados em *Basic*, *Standard* e *Premium* é FileSystem.
 
 Para saber mais sobre cotas, limites e recursos específicos disponíveis para os vários SKUs de Serviço de Aplicativo, confira [Limites do serviço de assinatura do Azure](../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits).
 
@@ -58,7 +58,7 @@ Aumente ou remova cotas de seu aplicativo atualizando seu Plano do Serviço de A
 ## <a name="understand-metrics"></a>Entender as métricas
 
 > [!NOTE]
-> O **uso do sistema de arquivos** é uma nova métrica sendo distribuída globalmente, nenhum dado é esperado, a menos que você tenha recebido acesso para visualização privada.
+> O **uso do sistema de arquivos** é uma nova métrica sendo distribuída globalmente, nenhum dado é esperado, a menos que seu aplicativo esteja hospedado em um ambiente do serviço de aplicativo.
 > 
 
 > [!IMPORTANT]
@@ -82,11 +82,12 @@ Para um aplicativo, as métricas disponíveis são:
 | **Assemblies Atuais** | O número atual de Assemblies carregados em todos os AppDomains nesse aplicativo. |
 | **Dados em** | A quantidade de largura de banda de entrada consumida pelo aplicativo em MiB. |
 | **Saída de dados** | A quantidade de largura de banda de saída consumida pelo aplicativo em MiB. |
-| **Uso do sistema de arquivos** | Porcentagem da cota do sistema de arquivos consumida pelo aplicativo. |
+| **Uso do sistema de arquivos** | A quantidade de uso em bytes por compartilhamento de armazenamento. |
 | **Coletas de lixo da Ger 0** | O número de vezes que os objetos da geração 0 são coletados como lixo desde o início do processo do aplicativo. As coletas de lixo de geração superior incluem todas as coletas da geração inferior.|
 | **Coletas de lixo da Ger 1** | O número de vezes que os objetos da geração 1 são coletados como lixo desde o início do processo do aplicativo. As coletas de lixo de geração superior incluem todas as coletas da geração inferior.|
 | **Coletas de lixo da Ger 2** | O número de vezes que os objetos da geração 2 são coletados como lixo desde o início do processo do aplicativo.|
 | **Núm. de Identificadores** | O número total de identificadores atualmente abertos pelo processo do aplicativo.|
+| **Status da verificação de integridade** | O status de integridade médio entre as instâncias do aplicativo no plano do serviço de aplicativo.|
 | **Http 2xx** | A contagem de solicitações que resultam em um código de status HTTP ≥ 200, mas < 300. |
 | **Http 3xx** | A contagem de solicitações que resultam em um código de status HTTP ≥ 300, mas < 400. |
 | **Http 401** | A contagem de solicitações que resultam em um código de status HTTP 401. |

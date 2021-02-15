@@ -1,5 +1,5 @@
 ---
-title: Configurar o Serviço de Provisionamento de Dispositivos no Hub IoT no portal do Azure
+title: Início Rápido – Configurar o Serviço de Provisionamento de Dispositivos no Hub IoT no portal do Azure
 description: Início Rápido – Configurar o DPS (Serviço de Provisionamento de Dispositivos) no Hub IoT do Azure no portal do Azure
 author: wesmc7777
 ms.author: wesmc
@@ -8,22 +8,22 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: 765b7e5bb7341974a6a16d3f1ed0bcabf415f9f3
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 644635d1ab7b0a43c8df3e10bbbd02d1ea67a94a
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76029171"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91297225"
 ---
 # <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-the-azure-portal"></a>Início Rápido: Configurar o Serviço de Provisionamento de Dispositivos do Hub IoT com o portal do Azure
 
 O Serviço de Provisionamento de Dispositivos no Hub IoT pode ser usado com o Hub IoT para habilitar o provisionamento de toque zero, Just-In-Time no Hub IoT correto sem necessidade de intervenção humana, permitindo que os clientes provisionem milhões de dispositivos IoT de modo seguro e escalonável. O Serviço de Provisionamento de Dispositivos no Hub IoT do Azure é compatível com dispositivos IoT com autenticações de certificado X.509, de chave simétrica e TPM. Para obter mais informações, confira a [Visão geral do Serviço de Provisionamento de Dispositivos no Hub IoT](./about-iot-dps.md)
 
 Neste início rápido, você aprenderá a configurar o Serviço de Provisionamento de Dispositivos no Hub IoT no portal do Azure para provisionar seus dispositivos com as seguintes etapas:
-> [!div class="checklist"]
-> * Use o portal do Azure para criar um Hub IoT
-> * Usar o Portal do Azure para criar um Serviço de Provisionamento de Dispositivos no Hub IoT e obter o escopo da ID
-> * Vincular o Hub IoT ao Serviço de Provisionamento de Dispositivos
+
+* Use o portal do Azure para criar um Hub IoT
+* Usar o Portal do Azure para criar um Serviço de Provisionamento de Dispositivos no Hub IoT e obter o escopo da ID
+* Vincular o Hub IoT ao Serviço de Provisionamento de Dispositivos
 
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.

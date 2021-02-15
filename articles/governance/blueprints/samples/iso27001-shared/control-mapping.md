@@ -1,14 +1,14 @@
 ---
 title: Controles da amostra de blueprint dos Serviços Compartilhados ISO 27001
-description: Mapeamento de controle da amostra de blueprint dos Serviços Compartilhados ISO 27001. Cada controle é mapeado para uma ou mais Políticas do Azure que auxiliam na avaliação.
-ms.date: 07/13/2020
+description: Mapeamento de controle da amostra de blueprint dos Serviços Compartilhados ISO 27001. Cada controle é mapeado para uma ou mais definições do Azure Policy que auxiliam na avaliação.
+ms.date: 02/05/2021
 ms.topic: sample
-ms.openlocfilehash: 7655ae2828972a9b99479c7a94f02b02005a9284
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 64266e72bf2aa24ac7fbf70f87f27739709fa0be
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87927123"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99626335"
 ---
 # <a name="control-mapping-of-the-iso-27001-shared-services-blueprint-sample"></a>Mapeamento de controle da amostra de blueprint dos Serviços Compartilhados ISO 27001
 
@@ -17,7 +17,7 @@ O artigo a seguir fornece detalhes sobre como a amostra de blueprint dos Serviç
 Os seguintes mapeamentos referem-se aos controles **ISO 27001:2013**. Use a navegação no lado direito para ir diretamente para um mapeamento de controle específico. Muitos dos controles mapeados são implementados com uma iniciativa do [Azure Policy](../../../policy/overview.md). Para examinar a iniciativa completa, abra **Política** no portal do Azure e selecione a página **Definições**. Em seguida, localize e selecione os controles de **\[versão prévia\] ISO 27001:2013 de Auditoria e implante Extensões de VM específicas para dar suporte aos requisitos de auditoria** da iniciativa de política interna.
 
 > [!IMPORTANT]
-> Cada controle abaixo está associado com uma ou mais definições do [Azure Policy](../../../policy/overview.md). Essas políticas podem ajudar você a [avaliar a conformidade](../../../policy/how-to/get-compliance-data.md) com o controle. No entanto, geralmente não há uma correspondência 1:1 ou completa entre um controle e uma ou mais políticas. Dessa forma, **Conformidade** no Azure Policy refere-se somente às próprias políticas. Não garante que você está totalmente em conformidade com todos os requisitos de um controle. Além disso, o padrão de conformidade inclui controles que não são abordados por nenhuma definição do Azure Policy no momento. Portanto, a conformidade no Azure Policy é somente uma exibição parcial do status de conformidade geral. As associações entre controles e definições do Azure Policy desta amostra de blueprint de conformidade podem ser alteradas ao longo do tempo. Para exibir o histórico de alterações, confira o [Histórico de Confirmações do GitHub](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/iso27001-shared/control-mapping.md).
+> Cada controle abaixo está associado com uma ou mais definições do [Azure Policy](../../../policy/overview.md). Essas políticas podem ajudar você a [avaliar a conformidade](../../../policy/how-to/get-compliance-data.md) com o controle. No entanto, geralmente não há uma correspondência um para um ou completa entre um controle e uma ou mais políticas. Dessa forma, **Conformidade** no Azure Policy refere-se somente às próprias políticas. Não garante que você está totalmente em conformidade com todos os requisitos de um controle. Além disso, o padrão de conformidade inclui controles que não são abordados por nenhuma definição do Azure Policy no momento. Portanto, a conformidade no Azure Policy é somente uma exibição parcial do status de conformidade geral. As associações entre controles e definições do Azure Policy desta amostra de blueprint de conformidade podem ser alteradas ao longo do tempo. Para exibir o histórico de alterações, confira o [Histórico de Confirmações do GitHub](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/iso27001-shared/control-mapping.md).
 
 ## <a name="a612-segregation-of-duties"></a>A.6.1.2 Diferenciação de direitos
 
@@ -34,11 +34,9 @@ O [serviço de Avaliação de Vulnerabilidades de SQL](../../../../azure-sql/dat
 
 ## <a name="a912-access-to-networks-and-network-services"></a>A.9.1.2 Acesso a redes e serviços de rede
 
-O Azure implementa o [RBAC do Azure (controle de acesso baseado em função do Azure)](../../../../role-based-access-control/overview.md) para gerenciar quem tem acesso aos recursos no Azure. Esse blueprint ajuda você a controlar o acesso aos recursos do Azure por meio da atribuição de sete definições do [Azure Policy](../../../policy/overview.md). Essas políticas auditam o uso de tipos de recursos e configurações que podem permitir um acesso mais permissivo aos recursos.
+O [Azure RBAC (controle de acesso baseado em função)](../../../../role-based-access-control/overview.md) ajuda a gerenciar quem tem acesso aos recursos no Azure. Esse blueprint ajuda você a controlar o acesso aos recursos do Azure por meio da atribuição de sete definições do [Azure Policy](../../../policy/overview.md). Essas políticas auditam o uso de tipos de recursos e configurações que podem permitir um acesso mais permissivo aos recursos.
 Entender os recursos que estão violando essas políticas pode ajudar você a tomar ações corretivas para garantir que o acesso aos recursos do Azure seja restrito a usuários autorizados.
 
-- Implantar pré-requisitos para auditar as VMs do Linux que têm contas que não usam senhas
-- Implantar pré-requisitos para auditar as VMs do Linux que permitem conexões remotas em contas sem senhas
 - Mostrar os resultados da auditoria das VMs do Linux que têm contas sem senhas
 - Mostrar os resultados da auditoria das VMs do Linux que permitem conexões remotas em contas sem senhas
 - As contas de armazenamento devem ser migradas para os novos recursos do Azure Resource Manager
@@ -47,7 +45,7 @@ Entender os recursos que estão violando essas políticas pode ajudar você a to
 
 ## <a name="a923-management-of-privileged-access-rights"></a>A.9.2.3 Gerenciamento de direitos de acesso privilegiado
 
-Esse blueprint ajuda você a restringir e controlar os direitos de acesso privilegiado por meio da atribuição de quatro definições do [Azure Policy](../../../policy/overview.md) para auditar contas externas com proprietário e/ou permissões de gravação e contas com proprietário e/ou permissões de gravação que não têm a autenticação multifator habilitada. O Azure implementa o RBAC (controle de acesso baseado em função) para gerenciar quem tem acesso aos recursos no Azure. Esse blueprint também atribui três definições do Azure Policy para auditar o uso da autenticação do Azure Active Directory para SQL Servers e o Service Fabric. O uso da autenticação do Azure Active Directory permite o gerenciamento simplificado de permissões e o gerenciamento centralizado de identidades dos usuários de banco de dados e de outros serviços da Microsoft. Esse blueprint também atribui uma definição do Azure Policy para auditar o uso de regras RBAC personalizadas. Entender o local em que as regras RBAC personalizadas são implementadas pode ajudar você a verificar a necessidade e a implementação apropriada, pois as regras RBAC personalizadas estão sujeitas a erros.
+Esse blueprint ajuda você a restringir e controlar os direitos de acesso privilegiado por meio da atribuição de quatro definições do [Azure Policy](../../../policy/overview.md) para auditar contas externas com proprietário e/ou permissões de gravação e contas com proprietário e/ou permissões de gravação que não têm a autenticação multifator habilitada. O Azure RBAC (controle de acesso baseado em função) ajuda a gerenciar quem tem acesso aos recursos no Azure. Esse blueprint também atribui três definições do Azure Policy para auditar o uso da autenticação do Azure Active Directory para SQL Servers e o Service Fabric. O uso da autenticação do Azure Active Directory permite o gerenciamento simplificado de permissões e o gerenciamento centralizado de identidades dos usuários de banco de dados e de outros serviços da Microsoft. Esse blueprint também atribui uma definição do Azure Policy para auditar o uso de regras personalizadas do Azure RBAC. Entender o local em que as regras personalizadas do Azure RBAC são implementadas pode ajudar você a verificar a necessidade e a implementação apropriada, pois as regras personalizadas do Azure RBAC estão sujeitas a erros.
 
 - O MFA deve ser habilitado em contas com permissões de proprietário em sua assinatura
 - A MFA deve ser habilitada nas contas com permissões de gravação na sua assinatura
@@ -65,11 +63,10 @@ Esse blueprint atribui três definições do [Azure Policy](../../../policy/over
 - O MFA deve ser habilitado em contas com permissões de leitura em sua assinatura
 - A MFA deve ser habilitada nas contas com permissões de gravação na sua assinatura
 - Mostrar os resultados da auditoria das VMs do Linux que não têm as permissões de arquivo de senha definidas como 0644
-- Implantar pré-requisitos para auditar as VMs do Linux que não têm as permissões de arquivo de senha definidas como 0644
 
 ## <a name="a925-review-of-user-access-rights"></a>A.9.2.5 Revisão dos direitos de acesso do usuário
 
-O Azure implementa o [Azure RBAC (controle de acesso baseado em função do Azure)](../../../../role-based-access-control/overview.md) para ajudar você a gerenciar quem tem acesso aos recursos no Azure. Usando o portal do Azure, você pode examinar quem tem acesso aos recursos do Azure e suas permissões. Esse blueprint atribui quatro definições do [Azure Policy](../../../policy/overview.md) para auditar as contas que devem ser priorizadas para revisão, incluindo contas preteridas e contas externas com permissões elevadas.
+O [Azure RBAC (controle de acesso baseado em função)](../../../../role-based-access-control/overview.md) ajuda a gerenciar quem tem acesso aos recursos no Azure. Usando o portal do Azure, você pode examinar quem tem acesso aos recursos do Azure e suas permissões. Esse blueprint atribui quatro definições do [Azure Policy](../../../policy/overview.md) para auditar as contas que devem ser priorizadas para revisão, incluindo contas preteridas e contas externas com permissões elevadas.
 
 - As contas preteridas devem ser removidas de sua assinatura
 - As contas preteridas com permissões de proprietário devem ser removidas de sua assinatura
@@ -78,14 +75,14 @@ O Azure implementa o [Azure RBAC (controle de acesso baseado em função do Azur
 
 ## <a name="a926-removal-or-adjustment-of-access-rights"></a>A.9.2.6 Remoção ou ajuste de direitos de acesso
 
-O Azure implementa o [Azure RBAC (controle de acesso baseado em função do Azure)](../../../../role-based-access-control/overview.md) para ajudar você a gerenciar quem tem acesso aos recursos no Azure. Usando o [Azure Active Directory](../../../../active-directory/fundamentals/active-directory-whatis.md) e o RBAC, você pode atualizar as funções de usuário para que elas reflitam as mudanças organizacionais. Quando necessário, as contas podem ser impedidas de entrar (ou removidas), o que remove imediatamente os direitos de acesso aos recursos do Azure. Esse blueprint atribui duas definições do [Azure Policy](../../../policy/overview.md) para auditar contas preteridas que devem ser consideradas para remoção.
+O [Azure RBAC (controle de acesso baseado em função)](../../../../role-based-access-control/overview.md) ajuda a gerenciar quem tem acesso aos recursos no Azure. Usando o [Azure Active Directory](../../../../active-directory/fundamentals/active-directory-whatis.md) e o Azure RBAC, você pode atualizar as funções de usuário para que elas reflitam as mudanças organizacionais. Quando necessário, as contas podem ser impedidas de entrar (ou removidas), o que remove imediatamente os direitos de acesso aos recursos do Azure. Esse blueprint atribui duas definições do [Azure Policy](../../../policy/overview.md) para auditar contas preteridas que devem ser consideradas para remoção.
 
 - As contas preteridas devem ser removidas de sua assinatura
 - As contas preteridas com permissões de proprietário devem ser removidas de sua assinatura
 
 ## <a name="a942-secure-log-on-procedures"></a>A.9.4.2 Procedimentos de logon seguro
 
-Esse blueprint atribui três definições do Azure Policy para auditar contas que não têm a autenticação multifator habilitada. A Autenticação Multifator do Azure fornece segurança adicional exigindo uma segunda forma de autenticação e fornece autenticação forte. Monitorando as contas sem a autenticação multifator habilitada, você pode identificar as contas que têm mais probabilidade de serem comprometidas.
+Esse blueprint atribui três definições do Azure Policy para auditar contas que não têm a autenticação multifator habilitada. A Autenticação Multifator do Azure AD fornece segurança adicional exigindo uma segunda forma de autenticação e fornece autenticação forte. Monitorando as contas sem a autenticação multifator habilitada, você pode identificar as contas que têm mais probabilidade de serem comprometidas.
 
 - O MFA deve ser habilitado em contas com permissões de proprietário em sua assinatura
 - O MFA deve ser habilitado em contas com permissões de leitura em sua assinatura
@@ -100,21 +97,14 @@ Esse blueprint ajuda você a impor senhas fortes por meio da atribuição de 10 
 - Mostrar os resultados da auditoria das VMs do Windows que não têm uma duração mínima da senha de 1 dia
 - Mostrar os resultados da auditoria das VMs do Windows que não restringem o tamanho mínimo da senha a 14 caracteres
 - Mostrar os resultados da auditoria das VMs do Windows que permitir reutilizar as 24 senhas anteriores
-- Implantar pré-requisitos para auditar as VMs do Windows que não têm a configuração de complexidade de senha habilitada
-- Implantar pré-requisitos para auditar as VMs do Windows que não têm uma duração máxima da senha de 70 dias
-- Implantar pré-requisitos para auditar as VMs do Windows que não têm uma duração mínima da senha de 1 dia
-- Implantar pré-requisitos para auditar as VMs do Windows que não restringem o tamanho mínimo da senha a 14 caracteres
-- Implantar pré-requisitos para auditar as VMs do Windows que permitem reutilizar as 24 senhas anteriores
 
 ## <a name="a1011-policy-on-the-use-of-cryptographic-controls"></a>A.10.1.1 Política sobre o uso de controles de criptografia
 
-Esse blueprint ajuda você a impor sua política sobre o uso de controles de criptografia por meio da atribuição de 13 definições do [Azure Policy](../../../policy/overview.md) que impõem controles de criptografia específicos e auditam o uso de configurações de criptografia fraca.
-Entender em que local os recursos do Azure podem ter configurações de criptografia não ideais pode ajudá-lo a tomar ações corretivas para garantir que os recursos sejam configurados de acordo com a política de segurança de informações. Especificamente, as políticas atribuídas por esse blueprint exigem criptografia para contas de armazenamento de blobs e contas do Data Lake Storage; exigem Transparent Data Encryption em bancos de dados SQL; auditam a criptografia ausente em contas de armazenamento, bancos de dados SQL, discos de máquina virtual e variáveis da conta de automação; auditam conexões não seguras para contas de armazenamento, Aplicativos de funções, Aplicativo Web, Aplicativos de API e o Cache Redis; auditam a criptografia fraca de senhas de máquina virtual; e auditam a comunicação não criptografada do Service Fabric.
+Esse blueprint ajuda você a impor sua política sobre o uso de controles de criptografia por meio da atribuição de 13 definições do [Azure Policy](../../../policy/overview.md) que impõem controles de criptografia específicos e auditam o uso de configurações de criptografia fraca. Entender em que local os recursos do Azure podem ter configurações de criptografia não ideais pode ajudá-lo a tomar ações corretivas para garantir que os recursos sejam configurados de acordo com a política de segurança de informações. Especificamente, as políticas atribuídas por esse blueprint exigem criptografia para contas de armazenamento de blobs e contas do Data Lake Storage; exigem Transparent Data Encryption em bancos de dados SQL; auditam a criptografia ausente em contas de armazenamento, bancos de dados SQL, discos de máquina virtual e variáveis da conta de automação; auditam conexões não seguras para contas de armazenamento, Aplicativos de funções, Aplicativo Web, Aplicativos de API e o Cache Redis; auditam a criptografia fraca de senhas de máquina virtual; e auditam a comunicação não criptografada do Service Fabric.
 
 - O aplicativo de funções deve ser acessível apenas por HTTPS
 - Aplicativo Web deve ser acessível somente por HTTPS
 - O aplicativo de API só deve estar acessível via HTTPS
-- Implantar pré-requisitos para auditar as VMs do Windows que não armazenam senhas usando a criptografia reversível
 - Mostrar os resultados da auditoria das VMs do Windows que não armazenam senhas usando a criptografia reversível
 - A criptografia de disco deve ser aplicada em máquinas virtuais
 - As variáveis da conta de automação devem ser criptografadas

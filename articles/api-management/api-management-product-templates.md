@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 4c8cd4aa3e91c5d69c40e47683818ed8bc9be338
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86249896"
 ---
 # <a name="product-templates-in-azure-api-management"></a>Modelos de produto no Gerenciamento de API do Azure
@@ -37,7 +37,7 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
-##  <a name="product-list"></a><a name="ProductList"></a>Lista de produtos  
+##  <a name="product-list"></a><a name="ProductList"></a> Lista de produtos  
  O modelo **Lista de produtos** permite personalizar o corpo da página de lista de produtos no portal do desenvolvedor.  
   
  ![Lista de produtos](./media/api-management-product-templates/APIM_ProductsListTemplatePage.png "APIM_ProductsListTemplatePage")  
@@ -123,7 +123,7 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 }  
 ```  
   
-##  <a name="product"></a><a name="Product"></a>Remessa  
+##  <a name="product"></a><a name="Product"></a> Remessa  
  O modelo **Produto** permite personalizar o corpo da página de produtos no portal do desenvolvedor.  
   
  ![Página de produto do portal do desenvolvedor](./media/api-management-product-templates/APIM_ProductPage.png "APIM_ProductPage")  
@@ -209,7 +209,7 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 |Produto|[Product](api-management-template-data-model-reference.md#Product)|O produto especificado.|  
 |IsDeveloperSubscribed|booleano|Se o usuário atual assinou esse produto.|  
 |SubscriptionState|número|O estado da assinatura. Os possíveis estados são:<br /><br /> -   `0 - suspended` – a assinatura está bloqueada e o assinante não pode chamar APIs do produto.<br />-   `1 - active` – a assinatura está ativa.<br />-   `2 - expired` – a assinatura atingiu sua data de validade e foi desativada.<br />-   `3 - submitted` – a solicitação de assinatura foi feita pelo desenvolvedor, mas ainda não foi aprovada ou rejeitada.<br />-   `4 - rejected` – a solicitação de assinatura foi negada por um administrador.<br />-   `5 - cancelled` – a assinatura foi cancelada pelo desenvolvedor ou administrador.|  
-|Limites|matriz|Essa propriedade foi preterida e não deve ser usada.|  
+|limites|matriz|Essa propriedade foi preterida e não deve ser usada.|  
 |DelegatedSubscriptionEnabled|booleano|Se [delegação](./api-management-howto-setup-delegation.md) está habilitada para essa assinatura.|  
 |DelegatedSubscriptionUrl|string|Se delegação estiver habilitada, a URL da assinatura delegada.|  
 |IsAgreed|booleano|Se o produto tiver termos, se o atual usuário concordou com os termos.|  

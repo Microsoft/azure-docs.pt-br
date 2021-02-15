@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 9b2ab664f319de07fd70bd1a22b1ba6d64ac208f
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 05dadfe88ed64aea8066b02298ba158a44a03c6f
+ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320248"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97760156"
 ---
 # <a name="metric-chart-examples"></a>Exemplos de gráfico de métrica 
 
@@ -24,7 +24,7 @@ Deseja compartilhar seus ótimos exemplos de gráficos com o mundo? Contribua co
 
 Este gráfico mostra se a CPU para um Serviço de Aplicativo estava dentro do intervalo aceitável e a divide por instância para determinar se a carga foi distribuída adequadamente. Você pode ver no gráfico que o aplicativo estava em execução em uma única instância de servidor antes das 6h e, em seguida, foi escalado verticalmente adicionando outra instância.
 
-![Gráfico de linhas do percentual médio de CPU por instância do servidor](./media/metric-chart-samples/cpu-by-instance.png)
+![Gráfico de linhas do percentual médio de CPU por instância do servidor](./media/metrics-charts/cpu-by-instance.png)
 
 ### <a name="how-to-configure-this-chart"></a>Como configurar este gráfico?
 
@@ -34,17 +34,17 @@ Selecione o recurso do Serviço de Aplicativo e encontre a métrica **Percentual
 
 Exiba a disponibilidade do aplicativo por região para identificar quais localizações geográficas estão tendo problemas. Este gráfico mostra a métrica de disponibilidade do Application Insights. Você pode ver que o aplicativo monitorado não tem problemas com a disponibilidade do datacenter do Leste dos EUA, mas ele está enfrentando um problema de disponibilidade parcial do Oeste dos EUA e Leste da Ásia.
 
-![Gráfico de disponibilidade média por localizações](./media/metric-chart-samples/availability-run-location.png)
+![Gráfico de disponibilidade média por localizações](./media/metrics-charts/availability-by-location.png)
 
 ### <a name="how-to-configure-this-chart"></a>Como configurar este gráfico?
 
 Você precisa primeiro ativar o monitoramento da [Disponibilidade do Application Insights](../app/monitor-web-app-availability.md) para seu site. Depois disso, escolha o recurso do Application Insights e selecione a métrica Disponibilidade. Aplique a divisão na dimensão **Localização da execução**.
 
-## <a name="volume-of-storage-account-transactions-by-api-name"></a>Volume de transações de conta de armazenamento pelo nome da API
+## <a name="volume-of-failed-storage-account-transactions-by-api-name"></a>Volume de transações de conta de armazenamento com falha por nome de API
 
-O recurso da conta de armazenamento está enfrentando um volume de transações em excesso. Você pode usar a métrica de transações para identificar qual API é responsável pela carga em excesso. Observe que o gráfico a seguir está configurado com a mesma dimensão (nome da API) na filtragem e na divisão para restringir a exibição apenas às chamadas à API de interesse:
+O recurso da conta de armazenamento está apresentando um volume excessivo de transações com falha. Você pode usar a métrica de transações para identificar qual API é responsável pela falha em excesso. Observe que o gráfico a seguir está configurado com a mesma dimensão (nome da API) na divisão e filtrada pelo tipo de resposta com falha:
 
-![Gráfico de barras de transações de API](./media/metric-chart-samples/transactions-by-api.png)
+![Gráfico de barras de transações de API](./media/metrics-charts/split-and-filter-example.png)
 
 ### <a name="how-to-configure-this-chart"></a>Como configurar este gráfico?
 

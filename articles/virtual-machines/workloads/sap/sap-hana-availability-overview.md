@@ -9,18 +9,19 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/05/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3589b4af06bc27a79c429bb0ccd743857651db97
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: ac74bb4b37535d0c0b095ea300afc15aa0978ed8
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88653538"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94950118"
 ---
 # <a name="sap-hana-high-availability-for-azure-virtual-machines"></a>Alta disponibilidade do SAP HANA para máquinas virtuais do Azure
 
@@ -52,7 +53,7 @@ Também é uma boa ideia estar familiarizado com estes artigos sobre o SAP HANA:
 - [Reinicialização automática de serviço do SAP HANA](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/cf10efba8bea4e81b1dc1907ecc652d3.html)
 - [Configurar a replicação do sistema do SAP HANA](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/676844172c2442f0bf6c8b080db05ae7.html)
 
-Além de estar familiarizado com a implantação de VMs no Azure, antes de definir sua arquitetura de disponibilidade no Azure, é recomendável a leitura do artigo [Gerenciar a disponibilidade de máquinas virtuais Windows no Azure](../../windows/manage-availability.md).
+Além de estar familiarizado com a implantação de VMs no Azure, antes de definir sua arquitetura de disponibilidade no Azure, é recomendável a leitura do artigo [Gerenciar a disponibilidade de máquinas virtuais Windows no Azure](../../manage-availability.md).
 
 ## <a name="service-level-agreements-for-azure-components"></a>Contratos de nível de serviço para componentes do Azure
 
@@ -85,4 +86,3 @@ Meça o seu requisito de disponibilidade em relação aos SLAs os componentes do
 
 
 
-  

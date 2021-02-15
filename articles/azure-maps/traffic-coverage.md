@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 51fdbda755b98b47b700f57bf990b5c5356854a9
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 11aa0eb07ed9cb3a1a785b3155b832f8b447708f
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037602"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896864"
 ---
 # <a name="azure-maps-traffic-coverage"></a>Cobertura de tráfego dos Mapas do Azure
 
@@ -23,11 +23,11 @@ No entanto, o Maps não tem o mesmo nível de informações e precisão para tod
 
 ## <a name="americas"></a>Américas
 
-|País/Região  |Incidentes  |Flow  |
+|País/Região  |Incidentes  |Fluxo  |
 |---------|:---------:|:---------:|
 |Argentina      |✓         |✓         |
 |Brasil     |✓         |✓         |
-|Canadá     |✓         |✓         |
+|Canada     |✓         |✓         |
 |Chile     |✓         |✓         |
 |Colômbia      |✓         |✓         |
 |México     |✓         |✓         |
@@ -39,7 +39,7 @@ No entanto, o Maps não tem o mesmo nível de informações e precisão para tod
 
 ## <a name="asia-pacific"></a>Pacífico Asiático
 
-|País/Região   |Incidentes  |Flow  |
+|País/Região   |Incidentes  |Fluxo  |
 |---------|:---------:|:---------:|
 |Austrália     |✓         |✓        |
 |Brunei   |✓         |✓        |
@@ -59,7 +59,7 @@ No entanto, o Maps não tem o mesmo nível de informações e precisão para tod
 
 ## <a name="europe"></a>Europa
 
-|País/Região   |Incidentes  |Flow  |
+|País/Região   |Incidentes  |Fluxo  |
 |---------|:---------:|:---------:|
 |Andorra   |✓         |✓         |
 |Áustria     |✓         |✓         |
@@ -108,7 +108,7 @@ No entanto, o Maps não tem o mesmo nível de informações e precisão para tod
 |Suíça     |✓         |✓        |
 |Turquia     |✓         |✓         |
 |Ucrânia     |✓         |✓         |
-|Reino Unido     |✓         |✓         |
+|United Kingdom     |✓         |✓         |
 |+Gibraltar     |✓         |✓         |
 |+ Guernsey & Jersey     |✓         |✓         |
 |+ Ilha de Man     |✓         |✓         |
@@ -117,7 +117,7 @@ No entanto, o Maps não tem o mesmo nível de informações e precisão para tod
 
 ## <a name="middle-east-and-africa"></a>Oriente Médio e África
 
-|País/Região |Incidentes  |Flow  |
+|País/Região |Incidentes  |Fluxo  |
 |---------|:---------:|:---------:|
 |Bahrein     |✓         |✓         |
 |Egito     |✓         |✓         |
@@ -135,4 +135,4 @@ No entanto, o Maps não tem o mesmo nível de informações e precisão para tod
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre os dados de tráfego de Mapas do Azure, consulte as páginas de referência [Tráfego](https://docs.microsoft.com/rest/api/maps/traffic).
+Para obter mais informações sobre os dados de tráfego de Mapas do Azure, consulte as páginas de referência [Tráfego](/rest/api/maps/traffic).

@@ -7,10 +7,10 @@ ms.date: 07/16/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 420c507361e3e2437366e6ccf2d46a8b78684e59
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88008349"
 ---
 # <a name="connect-with-the-windows-desktop-classic-client"></a>Conectar-se ao cliente do Windows Desktop (clássico)
@@ -61,8 +61,8 @@ Há duas maneiras de assinar um workspace. O cliente pode tentar descobrir os re
 1. Na página principal do cliente, selecione **assinar com a URL**.
 2. Insira a URL do workspace ou o endereço de email:
    - Se você usar a **URL do workspace**, use aquela que o administrador lhe forneceu. Se estiver acessando recursos da Área de Trabalho Virtual do Windows, será possível usar uma das seguintes URLs:
-     - Área de trabalho virtual do Windows (clássica):`https://rdweb.wvd.microsoft.com/api/feeddiscovery/webfeeddiscovery.aspx`
-     - Área de trabalho virtual do Windows:`https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery`
+     - Área de Trabalho Virtual do Windows (clássica): `https://rdweb.wvd.microsoft.com/api/feeddiscovery/webfeeddiscovery.aspx`
+     - Área de Trabalho Virtual do Windows: `https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery`
    - Se você estiver usando o campo **email** , insira seu endereço de email. Isso instrui o cliente a procurar uma URL associada ao seu endereço de email se seu administrador tiver configurado a [descoberta de email](/windows-server/remote/remote-desktop-services/rds-email-discovery).
 3. Selecione **Avançar**.
 4. Entre com sua conta quando solicitado.

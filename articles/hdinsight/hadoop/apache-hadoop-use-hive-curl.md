@@ -1,19 +1,16 @@
 ---
 title: Use o Apache Hadoop Hive com o Curl no HDInsight - Azure
 description: Saiba como enviar remotamente trabalhos do Apache Pig para o Azure HDInsight usando a rotação.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/06/2020
-ms.openlocfilehash: 87feba3bc79e39f1379a25fa55fe0186d5605e4a
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 124661c57f779b9f8a639debcc093ed15e717694
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085541"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946455"
 ---
 # <a name="run-apache-hive-queries-with-apache-hadoop-in-hdinsight-using-rest"></a>Executar consultas do Apache Hive com o Apache Hadoop no HDInsight usando a REST
 
@@ -25,7 +22,7 @@ Aprenda a usar a API REST do WebHCat para executar consultas do Apache Hive com 
 
 * Um cluster do Apache Hadoop no HDInsight. Consulte [Introdução ao HDInsight no Linux](./apache-hadoop-linux-tutorial-get-started.md).
 
-* Um cliente REST. Este documento usa [Invoke-WebRequest](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-webrequest) no Windows PowerShell e a [ondulação](https://curl.haxx.se/) no [bash](https://docs.microsoft.com/windows/wsl/install-win10).
+* Um cliente REST. Este documento usa [Invoke-WebRequest](/powershell/module/microsoft.powershell.utility/invoke-webrequest) no Windows PowerShell e a [ondulação](https://curl.haxx.se/) no [bash](/windows/wsl/install-win10).
 
 * Se você usar bash, também precisará de JQ, um processador JSON de linha de comando.  Confira [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/).
 
@@ -48,7 +45,7 @@ Edite o script a seguir substituindo `PASSWORD` pela sua senha real.  Em seguida
 export password='PASSWORD'
 ```  
 
-**B. o PowerShell** executa o código abaixo e insere suas credenciais na janela pop-up:
+**B. PowerShell** Execute o código abaixo e insira suas credenciais na janela pop-up:
 
 ```powershell
 $creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"
@@ -146,7 +143,7 @@ $clusterName
 
    Essas instruções executam as seguintes ações:
 
-   * `DROP TABLE`-Se a tabela já existir, ela será excluída.
+   * `DROP TABLE` -Se a tabela já existir, ela será excluída.
    * `CREATE EXTERNAL TABLE` - Cria uma nova tabela ‘externa’ no Hive. As tabelas externas armazenam apenas a definição da tabela no Hive. Os dados são mantidos no local original.
 
      > [!NOTE]  
@@ -155,8 +152,8 @@ $clusterName
      > Remover uma tabela externa **não** exclui os dados, somente a definição de tabela.
 
    * `ROW FORMAT` – o modo como os dados são formatados. Os campos em cada log são separados por um espaço.
-   * `STORED AS TEXTFILE LOCATION`-Onde os dados são armazenados (o diretório de exemplo/dados) e que são armazenados como texto.
-   * `SELECT`– Seleciona uma contagem de todas as linhas em que a coluna **T4** contém o valor **[ERROR]**. Essa instrução retorna um valor de **3**, visto que há três linhas que contêm esse valor.
+   * `STORED AS TEXTFILE LOCATION` -Onde os dados são armazenados (o diretório de exemplo/dados) e que são armazenados como texto.
+   * `SELECT` – Seleciona uma contagem de todas as linhas em que a coluna **T4** contém o valor **[ERROR]**. Essa instrução retorna um valor de **3**, visto que há três linhas que contêm esse valor.
 
      > [!NOTE]  
      > Observe que os espaços entre as instruções HiveQL são substituídos pelo caractere `+` quando usados com o Curl. Os valores entre aspas que contêm um espaço, como o delimitador, não devem ser substituídos por `+`.
@@ -185,7 +182,7 @@ $clusterName
 
 1. Depois que o estado do trabalho for alterado para **SUCCEEDED**, você poderá recuperar os resultados do trabalho no Armazenamento de Blobs do Azure. O parâmetro `statusdir` transmitido com a consulta contém a localização do arquivo de saída; nesse caso, `/example/rest`. Esse endereço armazena a saída do diretório `example/curl` no armazenamento padrão de clusters.
 
-    Você pode listar e baixar esses arquivos usando a [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). Para obter mais informações sobre como usar a CLI do Azure com o Armazenamento do Azure, consulte o documento [Usar a CLI do Azure com o Armazenamento do Azure](https://docs.microsoft.com/azure/storage/storage-azure-cli).
+    Você pode listar e baixar esses arquivos usando a [CLI do Azure](/cli/azure/install-azure-cli). Para obter mais informações sobre como usar a CLI do Azure com o Armazenamento do Azure, consulte o documento [Usar a CLI do Azure com o Armazenamento do Azure](../../storage/blobs/storage-quickstart-blobs-cli.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

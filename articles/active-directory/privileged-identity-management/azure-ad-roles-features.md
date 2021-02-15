@@ -14,12 +14,12 @@ ms.date: 07/10/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c039842a04923bc02aa288576570d51c39156c40
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: e4478c9c286c06d5d6c5593195a0e93abd286b8c
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88784004"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371504"
 ---
 # <a name="management-capabilities-for-azure-ad-roles-in-privileged-identity-management"></a>Recursos de gerenciamento para funções do Azure AD no Privileged Identity Management
 
@@ -69,4 +69,4 @@ Para clientes que estão usando o módulo Privileged Identity Management PowerSh
 - [Atribuir uma função personalizada do Azure AD](azure-ad-custom-roles-assign.md)
 - [Remover ou atualizar uma atribuição de função personalizada do Azure AD](azure-ad-custom-roles-update-remove.md)
 - [Configurar uma atribuição de função personalizada do Azure AD](azure-ad-custom-roles-configure.md)
-- [Definições de função no Azure AD](../users-groups-roles/directory-assign-admin-roles.md)
+- [Definições de função no Azure AD](../roles/permissions-reference.md)

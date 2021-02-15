@@ -3,12 +3,12 @@ title: Criptografar a origem do aplicativo em repouso
 description: Criptografe os dados do aplicativo no armazenamento do Azure e implante-os como um arquivo de pacote.
 ms.topic: article
 ms.date: 03/06/2020
-ms.openlocfilehash: 1dd0d11baa16a325a22a501d40e22e5bad6adb21
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 6e4cf16118e748e3ee1d1ff4899730463565ec70
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282323"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108024"
 ---
 # <a name="encrypt-your-application-data-at-rest-using-customer-managed-keys"></a>Criptografar os dados do aplicativo em repouso usando chaves gerenciadas pelo cliente
 
@@ -20,9 +20,9 @@ Criptografar os dados de aplicativo do aplicativo de funções em repouso requer
 
 ## <a name="set-up-encryption-at-rest"></a>Configurar a criptografia em repouso
 
-### <a name="create-an-azure-storage-account"></a>Criar uma conta do Armazenamento do Azure
+### <a name="create-an-azure-storage-account"></a>Criar uma conta de Armazenamento do Azure
 
-Primeiro, [crie uma conta de armazenamento do Azure](../storage/common/storage-account-create.md) e [criptografe-a com as chaves gerenciadas pelo cliente](../storage/common/encryption-customer-managed-keys.md). Depois que a conta de armazenamento for criada, use o [Gerenciador de armazenamento do Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) para carregar arquivos de pacote.
+Primeiro, [crie uma conta de armazenamento do Azure](../storage/common/storage-account-create.md) e [criptografe-a com as chaves gerenciadas pelo cliente](../storage/common/customer-managed-keys-overview.md). Depois que a conta de armazenamento for criada, use o [Gerenciador de armazenamento do Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) para carregar arquivos de pacote.
 
 Em seguida, use o Gerenciador de Armazenamento para [gerar uma SAS](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#generate-a-sas-in-storage-explorer). 
 

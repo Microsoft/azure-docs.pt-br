@@ -8,20 +8,20 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: sachins
-ms.openlocfilehash: e008bad2043d8cd633f0849aefc62c4ed7a7e89d
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 0efcdfd1b14479edf84dc1892e7e1d9afabd5a81
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86104870"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95913548"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen2"></a>Melhores práticas para utilizar o Microsoft Azure Data Lake Storage Gen2
 
 Neste artigo, você aprenderá sobre as melhores práticas e considerações para trabalhar com o Azure Data Lake Storage Gen2. Este artigo fornece informações sobre segurança, desempenho, resiliência e monitoramento do Data Lake Storage Gen2. Antes do Data Lake Storage Gen2, trabalhar com Big Data em serviços como o Microsoft Azure HDInsight era realmente complexo. Era necessário fragmentar dados em várias contas de Armazenamento de Blobs para que o armazenamento de petabyte e o desempenho ideal nessa escala pudessem ser alcançados. O Data Lake Storage Gen2 dá suporte a tamanhos de arquivo individuais tão altos quanto 5 TB e a maioria dos limites rígidos de desempenho foram removidos. No entanto, ainda há algumas considerações que este artigo aborda para que seja possível obter o melhor desempenho com o Data Lake Storage Gen2.
 
-## <a name="security-considerations"></a>Considerações sobre segurança
+## <a name="security-considerations"></a>Considerações de segurança
 
-O Azure Data Lake Storage Gen2 oferece controles de acesso POSIX para grupos e entidades de serviço do Microsoft Azure AD (Azure Active Directory). Esses controles de acesso podem ser configurados para arquivos e diretórios existentes. Os controles de acesso também podem ser utilizados para criar permissões padrão que podem ser aplicadas automaticamente a novos arquivos ou diretórios. Mais detalhes sobre ACLs do Data Lake Storage Gen2 estão disponíveis em [Controle de acesso no Azure Data Lake Storage Gen2](storage-data-lake-storage-access-control.md).
+O Azure Data Lake Storage Gen2 oferece controles de acesso POSIX para grupos e entidades de serviço do Microsoft Azure AD (Azure Active Directory). Esses controles de acesso podem ser configurados para arquivos e diretórios existentes. Os controles de acesso também podem ser utilizados para criar permissões padrão que podem ser aplicadas automaticamente a novos arquivos ou diretórios. Mais detalhes sobre ACLs do Data Lake Storage Gen2 estão disponíveis em [Controle de acesso no Azure Data Lake Storage Gen2](./data-lake-storage-access-control.md).
 
 ### <a name="use-security-groups-versus-individual-users"></a>Usar grupos de segurança versus usuários individuais
 
@@ -31,7 +31,7 @@ Quando permissões são atribuídas a um grupo de segurança, adicionar ou remov
 
 ### <a name="security-for-groups"></a>Segurança para grupos
 
-Quando você ou seus usuários precisam acessar dados em uma conta de armazenamento com namespace hierárquico habilitado, é melhor usar grupos de segurança do Azure Active Directory. Alguns grupos recomendados para começar podem ser **ReadOnlyUsers**, **WriteAccessUsers**e **FullAccessUsers** para a raiz do contêiner e até mesmo separá-los para subdiretórios de chave. Se houver outros grupos de usuários antecipados que poderão ser adicionados posteriormente, mas ainda não foram identificados, será possível criar grupos de segurança falsos que tenham acesso a determinadas pastas. Usar grupo de segurança garante que você possa evitar tempos de processamento longos ao atribuir novas permissões a milhares de arquivos.
+Quando você ou seus usuários precisam acessar dados em uma conta de armazenamento com namespace hierárquico habilitado, é melhor usar grupos de segurança do Azure Active Directory. Alguns grupos recomendados para começar podem ser **ReadOnlyUsers**, **WriteAccessUsers** e **FullAccessUsers** para a raiz do contêiner e até mesmo separá-los para subdiretórios de chave. Se houver outros grupos de usuários antecipados que poderão ser adicionados posteriormente, mas ainda não foram identificados, será possível criar grupos de segurança falsos que tenham acesso a determinadas pastas. Usar grupo de segurança garante que você possa evitar tempos de processamento longos ao atribuir novas permissões a milhares de arquivos.
 
 ### <a name="security-for-service-principals"></a>Segurança para entidades de serviço
 
@@ -41,7 +41,7 @@ As entidades de serviço do Azure Active Directory normalmente são usadas por s
 
 Um Data Lake Storage Gen2 dá suporte para a opção de ativar um firewall e limitar acesso apenas para serviços do Azure, o que é recomendado para limitar o vetor de ataques externos. O firewall pode ser habilitado em uma conta de armazenamento no portal do Azure por meio do **Firewall**  >  **habilitar o firewall (ativado)**  >  **permitir acesso às opções de serviços do Azure** .
 
-Para acessar sua conta de armazenamento do Azure Databricks, implante Azure Databricks em sua rede virtual e, em seguida, adicione essa rede virtual ao firewall. Consulte [configurar redes virtuais e firewalls de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security).
+Para acessar sua conta de armazenamento do Azure Databricks, implante Azure Databricks em sua rede virtual e, em seguida, adicione essa rede virtual ao firewall. Consulte [configurar redes virtuais e firewalls de armazenamento do Azure](../common/storage-network-security.md).
 
 ## <a name="resiliency-considerations"></a>Considerações de resiliência
 

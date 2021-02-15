@@ -1,7 +1,7 @@
 ---
 title: Usar URIs de redirecionamento com MSAL (iOS/macOS) | Azure
 titleSuffix: Microsoft identity platform
-description: Conheça as diferenças entre a Biblioteca de Autenticação da Microsoft para ObjectiveC (MSAL para iOS e macOS) e a Biblioteca de Autenticação do Azure AD para ObjectiveC (ADAL.ObjC) e como migrar entre elas.
+description: Saiba mais sobre as diferenças entre a biblioteca de autenticação da Microsoft para ObjectiveC (MSAL para iOS e macOS) e a biblioteca de autenticação do Azure AD para ObjectiveC (ADAL. ObjC) e como migrar entre eles.
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -13,12 +13,12 @@ ms.date: 08/28/2019
 ms.author: marsma
 ms.reviewer: jak
 ms.custom: aaddev
-ms.openlocfilehash: 95bd7b5ac325ef5484bd01284c46489acb919a32
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: HT
+ms.openlocfilehash: 2c728854846a3add1f5b41cb318d7dc5fd86e742
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85830342"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98064191"
 ---
 # <a name="using-redirect-uris-with-the-microsoft-authentication-library-for-ios-and-macos"></a>Usar URIs de redirecionamento com a biblioteca de autenticação da Microsoft para iOS e macOS
 
@@ -41,7 +41,7 @@ Os URIs de redirecionamento precisam ser diferentes para cada aplicativo iOS. Is
 Considerando o registro de aplicativo a seguir no portal do Azure:
 
 * ID do cliente: `ABCDE-12345` (essa é uma ID de cliente único)
-* RedirectUris: `msauth.com.contoso.app1://auth` , `msauth.com.contoso.app2://auth` ,`msauth.com.contoso.app3://auth`
+* RedirectUris: `msauth.com.contoso.app1://auth` , `msauth.com.contoso.app2://auth` , `msauth.com.contoso.app3://auth`
 
 App1 usa Redirect `msauth.com.contoso.app1://auth` . \
 App2 usa `msauth.com.contoso.app2://auth` . \

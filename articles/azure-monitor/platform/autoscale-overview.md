@@ -4,12 +4,12 @@ description: Dimensionamento automático no Microsoft Azure
 ms.subservice: autoscale
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: d9ba94d9990e494a8d3e68bbcd7c176bb30e6ce2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: bd7c1582cdb4b2b1b72d3f969ad08879d208785f
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073481"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94505830"
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure"></a>Visão geral do dimensionamento automático no Microsoft Azure
 Este artigo descreve o que é dimensionamento automático do Microsoft Azure, seus benefícios e como começar a usá-lo.  
@@ -63,9 +63,9 @@ O dimensionamento automático usa a seguinte terminologia e estrutura.
 
   - Um **perfil de dimensionamento automático** é um combinação de:
 
-    - **configuração de capacidade**, que indica os valores mínimo, máximo e padrão do número de instâncias.
-    - **conjunto de regras**, cada um deles inclui um gatilho (tempo ou métrica) e uma ação de dimensionamento (para cima ou para baixo).
-    - **recorrência**, que indica quando o dimensionamento automático deve colocar esse perfil em vigor.
+    - **configuração de capacidade** , que indica os valores mínimo, máximo e padrão do número de instâncias.
+    - **conjunto de regras** , cada um deles inclui um gatilho (tempo ou métrica) e uma ação de dimensionamento (para cima ou para baixo).
+    - **recorrência** , que indica quando o dimensionamento automático deve colocar esse perfil em vigor.
 
       Você pode ter vários perfis, que permitem cuidar dos diferentes requisitos de sobreposição. Você pode ter diferentes perfis de dimensionamento automático para diferentes horas do dia ou dias da semana, por exemplo.
 
@@ -103,10 +103,13 @@ Você pode configurar o dimensionamento automático via
 | Máquinas Virtuais: Conjuntos de Dimensionamento do Windows |[Dimensionamento de conjuntos de dimensionamento de máquina virtual no Windows](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md) |
 | Máquinas Virtuais: Conjuntos de Dimensionamento do Linux |[Dimensionamento de conjuntos de dimensionamento de máquina virtual no Linux](../../virtual-machine-scale-sets/tutorial-autoscale-cli.md) |
 | Máquinas Virtuais: Exemplo do Windows |[Configuração avançada de Dimensionamento Automático usando modelos do Resource Manager para conjuntos de escala de VM](autoscale-virtual-machine-scale-sets.md) |
+| Serviço de aplicativo do Azure |[Escalar verticalmente um aplicativo no Serviço de Aplicativo do Azure](../../app-service/manage-scale-up.md)|
 | Serviço de Gerenciamento de API|[Dimensionar automaticamente uma instância do Gerenciamento de API do Azure](../../api-management/api-management-howto-autoscale.md)
 | Clusters do Azure Data Explorer|[Gerenciar o dimensionamento de clusters do Azure Data Explorer para acomodar as mudanças de demanda](/azure/data-explorer/manage-cluster-horizontal-scaling)|
-| Serviço de aplicativo do Azure |[Escalar verticalmente um aplicativo no Serviço de Aplicativo do Azure](../../app-service/manage-scale-up.md)|
 | Aplicativos Lógicos |[Adicionar capacidade do ISE (Ambiente de Serviço de Integração)](../../logic-apps/ise-manage-integration-service-environment.md#add-ise-capacity)|
+| Spring Cloud |[Configurar o dimensionamento automático para aplicativos de microsserviço](../../spring-cloud/spring-cloud-tutorial-setup-autoscale.md)|
+| Barramento de Serviço |[Atualizar automaticamente as unidades do sistema de mensagens de um namespace do Barramento de Serviço do Azure](../../service-bus-messaging/automate-update-messaging-units.md)|
+
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre o dimensionamento automático, use as Explicações Passo a Passo sobre o Dimensionamento Automático listadas anteriormente ou consulte os recursos a seguir:
 

@@ -1,0 +1,57 @@
+- name: Assistente de Métricas
+  href: index.yml
+- name: Visão geral
+  expanded: true
+  items:
+    - name: O que é o Assistente de Métricas?
+      href: overview.md
+    - name: Novidades
+      href: whats-new.md
+- name: Inícios rápidos
+  items:
+    - name: Usar o portal da Web
+      href: quickstarts/web-portal.md
+    - name: Usar a API REST ou bibliotecas de clientes
+      href: quickstarts/rest-api-and-client-library.md
+- name: Instruções
+  items:
+    - name: Integrar os dados
+      href: how-tos/onboard-your-data.md
+    - name: Conectar fontes de feed de dados diferentes
+      href: data-feeds-from-different-sources.md
+    - name: Gerenciar feeds de dados
+      href: how-tos/manage-data-feeds.md
+    - name: Configurar as métricas e fazer o ajuste fino da configuração de detecção
+      href: how-tos/configure-metrics.md
+    - name: Configurar alertas e obter notificações usando um web hook
+      href: how-tos/alerts.md
+    - name: Diagnosticar um incidente
+      href: how-tos/diagnose-incident.md
+    - name: Ajustar a detecção de anomalias usando os comentários
+      href: how-tos/anomaly-feedback.md
+    - name: Criar um grafo de métricas
+      href: how-tos/metrics-graph.md
+- name: Referência
+  items:
+    - name: Glossário
+      href: glossary.md
+    - name: Perguntas frequentes
+      href: faq.md
+    - name: API do Assistente de Métricas
+      href: 'https://go.microsoft.com/fwlink/?linkid=2141634'
+    - name: Referência da CLI do Azure
+      href: /cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
+    - name: Referência do PowerShell
+      href: /powershell/module/azurerm.cognitiveservices/
+- name: Recursos
+  items:
+    - name: Opções de Ajuda e suporte
+      href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/metrics-advisor/context/context
+    - name: Preços
+      href: 'http://go.microsoft.com/fwlink/?LinkID=761229'
+    - name: Disponibilidade regional
+      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+    - name: Conformidade
+      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
+    - name: Criptografia
+      href: encryption.md

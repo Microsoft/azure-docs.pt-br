@@ -3,7 +3,7 @@ title: Depurar conectores de proxy de aplicativo-Azure Active Directory | Micros
 description: Problemas de depuração com conectores de proxy de aplicativo Azure Active Directory (Azure AD).
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: troubleshooting
 ms.date: 05/21/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 7e7a1de24e5032b2dade2f325560fd6964c892d5
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: c656bfe7f9cc8923859a99f31210cd554aa66a41
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86145686"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99256959"
 ---
 # <a name="debug-application-proxy-connector-issues"></a>Problemas no conector de depuração de proxy de aplicativos 
 
@@ -44,7 +44,7 @@ Este fluxograma orienta você pelas etapas para depurar alguns dos problemas mai
 |---------|---------|---------|
 |1 | Localizar o grupo de conectores atribuído ao aplicativo | Você provavelmente tem um conector instalado em vários servidores; nesse caso, os conectores devem ser [atribuídos a grupos de conectores](application-proxy-connector-groups.md#assign-applications-to-your-connector-groups). Para saber mais sobre os grupos de conectores, confira [Publicar aplicativos em redes e locais separados usando grupos de conector](application-proxy-connector-groups.md). |
 |2 | Instalar o conector e atribuir um grupo | Se você não tiver um conector instalado, consulte [instalar e registrar um conector](application-proxy-add-on-premises-application.md#install-and-register-a-connector).<br></br> Se você estiver tendo problemas ao instalar o conector, consulte [problema ao instalar o conector](application-proxy-connector-installation-problem.md).<br></br> Se o conector não estiver atribuído a um grupo, consulte [atribuir o conector a um grupo](application-proxy-connector-groups.md#create-connector-groups).<br></br>Se o aplicativo não estiver atribuído a um grupo de conectores, consulte [atribuir o aplicativo a um grupo de conectores](application-proxy-connector-groups.md#assign-applications-to-your-connector-groups).|
-|3 | Executar um teste de porta no servidor do conector | No servidor do conector, execute um teste de porta usando [Telnet](https://docs.microsoft.com/windows-server/administration/windows-commands/telnet) ou outra ferramenta de teste de porta para verificar se as portas [443 e 80 estão abertas](application-proxy-add-on-premises-application.md#open-ports).|
+|3 | Executar um teste de porta no servidor do conector | No servidor do conector, execute um teste de porta usando [Telnet](/windows-server/administration/windows-commands/telnet) ou outra ferramenta de teste de porta para verificar se as portas [443 e 80 estão abertas](application-proxy-add-on-premises-application.md#open-ports).|
 |4 | Configurar os domínios e as portas | [Verifique se os domínios e as portas estão configurados corretamente](application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment) Para que o conector funcione corretamente, há determinadas portas que devem ser abertas e URLs que o servidor deve poder acessar. |
 |5 | Verificar se um proxy de back-end está em uso | Verifique se os conectores estão usando servidores proxy de back-end ou ignorando-os. Para obter detalhes, consulte [solucionar problemas de proxy do conector e problemas de conectividade do serviço](application-proxy-configure-connectors-with-proxy-servers.md#troubleshoot-connector-proxy-problems-and-service-connectivity-issues). |
 |6 | Atualizar o conector e o atualizador para usar o proxy de back-end | Se um proxy de back-end estiver em uso, você desejará verificar se o conector está usando o mesmo proxy. Para obter detalhes sobre como solucionar problemas e configurar conectores para trabalhar com servidores proxy, consulte [trabalhar com servidores proxy locais existentes](application-proxy-configure-connectors-with-proxy-servers.md). |

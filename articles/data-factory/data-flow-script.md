@@ -6,13 +6,13 @@ ms.author: nimoolen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 07/29/2020
-ms.openlocfilehash: d28cd7a7edd5d6405761bf21ee87ec39dc9ec9cb
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.date: 12/23/2020
+ms.openlocfilehash: 3f5a6171ba81b858d649f381ed316be0637a2571
+ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448537"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97858647"
 ---
 # <a name="data-flow-script-dfs"></a>Script de fluxo de dados (DFS)
 
@@ -176,13 +176,13 @@ aggregate(groupBy(movie),
 Use esse código em seu script de fluxo de dados para criar uma nova coluna derivada chamada ```DWhash``` que produz um ```sha1``` hash de três colunas.
 
 ```
-derive(DWhash = sha1(Name,ProductNumber,Color))
+derive(DWhash = sha1(Name,ProductNumber,Color)) ~> DWHash
 ```
 
 Você também pode usar esse script abaixo para gerar um hash de linha usando todas as colunas presentes em seu fluxo, sem a necessidade de nomear cada coluna:
 
 ```
-derive(DWhash = sha1(columns()))
+derive(DWhash = sha1(columns())) ~> DWHash
 ```
 
 ### <a name="string_agg-equivalent"></a>String_agg equivalente
@@ -191,7 +191,7 @@ Esse código funcionará como a função T-SQL ```string_agg()``` e irá agregar
 ```
 source1 aggregate(groupBy(year),
     string_agg = collect(title)) ~> Aggregate1
-Aggregate1 derive(string_agg = toString(string_agg)) ~> DerivedColumn2
+Aggregate1 derive(string_agg = toString(string_agg)) ~> StringAgg
 ```
 
 ### <a name="count-number-of-updates-upserts-inserts-deletes"></a>Número de contagem de atualizações, upserts, inserções, exclusões
@@ -210,6 +210,53 @@ Esse trecho de código adicionará uma nova transformação agregada ao fluxo de
 ```
 aggregate(groupBy(mycols = sha2(256,columns())),
     each(match(true()), $$ = first($$))) ~> DistinctRows
+```
+
+### <a name="check-for-nulls-in-all-columns"></a>Verificar se há nulos em todas as colunas
+Este é um trecho de código que você pode colar em seu fluxo de dados para verificar genericamente todas as suas colunas em busca de valores nulos. Essa técnica aproveita a descompasso de esquema para examinar todas as colunas em todas as linhas e usa uma divisão condicional para separar as linhas com valores nulos das linhas sem nulos. 
+
+```
+split(contains(array(columns()),isNull(#item)),
+    disjoint: false) ~> LookForNULLs@(hasNULLs, noNULLs)
+```
+
+### <a name="automap-schema-drift-with-a-select"></a>Descompasso de esquema mapear com uma seleção
+Quando você precisa carregar um esquema de banco de dados existente de um conjunto de colunas de entrada desconhecido ou dinâmico, você deve mapear as colunas do lado direito na transformação do coletor. Isso só é necessário quando você estiver carregando uma tabela existente. Adicione este trecho antes do coletor para criar um SELECT que mapeia automaticamente suas colunas. Deixe o mapeamento do coletor para o mapa automático.
+
+```
+select(mapColumn(
+        each(match(true()))
+    ),
+    skipDuplicateMapInputs: true,
+    skipDuplicateMapOutputs: true) ~> automap
+```
+
+### <a name="persist-column-data-types"></a>Manter tipos de dados da coluna
+Adicione esse script dentro de uma definição de coluna derivada para armazenar os nomes de coluna e os tipos de dados do fluxo de dados em um repositório persistente usando um coletor.
+
+```
+derive(each(match(type=='string'), $$ = 'string'),
+    each(match(type=='integer'), $$ = 'integer'),
+    each(match(type=='short'), $$ = 'short'),
+    each(match(type=='complex'), $$ = 'complex'),
+    each(match(type=='array'), $$ = 'array'),
+    each(match(type=='float'), $$ = 'float'),
+    each(match(type=='date'), $$ = 'date'),
+    each(match(type=='timestamp'), $$ = 'timestamp'),
+    each(match(type=='boolean'), $$ = 'boolean'),
+    each(match(type=='double'), $$ = 'double')) ~> DerivedColumn1
+```
+
+### <a name="fill-down"></a>Preencher
+Aqui está como implementar o problema comum de "preenchimento" com conjuntos de dados quando você deseja substituir valores nulos pelo valor do valor não nulo anterior na sequência. Observe que essa operação pode ter implicações de desempenho negativas, pois você deve criar uma janela sintética em todo o conjunto de dados com um valor de categoria "fictício". Além disso, você deve classificar por um valor para criar a sequência de dados apropriada para localizar o valor não nulo anterior. Este trecho de código abaixo cria a categoria sintética como "fictícia" e classifica por uma chave substituta. Você pode remover a chave substituta e usar sua própria chave de classificação específica de dados. Este trecho de código pressupõe que você já adicionou uma transformação de origem chamada ```source1```
+
+```
+source1 derive(dummy = 1) ~> DerivedColumn
+DerivedColumn keyGenerate(output(sk as long),
+    startAt: 1L) ~> SurrogateKey
+SurrogateKey window(over(dummy),
+    asc(sk, true),
+    Rating2 = coalesce(Rating, last(Rating, true()))) ~> Window1
 ```
 
 ## <a name="next-steps"></a>Próximas etapas

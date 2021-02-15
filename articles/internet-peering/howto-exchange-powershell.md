@@ -8,12 +8,13 @@ ms.service: internet-peering
 ms.topic: how-to
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: 1c0620875e7da4582156080c4a52fd6fbe0e573c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 59d098f1ff0f78e37601544619c603b776e0cf22
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84700239"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89071747"
 ---
 # <a name="create-or-modify-an-exchange-peering-by-using-powershell"></a>Criar ou modificar um emparelhamento do Exchange usando o PowerShell
 

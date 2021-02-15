@@ -15,15 +15,18 @@
       href: quick-create-powershell.md
     - name: Portal
       href: quick-create-portal.md
+    - name: .NET
+      href: quick-create-net.md
+    - name: Node.js
+      href: quick-create-node.md
     - name: Python
       href: quick-create-python.md
+    - name: Java
+      href: quick-create-java.md
 - name: Exemplos
   items:
-    - name: Itens internos do Azure Policy
-      displayName: 'samples, policies, definitions'
-      href: ../policy-samples.md?toc=/azure/key-vault/certificates/toc.json&bc=/azure/key-vault/breadcrumb/toc.json
     - name: Exemplos de código do Key Vault
-      href: 'https://docs.microsoft.com/samples/browse/?expanded=azure&products=azure-key-vault'
+      href: /samples/browse/?expanded=azure&products=azure-key-vault
 - name: Tutoriais
   items:
     - name: Importar um certificado
@@ -40,6 +43,8 @@
       href: create-certificate.md
     - name: Como criar uma solicitação de assinatura de certificado
       href: create-certificate-signing-request.md
+    - name: Controle de acesso de certificado
+      href: certificate-access-control.md
 - name: Guias de instruções
   items:
     - name: Integrar o Key Vault à AC DigiCert
@@ -59,7 +64,7 @@
     - name: Java
       href: /java/api/overview/azure/keyvault?view=azure-java-stable
     - name: Node.js
-      href: 'https://docs.microsoft.com/javascript/api/overview/azure/key-vault-index?view=azure-node-latest'
+      href: /javascript/api/overview/azure/key-vault-index?view=azure-node-latest
     - name: Python
       href: /python/api/overview/azure/keyvault-certificates-readme?view=azure-python
     - name: REST
@@ -67,6 +72,9 @@
     - name: Modelo do Resource Manager
       href: /azure/templates/microsoft.keyvault/allversions
       displayName: ARM
+    - name: Itens internos do Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ../policy-reference.md?toc=/azure/key-vault/certificates/toc.json&bc=/azure/key-vault/breadcrumb/toc.json
 - name: Recursos
   items:
     - name: Desenvolva suas habilidades com o Microsoft Learn
@@ -84,6 +92,6 @@
     - name: Atualizações de serviço
       href: 'https://azure.microsoft.com/updates/?product=key-vault'
     - name: Blog
-      href: 'https://blogs.technet.com/b/kv/'
+      href: /archive/blogs/kv/
     - name: Comentários sobre o Produto
       href: 'https://feedback.azure.com/forums/906355-azure-key-vault'

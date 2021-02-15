@@ -5,55 +5,51 @@ author: RonyMSFT
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: security
-ms.date: 04/15/2020
+ms.date: 01/12/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: ecca67cab486c8f3524c8c8d4c221d52689cf62a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 65794c695fa4b36586b23a308845b1f12a20b7cb
+ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87070097"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98569939"
 ---
-# <a name="synapse-managed-private-endpoints-preview"></a>Pontos de extremidade privados gerenciados do Synapse (versão prévia)
+# <a name="synapse-managed-private-endpoints"></a>Pontos de extremidade privados gerenciados do Azure Synapse
 
 Este artigo explicará os Pontos de extremidade privados gerenciados no Azure Synapse Analytics.
 
 ## <a name="managed-private-endpoints"></a>Pontos de extremidade privados gerenciados
 
-Os Pontos de extremidade privados gerenciados são pontos de extremidade privados criados na Rede Virtual do Microsoft Azure de workspace gerenciada que estabelece um link privado para recursos do Azure. O Azure Synapse gerencia para você esses pontos de extremidade privados.
+Pontos de extremidade privados gerenciados são pontos de extremidade privados criados em uma rede virtual gerenciada associada ao seu workspace do Azure Synapse. Pontos de extremidade privados gerenciados estabelecem um link privado para recursos do Azure. O Azure Synapse gerencia para você esses pontos de extremidade privados. Você pode criar pontos de extremidade privados gerenciados de seu workspace do Azure Synapse para acessar os serviços do Azure (como o Armazenamento do Azure ou o Azure Cosmos DB) e os serviços hospedados de cliente/parceiro do Azure.
 
-O Azure Synapse é compatível com links privados. O link privado permite que você acesse serviços do Azure (como o Armazenamento, o Cosmos DB e o SQL Data Warehouse) e os serviços de cliente/parceiro hospedados pelo Azure em sua Rede Virtual do Azure com segurança.
+Quando você usa pontos de extremidade privados gerenciados, o tráfego entre o workspace do Azure Synapse e outros recursos do Azure cruzam totalmente a rede de backbone da Microsoft. Os pontos de extremidade privados gerenciados protegem contra exfiltração dos dados. Um ponto de extremidade privado gerenciado usa o endereço IP privado de sua rede virtual gerenciada para efetivamente levar para sua rede virtual o serviço do Azure que seu workspace do Azure Synapse está comunicando. Os pontos de extremidade privados gerenciados são mapeados para um recurso específico no Azure e não para todo o serviço. Os clientes podem limitar a conectividade a um recurso específico aprovado por sua organização. 
 
-Quando você usa um link privado, o tráfego entre a Rede Virtual e o workspace atravessa totalmente a rede de backbone da Microsoft. O Link Privado protege contra riscos de exfiltração dos dados. Você estabelece um link privado para um recurso criando um ponto de extremidade privado.
-
-O ponto de extremidade privado usa um endereço IP privado de sua Rede Virtual para colocar efetivamente o serviço na Rede Virtual. Os pontos de extremidade privados são mapeados para um recurso específico no Azure e não para todo o serviço. Os clientes podem limitar a conectividade a um recurso específico aprovado por sua organização. Saiba mais sobre [links privados e pontos de extremidade privados](https://docs.microsoft.com/azure/private-link/).
+Saiba mais sobre [links privados e pontos de extremidade privados](../../private-link/index.yml).
 
 >[!IMPORTANT]
 >Os Pontos de extremidade privados gerenciados só são compatíveis com workspaces do Azure Synapse com uma Rede Virtual de workspace gerenciada.
 
 >[!NOTE]
->Todo o tráfego de saída da Rede Virtual de workspace gerenciada, exceto por meio de Pontos de extremidade privados gerenciados, será bloqueado no futuro. É recomendável que você crie pontos de extremidade privados gerenciados para se conectar a todas as suas fontes de dados do Azure externas ao workspace. 
+>Ao criar um workspace do Azure Synapse, você pode optar por associar uma rede virtual gerenciada a ele. Se você optar por associar uma Rede Virtual Gerenciada ao seu workspace, também poderá optar por limitar o tráfego de saída do workspace a apenas os destinos aprovados. Você deve criar pontos de extremidade privados gerenciados para esses destinos. 
 
-Uma conexão de ponto de extremidade privado é criada em um estado "Pendente" quando você cria um Ponto de extremidade privado gerenciado no Azure Synapse. Um fluxo de trabalho de aprovação é iniciado. O proprietário do recurso de link privado é responsável por aprovar ou rejeitar a conexão.
 
-Se o proprietário aprova a conexão, o link privado é estabelecido. Caso contrário, o link privado não será estabelecido. Em ambos os casos, o Ponto de extremidade privado gerenciado será atualizado com o status da conexão.
+Uma conexão de ponto de extremidade privado é criada em um estado "Pendente" quando você cria um Ponto de extremidade privado gerenciado no Azure Synapse. Um fluxo de trabalho de aprovação é iniciado. O proprietário do recurso de link privado é responsável por aprovar ou rejeitar a conexão. Se o proprietário aprova a conexão, o link privado é estabelecido. No entanto, se o proprietário não aprovar a conexão, o link privado não será estabelecido. Em ambos os casos, o Ponto de extremidade privado gerenciado será atualizado com o status da conexão. Somente um ponto de extremidade privado gerenciado em um estado aprovado pode ser usado para enviar tráfego para o recurso de link privado vinculado ao ponto de extremidade privado gerenciado.
 
-Somente um Ponto de extremidade privado gerenciado em um estado aprovado pode enviar tráfego para um determinado recurso de link privado.
+## <a name="managed-private-endpoints-for-dedicated-sql-pool-and-serverless-sql-pool"></a>Pontos de extremidade privados gerenciados do pool de SQL dedicado e do pool de SQL sem servidor
 
-## <a name="managed-private-endpoints-for-sql-pool-and-sql-on-demand"></a>Pontos de extremidade privados gerenciados para pool de SQL e SQL sob demanda
+O pool de SQL dedicado e o pool de SQL sem servidor são funcionalidades analíticas no workspace do Azure Synapse. Esses recursos usam a infraestrutura multilocatário que não é implantada na [Rede Virtual de workspace gerenciada](./synapse-workspace-managed-vnet.md).
 
-O pool de SQL e o SQL sob demanda são recursos analíticos no seu workspace do Azure Synapse. Esses recursos usam a infraestrutura multilocatário que não é implantada na [Rede Virtual de workspace gerenciada](./synapse-workspace-managed-vnet.md).
+Quando um workspace é criado, o Azure Synapse cria dois Pontos de extremidade privados gerenciados no workspace, um para o pool de SQL dedicado e um para o pool de SQL sem servidor. 
 
-Quando um workspace é criado, o Azure Synapse cria dois Pontos de extremidade privados gerenciados para o pool de SQL e o SQL sob demanda nesse workspace. 
+Esses dois Pontos de extremidade privados gerenciados são listados no Synapse Studio. Selecione **Gerenciar** no painel de navegação esquerdo e escolha **Pontos de extremidade privados gerenciados** para vê-los no Studio.
 
-Esses dois Pontos de extremidade privados gerenciados são listados no Azure Synapse Studio. Selecione **Gerenciar** no painel de navegação esquerdo e, em seguida, selecione **Redes Virtuais Gerenciadas** para ver os pontos no Studio.
+O Ponto de extremidade privado gerenciado que tem como destino o pool de SQL é chamado de *synapse-ws-sql--\<workspacename\>* e aquele que se destina ao pool de SQL sem servidor é chamado de *synapse-ws-sqlOnDemand--\<workspacename\>* .
 
-O Ponto de extremidade privado gerenciado que tem como destino o pool de SQL é chamado *synapse-ws-sql--\<workspacename\>* e aquele que se destina ao SQL sob demanda é chamado *synapse-ws-sqlOnDemand--\<workspacename\>* .
-![Pontos de extremidade privados gerenciados para pool de SQL e SQL sob demanda](./media/synapse-workspace-managed-private-endpoints/managed-pe-for-sql-1.png)
+![Pontos de extremidade privados gerenciados do pool de SQL dedicado e do pool de SQL sem servidor](./media/synapse-workspace-managed-private-endpoints/managed-pe-for-sql-1.png)
 
 Esses dois Pontos de extremidade privados gerenciados são criados automaticamente para você quando você cria seu workspace do Azure Synapse. Você não é cobrado por esses dois Pontos de extremidade privados gerenciados.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Criar Pontos de extremidade privados gerenciados para suas fontes de dados](./how-to-create-managed-private-endpoints.md)
+Para saber mais, confira o artigo [Criar pontos de extremidade privados gerenciados para suas fontes de dados](./how-to-create-managed-private-endpoints.md).

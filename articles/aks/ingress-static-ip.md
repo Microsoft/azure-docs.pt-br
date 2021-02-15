@@ -5,12 +5,12 @@ description: Saiba como instalar e configurar um controlador de entrada NGINX co
 services: container-service
 ms.topic: article
 ms.date: 08/17/2020
-ms.openlocfilehash: dbab9df3acf7de801a4e75502863fff698232458
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 58cda3f2bfc76f00deaa85347c059040e39f9ef5
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88852567"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98729006"
 ---
 # <a name="create-an-ingress-controller-with-a-static-public-ip-address-in-azure-kubernetes-service-aks"></a>Crie um controlador de entrada com um endereço IP público estático no AKS (Serviço de Kubernetes do Azure)
 
@@ -50,7 +50,7 @@ az network public-ip create --resource-group MC_myResourceGroup_myAKSCluster_eas
 ```
 
 > [!NOTE]
-> Os comandos acima criam um endereço IP que será excluído se você excluir o cluster AKS. Como alternativa, você pode criar um endereço IP em um grupo de recursos diferente que pode ser gerenciado separadamente do cluster AKS. Se você criar um endereço IP em um grupo de recursos diferente, certifique-se de que a entidade de serviço usada pelo cluster AKS tenha permissões delegadas para outro grupo de recursos, como *colaborador de rede*.
+> Os comandos acima criam um endereço IP que será excluído se você excluir o cluster AKS. Como alternativa, você pode criar um endereço IP em um grupo de recursos diferente que pode ser gerenciado separadamente do cluster AKS. Se você criar um endereço IP em um grupo de recursos diferente, certifique-se de que a entidade de serviço usada pelo cluster AKS tenha permissões delegadas para outro grupo de recursos, como *colaborador de rede*. Para obter mais informações, consulte [usar um endereço IP público estático e um rótulo DNS com o balanceador de carga AKs][aks-static-ip].
 
 Agora, implemente o gráfico *nginx -gresso* com o Helm. Para redundância adicional, duas réplicas dos controladores de entrada NGINX são implementadas com o parâmetro `--set controller.replicaCount`. Para se beneficiar totalmente da execução de réplicas do controlador de entrada, verifique se há mais de um nó em seu cluster AKS.
 
@@ -62,7 +62,7 @@ Você deve passar dois parâmetros adicionais para a versão Helm para que o con
 O controlador de entrada também precisa ser agendado em um nó do Linux. Os nós do Windows Server não devem executar o controlador de entrada. Um seletor de nó é especificado usando o parâmetro `--set nodeSelector` para instruir o agendador do Kubernetes a executar o controlador de entrada NGINX em um nó baseado em Linux.
 
 > [!TIP]
-> O exemplo a seguir cria um namespace kubernetes para os recursos de entrada chamados *ingress-Basic*. Especifique um namespace para seu próprio ambiente, conforme necessário. Se o cluster AKS não estiver habilitado para RBAC, adicione `--set rbac.create=false` aos comandos Helm.
+> O exemplo a seguir cria um namespace kubernetes para os recursos de entrada chamados *ingress-Basic*. Especifique um namespace para seu próprio ambiente, conforme necessário. Se o cluster AKS não for kubernetes RBAC habilitado, adicione `--set rbac.create=false` aos comandos Helm.
 
 > [!TIP]
 > Se você quiser habilitar a [preservação de IP de origem do cliente][client-source-ip] para solicitações a contêineres em seu cluster, adicione `--set controller.service.externalTrafficPolicy=Local` ao comando Helm install. O IP de origem do cliente é armazenado no cabeçalho da solicitação em *X-forwardd-for*. Ao usar um controlador de entrada com preservação de IP de origem do cliente habilitada, a passagem TLS não funcionará.
@@ -85,6 +85,7 @@ helm install nginx-ingress ingress-nginx/ingress-nginx \
     --set controller.replicaCount=2 \
     --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux \
     --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux \
+    --set controller.admissionWebhooks.patch.nodeSelector."beta\.kubernetes\.io/os"=linux \
     --set controller.service.loadBalancerIP="STATIC_IP" \
     --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"="DNS_LABEL"
 ```
@@ -103,7 +104,7 @@ Nenhuma regra de ingresso foi criada ainda, portanto, a página 404 padrão do c
 Você pode verificar se o rótulo de nome DNS foi aplicado consultando o FQDN no endereço IP público da seguinte maneira:
 
 ```azurecli-interactive
-az network public-ip list --resource-group MC_myResourceGroup_myAKSCluster_eastus --query "[?name=='myAKSPublicIP'].[dnsSettings.fqdn]" -o tsv
+az network public-ip list --resource-group MC_myResourceGroup_myAKSCluster_eastus --query "[?ipAddress=='myAKSPublicIP'].[dnsSettings.fqdn]" -o tsv
 ```
 
 O controlador de entrada agora está acessível por meio do endereço IP ou do FQDN.
@@ -115,7 +116,7 @@ O controlador de entrada NGINX dá suporte para terminação TLS. Há várias ma
 > [!NOTE]
 > Este artigo usa o `staging` ambiente para Vamos criptografar. Em implantações de produção, use `letsencrypt-prod` e `https://acme-v02.api.letsencrypt.org/directory` nas definições do recurso e ao instalar o gráfico do Helm.
 
-Para instalar o controlador cert-manager, use o comando `helm install` de instalação Helm a seguir:
+Para instalar o controlador CERT-Manager em um cluster habilitado para RBAC kubernetes, use o seguinte `helm install` comando:
 
 ```console
 # Label the cert-manager namespace to disable resource validation
@@ -169,8 +170,12 @@ spec:
 Para criar a coleção, use o `kubectl apply`comando: 
 
 ```
-$ kubectl apply -f cluster-issuer.yaml --namespace ingress-basic
+kubectl apply -f cluster-issuer.yaml --namespace ingress-basic
+```
 
+A saída deve ser semelhante a este exemplo:
+
+```
 clusterissuer.cert-manager.io/letsencrypt-staging created
 ```
 
@@ -199,7 +204,7 @@ spec:
     spec:
       containers:
       - name: aks-helloworld
-        image: neilpeterson/aks-helloworld:v1
+        image: mcr.microsoft.com/azuredocs/aks-helloworld:v1
         ports:
         - containerPort: 80
         env:
@@ -237,7 +242,7 @@ spec:
     spec:
       containers:
       - name: ingress-demo
-        image: neilpeterson/aks-helloworld:v1
+        image: mcr.microsoft.com/azuredocs/aks-helloworld:v1
         ports:
         - containerPort: 80
         env:
@@ -307,8 +312,12 @@ spec:
 Crie o recurso de entrada usando o `kubectl apply` comando.
 
 ```
-$ kubectl apply -f hello-world-ingress.yaml --namespace ingress-basic
+kubectl apply -f hello-world-ingress.yaml --namespace ingress-basic
+```
 
+A saída deve ser semelhante a este exemplo:
+
+```
 ingress.extensions/hello-world-ingress created
 ```
 
@@ -483,3 +492,4 @@ Também é possível:
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [client-source-ip]: concepts-network.md#ingress-controllers
 [install-azure-cli]: /cli/azure/install-azure-cli
+[aks-static-ip]: static-ip.md

@@ -9,10 +9,10 @@ ms.date: 07/08/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 8f8d366961049deb3eda193718ccb553aac930e3
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "67666368"
 ---
 Você paga por duas coisas: os custos de computação por hora para o gateway de rede virtual, e transferência de dados de saída do gateway de rede virtual. Encontre informações sobre preços na página [Preços](https://azure.microsoft.com/pricing/details/vpn-gateway) . Para obter os preços do SKU de gateway herdado, confira a [página de preços do ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute) e role a página até a seção **Gateways de rede virtual**.

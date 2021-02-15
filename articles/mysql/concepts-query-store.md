@@ -1,17 +1,17 @@
 ---
 title: Repositório de Consultas – Banco de Dados do Azure para MySQL
 description: Saiba mais sobre o recurso Repositório de Consultas no Banco de Dados do Azure para MySQL para ajudar você a acompanhar o desempenho com o tempo.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 5/12/2020
-ms.openlocfilehash: b47ab44c5a5f8faad85b60032a6781475235a170
-ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
+ms.openlocfilehash: 82482b260233994672e603c16fe8cf919c92337f
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83402257"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201018"
 ---
 # <a name="monitor-azure-database-for-mysql-performance-with-query-store"></a>Monitorar o desempenho do Banco de Dados do Azure para MySQL com o Repositório de Consultas
 
@@ -69,7 +69,7 @@ SELECT * FROM mysql.query_store_wait_stats;
 ## <a name="finding-wait-queries"></a>Localizando consultas de espera
 
 > [!NOTE]
-> As estatísticas de espera não devem ser habilitadas durante o horário de pico da carga de trabalho nem ativadas indefinidamente para cargas de trabalho confidenciais. <br>Para cargas de trabalho em execução com alta utilização de CPU ou em servidores configurados com menos vCores, tome cuidado ao habilitar estatísticas de espera. Ela não deve ser ativada indefinidamente. 
+> As estatísticas de espera não devem ser habilitadas durante o horário de pico da carga de trabalho nem ativadas indefinidamente para cargas de trabalho confidenciais. <br>Para cargas de trabalho em execução com alta utilização de CPU ou em servidores configurados com menos vCores, tome cuidado ao habilitar estatísticas de espera. Ela não deve ser ativada indefinidamente.
 
 Os tipos de evento de espera combinam diferentes eventos de espera em buckets por semelhança. O Repositório de Consultas fornece o tipo de evento de espera, o nome do evento de espera específico e a consulta em questão. Ser capaz de correlacionar essas informações de espera com as estatísticas de runtime de consulta significa que você pode obter uma compreensão mais profunda do que contribui para as características de desempenho de consulta.
 
@@ -79,7 +79,7 @@ Aqui estão alguns exemplos de como você pode obter mais insights sobre sua car
 |---|---|
 |Esperas de bloqueio alto | Verifique os textos de consulta para as consultas afetadas e identifique as entidades de destino. Procure no Repositório de Consultas outras consultas que modificam a mesma entidade, que é executada com frequência e/ou têm alta duração. Depois de identificar essas consultas, considere alterar a lógica do aplicativo para melhorar a simultaneidade ou use um nível de isolamento menos restritivo. |
 |Esperas de E/S de buffer alto | Localize as consultas com um grande número de leituras físicas no Repositório de Consultas. Se elas corresponderem às consultas com esperas de E/S altas, considere a possibilidade de introduzir um índice na entidade subjacente para realizar buscas em vez de verificações. Isso minimizaria a sobrecarga de E/S das consultas. Verifique as **Recomendações de desempenho** para seu servidor no portal para ver se há recomendações de índice para esse servidor que otimizariam as consultas. |
-|Esperas de memória alta | Localize as consultas que consomem mais memória no Repositório de Consultas. Essas consultas estão provavelmente atrasando o andamento das consultas afetadas. Verifique as **Recomendações de desempenho** para seu servidor no portal para ver se há recomendações de índice que otimizariam essas consultas.|
+|Esperas de memória alta | Localize as consultas que consomem mais memória no Repositório de Consultas. Essas consultas estão provavelmente atrasando o andamento das consultas afetadas. Verifique as **Recomendações de desempenho** para seu servidor no portal para ver se há recomendações de índice que otimizariam essas consultas. |
 
 ## <a name="configuration-options"></a>Opções de configuração
 
@@ -104,11 +104,11 @@ As opções a seguir se aplicam especificamente às estatísticas de espera.
 > [!NOTE]
 > No momento, **query_store_capture_mode** substitui essa configuração, o que significa que **query_store_capture_mode** e **query_store_wait_sampling_capture_mode** precisam estar habilitados para TODOS para que as estatísticas de espera funcionem. Se **query_store_capture_mode** estiver desativado, as estatísticas de espera estarão desativadas também, pois elas utilizam performance_schema habilitado e query_text capturado por repositório de consultas.
 
-Use o [portal do Azure](howto-server-parameters.md) ou a [CLI do Azure](howto-configure-server-parameters-using-cli.md) para obter ou definir um valor diferente para um parâmetro.
+Use o [portal do Azure](howto-server-parameters.md) ou a [CLI do Azure](howto-configure-server-parameters-using-cli.md) para obter ou definir um valor diferente para um parâmetro.
 
 ## <a name="views-and-functions"></a>Exibições e funções
 
-Exiba e gerencie o Repositório de Consultas usando as seguintes exibições e funções. Qualquer pessoa na [função pública de privilégio selecionada](howto-create-users.md#how-to-create-additional-admin-users-in-azure-database-for-mysql) pode usar essas exibições para ver os dados no Repositório de Consultas. Essas exibições estão disponíveis somente no banco de dados **mysql**.
+Exiba e gerencie o Repositório de Consultas usando as seguintes exibições e funções. Qualquer pessoa na [função pública de privilégio selecionada](howto-create-users.md#to-create-more-admin-users-in-azure-database-for-mysql) pode usar essas exibições para ver os dados no Repositório de Consultas. Essas exibições estão disponíveis somente no banco de dados **mysql**.
 
 Consultas são normalizadas examinando sua estrutura após a remoção de literais e constantes. Se duas consultas forem idênticas, exceto por valores literais, elas terão o mesmo hash.
 

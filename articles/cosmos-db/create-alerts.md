@@ -4,18 +4,18 @@ description: Saiba como configurar alertas para Azure Cosmos DB usando Azure Mon
 author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: how-to
 ms.date: 07/16/2020
-ms.openlocfilehash: 84c2ad3a24d944db6a55f3f21e8a2a0c4084d033
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e29db7e31438bc7f6ac609384d0d9b92c275e813
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87096115"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339522"
 ---
 # <a name="create-alerts-for-azure-cosmos-db-using-azure-monitor"></a>Criar alertas para Azure Cosmos DB usando Azure Monitor
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Os alertas são usados para configurar testes recorrentes para monitorar a disponibilidade e a capacidade de resposta de seus recursos de Azure Cosmos DB. Os alertas podem enviar uma notificação na forma de um email ou executar uma função do Azure quando uma de suas métricas atinge o limite ou se um evento específico é registrado no log de atividades.
 
@@ -63,9 +63,9 @@ Esta seção mostra como criar um alerta quando você recebe um código de statu
 
    * Escolha **StatusCode** como o **nome da dimensão**. Selecione **adicionar valor personalizado** e defina o código de status como 429.
 
-   * Na **lógica de alerta**, defina o **limite** como **estático**. O limite estático usa um valor de limite definido pelo usuário para avaliar a regra, enquanto os limites dinâmicos usam algoritmos de aprendizado de máquina internos para aprender continuamente o padrão de comportamento de métrica e calcular os limites automaticamente.
+   * Na **lógica de alerta** , defina o **limite** como **estático**. O limite estático usa um valor de limite definido pelo usuário para avaliar a regra, enquanto os limites dinâmicos usam algoritmos de aprendizado de máquina internos para aprender continuamente o padrão de comportamento de métrica e calcular os limites automaticamente.
 
-   * Defina o **operador** como **maior que**, o **tipo de agregação** para **Total**e o **valor do limite** como **100**. Com essa lógica, se o cliente perceber mais de 100 solicitações com um código de status 429, o alerta será disparado. Você também pode configurar o tipo de agregação, a granularidade de agregação e a frequência de avaliação com base em seu requisito.
+   * Defina o **operador** como **maior que** , o **tipo de agregação** para **Total** e o **valor do limite** como **100**. Com essa lógica, se o cliente perceber mais de 100 solicitações com um código de status 429, o alerta será disparado. Você também pode configurar o tipo de agregação, a granularidade de agregação e a frequência de avaliação com base em seu requisito.
 
    * Depois de preencher o formulário, selecione **concluído**. A captura de tela a seguir mostra os detalhes da lógica de alerta:
 

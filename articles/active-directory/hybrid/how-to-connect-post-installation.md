@@ -16,12 +16,12 @@ ms.date: 04/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a859a10e02a5738ee023db5d653ea14403b9bcad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7d6689b4b67b8462e983ae9b111e0fbc60c422b7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85358439"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89657116"
 ---
 # <a name="next-steps-and-how-to-manage-azure-ad-connect"></a>Próximas etapas e como gerenciar o Azure AD Connect
 Use os procedimentos operacionais neste artigo para personalizar o Azure AD (Azure Active Directory) Connect para atender às necessidades e requisitos de sua organização.  
@@ -30,7 +30,7 @@ Use os procedimentos operacionais neste artigo para personalizar o Azure AD (Azu
 Por padrão, somente o usuário que fez a instalação e os administradores locais podem gerenciar o mecanismo de sincronização instalado. Para que outras pessoas possam acessar e gerenciar o mecanismo de sincronização, localize o grupo chamado ADSyncAdmins no servidor local e adicione-os a esse grupo.
 
 ## <a name="assign-licenses-to-azure-ad-premium-and-enterprise-mobility-suite-users"></a>Atribuir licenças aos usuários do Azure AD Premium e do Enterprise Mobility Suite
-Agora que os usuários foram sincronizados para a nuvem, você precisará atribuir uma licença para que eles possam começar a usar aplicativos de nuvem como o Office 365.
+Agora que os usuários foram sincronizados com a nuvem, você precisa atribuir a eles uma licença para que eles possam começar a usar aplicativos de nuvem, como o Microsoft 365.
 
 ### <a name="to-assign-an-azure-ad-premium-or-enterprise-mobility-suite-license"></a>Como atribuir uma licença do Enterprise Mobility Suite ou do Azure AD Premium
 
@@ -59,7 +59,7 @@ Se você precisar executar uma tarefa de sincronização, poderá fazer isso da 
 2. Clique em **Configurar**.
 3. Na tela tarefas, selecione as **opções personalizar sincronização** e clique em **Avançar**
 4. Insira suas credenciais de AD do Azure
-5. Clique em **Próximo**. Clique em **Próximo**.  Clique em **Próximo**.
+5. Clique em **Avançar**. Clique em **Avançar**.  Clique em **Avançar**.
 5.  Na tela **pronto para configurar** , verifique se a caixa **iniciar o processo de sincronização quando a configuração for concluída** está marcada.
 6.  Clique em **Configurar**.
 

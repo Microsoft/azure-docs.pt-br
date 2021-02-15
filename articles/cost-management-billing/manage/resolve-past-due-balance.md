@@ -9,18 +9,18 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 8c792ae1b6ac43ead15fd4f27d2468c517153354
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 3c42db58017dc3a692c227f6eb454cf7b597e77b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684806"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91297577"
 ---
 # <a name="resolve-past-due-balance-for-your-azure-subscription"></a>Resolver o saldo vencido de sua assinatura do Azure
 
 Este artigo se aplica aos clientes que se inscreveram no Azure Online com um cartão de crédito e que têm uma conta de cobrança do Programa Microsoft Online Services. Saiba como [verificar o tipo de sua conta de cobrança](#check-the-type-of-your-account). Caso você tenha uma conta de cobrança do Contrato de Cliente da Microsoft, confira [Pagar sua fatura do Microsoft Azure](../understand/pay-bill.md).
 
-Se o pagamento não for recebido ou se não pudermos processá-lo, você receberá um email e verá um alerta no portal do Azure informando que a sua assinatura está vencida. Se a forma de pagamento padrão for cartão de crédito, o [administrador da conta](billing-subscription-transfer.md#whoisaa) poderá liquidar os preços pendentes no portal do Azure. Se você pagar por fatura (cheque/transferência eletrônica), envie o pagamento para a localização listada na parte inferior da fatura.
+Se o pagamento não for recebido ou se não pudermos processá-lo, você receberá um email e verá um alerta no portal do Azure informando que a sua assinatura está vencida. Se a forma de pagamento padrão for cartão de crédito, o [administrador da conta](../understand/subscription-transfer.md#whoisaa) poderá liquidar os preços pendentes no portal do Azure. Se você pagar por fatura (cheque/transferência eletrônica), envie o pagamento para a localização listada na parte inferior da fatura.
 
 > [!IMPORTANT]
 > * Se você tiver várias assinaturas que usam o mesmo cartão de crédito e todas estiverem vencidas, deverá pagar todo o saldo pendente de uma vez.

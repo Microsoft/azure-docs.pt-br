@@ -2,8 +2,12 @@
   href: cut-planes.md
 - name: Depurar renderização
   href: debug-rendering.md
+- name: Efeito Fresnel
+  href: fresnel-effect.md
 - name: Substituição de estado hierárquico
   href: override-hierarchical-state.md
+- name: Câmera
+  href: camera.md
 - name: Preparar espaço
   href: stage-space.md
 - name: Reprojeção de fase tardia
@@ -16,6 +20,8 @@
   href: color-materials.md
 - name: Renderização de estrutura de tópicos
   href: outlines.md
+- name: Renderização do shell
+  href: shell-effect.md
 - name: Renderização de um lado
   href: single-sided-rendering.md
 - name: Consultas espaciais

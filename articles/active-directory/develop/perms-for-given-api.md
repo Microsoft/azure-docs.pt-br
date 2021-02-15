@@ -11,21 +11,22 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/15/2019
 ms.author: ryanwi
-ms.openlocfilehash: d9b84f2eace9ec268c6ff0942d19b47402e19bde
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ROBOTS: NOINDEX
+ms.openlocfilehash: 87adba3b9595265e726f05e8720b62327c9b231a
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88120721"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054205"
 ---
-# <a name="how-to-select-permissions-for-a-given-api"></a>Como selecionar permissões para uma API 
+# <a name="how-to-select-permissions-for-a-given-api"></a>Como selecionar permissões para uma API
 
 ## <a name="recommended-documents"></a>Documentos recomendados
 
 - Saiba mais sobre como aplicativos cliente usam [solicitações de permissão delegada e de aplicativo](./developer-glossary.md#permissions) para acessar recursos.
-- Veja instruções passo a passo sobre como [configurar solicitações de permissão de um aplicativo cliente](./quickstart-register-app.md)
-- Para se aprofundar, saiba como os aplicativos de recursos expõem [escopos](./developer-glossary.md#scopes) e [funções de aplicativo](./developer-glossary.md#roles) a aplicativos cliente, que se manifestam como permissões delegadas e de aplicativo, respectivamente, no portal do Azure. 
+- Veja instruções passo a passo sobre como [configurar solicitações de permissão de um aplicativo cliente](./quickstart-configure-app-access-web-apis.md)
+- Para se aprofundar, saiba como os aplicativos de recursos expõem [escopos](./developer-glossary.md#scopes) e [funções de aplicativo](./developer-glossary.md#roles) a aplicativos cliente, que se manifestam como permissões delegadas e de aplicativo, respectivamente, no portal do Azure.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[StackOverflow do AzureAD](https://stackoverflow.com/questions/tagged/azure-active-directory)
+[AzureAD Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-active-directory.html)

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/20/2018
 ms.author: apimpm
-ms.openlocfilehash: e42e976e57dd69ffcbd9065cfb3aaf3af9c4b972
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 124bc053aa2c6e59e205bb6f33a9a96190799499
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852065"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93102030"
 ---
 # <a name="how-to-add-a-custom-ca-certificate-in-azure-api-management"></a>Como adicionar um Certificado de Autoridade de Certificação personalizado no Gerenciamento de API do Azure
 
@@ -39,17 +39,17 @@ Siga as etapas abaixo para fazer upload de um novo Certificado de Autoridade de 
 
 2. Selecione **Certificados de Autoridade de Certificação** do menu.
 
-3. Clique no botão **+ Adicionar**.  
+3. Clique no botão **+ Adicionar** .  
 
-    ![Adicionar certificados de autoridade de certificação](media/api-management-howto-ca-certificates/01.png)  
+    ![Captura de tela que mostra o botão + Adicionar para adicionar um certificado de autoridade de certificação.](media/api-management-howto-ca-certificates/01.png)  
 
 4. Procure o certificado e decida quanto ao repositório de certificados. Somente a chave pública é necessária, portanto, a senha não é necessária.
 
-    ![Adicionar certificados de autoridade de certificação](media/api-management-howto-ca-certificates/02.png)  
+    ![Captura de tela que mostra como procurar o certificado.](media/api-management-howto-ca-certificates/02.png)  
 
-5. Clique em **Salvar**. Esta operação pode levar alguns minutos.
+5. Clique em **Salvar** . Esta operação pode levar alguns minutos.
 
-    ![Adicionar certificados de autoridade de certificação](media/api-management-howto-ca-certificates/03.png)  
+    ![Captura de tela que mostra como salvar o certificado.](media/api-management-howto-ca-certificates/03.png)  
 
 > [!NOTE]
 > Você pode carregar um Certificado de Autoridade de Certificação usando o comando `New-AzApiManagementSystemCertificate` do Powershell.

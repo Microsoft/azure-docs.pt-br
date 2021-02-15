@@ -1,27 +1,67 @@
 - name: Computação confidencial do Azure
-  href: overview.md
+  href: ./index.yml
+- name: Visão geral
+  expanded: true
+  items:
+    - name: Bem-vindo(a) à computação confidencial do Azure
+      href: overview.md
+    - name: Cenários e casos de uso
+      href: use-cases-scenarios.md
 - name: Inícios rápidos
   expanded: true
   items:
-    - name: Criar no portal do Azure
-      href: quick-create-portal.md
-    - name: Criar com o Marketplace
-      href: quick-create-marketplace.md
+    - name: Máquinas virtuais
+      items:
+        - name: Criar no portal do Azure
+          href: quick-create-portal.md
+        - name: Criar com o Marketplace
+          href: quick-create-marketplace.md
+    - name: AKS (Serviços do Kubernetes do Azure)
+      items:
+        - name: Visão geral dos nós confidenciais do AKS
+          href: confidential-nodes-aks-overview.md
+        - name: Nós confidenciais com a CLI do Azure
+          href: confidential-nodes-aks-get-started.md
+        - name: Perguntas frequentes sobre os nós confidenciais no AKS
+          href: confidential-nodes-aks-faq.md
 - name: Conceitos
   expanded: true
   items:
-    - name: Soluções sobre máquinas virtuais
-      href: virtual-machine-solutions.md
+    - name: VMs (máquinas virtuais)
+      items:
+        - name: Máquinas virtuais com reconhecimento de enclave
+          href: confidential-computing-enclaves.md
+        - name: Soluções em máquinas virtuais
+          href: virtual-machine-solutions.md
+        - name: Perguntas frequentes sobre VMs com computação confidencial
+          href: faq.md
+    - name: Computação em contêineres
+      expanded: true
+      items:
+        - name: Contêineres confidenciais (lift-and-shift)
+          items:
+            - name: Introdução
+              href: confidential-containers.md
+        - name: Contêineres com reconhecimento de enclave
+          items:
+            - name: Introdução
+              href: enclave-aware-containers.md
+    - name: Atestado
+      href: attestation.md
+    - name: Desenvolvimento de aplicativo
+      href: application-development.md
 - name: Instruções
-  expanded: true
   items:
+    - name: Fortanix Confidential Computing Manager
+      href: how-to-fortanix-confidential-computing-manager.md
     - name: Fortanix Enclave Manager
       href: how-to-fortanix-enclave-manager.md
-- name: Recursos
-  expanded: true
+- name: Referências
   items:
-    - name: Perguntas frequentes
-      href: faq.md
+    - name: Recurso de auxiliar de cotação do SGX
+      href: confidential-nodes-out-of-proc-attestation.md
+- name: Recursos
+  items:
     - name: Comentários de computação confidencial
       href: 'https://feedback.azure.com/forums/919792-azure-confidential-compute'
     - name: StackOverflow
@@ -31,7 +71,7 @@
     - name: Confidential Computing Consortium
       href: 'https://confidentialcomputing.io/'
     - name: Máquinas virtuais no Azure
-      href: 'https://docs.microsoft.com/azure/virtual-machines/'
+      href: ../virtual-machines/index.yml
     - name: Preços
       href: 'https://azure.microsoft.com/en-us/pricing/details/virtual-machines/linux/#DC1s-C8s%20v2'
     - name: Regiões

@@ -1,17 +1,17 @@
 ---
 title: Início rápido – Criar um trabalho do Azure Stream Analytics usando o Visual Studio
 description: Este início rápido mostra como começar com a criação de um trabalho do Stream Analytics, a configuração das entradas e saídas e a definição de uma consulta com o Visual Studio.
-author: mamccrea
-ms.author: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.date: 06/11/2019
 ms.topic: quickstart
 ms.service: stream-analytics
-ms.openlocfilehash: aff9bf83795043e0176d7a3f155844c8dbe0281a
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 7a02d0914ae111d6e2e00493fe27613e27d836b1
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337459"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98012352"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-by-using-visual-studio"></a>Início Rápido: Criar um trabalho do Azure Stream Analytics usando o Visual Studio
 
@@ -28,7 +28,7 @@ Este guia de início rápido mostra como criar e executar um trabalho do Stream 
 
 * Instale o Visual Studio 2019, Visual Studio 2015 ou Visual Studio 2013 Update 4. As edições Enterprise (Ultimate/Premium), Professional, Community têm suporte. Não há suporte para a Edição Express.
 
-* Siga as [instruções de instalação](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-install) para instalar as ferramentas do Stream Analytics para o Visual Studio.
+* Siga as [instruções de instalação](./stream-analytics-tools-for-visual-studio-install.md) para instalar as ferramentas do Stream Analytics para o Visual Studio.
 
 ## <a name="prepare-the-input-data"></a>Preparar os dados de entrada
 
@@ -188,7 +188,7 @@ Observe os elementos que são incluídos em um projeto do Azure Stream Analytics
 
    ![Executar trabalho do Stream Analytics](./media/stream-analytics-quick-create-vs/stream-analytics-job-running.png)
 
-4. Para exibir os resultados, no menu **Exibição**, selecione **Cloud Explorer** e navegue até a conta de armazenamento em seu grupo de recursos. Em **Contêineres de Blobs**, clique duas vezes em **container1**e, em seguida, n caminho do arquivo de **saída**.
+4. Para exibir os resultados, no menu **Exibição**, selecione **Cloud Explorer** e navegue até a conta de armazenamento em seu grupo de recursos. Em **Contêineres de Blobs**, clique duas vezes em **container1** e, em seguida, n caminho do arquivo de **saída**.
 
    ![Exibir os resultados](./media/stream-analytics-quick-create-vs/stream-analytics-vs-results.png)
 

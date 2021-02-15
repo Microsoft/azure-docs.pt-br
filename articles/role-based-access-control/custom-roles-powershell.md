@@ -14,17 +14,17 @@ ms.workload: identity
 ms.date: 03/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 540da4103c3f7800521407441d645070e1e3e7ca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 799475db567c88f067192d027589e9185ee1782b
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84790204"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97369167"
 ---
 # <a name="create-or-update-azure-custom-roles-using-azure-powershell"></a>Criar ou atualizar funções personalizadas do Azure usando o Azure PowerShell
 
 > [!IMPORTANT]
-> A adição de um grupo de gerenciamento ao `AssignableScopes` está em visualização no momento.
+> A adição de um grupo de gerenciamento a `AssignableScopes` está em versão prévia no momento.
 > Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos.
 > Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -63,7 +63,7 @@ API Management Service Contributor                   False
 O exemplo a seguir lista apenas as funções personalizadas disponíveis para atribuição na assinatura selecionada.
 
 ```azurepowershell
-Get-AzRoleDefinition | ? {$_.IsCustom -eq $true} | FT Name, IsCustom
+Get-AzRoleDefinition -Custom | FT Name, IsCustom
 ```
 
 ```Example
@@ -302,7 +302,7 @@ AssignableScopes : {/subscriptions/00000000-0000-0000-0000-000000000000,
                    /subscriptions/22222222-2222-2222-2222-222222222222}
 ```
 
-O exemplo a seguir adiciona um grupo de gerenciamento para `AssignableScopes` a função personalizada *operador de máquina virtual* . A adição de um grupo de gerenciamento ao `AssignableScopes` está em visualização no momento.
+O exemplo a seguir adiciona um grupo de gerenciamento para `AssignableScopes` a função personalizada *operador de máquina virtual* . A adição de um grupo de gerenciamento a `AssignableScopes` está em versão prévia no momento.
 
 ```azurepowershell
 Get-AzManagementGroup
@@ -403,4 +403,4 @@ Are you sure you want to remove role definition with name 'Virtual Machine Opera
 
 - [Tutorial: Criar uma função personalizada do Azure usando o Azure PowerShell](tutorial-custom-role-powershell.md)
 - [Funções personalizadas do Azure](custom-roles.md)
-- [Operações do provedor de recursos Azure Resource Manager](resource-provider-operations.md)
+- [Operações do provedor de recursos do Azure](resource-provider-operations.md)

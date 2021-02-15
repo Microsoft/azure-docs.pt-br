@@ -1,23 +1,18 @@
 ---
 title: Mover dados do DB2 usando Azure Data Factory
 description: Saiba mais sobre como mover dados de um banco de dados DB2 local usando a Atividade de Cópia do Azure Data Factory
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.assetid: c1644e17-4560-46bb-bf3c-b923126671f1
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: e5d2c6b0460c3a7566adb17601aceb57e57f4d0b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bcd1e6f9f9be1765e76399707ae36776a9f1987d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74931780"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100387352"
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Mover dados do DB2 usando a Atividade de Cópia do Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -78,14 +73,14 @@ As seções que se seguem fornecem detalhes sobre as propriedades JSON que são 
 ## <a name="db2-linked-service-properties"></a>Propriedades do serviço vinculado do DB2
 A tabela a seguir lista as propriedades JSON que são específicas a um serviço vinculado do DB2.
 
-| Property | Descrição | Obrigatório |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | **tipo** |Essa propriedade deve ser definida como **OnPremisesDb2**. |Sim |
 | **server** |O nome do servidor DB2. |Sim |
 | **database** |O nome do banco de dados DB2. |Sim |
-| **esquema** |O nome do esquema no banco de dados DB2. Essa propriedade diferencia maiúsculas de minúsculas. |Não |
+| **schema** |O nome do esquema no banco de dados DB2. Essa propriedade diferencia maiúsculas de minúsculas. |Não |
 | **authenticationType** |O tipo de autenticação que é usado para se conectar ao banco de dados DB2. Os valores possíveis são: Anônimo, Básico e Windows. |Sim |
-| **Nome de Usuário** |O nome da conta de usuário, se você usar a autenticação Básica ou do Windows. |Não |
+| **username** |O nome da conta de usuário, se você usar a autenticação Básica ou do Windows. |Não |
 | **password** |A senha para a conta de usuário. |Não |
 | **gatewayName** |O nome do gateway que o serviço Data Factory deve usar para se conectar ao banco de dados DB2 local. |Sim |
 
@@ -94,7 +89,7 @@ Para obter uma lista das seções e propriedades disponíveis para definir os co
 
 A seção **typeproperties** é diferente para cada tipo de conjunto de dados e fornece informações sobre o local dos dados no repositório de dados. A seção **typeProperties** de um conjunto de dados do tipo **RelationalTable**, que inclui o conjunto de dados do DB2, tem a seguinte propriedade:
 
-| Property | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessária |
 | --- | --- | --- |
 | **tableName** |O nome da tabela na instância do banco de dados DB2 à qual o serviço vinculado se refere. Essa propriedade diferencia maiúsculas de minúsculas. |Não (se a propriedade **query** de uma atividade de cópia do tipo **RelationalSource** for especificada) |
 
@@ -103,7 +98,7 @@ Para obter uma lista das seções e propriedades disponíveis para definir as at
 
 Para a Atividade de Cópia, quando a fonte for do tipo **RelationalSource** (que inclui o DB2), as seguintes propriedades estarão disponíveis na seção **typeProperties**:
 
-| Property | Descrição | Valores permitidos | Obrigatório |
+| Propriedade | Descrição | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
 | **consulta** |Use a consulta personalizada para ler os dados. |Cadeia de caracteres de consulta SQL. Por exemplo: `"query": "select * from "MySchema"."MyTable""` |Não (se a propriedade **tableName** de um conjunto de dados for especificada) |
 

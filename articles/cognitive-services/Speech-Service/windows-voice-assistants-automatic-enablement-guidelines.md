@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: travisw
-ms.openlocfilehash: b9cbb873066131264732d6f46320461bae8c3188
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.openlocfilehash: a9fe083818c5850ad05556b18911c19fe19e0e72
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "84981754"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "90987391"
 ---
 # <a name="privacy-guidelines-for-voice-assistants-on-windows"></a>Diretrizes de privacidade para assistentes de voz no Windows
 
@@ -31,7 +31,7 @@ Os desenvolvedores que criam assistentes de voz no Windows devem incluir element
 Os usuários do Windows podem ver e controlar a disponibilidade de seus aplicativos assistente no **`Settings > Privacy > Voice activation`** .
 
  > [!div class="mx-imgBorder"]
- > [![privacidade – listagem de aplicativos](media/voice-assistants/windows_voice_assistant/privacy-app-listing.png "Uma entrada de configuração de privacidade de ativação do Windows Voice para um aplicativo assistente")](media/voice-assistants/windows_voice_assistant/privacy-app-listing.png#lightbox)
+ > [![Captura de tela mostra opções para controlar a disponibilidade do Cortana. ](media/voice-assistants/windows_voice_assistant/privacy-app-listing.png "Uma entrada de configuração de privacidade de ativação do Windows Voice para um aplicativo assistente")](media/voice-assistants/windows_voice_assistant/privacy-app-listing.png#lightbox)
 
 Para se tornar qualificado para inclusão nesta lista, contate a Microsoft em winvoiceassistants@microsoft.com para começar. Por padrão, os usuários precisarão habilitar explicitamente a ativação por voz para um novo assistente no **`Settings > Privacy > Voice Activation`** , ao qual um aplicativo pode vincular o link com `ms-settings:privacy-voiceactivation` . Um aplicativo permitido aparecerá na lista depois que ele tiver sido executado e usado as `Windows.ApplicationModel.ConversationalAgent` APIs. Suas configurações de ativação de voz poderão ser modificadas depois que o aplicativo tiver obtido o consentimento do microfone do usuário.
 

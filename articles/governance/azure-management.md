@@ -1,14 +1,14 @@
 ---
 title: Visão geral do Gerenciamento do Azure - Governança do Azure
 description: Visão geral das áreas de gerenciamento de aplicativos do Azure e recursos com links para conteúdo sobre ferramentas de gerenciamento do Azure.
-ms.date: 07/06/2020
+ms.date: 09/09/2020
 ms.topic: overview
-ms.openlocfilehash: 81d655db706a7330fc541724d490a4885cc2fe8b
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 8ffb37cd1db5740ed022b52cd9687bb3db1632bb
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86041907"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91949489"
 ---
 # <a name="what-are-the-azure-management-areas"></a>Quais são as áreas de Gerenciamento do Azure?
 
@@ -18,7 +18,9 @@ Gerenciamento refere-se às tarefas e processos necessários para manter seus ap
 
 O diagrama a seguir ilustra as diferentes áreas de gerenciamento que são necessárias para manter qualquer aplicativo ou recurso. Essas diferentes áreas podem ser pensadas como um ciclo de vida. Cada área é necessária em sequência contínua durante o tempo de vida de um recurso. Esse ciclo de vida do recurso começa com a implantação inicial, passando pela operação contínua e, finalmente, chegando na desativação.
 
-:::image type="content" source="../monitoring/media/management-overview/management-capabilities.png" alt-text="Disciplinas de gerenciamento no Azure" border="false":::
+:::image type="complex" source="../monitoring/media/management-overview/management-capabilities.png" alt-text="Diagrama das disciplinas de gerenciamento no Azure." border="false":::
+   Diagrama que mostra os elementos Migrar, Defender, Proteger, Monitorar, Configurar e Controlar da roda de serviços que dão suporte a Gerenciamento e Governança no Azure. Defender tem o Gerenciamento de segurança e a Proteção contra ameaças como subitens. Proteger tem Backup e Recuperação de desastre como subitens. Monitorar tem Aplicativo, Monitoramento de rede e infra e Log Analytics e Diagnóstico como subitens. Configurar tem Configuração, Gerenciamento de atualizações, Automação e Scripts como subitens. E Controlar tem Gerenciamento de políticas e Gerenciamento de custos como subitens.
+:::image-end:::
 
 Nenhum serviço único do Azure preenche completamente os requisitos de uma área de gerenciamento específica. Em vez disso, cada qual é realizado por vários serviços que trabalham em conjunto. Alguns serviços, como o Application Insights, oferecem funcionalidade de monitoramento segmentado para aplicativos Web. Outros, como os logs do Azure Monitor, armazenam dados de gerenciamento para outros serviços. Esse recurso permite que você analise diferentes tipos de dados coletados por diversificados serviços.
 
@@ -42,7 +44,7 @@ O [Gerenciamento de custos do Azure](../cost-management-billing/cost-management-
 
 ## <a name="secure"></a>Seguro
 
-Gerencie a segurança dos seus recursos e dados. Um programa de segurança envolve a avaliação de ameaças, coletando e analisando dados, e de conformidade dos aplicativos e recursos. A [Central de Segurança do Azure](../security-center/security-center-intro.md) fornece monitoramento de segurança e análise de ameaças, o que inclui o gerenciamento unificado de segurança e proteção avançada contra ameaças em cargas de trabalho de nuvem híbrida. Consulte [Introdução à segurança do Azure](../security/fundamentals/overview.md) para obter informações abrangentes e orientações sobre como proteger os recursos do Azure.
+Gerencie a segurança dos seus recursos e dados. Um programa de segurança envolve a avaliação de ameaças, coletando e analisando dados, e de conformidade dos aplicativos e recursos. A [Central de Segurança do Azure](../security-center/security-center-introduction.md) fornece monitoramento de segurança e análise de ameaças, o que inclui o gerenciamento unificado de segurança e proteção avançada contra ameaças em cargas de trabalho de nuvem híbrida. Consulte [Introdução à segurança do Azure](../security/fundamentals/overview.md) para obter informações abrangentes e orientações sobre como proteger os recursos do Azure.
 
 ## <a name="protect"></a>Proteger
 

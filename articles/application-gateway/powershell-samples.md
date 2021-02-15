@@ -8,10 +8,10 @@ ms.topic: sample
 ms.date: 11/16/2019
 ms.author: victorh
 ms.openlocfilehash: 045009f695197277ab576c8ff41f36af43957be7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87067774"
 ---
 # <a name="azure-powershell-examples-for-azure-application-gateway-ag"></a>Exemplos do Azure PowerShell para o GA (Gateway de Aplicativo) do Azure

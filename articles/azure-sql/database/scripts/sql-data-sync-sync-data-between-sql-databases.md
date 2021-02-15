@@ -9,14 +9,14 @@ ms.devlang: PowerShell
 ms.topic: sample
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
+ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 4f24a061f94cc61cb915d088606a61ede3fb247f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3e6c7dd0a75a05f15fe6d59bbf5fa47b2940d86a
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084901"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96919859"
 ---
 # <a name="use-powershell-to-sync-data-between-multiple-databases-in-azure-sql-database"></a>Usar o PowerShell para sincronizar dados entre vários bancos de dados no Banco de Dados SQL do Azure
 
@@ -75,6 +75,8 @@ $syncAgentName = "<agentName>"
 $syncAgentResourceGroupName = "<syncAgentResourceGroupName>"
 $syncAgentServerName = "<syncAgentServerName>"
 
+$syncMemberResourceId = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Sql/servers/$serverName/databases/$syncMemberDBName"
+
 # temp file to save the sync schema
 $tempFile = $env:TEMP+"\syncSchema.json"
 
@@ -99,11 +101,11 @@ $credential = $Host.ui.PromptForCredential("Need credential",
               "",
               "")
 
-# create a new sync group
+# create a new sync group (if you use private link, make sure to manually approve it)
 Write-Host "Creating Sync Group "$syncGroupName"..."
 New-AzSqlSyncGroup -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName -Name $syncGroupName `
     -SyncDatabaseName $syncDatabaseName -SyncDatabaseServerName $syncDatabaseServerName -SyncDatabaseResourceGroupName $syncDatabaseResourceGroupName `
-    -ConflictResolutionPolicy $conflictResolutionPolicy -DatabaseCredential $credential
+    -ConflictResolutionPolicy $conflictResolutionPolicy -DatabaseCredential $credential -UsePrivateLinkConnection | Format-list
 
 # use if it's safe to show password in script, otherwise use PromptForCredential
 # $user = "username"
@@ -115,12 +117,33 @@ $credential = $Host.ui.PromptForCredential("Need credential",
               "",
               "")
 
-# add a new sync member
+# add a new sync member (if you use private link, make sure to manually approve it)
 Write-Host "Adding member"$syncMemberName" to the sync group..."
-
 New-AzSqlSyncMember -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName `
     -SyncGroupName $syncGroupName -Name $syncMemberName -MemberDatabaseType $memberDatabaseType -SyncAgentResourceGroupName $syncAgentResourceGroupName `
-    -SyncAgentServerName $syncAgentServerName -SyncAgentName $syncAgentName  -SyncDirection $syncDirection -SqlServerDatabaseID  $syncAgentInfo.DatabaseId
+    -SyncAgentServerName $syncAgentServerName -SyncAgentName $syncAgentName  -SyncDirection $syncDirection -SqlServerDatabaseID  $syncAgentInfo.DatabaseId `
+    -SyncMemberAzureDatabaseResourceId $syncMemberResourceId -UsePrivateLinkConnection | Format-list
+
+# update existing sync member to use private link connection 
+Update-AzSqlSyncMember `
+    -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName -SyncGroupName $syncGroupName -Name $syncMemberName `
+    -MemberDatabaseCredential $memberDatabaseCredential -SyncMemberAzureDatabaseResourceId $syncMemberResourceId -UsePrivateLinkConnection $true
+    
+# update existing sync group and remove private link connection
+Update-AzSqlSyncGroup `
+    -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName -Name $syncGroupName -UsePrivateLinkConnection $false
+
+# run the following Get-AzSqlSyncGroup/ Get-AzSqlSyncMember commands to confirm that a private link has been setup for Data Sync, if you decide to use private link. 
+# Get-AzSqlSyncMember returns information about one or more Azure SQL Database Sync Members. Specify the name of a sync member to see information for only that sync member.
+Get-AzSqlSyncMember `
+    -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName -SyncGroupName $syncGroupName -Name $syncMemberName ` | Format-List
+# Get-AzSqlSyncGroup returns information about one or more Azure SQL Database Sync Groups. Specify the name of a sync group to see information for only that sync group.
+Get-AzSqlSyncGroup `
+    -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName ` | Format-List
+    
+# approve private endpoint connection, if you decide to use private link
+Approve-AzPrivateEndpointConnection `
+    -Name myPrivateEndpointConnection -ResourceGroupName myResourceGroup -ServiceName myPrivateLinkService
 
 # refresh database schema from hub database, specify the -SyncMemberName parameter if you want to refresh schema from the member database
 Write-Host "Refreshing database schema from hub database..."
@@ -281,7 +304,7 @@ Este script usa os comandos a seguir. Cada comando na tabela redireciona para a 
 | [Get-AzSqlSyncAgentLinkedDatabase](/powershell/module/az.sql/Get-azSqlSyncAgentLinkedDatabase) |  Obtém todas as informações para o Agente de Sincronização. |
 | [New-AzSqlSyncMember](/powershell/module/az.sql/New-azSqlSyncMember) |  Adiciona um novo membro ao grupo de sincronização. |
 | [Update-AzSqlSyncSchema](/powershell/module/az.sql/Update-azSqlSyncSchema) |  Atualiza as informações de esquema de banco de dados. |
-| [Get-AzSqlSyncSchema](https://docs.microsoft.com/powershell/module/az.sql/Get-azSqlSyncSchema) |  Obtém as informações de esquema de banco de dados. |
+| [Get-AzSqlSyncSchema](/powershell/module/az.sql/Get-azSqlSyncSchema) |  Obtém as informações de esquema de banco de dados. |
 | [Update-AzSqlSyncGroup](/powershell/module/az.sql/Update-azSqlSyncGroup) |  Atualiza o grupo de sincronização. |
 | [Start-AzSqlSyncGroupSync](/powershell/module/az.sql/Start-azSqlSyncGroupSync) | Dispara uma sincronização. |
 | [Get-AzSqlSyncGroupLog](/powershell/module/az.sql/Get-azSqlSyncGroupLog) |  Verifica o Log de Sincronização. |
@@ -301,7 +324,7 @@ Para obter mais informações sobre a Sincronização de Dados SQL, consulte:
     - Usar o PowerShell – [Usar o PowerShell para sincronizar dados entre um banco de dados no Banco de Dados SQL do Azure e um SQL Server](sql-data-sync-sync-data-between-azure-onprem.md)
 - Data Sync Agent – [Data Sync Agent para Sincronização de Dados SQL no Azure](../sql-data-sync-agent-overview.md)
 - Melhores práticas – [Melhores práticas para a Sincronização de Dados SQL no Azure](../sql-data-sync-best-practices.md)
-- Monitor – [monitore a Sincronização de Dados SQL com logs do Azure Monitor](../sql-data-sync-monitor-sync.md)
+- Monitor – [monitore a Sincronização de Dados SQL com logs do Azure Monitor](../monitor-tune-overview.md)
 - Solucionar problemas – [Solucionar problemas com a Sincronização de Dados SQL no Azure](../sql-data-sync-troubleshoot.md)
 - Atualizar o esquema de sincronização
     - Usar Transact-SQL – [Automatizar a replicação de alterações de esquema da Sincronização de Dados SQL no Azure](../sql-data-sync-update-sync-schema.md)
@@ -310,4 +333,4 @@ Para obter mais informações sobre a Sincronização de Dados SQL, consulte:
 Para saber mais sobre Bancos de Dados SQL, confira:
 
 - [Visão geral do Banco de Dados SQL](../sql-database-paas-overview.md)
-- [Gerenciamento de ciclo de vida do banco de dados](https://msdn.microsoft.com/library/jj907294.aspx)
+- [Gerenciamento de ciclo de vida do banco de dados](/previous-versions/sql/sql-server-guides/jj907294(v=sql.110))

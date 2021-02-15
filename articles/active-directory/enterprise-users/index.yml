@@ -1,0 +1,70 @@
+### YamlMime:Landing
+title: Documentação de gerenciamento de usuário corporativo – Azure AD
+summary: O Azure AD fornece serviços de gerenciamento de usuários, como grupos e licenças, que ajudam você a realizar suas principais tarefas de gerenciamento de usuários rapidamente. Atribua licenças, atribua o acesso de aplicativo a grupos ou usuários e adicione ou gerencie nomes de domínio.
+metadata:
+  title: Documentação sobre usuários, grupos, licenças e domínios do Azure Active Directory
+  description: Saiba como usar grupos, nomes de domínio e licenças para gerenciar a autenticação de usuário na sua organização do Azure AD.
+  services: active-directory
+  ms.service: active-directory
+  manager: daveba
+  ms.topic: landing-page
+  ms.date: 10/19/2020
+  author: curtand
+  ms.author: curtand
+  ms.openlocfilehash: a919a9785163776cfbcfb52a378405c0ac870035
+  ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+  ms.translationtype: HT
+  ms.contentlocale: pt-BR
+  ms.lasthandoff: 11/23/2020
+  ms.locfileid: "95503041"
+landingContent:
+- title: Sobre o gerenciamento de usuários empresariais
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Usuários, grupos, domínios e licenças
+      url: directory-overview-user-model.md
+    - text: Visão geral de funções personalizadas
+      url: ../roles/custom-overview.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+  - linkListType: concept
+    links:
+    - text: Independência organizacional do Azure AD
+      url: licensing-directory-independence.md
+    - text: Gerenciar o acesso usando grupos
+      url: ../fundamentals/active-directory-manage-groups.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+- title: Introdução
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Adicionar um usuário
+      url: ../fundamentals/add-users-azure-active-directory.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+    - text: Definir política de expiração para grupos
+      url: groups-quickstart-expiration.md
+    - text: Atribuir licenças aos usuários
+      url: ../fundamentals/license-users-groups.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+- title: Gerenciar nomes de domínio do Azure AD
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Adicionar o nome de domínio personalizado
+      url: ../fundamentals/add-custom-domain.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+    - text: Gerenciamento de nomes de domínio personalizados
+      url: domains-manage.md
+- title: Gerenciar grupos
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Criar um grupo dinâmico
+      url: groups-create-rule.md
+    - text: Configurações de grupo no PowerShell
+      url: groups-settings-v2-cmdlets.md
+    - text: Definir política de nomenclatura para grupos
+      url: groups-naming-policy.md
+- title: Adicionar domínios
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Adicionar um nome de domínio personalizado
+      url: ../fundamentals/add-custom-domain.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+    - text: Gerenciamento de nomes de domínio personalizados
+      url: domains-manage.md

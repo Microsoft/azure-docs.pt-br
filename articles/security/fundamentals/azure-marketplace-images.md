@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2019
 ms.author: terrylan
-ms.openlocfilehash: 6058b0d72eafe3a44ebdbabf291af05c08e772b3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7c317a0b4fea0c981b227bace00c1b8924fd582c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87038266"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89536375"
 ---
 # <a name="security-recommendations-for-azure-marketplace-images"></a>Recomendações de segurança para as imagens do Azure Marketplace
 
@@ -65,11 +65,3 @@ Sempre execute uma detecção de vulnerabilidade de segurança em sua imagem ant
 
 Mesmo que sua organização não tenha imagens no Azure Marketplace, considere verificar as configurações de imagem do Windows e do Linux em relação a essas recomendações.
 
-## <a name="contacting-customers"></a>Contatando clientes
-
-Para identificar os clientes e seus emails de contato:
-
-1.  Em Portal do Cloud Partner, no trilho esquerdo, selecione **insights**.
-2.  Na guia **pedidos e uso** , use os campos **data de início** e **data de término** para o uso da consulta no intervalo de datas necessário. Isso mostra quais assinaturas do Azure foram usadas para a oferta diariamente. Exporte esses dados. 
-3.  Da mesma forma, na guia **cliente** , consulte e exporte sua base de clientes.
-4.  Corresponda a ID da assinatura da etapa 2 à ID da assinatura da etapa 3 para encontrar as informações necessárias do cliente.

@@ -13,12 +13,12 @@ ms.date: 11/12/2018
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7c119b56d33908dbc0e53d588f3ac4ea155c8de
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 4a8fcb14ac397791822c3a9065275dbfb2b3b7dd
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87799078"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860415"
 ---
 # <a name="frequently-asked-questions-about-azure-active-directory"></a>Perguntas frequentes sobre o Azure Active Directory
 O Azure AD (Azure Active Directory) é uma solução abrangente de IDaaS (identidade como um serviço) que inclui todos os aspectos de identidade, gerenciamento de acesso e segurança.
@@ -29,21 +29,21 @@ Para obter mais informações, confira [O que é Azure Active Directory?](active
 ## <a name="access-azure-and-azure-active-directory"></a>Acessar o Azure e o Azure Active Directory
 **P: Por que é mostrado "Nenhuma assinatura encontrada" quando tento acessar o Microsoft Azure AD no portal do Azure?**
 
-**R:** Para acessar o portal do Azure, cada usuário precisa de permissões com uma assinatura do Azure. Se você não tiver uma assinatura paga do Office 365 ou do Azure AD, será necessário ativar uma [conta do Azure](https://azure.microsoft.com/free/
-) gratuita ou uma assinatura paga.
+**R:** Para acessar o portal do Azure, cada usuário precisa de permissões com uma assinatura do Azure. Se você não tiver uma assinatura paga do Microsoft 365 ou do Azure AD, será necessário ativar uma [conta gratuita do Azure](https://azure.microsoft.com/free/
+) ou uma assinatura paga.
 
 Para obter mais informações, consulte:
 
 * [Como as assinaturas do Azure são associadas ao Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
 
 ---
-**P: Qual é a relação entre o Microsoft Azure AD, o Office 365 e o Azure?**
+**P: Qual é a relação entre o Azure AD, o Microsoft 365 e o Azure?**
 
-**R:** O Microsoft Azure Active Directory fornece recursos comuns de identidade e acesso para todos os serviços Web. Se estiver usando o Office 365, o Microsoft Azure, o Intune ou outras ferramentas, você já estará usando o Azure AD para ajudar a ativar a entrada e o gerenciamento de acesso para todos esses serviços.
+**R:** O Microsoft Azure Active Directory fornece recursos comuns de identidade e acesso para todos os serviços Web. Se você estiver usando Microsoft 365, Microsoft Azure, Intune ou outros, você já está usando o Azure AD para ajudar a ativar o gerenciamento de acesso e logon para todos esses serviços.
 
 Todos os usuários que estão configurados para usar serviços Web são definidos como contas de usuário em uma ou mais instâncias do Azure AD. Você pode configurar essas contas de recursos do Azure AD gratuitamente, como acesso a aplicativos de nuvem.
 
-Serviços pagos do Azure AD, como Enterprise Mobility + Security, complementam outros serviços Web, como Office 365 e Microsoft Azure, com soluções abrangentes de segurança e gerenciamento de escala empresarial.
+Os serviços pagos do Azure AD como Enterprise Mobility + Security complementam outros serviços Web como Microsoft 365 e Microsoft Azure com soluções abrangentes de gerenciamento e segurança de escala empresarial.
 
 ---
 
@@ -51,11 +51,11 @@ Serviços pagos do Azure AD, como Enterprise Mobility + Security, complementam o
 
 **R:** Por padrão, a pessoa que se inscreve para uma assinatura do Azure recebe a função de Administrador Global para o diretório. Um proprietário pode usar uma conta da Microsoft ou uma conta corporativa ou de estudante do diretório ao qual a assinatura do Azure está associada.  Essa função está autorizada a gerenciar serviços no portal do Azure.
 
-Se outros usuários precisarem entrar e acessar serviços usando a mesma assinatura, você pode atribuí-los à [função interna apropriada](../../role-based-access-control/built-in-roles.md). Para obter mais informações, consulte [gerenciar o acesso usando o portal do Azure e o RBAC](../../role-based-access-control/role-assignments-portal.md).
+Se outros usuários precisarem entrar e acessar serviços usando a mesma assinatura, você pode atribuí-los à [função interna apropriada](../../role-based-access-control/built-in-roles.md). Para obter informações adicionais, consulte [Adicionar ou remover atribuições de função do Azure usando o portal do Azure](../../role-based-access-control/role-assignments-portal.md).
 
-Por padrão, a pessoa que se inscreve para uma assinatura do Azure recebe a função de Administrador Global para o diretório. O Administrador Global tem acesso a todos os recursos de diretório do Microsoft Azure Active Directory. O Microsoft Azure Active Directory tem um conjunto diferente de funções administrativas para gerenciar o diretório e os recursos relacionados à identidade. Esses administradores terão acesso a vários recursos no portal do Azure. A função do administrador determina o que eles podem fazer, como criar ou editar usuários, atribuir funções administrativas a outros usuários, redefinir senhas de usuário, gerenciar licenças de usuário ou gerenciar domínios.  Para obter informações adicionais sobre os administradores de diretório do Microsoft Azure Active Directory e suas funções, consulte [atribuir um usuário a funções de administrador no Microsoft Azure Active Directory](active-directory-users-assign-role-azure-portal.md) e [atribuindo funções de administrador no Microsoft Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).
+Por padrão, a pessoa que se inscreve para uma assinatura do Azure recebe a função de Administrador Global para o diretório. O Administrador Global tem acesso a todos os recursos de diretório do Microsoft Azure Active Directory. O Microsoft Azure Active Directory tem um conjunto diferente de funções administrativas para gerenciar o diretório e os recursos relacionados à identidade. Esses administradores terão acesso a vários recursos no portal do Azure. A função do administrador determina o que eles podem fazer, como criar ou editar usuários, atribuir funções administrativas a outros usuários, redefinir senhas de usuário, gerenciar licenças de usuário ou gerenciar domínios.  Para obter informações adicionais sobre os administradores de diretório do Microsoft Azure Active Directory e suas funções, consulte [atribuir um usuário a funções de administrador no Microsoft Azure Active Directory](active-directory-users-assign-role-azure-portal.md) e [atribuindo funções de administrador no Microsoft Azure Active Directory](../roles/permissions-reference.md).
 
-Além disso, os serviços pagos do Azure AD, como Enterprise Mobility + Security, complementam outros serviços Web, como Office 365 e Microsoft Azure, com soluções abrangentes de segurança e gerenciamento de escala empresarial.
+Além disso, os serviços pagos do Azure AD como Enterprise Mobility + Security complementam outros serviços da Web, como Microsoft 365 e Microsoft Azure, com soluções abrangentes de gerenciamento e segurança de escala empresarial.
 
 ---
 **P: Existe um relatório que mostra quando minhas licenças de usuário do Microsoft Azure Active Directory irão expirar?**
@@ -90,16 +90,16 @@ Para saber mais, veja [Integrando identidades locais ao Azure Active Directory](
 ---
 **P: O Microsoft Azure Active Directory oferece um portal de autoatendimento para usuários em minha organização?**
 
-**R:** Sim, o Microsoft Azure Active Directory oferece o [Painel de Acesso do Azure AD](https://myapps.microsoft.com) para o autoatendimento de usuários e o acesso ao aplicativo. Se você é cliente do Office 365, pode encontrar muitos dos mesmos recursos no [portal do Office 365](https://portal.office.com).
+**R:** Sim, o Microsoft Azure Active Directory oferece o [Painel de Acesso do Azure AD](https://myapps.microsoft.com) para o autoatendimento de usuários e o acesso ao aplicativo. Se você for um cliente Microsoft 365, poderá encontrar muitos dos mesmos recursos no [portal do Office 365](https://portal.office.com).
 
-Para saber mais, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md).
+Para saber mais, confira [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
 
 ---
 **P: O Microsoft Azure Active Directory me ajuda a gerenciar a infraestrutura local?**
 
 **R:** Sim. O Azure AD Premium Edition fornece o Azure AD Connect Health. O Azure AD Connect Health ajuda no monitoramento e na obtenção de informações sobre a sua infraestrutura de identidade local e os serviços de sincronização.  
 
-Para saber mais, confira [Monitorar a infraestrutura de identidade local e os serviços de sincronização na nuvem](../hybrid/whatis-hybrid-identity-health.md).  
+Para saber mais, confira [Monitorar a infraestrutura de identidade local e os serviços de sincronização na nuvem](../hybrid/whatis-azure-ad-connect.md).  
 
 ---
 ## <a name="password-management"></a>Gerenciamento de senhas
@@ -112,7 +112,7 @@ Para saber mais, confira [Monitorar a infraestrutura de identidade local e os se
 
 **R:** O write-back de senha opera em tempo real.
 
-Para saber mais, confira [Introdução ao gerenciamento de senhas](../authentication/quickstart-sspr.md).
+Para saber mais, confira [Introdução ao gerenciamento de senhas](../authentication/tutorial-enable-sspr.md).
 
 ---
 **P: Posso usar o write-back de senha com senhas que são gerenciadas por um administrador?**
@@ -121,16 +121,16 @@ Para saber mais, confira [Introdução ao gerenciamento de senhas](../authentica
 
 <a name="for-more-answers-to-password-related-questions-see-password-management-frequently-asked-questions"></a>Para obter mais respostas a perguntas relacionadas a senhas, confira [Perguntas frequentes sobre gerenciamento de senhas](../authentication/active-directory-passwords-faq.md).
 ---
-**P:  O que fazer se eu não lembrar de minha senha existente do Office 365/Microsoft Azure Active Directory ao tentar alterar a senha?**
+**P: o que posso fazer se eu não me lembrar da minha senha existente do Microsoft 365/Azure AD ao tentar alterar minha senha?**
 
 **R:** Para esse tipo de situação, há algumas opções.  Use SSPR (redefinição de senha de autoatendimento), se estiver disponível.  O funcionamento de SSPR dependerá de como está configurado.  Para saber mais, veja [Como funciona o portal de redefinição de senhas](../authentication/howto-sspr-deployment.md).
 
-Para usuários do Office 365, o administrador pode redefinir a senha usando as etapas descritas em [Redefinir senhas de usuário](https://support.office.com/article/Admins-Reset-user-passwords-7A5D073B-7FAE-4AA5-8F96-9ECD041ABA9C?ui=en-US&rs=en-US&ad=US).
+Para Microsoft 365 usuários, seu administrador pode redefinir a senha usando as etapas descritas em [redefinir senhas de usuário](https://support.office.com/article/Admins-Reset-user-passwords-7A5D073B-7FAE-4AA5-8F96-9ECD041ABA9C?ui=en-US&rs=en-US&ad=US).
 
 Para contas do Azure AD, os administradores podem redefinir senhas usando uma das seguintes opções:
 
 - [Redefinir contas no portal do Azure](active-directory-users-reset-password-azure-portal.md)
-- [Como usar o PowerShell](/powershell/module/msonline/set-msoluserpassword?view=azureadps-1.0)
+- [Como usar o PowerShell](/powershell/module/msonline/set-msoluserpassword)
 
 
 ---
@@ -162,7 +162,7 @@ Para obter uma lista completa dos aplicativos pré-integrados, confira o [Active
 
 Para obter mais informações, consulte:
 
-* [Configurando logon único para aplicativos que não estão na galeria de aplicativo do Active Directory do Azure](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
+* [Configurando logon único para aplicativos que não estão na galeria de aplicativo do Active Directory do Azure](../manage-apps/configure-saml-single-sign-on.md)
 * [Usando o SCIM para habilitar o provisionamento automático de usuários e grupos do Active Directory do Azure para aplicativos](../app-provisioning/use-scim-to-provision-users-and-groups.md)
 
 ---
@@ -171,7 +171,7 @@ Para obter mais informações, consulte:
 **R:** O Microsoft Azure Active Directory fornece várias maneiras para que os usuários exibam e acessem os aplicativos, como:
 
 * O painel de acesso do Azure AD
-* O iniciador de aplicativos do Office 365
+* O iniciador do aplicativo Microsoft 365
 * Logon direto para aplicativos federados
 * Links profundos a aplicativos federados, baseado em senha, ou existentes
 
@@ -184,8 +184,8 @@ Para obter mais informações, consulte [Experiências do usuário final para ap
 
 Para obter mais informações, consulte:
 
-* [Cenários de autenticação do Azure AD](../develop/authentication-scenarios.md)
-* [Protocolos de autenticação do Active Directory](https://msdn.microsoft.com/library/azure/dn151124.aspx)
+* [Cenários de autenticação do Azure AD](../develop/authentication-vs-authorization.md)
+* [Protocolos de autenticação do Active Directory](/previous-versions/azure/dn151124(v=azure.100))
 * [Logon único para aplicativos no Microsoft Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
 ---
@@ -200,7 +200,7 @@ Para saber mais, confira [Como fornecer acesso remoto seguro a aplicativos locai
 
 **R:** Com o Acesso Condicional do Microsoft Azure AD, você pode atribuir uma política de acesso exclusiva para cada aplicativo. Em sua política, você pode sempre exigir autenticação multifator ou quando os usuários não estiverem conectados à rede local.  
 
-Para saber mais, confira [Proteger o acesso ao Office 365 e a outros aplicativos conectados ao Azure Active Directory](../conditional-access/overview.md).
+Para obter mais informações, consulte [protegendo o acesso ao Microsoft 365 e a outros aplicativos conectados ao Azure Active Directory](../conditional-access/overview.md).
 
 ---
 **P: O que é o provisionamento automatizado de usuários para aplicativos SaaS?**

@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 01e53b30a4c27296e30e031ffb771697afa8e1e9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87019668"
 ---
 # <a name="azure-ad-connect-sync-technical-concepts"></a>Sincronização do Azure AD Connect: conceitos técnicos
@@ -34,13 +34,13 @@ Aproveitando o MIIS (Microsoft Identity Integration Server), o ILM (Gerenciador 
 
 As seções a seguir fornecem mais detalhes sobre os seguintes aspectos do Serviço de Sincronização FIM:
 
-* Conector
+* Connector
 * Fluxo de atributos
 * Espaço conector
 * Metaverso
 * Provisionamento
 
-## <a name="connector"></a>Conector
+## <a name="connector"></a>Connector
 Os módulos de código que são usados para comunicação com um diretório conectado são chamados de conectores (anteriormente conhecidos como MAs [agentes de gerenciamento]).
 
 Eles são instalados no computador que executa Azure AD Connect sincronização. Os conectores fornecem a capacidade sem agente de conversar usando protocolos de sistema remoto em vez de depender da implantação de agentes especializados. Isso significa que o risco e tempos de implantação reduzidos, especialmente ao lidar com sistemas e aplicativos críticos.

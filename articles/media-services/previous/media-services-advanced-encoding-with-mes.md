@@ -15,14 +15,16 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 32b3207fc86f9aab7194d63a0e57eea459fd7eac
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 9713a2ad10d1edc9a79d475ed58a99b3b24b6483
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018018"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98696033"
 ---
-# <a name="perform-advanced-encoding-by-customizing-mes-presets"></a>Executar a codificação avançada personalizando predefinições de MES 
+# <a name="perform-advanced-encoding-by-customizing-mes-presets"></a>Executar a codificação avançada personalizando predefinições de MES
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 ## <a name="overview"></a>Visão geral
 
@@ -31,7 +33,7 @@ Este tópico mostra como personalizar as predefinições do Media Encoder Standa
 Se você estiver usando uma predefinição XML, lembre-se de preservar a ordem dos elementos, conforme mostrado nas amostras de XML abaixo (por exemplo, KeyFrameInterval deve preceder SceneChangeDetection).
 
 > [!NOTE] 
-> Muitos dos recursos do Advanced Media Services v2 do Media Encoder Standard não estão disponíveis atualmente na v3. Para obter mais informações, consulte [lacunas de recursos](../latest/media-services-v2-vs-v3.md#feature-gaps-with-respect-to-v2-apis).
+> Muitos dos recursos do Advanced Media Services v2 do Media Encoder Standard não estão disponíveis atualmente na v3. Para obter mais informações, consulte [o guia de migração](../latest/migrate-v-2-v-3-migration-introduction.md).
 
 ## <a name="support-for-relative-sizes"></a>Suporte para tamanhos relativos
 
@@ -51,7 +53,7 @@ Ao gerar miniaturas, você não precisa sempre especificar a largura e a altura 
 <Height>100%</Height>
 ```
 
-## <a name="generate-thumbnails"></a><a id="thumbnails"></a>Gerar miniaturas
+## <a name="generate-thumbnails"></a>Gerar miniaturas
 
 Essa seção mostra como personalizar uma predefinição que gera miniaturas. A predefinição definida abaixo contém informações sobre como você deseja codificar seu arquivo, bem como as informações necessárias para gerar miniaturas. Você pode usar qualquer uma das predefinições de MES documentadas [nesta](media-services-mes-presets-overview.md) seção e adicionar o código que gera miniaturas.  
 
@@ -64,7 +66,7 @@ Para obter informações sobre o esquema, consulte [este](media-services-mes-sch
 
 Certifique-se de examinar a seção [Considerações](#considerations) .
 
-### <a name="json-preset"></a><a id="json"></a>Predefinição JSON
+### <a name="json-preset"></a>Predefinição JSON
 
 ```json
 {
@@ -166,7 +168,7 @@ Certifique-se de examinar a seção [Considerações](#considerations) .
 }
 ```
 
-### <a name="xml-preset"></a><a id="xml"></a>Predefinição XML
+### <a name="xml-preset"></a>Predefinição XML
 
 ```xml
 <?xml version="1.0" encoding="utf-16"?>

@@ -1,6 +1,6 @@
 ---
 title: Obtenha o AppSource Certified para Azure Active Directory | Microsoft Docs
-description: Detalhes sobre como certificar o AppSource do seu aplicativo para o Azure Active Directory.
+description: Saiba mais detalhes sobre como fazer com que seu aplicativo AppSource certificado para Azure Active Directory.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -12,12 +12,12 @@ ms.date: 07/23/2020
 ms.author: ryanwi
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 08acaf4f0171e586ff2cc3f52134395fb5925df7
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: d366664981894933f9afb177e9147ccae6695872
+ms.sourcegitcommit: 983eb1131d59664c594dcb2829eb6d49c4af1560
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88118800"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99222159"
 ---
 # <a name="get-appsource-certified-for-azure-active-directory"></a>Obtenha o AppSource Certified para Azure Active Directory
 
@@ -104,9 +104,9 @@ Para saber mais sobre a experiência de avaliação do AppSource, confira [este 
 
 ## <a name="get-support"></a>Obter suporte
 
-Para a integração do Azure AD, usamos [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-active-directory+appsource) com a comunidade para fornecer suporte.
+Para a integração do Azure AD, usamos o [Microsoft Q&](https://docs.microsoft.com/answers/topics/azure-active-directory.html) a com a Comunidade para fornecer suporte.
 
-Recomendamos fazer suas perguntas no Stack Overflow primeiro e navegar pelos problemas existentes para ver se alguém já fez sua pergunta antes. Certifique-se de que suas perguntas ou comentários estão marcados com [ `[azure-active-directory]` e `[appsource]` ](https://stackoverflow.com/questions/tagged/azure-active-directory+appsource).
+É altamente recomendável que você faça suas perguntas no [Microsoft Q&um](https://docs.microsoft.com/answers/topics/azure-active-directory.html) primeiro e navegue pelos problemas existentes para ver se alguém fez sua pergunta antes. Certifique-se de que suas perguntas ou comentários estão marcados com [`[azure-active-directory]`](https://docs.microsoft.com/answers/topics/azure-active-directory.html) .
 
 Use a seção de comentários a seguir para fornecer seus comentários e nos ajudar a aprimorar e adaptar nosso conteúdo.
 

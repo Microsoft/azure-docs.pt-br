@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 06/26/2020
 ms.author: enewman
 ms.openlocfilehash: 530cf3b20820e34913612419d0ffa731a70f6a58
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85484002"
 ---
 # <a name="create-an-environment-with-self-contained-service-fabric-cluster-in-azure-devtest-labs"></a>Criar um ambiente com cluster de Service Fabric autônomo no Azure DevTest Labs
@@ -110,7 +110,7 @@ A página de Cluster Service Fabric que você viu nas etapas anteriores é espec
 
 1. Na página do **laboratório do DevTest** para seu laboratório, selecione o grupo de **recursos** no modo de exibição de árvore na seção **minhas máquinas virtuais** .
 
-    ![Selecionar grupo de recursos](./media/create-environment-service-fabric-cluster/select-resource-group.png)
+    ![Escolha o grupo de recursos](./media/create-environment-service-fabric-cluster/select-resource-group.png)
 2. Na página **grupo de recursos** , você verá todos os recursos no grupo de recursos em uma lista. Selecione o **cluster Service Fabric** na lista. 
 
     ![Selecione o cluster na lista](./media/create-environment-service-fabric-cluster/select-cluster-resource-group-page.png)

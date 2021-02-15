@@ -1,17 +1,17 @@
 ---
 title: Tutorial – Dimensionar um aplicativo em execução na Malha do Azure Service Fabric
 description: Neste tutorial, você aprenderá como escalar os serviços em um aplicativo em execução na Malha do Service Fabric.
-author: dkkapur
+author: georgewallace
 ms.topic: tutorial
 ms.date: 01/11/2019
-ms.author: dekapur
-ms.custom: mvc, devcenter
-ms.openlocfilehash: 1b9070e826c30bbeafdee4185ea45cfb53d9efd2
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.author: gwallace
+ms.custom: mvc, devcenter, devx-track-azurecli
+ms.openlocfilehash: df28083a0522178b7327d9f6d24029d303e417a1
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75351818"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747874"
 ---
 # <a name="tutorial-scale-an-application-running-in-service-fabric-mesh"></a>Tutorial: Dimensionar um aplicativo em execução na Malha do Service Fabric
 
@@ -56,7 +56,7 @@ Para exibir o número de réplicas em execução para o serviço ToDoService, ex
 az mesh service show --resource-group myResourceGroup --name ToDoService --app-name todolistapp --query "replicaCount"
 ```
 
-No modelo de implantação para o recurso de aplicativo, cada serviço tem uma propriedade *replicaCount* que pode ser usada para definir o número de vezes que você deseja que esse serviço seja implantado. Um aplicativo pode consistir em vários serviços, cada um deles com um número exclusivo de *replicaCount*, que são implantados e gerenciados em conjunto. Para dimensionar o número de réplicas de serviço, modifique o valor *replicaCount* para cada serviço que você deseja reduzir horizontalmente no modelo de implantação ou no arquivo de parâmetros.  Em seguida, atualize o aplicativo.
+No modelo de implantação para o recurso de aplicativo, cada serviço tem uma propriedade *replicaCount* que pode ser usada para definir o número de vezes que você deseja que esse serviço seja implantado. Um aplicativo pode consistir em vários serviços, cada um deles com um número exclusivo de *replicaCount* , que são implantados e gerenciados em conjunto. Para dimensionar o número de réplicas de serviço, modifique o valor *replicaCount* para cada serviço que você deseja reduzir horizontalmente no modelo de implantação ou no arquivo de parâmetros.  Em seguida, atualize o aplicativo.
 
 ### <a name="modify-the-deployment-template-parameters"></a>Modificar os parâmetros do modelo de implantação
 
@@ -88,7 +88,7 @@ Salve suas alterações no arquivo de parâmetros.  Os parâmetros *frontEndRepl
     }
 ```
 
-A propriedade do serviço WebFrontEnd *replicaCount* referencia o parâmetro *frontEndReplicaCount* e a propriedade *replicaCount* do serviço ToDoService referencia o parâmetro *serviceReplicaCount*:
+A propriedade do serviço WebFrontEnd *replicaCount* referencia o parâmetro *frontEndReplicaCount* e a propriedade *replicaCount* do serviço ToDoService referencia o parâmetro *serviceReplicaCount* :
 
 ```json
     "services": [

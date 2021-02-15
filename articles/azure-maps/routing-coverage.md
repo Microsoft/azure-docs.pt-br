@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 160e8182a2de56b494e8f37bbedf4a8cec66c608
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 05c3cfc390fed905f4a1b09c221095b56867d540
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88030887"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896167"
 ---
 # <a name="azure-maps-routing-coverage"></a>Cobertura de rotas nos Mapas do Azure
 
@@ -90,7 +90,7 @@ A tabela a seguir fornece informações de cobertura para rota nos Mapas do Azur
 | Barbados                       |        ✓       |                      |             |
 | Belize                         |        ✓       |                      |             |
 | Brasil                         |        ✓       |         ✓            |     ✓       | 
-| Canadá                         |        ✓       |         ✓            |     ✓      |
+| Canada                         |        ✓       |         ✓            |     ✓      |
 | Chile                          |        ✓       |         ✓            |     ✓      |
 | Colômbia                       |        ✓       |         ✓            |             |
 | Costa Rica                     |        ✓       |                      |             |
@@ -214,7 +214,7 @@ A tabela a seguir fornece informações de cobertura para rota nos Mapas do Azur
 | Suíça                    |        ✓       |         ✓            |     ✓      | 
 | Turquia                         |        ✓       |         ✓            |     ✓      | 
 | Ucrânia                        |        ✓       |         ✓            |             | 
-| Reino Unido                 |        ✓       |         ✓            |     ✓      | 
+| United Kingdom                 |        ✓       |         ✓            |     ✓      | 
 | + Anguila                      |        ✓       |                      |             |
 | + Bermuda                       |        ✓       |                      |             |
 | + Ilhas Virgens Britânicas        |        ✓       |                      |             |
@@ -245,4 +245,4 @@ A tabela a seguir fornece informações de cobertura para rota nos Mapas do Azur
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre o roteamento do Azure Maps, consulte as páginas de referência de [Roteamento](https://docs.microsoft.com/rest/api/maps/route) .
+Para obter mais informações sobre o roteamento do Azure Maps, consulte as páginas de referência de [Roteamento](/rest/api/maps/route) .

@@ -3,17 +3,19 @@ title: Operadores de consulta SQL para Azure Cosmos DB
 description: Saiba mais sobre os operadores SQL, como igualdade, comparação e operadores lógicos com suporte pelo Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: tisande
-ms.openlocfilehash: dd1652781d7eae8beb400c52137a8f16891e2b2a
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: c1409bd7f098c24efbb4196d78c6dffb6048119b
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498830"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93335409"
 ---
 # <a name="operators-in-azure-cosmos-db"></a>Operadores no Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Este artigo fornece detalhes sobre os vários operadores com suporte pelo Azure Cosmos DB.
 
@@ -53,9 +55,9 @@ Retorna `true` quando uma das condições é `true` .
 
 |  | **Verdadeiro** | **Falso** | **Indefinido** |
 | --- | --- | --- | --- |
-| **Verdadeiro** |Verdadeiro |True |True |
-| **Falso** |Verdadeiro |Falso |Indefinido |
-| **Indefinido** |Verdadeiro |Indefinido |Indefinido |
+| **Verdadeiro** |True |True |verdadeiro |
+| **Falso** |verdadeiro |False |Indefinido |
+| **Indefinido** |verdadeiro |Indefinido |Indefinido |
 
 **Operador AND**
 
@@ -63,9 +65,9 @@ Retorna `true` quando ambas as expressões são `true` .
 
 |  | **Verdadeiro** | **Falso** | **Indefinido** |
 | --- | --- | --- | --- |
-| **Verdadeiro** |Verdadeiro |Falso |Indefinido |
-| **Falso** |Falso |Falso |Falso |
-| **Indefinido** |Indefinido |Falso |Indefinido |
+| **Verdadeiro** |verdadeiro |False |Indefinido |
+| **Falso** |False |False |False |
+| **Indefinido** |Indefinido |False |Indefinido |
 
 **Operador NOT**
 
@@ -73,8 +75,8 @@ Reverte o valor de qualquer expressão booleana.
 
 |  | **NOT** |
 | --- | --- |
-| **Verdadeiro** |Falso |
-| **Falso** |Verdadeiro |
+| **Verdadeiro** |False |
+| **Falso** |verdadeiro |
 | **Indefinido** |Indefinido |
 
 **Precedência de operador**
@@ -84,12 +86,12 @@ Os operadores lógicos `OR` , `AND` e `NOT` têm o nível de precedência mostra
 | **Operador** | **Prioridade** |
 | --- | --- |
 | **NOT** |1 |
-| **E** |2 |
+| **AND** |2 |
 | **OR** |3 |
 
 ## <a name="-operator"></a>Operador *
 
-O operador especial * projeta o item inteiro como está. Quando usado, ele deve ser o único campo projetado. Uma consulta como `SELECT * FROM Families f` é válida, mas `SELECT VALUE * FROM Families f` `SELECT *, f.id FROM Families f` não é válida.
+O operador especial * projeta o item inteiro como está. Quando usado, ele deve ser o único campo projetado. Uma consulta como `SELECT * FROM Families f` é válida, mas `SELECT VALUE * FROM Families f`  `SELECT *, f.id FROM Families f` não é válida.
 
 ## <a name="-and--operators"></a>? e?? operadores
 

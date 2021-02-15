@@ -1,14 +1,17 @@
 ---
 title: Usar aplicativo Web – Personalizador
 description: Personalize um aplicativo Web .NET em C# com um loop Personalizador para fornecer o conteúdo correto a um usuário com base em ações (com recursos) e recursos de contexto.
+ms.service: cognitive-services
+ms.subservice: personalizer
 ms.topic: tutorial
 ms.date: 06/10/2020
-ms.openlocfilehash: 6e3373ef8ace401ff40b3d48026fc46b96f1ad79
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.custom: devx-track-csharp
+ms.openlocfilehash: c004887e3883ae711974b544510dff16a98d4ef9
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87446356"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363911"
 ---
 # <a name="tutorial-add-personalizer-to-a-net-web-app"></a>Tutorial: Adicionar Personalizador a um aplicativo Web .NET
 
@@ -153,9 +156,9 @@ private string GetUsersTastePreference()
 
 O aplicativo Web usa o Personalizador para selecionar a melhor ação da lista de opções de alimentos. Ele faz isso enviando as seguintes informações em cada chamada à API de Classificação:
 * **ações** com seus recursos, como `taste` e `spiceLevel`
-* recursos de **contexto**, como `time` do dia, a preferência de `taste` do usuário e as informações do agente do usuário do navegador e os recursos de contexto
+* recursos de **contexto** , como `time` do dia, a preferência de `taste` do usuário e as informações do agente do usuário do navegador e os recursos de contexto
 * **ações a serem excluídas** como suco
-* **eventId**, que é diferente para cada chamada à API de Classificação.
+* **eventId** , que é diferente para cada chamada à API de Classificação.
 
 ## <a name="personalizer-model-features-in-a-web-app"></a>Recursos de modelo do Personalizador em um aplicativo Web
 
@@ -213,7 +216,7 @@ Instale o seguinte software:
 
 * [.NET Core 2.1](https://dotnet.microsoft.com/download/dotnet-core/2.1) – o servidor de back-end de exemplo usa o .NET Core
 * [Node.js](https://nodejs.org/) – o cliente/front-end depende deste aplicativo
-* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) ou [CLI do .NET Core](https://docs.microsoft.com/dotnet/core/tools/) – use o ambiente de desenvolvedor do Visual Studio 2019 ou a CLI do .NET Core para compilar e executar o aplicativo
+* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) ou [CLI do .NET Core](/dotnet/core/tools/) – use o ambiente de desenvolvedor do Visual Studio 2019 ou a CLI do .NET Core para compilar e executar o aplicativo
 
 ### <a name="set-up-the-sample"></a>Configurar o exemplo
 1. Clone o repositório de exemplos do Personalizador do Azure.
@@ -232,7 +235,7 @@ Instale o seguinte software:
 
 1. Na portal do Azure, localize o `Endpoint` e `Key1` ou `Key2` (qualquer um funcionará) na guia **Chaves e Pontos de Extremidade**. Essas são o `PersonalizerServiceEndpoint` e a `PersonalizerApiKey`.
 1. Preencha o `PersonalizerServiceEndpoint` no **appsettings.json**.
-1. Configure a `PersonalizerApiKey` como um [segredo do aplicativo](https://docs.microsoft.com/aspnet/core/security/app-secrets) de uma das seguintes maneiras:
+1. Configure a `PersonalizerApiKey` como um [segredo do aplicativo](/aspnet/core/security/app-secrets) de uma das seguintes maneiras:
 
     * Se você estiver usando a CLI do .NET Core, use o comando `dotnet user-secrets set "PersonalizerApiKey" "<API Key>"`.
     * Se você estiver usando o Visual Studio, clique com o botão direito do mouse no projeto e selecione a opção de menu **Gerenciar Segredos do Usuário** para configurar as chaves do Personalizador. Ao fazer isso, o Visual Studio abrirá um arquivo `secrets.json` no qual você poderá adicionar as chaves da seguinte maneira:
@@ -253,7 +256,7 @@ Compile e execute o HttpRequestFeaturesExample com um dos seguintes métodos:
 Usando um navegador da Web, você pode enviar uma solicitação de Classificação e uma solicitação de Recompensa e ver as respostas, bem como os recursos de solicitação HTTP extraídos do seu ambiente.
 
 > [!div class="mx-imgBorder"]
-> ![Compile e execute o projeto HTTPRequestFeaturesExample. Uma janela do navegador é aberta para exibir o aplicativo de página única.](./media/tutorial-web-app/web-app-single-page.png)
+> ![A captura de tela mostra um exemplo do Recurso de Solicitação HTTP em um navegador da Web.](./media/tutorial-web-app/web-app-single-page.png)
 
 ## <a name="demonstrate-the-personalizer-loop"></a>Demonstrar o loop do Personalizador
 
@@ -266,7 +269,7 @@ Usando um navegador da Web, você pode enviar uma solicitação de Classificaç�
 1. Defina o valor de recompensa e selecione o botão **Enviar Solicitação de Recompensa**. Se você não alterar o valor de recompensa, o aplicativo cliente sempre enviará o valor igual a `1` para o Personalizador.
 
     > [!div class="mx-imgBorder"]
-    > ![Compile e execute o projeto HTTPRequestFeaturesExample. Uma janela do navegador é aberta para exibir o aplicativo de página única.](./media/tutorial-web-app/reward-score-api-call.png)
+    > ![A captura de tela mostra a seção Solicitação de Recompensa.](./media/tutorial-web-app/reward-score-api-call.png)
 
     Para seu aplicativo futuro, a geração da pontuação de recompensa pode ocorrer após a coleta de informações do comportamento do usuário no cliente, juntamente com a lógica de negócios no servidor.
 

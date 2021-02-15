@@ -4,15 +4,15 @@ description: Saiba como se conectar a um servidor Azure Analysis Services usando
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 03/30/2020
+ms.date: 12/01/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 123e271ae1b83603d599b9ef0381e25b3c963def
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fccb919a7eac79080fefeac70326b8aa7a967622
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85361550"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499463"
 ---
 # <a name="connect-with-excel"></a>Conectar com o Excel
 
@@ -26,7 +26,7 @@ A conta de logon precisa pertencer a uma função de modelo de banco de dados co
 
 A conexão com um servidor no Excel usando Obter Dados no Excel 2016 e posterior é compatível. Não há suporte para a conexão usando o Assistente para Importar tabela no Power Pivot. 
 
-1. No Excel, na faixa de opções **Dados**, clique em **Obter Dados Externos** > **De Outras Fontes** > **Do Analysis Services**.
+1. No Excel, na faixa de, **dados** , clique em **obter dados**  >  **do banco**  >  **de Analysis Services**.
 
 2. No Assistente de Conexão de Dados, em **Nome do servidor**, insira o nome do servidor, incluindo protocolo e URI. Por exemplo, asazure://westcentralus.asazure.windows.net/advworks. Em seguida, em **Credenciais de logon**, selecione **Usar o seguinte Nome de Usuário e Senha** e digite o nome de usuário da organização, por exemplo nancy@adventureworks.com, e a senha.
 
@@ -42,7 +42,5 @@ A conexão com um servidor no Excel usando Obter Dados no Excel 2016 e posterior
 
 ## <a name="see-also"></a>Confira também
 
-[Bibliotecas do cliente](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current)   
-[Gerenciar seu serviço](analysis-services-manage.md)     
-
-
+[Bibliotecas do cliente](/analysis-services/client-libraries?view=azure-analysis-services-current&preserve-view=true)   
+[Gerenciar seu serviço](analysis-services-manage.md)

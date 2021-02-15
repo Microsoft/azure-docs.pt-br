@@ -2,20 +2,20 @@
 title: Solucionar problemas de bloqueio de conta no Azure AD Domain Services | Microsoft Docs
 description: Saiba como solucionar problemas comuns que fazem com que as contas de usuário sejam bloqueadas no Azure Active Directory Domain Services.
 services: active-directory-ds
-author: iainfoulds
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/06/2020
-ms.author: iainfou
-ms.openlocfilehash: 4a5ae321a4a97df5b5fa91bb239589c76c6601fc
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.author: justinha
+ms.openlocfilehash: 7967347fa63c657ba6211328bdd1d55512358521
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86039748"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96618766"
 ---
 # <a name="troubleshoot-account-lockout-problems-with-an-azure-active-directory-domain-services-managed-domain"></a>Solucionar problemas de bloqueio de conta com um Azure Active Directory Domain Services domínio gerenciado
 

@@ -1,31 +1,31 @@
 ---
-title: Usar o Java e o JDBC com o Banco de Dados do Azure para PostgreSQL
-description: Saiba como usar o Java e o JDBC com um Banco de Dados do Azure para PostgreSQL.
+title: 'Início Rápido: Usar o Java e o JDBC com o Banco de Dados do Azure para PostgreSQL'
+description: Neste início rápido, você aprende como usar o Java e o JDBC com um Banco de Dados do Azure para PostgreSQL.
 author: jdubois
 ms.author: judubois
 ms.service: postgresql
-ms.custom: mvc, devcenter
+ms.custom: mvc, devcenter, devx-track-azurecli
 ms.topic: quickstart
 ms.devlang: java
 ms.date: 08/17/2020
-ms.openlocfilehash: 66a3b4919903f739ed5afef0a02b501f00ff248f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 42547338c0f5f2f3105833b12e499d40b6209b05
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545430"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184698"
 ---
-# <a name="use-java-and-jdbc-with-azure-database-for-postgresql"></a>Usar o Java e o JDBC com o Banco de Dados do Azure para PostgreSQL
+# <a name="quickstart-use-java-and-jdbc-with-azure-database-for-postgresql"></a>Início Rápido: Usar o Java e o JDBC com o Banco de Dados do Azure para PostgreSQL
 
-Este tópico demonstra como criar um aplicativo de exemplo que usa o Java e o [JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity) para armazenar e recuperar informações no [Banco de Dados do Azure para PostgreSQL](https://docs.microsoft.com/azure/postgresql/).
+Este tópico demonstra como criar um aplicativo de exemplo que usa o Java e o [JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity) para armazenar e recuperar informações no [Banco de Dados do Azure para PostgreSQL](./index.yml).
 
 O JDBC é a API Java padrão para se conectar a bancos de dados relacionais tradicionais.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma conta do Azure. Se você não tiver uma, [obtenha uma avaliação gratuita](https://azure.microsoft.com/free/).
-- [Azure Cloud Shell](/azure/cloud-shell/quickstart) ou [CLI do Azure](/cli/azure/install-azure-cli). É recomendável usar o Azure Cloud Shell para que o logon seja feito automaticamente e você tenha acesso a todas as ferramentas necessárias.
-- Um [Java Development Kit](https://aka.ms/azure-jdks) compatível, versão 8 (incluído no Azure Cloud Shell).
+- [Azure Cloud Shell](../cloud-shell/quickstart.md) ou [CLI do Azure](/cli/azure/install-azure-cli). É recomendável usar o Azure Cloud Shell para que o logon seja feito automaticamente e você tenha acesso a todas as ferramentas necessárias.
+- Um [Java Development Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support) compatível, versão 8 (incluído no Azure Cloud Shell).
 - A ferramenta de build [Apache Maven](https://maven.apache.org/).
 
 ## <a name="prepare-the-working-environment"></a>Preparar o ambiente de trabalho
@@ -67,7 +67,7 @@ az group create \
 A primeira coisa que criaremos é um servidor PostgreSQL gerenciado.
 
 > [!NOTE]
-> Você pode ler informações mais detalhadas sobre como criar servidores PostgreSQL em [Criar um servidor do Banco de Dados do Azure para PostgreSQL usando o portal do Azure](/azure/postgresql/quickstart-create-server-database-portal).
+> Você pode ler informações mais detalhadas sobre como criar servidores PostgreSQL em [Criar um servidor do Banco de Dados do Azure para PostgreSQL usando o portal do Azure](./quickstart-create-server-database-portal.md).
 
 No [Azure Cloud Shell](https://shell.azure.com/), execute o seguinte comando:
 
@@ -485,7 +485,7 @@ A execução da classe principal deve produzir a seguinte saída:
 [INFO   ] Closing database connection 
 ```
 
-## <a name="conclusion-and-resources-clean-up"></a>Conclusão e limpeza de recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Parabéns! Você criou um aplicativo Java que usa o JDBC para armazenar e recuperar dados do Banco de Dados do Azure para PostgreSQL.
 

@@ -9,13 +9,13 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/03/2019
-ms.author: angle
-ms.openlocfilehash: 3e7d8ee2b156a30b11cda79798a8af8a8ecf4f64
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.author: shlo
+ms.openlocfilehash: 425096bf7cb75ae3560c06cbcd32778536dc1952
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74776615"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99537333"
 ---
 # <a name="disclosure-design-patterns"></a>Padrões de design de divulgação
 Agora que você&#39;foi determinado o [nível certo de divulgação](concepts-disclosure-guidelines.md#disclosure-assessment) para sua experiência de voz sintética, ele&#39;um bom momento para explorar os padrões de design potenciais.
@@ -62,7 +62,7 @@ Antes que a experiência de voz comece, apresente o assistente digital ao ser to
 *A voz sintética é introduzida durante a integração de um novo usuário.*
 
 Recomendações
-- Descreva que a voz é artificial (por exemplo &quot;,&quot;digital)
+- Descreva que a voz é artificial (por exemplo, &quot; digital &quot; )
 - Descrever o que o agente é capaz de fazer
 - Declarar explicitamente as origens de&#39;s de voz
 - Oferecer um ponto de entrada para saber mais sobre a voz sintética
@@ -141,7 +141,7 @@ Recomendações
 - Direcionar os pais como o público-alvo principal para divulgação
 - Incentive os pais a comunicar a divulgação para seus filhos
 - Pontos de entrada da oferta para saber mais sobre a voz sintetizada
-- Portão a experiência fazendo com que os pais &quot;tenham&quot; uma pergunta de proteção simples para mostrar que eles lerem a divulgação
+- Portão a experiência fazendo com que os pais &quot; tenham uma pergunta de proteção simples &quot; para mostrar que eles lerem a divulgação
 
 ### <a name="providing-opportunities-to-learn-more-about-how-the-voice-was-made"></a>Fornecendo oportunidades para saber mais sobre como a voz foi feita
 
@@ -184,7 +184,7 @@ Considere os diferentes modos de interações de sua experiência ao incorporar 
 
 A divulgação pode ser obtida implicitamente definindo expectativas precisas para o que o assistente digital é capaz de fazer. Forneça comandos de exemplo para que os usuários possam aprender a interagir com o assistente digital e oferecer ajuda contextual para saber mais sobre a voz sintética durante os estágios iniciais da experiência.
 
-![Dicas visuais e comentários](media/responsible-ai/disclosure-patterns/capability-disclosure.png)<br/>
+![Exemplo de respostas padrão a uma conversa que você pode criar.](media/responsible-ai/disclosure-patterns/capability-disclosure.png)<br/>
 
 ### <a name="conversational-transparency"></a>Transparência da conversa
 
@@ -193,13 +193,13 @@ Quando as conversas se enquadram em caminhos inesperados, considere a criação 
 ![Manipulando caminhos inesperados](media/responsible-ai/disclosure-patterns/conversational-transparency-1.png)<br/>
 
 <br/>
-As perguntas &quot;desligadas&quot; ou pessoais direcionadas para o agente são um bom momento para lembrar os usuários da natureza sintética do agente e direcioná-los para que se envolvam adequadamente ou Redirecione-os para uma pessoa real.
+As perguntas desligadas ou &quot; pessoais &quot; direcionadas para o agente são um bom momento para lembrar os usuários da natureza sintética do agente e direcioná-los para que se envolvam adequadamente ou Redirecione-os para uma pessoa real.
 
 ![Tratamento de perguntas de tarefas](media/responsible-ai/disclosure-patterns/conversational-transparency-2.png)<br/>
 
 ## <a name="when-to-disclose"></a>Quando divulgar
 
-Há muitas oportunidades de divulgação durante o percurso do usuário. Design para o primeiro uso, segundo uso, enésimo uso..., mas também adotar momentos de &quot;falha&quot; para realçar a transparência – como quando o sistema cometer um erro ou quando o usuário descobre uma limitação dos recursos do agente&#39;s.
+Há muitas oportunidades de divulgação durante o percurso do usuário. Design para o primeiro uso, segundo uso, enésimo uso..., mas também adotar momentos de &quot; falha &quot; para realçar a transparência – como quando o sistema cometer um erro ou quando o usuário descobre uma limitação dos recursos do agente&#39;s.
 
 ![Oportunidades de divulgação em toda a jornada do usuário](media/responsible-ai/disclosure-patterns/touchpoints.png)<br/>
 
@@ -237,21 +237,14 @@ Use a divulgação como uma oportunidade de falhar normalmente.
 - [Fornecendo oportunidades para saber mais sobre como a voz foi feita](#providing-opportunities-to-learn-more-about-how-the-voice-was-made)
 - [Entrega para humanos](#conversational-transparency)
 
-
-
 ## <a name="additional-resources"></a>Recursos adicionais
 - [Diretrizes de bot da Microsoft](https://www.microsoft.com/research/uploads/prod/2018/11/Bot_Guidelines_Nov_2018.pdf)
-- [Diretrizes de design da Cortana](https://docs.microsoft.com/cortana/voice-commands/voicecommand-design-guidelines)
-- [Diretrizes de design de fala do Microsoft Windows UWP](https://docs.microsoft.com/windows/uwp/design/input/speech-interactions)
-- [Diretrizes de comando de voz do Microsoft Windows Mixed Reality](https://docs.microsoft.com/windows/mixed-reality/voice-design#top-things-users-should-know-about-speech-in-mixed-reality)
+- [Diretrizes de design da Cortana](/cortana/voice-commands/voicecommand-design-guidelines)
+- [Diretrizes de design de fala do Microsoft Windows UWP](/windows/uwp/design/input/speech-interactions)
+- [Diretrizes de comando de voz do Microsoft Windows Mixed Reality](/windows/mixed-reality/voice-design#top-things-users-should-know-about-speech-in-mixed-reality)
 
-## <a name="reference-docs"></a>Documentos de Referência
+## <a name="see-also"></a>Confira também
 
-* [Divulgação para talento de voz](https://aka.ms/disclosure-voice-talent)
+* [Divulgação para talento de voz](https://docs.microsoft.com/legal/cognitive-services/speech-service/disclosure-voice-talent?context=/azure/cognitive-services/speech-service/context/context)
 * [Diretrizes para a implantação responsável da tecnologia de voz sintética](concepts-guidelines-responsible-deployment-synthetic.md)
-* [Visão geral da retenção](concepts-gating-overview.md)
 * [Como divulgar](concepts-disclosure-guidelines.md)
-
-## <a name="next-steps"></a>Próximas etapas
-
-* [Divulgação para talento de voz](https://aka.ms/disclosure-voice-talent)

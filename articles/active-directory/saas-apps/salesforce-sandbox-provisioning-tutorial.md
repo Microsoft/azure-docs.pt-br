@@ -1,21 +1,21 @@
 ---
 title: 'Tutorial: Configurar a Área Restrita Salesforce para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs'
-description: Saiba como configurar o logon único entre o Azure Active Directory e o Salesforce Sandbox.
+description: Conheça as etapas necessárias a serem executadas na Área Restrita do Salesforce e no Azure AD para provisionar e desprovisionar automaticamente contas de usuário do Azure AD para a Área Restrita do Salesforce.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 4666768d7e975e976601810bbbfadb1685fa91ff
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
-ms.translationtype: MT
+ms.openlocfilehash: 7e3f8e5e975468b468712ae8907cdca0e80a5f9f
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88543516"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94352601"
 ---
 # <a name="tutorial-configure-salesforce-sandbox-for-automatic-user-provisioning"></a>Tutorial: Configurar a Área Restrita Salesforce para o provisionamento automático de usuário
 
@@ -33,7 +33,7 @@ O cenário descrito neste tutorial pressupõe que você já tem os seguintes ite
 
 O Azure Active Directory usa um conceito chamado "atribuições" para determinar quais usuários devem receber acesso aos aplicativos selecionados. No contexto do provisionamento automático de conta de usuário, somente os usuários e os grupos que foram "atribuídos" a um aplicativo no Azure AD são sincronizados.
 
-Antes de configurar e habilitar o serviço de provisionamento, você precisa decidir quais usuários ou grupos no Azure AD precisam de acesso ao aplicativo de Área Restrita Salesforce. Depois de decidir, você pode atribuir esses usuários ao aplicativo de Área Restrita Salesforce seguindo as instruções em [Atribuir um usuário ou grupo a um aplicativo empresarial](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+Antes de configurar e habilitar o serviço de provisionamento, você precisa decidir quais usuários ou grupos no Azure AD precisam de acesso ao aplicativo de Área Restrita Salesforce. Depois de decidir, você pode atribuir esses usuários ao aplicativo de Área Restrita Salesforce seguindo as instruções em [Atribuir um usuário ou grupo a um aplicativo empresarial](../manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-salesforce-sandbox"></a>Dicas importantes para atribuir usuários à Área Restrita Salesforce
 
@@ -63,7 +63,7 @@ O objetivo desta seção é descrever como habilitar o provisionamento de contas
 
 1. Defina o **Modo de Provisionamento** como **Automático**.
 
-    ![provisionamento](./media/salesforce-sandbox-provisioning-tutorial/provisioning.png)
+    ![A captura de tela mostra a página Provisionamento da Área Restrita do Salesforce, com o Modo de Provisionamento definido como Automático e outros valores que você pode definir.](./media/salesforce-sandbox-provisioning-tutorial/provisioning.png)
 
 1. Na seção **Credenciais de Administrador**, forneça as seguintes definições de configuração:
    
@@ -73,15 +73,15 @@ O objetivo desta seção é descrever como habilitar o provisionamento de contas
 
 1. Para obter o token de segurança da Área Restrita Salesforce, abra uma nova guia e entre na mesma conta do administrador da Área Restrita Salesforce. No canto superior direito da página, clique em seu nome e em **Configurações**.
 
-     ![Habilitar o provisionamento automático de usuários.](./media/salesforce-sandbox-provisioning-tutorial/sf-my-settings.png "Habilitar o provisionamento automático de usuários.")
+     ![A captura de tela mostra o link Configurações selecionado.](./media/salesforce-sandbox-provisioning-tutorial/sf-my-settings.png "Habilitar o provisionamento automático de usuários.")
 
 1. No painel de navegação esquerdo, clique em **Minhas Informações Pessoais** para expandir a seção correspondente e clique em **Redefinir Meu Token de Segurança**.
   
-    ![Habilitar o provisionamento automático de usuários.](./media/salesforce-sandbox-provisioning-tutorial/sf-personal-reset.png "Habilitar o provisionamento automático de usuários.")
+    ![A captura de tela mostra a opção Redefinir Meu Token de Segurança selecionada em Minhas Informações Pessoais.](./media/salesforce-sandbox-provisioning-tutorial/sf-personal-reset.png "Habilitar o provisionamento automático de usuários.")
 
 1. Na página **Redefinir Token de Segurança**, clique no botão **Redefinir Token de Segurança**.
 
-    ![Habilitar o provisionamento automático de usuários.](./media/salesforce-sandbox-provisioning-tutorial/sf-reset-token.png "Habilitar o provisionamento automático de usuários.")
+    ![A captura de tela mostra a página Redefinir Token de Segurança, com um texto explicativo e a opção Redefinir Token de Segurança](./media/salesforce-sandbox-provisioning-tutorial/sf-reset-token.png "Habilitar o provisionamento automático de usuários.")
 
 1. Marque a caixa de entrada de email associada a essa conta de administrador. Procure um email do Salesforce Sandbox.com que contenha o novo token de segurança.
 
@@ -109,4 +109,4 @@ Para saber mais sobre como ler os logs de provisionamento do Azure AD, consulte 
 
 * [Gerenciamento do provisionamento de conta de usuário para Aplicativos Empresariais](tutorial-list.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-* [Configurar logon único](https://docs.microsoft.com/azure/active-directory/active-directory-saas-salesforce-sandbox-tutorial)
+* [Configurar Logon Único](./salesforce-sandbox-tutorial.md)

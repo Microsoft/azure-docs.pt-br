@@ -8,16 +8,16 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 12/02/2020
 ms.custom: seodec18
-ms.openlocfilehash: 33cafd058e55951f7da4e925a603c2c442d4aed1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2b76490ab23cb14755f6f90a27ec8b176bb30a11
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077661"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780018"
 ---
-# <a name="azure-time-series-insights-gen2-data-ingestion-overview"></a>Visão geral de ingestão de dados do Azure Time Series Insights Gen2
+# <a name="azure-time-series-insights-gen2-data-ingestion-overview"></a>Visão geral da ingestão de dados do Azure Time Series Insights Gen2
 
 Seu ambiente de Azure Time Series Insights Gen2 contém um *mecanismo de ingestão* para coletar, processar e armazenar dados de série temporal de streaming. À medida que os dados chegam às suas origens de eventos, Azure Time Series Insights Gen2 consumirá e armazenará seus dados quase em tempo real.
 
@@ -37,4 +37,4 @@ Os artigos a seguir abordam o processamento de dados em detalhes, incluindo as p
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Continue em para saber mais sobre as [fontes de evento](./concepts-streaming-ingestion-event-sources.md) para seu ambiente de Azure Time Series insights Gen2. 
+* Continue em para saber mais sobre as [fontes de evento](./concepts-streaming-ingestion-event-sources.md) para seu ambiente de Azure Time Series insights Gen2.

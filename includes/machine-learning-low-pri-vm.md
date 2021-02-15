@@ -8,13 +8,13 @@ ms.author: sgilley
 manager: cgronlund
 ms.custom: include file
 ms.topic: include
-ms.date: 07/15/2020
-ms.openlocfilehash: 847405fd8218ba66230eef1d04082939f36bca6d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/19/2020
+ms.openlocfilehash: 9d450a629183cdd617b8b246b39b17f76190fb0b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87030854"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91711889"
 ---
 > [!NOTE]
-> Você pode optar por usar [VMs de baixa prioridade](../articles/machine-learning/concept-plan-manage-cost.md#low-pri-vm) para executar algumas ou todas as suas cargas de trabalho. Veja como [criar uma VM de baixa prioridade](../articles/machine-learning/how-to-set-up-training-targets.md#low-pri-vm).
+> Você pode optar por usar [VMs de baixa prioridade](../articles/machine-learning/concept-plan-manage-cost.md#low-pri-vm) para executar algumas ou todas as suas cargas de trabalho. Veja como [criar uma VM de baixa prioridade](../articles/machine-learning/how-to-create-attach-compute-cluster.md#low-pri-vm). 

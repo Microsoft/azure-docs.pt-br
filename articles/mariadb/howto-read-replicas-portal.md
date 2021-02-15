@@ -1,17 +1,17 @@
 ---
 title: Gerenciar réplicas de leitura-portal do Azure-banco de dados do Azure para MariaDB
 description: Este artigo descreve como configurar e gerenciar réplicas de leitura no banco de dados do Azure para MariaDB usando o portal
-author: ajlam
-ms.author: andrela
-ms.service: mariadb
+author: savjani
+ms.author: pariks
+ms.service: jroth
 ms.topic: how-to
 ms.date: 6/10/2020
-ms.openlocfilehash: fc435194975c0b043e74a47632d6e38f12d04c2a
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: fa2afdccf9c8bd6ec7f5808674e6eec968838d10
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121190"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664997"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mariadb-using-the-azure-portal"></a>Como criar e gerenciar réplicas de leitura no banco de dados do Azure para MariaDB usando o portal do Azure
 
@@ -19,15 +19,15 @@ Neste artigo, você aprenderá a criar e gerenciar réplicas de leitura no banco
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Um [banco de dados do Azure para o servidor MariaDB](quickstart-create-mariadb-server-database-using-azure-portal.md) que será usado como o servidor mestre.
+- Um [banco de dados do Azure para o servidor MariaDB](quickstart-create-mariadb-server-database-using-azure-portal.md) que será usado como o servidor de origem.
 
 > [!IMPORTANT]
-> O recurso ler réplica só está disponível para o banco de dados do Azure para servidores MariaDB nos tipos de preço Uso Geral ou com otimização de memória. Assegure-se de que o servidor principal esteja em um desses níveis de preços.
+> O recurso ler réplica só está disponível para o banco de dados do Azure para servidores MariaDB nos tipos de preço Uso Geral ou com otimização de memória. Verifique se o servidor de origem está em um desses tipos de preço.
 
 ## <a name="create-a-read-replica"></a>Criar uma réplica de leitura
 
 > [!IMPORTANT]
-> Ao criar uma réplica para um mestre que não tem nenhuma réplica existente, primeiro o mestre será reiniciado para se preparar para a replicação. Leve isso em consideração e realize essas operações durante um período de pouca atividade.
+> Quando você cria uma réplica para uma fonte que não tem réplicas existentes, a origem será reiniciada primeiro para se preparar para a replicação. Leve isso em consideração e realize essas operações durante um período de pouca atividade.
 
 Um servidor de réplica de leitura pode ser criado usando as seguintes etapas:
 
@@ -45,14 +45,14 @@ Um servidor de réplica de leitura pode ser criado usando as seguintes etapas:
 
     ![Banco de dados do Azure para MariaDB-nome da réplica](./media/howto-read-replica-portal/replica-name.png)
 
-6. Selecione o local para o servidor de réplica. O local padrão é o mesmo que o do servidor mestre.
+6. Selecione o local para o servidor de réplica. O local padrão é o mesmo que o do servidor de origem.
 
     ![Banco de dados do Azure para MariaDB-local da réplica](./media/howto-read-replica-portal/replica-location.png)
 
 7. Selecione **OK** para confirmar a criação da réplica.
 
 > [!NOTE]
-> Réplicas de leitura são criadas com a mesma configuração de servidor que o mestre. A configuração do servidor de réplica pode ser alterada depois de criada. Recomenda-se que a configuração do servidor de réplica seja mantida em valores iguais ou maiores que o mestre para garantir que a réplica seja capaz de acompanhar o mestre.
+> Réplicas de leitura são criadas com a mesma configuração de servidor que o mestre. A configuração do servidor de réplica pode ser alterada depois de criada. É recomendável que a configuração do servidor de réplica seja mantida em valores iguais ou maiores do que a origem para garantir que a réplica seja capaz de acompanhar o mestre.
 
 Depois que o servidor de réplica tiver sido criado, ele poderá ser visualizado no blade **Replication**.
 
@@ -61,11 +61,11 @@ Depois que o servidor de réplica tiver sido criado, ele poderá ser visualizado
 ## <a name="stop-replication-to-a-replica-server"></a>Parar a replicação para um servidor de réplica
 
 > [!IMPORTANT]
-> Parar a replicação para um servidor é irreversível. Depois que a replicação tiver parado entre um mestre e uma réplica, ela não poderá ser desfeita. O servidor de réplica então se torna um servidor autônomo e agora suporta tanto leitura quanto gravação. Este servidor não pode ser transformado em uma réplica novamente.
+> Parar a replicação para um servidor é irreversível. Depois que a replicação for interrompida entre uma origem e uma réplica, ela não poderá ser desfeita. O servidor de réplica então se torna um servidor autônomo e agora suporta tanto leitura quanto gravação. Este servidor não pode ser transformado em uma réplica novamente.
 
-Para interromper a replicação entre um servidor mestre e um servidor de réplica do portal do Azure, use as seguintes etapas:
+Para interromper a replicação entre um servidor de origem e de réplica do portal do Azure, use as seguintes etapas:
 
-1. Na portal do Azure, selecione o servidor mestre do banco de dados do Azure para MariaDB. 
+1. Na portal do Azure, selecione seu banco de dados do Azure de origem para o servidor MariaDB. 
 
 2. Selecione **Replicação** no menu, em **CONFIGURAÇÕES**.
 
@@ -85,7 +85,7 @@ Para interromper a replicação entre um servidor mestre e um servidor de répli
 
 Para excluir um servidor de réplica de leitura do portal do Azure, use as seguintes etapas:
 
-1. Na portal do Azure, selecione o servidor mestre do banco de dados do Azure para MariaDB.
+1. Na portal do Azure, selecione seu banco de dados do Azure de origem para o servidor MariaDB.
 
 2. Selecione **Replicação** no menu, em **CONFIGURAÇÕES**.
 
@@ -101,22 +101,22 @@ Para excluir um servidor de réplica de leitura do portal do Azure, use as segui
 
    ![Banco de dados do Azure para MariaDB-excluir confirmação de réplica](./media/howto-read-replica-portal/delete-replica-confirm.png)
 
-## <a name="delete-a-master-server"></a>Excluir um servidor mestre
+## <a name="delete-a-source-server"></a>Excluir um servidor de origem
 
 > [!IMPORTANT]
-> A exclusão de um servidor mestre interrompe a replicação para todos os servidores de réplica e exclui o próprio servidor mestre. Os servidores de réplica tornam-se servidores independentes que agora suportam leitura e gravação.
+> A exclusão de um servidor de origem interrompe a replicação para todos os servidores de origem e exclui o próprio servidor mestre. Os servidores de réplica tornam-se servidores independentes que agora suportam leitura e gravação.
 
-Para excluir um servidor mestre do portal do Azure, use as seguintes etapas:
+Para excluir um servidor de origem do portal do Azure, use as seguintes etapas:
 
-1. Na portal do Azure, selecione o servidor mestre do banco de dados do Azure para MariaDB.
+1. Na portal do Azure, selecione seu banco de dados do Azure de origem para o servidor MariaDB.
 
 2. Na **Visão geral**, selecione **Excluir**.
 
    ![Banco de dados do Azure para MariaDB-excluir mestre](./media/howto-read-replica-portal/delete-master-overview.png)
 
-3. Digite o nome do servidor mestre e clique em **excluir** para confirmar a exclusão do servidor mestre.  
+3. Digite o nome do servidor de origem e clique em **excluir** para confirmar a exclusão do servidor de origem.  
 
-   ![Banco de dados do Azure para MariaDB-excluir mestre](./media/howto-read-replica-portal/delete-master-confirm.png)
+   ![Banco de dados do Azure para MariaDB-excluir confirmação mestre](./media/howto-read-replica-portal/delete-master-confirm.png)
 
 ## <a name="monitor-replication"></a>Monitorar a replicação
 
@@ -134,7 +134,7 @@ Para excluir um servidor mestre do portal do Azure, use as seguintes etapas:
 
 5. Veja o atraso de replicação para o intervalo de tempo selecionado. A imagem abaixo exibe os últimos 30 minutos para uma carga de trabalho grande.
 
-   ![Selecionar intervalo de tempo](./media/howto-read-replica-portal/monitor-replication-lag-time-range-thirty-mins.png)
+   ![Selecionar intervalo de tempo 30 minutos](./media/howto-read-replica-portal/monitor-replication-lag-time-range-thirty-mins.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

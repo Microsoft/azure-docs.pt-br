@@ -6,14 +6,14 @@ author: cherylmc
 Customer intent: As someone with a basic network background, but is new to Azure, I want to understand the capabilities of Azure VPN Gateway so that I can securely connect to my Azure virtual networks.
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 06/01/2020
+ms.date: 09/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: d0bcd0608796545a4982f72f276399d5f692e765
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 61732f66aef58f5a9edcb9e095782e19e8aaffdd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88852703"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91397208"
 ---
 # <a name="vpn-gateway-design"></a>Design de gateway de VPN
 
@@ -77,7 +77,7 @@ Talvez você possa usar o emparelhamento VNet para criar sua conexão, desde que
 
 ## <a name="expressroute-private-connection"></a><a name="ExpressRoute"></a>ExpressRoute (conexão privada)
 
-O ExpressRoute permite que você estenda as redes locais para a nuvem da Microsoft em uma conexão privada facilitada por um provedor de conectividade. Com o ExpressRoute, você pode estabelecer conexões com os serviços de nuvem da Microsoft, como o Microsoft Azure, o Office 365 e o CRM Online. A conectividade pode ser de uma rede de qualquer para qualquer (IP VPN), uma rede Ethernet ponto a ponto ou uma conexão cruzada virtual por meio de um provedor de conectividade em uma instalação de colocalização.
+O ExpressRoute permite que você estenda suas redes locais até a nuvem da Microsoft por meio de conexão privada facilitada por um provedor de conectividade. Com o ExpressRoute, você pode estabelecer conexões com os serviços de nuvem da Microsoft, como Microsoft Azure, Microsoft 365 e CRM Online. A conectividade pode ser de uma rede de qualquer para qualquer (IP VPN), uma rede Ethernet ponto a ponto ou uma conexão cruzada virtual por meio de um provedor de conectividade em uma instalação de colocalização.
 
 As conexões de ExpressRoute não passam pela Internet pública. Isso permite que as conexões de ExpressRoute ofereçam mais confiabilidade, mais velocidade, latências menores e muito mais segurança do que as conexões típicas pela Internet.
 

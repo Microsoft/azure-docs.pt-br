@@ -1,20 +1,20 @@
 ---
 title: Solucionar problemas das implantações
-description: Saiba como monitorar e solucionar problemas de implantações de modelo do Azure Resource Manager. Mostra os logs de atividade e o histórico de implantação.
+description: Saiba como monitorar implantações de modelo do ARM (modelo do Azure Resource Manager) e solucionar problemas ocorridos com elas. Mostra os logs de atividade e o histórico de implantação.
 author: mumian
 ms.date: 01/15/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 68ddb5c07ffac2aad4e2dafd16301fa29f391797
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 31c4e6383b5eaea2bb66dc1baafa0fbff4918a7c
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119337"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589110"
 ---
 # <a name="tutorial-troubleshoot-arm-template-deployments"></a>Tutorial: Solucionar problemas de implantações do modelo do ARM
 
-Saiba como solucionar erros de implantação de modelo do ARM (Azure Resource Manager). Neste tutorial, você configurará dois erros em um modelo e aprenderá a usar os logs de atividades e o histórico de implantação para resolver os problemas.
+Saiba como solucionar erros de implantação de modelo do ARM (modelo do Azure Resource Manager). Neste tutorial, você configurará dois erros em um modelo e aprenderá a usar os logs de atividades e o histórico de implantação para resolver os problemas.
 
 Há dois tipos de erros relacionados à implantação de modelo:
 
@@ -37,13 +37,13 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 
 Para concluir este artigo, você precisa do seguinte:
 
-- Visual Studio Code com a extensão de Ferramentas do Resource Manager. Confira [Início Rápido: Criar modelos do Azure Resource Manager com o Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
+- Visual Studio Code com a extensão de Ferramentas do Resource Manager. Confira [Início Rápido: Criar modelos do ARM com o Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 
 ## <a name="create-a-problematic-template"></a>Criar um modelo com problemas
 
 Abra um modelo chamado [Criar uma conta de armazenamento Standard](https://azure.microsoft.com/resources/templates/101-storage-account-create/) em [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/) e configure dois problemas de modelo.
 
-1. No Visual Studio Code, escolha **Arquivo**>**Abrir Arquivo**.
+1. No Visual Studio Code, escolha **Arquivo** > **Abrir Arquivo**.
 2. Em **Nome do arquivo**, cole a seguinte URL:
 
     ```url
@@ -51,16 +51,16 @@ Abra um modelo chamado [Criar uma conta de armazenamento Standard](https://azure
     ```
 
 3. Escolha **Abrir** para abrir o arquivo.
-4. Altere a linha **apiVersion** para a seguinte linha:
+4. Altere a linha `apiVersion` para a seguinte linha:
 
     ```json
     "apiVersion1": "2018-07-02",
     ```
 
-    - **apiVersion1** é o nome de elemento inválido. Esse é um erro de validação.
-    - A versão da API deverá ser "2018-07-01".  Esse é um erro de implantação.
+    - `apiVersion1` é um nome de elemento inválido. Esse é um erro de validação.
+    - A versão da API deverá ser `"2018-07-01"`.  Esse é um erro de implantação.
 
-5. Escolha **Arquivo**>**Salvar como** para salvar o arquivo como **azuredeploy.json** em seu computador local.
+5. Escolha **Arquivo** > **Salvar como** para salvar o arquivo como _azuredeploy.json_ em seu computador local.
 
 ## <a name="troubleshoot-the-validation-error"></a>Solucionar o erro de validação
 
@@ -68,13 +68,13 @@ Consulte a seção [Implantar o modelo](template-tutorial-create-multiple-instan
 
 Você deverá receber um erro do shell semelhante a:
 
-```
+```azurepowershell
 New-AzResourceGroupDeployment : 4:29:24 PM - Error: Code=InvalidRequestContent; Message=The request content was invalid and could not be deserialized: 'Could not find member 'apiVersion1' on object of type 'TemplateResource'. Path 'properties.template.resources[0].apiVersion1', line 36, position 24.'.
 ```
 
-A mensagem de erro indica que o problema ocorre na **apiVersion1**.
+A mensagem de erro indica que o problema ocorre na `apiVersion1`.
 
-Use o Visual Studio Code para corrigir o problema alterando **apiVersion1** para **apiVersion** e, em seguida, salve o modelo.
+Use o Visual Studio Code para corrigir o problema alterando `apiVersion1` para `apiVersion` e, em seguida, salve o modelo.
 
 ## <a name="troubleshoot-the-deployment-error"></a>Solucionar o erro de implantação
 
@@ -82,7 +82,7 @@ Consulte a seção [Implantar o modelo](template-tutorial-create-multiple-instan
 
 Você deverá receber um erro do shell semelhante a:
 
-```
+```azurepowershell
 New-AzResourceGroupDeployment : 4:48:50 PM - Resource Microsoft.Storage/storageAccounts 'storeqii7x2rce77dc' failed with message '{
   "error": {
     "code": "NoRegisteredProviderFound",
@@ -96,14 +96,14 @@ O erro de implantação pode ser encontrado no portal do Azure usando o seguinte
 1. Entre no [portal do Azure](https://portal.azure.com).
 2. Abra o grupo de recursos selecionando **Grupos de recursos** e, em seguida, o nome do grupo de recursos. Você deverá ver **1 Reprovado** em **Implantação**.
 
-    ![Solução de problemas do tutorial do Resource Manager](./media/template-tutorial-troubleshoot/resource-manager-template-deployment-error.png)
+    ![Captura de tela que realça a implantação com falha.](./media/template-tutorial-troubleshoot/resource-manager-template-deployment-error.png)
 3. Selecione **Detalhes do erro**.
 
-    ![Solução de problemas do tutorial do Resource Manager](./media/template-tutorial-troubleshoot/resource-manager-template-deployment-error-details.png)
+    ![Captura de tela que realça o link Detalhes do erro.](./media/template-tutorial-troubleshoot/resource-manager-template-deployment-error-details.png)
 
     A mensagem de erro é a mesma que a mostrada anteriormente:
 
-    ![Solução de problemas do tutorial do Resource Manager](./media/template-tutorial-troubleshoot/resource-manager-template-deployment-error-summary.png)
+    ![Captura de tela que mostra os detalhes do erro.](./media/template-tutorial-troubleshoot/resource-manager-template-deployment-error-summary.png)
 
 Você também pode encontrar o erro nos logs de atividades:
 

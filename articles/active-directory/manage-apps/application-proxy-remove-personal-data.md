@@ -3,7 +3,7 @@ title: Remover dados pessoais-Proxy de Aplicativo do Azure Active Directory
 description: Remova dados pessoais de conectores instalados em dispositivos para o Proxy de Aplicativo do Azure Active Directory.
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -15,12 +15,12 @@ ms.author: kenwith
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e78efd71943332e8a40e5b44b6b78f88e516649a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 90913ba8f7fbe8158a5cfea01e49a175180677b6
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84759956"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258941"
 ---
 # <a name="remove-personal-data-for-azure-active-directory-application-proxy"></a>Remover dados pessoais para o Proxy de Aplicativo do Azure Active Directory
 
@@ -35,7 +35,7 @@ O Proxy de Aplicativo pode gravar dados pessoais para os seguintes tipos de log:
 
 ## <a name="remove-personal-data-from-windows-event-logs"></a>Remover dados pessoais dos logs de eventos do Windows
 
-Para obter informações sobre como configurar a retenção de dados para os logs de eventos do Windows, confira [Configurações dos logs de eventos](https://technet.microsoft.com/library/cc952132.aspx). Para saber mais sobre os logs de eventos do Windows, confira [Usando o log de eventos do Windows](https://msdn.microsoft.com/library/windows/desktop/aa385772.aspx).
+Para obter informações sobre como configurar a retenção de dados para os logs de eventos do Windows, confira [Configurações dos logs de eventos](https://technet.microsoft.com/library/cc952132.aspx). Para saber mais sobre os logs de eventos do Windows, confira [Usando o log de eventos do Windows](/windows/win32/wes/using-windows-event-log).
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-hybrid-note.md)]
 
@@ -54,7 +54,7 @@ Use as seções a seguir para remover dados pessoais dos logs de eventos do cone
 
 Para exibir ou exportar dados específicos, procure entradas relacionadas em cada um dos logs de eventos do conector. Os logs estão localizados em `C:\ProgramData\Microsoft\Microsoft AAD Application Proxy Connector\Trace`.
 
-Como os logs são arquivos de texto, você pode usar [findstr](https://docs.microsoft.com/windows-server/administration/windows-commands/findstr) para pesquisar entradas de texto relacionadas a um usuário.  
+Como os logs são arquivos de texto, você pode usar [findstr](/windows-server/administration/windows-commands/findstr) para pesquisar entradas de texto relacionadas a um usuário.  
 
 Para localizar dados pessoais, pesquise os arquivos de log por UserID.
 

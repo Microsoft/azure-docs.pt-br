@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.custom: devx-track-javascript
-ms.openlocfilehash: b094f63c075bdb8af225ff366343c60bc6818224
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.custom: devx-track-js
+ms.openlocfilehash: 133674e6764e12742f5b238946e943d9b5011cd2
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816755"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92891322"
 ---
 # <a name="read-and-write-spatial-data"></a>Ler e gravar dados espaciais
 
@@ -29,7 +29,7 @@ A tabela a seguir lista os formatos de arquivo espaciais com suporte para leitur
 | KML               | ✓  |  ✓  |
 | KMZ               | ✓  |  ✓  |
 | CSV espacial       | ✓  |  ✓  |
-| Texto bem conhecido   | ✓  |  ✓  |
+| Well-Known texto   | ✓  |  ✓  |
 
 Estas seções a seguir descrevem todas as diferentes ferramentas para leitura e gravação de dados espaciais usando o módulo de e/s espacial.
 
@@ -123,26 +123,26 @@ atlas.io.read(data, {
 );
 ```
 
-## <a name="read-and-write-well-known-text-wkt"></a>Ler e gravar texto bem conhecido (WKT)
+## <a name="read-and-write-well-known-text-wkt"></a>Ler e gravar texto de Well-Known (WKT)
 
 WKT ( [Well-Known Text](https://en.wikipedia.org/wiki/Well-known_text_representation_of_geometry) ) é um padrão de Open GEOSPATIAL CONSORTIUM (OGC) para representar geometrias espaciais como texto. Muitos sistemas geoespaciais dão suporte a WKT, como SQL Azure e Azure PostgreSQL usando o plug-in PostGIS. Como a maioria dos padrões de OGC, as coordenadas são formatadas como "latitude de longitude" para alinhar com a Convenção "x y". Por exemplo, um ponto em longitude-110 e Latitude 45 pode ser escrito como `POINT(-110 45)` usando o formato WKT.
 
 O texto bem conhecido pode ser lido usando a `atlas.io.ogc.WKT.read` função e escrito usando a `atlas.io.ogc.WKT.write` função.
 
-## <a name="examples-of-reading-and-writing-well-known-text-wkt"></a>Exemplos de leitura e gravação de texto bem conhecido (WKT)
+## <a name="examples-of-reading-and-writing-well-known-text-wkt"></a>Exemplos de leitura e gravação de texto Well-Known (WKT)
 
 O código a seguir mostra como ler a cadeia de caracteres de texto bem conhecida `POINT(-122.34009 47.60995)` e renderizá-la no mapa usando uma camada de bolha.
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Ler texto bem conhecido' src='//codepen.io/azuremaps/embed/XWbabLd/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Veja a caneta <a href='https://codepen.io/azuremaps/pen/XWbabLd/'>ler o texto bem conhecido</a> pelo Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) em <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Ler Well-Known texto' src='//codepen.io/azuremaps/embed/XWbabLd/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a caneta <a href='https://codepen.io/azuremaps/pen/XWbabLd/'>ler o texto Well-Known</a> pelo Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 O código a seguir demonstra como ler e gravar texto bem conhecido de volta e para trás.
 
 <br/>
 
-<iframe height='700' scrolling='no' title='Ler e escrever texto bem conhecido' src='//codepen.io/azuremaps/embed/JjdyYav/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a caneta <a href='https://codepen.io/azuremaps/pen/JjdyYav/'>ler e escrever texto bem conhecido</a> pelo Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) em <a href='https://codepen.io'>CodePen</a>.
+<iframe height='700' scrolling='no' title='Ler e gravar texto de Well-Known' src='//codepen.io/azuremaps/embed/JjdyYav/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a caneta de <a href='https://codepen.io/azuremaps/pen/JjdyYav/'>leitura e gravação Well-Known texto</a> pelo Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="read-and-write-gml"></a>Ler e gravar GML
@@ -160,38 +160,31 @@ O `GmlReader` analisará as coordenadas que têm um dos seguintes SRIDs:
 - EPSG: 4269, EPSG: 4283, EPSG: 4258, EPSG: 4308, EPSG: 4230, EPSG: 4272, EPSG: 4271, EPSG: 4267, EPSG: 4608, EPSG: 4674 possivelmente com uma pequena margem de erro.
 - EPSG: 3857, EPSG: 102100, EPSG: 3785, EPSG: 900913, EPSG: 102113, EPSG: 41001, EPSG: 54004
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="more-resources"></a>Mais recursos
 
 Saiba mais sobre as classes e métodos usados neste artigo:
 
-> [!div class="nextstepaction"]
-> [funções estáticas atlas.io](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io)
+[funções estáticas atlas.io](/javascript/api/azure-maps-spatial-io/atlas.io)
 
-> [!div class="nextstepaction"]
-> [SpatialDataSet](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.spatialdataset)
+[SpatialDataSet](/javascript/api/azure-maps-spatial-io/atlas.spatialdataset)
 
-> [!div class="nextstepaction"]
-> [SpatialDataSetStats](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.spatialdatasetstats)
+[SpatialDataSetStats](/javascript/api/azure-maps-spatial-io/atlas.spatialdatasetstats)
 
-> [!div class="nextstepaction"]
-> [GmlReader](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io.core.gmlreader?view=azure-maps-typescript-latest)
+[GmlReader](/javascript/api/azure-maps-spatial-io/atlas.io.core.gmlreader)
 
-> [!div class="nextstepaction"]
-> [GmlWriter](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io.core.gmlwriter?view=azure-maps-typescript-latest)
+[GmlWriter](/javascript/api/azure-maps-spatial-io/atlas.io.core.gmlwriter)
 
-> [!div class="nextstepaction"]
-> [funções do Atlas. IO. OGC. WKT](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io.ogc.wkt)
+[funções do Atlas. IO. OGC. WKT](/javascript/api/azure-maps-spatial-io/atlas.io.ogc.wkt)
+
+[Conectar-se a um serviço WFS](spatial-io-connect-wfs-service.md)
+
+[Aproveitar as principais operações](spatial-io-core-operations.md)
+
+[Detalhes do formato de dados com suporte](spatial-io-supported-data-format-details.md)
+
+
+## <a name="next-steps"></a>Próximas etapas
 
 Consulte os artigos a seguir para obter mais exemplos de código para adicionar aos seus mapas:
 
-> [!div class="nextstepaction"]
-> [Adicionar uma camada do mapa OGC](spatial-io-add-ogc-map-layer.md)
-
-> [!div class="nextstepaction"]
-> [Conectar-se a um serviço WFS](spatial-io-connect-wfs-service.md)
-
-> [!div class="nextstepaction"]
-> [Aproveitar as principais operações](spatial-io-core-operations.md)
-
-> [!div class="nextstepaction"]
-> [Detalhes do formato de dados com suporte](spatial-io-supported-data-format-details.md)
+[Adicionar uma camada do mapa OGC](spatial-io-add-ogc-map-layer.md)

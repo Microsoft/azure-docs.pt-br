@@ -1,17 +1,17 @@
 ---
 title: Análise de Desempenho de Consultas-banco de dados do Azure para PostgreSQL-servidor único
 description: Este artigo descreve o recurso Análise de Desempenho de Consultas no banco de dados do Azure para PostgreSQL-servidor único.
-author: rachel-msft
-ms.author: raagyema
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: dd5b4ec53d82421ddd9d680ca41e48eeecc43c2c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: babf2c8208732a194184549dfa5ed3228b376d0f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74768377"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91710253"
 ---
 # <a name="query-performance-insight"></a>Análise de Desempenho de Consultas 
 
@@ -30,7 +30,7 @@ A visualização da [Análise de Desempenho de Consultas](concepts-query-perform
 
 Na página do portal do servidor do banco de dados do Azure para PostgreSQL, selecione análise de **desempenho de consultas** na seção **desempenho inteligente** da barra de menus.
 
-![Consultas de execução longa da Análise de Desempenho de Consultas](./media/concepts-query-performance-insight/query-performance-insight-landing-page.png)
+:::image type="content" source="./media/concepts-query-performance-insight/query-performance-insight-landing-page.png" alt-text="Consultas de execução longa da Análise de Desempenho de Consultas":::
 
 A guia **consultas de longa execução** mostra as cinco principais consultas por duração média por execução, agregadas em intervalos de 15 minutos. Você pode exibir mais consultas selecionando na lista suspensa **número de consultas** . As cores do gráfico pode ser alteradas para uma ID de consulta específica ao fazer isso.
 
@@ -40,7 +40,7 @@ A tabela abaixo do gráfico contém mais detalhes sobre as consultas de execuç�
 
 Selecione a guia das **Estatísticas de Espera** guia para exibir as visualizações correspondentes em espera no servidor.
 
-![Estatísticas de esperas de Análise de Desempenho de Consultas](./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png)
+:::image type="content" source="./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png" alt-text="Consultas de execução longa da Análise de Desempenho de Consultas":::
 
 ## <a name="considerations"></a>Considerações
 * Análise de Desempenho de Consultas não está disponível para [réplicas de leitura](concepts-read-replicas.md).

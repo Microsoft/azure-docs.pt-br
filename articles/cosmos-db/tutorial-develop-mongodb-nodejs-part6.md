@@ -8,16 +8,17 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 12/26/2018
 ms.author: jopapa
-ms.custom: seodec18, devx-track-javascript
+ms.custom: seodec18, devx-track-js
 ms.reviewer: sngun
-ms.openlocfilehash: a5d697465f811f468fb0047284126deae0c455dd
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: c8e2c707566b08219b495e76be7f6f6130d876ab
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87424300"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93081307"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---add-crud-functions-to-the-app"></a>Criar um aplicativo Angular com a API do Azure Cosmos DB para MongoDB – adicionar funções de CRUD ao aplicativo
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 Este tutorial com várias partes demonstra como criar um aplicativo escrito em Node.js com o Express e o Angular e conectá-lo à sua [conta do Cosmos configurada com a API do Cosmos DB para MongoDB](mongodb-introduction.md). A Parte 6 do tutorial se baseia na [Parte 5](tutorial-develop-mongodb-nodejs-part5.md) e inclui as seguintes tarefas:
 
@@ -67,7 +68,7 @@ Antes de iniciar esta parte do tutorial, verifique se você concluiu as etapas n
    }
    ```
 
-3. Em **hero.service.js**, atualize o `module.exports` para incluir a nova função `postHero`. 
+3. Em **hero.service.js** , atualize o `module.exports` para incluir a nova função `postHero`. 
 
     ```javascript
     module.exports = {
@@ -76,7 +77,7 @@ Antes de iniciar esta parte do tutorial, verifique se você concluiu as etapas n
     };
     ```
 
-4. Em **routes.js**, adicione um roteador à função `post` depois do roteador `get`. Esse roteador posta um hero por vez. Estruturar o arquivo de roteador dessa maneira mostra claramente todos os pontos de extremidade de API disponíveis e deixa o trabalho de verdade para o arquivo **hero.service.js**.
+4. Em **routes.js** , adicione um roteador à função `post` depois do roteador `get`. Esse roteador posta um hero por vez. Estruturar o arquivo de roteador dessa maneira mostra claramente todos os pontos de extremidade de API disponíveis e deixa o trabalho de verdade para o arquivo **hero.service.js**.
 
     ```javascript
     router.post('/hero', (req, res) => {
@@ -98,7 +99,7 @@ Antes de iniciar esta parte do tutorial, verifique se você concluiu as etapas n
 
 ## <a name="add-the-put-and-delete-functions"></a>Adicionar as funções Put e Delete
 
-1. Em **routes.js**, adicione os roteadores `put` e `delete` depois do roteador de post.
+1. Em **routes.js** , adicione os roteadores `put` e `delete` depois do roteador de post.
 
     ```javascript
     router.put('/hero/:uid', (req, res) => {
@@ -158,7 +159,7 @@ Antes de iniciar esta parte do tutorial, verifique se você concluiu as etapas n
    }
    ```
 
-3. Em **hero.service.js**, exporte os novos módulos:
+3. Em **hero.service.js** , exporte os novos módulos:
 
    ```javascript
     module.exports = {

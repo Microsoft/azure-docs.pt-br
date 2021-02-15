@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 03/19/2019
 ms.author: allensu
-ms.openlocfilehash: 1f30943eb0cc72f677785d1228b47b65764c1e7d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a5f4f6a6e72b57638688069111071a6e0a035c49
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84887863"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018657"
 ---
 # <a name="control-azure-cdn-caching-behavior-with-caching-rules"></a>Controlar o comportamento de cache da CDN do Azure com regras de cache
 
 > [!NOTE] 
-> As regras de cache estão disponíveis apenas para perfis de **CDN Standard do Azure do Verizon** e **CDN Standard do Azure da Akamai**. Para os perfis da **CDN do Azure da Microsoft**, você deve usar o [mecanismo de regras Standard](cdn-standard-rules-engine-reference.md). Para os **perfis da CDN do Azure Premium da Verizon**, você deve usar o [mecanismo de regras Premium da Verizon](cdn-rules-engine.md) no portal **Gerenciar** a fim de obter uma funcionalidade semelhante.
+> As regras de cache estão disponíveis apenas para perfis de **CDN Standard do Azure do Verizon** e **CDN Standard do Azure da Akamai**. Para os perfis da **CDN do Azure da Microsoft**, você deve usar o [mecanismo de regras Standard](cdn-standard-rules-engine-reference.md). Para os **perfis da CDN do Azure Premium da Verizon**, você deve usar o [mecanismo de regras Premium da Verizon](./cdn-verizon-premium-rules-engine.md) no portal **Gerenciar** a fim de obter uma funcionalidade semelhante.
  
 A CDN (Rede de Distribuição de Conteúdo do Microsoft Azure) oferece duas maneiras de controlar como seus arquivos são armazenados em cache: 
 
@@ -67,7 +67,7 @@ Para regras de cache globais e personalizadas, é possível especificar as segui
 ## <a name="cache-expiration-duration"></a>Duração da expiração do cache
 Para regras de cache globais e personalizadas, é possível especificar a duração da expiração do cache em dias, horas, minutos e segundos:
 
-- Para as configurações **Substituir** e **Definir se ausente, configurações ** **Comportamento do cache**, as durações de cache válidas variam entre 0 segundos e 366 dias. Por um valor de 0 segundos, o CDN armazena em cache o conteúdo, mas deve revalidar cada solicitação com o servidor de origem.
+- Para as configurações **Substituir** e **Definir se ausente, configurações** **Comportamento do cache**, as durações de cache válidas variam entre 0 segundos e 366 dias. Por um valor de 0 segundos, o CDN armazena em cache o conteúdo, mas deve revalidar cada solicitação com o servidor de origem.
 
 - Para a configuração **Ignorar cache**, a duração do cache é definida automaticamente em 0 segundos e não pode ser alterada.
 
@@ -103,7 +103,7 @@ As regras de cache personalizadas e globais são processadas na seguinte ordem:
    - Comportamento do cache: **Definir se ausente**
    - Duração da expiração do cache: 3 dias
 
-Quando essas regras são definidas, uma solicitação para o _ &lt; nome &gt; do host do ponto de extremidade_. azureedge.net/Home/index.html dispara a regra de cache Personalizada #2, que é definida como: **definir se ausente** e 3 dias. Portanto, se o arquivo *index.html* tiver `Cache-Control` ou `Expires` cabeçalhos HTTP, eles serão aceitos; caso contrário, se esses cabeçalhos não estiverem configurados, o arquivo será armazenado em cache por 3 dias.
+Quando essas regras são definidas, uma solicitação para o _&lt; nome &gt; do host do ponto de extremidade_. azureedge.net/Home/index.html dispara a regra de cache Personalizada #2, que é definida como: **definir se ausente** e 3 dias. Portanto, se o arquivo *index.html* tiver `Cache-Control` ou `Expires` cabeçalhos HTTP, eles serão aceitos; caso contrário, se esses cabeçalhos não estiverem configurados, o arquivo será armazenado em cache por 3 dias.
 
 > [!NOTE] 
 > Os arquivos que são armazenados em cache antes de uma alteração de regra mantêm a configuração da duração do cache de origem. Para reiniciar as durações de cache, será necessário [limpar o arquivo](cdn-purge-endpoint.md). 
@@ -113,7 +113,7 @@ Quando essas regras são definidas, uma solicitação para o _ &lt; nome &gt; do
 > - Para perfis da **CDN Standard do Azure da Verizon**, a propagação geralmente é concluída em 10 minutos.  
 >
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
 - [Como funciona o cache](cdn-how-caching-works.md)
 - [Tutorial: definir regras de cache da CDN do Azure](cdn-caching-rules-tutorial.md)

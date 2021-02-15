@@ -4,16 +4,14 @@ ms.service: hdinsight
 ms.topic: include
 ms.date: 10/25/2018
 ms.author: jasonh
-ms.openlocfilehash: feef430fd65714016a51d52fee2cf80b1bc2510e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ecffc969eac98be645217fd0eb55e79fa1412118
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67171653"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96001908"
 ---
 > [!div class="op_single_selector"]
 > * [Linux](../articles/hdinsight/hdinsight-hadoop-collect-debug-heap-dump-linux.md)
-> * [Windows](../articles/hdinsight/hdinsight-hadoop-collect-debug-heap-dumps.md)
 > 
-> 
-
+>

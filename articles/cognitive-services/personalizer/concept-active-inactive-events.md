@@ -1,14 +1,16 @@
 ---
 title: Eventos ativos e inativos – personalizador
 description: Este artigo aborda o uso de eventos ativos e inativos no serviço de personalização.
+ms.service: cognitive-services
+ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: a8f27542208965e2b820b9fc45cfcc5353a7f193
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7d1044d02ceba1f3d0996b1fe1c8a9a44b31049b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77624248"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91253642"
 ---
 # <a name="active-and-inactive-events"></a>Eventos ativos e inativos
 
@@ -37,9 +39,9 @@ Posteriormente, em sua lógica de negócios, se o aplicativo usar as informaçõ
 
 ## <a name="inactive-events"></a>Eventos inativos
 
-Para desabilitar o treinamento de um evento, chame Rank usando `learningEnabled = False`.
+Para desabilitar o treinamento de um evento, chame Rank usando `learningEnabled = False` .
 
-Para um evento inativo, o aprendizado será ativado implicitamente se você enviar uma recompensa para o eventId ou chamar `activate` a API para esse EventID.
+Para um evento inativo, o aprendizado será ativado implicitamente se você enviar uma recompensa para o eventId ou chamar a `activate` API para esse EventID.
 
 ## <a name="next-steps"></a>Próximas etapas
 

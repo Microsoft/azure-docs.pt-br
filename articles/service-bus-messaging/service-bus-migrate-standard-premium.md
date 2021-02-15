@@ -4,10 +4,10 @@ description: Guia para permitir a migração de namespaces padrão do barramento
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 1ed09a077f086390c658e6650171c552b361008d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 11/14/2020
 ms.locfileid: "85340752"
 ---
 # <a name="migrate-existing-azure-service-bus-standard-namespaces-to-the-premium-tier"></a>Migrar namespaces padrão do barramento de serviço do Azure para a camada Premium
@@ -25,7 +25,7 @@ Alguns dos pontos a serem observados:
 - O namespace **Premium** não deve ter **nenhuma entidade** para que a migração tenha sucesso.
 - Todas as **entidades** no namespace padrão são **copiadas** para o namespace Premium durante o processo de migração.
 - A migração dá suporte a **1.000 entidades por unidade de mensagens** na camada Premium. Para identificar quantas unidades de mensagens você precisa, comece com o número de entidades que você tem em seu namespace padrão atual.
-- Não é possível migrar diretamente da **camada básica** para a **camada Premium**, mas você pode fazê-lo indiretamente migrando do básico para o Standard primeiro e, em seguida, do Standard para o Premium na próxima etapa.
+- Não é possível migrar diretamente da **camada básica** para a **camada Premium** , mas você pode fazê-lo indiretamente migrando do básico para o Standard primeiro e, em seguida, do Standard para o Premium na próxima etapa.
 
 ## <a name="migration-steps"></a>Etapas da migração
 
@@ -211,7 +211,7 @@ No entanto, se você puder migrar durante uma janela de manutenção planejada/m
 ## <a name="next-steps"></a>Próximas etapas
 
 * Saiba mais sobre as [diferenças entre as mensagens Standard e Premium](./service-bus-premium-messaging.md).
-* Saiba mais sobre os [aspectos de alta disponibilidade e recuperação de desastres geográficos para o barramento de serviço Premium](service-bus-outages-disasters.md#protecting-against-outages-and-disasters---service-bus-premium).
+* Saiba mais sobre os [aspectos de alta disponibilidade e de recuperação de Geo-Disaster para o barramento de serviço Premium](service-bus-outages-disasters.md#protecting-against-outages-and-disasters---service-bus-premium).
 
 [Página de aterrissagem de migração]: ./media/service-bus-standard-premium-migration/1.png
 [Namespace de instalação]: ./media/service-bus-standard-premium-migration/2.png

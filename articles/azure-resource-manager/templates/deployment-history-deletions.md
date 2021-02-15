@@ -2,26 +2,28 @@
 title: Exclusões de histórico de implantações
 description: Descreve como Azure Resource Manager exclui automaticamente implantações do histórico de implantação. As implantações são excluídas quando o histórico está próximo de exceder o limite de 800.
 ms.topic: conceptual
-ms.date: 08/07/2020
-ms.openlocfilehash: 736a25a3c73f8f4c70c5fb6c686fa2b8bb86666d
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.date: 10/01/2020
+ms.openlocfilehash: 13c65f3311e308708034bb5befb7e3c3ee158d38
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87986501"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91652475"
 ---
 # <a name="automatic-deletions-from-deployment-history"></a>Exclusões automáticas do histórico de implantação
 
 Toda vez que você implanta um modelo, as informações sobre a implantação são gravadas no histórico de implantação. Cada grupo de recursos é limitado a 800 implantações em seu histórico de implantação.
 
-Azure Resource Manager exclui automaticamente as implantações do seu histórico conforme você próximo ao limite. A exclusão automática é uma alteração do comportamento passado. Anteriormente, era necessário excluir manualmente as implantações do histórico de implantação para evitar a obtenção de um erro. **Essa alteração foi implementada em 6 de agosto de 2020.**
+Azure Resource Manager exclui automaticamente as implantações do seu histórico conforme você próximo ao limite. A exclusão automática é uma alteração do comportamento passado. Anteriormente, era necessário excluir manualmente as implantações do histórico de implantação para evitar a obtenção de um erro. Essa alteração foi implementada em 6 de agosto de 2020.
+
+**As exclusões automáticas têm suporte para implantações de grupo de recursos. Atualmente, as implantações no histórico de [assinatura](deploy-to-subscription.md), [grupo de gerenciamento](deploy-to-management-group.md)e implantações de [locatário](deploy-to-tenant.md) não são excluídas automaticamente.**
 
 > [!NOTE]
 > A exclusão de uma implantação do histórico não afeta nenhum dos recursos que foram implantados.
 
 ## <a name="when-deployments-are-deleted"></a>Quando as implantações são excluídas
 
-As implantações são excluídas do seu histórico quando você atinge 775 ou mais implantações. Azure Resource Manager exclui as implantações até que o histórico seja reduzido para 750. As implantações mais antigas são sempre excluídas primeiro.
+As implantações são excluídas do seu histórico quando você excede 775 implantações. Azure Resource Manager exclui as implantações até que o histórico seja reduzido para 750. As implantações mais antigas são sempre excluídas primeiro.
 
 :::image type="content" border="false" source="./media/deployment-history-deletions/deployment-history.svg" alt-text="Exclusões do histórico de implantação":::
 

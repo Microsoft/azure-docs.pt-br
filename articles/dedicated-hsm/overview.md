@@ -1,6 +1,6 @@
 ---
 title: O que é HSM Dedicado? – HSM Dedicado do Azure | Microsoft Docs
-description: A visão geral do HSM dedicado do Azure apresenta recursos de armazenamento de chaves no Azure que atendem à certificação FIPS 140-2 Nível 3
+description: Saiba como o HSM Dedicado do Azure é um serviço do Azure que fornece armazenamento de chave de criptografia no Azure.
 services: dedicated-hsm
 author: msmbaldwin
 manager: rkarlin
@@ -13,12 +13,12 @@ ms.topic: overview
 ms.custom: mvc, seodec18
 ms.date: 12/07/2018
 ms.author: mbaldwin
-ms.openlocfilehash: dd5ce117645ef2b368bbf8f0e441770d6e746b5b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6eb82400b2f598b4b54da4b238f4bce71d83de6b
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "70881085"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "90970202"
 ---
 # <a name="what-is-azure-dedicated-hsm"></a>O que é o HSM dedicado do Azure?
 
@@ -70,7 +70,7 @@ O HSM Dedicado do Azure é mais adequado para cenários de “lift-and-shift” 
 
 O HSM Dedicado do Azure não é uma boa opção para o seguinte tipo de cenário: Serviços em nuvem da Microsoft que dão suporte à criptografia com chaves gerenciadas pelo cliente (como Proteção de Informações do Azure, Azure Disk Encryption, Azure Data Lake Storage, Armazenamento do Azure, Banco de Dados SQL do Azure, Chave de Cliente do Office 365) que não estão integrados ao HSM Dedicado do Azure.
 
-### <a name="it-depends"></a>Depende
+### <a name="it-depends"></a>Isso depende
 
 Se o HSM Dedicado do Azure funcionará para você, isso dependerá de uma combinação potencialmente complexa de requisitos e compromissos que você pode ou não fazer. Um exemplo é o requisito do padrão FIPS 140-2 Nível 3. Esse requisito é comum e o HSM Dedicado atualmente é a única opção que atende a ele. Se esses requisitos obrigatórios não forem relevantes, geralmente, esta será uma escolha entre o Azure Key Vault e o HSM Dedicado. Avalie seus requisitos antes de tomar uma decisão.
 

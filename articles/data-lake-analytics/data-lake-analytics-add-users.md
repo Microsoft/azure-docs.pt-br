@@ -1,18 +1,16 @@
 ---
 title: Adicionar usuários a uma conta do Azure Data Lake Analytics
 description: Saiba como adicionar usuários corretamente à sua conta de Data Lake Analytics usando o assistente para Adicionar usuário e Azure PowerShell.
-services: data-lake-analytics
 ms.service: data-lake-analytics
 ms.reviewer: jasonh
-ms.assetid: db35f16e-1565-4873-a851-bd987accdc58
 ms.topic: how-to
 ms.date: 05/24/2018
-ms.openlocfilehash: 7f9af576640e6d269ff5a44d7b0e2a529c20c505
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: c04b1bbd62e156aeb8d3a0ebb244cfbc753dec52
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502929"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020816"
 ---
 # <a name="adding-a-user-in-the-azure-portal"></a>Adicionar um usuário ao portal do Azure
 
@@ -21,7 +19,7 @@ ms.locfileid: "87502929"
 2. Clique no **Assistente Adicionar Usuário**.
 3. Na etapa **Selecionar usuário**, encontre o usuário que deseja adicionar. Clique em **Selecionar**.
 4. Na etapa **Selecionar função**, escolha **Desenvolvedor do Data Lake Analytics**. Essa função tem o conjunto mínimo de permissões necessárias para enviar/monitorar/gerenciar trabalhos de U-SQL. Atribua a essa função se o grupo não for destinado a gerenciar os serviços do Azure.
-5. Na etapa **Selecionar permissões de catálogo**, selecione os bancos de dados adicionais que o usuário precisará acessar. É necessário ter acesso de leitura e gravação no banco de dados mestre para enviar trabalhos. Quando terminar, clique em **OK**.
+5. Na etapa **Selecionar permissões de catálogo**, selecione os bancos de dados adicionais que o usuário precisará acessar. O acesso de leitura e gravação ao banco de dados estático padrão chamado "Master" é necessário para enviar trabalhos. Quando terminar, clique em **OK**.
 6. Na etapa final, **Atribuir permissões selecionadas**, examine as alterações que o assistente fará. Clique em **OK**.
 
 

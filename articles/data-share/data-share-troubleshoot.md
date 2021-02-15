@@ -1,95 +1,90 @@
 ---
 title: Solucionar problemas do Azure Data Share
-description: Saiba como solucionar problemas com convites e erros ao criar ou receber compartilhamentos de dados com o compartilhamento de dados do Azure.
+description: Saiba como solucionar problemas com convites e erros ao criar ou receber compartilhamentos de dados no compartilhamento de dados do Azure.
 services: data-share
 author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: troubleshooting
-ms.date: 08/14/2020
-ms.openlocfilehash: c68c9dc961475d6916b1f00e7d4f596bfd8c77dd
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.date: 12/16/2020
+ms.openlocfilehash: 3aa1c0b8579bd37d2bb51cbde70997131c696813
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88257798"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97964500"
 ---
-# <a name="troubleshoot-common-issues-in-azure-data-share"></a>Solucionar problemas comuns no compartilhamento de dados do Azure 
+# <a name="troubleshoot-common-problems-in-azure-data-share"></a>Solucionar problemas comuns no compartilhamento de dados do Azure 
 
-Este artigo mostra como solucionar problemas comuns do compartilhamento de dados do Azure. 
+Este artigo explica como solucionar problemas comuns no compartilhamento de dados do Azure. 
 
 ## <a name="azure-data-share-invitations"></a>Convites do Azure Data Share 
 
-Em alguns casos, quando um novo usuário clica em **Aceitar Convite** no convite de email enviado, pode ser apresentada a ele uma lista de convites vazia. 
+Em alguns casos, quando novos usuários selecionam **aceitar convite** em um convite por email, eles podem ver uma lista vazia de convites. 
 
-![Nenhum convite](media/no-invites.png)
+:::image type="content" source="media/no-invites.png" alt-text="Captura de tela mostrando uma lista vazia de convites.":::
 
-Isso pode ser devido aos seguintes motivos:
+Esse problema pode ter uma das seguintes causas:
 
-* **O serviço de compartilhamento de dados do Azure não está registrado como um provedor de recursos de nenhuma assinatura do Azure no locatário do Azure.** Você passará por esse problema se não houver nenhum recurso de compartilhamento de dados em seu locatário do Azure. Quando você cria um recurso de compartilhamento de dados do Azure, ele registra automaticamente o provedor de recursos em sua assinatura do Azure. Você também pode registrar manualmente o serviço de compartilhamento de dados seguindo estas etapas. Você precisará ter a função de colaborador do Azure para concluir essas etapas.
+* **O serviço de compartilhamento de dados do Azure não está registrado como um provedor de recursos de nenhuma assinatura do Azure no locatário do Azure.** Esse problema ocorre quando seu locatário do Azure não tem nenhum recurso de compartilhamento de dados. 
 
-    1. No portal do Azure, navegue até **Assinaturas**
-    1. Selecione a assinatura que você deseja usar para criar o recurso de compartilhamento de dados do Azure
-    1. Clique em **Provedores de Recursos**
-    1. Procurar **Microsoft. DataShare**
-    1. Clique em **Registrar** 
+    Quando você cria um recurso Azure Data Share, ele registra automaticamente o provedor de recursos na assinatura do Azure. Você pode registrar manualmente o serviço de compartilhamento de dados usando as etapas a seguir. Para concluir essas etapas, você precisa da [função de colaborador](../role-based-access-control/built-in-roles.md#contributor) para a assinatura do Azure. 
 
-    Você precisará ter a [função de colaborador do Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) para a assinatura do Azure para concluir essas etapas. 
+    1. No portal do Azure, vá para **Assinaturas**.
+    1. Selecione a assinatura que você deseja usar para criar o recurso de compartilhamento de dados do Azure.
+    1. Selecione **provedores de recursos**.
+    1. Procure **Microsoft. DataShare**.
+    1. Selecione **Registrar**.
 
-* **O convite é enviado para seu alias de email em vez de seu email de logon do Azure.** Se você registrou o serviço de compartilhamento de dados do Azure ou já criou um recurso de compartilhamento de dados no locatário do Azure, mas ainda não consegue ver o convite, talvez porque o provedor tenha inserido seu alias de email como destinatário, em vez de seu endereço de email de logon do Azure. Entre em contato com seu provedor de dados e verifique se eles enviaram o convite para seu endereço de email de logon do Azure e não seu alias de email.
+* **O convite é enviado para seu alias de email em vez de seu endereço de email de entrada do Azure.** Se você já registrou o serviço de compartilhamento de dados do Azure ou criou um recurso de compartilhamento de dados no locatário do Azure, mas ainda não consegue ver o convite, seu alias de email pode estar listado como o destinatário. Entre em contato com seu provedor de dados e verifique se o convite será enviado ao seu endereço de email de entrada do Azure e não ao seu alias de email.
 
-* **O convite já foi aceito.** O link no email leva você para a página de convite de compartilhamento de dados no portal do Azure, que lista apenas os convites pendentes. Se você já tiver aceitado o convite, ele não aparecerá mais na página de convite de compartilhamento de dados. Prossiga para o recurso de compartilhamento de dados que você usou para aceitar o convite no para exibir os compartilhamentos recebidos e configurar sua configuração de cluster de Data Explorer do Azure de destino.
+* **O convite já foi aceito.** O link no email leva você para a página **convites de compartilhamento de dados** no portal do Azure. Esta página lista apenas os convites pendentes. Os convites aceitos não aparecem na página. Para exibir os compartilhamentos recebidos e configurar sua configuração de cluster de Data Explorer do Azure de destino, vá para o recurso de compartilhamento de dados que você usou para aceitar o convite.
 
-## <a name="error-when-creating-or-receiving-a-new-share"></a>Erro ao criar ou receber um novo compartilhamento
+## <a name="creating-and-receiving-shares"></a>Criando e recebendo compartilhamentos
 
-"Falha ao adicionar conjuntos de itens"
+Os erros a seguir podem aparecer ao criar um novo compartilhamento, Adicionar conjuntos de valores ou mapear conjuntos de valores:
 
-"Falha ao mapear conjuntos de itens"
+* Falha ao adicionar conjuntos de os.
+* Falha ao mapear conjuntos de os.
+* Não é possível conceder ao recurso de compartilhamento de dados o acesso x para y.
+* Você não tem as permissões adequadas para x.
+* Não foi possível adicionar permissões de gravação para a conta do compartilhamento de dados do Azure a um ou mais dos recursos selecionados.
 
-"Não é possível conceder ao recurso de compartilhamento de dados o acesso x para y"
+Você poderá ver um desses erros se não tiver permissões suficientes para o armazenamento de dados do Azure. Para obter mais informações, consulte [funções e requisitos](concepts-roles-permissions.md). 
 
-"Você não tem as permissões adequadas para x"
+Você precisa da permissão de gravação para compartilhar ou receber dados de um armazenamento de dados do Azure. Essa permissão normalmente é parte da função colaborador. 
 
-"Não foi possível adicionar permissões de gravação para a conta do compartilhamento de dados do Azure a um ou mais dos seus recursos selecionados"
+Se você estiver compartilhando dados ou recebendo dados do armazenamento de dados do Azure pela primeira vez, também precisará da permissão *Microsoft. Authorization/role/Write* . Essa permissão normalmente é parte da função de proprietário. Mesmo que você tenha criado o recurso de armazenamento de dados do Azure, você não é necessariamente o proprietário do recurso. 
 
-Se você receber qualquer um dos erros acima ao criar um novo compartilhamento ou mapear conjuntos de dados, isso pode ser devido a permissões insuficientes para o armazenamento do Azure Data. Consulte [funções e requisitos](concepts-roles-permissions.md) para obter as permissões necessárias. 
+Quando você tem as permissões adequadas, o serviço de compartilhamento de dados do Azure permite automaticamente que a identidade gerenciada do recurso de compartilhamento de dados acesse o armazenamento de dados. Esse processo pode levar alguns minutos. Se você tiver uma falha devido a esse atraso, tente novamente após alguns minutos.
 
-Você precisa de permissão de gravação para compartilhar ou receber dados de um armazenamento de dados do Azure, que normalmente existe na função colaborador. 
+O compartilhamento baseado em SQL requer permissões adicionais. Para obter informações sobre os pré-requisitos, consulte [compartilhar de fontes SQL](how-to-share-from-sql.md).
 
-Se esta for a primeira vez que você está compartilhando ou recebendo dados do armazenamento de dados do Azure, você também precisa da permissão *Microsoft. Authorization/role/Write* , que normalmente existe na função Owner. Mesmo que você tenha criado o recurso de armazenamento de dados do Azure, ele não o torna automaticamente o proprietário do recurso. Com a permissão adequada, o serviço de compartilhamento de dados do Azure concede automaticamente ao armazenamento de dados acesso de identidade gerenciada do recurso de compartilhamento de dados. Esse processo pode levar alguns minutos para entrar em vigor. Se você tiver uma falha devido a esse atraso, tente novamente em alguns minutos.
+## <a name="snapshots"></a>Instantâneos
+Um instantâneo pode falhar por vários motivos. Abra uma mensagem de erro detalhada selecionando a hora de início do instantâneo e o status de cada conjunto de informações. 
 
-O compartilhamento baseado em SQL requer permissões adicionais. Consulte Solucionando problemas de compartilhamento baseado em SQL para obter detalhes.
+Os instantâneos normalmente falham por esses motivos:
 
-## <a name="troubleshooting-sql-based-sharing"></a>Solucionando problemas de compartilhamento baseado em SQL
+* O compartilhamento de dados não tem permissão para ler do armazenamento de dados de origem ou para gravar no armazenamento de dados de destino. Para obter mais informações, consulte [funções e requisitos](concepts-roles-permissions.md). Se você estiver tirando um instantâneo pela primeira vez, o recurso de compartilhamento de dados poderá precisar de alguns minutos para obter acesso ao armazenamento de dados do Azure. Depois de alguns minutos, tente novamente.
+* A conexão de compartilhamento de dados com o armazenamento de dados de origem ou o armazenamento de dados de destino é bloqueada por um firewall.
+* Um conjunto de dados compartilhado, um armazenamento de dados de origem ou um armazenamento de destino foi excluído.
 
-"O usuário x não existe no banco de dados SQL"
+Para contas de armazenamento, um instantâneo pode falhar porque um arquivo está sendo atualizado na origem enquanto o instantâneo está acontecendo. Como resultado, um arquivo de 0 byte pode aparecer no destino. Após a atualização na origem, os instantâneos devem ter sucesso.
 
-Se você receber esse erro ao adicionar um conjunto de dados a partir de uma fonte baseada em SQL, talvez seja porque você não criou um usuário para a identidade gerenciada do compartilhamento de data do Azure no SQL Database.  Para resolver esse problema, execute o seguinte script:
+Para fontes SQL, um instantâneo pode falhar por esses outros motivos:
 
-```sql
-    create user "<share_acct_name>" from external provider; 
-    exec sp_addrolemember db_datareader, "<share_acct_name>";
-```      
-Se você receber esse erro ao mapear o conjunto de dados para um destino baseado em SQL, talvez seja porque você não criou um usuário para a identidade gerenciada do compartilhamento de data do Azure em seu SQL Server.  Para resolver esse problema, execute o seguinte script:
+* O script SQL de origem ou o script SQL de destino que concede permissão de compartilhamento de dados não foi executado. Ou para o banco de dados SQL do Azure ou o Azure Synapse Analytics (anteriormente SQL Data Warehouse do Azure), o script é executado usando a autenticação do SQL em vez de Azure Active Directory autenticação.  
+* O armazenamento de dados de origem ou o armazenamento de dados SQL de destino está em pausa.
+* O processo de instantâneo ou o armazenamento de dados de destino não dá suporte a tipos de dados SQL. Para obter mais informações, consulte [compartilhar de fontes SQL](how-to-share-from-sql.md#supported-data-types).
+* O armazenamento de dados de origem ou o armazenamento de dados SQL de destino está bloqueado por outros processos. O compartilhamento de dados do Azure não bloqueia esses armazenamentos de dados. Mas os bloqueios existentes nesses armazenamentos de dados podem fazer um instantâneo falhar.
+* A tabela SQL de destino é referenciada por uma restrição FOREIGN KEY. Durante um instantâneo, se uma tabela de destino tiver o mesmo nome que uma tabela nos dados de origem, o compartilhamento de dados do Azure descartará a tabela e criará uma nova tabela. Se a tabela SQL de destino for referenciada por uma restrição FOREIGN KEY, a tabela não poderá ser descartada.
+* Um arquivo CSV de destino é gerado, mas os dados não podem ser lidos no Excel. Você poderá ver esse problema quando a tabela SQL de origem contiver dados que incluem caracteres que não são do inglês. No Excel, selecione a guia **obter dados** e escolha o arquivo CSV. Selecione a origem do arquivo **65001: Unicode (UTF-8)** e, em seguida, carregue os dados.
 
-```sql
-    create user "<share_acc_name>" from external provider; 
-    exec sp_addrolemember db_datareader, "<share_acc_name>"; 
-    exec sp_addrolemember db_datawriter, "<share_acc_name>"; 
-    exec sp_addrolemember db_ddladmin, "<share_acc_name>";
-```
-Observe que *<share_acc_name>* é o nome do seu recurso do Data Share.      
-
-Verifique se você seguiu todos os pré-requisitos listados no tutorial [compartilhar seus dados](share-your-data.md) e [aceitar e receber dados](subscribe-to-data-share.md) .
-
-## <a name="snapshot-failed"></a>Falha no instantâneo
-O instantâneo pode falhar por vários motivos. Você pode encontrar uma mensagem de erro detalhada clicando na hora de início do instantâneo e no status de cada conjunto de informações. 
-
-Se a mensagem de erro estiver relacionada à permissão, verifique se o serviço de compartilhamento de dados tem a permissão necessária. Consulte [funções e requisitos](concepts-roles-permissions.md) para obter detalhes. Se esta for a primeira vez que você está fazendo um instantâneo, pode levar alguns minutos para que o recurso de compartilhamento de dados receba acesso ao armazenamento de dados do Azure. Aguarde alguns minutos e tente novamente.
+## <a name="updated-snapshot-schedules"></a>Agendamentos de instantâneos atualizados
+Depois que o provedor de dados atualizar o agendamento de instantâneo para o compartilhamento enviado, o consumidor de dados precisará desabilitar a agenda de instantâneo anterior. Em seguida, habilite o agendamento de instantâneo atualizado para o compartilhamento recebido. 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber como iniciar o compartilhamento de dados, continue com o tutorial sobre como [compartilhar seus dados](share-your-data.md). 
+Para saber como começar a compartilhar dados, prossiga para o tutorial [compartilhar dados](share-your-data.md) . 
 
 Para saber como receber dados, continue no tutorial [aceitar e receber dados](subscribe-to-data-share.md) .
-

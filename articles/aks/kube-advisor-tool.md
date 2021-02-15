@@ -7,12 +7,12 @@ author: seanmck
 ms.topic: troubleshooting
 ms.date: 11/05/2018
 ms.author: seanmck
-ms.openlocfilehash: 2b0078f1aff3ef81ee270f67de0fffddec3abab9
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 7730146f30487eb5d20f0d3138e9e5ba799daa99
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86255244"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94681509"
 ---
 # <a name="checking-for-kubernetes-best-practices-in-your-cluster"></a>Verificar as práticas recomendadas do Kubernetes no seu cluster
 
@@ -29,7 +29,7 @@ A ferramenta kube-advisor pode relatar a solicitação de recursos e os limites 
 
 ## <a name="running-kube-advisor"></a>Executando o Supervisor de kube
 
-Para executar a ferramenta em um cluster configurado para [controle de acesso baseado em função (RBAC)](./azure-ad-integration-cli.md), use os seguintes comandos. O primeiro comando cria uma conta de serviço do Kubernetes. O segundo comando executa a ferramenta em um pod usando essa conta de serviço e configura o pod para exclusão após sua saída. 
+Para executar a ferramenta em um cluster configurado para o [controle de acesso baseado em função do kubernetes (KUBERNETES RBAC)](./azure-ad-integration-cli.md), use os comandos a seguir. O primeiro comando cria uma conta de serviço do Kubernetes. O segundo comando executa a ferramenta em um pod usando essa conta de serviço e configura o pod para exclusão após sua saída. 
 
 ```bash
 kubectl apply -f https://raw.githubusercontent.com/Azure/kube-advisor/master/sa.yaml
@@ -37,7 +37,7 @@ kubectl apply -f https://raw.githubusercontent.com/Azure/kube-advisor/master/sa.
 kubectl run --rm -i -t kubeadvisor --image=mcr.microsoft.com/aks/kubeadvisor --restart=Never --overrides="{ \"apiVersion\": \"v1\", \"spec\": { \"serviceAccountName\": \"kube-advisor\" } }" --namespace default
 ```
 
-Se você não estiver usando o RBAC, poderá executar o comando da seguinte maneira:
+Se você não estiver usando o RBAC kubernetes, poderá executar o comando da seguinte maneira:
 
 ```bash
 kubectl run --rm -i -t kubeadvisor --image=mcr.microsoft.com/aks/kubeadvisor --restart=Never
@@ -59,13 +59,13 @@ Por padrão, nenhuma solicitação ou limite é definido nas especificações do
 
 ## <a name="cleaning-up"></a>Limpando
 
-Se o seu cluster tiver o RBAC ativado, você poderá limpar o `ClusterRoleBinding` depois de executar a ferramenta usando o seguinte comando:
+Se o cluster tiver o RBAC kubernetes habilitado, você poderá limpar o `ClusterRoleBinding` depois de executar a ferramenta usando o seguinte comando:
 
 ```bash
 kubectl delete -f https://raw.githubusercontent.com/Azure/kube-advisor/master/sa.yaml
 ```
 
-Se você estiver executando a ferramenta em um cluster que não esteja habilitado para RBAC, nenhuma limpeza será necessária.
+Se você estiver executando a ferramenta em um cluster que não esteja habilitado para o RBAC kubernetes, nenhuma limpeza será necessária.
 
 ## <a name="next-steps"></a>Próximas etapas
 

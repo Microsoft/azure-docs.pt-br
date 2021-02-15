@@ -8,10 +8,10 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 04/29/2020
 ms.openlocfilehash: cde8db5310e3ede2721ba327b28c789ccd0b7dd0
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87280759"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Gerenciar aplicativos lógicos com Visual Studio
@@ -41,7 +41,7 @@ Você também pode [gerenciar seus aplicativos lógicos no portal do Azure](mana
 
   * [SDK do Azure (2.9.1 ou posterior)](https://azure.microsoft.com/downloads/)
 
-  * [Azure PowerShell](https://github.com/Azure/azure-powershell#installation)
+  * [PowerShell do Azure](https://github.com/Azure/azure-powershell#installation)
 
   * As Ferramentas dos Aplicativos Lógicos do Azure mais recentes para a extensão do Visual Studio para a versão que você deseja:
 
@@ -53,11 +53,11 @@ Você também pode [gerenciar seus aplicativos lógicos no portal do Azure](mana
 
     Você pode baixar e instalar as Ferramentas dos Aplicativos Lógicos do Azure diretamente do Visual Studio Marketplace ou aprender como [instalar essa extensão de dentro do Visual Studio](/visualstudio/ide/finding-and-using-visual-studio-extensions). Reinicie o Visual Studio após concluir a instalação.
 
-  * Para usar as assinaturas do Azure governamental com o Visual Studio, consulte estes tópicos para configuração adicional:
+  * Para usar assinaturas do Azure Government com o Visual Studio, confira estes tópicos para ver a configuração adicional:
 
-    * Visual Studio 2019: [início rápido: conectar-se ao Azure governamental com o Visual Studio](../azure-government/documentation-government-connect-vs.md)
+    * Visual Studio 2019: [Início Rápido: Conectar-se ao Azure Government com o Visual Studio](../azure-government/documentation-government-connect-vs.md)
 
-    * Visual Studio 2017: [apresentando a extensão do Visual Studio do seletor de ambiente do Azure](https://devblogs.microsoft.com/azuregov/introducing-the-azure-environment-selector-visual-studio-extension/), que você pode baixar e instalar do [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=SteveMichelotti.AzureEnvironmentSelector).
+    * Visual Studio 2017: [Introdução à extensão de Seletor de Ambiente do Azure do Visual Studio](https://devblogs.microsoft.com/azuregov/introducing-the-azure-environment-selector-visual-studio-extension/), que você pode baixar e instalar do [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=SteveMichelotti.AzureEnvironmentSelector).
 
 * Acesso à Web durante o uso do Designer de Aplicativos Lógicos inserido
 
@@ -127,7 +127,7 @@ Para criar aplicativos lógicos para cenários de integração empresarial B2B (
 
 1. No Visual Studio, abra o projeto do grupo de recursos do Azure que contém seu aplicativo lógico.
 
-1. No Gerenciador de Soluções, abra o **<Logic-app-Name # C1.jsno** menu de atalho do arquivo e selecione **abrir com o designer do aplicativo lógico**. (Teclado: CTRL + L)
+1. No Gerenciador de Soluções, abra o **<Logic-app-Name # C1.jsno** menu de atalho do arquivo e selecione **abrir com o designer do aplicativo lógico**. (teclado: Ctrl + L)
 
    ![Abrir o arquivo. JSON do aplicativo lógico com o designer de aplicativo lógico](./media/manage-logic-apps-with-visual-studio/open-logic-app-designer.png)
 
@@ -162,7 +162,7 @@ Para alterar o tipo de local ou o local do seu aplicativo lógico, você precisa
 
 1. No Visual Studio, abra o projeto do grupo de recursos do Azure que contém seu aplicativo lógico.
 
-1. No Gerenciador de Soluções, abra o `<logic-app-name>.json` menu de atalho do arquivo e selecione **abrir com o designer de aplicativo lógico**. (Teclado: CTRL + L)
+1. No Gerenciador de Soluções, abra o `<logic-app-name>.json` menu de atalho do arquivo e selecione **abrir com o designer de aplicativo lógico**. (teclado: Ctrl + L)
 
    ![Abrir o arquivo. JSON do aplicativo lógico com o designer de aplicativo lógico](./media/manage-logic-apps-with-visual-studio/open-logic-app-designer.png)
 
@@ -204,7 +204,7 @@ Se você editar o aplicativo lógico no Portal do Azure e quiser manter essas al
 
 * No Visual Studio, na barra de ferramentas do designer do aplicativo lógico, selecione **Atualizar**.
 
-  -ou-
+  - ou -
 
 * No Visual Studio Cloud Explorer, abra o menu de atalho do aplicativo lógico e selecione **Atualizar**.
 

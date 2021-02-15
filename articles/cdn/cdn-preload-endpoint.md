@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 02/12/2018
 ms.author: allensu
-ms.openlocfilehash: 2f0968af5cb52904f6044e130adba8b0ba9a6cd1
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 186ded90b504420a2f315d054551d97821cf8465
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192566"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100385040"
 ---
 # <a name="pre-load-assets-on-an-azure-cdn-endpoint"></a>Pré-carregar ativos em um ponto de extremidade da CDN do Azure
 [!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
@@ -66,8 +66,7 @@ Esse tutorial orienta você carregando previamente o conteúdo armazenado em cac
 > 
 > 
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 * [Limpar um ponto de extremidade da CDN do Azure](cdn-purge-endpoint.md)
-* [Referência da API REST da CDN do Azure: pré-carregar conteúdo em um ponto de extremidade](https://docs.microsoft.com/rest/api/cdn/endpoints/loadcontent)
-* [Referência da API REST da CDN do Azure: limpar conteúdo de um ponto de extremidade](https://docs.microsoft.com/rest/api/cdn/endpoints/purgecontent)
-
+* [Referência da API REST da CDN do Azure: pré-carregar conteúdo em um ponto de extremidade](/rest/api/cdn/cdn/endpoints/loadcontent)
+* [Referência da API REST da CDN do Azure: limpar conteúdo de um ponto de extremidade](/rest/api/cdn/cdn/endpoints/purgecontent)

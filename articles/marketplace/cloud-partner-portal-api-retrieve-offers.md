@@ -8,10 +8,10 @@ author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
 ms.openlocfilehash: 39d07751c708d5555799ecbb3b3bc66d3f44f43a
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87271953"
 ---
 # <a name="retrieve-offers"></a>Recuperar ofertas
@@ -27,7 +27,7 @@ Recupera uma lista resumida de ofertas em um namespace do editor.
 
 | **Nome**         |  **Descrição**                         |  **Data type** |
 | -------------    |  ------------------------------------    |  -----------   |
-|  publisherId     | Identificador do editor, por exemplo `contoso` |   Cadeia de caracteres    |
+|  publisherId     | Identificador do editor, por exemplo `contoso` |   String    |
 |  api-version     | Última versão da API                    |    Data        |
 |  |  |
 
@@ -91,7 +91,7 @@ Recupera uma lista resumida de ofertas em um namespace do editor.
 |  NotStarted                  | A oferta é nova e não iniciada.                 |
 |  WaitingForPublisherReview   | A oferta aguarda aprovação do editor.         |
 |  Executando                     | O envio da oferta está sendo processado.             |
-|  Com sucesso                   | O envio da oferta concluiu o processamento.       |
+|  Êxito                   | O envio da oferta concluiu o processamento.       |
 |  Canceled                    | O envio da oferta foi cancelado.                   |
-|  Com falha                      | O envio da oferta falhou.                         |
+|  Failed (Falha)                      | O envio da oferta falhou.                         |
 |  |  |

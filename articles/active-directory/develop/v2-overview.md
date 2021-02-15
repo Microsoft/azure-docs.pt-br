@@ -1,5 +1,6 @@
 ---
 title: Visão geral da plataforma de identidade da Microsoft – Azure
+titleSuffix: Microsoft identity platform
 description: Saiba mais sobre os componentes da plataforma de identidade da Microsoft e como eles podem ajudá-lo a criar suporte a IAM (gerenciamento de identidade e acesso) em seus aplicativos.
 services: active-directory
 author: rwike77
@@ -11,15 +12,15 @@ ms.workload: identity
 ms.date: 07/09/2020
 ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
-ms.custom: identityplatformtop40
-ms.openlocfilehash: e34eeeca3b17087fb5bd43ae353e43b5ab355831
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.custom: identityplatformtop40, contperf-fy21q2
+ms.openlocfilehash: 662523b1544fe3ca9e8bda993efa7b578b9f69cc
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88119548"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98752581"
 ---
-# <a name="microsoft-identity-platform-overview"></a>Visão geral da plataforma de identidade da Microsoft
+# <a name="what-is-the-microsoft-identity-platform"></a>O que é a plataforma de identidade da Microsoft?
 
 A plataforma de identidade da Microsoft ajuda você a fornecer acesso autorizado às APIs ou APIs da Microsoft, como o Microsoft Graph, além de criar aplicativos em que seus usuários e clientes podem entrar usando as respectivas identidades da Microsoft ou contas de redes sociais.
 
@@ -73,12 +74,11 @@ Saiba como os principais conceitos de autenticação do Azure AD se aplicam à p
 
 [Azure AD B2B](../external-identities/what-is-b2b.md) – convide usuários externos em seu locatário do Azure AD como usuários "convidados" aos quais você pode atribuir permissões para autorização, enquanto eles usam as respectivas credenciais existentes para autenticação.
 
-> [!TIP]
-> Procurando documentação sobre a *plataforma de desenvolvedor do Azure Active Directory (v1.0)* ? Confira a [Visão geral do Azure Active Directory para desenvolvedores (v1.0)](../azuread-dev/v1-overview.md).
+[Azure Active Directory para desenvolvedores (v1.0)](../azuread-dev/v1-overview.md) – Mostrado aqui para desenvolvedores com aplicativos existentes que usam o ponto de extremidade v1.0 mais antigo. **Não** use a v1.0 em novos projetos.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se você tem uma conta do Azure, isso significa que já tem acesso a um locatário do Azure Active Directory, mas a maioria dos desenvolvedores da plataforma de identidade da Microsoft precisa ter os próprios locatários do Azure AD deles para uso durante o desenvolvimento de aplicativos, um "locatário de desenvolvimento".
+Se você tem uma conta do Azure, isso significa que já tem acesso a um locatário do Azure Active Directory, mas a maioria dos desenvolvedores da plataforma de identidade da Microsoft precisa ter os próprios locatários do Azure AD para uso durante o desenvolvimento de aplicativos, um "locatário de desenvolvimento".
 
 Saiba como criar seu locatário para uso ao criar seus aplicativos:
 

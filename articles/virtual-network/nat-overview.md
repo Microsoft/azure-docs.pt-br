@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/25/2020
+ms.date: 09/28/2020
 ms.author: allensu
-ms.openlocfilehash: 3180fa34b85c3ec5f7cb1d2d9da8c2e1b528bd69
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 75a2bb187b2ed7a234e99d8cd293cb30148bcb1f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855802"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91667190"
 ---
 # <a name="what-is-virtual-network-nat"></a>O que é NAT de Rede Virtual?
 
@@ -32,7 +32,7 @@ A NAT de Rede Virtual (conversão de endereços de rede) simplifica a conectivid
 -->
 
 <p align="center">
-  <img src="./media/nat-overview/flow-map.svg" alt="Figure depicts a NAT receiving traffic from internal subnets and directing it to a public IP and an IP prefix." width="256" title="NAT de Rede Virtual">
+  <img src="./media/nat-overview/flow-map.svg" alt="Figure depicts a NAT receiving traffic from internal subnets and directing it to a public IP (PIP) and an IP prefix." width="256" title="NAT de Rede Virtual">
 </p>
 
 
@@ -43,7 +43,7 @@ A NAT de Rede Virtual (conversão de endereços de rede) simplifica a conectivid
 
 A conectividade de saída pode ser definida para cada sub-rede com a NAT.  Várias sub-redes dentro da mesma rede virtual podem ter NATs diferentes. Uma sub-rede é configurada especificando qual recurso de Gateway da NAT deverá ser usado. Todos os fluxos de saída UDP e TCP de qualquer instância de máquina virtual usarão a NAT. 
 
-O NAT é compatível com recursos de endereço IP público ou com recursos de prefixo IP público do SKU Standard ou uma combinação de ambos.  Você pode usar um prefixo IP público diretamente ou distribuir os endereços IP públicos do prefixo entre vários recursos do gateway da NAT. A NAT limpará todo o tráfego para o intervalo de endereços IP do prefixo.  Agora é fácil incluir o IP na lista de permissões de suas implantações.
+O NAT é compatível com recursos de endereço IP público ou com recursos de prefixo IP público do SKU Standard ou uma combinação de ambos.  Você pode usar um prefixo IP público diretamente ou distribuir os endereços IP públicos do prefixo entre vários recursos do gateway da NAT. A NAT limpará todo o tráfego para o intervalo de endereços IP do prefixo.  Qualquer filtragem de IP de suas implantações agora é fácil.
 
 Todo o tráfego de saída da sub-rede é processado pela NAT automaticamente sem nenhuma configuração do cliente.  Rotas definidas pelo usuário não são necessárias. O NAT tem precedência sobre outros cenários de saída e substitui o destino de Internet padrão de uma sub-rede.
 
@@ -51,11 +51,11 @@ Todo o tráfego de saída da sub-rede é processado pela NAT automaticamente sem
 
 A NAT usa a PNAT ou PAT (“conversão de endereços de rede de porta”) e é recomendável para a maioria das cargas de trabalho. Cargas de trabalho dinâmicas ou divergentes podem ser facilmente acomodadas com alocação de fluxo de saída sob demanda. Deve-se evitar o pré-planejamento, a pré-alocação e, em último caso, o excesso de provisionamento extensivos de recursos de saída. Os recursos de porta SNAT são compartilhados e estão disponíveis em todas as sub-redes usando um recurso de gateway NAT específico e são fornecidos quando necessário.
 
-Um endereço IP público anexado ao NAT fornece até 64 mil fluxos simultâneos para UDP e TCP. Você pode começar com um endereço IP e expandir para até 16 endereços IP públicos.
+Um endereço IP público anexado ao NAT fornece até 64.000 fluxos simultâneos para UDP e TCP, respectivamente. Você pode começar com um único endereço IP e escalar verticalmente até 16 endereços IP usando endereços IP públicos ou prefixos IP públicos ou ambos.  Um recurso de gateway NAT usará todos os endereços IP associados ao recurso para conexões de saída de todas as sub-redes configuradas com o mesmo recurso de gateway NAT.
 
 A NAT permite que os fluxos sejam criados com base na rede virtual para a Internet. O tráfego de retorno da Internet só é permitido em resposta a um fluxo ativo.
 
-Diferentemente do SNAT de saída do balanceador de carga, a NAT não tem restrições sobre qual IP privado de uma instância de máquina virtual pode realizar conexões de saída.  As configurações de IP secundário podem criar uma conexão de Internet de saída com a NAT.
+Diferentemente do SNAT de saída do balanceador de carga, a NAT não tem restrições sobre qual IP privado de uma instância de máquina virtual pode realizar conexões de saída.  As configurações de IP primário e secundário podem criar conexão de Internet de saída com NAT.
 
 ## <a name="coexistence-of-inbound-and-outbound"></a>Coexistência de entrada e saída
 
@@ -145,4 +145,3 @@ Desejamos saber como podemos aprimorar o serviço. Proponha e vote em quais iten
 
 * Saiba mais sobre o [recurso de gateway da NAT](./nat-gateway-resource.md).
 * [Diga-nos o que criar em seguida para a NAT de Rede Virtual no UserVoice](https://aka.ms/natuservoice).
-

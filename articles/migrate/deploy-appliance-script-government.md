@@ -1,14 +1,17 @@
 ---
 title: Configurar um dispositivo de migrações para Azure no Azure governamental
 description: Saiba como configurar um dispositivo de migrações para Azure no Azure governamental
-ms.topic: article
+author: vikram1988
+ms.author: vibansa
+ms.manager: abhemraj
+ms.topic: how-to
 ms.date: 04/16/2020
-ms.openlocfilehash: ffea966c58909ecaab0da13a4204295ecb193895
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: f31211c4448ad5bbe8d839b2ec86b0b61970f568
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88936785"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96752185"
 ---
 # <a name="set-up-an-appliance-in-azure-government"></a>Configurar um dispositivo no Azure governamental 
 
@@ -35,7 +38,7 @@ Para configurar o dispositivo para VMware, você baixa um arquivo compactado do 
 
 1.  Em **Metas de Migração** > **Servidores** > **Migrações para Azure: Avaliação de Servidor**, clique em **Descobrir**.
 2.  Em **Descobrir computadores** > **As suas máquinas são virtualizadas?** , selecione **Sim, com o hipervisor do VMware vSphere**.
-3.  Clique em **baixar**para baixar o arquivo compactado. 
+3.  Clique em **baixar** para baixar o arquivo compactado. 
 
 
 ### <a name="verify-file-security"></a>Verificar a segurança do arquivo
@@ -51,7 +54,7 @@ Verifique se o arquivo compactado é seguro antes de implantá-lo.
 
     **Algoritmo** | **Download** | **SHA256**
     --- | --- | ---
-    VMware (85 MB) | [Última versão](https://go.microsoft.com/fwlink/?linkid=2140337) | 31b1bfdd4fc29b3eb923c7c6e7a898af79b7cac0404426bea18809def2284188
+    VMware (85,8 MB) | [Última versão](https://go.microsoft.com/fwlink/?linkid=2140337) | 2daaa2a59302bf911e8ef195f8add7d7c8352de77a9af0b860e2a627979085ca
 
 
 ### <a name="run-the-script"></a>Executar o script
@@ -76,7 +79,7 @@ Para executar o script:
     ``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-VMWare-USGov>.\AzureMigrateInstaller.ps1 ```
 1. Depois que o script é executado com êxito, ele inicia o aplicativo Web do dispositivo para que você possa configurar o dispositivo. Se você encontrar problemas, examine os logs de script em C:\ProgramData\Microsoft Azure\Logs\ AzureMigrateScenarioInstaller_<em>timestamp</em>. log.
 
-### <a name="verify-access"></a>Verificar acesso
+### <a name="verify-access"></a>Verificar o acesso
 
 Verifique se o dispositivo pode se conectar a URLs do Azure para [nuvens governamentais](migrate-appliance.md#government-cloud-urls).
 
@@ -89,7 +92,7 @@ Para configurar o dispositivo para Hyper-V, você baixa um arquivo compactado do
 
 1.  Em **Metas de Migração** > **Servidores** > **Migrações para Azure: Avaliação de Servidor**, clique em **Descobrir**.
 2.  Em **Descobrir computadores** > **Os computadores estão virtualizados?** , selecione **Sim, com o Hyper-V**.
-3.  Clique em **baixar**para baixar o arquivo compactado. 
+3.  Clique em **baixar** para baixar o arquivo compactado. 
 
 
 ### <a name="verify-file-security"></a>Verificar a segurança do arquivo
@@ -105,7 +108,7 @@ Verifique se o arquivo compactado é seguro antes de implantá-lo.
 
     **Cenário** | **Download** | **SHA256**
     --- | --- | ---
-    Hyper-V (85 MB) | [Última versão](https://go.microsoft.com/fwlink/?linkid=2140424) |  db5311de3d1d4a1167183a94e8347456db9c5749c7332ff2eb4b777798765e48
+    Hyper-V (85,8 MB) | [Última versão](https://go.microsoft.com/fwlink/?linkid=2140424) |  db5311de3d1d4a1167183a94e8347456db9c5749c7332ff2eb4b777798765e48
 
           
 
@@ -131,7 +134,7 @@ Para executar o script:
     ``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-HyperV-USGov>.\AzureMigrateInstaller.ps1 ``` 
 1. Depois que o script é executado com êxito, ele inicia o aplicativo Web do dispositivo para que você possa configurar o dispositivo. Se você encontrar problemas, examine os logs de script em C:\ProgramData\Microsoft Azure\Logs\ AzureMigrateScenarioInstaller_<em>timestamp</em>. log.
 
-### <a name="verify-access"></a>Verificar acesso
+### <a name="verify-access"></a>Verificar o acesso
 
 Verifique se o dispositivo pode se conectar a URLs do Azure para [nuvens governamentais](migrate-appliance.md#government-cloud-urls).
 
@@ -144,7 +147,7 @@ Para configurar o dispositivo para VMware, você baixa um arquivo compactado do 
 
 1.  Em **Metas de Migração** > **Servidores** > **Migrações para Azure: Avaliação de Servidor**, clique em **Descobrir**.
 2.  Em **descobrir computadores**  >  **são seus computadores virtualizados?**, selecione **não virtualizados/outros**.
-3.  Clique em **baixar**para baixar o arquivo compactado. 
+3.  Clique em **baixar** para baixar o arquivo compactado. 
 
 
 ### <a name="verify-file-security"></a>Verificar a segurança do arquivo
@@ -158,9 +161,9 @@ Verifique se o arquivo compactado é seguro antes de implantá-lo.
 
 3. Verifique a versão mais recente do dispositivo e o valor de hash:
 
-    **Cenário** | **Baixar*** | **Valor de hash**
+    **Cenário** | **Baixar** _ | _ *Valor de hash**
     --- | --- | ---
-    Físico (85 MB) | [Última versão](https://go.microsoft.com/fwlink/?linkid=2140338) | 1545f9ce8874cedef6347c1a1332f8b5eabd6811a017440a2382525fb0430309
+    Físico (85 MB) | [Última versão](https://go.microsoft.com/fwlink/?linkid=2140338) | cfed44bb52c9ab3024a628dc7a5d0df8c624f156ec1ecc3507116bae330b257f
           
 
 ### <a name="run-the-script"></a>Executar o script
@@ -185,7 +188,7 @@ Para executar o script:
     ``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-Server-USGov>.\AzureMigrateInstaller.ps1 ```
 1. Depois que o script é executado com êxito, ele inicia o aplicativo Web do dispositivo para que você possa configurar o dispositivo. Se você encontrar problemas, examine os logs de script em C:\ProgramData\Microsoft Azure\Logs\ AzureMigrateScenarioInstaller_<em>timestamp</em>. log.
 
-### <a name="verify-access"></a>Verificar acesso
+### <a name="verify-access"></a>Verificar o acesso
 
 Verifique se o dispositivo pode se conectar a URLs do Azure para [nuvens governamentais](migrate-appliance.md#government-cloud-urls).
 

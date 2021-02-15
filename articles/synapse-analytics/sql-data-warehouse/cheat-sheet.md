@@ -1,6 +1,6 @@
 ---
-title: Folha de referências do Azure Synapse Analytics (anteriormente conhecido como SQL DW)
-description: Localize links e melhores práticas para compilar rapidamente suas soluções do Azure Synapse Analytics (anteriormente conhecido como SQL DW).
+title: Roteiro para o pool de SQL dedicado (antigo SQL DW)
+description: Localize links e melhores práticas para criar rapidamente seu pool de SQL dedicado (antigo SQL DW) no Azure Synapse Analytics.
 services: synapse-analytics
 author: mlee3gsd
 manager: craigg
@@ -10,18 +10,18 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 3b5783476e0d4a96561e11158cd2b0f6421cfbf6
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: cc54ae66cda6bf8ecde07d1830448ec39a15cc29
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88136092"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120216"
 ---
-# <a name="cheat-sheet-for-azure-synapse-analytics-formerly-sql-dw"></a>Folha de referências do Azure Synapse Analytics (anteriormente conhecido como SQL DW)
+# <a name="cheat-sheet-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytic"></a>Roteiro para o pool de SQL dedicado (antigo SQL DW) no Azure Synapse Analytics
 
-Esta folha de referências fornece dicas úteis e melhores práticas para a compilação das soluções do Azure Synapse.
+Este roteiro fornece dicas úteis e melhores práticas para a criação de soluções de pool de SQL dedicado (antigo SQL DW).
 
-O gráfico a seguir mostra o processo de criação de um data warehouse:
+O seguinte gráfico mostra o processo de criação de um data warehouse com um pool de SQL dedicado (antigo SQL DW):
 
 ![Esboço](./media/cheat-sheet/picture-flow.png)
 
@@ -37,7 +37,7 @@ Saber os tipos de operações antecipadamente ajuda-o a otimizar o design de sua
 
 ## <a name="data-migration"></a>Migração de dados
 
-Primeiro, carregue seus dados no [Azure Data Lake Storage](../../data-factory/connector-azure-data-lake-store.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) ou no Armazenamento de Blobs do Azure. Em seguida, use a [instrução COPY](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (versão prévia) para carregar os dados em tabelas de preparo. Use a seguinte configuração:
+Primeiro, carregue seus dados no [Azure Data Lake Storage](../../data-factory/connector-azure-data-lake-store.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) ou no Armazenamento de Blobs do Azure. Em seguida, use a [instrução COPY](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) para carregar os dados em tabelas de preparo. Use a seguinte configuração:
 
 | Design | Recomendação |
 |:--- |:--- |
@@ -46,7 +46,7 @@ Primeiro, carregue seus dados no [Azure Data Lake Storage](../../data-factory/co
 | Particionamento | Nenhum |
 | Classe de recurso | largerc ou xlargerc |
 
-Saiba mais sobre [migração de dados](https://blogs.msdn.microsoft.com/sqlcat/20../../migrating-data-to-azure-sql-data-warehouse-in-practice/), [carregamento de dados](design-elt-data-loading.md) e o [processo ELT (Extrair, Carregar e Transformar)](design-elt-data-loading.md).
+Saiba mais sobre [migração de dados](/archive/blogs/sqlcat/migrating-data-to-azure-sql-data-warehouse-in-practice), [carregamento de dados](design-elt-data-loading.md) e o [processo ELT (Extrair, Carregar e Transformar)](design-elt-data-loading.md).
 
 ## <a name="distributed-or-replicated-tables"></a>Tabelas replicadas ou distribuídas
 
@@ -64,8 +64,8 @@ Use as seguintes estratégias, dependendo das propriedades da tabela:
 * Certifique-se de que as chaves de hash comuns tenham o mesmo formato de dados.
 * Não distribua no formato varchar.
 * As tabelas de dimensão com chave de hash comum para uma tabela de fatos com operações join frequentes podem ser distribuídas por hash.
-* Use *[sys.dm_pdw_nodes_db_partition_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-partition-stats-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)* para analisar qualquer distorção nos dados.
-* Use *[sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)* para analisar as movimentações de dados por trás das consultas, monitorar o tempo que as operações de difusão e organização em ordem aleatória levam. Isso é útil para examinar a estratégia de distribuição.
+* Use *[sys.dm_pdw_nodes_db_partition_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-partition-stats-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)* para analisar qualquer distorção nos dados.
+* Use *[sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)* para analisar as movimentações de dados por trás das consultas, monitorar o tempo que as operações de difusão e organização em ordem aleatória levam. Isso é útil para examinar a estratégia de distribuição.
 
 Saiba mais sobre [tabelas replicadas](design-guidance-for-replicated-tables.md) e [tabelas distribuídas](sql-data-warehouse-tables-distribute.md).
 
@@ -121,13 +121,13 @@ Os grupos de recursos são usados como uma maneira de alocar memória para as co
 
 Se você notar que as consultas demoram muito, verifique se seus usuários não são executados em classes de recursos grandes. Classes de recursos grandes consomem vários slots de simultaneidade. Eles podem fazer com que outras consultas sejam colocadas em fila.
 
-Por fim, ao usar a Gen2 do [pool do SQL](sql-data-warehouse-overview-what-is.md#synapse-sql-pool-in-azure-synapse), cada classe de recursos obtém 2,5 vezes mais memória do que a Gen1.
+Por fim, usando a Gen2 do [pool de SQL dedicado (antigo SQL DW)](sql-data-warehouse-overview-what-is.md), cada classe de recursos tem 2,5 vezes mais memória do que a Gen1.
 
 Saiba mais sobre como trabalhar com [classes de recursos e simultaneidade](resource-classes-for-workload-management.md).
 
 ## <a name="lower-your-cost"></a>Reduzir seu custo
 
-Um recurso-chave do Azure Synapse é a capacidade de [gerenciar recursos de computação](sql-data-warehouse-manage-compute-overview.md). Você poderá pausar o pool do SQL quando ele não estiver em uso e isso interromperá a cobrança dos recursos de computação. Você pode dimensionar os recursos para atender às suas exigências de desempenho. Para pausar, use o [portal do Azure](pause-and-resume-compute-portal.md) ou [PowerShell](pause-and-resume-compute-powershell.md). Para dimensionar, use o [portal do Azure](quickstart-scale-compute-portal.md), [Powershell](quickstart-scale-compute-powershell.md), [T-SQL](quickstart-scale-compute-tsql.md), ou um [API REST](sql-data-warehouse-manage-compute-rest-api.md#scale-compute).
+Um recurso-chave do Azure Synapse é a capacidade de [gerenciar recursos de computação](sql-data-warehouse-manage-compute-overview.md). Você poderá pausar o pool de SQL dedicado (antigo SQL DW) quando ele não estiver em uso e isso interromperá a cobrança dos recursos de computação. Você pode dimensionar os recursos para atender às suas exigências de desempenho. Para pausar, use o [portal do Azure](pause-and-resume-compute-portal.md) ou [PowerShell](pause-and-resume-compute-powershell.md). Para escalar, use o [portal do Azure](quickstart-scale-compute-portal.md), o [PowerShell](quickstart-scale-compute-powershell.md), o [T-SQL](quickstart-scale-compute-tsql.md) ou uma [API REST](sql-data-warehouse-manage-compute-rest-api.md#scale-compute).
 
 Dimensione automaticamente no momento que desejar com o Azure Functions:
 
@@ -137,8 +137,8 @@ Dimensione automaticamente no momento que desejar com o Azure Functions:
 
 É recomendável considerar o Banco de Dados SQL e o Azure Analysis Services em uma arquitetura de Hub e Spoke. Essa solução pode fornecer isolamento de carga de trabalho entre diferentes grupos de usuários, além de usar recursos de segurança avançados do Banco de Dados SQL e do Azure Analysis Services. Essa também é uma maneira de fornecer simultaneidade ilimitada para seus usuários.
 
-Saiba mais sobre [arquiteturas típicas que se beneficiam do Azure Synapse](https://blogs.msdn.microsoft.com/sqlcat/20../../common-isv-application-patterns-using-azure-sql-data-warehouse/).
+Saiba mais sobre [arquiteturas típicas que aproveitam o pool de SQL dedicado (antigo SQL DW) no Azure Synapse Analytics](/archive/blogs/sqlcat/common-isv-application-patterns-using-azure-sql-data-warehouse).
 
-Implante com um clique seus spokes em bancos de dados SQL do pool do SQL:
+Implante com um clique seus spokes em bancos de dados SQL do pool de SQL dedicado (antigo SQL DW):
 
 [![Imagem mostrando um botão rotulado como "Implantar no Azure".](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://ms.portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoft%2Fsql-data-warehouse-samples%2Fmaster%2Farm-templates%2FsqlDwSpokeDbTemplate%2Fazuredeploy.json)

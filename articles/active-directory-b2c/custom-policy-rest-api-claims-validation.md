@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/26/2020
+ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 6381f678979437fdfc10d2ea63a79ed347183e92
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 761bc4db7760ef5e84e3fc3c8a5deea5d4508f51
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85388911"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94951920"
 ---
 # <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-to-validate-user-input"></a>Walkthrough: integrar as trocas de declarações da API REST em sua jornada do usuário Azure AD B2C para validar a entrada do usuário
 
@@ -65,7 +65,7 @@ Se a validação falhar, a API REST deverá retornar um HTTP 409 (conflito), com
 }
 ```
 
-A configuração do ponto de extremidade da API REST está fora do escopo deste artigo. Criamos um exemplo do [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-reference). Você pode acessar o código completo de função do Azure no [GitHub](https://github.com/azure-ad-b2c/rest-api/tree/master/source-code/azure-function).
+A configuração do ponto de extremidade da API REST está fora do escopo deste artigo. Criamos um exemplo do [Azure Functions](../azure-functions/functions-reference.md). Você pode acessar o código completo de função do Azure no [GitHub](https://github.com/azure-ad-b2c/rest-api/tree/master/source-code/azure-function).
 
 ## <a name="define-claims"></a>Definir declarações
 
@@ -93,7 +93,7 @@ Uma declaração fornece armazenamento temporário de dados durante uma execuç�
 </ClaimType>
 ```
 
-## <a name="configure-the-restful-api-technical-profile"></a>Configurar o perfil técnico da API RESTful 
+## <a name="add-the-restful-api-technical-profile"></a>Adicionar o perfil técnico da API RESTful 
 
 Um [perfil técnico RESTful](restful-technical-profile.md) fornece suporte para a interface do seu próprio serviço RESTful. O Azure AD B2C envia dados para o serviço RESTful em uma coleção`InputClaims` e recebe dados de volta em uma coleção`OutputClaims`. Localize o elemento **ClaimsProviders** e adicione um novo provedor de declarações da seguinte maneira:
 
@@ -105,6 +105,7 @@ Um [perfil técnico RESTful](restful-technical-profile.md) fornece suporte para 
       <DisplayName>Check loyaltyId Azure Function web hook</DisplayName>
       <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
       <Metadata>
+        <!-- Set the ServiceUrl with your own REST API endpoint -->
         <Item Key="ServiceUrl">https://your-account.azurewebsites.net/api/ValidateProfile?code=your-code</Item>
         <Item Key="SendClaimsIn">Body</Item>
         <!-- Set AuthenticationType to Basic or ClientCertificate in production environments -->
@@ -129,6 +130,17 @@ Um [perfil técnico RESTful](restful-technical-profile.md) fornece suporte para 
 ```
 
 Neste exemplo, `userLanguage` será enviado para o serviço REST como `lang` no conteúdo do JSON. O valor da declaração `userLanguage` contém a ID de idioma do usuário atual. Para obter mais informações, confira [resolvedor de declarações](claim-resolver-overview.md).
+
+### <a name="configure-the-restful-api-technical-profile"></a>Configurar o perfil técnico da API RESTful 
+
+Depois de implantar sua API REST, defina os metadados do `REST-ValidateProfile` perfil técnico para refletir sua própria API REST, incluindo:
+
+- **ServiceUrl**. Defina a URL do ponto de extremidade da API REST.
+- **SendClaimsIn**. Especifique como as declarações de entrada são enviadas para o provedor de declarações RESTful.
+- **AuthenticationType**. Defina o tipo de autenticação que está sendo executada pelo provedor de declarações RESTful. 
+- **AllowInsecureAuthInProduction**. Em um ambiente de produção, certifique-se de definir esses metadados para `true`
+    
+Consulte os [metadados do perfil técnico RESTful](restful-technical-profile.md#metadata) para obter mais configurações.
 
 Os comentários acima de `AuthenticationType` e `AllowInsecureAuthInProduction` especificam as alterações que você deve fazer ao mudar para um ambiente de produção. Para saber como proteger suas APIs RESTful para produção, confira [Proteger API RESTful](secure-rest-api.md).
 
@@ -221,7 +233,7 @@ Para retornar a declaração de código promocional de volta para o aplicativo d
 1. Verifique se você está usando o diretório que contém o locatário do Azure Active Directory escolhendo o filtro **Diretório + assinatura** no menu superior e escolhendo o diretório que contém o locatário do Azure Active Directory.
 1. Escolha **Todos os serviços** no canto superior esquerdo do portal do Azure e pesquise e selecione **Registros de aplicativo**.
 1. Selecione **Estrutura de Experiência de Identidade**.
-1. Selecione **carregar política personalizada**e, em seguida, carregue os arquivos de política que você alterou: *TrustFrameworkExtensions.xml*e *SignUpOrSignin.xml*. 
+1. Selecione **carregar política personalizada** e, em seguida, carregue os arquivos de política que você alterou: *TrustFrameworkExtensions.xml* e *SignUpOrSignin.xml*. 
 1. Selecione a política de inscrição ou de entrada carregada e clique no botão **Executar agora**.
 1. Você deverá conseguir se inscrever usando um endereço de email.
 1. Clique no link **inscrever-se agora** .

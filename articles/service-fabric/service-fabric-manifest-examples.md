@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 06/11/2018
 ms.author: pepogors
 ms.openlocfilehash: 6f44d2ddaac11545a3a3dc52fd20e02263c6ad67
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75451634"
 ---
 # <a name="service-fabric-application-and-service-manifest-examples"></a>Exemplos do manifesto de serviço e aplicativo do Service Fabric
@@ -17,7 +17,7 @@ Esta seção contém exemplos de manifestos de serviço e aplicativo. Esses exem
 
 A seguir pode ser visto um índice de recursos e os manifestos de exemplo dos quais eles fazem parte.
 
-|Recurso|Manifesto|
+|Recurso|Manifest|
 |---|---|
 |[Governança de recursos](service-fabric-resource-governance.md)|[Manifesto do aplicativo Reliable Services](service-fabric-manifest-example-reliable-services-app.md#application-manifest), [manifesto do aplicativo de contêiner](service-fabric-manifest-example-container-app.md#application-manifest)|
 |[Executar um serviço como uma conta do administrador local](service-fabric-application-runas-security.md)|[Manifesto do aplicativo Reliable Services](service-fabric-manifest-example-reliable-services-app.md#application-manifest)|

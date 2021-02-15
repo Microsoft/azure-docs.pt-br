@@ -1,6 +1,6 @@
 ---
-title: Failover manual de um hub IoT do Azure | Microsoft Docs
-description: Saiba como executar um failover manual do hub IoT para outra região e confirmar que ele está funcionando e, em seguida, retorná-lo para a região original e verificá-lo novamente.
+title: Tutorial – Failover manual de um Hub IoT do Azure   Microsoft Docs
+description: Tutorial – Saiba como executar um failover manual do hub IoT para outra região e confirmar que ele está funcionando e, depois, retorná-lo para a região original e verificá-lo novamente.
 author: robinsh
 manager: timlt
 ms.service: iot-hub
@@ -11,12 +11,12 @@ ms.author: robinsh
 ms.custom:
 - mvc
 - mqtt
-ms.openlocfilehash: 26679a7111e11eaf48e948fa6d3622814327433a
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 3b6bc972f5c26c78ffff81f5bab8c2812cf2cb11
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86252565"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98622906"
 ---
 # <a name="tutorial-perform-manual-failover-for-an-iot-hub"></a>Tutorial: Executar failover manual para um Hub IoT
 
@@ -30,6 +30,8 @@ Neste tutorial, você executa as seguintes tarefas:
 > * Ver o hub em execução na localização secundária.
 > * Executar um failback para devolver as operações do hub IoT para a localização primária. 
 > * Confirmar se o hub está sendo executado corretamente no local certo.
+
+Para obter mais informações sobre failover manual e failover iniciado pela Microsoft com o Hub IoT, confira a [Recuperação de desastre entre regiões](iot-hub-ha-dr.md#cross-region-dr).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -83,7 +85,7 @@ Observe que há um limite de dois failovers e dois failbacks por dia para um hub
 
    O tempo que leva para realizar o failover manual é proporcional ao número de dispositivos que estão registrados no hub. Por exemplo, se você tiver 100 mil dispositivos, pode levar 15 minutos, mas se tiver cinco milhões de dispositivos, pode levar uma hora ou mais.
 
-   ![Captura de tela mostrando o painel Failover Manual](./media/tutorial-manual-failover/trigger-failover-03-confirm.png)
+   ![Captura de tela mostrando o painel de confirmação do Failover Manual](./media/tutorial-manual-failover/trigger-failover-03-confirm.png)
 
    Enquanto o processo de failover manual está em execução, uma faixa é exibida para informar que um failover manual está em andamento. 
 

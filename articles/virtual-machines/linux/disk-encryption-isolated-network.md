@@ -1,6 +1,6 @@
 ---
 title: Azure Disk Encryption em uma rede isolada
-description: Este artigo fornece dicas de solução de problemas para Microsoft Azure a criptografia de disco para VMs do Linux.
+description: Neste artigo, saiba mais sobre dicas de solução de problemas para Microsoft Azure a criptografia de disco em VMs do Linux.
 author: msmbaldwin
 ms.service: virtual-machines-linux
 ms.subservice: security
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 02/27/2020
 ms.custom: seodec18
-ms.openlocfilehash: f0ca50d137ef7e6378d2bf8d0ab03127d49a9a88
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 1d7e019e7759e22e945bddee477a4cb77f17350b
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373582"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913816"
 ---
 # <a name="azure-disk-encryption-on-an-isolated-network"></a>Azure Disk Encryption em uma rede isolada
 
@@ -25,25 +25,25 @@ Azure Disk Encryption depende de vários componentes, que são normalmente insta
 
 Aqui estão os pacotes necessários para cada distribuição. Para obter uma lista completa dos tipos de volume e distribuições com suporte, consulte [VMs e sistemas operacionais com suporte](disk-encryption-overview.md#supported-vms-and-operating-systems).
 
-- **Ubuntu 14, 4, 16, 4, 18, 4**: lsscsi, psmisc, at, cryptsetup-bin, Python-in, Python-seis, procps
-- **CentOS 7,2-7,7**: lsscsi, psmisc, lvm2, UUID, em, patch, cryptsetup, cryptsetup-recriptografar, pyparted, procps-ng, util-linux
-- **CentOS 6,8**: lsscsi, psmisc, lvm2, UUID, at, cryptsetup – recriptografar, pyparted, Python-seis
-- **RedHat 7,2-7,7**: lsscsi, psmisc, lvm2, UUID, em, patch, cryptsetup, cryptsetup-recriptografar, procps-ng, util-linux
-- **RedHat 6,8**: lsscsi, psmisc, lvm2, UUID, at, patch, cryptsetup – recriptografar
-- **openSUSE 42,3, SLES 12-SP4, 12-SP3**: lsscsi, cryptsetup
+- **Ubuntu 14, 4, 16, 4, 18, 4** : lsscsi, psmisc, at, cryptsetup-bin, Python-in, Python-seis, procps, grub-pc-bin
+- **CentOS 7,2-7,7** : lsscsi, psmisc, lvm2, UUID, em, patch, cryptsetup, cryptsetup-recriptografar, pyparted, procps-ng, util-linux
+- **CentOS 6,8** : lsscsi, psmisc, lvm2, UUID, at, cryptsetup – recriptografar, pyparted, Python-seis
+- **RedHat 7,2-7,7** : lsscsi, psmisc, lvm2, UUID, em, patch, cryptsetup, cryptsetup-recriptografar, procps-ng, util-linux
+- **RedHat 6,8** : lsscsi, psmisc, lvm2, UUID, at, patch, cryptsetup – recriptografar
+- **openSUSE 42,3, SLES 12-SP4, 12-SP3** : lsscsi, cryptsetup
 
 No Red Hat, quando um proxy é necessário, é preciso garantir que o gerenciador de assinaturas e o yum sejam configurados corretamente. Para saber mais, confira [How to troubleshoot subscription-manager and yum problems](https://access.redhat.com/solutions/189533) (Como solucionar problemas do gerenciador de assinaturas e do yum).  
 
 Quando os pacotes são instalados manualmente, eles também devem ser atualizados manualmente conforme novas versões são lançadas.
 
-## <a name="network-security-groups"></a>Grupos de segurança de rede
+## <a name="network-security-groups"></a>Grupos de Segurança de Rede
 Qualquer configuração do grupo de segurança de rede aplicada ainda deve permitir que o ponto de extremidade atenda aos pré-requisitos da configuração de rede documentada para criptografia de disco.  Consulte [Azure Disk Encryption: requisitos de rede](disk-encryption-overview.md#networking-requirements)
 
 ## <a name="azure-disk-encryption-with-azure-ad-previous-version"></a>Azure Disk Encryption com o Azure AD (versão anterior)
 
 Se você estiver usando [Azure Disk Encryption com o Azure AD (versão anterior)](disk-encryption-overview-aad.md), a [biblioteca de Azure Active Directory](../../active-directory/azuread-dev/active-directory-authentication-libraries.md) precisará ser instalada manualmente para todos os distribuições (além dos pacotes apropriados para o distribuição, conforme [listado acima](#package-management)).
 
-Quando a criptografia é habilitada com [credenciais do Azure AD](disk-encryption-linux-aad.md), a VM de destino deve permitir a conectividade com pontos de extremidade do Azure Active Directory e pontos de extremidade do Key Vault. Os pontos de extremidade de autenticação do Active Directory do Azure atuais são mantidos nas seções 56 e 59 da documentação [Intervalos de endereços IP e URLs do Office 365](/office365/enterprise/urls-and-ip-address-ranges). As instruções do Key Vault são fornecidas na documentação sobre como [Acessar o Azure Key Vault por trás de um firewall](../../key-vault/general/access-behind-firewall.md).
+Quando a criptografia é habilitada com [credenciais do Azure AD](disk-encryption-linux-aad.md), a VM de destino deve permitir a conectividade com pontos de extremidade do Azure Active Directory e pontos de extremidade do Key Vault. Os pontos de extremidade de autenticação Azure Active Directory atuais são mantidos nas seções 56 e 59 da documentação [Microsoft 365 URLs e intervalos de endereços IP](/microsoft-365/enterprise/urls-and-ip-address-ranges) . As instruções do Key Vault são fornecidas na documentação sobre como [Acessar o Azure Key Vault por trás de um firewall](../../key-vault/general/access-behind-firewall.md).
 
 ### <a name="azure-instance-metadata-service"></a>Serviço de metadados de instância do Azure 
 

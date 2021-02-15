@@ -4,12 +4,12 @@ description: Noções básicas sobre as regras de ação no Azure Monitor são e
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.subservice: alerts
-ms.openlocfilehash: 083db4ad046ee586f139309b62eedf0fcc2ffa6a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 723da36093c895a3a4aefbe66c2d8ca2ac0cba32
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87045727"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "90983145"
 ---
 # <a name="action-rules-preview"></a>Regras de ação (visualização)
 
@@ -21,7 +21,7 @@ As regras de ação ajudam a definir ou suprimir ações em qualquer escopo de A
 
 ### <a name="suppression-of-alerts"></a>Supressão de alertas
 
-Há muitos cenários em que é útil suprimir as notificações que os alertas geram. Esses cenários variam desde a supressão durante uma janela de manutenção planejada até a supressão fora do horário comercial. Por exemplo, a equipe responsável pelo **ContosoVM** deseja suprimir notificações de alerta para o próximo final de semana, pois o **ContosoVM** está passando por manutenção planejada.
+Há muitos cenários em que é útil suprimir as notificações que os alertas geram. Esses cenários variam desde a supressão durante uma janela de manutenção planejada até a supressão fora do horário comercial. Por exemplo, a equipe responsável pelo  **ContosoVM** deseja suprimir notificações de alerta para o próximo final de semana, pois o **ContosoVM** está passando por manutenção planejada.
 
 Embora a equipe possa desabilitar cada regra de alerta configurada no **ContosoVM** manualmente (e habilitá-la novamente após a manutenção), não é um processo simples. As regras de ação ajudam a definir a supressão de alerta em escala com a capacidade de configurar com flexibilidade o período de supressão. No exemplo anterior, a equipe pode definir uma regra de ação em **ContosoVM** que suprime todas as notificações de alerta do fim de semana.
 
@@ -44,11 +44,11 @@ Você pode acessar o recurso selecionando **Gerenciar ações** na página de at
 
 Selecione **+ nova regra de ação**.
 
-![Adicionar nova regra de ação](media/alerts-action-rules/action-rules-new-rule.png)
+![Captura de tela mostra a página Gerenciar ações com o botão nova regra de ação realçado.](media/alerts-action-rules/action-rules-new-rule.png)
 
 Como alternativa, você pode criar uma regra de ação enquanto estiver configurando uma regra de alerta.
 
-![Adicionar nova regra de ação](media/alerts-action-rules/action-rules-alert-rule.png)
+![Captura de tela mostra a página Criar regra com o botão Criar regra de ação realçado.](media/alerts-action-rules/action-rules-alert-rule.png)
 
 Agora você deve ver a página de fluxo para criar regras de ação. Configure os seguintes elementos:
 
@@ -117,7 +117,7 @@ Você pode criar regras de ação com o CLI do Azure usando o comando [AZ monito
 
    Se preferir, você também pode usar Azure Cloud Shell para concluir as etapas neste artigo.  Azure Cloud Shell é um ambiente de shell interativo que você usa por meio de seu navegador.  Inicie Cloud Shell usando um destes métodos:
 
-   - Abra Cloud Shell acessando[https://shell.azure.com](https://shell.azure.com)
+   - Abra Cloud Shell acessando [https://shell.azure.com](https://shell.azure.com)
 
    - Selecione o botão **Cloud Shell** na barra de menus no canto superior direito da [portal do Azure](https://portal.azure.com)
 
@@ -255,7 +255,7 @@ az monitor action-rule delete --resource-group MyResourceGroupName --name MyActi
 
 Os alertas de log que você cria com a opção [número de resultados](alerts-unified-log.md) geram uma única instância de alerta usando o resultado da pesquisa inteiro (que pode se estender por vários computadores). Nesse cenário, se uma regra de ação usar o filtro de **contexto de alerta (carga)** , ela agirá na instância de alerta contanto que haja uma correspondência. No cenário 2, descrito anteriormente, se os resultados da pesquisa para o alerta de log gerado contiverem o **computador-01** e o **computador-02**, toda a notificação será suprimida. Não há nenhuma notificação gerada para o **computador-02** .
 
-![Regras de ação e alertas de log (número de resultados)](media/alerts-action-rules/action-rules-log-alert-number-of-results.png)
+![Diagrama mostra as regras de ação e alertas de log com uma única instância de alerta realçada.](media/alerts-action-rules/action-rules-log-alert-number-of-results.png)
 
 Para usar melhor os alertas de log com regras de ação, crie alertas de log com a opção [medição de métrica](alerts-unified-log.md) . As instâncias de alerta separadas são geradas por essa opção, com base em seu campo de grupo definido. Em seguida, no cenário 2, as instâncias de alerta separadas são geradas para o **computador-01** e o **computador-02**. Devido à regra de ação descrita no cenário, somente a notificação para o **computador-01** é suprimida. A notificação para o **computador-02** continua a ser acionada normalmente.
 
@@ -272,7 +272,7 @@ Depois de definir um escopo ao configurar uma regra de ação, você poderá ver
 * Um superconjunto: por exemplo, a regra de ação que você está definindo está em um grupo de recursos e a regra de ação sobreposta está na assinatura que contém o grupo de recursos.
 * Uma interseção: por exemplo, a regra de ação que você está definindo está em **VM1** e **VM2**, e a regra de ação sobreposta está em **VM2** e **VM3**.
 
-![Regras de ação sobrepostas](media/alerts-action-rules/action-rules-overlapping.png)
+![Captura de tela mostra a nova página regra de ação com as regras de ação sobrepostas exibidas nas regras de ação definidas na mesma janela de escopo.](media/alerts-action-rules/action-rules-overlapping.png)
 
 ### <a name="while-im-configuring-an-alert-rule-is-it-possible-to-know-if-there-are-already-action-rules-defined-that-might-act-on-the-alert-rule-im-defining"></a>Enquanto estou Configurando uma regra de alerta, é possível saber se já existem regras de ação definidas que possam atuar na regra de alerta que estou definindo?
 

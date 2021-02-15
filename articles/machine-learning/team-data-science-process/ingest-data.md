@@ -11,16 +11,16 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: f8eab59d810fb825dbebf80d01d8efd2dd0a9841
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 46e911ad6bdf5a478d46e425f8700740ece56c6e
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76720530"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452669"
 ---
 # <a name="load-data-into-storage-environments-for-analytics"></a>Carregar dados em ambientes de armazenamento para análise
 
-O processo de ciência de dados de equipe exige que os dados sejam ingeridos ou carregados na maneira mais apropriada em cada estágio. Os destinos de dados podem incluir o armazenamento de BLOBs do Azure, os bancos de SQL Azure, SQL Server na VM do Azure, HDInsight (Hadoop), Synapse Analytics e Azure Machine Learning. 
+O processo de ciência de dados de equipe exige que os dados sejam ingeridos ou carregados na maneira mais apropriada em cada estágio. Os destinos de dados podem incluir o armazenamento de BLOBs do Azure, bancos de SQL Azure, SQL Server na VM do Azure, HDInsight (Hadoop), Azure Synapse Analytics e Azure Machine Learning. 
 
 Os artigos a seguir descrevem como ingerir dados em vários ambientes de destino nos quais os dados são armazenados e processados.
 

@@ -14,12 +14,12 @@ ms.date: 02/28/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e3a42cdfbf251e24ed2b59adca1a73b4dfe427a7
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 06eb7e8d1be2e58fd6cf87167a585a2ffeee0d7f
+ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87419998"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97708476"
 ---
 # <a name="configure-azure-ad-role-settings-in-privileged-identity-management"></a>Definir as configurações de função do Azure AD no Privileged Identity Management
 
@@ -29,7 +29,7 @@ Um administrador de função com privilégios pode personalizar Privileged Ident
 
 A partir de novembro de 2019, a parte das funções do Azure AD da Privileged Identity Management está sendo atualizada para uma nova versão que corresponde às experiências de funções de recurso do Azure. Isso cria recursos adicionais, bem como [as alterações na API existente](azure-ad-roles-features.md#api-changes). Enquanto a nova versão está sendo distribuída, os procedimentos que você seguir neste artigo dependem da versão do Privileged Identity Management que você tem atualmente. Siga as etapas nesta seção para determinar qual versão do Privileged Identity Management você tem. Depois de saber sua versão do Privileged Identity Management, você pode selecionar os procedimentos neste artigo que correspondem a essa versão.
 
-1. Entre no [portal do Azure](https://portal.azure.com/) com um usuário que esteja na função de [administrador de função com privilégios](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) .
+1. Entre no [portal do Azure](https://portal.azure.com/) com um usuário que esteja na função de [administrador de função com privilégios](../roles/permissions-reference.md#privileged-role-administrator) .
 1. Abra **Azure ad Privileged Identity Management**. Se você tiver uma faixa na parte superior da página Visão geral, siga as instruções na **nova guia versão** deste artigo. Caso contrário, siga as instruções na guia **versão anterior** .
 
   [![Selecione Azure AD > Privileged Identity Management.](media/pim-how-to-add-role-to-user/pim-new-version.png)](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
@@ -42,9 +42,9 @@ Siga as etapas neste artigo para aprovar ou negar solicitações para funções 
 
 Siga estas etapas para abrir as configurações de uma função do Azure AD.
 
-1. Entre no [portal do Azure](https://portal.azure.com/) com um usuário na função de [administrador de função com privilégios](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) .
-gt
-1. Abra **Azure ad Privileged Identity Management** &gt; configurações de função de **funções do Azure ad** &gt; **Role settings**.
+1. Entre no [portal do Azure](https://portal.azure.com/) com um usuário na função de [administrador de função com privilégios](../roles/permissions-reference.md#privileged-role-administrator) .
+
+1. Abra **Azure ad Privileged Identity Management** &gt; configurações de função de **funções do Azure ad** &gt; .
 
     ![Página de configurações de função listando funções do Azure AD](./media/pim-how-to-change-default-settings/role-settings.png)
 
@@ -81,7 +81,7 @@ E, você pode escolher uma destas opções de duração da atribuição **ativa*
 
 ## <a name="require-multi-factor-authentication"></a>Exigir autenticação multifator
 
-O Privileged Identity Management fornece imposição opcional da Autenticação Multifator do Azure para dois cenários diferentes.
+Privileged Identity Management fornece imposição opcional da autenticação multifator do Azure AD para dois cenários distintos.
 
 ### <a name="require-multi-factor-authentication-on-active-assignment"></a>Exigir Autenticação Multifator na atribuição ativa
 
@@ -91,7 +91,7 @@ Para garantir que o administrador que está atendendo à atribuição seja quem 
 
 ### <a name="require-multi-factor-authentication-on-activation"></a>Exigir a Autenticação Multifator na ativação
 
-Você pode exigir que os usuários qualificados para uma função comprovem quem estão usando a autenticação multifator do Azure antes que possam ser ativados. A autenticação multifator garante que o usuário seja quem dizem que eles estão com certeza razoável. A aplicação dessa opção protege recursos críticos em situações em que a conta do usuário pode ter sido comprometida.
+Você pode exigir que os usuários qualificados para uma função comprovem quem estão usando a autenticação multifator do Azure AD antes que possam ser ativados. A autenticação multifator garante que o usuário seja quem dizem que eles estão com certeza razoável. A aplicação dessa opção protege recursos críticos em situações em que a conta do usuário pode ter sido comprometida.
 
 Para exigir a autenticação multifator antes da ativação, marque a caixa **exigir autenticação multifator no modo de ativação** na guia atribuição da **configuração Editar função**.
 
@@ -103,7 +103,7 @@ Use o controle deslizante **Duração máxima da ativação** para definir o tem
 
 ## <a name="require-justification"></a>Exigir justificativa
 
-Você pode exigir que os usuários insiram uma justificativa de negócios ao serem ativados. Para exigir justificativa, marque a caixa **Exigir justificativa na atribuição ativa ** ou a caixa **Exigir justificativa na ativação**.
+Você pode exigir que os usuários insiram uma justificativa de negócios ao serem ativados. Para exigir justificativa, marque a caixa **Exigir justificativa na atribuição ativa** ou a caixa **Exigir justificativa na ativação**.
 
 ## <a name="require-approval-to-activate"></a>Exigir aprovação para ativar
 
@@ -123,7 +123,7 @@ Se definir vários Aprovadores, a aprovação será concluída assim que um dele
 
 # <a name="previous-version"></a>[Versão anterior](#tab/previous)
 
-## <a name="open-role-settings"></a>Abrir configurações de função
+## <a name="open-role-settings-previous-version"></a>Abrir configurações de função (versão anterior)
 
 Siga estas etapas para abrir as configurações de uma função do Azure AD.
 
@@ -167,8 +167,8 @@ Use a opção de **tíquete de incidente/solicitação** para exigir que os admi
 
 Use a opção **Autenticação Multifator** para especificar se os usuários deverão confirmar a identidade com MFA antes de poderem ativar as funções. Eles só precisam verificar sua identidade uma vez por sessão, nem sempre que ativam uma função. Há duas dicas para ter em mente quando você habilita a MFA:
 
-- Os usuários que têm contas da Microsoft para seus endereços de email (normalmente @outlook.com , mas nem sempre) não podem se registrar para a autenticação multifator do Azure. Se você quiser atribuir funções a usuários com contas da Microsoft, você deve torná-los administradores permanentes ou desabilitar a autenticação multifator para essa função.
-- Não é possível desabilitar a autenticação multifator do Azure para funções altamente privilegiadas para o Azure AD e o Office 365. Esse recurso de segurança ajuda a proteger as seguintes funções:  
+- Os usuários que têm contas da Microsoft para seus endereços de email (normalmente @outlook.com , mas nem sempre) não podem se registrar para a autenticação multifator do Azure AD. Se você quiser atribuir funções a usuários com contas da Microsoft, você deve torná-los administradores permanentes ou desabilitar a autenticação multifator para essa função.
+- Não é possível desabilitar a autenticação multifator do Azure AD para funções altamente privilegiadas para o Azure AD e o Microsoft 365. Esse recurso de segurança ajuda a proteger as seguintes funções:  
   
   - Administrador da Proteção de Informações do Azure
   - Administrador de cobrança
@@ -196,7 +196,7 @@ Se você quiser delegar a aprovação necessária para ativar uma função, siga
 
 1. Defina a opção **Requer aprovação** para **Habilitado**. O painel expande com opções para selecionar aprovadores.
 
-    ![Funções do Azure AD – configurações-exigir aprovação](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval.png)
+    ![Captura de tela que mostra a opção "exigir aprovação" com "habilitar" selecionado.](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval.png)
 
     Se você não especificar nenhum aprovador, o administrador da função com privilégios se tornará o aprovador padrão e, em seguida, será necessário para aprovar todas as solicitações de ativação para essa função.
 

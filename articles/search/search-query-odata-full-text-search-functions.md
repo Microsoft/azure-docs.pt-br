@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 78f9e4d8fa80fdf74bdb5cd79f4489d12696fcc2
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88935782"
 ---
 # <a name="odata-full-text-search-functions-in-azure-cognitive-search---searchismatch-and-searchismatchscoring"></a>Funções de pesquisa de texto completo OData no Azure Pesquisa Cognitiva- `search.ismatch` e `search.ismatchscoring`
@@ -35,7 +35,7 @@ O Azure Pesquisa Cognitiva dá suporte à pesquisa de texto completo no contexto
 
 ## <a name="syntax"></a>Sintaxe
 
-O EBNF a seguir ([formulário Backus-Naur Estendido](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) define a gramática `search.ismatch` das `search.ismatchscoring` funções e:
+O seguinte EBNF ([formulário estendido Backus-Naur](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) define a gramática das `search.ismatch` `search.ismatchscoring` funções e:
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 
@@ -69,7 +69,7 @@ A `search.ismatch` função avalia uma consulta de pesquisa de texto completo co
 
 Os parâmetros são definidos na tabela a seguir:
 
-| Nome do parâmetro | Type | DESCRIÇÃO |
+| Nome do parâmetro | Tipo | Descrição |
 | --- | --- | --- |
 | `search` | `Edm.String` | A consulta de pesquisa (em sintaxe de consulta de Lucene [simples](query-simple-syntax.md) ou [completa](query-lucene-syntax.md) ). |
 | `searchFields` | `Edm.String` | Lista separada por vírgulas de campos pesquisáveis para pesquisa; o padrão é todos os campos pesquisáveis no índice. Ao usar a [pesquisa de campo](query-lucene-syntax.md#bkmk_fields) no `search` parâmetro, os especificadores de campo na consulta Lucene substituem todos os campos especificados nesse parâmetro. |

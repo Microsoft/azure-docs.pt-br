@@ -12,12 +12,12 @@ ms.date: 02/28/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 54d92da469625a3b81d0027558ec14166d916b80
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 9612a26d7ac2e7a059655636fc1a2a7a43e3b8d7
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88163179"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100526231"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Introdução às políticas personalizadas no Azure Active Directory B2C
 
@@ -111,7 +111,7 @@ Em seguida, exponha a API adicionando um escopo:
 Em seguida, especifique que o aplicativo deve ser tratado como um cliente público:
 
 1. No menu à esquerda, em **Gerenciar**, selecione **Autenticação**.
-1. Em **Configurações avançadas**, habilite **Tratar aplicativo como um cliente público** (selecione **Sim**). Verifique se **"allowPublicClient": true** está definido no manifesto do aplicativo. 
+1. Em **Configurações avançadas**, na seção **permitir fluxos de cliente público** , defina **habilitar os seguintes fluxos móveis e de área de trabalho** para **Sim**. Verifique se **"allowPublicClient": true** está definido no manifesto do aplicativo. 
 1. Clique em **Salvar**.
 
 Agora conceda permissões ao escopo da API que você expôs anteriormente no registro de *IdentityExperienceFramework*:
@@ -124,7 +124,7 @@ Agora conceda permissões ao escopo da API que você expôs anteriormente no reg
 1. Selecione **Fornecer o consentimento do administrador para (nome do seu locatário)** .
 1. Selecione a conta de administrador conectada no momento ou entre com uma conta no seu locatário do Azure AD B2C que tenha recebido, pelo menos, a função *Administrador de aplicativos de nuvem*.
 1. Selecione **Aceitar**.
-1. Selecione **Atualizar**e, em seguida, verifique se "concedido para..." aparece em **status** para os escopos-offline_access, openid e user_impersonation. Pode levar alguns minutos para que as permissões sejam propagadas.
+1. Selecione **Atualizar** e, em seguida, verifique se "concedido para..." aparece em **status** para os escopos-offline_access, openid e user_impersonation. Pode levar alguns minutos para que as permissões sejam propagadas.
 
 * * *
 
@@ -213,6 +213,6 @@ Como mencionado em [Pré-requisitos](#prerequisites), o Facebook *não* é neces
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Em seguida, tente adicionar o Azure AD (Azure Active Directory) como provedor de identidade. O arquivo base usado neste guia de introdução já contém uma parte do conteúdo de que você precisa para adicionar outros provedores de identidade como o Azure AD. Para obter informações sobre como configurar o Azure AD como um provedor de identidade, consulte [Configurar inscrição e entrada com uma conta de Azure Active Directory usando Active Directory B2C políticas personalizadas](identity-provider-azure-ad-single-tenant-custom.md). 
+Em seguida, tente adicionar o Azure AD (Azure Active Directory) como provedor de identidade. O arquivo base usado neste guia de introdução já contém uma parte do conteúdo de que você precisa para adicionar outros provedores de identidade como o Azure AD. Para obter informações sobre como configurar o Azure AD como um provedor de identidade, consulte [Configurar inscrição e entrada com uma conta de Azure Active Directory usando Active Directory B2C políticas personalizadas](identity-provider-azure-ad-single-tenant.md). 
 
 Visite nossa [Galeria de parceiros](partner-gallery.md) para saber mais sobre como implementar a integração de ISVs usando políticas personalizadas. 

@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.date: 02/27/2019
 ms.author: billmath
 author: billmath
-ms.openlocfilehash: 72ec59d0082071746cb8db2b06412d90b4958914
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bef5942707c1ded22ba82bdb0d945b9fdb23fffa
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85359952"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349343"
 ---
 # <a name="configure-group-claims-for-applications-with-azure-active-directory"></a>Configurar declarações de grupo para aplicativos com Azure Active Directory
 
@@ -58,7 +58,7 @@ No entanto, se um aplicativo existente espera consumir informações de grupo po
 
 - Ao usar a associação de grupo para fins de autorização no aplicativo, é preferível usar o ObjectID do grupo. O ObjectID do grupo é imutável e exclusivo em Azure Active Directory e está disponível para todos os grupos.
 - Se estiver usando o sAMAccountName do grupo local para autorização, use nomes qualificados do domínio;  Há menos chances de nomes conflitantes. sAMAccountName pode ser exclusivo em um domínio Active Directory, mas se mais de um domínio Active Directory for sincronizado com um locatário Azure Active Directory, haverá a possibilidade de que mais de um grupo tenha o mesmo nome.
-- Considere o uso de [funções de aplicativo](../../active-directory/develop/howto-add-app-roles-in-azure-ad-apps.md) para fornecer uma camada de indireção entre a associação de grupo e o aplicativo.   Em seguida, o aplicativo faz decisões de autorização interna com base em no token.
+- Considere o uso de [funções de aplicativo](../../active-directory/develop/howto-add-app-roles-in-azure-ad-apps.md) para fornecer uma camada de indireção entre a associação de grupo e o aplicativo.   O aplicativo então faz decisões de autorização interna com base em declarações de função no token.
 - Se o aplicativo estiver configurado para obter atributos de grupo que são sincronizados a partir de Active Directory e um grupo não contiver esses atributos, ele não será incluído nas declarações.
 - As declarações de grupo em tokens incluem grupos aninhados, exceto ao usar a opção para restringir as declarações de grupo a grupos atribuídos ao aplicativo.  Se um usuário for membro de GroupB e GroupB for um membro de GroupA, as declarações de grupo para o usuário conterão GroupA e GroupB. Quando os usuários de uma organização têm um grande número de associações de grupo, o número de grupos listados no token pode aumentar o tamanho do token.  Azure Active Directory limita o número de grupos que será emitido em um token para 150 para asserções SAML e 200 para JWT.  Se um usuário for membro de um número maior de grupos, os grupos serão omitidos e um link para o ponto de extremidade do grafo para obter informações sobre o grupo será incluído em seu lugar.
 
@@ -74,15 +74,15 @@ Há duas etapas para configurar Azure Active Directory para emitir nomes de grup
 
 ## <a name="add-group-claims-to-tokens-for-saml-applications-using-sso-configuration"></a>Adicionar declarações de grupo a tokens para aplicativos SAML usando a configuração de SSO
 
-Para configurar declarações de grupo para um aplicativo SAML de galeria ou não Galeria, abra **aplicativos empresariais**, clique no aplicativo na lista, selecione **configuração de logon único**e, em seguida, selecione **atributos de usuário & declarações**.
+Para configurar declarações de grupo para um aplicativo SAML de galeria ou não Galeria, abra **aplicativos empresariais**, clique no aplicativo na lista, selecione **configuração de logon único** e, em seguida, selecione **atributos de usuário & declarações**.
 
 Clique em **Adicionar uma declaração de grupo**  
 
-![interface do usuário de declarações](media/how-to-connect-fed-group-claims/group-claims-ui-1.png)
+![Captura de tela que mostra a página "declarações de atributos de usuário &" com a "adicionar uma declaração de grupo" selecionada.](media/how-to-connect-fed-group-claims/group-claims-ui-1.png)
 
 Use os botões de opção para selecionar quais grupos devem ser incluídos no token
 
-![interface do usuário de declarações](media/how-to-connect-fed-group-claims/group-claims-ui-2.png)
+![Captura de tela que mostra a janela "declarações de grupo" com "grupos de segurança" selecionado.](media/how-to-connect-fed-group-claims/group-claims-ui-2.png)
 
 | Seleção | Descrição |
 |----------|-------------|
@@ -93,15 +93,15 @@ Use os botões de opção para selecionar quais grupos devem ser incluídos no t
 
 Por exemplo, para emitir todos os grupos de segurança dos quais o usuário é membro, selecione grupos de segurança
 
-![interface do usuário de declarações](media/how-to-connect-fed-group-claims/group-claims-ui-3.png)
+![Captura de tela que mostra a janela "declarações de grupo" com "grupos de segurança" selecionado e o menu suspenso "atributo de origem" aberto.](media/how-to-connect-fed-group-claims/group-claims-ui-3.png)
 
 Para emitir grupos usando Active Directory atributos sincronizados de Active Directory em vez de objectIDs do Azure AD, selecione o formato necessário na lista suspensa. Somente os grupos sincronizados do Active Directory serão incluídos nas declarações.
 
-![interface do usuário de declarações](media/how-to-connect-fed-group-claims/group-claims-ui-4.png)
+![Captura de tela que mostra o menu suspenso "atributo de origem" aberto.](media/how-to-connect-fed-group-claims/group-claims-ui-4.png)
 
 Para emitir somente grupos atribuídos ao aplicativo, selecione **grupos atribuídos ao aplicativo**
 
-![interface do usuário de declarações](media/how-to-connect-fed-group-claims/group-claims-ui-4-1.png)
+![Captura de tela que mostra a janela "declarações de grupo" com "grupos atribuídos ao aplicativo" selecionado.](media/how-to-connect-fed-group-claims/group-claims-ui-4-1.png)
 
 Os grupos atribuídos ao aplicativo serão incluídos no token.  Outros grupos dos quais o usuário é membro serão omitidos.  Com essa opção, os grupos aninhados não são incluídos e o usuário deve ser um membro direto do grupo atribuído ao aplicativo.
 
@@ -109,17 +109,17 @@ Para alterar os grupos atribuídos ao aplicativo, selecione o aplicativo na list
 
 Consulte o documento [atribuir um usuário ou grupo a um aplicativo empresarial](../../active-directory/manage-apps/assign-user-or-group-access-portal.md) para obter detalhes de como gerenciar a atribuição de grupos a aplicativos.
 
-### <a name="advanced-options"></a>Opções avançadas
+### <a name="advanced-options"></a>Opções Avançadas
 
 A maneira como as declarações de grupo são emitidas pode ser modificada pelas configurações em opções avançadas
 
 Personalizar o nome da declaração de Grupo: se selecionado, um tipo de declaração diferente pode ser especificado para declarações de grupo.   Insira o tipo de declaração no campo nome e o namespace opcional para a declaração no campo namespace.
 
-![interface do usuário de declarações](media/how-to-connect-fed-group-claims/group-claims-ui-5.png)
+![Captura de tela que mostra a seção "opções avançadas" com "personalizar o nome da declaração de grupo" selecionado e os valores de "nome" e "namespace" inseridos.](media/how-to-connect-fed-group-claims/group-claims-ui-5.png)
 
 Alguns aplicativos exigem que as informações de associação de grupo apareçam na declaração ' role '. Opcionalmente, você pode emitir os grupos do usuário como funções, marcando a caixa ' emitir grupos de declarações de função '.
 
-![interface do usuário de declarações](media/how-to-connect-fed-group-claims/group-claims-ui-6.png)
+![Captura de tela que mostra a seção "opções avançadas" com "personalizar o nome da declaração de grupo" e "emitir grupos como declarações de função" selecionado.](media/how-to-connect-fed-group-claims/group-claims-ui-6.png)
 
 > [!NOTE]
 > Se a opção para emitir dados de grupo como funções for usada, somente os grupos aparecerão na declaração de função.  Qualquer função de aplicativo à qual o usuário está atribuído não aparecerá na declaração de função.
@@ -144,8 +144,9 @@ Os valores válidos são:
 |----------|-------------|
 | **Os** | Emite grupos de segurança, listas de distribuição e funções |
 | **“SecurityGroup”** | Emite grupos de segurança dos quais o usuário é membro na declaração de grupos |
-| **"DirectoryRole** | Se o usuário tiver funções de diretório atribuídas, elas serão emitidas como uma declaração ' wids ' (a declaração de grupos não será emitida) |
-| **"The Application** | Emite apenas os grupos atribuídos explicitamente ao aplicativo e o usuário é um membro de |
+| **“DirectoryRole”** | Se o usuário tiver funções de diretório atribuídas, elas serão emitidas como uma declaração ' wids ' (a declaração de grupos não será emitida) |
+| **ApplicationGroup** | Emite apenas os grupos atribuídos explicitamente ao aplicativo e o usuário é um membro de |
+| **None** | Nenhum grupo é retornado. (Não diferencia maiúsculas de minúsculas, isso não funciona bem e pode ser definido diretamente no manifesto do aplicativo.) |
 
    Por exemplo:
 

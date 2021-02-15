@@ -1,17 +1,17 @@
 ---
 title: 'Tipos de preço: Banco de Dados do Azure para MariaDB'
 description: Saiba mais sobre os vários tipos de preço do banco de dados do Azure para MariaDB, incluindo gerações de computação, tipo de armazenamento, tamanho de armazenamento, vCores, memória e períodos de retenção de backup.
-author: ajlam
-ms.author: andrela
-ms.service: mariadb
+author: savjani
+ms.author: pariks
+ms.service: jroth
 ms.topic: conceptual
-ms.date: 8/13/2020
-ms.openlocfilehash: cb785a6d988772ba160806621e44900d630b7e61
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.date: 10/14/2020
+ms.openlocfilehash: 6c786ea80ecbe2f174d8c3b701316791e1b6104f
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88225709"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664241"
 ---
 # <a name="azure-database-for-mariadb-pricing-tiers"></a>Banco de dados do Azure para níveis de preços do MariaDB
 
@@ -53,7 +53,7 @@ O armazenamento que você provisiona é a quantidade de capacidade de armazename
 Você pode adicionar capacidade de armazenamento adicional durante e após a criação do servidor e permitir que o sistema aumente o armazenamento automaticamente com base no consumo de armazenamento de sua carga de trabalho.
 
 >[!NOTE]
-> O armazenamento só pode ser escalado verticalmente, não inativo.
+> O armazenamento só pode ser escalado verticalmente, não horizontalmente.
 
 A camada Básico não oferece garantia de IOPS. Nos tipos de preço Uso Geral e Otimizado para Memória, o IOPS é dimensionado com o tamanho de armazenamento provisionado a uma taxa de 3:1.
 
@@ -71,7 +71,10 @@ Estamos aumentando os limites de armazenamento em nossas camadas de Uso Geral e 
 | IOPS | 3 IOPS/GB<br/>Mín 100 IOPS<br/>IOPS máx. 20.000| 3 IOPS/GB<br/>Mín 100 IOPS<br/>IOPS máx. 20.000 |
 
 > [!IMPORTANT]
-> Atualmente, o armazenamento grande está em visualização pública nas seguintes regiões: leste dos EUA, leste dos EUA 2, EUA Central, oeste dos EUA, norte EUA Central, Sul EUA Central, Europa Setentrional, Europa Ocidental, Sul do Reino Unido, Oeste do Reino Unido, Sudeste Asiático, Ásia Oriental, leste do Japão, oeste do Japão, Coreia central, sul da Coreia, leste da Austrália, sudeste da Austrália, oeste dos EUA 2 e Oeste EUA Central.
+> O armazenamento grande está atualmente em visualização pública nas seguintes regiões: leste dos EUA, leste dos EUA 2, sul do Brasil, EUA Central, oeste dos EUA, norte EUA Central, Sul EUA Central, Europa Setentrional, Europa Ocidental, Sul do Reino Unido, Oeste do Reino Unido, Sudeste Asiático, Ásia Oriental, leste do Japão, oeste do Japão, Coreia central, Coréia do Sul, leste da Austrália, sudeste da Austrália, oeste dos EUA, Canadá EUA Central e central do Canadá.
+>
+> Todas as outras regiões dão suporte a até 4 TB de armazenamento e até 6000 IOPS.
+>
 
 ### <a name="reaching-the-storage-limit"></a>Alcançando o limite de armazenamento
 

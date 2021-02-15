@@ -3,12 +3,12 @@ title: Reprodução de gravações – Azure
 description: Você pode usar a análise de vídeo ao vivo em IoT Edge para gravação contínua de vídeo, na qual você pode gravar vídeo na nuvem por semanas ou meses. Você também pode limitar a gravação a clipes que são de interesse, por meio da gravação baseada em eventos. Este artigo fala sobre como reproduzir gravações.
 ms.topic: how-to
 ms.date: 04/27/2020
-ms.openlocfilehash: 6222d2c05b2fe05945d4bcbef6dbb0d64bd4726a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0351f10d9fac3ad7e3b4fdd5fd549eb7c0023694
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84260379"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99490887"
 ---
 # <a name="playback-of-recordings"></a>Reprodução de gravações 
 
@@ -48,11 +48,11 @@ Ao usar CVR, os dispositivos de reprodução (clientes) não podem solicitar um 
 
 Em que o valor de precisão pode ser um de: ano, mês, dia ou completo (como mostrado abaixo). 
 
-|Precisão|year|month|dia|completa|
+|Precisão|ano|mês|dia|completa|
 |---|---|---|---|---|
 |Consulta|`/availableMedia?precision=year&startTime=2018&endTime=2019`|`/availableMedia?precision=month& startTime=2018-01& endTime=2019-02`|`/availableMedia?precision=day& startTime=2018-01-15& endTime=2019-02-02`|`/availableMedia?precision=full& startTime=2018-01-15T10:08:11.123& endTime=2019-01-015T12:00:01.123`|
 |Resposta|`{  "timeRanges":[{ "start":"2018", "end":"2019" }]}`|`{  "timeRanges":[{ "start":"2018-03", "end":"2019-01" }]}`|`{  "timeRanges":[    { "start":"2018-03-01", "end":"2018-03-07" },    { "start":"2018-03-09", "end":"2018-03-31" }  ]}`|Resposta de fidelidade total. Se não houvesse nenhuma lacuna, o início seria StartTime e End seria endTime.|
-|Restringe|&#x2022;StartTime <= endTime<br/>&#x2022;ambos devem estar no formato aaaa; caso contrário, erro de retorno.<br/>&#x2022;valores podem ser separados por qualquer número de anos.<br/>&#x2022;valores são inclusivos.|&#x2022;StartTime <= endTime<br/>&#x2022;ambos devem estar no formato AAAA-MM, caso contrário, erro de retorno.<br/>&#x2022;valores podem ter no máximo 12 meses de distância.<br/>&#x2022;valores são inclusivos.|&#x2022;StartTime <= endTime<br/>&#x2022;ambos devem estar no formato AAAA-MM-DD, caso contrário, erro de retorno.<br/>&#x2022;valores podem ter no máximo 31 dias de diferença.<br/>Os valores são inclusivos.|&#x2022;StartTime < endTime<br/>&#x2022;valores podem ter no máximo 25 horas de diferença.<br/>&#x2022;valores são inclusivos.|
+|Restrições|&#x2022;StartTime <= endTime<br/>&#x2022;ambos devem estar no formato aaaa; caso contrário, erro de retorno.<br/>&#x2022;valores podem ser separados por qualquer número de anos.<br/>&#x2022;valores são inclusivos.|&#x2022;StartTime <= endTime<br/>&#x2022;ambos devem estar no formato AAAA-MM, caso contrário, erro de retorno.<br/>&#x2022;valores podem ter no máximo 12 meses de distância.<br/>&#x2022;valores são inclusivos.|&#x2022;StartTime <= endTime<br/>&#x2022;ambos devem estar no formato AAAA-MM-DD, caso contrário, erro de retorno.<br/>&#x2022;valores podem ter no máximo 31 dias de diferença.<br/>Os valores são inclusivos.|&#x2022;StartTime < endTime<br/>&#x2022;valores podem ter no máximo 25 horas de diferença.<br/>&#x2022;valores são inclusivos.|
 
 #### <a name="additional-request-format-considerations"></a>Considerações sobre o formato de solicitação adicional
 
@@ -209,8 +209,8 @@ GET https://hostname/locatorId/content.ism/availableMedia?precision=day&startTim
 
 Como mencionado acima, esses filtros ajudam você a selecionar partes da sua gravação (por exemplo, de 9h a 11h em novos anos) para reprodução. Ao transmitir via HLS, a URL de streaming ficaria assim `https://{hostname-here}/{locatorGUID}/content.ism/manifest(format=m3u8-aapl).m3u8` . Para selecionar uma parte da sua gravação, você adicionaria um parâmetro StartTime e um endTime, como: `https://{hostname-here}/{locatorGUID}/content.ism/manifest(format=m3u8-aapl,startTime=2019-12-21T08:00:00Z,endTime=2019-12-21T10:00:00Z).m3u8` . Assim, os filtros de intervalo de tempo são modificadores de URL usados para descrever a parte da linha do tempo da gravação que é incluída no manifesto de streaming:
 
-* `starttime`é um carimbo de data/hora ISO 8601 que descreve a hora de início desejada da linha do tempo de vídeo no manifesto retornado.
-* `endtime`é um carimbo de data/hora ISO 8601 que descreve a hora de término desejada da linha do tempo de vídeo retornada no manifesto.
+* `starttime` é um carimbo de data/hora ISO 8601 que descreve a hora de início desejada da linha do tempo de vídeo no manifesto retornado.
+* `endtime` é um carimbo de data/hora ISO 8601 que descreve a hora de término desejada da linha do tempo de vídeo retornada no manifesto.
 
 O comprimento máximo (em tempo) desse manifesto não pode exceder 24 horas.
 
@@ -294,7 +294,7 @@ Com tal gravação:
     `GET https://{hostname-here}/{locatorGUID}/content.ism/manifest(format=m3u8-aapl,startTime=2019-12-21T14:01:00.000Z,endTime=2019-12-21T03:00:00.000Z).m3u8`
 * Se você solicitar um manifesto em que o StartTime e a endTime estavam dentro do "buraco" no meio – digamos, de 8:00 a 10h UTC, o serviço se comportaria da mesma forma que se um filtro de ativos fosse resultar em um resultado vazio.
 
-    [Esta é uma solicitação que obtém uma resposta vazia]`GET https://{hostname-here}/{locatorGUID}/content.ism/manifest(format=m3u8-aapl,startTime=2019-12-21T08:00:00.000Z,endTime=2019-12-21T10:00:00.000Z).m3u8`
+    [Esta é uma solicitação que obtém uma resposta vazia] `GET https://{hostname-here}/{locatorGUID}/content.ism/manifest(format=m3u8-aapl,startTime=2019-12-21T08:00:00.000Z,endTime=2019-12-21T10:00:00.000Z).m3u8`
 * Se você solicitar um manifesto em que apenas um dos StartTime ou endTime está dentro do ' buraco ', o manifesto retornado incluiria apenas uma parte desse TimeSpan. Ele ajustaria o valor de StartTime ou endTime para o limite válido mais próximo. Por exemplo, se você solicitou um fluxo de 3 horas de 10h para às 13:00, a resposta conteria um valor de mídia de 1 hr por 12-meio-dia para às 13:00
 
     `GET https://{hostname-here}/{locatorGUID}/content.ism/manifest(format=m3u8-aapl,startTime=2019-12-21T10:00:00.000Z,endTime=2019-12-21T13:00:00.000Z).m3u8`
@@ -303,7 +303,7 @@ Com tal gravação:
 
 ## <a name="recording-and-playback-latencies"></a>Latências de gravação e reprodução
 
-Ao usar a análise de vídeo ao vivo em IoT Edge para registrar em um ativo, você especificará uma propriedade segmentLength que informa ao módulo para agregar uma duração mínima de vídeo (em segundos) antes de ser gravado na nuvem. Por exemplo, se segmentLength for definido como 300, o módulo acumulará 5 minutos de vídeo antes de carregar um "bloco" de 5 minutos e, em seguida, entrará no modo de acumulação nos próximos 5 minutos e carregará novamente. O aumento do segmentLength tem o benefício de reduzir os custos de transação do armazenamento do Azure, pois o número de leituras e gravações não será mais frequente do que uma vez a cada segmentLength segundos.
+Ao usar a análise de vídeo ao vivo em IoT Edge para registrar em um ativo, você especificará uma propriedade segmentLength que informa ao módulo para agregar uma duração mínima de vídeo (em segundos) antes de ser gravado na nuvem. Por exemplo, se segmentLength for definido como 300, o módulo acumulará 5 minutos de vídeo antes de carregar o "bloco" de 1 5 minutos e, em seguida, entrará no modo de acumulação nos próximos 5 minutos e carregará novamente. O aumento do segmentLength tem o benefício de reduzir os custos de transação do armazenamento do Azure, pois o número de leituras e gravações não será mais frequente do que uma vez a cada segmentLength segundos.
 
 Consequentemente, o streaming do vídeo dos serviços de mídia será atrasado por, pelo menos, muito tempo. 
 

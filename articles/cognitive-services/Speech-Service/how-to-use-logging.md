@@ -10,13 +10,13 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: amishu
-ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: db7bbfecdb83e12225445905c60afe0999838813
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.custom: devx-track-js, devx-track-csharp
+ms.openlocfilehash: f044596cf084e68b6c9ca10e3da4fbdf4c8c2062
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88918631"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026515"
 ---
 # <a name="enable-logging-in-the-speech-sdk"></a>Habilitar o registro em log no SDK de fala
 
@@ -68,7 +68,7 @@ StorageFile logFile = await storageFolder.CreateFileAsync("logfile.txt", Creatio
 config.SetProperty(PropertyId.Speech_LogFilename, logFile.Path);
 ```
 
-Mais informações sobre a permissão de acesso a arquivos para aplicativos UWP estão disponíveis [aqui](https://docs.microsoft.com/windows/uwp/files/file-access-permissions).
+Mais informações sobre a permissão de acesso a arquivos para aplicativos UWP estão disponíveis [aqui](/windows/uwp/files/file-access-permissions).
 
 ### <a name="android"></a>Android
 

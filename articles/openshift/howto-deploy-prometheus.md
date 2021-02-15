@@ -7,14 +7,20 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 06/17/2019
 keywords: Prometheus, aro, openshift, métricas, Red Hat
-ms.openlocfilehash: 7f22df587f51af735e0ea663e53f6eef14d60692
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 42ed8c90b35eba57fdc3db1f0ed93d44cf9a5e41
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80886881"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996841"
 ---
 # <a name="deploy-a-standalone-prometheus-instance-in-an-azure-red-hat-openshift-cluster"></a>Implantar uma instância Prometheus autônoma em um cluster do Azure Red Hat OpenShift
+
+> [!IMPORTANT]
+> O Azure Red Hat OpenShift 3,11 será desativado em 30 de junho de 2022. O suporte para a criação de novos clusters do Azure Red Hat OpenShift 3,11 continua até 30 de novembro de 2020. Após a aposentadoria, os clusters restantes do Azure Red Hat OpenShift 3,11 serão desligados para evitar vulnerabilidades de segurança.
+> 
+> Siga este guia para [criar um cluster do Azure Red Hat OpenShift 4](tutorial-create-cluster.md).
+> Se você tiver dúvidas específicas, [entre em contato conosco](mailto:arofeedback@microsoft.com).
 
 Este artigo descreve como configurar uma instância Prometheus autônoma que usa a descoberta de serviço em um cluster do Azure Red Hat OpenShift.
 
@@ -30,7 +36,7 @@ Você preparará alguns arquivos de configuração Prometheus localmente. Crie u
 
 ## <a name="sign-in-to-the-cluster-by-using-the-oc-tool"></a>Entre no cluster usando a ferramenta OC
 
-1. Abra um navegador da Web e vá para o console Web do seu cluster ( https://openshift .* Random-ID*. *Region*. azmosa.IO).
+1. Abra um navegador da Web e vá para o console Web do seu cluster ( https://openshift .*Random-ID*. *Region*. azmosa.IO).
 2. Entre com suas credenciais do Azure.
 3. Selecione seu nome de usuário no canto superior direito e, em seguida, selecione o **comando copiar logon**.
 4. Cole seu nome de usuário no terminal que você usará.
@@ -182,7 +188,7 @@ oc process -f prometheus-sdrole.yml | oc apply -f - -n prometheus-project
 
 ## <a name="optional-deploy-example-application"></a>Opcional: implantar aplicativo de exemplo
 
-Tudo está funcionando, mas não há fontes de métricas. Vá para a URL do Prometheus ( https://prom-prometheus-project.apps .* Random-ID*. *Region*. azmosa.IO/). Você pode encontrá-lo usando o seguinte comando:
+Tudo está funcionando, mas não há fontes de métricas. Vá para a URL do Prometheus ( https://prom-prometheus-project.apps .*Random-ID*. *Region*. azmosa.IO/). Você pode encontrá-lo usando o seguinte comando:
 
 ```
 oc get route prom -n prometheus-project

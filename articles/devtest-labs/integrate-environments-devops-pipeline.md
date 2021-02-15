@@ -4,10 +4,10 @@ description: Saiba como integrar ambientes de Azure DevTest Labs em seus pipelin
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: be726b2a3f67fd3dada4fdc3cf794922a3c18d06
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85483016"
 ---
 # <a name="integrate-environments-into-your-azure-devops-cicd-pipelines"></a>Integre ambientes em seus pipelines de CI/CD do Azure DevOps
@@ -53,8 +53,8 @@ O próximo estágio da implantação é criar o ambiente a ser usado para fins d
 4. Para **nome do modelo**, selecione o nome do ambiente que você salvou em seu repositório de código-fonte *. 
 5. O nome do **laboratório**, o **nome do repositório**e o **nome do modelo** são as representações amigáveis das IDs de recursos do Azure. A inserção manual do nome amigável causará falhas, use as listas suspensas para selecionar as informações.
 6. Para **nome do ambiente**, insira um nome para identificar exclusivamente a instância de ambiente no laboratório.  Ele deve ser exclusivo no laboratório.
-7. O **arquivo de parâmetro** e os **parâmetros**permitem que os parâmetros personalizados sejam passados para o ambiente. Um ou ambos podem ser usados para definir os valores de parâmetro. Para este exemplo, a seção de parâmetros será usada. Use os nomes das variáveis que você definiu no ambiente, por exemplo:`-administratorLogin "$(administratorLogin)" -administratorLoginPassword "$(administratorLoginPassword)" -databaseName "$(databaseName)" -cacheSKUCapacity 1`
-8. As informações no modelo de ambiente podem ser passadas na seção de saída do modelo. Marque **criar variáveis de saída com base na saída do modelo de ambiente** para que outras tarefas possam usar os dados. `$(Reference name.Output Name)`é o padrão a ser seguido. Por exemplo, se o nome de referência era DTL e o nome de saída no modelo era local, a variável seria `$(DTL.location)` .
+7. O **arquivo de parâmetro** e os **parâmetros**permitem que os parâmetros personalizados sejam passados para o ambiente. Um ou ambos podem ser usados para definir os valores de parâmetro. Para este exemplo, a seção de parâmetros será usada. Use os nomes das variáveis que você definiu no ambiente, por exemplo: `-administratorLogin "$(administratorLogin)" -administratorLoginPassword "$(administratorLoginPassword)" -databaseName "$(databaseName)" -cacheSKUCapacity 1`
+8. As informações no modelo de ambiente podem ser passadas na seção de saída do modelo. Marque **criar variáveis de saída com base na saída do modelo de ambiente** para que outras tarefas possam usar os dados. `$(Reference name.Output Name)` é o padrão a ser seguido. Por exemplo, se o nome de referência era DTL e o nome de saída no modelo era local, a variável seria `$(DTL.location)` .
 
 ## <a name="delete-the-environment"></a>Excluir o ambiente
 O estágio final é excluir o ambiente implantado em sua instância de Azure DevTest Labs. Normalmente, você excluiria o ambiente depois de executar as tarefas de desenvolvimento ou executar os testes necessários nos recursos implantados.

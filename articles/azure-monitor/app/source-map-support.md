@@ -2,21 +2,21 @@
 title: Suporte ao mapa de origem para aplicativos JavaScript-Azure Monitor Application Insights
 description: Saiba como carregar mapas de origem em seu próprio contêiner de blob de conta de armazenamento usando Application Insights.
 ms.topic: conceptual
-author: markwolff
-ms.author: marwolff
+author: DavidCBerry13
+ms.author: daberry
 ms.date: 06/23/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: de475cbd7cbb0d8dbcda026109b0387da14bedff
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.custom: devx-track-js
+ms.openlocfilehash: 79462dcb503e5835254b89f7ebaa7a9ee34946d3
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386785"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98933936"
 ---
 # <a name="source-map-support-for-javascript-applications"></a>Suporte do mapa de origem para aplicativos JavaScript
 
 Application Insights dá suporte ao carregamento de mapas de origem para seu próprio contêiner de BLOB da conta de armazenamento.
-Os mapas de origem podem ser usados para unminify pilhas de chamadas encontradas na página de detalhes de transação de ponta a ponta. Qualquer exceção enviada pelo [SDK do JavaScript][ApplicationInsights-JS] ou pelo [SDK doNode.js][ApplicationInsights-Node.js] pode ser unminified com mapas de origem.
+Os mapas de origem podem ser usados para unminify pilhas de chamadas encontradas na página de detalhes de transação de ponta a ponta. Qualquer exceção enviada pelo [SDK do JavaScript][ApplicationInsights-JS] ou pelo [ SDK doNode.js][ApplicationInsights-Node.js] pode ser unminified com mapas de origem.
 
 ![Unminify uma pilha de chamadas vinculando-se a uma conta de armazenamento](./media/source-map-support/details-unminify.gif)
 
@@ -67,7 +67,7 @@ Se você quiser configurar ou alterar a conta de armazenamento ou o contêiner d
 
 ## <a name="troubleshooting"></a>Solução de problemas
 
-### <a name="required-role-based-access-control-rbac-settings-on-your-blob-container"></a>Configurações de RBAC (controle de acesso baseado em função) necessárias em seu contêiner de BLOB
+### <a name="required-azure-role-based-access-control-azure-rbac-settings-on-your-blob-container"></a>Configurações necessárias do Azure RBAC (controle de acesso baseado em função) no seu contêiner de BLOB
 
 Qualquer usuário no portal que usa esse recurso deve ser pelo menos atribuído como um [leitor de dados de blob de armazenamento][storage blob data reader] para seu contêiner de BLOB. Você deve atribuir essa função a qualquer outra pessoa que usará os mapas de origem por meio desse recurso.
 
@@ -78,12 +78,12 @@ Qualquer usuário no portal que usa esse recurso deve ser pelo menos atribuído 
 
 1. Verifique se o mapa de origem correspondente é carregado para o contêiner de blob correto
 2. Verifique se o arquivo do mapa de origem é nomeado após o arquivo JavaScript para o qual ele é mapeado, com sufixo `.map` .
-    - Por exemplo, `/static/js/main.4e2ca5fa.chunk.js` procurará o blob chamado`main.4e2ca5fa.chunk.js.map`
+    - Por exemplo, `/static/js/main.4e2ca5fa.chunk.js` procurará o blob chamado `main.4e2ca5fa.chunk.js.map`
 3. Verifique o console do navegador para ver se algum erro está sendo registrado. Inclua isso em qualquer tíquete de suporte.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Tarefa de cópia de arquivo do Azure](/azure/devops/pipelines/tasks/deploy/azure-file-copy?view=azure-devops)
+* [Tarefa de cópia de arquivo do Azure](/azure/devops/pipelines/tasks/deploy/azure-file-copy)
 
 
 <!-- Remote URLs -->

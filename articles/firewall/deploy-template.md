@@ -1,19 +1,19 @@
 ---
 title: 'Início Rápido: Criar um Firewall do Azure com o Zonas de Disponibilidade – modelo do Resource Manager'
-description: Implantar Firewall do Azure usando um modelo. A rede virtual tem uma VNet com três sub-redes. Duas máquinas virtuais do Windows Server são implantadas; uma jump box e um servidor.
+description: Neste guia de início rápido, implante o Firewall do Azure usando um modelo. A rede virtual tem uma VNet com três sub-redes. Duas máquinas virtuais do Windows Server são implantadas; uma jump box e um servidor.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.date: 04/30/2020
+ms.date: 08/28/2020
 ms.author: victorh
-ms.openlocfilehash: 104e2e9f6593d95caf77c0796f8b9465eebcfcee
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: 478f3454a728871040cdbbf9f817394cffe6b82f
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88705122"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660246"
 ---
 # <a name="quickstart-deploy-azure-firewall-with-availability-zones---arm-template"></a>Início Rápido: Implantar o Firewall do Azure com as Zonas de Disponibilidade – Modelo do ARM
 
@@ -93,4 +93,4 @@ Não remova o grupo de recursos e o firewall se planejar prosseguir para o firew
 Em seguida,você pode monitorar os logs do Firewall do Azure.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Monitorar os logs do Firewall do Azure](tutorial-diagnostics.md)
+> [Tutorial: Monitorar os logs do Firewall do Azure](./firewall-diagnostics.md)

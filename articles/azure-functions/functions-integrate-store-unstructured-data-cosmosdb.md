@@ -2,14 +2,14 @@
 title: Armazenar dados não estruturados usando o Azure Cosmos DB e Functions
 description: Armazenar dados não estruturados usando o Azure Functions e o Cosmos DB
 ms.topic: quickstart
-ms.date: 04/14/2020
+ms.date: 10/01/2020
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: a242f1ffc0a7738ce7cdf33aeeef214fb4f63e61
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 5bc3895cb219338acde492b871dce806db70622b
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88210887"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91661152"
 ---
 # <a name="store-unstructured-data-using-azure-functions-and-azure-cosmos-db"></a>Armazenar dados não estruturados usando o Azure Functions e o Azure Cosmos DB
 
@@ -42,11 +42,11 @@ Antes de criar a associação de saída, você precisa ter uma conta do Azure Co
 
 1. Selecione **Integração** e **+ Adicionar saída**.
 
-     :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-add-output-binding.png" alt-text="Adicionar uma associação de saída do Azure Cosmos DB." border="true":::
+     :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-add-output-binding.png" alt-text="Selecionar a função Http no portal do Azure." border="true":::
 
 1. Use a configuração **Criar Saída** conforme especificado na tabela:
 
-     :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-configure-cosmosdb-binding.png" alt-text="Configurar associação de saída do Azure Cosmos DB." border="true":::
+     :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-configure-cosmosdb-binding.png" alt-text="Selecionar a função Http no portal do Azure." border="true":::
 
     | Configuração      | Valor sugerido  | Descrição                                |
     | ------------ | ---------------- | ------------------------------------------ |
@@ -132,29 +132,29 @@ Esse exemplo de código lê as cadeias de consulta da Solicitação HTTP e as at
 
 ## <a name="test-the-function-and-database"></a>Testar a função e o banco de dados
 
-1. Selecione **Testar**. Em **Consulta**, selecione **+ Adicionar parâmetro** e adicione os seguintes parâmetros à cadeia de caracteres de consulta:
+1. Selecione **Testar/Executar**. Em **Consulta**, selecione **+ Adicionar parâmetro** e adicione os seguintes parâmetros à cadeia de caracteres de consulta:
 
     + `name`
     + `task`
     + `duedate`
 
-    :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-test-function.png" alt-text="Testar a função." border="true":::
+    :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-test-function.png" alt-text="Selecionar a função Http no portal do Azure." border="true":::
 
 
 1. Selecione **Executar** e verifique se um status 200 é retornado.
 
-    :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-test-function-output.png" alt-text="Testar a função." border="true":::
+    :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-test-function-output.png" alt-text="Selecionar a função Http no portal do Azure." border="true":::
 
 
 1. No portal do Azure, pesquise e selecione **Azure Cosmos DB**.
 
-    :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-search-cosmos-db.png" alt-text="Pesquisar o serviço do Cosmos DB." border="true":::
+    :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-search-cosmos-db.png" alt-text="Selecionar a função Http no portal do Azure." border="true":::
 
 1. Escolha sua conta do Azure Cosmos DB e selecione o **Data Explorer**.
 
 1. Expanda os nós **TaskCollection**, selecione o novo documento e confirme se o documento contém os valores de cadeia de caracteres de consulta, juntamente com alguns metadados adicionais.
 
-    :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-data-explorer-check-document.png" alt-text="Verificar os valores de cadeia de caracteres em seu documento." border="true":::
+    :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-data-explorer-check-document.png" alt-text="Selecionar a função Http no portal do Azure." border="true":::
 
 Você adicionou com êxito uma associação ao gatilho HTTP para armazenar dados não estruturados em um Azure Cosmos DB.
 

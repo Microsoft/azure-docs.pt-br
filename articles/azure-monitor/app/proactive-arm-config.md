@@ -6,12 +6,12 @@ author: harelbr
 ms.author: harelbr
 ms.date: 06/26/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: aa8529abf3d7eea7d413c59ce62c93c7eb6c76d1
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 169ad40e32f688ae20a9d02f61db161844b1254a
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87309334"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92890506"
 ---
 # <a name="manage-application-insights-smart-detection-rules-using-azure-resource-manager-templates"></a>Gerenciar regras de detecção inteligente do Application Insights usando modelos do Azure Resource Manager
 
@@ -21,18 +21,18 @@ Esse método pode ser usado na implantação de novos recursos do Application In
 ## <a name="smart-detection-rule-configuration"></a>Configuração da regra de detecção inteligente
 
 É possível definir as seguintes configurações para uma regra de detecção inteligente:
-- Se a regra está habilitada (o padrão é **true**.)
-- Se os emails devem ser enviados aos usuários associados ao [leitor de monitoramento](../../role-based-access-control/built-in-roles.md#monitoring-reader) da assinatura e às funções de [colaborador de monitoramento](../../role-based-access-control/built-in-roles.md#monitoring-contributor) quando uma detecção é encontrada (o padrão é **true**).
+- Se a regra estiver habilitada (o padrão é **true** ).
+- Se os emails devem ser enviados aos usuários associados ao [leitor de monitoramento](../../role-based-access-control/built-in-roles.md#monitoring-reader) da assinatura e às funções de [colaborador de monitoramento](../../role-based-access-control/built-in-roles.md#monitoring-contributor) quando uma detecção é encontrada (o padrão é **true** ).
 - Quaisquer destinatários de email adicionais que devem receber uma notificação quando uma detecção for encontrada.
-    -  A configuração de email não está disponível para as regras de detecção inteligente marcadas como _Visualização_.
+    -  A configuração de email não está disponível para as regras de detecção inteligente marcadas como _Visualização_ .
 
-Para permitir a definição das configurações da regra por meio do Azure Resource Manager, a configuração da regra de detecção inteligente agora está disponível como um recurso interno dentro do recurso do Application Insights nomeado **ProactiveDetectionConfigs**.
+Para permitir a definição das configurações da regra por meio do Azure Resource Manager, a configuração da regra de detecção inteligente agora está disponível como um recurso interno dentro do recurso do Application Insights nomeado **ProactiveDetectionConfigs** .
 Para máxima flexibilidade, cada regra de detecção inteligente pode ser definida com configurações de notificação exclusivas.
 
 ## <a name="examples"></a>Exemplos
 
 Abaixo estão alguns exemplos que mostram como definir as configurações das regras de detecção inteligente usando modelos do Azure Resource Manager.
-Todos os exemplos se referem a um recurso do Application Insights nomeado _"myApplication"_ e à "regra de detecção inteligente de duração da dependência longa" que é nomeada internamente _"longdependencyduration"_.
+Todos os exemplos se referem a um recurso do Application Insights nomeado _"myApplication"_ e à "regra de detecção inteligente de duração da dependência longa" que é nomeada internamente _"longdependencyduration"_ .
 Certifique-se de substituir o nome de recurso do Application Insights e especificar o nome interno da regra de detecção inteligente relevante. Verifique a tabela abaixo para obter uma lista dos nomes internos correspondentes do Resource Manager do Azure para cada regra de detecção inteligente.
 
 ### <a name="disable-a-smart-detection-rule"></a>Desabilitar uma regra de detecção inteligente
@@ -44,7 +44,7 @@ Certifique-se de substituir o nome de recurso do Application Insights e especifi
       "type": "Microsoft.Insights/components",
       "location": "[resourceGroup().location]",
       "properties": {
-        "ApplicationId": "myApplication"
+        "Application_Type": "web"
       },
       "resources": [
         {
@@ -75,7 +75,7 @@ Certifique-se de substituir o nome de recurso do Application Insights e especifi
       "type": "Microsoft.Insights/components",
       "location": "[resourceGroup().location]",
       "properties": {
-        "ApplicationId": "myApplication"
+        "Application_Type": "web"
       },
       "resources": [
         {
@@ -106,7 +106,7 @@ Certifique-se de substituir o nome de recurso do Application Insights e especifi
       "type": "Microsoft.Insights/components",
       "location": "[resourceGroup().location]",
       "properties": {
-        "ApplicationId": "myApplication"
+        "Application_Type": "web"
       },
       "resources": [
         {
@@ -120,7 +120,7 @@ Certifique-se de substituir o nome de recurso do Application Insights e especifi
           "properties": {
             "name": "longdependencyduration",
             "sendEmailsToSubscriptionOwners": true,
-            "customEmails": ['alice@contoso.com', 'bob@contoso.com'],
+            "customEmails": ["alice@contoso.com", "bob@contoso.com"],
             "enabled": true
           }
         }

@@ -3,18 +3,21 @@ title: StringToArray na linguagem de consulta Azure Cosmos DB
 description: Saiba mais sobre a função do sistema SQL StringToArray no Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: b00fe7a515d1d27ce9be2ab62a96c719d5e045a5
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 7ae1f69e92e890daae528eb1f4dfb95f76560043
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798577"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93337975"
 ---
 # <a name="stringtoarray-azure-cosmos-db"></a>StringToArray (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Retorna a expressão convertida em uma matriz. Se a expressão não puder ser convertida, retornará indefinido.  
   
 ## <a name="syntax"></a>Sintaxe

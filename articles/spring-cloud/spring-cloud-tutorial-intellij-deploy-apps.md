@@ -7,23 +7,26 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 03/26/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 77b105fd5bbc6cc88411379e79522562ebce3677
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a808e37c0f0aae2816eb536dc43485c125354b81
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083745"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98916194"
 ---
 # <a name="use-intellij-to-deploy-azure-spring-cloud-applications"></a>Usar o IntelliJ para implantar aplicativos do Azure Spring Cloud
+
+**Este artigo aplica-se a:** ✔️ Java
+
 O plug-in IntelliJ para o Azure Spring Cloud é compatível com a implantação de aplicativos da IntelliJ IDEA.  
 
+Antes de executar este exemplo, experimente o [guia de início rápido básico](spring-cloud-quickstart.md).
+
 ## <a name="prerequisites"></a>Pré-requisitos
-* [JDK 8 Azul Zulu](https://docs.microsoft.com/java/azure/jdk/java-jdk-install?view=azure-java-stable)
-* [Maven 3.5.0+](https://maven.apache.org/download.cgi)
-* [IntelliJ IDEA, Community/Ultimate Edition, versão 2020.1/2019.3](https://www.jetbrains.com/idea/download/#section=windows)
+* [IntelliJ IDEA, Community/Ultimate Edition, versão 2020.1/2020.2](https://www.jetbrains.com/idea/download/#section=windows)
 
 ## <a name="install-the-plug-in"></a>Instalar o plug-in
-Você pode adicionar o Azure Toolkit for IntelliJ IDEA 3.35.0 da interface do usuário **Plug-ins** do IntelliJ.
+Você pode adicionar o Azure Toolkit for IntelliJ IDEA 3.43.0 da interface do usuário **Plug-ins** do IntelliJ.
 
 1. Inicie o IntelliJ.  Se você tiver aberto um projeto anteriormente, feche-o para mostrar a caixa de diálogo de boas-vindas. Selecione **Configurar** na parte inferior direita do link e, em seguida, clique em **Plug-ins** para abrir a caixa de diálogo configuração de plug-in e selecione **Instalar Plug-ins do disco**.
 
@@ -52,7 +55,7 @@ Os procedimentos a seguir implantam um aplicativo Olá, Mundo usando o IntelliJ 
     ![Importar projeto](media/spring-cloud-intellij-howto/import-project-1.png)
 
 ## <a name="deploy-to-azure-spring-cloud"></a>Implantar no Azure Spring Cloud
-Para implantar no Azure, você deve entrar com sua conta do Azure e escolher sua assinatura.  Para obter detalhes de entrada, confira [Instalação e entrada](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in).
+Para implantar no Azure, você deve entrar com sua conta do Azure e escolher sua assinatura.  Para obter detalhes de entrada, confira [Instalação e entrada](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in).
 
 1. Clique com o botão direito do mouse no seu projeto no explorador de projeto do IntelliJ e selecione **Azure** -> **Implantar no Azure Spring Cloud**.
 
@@ -99,5 +102,5 @@ Para obter os logs:
     ![Saída do log de streaming](media/spring-cloud-intellij-howto/streaming-log-output.png)
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Preparar o aplicativo Spring para o Azure Spring Cloud](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-prepare-app-deployment)
-* [Saiba mais sobre o Azure Toolkit for IntelliJ](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/)
+* [Preparar o aplicativo Spring para o Azure Spring Cloud](./spring-cloud-tutorial-prepare-app-deployment.md)
+* [Saiba mais sobre o Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij/)

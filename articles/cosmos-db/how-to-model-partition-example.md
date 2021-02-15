@@ -3,22 +3,26 @@ title: Modelar e particionar dados em Azure Cosmos DB com um exemplo do mundo re
 description: Saiba como modelar e particionar um exemplo do mundo real usando a API do núcleo do Azure Cosmos DB
 author: ThomasWeiss
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: thweiss
-ms.custom: devx-track-javascript
-ms.openlocfilehash: d5809d7475759450a513153abf641f7943163d98
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-js
+ms.openlocfilehash: d2f35ae7a6110acb2ca89bdaeb487eddabf84923
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422208"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185811"
 ---
 # <a name="how-to-model-and-partition-data-on-azure-cosmos-db-using-a-real-world-example"></a>Como modelar e particionar dados no Azure Cosmos DB usando um exemplo do mundo real
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Este artigo se baseia em vários Azure Cosmos DB conceitos como [modelagem de dados](modeling-data.md), [particionamento](partitioning-overview.md)e [taxa de transferência provisionada](request-units.md) para demonstrar como lidar com um exercício de design de dados do mundo real.
 
 Se normalmente trabalha com bancos de dados relacionais, você provavelmente criou hábitos e intuições sobre como criar um modelo de dados. Por causa das restrições específicas, mas também dos pontos fortes exclusivos do Azure Cosmos DB, a maioria dessas práticas recomendadas não geram bons resultados e podem arrastar você para soluções de qualidade inferior ao ideal. A meta deste artigo é orientá-lo pelo processo completo de modelagem de um caso de uso do mundo real no Azure Cosmos DB, desde a modelagem de itens à colocação de entidades e ao particionamento de contêineres.
+
+[Baixe ou exiba um código-fonte gerado pela Comunidade](https://github.com/jwidmer/AzureCosmosDbBlogExample) que ilustre os conceitos deste artigo. Este exemplo de código foi contribuído por um colaborador da Comunidade e a equipe de Azure Cosmos DB não dá suporte à sua manutenção.
 
 ## <a name="the-scenario"></a>O cenário
 
@@ -51,12 +55,12 @@ Aqui está a lista de solicitações que nossa plataforma terá de expor:
 - **[C3]** Criar um comentário
 - **[T4]** Listar comentários de uma postagem
 - **[C4]** Curtir um post
-- **[Q5] ** Listar as curtidas de um post
+- **[Q5]** Listar as curtidas de um post
 - **[P6]** Listar as postagens *x* mais recentes criadas em forma abreviada (feed)
 
-Neste estágio, ainda não pensamos sobre os detalhes do que cada entidade (usuário, post etc.) conterá. Essa etapa geralmente está entre os primeiros a serem resolvidos durante a criação em um relational store, pois precisamos descobrir como essas entidades serão traduzidas em termos de tabelas, colunas, chaves estrangeiras, etc. É muito menos uma preocupação com um banco de dados de documentos que não impõe nenhum esquema na gravação.
+Neste estágio, não pensamos nos detalhes do que cada entidade (usuário, posta etc.) conterá. Essa etapa geralmente está entre os primeiros a serem resolvidos durante a criação em um relational store, pois precisamos descobrir como essas entidades serão traduzidas em termos de tabelas, colunas, chaves estrangeiras, etc. É muito menos uma preocupação com um banco de dados de documentos que não impõe nenhum esquema na gravação.
 
-O principal motivo pelo qual é importante identificar os nossos padrões de acesso desde o início é porque essa lista de solicitações vai ser o nosso conjunto de testes. Sempre que iteramos pelo nosso modelo de dados, percorremos cada uma das solicitações e verificamos os respectivos desempenho e escalabilidade.
+O principal motivo pelo qual é importante identificar os nossos padrões de acesso desde o início é porque essa lista de solicitações vai ser o nosso conjunto de testes. Sempre que iteramos pelo nosso modelo de dados, percorremos cada uma das solicitações e verificamos os respectivos desempenho e escalabilidade. Calculamos as unidades de solicitação consumidas em cada modelo e as otimizamos. Todos esses modelos usam a política de indexação padrão e você pode substituí-lo ao indexar propriedades específicas, o que pode melhorar ainda mais o consumo e a latência de RU.
 
 ## <a name="v1-a-first-version"></a>V1: uma primeira versão
 
@@ -327,7 +331,7 @@ Esse procedimento armazenado usa a ID do post e o corpo do novo comentário como
 - substitui o post
 - adiciona o novo comentário
 
-Já que os procedimentos armazenados são executados como transações atômicas, é certo que o valor de `commentCount` e o número real de comentários permanecerão sempre em sincronia.
+Como os procedimentos armazenados são executados como transações atômicas, o valor de `commentCount` e o número real de comentários sempre permanecerão em sincronia.
 
 Obviamente, chamamos um procedimento armazenado semelhante ao adicionar novas curtidas para incrementar o `likeCount`.
 
@@ -411,7 +415,7 @@ Observando nossas melhorias de desempenho gerais, ainda existem duas solicitaç�
 
 Esta solicitação já se beneficia dos aperfeiçoamentos introduzidos na V2, o que poupa consultas adicionais.
 
-:::image type="content" source="./media/how-to-model-partition-example/V2-Q3.png" alt-text="Recuperar todos os posts de um usuário" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V2-Q3.png" alt-text="Diagrama que mostra a consulta para listar as postagens de um usuário em forma abreviada." border="false":::
 
 Mas a consulta restante ainda não está filtrando na chave de partição do contêiner `posts`.
 
@@ -469,7 +473,7 @@ Agora podemos encaminhar nossa consulta para o contêiner `users`, filtrando na 
 
 Temos de lidar com uma situação semelhante aqui: mesmo depois de poupar as consultas adicionais tornadas desnecessárias pela desnormalização introduzida na V2, a consulta restante não filtra na chave de partição do contêiner:
 
-:::image type="content" source="./media/how-to-model-partition-example/V2-Q6.png" alt-text="Recuperar os posts mais recentes" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V2-Q6.png" alt-text="Diagrama que mostra a consulta para listar as postagens x mais recentes criadas em forma abreviada." border="false":::
 
 Seguindo a mesma abordagem, maximizar o desempenho e a escalabilidade desta solicitação requer que ela atinja somente uma partição. Isso é concebível porque precisamos apenas retornar um número limitado de itens. Para preencher a home page da nossa plataforma de blog, é necessário apenas obter os 100 posts mais recentes, sem a necessidade de paginar através de todo o conjunto de dados.
 
@@ -586,6 +590,6 @@ O feed de alterações que usamos para distribuir atualizações para outros con
 
 Após esta introdução ao particionamento e à modelagem de dados de caráter prático, você talvez queira verificar os artigos a seguir para analisar os conceitos abordados:
 
-- [Como trabalhar com bancos de dados, contêineres e itens](databases-containers-items.md)
+- [Como trabalhar com bancos de dados, contêineres e itens](account-databases-containers-items.md)
 - [Particionamento no Azure Cosmos DB](partitioning-overview.md)
 - [Alterar feed no Azure Cosmos DB](change-feed.md)

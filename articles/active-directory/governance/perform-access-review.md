@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 06/17/2020
+ms.date: 12/22/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5b672cca97e70c97a5dccb1ca54daccd6c171932
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b5cd7a5737b2d13e63eabbbddd076cfc7aff83ac
+ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85077971"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97746789"
 ---
 # <a name="review-access-to-groups-and-applications-in-azure-ad-access-reviews"></a>Examinar o acesso a grupos e aplicativos nas revisões de acesso do Azure AD
 
@@ -33,11 +33,11 @@ Você pode iniciar o processo de revisão de acesso do email de notificação ou
 - **Email**:
 
 >[!IMPORTANT]
-> Pode haver atrasos no recebimento de email e em alguns casos pode levar até 24 horas. Lista de permissões para certificar-se de azure-noreply@microsoft.com que você está recebendo todos os emails.
+> Pode haver atrasos no recebimento de email e em alguns casos pode levar até 24 horas. Adicione azure-noreply@microsoft.com à sua lista de destinatários seguros para certificar-se de que você está recebendo todos os emails.
 
 1. Procure um email da Microsoft solicitando que você examine o acesso. Aqui está um email de exemplo para examinar o acesso de um grupo.
 
-    ![Email de exemplo da Microsoft para revisar o acesso a um grupo](./media/perform-access-review/access-review-email.png)
+    ![Captura de tela que mostra um email de exemplo da Microsoft para revisar o acesso a um grupo.](./media/perform-access-review/access-review-email.png)
 
 1. Clique no link **Iniciar revisão** para abrir a revisão de acesso.
 
@@ -54,7 +54,7 @@ Você pode iniciar o processo de revisão de acesso do email de notificação ou
         > [!NOTE]
         > Se o bloco de **revisões de acesso** não estiver visível, não haverá nenhuma análise de acesso a ser executada para essa organização e nenhuma ação será necessária no momento.
 
-        ![Lista de revisões de acesso pendente para aplicativos e grupos](./media/perform-access-review/access-reviews-list.png)
+        ![Captura de tela que mostra a lista de revisões de acesso pendentes para aplicativos e grupos.](./media/perform-access-review/access-reviews-list.png)
 
     1. Clique no link **Iniciar revisão** para a revisão de acesso que você deseja executar.
 
@@ -99,7 +99,7 @@ Para fazer análises de acesso mais fáceis e rápidas para você, também forne
 
 1. Na barra azul na parte inferior da página, clique em **aceitar recomendações**.
 
-    ![Abrir a listagem de revisão de acesso mostrando o botão aceitar recomendações](./media/perform-access-review/accept-recommendations.png)
+    ![Captura de tela que mostra a listagem de revisão de acesso aberto com o botão "aceitar recomendações" selecionado.](./media/perform-access-review/accept-recommendations.png)
 
     Você verá um resumo das ações recomendadas.
 
@@ -129,7 +129,7 @@ Você pode chegar à nova experiência do revisor com a interface do usuário at
 ### <a name="email"></a>Email
 
   >[!IMPORTANT]
-> Pode haver atrasos no recebimento de email e em alguns casos pode levar até 24 horas. Lista de permissões para certificar-se de azure-noreply@microsoft.com que você está recebendo todos os emails.
+> Pode haver atrasos no recebimento de email e em alguns casos pode levar até 24 horas. Adicione azure-noreply@microsoft.com à sua lista de destinatários seguros para certificar-se de que você está recebendo todos os emails.
 
    1. Procure um email da Microsoft solicitando que você examine o acesso. Você pode ver um exemplo de mensagem de email abaixo:
 
@@ -144,7 +144,7 @@ Você pode chegar à nova experiência do revisor com a interface do usuário at
 
 Você também pode exibir suas revisões de acesso pendentes usando seu navegador para abrir meu acesso.
 
-1. Entre no meu acesso emhttps://myaccess.microsoft.com/
+1. Entre no meu acesso em https://myaccess.microsoft.com/
 
 2. Selecione **revisões de acesso** no menu na barra do lado esquerdo para ver uma lista de revisões de acesso pendentes atribuídas a você.
 
@@ -206,4 +206,3 @@ Para aceitar recomendações para todos os usuários, certifique-se de que nenhu
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Concluir uma revisão de acesso de grupos ou aplicativos](complete-access-review.md)
-

@@ -7,13 +7,13 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 08/26/2020
-ms.openlocfilehash: 0f1050bf58e0cd8d9a601d60a4c5dc22a5420483
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.date: 10/09/2020
+ms.openlocfilehash: d7734fde529c24e8113ea3b019d343b7223f0122
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88949024"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91929635"
 ---
 # <a name="upgrade-to-the-latest-rest-api-in-azure-cognitive-search"></a>Atualizar para a API REST mais recente no Azure Pesquisa Cognitiva
 
@@ -40,13 +40,19 @@ Se qualquer uma dessas situações se aplicar a você, talvez seja necessário a
 
 ## <a name="upgrade-to-2020-06-30"></a>Atualizar para o 2020-06-30
 
-A versão 2020-06-30 é a nova versão geralmente disponível da API REST. Não há alterações significativas, mas há algumas diferenças comportamentais. 
+A versão 2020-06-30 é a nova versão geralmente disponível da API REST. Há uma alteração significativa e várias diferenças comportamentais. 
 
 Os recursos agora estão disponíveis para o público em geral nesta versão de API:
 
 * [Loja de conhecimento](knowledge-store-concept-intro.md), armazenamento persistente de conteúdo aprimorado criado por meio de habilidades, criado para análise e processamento downstream por meio de outros aplicativos. Com esse recurso, um pipeline de enriquecimento de ia controlado por indexador pode preencher uma loja de conhecimento além de um índice de pesquisa. Se você usou a versão de visualização desse recurso, ele é equivalente à versão disponível. A única alteração de código necessária é modificar a versão de API.
 
-As alterações de comportamento incluem o seguinte:
+### <a name="breaking-change"></a>Alteração significativa
+
+O código existente escrito em versões anteriores da API será interrompido na API-Version = 2020-06-30 e posterior se o código contiver a seguinte funcionalidade:
+
+* Qualquer literal EDM. Date (uma data composta do ano-mês-dia, como `2020-12-12` ) em expressões de filtro deve seguir o formato EDM. DateTimeOffset: `2020-12-12T00:00:00Z` . Essa alteração foi necessária para lidar com resultados de consulta incorretos ou inesperados devido a diferenças de fuso horário.
+
+### <a name="behavior-changes"></a>Alterações de comportamento
 
 * O [algoritmo de classificação BM25](index-ranking-similarity.md) substitui o algoritmo de classificação anterior por uma tecnologia mais nova. Novos serviços usarão esse algoritmo automaticamente. Para os serviços existentes, você deve definir parâmetros para usar o novo algoritmo.
 
@@ -61,7 +67,7 @@ A versão 2019-05-06 é a versão mais antiga disponível da API REST. Os recurs
 * Os [modos de análise de JsonLines](search-howto-index-json-blobs.md), parte da indexação de BLOBs do Azure, cria um documento de pesquisa por entidade JSON que é separado por uma nova linha.
 * O [enriquecimento de ia](cognitive-search-concept-intro.md) fornece indexação que aproveita os mecanismos de enriquecimento de ia de serviços cognitivas.
 
-### <a name="breaking-changes"></a>Alterações da falha
+### <a name="breaking-changes"></a>Alterações de quebra
 
 O código existente escrito em versões anteriores da API será interrompido na API-Version = 2019-05-06 e posterior se o código contiver a seguinte funcionalidade:
 

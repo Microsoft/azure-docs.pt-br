@@ -1,25 +1,19 @@
 ---
 title: Configurar o Oracle ASM em uma máquina virtual Linux do Azure | Microsoft Docs
 description: Coloque o Oracle ASM em funcionamento rapidamente no ambiente do Azure.
-services: virtual-machines-linux
-documentationcenter: virtual-machines
-author: rgardler
-manager: ''
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
+author: dbakevlar
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
 ms.date: 08/02/2018
-ms.author: rogardle
-ms.openlocfilehash: a707081aca4a28743bff8bdd1046a5e9aee285f1
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.author: kegorman
+ms.reviewer: cynthn
+ms.openlocfilehash: 6f0b58374ae3eb972993b544117d8cbb98371ce5
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224393"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602607"
 ---
 # <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>Configurar o Oracle ASM em uma máquina virtual Linux do Azure  
 
@@ -39,7 +33,7 @@ Se você optar por instalar e usar a CLI localmente, este tutorial exigirá que 
 
 ### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Para criar um grupo de recursos, use o comando [az group create](/cli/azure/group). Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. Neste exemplo, um grupo de recursos chamado de *myResourceGroup* é criado na região *eastus*.
+Para criar um grupo de recursos, use o comando [AZ Group Create](/cli/azure/group) . Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. Neste exemplo, um grupo de recursos chamado de *myResourceGroup* é criado na região *eastus*.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -351,7 +345,7 @@ Para este tutorial, o usuário padrão é *grade* e o grupo padrão é *asmadmin
 
 Para baixar e preparar o software de infraestrutura em grade do Oracle, conclua as seguintes etapas:
 
-1. Baixe a infraestrutura em grade do Oracle da [página de download do Oracle ASM](https://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-linux-download-2240591.html). 
+1. Baixe a infraestrutura em grade do Oracle da [página de download do Oracle ASM](https://www.oracle.com/database/technologies/oracle19c-linux-downloads.html). 
 
    No download intitulado **Banco de Dados Oracle 12c versão 1 Infraestrutura em Grade (12.1.0.2.0) para Linux x86-64**, baixe os dois arquivos .zip.
 
@@ -534,7 +528,7 @@ Para configurar a instalação do Oracle ASM, conclua as seguintes etapas:
    - Clique em `ok` para criar o grupo de discos.
    - Clique em `ok` para fechar a janela de confirmação.
 
-   ![Captura de tela da caixa de diálogo Criar Grupo de Discos](./media/oracle-asm/asm04.png)
+   ![Captura de tela da caixa de diálogo Criar grupo de discos e realça a opção externa (nenhum).](./media/oracle-asm/asm04.png)
 
 6. Selecione **Sair** para fechar o assistente de configuração do ASM.
 

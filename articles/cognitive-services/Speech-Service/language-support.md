@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/26/2020
+ms.date: 01/07/2021
 ms.author: trbye
-ms.custom: seodec18
-ms.openlocfilehash: 19f4e7b340f0b1ceb64d04a2704a4f6667e1e14a
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.custom: references_regions
+ms.openlocfilehash: 9dfd950303d1cb838d44ae672fed33dd4cd7b5ec
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88053568"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100381895"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Idiomas compatíveis e suporte de voz para o serviço de Fala
 
@@ -26,89 +26,104 @@ Os idiomas compatíveis variam de acordo com a funcionalidade do serviço de Fal
 
 O SDK do Microsoft Speech e a API REST são compatíveis com os idiomas (localidades) a seguir. 
 
-Para melhorar a precisão, a personalização é oferecida para um subconjunto de idiomas por meio do upload de **Áudio + Transcrições rotuladas por humanos** ou **Texto relacionado: sentenças**. Para saber mais sobre a personalização, confira [Introdução à Fala Personalizada](how-to-custom-speech.md).
+Para melhorar a precisão, a personalização é oferecida para um subconjunto de idiomas por meio do upload de **Áudio + Transcrições rotuladas por humanos** ou **Texto relacionado: sentenças**. O suporte para a personalização do modelo acústico com **áudio + transcrições com rótulo humano** é limitado aos modelos de base específicos listados abaixo. Outros modelos e idiomas básicos só usarão o texto das transcrições para treinar modelos personalizados, assim como com o **texto relacionado: frases**. Para saber mais sobre a personalização, confira [Introdução à Fala Personalizada](./custom-speech-overview.md).
 
 <!--
 To get the AM and ML bits:
-https://westus.cris.ai/swagger/ui/index#/Custom%20Speech%20models%3A/GetSupportedLocalesForModels
+https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetSupportedLocalesForModels
 
 To get pronunciation bits:
 https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronunciation Datasets" -> Click on Import -> Locale: the list of locales there correspond to the supported locales
 -->
 
-| Local  | Linguagem                          | Personalizações                                    |
-|---------|-----------------------------------|---------------------------------------------------|
-| `ar-AE` | Árabe (EAU)                      | Não                                                |
-| `ar-BH` | Árabe (Bahrein), padrão moderno | Modelo de linguagem                                    |
-| `ar-EG` | Árabe (Egito)                    | Modelo de linguagem                                    |
-| `ar-IL` | Árabe (Israel)                   | Não                                                |
-| `ar-JO` | Árabe (Jordânia)                   | Não                                                |
-| `ar-KW` | Árabe (Kuwait)                   | Não                                                |
-| `ar-LB` | Árabe (Líbano)                  | Não                                                |
-| `ar-PS` | Árabe (Palestina)                | Não                                                |
-| `ar-QA` | Árabe (Catar)                    | Não                                                |
-| `ar-SA` | Árabe (Arábia Saudita)             | Não                                                |
-| `ar-SY` | Árabe (Síria)                    | Modelo de linguagem                                    |
-| `ca-ES` | Catalão                           | Modelo de linguagem                                    |
-| `cs-CZ` | Tcheco (República Tcheca)            | Modelo de Linguagem                                    | 
-| `da-DK` | Dinamarquês (Dinamarca)                  | Modelo de linguagem                                    |
-| `de-DE` | Alemão (Alemanha)                  | Modelo acústico<br>Modelo de linguagem<br>Pronúncia |
-| `en-AU` | Inglês (Austrália)               | Modelo acústico<br>Modelo de linguagem                  |
-| `en-CA` | Inglês (Canadá)                  | Modelo acústico<br>Modelo de linguagem                  |
-| `en-GB` | Inglês (Reino Unido)          | Modelo acústico<br>Modelo de linguagem<br>Pronúncia |
-| `en-HK` | Inglês (Hong Kong)               | Modelo de Linguagem                                    | 
-| `en-IE` | Inglês (Irlanda)                 | Modelo de Linguagem                                    | 
-| `en-IN` | Inglês (Índia)                   | Modelo acústico<br>Modelo de linguagem                  |
-| `en-NZ` | Inglês (Nova Zelândia)             | Modelo acústico<br>Modelo de linguagem                  |
-| `en-PH` | Inglês (Filipinas)             | Modelo de Linguagem                                    | 
-| `en-SG` | Inglês (Singapura)               | Modelo de Linguagem                                    | 
-| `en-US` | Inglês (Estados Unidos)           | Modelo acústico<br>Modelo de linguagem<br>Pronúncia |
-| `en-ZA` | Inglês (África do Sul)            | Modelo de Linguagem                                    | 
-| `es-AR` | Espanhol (Argentina)               | Modelo de Linguagem                                    | 
-| `es-BO` | Espanhol (Bolívia)                 | Modelo de Linguagem                                    | 
-| `es-CL` | Espanhol (Chile)                   | Modelo de Linguagem                                    | 
-| `es-CO` | Espanhol (Colômbia)                | Modelo de Linguagem                                    | 
-| `es-CR` | Espanhol (Costa Rica)              | Modelo de Linguagem                                    | 
-| `es-CU` | Espanhol (Cuba)                    | Modelo de Linguagem                                    | 
-| `es-DO` | Espanhol (República Dominicana)      | Modelo de Linguagem                                    | 
-| `es-EC` | Espanhol (Equador)                 | Modelo de Linguagem                                    | 
-| `es-ES` | Espanhol (Espanha)                   | Modelo acústico<br>Modelo de linguagem                  |
-| `es-GT` | Espanhol (Guatemala)               | Modelo de Linguagem                                    | 
-| `es-HN` | Espanhol (Honduras)                | Modelo de Linguagem                                    | 
-| `es-MX` | Espanhol (México)                  | Modelo acústico<br>Modelo de linguagem                  |
-| `es-NI` | Espanhol (Nicarágua)               | Modelo de Linguagem                                    | 
-| `es-PA` | Espanhol (Panamá)                  | Modelo de Linguagem                                    | 
-| `es-PE` | Espanhol (Peru)                    | Modelo de Linguagem                                    | 
-| `es-PR` | Espanhol (Porto Rico)             | Modelo de Linguagem                                    | 
-| `es-PY` | Espanhol (Paraguai)                | Modelo de Linguagem                                    | 
-| `es-SV` | Espanhol (El Salvador)             | Modelo de Linguagem                                    | 
-| `es-US` | Espanhol (EUA)                     | Modelo de Linguagem                                    | 
-| `es-UY` | Espanhol (Uruguai)                 | Modelo de Linguagem                                    | 
-| `es-VE` | Espanhol (Venezuela)               | Modelo de Linguagem                                    | 
-| `fi-FI` | Finlandês (Finlândia)                 | Modelo de linguagem                                    |
-| `fr-CA` | Francês (Canadá)                   | Modelo acústico<br>Modelo de linguagem                  |
-| `fr-FR` | Francês (França)                   | Modelo acústico<br>Modelo de linguagem<br>Pronúncia |
-| `gu-IN` | Guzerate (Índia)                 | Modelo de linguagem                                    |
-| `hi-IN` | Híndi (Índia)                     | Modelo acústico<br>Modelo de linguagem                  |
-| `hu-HU` | Húngaro (Hungria)               | Modelo de Linguagem                                    | 
-| `it-IT` | Italiano (Itália)                   | Modelo acústico<br>Modelo de linguagem<br>Pronúncia |
-| `ja-JP` | Japonês (Japão)                  | Modelo de linguagem                                    |
-| `ko-KR` | Coreano (Coreia do Sul)                    | Modelo de linguagem                                    |
-| `mr-IN` | Marati (Índia)                   | Modelo de linguagem                                    |
-| `nb-NO` | Norueguês (Bokmål) (Noruega)       | Modelo de linguagem                                    |
-| `nl-NL` | Holandês (Países Baixos)               | Modelo de linguagem                                    |
-| `pl-PL` | Polonês (Polônia)                   | Modelo de linguagem                                    |
-| `pt-BR` | Português (Brasil)               | Modelo acústico<br>Modelo de linguagem<br>Pronúncia |
-| `pt-PT` | Português (Portugal)             | Modelo de linguagem                                    |
-| `ru-RU` | Russo (Rússia)                  | Modelo acústico<br>Modelo de linguagem                  |
-| `sv-SE` | Sueco (Suécia)                  | Modelo de linguagem                                    |
-| `ta-IN` | Tâmil (Índia)                     | Modelo de linguagem                                    |
-| `te-IN` | Télugo (Índia)                    | Modelo de linguagem                                    |
-| `th-TH` | Tailandês (Tailândia)                   | Não                                                |
-| `tr-TR` | Turco (Turquia)                  | Modelo de linguagem                                    |
-| `zh-CN` | Chinês (mandarim, simplificado)    | Modelo acústico<br>Modelo de linguagem                  |
-| `zh-HK` | Chinês (Cantonês tradicional)  | Modelo de linguagem                                    |
-| `zh-TW` | Chinês (Mandarim Taiwanês)      | Modelo de linguagem                                    |
+| Idioma                 | Localidade (BCP-47) | Personalizações  | [Detecção de idioma](how-to-automatic-language-detection.md) |
+|------------------------------------|--------|---------------------------------------------------|-------------------------------|
+| Árabe (Bahrein), padrão moderno  | `ar-BH` | Modelo de linguagem                                   | Sim                           | 
+| Árabe (Egito)                     | `ar-EG` | Modelo de linguagem                                   | Sim                          |
+| Árabe (Iraque)                      | `ar-IQ` | Modelo de linguagem                                   |                           |
+| Árabe (Israel)                    | `ar-IL` | Modelo de linguagem                                   |                           |
+| Árabe (Jordânia)                    | `ar-JO` | Modelo de linguagem                                   |                           |
+| Árabe (Kuwait)                    | `ar-KW` | Modelo de linguagem                                   |                           |
+| Árabe (Líbano)                   | `ar-LB` | Modelo de linguagem                                   |                           |
+| Árabe (Omã)                      | `ar-OM` | Modelo de linguagem                                   |                           |
+| Árabe (Catar)                     | `ar-QA` | Modelo de linguagem                                   |                           |
+| Árabe (Arábia Saudita)              | `ar-SA` | Modelo de linguagem                                   | Sim                          |
+| Árabe (estado de Palestina)        | `ar-PS` | Modelo de linguagem                                   |                           |
+| Árabe (Síria)                     | `ar-SY` | Modelo de linguagem                                   | Sim                          |
+| Árabe (Emirados Árabes Unidos)      | `ar-AE` | Modelo de linguagem                                   |                           |
+| Búlgaro (Bulgária)               | `bg-BG` | Modelo de linguagem                                   |                           |
+| Catalão (Espanha)                    | `ca-ES` | Modelo de linguagem                                   | Sim                          |
+| Chinês (Cantonês tradicional)   | `zh-HK` | Modelo acústico (20201015)<br>Modelo de linguagem                 |        Sim                   |
+| Chinês (mandarim, simplificado)     | `zh-CN` | Modelo acústico (20200910)<br>Modelo de linguagem                 |     Sim                      |
+| Chinês (Mandarim Taiwanês)       | `zh-TW` | Modelo acústico (20190701, 20201015)<br>Modelo de linguagem                 |           Sim                |
+| Croata (Croácia)                 | `hr-HR` | Modelo de linguagem                                   |                           |
+| Tcheco (República Tcheca)             | `cs-CZ` | Modelo de Linguagem                                   |                           |
+| Dinamarquês (Dinamarca)                   | `da-DK` | Modelo de linguagem                                   | Sim                          |
+| Holandês (Países Baixos)                | `nl-NL` | Modelo acústico (20201015)<br>Modelo de linguagem                                   |    Sim                       |
+| Inglês (Austrália)                | `en-AU` | Modelo acústico (20201019)<br>Modelo de linguagem                 | Sim                          |
+| Inglês (Canadá)                   | `en-CA` | Modelo acústico (20201019)<br>Modelo de linguagem                 | Sim                          |
+| Inglês (Hong Kong)                | `en-HK` | Modelo de Linguagem                                   |                           |
+| Inglês (Índia)                    | `en-IN` | Modelo acústico (20200923)<br>Modelo de linguagem                 | Sim                          |
+| Inglês (Irlanda)                  | `en-IE` | Modelo de Linguagem                                   |                           |
+| Inglês (Nova Zelândia)              | `en-NZ` | Modelo acústico (20201019)<br>Modelo de linguagem                 |  Sim                         |
+| Inglês (Nigéria)                  | `en-NG` | Modelo de Linguagem                                   |                           |
+| Inglês (Filipinas)              | `en-PH` | Modelo de Linguagem                                   |                           |
+| Inglês (Singapura)                | `en-SG` | Modelo de Linguagem                                   |                           |
+| Inglês (África do Sul)             | `en-ZA` | Modelo de Linguagem                                   |                           |
+| Inglês (Reino Unido)           | `en-GB` | Modelo acústico (20201019)<br>Modelo de linguagem<br>Pronúncia| Sim                          |
+| Inglês (Estados Unidos)            | `en-US` | Modelo acústico (20201019)<br>Modelo de linguagem<br>Pronúncia| Sim                          |
+| Estoniano (Estônia)                  | `et-EE` | Modelo de Linguagem                                   |                           |
+| Finlandês (Finlândia)                  | `fi-FI` | Modelo de linguagem                                   |     Sim                      |
+| Francês (Canadá)                    | `fr-CA` | Modelo acústico (20201015)<br>Modelo de linguagem                 |     Sim                      |
+| Francês (França)                    | `fr-FR` | Modelo acústico (20201015)<br>Modelo de linguagem<br>Pronúncia|      Sim                     |
+| Alemão (Alemanha)                   | `de-DE` | Modelo acústico (20190701, 20200619, 20201127)<br>Modelo de linguagem<br>Pronúncia|  Sim                         |
+| Grego (Grécia)                     | `el-GR` | Modelo de linguagem                                   |                           |
+| Guzerate (Índia)                  | `gu-IN` | Modelo de linguagem                                   |                           |
+| Híndi (Índia)                      | `hi-IN` | Modelo acústico (20200701)<br>Modelo de linguagem                 |     Sim                      |
+| Húngaro (Hungria)                | `hu-HU` | Modelo de Linguagem                                   |                           |
+| Irlandês (Irlanda)                     | `ga-IE` | Modelo de linguagem                                   |                           |
+| Italiano (Itália)                    | `it-IT` | Modelo acústico (20201016)<br>Modelo de linguagem<br>Pronúncia|      Sim                     |
+| Japonês (Japão)                   | `ja-JP` | Modelo de linguagem                                   |      Sim                     |
+| Coreano (Coreia do Sul)                     | `ko-KR` | Modelo acústico (20201015)<br>Modelo de linguagem                 |      Sim                     |
+| Letão (Letônia)                   | `lv-LV` | Modelo de linguagem                                   |                           |
+| Lituano (Lituânia)             | `lt-LT` | Modelo de linguagem                                   |                           |
+| Maltês (Malta)                     | `mt-MT` | Modelo de linguagem                                   |                           |
+| Marati (Índia)                    | `mr-IN` | Modelo de linguagem                                   |                           |
+| Norueguês, (Bokmål, Noruega)         | `nb-NO` | Modelo de linguagem                                   |     Sim                      |
+| Polonês (Polônia)                    | `pl-PL` | Modelo de linguagem                                   |       Sim                    |
+| Português (Brasil)                | `pt-BR` | Modelo acústico (20190620, 20201015)<br>Modelo de linguagem<br>Pronúncia|          Sim                 |
+| Português (Portugal)              | `pt-PT` | Modelo de linguagem                                   |             Sim              |
+| Romeno (Romênia)                 | `ro-RO` | Modelo de linguagem                                   |                           |
+| Russo (Rússia)                   | `ru-RU` | Modelo acústico (20200907)<br>Modelo de linguagem                 |                Sim           |
+| Eslovaco (Eslováquia)                  | `sk-SK` | Modelo de linguagem                                   |                           |
+| Esloveno (Eslovênia)               | `sl-SI` | Modelo de linguagem                                   |                           |
+| Espanhol (Argentina)                | `es-AR` | Modelo de Linguagem                                   |                           |
+| Espanhol (Bolívia)                  | `es-BO` | Modelo de Linguagem                                   |                           |
+| Espanhol (Chile)                    | `es-CL` | Modelo de Linguagem                                   |                           |
+| Espanhol (Colômbia)                 | `es-CO` | Modelo de Linguagem                                   |                           |
+| Espanhol (Costa Rica)               | `es-CR` | Modelo de Linguagem                                   |                           |
+| Espanhol (Cuba)                     | `es-CU` | Modelo de Linguagem                                   |                           |
+| Espanhol (República Dominicana)       | `es-DO` | Modelo de Linguagem                                   |                           |
+| Espanhol (Equador)                  | `es-EC` | Modelo de Linguagem                                   |                           |
+| Espanhol (El Salvador)              | `es-SV` | Modelo de Linguagem                                   |                           |
+| Espanhol (Guiné Equatorial)        | `es-GQ` | Modelo de Linguagem                                   |                           |
+| Espanhol (Guatemala)                | `es-GT` | Modelo de Linguagem                                   |                           |
+| Espanhol (Honduras)                 | `es-HN` | Modelo de Linguagem                                   |                           |
+| Espanhol (México)                   | `es-MX` | Modelo acústico (20200907)<br>Modelo de linguagem                 |    Sim                       |
+| Espanhol (Nicarágua)                | `es-NI` | Modelo de Linguagem                                   |                           |
+| Espanhol (Panamá)                   | `es-PA` | Modelo de Linguagem                                   |                           |
+| Espanhol (Paraguai)                 | `es-PY` | Modelo de Linguagem                                   |                           |
+| Espanhol (Peru)                     | `es-PE` | Modelo de Linguagem                                   |                           |
+| Espanhol (Porto Rico)              | `es-PR` | Modelo de Linguagem                                   |                           |
+| Espanhol (Espanha)                    | `es-ES` | Modelo acústico (20201015)<br>Modelo de linguagem                 |  Sim                         |
+| Espanhol (Uruguai)                  | `es-UY` | Modelo de Linguagem                                   |                           |
+| Espanhol (EUA)                      | `es-US` | Modelo de Linguagem                                   |                           |
+| Espanhol (Venezuela)                | `es-VE` | Modelo de Linguagem                                   |                           |
+| Sueco (Suécia)                   | `sv-SE` | Modelo de linguagem                                   |   Sim                        |
+| Tâmil (Índia)                      | `ta-IN` | Modelo de linguagem                                   |                           |
+| Télugo (Índia)                     | `te-IN` | Modelo de linguagem                                   |                           |
+| Tailandês (Tailândia)                    | `th-TH` | Modelo de linguagem                                   |      Sim                     |
+| Turco (Turquia)                   | `tr-TR` | Modelo de linguagem                                   |                           |
 
 ## <a name="text-to-speech"></a>Conversão de texto em fala
 
@@ -123,51 +138,159 @@ A conversão de texto em fala neural é um novo tipo de sintetização de fala a
 
 Vozes neurais podem ser usadas para interagir com chatbots e assistentes de voz de maneira mais natural e participativa para converter textos digitais, como livros eletrônicos, em audiolivros e aprimorar sistemas de navegação veiculares. Com a prosódia natural semelhante à humana e a articulação clara das palavras, as vozes neurais reduzem significativamente a fadiga de escuta quando os usuários interagem com sistemas de inteligência artificial.
 
+> [!NOTE]
+> As vozes neurais são criadas a partir de exemplos que usam uma taxa de amostragem de 24 kHz.
+> Todas as vozes podem fazer amostragem ou redução para outras taxas de amostra ao resumir.
+
+
+| Idioma | Locale | Gênero | Nome da voz | Suporte de estilo |
+|---|---|---|---|---|
+| Árabe (Egito) | `ar-EG` | Feminino | `ar-EG-SalmaNeural` | Geral |
+| Árabe (Egito) | `ar-EG` | Masculino | `ar-EG-ShakirNeural` <sup>Novo</sup> | Geral |
+| Árabe (Arábia Saudita) | `ar-SA` | Feminino | `ar-SA-ZariyahNeural` | Geral |
+| Árabe (Arábia Saudita) | `ar-SA` | Masculino | `ar-SA-HamedNeural` <sup>Novo</sup> | Geral |
+| Búlgaro (Bulgária) | `bg-BG` | Feminino | `bg-BG-KalinaNeural` | Geral |
+| Búlgaro (Bulgária) | `bg-BG` | Masculino | `bg-BG-BorislavNeural` <sup>Novo</sup> | Geral |
+| Catalão (Espanha) | `ca-ES` | Feminino | `ca-ES-AlbaNeural` | Geral |
+| Catalão (Espanha) | `ca-ES` | Feminino | `ca-ES-JoanaNeural` <sup>Novo</sup> | Geral |
+| Catalão (Espanha) | `ca-ES` | Masculino | `ca-ES-EnricNeural` <sup>Novo</sup> | Geral |
+| Chinês (Cantonês tradicional) | `zh-HK` | Feminino | `zh-HK-HiuGaaiNeural` | Geral |
+| Chinês (Cantonês tradicional) | `zh-HK` | Feminino | `zh-HK-HiuMaanNeural` <sup>Novo</sup> | Geral |
+| Chinês (Cantonês tradicional) | `zh-HK` | Masculino | `zh-HK-WanLungNeural` <sup>Novo</sup> | Geral |
+| Chinês (mandarim, simplificado) | `zh-CN` | Feminino | `zh-CN-XiaoxiaoNeural` | Geral, vários estilos de voz disponíveis [usando o SSML](speech-synthesis-markup.md#adjust-speaking-styles)  |
+| Chinês (mandarim, simplificado) | `zh-CN` | Feminino | `zh-CN-XiaoyouNeural` | Voz de criança, otimização para narração de histórias |
+| Chinês (mandarim, simplificado) | `zh-CN` | Masculino | `zh-CN-YunyangNeural` | Otimizado para leitura de notícias,<br /> vários estilos de voz disponíveis [usando o SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
+| Chinês (mandarim, simplificado) | `zh-CN` | Masculino | `zh-CN-YunyeNeural` | Otimização para narração de histórias  |
+| Chinês (Mandarim Taiwanês) | `zh-TW` | Feminino | `zh-TW-HsiaoChenNeural` <sup>Novo</sup> | Geral |
+| Chinês (Mandarim Taiwanês) | `zh-TW` | Feminino | `zh-TW-HsiaoYuNeural` | Geral |
+| Chinês (Mandarim Taiwanês) | `zh-TW` | Masculino | `zh-TW-YunJheNeural` <sup>Novo</sup> | Geral |
+| Croata (Croácia) | `hr-HR` | Feminino | `hr-HR-GabrijelaNeural` | Geral |
+| Croata (Croácia) | `hr-HR` | Masculino | `hr-HR-SreckoNeural` <sup>Novo</sup> | Geral |
+| Tcheco (tcheco) | `cs-CZ` | Feminino | `cs-CZ-VlastaNeural` | Geral |
+| Tcheco (tcheco) | `cs-CZ` | Masculino | `cs-CZ-AntoninNeural` <sup>Novo</sup> | Geral |
+| Dinamarquês (Dinamarca) | `da-DK` | Feminino | `da-DK-ChristelNeural` | Geral |
+| Dinamarquês (Dinamarca) | `da-DK` | Masculino | `da-DK-JeppeNeural` <sup>Novo</sup> | Geral |
+| Holandês (Países Baixos) | `nl-NL` | Feminino | `nl-NL-ColetteNeural` | Geral |
+| Holandês (Países Baixos) | `nl-NL` | Feminino | `nl-NL-FennaNeural` <sup>Novo</sup> | Geral |
+| Holandês (Países Baixos) | `nl-NL` | Masculino | `nl-NL-MaartenNeural` <sup>Novo</sup> | Geral |
+| Inglês (Austrália) | `en-AU` | Feminino | `en-AU-NatashaNeural` | Geral |
+| Inglês (Austrália) | `en-AU` | Masculino | `en-AU-WilliamNeural` | Geral |
+| Inglês (Canadá) | `en-CA` | Feminino | `en-CA-ClaraNeural` | Geral |
+| Inglês (Canadá) | `en-CA` | Masculino | `en-CA-LiamNeural` <sup>Novo</sup> | Geral |
+| Inglês (Índia) | `en-IN` | Feminino | `en-IN-NeerjaNeural` | Geral |
+| Inglês (Índia) | `en-IN` | Masculino | `en-IN-PrabhatNeural` <sup>Novo</sup> | Geral |
+| Inglês (Irlanda) | `en-IE` | Feminino | `en-IE-EmilyNeural` | Geral |
+| Inglês (Irlanda) | `en-IE` | Masculino | `en-IE-ConnorNeural` <sup>Novo</sup> | Geral |
+| Inglês (Reino Unido) | `en-GB` | Feminino | `en-GB-LibbyNeural` | Geral |
+| Inglês (Reino Unido) | `en-GB` | Feminino | `en-GB-MiaNeural` | Geral |
+| Inglês (Reino Unido) | `en-GB` | Masculino | `en-GB-RyanNeural` | Geral |
+| Inglês (Estados Unidos) | `en-US` | Feminino | `en-US-AriaNeural` | Geral, vários estilos de voz disponíveis [usando o SSML](speech-synthesis-markup.md#adjust-speaking-styles)  |
+| Inglês (Estados Unidos) | `en-US` | Feminino | `en-US-JennyNeural` | Geral |
+| Inglês (Estados Unidos) | `en-US` | Masculino | `en-US-GuyNeural` | Geral |
+| Finlandês (Finlândia) | `fi-FI` | Feminino | `fi-FI-NooraNeural` | Geral |
+| Finlandês (Finlândia) | `fi-FI` | Feminino | `fi-FI-SelmaNeural` <sup>Novo</sup> | Geral |
+| Finlandês (Finlândia) | `fi-FI` | Masculino | `fi-FI-HarriNeural` <sup>Novo</sup> | Geral |
+| Francês (Canadá) | `fr-CA` | Feminino | `fr-CA-SylvieNeural` | Geral |
+| Francês (Canadá) | `fr-CA` | Masculino | `fr-CA-JeanNeural` | Geral |
+| Francês (França) | `fr-FR` | Feminino | `fr-FR-DeniseNeural` | Geral |
+| Francês (França) | `fr-FR` | Masculino | `fr-FR-HenriNeural` | Geral |
+| Francês (Suíça) | `fr-CH` | Feminino | `fr-CH-ArianeNeural` | Geral |
+| Francês (Suíça) | `fr-CH` | Masculino | `fr-CH-FabriceNeural` <sup>Novo</sup> | Geral |
+| Alemão (Áustria) | `de-AT` | Feminino | `de-AT-IngridNeural` | Geral |
+| Alemão (Áustria) | `de-AT` | Masculino | `de-AT-JonasNeural` <sup>Novo</sup> | Geral |
+| Alemão (Alemanha) | `de-DE` | Feminino | `de-DE-KatjaNeural` | Geral |
+| Alemão (Alemanha) | `de-DE` | Masculino | `de-DE-ConradNeural` | Geral |
+| Alemão (Suíça) | `de-CH` | Feminino | `de-CH-LeniNeural` | Geral |
+| Alemão (Suíça) | `de-CH` | Masculino | `de-CH-JanNeural` <sup>Novo</sup> | Geral |
+| Grego (Grécia) | `el-GR` | Feminino | `el-GR-AthinaNeural` | Geral |
+| Grego (Grécia) | `el-GR` | Masculino | `el-GR-NestorasNeural` <sup>Novo</sup> | Geral |
+| Hebraico (Israel) | `he-IL` | Feminino | `he-IL-HilaNeural` | Geral |
+| Hebraico (Israel) | `he-IL` | Masculino | `he-IL-AvriNeural` <sup>Novo</sup> | Geral |
+| Híndi (Índia) | `hi-IN` | Feminino | `hi-IN-SwaraNeural` | Geral |
+| Híndi (Índia) | `hi-IN` | Masculino | `hi-IN-MadhurNeural` <sup>Novo</sup> | Geral |
+| Húngaro (Hungria) | `hu-HU` | Feminino | `hu-HU-NoemiNeural` | Geral |
+| Húngaro (Hungria) | `hu-HU` | Masculino | `hu-HU-TamasNeural` <sup>Novo</sup> | Geral |
+| Indonésio (Indonésia) | `id-ID` | Feminino | `id-ID-GadisNeural` <sup>Novo</sup> | Geral |
+| Indonésio (Indonésia) | `id-ID` | Masculino | `id-ID-ArdiNeural` | Geral |
+| Italiano (Itália) | `it-IT` | Feminino | `it-IT-ElsaNeural` | Geral |
+| Italiano (Itália) | `it-IT` | Feminino | `it-IT-IsabellaNeural` | Geral |
+| Italiano (Itália) | `it-IT` | Masculino | `it-IT-DiegoNeural` | Geral |
+| Japonês (Japão) | `ja-JP` | Feminino | `ja-JP-NanamiNeural` | Geral |
+| Japonês (Japão) | `ja-JP` | Masculino | `ja-JP-KeitaNeural` | Geral |
+| Coreano (Coreia do Sul) | `ko-KR` | Feminino | `ko-KR-SunHiNeural` | Geral |
+| Coreano (Coreia do Sul) | `ko-KR` | Masculino | `ko-KR-InJoonNeural` | Geral |
+| Malaio (Malásia) | `ms-MY` | Feminino | `ms-MY-YasminNeural` | Geral |
+| Malaio (Malásia) | `ms-MY` | Masculino | `ms-MY-OsmanNeural` <sup>Novo</sup> | Geral |
+| Norueguês, (Bokmål, Noruega) | `nb-NO` | Feminino | `nb-NO-IselinNeural` | Geral |
+| Norueguês, (Bokmål, Noruega) | `nb-NO` | Feminino | `nb-NO-PernilleNeural` <sup>Novo</sup> | Geral |
+| Norueguês, (Bokmål, Noruega) | `nb-NO` | Masculino | `nb-NO-FinnNeural` <sup>Novo</sup> | Geral |
+| Polonês (Polônia) | `pl-PL` | Feminino | `pl-PL-AgnieszkaNeural` <sup>Novo</sup> | Geral |
+| Polonês (Polônia) | `pl-PL` | Feminino | `pl-PL-ZofiaNeural` | Geral |
+| Polonês (Polônia) | `pl-PL` | Masculino | `pl-PL-MarekNeural` <sup>Novo</sup> | Geral |
+| Português (Brasil) | `pt-BR` | Feminino | `pt-BR-FranciscaNeural` | Geral, vários estilos de voz disponíveis [usando o SSML](speech-synthesis-markup.md#adjust-speaking-styles)  |
+| Português (Brasil) | `pt-BR` | Masculino | `pt-BR-AntonioNeural` | Geral |
+| Português (Portugal) | `pt-PT` | Feminino | `pt-PT-FernandaNeural` | Geral |
+| Português (Portugal) | `pt-PT` | Feminino | `pt-PT-RaquelNeural` <sup>Novo</sup> | Geral |
+| Português (Portugal) | `pt-PT` | Masculino | `pt-PT-DuarteNeural` <sup>Novo</sup> | Geral |
+| Romeno (Romênia) | `ro-RO` | Feminino | `ro-RO-AlinaNeural` | Geral |
+| Romeno (Romênia) | `ro-RO` | Masculino | `ro-RO-EmilNeural` <sup>Novo</sup> | Geral |
+| Russo (Rússia) | `ru-RU` | Feminino | `ru-RU-DariyaNeural` | Geral |
+| Russo (Rússia) | `ru-RU` | Feminino | `ru-RU-SvetlanaNeural` <sup>Novo</sup> | Geral |
+| Russo (Rússia) | `ru-RU` | Masculino | `ru-RU-DmitryNeural` <sup>Novo</sup> | Geral |
+| Eslovaco (Eslováquia) | `sk-SK` | Feminino | `sk-SK-ViktoriaNeural` | Geral |
+| Eslovaco (Eslováquia) | `sk-SK` | Masculino | `sk-SK-LukasNeural` <sup>Novo</sup> | Geral |
+| Esloveno (Eslovênia) | `sl-SI` | Feminino | `sl-SI-PetraNeural` | Geral |
+| Esloveno (Eslovênia) | `sl-SI` | Masculino | `sl-SI-RokNeural` <sup>Novo</sup> | Geral |
+| Espanhol (México) | `es-MX` | Feminino | `es-MX-DaliaNeural` | Geral |
+| Espanhol (México) | `es-MX` | Masculino | `es-MX-JorgeNeural` | Geral |
+| Espanhol (Espanha) | `es-ES` | Feminino | `es-ES-ElviraNeural` | Geral |
+| Espanhol (Espanha) | `es-ES` | Masculino | `es-ES-AlvaroNeural` | Geral |
+| Sueco (Suécia) | `sv-SE` | Feminino | `sv-SE-HilleviNeural` | Geral |
+| Sueco (Suécia) | `sv-SE` | Feminino | `sv-SE-SofieNeural` <sup>Novo</sup> | Geral |
+| Sueco (Suécia) | `sv-SE` | Masculino | `sv-SE-MattiasNeural` <sup>Novo</sup> | Geral |
+| Tâmil (Índia) | `ta-IN` | Feminino | `ta-IN-PallaviNeural` | Geral |
+| Tâmil (Índia) | `ta-IN` | Masculino | `ta-IN-ValluvarNeural` <sup>Novo</sup> | Geral |
+| Télugo (Índia) | `te-IN` | Feminino | `te-IN-ShrutiNeural` | Geral |
+| Télugo (Índia) | `te-IN` | Masculino | `te-IN-MohanNeural` <sup>Novo</sup> | Geral |
+| Tailandês (Tailândia) | `th-TH` | Feminino | `th-TH-AcharaNeural` | Geral |
+| Tailandês (Tailândia) | `th-TH` | Feminino | `th-TH-PremwadeeNeural` | Geral |
+| Tailandês (Tailândia) | `th-TH` | Masculino | `th-TH-NiwatNeural` <sup>Novo</sup> | Geral |
+| Turco (Turquia) | `tr-TR` | Feminino | `tr-TR-EmelNeural` | Geral |
+| Turco (Turquia) | `tr-TR` | Masculino | `tr-TR-AhmetNeural` <sup>Novo</sup> | Geral |
+| Vietnamita (Vietnã) | `vi-VN` | Feminino | `vi-VN-HoaiMyNeural` | Geral |
+| Vietnamita (Vietnã) | `vi-VN` | Masculino | `vi-VN-NamMinhNeural` <sup>Novo</sup> | Geral |
+
+#### <a name="neural-voices-in-preview"></a>Vozes neurais em visualização
+
+As vozes neurais a seguir estão em visualização pública. 
+
+| Idioma                         | Locale  | Gênero | Nome da voz                             | Suporte de estilo |
+|----------------------------------|---------|--------|----------------------------------------|---------------|
+| Chinês (mandarim, simplificado) | `zh-CN` | Feminino | `zh-CN-XiaohanNeural` | Geral, vários estilos disponíveis [usando o SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
+| Chinês (mandarim, simplificado) | `zh-CN` | Feminino | `zh-CN-XiaomoNeural` | Geral, vários estilos e execução de função disponíveis [usando SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
+| Chinês (mandarim, simplificado) | `zh-CN` | Feminino | `zh-CN-XiaoruiNeural` | Voz sênior, vários estilos disponíveis [usando o SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
+| Chinês (mandarim, simplificado) | `zh-CN` | Feminino | `zh-CN-XiaoxuanNeural` | Geral, vários estilos e execução de função disponíveis [usando SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
+| Chinês (mandarim, simplificado) | `zh-CN` | Masculino   | `zh-CN-YunxiNeural` | Geral, vários estilos disponíveis [usando o SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
+| Estoniano (Estônia) | `et-EE` | Feminino | `et-EE-AnuNeural` | Geral |
+| Estoniano (Estônia) | `et-EE` | Masculino | `et-EE-KertNeural` <sup>Novo</sup> | Geral |
+| Irlandês (Irlanda) | `ga-IE` | Feminino | `ga-IE-OrlaNeural` | Geral |
+| Irlandês (Irlanda) | `ga-IE` | Masculino | `ga-IE-ColmNeural` <sup>Novo</sup> | Geral |
+| Letão (Letônia) | `lv-LV` | Feminino | `lv-LV-EveritaNeural` | Geral |
+| Letão (Letônia) | `lv-LV` | Masculino | `lv-LV-NilsNeural` <sup>Novo</sup> | Geral |
+| Lituano (Lituânia) | `lt-LT` | Feminino | `lt-LT-OnaNeural` | Geral |
+| Lituano (Lituânia) | `lt-LT` | Masculino | `lt-LT-LeonasNeural` <sup>Novo</sup> | Geral |
+| Maltês (Malta) | `mt-MT` | Feminino | `mt-MT-GraceNeural` | Geral |
+| Maltês (Malta) | `mt-MT` | Masculino | `mt-MT-JosephNeural` <sup>Novo</sup> | Geral |
+
+> [!IMPORTANT]
+> As vozes na visualização pública estão disponíveis somente em três regiões de serviço: leste dos EUA, Europa Ocidental e sudeste asiático.
+
 Para obter mais informações sobre a disponibilidade regional, consulte [regiões](regions.md#standard-and-neural-voices).
 
-|Local  | Linguagem            | Gênero | Nome da voz | Suporte de estilo |
-|--|--|--|--|--|
-| `ar-EG` | Árabe (Egito)                  | Feminino | `ar-EG-SalmaNeural`      | Geral |
-| `ar-SA` | Árabe (Arábia Saudita)           | Feminino | `ar-SA-ZariyahNeural`    | Geral |
-| `ca-ES` | Catalão (Espanha)                 | Feminino | `ca-ES-AlbaNeural`       | Geral |
-| `da-DK` | Dinamarquês (Dinamarca)                | Feminino | `da-DK-ChristelNeural`   | Geral |
-| `de-DE` | Alemão (Alemanha)                | Feminino | `de-DE-KatjaNeural`      | Geral |
-| `en-AU` | Inglês (Austrália)             | Feminino | `en-AU-NatashaNeural`    | Geral |
-| `en-CA` | Inglês (Canadá)                | Feminino | `en-CA-ClaraNeural`      | Geral |
-| `en-GB` | Inglês (Reino Unido)                    | Feminino | `en-GB-LibbyNeural`      | Geral |
-|         |                                 | Feminino | `en-GB-MiaNeural`        | Geral |
-| `en-IN` | Inglês (Índia)                 | Feminino | `en-IN-NeerjaNeural`     | Geral |
-| `en-US` | Inglês (EUA)                    | Feminino | `en-US-AriaNeural`       | Geral, com vários estilos de voz disponíveis |
-|         |                                 | Masculino   | `en-US-GuyNeural`        | Geral |
-| `es-ES` | Espanhol (Espanha)                 | Feminino | `es-ES-ElviraNeural`     | Geral |
-| `es-MX` | Espanhol (México)                | Feminino | `es-MX-DaliaNeural`      | Geral |
-| `fi-FI` | Finlandês (Finlândia)               | Feminino | `fi-FI-NooraNeural`      | Geral |
-| `fr-CA` | Francês (Canadá)                 | Feminino | `fr-CA-SylvieNeural`     | Geral |
-| `fr-FR` | Francês (França)                 | Feminino | `fr-FR-DeniseNeural`     | Geral |
-| `hi-IN` | Híndi (Índia)                   | Feminino | `hi-IN-SwaraNeural`      | Geral |
-| `it-IT` | Italiano (Itália)                 | Feminino | `it-IT-ElsaNeural`       | Geral |
-| `ja-JP` | Japonês                        | Feminino | `ja-JP-NanamiNeural`     | Geral |
-| `ko-KR` | Coreano                          | Feminino | `ko-KR-SunHiNeural`      | Geral |
-| `nb-NO` | Norueguês                       | Feminino | `nb-NO-IselinNeural`     | Geral |
-| `nl-NL` | Holandês (Netherland)              | Feminino | `nl-NL-ColetteNeural`    | Geral |
-| `pl-PL` | Polonês (Polônia)                 | Feminino | `pl-PL-ZofiaNeural`      | Geral |
-| `pt-BR` | Português (Brasil)             | Feminino | `pt-BR-FranciscaNeural`  | Geral, com vários estilos de voz disponíveis |
-| `tr-TR` | Turco                         | Feminino | `tr-TR-EmelNeural`       | Geral |
-| `pt-PT` | Português (Portugal)           | Feminino | `pt-PT-FernandaNeural`   | Geral |
-| `ru-RU` | Russo (Rússia)                | Feminino | `ru-RU-DariyaNeural`     | Geral |
-| `sv-SE` | Sueco (Suécia)                | Feminino | `sv-SE-HilleviNeural`    | Geral |
-| `th-TH` | Tailandês (Tailândia)                 | Feminino | `th-TH-AcharaNeural`     | Geral |
-| `zh-CN` | Chinês (mandarim, simplificado)  | Feminino | `zh-CN-XiaoxiaoNeural`   | Geral, com vários estilos de voz disponíveis |
-|         |                                 | Feminino | `zh-CN-XiaoyouNeural`    | Voz de criança, otimização para narração de histórias |
-|         |                                 | Masculino   | `zh-CN-YunyangNeural`    | Otimização para leitura de notícias, com vários estilos de voz disponíveis |
-|         |                                 | Masculino   | `zh-CN-YunyeNeural`      | Otimização para narração de histórias |
-| `zh-HK` | Chinês (Cantonês tradicional)   | Feminino | `zh-HK-HiuGaaiNeural`| Geral |
-| `zh-TW` | Chinês (Mandarim Taiwanês)   | Feminino | `zh-TW-HsiaoYuNeural`    | Geral |
+Para saber como você pode configurar e ajustar as vozes neurais, como estilos de fala, consulte [linguagem de marcação de síntese de fala](speech-synthesis-markup.md#adjust-speaking-styles).
 
 > [!IMPORTANT]
 > A voz `en-US-JessaNeural` foi alterada para `en-US-AriaNeural`. Se você usava a voz "Jessa", faça a conversão para "Aria".
-
-Para saber como você pode configurar e ajustar as vozes neurais, confira [Linguagem de marcação para síntese de fala](speech-synthesis-markup.md#adjust-speaking-styles).
 
 > [!TIP]
 > Você poderá continuar a usar o mapeamento de nome de serviço completo como "Microsoft Server Speech Text to Speech Voice (en-US, AriaNeural)" em suas solicitações de síntese de fala.
@@ -176,90 +299,90 @@ Para saber como você pode configurar e ajustar as vozes neurais, confira [Lingu
 
 Mais de 75 vozes padrão estão disponíveis em mais de 45 idiomas e localidades, que permitem converter texto em fala sintetizada. Para obter mais informações sobre a disponibilidade regional, consulte [regiões](regions.md#standard-and-neural-voices).
 
-| Local | Linguagem | Gênero | Nome da voz |
-|--|--|--|--|
-| <sup>1</sup>`ar-EG` | Árabe (Egito) | Feminino | "ar-EG-Hoda" |
-| `ar-SA` | Árabe (Arábia Saudita) | Masculino | "ar-SA-Naayf" |
-| `bg-BG` | Búlgaro | Masculino |  "bg-BG-Ivan" |
-| `ca-ES` | Catalão | Feminino |  "ca-ES-HerenaRUS" |
-| `cs-CZ` | Tcheco | Masculino | "cs-CZ-Jakub" |
-| `da-DK` | Dinamarquês | Feminino |  "da-DK-HelleRUS" |
-| `de-AT` | Alemão (Áustria) | Masculino | "de-AT-Michael" |
-| `de-CH` | Alemão (Suíça) | Masculino |  "de-CH-Karsten" |
-| `de-DE` | Alemão (Alemanha) | Feminino |  "de-DE-Hedda" |
-|  |  | Feminino | "de-DE-HeddaRUS" |
-|  |  | Masculino |  "de-DE-Stefan-Apollo" |
-| `el-GR` | Grego | Masculino | "el-GR-Stefanos" |
-| `en-AU` | Inglês (Austrália) | Feminino |  "en-AU-Catherine" |
-|  |  | Feminino |  "en-AU-HayleyRUS" |
-| `en-CA` | Inglês (Canadá) | Feminino |  "en-CA-Linda" |
-|  |  | Feminino |  "en-CA-HeatherRUS" |
-| `en-GB` | Inglês (Reino Unido) | Feminino |  "en-GB-Susan-Apollo" |
-|  |  | Feminino |  "en-GB-HazelRUS" |
-|  |  | Masculino |  "en-GB-George-Apollo" |
-| `en-IE` | Inglês (Irlanda) | Masculino | "en-IE-Sean" |
-| `en-IN` | Inglês (Índia) | Feminino | "en-IN-Heera-Apollo" |
-|  |  | Feminino |  "en-IN-PriyaRUS" |
-|  |  | Masculino |  "en-IN-Ravi-Apollo" |
-| `en-US` | Inglês (EUA) | Feminino |  "en-US-ZiraRUS" |
-|  |  | Feminino | "en-US-AriaRUS" |
-|  |  | Masculino | "en-US-BenjaminRUS" |
-|  |  | Masculino |  "en-US-Guy24kRUS" |
-| `es-ES` | Espanhol (Espanha) | Feminino |  "es-ES-Laura-Apollo" |
-|  |  | Feminino | "es-ES-HelenaRUS" |
-|  |  | Masculino | "es-ES-Pablo-Apollo" |
-| `es-MX` | Espanhol (México) | Feminino |  "es-MX-HildaRUS" |
-|  |  | Masculino | "es-MX-Raul-Apollo" |
-| `fi-FI` | Finlandês | Feminino | "fi-FI-HeidiRUS" |
-| `fr-CA` | Francês (Canadá) | Feminino | "fr-CA-Caroline" |
-|  |  | Feminino | "fr-CA-HarmonieRUS" |
-| `fr-CH` | Francês (Suíça) | Masculino | "fr-CH-Guillaume" |
-| `fr-FR` | Francês (França) | Feminino |  "fr-FR-Julie-Apollo" |
-|  |  | Feminino |"fr-FR-HortenseRUS" |
-|  |  | Masculino |  "fr-FR-Paul-Apollo" |
-| `he-IL` | Hebraico (Israel) | Masculino |  "he-IL-Asaf" |
-| `hi-IN` | Híndi (Índia) | Feminino | "hi-IN-Kalpana-Apollo" |
-|  |  | Feminino |  "hi-IN-Kalpana" |
-|  |  | Masculino |  "hi-IN-Hemant" |
-| `hr-HR` | Croata | Masculino | "hr-HR-Matej" |
-| `hu-HU` | Húngaro | Masculino |  "hu-HU-Szabolcs" |
-| `id-ID` | Indonésio | Masculino | "id-ID-Andika" |
-| `it-IT` | Italiano | Masculino |  "it-IT-Cosimo-Apollo" |
-|  |  | Feminino |  "it-IT-LuciaRUS" |
-| `ja-JP` | Japonês | Feminino |  "ja-JP-Ayumi-Apollo" |
-|  |  | Masculino | "ja-JP-Ichiro-Apollo" |
-|  |  | Feminino |  "ja-JP-HarukaRUS" |
-| `ko-KR` | Coreano | Feminino | "ko-KR-HeamiRUS" |
-| `ms-MY` | Malaio | Masculino |  "ms-MY-Rizwan" |
-| `nb-NO` | Norueguês | Feminino |  "nb-NO-HuldaRUS" |
-| `nl-NL` | Holandês | Feminino |  "nl-NL-HannaRUS" |
-| `pl-PL` | Polonês | Feminino |  "pl-PL-PaulinaRUS" |
-| `pt-BR` | Português (Brasil) | Feminino | "pt-BR-HeloisaRUS" |
-|  |  | Masculino |  "pt-BR-Daniel-Apollo" |
-| `pt-PT` | Português (Portugal) | Feminino | "pt-PT-HeliaRUS" |
-| `ro-RO` | Romeno | Masculino | "ro-RO-Andrei" |
-| `ru-RU` | Russo | Feminino |  "ru-RU-Irina-Apollo" |
-|  |  | Masculino | "ru-RU-Pavel-Apollo" |
-|  |  | Feminino |  ru-RU-EkaterinaRUS |
-| `sk-SK` | Eslovaco | Masculino | "sk-SK-Filip" |
-| `sl-SI` | Esloveno | Masculino |  "sl-SI-Lado" |
-| `sv-SE` | Sueco | Feminino | "sv-SE-HedvigRUS" |
-| `ta-IN` | Tâmil (Índia) | Masculino |  "ta-IN-Valluvar" |
-| `te-IN` | Télugo (Índia) | Feminino |  "te-IN-Chitra" |
-| `th-TH` | Tailandês | Masculino |  "th-TH-Pattara" |
-| `tr-TR` | Turco (Turquia) | Feminino | "tr-TR-SedaRUS" |
-| `vi-VN` | Vietnamita | Masculino |  "vi-VN-An" |
-| `zh-CN` | Chinês (mandarim, simplificado) | Feminino |  "zh-CN-HuihuiRUS" |
-|  |  | Feminino | "zh-CN-Yaoyao-Apollo" |
-|  |  | Masculino | "zh-CN-Kangkang-Apollo" |
-| `zh-HK` | Chinês (Cantonês tradicional) | Feminino |  "zh-HK-Tracy-Apollo" |
-|  |  | Feminino | "zh-HK-TracyRUS" |
-|  |  | Masculino |  "zh-HK-Danny-Apollo" |
-| `zh-TW` | Chinês (Mandarim Taiwanês) | Feminino |  "zh-TW-Yating-Apollo" |
-|  |  | Feminino | "zh-TW-HanHanRUS" |
-|  |  | Masculino |  "zh-TW-Zhiwei-Apollo" |
+> [!NOTE]
+> Com duas exceções, as vozes padrão são criadas a partir de exemplos que usam uma taxa de amostra de 16 kHz.
+> **As vozes en-US-AriaRUS** e **en-US-GuyRUS** também são criadas a partir de exemplos que usam uma taxa de amostra de 24 kHz.
+> Todas as vozes podem fazer amostragem ou redução para outras taxas de amostra ao resumir.
 
-**1** *ar-EG é compatível com MSA (árabe padrão moderno).*
+| Idioma | Localidade (BCP-47) | Gênero | Nome da voz |
+|--|--|--|--|
+| Árabe (árabe) | `ar-EG` | Feminino | `ar-EG-Hoda`|
+| Árabe (Arábia Saudita) | `ar-SA` | Masculino | `ar-SA-Naayf`|
+| Búlgaro (Bulgária) | `bg-BG` | Masculino | `bg-BG-Ivan`|
+| Catalão (Espanha) | `ca-ES` | Feminino | `ca-ES-HerenaRUS`|
+| Chinês (Cantonês tradicional) | `zh-HK` | Masculino | `zh-HK-Danny`|
+| Chinês (Cantonês tradicional) | `zh-HK` | Feminino | `zh-HK-TracyRUS`|
+| Chinês (mandarim, simplificado) | `zh-CN` | Feminino | `zh-CN-HuihuiRUS`|
+| Chinês (mandarim, simplificado) | `zh-CN` | Masculino | `zh-CN-Kangkang`|
+| Chinês (mandarim, simplificado) | `zh-CN` | Feminino | `zh-CN-Yaoyao`|
+| Chinês (Mandarim Taiwanês) |  `zh-TW` | Feminino | `zh-TW-HanHanRUS`|
+| Chinês (Mandarim Taiwanês) |  `zh-TW` | Feminino | `zh-TW-Yating`|
+| Chinês (Mandarim Taiwanês) |  `zh-TW` | Masculino | `zh-TW-Zhiwei`|
+| Croata (Croácia) | `hr-HR` | Masculino | `hr-HR-Matej`|
+| Tcheco (República Tcheca) | `cs-CZ` | Masculino | `cs-CZ-Jakub`|
+| Dinamarquês (Dinamarca) | `da-DK` | Feminino | `da-DK-HelleRUS`|
+| Holandês (Países Baixos) | `nl-NL` | Feminino | `nl-NL-HannaRUS`|
+| Inglês (Austrália) | `en-AU` | Feminino | `en-AU-Catherine`|
+| Inglês (Austrália) | `en-AU` | Feminino | `en-AU-HayleyRUS`|
+| Inglês (Canadá) | `en-CA` | Feminino | `en-CA-HeatherRUS`|
+| Inglês (Canadá) | `en-CA` | Feminino | `en-CA-Linda`|
+| Inglês (Índia) | `en-IN` | Feminino | `en-IN-Heera`|
+| Inglês (Índia) | `en-IN` | Feminino | `en-IN-PriyaRUS`|
+| Inglês (Índia) | `en-IN` | Masculino | `en-IN-Ravi`|
+| Inglês (Irlanda) | `en-IE` | Masculino | `en-IE-Sean`|
+| Inglês (Reino Unido) | `en-GB` | Masculino | `en-GB-George`|
+| Inglês (Reino Unido) | `en-GB` | Feminino | `en-GB-HazelRUS`|
+| Inglês (Reino Unido) | `en-GB` | Feminino | `en-GB-Susan`|
+| Inglês (Estados Unidos) | `en-US` | Masculino | `en-US-BenjaminRUS`|
+| Inglês (Estados Unidos) | `en-US` | Masculino | `en-US-GuyRUS`|
+| Inglês (Estados Unidos) | `en-US` | Feminino | `en-US-AriaRUS`|
+| Inglês (Estados Unidos) | `en-US` | Feminino | `en-US-ZiraRUS`|
+| Finlandês (Finlândia) | `fi-FI` | Feminino | `fi-FI-HeidiRUS`|
+| Francês (Canadá) | `fr-CA` | Feminino | `fr-CA-Caroline`|
+| Francês (Canadá) | `fr-CA` | Feminino | `fr-CA-HarmonieRUS`|
+| Francês (França) | `fr-FR` | Feminino | `fr-FR-HortenseRUS`|
+| Francês (França) | `fr-FR` | Feminino | `fr-FR-Julie`|
+| Francês (França) | `fr-FR` | Masculino | `fr-FR-Paul`|
+| Francês (Suíça) | `fr-CH` | Masculino | `fr-CH-Guillaume`|
+| Alemão (Áustria) | `de-AT` | Masculino | `de-AT-Michael`|
+| Alemão (Alemanha) | `de-DE` | Feminino | `de-DE-HeddaRUS`|
+| Alemão (Alemanha) | `de-DE` | Masculino | `de-DE-Stefan`|
+| Alemão (Suíça) | `de-CH` | Masculino | `de-CH-Karsten`|
+| Grego (Grécia) | `el-GR` | Masculino | `el-GR-Stefanos`|
+| Hebraico (Israel) | `he-IL` | Masculino | `he-IL-Asaf`|
+| Híndi (Índia) | `hi-IN` | Masculino | `hi-IN-Hemant`|
+| Híndi (Índia) | `hi-IN` | Feminino | `hi-IN-Kalpana`|
+| Húngaro (Hungria) | `hu-HU` | Masculino | `hu-HU-Szabolcs`|
+| Indonésio (Indonésia) | `id-ID` | Masculino | `id-ID-Andika`|
+| Italiano (Itália) | `it-IT` | Masculino | `it-IT-Cosimo`|
+| Italiano (Itália) | `it-IT` | Feminino | `it-IT-LuciaRUS`|
+| Japonês (Japão) | `ja-JP` | Feminino | `ja-JP-Ayumi`|
+| Japonês (Japão) | `ja-JP` | Feminino | `ja-JP-HarukaRUS`|
+| Japonês (Japão) | `ja-JP` | Masculino | `ja-JP-Ichiro`|
+| Coreano (Coreia do Sul) | `ko-KR` | Feminino | `ko-KR-HeamiRUS`|
+| Malaio (Malásia) | `ms-MY` | Masculino | `ms-MY-Rizwan`|
+| Norueguês, (Bokmål, Noruega) | `nb-NO` | Feminino | `nb-NO-HuldaRUS`|
+| Polonês (Polônia) | `pl-PL` | Feminino | `pl-PL-PaulinaRUS`|
+| Português (Brasil) | `pt-BR` | Masculino | `pt-BR-Daniel`|
+| Português (Brasil) | `pt-BR` | Feminino | `pt-BR-HeloisaRUS`|
+| Português (Portugal) | `pt-PT` | Feminino | `pt-PT-HeliaRUS`|
+| Romeno (Romênia) | `ro-RO` | Masculino | `ro-RO-Andrei`|
+| Russo (Rússia) | `ru-RU` | Feminino | `ru-RU-EkaterinaRUS`|
+| Russo (Rússia) | `ru-RU` | Feminino | `ru-RU-Irina`|
+| Russo (Rússia) | `ru-RU` | Masculino | `ru-RU-Pavel`|
+| Eslovaco (Eslováquia) | `sk-SK` | Masculino | `sk-SK-Filip`|
+| Esloveno (Eslovênia) | `sl-SI` | Masculino | `sl-SI-Lado`|
+| Espanhol (México) | `es-MX` | Feminino | `es-MX-HildaRUS`|
+| Espanhol (México) | `es-MX` | Masculino | `es-MX-Raul`|
+| Espanhol (Espanha) | `es-ES` | Feminino | `es-ES-HelenaRUS`|
+| Espanhol (Espanha) | `es-ES` | Feminino | `es-ES-Laura`|
+| Espanhol (Espanha) | `es-ES` | Masculino | `es-ES-Pablo`|
+| Sueco (Suécia) | `sv-SE` | Feminino | `sv-SE-HedvigRUS`|
+| Tâmil (Índia) | `ta-IN` | Masculino | `ta-IN-Valluvar`|
+| Télugo (Índia) | `te-IN` | Feminino | `te-IN-Chitra`|
+| Tailandês (Tailândia) | `th-TH` | Masculino | `th-TH-Pattara`|
+| Turco (Turquia) | `tr-TR` | Feminino | `tr-TR-SedaRUS`|
+| Vietnamita (Vietnã) | `vi-VN` | Masculino | `vi-VN-An` |
 
 > [!IMPORTANT]
 > A voz `en-US-Jessa` foi alterada para `en-US-Aria`. Se você usava a voz "Jessa", faça a conversão para "Aria".
@@ -269,10 +392,30 @@ Mais de 75 vozes padrão estão disponíveis em mais de 45 idiomas e localidades
 
 ### <a name="customization"></a>Personalização
 
-A personalização de voz está disponível para `de-DE`, `en-GB`, `en-IN`, `en-US`, `es-MX`, `fr-FR`, `it-IT`, `pt-BR` e `zh-CN`. Selecione a localidade correta que corresponde aos dados de treinamento que você tem para treinar um modelo de voz personalizada. Por exemplo, se os dados de gravação que você tem são falados em inglês com sotaque britânico, selecione `en-GB`.
+A voz personalizada está disponível na camada padrão e neural. Os idiomas com suporte são diferentes para essas duas camadas. 
+
+| Idioma | Locale | Standard | Neural |
+|--|--|--|--|
+| Chinês (mandarim, simplificado) | `zh-CN` | Sim | Sim |
+| Chinês (mandarim, simplificado), bilíngüe inglês | `zh-CN` bilíngüe | Sim | Sim |
+| Inglês (Austrália) | `en-AU` | Não | Sim |
+| Inglês (Índia) | `en-IN` | Sim | Sim |
+| Inglês (Reino Unido) | `en-GB` | Sim | Sim |
+| Inglês (Estados Unidos) | `en-US` | Sim | Sim |
+| Francês (Canadá) | `fr-CA` | Não | Sim |
+| Francês (França) | `fr-FR` | Sim | Sim |
+| Alemão (Alemanha) | `de-DE` | Sim | Sim |
+| Italiano (Itália) | `it-IT` | Sim | Sim |
+| Japonês (Japão) | `ja-JP` | Não | Sim |
+| Coreano (Coreia do Sul) | `ko-KR` | Não | Sim |
+| Português (Brasil) | `pt-BR` | Sim | Sim |
+| Espanhol (México) | `es-MX` | Sim | Sim |
+| Espanhol (Espanha) | `es-ES` | Não | Sim |
+
+Selecione a localidade correta que corresponde aos dados de treinamento que você tem para treinar um modelo de voz personalizada. Por exemplo, se os dados de gravação que você tem são falados em inglês com sotaque britânico, selecione `en-GB`.
 
 > [!NOTE]
-> Não damos suporte ao treinamento de modelo bilíngue em Voz Personalizada, exceto para o modelo bilíngue chinês-inglês. Selecione "Modelo bilíngue chinês/inglês" se você deseja treinar uma voz chinesa que também pode falar em inglês. O treinamento de voz em todas as localidades começa com um conjunto de dados de pelo menos 2.000 enunciados – exceto para o `en-US` e o `zh-CN`, nos quais você pode começar com qualquer volume de dados de treinamento.
+> Não damos suporte ao treinamento de modelo bilíngue em Voz Personalizada, exceto para o modelo bilíngue chinês-inglês. Selecione "Modelo bilíngue chinês/inglês" se você deseja treinar uma voz chinesa que também pode falar em inglês. Chinese-English treinamento de modelo bilíngüe usando o método padrão está disponível somente no Europa Setentrional e no EUA Central do Norte. O treinamento de voz neural personalizado está disponível em Sul do Reino Unido e leste dos EUA.
 
 ## <a name="speech-translation"></a>Tradução de fala
 
@@ -358,23 +501,23 @@ A API de **Tradução de Fala** é compatível com diferentes idiomas para conve
 
 Veja na tabela a seguir os idiomas com suporte para as várias APIs de Reconhecimento do Locutor. Confira a [visão geral](speaker-recognition-overview.md) para obter informações adicionais sobre o Reconhecimento do Locutor.
 
-| Local | Linguagem | Verificação dependente do texto | Verificação independente do texto | Identificação independente do texto |
+| Idioma | Localidade (BCP-47) | Verificação dependente do texto | Verificação independente do texto | Identificação independente do texto |
 |----|----|----|----|----|
-| pt-BR | Inglês (EUA) | sim | sim | sim |
-|zh-CN    |Chinês (mandarim, simplificado)|    n/d|    sim|    sim|
-|de-DE    |Alemão (Alemanha)    |n/d    |sim    |sim|
-|en-GB    |Inglês (Reino Unido)    |n/d    |sim    |sim|
-|fr-FR    |Francês (França)    |n/d    |sim    |sim|
-|en-AU    |Inglês (Austrália)    |n/d    |sim    |sim|
-|en-CA    |Inglês (Canadá)    |n/d|    sim|    sim|
-|fr-CA    |Francês (Canadá)    |n/d    |sim|    sim|
-|it-IT    |Italiano|    n/d    |sim|    sim|
-|es-ES|    Espanhol (Espanha)    |n/d    |sim|    sim|
-|es-MX    |Espanhol (México)    |n/d|    sim|    sim|
-|ja-JP|    Japonês    |n/d    |sim    |sim|
-|pt-BR|    Português (Brasil)|    n/d|    sim|    sim|
+|Inglês (EUA)  |  en-US  |  sim  |  sim  |  sim |
+|Chinês (mandarim, simplificado) | zh-CN     |     n/a |     sim |     sim|
+|Inglês (Austrália)     | en-AU     | n/a     | sim     | sim|
+|Inglês (Canadá)     | en-CA     | n/a |     sim |     sim|
+|Inglês (Reino Unido)     | en-GB     | n/a     | sim     | sim|
+|Francês (Canadá)     | fr-CA     | n/a     | sim |     sim|
+|Francês (França)     | fr-FR     | n/a     | sim     | sim|
+|Alemão (Alemanha)     | de-DE     | n/a     | sim     | sim|
+|Italiano | it-IT     |     n/a     | sim |     sim|
+|Japonês     | ja-JP | n/a     | sim     | sim|
+|Português (Brasil) | pt-BR |     n/a |     sim |     sim|
+|Espanhol (México)     | es-MX     | n/a |     sim |     sim|
+|Espanhol (Espanha)     | es-ES | n/a     | sim |     sim|
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Criar uma conta gratuita do Azure](https://azure.microsoft.com/free/cognitive-services/)
-* [Veja como reconhecer fala em C#](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-chsarp)
+* [Veja como reconhecer fala em C#](./get-started-speech-to-text.md?pivots=programming-language-chsarp)

@@ -10,11 +10,11 @@ ms.date: 06/30/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
 ms.openlocfilehash: 8170cfcbbf200c6ba5030aff5716f46b537d8c97
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080464"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016702"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Perguntas frequentes sobre os conjuntos de dimensionamento de máquinas virtuais do Azure
 
@@ -64,7 +64,7 @@ Um conjunto de dimensionamento regional (não zonal) usa *grupos de veiculaçõe
 
 ### <a name="do-scale-sets-work-with-azure-availability-zones"></a>Os conjuntos de dimensionamento funcionam com as zonas de disponibilidade do Azure?
 
-Sim! Para obter mais informações, confira a [documentação de zona de conjunto de dimensionamento](./virtual-machine-scale-sets-use-availability-zones.md).
+Sim. Para obter mais informações, confira a [documentação de zona de conjunto de dimensionamento](./virtual-machine-scale-sets-use-availability-zones.md).
 
 
 ## <a name="autoscale"></a>Autoscale
@@ -224,10 +224,10 @@ Você pode fornecer as chaves públicas SSH em texto sem formatação ao criar u
 }
 ```
 
-Nome do elemento linuxConfiguration | Obrigatório | Type | Descrição
+Nome do elemento linuxConfiguration | Obrigatório | Type | Description
 --- | --- | --- | ---
-ssh | Não | Coleção | Especifica a configuração da chave SSH para um SO Linux
-caminho | Sim | String | Especifica o caminho de arquivo do Linux no qual as chaves SSH ou o certificado deve estar localizado
+ssh | No | Coleção | Especifica a configuração da chave SSH para um SO Linux
+path | Sim | String | Especifica o caminho de arquivo do Linux no qual as chaves SSH ou o certificado deve estar localizado
 keyData | Sim | String | Especifica uma chave pública SSH codificada em base64
 
 Para obter um exemplo, consulte [o modelo de início rápido do GitHub 101-vm-sshkey](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
@@ -338,7 +338,7 @@ Para obter mais informações, consulte [a central de confiabilidade da Microsof
 
 Sim. Você pode ver alguns modelos de MSI de exemplo nos modelos de início rápido do Azure para [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi) e [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi).
 
-## <a name="deleting"></a>Excluindo
+## <a name="deleting"></a>Excluir
 
 ### <a name="will-the-locks-i-set-in-place-on-virtual-machine-scale-set-instances-be-respected-when-deleting-instances"></a>Os bloqueios definidos em vigor nas instâncias do conjunto de dimensionamento de máquinas virtuais serão respeitados ao excluir instâncias?
 
@@ -568,7 +568,7 @@ Para criar um conjunto de dimensionamento de máquinas virtuais que atribui um e
 
 Sim. Você pode adicionar as IDs de recurso para vários pools de endereços de back-end do gateway de aplicativo à lista _applicationGatewayBackendAddressPools_ na seção _ipConfigurations_ do seu perfil de rede do conjunto de dimensionamento.
 
-## <a name="scale"></a>Escala
+## <a name="scale"></a>Dimensionar
 
 ### <a name="in-what-case-would-i-create-a-virtual-machine-scale-set-with-fewer-than-two-vms"></a>No qual situação eu criaria um conjunto de dimensionamento de máquinas virtuais com menos de duas VMs?
 
@@ -671,7 +671,7 @@ Para ativar o diagnóstico de inicialização, primeiro, crie uma conta de armaz
 }
 ```
 
-Quando uma nova VM for criada, a propriedade InstanceView da VM mostrará os detalhes da captura de tela etc. Este é um exemplo:
+Quando uma nova VM for criada, a propriedade InstanceView da VM mostrará os detalhes da captura de tela etc. Aqui está um exemplo:
 
 ```json
 "bootDiagnostics": {

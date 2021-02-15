@@ -1,17 +1,17 @@
 ---
 title: Cenários de Repositório de Consultas-banco de dados do Azure para PostgreSQL-servidor único
 description: Este artigo descreve alguns cenários para o Repositório de Consultas no banco de dados do Azure para PostgreSQL-servidor único.
-author: rachel-msft
-ms.author: raagyema
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 31e3f82b6ea1b1fc15c0832dc03edce2a59f1e1b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ad646e39e9b6a87611dc2f40330a77fe70c92c27
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74768343"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91710542"
 ---
 # <a name="usage-scenarios-for-query-store"></a>Cenários de uso de Store de consulta
 

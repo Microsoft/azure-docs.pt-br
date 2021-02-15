@@ -1,17 +1,17 @@
 ---
 title: Vídeos sobre o Banco de Dados do Azure para PostgreSQL
 description: Esta página lista conteúdos em vídeo relevantes para o aprendizado sobre o Banco de dados do Azure para PostgreSQL.
-author: rachel-msft
-ms.author: raagyema
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/30/2020
-ms.openlocfilehash: 3cf1767d35100dd0133d2df7e61d884fa1bf4738
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: f89635a74b82cfc34d55a662de8f7372aabd3162
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87461962"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91708128"
 ---
 # <a name="azure-database-for-postgresql-videos"></a>Banco de dados do Azure para Vídeos PostgreSQL
 

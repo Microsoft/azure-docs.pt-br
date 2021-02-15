@@ -7,15 +7,15 @@ metadata:
   ms.service: marketplace
   ms.subservice: partnercenter-marketplace-publisher
   ms.topic: landing-page
-  author: keferna
-  ms.author: keferna
-  ms.date: 04/02/2020
-  ms.openlocfilehash: a79d3de89399e9ed89598c5f08efb756291246ca
-  ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+  author: mingshen-ms
+  ms.author: mingshen
+  ms.date: 09/02/2020
+  ms.openlocfilehash: 95903c1068d64545ae025fb5899a80014b8f26f2
+  ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 07/28/2020
-  ms.locfileid: "87287856"
+  ms.lasthandoff: 12/06/2020
+  ms.locfileid: "96746379"
 landingContent:
 - title: Trabalho no marketplace comercial
   linkLists:
@@ -29,16 +29,12 @@ landingContent:
       url: ./policies-terms.md
     - text: Perguntas frequentes sobre o marketplace comercial da Microsoft
       url: ./marketplace-faq-publisher-guide.md
-    - text: Notas de versão
-      url: ./marketplace-roadmap.md
     - text: Contrato de Distribuidor da Microsoft
       url: https://go.microsoft.com/fwlink/?LinkID=699560
 - title: Cenários e tarefas comuns
   linkLists:
   - linkListType: overview
     links:
-    - text: Criar uma oferta de SaaS
-      url: ./partner-center-portal/create-new-saas-offer.md
     - text: Práticas recomendadas de marketing
       url: ./gtm-marketing-best-practices.md
     - text: Provedores de soluções de nuvem
@@ -49,12 +45,12 @@ landingContent:
     links:
     - text: Clientes potenciais de sua oferta do marketplace
       url: ./partner-center-portal/commercial-marketplace-get-customer-leads.md
-    - text: Opção de venda conjunta na Central de Parceiros
-      url: ./partner-center-portal/commercial-marketplace-co-sell.md
+    - text: Opção de venda conjunta no marketplace comercial
+      url: commercial-marketplace-co-sell.md
     - text: Participação de parceiros de venda conjunta
       url: ./marketplace-co-sell.md
     - text: Disponibilize soluções no Microsoft AppSource e no Office
-      url: https://docs.microsoft.com/office/dev/store/submit-to-appsource-via-partner-center
+      url: /office/dev/store/submit-to-appsource-via-partner-center
     - text: Participe do fórum da comunidade do Azure Marketplace e do AppSource
       url: https://www.microsoftpartnercommunity.com/t5/Microsoft-AppSource-and-Azure/bd-p/2222
     - text: Registre-se para participar de webinars para discussão ou assista mais tarde sob demanda
@@ -64,29 +60,29 @@ landingContent:
   - linkListType: how-to-guide
     links:
     - text: Painel de resumo
-      url: ./partner-center-portal/summary-dashboard.md
+      url: ./summary-dashboard.md
     - text: Painel Insights do Marketplace
-      url: ./partner-center-portal/insights-dashboard.md
+      url: ./insights-dashboard.md
     - text: Painel de uso
-      url: ./partner-center-portal/usage-dashboard.md
+      url: ./usage-dashboard.md
     - text: Painel de cliente
-      url: ./partner-center-portal/customer-dashboard.md
+      url: ./customer-dashboard.md
     - text: Painel de pedidos
-      url: ./partner-center-portal/orders-dashboard.md
+      url: ./orders-dashboard.md
     - text: Painel de downloads
       url: ./partner-center-portal/downloads-dashboard.md
     - text: Painel de classificações e opiniões
       url: ./partner-center-portal/ratings-reviews.md
-- title: Gerencie suas ofertas
+- title: Criar uma oferta
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: Ofertas de SaaS
-      url: ./partner-center-portal/create-new-saas-offer.md
+      url: plan-saas-offer.md
     - text: Ofertas de máquinas virtuais
       url: ./marketplace-virtual-machines.md
     - text: Ofertas de aplicativo do Azure
-      url: ./partner-center-portal/create-new-azure-apps-offer.md
+      url: ./create-new-azure-apps-offer.md
     - text: Ofertas do Dynamics 365 for Customer Engagement e do PowerApps
       url: ./partner-center-portal/create-new-customer-engagement-offer.md
     - text: Ofertas do Dynamics 365 Business Central
@@ -94,21 +90,21 @@ landingContent:
     - text: Ofertas do Dynamics 365 for Operations
       url: ./partner-center-portal/create-new-operations-offer.md
     - text: Mais tipos de ofertas
-      url: ./cloud-partner-portal/cpp-marketplace-offers.md
+      url: ./publisher-guide-by-offer-type.md
 - title: Receba pagamentos
   linkLists:
   - linkListType: concept
     links:
-    - text: Relatório de pagamento
-      url: ./partner-center-portal/payout-summary-overview.md
+    - text: Demonstrativos de pagamento
+      url: /partner-center/payout-statement?context=/azure/marketplace/context/context
     - text: Limites, métodos e períodos de pagamento
-      url: ./partner-center-portal/payment-thresholds-methods-timeframes.md
+      url: /partner-center/payment-thresholds-methods-timeframes?context=/azure/marketplace/context/context
     - text: Configurar sua conta de pagamento e formulários de imposto
-      url: ./partner-center-portal/set-up-your-payout-account-tax-forms.md
+      url: /partner-center/set-up-your-payout-account?context=/azure/marketplace/context/context
     - text: Detalhes do imposto
-      url: ./partner-center-portal/tax-details-paid-transactions.md
+      url: /partner-center/tax-details-marketplace?context=/azure/marketplace/context/context
     - text: Cobrança do marketplace comercial
-      url: ./partner-center-portal/billing-details.md
+      url: ./marketplace-commercial-transaction-capabilities-and-considerations.md
 - title: Referência de API
   linkLists:
   - linkListType: reference
@@ -134,7 +130,7 @@ landingContent:
   - linkListType: get-started
     links:
     - text: Opções de suporte
-      url: ./partner-center-portal/support.md
+      url: ./support.md
     - text: Solucionar problemas dos erros de autenticação
       url: ./cloud-partner-portal-api-troubleshooting-authentication-errors.md
     - text: Disponibilidade geográfica e moedas

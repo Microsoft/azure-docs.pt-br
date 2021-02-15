@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: dbcc82d3ec4b50cf51210f8a4319bbf374185a88
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: e0736e58983d4c28b8f2f4a20241cd36ac84fdfa
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498082"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96445384"
 ---
 # <a name="what-is-a-logical-sql-server-in-azure-sql-database-and-azure-synapse"></a>O que é um SQL Server lógico no banco de dados SQL do Azure e o Azure Synapse?
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -26,7 +26,7 @@ No banco de dados SQL do Azure e no Azure Synapse Analytics, um servidor é um c
 
 Esse servidor é diferente de uma instância do SQL Server com a qual você pode estar familiarizado no mundo local. Especificamente, não há nenhuma garantia em relação ao local dos bancos de dados ou data warehouse banco de dados em relação ao servidor que os gerencia. Além disso, nem o banco de dados SQL do Azure nem o Azure Synapse expõem qualquer recurso ou acesso em nível de instância. Por outro lado, os bancos de dados de instância em uma instância gerenciada estão todos fisicamente colocalizados da mesma maneira que você está familiarizado com SQL Server no mundo da máquina virtual ou local.
 
-Ao criar um servidor, você fornece uma conta de logon do servidor e uma senha que tem direitos administrativos ao banco de dados mestre nesse servidor e a todos os bancos de dados criados nesse servidor. Essa conta inicial é uma conta de logon do SQL. O banco de dados SQL do Azure e o Synapse Analytics dão suporte à autenticação do SQL e Azure Active Directory autenticação para autenticação. Para obter informações sobre logons e autenticação, confira [Gerenciando bancos de dados e logons no Banco de Dados SQL do Azure](logins-create-manage.md). A Autenticação do Windows não é suportada.
+Ao criar um servidor, você fornece uma conta de logon do servidor e uma senha que tem direitos administrativos ao banco de dados mestre nesse servidor e a todos os bancos de dados criados nesse servidor. Essa conta inicial é uma conta de logon do SQL. O banco de dados SQL do Azure e o Azure Synapse Analytics dão suporte à autenticação do SQL e Azure Active Directory autenticação para autenticação. Para obter informações sobre logons e autenticação, confira [Gerenciando bancos de dados e logons no Banco de Dados SQL do Azure](logins-create-manage.md). A Autenticação do Windows não é suportada.
 
 Um servidor no banco de dados SQL e Azure Synapse:
 
@@ -34,7 +34,7 @@ Um servidor no banco de dados SQL e Azure Synapse:
 - É o recurso pai de bancos de dados, pools elásticos e data warehouses
 - Fornece um namespace para bancos de dados, pools elásticos e data warehouse
 - É um contêiner lógico com semântica de vida útil forte – excluir um servidor e excluir seus bancos de dados, pools elásticos e pools de SQK
-- Participa do [controle de acesso baseado em função do Azure (RBAC do Azure)](/azure/role-based-access-control/overview) -bancos de dados, pools elásticos e data warehouse banco de dados em um servidor herdar direitos de acesso do servidor
+- Participa do [controle de acesso baseado em função do Azure (RBAC do Azure)](../../role-based-access-control/overview.md) -bancos de dados, pools elásticos e data warehouse banco de dados em um servidor herdar direitos de acesso do servidor
 - É um elemento de ordem superior da identidade de bancos de dados, pools elásticos e data warehouse banco de dados para fins de gerenciamento de recursos do Azure (consulte o esquema de URL para bancos de dados e pools)
 - Coloca recursos em uma região
 - Fornece um ponto de extremidade de conexão para acesso ao banco de dados (`<serverName>`.database.windows.net)
@@ -83,7 +83,7 @@ Para gerenciar um banco de dados existente, navegue até a página **bancos de d
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> O módulo Azure Resource Manager do PowerShell ainda tem suporte, mas todo o desenvolvimento futuro é para o módulo AZ. Sql. Para esses cmdlets, confira [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos.
+> O módulo Azure Resource Manager do PowerShell ainda tem suporte, mas todo o desenvolvimento futuro é para o módulo AZ. Sql. Para esses cmdlets, confira [AzureRM.Sql](/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos.
 
 Para criar e gerenciar servidores, bancos de dados e firewalls com Azure PowerShell, use os cmdlets do PowerShell a seguir. Se você precisa instalar ou atualizar o PowerShell, confira [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps). Para criar e gerenciar pools elásticos, consulte [Pools elásticos](elastic-pool-overview.md).
 
@@ -96,7 +96,7 @@ Para criar e gerenciar servidores, bancos de dados e firewalls com Azure PowerSh
 |[New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)|Cria um grupos de recursos|
 |[New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver)|Cria um servidor|
 |[Get-AzSqlServer](/powershell/module/az.sql/get-azsqlserver)|Retorna informações sobre servidores|
-|[Set-AzSqlServer](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserver)|Modifica as propriedades de um servidor|
+|[Set-AzSqlServer](/powershell/module/az.sql/set-azsqlserver)|Modifica as propriedades de um servidor|
 |[Remove-AzSqlServer](/powershell/module/az.sql/remove-azsqlserver)|Remove um servidor|
 |[New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule)|Cria uma regra de firewall no nível de servidor |
 |[Get-AzSqlServerFirewallRule](/powershell/module/az.sql/get-azsqlserverfirewallrule)|Obtém as regras de firewall para um servidor|
@@ -110,7 +110,7 @@ Para criar e gerenciar servidores, bancos de dados e firewalls com Azure PowerSh
 
 ## <a name="manage-servers-databases-and-firewalls-using-the-azure-cli"></a>Gerenciar servidores, bancos de dados e firewalls usando o CLI do Azure
 
-Para criar e gerenciar servidores, bancos de dados e firewalls com o [CLI do Azure](/cli/azure), use os comandos de [banco de dados SQL](/cli/azure/sql/db) a seguir CLI do Azure. Use o [Cloud Shell](/azure/cloud-shell/overview) para executar a CLI no seu navegador ou [instale-o](/cli/azure/install-azure-cli) no macOS, Linux ou Windows. Para criar e gerenciar pools elásticos, consulte [Pools elásticos](elastic-pool-overview.md).
+Para criar e gerenciar servidores, bancos de dados e firewalls com o [CLI do Azure](/cli/azure), use os comandos de [banco de dados SQL](/cli/azure/sql/db) a seguir CLI do Azure. Use o [Cloud Shell](../../cloud-shell/overview.md) para executar a CLI no seu navegador ou [instale-o](/cli/azure/install-azure-cli) no macOS, Linux ou Windows. Para criar e gerenciar pools elásticos, consulte [Pools elásticos](elastic-pool-overview.md).
 
 | Cmdlet | Descrição |
 | --- | --- |
@@ -147,10 +147,10 @@ Para criar e gerenciar servidores, bancos de dados e firewalls com o Transact-SQ
 
 | Comando | Descrição |
 | --- | --- |
-|[CREATE DATABASE (Banco de Dados SQL do Azure)](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current) | Cria um novo banco de dados no banco de dados SQL do Azure. Você deve estar conectado ao banco de dados mestre para criar um novo banco de dados.|
+|[CREATE DATABASE (Banco de Dados SQL do Azure)](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current) | Cria um banco de dados no Banco de Dados SQL do Azure. Você deve estar conectado ao banco de dados mestre para criar um novo banco de dados.|
 |[CREATE DATABASE (Azure Synapse)](/sql/t-sql/statements/create-database-transact-sql?view=azure-sqldw-latest) | Cria um novo banco de dados data warehouse no Azure Synapse. Você deve estar conectado ao banco de dados mestre para criar um novo banco de dados.|
 | [ALTER DATABASE (Banco de Dados SQL do Azure)](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Modifica o banco de dados ou o pool elástico. |
-|[ALTER DATABASE (SQL Data Warehouse do Microsoft Azure)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=sql-server-ver15)|Modifica um banco de dados data warehouse no Azure Synapse.|
+|[ALTER DATABASE (Azure Synapse Analytics)](/sql/t-sql/statements/alter-database-transact-sql?view=sql-server-ver15)|Modifica um banco de dados data warehouse no Azure Synapse.|
 |[DROP DATABASE (Transact-SQL)](/sql/t-sql/statements/drop-database-transact-sql)|Exclui um banco de dados.|
 |[sys.database_service_objectives (Banco de Dados SQL do Azure)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Retorna a edição (camada de serviço), o objetivo de serviço (tipo de preço) e o nome do pool elástico, se houver, para um banco de dados. Se estiver conectado ao banco de dados mestre de um servidor, o retornará informações sobre todos os bancos. Para o Azure Synapse, você deve estar conectado ao banco de dados mestre.|
 |[sys.dm_db_resource_stats (Banco de Dados SQL do Azure)](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| Retorna CPU, e/s e consumo de memória para um banco de dados no banco de dados SQL do Azure. Existe uma linha para cada 15 segundos, mesmo se não houver nenhuma atividade no banco de dados.|
@@ -173,22 +173,22 @@ Para criar e gerenciar servidores, bancos de dados e firewalls, use essas solici
 
 | Comando | Descrição |
 | --- | --- |
-|[Servidores – criar ou atualizar](https://docs.microsoft.com/rest/api/sql/servers/createorupdate)|Cria ou atualiza um novo servidor.|
-|[Servidores - Excluir](https://docs.microsoft.com/rest/api/sql/servers/delete)|Exclui um servidor.|
-|[Servidores - Obter](https://docs.microsoft.com/rest/api/sql/servers/get)|Obtém um servidor.|
-|[Servidores - Listar](https://docs.microsoft.com/rest/api/sql/servers/list)|Retorna uma lista de servidores.|
-|[Servidores – listar por grupo de recursos](https://docs.microsoft.com/rest/api/sql/servers/listbyresourcegroup)|Retorna uma lista de servidores em um grupo de recursos.|
-|[Servidores - Atualizar](https://docs.microsoft.com/rest/api/sql/servers/update)|Atualiza um servidor existente.|
-|[Bancos de dados – criar ou atualizar](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)|Cria um novo banco de dados ou atualiza um banco de dados existente.|
-|[Bancos de dados - Delete](https://docs.microsoft.com/rest/api/sql/databases/delete)|Exclui um banco de dados.|
-|[Bancos de Dados – Obter](https://docs.microsoft.com/rest/api/sql/databases/get)|Obtém um banco de dados.|
-|[Bancos de dados – listar por pool elástico](https://docs.microsoft.com/rest/api/sql/databases/listbyelasticpool)|Retorna uma lista de bancos de dados em um pool elástico.|
-|[Bancos de dados-listar por servidor](https://docs.microsoft.com/rest/api/sql/databases/listbyserver)|Retorna uma lista de bancos de dados em um servidor.|
-|[Bancos de Dados – Atualizar](https://docs.microsoft.com/rest/api/sql/databases/update)|Atualiza um banco de dados existente.|
-|[Regras de firewall – criar ou atualizar](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)|Cria ou atualiza uma regra de firewall.|
-|[Regras de firewall-excluir](https://docs.microsoft.com/rest/api/sql/firewallrules/delete)|Exclui uma regra de firewall.|
-|[Regras de firewall-obter](https://docs.microsoft.com/rest/api/sql/firewallrules/get)|Obtêm uma regra de firewall.|
-|[Regras de firewall-listar por servidor](https://docs.microsoft.com/rest/api/sql/firewallrules/listbyserver)|Retorna uma lista de regras de firewall.|
+|[Servidores – criar ou atualizar](/rest/api/sql/servers/createorupdate)|Cria ou atualiza um novo servidor.|
+|[Servidores - Excluir](/rest/api/sql/servers/delete)|Exclui um servidor.|
+|[Servidores - Obter](/rest/api/sql/servers/get)|Obtém um servidor.|
+|[Servidores - Listar](/rest/api/sql/servers/list)|Retorna uma lista de servidores.|
+|[Servidores – listar por grupo de recursos](/rest/api/sql/servers/listbyresourcegroup)|Retorna uma lista de servidores em um grupo de recursos.|
+|[Servidores - Atualizar](/rest/api/sql/servers/update)|Atualiza um servidor existente.|
+|[Bancos de dados – criar ou atualizar](/rest/api/sql/databases/createorupdate)|Cria um novo banco de dados ou atualiza um banco de dados existente.|
+|[Bancos de dados - Delete](/rest/api/sql/databases/delete)|Exclui um banco de dados.|
+|[Bancos de Dados – Obter](/rest/api/sql/databases/get)|Obtém um banco de dados.|
+|[Bancos de dados – listar por pool elástico](/rest/api/sql/databases/listbyelasticpool)|Retorna uma lista de bancos de dados em um pool elástico.|
+|[Bancos de dados-listar por servidor](/rest/api/sql/databases/listbyserver)|Retorna uma lista de bancos de dados em um servidor.|
+|[Bancos de Dados – Atualizar](/rest/api/sql/databases/update)|Atualiza um banco de dados existente.|
+|[Regras de firewall – criar ou atualizar](/rest/api/sql/firewallrules/createorupdate)|Cria ou atualiza uma regra de firewall.|
+|[Regras de firewall-excluir](/rest/api/sql/firewallrules/delete)|Exclui uma regra de firewall.|
+|[Regras de firewall-obter](/rest/api/sql/firewallrules/get)|Obtêm uma regra de firewall.|
+|[Regras de firewall-listar por servidor](/rest/api/sql/firewallrules/listbyserver)|Retorna uma lista de regras de firewall.|
 
 ## <a name="next-steps"></a>Próximas etapas
 

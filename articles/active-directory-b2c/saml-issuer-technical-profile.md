@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 08/17/2020
+ms.date: 10/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: bb5383ee7930cb3d54593f71a709c033d3850889
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b4fb7c6fb3bbf02e5f1aba25c868e4a44e8507dd
+ms.sourcegitcommit: ac7029597b54419ca13238f36f48c053a4492cb6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88521205"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96309623"
 ---
 # <a name="define-a-technical-profile-for-a-saml-token-issuer-in-an-azure-active-directory-b2c-custom-policy"></a>Definir um perfil técnico para um emissor de token SAML em uma política personalizada do Azure Active Directory B2C
 
@@ -26,7 +26,7 @@ O Azure AD B2C (Azure Active Directory B2C) emite vários tipos de tokens de seg
 
 ## <a name="protocol"></a>Protocolo
 
-O atributo **Name** do elemento **Protocol** precisa ser definido como `None`. Defina o elemento **OutputTokenFormat** como `SAML2`.
+O atributo **Name** do elemento **Protocol** precisa ser definido como `SAML2`. Defina o elemento **OutputTokenFormat** como `SAML2`.
 
 O exemplo a seguir mostra um perfil técnico para `Saml2AssertionIssuer`:
 
@@ -37,6 +37,7 @@ O exemplo a seguir mostra um perfil técnico para `Saml2AssertionIssuer`:
   <OutputTokenFormat>SAML2</OutputTokenFormat>
   <Metadata>
     <Item Key="IssuerUri">https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/B2C_1A_signup_signin_SAML</Item>
+    <Item Key="TokenNotBeforeSkewInSeconds">600</Item>
   </Metadata>
   <CryptographicKeys>
     <Key Id="MetadataSigning" StorageReferenceId="B2C_1A_SamlIdpCert"/>
@@ -58,6 +59,9 @@ Os elementos **InputClaims**, **OutputClaims** e **PersistClaims** estão vazios
 | --------- | -------- | ----------- |
 | IssuerUri | Não | O nome do emissor que aparece na resposta SAML. O valor deve ser o nome configurado no aplicativo de terceira parte confiável. |
 | XmlSignatureAlgorithm | Não | O método que Azure AD B2C usa para assinar a Asserção SAML. Valores possíveis: `Sha256`, `Sha384`, `Sha512` ou `Sha1`. Certifique-se de configurar o algoritmo de assinatura em ambos os lados com o mesmo valor. Use apenas o algoritmo com suporte do seu certificado. Para configurar a resposta SAML, consulte [metadados SAML](relyingparty.md#metadata) de terceira parte confiável|
+|TokenNotBeforeSkewInSeconds| Não| Especifica a distorção, como um inteiro, para o carimbo de data/hora que marca o início do período de validade. Quanto mais alto for esse número, mais de volta no tempo o período de validade começa em relação ao tempo que as declarações são emitidas para a terceira parte confiável. Por exemplo, quando TokenNotBeforeSkewInSeconds for definido como 60 segundos, se o token for emitido às 13:05:10 UTC, o token será válido a partir de 13:04:10 UTC. O valor padrão é 0. O valor máximo é 3600 (uma hora). |
+|TokenLifeTimeInSeconds| Não| Especifica a vida útil da declaração SAML. Esse valor é em segundos do valor não antes de refernced acima. O valor padrão é 300 segundos (5 min). |
+
 
 ## <a name="cryptographic-keys"></a>Chaves de criptografia
 

@@ -2,17 +2,17 @@
 title: Sobre a atualização da largura de banda do circuito | ExpressRoute do Azure
 description: Neste artigo, conheça as práticas recomendadas para atualizar a largura de banda do circuito do ExpressRoute
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.author: cherylmc
-ms.openlocfilehash: a8f5aaa7b2a054aa31198779414387cebf0f0fbd
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.author: duau
+ms.openlocfilehash: 7831e7944321e074c312853e1534c47970ebdfdb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537030"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89397943"
 ---
 # <a name="about-upgrading-expressroute-circuit-bandwidth"></a>Sobre a atualização da largura de banda do circuito do ExpressRoute
 

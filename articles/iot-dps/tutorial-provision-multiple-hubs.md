@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: e1a66da52eea6d5da711fa6def58eba65d0960ed
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 6cca34774038156cfb01e872e751338c1c96efaa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74976733"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91315993"
 ---
 # <a name="tutorial-provision-devices-across-load-balanced-iot-hubs"></a>Tutorial: Provisionar dispositivos entre Hubs IoT com balanceamento de carga
 
@@ -67,8 +67,6 @@ Vincule o Serviço de Provisionamento de Dispositivos e o Hub IoT para que o Ser
 4. Na página **Adicionar link para o Hub IoT**, use os botões de opção para especificar se o Hub IoT vinculado está localizado na assinatura atual ou em uma diferente. Em seguida, escolha o nome do hub IoT da caixa **Hub IoT**.
 5. Clique em **Save** (Salvar).
 
-## <a name="next-steps"></a>Próximas etapas
-
 Neste tutorial, você aprendeu a:
 
 > [!div class="checklist"]
@@ -76,6 +74,8 @@ Neste tutorial, você aprendeu a:
 > * Adicionar uma entrada da lista de registro para o segundo dispositivo
 > * Definir a política de alocação no Serviço de Provisionamento de Dispositivos como **distribuição por igual**
 > * Vincular o novo Hub IoT ao Serviço de Provisionamento de Dispositivos
+
+## <a name="next-steps"></a>Próximas etapas
 
 <!-- Advance to the next tutorial to learn how to 
  Replace this .md

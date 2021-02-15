@@ -1,24 +1,26 @@
 ---
-title: Perguntas frequentes sobre os Serviços de Mídia do Azure v3 | Microsoft Docs
+title: Perguntas frequentes sobre os serviços de mídia do Azure v3
 description: Este artigo fornece respostas para perguntas frequentes sobre os serviços de mídia do Azure v3.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/07/2020
-ms.author: juliako
-ms.openlocfilehash: 70499ad354e2fafaac99fe46c1838a0be2813943
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: a452a056ff2bdbad5d2e461716ee1a56d36c8523
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87011678"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897553"
 ---
 # <a name="media-services-v3-frequently-asked-questions"></a>Perguntas frequentes sobre os serviços de mídia v3
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Este artigo fornece respostas para perguntas frequentes sobre os serviços de mídia do Azure v3.
 
@@ -26,13 +28,13 @@ Este artigo fornece respostas para perguntas frequentes sobre os serviços de m�
 
 ### <a name="what-are-the-azure-portal-limitations-for-media-services-v3"></a>Quais são as limitações de portal do Azure para os serviços de mídia v3?
 
-Você pode usar o [portal do Azure](https://portal.azure.com/) para gerenciar eventos ao vivo v3, exibir ativos e trabalhos v3, obter informações sobre como acessar APIs, criptografar conteúdo. <br/>Para todas as outras tarefas de gerenciamento (por exemplo, gerenciamento de transformações e trabalhos ou análise de conteúdo v3), use a [API REST](https://aka.ms/ams-v3-rest-ref), a [CLI](https://aka.ms/ams-v3-cli-ref)ou um dos [SDKs](media-services-apis-overview.md#sdks)com suporte.
+Você pode usar o [portal do Azure](https://portal.azure.com/) para gerenciar eventos ao vivo v3, exibir ativos e trabalhos v3, obter informações sobre como acessar APIs, criptografar conteúdo. <br/>Para todas as outras tarefas de gerenciamento (por exemplo, gerenciamento de transformações e trabalhos ou análise de conteúdo v3), use a [API REST](/rest/api/media/accountfilters), a [CLI](/cli/azure/ams)ou um dos [SDKs](media-services-apis-overview.md#sdks)com suporte.
 
 Se o vídeo foi carregado anteriormente na conta dos Serviços de Mídia por meio da API dos Serviços de Mídia v3 ou se o conteúdo foi gerado com base em uma saída dinâmica, você não verá os botões **Codificar**, **Analisar** ou **Criptografar** no portal do Azure. Use as APIs dos Serviços de Mídia v3 para executar essas tarefas.  
 
 ### <a name="what-azure-roles-can-perform-actions-on-azure-media-services-resources"></a>Quais funções do Azure podem executar ações nos recursos dos serviços de mídia do Azure? 
 
-Consulte [RBAC (controle de acesso baseado em função) para contas de serviços de mídia](rbac-overview.md).
+Consulte [controle de acesso baseado em função do Azure (RBAC do Azure) para contas de serviços de mídia](rbac-overview.md).
 
 ### <a name="how-do-i-stream-to-apple-ios-devices"></a>Como fazer Stream para dispositivos iOS da Apple?
 
@@ -58,7 +60,7 @@ Quando você estiver usando a paginação, sempre deverá usar o link seguinte p
 
 ### <a name="what-features-are-not-yet-available-in-azure-media-services-v3"></a>Quais recursos ainda não estão disponíveis nos serviços de mídia do Azure v3?
 
-Para obter detalhes, confira [lacunas de recursos em relação às APIs v2](media-services-v2-vs-v3.md#feature-gaps-with-respect-to-v2-apis).
+Para obter detalhes, consulte [o guia de migração](migrate-v-2-v-3-migration-introduction.md).
 
 ### <a name="what-is-the-process-of-moving-a-media-services-account-between-subscriptions"></a>Qual é o processo de mover uma conta de serviços de mídia entre assinaturas?  
 
@@ -161,13 +163,13 @@ No momento, você pode usar o [portal do Azure](https://portal.azure.com/) para:
 * Exibir (não gerenciar) os [ativos](assets-concept.md)v3. 
 * [Obtenha informações sobre como acessar APIs](./access-api-howto.md). 
 
-Para todas as outras tarefas de gerenciamento (por exemplo, [transformações e trabalhos](transforms-jobs-concept.md) e [proteção de conteúdo](content-protection-overview.md)), use a [API REST](/rest/api/media/), a [CLI do Azure](https://aka.ms/ams-v3-cli-ref)ou um dos [SDKs](media-services-apis-overview.md#sdks)com suporte.
+Para todas as outras tarefas de gerenciamento (por exemplo, [transformações e trabalhos](transforms-jobs-concept.md) e [proteção de conteúdo](content-protection-overview.md)), use a [API REST](/rest/api/media/), a [CLI do Azure](/cli/azure/ams)ou um dos [SDKs](media-services-apis-overview.md#sdks)com suporte.
 
 ### <a name="is-there-an-assetfile-concept-in-v3"></a>Existe um conceito de AssetFile no v3?
 
 O `AssetFile` conceito foi removido da API dos serviços de mídia para separar os serviços de mídia da dependência do SDK de armazenamento. Agora, o armazenamento do Azure, não os serviços de mídia, mantém as informações que pertencem ao SDK de armazenamento. 
 
-Para obter mais informações, confira [Migrar para os Serviços de Mídia v3](media-services-v2-vs-v3.md).
+Para obter mais informações, confira [Migrar para os Serviços de Mídia v3](migrate-v-2-v-3-migration-introduction.md).
 
 ### <a name="where-did-client-side-storage-encryption-go"></a>Onde está a criptografia de armazenamento do lado do cliente?
 

@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
-ms.openlocfilehash: 7f597bb5cba1a12bdb93325fe2b877ffc644e3e4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1e3ea9222b0f231250bde43fb86c07847ca4835e
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "60199172"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832328"
 ---
 # <a name="using-the-azure-cloud-shell-editor"></a>Como usar o editor do Azure Cloud Shell
 
-O Azure Cloud Shell inclui um editor de arquivo integrado, criado com base no [Editor Monaco](https://github.com/Microsoft/monaco-editor) de software livre. O editor do Cloud Shell oferece suporte a recursos como realce de linguagem, paleta de comandos e explorador de arquivos.
+O Azure Cloud Shell inclui um editor de arquivo integrado, criado com base no [Editor Monaco](https://github.com/Microsoft/monaco-editor) de software livre. O editor de Cloud Shell dá suporte a recursos como realce de idioma, a paleta de comandos e um explorador de arquivos.
 
 ![Editor do Cloud Shell](media/using-cloud-shell-editor/open-editor.png)
 
 ## <a name="opening-the-editor"></a>Como abrir o editor
 
-Para a criação e edição de arquivo simples, inicie o editor executando `code .` no terminal do Cloud Shell. Essa ação abre o editor com o seu diretório de trabalho ativo definido no terminal.
+Para criação e edição de arquivo simples, inicie o editor executando `code .` no terminal do Cloud Shell. Essa ação abre o editor com o diretório de trabalho ativo definido no terminal.
 
-Para abrir diretamente um arquivo para edição rápida, execute `code <filename>` para abrir o editor sem o explorador de arquivos.
+Para abrir um arquivo diretamente para edição rápida, execute `code <filename>` para abrir o editor sem o explorador de arquivos.
 
 Para abrir o editor usando o botão de interface do usuário, clique no ícone do editor `{}` na barra de ferramentas. Isso abrirá o editor e usará como padrão o explorador de arquivos para o diretório `/home/<user>`.
 
@@ -52,5 +52,6 @@ Para inicializar a paleta de comandos, use a tecla `F1` quando o foco estiver de
 Há suporte para realce de linguagem no editor do Cloud Shell usando a funcionalidade upstream no uso das definições de sintaxe Monarch do [Editor do Mônaco](https://github.com/Microsoft/monaco-editor). Para saber como fazer contribuições, leia o [Guia do colaborador do Mônaco](https://github.com/Microsoft/monaco-editor/blob/master/CONTRIBUTING.md).
 
 ## <a name="next-steps"></a>Próximas etapas
-[Experimente o início rápido do bash em Cloud Shell](quickstart.md) 
- [Exibir a lista completa de ferramentas de Cloud Shell integradas](features.md)
+
+- [Experimente o início rápido do bash em Cloud Shell](quickstart.md)
+- [Exibir a lista completa de ferramentas de Cloud Shell integradas](features.md)

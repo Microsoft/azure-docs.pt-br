@@ -6,17 +6,17 @@ ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 31e9b4b065b2acb8378c2eeac332341f48b28165
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: f1f2caa194972bb870dc58cfa0bd6ccb2f8db053
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88005220"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100099907"
 ---
 # <a name="session-host-virtual-machine-configuration"></a>Configuração da máquina virtual do host da sessão
 
 >[!IMPORTANT]
->Este conteúdo se aplica à Área de Trabalho Virtual do Windows com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager. Se você estiver usando a Área de Trabalho Virtual do Windows (clássica) sem objetos do Azure Resource Manager, confira [este artigo](./virtual-desktop-fall-2019/troubleshoot-vm-configuration-2019.md).
+>Este conteúdo se aplica à Área de Trabalho Virtual do Windows com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager. Se você estiver usando a Área de Trabalho Virtual do Windows (clássica), sem objetos do Azure Resource Manager, confira [este artigo](./virtual-desktop-fall-2019/troubleshoot-vm-configuration-2019.md).
 
 Use este artigo para solucionar problemas que você está tendo ao configurar as VMs (máquinas virtuais) do host de sessão de área de trabalho virtual do Windows.
 
@@ -82,7 +82,7 @@ A maneira recomendada para provisionar VMs é usar o modelo de criação de port
 
 Siga estas instruções para confirmar se os componentes estão instalados e para verificar se há mensagens de erro.
 
-1. Confirme se os dois componentes estão instalados marcando em **painel de controle**  >  **programas**programas  >  **e recursos**. Se o **agente de área de trabalho virtual do Windows** e o carregador de inicialização do **Windows Virtual Desktop Agent** não estiverem visíveis, eles não serão instalados na VM.
+1. Confirme se os dois componentes estão instalados marcando em **painel de controle**  >  **programas** programas  >  **e recursos**. Se o **agente de área de trabalho virtual do Windows** e o carregador de inicialização do **Windows Virtual Desktop Agent** não estiverem visíveis, eles não serão instalados na VM.
 2. Abra o **Explorador de arquivos** e navegue até **C:\Windows\Temp\ScriptLog.log**. Se o arquivo estiver ausente, isso indica que a DSC do PowerShell que instalou os dois componentes não pôde ser executada no contexto de segurança fornecido.
 3. Se o arquivo **C:\Windows\Temp\ScriptLog.log** estiver presente, abra-o e verifique se há mensagens de erro.
 
@@ -114,7 +114,7 @@ Siga estas instruções para confirmar se os componentes estão instalados e par
 
 Quando o agente de área de trabalho virtual do Windows é instalado pela primeira vez em VMs de host de sessão (manualmente ou por meio do modelo de Azure Resource Manager e DSC do PowerShell), ele fornece um token de registro. A seção a seguir aborda a solução de problemas que se aplicam ao agente de área de trabalho virtual do Windows e ao token.
 
-### <a name="error-the-status-filed-in-get-azwvdsessionhost-cmdlet-shows-status-as-unavailable"></a>Erro: o status arquivado no cmdlet Get-AzWvdSessionHost mostra o status como indisponível
+### <a name="error-the-status-filed-in-get-azwvdsessionhost-cmdlet-shows-status-as-unavailable"></a>Erro: o status registrado em Get-AzWvdSessionHost cmdlet mostra o status como indisponível
 
 > [!div class="mx-imgBorder"]
 > ![O cmdlet Get-AzWvdSessionHost mostra o status como indisponível.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
@@ -140,7 +140,7 @@ Quando o agente de área de trabalho virtual do Windows é instalado pela primei
 2. Execute o cmdlet **New-AzWvdRegistrationInfo** para gerar um novo token.
 3. Confirme se o parâmetro *-ExpriationTime* está definido como 3 dias.
 
-### <a name="error-windows-virtual-desktop-agent-isnt-reporting-a-heartbeat-when-running-get-azwvdsessionhost"></a>Erro: o agente de área de trabalho virtual do Windows não está relatando uma pulsação ao executar Get-AzWvdSessionHost
+### <a name="error-windows-virtual-desktop-agent-isnt-reporting-a-heartbeat-when-running-get-azwvdsessionhost"></a>Erro: o agente de área de trabalho virtual do Windows não relata uma pulsação ao executar Get-AzWvdSessionHost
 
 **Causa 1:** O serviço RDAgentBootLoader foi interrompido.
 
@@ -193,7 +193,7 @@ A saída de **Qwinsta** listará o **RDP-SxS** na saída se a pilha lado a lado 
 > [!div class="mx-imgBorder"]
 > ![Pilha lado a lado instalada ou habilitada com Qwinsta listado como RDP-SxS na saída.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
 
-Examine as entradas de registro listadas abaixo e confirme se seus valores correspondem. Se as chaves do registro estiverem ausentes ou se os valores forem incompatíveis, siga as instruções em [criar um pool de hosts com o PowerShell](create-host-pools-powershell.md) sobre como reinstalar a pilha lado a lado.
+Examine as entradas de registro listadas abaixo e confirme se seus valores correspondem. Se as chaves do registro estiverem ausentes ou se os valores forem incompatíveis, verifique se você está executando [um sistema operacional com suporte](troubleshoot-agent.md#error-operating-a-pro-vm-or-other-unsupported-os). Se você estiver, siga as instruções em [criar um pool de hosts com o PowerShell](create-host-pools-powershell.md) sobre como reinstalar a pilha lado a lado.
 
 ```registry
     HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal
@@ -348,6 +348,7 @@ Para saber mais sobre essa política, consulte [Permitir logon por meio de servi
 - Confira uma visão geral da solução de problemas da Área de Trabalho Virtual do Windows e das faixas de escalonamento em [Visão geral da solução de problemas, comentários e suporte](troubleshoot-set-up-overview.md).
 - Para solucionar problemas durante a criação de um pool de hosts em um ambiente de área de trabalho virtual do Windows, consulte [ambiente e criação de pool de hosts](troubleshoot-set-up-issues.md).
 - Confira como solucionar problemas ao configurar uma VM (máquina virtual) na Área de Trabalho Virtual do Windows em [Configuração da máquina virtual do host da sessão](troubleshoot-vm-configuration.md).
+- Para solucionar problemas relacionados ao agente de área de trabalho virtual do Windows ou conectividade de sessão, consulte [solucionar problemas comuns do agente de área de trabalho virtual do Windows](troubleshoot-agent.md).
 - Para solucionar problemas com conexões de cliente de área de trabalho virtual do Windows, consulte [conexões do serviço área de trabalho virtual do Windows](troubleshoot-service-connection.md).
 - Para solucionar problemas com clientes Área de Trabalho Remota, consulte [solucionar problemas do cliente área de trabalho remota](troubleshoot-client.md)
 - Veja como solucionar problemas ao usar o PowerShell com a Área de Trabalho Virtual do Windows em [PowerShell da Área de Trabalho Virtual do Windows](troubleshoot-powershell.md).

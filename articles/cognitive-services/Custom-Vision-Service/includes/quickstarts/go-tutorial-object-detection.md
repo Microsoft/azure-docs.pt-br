@@ -2,24 +2,27 @@
 author: areddish
 ms.author: areddish
 ms.service: cognitive-services
-ms.date: 08/17/2020
-ms.openlocfilehash: a56b95fe4f6b7005e823ebe80fd2e74ed1cf7725
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.date: 09/15/2020
+ms.openlocfilehash: 439a75907ccdc6d2f1af4f2a3d9fc951bdd6307d
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88511266"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98948439"
 ---
-Este artigo fornece informações e um código de exemplo para ajudar você a começar a usar a biblioteca de clientes da Visão Personalizada com o Go para criar um modelo de detecção de objetos. Depois de criá-lo, você poderá adicionar regiões marcadas, carregar imagens, treinar o projeto, obter a URL do ponto de extremidade de previsão do projeto publicado e usar o ponto de extremidade para testar programaticamente uma imagem. Use este exemplo como modelo para criação de seu próprio aplicativo Go.
+Este guia fornece informações e um código de exemplo para ajudar você a começar a usar a biblioteca de clientes da Visão Personalizada para Go, a fim de criar um modelo de detecção de objetos. Você criará um projeto, adicionará marcas, treinará o projeto e usará a URL do ponto de extremidade de previsão do projeto para testá-lo programaticamente. Use este exemplo como um modelo para criar o próprio aplicativo de reconhecimento de imagem.
 
-## <a name="prerequisites"></a>Pré-requisitos
+> [!NOTE]
+> Se desejar criar e treinar um modelo de detecção de objetos _sem_ escrever código, confira as [diretrizes baseadas em navegador](../../get-started-build-detector.md).
+
+## <a name="prerequisites"></a>Pré-requisitos:
 
 - [Go 1.8 ou posterior](https://golang.org/doc/install)
 - [!INCLUDE [create-resources](../../includes/create-resources.md)]
 
 ## <a name="install-the-custom-vision-client-library"></a>Instalar a biblioteca de clientes da Visão Personalizada
 
-Para instalar a biblioteca de clientes do Serviço de Visão Personalizada para o Go, execute o seguinte comando no PowerShell:
+Para escrever um aplicativo de análise de imagem com a Visão Personalizada para Go, você precisará da biblioteca de clientes do serviço de Visão Personalizada. Execute o seguinte comando no PowerShell:
 
 ```shell
 go get -u github.com/Azure/azure-sdk-for-go/...
@@ -38,11 +41,11 @@ dep ensure -add github.com/Azure/azure-sdk-for-go
 
 Crie um arquivo chamado *sample.go* no diretório de seu projeto de preferência.
 
-### <a name="create-the-custom-vision-service-project"></a>Criar o projeto do Serviço de Visão Personalizada
+## <a name="create-the-custom-vision-project"></a>Criar o projeto de Visão Personalizada
 
 Adicione o código a seguir ao seu script para criar um novo projeto do Serviço de Visão Personalizada. Insira as chaves de assinatura nas definições pertinentes. Além disso, obtenha sua URL de Ponto de Extremidade no painel Configurações do site da Visão Personalizada.
 
-Confira o método [CreateProject](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.training.trainings.createproject?view=azure-java-stable#com_microsoft_azure_cognitiveservices_vision_customvision_training_Trainings_createProject_String_CreateProjectOptionalParameter_) para especificar outras opções ao criar seu projeto (explicado no guia do portal da Web [Criar um detector](../../get-started-build-detector.md)).
+Confira o método [CreateProject](/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.training.trainings.createproject#com_microsoft_azure_cognitiveservices_vision_customvision_training_Trainings_createProject_String_CreateProjectOptionalParameter_) para especificar outras opções ao criar seu projeto (explicado no guia do portal da Web [Criar um detector](../../get-started-build-detector.md)).
 
 ```go
 import(
@@ -88,7 +91,7 @@ func main() {
     project, _ := trainer.CreateProject(ctx, project_name, "", objectDetectDomain.ID, "")
 ```
 
-### <a name="create-tags-in-the-project"></a>Criar marcas no projeto
+## <a name="create-tags-in-the-project"></a>Criar marcas no projeto
 
 Para criar marcas de classificação para o projeto, adicione o seguinte código ao final de *sample.go*:
 
@@ -98,7 +101,7 @@ forkTag, _ := trainer.CreateTag(ctx, *project.ID, "fork", "A fork", string(train
 scissorsTag, _ := trainer.CreateTag(ctx, *project.ID, "scissors", "Pair of scissors", string(training.Regular))
 ```
 
-### <a name="upload-and-tag-images"></a>Carregar e marcar imagens
+## <a name="upload-and-tag-images"></a>Carregar e marcar imagens
 
 Ao marcar imagens em projetos de detecção de objeto, você precisa especificar a região de cada objeto marcado usando coordenadas normalizadas.
 
@@ -217,7 +220,7 @@ if (!*scissor_batch.IsBatchSuccessful) {
 }     
 ```
 
-### <a name="train-the-project-and-publish"></a>Treinar o projeto e publicar
+## <a name="train-and-publish-the-project"></a>Treinar e publicar o projeto
 
 Este código cria a primeira iteração do modelo de previsão e, em seguida, publica essa iteração no ponto de extremidade de previsão. O nome dado à iteração publicada pode ser usado para enviar solicitações de previsão. Uma iteração não fica disponível no ponto de extremidade de previsão até ser publicada.
 
@@ -236,7 +239,7 @@ for {
 trainer.PublishIteration(ctx, *project.ID, *iteration.ID, iteration_publish_name, prediction_resource_id))
 ```
 
-### <a name="get-and-use-the-published-iteration-on-the-prediction-endpoint"></a>Obter e usar a iteração publicada no ponto de extremidade de previsão
+## <a name="use-the-prediction-endpoint"></a>Usar o ponto de extremidade de previsão
 
 Para enviar uma imagem para o ponto de extremidade de previsão e recuperar a previsão, adicione o seguinte código ao final do arquivo:
 
@@ -272,11 +275,17 @@ go run sample.go
 
 A saída do aplicativo deve aparecer no console. Em seguida, você pode verificar se a imagem de teste (encontrada em **samples/vision/images/Test**) foi marcada corretamente e se a região da detecção está correta.
 
+## <a name="clean-up-resources"></a>Limpar os recursos
+
 [!INCLUDE [clean-od-project](../../includes/clean-od-project.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora você viu como cada etapa do processo de detecção de objetos pode ser executada em código. Este exemplo executa uma iteração de treinamento única, mas muitas vezes você precisará treinar e testar o modelo várias vezes para torná-lo mais preciso. O guia de treinamento a seguir lida com a classificação de imagens, mas seus princípios são semelhantes aos da detecção de objetos.
+Agora, você concluiu cada etapa do processo de detecção de objetos no código. Este exemplo executa uma iteração de treinamento única, mas muitas vezes você precisará treinar e testar o modelo várias vezes para torná-lo mais preciso. O guia a seguir lida com a classificação de imagens, mas seus princípios são semelhantes aos da detecção de objetos.
 
 > [!div class="nextstepaction"]
 > [Testar e readaptar um modelo](../../test-your-model.md)
+
+* O que é Visão Personalizada?
+* [Documentação de referência do SDK (treinamento)](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/customvision/training)
+* [Documentação de referência do SDK (previsão)](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.1/customvision/prediction)

@@ -4,19 +4,19 @@ description: Saiba mais sobre as políticas do Gerenciador de Firewall do Azure
 author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
-ms.topic: overview
-ms.date: 06/30/2020
+ms.topic: conceptual
+ms.date: 11/24/2020
 ms.author: victorh
-ms.openlocfilehash: 6e532634fb40eee100e73a333ac6aa7e0a79cf3c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 73a07af0fa98adf66d6104f1ab545d31a0cfd6d7
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86521642"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95802021"
 ---
 # <a name="azure-firewall-manager-policy-overview"></a>Visão geral da política do Gerenciador de Firewall do Azure
 
-A política de firewall é um recurso do Azure que contém coleções de regra de aplicativo, de rede e de NAT, bem como configurações de inteligência contra ameaças. É um recurso global que pode ser usado em várias instâncias do Firewall do Azure em hubs virtuais seguros e redes virtuais de hub. As políticas funcionam em regiões e assinaturas diferentes.
+A Política de Firewall é um recurso do Azure que contém coleções de regra de aplicativo, de rede e de NAT, além de configurações de inteligência contra ameaças. É um recurso global que pode ser usado em várias instâncias do Firewall do Azure em hubs virtuais seguros e redes virtuais de hub. As políticas funcionam em regiões e assinaturas diferentes.
 
 ![Política do Gerenciador de Firewall do Azure](media/policy-overview/policy-overview.png)
 

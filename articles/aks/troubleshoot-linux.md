@@ -1,19 +1,19 @@
 ---
 title: Ferramentas de desempenho do Linux
 titleSuffix: Azure Kubernetes Service
-description: Aprenda a solucionar problemas comuns ao usar o Serviço de Kubernetes do Azure (AKS)
+description: Saiba como usar as ferramentas de desempenho do Linux para solucionar problemas comuns ao usar o AKS (serviço kubernetes do Azure).
 services: container-service
 author: alexeldeib
 ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 02/10/2020
 ms.author: aleldeib
-ms.openlocfilehash: eb6b126b4d1794adf0380432040190b91a17a675
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 74f65780594c7bc938ed6d59437473c4363e5848
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77925599"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "90982028"
 ---
 # <a name="linux-performance-troubleshooting"></a>Solução de problemas de desempenho do Linux
 
@@ -78,13 +78,13 @@ KiB Swap:        0 total,        0 free,        0 used. 62739060 avail Mem
      ...
 ```
 
-`top`fornece uma visão geral ampla do estado atual do sistema. Os cabeçalhos fornecem algumas informações de agregação úteis:
+`top` fornece uma visão geral ampla do estado atual do sistema. Os cabeçalhos fornecem algumas informações de agregação úteis:
 
 - estado das tarefas: em execução, em suspensão, parado.
 - Utilização da CPU, nesse caso, quase sempre mostrando o tempo ocioso.
 - memória do sistema total, livre e usada.
 
-`top`pode perder processos de curta duração; alternativas como `htop` e `atop` fornecem interfaces semelhantes ao corrigir algumas dessas deficiências.
+`top` pode perder processos de curta duração; alternativas como `htop` e `atop` fornecem interfaces semelhantes ao corrigir algumas dessas deficiências.
 
 ## <a name="cpu"></a>CPU
 
@@ -108,7 +108,7 @@ Linux 4.15.0-1064-azure (aks-main-10212767-vmss000001)  02/10/20        _x86_64_
 19:49:04       7    1.98    0.00    0.99    0.00    0.00    0.00    0.00    0.00    0.00   97.03
 ```
 
-`mpstat`Imprime informações de CPU semelhantes para a parte superior, mas dividida por thread de CPU. Ver todos os núcleos de uma vez pode ser útil para detectar o uso de CPU altamente desequilibrado, por exemplo, quando um aplicativo de thread único usa um núcleo com 100% de utilização. Esse problema pode ser mais difícil de detectar quando agregado em todas as CPUs no sistema.
+`mpstat` Imprime informações de CPU semelhantes para a parte superior, mas dividida por thread de CPU. Ver todos os núcleos de uma vez pode ser útil para detectar o uso de CPU altamente desequilibrado, por exemplo, quando um aplicativo de thread único usa um núcleo com 100% de utilização. Esse problema pode ser mais difícil de detectar quando agregado em todas as CPUs no sistema.
 
 ### <a name="vmstat"></a>vmstat
 
@@ -119,13 +119,13 @@ procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
  2  0      0 43300372 545716 19691456    0    0     3    50    3    3  2  1 95  1  0
 ```
 
-`vmstat`fornece informações semelhantes `mpstat` e `top` , enumerando o número de processos aguardando pela CPU (coluna de r), estatísticas de memória e porcentagem do tempo de CPU gasto em cada Estado de trabalho.
+`vmstat` fornece informações semelhantes `mpstat` e `top` , enumerando o número de processos aguardando pela CPU (coluna de r), estatísticas de memória e porcentagem do tempo de CPU gasto em cada Estado de trabalho.
 
 ## <a name="memory"></a>Memória
 
 A memória é um recurso muito importante e, felizmente, fácil de controlar. Algumas ferramentas podem relatar CPU e memória, como `vmstat` . Mas ferramentas como `free` ainda podem ser úteis para a depuração rápida.
 
-### <a name="free"></a>livre
+### <a name="free"></a>free
 
 ```
 $ free -m
@@ -134,7 +134,7 @@ Mem:          64403        2338       42485           1       19579       61223
 Swap:             0           0           0
 ```
 
-`free`apresenta informações básicas sobre memória total, bem como memória usada e livre. `vmstat`pode ser mais útil mesmo para análise de memória básica devido à sua capacidade de fornecer saída sem interrupção.
+`free` apresenta informações básicas sobre memória total, bem como memória usada e livre. `vmstat` pode ser mais útil mesmo para análise de memória básica devido à sua capacidade de fornecer saída sem interrupção.
 
 ## <a name="disk"></a>Disco
 
@@ -157,21 +157,21 @@ sda               0.00    56.00    0.00   65.00     0.00   504.00    15.51     0
 scd0              0.00     0.00    0.00    0.00     0.00     0.00     0.00     0.00    0.00    0.00    0.00   0.00   0.00
 ```
 
-`iostat`fornece informações aprofundadas sobre a utilização do disco. Essa invocação passa `-x` por estatísticas estendidas, `-y` para ignorar a média inicial do sistema de impressão de saída desde a inicialização e `1 1` para especificar que desejamos um intervalo de 1 segundo, terminando após um bloco de saída. 
+`iostat` fornece informações aprofundadas sobre a utilização do disco. Essa invocação passa `-x` por estatísticas estendidas, `-y` para ignorar a média inicial do sistema de impressão de saída desde a inicialização e `1 1` para especificar que desejamos um intervalo de 1 segundo, terminando após um bloco de saída. 
 
-`iostat`o expõe muitas estatísticas úteis:
+`iostat` o expõe muitas estatísticas úteis:
 
-- `r/s`e `w/s` são leituras por segundo e gravações por segundo. A soma desses valores é IOPS.
-- `rkB/s`e `wkB/s` são lidos/gravados por segundo. A soma desses valores é taxa de transferência.
-- `await`é o tempo médio de iowait em milissegundos para solicitações em fila.
-- `avgqu-sz`é o tamanho médio da fila no intervalo fornecido.
+- `r/s` e `w/s` são leituras por segundo e gravações por segundo. A soma desses valores é IOPS.
+- `rkB/s` e `wkB/s` são lidos/gravados por segundo. A soma desses valores é taxa de transferência.
+- `await` é o tempo médio de iowait em milissegundos para solicitações em fila.
+- `avgqu-sz` é o tamanho médio da fila no intervalo fornecido.
 
 Em uma VM do Azure:
 
 - a soma de `r/s` e `w/s` para um dispositivo de bloco individual não pode exceder os limites de SKU do disco.
-- a soma de `rkB/s` e `wkB/s` para um dispositivo de bloco individual não pode exceder os limites de SKU do disco
+- a soma de `rkB/s` e `wkB/s`  para um dispositivo de bloco individual não pode exceder os limites de SKU do disco
 - a soma de `r/s` e `w/s` para todos os dispositivos de bloco pode não exceder os limites para a SKU de VM.
-- a soma de `rkB/s` e ' wkB/s para todos os dispositivos de bloco pode não exceder os limites para a SKU de VM.
+- a soma de  `rkB/s` e ' wkB/s para todos os dispositivos de bloco pode não exceder os limites para a SKU de VM.
 
 Observe que o disco do sistema operacional conta como um disco gerenciado da menor SKU correspondente à sua capacidade. Por exemplo, um disco de sistema operacional 1024GB corresponde a um disco p30. Discos do sistema operacional efêmero e discos temporários não têm limites de disco individuais; Eles são limitados apenas pelos limites completos da VM.
 
@@ -199,10 +199,10 @@ $ sar -n DEV [interval]
 22:36:58    azvdbf16b0b2fc      9.00     19.00      3.36      1.18      0.00      0.00      0.00      0.00
 ```
 
-`sar`é uma ferramenta poderosa para uma ampla gama de análises. Embora este exemplo use sua capacidade de medir as estatísticas de rede, é igualmente eficiente para medir a CPU e o consumo de memória. Este exemplo invoca `sar` com `-n` sinalizador para especificar a `DEV` palavra-chave (dispositivo de rede), exibindo a taxa de transferência de rede por dispositivo.
+`sar` é uma ferramenta poderosa para uma ampla gama de análises. Embora este exemplo use sua capacidade de medir as estatísticas de rede, é igualmente eficiente para medir a CPU e o consumo de memória. Este exemplo invoca `sar` com `-n` sinalizador para especificar a `DEV` palavra-chave (dispositivo de rede), exibindo a taxa de transferência de rede por dispositivo.
 
 - A soma de `rxKb/s` e `txKb/s` é a taxa de transferência total para um determinado dispositivo. Quando esse valor exceder o limite para a NIC provisionada do Azure, as cargas de trabalho no computador passarão por latência de rede aumentada.
-- `%ifutil`mede a utilização de um determinado dispositivo. À medida que esse valor se aproximar 100%, as cargas de trabalho sofrerão maior latência de rede.
+- `%ifutil` mede a utilização de um determinado dispositivo. À medida que esse valor se aproximar 100%, as cargas de trabalho sofrerão maior latência de rede.
 
 ```
 $ sar -n TCP,ETCP [interval]
@@ -323,4 +323,4 @@ IpExt:
     InECT0Pkts: 14
 ```
 
-`netstat`pode introspecção uma grande variedade de estatísticas de rede, aqui invocada com saída de resumo. Há muitos campos úteis aqui, dependendo do problema. Um campo útil na seção TCP é "tentativas de conexão com falha". Isso pode ser uma indicação de esgotamento de porta SNAT ou outros problemas para fazer conexões de saída. Uma alta taxa de segmentos retransmitidos (também na seção TCP) pode indicar problemas com a entrega de pacotes. 
+`netstat` pode introspecção uma grande variedade de estatísticas de rede, aqui invocada com saída de resumo. Há muitos campos úteis aqui, dependendo do problema. Um campo útil na seção TCP é "tentativas de conexão com falha". Isso pode ser uma indicação de esgotamento de porta SNAT ou outros problemas para fazer conexões de saída. Uma alta taxa de segmentos retransmitidos (também na seção TCP) pode indicar problemas com a entrega de pacotes. 

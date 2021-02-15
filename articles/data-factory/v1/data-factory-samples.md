@@ -1,22 +1,18 @@
 ---
 title: Azure Data Factory - Exemplos
 description: Fornece detalhes sobre os exemplos fornecidos com o serviço Azure Data Factory.
-services: data-factory
-documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
-manager: jroth
+author: dcstwh
+ms.author: weetok
 ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: f1e861bf9c6cc2a485ac9f153a0c932ec2e6fbb2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 82c871e8914d70dde7f2586b7dbf6556ebd2621f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85318902"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100387029"
 ---
 # <a name="azure-data-factory---samples"></a>Azure Data Factory - Exemplos
 > [!NOTE]
@@ -32,9 +28,9 @@ O [repositório GitHub Azure-DataFactory](https://github.com/azure/azure-datafac
 | [Exemplos JSON](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/JSON) |Este exemplo fornece exemplos JSON para cenários comuns. |
 | [Exemplo de HTTP Data Downloader](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/HttpDataDownloaderSample) |Este exemplo apresenta o download de dados de um ponto de extremidade HTTP no Armazenamento de Blobs do Azure usando a atividade personalizada do .NET. |
 | [Exemplo de atividade AppDomain Dot Net](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/CrossAppDomainDotNetActivitySample) |Este exemplo permite que você crie uma atividade personalizada do .NET que não esteja restrita a versões de assembly usadas pelo iniciador do ADF (por exemplo, WindowsAzure.Storage v4.3.0, Newtonsoft.Json v6.0.x etc.). |
-| [Executar script R](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample) |Este exemplo inclui a atividade personalizada do Data Factory que pode ser usada para invocar RScript.exe. Esse exemplo funciona apenas no seu próprio cluster HDInsight (não sob demanda) que já tenha o R instalado nele. |
-| [Invocar trabalhos Spark no cluster Hadoop do HDInsight](https://docs.microsoft.com/azure/data-factory/tutorial-transform-data-spark-portal) |Esse exemplo mostra como usar a atividade MapReduce para invocar um programa Spark. O programa Spark apenas copia dados de um contêiner de Blob do Azure para outro. |
-| [Análise do Twitter usando a Atividade de Pontuação em Lotes do Azure Machine Learning](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TwitterAnalysisSample-AzureMLBatchScoringActivity) |Esse exemplo mostra como usar AzureMLBatchScoringActivity para invocar um modelo de Azure Machine Learning que executa análise de opiniões no twitter, pontuação, previsão, etc. |
+| [Executar o script R](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample) |Este exemplo inclui a atividade personalizada do Data Factory que pode ser usada para invocar RScript.exe. Esse exemplo funciona apenas no seu próprio cluster HDInsight (não sob demanda) que já tenha o R instalado nele. |
+| [Invocar trabalhos Spark no cluster Hadoop do HDInsight](../tutorial-transform-data-spark-portal.md) |Esse exemplo mostra como usar a atividade MapReduce para invocar um programa Spark. O programa Spark apenas copia dados de um contêiner de Blob do Azure para outro. |
+| [Análise do Twitter usando a atividade de Pontuação de lote Azure Machine Learning Studio (clássica)](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TwitterAnalysisSample-AzureMLBatchScoringActivity) |Esse exemplo mostra como usar AzureMLBatchScoringActivity para invocar um modelo de Azure Machine Learning que executa análise de opiniões no twitter, pontuação, previsão, etc. |
 | [Análise do Twitter usando a atividade personalizada](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TwitterAnalysisSample-CustomC%23Activity) |Esse exemplo mostra como usar uma atividade .NET personalizada para invocar um modelo de Azure Machine Learning que executa análise de opiniões no twitter, pontuação, previsão, etc. |
 | [Pipelines com parâmetros para o Azure Machine Learning](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ParameterizedPipelinesForAzureML) |O exemplo fornece um código C# de ponta a ponta para a implantação de N pipelines para classificação e treinamento, cada um com um parâmetro de região diferente, em que a lista de regiões está vindo de um arquivo parameters.txt que acompanha esse exemplo. |
 | [Atualização de dados de referência para trabalhos de Stream Analytics do Azure](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ReferenceDataRefreshForASAJobs) |Esse exemplo mostra como utilizar o Azure Data Factory e o Stream Analytics do Azure para executar as consultas com dados de referência e configurar a atualização de dados de referência em uma agenda. |
@@ -98,8 +94,8 @@ Você deve ter os seguintes itens instalados no seu computador:
     ![Caixa de diálogo Modelos de Data Factory](./media/data-factory-samples/vs-data-factory-templates-dialog.png)
 4. Na caixa de diálogo **Configuração de Data Factory**, clique em **Avançar** na página **Noções básicas de Data Factory**.
 5. Na página **Configurar data factory**, execute as seguintes etapas:
-   1. Selecione **Criar Nova Fábrica de Dados**. Você também pode selecionar **Usar data factory existente**.
-   2. Insira um **nome** para o armazenamento de dados.
+   1. Selecione **criar novo data Factory**. Você também pode selecionar **Usar data factory existente**.
+   2. Insira um **nome** para o data Factory.
    3. Escolha a **assinatura do Azure** em que você deseja que o data factory seja criado.
    4. Selecione o **grupo de recursos** para o data factory a ser criado.
    5. Selecione o **Oeste dos EUA**, **Leste dos EUA** ou **Norte da Europa** como a **região**.
@@ -113,7 +109,7 @@ Você deve ter os seguintes itens instalados no seu computador:
 12. Você deve ver a caixa de diálogo a seguir:
 
     ![Caixa de diálogo Publicar](./media/data-factory-build-your-first-pipeline-using-vs/publish.png)
-13. Na página **configurar data Factory** , execute as seguintes etapas:
+13. Na página **Configurar data factory**, execute as seguintes etapas:
 
     1. Confirme a opção **Usar data factory existente** .
     2. Selecione a **da data factory** que tinha selecionado ao usar o modelo.
@@ -122,4 +118,4 @@ Você deve ter os seguintes itens instalados no seu computador:
 15. Examine o resumo e clique em **Avançar** para iniciar o processo de implantação e exibir o **Status da Implantação**.
 16. Na página **Status da Implantação** , você deve ver o status do processo de implantação. Clique em Concluir depois que a implantação tiver terminado.
 
-Confira [Criar sua primeira data factory (Visual Studio)](data-factory-build-your-first-pipeline-using-vs.md) para obter detalhes sobre como usar o Visual Studio para criar entidades de Data Factory e publicá-las no Azure.          
+Confira [Criar sua primeira data factory (Visual Studio)](data-factory-build-your-first-pipeline-using-vs.md) para obter detalhes sobre como usar o Visual Studio para criar entidades de Data Factory e publicá-las no Azure.

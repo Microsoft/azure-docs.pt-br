@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: ff82986b27d038c536872b07e1308b0d48fadaef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cf0b5d29e0dc375a07fe024ef0763c8200275055
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74270221"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880701"
 ---
 # <a name="performance-tiers-for-block-blob-storage"></a>Níveis de desempenho para armazenamento de blobs de blocos
 
@@ -65,7 +65,7 @@ O desempenho padrão dá suporte a diferentes [níveis de acesso](storage-blob-s
 
 Não é possível converter uma conta de armazenamento de desempenho padrão existente em uma conta de armazenamento de blobs de blocos com desempenho premium. Para migrar para uma conta de armazenamento de desempenho premium, você deve criar uma conta do BlockBlobStorage e migrar os dados para a nova conta. Para obter mais informações, consulte [criar uma conta do BlockBlobStorage](storage-blob-create-account-block-blob.md).
 
-Para copiar BLOBs entre contas de armazenamento, você pode usar a versão mais recente da ferramenta de linha de comando [AzCopy](../common/storage-use-azcopy-blobs.md) . Outras ferramentas, como Azure Data Factory, também estão disponíveis para movimentação e transformação de dados.
+Para copiar BLOBs entre contas de armazenamento, você pode usar a versão mais recente da ferramenta de linha de comando [AzCopy](../common/storage-use-azcopy-v10.md#transfer-data) . Outras ferramentas, como Azure Data Factory, também estão disponíveis para movimentação e transformação de dados.
 
 ## <a name="blob-lifecycle-management"></a>Gerenciamento de ciclo de vida de blob
 
@@ -83,6 +83,6 @@ Não é possível mover dados armazenados em uma conta de armazenamento de blob 
 Avalie o Hot, o frio e o arquivo em contas de armazenamento de BLOBs e GPv2.
 
 - [Saiba mais sobre os dados de blob reidratar da camada de arquivo](storage-blob-rehydration.md)
-- [Avaliar o uso de suas contas de armazenamento atuais, habilitando as métricas do Armazenamento do Azure](../common/storage-enable-and-view-metrics.md)
+- [Avaliar o uso de suas contas de armazenamento atuais, habilitando as métricas do Armazenamento do Azure](./monitor-blob-storage.md)
 - [Verificar o preço de frequente, esporádica e de arquivo em contas de Armazenamento de Blobs e GPv2 por região](https://azure.microsoft.com/pricing/details/storage/)
 - [Verificar os preços de transferências de dados](https://azure.microsoft.com/pricing/details/data-transfers/)

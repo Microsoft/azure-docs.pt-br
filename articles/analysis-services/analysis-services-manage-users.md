@@ -4,47 +4,47 @@ description: Este artigo descreve como o Azure Analysis Services usa o Azure AD 
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 12/01/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 15ae1ca6902c27732812a591f492430150c84ecb
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 551bae56565140da3754e74a23b1cc18087f1171
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926171"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96487432"
 ---
 # <a name="authentication-and-user-permissions"></a>Autenticação e permissões de usuário
 
-O Azure Analysis Services usa o Azure AD (Azure Active Directory) para o gerenciamento de identidade e a autenticação de usuário. Qualquer usuário criando, gerenciando ou se conectando a um servidor do Azure Analysis Services deve ter uma identidade de usuário válida no [locatário do Azure AD](../active-directory/fundamentals/active-directory-administer.md) na mesma assinatura.
+O Azure Analysis Services usa o Azure AD (Azure Active Directory) para o gerenciamento de identidade e a autenticação de usuário. Qualquer usuário criando, gerenciando ou se conectando a um servidor do Azure Analysis Services deve ter uma identidade de usuário válida no [locatário do Azure AD](../active-directory/fundamentals/active-directory-whatis.md) na mesma assinatura.
 
-O Azure Analysis Services dá suporte à [Colaboração B2B do Azure AD](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md). Com o B2B, os usuários de fora de uma organização podem ser convidados como usuários convidados em um diretório do Azure AD. Os convidados podem ser de outro diretório do locatário do Azure AD ou qualquer endereço de email válido. Após ser convidado e o usuário aceitar o convite enviado por email do Azure, a identidade do usuário é adicionada ao diretório do locatário. Essas identidades podem ser adicionadas a grupos de segurança ou como membros de uma função de banco de dados ou administrador do servidor.
+O Azure Analysis Services dá suporte à [Colaboração B2B do Azure AD](../active-directory/external-identities/what-is-b2b.md). Com o B2B, os usuários de fora de uma organização podem ser convidados como usuários convidados em um diretório do Azure AD. Os convidados podem ser de outro diretório do locatário do Azure AD ou qualquer endereço de email válido. Após ser convidado e o usuário aceitar o convite enviado por email do Azure, a identidade do usuário é adicionada ao diretório do locatário. Essas identidades podem ser adicionadas a grupos de segurança ou como membros de uma função de banco de dados ou administrador do servidor.
 
 ![Arquitetura de autenticação do Azure Analysis Services](./media/analysis-services-manage-users/aas-manage-users-arch.png)
 
 ## <a name="authentication"></a>Autenticação
 
-Todas as ferramentas e aplicativos cliente usam uma ou mais das [bibliotecas de cliente](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current) do Analysis Services (AMO, MSOLAP, ADOMD) para se conectar a um servidor. 
+Todas as ferramentas e aplicativos cliente usam uma ou mais das [bibliotecas de cliente](/analysis-services/client-libraries?view=azure-analysis-services-current&preserve-view=true) do Analysis Services (AMO, MSOLAP, ADOMD) para se conectar a um servidor. 
 
 Todas as três bibliotecas de cliente dão suporte ao fluxo interativo do Azure AD e métodos de autenticação não interativos. Os dois métodos não interativos, os métodos Senha do Active Directory e Autenticação Integrada do Active Directory, podem ser usados em aplicativos utilizando AMOMD e MSOLAP. Esses dois métodos nunca resultam em caixas de diálogo pop-up.
 
-Aplicativos cliente como o Excel e o Power BI Desktop, e ferramentas como o SSMS e a extensão de projetos do Analysis Services para o Visual Studio instalam as versões mais recentes das bibliotecas quando atualizados para a versão mais recente. A extensão de projetos do Power BI Desktop, SSMS e Analysis Services é atualizada mensalmente. O Excel é [atualizado com o Office 365](https://support.office.com/article/When-do-I-get-the-newest-features-in-Office-2016-for-Office-365-da36192c-58b9-4bc9-8d51-bb6eed468516). O Office 365 é atualizado com menos frequência e algumas organizações usam o canal adiado, o que significa que as atualizações são adiadas por até três meses.
+Aplicativos cliente como o Excel e o Power BI Desktop, e ferramentas como o SSMS e a extensão de projetos do Analysis Services para o Visual Studio instalam as versões mais recentes das bibliotecas quando atualizados para a versão mais recente. A extensão de projetos do Power BI Desktop, SSMS e Analysis Services é atualizada mensalmente. O Excel é [atualizado com Microsoft 365](https://support.microsoft.com/office/when-do-i-get-the-newest-features-for-microsoft-365-da36192c-58b9-4bc9-8d51-bb6eed468516). Microsoft 365 atualizações são menos frequentes e algumas organizações usam o canal adiado, o que significa que as atualizações são adiadas até três meses.
 
 Dependendo da ferramenta ou do aplicativo cliente usado, o tipo de autenticação e como você entra podem ser diferentes. Cada aplicativo pode dar suporte a recursos diferentes para se conectar a serviços de nuvem como o Azure Analysis Services.
 
-O Power BI Desktop, o Visual Studio e o SSMS dão suporte à Autenticação Universal do Active Directory, um método interativo que também dá suporte ao MFA (Autenticação Multifator do Azure). O MFA do Azure ajuda a proteger o acesso a dados e aplicativos, ao mesmo tempo que fornece um processo de entrada simples. Ele fornece uma autenticação forte com diversas opções de verificação (chamada telefônica, mensagem de texto, cartões inteligentes com PIN ou notificação por aplicativos móveis). O MFA interativo com o Azure AD pode resultar em uma caixa de diálogo pop-up para validação. **Recomenda-se a Autenticação Universal**.
+Power BI Desktop, o Visual Studio e o SSMS dão suporte Active Directory autenticação universal, um método interativo que também dá suporte à MFA (autenticação multifator) do Azure AD. O Azure AD MFA ajuda a proteger o acesso a dados e aplicativos ao mesmo tempo em que fornece um processo de entrada simples. Ele fornece uma autenticação forte com diversas opções de verificação (chamada telefônica, mensagem de texto, cartões inteligentes com PIN ou notificação por aplicativos móveis). O MFA interativo com o Azure AD pode resultar em uma caixa de diálogo pop-up para validação. **Recomenda-se a Autenticação Universal**.
 
-Se você estiver conectando-se ao Azure usando uma conta do Windows e a autenticação Universal não estiver selecionada ou disponível (Excel), [os Serviços de Federação do Active Directory (AD FS)](../active-directory/hybrid/how-to-connect-fed-azure-adfs.md) serão necessários. Com a Federação, os usuários do Azure AD e do Office 365 são autenticados usando credenciais locais e podem acessar os recursos do Azure.
+Se você estiver conectando-se ao Azure usando uma conta do Windows e a autenticação Universal não estiver selecionada ou disponível (Excel), [os Serviços de Federação do Active Directory (AD FS)](/windows-server/identity/ad-fs/deployment/how-to-connect-fed-azure-adfs) serão necessários. Com a Federação, os usuários do Azure AD e do Microsoft 365 são autenticados usando credenciais locais e podem acessar recursos do Azure.
 
 ### <a name="sql-server-management-studio-ssms"></a>SQL Server Management Studio (SSMS)
 
-Os servidores do Azure Analysis Services dão suporte a conexões do [SSMS V17.1](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) e superior usando a Autenticação do Windows, a Autenticação de Senha do Active Directory e a Autenticação Universal do Active Directory. Em geral, é recomendável usar a Autenticação Universal do Active Directory porque:
+Os servidores do Azure Analysis Services dão suporte a conexões do [SSMS V17.1](/sql/ssms/download-sql-server-management-studio-ssms) e superior usando a Autenticação do Windows, a Autenticação de Senha do Active Directory e a Autenticação Universal do Active Directory. Em geral, é recomendável usar a Autenticação Universal do Active Directory porque:
 
 *  Dá suporte a métodos de autenticação interativos e não interativos.
 
 *  Dá suporte a usuários convidados de B2B do Azure no locatário do Azure AS. Ao se conectar a um servidor, os usuários convidados devem selecionar a Autenticação Universal do Active Directory ao se conectar ao servidor.
 
-*  Dá suporte à MFA (Autenticação Multifator). A MFA do Azure ajuda a proteger o acesso aos dados e aplicativos com uma variedade de opções de verificação: chamada telefônica, mensagem de texto, cartões inteligentes com PIN ou notificação por aplicativo móvel. O MFA interativo com o Azure AD pode resultar em uma caixa de diálogo pop-up para validação.
+*  Dá suporte à MFA (Autenticação Multifator). O Azure AD MFA ajuda a proteger o acesso a dados e aplicativos com uma variedade de opções de verificação: chamada telefônica, mensagem de texto, cartões inteligentes com PIN ou notificação de aplicativo móvel. O MFA interativo com o Azure AD pode resultar em uma caixa de diálogo pop-up para validação.
 
 ### <a name="visual-studio"></a>Visual Studio
 
@@ -81,4 +81,4 @@ As funções nesse nível se aplicam a usuários ou contas que precisam executar
 [Gerenciar o acesso a recursos com grupos do Azure Active Directory](../active-directory/fundamentals/active-directory-manage-groups.md)   
 [Gerenciar usuários e funções de banco de dados](analysis-services-database-users.md)  
 [Gerenciar administradores de servidor](analysis-services-server-admins.md)  
-[Controle de acesso baseado em função do Azure (RBAC do Azure)](../role-based-access-control/overview.md)  
+[RBAC do Azure (controle de acesso baseado em função do Azure)](../role-based-access-control/overview.md)

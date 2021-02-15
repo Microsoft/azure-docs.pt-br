@@ -5,16 +5,16 @@ services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 04/15/2020
-ms.author: v-stazar
+ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: ac4753da1405fe6b8cd209bb4899192e9f317aa1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6920d6cd190927747a69fc4dc0f0791278665abe
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81428700"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451694"
 ---
 # <a name="user-defined-schemas-within-synapse-sql"></a>Esquemas definidos pelo usuário dentro de Synapse SQL
 
@@ -27,7 +27,7 @@ A arquitetura de análise tradicional geralmente usa bancos de dados separados p
 Em vez disso, Synapse SQL executa toda a carga de trabalho de análise em um banco de dados. Junções entre bancos de dados não são permitidas. Synapse SQL espera que todas as tabelas usadas pelo warehouse sejam armazenadas dentro de um banco de dados.
 
 > [!NOTE]
-> Os pools SQL não dão suporte a consultas entre bancos de dados de qualquer tipo. Consequentemente, as implementações de análise que aproveitam esse padrão precisarão ser revisadas. O SQL sob demanda (versão prévia) dá suporte a consultas entre bancos de dados.
+> Os pools dedicados do SQL não dão suporte a consultas entre bancos de dados de qualquer tipo. Consequentemente, as implementações de análise que aproveitam esse padrão precisarão ser revisadas. O pool SQL sem servidor dá suporte a consultas entre bancos de dados.
 
 ## <a name="user-defined-schema-recommendations"></a>Recomendações de esquema definidas pelo usuário
 

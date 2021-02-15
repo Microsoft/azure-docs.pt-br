@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 02/03/2020
+ms.date: 01/19/2021
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: dbe05f264b0fca6c1a5e8e7d944d94a6bed55392
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 34885e2a364778a2f81f4920aa26aa3bb5f40320
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798016"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100095011"
 ---
 # <a name="perform-an-access-review-from-the-my-apps-portal"></a>Realização de uma revisão de acesso no portal Meus Aplicativos
 
@@ -29,6 +29,11 @@ Se você não tiver acesso ao portal **Meus Aplicativos**, entre em contato com 
 
 >[!Important]
 >Este conteúdo destina-se aos usuários do portal **Meus Aplicativos**. Se você for administrador, poderá encontrar mais informações sobre como configurar e gerenciar seus aplicativos baseados em nuvem na [Documentação de Gerenciamento do Aplicativo](../manage-apps/index.yml).
+>
+> Se você vir um erro ao entrar com um conta Microsoft pessoal, ainda poderá entrar usando o nome de domínio da sua organização (como contoso.com) ou a **ID de locatário** da sua organização em uma das seguintes URLs:
+>
+>   - https://myapplications.microsoft.com?tenantId=*your_domain_name*
+>   - https://myapplications.microsoft.com?tenant=*your_tenant_ID*
 
 ## <a name="manage-access-reviews"></a>Gerenciar revisões de acesso
 
@@ -41,17 +46,17 @@ Se o administrador tiver concedido permissão para realizar suas próprias revis
 
 1. Entre sua conta corporativa ou de estudante.
 
-2. Abra o navegador da Web e acesse https://myapps.microsoft.com ou use o link fornecido pela sua organização. Por exemplo, você pode ser direcionado a uma página personalizada para sua organização, como https://myapps.microsoft.com/contoso.com.
+1. Abra o navegador da Web e acesse https://myapps.microsoft.com ou use o link fornecido pela sua organização. Por exemplo, você pode ser direcionado a uma página personalizada para sua organização, como https://myapps.microsoft.com/contoso.com.
 
     A página **Aplicativos** é exibida, mostrando todos os aplicativos baseados em nuvem pertencentes à sua organização e disponíveis para uso.
 
-    ![Página Aplicativos no portal Meus Aplicativos](media/my-apps-portal/my-apps-portal-apps-page-access-review-tile.png)
+    ![Página Aplicativos no portal Meus Aplicativos](media/my-apps-portal/my-apps-home.png)
 
-3. Selecione o bloco **Revisões de acesso** para ver uma lista de revisões de acesso aguardando sua aprovação.
+1. Selecione o bloco **Revisões de acesso** para ver uma lista de revisões de acesso aguardando sua aprovação.
 
     ![Página Revisões de acesso com revisões de acesso pendentes da organização](media/my-apps-portal/my-apps-portal-access-reviews-page.png)
 
-4. Selecione **Iniciar revisão** para iniciar a revisão de acesso.
+1. Selecione **Iniciar revisão** para iniciar a revisão de acesso.
 
 5. Examine o acesso e determine se ele ainda é necessário.
 
@@ -76,5 +81,5 @@ Se o administrador tiver concedido permissão para realizar suas próprias revis
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Acesso e uso de aplicativos no portal Meus Aplicativos](my-apps-portal-end-user-access.md)
-- [Alteração das informações do seu perfil](my-apps-portal-end-user-update-profile.md)
+- [Alteração das informações do seu perfil](./my-account-portal-settings.md)
 - [Exibição e atualização das informações relacionadas a grupos](my-apps-portal-end-user-groups.md)

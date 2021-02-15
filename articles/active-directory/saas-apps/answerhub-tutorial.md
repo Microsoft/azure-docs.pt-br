@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: d453cc5300dc658e4b33bb0591100deae5f34aef
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 284ec65955de60f41d7bb0f97bf608faba3d4b79
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544733"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672572"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-answerhub"></a>Tutorial: Integração do Active Directory do Azure ao AnswerHub
 
@@ -27,7 +27,7 @@ A integração do AnswerHub ao Azure AD oferece estes benefícios:
 * Você pode permitir que os usuários entrem automaticamente no AnswerHub com suas contas do Azure AD (logon único).
 * Você pode gerenciar suas contas em uma localização central: o portal do Azure.
 
-Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [Logon único em aplicativos no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [Logon único em aplicativos no Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Prerequisites
@@ -63,7 +63,7 @@ Para configurar a integração do AnswerHub ao Azure AD, você precisará adicio
 
 4. Na caixa de pesquisa, insira **AnswerHub**. Selecione **AnswerHub** na lista de resultados e, em seguida, selecione **Adicionar**.
 
-     ![AnswerHub na lista de resultados](common/search-new-app.png)
+    ![AnswerHub na lista de resultados](common/search-new-app.png)
 
 ## <a name="set-up-and-test-azure-ad-single-sign-on"></a>Configurar e testar o logon único do Azure AD
 
@@ -140,14 +140,14 @@ Nesta seção, você configurará o logon único do AnswerHub.
 
 4. Na guia **Configuração do IdP**, conclua estas etapas:
 
-    ![Guia Usuários e Grupos](./media/answerhub-tutorial/ic785172.png "Configuração do SAML")  
-  
+    ![Captura de tela que mostra a página do AnswerHub com a guia Usuários & Grupos selecionada.](./media/answerhub-tutorial/ic785172.png "Configuração do SAML")  
+
     a. Na caixa **URL de Logon do IdP**, cole a **URL de Logon** copiada do portal do Azure.
-  
+
     b. Na caixa **URL de Logoff do IdP**, cole a **URL de Logoff** copiada do portal do Azure.
 
     c. Na caixa **Formato do Identificador de Nome do IdP**, insira o valor do **Identificador** selecionado na seção **Atributos de Usuário** no portal do Azure.
-  
+
     d. Selecione **Chaves e Certificados**.
 
 5. Na seção **Chaves e Certificados**, conclua estas etapas:
@@ -155,7 +155,7 @@ Nesta seção, você configurará o logon único do AnswerHub.
     ![Seção Chaves e Certificados](./media/answerhub-tutorial/ic785173.png "Chaves e Certificados")  
 
     a. Abra o certificado codificado em Base64 baixado no portal do Azure no Bloco de notas, copie o conteúdo e, em seguida, cole o conteúdo na caixa **Chave Pública do IdP (Formato x509)** .
-  
+
     b. Clique em **Salvar**.
 
 6. Na guia **Configuração do IdP**, selecione **Salvar** novamente.
@@ -179,7 +179,7 @@ Nesta seção, você criará uma usuária de teste no portal do Azure chamada Br
     ![Propriedades do usuário](common/user-properties.png)
 
     a. Na caixa **Nome**, insira **BrendaFernandes**.
-  
+
     b. Na caixa **Nome de usuário**, insira **brendafernandes\@<domíniodaempresa.extensão>** .  
     Por exemplo, BrittaSimon@contoso.com.
 
@@ -231,7 +231,7 @@ Para permitir que os usuários do Azure AD entrem no AnswerHub, você precisará
 
 4. No painel esquerdo, na seção **Gerenciar Usuários**, selecione **Criar ou importar usuários** e, em seguida, **Usuários e Grupos**.
 
-   ![Guia Usuários e Grupos](./media/answerhub-tutorial/ic785175.png "Usuários e grupos")
+    ![Captura de tela que mostra a página do AnswerHub com a guia Usuários & Grupos selecionada e o link Criar ou importar usuários em destaque.](./media/answerhub-tutorial/ic785175.png "Usuários e grupos")
 
 5. Nas caixas apropriadas, insira o **Endereço de email**, o **Nome de usuário** e a **Senha** de uma conta válida do Azure AD que deseja adicionar e, em seguida, selecione **Salvar**.
 
@@ -242,13 +242,12 @@ Para permitir que os usuários do Azure AD entrem no AnswerHub, você precisará
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o painel de acesso.
 
-Ao selecionar o bloco do AnswerHub no Painel de Acesso, você deverá ser conectado automaticamente ao AnswerHub, para o qual você configurou o SSO. Para saber mais sobre o painel de acesso, veja [Introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao selecionar o bloco do AnswerHub no Painel de Acesso, você deverá ser conectado automaticamente ao AnswerHub, para o qual você configurou o SSO. Para saber mais sobre o painel de acesso, veja [Introdução ao painel de acesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Tutoriais de integração de aplicativos SaaS ao Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Tutoriais de integração de aplicativos SaaS ao Azure Active Directory](./tutorial-list.md)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)

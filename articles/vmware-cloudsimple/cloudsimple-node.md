@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 7de4b5faa997d909089daedab7e48e5d5a6de2e7
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/12/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88140829"
 ---
 # <a name="cloudsimple-nodes-overview"></a>Visão geral dos nós do CloudSimple
@@ -45,7 +45,7 @@ Os seguintes tipos de nós estão disponíveis para provisionamento ou reserva.
 | Disco de capacidade | 5,625 TB brutos                | 11,25 TB brutos                | 15,36 TB brutos                |
 | Tipo de armazenamento  | Todos os flash                   | Todos os flash                   | Todos os flash                   |
 
-## <a name="limits"></a>Limites
+## <a name="limits"></a>limites
 
 Os limites de nó a seguir se aplicam a nuvens privadas.
 

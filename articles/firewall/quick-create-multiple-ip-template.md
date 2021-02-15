@@ -1,23 +1,23 @@
 ---
 title: 'Início Rápido: Criar um Firewall do Azure com vários endereços IP públicos – modelo do Resource Manager'
-description: Aprenda a usar um modelo do ARM (Azure Resource Manager) para criar um Firewall do Azure com vários endereços IP públicos.
+description: Neste guia de início rápido, aprenda a usar um modelo do ARM (Azure Resource Manager) para criar um Firewall do Azure com vários endereços IP públicos.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.date: 04/14/2020
+ms.date: 08/28/2020
 ms.author: victorh
-ms.openlocfilehash: 41190cd52e29b187182589f93e9d494d05943cf8
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: 33d110f327a381241fd9dbf55996a6e3f9fd3a43
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88705428"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057970"
 ---
 # <a name="quickstart-create-an-azure-firewall-with-multiple-public-ip-addresses---arm-template"></a>Início Rápido: Criar um Firewall do Azure com vários endereços IP públicos – Modelo do ARM
 
-Neste guia de início rápido, você usará um modelo do ARM (Azure Resource Manager) para implantar um Firewall do Azure com vários endereços IP públicos. O firewall implantado tem regras de coleção de regras NAT que permitem conexões RDP com duas máquinas virtuais do Windows Server 2019.
+Neste guia de início rápido, você usará um modelo do ARM (Azure Resource Manager) para implantar um Firewall do Azure com vários endereços IP públicos usando um prefixo de endereço IP público. O firewall implantado tem regras de coleção de regras NAT que permitem conexões RDP com duas máquinas virtuais do Windows Server 2019.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -42,6 +42,7 @@ O modelo usado neste início rápido é proveniente dos [Modelos de Início Ráp
 Vários recursos do Azure são definidos no modelo:
 
 - [**Microsoft.Network/networkSecurityGroups**](/azure/templates/microsoft.network/networksecuritygroups)
+- [**Microsoft.Network/publicIPPrefix**](/azure/templates/microsoft.network/publicipprefixes)
 - [**Microsoft.Network/publicIPAddresses**](/azure/templates/microsoft.network/publicipaddresses)
 - [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks)
 - [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines)

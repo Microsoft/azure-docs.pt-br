@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 07/28/2020
 ms.author: delhan
-ms.openlocfilehash: b57a57f05853b9f8c291dc2ac352db7b1e679260
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 9a20db58846ca48afb4fb256adae58e1fccdff3a
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534848"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98875729"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guia de solução de problemas do Gerenciador de Armazenamento do Azure
 
@@ -21,13 +21,13 @@ O Gerenciador de Armazenamento do Microsoft Azure é um aplicativo autônomo que
 
 Este guia resume soluções para problemas que normalmente são vistos em Gerenciador de Armazenamento.
 
-## <a name="rbac-permissions-issues"></a>Problemas de permissões de RBAC
+## <a name="azure-rbac-permissions-issues"></a>Problemas de permissões do RBAC do Azure
 
-O [RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview) de controle de acesso baseado em função permite o gerenciamento de acesso altamente granular dos recursos do Azure combinando conjuntos de permissões em _funções_. Aqui estão algumas estratégias para fazer com que o RBAC funcione de forma ideal no Gerenciador de Armazenamento.
+Controle de acesso baseado em função do Azure o [RBAC do Azure](../../role-based-access-control/overview.md) permite o gerenciamento de acesso altamente granular dos recursos do Azure combinando conjuntos de permissões em _funções_. Aqui estão algumas estratégias para colocar o RBAC do Azure funcionando de maneira ideal no Gerenciador de Armazenamento.
 
 ### <a name="how-do-i-access-my-resources-in-storage-explorer"></a>Como fazer acessar meus recursos no Gerenciador de Armazenamento?
 
-Se você estiver tendo problemas para acessar os recursos de armazenamento por meio do RBAC, talvez você não tenha atribuído as funções apropriadas. As seções a seguir descrevem as permissões Gerenciador de Armazenamento atualmente exige o acesso aos recursos de armazenamento. Entre em contato com o administrador da conta do Azure se você não tiver certeza de que tem as funções ou permissões apropriadas.
+Se você estiver tendo problemas para acessar os recursos de armazenamento por meio do RBAC do Azure, talvez você não tenha atribuído as funções apropriadas. As seções a seguir descrevem as permissões Gerenciador de Armazenamento atualmente exige o acesso aos recursos de armazenamento. Entre em contato com o administrador da conta do Azure se você não tiver certeza de que tem as funções ou permissões apropriadas.
 
 #### <a name="read-listget-storage-accounts-permissions-issue"></a>Problema de permissões de "leitura: listar/obter conta de armazenamento"
 
@@ -61,22 +61,25 @@ Se você não tiver uma função que conceda permissões de camada de gerenciame
 Se você quiser acessar contêineres ou filas de BLOB, poderá anexar a esses recursos usando suas credenciais do Azure.
 
 1. Abra a caixa de diálogo Conectar.
-2. Selecione "adicionar um recurso via Azure Active Directory (Azure AD). Clique em Avançar.
-3. Selecione a conta de usuário e o locatário associados ao recurso ao qual você está anexando. Clique em Avançar.
-4. Selecione o tipo de recurso, insira a URL para o recurso e insira um nome de exibição exclusivo para a conexão. Clique em Avançar. Clique em Conectar.
+2. Selecione "adicionar um recurso via Azure Active Directory (Azure AD)". Selecione Avançar.
+3. Selecione a conta de usuário e o locatário associados ao recurso ao qual você está anexando. Selecione Avançar.
+4. Selecione o tipo de recurso, insira a URL para o recurso e insira um nome de exibição exclusivo para a conexão. Selecione Avançar e conectar.
 
-Para outros tipos de recursos, atualmente não temos uma solução relacionada a RBAC. Como alternativa, você pode solicitar um URI de SAS para [anexar ao recurso](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-shared-access-signature-uri).
+Para outros tipos de recursos, atualmente não temos uma solução relacionada ao RBAC do Azure. Como alternativa, você pode solicitar um URI de SAS para [anexar ao recurso](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=linux#use-a-shared-access-signature-uri).
 
 ### <a name="recommended-azure-built-in-roles"></a>Funções internas do Azure recomendadas
 
 Há várias funções internas do Azure que podem fornecer as permissões necessárias para usar Gerenciador de Armazenamento. Algumas dessas funções são:
-- [Proprietário](/azure/role-based-access-control/built-in-roles#owner): gerencie tudo, incluindo o acesso aos recursos. **Observação**: essa função fornecerá acesso à chave.
-- [Colaborador](/azure/role-based-access-control/built-in-roles#contributor): gerenciar tudo, excluindo o acesso aos recursos. **Observação**: essa função fornecerá acesso à chave.
-- [Leitor](/azure/role-based-access-control/built-in-roles#reader): ler e listar recursos.
-- [Colaborador da conta de armazenamento](/azure/role-based-access-control/built-in-roles#storage-account-contributor): gerenciamento completo de contas de armazenamento. **Observação**: essa função fornecerá acesso à chave.
-- [Proprietário de dados do blob de armazenamento](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner): acesso completo aos dados e contêineres de blob do armazenamento do Azure.
-- [Colaborador de dados de blob de armazenamento](/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor): ler, gravar e excluir contêineres e blobs de armazenamento do Azure.
-- [Leitor de dados de blob de armazenamento](/azure/role-based-access-control/built-in-roles#storage-blob-data-reader): Leia e liste contêineres e blobs de armazenamento do Azure.
+- [Proprietário](../../role-based-access-control/built-in-roles.md#owner): gerencie tudo, incluindo o acesso aos recursos.
+- [Colaborador](../../role-based-access-control/built-in-roles.md#contributor): gerenciar tudo, excluindo o acesso aos recursos.
+- [Leitor](../../role-based-access-control/built-in-roles.md#reader): ler e listar recursos.
+- [Colaborador da conta de armazenamento](../../role-based-access-control/built-in-roles.md#storage-account-contributor): gerenciamento completo de contas de armazenamento.
+- [Proprietário de dados do blob de armazenamento](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner): acesso completo aos dados e contêineres de blob do armazenamento do Azure.
+- [Colaborador de dados de blob de armazenamento](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor): ler, gravar e excluir contêineres e blobs de armazenamento do Azure.
+- [Leitor de dados de blob de armazenamento](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader): Leia e liste contêineres e blobs de armazenamento do Azure.
+
+> [!NOTE]
+> As funções de colaborador de conta de armazenamento, proprietário e colaborador concedem acesso à chave da conta.
 
 ## <a name="error-self-signed-certificate-in-certificate-chain-and-similar-errors"></a>Erro: certificado autoassinado na cadeia de certificados (e erros semelhantes)
 
@@ -88,13 +91,13 @@ Normalmente, os erros de certificado ocorrem em uma das seguintes situações:
 Quando Gerenciador de Armazenamento vê um certificado autoassinado ou não confiável, ele não sabe mais se a mensagem HTTPS recebida foi alterada. Se você tiver uma cópia do certificado autoassinado, poderá instruir Gerenciador de Armazenamento a confiar, seguindo estas etapas:
 
 1. Obtenha uma cópia X. 509 (. cer) codificada em base-64 do certificado.
-2. Vá para **Editar**certificados  >  **SSL**  >  **importar certificados**e, em seguida, use o seletor de arquivos para localizar, selecionar e abrir o arquivo. cer.
+2. Vá para **Editar** certificados  >  **SSL**  >  **importar certificados** e, em seguida, use o seletor de arquivos para localizar, selecionar e abrir o arquivo. cer.
 
 Esse problema também pode ocorrer se houver vários certificados (raiz e intermediário). Para corrigir esse erro, ambos os certificados devem ser adicionados.
 
 Se você não tiver certeza de onde o certificado provém, siga estas etapas para encontrá-lo:
 
-1. Instale o OpenSSL.
+1. Instalar OpenSSL.
     * [Windows](https://slproweb.com/products/Win32OpenSSL.html): qualquer uma das versões leves deve ser suficiente.
     * Mac e Linux: devem ser incluídos no seu sistema operacional.
 2. Execute o OpenSSL.
@@ -103,7 +106,7 @@ Se você não tiver certeza de onde o certificado provém, siga estas etapas par
 3. Execute `s_client -showcerts -connect microsoft.com:443`.
 4. Procurar certificados autoassinados. Se você não tiver certeza de quais certificados são autoassinados, anote em qualquer lugar que o assunto `("s:")` e o emissor `("i:")` sejam os mesmos.
 5. Quando você encontrar certificados autoassinados, para cada um, copie e cole tudo de (e incluindo) `-----BEGIN CERTIFICATE-----` por meio de `-----END CERTIFICATE-----` um novo arquivo. cer.
-6. Abra Gerenciador de armazenamento e acesse **Editar**certificados  >  **SSL**  >  **importar certificados**. Em seguida, use o seletor de arquivos para localizar, selecionar e abrir os arquivos. cer que você criou.
+6. Abra Gerenciador de armazenamento e acesse **Editar** certificados  >  **SSL**  >  **importar certificados**. Em seguida, use o seletor de arquivos para localizar, selecionar e abrir os arquivos. cer que você criou.
 
 Se você não encontrar certificados autoassinados seguindo estas etapas, entre em contato conosco por meio da ferramenta de comentários. Você também pode abrir Gerenciador de Armazenamento na linha de comando usando o `--ignore-certificate-errors` sinalizador. Quando aberto com esse sinalizador, Gerenciador de Armazenamento ignora erros de certificado.
 
@@ -113,7 +116,7 @@ Se você não encontrar certificados autoassinados seguindo estas etapas, entre 
 
 Caixas de diálogo de entrada em branco ocorrem com mais frequência quando Serviços de Federação do Active Directory (AD FS) (AD FS) solicita Gerenciador de Armazenamento para executar um redirecionamento, o que não é suportado pelo de todos os. Para contornar esse problema, você pode tentar usar o fluxo de código do dispositivo para entrar. Para fazer isso, siga estas etapas:
 
-1. Na barra de ferramentas vertical esquerda, abra **configurações**. No painel configurações, vá para **Application**  >  **entrada do**aplicativo. Habilitar **usar entrada de fluxo de código de dispositivo**.
+1. Na barra de ferramentas vertical esquerda, abra **configurações**. No painel configurações, vá para   >  **entrada do** aplicativo. Habilitar **usar entrada de fluxo de código de dispositivo**.
 2. Abra a caixa de diálogo **conectar** (por meio do ícone de plugue na barra vertical do lado esquerdo ou selecionando **adicionar conta** no painel de conta).
 3. Escolha o ambiente no qual você deseja entrar.
 4. Selecione **Entrar.**
@@ -130,9 +133,9 @@ Se você estiver em um loop de reautenticação ou tiver alterado o UPN de uma d
 
 1. Remova todas as contas e, em seguida, feche Gerenciador de Armazenamento.
 2. Exclua a pasta .IdentityService do seu computador. No Windows, a pasta está localizada em `C:\users\<username>\AppData\Local`. Para Mac e Linux, você pode encontrar a pasta na raiz do seu diretório de usuário.
-3. Se você estiver executando o Mac ou o Linux, também precisará excluir a entrada Microsoft. Developer. IdentityService do repositório de chaves do seu sistema operacional. No Mac, o keystore é o aplicativo de conjunto de *chaves GNOME* . No Linux, o aplicativo é normalmente chamado de _token_de entrada, mas o nome pode ser diferente dependendo da sua distribuição.
+3. Se você estiver executando o Mac ou o Linux, também precisará excluir a entrada Microsoft. Developer. IdentityService do repositório de chaves do seu sistema operacional. No Mac, o keystore é o aplicativo de conjunto de *chaves GNOME* . No Linux, o aplicativo é normalmente chamado de _token_ de entrada, mas o nome pode ser diferente dependendo da sua distribuição.
 
-### <a name="conditional-access"></a>Acesso condicional
+### <a name="conditional-access"></a>Acesso Condicional
 
 Devido a uma limitação na biblioteca do Azure AD usada pelo Gerenciador de Armazenamento, o acesso condicional não tem suporte quando Gerenciador de Armazenamento está sendo usado no Windows 10, Linux ou macOS.
 
@@ -141,13 +144,13 @@ Devido a uma limitação na biblioteca do Azure AD usada pelo Gerenciador de Arm
 Às vezes, o conjunto de chaves macOS pode inserir um estado que causa problemas para a biblioteca de autenticação Gerenciador de Armazenamento. Para obter o conjunto de chaves desse Estado, siga estas etapas:
 
 1. Feche o Gerenciador de Armazenamento.
-2. Abra o conjunto de chaves (pressione Command + barra de espaços, digite **keychain**e pressione Enter).
+2. Abra o conjunto de chaves (pressione Command + barra de espaços, digite **keychain** e pressione Enter).
 3. Selecione o conjunto de chaves "logon".
 4. Selecione o ícone de cadeado para bloquear o conjunto de chaves. (O cadeado aparecerá bloqueado quando o processo for concluído. Pode levar alguns segundos, dependendo de quais aplicativos você abriu).
 
     ![Ícone de cadeado](./media/storage-explorer-troubleshooting/unlockingkeychain.png)
 
-5. Abra o Explorer do Armazenamento.
+5. Abra o Gerenciador de Armazenamento.
 6. Você receberá uma mensagem como "o Hub de serviço deseja acessar o conjunto de chaves". Insira sua senha da conta de administrador do Mac e selecione **sempre permitir** (ou **permitir** se **sempre permitir** não estiver disponível).
 7. Tente entrar.
 
@@ -187,46 +190,62 @@ Se não for possível remover uma conta anexada ou um recurso de armazenamento p
 
 ## <a name="proxy-issues"></a>Problemas de proxy
 
-Primeiro, certifique-se de que as seguintes informações inseridas estão corretas:
+O Gerenciador de Armazenamento dá suporte à conexão com recursos de armazenamento do Azure por meio de um servidor proxy. Se você tiver problemas para se conectar ao Azure por meio do proxy, aqui estão algumas sugestões.
 
-* A URL do proxy e o número da porta
-* Nome de usuário e senha se o proxy os exigir
+> [!NOTE]
+> Gerenciador de Armazenamento dá suporte apenas à autenticação básica com servidores proxy. Não há suporte para outros métodos de autenticação, como NTLM.
 
 > [!NOTE]
 > Gerenciador de Armazenamento não dá suporte a arquivos de configuração automática de proxy para definir as configurações de proxy.
 
-### <a name="common-solutions"></a>Soluções comuns
+### <a name="verify-storage-explorer-proxy-settings"></a>Verificar Gerenciador de Armazenamento configurações de proxy
 
-Se você ainda tiver problemas, tente os seguintes métodos de solução de problemas:
+O parâmetro **Application → proxy → de configuração de proxy** determina a origem da qual Gerenciador de armazenamento Obtém a configuração de proxy.
 
-* Se você puder se conectar à Internet sem usar o proxy, verifique se Gerenciador de Armazenamento funciona sem as configurações de proxy habilitadas. Se esse for o caso, talvez haja um problema com as configurações de proxy. Trabalhe com o administrador para identificar os problemas.
-* Verifique se outros aplicativos que usam o servidor proxy funcionam conforme o esperado.
-* Verifique se você pode se conectar ao portal para o ambiente do Azure que você está tentando usar.
-* Verifique se que você pode receber respostas de seus pontos de extremidade de serviço. Insira uma das suas URLs de ponto de extremidade em seu navegador. Se você puder se conectar, deverá receber InvalidQueryParameterValue ou uma resposta XML semelhante.
-* Se outra pessoa também estiver usando o Gerenciador de Armazenamento com o servidor proxy, verifique se eles podem se conectar. Se puderem, talvez você precise entrar em contato com o administrador do servidor proxy.
+Se você selecionar "usar variáveis de ambiente", certifique-se de definir as `HTTPS_PROXY` variáveis de ambiente ou (as variáveis de ambiente diferenciam `HTTP_PROXY` maiúsculas de minúsculas, portanto, certifique-se de definir as variáveis corretas). Se essas variáveis forem indefinidas ou inválidas, Gerenciador de Armazenamento não usará um proxy. Reinicie Gerenciador de Armazenamento depois de modificar as variáveis de ambiente.
+
+Se você selecionar "usar configurações de proxy de aplicativo", verifique se as configurações de proxy no aplicativo estão corretas.
+
+### <a name="steps-for-diagnosing-issues"></a>Etapas para diagnosticar problemas
+
+Se você ainda tiver problemas, Experimente estes métodos de solução de problemas:
+
+1. Se você puder se conectar à Internet sem usar o proxy, verifique se Gerenciador de Armazenamento funciona sem as configurações de proxy habilitadas. Se Gerenciador de Armazenamento se conectar com êxito, pode haver um problema com o servidor proxy. Trabalhe com o administrador para identificar os problemas.
+2. Verifique se outros aplicativos que usam o servidor proxy funcionam conforme o esperado.
+3. Verifique se você pode se conectar ao portal para o ambiente do Azure que você está tentando usar.
+4. Verifique se que você pode receber respostas de seus pontos de extremidade de serviço. Insira uma das suas URLs de ponto de extremidade em seu navegador. Se você puder se conectar, deverá receber uma `InvalidQueryParameterValue` resposta XML ou semelhante.
+5. Verifique se outra pessoa que usa Gerenciador de Armazenamento com o mesmo servidor proxy pode se conectar. Se puderem, talvez você precise entrar em contato com o administrador do servidor proxy.
 
 ### <a name="tools-for-diagnosing-issues"></a>Ferramentas para diagnosticar problemas
 
-Se você tiver ferramentas de rede, como o Fiddler para Windows, poderá diagnosticar os problemas da seguinte maneira:
+Uma ferramenta de rede, como o Fiddler, pode ajudá-lo a diagnosticar problemas.
 
-* Se você tiver que trabalhar por meio do proxy, será necessário configurar a ferramenta de rede para se conectar por meio do proxy.
-* Verifique o número da porta usado por sua ferramenta de rede.
-* Insira a URL do host local e o número de porta da ferramenta de rede como configurações de proxy no Gerenciador de Armazenamento. Quando você faz isso corretamente, a ferramenta de rede inicia o log de solicitações de rede feitas por Gerenciador de Armazenamento para pontos de extremidade de serviço e gerenciamento. Por exemplo, insira `https://cawablobgrs.blob.core.windows.net/` para o ponto de extremidade de BLOB em um navegador e você receberá uma resposta semelhante à seguinte:
+1. Configure sua ferramenta de rede como um servidor proxy em execução no host local. Se você precisar continuar trabalhando atrás de um proxy real, talvez seja necessário configurar sua ferramenta de rede para se conectar por meio do proxy.
+2. Verifique o número da porta usado por sua ferramenta de rede.
+3. Defina Gerenciador de Armazenamento configurações de proxy para usar o host local e o número da porta da ferramenta de rede (como "localhost: 8888").
+ 
+Quando definido corretamente, sua ferramenta de rede registrará solicitações de rede feitas por Gerenciador de Armazenamento para pontos de extremidade de serviço e gerenciamento.
+ 
+Se a sua ferramenta de rede não parece estar registrando Gerenciador de Armazenamento tráfego, tente testar sua ferramenta com um aplicativo diferente. Por exemplo, digite a URL do ponto de extremidade para um dos seus recursos de armazenamento (como `https://contoso.blob.core.windows.net/` ) em um navegador da Web e você receberá uma resposta semelhante a:
 
   ![Exemplo de código](./media/storage-explorer-troubleshooting/4022502_en_2.png)
 
-  Essa resposta sugere que o recurso existe, embora você não possa acessá-lo.
+  A resposta sugere que o recurso existe, embora você não possa acessá-lo.
+
+Se a sua ferramenta de rede mostrar apenas o tráfego de outros aplicativos, talvez seja necessário ajustar as configurações de proxy no Gerenciador de Armazenamento. Caso contrário, você fez a necessidade de ajustar as configurações da sua ferramenta.
 
 ### <a name="contact-proxy-server-admin"></a>Entre em contato com o administrador do servidor proxy
 
-Se as configurações de proxy estiverem corretas, talvez seja necessário entrar em contato com o administrador do servidor proxy para:
+Se as configurações de proxy estiverem corretas, talvez seja necessário contatar o administrador do servidor proxy para:
 
 * Verifique se o proxy não bloqueia o tráfego para os pontos de extremidade de gerenciamento ou recurso do Azure.
-* Verifique o protocolo de autenticação usado por seu servidor proxy. No momento, o Gerenciador de Armazenamento não oferece suporte a proxies NTLM.
+* Verifique o protocolo de autenticação usado por seu servidor proxy. Gerenciador de Armazenamento só dá suporte a protocolos de autenticação básica. Gerenciador de Armazenamento não dá suporte a proxies NTLM.
 
 ## <a name="unable-to-retrieve-children-error-message"></a>Mensagem de erro "Não é Possível Recuperar Filhos"
 
-Se você estiver conectado ao Azure por meio de um proxy, verifique se as configurações de proxy estão corretas. Se você tiver acesso a um recurso do proprietário da assinatura ou da conta, verifique se você tem permissões de leitura ou de lista para esse recurso.
+Se você estiver conectado ao Azure por meio de um proxy, verifique se as configurações de proxy estão corretas.
+
+Se o proprietário de uma assinatura ou conta tiver concedido acesso a um recurso, verifique se você tem permissões de leitura ou de lista para esse recurso.
 
 ## <a name="connection-string-doesnt-have-complete-configuration-settings"></a>A cadeia de conexão não tem definições de configuração completas
 
@@ -332,7 +351,7 @@ Gerenciador de Armazenamento requer que o .NET Core seja instalado em seu sistem
 # <a name="ubuntu-2004"></a>[Ubuntu 20.04](#tab/2004)
 
 1. Baixe o arquivo Gerenciador de Armazenamento. tar. gz.
-2. Instale o [tempo de execução do .NET Core](https://docs.microsoft.com/dotnet/core/install/linux):
+2. Instale o [tempo de execução do .NET Core](/dotnet/core/install/linux):
    ```bash
    wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
      sudo dpkg -i packages-microsoft-prod.deb; \
@@ -345,7 +364,7 @@ Gerenciador de Armazenamento requer que o .NET Core seja instalado em seu sistem
 # <a name="ubuntu-1804"></a>[Ubuntu 18.04](#tab/1804)
 
 1. Baixe o arquivo Gerenciador de Armazenamento. tar. gz.
-2. Instale o [tempo de execução do .NET Core](https://docs.microsoft.com/dotnet/core/install/linux):
+2. Instale o [tempo de execução do .NET Core](/dotnet/core/install/linux):
    ```bash
    wget https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
      sudo dpkg -i packages-microsoft-prod.deb; \
@@ -358,7 +377,7 @@ Gerenciador de Armazenamento requer que o .NET Core seja instalado em seu sistem
 # <a name="ubuntu-1604"></a>[Ubuntu 16.04](#tab/1604)
 
 1. Baixe o arquivo Gerenciador de Armazenamento. tar. gz.
-2. Instale o [tempo de execução do .NET Core](https://docs.microsoft.com/dotnet/core/install/linux):
+2. Instale o [tempo de execução do .NET Core](/dotnet/core/install/linux):
    ```bash
    wget https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
      sudo dpkg -i packages-microsoft-prod.deb; \

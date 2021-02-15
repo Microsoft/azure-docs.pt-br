@@ -1,18 +1,18 @@
 ---
 title: Acessar logs de auditoria-CLI do Azure-banco de dados do Azure para MySQL
 description: Este artigo descreve como configurar e acessar os logs de auditoria no banco de dados do Azure para MySQL no CLI do Azure.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 6/24/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 568f49565c6e6d8062f8869566cf3879b7c97eaa
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: db7ffabae785a589bacf349356079f6046039f9c
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87503320"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541990"
 ---
 # <a name="configure-and-access-audit-logs-in-the-azure-cli"></a>Configurar e acessar os logs de auditoria no CLI do Azure
 
@@ -20,14 +20,13 @@ Você pode configurar os [logs de auditoria do banco de dados do Azure para MySQ
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para seguir este guia de instruções, você precisa:
+Para percorrer este guia de instruções:
 
-- [Banco de dados do Azure para servidor MySQL](quickstart-create-mysql-server-database-using-azure-portal.md)
+- Você precisa de um [servidor de banco de dados do Azure para MySQL](quickstart-create-mysql-server-database-using-azure-portal.md).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-> [!IMPORTANT]
-> Este guia de instruções requer que você use a CLI do Azure versão 2.0 ou posterior. Para confirmar a versão, no prompt de comando da CLI do Azure, digite `az --version`. Para instalar ou atualizar, confira [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
+- Este artigo requer a versão 2,0 ou posterior do CLI do Azure. Se você está usando o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ## <a name="configure-audit-logging"></a>Configurar o log de auditoria
 

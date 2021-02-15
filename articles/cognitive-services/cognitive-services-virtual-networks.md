@@ -3,18 +3,18 @@ title: Redes Virtuais
 titleSuffix: Azure Cognitive Services
 description: Configure a segurança de rede em camadas para seus recursos de serviços cognitivas.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 05/26/2020
-ms.author: dapine
-ms.openlocfilehash: 808d42c821272882bbf0e01a36e49f7f10b30efa
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.date: 02/09/2021
+ms.author: aahi
+ms.openlocfilehash: eaffa535b51b786a53f1e6cc35233c55dd837233
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88505020"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99989068"
 ---
 # <a name="configure-azure-cognitive-services-virtual-networks"></a>Configurar redes virtuais de Serviços Cognitivos do Azure
 
@@ -40,40 +40,32 @@ As regras de rede são impostas em todos os protocolos de rede para serviços co
 
 ## <a name="supported-regions-and-service-offerings"></a>Regiões e ofertas de serviço com suporte
 
-As redes virtuais (VNETs) têm suporte em [regiões em que os serviços cognitivas estão disponíveis](https://azure.microsoft.com/global-infrastructure/services/). Se o serviço cognitiva não estiver listado, ele não oferece suporte a redes virtuais no momento.
+As redes virtuais (VNETs) têm suporte em [regiões em que os serviços cognitivas estão disponíveis](https://azure.microsoft.com/global-infrastructure/services/). Serviços cognitivas dão suporte a marcas de serviço para configuração de regras de rede. Os serviços listados abaixo estão incluídos na marca de serviço **CognitiveServicesManagement** .
 
 > [!div class="checklist"]
-> * [Detector de Anomalias](./anomaly-detector/index.yml)
-> * [Pesquisa Visual Computacional](./computer-vision/index.yml)
-> * [Content Moderator](./content-moderator/index.yml)
-> * [Visão Personalizada](./custom-vision-service/index.yml)
-> * [Detecção Facial](./face/index.yml)
-> * [Reconhecimento de Formulários](./form-recognizer/index.yml)
-> * [Reconhecimento vocal](./luis/index.yml)
-> * [Personalizador](./personalizer/index.yml)
-> * [Análise de Texto](./text-analytics/index.yml)
-> * [O QnA Maker](./qnamaker/index.yml)
-> * [Tradução de Texto](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#virtual-network-support)
-> * [Leitura Avançada](./immersive-reader/index.yml)
+> * Detector de Anomalias
+> * Pesquisa Visual Computacional
+> * Content Moderator
+> * Custom Vision
+> * Face
+> * Reconhecimento de Formulários
+> * Leitura Avançada
+> * Reconhecimento Vocal (LUIS)
+> * Personalizador
+> * Serviços de Fala
+> * Análise de Texto
+> * QnA Maker
+> * Tradução de Texto
 
-## <a name="service-tags"></a>Marcas de serviço
 
-Serviços cognitivas dão suporte a marcas de serviço para configuração de regras de rede. Os serviços listados abaixo estão incluídos na marca de serviço **CognitiveServicesManagement** .
+> [!NOTE]
+> Se você estiver usando o LUIS ou os serviços de fala, a marca **CognitiveServicesManagement** só permitirá que você use o serviço usando o SDK ou a API REST. Para acessar e usar o portal do LUIS e/ou o Speech Studio de uma rede virtual, você precisará usar as seguintes marcas:  
+> * **AzureActiveDirectory**
+> * **AzureFrontDoor.Frontend**
+> * **AzureResourceManager** 
+> * **CognitiveServicesManagement**
 
-> [!div class="checklist"]
-> * [Detector de Anomalias](./anomaly-detector/index.yml)
-> * [Pesquisa Visual Computacional](./computer-vision/index.yml)
-> * [Content Moderator](./content-moderator/index.yml)
-> * [Visão Personalizada](./custom-vision-service/index.yml)
-> * [Detecção Facial](./face/index.yml)
-> * [Reconhecimento de Formulários](./form-recognizer/index.yml)
-> * [Reconhecimento Vocal (LUIS)](./luis/index.yml)
-> * [Personalizador](./personalizer/index.yml)
-> * [Análise de Texto](./text-analytics/index.yml)
-> * [O QnA Maker](./qnamaker/index.yml)
-> * [Tradutor](./translator/index.yml)
-> * [Serviço de fala](./speech-service/index.yml)
-> * [Leitura Avançada](./immersive-reader/index.yml)
+
 
 ## <a name="change-the-default-network-access-rule"></a>Alterar a regra de acesso de rede padrão
 
@@ -349,9 +341,6 @@ Forneça intervalos de endereços de Internet permitidos usando a [notação CID
 
 As regras de rede de IP são permitidas apenas para endereços IP de **Internet pública**. Intervalos de endereços IP reservados para redes privadas (conforme definido em [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) não são permitidos nas regras de IP. Redes privadas incluem endereços que começam com `10.*` , `172.16.*`  -  `172.31.*` e `192.168.*` .
 
-   > [!NOTE]
-   > As regras de rede IP não têm nenhum efeito em solicitações provenientes da mesma região do Azure que o recurso serviços cognitivas. Use as [regras de rede Virtual](#grant-access-from-a-virtual-network) para permitir solicitações da mesma região.
-
 Só há suporte para endereços IPV4 no momento. Cada recurso de serviços cognitivas dá suporte a até 100 regras de rede IP, que podem ser combinadas com [regras de rede virtual](#grant-access-from-a-virtual-network).
 
 ### <a name="configuring-access-from-on-premises-networks"></a>Configurando o acesso de redes locais
@@ -372,7 +361,7 @@ Você pode gerenciar regras de rede IP para recursos de serviços cognitivas por
 
 1. Certifique-se de que você optou por permitir o acesso de **Redes selecionadas**.
 
-1. Para conceder acesso a um intervalo IP da Internet, insira o endereço IP ou o intervalo de endereços (no [formato CIDR](https://tools.ietf.org/html/rfc4632)) em intervalo de endereços do **Firewall**  >  **Address Range**. Somente endereços IP públicos válidos (não reservados) são aceitos.
+1. Para conceder acesso a um intervalo IP da Internet, insira o endereço IP ou o intervalo de endereços (no [formato CIDR](https://tools.ietf.org/html/rfc4632)) em intervalo de endereços do **Firewall**  >  . Somente endereços IP públicos válidos (não reservados) são aceitos.
 
    ![Adicionar intervalo de IP](media/vnet/virtual-network-add-ip-range.png)
 
@@ -502,7 +491,7 @@ Pontos de extremidade privados para recursos de serviços cognitivas permitem qu
 
 Um ponto de extremidade privado é uma interface de rede especial para um recurso do Azure em sua [VNet](../virtual-network/virtual-networks-overview.md). A criação de um ponto de extremidade privado para o recurso de serviços cognitivas fornece conectividade segura entre clientes em sua VNet e seu recurso. O ponto de extremidade privado recebe um endereço IP do intervalo de endereços IP de sua VNet. A conexão entre o ponto de extremidade privado e o serviço de serviços cognitivas usa um link privado seguro.
 
-Os aplicativos na VNet podem se conectar ao serviço por meio do ponto de extremidade privado diretamente, usando as mesmas cadeias de conexão e mecanismos de autorização que eles usariam de outra forma. A exceção é o serviço de fala, que requer um ponto de extremidade separado. Consulte a seção sobre [pontos de extremidade privados com o serviço de fala](#private-endpoints-with-the-speech-service). Pontos de extremidade privados podem ser usados com todos os protocolos compatíveis com o recurso de serviços cognitivas, incluindo REST.
+Os aplicativos na VNet podem se conectar ao serviço por meio do ponto de extremidade privado diretamente, usando as mesmas cadeias de conexão e mecanismos de autorização que eles usariam de outra forma. A exceção são os serviços de fala, que exigem um ponto de extremidade separado. Consulte a seção sobre [pontos de extremidade privados com os serviços de fala](#private-endpoints-with-the-speech-services). Pontos de extremidade privados podem ser usados com todos os protocolos compatíveis com o recurso de serviços cognitivas, incluindo REST.
 
 Pontos de extremidade privados podem ser criados em sub-redes que usam [pontos de extremidade de serviço](../virtual-network/virtual-network-service-endpoints-overview.md). Os clientes em uma sub-rede podem se conectar a um recurso de serviços cognitivas usando o ponto de extremidade privado, ao mesmo tempo que usam pontos de extremidades de serviço para acessar outros.
 
@@ -516,17 +505,17 @@ Ao criar o ponto de extremidade privado, você deve especificar o recurso de ser
 
 * [Criar um ponto de extremidade privado usando o centro de links privado no portal do Azure](../private-link/create-private-endpoint-portal.md)
 * [Criar um ponto de extremidade privado usando a CLI do Azure](../private-link/create-private-endpoint-cli.md)
-* [Criar um ponto de extremidade privado usando Azure PowerShell](../private-link/create-private-endpoint-powershell.md)
+* [Criar um ponto de extremidade privado usando o Azure PowerShell](../private-link/create-private-endpoint-powershell.md)
 
 ### <a name="connecting-to-private-endpoints"></a>Conectando-se a pontos de extremidade privados
 
-Os clientes em uma VNet usando o ponto de extremidade privado devem usar a mesma cadeia de conexão para o recurso de serviços cognitivas como clientes que se conectam ao ponto de extremidade público. A exceção é o serviço de fala, que requer um ponto de extremidade separado. Consulte a seção sobre [pontos de extremidade privados com o serviço de fala](#private-endpoints-with-the-speech-service). Nós confiamos na resolução DNS para rotear automaticamente as conexões da VNet para o recurso de serviços cognitivas por meio de um link privado. O serviço de fala 
+Os clientes em uma VNet usando o ponto de extremidade privado devem usar a mesma cadeia de conexão para o recurso de serviços cognitivas como clientes que se conectam ao ponto de extremidade público. A exceção são os serviços de fala, que exigem um ponto de extremidade separado. Consulte a seção sobre [pontos de extremidade privados com os serviços de fala](#private-endpoints-with-the-speech-services). Nós confiamos na resolução DNS para rotear automaticamente as conexões da VNet para o recurso de serviços cognitivas por meio de um link privado. 
 
 Criamos uma [zona DNS privada](../dns/private-dns-overview.md) anexada à VNet com as atualizações necessárias para os pontos de extremidade privados, por padrão. No entanto, se você estiver usando seu próprio servidor DNS, talvez seja necessário fazer alterações adicionais na configuração do DNS. A seção sobre o [DNS é alterada](#dns-changes-for-private-endpoints) abaixo descreve as atualizações necessárias para pontos de extremidade privados.
 
-### <a name="private-endpoints-with-the-speech-service"></a>Pontos de extremidade privados com o serviço de fala
+### <a name="private-endpoints-with-the-speech-services"></a>Pontos de extremidade privados com os serviços de fala
 
-Ao usar pontos de extremidade privados com o serviço de fala, você deve usar um ponto de extremidades personalizado para chamar o serviço de fala. Você não pode usar o ponto de extremidade global. O ponto de extremidade deve seguir este padrão: `{account}.{stt|tts|voice|dls}.speech.microsoft.com` .
+Consulte [usando os serviços de fala com pontos de extremidade privados fornecidos pelo link privado do Azure](Speech-Service/speech-services-private-link.md).
 
 ### <a name="dns-changes-for-private-endpoints"></a>Alterações de DNS para pontos de extremidade particulares
 
@@ -543,8 +532,8 @@ Se você estiver usando um servidor DNS personalizado em sua rede, os clientes d
 
 Para obter mais informações sobre como configurar seu próprio servidor DNS para dar suporte a pontos de extremidade privados, consulte os seguintes artigos:
 
-* [Resolução de nomes para recursos em redes virtuais do Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
-* [Configuração de DNS para pontos de extremidade privados](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration)
+* [Resolução de nomes para recursos em redes virtuais do Azure](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)
+* [Configuração de DNS para pontos de extremidade privados](../private-link/private-endpoint-overview.md#dns-configuration)
 
 ### <a name="pricing"></a>Preços
 
@@ -552,5 +541,5 @@ Para obter detalhes de preço, confira [Preço do Link Privado do Azure](https:/
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Explore os vários [Serviços cognitivas do Azure](welcome.md)
+* Explore os vários [Serviços cognitivas do Azure](./what-are-cognitive-services.md)
 * Saiba mais sobre os [pontos de extremidade de serviço de rede virtual do Azure](../virtual-network/virtual-network-service-endpoints-overview.md)

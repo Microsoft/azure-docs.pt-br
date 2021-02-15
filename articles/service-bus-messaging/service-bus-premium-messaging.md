@@ -3,12 +3,12 @@ title: Camadas Premium e Standard do barramento de serviço do Azure
 description: Este artigo descreve as camadas Standard e Premium do barramento de serviço do Azure. Compara essas camadas e fornece diferenças técnicas.
 ms.topic: conceptual
 ms.date: 07/28/2020
-ms.openlocfilehash: 82f8dbce7c48cb6efea67de4297239915e46eac8
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 31c53a1375078cd5d185945cba55a6e5a6dd5ffb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386343"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "90966789"
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>Camadas de sistema de mensagens Premium e Standard do Barramento de Serviço
 
@@ -72,7 +72,7 @@ Há vários fatores a serem levados em consideração ao decidir o número de un
     - Se o uso da CPU estiver ***abaixo de 20%***, você poderá ***reduzir verticalmente*** o número de unidades de mensagens alocadas para o namespace.
     - Se o uso da CPU estiver ***acima de 70%***, seu aplicativo se beneficiará do ***aumento*** do número de unidades de mensagens alocadas para o namespace.
 
-O processo de dimensionamento dos recursos alocados para um namespace do barramento de serviço pode ser automatizado usando [Runbooks de automação do Azure](../automation/automation-quickstart-create-runbook.md).
+Para saber como configurar um namespace do barramento de serviço para dimensionar automaticamente (aumentar ou diminuir as unidades de mensagens), consulte [atualizar automaticamente as unidades de mensagens](automate-update-messaging-units.md).
 
 > [!NOTE]
 > O **dimensionamento** dos recursos alocados para o namespace pode ser preemptivo ou reativo.
@@ -96,10 +96,9 @@ Você também pode criar um [Namespace Premium usando modelos do Azure Resource 
 
 Para saber mais sobre as mensagens do Barramento de Serviço, consulte os seguintes links:
 
-* [Introdução ao sistema de mensagens Premium do barramento de serviço do Azure (postagem de blog)](https://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
-* [Introdução ao Sistema de Mensagens Premium do Barramento de Serviço do Azure (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
-* [Visão geral de mensagens do barramento de serviço](service-bus-messaging-overview.md)
-* [Introdução às filas do Barramento de Serviço](service-bus-dotnet-get-started-with-queues.md)
+- [Atualizar automaticamente as unidades de mensagens](automate-update-messaging-units.md).
+- [Introdução ao sistema de mensagens Premium do barramento de serviço do Azure (postagem de blog)](https://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
+- [Introdução ao Sistema de Mensagens Premium do Barramento de Serviço do Azure (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
 
 <!--Image references-->
 

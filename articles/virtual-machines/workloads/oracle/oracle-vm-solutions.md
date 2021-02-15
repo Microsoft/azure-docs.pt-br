@@ -1,24 +1,19 @@
 ---
 title: Soluções Oracle em máquinas virtuais do Azure | Microsoft Docs
 description: Saiba mais sobre as configurações com suporte e as limitações das imagens de máquina virtual da Oracle no Microsoft Azure.
-services: virtual-machines-linux
-documentationcenter: ''
-author: rgardler
-manager: ''
-tags: azure-resource-management
-ms.assetid: ''
-ms.service: virtual-machines-windows
+author: dbakevlar
+ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services
 ms.date: 05/12/2020
-ms.author: rogardle
-ms.openlocfilehash: c22c5fa9c1a1680734a8cf5d8f4079e8c7b5c5f7
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.author: kegorman
+ms.reviewer: cynthn
+ms.openlocfilehash: 093d3c0da0b40f2a287b1cb451a419f71ce4b8d7
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88723409"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94957581"
 ---
 # <a name="oracle-vm-images-and-their-deployment-on-microsoft-azure"></a>Imagens da VM Oracle e sua implantação no Microsoft Azure
 
@@ -116,10 +111,6 @@ Os bancos de dados da Oracle geralmente exigem mais memória e e/s. Por esse mot
 
 Ao migrar o software e as cargas de trabalho do Oracle do local para o Microsoft Azure, a Oracle fornece mobilidade de licenças conforme indicado nas [Perguntas frequentes sobre o Oracle no Azure](https://www.oracle.com/cloud/technologies/oracle-azure-faq.html)
 
-## <a name="oracle-real-application-cluster-oracle-rac"></a>Oracle Real Application Cluster (Oracle RAC)
-
-O Oracle Real Application Cluster (Oracle RAC) foi projetado para atenuar a falha de um único nó em uma configuração de cluster local de vários nós. Ele se baseia em duas tecnologias locais que não são nativas em ambientes de nuvem pública de hiperescala: multicast de rede e disco compartilhado. Se sua solução de banco de dados exigir o Oracle RAC no Azure, você precisará de software de terceiros para habilitar essas tecnologias. Para obter mais informações sobre o Oracle RAC, confira a [página de solução do FlashGrid SkyCluster](https://www.flashgrid.io/oracle-rac-in-azure/).
-
 ## <a name="high-availability-and-disaster-recovery-considerations"></a>Considerações sobre alta disponibilidade e recuperação de desastres
 
 Ao usar o banco de dados da Oracle no Azure, você será responsável por implementar uma solução de recuperação de desastre e alta disponibilidade para evitar que haja tempo de inatividade.
@@ -132,7 +123,7 @@ Com o Oracle Data Guard, a alta disponibilidade pode ser obtida com um banco de 
 
 O tutorial [Implementar o Oracle GoldenGate no Azure](configure-oracle-golden-gate.md) orienta você pelo procedimento de configuração básica no Azure.
 
-Além de ter uma solução de alta disponibilidade e recuperação de desastre projetada no Azure, você deve ter uma estratégia de backup em vigor para restaurar seu banco de dados. O tutorial [Backup e recuperação de um Oracle Database](oracle-backup-recovery.md) orienta você pelo procedimento básico para estabelecer um backup consistente.
+Além de ter uma solução de alta disponibilidade e recuperação de desastre projetada no Azure, você deve ter uma estratégia de backup em vigor para restaurar seu banco de dados. O tutorial [Backup e recuperação de um Oracle Database](./oracle-overview.md) orienta você pelo procedimento básico para estabelecer um backup consistente.
 
 ## <a name="support-for-jd-edwards"></a>Suporte para JD Edwards
 

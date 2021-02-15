@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
-ms.openlocfilehash: cb652cfdae0ce785d6a076b8b1592d9f700b3383
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 9e0b438e0cfa729300099463086248780c69484c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549950"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95019833"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kontiki"></a>Tutorial: Integração do Active Directory do Azure com o Kontiki
 
@@ -28,7 +28,7 @@ A integração do Kontiki ao Azure AD oferece os seguintes benefícios:
 * Os usuários podem ser automaticamente conectados ao Kontiki com as contas do Azure AD (logon único).
 * Você pode gerenciar suas contas em um único local, o portal clássico do Azure.
 
-Para obter mais informações sobre a integração de aplicativos SaaS (software como serviço) ao Azure AD, confira [Logon único em aplicativos no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para obter mais informações sobre a integração de aplicativos SaaS (software como serviço) ao Azure AD, confira [Logon único em aplicativos no Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prerequisites
 
@@ -104,7 +104,7 @@ Nesta seção, você configurará o logon único do Azure AD com o Kontiki no po
     ![Informações de logon único de Domínio e URLs do Kontiki](common/sp-signonurl.png)
 
     > [!NOTE]
-    > Entre em contato com a [equipe de suporte ao cliente do Kontiki](https://customersupport.kontiki.com/enterprise/contactsupport.html) para obter o valor correto a ser usado. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
+    > Entre em contato com a [equipe de suporte ao cliente do Kontiki](https://kollective.com/support/) para obter o valor correto a ser usado. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
 1. No painel **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, selecione **Baixar** ao lado de **XML de Metadados de Federação**. Selecione uma opção de download com base em seus requisitos. Salve o certificado no computador.
 
@@ -120,7 +120,7 @@ Nesta seção, você configurará o logon único do Azure AD com o Kontiki no po
 
 ### <a name="configure-kontiki-single-sign-on"></a>Configurar o logon único do Kontiki
 
-Para configurar o logon único no lado do Kontiki, envie o arquivo XML de Metadados de Federação baixado e as URLs relevantes que você copiou do portal do Azure para a [equipe de suporte do Kontiki](https://customersupport.kontiki.com/enterprise/contactsupport.html). A equipe de suporte do Kontiki usa as informações enviadas por você para garantir que a conexão de logon único do SAML seja definida corretamente em ambos os lados.
+Para configurar o logon único no lado do Kontiki, envie o arquivo XML de Metadados de Federação baixado e as URLs relevantes que você copiou do portal do Azure para a [equipe de suporte do Kontiki](https://kollective.com/support/). A equipe de suporte do Kontiki usa as informações enviadas por você para garantir que a conexão de logon único do SAML seja definida corretamente em ambos os lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD 
 
@@ -186,6 +186,6 @@ Após configurar o logon único, ao selecionar **Kontiki** no portal Meus Aplica
 
 Para saber mais, examine estes artigos:
 
-- [Lista de tutoriais de integração de aplicativos SaaS ao Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
-- [Logon único em aplicativos no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Lista de tutoriais de integração de aplicativos SaaS ao Azure Active Directory](./tutorial-list.md)
+- [Logon único em aplicativos no Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)

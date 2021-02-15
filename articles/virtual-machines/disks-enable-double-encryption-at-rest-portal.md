@@ -8,23 +8,16 @@ ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: bf2531536796965f145a9ac3e6a23cbb6634852a
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 3882aae0fb1ecf330917f886555208c3937dd9a5
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88817322"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93358211"
 ---
 # <a name="use-the-azure-portal-to-enable-double-encryption-at-rest-for-managed-disks"></a>Usar o portal do Azure para habilitar a criptografia dupla em repouso para discos gerenciados
 
-O Armazenamento em Disco do Azure dá suporte à criptografia dupla em repouso para discos gerenciados. Para obter informações conceituais sobre a criptografia dupla em repouso, bem como outros tipos de criptografia de disco gerenciado, consulte a seção **criptografia dupla em repouso** do nosso artigo sobre criptografia de disco:
-
-- Para Linux: [criptografia dupla em repouso](./linux/disk-encryption.md#double-encryption-at-rest)
-- Para Windows: [criptografia dupla em repouso](./windows/disk-encryption.md#double-encryption-at-rest)
-
-## <a name="supported-regions"></a>Regiões com suporte
-
-[!INCLUDE [virtual-machines-disks-double-encryption-at-rest-regions](../../includes/virtual-machines-disks-double-encryption-at-rest-regions.md)]
+O Armazenamento em Disco do Azure dá suporte à criptografia dupla em repouso para discos gerenciados. Para obter informações conceituais sobre a criptografia dupla em repouso, bem como outros tipos de criptografia de disco gerenciado, consulte a seção [criptografia dupla em repouso](disk-encryption.md#double-encryption-at-rest) do nosso artigo sobre criptografia de disco.
 
 ## <a name="getting-started"></a>Introdução
 
@@ -42,7 +35,7 @@ O Armazenamento em Disco do Azure dá suporte à criptografia dupla em repouso p
     :::image type="content" source="media/virtual-machines-disks-double-encryption-at-rest-portal/double-encryption-add-disk-encryption-set.png" alt-text="Captura de tela da folha do conjunto de criptografia de disco, + adicionar é realçada.":::
 
 1. Selecione uma das regiões com suporte.
-1. Para **tipo de criptografia**, selecione **criptografia dupla com chaves**gerenciadas por plataforma e gerenciadas pelo cliente.
+1. Para **tipo de criptografia** , selecione **criptografia dupla com chaves** gerenciadas por plataforma e gerenciadas pelo cliente.
 
     > [!NOTE]
     > Depois de criar um conjunto de criptografia de disco com um tipo de criptografia específico, ele não pode ser alterado. Se você quiser usar um tipo de criptografia diferente, deverá criar um novo conjunto de criptografia de disco.
@@ -69,7 +62,7 @@ O Armazenamento em Disco do Azure dá suporte à criptografia dupla em repouso p
 
 1. Navegue até o disco.
 1. Selecione **criptografia**.
-1. Para **tipo de criptografia**, selecione **criptografia dupla com chaves**gerenciadas por plataforma e gerenciadas pelo cliente.
+1. Para **tipo de criptografia** , selecione **criptografia dupla com chaves** gerenciadas por plataforma e gerenciadas pelo cliente.
 1. Selecione o conjunto de criptografia de disco.
 1. Selecione **Salvar**.
 

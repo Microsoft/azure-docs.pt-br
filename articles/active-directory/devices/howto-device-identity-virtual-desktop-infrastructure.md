@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: conceptual
-ms.date: 10/15/2019
+ms.date: 09/14/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e2c516371ada59501edd89491a07014ef949eba
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: c30ad26f079e6353dc4763b9ae968c33882d8ab6
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88604386"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96029340"
 ---
 # <a name="device-identity-and-desktop-virtualization"></a>Identidade do dispositivo e virtualização de área de trabalho
 
@@ -48,27 +48,26 @@ Antes de configurar as identidades de dispositivo no Azure AD para seu ambiente 
 
 | Tipo de identidade do dispositivo | Infraestrutura da identidade | Dispositivos Windows | Versão da plataforma VDI | Com suporte |
 | --- | --- | --- | --- | --- |
-| Adicionado ao Azure AD híbrido | Federado<sup>3</sup> | Windows atual e Windows de baixo nível | Persistente | Sim |
+| Adicionado ao Azure AD híbrido | Federado<sup>3</sup> | Windows atual e Windows de baixo nível | Persistente | Yes |
 |   |   | Atual do Windows | Não persistente | Sim<sup>5</sup> |
 |   |   | Nível inferior do Windows | Não persistente | Sim<sup>6</sup> |
-|   | Gerenciado<sup>4</sup> | Windows atual e Windows de baixo nível | Persistente | Sim |
-|   |   | Atual do Windows | Não persistente | Não |
+|   | Gerenciado<sup>4</sup> | Windows atual e Windows de baixo nível | Persistente | Yes |
+|   |   | Atual do Windows | Não persistente | No |
 |   |   | Nível inferior do Windows | Não persistente | Sim<sup>6</sup> |
-| Adicionado ao Azure AD | Federado | Atual do Windows | Persistente | Não |
-|   |   |   | Não persistente | Não |
-|   | Gerenciado | Atual do Windows | Persistente | Não |
-|   |   |   | Não persistente | Não |
-| Registrado no Azure AD | Federado/gerenciado | Nível inferior do Windows/atual | Persistente/não persistente | Não Aplicável |
+| Adicionado ao Azure AD | Federado | Atual do Windows | Persistente | No |
+|   |   |   | Não persistente | No |
+|   | Gerenciado | Atual do Windows | Persistente | No |
+|   |   |   | Não persistente | No |
+| Azure AD registrado | Federado/gerenciado | Nível inferior do Windows/atual | Persistente/não persistente | Não Aplicável |
 
-<sup>1</sup> os dispositivos **atuais do Windows** representam o Windows 10, o Windows Server 2016 e o Windows Server 2019.
-
+<sup>1</sup> os dispositivos **atuais do Windows** representam o Windows 10, o Windows Server 2016 v1803 ou superior e o Windows Server 2019.
 <sup>2</sup> dispositivos **de nível inferior do Windows** representam o windows 7, o Windows 8.1, o Windows Server 2008 R2, o Windows Server 2012 e o Windows Server 2012 R2. Para obter informações de suporte sobre o Windows 7, consulte o [suporte para o Windows 7 está terminando](https://www.microsoft.com/microsoft-365/windows/end-of-windows-7-support). Para obter informações de suporte sobre o Windows Server 2008 R2, consulte [preparar para o fim do suporte do Windows server 2008](https://www.microsoft.com/cloud-platform/windows-server-2008).
 
 <sup>3</sup> um ambiente de infraestrutura de identidade **federada** representa um ambiente com um provedor de identidade, como AD FS ou outros IDP de terceiros.
 
 <sup>4</sup> um ambiente de infraestrutura de identidade **gerenciada** representa um ambiente com o Azure ad como o provedor de identidade implantado com o [PHS (sincronização de hash de senha)](../hybrid/whatis-phs.md) ou [PTA (autenticação de passagem)](../hybrid/how-to-connect-pta.md) com [logon único contínuo](../hybrid/how-to-connect-sso.md).
 
-<sup>5</sup> o **suporte de não persistência para o Windows atual** requer considerações adicionais, conforme documentado abaixo na seção de diretrizes.
+<sup>5</sup> o **suporte de não persistência para o Windows atual** requer considerações adicionais, conforme documentado abaixo na seção de diretrizes. Este cenário requer o Windows 10 1803, o Windows Server 2019 ou o Windows Server (canal semestral) iniciando a versão 1803
 
 <sup>6</sup> o **suporte de não persistência para o Windows de nível inferior** requer considerações adicionais, conforme documentado abaixo na seção de diretrizes.
 

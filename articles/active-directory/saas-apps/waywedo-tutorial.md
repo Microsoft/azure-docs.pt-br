@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.author: jeedes
-ms.openlocfilehash: 310a42d25ce7fb7970777e8f36abbbee562ab01d
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 0205617198ec8e57cb891d2415d2b5413a945f1b
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88523865"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97608928"
 ---
 # <a name="tutorial-integrate-way-we-do-with-azure-active-directory"></a>Tutorial: Integrar o Way We Do com o Azure Active Directory
 
@@ -26,7 +26,7 @@ Neste tutorial, você aprenderá a integrar o Way We Do ao Azure AD (Azure AD). 
 * Permitir que os usuários sejam conectados automaticamente ao Way We Do com suas contas do Azure AD.
 * Gerenciar suas contas em um local central: o portal do Azure.
 
-Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -117,26 +117,26 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
     ![Salvar no Way We Do](./media/waywedo-tutorial/tutorial_waywedo_save.png)
 
-    a. Clique na opção **Ativar logon único** para defini-la como **Sim** para habilitar o Logon Único.
+    1. Clique na opção **Ativar logon único** para defini-la como **Sim** para habilitar o Logon Único.
 
-    b. Na caixa de texto **Nome de logon único**, insira seu nome.
+    1. Na caixa de texto **Nome de logon único**, insira seu nome.
 
-    c. Na caixa de texto **ID da Entidade**, cole o valor do **Identificador do Azure AD** copiado do portal do Azure.
+    1. Na caixa de texto **ID da Entidade**, cole o valor do **Identificador do Azure AD** copiado do portal do Azure.
 
-    d. Na caixa de texto **URL do SSO SAML**, cole o valor de **URL de logon**, copiado do portal do Azure.
+    1. Na caixa de texto **URL do SSO SAML**, cole o valor de **URL de logon**, copiado do portal do Azure.
 
-    e. Carregue o certificado clicando no botão **selecionar** ao lado de **Certificado**.
+    1. Carregue o certificado clicando no botão **selecionar** ao lado de **Certificado**.
 
-    f. **Configurações Opcionais** -
-    
-    * Habilitar senhas – quando essa opção estiver desabilitada, a senha regular funcionará para o Way We Do, de modo que os usuários só poderão usar o logon único.
+    1. **Configurações Opcionais** -
 
-    * Habilitar o provisionamento automático – quando essa opção está habilitada, o endereço de email usado no logon será comparado automaticamente à lista de usuários no Way We Do. Se o endereço de email não corresponder a um usuário ativo no Way We Do, ele adicionará automaticamente uma nova conta de usuário para a pessoa que está entrando, solicitando quaisquer informações ausentes.
+        * Habilitar senhas – quando essa opção estiver desabilitada, a senha regular funcionará para o Way We Do, de modo que os usuários só poderão usar o logon único.
 
-      > [!NOTE]
-      > Os usuários adicionados por meio de logon único são adicionados como usuários gerais e não são atribuídos a uma função no sistema. Um Administrador pode entrar e modificar sua função como um editor ou administrador e também pode atribuir uma ou várias funções do Organograma.
+        * Habilitar o provisionamento automático – quando essa opção está habilitada, o endereço de email usado no logon será comparado automaticamente à lista de usuários no Way We Do. Se o endereço de email não corresponder a um usuário ativo no Way We Do, ele adicionará automaticamente uma nova conta de usuário para a pessoa que está entrando, solicitando quaisquer informações ausentes.
 
-    g. Clique em **Salvar** para manter suas configurações.
+          > [!NOTE]
+          > Os usuários adicionados por meio de logon único são adicionados como usuários gerais e não são atribuídos a uma função no sistema. Um Administrador pode entrar e modificar sua função como um editor ou administrador e também pode atribuir uma ou várias funções do Organograma.
+
+    1. Clique em **Salvar** para manter suas configurações.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
@@ -177,12 +177,12 @@ Nesta seção, um usuário chamado Brenda Fernandes será criado no Way We Do. O
 
 ### <a name="test-sso"></a>Testar o SSO
 
-Ao selecionar o bloco do Way We Do no Painel de Acesso, você deverá ser conectado automaticamente ao Way We Do, para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao selecionar o bloco do Way We Do no Painel de Acesso, você deverá ser conectado automaticamente ao Way We Do, para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](./tutorial-list.md)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)

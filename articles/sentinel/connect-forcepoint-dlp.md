@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/20/2020
 ms.author: yelevin
-ms.openlocfilehash: 3bdb9d2b23ce05929ba5612e0c6a03fe1aab05de
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 62ed3915dcaf596d144a2f59817626cdf8ec47e5
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77588239"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100092767"
 ---
 # <a name="connect-your-forcepoint-dlp-to-azure-sentinel"></a>Conectar seu Forcepoint DLP ao Azure Sentinel
 

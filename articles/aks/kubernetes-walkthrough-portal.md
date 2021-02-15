@@ -4,14 +4,14 @@ titleSuffix: Azure Kubernetes Service
 description: Saiba como criar rapidamente um cluster do Kubernetes, implantar um aplicativo e monitorar o desempenho no AKS (Serviço de Kubernetes do Azure) usando o portal do Azure.
 services: container-service
 ms.topic: quickstart
-ms.date: 08/18/2020
+ms.date: 01/13/2021
 ms.custom: mvc, seo-javascript-october2019
-ms.openlocfilehash: cd3fd41d281708f4c1d9616db47f751f60e055cd
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 9304d3ee3cac364bfec3f2686de0cf84fb1d7d92
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88589904"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98249118"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>Início Rápido: Implantar um cluster do AKS (Serviço de Kubernetes do Azure) usando o portal do Azure
 
@@ -37,21 +37,21 @@ Para criar um cluster do AKS, conclua as seguintes etapas:
 
 3. Na página **Noções básicas**, configure as seguintes opções:
     - **Detalhes do projeto**: Selecione uma **assinatura** do Azure e marque ou crie um **grupo de recursos** do Azure, por exemplo, *meuGrupodeRecursos*.
-    - **Detalhes do cluster**: Insira um **nome do cluster do Kubernetes**, como *myAKSCluster*. Selecione uma **Região**, a **versão do Kubernetes** e o **prefixo de nome DNS** para o cluster do AKS.
-    - **Pool de nós primários**: Selecione um **Tamanho de nó** de VM para os nós de AKS. O tamanho da VM *não pode* ser alterado após a implantação de um cluster AKS. 
+    - **Detalhes do cluster**: Insira um **nome do cluster do Kubernetes**, como *myAKSCluster*. Selecione uma **Região** e uma **versão do Kubernetes** para o cluster do AKS.
+    - **Pool de nós primários**: Selecione um **Tamanho de nó** de VM para os nós de AKS. O tamanho da VM *não pode* ser alterado após a implantação de um cluster AKS.
             – Selecione o número de nós para implantação no cluster. Para este início rápido, defina **Contagem de nós** como *1*. A contagem de nós *pode* ser ajustada após a implantação do cluster.
     
     ![Criar cluster do AKS – fornecer informações básicas](media/kubernetes-walkthrough-portal/create-cluster-basics.png)
 
-    Selecione **Avançar: Escala** ao concluir.
+    Selecione **Avançar: Pools de nó** quando terminar.
 
-4. Na página **Escala**, mantenha as opções padrão. Na parte inferior da tela, clique em **Avançar: Autenticação**.
+4. Na página **Pools de nó**, mantenha as opções padrão. Na parte inferior da tela, clique em **Avançar: Autenticação**.
     > [!CAUTION]
     > A criação de novas Entidades de Serviço do AAD pode levar vários minutos para ser propagada e disponibilizada, levando a erros de Entidade de Serviço não encontrada e a falhas de validação no portal do Azure. Se passar por isso, veja as mitigações [aqui](troubleshooting.md#received-an-error-saying-my-service-principal-wasnt-found-or-is-invalid-when-i-try-to-create-a-new-cluster).
 
 5. Na página **Autenticação**, configure as seguintes opções:
     - Crie uma nova entidade de serviço deixando o campo **Entidade de Serviço** com **(novo) entidade de serviço padrão**. Ou você pode escolher *Configurar entidade de serviço* para usar uma existente. Se você usar uma existente, será necessário fornecer a ID e segredo de cliente do SPN.
-    - Habilite a opção do RBAC (controle de acesso baseado em função) do Kubernetes. Isso fornecerá um controle mais refinado sobre o acesso aos recursos do Kubernetes implantados no cluster do AKS.
+    - Habilite a opção para RBAC (controle de acesso baseado em função) do Kubernetes. Isso fornecerá um controle mais refinado sobre o acesso aos recursos do Kubernetes implantados no cluster do AKS.
 
     Como alternativa, é possível usar uma identidade gerenciada em vez de uma entidade de serviço. Confira [usar identidades gerenciadas](use-managed-identity.md) para obter mais informações.
 
@@ -69,9 +69,12 @@ Abra o Cloud Shell usando o botão `>_` na parte superior do portal do Azure.
 
 ![Abrir o Azure Cloud Shell no portal](media/kubernetes-walkthrough-portal/aks-cloud-shell.png)
 
+> [!NOTE]
+> Para executar essas operações em uma instalação de shell local, você precisará primeiro verificar se a CLI do Azure foi instalada e se conectar ao Azure por meio do comando `az login`.
+
 Para configurar o `kubectl` para se conectar ao cluster do Kubernetes, use o comando [az aks get-credentials][az-aks-get-credentials]. Este comando baixa as credenciais e configura a CLI do Kubernetes para usá-las. O exemplo a seguir obtém as credenciais para o nome do cluster *myAKSCluster* no grupo de recursos chamado *myResourceGroup*:
 
-```azurecli-interactive
+```azurecli
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
@@ -113,7 +116,10 @@ spec:
         "beta.kubernetes.io/os": linux
       containers:
       - name: azure-vote-back
-        image: redis
+        image: mcr.microsoft.com/oss/bitnami/redis:6.0.8
+        env:
+        - name: ALLOW_EMPTY_PASSWORD
+          value: "yes"
         resources:
           requests:
             cpu: 100m
@@ -153,7 +159,7 @@ spec:
         "beta.kubernetes.io/os": linux
       containers:
       - name: azure-vote-front
-        image: microsoft/azure-vote-front:v1
+        image: mcr.microsoft.com/azuredocs/azure-vote-front:v1
         resources:
           requests:
             cpu: 100m
@@ -244,7 +250,7 @@ Para ver os logs do pod `azure-vote-front`, selecione **Exibir logs de contêine
 
 Quando o cluster não for mais necessário, exclua o recurso de cluster, o que excluirá todos os recursos associados. Essa operação pode ser concluída no portal do Azure selecionando o botão **Excluir** no painel do cluster do AKS. Como alternativa, o comando [az aks delete][az-aks-delete] pode ser usado no Cloud Shell:
 
-```azurecli-interactive
+```azurecli
 az aks delete --resource-group myResourceGroup --name myAKSCluster --no-wait
 ```
 
@@ -275,7 +281,7 @@ Para saber mais sobre o AKS e percorrer um código completo de exemplo de implan
 
 <!-- LINKS - internal -->
 [kubernetes-concepts]: concepts-clusters-workloads.md
-[az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
+[az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest&preserve-view=true#az-aks-get-credentials
 [az-aks-delete]: /cli/azure/aks#az-aks-delete
 [aks-monitor]: ../azure-monitor/insights/container-insights-overview.md
 [aks-network]: ./concepts-network.md

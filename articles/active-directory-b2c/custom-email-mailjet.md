@@ -8,21 +8,21 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/18/2020
+ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 29e82a67b85356cfc15e806bb331330b3f272a04
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: b74de2bdf1f6239f1006c820579a336946939421
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88584957"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94949574"
 ---
 # <a name="custom-email-verification-with-mailjet"></a>Verificação de email personalizada com Mailjet
 
 Use o email personalizado no Azure Active Directory B2C (Azure AD B2C) para enviar email personalizado aos usuários que se inscrevem para usar seus aplicativos. Usando o [DisplayControls](display-controls.md) (atualmente em visualização) e o provedor de email de terceiros Mailjet, você pode usar seu próprio modelo de email e *de:* endereço e assunto, bem como a localização de suporte e configurações de OTP (senha de uso único) personalizadas.
 
-A verificação de email personalizada requer o uso de um provedor de email de terceiros, como [Mailjet](https://Mailjet.com), [SendGrid](custom-email.md)ou [SparkPost](https://sparkpost.com), uma API REST personalizada ou qualquer provedor de email baseado em http (incluindo o seu próprio). Este artigo descreve como configurar uma solução que usa Mailjet.
+A verificação de email personalizada requer o uso de um provedor de email de terceiros, como [Mailjet](https://Mailjet.com), [SendGrid](./custom-email-sendgrid.md)ou [SparkPost](https://sparkpost.com), uma API REST personalizada ou qualquer provedor de email baseado em http (incluindo o seu próprio). Este artigo descreve como configurar uma solução que usa Mailjet.
 
 [!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
@@ -60,7 +60,7 @@ Em seguida, armazene a chave de API Mailjet em uma chave de política de Azure A
 Com uma conta do Mailjet criada e a chave de API do Mailjet armazenada em uma chave de política Azure AD B2C, crie um [modelo transacional dinâmico](https://sendgrid.com/docs/ui/sending-email/how-to-send-an-email-with-dynamic-transactional-templates/)Mailjet.
 
 1. No site do Mailjet, abra a página [modelos transacionais](https://app.mailjet.com/templates/transactional) e selecione **criar um novo modelo**.
-1. Selecione **codificando-o em HTML**e, em seguida, selecione **código do zero**.
+1. Selecione **codificando-o em HTML** e, em seguida, selecione **código do zero**.
 1. Insira um nome de modelo exclusivo como `Verification email` e, em seguida, selecione **criar**.
 1. No editor de HTML, Cole o modelo HTML a seguir ou use o seu próprio. Os `{{var:otp:""}}` `{{var:email:""}}` parâmetros e serão substituídos dinamicamente pelo valor de senha de uso único e pelo endereço de email do usuário.
 
@@ -162,8 +162,8 @@ Com uma conta do Mailjet criada e a chave de API do Mailjet armazenada em uma ch
     1. Para **assunto**, insira um valor padrão para o assunto. Mailjet usa esse valor quando a API não contém um parâmetro Subject.
     1. Para o **nome**, digite o nome da sua empresa.
     1. Para o **endereço**, selecione seu endereço de email
-    1. Clique em **Salvar**.
-1. No canto superior direito, selecione **salvar & publicar**e, em seguida **, sim, publicar alterações**
+    1. Selecione **Salvar**.
+1. No canto superior direito, selecione **salvar & publicar** e, em seguida **, sim, publicar alterações**
 1. Registre a **ID do modelo** do modelo criado para uso em uma etapa posterior. Você especifica essa ID ao [Adicionar a transformação declarações](#add-the-claims-transformation).
 
 
@@ -228,15 +228,15 @@ Adicione a transformação de declarações a seguir ao `<ClaimsTransformations>
 
 ## <a name="add-datauri-content-definition"></a>Adicionar definição de conteúdo DataUri
 
-Abaixo das transformações de declarações no `<BuildingBlocks>` , adicione o seguinte [ContentDefinition](contentdefinitions.md) para fazer referência ao URI de dados da versão 2.0.0:
+Abaixo das transformações de declarações no `<BuildingBlocks>` , adicione o seguinte [ContentDefinition](contentdefinitions.md) para fazer referência ao URI de dados da versão 2.1.0:
 
 ```XML
 <ContentDefinitions>
  <ContentDefinition Id="api.localaccountsignup">
-    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.0.0</DataUri>
+    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.0</DataUri>
   </ContentDefinition>
   <ContentDefinition Id="api.localaccountpasswordreset">
-    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.0.0</DataUri>
+    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.0</DataUri>
   </ContentDefinition>
 </ContentDefinitions>
 ```
@@ -374,8 +374,8 @@ Para obter mais informações, consulte [perfil técnico autodeclarado](restful-
     <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
       <Metadata>
         <!--OTP validation error messages-->
-        <Item Key="UserMessageIfSessionDoesNotExist">You have exceed the maximum time allowed.</Item>
-        <Item Key="UserMessageIfMaxRetryAttempted">You have exceed the number of retries allowed.</Item>
+        <Item Key="UserMessageIfSessionDoesNotExist">You have exceeded the maximum time allowed.</Item>
+        <Item Key="UserMessageIfMaxRetryAttempted">You have exceeded the number of retries allowed.</Item>
         <Item Key="UserMessageIfInvalidCode">You have entered the wrong code.</Item>
         <Item Key="UserMessageIfSessionConflict">Cannot verify the code, please try again later.</Item>
       </Metadata>
@@ -391,8 +391,8 @@ Para obter mais informações, consulte [perfil técnico autodeclarado](restful-
     <TechnicalProfile Id="LocalAccountDiscoveryUsingEmailAddress">
       <Metadata>
         <!--OTP validation error messages-->
-        <Item Key="UserMessageIfSessionDoesNotExist">You have exceed the maximum time allowed.</Item>
-        <Item Key="UserMessageIfMaxRetryAttempted">You have exceed the number of retries allowed.</Item>
+        <Item Key="UserMessageIfSessionDoesNotExist">You have exceeded the maximum time allowed.</Item>
+        <Item Key="UserMessageIfMaxRetryAttempted">You have exceeded the number of retries allowed.</Item>
         <Item Key="UserMessageIfInvalidCode">You have entered the wrong code.</Item>
         <Item Key="UserMessageIfSessionConflict">Cannot verify the code, please try again later.</Item>
       </Metadata>
@@ -479,14 +479,14 @@ Para localizar o email, você deve enviar cadeias de caracteres localizadas para
     ```xml
     <ContentDefinitions>
       <ContentDefinition Id="api.localaccountsignup">
-        <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.0.0</DataUri>
+        <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.0</DataUri>
         <LocalizedResourcesReferences MergeBehavior="Prepend">
           <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.custom-email.en" />
           <LocalizedResourcesReference Language="es" LocalizedResourcesReferenceId="api.custom-email.es" />
         </LocalizedResourcesReferences>
       </ContentDefinition>
       <ContentDefinition Id="api.localaccountpasswordreset">
-        <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.0.0</DataUri>
+        <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.0</DataUri>
         <LocalizedResourcesReferences MergeBehavior="Prepend">
           <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.custom-email.en" />
           <LocalizedResourcesReference Language="es" LocalizedResourcesReferenceId="api.custom-email.es" />
@@ -502,6 +502,41 @@ Para localizar o email, você deve enviar cadeias de caracteres localizadas para
       <InputClaimsTransformation ReferenceId="GetLocalizedStringsForEmail" />
     </InputClaimsTransformations>
     ```
+    
+## <a name="optional-localize-the-ui"></a>Adicional Localize a interface do usuário
+
+O elemento Localization permite que você dê suporte a várias localidades ou idiomas na política para os percursos do usuário. O suporte à localização em políticas permite que você forneça cadeias de caracteres específicas do idioma para ambos os [elementos da interface do usuário do controle de exibição de verificação](localization-string-ids.md#verification-display-control-user-interface-elements)e mensagens de erro de senha de [uma vez](localization-string-ids.md#one-time-password-error-messages). Adicione o seguinte localizador a seu LocalizedResources. 
+
+```XML
+<LocalizedResources Id="api.custom-email.en">
+  <LocalizedStrings>
+    ...
+    <!-- Display control UI elements-->
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="intro_msg">Verification is necessary. Please click Send button.</LocalizedString>
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="success_send_code_msg">Verification code has been sent to your inbox. Please copy it to the input box below.</LocalizedString>
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="failure_send_code_msg">We are having trouble verifying your email address. Please enter a valid email address and try again.</LocalizedString>
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="success_verify_code_msg">E-mail address verified. You can now continue.</LocalizedString>
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="failure_verify_code_msg">We are having trouble verifying your email address. Please try again.</LocalizedString>
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_send_code">Send verification code</LocalizedString>
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_verify_code">Verify code</LocalizedString>
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_send_new_code">Send new code</LocalizedString>
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_change_claims">Change e-mail</LocalizedString>
+    <!-- Claims-->
+    <LocalizedString ElementType="ClaimType" ElementId="emailVerificationCode" StringId="DisplayName">Verification Code</LocalizedString>
+    <LocalizedString ElementType="ClaimType" ElementId="emailVerificationCode" StringId="UserHelpText">Verification code received in the email.</LocalizedString>
+    <LocalizedString ElementType="ClaimType" ElementId="emailVerificationCode" StringId="AdminHelpText">Verification code received in the email.</LocalizedString>
+    <LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">Eamil</LocalizedString>
+    <!-- Email validation error messages-->
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfSessionDoesNotExist">You have exceeded the maximum time allowed.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfMaxRetryAttempted">You have exceeded the number of retries allowed.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidCode">You have entered the wrong code.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfSessionConflict">Cannot verify the code, please try again later.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedRetryAllowed">The verification has failed, please try again.</LocalizedString>
+  </LocalizedStrings>
+</LocalizedResources>
+```
+
+Depois de adicionar as cadeias de caracteres localizadas, remova os metadados de mensagens de erro de validação de OTP dos perfis técnicos LocalAccountSignUpWithLogonEmail e LocalAccountDiscoveryUsingEmailAddress.
 
 ## <a name="next-steps"></a>Próximas etapas
 

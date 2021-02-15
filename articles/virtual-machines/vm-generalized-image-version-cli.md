@@ -9,16 +9,16 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 090b041c605c2328add8b46a97b6f151bae268c6
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: ec589848625e1114dedd8c58b41f7ecbc991f311
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501075"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881967"
 ---
 # <a name="create-a-vm-from-a-generalized-image-version-using-the-cli"></a>Criar uma VM com base em uma versão de imagem generalizada usando a CLI
 
-Crie uma VM com base em uma [versão de imagem generalizada](./linux/shared-image-galleries.md#generalized-and-specialized-images) armazenada em uma galeria de imagens compartilhada. Se você quiser criar uma VM usando uma imagem especializada, consulte [criar uma VM com base em uma imagem especializada](vm-specialized-image-version-powershell.md). 
+Crie uma VM com base em uma [versão de imagem generalizada](./shared-image-galleries.md#generalized-and-specialized-images) armazenada em uma galeria de imagens compartilhada. Se você quiser criar uma VM usando uma imagem especializada, consulte [criar uma VM com base em uma imagem especializada](vm-specialized-image-version-powershell.md). 
 
 
 ## <a name="get-the-image-id"></a>Obter a ID da imagem
@@ -59,4 +59,4 @@ Você também pode usar uma versão específica usando a ID da versão da imagem
 
 ## <a name="next-steps"></a>Próximas etapas
 
-O [Construtor de imagens do Azure (visualização)](./linux/image-builder-overview.md) pode ajudar a automatizar a criação da versão da imagem, até mesmo usá-la para atualizar e [criar uma nova versão da imagem a partir de uma versão de imagem existente](./linux/image-builder-gallery-update-image-version.md). 
+O [Construtor de imagens do Azure (visualização)](./image-builder-overview.md) pode ajudar a automatizar a criação da versão da imagem, até mesmo usá-la para atualizar e [criar uma nova versão da imagem a partir de uma versão de imagem existente](./linux/image-builder-gallery-update-image-version.md).

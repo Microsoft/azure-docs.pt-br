@@ -6,12 +6,12 @@ ms.assetid: 10da5b8a-1823-41a3-a2ff-a0717c2b5c2d
 ms.topic: article
 ms.date: 08/25/2020
 ms.custom: seodec18
-ms.openlocfilehash: c51745b7760573aa3c6ae067e9a6c1cc315f8e56
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: e1b50675bef0f883ff617b3098a742d3491b3c13
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88871387"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89484284"
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>Migrar um nome DNS ativo para o Serviço de Aplicativo do Azure
 
@@ -40,7 +40,7 @@ Quando você finalmente migrar o nome DNS personalizado do site antigo para o ap
 
 ### <a name="get-domain-verification-id"></a>Obter a ID de verificação de domínio
 
-Obtenha a ID de verificação de domínio para seu aplicativo seguindo as etapas em [obter ID de verificação de domínio](app-service-web-tutorial-custom-domain.md#get-domain-verification-id).
+Obtenha a ID de verificação de domínio para seu aplicativo seguindo as etapas em [obter ID de verificação de domínio](app-service-web-tutorial-custom-domain.md#get-a-domain-verification-id).
 
 ### <a name="create-domain-verification-record"></a>Criar registro de verificação de domínio
 
@@ -48,9 +48,9 @@ Para verificar a propriedade do domínio, adicione um registro TXT para verifica
 
 | Exemplo de registro DNS | Host TXT | Valor TXT |
 | - | - | - |
-| \@ (raiz) | _asuid_ | [ID de verificação de domínio para seu aplicativo](app-service-web-tutorial-custom-domain.md#get-domain-verification-id) |
-| www (sub) | _asuid. www_ | [ID de verificação de domínio para seu aplicativo](app-service-web-tutorial-custom-domain.md#get-domain-verification-id) |
-| \* (curinga) | _asuid_ | [ID de verificação de domínio para seu aplicativo](app-service-web-tutorial-custom-domain.md#get-domain-verification-id) |
+| \@ (raiz) | _asuid_ | [ID de verificação de domínio para seu aplicativo](app-service-web-tutorial-custom-domain.md#get-a-domain-verification-id) |
+| www (sub) | _asuid. www_ | [ID de verificação de domínio para seu aplicativo](app-service-web-tutorial-custom-domain.md#get-a-domain-verification-id) |
+| \* (curinga) | _asuid_ | [ID de verificação de domínio para seu aplicativo](app-service-web-tutorial-custom-domain.md#get-a-domain-verification-id) |
 
 Na página de registros DNS, anote o tipo de registro do nome DNS que você deseja migrar. O Serviço de Aplicativo dá suporte a mapeamentos de CNAME e registros A.
 

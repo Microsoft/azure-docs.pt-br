@@ -7,10 +7,10 @@ ms.date: 06/29/2018
 ms.custom: devx-track-java
 ms.author: pepogors
 ms.openlocfilehash: cc65deb924a9f3367c2ea1d7c71544743ccf2697
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87327354"
 ---
 # <a name="develop-java-service-fabric-applications-with-visual-studio-code"></a>Desenvolver aplicativos Java do Microsoft Azure Service Fabric com o Visual Studio Code
@@ -41,7 +41,7 @@ Abra o VS Code.  Clique no ícone do Explorer na **Barra de atividade** e clique
 
 ![Aplicativo de votação Java no workspace](./media/service-fabric-develop-java-applications-with-vs-code/java-voting-application.png)
 
-## <a name="build-the-application"></a>Criar o aplicativo
+## <a name="build-the-application"></a>Compilar o aplicativo
 
 1. Aperte (Ctrl + Shift + p) para abrir a **Paleta de comandos** no visual Studio Code.
 2. Pesquise e selecione o **Service Fabric: criar comando do Aplicativo**. A saída de compilação é enviada para o terminal integrado.

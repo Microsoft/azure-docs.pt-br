@@ -1,17 +1,15 @@
 ---
 title: Criar um serviço baseado em ator no Azure Service Fabric
 description: Saiba como criar, depurar e implantar seu primeiro serviço baseado em ator em C# usando Reliable Actors do Service Fabric.
-author: vturecek
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.author: vturecek
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3727c41c991b83bc3869279cbb0535a6185ff04d
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 225ccb67153a33ed47af68ebb1549dce37426278
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89015723"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573454"
 ---
 # <a name="getting-started-with-reliable-actors"></a>Introdução aos Reliable Actors
 > [!div class="op_single_selector"]
@@ -96,7 +94,7 @@ Crie um aplicativo de console simples para chamar o serviço de ator.
     > [!NOTE]
     > Um aplicativo de console não é o tipo de aplicativo que você normalmente usaria como cliente no Service Fabric, mas é um exemplo conveniente para depuração e teste com o cluster do Service Fabric local.
 
-3. O aplicativo de console deve ser um aplicativo de 64 bits para manter a compatibilidade com o projeto de interface e outras dependências.  No Gerenciador de Soluções, clique com o botão direito do mouse no projeto **ActorClient**e, em seguida, em **Propriedades**.  Na guia **Compilar**, defina o **destino da plataforma** para **x64**.
+3. O aplicativo de console deve ser um aplicativo de 64 bits para manter a compatibilidade com o projeto de interface e outras dependências.  No Gerenciador de Soluções, clique com o botão direito do mouse no projeto **ActorClient** e, em seguida, em **Propriedades**.  Na guia **Compilar**, defina o **destino da plataforma** para **x64**.
     
     ![Compilar propriedades][8]
 
@@ -108,7 +106,7 @@ Crie um aplicativo de console simples para chamar o serviço de ator.
 
     O pacote NuGet e todas as suas dependências estão instaladas no projeto ActorClient.
 
-5. O projeto de cliente também requer uma referência ao projeto de interfaces.  No projeto ActorClient, clique com o botão direito do mouse em **dependências** e clique em **Adicionar referência..**..  Selecione **projetos > solução** (se ainda não estiver selecionada) e, em seguida, marque a caixa de seleção ao lado de **HelloWorld. interfaces**.  Clique em **OK**.
+5. O projeto de cliente também requer uma referência ao projeto de interfaces.  No projeto ActorClient, clique com o botão direito do mouse em **dependências** e clique em **Adicionar referência de projeto...**.  Selecione **projetos > solução** (se ainda não estiver selecionada) e, em seguida, marque a caixa de seleção ao lado de **HelloWorld. interfaces**.  Clique em **OK**.
     
     ![Caixa de diálogo Adicionar referência][7]
 
@@ -142,7 +140,7 @@ Pressione **F5** para criar, implantar e executar o aplicativo localmente no clu
 
 ![Janela de saída de depuração do Service Fabric][3]
 
-Quando a saída contiver o texto, *O aplicativo está pronto*, será possível testar o serviço usando o aplicativo ActorClient.  No Gerenciador de Soluções, clique com o botão direito do mouse no projeto **ActorClient**e, em seguida, clique em **Depurar** > **Iniciar nova instância**.  O aplicativo de linha de comando deverá exibir a saída do serviço de ator.
+Quando a saída contiver o texto, *O aplicativo está pronto*, será possível testar o serviço usando o aplicativo ActorClient.  No Gerenciador de Soluções, clique com o botão direito do mouse no projeto **ActorClient** e, em seguida, clique em **Depurar** > **Iniciar nova instância**.  O aplicativo de linha de comando deverá exibir a saída do serviço de ator.
 
 ![Saída do aplicativo][9]
 

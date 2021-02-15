@@ -1,14 +1,16 @@
 ---
 title: Gerenciar bases de dados de conhecimento-QnA Maker
 description: QnA Maker permite que você gerencie suas bases de dados de conhecimento fornecendo acesso às configurações e ao conteúdo da base de dados de conhecimento.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 03/18/2020
-ms.openlocfilehash: 08736ce61e6768cfd9ac3d3ded7092a4ab93fca9
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: c7bb79cbd67ba2fb151641ddeeb31b54e399b906
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551771"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938249"
 ---
 # <a name="create-knowledge-base-and-manage-settings"></a>Criar base de dados de conhecimento e gerenciar configurações
 
@@ -44,10 +46,10 @@ QnA Maker permite que você gerencie suas bases de dados de conhecimento, fornec
     |--|--|
     |**Habilitar a extração de vários turnos de URLs, arquivos .pdf ou .docx.**|Verificado|
     |**Texto de resposta padrão**| `Quickstart - default answer not found.`|
-    |**+ Adicionar URL**|`https://docs.microsoft.com/azure/cognitive-services/qnamaker/troubleshooting`|
+    |**+ Adicionar URL**|`https://azure.microsoft.com/en-us/support/faq/`|
     |**Bate-papo**|Selecione **Professional**|
 
-1. Na **etapa 5**, selecione **criar seu KB**.
+1. Na **Etapa 5**, selecione **Criar sua base de dados**.
 
     O processo de extração leva alguns instantes para ler o documento e identificar perguntas e respostas.
 
@@ -89,7 +91,7 @@ QnA Maker permite que você gerencie suas bases de dados de conhecimento, fornec
 
     ![Usar a barra de fonte de dados do QnA Maker para recolher e expandir perguntas e respostas da fonte de dados](../media/qnamaker-how-to-edit-kb/data-source-grouping.png)
 
-* **Pesquisar base de dados**de conhecimento: você pode pesquisar a base de dados de conhecimento digitando na caixa de texto na parte superior da tabela da base de dados de conhecimento. Clique em entrar para pesquisar a pergunta, a resposta ou o conteúdo de metadados. Clique no ícone X para remover o filtro de pesquisa.
+* **Pesquisar base de dados** de conhecimento: você pode pesquisar a base de dados de conhecimento digitando na caixa de texto na parte superior da tabela da base de dados de conhecimento. Clique em entrar para pesquisar a pergunta, a resposta ou o conteúdo de metadados. Clique no ícone X para remover o filtro de pesquisa.
 
     ![Usar a caixa de pesquisa do QnA Maker acima das perguntas e respostas para reduzir a exibição apenas para itens correspondentes ao filtro](../media/qnamaker-how-to-edit-kb/search-paginate-group.png)
 
@@ -105,7 +107,7 @@ Se você compartilhar sua base de dados de conhecimento com colaboradores,] (col
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre como [gerenciar a linguagem](language-knowledge-base.md) de todas as bases de dados de conhecimento em um recurso.
+Saiba mais sobre como [gerenciar a linguagem](../index.yml) de todas as bases de dados de conhecimento em um recurso.
 
 * Editar pares de QnA
 * Gerenciar recursos do Azure usados pelo QnA Maker

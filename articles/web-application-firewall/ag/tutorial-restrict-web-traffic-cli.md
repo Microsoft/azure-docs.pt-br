@@ -4,16 +4,16 @@ description: Aprenda a restringir o tráfego da web com um firewall do aplicativ
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 05/21/2020
+ms.date: 08/31/2020
 ms.author: victorh
-ms.topic: overview
+ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 50aaf4f2639f48e5536e6eeaba5edbc246b2bba7
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: a33114dce47ca3df87b1c6c774289c8a8efcf835
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501058"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94739846"
 ---
 # <a name="enable-web-application-firewall-using-the-azure-cli"></a>Habilitar firewall do aplicativo Web usando a CLI do Azure
 
@@ -21,21 +21,20 @@ Você pode restringir tráfego em um gateway de aplicativo com um [Firewall de A
 
 Neste artigo, você aprenderá como:
 
-> [!div class="checklist"]
-> * Configurar a rede
-> * Criar um gateway de aplicativo com o WAF habilitado
-> * Criar um conjunto de dimensionamento de máquinas virtuais
-> * Criar uma conta de armazenamento e configurar diagnósticos
+ * Configurar a rede
+ * Criar um gateway de aplicativo com o WAF habilitado
+ * Criar um conjunto de dimensionamento de máquinas virtuais
+ * Criar uma conta de armazenamento e configurar diagnósticos
 
 ![Exemplo de Firewall do aplicativo Web](../media/tutorial-restrict-web-traffic-cli/scenario-waf.png)
 
 Se preferir, você poderá concluir este procedimento usando o [Azure PowerShell](tutorial-restrict-web-traffic-powershell.md).
 
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-Caso opte por instalar e usar a CLI localmente, este artigo exigirá que você execute a CLI do Azure versão 2.0.4 ou posterior. Para saber qual é a versão, execute `az --version`. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
+- Este artigo exige a versão 2.0.4 ou posterior da CLI do Azure. Se você está usando o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 

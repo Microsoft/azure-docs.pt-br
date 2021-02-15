@@ -3,16 +3,16 @@ title: Exemplos do Armazenamento do Azure usando .NET | Microsoft Docs
 description: Exiba, baixe e execute exemplos de código e aplicativos para o Armazenamento do Azure. Descubra exemplos de introdução a blobs, filas, tabelas e arquivos usando as bibliotecas do cliente de armazenamento do .NET.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 02/13/2020
+ms.date: 10/01/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
-ms.openlocfilehash: f02c08e752575dd1f57ce91dfc3145b69e3a2fd2
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 760fedd94ef682b183eede1215186de973e9a216
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "81010487"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92359774"
 ---
 # <a name="azure-storage-samples-using-v12-net-client-libraries"></a>Exemplos de Armazenamento do Azure usando bibliotecas de cliente .NET v12
 
@@ -336,4 +336,5 @@ Para saber mais sobre exemplos para outras linguagens:
 * Java: [Exemplos de Armazenamento do Azure usando Java](storage-samples-java.md)
 * Python: [Exemplos do Armazenamento do Azure usando Python](storage-samples-python.md)
 * JavaScript/Node.js: [Exemplos do Armazenamento do Azure que usam JavaScript](storage-samples-javascript.md)
+* C++: [Exemplos do Armazenamento do Azure usando C++](storage-samples-c-plus-plus.md)
 * Todas as outras linguagens: [Exemplos do Armazenamento do Azure](storage-samples.md)

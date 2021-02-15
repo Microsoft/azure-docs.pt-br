@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 07/06/2020
 ms.author: genli
 ms.openlocfilehash: 456aa225fa8eed47ca794c54e61b77a30c93fa9a
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85983209"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002605"
 ---
 # <a name="install-the-azure-virtual-machine-agent-in-offline-mode"></a>Instalar o Agente de Máquina Virtual do Azure no modo offline 
 
@@ -39,7 +39,7 @@ Use as etapas a seguir para instalar o Agente de VM no modo offline.
 
 1. Obtenha um instantâneo do disco do sistema operacional da VM afetada, crie um disco com base no instantâneo e, em seguida, anexe o disco a uma VM de solução de problemas. Para obter mais informações, confira [Solucionar problemas de uma VM do Windows anexando o disco do sistema operacional a uma VM de recuperação usando o portal do Azure](troubleshoot-recovery-disks-portal-windows.md). Para a VM clássica, exclua a VM e mantenha o disco do sistema operacional e anexe o disco do sistema operacional à VM de solução de problemas.
 
-2.  Conecte-se à VM de solução de problemas. Abra gerenciamento de **computador**gerenciamento de  >  **disco**. Confirme que o disco do sistema operacional está online e que as letras de unidade estão atribuídas às partições de disco.
+2.  Conecte-se à VM de solução de problemas. Abra gerenciamento de **computador** gerenciamento de  >  **disco**. Confirme que o disco do sistema operacional está online e que as letras de unidade estão atribuídas às partições de disco.
 
 ### <a name="step-2-modify-the-os-disk-to-install-the-azure-vm-agent"></a>Etapa 2: modificar o disco do sistema operacional para instalar o Agente de VM do Azure
 

@@ -13,10 +13,10 @@ ms.date: 08/26/2019
 ms.author: marsma
 ms.custom: aaddev
 ms.openlocfilehash: a570dccad5f14cf9adf5ca2825d8a3b31ae60d3f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85477185"
 ---
 # <a name="how-to-request-custom-claims-using-msal-for-ios-and-macos"></a>Como: solicitar declarações personalizadas usando o MSAL para iOS e macOS
@@ -33,7 +33,7 @@ Há vários cenários em que isso é necessário. Por exemplo:
 > [!NOTE]
 > MSAL ignora o cache de token de acesso sempre que uma solicitação de declarações é especificada. É importante fornecer apenas o `claimsRequest` parâmetro quando declarações adicionais são necessárias (em vez de fornecer sempre o mesmo `claimsRequest` parâmetro em cada chamada à API MSAL).
 
-`claimsRequest`pode ser especificado em `MSALSilentTokenParameters` e `MSALInteractiveTokenParameters` :
+`claimsRequest` pode ser especificado em `MSALSilentTokenParameters` e `MSALInteractiveTokenParameters` :
 
 ```objc
 /*!
@@ -49,7 +49,7 @@ Há vários cenários em que isso é necessário. Por exemplo:
 
 @end
 ```
-`MSALClaimsRequest`pode ser construído a partir de uma representação NSString da solicitação de declarações JSON. 
+`MSALClaimsRequest` pode ser construído a partir de uma representação NSString da solicitação de declarações JSON. 
 
 Objective-C:
 
@@ -98,7 +98,7 @@ do {
 
 
 
-`MSALClaimsRequest`deve ser definido nos parâmetros de token e fornecido para uma das APIs de aquisições de token MSAL:
+`MSALClaimsRequest` deve ser definido nos parâmetros de token e fornecido para uma das APIs de aquisições de token MSAL:
 
 Objective-C:
 

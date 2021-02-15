@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: na
 ms.custom: references_regions
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f5f6e44aa89c1e2815d70bb4ba2ae5f5680252ac
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 34b554fbef63f23b3540fe49e5c45976122add25
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87541882"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89268597"
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>Habilitar o Enterprise State Roaming no Active Directory do Azure
 
@@ -32,11 +32,11 @@ Quando você habilita o Enterprise State Roaming, sua organização recebe autom
 
 1. Entre no [Centro de administração do Azure AD](https://aad.portal.azure.com/).
 1. Selecione **Azure Active Directory**  >  **dispositivos**  >  **Enterprise State roaming**.
-1. Selecione **Usuários podem sincronizar configurações e dados de aplicativo entre dispositivos**. Para obter mais informações, confira [como definir as configurações do dispositivo](/azure/active-directory/device-management-azure-portal).
+1. Selecione **Usuários podem sincronizar configurações e dados de aplicativo entre dispositivos**. Para obter mais informações, confira [como definir as configurações do dispositivo](./device-management-azure-portal.md).
   
    ![A imagem da configuração do dispositivo rotulada como Usuários pode sincronizar configurações e dados de aplicativo entre dispositivos](./media/enterprise-state-roaming-enable/device-settings.png)
   
-Para que um dispositivo Windows 10 use o serviço Enterprise State Roaming, o dispositivo deverá se autenticar usando uma identidade do Azure AD. Para os dispositivos ingressados no Azure AD, a identidade de logon principal do usuário será a identidade do Azure AD, portanto, não será necessária nenhuma configuração adicional. Para dispositivos que usam o Active Directory local, o administrador de TI precisa [Configurar dispositivos ingressados no Azure Active Directory híbrido](hybrid-azuread-join-manual-steps.md). 
+Para que um dispositivo Windows 10 use o serviço Enterprise State Roaming, o dispositivo deverá se autenticar usando uma identidade do Azure AD. Para os dispositivos ingressados no Azure AD, a identidade de logon principal do usuário será a identidade do Azure AD, portanto, não será necessária nenhuma configuração adicional. Para dispositivos que usam o Active Directory local, o administrador de TI precisa [Configurar dispositivos ingressados no Azure Active Directory híbrido](./hybrid-azuread-join-plan.md). 
 
 ## <a name="data-storage"></a>Armazenamento de dados
 

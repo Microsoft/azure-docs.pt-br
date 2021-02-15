@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 11742b00b62437b3acd6fa804a668cf83c2860f6
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: f2f01e2b58c997db08ad4427de7eef1ee3760c4a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88007251"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016804"
 ---
 # <a name="set-up-the-powershell-module-for-windows-virtual-desktop"></a>Configurar o módulo do PowerShell para a Área de Trabalho Virtual do Windows
 
@@ -41,6 +41,13 @@ Em seguida, execute o seguinte cmdlet para se conectar ao Azure:
 Connect-AzAccount
 ```
 
+>[!IMPORTANT]
+>Se você estiver se conectando ao portal de US Gov, execute este cmdlet:
+> 
+> ```powershell
+> Connect-AzAccount -EnvironmentName AzureUSGovernment
+> ```
+
 Para entrar em sua conta do Azure, você precisará de um código que é gerado quando você executa o cmdlet Connect. Para entrar, acesse <https://microsoft.com/devicelogin>, insira o código e conecte-se usando suas credenciais de administrador do Azure.
 
 ```powershell
@@ -61,7 +68,7 @@ Se quiser alterar a assinatura padrão depois de entrar, execute este cmdlet:
 Select-AzSubscription -Subscription <preferredsubscriptionname>
 ```
 
-Você também pode selecionar um em uma lista usando o cmdlet Out-GridView:
+Você também pode selecionar um de uma lista usando o cmdlet Out-GridView:
 
 ```powershell
 Get-AzSubscription | Out-GridView -PassThru | Select-AzSubscription

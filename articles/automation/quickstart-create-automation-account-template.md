@@ -3,22 +3,18 @@ title: 'Início Rápido: Criar uma conta de Automação – modelo do Azure'
 titleSuffix: Azure Automation
 description: Este guia de início rápido mostra como criar uma conta de Automação usando o modelo do Azure Resource Manager.
 services: automation
-documentationcenter: na
-author: mgoedtel
 Customer intent: I want to create an Automation account by using an Azure Resource Manager template so that I can automate processes with runbooks.
-ms.service: automation
-ms.devlang: na
 ms.topic: quickstart
 ms.workload: infrastructure-services
-ms.date: 07/23/2020
+ms.date: 01/07/2021
 ms.author: magoedte
 ms.custom: mvc,subject-armqs
-ms.openlocfilehash: 37a619fe3279d1cb03763b14c3dfc9e315d850b9
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: d0582876a08b433a10106b97179ab603d4ec5762
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88685622"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99050661"
 ---
 # <a name="quickstart-create-an-automation-account-by-using-arm-template"></a>Início Rápido: Criar uma conta de Automação usando o modelo do ARM
 
@@ -44,7 +40,7 @@ Este modelo de exemplo realiza o seguinte:
 * Adiciona runbooks de Automação de exemplo à conta.
 
 >[!NOTE]
->Não há suporte para a criação da conta Executar como de Automação quando você está usando um modelo do ARM. Para criar uma conta Executar como manualmente no portal ou com o PowerShell, consulte [Gerenciar contas Executar como](manage-runas-account.md).
+>Não há suporte para a criação da conta Executar como de Automação quando você está usando um modelo do ARM. Para criar uma conta Executar como manualmente no portal ou com o PowerShell, confira [Criar uma conta Executar como](create-run-as-account.md).
 
 Depois de concluir essas etapas, você precisará [definir configurações de diagnóstico](automation-manage-send-joblogs-log-analytics.md) para sua conta de automação para enviar fluxos de trabalho e status do trabalho de runbook para o workspace do Log Analytics vinculado.
 
@@ -84,7 +80,7 @@ O modelo JSON especifica um valor padrão para os outros parâmetros que provave
 
 Se você for novo na automação do Azure e Azure Monitor, é importante entender os detalhes de configuração a seguir. Eles podem ajudá-lo a evitar erros ao tentar criar, configurar e usar um workspace do Log Analytics vinculado à sua nova conta de automação.
 
-* Examine [detalhes adicionais](../azure-monitor/platform/template-workspace-configuration.md#create-a-log-analytics-workspace) para entender totalmente as opções de configuração do espaço de trabalho, como modo de controle de acesso, tipo de preço, retenção e nível de reserva de capacidade.
+* Examine [detalhes adicionais](../azure-monitor/samples/resource-manager-workspace.md#create-a-log-analytics-workspace) para entender totalmente as opções de configuração do espaço de trabalho, como modo de controle de acesso, tipo de preço, retenção e nível de reserva de capacidade.
 
 * Examine [mapeamentos de workspace](how-to/region-mappings.md) para especificar as regiões com suporte embutidas ou em um arquivo de parâmetro. Ao habilitar soluções, somente determinadas regiões têm suporte para vincular um workspace do Log Analytics e uma Conta de Automação na sua assinatura.
 

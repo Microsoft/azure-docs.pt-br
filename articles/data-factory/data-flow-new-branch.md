@@ -3,17 +3,16 @@ title: Várias ramificações no fluxo de dados de mapeamento
 description: Replicando fluxos de dados no fluxo de dados de mapeamento com várias ramificações
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/08/2020
-ms.openlocfilehash: daebd6a4a00d82706ceda68f94736f21b8fe5a84
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a11dbfbd6d6510b5c421e54cd2547c3aedb1bfb6
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81606404"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100378189"
 ---
 # <a name="creating-a-new-branch-in-mapping-data-flow"></a>Criando uma nova ramificação no fluxo de dados de mapeamento
 
@@ -23,8 +22,8 @@ Adicione uma nova ramificação para fazer vários conjuntos de operações e tr
 
 Uma nova ramificação pode ser adicionada da lista de transformação semelhante a outras transformações. A **nova ramificação** só estará disponível como uma ação quando houver uma transformação existente após a transformação que você está tentando ramificar.
 
-![Adicionando uma nova ramificação](media/data-flow/new-branch2.png "Adicionando uma nova ramificação")
+![Captura de tela mostra a opção nova ramificação no menu várias entradas/saídas.](media/data-flow/new-branch2.png "Adicionando uma nova ramificação")
 
 No exemplo abaixo, o fluxo de dados está lendo dados de viagem de táxi. A saída agregada por dia e fornecedor é necessária. Em vez de criar dois fluxos de dados separados que lêem da mesma fonte, uma nova ramificação pode ser adicionada. Dessa forma, ambas as agregações podem ser executadas como parte do mesmo fluxo de dados. 
 
-![Adicionando uma nova ramificação](media/data-flow/new-branch.png "Adicionando uma nova ramificação")
+![Captura de tela mostra o fluxo de dados com duas ramificações da origem.](media/data-flow/new-branch.png "Adicionando uma nova ramificação")

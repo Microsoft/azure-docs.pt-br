@@ -1,19 +1,19 @@
 ---
 title: Conectar a rede virtual do Azure ao CloudSimple usando o ExpressRoute – solução do Azure VMware por CloudSimple
 description: Descreve como obter informações de emparelhamento para uma conexão entre a rede virtual do Azure e seu ambiente CloudSimple
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/14/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 6b20ee4e04a4443529ecceca8c6fc2206f7df39d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3fedfbe55fd8ea3d2b4cc910df631e40bc74e210
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77563998"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97899058"
 ---
 # <a name="connect-azure-virtual-network-to-cloudsimple-using-expressroute"></a>Conectar a rede virtual do Azure ao CloudSimple usando o ExpressRoute
 

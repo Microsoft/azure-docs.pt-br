@@ -11,12 +11,12 @@ ms.workload: iaas-sql-server
 ms.date: 12/13/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: afd36eb079b6e5f29fa664050cded3c5ddd17d8e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ad991974df30060e552d21a44d5796cd2ba165e2
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84669453"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792541"
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-linux-virtual-machines"></a>Perguntas frequentes para SQL Server em Linux máquinas virtuais
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -61,7 +61,7 @@ Este artigo fornece respostas para algumas das perguntas mais comuns sobre a exe
 
 1. **Como instalar minha cópia licenciada do SQL Server em uma VM do Azure?**
 
-   Primeiro, crie uma máquina virtual exclusivamente do SO Linux. Em seguida, execute as [etapas de instalação do SQL Server](https://docs.microsoft.com/sql/linux/sql-server-linux-setup#platforms) para sua distribuição do Linux. A menos que você esteja instalando uma das edições licenciadas gratuitamente do SQL Server, você também deve ter uma licença do SQL Server e [License Mobility por meio do Software Assurance no Azure](https://azure.microsoft.com/pricing/license-mobility/).
+   Primeiro, crie uma máquina virtual exclusivamente do SO Linux. Em seguida, execute as [etapas de instalação do SQL Server](/sql/linux/sql-server-linux-setup#platforms) para sua distribuição do Linux. A menos que você esteja instalando uma das edições licenciadas gratuitamente do SQL Server, você também deve ter uma licença do SQL Server e [License Mobility por meio do Software Assurance no Azure](https://azure.microsoft.com/pricing/license-mobility/).
 
 1. **Há imagens da máquina virtual Linux BYOL (Traga sua Própria Licença) para o SQL Server?**
 
@@ -75,7 +75,7 @@ Este artigo fornece respostas para algumas das perguntas mais comuns sobre a exe
 
 1. **Posso gerenciar uma máquina virtual Linux que executa o SQL Server com o SSMS (SQL Server Management Studio)?**
 
-   Sim, mas o SSMS atualmente é uma ferramenta somente do Windows. Você deve se conectar remotamente de um computador Windows para usar o SSMS com VMs Linux em execução SQL Server. Localmente no Linux, a nova ferramenta [mssql-conf](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-mssql-conf) pode executar várias tarefas administrativas. Para obter uma ferramenta de gerenciamento de banco de dados multiplataforma, confira [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/what-is).
+   Sim, mas o SSMS atualmente é uma ferramenta somente do Windows. Você deve se conectar remotamente de um computador Windows para usar o SSMS com VMs Linux em execução SQL Server. Localmente no Linux, a nova ferramenta [mssql-conf](/sql/linux/sql-server-linux-configure-mssql-conf) pode executar várias tarefas administrativas. Para obter uma ferramenta de gerenciamento de banco de dados multiplataforma, confira [Azure Data Studio](/sql/azure-data-studio/what-is).
 
 1. **Posso remover o SQL Server completamente de uma VM de SQL Server?**
 
@@ -85,7 +85,7 @@ Este artigo fornece respostas para algumas das perguntas mais comuns sobre a exe
 
 1. **Como atualizar para uma nova versão/edição do SQL Server em uma VM do Azure?**
 
-   Atualmente, não existe uma atualização in-loco para o SQL Server em execução em uma VM do Azure. Crie uma nova máquina virtual do Azure com a versão/edição desejada do SQL Server e migre os bancos de dados para o novo servidor usando [técnicas de migração de dados](https://docs.microsoft.com/sql/linux/sql-server-linux-migrate-overview) padrão.
+   Atualmente, não existe uma atualização in-loco para o SQL Server em execução em uma VM do Azure. Crie uma nova máquina virtual do Azure com a versão/edição desejada do SQL Server e migre os bancos de dados para o novo servidor usando [técnicas de migração de dados](/sql/linux/sql-server-linux-migrate-overview) padrão.
 
 ## <a name="general"></a>Geral
 
@@ -95,13 +95,13 @@ Este artigo fornece respostas para algumas das perguntas mais comuns sobre a exe
 
 ## <a name="resources"></a>Recursos
 
-**VMs Linux**:
+**VMs Linux** :
 
 * [Visão geral do SQL Server em uma VM Linux](sql-server-on-linux-vm-what-is-iaas-overview.md)
 * [Provisionar SQL Server em uma VM do Linux](sql-vm-create-portal-quickstart.md)
-* [SQL Server na documentação do Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-overview)
+* [SQL Server na documentação do Linux](/sql/linux/sql-server-linux-overview)
 
-**VMs do Windows**:
+**VMs do Windows** :
 
 * [Visão geral do SQL Server em uma VM do Windows](../windows/sql-server-on-azure-vm-iaas-what-is-overview.md)
 * [Provisionar SQL Server em uma VM do Windows](../windows/sql-vm-create-portal-quickstart.md)

@@ -13,12 +13,12 @@ ms.date: 04/25/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 9c3292a31e5f750c16933acf94509e0ad226080a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2ef29f6fe3403809d01fcea382474c514319b7c0
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81534305"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98063749"
 ---
 # <a name="public-client-and-confidential-client-applications"></a>Cliente público e aplicativos cliente confidenciais
 A MSAL (biblioteca de autenticação da Microsoft) define dois tipos de clientes: clientes públicos e clientes confidenciais. Os dois tipos de cliente são diferenciados por sua capacidade de autenticar com segurança com o servidor de autorização e manter a confidencialidade de suas credenciais de cliente. Por outro lado, a ADAL (biblioteca de autenticação do Azure AD) usa o *contexto de autenticação* chamado (que é uma conexão com o Azure AD).
@@ -43,10 +43,10 @@ Aqui estão algumas semelhanças e diferenças entre o cliente público e os apl
 - Os dois tipos de aplicativo gerenciam contas de usuário e podem obter uma conta do cache de token de usuário, obter uma conta de seu identificador ou remover uma conta.
 - Os aplicativos cliente públicos têm quatro maneiras de adquirir um token (quatro fluxos de autenticação). Os aplicativos cliente confidenciais têm três maneiras de adquirir um token (e uma maneira de computar a URL do ponto de extremidade de autorização do provedor de identidade). Para obter mais informações, consulte [adquirindo tokens](msal-acquire-cache-tokens.md).
 
-Se você já usou a ADAL, talvez perceba que, ao contrário do contexto de autenticação da ADAL, em MSAL, a ID do cliente (também chamada de *ID do aplicativo* ou *ID*do aplicativo) é passada uma vez na construção do aplicativo. Ele não precisa ser passado novamente quando o aplicativo adquire um token. Isso é verdadeiro para aplicativos cliente públicos e confidenciais. Os construtores de aplicativos cliente confidenciais também são aprovados nas credenciais do cliente: o segredo que eles compartilham com o provedor de identidade.
+Se você já usou a ADAL, talvez perceba que, ao contrário do contexto de autenticação da ADAL, em MSAL, a ID do cliente (também chamada de *ID do aplicativo* ou *ID* do aplicativo) é passada uma vez na construção do aplicativo. Ele não precisa ser passado novamente quando o aplicativo adquire um token. Isso é verdadeiro para aplicativos cliente públicos e confidenciais. Os construtores de aplicativos cliente confidenciais também são aprovados nas credenciais do cliente: o segredo que eles compartilham com o provedor de identidade.
 
 ## <a name="next-steps"></a>Próximas etapas
-Saiba mais sobre:
+Saiba mais:
 - [Opções de configuração de aplicativo cliente](msal-client-application-configuration.md)
 - [Criando uma instância de aplicativos cliente usando MSAL.NET](msal-net-initializing-client-applications.md)
 - [Criando uma instância de aplicativos cliente usando MSAL.js](msal-js-initializing-client-applications.md)

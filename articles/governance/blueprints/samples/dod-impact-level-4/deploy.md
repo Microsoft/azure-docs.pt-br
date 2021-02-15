@@ -1,14 +1,14 @@
 ---
 title: Modelo do blueprint do Nível de Impacto 4 do DoD
 description: Etapas de implantação do modelo de blueprint do Nível de Impacto 4 do DoD, incluindo detalhes do parâmetro do artefato de blueprint.
-ms.date: 06/30/2020
+ms.date: 01/08/2021
 ms.topic: sample
-ms.openlocfilehash: bb2599399284b2be5a9a7f88ef1d0244812ec4b2
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 40f45d1194ae089010edf308c3b110bc97591613
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044967"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98033754"
 ---
 # <a name="deploy-the-dod-impact-level-4-blueprint-sample"></a>Implantar o modelo de blueprint do Nível de Impacto 4 do DoD
 
@@ -99,12 +99,12 @@ A seguinte tabela fornece uma lista dos parâmetros de artefato de blueprint:
 |Implantar Auditoria em servidores SQL|Atribuição de política|Nome do grupo de recursos da conta de armazenamento para auditoria do SQL Server|A auditoria grava eventos de banco de dados em um log de auditoria na sua conta de Armazenamento do Azure (uma conta de armazenamento será criada em cada região onde um SQL Server é criado e será compartilhada por todos os servidores na região). Importante: para um funcionamento adequado da Auditoria, não exclua nem renomeie o grupo de recursos nem as contas de armazenamento.|
 |Implantar configurações de diagnóstico para Grupos de Segurança de Rede|Atribuição de política|Prefixo da conta de armazenamento para diagnóstico do grupo de segurança de rede|Este prefixo será combinado com o local de grupo de segurança de rede para formar o nome da conta de armazenamento criada.|
 |Implantar configurações de diagnóstico para Grupos de Segurança de Rede|Atribuição de política|Nome do grupo de recursos da conta de armazenamento para diagnóstico do grupo de segurança de rede (precisa existir)|O nome do grupo de recursos em que a conta de armazenamento será criada. Esse grupo de recursos já precisa existir.|
-|Implantar o Agente do Log Analytics no VMSS (Conjuntos de Dimensionamento de VMs) do Linux|Atribuição de política|Workspace do Log Analytics para VMSS (Conjuntos de Dimensionamento de VMs) do Linux|Se este workspace estiver fora do escopo da atribuição, você deverá conceder permissões de 'Colaborador do Log Analytics' (ou semelhantes) à ID da entidade de segurança da atribuição da política.|
-|Implantar o Agente do Log Analytics no VMSS (Conjuntos de Dimensionamento de VMs) do Linux|Atribuição de política|Opcional: Lista de imagens de VM compatíveis com o sistema operacional Linux a serem adicionadas ao escopo|Uma matriz vazia pode ser usada para indicar a inexistência de parâmetros opcionais: \[\]|
+|Implantar o agente do Log Analytics em conjuntos de dimensionamento de máquinas virtuais do Linux|Atribuição de política|Workspace do Log Analytics para conjuntos de dimensionamento de máquinas virtuais do Linux|Se este workspace estiver fora do escopo da atribuição, você deverá conceder permissões de 'Colaborador do Log Analytics' (ou semelhantes) à ID da entidade de segurança da atribuição da política.|
+|Implantar o agente do Log Analytics em conjuntos de dimensionamento de máquinas virtuais do Linux|Atribuição de política|Opcional: Lista de imagens de VM compatíveis com o sistema operacional Linux a serem adicionadas ao escopo|Uma matriz vazia pode ser usada para indicar a inexistência de parâmetros opcionais: \[\]|
 |Implantar o Agente do Log Analytics para VMs do Linux|Atribuição de política|Workspace do Log Analytics para VMs Linux|Se este workspace estiver fora do escopo da atribuição, você deverá conceder permissões de 'Colaborador do Log Analytics' (ou semelhantes) à ID da entidade de segurança da atribuição da política.|
 |Implantar o Agente do Log Analytics para VMs do Linux|Atribuição de política|Opcional: Lista de imagens de VM compatíveis com o sistema operacional Linux a serem adicionadas ao escopo|Uma matriz vazia pode ser usada para indicar a inexistência de parâmetros opcionais: \[\]|
-|Implantar o Agente do Log Analytics no VMSS (Conjuntos de Dimensionamento de VMs) do Windows|Atribuição de política|Workspace do Log Analytics para VMSS (Conjuntos de Dimensionamento de VMs) do Windows|Se este workspace estiver fora do escopo da atribuição, você deverá conceder permissões de 'Colaborador do Log Analytics' (ou semelhantes) à ID da entidade de segurança da atribuição da política.|
-|Implantar o Agente do Log Analytics no VMSS (Conjuntos de Dimensionamento de VMs) do Windows|Atribuição de política|Opcional: Lista de imagens de VM compatíveis com o sistema operacional Windows a serem adicionadas ao escopo|Uma matriz vazia pode ser usada para indicar a inexistência de parâmetros opcionais: \[\]|
+|Implantar o agente do Log Analytics em conjuntos de dimensionamento de máquinas virtuais do Windows|Atribuição de política|Workspace do Log Analytics para conjuntos de dimensionamento de máquinas virtuais do Windows|Se este workspace estiver fora do escopo da atribuição, você deverá conceder permissões de 'Colaborador do Log Analytics' (ou semelhantes) à ID da entidade de segurança da atribuição da política.|
+|Implantar o agente do Log Analytics em conjuntos de dimensionamento de máquinas virtuais do Windows|Atribuição de política|Opcional: Lista de imagens de VM compatíveis com o sistema operacional Windows a serem adicionadas ao escopo|Uma matriz vazia pode ser usada para indicar a inexistência de parâmetros opcionais: \[\]|
 |Implantar o Agente do Log Analytics para VMs do Windows|Atribuição de política|Workspace do Log Analytics para VMs do Windows|Se este workspace estiver fora do escopo da atribuição, você deverá conceder permissões de 'Colaborador do Log Analytics' (ou semelhantes) à ID da entidade de segurança da atribuição da política.|
 |Implantar o Agente do Log Analytics para VMs do Windows|Atribuição de política|Opcional: Lista de imagens de VM compatíveis com o sistema operacional Windows a serem adicionadas ao escopo|Uma matriz vazia pode ser usada para indicar a inexistência de parâmetros opcionais: \[\]|
 |\[Versão Prévia\]: Nível de Impacto 4 do DoD|Atribuição de política|Membros a serem incluídos no Grupo local de administradores|Uma lista separada por ponto e vírgula de membros que devem ser excluídos do grupo local de Administradores. Por exemplo: Administrador; myUser1; myUser2|

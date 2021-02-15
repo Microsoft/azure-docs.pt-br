@@ -5,15 +5,17 @@ ms.date: 12/10/2019
 ms.topic: conceptual
 description: Saiba como configurar Azure Dev Spaces para usar um controlador de entrada do traefik personalizado e configurar o HTTPS usando esse controlador de entrada
 keywords: Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 3938209e80eb211afc332997b5b241c12a0f6eb9
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.custom: devx-track-js, devx-track-azurecli
+ms.openlocfilehash: d19dc409f4d57a114b5937e6ce3718315e550a08
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212460"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763580"
 ---
 # <a name="use-a-custom-traefik-ingress-controller-and-configure-https"></a>Usar um controlador de entrada do traefik personalizado e configurar o HTTPS
+
+[!INCLUDE [Azure Dev Spaces deprecation](../../../includes/dev-spaces-deprecation.md)]
 
 Este artigo mostra como configurar Azure Dev Spaces para usar um controlador de entrada do traefik personalizado. Este artigo também mostra como configurar esse controlador de entrada personalizado para usar HTTPS.
 
@@ -45,13 +47,13 @@ aks-nodepool1-12345678-vmssfedcba   Ready    agent   13m    v1.14.1
 Adicione o [repositório Helm estável oficial][helm-stable-repo], que contém o gráfico Helm do controlador de entrada traefik.
 
 ```console
-helm repo add stable https://kubernetes-charts.storage.googleapis.com/
+helm repo add stable https://charts.helm.sh/stable
 ```
 
 Crie um namespace kubernetes para o controlador de entrada traefik e instale-o usando `helm` .
 
 > [!NOTE]
-> Se o cluster AKS não tiver o RBAC habilitado, remova o parâmetro *--set RBAC. Enabled = true* .
+> Se o cluster AKS não tiver o RBAC do kubernetes habilitado, remova o parâmetro *--set RBAC. Enabled = true* .
 
 ```console
 kubectl create ns traefik
@@ -218,10 +220,10 @@ Use `kubectl` para aplicar `letsencrypt-clusterissuer.yaml` .
 kubectl apply -f letsencrypt-clusterissuer.yaml --namespace traefik
 ```
 
-Remova os *traefik* *ClusterRole* e *ClusterRoleBinding*anteriores e, em seguida, atualize traefik para usar HTTPS usando `helm` .
+Remova os *traefik* *ClusterRole* e *ClusterRoleBinding* anteriores e, em seguida, atualize traefik para usar HTTPS usando `helm` .
 
 > [!NOTE]
-> Se o cluster AKS não tiver o RBAC habilitado, remova o parâmetro *--set RBAC. Enabled = true* .
+> Se o cluster AKS não tiver o RBAC do kubernetes habilitado, remova o parâmetro *--set RBAC. Enabled = true* .
 
 ```console
 kubectl delete ClusterRole traefik
@@ -363,7 +365,7 @@ Navegue até o aplicativo de exemplo no espaço filho *dev/azureuser1* e observe
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre como Azure Dev Spaces funciona.
+Saiba mais sobre como funciona o Azure Dev Spaces.
 
 > [!div class="nextstepaction"]
 > [Como o Azure Dev Spaces funciona](../how-dev-spaces-works.md)
@@ -373,7 +375,7 @@ Saiba mais sobre como Azure Dev Spaces funciona.
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
 [az-network-dns-record-set-a-add-record]: /cli/azure/network/dns/record-set/a?view=azure-cli-latest#az-network-dns-record-set-a-add-record
 [az-network-dns-record-set-a-remove-record]: /cli/azure/network/dns/record-set/a?view=azure-cli-latest#az-network-dns-record-set-a-remove-record
-[custom-domain]: ../../app-service/manage-custom-dns-buy-domain.md#buy-the-domain
+[custom-domain]: ../../app-service/manage-custom-dns-buy-domain.md#buy-an-app-service-domain
 [dns-zone]: ../../dns/dns-getstarted-cli.md
 [azds-yaml]: https://github.com/Azure/dev-spaces/blob/master/samples/BikeSharingApp/BikeSharingWeb/azds.yaml
 [azure-account-create]: https://azure.microsoft.com/free

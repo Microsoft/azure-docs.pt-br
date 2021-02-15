@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: tilarso
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f75dea2cffbe710bf2778ceab5eacc91ffcca9c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c319489fe4c884cd5de48ac2d3e47e7beb3026f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77523094"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "90705479"
 ---
 # <a name="what-is-the-identity-secure-score-in-azure-active-directory"></a>O que é a classificação de segurança de identidade no Azure Active Directory?
 
@@ -102,9 +102,9 @@ Você recebe pontos para configuração recursos de segurança recomendados ou r
 
 Para ver seu histórico de pontuação, acesse a [central de segurança do Microsoft 365](https://security.microsoft.com/) e examine sua pontuação de segurança geral da Microsoft. Você pode examinar as alterações em sua pontuação de segurança geral clicando em Exibir histórico. Escolha uma data específica para ver quais controles foram habilitados para aquele dia e que pontos você ganhou para cada um.
 
-### <a name="how-does-the-identity-secure-score-relate-to-the-office-365-secure-score"></a>Como a classificação de segurança de identidade se relaciona à classificação de segurança do Office 365?
+### <a name="how-does-the-identity-secure-score-relate-to-the-microsoft-365-secure-score"></a>Como a pontuação segura de identidade está relacionada à pontuação segura de Microsoft 365?
 
-A [Pontuação de segurança da Microsoft](https://docs.microsoft.com/office365/securitycompliance/microsoft-secure-score) contém cinco categorias de controle distinto e Pontuação:
+A [Pontuação de segurança da Microsoft](/office365/securitycompliance/microsoft-secure-score) contém cinco categorias de controle distinto e Pontuação:
 
 - Identidade
 - Dados
@@ -116,4 +116,4 @@ A pontuação de segurança de identidade representa a parte de identidade da Po
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Saiba mais sobre a pontuação de segurança da Microsoft](https://docs.microsoft.com/office365/securitycompliance/microsoft-secure-score)
+[Saiba mais sobre a pontuação de segurança da Microsoft](/office365/securitycompliance/microsoft-secure-score)

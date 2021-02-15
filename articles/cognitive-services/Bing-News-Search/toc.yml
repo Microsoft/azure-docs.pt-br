@@ -59,19 +59,19 @@
 - name: Referência
   items:
     - name: API de Pesquisa de Notícias do Bing v7
-      href: 'https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference'
+      href: /rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference
     - name: API de Pesquisa de Notícias do Bing v5
-      href: 'https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v5-reference'
+      href: /rest/api/cognitiveservices-bingsearch/bing-news-api-v5-reference
     - name: SDKs
       items:
         - name: .NET
-          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingnewssearch?view=azure-dotnet'
+          href: /dotnet/api/overview/azure/cognitiveservices/bing-news-search-readme?view=azure-dotnet
         - name: Java
-          href: 'https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingnewssearch?view=azure-java-stable'
+          href: /java/api/overview/azure/cognitiveservices/client/bingnewssearch?view=azure-java-stable
         - name: Python
-          href: 'https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/newssearch?view=azure-python'
+          href: /python/api/azure-cognitiveservices-search-newssearch/?view=azure-python
         - name: Node.js
-          href: 'https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-newssearch/?view=azure-node-latest'
+          href: /javascript/api/@azure/cognitiveservices-newssearch/?view=azure-node-latest
         - name: Go
           href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/newssearch'
     - name: Requisitos de uso e exibição
@@ -100,6 +100,6 @@
     - name: Suporte ao idioma
       href: language-support.md
     - name: Análise da API de Pesquisa de Notícias do Bing
-      href: bing-news-stats.md
+      href: ../bing-web-search/bing-web-stats.md
     - name: Conformidade
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'

@@ -4,14 +4,14 @@ description: Artefatos de OCI e pull (Push Open container Initiative) usando um 
 author: SteveLasker
 manager: gwallace
 ms.topic: article
-ms.date: 03/11/2020
+ms.date: 02/03/2021
 ms.author: stevelas
-ms.openlocfilehash: 2c6b66b635a2513ccc19e0352414d18d8389fef1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8a73f295999888dab20531ffdd0fb042790a5357
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79371045"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988224"
 ---
 # <a name="push-and-pull-an-oci-artifact-using-an-azure-container-registry"></a>Enviar por push e efetuar pull de um artefato de OCI usando um registro de contêiner do Azure
 
@@ -46,7 +46,7 @@ Para ler a senha de stdin, use `--password-stdin` .
 
 [Entre](/cli/azure/authenticate-azure-cli) no CLI do Azure com sua identidade para enviar e extrair artefatos do registro de contêiner.
 
-Em seguida, use o comando CLI do Azure [AZ ACR login](/cli/azure/acr?view=azure-cli-latest#az-acr-login) para acessar o registro. Por exemplo, para autenticar em um registro chamado *myregistry*:
+Em seguida, use o comando CLI do Azure [AZ ACR login](/cli/azure/acr#az-acr-login) para acessar o registro. Por exemplo, para autenticar em um registro chamado *myregistry*:
 
 ```azurecli
 az login
@@ -54,19 +54,19 @@ az acr login --name myregistry
 ```
 
 > [!NOTE]
-> `az acr login`usa o cliente do Docker para definir um token Azure Active Directory no `docker.config` arquivo. O cliente do Docker deve estar instalado e em execução para concluir o fluxo de autenticação individual.
+> `az acr login` usa o cliente do Docker para definir um token Azure Active Directory no `docker.config` arquivo. O cliente do Docker deve estar instalado e em execução para concluir o fluxo de autenticação individual.
 
 ## <a name="push-an-artifact"></a>Enviar um artefato por push
 
 Crie um arquivo de texto em um diretório de trabalho de trabalho local com algum texto de exemplo. Por exemplo, em um shell bash:
 
 ```bash
-echo "Here is an artifact!" > artifact.txt
+echo "Here is an artifact" > artifact.txt
 ```
 
 Use o `oras push` comando para enviar esse arquivo de texto por push para o registro. O exemplo a seguir envia por push o arquivo de texto de exemplo para o `samples/artifact` repositório. O registro é identificado com o nome de registro totalmente qualificado *myregistry.azurecr.Io* (todas as letras minúsculas). O artefato está marcado `1.0` . O artefato tem um tipo indefinido, por padrão, identificado pela cadeia de caracteres do *tipo de mídia* após o nome do arquivo `artifact.txt` . Consulte [artefatos de OCI](https://github.com/opencontainers/artifacts) para tipos adicionais. 
 
-**Linux**
+**Linux ou macOS**
 
 ```bash
 oras push myregistry.azurecr.io/samples/artifact:1.0 \
@@ -137,7 +137,7 @@ Verifique se o pull foi bem-sucedido:
 
 ```bash
 $ cat artifact.txt
-Here is an artifact!
+Here is an artifact
 ```
 
 ## <a name="remove-the-artifact-optional"></a>Remover o artefato (opcional)
@@ -148,6 +148,37 @@ Para remover o artefato do registro de contêiner do Azure, use o comando [AZ AC
 az acr repository delete \
     --name myregistry \
     --image samples/artifact:1.0
+```
+
+## <a name="example-build-docker-image-from-oci-artifact"></a>Exemplo: criar imagem do Docker do artefato de OCI
+
+O código-fonte e os binários para criar uma imagem de contêiner podem ser armazenados como artefatos de OCI em um registro de contêiner do Azure. Você pode fazer referência a um artefato de origem como o contexto de compilação para uma [tarefa ACR](container-registry-tasks-overview.md). Este exemplo mostra como armazenar um Dockerfile como um artefato de OCI e, em seguida, fazer referência ao artefato para criar uma imagem de contêiner.
+
+Por exemplo, crie um Dockerfile de uma linha:
+
+```bash
+echo "FROM mcr.microsoft.com/hello-world" > hello-world.dockerfile
+```
+
+Faça logon no registro de contêiner de destino.
+
+```azurecli
+az login
+az acr login --name myregistry
+```
+
+Crie e envie um novo artefato de OCI para o registro de destino usando o `oras push` comando. Este exemplo define o tipo de mídia padrão para o artefato.
+
+```bash
+oras push myregistry.azurecr.io/dockerfile:1.0 hello-world.dockerfile
+```
+
+Execute o comando [AZ ACR Build](/cli/azure/acr#az-acr-build) para criar a imagem Hello-World usando o novo artefato como contexto de compilação:
+
+```azurecli
+az acr build --registry myregistry --image builds/hello-world:v1 \
+  --file hello-world.dockerfile \
+  oci://myregistry.azurecr.io/dockerfile:1.0
 ```
 
 ## <a name="next-steps"></a>Próximas etapas

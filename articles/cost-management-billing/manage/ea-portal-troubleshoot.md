@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: d3199eb67e5672cd6f4a6d99219f184e7fbbdf6f
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 5402ee3283e5ae11f43884b4002486e8bdefae2c
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88687392"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89294400"
 ---
 # <a name="troubleshoot-azure-ea-portal-access"></a>Solucionar problemas de acesso ao Portal do EA do Azure
 
@@ -32,7 +32,7 @@ Você usa o Portal do EA do Azure para permitir acesso a usuários com níveis d
 - Conta corporativa ou de estudante entre locatários – para organizações que configuraram Active Directory com federação para a nuvem e terão contas em vários locatários.
 - Conta mista – permite que você adicione usuários com conta Microsoft e/ou com uma conta corporativa ou de estudante.
 
-A primeira conta corporativa ou de estudante adicionada ao registro determina o domínio _padrão_ ou _mestre_. Para adicionar uma conta corporativa ou de estudante com outro locatário, você precisa alterar o nível de autenticação no registro para autenticação entre locatários.
+A primeira conta corporativa ou de estudante adicionada ao registro determina o domínio _padrão_. Para adicionar uma conta corporativa ou de estudante com outro locatário, você precisa alterar o nível de autenticação no registro para autenticação entre locatários.
 
 Para atualizar o nível de autenticação:
 

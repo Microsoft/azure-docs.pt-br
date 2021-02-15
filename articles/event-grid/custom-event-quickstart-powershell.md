@@ -3,12 +3,13 @@ title: 'Início Rápido: Enviar eventos personalizados para o ponto de extremida
 description: 'Início Rápido: Use o PowerShell e a Grade de Eventos do Azure para publicar um tópico personalizado e assinar eventos para esse tópico. Os eventos são tratados por um aplicativo Web.'
 ms.date: 07/07/2020
 ms.topic: quickstart
-ms.openlocfilehash: 4dbed993b4123045ae6233466cd9ca0565465a1e
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 3bd389ff523fd32e73ac19f1131c8c2784e16db5
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86115019"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "89075606"
 ---
 # <a name="quickstart-route-custom-events-to-web-endpoint-with-powershell-and-event-grid"></a>Início Rápido: Encaminhar eventos personalizados para o ponto de extremidade da Web com o PowerShell e com a Grade de Eventos
 

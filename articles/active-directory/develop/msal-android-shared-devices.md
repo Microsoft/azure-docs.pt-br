@@ -13,19 +13,17 @@ ms.date: 03/31/2020
 ms.author: marsma
 ms.reviewer: hahamil
 ms.custom: aaddev, identitypla | Azuretformtop40
-ms.openlocfilehash: d9874e27c21906512c2f6c841767b4d6591dbeaf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 85f8b340635354d4bb0f28f2b3d79b617bd897f8
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80550260"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98754884"
 ---
 # <a name="shared-device-mode-for-android-devices"></a>Modo de dispositivo compartilhado para dispositivos Android
 
-> [!NOTE]
-> Esse recurso está em uma versão prévia.
-> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos.
-> Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>[!IMPORTANT]
+> Este recurso [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)]
 
 Os funcionários de primeira a, como Retail Associates, membros da equipe de voo e funcionários de serviço de campo, geralmente usam um dispositivo móvel compartilhado para realizar seu trabalho. Isso se torna problemático quando começa a compartilhar senhas ou números de PIN para acessar dados de clientes e negócios no dispositivo compartilhado.
 
@@ -36,7 +34,7 @@ O modo de dispositivo compartilhado também fornece o gerenciamento de Microsoft
 Para criar um aplicativo de modo de dispositivo compartilhado, os desenvolvedores e os administradores de dispositivo de nuvem funcionam juntos:
 
 - Os desenvolvedores escrevem um aplicativo de conta única (aplicativos com várias contas não têm suporte no modo de dispositivo compartilhado), adicionam `"shared_device_mode_supported": true` à configuração do aplicativo e gravam o código para lidar com coisas como a saída do dispositivo compartilhado.
-- Os administradores de dispositivo preparam o dispositivo a ser compartilhado instalando o aplicativo autenticador e definindo o dispositivo para o modo compartilhado usando o aplicativo autenticador. Somente os usuários que estão na função de [administrador de dispositivo de nuvem](../users-groups-roles/directory-assign-admin-roles.md#cloud-device-administrator-permissions) podem colocar um dispositivo no modo compartilhado usando o [aplicativo autenticador](../user-help/user-help-auth-app-overview.md). Você pode configurar a associação de suas funções organizacionais no portal do Azure por meio **Azure Active Directory**do:  >  **funções de Azure Active Directory e administradores**  >  **administrador de dispositivo de nuvem**.
+- Os administradores de dispositivo preparam o dispositivo a ser compartilhado instalando o aplicativo autenticador e definindo o dispositivo para o modo compartilhado usando o aplicativo autenticador. Somente os usuários que estão na função de [administrador de dispositivo de nuvem](../roles/permissions-reference.md#cloud-device-administrator-permissions) podem colocar um dispositivo no modo compartilhado usando o [aplicativo autenticador](../user-help/user-help-auth-app-overview.md). Você pode configurar a associação de suas funções organizacionais no portal do Azure por meio do:  >  **funções de Azure Active Directory e administradores**  >  **administrador de dispositivo de nuvem**.
 
  Este artigo se concentra principalmente no que os desenvolvedores devem pensar.
 
@@ -86,7 +84,7 @@ As seguintes diferenças se aplicam dependendo se seu aplicativo está em execu�
 | **Contas**     | Conta única | Várias contas |
 | **Entrar** | Global | Global |
 | **Sair** | Global | Cada aplicativo pode controlar se a saída é local para o aplicativo ou para a família de aplicativos. |
-| **Tipos de conta com suporte** | Somente contas corporativas | Contas pessoais e corporativas com suporte  |
+| **Tipos de conta compatíveis** | Somente contas corporativas | Contas pessoais e corporativas com suporte  |
 
 ## <a name="why-you-may-want-to-only-support-single-account-mode"></a>Por que você talvez queira dar suporte apenas ao modo de conta única
 

@@ -1,6 +1,6 @@
 ---
-title: incluir arquivo
-description: incluir arquivo
+title: arquivo de inclusão
+description: arquivo de inclusão
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -9,10 +9,10 @@ ms.date: 03/17/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 55fa01d100c60c6411774373428ff4bbd9a56822
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80986797"
 ---
 ## <a name="windows-clients"></a><a name="windows"></a>Clientes do Windows
@@ -25,7 +25,7 @@ ms.locfileid: "80986797"
    * Instruções do [Gateway de VPN](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#clientexport)
    
    * Instruções de [Wan virtual](../articles/virtual-wan/certificates-point-to-site.md#clientexport)
-5. Extraia a chave privada e a impressão digital base64 do *.pfx*. Há várias maneiras de fazer isso. Usar o OpenSSL no computador é uma maneira. O arquivo *profileinfo.txt* contém a chave privada e a impressão digital da CA e do certificado do Cliente. Certifique-se de usar a impressão digital do certificado do cliente.
+5. Extraia a chave privada e a impressão digital base64 do *.pfx*. Há várias maneiras de realizar isso. Usar o OpenSSL no computador é uma maneira. O arquivo *profileinfo.txt* contém a chave privada e a impressão digital da CA e do certificado do Cliente. Certifique-se de usar a impressão digital do certificado do cliente.
 
    ```
    openssl pkcs12 -in "filename.pfx" -nodes -out "profileinfo.txt"
@@ -127,7 +127,7 @@ ms.locfileid: "80986797"
    * Instruções do [Gateway de VPN](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#clientexport) 
    
    * Instruções de [Wan virtual](../articles/virtual-wan/certificates-point-to-site.md#clientexport)
-5. Extraia a chave privada e a impressão digital base64 do .pfx. Há várias maneiras de fazer isso. Usar OpenSSL no computador é uma maneira.
+5. Extraia a chave privada e a impressão digital base64 do .pfx. Há várias maneiras de realizar isso. Usar OpenSSL no computador é uma maneira.
 
     ```
     openssl pkcs12 -in "filename.pfx" -nodes -out "profileinfo.txt"

@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Usar o Cache do Azure para Redis com aplicativos .NET Core'
+title: 'Início Rápido: Usar o Cache do Azure para Redis no .NET Core'
 description: Neste início rápido, saiba como acessar o Cache do Azure para Redis em seus aplicativos .NET Core
 author: yegu-ms
 ms.author: yegu
@@ -8,14 +8,14 @@ ms.devlang: dotnet
 ms.custom: devx-track-csharp, mvc
 ms.topic: quickstart
 ms.date: 06/18/2020
-ms.openlocfilehash: bc045eba331c861801dceef7f00db42e851f8bb2
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 945d4a3d2bba84bf8f5973fd8dec092c66794c11
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88211371"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004289"
 ---
-# <a name="quickstart-use-azure-cache-for-redis-with-a-net-core-app"></a>Início Rápido: Usar o Cache do Azure para Redis com um aplicativo .NET Core
+# <a name="quickstart-use-azure-cache-for-redis-in-net-core"></a>Início Rápido: Usar o Cache do Azure para Redis no .NET Core
 
 Neste guia de início rápido, você incorporará o Cache do Azure para Redis a um aplicativo .NET Core para ter acesso a um cache seguro e dedicado que pode ser acessado de qualquer aplicativo no Azure. Você especificamente usará o cliente [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) com o código C# em um aplicativo de console do .NET Core.
 
@@ -23,7 +23,6 @@ Neste guia de início rápido, você incorporará o Cache do Azure para Redis a 
 
 - Assinatura do Azure - [criar uma gratuitamente](https://azure.microsoft.com/free/)
 - [SDK do .NET Core](https://dotnet.microsoft.com/download)
-- [.NET Framework 4 ou superior](https://www.microsoft.com/net/download/dotnet-framework-runtime), que é exigido pelo cliente StackExchange.Redis.
 
 ## <a name="create-a-cache"></a>Criar um cache
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
@@ -34,7 +33,7 @@ Anote o **NOME DE HOST** e a chave de acesso **primária**. Você usará esses v
 
 
 
-## <a name="create-a-console-app"></a>Criar um aplicativo de console
+## <a name="create-a-console-app"></a>Criar um aplicativo do console
 
 Abra uma nova janela de comando e execute o seguinte comando para criar um novo aplicativo de console .NET Core:
 
@@ -48,7 +47,7 @@ Na janela de comando, altere para o novo diretório do projeto *Redistest*.
 
 ## <a name="add-secret-manager-to-the-project"></a>Adicionar o Gerenciador de Segredos ao projeto
 
-Nesta seção, você adicionará a [ferramenta Gerenciador de Segredos](https://docs.microsoft.com/aspnet/core/security/app-secrets) ao seu projeto. A ferramenta Gerenciador de Segredos armazena dados confidenciais para o trabalho de desenvolvimento fora da árvore do seu projeto. Essa abordagem ajuda a impedir o compartilhamento acidental de segredos do aplicativo no código-fonte.
+Nesta seção, você adicionará a [ferramenta Gerenciador de Segredos](/aspnet/core/security/app-secrets) ao seu projeto. A ferramenta Gerenciador de Segredos armazena dados confidenciais para o trabalho de desenvolvimento fora da árvore do seu projeto. Essa abordagem ajuda a impedir o compartilhamento acidental de segredos do aplicativo no código-fonte.
 
 Abra o arquivo *Redistest.csproj*. Adicione um elemento `DotNetCliToolReference` para incluir *Microsoft.Extensions.SecretManager.Tools*. Adicione também um elemento `UserSecretsId`, conforme mostrado abaixo e salve o arquivo.
 
@@ -318,4 +317,4 @@ Neste guia de início rápido, você aprendeu a usar o Cache do Azure para Redis
 Deseja otimizar e reduzir seus gastos com a nuvem?
 
 > [!div class="nextstepaction"]
-> [Comece a analisar os custos com o Gerenciamento de Custos](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+> [Comece a analisar os custos com o Gerenciamento de Custos](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

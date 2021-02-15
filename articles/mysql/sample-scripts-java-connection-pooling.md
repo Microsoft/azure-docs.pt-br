@@ -8,10 +8,10 @@ ms.service: mysql
 ms.topic: sample
 ms.date: 02/28/2018
 ms.openlocfilehash: b108dc8a04825826d7e0887d8fd5884b122827f5
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87314689"
 ---
 # <a name="java-sample-to-illustrate-connection-pooling"></a>Amostra de Java para ilustrar o pool de conexões

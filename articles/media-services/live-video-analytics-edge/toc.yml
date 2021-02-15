@@ -51,17 +51,26 @@
         - name: Com OVMS via extensão HTTP
           displayName: 'intel, OpenVINO'
           href: use-intel-openvino-tutorial.md
+        - name: Usar Visão Personalizada
+          href: custom-vision-tutorial.md
+        - name: Usar a Análise Espacial
+          href: spatial-analysis-tutorial.md
 - name: Exemplos
   items:
     - name: Exemplos de método direto C#
       href: 'https://github.com/Azure-Samples/live-video-analytics-iot-edge-csharp'
+    - name: Exemplos de SDK do C#
+      href: 'https://github.com/Azure-Samples/live-video-analytics-iot-edge-csharp-sdk'
     - name: Exemplos de método direto Python
       href: 'https://github.com/Azure-Samples/live-video-analytics-iot-edge-python'
+    - name: Exemplos de SDK do Python
+      href: 'https://github.com/Azure-Samples/live-video-analytics-iot-edge-python-sdk'
 - name: Conceitos
   items:
     - name: Grafo de mídia
       href: media-graph-concept.md
     - name: Extensão do grafo de mídia
+      displayName: AI
       href: media-graph-extension-concept.md
     - name: Gravação de vídeo
       href: video-recording-concept.md
@@ -89,14 +98,22 @@
       href: manage-recording-policy-how-to.md
     - name: Invocar métodos diretos com o portal
       href: use-azure-portal-to-invoke-direct-methods.md
+    - name: Implantar no Azure Stack Edge
+      href: deploy-azure-stack-edge-how-to.md
+    - name: Configurar uma entrada de sinal
+      href: configure-signal-gate-how-to.md
     - name: Solucionar problemas
       href: troubleshoot-how-to.md
+    - name: Atualizando
+      href: upgrading-lva-module.md
+    - name: Desenvolver e implantar um servidor de inferência gRPC
+      href: develop-deploy-grpc-inference-srv-how-to.md
 - name: Referência
   items:
-    - name: Contrato de dados HTTP
-      href: http-data-contract.md
-    - name: Contrato de dados gRPC
-      href: grpc-data-contract.md
+    - name: Protocolo de extensão HTTP
+      href: http-extension-protocol.md
+    - name: Protocolo de extensão gRPC
+      href: grpc-extension-protocol.md
     - name: Esquema de metadados de inferência
       href: inference-metadata-schema.md
     - name: Métodos diretos
@@ -109,3 +126,11 @@
       href: faq.md
     - name: Preparação para produção e práticas recomendadas
       href: production-readiness.md
+    - name: Princípios de IA transparentes e responsáveis
+      href: 'https://azure.microsoft.com/resources/transparency-note-live-video-analytics-lva/'
+- name: Recursos
+  items:
+    - name: Roteiro do Azure
+      href: 'https://azure.microsoft.com/updates/?category=media'
+    - name: Preços
+      href: 'https://azure.microsoft.com/pricing/details/media-services/'

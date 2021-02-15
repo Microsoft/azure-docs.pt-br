@@ -5,14 +5,14 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/25/2018
+ms.date: 09/02/2020
 ms.author: yushwang
-ms.openlocfilehash: f3a6dd70bf57cabe8014c49e2cd3ee38c8de72b4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a69ce0592b79be0868dd7c15ac054910eee75fc7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87064784"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89393591"
 ---
 # <a name="how-to-configure-bgp-on-an-azure-vpn-gateway-by-using-cli"></a>Como configurar o BGP em um gateway de VPN do Azure utilizando a CLI
 

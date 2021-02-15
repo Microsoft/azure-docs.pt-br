@@ -2,16 +2,16 @@
 title: Solucionar problemas de replicação na migração de VM do VMware sem agente
 description: Obter ajuda com falhas do ciclo de replicação
 author: anvar-ms
-ms.manager: bsiva
 ms.author: anvar
+ms.manager: bsiva
 ms.topic: troubleshooting
 ms.date: 08/17/2020
-ms.openlocfilehash: 6318f426e42612f21da7a43c9857894ae610f68e
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 33e2bf641b75a5dd360498478f1ea70c7614fb38
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88871166"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98071367"
 ---
 # <a name="troubleshooting-replication-issues-in-agentless-vmware-vm-migration"></a>Solucionando problemas de replicação na migração de VM do VMware sem agente
 
@@ -29,11 +29,16 @@ Ocasionalmente, você pode ver os ciclos de replicação falharem para uma VM. E
 Use as etapas a seguir para monitorar o status de replicação para suas máquinas virtuais:
 
   1. Vá para a página servidores em migrações para Azure no portal do Azure.
-  2. Navegue até a página "replicando máquinas" clicando em "replicando servidores" no bloco de migração do servidor.
-  3. Você verá uma lista de servidores de replicação juntamente com informações adicionais, como status, integridade, hora da última sincronização, etc. A coluna de integridade indica a integridade da replicação atual da VM. Um valor ' crítico ' ou ' aviso ' na coluna de integridade normalmente indica que o ciclo de replicação anterior da VM falhou. Para obter mais detalhes, clique com o botão direito do mouse na VM e selecione "detalhes do erro". A página detalhes do erro contém informações sobre o erro e detalhes adicionais sobre como solucionar problemas. Você também verá um link "eventos recentes" que pode ser usado para navegar até a página de eventos da VM.
-  4. Clique em "eventos recentes" para ver as falhas do ciclo de replicação anterior da VM. Na página eventos, procure o evento mais recente do tipo "falha no ciclo de replicação" ou "falha no ciclo de replicação para o disco" para a VM.
-  5. Clique no evento para entender as possíveis causas do erro e as etapas de correção recomendadas. Use as informações fornecidas para solucionar problemas e corrigir o erro.
-    
+  ![Imagem 1](./media/troubleshoot-changed-block-tracking-replication/image0.png)
+  1. Navegue até a página "replicando máquinas" clicando em "replicando servidores" no bloco de migração do servidor.
+  ![Imagem 2](./media/troubleshoot-changed-block-tracking-replication/image1.png)
+  1. Você verá uma lista de servidores de replicação juntamente com informações adicionais, como status, integridade, hora da última sincronização, etc. A coluna de integridade indica a integridade da replicação atual da VM. Um valor ' crítico ' ou ' aviso ' na coluna de integridade normalmente indica que o ciclo de replicação anterior da VM falhou. Para obter mais detalhes, clique com o botão direito do mouse na VM e selecione "detalhes do erro". A página detalhes do erro contém informações sobre o erro e detalhes adicionais sobre como solucionar problemas. Você também verá um link "eventos recentes" que pode ser usado para navegar até a página de eventos da VM.
+  ![Imagem 3](./media/troubleshoot-changed-block-tracking-replication/image2.png)
+  1. Clique em "eventos recentes" para ver as falhas do ciclo de replicação anterior da VM. Na página eventos, procure o evento mais recente do tipo "falha no ciclo de replicação" ou "falha no ciclo de replicação para o disco" para a VM.
+  ![Imagem 4](./media/troubleshoot-changed-block-tracking-replication/image3.png)
+  1. Clique no evento para entender as possíveis causas do erro e as etapas de correção recomendadas. Use as informações fornecidas para solucionar problemas e corrigir o erro.
+ ![Imagem 5](./media/troubleshoot-changed-block-tracking-replication/image4.png)
+
 ## <a name="common-replication-errors"></a>Erros comuns de replicação
 
 Esta seção descreve alguns dos erros comuns e como você pode solucioná-los.
@@ -58,7 +63,7 @@ Quando o portal cria o cofre de chaves, ele também adiciona uma política de ac
 
 $userPrincipalId = $ (Get-AzureRmADUser-UserPrincipalName "user2_email_address"). Sessão
 
-Set-AzureRmKeyVaultAccessPolicy-Vaultname "keyvaultname"-ObjectId $userPrincipalId-PermissionsToStorage obter, listar, excluir, definir, atualizar, regeneratekey, getss, Lists, exclusões, sets, recuperar, backup, restaurar, limpar
+Set-AzureRmKeyVaultAccessPolicy-Vaultname "keyvaultname"-ObjectId $userPrincipalId-PermissionsToStorage obter, listar, excluir, definir, atualizar, regeneratekey, getss, listas, exclusões, conjuntos de atualizações, recuperar, backup, restaurar, limpar
 
 
 ## <a name="disposeartefactstimedout"></a>DisposeArtefactsTimedOut
@@ -90,7 +95,7 @@ O componente que está tentando replicar os dados para o Azure está inoperante 
     
     **Etapas para executar o teste de benchmark de desempenho:**
     
-      1. [Baixar](https://go.microsoft.com/fwlink/?linkid=2138966) o azcopy
+      1. [Baixar](../storage/common/storage-use-azcopy-v10.md) o azcopy
         
       2. Procure a conta de armazenamento do dispositivo no grupo de recursos. A conta de armazenamento tem um nome que se assemelha a migrategwsa \* \* \* \* \* \* \* \* \* \* . Esse é o valor do parâmetro [Account] no comando acima.
         
@@ -170,7 +175,7 @@ As possíveis causas incluem:
     
     **Etapas para executar o teste de benchmark de desempenho:**
     
-      1. [Baixar](https://go.microsoft.com/fwlink/?linkid=2138966) o azcopy
+      1. [Baixar](../storage/common/storage-use-azcopy-v10.md) o azcopy
         
       2. Procure a conta de armazenamento do dispositivo no grupo de recursos. A conta de armazenamento tem um nome que se assemelha a migratelsa \* \* \* \* \* \* \* \* \* \* . Esse é o valor do parâmetro [Account] no comando acima.
         
@@ -237,7 +242,7 @@ Esse erro pode ser resolvido das duas maneiras a seguir:
 
 Um desses problemas conhecido que pode causar uma reinicialização CBT da máquina virtual no VMware vSphere 5,5 é descrito em [VMware KB 2048201: o controle de bloco alterado](https://go.microsoft.com/fwlink/?linkid=2138888) é redefinido após uma operação de armazenamento VMotion no vSphere 5. x. Se estiver usando o VMware vSphere 5.5, certifique-se de aplicar as atualizações descritas nesta KB.
 
-Como alternativa, você pode [redefinir o rastreamento de bloco alterado pelo VMware em uma máquina virtual usando o VMware PowerCLI.
+Como alternativa, você pode redefinir o rastreamento de bloco alterado pelo VMware em uma máquina virtual usando o VMware PowerCLI.
 
 ## <a name="an-internal-error-occurred"></a>Ocorreu um erro interno
 
@@ -293,6 +298,24 @@ Esse é um problema conhecido do VMware no qual o tamanho do disco indicado pelo
 
 Isso acontece quando o buffer de host NFC está sem memória. Para resolver esse problema, você precisa mover a VM (Compute vMotion) para um host diferente, que tem recursos gratuitos.
 
+## <a name="replication-cycle-failed"></a>Falha no ciclo de replicação
+
+**ID do erro:** 181008
+
+**Mensagem de erro:** VM: ' VMName '. Erro: nenhum disksnapshots foi encontrado para a replicação de instantâneo com a ID de instantâneo: ' Snapshotid '.
+
+**Possíveis causas:**
+
+As possíveis razões são:
+1. O caminho de um ou mais discos incluídos foi alterado devido ao Storage VMotion.
+2. Um ou mais discos incluídos não estão mais anexados à VM.
+      
+**Recomendação:**
+
+As recomendações a seguir são fornecidas
+1. Restaure os discos incluídos no caminho original usando o Storage vMotion e, em seguida, desabilite o Storage VMotion.
+2. Desabilite o Storage VMotion, se habilitado, pare a replicação na máquina virtual e replique a máquina virtual novamente. Se o problema persistir, contate o suporte.
+
 ## <a name="next-steps"></a>Próximas etapas
 
-Continue a replicação de VM e execute a [migração de teste](https://go.microsoft.com/fwlink/?linkid=2139333).
+Continue a replicação de VM e execute a [migração de teste](./tutorial-migrate-vmware.md#run-a-test-migration).

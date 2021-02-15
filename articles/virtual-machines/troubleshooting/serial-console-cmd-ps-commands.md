@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 571df9c07e71682e2be51a73e3837c79cb074c3a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ef533b3566ac557b57f1435a2a9b2dbe26896993
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87028457"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91306881"
 ---
 # <a name="windows-commands---cmd-and-powershell"></a>Comandos do Windows – CMD e PowerShell
 
@@ -34,7 +34,7 @@ Como o SAC está limitado a um buffer de tela de 80 x 24 sem scrollback, adicion
 
 Por causa do buffer de tela limitado do SAC, comandos mais longos podem ser mais fáceis de serem digitados em um editor de texto local e depois colados no SAC.
 
-## <a name="view-and-edit-windows-registry-settings"></a>Exibir e editar as configurações do registro do Windows
+## <a name="view-and-edit-windows-registry-settings-using-cmd"></a>Exibir e editar configurações de registro do Windows usando CMD
 ### <a name="verify-rdp-is-enabled"></a>Verificar se o RDP está habilitado
 `reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections`
 
@@ -49,7 +49,7 @@ A segunda chave (em \Policies) só existirá se a configuração da política de
 
 A segunda chave (em \Policies) só seria necessária se a configuração da política de grupo relevante tivesse sido configurada. O valor será regravado na próxima atualização de política de grupo, se estiver configurado na política de grupo.
 
-## <a name="manage-windows-services"></a>Gerenciar Serviços do Windows
+## <a name="manage-windows-services-using-cmd"></a>Gerenciar serviços do Windows usando CMD
 
 ### <a name="view-service-state"></a>Exibir estado do serviço
 `sc query termservice`
@@ -79,7 +79,7 @@ ou
 ou
 
 `sc stop termservice`
-## <a name="manage-networking-features"></a>Gerenciar recursos de Rede
+## <a name="manage-networking-features-using-cmd"></a>Gerenciar recursos de rede usando CMD
 ### <a name="show-nic-properties"></a>Mostrar propriedades NIC
 `netsh interface show interface`
 ### <a name="show-ip-properties"></a>Mostrar propriedades de IP
@@ -120,7 +120,7 @@ Quando limitado a métodos disponíveis no Windows por padrão, o PowerShell pod
 É possível usar esse comando ao solucionar problemas para excluir temporariamente o Firewall do Windows. Ele será habilitado na próxima reinicialização ou quando você habilitá-lo usando o comando a seguir. Não pare o serviço do Firewall do Windows (MPSSVC) ou o BFE (Mecanismo de Filtragem Base) como forma de excluir o Firewall do Windows. Parar o MPSSVC ou BFE resultará no bloqueio de toda a conectividade.
 ### <a name="enable-windows-firewall"></a>Habilitar Firewall do Windows
 `netsh advfirewall set allprofiles state on`
-## <a name="manage-users-and-groups"></a>Gerenciar usuários e grupos
+## <a name="manage-users-and-groups-using-cmd"></a>Gerenciar usuários e grupos usando CMD
 ### <a name="create-local-user-account"></a>Criar conta de usuário local
 `net user /add <username> <password>`
 ### <a name="add-local-user-to-local-group"></a>Adicionar usuário local a grupo local
@@ -150,7 +150,7 @@ Exemplo de linhas de interesse de uma conta de administrador local:
 
 ### <a name="view-local-groups"></a>Exibir grupos locais
 `net localgroup`
-## <a name="manage-the-windows-event-log"></a>Gerenciar o log de eventos do Windows
+## <a name="manage-the-windows-event-log-using-cmd"></a>Gerenciar o log de eventos do Windows usando CMD
 ### <a name="query-event-log-errors"></a>Consultar erros de log de eventos
 `wevtutil qe system /c:10 /f:text /q:"Event[System[Level=2]]" | more`
 
@@ -165,7 +165,7 @@ Altere `/c:10` para o número desejado de eventos a serem retornados ou mova-o p
 Use `604800000` para voltar 7 dias em vez de 24 horas.
 ### <a name="query-event-log-by-event-id-provider-and-eventdata-in-the-last-7-days"></a>Consultar o log de eventos por ID do evento, provedor e dados do evento nos últimos 7 dias
 `wevtutil qe security /c:1 /f:text /q:"Event[System[Provider[@Name='Microsoft-Windows-Security-Auditing'] and EventID=4624 and TimeCreated[timediff(@SystemTime) <= 604800000]] and EventData[Data[@Name='TargetUserName']='<username>']]" | more`
-## <a name="view-or-remove-installed-applications"></a>Exibir ou remover aplicativos instalados
+## <a name="view-or-remove-installed-applications-using-cmd"></a>Exibir ou remover aplicativos instalados usando CMD
 ### <a name="list-installed-applications"></a>Listar aplicativos instalados
 `wmic product get Name,InstallDate | sort /r | more`
 
@@ -175,7 +175,7 @@ Use `604800000` para voltar 7 dias em vez de 24 horas.
 
 Substitua `<name>` pelo nome retornado no comando acima para o aplicativo que você deseja remover.
 
-## <a name="file-system-management"></a>Gerenciamento de sistema de arquivos
+## <a name="file-system-management-using-cmd"></a>Gerenciamento do sistema de arquivos usando CMD
 ### <a name="get-file-version"></a>Obter versão do arquivo
 `wmic datafile where "drive='C:' and path='\\windows\\system32\\drivers\\' and filename like 'netvsc%'" get version /format:list`
 
@@ -206,7 +206,7 @@ O caminho ao utilizar `/restore` precisa ser a pasta pai da pasta que você espe
 ## <a name="manage-group-policy"></a>Gerenciar Política de Grupo
 ### <a name="force-group-policy-update"></a>Forçar atualização da política de grupo
 `gpupdate /force /wait:-1`
-## <a name="miscellaneous-tasks"></a>Ferramentas diversas
+## <a name="miscellaneous-tasks-using-cmd"></a>Tarefas diversas usando CMD
 ### <a name="show-os-version"></a>Exibir versão do SO
 `ver`
 
@@ -259,7 +259,7 @@ Se o comando acima retornar a versão do módulo PSReadLine, execute o comando a
 
 `remove-module psreadline`
 
-## <a name="view-and-edit-windows-registry-settings"></a>Exibir e editar as configurações do registro do Windows
+## <a name="view-and-edit-windows-registry-settings-using-powershell"></a>Exibir e editar as configurações do registro do Windows usando o PowerShell
 ### <a name="verify-rdp-is-enabled"></a>Verificar se o RDP está habilitado
 `get-itemproperty -path 'hklm:\system\curRentcontrolset\control\terminal server' -name 'fdenytsconNections'`
 
@@ -272,7 +272,7 @@ A segunda chave (em \Policies) só existirá se a configuração da política de
 `set-itemproperty -path 'hklm:\software\policies\microsoft\windows nt\terminal services' -name 'fdenytsconNections' 0 -type dword`
 
 A segunda chave (em \Policies) só seria necessária se a configuração da política de grupo relevante tivesse sido configurada. O valor será regravado na próxima atualização de política de grupo, se estiver configurado na política de grupo.
-## <a name="manage-windows-services"></a>Gerenciar Serviços do Windows
+## <a name="manage-windows-services-using-powershell"></a>Gerenciar serviços do Windows usando o PowerShell
 ### <a name="view-service-details"></a>Exibir detalhes do serviço
 `get-wmiobject win32_service -filter "name='termservice'" |  format-list Name,DisplayName,State,StartMode,StartName,PathName,ServiceType,Status,ExitCode,ServiceSpecificExitCode,ProcessId`
 
@@ -291,7 +291,7 @@ Ao usar uma conta de serviço diferente de `NT AUTHORITY\LocalService`, `NT AUTH
 `start-service termservice`
 ### <a name="stop-service"></a>Parar serviço
 `stop-service termservice`
-## <a name="manage-networking-features"></a>Gerenciar recursos de Rede
+## <a name="manage-networking-features-using-powershell"></a>Gerenciar recursos de rede usando o PowerShell
 ### <a name="show-nic-properties"></a>Mostrar propriedades NIC
 `get-netadapter | where {$_.ifdesc.startswith('Microsoft Hyper-V Network Adapter')} |  format-list status,name,ifdesc,macadDresS,driverversion,MediaConNectState,MediaDuplexState`
 
@@ -357,7 +357,7 @@ ou
 `Set-NetFirewallProfile -Profile Domain,Public,Private -Enabled False`
 
 `Set-NetFirewallProfile` está disponível em 2012+. Para 2008R2 use `netsh advfirewall` como mencionado na seção CMD acima.
-## <a name="manage-users-and-groups"></a>Gerenciar usuários e grupos
+## <a name="manage-users-and-groups-using-powershell"></a>Gerenciar usuários e grupos usando o PowerShell
 ### <a name="create-local-user-account"></a>Criar conta de usuário local
 `new-localuser <name>`
 ### <a name="verify-user-account-is-enabled"></a>Verificar se a conta do usuário está habilitada
@@ -386,7 +386,7 @@ ou
 `(get-localgroup).name | sort` `(get-wmiobject win32_group).Name | sort`
 
 `Get-LocalUser` está disponível em 2012+. Para 2008R2 use `Get-WmiObject`.
-## <a name="manage-the-windows-event-log"></a>Gerenciar o log de eventos do Windows
+## <a name="manage-the-windows-event-log-using-powershell"></a>Gerenciar o log de eventos do Windows usando o PowerShell
 ### <a name="query-event-log-errors"></a>Consultar erros de log de eventos
 `get-winevent -logname system -maxevents 1 -filterxpath "*[System[Level=2]]" | more`
 
@@ -401,12 +401,12 @@ Altere `/c:10` para o número desejado de eventos a serem retornados ou mova-o p
 Use `604800000` para voltar 7 dias em vez de 24 horas. |
 ### <a name="query-event-log-by-event-id-provider-and-eventdata-in-the-last-7-days"></a>Consultar o log de eventos por ID do evento, provedor e dados do evento nos últimos 7 dias
 `get-winevent -logname system -maxevents 1 -filterxpath "*[System[Provider[@Name='Microsoft-Windows-Security-Auditing'] and EventID=4624 and TimeCreated[timediff(@SystemTime) <= 604800000]] and EventData[Data[@Name='TargetUserName']='<username>']]" | more`
-## <a name="view-or-remove-installed-applications"></a>Exibir ou remover aplicativos instalados
+## <a name="view-or-remove-installed-applications-using-powershell"></a>Exibir ou remover aplicativos instalados usando o PowerShell
 ### <a name="list-installed-software"></a>Listar software instalado
 `get-wmiobject win32_product | select installdate,name | sort installdate -descending | more`
 ### <a name="uninstall-software"></a>Desinstalar software
 `(get-wmiobject win32_product -filter "Name='<name>'").Uninstall()`
-## <a name="file-system-management"></a>Gerenciamento de sistema de arquivos
+## <a name="file-system-management-using-powershell"></a>Gerenciamento do sistema de arquivos usando o PowerShell
 ### <a name="get-file-version"></a>Obter versão do arquivo
 `(get-childitem $env:windir\system32\drivers\netvsc*.sys).VersionInfo.FileVersion`
 
@@ -415,7 +415,7 @@ Este exemplo retorna a versão do arquivo do driver NIC virtual, que é nomeado 
 `$path='c:\bin';md $path;cd $path;(new-object net.webclient).downloadfile( ('htTp:/'+'/download.sysinternals.com/files/SysinternalsSuite.zip'),"$path\SysinternalsSuite.zip");(new-object -com shelL.apPlication).namespace($path).CopyHere( (new-object -com shelL.apPlication).namespace("$path\SysinternalsSuite.zip").Items(),16)`
 
 Este exemplo cria uma pasta `c:\bin` e, em seguida, baixa e extrai o conjunto de ferramentas Sysinternals para `c:\bin`.
-## <a name="miscellaneous-tasks"></a>Ferramentas diversas
+## <a name="miscellaneous-tasks-using-powershell"></a>Tarefas diversas usando o PowerShell
 ### <a name="show-os-version"></a>Exibir versão do SO
 `get-wmiobject win32_operatingsystem | format-list caption,version,buildnumber`
 ### <a name="view-os-install-date"></a>Exibir data de instalação do SO

@@ -1,18 +1,15 @@
 ---
 title: Criar um painel do portal do Azure usando um modelo do Azure Resource Manager
 description: Saiba como criar um painel do portal do Azure usando um modelo do Azure Resource Manager.
-author: mgblythe
-ms.service: azure-portal
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.author: mblythe
 ms.date: 06/15/2020
-ms.openlocfilehash: fd2d7006e0c13f7e652b4edd973a36f94f2e2265
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 55ac24e48c1c976eca1e6e8e51cf6e88361ec630
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85560502"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745716"
 ---
 # <a name="quickstart-create-a-dashboard-in-the-azure-portal-by-using-an-arm-template"></a>Início Rápido: Criar um painel no portal do Azure usando um modelo do Resource Manager
 

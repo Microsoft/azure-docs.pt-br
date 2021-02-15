@@ -7,13 +7,13 @@ author: derek1ee
 ms.author: deli
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.date: 01/13/2019
-ms.openlocfilehash: 1e6abeff8998e55eb7cbf450d1c3cc32f233e382
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 10/08/2020
+ms.openlocfilehash: 4715d7173dd959d12350229e457717c908a83756
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87065961"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91873227"
 ---
 # <a name="connect-to-on-premises-file-systems-with-azure-logic-apps"></a>Conectar a sistemas de arquivos locais com os Aplicativos Lógicos do Azure
 
@@ -22,6 +22,9 @@ Com os aplicativos lógicos do Azure e o conector do sistema de arquivos, você 
 - Criar, obter, acrescentar, atualizar e excluir arquivos.
 - Listar arquivos em pastas ou pastas raiz.
 - Obter conteúdo e metadados do arquivo.
+
+  > [!IMPORTANT]
+  > Atualmente, o conector do sistema de arquivos só dá suporte a sistemas de arquivos Windows em sistemas operacionais Windows.  
 
 Este artigo mostra como se conectar a um sistema de arquivos local como descrito por este cenário de exemplo: copiar um arquivo carregado no Dropbox para um compartilhamento de arquivos e depois enviar um email. Para se conectar e acessar sistemas locais com segurança, os aplicativos lógicos usam o [gateway de dados local](../logic-apps/logic-apps-gateway-connection.md). Se você for novo em aplicativos lógicos, examine [o que são os aplicativos lógicos do Azure?](../logic-apps/logic-apps-overview.md). Para obter informações técnicas específicas do conector, consulte a [referência do conector do sistema de arquivos](/connectors/filesystem/).
 
@@ -35,7 +38,7 @@ Este artigo mostra como se conectar a um sistema de arquivos local como descrito
 
 * Acesso ao computador que tem o sistema de arquivos que você deseja usar. Por exemplo, se você instalar o gateway de dados no mesmo computador que o sistema de arquivos, precisará das credenciais de conta para esse computador.
 
-* Uma conta de email de um provedor compatível com os Aplicativos Lógicos, como o Outlook do Office 365, o Outlook.com ou o Gmail. Para outros provedores, [revise a lista de conectores aqui](/connectors/). Esso aplicativo lógico usa uma conta do Outlook do Office 365. Se você usar outra conta de email, as etapas gerais são as mesmos, mas a interface do usuário pode ser ligeiramente diferente.
+* Uma conta de email de um provedor compatível com os Aplicativos Lógicos, como o Outlook do Office 365, o Outlook.com ou o Gmail. Para outros provedores, [revise a lista de conectores aqui](/connectors/). Esse aplicativo lógico usa uma conta corporativa ou de estudante. Se você usar outra conta de email, as etapas gerais são as mesmos, mas a interface do usuário pode ser ligeiramente diferente.
 
   > [!IMPORTANT]
   > Se você quiser usar o conector do Gmail, somente as contas comerciais do G Suite poderão usar esse conector sem restrição nos aplicativos lógicos. Se você tiver uma conta de consumidor do Gmail, poderá usar esse conector somente com serviços específicos do Google aprovados ou poderá [criar um aplicativo cliente do Google para usar para autenticação com o conector do Gmail](/connectors/gmail/#authentication-and-bring-your-own-application). Para obter mais informações, confira [Políticas de privacidade e segurança de dados para os conectores do Google nos Aplicativos Lógicos do Azure](../connectors/connectors-google-data-security-privacy-policy.md).
@@ -73,7 +76,7 @@ Este artigo mostra como se conectar a um sistema de arquivos local como descrito
    | **Nome da conexão** | Sim | <*nome da conexão*> | O nome desejado para a conexão |
    | **Pasta raiz** | Sim | <*nome da pasta raiz*> | A pasta raiz do sistema de arquivos, por exemplo, se você tiver instalado seu gateway de dados local, como uma pasta local no computador em que o gateway de dados local está instalado ou a pasta de um compartilhamento de rede que o computador pode acessar. <p>Por exemplo: `\\PublicShare\\DropboxFiles` <p>A pasta raiz é a pasta pai principal, que é usada para caminhos relativos de todas as ações relacionadas ao arquivo. |
    | **Tipo de autenticação** | Não | <*tipo de autenticação*> | O tipo de autenticação que o sistema de arquivos usa: **Windows** |
-   | **Nome de usuário** | Sim | <*domínio* > \\ do < *nome de usuário*> <p>- ou - <p><*computador* > \\ local < *nome de usuário*> | O nome de usuário do computador em que você tem a pasta do sistema de arquivos. <p>Se a sua pasta do sistema de arquivos estiver no mesmo computador que o gateway de dados local, você poderá usar <nome de usuário de *computadores locais* > \\ < *username*>. |
+   | **Nome de usuário** | Sim | <*domínio* > \\ do < *nome de usuário*> <p>-ou- <p><*computador* > \\ local < *nome de usuário*> | O nome de usuário do computador em que você tem a pasta do sistema de arquivos. <p>Se a sua pasta do sistema de arquivos estiver no mesmo computador que o gateway de dados local, você poderá usar <nome de usuário de *computadores locais* > \\ < *username*>. |
    | **Senha** | Sim | <*sua senha*> | A senha do computador no qual você tem seu sistema de arquivos |
    | **Gateway** | Sim | <*installed-gateway-Name*> | O nome do seu gateway instalado anteriormente |
    |||||

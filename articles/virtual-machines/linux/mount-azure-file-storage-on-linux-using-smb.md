@@ -8,11 +8,11 @@ ms.workload: infrastructure
 ms.date: 06/28/2018
 ms.author: cynthn
 ms.openlocfilehash: 6a5d4f388d9e5f47a13812687489525590c520c3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87085479"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016090"
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>Montar o Armazenamento de Arquivos do Azure em VMs Linux usando SMB
 
@@ -59,7 +59,7 @@ STORAGEKEY=$(az storage account keys list \
     --query "[0].value" | tr -d '"')
 ```
 
-## <a name="create-a-file-share"></a>Criar um compartilhamento de arquivos
+## <a name="create-a-file-share"></a>Criar um compartilhamento de arquivo
 
 Criar o compartilhamento de armazenamento de arquivos usando [criar compartilhamento de armazenamento az](/cli/azure/storage/share). 
 

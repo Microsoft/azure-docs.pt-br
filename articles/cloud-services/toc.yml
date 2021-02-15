@@ -1,8 +1,8 @@
-- name: Documentação dos Serviços de Nuvem
+- name: Documentação dos Serviços de Nuvem (clássico)
   href: index.yml
 - name: Visão geral
   items:
-    - name: O que são os Serviços de Nuvem?
+    - name: O que são os Serviços de Nuvem (clássico)?
       href: cloud-services-choose-me.md
     - name: |-
         Arquivos de configuração e empacotamento do 
@@ -14,6 +14,12 @@
       href: cloud-services-dotnet-get-started.md
     - name: Exemplo de Python para o Serviço de Nuvem do Visual Studio
       href: cloud-services-python-ptvs.md
+- name: Conceitos
+  items:
+    - name: Segurança
+      items:
+        - name: Linha de base de segurança
+          href: security-baseline.md
 - name: Instruções
   items:
     - name: Plano
@@ -153,6 +159,8 @@
           href: cloud-services-disaster-recovery-guidance.md
         - name: Fluxo de trabalho de arquitetura clássica de VM
           href: cloud-services-workflow-process.md
+        - name: Suporte do Resource Health para Serviços de Nuvem
+          href: resource-health-for-cloud-services.md
         - name: Perguntas frequentes sobre Serviços de Nuvem
           items:
             - name: Perguntas frequentes de disponibilidade de aplicativos e serviços
@@ -194,7 +202,7 @@
     - name: Roteiro de aprendizagem
       href: /learn/paths/azure-fundamentals/
     - name: Página de perguntas de P e R da Microsoft
-      href: 'https://docs.microsoft.com/answers/topics/azure-cloud-services.html'
+      href: /answers/topics/azure-cloud-services.html
     - name: Preços
       href: 'https://azure.microsoft.com/pricing/details/cloud-services/'
     - name: Calculadora de preço

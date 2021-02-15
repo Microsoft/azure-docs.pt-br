@@ -1,0 +1,11 @@
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+    - name: Serviços Cognitivos
+      tocHref: /azure/cognitive-services/
+      topicHref: /azure/cognitive-services/index
+      items:
+        - name: Leitura Avançada
+          tocHref: /azure/cognitive-services/
+          topicHref: /azure/cognitive-services/immersive-reader/index

@@ -8,12 +8,12 @@ ms.subservice: heavy
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 67547db53d2b9ce05838335ffcb5d789b77ecbbe
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 601e5cf15c47b16c53ff9ca81a56cb613bcfc3f5
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77560213"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006552"
 ---
 # <a name="tutorial-use-the-data-copy-service-to-copy-data-into-azure-data-box-heavy-preview"></a>Tutorial: Usar o serviço de cópia de dados para copiar dados para o Azure Data Box Heavy (versão prévia)
 
@@ -64,7 +64,7 @@ Para copiar dados usando o serviço de cópia de dados, é necessário criar um 
     |**Conta de armazenamento de destino**    |Selecione na lista a conta de armazenamento de destino na qual os dados serão carregados.         |
     |**Tipo de destino**       |Selecione o tipo de armazenamento de destino na lista: **Blob de Blocos**, **Blob de Páginas** ou **Arquivos do Azure**.        |
     |**Contêiner/compartilhamento de destino**    |Insira o nome do contêiner ou do compartilhamento no qual deseja carregar os dados em sua conta de armazenamento de destino. O nome pode ser um nome do compartilhamento ou um nome de contêiner. Por exemplo, use `myshare` ou `mycontainer`. Insira também o nome no formato `sharename\directory_name` ou `containername\virtual_directory_name`.        |
-    |**Copiar arquivos que correspondem a um padrão**    | Você pode inserir o nome do arquivo que corresponde a um padrão das duas seguintes maneiras:<ul><li>**Usar expressões curinga:** Há suporte apenas para `*` e `?` em expressões curinga. Por exemplo, a expressão `*.vhd` corresponde a todos os arquivos que têm a extensão `.vhd`. Da mesma forma, `*.dl?` corresponde a todos os arquivos com a extensão `.dl` ou que começam com `.dl`, como `.dll`. Da mesma forma, `*foo` corresponde a todos os arquivos cujos nomes terminam com `foo`.<br>É possível inserir a expressão curinga diretamente no campo. Por padrão, o valor inserido no campo é tratado como uma expressão curinga.</li><li>**Usar expressões regulares:** Há suporte para expressões regulares baseadas em POSIX. Por exemplo, a expressão regular `.*\.vhd` corresponderá a todos os arquivos que têm a extensão `.vhd`. Para expressões regulares, forneça o `<pattern>` diretamente como `regex(<pattern>)`. Para obter mais informações sobre expressões regulares, acesse [Linguagem de expressões regulares – referência rápida](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference).</li><ul>|
+    |**Copiar arquivos que correspondem a um padrão**    | Você pode inserir o nome do arquivo que corresponde a um padrão das duas seguintes maneiras:<ul><li>**Usar expressões curinga:** Há suporte apenas para `*` e `?` em expressões curinga. Por exemplo, a expressão `*.vhd` corresponde a todos os arquivos que têm a extensão `.vhd`. Da mesma forma, `*.dl?` corresponde a todos os arquivos com a extensão `.dl` ou que começam com `.dl`, como `.dll`. Da mesma forma, `*foo` corresponde a todos os arquivos cujos nomes terminam com `foo`.<br>É possível inserir a expressão curinga diretamente no campo. Por padrão, o valor inserido no campo é tratado como uma expressão curinga.</li><li>**Usar expressões regulares:** Há suporte para expressões regulares baseadas em POSIX. Por exemplo, a expressão regular `.*\.vhd` corresponderá a todos os arquivos que têm a extensão `.vhd`. Para expressões regulares, forneça o `<pattern>` diretamente como `regex(<pattern>)`. Para obter mais informações sobre expressões regulares, acesse [Linguagem de expressões regulares – referência rápida](/dotnet/standard/base-types/regular-expression-language-quick-reference).</li><ul>|
     |**Otimização de arquivo**              |Quando esse recurso é habilitado, os arquivos menores que 1 MB são empacotados durante a ingestão. Esse empacotamento agiliza a cópia de dados para arquivos pequenos. Ele também economiza uma quantidade de tempo significativa quando o número de arquivos é muito maior do que o número de diretórios.        |
  
 4. Selecione **Iniciar**. As entradas são validadas e, se a validação é bem-sucedida, o trabalho é iniciado. Poderá levar alguns minutos para o trabalho ser iniciado.
@@ -147,4 +147,3 @@ Avance para o próximo tutorial para saber como enviar seu dispositivo Data Box 
 
 > [!div class="nextstepaction"]
 > [Enviar o dispositivo Azure Data Box Heavy para a Microsoft](./data-box-heavy-deploy-picked-up.md)
-

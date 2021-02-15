@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 10/25/2018
 ms.author: troyhop
-ms.openlocfilehash: 302b863e7ad7d6df286adf53342356f279ab92d2
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 1fe86aef832223a7485036343b4b12d8bb526e06
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "61450492"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96852380"
 ---
 # <a name="tutorial-create-a-custom-simulated-device"></a>Tutorial: Criar um dispositivo simulado personalizado
 
@@ -34,15 +34,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 Para seguir este tutorial, você precisará de uma instância implantada da Simulação de Dispositivo em sua assinatura do Azure.
 
-Se você ainda não implantou a Simulação de Dispositivo, conclua o início rápido [Implantar e executar uma simulação de dispositivo IoT no Azure](quickstart-device-simulation-deploy.md).
-
-## <a name="open-device-simulation"></a>Abrir a Simulação de Dispositivo
-
-Para executar a Simulação de Dispositivo no navegador, primeiro navegue até [Aceleradores de Solução do Microsoft Azure IoT](https://www.azureiotsolutions.com).
-
-Você pode ser solicitado a entrar usando suas credenciais da assinatura do Azure.
-
-Em seguida, clique em **Iniciar** no bloco Simulação de Dispositivo que você implantou no início rápido [Implantar e executar uma simulação de dispositivo IoT no Azure](quickstart-device-simulation-deploy.md).
+Se você ainda não implantou a Simulação de Dispositivo, confira [Implantação da Simulação de Dispositivo](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md) no GitHub.
 
 ## <a name="view-your-device-models"></a>Exibir seus modelos de dispositivo
 
@@ -88,7 +80,7 @@ A clonagem de um modelo de dispositivo permite a criação de uma cópia de um m
 
 Para clonar um modelo de dispositivo, marque a caixa ao lado do modelo e clique em **Clonar** na barra de ações:
 
-![Excluir modelo de dispositivo](media/iot-accelerators-device-simulation-create-custom-device/clonedevice.png)
+![Captura de tela que realça o modelo selecionado e o botão Clonar.](media/iot-accelerators-device-simulation-create-custom-device/clonedevice.png)
 
 ## <a name="delete-a-device-model"></a>Excluir um modelo de dispositivo
 

@@ -4,16 +4,16 @@ description: Descreve como mover um recurso de Azure Analysis Services para uma 
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: how-to
-ms.date: 06/09/2020
+ms.date: 12/01/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: 4844f3e34a6b49559affbb4d4ed7bc5b5e38e538
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 049ff6d14c3967481eb73037814082fa261154e3
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87050365"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96497921"
 ---
 # <a name="move-analysis-services-to-a-different-region"></a>Mover Analysis Services para uma região diferente
 
@@ -73,9 +73,9 @@ Para exportar um modelo com o portal do Azure:
 
 1. Entre no [portal do Azure](https://portal.azure.com).
 
-2. Selecione **todos os recursos**e, em seguida, selecione o servidor de Analysis Services.
+2. Selecione **todos os recursos** e, em seguida, selecione o servidor de Analysis Services.
 
-3. Selecione **configurações**de >  >  **modelo de exportação**.
+3. Selecione **configurações** de >  >  **modelo de exportação**.
 
 4. Escolha **baixar** na folha **Exportar modelo** .
 
@@ -88,7 +88,7 @@ Para exportar um modelo com o portal do Azure:
 
 Para exportar um modelo usando o PowerShell:
 
-1. Entre em sua assinatura do Azure com o comando [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) e siga as instruções na tela:
+1. Entre em sua assinatura do Azure com o comando [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) e siga as instruções na tela:
 
    ```azurepowershell-interactive
    Connect-AzAccount
@@ -123,7 +123,7 @@ Para obter uma assinatura de acesso compartilhado usando o portal:
 
 1. No portal, selecione a conta de armazenamento usada para fazer backup do banco de dados do servidor.
 
-2. Selecione **Gerenciador de armazenamento**e, em seguida, EXPANDa **contêineres de blob**. 
+2. Selecione **Gerenciador de armazenamento** e, em seguida, EXPANDa **contêineres de blob**. 
 
 3. Clique com o botão direito do mouse no contêiner de armazenamento e selecione **obter assinatura de acesso compartilhado**.
 
@@ -177,7 +177,7 @@ Para modificar o modelo:
 
 #### <a name="regions"></a>Regiões
 
-Para obter regiões do Azure, confira [locais do Azure](https://azure.microsoft.com/global-infrastructure/locations/). Para obter regiões usando o PowerShell, execute o comando [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) .
+Para obter regiões do Azure, confira [locais do Azure](https://azure.microsoft.com/global-infrastructure/locations/). Para obter regiões usando o PowerShell, execute o comando [Get-AzLocation](/powershell/module/az.resources/get-azlocation) .
 
 ```azurepowershell-interactive
    Get-AzLocation | format-table 
@@ -191,7 +191,7 @@ Para implantar um novo recurso de servidor em uma região diferente, você usar�
 
 1. No portal, selecione **criar um recurso**.
 
-2. Em **Pesquisar no Marketplace**, digite **implantação de modelo**e pressione **Enter**.
+2. Em **Pesquisar no Marketplace**, digite **implantação de modelo** e pressione **Enter**.
 
 3. Selecione **implantação de modelo**.
 
@@ -199,17 +199,17 @@ Para implantar um novo recurso de servidor em uma região diferente, você usar�
 
 5. Selecione **Criar seu próprio modelo no editor**.
 
-6. Selecione **carregar arquivo**e siga as instruções para carregar o **template.jsno** arquivo que você exportou e modificou.
+6. Selecione **carregar arquivo** e siga as instruções para carregar o **template.jsno** arquivo que você exportou e modificou.
 
 7. Verifique se o editor de modelo mostra as propriedades corretas para o novo servidor de destino.
 
-8. Clique em **Salvar**.
+8. Selecione **Salvar**.
 
 9. Insira ou selecione os valores de propriedade:
 
     - **Assinatura**: selecione a assinatura do Azure.
     
-    - **Grupo de recursos**: selecione **criar novo**e insira um nome de grupo de recursos. Você pode selecionar um grupo de recursos existente desde que ele ainda não contenha um servidor de Analysis Services com o mesmo nome.
+    - **Grupo de recursos**: selecione **criar novo** e insira um nome de grupo de recursos. Você pode selecionar um grupo de recursos existente desde que ele ainda não contenha um servidor de Analysis Services com o mesmo nome.
     
     - **Local**: selecione a mesma região que você especificou no modelo.
 
@@ -278,9 +278,9 @@ Opcional: depois de restaurar o banco de dados modelo, processe o modelo e as ta
 
 Opcional: o [Alm Toolkit](http://alm-toolkit.com/) é uma *ferramenta de software* livre para comparar e gerenciar conjuntos de dados Power bi e Analysis Services bancos de dados *de* modelo de tabela. Use o kit de ferramentas para se conectar aos bancos de dados do servidor de origem e de destino e comparar. Se a migração do banco de dados for bem-sucedida, os objetos de modelo terão a mesma definição. 
 
-:::image type="content" source="media/move-between-regions/alm-toolkit.png" alt-text="Kit de ferramentas ALM":::
+:::image type="content" source="media/move-between-regions/alm-toolkit.png" alt-text="ALM Toolkit":::
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Depois de verificar se os aplicativos cliente podem se conectar ao novo servidor e todos os scripts de automação estiverem sendo executados corretamente, exclua o servidor de origem. 
 
@@ -301,4 +301,4 @@ Remove-AzAnalysisServicesServer -Name "myserver" -ResourceGroupName "myResourceG
 ---
 
 > [!NOTE]
-> Depois de concluir uma movimentação de região, é recomendável que o novo servidor de destino use um contêiner de armazenamento na mesma região para backups, em vez do contêiner de armazenamento na região do servidor de origem. 
+> Depois de concluir uma movimentação de região, é recomendável que o novo servidor de destino use um contêiner de armazenamento na mesma região para backups, em vez do contêiner de armazenamento na região do servidor de origem.

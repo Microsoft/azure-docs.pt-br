@@ -7,16 +7,16 @@ ms.date: 07/07/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 4c41edc477460e6d239688aafe6d7219bed36cd4
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 7d33811dc056baa3d205d7d86c1bdd7bff74ae54
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87352118"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92329995"
 ---
-# <a name="iot-plug-and-play-components-in-models"></a>Componentes de Plug and Play IoT em modelos
+# <a name="iot-plug-and-play-components-in-models"></a>Componentes de IoT Plug and Play em modelos
 
-Nas convenções de Plug and Play IoT, um dispositivo será um dispositivo IoT Plug and Play se ele apresentar sua ID de modelo de DTDL (linguagem de definição de gêmeos digital) quando se conectar a um hub IoT.
+Nas convenções de IoT Plug and Play, um dispositivo será um dispositivo IoT Plug and Play se apresentar sua ID de modelo de DTDL (linguagem de definição de gêmeos digitais) quando se conectar a um hub IoT.
 
 O trecho a seguir mostra algumas IDs de modelo de exemplo:
 
@@ -56,7 +56,7 @@ O exemplo a seguir mostra parte de um modelo simples que não usa componentes:
 ...
 ```
 
-Embora o modelo não defina explicitamente um componente, ele se comporta como se houver um único componente com todas as definições de telemetria, propriedade e comando.
+Embora o modelo não defina explicitamente um componente, ele se comporta como se há um único _componente padrão_, com todas as definições de telemetria, propriedade e comando.
 
 A captura de tela a seguir mostra como o modelo é exibido na ferramenta do Azure IoT Explorer:
 
@@ -64,9 +64,12 @@ A captura de tela a seguir mostra como o modelo é exibido na ferramenta do Azur
 
 A ID do modelo é armazenada em uma propriedade mydo dispositivo, como mostra a captura de tela a seguir:
 
-:::image type="content" source="media/concepts-components/twin-model-id.png" alt-text="ID do modelo na propriedade de propriedades digitais":::
+:::image type="content" source="media/concepts-components/twin-model-id.png" alt-text="Componente padrão no Azure IoT Explorer":::
 
-Um modelo DTDL sem componentes é uma simplificação útil para um dispositivo com um único conjunto de telemetria, propriedades e comandos. Um modelo que não usa componentes facilita a migração de um dispositivo existente para um dispositivo IoT Plug and Play-você cria um modelo DTDL que descreve o dispositivo real sem a necessidade de definir nenhum componente.
+Um modelo de DTDL sem componentes é uma simplificação útil para um dispositivo ou IoT Edge módulo com um único conjunto de comandos, propriedades e telemetria. Um modelo que não usa componentes facilita a migração de um dispositivo ou módulo existente para ser um dispositivo IoT Plug and Play ou módulo-você cria um modelo DTDL que descreve seu dispositivo ou módulo real sem a necessidade de definir quaisquer componentes.
+
+> [!TIP]
+> Um módulo pode ser um [módulo](../iot-hub/iot-hub-devguide-module-twins.md) de dispositivo ou um [módulo IOT Edge](../iot-edge/about-iot-edge.md).
 
 ## <a name="multiple-components"></a>Vários componentes
 
@@ -79,12 +82,12 @@ Para um modelo DTDL com vários componentes, há duas ou mais seções de compon
 ```json
 {
   "@context": "dtmi:dtdl:context;2",
-  "@id": "dtmi:com:example:Thermostat;1",
+  "@id": "dtmi:com:example:TemperatureController;1",
   "@type": "Interface",
-  "displayName": "Thermostat",
-  "description": "Reports current temperature and provides desired temperature control.",
+  "displayName": "Temperature Controller",
+  "description": "Device with two thermostats and remote reboot.",
   "contents": [
-... 
+...
     {
       "@type" : "Component",
       "schema": "dtmi:com:example:Thermostat;1",
@@ -109,11 +112,12 @@ Para um modelo DTDL com vários componentes, há duas ou mais seções de compon
 ...
 ```
 
-Esse modelo tem três componentes definidos na seção conteúdo-dois `Thermostat` componentes e um `DeviceInformation` componente. Também há um componente raiz padrão.
+Esse modelo tem três componentes definidos na seção conteúdo-dois `Thermostat` componentes e um `DeviceInformation` componente. Também há um componente padrão.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Agora que você aprendeu sobre componentes de modelo, aqui estão alguns recursos adicionais:
 
+- [Instalar e usar as ferramentas de criação do DTDL](howto-use-dtdl-authoring-tools.md)
 - [DTDL (digital gêmeos Definition Language) V2](https://github.com/Azure/opendigitaltwins-dtdl)
 - [Repositórios de modelo](./concepts-model-repository.md)

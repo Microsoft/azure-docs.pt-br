@@ -12,12 +12,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - 'Role: System Architecture'
-ms.openlocfilehash: 33c878b2af64a72212a8aac060e9ccac83b79a53
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 455f1f3e1c8181646fbe165d0f1aea6a2fb2fb13
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326504"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150702"
 ---
 # <a name="device-authentication-using-x509-ca-certificates"></a>Autenticação de dispositivo usando certificados de AC X.509
 
@@ -27,6 +27,8 @@ Este artigo descreve como usar certificados de autoridade de certificação (AC)
 * Como registrar seu certificado de autoridade de certificação X.509 no Hub IoT
 * Como assinar dispositivos usando certificados de AC X.509
 * Como são autenticados os dispositivos assinados com a AC X.509
+
+[!INCLUDE [iot-hub-include-x509-ca-signed-support-note](../../includes/iot-hub-include-x509-ca-signed-support-note.md)]
 
 ## <a name="overview"></a>Visão geral
 
@@ -88,4 +90,4 @@ Saiba mais aqui como [concluir essa etapa de conexão do dispositivo](iot-hub-se
 
 Saiba mais sobre [o valor da autenticação da AC X.509](iot-hub-x509ca-concept.md) em IoT.
 
-Introdução ao [Serviço de Provisionamento de Dispositivos](https://docs.microsoft.com/azure/iot-dps/) no Hub IoT.
+Introdução ao [Serviço de Provisionamento de Dispositivos](../iot-dps/index.yml) no Hub IoT.

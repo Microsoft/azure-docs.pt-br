@@ -1,27 +1,31 @@
 ---
-title: Como atualizar um serviço de nuvem | Microsoft Docs
+title: Como atualizar um serviço de nuvem (clássico) | Microsoft Docs
 description: Saiba como atualizar os serviços de nuvem no Azure. Saiba como uma atualização em um serviço de nuvem é realizada para garantir a disponibilidade.
-services: cloud-services
-author: tgore03
-ms.service: cloud-services
 ms.topic: article
-ms.date: 04/19/2017
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 731f4e8cc8a93f33d6887f44fc8d09585e92a75a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 5d85003ca7b4307c308914484502ae03269f66ac
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75360337"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98741104"
 ---
-# <a name="how-to-update-a-cloud-service"></a>Como atualizar um serviço de nuvem
+# <a name="how-to-update-an-azure-cloud-service-classic"></a>Como atualizar um serviço de nuvem do Azure (clássico)
+
+> [!IMPORTANT]
+> Os [serviços de nuvem do Azure (suporte estendido)](../cloud-services-extended-support/overview.md) são um novo modelo de implantação baseado em Azure Resource Manager para o produto de serviços de nuvem do Azure.Com essa alteração, os serviços de nuvem do Azure em execução no modelo de implantação baseado no Azure Service Manager foram renomeados como serviços de nuvem (clássicos) e todas as novas implantações devem usar os [serviços de nuvem (suporte estendido)](../cloud-services-extended-support/overview.md).
 
 A atualização de um serviço de nuvem, incluindo suas funções e o SO convidado, é um processo que envolve três etapas. Primeiro, os binários e os arquivos de configuração do novo serviço de nuvem, ou a versão do sistema operacional, devem ser carregados. Em seguida, o Azure reserva recursos de computação e de rede para o serviço de nuvem com base nos requisitos da nova versão do serviço de nuvem. Por fim, o Azure executa uma atualização sem interrupção a fim de atualizar de forma incremental o locatário para a nova versão ou o SO convidado, preservando a disponibilidade. Este artigo discute os detalhes desta última etapa – a atualização sem interrupção.
 
 ## <a name="update-an-azure-service"></a>Atualizar um serviço do Azure
 O Azure organiza suas instâncias de função em agrupamentos lógicos chamados de domínios de atualização (UD). Os domínios de atualização (UD) são conjuntos lógicos de instâncias de função que são atualizados como um grupo.  O Azure atualiza um serviço de nuvem um UD por vez, o que permite que instâncias em outros UDs continuem a atender ao tráfego.
 
-O número padrão de domínios de atualização é de cinco. Você pode especificar um número diferente de domínios de atualização incluindo o atributo upgradeDomainCount no arquivo de definição do serviço (.csdef). Para obter mais informações sobre o atributo upgradeDomainCount, consulte [esquema de definição de serviços de nuvem do Azure (arquivo. csdef)](https://docs.microsoft.com/azure/cloud-services/schema-csdef-file).
+O número padrão de domínios de atualização é de cinco. Você pode especificar um número diferente de domínios de atualização incluindo o atributo upgradeDomainCount no arquivo de definição do serviço (.csdef). Para obter mais informações sobre o atributo upgradeDomainCount, consulte [esquema de definição de serviços de nuvem do Azure (arquivo. csdef)](./schema-csdef-file.md).
 
 Quando você executa uma atualização in-loco de uma ou mais funções em seu serviço, o Azure atualiza conjuntos de instâncias de função de acordo com o domínio de atualização ao qual elas pertencem. O Azure atualiza todas as instâncias em um determinado domínio de atualização. Ele faz isso interrompendo as atualizações, atualizando-as, colocando-as online novamente e, em seguida, passando-as para o próximo domínio. Ao interromper somente as instâncias em execução no domínio de atualização atual, o Azure garante que uma atualização ocorrerá com o menor impacto possível no serviço em execução. Para saber mais, veja [Como atualizar os lucros](#howanupgradeproceeds) posteriormente neste artigo.
 
@@ -182,7 +186,4 @@ O diagrama a seguir ilustra como é a distribuição de um serviço que contém 
 ## <a name="next-steps"></a>Próximas etapas
 [Como gerenciar serviços de nuvem](cloud-services-how-to-manage-portal.md)  
 [Como monitorar serviços de nuvem](cloud-services-how-to-monitor.md)  
-[Como configurar serviços de nuvem](cloud-services-how-to-configure-portal.md)  
-
-
-
+[Como configurar serviços de nuvem](cloud-services-how-to-configure-portal.md)

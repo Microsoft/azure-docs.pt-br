@@ -5,12 +5,12 @@ ms.assetid: f7091b25-b2b6-48da-8d4a-dcf9b7baccab
 ms.topic: article
 ms.date: 08/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8085cbd3d19bd60c50de38950625de2fcd1e5c27
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 617a2717a1d1265d067cb3e1f26531d135d47941
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962478"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91743906"
 ---
 # <a name="scale-up-an-app-in-azure-app-service"></a>Escalar verticalmente um aplicativo no Serviço de Aplicativo do Azure
 
@@ -36,7 +36,7 @@ Para obter informações sobre os preços e recursos de planos individuais do Se
 ## <a name="scale-up-your-pricing-tier"></a>Escale verticalmente seu tipo de preço
 
 > [!NOTE]
-> Para expandir para o tipo de preço **PremiumV2**, consulte [Configurar o tipo de preço PremiumV2 para o Serviço de Aplicativo](app-service-configure-premium-tier.md).
+> Para escalar verticalmente para a camada **PremiumV3** , consulte [Configurar a camada PremiumV3 para o serviço de aplicativo](app-service-configure-premium-tier.md).
 >
 
 1. No seu navegador, abra o [portal do Azure][portal].
@@ -78,7 +78,7 @@ Para uma tabela de limites de serviço, cotas, restrições e recursos com supor
 ## <a name="more-resources"></a>Mais recursos
 
 [Escalonar a contagem de instâncias manualmente ou automaticamente](../azure-monitor/platform/autoscale-get-started.md)  
-[Configurar o nível PremiumV2 do Serviço de Aplicativo](app-service-configure-premium-tier.md)
+[Configurar camada de PremiumV3 para o serviço de aplicativo](app-service-configure-premium-tier.md)
 
 <!-- LINKS -->
 [vmsizes]:https://azure.microsoft.com/pricing/details/app-service/

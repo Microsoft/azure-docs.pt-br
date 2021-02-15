@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 02373da114b6dc4663cd3ffc9a0780ac6a7a9e23
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5e6a5d414c341f482c3fddf95a2f8bb8e55a3ca2
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75482979"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168538"
 ---
 # <a name="configure-rules-and-manage-alerts"></a>Configurar regras e gerenciar alertas
 
@@ -21,12 +21,12 @@ O Azure FarmBeats permite que você crie regras com base na lógica de negócios
 1. Na home page, vá para **regras**.
 2. Selecione **nova regra**. A janela nova regra é exibida.
 
-    ![Projeto do FarmBeats](./media/configure-rules-and-alerts-in-azure-farmbeats/new-rule-1.png)
+    ![Captura de tela que realça o botão nova regra e a seção nova regra.](./media/configure-rules-and-alerts-in-azure-farmbeats/new-rule-1.png)
 
 3. Insira o **nome da regra** e a **Descrição da regra** e, em seguida, selecione um farm no menu suspenso **selecionar Farm** .
 4. Digite o nome do farm para selecionar a seção farm e **condições** aparece na mesma janela.  
 
-    ![Projeto do FarmBeats](./media/configure-rules-and-alerts-in-azure-farmbeats/new-rule-condition-1.png)
+    ![Captura de tela que realça a seção de condições.](./media/configure-rules-and-alerts-in-azure-farmbeats/new-rule-condition-1.png)
 
 5. Em **condições**, insira os valores para **medida**, **operador** e **valor**.
 6. Digite o nome da medida no menu suspenso **medida** .
@@ -34,7 +34,7 @@ O Azure FarmBeats permite que você crie regras com base na lógica de negócios
 8. Selecione o **nível de severidade**.
 9. Em **ação**, alterne o botão de alternância **email habilitado** para habilitar alertas de email.
 
-    ![Projeto do FarmBeats](./media/configure-rules-and-alerts-in-azure-farmbeats/new-rule-email-1.png)
+    ![Captura de tela que mostra a opção de email habilitado.](./media/configure-rules-and-alerts-in-azure-farmbeats/new-rule-email-1.png)
 
 10. Insira os **endereços de email** para os quais você deseja enviar o alerta por email, juntamente com o **assunto do email** e as **observações adicionais**.  
 11. No **status da regra**, alterne para o botão de alternância **habilitado** para habilitar ou desabilitar a regra.
@@ -53,7 +53,7 @@ A página do **farm** exibe a lista de regras disponíveis. Selecione um **nome 
  - Lista de condições  
  - Número de dispositivos afetados pela regra
 
-    ![Projeto do FarmBeats](./media/configure-rules-and-alerts-in-azure-farmbeats/view-rule-1.png)
+    ![Captura de tela que mostra os detalhes da regra.](./media/configure-rules-and-alerts-in-azure-farmbeats/view-rule-1.png)
 
 ## <a name="edit-rule"></a>Editar regra
 
@@ -63,11 +63,11 @@ Para editar uma regra, siga estas etapas:
    A janela regras é exibida.
 2. Selecione a regra para a qual você deseja editar.
 
-    ![Projeto do FarmBeats](./media/configure-rules-and-alerts-in-azure-farmbeats/edit-rule-action-bar-1.png)
+    ![Captura de tela que mostra a regra selecionada.](./media/configure-rules-and-alerts-in-azure-farmbeats/edit-rule-action-bar-1.png)
 
 3. Selecione **Editar** na barra de ações, a janela **Editar regra** é exibida.
 
-    ![Projeto do FarmBeats](./media/configure-rules-and-alerts-in-azure-farmbeats/edit-rule-one-1.png)
+    ![Captura de tela que mostra as telas de editar regra.](./media/configure-rules-and-alerts-in-azure-farmbeats/edit-rule-one-1.png)
 
 4. Altere o **nome da regra**e a **Descrição da regra** e, em seguida, selecione um farm no menu suspenso **selecionar Farm** .
 5. Digite o nome do farm para selecionar o farm e as **condições** aparecerão na mesma janela.  
@@ -75,7 +75,7 @@ Para editar uma regra, siga estas etapas:
 7. Digite o nome da medida no menu suspenso **medida** .
 8. Selecione **+ Adicionar condição** para adicionar/editar condições para as regras.
 
-    ![Projeto do FarmBeats](./media/configure-rules-and-alerts-in-azure-farmbeats/edit-rule-two-1.png)
+    ![Captura de tela que realça o botão Adicionar condição.](./media/configure-rules-and-alerts-in-azure-farmbeats/edit-rule-two-1.png)
 
 9.  Selecione o **nível de severidade**.  
 10. Em **ação**, alterne o botão de alternância **email habilitado** para habilitar alertas de email.
@@ -91,11 +91,11 @@ Para alterar o status de uma regra, siga estas etapas:
 1. Na home page, selecione **regras** no menu de navegação à esquerda. A janela regras é exibida.
 2. Selecione a regra para a qual você deseja alterar o status.
 
-    ![Projeto do FarmBeats](./media/configure-rules-and-alerts-in-azure-farmbeats/change-status-rule-action-bar-1.png)
+    ![Captura de tela que mostra o botão Alterar status.](./media/configure-rules-and-alerts-in-azure-farmbeats/change-status-rule-action-bar-1.png)
 
 3. Selecione **Alterar status** na barra de ação. A janela **status da alteração** é exibida.
 
-    ![Projeto do FarmBeats](./media/configure-rules-and-alerts-in-azure-farmbeats/rule-change-status-1.png)
+    ![Captura de tela que mostra as telas de status de alteração.](./media/configure-rules-and-alerts-in-azure-farmbeats/rule-change-status-1.png)
 
 3. Altere o status da regra usando o botão de alternância **Alterar status** .
    Você pode exibir o número de dispositivos que serão afetados pela regra.
@@ -108,7 +108,7 @@ Para excluir uma regra, siga estas etapas:
 1. Na home page, selecione **regras** no menu de navegação à esquerda. A janela regras é exibida.
 2. Selecione a regra para a qual você deseja excluir.
 
-    ![Projeto do FarmBeats](./media/configure-rules-and-alerts-in-azure-farmbeats/delete-rule-action-bar-1.png)
+    ![Captura de tela que realça o botão de exclusão.](./media/configure-rules-and-alerts-in-azure-farmbeats/delete-rule-action-bar-1.png)
 
 3. Selecione **excluir** na barra de ação.
 

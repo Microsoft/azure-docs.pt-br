@@ -8,14 +8,17 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 07/10/2018
 ms.author: dobett
-ms.openlocfilehash: b53177d578768428665891704269e63bd8edb09e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 797bd97940aa49db87b4ca4dd96f140208cd69b6
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73820170"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011210"
 ---
 # <a name="use-features-in-the-connected-factory-solution-accelerator-dashboard"></a>Use funcionalidades no painel do acelerador de solução da Fábrica Conectada
+
+> [!IMPORTANT]
+> Enquanto atualizamos este artigo, confira [IoT Industrial do Azure](https://azure.github.io/Industrial-IoT/) para obter o conteúdo mais atualizado.
 
 O guia de início rápido [implantar uma solução baseada em nuvem para gerenciar meus dispositivos de IoT industriais](quickstart-connected-factory-deploy.md) mostrou como o painel de navegar e responder aos alarmes. Este guia de instruções mostra alguns recursos adicionais do painel que você pode usar para monitorar e gerenciar seus dispositivos de IoT industriais.
 
@@ -66,7 +69,7 @@ Ao procurar um *servidor OPC UA simulado*, você também pode optar por publicar
 
 1. Navegue até um nó na árvore do navegador de servidor OPC UA que você deseja publicar.
 
-1. Clique com o botão direito do mouse no nó. Clicar em **Publicar**:
+1. Clique com o botão direito do mouse no nó. Clique em **publicar**:
 
     [![Nó de publicação do Solution Accelerator da fábrica conectada](./media/iot-accelerators-connected-factory-dashboard/publishnode-inline.png)](./media/iot-accelerators-connected-factory-dashboard/publishnode-expanded.png#lightbox)
 

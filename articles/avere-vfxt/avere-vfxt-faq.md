@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/19/2019
 ms.author: rohogue
 ms.custom: references_regions
-ms.openlocfilehash: c6459e2daf17772b28ee53289754deb33b4823ae
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: 647a9792384a21dfc191371ef444cbdc098bc819
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88272684"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342358"
 ---
 # <a name="avere-vfxt-for-azure-faq"></a>Perguntas frequentes do Avere vFXT para Azure
 
@@ -160,7 +160,7 @@ Não há suporte para desanexar e anexar novamente os SSDs. Os metadados ou o co
 
 ### <a name="does-the-system-encrypt-the-cache"></a>O sistema criptografa o cache?
 
-Os dados são distribuídos entre os discos, mas não são criptografados. No entanto, os discos em si podem ser criptografados. Para obter mais informações, consulte [Proteger e usar políticas em máquinas virtuais no Azure](https://docs.microsoft.com/azure/virtual-machines/linux/security-policy#encryption).
+Os dados são distribuídos entre os discos, mas não são criptografados. No entanto, os discos em si podem ser criptografados. Para obter mais informações, consulte [Proteger e usar políticas em máquinas virtuais no Azure](../virtual-machines/security-policy.md#encryption).
 
 ## <a name="technical-networking"></a>Técnico: rede
 
@@ -259,7 +259,7 @@ Não. O SLA (Contrato de Nível de Serviço) para o armazenamento de arquivos n�
 
 O armazenamento de blobs de camada fria geralmente não é recomendado para um avere vFXT para o Azure Core Filer. A camada fria oferece custos de armazenamento menores, mas custos de operações mais altos. (Consulte [preço do blob de blocos](<https://azure.microsoft.com/pricing/details/storage/blobs/>) para obter mais detalhes.) Se os dados forem acessados e modificados ou excluídos com frequência, considere o uso da camada quente.
 
-As [camadas de acesso](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers#cool-access-tier) fornecem mais informações sobre quando pode fazer sentido usar o armazenamento de camada fria como um vFXT Core Filer.
+As [camadas de acesso](../storage/blobs/storage-blob-storage-tiers.md#cool-access-tier) fornecem mais informações sobre quando pode fazer sentido usar o armazenamento de camada fria como um vFXT Core Filer.
 
 ### <a name="how-do-i-encrypt-the-blob-container"></a>Como fazer para criptografar o contêiner de blob?
 

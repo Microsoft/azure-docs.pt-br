@@ -5,19 +5,22 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 06/24/2020
-ms.author: iainfou
-author: iainfoulds
+ms.date: 10/01/2020
+ms.author: justinha
+author: justinha
 manager: daveba
-ms.reviewer: scottsta
-ms.openlocfilehash: 084c50a67fe332751a3679da4c97f67d414ebb94
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.reviewer: calui
+ms.openlocfilehash: 4e39d7f15e3ca3c6e241c767a5f881d7170c6379
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87419522"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99255960"
 ---
 # <a name="sign-in-to-azure-active-directory-using-email-as-an-alternate-login-id-preview"></a>Entrar no Azure Active Directory usando o email como uma ID de logon alternativa (versão prévia)
+
+> [!NOTE]
+> A entrada no Azure Active Directory com o email como uma ID de logon alternativa é uma versão prévia do recurso do Azure Active Directory. Para saber mais sobre versões prévias, consulte os [Termos de Uso Complementares para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Muitas organizações desejam permitir que os usuários entrem no Azure Active Directory (Azure AD) usando as mesmas credenciais que o seu ambiente de diretório local. Com essa abordagem, conhecida como autenticação híbrida, os usuários só precisam se lembrar de um conjunto de credenciais.
 
@@ -29,8 +32,13 @@ Algumas organizações não migraram para autenticação híbrida pelos seguinte
 
 Para ajudar com a mudança para a autenticação híbrida, agora você pode configurar o Azure AD para permitir que os usuários entrem com um email em seu domínio verificado como uma ID de logon alternativa. Por exemplo, se *Contoso* for rebatizado como *Fabrikam*, em vez de continuar a entrar com o UPN herdado `balas@contoso.com`, será possível usar o email como uma ID de logon alternativa. Para acessar um aplicativo ou serviços, os usuários entrarão no Azure AD usando seus emails atribuídos, como `balas@fabrikam.com` .
 
+Este artigo mostra como habilitar e usar email como uma ID de logon alternativa. Esse recurso está disponível na edição do Azure AD Gratuito e superior.
+
 > [!NOTE]
-> A entrada no Azure Active Directory com o email como uma ID de logon alternativa é uma versão prévia do recurso do Azure Active Directory. Para saber mais sobre versões prévias, consulte os [Termos de Uso Complementares para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Esse recurso destina-se somente a usuários autenticados na nuvem do Azure AD.
+
+> [!NOTE]
+> Atualmente, esse recurso não tem suporte em dispositivos Windows 10 ingressados no Azure AD para locatários com autenticação na nuvem. Esse recurso não é aplicável a dispositivos ingressados no Azure AD híbrido.
 
 ## <a name="overview-of-azure-ad-sign-in-approaches"></a>Visão geral das abordagens de entrada no Azure Active Directory
 
@@ -45,6 +53,8 @@ A solução alternativa típica para esse problema era definir o UPN do Azure AD
 Uma abordagem diferente é sincronizar o Azure AD e os UPNs locais com o mesmo valor e, em seguida, configurar o Azure AD para permitir que os usuários entrem no Azure AD com um email verificado. Para fornecer essa capacidade, você define um ou mais endereços de email no atributo *proxyAddresses* do usuário no diretório local. Os *proxyAddresses* são então sincronizados com o Azure ad automaticamente usando Azure ad Connect.
 
 ## <a name="preview-limitations"></a>Limitações de visualização
+
+Entre no Azure AD com o email como uma ID de logon alternativa está disponível na edição do Azure AD Gratuito e superior.
 
 No estado de visualização atual, as seguintes limitações se aplicam quando um usuário entra com um email não UPN como uma ID de logon alternativa:
 
@@ -103,7 +113,7 @@ Na versão preliminar, só é possível habilitar a entrada com o email como um 
 1. Verifique se a política *HomeRealmDiscoveryPolicy* já existe em seu locatário usando o cmdlet [Get-AzureADPolicy][Get-AzureADPolicy] da seguinte maneira:
 
     ```powershell
-    Get-AzureADPolicy | where-object {$_.Type -eq "HomeRealmDiscoveryPolicy"} | fl *
+    Get-AzureADPolicy | Where-Object Type -eq "HomeRealmDiscoveryPolicy" | Format-List *
     ```
 
 1. Se não houver políticas configuradas no momento, o comando não retornará nada. Se uma política for retornada, ignore essa etapa e vá para a próxima etapa para atualizar uma política atual.
@@ -111,10 +121,22 @@ Na versão preliminar, só é possível habilitar a entrada com o email como um 
     Para adicionar a política *HomeRealmDiscoveryPolicy* ao locatário, use o cmdlet [New-AzureADPolicy][New-AzureADPolicy] e defina o atributo *AlternateIdLogin* como *"Enabled": true*, conforme mostrado no exemplo a seguir:
 
     ```powershell
-    New-AzureADPolicy -Definition @('{"HomeRealmDiscoveryPolicy" :{"AlternateIdLogin":{"Enabled": true}}}') `
-        -DisplayName "BasicAutoAccelerationPolicy" `
-        -IsOrganizationDefault $true `
-        -Type "HomeRealmDiscoveryPolicy"
+    $AzureADPolicyDefinition = @(
+      @{
+         "HomeRealmDiscoveryPolicy" = @{
+            "AlternateIdLogin" = @{
+               "Enabled" = $true
+            }
+         }
+      } | ConvertTo-JSON -Compress
+    )
+    $AzureADPolicyParameters = @{
+      Definition            = $AzureADPolicyDefinition
+      DisplayName           = "BasicAutoAccelerationPolicy"
+      IsOrganizationDefault = $true
+      Type                  = "HomeRealmDiscoveryPolicy"
+    }
+    New-AzureADPolicy @AzureADPolicyParameters
     ```
 
     Quando a política tiver sido criada com êxito, o comando retornará a ID da política, conforme mostrado na seguinte saída de exemplo:
@@ -146,17 +168,31 @@ Na versão preliminar, só é possível habilitar a entrada com o email como um 
     O exemplo a seguir adiciona o atributo  *AlternateIdLogin* e preserva o atributo  *AllowCloudPasswordValidation*, que pode já ter sido definido:
 
     ```powershell
-    Set-AzureADPolicy -id b581c39c-8fe3-4bb5-b53d-ea3de05abb4b `
-        -Definition @('{"HomeRealmDiscoveryPolicy" :{"AllowCloudPasswordValidation":true,"AlternateIdLogin":{"Enabled": true}}}') `
-        -DisplayName "BasicAutoAccelerationPolicy" `
-        -IsOrganizationDefault $true `
-        -Type "HomeRealmDiscoveryPolicy"
+    $AzureADPolicyDefinition = @(
+      @{
+         "HomeRealmDiscoveryPolicy" = @{
+            "AllowCloudPasswordValidation" = $true
+            "AlternateIdLogin" = @{
+               "Enabled" = $true
+            }
+         }
+      } | ConvertTo-JSON -Compress
+    )
+    $AzureADPolicyParameters = @{
+      ID                    = "b581c39c-8fe3-4bb5-b53d-ea3de05abb4b"
+      Definition            = $AzureADPolicyDefinition
+      DisplayName           = "BasicAutoAccelerationPolicy"
+      IsOrganizationDefault = $true
+      Type                  = "HomeRealmDiscoveryPolicy"
+    }
+    
+    Set-AzureADPolicy @AzureADPolicyParameters
     ```
 
     Confirme se a política atualizada mostra as alterações e se o atributo *AlternateIdLogin* agora está habilitado:
 
     ```powershell
-    Get-AzureADPolicy | where-object {$_.Type -eq "HomeRealmDiscoveryPolicy"} | fl *
+    Get-AzureADPolicy | Where-Object Type -eq "HomeRealmDiscoveryPolicy" | Format-List *
     ```
 
 Com a política aplicada, pode levar até uma hora para se propagar e para que os usuários possam entrar usando sua ID de logon alternativa.
@@ -164,6 +200,77 @@ Com a política aplicada, pode levar até uma hora para se propagar e para que o
 ## <a name="test-user-sign-in-with-email"></a>Testar entrada do usuário com email
 
 Para testar se os usuários conseguem entrar com o email, navegue até [https://myprofile.microsoft.com][my-profile] e entre com uma conta de usuário a partir do endereço de email, como `balas@fabrikam.com`, não a partir do UPN, como `balas@contoso.com`. A experiência de entrada deve ser parecida com a de um evento de entrada baseado em UPN.
+
+## <a name="enable-staged-rollout-to-test-user-sign-in-with-an-email-address"></a>Habilitar a distribuição em etapas para testar a entrada do usuário com um endereço de email  
+
+A [distribuição em etapas][staged-rollout] permite que os administradores de inquilinos habilitem recursos para grupos específicos. É recomendável que os administradores de locatários usem a distribuição em etapas para testar a entrada do usuário com um endereço de email. Quando os administradores estão prontos para implantar esse recurso em todo o locatário, eles devem usar uma política de descoberta de realm inicial.  
+
+
+Você precisa de permissões de *administrador de locatários* para concluir as seguintes etapas:
+
+1. Abra uma sessão do PowerShell como administrador e, em seguida, instale o módulo *AzureADPreview* usando o cmdlet [install-Module][Install-Module] :
+
+    ```powershell
+    Install-Module AzureADPreview
+    ```
+
+    Se solicitado, escolha **Y** para instalar o NuGet ou instalar a partir de um repositório não confiável.
+
+2. Entre no seu locatário do Azure Active Directory como um *administrador de locatários* usando o cmdlet do [Connect-AzureAD][Connect-AzureAD]:
+
+    ```powershell
+    Connect-AzureAD
+    ```
+
+    O comando retorna informações sobre sua conta, seu ambiente e sua ID de locatário.
+
+3. Liste todas as políticas de distribuição em etapas existentes usando o seguinte cmdlet:
+   
+   ```powershell
+   Get-AzureADMSFeatureRolloutPolicy
+   ``` 
+
+4. Se não houver políticas de distribuição em etapas existentes para esse recurso, crie uma nova política de distribuição em etapas e anote a ID da política:
+
+   ```powershell
+   $AzureADMSFeatureRolloutPolicy = @{
+      Feature    = "EmailAsAlternateId"
+      DisplayName = "EmailAsAlternateId Rollout Policy"
+      IsEnabled   = $true
+   }
+   New-AzureADMSFeatureRolloutPolicy @AzureADMSFeatureRolloutPolicy
+   ```
+
+5. Localize a ID do diretórioobject para o grupo a ser adicionado à política de distribuição em etapas. Observe o valor retornado para o parâmetro *ID* , pois ele será usado na próxima etapa.
+   
+   ```powershell
+   Get-AzureADMSGroup -SearchString "Name of group to be added to the staged rollout policy"
+   ```
+
+6. Adicione o grupo à política de distribuição em etapas, conforme mostrado no exemplo a seguir. Substitua o valor no parâmetro *-ID* pelo valor retornado para a ID de política na etapa 4 e substitua o valor no parâmetro *-RefObjectId* pela *ID* anotada na etapa 5. Pode levar até 1 hora para que os usuários no grupo possam usar seus endereços de proxy para entrar.
+
+   ```powershell
+   Add-AzureADMSFeatureRolloutPolicyDirectoryObject -Id "ROLLOUT_POLICY_ID" -RefObjectId "GROUP_OBJECT_ID"
+   ```
+   
+Para novos membros adicionados ao grupo, pode levar até 24 horas para que eles possam usar seus endereços de proxy para entrar.
+
+### <a name="removing-groups"></a>Removendo grupos
+
+Para remover um grupo de uma política de distribuição em etapas, execute o seguinte comando:
+
+```powershell
+Remove-AzureADMSFeatureRolloutPolicyDirectoryObject -Id "ROLLOUT_POLICY_ID" -ObjectId "GROUP_OBJECT_ID" 
+```
+
+### <a name="removing-policies"></a>Removendo políticas
+
+Para remover uma política de distribuição em etapas, primeiro desabilite a política e remova-a do sistema:
+
+```powershell
+Set-AzureADMSFeatureRolloutPolicy -Id "ROLLOUT_POLICY_ID" -IsEnabled $false 
+Remove-AzureADMSFeatureRolloutPolicy -Id "ROLLOUT_POLICY_ID"
+```
 
 ## <a name="troubleshoot"></a>Solucionar problemas
 
@@ -174,7 +281,7 @@ Se os usuários tiverem problemas com eventos de entrada usando o endereço de e
 1. Confirme se a política *HomeRealmDiscoveryPolicy* do Azure Active Directory tem o atributo *AlternateIdLogin* definido como *"Enabled": true*:
 
     ```powershell
-    Get-AzureADPolicy | where-object {$_.Type -eq "HomeRealmDiscoveryPolicy"} | fl *
+    Get-AzureADPolicy | Where-Object Type -eq "HomeRealmDiscoveryPolicy" | Format-List *
     ```
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -198,4 +305,5 @@ Para obter mais informações sobre operações de identidade híbrida, veja [Co
 [Get-AzureADPolicy]: /powershell/module/azuread/get-azureadpolicy
 [New-AzureADPolicy]: /powershell/module/azuread/new-azureadpolicy
 [Set-AzureADPolicy]: /powershell/module/azuread/set-azureadpolicy
+[staged-rollout]: /powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#staged-rollout
 [my-profile]: https://myprofile.microsoft.com

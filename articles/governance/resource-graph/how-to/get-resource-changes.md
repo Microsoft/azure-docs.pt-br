@@ -1,14 +1,14 @@
 ---
 title: Obter alterações de recurso
 description: Entenda como localizar quando um recurso foi alterado, obter uma lista das propriedades que foram alteradas e avaliar as diferenças.
-ms.date: 08/10/2020
+ms.date: 01/27/2021
 ms.topic: how-to
-ms.openlocfilehash: 02dfd2b8b66cd09be39a44166a0fd62bb13c8395
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 58dcb7256b0876d5e7fa9d7569db102538f92bab
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056560"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98917413"
 ---
 # <a name="get-resource-changes"></a>Obter alterações de recurso
 
@@ -28,7 +28,7 @@ A detecção de alterações e os detalhes são importantes para os seguintes ce
 Este artigo mostra como reunir essas informações por meio do SDK do Resource Graph. Para ver essas informações na portal do Azure, consulte [histórico de alterações](../../policy/how-to/determine-non-compliance.md#change-history) de Azure Policy ou o [histórico de alterações](../../../azure-monitor/platform/activity-log.md#view-the-activity-log) do log de atividades do Azure. Para obter detalhes sobre as alterações em seus aplicativos da camada de infraestrutura até a implantação do aplicativo, consulte [Usar a Análise de Alterações de Aplicativo (versão prévia)](../../../azure-monitor/app/change-analysis.md) no Azure Monitor.
 
 > [!NOTE]
-> Os detalhes de alteração no Resource Graph para as propriedades do Resource Manager. Para controlar as alterações dentro de uma máquina virtual, consulte [Controlar alterações](../../../automation/change-tracking.md) da Automação do Azure ou [Configuração de convidado para VMs](../../policy/concepts/guest-configuration.md) de Azure Policy.
+> Os detalhes de alteração no Resource Graph para as propriedades do Resource Manager. Para controlar as alterações dentro de uma máquina virtual, consulte [Controlar alterações](../../../automation/change-tracking/overview.md) da Automação do Azure ou [Configuração de convidado para VMs](../../policy/concepts/guest-configuration.md) de Azure Policy.
 
 > [!IMPORTANT]
 > O histórico de alterações no Azure Resource Graph está em visualização pública.
@@ -279,7 +279,7 @@ A resposta é semelhante a este exemplo:
 }
 ```
 
-**beforeSnapshot** e **afterSnapshot** cada uma delas fornecem o tempo que o instantâneo foi tirado e as propriedades nesse momento. A alteração ocorreu em algum ponto entre esses instantâneos. Observando o exemplo acima, podemos ver que a propriedade alterada foi **supportsHttpsTrafficOnly**.
+**beforeSnapshot** e **afterSnapshot** cada uma delas fornecem o tempo que o instantâneo foi tirado e as propriedades nesse momento. A alteração ocorreu em algum ponto entre esses instantâneos. Observando o exemplo anterior, podemos ver que a propriedade alterada foi **supportsHttpsTrafficOnly**.
 
 Para comparar os resultados, use a propriedade **changes** no **resourceChanges** ou avalie a parte **content** de cada instantâneo no **resourceChangeDetails** para determinar a diferença. Se você comparar os instantâneos, o **carimbo de data/hora** sempre será mostrado como uma diferença, apesar de ser esperado.
 

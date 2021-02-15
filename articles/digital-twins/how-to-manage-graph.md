@@ -4,23 +4,33 @@ titleSuffix: Azure Digital Twins
 description: Veja como gerenciar um grafo de gêmeos digital conectando-os com relações.
 author: baanders
 ms.author: baanders
-ms.date: 4/10/2020
+ms.date: 11/03/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 7f7239e0c13478af712d8e8d9dad8fda23fe42c7
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: e5009e59477e6862c4441090a6480075c9e22385
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87125525"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100526776"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>Gerenciar um grafo de gêmeos digital usando relações
 
-O coração do Azure digital gêmeos é o [grafo de entrelaçamento](concepts-twins-graph.md) que representa todo o seu ambiente. O gráfico de entrelaçamento é composto de gêmeos digitais individuais conectados por meio de **relações**.
+O coração do Azure digital gêmeos é o [grafo de entrelaçamento](concepts-twins-graph.md) que representa todo o seu ambiente. O gráfico de entrelaçamento é feito de gêmeos digitais individuais conectados por meio de **relações**. 
 
-Depois que você tiver uma [instância do gêmeos do Azure digital](how-to-set-up-instance-scripted.md) em funcionamento e tiver configurado o código de [autenticação](how-to-authenticate-client.md) em seu aplicativo cliente, poderá usar as [**APIs do DigitalTwins**](how-to-use-apis-sdks.md) para criar, modificar e excluir gêmeos digitais e suas relações em uma instância do gêmeos digital do Azure. Você também pode usar o [SDK do .net (C#)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)ou a [CLI do gêmeos digital do Azure](how-to-use-cli.md).
+Depois que você tiver uma [instância do gêmeos do Azure digital](how-to-set-up-instance-portal.md) em funcionamento e tiver configurado o código de [autenticação](how-to-authenticate-client.md) em seu aplicativo cliente, poderá usar as [**APIs do DigitalTwins**](/rest/api/digital-twins/dataplane/twins) para criar, modificar e excluir gêmeos digitais e suas relações em uma instância do gêmeos digital do Azure. Você também pode usar o [SDK do .net (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true)ou a [CLI do gêmeos digital do Azure](how-to-use-cli.md).
 
 Este artigo se concentra no gerenciamento de relações e no grafo como um todo; para trabalhar com gêmeos digitais individuais, consulte [*como gerenciar o digital gêmeos*](how-to-manage-twin.md).
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+[!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
+
+## <a name="ways-to-manage-graph"></a>Maneiras de gerenciar o Graph
+
+[!INCLUDE [digital-twins-ways-to-manage.md](../../includes/digital-twins-ways-to-manage.md)]
+
+Você também pode fazer alterações em seu grafo usando o exemplo do Explorer do gêmeos (ADT) do Azure digital, que permite visualizar o gêmeos e o grafo e usa o SDK nos bastidores. A próxima seção descreve esse exemplo em detalhes.
 
 [!INCLUDE [visualizing with Azure Digital Twins explorer](../../includes/digital-twins-visualization.md)]
 
@@ -28,280 +38,161 @@ Este artigo se concentra no gerenciamento de relações e no grafo como um todo;
 
 As relações descrevem como diferentes gêmeos digitais são conectadas entre si, que formam a base do grafo de entrelaçamento.
 
-As relações são criadas usando a `CreateRelationship` chamada. 
+As relações são criadas usando a `CreateOrReplaceRelationshipAsync()` chamada. 
 
 Para criar uma relação, você precisa especificar:
-* A ID de fonte de código de origem (o "File", onde a relação se origina)
-* A ID de bidirecional de destino (o filetreme onde a relação chega)
-* Um nome de relação
-* Uma ID de relação
+* A ID de fonte de origem ( `srcId` no exemplo de código abaixo): a ID do "My" para onde a relação se origina.
+* O ID de entrelaçamento de destino ( `targetId` no exemplo de código abaixo): a ID do ' filetreme "onde a relação chega.
+* Um nome de relação ( `relName` no exemplo de código abaixo): o tipo genérico de relationship, algo como _Contains_.
+* Uma ID de relação ( `relId` no exemplo de código abaixo): o nome específico para essa relação, algo como _Relationship1_.
 
 A ID da relação deve ser exclusiva dentro da fonte fornecida. Ele não precisa ser globalmente exclusivo.
-Por exemplo, para o *filefoo*, cada ID de relação específica deve ser exclusiva. No entanto, outra *barra* de entrelaçamento pode ter uma relação de saída que corresponde à mesma ID de uma relação *foo* . 
+Por exemplo, para o *filefoo*, cada ID de relação específica deve ser exclusiva. No entanto, outra *barra* de entrelaçamento pode ter uma relação de saída que corresponde à mesma ID de uma relação *foo* .
 
-O exemplo de código a seguir ilustra como adicionar uma relação à instância de gêmeos digital do Azure.
+O exemplo de código a seguir ilustra como criar uma relação em sua instância de gêmeos digital do Azure.
 
-```csharp
-public async static Task CreateRelationship(DigitalTwinsClient client, string srcId, string targetId)
-{
-    var relationship = new BasicRelationship
-    {
-        TargetId = targetId,
-        Name = "contains"
-    };
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="CreateRelationshipMethod":::
 
-    try
-    {
-        string relId = $"{srcId}-contains->{targetId}";
-        await client.CreateRelationshipAsync(srcId, relId, JsonSerializer.Serialize(relationship));
-        Console.WriteLine("Created relationship successfully");
-    }
-    catch (RequestFailedException rex) {
-        Console.WriteLine($"Create relationship error: {rex.Status}:{rex.Message}");
-    }
-}
-```
+Em seu método principal, agora você pode chamar a função personalizada para criar uma relação _Contains_ como esta: 
 
-Para obter mais informações sobre a classe auxiliar `BasicRelationship` , consulte [*How-to: Use the Azure digital gêmeos APIs and SDKs*](how-to-use-apis-sdks.md).
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="UseCreateRelationship":::
+
+Se você quiser criar várias relações, poderá repetir as chamadas para o mesmo método, passando tipos de relação diferentes para o argumento. 
+
+Para obter mais informações sobre a classe auxiliar `BasicRelationship` , consulte [*How-to: Use the Azure digital gêmeos APIs and SDKs*](how-to-use-apis-sdks.md#serialization-helpers).
+
+### <a name="create-multiple-relationships-between-twins"></a>Criar várias relações entre gêmeos
+
+As relações podem ser classificadas como: 
+
+* Relações de saída: relações que pertencem a esta conexão que aponta para fora para conectá-lo a outros gêmeos. O `GetRelationshipsAsync()` método é usado para obter relações de saída de um entrelaçamento.
+* Relações de entrada: relações que pertencem a outros gêmeos que apontam para esse entrelaçamento para criar um link de "entrada". O `GetIncomingRelationshipsAsync()` método é usado para obter relações de entrada de um entrelaçamento.
+
+Não há nenhuma restrição quanto ao número de relações que você pode ter entre dois gêmeos — você pode ter quantas relações entre gêmeos desejar. 
+
+Isso significa que você pode expressar vários tipos diferentes de relações entre duas gêmeos ao mesmo tempo. Por exemplo, *a* bificar a pode ter uma relação *armazenada* e uma relação *fabricada* com a *n º B*.
+
+Você pode até mesmo criar várias instâncias do mesmo tipo de relação entre os mesmos dois gêmeos, se desejar. Neste exemplo, a "n" pode ter duas relações *armazenadas* diferentes com a *n* º de cima, desde que as relações tenham *IDs de relação* diferentes.
 
 ## <a name="list-relationships"></a>Listar relações
 
-Para acessar a lista de relações de um determinado matreme no grafo, você pode usar:
+Para acessar a lista de relações de **saída** para um determinado tenda no grafo, você pode usar o `GetRelationships()` método como este:
 
-```csharp
-await client.GetRelationshipsAsync(id);
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="GetRelationshipsCall":::
 
-Isso retorna um `Azure.Pageable<T>` ou `Azure.AsyncPageable<T>` , dependendo de se você usar a versão síncrona ou assíncrona da chamada.
+Isso retorna um `Azure.Pageable<T>` ou `Azure.AsyncPageable<T>` , dependendo se você usa a versão síncrona ou assíncrona da chamada.
 
-Aqui está um exemplo completo que recupera uma lista de relações:
+Aqui está um exemplo que recupera uma lista de relações:
 
-```csharp
-public async Task<List<BasicRelationship>> FindOutgoingRelationshipsAsync(string dtId)
-{
-    // Find the relationships for the twin
-    try
-    {
-        // GetRelationshipsAsync will throw if an error occurs
-        AsyncPageable<string> relsJson = client.GetRelationshipsAsync(dtId);
-        List<BasicRelationship> results = new List<BasicRelationship>();
-        await foreach (string relJson in relsJson)
-        {
-            var rel = System.Text.Json.JsonSerializer.Deserialize<BasicRelationship>(relJson);
-            results.Add(rel);
-        }
-        return results;
-    }
-    catch (RequestFailedException ex)
-    {
-        Log.Error($"*** Error {ex.Status}/{ex.ErrorCode} retrieving relationships for {dtId} due to {ex.Message}");
-        return null;
-    }
-}
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="FindOutgoingRelationshipsMethod":::
 
-Você pode usar as relações recuperadas para navegar para outros gêmeos em seu grafo. Para fazer isso, leia o `target` campo da relação retornada e use-o como a ID para a próxima chamada para `GetDigitalTwin` . 
+Agora você pode chamar esse método personalizado para ver as relações de saída do gêmeos como esta:
 
-### <a name="find-relationships-to-a-digital-twin"></a>Localizar relações com uma teledigital
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="UseFindOutgoingRelationships":::
 
-O gêmeos digital do Azure também tem uma API para localizar todas as relações de entrada para um determinado. Isso geralmente é útil para navegação reversa ou ao excluir um "r".
+Você pode usar as relações recuperadas para navegar para outros gêmeos em seu grafo. Para fazer isso, leia o `target` campo da relação retornada e use-o como a ID para a próxima chamada para `GetDigitalTwin()` .
 
-O exemplo de código anterior concentrou-se na localização de relações de saída. O exemplo a seguir é semelhante, mas localiza relações de entrada em vez disso. Ele também os exclui quando eles são encontrados.
+### <a name="find-incoming-relationships-to-a-digital-twin"></a>Localizar relações de entrada para um email digital
+
+O gêmeos digital do Azure também tem uma API para localizar todas as relações de **entrada** para um determinado. Isso geralmente é útil para navegação reversa ou ao excluir um "r".
+
+O exemplo de código anterior se concentrou na localização de relações de saída de um ".". O exemplo a seguir é estruturado da mesma forma, mas localiza as relações de *entrada* para a.
 
 Observe que as `IncomingRelationship` chamadas não retornam o corpo completo da relação.
 
-```csharp
-async Task<List<IncomingRelationship>> FindIncomingRelationshipsAsync(string dtId)
-{
-    // Find the relationships for the twin
-    try
-    {
-        // GetRelationshipsAsync will throw an error if a problem occurs
-        AsyncPageable<IncomingRelationship> incomingRels = client.GetIncomingRelationshipsAsync(dtId);
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="FindIncomingRelationshipsMethod":::
 
-        List<IncomingRelationship> results = new List<IncomingRelationship>();
-        await foreach (IncomingRelationship incomingRel in incomingRels)
-            results.Add(incomingRel);
-    }
-    catch (RequestFailedException ex)
-    {
-        Log.Error($"*** Error {ex.Status}/{ex.ErrorCode} retrieving incoming relationships for {dtId} due to {ex.Message}");
-    }
-}
-```
+Agora você pode chamar esse método personalizado para ver as relações de entrada do gêmeos assim:
+
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="UseFindIncomingRelationships":::
+
+### <a name="list-all-twin-properties-and-relationships"></a>Listar todas as propriedades e relações de entrelaçamento
+
+Usando os métodos acima para listar as relações de saída e de entrada para um tipo de dados, você pode criar um método que imprima as informações de cópias completas, incluindo as propriedades de ' s ' e os dois tipos de suas relações. Aqui está um exemplo de método personalizado que mostra como fazer isso.
+
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="FetchAndPrintMethod":::
+
+Agora você pode chamar essa função personalizada em seu método principal como este: 
+
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="UseFetchAndPrint":::
+
+## <a name="update-relationships"></a>Atualizar relações
+
+As relações são atualizadas usando o `UpdateRelationship` método. 
+
+>[!NOTE]
+>Esse método é para atualizar as **Propriedades** de uma relação. Se você precisar alterar o conjunto de fontes de gêmeos ou de destino da relação, será necessário [excluir a relação](#delete-relationships) e [recriá-](#create-relationships) la usando o novo.
+
+Os parâmetros necessários para a chamada do cliente são a ID da fonte de armazenamento (o d "d", onde a relação se origina), a ID da relação a ser atualizada e um documento de [patch JSON](http://jsonpatch.com/) que contém as propriedades e os novos valores que você gostaria de atualizar.
+
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="UpdateRelationshipMethod":::
+
+Aqui está um exemplo de uma chamada para esse método personalizado, passando um documento de patch JSON com as informações para atualizar uma propriedade.
+
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="UseUpdateRelationship":::
 
 ## <a name="delete-relationships"></a>Excluir relações
 
-Você pode excluir relações usando `DeleteRelationship(source, relId);` .
-
 O primeiro parâmetro especifica a fonte de los (o nome do entrelaçado no qual a relação se origina). O outro parâmetro é a ID da relação. Você precisa da ID de FileUp e da ID de relação, pois as IDs de relação são exclusivas apenas no escopo de um entrelaçamento.
 
-## <a name="create-a-twin-graph"></a>Criar um gráfico de entrelaçamento 
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="DeleteRelationshipMethod":::
 
-O trecho de código a seguir usa as operações de relação deste artigo para criar um grafo de entrelaçamento de gêmeos e relações digitais.
+Agora você pode chamar esse método personalizado para excluir uma relação como esta:
 
-```csharp
-static async Task CreateTwins()
-{
-    // Create twins - see utility functions below 
-    await CreateRoom("Room01", 68, 50, false, "");
-    await CreateRoom("Room02", 70, 66, true, "EId-00124");
-    await CreateFloorOrBuilding("Floor01", makeFloor:true);
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="UseDeleteRelationship":::
 
-    // Create relationships
-    await AddRelationship("Floor01", "contains", "Floor-to-Room01", "Room01");
-    await AddRelationship("Floor01", "contains", "Floor-to-Room02", "Room02");
-}
+## <a name="runnable-twin-graph-sample"></a>Exemplo de monograph executável
 
-static async Task<bool> AddRelationship(string source, string relationship, string id, string target)
-{
-    var relationship = new BasicRelationship
-    {
-        TargetId = target,
-        Name = relationship
-    };
+O seguinte trecho de código executável usa as operações de relação deste artigo para criar um grafo de bispersão de gêmeos e relações digitais.
 
-    try
-    {
-        string relId = $"{source}-contains->{target}";
-        await client.CreateRelationshipAsync(source, relId, JsonSerializer.Serialize(relationship));
-        Console.WriteLine("Created relationship successfully");
-        return true;
-    }
-    catch (RequestFailedException rex) {
-        Console.WriteLine($"Create relationship error: {rex.Status}:{rex.Message}");
-        return false;
-    }
-}
+### <a name="set-up-the-runnable-sample"></a>Configurar o exemplo executável
 
-static async Task<bool> CreateRoom(string id, double temperature, double humidity)
-{
-    BasicDigitalTwin twin = new BasicDigitalTwin();
-    twin.Metadata = new DigitalTwinMetadata();
-    twin.Metadata.ModelId = "dtmi:com:contoso:Room;2";
-    // Initialize properties
-    Dictionary<string, object> props = new Dictionary<string, object>();
-    props.Add("Temperature", temperature);
-    props.Add("Humidity", humidity);
-    twin.CustomProperties = props;
-    
-    try
-    {
-        client.CreateDigitalTwin(id, JsonSerializer.Serialize<BasicDigitalTwin>(twin)); 
-        return true;       
-    }
-    catch (ErrorResponseException e)
-    {
-        Console.WriteLine($"*** Error creating twin {id}: {e.Response.StatusCode}"); 
-        return false;
-    }
-}
+O trecho de código usa o [*Room.js*](https://github.com/Azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Room.json) e [*Floor.jsem*](https://github.com/azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Floor.json) definições de modelo do [*tutorial: explorar o gêmeos digital do Azure com um aplicativo cliente de exemplo*](tutorial-command-line-app.md). Você pode usar esses links para ir diretamente para os arquivos ou baixá-los como parte do projeto de exemplo completo de ponta a ponta [aqui](/samples/azure-samples/digital-twins-samples/digital-twins-samples/). 
 
-static async Task<bool> CreateFloorOrBuilding(string id, bool makeFloor=true)
-{
-    string type = "dtmi:com:contoso:Building;3";
-    if (makeFloor==true)
-        type = "dtmi:com:contoso:Floor;2";
-    BasicDigitalTwin twin = new BasicDigitalTwin();
-    twin.Metadata = new DigitalTwinMetadata();
-    twin.Metadata.ModelId = type;
-    // Initialize properties
-    Dictionary<string, object> props = new Dictionary<string, object>();
-    props.Add("AverageTemperature", 0);
-    twin.CustomProperties = props;
-    
-    try
-    {
-        client.CreateDigitalTwin(id, JsonSerializer.Serialize<BasicDigitalTwin>(twin));  
-        return true;      
-    }
-    catch (ErrorResponseException e)
-    {
-        Console.WriteLine($"*** Error creating twin {id}: {e.Response.StatusCode}"); 
-        return false;
-    }
-}
-```
+Antes de executar o exemplo, faça o seguinte:
+1. Baixe os arquivos de modelo, coloque-os em seu projeto e substitua os `<path-to>` espaços reservados no código abaixo para informar o programa onde encontrá-los.
+2. Substitua o espaço reservado `<your-instance-hostname>` pelo nome de host da instância do gêmeos digital do Azure.
+3. Adicione duas dependências ao seu projeto que serão necessárias para trabalhar com o gêmeos digital do Azure. A primeira é o pacote do [SDK dos Gêmeos Digitais do Azure para .NET](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true), e a segunda fornece ferramentas para ajudar com a autenticação no Azure.
 
-### <a name="create-a-twin-graph-from-a-spreadsheet"></a>Criar um gráfico de entrelaçamento de uma planilha
+      ```cmd/sh
+      dotnet add package Azure.DigitalTwins.Core
+      dotnet add package Azure.Identity
+      ```
 
-Em casos de uso prático, muitas vezes, as hierarquias de entrelaçamento serão criadas a partir dos dados armazenados em um banco de dado diferente ou talvez em uma planilha. Esta seção ilustra como uma planilha pode ser analisada.
+Você também precisará configurar as credenciais locais se desejar executar o exemplo diretamente. A próxima seção descreve isso.
+[!INCLUDE [Azure Digital Twins: local credentials prereq (outer)](../../includes/digital-twins-local-credentials-outer.md)]
 
-Considere a tabela de dados a seguir, descrevendo um conjunto de gêmeos e relações digitais a serem criadas.
+### <a name="run-the-sample"></a>Execute o exemplo
 
-| Modelo    | ID | Pai | Nome da Relação | Outros dados |
+Depois de concluir as etapas acima, você poderá executar diretamente o código de exemplo a seguir.
+
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs":::
+
+Aqui está a saída do console do programa acima: 
+
+:::image type="content" source="./media/how-to-manage-graph/console-output-twin-graph.png" alt-text="Saída do console mostrando os detalhes de entrelaçamento, as relações de entrada e saída do gêmeos." lightbox="./media/how-to-manage-graph/console-output-twin-graph.png":::
+
+> [!TIP]
+> O gráfico de entrelaçamento é um conceito de criação de relações entre gêmeos. Se você quiser exibir a representação visual do grafo de entrelaçamento, consulte a seção [*Visualização*](how-to-manage-graph.md#visualization) deste artigo. 
+
+## <a name="create-graph-from-a-csv-file"></a>Criar grafo a partir de um arquivo CSV
+
+Em casos de uso prático, muitas vezes, as hierarquias de entrelaçamento serão criadas a partir dos dados armazenados em um banco de dado diferente, ou talvez em uma planilha ou em um arquivo CSV. Esta seção ilustra como ler dados de um arquivo CSV e criar um gráfico de cima para fora dele.
+
+Considere a tabela de dados a seguir, descrevendo um conjunto de gêmeos e relações digitais.
+
+|  ID do Modelo    | ID de entrelaça (deve ser exclusivo) | Nome da Relação  | ID do entrelaçado de destino  | Dados de inicialização de entrelaçamento |
 | --- | --- | --- | --- | --- |
-| floor    | Floor01 | | | … |
-| quarto    | Room10 | Floor01 | contains | … |
-| quarto    | Room11 | Floor01 | contains | … |
-| quarto    | Room12 | Floor01 | contains | … |
-| floor    | Floor02 | | | … |
-| quarto    | Room21 | Floor02 | contains | … |
-| quarto    | Room22 | Floor02 | contains | … |
+| dtmi: exemplo: Floor; 1    | Floor1 | contém | Room1 | |
+| dtmi: exemplo: Floor; 1    | Floor0 | contém | Room0 | |
+| dtmi: exemplo: sala; 1    | Room1 | | | {"Temperatura": 80} |
+| dtmi: exemplo: sala; 1    | Room0 | | | {"Temperatura": 70} |
 
-O código a seguir usa a [API Microsoft Graph](https://docs.microsoft.com/graph/overview) para ler uma planilha e construir um grafo do Azure digital gêmeos bispersão dos resultados.
+Uma maneira de obter esses dados no Azure digital gêmeos é converter a tabela em um arquivo CSV e gravar o código para interpretar o arquivo em comandos para criar gêmeos e relações. O exemplo de código a seguir ilustra a leitura dos dados do arquivo CSV e a criação de um grafo de entrelaçamento no Azure digital gêmeos.
 
-```csharp
-var range = msftGraphClient.Me.Drive.Items["BuildingsWorkbook"].Workbook.Worksheets["Building"].usedRange;
-JsonDocument data = JsonDocument.Parse(range.values);
-List<BasicRelationship> RelationshipRecordList = new List<BasicRelationship>();
-foreach (JsonElement row in data.RootElement.EnumerateArray())
-{
-    string type = row[0].GetString();
-    string id = row[1].GetString();
-    string relSource = row[2].GetString();
-    string relName = row[3].GetString();
-    // Parse spreadsheet extra data into a JSON string to initialize the digital twin
-    // Left out for compactness
-    Dictionary<string, object> initData = new Dictionary<string, object>() { ... };
+No código abaixo, o arquivo CSV é chamado de *data.csv*, e há um espaço reservado que representa o **nome do host** da instância de gêmeos digital do Azure. O exemplo também usa vários pacotes que você pode adicionar ao seu projeto para ajudar com esse processo.
 
-    if (relSource != null)
-    {
-        BasicRelationship br = new BasicRelationship()
-        {
-            SourceId = relSource,
-            TargetId = id,
-            Name = relName
-        };
-        RelationshipRecordList.Add(br);
-    }
-
-    BasicDigitalTwin twin = new BasicDigitalTwin();
-    twin.CustomProperties = initData;
-    // Set the type of twin to be created
-    switch (type)
-    {
-        case "room":
-            twin.Metadata = new DigitalTwinMetadata() { ModelId = "dtmi:com:contoso:Room;2" };
-            break;
-        case "floor":
-            twin.Metadata = new DigitalTwinMetadata() { ModelId = "dtmi:com:contoso:Floor;2" };
-            break;
-        ... handle additional types
-    }
-    try
-    {
-        client.CreateDigitalTwin(id, JsonSerializer.Serialize<BasicDigitalTwin>(twin));
-    }
-    catch (RequestFailedException e)
-    {
-        Log.Error($"Error {e.Status}: {e.Message}");
-    }
-    foreach (BasicRelationship rec in RelationshipRecordList)
-    { 
-        try { 
-            client.CreateRelationship(rec.SourceId, Guid.NewGuid().ToString(), JsonSerializer.Serialize<BasicRelationship>(rec));
-        }
-        catch (RequestFailedException e)
-        {
-            Log.Error($"Error {e.Status}: {e.Message}");
-        }
-    }
-}
-```
-## <a name="manage-relationships-with-cli"></a>Gerenciar relações com a CLI
-
-Gêmeos e suas relações também podem ser gerenciadas usando a CLI do gêmeos digital do Azure. Os comandos podem ser encontrados em [*How-to: Use the Azure digital gêmeos CLI*](how-to-use-cli.md).
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graphFromCSV.cs":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

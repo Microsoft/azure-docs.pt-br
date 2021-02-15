@@ -5,12 +5,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 03/05/2020
 ms.topic: how-to
-ms.openlocfilehash: e4f33f0974462197382ea6ac5d2b68d61909f73b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a5bf4d0ed2173d048d968f60dea72a1a0c25ab05
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079253"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99429778"
 ---
 # <a name="using-azure-batch-rendering"></a>Usar a renderização de Lote do Azure
 
@@ -51,15 +51,6 @@ Também é possível que modelos personalizados sejam produzidos, a partir do ze
 ### <a name="file-system-and-data-movement"></a>Sistema de arquivos e movimentação de dados
 
 A seção "Dados" no Batch Explorer permite que os arquivos sejam copiados entre um sistema de arquivos local e as contas do Armazenamento do Microsoft Azure.
-
-## <a name="client-application-plug-ins"></a>Plug-ins de aplicativo cliente
-
-Plug-ins estão disponíveis para alguns dos aplicativos clientes.  Os plug-ins permitem que pools e trabalhos sejam criados diretamente do aplicativo ou invocam o Batch Explorer.
-
-* [Blender 2.79](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/blender)
-* [Blender 2.8+](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/blender28)
-* [Autodesk 3ds Max](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/3ds-max)
-* [Autodesk Maya](https://github.com/Azure/azure-batch-maya)
 
 ## <a name="next-steps"></a>Próximas etapas
 

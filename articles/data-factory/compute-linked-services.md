@@ -1,21 +1,17 @@
 ---
 title: Ambientes de computação com suporte do Azure Data Factory
-description: Saiba mais sobre os ambientes de computação que você pode usar em pipelines do Azure Data Factory (por exemplo, o Azure HDInsight) para transformar ou processar dados.
-services: data-factory
-documentationcenter: ''
+description: Ambientes de computação que podem ser usados com Azure Data Factory pipelines (como o Azure HDInsight) para transformar ou processar dados.
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
-manager: anandsub
 ms.date: 05/08/2019
-ms.openlocfilehash: 98f3c96fe1d1e8dd0f73d0441db8319fc2241cd7
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 7dae067b5d8648f1441047c26f8792e55591b64d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87563731"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100368516"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Ambientes de computação com suporte do Azure Data Factory
 
@@ -29,11 +25,10 @@ A tabela a seguir fornece uma lista dos ambientes de computação com suporte do
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | [Cluster HDInsight sob demanda](#azure-hdinsight-on-demand-linked-service) ou [seu próprio cluster HDInsight](#azure-hdinsight-linked-service) | [Hive](transform-data-using-hadoop-hive.md), [Pig](transform-data-using-hadoop-pig.md), [Spark](transform-data-using-spark.md), [MapReduce](transform-data-using-hadoop-map-reduce.md), [Hadoop Streaming](transform-data-using-hadoop-streaming.md) |
 | [Lote do Azure](#azure-batch-linked-service)                   | [Custom](transform-data-using-dotnet-custom-activity.md)     |
-| [Azure Machine Learning Studio](#azure-machine-learning-studio-linked-service) | [Atividades de Machine Learning: Execução de lote e Recurso de atualização](transform-data-using-machine-learning.md) |
-| [Azure Machine Learning](#azure-machine-learning-linked-service) | [Pipeline de execução do Azure Machine Learning](transform-data-machine-learning-service.md) |
+| [Azure Machine Learning Studio (clássico)](#azure-machine-learning-studio-classic-linked-service) | [Atividades Machine Learning Studio (clássicas): execução em lote e recurso de atualização](transform-data-using-machine-learning.md) |
 | [Azure Machine Learning](#azure-machine-learning-linked-service) | [Pipeline de execução do Azure Machine Learning](transform-data-machine-learning-service.md) |
 | [Azure Data Lake Analytics](#azure-data-lake-analytics-linked-service) | [U-SQL da Análise Data Lake](transform-data-using-data-lake-analytics.md) |
-| [Azure SQL](#azure-sql-database-linked-service), [Azure SQL Data Warehouse](#azure-sql-data-warehouse-linked-service), [SQL Server](#sql-server-linked-service) | [Procedimento armazenado](transform-data-using-stored-procedure.md) |
+| [Azure SQL](#azure-sql-database-linked-service), [Azure Synapse Analytics](#azure-synapse-analytics-linked-service), [SQL Server](#sql-server-linked-service) | [Procedimento armazenado](transform-data-using-stored-procedure.md) |
 | [Azure Databricks](#azure-databricks-linked-service)         | [Notebook](transform-data-databricks-notebook.md), [Jar](transform-data-databricks-jar.md), [Python](transform-data-databricks-python.md) |
 | [Azure Function](#azure-function-linked-service)         | [Atividade do Azure Function](control-flow-azure-function-activity.md)
 >  
@@ -109,7 +104,7 @@ O JSON a seguir define um serviço vinculado HDInsight sob demanda baseado em Li
 > [!IMPORTANT]
 > O cluster HDInsight cria um **contêiner padrão** no armazenamento de blobs especificado no JSON (**nomeServiçoVinculado**). O HDInsight não exclui esse contêiner quando o cluster é excluído. Este comportamento ocorre por design. Com o serviço vinculado HDInsight sob demanda, um cluster HDInsight é criado sempre que uma fatia precisa ser processada, a menos que haja um cluster ativo existente (**timeToLive**), e é excluído quando o processamento é concluído. 
 >
-> Conforme mais atividades forem executadas, você verá muitos contêineres no Armazenamento de Blobs do Azure. Se você não precisa deles para solução de problemas dos trabalhos, convém excluí-los para reduzir o custo de armazenamento. Os nomes desses contêineres seguem um padrão: `adf**yourdatafactoryname**-**linkedservicename**-datetimestamp`. Use ferramentas como [Gerenciador de armazenamento do Microsoft Azure](https://storageexplorer.com/) para excluir contêineres no armazenamento de BLOBs do Azure.
+> Conforme mais atividades forem executadas, você verá muitos contêineres no Armazenamento de Blobs do Azure. Se você não precisa deles para solução de problemas dos trabalhos, convém excluí-los para reduzir o custo de armazenamento. Os nomes desses contêineres seguem um padrão: `adf**yourdatafactoryname**-**linkedservicename**-datetimestamp`. Use ferramentas como o [Gerenciador de Armazenamento do Microsoft Azure](https://storageexplorer.com/) para excluir contêineres do armazenamento de blobs do Azure.
 
 #### <a name="properties"></a>Propriedades
 
@@ -131,9 +126,9 @@ O JSON a seguir define um serviço vinculado HDInsight sob demanda baseado em Li
 | connectVia                   | O Integration Runtime a ser usado para distribuir as atividades a esse serviço vinculado do HDInsight. Em relação ao serviço vinculado do HDInsight sob demanda, há suporte apenas para o Integration Runtime do Azure. Se não for especificado, ele usa o Integration Runtime padrão do Azure. | Não       |
 | clusterUserName                   | O nome de usuário para acessar o cluster. | Não       |
 | clusterPassword                   | A senha no tipo de cadeia de caracteres segura para acessar o cluster. | Não       |
-| clusterSshUserName         | O nome de usuário SSH para conectar-se remotamente ao nó do cluster (para Linux). | Não       |
-| clusterSshPassword         | A senha no tipo de cadeia de caracteres segura para SSH conectar-se remotamente o nó do cluster (para Linux). | Não       |
-| scriptActions | Especifique o script para [personalizações de cluster do HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux) durante a criação do cluster sob demanda. <br />Atualmente, a ferramenta de criação de interface do usuário do Azure Data Factory dá suporte à especificação de apenas uma ação de script, mas você pode superar essa limitação no JSON (especificar várias ações de script no JSON). | Não |
+| clusterSshUserName         | O nome de usuário para SSH conecta-se remotamente ao nó do cluster (para Linux). | Não       |
+| clusterSshPassword         | A senha no tipo de cadeia de caracteres segura para o SSH conectar remotamente o nó do cluster (para Linux). | Não       |
+| scriptActions | Especifique o script para [personalizações de cluster do HDInsight](../hdinsight/hdinsight-hadoop-customize-cluster-linux.md) durante a criação do cluster sob demanda. <br />Atualmente, a ferramenta de criação de interface do usuário do Azure Data Factory dá suporte à especificação de apenas uma ação de script, mas você pode superar essa limitação no JSON (especificar várias ações de script no JSON). | Não |
 
 
 > [!IMPORTANT]
@@ -153,7 +148,7 @@ O JSON a seguir define um serviço vinculado HDInsight sob demanda baseado em Li
 
 #### <a name="service-principal-authentication"></a>Autenticação de entidade de serviço
 
-O serviço vinculado do HDInsight sob demanda exige uma autenticação de entidade de serviço para criar clusters HDInsight em seu nome. Para usar a autenticação de entidade de serviço, registre uma entidade de aplicativo no Azure AD (Azure Active Directory) e a atribua à função **Colaborador** da assinatura ou do grupo de recursos no qual o cluster HDInsight será criado. Para conhecer etapas detalhadas, consulte [Usar o portal para criar um aplicativo e uma entidade de serviço do Azure Active Directory que possa acessar recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal). Anote os seguintes valores, que são usados para definir o serviço vinculado:
+O serviço vinculado do HDInsight sob demanda exige uma autenticação de entidade de serviço para criar clusters HDInsight em seu nome. Para usar a autenticação de entidade de serviço, registre uma entidade de aplicativo no Azure AD (Azure Active Directory) e a atribua à função **Colaborador** da assinatura ou do grupo de recursos no qual o cluster HDInsight será criado. Para conhecer etapas detalhadas, consulte [Usar o portal para criar um aplicativo e uma entidade de serviço do Azure Active Directory que possa acessar recursos](../active-directory/develop/howto-create-service-principal-portal.md). Anote os seguintes valores, que são usados para definir o serviço vinculado:
 
 - ID do aplicativo
 - Chave do aplicativo 
@@ -245,7 +240,7 @@ Você pode especificar os tamanhos de nós de dados, principais e zookeeper usan
 | dataNodeSize      | Especifica o tamanho do nó principal O valor padrão é: Standard_D3. | Não       |
 | zookeeperNodeSize | Especifica o tamanho do nó Zoo Keeper. O valor padrão é: Standard_D3. | Não       |
 
-* Especificação de tamanhos de nó Veja o artigo [Tamanhos de máquinas virtuais](../virtual-machines/linux/sizes.md) para obter valores de cadeia de caracteres que você precisa especificar para as propriedades mencionadas na seção anterior. Os valores precisam estar em conformidade com os **CMDLETs e as APIS** mencionadas no artigo. Como você pode ver neste artigo, o nó de dados de tamanho Grande (padrão) tem 7 GB de memória, que pode não ser suficiente para seu cenário. 
+* Especificação de tamanhos de nó Veja o artigo [Tamanhos de máquinas virtuais](../virtual-machines/sizes.md) para obter valores de cadeia de caracteres que você precisa especificar para as propriedades mencionadas na seção anterior. Os valores precisam estar em conformidade com os **CMDLETs e as APIS** mencionadas no artigo. Como você pode ver neste artigo, o nó de dados de tamanho Grande (padrão) tem 7 GB de memória, que pode não ser suficiente para seu cenário. 
 
 Se quiser criar nós de cabeçalho e nós de trabalho em tamanho D4, especifique **Standard_D4** como o valor das propriedades headNodeSize e dataNodeSize. 
 
@@ -254,7 +249,7 @@ Se quiser criar nós de cabeçalho e nós de trabalho em tamanho D4, especifique
 "dataNodeSize": "Standard_D4",
 ```
 
-Se especificar um valor incorreto para essas propriedades, você pode receber o seguinte **erro:** Falha ao criar cluster. Exceção: Não foi possível concluir a operação de criação do cluster. Falha na operação com o código '400'. Cluster deixou para trás estado: “Erro”. Mensagem: 'PreClusterCreationValidationFailure'. Quando receber esse erro, verifique se está usando o nome **CMDLET e APIS** da tabela no artigo [Tamanhos de Máquinas Virtuais](../virtual-machines/linux/sizes.md).        
+Se especificar um valor incorreto para essas propriedades, você pode receber o seguinte **erro:** Falha ao criar cluster. Exceção: Não foi possível concluir a operação de criação do cluster. Falha na operação com o código '400'. Cluster deixou para trás estado: “Erro”. Mensagem: 'PreClusterCreationValidationFailure'. Quando receber esse erro, verifique se está usando o nome **CMDLET e APIS** da tabela no artigo [Tamanhos de Máquinas Virtuais](../virtual-machines/sizes.md).
 
 ### <a name="bring-your-own-compute-environment"></a>Traga seu próprio ambiente de computação
 Nesse tipo de configuração, os usuários podem registrar um ambiente de computação já existente como um serviço vinculado no Data Factory. O ambiente de computação é gerenciado pelo usuário e o serviço Data Factory o utiliza para executar as atividades.
@@ -265,7 +260,7 @@ Esse tipo de configuração tem suporte para os ambientes de computação a segu
 * Lote do Azure
 * Azure Machine Learning
 * Análise Azure Data Lake
-* Banco de Dados SQL do Azure, SQL DW do Azure, SQL Server
+* BD SQL do Azure, Azure Synapse Analytics, SQL Server
 
 ## <a name="azure-hdinsight-linked-service"></a>Serviço vinculado do Azure HDInsight
 Você pode criar um serviço vinculado Azure HDInsight para registrar seu próprio cluster HDInsight com o Data Factory.
@@ -305,7 +300,7 @@ Você pode criar um serviço vinculado Azure HDInsight para registrar seu própr
 | Nome de Usuário          | Especifique o nome do usuário a ser usado para se conectar a um cluster HDInsight existente. | Sim      |
 | password          | Especifique a senha para a conta de usuário.                       | Sim      |
 | linkedServiceName | Nome do serviço vinculado do Armazenamento do Azure que faz referência ao Armazenamento de Blobs usado pelo cluster HDInsight. <p>No momento, você não pode especificar um serviço vinculado do Azure Data Lake Storage (Gen 2) para essa propriedade. Você pode acessar dados no Azure Data Lake Storage (Gen 2) usando scripts Hive/Pig se o cluster HDInsight tiver acesso ao Data Lake Store. </p> | Sim      |
-| isEspEnabled      | Especifique '*true*' se o cluster HDInsight for habilitado para o [Enterprise Security Package](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-architecture). O padrão é '*false*'. | Não       |
+| isEspEnabled      | Especifique '*true*' se o cluster HDInsight for habilitado para o [Enterprise Security Package](../hdinsight/domain-joined/apache-domain-joined-architecture.md). O padrão é '*false*'. | Não       |
 | connectVia        | O Integration Runtime a ser usado para distribuir as atividades a esse serviço vinculado. Você pode usar o Integration Runtime do Azure ou Integration Runtime auto-hospedado. Se não for especificado, ele usa o Integration Runtime padrão do Azure. <br />Para o cluster HDInsight habilitado para o ESP (Enterprise Security Package), use um runtime de integração auto-hospedada que tenha uma linha de visão para o cluster ou ele deve ser implantado dentro da mesma Rede Virtual que o cluster HDInsight ESP. | Não       |
 
 > [!IMPORTANT]
@@ -325,7 +320,7 @@ Você pode criar um serviço vinculado de Lote do Azure para registrar um pool d
 Veja os artigos a seguir se você for novo no serviço de Lote do Azure:
 
 * [Noções básicas do Lote do Azure](../batch/batch-technical-overview.md) para obter uma visão geral do serviço de Lote do Azure.
-* cmdlet [New-AzBatchAccount](/powershell/module/az.batch/New-azBatchAccount) para criar uma conta do Lote do Azure (ou) o [portal do Azure](../batch/batch-account-create-portal.md) para criar a conta do Lote do Azure usando o portal do Azure. Consulte o artigo [Usando o PowerShell para gerenciar a conta do Lote do Azure](https://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) para obter instruções detalhadas sobre como usar este cmdlet.
+* cmdlet [New-AzBatchAccount](/powershell/module/az.batch/New-azBatchAccount) para criar uma conta do Lote do Azure (ou) o [portal do Azure](../batch/batch-account-create-portal.md) para criar a conta do Lote do Azure usando o portal do Azure. Consulte o artigo [Usando o PowerShell para gerenciar a conta do Lote do Azure](/archive/blogs/windowshpc/using-azure-powershell-to-manage-azure-batch-account) para obter instruções detalhadas sobre como usar este cmdlet.
 * Cmdlet [New-AzBatchPool](/powershell/module/az.batch/New-AzBatchPool) para criar um pool do Lote do Azure.
 
 ### <a name="example"></a>Exemplo
@@ -368,8 +363,8 @@ Veja os artigos a seguir se você for novo no serviço de Lote do Azure:
 | linkedServiceName | Nome do serviço vinculado do Armazenamento do Azure associado ao serviço vinculado de Lote do Azure. Esse serviço vinculado é usado para preparar os arquivos necessários para executar a atividade. | Sim      |
 | connectVia        | O Integration Runtime a ser usado para distribuir as atividades a esse serviço vinculado. Você pode usar o Integration Runtime do Azure ou Integration Runtime auto-hospedado. Se não for especificado, ele usa o Integration Runtime padrão do Azure. | Não       |
 
-## <a name="azure-machine-learning-studio-linked-service"></a>Serviço vinculado do Azure Machine Learning Studio
-Crie um serviço vinculado do Azure Machine Learning Studio para registrar um ponto de extremidade de pontuação do lote de Machine Learning a uma fábrica de dados.
+## <a name="azure-machine-learning-studio-classic-linked-service"></a>Serviço vinculado do Azure Machine Learning Studio (clássico)
+Você cria um serviço vinculado de Azure Machine Learning Studio (clássico) para registrar um ponto de extremidade de Pontuação de lote Machine Learning Studio (clássico) em um data factory.
 
 ### <a name="example"></a>Exemplo
 
@@ -398,8 +393,8 @@ Crie um serviço vinculado do Azure Machine Learning Studio para registrar um po
 | ---------------------- | ---------------------------------------- | ---------------------------------------- |
 | Type                   | A propriedade de tipo deve ser configurada como: **AzureML**. | Sim                                      |
 | mlEndpoint             | A URL de pontuação do lote.                   | Sim                                      |
-| apiKey                 | A API do modelo de workspace publicada.     | Sim                                      |
-| updateResourceEndpoint | A URL do recurso de atualização para um ponto de extremidade de serviço Web do Azure Machine Learning usado para atualizar o serviço Web preditivo com o arquivo de modelo treinado | Não                                       |
+| apiKey                 | A API do modelo do espaço de trabalho publicado.     | Sim                                      |
+| updateResourceEndpoint | A URL de recurso de atualização para um ponto de extremidade de serviço Web Azure Machine Learning Studio (clássico) usado para atualizar o serviço Web de previsão com arquivo de modelo treinado | Não                                       |
 | servicePrincipalId     | Especifique a ID do cliente do aplicativo.     | Necessária se a updateResourceEndpoint for especificada |
 | servicePrincipalKey    | Especifique a chave do aplicativo.           | Necessária se a updateResourceEndpoint for especificada |
 | locatário                 | Especifique as informações de locatário (domínio nome ou ID do Locatário) em que o aplicativo reside. É possível recuperá-las focalizando o mouse no canto superior direito do Portal do Azure. | Necessária se a updateResourceEndpoint for especificada |
@@ -498,7 +493,7 @@ Você cria um serviço vinculado do **Azure Data Lake Analytics** para vincular 
 ## <a name="azure-databricks-linked-service"></a>Serviço vinculado do Azure Databricks
 É possível criar o **serviço vinculado do Azure Databricks** para registrar o workspace do Databricks que você usa para executar as cargas de trabalho do Databricks (blocos de notas, jar, python). 
 > [!IMPORTANT]
-> Os serviços vinculados do Databricks dão suporte a [pools de instâncias](https://aka.ms/instance-pools). 
+> Os serviços vinculados do databricks dão suporte a [pools de instância](https://aka.ms/instance-pools) & autenticação de identidade gerenciada atribuída pelo sistema.
 
 ### <a name="example---using-new-job-cluster-in-databricks"></a>Exemplo - Usar o novo cluster de trabalho no Databricks
 
@@ -548,11 +543,12 @@ Você cria um serviço vinculado do **Azure Data Lake Analytics** para vincular 
 | name                 | Nome do serviço vinculado               | Sim   |
 | type                 | A propriedade de tipo deve ser configurada como: **Azure Databricks**. | Sim                                      |
 | domínio               | Especifique a Região do Azure de acordo com a região do workspace do Databricks. Exemplo: https://eastus.azuredatabricks.net | Sim                                 |
-| accessToken          | O token de acesso é necessário para que o Data Factory autentique-se no Azure Databricks. O token de acesso precisa ser gerado a partir do workspace do Databricks. Etapas mais detalhadas para encontrar o token de acesso podem ser encontradas [aqui](https://docs.azuredatabricks.net/api/latest/authentication.html#generate-token)  | Sim                                       |
+| accessToken          | O token de acesso é necessário para que o Data Factory autentique-se no Azure Databricks. O token de acesso precisa ser gerado a partir do workspace do Databricks. Etapas mais detalhadas para encontrar o token de acesso podem ser encontradas [aqui](/azure/databricks/dev-tools/api/latest/authentication#generate-token)  | Não                                       |
+| MSI          | Use a identidade gerenciada do Data Factory (atribuída pelo sistema) para autenticar no Azure Databricks. Você não precisa de token de acesso ao usar a autenticação ' MSI '  | Não                                       |
 | existingClusterId    | ID do cluster de um cluster existente para executar todos os trabalhos. Esse deve ser um cluster interativo já criado. Talvez seja necessário reiniciar manualmente o cluster se ele parar de responder. O Databricks sugerem a execução de trabalhos em novos clusters para maior confiabilidade. Você pode encontrar a ID do cluster de um cluster interativo no workspace do Databricks -&gt; Clusters -&gt; Nome do Cluster Interativo -&gt; Configuração -&gt; Marcas. [Mais detalhes](https://docs.databricks.com/user-guide/clusters/tags.html) | Não 
 | instancePoolId    | ID do pool de instâncias de um pool existente no espaço de trabalho do Databricks.  | Não  |
 | newClusterVersion    | A versão do Spark do cluster. Ele cria um cluster de trabalho no Databricks. | Não  |
-| newClusterNumOfWorker| Número de nós de trabalho que esse cluster deve ter. Um cluster possui um Spark Driver e um num_workers Executors para um total de num_workers + 1 nós do Spark. Uma cadeia de caracteres formatada Int32, como "1" significa que numOfWorker é 1 ou "1:10" significa dimensionamento automático de 1 como mínimo e 10 como máximo.  | Não                |
+| newClusterNumOfWorker| Número de nós de trabalho que esse cluster deve ter. Um cluster possui um Spark Driver e um num_workers Executors para um total de num_workers + 1 nós do Spark. Um Int32 formatado por cadeia de caracteres, como "1" significa que numOfWorker é 1 ou "1:10" significa dimensionamento automático de 1 como mínimo e 10 como máximo.  | Não                |
 | newClusterNodeType   | Esse campo codifica, por meio de um único valor, os recursos disponíveis para cada um dos nós do Spark neste cluster. Por exemplo, os nós do Spark podem ser provisionados e otimizados para cargas de trabalho intensivas de computação e memória. Esse campo é necessário para um novo cluster                | Não               |
 | newClusterSparkConf  | um conjunto opcional de pares chave-valor de configuração do Spark especificado pelo usuário. Os usuários também podem passar de uma cadeia de caracteres de opções adicionais da JVM para o driver e os executores via spark.driver.extraJavaOptions e spark.executor.extraJavaOptions respectivamente. | Não  |
 | newClusterInitScripts| um conjunto de scripts de inicialização opcionais, definidos pelo usuário, para o novo cluster. Especificação do caminho DBFS para os scripts de inicialização. | Não  |
@@ -562,9 +558,9 @@ Você cria um serviço vinculado do **Azure Data Lake Analytics** para vincular 
 
 Você pode criar um serviço vinculado SQL do Azure e usá-lo com a [Atividade de Procedimento Armazenado](transform-data-using-stored-procedure.md) para invocar um procedimento armazenado de um pipeline do Data Factory. Confira o artigo [Conector SQL do Azure](connector-azure-sql-database.md#linked-service-properties) para saber mais sobre esse serviço vinculado.
 
-## <a name="azure-sql-data-warehouse-linked-service"></a>Serviço vinculado do SQL Data Warehouse do Azure
+## <a name="azure-synapse-analytics-linked-service"></a>Serviço vinculado do Azure Synapse Analytics
 
-Você pode criar um serviço vinculado do SQL Data Warehouse do Azure e usá-lo com a [Atividade de Procedimento Armazenado](transform-data-using-stored-procedure.md) para invocar um procedimento armazenado de um pipeline do Data Factory. Confira o artigo [Conector SQL Data Warehouse do Azure](connector-azure-sql-data-warehouse.md#linked-service-properties) para saber mais sobre esse serviço vinculado.
+Você cria um serviço vinculado do Azure Synapse Analytics e o utiliza com a [atividade de procedimento armazenado](transform-data-using-stored-procedure.md) para invocar um procedimento armazenado de um pipeline data Factory. Consulte o artigo [conector do Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#linked-service-properties) para obter detalhes sobre esse serviço vinculado.
 
 ## <a name="sql-server-linked-service"></a>Serviço vinculado do SQL Server
 

@@ -6,12 +6,12 @@ author: mlearned
 ms.topic: article
 ms.date: 06/03/2020
 ms.author: mlearned
-ms.openlocfilehash: 35424c0a9e566a9dfa780c524e23945348335040
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: 85f0a42cdfcbea2223d202a9dc35f58746580e85
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88225981"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350119"
 ---
 # <a name="access-the-kubernetes-web-dashboard-in-azure-kubernetes-service-aks"></a>Acessar o painel da Web do Kubernetes no AKS (Serviço de Kubernetes do Azure)
 
@@ -30,17 +30,21 @@ Para obter mais informações sobre o painel do Kubernetes, consulte [Painel de 
 
 As etapas detalhadas neste documento pressupõem que você criou um cluster AKS e estabeleceu uma `kubectl` conexão com o cluster. Se você precisar criar um cluster AKS, consulte [início rápido: implantar um cluster do serviço kubernetes do Azure usando o CLI do Azure][aks-quickstart].
 
-Você também precisa do CLI do Azure versão 2.6.0 ou posterior instalada e configurada. Execute `az --version` para encontrar a versão. Se você precisar instalar ou atualizar, confira  [Instalar a CLI do Azure][install-azure-cli].
+Você também precisa do CLI do Azure versão 2.6.0 ou posterior instalada e configurada. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure][install-azure-cli].
 
 ## <a name="disable-the-kubernetes-dashboard"></a>Desabilitar o painel do kubernetes
 
 O complemento Kube-Dashboard está **habilitado por padrão em clusters com mais de K8s 1,18**. O complemento pode ser desabilitado executando o comando a seguir.
 
-``` azure-cli
+``` azurecli
 az aks disable-addons -g myRG -n myAKScluster -a kube-dashboard
 ```
 
 ## <a name="start-the-kubernetes-dashboard"></a>Iniciar o painel do Kubernetes
+
+> [!WARNING]
+> O complemento do painel do AKS foi preterido para as versões 1.19 +. Use a [exibição de recurso kubernetes no portal do Azure (versão prévia)][kubernetes-portal] em vez disso. 
+> * O comando a seguir agora abrirá o modo de exibição de recursos do portal do Azure em vez do painel do kubernetes para as versões 1,19 e posteriores.
 
 Para iniciar o painel do kubernetes em um cluster, use o comando [AZ AKs Browse][az-aks-browse] . Esse comando requer a instalação do complemento Kube no cluster, que é incluído por padrão em clusters que executam qualquer versão anterior à kubernetes 1,18.
 
@@ -71,7 +75,7 @@ You have the following options to sign in to your cluster's dashboard:
 > 
 > When setting up authentication for the Kubernetes dashboard, it is recommended that you use a token over the default dashboard service account. A token allows each user to use their own permissions. Using the default dashboard service account may allow a user to bypass their own permissions and use the service account instead.
 > 
-> If you do choose to use the default dashboard service account and your AKS cluster uses RBAC, a *ClusterRoleBinding* must be created before you can correctly access the dashboard. By default, the Kubernetes dashboard is deployed with minimal read access and displays RBAC access errors. A cluster administrator can choose to grant additional access to the *kubernetes-dashboard* service account, however this can be a vector for privilege escalation. You can also integrate Azure Active Directory authentication to provide a more granular level of access.
+> If you do choose to use the default dashboard service account and your AKS cluster uses Kubernetes RBAC, a *ClusterRoleBinding* must be created before you can correctly access the dashboard. By default, the Kubernetes dashboard is deployed with minimal read access and displays Kubernetes RBAC access errors. A cluster administrator can choose to grant additional access to the *kubernetes-dashboard* service account, however this can be a vector for privilege escalation. You can also integrate Azure Active Directory authentication to provide a more granular level of access.
 >
 > To create a binding, use the [kubectl create clusterrolebinding][kubectl-create-clusterrolebinding] command as shown in the following example. **This sample binding does not apply any additional authentication components and may lead to insecure use.**
 >
@@ -79,16 +83,16 @@ You have the following options to sign in to your cluster's dashboard:
 > kubectl create clusterrolebinding kubernetes-dashboard --clusterrole=cluster-admin --serviceaccount=kube-system:kubernetes-dashboard
 > ```
 > 
-> You can now access the Kubernetes dashboard in your RBAC-enabled cluster. To start the Kubernetes dashboard, use the [az aks browse][az-aks-browse] command as detailed in the previous step.
+> You can now access the Kubernetes dashboard in your Kubernetes RBAC-enabled cluster. To start the Kubernetes dashboard, use the [az aks browse][az-aks-browse] command as detailed in the previous step.
 >
-> If your cluster does not use RBAC, it is not recommended to create a *ClusterRoleBinding*.
+> If your cluster does not use Kubernetes RBAC, it is not recommended to create a *ClusterRoleBinding*.
 > 
 > For more information on using the different authentication methods, see the Kubernetes dashboard wiki on [access controls][dashboard-authentication].
 
 After you choose a method to sign in, the Kubernetes dashboard is displayed. If you chose to use *token* or *skip*, the Kubernetes dashboard will use the permissions of the currently logged in user to access the cluster.
 
 > [!IMPORTANT]
-> If your AKS cluster uses RBAC, a *ClusterRoleBinding* must be created before you can correctly access the dashboard. By default, the Kubernetes dashboard is deployed with minimal read access and displays RBAC access errors. The Kubernetes dashboard does not currently support user-provided credentials to determine the level of access, rather it uses the roles granted to the service account. A cluster administrator can choose to grant additional access to the *kubernetes-dashboard* service account, however this can be a vector for privilege escalation. You can also integrate Azure Active Directory authentication to provide a more granular level of access.
+> If your AKS cluster uses Kubernetes RBAC, a *ClusterRoleBinding* must be created before you can correctly access the dashboard. By default, the Kubernetes dashboard is deployed with minimal read access and displays Kubernetes RBAC access errors. The Kubernetes dashboard does not currently support user-provided credentials to determine the level of access, rather it uses the roles granted to the service account. A cluster administrator can choose to grant additional access to the *kubernetes-dashboard* service account, however this can be a vector for privilege escalation. You can also integrate Azure Active Directory authentication to provide a more granular level of access.
 > 
 > To create a binding, use the [kubectl create clusterrolebinding][kubectl-create-clusterrolebinding] command. The following example shows how to create a sample binding, however, this sample binding does not apply any additional authentication components and may lead to insecure use. The Kubernetes dashboard is open to anyone with access to the URL. Do not expose the Kubernetes dashboard publicly.
 >
@@ -102,7 +106,7 @@ After you choose a method to sign in, the Kubernetes dashboard is displayed. If 
 ## <a name="sign-in-to-the-dashboard-kubernetes-116"></a>Entrar no painel (kubernetes 1.16 +)
 
 > [!IMPORTANT]
-> A partir de [v 1.10.1 do painel do kubernetes](https://github.com/kubernetes/dashboard/releases/tag/v1.10.1) ou do kubernetes v 1.16 + a conta de serviço "kubernetes-Dashboard" não pode mais ser usada para recuperar recursos devido a uma [correção de segurança nessa versão](https://github.com/kubernetes/dashboard/pull/3400). Como resultado, as solicitações sem informações de autenticação retornam um erro não autorizado 401. Um token de portador recuperado de uma conta de serviço ainda pode ser usado como neste [exemplo de painel do kubernetes](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/#accessing-the-dashboard-ui), mas isso afeta o fluxo de logon do complemento do painel em comparação com as versões mais antigas.
+> A partir de [v 1.10.1 do painel do kubernetes](https://github.com/kubernetes/dashboard/releases/tag/v1.10.1) ou do kubernetes v 1.16 + a conta de serviço "kubernetes-Dashboard" não pode mais ser usada para recuperar recursos devido a uma [correção de segurança nessa versão](https://github.com/kubernetes/dashboard/pull/3400). Como resultado, as solicitações sem informações de autenticação retornam um [erro não autorizado 401](https://github.com/Azure/AKS/issues/1573#issuecomment-703040998). Um token de portador recuperado de uma conta de serviço ainda pode ser usado como neste [exemplo de painel do kubernetes](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/#accessing-the-dashboard-ui), mas isso afeta o fluxo de logon do complemento do painel em comparação com as versões mais antigas.
 >
 >Se você ainda executar uma versão anterior a 1,16, ainda poderá conceder permissões para a conta de serviço "kubernetes-Dashboard", mas isso **não é recomendado**:
 > ```console

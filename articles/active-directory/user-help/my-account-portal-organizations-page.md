@@ -1,6 +1,6 @@
 ---
 title: Gerenciar suas organizações no portal Minha Conta – Azure Active Directory
-description: Como exibir e manter as organizações conectadas à sua conta corporativa ou de estudante na página Organizações do portal Minha Conta.
+description: Como exibir e deixar as organizações às quais você tem acesso na página organizações do portal minha conta.
 services: active-directory
 author: curtand
 manager: daveba
@@ -9,18 +9,18 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 07/29/2020
+ms.date: 01/19/2021
 ms.author: curtand
-ms.openlocfilehash: bb0f0b93f3890a06f4ecbdc6cf39a173ea048940
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: ef2e79f8c8e7964d04db0dd1a3f9988599fcb130
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798169"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100094110"
 ---
-# <a name="manage-your-connected-organizations-from-the-organizations-page"></a>Gerenciar suas organizações conectadas na página Organizações
+# <a name="manage-organizations-you-have-access-to-in-the-my-account-portal"></a>Gerenciar as organizações às quais você tem acesso no portal minha conta
 
-A página **Organizações** do portal **Minha Conta** ajuda a gerenciar as organizações (normalmente, o nome da sua organização) conectadas à sua conta corporativa ou de estudante. Há dois tipos de organizações mostrados na página **Organizações**:
+A página **organizações** do portal **minha conta** ajuda você a gerenciar as organizações (normalmente, o nome da sua organização) à qual você tem acesso. Há dois tipos de organizações mostrados na página **Organizações**:
 
 - **Organização inicial.** Sua organização inicial é a organização que possui sua conta corporativa ou de estudante. Não é possível sair da organização inicial.
 
@@ -30,21 +30,26 @@ A página **Organizações** do portal **Minha Conta** ajuda a gerenciar as orga
 - **Outras organizações.** Outras organizações incluem qualquer grupo que você tenha entrado anteriormente usando sua conta corporativa ou de estudante. Você pode sair de tais organizações a qualquer momento.
 
 >[!Important]
->Este artigo destina-se a usuários que tentam atualizar as informações da organização conectadas a uma conta corporativa ou de estudante. Se você for um administrador procurando informações sobre gerenciamento de grupos e usuários para seus funcionários ou outros usos, consulte a [Documentação de gerenciamento de usuário corporativo](../users-groups-roles/index.yml).
+>Este artigo destina-se a usuários que tentam atualizar as informações da organização acessadas por uma conta corporativa ou de estudante. Se você vir um erro ao entrar com um conta Microsoft pessoal, ainda poderá entrar usando o nome de domínio da sua organização (como contoso.com) ou a **ID de locatário** da sua organização em uma das seguintes URLs:
+>
+>   - https://myaccount.microsoft.com?tenantId=*your_domain_name*
+>   - https://myaccount.microsoft.com?tenant=*your_tenant_ID*
+>
+>Se você for um administrador procurando informações sobre gerenciamento de grupos e usuários para seus funcionários ou outros usos, consulte a [Documentação de gerenciamento de usuário corporativo](../enterprise-users/index.yml).
 
 ## <a name="view-your-organizations"></a>Exibir suas organizações
 
-1. Entre em sua conta corporativa ou de estudante e vá para a página **Minha Conta** (https://myaccount.microsoft.com/).
+1. Entre em sua conta corporativa ou de estudante e vá para a página **Minha Conta** (https://myaccount.microsoft.com/). 
 
-2. Escolha **Organizações** no painel de navegação à esquerda ou escolha o link **Gerenciar organizações** no bloco **Organizações**.
+1. Escolha **Organizações** no painel de navegação à esquerda ou escolha o link **Gerenciar organizações** no bloco **Organizações**.
 
     ![Página Minha Conta, com links para Organizações em destaque](media/my-account-portal/my-account-portal-organizations.png)
 
-3. Examine as informações de sua **Organização inicial**.
+1. Examine as informações de sua **Organização inicial**.
 
     ![Página Organizações](media/my-account-portal/my-account-portal-organization-page.png)
 
-4. Examine suas outras organizações associadas e verifique se você reconhece todas as organizações que estão conectadas à conta.
+1. Examine suas outras organizações, certificando-se de reconhecer todas as organizações às quais você tem acesso.
 
 ## <a name="leave-an-organization"></a>Sair da organização
 

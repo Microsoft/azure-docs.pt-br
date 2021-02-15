@@ -11,12 +11,12 @@ services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 6f5698c5390a341df505bf5a1f849e121bd754a2
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 7850763abe2ef40aea4ab3b97187d50f7060fa18
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258782"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388763"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Prepare-se para implantar sua solução IoT Edge em produção
 
@@ -41,7 +41,7 @@ Os dispositivos IoT Edge podem ser de um Raspberry Pi a um laptop para uma máqu
 Cada dispositivo IoT Edge em produção precisa de um certificado de autoridade de certificação (CA) do dispositivo instalado. Esse certificado de CA é então declarado para o runtime do IoT Edge no arquivo config.yaml. Para cenários de desenvolvimento e teste, o tempo de execução de IoT Edge cria certificados temporários se nenhum certificado for declarado no arquivo config. YAML. No entanto, esses certificados temporários expiram após três meses e não são seguros para cenários de produção. Para cenários de produção, você deve fornecer seu próprio certificado de autoridade de certificação do dispositivo, seja de uma autoridade de certificação autoassinada ou adquirida de uma autoridade de certificação comercial.
 
 > [!NOTE]
-> Atualmente, uma limitação no libiothsm impede o uso de certificados que expiram em 1º de janeiro de 2050.
+> Atualmente, uma limitação no libiothsm impede o uso de certificados que expiram em 1º de janeiro de 2038.
 
 Para reconhecer a função do certificado de CA do dispositivo, consulte [Como o IoT Edge do Azure usa certificados](iot-edge-certs.md).
 
@@ -132,7 +132,7 @@ O valor padrão do parâmetro timeToLiveSecs é de 7200 segundos, ou seja, duas 
 
 ### <a name="do-not-use-debug-versions-of-module-images"></a>Não use versões de depuração de imagens de módulo
 
-Ao passar de cenários de teste para cenários de produção, lembre-se de remover as configurações de depuração dos manifestos de implantação. Verifique se nenhuma das imagens de módulo nos manifestos de implantação tem o sufixo de ** \. depuração** . Se você adicionou criar opções para expor portas nos módulos para depuração, remova essas opções de criação também.
+Ao passar de cenários de teste para cenários de produção, lembre-se de remover as configurações de depuração dos manifestos de implantação. Verifique se nenhuma das imagens de módulo nos manifestos de implantação tem o sufixo de **\. depuração** . Se você adicionou criar opções para expor portas nos módulos para depuração, remova essas opções de criação também.
 
 ## <a name="container-management"></a>Gerenciamento de contêiner
 
@@ -182,17 +182,17 @@ Obtenha as imagens com o comando Docker pull para colocar em seu registro privad
 | Contêiner de tempo de execução IoT Edge | Comando de pull do Docker |
 | --- | --- |
 | [Agente de Azure IoT Edge](https://hub.docker.com/_/microsoft-azureiotedge-agent) | `docker pull mcr.microsoft.com/azureiotedge-agent` |
-| [HUb de Azure IoT Edge](https://hub.docker.com/_/microsoft-azureiotedge-hub) | `docker pull mcr.microsoft.com/azureiotedge-hub` |
+| [Hub do Azure IoT Edge](https://hub.docker.com/_/microsoft-azureiotedge-hub) | `docker pull mcr.microsoft.com/azureiotedge-hub` |
 
 Em seguida, certifique-se de atualizar as referências de imagem na deployment.template.jsno arquivo para os módulos do sistema edgeAgent e edgeHub. Substitua `mcr.microsoft.com` pelo nome do registro e pelo servidor para ambos os módulos.
 
 * EdgeAgent
 
-    `"image": "<registry name and server>/azureiotedge-agent:1.0",`
+    `"image": "<registry name and server>/azureiotedge-agent:1.1",`
 
 * EdgeHub
 
-    `"image": "<registry name and server>/azureiotedge-hub:1.0",`
+    `"image": "<registry name and server>/azureiotedge-hub:1.1",`
 
 ## <a name="networking"></a>Rede
 
@@ -231,7 +231,7 @@ Esta lista de verificação é um ponto de partida para regras de firewall:
 Algumas dessas regras de firewall são herdadas do registro de contêiner do Azure. Para obter mais informações, consulte [configurar regras para acessar um registro de contêiner do Azure atrás de um firewall](../container-registry/container-registry-firewall-access-rules.md).
 
 > [!NOTE]
-> Para fornecer um FQDN consistente entre os pontos de extremidade REST e data, a partir de **15 de junho de 2020** , o ponto de extremidades de dados do registro de contêiner da Microsoft será alterado de `*.cdn.mscr.io` para`*.data.mcr.microsoft.com`  
+> Para fornecer um FQDN consistente entre os pontos de extremidade REST e data, a partir de **15 de junho de 2020** , o ponto de extremidades de dados do registro de contêiner da Microsoft será alterado de `*.cdn.mscr.io` para `*.data.mcr.microsoft.com`  
 > Para obter mais informações, consulte [configuração de regras de firewall de cliente do registro de contêiner da Microsoft](https://github.com/microsoft/containerregistry/blob/master/client-firewall-rules.md)
 
 Se você não quiser configurar o firewall para permitir o acesso a registros de contêiner público, poderá armazenar imagens em seu registro de contêiner privado, conforme descrito em [armazenar contêineres de tempo de execução em seu registro particular](#store-runtime-containers-in-your-private-registry).
@@ -276,7 +276,7 @@ Você pode limitar o tamanho de todos os arquivos de log de contêiner nas opç�
 
 Adicione (ou acrescente) essas informações a um arquivo chamado `daemon.json` e coloque-o no local certo para a plataforma do dispositivo.
 
-| Plataforma | Localização |
+| Plataforma | Location |
 | -------- | -------- |
 | Linux | `/etc/docker/` |
 | Windows | `C:\ProgramData\iotedge-moby\config\` |
@@ -321,9 +321,9 @@ Você pode fazer isso em **criaroptions** de cada módulo. Por exemplo:
 
 ### <a name="consider-tests-and-cicd-pipelines"></a>Considere testes e pipelines de CI/CD
 
-Para o cenário de implantação do IoT Edge mais eficiente, considere a integração de sua implantação de produção em seus pipelines de teste e CI/CD. O Azure IoT Edge suporta várias plataformas de CI/CD, incluindo o DevOps do Azure. Para obter mais informações, consulte [Integração contínua e implantação contínua no Azure IoT Edge](how-to-ci-cd.md).
+Para o cenário de implantação do IoT Edge mais eficiente, considere a integração de sua implantação de produção em seus pipelines de teste e CI/CD. O Azure IoT Edge suporta várias plataformas de CI/CD, incluindo o DevOps do Azure. Para obter mais informações, consulte [Integração contínua e implantação contínua no Azure IoT Edge](how-to-continuous-integration-continuous-deployment.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * Saiba mais sobre [implantação automática do IoT Edge](module-deployment-monitoring.md).
-* Veja como o IoT Edge suporta [Integração contínua e implantação contínua](how-to-ci-cd.md).
+* Veja como o IoT Edge suporta [Integração contínua e implantação contínua](how-to-continuous-integration-continuous-deployment.md).

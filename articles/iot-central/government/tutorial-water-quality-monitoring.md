@@ -3,21 +3,19 @@ title: 'Tutorial: Criar um aplicativo de monitoramento da qualidade de água com
 description: 'Tutorial: Saiba como criar um aplicativo monitoramento da qualidade da água usando os modelos de aplicativo do Azure IoT Central.'
 author: miriambrus
 ms.author: miriamb
-ms.date: 11/12/2019
+ms.date: 12/11/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 77ec999d63175f63c1de6e31fdb3f72c963d228c
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: a928b1223b91faae6d4aca68b81cc16c827933b3
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "82024465"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820057"
 ---
 # <a name="tutorial-create-a-water-quality-monitoring-application-in-azure-iot-central"></a>Tutorial: Criar um aplicativo de monitoramento da qualidade de água no Azure IoT Central
-
-
 
 Este tutorial orienta você pela criação de um aplicativo de monitoramento da qualidade da água no Azure IoT Central. Você cria o aplicativo com base no modelo de aplicativo **Monitoramento da Qualidade da Água** do Azure IoT Central.
 
@@ -188,7 +186,7 @@ Na guia **Dispositivos**, selecione **+ Novo** para adicionar um novo dispositiv
 
 ## <a name="explore-and-configure-rules"></a>Explorar e configurar regras
 
-No Azure IoT Central, você pode criar regras que monitoram automaticamente a telemetria do dispositivo. Essas regras disparam uma ação quando qualquer uma de suas condições é atendida. Uma ação possível é enviar notificações por email. Outras possibilidades incluem uma ação do Microsoft Flow ou uma ação de webhook para enviar dados a outros serviços.
+No Azure IoT Central, você pode criar regras que monitoram automaticamente a telemetria do dispositivo. Essas regras disparam uma ação quando qualquer uma de suas condições é atendida. Uma ação possível é enviar notificações por email. Outras possibilidades incluem uma ação do Power Automate ou um ação de webhook para enviar dados para outros serviços.
 
 O aplicativo de monitoramento da qualidade da água criado tem duas regras pré-configuradas.
 
@@ -256,4 +254,7 @@ Se você não quiser continuar usando o aplicativo, exclua-o seguindo estas etap
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Saiba mais sobre os [conceitos de monitoramento da qualidade da água](./concepts-waterqualitymonitoring-architecture.md).
+* Saiba mais sobre 
+
+> [!div class="nextstepaction"]
+> [conceitos de monitoramento da qualidade da água](./concepts-waterqualitymonitoring-architecture.md).

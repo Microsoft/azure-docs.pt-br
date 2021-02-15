@@ -1,6 +1,6 @@
 ---
-title: 'Início Rápido: Criar um Pool do Apache Spark usando o portal do Azure'
-description: Crie um pool do Apache Spark usando o portal do Azure seguindo as etapas neste guia.
+title: 'Início Rápido: criar um pool do Apache Spark sem servidor usando o portal do Azure'
+description: Crie um pool do Apache Spark sem servidor usando o portal do Azure seguindo as etapas deste guia.
 services: synapse-analytics
 author: julieMSFT
 ms.service: synapse-analytics
@@ -8,15 +8,15 @@ ms.topic: quickstart
 ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: jrasnick
-ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 0930b7cb7b98874e20f070763a7ec50a6b4f3ef0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.reviewer: jrasnick
+ms.openlocfilehash: 3fc7a7f137701590e4bddd791a3fdd2d1eaeca4a
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87006068"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461601"
 ---
-# <a name="quickstart-create-a-new-apache-spark-pool-using-the-azure-portal"></a>Início Rápido: Criar um Pool do Apache Spark usando o portal do Azure
+# <a name="quickstart-create-a-new-serverless-apache-spark-pool-using-the-azure-portal"></a>Início Rápido: criar um pool do Apache Spark sem servidor usando o portal do Azure
 
 O Azure Synapse Analytics oferece vários mecanismos de análise para ajudar você a ingerir, transformar, modelar, analisar e distribuir seus dados. Um Pool do Apache Spark fornece funcionalidades de software livre de computação de Big Data. Após a criação de um pool do Apache Spark em seu workspace do Synapse, os dados podem ser carregados, modelados, processados e distribuídos para chegar mais rapidamente a insights analíticos.
 
@@ -62,7 +62,7 @@ Entre no [Portal do Azure](https://portal.azure.com/)
     > Observe que há limitações específicas para os nomes que os pools do Apache Spark podem usar. Os nomes precisam conter apenas letras ou números, ter 15 caracteres ou menos, começar com uma letra, ser exclusivos no workspace e não devem conter palavras reservadas.
 
 3. Selecione **Avançar: configurações adicionais** e examine as configurações padrão. Não modifique nenhuma configuração padrão.
-    ![Fluxo de criação do Pool do Apache Spark – guia Configurações adicionais.](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-03.png)
+    ![Captura de tela que mostra a página "Criar pool do Apache Spark" com a guia "Configurações adicionais" selecionada.](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-03.png)
 
 4. Selecione **Avançar: marcas**. Não adicione nenhuma marca.
     ![Fluxo de criação do Pool do Apache Spark – guia Configurações adicionais.](media/quickstart-create-apache-spark-pool/create-spark-pool-03-tags.png)
@@ -73,7 +73,7 @@ Entre no [Portal do Azure](https://portal.azure.com/)
     ![Fluxo de criação do Pool do Apache Spark – guia Examinar configurações.](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-05.png)
 
 7. Neste ponto, o fluxo de provisionamento de recursos será iniciado, indicando quando estiver concluído.
-    ![Fluxo de criação do Pool do Apache Spark – provisionamento de recursos.](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-06.png)
+    ![Captura de tela que mostra a página "Visão geral" com a mensagem "Implantação concluída" exibida.](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-06.png)
 
 8. Após a conclusão do provisionamento, se você navegar novamente até o workspace, será mostrada uma nova entrada para o Pool do Apache Spark recém-criado.
     ![Fluxo de criação do Pool do Apache Spark – provisionamento de recursos.](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-07.png)
@@ -99,4 +99,4 @@ Caso deseje excluir o Pool do Apache Spark, faça o seguinte:
 ## <a name="next-steps"></a>Próximas etapas
 
 - Confira [Início Rápido: Criar um notebook do Apache Spark](quickstart-apache-spark-notebook.md).
-- Confira [Início Rápido: Criar um pool de SQL do Synapse usando o portal do Azure](quickstart-create-sql-pool-portal.md).
+- Confira [Início Rápido: criar um pool de SQL dedicado usando o portal do Azure](quickstart-create-sql-pool-portal.md).

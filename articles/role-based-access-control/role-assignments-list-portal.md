@@ -7,26 +7,25 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 06/24/2020
+ms.date: 12/09/2020
 ms.author: rolyon
-ms.reviewer: bagovind
-ms.openlocfilehash: f7d56ecc7fc6bd850fced33c2c1cf20902bb2df4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: adb3691625d6cdde03c803480ae948bb1911cc7d
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85361824"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97964364"
 ---
 # <a name="list-azure-role-assignments-using-the-azure-portal"></a>Listar atribuições de função do Azure usando o portal do Azure
 
-[!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)]Este artigo descreve como listar atribuições de função usando o portal do Azure.
+[!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control/definition-list.md)] Este artigo descreve como listar atribuições de função usando o portal do Azure.
 
 > [!NOTE]
 > Se sua organização tiver funções de gerenciamento terceirizadas para um provedor de serviços que usa o [Gerenciamento de recursos delegado do Azure](../lighthouse/concepts/azure-delegated-resource-management.md), as atribuições de função autorizadas por esse provedor de serviços não serão mostradas aqui.
 
 ## <a name="list-role-assignments-for-a-user-or-group"></a>Listar atribuições de função para um usuário ou grupo
 
-A maneira mais fácil de ver as funções atribuídas a um usuário ou grupo em uma assinatura é usar o painel **atribuições de função do Azure** .
+Uma maneira rápida de ver as funções atribuídas a um usuário ou grupo em uma assinatura é usar o painel **atribuições de função do Azure** .
 
 1. No portal do Azure, selecione **todos os serviços** no menu portal do Azure.
 
@@ -56,7 +55,7 @@ Os usuários aos quais foi atribuída a função de [proprietário](built-in-rol
 
 1. Role até a seção **proprietários** para ver todos os usuários aos quais foi atribuída a função de proprietário para esta assinatura.
 
-   ![Controle de acesso à assinatura – guia atribuições de função](./media/role-assignments-list-portal/access-control-role-assignments-subscription.png)
+   ![Controle de acesso à assinatura – guia atribuições de função](./media/role-assignments-list-portal/sub-access-control-role-assignments-owners.png)
 
 ## <a name="list-role-assignments-at-a-scope"></a>Listar atribuições de função em um escopo
 
@@ -64,11 +63,11 @@ Os usuários aos quais foi atribuída a função de [proprietário](built-in-rol
 
 1. Clique no recurso específico.
 
-1. Clique em **Controle de acesso (IAM)** .
+1. Clique em **IAM (Controle de Acesso)**.
 
 1. Clique na guia **Atribuições de função** para visualizar todas as atribuições de função nesse escopo.
 
-   ![Controle de acesso – guia de atribuições de função](./media/role-assignments-list-portal/access-control-role-assignments.png)
+   ![Controle de acesso – guia de atribuições de função](./media/role-assignments-list-portal/rg-access-control-role-assignments.png)
 
    Na guia Atribuições de função, você pode ver quem tem acesso nesse escopo. Observe que algumas funções são definidas para **Este recurso** enquanto outras são **(Herdadas)** de outro escopo. O acesso é atribuído especificamente a esse recurso ou herdado de uma atribuição ao escopo pai.
 
@@ -84,19 +83,23 @@ Para listar o acesso de um usuário, grupo, entidade de serviço ou identidade g
 
 1. Clique na guia **Verificar acesso**.
 
-    ![Controle de acesso - verificar a guia de acesso](./media/role-assignments-list-portal/access-control-check-access.png)
+    ![Controle de acesso do grupo de recursos – Guia Verificar acesso](./media/role-assignments-list-portal/rg-access-control-check-access.png)
 
-1. Na lista **Localizar**, selecione o tipo de entidade de segurança para a qual você deseja verificar o acesso.
+1. Na lista **Localizar** , selecione o usuário, grupo, entidade de serviço ou identidade gerenciada para a qual você deseja verificar o acesso.
 
 1. Na caixa de pesquisa, insira uma cadeia de caracteres para pesquisar no diretório nomes de exibição, endereços de e-mail ou identificadores de objetos.
 
-    ![Verifique a lista de seleção de acesso](./media/role-assignments-list-portal/check-access-select.png)
+    ![Verifique a lista de seleção de acesso](./media/shared/rg-check-access-select.png)
 
 1. Clique na entidade de segurança para abrir o painel **atribuições**.
 
-    ![painel atribuições](./media/role-assignments-list-portal/check-access-assignments.png)
+    Nesse painel, você pode ver o acesso para a entidade de segurança selecionada nesse escopo e herdada para esse escopo. As atribuições em escopos filho não estão listadas. Você verá as seguintes atribuições:
 
-    Nesse painel, você pode ver as funções atribuídas à entidade de segurança selecionada e o escopo. Se houver alguma atribuição de negação nesse escopo ou herdada para esse escopo, ela será listada.
+    - Atribuições de função adicionadas com o Azure RBAC.
+    - Atribuições de negação adicionadas usando o Azure Blueprints ou os aplicativos gerenciados do Azure.
+    - Atribuições de Administrador de serviços ou Coadministrador clássicas para implantações clássicas. 
+
+    ![painel atribuições](./media/shared/rg-check-access-assignments-user.png)
 
 ## <a name="list-role-assignments-for-a-managed-identity"></a>Listar atribuições de função para uma identidade gerenciada
 
@@ -118,7 +121,7 @@ Você pode listar as atribuições de função para identidades gerenciadas atri
 
 1. Para alterar a assinatura, clique na lista **assinatura** .
 
-### <a name="user-assigned-managed-identity"></a>Identidade gerenciada atribuída pelo usuário
+### <a name="user-assigned-managed-identity"></a>Identidade gerenciada atribuída ao usuário
 
 1. No portal do Azure, abra uma identidade gerenciada atribuída pelo usuário.
 
@@ -126,7 +129,7 @@ Você pode listar as atribuições de função para identidades gerenciadas atri
 
     Você verá uma lista de funções atribuídas à identidade gerenciada atribuída pelo usuário selecionada em vários escopos, como grupo de gerenciamento, assinatura, grupo de recursos ou recurso. Essa lista inclui todas as atribuições de função que você tem permissão para ler.
 
-    ![Atribuições de função para uma identidade gerenciada atribuída pelo sistema](./media/shared/role-assignments-user-assigned.png)
+    ![Captura de tela que mostra as atribuições de função para uma identidade gerenciada atribuída pelo usuário.](./media/shared/role-assignments-user-assigned.png)
 
 1. Para alterar a assinatura, clique na lista **assinatura** .
 
@@ -140,14 +143,9 @@ Se estiver ficando próximo do número máximo e tentar adicionar mais atribuiç
 
 ![Controle de acesso-Adicionar aviso de atribuição de função](./media/role-assignments-list-portal/add-role-assignment-warning.png)
 
-## <a name="download-role-assignments-preview"></a>Baixar atribuições de função (versão prévia)
+## <a name="download-role-assignments"></a>Baixar atribuições de função
 
 Você pode baixar atribuições de função em um escopo em formatos CSV ou JSON. Isso pode ser útil se você precisar inspecionar a lista em uma planilha ou fazer um inventário ao migrar uma assinatura.
-
-> [!IMPORTANT]
-> O download das atribuições de função está atualmente em visualização pública.
-> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos.
-> Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Ao baixar atribuições de função, você deve ter em mente os seguintes critérios:
 
@@ -161,9 +159,9 @@ Siga estas etapas para baixar atribuições de função em um escopo.
 
 1. Clique no recurso específico.
 
-1. Clique em **Controle de acesso (IAM)** .
+1. Clique em **IAM (Controle de Acesso)**.
 
-1. Clique em **baixar atribuições de função (versão prévia)** para abrir o painel baixar atribuições de função.
+1. Clique em **baixar atribuições de função** para abrir o painel de atribuições de função de download.
 
     ![Controle de acesso-baixar atribuições de função](./media/role-assignments-list-portal/download-role-assignments.png)
 
@@ -183,7 +181,7 @@ Siga estas etapas para baixar atribuições de função em um escopo.
 
     ![Baixar atribuições de função como CSV](./media/role-assignments-list-portal/download-role-assignments-csv.png)
 
-    ![Baixar atribuições de função como CSV](./media/role-assignments-list-portal/download-role-assignments-json.png)
+    ![Captura de tela das atribuições de função baixadas como no formato JSON.](./media/role-assignments-list-portal/download-role-assignments-json.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

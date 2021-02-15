@@ -3,17 +3,14 @@ title: Solucionar problemas do Hive usando o Azure HDInsight
 description: Obtenha respostas para perguntas comuns sobre como trabalhar com o Apache Hive e o Azure HDInsight.
 keywords: Azure HDInsight, Hive, perguntas frequentes, guia de solução de problemas, perguntas comuns
 ms.service: hdinsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: 02247adb9852a72b386feb2ef0924b0f1b3d6277
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a76974b8daddf225b0d9b8b581475d657322847e
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75895227"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98931438"
 ---
 # <a name="troubleshoot-apache-hive-by-using-azure-hdinsight"></a>Solucionar problemas do Apache Hive usando o Azure HDInsight
 
@@ -41,7 +38,7 @@ Saiba mais sobre as principais perguntas e suas resoluções ao trabalhar com ca
 
 O código nas etapas de resolução supõe que os caminhos de dados no novo cluster sejam iguais aos caminhos de dados no cluster antigo. Se os caminhos de dados forem diferentes, você poderá editar manualmente o `alltables.sql` arquivo gerado para refletir as alterações.
 
-### <a name="additional-reading"></a>Leitura adicional
+### <a name="additional-reading"></a>Leituras adicionais
 
 - [Conectar-se a um cluster HDInsight usando SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
 
@@ -69,7 +66,7 @@ O código nas etapas de resolução supõe que os caminhos de dados no novo clus
    /var/log/hive/hiveserver2.log
    ```
 
-### <a name="additional-reading"></a>Leitura adicional
+### <a name="additional-reading"></a>Leituras adicionais
 
 - [Conectar-se a um cluster HDInsight usando SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
 
@@ -95,7 +92,7 @@ O código nas etapas de resolução supõe que os caminhos de dados no novo clus
    hive -hiveconf hive.root.logger=ALL,console
    ```
 
-### <a name="additional-reading"></a>Leitura adicional
+### <a name="additional-reading"></a>Leituras adicionais
 
 - [Propriedades de configuração do Hive](https://cwiki.apache.org/confluence/display/Hive/Configuration+Properties)
 
@@ -132,7 +129,7 @@ O código nas etapas de resolução supõe que os caminhos de dados no novo clus
     - **TaskConcurrencyAnalyzer**: imprimir os detalhes de simultaneidade de tarefa em um DAG
     - **VertexLevelCriticalPathAnalyzer**: encontrar o caminho crítico no nível do vértice em um DAG
 
-### <a name="additional-reading"></a>Leitura adicional
+### <a name="additional-reading"></a>Leituras adicionais
 
 - [Conectar-se a um cluster HDInsight usando SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
 
@@ -157,16 +154,10 @@ Há duas maneiras de coletar os dados de DAG do Tez:
   3. Selecione o DAG que você deseja exibir.
   4. Selecione **Baixar dados**.
 
-### <a name="additional-reading"></a><a name="additional-reading-end"></a>Leitura adicional
+### <a name="additional-reading"></a><a name="additional-reading-end"></a>Leituras adicionais
 
 [Conectar-se a um cluster HDInsight usando SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se você não encontrou seu problema ou não conseguiu resolver seu problema, visite um dos seguintes canais para obter mais suporte:
-
-- Obtenha respostas de especialistas do Azure por meio do [Suporte da Comunidade do Azure](https://azure.microsoft.com/support/community/).
-
-- Conecte-se com [@AzureSupport](https://twitter.com/azuresupport), a conta oficial do Microsoft Azure para melhorar a experiência do cliente. Como se conectar à comunidade do Azure para os recursos certos: respostas, suporte e especialistas.
-
-- Se precisar de mais ajuda, poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **Suporte** na barra de menus ou abra o hub **Ajuda + suporte**. Para obter informações mais detalhadas, consulte [Como criar uma solicitação de Suporte do Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). O acesso ao Gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o suporte técnico é fornecido por meio de um dos [Planos de suporte do Azure](https://azure.microsoft.com/support/plans/).
+[!INCLUDE [troubleshooting next steps](../../includes/hdinsight-troubleshooting-next-steps.md)]

@@ -4,12 +4,12 @@ description: Descreve as filas de mensagens mortas no Barramento de Serviço do 
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: fasttrack-edit, devx-track-csharp
-ms.openlocfilehash: 5f7fb65a2a1a6d6529177cd20a85a6d845c119d4
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: ad62f946584071e7ce6fd55f48b5f7ee8db44a2f
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021673"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98630091"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>Visão geral das filas de mensagens mortas do Barramento de Serviço
 
@@ -30,7 +30,7 @@ Não é possível obter a contagem de mensagens da fila de mensagens mortas no n
 
 ![Contagem de mensagens da DLQ](./media/service-bus-dead-letter-queues/dead-letter-queue-message-count.png)
 
-Você também pode obter a contagem de mensagens DLQ usando o comando da CLI do Azure: [`az servicebus topic subscription show`](/cli/azure/servicebus/topic/subscription?view=azure-cli-latest#az-servicebus-topic-subscription-show). 
+Você também pode obter a contagem de mensagens DLQ usando o comando da CLI do Azure: [`az servicebus topic subscription show`](/cli/azure/servicebus/topic/subscription#az-servicebus-topic-subscription-show). 
 
 ## <a name="moving-messages-to-the-dlq"></a>Movendo mensagens para a DLQ
 
@@ -62,7 +62,7 @@ As mensagens expiradas só são limpas e movidas para o DLQ quando há pelo meno
 
 ## <a name="errors-while-processing-subscription-rules"></a>Erros ao processar as regras de assinatura
 
-Quando a propriedade [SubscriptionDescription.EnableDeadLetteringOnFilterEvaluationExceptions](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription) for habilitada para uma assinatura, qualquer erro que ocorra durante as execuções da regra de filtro SQL de uma assinatura será capturado na DLQ com a mensagem ofensiva.
+Quando a propriedade [SubscriptionDescription.EnableDeadLetteringOnFilterEvaluationExceptions](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription) for habilitada para uma assinatura, qualquer erro que ocorra durante as execuções da regra de filtro SQL de uma assinatura será capturado na DLQ com a mensagem ofensiva. Não use essa opção em um ambiente de produção no qual nem todos os tipos de mensagem tenham assinantes.
 
 ## <a name="application-level-dead-lettering"></a>Mensagens mortas no nível de aplicativo
 

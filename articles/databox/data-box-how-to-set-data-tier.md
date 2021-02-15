@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: how-to
 ms.date: 05/24/2019
 ms.author: alkohli
-ms.openlocfilehash: a68793d893d8eb8de681eb438de39afc212370c9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 80c4d8a70454c007ac45f588e59c03ef45f10933
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84608699"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92125057"
 ---
 # <a name="use-azure-data-box-or-azure-data-box-heavy-to-send-data-to-appropriate-azure-storage-blob-tier"></a>Usar Azure Data Box ou Azure Data Box Heavy para enviar dados para a camada de blob de armazenamento do Azure apropriada
 
@@ -29,11 +29,11 @@ O armazenamento do Azure permite três níveis diferentes para armazenar os dado
 
 A camada de armazenamento frio é para dados acessados com pouca frequência que precisam ser armazenados por pelo menos 30 dias. O custo de armazenamento para a camada fria é inferior ao da camada de armazenamento quente, mas os encargos de acesso a dados são altos em comparação aos da camada Quente.
 
-A camada de Arquivos do Azure fica offline e oferece os custos de armazenamento mais baixos, mas também os custos de acesso mais altos. Essa camada destina-se a dados que permanecem no armazenamento de arquivos por pelo menos 180 dias. Para obter detalhes sobre cada uma dessas camadas e o modelo de preços, acesse [Comparação das camadas de armazenamento](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers).
+A camada de Arquivos do Azure fica offline e oferece os custos de armazenamento mais baixos, mas também os custos de acesso mais altos. Essa camada destina-se a dados que permanecem no armazenamento de arquivos por pelo menos 180 dias. Para obter detalhes sobre cada uma dessas camadas e o modelo de preços, acesse [Comparação das camadas de armazenamento](../storage/blobs/storage-blob-storage-tiers.md).
 
 Os dados do Data Box ou Data Box Heavy são carregados em uma camada de armazenamento associada à conta de armazenamento. Quando você cria uma conta de armazenamento, pode especificar a camada de acesso como quente ou fria. Dependendo do padrão de acesso de sua carga de trabalho e do custo, você poderá mover esses dados da camada padrão para outra camada de armazenamento.
 
-Você só pode ordenar os dados de armazenamento de objetos nas contas de Armazenamento de Blobs ou GPv2 (Uso Geral v2). Contas de Uso geral v1 (GPv1) não dão suporte a camadas. Para escolher a camada de armazenamento correta para seus dados, examine as considerações detalhadas no [armazenamento de BLOBs do Azure: camadas de armazenamento Premium, quentes, frias e de arquivo](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers).
+Você só pode ordenar os dados de armazenamento de objetos nas contas de Armazenamento de Blobs ou GPv2 (Uso Geral v2). Contas de Uso geral v1 (GPv1) não dão suporte a camadas. Para escolher a camada de armazenamento correta para seus dados, examine as considerações detalhadas no [armazenamento de BLOBs do Azure: camadas de armazenamento Premium, quentes, frias e de arquivo](../storage/blobs/storage-blob-storage-tiers.md).
 
 ## <a name="set-a-default-blob-tier"></a>Defina uma camada de blob padrão
 
@@ -41,13 +41,13 @@ A camada de blob padrão é especificada quando a conta de armazenamento é cria
 
 As camadas não poderão ser especificadas se você estiver tentando criar uma nova conta ao ordenar uma Data Box ou Data Box Heavy. Depois que a conta for criada, você poderá modificar a conta no portal para definir a camada de acesso padrão.
 
-Como alternativa, você cria uma conta de armazenamento primeiro com o atributo da camada de acesso especificado. Ao criar o Data Box ou Data Box Heavy ordem, selecione a conta de armazenamento existente. Para obter mais informações sobre como definir a camada de blob padrão durante a criação da conta de armazenamento, confira [Criar uma conta de armazenamento no portal do Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=portal).
+Como alternativa, você cria uma conta de armazenamento primeiro com o atributo da camada de acesso especificado. Ao criar o Data Box ou Data Box Heavy ordem, selecione a conta de armazenamento existente. Para obter mais informações sobre como definir a camada de blob padrão durante a criação da conta de armazenamento, confira [Criar uma conta de armazenamento no portal do Azure](../storage/common/storage-account-create.md?tabs=portal).
 
 ## <a name="move-data-to-a-non-default-tier"></a>Mover dados para uma camada não padrão
 
 Depois que os dados do dispositivo Data Box forem carregados para a camada padrão, talvez você queira mover os dados para uma camada não padrão. Há duas maneiras de mover esses dados para uma camada não padrão.
 
-- **Gerenciamento de ciclo de vida do Armazenamento de Blobs do Azure** – você pode usar uma abordagem baseada em política para automaticamente colocar dados em camadas ou expirá-los no final do ciclo de vida. Para obter mais informações, confira [Gerenciando o ciclo de vida do Armazenamento de Blobs do Azure](https://docs.microsoft.com/azure/storage/common/storage-lifecycle-managment-concepts).
+- **Gerenciamento de ciclo de vida do Armazenamento de Blobs do Azure** – você pode usar uma abordagem baseada em política para automaticamente colocar dados em camadas ou expirá-los no final do ciclo de vida. Para obter mais informações, confira [Gerenciando o ciclo de vida do Armazenamento de Blobs do Azure](../storage/blobs/storage-lifecycle-management-concepts.md).
 - **Script** – você pode usar uma abordagem com script por meio do Azure PowerShell para habilitar a camada no nível do blob. Você pode chamar a operação `SetBlobTier` para definir a camada no blob.
 
 ## <a name="use-azure-powershell-to-set-the-blob-tier"></a>Usar o Azure PowerShell para definir a camada de blob
@@ -116,5 +116,4 @@ As etapas a seguir descrevem como você pode definir a camada de blob como Arqui
 
 ## <a name="next-steps"></a>Próximas etapas
 
--  Aprenda a lidar com [cenários de camadas de dados comuns com as regras de política de ciclo de vida](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts#examples)
-
+-  Aprenda a lidar com [cenários de camadas de dados comuns com as regras de política de ciclo de vida](../storage/blobs/storage-lifecycle-management-concepts.md#examples)

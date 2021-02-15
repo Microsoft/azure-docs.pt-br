@@ -5,12 +5,13 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
-ms.openlocfilehash: 36d8d6afde8b1178963b33b9514e53ce0ffccf6f
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.custom: devx-track-csharp
+ms.openlocfilehash: b1bcba264589d6cbe9b4f671e1e4f2c9b1dbf2c5
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88224451"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594241"
 ---
 # <a name="tutorial-securing-azure-remote-rendering-and-model-storage"></a>Tutorial: Proteger o Azure Remote Rendering e o armazenamento de modelos
 
@@ -40,16 +41,16 @@ O Azure Remote Rendering pode acessar com segurança o conteúdo do Armazenament
 
 Ao usar um Armazenamento de Blobs vinculado, você usará métodos ligeiramente diferentes para carregar modelos:
 
-```csharp
-var loadModelParams = new LoadModelFromSASParams(modelPath, modelEntity);
-var loadModelAsync = ARRSessionService.CurrentActiveSession.Actions.LoadModelFromSASAsync(loadModelParams);
+```cs
+var loadModelParams = new LoadModelFromSasOptions(modelPath, modelEntity);
+var task = ARRSessionService.CurrentActiveSession.Connection.LoadModelFromSasAsync(loadModelParams);
 ```
 
-As linhas acima usam a versão `FromSAS` da ação Params e Session. Eles devem ser convertidos para as versões não SAS:
+As linhas acima usam a versão `FromSas` da ação Params e Session. Eles devem ser convertidos para as versões não SAS:
 
-```csharp
-var loadModelParams = new LoadModelParams(storageAccountPath, blobContainerName, modelPath, modelEntity);
-var loadModelAsync = ARRSessionService.CurrentActiveSession.Actions.LoadModelAsync(loadModelParams);
+```cs
+var loadModelParams = new LoadModelOptions(storageAccountPath, blobContainerName, modelPath, modelEntity);
+var task = ARRSessionService.CurrentActiveSession.Connection.LoadModelAsync(loadModelParams);
 ```
 
 Vamos modificar **RemoteRenderingCoordinator** para carregar um modelo personalizado de uma conta de Armazenamento de Blobs vinculada.
@@ -57,7 +58,7 @@ Vamos modificar **RemoteRenderingCoordinator** para carregar um modelo personali
 1. Se você ainda não fez isso, conclua o [Como Vincular contas de armazenamento](../../../how-tos/create-an-account.md#link-storage-accounts) para conceder à sua instância do ARR permissão para acessar a instância de Armazenamento de Blobs.
 1. Adicione o seguinte método **LoadModel** modificado ao **RemoteRenderingCoordinator**, logo abaixo do método **LoadModel** atual:
 
-    ```csharp
+    ```cs
     /// <summary>
     /// Loads a model from blob storage that has been linked to the ARR instance
     /// </summary>
@@ -67,10 +68,10 @@ Vamos modificar **RemoteRenderingCoordinator** para carregar um modelo personali
     /// <param name="parent">The parent Transform for this remote entity</param>
     /// <param name="progress">A call back method that accepts a float progress value [0->1]</param>
     /// <returns></returns>
-    public async Task<Entity> LoadModel(string storageAccountName, string blobContainerName, string modelPath, Transform parent = null, ProgressHandler progress = null)
+    public async Task<Entity> LoadModel(string storageAccountName, string blobContainerName, string modelPath, Transform parent = null, Action<float> progress = null)
     {
         //Create a root object to parent a loaded model to
-        var modelEntity = ARRSessionService.CurrentActiveSession.Actions.CreateEntity();
+        var modelEntity = ARRSessionService.CurrentActiveSession.Connection.CreateEntity();
 
         //Get the game object representation of this entity
         var modelGameObject = modelEntity.GetOrCreateGameObject(UnityCreationMode.DoNotCreateUnityComponents);
@@ -99,11 +100,9 @@ Vamos modificar **RemoteRenderingCoordinator** para carregar um modelo personali
     #endif
 
         //Load a model that will be parented to the entity
-        var loadModelParams = new LoadModelParams($"{storageAccountName}.blob.core.windows.net", blobContainerName, modelPath, modelEntity);
-        var loadModelAsync = ARRSessionService.CurrentActiveSession.Actions.LoadModelAsync(loadModelParams);
-        if (progress != null)
-            loadModelAsync.ProgressUpdated += progress;
-        var result = await loadModelAsync.AsTask();
+        var loadModelParams = new LoadModelOptions($"{storageAccountName}.blob.core.windows.net", blobContainerName, modelPath, modelEntity);
+        var loadModelAsync = ARRSessionService.CurrentActiveSession.Connection.LoadModelAsync(loadModelParams, progress);
+        var result = await loadModelAsync;
         return modelEntity;
     }
     ```
@@ -114,7 +113,7 @@ Vamos modificar **RemoteRenderingCoordinator** para carregar um modelo personali
 
 1. Adicione o método a seguir ao **RemoteRenderingCoordinator** logo após **LoadTestModel**
 
-    ```csharp
+    ```cs
     private bool loadingLinkedCustomModel = false;
 
     [SerializeField]
@@ -162,7 +161,7 @@ Vamos modificar **RemoteRenderingCoordinator** para carregar um modelo personali
     ```
 
     Esse código adiciona outras três variáveis de cadeia de caracteres ao componente **RemoteRenderingCoordinator**.
-    ![Modelo vinculado](./media/storage-account-linked-model.png)
+    ![Captura de tela que realça o Nome da Conta de Armazenamento, o Nome do Contêiner de Blobs e o Caminho do Modelo do componente RemoteRenderingCoordinator.](./media/storage-account-linked-model.png)
 
 1. Adicione seus valores ao componente **RemoteRenderingCoordinator**. Se você seguiu o [Início Rápido para conversão de modelo](../../../quickstarts/convert-model.md), seus valores devem ser:
 
@@ -187,11 +186,11 @@ Temos mais uma "senha", a AccountKey, para remover do aplicativo local. Isso pod
 
 ## <a name="azure-active-directory-azure-ad-authentication"></a>Autenticação do Azure AD (Azure Active Directory)
 
-A autenticação do AAD permitirá que você determine quais pessoas ou grupos usam o ARR de maneira mais controlada. O ARR tem suporte interno para aceitar [Tokens de Acesso](https://docs.microsoft.com/azure/active-directory/develop/access-tokens) em vez de usar uma Chave de Conta. Você pode considerar os Tokens de acesso como uma chave específica do usuário, com tempo limitado, que desbloqueia somente determinadas partes do recurso específico para o qual ela foi solicitada.
+A autenticação do AAD permitirá que você determine quais pessoas ou grupos usam o ARR de maneira mais controlada. O ARR tem suporte interno para aceitar [Tokens de Acesso](../../../../active-directory/develop/access-tokens.md) em vez de usar uma Chave de Conta. Você pode considerar os Tokens de acesso como uma chave específica do usuário, com tempo limitado, que desbloqueia somente determinadas partes do recurso específico para o qual ela foi solicitada.
 
-O script **RemoteRenderingCoordinator** tem um delegado chamado **ARRCredentialGetter**, que contém um método que retorna um objeto **AzureFrontendAccountInfo**, que é usado para configurar o gerenciamento da sessão remota. Podemos atribuir um método diferente para **ARRCredentialGetter**, permitindo usar um fluxo de entrada do Azure, gerando um objeto **AzureFrontendAccountInfo** que contém um Token de Acesso do Azure. Esse Token de Acesso será específico ao usuário que está entrando.
+O script **RemoteRenderingCoordinator** tem um delegado chamado **ARRCredentialGetter**, que contém um método que retorna um objeto **SessionConfiguration**, que é usado para configurar o gerenciamento da sessão remota. Podemos atribuir um método diferente para **ARRCredentialGetter**, permitindo usar um fluxo de entrada do Azure, gerando um objeto **SessionConfiguration** que contém um Token de Acesso do Azure. Esse Token de Acesso será específico ao usuário que está entrando.
 
-1. Siga o tópico [Como Configurar autenticação – Autenticação para aplicativos implantados](../../../how-tos/authentication.md#authentication-for-deployed-applications), especificamente, você seguirá as instruções listadas na documentação de Âncoras Espaciais do Azure [Autenticação de usuário do Azure AD](https://docs.microsoft.com/azure/spatial-anchors/concepts/authentication?tabs=csharp#azure-ad-user-authentication). Elas envolvem o registro de um novo aplicativo do Azure Active Directory e a configuração do acesso à instância do ARR.
+1. Siga o tópico [Como Configurar autenticação – Autenticação para aplicativos implantados](../../../how-tos/authentication.md#authentication-for-deployed-applications), especificamente, você seguirá as instruções listadas na documentação de Âncoras Espaciais do Azure [Autenticação de usuário do Azure AD](../../../../spatial-anchors/concepts/authentication.md?tabs=csharp#azure-ad-user-authentication). Elas envolvem o registro de um novo aplicativo do Azure Active Directory e a configuração do acesso à instância do ARR.
 1. Depois de configurar o novo aplicativo do AAD, verifique se o aplicativo do AAD está semelhante às seguintes imagens:
 
     **Aplicativo do AAD -> Autenticação** ![Autenticação de aplicativo](./media/app-authentication-public.png)
@@ -205,11 +204,11 @@ O script **RemoteRenderingCoordinator** tem um delegado chamado **ARRCredentialG
     >[!NOTE]
     > Uma função de *Proprietário* não é suficiente para gerenciar sessões por meio do aplicativo cliente. Para cada usuário que você deseja conceder a capacidade de gerenciar sessões, você deve fornecer a função **Cliente do Remote Rendering**. Para cada usuário que você deseja que gerencie sessões e converta modelos, é necessário fornecer a função de **Administrador do Remote Rendering**.
 
-Com o lado do Azure dessas coisas em vigor, agora precisamos modificar como o seu código se conecta ao serviço do AAR. Fazemos isso implementando uma instância do **BaseARRAuthentication**, que retornará um novo objeto **AzureFrontendAccountInfo**. Nesse caso, as informações da conta serão configuradas com o Token de Acesso do Azure.
+Com o lado do Azure dessas coisas em vigor, agora precisamos modificar como o seu código se conecta ao serviço do AAR. Fazemos isso implementando uma instância do **BaseARRAuthentication**, que retornará um novo objeto **SessionConfiguration**. Nesse caso, as informações da conta serão configuradas com o Token de Acesso do Azure.
 
 1. Crie um script chamado **AADAuthentication** e substitua seu código pelo seguinte:
 
-    ```csharp
+    ```cs
     // Copyright (c) Microsoft Corporation. All rights reserved.
     // Licensed under the MIT License. See LICENSE in the project root for license information.
 
@@ -254,6 +253,14 @@ Com o lado do Azure dessas coisas em vigor, agora precisamos modificar como o se
             get => azureRemoteRenderingAccountID.Trim();
             set => azureRemoteRenderingAccountID = value;
         }
+    
+        [SerializeField]
+        private string azureRemoteRenderingAccountAuthenticationDomain;
+        public string AzureRemoteRenderingAccountAuthenticationDomain
+        {
+            get => azureRemoteRenderingAccountAuthenticationDomain.Trim();
+            set => azureRemoteRenderingAccountAuthenticationDomain = value;
+        }
 
         public override event Action<string> AuthenticationInstructions;
 
@@ -261,7 +268,7 @@ Com o lado do Azure dessas coisas em vigor, agora precisamos modificar como o se
 
         string redirect_uri = "https://login.microsoftonline.com/common/oauth2/nativeclient";
 
-        string[] scopes => new string[] { "https://sts.mixedreality.azure.com/mixedreality.signin" };
+        string[] scopes => new string[] { "https://sts." + AzureRemoteRenderingAccountAuthenticationDomain + "/mixedreality.signin" };
 
         public void OnEnable()
         {
@@ -269,7 +276,7 @@ Com o lado do Azure dessas coisas em vigor, agora precisamos modificar como o se
             this.gameObject.AddComponent<ExecuteOnUnityThread>();
         }
 
-        public async override Task<AzureFrontendAccountInfo> GetAARCredentials()
+        public async override Task<SessionConfiguration> GetAARCredentials()
         {
             var result = await TryLogin();
             if (result != null)
@@ -278,7 +285,7 @@ Com o lado do Azure dessas coisas em vigor, agora precisamos modificar como o se
 
                 var AD_Token = result.AccessToken;
 
-                return await Task.FromResult(new AzureFrontendAccountInfo(AccountDomain, AzureRemoteRenderingAccountID, "", AD_Token, ""));
+                return await Task.FromResult(new SessionConfiguration(AzureRemoteRenderingAccountAuthenticationDomain, AccountDomain, AzureRemoteRenderingAccountID, "", AD_Token, ""));
             }
             else
             {
@@ -360,15 +367,15 @@ Com o lado do Azure dessas coisas em vigor, agora precisamos modificar como o se
 
 O código primeiro tenta obter o token silenciosamente usando **AquireTokenSilent**. Isso será bem-sucedido se o usuário tiver se autenticado anteriormente neste aplicativo. Se isso não for bem-sucedido, passe para uma estratégia que envolva mais o usuário.
 
-Nesse código estamos usando o [fluxo de código do dispositivo](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-device-code) para obter um Token de Acesso. Esse fluxo permite que o usuário entre em sua conta do Azure em um computador ou um dispositivo móvel e faça com que o token resultante seja enviado de volta para o aplicativo do HoloLens.
+Nesse código estamos usando o [fluxo de código do dispositivo](../../../../active-directory/develop/v2-oauth2-device-code.md) para obter um Token de Acesso. Esse fluxo permite que o usuário entre em sua conta do Azure em um computador ou um dispositivo móvel e faça com que o token resultante seja enviado de volta para o aplicativo do HoloLens.
 
 A parte mais importante dessa classe, de uma perspectiva do ARR, é esta linha:
 
-```csharp
-return await Task.FromResult(new AzureFrontendAccountInfo(AccountDomain, AzureRemoteRenderingAccountID, "", AD_Token, ""));
+```cs
+return await Task.FromResult(new SessionConfiguration(AccountDomain, AzureRemoteRenderingAccountID, "", AD_Token, ""));
 ```
 
-Aqui, criamos um objeto **AzureFrontendAccountInfo** usando o domínio da conta, a ID da conta e o token de acesso. Esse token é usado pelo serviço do ARR para consultar, criar e unir sessões de Remote Rendering, contanto que o usuário seja autorizado com base nas permissões baseadas em função configuradas anteriormente.
+Aqui, criamos um objeto **SessionConfiguration** usando o domínio da conta, a ID da conta, o domínio de autenticação da conta e o token de acesso. Esse token é usado pelo serviço do ARR para consultar, criar e unir sessões de Remote Rendering, contanto que o usuário seja autorizado com base nas permissões baseadas em função configuradas anteriormente.
 
 Com essa alteração, o estado atual do aplicativo e o acesso aos seus recursos do Azure tem a seguinte aparência:
 
@@ -390,13 +397,15 @@ No editor do Unity, quando a autenticação do AAD estiver ativa, você precisar
     * A **ID do cliente do aplicativo do Active Directory** é a *ID do aplicativo (cliente)* encontrada no registro do aplicativo do AAD (veja a imagem abaixo).
     * A **ID de locatário do Azure** é a ID do *Diretório (locatário)* encontrada no registro do aplicativo do AAD (consulte a imagem abaixo).
     * A **ID da conta do Azure Remote Rendering** é a mesma **ID de conta** que você está usando para o **RemoteRenderingCoordinator**.
+    * O **Domínio de autenticação da conta** é o mesmo **Domínio de autenticação da conta** que você estava usando no **RemoteRenderingCoordinator**.
 
-    ![Componente de autenticação do AAD](./media/app-overview-data.png)
+    ![Captura de tela que realça a ID do Aplicativo (cliente) e a ID do Diretório (locatário).](./media/app-overview-data.png)
 
 1. Pressione Executar no editor do Unity e dê consentimento para executar uma sessão.
     Como o componente **AADAuthentication** tem um controlador de exibição, ele é conectado automaticamente para exibir um prompt depois do painel modal de autorização de sessão.
 1. Siga as instruções encontradas no painel à direita do **AppMenu**.
-    Você deve ver algo semelhante a isto: ![Componente de autenticação do AAD](./media/device-flow-instructions.png) Depois de inserir o código fornecido em seu dispositivo secundário (ou navegador no mesmo dispositivo) e fazer logon usando suas credenciais, um Token de Acesso será retornado para o aplicativo solicitante, nesse caso, o editor do Unity.
+    Você deve ver algo semelhante a isto: ![Ilustração que mostra o painel de instruções que aparece à direita do AppMenu.](./media/device-flow-instructions.png)
+    Depois de inserir o código fornecido em seu dispositivo secundário (ou navegador no mesmo dispositivo) e fazer logon usando suas credenciais, um Token de Acesso será retornado para o aplicativo solicitante, nesse caso, o editor do Unity.
 1. Depois desse ponto, tudo no aplicativo deverá continuar normalmente. Verifique se há erros no console do Unity se você não estiver progredindo entre os estágios conforme o esperado.
 
 ## <a name="build-to-device"></a>Compilar para o dispositivo

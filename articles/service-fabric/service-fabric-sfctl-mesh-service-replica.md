@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: cbfdba30663e2aa531ab1db955b0e035a0588709
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86245714"
 ---
 # <a name="sfctl-mesh-service-replica"></a>sfctl mesh service-replica
@@ -20,7 +20,7 @@ Obtenha detalhes da réplica e listar as réplicas de um determinado serviço em
 |Comando|Descrição|
 | --- | --- |
 | list | Lista todas as réplicas de um serviço. |
-| mostrar | Obtém a réplica fornecida do serviço de um aplicativo. |
+| show | Obtém a réplica fornecida do serviço de um aplicativo. |
 
 ## <a name="sfctl-mesh-service-replica-list"></a>sfctl mesh service-replica list
 Lista todas as réplicas de um serviço.

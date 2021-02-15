@@ -1,20 +1,19 @@
 ---
-title: Referência de sintaxe sqlruleaction no barramento de serviço do Azure
-description: Este artigo fornece uma referência para a sintaxe sqlruleaction. As ações são gravadas na sintaxe baseada em linguagem SQL executada em uma mensagem orientada.
+title: Sintaxe da ação SQL da regra de assinatura do barramento de serviço do Azure | Microsoft Docs
+description: Este artigo fornece uma referência para a sintaxe de ação de regra SQL. As ações são gravadas na sintaxe baseada em linguagem SQL executada em uma mensagem.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 61fa6e046b4d4a0ba91bf8608c846755026d07ec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 11/24/2020
+ms.openlocfilehash: f7b8cdfcccc22508b98a42391d2a0ef9955232d0
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341584"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98742668"
 ---
-# <a name="sqlruleaction-syntax-reference-for-azure-service-bus"></a>Referência de sintaxe sqlruleaction para o barramento de serviço do Azure
+# <a name="subscription-rule-sql-action-syntax"></a>Sintaxe da ação SQL da regra de assinatura
 
-Um *SqlRuleAction* é uma instância da classe [SqlRuleAction](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction) e representa um conjunto de ações gravadas na sintaxe baseada na linguagem SQL executada em uma [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage).   
+Uma *ação SQL* é usada para manipular metadados de mensagem depois que uma mensagem é selecionada por um filtro de uma regra de assinatura. É uma expressão de texto que se baseia em um subconjunto do padrão SQL-92. As expressões de ação são usadas com o `sqlExpression` elemento da propriedade ' action ' de um barramento de serviço `Rule` em um [modelo de Azure Resource Manager](service-bus-resource-manager-namespace-topic-with-rule.md), ou o argumento de CLI do Azure `az servicebus topic subscription rule create` comando [`--action-sql-expression`](/cli/azure/servicebus/topic/subscription/rule#az_servicebus_topic_subscription_rule_create) e várias funções de SDK que permitem o gerenciamento de regras de assinatura.
   
-Este artigo lista os detalhes sobre a gramática de ação de regras do SQL.  
   
 ```  
 <statements> ::=
@@ -54,11 +53,11 @@ Este artigo lista os detalhes sobre a gramática de ação de regras do SQL.
   
 ## <a name="arguments"></a>Argumentos  
   
--   `<scope>` é uma cadeia de caracteres opcional que indica o escopo do `<property_name>`. Os valores válidos são `sys` ou `user`. O valor `sys` indica o escopo do sistema, em que `<property_name>` é um nome de propriedade pública da [Classe BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user` indica o escopo do usuário, em que `<property_name>` é uma chave de dicionário da [Classe BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). O escopo `user` será o escopo padrão se `<scope>` não for especificado.  
+-   `<scope>` é uma cadeia de caracteres opcional que indica o escopo do `<property_name>`. Os valores válidos são `sys` ou `user`. O valor `sys` indica o escopo do sistema, em que `<property_name>` é um nome de propriedade pública da [Classe BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user` indica o escopo do usuário, em que `<property_name>` é uma chave de dicionário da [Classe BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user` escopo será o escopo padrão se `<scope>` não for especificado.  
   
 ### <a name="remarks"></a>Comentários  
 
-Uma tentativa de acessar uma propriedade inexistente do sistema é um erro, ao passo que uma tentativa de acessar uma propriedade de usuário inexistente não é um erro. Em vez disso, uma propriedade de usuário inexistente é internamente avaliada como um valor desconhecido. Um valor desconhecido é tratado especialmente durante a avaliação de operador.  
+Uma tentativa de acessar uma propriedade de sistema inexistente é um erro, enquanto uma tentativa de acessar uma propriedade de usuário não existente não é um erro. Em vez disso, uma propriedade de usuário inexistente é internamente avaliada como um valor desconhecido. Um valor desconhecido é tratado especialmente durante a avaliação de operador.  
   
 ## <a name="property_name"></a>property_name  
   
@@ -95,7 +94,7 @@ Uma tentativa de acessar uma propriedade inexistente do sistema é um erro, ao p
   
 ```  
   
- `<quoted_identifier>` é qualquer cadeia de caracteres entre aspas duplas. Aspas duplas no identificador são representadas como duas aspas duplas. Não é recomendável usar identificadores entre aspas, porque pode ser confundido facilmente por uma constante de cadeia de caracteres. Use um identificador delimitado, se possível. Este é um exemplo de `<quoted_identifier>`:  
+ `<quoted_identifier>` é qualquer cadeia de caracteres entre aspas duplas. Aspas duplas no identificador são representadas como duas aspas duplas. Não é recomendável usar identificadores entre aspas porque ele pode ser facilmente confundido com uma constante de cadeia de caracteres. Use um identificador delimitado, se possível. Este é um exemplo de `<quoted_identifier>`:  
   
 ```  
 "Contoso & Northwind"  
@@ -138,7 +137,7 @@ Uma tentativa de acessar uma propriedade inexistente do sistema é um erro, ao p
   
 ### <a name="arguments"></a>Argumentos  
   
--   `<integer_constant>` é uma cadeia de números que não são incluídos em aspas e que não contêm pontos decimais. Os valores são armazenados como `System.Int64` internamente e seguem o mesmo intervalo.  
+-   `<integer_constant>` é uma cadeia de números que não está entre aspas e não contém pontos decimais. Os valores são armazenados como `System.Int64` internamente e seguem o mesmo intervalo.  
   
      Estes são exemplos de constantes longas:  
   
@@ -147,9 +146,9 @@ Uma tentativa de acessar uma propriedade inexistente do sistema é um erro, ao p
     2  
     ```  
   
--   `<decimal_constant>` é uma cadeia de números que não são incluídos em aspas e que contêm um ponto decimal. Os valores são armazenados como `System.Double` internamente e seguem o mesmo intervalo e a mesma precisão.  
+-   `<decimal_constant>` é uma cadeia de números que não está entre aspas e que contém um ponto decimal. Os valores são armazenados como `System.Double` internamente e seguem o mesmo intervalo e a mesma precisão.  
   
-     Em uma versão futura, esse número poderá ser armazenado em outro tipo de dados para dar suporte à semântica de número exato; portanto, você não deve se basear no fato de que o tipo de dados subjacente é `System.Double` para `<decimal_constant>`.  
+     Em uma versão futura, esse número pode ser armazenado em um tipo de dados diferente para dar suporte à semântica numérica exata, portanto, você não deve contar com o fato de que o tipo de dados subjacente é `System.Double` para `<decimal_constant>` .  
   
      Estes são exemplos de constantes decimais:  
   
@@ -196,9 +195,11 @@ Constantes de cadeia de caracteres são incluídas em aspas simples e incluem ca
   
 ### <a name="remarks"></a>Comentários  
 
-A função `newid()` retorna um **System.Guid** gerado pelo método `System.Guid.NewGuid()`.  
+A `newid()` função retorna um `System.Guid` gerado pelo `System.Guid.NewGuid()` método.  
   
 A função `property(name)` retorna o valor da propriedade referenciada por `name`. O valor `name` pode ser qualquer expressão válida que retorna um valor de cadeia de caracteres.  
+
+[!INCLUDE [service-bus-filter-examples](../../includes/service-bus-filter-examples.md)]
   
 ## <a name="considerations"></a>Considerações
 
@@ -206,10 +207,14 @@ A função `property(name)` retorna o valor da propriedade referenciada por `nam
 - REMOVE é usado para remover uma propriedade.
 - SET executa uma conversão implícita, se possível, quando o tipo de expressão e o tipo de propriedade existente são diferentes.
 - A ação falhará se propriedades do sistema inexistentes forem referenciadas.
-- A ação não falhará se propriedades de usuário inexistentes forem referenciadas.
+- A ação não falhará se Propriedades de usuário inexistentes forem referenciadas.
 - Uma propriedade de usuário inexistente é avaliada como “Desconhecida” internamente, seguindo a mesma semântica de [SQLFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter) ao avaliar operadores.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Classe SQLRuleAction](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction)
-- [Classe SQLFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter)
+- [Classe sqlruleaction (.NET Framework)](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction)
+- [Classe sqlruleaction (.NET Standard)](/dotnet/api/microsoft.azure.servicebus.sqlruleaction)
+- [Classe sqlruleaction (Java)](/java/api/com.microsoft.azure.servicebus.rules.sqlruleaction)
+- [Sqlruleaction (JavaScript)](/javascript/api/@azure/service-bus/sqlruleaction)
+- [`az servicebus topic subscription rule`](/cli/azure/servicebus/topic/subscription/rule)
+- [New-AzServiceBusRule](/powershell/module/az.servicebus/new-azservicebusrule)

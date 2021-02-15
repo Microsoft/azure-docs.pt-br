@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 1c9b0b48c7862990cfa2c8ba38bde0851058a228
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 49d9b91df896646da7bf36e077d9f3c9187137dd
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86023016"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021789"
 ---
 # <a name="debug-errors-when-running-a-custom-commands-application"></a>Erros de depuração ao executar um aplicativo de comandos personalizados
 
@@ -86,13 +86,13 @@ Reconhecimento vocal (LUIS) tem limites de uso de recursos. Normalmente "erro de
 
     Adicione um recurso de previsão ao aplicativo de comandos personalizados: 
     1. Vá para **configurações**, recurso Luis
-    1. Escolha um recurso de previsão do **recurso de previsão**ou clique em **criar novo recurso** 
+    1. Escolha um recurso de previsão do **recurso de previsão** ou clique em **criar novo recurso** 
 
 - O recurso de previsão do LUIS excede o limite
 
     Se você estiver em um recurso de previsão F0, ele terá um limite de 10 mil/mês, 5 consultas/segundo.
 
-Para obter mais detalhes sobre os limites de recursos do LUIS, consulte [reconhecimento vocal o uso e o limite de recursos](https://docs.microsoft.com/azure/cognitive-services/luis/luis-limits#resource-usage-and-limits)
+Para obter mais detalhes sobre os limites de recursos do LUIS, consulte [reconhecimento vocal o uso e o limite de recursos](../luis/luis-limits.md#resource-usage-and-limits)
 
 ### <a name="connection-to-the-recognizer-failed"></a>Falha na conexão com o reconhecedor
 Normalmente, isso significa falha de conexão transitória para reconhecedor de Reconhecimento vocal (LUIS). Tente novamente e o problema deve ser resolvido.
@@ -123,7 +123,7 @@ Respostas inesperadas podem ser causadas por várias coisas. Algumas verificaç�
 
     A precisão do reconhecimento de LUIS pode ser afetada quando dois comandos compartilham frases de exemplos e intenções semelhantes. Você pode tentar tornar os comandos a funcionalidade e as frases de exemplo o mais distinto possível.
 
-    Para obter uma prática recomendada de melhorar a precisão do reconhecimento, consulte a [prática recomendada do Luis](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-best-practices).
+    Para obter uma prática recomendada de melhorar a precisão do reconhecimento, consulte a [prática recomendada do Luis](../luis/luis-concept-best-practices.md).
 
 - Caixa de diálogo cancelada
     

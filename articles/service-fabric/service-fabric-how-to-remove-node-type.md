@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 08/11/2020
 ms.author: chrpap
 ms.openlocfilehash: ede999bee9ce1a4a9dd10652a2c52a840d5b24be
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88163570"
 ---
 # <a name="how-to-remove-a-service-fabric-node-type"></a>Como remover um tipo de nó Service Fabric

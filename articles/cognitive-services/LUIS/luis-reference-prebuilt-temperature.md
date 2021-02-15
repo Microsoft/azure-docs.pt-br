@@ -3,20 +3,18 @@ title: Entidade predefinida de temperatura – LUIS
 titleSuffix: Azure Cognitive Services
 description: Este artigo contém informações sobre a entidade predefinida de temperatura de LUIS (Serviço Inteligente de Reconhecimento Vocal).
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 10/14/2019
-ms.author: diberry
-ms.openlocfilehash: 7e2b48c6353f56ab2269a8718146cb765797adba
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 46161a83d261ae23ca45b7293e48ff15e435f42d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78270363"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91535331"
 ---
 # <a name="temperature-prebuilt-entity-for-a-luis-app"></a>Entidade de temperatura predefinida para um aplicativo LUIS
 Temperatura extrai uma variedade de tipos de temperatura. Uma vez que essa entidade já está treinada, não é necessário adicionar enunciados de exemplo contendo temperatura ao aplicativo. A entidade de temperatura é compatível com [muitas culturas](luis-reference-prebuilt-entities.md).
@@ -33,7 +31,7 @@ Os seguintes objetos de entidade são retornados para a consulta:
 
 #### <a name="v3-response"></a>[Resposta v3](#tab/V3)
 
-O JSON a seguir é com `verbose` o parâmetro definido `false`como:
+O JSON a seguir é com o `verbose` parâmetro definido como `false` :
 
 ```json
 "entities": {
@@ -46,7 +44,7 @@ O JSON a seguir é com `verbose` o parâmetro definido `false`como:
 }
 ```
 #### <a name="v3-verbose-response"></a>[V3, resposta detalhada](#tab/V3-verbose)
-O JSON a seguir é com `verbose` o parâmetro definido `true`como:
+O JSON a seguir é com o `verbose` parâmetro definido como `true` :
 
 ```json
 "entities": {

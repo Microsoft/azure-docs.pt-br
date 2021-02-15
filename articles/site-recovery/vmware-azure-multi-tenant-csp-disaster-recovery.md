@@ -7,16 +7,16 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: b7cf0d35ae610c3f9fe477267e28e5449459148b
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: fb2a8a7bb14758ab21eb2183a119f456b53c8562
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87924573"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97654942"
 ---
 # <a name="set-up-vmware-disaster-recovery-in-a-multi-tenancy-environment-with-the-cloud-solution-provider-csp-program"></a>Configurar a recuperação de desastre do VMware em um ambiente multilocatário com o programa CSP (Provedor de Solução de Nuvem)
 
-O [Programa CSP](https://partner.microsoft.com/cloud-solution-provider) promove histórias de colaboração de sucesso para serviços em de nuvem da Microsoft, incluindo o Office 365, Enterprise Mobility Suite e o Microsoft Azure. Com o CSP, os parceiros controlam o relacionamento de ponta a ponta com os clientes e se tornam o principal ponto de contato desse relacionamento. Os parceiros podem implantar as assinaturas do Azure para os clientes e combiná-las com suas próprias ofertas personalizadas de valor agregado.
+O [programa CSP](https://partner.microsoft.com/cloud-solution-provider) promove histórias melhores para os serviços em nuvem da Microsoft, incluindo Microsoft 365, Enterprise Mobility Suite e Microsoft Azure. Com o CSP, os parceiros controlam o relacionamento de ponta a ponta com os clientes e se tornam o principal ponto de contato desse relacionamento. Os parceiros podem implantar as assinaturas do Azure para os clientes e combiná-las com suas próprias ofertas personalizadas de valor agregado.
 
 Com o [Azure Site Recovery](site-recovery-overview.md), como parceiros, você pode gerenciar a recuperação de desastre para os clientes diretamente por meio de do CSP. Como alternativa, você pode usar o CSP para configurar ambientes de Site Recovery e permitir que os clientes gerenciem suas próprias necessidades de recuperação de desastre como autoatendimento. Em ambos os cenários, os parceiros são o elo entre o Site Recovery e seus clientes. Os parceiros cuidam do relacionamento com o cliente e cobram pelo uso do Site Recovery.
 
@@ -65,22 +65,22 @@ Agora você pode executar e gerenciar todas as operações do Site Recovery do l
 ## <a name="assign-tenant-access-to-the-subscription"></a>Atribuir acesso do locatário à assinatura
 
 1. Certifique-se de que a infra-estrutura de recuperação de desastres está configurada. Parceiros acessam as assinaturas de locatários por meio do portal CSP, independentemente de se a recuperação de desastres for gerenciada ou autoatendimento. Configurar seu cofre e registrar a infraestrutura para as assinaturas do locatário.
-2. Forneça o locatário com a [conta que você criou](#create-a-tenant-account).
-3. Você pode adicionar um novo usuário à assinatura de locatário por meio do portal do CSP da seguinte maneira:
+1. Forneça o locatário com a [conta que você criou](#create-a-tenant-account).
+1. Você pode adicionar um novo usuário à assinatura de locatário por meio do portal do CSP da seguinte maneira:
 
-    a) Acesse a página da assinatura do CSP do locatário e selecione a opção **Usuários e licenças**.
+    1. Acesse a página da assinatura do CSP do locatário e selecione a opção **Usuários e licenças**.
 
-      ![A página da assinatura do CSP do locatário](./media/vmware-azure-multi-tenant-csp-disaster-recovery/users-and-licences.png)
+       ![A página da assinatura do CSP do locatário](./media/vmware-azure-multi-tenant-csp-disaster-recovery/users-and-licences.png)
 
-    b) Agora crie um novo usuário inserindo os detalhes relevantes e selecionando as permissões ou carregando a lista de usuários em um arquivo CSV.
-    
-    c) Depois de criar um novo usuário, volte para o portal do Azure. Na página **Assinatura**, selecione a assinatura relevante.
+    1. Agora, crie um novo usuário inserindo os detalhes relevantes e selecionando permissões ou carregando a lista de usuários em um arquivo CSV.
 
-    Selecione **Controle de Acesso (IAM)** e, em seguida, selecione **Atribuição de função**.
+    1. Depois de criar um novo usuário, volte para a portal do Azure. Na página **Assinatura**, selecione a assinatura relevante.
 
-    e) clique em **Adicionar atribuição de função** para adicionar um usuário com o nível de acesso relevante. Os usuários que foram criados por meio do portal do CSP são exibidos na guia Atribuições de função.
+    1. Selecione **controle de acesso (iam)** e clique em **atribuições de função**.
 
-      ![Adicionar um usuário](./media/vmware-azure-multi-tenant-csp-disaster-recovery/add-user-subscription.png)
+    1. Clique em **Adicionar atribuição de função** para adicionar um usuário com o nível de acesso relevante. Os usuários que foram criados por meio do portal do CSP são exibidos na guia Atribuições de função.
+
+        ![Adicionar um usuário](./media/vmware-azure-multi-tenant-csp-disaster-recovery/add-user-subscription.png)
 
 - Para a maioria das operações de gerenciamento, a função de *Colaborador* é suficiente. Usuários com esse nível de acesso podem fazer tudo em uma assinatura, exceto alterar os níveis de acesso (para tal é necessário o nível de acesso *Proprietário*).
 - O Site Recovery também tem três [funções de usuário predefinidas](site-recovery-role-based-linked-access-control.md) que podem ser usadas para restringir ainda mais os níveis de acesso conforme o necessário.

@@ -4,56 +4,65 @@ titleSuffix: Azure Cognitive Services
 description: Conceitos relacionados ao OCR (reconhecimento óptico de caracteres) de imagens e documentos com texto impresso e manuscrito usando o API da Pesquisa Visual Computacional.
 services: cognitive-services
 author: PatrickFarley
-manager: netahw
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 08/11/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: cb931d0b9c3dd4d3fa0fa69f69f5f90fc37ea8f6
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 2833fd44b75f4bebf41b5100eb2350ca69436520
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88929186"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100362787"
 ---
 # <a name="optical-character-recognition-ocr"></a>OCR (reconhecimento óptico de caracteres)
 
-O API da Pesquisa Visual Computacional do Azure inclui recursos de OCR (reconhecimento óptico de caracteres) que extraem texto impresso ou manuscrito de imagens. Você pode extrair texto de imagens, como fotos de chapas de licença ou contêineres com números de série, bem como de documentos-faturas, faturas, relatórios financeiros, artigos e muito mais. 
+O API da Pesquisa Visual Computacional do Azure inclui recursos de OCR (reconhecimento óptico de caracteres) que extraem texto impresso ou manuscrito de imagens. Você pode extrair texto de imagens, como fotos de chapas de licença ou contêineres com números de série, bem como de documentos-faturas, faturas, relatórios financeiros, artigos e muito mais.
 
 ## <a name="read-api"></a>API de leitura 
 
-A [API de leitura](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) do pesquisa Visual computacional é a tecnologia de OCR mais recente do Azure que extrai o texto impresso (em vários idiomas), texto manuscrito (somente em inglês), dígitos e símbolos de moeda de imagens e documentos PDF de várias páginas. Ele é otimizado para extrair texto de imagens com texto pesado e documentos PDF de várias páginas com idiomas mistos. Ele dá suporte à detecção de texto impresso e manuscrito na mesma imagem ou documento.
+A [API de leitura](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) do pesquisa Visual computacional é a tecnologia de OCR mais recente do Azure ([saiba o que há de novo](./whats-new.md)) que extrai o texto impresso (em vários idiomas), texto manuscrito (somente em inglês), dígitos e símbolos de moeda de imagens e documentos PDF de várias páginas. Ele é otimizado para extrair texto de imagens com texto pesado e documentos PDF de várias páginas com idiomas mistos. Ele dá suporte à detecção de texto impresso e manuscrito na mesma imagem ou documento.
 
 ![Como o OCR converte imagens e documentos em uma saída estruturada com texto extraído](./Images/how-ocr-works.svg)
 
 ## <a name="input-requirements"></a>Requisitos de entrada
-A operação de **leitura** da API de leitura leva imagens e documentos como sua entrada. Eles têm os seguintes requisitos:
+A chamada de **leitura** leva imagens e documentos como sua entrada. Eles têm os seguintes requisitos:
 
 * Formatos de arquivo com suporte: JPEG, PNG, BMP, PDF e TIFF
-* Para PDF e TIFF, até 2000 páginas são processadas. Para assinantes de camada gratuita, somente as duas primeiras páginas são processadas.
-* O tamanho do arquivo deve ser menor que 50 MB e dimensões, pelo menos, 50 x 50 pixels e no máximo 10000 x 10000 pixels.
+* Para arquivos PDF e TIFF, até 2000 páginas (apenas duas primeiras páginas para a camada gratuita) são processadas.
+* O tamanho do arquivo deve ser menor que 50 MB (4 MB para a camada gratuita) e dimensões, pelo menos, 50 x 50 pixels e no máximo 10000 x 10000 pixels. 
 * As dimensões de PDF devem ter no máximo 17 x 17 polegadas, correspondendo a tamanhos de papel ofício ou a3 e menores.
 
 > [!NOTE]
 > **Entrada de idioma** 
 >
-> A [operação de leitura](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) tem um parâmetro de solicitação opcional para o idioma. Esse é o código de idioma BCP-47 do texto no documento. A leitura dá suporte à identificação automática de idioma e a documentos multilíngues, portanto, forneça apenas um código de idioma se desejar forçar o processamento do documento como aquele idioma específico.
+> A [chamada de leitura](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) tem um parâmetro de solicitação opcional para o idioma. A leitura dá suporte à identificação automática de idioma e a documentos multilíngues, portanto, forneça apenas um código de idioma se desejar forçar o processamento do documento como aquele idioma específico.
 
-## <a name="the-read-operation"></a>A operação de leitura
+## <a name="ocr-demo-examples"></a>Demonstração de OCR (exemplos)
 
-A [operação de leitura](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) usa um documento de imagem ou PDF como entrada e extrai o texto de forma assíncrona. A chamada retorna com um campo de cabeçalho de resposta chamado `Operation-Location` . O `Operation-Location` valor é uma URL que contém a ID da operação a ser usada na próxima etapa.
+![Demonstrações de OCR](./Images/ocr-demo.gif)
+
+## <a name="step-1-the-read-operation"></a>Etapa 1: a operação de leitura
+
+A [chamada de leitura](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) da API de leitura usa um documento de imagem ou PDF como entrada e extrai o texto de forma assíncrona. A chamada retorna com um campo de cabeçalho de resposta chamado `Operation-Location` . O `Operation-Location` valor é uma URL que contém a ID da operação a ser usada na próxima etapa.
 
 |Cabeçalho de resposta| URL do resultado |
 |:-----|:----|
-|Operation-Location | `https://cognitiveservice/vision/v3.0/read/analyzeResults/49a36324-fc4b-4387-aa06-090cfbf0064f` |
+|Operation-Location | `https://cognitiveservice/vision/v3.1/read/analyzeResults/49a36324-fc4b-4387-aa06-090cfbf0064f` |
 
-## <a name="the-get-read-results-operation"></a>A operação obter resultados da leitura
+> [!NOTE]
+> **Billing** 
+>
+> A página de [preços de pesquisa Visual computacional](https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision/) inclui o tipo de preço para leitura. Cada imagem ou página analisada é uma transação. Se você chamar a operação com um documento PDF ou TIFF contendo 100 páginas, a operação de leitura o contará como 100 transações e você será cobrado por 100 transações. Se você fez 50 chamadas para a operação e cada chamada enviou um documento com 100 páginas, você será cobrado por 50 X 100 = 5000 transações.
 
-A segunda etapa é chamar a operação [obter resultados de leitura](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d9869604be85dee480c8750) . Essa operação usa como entrada a ID da operação que foi criada pela operação de leitura. Ele retorna uma resposta JSON que contém um campo de **status** com os seguintes valores possíveis. Você chama essa operação iterativamente até que ela retorne com o valor **Succeeded** . Use um intervalo de 1 a 2 segundos para evitar exceder a taxa de solicitações por segundo (RPS).
+## <a name="step-2-the-get-read-results-operation"></a>Etapa 2: a operação obter resultados da leitura
 
-|Campo| Type | Valores possíveis |
+A segunda etapa é chamar a operação [obter resultados de leitura](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d9869604be85dee480c8750) . Essa operação usa como entrada a ID da operação que foi criada pela operação de leitura. Ele retorna uma resposta JSON que contém um campo de **status** com os seguintes valores possíveis. Você chama essa operação iterativamente até que ela retorne com o valor **Succeeded** . Use um intervalo de 1 a 2 segundos para evitar exceder a taxa de solicitações por segundo (RPS).
+
+|Campo| Tipo | Valores possíveis |
 |:-----|:----:|:----|
 |status | string | não iniciado: a operação não foi iniciada. |
 | |  | em execução: a operação está sendo processada. |
@@ -65,7 +74,10 @@ A segunda etapa é chamar a operação [obter resultados de leitura](https://wes
 
 Quando o campo **status** tiver o valor **êxito** , a resposta JSON conterá o conteúdo de texto extraído de sua imagem ou documento. A resposta JSON mantém os agrupamentos de linhas originais de palavras reconhecidas. Ele inclui as linhas de texto extraídas e suas coordenadas de caixa delimitadora. Cada linha de texto inclui todas as palavras extraídas com suas coordenadas e pontuações de confiança.
 
-### <a name="sample-json-output"></a>Saída JSON de exemplo
+> [!NOTE]
+> Os dados enviados para a `Read` operação são temporariamente criptografados e armazenados em repouso por uma duração curta e, em seguida, excluídos. Isso permite que seus aplicativos recuperem o texto extraído como parte da resposta do serviço.
+
+## <a name="sample-json-output"></a>Saída JSON de exemplo
 
 Consulte o exemplo a seguir de uma resposta JSON bem-sucedida:
 
@@ -75,11 +87,10 @@ Consulte o exemplo a seguir de uma resposta JSON bem-sucedida:
   "createdDateTime": "2020-05-28T05:13:21Z",
   "lastUpdatedDateTime": "2020-05-28T05:13:22Z",
   "analyzeResult": {
-    "version": "3.0.0",
+    "version": "3.1.0",
     "readResults": [
       {
         "page": 1,
-        "language": "en",
         "angle": 0.8551,
         "width": 2661,
         "height": 1901,
@@ -121,73 +132,38 @@ Consulte o exemplo a seguir de uma resposta JSON bem-sucedida:
 }
 ```
 
-Siga o guia de início rápido de [extrair texto impresso e manuscrito](./QuickStarts/CSharp-hand-text.md) para implementar o OCR usando C# e a API REST.
+## <a name="natural-reading-order-output-latin-only"></a>Saída da ordem de leitura natural (somente latino)
+Com a [API de visualização de leitura 3,2](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005), especifique a ordem na qual as linhas de texto são geradas com o `readingOrder` parâmetro de consulta. Use `natural` para uma saída de ordem de leitura mais amigável, conforme mostrado no exemplo a seguir. Esse recurso só tem suporte em idiomas latinos.
 
-## <a name="language-support"></a>Suporte ao idioma
+:::image border type="content" source="./Images/ocr-reading-order-example.png" alt-text="Exemplo de ordem de leitura de OCR":::
 
-### <a name="printed-text"></a>Texto impresso
-A [API Read 3,0](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) dá suporte à extração de texto impresso em idiomas inglês, espanhol, alemão, francês, italiano, Português e holandês. 
+## <a name="handwritten-classification-for-text-lines-latin-only"></a>Classificação manuscrita para linhas de texto (somente latino)
+A resposta da [API de visualização 3,2 de leitura](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005) inclui a classificação se cada linha de texto é do estilo de manuscrito ou não, juntamente com uma pontuação de confiança. Esse recurso só tem suporte em idiomas latinos. O exemplo a seguir mostra a classificação manuscrita para o texto na imagem.
 
-A [Visualização pública da API de leitura 3,1](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005) adiciona suporte para chinês simplificado. Se o seu cenário exigir suporte a mais idiomas, consulte a seção [API de OCR](#ocr-api) . 
+:::image border type="content" source="./Images/ocr-handwriting-classification.png" alt-text="Exemplo de classificação de manuscrito de OCR":::
 
-Consulte os [idiomas com suporte](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#optical-character-recognition-ocr) para obter a lista completa de idiomas com suporte para OCR.
+## <a name="select-pages-or-page-ranges-for-text-extraction"></a>Selecionar página (s) ou intervalos de página para extração de texto
+Com a [API de visualização de leitura 3,2](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005), para grandes documentos de várias páginas, use o `pages` parâmetro de consulta para especificar números de página ou intervalos de página para extrair texto apenas dessas páginas. O exemplo a seguir mostra um documento com 10 páginas, com texto extraído para ambos os casos – todas as páginas (1-10) e páginas selecionadas (3-6).
 
-### <a name="handwritten-text"></a>Texto manuscrito
-Atualmente, a operação de leitura dá suporte à extração de texto manuscrito exclusivamente em inglês.
+:::image border type="content" source="./Images/ocr-select-pages.png" alt-text="Saída de páginas selecionadas":::
 
-## <a name="integration-options"></a>Opções de integração
+## <a name="supported-languages"></a>Linguagens compatíveis
+As APIs de leitura dão suporte a um total de 73 idiomas para o texto do estilo de impressão. Consulte a lista completa de [idiomas com suporte para OCR](./language-support.md#optical-character-recognition-ocr). O OCR de estilo manuscrito tem suporte exclusivo para inglês.
 
-### <a name="use-the-rest-api-or-client-sdk"></a>Usar a API REST ou o SDK do cliente
-A [API REST de leitura 3. x](./QuickStarts/CSharp-hand-text.md) é a opção preferida para a maioria dos clientes devido à facilidade de integração e produtividade rápida pronta para uso. O Azure e o serviço de Pesquisa Visual Computacional tratam das necessidades de escala, desempenho, segurança de dados e conformidade enquanto você se concentra em atender às necessidades dos seus clientes.
+## <a name="use-the-cloud-api-or-deploy-on-premise"></a>Usar a API de nuvem ou implantar o local
+As APIs de nuvem de leitura 3. x são a opção preferida para a maioria dos clientes devido à facilidade de integração e produtividade rápida pronta para uso. O Azure e o serviço de Pesquisa Visual Computacional tratam das necessidades de escala, desempenho, segurança de dados e conformidade enquanto você se concentra em atender às necessidades dos seus clientes.
 
-### <a name="use-containers-for-on-premise-deployment"></a>Usar contêineres para implantação local
-O [contêiner do docker 2,0 de leitura (versão prévia)](https://docs.microsoft.com/azure/cognitive-services/computer-vision/computer-vision-how-to-install-containers) permite que você implante os novos recursos de OCR em seu próprio ambiente local. Contêineres são excelentes para especificar requisitos de segurança e governança de dados.
-
-## <a name="read-ocr-examples"></a>Ler exemplos de OCR
-
-### <a name="text-from-images"></a>Texto de imagens
-
-A seguinte saída da API de leitura mostra o texto extraído de uma imagem com diferentes ângulos, cores e fontes de texto.
-
-![Uma imagem de várias palavras em diferentes cores e ângulos, com texto extraído listado](./Images/text-from-images-example.png)
-
-### <a name="text-from-documents"></a>Texto de documentos
-
-A API de leitura também pode colocar documentos em PDF como entrada.
-
-![Um documento de nota fiscal, com texto extraído listado](./Images/text-from-pdf-example.png)
-
-### <a name="handwritten-text"></a>Texto manuscrito
-
-A operação de leitura extrai texto manuscrito de imagens (atualmente somente em inglês).
-
-![Uma imagem de uma anotação manuscrita, com texto extraído listado](./Images/handwritten-example.png)
-
-### <a name="printed-text"></a>Texto impresso
-
-A operação de leitura pode extrair texto impresso em vários idiomas diferentes.
-
-![Uma imagem de um padrão em espanhol, com texto extraído listado](./Images/supported-languages-example.png)
-
-### <a name="mixed-language-documents"></a>Documentos em idiomas mistos
-
-A API de leitura dá suporte a imagens e documentos que contêm várias linguagens diferentes, normalmente conhecidas como documentos de idioma misto. Ele funciona classificando cada linha de texto do documento no idioma detectado antes de extrair seu conteúdo de texto.
-
-![Uma imagem de frases em várias linguagens, com o texto extraído listado](./Images/mixed-language-example.png)
+Para a implantação local, o contêiner do [Docker de leitura (versão prévia)](./computer-vision-how-to-install-containers.md) permite que você implante os novos recursos de OCR em seu próprio ambiente local. Contêineres são excelentes para especificar requisitos de segurança e governança de dados.
 
 ## <a name="ocr-api"></a>API DE OCR
 
-A [API de OCR](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) usa um modelo de reconhecimento mais antigo, dá suporte apenas a imagens e é executada de forma síncrona, retornando imediatamente com o texto detectado. Consulte os [idiomas com suporte para OCR](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#optical-character-recognition-ocr) e, em seguida, ler API.
-
-## <a name="data-privacy-and-security"></a>Segurança e privacidade de dados
-
-Assim como acontece com todos os serviços cognitivas, os desenvolvedores que usam os serviços de leitura/OCR devem estar cientes das políticas da Microsoft nos dados do cliente. Consulte a página serviços cognitivas na [central de confiabilidade da Microsoft](https://www.microsoft.com/trust-center/product-overview) para saber mais.
+A [API de OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f20d) usa um modelo de reconhecimento mais antigo, dá suporte apenas a imagens e é executada de forma síncrona, retornando imediatamente com o texto detectado. Consulte os [idiomas com suporte para OCR](./language-support.md#optical-character-recognition-ocr) e, em seguida, ler API.
 
 > [!NOTE]
 > As operações do computador vison 2,0 RecognizeText estão no processo de serem preteridas em favor da nova API de leitura abordada neste artigo. Os clientes existentes devem [fazer a transição para o usando operações de leitura](upgrade-api-versions.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre a [API REST de leitura 3,0](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005).
-- Saiba mais sobre a [API REST de visualização pública 3,1 de leitura](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005) com suporte adicional para chinês simplificado.
-- Siga o guia de início rápido [extrair texto](./QuickStarts/CSharp-hand-text.md) para implementar o OCR usando C#, Java, JavaScript ou Python juntamente com a API REST.
+- Introdução à [API REST do pesquisa Visual computacional ou aos guias de início rápido da biblioteca do cliente](./quickstarts-sdk/client-library.md).
+- Saiba mais sobre a [API REST de leitura 3,1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005).
+- Saiba mais sobre a [API REST de visualização pública 3,2 de leitura](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005) com suporte para um total de 73 idiomas.

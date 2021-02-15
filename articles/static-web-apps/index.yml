@@ -1,20 +1,20 @@
 ### YamlMime:Landing
 title: Documentação dos Aplicativos Web Estáticos do Azure
-summary: Os aplicativos Web estáticos do Azure permitem que você crie aplicativos Web JavaScript que são publicados automaticamente com base em alterações feitas no GitHub.
+summary: Os Aplicativos Web Estáticos do Azure permitem que você crie aplicativos Web modernos, que são publicados automaticamente com base em alterações feitas no GitHub.
 metadata:
   title: Documentação dos Aplicativos Web Estáticos do Azure
-  description: Os aplicativos Web estáticos do Azure permitem que você crie aplicativos Web JavaScript que são publicados automaticamente com base em alterações feitas no GitHub.
+  description: Os Aplicativos Web Estáticos do Azure permitem que você crie aplicativos Web modernos, que são publicados automaticamente com base em alterações feitas no GitHub.
   ms.topic: landing-page
   ms.service: static-web-apps
   author: craigshoemaker
   ms.author: cshoe
-  ms.date: 04/09/2020
-  ms.openlocfilehash: f70a746c948038b5bd67f4645e8dbd3df71b8b8a
-  ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+  ms.date: 12/08/2020
+  ms.openlocfilehash: 880d675915a17e24269361c0ceed320a257d0ba9
+  ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 07/20/2020
-  ms.locfileid: "86528648"
+  ms.lasthandoff: 12/09/2020
+  ms.locfileid: "96906124"
 landingContent:
 - title: Sobre os aplicativos Web estáticos
   linkLists:
@@ -36,8 +36,10 @@ landingContent:
       url: ./getting-started.md?tabs=vanilla-javascript
   - linkListType: learn
     links:
-    - text: Publicar um aplicativo e uma API JavaScript do Angular, React, Svelte ou Vue
+    - text: Publicar um aplicativo JavaScript do Angular, do React, do Svelte ou do Vue
       url: /learn/modules/publish-app-service-static-web-app-api
+    - text: Publicar uma API
+      url: /learn/modules/publish-static-web-app-api-preview-url
   - linkListType: video
     links:
     - text: Compilar e implantar um aplicativo Web estático
@@ -54,6 +56,8 @@ landingContent:
       url: publish-vuepress.md
     - text: Publicar do Jekyll
       url: publish-jekyll.md
+    - text: Implantar do Blazor
+      url: deploy-blazor.md
     - text: Implantar com base no Next.js
       url: deploy-nextjs.md
     - text: Implantar com base no Nuxt.js
@@ -62,6 +66,8 @@ landingContent:
     links:
     - text: Publicar um aplicativo Web estático com o Gatsby
       url: /learn/modules/create-deploy-static-webapp-gatsby-app-service
+    - text: Publicar um aplicativo Web estático com o Blazor
+      url: /learn/modules/publish-app-service-static-web-app-api-dotnet
 - title: Principais conceitos
   linkLists:
   - linkListType: concept

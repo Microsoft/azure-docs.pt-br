@@ -10,12 +10,12 @@ metadata:
   author: georgewallace
   ms.author: gwallace
   ms.date: 03/08/2020
-  ms.openlocfilehash: 94d5dd74aad11e2271de52dd082cfb9287eb10c1
-  ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+  ms.openlocfilehash: 700c5b1e113de32b80b3d716db915836049128ec
+  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 08/14/2020
-  ms.locfileid: "88224570"
+  ms.lasthandoff: 10/09/2020
+  ms.locfileid: "89470112"
 landingContent:
 - title: Implantar o Docker no Azure
   linkLists:
@@ -30,7 +30,7 @@ landingContent:
     - text: Executar um aplicativo Web Python (Django) com PostgreSQL no Serviço de Aplicativo do Azure
       url: ../app-service/tutorial-python-postgresql-app.md
     - text: Criar uma infraestrutura de desenvolvimento em uma VM Linux no Azure com Jenkins, GitHub e Docker
-      url: ../jenkins/tutorial-jenkins-github-docker-cicd.md
+      url: /azure/developer/jenkins/pipeline-with-github-and-docker
 - title: Recursos
   linkLists:
   - linkListType: reference

@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/24/2018
 ms.author: allensu
-ms.openlocfilehash: d2966f32fcf7f8be2a93d1639f0a63f49768c306
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4061a3dbf4dc92d6d412528115d46edc36d20d5e
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80981844"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94700667"
 ---
 # <a name="overview-of-ipv6-for-azure-load-balancer"></a>Visão geral do IPv6 para o Azure Load Balancer
 
 
 >[!NOTE] 
->Este conteúdo foi substituído pelo [IPv6 para a visão geral da VNet do Azure](https://docs.microsoft.com/azure/virtual-network/ipv6-overview). O Azure recomenda novas implantações de IPv6 use o novo IPv6 para recursos de redes virtuais do Azure.
+>Este conteúdo foi substituído pelo [IPv6 para a visão geral da VNet do Azure](../virtual-network/ipv6-overview.md). O Azure recomenda novas implantações de IPv6 use o novo IPv6 para recursos de redes virtuais do Azure.
 
 >[!NOTE]
->O Azure Load Balancer oferece suporte a dois tipos diferentes: Basic e Standard. Este artigo discute o Load Balancer Basic. Para obter mais informações sobre o Load Balancer Standard, veja [Visão geral do Load Balancer Standard](load-balancer-standard-overview.md).
+>O Azure Load Balancer oferece suporte a dois tipos diferentes: Basic e Standard. Este artigo discute o Load Balancer Basic. Para obter mais informações sobre o Load Balancer Standard, veja [Visão geral do Load Balancer Standard](./load-balancer-overview.md).
 
 Os balanceadores de carga voltados para a Internet da SKU básica podem ser implantados com um endereço IPv6. Além de conectividade IPv4, isso permite os seguintes recursos:
 
@@ -79,9 +79,9 @@ Limitações
 * O ponto de extremidade IPv6 na VM não é exposto diretamente à internet. Ele fica atrás de um balanceador de carga. Somente as portas especificadas nas regras do balanceador de carga são acessíveis via IPv6.
 * **No momento, não há suporte** para mudar o parâmetro IdleTimeout para IPv6. O padrão é de quatro minutos.
 * **No momento, não há suporte** para alterar o parâmetro loadDistributionMethod para IPv6.
-* **No momento, não há suporte** para IPs IPv6 reservados (em que IPAllocationMethod = estático).
+* O IPv6 para Load Balancer básica está bloqueado para um SKU **dinâmico** .  O IPv6 para um Standard Load Balancer está bloqueado para um SKU **estático** .
 * O NAT64 (conversão de IPv6 para IPv4) não é compatível.
-* **No momento, não há suporte**para a anexação de uma NIC secundária que se refere a uma sub-rede IPv6 a um pool de back-ends.
+* **No momento, não há suporte** para a anexação de uma NIC secundária que se refere a uma sub-rede IPv6 a um pool de back-ends.
 
 ## <a name="next-steps"></a>Próximas etapas
 

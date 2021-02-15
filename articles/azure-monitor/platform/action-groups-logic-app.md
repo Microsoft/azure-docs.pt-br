@@ -6,12 +6,12 @@ ms.author: dukek
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.subservice: alerts
-ms.openlocfilehash: f6d5cbfc8d781e96a4d348f31f4a5d175ebd5a3d
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: f8e5b557c2d307659c086dc41480c6bed25430c3
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321880"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98936421"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Como disparar ações complexas com alertas do Azure Monitor
 
@@ -108,7 +108,7 @@ O processo será semelhante se você quiser que o aplicativo lógico execute uma
 
     ![Ações do Microsoft Teams](media/action-groups-logic-app/microsoft-teams-actions.png "Ações do Microsoft Teams")
 
-12. Configure a ação do Microsoft Teams. O **Designer de Aplicativos Lógicos** solicitará que você autentique-se na sua conta do Office365. Escolha a **ID da Equipe** e **ID do Canal** para enviar a mensagem.
+12. Configure a ação do Microsoft Teams. O **Designer de aplicativos lógicos** solicita que você autentique sua conta corporativa ou de estudante. Escolha a **ID da Equipe** e **ID do Canal** para enviar a mensagem.
 
 13. Configure a mensagem usando uma combinação de texto estático e referências para o \<fields\> no conteúdo dinâmico. Recorte e cole o texto a seguir no campo **Mensagem**.
 
@@ -122,7 +122,7 @@ O processo será semelhante se você quiser que o aplicativo lógico execute uma
     Em seguida, pesquise e substitua o \<fields\> por marcas de conteúdo dinâmico de mesmo nome.
 
     > [!NOTE]
-    > Há dois campos dinâmicos nomeados **status**. Adicione ambos os campos à mensagem. Use um no recipiente de propriedades **activityLog** e exclua o outro campo. Passe o cursor sobre o campo ** status ** para ver a referência de campo completa, conforme mostrado na captura de tela a seguir:
+    > Há dois campos dinâmicos nomeados **status**. Adicione ambos os campos à mensagem. Use um no recipiente de propriedades **activityLog** e exclua o outro campo. Passe o cursor sobre o campo **status** para ver a referência de campo completa, conforme mostrado na captura de tela a seguir:
 
     ![Ação do Microsoft Teams: postar uma mensagem](media/action-groups-logic-app/teams-action-post-message.png "Ação do Microsoft Teams: postar uma mensagem")
 
@@ -166,7 +166,7 @@ As entradas da Integridade de Serviço do Azure são parte do registro de ativid
                         "trackingId": "...",
                         "impactStartTime": "2018-03-22T21:40:00.0000000Z",
                         "impactMitigationTime": "2018-03-22T21:41:00.0000000Z",
-                        "impactedServices": "[{"ImpactedRegions"}]",
+                        "impactedServices": "[{\"ImpactedRegions\"}]",
                         "defaultLanguageTitle": "...",
                         "defaultLanguageContent": "...",
                         "stage": "Active",
@@ -193,7 +193,7 @@ As entradas da Integridade de Serviço do Azure são parte do registro de ativid
 
       !["Condição de carga de integridade do serviço"](media/action-groups-logic-app/service-health-payload-condition.png "Condição de carga de integridade do serviço")
 
-   1. Na condição **se verdadeiro**, siga as instruções nas etapas de 11 a 13 em [Criar um alerta do registro de atividade ](#create-an-activity-log-alert-administrative) para adicionar a ação da Microsoft Teams.
+   1. Na condição **se verdadeiro**, siga as instruções nas etapas de 11 a 13 em [Criar um alerta do registro de atividade](#create-an-activity-log-alert-administrative) para adicionar a ação da Microsoft Teams.
 
    1. Defina a mensagem usando uma combinação de HTML e conteúdo dinâmico. Recorte e cole o conteúdo a seguir no campo **Mensagem**. Substitua os campos `[incidentType]`, `[trackingID]`, `[title]`, e `[communication]` pela marcação de conteúdo dinâmica de mesmo nome:
 

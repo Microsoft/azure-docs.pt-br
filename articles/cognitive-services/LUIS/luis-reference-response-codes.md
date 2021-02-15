@@ -3,20 +3,18 @@ title: Códigos de resposta HTTP da API-LUIS
 titleSuffix: Azure Cognitive Services
 description: Entender quais códigos de resposta HTTP são retornados pelas APIs de Criação e de Ponto de extremidade
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 03/04/2019
-ms.author: diberry
-ms.openlocfilehash: 405381a2d80ee6469b2b90bcb25923004fe55882
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 46a7fff86d3a8c4539b77a0f271179d68e7a26d2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78270243"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91541672"
 ---
 # <a name="common-api-response-codes-and-their-meaning"></a>Códigos de resposta comuns da API e seus significados
 

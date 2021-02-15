@@ -8,12 +8,12 @@ ms.reviewer: jamesbak
 ms.date: 12/06/2018
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: e9c56f59d6dd64002632a5f74e9f39c51293caab
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 13228ec762db195d0c460e84871b75323f6b98e5
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836353"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95913701"
 ---
 # <a name="the-azure-blob-filesystem-driver-abfs-a-dedicated-azure-storage-driver-for-hadoop"></a>ABFS (driver de sistema de arquivos de Blob do Azure): um driver de Armazenamento do Microsoft Azure dedicado para Hadoop
 
@@ -25,7 +25,7 @@ O driver de Blob de Armazenamento do Microsoft Azure ou [driver WASB](https://ha
 
 ## <a name="the-azure-blob-file-system-driver"></a>Driver de Sistema de Arquivos de Blob do Azure
 
-A [interface REST do Azure Data Lake Store](https://docs.microsoft.com/rest/api/storageservices/data-lake-storage-gen2) é projetada para dar suporte à semântica do sistema de arquivos no Armazenamento de Blobs. Como o Hadoop FileSystem também é projetado para dar suporte à mesma semântica, não há necessidade de um mapeamento complexo no driver. Portanto, o driver de sistema de Arquivos de Blob do Azure (ou ABFS) é um shim de cliente simples para a API REST.
+A [interface REST do Azure Data Lake Store](/rest/api/storageservices/data-lake-storage-gen2) é projetada para dar suporte à semântica do sistema de arquivos no Armazenamento de Blobs. Como o Hadoop FileSystem também é projetado para dar suporte à mesma semântica, não há necessidade de um mapeamento complexo no driver. Portanto, o driver de sistema de Arquivos de Blob do Azure (ou ABFS) é um shim de cliente simples para a API REST.
 
 No entanto, há algumas funções que o driver ainda deve executar:
 

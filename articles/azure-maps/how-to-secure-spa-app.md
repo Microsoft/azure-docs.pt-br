@@ -1,21 +1,21 @@
 ---
 title: Como proteger um aplicativo de página única com entrada não interativa
 titleSuffix: Azure Maps
-description: Como configurar um aplicativo de página única com controle de acesso baseado em função do Azure AD não interativo e SDK da Web do Azure Maps.
+description: Como configurar um aplicativo de página única com o controle de acesso baseado em função do Azure não interativo (RBAC do Azure) e o SDK da Web do Azure Maps.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 06/12/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 83fbf6fa9190953d902ab60a8a5ce131f1fd8a0e
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.custom: devx-track-js
+ms.openlocfilehash: 3b647a02731a4fa404aab4bb648853eea766d92e
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88006410"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684065"
 ---
 # <a name="how-to-secure-a-single-page-application-with-non-interactive-sign-in"></a>Como proteger um aplicativo de página única com entrada não interativa
 
@@ -30,15 +30,15 @@ O guia a seguir pertence a um aplicativo que usa Azure Active Directory (Azure A
 
 Crie um aplicativo de serviço Web seguro que seja responsável pela autenticação no Azure AD. 
 
-1. Crie uma função no portal do Azure. Para obter mais informações, consulte [criar Azure function](https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function).
+1. Crie uma função no portal do Azure. Para obter mais informações, consulte [criar Azure function](../azure-functions/functions-get-started.md).
 
-2. Configure a política de CORS na função do Azure para ser acessível pelo aplicativo Web de página única. Isso protegerá os clientes do navegador para as origens permitidas do seu aplicativo Web. Consulte [adicionar funcionalidade CORS](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-rest-api#add-cors-functionality).
+2. Configure a política de CORS na função do Azure para ser acessível pelo aplicativo Web de página única. Isso protegerá os clientes do navegador para as origens permitidas do seu aplicativo Web. Consulte [adicionar funcionalidade CORS](../app-service/app-service-web-tutorial-rest-api.md#add-cors-functionality).
 
-3. [Adicione uma identidade atribuída pelo sistema](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-system-assigned-identity) no Azure function para habilitar a criação de uma entidade de serviço para autenticar no Azure AD.  
+3. [Adicione uma identidade atribuída pelo sistema](../app-service/overview-managed-identity.md?tabs=dotnet#add-a-system-assigned-identity) no Azure function para habilitar a criação de uma entidade de serviço para autenticar no Azure AD.  
 
 4. Conceda acesso baseado em função para a identidade atribuída pelo sistema à conta do Azure Maps. Consulte [conceder acesso baseado em função](#grant-role-based-access) para obter detalhes.
 
-5. Escreva o código para o Azure function para obter tokens de acesso do Azure Maps usando a identidade atribuída pelo sistema com um dos mecanismos com suporte ou o protocolo REST. Consulte [obter tokens para recursos do Azure](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-system-assigned-identity)
+5. Escreva o código para o Azure function para obter tokens de acesso do Azure Maps usando a identidade atribuída pelo sistema com um dos mecanismos com suporte ou o protocolo REST. Consulte [obter tokens para recursos do Azure](../app-service/overview-managed-identity.md?tabs=dotnet#add-a-system-assigned-identity)
 
     Um exemplo de protocolo REST de exemplo:
 
@@ -64,8 +64,8 @@ Crie um aplicativo de serviço Web seguro que seja responsável pela autenticaç
 
 6. Configurar a segurança para a função HttpTrigger do Azure
 
-   * [Criar uma chave de acesso de função](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook-trigger?tabs=csharp#authorization-keys)
-   * [Ponto de extremidade HTTP seguro](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook-trigger?tabs=csharp#secure-an-http-endpoint-in-production) para a função do Azure na produção.
+   * [Criar uma chave de acesso de função](../azure-functions/functions-bindings-http-webhook-trigger.md?tabs=csharp#authorization-keys)
+   * [Ponto de extremidade HTTP seguro](../azure-functions/functions-bindings-http-webhook-trigger.md?tabs=csharp#secure-an-http-endpoint-in-production) para a função do Azure na produção.
    
 7. Configurar aplicativo Web SDK do Azure Maps Web. 
 
@@ -102,25 +102,25 @@ Crie um aplicativo de serviço Web seguro que seja responsável pela autenticaç
 
 ## <a name="grant-role-based-access"></a>Conceder acesso baseado em função
 
-Conceda acesso ao Azure *RBAC (controle de acesso baseado em função)* atribuindo a identidade atribuída pelo sistema a uma ou mais definições de função do Azure. Para exibir as definições de função do Azure que estão disponíveis para mapas do Azure, vá para **controle de acesso (iam)**. Selecione **funções**e, em seguida, procure funções que começam com o *Azure Maps*.
+Conceda acesso ao Azure *RBAC (controle de acesso baseado em função)* atribuindo a identidade atribuída pelo sistema a uma ou mais definições de função do Azure. Para exibir as definições de função do Azure que estão disponíveis para mapas do Azure, vá para **controle de acesso (iam)**. Selecione **funções** e, em seguida, procure funções que começam com o *Azure Maps*.
 
-1. Vá para sua **conta do Azure Maps**. Selecione atribuição **de função de controle de acesso (iam)**  >  **Role assignment**.
+1. Vá para sua **conta do Azure Maps**. Selecione atribuição **de função de controle de acesso (iam)**  >  .
 
     > [!div class="mx-imgBorder"]
     > ![Conceder acesso usando o RBAC do Azure](./media/how-to-manage-authentication/how-to-grant-rbac.png)
 
 2. Na guia **atribuições de função** , em **função**, selecione uma definição de função interna do Azure Maps, como **leitor de dados do Azure Maps** ou colaborador de **dados do Azure Maps**. Em **atribuir acesso a**, selecione **aplicativo de funções**. Selecione a entidade de segurança por nome. Em seguida, selecione **Salvar**.
 
-   * Veja detalhes em [Adicionar ou remover atribuições de função](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+   * Veja detalhes em [Adicionar ou remover atribuições de função](../role-based-access-control/role-assignments-portal.md).
 
 > [!WARNING]
-> As definições de função internas do Azure Maps fornecem um acesso de autorização muito grande a muitas APIs REST do Azure Maps. Para restringir o acesso de APIs a um mínimo, consulte [criar uma definição de função personalizada e atribuir a identidade atribuída pelo sistema](https://docs.microsoft.com/azure/role-based-access-control/custom-roles) à definição de função personalizada. Isso habilitará o privilégio mínimo necessário para que o aplicativo acesse o Azure Maps.
+> As definições de função internas do Azure Maps fornecem um acesso de autorização muito grande a muitas APIs REST do Azure Maps. Para restringir o acesso de APIs a um mínimo, consulte [criar uma definição de função personalizada e atribuir a identidade atribuída pelo sistema](../role-based-access-control/custom-roles.md) à definição de função personalizada. Isso habilitará o privilégio mínimo necessário para que o aplicativo acesse o Azure Maps.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Compreensão adicional do cenário de aplicativo de página única:
 > [!div class="nextstepaction"]
-> [Aplicativo de página única](https://docs.microsoft.com/azure/active-directory/develop/scenario-spa-overview)
+> [Aplicativo de página única](../active-directory/develop/scenario-spa-overview.md)
 
 Localize as métricas de uso da API para sua conta do Azure Maps:
 > [!div class="nextstepaction"]

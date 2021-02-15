@@ -4,11 +4,11 @@ description: Saiba como criar e personalizar planos de recuperação para recupe
 ms.topic: how-to
 ms.date: 01/23/2020
 ms.openlocfilehash: 0dcde98e8dcaef12896c18c25429f0ba7b1b27d4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84485332"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009714"
 ---
 # <a name="create-and-customize-recovery-plans"></a>Criar e personalizar planos de recuperação
 
@@ -20,7 +20,7 @@ Este artigo descreve como criar e personalizar um plano de recuperação para fa
 2. Em **Criar plano de recuperação**, especifique um nome para o plano.
 3. Escolha uma fonte e destino com base nos computadores do plano e selecione **Gerenciador de Recursos** para o modelo de implantação. O local de origem deve ter computadores habilitados para failover e recuperação. 
 
-    **Failover** | **Origem** | **Destino** 
+    **Failover** | **Origem** | **Target (destino)** 
    --- | --- | ---
    Azure para o Azure | Selecione a região do Azure | Selecione a região do Azure
    VMware no Azure | Selecionar o servidor de configuração | Selecionar o Azure
@@ -64,9 +64,9 @@ Você pode personalizar um plano de recuperação com a adição de um script ou
     --- | --- | --- 
     Azure para o Azure  | Runbook | Runbook
     VMware no Azure | Runbook | NA 
-    Hyper-V com VMM para Azure | Runbook | script
+    Hyper-V com VMM para Azure | Runbook | Script
     Site do Hyper-V para Azure | Runbook | NA
-    VMM para VMM secundário | script | script
+    VMM para VMM secundário | Script | Script
 
 1. No plano de recuperação, clique na etapa à qual a ação deve ser adicionada e especifique quando a ação deve ocorrer:
     1. Se quiser que a ação ocorra antes de os computadores no grupo serem iniciados após o failover, selecione **Adicionar pré-ação**.

@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: how-to
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 20695d183ea8184f7ee2948b3897fa1f3a741411
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2987cd1ff8c678f7079e13e8b9bc657817c066f1
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84737488"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95531365"
 ---
 # <a name="manage-a-private-endpoint-connection"></a>Gerenciar uma conexão de ponto de extremidade privado
 O link privado do Azure funciona em um modelo de fluxo de chamadas de aprovação no qual o consumidor do serviço de vínculo privado pode solicitar uma conexão com o provedor de serviços para consumir o serviço. O provedor de serviços pode decidir se deseja permitir que o consumidor se conecte ou não. O link privado do Azure permite que os provedores de serviços gerenciem a conexão de ponto de extremidade particular em seus recursos. Este artigo fornece instruções sobre como gerenciar as conexões de ponto de extremidade privadas.
@@ -20,8 +20,8 @@ O link privado do Azure funciona em um modelo de fluxo de chamadas de aprovaçã
 ![Gerenciar pontos de extremidade privados](media/manage-private-endpoint/manage-private-endpoint.png)
 
 Há dois métodos de aprovação de conexão que um consumidor de serviço de vínculo privado pode escolher:
-- **Automático**: se o consumidor de serviço tiver permissões RBAC no recurso do provedor de serviço, o consumidor poderá escolher o método de aprovação automática. Nesse caso, quando a solicitação atinge o recurso do provedor de serviços, nenhuma ação é necessária do provedor de serviços e a conexão é aprovada automaticamente. 
-- **Manual**: por contrário, se o consumidor de serviço não tiver permissões de RBAC no recurso de provedor de serviço, o consumidor poderá escolher o método de aprovação manual. Nesse caso, a solicitação de conexão é exibida nos recursos de serviço como **pendentes**. O provedor de serviços deve aprovar manualmente a solicitação antes que as conexões possam ser estabelecidas. Em casos manuais, o consumidor de serviço também pode especificar uma mensagem com a solicitação para fornecer mais contexto ao provedor de serviços. O provedor de serviços tem as seguintes opções para escolher para todas as conexões de ponto de extremidade particulares: **aprovada**, **rejeitar**, **remover**.
+- **Automático**: se o consumidor de serviço tiver permissões RBAC do Azure no recurso provedor de serviço, o consumidor poderá escolher o método de aprovação automática. Nesse caso, quando a solicitação atinge o recurso do provedor de serviços, nenhuma ação é necessária do provedor de serviços e a conexão é aprovada automaticamente. 
+- **Manual**: por contrário, se o consumidor de serviço não tiver permissões RBAC do Azure no recurso provedor de serviços, o consumidor poderá escolher o método de aprovação manual. Nesse caso, a solicitação de conexão é exibida nos recursos de serviço como **pendentes**. O provedor de serviços deve aprovar manualmente a solicitação antes que as conexões possam ser estabelecidas. Em casos manuais, o consumidor de serviço também pode especificar uma mensagem com a solicitação para fornecer mais contexto ao provedor de serviços. O provedor de serviços tem as seguintes opções para escolher para todas as conexões de ponto de extremidade particulares: **aprovada**, **rejeitar**, **remover**.
 
 A tabela abaixo mostra as várias ações do provedor de serviços e os Estados de conexão resultantes para pontos de extremidade privados.  O provedor de serviços também pode alterar o estado de conexão da conexão de ponto de extremidade particular em um momento posterior, sem intervenção do consumidor. A ação atualizará o estado do ponto de extremidade no lado do consumidor. 
 

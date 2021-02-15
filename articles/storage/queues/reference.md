@@ -1,23 +1,23 @@
 ---
-title: Referência de armazenamento de Filas do Azure
-description: Localize referência de API de armazenamento do Azure, arquivos Leiame e pacotes de biblioteca de cliente.
+title: Referência de armazenamento de filas do Azure
+description: Localize referência de API de armazenamento de filas do Azure, arquivos LEIAme e pacotes de biblioteca de cliente.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 06/02/2020
+ms.reviewer: ripohane
+ms.date: 09/10/2020
+ms.topic: conceptual
 ms.service: storage
 ms.subservice: queues
-ms.topic: conceptual
-ms.reviewer: ripohane
-ms.openlocfilehash: fbf20b92edf5d8dce8438731c2812a78e457a402
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1a73b56c5ed8b15b9bbcf344e91fdd5fdf4b78cc
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84976652"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97592187"
 ---
-# <a name="azure-queue-storage-reference"></a>Referência de armazenamento de Filas do Azure
+# <a name="azure-queue-storage-reference"></a>Referência de armazenamento de filas do Azure
 
-Encontre referência de API de armazenamento de filas do Azure, pacotes de biblioteca, arquivos Leiame e artigos de introdução.
+Encontre referência de API de armazenamento de filas do Azure, pacotes de biblioteca, arquivos LEIAme e artigos de introdução.
 
 ## <a name="net-client-libraries"></a>Bibliotecas de cliente .NET
 
@@ -25,8 +25,8 @@ A tabela a seguir lista a referência e a documentação de exemplo para as APIs
 
 |  Versão  | Documentação de referência | Pacote | Início Rápido |
 | :-------: | ----------------------- | ------- | ---------- |
-| 12.x | [Namespace do Azure. Storage. Queues](/dotnet/api/azure.storage.queues) | [Pacote (NuGet)](https://www.nuget.org/packages/Azure.Storage.Queues/) | [Início rápido: biblioteca de cliente de armazenamento de fila do Azure V12 para .NET](/azure/storage/queues/storage-quickstart-queues-dotnet) |
-| 11. x | [Namespace Microsoft. Azure. Storage. Queue](/dotnet/api/microsoft.azure.storage.queue) | [Pacote (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/) | [Início rápido: usar o SDK do armazenamento do Azure v11 para .NET para gerenciar uma fila](/azure/storage/queues/storage-quickstart-queues-dotnet-legacy) |
+| 12.x | [Namespace do Azure. Storage. Queues](/dotnet/api/azure.storage.queues) | [Pacote (NuGet)](https://www.nuget.org/packages/azure.storage.queues/) | [Início rápido: biblioteca de cliente de armazenamento de fila do Azure V12 para .NET](./storage-quickstart-queues-dotnet.md) |
+| 11. x | [Namespace Microsoft. Azure. Storage. Queue](/dotnet/api/microsoft.azure.storage.queue) | [Pacote (NuGet)](https://www.nuget.org/packages/microsoft.azure.storage.queue/) | [Início Rápido: Usar o SDK do Armazenamento do Azure v11 para .NET para gerenciar uma fila](./storage-quickstart-queues-dotnet-legacy.md) |
 
 ### <a name="storage-management"></a>Gerenciamento de armazenamento
 
@@ -34,7 +34,7 @@ A tabela a seguir lista a documentação de referência para APIs do .NET de ger
 
 |  Versão  | Documentação de referência | Pacote |
 | :-------: | ----------------------- | ------- |
-| 16. x | [Microsoft.Azure.Management.Storage](/dotnet/api/microsoft.azure.management.storage) | [Pacote (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/) |
+| 16. x | [Namespace Microsoft. Azure. Management. Storage](/dotnet/api/microsoft.azure.management.storage) | [Pacote (NuGet)](https://www.nuget.org/packages/microsoft.azure.management.storage/) |
 
 ### <a name="data-movement"></a>Movimentação de dados
 
@@ -42,7 +42,7 @@ A tabela a seguir lista a documentação de referência para as APIs do .NET de 
 
 |  Versão  | Documentação de referência | Pacote |
 | :-------: | ----------------------- | ------- |
-| 1.x | [Movimentação de dados](/dotnet/api/microsoft.azure.storage.datamovement) | [Pacote (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/) |
+| 1.x | [Namespace Microsoft. Azure. Storage. datamover](/dotnet/api/microsoft.azure.storage.datamovement) | [Pacote (NuGet)](https://www.nuget.org/packages/microsoft.azure.storage.datamovement/) |
 
 ## <a name="java-client-libraries"></a>Bibliotecas de cliente Java
 
@@ -50,8 +50,8 @@ A tabela a seguir lista a referência e a documentação de exemplo para APIs Ja
 
 |  Versão  | Documentação de referência | Pacote | Início Rápido |
 | :-------: | ----------------------- | ------- | ---------- |
-| 12.x | [Biblioteca de cliente de fila de armazenamento do Azure para Java](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/index.html) | [Pacote (Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-queue) | [Início rápido: biblioteca de cliente de armazenamento de fila do Azure V12 para Java](/azure/storage/queues/storage-quickstart-queues-java) |
-| 8.x | [com. Microsoft. Azure. Storage. Queue](/java/api/com.microsoft.azure.storage.queue) | [Pacote (Maven)](https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage) | [Início rápido: gerenciar BLOBs com o SDK do Java V8](/azure/storage/blobs/storage-quickstart-blobs-java-legacy) |
+| 12.x | [Biblioteca de cliente de armazenamento de filas do Azure V12 para Java](/java/api/overview/azure/storage-queue-readme) | [Pacote (Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-queue) | [Início rápido: biblioteca de cliente de armazenamento de fila do Azure V12 para Java](./storage-quickstart-queues-java.md) |
+| 8.x | [`com.microsoft.azure.storage.queue` namespace](/java/api/com.microsoft.azure.storage.queue) | [Pacote (Maven)](https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage) | [Início Rápido: Gerenciar blobs com o SDK do Java v8](../blobs/storage-quickstart-blobs-java-legacy.md) |
 
 ### <a name="storage-management"></a>Gerenciamento de armazenamento
 
@@ -59,7 +59,7 @@ A tabela a seguir lista a documentação de referência para APIs Java de gerenc
 
 |  Versão  | Documentação de referência | Pacote |
 | :-------: | ----------------------- | ------- |
-| 0,9. x | [com. Microsoft. Azure. Management. Storage](/java/api/overview/azure/storage/management) | [Pacote (Maven)](https://mvnrepository.com/artifact/com.microsoft.azure/azure-svc-mgmt-storage) |
+| 0,9. x | [`com.microsoft.azure.management.storage` namespace](/java/api/overview/azure/storage/management) | [Pacote (Maven)](https://mvnrepository.com/artifact/com.microsoft.azure/azure-svc-mgmt-storage) |
 
 ## <a name="python-client-libraries"></a>Bibliotecas de cliente do Python
 
@@ -67,8 +67,8 @@ A tabela a seguir lista a referência e a documentação de exemplo para as APIs
 
 |  Versão  | Documentação de referência | Pacote | Início Rápido |
 | :-------: | ----------------------- | ------- | ---------- |
-| 12.x | [Bibliotecas de cliente de armazenamento do Azure V12 para Python](/azure/developer/python/sdk/storage/overview?view=storage-py-v12) | [Pacote (PyPI)](https://pypi.org/project/azure-storage-queue/) | [Início rápido: biblioteca de cliente de armazenamento de fila do Azure V12 para Python](/azure/storage/queues/storage-quickstart-queues-python) |
-| 2. x | [Bibliotecas de cliente de armazenamento do Azure v2 para Python](/azure/developer/python/sdk/storage/overview?view=storage-py-v2) | [Pacote (PyPI)](https://pypi.org/project/azure-storage-queue/2.1.0/) | [Como usar o armazenamento de Filas do Azure v2.1 do Python](/azure/storage/queues/storage-python-how-to-use-queue-storage) |
+| 12.x | [Biblioteca de cliente de armazenamento do Azure V12 para Python](/azure/developer/python/sdk/storage/overview) | [Pacote (PyPI)](https://pypi.org/project/azure-storage-queue/) | [Início rápido: biblioteca de cliente de armazenamento de fila do Azure V12 para Python](./storage-quickstart-queues-python.md) |
+| 2. x | [Biblioteca de cliente de armazenamento do Azure v2 para Python](/azure/developer/python/sdk/storage/overview?view=storage-py-v2&preserve-view=true) | [Pacote (PyPI)](https://pypi.org/project/azure-storage-queue/2.1.0/) | [Como usar o armazenamento de filas do Azure v 2.1 do Python](./storage-python-how-to-use-queue-storage.md) |
 
 ## <a name="javascript-client-libraries"></a>Bibliotecas de cliente JavaScript
 
@@ -76,8 +76,8 @@ A tabela a seguir lista a referência e a documentação de exemplo para as APIs
 
 |  Versão  | Documentação de referência | Pacote | Início Rápido |
 | :-------: | ----------------------- | ------- | ---------- |
-| 12.x | [Biblioteca de cliente de fila de armazenamento do Azure para JavaScript](/javascript/api/overview/azure/storage-queue-readme) | [Pacote (NPM)](https://www.npmjs.com/package/@azure/storage-queue) | [Início rápido: biblioteca de cliente de armazenamento de fila do Azure V12 para JavaScript](/azure/storage/queues/storage-quickstart-queues-nodejs) |
-| 10.x | [@azure/storage-queue](/javascript/api/@azure/storage-queue/?view=azure-node-legacy) | [Pacote (NPM)](https://www.npmjs.com/package/@azure/storage-queue/v/10.3.0) | [Usar o serviço fila do Azure para criar e excluir filas do Node.js](/azure/storage/queues/storage-nodejs-how-to-use-queues) |
+| 12.x | [Biblioteca de cliente de armazenamento de filas do Azure V12 para JavaScript](/javascript/api/overview/azure/storage-queue-readme) | [Pacote (npm)](https://www.npmjs.com/package/@azure/storage-queue) | [Início rápido: biblioteca de cliente de armazenamento de fila do Azure V12 para JavaScript](./storage-quickstart-queues-nodejs.md) |
+| 10.x | [`@azure/storage-queue`](/javascript/api/@azure/storage-queue/?view=azure-node-legacy&preserve-view=true) | [Pacote (npm)](https://www.npmjs.com/package/@azure/storage-queue/v/10.3.0) | [Usar o armazenamento de filas do Azure para criar e excluir filas do Node.js](./storage-nodejs-how-to-use-queues.md) |
 
 ## <a name="rest-apis"></a>APIs REST
 
@@ -85,7 +85,7 @@ A tabela a seguir lista a referência e a documentação de exemplo para as APIs
 
 | Documentação de referência | Visão geral |
 | ----------------------- | -------- |
-| [API REST do serviço Fila](/rest/api/storageservices/queue-service-rest-api) | [Conceitos de serviço Fila](/rest/api/storageservices/queue-service-concepts) |
+| [Referência da API REST do armazenamento de filas](/rest/api/storageservices/queue-service-rest-api) | [Conceitos de armazenamento de filas](/rest/api/storageservices/queue-service-concepts) |
 
 ### <a name="other-rest-reference"></a>Outra referência REST
 
@@ -107,8 +107,9 @@ A tabela a seguir contém links para a versão mais recente do conteúdo de refe
 
 | Versão | Plataforma |
 | ------- | -------- |
-|  3.x  | [PowerShell](https://docs.microsoft.com/powershell/module/az.storage/?view=azps-3.8.0) |
-|  2. x  | [PowerShell](https://docs.microsoft.com/powershell/module/az.storage/?view=azps-2.8.0) |
+|  v4.x | [PowerShell](/powershell/module/az.storage/?view=azps-4.6.1&preserve-view=true) |
+|  3.x | [PowerShell](/powershell/module/az.storage/?view=azps-3.8.0&preserve-view=true) |
+|  2. x | [PowerShell](/powershell/module/az.storage/?view=azps-2.8.0&preserve-view=true) |
 
 ## <a name="azure-cli"></a>CLI do Azure
 

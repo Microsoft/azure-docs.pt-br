@@ -4,75 +4,115 @@
   items:
     - name: Sobre a Solução VMware no Azure
       href: introduction.md
+- name: Início rápido
+  items:
+    - name: 0 – Planejar a implantação
+      href: production-ready-deployment-steps.md
+    - name: 1 – Implantar a Solução VMware no Azure
+      href: deploy-azure-vmware-solution.md
+    - name: 2 – Conectar-se ao ambiente local
+      href: azure-vmware-solution-on-premises.md
+    - name: 3 – Implantar e configurar o VMware HCX
+      href: tutorial-deploy-vmware-hcx.md
 - name: Tutoriais
   items:
-    - name: 1 – Planejamento de rede
+    - name: 1 – Lista de verificação do planejamento de rede
       href: tutorial-network-checklist.md
-    - name: 2 – Criar nuvem privada
+    - name: 2 – Criar uma nuvem privada
       href: tutorial-create-private-cloud.md
-    - name: 3 – Configurar a rede
-      href: tutorial-configure-networking.md
-    - name: 4 – Acessar uma nuvem privada
+    - name: 3 – Acessar uma nuvem privada
       href: tutorial-access-private-cloud.md
-    - name: 5 – Escalar uma nuvem privada
-      href: tutorial-scale-private-cloud.md
-    - name: 6 – criar um segmento de rede do NSX-T
+    - name: 4 – Configurar rede
+      href: tutorial-configure-networking.md
+    - name: 5 – Criar um segmento de rede do NSX-T
       href: tutorial-nsx-t-network-segment.md
-    - name: 7 – Par local para nuvem privada
+    - name: 6 – Conectar ambiente local à nuvem privada
       href: tutorial-expressroute-global-reach-private-cloud.md
-    - name: 8 – Implantar VM por meio da biblioteca de conteúdo
-      href: tutorial-deploy-vm-content-library.md
+    - name: 7 – Implantar e configurar o VMware HCX
+      href: tutorial-deploy-vmware-hcx.md
+    - name: 8 – Escalar uma nuvem privada
+      href: tutorial-scale-private-cloud.md
+    - name: 9 – Excluir uma nuvem privada
+      href: tutorial-delete-private-cloud.md
 - name: Conceitos
   items:
     - name: Nuvens e clusters privados
       href: concepts-private-clouds-clusters.md
-    - name: Rede de nuvem privada e interconectividade
+    - name: Rede e interconectividade de nuvem privada
       href: concepts-networking.md
     - name: Armazenamento em nuvens privadas
       href: concepts-storage.md
     - name: Acesso e identidade para nuvens privadas
       href: concepts-identity.md
-    - name: Controle de acesso baseado em função
-      href: concepts-rbac.md
+    - name: Controle de acesso baseado em função do vSphere
+      href: concepts-role-based-access-control.md
+    - name: Monitorar e reparar nuvens privadas
+      href: concepts-monitor-repair-private-cloud.md
     - name: Upgrades de nuvem privada
       href: concepts-upgrades.md
 - name: Guias de instruções
   items:
+    - name: Habilitar a Solução VMware no Azure
+      href: enable-azure-vmware-solution.md
+    - name: Economize custos com uma instância reservada
+      href: reserved-instance.md
     - name: Avaliação da migração
       href: ../migrate/how-to-create-azure-vmware-solution-assessment.md?context=/azure/migrate/context/migrate-context.json
-    - name: Configurar HCX
-      href: hybrid-cloud-extension-installation.md
     - name: Gerenciar DHCP
       href: manage-dhcp.md
-    - name: Recuperação de desastre
-      href: disaster-recovery.md
+    - name: Implantar a recuperação de desastre para VMs
+      href: disaster-recovery-for-virtual-machines.md
+    - name: Implantar VM por meio da biblioteca de conteúdo
+      href: ./deploy-vm-content-library.md
+    - name: Configurar o GitHub Enterprise Server
+      href: github-enterprise-server.md
+    - name: Uso de IP público
+      href: public-ip-usage.md
+    - name: Criar um túnel IPSec
+      href: create-ipsec-tunnel.md
     - name: Integração nativa do Azure
       items:
         - name: Gerenciamento de API
           href: concepts-api-management.md
         - name: Hub e spoke
-          href: concepts-avs-hub-and-spoke-integration.md
+          href: concepts-hub-and-spoke.md
+        - name: Central de Segurança do Azure
+          href: azure-security-integration.md
         - name: Servidor de Backup do Azure
           items:
             - name: Configurar Servidor de Backup
-              href: set-up-mabs-for-avs.md
+              href: set-up-backup-server-for-azure-vmware-solution.md
             - name: Fazer backup de VMs de nuvem privada com o Servidor de Backup
-              href: backup-avs-vms-with-mabs.md
+              href: backup-azure-vmware-solution-virtual-machines.md
+        - name: Gerenciamento do ciclo de vida de VMs
+          href: lifecycle-management-of-azure-vmware-solution-vms.md
+        - name: Azure NetApp Files
+          href: netapp-files-with-azure-vmware-solution.md
         - name: Gateway de Aplicativo
-          href: protect-avs-web-apps-with-app-gateway.md
-        - name: Gerenciador de Tráfego com AVS
-          href: deploy-traffic-manager-to-balance-avs-workloads.md
+          href: protect-azure-vmware-solution-with-application-gateway.md
+        - name: Gerenciador de Tráfego
+          href: deploy-traffic-manager-balance-workloads.md
     - name: Soluções VMware
       items:
         - name: Configurar Operações vRealize
-          href: vrealize-operations-for-avs.md
-- name: Referência
-  items: null
+          href: vrealize-operations-for-azure-vmware-solution.md
+        - name: Implantar o VMware Horizon
+          href: azure-vmware-solution-horizon.md
+    - name: Ecossistema do VMware
+      items:
+        - name: Backup de soluções para VMs
+          href: ecosystem-back-up-vms.md
 - name: Recursos
   items:
     - name: Solução de problemas
       items:
-        - name: Obter ajuda com a implantação ou com falhas de provisionamento
+        - name: Abrir uma solicitação de suporte para falhas de implantação
           href: fix-deployment-provisioning-failures.md
     - name: Perguntas frequentes
-      href: faq.md
+      href: faq.yml
+- name: Referência
+  items:
+    - name: CLI do Azure
+      href: /cli/azure/ext/vmware/vmware
+    - name: Azure PowerShell
+      href: /powershell/module/az.vmware/

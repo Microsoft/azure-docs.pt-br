@@ -1,18 +1,18 @@
 ---
 title: Interpretando o Scorecard | Microsoft Docs
-description: As perguntas frequentes sobre o Azure Internet Analyzer.
+description: Saiba como interpretar seu Scorecard. A guia Scorecard contém os resultados agregados e analisados de seus testes.
 services: internet-analyzer
 author: mattcalder
 ms.service: internet-analyzer
 ms.topic: how-to
 ms.date: 10/16/2019
 ms.author: mebeatty
-ms.openlocfilehash: 5ed8621fbfd1528bfffeaa986fa9c2e17c19f82b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f43d094193fb266d1ecec7089b44d8b3fd5e9b43
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84744027"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91330206"
 ---
 # <a name="interpreting-your-scorecard"></a>Interpretar seu scorecard
 
@@ -31,7 +31,7 @@ A guia Scorecard pode ser encontrada no menu de recursos do Internet Analyzer.
 
 O número de medições afeta a confiança da análise. Quanto maior a contagem, mais preciso será o resultado. No mínimo, os testes devem visar um mínimo de 100 medidas por ponto de extremidade por dia. Se as contagens de medidas forem muito baixas, configure o cliente JavaScript para executar com mais frequência em seu aplicativo. As contagens de medidas para pontos de extremidade A e B devem ser muito semelhantes, embora as pequenas diferenças sejam esperadas e OK. No caso de grandes diferenças, os resultados não devem ser confiáveis.
 
-## <a name="percentiles"></a>Percentuais
+## <a name="percentiles"></a>Percentis
 
 Latência, medida em milissegundos, é uma métrica popular para medir a velocidade entre uma origem e um destino na Internet. Os dados de latência não são normalmente distribuídos (ou seja, não seguem uma "curva de sino") porque há uma "longa cauda" de valores de latência grandes que distorcem os resultados ao usar estatísticas como a média aritmética. Como alternativa, os percentuais fornecem uma maneira de "distribuição livre" para analisar dados. Por exemplo, a mediana ou a 50 º percentil resume o meio da distribuição-metade dos valores estão acima dela e metade estão abaixo dela. Um valor de 75th percentil significa que ele é maior que 75% de todos os valores na distribuição. O Internet Analyzer refere-se a percentils na forma abreviada como P50, p75 e P95.
 

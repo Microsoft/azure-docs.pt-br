@@ -1,6 +1,6 @@
 ---
 title: Instalar o micro Focus Enterprise Server 5,0 e o desenvolvedor Enterprise 5,0 no Azure | Microsoft Docs
-description: Rehospede suas cargas de trabalho de mainframe do IBM z/OS usando o ambiente de desenvolvimento e teste micro Focus em VMs (máquinas virtuais) do Azure.
+description: Neste artigo, saiba como instalar o micro Focus Enterprise Server 5,0 e o Enterprise Developer 5,0 em Microsoft Azure.
 services: virtual-machines-linux
 documentationcenter: ''
 author: maggsl
@@ -12,12 +12,12 @@ ms.date: 06/29/2020
 tags: ''
 keywords: ''
 ms.service: multiple
-ms.openlocfilehash: 59566fc051b1e84d8e271b3c9d061f2481dcc58f
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: d9e5f9b531fc28caf8f3162a70318927d40bb923
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88245308"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483055"
 ---
 # <a name="install-micro-focus-enterprise-server-50-and-enterprise-developer-50-on-azure"></a>Instalar o micro Focus Enterprise Server 5,0 e o desenvolvedor Enterprise 5,0 no Azure
 
@@ -42,7 +42,7 @@ Antes de começar, confira estes pré-requisitos:
     > [!Note]
     > Há algumas opções para controlar o acesso às suas VMs:
     > -   Uma prática recomendada é configurar a [bastiões do Azure](https://azure.microsoft.com/services/azure-bastion/).
-    > -   Um túnel de [VPN (rede virtual privada) site a site](../../../../vpn-gateway/vpn-gateway-tutorial-vpnconnection-powershell.md) .
+    > -   Um túnel de [VPN (rede virtual privada) site a site](../../../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md) .
     > -   Uma VM Jumpbox.
 
 ## <a name="install-enterprise-server"></a>Instalar o Enterprise Server
@@ -73,11 +73,11 @@ Antes de começar, confira estes pré-requisitos:
 
 9.  Clique duas vezes no arquivo para iniciar a instalação. Na primeira janela, selecione o local de instalação e aceite o contrato de licença de usuário final.
 
-    ![Tela de instalação do micro Focus Enterprise Server](media/install-image-1.png)
+    ![Captura de tela mostra a caixa de diálogo micro Focus Enterprise Server onde você pode iniciar a instalação.](media/install-image-1.png)
 
     Quando a instalação for concluída, a seguinte mensagem será exibida:
 
-    ![Tela de instalação do micro Focus Enterprise Server](media/install-image-2.png)
+    ![Captura de tela mostra uma mensagem de êxito na caixa de diálogo micro Focus Enterprise Server.](media/install-image-2.png)
 
  ### <a name="check-for-updates"></a>Verificar atualizações
 
@@ -87,9 +87,9 @@ Após a instalação, certifique-se de verificar se há atualizações adicionai
 
 1.  Inicie a administração da licença do micro Focus.
 
-2.  Selecione **Iniciar** \> a administração de licenças do **Gerenciador de licenças do micro Focus** \> **License Administration**e clique na guia **instalar** . escolha o tipo de formato de licença a ser carregado: um arquivo de licença ou um código de licença de 16 caracteres. Por exemplo, para um arquivo, em **arquivo de licença**, navegue até o `mflic` arquivo * carregado anteriormente para a VM e selecione **instalar licenças**.
+2.  Selecione **Iniciar** \> a administração de licenças do **Gerenciador de licenças do micro Focus** \> **License Administration** e clique na guia **instalar** . escolha o tipo de formato de licença a ser carregado: um arquivo de licença ou um código de licença de 16 caracteres. Por exemplo, para um arquivo, em **arquivo de licença**, navegue até o `mflic` arquivo * carregado anteriormente para a VM e selecione **instalar licenças**.
 
-    ![Caixa de diálogo administração da licença micro Focus](media/install-image-3.png)
+    ![Captura de tela mostra a caixa de diálogo administração da licença do micro Focus em que você pode selecionar instalar licenças.](media/install-image-3.png)
 
 3.  Verifique se o servidor corporativo é carregado. Tente iniciar o site de administração do servidor corporativo em um navegador usando esta URL: `http://localhost:86/` . A página de administração do servidor corporativo é exibida conforme mostrado.
 
@@ -115,7 +115,7 @@ Após a instalação, certifique-se de verificar se há atualizações adicionai
 
     ![Mensagem de instalação bem-sucedida](media/install-image-6.png)
 
-6.  Inicie o Gerenciador de licenças do micro Focus da mesma forma que fazia para o Enterprise Server. Escolha **Iniciar** a \> Administração de licenças do **Gerenciador de licenças do micro Focus** \> **License Administration**e clique na guia **instalar** .
+6.  Inicie o Gerenciador de licenças do micro Focus da mesma forma que fazia para o Enterprise Server. Escolha **Iniciar** a \> Administração de licenças do **Gerenciador de licenças do micro Focus** \> **License Administration** e clique na guia **instalar** .
 
 7.  Escolha o tipo de formato de licença a ser carregado: um arquivo de licença ou um código de licença de 16 caracteres. Por exemplo, para um arquivo, em **arquivo de licença**, navegue até o `mflic` arquivo carregado anteriormente para a VM e selecione  **instalar licenças**.
 

@@ -7,15 +7,16 @@ ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 ms.date: 06/04/2020
 ms.author: rosouz
-ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: 47f1fb4414b26ca9edbd992826a383ca65772ae7
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.custom: devx-track-js, devx-track-csharp
+ms.openlocfilehash: 9a4e35a235fe6ee6950bd1b4c35cbf9e72ac2893
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89003806"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359227"
 ---
 # <a name="change-streams-in-azure-cosmos-dbs-api-for-mongodb"></a>Fluxos de alteração na API do Azure Cosmos DB para MongoDB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 O suporte do [feed de alterações](change-feed.md) na API do Azure Cosmos DB para MongoDB está disponível usando a API de fluxos de alteração. Usando a API de fluxos de alteração, seus aplicativos podem obter as alterações feitas na coleção ou nos itens em um único fragmento. Posteriormente, você pode executar ações adicionais com base nos resultados. As alterações nos itens na coleção são capturadas na ordem de seu tempo de modificação e a ordem de classificação é garantida por chave de fragmentação.
 
@@ -66,7 +67,7 @@ enumerator.Dispose();
 
 # <a name="java"></a>[Java](#tab/java)
 
-O exemplo a seguir mostra como usar a funcionalidade de alteração de fluxo em Java, para o exemplo completo, consulte este [repositório GitHub](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-java-changestream/blob/master/mongostream/src/main/java/com/azure/cosmos/mongostream/App.java). Este exemplo também mostra como usar o `resumeAfter` método para procurar todas as alterações da última leitura. 
+O exemplo a seguir mostra como usar a funcionalidade de alteração de fluxo em Java, para o exemplo completo, consulte este [repositório GitHub](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-java-changestream/blob/main/mongostream/src/main/java/com/azure/cosmos/mongostream/App.java). Este exemplo também mostra como usar o `resumeAfter` método para procurar todas as alterações da última leitura. 
 
 ```java
 Bson match = Aggregates.match(Filters.in("operationType", asList("update", "replace", "insert")));

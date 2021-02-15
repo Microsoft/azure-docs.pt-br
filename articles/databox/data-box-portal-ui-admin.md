@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: how-to
 ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: a4ac56a4d588071f599f62e6de94d9ec7367a1ae
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 538a650c6063422f89c8ed3d1753981a293693b7
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87924746"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337998"
 ---
 # <a name="use-azure-portal-to-administer-your-data-box-disk"></a>Usar o portal do Azure para administrar o Data Box Disk
 
@@ -29,15 +29,15 @@ Execute as seguintes etapas para cancelar um pedido.
 
 1.  Vá para **Visão Geral > Cancelar**. 
 
-    ![Cancelar pedido 1](media/data-box-portal-ui-admin/cancel-order1.png)
+    ![Comando cancelar na guia Visão geral de um pedido](media/data-box-portal-ui-admin/portal-ui-admin-cancel-command.png)
 
 2.  Preencha um motivo para cancelar o pedido.  
 
-    ![Cancelar pedido 2](media/data-box-portal-ui-admin/cancel-order2.png)
+    ![Motivo para cancelar um pedido](media/data-box-portal-ui-admin/portal-ui-admin-cancel-order-reason.png)
 
 3.  Depois que o pedido for cancelado, o portal atualizará o status do pedido e o exibirá como **Cancelado**.
 
-    ![Cancelar pedido 3](media/data-box-portal-ui-admin/cancel-order3.png)
+    ![Pedido cancelado](media/data-box-portal-ui-admin/portal-ui-admin-canceled-order.png)
 
 Você não recebe uma notificação por email quando o pedido é cancelado.
 
@@ -49,13 +49,13 @@ Execute as etapas a seguir para clonar um pedido.
 
 1.  Vá para **Visão geral > Clonar**. 
 
-    ![Clonar pedido 1](media/data-box-portal-ui-admin/clone-order1.png)
+    ![Clonar comando na guia Visão geral de um pedido](media/data-box-portal-ui-admin/portal-ui-admin-clone-command.png)
 
 2.  Todos os detalhes do pedido permanecem inalterados. O nome do pedido é o nome original do pedido acrescido de *-Clone*. Marque a caixa de seleção para confirmar que você leu as informações de privacidade. Clique em **Criar**.    
 
 O clone é criado em alguns minutos e a portal é atualizado para mostrar o novo pedido.
 
-[![Ordem de clonagem 3](media/data-box-portal-ui-admin/clone-order3.png)](media/data-box-portal-ui-admin/clone-order3.png#lightbox) 
+[![Ordem clonada](media/data-box-portal-ui-admin/portal-ui-admin-cloned-order.png)](media/data-box-portal-ui-admin/portal-ui-admin-cloned-order.png#lightbox) 
 
 ## <a name="delete-order"></a>Excluir pedido
 
@@ -65,15 +65,15 @@ Só é possível excluir pedidos que tenham sido concluídos ou cancelados. Exec
 
 1. Vá para **todos os recursos**. Pesquise seu pedido.
 
-    ![Pesquisar pedidos de Data Box Disk](media/data-box-portal-ui-admin/search-data-box-disk-orders.png)
+    ![Pesquisar ordens](media/data-box-portal-ui-admin/portal-ui-admin-search-data-box-disk-orders.png)
 
 2. Clique no pedido que você deseja excluir e vá para **Visão Geral**. Na barra de comandos, clique em **Excluir**.
 
-    ![Excluir pedido de Data Box Disk 1](media/data-box-portal-ui-admin/delete-order1.png)
+    ![Excluir um pedido](media/data-box-portal-ui-admin/portal-ui-admin-delete-command.png)
 
 3. Insira o nome do pedido quando solicitado a confirmar a exclusão de um pedido. Clique em **Excluir**.
 
-     ![Excluir pedido de Data Box Disk 2](media/data-box-portal-ui-admin/delete-order2.png)
+     ![Confirmar exclusão de ordem](media/data-box-portal-ui-admin/portal-ui-admin-confirm-deletion.png)
 
 
 ## <a name="download-shipping-label"></a>Faça o download da etiqueta de remessa
@@ -83,11 +83,11 @@ Talvez seja necessário baixar a etiqueta de remessa quando a que foi fornecida 
 Execute as etapas a seguir para baixar uma etiqueta de remessa.
 1.  Vá para **Visão geral > Baixar etiqueta de remessa**. Essa opção estará disponível somente depois que o disco for enviado. 
 
-    ![Faça o download da etiqueta de remessa](media/data-box-portal-ui-admin/download-shipping-label.png)
+    ![Faça o download da etiqueta de remessa](media/data-box-portal-ui-admin/portal-ui-admin-download-shipping-label.png)
 
 2.  Essa opção baixa a etiqueta de remessa de devolução a seguir. Salve o rótulo, imprima-o horizontalmente e fixe-o na remessa de devolução.
 
-    ![Etiqueta de remessa de exemplo](media/data-box-portal-ui-admin/example-shipping-label.png)
+    ![Etiqueta de remessa de exemplo](media/data-box-portal-ui-admin/portal-ui-admin-example-shipping-label.png)
 
 ## <a name="edit-shipping-address"></a>Editar endereço para entrega
 
@@ -97,11 +97,11 @@ Execute as etapas a seguir para editar o pedido.
 
 1. Vá para **Detalhes do pedido > Editar endereço para entrega**.
 
-    ![Editar endereço para entrega 1](media/data-box-portal-ui-admin/edit-shipping-address1.png)
+    ![Editar comando de endereço de envio em detalhes da ordem](media/data-box-portal-ui-admin/portal-ui-admin-edit-shipping-address-command.png)
 
 2. Agora você pode editar o endereço para entrega e salvar as alterações.
 
-    ![Editar endereço para entrega 2](media/data-box-portal-ui-admin/edit-shipping-address2.png)
+    ![Caixa de diálogo Editar endereço de envio](media/data-box-portal-ui-admin/portal-ui-admin-edit-shipping-address-dbox.png)
 
 ## <a name="edit-notification-details"></a>Editar detalhes da notificação
 
@@ -111,11 +111,11 @@ Execute as etapas a seguir para editar os detalhes de notificação.
 
 1. Vá para **Detalhes do pedido > Editar detalhes da notificação**.
 
-    ![Editar detalhes da notificação 1](media/data-box-portal-ui-admin/edit-notification-details1.png)
+    ![Editar o comando de detalhes de notificação nos detalhes da ordem](media/data-box-portal-ui-admin/portal-ui-admin-edit-notification-details-command.png)
 
 2. Agora você pode editar os detalhes de notificação e salvar as alterações.
  
-    ![Editar detalhes da notificação 2](media/data-box-portal-ui-admin/edit-notification-details2.png)
+    ![Caixa de diálogo Editar detalhes da notificação](media/data-box-portal-ui-admin/portal-ui-admin-edit-notification-details-dbox.png)
 
 ## <a name="view-order-status"></a>Exibir status do pedido
 

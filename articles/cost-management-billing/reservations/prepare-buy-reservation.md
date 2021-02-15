@@ -8,12 +8,12 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: 211e06695d3cabef8cfeb0a7bbf581835819345c
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: a70d434b06fd19071f3576f9333579e0bd2b85e7
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686200"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99574967"
 ---
 # <a name="buy-a-reservation"></a>Comprar uma reserva
 
@@ -21,9 +21,9 @@ As reservas do Azure ajudam você a economizar dinheiro confirmando os planos de
 
 ## <a name="who-can-buy-a-reservation"></a>Quem pode comprar uma reserva
 
-Para comprar um plano, você deve ter uma função de proprietário de assinatura em uma assinatura Enterprise (MS-AZR-0017P ou MS-AZR-0148P) ou de Pagamento Conforme o Uso (MS-AZR-0003P ou MS-AZR-0023P) ou de Contrato de Cliente da Microsoft. Os provedores de solução na nuvem podem usar o portal do Azure ou o  [Partner Center](/partner-center/azure-reservations)  para comprar Reservas do Azure.
+Para comprar uma reserva, você precisa ter a função proprietário ou comprador de reserva em uma assinatura do Azure que é do tipo Enterprise (MS-AZR-0017P ou MS-AZR-0148P), Pagamento Conforme o Uso (MS-AZR-0003P ou MS-AZR-0023P) ou Contrato de Cliente da Microsoft. Os provedores de solução na nuvem podem usar o portal do Azure ou o  [Partner Center](/partner-center/azure-reservations)  para comprar Reservas do Azure.
 
-Clientes com EA (Contrato Enterprise) podem limitar as compras aos administradores de EA desabilitando a opção **Adicionar Instâncias Reservadas** no Portal do EA. Os administradores de EA precisam ser proprietários de pelo menos uma assinatura de EA para comprar uma reserva. A opção é útil para empresas que desejam que uma equipe centralizada compre reservas para diferentes centros de custo. Após a compra, as equipes centralizadas podem adicionar proprietários de centro de custo às reservas. Os proprietários podem, então, definir o escopo da reserva para suas assinaturas. A equipe central não precisa ter acesso de proprietário da assinatura no local em que a reserva é comprada.
+Clientes com EA (Contrato Enterprise) podem limitar as compras aos administradores de EA desabilitando a opção **Adicionar Instâncias Reservadas** no Portal do EA. Os administradores do EA precisam ter acesso de proprietário ou de comprador de reserva em pelo menos uma assinatura do EA para comprar uma reserva. A opção é útil para empresas que desejam que uma equipe centralizada compre reservas.
 
 Um desconto de reserva aplica-se somente aos recursos associados a assinaturas adquiridas por meio do Enterprise, do CSP (Provedor de Soluções de Nuvem), Contrato de Cliente da Microsoft e planos individuais com tarifas pagas conforme o uso.
 
@@ -67,7 +67,7 @@ Os recursos executados em uma assinatura com outros tipos de oferta não recebem
 
 Você pode comprar reservas por meio do portal do Azure, das APIs, do PowerShell e da CLI. Leia os seguintes artigos, que se aplicam a você quando você está pronto para fazer uma compra de reserva:
 
-- [Serviço de Aplicativo](prepay-app-service-isolated-stamp.md)
+- [Serviço de Aplicativo](prepay-app-service.md)
 - [Cache Redis do Azure](../../azure-cache-for-redis/cache-reserved-pricing.md)
 - [Cosmos DB](../../cosmos-db/cosmos-db-reserved-capacity.md)
 - [Databricks](prepay-databricks-reserved-capacity.md)
@@ -81,7 +81,7 @@ Você pode comprar reservas por meio do portal do Azure, das APIs, do PowerShell
 - [Banco de Dados do Azure para MySQL](../../mysql/concept-reserved-pricing.md)
 - [Banco de Dados do Azure para MariaDB](../../mariadb/concept-reserved-pricing.md)
 - [Azure Synapse Analytics](prepay-sql-data-warehouse-charges.md)
-- [Máquinas virtuais](../../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Máquinas virtuais](../../virtual-machines/prepay-reserved-vm-instances.md)
 
 ## <a name="buy-reservations-with-monthly-payments"></a>Comprar reservas com pagamentos mensais
 
@@ -123,7 +123,7 @@ Dependendo de como você paga por sua assinatura do Azure, são enviadas notific
 Para clientes com assinaturas EA:
 
 - São enviadas notificações somente para os contatos de notificação do EA.
-- Usuários adicionados a uma reserva usando a permissão de RBAC (IAM) não recebem nenhuma notificação por email.
+- Usuários adicionados a uma reserva usando a permissão do Azure RBAC (IAM) não recebem notificação por email.
 
 Para clientes com assinaturas individuais:
 

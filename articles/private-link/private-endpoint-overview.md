@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: 7456402605328592d4f5677767bcd985941173ec
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 88d44f4f8cedbad604eb59cde91f4eed79918c0f
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88639827"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98806661"
 ---
 # <a name="what-is-azure-private-endpoint"></a>O que é o Ponto de Extremidade Privado do Azure?
 
@@ -28,7 +28,7 @@ O ponto de extremidade privado do Azure é uma interface de rede que conecta voc
 |Sub-rede    |  A sub-rede para implantar e alocar endereços IP privados de uma rede virtual. Para obter os requisitos de sub-rede, confira a seção Limitações neste artigo.         |
 |Recurso do link privado    |   O recurso do link privado para conectar-se usando a ID do recurso ou alias da lista de tipos disponíveis. Um identificador de rede exclusivo é gerado para todo o tráfego enviado para esse recurso.       |
 |Sub-recurso de destino   |      O sub-recurso a ser conectado. Cada tipo de recurso do link privado tem opções diferentes para selecionar com base na preferência.    |
-|Método de aprovação de conexão    |  Automático ou manual. Com base nas permissões de controle de acesso baseado em função (RBAC), seu ponto de extremidade privado pode ser aprovado automaticamente. Se você tentar se conectar a um recurso do link privado sem RBAC, use o método manual para permitir que o proprietário do recurso aprove a conexão.        |
+|Método de aprovação de conexão    |  Automático ou manual. Com base nas permissões do Azure RBAC (controle de acesso baseado em função), seu ponto de extremidade privado pode ser aprovado automaticamente. Se você tentar se conectar a um recurso de link privado sem o RBAC do Azure, use o método manual para permitir que o proprietário do recurso aprove a conexão.        |
 |Mensagem de solicitação     |  Você pode especificar uma mensagem para que as conexões solicitadas sejam aprovadas manualmente. Essa mensagem pode ser usada para identificar uma solicitação específica.        |
 |Status da conexão   |   Uma propriedade somente leitura que especifica se o ponto de extremidade privado está ativo. Somente os pontos de extremidade privados no estado aprovado podem ser usados para enviar tráfego. Outros estados disponíveis: <br>-**Aprovado**: A conexão foi aprovada automaticamente ou manualmente e está pronta para ser usada.</br><br>-**Pendente**: A conexão foi criada manualmente e está pendente de aprovação do proprietário do recurso do link privado.</br><br>-**Rejeitado**: A conexão foi rejeitada pelo proprietário do recurso do link privado.</br><br>-**Desconectado**: A conexão foi removida pelo proprietário do recurso do link privado. O ponto de extremidade privado se torna informativo e deve ser excluído para limpeza. </br>|
 
@@ -45,9 +45,9 @@ Estes são alguns detalhes importantes sobre os pontos de extremidade privados:
  
 - Vários pontos de extremidade privados podem ser criados usando o mesmo recurso do link privado. Para uma única rede que usa uma configuração comum do servidor DNS, a melhor prática é usar um único ponto de extremidade privado para determinado recurso do link privado, a fim de evitar entradas duplicadas ou conflitos na resolução de DNS. 
  
-- Vários pontos de extremidade privados podem ser criados na mesma sub-rede ou em sub-redes diferentes na mesma rede virtual. Há limites para o número de pontos de extremidade privados que você pode criar em uma assinatura. Para obter detalhes, confira  [Limites do Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits).
+- Vários pontos de extremidade privados podem ser criados na mesma sub-rede ou em sub-redes diferentes na mesma rede virtual. Há limites para o número de pontos de extremidade privados que você pode criar em uma assinatura. Para obter detalhes, confira  [Limites do Azure](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
 
-- A assinatura do recurso de link privado também deve ser registrada com o provedor de recursos Microsoft. Network. Para obter detalhes, consulte [provedores de recursos do Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types).
+- A assinatura do recurso de link privado também deve ser registrada com o provedor de recursos Microsoft. Network. Para obter detalhes, consulte [provedores de recursos do Azure](../azure-resource-manager/management/resource-providers-and-types.md).
 
  
 ## <a name="private-link-resource"></a>Recurso do link privado 
@@ -77,8 +77,8 @@ Um recurso do link privado é o destino pretendido de determinado ponto de extre
 |**Retransmissão do Azure** | Microsoft.Relay/namespaces | namespace |
 |**Grade de Eventos do Azure** | Microsoft.EventGrid/topics    | topic |
 |**Grade de Eventos do Azure** | Microsoft.EventGrid/domains    | domínio |
-|**Azure WebApps** | Microsoft.Web/sites    | sites |
-|**Azure Machine Learning** | Microsoft.MachineLearningServices/workspaces    | workspace |
+|**Serviço de Aplicativo do Azure** | Microsoft.Web/sites    | sites |
+|**Azure Machine Learning** | Microsoft.MachineLearningServices/workspaces    | amlworkspace |
 |**SignalR** | Microsoft.SignalRService/SignalR    | signalR |
 |**Azure Monitor** | Microsoft. insights/privateLinkScopes    | azuremonitor |
 |**Serviços Cognitivos** | (Microsoft. Cognitivaservices/contas    | account |
@@ -133,15 +133,16 @@ A tabela a seguir inclui uma lista de limitações conhecidas ao usar pontos de 
 
 
 ## <a name="next-steps"></a>Próximas etapas
-- [Criar um ponto de extremidade privado para o banco de dados SQL usando o portal ](create-private-endpoint-portal.md)
-- [Criar um ponto de extremidade privado para o banco de dados SQL usando o PowerShell ](create-private-endpoint-powershell.md)
-- [Criar um ponto de extremidade privado para o banco de dados SQL usando a CLI ](create-private-endpoint-cli.md)
-- [Criar um Ponto de Extremidade Privado para a conta de Armazenamento usando o portal ](create-private-endpoint-storage-portal.md)
-- [Criar um Ponto de Extremidade Privado para a conta do Azure Cosmos usando o portal ](../cosmos-db/how-to-configure-private-endpoints.md)
+- [Criar um ponto de extremidade privado para o banco de dados SQL usando o portal](create-private-endpoint-portal.md)
+- [Criar um ponto de extremidade privado para o banco de dados SQL usando o PowerShell](create-private-endpoint-powershell.md)
+- [Criar um ponto de extremidade privado para o banco de dados SQL usando a CLI](create-private-endpoint-cli.md)
+- [Criar um ponto de extremidade privado para a conta de armazenamento usando o portal](./tutorial-private-endpoint-storage-portal.md)
+- [Criar um ponto de extremidade privado para a conta do Azure Cosmos usando o portal](../cosmos-db/how-to-configure-private-endpoints.md)
 - [Criar seu próprio serviço de Link Privado usando o Azure PowerShell](create-private-link-service-powershell.md)
-- [Criar seu próprio Link Privado para o Banco de Dados do Azure para PostgreSQL - servidor único usando o portal](../postgresql/howto-configure-privatelink-portal.md)
+- [Criar seu próprio link privado para o banco de dados do Azure para PostgreSQL-servidor único usando o portal](../postgresql/howto-configure-privatelink-portal.md)
 - [Criar seu próprio Link Privado para o Banco de Dados do Azure para PostgreSQL - servidor único usando a CLI](../postgresql/howto-configure-privatelink-cli.md)
-- [Criar seu próprio Link Privado para o Banco de Dados do Azure para MySQL usando o portal](../mysql/howto-configure-privatelink-portal.md)
+- [Criar seu próprio link privado para o banco de dados do Azure para MySQL usando o portal](../mysql/howto-configure-privatelink-portal.md)
 - [Criar seu próprio Link Privado para o Banco de Dados do Azure para MySQL usando a CLI](../mysql/howto-configure-privatelink-cli.md)
-- [Criar seu próprio Link Privado para o Banco de Dados do Azure para MariaDB usando o portal](../mariadb/howto-configure-privatelink-portal.md)
+- [Criar seu próprio link privado para o banco de dados do Azure para MariaDB usando o portal](../mariadb/howto-configure-privatelink-portal.md)
 - [Criar seu próprio Link Privado para o Banco de Dados do Azure para MariaDB usando a CLI](../mariadb/howto-configure-privatelink-cli.md)
+- [Crie seu próprio link privado para Azure Key Vault usando o portal e a CLI](../key-vault/general/private-link-service.md)

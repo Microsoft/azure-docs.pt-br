@@ -9,12 +9,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: lagayhar
-ms.openlocfilehash: efa54933ac7d57ec0dcff9ae11b6fb5c2c87a897
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a2411d9257b1083cb2bcbfcad289813a6c062dff
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081382"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92143575"
 ---
 # <a name="how-to-use-jsonpath-to-transform-json-data-in-workbooks"></a>Como usar o JSONPath para transformar dados JSON em pastas de trabalho
 
@@ -22,7 +22,7 @@ As pastas de trabalho são capazes de consultar dados de várias fontes. Alguns 
 
 JSONPath é uma linguagem de consulta para JSON semelhante ao XPath for XML. Como o XPath, o JSONPath permite a extração e a filtragem de dados da estrutura JSON.
 
-Usando a transformação JSONPath, os autores da pasta de trabalho são capazes de converter JSON em uma estrutura de tabela. A tabela pode ser usada para plotar as [visualizações da pasta de trabalho](workbooks-visualizations.md).
+Usando a transformação JSONPath, os autores da pasta de trabalho são capazes de converter JSON em uma estrutura de tabela. A tabela pode ser usada para plotar as [visualizações da pasta de trabalho](./workbooks-overview.md#visualizations).
 
 ## <a name="using-jsonpath"></a>Usando JSONPath
 

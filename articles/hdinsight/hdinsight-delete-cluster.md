@@ -1,23 +1,20 @@
 ---
 title: Como excluir um cluster HDInsight - Azure
 description: Informações sobre as várias maneiras que você pode excluir um cluster do Azure HDInsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: H1Hack27Feb2017,hdinsightactive
+ms.custom: H1Hack27Feb2017,hdinsightactive, devx-track-azurecli
 ms.date: 11/29/2019
-ms.openlocfilehash: 3903500e87dd162779d1732a4cfe405ba34e702c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 55c19ee9b23d43b0f9988363405d76fa16949ec9
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87074748"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946035"
 ---
 # <a name="delete-an-hdinsight-cluster-using-your-browser-powershell-or-the-azure-cli"></a>Excluir um cluster HDInsight usando o navegador, o PowerShell ou a CLI do Azure
 
-A cobrança do cluster HDInsight começa quando um cluster é criado e para quando o cluster é excluído. A cobrança é proporcional por minuto, portanto, você sempre deve excluir o cluster quando ele não estiver mais em uso. Neste documento, você aprende a excluir um cluster usando o [portal do Azure](https://portal.azure.com), Azure PowerShell o [módulo Az](https://docs.microsoft.com/powershell/azure/)e o [CLI do Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
+A cobrança do cluster HDInsight começa quando um cluster é criado e para quando o cluster é excluído. A cobrança é proporcional por minuto, portanto, você sempre deve excluir o cluster quando ele não estiver mais em uso. Neste documento, você aprende a excluir um cluster usando o [portal do Azure](https://portal.azure.com), Azure PowerShell o [módulo Az](/powershell/azure/)e o [CLI do Azure](/cli/azure/).
 
 > [!IMPORTANT]  
 > A exclusão de um cluster HDInsight não exclui as contas do Armazenamento do Azure ou Data Lake Storage associadas ao cluster. Você pode reutilizar os dados armazenados nesses serviços no futuro.
@@ -26,7 +23,7 @@ A cobrança do cluster HDInsight começa quando um cluster é criado e para quan
 
 1. Entre no [portal do Azure](https://portal.azure.com).
 
-2. No menu à esquerda, navegue até **todos os serviços**  >  **Analytics**  >  **clusters HDInsight** de análise e selecione o cluster.
+2. No menu à esquerda, navegue até **todos os serviços**  >    >  **clusters HDInsight** de análise e selecione o cluster.
 
 3. No modo de exibição padrão, selecione o ícone **excluir** . Siga o prompt para excluir o cluster.
 

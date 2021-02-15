@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 06/25/2020
 ms.reviwer: jushiman
 ms.custom: avverma
-ms.openlocfilehash: b5e786a64d7d9606a3a99a3f1b3f8c67c9869cd1
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 11302c301bee466f678d544d0c4838c39cec9c8e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87830675"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91818541"
 ---
 # <a name="troubleshooting-autoscale-with-virtual-machine-scale-sets"></a>Solução de problemas do dimensionamento automático com conjuntos de escala de máquina virtual
 **Problema**: você criou uma infraestrutura de dimensionamento automático no Azure Resource Manager usando conjuntos de dimensionamento de máquinas virtuais, por exemplo, implantando um modelo como este: https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale – suas regras de escala estão definidas e ele funciona muito bem, exceto que, independentemente da carga colocada nas VMs, ele não usa dimensionamento automático.
@@ -66,7 +66,7 @@ Alguns aspectos a serem considerados incluem:
     
     ![Gerenciador de Nuvem][explorer]
     
-    Você verá um monte de tabelas em que os dados de cada VM estão sendo armazenados. Usando o Linux e a métrica de CPU como exemplo, procure linhas mais recentes. O Visual Studio Cloud Explorer oferece suporte a uma linguagem de consulta, de modo que você possa executar uma consulta. Por exemplo, você pode executar uma consulta para "Carimbo de data/hora gt Data/Hora’2016-02-02T21:20:00Z’" para garantir que obtém os eventos mais recentes. O fuso horário corresponde ao UTC. Os dados exibidos correspondem às regras de escala que você configurou? No exemplo seguinte, a CPU do computador 20 começou a aumentar para 100% nos últimos 5 minutos.
+    Você verá um monte de tabelas em que os dados de cada VM estão sendo armazenados. Usando o Linux e a métrica de CPU como exemplo, procure linhas mais recentes. O Visual Studio Cloud Explorer dá suporte a uma linguagem de consulta para que você possa executar uma consulta. Por exemplo, você pode executar uma consulta para "Carimbo de data/hora gt Data/Hora’2016-02-02T21:20:00Z’" para garantir que obtém os eventos mais recentes. O fuso horário corresponde ao UTC. Os dados exibidos correspondem às regras de escala que você configurou? No exemplo seguinte, a CPU do computador 20 começou a aumentar para 100% nos últimos 5 minutos.
     
     ![Tabelas de Armazenamento][tables]
     

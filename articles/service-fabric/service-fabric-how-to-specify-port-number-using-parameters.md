@@ -1,16 +1,14 @@
 ---
 title: Especificar o número da porta de um serviço usando parâmetros
 description: Mostra como usar parâmetros para especificar a porta para um aplicativo no Service Fabric
-author: mikkelhegn
 ms.topic: conceptual
 ms.date: 12/06/2017
-ms.author: mikhegn
-ms.openlocfilehash: a53626b8fd362397ba89df30b099fa3c9ff7b0a2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ba2fb459dc9c981ad168aca4d0edf969650ccf48
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75609852"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576699"
 ---
 # <a name="how-to-specify-the-port-number-of-a-service-using-parameters-in-service-fabric"></a>Como especificar o número da porta de um serviço usando parâmetros no Service Fabric
 

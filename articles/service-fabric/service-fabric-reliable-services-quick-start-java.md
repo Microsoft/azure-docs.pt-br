@@ -1,17 +1,15 @@
 ---
 title: Crie seu primeiro serviço confiável em Java
-description: Introdução à criação de um aplicativo do Service Fabric do Microsoft Azure com serviços com e sem estado.
-author: suhuruli
+description: Introdução à criação de um aplicativo Microsoft Azure Service Fabric com serviços com e sem estado em Java.
 ms.topic: conceptual
 ms.date: 11/02/2017
-ms.custom: devx-track-java
-ms.author: suhuruli
-ms.openlocfilehash: 30797e68081e346ee0f31f77da15f820776337a0
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.custom: devx-track-javai
+ms.openlocfilehash: f67957d711958febdb01dfad0b3c44a92cb0bcfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324498"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91535229"
 ---
 # <a name="get-started-with-reliable-services-in-java"></a>Introdução ao Reliable Services em Java
 > [!div class="op_single_selector"]
@@ -226,7 +224,7 @@ As operações nos HashMap Confiáveis são assíncronas. Isso ocorre porque as 
 As operações de HashMap Confiável são *transacionais*, de modo que você pode manter o estado consistente entre vários HashMap Confiáveis e operações. Por exemplo, você pode obter um item de trabalho de um Dicionário Confiável, executar uma operação nele e salvar o resultado em outro HashMap Confiável, tudo em uma única transação. Trata-se de uma operação atômica e ela garante que toda a operação seja bem-sucedida ou revertida. Se ocorrer um erro depois de remover o item da fila, mas antes de salvar o resultado, toda a transação será revertida e o item permanecerá na fila para processamento.
 
 
-## <a name="build-the-application"></a>Criar o aplicativo
+## <a name="build-the-application"></a>Compilar o aplicativo
 
 O scaffolding Yeoman inclui um script gradle para compilar o aplicativo e os scripts bash para implantar e remover o aplicativo. Para executar o aplicativo, primeiro compile o aplicativo com gradle:
 

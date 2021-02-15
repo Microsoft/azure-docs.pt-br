@@ -5,12 +5,12 @@ author: eamono
 ms.topic: conceptual
 ms.date: 04/26/2020
 ms.author: eamono
-ms.openlocfilehash: 6034d1327d263eda49881af5eedf94ae06495128
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5e01ffd8e17fda9113c7ec0fdb2c7f436b39c810
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83122073"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936899"
 ---
 # <a name="managing-hybrid-environments-with-powershell-in-azure-functions-and-app-service-hybrid-connections"></a>Gerenciando ambientes híbridos com o PowerShell no Azure Functions e no serviço de aplicativo Conexões Híbridas
 
@@ -72,7 +72,7 @@ O recurso de Conexões Híbridas do serviço de aplicativo está disponível ape
 
     | Configuração      | Valor sugerido  | Descrição |
     | ------------ | ---------------- | ----------- |
-    | **[Conta de armazenamento](../storage/common/storage-account-create.md)** |  Nome globalmente exclusivo |  Crie uma conta de armazenamento usada pelo seu aplicativo de funções. Os nomes da conta de armazenamento devem ter entre 3 e 24 caracteres e podem conter apenas números e letras minúsculas. Use também uma conta existente, que precisará atender aos [requisitos da conta de armazenamento](../azure-functions/functions-scale.md#storage-account-requirements). |
+    | **[Conta de armazenamento](../storage/common/storage-account-create.md)** |  Nome globalmente exclusivo |  Crie uma conta de armazenamento usada pelo seu aplicativo de funções. Os nomes da conta de armazenamento devem ter entre 3 e 24 caracteres e podem conter apenas números e letras minúsculas. Use também uma conta existente, que precisará atender aos [requisitos da conta de armazenamento](../azure-functions/storage-considerations.md#storage-account-requirements). |
     |**Sistema operacional**| Sistema operacional preferencial | Um sistema operacional é pré-selecionado para você com base na seleção da pilha de runtime, mas você pode alterar a configuração, se necessário. |
     | **[Tipo de plano](../azure-functions/functions-scale.md)** | **Plano do serviço de aplicativo** | Escolha **plano do serviço de aplicativo**. Quando você executa em um Plano do Serviço de Aplicativo, deve gerenciar o [dimensionamento do aplicativo de funções](../azure-functions/functions-scale.md).  |
 
@@ -117,7 +117,7 @@ As conexões híbridas são configuradas na seção rede do aplicativo de funç�
     | **Host de ponto de extremidade** | finance1 |
     | **Porta do ponto de extremidade** | 5986 |
     | **Namespace do ServiceBus** | Criar Novo |
-    | **Localidade** | Escolha um local disponível |
+    | **Localização** | Escolha um local disponível |
     | **Nome** | contosopowershellhybrid | 
 
 1. Selecione **OK** para criar a conexão híbrida.
@@ -157,14 +157,14 @@ As conexões híbridas são configuradas na seção rede do aplicativo de funç�
 
     :::image type="content" source="./media/functions-hybrid-powershell/select-configuration.png" alt-text="Configure uma senha para a conta de administrador." border="true":::
 
-1. Nomeie a configuração **ContosoUserPassword**e insira a senha. Selecione **OK**.
+1. Nomeie a configuração **ContosoUserPassword** e insira a senha. Selecione **OK**.
 1. Selecione **salvar** para armazenar a senha no aplicativo de funções.
 
     :::image type="content" source="./media/functions-hybrid-powershell/save-administrator-password.png" alt-text="Salve a senha da conta de administrador." border="true":::
 
 ## <a name="create-a-function-http-trigger"></a>Criar um gatilho HTTP function
 
-1. Em seu aplicativo de funções, selecione **funções**e, em seguida, selecione **+ Adicionar**.
+1. Em seu aplicativo de funções, selecione **funções** e, em seguida, selecione **+ Adicionar**.
 
     :::image type="content" source="./media/functions-hybrid-powershell/create-http-trigger-function.png" alt-text="Criar novo gatilho HTTP." border="true":::
 
@@ -217,7 +217,7 @@ As conexões híbridas são configuradas na seção rede do aplicativo de funç�
 
     :::image type="content" source="./media/functions-hybrid-powershell/save-http-function.png" alt-text="Altere o código do PowerShell e salve a função de gatilho HTTP." border="true":::
 
- 1. Selecione **teste**e, em seguida, selecione **executar** para testar a função. Examine os logs para verificar se o teste foi bem-sucedido.
+ 1. Selecione **teste** e, em seguida, selecione **executar** para testar a função. Examine os logs para verificar se o teste foi bem-sucedido.
 
      :::image type="content" source="./media/functions-hybrid-powershell/test-function-hybrid.png" alt-text="Testar a função do gatilho HTTP." border="true":::
 

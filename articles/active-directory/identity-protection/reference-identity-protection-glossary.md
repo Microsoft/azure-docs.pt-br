@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1a17f52e519a84c58c9ed5b75259cc0b96d0a175
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88949167"
 ---
 # <a name="azure-active-directory-identity-protection-glossary"></a>Glossário do Azure Active Directory Identity Protection
@@ -89,7 +89,7 @@ A detecção de anomalias e a avaliação do risco de um evento, tal como uma te
 ### <a name="remediated-risk-detection"></a>Corrigido (detecção de risco)
 Um status de detecção de risco definido automaticamente pela proteção de identidade, indicando que a detecção de risco foi corrigida usando a ação de correção padrão para esse tipo de detecção de risco. Por exemplo, quando a senha do usuário é redefinida, muitas detecções de risco que indicam que a senha anterior foi comprometida são automaticamente corrigidas.
 
-### <a name="remediation"></a>Correção
+### <a name="remediation"></a>Remediação
 Uma ação que visa proteger uma identidade ou um dispositivo que sofreu comprometimento conhecido ou suspeito anteriormente. Uma ação de correção restaura a identidade ou o dispositivo para um estado seguro e resolve as detecções de risco anteriores associadas à identidade ou ao dispositivo.
 
 ### <a name="resolved-risk-detection"></a>Resolvido (detecção de risco)

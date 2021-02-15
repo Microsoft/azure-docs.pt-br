@@ -3,19 +3,19 @@ title: Versões do Kubernetes com suporte no Serviço de Kubernetes do Azure
 description: Entender a política de suporte de versão do Kubernetes e o ciclo de vida dos clusters no AKS (Serviço de Kubernetes do Azure)
 services: container-service
 ms.topic: article
-ms.date: 07/08/2020
+ms.date: 09/08/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: 273c41a523de8b2776982e5229c5a8b618b82c19
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 3ed5c2c1c95822717981f7d30b91edd244420c59
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475185"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99427678"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Versões do Kubernetes com suporte no AKS (Serviço de Kubernetes do Azure)
 
-A comunidade Kubernetes libera versões secundárias aproximadamente a cada três meses. Essas versões incluem novos recursos e melhorias. As versões de patch são mais frequentes (às vezes, semanais) e são destinadas apenas a correções de bugs críticas em uma versão secundária. Essas versões de patch incluem correções para vulnerabilidades de segurança ou principais bugs.
+A comunidade Kubernetes libera versões secundárias aproximadamente a cada três meses. Recentemente, a Comunidade kubernetes [aumentou a janela de suporte para cada versão, de 9 meses a 12 meses, a partir da](https://kubernetes.io/blog/2020/08/31/kubernetes-1-19-feature-one-year-support/)versão 1,19. Essas versões incluem novos recursos e melhorias. As versões de patch são mais frequentes (às vezes semanais) e destinam-se a correções de bugs críticos em uma versão secundária. Essas versões de patch incluem correções para vulnerabilidades de segurança ou principais bugs.
 
 ## <a name="kubernetes-versions"></a>Versões do Kubernetes
 
@@ -41,8 +41,8 @@ Os usuários devem visar executar a versão mais recente do patch da versão sec
 
 AKS define uma versão geralmente disponível, como uma versão habilitada em todas as medições de SLO ou SLA e quando disponível em todas as regiões. O AKS dá suporte a três versões secundárias de GA do kubernetes:
 
-* A versão secundária mais recente do GA lançada no AKS (que faremos referência a N). 
-* Duas versões secundárias anteriores. 
+* A versão secundária mais recente do GA lançada no AKS (que faremos referência a N).
+* Duas versões secundárias anteriores.
 * Cada versão secundária com suporte também dá suporte a um máximo de dois (2) patches estáveis.
 * O AKS também pode oferecer suporte a versões de visualização, que são rotuladas explicitamente e sujeitas a [termos e condições de visualização][preview-terms].
 
@@ -106,6 +106,9 @@ Você pode fazer referência a versões e substituições futuras da versão no 
 Para novas versões **secundárias** do kubernetes
 1. O AKS publica um pré-registro com a data planejada de um novo lançamento de versão e a respectiva substituição de versão antiga nas [notas](https://aka.ms/aks/releasenotes) de versão do AKs, pelo menos 30 dias antes da remoção.
 2. O AKS publica uma [notificação de integridade do serviço](../service-health/service-health-overview.md) disponível para todos os usuários com acesso ao portal e do AKs e envia um email para os administradores de assinatura com as datas de remoção da versão planejada.
+````
+To find out who is your subscription administrators or to change it, please refer to [manage Azure subscriptions](../cost-management-billing/manage/add-change-subscription-administrator.md#assign-a-subscription-administrator).
+````
 3. Os usuários têm **30 dias** desde a remoção da versão até a atualização para uma versão secundária com suporte para continuar recebendo suporte.
 
 Para novas versões de **patch** do kubernetes
@@ -121,7 +124,7 @@ Versões de patch específicas podem ser ignoradas ou a distribuição acelerada
 
 ## <a name="azure-portal-and-cli-versions"></a>Versões portal do Azure e CLI
 
-Quando você implanta um cluster AKS no portal ou com o CLI do Azure, o cluster é padronizado para a versão secundária N-1 e o patch mais recente. Por exemplo, se AKS dá suporte a *1.17. a*, *1.17. b*, *1.16. c*, *1.16. d*, *1.15. e*e *1.15. f*, a versão padrão selecionada é *1.16. c*.
+Quando você implanta um cluster AKS no portal ou com o CLI do Azure, o cluster é padronizado para a versão secundária N-1 e o patch mais recente. Por exemplo, se AKS dá suporte a *1.17. a*, *1.17. b*, *1.16. c*, *1.16. d*, *1.15. e* e *1.15. f*, a versão padrão selecionada é *1.16. c*.
 
 Para descobrir quais versões estão disponíveis atualmente para sua assinatura e região, use o comando [az aks get-versions][az-aks-get-versions]. O exemplo a seguir lista as versões disponíveis do Kubernetes para a região *EastUS*:
 
@@ -131,18 +134,24 @@ az aks get-versions --location eastus --output table
 
 ## <a name="aks-kubernetes-release-calendar"></a>Calendário de versão do AKS kubernetes
 
-Para obter o histórico de versões anteriores, consulte [aqui](https://en.wikipedia.org/wiki/Kubernetes#History).
+Para obter o histórico de lançamentos anteriores, consulte [kubernetes](https://en.wikipedia.org/wiki/Kubernetes#History).
 
-|  Versão do K8s | Versão de upstream  | Visualização do AKS  | GA AKS  | Fim de vida |
+|  Versão do K8s | Versão de upstream  | Visualização do AKS  | GA AKS  | Fim da vida útil |
 |--------------|-------------------|--------------|---------|-------------|
-| 1,17  | Dec-09-19  | 19 de janeiro   | 20 de julho  | 1,20 GA | 
-| 1,18  | Março de 23-20  | 20 de maio   | 20 de agosto  | 1,21 GA | 
-| 1,19  | Agosto de 04-20  | 20 de agosto   | 20 de nov  | 1,22 GA | 
-| 1,20  | * 20 de novembro    | * 20 de dezembro   | * Jan 21  | 1,23 GA | 
+| 1,17  | Dec-09-19  | Jan 2019   | Julho de 2020  | 1,20 GA | 
+| 1,18  | Março de 23-20  | Maio de 2020   | 2020 de agosto  | 1,21 GA | 
+| 1,19  | Agosto de 04-20  | Setembro de 2020   | 2020 de novembro  | 1,22 GA | 
+| 1,20  | Dec-08-20  | Jan 2021   | Mar de 2021  | 1,23 GA |
+| 1,21  | Abr-08-21 * | Maio de 2021   | Jun 2021  | 1,24 GA |
 
-\*Confirmação de data de lançamento de upstream pendente.
+\* A versão do upstream do kubernetes 1,21 está sujeita a alterações como o calendário upstream ainda para ser finalizado.
+
 
 ## <a name="faq"></a>Perguntas frequentes
+
+**Com que frequência devo esperar para atualizar as versões do kubernetes para manter o suporte?**
+
+Declarando com o kubernetes 1,19, a comunidade de software livre [expandiu o suporte para 1 ano](https://kubernetes.io/blog/2020/08/31/kubernetes-1-19-feature-one-year-support/). AKS confirmações para habilitar patches e suporte correspondentes aos compromissos upstream, no mínimo. Isso significa que, a partir de clusters AKS em 1,19, você poderá atualizar no mínimo uma vez por ano para permanecer em uma versão com suporte. Para versões em 1,18 ou abaixo, a janela de suporte permanece a 9 meses, o que requer uma atualização uma vez a cada 9 meses para permanecer em uma versão com suporte. É altamente recomendável testar regularmente as novas versões e estar preparado para atualizar para versões mais recentes para capturar os aprimoramentos estáveis mais recentes no kubernetes.
 
 **O que acontece quando um usuário atualiza um cluster kubernetes com uma versão secundária que não tem suporte?**
 
@@ -173,7 +182,7 @@ O plano de controle deve estar dentro de uma janela de versões de todos os pool
 
 Quando você atualiza um cluster AKS com suporte, as versões secundárias do kubernetes não podem ser ignoradas. Por exemplo, as atualizações entre *1.12. x*  ->  *1.13. x* ou *1.13. x*  ->  *1.14.* x são permitidas, no entanto *1.12. x*  ->  *1.14. x* não é.
 
-Para atualizar, de *1.12. x*  ->  *1.14.* x, primeiro atualize de *1.12. x*  ->  *1.13. x*e, em seguida, atualize de *1.13. x*  ->  *1.14. x*.
+Para atualizar, de *1.12. x*  ->  *1.14.* x, primeiro atualize de *1.12. x*  ->  *1.13. x* e, em seguida, atualize de *1.13. x*  ->  *1.14. x*.
 
 Ignorar várias versões só pode ser feito ao atualizar de uma versão sem suporte de volta para uma versão com suporte. Por exemplo, atualizar de um *1,10. x* sem suporte > um *1.15. x* com suporte pode ser concluído.
 

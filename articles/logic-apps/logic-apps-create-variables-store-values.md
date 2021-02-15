@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 09/20/2019
-ms.openlocfilehash: 02e9426c7fc537a43fadddb5e2c34fd9c311d69b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b486b94a74d98f5630bd0bf40ebf0864c2ec5ab8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84753263"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91333895"
 ---
 # <a name="store-and-manage-values-by-using-variables-in-azure-logic-apps"></a>Salvar e gerenciar valores usando variáveis em Aplicativos Lógicos do Azure
 
@@ -55,7 +55,7 @@ Você pode criar uma variável e declarar seu tipo de dados e o valor inicial, t
 
    * Para adicionar uma ação na última etapa, selecione **nova etapa**.
 
-     ![Adicionar ação](./media/logic-apps-create-variables-store-values/add-action.png)
+     ![Captura de tela que mostra a ação "nova etapa" selecionada na página "designer de aplicativo lógico".](./media/logic-apps-create-variables-store-values/add-action.png)
 
    * Para adicionar uma ação entre etapas, mova o mouse sobre a seta de conexão para que o sinal de adição ( **+** ) seja exibido. Selecione o sinal de adição e, em seguida, selecione **Adicionar uma ação**.
 
@@ -179,7 +179,7 @@ Confira exemplos de outros tipos de variáveis:
 
 Para recuperar ou fazer referência ao conteúdo de uma variável, também é possível usar a função [variables()](../logic-apps/workflow-definition-language-functions-reference.md#variables) no Designer de Aplicativo Lógico e no editor do modo de exibição de código. Ao fazer referência a uma variável, use o nome da variável como o token, não como o nome da ação, que é a maneira comum de fazer referência as saídas de uma ação.
 
-Por exemplo, essa expressão Obtém os itens da variável de matriz [criada anteriormente neste artigo](#append-value) usando a `variables()` função. A `string()` função retorna o conteúdo da variável no formato de cadeia de caracteres:`"1, 2, 3, red"`
+Por exemplo, essa expressão Obtém os itens da variável de matriz [criada anteriormente neste artigo](#append-value) usando a `variables()` função. A `string()` função retorna o conteúdo da variável no formato de cadeia de caracteres: `"1, 2, 3, red"`
 
 ```json
 @{string(variables('myArrayVariable'))}

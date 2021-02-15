@@ -9,18 +9,19 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/27/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 58ea65e53f4a1262b448a3abd08807113d016fcb
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: e522e358a1b76cea08dac550b33d7a2dfa7d926d
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87833310"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94950220"
 ---
 # <a name="sap-hana-availability-within-one-azure-region"></a>Disponibilidade do SAP HANA em uma região do Azure
 Este artigo descreve vários cenários de disponibilidade em uma região do Azure. O Azure tem várias regiões, distribuídas em todo o mundo. Para obter a lista de regiões do Azure, consulte [Regiões do Azure](https://azure.microsoft.com/regions/). Para implantar SAP HANA em VMs em uma região do Azure, a Microsoft oferece a implantação de uma única VM com uma instância do HANA. Para maior disponibilidade, você pode implantar duas VMs com duas instâncias do HANA dentro de um [Conjunto de disponibilidade do Azure](../../windows/tutorial-availability-sets.md) use replicação de sistema do HANA para disponibilidade. 
@@ -29,7 +30,7 @@ Atualmente, o Azure está oferecendo [Zonas de Disponibilidade do Azure](../../.
 
 Regiões do Azure onde zonas de disponibilidade são oferecidas, têm vários datacenters. Os datacenters são independentes no fornecimento de fonte de alimentação, resfriamento e rede. O motivo para oferecer zonas diferentes em uma única região do Azure é implantar aplicativos em duas ou três zonas de disponibilidade que são oferecidas. A implantação entre zonas, problemas de energia e rede afetando apenas uma infraestrutura da Zona de Disponibilidade do Azure, a implantação de seu aplicativo em uma região do Azure ainda é funcional. Pode ocorrer alguma redução de capacidade. Por exemplo, as VMs em uma zona podem ser perdidas, mas as VMs em duas outras zonas ainda estariam ativas e em execução. 
  
-Um Conjunto de Disponibilidade do Azure é um recurso de agrupamento lógico que ajuda a garantir que os recursos de VM que você coloca no Conjunto de Disponibilidade sejam isolados uns dos outros quando são implantados em um datacenter do Azure. O Azure garante que as VMs colocadas em um Conjunto de disponibilidade sejam executadas em vários servidores físicos, racks de computação, unidades de armazenamento e comutadores de rede. Em algumas documentações do Azure, essa configuração é referida como posicionamentos em diferentes [domínios de atualização e de falha](../../windows/manage-availability.md). Esses posicionamentos normalmente estão dentro de um datacenter do Azure. Supondo que os problemas de fontes de alimentação ou rede afetem o datacenter que você está implantando, toda a sua capacidade em uma região do Azure será afetada.
+Um Conjunto de Disponibilidade do Azure é um recurso de agrupamento lógico que ajuda a garantir que os recursos de VM que você coloca no Conjunto de Disponibilidade sejam isolados uns dos outros quando são implantados em um datacenter do Azure. O Azure garante que as VMs colocadas em um Conjunto de disponibilidade sejam executadas em vários servidores físicos, racks de computação, unidades de armazenamento e comutadores de rede. Em algumas documentações do Azure, essa configuração é referida como posicionamentos em diferentes [domínios de atualização e de falha](../../manage-availability.md). Esses posicionamentos normalmente estão dentro de um datacenter do Azure. Supondo que os problemas de fontes de alimentação ou rede afetem o datacenter que você está implantando, toda a sua capacidade em uma região do Azure será afetada.
 
 O posicionamento de datacenters que representam Zonas de Disponibilidade do Azure é um compromisso entre fornecer latência de rede aceitável entre serviços implantados em diferentes zonas e uma distância entre os datacenters. As catástrofes naturais, de maneira ideal, não afetariam a energia, o fornecimento de rede e a infraestrutura de todas as zonas de disponibilidade nessa região. No entanto, como catástrofes naturais monumentais mostraram, as Zonas de Disponibilidade nem sempre fornecem a disponibilidade desejada dentro de uma região. Pense no furacão Maria que atingiu a ilha de Porto Rico em 20 de setembro de 2017. O furacão basicamente causou um blecaute em quase 100 por cento da ilha de 144 km de largura.
 
@@ -78,7 +79,7 @@ Uma das configurações mais rudimentares é o uso de backups. Em particular, vo
 
 A arquitetura é semelhante ao:
 
-![Diagrama de duas VMs com a replicação de armazenamento](./media/sap-hana-availability-one-region/two_vm_storage_replication.PNG) 
+![Diagrama que mostra a arquitetura de duas VMs com replicação de armazenamento.](./media/sap-hana-availability-one-region/two_vm_storage_replication.PNG) 
 
 Essa configuração não é adequada para alcançar excelentes tempos de RPO (objetivo de ponto de recuperação) e RTO (objetivo de tempo de recuperação). Os tempos RTO seriam especialmente afetados devido à necessidade de restaurar completamente todo o banco de dados usando os backups copiados. No entanto, essa configuração é útil para recuperação após a exclusão não intencional de dados nas instâncias principais. Com essa configuração, é possível a qualquer momento restaurar para um determinado ponto no tempo, extrair os dados e importar os dados excluídos para sua instância principal. Portanto, pode fazer sentido usar um método de cópia de backup em combinação com outros recursos de alta disponibilidade. 
 
@@ -127,4 +128,4 @@ Para obter orientação passo a passo sobre como definir essas configurações n
 
 Para obter mais informações sobre a disponibilidade do SAP HANA em regiões do Azure, consulte:
 
-- [Disponibilidade do SAP HANA entre regiões do Azure](./sap-hana-availability-across-regions.md) 
+- [Disponibilidade do SAP HANA entre regiões do Azure](./sap-hana-availability-across-regions.md)

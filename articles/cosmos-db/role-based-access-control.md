@@ -1,21 +1,22 @@
 ---
-title: Controle de acesso baseado em função no Azure Cosmos DB
-description: Saiba como Azure Cosmos DB fornece proteção de banco de dados com RBAC (integração do Active Directory).
+title: Controle de acesso baseado em função do Azure no Azure Cosmos DB
+description: Saiba como Azure Cosmos DB fornece proteção de banco de dados com a integração do Active Directory (RBAC do Azure).
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/03/2020
+ms.date: 09/23/2020
 ms.author: mjbrown
-ms.openlocfilehash: 6edf5de852ea836de8be02636dd8a971ccebb86d
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: db6721754802a3eeda387339498dadb9d25b3685
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87530564"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526934"
 ---
-# <a name="role-based-access-control-in-azure-cosmos-db"></a>Controle de acesso baseado em função no Azure Cosmos DB
+# <a name="azure-role-based-access-control-in-azure-cosmos-db"></a>Controle de acesso baseado em função do Azure no Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-O Azure Cosmos DB fornece RBAC (controle de acesso baseado em função) interno para cenários comuns de gerenciamento no Azure Cosmos DB. Um indivíduo que tem um perfil no Azure Active Directory pode atribuir essas funções do Azure a usuários, grupos, entidades de serviço ou identidades gerenciadas para conceder ou negar acesso a recursos e operações em Azure Cosmos DB recursos. As atribuições de função têm como escopo o acesso ao plano de controle, que inclui acesso a contas, bancos de dados, contêineres e ofertas (taxa de transferência) do Azure Cosmos.
+O Azure Cosmos DB fornece o Azure RBAC (controle de acesso baseado em função) interno do Azure para cenários comuns de gerenciamento no Azure Cosmos DB. Um indivíduo que tem um perfil no Azure Active Directory pode atribuir essas funções do Azure a usuários, grupos, entidades de serviço ou identidades gerenciadas para conceder ou negar acesso a recursos e operações em Azure Cosmos DB recursos. As atribuições de função têm como escopo o acesso ao plano de controle, que inclui acesso a contas, bancos de dados, contêineres e ofertas (taxa de transferência) do Azure Cosmos.
 
 ## <a name="built-in-roles"></a>Funções internas
 
@@ -25,21 +26,25 @@ A seguir estão as funções internas com suporte pelo Azure Cosmos DB:
 |---------|---------|
 |[Colaborador de Conta do DocumentDB](../role-based-access-control/built-in-roles.md#documentdb-account-contributor)|Pode gerenciar contas do Azure Cosmos DB.|
 |[Cosmos DB leitor de conta](../role-based-access-control/built-in-roles.md#cosmos-db-account-reader-role)|Pode ler dados de contas do Azure Cosmos DB.|
-|[Operador de backup Cosmos](../role-based-access-control/built-in-roles.md#cosmosbackupoperator)|Pode enviar solicitação de restauração para um banco de dados Cosmos do Azure ou um contêiner.|
-|[Operador de Cosmos DB](../role-based-access-control/built-in-roles.md#cosmos-db-operator)|O pode provisionar contas, bancos de dados e contêineres do Azure Cosmos, mas não pode acessar as chaves necessárias para acessar os dados.|
+|[Operador de backup Cosmos](../role-based-access-control/built-in-roles.md#cosmosbackupoperator)| Pode enviar uma solicitação de restauração para portal do Azure para um banco de dados ou contêiner habilitado para backup periódico. Pode modificar o intervalo de backup e a retenção no portal do Azure. Não é possível acessar nenhum dado ou usar Data Explorer.  |
+| [CosmosRestoreOperator](../role-based-access-control/built-in-roles.md) | Pode executar a ação de restauração para Azure Cosmos DB conta com o modo de backup contínuo.|
+|[Operador de Cosmos DB](../role-based-access-control/built-in-roles.md#cosmos-db-operator)|Pode provisionar contas, bancos de dados e contêineres do Azure Cosmos. Não é possível acessar nenhum dado ou usar Data Explorer.|
 
 > [!IMPORTANT]
-> O suporte a RBAC no Azure Cosmos DB se aplica somente às operações do plano de controle. As operações do plano de dados são protegidas usando chaves mestras ou tokens de recurso. Para saber mais, confira [proteger o acesso aos dados no Azure Cosmos DB](secure-access-to-data.md)
+> O suporte do RBAC do Azure no Azure Cosmos DB se aplica somente às operações do plano de controle. As operações do plano de dados são protegidas usando chaves primárias ou tokens de recurso. Para saber mais, confira [proteger o acesso aos dados no Azure Cosmos DB](secure-access-to-data.md)
 
 ## <a name="identity-and-access-management-iam"></a>IAM (gerenciamento de identidade e acesso)
 
-O painel de **controle de acesso (iam)** no portal do Azure é usado para configurar o controle de acesso baseado em função nos recursos de Cosmos do Azure. As funções são aplicadas a usuários, grupos, entidades de serviço e identidades gerenciadas no Active Directory. Você pode usar funções internas ou funções personalizadas para indivíduos e grupos. A captura de tela a seguir mostra o RBAC (integração de Active Directory) usando IAM (controle de acesso) no portal do Azure:
+O painel de **controle de acesso (iam)** no portal do Azure é usado para configurar o controle de acesso baseado em função do Azure nos recursos de Cosmos do Azure. As funções são aplicadas a usuários, grupos, entidades de serviço e identidades gerenciadas no Active Directory. Você pode usar funções internas ou funções personalizadas para indivíduos e grupos. A captura de tela a seguir mostra a integração de Active Directory (RBAC do Azure) usando o controle de acesso (IAM) no portal do Azure:
 
-:::image type="content" source="./media/role-based-access-control/database-security-identity-access-management-rbac.png" alt-text="Controle de acesso (IAM) no portal do Azure – demonstrando a segurança de banco de dados":::
+:::image type="content" source="./media/role-based-access-control/database-security-identity-access-management-rbac.png" alt-text="IAM (controle de acesso) no portal do Azure-demonstrando a segurança do banco de dados.":::
 
 ## <a name="custom-roles"></a>Funções personalizadas
 
 Além das funções internas, os usuários também podem criar [funções personalizadas](../role-based-access-control/custom-roles.md) no Azure e aplicar essas funções a entidades de serviço em todas as assinaturas em seu locatário Active Directory. As funções personalizadas fornecem aos usuários uma maneira de criar definições de função do Azure com um conjunto personalizado de operações de provedor de recursos. Para saber quais operações estão disponíveis para a criação de funções personalizadas para Azure Cosmos DB consulte, [Azure Cosmos DB operações do provedor de recursos](../role-based-access-control/resource-provider-operations.md#microsoftdocumentdb)
+
+> [!TIP]
+> As funções personalizadas que precisam acessar dados armazenados no Cosmos DB ou usar Data Explorer no portal do Azure devem ter uma `Microsoft.DocumentDB/databaseAccounts/listKeys/*` ação.
 
 ## <a name="preventing-changes-from-the-azure-cosmos-db-sdks"></a><a id="prevent-sdk-changes"></a>Impedindo alterações dos SDKs de Azure Cosmos DB
 
@@ -64,7 +69,7 @@ Essa configuração impedirá qualquer alteração em qualquer recurso Cosmos de
 
 - Modificando procedimentos armazenados, gatilhos ou funções definidas pelo usuário.
 
-Se seus aplicativos (ou usuários via portal do Azure) executarem qualquer uma dessas ações, eles precisarão ser migrados para execução por meio de [modelos ARM](manage-sql-with-resource-manager.md), [PowerShell](manage-with-powershell.md), [CLI do Azure](manage-with-cli.md), REST ou [biblioteca de gerenciamento do Azure](https://github.com/Azure-Samples/cosmos-management-net). Observe que o gerenciamento do Azure está disponível em [vários idiomas](https://docs.microsoft.com/azure/?product=featured#languages-and-tools).
+Se seus aplicativos (ou usuários via portal do Azure) executarem qualquer uma dessas ações, eles precisarão ser migrados para execução por meio de [modelos ARM](./manage-with-templates.md), [PowerShell](manage-with-powershell.md), [CLI do Azure](manage-with-cli.md), REST ou [biblioteca de gerenciamento do Azure](https://github.com/Azure-Samples/cosmos-management-net). Observe que o gerenciamento do Azure está disponível em [vários idiomas](/azure/?product=featured#languages-and-tools).
 
 ### <a name="set-via-arm-template"></a>Definir por meio do modelo ARM
 

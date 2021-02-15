@@ -1,20 +1,20 @@
 ---
-title: Comunicar-se com o aplicativo do dispositivo no C# com os fluxos de dispositivos do Hub IoT do Azure
+title: Guia de Início Rápido – Comunicar-se com o aplicativo do dispositivo no C# com os fluxos de dispositivos do Hub IoT do Azure
 description: Neste início rápido, você executará dois aplicativos C# de exemplo que se comunicam por um fluxo de dispositivos estabelecido pelo Hub IoT.
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: quickstart
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: 64af62cb6c2c56ca8c7e67e2f1467d4a7e8335a0
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 3eb65db27e5b96f4b12973154bc860a2ab3df020
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78675514"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624601"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-c-via-iot-hub-device-streams-preview"></a>Início Rápido: Comunicar-se com um aplicativo de dispositivo em C# por meio de fluxos de dispositivos do Hub IoT (versão prévia)
 
@@ -24,9 +24,7 @@ Atualmente, o Hub IoT do Azure dá suporte a fluxos de dispositivos como uma [ve
 
 Os [fluxos de dispositivos do Hub IoT](./iot-hub-device-streams-overview.md) permitem que aplicativos de serviço e dispositivo se comuniquem de maneira segura e simples para o firewall. Este início rápido envolve dois aplicativos C# que aproveitam os fluxos de dispositivos para enviar dados bidirecionalmente (eco).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -37,22 +35,20 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
   * Sudeste Asiático
 
 * Os dois aplicativos de exemplo executados neste início rápido foram escritos em C#. É necessário ter o SDK do .NET Core 2.1.0 ou posterior no computador de desenvolvimento.
-  * Baixe o [SDK do .NET Core para várias plataformas do .NET](https://www.microsoft.com/net/download/all).
-  * Verifique a versão atual do C# no computador de desenvolvimento usando o seguinte comando:
 
-   ```
-   dotnet --version
-   ```
+    Baixe o [SDK do .NET Core para várias plataformas do .NET](https://www.microsoft.com/net/download/all).
 
-* Adicione a Extensão do Azure IoT para a CLI do Azure à instância do Cloud Shell executando o comando a seguir. A Extensão de IoT adiciona comandos específicos do Hub IoT, do IoT Edge e do DPS (Serviço de Provisionamento de Dispositivos IoT) à CLI do Azure.
+    Verifique a versão atual do C# no computador de desenvolvimento usando o seguinte comando:
 
-    ```azurecli-interactive
-    az extension add --name azure-iot
+    ```
+    dotnet --version
     ```
 
-[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
-
 * [Baixe os exemplos de C# do Azure IoT](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) e extraia o arquivo ZIP. Você precisará dele no lado do dispositivo e no lado do serviço.
+
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 ## <a name="create-an-iot-hub"></a>Crie um hub IoT
 
@@ -78,7 +74,7 @@ Um dispositivo deve ser registrado no hub IoT antes de poder se conectar. Nesta 
    > Substitua o espaço reservado *YourIoTHubName* com o nome escolhido para o hub IoT.
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyDevice --output table
+    az iot hub device-identity connection-string show --hub-name {YourIoTHubName} --device-id MyDevice --output table
     ```
 
     Anote a cadeia de conexão de dispositivo retornada para uso posterior neste início rápido. Ela se parece com o seguinte exemplo:
@@ -106,7 +102,7 @@ Nesta seção, você executará o aplicativo do lado do dispositivo e o aplicati
 
 Em uma janela do terminal local, navegue até o diretório `iot-hub/Quickstarts/device-streams-echo/service` na pasta descompactada do projeto. Mantenha as seguintes informações acessíveis:
 
-| Nome do parâmetro | Valor de parâmetro |
+| Nome do parâmetro | Valor do parâmetro |
 |----------------|-----------------|
 | `ServiceConnectionString` | A cadeia de conexão de serviço do seu hub IoT. |
 | `MyDevice` | O identificador do dispositivo que você criou anteriormente. |
@@ -135,7 +131,7 @@ O aplicativo aguardará até que o aplicativo do dispositivo fique disponível.
 
 Em outra janela de terminal local, navegue até o diretório `iot-hub/Quickstarts/device-streams-echo/device` na pasta descompactada do projeto. Mantenha as seguintes informações acessíveis:
 
-| Nome do parâmetro | Valor de parâmetro |
+| Nome do parâmetro | Valor do parâmetro |
 |----------------|-----------------|
 | `DeviceConnectionString` | A cadeia de conexão do dispositivo de seu Hub IoT. |
 

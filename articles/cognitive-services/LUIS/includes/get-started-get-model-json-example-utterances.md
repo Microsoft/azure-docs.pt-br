@@ -2,20 +2,18 @@
 title: incluir arquivo
 description: incluir arquivo
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.date: 05/18/2020
 ms.subservice: language-understanding
 ms.topic: include
 ms.custom: include file
-ms.author: diberry
-ms.openlocfilehash: 9e82c1b18bcd2edbe0fb4ed4846823acbb398eca
-ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
+ms.openlocfilehash: 1f2b14bf2d41a56f8af4e7262f3d5e462b875788
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85378438"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91534537"
 ---
 Os enunciados de exemplo seguem um formato específico.
 

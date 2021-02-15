@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 04/20/2020
 ms.author: apimpm
-ms.openlocfilehash: 644e29c3b5e37cd95280cfd2261e644b20bbda98
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 39a3b9d7dd9efbda93de0b5d7c5f9938922d0012
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82203243"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183800"
 ---
 # <a name="add-an-api-manually"></a>Adicionar uma API manualmente
 
-As etapas neste artigo mostram como usar o portal do Azure para adicionar uma API manualmente à instância de APIM (Gerenciamento de API). Um cenário comum quando você deseja criar uma API em branco e defini-la manualmente é quando deseja simular a API. Para obter detalhes sobre a simulação de uma API, consulte [Simular respostas de API](mock-api-responses.md).
+As etapas neste artigo mostram como usar o Portal do Azure para adicionar uma API manualmente à instância de APIM (Gerenciamento de API). Um cenário comum quando você deseja criar uma API em branco e defini-la manualmente é quando deseja simular a API. Para obter detalhes sobre a simulação de uma API, consulte [Simular respostas de API](mock-api-responses.md).
 
 Se você deseja importar uma API existente, consulte a seção de [tópicos relacionados](#related-topics).
 
@@ -39,13 +39,13 @@ Conclua o início rápido a seguir: [Criar uma instância do Gerenciamento de AP
 2. No menu à esquerda, selecione **+ Adicionar API**.
 3. Selecione **API em Branco** na lista.  
     ![API em Branco](media/add-api-manually/blank-api.png)  
-4. Insira as configurações para a API. As configurações são explicadas no tutorial [Importar e publicar sua primeira API](import-and-publish.md#-import-and-publish-a-backend-api).
+4. Insira as configurações para a API. As configurações são explicadas no tutorial [Importar e publicar sua primeira API](import-and-publish.md#import-and-publish-a-backend-api).
 5. Selecione **Criar**.
 
 Agora você não tem nenhuma operação no Gerenciamento de API mapeada para as operações em sua API de back-end. Se você chamar uma operação que é exposta por meio de back-end, mas não por meio do Gerenciamento de API, receberá um **404**.
 
 >[!NOTE] 
-> Por padrão, quando você adiciona uma API, mesmo se ela estiver conectada a algum serviço de back-end, o APIM não exporá nenhuma operação até que você as coloque na lista de permissões. Para adicionar uma operação do serviço de back-end à lista de permissões, crie uma operação de APIM que mapeia para a operação de back-end.
+> Por padrão, quando você adicionar uma API, mesmo se ela estiver conectada a algum serviço de back-end, o APIM não vai expor nenhuma operação até que você as coloque na lista de permissões. Para permitir uma operação do serviço de back-end, crie uma operação de APIM que mapeia para a operação de back-end.
 
 ## <a name="add-and-test-an-operation"></a>Adicionar e testar uma operação
 

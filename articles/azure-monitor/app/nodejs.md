@@ -3,13 +3,13 @@ title: Como monitorar os serviços Node.js com o Application Insights do Azure |
 description: Monitore o desempenho e diagnostique problemas em serviços do Node.js com o Application Insights.
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: c6a1a030829f128c4369e99efcd56a416390afc6
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.custom: devx-track-js
+ms.openlocfilehash: 0d414ce44a8d6ab308bd31f7372bb1c146fac9f5
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371610"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611008"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Como monitorar seus serviços do Node.js e aplicativos com o Application Insights
 
@@ -32,7 +32,7 @@ Antes de iniciar, verifique se você tem uma assinatura do Azure ou [obtenha uma
 [azure-free-offer]: https://azure.microsoft.com/free/
 [add-aad-user]: ../../active-directory/fundamentals/add-users-azure-active-directory.md
 
-### <a name="set-up-an-application-insights-resource"></a><a name="resource"></a>Configurar um recurso de Application Insights
+### <a name="set-up-an-application-insights-resource"></a><a name="resource"></a> Configurar um recurso de Application Insights
 
 1. Entre no [portal do Azure][portal].
 2. [Criar um recurso do Application Insights](create-new-resource.md)
@@ -40,6 +40,9 @@ Antes de iniciar, verifique se você tem uma assinatura do Azure ou [obtenha uma
 ### <a name="set-up-the-nodejs-sdk"></a><a name="sdk"></a>Configurar o SDK do Node.js
 
 Inclua o SDK em seu aplicativo, para que ele possa coletar dados.
+
+> [!IMPORTANT]
+> Novas regiões do Azure **exigem** o uso de cadeias de conexão em vez de chaves de instrumentação. A [cadeia de conexão](./sdk-connection-string.md?tabs=nodejs) identifica o recurso ao qual você deseja associar os dados de telemetria. Ele também permite que você modifique os pontos de extremidade que o recurso usará como um destino para a telemetria. Você precisará copiar a cadeia de conexão e adicioná-la ao código do aplicativo ou a uma variável de ambiente.
 
 1. Copie a chave de instrumentação do recurso (também chamada de *iKey*) de seu recurso recém-criado. O Application Insights usa a ikey para mapear os dados para o recurso do Azure. Antes de o SDK poder usar a ikey, você deverá especificar a ikey em uma variável de ambiente ou em seu código.  
 
@@ -59,7 +62,7 @@ Inclua o SDK em seu aplicativo, para que ele possa coletar dados.
    ```javascript
    let appInsights = require('applicationinsights');
    ```
-4.  Você também pode fornecer um iKey por meio da variável de ambiente `APPINSIGHTS_INSTRUMENTATIONKEY` , em vez de passá-lo manualmente para `setup()` ou `new appInsights.TelemetryClient()` . Essa prática permite manter ikeys fora do código-fonte comprometido e também especificar ikeys diferentes para ambientes diferentes. Para configurar a chamada manualmente `appInsights.setup('[your ikey]');` .
+4.  Você também pode fornecer um iKey por meio da variável de ambiente `APPINSIGHTS_INSTRUMENTATIONKEY` , em vez de passá-lo manualmente para  `setup()` ou `new appInsights.TelemetryClient()` . Essa prática permite manter ikeys fora do código-fonte comprometido e também especificar ikeys diferentes para ambientes diferentes. Para configurar a chamada manualmente `appInsights.setup('[your ikey]');` .
 
     Para outras opções de configuração, confira as seções a seguir.
 
@@ -67,7 +70,7 @@ Inclua o SDK em seu aplicativo, para que ele possa coletar dados.
 
 5. Inicie a coleta e o envio de dados automaticamente chamando `appInsights.start();` .
 
-### <a name="monitor-your-app"></a><a name="monitor"></a>Monitorar seu aplicativo
+### <a name="monitor-your-app"></a><a name="monitor"></a> Monitorar seu aplicativo
 
 O SDK reúne automaticamente a telemetria sobre o tempo de execução de Node.js e alguns módulos de terceiros comuns. Use o aplicativo para gerar alguns desses dados.
 
@@ -110,7 +113,7 @@ Há alterações significativas entre as versões anteriores à versão 0,22 e p
 Em geral, você pode migrar com o seguinte:
 
 - Substitua referências a `appInsights.client` com `appInsights.defaultClient` .
-- Substituir referências a `appInsights.getClient()` por`new appInsights.TelemetryClient()`
+- Substituir referências a `appInsights.getClient()` por `new appInsights.TelemetryClient()`
 - Substitua todos os argumentos para os métodos Client. Track * por um único objeto que contém propriedades nomeadas como argumentos. Consulte a dica de tipo interno do IDE ou [TelemetryTypes](https://github.com/Microsoft/ApplicationInsights-node.js/tree/develop/Declarations/Contracts/TelemetryTypes) para o objeto excetuado para cada tipo de telemetria.
 
 Se você acessar as funções de configuração do SDK sem encadear-las ao `appInsights.setup()` , agora poderá encontrar essas funções em `appInsights.Configurations` (por exemplo, `appInsights.Configuration.setAutoCollectDependencies(true)` ). Examine as alterações na configuração padrão na próxima seção.
@@ -332,6 +335,12 @@ server.on("listening", () => {
 });
 ```
 
+### <a name="flush"></a>Liberar
+
+Por padrão, a telemetria é armazenada em buffer por 15 segundos antes de ser enviada para o servidor de ingestão. Se seu aplicativo tiver um curto período de vida (por exemplo, uma ferramenta CLI), pode ser necessário liberar manualmente sua telemetria armazenada em buffer quando o aplicativo for encerrado, `appInsights.defaultClient.flush()` .
+
+Se o SDK detectar que seu aplicativo está falhando, ele chamará flush para você, `appInsights.defaultClient.flush({ isAppCrashing: true })` . Com a opção flush `isAppCrashing` , supõe-se que seu aplicativo esteja em um estado anormal, não é adequado para o envio de telemetria. Em vez disso, o SDK salvará toda a telemetria armazenada em buffer no [armazenamento persistente](./data-retention-privacy.md#nodejs) e permitirá que o aplicativo seja encerrado. Quando o aplicativo é iniciado novamente, ele tenta enviar qualquer telemetria que foi salva no armazenamento persistente.
+
 ### <a name="preprocess-data-with-telemetry-processors"></a>Pré-processar dados com processadores de telemetria
 
 Você pode processar e filtrar os dados coletados antes que eles sejam enviados para retenção usando *processadores de telemetria*. Os processadores de telemetria são chamados um por um na ordem em que foram adicionados antes que o item de telemetria seja enviado para a nuvem.
@@ -416,10 +425,9 @@ Essas propriedades são específicas do cliente, para que você possa configurar
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Monitorar sua telemetria no portal](./overview-dashboard.md)
-* [Escrever consultas de análise sobre a telemetria](../log-query/get-started-portal.md)
+* [Escrever consultas de análise sobre a telemetria](../log-query/log-analytics-tutorial.md)
 
 <!--references-->
 
 [portal]: https://portal.azure.com/
 [FAQ]: ../faq.md
-

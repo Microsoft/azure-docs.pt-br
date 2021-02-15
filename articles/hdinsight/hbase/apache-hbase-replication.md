@@ -1,19 +1,16 @@
 ---
 title: Replicação de cluster HBase em redes virtuais – Azure HDInsight
 description: Saiba como configurar a replicação de HBase de uma versão do HDInsight para outra para balanceamento de carga, alta disponibilidade, migração sem tempo de inatividade, atualizações e recuperação de desastre.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 12/06/2019
-ms.openlocfilehash: cf080f2a6173651fce8f306619dba60347067e0e
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: cfcb3a5a601afadb9f3fcd71c24e18a9d7f27b9e
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085604"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946412"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Configurar a replicação de cluster do Apache HBase em redes virtuais do Azure
 
@@ -78,14 +75,14 @@ Alguns dos valores embutidos em código no modelo:
 | Nome do Gateway | vnet1gw |
 | Tipo de gateway | Vpn |
 | Tipo de VPN de gateway | RouteBased |
-| SKU de gateway | Basic |
+| SKU de gateway | Básico |
 | IP do gateway | vnet1gwip |
 
 **VNet 2**
 
 | Propriedade | Valor |
 |----------|-------|
-| Location | Leste dos EUA |
+| Localização | Leste dos EUA |
 | Nome da VNet | &lt;ClusterNamePrevix>-vnet2 |
 | Prefixo de espaço de endereço | 10.2.0.0/16 |
 | Nome da sub-rede | Sub-rede 1 |
@@ -95,7 +92,7 @@ Alguns dos valores embutidos em código no modelo:
 | Nome do Gateway | vnet2gw |
 | Tipo de gateway | Vpn |
 | Tipo de VPN de gateway | RouteBased |
-| SKU de gateway | Basic |
+| SKU de gateway | Básico |
 | IP do gateway | vnet1gwip |
 
 ## <a name="setup-dns"></a>Instalação do DNS
@@ -104,10 +101,10 @@ Na seção anterior, o modelo cria uma máquina virtual de Ubuntu em cada uma da
 
 Para instalar ao Bind, você precisa localizar o endereço IP público das duas máquinas virtuais DNS.
 
-1. Abra o [Portal do Azure](https://portal.azure.com).
+1. Abra o [portal do Azure](https://portal.azure.com).
 2. Abra a máquina virtual DNS selecionando **Grupos de recursos > [nome do grupo de recursos] > [vnet1DNS]**.  O nome do grupo de recursos é o que você criar no último procedimento. Os nomes de máquina virtual DNS padrão são *vnet1DNS* e *vnet2NDS*.
 3. Selecione **Propriedades** para abrir a página de propriedades da rede virtual.
-4. Anote o **endereço IP público**e também verifique a **endereço IP privado**.  O endereço IP privado será **10.1.0.4** para vnet1DNS e **10.2.0.4** para vnet2DNS.  
+4. Anote o **endereço IP público** e também verifique a **endereço IP privado**.  O endereço IP privado será **10.1.0.4** para vnet1DNS e **10.2.0.4** para vnet2DNS.  
 5. Altere os servidores DNS das duas redes virtuais para usar servidores DNS padrão (fornecidos pelo Azure) para permitir o acesso de entrada e de saída para baixar pacotes para instalar o Bind nas etapas a seguir.
 
 Para instalar o Bind, use o seguinte procedimento:
@@ -124,7 +121,7 @@ Para instalar o Bind, use o seguinte procedimento:
     > Há uma variedade de maneiras para obter o utilitário `ssh`. No Linux, Unix e macOS, ele é fornecido como parte do sistema operacional. Se você estiver usando o Windows, considere uma das seguintes opções:
     >
     > * [Azure Cloud Shell](../../cloud-shell/quickstart.md)
-    > * [Bash no Ubuntu no Windows 10](https://msdn.microsoft.com/commandline/wsl/about)
+    > * [Bash no Ubuntu no Windows 10](/windows/wsl/about)
     > * [Git (https://git-scm.com/)](https://git-scm.com/)
     > * [OpenSSH (https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)](https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)
 
@@ -246,7 +243,7 @@ Para configure a rede virtual para usar o servidor DNS personalizado em vez do r
 
 1. No [portal do Azure](https://portal.azure.com), selecione a rede virtual e, em seguida, selecione __Servidores DNS__.
 
-2. Selecione __Personalizado__e insira o __endereço IP interno__ do servidor DNS personalizado. Por fim, selecione __Salvar__.
+2. Selecione __Personalizado__ e insira o __endereço IP interno__ do servidor DNS personalizado. Por fim, selecione __Salvar__.
 
 6. Abra a máquina virtual do servidor DNS em vnet1 e, em seguida, clique em **Reiniciar**.  Você deve reiniciar todas as máquinas virtuais na rede virtual para fazer com que configuração de DNS entre em vigor.
 7. Repita a configuração de etapas do servidor DNS personalizado para vnet2.
@@ -413,4 +410,3 @@ Neste artigo, você aprendeu a configurar a replicação do Apache HBase em uma 
 * [Introdução ao Apache HBase no HDInsight](./apache-hbase-tutorial-get-started-linux.md)
 * [Visão geral do Apache HBase do HDInsight](./apache-hbase-overview.md)
 * [Criar clusters do Apache HBase na rede Virtual do Azure](./apache-hbase-provision-vnet.md)
-

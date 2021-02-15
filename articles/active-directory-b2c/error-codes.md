@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 01/10/2020
+ms.date: 10/02/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9d205998ad5710ecad346db4d7be18a68747c087
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f6ae806b7666d83652e6b82bac16d89f2f9ce7aa
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85388520"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92215426"
 ---
 # <a name="error-codes-azure-active-directory-b2c"></a>Códigos de erro: Azure Active Directory B2C
 
@@ -34,7 +34,7 @@ Os erros a seguir podem ser retornados pelo serviço de Azure Active Directory B
 | `AADB2C90013` | O tipo de resposta solicitado ' {0} ' fornecido na solicitação não tem suporte. |
 | `AADB2C90014` | Não há suporte para o modo de resposta solicitado ' {0} ' fornecido na solicitação. |
 | `AADB2C90016` | O tipo de declaração de cliente solicitado ' {0} ' não corresponde ao tipo esperado ' {1} '. |
-| `AADB2C90017` | A declaração de cliente fornecida na solicitação é inválida:{0} |
+| `AADB2C90017` | A declaração de cliente fornecida na solicitação é inválida: {0} |
 | `AADB2C90018` | A ID do cliente ' {0} ' especificada na solicitação não está registrada no locatário ' {1} '. |
 | `AADB2C90019` | O contêiner de chave com a ID ' {0} ' no locatário ' {1} ' não tem uma chave válida. Motivo: {2} . |
 | `AADB2C90021` | O perfil técnico ' {0} ' não existe na política ' {1} ' do locatário ' {2} '. |
@@ -61,6 +61,7 @@ Os erros a seguir podem ser retornados pelo serviço de Azure Active Directory B
 | `AADB2C90055` | O escopo ' {0} ' fornecido na solicitação deve especificar um recurso, como ' https://example.com/calendar.read '. |
 | `AADB2C90057` | O aplicativo fornecido não está configurado para permitir o fluxo implícito do OAuth. |
 | `AADB2C90058` | O aplicativo fornecido não está configurado para permitir clientes públicos. |
+| `AADB2C99059` | A solicitação fornecida deve apresentar uma code_challenge. Necessário para aplicativos de página única usando o fluxo de código de autorização.| 
 | `AADB2C90067` | O URI de redirecionamento de logout de postagem ' {0} ' tem um formato inválido. Especifique uma URL baseada em https, como ' https://example.com/return ' ou para clientes nativos, use o URI de cliente nativo IETF ' urn: IETF: WG: OAuth: 2.0: OOB '. |
 | `AADB2C90068` | O aplicativo fornecido com a ID ' {0} ' não é válido nesse serviço. Use um aplicativo criado por meio do portal B2C e tente novamente. |
 | `AADB2C90075` | A troca de declarações ' {0} ' especificada na etapa ' {1} ' retornou uma resposta de erro http com o código ' {2} ' e o motivo ' {3} '. |
@@ -73,7 +74,8 @@ Os erros a seguir podem ser retornados pelo serviço de Azure Active Directory B
 | `AADB2C90085` | O serviço encontrou um erro interno. Refaça a autenticação e tente novamente. |
 | `AADB2C90086` | {0}Não há suporte para o grant_type [] fornecido. |
 | `AADB2C90087` | A concessão fornecida não foi emitida para esta versão do ponto de extremidade do protocolo. |
-| `AADB2C90088` | A concessão fornecida não foi emitida para este ponto de extremidade. Valor real: {0} e valor esperado:{1} |
+| `AADB2C90088` | A concessão fornecida não foi emitida para este ponto de extremidade. Valor real: {0} e valor esperado: {1} |
+| `AADB2C90091` | Cancelamento do usuário. |
 | `AADB2C90092` | O aplicativo fornecido com a ID ' {0} ' está desabilitado para o locatário ' {1} '. Habilite o aplicativo e tente novamente. |
 | `AADB2C90107` | O aplicativo com a ID ' {0} ' não pode obter um token de ID porque o escopo de OpenID não foi fornecido na solicitação ou o aplicativo não está autorizado para ele. |
 | `AADB2C90108` | A etapa de orquestração ' {0} ' não especifica um CpimIssuerTechnicalProfileReferenceId quando um era esperado. |
@@ -100,7 +102,7 @@ Os erros a seguir podem ser retornados pelo serviço de Azure Active Directory B
 | `AADB2C90159` | Uma solicitação de verificação autodeclarada falhou com o motivo ' {0} '. |
 | `AADB2C90161` | Uma resposta de envio autodeclarada falhou com o motivo ' {0} '. |
 | `AADB2C90165` | A mensagem de inicialização SAML com a ID ' {0} ' não pode ser encontrada no estado. |
-| `AADB2C90168` | A solicitação de redirecionamento HTTP não contém o parâmetro necessário ' {0} ' para uma solicitação assinada. |
+| `AADB2C90168` | A solicitação de HTTP-Redirect não contém o parâmetro necessário ' {0} ' para uma solicitação assinada. |
 | `AADB2C90178` | O certificado de autenticação ' {0} ' não tem chave privada. |
 | `AADB2C90182` | O code_verifier fornecido não corresponde ao code_challenge associado |
 | `AADB2C90183` | O code_verifier fornecido é inválido |

@@ -1,19 +1,19 @@
 ---
-title: Habilitar Azure Monitor para VMs usando modelos do Resource Manager
+title: Habilitar o Azure Monitor para VMs usando modelos do Resource Manager
 description: Este artigo descreve como habilitar Azure Monitor para VMs para uma ou mais máquinas virtuais do Azure ou conjuntos de dimensionamento de máquinas virtuais usando modelos de Azure PowerShell ou Azure Resource Manager.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: 89a9a1b762e02237a8ee08dca5d6eedefabaafbb
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: cee7072f9bc844fb1f89168de3547dc726472b67
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87328101"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97695911"
 ---
-# <a name="enable-azure-monitor-for-vms-using-resource-manager-templates"></a>Habilitar Azure Monitor para VMs usando modelos do Resource Manager
+# <a name="enable-azure-monitor-for-vms-using-resource-manager-templates"></a>Habilitar o Azure Monitor para VMs usando modelos do Resource Manager
 Este artigo descreve como habilitar Azure Monitor para VMs para uma máquina virtual ou um conjunto de dimensionamento de máquinas virtuais usando modelos do Resource Manager. Esse procedimento pode ser usado para o seguinte:
 
 - Máquina virtual do Azure
@@ -55,7 +55,7 @@ New-AzResourceGroupDeployment -Name OnboardCluster -ResourceGroupName <ResourceG
 
 
 ```azurecli
-az group deployment create --resource-group <ResourceGroupName> --template-file <Template.json> --parameters <Parameters.json>
+az deployment group create --resource-group <ResourceGroupName> --template-file <Template.json> --parameters <Parameters.json>
 ```
 
 

@@ -1,19 +1,16 @@
 ---
 title: Criar redes virtuais para clusters do Azure HDInsight
 description: Saiba como criar uma rede virtual do Azure para conectar o HDInsight a outros recursos de nuvem ou recursos em seu datacenter.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive, devx-track-azurecli
 ms.date: 04/16/2020
-ms.openlocfilehash: 8e68bd2d164e3a8de60a9061363b839c4dfd4777
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 43d57eac94cabb5c648183911e0c0bf72889946d
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87074752"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946064"
 ---
 # <a name="create-virtual-networks-for-azure-hdinsight-clusters"></a>Criar redes virtuais para clusters do Azure HDInsight
 
@@ -27,8 +24,8 @@ Antes de executar qualquer um dos exemplos de código neste artigo, entenda a re
 
 Outros pré-requisitos para os exemplos neste artigo incluem os seguintes itens:
 
-* Se você estiver usando o PowerShell, precisará instalar o [módulo AZ](https://docs.microsoft.com/powershell/azure/).
-* Se você quiser usar CLI do Azure e ainda não o tiver instalado, consulte [instalar o CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* Se você estiver usando o PowerShell, precisará instalar o [módulo AZ](/powershell/azure/).
+* Se você quiser usar CLI do Azure e ainda não o tiver instalado, consulte [instalar o CLI do Azure](/cli/azure/install-azure-cli).
 
 > [!IMPORTANT]  
 > Se estiver buscando orientações passo a passo sobre como conectar o HDInsight à sua rede local usando uma Rede Virtual do Azure, consulte o documento [Conectar o HDInsight à sua rede local](connect-on-premises-network.md).
@@ -377,6 +374,6 @@ Depois de concluir essas etapas, você poderá se conectar aos recursos na rede 
 * Para configurar a replicação geográfica do Apache HBase, consulte [Configurar a replicação de cluster do Apache HBase nas redes virtuais do Azure](hbase/apache-hbase-replication.md).
 * Para obter mais informações sobre redes virtuais do Azure, consulte a [Visão geral da Rede Virtual do Azure](../virtual-network/virtual-networks-overview.md).
 
-* Para obter mais informações sobre os Grupos de Segurança de Rede, veja [Grupos de segurança de rede](../virtual-network/security-overview.md).
+* Para obter mais informações sobre os Grupos de Segurança de Rede, veja [Grupos de segurança de rede](../virtual-network/network-security-groups-overview.md).
 
 * Para obter mais informações sobre as rotas definidas pelo usuário, confira [Rotas definidas pelo usuário e encaminhamento IP](../virtual-network/virtual-networks-udr-overview.md).

@@ -8,12 +8,12 @@ ms.author: jehollan
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 03/15/2018
-ms.openlocfilehash: 2fae7d2526e6c95efe83ca8fa742a6d92457b897
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 22e0c7304f7a53a86bc5c6739a2061352d738d29
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86520742"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98784805"
 ---
 # <a name="create-a-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Criar de um painel de informações do cliente em streaming com Aplicativos Lógicos do Azure e Azure Functions
 
@@ -50,7 +50,7 @@ Para detectar o sentimento por trás de um texto, você pode usar os [Serviços 
 
 2. Localize o conector de **Análise de Texto**.
 
-3. Selecione a ação **Detectar Sentimento**.
+3. Selecione a ação **detectar sentimentos** .
 
 4. Se solicitado, forneça uma chave de Serviços Cognitivos válida para o serviço de análise de texto.
 
@@ -67,7 +67,7 @@ Você também pode criar uma função do Azure para que você possa executar pro
 
 ## <a name="process-data-with-azure-functions"></a>Processar dados com o Azure Functions
 
-Antes de criar uma função, crie um aplicativo de funções na sua assinatura do Azure. Além disso, para seu aplicativo lógico chamar diretamente uma função, a função deve ter um associação de gatilho HTTP, por exemplo, use o modelo **HttpTrigger**. Saiba [como criar seu primeiro aplicativo de funções e função no portal do Azure](../azure-functions/functions-create-first-azure-function.md).
+Antes de criar uma função, crie um aplicativo de funções na sua assinatura do Azure. Além disso, para seu aplicativo lógico chamar diretamente uma função, a função deve ter um associação de gatilho HTTP, por exemplo, use o modelo **HttpTrigger**. Saiba [como criar seu primeiro aplicativo de funções e função no portal do Azure](../azure-functions/functions-get-started.md).
 
 Para esse cenário, use o texto do tweet como corpo da solicitação para sua função do Azure. No seu código de função, defina a lógica que determina se o texto do tweet contém uma palavra-chave ou frase. Manter a função como simples ou complexa conforme necessário para o cenário.
 No final da função, retornar uma resposta para o aplicativo lógico com alguns dados, por exemplo, um valor booliano simples como `containsKeyword` ou um objeto complexo.

@@ -1,18 +1,18 @@
 ---
 title: Exibir e gerenciar provedores de serviços
 description: Os clientes podem usar a página Provedores de serviços no portal do Azure para exibir informações sobre provedores de serviços, ofertas de provedor de serviço e recursos delegados.
-ms.date: 08/12/2020
+ms.date: 12/16/2020
 ms.topic: how-to
-ms.openlocfilehash: c22408a52d973a244d67528a73d4eaa487f166ba
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 5ee897503c997ab10fdb489f7921c9d2d001e472
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167157"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617197"
 ---
 # <a name="view-and-manage-service-providers"></a>Exibir e gerenciar provedores de serviços
 
-Os clientes podem usar a página **provedores de serviço** no [portal do Azure](https://portal.azure.com) para exibir detalhes sobre provedores de serviço e ofertas de provedor de serviço, delegar recursos específicos para o [Azure Lighthouse](../overview.md)e comprar novas ofertas de provedor de serviços.
+A página **provedores de serviço** no [portal do Azure](https://portal.azure.com) fornece aos clientes controle e visibilidade para seus provedores de serviço que usam o [Azure Lighthouse](../overview.md). Os clientes podem exibir detalhes sobre os provedores de serviço, delegar recursos específicos, comprar novas ofertas de provedor de serviços, remover o acesso do provedor de serviços e muito mais.
 
 > [!TIP]
 > Embora possamos nos referir aos provedores de serviços e clientes aqui, as [empresas que gerenciam vários locatários](../concepts/enterprise.md) podem usar o mesmo processo para consolidar sua experiência de gerenciamento.
@@ -41,7 +41,7 @@ Na coluna **Delegações**, o cliente vê quantas assinaturas e/ou grupos de rec
 
 Um cliente pode adicionar uma nova oferta de provedor de serviços na página **ofertas do provedor de serviços** selecionando **Adicionar oferta**. O provedor de serviços deve ter publicado uma oferta para esse cliente. O cliente pode selecionar essa oferta na tela **Ofertas privadas** e, em seguida, selecionar **Criar**.
 
-Se o cliente desejar remover uma oferta de provedor de serviços, poderá selecionar o ícone de lixeira na linha dessa oferta. Depois de confirmar a exclusão, esse provedor de serviços não terá mais acesso aos recursos do cliente que antes eram delegados para essa oferta.
+Se o cliente quiser remover uma oferta de provedor de serviços, ele poderá fazer isso a qualquer momento, selecionando o ícone de lixeira na linha dessa oferta. Depois de confirmar a exclusão, esse provedor de serviços não terá mais acesso aos recursos do cliente que antes eram delegados para essa oferta.
 
 ## <a name="delegate-resources"></a>Delegar recursos
 
@@ -76,11 +76,14 @@ Os filtros na parte superior da página permitem que você classifique e agrupe 
 
 Os clientes podem querer obter visibilidade das assinaturas e/ou dos grupos de recursos que foram delegados para o Azure Lighthouse. Isso é especialmente útil para os clientes com um grande número de assinaturas, ou que têm muitos usuários que executam tarefas de gerenciamento.
 
-Fornecemos uma [definição de política interna Azure Policy](../../governance/policy/samples/built-in-policies.md#lighthouse) para auditar a delegação de escopos para um locatário de gerenciamento. Você pode atribuir essa política a um grupo de gerenciamento que inclui todas as assinaturas que você deseja auditar. Quando você verifica a conformidade com essa política, quaisquer assinaturas delegadas e/ou grupos de recursos (dentro do grupo de gerenciamento ao qual a política é atribuída) serão mostrados em um estado não compatível. Em seguida, você pode examinar os resultados e confirmar se não há delegações inesperadas.
+Fornecemos uma [definição de política interna Azure Policy](../../governance/policy/samples/built-in-policies.md#lighthouse) para [auditar a delegação de escopos para um locatário de gerenciamento](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Lighthouse/Lighthouse_Delegations_Audit.json). Você pode atribuir essa política a um grupo de gerenciamento que inclui todas as assinaturas que você deseja auditar. Quando você verifica a conformidade com essa política, quaisquer assinaturas delegadas e/ou grupos de recursos (dentro do grupo de gerenciamento ao qual a política é atribuída) serão mostrados em um estado não compatível. Em seguida, você pode examinar os resultados e confirmar se não há delegações inesperadas.
+
+Outra [definição de política interna](../../governance/policy/samples/built-in-policies.md#lighthouse) permite restringir as [delegações a locatários de gerenciamento específicos](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Lighthouse/AllowCertainManagingTenantIds_Deny.json). De forma semelhante, essa política pode ser aplicada a um grupo de gerenciamento que inclui todas as assinaturas para as quais você deseja limitar as delegações. Depois que a política for implantada, qualquer tentativa de delegar uma assinatura a um locatário fora daqueles que você especificar será negada.
 
 Para obter mais informações sobre como atribuir uma política e exibir os resultados do estado de conformidade, consulte [início rápido: criar uma atribuição de política](../../governance/policy/assign-policy-portal.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre o [Azure Lighthouse](../overview.md).
+- Saiba como [auditar a atividade do provedor de serviços](view-service-provider-activity.md).
 - Saiba como os provedores de serviços podem [Exibir e gerenciar clientes](view-manage-customers.md) na página **meus clientes** no portal do Azure.

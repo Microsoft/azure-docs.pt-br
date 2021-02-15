@@ -4,15 +4,15 @@ description: Saiba como o firewall do aplicativo Web do Azure no Azure Front Doo
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 05/22/2020
 ms.author: victorh
-ms.openlocfilehash: a437e474a923edc15689639b7180ebed73242bb5
-ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
+ms.openlocfilehash: e3b3b7a058fbd1235619c01e0dca24a3de9036db
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83816362"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89231428"
 ---
 # <a name="azure-web-application-firewall-on-azure-front-door"></a>Firewall do Aplicativo Web do Azure no Azure Front Door
 

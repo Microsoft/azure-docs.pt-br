@@ -1,7 +1,7 @@
 ---
 title: Criar e gerenciar recursos VS Code extensão (versão prévia)
 titleSuffix: Azure Machine Learning
-description: Criar e gerenciar recursos com a extensão VS Code
+description: Saiba como criar e gerenciar Azure Machine Learning recursos usando a extensão de Visual Studio Code de Azure Machine Learning.
 services: machine-learning
 author: luisquintanilla
 ms.author: luquinta
@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
-ms.date: 07/09/2020
-ms.openlocfilehash: 5ec6af894f434f8d1f7df34b2ed0c2514ab88cc4
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.date: 11/16/2020
+ms.openlocfilehash: f8eb18b190b72381f1a93575eb39b3d19d8d431b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87306138"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010666"
 ---
 # <a name="manage-azure-machine-learning-resources-with-the-vs-code-extension-preview"></a>Gerenciar Azure Machine Learning recursos com a extensão de VS Code (versão prévia)
 
@@ -44,10 +44,10 @@ Para obter mais informações, consulte [espaços de trabalho](concept-workspace
     1. Escolha a sua assinatura do Azure
     1. Escolha ou crie um novo grupo de recursos para provisionar o espaço de trabalho em
     1. Selecione o local onde provisionar o espaço de trabalho.
-    1. Escolha entre a edição *básica* e a *Enterprise* . Saiba mais sobre as diferentes [edições de Azure Machine Learning](concept-editions.md).
 
 Os métodos alternativos para criar um espaço de trabalho incluem:
 
+- Abra a exibição paleta de comandos **> paleta de comandos** e insira no prompt de texto **Azure ml: criar espaço de trabalho**.
 - Clique no `+` ícone na parte superior da exibição de Azure Machine Learning.
 - Crie um novo espaço de trabalho quando solicitado a selecionar um espaço de trabalho durante o provisionamento de outros recursos.
 
@@ -63,7 +63,7 @@ Os métodos alternativos para criar um espaço de trabalho incluem:
 
 Atualmente, a extensão VS Code dá suporte a repositórios de armazenamento dos seguintes tipos:
 
-- Compartilhamento de Arquivo do Azure
+- Compartilhamento de arquivos do Azure
 - Armazenamento do Blobs do Azure
 
 Quando você cria um espaço de trabalho, um repositório de armazenamento é criado para cada um desses tipos.
@@ -134,7 +134,7 @@ Essa opção permite que você veja os metadados associados a um conjunto de inf
 
 1. Expanda o nó do espaço de trabalho.
 1. Expanda o nó **conjuntos de valores** .
-1. Clique com o botão direito do mouse no conjunto de um que você deseja inspecionar e selecione **Exibir Propriedades do conjunto**de Isso exibirá um arquivo de configuração com as propriedades da versão mais recente do conjunto de informações.
+1. Clique com o botão direito do mouse no conjunto de um que você deseja inspecionar e selecione **Exibir Propriedades do conjunto** de Isso exibirá um arquivo de configuração com as propriedades da versão mais recente do conjunto de informações.
 
 > [!NOTE]
 > Se você tiver várias versões de seu conjunto de informações, poderá optar por exibir apenas as propriedades do conjunto de informações de uma versão específica expandindo o nó do conjunto de informações e executando as mesmas etapas descritas nesta seção sobre a versão de interesse.
@@ -201,6 +201,7 @@ Para obter mais informações, consulte [experimentos](concept-azure-machine-lea
 1. Expanda o nó **experimentos** dentro de seu espaço de trabalho.
 1. Clique com o botão direito do mouse no experimento que você deseja executar.
 1. Selecione o ícone **executar experimento** na barra de atividade.
+1. Selecione se deseja executar seu experimento localmente ou remotamente. Consulte o [Guia de depuração](how-to-debug-visual-studio-code.md) para obter mais informações sobre a execução e a depuração de experimentos localmente.
 1. Escolha sua assinatura.
 1. Escolha o Workspace do ML do Azure para executar o experimento em.
 1. Escolha seu experimento.
@@ -243,6 +244,39 @@ Quando uma execução for concluída, talvez você queira baixar os logs e ativo
 
 Na extensão, você pode inspecionar metadados como a configuração de execução usada para a execução, bem como os detalhes de execução.
 
+## <a name="compute-instances"></a>Instâncias de computação
+
+Para obter mais informações, consulte [Compute instances](concept-compute-instance.md).
+
+### <a name="create-compute-instance"></a>Criar instância de computação
+
+1. Expanda o nó de assinatura que contém seu espaço de trabalho.
+1. Expanda o nó do espaço de trabalho em que você deseja criar a instância de computação.
+1. Clique com o botão direito do mouse no nó **instâncias de computação** e selecione **criar instância de computação**.
+1. No prompt:
+    1. Forneça um nome para a instância de computação.
+    1. Selecione um tamanho de VM na lista.
+    1. Escolha se deseja habilitar o acesso SSH.
+        1. Se você habilitar o acesso SSH, também terá que fornecer a chave SSH pública ou o arquivo que contém a chave. Para obter mais informações, consulte o [guia sobre como criar e usar chaves SSH no Azure](../virtual-machines/linux/mac-create-ssh-keys.md).
+
+### <a name="stop-or-restart-compute-instance"></a>Parar ou reiniciar instância de computação
+
+1. Expanda o nó de assinatura que contém seu espaço de trabalho.
+1. Expanda o nó da **instância de computação** dentro de seu espaço de trabalho.
+1. Clique com o botão direito do mouse na instância de computação que você deseja parar ou reiniciar e selecione **parar a instância de computação** ou reiniciar a instância de **computação** , respectivamente.
+
+### <a name="view-compute-instance-configuration"></a>Exibir configuração da instância de computação
+
+1. Expanda o nó de assinatura que contém seu espaço de trabalho.
+1. Expanda o nó da **instância de computação** dentro de seu espaço de trabalho.
+1. Clique com o botão direito do mouse na instância de computação que você deseja inspecionar e selecione **Exibir Propriedades da instância de computação**.
+
+### <a name="delete-compute-instance"></a>Excluir instância de computação
+
+1. Expanda o nó de assinatura que contém seu espaço de trabalho.
+1. Expanda o nó da **instância de computação** dentro de seu espaço de trabalho.
+1. Clique com o botão direito do mouse na instância de computação que você deseja excluir e selecione **excluir instância de computação**.
+
 ## <a name="compute-clusters"></a>Clusters de cálculo
 
 A extensão dá suporte aos seguintes tipos de computação:
@@ -259,7 +293,7 @@ Para obter mais informações, consulte [destinos de computação](concept-compu
 1. Clique com o botão direito do mouse no nó **clusters de computação** e selecione **criar computação**.
 1. No prompt:
     1. Escolher um tipo de computação
-    1. Escolha um tamanho de VM. Saiba mais sobre [tamanhos de VM](https://docs.microsoft.com/azure/virtual-machines/linux/sizes).
+    1. Escolha um tamanho de VM. Saiba mais sobre [tamanhos de VM](../virtual-machines/sizes.md).
     1. Forneça um nome para a computação.
 
 ### <a name="view-compute-configuration"></a>Exibir configuração de computação
@@ -362,7 +396,7 @@ Para obter mais informações, consulte [pontos de extremidade de serviço Web](
 1. Clique com o botão direito do mouse no nó **pontos de extremidade** e selecione **implantar serviço**.
 1. No prompt:
     1. Escolha se deseja usar um modelo já registrado ou um arquivo de modelo local.
-    1. Selecione seu modelo
+    1. Selecione o modelo
     1. Escolha o destino de implantação no qual você deseja implantar seu modelo.
     1. Forneça um nome para seu modelo.
     1. Forneça o script a ser executado ao pontuar o modelo.

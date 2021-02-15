@@ -1,7 +1,7 @@
 ---
-title: Erros de empacotamento e origem dos serviços de mídia do Azure | Microsoft Docs
+title: Erros de empacotamento e origem dos serviços de mídia do Azure
 description: Este tópico descreve os erros que você pode receber do serviço de ponto de extremidade de streaming dos serviços de mídia do Azure (Orgin).
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
@@ -10,17 +10,17 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: error-reference
 ms.date: 05/07/2019
-ms.author: juliako
-ms.openlocfilehash: 1fc201cc1f3d4d26ca7b9e949d2917688e6fea8c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.author: inhenkel
+ms.openlocfilehash: 994e5ae0647f350e0a64f35318bd5803f4ed79b2
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091973"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98894976"
 ---
-# <a name="streaming-endpoint-origin-errors"></a>Erros de ponto de extremidade de streaming (origem) 
+# <a name="streaming-endpoint-origin-errors"></a>Erros de ponto de extremidade de streaming (origem)
 
 Este tópico descreve os erros que você pode receber do [serviço de ponto de extremidade de streaming](streaming-endpoint-concept.md)dos serviços de mídia do Azure.
 

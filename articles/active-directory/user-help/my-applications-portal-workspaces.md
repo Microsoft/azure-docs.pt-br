@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 02/06/2020
+ms.date: 10/19/2020
 ms.author: curtand
 ms.custom: user-help
-ms.openlocfilehash: d1059bae047774864868fbe90df50a877f9a3869
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: d27e5b22fc0e24850a8c454ef1f07e77341ac15a
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798050"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282541"
 ---
 # <a name="use-collections-in-the-my-apps-portal"></a>Usar coleções no portal Meus Aplicativos
 
@@ -32,7 +32,7 @@ As coleções são diferentes exibições de aplicativo que você vê no portal 
 
 A lista de coleções do portal **Meus Aplicativos** mostra como padrão uma chamada **Todos os Aplicativos**, que contém todos os aplicativos aos quais você tem acesso:
 
-![Página Todos os aplicativos no portal Meus Aplicativos](media/my-applications-portal-workspaces/my-apps-all.png)
+![Página Todos os aplicativos no portal Meus Aplicativos](media/my-applications-portal-workspaces/my-apps-all-apps.png)
 
 Qualquer outra coleção exibida nessa lista foi criada pelo administrador e compartilhada com você. Você pode escolher uma dessas coleções para ver um conjunto de aplicativos com mais escopo, como *Suporte* no seguinte exemplo:
 

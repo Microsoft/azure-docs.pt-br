@@ -8,12 +8,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: alkohli
-ms.openlocfilehash: 4f21e7f64338b7d50ca401081bf73ca0c1a1c88f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f59d1e297ba4d7607d7abd07a78da4784f55d20f
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85504296"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023220"
 ---
 # <a name="data-transfer-for-small-datasets-with-low-to-moderate-network-bandwidth"></a>Transferência de dados para conjuntos de dados pequenos com largura de banda de rede baixa a moderada
  
@@ -51,18 +51,17 @@ A tabela a seguir resume as diferenças nas principais funcionalidades.
 
 | Recurso | Gerenciador de Armazenamento do Azure | Portal do Azure | AzCopy<br>Azure PowerShell<br>CLI do Azure | SDKs ou APIs REST do Armazenamento do Azure |
 |---------|------------------------|--------------|-----------------------------------------|---------------------------------|
-| Disponibilidade | Fazer o download e instalar <br>Ferramenta autônoma | Ferramentas de exploração baseadas na Web no portal do Azure | Ferramenta de linha de comando |Interfaces programáveis em .NET, Java, Python, JavaScript, C++, Go, Ruby e PHP |
+| Disponibilidade | Baixar e instalar <br>Ferramenta autônoma | Ferramentas de exploração baseadas na Web no portal do Azure | Ferramenta de linha de comando |Interfaces programáveis em .NET, Java, Python, JavaScript, C++, Go, Ruby e PHP |
 | Interface gráfica | Sim | Sim | Não | Não |
 | Plataformas com suporte | Windows, Mac, Linux | Baseado na Web |Windows, Mac, Linux |Todas as plataformas |
 | Operações de Armazenamento de Blobs permitidas<br>para blobs e pastas | Carregar<br>Baixar<br>Gerenciar | Carregar<br>Baixar<br>Gerenciar |Carregar<br>Baixar<br>Gerenciar | Sim, personalizável |
-| Armazenamento do Data Lake Gen1 permitido<br>operações para arquivos e pastas | Carregar<br>Baixar<br>Gerenciar | Não |Carregar<br>Baixar<br>Gerenciar                   | Não |
+| Armazenamento do Data Lake Gen1 permitido<br>operações para arquivos e pastas | Carregar<br>Baixar<br>Gerenciar | No |Carregar<br>Baixar<br>Gerenciar                   | No |
 | Operações de armazenamento de Arquivo permitidas<br>para arquivos e diretórios | Carregar<br>Baixar<br>Gerenciar | Carregar<br>Baixar<br>Gerenciar   |Carregar<br>Baixar<br>Gerenciar | Sim, personalizável |
-| Operações de armazenamento de Tabela permitidas<br>para tabelas |Gerenciar | Não |Suporte de tabela no AzCopy v7 |Sim, personalizável|
+| Operações de armazenamento de Tabela permitidas<br>para tabelas |Gerenciar | No |Suporte de tabela no AzCopy v7 |Sim, personalizável|
 | Armazenamento de Fila permitido | Gerenciar | Não  |Não | Sim, é personalizável|
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba como [transferir dados com o Gerenciador de Armazenamento do Azure](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/move-data-to-azure-blob-using-azure-storage-explorer).
-- [Transferir dados com AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10)
-
+- Saiba como [transferir dados com o Gerenciador de Armazenamento do Azure](../../machine-learning/team-data-science-process/move-data-to-azure-blob-using-azure-storage-explorer.md).
+- [Transferir dados com AzCopy](./storage-use-azcopy-v10.md)

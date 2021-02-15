@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/29/2018
 ms.custom:
 - 'Role: Cloud Development'
-ms.openlocfilehash: e0466aa3497edf5f271c01944438c033bba152f4
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e25b9d6cbe8446fb2f10150f17f7e2b0ccf85d3c
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327660"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147632"
 ---
 # <a name="send-device-to-cloud-and-cloud-to-device-messages-with-iot-hub"></a>Enviar mensagens de dispositivo para nuvem e da nuvem para dispositivo com o Hub IoT
 
@@ -23,7 +23,7 @@ O Hub IoT permite a comunicação bidirecional com seus dispositivos. Use as men
 
 ## <a name="sending-device-to-cloud-messages-to-iot-hub"></a>Enviando mensagens de dispositivo para nuvem para o Hub IoT
 
-O Hub IoT tem um ponto de extremidade de serviço interno que pode ser usado pelos serviços de back-end para ler mensagens de telemetria de seus dispositivos. Esse ponto de extremidade é compatível com [Hubs de Eventos](https://docs.microsoft.com/azure/event-hubs/) e você pode usar SDKs do Hub IoT Standard para [ler desse ponto de extremidade interno](iot-hub-devguide-messages-read-builtin.md).
+O Hub IoT tem um ponto de extremidade de serviço interno que pode ser usado pelos serviços de back-end para ler mensagens de telemetria de seus dispositivos. Esse ponto de extremidade é compatível com [Hubs de Eventos](../event-hubs/index.yml) e você pode usar SDKs do Hub IoT Standard para [ler desse ponto de extremidade interno](iot-hub-devguide-messages-read-builtin.md).
 
 O Hub IoT também dá suporte a [pontos de extremidade personalizados](iot-hub-devguide-endpoints.md#custom-endpoints) que podem ser definidos pelos usuários para enviar eventos e dados telemétricos do dispositivo para os serviços do Azure usando o [roteamento de mensagens](iot-hub-devguide-messages-d2c.md).
 
@@ -39,9 +39,9 @@ As propriedades básicas da funcionalidade de mensagens do Hub IoT são a confia
 
 Use mensagens de dispositivo para nuvem a fim de enviar alertas e telemetria de série temporal de seu aplicativo de dispositivo e de nuvem para dispositivo no caso de notificações unidirecionais para o aplicativo do dispositivo.
 
-* Veja as [Diretrizes de comunicação de dispositivo para nuvem](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-d2c-guidance) para escolher entre mensagens de dispositivo para nuvem, propriedades relatadas ou upload de arquivo.
+* Veja as [Diretrizes de comunicação de dispositivo para nuvem](./iot-hub-devguide-d2c-guidance.md) para escolher entre mensagens de dispositivo para nuvem, propriedades relatadas ou upload de arquivo.
 
-* Veja as [Diretrizes de comunicação de nuvem para dispositivo](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-c2d-guidance) para escolher mensagens de nuvem para dispositivo, propriedades relatadas ou métodos diretos.
+* Veja as [Diretrizes de comunicação de nuvem para dispositivo](./iot-hub-devguide-c2d-guidance.md) para escolher mensagens de nuvem para dispositivo, propriedades relatadas ou métodos diretos.
 
 ## <a name="next-steps"></a>Próximas etapas
 

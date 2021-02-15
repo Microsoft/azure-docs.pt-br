@@ -7,12 +7,13 @@ ms.custom: subject-armqs
 ms.author: mathoma
 ms.date: 06/29/2020
 ms.service: virtual-machines-sql
-ms.openlocfilehash: 21909a9c7a1edda5059b9e83cf8dda243862b966
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.subservice: deployment
+ms.openlocfilehash: a20cb27ac91a0b01ed9cc3a5ac4c5c57f90ceda1
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88660200"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359635"
 ---
 # <a name="quickstart-create-sql-server-vm-using-an-arm-template"></a>Início Rápido: Criar VM do SQL Server usando um modelo do ARM
 
@@ -45,14 +46,14 @@ Cinco recursos do Azure são definidos no modelo:
 - [Microsoft.Network/networkSecurityGroups](/azure/templates/microsoft.network/networksecuritygroups): Cria um grupo de segurança de rede. 
 - [Microsoft.Network/networkInterfaces](/azure/templates/microsoft.network/networkinterfaces): Configura o adaptador de rede. 
 - [Microsoft.Compute/virtualMachines](/azure/templates/microsoft.compute/virtualmachines): Cria uma máquina virtual no Azure. 
-- [Microsoft. SqlVirtualMachine/SqlVirtualMachines](/azure/templates/microsoft.sqlvirtualmachine/sqlvirtualmachines): registra a máquina virtual com o provedor de recursos da VM do SQL. 
+- [Microsoft.SqlVirtualMachine/SqlVirtualMachines](/azure/templates/microsoft.sqlvirtualmachine/sqlvirtualmachines): registra a máquina virtual a extensão do Agente de IaaS do SQL. 
 
 Mais modelos de SQL Server na VM do Azure podem ser encontrados na [galeria de modelos de início rápido](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Sqlvirtualmachine&pageNumber=1&sort=Popular).
 
 
 ## <a name="deploy-the-template"></a>Implantar o modelo
 
-1. Selecione a imagem a seguir para entrar no Azure e abrir um modelo. O modelo cria uma máquina virtual com a versão do SQL Server pretendida instalada e registrada com o provedor de recursos de VM do SQL. 
+1. Selecione a imagem a seguir para entrar no Azure e abrir um modelo. O modelo cria uma máquina virtual com a versão pretendida do SQL Server instalada e registrada na extensão do Agente de IaaS do SQL. 
 
    [![Implantar no Azure](../../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-sql-vm-new-storage%2fazuredeploy.json)
 
@@ -120,7 +121,7 @@ Write-Host "Press [ENTER] to continue..."
 Para obter um tutorial passo a passo que orienta você durante o processo de criação de um modelo, confira:
 
 > [!div class="nextstepaction"]
-> [ Tutorial: Criar e implantar seu primeiro modelo do Resource Manager](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
+> [ Tutorial: Criar e implantar seu primeiro modelo do Resource Manager](../../../azure-resource-manager/templates/template-tutorial-create-first-template.md)
 
 Para outras maneiras de implantar uma VM do SQL Server, confira: 
 - [Azure portal](create-sql-vm-portal.md)

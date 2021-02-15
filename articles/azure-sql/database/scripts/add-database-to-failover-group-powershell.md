@@ -7,16 +7,16 @@ ms.subservice: high-availability
 ms.custom: sqldbrb=1
 ms.devlang: PowerShell
 ms.topic: sample
-author: MashaMSFT
-ms.author: mathoma
-ms.reviewer: carlrab
+author: stevestein
+ms.author: sstein
+ms.reviewer: ''
 ms.date: 07/16/2019
-ms.openlocfilehash: cbd9d08c788dee69990ef08a4fe80dfe03270167
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 34d296e51f25c492d7f66347a2e2b190c39e83f1
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87049451"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94594123"
 ---
 # <a name="use-powershell-to-add-a-database-to-a-failover-group"></a>Usar o PowerShell para adicionar um banco de dados a um grupo de failover
 

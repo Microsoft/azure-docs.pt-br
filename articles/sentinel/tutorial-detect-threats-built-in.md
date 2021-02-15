@@ -15,13 +15,13 @@ ms.workload: na
 ms.date: 07/06/2020
 ms.author: yelevin
 ms.openlocfilehash: 5d73337c25c812363b7a542bf42372ca3baa10e8
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88605435"
 ---
-# <a name="tutorial-detect-threats-out-of-the-box"></a>Tutorial: detectar ameaças prontas para uso
+# <a name="tutorial-detect-threats-out-of-the-box"></a>Tutorial: Detectar ameaças prontas para uso
 
 
 > [!IMPORTANT]
@@ -65,7 +65,7 @@ Os seguintes tipos de modelo estão disponíveis:
 
 1. Para usar um modelo interno, clique no nome do modelo e, em seguida, clique no botão **criar regra** no painel de detalhes para criar uma nova regra ativa com base nesse modelo. Cada modelo tem uma lista de fontes de dados necessárias. Quando você abre o modelo, as fontes de dados são verificadas automaticamente quanto à disponibilidade. Se houver um problema de disponibilidade, o botão **criar regra** poderá ser desabilitado ou você poderá ver um aviso para esse efeito.
   
-    :::image type="content" source="media/tutorial-detect-built-in/use-built-in-template.png" alt-text="Painel de visualização de regra de detecção":::
+    :::image type="content" source="media/tutorial-detect-built-in/use-built-in-template.png" alt-text="Usar detecções internas para encontrar ameaças com o Azure Sentinel":::
  
 1. Clicar no botão **criar regra** abre o assistente de criação de regras com base no modelo selecionado. Todos os detalhes são preenchidos de forma automática e com os modelos de segurança **agendados** ou da **Microsoft** , você pode personalizar a lógica e outras configurações de regra para atender melhor às suas necessidades específicas. Você pode repetir esse processo para criar regras adicionais com base no modelo interno. Depois de seguir as etapas no assistente de criação de regra para o final, você terá terminado de criar uma regra com base no modelo. As novas regras serão exibidas na guia **regras ativas** .
 

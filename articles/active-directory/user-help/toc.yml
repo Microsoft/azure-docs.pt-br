@@ -50,6 +50,8 @@
       href: auth-app-android-china.md
     - name: Fazer backup e recuperar suas contas
       href: user-help-auth-app-backup-recovery.md
+    - name: Importar senhas no aplicativo Authenticator
+      href: user-help-authenticator-app-import-passwords.md
     - name: Perguntas frequentes
       href: user-help-auth-app-faq.md
 - name: Ajuda do portal Minha Conta
@@ -70,6 +72,10 @@
       href: my-account-portal-sign-ins-page.md
     - name: Alterar as configurações do portal
       href: my-account-portal-settings.md
+    - name: Encontrar um Administrador da Minha conta
+      href: my-account-find-administrator.md
+    - name: Alternar organizações
+      href: cross-tenant-switcher.md
 - name: Ajuda de informações de segurança
   items:
     - name: Adicionar informações de segurança durante a entrada
@@ -106,12 +112,12 @@
   items:
     - name: Entrar e usar o portal Meus Aplicativos
       href: my-apps-portal-end-user-access.md
-    - name: Atualizar suas informações de perfil e conta
-      href: my-apps-portal-end-user-update-profile.md
     - name: Atualizar suas informações de grupos
       href: my-apps-portal-end-user-groups.md
     - name: Organizar aplicativos com coleções
       href: my-applications-portal-workspaces.md
+    - name: Visualização de coleções em Meus aplicativos
+      href: my-apps-portal-user-collections.md
     - name: Editar ou revogar permissões de aplicativo
       href: my-applications-portal-permissions-saved-accounts.md
     - name: Executar suas próprias revisões de acesso

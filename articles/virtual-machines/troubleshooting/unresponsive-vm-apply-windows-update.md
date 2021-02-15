@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 03/31/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 76c3f729a8520c7bff7b49a1d2200d7950f8a9f4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 145d58013b259bf14c26d0840b8cd4299cfe85f0
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87074296"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632615"
 ---
 # <a name="vm-is-unresponsive-with-c01a001d-error-when-applying-windows-update"></a>A VM não está respondendo com o erro "C01A001D" ao aplicar Windows Update
 
@@ -39,6 +39,9 @@ Um arquivo de núcleo não pode ser criado no sistema de arquivos. O sistema ope
 
 ### <a name="process-overview"></a>Visão geral do processo
 
+> [!TIP]
+> Se você tiver um backup recente da VM, poderá tentar [restaurar a VM do backup](../../backup/backup-azure-arm-restore-vms.md) para corrigir o problema de inicialização.
+
 1. [Crie e acesse uma VM de reparo](#create-and-access-a-repair-vm).
 2. [Libere espaço no disco rígido](#free-up-space-on-the-hard-disk).
 3. [Recomendado: antes de recriar a VM, habilite o console serial e a coleção de despejo de memória](#recommended-before-rebuilding-the-vm-enable-serial-console-and-memory-dump-collection).
@@ -56,7 +59,7 @@ Um arquivo de núcleo não pode ser criado no sistema de arquivos. O sistema ope
 
 Se o disco ainda não for de 1 TB, você deverá redimensioná-lo. Depois que o disco for de 1 TB, execute uma limpeza de disco e uma desfragmentação da unidade.
 
-1. Verifique se o disco está cheio. Se o disco estiver abaixo de 1 TB, [expanda-o para um máximo de 1 TB usando o PowerShell](../windows/expand-os-disk.md?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json).
+1. Verifique se o disco está cheio. Se o disco estiver abaixo de 1 TB, [expanda-o para um máximo de 1 TB usando o PowerShell](../windows/expand-os-disk.md).
 2. Depois que o disco for de 1 TB, execute uma limpeza de disco.
     - [Desanexe o disco de dados da VM quebrada](../windows/detach-disk.md).
     - [Anexe o disco de dados a uma VM em funcionamento](../windows/attach-disk-ps.md#attach-an-existing-data-disk-to-a-vm).

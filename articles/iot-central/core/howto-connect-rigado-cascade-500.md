@@ -10,16 +10,16 @@ ms.custom:
 ms.author: avneets
 author: avneet723
 ms.date: 11/27/2019
-ms.openlocfilehash: 3e6026e683d46ca9062c5c139fcd7febd7df9bd1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0000e7690ab92f469a7417e82cb375c524e0b343
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81758255"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014755"
 ---
 # <a name="connect-a-rigado-cascade-500-gateway-device-to-your-azure-iot-central-application"></a>Conectar um dispositivo de gateway rigado Cascade 500 em cascata ao seu aplicativo IoT Central do Azure
 
-*Este artigo se aplica a construtores de solução e desenvolvedores de dispositivos.*
+*Este artigo se aplica a construtores de solução.*
 
 Este artigo descreve como, como um Solution Builder, você pode conectar um dispositivo de gateway rigado Cascade 500 em cascata ao seu aplicativo Microsoft Azure IoT Central. 
 
@@ -41,17 +41,17 @@ Para carregar um dispositivo de gateway 500 em cascata em sua instância do apli
 
 Para adicionar um modelo de dispositivo 500 em cascata: 
 
-1. Navegue até a guia ***modelos de dispositivo*** no painel esquerdo, selecione **+ novo**: ![ criar novo modelo de dispositivo](./media/howto-connect-rigado-cascade-500/device-template-new.png)
-1. A página oferece uma opção para ***criar um modelo personalizado*** ou ***usar um modelo de dispositivo pré-configurado***
+1. Navegue até a guia ***modelos de dispositivo** _ no painel esquerdo, selecione _ * + novo * *: ![ criar novo modelo de dispositivo](./media/howto-connect-rigado-cascade-500/device-template-new.png)
+1. A página oferece uma opção para **_criar um modelo personalizado_* _ ou _*_usar um modelo de dispositivo pré-configurado_*_
 1. Selecione o modelo de dispositivo C500 na lista de modelos de dispositivo pré-configurados, conforme mostrado abaixo: ![ selecionar modelo de dispositivo C500](./media/howto-connect-rigado-cascade-500/device-template-preconfigured.png)
-1. Selecione ***Avançar: Personalizar*** para continuar na próxima etapa. 
-1. Na próxima tela, selecione ***criar*** para carregar o modelo de dispositivo C500 em seu aplicativo IOT central.
+1. Selecione _*_Avançar: Personalizar_*_ para continuar na próxima etapa. 
+1. Na próxima tela, selecione _*_criar_*_ para carregar o modelo de dispositivo C500 em seu aplicativo IOT central.
 
 ## <a name="retrieve-application-connection-details"></a>Recuperar detalhes de conexão do aplicativo
 
-Agora, você precisará recuperar a **ID do escopo** e a **chave primária** para seu aplicativo de IOT central do Azure para conectar o dispositivo 500 em cascata. 
+Agora, você precisará recuperar o _ *Scope ID** e a **chave primária** para seu aplicativo de IOT central do Azure para conectar o dispositivo 500 em cascata. 
 
-1. Navegue até **Administração** no painel esquerdo e clique em **conexão do dispositivo**. 
+1. Navegue até **Administração**  no painel esquerdo e clique em **conexão do dispositivo**. 
 2. Anote a **ID do escopo** do seu aplicativo IOT central.
 ![ID do escopo do aplicativo](./media/howto-connect-rigado-cascade-500/app-scope-id.png)
 3. Agora clique em **Exibir chaves** e anote a **Primary key** 
@@ -65,7 +65,7 @@ Depois que o dispositivo estiver conectado à Internet, o rigado poderá enviar 
 
 Essa atualização aplicará os detalhes de conexão do IoT Central no dispositivo em cascata 500 e ele aparecerá na sua lista de dispositivos. 
 
-![Chave primária](./media/howto-connect-rigado-cascade-500/devices-list-c500.png)  
+![Lista de dispositivos](./media/howto-connect-rigado-cascade-500/devices-list-c500.png)  
 
 Agora você está pronto para usar seu dispositivo C500 em seu aplicativo IoT Central!
 

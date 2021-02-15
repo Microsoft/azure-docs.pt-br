@@ -1,14 +1,16 @@
 ---
 title: 'Início Rápido: Criar, treinar e publicar base de dados de conhecimento – QnA Maker'
 description: É possível criar uma KB (base de dados de conhecimento) do QnA Maker com base no seu próprio conteúdo, como perguntas frequentes ou manuais de produto. Este artigo inclui um exemplo de como criar uma base de dados de conhecimento do QnA Maker com base em uma página da Web simples de perguntas frequentes para responder a perguntas sobre o QnA Maker.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 05/26/2020
-ms.openlocfilehash: 77ddb2a0a149729af72066b53c17b1dcb08a2992
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.date: 11/09/2020
+ms.openlocfilehash: c59529db0981a1071b76714c48aacaf675e4b17a
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88540747"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99987895"
 ---
 # <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>Início Rápido: Criar, treinar e publicar sua base de dados de conhecimento do QnA Maker
 
@@ -22,36 +24,75 @@ ms.locfileid: "88540747"
 
 ## <a name="create-your-first-qna-maker-knowledge-base"></a>Criar sua primeira base de dados de conhecimento do QnA Maker
 
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (versão estável)](#tab/v1)
+
 1. Entre no portal [QnAMaker.ai](https://QnAMaker.ai) com suas credenciais do Azure.
 
-1. No portal do QnA Maker, selecione **Criar uma base de dados de conhecimento**.
+2. No portal do QnA Maker, selecione **Criar uma base de dados de conhecimento**.
 
-1. Na página **Criar**, pule a **Etapa 1** caso já tenha o recurso do QnA Maker.
+3. Na página **Criar**, pule a **Etapa 1** caso já tenha o recurso do QnA Maker.
 
     Se você ainda não criou o recurso, selecione **Criar um serviço do QnA**. Você será direcionado para o [portal do Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) para configurar o serviço do QnA Maker na sua assinatura. Lembre-se de sua ID e sua assinatura do Azure Active Directory, bem como do nome do recurso do QnA que você selecionou ao criar o recurso.
 
     Quando terminar de criar o recurso no portal do Azure, retorne ao portal do QnA Maker, atualize a página do navegador e prossiga para a **Etapa 2**.
 
-1. Na **Etapa 3**, selecione a sua assinatura do Active Directory, o serviço (recurso) e o idioma para todas as bases de dados de conhecimento criadas no serviço.
+4. Na **Etapa 2**, selecione o serviço (recurso), o idioma e a assinatura do Active Directory para todas as bases de dados de conhecimento criadas no serviço.
 
     :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/qnaservice-selection.png" alt-text="Captura de tela da seleção de uma base de dados de conhecimento do serviço do QnA Maker":::
 
-1. Na **Etapa 3**, dê à base de dados de conhecimento o nome **Minha Base de Dados de QnA de Exemplo**.
+5. Na **Etapa 3**, dê à base de dados de conhecimento o nome **Minha Base de Dados de QnA de Exemplo**.
 
-1. Na **Etapa 4**, defina as configurações com a seguinte tabela:
+6. Na **Etapa 4**, defina as configurações com a seguinte tabela:
 
     |Configuração|Valor|
     |--|--|
     |**Habilitar a extração de vários turnos de URLs, arquivos .pdf ou .docx.**|Verificado|
-    |**Texto de resposta padrão**| `Quickstart - default answer not found.`|
-    |**+ Adicionar URL**|`https://docs.microsoft.com/azure/cognitive-services/qnamaker/troubleshooting`|
+    |**Texto padrão com várias seções**| Selecionar uma opção|
+    |**+ Adicionar URL**|`https://www.microsoft.com/en-us/software-download/faq`|
     |**Bate-papo**|Selecione **Professional**|
 
-1. Na **Etapa 5**, selecione **Criar sua base de dados**.
+7. Na **Etapa 5**, selecione **Criar sua base de dados**.
 
     O processo de extração leva alguns instantes para ler o documento e identificar perguntas e respostas.
 
     Depois que o QnA Maker criar com êxito a base de dados de conhecimento, a página **Base de dados de conhecimento** será aberta. Você pode editar o conteúdo da base de dados de conhecimento nesta página.
+
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker gerenciado (versão prévia)](#tab/v2)
+
+1. Entre no portal [QnAMaker.ai](https://QnAMaker.ai) com suas credenciais do Azure.
+
+2. No portal do QnA Maker, selecione **Criar uma base de dados de conhecimento**.
+
+3. Na página **Criar**, pule a **Etapa 1** caso já tenha o recurso do QnA Maker.
+
+    Se você ainda não criou o recurso, selecione **Criar um serviço do QnA**. Você será direcionado para o [portal do Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) para configurar o serviço do QnA Maker na sua assinatura. Lembre-se de sua ID e sua assinatura do Azure Active Directory, bem como do nome do recurso do QnA que você selecionou ao criar o recurso.
+
+    Quando terminar de criar o recurso no portal do Azure, retorne ao portal do QnA Maker, atualize a página do navegador e prossiga para a **Etapa 2**.
+
+4. Na **Etapa 2**, selecione o serviço (recurso), o idioma e a assinatura do Active Directory para todas as bases de dados de conhecimento criadas no serviço.
+
+    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/connect-your-knowledge-base.png" alt-text="Captura de tela da seleção de uma base de dados de conhecimento gerenciada do serviço do QnA Maker na versão prévia":::
+
+5. Na **Etapa 2**, se estiver criando a primeira base de dados de conhecimento de seu serviço, você terá a opção de tornar a configuração de idioma específica para todas as bases de dados de conhecimento. Após definir a configuração de idioma para a primeira base de dados de conhecimento, você não terá permissão para modificar as configurações para o serviço mais tarde.
+
+6. Na  **Etapa 3**, dê à base de dados de conhecimento o nome  **Minha Base de Dados de QnA de Exemplo**. 
+
+7. Na **Etapa 4**, defina as configurações com a seguinte tabela:
+
+    |Configuração|Valor|
+    |--|--|
+    |**Habilitar a extração de vários turnos de URLs, arquivos .pdf ou .docx.**|Verificado|
+    |**Texto padrão com várias seções**| Selecionar uma opção|
+    |**+ Adicionar Arquivo**| Baixar o manual do laptop Surface de: 'https://download.microsoft.com/download/7/B/1/7B10C82E-F520-4080-8516-5CF0D803EEE0/surface-book-user-guide-EN.pdf ' 
+    |**Bate-papo**|Selecione **Professional**|
+
+8. Na **Etapa 5**, selecione **Criar sua base de dados**.
+
+    O processo de extração leva alguns instantes para ler o documento e identificar perguntas e respostas.
+
+    Depois que o QnA Maker criar com êxito a base de dados de conhecimento, a página **Base de dados de conhecimento** será aberta. Você pode editar o conteúdo da base de dados de conhecimento nesta página.
+
+---
 
 ## <a name="add-a-new-question-and-answer-set"></a>Adicionar um novo par de pergunta e resposta
 
@@ -76,20 +117,38 @@ No canto superior direito, selecione **Salvar e treinar** para salvar as ediçõ
 
 ## <a name="test-the-knowledge-base"></a>Testar a base de dados de conhecimento
 
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (versão estável)](#tab/v1)
+
 1. No portal do QnA Maker, selecione **Testar** para verificar se as alterações entraram em vigor.
-1. Insira um exemplo de consulta de usuário na caixa de texto.
+2. Insira um exemplo de consulta de usuário na caixa de texto.
 
-    `How many Azure services are used by a knowledge base?`
+    `I want to know the difference between 32 bit and 64 bit Windows`
 
-    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/test-panel-in-qna-maker.png" alt-text="Insira um exemplo de consulta de usuário na caixa de texto.":::
+    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/query-dialogue.png" alt-text="Insira um exemplo de consulta de usuário na caixa de texto.":::
 
-1. Selecione **Inspecionar** para examinar a resposta mais detalhadamente. A janela de teste é usada para testar as alterações na base de dados de conhecimento antes que ela seja publicada.
+3. Selecione **Inspecionar** para examinar a resposta mais detalhadamente. A janela de teste é usada para testar as alterações na base de dados de conhecimento antes que ela seja publicada.
 
-1. Selecione **Testar** novamente para fechar o painel **Testar**.
+4. Selecione **Testar** novamente para fechar o painel **Testar**.
+
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker gerenciado (versão prévia)](#tab/v2)
+
+1. No portal do QnA Maker, selecione **Testar** para verificar se as alterações entraram em vigor.
+2. Insira um exemplo de consulta de usuário na caixa de texto.
+
+    `whats the size of the touchscreen`
+
+3. Se habilitar o recurso do MRC para a base de dados de conhecimento selecionando **Exibir resposta curta**, você também verá uma resposta precisa, se disponível, bem como a passagem da resposta no painel de teste. 
+
+    ![Painel de teste gerenciado habilitado](../media/conversational-context/test-pane-with-managed.png)
+    
+
+4. Selecione Inspecionar para examinar a resposta mais detalhadamente. A janela de teste é usada para testar as alterações na base de dados de conhecimento antes que ela seja publicada. 
+5. Selecione **Testar** novamente para fechar o painel **Testar**.
+---
 
 ## <a name="publish-the-knowledge-base"></a>Publicar a base de dados de conhecimento
 
-Ao publicar uma base de dados de conhecimento, o conteúdo da base de dados de conhecimento é movido do índice `test` para um índice `prod` no Azure Search.
+Quando você publica uma base de dados de conhecimento, o conteúdo dela é movido do índice `test` para um índice `prod` no Azure Search.
 
 ![Captura de tela da movimentação do conteúdo de sua base de dados de conhecimento](../media/qnamaker-how-to-publish-kb/publish-prod-test.png)
 
@@ -153,6 +212,4 @@ Se você não for prosseguir para o próximo início rápido, exclua os recursos
 Para mais informações:
 
 * [Formato de Markdown nas respostas](../reference-markdown-format.md)
-* [Fontes de dados](../concepts/knowledge-base.md) do QnA Maker.
-
-
+* [Fontes de dados](../Concepts/data-sources-and-content.md) do QnA Maker.

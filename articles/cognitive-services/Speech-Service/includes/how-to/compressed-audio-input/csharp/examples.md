@@ -5,14 +5,14 @@ ms.topic: include
 ms.date: 03/09/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 313d2717e6e40280ed37322d695a2129d833dd59
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 754b9c5215299a6f7488633c0871bceb61cbedba
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88934083"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97978815"
 ---
-Para transmitir em um formato de áudio compactado para o serviço de fala, crie `PullAudioInputStream` ou `PushAudioInputStream` . Em seguida, crie um `AudioConfig` de uma instância de sua classe de fluxo, especificando o formato de compactação do fluxo.
+Para configurar o SDK de fala para aceitar a entrada de áudio compactado, crie `PullAudioInputStream` ou `PushAudioInputStream` . Em seguida, crie um `AudioConfig` de uma instância de sua classe de fluxo, especificando o formato de compactação do fluxo.
 
 Vamos supor que você tenha uma classe de fluxo de entrada chamada `pushStream` e esteja usando Opus/OGG. Seu código pode ter a seguinte aparência:
 

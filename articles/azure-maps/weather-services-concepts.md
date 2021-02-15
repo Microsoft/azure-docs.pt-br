@@ -1,27 +1,31 @@
 ---
-title: Conceitos de serviços meteorológicos | Mapas do Microsoft Azure
-description: Neste artigo, você aprenderá sobre os conceitos que se aplicam ao Microsoft Azure mapeia os serviços meteorológicos.
+title: Conceitos de serviços meteorológicos (versão prévia) em mapas do Microsoft Azure
+description: Saiba mais sobre os conceitos que se aplicam ao Microsoft Azure mapeia os serviços meteorológicos (versão prévia).
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 11/20/2019
+ms.date: 09/10/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: e8ecbd50aa4490bde705b386a67b8732bb8c02c9
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 657cb6a86122d267b86e82b6f02eb58e968cddd3
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132102"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96904730"
 ---
-# <a name="weather-services-in-azure-maps"></a>Serviços meteorológicos no Azure Maps
+# <a name="weather-services-preview-in-azure-maps"></a>Serviços meteorológicos (versão prévia) no Azure Maps
 
-Este artigo apresenta conceitos que se aplicam aos [serviços meteorológicos do Azure Maps](https://aka.ms/AzureMapsWeatherService). É recomendável passar por este artigo antes de começar com as APIs meteorológicos. 
+> [!IMPORTANT]
+> Os serviços meteorológicos do Azure Maps estão atualmente em visualização pública.
+> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Este artigo apresenta os conceitos que se aplicam aos [serviços meteorológicos](/rest/api/maps/weather)do Azure Maps. É recomendável passar por este artigo antes de começar com as APIs meteorológicos.
 
 ## <a name="unit-types"></a>Tipos de unidade
 
-Algumas das APIs de serviço meteorológico permitem que o usuário especifique se os dados são retornados na métrica ou em unidades Imperials. As respostas retornadas para essas APIs incluem UnitType e um valor numérico que pode ser usado para conversões de unidade. Consulte a tabela abaixo para interpretar esses valores.
+Algumas das APIs de serviço meteorológico (versão prévia) permitem que o usuário especifique se os dados são retornados em métrica ou em unidades Imperial. As respostas retornadas para essas APIs incluem UnitType e um valor numérico que pode ser usado para conversões de unidade. Consulte a tabela abaixo para interpretar esses valores.
 
 |unitType|Descrição         |
 |--------|--------------------|
@@ -52,9 +56,9 @@ Algumas das APIs de serviço meteorológico permitem que o usuário especifique 
 
 ## <a name="weather-icons"></a>Ícones de clima
 
-Algumas das APIs de serviço meteorológico retornam o `iconCode` na resposta. O `iconCode` é um valor numérico usado para definir o ícone. Não vincule diretamente a essas imagens de seus aplicativos, as URLs podem e serão alteradas.
+Algumas das APIs de serviço meteorológico (versão prévia) retornam o `iconCode` na resposta. O `iconCode` é um valor numérico usado para definir o ícone. Não vincule diretamente a essas imagens de seus aplicativos, as URLs podem e serão alteradas.
 
-| Número do ícone |ícone| Dia | Jogo | Texto |
+| Número do ícone |Ícone| Dia | Jogo | Texto |
 |-------------|:----:|-----|-------|------|
 | 1           | :::image type="icon" source="./media/weather-services-concepts/sunny-i.png"::: | Sim |  Não    | Ensolarado|
 | 2           | :::image type="icon" source="./media/weather-services-concepts/mostly-sunny.png"::: | Sim |  Não    | Quase que ensolarado|
@@ -100,7 +104,7 @@ Algumas das APIs de serviço meteorológico retornam o `iconCode` na resposta. O
 
 ## <a name="radar-and-satellite-imagery-color-scale"></a>Escala de cores de imagens de radar e satélite
 
-Por meio da [API do mapa Get do Map v2](https://aka.ms/AzureMapsWeatherTiles) , os usuários podem solicitar imagens satélite de radar e infravermelho mais recentes. Consulte o guia abaixo para ajudar a interpretar as cores usadas para os blocos de radar e satélite.
+Por meio da [API do mapa Get do Map v2](/rest/api/maps/renderv2/getmaptilepreview) , os usuários podem solicitar imagens satélite de radar e infravermelho mais recentes. Consulte o guia abaixo para ajudar a interpretar as cores usadas para os blocos de radar e satélite.
 
 ### <a name="radar-images"></a>Imagens de radar
 
@@ -108,22 +112,22 @@ A tabela a seguir fornece orientação para interpretar as imagens de radar e cr
 
 | Código de cor hex | Amostra de cor | Condição do clima |
 |----------------|--------------|-------------------|
-| #93c701        | ![Cor de chuva-claro.](./media/weather-services-concepts/color-93c701.png) | Chuva-claro |
-| #ffd701        | ![Cor de chuva – moderada.](./media/weather-services-concepts/color-ffd701.png) | Chuva-moderado |
-| #f05514        | ![Cor para chuva pesada.](./media/weather-services-concepts/color-f05514.png) | Chuva-pesado |
-| #dc250e        | ![Cor para chuva-grave.](./media/weather-services-concepts/color-dc250e.png) | Chuva-grave |
-| #9ec8f2        | ![Cor para neve-Light.](./media/weather-services-concepts/color-9ec8f2.png) | Neve-claro |
-| #2a8fdb        | ![Cor da neve-moderada.](./media/weather-services-concepts/color-2a8fdb.png) | Neve-moderada |
-| #144bed        | ![Cor para muita neve.](./media/weather-services-concepts/color-144bed.png) | Neve-pesada |
-| #020096        | ![Cor para neve-grave.](./media/weather-services-concepts/color-020096.png) | Neve-grave |
-| #e6a5c8        | ![Cor para Ice-Light.](./media/weather-services-concepts/color-e6a5c8.png) | Gelo-claro |
-| #d24fa0        | ![Cor para Ice-moderado.](./media/weather-services-concepts/color-d24fa0.png) | Ice-moderado |
-| #b71691        | ![Cor do gelo-grave.](./media/weather-services-concepts/color-b71691.png) | Ice-grave |
-| #7a1570        | ![Cor para Ice-Heavy.](./media/weather-services-concepts/color-7a1570.png) | Gelo-pesado |
-| #c196e6        | ![Cor para Mix-Light.](./media/weather-services-concepts/color-c196e6.png) | Mix-leve |
-| #ae6ee6        | ![Cor para Mix-moderado.](./media/weather-services-concepts/color-ae6ee6.png) | Mix-moderado |
-| #8a32d7        | ![Cor para misturar-pesado.](./media/weather-services-concepts/color-8a32d7.png) | Mistura intensa |
-| #6500ba        | ![Cor para Mix-grave.](./media/weather-services-concepts/color-6500ba.png) | Mix-severo |
+| #93c701        | ![Cor de chuva-claro.](./media/weather-services-concepts/color-93c701.png) | Rain-Light |
+| #ffd701        | ![Cor de chuva – moderada.](./media/weather-services-concepts/color-ffd701.png) | Rain-Moderate |
+| #f05514        | ![Cor para chuva pesada.](./media/weather-services-concepts/color-f05514.png) | Rain-Heavy |
+| #dc250e        | ![Cor para chuva-grave.](./media/weather-services-concepts/color-dc250e.png) | Rain-Severe |
+| #9ec8f2        | ![Cor para neve-Light.](./media/weather-services-concepts/color-9ec8f2.png) | Snow-Light |
+| #2a8fdb        | ![Cor da neve-moderada.](./media/weather-services-concepts/color-2a8fdb.png) | Snow-Moderate |
+| #144bed        | ![Cor para muita neve.](./media/weather-services-concepts/color-144bed.png) | Snow-Heavy |
+| #020096        | ![Cor para neve-grave.](./media/weather-services-concepts/color-020096.png) | Snow-Severe |
+| #e6a5c8        | ![Cor para Ice-Light.](./media/weather-services-concepts/color-e6a5c8.png) | Ice-Light |
+| #d24fa0        | ![Cor para Ice-moderado.](./media/weather-services-concepts/color-d24fa0.png) | Ice-Moderate |
+| #b71691        | ![Cor do gelo-grave.](./media/weather-services-concepts/color-b71691.png) | Ice-Severe |
+| #7a1570        | ![Cor para Ice-Heavy.](./media/weather-services-concepts/color-7a1570.png) | Ice-Heavy |
+| #c196e6        | ![Cor para Mix-Light.](./media/weather-services-concepts/color-c196e6.png) | Mix-Light |
+| #ae6ee6        | ![Cor para Mix-moderado.](./media/weather-services-concepts/color-ae6ee6.png) | Mix-Moderate |
+| #8a32d7        | ![Cor para misturar-pesado.](./media/weather-services-concepts/color-8a32d7.png) | Mix-Heavy |
+| #6500ba        | ![Cor para Mix-grave.](./media/weather-services-concepts/color-6500ba.png) | Mix-Severe |
 
 A paleta de cores detalhada para blocos de radar com códigos de cor hexadecimais e valores de dBZ é mostrada abaixo. dBZ representa intensidade de precipitação no radar meteorológico. 
 
@@ -199,7 +203,7 @@ A tabela a seguir fornece orientação para interpretar as imagens satélite de 
 
 | Código de cor hex | Amostra de cor | Temperatura da nuvem |
 |----------------|--------------|-------------------|
-| #b5b5b5        | ![Bloco de cor para #b5b5b5.](./media/weather-services-concepts/color-b5b5b5.png) | Temperatura baixa | 
+| #b5b5b5        | ![Bloco de cor para #b5b5b5.](./media/weather-services-concepts/color-b5b5b5.png) | Temperature-Low | 
 | #d24fa0        | ![Bloco de cor para #d24fa0.](./media/weather-services-concepts/color-d24fa0.png) |  |
 | #8a32d7        | ![Bloco de cor para #8a32d7.](./media/weather-services-concepts/color-8a32d7.png) |  |
 | #144bed        | ![Bloco de cor para #144bed.](./media/weather-services-concepts/color-144bed.png) |  |
@@ -210,7 +214,7 @@ A tabela a seguir fornece orientação para interpretar as imagens satélite de 
 | #f05514        | ![Bloco de cor para #f05514.](./media/weather-services-concepts/color-f05514.png) |  |
 | #dc250e        | ![Bloco de cor para #dc250e.](./media/weather-services-concepts/color-dc250e.png) |  |
 | #ba0808        | ![Bloco de cor para #ba0808.](./media/weather-services-concepts/color-ba0808.png) |  |
-| #1f1f1f        | ![Bloco de cor para #1f1f1f.](./media/weather-services-concepts/color-1f1f1f.png) | Temperatura alta |
+| #1f1f1f        | ![Bloco de cor para #1f1f1f.](./media/weather-services-concepts/color-1f1f1f.png) | Temperature-High |
 
 
 A paleta de cores detalhada para blocos satélite de infravermelho é mostrada abaixo.
@@ -472,3 +476,169 @@ A paleta de cores detalhada para blocos satélite de infravermelho é mostrada a
 |307,57  |#02555555     |
 |308     |#00525252     |
 |308     |#00525252     |
+
+## <a name="index-ids-and-index-groups-ids"></a>IDs de índice e identificadores de grupos de índice
+
+A [API obter índices diários](/rest/api/maps/weather) permite que os usuários restrinjam os resultados retornados a tipos de índice ou grupos de índice específicos.
+
+Abaixo está uma tabela de IDs de índice disponíveis, seus nomes e um link para seus conjuntos de intervalos. Abaixo desta tabela, há uma tabela que lista os vários grupos de índice.
+
+  Nome do Índice |  ID  | Intervalo de valores
+  -------------------------- |---|-----
+  Dificuldade arthritis             |21 | [Benéfico – a extremo risco](#beneficial-at-extreme-risk)
+  Asthma                     |23|  [Benéfico – a extremo risco](#beneficial-at-extreme-risk)
+  Pool de & de praia               |10| [Ruim-excelente 1](#poor-excellent-1)
+  Bicicletas                  |4| [Ruim-excelente 1](#poor-excellent-1)
+  Frio comum                |25|  [Benéfico – a extremo risco](#beneficial-at-extreme-risk)
+  Compostando                 |38| [Ruim-excelente 1](#poor-excellent-1)
+  Construção               |14| [Ruim-excelente 1](#poor-excellent-1)
+  COPD                       |44|  [Benéfico – a extremo risco](#beneficial-at-extreme-risk)
+  Conforto na movimentação de cachorro        |43| [Ruim-excelente 1](#poor-excellent-1)
+  Automóvel                    |40|  [Ruim-excelente 2](#poor-excellent-2)
+  Poeira & dander              |18| [Baixo-extremo 1](#low-extreme-1)
+  Preparação de campo            |32| [Ruim-excelente 1](#poor-excellent-1)
+  Pesca                    |13| [Ruim-excelente 1](#poor-excellent-1)
+  Atrasos de voo              |-3|  [Muito Unlikely-Very probabilidade 2](#very-unlikely-very-likely-2)
+  Gripe                        |26|  [Benéfico – a extremo risco](#beneficial-at-extreme-risk)
+  Índice de viagens voadoras        |31| [Excelente-ruim](#excellent-poor)
+  Economia de combustível               |37| [Ruim-excelente 1](#poor-excellent-1)
+  Clima de golfe               |5| [Ruim-excelente 1](#poor-excellent-1)
+  Grama em crescimento              |33| [Ruim-excelente 1](#poor-excellent-1)
+  Frizz de cabelo                 |42| [Improvável-emergência](#unlikely-emergency)
+  Aptidão de coração íntegra      |16| [Ruim-excelente 1](#poor-excellent-1)
+  Caminhada                     |3| [Ruim-excelente 1](#poor-excellent-1)
+  Eficiência de energia doméstica     |36| [Ruim-excelente 1](#poor-excellent-1)
+  Buscando                    | 20| [Ruim-excelente 1](#poor-excellent-1)
+  Atividade de interno            | -2| [Ruim-excelente 1](#poor-excellent-1)
+  Jogging                    |2| [Ruim-excelente 1](#poor-excellent-1)
+  Kite voando                |9| [Ruim-excelente 1](#poor-excellent-1)
+  Mowing do gramado                |28| [Ruim-excelente 1](#poor-excellent-1)
+  Migraine dor de cabeça          |27|  [Benéfico – a extremo risco](#beneficial-at-extreme-risk)
+  Barramento escolar da manhã         |35| [Ruim-excelente 1](#poor-excellent-1)
+  Atividade mosquito          |17|[Baixo-extremo 1](#low-extreme-1)
+  Atividade externa           |29| [Ruim-excelente 1](#poor-excellent-1)
+  Barbecue externamente           |24| [Ruim-excelente 1](#poor-excellent-1)
+  Concerto ao ar            |8| [Ruim-excelente 1](#poor-excellent-1)
+  Executando                    |1|  [Ruim-excelente 1](#poor-excellent-1)
+  Quadra                     |6| [Ruim-excelente 1](#poor-excellent-1)
+  Thirst                     |41| [Baixo-extremo 2](#low-extreme-2)
+  Velejando                    |11| [Ruim-excelente 1](#poor-excellent-1)
+  Compras                   |39| [Ruim-excelente 1](#poor-excellent-1)
+  Sinus dor de cabeça             |30|  [Benéfico – a extremo risco](#beneficial-at-extreme-risk)
+  Skateboarding              | 7| [Ruim-excelente 1](#poor-excellent-1)
+  Clima da esqui                | 15| [Ruim-excelente 1](#poor-excellent-1)
+  Dias da neve                  | 19| [Muito Unlikely-Very provável](#very-unlikely-very-likely)
+  Umidade de solo              | 34| [Ruim-excelente 1](#poor-excellent-1)
+  Stargazing                 | 12| [Ruim-excelente 1](#poor-excellent-1)
+
+Abaixo está a lista de grupos de índice disponíveis (indexGroupId):
+
+  ID   | Nome do Grupo | Índices neste grupo |
+  -------- | ------------------|------
+  1       |Todos | Todos
+  2       |Aches e problemas | Arthritis dor (21) </br> Migraine dor de cabeça (27) </br> Sinus dor de cabeça (30)
+  3       |Respiratory | Asthma (23) </br> Frio comum (25) </br> Previsão de gripe (26)
+  4       |Ambiente | Preparação do campo (32) </br> Mowing do gramado (28) </br> Umidade de solo (34)</br>
+  5       |Ambientais | Composição (38) </br> Eficiência de energia doméstica (36) </br> Economia de combustível (37)
+  6       |Vivendo no ar | Barbecue externamente (24) </br> Atividade mosquito (17)
+  7       |Praia e náuticos | Pool de & de praia (10) </br> Pesca (13) </br> Velejando (11)
+  8       |Esportes | Pesca (13) </br> Caça (20) </br> Atividade externa (29)</br>
+  9       |Pecuária |  Preparação do campo (32) </br>  Umidade de solo (34)
+  10      |Saúde | Arthritis dor (21) </br> Asthma (23) </br> Frio comum (25) </br> Poeira & dander (18) </br> Gripe (26) </br> Aptidão de coração íntegra (16) </br> Migraine dor de cabeça (27)
+  11      |Externa | Barbecue externamente (24) </br> Pool de & de praia (10) </br> Biciclo (4) </br> Concerto ao ar (8) </br>  Preparação do campo (32) </br> Pesca (13) </br> Clima de golfe (5) </br> Caminhada (3) </br> Caça (20) </br> Jogging (2) </br> Kite voando (9) </br> Atividade mosquito (17)</br> Mowing do gramado (28) </br> Atividade externa (29) </br> Em execução (1) </br> Velejando (11) </br> Skateboarding (7) </br> Clima da esqui (15) </br>  Umidade de solo (34)</br> Stargazing (12) </br> Tênis (6)
+  12      |Artigos | Biciclo (4) </br> Clima de golfe (5) </br> Caminhada (3) </br>  Jogging (2) </br> Em execução (1) </br> Skateboarding (7) </br> Clima da esqui (15) </br>Tênis (6)
+  13      |Página Inicial | Eficiência de energia doméstica (36) </br> Economia de combustível (37) </br> Atividade de interno (-2)
+
+## <a name="daily-index-range-sets"></a>Conjuntos de intervalos de índice diários
+
+A [API obter índices diários](/rest/api/maps/weather) retorna o valor de intervalo e seu nome de categoria associado para cada ID de índice. Os conjuntos de intervalos não são os mesmos para todos os índices. As tabelas a seguir mostram os vários conjuntos de intervalos usados pelos índices com suporte listados em IDs de [índice e IDs de grupos de índice](#index-ids-and-index-groups-ids). Para descobrir quais índices usam quais conjuntos de intervalos, vá para a seção [IDs de índice e IDs de grupos de índice](#index-ids-and-index-groups-ids) deste documento.
+
+### <a name="poor-excellent-1"></a>Poor-Excellent 1
+
+  | Nome da categoria | Intervalo de início | Intervalo de término |
+  ----------------|--------------|------------
+  Ruim              |  0 |                2,99
+  Razoável              |  3  |               4,99
+  Satisfatório              |  5  |              6,99
+  Muito bom         |  7  |               8,99
+  Excelente         |  9  |               10
+
+### <a name="poor-excellent-2"></a>Poor-Excellent 2
+
+ | Nome da categoria | Intervalo de início | Intervalo de término |
+  ----------------|--------------|------------
+  Ruim           |0              |  3
+  Razoável           |3, 1           |  6
+  Satisfatório           |6.01           |  7,5
+  Muito bom      |7,51           |  8,99
+  Excelente      |9              |  10
+
+### <a name="excellent-poor"></a>Excellent-Poor
+
+ | Nome da categoria | Intervalo de início | Intervalo de término |
+  ----------------|--------------|------------
+  Excelente      |     0,00        |    1.00
+  Muito bom        |   1.01          |  3.00
+  Satisfatório             |   3, 1          |  5.00
+  Razoável             |   5,01          |  7,00
+  Ruim             |   7, 1          |  10,00
+
+### <a name="low-extreme-1"></a>Low-Extreme 1
+
+   | Nome da categoria | Intervalo de início | Intervalo de término |
+  ----------------|--------------|------------
+  Baixo                |  0         |        1,99
+  Moderado           |  2         |        3,99
+  Alta               |  4         |        5,99
+  Muito alto          |  6         |        7,99
+  Extremo            |  8         |        10
+
+### <a name="low-extreme-2"></a>Low-Extreme 2
+
+   | Nome da categoria | Intervalo de início | Intervalo de término |
+  ----------------|--------------|------------
+  Baixo                |  0            |      2,99
+  Moderado           |  3            |      4,99
+  Alta               |  5            |      6,99
+  Muito alto          |  7            |      8,99
+  Extremo            |  9            |      10
+
+### <a name="very-unlikely-very-likely"></a>Muito Unlikely-Very provável
+
+ | Nome da categoria | Intervalo de início | Intervalo de término |
+  ----------------|--------------|------------
+  Muito improvável      | 0     |           1,99
+  Provável           | 2     |           3,99
+  Possível           | 4     |           5,99
+  Podem             | 6     |           7,99
+  Muito provável        | 8     |           10
+
+### <a name="very-unlikely-very-likely-2"></a>Muito Unlikely-Very probabilidade 2
+
+ | Nome da categoria | Intervalo de início | Intervalo de término |
+  ----------------|--------------|------------
+  Muito improvável      |  0,00     |         1.00
+  Provável           |  1.01     |         3.00
+  Possível           |  3, 1     |         5.00
+  Podem             |  5,01     |         7,00
+  Muito provável        |  7, 1     |         10,00
+
+### <a name="unlikely-emergency"></a>Unlikely-Emergency
+
+| Nome da categoria | Intervalo de início | Intervalo de término |
+  ----------------|--------------|------------
+  Provável         |  0     |          2,99
+  Assistir            |  3     |          4,99
+  Supervisão         |  5     |          6,99
+  Aviso          |  7     |          8,99
+  Emergência        |  9     |          10
+
+### <a name="beneficial-at-extreme-risk"></a>Beneficial-At risco extremo
+
+| Nome da categoria | Intervalo de início | Intervalo de término |
+  ----------------|--------------|------------
+  Benéfica        |    0        |        1,99
+  Neutro           |    2        |        3,99
+  Em risco           |    4        |        5,99
+  Em risco alto      |    6        |        7,99
+  A um risco extremo   |    8        |        10

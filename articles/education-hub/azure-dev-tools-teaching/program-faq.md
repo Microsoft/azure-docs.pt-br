@@ -7,14 +7,14 @@ ms.service: azure-education
 ms.subservice: education-hub
 ms.topic: overview
 ms.date: 06/30/2020
-ms.openlocfilehash: e28638e8daec5dcc283d61474d63ec41ec56ae63
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: cb283380487310165c646c8615d10a545d1a923b
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87100615"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675707"
 ---
-# <a name="frequently-asked-questions-about-azure-dev-tools-for-teaching"></a>Perguntas frequentes sobre o Azure Dev Tools for Teaching
+# <a name="frequently-asked-questions-about-the-education-hub"></a>Perguntas frequentes sobre o Hub de Educação
 
 Este artigo aborda perguntas frequentes sobre o Azure for Students, o Azure for Students Starter e o Azure Dev Tools for Teaching.
 
@@ -46,7 +46,7 @@ Sua assinatura do Azure for Students fornece acesso a algumas ferramentas para d
 
 ### <a name="what-is-microsoft-learn"></a>O que é o Microsoft Learn?
 
-O [Microsoft Learn](https://docs.microsoft.com/learn/) é uma plataforma de aprendizado online gratuita que permite que você aprenda as tecnologias do Azure no próprio ritmo. Os roteiros de aprendizagem combinam módulos que permitem que você comece com os conceitos básicos e passe para métodos avançados que resolvem desafios do mundo real.
+O [Microsoft Learn](/learn/) é uma plataforma de aprendizado online gratuita que permite que você aprenda as tecnologias do Azure no próprio ritmo. Os roteiros de aprendizagem combinam módulos que permitem que você comece com os conceitos básicos e passe para métodos avançados que resolvem desafios do mundo real.
 
 ### <a name="can-azure-for-students-be-used-for-production-or-only-for-development"></a>O Azure for Students pode ser usado para produção ou somente para desenvolvimento?
 
@@ -97,7 +97,7 @@ Baixe esse software no [Hub de Educação](https://ms.portal.azure.com/#blade/Mi
 
 ### <a name="what-is-microsoft-learn"></a>O que é o Microsoft Learn?
 
-O [Microsoft Learn](https://docs.microsoft.com/learn/) é uma plataforma de aprendizado online gratuita que permite que você aprenda as tecnologias do Azure no próprio ritmo. Os roteiros de aprendizagem combinam módulos que permitem que você comece com os conceitos básicos e passe para métodos avançados que resolvem desafios do mundo real.
+O [Microsoft Learn](/learn/) é uma plataforma de aprendizado online gratuita que permite que você aprenda as tecnologias do Azure no próprio ritmo. Os roteiros de aprendizagem combinam módulos que permitem que você comece com os conceitos básicos e passe para métodos avançados que resolvem desafios do mundo real.
 
 ## <a name="azure-academic-grant"></a>Bolsa acadêmica do Azure
 
@@ -149,9 +149,14 @@ Os créditos do curso do Azure cobrem apenas o uso a partir do momento em que vo
 
 ### <a name="how-do-i-know-if-my-subscription-is-on-the-azure-course-credit-offer"></a>Como fazer para saber se minha assinatura está na oferta de créditos do curso do Azure?
 
-Se você examinar uma assinatura específica na folha Assinaturas no portal do Azure, verá o **Nome da Oferta** como uma das propriedades. O Nome da Oferta informará o **Azure Sponsorship** se ela estiver conectada aos créditos do curso. Se não for exibido **Azure Sponsorship**, entre em contato com o suporte para convertê-la.
+Se você examinar uma assinatura específica na folha Assinaturas no portal do Azure, verá o **Nome da Oferta** como uma das propriedades. O Nome da Oferta informará o **Azure Sponsorship** se ela estiver conectada aos créditos do curso. Se não for exibido **Azure Sponsorship** , entre em contato com o suporte para convertê-la.
 
 ## <a name="azure-dev-tools-for-teaching"></a>Azure Dev Tools for Teaching
+
+### <a name="who-is-eligible-to-purchase-microsoft-azure-dev-tools-for-teaching"></a>Quem está qualificado para aquisição do Microsoft Azure Dev Tools for Teaching?
+
+Somente instituições acadêmicas que adquiriram um contrato do tipo VL (licenciamento por volume) com a Microsoft podem se inscrever no Azure Dev Tools for Teaching.  Se for um cliente do Dev Tools for Teaching sem um contrato de VL, você poderá continuar para renovar sua assinatura. Para saber mais sobre os contratos VL para instituições acadêmicas, visite https://aka.ms/ees 
+
 
 ### <a name="what-products-are-included-in-the-azure-dev-tools-for-teaching-subscription"></a>Quais produtos estão incluídos na assinatura do Azure Dev Tools for Teaching?
 
@@ -247,10 +252,10 @@ Se você ainda não puder entrar, entre em contato com o administrador da assina
 
 ### <a name="how-do-i-find-my-subscriber-id"></a>Como fazer para encontrar minha ID do Assinante?
 
-- **Quando você se registra no programa pela primeira vez**: o número da sua ID do Assinante está no email de boas-vindas da assinatura que você recebe.
-- **Se você renovou sua assinatura**: sua ID do Assinante está contida no email de renovação recebido pelo administrador da assinatura.
+- **Quando você se registra no programa pela primeira vez** : o número da sua ID do Assinante está no email de boas-vindas da assinatura que você recebe.
+- **Se você renovou sua assinatura** : sua ID do Assinante está contida no email de renovação recebido pelo administrador da assinatura.
 
-Sua ID do Assinante também está no portal de Assinatura do Visual Studio. Depois de entrar, procure-a em **Minha Assinatura** na página **Minha Conta**.
+Sua ID do Assinante também está no portal de Assinatura do Visual Studio. Depois de entrar, procure-a em **Minha Assinatura** na página **Minha Conta** .
 
 Caso precise de ajuda para localizar sua ID do Assinante, [entre em contato conosco](https://azureforeducation.microsoft.com/institutions/Contact).
 
@@ -277,7 +282,7 @@ Caso você não receba esses emails de lembrete e esteja preocupado que a sua as
 
 Como alternativa, acesse a [página Azure Dev Tools for Teaching – Renovar](https://portal.azureforeducation.microsoft.com/) e conclua o processo de renovação.
 
-Para verificar a data de validade da sua assinatura, acesse o [Portal de Gerenciamento do Azure Dev Tools for Teaching](https://azureforeducation.microsoft.com/account/Subscriptions) e examine-a em **Assinaturas**.
+Para verificar a data de validade da sua assinatura, acesse o [Portal de Gerenciamento do Azure Dev Tools for Teaching](https://azureforeducation.microsoft.com/account/Subscriptions) e examine-a em **Assinaturas** .
 
 ### <a name="what-if-i-need-more-help"></a>E se eu precisar de mais ajuda?
 

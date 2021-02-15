@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: provisionamento de usuário para ThousandEyes-Azure AD'
+title: 'Tutorial: provisionamento de usuário para o ThousandEyes – Azure AD'
 description: Saiba como configurar o Azure Active Directory para provisionar e desprovisionar automaticamente contas de usuário no ThousandEyes.
 services: active-directory
 author: ArvindHarinder1
@@ -7,15 +7,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: arvinh
-ms.openlocfilehash: a009361267a364f04237716f3623921c892e2708
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
-ms.translationtype: MT
+ms.openlocfilehash: fcb53dc22cfb4bf7308b92ee76e5aaaf3bb0dead
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88546416"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735076"
 ---
 # <a name="tutorial-configure-thousandeyes-for-automatic-user-provisioning"></a>Tutorial: Configurar ThousandEyes para provisionamento automático de usuário
 
@@ -55,37 +55,71 @@ Esta seção explica como conectar seu Azure AD à API de provisionamento de con
 
 ### <a name="configure-automatic-user-account-provisioning-to-thousandeyes-in-azure-ad"></a>Configurar o provisionamento automático de conta de usuário para o ThousandEyes no Azure AD
 
-1. Na [portal do Azure](https://portal.azure.com), navegue até a seção **Azure Active Directory > aplicativos empresariais > todos os aplicativos**  .
+1. Entre no [portal do Azure](https://portal.azure.com). Selecione **Aplicativos Empresariais** e **Todos os Aplicativos**.
+
+    ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
 2. Se você já tiver configurado o ThousandEyes para logon único, pesquise sua instância do ThousandEyes usando o campo de pesquisa. Caso contrário, selecione **Adicionar** e pesquise **ThousandEyes** na galeria de aplicativos. Selecione o ThousandEyes nos resultados da pesquisa e adicione-o à lista de aplicativos.
 
+    ![O link do ThousandEyes na lista de Aplicativos](common/all-applications.png)
+    
 3. Selecione sua instância do ThousandEyes e selecione a guia **Provisionamento**.
+
+    ![Guia Provisionamento](common/provisioning.png)
 
 4. Defina o **Modo de Provisionamento** como **Automático**.
 
-    ![Provisionamento do ThousandEyes](./media/thousandeyes-provisioning-tutorial/ThousandEyes1.png)
+![Uma captura de tela que mostra a guia Provisionamento para o ThousandEyes com o Modo de Provisionamento selecionado como Automático.](./media/thousandeyes-provisioning-tutorial/ThousandEyes1.png)
+    
 
 5. Na seção **Credenciais de Administrador**, insira o **Token de Portador do OAuth** gerado pela conta do ThousandEyes (é possível localizar e/ou gerar o token na sua conta do ThousandEyes: seção **Perfil**).
 
-    ![Provisionamento do ThousandEyes](./media/thousandeyes-provisioning-tutorial/ThousandEyes2.png)
+    ![Uma captura de tela que mostra onde encontrar o link de Configurações de Conta para o Grupo de Contas Atual.](./media/thousandeyes-provisioning-tutorial/ThousandEyes2.png)
 
 6. No Portal do Azure, clique em **Testar conectividade** para garantir que o Azure AD possa se conectar ao seu aplicativo ThousandEyes. Se a conexão falhar, verifique se sua conta do ThousandEyes tem permissões de Administrador e repita a etapa 5.
 
-7. Insira o endereço de email de uma pessoa ou um grupo que deve receber notificações de erro de provisionamento no campo **Email de Notificação** e marque a caixa de seleção “Enviar uma notificação por email quando ocorrer uma falha”.
+7. No campo **Notificação por Email**, insira o endereço de email de uma pessoa ou grupo que deverá receber as notificações de erro de provisionamento e marque a caixa de seleção **Enviar uma notificação por email quando ocorrer uma falha**.
+
+    ![Email de notificação](common/provisioning-notification-email.png)
 
 8. Clique em **Save** (Salvar).
 
 9. Na seção Mapeamentos, selecione **Sincronizar Usuários do Azure Active Directory com o ThousandEyes**.
 
-10. Na seção **Mapeamentos de Atributo**, revise os atributos de usuário que serão sincronizados do Azure AD para o ThousandEyes. Os atributos selecionados como propriedades **Correspondentes** serão usados para corresponder as contas de usuário no ThousandEyes para operações de atualização. Selecione o botão Salvar para confirmar as alterações.
+10. Examine os atributos de usuário que serão sincronizados entre o Azure AD e o ThousandEyes na seção **Mapeamento de Atributos**. Os atributos selecionados como propriedades **Correspondentes** serão usados para obter uma correspondência entre contas de usuário da Parsable para executar operações de atualização. Caso escolha alterar o [atributo de destino correspondente](../app-provisioning/customize-application-attributes.md), será necessário verificar se a API da Parsable é compatível com uma filtragem de usuários baseada nesse atributo. Selecione o botão **Salvar** para confirmar as alterações.
 
-11. Para habilitar o serviço de provisionamento do Azure AD para o ThousandEyes, altere o **Status de Provisionamento** para **Ativado** na seção **Configurações**
+     |Atributo|Type|Com suporte para filtragem|
+     |---|---|---|
+     |externalId|String|&check;|
+     |userName|String|&check;|
+     |ativo|Boolean|
+     |displayName|String|
+     |emails[type eq "work"].value|String|
+     |name.formatted|String|
 
-12. Clique em **Save** (Salvar).
 
-Essa operação inicia a sincronização inicial de todos os usuários e/ou grupos atribuídos ao ThousandEyes na seção Usuários e Grupos. Observe que a sincronização inicial levará mais tempo do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço esteja em execução. É possível usar a seção **Detalhes de Sincronização** para monitorar o andamento e seguir os links para os logs de atividade de provisionamento, que descrevem todas as ações executadas pelo serviço de provisionamento.
+11. Para configurar filtros de escopo, consulte as seguintes instruções fornecidas no [tutorial do Filtro de Escopo](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-Para saber mais sobre como ler os logs de provisionamento do Azure AD, consulte [Relatórios sobre o provisionamento automático de contas de usuário](../app-provisioning/check-status-user-account-provisioning.md).
+12. Para habilitar um serviço de provisionamento do Azure AD para o ThousandEyes, altere o **Status de Provisionamento** para **Ativado** na seção **Configurações**.
+
+    ![Status do provisionamento ativado](common/provisioning-toggle-on.png)
+
+13. Defina usuários e/ou grupos que você deseja provisionar para o ThousandEyes escolhendo os valores desejados na opção **Escopo** da seção **Configurações**.
+
+    ![Escopo de provisionamento](common/provisioning-scope.png)
+
+14. Quando estiver pronto para provisionar, clique em **Salvar**.
+
+    ![Salvando a configuração de provisionamento](common/provisioning-configuration-save.png)
+
+Essa operação começa o ciclo de sincronização inicial de todos os usuários e grupos definidos no **Escopo** na seção **Configurações**. O ciclo inicial leva mais tempo do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento do Azure AD esteja em execução. 
+
+## <a name="step-6-monitor-your-deployment"></a>Etapa 6. Monitorar a implantação
+Depois de configurar o provisionamento, use os seguintes recursos para monitorar a implantação:
+
+1. Use os [logs de provisionamento](../reports-monitoring/concept-provisioning-logs.md) para determinar quais usuários foram provisionados com êxito ou não
+2. Confira a [barra de progresso](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) para ver o status do ciclo de provisionamento e saber como fechá-la para concluir
+3. Se a configuração de provisionamento parecer estar em um estado não íntegro, o aplicativo entrará em quarentena. Saiba mais sobre os estados de quarentena [aqui](../app-provisioning/application-provisioning-quarantine-status.md).  
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

@@ -2,19 +2,16 @@
 title: Solucionar problemas do Storm usando o Azure HDInsight
 description: Obtenha respostas para perguntas comuns sobre o uso do Apache Storm com o Azure HDInsight.
 keywords: Azure HDInsight, Storm, perguntas frequentes, guia de solução de problemas, problemas comuns
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 11/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: b51b2c21fd9256c93f6947386a48336af2b75d88
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c81084c77b355a5d60c72564c58a98e08da14312
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84700358"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946302"
 ---
 # <a name="troubleshoot-apache-storm-by-using-azure-hdinsight"></a>Solucionar problemas do Apache Storm usando o Azure HDInsight
 
@@ -95,7 +92,7 @@ Os binários do Storm para a pilha HDP atual estão em `/usr/hdp/current/storm-c
 
 Pode haver vários binários para versões específicas do HDP em/usr/HDP (por exemplo, `/usr/hdp/2.5.0.1233/storm` ). A `/usr/hdp/current/storm-client` pasta é symlinked para a versão mais recente que está em execução no cluster.
 
-Para obter mais informações, consulte [Conectar um cluster HDInsight usando SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) e [Apache Storm](https://storm.apache.org/).
+Para obter mais informações, consulte [Conectar um cluster HDInsight usando SSH](../hdinsight-hadoop-linux-use-ssh-unix.md) e [Apache Storm](https://storm.apache.org/).
 
 ## <a name="how-do-i-determine-the-deployment-topology-of-a-storm-cluster"></a>Como fazer para determinar a topologia de implantação de um cluster do Storm?
 
@@ -141,7 +138,7 @@ Para obter mais informações sobre como usar arquivos .jar de spout do hub de e
 
 ### <a name="c-based-topology-mono-on-hdinsight-34-linux-storm-clusters"></a>Topologia baseada em C# (Mono em clusters Storm Linux no HDInsight 3.4+)
 
-[Processar eventos dos Hubs de Eventos do Azure com o Apache Storm no HDInsight (C#)](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-develop-csharp-event-hub-topology)
+[Processar eventos dos Hubs de Eventos do Azure com o Apache Storm no HDInsight (C#)](./apache-storm-develop-csharp-event-hub-topology.md)
 
 ### <a name="latest-apache-storm-event-hub-spout-binaries-for-hdinsight-35-linux-storm-clusters"></a>Os mais recentes binários do spout do hub de eventos do Apache Storm para clusters do HDInsight 3.5+ Linux Storm
 
@@ -165,7 +162,7 @@ A configuração de Log4J do supervisor é lida de `/usr/hdp/\<HDP version>/stor
 
 O arquivo de configuração do Log4J de trabalho é lido de `/usr/hdp/\<HDP version>/storm/log4j2/worker.xml` .
 
-Disso`/usr/hdp/2.6.0.2-76/storm/log4j2/cluster.xml`
+Disso `/usr/hdp/2.6.0.2-76/storm/log4j2/cluster.xml`
 `/usr/hdp/2.6.0.2-76/storm/log4j2/worker.xml`
 
 ---
@@ -174,7 +171,7 @@ Disso`/usr/hdp/2.6.0.2-76/storm/log4j2/cluster.xml`
 
 Ao enviar uma topologia, o usuário pode receber uma mensagem de erro semelhante a: `Topology submission exception, cause not a leader, the current leader is NimbusInfo` .
 
-Para resolver, o usuário pode precisar arquivar um tíquete para que os nós sejam reiniciados/reinicializados. Para obter mais informações, consulte [https://community.hortonworks.com/content/supportkb/150287/error-ignoring-exception-while-trying-to-get-leade.html](https://community.hortonworks.com/content/supportkb/150287/error-ignoring-exception-while-trying-to-get-leade.html).
+Para resolver, o usuário pode precisar arquivar um tíquete para que os nós sejam reiniciados/reinicializados. Para obter mais informações, confira [https://community.hortonworks.com/content/supportkb/150287/error-ignoring-exception-while-trying-to-get-leade.html](https://community.hortonworks.com/content/supportkb/150287/error-ignoring-exception-while-trying-to-get-leade.html).
 
 ---
 
@@ -186,4 +183,4 @@ Se você não encontrou seu problema ou não conseguiu resolver seu problema, vi
 
 - Conecte-se com [@AzureSupport](https://twitter.com/azuresupport), a conta oficial do Microsoft Azure para melhorar a experiência do cliente. Como se conectar à comunidade do Azure para os recursos certos: respostas, suporte e especialistas.
 
-- Se precisar de mais ajuda, poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **Suporte** na barra de menus ou abra o hub **Ajuda + suporte**. Para obter informações mais detalhadas, consulte [Como criar uma solicitação de Suporte do Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). O acesso ao Gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o suporte técnico é fornecido por meio de um dos [Planos de suporte do Azure](https://azure.microsoft.com/support/plans/).
+- Se precisar de mais ajuda, poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **Suporte** na barra de menus ou abra o hub **Ajuda + suporte**. Para obter informações mais detalhadas, consulte [Como criar uma solicitação de Suporte do Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). O acesso ao Gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o suporte técnico é fornecido por meio de um dos [Planos de suporte do Azure](https://azure.microsoft.com/support/plans/).

@@ -4,12 +4,12 @@ description: Este artigo fornece diretrizes de arquitetura de referência para A
 ms.topic: article
 ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 8b71774d9a833adefdd25214ea4f0e8bdaaba485
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 29f739c2fb9dd1cc58bf6c400eeee1bebb6243c2
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85480177"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92328837"
 ---
 # <a name="azure-devtest-labs-reference-architecture-for-enterprises"></a>Arquitetura de referência de Azure DevTest Labs para empresas
 Este artigo fornece uma arquitetura de referência para ajudá-lo a implantar uma solução com base em Azure DevTest Labs em uma empresa. Ele inclui o seguinte:
@@ -24,13 +24,13 @@ Este artigo fornece uma arquitetura de referência para ajudá-lo a implantar um
 Estes são os principais elementos da arquitetura de referência:
 
 - **Azure Active Directory (AD do Azure)**: o DevTest Labs usa o [serviço do Azure ad para gerenciamento de identidade](../active-directory/fundamentals/active-directory-whatis.md). Considere esses dois aspectos principais ao conceder aos usuários acesso a um ambiente baseado em DevTest Labs:
-    - **Gerenciamento de recursos**: fornece acesso ao portal do Azure para gerenciar recursos (criar máquinas virtuais; criar ambientes; iniciar, parar, reiniciar, excluir e aplicar artefatos; e assim por diante). O gerenciamento de recursos é feito no Azure usando o RBAC (controle de acesso baseado em função). Você atribui funções a usuários e define permissões de nível de acesso e recursos.
+    - **Gerenciamento de recursos**: fornece acesso ao portal do Azure para gerenciar recursos (criar máquinas virtuais; criar ambientes; iniciar, parar, reiniciar, excluir e aplicar artefatos; e assim por diante). O gerenciamento de recursos é feito usando o controle de acesso baseado em função do Azure (RBAC do Azure). Você atribui funções a usuários e define permissões de nível de acesso e recursos.
     - **Máquinas virtuais (nível de rede)**: na configuração padrão, as máquinas virtuais usam uma conta de administrador local. Se houver um domínio disponível ([Azure AD Domain Services](../active-directory-domain-services/overview.md), um domínio local ou um domínio baseado em nuvem), as máquinas poderão ser unidas ao domínio. Os usuários podem usar suas identidades baseadas em domínio para se conectarem às VMs.
 - **Conectividade local**: em nosso diagrama de arquitetura, o [ExpressRoute](../expressroute/expressroute-introduction.md) é usado. Mas você também pode usar uma [VPN site a site](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md). Embora o ExpressRoute não seja necessário para o DevTest Labs, ele é comumente usado em empresas. O ExpressRoute só será necessário se você precisar de acesso aos recursos corporativos. Os cenários comuns são:
     - Você tem dados locais que não podem ser movidos para a nuvem.
     - Você prefere unir as máquinas virtuais do laboratório ao domínio local.
     - Você deseja forçar todo o tráfego de rede dentro e fora do ambiente de nuvem por meio de um firewall local para segurança/conformidade.
-- **Grupos de segurança de rede**: uma maneira comum de restringir o tráfego para o ambiente de nuvem (ou dentro do ambiente de nuvem) com base em endereços IP de origem e de destino é usar um [grupo de segurança de rede](../virtual-network/security-overview.md). Por exemplo, você deseja permitir apenas o tráfego originado da rede corporativa nas redes do laboratório.
+- **Grupos de segurança de rede**: uma maneira comum de restringir o tráfego para o ambiente de nuvem (ou dentro do ambiente de nuvem) com base em endereços IP de origem e de destino é usar um [grupo de segurança de rede](../virtual-network/network-security-groups-overview.md). Por exemplo, você deseja permitir apenas o tráfego originado da rede corporativa nas redes do laboratório.
 - **Gateway de área de trabalho remota**: as empresas normalmente bloqueiam conexões de área de trabalho remota de saída no firewall corporativo. Há várias opções para habilitar a conectividade com o ambiente baseado em nuvem no DevTest Labs, incluindo:
   - Use um [Gateway de área de trabalho remota](/windows-server/remote/remote-desktop-services/desktop-hosting-logical-architecture)e permita o endereço IP estático do balanceador de carga do gateway.
   - [Direcione todo o tráfego RDP de entrada](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md) na conexão VPN ExpressRoute/site a site. Essa funcionalidade é uma consideração comum quando as empresas planejam uma implantação do DevTest Labs.
@@ -46,7 +46,7 @@ Embora o DevTest Labs não tenha cotas ou limites internos, outros recursos do A
     - **Usando IPS públicos compartilhados**: todas as VMs do mesmo tamanho e região entram no mesmo grupo de recursos. Essa configuração é uma "base intermediária" entre as cotas do grupo de recursos e as cotas de tipo de recurso por recurso-grupo, se as máquinas virtuais tiverem permissão para ter endereços IP públicos.
 - **Recursos por grupo de recursos por tipo de recurso**: o limite padrão para [recursos por grupo de recursos por tipo de recurso é 800](../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits).  Quando você usar *todas as VMs, vá para a mesma* configuração de grupo de recursos, os usuários atingirão esse limite de assinatura muito mais cedo, especialmente se as VMs tiverem muitos discos extras.
 - **Contas de armazenamento**: um laboratório do DevTest Labs vem com uma conta de armazenamento. A cota do Azure para o [número de contas de armazenamento por região por assinatura é de 250](../azure-resource-manager/management/azure-subscription-service-limits.md#storage-limits). O número máximo de laboratórios de DevTest na mesma região também é 250.
-- **Atribuições de função**: uma atribuição de função é como você dá a um usuário ou acesso de entidade de segurança a um recurso (proprietário, recurso, nível de permissão). No Azure, há um [limite de 2.000 atribuições de função por assinatura](../azure-resource-manager/management/azure-subscription-service-limits.md#role-based-access-control-limits). Por padrão, o serviço do DevTest Labs cria um grupo de recursos para cada VM. O proprietário recebe permissão de *proprietário* para a VM do DevTest Labs e a permissão de *leitor* para o grupo de recursos. Dessa forma, cada nova VM que você cria usa duas atribuições de função, além das atribuições que são usadas quando você concede aos usuários a permissão para o laboratório.
+- **Atribuições de função**: uma atribuição de função é como você dá a um usuário ou acesso de entidade de segurança a um recurso (proprietário, recurso, nível de permissão). No Azure, há um [limite de 2.000 atribuições de função por assinatura](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-role-based-access-control-limits). Por padrão, o serviço do DevTest Labs cria um grupo de recursos para cada VM. O proprietário recebe permissão de *proprietário* para a VM do DevTest Labs e a permissão de *leitor* para o grupo de recursos. Dessa forma, cada nova VM que você cria usa duas atribuições de função, além das atribuições que são usadas quando você concede aos usuários a permissão para o laboratório.
 - **Leituras/gravações da API**: há várias maneiras de automatizar o Azure e o DevTest Labs, incluindo APIs REST, PowerShell, CLI do Azure e SDK do Azure. Por meio da automação, você pode atingir outro limite nas solicitações de API: cada assinatura permite até [12.000 solicitações de leitura e 1.200 solicitações de gravação por hora](../azure-resource-manager/management/request-limits-and-throttling.md). Esteja atento a esse limite ao automatizar os laboratórios de DevTest.
 
 ## <a name="manageability-considerations"></a>Considerações sobre capacidade de gerenciamento

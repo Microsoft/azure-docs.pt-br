@@ -12,20 +12,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 06/18/2020
+ms.date: 12/23/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef88a15286389c98bb77f982afbc54358897eef4
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: b356d5dff453b598eeb773af1a56fc50193e9e16
+ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783851"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97746653"
 ---
 # <a name="govern-access-for-external-users-in-azure-ad-entitlement-management"></a>Controlar o acesso para usuários externos no gerenciamento de direitos do Azure AD
 
-O gerenciamento de direitos do Azure AD utiliza o [B2B (Business-to-Business) do Azure ad](../external-identities/what-is-b2b.md) para colaborar com pessoas de fora da sua organização em outro diretório. Com o Azure AD B2B, os usuários externos se autenticam em seu diretório base, mas têm uma representação em seu diretório. A representação em seu diretório permite que o usuário receba acesso aos seus recursos.
+O gerenciamento de direitos do Azure AD utiliza o [B2B (Business-to-Business) do Azure ad](../external-identities/what-is-b2b.md) para colaborar com pessoas de fora da sua organização em outro diretório. Com o Azure AD B2B, os usuários externos fazem a autenticação em seu diretório base, mas têm uma representação em seu diretório. A representação em seu diretório permite que o usuário receba acesso aos seus recursos.
 
 Este artigo descreve as configurações que você pode especificar para controlar o acesso para usuários externos.
 
@@ -83,8 +83,8 @@ Para garantir que as pessoas fora de sua organização possam solicitar pacotes 
 
 - Permitir que os convidados convidem outros convidados para seu diretório significa que os convites convidados podem ocorrer fora do gerenciamento de direitos. Recomendamos que a configuração de **convidados possa convidar** para **não** permitir apenas convites devidamente controlados.
 - Se você estiver usando a lista de permissões B2B, deverá ter certeza de que qualquer domínio ao qual você deseja usar o gerenciamento de direitos é adicionado à lista. Como alternativa, se você estiver usando a lista de negações de B2B, deverá certificar-se de que qualquer domínio com o qual você deseja fazer o parceiro não seja adicionado à lista.
-- Se você criar uma política de gerenciamento de direitos para **todos os usuários** (todas as organizações conectadas + quaisquer novos usuários externos), qualquer configuração de lista de permissões B2B ou de negação terá precedência. Portanto, certifique-se de incluir os domínios que você pretende incluir nessa política na sua lista de permissões se você estiver usando um, e exclua-os da sua lista de negações se estiver usando uma lista de negações.
-- Se você quiser criar uma política de gerenciamento de direitos que inclua **todos os usuários** (todas as organizações conectadas + quaisquer novos usuários externos), primeiro você deve habilitar a autenticação de senha de uso único de email para seu diretório. Para obter mais informações, consulte [autenticação de senha de uso único de email (versão prévia)](../external-identities/one-time-passcode.md#opting-in-to-the-preview).
+- Se você criar uma política de gerenciamento de direitos para **todos os usuários** (todas as organizações conectadas + quaisquer novos usuários externos) e um usuário não pertencer a uma organização conectada em seu diretório, uma organização conectada será criada automaticamente para eles quando solicitarem o pacote. Qualquer configuração de lista de permissões ou de negação B2B terá precedência. Portanto, certifique-se de incluir os domínios que você pretende incluir nessa política na sua lista de permissões se você estiver usando um, e exclua-os da sua lista de negações se estiver usando uma lista de negações.
+- Se você quiser criar uma política de gerenciamento de direitos que inclua **todos os usuários** (todas as organizações conectadas + quaisquer novos usuários externos), primeiro você deve habilitar a autenticação de senha de uso único de email para seu diretório. Para obter mais informações, consulte [autenticação de senha de uso único de email (versão prévia)](../external-identities/one-time-passcode.md).
 - Para obter mais informações sobre as configurações de colaboração externa B2B do Azure AD, consulte [habilitar colaboração externa B2B e gerenciar quem pode convidar convidados](../external-identities/delegate-invitations.md).
 
     ![Configurações de colaboração externa do Azure AD](./media/entitlement-management-external-users/collaboration-settings.png)
@@ -105,11 +105,11 @@ Para garantir que as pessoas fora de sua organização possam solicitar pacotes 
 
 ### <a name="review-your-microsoft-365-group-sharing-settings"></a>Examine as configurações de compartilhamento de grupo de Microsoft 365
 
-- Se você quiser incluir grupos de Microsoft 365 em seus pacotes de acesso para usuários externos, verifique se a permissão **permitir que os usuários adicionem novos convidados à organização** está definida como **ativada** para permitir o acesso de convidado. Para obter mais informações, consulte [gerenciar o acesso de convidado a grupos de Microsoft 365](/office365/admin/create-groups/manage-guest-access-in-groups?view=o365-worldwide#manage-groups-guest-access).
+- Se você quiser incluir grupos de Microsoft 365 em seus pacotes de acesso para usuários externos, verifique se a permissão **permitir que os usuários adicionem novos convidados à organização** está definida como **ativada** para permitir o acesso de convidado. Para obter mais informações, consulte [gerenciar o acesso de convidado a grupos de Microsoft 365](/Microsoft 365/admin/create-groups/manage-guest-access-in-groups?view=Microsoft 365-worldwide#manage-groups-guest-access).
 
 - Se você quiser que usuários externos possam acessar o site do SharePoint Online e os recursos associados a um grupo de Microsoft 365, certifique-se de ativar o compartilhamento externo do SharePoint Online. Para obter mais informações, consulte [Ativar ou desativar o compartilhamento externo](/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting).
 
-- Para obter informações sobre como definir a política de convidado para grupos de Microsoft 365 no nível de diretório no PowerShell, consulte [exemplo: configurar a política de convidado para grupos no nível do diretório](../users-groups-roles/groups-settings-cmdlets.md#example-configure-guest-policy-for-groups-at-the-directory-level).
+- Para obter informações sobre como definir a política de convidado para grupos de Microsoft 365 no nível de diretório no PowerShell, consulte [exemplo: configurar a política de convidado para grupos no nível do diretório](../enterprise-users/groups-settings-cmdlets.md#example-configure-guest-policy-for-groups-at-the-directory-level).
 
 ### <a name="review-your-teams-sharing-settings"></a>Examine as configurações de compartilhamento de suas equipes
 

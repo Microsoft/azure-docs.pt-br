@@ -1,18 +1,16 @@
 ---
 title: Introdução à linguagem U-SQL no Azure Data Lake Analytics
 description: Conheça os fundamentos da linguagem U-SQL no Azure Data Lake Analytics. Escreva sua primeira consulta usando variáveis para dados adicionais de arquivos, transforme o conjunto de linhas e agregue dados.
-services: data-lake-analytics
 ms.reviewer: jasonh
-ms.assetid: 57143396-ab86-47dd-b6f8-613ba28c28d2
 ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 06/23/2017
-ms.openlocfilehash: 6f2af2eed8aa01f35e1813bcd910f3ea22e2a335
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 5920f2b5823e568d56d13107200eb0025a654db0
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87128838"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92219914"
 ---
 # <a name="get-started-with-u-sql-in-azure-data-lake-analytics"></a>Introdução à U-SQL no Azure Data Lake Analytics
 
@@ -21,7 +19,7 @@ U-SQL é uma linguagem que combina o SQL declarativo com o C# imperativo para pe
 ## <a name="learning-resources"></a>Recursos de aprendizagem
 
 * O [Tutorial do U-SQL](https://aka.ms/usqltutorial) fornece um passo a passo guiado sobre a maior parte da linguagem U-SQL. A leitura deste documento é recomendada para todos os desenvolvedores que desejam aprender sobre U-SQL.
-* Para obter informações detalhadas sobre a **sintaxe da linguagem U-SQL**, consulte a [U-SQL Language Reference](https://docs.microsoft.com/u-sql/) (Referência da linguagem U-SQL).
+* Para obter informações detalhadas sobre a **sintaxe da linguagem U-SQL**, consulte a [U-SQL Language Reference](/u-sql/) (Referência da linguagem U-SQL).
 * Para entender a **filosofia de design do U-SQL**, confira a postagem do blog do Visual Studio [Introducing U-SQL – A Language that makes Big Data Processing Easy](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/) (Apresentando o U-SQL – Uma linguagem que torna fácil o processamento de Big Data).
 
 ## <a name="prerequisites"></a>Pré-requisitos

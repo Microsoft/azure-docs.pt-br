@@ -7,10 +7,10 @@ ms.reviewer: apseth, divswa, logicappspm
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.openlocfilehash: 8c00d2e4f622bcfad7b2468013336f0d936e318c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87048670"
 ---
 # <a name="send-related-messages-in-order-by-using-a-sequential-convoy-in-azure-logic-apps-with-azure-service-bus"></a>Enviar mensagens relacionadas em ordem usando um comboio sequencial no aplicativo lógico do Azure com o barramento de serviço do Azure
@@ -193,7 +193,7 @@ Para fornecer os valores para o gatilho e as ações no modelo **entrega em orde
   > [!NOTE]
   > Inicialmente, o intervalo de sondagem é definido como três minutos para que o aplicativo lógico não seja executado com mais frequência do que o esperado e resulte em encargos de cobrança inesperados. Idealmente, defina o intervalo e a frequência como 30 segundos para que o aplicativo lógico seja disparado imediatamente quando uma mensagem chegar.
 
-  | Propriedade | Necessário para este cenário | Valor | DESCRIÇÃO |
+  | Propriedade | Necessário para este cenário | Valor | Descrição |
   |----------|----------------------------|-------|-------------|
   | **Nome da fila** | Sim | <*nome da fila*> | O nome da fila do barramento de serviço criada anteriormente. Este exemplo usa "fabrikam-Service-Bus-Queue". |
   | **Tipo de fila** | Sim | **Principal** | Sua fila principal do barramento de serviço |

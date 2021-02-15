@@ -1,25 +1,29 @@
 ---
-title: Dimensionar automaticamente um serviço de nuvem no portal | Microsoft Docs
-description: Saiba como usar o portal para configurar regras de dimensionamento automático para uma função web ou função de trabalho do serviço de nuvem no Azure.
-services: cloud-services
-author: tgore03
-ms.service: cloud-services
+title: Dimensionar automaticamente um serviço de nuvem (clássico) no portal | Microsoft Docs
+description: Saiba como usar o portal para configurar regras de dimensionamento automático para funções de serviço de nuvem (clássicas) no Azure.
 ms.topic: article
-ms.date: 05/18/2017
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: e5452e0794083afabbee2759c5b37feb1eed0c88
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: ba7b2279969acab93ac96c42e0033e76e9d0542d
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223679"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980823"
 ---
-# <a name="how-to-configure-auto-scaling-for-a-cloud-service-in-the-portal"></a>Como configurar o dimensionamento automático para um Serviço de Nuvem no portal
+# <a name="how-to-configure-auto-scaling-for-a-cloud-service-classic-in-the-portal"></a>Como configurar o dimensionamento automático para um serviço de nuvem (clássico) no portal
+
+> [!IMPORTANT]
+> Os [serviços de nuvem do Azure (suporte estendido)](../cloud-services-extended-support/overview.md) são um novo modelo de implantação baseado em Azure Resource Manager para o produto de serviços de nuvem do Azure.Com essa alteração, os serviços de nuvem do Azure em execução no modelo de implantação baseado no Azure Service Manager foram renomeados como serviços de nuvem (clássicos) e todas as novas implantações devem usar os [serviços de nuvem (suporte estendido)](../cloud-services-extended-support/overview.md).
 
 As condições podem ser definidas para uma função de trabalho de serviço de nuvem que dispara uma operação para reduzir ou escalar horizontalmente. As condições para a função podem ser baseadas na CPU, no disco ou na carga de rede da função. Você também pode definir uma condição com base em uma fila de mensagens ou a métrica de algum outro recurso do Azure associado à sua assinatura.
 
 > [!NOTE]
-> Este artigo se concentra nas funções Web e de trabalho do Serviço de Nuvem. Ao criar uma máquina virtual (modelo clássico) diretamente, ela será hospedada em um serviço de nuvem. Você pode dimensionar uma máquina virtual padrão ao associá-la a um [conjunto de disponibilidade](../virtual-machines/windows/classic/configure-availability-classic.md) e ligá-los ou desligá-los manualmente.
+> Este artigo se concentra no serviço de nuvem (clássico). Ao criar uma máquina virtual (modelo clássico) diretamente, ela será hospedada em um serviço de nuvem. Você pode dimensionar uma máquina virtual padrão ao associá-la a um [conjunto de disponibilidade](/previous-versions/azure/virtual-machines/windows/classic/configure-availability-classic) e ligá-los ou desligá-los manualmente.
 
 ## <a name="considerations"></a>Considerações
 Você deve considerar as seguintes informações antes de configurar a colocação em escala do seu aplicativo:
@@ -34,7 +38,7 @@ Você deve considerar as seguintes informações antes de configurar a colocaç�
 
 * Para habilitar a alta disponibilidade do seu aplicativo, você deverá garantir que ele esteja implantado com duas ou mais instâncias de função. Para obter mais informações, consulte [Contratos de Nível de Serviço](https://azure.microsoft.com/support/legal/sla/).
 
-* O Dimensionamento automático ocorrerá apenas quando todas as funções estiverem no estado **Pronto**.  
+* O Dimensionamento automático ocorrerá apenas quando todas as funções estiverem no estado **Pronto**.  
 
 
 ## <a name="where-scale-is-located"></a>Onde a escala está localizada
@@ -53,7 +57,7 @@ Você pode definir as configurações de escala para uma função com o modo **m
 
 Defina a opção **Dimensionar por** para as **regras de planejamento e desempenho**.
 
-![Escala dos serviços de nuvem com perfil e regra](./media/cloud-services-how-to-scale-portal/schedule-basics.png)
+![configurações de escala dos serviços de nuvem de imagens com perfil e regra](./media/cloud-services-how-to-scale-portal/schedule-basics.png)
 
 1. Um perfil existente.
 2. Adicione uma regra para o perfil pai.
@@ -66,7 +70,7 @@ Depois de configurar o perfil e as regras, selecione o ícone **Salvar** na part
 #### <a name="profile"></a>Perfil
 O perfil define as instâncias mínimas e máximas da escala, e também quando esse intervalo de escala estará ativo.
 
-* **Sempre**
+* **Always**
 
     Sempre mantenha esse intervalo de instâncias disponível.  
 
@@ -105,6 +109,3 @@ Essa configuração remove o dimensionamento automático da função. Em seguida
 3. Instâncias da função para dimensionar.
 
 Depois de definir as configurações de escala, selecione o ícone **Salvar** na parte superior.
-
-
-

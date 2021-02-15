@@ -5,19 +5,21 @@ author: amberbhargava
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
-ms.topic: conceptual
-ms.date: 08/20/2020
+ms.topic: how-to
+ms.date: 10/20/2020
 ms.author: banders
-ms.openlocfilehash: afa95609e0bcb879b6ad4b3b50b5dff5feb9a9f7
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 7e930ca938b2531fb001c327132f79f703b2ea74
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88682783"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92316404"
 ---
 # <a name="set-up-your-billing-account-for-a-microsoft-customer-agreement"></a>Configurar sua conta de cobrança para um Contrato de Cliente da Microsoft
 
-Caso seu registro do Contrato Enterprise tenha expirado ou esteja prestes a expirar, assine um Contrato de Cliente da Microsoft para renovar seu registro. Este artigo descreve as alterações em sua cobrança existente após a configuração e orienta você na configuração de sua nova conta de cobrança. A renovação inclui as seguintes etapas:
+Caso seu registro direto do Contrato Enterprise tenha expirado ou esteja prestes a expirar, assine um Contrato de Cliente da Microsoft para renovar seu registro. Este artigo descreve as alterações em sua cobrança existente após a configuração e orienta você na configuração de sua nova conta de cobrança. Atualmente, Contratos Enterprise indiretos em expiração não podem ser renovados com um Contrato de Cliente da Microsoft.
+
+A renovação inclui as seguintes etapas:
 
 1. Aceitar o novo Contrato de Cliente da Microsoft. Trabalhar com seu representante de campo da Microsoft para entender os detalhes e aceitar o novo contrato.
 2. Configurar a conta de cobrança criada para o novo Contrato de Cliente da Microsoft.
@@ -28,7 +30,7 @@ Para configurar a conta de cobrança, você precisará fazer a transição da co
 - Você obterá uma fatura mensal digital de seus encargos. Exiba e analise a fatura na página Gerenciamento de Custos do Azure + Cobrança.
 - Em vez de departamentos e da conta no registro do Contrato Enterprise, você usará a estrutura e os escopos do orçamento da nova conta para gerenciar e organizar sua cobrança.
 
-Antes de iniciar a configuração, recomendamos que você faça o seguinte:
+Antes de iniciar a configuração, recomendamos que você faça as seguintes ações:
 
 - **Entender sua nova conta de cobrança**
   - Sua nova conta simplifica a cobrança para sua organização. [Obtenha uma visão geral rápida de sua nova conta de cobrança](../understand/mca-overview.md)
@@ -65,7 +67,7 @@ Solicite aos administradores corporativos do registro a conclusão da configura�
 
    ![Captura de tela que mostra o convite aos administradores corporativos](./media/mca-setup-account/ea-mca-invite-admins.png)
 
-4. Selecione **Enviar solicitação**.
+4. Selecione **Enviar solicitação** .
 
    Os administradores receberão um email com instruções para concluir a configuração.
 
@@ -100,7 +102,7 @@ Um locatário do Azure AD (Active Directory) é selecionado para a nova conta de
 
 Sua nova conta só dá suporte aos usuários do locatário que foi selecionado no momento da assinatura do Contrato de Cliente da Microsoft. Se os usuários com permissão administrativa no Contrato Enterprise fizerem parte do locatário, eles terão acesso à nova conta de cobrança durante a configuração. Se eles não fizerem parte do locatário, não poderão acessar a nova conta de cobrança, a menos que você os convide.
 
-Quando você convida os usuários, eles são adicionados ao locatário como usuários convidados e obtêm acesso à conta de cobrança. Para convidar os usuários, o acesso para convidado precisa ser ativado para o locatário. Para obter mais informações, confira [Controlar o acesso para convidado no Azure Active Directory](https://docs.microsoft.com/microsoftteams/teams-dependencies#control-guest-access-in-azure-active-directory). Se o acesso para convidado estiver desligado, contate os administradores globais de seu locatário para ativá-lo. <!-- Todo - How can they find their global administrator -->
+Quando você convida os usuários, eles são adicionados ao locatário como usuários convidados e obtêm acesso à conta de cobrança. Para convidar os usuários, o acesso para convidado precisa ser ativado para o locatário. Para obter mais informações, confira [Controlar o acesso para convidado no Azure Active Directory](/microsoftteams/teams-dependencies#control-guest-access-in-azure-active-directory). Se o acesso para convidado estiver desligado, contate os administradores globais de seu locatário para ativá-lo. <!-- Todo - How can they find their global administrator -->
 
 ## <a name="view-replaced-features"></a>Exibir os recursos substituídos
 
@@ -132,7 +134,7 @@ Os serviços do Azure em sua assinatura continuam sendo executados sem nenhuma i
 
 ### <a name="user-access-to-azure-resources"></a>Acesso do usuário aos recursos do Azure
 
-O acesso aos recursos do Azure que foi definido usando o Azure RBAC (controle de acesso baseado em função) não é afetado durante a transição.
+O acesso aos recursos do Azure que foi definido usando o Azure RBAC (controle de acesso baseado em função do Azure) não é afetado durante a transição.
 
 ### <a name="azure-reservations"></a>Reservas do Azure
 
@@ -164,7 +166,7 @@ A transição não pode ser revertida. Depois que a cobrança de suas assinatura
 
 ### <a name="closing-your-browser-during-setup"></a>Como fechar o navegador durante a configuração
 
-Antes de clicar em **Iniciar transição**, feche o navegador. Volte à configuração usando o link que você obteve no email e inicie a transição. Se você fechar o navegador após o início da transição, a transição continuará sendo executada. Volte à página de status da transição para monitorar o status mais recente da transição. Você receberá um email quando a transição for concluída.
+Antes de selecionar **Iniciar transição** , feche o navegador. Volte à configuração usando o link que você obteve no email e inicie a transição. Se você fechar o navegador após o início da transição, a transição continuará sendo executada. Volte à página de status da transição para monitorar o status mais recente da transição. Você receberá um email quando a transição for concluída.
 
 ## <a name="complete-the-setup-in-the-azure-portal"></a>Concluir a configuração no portal do Azure
 
@@ -182,10 +184,10 @@ Para concluir a configuração, você precisa ter acesso à nova conta de cobran
 
     - Uma hierarquia de cobrança correspondente à hierarquia do Contrato Enterprise é criada na nova conta de cobrança. Para obter mais informações, confira [Entender as alterações em sua hierarquia de cobrança](#understand-changes-to-your-billing-hierarchy).
     - Os administradores de seu registro do Contrato Enterprise obtêm acesso à nova conta de cobrança, de modo que continuem a gerenciar a cobrança de sua organização.
-    - A cobrança de suas assinaturas do Azure é transferida para a nova conta. **Não haverá nenhum impacto nos serviços do Azure durante essa transição. Eles continuarão sendo executados sem nenhuma interrupção**.
-    - Caso você tenha reservas do Azure, elas serão migradas para sua nova conta de cobrança com os mesmos benefícios e o mesmo prazo.
+    - A cobrança de suas assinaturas do Azure é transferida para a nova conta. **Não haverá nenhum impacto nos serviços do Azure durante essa transição. Eles continuarão sendo executados sem nenhuma interrupção** .
+    - Caso você tenha Reservas do Azure, elas serão migradas para sua nova conta de cobrança com os mesmos benefícios e o mesmo prazo.
 
-4. Monitore o status da transição na página **Status da transição**.
+4. Monitore o status da transição na página **Status da transição** .
 
    ![Captura de tela que mostra o status da transição](./media/mca-setup-account/ea-mca-set-up-status.png)
 
@@ -197,11 +199,11 @@ Para concluir a configuração, você precisa ter acesso à nova conta de cobran
 
 1. Entre no [portal do Azure](https://portal.azure.com).
 
-2. Pesquise **Gerenciamento de Custos + Cobrança**.
+2. Pesquise **Gerenciamento de Custos + Cobrança** .
 
    ![Captura de tela que mostra a pesquisa do portal do Azure](./media/mca-setup-account/search-cmb.png)
 
-3. Selecione a conta de cobrança. A conta de cobrança será do tipo **Contrato de Cliente da Microsoft**.
+3. Selecione a conta de cobrança. A conta de cobrança será do tipo **Contrato de Cliente da Microsoft** .
 
 4. Selecione **Assinaturas do Azure** no lado esquerdo.
 
@@ -217,15 +219,15 @@ As reservas do Azure no registro do Contrato Enterprise serão migradas para sua
 
 1. Entre no [portal do Azure](https://portal.azure.com).
 
-2. Pesquise **Gerenciamento de Custos + Cobrança**.
+2. Pesquise **Gerenciamento de Custos + Cobrança** .
 
    ![Captura de tela que mostra a pesquisa do portal do Azure](./media/mca-setup-account/search-cmb.png)
 
-3. Selecione a conta de cobrança de seu **Contrato de Cliente da Microsoft**.
+3. Selecione a conta de cobrança de seu **Contrato de Cliente da Microsoft** .
 
 4. Selecione **Controle de acesso (IAM)** no lado esquerdo.
 
-   ![Captura de tela que mostra o acesso de administradores corporativos após a transição](./media/mca-setup-account/mca-ea-admins-ba-access-post-transition.png)
+   ![Captura de tela que mostra o acesso de administradores corporativos listados como proprietários da conta de cobrança após a transição.](./media/mca-setup-account/mca-ea-admins-ba-access-post-transition.png)
 
 Os administradores corporativos são listados como proprietários da conta de cobrança, enquanto os administradores corporativos com permissões somente leitura são listados como leitores da conta de cobrança. Se acreditar que o acesso de um administrador corporativo está ausente, forneça acesso a ele no portal do Azure. Para obter mais informações, confira [Gerenciar funções de cobrança no portal do Azure](understand-mca-roles.md#manage-billing-roles-in-the-azure-portal).
 
@@ -233,7 +235,7 @@ Os administradores corporativos são listados como proprietários da conta de co
 
 1. Entre no [portal do Azure](https://portal.azure.com).
 
-2. Pesquise **Gerenciamento de Custos + Cobrança**.
+2. Pesquise **Gerenciamento de Custos + Cobrança** .
 
    ![Captura de tela que mostra a pesquisa do portal do Azure](./media/mca-setup-account/search-cmb.png)
 
@@ -241,7 +243,7 @@ Os administradores corporativos são listados como proprietários da conta de co
 
 4. Selecione **Controle de acesso (IAM)** no lado esquerdo.
 
-   ![Captura de tela que mostra o acesso de administradores corporativos após a transição](./media/mca-setup-account/mca-ea-admins-bp-access-post-transition.png)
+   ![Captura de tela que mostra o acesso de administradores corporativos listados como proprietários do perfil de cobrança após a transição.](./media/mca-setup-account/mca-ea-admins-bp-access-post-transition.png)
 
 Os administradores corporativos são listados como proprietários do perfil de cobrança, enquanto os administradores corporativos com permissões somente leitura são listados como leitores do perfil de cobrança. Se acreditar que o acesso de um administrador corporativo está ausente, forneça acesso a ele no portal do Azure. Para obter mais informações, confira [Gerenciar funções de cobrança no portal do Azure](understand-mca-roles.md#manage-billing-roles-in-the-azure-portal).
 
@@ -249,11 +251,11 @@ Os administradores corporativos são listados como proprietários do perfil de c
 
 1. Entre no [portal do Azure](https://portal.azure.com).
 
-2. Pesquise **Gerenciamento de Custos + Cobrança**.
+2. Pesquise **Gerenciamento de Custos + Cobrança** .
 
    ![Captura de tela que mostra a pesquisa do portal do Azure](./media/mca-setup-account/search-cmb.png).
 
-3. Selecione uma seção da fatura. As seções da fatura têm o mesmo nome de seus respectivos departamentos nos registros do Contrato Enterprise. Dependendo do seu acesso, você precisa selecionar uma conta de cobrança. Na conta de cobrança, selecione **Perfis de cobrança** e, em seguida, **Seções da fatura**. Na lista de seções da fatura, selecione uma seção da fatura.
+3. Selecione uma seção da fatura. As seções da fatura têm o mesmo nome de seus respectivos departamentos nos registros do Contrato Enterprise. Dependendo do seu acesso, você precisa selecionar uma conta de cobrança. Na conta de cobrança, selecione **Perfis de cobrança** e, em seguida, **Seções da fatura** . Na lista de seções da fatura, selecione uma seção da fatura.
 
    ![Captura de tela que mostra a lista de seções da fatura após a transição](./media/mca-setup-account/mca-invoice-sections-post-transition.png)
 
@@ -261,7 +263,7 @@ Os administradores corporativos são listados como proprietários do perfil de c
 
     ![Captura de tela que mostra o acesso de administradores do departamento e da conta após a transição](./media/mca-setup-account/mca-department-account-admins-access-post-transition.png)
 
-Os administradores corporativos e os administradores do departamento são listados como proprietários da seção da fatura ou leitores da seção da fatura, enquanto os proprietários da conta no departamento são listados como criadores de assinatura do Azure. Repita a etapa para todas as seções da fatura, a fim de verificar o acesso de todos os departamentos no registro do Contrato Enterprise. Os proprietários da conta que não faziam parte de nenhum departamento obterão permissão em uma seção da fatura chamada **Seção da fatura padrão**. Se acreditar que o acesso de um administrador está ausente, forneça acesso a ele no portal do Azure. Para obter mais informações, confira [Gerenciar funções de cobrança no portal do Azure](understand-mca-roles.md#manage-billing-roles-in-the-azure-portal).
+Os administradores corporativos e os administradores do departamento são listados como proprietários da seção da fatura ou leitores da seção da fatura, enquanto os proprietários da conta no departamento são listados como criadores de assinatura do Azure. Repita a etapa para todas as seções da fatura, a fim de verificar o acesso de todos os departamentos no registro do Contrato Enterprise. Os proprietários da conta que não faziam parte de nenhum departamento obterão permissão em uma seção da fatura chamada **Seção da fatura padrão** . Se acreditar que o acesso de um administrador está ausente, forneça acesso a ele no portal do Azure. Para obter mais informações, confira [Gerenciar funções de cobrança no portal do Azure](understand-mca-roles.md#manage-billing-roles-in-the-azure-portal).
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Contate o suporte
 

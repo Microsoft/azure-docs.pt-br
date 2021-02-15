@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: availability
 ms.date: 02/28/2020
 ms.reviewer: jushiman
-ms.custom: avverma
-ms.openlocfilehash: 45c316c1d1dd56f6d920423a725b2488df1a5032
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: avverma, devx-track-azurecli
+ms.openlocfilehash: ae508754775d4eb622d8e91ef58eb0d6e1c45692
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86527414"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94889007"
 ---
 # <a name="automatic-instance-repairs-for-azure-virtual-machine-scale-sets"></a>Reparos automáticos de instância para conjuntos de dimensionamento de máquinas virtuais do Azure
 
@@ -36,9 +36,9 @@ Antes de habilitar a política de reparos de instância automática, verifique s
 
 Para instâncias marcadas como "não íntegras", os reparos automáticos são disparados pelo conjunto de dimensionamento. Verifique se o ponto de extremidade do aplicativo está configurado corretamente antes de habilitar a política de reparos automáticos para evitar reparos de instância não intencional, enquanto o ponto de extremidade está sendo configurado.
 
-**Habilitar grupo de posicionamento único**
+**Número máximo de instâncias no conjunto de dimensionamento**
 
-Esse recurso está disponível no momento apenas para conjuntos de dimensionamento implantados como grupo de posicionamento único. A propriedade *singlePlacementGroup* deve ser definida como *true* para seu conjunto de dimensionamento para usar o recurso de reparos automáticos de instância. Saiba mais sobre [grupos de posicionamento](./virtual-machine-scale-sets-placement-groups.md#placement-groups).
+Esse recurso está disponível no momento apenas para conjuntos de dimensionamento que têm um máximo de 200 instâncias. O conjunto de dimensionamento pode ser implantado como um único grupo de posicionamento ou um grupo de vários locais. no entanto, a contagem de instâncias não poderá ser superior a 200 se o reparo automático de instância estiver habilitado para o conjunto de dimensionamento.
 
 **Versão da API**
 
@@ -287,7 +287,7 @@ Get-AzVmss `
     -InstanceView
 ```
 
-Use o cmdlet Set-AzVmssOrchestrationServiceState para atualizar o *ServiceState* para reparos automáticos de instância. Depois que o conjunto de dimensionamento for aceito no recurso de reparo automático, você poderá usar este cmdlet para suspender ou retomar os reparos automáticos para o conjunto de dimensionamento.
+Use Set-AzVmssOrchestrationServiceState cmdlet para atualizar o *ServiceState* para reparos automáticos de instância. Depois que o conjunto de dimensionamento for aceito no recurso de reparo automático, você poderá usar este cmdlet para suspender ou retomar os reparos automáticos para o conjunto de dimensionamento.
 
 ```azurepowershell-interactive
 Set-AzVmssOrchestrationServiceState `

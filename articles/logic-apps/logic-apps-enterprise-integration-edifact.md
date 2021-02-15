@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 04/22/2020
-ms.openlocfilehash: dfe48a1348929bbe8d4af6793d94d52514df9d74
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b0df55e59bd519a816c4022f2434edfcd4460780
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87001529"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006516"
 ---
 # <a name="exchange-edifact-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Trocar mensagens EDIFACT para Enterprise Integration B2B nos Aplicativos Lógicos do Azure com o Enterprise Integration Pack
 
@@ -63,7 +63,7 @@ Depois de [criar uma conta de integração](../logic-apps/logic-apps-enterprise-
 
    | Propriedade | Descrição |
    | --- | --- |
-   | Nome |Nome do contrato |
+   | Name |Nome do contrato |
    | Tipo de contrato | Deve ser EDIFACT |
    | Parceiro de Host |Um contrato precisa dos parceiros host e convidado. O parceiro host representa a organização que está configurando o contrato. |
    | Identidade do Host |Um identificador para o parceiro host |
@@ -247,7 +247,7 @@ Quando você conclui cada linha de validação, outra é adicionada automaticame
 
 2.  Você também pode visualizar seus contratos na visão geral de conta de integração. No menu de conta de integração, escolha **Visão geral** e selecione o bloco **Contratos**. 
 
-    ![Escolha o bloco de "Contratos"](./media/logic-apps-enterprise-integration-edifact/edifact-4.png)   
+    ![Captura de tela que mostra o bloco contratos.](./media/logic-apps-enterprise-integration-edifact/edifact-4.png)   
 
 ## <a name="connector-reference"></a>Referência de conector
 

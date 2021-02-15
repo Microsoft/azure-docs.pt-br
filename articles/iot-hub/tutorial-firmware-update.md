@@ -1,6 +1,6 @@
 ---
-title: Atualizar o firmware do dispositivo via Hub IoT do Azure | Microsoft Docs
-description: Saiba como implementar um processo de atualização de firmware de dispositivo que pode ser disparado em um aplicativo back-end conectado ao hub IoT.
+title: Tutorial – Atualizar o firmware do dispositivo por meio do Hub IoT do Azure | Microsoft Docs
+description: Tutorial – Saiba como implementar um processo de atualização de firmware do dispositivo que pode ser disparado em um aplicativo back-end conectado ao hub IoT.
 services: iot-hub
 author: wesmc7777
 ms.author: wesmc
@@ -13,19 +13,20 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-- devx-track-javascript
-ms.openlocfilehash: 2e2d66e113c855830f841761cb11a70e4f26c19d
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+- devx-track-js
+- devx-track-azurecli
+ms.openlocfilehash: 807de3c41ec8026edd2b2d8859eb70863ae5697b
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87415067"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98621389"
 ---
 # <a name="tutorial-implement-a-device-firmware-update-process"></a>Tutorial: Implementar um processo de atualização de firmware de dispositivos
 
 Talvez seja necessário atualizar o firmware dos dispositivos conectados ao seu Hub IoT. Por exemplo, talvez você queira adicionar novos recursos para o firmware ou aplicar patches de segurança. Em muitos cenários de IoT, é impraticável visitar fisicamente e depois aplicar manualmente atualizações de firmware para seus dispositivos. Este tutorial mostra como você pode iniciar e monitorar o processo de atualização de firmware remotamente por meio de um aplicativo de back-end conectado ao seu hub.
 
-Para criar e monitorar o processo de atualização de firmware, o aplicativo de back-end neste tutorial cria uma _configuração_ em seu Hub IoT. O [gerenciamento de dispositivo automático](iot-hub-auto-device-config.md) do Hub IoT usa essa configuração para atualizar um conjunto de _propriedades desejadas do dispositivo gêmeo_ em todos os seus dispositivos resfriadores. As propriedades desejadas especificam os detalhes da atualização de firmware necessária. Enquanto os dispositivos resfriadores estiverem executando o processo de atualização de firmware, eles relatam o status para o aplicativo de back-end usando _propriedades relatadas do dispositivo gêmeo_. O aplicativo de back-end pode usar a configuração para monitorar as propriedades relatadas enviadas do dispositivo e acompanhar o processo de atualização do firmware para conclusão:
+Para criar e monitorar o processo de atualização de firmware, o aplicativo de back-end neste tutorial cria uma _configuração_ em seu Hub IoT. O [gerenciamento de dispositivo automático](./iot-hub-automatic-device-management.md) do Hub IoT usa essa configuração para atualizar um conjunto de _propriedades desejadas do dispositivo gêmeo_ em todos os seus dispositivos resfriadores. As propriedades desejadas especificam os detalhes da atualização de firmware necessária. Enquanto os dispositivos resfriadores estiverem executando o processo de atualização de firmware, eles relatam o status para o aplicativo de back-end usando _propriedades relatadas do dispositivo gêmeo_. O aplicativo de back-end pode usar a configuração para monitorar as propriedades relatadas enviadas do dispositivo e acompanhar o processo de atualização do firmware para conclusão:
 
 ![Processo de atualização de firmware](media/tutorial-firmware-update/Process.png)
 
@@ -37,11 +38,9 @@ Neste tutorial, você completa as seguintes tarefas:
 > * Simular o processo de atualização do firmware em um dispositivo.
 > * Receber atualizações de status enviadas pelo dispositivo durante o andamento da atualização do firmware.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>Pré-requisitos
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 Os dois exemplos de aplicativo executados neste início rápido são escritos usando o Node.js. Você precisa do Node.js v10.x.x ou posterior em seu computador de desenvolvimento.
 
@@ -184,7 +183,7 @@ A captura de tela a seguir mostra a saída do aplicativo de dispositivo simulado
 
 A captura de tela a seguir mostra a saída do aplicativo de back-end e destaca como ele cria a configuração para atualizar as propriedades desejadas de firmware:
 
-![Aplicativo de back-end](./media/tutorial-firmware-update/BackEnd1.png)
+![Captura de tela que mostra a saída do aplicativo de back-end.](./media/tutorial-firmware-update/BackEnd1.png)
 
 A captura de tela a seguir mostra a saída do aplicativo de back-end e destaca como ele monitora as métricas de atualização de firmware no dispositivo simulado:
 

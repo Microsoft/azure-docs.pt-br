@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0e8802d612f2497cc58c90856e9a5a5572a142f1
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 60b7bb33dfbf29b7e448887ce992d03009133b2e
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87482831"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953478"
 ---
 # <a name="secure-an-azure-api-management-api-with-azure-ad-b2c"></a>Proteger uma API de Gerenciamento de API do Azure com Azure AD B2C
 
@@ -35,14 +35,14 @@ Você precisará dos seguintes recursos em vigor antes de continuar com as etapa
 
 Ao proteger uma API no Gerenciamento de API do Azure com Azure AD B2C, você precisa de vários valores para a [política de entrada](../api-management/api-management-howto-policies.md) que você cria no APIM. Primeiro, registre a ID de um aplicativo que você criou anteriormente em seu locatário do Azure AD B2C. Se você estiver usando o aplicativo criado nos pré-requisitos, use a ID do aplicativo para *webbapp1*.
 
-Para registrar um aplicativo no locatário do Azure AD B2C, você pode usar a nossa nova experiência unificada de **Registros de aplicativos** ou a nossa experiência herdada **Aplicativos (Herdado)** . [Saiba mais sobre a nova experiência](https://aka.ms/b2cappregtraining).
+Para registrar um aplicativo no locatário do Azure AD B2C, você pode usar a nossa nova experiência unificada de **Registros de aplicativos** ou a nossa experiência herdada **Aplicativos (Herdado)** . [Saiba mais sobre a nova experiência](./app-registrations-training-guide.md).
 
 #### <a name="app-registrations"></a>[Registros de aplicativo](#tab/app-reg-ga/)
 
 1. Entre no [portal do Azure](https://portal.azure.com).
 1. Selecione o filtro **Diretório + assinatura** no menu superior e, em seguida, selecione o diretório que contém o locatário do Azure AD B2C.
 1. No menu à esquerda, selecione **Azure AD B2C**. Ou selecione **Todos os serviços** e pesquise e selecione **Azure AD B2C**.
-1. Selecione **registros de aplicativo**e, em seguida, selecione a guia **aplicativos pertencentes** .
+1. Selecione **registros de aplicativo** e, em seguida, selecione a guia **aplicativos pertencentes** .
 1. Registre o valor na coluna **ID do aplicativo (cliente)** para *webapp1* ou outro aplicativo que você criou anteriormente.
 
 #### <a name="applications-legacy"></a>[Aplicativos (Herdado)](#tab/applications-legacy/)
@@ -60,7 +60,7 @@ Para registrar um aplicativo no locatário do Azure AD B2C, você pode usar a no
 Em seguida, obtenha a URL de configuração conhecida para um dos seus fluxos de usuário do Azure AD B2C. Você também precisa do URI do ponto de extremidade do emissor do token para o qual você deseja dar suporte no Gerenciamento de API do Azure.
 
 1. Navegue até seu locatário do Azure AD B2C no [portal do Azure](https://portal.azure.com).
-1. Em **políticas**, selecione **fluxos de usuário**.
+1. Em **Políticas**, selecione **Fluxos dos usuários**.
 1. Selecione uma política existente, por exemplo *B2C_1_signupsignin1* e, em seguida, selecione **Executar fluxo de usuário**.
 1. Registre a URL no hiperlink exibido no título **Executar fluxo de usuário** próximo à parte superior da página. Essa URL é o ponto de extremidade de descoberta conhecido do OpenID Connect para o fluxo do usuário, e você o usará na próxima seção ao configurar a política de entrada no Gerenciamento de API do Azure.
 
@@ -126,7 +126,7 @@ Para chamar a API, você precisa de um token de acesso emitido por Azure AD B2C 
 Primeiro, você precisa de um token emitido pelo Azure AD B2C para usar no cabeçalho `Authorization` no Postman. Você pode obter um usando o recurso **Executar agora** do fluxo de usuários de inscrição/entrada que você deve ter criado como um dos pré-requisitos.
 
 1. Navegue até seu locatário do Azure AD B2C no [portal do Azure](https://portal.azure.com).
-1. Em **políticas**, selecione **fluxos de usuário**.
+1. Em **Políticas**, selecione **Fluxos dos usuários**.
 1. Selecione um fluxo de usuários de inscrição/entrada existente, por exemplo, *B2C_1_signupsignin1*.
 1. Para **Aplicativo**, selecione *webapp1*.
 1. Para **URL de resposta**, escolha `https://jwt.ms`.

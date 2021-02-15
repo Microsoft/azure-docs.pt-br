@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3610fa5ea442e5ccb15255d8a1ddcee211871aeb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: be72c2152bdb8e1155d2dd29547f93ba3605d462
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84463936"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95251086"
 ---
 # <a name="how-to-investigate-risk"></a>Como: Investigar risco
 
@@ -90,6 +90,10 @@ Com as informações fornecidas pelo relatório de detecções de risco, os admi
 - Link para mais detalhes da Microsoft Cloud App Security (MCAS).
 
 Depois, os administradores poderão optar por retornar ao relatório de risco ou de entradas do usuário para executar ações com base nas informações coletadas.
+
+> [!NOTE] 
+> Nosso sistema pode detectar que o evento de risco que contribuiu para a pontuação de risco de usuário de risco foi um falso positivo ou o risco de usuário foi corrigido com a imposição de política, como a conclusão de um prompt de MFA ou uma alteração de senha segura. Portanto, nosso sistema ignorará o estado de risco e um detalhe de risco de "segurança confirmada de AI" será exibido e ele não contribuirá mais para o risco do usuário. 
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

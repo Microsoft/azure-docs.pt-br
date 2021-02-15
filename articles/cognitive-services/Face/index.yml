@@ -1,8 +1,8 @@
 ### YamlMime:Landing
 title: Documentação da Detecção Facial
-summary: O serviço de Detecção Facial baseado em nuvem fornece acesso a algoritmos avançados de detecção facial aos desenvolvedores. Algoritmos de Detecção Facial da Microsoft habilitam a detecção de atributo facial e reconhecimento facial. Aprenda a analisar o conteúdo de diferentes maneiras com guias de início rápido, tutoriais e exemplos.
+summary: Em 11 de junho de 2020, a Microsoft comunicou que não venderá tecnologia de reconhecimento facial a departamentos de polícia nos Estados Unidos até que um sólido regulamento, com base nos direitos humanos, seja aprovado. Desse modo, os clientes não poderão usar os recursos de reconhecimento facial ou os recursos incluídos nos Serviços do Azure, como Detecção Facial ou Video Indexer, se forem um departamento de polícia nos Estados Unidos ou permitirem o uso de desses serviços para e pela polícia.
 metadata:
-  title: Documentação da Detecção Facial – inícios rápidos, tutoriais, referência de API – Serviços Cognitivos do Azure | Microsoft Docs
+  title: Documentação da Detecção Facial – Guias de início rápido, tutoriais, referência de API – Serviços Cognitivos do Azure | Microsoft Docs
   description: O serviço de Detecção Facial baseado em nuvem fornece acesso a algoritmos avançados de detecção facial aos desenvolvedores. Algoritmos de Detecção Facial da Microsoft habilitam a detecção de atributo facial e reconhecimento facial. Aprenda a analisar o conteúdo de diferentes maneiras com guias de início rápido, tutoriais e exemplos.
   services: cognitive-services
   ms.service: cognitive-services
@@ -10,13 +10,13 @@ metadata:
   ms.topic: landing-page
   author: PatrickFarley
   ms.author: pafarley
-  ms.date: 10/24/2019
-  ms.openlocfilehash: e4d53baf1a083e9dafa6bd43186b507c5e724db3
-  ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+  ms.date: 9/01/2020
+  ms.openlocfilehash: b69cc5b8d9b8ae14dddc33f69e96b5fd6e2f63d8
+  ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 06/01/2020
-  ms.locfileid: "84268016"
+  ms.lasthandoff: 02/14/2021
+  ms.locfileid: "100516151"
 landingContent:
 - title: Sobre o serviço de Detecção Facial
   linkLists:
@@ -24,6 +24,10 @@ landingContent:
     links:
     - text: O que é o serviço de Detecção Facial?
       url: Overview.md
+  - linkListType: whats-new
+    links:
+    - text: O que há de novo no serviço de Detecção Facial?
+      url: releasenotes.md
 - title: Detectar faces
   linkLists:
   - linkListType: concept
@@ -51,11 +55,11 @@ landingContent:
   - linkListType: quickstart
     links:
     - text: Usar o .NET SDK
-      url: quickstarts/csharp-sdk.md
+      url: ./quickstarts/client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp
     - text: Usar o SDK do Python
-      url: quickstarts/python-sdk.md
+      url: ./quickstarts/client-libraries.md?pivots=programming-language-python%253fpivots%253dprogramming-language-python
     - text: Como usar o SDK do Go
-      url: quickstarts/go-sdk.md
+      url: ./quickstarts/client-libraries.md?pivots=programming-language-go%253fpivots%253dprogramming-language-go
   - linkListType: how-to-guide
     links:
     - text: Especificar um modelo de reconhecimento facial
@@ -83,34 +87,30 @@ landingContent:
   - linkListType: deploy
     links:
     - text: Usar instâncias de contêiner
-      url: Face-API-How-to-Topics/deploy-face-container-on-container-instances.md
+      url: ../containers/azure-container-instance-recipe.md
 - title: Referência
   linkLists:
   - linkListType: reference
     links:
-    - text: API de Detecção Facial v1.0
-      url: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236
+    - text: API REST
+      url: https://docs.microsoft.com/rest/api/face/
     - text: SDK .NET
-      url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/faceapi?view=azure-dotnet
+      url: /dotnet/api/overview/azure/cognitiveservices/client/faceapi?view=azure-dotnet
     - text: SDK do Python
-      url: https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/?view=azure-python
+      url: /python/api/azure-cognitiveservices-vision-face/?view=azure-python
     - text: Java SDK
-      url: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/faceapi?view=azure-java-stable
+      url: /java/api/overview/azure/cognitiveservices/client/faceapi?view=azure-java-stable
     - text: SDK do Node.js
-      url: https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-face
+      url: /javascript/api/@azure/cognitiveservices-face
     - text: SDK do Go
       url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face
-    - text: SDK do iOS
-      url: https://github.com/Microsoft/Cognitive-Face-iOS
     - text: Azure PowerShell
-      url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services
+      url: /powershell/module/az.cognitiveservices/#cognitive_services
     - text: CLI (interface de linha de comando) do Azure
-      url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest
+      url: /cli/azure/cognitiveservices?view=azure-cli-latest
 - title: Ajuda e comentários
   linkLists:
   - linkListType: reference
     links:
-    - text: UserVoice
-      url: https://cognitive.uservoice.com/forums/430315-face-api
-    - text: Stack Overflow
-      url: https://stackoverflow.com/questions/tagged/microsoft-cognitive
+    - text: Opções de Ajuda e suporte
+      url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/face/context/context

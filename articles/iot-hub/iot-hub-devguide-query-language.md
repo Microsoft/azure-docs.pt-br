@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: robinsh
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b4e7d8c5c518e4ba4a2a9116898be2bba7df0b06
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: dbdc1c079f7ef2a06ece553e9fec542cbc05ea54
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89022438"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147656"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>Linguagem de consulta do Hub IoT para dispositivos e módulos gêmeos, trabalhos e roteamento de mensagens
 
@@ -234,7 +234,7 @@ O objeto de consulta expõe vários valores de **Next** dependendo da opção de
 ### <a name="limitations"></a>Limitações
 
 > [!IMPORTANT]
-> Os resultados da consulta podem ter alguns minutos de atraso em relação aos valores mais recentes em dispositivos gêmeos. Se você estiver consultando dispositivos individuais gêmeos por ID, use a [API REST](https://docs.microsoft.com/rest/api/iothub/service/twin/getdevicetwin)do "Get". Essa API sempre retorna os valores mais recentes e tem limites de maior limitação. Você pode emitir a API REST diretamente ou usar a funcionalidade equivalente em um dos [SDKs de serviço do Hub IOT do Azure](iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks).
+> Os resultados da consulta podem ter alguns minutos de atraso em relação aos valores mais recentes em dispositivos gêmeos. Se você estiver consultando dispositivos individuais gêmeos por ID, use a [API REST](/java/api/com.microsoft.azure.sdk.iot.device.devicetwin?view=azure-java-stable)do "Get". Essa API sempre retorna os valores mais recentes e tem limites de maior limitação. Você pode emitir a API REST diretamente ou usar a funcionalidade equivalente em um dos [SDKs de serviço do Hub IOT do Azure](iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks).
 
 Atualmente, há suporte para as comparações apenas entre tipos primitivos (sem objetos), por exemplo `... WHERE properties.desired.config = properties.reported.config` tem suporte apenas se essas propriedades tiverem valores primitivos.
 
@@ -329,7 +329,7 @@ SELECT <select_list>
 
 A cláusula **from <from_specification>** pode assumir apenas três valores: **de dispositivos** para consultar dispositivos gêmeos, **de Devices. modules** para consultar o módulo gêmeos ou **de Devices.Jobs** para consultar os detalhes do trabalho por dispositivo.
 
-## <a name="where-clause"></a>cláusula WHERE
+## <a name="where-clause"></a>Cláusula WHERE
 
 A cláusula **WHERE <filter_condition>** é opcional. Ela especifica uma ou mais condições que os documentos JSON na coleção FROM devem satisfazer para serem incluídos como parte dos resultados. Todos os documentos JSON devem avaliar as condições especificadas como “true” para ser incluídos no resultado.
 

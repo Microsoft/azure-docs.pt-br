@@ -1,5 +1,5 @@
 ---
-title: incluir arquivo
+title: arquivo de inclusão
 description: incluir arquivo de texto para o contrato standard do Microsoft Commercial Marketplace
 documentationcenter: partner-center-commercial-marketplace
 ms.service: marketplace
@@ -9,12 +9,12 @@ ms.date: 01/22/2020
 ms.custom: include file
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: d899db8b5f6f3b7c0ccef4e44c814f1e126c626a
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e1119cf5c40cdcb1fd598b85410ea9149a7cc146
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326657"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91401014"
 ---
 A Microsoft fornece um modelo de contrato padrão para o mercado comercial.
 
@@ -46,7 +46,7 @@ Há dois tipos de aditamentos disponíveis para editores do marketplace comercia
 **Termos personalizados de emenda para o contrato padrão do Marketplace comercial da Microsoft**: comece selecionando **Adicionar termos de emenda personalizada**. Você pode fornecer até dez termos de aditamento personalizados por oferta.
 
 - **Termos personalizados de emenda**: insira seus termos de emenda personalizada na caixa termos personalizados de emenda. Você pode inserir um número ilimitado de caracteres nesta caixa. Somente os clientes das IDs de locatário que você especificar para esses termos personalizados poderão ver os termos de aditamento personalizados no fluxo de compra da oferta no portal do Azure.  
-- **IDs de locatário** (obrigatório): cada alteração personalizada pode ser direcionada para até 20 IDs de locatário. Se você adicionar um aditamento personalizado, precisará fornecer pelo menos uma ID de locatário. A ID de locatário identifica seu cliente no Azure. Você pode solicitar que o cliente tenha essa ID e ele pode encontrá-la navegando até portal.azure.com > Azure Active Directory > Propriedades. O valor da ID de diretório é a ID do locatário (por exemplo, 50c464d3-4930-494c-963c-1e951d15360e). Você também pode procurar a ID do locatário da organização de seus clientes usando a URL de nome de domínio deles em [Qual é a minha ID do locatário do Microsoft Azure e do Office 365?](https://www.whatismytenantid.com).
+- **IDs de locatário** (obrigatório): cada alteração personalizada pode ser direcionada para até 20 IDs de locatário. Se você adicionar um aditamento personalizado, precisará fornecer pelo menos uma ID de locatário. A ID de locatário identifica seu cliente no Azure. Você pode solicitar que o cliente tenha essa ID e ele pode encontrá-la navegando até portal.azure.com > Azure Active Directory > Propriedades. O valor da ID de diretório é a ID do locatário (por exemplo, 50c464d3-4930-494c-963c-1e951d15360e). Você também pode pesquisar a ID de locatário da organização de seu cliente usando a URL do nome de domínio em [qual é o meu Microsoft Azure e Microsoft 365 ID do locatário?](https://www.whatismytenantid.com).
 - **Descrição** (opcional): opcionalmente, forneça uma descrição amigável para a ID do locatário que ajuda a identificar o cliente que você está direcionando para o aditamento.
 
 **Termos e condições**

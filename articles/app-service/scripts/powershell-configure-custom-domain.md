@@ -7,13 +7,13 @@ ms.assetid: 356f5af9-f62e-411c-8b24-deba05214103
 ms.topic: sample
 ms.date: 03/20/2017
 ms.author: msangapu
-ms.custom: mvc, seodec18
-ms.openlocfilehash: d70e765cb4e83a89a660a8e6fa1ba91271531fae
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: mvc, seodec18, devx-track-azurepowershell
+ms.openlocfilehash: 749250f4ee5e1a0a39c9dc36795fa07e9da743a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083349"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89072206"
 ---
 # <a name="assign-a-custom-domain-to-a-web-app-using-powershell"></a>Atribuir um domínio personalizado para um aplicativo Web usando o PowerShell
 

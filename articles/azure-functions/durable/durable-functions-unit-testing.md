@@ -3,12 +3,12 @@ title: Testes de unidade de Funções Duráveis do Azure
 description: Saiba como testar a unidade das Funções Duráveis.
 ms.topic: conceptual
 ms.date: 11/03/2019
-ms.openlocfilehash: 86733f8b5b80799bad3e52c643ed27465dfc7641
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7786a0a2e2d31086e1938b70e63fe2374e16fe7f
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74231217"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96601349"
 ---
 # <a name="durable-functions-unit-testing"></a>Testes de unidade de Funções Duráveis
 
@@ -25,7 +25,7 @@ Os exemplos neste artigo requerem conhecimento sobre os conceitos e as estrutura
 
 * Funções duráveis
 
-* [xUnit](https://xunit.github.io/) - Estrutura de teste
+* [xUnit](https://github.com/xunit/xunit) - Estrutura de teste
 
 * [moq](https://github.com/moq/moq4) - Estrutura de simulação
 
@@ -179,6 +179,6 @@ E os testes de unidade verificarão o formato da saída. Os testes de unidade po
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Saiba mais sobre xUnit](https://xunit.github.io/docs/getting-started-dotnet-core)
+> [Saiba mais sobre xUnit](https://xunit.net/docs/getting-started/netcore/cmdline)
 > 
 > [Saiba mais sobre moq](https://github.com/Moq/moq4/wiki/Quickstart)

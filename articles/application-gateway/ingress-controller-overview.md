@@ -7,17 +7,17 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 06/10/2020
 ms.author: caya
-ms.openlocfilehash: c1bd41587e4f56fb0a7f3eb8285d301751f558d1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 26f53a8f93d4d51ec8f8fd91051496a46670f432
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84668093"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397341"
 ---
 # <a name="what-is-application-gateway-ingress-controller"></a>O que é o controlador de entrada do gateway de aplicativo?
 O AGIC (controlador de entrada do gateway de aplicativo) é um aplicativo kubernetes, que possibilita aos clientes [do AKS (Azure kubernetes Service)](https://azure.microsoft.com/services/kubernetes-service/) aproveitar o balanceador de carga L7 do [Gateway de aplicativo](https://azure.microsoft.com/services/application-gateway/) nativo do Azure para expor o software de nuvem à Internet. O AGIC monitora o cluster kubernetes em que ele está hospedado e atualiza continuamente um gateway de aplicativo, para que os serviços selecionados sejam expostos à Internet.
 
-O controlador de entrada é executado em seu próprio pod no AKS do cliente. O AGIC monitora um subconjunto de recursos do kubernetes para alterações. O estado do cluster AKS é convertido na configuração específica do gateway de aplicativo e aplicado ao [Azure Resource Manager (ARM)](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
+O controlador de entrada é executado em seu próprio pod no AKS do cliente. O AGIC monitora um subconjunto de recursos do kubernetes para alterações. O estado do cluster AKS é convertido na configuração específica do gateway de aplicativo e aplicado ao [Azure Resource Manager (ARM)](../azure-resource-manager/management/overview.md).
 
 ## <a name="benefits-of-application-gateway-ingress-controller"></a>Benefícios do controlador de entrada do gateway de aplicativo
 O AGIC ajuda a eliminar a necessidade de ter outro IP de balanceador de carga/público na frente do cluster AKS e evita vários saltos em seu caminho de seu DataPath antes que as solicitações alcancem o cluster AKS. O gateway de aplicativo conversa com pods usando seu IP privado diretamente e não requer serviços NodePort ou KubeProxy. Isso também traz um melhor desempenho para suas implantações.
@@ -36,16 +36,16 @@ O AGIC é configurado por meio do [recurso de entrada](https://kubernetes.io/doc
   - Suporte para sites públicos, privados e híbridos
   - Firewall do aplicativo Web integrado
 
-## <a name="difference-between-helm-deployment-and-aks-add-on"></a>Diferença entre a implantação Helm e o complemento AKS
+## <a name="difference-between-helm-deployment-and-aks-add-on"></a>Diferença entre a implantação Helm e a AKS Add-On
 Há duas maneiras de implantar o AGIC para o cluster AKS. A primeira maneira é por meio de Helm; a segunda é por meio de AKS como um complemento. O principal benefício de implantar o AGIC como um complemento do AKS é que ele é muito mais simples do que a implantação por meio do Helm. Para uma nova configuração, você pode implantar um novo gateway de aplicativo e um novo cluster AKS com AGIC habilitado como um complemento em uma linha no CLI do Azure. O complemento também é um serviço totalmente gerenciado, que fornece benefícios adicionais, como atualizações automáticas e maior suporte. O AGIC implantado por meio de Helm não tem suporte do AKS, no entanto, o AGIC implantado como um complemento de AKS é suportado pelo AKS. 
 
 O complemento AGIC ainda é implantado como um pod no cluster AKS do cliente. no entanto, há algumas diferenças entre a versão de implantação Helm e a versão do complemento do AGIC. Abaixo está uma lista de diferenças entre as duas versões: 
   - Os valores de implantação Helm não podem ser modificados no complemento AKS:
-    - `verbosityLevel`será definido como 5 por padrão
-    - `usePrivateIp`será definido como false por padrão; Isso pode ser substituído pela [anotação use-Private-IP](ingress-controller-annotations.md#use-private-ip)
-    - `shared`Não tem suporte no complemento 
-    - `reconcilePeriodSeconds`Não tem suporte no complemento
-    - `armAuth.type`Não tem suporte no complemento
+    - `verbosityLevel` será definido como 5 por padrão
+    - `usePrivateIp` será definido como false por padrão; Isso pode ser substituído pela [anotação use-Private-IP](ingress-controller-annotations.md#use-private-ip)
+    - `shared` Não tem suporte no complemento 
+    - `reconcilePeriodSeconds` Não tem suporte no complemento
+    - `armAuth.type` Não tem suporte no complemento
   - AGIC implantado por meio de Helm dá suporte a ProhibitedTargets, o que significa que AGIC pode configurar o gateway de aplicativo especificamente para clusters AKS sem afetar outros back-ends existentes. O complemento AGIC atualmente não dá suporte a isso. 
   - Como o complemento do AGIC é um serviço gerenciado, os clientes serão automaticamente atualizados para a versão mais recente do complemento do AGIC, diferentemente do AGIC implantado por meio do Helm, onde o cliente deve atualizar manualmente o AGIC. 
 
@@ -73,8 +73,7 @@ As tabelas a seguir classificam quais cenários têm suporte no momento com a ve
 |**2 + AGICs**|Deve usar a funcionalidade ProhibitedTarget compartilhada |N/D |
 
 ## <a name="next-steps"></a>Próximas etapas
-- [**Implantação de Greenfield do AKS complemento**](tutorial-ingress-controller-add-on-new.md): instruções sobre como instalar o complemento do AGIC, o AKs e o gateway de aplicativo em uma infraestrutura de Slate em branco.
-- [**AKs a implantação de Brownfield do complemento**](tutorial-ingress-controller-add-on-existing.md): instalar o complemento do AGIC em um cluster do AKS com um gateway de aplicativo existente.
+- [**Implantação do AKS Add-On Greenfield**](tutorial-ingress-controller-add-on-new.md): instruções sobre como instalar o AGIC Add-on, o AKs e o gateway de aplicativo em uma infraestrutura de Slate em branco.
+- [**Implantação do AKS Add-On Brownfield**](tutorial-ingress-controller-add-on-existing.md): instalar o complemento do AGIC em um cluster do AKS com um gateway de aplicativo existente.
 - [**Implantação do Helm Greenfield**](ingress-controller-install-new.md): Instale o AGIC por meio do Helm, novo cluster AKs e novo gateway de aplicativo em uma infraestrutura de Slate em branco.
 - [**Implantação do Helm Brownfield**](ingress-controller-install-existing.md): implante o AGIC por meio do Helm em um cluster existente do AKs e no gateway de aplicativo.
-

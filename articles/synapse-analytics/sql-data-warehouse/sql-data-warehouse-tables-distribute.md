@@ -1,6 +1,6 @@
 ---
 title: Diretrizes de design das tabelas distribuídas
-description: Recomendações para criar tabelas distribuídas por hash e rodízio no pool de SQL do Synapse.
+description: Recomendações para a criação de tabelas distribuídas por hash e Round Robin usando o pool SQL dedicado no Azure Synapse Analytics.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,18 +11,18 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 98a3b8d30bcb358a0aaa0f7b124b8399a286d6cd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5aefe869041d9fff8112b6aa380961ca6568ae0b
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85214002"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98673562"
 ---
-# <a name="guidance-for-designing-distributed-tables-in-synapse-sql-pool"></a>Diretrizes de design para tabelas distribuídas no pool de SQL do Synapse
+# <a name="guidance-for-designing-distributed-tables-using-dedicated-sql-pool-in-azure-synapse-analytics"></a>Diretrizes para criar tabelas distribuídas usando o pool SQL dedicado no Azure Synapse Analytics
 
-Recomendações para criar tabelas distribuídas por hash e rodízio nos pools de SQL do Synapse.
+Recomendações para a criação de tabelas distribuídas por hash e de Round Robin em pools SQL dedicados.
 
-Este artigo pressupõe que você esteja familiarizado com os conceitos de movimentação e distribuição de dados no pool de SQL do Synapse.  Para ter mais informações, consulte [Arquitetura de processamento paralelo massivo (MPP) do Synapse Analytics](massively-parallel-processing-mpp-architecture.md).
+Este artigo pressupõe que você esteja familiarizado com os conceitos de distribuição de dados e movimentação de dados no pool SQL dedicado.  Para obter mais informações, consulte [arquitetura do Azure Synapse Analytics](massively-parallel-processing-mpp-architecture.md).
 
 ## <a name="what-is-a-distributed-table"></a>O que é uma tabela distribuída?
 
@@ -32,11 +32,11 @@ Uma tabela distribuída é exibida como uma única tabela, mas as linhas são ar
 
 Outra opção de armazenamento de tabela é replicar uma pequena tabela em todos os nós de computação. Para obter mais informações, confira [Criação de diretrizes para tabelas replicadas](design-guidance-for-replicated-tables.md). Para escolher rapidamente entre as três opções, consulte tabelas distribuídas na [visão geral de tabelas](sql-data-warehouse-tables-overview.md).
 
-Como parte do design de tabela, compreenda seus dados o tanto quanto possível e a maneira como eles são consultados.  Por exemplo, considere estas perguntas:
+Como parte do design de tabela, compreenda seus dados o tanto quanto possível e a maneira como eles são consultados.    Por exemplo, considere estas perguntas:
 
 - Qual é o tamanho da tabela?
 - Com que frequência a tabela é atualizada?
-- Tenho tabelas de fatos e dimensões em um pool de SQL do Synapse?
+- Tenho tabelas de dimensões e de fatos em um pool SQL dedicado?
 
 ### <a name="hash-distributed"></a>Tabelas distribuídas por hash
 
@@ -44,7 +44,7 @@ Uma tabela distribuída por hash distribui linhas da tabela em todos os nós de 
 
 ![Tabela distribuída](./media/sql-data-warehouse-tables-distribute/hash-distributed-table.png "Tabela distribuída")  
 
-Como valores idênticos sempre hash para a mesma distribuição, o data warehouse tem conhecimento interno dos locais de linha. No pool de SQL do Synapse, esse conhecimento é usado para minimizar a movimentação de dados durante as consultas, o que melhora o desempenho da consulta.
+Como valores idênticos sempre são hash para a mesma distribuição, o SQL Analytics tem conhecimento interno dos locais de linha. No pool SQL dedicado, esse conhecimento é usado para minimizar a movimentação de dados durante consultas, o que melhora o desempenho da consulta.
 
 Tabelas distribuídas por hash funcionam bem para grandes tabelas de fatos em um esquema em estrela. Podem ter um grande número de linhas e ainda obter um alto desempenho. É claro, há algumas considerações de design que ajudam você a obter o desempenho que o sistema distribuído foi desenvolvido para fornecer. Escolher uma boa coluna de distribuição é uma consideração que é descrita neste artigo.
 
@@ -68,7 +68,7 @@ Considere usar a distribuição round robin para a sua tabela nos seguintes cen�
 - Se a junção for menos significativa do que outras junções na consulta
 - Quando a tabela é uma tabela temporária de preparo
 
-O tutorial [Carregar dados de táxis de Nova York](load-data-from-azure-blob-storage-using-polybase.md#load-the-data-into-your-data-warehouse) fornece um exemplo de carregamento de dados em uma tabela de preparo por rodízio.
+O tutorial [Carregar dados de táxis de Nova York](./load-data-from-azure-blob-storage-using-copy.md#load-the-data-into-your-data-warehouse) fornece um exemplo de carregamento de dados em uma tabela de preparo por rodízio.
 
 ## <a name="choosing-a-distribution-column"></a>Escolher uma coluna de distribuição
 
@@ -96,7 +96,7 @@ Os dados armazenados na coluna de distribuição podem ser atualizados. As atual
 
 Escolher uma coluna de distribuição é uma decisão de design importante como os valores nesta coluna determinam como as linhas são distribuídas. A melhor escolha depende de vários fatores e geralmente envolve as vantagens e desvantagens. Assim que uma coluna de distribuição é escolhida, não é possível alterá-la.  
 
-Se você não escolheu a melhor coluna na primeira vez, pode usar [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para recriar a tabela com uma coluna de distribuição diferente.
+Se você não escolheu a melhor coluna na primeira vez, pode usar [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) para recriar a tabela com uma coluna de distribuição diferente.
 
 ### <a name="choose-a-distribution-column-with-data-that-distributes-evenly"></a>Escolha uma coluna de distribuição com dados que distribui uniformemente
 
@@ -113,7 +113,7 @@ Para equilibrar o processamento paralelo, selecione uma coluna de distribuição
 
 ### <a name="choose-a-distribution-column-that-minimizes-data-movement"></a>Escolha uma coluna de distribuição que minimiza a movimentação de dados
 
-Para obter a consulta correta os resultados de consultas podem mover dados de um nó de computação para outro. Movimentação de dados geralmente acontece quando as consultas em tabelas distribuídas contêm junções e agregações. Escolher uma coluna de distribuição que ajuda a minimizar a movimentação de dados é uma das estratégias mais importantes para otimizar o desempenho do pool de SQL do Synapse.
+Para obter a consulta correta os resultados de consultas podem mover dados de um nó de computação para outro. Movimentação de dados geralmente acontece quando as consultas em tabelas distribuídas contêm junções e agregações. Escolher uma coluna de distribuição que ajude a minimizar a movimentação de dados é uma das estratégias mais importantes para otimizar o desempenho de seu pool SQL dedicado.
 
 Para minimizar a movimentação de dados selecione a coluna de distribuição que:
 
@@ -133,7 +133,7 @@ Depois que os dados são carregados em uma tabela distribuída por hash, verifiq
 
 ### <a name="determine-if-the-table-has-data-skew"></a>Determinar se a tabela tem distorção de dados
 
-Uma maneira rápida de verificar a distorção de dados é usar [DBCC PDW_SHOWSPACEUSED](/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). O código SQL a seguir retorna o número de linhas da tabela que são armazenados em cada uma das 60 distribuições. Para um desempenho mais equilibrado, as linhas na tabela distribuída devem ser divididas uniformemente entre todas as distribuições.
+Uma maneira rápida de verificar a distorção de dados é usar [DBCC PDW_SHOWSPACEUSED](/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). O código SQL a seguir retorna o número de linhas da tabela que são armazenados em cada uma das 60 distribuições. Para um desempenho mais equilibrado, as linhas na tabela distribuída devem ser divididas uniformemente entre todas as distribuições.
 
 ```sql
 -- Find data skew for a distributed table
@@ -183,7 +183,7 @@ Como você não pode alterar a coluna de distribuição em uma tabela existente,
 
 ### <a name="re-create-the-table-with-a-new-distribution-column"></a>Criar novamente a tabela com uma nova coluna de distribuição
 
-Este exemplo usa [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para recriar uma tabela com uma coluna de distribuição de hash diferente.
+Este exemplo usa [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) para recriar uma tabela com uma coluna de distribuição de hash diferente.
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales_CustomerKey]
@@ -225,5 +225,5 @@ RENAME OBJECT [dbo].[FactInternetSales_CustomerKey] TO [FactInternetSales];
 
 Para criar uma tabela replicada, use uma dessas instruções:
 
-- [CREATE TABLE (pool de SQL do Synapse)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-- [CREATE TABLE AS SELECT (pool de SQL do Synapse)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [CREATE TABLE (pool dedicado de SQL)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
+- [CREATE TABLE como SELECT (pool dedicado de SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)

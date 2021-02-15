@@ -3,18 +3,21 @@ title: EXP na linguagem de consulta Azure Cosmos DB
 description: Saiba mais sobre a função de sistema SQL do expoente (EXP) no Azure Cosmos DB para retornar o valor exponencial da expressão numérica especificada
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 76d614264124e1ce4138663b702ff6d899b3aa4e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: adf80d36edbe8f9a5535e8fa04501918a62ea7ca
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74873311"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93335599"
 ---
 # <a name="exp-azure-cosmos-db"></a>EXP (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Retorna o valor exponencial da expressão numérica especificada.  
   
 ## <a name="syntax"></a>Sintaxe

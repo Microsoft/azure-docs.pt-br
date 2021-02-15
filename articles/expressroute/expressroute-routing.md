@@ -2,17 +2,17 @@
 title: 'Azure ExpressRoute: requisitos de roteamento'
 description: Esta página fornece requisitos detalhados para a configuração e gerenciamento de roteamento para circuitos do ExpressRoute.
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/19/2019
-ms.author: cherylmc
-ms.openlocfilehash: 7e70348ba1638057fdab579c1f2799a0f5aa77a4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: 436e866969d620389818bcebca3c5c37b8805309
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341358"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97629027"
 ---
 # <a name="expressroute-routing-requirements"></a>Requisitos de roteamento da Rota Expressa
 Para se conectar aos serviços de nuvem da Microsoft usando o ExpressRoute, você precisará configurar e gerenciar o roteamento. Alguns provedores de conectividade oferecem a configuração e o gerenciamento de roteamento como um serviço gerenciado. Verifique se o seu provedor de conectividade oferece esse serviço. Se não oferecer, você deverá atender aos requisitos a seguir:
@@ -83,7 +83,7 @@ Você deve usar endereços IP públicos que possui para configurar as sessões B
 Você pode optar por usar os endereços IPv4 públicos ou privados para o emparelhamento privado. Podemos fornecer um isolamento de ponta a ponta do tráfego para que a sobreposição dos endereços com outros clientes não seja possível no caso do emparelhamento privado. Esses endereços não são divulgados na Internet. 
 
 ### <a name="microsoft-peering"></a>Emparelhamento da Microsoft
-O caminho de emparelhamento da Microsoft permite conectar os serviços em nuvem da Microsoft. A lista de serviços inclui serviços do Office 365, como o Exchange Online, o SharePoint Online, o Skype for Business e o Microsoft Teams. A Microsoft dá suporte à conectividade bidirecional no emparelhamento da Microsoft. O tráfego destinado aos serviços de nuvem da Microsoft deve usar os endereços IPv4 públicos válidos antes de entrar na rede da Microsoft.
+O caminho de emparelhamento da Microsoft permite conectar os serviços em nuvem da Microsoft. A lista de serviços inclui serviços Microsoft 365s, como o Exchange Online, o SharePoint Online, o Skype for Business e o Microsoft Teams. A Microsoft dá suporte à conectividade bidirecional no emparelhamento da Microsoft. O tráfego destinado aos serviços de nuvem da Microsoft deve usar os endereços IPv4 públicos válidos antes de entrar na rede da Microsoft.
 
 Verifique se o endereço IP e o número de AS estão registrados em um dos registros abaixo:
 
@@ -100,7 +100,7 @@ Se seus prefixos e número AS não forem atribuídos a você nos registros anter
 Um Número de AS Privado é permitido com o emparelhamento da Microsoft, mas também exigirá a validação manual. Além disso, removemos números de AS privados no CAMINHO AS para os prefixos recebidos. Como resultado, não é possível anexar números de AS públicos no CAMINHO AS para [influenciar o roteamento para o Microsoft Peering](expressroute-optimize-routing.md). 
 
 > [!IMPORTANT]
-> Não anuncie a mesma rota IP pública à Internet pública e pelo ExpressRoute. Para reduzir o risco de configuração incorreta provocar roteamento assimétrico, recomendamos fortemente que os [endereços IP NAT](expressroute-nat.md) anunciados para a Microsoft via ExpressRoute estejam em um intervalo não anunciado para a Internet de modo algum. Caso isso não seja possível, é essencial garantir que você anuncie um intervalo mais específico por meio do ExpressRoute que aquele na conexão de Internet. Além de rota pública para NAT, você também pode anunciar no ExpressRoute o IP público endereços usados pelos servidores na sua rede local que se comunicam com pontos de extremidade do Office 365 da Microsoft. 
+> Não anuncie a mesma rota IP pública à Internet pública e pelo ExpressRoute. Para reduzir o risco de configuração incorreta provocar roteamento assimétrico, recomendamos fortemente que os [endereços IP NAT](expressroute-nat.md) anunciados para a Microsoft via ExpressRoute estejam em um intervalo não anunciado para a Internet de modo algum. Caso isso não seja possível, é essencial garantir que você anuncie um intervalo mais específico por meio do ExpressRoute que aquele na conexão de Internet. Além da rota pública para NAT, você também pode anunciar por ExpressRoute os endereços IP públicos usados pelos servidores em sua rede local que se comunicam com os pontos de extremidade Microsoft 365 na Microsoft. 
 > 
 > 
 
@@ -138,7 +138,7 @@ As rotas padrão são permitidas apenas em sessões de emparelhamento privado do
 * Você usa o roteamento definido pelo usuário para permitir a conectividade da Internet para cada sub-rede que requer conectividade com a Internet.
 
 > [!NOTE]
-> Anunciar rotas padrão irá interromper o Windows e outra ativação de licença da VM. Siga as instruções [aqui](https://blogs.msdn.com/b/mast/archive/2015/05/20/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling.aspx) para solucionar esse problema.
+> Anunciar rotas padrão irá interromper o Windows e outra ativação de licença da VM. Siga as instruções [aqui](/archive/blogs/mast/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling) para solucionar esse problema.
 > 
 > 
 
@@ -185,11 +185,11 @@ Você pode adquirir mais de um circuito da Rota Expressa por região geopolític
 | Leste da Ásia | 12076:51010 | 12076:52010 | 12076:53010 | 12076:54010 | 12076:55010 |
 | Sudeste Asiático | 12076:51011 | 12076:52011 | 12076:53011 | 12076:54011 | 12076:55011 |
 | **Japão** | |
-| Leste do Japão | 12076:51012 | 12076:52012 | 12076:53012 | 12076:54012 | 12076:55012 |
+| Japan East | 12076:51012 | 12076:52012 | 12076:53012 | 12076:54012 | 12076:55012 |
 | Oeste do Japão | 12076:51013 | 12076:52013 | 12076:53013 | 12076:54013 | 12076:55013 |
 | **Austrália** | |
 | Leste da Austrália | 12076:51015 | 12076:52015 | 12076:53015 | 12076:54015 | 12076:55015 |
-| Sudeste da Austrália | 12076:51016 | 12076:52016 | 12076:53016 | 12076:54016 | 12076:55016 |
+| Australia Southeast | 12076:51016 | 12076:52016 | 12076:53016 | 12076:54016 | 12076:55016 |
 | **Governo da Austrália** | |
 | Austrália Central | 12076:51032 | 12076:52032 | 12076:53032 | 12076:54032 | 12076:55032 |
 | Austrália Central 2 | 12076:51033 | 12076:52033 | 12076:53033 | 12076:54033 | 12076:55033 |
@@ -229,10 +229,13 @@ Além disso, a Microsoft também marcará prefixos com base no serviço ao qual 
 | Azure Resource Manager |12076:5070 |
 | Outros serviços online do Office 365 * * | 12076:5100 |
 
-\*Os serviços globais do Azure incluem apenas DevOps do Azure no momento. \
-\*\*Autorização necessária da Microsoft, consulte [Configurar filtros de rota para o emparelhamento da Microsoft](how-to-routefilter-portal.md)\
-\*\*\*Essa comunidade também publica as rotas necessárias para os serviços do Microsoft Teams. \
-\*\*\*\*O CRM Online dá suporte ao Dynamics v 8.2 e inferior. Para versões superiores, selecione a comunidade regional para suas implantações do Dynamics.
+\* Os serviços globais do Azure incluem apenas DevOps do Azure no momento.
+
+\*\* Autorização necessária da Microsoft, consulte [Configurar filtros de rota para o emparelhamento da Microsoft](how-to-routefilter-portal.md)
+
+\*\*\* Essa comunidade também publica as rotas necessárias para os serviços do Microsoft Teams.
+
+\*\*\*\* O CRM Online dá suporte ao Dynamics v 8.2 e inferior. Para versões superiores, selecione a comunidade regional para suas implantações do Dynamics.
 
 > [!NOTE]
 > A Microsoft não atende a valores de comunidade BGP definidos por você nas rotas anunciadas para a Microsoft.
@@ -258,6 +261,7 @@ Além disso, a Microsoft também marcará prefixos com base no serviço ao qual 
 | Exchange Online |12076:5110 |
 | SharePoint online |12076:5120 |
 | Skype for Business Online |12076:5130 |
+| Azure Active Directory |12076:5160 |
 | Outros serviços Online do Office 365 |12076:5200 |
 
 ## <a name="next-steps"></a>Próximas etapas

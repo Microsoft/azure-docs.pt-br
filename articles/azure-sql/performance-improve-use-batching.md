@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: development
 ms.custom: sqldbrb=2
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: stevestein
 ms.author: sstein
 ms.reviewer: genemi
 ms.date: 01/25/2019
-ms.openlocfilehash: 01e1c63a4cfea367a0f721ac33986abade8b5b35
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 07334d62cee94be8b5b8dd6188c1d6354c4d584b
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84343822"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792592"
 ---
 # <a name="how-to-use-batching-to-improve-azure-sql-database-and-azure-sql-managed-instance-application-performance"></a>Como usar o envio em lote para melhorar o desempenho do banco de dados SQL do Azure e do Azure SQL Instância Gerenciada do aplicativo
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -42,7 +42,7 @@ A primeira parte deste artigo examina várias técnicas de envio em lote para ap
 ### <a name="note-about-timing-results-in-this-article"></a>Observação sobre os resultados de tempo neste artigo
 
 > [!NOTE]
-> Os resultados não são parâmetros de comparação, mas têm como finalidade mostrar o **desempenho relativo**. Os intervalos se baseiam em uma média de pelo menos 10 execuções de teste. As operações são inserções em uma tabela vazia. Esses testes foram medidos antes do V12 e não correspondem necessariamente à produtividade que você pode obter em um banco de dados V12 usando as novas [camadas de serviço DTU](database/service-tiers-dtu.md) ou [camadas de serviço vCore](database/service-tiers-vcore.md). O benefício relativo da técnica de envio em lote deve ser semelhante.
+> Os resultados não são parâmetros de comparação, mas têm como finalidade mostrar o **desempenho relativo** . Os intervalos se baseiam em uma média de pelo menos 10 execuções de teste. As operações são inserções em uma tabela vazia. Esses testes foram medidos antes do V12 e não correspondem necessariamente à produtividade que você pode obter em um banco de dados V12 usando as novas [camadas de serviço DTU](database/service-tiers-dtu.md) ou [camadas de serviço vCore](database/service-tiers-vcore.md). O benefício relativo da técnica de envio em lote deve ser semelhante.
 
 ### <a name="transactions"></a>Transactions
 
@@ -93,11 +93,11 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 }
 ```
 
-Na verdade, as transações estão sendo usadas nos dois exemplos. No primeiro exemplo, cada chamada individual é uma transação implícita. No segundo exemplo, uma transação explícita encapsula todas as chamadas. De acordo com a documentação do [log de transações write-ahead](https://docs.microsoft.com/sql/relational-databases/sql-server-transaction-log-architecture-and-management-guide?view=sql-server-ver15#WAL), os registros de log são liberados para o disco quando a transação é confirmada. Então, incluindo mais chamadas em uma transação, a gravação no log de transações pode atrasar até que a transação seja confirmada. Na verdade, você está habilitando o envio em lote das gravações no log de transações do servidor.
+Na verdade, as transações estão sendo usadas nos dois exemplos. No primeiro exemplo, cada chamada individual é uma transação implícita. No segundo exemplo, uma transação explícita encapsula todas as chamadas. De acordo com a documentação do [log de transações write-ahead](/sql/relational-databases/sql-server-transaction-log-architecture-and-management-guide?view=sql-server-ver15#WAL), os registros de log são liberados para o disco quando a transação é confirmada. Então, incluindo mais chamadas em uma transação, a gravação no log de transações pode atrasar até que a transação seja confirmada. Na verdade, você está habilitando o envio em lote das gravações no log de transações do servidor.
 
 A tabela a seguir mostra alguns resultados de testes ad hoc. Os testes executaram as mesmas inserções sequenciais, com e sem transações. Para obter uma perspectiva maior, o primeiro conjunto de testes foi executado remotamente de um laptop para o banco de dados no Microsoft Azure. O segundo conjunto de testes foi executado de um serviço de nuvem e de um banco de dados localizados no mesmo datacenter do Microsoft Azure (Oeste dos Estados Unidos). A tabela a seguir mostra a duração em milissegundos de inserções sequenciais, com e sem transações.
 
-**De Local para o Azure**:
+**De Local para o Azure** :
 
 | Operações | Nenhuma transação (MS) | Com transação (ms) |
 | --- | --- | --- |
@@ -106,7 +106,7 @@ A tabela a seguir mostra alguns resultados de testes ad hoc. Os testes executara
 | 100 |12662 |10395 |
 | 1000 |128852 |102917 |
 
-**Do Azure para o Azure (mesmo datacenter)**:
+**Do Azure para o Azure (mesmo datacenter)** :
 
 | Operações | Nenhuma transação (MS) | Com transação (ms) |
 | --- | --- | --- |
@@ -120,7 +120,7 @@ A tabela a seguir mostra alguns resultados de testes ad hoc. Os testes executara
 
 Com base nos resultados do teste anterior, a disposição de uma única operação em uma transação reduz o desempenho. Mas, à medida que você aumenta o número de operações em uma única transação, o aprimoramento do desempenho fica mais evidente. A diferença de desempenho também é mais perceptível quando todas as operações ocorrem dentro do datacenter do Microsoft Azure. A maior latência de usar o banco de dados SQL do Azure ou o Azure SQL Instância Gerenciada de fora do Microsoft Azure datacenter ultrapassa o ganho de desempenho do uso de transações.
 
-Embora o uso de transações possa aumentar o desempenho, continue [seguindo as práticas recomendadas para transações e conexões](https://docs.microsoft.com/previous-versions/sql/sql-server-2008-r2/ms187484(v=sql.105)). Mantenha a transação a mais curta possível, e feche a conexão do banco de dados após a conclusão do trabalho. A instrução using no exemplo anterior garante o fechamento da conexão após a conclusão do bloco de códigos subsequente.
+Embora o uso de transações possa aumentar o desempenho, continue [seguindo as práticas recomendadas para transações e conexões](/previous-versions/sql/sql-server-2008-r2/ms187484(v=sql.105)). Mantenha a transação a mais curta possível, e feche a conexão do banco de dados após a conclusão do trabalho. A instrução using no exemplo anterior garante o fechamento da conexão após a conclusão do bloco de códigos subsequente.
 
 O exemplo anterior demonstra que você pode adicionar uma transação local a qualquer código ADO.NET com duas linhas. As transações oferecem uma maneira rápida de melhorar o desempenho do código que faz as operações de inserção sequencial, atualização e de exclusão. No entanto, para obter o melhor desempenho, considere alterar o código ainda mais para aproveitar o envio em lote no lado do cliente, por exemplo, com os parâmetros com valor de tabela.
 
@@ -128,7 +128,7 @@ Para saber mais sobre transações no ADO.NET, consulte [Transações locais no 
 
 ### <a name="table-valued-parameters"></a>Parâmetros com valor de tabela
 
-Os parâmetros com valor de tabela oferecem suporte a tipos de tabela definidos pelo usuário como parâmetros em instruções Transact-SQL, procedimentos armazenados e funções. Essa técnica de envio em lote no lado do cliente permite o envio de várias linhas de dados dentro do parâmetro com valor de tabela. Para usar os parâmetros com valor de tabela, primeiro defina um tipo de tabela. A instrução Transact-SQL a seguir cria um tipo de tabela denominado **MyTableType**.
+Os parâmetros com valor de tabela oferecem suporte a tipos de tabela definidos pelo usuário como parâmetros em instruções Transact-SQL, procedimentos armazenados e funções. Essa técnica de envio em lote no lado do cliente permite o envio de várias linhas de dados dentro do parâmetro com valor de tabela. Para usar os parâmetros com valor de tabela, primeiro defina um tipo de tabela. A instrução Transact-SQL a seguir cria um tipo de tabela denominado **MyTableType** .
 
 ```sql
     CREATE TYPE MyTableType AS TABLE
@@ -169,7 +169,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 }
 ```
 
-No exemplo anterior, o objeto **SqlCommand** insere linhas de um parâmetro com valor de tabela, ** \@ TestTvp**. O objeto **DataTable** criado anteriormente é atribuído a esse parâmetro com o método **SqlCommand.Parameters.Add**. O envio em lote de inserções em uma chamada aumenta consideravelmente o desempenho com inserções sequenciais.
+No exemplo anterior, o objeto **SqlCommand** insere linhas de um parâmetro com valor de tabela, **\@ TestTvp** . O objeto **DataTable** criado anteriormente é atribuído a esse parâmetro com o método **SqlCommand.Parameters.Add** . O envio em lote de inserções em uma chamada aumenta consideravelmente o desempenho com inserções sequenciais.
 
 Para melhorar ainda mais o exemplo anterior, use um procedimento armazenado e não um comando baseado em texto. O comando Transact-SQL a seguir cria um procedimento armazenado que utiliza o parâmetro com valor de tabela **SimpleTestTableType** .
 
@@ -212,7 +212,7 @@ Para saber mais sobre parâmetros com valor de tabela, consulte [Parâmetros com
 
 ### <a name="sql-bulk-copy"></a>Cópia em massa do SQL
 
-Cópia em massa do SQL é outra maneira de inserir grandes quantidades de dados em um banco de dados de destino. Aplicativos .NET podem usar a classe **SqlBulkCopy** para executar operações de inserção em massa. **SqlBulkCopy** tem uma função semelhante à ferramenta de linha de comando, **Bcp.exe**, ou à instrução Transact-SQL, **BULK INSERT**. O exemplo de código a seguir mostra como copiar em massa as linhas na **DataTable**de origem, tabela, para a tabela de destino, MyTable.
+Cópia em massa do SQL é outra maneira de inserir grandes quantidades de dados em um banco de dados de destino. Aplicativos .NET podem usar a classe **SqlBulkCopy** para executar operações de inserção em massa. **SqlBulkCopy** tem uma função semelhante à ferramenta de linha de comando, **Bcp.exe** , ou à instrução Transact-SQL, **BULK INSERT** . O exemplo de código a seguir mostra como copiar em massa as linhas na **DataTable** de origem, tabela, para a tabela de destino, MyTable.
 
 ```csharp
 using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
@@ -293,7 +293,7 @@ A classe **DataAdapter** permite que você modifique um objeto **DataSet** e env
 
 ### <a name="entity-framework"></a>Entity Framework
 
-O [Entity Framework 6](https://github.com/dotnet/ef6) agora dá suporte ao envio em lote.
+O [Entity Framework Core](/ef/efcore-and-ef6/#saving-data) dá suporte ao envio em lote.
 
 ### <a name="xml"></a>XML
 
@@ -380,7 +380,7 @@ Embora alguns cenários sejam candidatos óbvios ao envio em lote, há muitos ce
 
 Por exemplo, considere um aplicativo Web que controla o histórico de navegação de cada usuário. Em cada solicitação de página, o aplicativo pode fazer uma chamada de banco de dados para registrar o modo de exibição de página do usuário. Mas é possível obter mais desempenho e escalabilidade por meio do armazenamento em buffer das atividades de navegação dos usuários e enviar esses dados para o banco de dados em lotes. Você pode disparar a atualização do banco de dados por tempo decorrido e/ou tamanho do buffer. Por exemplo, uma regra poderia especificar que o lote deve ser processado após 20 segundos, ou quando o buffer atingir 1000 itens.
 
-O exemplo de código a seguir usa [Extensões Reativas - Rx](https://docs.microsoft.com/previous-versions/dotnet/reactive-extensions/hh242985(v=vs.103)) para processar eventos em buffer gerados por uma classe de monitoramento. Quando o buffer é preenchido ou um tempo limite é atingido, o lote de dados do usuário é enviado ao banco de dados com um parâmetro com valor de tabela.
+O exemplo de código a seguir usa [Extensões Reativas - Rx](/previous-versions/dotnet/reactive-extensions/hh242985(v=vs.103)) para processar eventos em buffer gerados por uma classe de monitoramento. Quando o buffer é preenchido ou um tempo limite é atingido, o lote de dados do usuário é enviado ao banco de dados com um parâmetro com valor de tabela.
 
 A classe NavHistoryData a seguir modela os detalhes de navegação do usuário. Ela contém informações básicas, como o identificador do usuário, a URL acessada e o tempo de acesso.
 

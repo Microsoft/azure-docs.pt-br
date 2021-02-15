@@ -3,18 +3,20 @@ title: DateTimeToTimestamp na linguagem de consulta Azure Cosmos DB
 description: Saiba mais sobre a função do sistema SQL DateTimeToTimestamp no Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 08/18/2020
 ms.author: tisande
 ms.custom: query-reference
-ms.openlocfilehash: 673e6a8cb86986ff24e3ee55589d13e8a9e4fdc5
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 11e0150089fd979cbf840d3b117c0d796ecc68f3
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88608699"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93335714"
 ---
 # <a name="datetimetotimestamp-azure-cosmos-db"></a>DateTimeToTimestamp (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Converte o DateTime especificado em um carimbo de data/hora.
   
@@ -36,7 +38,7 @@ DateTimeToTimestamp (<DateTime>)
   |DD|dia de dois dígitos do mês (01 a 31)|
   |T|signifier para o início dos elementos de hora|
   |hh|hora de dois dígitos (00 a 23)|
-  |MM|minutos de dois dígitos (00 a 59)|
+  |mm|minutos de dois dígitos (00 a 59)|
   |ss|segundos de dois dígitos (00 a 59)|
   |. fffffff|segundos fracionários de sete dígitos|
   |Z|Designador UTC (tempo Universal Coordenado)||

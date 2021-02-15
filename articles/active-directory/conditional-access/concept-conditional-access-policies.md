@@ -5,26 +5,45 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 10/16/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36ab632010ec2bbbc19ac71cbeccab2ff6b3565f
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 28d58c476a805b672a6ec8b4d8ec465eba17e559
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88948378"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96169674"
 ---
 # <a name="building-a-conditional-access-policy"></a>Criando uma política de acesso condicional
 
 Conforme explicado no artigo [o que é acesso condicional](overview.md), uma política de acesso condicional é uma instrução if-then, de **atribuições** e **controles de acesso**. Uma política de acesso condicional reúne sinais, para tomar decisões e impor políticas organizacionais.
 
-Como uma organização cria essas políticas? O que é necessário?
+Como uma organização cria essas políticas? O que é necessário? Como eles são aplicados?
 
 ![Acesso condicional (sinais + decisões + imposição = políticas)](./media/concept-conditional-access-policies/conditional-access-signal-decision-enforcement.png)
+
+Várias políticas de acesso condicional podem se aplicar a um usuário individual a qualquer momento. Nesse caso, todas as políticas que se aplicam devem ser atendidas. Por exemplo, se uma política exigir a MFA (autenticação multifator) e outra exigir um dispositivo em conformidade, você deverá concluir a MFA e usar um dispositivo compatível. Todas as atribuições são avaliadas com **AND** lógicos. Se você tiver mais de uma atribuição configurada, todas as atribuições deverão ser atendidas para disparar uma política.
+
+Todas as políticas são impostas em duas fases:
+
+- Fase 1: coletar detalhes da sessão 
+   - Colete detalhes da sessão, como o local de rede e a identidade do dispositivo que serão necessários para a avaliação da política. 
+   - A fase 1 da avaliação de política ocorre para políticas e políticas habilitadas no [modo somente de relatório](concept-conditional-access-report-only.md).
+- Fase 2: imposição 
+   - Use os detalhes da sessão coletados na fase 1 para identificar os requisitos que não foram atendidos. 
+   - Se houver uma política configurada para bloquear o acesso, com o controle de concessão de bloqueio, a imposição será interrompida aqui e o usuário será bloqueado. 
+   - O usuário será solicitado a concluir os requisitos adicionais de controle de concessão que não foram atendidos durante a fase 1 na seguinte ordem, até que a política seja satisfeita:  
+      - Autenticação multifator 
+      - Aplicativo cliente aprovado/política de proteção de aplicativo 
+      - Dispositivo gerenciado (ingresso em conformidade ou Azure AD híbrido) 
+      - Termos de uso 
+      - Controles personalizados  
+   - Depois que todos os controles de concessão forem satisfeitos, aplique os controles de sessão (aplicativo imposto, Microsoft Cloud App Security e tempo de vida do token) 
+   - A fase 2 da avaliação de política ocorre para todas as políticas habilitadas. 
 
 ## <a name="assignments"></a>Atribuições
 
@@ -82,7 +101,7 @@ Bloquear acesso faz exatamente isso, ele bloqueará o acesso nas atribuições e
 
 O controle Grant pode disparar a imposição de um ou mais controles. 
 
-- Exigir autenticação multifator (autenticação multifator do Azure)
+- Exigir autenticação multifator (autenticação multifator do Azure AD)
 - Exigir que o dispositivo seja marcado como compatível (Intune)
 - Exigir um dispositivo ingressado no Azure AD Híbrido
 - Exigir um aplicativo cliente aprovado
@@ -127,9 +146,11 @@ O artigo [políticas de acesso condicional comum](concept-conditional-access-pol
 
 ## <a name="next-steps"></a>Próximas etapas
 
+[Criar uma política de acesso condicional](../authentication/tutorial-enable-azure-mfa.md?bc=%2fazure%2factive-directory%2fconditional-access%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fconditional-access%2ftoc.json#create-a-conditional-access-policy)
+
 [Simular comportamento de entrada usando a ferramenta What If de Acesso Condicional](troubleshoot-conditional-access-what-if.md)
 
-[Planejar uma implantação da Autenticação Multifator do Azure baseada em nuvem](../authentication/howto-mfa-getstarted.md)
+[Planejando uma implantação da autenticação multifator do Azure AD baseada em nuvem](../authentication/howto-mfa-getstarted.md)
 
 [Gerenciando a conformidade do dispositivo com o Intune](/intune/device-compliance-get-started)
 

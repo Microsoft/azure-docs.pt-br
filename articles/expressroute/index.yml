@@ -7,15 +7,15 @@ metadata:
   services: expressroute
   ms.service: expressroute
   ms.topic: landing-page
-  author: cherylmc
-  ms.author: cherylmc
+  author: duongau
+  ms.author: duau
   ms.date: 08/27/2019
-  ms.openlocfilehash: 262043a70bb155c57c9e8ed1f9c0ba614fe0ecdc
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: 384079389c66811016b1c813b3c11185ddfd52a6
+  ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "74561776"
+  ms.lasthandoff: 10/19/2020
+  ms.locfileid: "92203969"
 landingContent:
 - title: Sobre o ExpressRoute
   linkLists:
@@ -45,7 +45,7 @@ landingContent:
     links:
     - text: Pré-requisitos e lista de verificação
       url: expressroute-prerequisites.md
-    - text: Fluxos de trabalho
+    - text: Fluxos de Trabalho
       url: expressroute-workflows.md
     - text: Circuitos e emparelhamentos
       url: expressroute-circuit-peerings.md
@@ -116,7 +116,7 @@ landingContent:
   - linkListType: reference
     links:
     - text: CLI do Azure
-      url: https://docs.microsoft.com/cli/azure/network/express-route
+      url: /cli/azure/network/express-route
     - text: Azure PowerShell
       url: /powershell/module/az.network#expressroute
     - text: REST
@@ -124,6 +124,6 @@ landingContent:
   - linkListType: architecture
     links:
     - text: Arquiteturas de referência para rede híbrida
-      url: https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/expressroute
+      url: /azure/architecture/reference-architectures/hybrid-networking/expressroute
     - text: Arquitetura de referência para rede híbrida com failover de VPN
-      url: https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/expressroute-vpn-failover
+      url: /azure/architecture/reference-architectures/hybrid-networking/expressroute-vpn-failover

@@ -1,6 +1,6 @@
 ---
 title: Instalar a Atualização 0.6 em um StorSimple Virtual Array | Microsoft Docs
-description: Descreve como usar a IU da Web do StorSimple Virtual Array para aplicar atualizações usando o portal do Azure e o método de hotfix
+description: Descreve como usar a interface do usuário da Web do StorSimple virtual array para aplicar a atualização 0,6 usando o método portal do Azure e Hot Fix.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/18/2017
 ms.author: alkohli
-ms.openlocfilehash: 02b85cb90948f35cb6f6c855cfbe81fd58301de0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4b379bb76eaf7587c53ec55972ccee3f54a55f22
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85513584"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94534238"
 ---
 # <a name="install-update-06-on-your-storsimple-virtual-array"></a>Instalar a Atualização 0.6 em seu StorSimple Virtual Array
 
@@ -95,32 +95,32 @@ Use esse método para instalar atualizações em um dispositivo que executa as v
 
 #### <a name="to-install-the-update-or-the-hotfix"></a>Para instalar a atualização ou hotfix
 
-1. Na interface do usuário da Web local, vá para **manutenção**  >  **atualização de software**. Anote a versão do software que você está executando. Se você estiver executando **10.0.10290.0**, não será necessário atualizar o agente MDS na etapa 6.
+1. Na interface do usuário da Web local, vá para **manutenção**  >  **atualização de software**. Anote a versão do software que você está executando. Se você estiver executando **10.0.10290.0** , não será necessário atualizar o agente MDS na etapa 6.
    
-    ![atualizar dispositivo](./media/storsimple-virtual-array-install-update-05/update1m.png)
+    ![Captura de tela mostra a atualização de software selecionada no menu manutenção.](./media/storsimple-virtual-array-install-update-05/update1m.png)
 
-2. Em **Caminho de arquivo de atualização**, digite o nome de arquivo para a atualização ou hotfix. Você também pode navegar até o arquivo de instalação de hotfix ou atualização se colocado em um compartilhamento de rede. Clique em **Aplicar**.
+2. Em **Caminho de arquivo de atualização** , digite o nome de arquivo para a atualização ou hotfix. Você também pode navegar até o arquivo de instalação de hotfix ou atualização se colocado em um compartilhamento de rede. Clique em **Aplicar**.
    
-    ![atualizar dispositivo](./media/storsimple-virtual-array-install-update-05/update2m.png)
+    ![Captura de tela mostra a caixa de texto atualizar caminho do arquivo na página atualização de software.](./media/storsimple-virtual-array-install-update-05/update2m.png)
 
 3. Será exibido um aviso. Como a matriz virtual é um dispositivo de nó único, depois que a atualização for aplicada, o dispositivo será reiniciado e haverá tempo de inatividade. Clique no ícone de verificação.
    
-   ![atualizar dispositivo](./media/storsimple-virtual-array-install-update-05/update3m.png)
+   ![Captura de tela mostra uma caixa de diálogo de aviso de tempo de inatividade.](./media/storsimple-virtual-array-install-update-05/update3m.png)
 
 4. A atualização será iniciada. Depois que for atualizado com êxito, o dispositivo será reiniciado. A interface do usuário local não estará acessível durante esse tempo.
    
-    ![atualizar dispositivo](./media/storsimple-virtual-array-install-update-05/update5m.png)
+    ![Captura de tela mostra uma mensagem de êxito para a atualização.](./media/storsimple-virtual-array-install-update-05/update5m.png)
 
 5. Depois que a reinicialização for concluída, você será levado à página **Entrar** . Para verificar se o software do dispositivo foi atualizado, na interface do usuário da Web local, vá para **manutenção**  >  **atualização de software**. A versão de software exibida deve ser **10.0.0.0.0.10293** para a Atualização 0.6.
    
    > [!NOTE]
    > Relatamos as versões de software de maneira ligeiramente diferente na interface do usuário da Web local e no portal do Azure. Por exemplo, a interface do usuário da Web local informa **10.0.0.0.0.10293** e o Portal do Azure informa **10.0.10293.0** para a mesma versão.
    
-    ![atualizar dispositivo](./media/storsimple-virtual-array-install-update-06/update6m.png)
+    ![Captura de tela mostra a página de atualização de software com a versão atual do software.](./media/storsimple-virtual-array-install-update-06/update6m.png)
 
-6. Ignore esta etapa se você executou a Atualização 0.5 da Matriz Virtual do StorSimple (**10.0.10290.0**) antes de aplicar essa atualização. Você fez uma anotação da versão do software na etapa 1 antes de começar a atualizar. Se você executou a Atualização 0.5, seu agente do MDS já está atualizado.
+6. Ignore esta etapa se você executou a Atualização 0.5 da Matriz Virtual do StorSimple ( **10.0.10290.0** ) antes de aplicar essa atualização. Você fez uma anotação da versão do software na etapa 1 antes de começar a atualizar. Se você executou a Atualização 0.5, seu agente do MDS já está atualizado.
 
-    Se você estiver executando uma versão do software antes da Atualização 0.5, a próxima etapa será a atualização do agente do MDS. Na página **Atualização de Software**, vá até o **Caminho do arquivo de atualização** e navegue até o arquivo `GenevaMonitoringAgentPackageInstaller.msi`. Repita as etapas de 2 a 4. Depois que a matriz virtual for reiniciada, entre na interface do usuário da Web local.
+    Se você estiver executando uma versão do software antes da Atualização 0.5, a próxima etapa será a atualização do agente do MDS. Na página **Atualização de Software** , vá até o **Caminho do arquivo de atualização** e navegue até o arquivo `GenevaMonitoringAgentPackageInstaller.msi`. Repita as etapas de 2 a 4. Depois que a matriz virtual for reiniciada, entre na interface do usuário da Web local.
 
 7. Repita a etapa 2 a 4 para instalar as correções de segurança do Windows usando arquivos os `windows8.1-kb4012213-x64`, `windows8.1-kb3205400-x64` e `windows8.1-kb4019213-x64`. A matriz virtual reinicia após cada instalação e você precisa entrar na interface do usuário da Web local.
 

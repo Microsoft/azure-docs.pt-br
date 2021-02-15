@@ -1,23 +1,25 @@
 ---
 title: Consultas do SQL JOIN para Azure Cosmos DB
 description: Saiba como unir várias tabelas em Azure Cosmos DB para consultar os dados
-author: markjbrown
+author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 05/17/2019
-ms.author: mjbrown
-ms.openlocfilehash: 38e80f1597a08b8db7cbfa852d1bcf38ac768b1f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 01/07/2021
+ms.author: tisande
+ms.openlocfilehash: cb7b2e62a9fabeeca675edb8e6aa356213e0999e
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74871135"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98011366"
 ---
 # <a name="joins-in-azure-cosmos-db"></a>Junções no Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Em um banco de dados relacional, as junções entre as tabelas são o registro lógico da criação de esquemas normalizados. Por outro lado, a API do SQL usa o modelo de dados desnormalizado de itens sem esquema, que é o equivalente lógico de uma *auto-associação*.
 
-Junções internas resultam em um produto completo cruzando os conjuntos associados à junção. O resultado de uma junção de N maneiras é um conjunto de tuplas com N elementos, em que cada valor na tupla é associado ao alias do conjunto membro da junção e pode ser acessado pela referência desse alias em outras cláusulas.
+As junções resultam em um produto cruzado completo dos conjuntos que participam da junção. O resultado de uma junção de N maneiras é um conjunto de tuplas com N elementos, em que cada valor na tupla é associado ao alias do conjunto membro da junção e pode ser acessado pela referência desse alias em outras cláusulas.
 
 ## <a name="syntax"></a>Syntax
 
@@ -224,7 +226,7 @@ A seguinte extensão do exemplo anterior executa uma junção dupla. Você pode 
     }
 ```
 
-`AndersenFamily`tem um filho que tem um animal de estimação, portanto, o produto cruzado produz uma linha (1 \* 1 \* 1) dessa família. `WakefieldFamily`tem dois filhos, apenas um de quem tem animais de estimação, mas esse filho tem dois animais de estimação. O produto cruzado para esta família gera 1 \* 1 \* 2 = 2 linhas.
+`AndersenFamily` tem um filho que tem um animal de estimação, portanto, o produto cruzado produz uma linha (1 \* 1 \* 1) dessa família. `WakefieldFamily` tem dois filhos, apenas um de quem tem animais de estimação, mas esse filho tem dois animais de estimação. O produto cruzado para esta família gera 1 \* 1 \* 2 = 2 linhas.
 
 No próximo exemplo, há um filtro adicional em `pet` , que exclui todas as tuplas em que o nome do animal de estimação não é `Shadow` . Você pode criar tuplas de matrizes, filtrar em qualquer um dos elementos da tupla e projetar qualquer combinação dos elementos.
 
@@ -251,6 +253,8 @@ Os resultados são:
       }
     ]
 ```
+
+Se sua consulta tiver uma junção e filtros, você poderá reescrever parte da consulta como uma [subconsulta](sql-query-subquery.md#optimize-join-expressions) para melhorar o desempenho.
 
 ## <a name="next-steps"></a>Próximas etapas
 

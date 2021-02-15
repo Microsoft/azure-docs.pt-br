@@ -6,10 +6,10 @@ ms.topic: sample
 ms.date: 07/08/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: f655ed3f2b6a3cef89c493137bd34732a60e414a
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87494087"
 ---
 # <a name="subscribe-to-events-for-a-resource-group-with-azure-cli"></a>Inscrever-se em eventos para um grupo de recursos com a CLI do Azure

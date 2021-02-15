@@ -3,13 +3,13 @@ title: API do Application Insights para métricas e eventos personalizados | Mic
 description: Insira algumas linhas de código em seu aplicativo da área de trabalho ou de dispositivo, página da Web ou serviço para acompanhar o uso e diagnosticar problemas.
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: f60fdf9164d09b10d12ada7481edb503cd57a411
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.custom: devx-track-js, devx-track-csharp
+ms.openlocfilehash: 72e79ff90422a6f055d5b883ba208555244687b3
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88936564"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98927820"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API do Application Insights para métricas e eventos personalizados
 
@@ -146,7 +146,9 @@ telemetry.trackEvent({name: "WinGame"});
 
 ### <a name="custom-events-in-analytics"></a>Eventos personalizados na Análise
 
-A telemetria está disponível na tabela `customEvents` na [Análise do Application Insights](../log-query/log-query-overview.md). Cada linha representa uma chamada para `trackEvent(..)` em seu aplicativo.
+A telemetria está disponível na `customEvents` tabela na [guia Logs de Application insights](../log-query/log-query-overview.md) ou na [experiência de uso](usage-overview.md). Os eventos podem vir de `trackEvent(..)` ou [clicar em plug-in de coleção de análise automática](javascript-click-analytics-plugin.md).
+
+ 
 
 Se a [amostragem](./sampling.md) estiver em funcionamento, a propriedade itemCount mostrará um valor maior que 1. Para exemplo itemCount==10 significa que de 10 chamadas para trackEvent(), o processo de amostragem somente transmitirá um deles. Para obter uma contagem correta de eventos personalizados, você deve, portanto, usar um código como `customEvents | summarize sum(itemCount)` .
 
@@ -489,7 +491,7 @@ trackTrace(message: string, properties?: {[string]:string}, severityLevel?: Seve
 
 Registrar um evento de diagnóstico, como entrar ou sair de um método.
 
- Parâmetro | DESCRIÇÃO
+ Parâmetro | Descrição
 ---|---
 `message` | Dados de diagnóstico. Pode ser muito mais longo do que um nome.
 `properties` | Mapa de cadeia de caracteres para cadeia de caracteres: dados adicionais usados para [Filtrar exceções](#properties) no Portal. O padrão é vazio.
@@ -531,6 +533,9 @@ Se a [amostragem](./sampling.md) estiver em funcionamento, a propriedade itemCou
 
 Use a chamada a TrackDependency para acompanhar os tempos de resposta e taxas de êxito de chamadas a uma parte externa do código. Os resultados são exibidos nos gráficos de dependência no portal. O trecho de código abaixo precisa ser adicionado sempre que uma chamada de dependência é feita.
 
+> [!NOTE]
+> Para .NET e .NET Core, você pode, como alternativa, usar o `TelemetryClient.StartOperation` método (extensão) que preenche as `DependencyTelemetry` Propriedades que são necessárias para a correlação e algumas outras propriedades, como a hora de início e a duração, para que você não precise criar um temporizador personalizado como com os exemplos abaixo. Para obter mais informações, consulte a [seção deste artigo sobre acompanhamento de dependência de saída](./custom-operations-tracking.md#outgoing-dependencies-tracking).
+
 *C#*
 
 ```csharp
@@ -566,8 +571,8 @@ finally {
     Instant endTime = Instant.now();
     Duration delta = Duration.between(startTime, endTime);
     RemoteDependencyTelemetry dependencyTelemetry = new RemoteDependencyTelemetry("My Dependency", "myCall", delta, success);
-    RemoteDependencyTelemetry.setTimeStamp(startTime);
-    RemoteDependencyTelemetry.trackDependency(dependencyTelemetry);
+    dependencyTelemetry.setTimeStamp(startTime);
+    telemetry.trackDependency(dependencyTelemetry);
 }
 ```
 
@@ -1093,8 +1098,8 @@ Para determinar por quanto tempo os dados são mantidos, confira [Retenção e p
 
 ## <a name="reference-docs"></a>Documentos de Referência
 
-* [Referência do ASP.NET](/dotnet/api/overview/azure/insights?view=azure-dotnet)
-* [Referência Java](/java/api/overview/azure/appinsights?view=azure-java-stable/)
+* [Referência do ASP.NET](/dotnet/api/overview/azure/insights)
+* [Referência do Java](/java/api/overview/azure/appinsights)
 * [Referência do JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
 
 ## <a name="sdk-code"></a>Código do SDK
@@ -1119,4 +1124,3 @@ Para determinar por quanto tempo os dados são mantidos, confira [Retenção e p
 
 * [Pesquisar eventos e logs](./diagnostic-search.md)
 * [Solução de problemas](../faq.md)
-

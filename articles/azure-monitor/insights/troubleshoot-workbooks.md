@@ -2,16 +2,16 @@
 title: Solução de problemas Azure Monitor informações baseadas em pasta de trabalho
 description: Fornece diretrizes de solução de problemas para Azure Monitor informações baseadas em pasta de trabalho para serviços como Azure Key Vault, Azure CosmosDB, armazenamento do Azure e cache do Azure para Redis.
 services: azure-monitor
-ms.author: mbullwin
-author: mrbullwinkle
+ms.author: lagayhar
+author: lgayhardt
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: 90743a213092aacfa10139c12f47bc11faf0d86d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 3a2765e9dcf3b0e7bf28191e6ecbb069f26c42f5
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86498705"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98208515"
 ---
 # <a name="troubleshooting-workbook-based-insights"></a>Solucionando problemas de informações baseadas em pasta de trabalho
 

@@ -7,16 +7,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/27/2020
+ms.date: 10/12/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: a0131e461f2664fa06fc0e24237aec1579bd253c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 48c60878a6a58b2f4629768b81af894a741dab1c
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85203836"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509794"
 ---
 # <a name="web-sign-in-with-openid-connect-in-azure-active-directory-b2c"></a>Entrada na Web com o OpenID Connect no Azure Active Directory B2C
 
@@ -24,7 +24,7 @@ O OpenID Connect é um protocolo de autenticação criado com base em OAuth 2.0 
 
 O [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) estende o protocolo de *autorização* do OAuth 2.0 a ser usado como um protocolo de *autenticação*. Esse protocolo de autenticação permite que você execute o logon único. Ele apresenta o conceito de *token de ID*, que permite ao cliente verificar a identidade do usuário e obter informações básicas de perfil sobre o usuário.
 
-Como ele estende o OAuth 2,0, ele também permite que os aplicativos adquiram *tokens de acesso*com segurança. Você pode usar tokens de acesso para acessar os recursos protegidos por um [servidor de autorização](protocols-overview.md). O OpenID Connect é recomendado se você estiver criando um aplicativo Web hospedado em um servidor e acessado por meio de um navegador. Para obter mais informações sobre tokens, consulte a [visão geral dos tokens no Azure Active Directory B2C](tokens-overview.md)
+Como ele estende o OAuth 2,0, ele também permite que os aplicativos adquiram *tokens de acesso* com segurança. Você pode usar tokens de acesso para acessar os recursos protegidos por um [servidor de autorização](protocols-overview.md). O OpenID Connect é recomendado se você estiver criando um aplicativo Web hospedado em um servidor e acessado por meio de um navegador. Para obter mais informações sobre tokens, consulte a [visão geral dos tokens no Azure Active Directory B2C](tokens-overview.md)
 
 O Azure AD B2C estende o protocolo padrão OpenID Connect para fazer mais do que uma simples ação de autenticação e autorização. Ele apresenta o [parâmetro de fluxo de usuário](user-flow-overview.md), que permite que você use o OpenID Connect para adicionar experiências de usuário ao seu aplicativo, como inscrição, entrada e gerenciamento de perfil.
 
@@ -88,7 +88,7 @@ error=access_denied
 
 | Parâmetro | Descrição |
 | --------- | ----------- |
-| erro | Um código que pode ser usado para classificar os tipos de erros que ocorrem. |
+| error | Um código que pode ser usado para classificar os tipos de erros que ocorrem. |
 | error_description | Uma mensagem de erro específica que pode ajudar a identificar a causa raiz de um erro de autenticação. |
 | state | Se um parâmetro `state` for incluído na solicitação, o mesmo valor deverá aparecer na resposta. O aplicativo deve verificar se os `state` valores na solicitação e na resposta são idênticos. |
 
@@ -112,7 +112,7 @@ Para determinar qual fluxo de usuário foi usado na assinatura de um token de ID
 
 Depois de adquirir o documento de metadados do ponto de extremidade de metadados do OpenID Connect, você pode usar as chaves públicas do RSA 256 para validar a assinatura do token de ID. Pode haver várias chaves listadas nesse ponto de extremidade, cada uma identificada por uma `kid` declaração. O cabeçalho do token de ID também contém uma declaração `kid`, que indica quais dessas chaves foi usada para assinar o token de ID.
 
-Para verificar os tokens de Azure AD B2C, você precisa gerar a chave pública usando o expoente (e) e o módulo (n). Você precisa determinar como fazer isso em sua respectiva linguagem de programação de acordo. A documentação oficial sobre a geração de chave pública com o protocolo RSA pode ser encontrada aqui:https://tools.ietf.org/html/rfc3447#section-3.1
+Para verificar os tokens de Azure AD B2C, você precisa gerar a chave pública usando o expoente (e) e o módulo (n). Você precisa determinar como fazer isso em sua respectiva linguagem de programação de acordo. A documentação oficial sobre a geração de chave pública com o protocolo RSA pode ser encontrada aqui: https://tools.ietf.org/html/rfc3447#section-3.1
 
 Depois de validar a assinatura do token de ID, há várias declarações que você precisa verificar. Por exemplo:
 
@@ -124,7 +124,7 @@ Também há várias outras validações que devem ser realizadas. As validaçõe
 
 - Garantir que o usuário/organização tenha se inscrito no aplicativo.
 - A garantia de que o usuário tenha a autorização/os privilégios adequados.
-- A garantia de que uma determinada intensidade de autenticação tenha ocorrido, como a Autenticação Multifator do Azure.
+- Garantindo que uma determinada força de autenticação tenha ocorrido, como a autenticação multifator do Azure AD.
 
 Depois de validar o token de ID, você pode iniciar uma sessão com o usuário. Você pode usar as declarações no token de ID para obter informações sobre o usuário em seu aplicativo. Os usos para essas informações incluem exibição, registros e autorização.
 
@@ -171,7 +171,7 @@ Uma resposta de token bem-sucedida tem a seguinte aparência:
 | Parâmetro | Descrição |
 | --------- | ----------- |
 | not_before | A hora em que o token é considerado válido, nos valores de hora da época. |
-| token_type | O valor do tipo de token. `Bearer`é o único tipo com suporte. |
+| token_type | O valor do tipo de token. `Bearer` é o único tipo com suporte. |
 | access_token | O token JWT assinado que você solicitou. |
 | scope | Os escopos para os quais o token é válido. |
 | expires_in | O período de tempo pelo qual o token de acesso é válido (em segundos). |
@@ -188,7 +188,7 @@ As respostas de erro se parecem com:
 
 | Parâmetro | Descrição |
 | --------- | ----------- |
-| erro | Um código que pode ser usado para classificar tipos de erros que ocorrem. |
+| error | Um código que pode ser usado para classificar tipos de erros que ocorrem. |
 | error_description | Uma mensagem que pode ajudar a identificar a causa raiz de um erro de autenticação. |
 
 ## <a name="use-the-token"></a>Usar o token
@@ -219,7 +219,7 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=op
 | regras | Sim | O fluxo de usuário que foi usado para adquirir o token de atualização original. Você não pode usar um fluxo de usuário diferente nesta solicitação. Adicione esse parâmetro à cadeia de caracteres de consulta, não ao corpo da POSTAgem. |
 | client_id | Sim | A ID do aplicativo que o [portal do Azure](https://portal.azure.com/) atribuído ao seu aplicativo. |
 | client_secret | Sim, em aplicativos Web | O segredo do aplicativo que foi gerado no [portal do Azure](https://portal.azure.com/). Os segredos do cliente são usados nesse fluxo para cenários de aplicativos Web, em que o cliente pode armazenar com segurança um segredo do cliente. Para cenários de aplicativo nativo (cliente público), os segredos do cliente não podem ser armazenados com segurança, portanto não são usados nesta chamada. Se estiver usando um segredo do cliente, altere-o periodicamente. |
-| grant_type | Sim | O tipo de concessão, que deve ser um token de atualização para esta parte do fluxo do código de autorização. |
+| grant_type | Sim | O tipo de concessão, que deve ser `refresh_token` para essa parte do fluxo do código de autorização. |
 | refresh_token | Sim | O token de atualização original que foi adquirido na segunda parte do fluxo. O `offline_access` escopo deve ser usado tanto na autorização quanto nas solicitações de token para receber um token de atualização. |
 | redirect_uri | Não | O parâmetro `redirect_uri` do aplicativo em que você recebeu o código de autorização. |
 | scope | Não | Uma lista de escopos separados por espaços. O escopo `openid` indica uma permissão para entrar no usuário e obter dados sobre ele na forma de tokens de ID. Ele pode ser usado para enviar tokens para a própria API Web de back-end do seu aplicativo, que é representada pela mesma ID do aplicativo que o cliente. O `offline_access` escopo indica que seu aplicativo precisa de um token de atualização para acesso estendido aos recursos. |
@@ -240,7 +240,7 @@ Uma resposta de token bem-sucedida tem a seguinte aparência:
 | Parâmetro | Descrição |
 | --------- | ----------- |
 | not_before | A hora em que o token é considerado válido, nos valores de hora da época. |
-| token_type | O valor do tipo de token. `Bearer`é o único tipo com suporte. |
+| token_type | O valor do tipo de token. `Bearer` é o único tipo com suporte. |
 | access_token | O token JWT assinado que foi solicitado. |
 | scope | O escopo para o qual o token é válido. |
 | expires_in | O período de tempo pelo qual o token de acesso é válido (em segundos). |
@@ -257,12 +257,12 @@ As respostas de erro se parecem com:
 
 | Parâmetro | Descrição |
 | --------- | ----------- |
-| erro | Um código que pode ser usado para classificar tipos de erros que ocorrem. |
+| error | Um código que pode ser usado para classificar tipos de erros que ocorrem. |
 | error_description | Uma mensagem que pode ajudar a identificar a causa raiz de um erro de autenticação. |
 
 ## <a name="send-a-sign-out-request"></a>Enviar uma solicitação de saída
 
-Quando você deseja desconectar o usuário do aplicativo, não é suficiente limpar os cookies do aplicativo ou encerrar a sessão com o usuário. Redirecione o usuário para Azure AD B2C para sair. Se você não conseguir fazer isso, o usuário poderá se autenticar novamente em seu aplicativo sem inserir suas credenciais novamente. Para obter mais informações, consulte [Azure ad B2C Session](session-overview.md).
+Quando você deseja desconectar o usuário do aplicativo, não é suficiente limpar os cookies do aplicativo ou encerrar a sessão com o usuário. Redirecione o usuário para Azure AD B2C para sair. Se você não conseguir fazer isso, o usuário poderá se autenticar novamente em seu aplicativo sem inserir suas credenciais novamente. Para obter mais informações, consulte [Azure ad B2C Session](session-behavior.md).
 
 Para desconectar o usuário, redirecione o usuário para o `end_session` ponto de extremidade listado no documento de metadados do OpenID Connect descrito anteriormente:
 
@@ -274,13 +274,17 @@ GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/
 | --------- | -------- | ----------- |
 | vários | Sim | Nome do seu locatário de Azure AD B2C |
 | regras | Sim | O fluxo de usuário que você quer usar para desconectar o usuário do aplicativo. |
-| id_token_hint| Não | Um token de ID emitido anteriormente para passar para o ponto de extremidade de logout como uma dica sobre a sessão autenticada atual do usuário final com o cliente. O `id_token_hint` garante que o `post_logout_redirect_uri` é uma URL de resposta registrada em suas configurações de Azure ad B2C aplicativo. |
+| id_token_hint| Não | Um token de ID emitido anteriormente para passar para o ponto de extremidade de logout como uma dica sobre a sessão autenticada atual do usuário final com o cliente. O `id_token_hint` garante que o `post_logout_redirect_uri` é uma URL de resposta registrada em suas configurações de Azure ad B2C aplicativo. Para obter mais informações, consulte [proteger seu redirecionamento de logout](#secure-your-logout-redirect). |
 | client_id | Não* | A ID do aplicativo que o [portal do Azure](https://portal.azure.com/) atribuído ao seu aplicativo.<br><br>\**Isso é necessário ao usar `Application` a configuração de SSO de isolamento e exigir que o _token de ID_ na solicitação de logout esteja definido como `No` .* |
 | post_logout_redirect_uri | Não | A URL para a qual o usuário deve ser redirecionado após a saída bem-sucedida. Se não estiver incluído, Azure AD B2C mostrará ao usuário uma mensagem genérica. A menos que você forneça um `id_token_hint` , você não deve registrar essa URL como uma URL de resposta em suas configurações de Azure ad B2C aplicativo. |
 | state | Não | Se um parâmetro `state` for incluído na solicitação, o mesmo valor deverá aparecer na resposta. O aplicativo deve verificar se os `state` valores na solicitação e na resposta são idênticos. |
 
 ### <a name="secure-your-logout-redirect"></a>Proteger seu redirecionamento de logout
 
-Após o logout, o usuário é redirecionado para o URI especificado no `post_logout_redirect_uri` parâmetro, independentemente das URLs de resposta que foram especificadas para o aplicativo. No entanto, se um válido `id_token_hint` for passado, Azure ad B2C verificará se o valor de `post_logout_redirect_uri` corresponde a um dos URIs de redirecionamento configurados do aplicativo antes de executar o redirecionamento. Se nenhuma URL de resposta correspondente tiver sido configurada para o aplicativo, uma mensagem de erro será exibida e o usuário não será redirecionado.
+Após o logout, o usuário é redirecionado para o URI especificado no `post_logout_redirect_uri` parâmetro, independentemente das URLs de resposta que foram especificadas para o aplicativo. No entanto, se um valor válido `id_token_hint` for passado e o **token de ID necessário em solicitações de logout** estiver ativado, Azure ad B2C verificará se o valor de `post_logout_redirect_uri` corresponde a um dos URIs de redirecionamento configurados do aplicativo antes de executar o redirecionamento. Se nenhuma URL de resposta correspondente tiver sido configurada para o aplicativo, uma mensagem de erro será exibida e o usuário não será redirecionado.
 
+Para definir o token de ID necessário em solicitações de logout, consulte [Configurar o comportamento da sessão no Azure Active Directory B2C](session-behavior.md#secure-your-logout-redirect).
 
+## <a name="next-steps"></a>Próximas etapas
+
+- Saiba mais sobre a [sessão do Azure AD B2C](session-behavior.md).

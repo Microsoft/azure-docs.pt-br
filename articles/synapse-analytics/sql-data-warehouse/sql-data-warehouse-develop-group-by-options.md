@@ -1,30 +1,30 @@
 ---
 title: Usando opções agrupar por
-description: Dicas para implementar as opções agrupar por no pool do SQL Synapse.
+description: Dicas para implementar opções agrupar por para pools de SQL dedicados no Azure Synapse Analytics.
 services: synapse-analytics
-author: XiaoyuMSFT
+author: MSTehrani
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 04/17/2018
-ms.author: xiaoyul
+ms.author: emtehran
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 260bd7cc6402a7cb4ed17d004d0f61b7462c51d3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: seo-lt-2019, azure-synapse
+ms.openlocfilehash: 3f0879aa9b6f9e084d0c51f0bb371740d333c1b6
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213441"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98683249"
 ---
-# <a name="group-by-options-in-synapse-sql-pool"></a>Agrupar por opções no pool de SQL do Synapse
+# <a name="group-by-options-for-dedicated-sql-pools-in-azure-synapse-analytics"></a>Agrupar por opções para pools de SQL dedicados no Azure Synapse Analytics
 
-Neste artigo, você encontrará dicas para implementar as opções agrupar por no pool do SQL.
+Neste artigo, você encontrará dicas para implementar opções agrupar por em pools SQL dedicados.
 
 ## <a name="what-does-group-by-do"></a>O que GROUP BY faz?
 
-A cláusula T-SQL [GROUP BY](/sql/t-sql/queries/select-group-by-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) agrega dados a um conjunto de linhas de resumo. GROUP BY tem algumas opções para as quais o pool do SQL não dá suporte. Essas opções têm soluções alternativas, que são as seguintes:
+A cláusula T-SQL [GROUP BY](/sql/t-sql/queries/select-group-by-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) agrega dados a um conjunto de linhas de resumo. GROUP BY tem algumas opções que o pool SQL dedicado não dá suporte. Essas opções têm soluções alternativas, que são as seguintes:
 
 * GROUP BY com ROLLUP
 * GROUPING SETS

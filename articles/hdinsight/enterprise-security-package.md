@@ -1,18 +1,15 @@
 ---
 title: Enterprise Security Package para o Azure HDInsight
 description: Conheça os componentes e as versões do Enterprise Security Package no Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: 07210350826001bd3e0be6e04be211c9de43695a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 442c21c92ef2124ebef1889f99a8d2b806c8ce10
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82997250"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943307"
 ---
 # <a name="enterprise-security-package-for-azure-hdinsight"></a>Enterprise Security Package para o Azure HDInsight
 
@@ -20,7 +17,7 @@ O Enterprise Security é um pacote opcional que pode ser adicionado ao cluster H
 
 * Integração com o Active Directory para autenticação.
 
-    No passado, você criou clusters HDInsight com o usuário administrador local e o usuário SSH local. O usuário administrador local podia acessar todos os arquivos, pastas, tabelas e colunas.  Com o Enterprise Security Package, você habilita o controle de acesso baseado em função integrando o HDInsight ao seu Active Directory. Que inclui Active Directory local, Azure Active Directory Domain Services. Ou Active Directory na máquina virtual IaaS. O administrador de domínio no cluster pode conceder aos usuários o uso de seu próprio nome de usuário corporativo (domínio) e senha.
+    No passado, você criou clusters HDInsight com o usuário administrador local e o usuário SSH local. O usuário administrador local podia acessar todos os arquivos, pastas, tabelas e colunas.  Com o Enterprise Security Package, você habilita o controle de acesso baseado em função do Azure integrando o HDInsight ao seu Azure Active Directory Domain Services.
 
     Para obter mais informações, consulte:
 
@@ -28,7 +25,7 @@ O Enterprise Security é um pacote opcional que pode ser adicionado ao cluster H
 
     * [Planejar clusters do Apache Hadoop ingressados no domínio do Azure no HDInsight](./domain-joined/apache-domain-joined-architecture.md)
 
-    * [Configurar ambiente de área restrita ingressado no domínio](./domain-joined/apache-domain-joined-configure.md)
+    * [Configurar ambiente de área restrita ingressado no domínio](./domain-joined/apache-domain-joined-configure-using-azure-adds.md)
 
     * [Configurar clusters HDInsight ingressados no domínio usando o Azure Active Directory Domain Services](./domain-joined/apache-domain-joined-configure-using-azure-adds.md)
 

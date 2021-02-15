@@ -11,12 +11,12 @@ ms.date: 06/16/2020
 ms.author: mimart
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a186b682a3a506f0f373776dd66e6592bc6036ad
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: e64ab70fed13d4ca907b2bfb3aa448acdedc39e9
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87907887"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92441446"
 ---
 # <a name="define-custom-attributes-for-user-flows-preview"></a>Definir atributos personalizados para fluxos dos usuários (versão prévia)
 
@@ -25,7 +25,7 @@ ms.locfileid: "87907887"
 
 Para cada aplicativo, você pode ter requisitos diferentes para as informações que deseja coletar durante a inscrição. O Azure AD é fornecido com um conjunto interno de informações armazenadas em atributos, como Nome, Sobrenome, Cidade e CEP. Com o Azure AD, você pode estender o conjunto de atributos armazenados em uma conta de convidado quando o usuário externo se inscreve por meio de um fluxo do usuário.
 
-Você pode criar atributos personalizados no portal do Azure e usá-los nos seus fluxos dos usuários de inscrição por autoatendimento. Você também pode ler e gravar esses atributos usando a [API do Microsoft Graph](https://docs.microsoft.com/azure/active-directory-b2c/manage-user-accounts-graph-api). A API do Microsoft Graph dá suporte à criação e à atualização de um usuário com atributos de extensão. Atributos de extensão na API do Graph são nomeados usando a convenção `extension_<extensions-app-id>_attributename`. Por exemplo:
+Você pode criar atributos personalizados no portal do Azure e usá-los nos seus fluxos dos usuários de inscrição por autoatendimento. Você também pode ler e gravar esses atributos usando a [API do Microsoft Graph](../../active-directory-b2c/manage-user-accounts-graph-api.md). A API do Microsoft Graph dá suporte à criação e à atualização de um usuário com atributos de extensão. Atributos de extensão na API do Graph são nomeados usando a convenção `extension_<extensions-app-id>_attributename`. Por exemplo:
 
 ```JSON
 "extension_831374b3bd5041bfaa54263ec9e050fc_loyaltyNumber": "212342"

@@ -8,14 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 08/05/2020
+ms.date: 11/23/2020
 ms.author: pafarley
-ms.openlocfilehash: 5dd5cd1ac0463c6c07496e4ea49edd08178a5a54
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.custom: devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: 76e7b061670f603007cefd6d7aed503e0e0d3d6b
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87834381"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98941773"
 ---
 # <a name="tutorial-recognize-azure-service-logos-in-camera-pictures"></a>Tutorial: Reconhecer logotipos de serviços do Azure em imagens da câmera
 
@@ -33,9 +34,9 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - [Visual Studio 2017 ou posterior](https://www.visualstudio.com/downloads/)
-- A carga de trabalho do Xamarin para Visual Studio (confira [Instalando o Xamarin](https://docs.microsoft.com/xamarin/cross-platform/get-started/installation/windows))
+- A carga de trabalho do Xamarin para Visual Studio (confira [Instalando o Xamarin](/xamarin/cross-platform/get-started/installation/windows))
 - Um emulador do iOS ou o Android Emulator para Visual Studio
-- A [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?view=azure-cli-latest) (opcional)
+- A [CLI do Azure](/cli/azure/install-azure-cli-windows) (opcional)
 
 ## <a name="get-the-source-code"></a>Obter o código-fonte
 
@@ -93,7 +94,7 @@ Para saber mais sobre como o aplicativo manipula esses dados, comece com o méto
 
 A parte da Visão Personalizada do tutorial foi concluída. Se você quiser executar o aplicativo, será necessário integrar o serviço da Pesquisa Visual Computacional também. O aplicativo usa o recurso de reconhecimento de texto da Pesquisa Visual Computacional para complementar o processo de detecção de logotipos. Um logotipo do Azure pode ser reconhecido por sua aparência *ou* pelo texto impresso próximo a ele. Ao contrário dos modelos da Visão Personalizada, a Pesquisa Visual Computacional é pré-treinada para executar determinadas operações em imagens ou vídeos.
 
-Assine o serviço de Pesquisa Visual Computacional para obter uma chave e uma URL do ponto de extremidade. Para obter ajuda nesta etapa, consulte [Como obter chaves de assinatura](https://docs.microsoft.com/azure/cognitive-services/computer-vision/vision-api-how-to-topics/howtosubscribe).
+Assine o serviço de Pesquisa Visual Computacional para obter uma chave e uma URL do ponto de extremidade. Para obter ajuda nesta etapa, consulte [Como obter chaves de assinatura](../cognitive-services-apis-create-account.md?tabs=singleservice%2Cwindows).
 
 ![O serviço de Pesquisa Visual Computacional no portal do Azure, com o menu Início Rápido selecionado. Um link para as chaves está contornado, bem como a URL de ponto de extremidade da API](media/azure-logo-tutorial/comvis-keys.png)
 
@@ -103,7 +104,7 @@ Em seguida, abra o arquivo *Source\VisualProvision\AppSettings.cs* e preencha as
 
 ## <a name="create-a-service-principal"></a>Criar uma entidade de serviço
 
-O aplicativo exige uma conta de entidade de serviço do Azure para implantar serviços em sua assinatura do Azure. Uma entidade de serviço permite que você delegue permissões específicas a um aplicativo usando o controle de acesso baseado em função. Para obter mais informações, consulte o [guia de entidades de serviço](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-create-service-principals).
+O aplicativo exige uma conta de entidade de serviço do Azure para implantar serviços em sua assinatura do Azure. Uma entidade de serviço permite que você delegue permissões específicas a um aplicativo usando o controle de acesso baseado em função do Azure. Para obter mais informações, consulte o [guia de entidades de serviço](/azure-stack/operator/azure-stack-create-service-principals).
 
 Crie uma entidade de serviço usando o Azure Cloud Shell ou a CLI do Azure, conforme mostrado aqui. Para começar, entre e selecione a assinatura que você deseja usar.
 

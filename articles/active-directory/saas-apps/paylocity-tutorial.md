@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/21/2020
 ms.author: jeedes
-ms.openlocfilehash: 53a224f53f0270166ce75e718e670780730a10c8
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 59c01d5d8589b61ff0aaacb81d12fed8fba4f842
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88543645"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505504"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-paylocity"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory com o Paylocity
 
@@ -26,7 +26,7 @@ Neste tutorial, você aprenderá a integrar o Paylocity ao Azure AD (Azure Activ
 * Permitir que os usuários sejam conectados automaticamente ao Paylocity com suas contas do Azure AD.
 * Gerenciar suas contas em um local central: o portal do Azure.
 
-Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -41,7 +41,7 @@ Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente d
 
 * O Paylocity dá suporte ao SSO iniciado por **SP e IDP**
 
-* Após configurar o Paylocity, você poderá impor controles de sessão, que protegem contra a exportação e infiltração de dados confidenciais de sua organização em tempo real. Os controles da sessão são estendidos do Acesso Condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad).
+* Após configurar o Paylocity, você poderá impor controles de sessão, que protegem contra a exportação e infiltração de dados confidenciais de sua organização em tempo real. Os controles da sessão são estendidos do Acesso Condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
 
 ## <a name="adding-paylocity-from-the-gallery"></a>Como adicionar o Paylocity da galeria
 
@@ -106,7 +106,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Editar Ícone**.
 
-    ![A Edição do Certificado de Autenticação SAML](./media/paylocity-tutorial/edit-samlassertion.png)
+    ![Uma captura de tela que mostra o "Certificado de Autenticação SAML" com a ação "Baixar" para "XML de Metadados de Federação" selecionada.](./media/paylocity-tutorial/edit-samlassertion.png)
 
 1. Selecione **Opção de Assinatura** como **Assinar resposta SAML e declaração** e clique em **Salvar**.
 
@@ -148,28 +148,36 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
 ## <a name="configure-paylocity-sso"></a>Configurar o SSO do Paylocity
 
-Para configurar o logon único no lado do **Paylocity**, é necessário enviar o **XML de Metadados de Federação** baixado e as URLs apropriadas copiadas do portal do Azure para a [equipe de suporte do Paylocity](mailto:service@paylocity.com). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+Para configurar o logon único no lado do **Paylocity**,
+
+1. Baixe o **XML de Metadados de Federação**.
+1. No Paylocity, procure **RH e Folha de Pagamento** > **Acesso de Usuário** > **Configuração de SSO**.
+1. Selecione **Adicionar a integração de SSO** em **Integrações de SSO**. Uma nova gaveta será aberta.
+1. Selecione **Microsoft Azure** como o Provedor de SSO na lista suspensa.
+1. Escolha **Status** na lista suspensa.
+1. Arraste e solte o arquivo de metadados na área para soltar. O Paylocity tentará analisar as URLs de Emissor, Pós-redirecionamento e Associação, bem como os Certificados de Segurança.
+1. Selecione **Salvar** para confirmar as alterações. A integração será exibida em **Integrações de SSO**.
 
 ### <a name="create-paylocity-test-user"></a>Criar usuário de teste do Paylocity
 
-Nesta seção, você criará um usuário chamado B.Fernandes no Paylocity. Trabalhe com a  [equipe de suporte do Paylocity](mailto:service@paylocity.com) para adicionar os usuários na plataforma do Paylocity. Os usuários devem ser criados e ativados antes de usar o logon único.
+Nesta seção, você criará um usuário chamado B.Fernandes no Paylocity. Trabalhe com a [equipe de suporte do Paylocity](mailto:service@paylocity.com) para adicionar os usuários na plataforma do Paylocity. Os usuários devem ser criados e ativados antes de usar o logon único.
 
 ## <a name="test-sso"></a>Testar o SSO
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Ao clicar no bloco do Paylocity no Painel de Acesso, você deverá ser conectado automaticamente ao Paylocity, para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao clicar no bloco do Paylocity no Painel de Acesso, você deverá ser conectado automaticamente ao Paylocity, para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](./tutorial-list.md)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)
 
 - [Experimente o Paylocity com o Azure AD](https://aad.portal.azure.com/)
 
-* [O que é controle de sessão no Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+* [O que é controle de sessão no Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
 
-* [Como proteger o Paylocity com visibilidade e controles avançados](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+* [Como proteger o Paylocity com visibilidade e controles avançados](/cloud-app-security/proxy-intro-aad)

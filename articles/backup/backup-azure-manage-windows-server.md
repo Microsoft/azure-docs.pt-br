@@ -4,10 +4,10 @@ description: Neste artigo, saiba como usar o painel Visão geral do cofre dos se
 ms.topic: conceptual
 ms.date: 07/08/2019
 ms.openlocfilehash: 74351d781287d863db8be0fc7d20517e0479106c
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89002123"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Monitorar e gerenciar cofres dos Serviços de Recuperação
@@ -110,7 +110,7 @@ Por padrão, todos os detalhes, exceto **Última hora da ocorrência**, são exi
 * Alerta
 * Item de backup
 * Servidor protegido
-* Severidade
+* Severity
 * Duration
 * Hora de criação
 * Status
@@ -231,8 +231,8 @@ O Tipo de Item é o tipo de gerenciamento de backup da instância protegida. Há
 É possível exibir uma única operação ou todas as operações. Não é possível selecionar duas ou três operações. As Operações disponíveis são:
 
 * Todas as operações
-* Registre-se
-* Configurar o backup
+* Registrar
+* Configurar backup
 * Backup
 * Restaurar
 * Desabilitar o backup
@@ -245,7 +245,7 @@ O Tipo de Item é o tipo de gerenciamento de backup da instância protegida. Há
 * Todos os status
 * Concluído
 * Em andamento
-* Com falha
+* Failed (Falha)
 * Canceled
 * Concluído com avisos
 

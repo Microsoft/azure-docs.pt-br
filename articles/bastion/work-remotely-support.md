@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 03/25/2020
 ms.author: mialdrid
-ms.openlocfilehash: 182195190fed70b46185f98f595de6b6c32bbffe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 515a6f7175aee23c6f720258b7fdaefe76b3b5d6
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80619393"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077942"
 ---
 # <a name="working-remotely-using-azure-bastion"></a>Trabalhando remotamente usando a bastiões do Azure
 
@@ -26,10 +26,10 @@ A bastiões do Azure exerce uma função dinâmica no suporte a cenários de tra
 
 Especificamente, a bastiões do Azure fornece conectividade RDP/SSH segura e direta para máquinas virtuais na rede virtual do Azure, diretamente no portal do Azure, sem o uso de um endereço IP público. Para obter mais informações sobre a arquitetura de bastiões do Azure e os principais recursos, confira [o que é a bastiões do Azure](bastion-overview.md).
 
-A bastiões do Azure é implantada por rede virtual, o que significa que as empresas podem configurar e gerenciar uma bastiões do Azure para dar suporte rápido ao acesso de usuário remoto a máquinas virtuais em uma rede virtual do Azure. Para obter orientação sobre como criar e gerenciar a bastiões do Azure, consulte [criar um host de bastiões](bastion-create-host-portal.md).
+A bastiões do Azure é implantada por rede virtual, o que significa que as empresas podem configurar e gerenciar uma bastiões do Azure para dar suporte rápido ao acesso de usuário remoto a máquinas virtuais em uma rede virtual do Azure. Para obter orientação sobre como criar e gerenciar a bastiões do Azure, consulte [criar um host de bastiões](./tutorial-create-host-portal.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Configure a bastiões do Azure usando o [portal do Azure](bastion-create-host-portal.md), o [PowerShell](bastion-create-host-powershell.md)ou o CLI do Azure.
+* Configure a bastiões do Azure usando o [portal do Azure](./tutorial-create-host-portal.md), o [PowerShell](bastion-create-host-powershell.md)ou o CLI do Azure.
 
 * Leia as [perguntas frequentes sobre bastiões](bastion-faq.md) para obter informações adicionais.

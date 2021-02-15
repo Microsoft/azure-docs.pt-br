@@ -5,14 +5,14 @@ author: avneet723
 ms.author: avneets
 ms.service: iot-central
 ms.subservice: iot-central-retail
-ms.topic: overview
+ms.topic: tutorial
 ms.date: 01/09/2020
-ms.openlocfilehash: 74deb4253a21445e21f7ef04f53f3bfe3f1fe0d0
-ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
+ms.openlocfilehash: 938d5e96667db6de4a45134cbec2396d45bac9d6
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "81001265"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832123"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-micro-fulfillment-center-application-template"></a>Tutorial: Implantar e seguir passo a passo o modelo de aplicativo de microcentral de atendimento
 
@@ -47,7 +47,7 @@ Para criar um aplicativo de microcentral de atendimento que usa versão prévia 
 
 1. Caso você tenha uma assinatura do Azure, insira o diretório, a assinatura do Azure e a região. Caso não tenha uma assinatura, habilite a avaliação gratuita de 7 dias e preencha as informações de contato solicitadas.  
 
-    Para obter mais informações sobre assinaturas e diretórios, consulte o início rápido [Criar um aplicativo](../preview/quick-deploy-iot-central.md).
+    Para obter mais informações sobre assinaturas e diretórios, consulte o início rápido [Criar um aplicativo](../core/quick-deploy-iot-central.md).
 
 1. Selecione **Criar**.
 
@@ -62,11 +62,11 @@ No painel, você pode:
    * Ver a planta baixa e a localização das operadoras robóticas na estrutura de atendimento.
    * Disparar comandos, como redefinir o sistema de controle, atualizar o firmware da operadora e reconfigurar a rede.
 
-     ![Captura de tela do painel da microcentral de atendimento da Northwind Traders](./media/tutorial-micro-fulfillment-center-app/mfc-dashboard1.png)
+     ![Captura de tela da parte superior do painel da microcentral de atendimento da Northwind Traders.](./media/tutorial-micro-fulfillment-center-app/mfc-dashboard1.png)
    * Veja um exemplo do painel que um operador pode usar para monitorar as condições na central de atendimento. 
    * Monitore a integridade do conteúdo em execução no dispositivo de gateway na central de atendimento.    
 
-     ![Captura de tela do painel da microcentral de atendimento da Northwind Traders](./media/tutorial-micro-fulfillment-center-app/mfc-dashboard2.png)
+     ![Captura de tela da parte inferior do painel da microcentral de atendimento da Northwind Traders.](./media/tutorial-micro-fulfillment-center-app/mfc-dashboard2.png)
 
 ## <a name="device-template"></a>Modelo de dispositivo
 Se você selecionar a guia Modelos de dispositivo, verá que há dois tipos de dispositivos diferentes que fazem parte do modelo: 
@@ -91,6 +91,8 @@ Se não quiser continuar usando este aplicativo, exclua o modelo de aplicativo. 
 ![Captura de tela da página Configurações de aplicativo da microcentral de atendimento](./media/tutorial-micro-fulfillment-center-app/delete.png)
 
 ## <a name="next-steps"></a>Próximas etapas
-* Saiba mais sobre a [arquitetura da solução de microcentral de atendimento](./architecture-micro-fulfillment-center.md).
-* Saiba mais sobre outros [modelos de varejo do Azure IoT Central](./overview-iot-central-retail.md).
-* Leia a [visão geral do Azure IoT Central](../preview/overview-iot-central.md).
+
+Saiba mais sobre:
+
+> [!div class="nextstepaction"]
+> [arquitetura da solução da microcentral de atendimento](./architecture-micro-fulfillment-center.md)

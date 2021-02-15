@@ -4,12 +4,12 @@ description: Saiba mais sobre como gerenciar certificados em um Cluster Service 
 ms.topic: conceptual
 ms.date: 04/10/2020
 ms.custom: sfrev
-ms.openlocfilehash: aba681157d71f94914462b8d9fc13b90d4d6b153
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: a8a7e8954f3c9d5b54c2e1ed9caa330ef92d4512
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88653657"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100099499"
 ---
 # <a name="certificate-management-in-service-fabric-clusters"></a>Gerenciamento de certificados em clusters Service Fabric
 
@@ -109,9 +109,12 @@ Como observação adicional: o IETF [RFC 3647](https://tools.ietf.org/html/rfc36
 
 Vimos anteriormente que Azure Key Vault dá suporte à rotação automática de certificado: a política de certificado associado define o ponto no tempo, seja por dias antes da expiração ou da porcentagem do tempo de vida total, quando o certificado é girado no cofre. O agente de provisionamento deve ser invocado após esse ponto no tempo e antes da expiração do certificado agora anterior, para distribuir esse novo certificado para todos os nós do cluster. Service Fabric ajudará a gerar avisos de integridade quando a data de expiração de um certificado (e que está em uso no momento no cluster) ocorrer antes de um intervalo predeterminado. Um agente de provisionamento automático (ou seja, a extensão de VM do keyvault), configurado para observar o certificado do cofre, fará o polling periódico do cofre, detectará a rotação e recuperará e instalará o novo certificado. O provisionamento feito por meio do recurso "segredos" da VM/VMSS exigirá que um operador autorizado atualize a VM/VMSS com o URI do keyvault com versão correspondente ao novo certificado.
 
-Em ambos os casos, o certificado girado agora é provisionado para todos os nós e descrevemos o mecanismo Service Fabric empregar para detectar rotações; Vamos examinar o que acontece em seguida, supondo que a rotação seja aplicada ao certificado de cluster declarado pelo nome comum da entidade (tudo aplicável a partir do momento em que este artigo foi escrito e Service Fabric versão do tempo de execução 7.1.409):
-  - para novas conexões dentro, bem como no cluster, o tempo de execução de Service Fabric localizará e selecionará o certificado de correspondência com a data de expiração mais distante (a propriedade ' não após ' do certificado, geralmente abreviada como ' na ')
+Em ambos os casos, o certificado girado agora é provisionado para todos os nós e descrevemos o mecanismo Service Fabric empregar para detectar rotações; Vamos examinar o que acontece em seguida, supondo que a rotação seja aplicada ao certificado de cluster declarado pelo nome comum do assunto
+  - para novas conexões dentro, bem como no cluster, o tempo de execução de Service Fabric localizará e selecionará o certificado de correspondência emitido mais recentemente (maior valor da propriedade ' nobefore '). Observe que essa é uma alteração de versões anteriores do tempo de execução de Service Fabric.
   - as conexões existentes serão mantidas ativas/permitidas para expirar naturalmente ou terminar de outra forma; um manipulador interno terá sido notificado de que existe uma nova correspondência
+
+> [!NOTE] 
+> Antes da versão 7.2.445 (7,2 CU4), Service Fabric selecionou o certificado de expiração mais distante (o certificado com a propriedade ' não após ' mais distante)
 
 Isso se traduz nas seguintes observações importantes:
   - O certificado de renovação poderá ser ignorado se a data de validade for mais cedo do que o certificado atualmente em uso.
@@ -134,8 +137,11 @@ Descrevemos mecanismos, restrições, regras e definições complexas e tornamos
 
 A sequência é totalmente programável por script/automatizada e permite uma implantação inicial sem intervenção do usuário de um cluster configurado para substituição automática de certificado. As etapas detalhadas são fornecidas abaixo. Usaremos uma mistura de cmdlets do PowerShell e fragmentos de modelos JSON. A mesma funcionalidade é atingível com todos os meios com suporte de interação com o Azure.
 
-[!NOTE] Este exemplo supõe que já exista um certificado no cofre; registrar e renovar um certificado gerenciado por keyvault requer etapas manuais de pré-requisito, conforme descrito anteriormente neste artigo. Para ambientes de produção, use certificados gerenciados por keyvault – um script de exemplo específico para uma PKI interna da Microsoft está incluído abaixo.
-A autosubstituição de certificado faz sentido apenas para certificados emitidos por autoridades de certificação; o uso de certificados autoassinados, incluindo aqueles gerados ao implantar um cluster de Service Fabric no portal do Azure, é não-atestado, mas ainda é possível para implantações locais/hospedadas pelo desenvolvedor, declarando que a impressão digital do emissor seja a mesma do certificado de folha.
+> [!NOTE]
+> Este exemplo supõe que já exista um certificado no cofre; registrar e renovar um certificado gerenciado por keyvault requer etapas manuais de pré-requisito, conforme descrito anteriormente neste artigo. Para ambientes de produção, use certificados gerenciados por keyvault – um script de exemplo específico para uma PKI interna da Microsoft está incluído abaixo.
+
+> [!NOTE]
+> A autosubstituição de certificado faz sentido apenas para certificados emitidos por autoridades de certificação; o uso de certificados autoassinados, incluindo aqueles gerados ao implantar um cluster de Service Fabric no portal do Azure, é não-atestado, mas ainda é possível para implantações locais/hospedadas pelo desenvolvedor, declarando que a impressão digital do emissor seja a mesma do certificado de folha.
 
 ### <a name="starting-point"></a>Ponto de partida
 Para resumir, vamos pressupor o seguinte estado de inicialização:
@@ -421,6 +427,7 @@ A extensão KVVM, como um agente de provisionamento, é executada continuamente 
 Talvez você tenha notado o sinalizador ' linkOnRenewal ' da extensão KVVM e o fato de que ele está definido como false. Estamos abordando aqui detalhadamente o comportamento controlado por esse sinalizador e suas implicações no funcionamento de um cluster. Observe que esse comportamento é específico do Windows.
 
 De acordo com sua [definição](../virtual-machines/extensions/key-vault-windows.md#extension-schema):
+
 ```json
 "linkOnRenewal": <Only Windows. This feature enables auto-rotation of SSL certificates, without necessitating a re-deployment or binding.  e.g.: false>,
 ```
@@ -450,7 +457,7 @@ Como surgiu dos trechos de JSON acima, um sequenciamento específico das operaç
 
 Para descartar a criação de uma identidade gerenciada ou atribuí-la a outro recurso, o operador de implantação deve ter a função necessária (ManagedIdentityOperator) na assinatura ou no grupo de recursos, além das funções necessárias para gerenciar os outros recursos referenciados no modelo. 
 
-Do ponto de vista da segurança, lembre-se de que a máquina virtual (conjunto de dimensionamento) é considerada um limite de segurança com relação à sua identidade do Azure. Isso significa que qualquer aplicativo hospedado na VM poderia, em princípio, obter um token de acesso que represente os tokens de acesso de identidade gerenciado por VM são obtidos do ponto de extremidade IMDS não autenticado. Se você considerar que a VM é um ambiente compartilhado ou de vários locatários, talvez esse método de recuperação de certificados de cluster não seja indicado. No entanto, é o único mecanismo de provisionamento adequado para autosubstituição de certificado.
+Do ponto de vista da segurança, lembre-se de que a máquina virtual (conjunto de dimensionamento) é considerada um limite de segurança em relação à sua identidade do Azure. Isso significa que qualquer aplicativo hospedado na VM poderia, em princípio, obter um token de acesso que represente os tokens de acesso de identidade gerenciado por VM são obtidos do ponto de extremidade IMDS não autenticado. Se você considerar que a VM é um ambiente compartilhado ou de vários locatários, talvez esse método de recuperação de certificados de cluster não seja indicado. No entanto, é o único mecanismo de provisionamento adequado para autosubstituição de certificado.
 
 ## <a name="troubleshooting-and-frequently-asked-questions"></a>Solução de problemas e perguntas frequentes
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 12d11cddf077d4d07732490255d44e89ddaf3217
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 73b9ecd03875b60ed2d9b9d4c8e8a3a0c8de3cfa
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "60531043"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94956595"
 ---
 # <a name="storsimple-8000-series-update-22-release-notes"></a>Notas de versão da Atualização 2.2 do StorSimple Série 8000
 
@@ -57,7 +57,7 @@ A tabela a seguir fornece um resumo dos problemas que foram corrigidos nas Atual
 | 5 |Autenticação Openstack |Ao usar o Openstack como o provedor de serviços de nuvem, o usuário enfrentaria um bug raro relacionado à autenticação, no qual o analisador JSON resultava em uma falha. Esse bug foi corrigido nesta versão. |Sim |Não |
 | 6 |Cópia do host |Nas versões anteriores do software, um bug raro relacionado ao intervalo de ODX foi visto durante a cópia dos dados de um volume para outro. Isso resultaria em um failover de controlador e o sistema potencialmente poderia entrar no modo de recuperação. Esse bug foi corrigido nesta versão. |Sim |Não |
 | 7 |WMI (Instrumentação de Gerenciamento do Windows) |Nas versões anteriores do software, havia várias instâncias de falha de proxy Web com a exceção “Falha ao carregar o provedor \<ManagementException>”. Esse bug foi atribuído a um vazamento de memória da WMI, e agora está corrigido. |Sim |Não |
-| 8 |Atualização |Em determinados casos raros, nas versões anteriores do software, o usuário recebia um "CisPowershellHcsscripterror" ao tentar verificar ou instalar as atualizações. Esse problema foi corrigido nesta versão. |Sim |Sim |
+| 8 |Atualizar |Em determinados casos raros, nas versões anteriores do software, o usuário recebia um "CisPowershellHcsscripterror" ao tentar verificar ou instalar as atualizações. Esse problema foi corrigido nesta versão. |Sim |Sim |
 | 9 |Pacote de suporte |Nesta versão, houve melhorias na forma como o pacote de suporte é coletado e carregado. |Sim |Sim |
 
 ## <a name="known-issues-in-update-22"></a>Problemas conhecidos na Atualização 2.2
@@ -70,7 +70,7 @@ A tabela a seguir fornece um resumo dos problemas conhecidos nesta versão.
 | 3 |Contas de armazenamento |Usar o serviço de Armazenamento para excluir a conta de armazenamento é um cenário sem suporte. Isso levará a uma situação na qual os dados do usuário não podem ser recuperados. | |Sim |Sim |
 | 4 |Failover de dispositivo |Não há suporte para vários failovers de um contêiner de volume do mesmo dispositivo de origem para diferentes dispositivos de destino. O failover de um único dispositivo inativo para vários dispositivos fará com que os contêineres de volume no primeiro dispositivo com failover percam a propriedade dos dados. Após o failover, esses contêineres de volume serão exibidos ou se comportarão de maneira diferente quando forem exibidos no Portal clássico do Azure. | |Sim |Não |
 | 5 |Instalação |Durante o Adaptador StorSimple para instalação do SharePoint, você precisa fornecer um IP do dispositivo para que a instalação seja concluída com êxito. | |Sim |Não |
-| 6 |Proxy Web |Se a configuração de proxy Web tiver HTTPS como o protocolo especificado, a comunicação de serviço do dispositivo será afetada e o dispositivo ficará offline. Pacotes de suporte também serão gerados no processo, consumindo recursos significativos em seu dispositivo. |Verifique se a URL do proxy Web possui HTTP como o protocolo especificado. Para obter mais informações, visite [Configurar proxy da Web para seu dispositivo](storsimple-configure-web-proxy.md). |Sim |Não |
+| 6 |Proxy Web |Se a configuração de proxy Web tiver HTTPS como o protocolo especificado, a comunicação de serviço do dispositivo será afetada e o dispositivo ficará offline. Pacotes de suporte também serão gerados no processo, consumindo recursos significativos em seu dispositivo. |Verifique se a URL do proxy Web possui HTTP como o protocolo especificado. Para obter mais informações, visite [Configurar proxy da Web para seu dispositivo](./storsimple-8000-configure-web-proxy.md). |Sim |Não |
 | 7 |Proxy Web |Ao configurar e habilitar o proxy Web em um dispositivo registrado, você precisará reiniciar o controlador ativo em seu dispositivo. | |Sim |Não |
 | 8 |Latência de nuvem alta e alta carga de trabalho de E/S |Quando seu dispositivo StorSimple encontra uma combinação de latências de nuvem muito altas (ordem de segundos) e alta carga de trabalho de E/S, os volumes do dispositivo entram em um estado degradado e as E/Ss podem falhar com o erro "o dispositivo não está pronto". |Você precisará reiniciar os controladores de dispositivo manualmente ou executar um failover do dispositivo para se recuperar dessa situação. |Sim |Não |
 | 9 |Azure PowerShell |Quando você usa o cmdlet StorSimple **Get-AzureStorSimpleStorageAccountCredential &#124; Select-Object -First 1 -Wait** para selecionar o primeiro objeto para que possa criar um novo objeto **VolumeContainer**, o cmdlet retorna todos os objetos. |Coloque o cmdlet entre parênteses da seguinte maneira: **(Get-Azure-StorSimpleStorageAccountCredential) &#124; Select-Object -First 1 -Wait** |Sim |Sim |
@@ -90,11 +90,10 @@ A tabela a seguir fornece um resumo dos problemas conhecidos nesta versão.
 ## <a name="controller-and-firmware-updates-in-update-22"></a>Atualizações de controlador e firmware na Atualização 2.2
 Esta versão tem somente atualizações de software. No entanto, se você estiver atualizando de uma versão anterior à Atualização 2, você precisará instalar o driver Storport, Spaceport e (em alguns casos) as atualizações de firmware do dispositivo de disco.
 
-Para obter mais informações sobre como instalar o driver, Storport, Spaceport e as atualizações de firmware de disco, confira [Instalar a Atualização 2.2 no dispositivo StorSimple](storsimple-install-update-21.md) .
+Para obter mais informações sobre como instalar o driver, Storport, Spaceport e as atualizações de firmware de disco, confira [Instalar a Atualização 2.2 no dispositivo StorSimple](./storsimple-8000-install-update-5.md) .
 
 ## <a name="virtual-device-updates-in-update-22"></a>Atualizações do dispositivo virtual na Atualização 2.2
 Esta atualização não pode ser aplicada ao dispositivo virtual. Novos dispositivos virtuais precisarão ser criados. 
 
 ## <a name="next-step"></a>Próxima etapa
-Saiba como [Instalar a Atualização 2.2 no dispositivo StorSimple](storsimple-install-update-21.md) .
-
+Saiba como [Instalar a Atualização 2.2 no dispositivo StorSimple](./storsimple-8000-install-update-5.md) .

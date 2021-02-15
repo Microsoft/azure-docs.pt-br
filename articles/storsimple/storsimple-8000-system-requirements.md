@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 09/28/2017
+ms.date: 02/11/2021
 ms.author: alkohli
-ms.openlocfilehash: 3032585c6f0a5cc6143eee06b12b6def50cd7cd0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fa7616a740e8246fa08e950494428095f41ee404
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80297716"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100382847"
 ---
 # <a name="storsimple-8000-series-software-high-availability-and-networking-requirements"></a>Requisitos de software, de alta disponibilidade e de rede do StorSimple série 8000
 
@@ -41,7 +41,7 @@ Os requisitos de software a seguir são para os clientes de armazenamento que ac
 
 | Sistemas operacionais compatíveis | Versão necessária | Requisitos/observações adicionais |
 | --- | --- | --- |
-| Windows Server |2008 R2 SP1, 2012, 2012 R2, 2016 |Os volumes iSCSI do StorSimple  são permitidos para o uso somente nos seguintes tipos de disco do Windows:<ul><li>Volume simples em disco básico</li><li>Volume simples e espelhado em disco dinâmico</li></ul>Há suporte apenas para software iniciadores iSCSI presentes nativamente no sistema operacional. Não há suporte para iniciadores iSCSI de hardware.<br></br>O provisionamento dinâmico do Windows Server 2012 e 2016, bem como de recursos ODX terá suporte se você estiver usando um volume iSCSI do StorSimple.<br><br>O StorSimple pode criar volumes com provisionamento dinâmico e provisionamento completo. Não é possível criar volumes parcialmente provisionados.<br><br>Reformatar um volume de provisionamento dinâmico pode levar muito tempo. É recomendável excluir o volume e criar um novo em vez de reformatar. No entanto, se você ainda preferir reformatar um volume:<ul><li>Execute o comando a seguir antes de reformatar para evitar atrasos de recuperação de espaço: <br>`fsutil behavior set disabledeletenotify 1`</br></li><li>Depois que a formatação for concluída, use o seguinte comando para reabilitar a recuperação de espaço:<br>`fsutil behavior set disabledeletenotify 0`</br></li><li>Aplique o hotfix do Windows Server 2012, conforme descrito em [KB 2878635](https://support.microsoft.com/kb/2870270), em seu computador Windows Server.</li></ul></li></ul></ul> Se você estiver configurando o Gerenciador de Instantâneos do StorSimple ou o Adaptador do StorSimple para SharePoint, vá para [Requisitos de software para os componentes opcionais](#software-requirements-for-optional-components). |
+| Windows Server |2008 R2 SP1, 2012, 2012 R2, 2016 |Os volumes iSCSI do StorSimple  são permitidos para o uso somente nos seguintes tipos de disco do Windows:<ul><li>Volume simples em disco básico</li><li>Volume simples e espelhado em disco dinâmico</li></ul>Há suporte apenas para software iniciadores iSCSI presentes nativamente no sistema operacional. Não há suporte para iniciadores iSCSI de hardware.<br></br>O provisionamento dinâmico do Windows Server 2012 e 2016, bem como de recursos ODX terá suporte se você estiver usando um volume iSCSI do StorSimple.<br><br>O StorSimple pode criar volumes com provisionamento dinâmico e provisionamento completo. Não é possível criar volumes parcialmente provisionados.<br><br>Reformatar um volume de provisionamento dinâmico pode levar muito tempo. É recomendável excluir o volume e criar um novo em vez de reformatar. No entanto, se você ainda preferir reformatar um volume:<ul><li>Execute o comando a seguir antes de reformatar para evitar atrasos de recuperação de espaço: <br>`fsutil behavior set disabledeletenotify 1`</br></li><li>Depois que a formatação for concluída, use o seguinte comando para reabilitar a recuperação de espaço:<br>`fsutil behavior set disabledeletenotify 0`</br></li><li>Aplique o hotfix do Windows Server 2012, conforme descrito em [KB 2878635](https://support.microsoft.com/kb/2870270), em seu computador Windows Server.</li></ul></li></ul></ul> Se você estiver configurando o Gerenciador de Instantâneos do StorSimple ou o Adaptador do StorSimple para SharePoint, vá para [Requisitos de software para os componentes opcionais](#software-requirements-for-optional-components). <br> Se o seu cliente do Windows Server estiver usando o protocolo SMB para acessar o dispositivo StorSimple, vá para [ajuste de desempenho para servidores de arquivos SMB](/windows-server/administration/performance-tuning/role/file-server/smb-file-server) para obter orientação sobre como aumentar o processamento paralelo.|
 | VMware ESX |5.5 e 6.0 |Compatível com o VMware vSphere como cliente iSCSI. O recurso de bloco VAAI é compatível com o VMware vSphere nos dispositivos StorSimple. |
 | Linux RHEL/CentOS |5, 6 e 7 |Suporte para os clientes Linux iSCSI com o iniciador open-iSCSI versões 5, 6 e 7. |
 | Linux |SUSE Linux 11 | |
@@ -63,7 +63,7 @@ Os seguintes requisitos de software são para os componentes opcionais do StorSi
 
 Seu dispositivo StorSimple é um dispositivo bloqueado. No entanto, é preciso abrir portas no firewall para permitir o tráfego de gerenciamento, de nuvem e iSCSI. A tabela a seguir lista as portas que precisam estar abertas no firewall. Nesta tabela, *entrada* ou *de entrada* refere-se à direção a partir da qual as solicitações de cliente acessam o dispositivo. *Saída* ou *de saída* refere-se à direção na qual seu dispositivo StorSimple envia dados externamente, além da implantação: por exemplo, saída para a Internet.
 
-| Nº da porta<sup>1,2</sup> | Entrada ou saída | Escopo da porta | Obrigatório | Observações |
+| Nº da porta<sup>1,2</sup> | Entrada ou saída | Escopo da porta | Necessária | Anotações |
 | --- | --- | --- | --- | --- |
 | TCP 80 (HTTP)<sup>3</sup> |Saída |WAN |Não |<ul><li>A porta de saída é usada para acesso à Internet para recuperar atualizações.</li><li>O proxy Web de saída é configurável pelo usuário.</li><li>Para permitir atualizações do sistema, esta porta também deve estar aberta para o IPs fixos do controlador.</li></ul> |
 | TCP 443 (HTTPS)<sup>3</sup> |Saída |WAN |Sim |<ul><li>A porta de saída é usada para acessar dados na nuvem.</li><li>O proxy Web de saída é configurável pelo usuário.</li><li>Para permitir atualizações do sistema, esta porta também deve estar aberta para o IPs fixos do controlador.</li><li>Esta porta também é usada em ambos os controladores para coleta de lixo.</li></ul> |
@@ -91,7 +91,7 @@ Os administradores de rede geralmente podem configurar regras avançadas de fire
 É recomendável que você defina suas regras de firewall para tráfego de saída, com base nos endereços IP fixos do StorSimple e, na maioria dos casos, de modo flexível. No entanto, você pode usar as informações a seguir para definir regras avançadas de firewall que são necessárias para criar ambientes seguros.
 
 > [!NOTE]
-> Os IPs do dispositivo (de origem) sempre devem ser configurados para todas as interfaces de rede habilitadas. Os IPs de destino devem ser configurados como [Intervalos de IP do datacenter do Azure](https://www.microsoft.com/en-us/download/confirmation.aspx?id=41653).
+> Os IPs do dispositivo (de origem) sempre devem ser configurados para todas as interfaces de rede habilitadas. Os IPs de destino devem ser definidos para [intervalos de IP do datacenter do Azure](https://www.microsoft.com/en-us/download/confirmation.aspx?id=41653).
 
 
 #### <a name="url-patterns-for-azure-portal"></a>Padrões de URL para o Portal do Azure
@@ -122,14 +122,14 @@ Os administradores de rede geralmente podem configurar regras avançadas de fire
 
 Uma métrica de roteamento é associada às interfaces e ao gateway que encaminha os dados para as redes especificadas. A métrica de roteamento é usada pelo protocolo de roteamento para calcular o melhor caminho para um determinado destino, se ela detecta que existem vários caminhos para o mesmo destino. Quanto menor a métrica de roteamento, maior será a preferência.
 
-No contexto do StorSimple, se vários gateways e interfaces de rede estiverem configurados para encaminhar o tráfego, a métrica de roteamento entrará em ação para determinar a ordem relativa em que as interfaces serão usadas. A métrica de roteamento não pode ser alterada pelo usuário. No entanto, você pode usar o cmdlet `Get-HcsRoutingTable` para imprimir a tabela de roteamento (e as métricas) em seu dispositivo do StorSimple. Mais informações sobre o cmdlet Get-HcsRoutingTable em [Troubleshooting StorSimple deployment](storsimple-troubleshoot-deployment.md)(Solucionando problemas de implantação do StorSimple).
+No contexto do StorSimple, se vários gateways e interfaces de rede estiverem configurados para encaminhar o tráfego, a métrica de roteamento entrará em ação para determinar a ordem relativa em que as interfaces serão usadas. A métrica de roteamento não pode ser alterada pelo usuário. No entanto, você pode usar o cmdlet `Get-HcsRoutingTable` para imprimir a tabela de roteamento (e as métricas) em seu dispositivo do StorSimple. Mais informações sobre o cmdlet Get-HcsRoutingTable em [Troubleshooting StorSimple deployment](./storsimple-8000-troubleshoot-deployment.md)(Solucionando problemas de implantação do StorSimple).
 
 O algoritmo da métrica de roteamento usado para a Atualização 2 e versões posteriores pode ser explicado da seguinte maneira.
 
 * Um conjunto de valores predeterminados foi atribuído a interfaces de rede.
 * Considere uma tabela de exemplo mostrada abaixo, com valores atribuídos às várias interfaces de rede quando são habilitadas ou desabilitadas para a nuvem, mas com um gateway configurado. Observe que os valores atribuídos aqui são apenas exemplos.
 
-    | interface de rede | Habilitado para nuvem | Desabilitado para a nuvem com o gateway |
+    | Adaptador de rede | Habilitado para nuvem | Desabilitado para a nuvem com o gateway |
     |-----|---------------|---------------------------|
     | Dados 0  | 1            | -                        |
     | Dados 1  | 2            | 20                       |
@@ -201,7 +201,7 @@ Os dispositivos StorSimple incluem módulos de controlador redundantes e interca
 * Não remova os dois módulos de controlador ao mesmo tempo. Se estiver ocorrendo um failover do controlador, não desligue o módulo do controlador em espera ou o remova do chassi.
 * Após o failover do controlador, aguarde pelo menos cinco minutos antes de remover um dos módulos de controlador.
 
-#### <a name="network-interfaces"></a>Interfaces de rede
+#### <a name="network-interfaces"></a>Adaptadores de rede
 
 Cada módulo de controlador do dispositivo StorSimple tem quatro interfaces de rede Ethernet de 1 Gigabit e duas de 10 Gigabits.
 
@@ -233,7 +233,7 @@ O modelo do dispositivo StorSimple 8600 inclui um compartimento EBOD (Extended B
 * Verifique se ambos os módulos do controlador de compartimento EBOD, os cabos SAS e todos os discos rígidos estão sempre instalados.
 * Se um módulo do controlador de compartimento EBOD falhar, solicite uma substituição imediatamente.
 * Se um módulo do controlador de compartimento EBOD falhar, certifique-se de que o outro módulo do controlador esteja ativo antes de substituir o módulo com falha. Para verificar se um controlador está ativo, vá para [Identificar o controlador ativo em seu dispositivo](storsimple-8000-controller-replacement.md#identify-the-active-controller-on-your-device).
-* Durante uma substituição do módulo do controlador Ebod, Monitore continuamente o status do componente no serviço StorSimple Device Manager acessando **monitorar**  >  **integridade do hardware**.
+* Durante uma substituição do módulo do controlador Ebod, Monitore continuamente o status do componente no serviço StorSimple Gerenciador de dispositivos acessando **monitorar**  >  **integridade do hardware**.
 * Se um cabo SAS falha ou exigir substituição (o Suporte da Microsoft deve participar dessa decisão), remova apenas o cabo SAS que exige a substituição.
 * Não remova simultaneamente os dois cabos SAS do sistema em nenhum momento.
 
@@ -250,4 +250,4 @@ Leia com atenção essas práticas recomendadas para garantir a alta disponibili
 * [Saiba como implantar sua solução StorSimple](storsimple-8000-deployment-walkthrough-u2.md).
 
 <!--Reference links-->
-[1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
+[1]: /previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731844(v=ws.10)

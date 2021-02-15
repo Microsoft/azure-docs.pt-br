@@ -7,12 +7,12 @@ ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 2bf369b784cddf307abc59d2b8766fc8a87e0985
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9653a584382584d982c55008a6e8547de28691b7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74975339"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91842845"
 ---
 # <a name="iot-hub-device-reprovisioning-concepts"></a>Conceitos de reprovisionamento de dispositivos no Hub IoT
 
@@ -32,7 +32,7 @@ O reprovisionamento oferece suporte dentro dos endereços de Serviço de Provisi
 
 Os dados de estado do dispositivo são compostos pelos recursos de dispositivo e dispositivos de [entrelaçamento](../iot-hub/iot-hub-devguide-device-twins.md) . Esses dados são armazenados na instância do Serviço de Provisionamento de Dispositivos e Hub IoT atribuídos a um dispositivo.
 
-![Provisionar com o Serviço de Provisionamento de Dispositivos](./media/concepts-device-reprovisioning/dps-provisioning.png)
+![Diagrama que mostra como o provisionamento funciona com o serviço de provisionamento de dispositivos.](./media/concepts-device-reprovisioning/dps-provisioning.png)
 
 Quando um dispositivo for inicialmente provisionado com uma instância do Serviço de Provisionamento de Dispositivos, as etapas a seguir são executadas:
 
@@ -52,13 +52,13 @@ Dependendo do cenário, um dispositivo geralmente envia uma solicitação para u
 
 * **Provisionar novamente e migrar dados**: essa política é o padrão para novas entradas de registro. Essa política entra em ação quando os dispositivos associados com a entrada de registro enviam uma nova solicitação (1). Dependendo da configuração de entrada de registro, o dispositivo pode ser reatribuído a outro hub IoT. Se o dispositivo estiver mudando entre hubs IoT, o registro de dispositivo com o hub IoT inicial será removido. As informações atualizadas de estado do dispositivo do hub IoT inicial serão migradas para o novo hub IoT (2). Durante a migração, o status do dispositivo será relatado como **atribuição**.
 
-    ![Provisionar com o Serviço de Provisionamento de Dispositivos](./media/concepts-device-reprovisioning/dps-reprovisioning-migrate.png)
+    ![Diagrama que mostra que uma política executa uma ação quando os dispositivos associados à entrada de registro enviam uma nova solicitação.](./media/concepts-device-reprovisioning/dps-reprovisioning-migrate.png)
 
 * **Provisionar novamente e redefinir a configuração inicial**: Essa política entra em ação quando os dispositivos associados com a entrada de registro enviam uma nova solicitação de provisionamento (1). Dependendo da configuração de entrada de registro, o dispositivo pode ser reatribuído a outro hub IoT. Se o dispositivo estiver mudando entre hubs IoT, o registro de dispositivo com o hub IoT inicial será removido. Os dados de configuração inicial que a instância de serviço de provisionamento recebeu quando o dispositivo foi provisionado são fornecidos ao novo hub IoT (2). Durante a migração, o status do dispositivo será relatado como **atribuição**.
 
     Essa política é geralmente usada para uma redefinição de fábrica sem alterar os hubs IoT.
 
-    ![Provisionar com o Serviço de Provisionamento de Dispositivos](./media/concepts-device-reprovisioning/dps-reprovisioning-reset.png)
+    ![Diagrama que mostra como uma política entra em ação quando os dispositivos associados à entrada de registro enviam uma nova solicitação de provisionamento.](./media/concepts-device-reprovisioning/dps-reprovisioning-reset.png)
 
 * **Nunca provisionar novamente**: O dispositivo nunca é reatribuído a um hub diferente. Essa política é fornecida para gerenciar compatibilidade com versões anteriores.
 

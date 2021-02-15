@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: allensu
-ms.openlocfilehash: aa3c190912c0fbd62b08182018c99b985354811b
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: a226682c2580a871e1b2fc4db71f369f3bcc3abb
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86201802"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010156"
 ---
 # <a name="how-caching-works"></a>Como funciona o cache
 
@@ -65,7 +65,7 @@ Dois cabeçalhos podem ser utilizados para definir a atualização de cache: `Ca
 ## <a name="cache-directive-headers"></a>Cabeçalhos de diretiva de cache
 
 > [!IMPORTANT]
-> Por padrão, um ponto de extremidade CDN do Azure que é otimizado para DSA ignora os cabeçalhos de diretiva de cache e ignora o cache. Para perfis **CDN Standard do Azure da Verizon ** e **CDN Standard do Azure da Akamai**, é possível ajustar como um ponto de extremidade de CDN do Azure trata esses cabeçalhos, usando as [Regras de cache de CDN](cdn-caching-rules.md) para habilitar cache. Somente para **CDN Premium do Azure da Verizon** você usa o [mecanismo de regras](cdn-rules-engine.md) para habilitar cache.
+> Por padrão, um ponto de extremidade CDN do Azure que é otimizado para DSA ignora os cabeçalhos de diretiva de cache e ignora o cache. Para perfis **CDN Standard do Azure da Verizon** e **CDN Standard do Azure da Akamai**, é possível ajustar como um ponto de extremidade de CDN do Azure trata esses cabeçalhos, usando as [Regras de cache de CDN](cdn-caching-rules.md) para habilitar cache. Somente para **CDN Premium do Azure da Verizon** você usa o [mecanismo de regras](./cdn-verizon-premium-rules-engine.md) para habilitar cache.
 
 A CDN do Azure fornece suporte aos seguintes cabeçalhos de diretiva de cache HTTP, que definem a duração do cache e o compartilhamento de cache.
 
@@ -137,6 +137,3 @@ A tabela a seguir descreve o comportamento de cache padrão para os produtos da 
 
 - Para saber como personalizar e substituir o comportamento de cache padrão na CDN através de regras de cache, consulte [Controlar o comportamento de cache da CDN do Azure com regras de cache](cdn-caching-rules.md). 
 - Para saber como usar sequências de caracteres de consulta para controlar o comportamento de cache, consulte [Controlar o comportamento de cache da CDN do Azure com cadeias de caracteres de consultas](cdn-query-string.md).
-
-
-

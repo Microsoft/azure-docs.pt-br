@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e83560caa6f4147252fd4c55767888e7c0ad632b
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: c0f45a1481661aa350815560d795ab7411f99545
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783392"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92317838"
 ---
 # <a name="common-scenarios-in-azure-ad-entitlement-management"></a>Cenários comuns no gerenciamento de direitos do Azure AD
 
@@ -119,24 +119,24 @@ Há várias maneiras de configurar o gerenciamento de direitos para sua organiza
 1. [Assista ao vídeo: gerenciamento diário: as coisas foram alteradas](https://www.microsoft.com/videoplayer/embed/RE3LD4Z)
 1. Abrir o pacote de acesso
 1. [Abrir as configurações do ciclo de vida](entitlement-management-access-package-lifecycle-policy.md#open-lifecycle-settings)
-1. [Atualizar as configurações de expiração](entitlement-management-access-package-lifecycle-policy.md#lifecycle)
+1. [Atualizar as configurações de expiração](entitlement-management-access-package-lifecycle-policy.md#lifecycle) 
 
 ### <a name="access-package-manager-update-how-access-is-approved-for-a-project"></a>Gerenciador de pacotes do Access: atualizar como o acesso é aprovado para um projeto
 
 1. [Assista ao vídeo: gerenciamento diário: as coisas foram alteradas](https://www.microsoft.com/videoplayer/embed/RE3LD4Z)
-1. [Abrir uma política existente de configurações de solicitação e aprovação](entitlement-management-access-package-request-policy.md#open-an-existing-policy-of-request-and-approval-settings)
-1. [Atualizar as configurações de aprovação](entitlement-management-access-package-request-policy.md#approval)
+1. [Abrir uma política existente de configurações de solicitação](entitlement-management-access-package-request-policy.md#open-an-existing-access-package-and-add-a-new-policy-of-request-settings)
+1. [Atualizar as configurações de aprovação](entitlement-management-access-package-approval-policy.md#change-approval-settings-of-an-existing-access-package)
 
 ### <a name="access-package-manager-update-the-people-for-a-project"></a>Gerenciador de pacotes do Access: atualizar as pessoas para um projeto
 
 1. [Assista ao vídeo: gerenciamento diário: as coisas foram alteradas](https://www.microsoft.com/videoplayer/embed/RE3LD4Z)
 1. [Remover usuários que não precisam mais de acesso](entitlement-management-access-package-assignments.md)
-1. [Abrir uma política existente de configurações de solicitação e aprovação](entitlement-management-access-package-request-policy.md#open-an-existing-policy-of-request-and-approval-settings)
+1. [Abrir uma política existente de configurações de solicitação](entitlement-management-access-package-request-policy.md#open-an-existing-access-package-and-add-a-new-policy-of-request-settings)
 1. [Adicionar usuários que precisam de acesso](entitlement-management-access-package-request-policy.md#for-users-in-your-directory)
 
 ### <a name="access-package-manager-directly-assign-specific-users-to-an-access-package"></a>Gerenciador de pacotes do Access: atribuir usuários específicos diretamente a um pacote do Access
 
-1. [Se os usuários precisarem de configurações de ciclo de vida diferentes, adicione uma nova política ao pacote de acesso](entitlement-management-access-package-request-policy.md#add-a-new-policy-of-request-and-approval-settings)
+1. [Se os usuários precisarem de configurações de ciclo de vida diferentes, adicione uma nova política ao pacote de acesso](entitlement-management-access-package-request-policy.md#open-an-existing-access-package-and-add-a-new-policy-of-request-settings)
 1. [Atribuir usuários específicos diretamente ao pacote de acesso](entitlement-management-access-package-assignments.md#directly-assign-a-user)
 
 ## <a name="assignments-and-reports"></a>Atribuições e relatórios
@@ -154,7 +154,7 @@ Há várias maneiras de configurar o gerenciamento de direitos para sua organiza
 
 ## <a name="programmatic-administration"></a>Administração programática
 
-Você também pode gerenciar pacotes de acesso, catálogos, políticas, solicitações e atribuições usando Microsoft Graph.  Um usuário em uma função apropriada com um aplicativo que tem a permissão delegada `EntitlementManagement.ReadWrite.All` pode chamar a [API de gerenciamento de direitos](/graph/api/resources/entitlementmanagement-root?view=graph-rest-beta).
+Você também pode gerenciar pacotes de acesso, catálogos, políticas, solicitações e atribuições usando Microsoft Graph.  Um usuário em uma função apropriada com um aplicativo que tem a permissão delegada `EntitlementManagement.ReadWrite.All` pode chamar a [API de gerenciamento de direitos](/graph/tutorial-access-package-api?view=graph-rest-beta).
 
 ## <a name="next-steps"></a>Próximas etapas
 

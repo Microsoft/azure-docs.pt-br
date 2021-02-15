@@ -1,23 +1,32 @@
 ---
 title: 'Azure ExpressRoute: configurar ExpressRoute direto: CLI'
-description: Saiba como usar CLI do Azure para configurar o Azure ExpressRoute Direct para se conectar diretamente à rede global da Microsoft em locais de emparelhamento em todo o mundo.
+description: Saiba como usar CLI do Azure para configurar o Azure ExpressRoute Direct para se conectar diretamente à rede global da Microsoft.
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 05/20/2019
-ms.author: cherylmc
+ms.date: 12/14/2020
+ms.author: duau
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 5d1e1d6ab5a8d4444ad4a5a4748859fd12aa3c1e
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: aea51e56f2d96fa634b1ece2029c9ea5bf3f60fc
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192260"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98011298"
 ---
 # <a name="configure-expressroute-direct-by-using-the-azure-cli"></a>Configurar o ExpressRoute direto usando o CLI do Azure
 
-Você pode usar o Azure ExpressRoute Direct para conectar-se diretamente à rede global da Microsoft em localizações de emparelhamento estrategicamente distribuídas no mundo todo. Para obter mais informações, confira [Sobre a conexão do ExpressRoute Direct](expressroute-erdirect-about.md).
+O ExpressRoute Direct oferece a capacidade de se conectar diretamente à rede global da Microsoft por meio de locais de emparelhamento distribuídos estrategicamente em todo o mundo. Para obter mais informações, confira [Sobre a conexão do ExpressRoute Direct](expressroute-erdirect-about.md).
+
+## <a name="before-you-begin"></a>Antes de começar
+
+Antes de usar o ExpressRoute Direct, você deve primeiro registrar sua assinatura. Para se inscrever, envie um e-mail para <ExpressRouteDirect@microsoft.com> com seu ID de assinatura, incluindo os seguintes detalhes:
+
+* Cenários que você pretende para realizar com o **ExpressRoute Direct**
+* Preferências de localização. Confira [Localizações de emparelhamento e parceiros do ExpressRoute](expressroute-locations-providers.md) para obter uma lista completa de todas as localizações
+* Linha do tempo para implementação
+* Tem mais perguntas?
 
 ## <a name="create-the-resource"></a><a name="resources"></a>Criar o recurso
 
@@ -287,7 +296,8 @@ Você pode usar as larguras de bandas de circuito adicionais no ExpressRoute Dir
 
 **SkuTier** pode ser local, Standard ou Premium.
 
-**SkuFamily** deve ser MeteredData somente como ilimitado não tem suporte no ExpressRoute Direct.
+**SkuFamily** só pode ser MeteredData. Não há suporte para ilimitado no ExpressRoute Direct.
+
 Crie um circuito no recurso ExpressRoute Direct:
 
   ```azurecli

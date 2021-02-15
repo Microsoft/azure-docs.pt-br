@@ -5,10 +5,10 @@ ms.date: 03/30/2020
 ms.topic: how-to
 ms.reviewer: ravastra
 ms.openlocfilehash: a151c28d31bf0bb7f21185fb161315d42f9563d8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85200674"
 ---
 # <a name="configure-blockchain-data-manager-using-the-azure-portal"></a>Configurar o Gerenciador de Dados Blockchain usando o portal do Azure
@@ -23,7 +23,7 @@ Para configurar uma instância de Gerenciador de Dados do Blockchain, você:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Conclua [o início rápido: criar um membro do blockchain usando o portal do Azure](create-member.md) ou [início rápido: criar um membro Blockchain do serviço blockchain do Azure usando o CLI do Azure](create-member-cli.md). A camada *Standard* do serviço Blockchain do Azure é recomendada ao usar o Blockchain Gerenciador de dados.
-* Criar um [tópico de grade de eventos](../../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic)
+* Criar um [tópico da Grade de Eventos](../../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic)
 * Aprenda sobre [Manipuladores de eventos na Grade de Eventos do Azure](../../event-grid/event-handlers.md)
 
 ## <a name="create-instance"></a>Criar instância
@@ -40,7 +40,7 @@ Uma conexão de saída envia os dados de blockchain para a Grade de Eventos do A
 
     Insira os seguintes detalhes:
 
-    Setting | Descrição
+    Configuração | Descrição
     --------|------------
     Nome | Insira um nome exclusivo para um Gerenciador de Dados do Blockchain conectado. O nome de Gerenciador de Dados Blockchain pode conter letras minúsculas e números e tem um comprimento máximo de 20 caracteres.
     Nó de transação | Escolha um nó de transação. Somente os nós de transação aos quais você tem acesso de leitura são listados.
@@ -144,7 +144,7 @@ Para cada blob, gere uma assinatura de acesso compartilhado.
 
     Insira o nome do aplicativo de blockchain, a URL da ABI do contrato inteligente e a URL do código de bytes.
 
-    Setting | Descrição
+    Configuração | Descrição
     --------|------------
     Nome | Insira um nome exclusivo para o aplicativo de blockchain rastrear.
     ABI do Contrato | Caminho da URL para o arquivo da ABI do contrato. Para obter mais informações, confira [Criar a ABI do contrato e a URL do código de bytes](#create-contract-abi-and-bytecode-url).

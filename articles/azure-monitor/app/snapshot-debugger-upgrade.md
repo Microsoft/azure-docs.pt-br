@@ -7,10 +7,10 @@ ms.author: pharring
 ms.date: 03/28/2019
 ms.reviewer: mbullwin
 ms.openlocfilehash: 6991db6055ca8556adff67f194bac0f4aa04cb06
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77671385"
 ---
 # <a name="upgrading-the-snapshot-debugger"></a>Atualizando o Depurador de Instantâneos
@@ -25,7 +25,7 @@ Para fornecer a melhor segurança possível para seus dados, a Microsoft está s
 
 Se você habilitou o depurador de instantâneos usando a extensão de site, poderá atualizar usando o seguinte procedimento:
 
-1. Entre no Portal do Azure.
+1. Entre no portal do Azure.
 2. Navegue até o recurso que tem o Application Insights e o depurador de instantâneos habilitados. Por exemplo, para um aplicativo Web, navegue até o recurso do serviço de aplicativo:
 
    ![Captura de tela do recurso de serviço de aplicativo individual chamado DiagService01](./media/snapshot-debugger-upgrade/app-service-resource.png)

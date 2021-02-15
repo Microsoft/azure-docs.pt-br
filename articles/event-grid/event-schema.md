@@ -4,10 +4,10 @@ description: Descreve as propriedades e o esquema que estão presentes para todo
 ms.topic: reference
 ms.date: 07/07/2020
 ms.openlocfilehash: 7ddc7c78c5a9e5ba2a57b21c45fb9fab65056ee9
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86105873"
 ---
 # <a name="azure-event-grid-event-schema"></a>Esquema de eventos da Grade de Eventos do Azure
@@ -78,13 +78,13 @@ Todos os eventos terão os mesmos dados de nível superior a seguir:
 | Propriedade | Type | Obrigatório | Descrição |
 | -------- | ---- | -------- | ----------- |
 | topic | string | Não, mas se incluído, deve corresponder exatamente ao tópico da grade de eventos Azure Resource Manager ID. Se não estiver incluído, a grade de eventos será carimbada no evento. | Caminho de recurso completo para a origem do evento. Este campo não é gravável. Grade de Eventos fornece esse valor. |
-| subject | string | Sim | Caminho definido pelo fornecedor para o assunto do evento. |
+| subject | string | Sim | Caminho definido pelo publicador para o assunto do evento. |
 | eventType | string | Sim | Um dos tipos de evento registrados para a origem do evento. |
 | eventTime | string | Sim | A hora em que o evento é gerado com base na hora UTC do provedor. |
 | id | string | Sim | Identificador exclusivo do evento. |
 | data | objeto | Não | Dados do evento específicos ao provedor de recursos. |
-| dataVersion | string | Não, mas será carimbado com um valor vazio. | A versão do esquema do objeto de dados. O fornecedor define a versão do esquema. |
-| metadataVersion | string | Não obrigatório, mas se incluído, deve corresponder exatamente ao esquema da grade de eventos `metadataVersion` (atualmente, somente `1` ). Se não estiver incluído, a grade de eventos será carimbada no evento. | A versão do esquema do metadados de evento. Grade de Eventos define o esquema de propriedades de nível superior. Grade de Eventos fornece esse valor. |
+| dataVersion | string | Não, mas será carimbado com um valor vazio. | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
+| metadataVersion | string | Não obrigatório, mas se incluído, deve corresponder exatamente ao esquema da grade de eventos `metadataVersion` (atualmente, somente `1` ). Se não estiver incluído, a grade de eventos será carimbada no evento. | A versão do esquema dos metadados do evento. Grade de Eventos define o esquema de propriedades de nível superior. A Grade de Eventos fornece esse valor. |
 
 Para saber mais sobre as propriedades no objeto de dados, consulte a origem do evento:
 

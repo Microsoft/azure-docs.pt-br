@@ -8,12 +8,12 @@ ms.custom: devx-track-csharp, vs-azure
 ms.date: 07/30/2020
 ms.author: glenga
 ms.reviewer: david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: ed473568fbad5bad380001cd2e2faccd90994099
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: de10903be86b52b3415b57a53be81e7fd1661f63
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88959894"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89226022"
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio"></a>Desenvolver e implantar trabalhos Web usando o Visual Studio
 
@@ -184,9 +184,9 @@ Informações de implantação do WebJob:
 
 O tipo de um WebJob pode ser *disparado* ou *contínuo*:
 
-- Disparado (padrão): um WebJob disparado começa com base em um evento de associação, em um [agendamento](#scheduling-a-triggered-webjob), ou quando você o dispara manualmente (sob demanda). Ele é executado em todas as instâncias em que o aplicativo Web é executado, mas você pode opcionalmente restringir o WebJob a uma única instância.
+- Disparado (padrão): um WebJob disparado começa com base em um evento de associação, em um [agendamento](#scheduling-a-triggered-webjob), ou quando você o dispara manualmente (sob demanda). Ele é executado em uma única instância em que o aplicativo Web é executado.
 
-- Contínuo: um WebJob [contínuo](#continuous-execution) é iniciado imediatamente quando o webjob é criado. Esse tipo de trabalho Web é melhor para trabalhos desvinculados ou de execução longa. Se o trabalho for encerrado, você poderá reiniciá-lo.  
+- Contínuo: um WebJob [contínuo](#continuous-execution) é iniciado imediatamente quando o webjob é criado. Ele é executado em todas as instâncias escaladas do aplicativo Web por padrão, mas pode ser configurado para ser executado como uma única instância por meio de *Settings. Job*.
 
 [!INCLUDE [webjobs-alwayson-note](../../includes/webjobs-always-on-note.md)]
 
@@ -218,10 +218,10 @@ As configurações a seguir são suportadas pelos trabalhos Web:
 
 | **Configuração** | **Tipo**  | **Descrição** |
 | ----------- | --------- | --------------- |
-| `is_in_place` | Tudo | Permite que o WebJob seja executado no local sem primeiro ser copiado para uma pasta temporária. Para obter mais informações, consulte [diretório de trabalho do WebJob](https://github.com/projectkudu/kudu/wiki/WebJobs#webjob-working-directory). |
+| `is_in_place` | Todos | Permite que o WebJob seja executado no local sem primeiro ser copiado para uma pasta temporária. Para obter mais informações, consulte [diretório de trabalho do WebJob](https://github.com/projectkudu/kudu/wiki/WebJobs#webjob-working-directory). |
 | `is_singleton` | Contínuo | Só execute o WebJob em uma única instância quando expandido. Para obter mais informações, consulte [definir um trabalho contínuo como singleton](https://github.com/projectkudu/kudu/wiki/WebJobs-API#set-a-continuous-job-as-singleton). |
 | `schedule` | Disparado | Execute o WebJob em uma agenda baseada em CRON. Para obter mais informações, consulte [NCRONTAB Expressions](../azure-functions/functions-bindings-timer.md#ncrontab-expressions). |
-| `stopping_wait_time`| Tudo | Permite o controle do comportamento de desligamento. Para obter mais informações, consulte [Desligamento normal](https://github.com/projectkudu/kudu/wiki/WebJobs#graceful-shutdown). |
+| `stopping_wait_time`| Todos | Permite o controle do comportamento de desligamento. Para obter mais informações, consulte [Desligamento normal](https://github.com/projectkudu/kudu/wiki/WebJobs#graceful-shutdown). |
 
 ### <a name="continuous-execution"></a>Execução contínua
 

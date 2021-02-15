@@ -3,17 +3,19 @@ title: Cláusula GROUP BY no Azure Cosmos DB
 description: Saiba mais sobre a cláusula GROUP BY para Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: tisande
-ms.openlocfilehash: b602b56d37cec0e23d31318f6675d031bdd6bcdb
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: d9cafc100ddd4b553577c447e82334e6ee7d1b6d
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83700994"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96545410"
 ---
 # <a name="group-by-clause-in-azure-cosmos-db"></a>Cláusula GROUP BY no Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 A cláusula GROUP BY divide os resultados da consulta de acordo com os valores de uma ou mais propriedades especificadas.
 
@@ -39,7 +41,7 @@ A cláusula GROUP BY divide os resultados da consulta de acordo com os valores d
 
 ## <a name="remarks"></a>Comentários
   
-  Quando uma consulta usa uma cláusula GROUP BY, a cláusula SELECT pode conter apenas o subconjunto de propriedades e funções do sistema incluídas na cláusula GROUP BY. Uma exceção é [funções de sistema agregadas](sql-query-aggregates.md), que podem aparecer na cláusula SELECT sem serem incluídas na cláusula GROUP BY. Você também pode incluir valores literais na cláusula SELECT.
+  Quando uma consulta usa uma cláusula GROUP BY, a cláusula SELECT pode conter apenas o subconjunto de propriedades e funções do sistema incluídas na cláusula GROUP BY. Uma exceção são [funções de agregação](sql-query-aggregate-functions.md), que podem aparecer na cláusula SELECT sem serem incluídas na cláusula Group by. Você também pode incluir valores literais na cláusula SELECT.
 
   A cláusula GROUP BY deve vir depois da cláusula SELECT, FROM e WHERE e antes da cláusula OFFSET LIMIT. No momento, não é possível usar GROUP BY com uma cláusula ORDER BY, mas isso é planejado.
 
@@ -190,4 +192,4 @@ Os resultados são:
 
 - [Guia de Introdução](sql-query-getting-started.md)
 - [Cláusula SELECT](sql-query-select.md)
-- [Funções de agregação](sql-query-aggregates.md)
+- [Funções de agregação](sql-query-aggregate-functions.md)

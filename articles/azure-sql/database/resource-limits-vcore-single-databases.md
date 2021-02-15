@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: single-database
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: reference
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
-ms.date: 07/21/2020
-ms.openlocfilehash: bb69d48fe4e65d0fc27db027aecab0f1a745e8d5
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.reviewer: ''
+ms.date: 01/22/2021
+ms.openlocfilehash: 1fec13eefad7f27bcaac8f2c690b99909cd24e59
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88566175"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100518038"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-purchasing-model"></a>Limites de recursos para bancos de dados individuais usando o modelo de compra de vCore
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -42,15 +42,15 @@ A [camada de computação sem servidor](serverless-tier-overview.md) está dispo
 |VCores mín. máx.|0.5-1|0.5-2|0,5-4|0,75 a 6|1.0-8|
 |Memória mín. máx. (GB)|2.02-3|2.05-6|2.10-12|2,25-18|3,00-24|
 |Atraso de pausa automática mín. máx. (minutos)|60-10080|60-10080|60-10080|60-10080|60-10080|
-|Suporte de columnstore|Sim|Sim|Sim|Sim|Sim|
+|Suporte de columnstore|Sim*|Sim|Sim|Sim|Sim|
 |Armazenamento OLTP na memória (GB)|N/D|N/D|N/D|N/D|N/D|
 |Tamanho máximo de dados (GB)|512|1024|1024|1024|1536|
 |Tamanho máximo de log (GB)|154|307|307|307|461|
 |Tamanho máximo de dados de TempDB (GB)|32|64|128|192|256|
 |Tipo de armazenamento|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|
 |Latência de E/S (aproximada)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|
-|IOPS de dados máximo *|320|640|1280|1920|2560|
-|Taxa máxima de logs (MBps)|3.8|7.5|15|22,5|30|
+|IOPS de dados máximo \*\*|320|640|1280|1920|2560|
+|Taxa máxima de logs (MBps)|4.5|9|18|27|36|
 |Máximo de trabalhos simultâneos (solicitações)|75|150|300|450|600|
 |Máximo de sessões simultâneas|30,000|30,000|30,000|30,000|30,000|
 |Número de réplicas|1|1|1|1|1|
@@ -58,7 +58,8 @@ A [camada de computação sem servidor](serverless-tier-overview.md) está dispo
 |Escala de leitura|N/D|N/D|N/D|N/D|N/D|
 |Armazenamento de backup incluído|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|
 
-\* O valor máximo para tamanhos de e/s variando entre 8 KB e 64 KB. IOPS reais são dependentes da carga de trabalho. Para obter detalhes, consulte [governança de e/s de dados](resource-limits-logical-server.md#resource-governance).
+\* Os objetivos de serviço com configurações mínimas máximas vcores podem ter memória insuficiente para criar e usar índices de repositório de coluna.  Se encontrar problemas de desempenho com o repositório de coluna, aumente a configuração de VCORE máxima para aumentar a memória máxima disponível.  
+\*\* O valor máximo para tamanhos de e/s variando entre 8 KB e 64 KB. IOPS reais são dependentes da carga de trabalho. Para obter detalhes, consulte [governança de e/s de dados](resource-limits-logical-server.md#resource-governance).
 
 ### <a name="gen5-compute-generation-part-2"></a>Geração de computação Gen5 (parte 2)
 
@@ -76,7 +77,7 @@ A [camada de computação sem servidor](serverless-tier-overview.md) está dispo
 |Tipo de armazenamento|SSD remoto|SSD remoto|SSD remoto|SSD remoto|
 |Latência de E/S (aproximada)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|
 |IOPS de dados máximo *|3200|3840|4480|5120|
-|Taxa máxima de logs (MBps)|30|30|30|30|
+|Taxa máxima de logs (MBps)|36|36|36|36|
 |Máximo de trabalhos simultâneos (solicitações)|750|900|1.050|1200|
 |Máximo de sessões simultâneas|30,000|30,000|30,000|30,000|
 |Número de réplicas|1|1|1|1|
@@ -102,7 +103,7 @@ A [camada de computação sem servidor](serverless-tier-overview.md) está dispo
 |Tipo de armazenamento|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|
 |Latência de E/S (aproximada)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|
 |IOPS de dados máximo *|5760|6400|7680|10240|12800|
-|Taxa máxima de logs (MBps)|30|30|30|30|30|
+|Taxa máxima de logs (MBps)|36|36|36|36|36|
 |Máximo de trabalhos simultâneos (solicitações)|1350|1500|1800|2400|3000|
 |Máximo de sessões simultâneas|30,000|30,000|30,000|30,000|30,000|
 |Número de réplicas|1|1|1|1|1|
@@ -212,7 +213,7 @@ A [camada de computação sem servidor](serverless-tier-overview.md) está dispo
 |Tamanho máximo do log (TB)|Ilimitado |Ilimitado |Ilimitado |Ilimitado |Ilimitado |Ilimitado |Ilimitado |
 |Tamanho máximo de dados de TempDB (GB)|512|576|640|768|1024|1280|2560|
 |Tipo de armazenamento| [Observação 1](#notes) |[Observação 1](#notes)|[Observação 1](#notes)|[Observação 1](#notes) |[Observação 1](#notes) |[Observação 1](#notes) |[Observação 1](#notes) |
-|IOPS máximo de SSD local *|64000 |72000 |80000 |96000 |160000 |192000 |204800 |
+|IOPS máximo de SSD local *|64000 |72000 |80000 |96000 |128000 |160000 |204800 |
 |Taxa máxima de logs (MBps)|100 |100 |100 |100 |100 |100 |100 |
 |Latência de E/S (aproximada)|[Observação 2](#notes)|[Observação 2](#notes)|[Observação 2](#notes)|[Observação 2](#notes)|[Observação 2](#notes)|[Observação 2](#notes)|[Observação 2](#notes)|
 |Máximo de trabalhos simultâneos (solicitações)|1600|1800|2000|2400|3200|4000|8000|
@@ -225,7 +226,38 @@ A [camada de computação sem servidor](serverless-tier-overview.md) está dispo
 
 \* Além da e/s SSD local, as cargas de trabalho usarão a es [do servidor de paginação](service-tier-hyperscale.md#page-server) remota. O IOPS efetivo dependerá da carga de trabalho. Para obter detalhes, consulte [governança de e](resource-limits-logical-server.md#resource-governance)/s de dados e [Io de dados nas estatísticas de utilização de recursos](hyperscale-performance-diagnostics.md#data-io-in-resource-utilization-statistics).
 
-#### <a name="notes"></a>Observações
+#### <a name="notes"></a>Anotações
+
+**Observação 1**: o hiperescala é uma arquitetura de várias camadas com componentes de armazenamento e computação separados: [arquitetura de camada de serviço de hiperescala](service-tier-hyperscale.md#distributed-functions-architecture)
+
+**Observação 2**: a latência é 1-2 ms para dados no SSD da réplica de computação local, que armazena em cache as páginas de dados mais usadas. Maior latência de dados recuperados de servidores de páginas.
+
+## <a name="hyperscale---provisioned-compute---dc-series"></a>Hiperescala – computação provisionada-série CC
+
+|Tamanho da computação (objetivo do serviço)|HS_DC_2|HS_DC_4|HS_DC_6|HS_DC_8|
+|:--- | --: |--: |--: |--: |---: | 
+|Geração de computação|Série DC|Série DC|Série DC|Série DC|
+|vCores|2|4|6|8|
+|Memória (GB)|9|18|27|36|
+|[RBPEX](service-tier-hyperscale.md#compute) Tamanho|3X de memória|3X de memória|3X de memória|3X de memória|
+|Suporte de columnstore|Sim|Sim|Sim|Sim|
+|Armazenamento OLTP na memória (GB)|N/D|N/D|N/D|N/D|
+|Tamanho máximo de dados (TB)|100 |100 |100 |100 |
+|Tamanho máximo do log (TB)|Ilimitado |Ilimitado |Ilimitado |Ilimitado |
+|Tamanho máximo de dados de TempDB (GB)|64|128|192|256|
+|Tipo de armazenamento| [Observação 1](#notes) |[Observação 1](#notes)|[Observação 1](#notes) |[Observação 1](#notes) |
+|IOPS máximo de SSD local *|8000 |16000 |24.000 |32000 |
+|Taxa máxima de logs (MBps)|100 |100 |100 |100 |
+|Latência de E/S (aproximada)|[Observação 2](#notes)|[Observação 2](#notes)|[Observação 2](#notes)|[Observação 2](#notes)|
+|Máximo de trabalhos simultâneos (solicitações)|160|320|480|640|
+|Máximo de sessões simultâneas|30,000|30,000|30,000|30,000|
+|Réplicas secundárias|0-4|0-4|0-4|0-4|
+|Multi-AZ|N/D|N/D|N/D|N/D|
+|Escala de leitura|Sim|Sim|Sim|Sim|
+|Retenção de armazenamento de backup|7 dias|7 dias|7 dias|7 dias|
+|||
+
+### <a name="notes"></a>Anotações
 
 **Observação 1**: o hiperescala é uma arquitetura de várias camadas com componentes de armazenamento e computação separados: [arquitetura de camada de serviço de hiperescala](service-tier-hyperscale.md#distributed-functions-architecture)
 
@@ -251,7 +283,7 @@ A [camada de computação sem servidor](serverless-tier-overview.md) está dispo
 |Tipo de armazenamento|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|
 |Latência de E/S (aproximada)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|
 |IOPS de dados máximo *|320|640|960|1280|1600|1920|
-|Taxa máxima de logs (MBps)|3,75|7.5|11,25|15|18,75|22,5|
+|Taxa máxima de logs (MBps)|4.5|9|13,5|18|22,5|27|
 |Máximo de trabalhos simultâneos (solicitações)|200|400|600|800|1000|1200|
 |Máximo de sessões simultâneas|30,000|30,000|30,000|30,000|30,000|30,000|
 |Número de réplicas|1|1|1|1|1|1|
@@ -276,7 +308,7 @@ A [camada de computação sem servidor](serverless-tier-overview.md) está dispo
 |Tipo de armazenamento|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|
 |Latência de E/S (aproximada)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)
 |IOPS de dados máximo *|2240|2560|2880|3200|5120|7680|
-|Taxa máxima de logs (MBps)|26,3|30|30|30|30|30|
+|Taxa máxima de logs (MBps)|31,5|36|36|36|36|36|
 |Máximo de trabalhos simultâneos (solicitações)|1.400|1600|1800|2000|3200|4800|
 |Máximo de sessões simultâneas|30,000|30,000|30,000|30,000|30,000|30,000|
 |Número de réplicas|1|1|1|1|1|1|
@@ -303,11 +335,11 @@ A [camada de computação sem servidor](serverless-tier-overview.md) está dispo
 |Tipo de armazenamento|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|
 |Latência de E/S (aproximada)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|
 |IOPS de dados máximo *|640|1280|1920|2560|3200|3840|4480|
-|Taxa máxima de logs (MBps)|7.5|15|22,5|30|30|30|30|
+|Taxa máxima de logs (MBps)|9|18|27|36|36|36|36|
 |Máximo de trabalhos simultâneos (solicitações)|200|400|600|800|1000|1200|1.400|
 |Máximo de sessões simultâneas|30,000|30,000|30,000|30,000|30,000|30,000|30,000|
 |Número de réplicas|1|1|1|1|1|1|1|
-|Multi-AZ|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
+|Multi-AZ|[Disponível na visualização](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponível na visualização](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponível na visualização](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponível na visualização](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponível na visualização](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponível na visualização](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponível na visualização](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|
 |Escala de leitura|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Armazenamento de backup incluído|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|
 
@@ -328,11 +360,11 @@ A [camada de computação sem servidor](serverless-tier-overview.md) está dispo
 |Tipo de armazenamento|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|
 |Latência de E/S (aproximada)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|
 |IOPS de dados máximo *|5120|5760|6400|7680|10240|12800|12800|
-|Taxa máxima de logs (MBps)|30|30|30|30|30|30|30|
+|Taxa máxima de logs (MBps)|36|36|36|36|36|36|36|
 |Máximo de trabalhos simultâneos (solicitações)|1600|1800|2000|2400|3200|4000|8000|
 |Máximo de sessões simultâneas|30,000|30,000|30,000|30,000|30,000|30,000|30,000|
 |Número de réplicas|1|1|1|1|1|1|1|
-|Multi-AZ|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
+|Multi-AZ|[Disponível na visualização](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponível na visualização](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponível na visualização](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponível na visualização](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponível na visualização](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponível na visualização](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponível na visualização](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|
 |Escala de leitura|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Armazenamento de backup incluído|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|
 
@@ -355,7 +387,7 @@ A [camada de computação sem servidor](serverless-tier-overview.md) está dispo
 |Tipo de armazenamento|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|
 |Latência de E/S (aproximada)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|
 |IOPS de dados máximo *|2560|3200|3840|4480|5120|
-|Taxa máxima de logs (MBps)|30|30|30|30|30|
+|Taxa máxima de logs (MBps)|36|36|36|36|36|
 |Máximo de trabalhos simultâneos (solicitações)|400|500|600|700|800|
 |Máximo de logons simultâneos|800|1000|1200|1.400|1600|
 |Máximo de sessões simultâneas|30,000|30,000|30,000|30,000|30,000|
@@ -380,8 +412,8 @@ A [camada de computação sem servidor](serverless-tier-overview.md) está dispo
 |Tamanho máximo de dados de TempDB (GB)|83,25|92,5|111|148|166,5|333|
 |Tipo de armazenamento|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|
 |Latência de E/S (aproximada)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|
-|IOPS de dados máximo *|5760|6400|7680|10240|11520|23040|
-|Taxa máxima de logs (MBps)|30|30|30|30|30|30|
+|IOPS de dados máximo *|5760|6400|7680|10240|11520|12800|
+|Taxa máxima de logs (MBps)|36|36|36|36|36|36|
 |Máximo de trabalhos simultâneos (solicitações)|900|1000|1200|1600|1800|3600|
 |Máximo de logons simultâneos|1800|2000|2400|3200|3600|7200|
 |Máximo de sessões simultâneas|30,000|30,000|30,000|30,000|30,000|30,000|
@@ -389,6 +421,32 @@ A [camada de computação sem servidor](serverless-tier-overview.md) está dispo
 |Multi-AZ|N/D|N/D|N/D|N/D|N/D|N/D|
 |Escala de leitura|N/D|N/D|N/D|N/D|N/D|N/D|
 |Armazenamento de backup incluído|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|
+
+\* O valor máximo para tamanhos de e/s variando entre 8 KB e 64 KB. IOPS reais são dependentes da carga de trabalho. Para obter detalhes, consulte [governança de e/s de dados](resource-limits-logical-server.md#resource-governance).
+
+## <a name="general-purpose---provisioned-compute---dc-series"></a>Computação provisionada de uso geral-série DC
+
+|Tamanho da computação (objetivo do serviço)|GP_DC_2|GP_DC_4|GP_DC_6|GP_DC_8| 
+|:---| ---:|---:|---:|---:|
+|Geração de computação|Série DC|Série DC|Série DC|Série DC|
+|vCores|2|4|6|8|
+|Memória (GB)|9|18|27|36|
+|Suporte de columnstore|Sim|Sim|Sim|Sim|
+|Armazenamento OLTP na memória (GB)|N/D|N/D|N/D|N/D|
+|Tamanho máximo de dados (GB)|1024|1536|3072|3072|
+|Tamanho máximo de log (GB)|307|461|922|922|
+|Tamanho máximo de dados de TempDB (GB)|64|128|192|256|
+|Tipo de armazenamento|SSD remoto|SSD remoto|SSD remoto|SSD remoto|
+|Latência de E/S (aproximada)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|
+|IOPS de dados máximo *|640|1280|1920|2560|
+|Taxa máxima de logs (MBps)|9|18|27|36|
+|Máximo de trabalhos simultâneos (solicitações)|160|320|480|640|
+|Máximo de sessões simultâneas|30,000|30,000|30,000|30,000|
+|Número de réplicas|1|1|1|1|
+|Multi-AZ|N/D|N/D|N/D|N/D|
+|Escala de leitura|N/D|N/D|N/D|N/D|
+|Armazenamento de backup incluído|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|
+
 
 \* O valor máximo para tamanhos de e/s variando entre 8 KB e 64 KB. IOPS reais são dependentes da carga de trabalho. Para obter detalhes, consulte [governança de e/s de dados](resource-limits-logical-server.md#resource-governance).
 
@@ -563,6 +621,31 @@ A [camada de computação sem servidor](serverless-tier-overview.md) está dispo
 > [!IMPORTANT]
 > Em algumas circunstâncias, talvez seja necessário reduzir um banco de dados para recuperar o espaço não utilizado. Para obter mais informações, consulte [gerenciar o espaço de arquivo no banco de dados SQL do Azure](file-space-manage.md).
 
+## <a name="business-critical---provisioned-compute---dc-series"></a>Negócio crítico-série de computação provisionada
+
+|Tamanho da computação (objetivo do serviço)|BC_DC_2|BC_DC_4|BC_DC_6|BC_DC_8|
+|:--- | --: |--: |--: |--: |
+|Geração de computação|Série DC|Série DC|Série DC|Série DC|
+|vCores|2|4|6|8|
+|Memória (GB)|9|18|27|36|
+|Suporte de columnstore|Sim|Sim|Sim|Sim|
+|Armazenamento OLTP na memória (GB)|1.7|3.7|5.9|8.2|
+|Tamanho máximo de dados (GB)|768|768|768|768|
+|Tamanho máximo de log (GB)|230|230|230|230|
+|Tamanho máximo de dados de TempDB (GB)|64|128|192|256|
+|Tipo de armazenamento|SSD Local|SSD Local|SSD Local|SSD Local|
+|Latência de E/S (aproximada)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|
+|IOPS de dados máximo *|14000|28000|42000|56000|
+|Taxa máxima de logs (MBps)|24|48|72|96|
+|Máximo de trabalhos simultâneos (solicitações)|200|400|600|800|
+|Máximo de logons simultâneos|200|400|600|800|
+|Máximo de sessões simultâneas|30,000|30,000|30,000|30,000|
+|Número de réplicas|4|4|4|4|
+|Multi-AZ|Não|Não|Não|Não|
+|Escala de leitura|Não|Não|Não|Não|
+|Armazenamento de backup incluído|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|
+
+\* O valor máximo para tamanhos de e/s variando entre 8 KB e 64 KB. IOPS reais são dependentes da carga de trabalho. Para obter detalhes, consulte [governança de e/s de dados](resource-limits-logical-server.md#resource-governance).
 
 
 ## <a name="next-steps"></a>Próximas etapas

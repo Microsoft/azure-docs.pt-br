@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: d833a4cf26ee8ab69d16cbd1d776ca49a2df4bc4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: af671996722524de9af1a90ae8dfde27f814c8c2
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84738208"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011805"
 ---
 # <a name="monitor-vpn-gateways-with-network-watcher-troubleshooting"></a>Monitorar os gateways de VPN com a solução de problemas do Observador de Rede
 
@@ -42,7 +42,7 @@ Antes de começar este tutorial, você deve ter os seguintes pré-requisitos:
 
 - uma conta de automação no Azure. Verifique se a conta de automação tem os módulos mais recentes e também tem o módulo AzureRM.Network. O módulo AzureRM.Network estará disponível na galeria de módulos se for necessário adicioná-lo à conta de automação.
 - deve ter um conjunto de credenciais configurado na Automação do Azure. Saiba mais em [Segurança da Automação do Azure](../automation/automation-security-overview.md)
-- Um servidor SMTP válido (Office 365, seu email local ou outro) e credenciais definidas na Automação do Azure
+- Um servidor SMTP válido (Microsoft 365, seu email local ou outro) e as credenciais definidas na automação do Azure
 - Um Gateway de Rede Virtual configurado no Azure.
 - Uma conta de armazenamento existente com um contêiner existente para armazenar os logs.
 
@@ -51,7 +51,7 @@ Antes de começar este tutorial, você deve ter os seguintes pré-requisitos:
 
 ### <a name="create-the-runbook"></a>Criar o runbook
 
-A primeira etapa para configurar o exemplo é criar o runbook. Este exemplo usa uma conta do tipo executar como. Para saber mais sobre as contas executar como, visite [Autenticar Runbooks com conta Executar Como do Azure](../automation/automation-create-runas-account.md)
+A primeira etapa para configurar o exemplo é criar o runbook. Este exemplo usa uma conta do tipo executar como. Para saber mais sobre as contas executar como, visite [Autenticar Runbooks com conta Executar Como do Azure](../automation/manage-runas-account.md)
 
 ### <a name="step-1"></a>Etapa 1
 
@@ -85,7 +85,7 @@ Use o seguinte código e clique em **Salvar**
 
 ```powershell
 # Set these variables to the proper values for your environment
-$o365AutomationCredential = "<Office 365 account>"
+$automationCredential = "<work or school account>"
 $fromEmail = "<from email address>"
 $toEmail = "<to email address>"
 $smtpServer = "<smtp.office365.com>"
@@ -99,8 +99,8 @@ $storageAccountName = "<storage account name>"
 $storageAccountResourceGroup = "<resource group name>"
 $storageAccountContainer = "<container name>"
 
-# Get credentials for Office 365 account
-$cred = Get-AutomationPSCredential -Name $o365AutomationCredential
+# Get credentials for work or school account
+$cred = Get-AutomationPSCredential -Name $automationCredential
 
 # Get the connection "AzureRunAsConnection "
 $servicePrincipalConnection=Get-AutomationConnection -Name $runAsConnectionName

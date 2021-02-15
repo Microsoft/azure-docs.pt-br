@@ -5,18 +5,18 @@ services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: operations
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: reference
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: sstein, carlrab, bonova, danil
-ms.date: 06/02/2020
+ms.reviewer: sstein, bonova, danil
+ms.date: 1/12/2021
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: d611fc7eff2efa7a632f4b5467b5829a8374b95e
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: d43f794d6d73e26d791c5a11961470d2131b8951
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88705377"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100378614"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Diferenças de T-SQL entre SQL Server & SQL do Azure Instância Gerenciada
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -69,6 +69,7 @@ Limitações:
 
 - Com um Instância Gerenciada do SQL, você pode fazer backup de um banco de dados de instância em um backup com até 32 faixas, o que é suficiente para bancos de dados de até 4 TB se a compactação de backup for usada.
 - Não é possível executar `BACKUP DATABASE ... WITH COPY_ONLY` em um banco de dados que esteja criptografado com TDE (Transparent Data Encryption) gerenciado por serviços. O TDE gerenciado por serviço força os backups a serem criptografados com uma chave TDE interna. A chave não pode ser exportada, portanto, não é possível restaurar o backup. Use backups automáticos e uma restauração pontual ou use [ TDE (BYOK) gerenciado pelo cliente](../database/transparent-data-encryption-tde-overview.md#customer-managed-transparent-data-encryption---bring-your-own-key) em vez disso. Você também pode desabilitar a criptografia no banco de dados.
+- Backups nativos feitos em um Instância Gerenciada não podem ser restaurados para um SQL Server. Isso ocorre porque Instância Gerenciada tem uma versão de banco de dados interna maior em comparação com qualquer versão do SQL Server.
 - O tamanho máximo de distribuição de backup usando o `BACKUP` comando no SQL instância gerenciada é 195 GB, que é o tamanho máximo do blob. Aumente o número de faixas no comando de backup para reduzir o tamanho da faixa individual e permaneça dentro desse limite.
 
     > [!TIP]
@@ -159,13 +160,15 @@ O SQL Instância Gerenciada não pode acessar arquivos, portanto, os provedores 
     - EXECUTE AS USER
     - EXECUTE AS LOGIN
 
+  - Para representar um usuário com a instrução EXECUTE AS, o usuário precisa ser mapeado diretamente para a entidade de segurança de servidor do Azure AD (logon). Os usuários que são membros de grupos do Azure AD mapeados para entidades de segurança de servidor do Azure AD não podem ser efetivamente representados com a instrução EXECUTE AS, mesmo que o chamador tenha as permissões IMPERSONATE no nome de usuário especificado.
+
 - A exportação/importação de banco de dados usando arquivos bacpac tem suporte para usuários do Azure AD no SQL Instância Gerenciada usando o [SSMS v 18.4 ou posterior](/sql/ssms/download-sql-server-management-studio-ssms), ou [SQLPackage.exe](/sql/tools/sqlpackage-download).
   - As seguintes configurações são compatíveis usando um arquivo de banco de dados bacpac: 
     - Exportar/importar um banco de dados entre diferentes instâncias de gerenciamento dentro do mesmo domínio do Azure AD.
     - Exportar um banco de dados do SQL Instância Gerenciada e importar para o banco de dados SQL dentro do mesmo domínio do Azure AD. 
     - Exporte um banco de dados do banco de dados SQL e importe para o SQL Instância Gerenciada no mesmo domínio do Azure AD.
     - Exporte um banco de dados do SQL Instância Gerenciada e importe para SQL Server (versão 2012 ou posterior).
-      - Nessa configuração, todos os usuários do Azure AD são criados como SQL Server entidades de banco de dados (usuários) sem logons. Os tipos de usuários são listados como `SQL` e são visíveis como `SQL_USER` em sys. database_principals). Suas permissões e funções permanecem nos metadados do banco de dados do SQL Server e podem ser usadas para representação. No entanto, eles não podem ser usados para acessar e fazer logon no SQL Server usando suas credenciais.
+      - Nessa configuração, todos os usuários do Azure AD são criados como SQL Server entidades de banco de dados (usuários) sem logons. O tipo de usuário é listado como `SQL` e é visível como `SQL_USER` em sys.database_principals). Suas permissões e funções permanecem nos metadados do banco de dados do SQL Server e podem ser usadas para representação. No entanto, eles não podem ser usados para acessar e fazer logon no SQL Server usando suas credenciais.
 
 - Somente o logon da entidade de segurança no nível do servidor, que é criado pelo processo de provisionamento do SQL Instância Gerenciada, os membros das funções de servidor, como `securityadmin` ou ou `sysadmin` outros logons com a permissão ALTER ANY login no nível do servidor, podem criar entidades de segurança do Azure Ad Server (logons) no banco de dados mestre para SQL instância gerenciada.
 - Se o logon for uma entidade de segurança SQL, somente os logons que fizerem parte da função `sysadmin` poderão usar o comando create para criar logons para uma conta do Azure AD.
@@ -220,7 +223,7 @@ Para obter mais informações, consulte [ALTER DATABASE SET PARTNER e SET WITNES
 
 - Não há suporte para vários arquivos de log.
 - Não há suporte para objetos na memória na camada de serviço de Uso Geral. 
-- Há um limite de 280 arquivos por instância de Uso Geral, o que implica um máximo de 280 arquivos por banco de dados. Os arquivos de log e de dados na camada de Uso Geral são contados para esse limite. [A camada de Comercialmente Crítico é compatível com 32.767 arquivos por banco de dados](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
+- Há um limite de 280 arquivos por instância de Uso Geral, o que implica um máximo de 280 arquivos por banco de dados. Os arquivos de log e de dados na camada de Uso Geral são contados para esse limite. [A camada de Comercialmente Crítico é compatível com 32.767 arquivos por banco de dados](./resource-limits.md#service-tier-characteristics).
 - O banco de dados não pode conter grupos de arquivos que contenham dados de fluxo de arquivos. A restauração falhará se .bak contiver dados `FILESTREAM`. 
 - Cada arquivo é colocado no Armazenamento de Blobs do Azure. A E/S e a taxa de transferência por arquivo dependem do tamanho de cada arquivo individual.
 
@@ -274,11 +277,14 @@ As seguintes opções não podem ser modificadas:
 - `SINGLE_USER`
 - `WITNESS`
 
+Algumas `ALTER DATABASE` instruções (por exemplo, [set contenção](https://docs.microsoft.com/sql/relational-databases/databases/migrate-to-a-partially-contained-database?#converting-a-database-to-partially-contained-using-transact-sql)) podem falhar transitóriamente, por exemplo, durante o backup automatizado do banco de dados ou logo após a criação de um banco de dados. Nesse caso, a `ALTER DATABASE` instrução deve ser repetida. Para obter mais informações sobre mensagens de erro relacionadas, consulte a [seção comentários](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-mi-current&preserve-view=true&tabs=sqlpool#remarks-2).
+
 Para saber mais, confira [ALTERAR BANCO DE DADOS](/sql/t-sql/statements/alter-database-transact-sql-file-and-filegroup-options).
 
 ### <a name="sql-server-agent"></a>SQL Server Agent
 
-- Atualmente, não há suporte para habilitar e desabilitar SQL Server Agent no SQL Instância Gerenciada. O SQL Agent sempre está em execução.
+- No momento, a habilitação e a desabilitação do SQL Server Agent não é compatível com a Instância Gerenciada de SQL. O SQL Agent sempre está em execução.
+- Não há suporte para o gatilho de agenda de trabalho com base em uma CPU ociosa.
 - As configurações do SQL Server Agent são somente leitura. O procedimento `sp_set_agent_properties` não tem suporte no SQL instância gerenciada. 
 - Trabalhos
   - As etapas de trabalho T-SQL têm suporte.
@@ -300,13 +306,8 @@ Para saber mais, confira [ALTERAR BANCO DE DADOS](/sql/t-sql/statements/alter-da
   - Ainda não há suporte para alertas.
   - Não há suporte para proxies.
 - Não há suporte para o EventLog.
-
-Os seguintes recursos do SQL Agent atualmente não têm suporte:
-
-- Proxies
-- Agendamento de trabalhos em CPU ociosa
-- Habilitação ou desabilitação de um agente
-- Alertas
+- O usuário deve ser mapeado diretamente para a entidade de segurança do servidor do Azure AD (logon) para criar, modificar ou executar trabalhos do SQL Agent. Os usuários que não são mapeados diretamente, por exemplo, os usuários que pertencem a um grupo do Azure AD que tem os direitos de criar, modificar ou executar trabalhos do SQL Agent, não poderão executar essas ações efetivamente. Isso ocorre devido à Instância Gerenciada representação e [às limitações de executar como](#logins-and-users).
+- Não há suporte para o recurso de administração multisservidor para trabalhos mestre/de destino (MSX/TSX).
 
 Para obter informações sobre o SQL Server Agent, consulte [SQL Server Agent](/sql/ssms/agent/sql-server-agent).
 
@@ -353,7 +354,11 @@ Não há suporte para instruções DBCC não documentadas habilitadas no SQL Ser
 
 ### <a name="distributed-transactions"></a>Transações distribuídas
 
-Atualmente, não há suporte para transações de MSDTC e [elástico](../database/elastic-transactions-overview.md) no SQL instância gerenciada.
+O suporte parcial para [transações distribuídas](../database/elastic-transactions-overview.md) está atualmente em visualização pública. Os cenários com suporte são:
+* Transações em que os participantes são apenas instâncias gerenciadas do SQL do Azure que fazem parte do [grupo de confiança do servidor](./server-trust-group-overview.md).
+* Transações iniciadas do .NET (classe TransactionScope) e Transact-SQL.
+
+O Azure SQL Instância Gerenciada atualmente não dá suporte a outros cenários que são suportados regularmente pelo MSDTC local ou em máquinas virtuais do Azure.
 
 ### <a name="extended-events"></a>Eventos estendidos
 
@@ -389,21 +394,22 @@ Não há suporte para [Pesquisa semântica](/sql/relational-databases/search/sem
 
 Os servidores vinculados no SQL Instância Gerenciada dão suporte a um número limitado de destinos:
 
-- Os destinos com suporte são SQL Instância Gerenciada, banco de dados SQL, Azure Synapse SQL e instâncias de SQL Server. 
-- Os servidores vinculados não dão suporte a transações graváveis distribuídas (MS DTC).
-- Destinos sem suporte: arquivos, Analysis Services e outros RDBMS. Tente usar a importação de CSV nativo do armazenamento de Blobs do Azure usando `BULK INSERT` ou `OPENROWSET` como uma alternativa para a importação de arquivos.
+- Os destinos com suporte são SQL Instância Gerenciada, banco de dados SQL, pools dedicados e sem SQL [Server](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/) do Azure Synapse e instâncias de SQL Server. 
+- As transações graváveis distribuídas são possíveis somente entre instâncias gerenciadas. Para obter mais informações, consulte [transações distribuídas](https://docs.microsoft.com/azure/azure-sql/database/elastic-transactions-overview). No entanto, não há suporte para MS DTC.
+- Destinos sem suporte: arquivos, Analysis Services e outros RDBMS. Tente usar a importação de CSV nativo do armazenamento de BLOBs do Azure usando `BULK INSERT` `OPENROWSET` o ou como uma alternativa para importação de arquivo ou carregue arquivos usando um [pool SQL sem servidor no Azure Synapse Analytics](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/).
 
 Operações: 
 
-- Não há suporte para transações de gravação entre instâncias.
+- As transações de gravação [entre](https://docs.microsoft.com/azure/azure-sql/database/elastic-transactions-overview) instâncias são suportadas apenas para instância gerenciadas.
 - `sp_dropserver` é compatível com o descarte um servidor vinculado. Consulte [sp_dropserver](/sql/relational-databases/system-stored-procedures/sp-dropserver-transact-sql).
 - A função `OPENROWSET` pode ser usada para executar consultas somente em instâncias SQL Server. Eles podem ser gerenciados localmente ou em máquinas virtuais. Consulte [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql).
 - A função `OPENDATASOURCE` pode ser usada para executar consultas somente em instâncias SQL Server. Eles podem ser gerenciados localmente ou em máquinas virtuais. Somente os valores `SQLNCLI`, `SQLNCLI11` e `SQLOLEDB` têm suporte como provedor. Um exemplo é `SELECT * FROM OPENDATASOURCE('SQLNCLI', '...').AdventureWorks2012.HumanResources.Employee`. Consulte [OPENDATASOURCE](/sql/t-sql/functions/opendatasource-transact-sql).
-- Os servidores vinculados não podem ser usados para ler arquivos (Excel, CSV) dos compartilhamentos de rede. Tente usar [BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql#e-importing-data-from-a-csv-file) ou [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql#g-accessing-data-from-a-csv-file-with-a-format-file) que leia arquivos CSV do armazenamento de blobs do Azure. Acompanhar essas solicitações no [item de comentário sobre o SQL instância gerenciada](https://feedback.azure.com/forums/915676-sql-managed-instance/suggestions/35657887-linked-server-to-non-sql-sources)|
+- Os servidores vinculados não podem ser usados para ler arquivos (Excel, CSV) dos compartilhamentos de rede. Tente usar [BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql#e-importing-data-from-a-csv-file), [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql#g-accessing-data-from-a-csv-file-with-a-format-file) que lê arquivos CSV do armazenamento de BLOBs do Azure ou um [servidor vinculado que faz referência a um pool SQL sem servidor no Synapse Analytics](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/). Acompanhar essas solicitações no [item de comentário sobre o SQL instância gerenciada](https://feedback.azure.com/forums/915676-sql-managed-instance/suggestions/35657887-linked-server-to-non-sql-sources)|
 
 ### <a name="polybase"></a>PolyBase
 
-Não há suporte para tabelas externas que fazem referência aos arquivos no Armazenamento de Blobs do Azure ou HDFS. Para obter informações sobre o Polybase, consulte [Polybase](/sql/relational-databases/polybase/polybase-guide).
+O único tipo disponível de fonte externa é RDBMS (em visualização pública) para o banco de dados SQL do Azure, instância gerenciada do SQL do Azure e pool Synapse do Azure. Você pode usar [uma tabela externa que faz referência a um pool SQL sem servidor no Synapse Analytics](https://devblogs.microsoft.com/azure-sql/read-azure-storage-files-using-synapse-sql-external-tables/) como uma solução alternativa para tabelas externas do polybase que o lê diretamente do armazenamento do Azure. Na instância gerenciada do SQL do Azure, você pode usar servidores vinculados em [um pool SQL sem servidor no Synapse Analytics](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/) ou SQL Server para ler dados do armazenamento do Azure.
+Para obter informações sobre o Polybase, consulte [Polybase](/sql/relational-databases/polybase/polybase-guide).
 
 ### <a name="replication"></a>Replicação
 
@@ -476,9 +482,10 @@ Não há suporte para agente de serviços entre instâncias:
   - `remote access`
   - `remote data archive`
   - `remote proc trans`
+  - `scan for startup procs`
 - Não há suporte para `sp_execute_external_scripts`. Consulte [sp_execute_external_scripts](/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql#examples).
 - Não há suporte para `xp_cmdshell`. Consulte [xp_cmdshell](/sql/relational-databases/system-stored-procedures/xp-cmdshell-transact-sql).
-- `Extended stored procedures` não têm suporte, o que inclui `sp_addextendedproc` e `sp_dropextendedproc`. Consulte [Procedimentos armazenados estendidos](/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql).
+- `Extended stored procedures` Não tem suporte, e isso inclui `sp_addextendedproc` e `sp_dropextendedproc` . Essa funcionalidade não terá suporte porque está em um caminho de substituição para SQL Server. Para obter mais detalhes, consulte [procedimentos armazenados estendidos](/sql/relational-databases/extended-stored-procedures-programming/database-engine-extended-stored-procedures-programming).
 - Não há suporte para `sp_attach_db`, `sp_attach_single_file_db` e `sp_detach_db`. Consulte [sp_attach_db](/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql), [sp_attach_single_file_db](/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql) e [sp_detach_db](/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql).
 
 ### <a name="system-functions-and-variables"></a>Função do sistema e variáveis
@@ -497,25 +504,23 @@ As seguintes variáveis, funções e exibições retornam resultados diferentes:
 
 ### <a name="subnet"></a>Sub-rede
 -  Não é possível inserir outros recursos (por exemplo, máquinas virtuais) na sub-rede em que você implantou o SQL Instância Gerenciada. Implante esses recursos usando uma sub-rede diferente.
-- A sub-rede deve ter um número suficiente de [endereços IP](connectivity-architecture-overview.md#network-requirements)disponíveis. O mínimo é 16, enquanto a recomendação é ter pelo menos 32 endereços IP na sub-rede.
-- [Os pontos de extremidade de serviço não podem ser associados à sub-rede do SQL instância gerenciada](connectivity-architecture-overview.md#network-requirements). Certifique-se de que a opção de pontos de extremidade de serviço esteja desabilitada ao criar a rede virtual.
+- A sub-rede deve ter um número suficiente de [endereços IP](connectivity-architecture-overview.md#network-requirements)disponíveis. O mínimo é ter pelo menos 32 endereços IP na sub-rede.
 - O número de vCores e tipos de instâncias que podem ser implantadas em uma região têm algumas [restrições e limites](resource-limits.md#regional-resource-limitations).
-- Há algumas [regras de segurança que devem ser aplicadas na](connectivity-architecture-overview.md#network-requirements) sub-rede.
+- Há uma [configuração de rede](connectivity-architecture-overview.md#network-requirements) que deve ser aplicada na sub-rede.
 
 ### <a name="vnet"></a>VNET
 - A VNet pode ser implantada usando modelo de recurso - modelo clássico para VNet sem suporte.
 - Após a criação de um Instância Gerenciada SQL, não há suporte para a movimentação do SQL Instância Gerenciada ou VNet para outro grupo de recursos ou assinatura.
-- Alguns serviços, como ambientes de serviço de aplicativo, aplicativos lógicos e SQL Instância Gerenciada (usados para replicação geográfica, replicação transacional ou por meio de servidores vinculados) não poderão acessar o SQL Instância Gerenciada em regiões diferentes se seus VNets estiverem conectados usando o [emparelhamento global](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers). Você pode se conectar a esses recursos via ExpressRoute ou VNet a VNet por meio de gateways de VNet.
-
-### <a name="failover-groups"></a>Grupos de failover
-Os bancos de dados do sistema não são replicados para a instância secundária em um grupo de failover. Portanto, os cenários que dependem de objetos dos bancos de dados do sistema serão impossíveis na instância secundária, a menos que os objetos sejam criados manualmente no secundário.
+- Para instâncias gerenciadas do SQL hospedadas em clusters virtuais que são criados antes de 9/22/2020 o [emparelhamento global](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) não tem suporte. Você pode se conectar a esses recursos via ExpressRoute ou VNet a VNet por meio de gateways de VNet.
 
 ### <a name="failover-groups"></a>Grupos de failover
 Os bancos de dados do sistema não são replicados para a instância secundária em um grupo de failover. Portanto, os cenários que dependem de objetos dos bancos de dados do sistema serão impossíveis na instância secundária, a menos que os objetos sejam criados manualmente no secundário.
 
 ### <a name="tempdb"></a>TEMPDB
-
-O tamanho máximo do arquivo de `tempdb` não pode ser maior que 24 GB por núcleo em uma camada de Uso Geral. O `tempdb` tamanho máximo em uma camada de comercialmente crítico é limitado pelo tamanho do armazenamento de instância gerenciada do SQL. O tamanho do arquivo de log `Tempdb` é limitado a 120 GB na camada uso geral. Algumas consultas podem retornar um erro se precisarem de mais de 24 GB por núcleo em `tempdb` ou se produzirem mais de 120 GB de dados de log.
+- O tamanho máximo do arquivo de `tempdb` não pode ser maior que 24 GB por núcleo em uma camada de Uso Geral. O `tempdb` tamanho máximo em uma camada de comercialmente crítico é limitado pelo tamanho do armazenamento de instância gerenciada do SQL. O tamanho do arquivo de log `Tempdb` é limitado a 120 GB na camada uso geral. Algumas consultas podem retornar um erro se precisarem de mais de 24 GB por núcleo em `tempdb` ou se produzirem mais de 120 GB de dados de log.
+- `Tempdb` sempre é dividido em 12 arquivos de dados: 1 primário, também chamado de mestre, arquivo de dados e 11 arquivos de dados não primários. A estrutura do arquivo não pode ser alterada e novos arquivos não podem ser adicionados ao `tempdb` . 
+- Não há suporte para os [ `tempdb` metadados com otimização de memória](/sql/relational-databases/databases/tempdb-database?view=sql-server-ver15#memory-optimized-tempdb-metadata), um novo SQL Server o recurso de banco de dados em memória do 2019.
+- Os objetos criados no banco de dados modelo não podem ser criados automaticamente no `tempdb` após uma reinicialização ou um failover porque `tempdb` o não obtém sua lista inicial de objetos do banco de dados modelo. Você deve criar objetos `tempdb` manualmente após cada reinicialização ou um failover.
 
 ### <a name="msdb"></a>MSDB
 
@@ -523,13 +528,13 @@ Os seguintes esquemas MSDB no SQL Instância Gerenciada devem ser de propriedade
 
 - Funções gerais
   - TargetServersRole
-- [Funções de banco de dados fixas](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent-fixed-database-roles?view=sql-server-ver15)
+- [Funções de banco de dados fixas](/sql/ssms/agent/sql-server-agent-fixed-database-roles?view=sql-server-ver15)
   - SQLAgentUserRole
   - SQLAgentReaderRole
   - SQLAgentOperatorRole
-- [Funções de DatabaseMail](https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail-configuration-objects?view=sql-server-ver15#DBProfile):
+- [Funções de DatabaseMail](/sql/relational-databases/database-mail/database-mail-configuration-objects?view=sql-server-ver15#DBProfile):
   - DatabaseMailUserRole
-- [Funções do Integration Services](https://docs.microsoft.com/sql/integration-services/security/integration-services-roles-ssis-service?view=sql-server-ver15):
+- [Funções do Integration Services](/sql/integration-services/security/integration-services-roles-ssis-service?view=sql-server-ver15):
   - db_ssisadmin
   - db_ssisltduser
   - db_ssisoperator
@@ -539,7 +544,7 @@ Os seguintes esquemas MSDB no SQL Instância Gerenciada devem ser de propriedade
 
 ### <a name="error-logs"></a>Logs de erros
 
-O SQL Instância Gerenciada coloca informações detalhadas nos logs de erros. Há muitos eventos internos do sistema que são registrados no log de erros. Usar um procedimento personalizado para a leitura de logs de erros que filtra algumas entradas não relevantes. Para obter mais informações, consulte [sql instância gerenciada – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/) ou [extensão do SQL instância gerenciada (versão prévia)](/sql/azure-data-studio/azure-sql-managed-instance-extension#logs) para Azure Data Studio.
+O SQL Instância Gerenciada coloca informações detalhadas nos logs de erros. Há muitos eventos internos do sistema que são registrados no log de erros. Usar um procedimento personalizado para a leitura de logs de erros que filtra algumas entradas não relevantes. Para obter mais informações, consulte [sql instância gerenciada – sp_readmierrorlog](/archive/blogs/sqlcat/azure-sql-db-managed-instance-sp_readmierrorlog) ou [extensão do SQL instância gerenciada (versão prévia)](/sql/azure-data-studio/azure-sql-managed-instance-extension#logs) para Azure Data Studio.
 
 ## <a name="next-steps"></a>Próximas etapas
 

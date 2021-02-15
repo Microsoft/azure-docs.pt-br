@@ -11,23 +11,25 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
-ms.openlocfilehash: be1cdac0ee8cd27f54cb069939e980173702061a
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 832c08123904b9fb889231faa86c1308704a2581
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550326"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97606412"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-loginradius"></a>Tutorial: Integração do Azure Active Directory ao LoginRadius
 
 Neste tutorial, você aprenderá a integrar o LoginRadius ao Azure AD (Azure Active Directory).
+
 A integração do LoginRadius ao Azure AD oferece os seguintes benefícios:
 
 * No Azure AD, você pode controlar quem tem acesso ao LoginRadius.
 * Você pode permitir que os usuários sejam conectados automaticamente ao LoginRadius (logon único) com suas contas do Azure AD.
 * Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](../manage-apps/what-is-single-sign-on.md).
+
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Prerequisites
@@ -35,7 +37,7 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 Para configurar a integração do Azure AD ao LoginRadius, você precisará dos seguintes itens:
 
 * Uma assinatura do Azure AD. Se não tiver um ambiente do Azure AD, poderá obter uma [conta gratuita](https://azure.microsoft.com/free/)
-* Assinatura habilitada para logon único do LoginRadius
+* Uma assinatura do LoginRadius habilitada para logon único
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
@@ -47,21 +49,21 @@ Neste tutorial, você configurará e testará o logon único do Azure AD em um a
 
 Para configurar a integração do LoginRadius ao Azure AD, você precisará adicionar o LoginRadius da galeria à sua lista de aplicativos SaaS gerenciados.
 
-**Para adicionar o LoginRadius da galeria, execute as seguintes etapas:**
+**Para adicionar o LoginRadius da galeria:**
 
-1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, selecione o ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
-2. Navegue até **Aplicativos Empresariais** e, em seguida, selecione a opção **Todos os Aplicativos**.
+2. Acesse **Aplicativos Empresariais** e, em seguida, selecione a opção **Todos os Aplicativos**.
 
     ![A folha Aplicativos empresariais](common/enterprise-applications.png)
 
-3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
+3. Para adicionar um aplicativo, selecione o botão **Novo aplicativo**:
 
     ![O botão Novo aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, digite **LoginRadius**, selecione **LoginRadius** no painel de resultados e clique no botão **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa, insira **LoginRadius**, selecione **LoginRadius** no painel de resultados e selecione o botão **Adicionar** para adicionar o aplicativo.
 
     ![LoginRadius na lista de resultados](common/search-new-app.png)
 
@@ -89,42 +91,84 @@ Para configurar o logon único do Azure AD com o LoginRadius, execute as seguint
 
     ![Link Configurar logon único](common/select-sso.png)
 
-2. Na caixa de diálogo **Selecionar um método de logon único**, selecione o modo **SAML/WS-Fed** para habilitar o logon único.
+2. No painel **Selecione um método de logon único**, selecione o modo **SAML/WS-Fed** para habilitar o logon único.
 
     ![Modo de seleção de logon único](common/select-saml-option.png)
 
-3. Na página **Definir logon único com SAML**, clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML**.
+3. Na página **Configurar logon único com SAML**, selecione o ícone **Editar** para abrir o painel **Configuração Básica de SAML**.
 
     ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-4. Na seção **Configuração básica de SAML**, realize as seguintes etapas:
+4. Na seção **Configuração Básica de SAML**:
 
-    ![Informações de logon único de Domínio e URLs do LoginRadius](common/sp-identifier.png)
+   ![Informações de logon único de Domínio e URLs do LoginRadius](common/sp-identifier.png)
 
-    a. Na caixa de texto **URL de logon**, digite uma URL: `https://secure.loginradius.com/login`
+   1. Na caixa de texto **URL de Logon**, insira a URL `https://secure.loginradius.com/login`
 
-    b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL: `https://LoginRadius.hub.loginradius.com/`
+   1. Na caixa de texto **Identificador (ID da Entidade)** , insira a URL `https://lr.hub.loginradius.com/`
 
-    > [!NOTE]
-    > Abra a página da URL do logon. Clique na guia **Logon Único** e digite o **nome do plug-in** fornecido pela [equipe de suporte do LoginRadius](mailto:support@loginradius.com) e, em seguida, clique no botão **Entrar** para ser redirecionado para a página do Azure AD para o logon.
+   1. Na caixa de texto **URL de Resposta (URL do Serviço de Consumidor de Declaração)** , insira a URL `https://lr.hub.loginradius.com/saml/serviceprovider/AdfsACS.aspx` do ACS do LoginRadius 
 
-5. Na página **Configurar Logon Único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Baixar** para baixar o **XML de Metadados de Federação** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
+5. Na página **Configurar Logon Único com SAML**, na seção **Certificado de Autenticação SAML**, selecione **Baixar** para baixar o **XML de Metadados de Federação** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
     ![O link de download do Certificado](common/metadataxml.png)
 
 6. Na seção **Configurar o LoginRadius**, copie as URLs apropriadas de acordo com suas necessidades.
 
-    ![Copiar URLs de configuração](common/copy-configuration-urls.png)
+   ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
-    a. URL de logon
+   - URL de logon
 
-    b. Identificador do Azure AD
+   - Identificador do Azure AD
 
-    c. URL de logoff
+   - URL de logoff
 
-### <a name="configure-loginradius-single-sign-on"></a>Configurar o logon único do LoginRadius
+## <a name="configure-loginradius-single-sign-on"></a>Configurar o logon único do LoginRadius
 
-Para configurar o logon único no lado do **LoginRadius**, é necessário enviar o **XML de Metadados** baixado e as URLs apropriadas copiadas do portal do Azure para a [equipe de suporte do LoginRadius](mailto:support@loginradius.com). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+Nesta seção, você habilitará o logon único do Azure AD no Console de Administração do LoginRadius.
+
+1. Faça logon na conta do [Console de Administração](https://adminconsole.loginradius.com/login) do LoginRadius.
+
+2. Acesse a seção **Gerenciamento de Equipe** no [Console de Administração do LoginRadius](https://secure.loginradius.com/account/team).
+
+3. Selecione a guia **Logon Único** e selecione **Azure AD**:
+
+   ![Captura de tela que mostra o menu de logon único no console de Gerenciamento de Equipe do LoginRadius](./media/loginradius-tutorial/azure-ad.png)
+4. Na página de configuração do Azure AD, execute as seguintes etapas:
+
+   ![Captura de tela que mostra a configuração do Azure Active Directory no console de Gerenciamento de Equipe do LoginRadius](./media/loginradius-tutorial/single-sign-on.png)
+
+    1. Em **Localização do Provedor de ID**, insira o PONTO DE EXTREMIDADE DE LOGON, que você obterá da conta do Azure AD.
+
+    1. Em **URL de Logoff do Provedor de ID**, insira o PONTO DE EXTREMIDADE DE SAÍDA, que você obterá da conta do Azure AD.
+ 
+    1. Em **Certificado do Provedor de ID**, insira o certificado do Azure AD, que você obterá da conta do Azure AD. Insira o valor do certificado com o cabeçalho e o rodapé. Exemplo: `-----BEGIN CERTIFICATE-----<certifciate value>-----END CERTIFICATE-----`
+
+    1. Em **Certificado do Provedor de Serviços** e **Chave do Certificado do Provedor de Servidor**, insira seu certificado e a chave. 
+
+       Você pode criar um certificado autoassinado executando os seguintes comandos na linha de comando (Linux/Mac):
+
+       - Comando para obter a chave de certificado para o SP: `openssl genrsa -out lr.hub.loginradius.com.key 2048`
+
+       - Comando para obter o certificado para o SP: `openssl req -new -x509 -key lr.hub.loginradius.com.key -out lr.hub.loginradius.com.cert -days 3650 -subj /CN=lr.hub.loginradius.com`
+
+       > [!NOTE]
+       > Lembre-se de inserir os valores de certificado de chave de certificado com o cabeçalho e o rodapé:
+       > - Formato de valor do certificado de exemplo: `-----BEGIN CERTIFICATE-----<certifciate value>-----END CERTIFICATE-----`
+       > - Formato de exemplo do valor de chave do certificado: `-----BEGIN RSA PRIVATE KEY-----<certifciate key value>-----END RSA PRIVATE KEY-----`
+
+5. Na seção **Mapeamento de Dados**, selecione os campos (campos do SP) e insira os campos do Azure AD correspondentes (campos do IdP).
+
+    A seguir estão listados alguns nomes de campo para o Azure AD.
+
+    | Campos    | Chave de Perfil                                                          |
+    | --------- | -------------------------------------------------------------------- |
+    | Email     | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` |
+    | Nome | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`    |
+    | LastName  | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`      |
+
+    > [!NOTE]
+    > O mapeamento do campo **Email** é obrigatório. Os mapeamentos dos campos **FirstName** e **LastName** são opcionais.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD 
 
@@ -138,17 +182,17 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![Botão Novo usuário](common/new-user.png)
 
-3. Nas Propriedades do usuário, execute as etapas a seguir.
+3. Nas propriedades do **Usuário**, execute as etapas a seguir.
 
-    ![A caixa de diálogo Usuário](common/user-properties.png)
+   ![A caixa de diálogo Usuário](common/user-properties.png)
 
-    a. No campo **Nome**, insira **BrendaFernandes**.
+   1. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário**, digite `brittasimon@yourcompanydomain.extension`. Por exemplo, BrittaSimon@contoso.com
+   1. No campo **Nome de usuário**, insira `brittasimon@yourcompanydomain.extension`. Por exemplo, BrittaSimon@contoso.com.
 
-    c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
+   1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha**.
 
-    d. Clique em **Criar**.
+   1. Selecione **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
@@ -166,31 +210,40 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure co
 
     ![O link “Usuários e grupos”](common/users-groups-blade.png)
 
-4. Escolha o botão **Adicionar usuário** e, em seguida, escolha **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
+4. Selecione o botão **Adicionar usuário** e escolha **Usuários e grupos** no painel **Adicionar Atribuição**.
 
     ![O painel Adicionar Atribuição](common/add-assign-user.png)
 
-5. Na caixa de diálogo **Usuários e grupos**, escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+5. No painel **Usuários e grupos**, selecione **Brenda Fernandes** na lista **Usuários** e escolha o botão **Selecionar** na parte inferior da tela.
 
-6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função**, escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
+6. Se você estiver esperando um valor de função na declaração SAML, no painel **Selecionar Função**, selecione na lista a função apropriada para o usuário. Em seguida, escolha o botão **Selecionar** na parte inferior da tela.
 
-7. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
+7. No painel **Adicionar Atribuição**, selecione o botão **Atribuir**.
 
 ### <a name="create-loginradius-test-user"></a>Criar um usuário de teste do LoginRadius
 
-Nesta seção, você criará uma usuária chamada Brenda Fernandes no LoginRadius. Trabalhe com a [equipe de suporte do LoginRadius](mailto:support@loginradius.com) para adicionar os usuários à plataforma LoginRadius. Os usuários devem ser criados e ativados antes de usar o logon único.
+1. Faça logon na conta do [Console de Administração](https://adminconsole.loginradius.com/login) do LoginRadius.
+
+2. Acesse a seção Gerenciamento de Equipe no Console de Administração do LoginRadius.
+
+   ![Captura de tela que mostra o Console de Administração do LoginRadius](./media/loginradius-tutorial/team-management.png)
+3. Selecione **Adicionar Membro da Equipe** no menu lateral para abrir o formulário. 
+
+4. No formulário **Adicionar Membro da Equipe**, você criará um usuário chamado Brenda Fernandes no site do LoginRadius fornecendo os detalhes do usuário e atribuindo as permissões que você quer que o usuário tenha. Para saber mais sobre as permissões baseadas em função, confira a seção [Permissões de Acesso de Função](https://www.loginradius.com/docs/api/v2/admin-console/team-management/manage-team-members#roleaccesspermissions0) do documento [Gerenciar Membros da Equipe](https://www.loginradius.com/docs/api/v2/admin-console/team-management/manage-team-members#roleaccesspermissions0) do LoginRadius. Os usuários devem ser criados e ativados antes de usar o logon único.
 
 ### <a name="test-single-sign-on"></a>Testar logon único 
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Ao clicar no bloco do LoginRadius no Painel de Acesso, você deverá ser conectado automaticamente ao LoginRadius, para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+1. Em um navegador, acesse https://accounts.loginradius.com/auth.aspx e selecione **Logon do Fed SSO**.
+2. Insira o nome de aplicativo do LoginRadius e selecione **Logon**.
+3. Isso deve abrir um pop-up que solicita que você entre na conta do Azure AD.
+4. Após a autenticação, o pop-up será fechado e você será conectado ao Console de Administração do LoginRadius.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](./tutorial-list.md)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [O que é o Acesso Condicional no Azure Active Directory?](../conditional-access/overview.md)

@@ -6,26 +6,29 @@ documentationcenter: na
 author: MashaMSFT
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
-ms.topic: article
+ms.subservice: hadr
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/20/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.custom: seo-lt-2019
-ms.openlocfilehash: a74a791c8c6a95c71faf1f4a0ce6eaacd7c68901
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.custom: seo-lt-2019, devx-track-azurecli
+ms.openlocfilehash: 865ee3a5aeb8a2dd06d8759ba04d02259d2b4bee
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89002974"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359958"
 ---
-# <a name="configure-an-availability-group-for-sql-server-on-azure-vm-powershell--az-cli"></a>Configurar um grupo de disponibilidade para SQL Server na VM do Azure (PowerShell & AZ CLI)
+# <a name="use-powershell-or-az-cli-to-configure-an-availability-group-for-sql-server-on-azure-vm"></a>Use o PowerShell ou AZ CLI para configurar um grupo de disponibilidade para SQL Server na VM do Azure 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-Este artigo descreve como usar o [PowerShell](/powershell/scripting/install/installing-powershell) ou o [CLI do Azure](/cli/azure/sql/vm?view=azure-cli-latest/) para implantar um cluster de failover do Windows, adicionar SQL Server VMs ao cluster e criar o balanceador de carga interno e o ouvinte para um grupo de disponibilidade Always on. 
+Este artigo descreve como usar o [PowerShell](/powershell/scripting/install/installing-powershell) ou o [CLI do Azure](/cli/azure/sql/vm) para implantar um cluster de failover do Windows, adicionar SQL Server VMs ao cluster e criar o balanceador de carga interno e o ouvinte para um grupo de disponibilidade Always on. 
 
 A implantação do grupo de disponibilidade ainda é feita manualmente por meio de SQL Server Management Studio (SSMS) ou Transact-SQL (T-SQL). 
+
+Embora este artigo use o PowerShell e a CLI do AZ para configurar o ambiente do grupo de disponibilidade, também é possível fazer isso na [portal do Azure](availability-group-azure-portal-configure.md), usando [modelos de início rápido do Azure](availability-group-quickstart-template-configure.md)ou [manualmente](availability-group-manually-configure-tutorial.md) também. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -33,7 +36,7 @@ Para configurar um grupo de disponibilidade Always On, você deve ter os seguint
 
 - Uma [assinatura do Azure](https://azure.microsoft.com/free/).
 - Um grupo de recursos com um controlador de domínio. 
-- Uma ou mais VMs ingressadas [no domínio no Azure que executam o SQL Server 2016 (ou posterior) Enterprise Edition](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) no *mesmo* conjunto de disponibilidade ou zonas de disponibilidade *diferentes* que foram [registradas com o provedor de recursos de VM do SQL](sql-vm-resource-provider-register.md).  
+- Uma ou mais VMs ingressadas [no domínio no Azure que executam o SQL Server 2016 (ou posterior) Enterprise Edition](./create-sql-vm-portal.md) no *mesmo* conjunto de disponibilidade ou em *diferentes* zonas de disponibilidade que foram [registradas com a extensão do SQL IaaS Agent](sql-agent-extension-manually-register-single-vm.md).  
 - A versão mais recente do [PowerShell](/powershell/scripting/install/installing-powershell) ou o [CLI do Azure](/cli/azure/install-azure-cli). 
 - Dois endereços IP disponíveis (não utilizados por nenhuma entidade). Um é para o balanceador de carga interno. O outro é para o ouvinte do grupo de disponibilidade na mesma sub-rede que o grupo de disponibilidade. Se você estiver usando um balanceador de carga existente, precisará apenas de um endereço IP disponível para o ouvinte do grupo de disponibilidade. 
 
@@ -44,13 +47,13 @@ Você precisa das seguintes permissões de conta para configurar o grupo de disp
 - Uma conta de usuário de domínio existente com permissão para **Criar Objeto de Computador** no domínio. Por exemplo, uma conta de administrador do domínio normalmente tem permissão suficiente (por exemplo: account@domain.com). _Essa conta também deve fazer parte do grupo administrador local em cada VM para criar o cluster._
 - A conta de usuário do domínio que controla o SQL Server. 
  
-## <a name="create-a-storage-account-as-a-cloud-witness"></a>Criar uma conta de armazenamento como uma testemunha em nuvem
+## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento 
+
 O cluster precisa de uma conta de armazenamento do Azure para atuar como a testemunha da nuvem. Você pode usar qualquer conta de armazenamento existente ou criar uma. Se você deseja usar uma conta de armazenamento existente, pule para a próxima seção. 
 
 O seguinte snippet de código cria a conta de armazenamento: 
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
-
 
 ```azurecli-interactive
 # Create the storage account
@@ -62,7 +65,7 @@ az storage account create -n <name> -g <resource group name> -l <region> `
 ```
 
 >[!TIP]
-> Você poderá ver o erro `az sql: 'vm' is not in the 'az sql' command group` se estiver usando uma versão desatualizada da CLI do Azure. Baixe a [versão mais recente da CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?view=azure-cli-latest) para superar esse erro.
+> Você poderá ver o erro `az sql: 'vm' is not in the 'az sql' command group` se estiver usando uma versão desatualizada da CLI do Azure. Baixe a [versão mais recente da CLI do Azure](/cli/azure/install-azure-cli-windows) para superar esse erro.
 
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
@@ -80,9 +83,9 @@ New-AzStorageAccount -ResourceGroupName <resource group name> -Name <name> `
 
 ---
 
-## <a name="define-windows-failover-cluster-metadata"></a>Definir metadados do cluster de failover do Windows
+## <a name="define-cluster-metadata"></a>Definir metadados do cluster
 
-O grupo de comandos da CLI do Azure [az sql vm group](https://docs.microsoft.com/cli/azure/sql/vm/group?view=azure-cli-latest) gerencia os metadados do serviço WSFC (Windows Server Failover Cluster) que hospeda o grupo de disponibilidade. Os metadados do cluster incluem o domínio do Active Directory, as contas de cluster, as contas de armazenamento a serem usadas como testemunha de nuvem e a versão do SQL Server. Use [az sql vm group create](https://docs.microsoft.com/cli/azure/sql/vm/group?view=azure-cli-latest#az-sql-vm-group-create) para definir os metadados do WSFC para que, quando a primeira VM do SQL Server for adicionada, o cluster seja criado conforme definido. 
+O grupo de comandos da CLI do Azure [az sql vm group](/cli/azure/sql/vm/group) gerencia os metadados do serviço WSFC (Windows Server Failover Cluster) que hospeda o grupo de disponibilidade. Os metadados do cluster incluem o domínio do Active Directory, as contas de cluster, as contas de armazenamento a serem usadas como testemunha de nuvem e a versão do SQL Server. Use [az sql vm group create](/cli/azure/sql/vm/group#az-sql-vm-group-create) para definir os metadados do WSFC para que, quando a primeira VM do SQL Server for adicionada, o cluster seja criado conforme definido. 
 
 O snippet de código a seguir define os metadados para o cluster:
 
@@ -127,7 +130,7 @@ $group = New-AzSqlVMGroup -Name <name> -Location <regio>
 
 ## <a name="add-vms-to-the-cluster"></a>Adicionar VMs ao cluster
 
-A adição da primeira VM do SQL Server ao cluster cria o cluster. O comando [az sql vm add-to-group](https://docs.microsoft.com/cli/azure/sql/vm?view=azure-cli-latest#az-sql-vm-add-to-group) cria o cluster com o nome dado anteriormente, instala a função de cluster nas VMs do SQL Server e as adiciona ao cluster. Os usos subsequentes do comando `az sql vm add-to-group` adicionam mais VMs do SQL Server ao cluster recém-criado. 
+A adição da primeira VM do SQL Server ao cluster cria o cluster. O comando [az sql vm add-to-group](/cli/azure/sql/vm#az-sql-vm-add-to-group) cria o cluster com o nome dado anteriormente, instala a função de cluster nas VMs do SQL Server e as adiciona ao cluster. Os usos subsequentes do comando `az sql vm add-to-group` adicionam mais VMs do SQL Server ao cluster recém-criado. 
 
 O seguinte snippet de código cria o cluster e adiciona a primeira VM do SQL Server a ele: 
 
@@ -184,6 +187,17 @@ Update-AzSqlVM -ResourceId $sqlvm2.ResourceId -SqlVM $sqlvmconfig2
 
 ---
 
+
+## <a name="validate-cluster"></a>Validar cluster 
+
+Para que um cluster de failover seja suportado pela Microsoft, ele deve passar na validação do cluster. Conecte-se à VM usando seu método preferido, como protocolo RDP (RDP) e valide se o cluster passa pela validação antes de continuar. Deixar de fazer isso deixa o cluster em um estado sem suporte. 
+
+Você pode validar o cluster usando Gerenciador de Cluster de Failover (FCM) ou o seguinte comando do PowerShell:
+
+   ```powershell
+   Test-Cluster –Node ("<node1>","<node2>") –Include "Inventory", "Network", "System Configuration"
+   ```
+
 ## <a name="create-availability-group"></a>Criar grupo de disponibilidade
 
 Crie manualmente o grupo de disponibilidade, como de costume, usando o [SQL Server Management Studio](/sql/database-engine/availability-groups/windows/use-the-availability-group-wizard-sql-server-management-studio), o [PowerShell](/sql/database-engine/availability-groups/windows/create-an-availability-group-sql-server-powershell) ou o [Transact-SQL](/sql/database-engine/availability-groups/windows/create-an-availability-group-transact-sql). 
@@ -192,6 +206,8 @@ Crie manualmente o grupo de disponibilidade, como de costume, usando o [SQL Serv
 > *Não* crie um ouvinte no momento, porque isso é feito por meio da CLI do Azure nas seções a seguir.  
 
 ## <a name="create-internal-load-balancer"></a>Criar balanceador de carga interno
+
+[!INCLUDE [sql-ag-use-dnn-listener](../../includes/sql-ag-use-dnn-listener.md)]
 
 O ouvinte do grupo de disponibilidade AlwaysOn requer uma instância interna do Azure Load Balancer. O balanceador de carga interno fornece um endereço IP "flutuante" para o ouvinte do grupo de disponibilidade, o que permite failover e reconexão mais rápidos. Se as VMs do SQL Server em um grupo de disponibilidade fizerem parte do mesmo conjunto de disponibilidade, você poderá usar um balanceador de carga básico. Caso contrário, precisará usar um balanceador de carga padrão.  
 
@@ -229,7 +245,7 @@ New-AzLoadBalancer -name sqlILB -ResourceGroupName <resource group name> `
 
 ## <a name="create-listener"></a>Criar ouvinte
 
-Depois de criar manualmente o grupo de disponibilidade, você pode criar o ouvinte usando [az sql vm ag-listener](/cli/azure/sql/vm/group/ag-listener?view=azure-cli-latest#az-sql-vm-group-ag-listener-create). 
+Depois de criar manualmente o grupo de disponibilidade, você pode criar o ouvinte usando [az sql vm ag-listener](/cli/azure/sql/vm/group/ag-listener#az-sql-vm-group-ag-listener-create). 
 
 A *ID do recurso de sub-rede* é o valor de `/subnets/<subnetname>` anexado à ID do recurso da rede virtual. Para identificar a ID do recurso de sub-rede:
    1. Vá para o seu grupo de recursos no [portal do Azure](https://portal.azure.com). 
@@ -283,7 +299,7 @@ New-AzAvailabilityGroupListener -Name <listener name> -ResourceGroupName <resour
 ---
 
 ## <a name="modify-number-of-replicas"></a>Modificar o número de réplicas 
-Há uma camada adicional de complexidade ao implantar um grupo de disponibilidade nas VMs do SQL Server hospedadas no Azure. O provedor de recursos e o grupo de máquinas virtuais agora gerenciam os recursos. Assim, ao adicionar ou remover réplicas no grupo de disponibilidade, há uma etapa adicional de atualização dos metadados do ouvinte com informações sobre as VMs do SQL Server. Ao modificar o número de réplicas no grupo de disponibilidade, você também deve usar o comando [az sql vm group ag-listener update](/cli/azure/sql/vm/group/ag-listener?view=azure-cli-2018-03-01-hybrid#az-sql-vm-group-ag-listener-update) para atualizar o ouvinte com os metadados das VMs do SQL Server. 
+Há uma camada adicional de complexidade ao implantar um grupo de disponibilidade nas VMs do SQL Server hospedadas no Azure. O provedor de recursos e o grupo de máquinas virtuais agora gerenciam os recursos. Assim, ao adicionar ou remover réplicas no grupo de disponibilidade, há uma etapa adicional de atualização dos metadados do ouvinte com informações sobre as VMs do SQL Server. Ao modificar o número de réplicas no grupo de disponibilidade, você também deve usar o comando [az sql vm group ag-listener update](/cli/azure/sql/vm/group/ag-listener#az-sql-vm-group-ag-listener-update) para atualizar o ouvinte com os metadados das VMs do SQL Server. 
 
 
 ### <a name="add-a-replica"></a>Adicionar uma réplica
@@ -408,9 +424,9 @@ Para remover uma réplica especificada do grupo de disponibilidade:
 ---
 
 ## <a name="remove-listener"></a>Remover ouvinte
-Se você precisar remover posteriormente o ouvinte do grupo de disponibilidade configurado com a CLI do Azure, deverá passar pelo provedor de recursos da VM do SQL. Como o ouvinte é registrado por meio do provedor de recursos de VM do SQL, apenas excluí-lo por meio do SQL Server Management Studio não é suficiente. 
+Se posteriormente você precisar remover o ouvinte do grupo de disponibilidade configurado com o CLI do Azure, deverá passar pela extensão do agente IaaS do SQL. Como o ouvinte é registrado por meio da extensão do agente IaaS do SQL, apenas excluí-lo via SQL Server Management Studio é insuficiente. 
 
-O melhor método é exclui-lo por meio do provedor de recursos da VM do SQL usando o snippet de código a seguir na CLI do Azure. Isso remove os metadados do ouvinte do grupo de disponibilidade do provedor de recursos da VM do SQL. Também exclui fisicamente o ouvinte do grupo de disponibilidade. 
+O melhor método é excluí-lo por meio da extensão do agente IaaS do SQL usando o trecho de código a seguir no CLI do Azure. Isso remove os metadados do ouvinte do grupo de disponibilidade da extensão do SQL IaaS Agent. Também exclui fisicamente o ouvinte do grupo de disponibilidade. 
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
@@ -436,7 +452,7 @@ Remove-AzAvailabilityGroupListener -Name <Listener> `
 
 ## <a name="remove-cluster"></a>Remover cluster
 
-Remova todos os nós do cluster para destruí-lo e, em seguida, remova os metadados do cluster do provedor de recursos da VM do SQL. Você pode fazer isso usando o CLI do Azure ou o PowerShell. 
+Remova todos os nós do cluster para destruí-lo e, em seguida, remova os metadados do cluster da extensão do agente IaaS do SQL. Você pode fazer isso usando o CLI do Azure ou o PowerShell. 
 
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
@@ -453,7 +469,7 @@ az sql vm remove-from-group --name <VM2 name>  --resource-group <resource group 
 
 Se essas são as únicas VMs no cluster, o cluster será destruído. Se houver outras VMs no cluster além das VMs SQL Server que foram removidas, as outras VMs não serão removidas e o cluster não será destruído. 
 
-Em seguida, remova os metadados do cluster do provedor de recursos da VM do SQL: 
+Em seguida, remova os metadados do cluster da extensão do agente IaaS do SQL: 
 
 ```azurecli-interactive
 # Remove the cluster from the SQL VM RP metadata
@@ -482,7 +498,7 @@ $sqlvm = Get-AzSqlVM -Name <VM Name> -ResourceGroupName <Resource Group Name>
 
 Se essas são as únicas VMs no cluster, o cluster será destruído. Se houver outras VMs no cluster além das VMs SQL Server que foram removidas, as outras VMs não serão removidas e o cluster não será destruído. 
 
-Em seguida, remova os metadados do cluster do provedor de recursos da VM do SQL: 
+Em seguida, remova os metadados do cluster da extensão do agente IaaS do SQL: 
 
 ```powershell-interactive
 # Remove the cluster metadata
@@ -506,4 +522,4 @@ Para obter mais informações, consulte os seguintes artigos:
 * [Administração de um grupo de disponibilidade do &#40;SQL Server&#41;](/sql/database-engine/availability-groups/windows/administration-of-an-availability-group-sql-server)   
 * [Monitoramento de grupos de disponibilidade &#40;SQL Server&#41;](/sql/database-engine/availability-groups/windows/monitoring-of-availability-groups-sql-server)
 * [Visão geral de instruções Transact-SQL para grupos de disponibilidade AlwaysOn do &#40;SQL Server&#41;](/sql/database-engine/availability-groups/windows/transact-sql-statements-for-always-on-availability-groups)   
-* [Visão geral de cmdlets do PowerShell para grupos de disponibilidade AlwaysOn do &#40;SQL Server&#41;](/sql/database-engine/availability-groups/windows/overview-of-powershell-cmdlets-for-always-on-availability-groups-sql-server)  
+* [Visão geral de cmdlets do PowerShell para grupos de disponibilidade AlwaysOn do &#40;SQL Server&#41;](/sql/database-engine/availability-groups/windows/overview-of-powershell-cmdlets-for-always-on-availability-groups-sql-server)

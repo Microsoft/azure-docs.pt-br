@@ -10,10 +10,10 @@ ms.date: 07/14/2020
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 753469ca2792be23bbe0ef21083d7ff01b362613
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86528704"
 ---
 # <a name="scalability-and-performance-targets-for-blob-storage"></a>Metas de escalabilidade e desempenho do Armazenamento de Blobs
@@ -24,7 +24,7 @@ ms.locfileid: "86528704"
 
 [!INCLUDE [storage-blob-scale-targets](../../../includes/storage-blob-scale-targets.md)]
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 - [Lista de verificação de desempenho e escalabilidade do Armazenamento de Blobs](storage-performance-checklist.md)
 - [Metas de escalabilidade para contas de armazenamento Standard](../common/scalability-targets-standard-account.md)

@@ -4,17 +4,19 @@ description: 'Tutorial: Saiba como usar notebooks Jupyter internos para importar
 author: deborahc
 ms.topic: tutorial
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.date: 11/05/2019
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: 9b2ef5ddb56e3d0422a2a876993ddda0bd97e4ff
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: e16a738264e64e37cfa42722832dac7e34fee899
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85961091"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339488"
 ---
 # <a name="tutorial-create-a-notebook-in-azure-cosmos-db-to-analyze-and-visualize-the-data"></a>Tutorial: Criar um notebook no Azure Cosmos DB para analisar e visualizar os dados
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Este artigo descreve como usar notebooks Jupyter internos para importar dados de varejo de exemplo para o Azure Cosmos DB. Você verá como usar os comandos magic do SQL e do Azure Cosmos DB para executar consultas, analisar os dados e visualizar os resultados.
 
@@ -28,7 +30,7 @@ Nesta seção, você criará o banco de dados do Azure Cosmos e o contêiner e i
 
 1. Navegue até a conta do Azure Cosmos e abra o **Data Explorer.**
 
-1. Acesse a guia **Notebooks**, selecione `…` ao lado de **Meus Notebooks** e crie um **Notebook**. Selecione **Python 3** como o kernel padrão.
+1. Acesse a guia **Notebooks** , selecione `…` ao lado de **Meus Notebooks** e crie um **Notebook**. Selecione **Python 3** como o kernel padrão.
 
    :::image type="content" source="./media/create-notebook-visualize-data/create-new-notebook.png" alt-text="Crie um notebook":::
 

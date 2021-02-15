@@ -5,39 +5,41 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 08/03/2020
+ms.date: 09/16/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: hafowler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce09bd2a3f5f474ad5c6e6eb73865e2b2dc9fe3a
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 92a0cc93b4d159a4ba87c1cadc2d0dedc0a28b2d
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87541933"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98683803"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Gerenciar identidades de dispositivo usando o portal do Azure
 
 O Azure AD fornece um local central para gerenciar identidades de dispositivo.
-
-1. Entre no [portal do Azure](https://portal.azure.com).
-1. Navegue até **Azure Active Directory**  >  **dispositivos**.
-
-[![Exibição de todos os dispositivos na portal do Azure](./media/device-management-azure-portal/all-devices-azure-portal.png)](./media/device-management-azure-portal/all-devices-azure-portal.png#lightbox)
 
 A página **todos os dispositivos** permite que você:
 
 - Identificar dispositivos, incluindo:
    - Dispositivos que foram ingressados ou registrados no Azure AD.
    - Dispositivos implantados usando o [Windows AutoPilot](/windows/deployment/windows-autopilot/windows-autopilot).
-   - Impressoras usando a [impressão universal](https://docs.microsoft.com/universal-print/fundamentals/universal-print-getting-started)
+   - Impressoras usando a [impressão universal](/universal-print/fundamentals/universal-print-getting-started)
 - Execute tarefas de gerenciamento de identidade do dispositivo como habilitar, desabilitar, excluir ou gerenciar.
    - [Impressoras](/universal-print/fundamentals/) e dispositivos [Windows AutoPilot](/windows/deployment/windows-autopilot/windows-autopilot) têm opções de gerenciamento limitadas no Azure AD. Eles devem ser gerenciados de suas respectivas interfaces de administrador.
 - Defina as configurações de identidade do dispositivo.
 - Habilitar ou desabilitar Enterprise State Roaming.
 - Examinar os logs de auditoria relacionados ao dispositivo
+
+[![Exibição de todos os dispositivos na portal do Azure](./media/device-management-azure-portal/all-devices-azure-portal.png)](./media/device-management-azure-portal/all-devices-azure-portal.png#lightbox)
+
+Você pode acessar o portal de dispositivos usando as seguintes etapas:
+
+1. Entre no [portal do Azure](https://portal.azure.com).
+1. Navegue até **Azure Active Directory**  >  **dispositivos**.
 
 ## <a name="manage-devices"></a>Gerenciar dispositivos
 
@@ -147,6 +149,13 @@ Agora você terá a capacidade de **adicionar filtros** à sua exibição **todo
 
 Para gerenciar identidades de dispositivo usando o portal do AD do Azure, esses dispositivos precisam ser [registrados ou ingressados](overview.md) no Azure AD. Como administrador, você pode controlar o processo de registro e junção de dispositivos definindo as seguintes configurações de dispositivo.
 
+Você deve receber uma das seguintes funções para exibir ou gerenciar as configurações do dispositivo no portal do Azure:
+
+- Administrador global
+- Administrador de dispositivo em nuvem
+- Leitor global
+- Leitor de diretório
+
 ![Configurações do dispositivo relacionadas ao Azure AD](./media/device-management-azure-portal/device-settings-azure-portal.png)
 
 - **Os usuários podem ingressar dispositivos no Azure ad** – essa configuração permite que você selecione os usuários que podem registrar seus dispositivos como dispositivos ingressados no Azure AD. O padrão é **All**.
@@ -155,13 +164,13 @@ Para gerenciar identidades de dispositivo usando o portal do AD do Azure, esses 
 > **Os usuários podem ingressar dispositivos na configuração do Azure ad** é aplicável somente ao ingresso no Azure AD no Windows 10.
 
 - **Outros administradores locais nos dispositivos associados ao Azure AD** – você pode selecionar os usuários que têm direitos de administrador local em um dispositivo. Esses usuários são adicionados à função *Administradores de dispositivos* no Azure AD. Os administradores globais no Azure AD e os proprietários do dispositivo recebem direitos de administrador local por padrão. Essa opção é uma funcionalidade Premium Edition disponível por meio de produtos como o Azure AD Premium ou o EMS (Enterprise Mobility Suite).
-- **Os usuários podem registrar seus dispositivos com o Azure ad** -você precisa definir essa configuração para permitir que dispositivos Windows 10 Personal, Ios, Android e MacOS sejam registrados com o Azure AD. Se você selecionar **nenhum**, os dispositivos não terão permissão para se registrar no Azure AD. O registro com o Microsoft Intune ou o MDM (Gerenciamento de Dispositivo Móvel) para o Office 365 exige registro. Se você tiver configurado qualquer um desses serviços, a opção **TODOS** estará selecionada e **NENHUM** não estará disponível.
-- **Exigir autenticação multifator para ingressar em dispositivos** – você pode escolher se os usuários precisam fornecer um fator de autenticação adicional para ingressar seu dispositivo no Azure AD. O padrão é **No**. É recomendável exigir a autenticação multifator ao registrar um dispositivo. Antes de habilitar a autenticação multifator para este serviço, você deve garantir que a autenticação multifator esteja configurada para os usuários que registram seus dispositivos. Para saber mais sobre os diferentes serviços de autenticação multifator do Azure, consulte [Introdução à autenticação multifator do Azure](../authentication/concept-mfa-whichversion.md). 
+- **Os usuários podem registrar seus dispositivos com o Azure ad** -você precisa definir essa configuração para permitir que dispositivos Windows 10 Personal, Ios, Android e MacOS sejam registrados com o Azure AD. Se você selecionar **nenhum**, os dispositivos não terão permissão para se registrar no Azure AD. O registro com Microsoft Intune ou MDM (gerenciamento de dispositivo móvel) para Microsoft 365 requer o registro. Se você tiver configurado qualquer um desses serviços, a opção **TODOS** estará selecionada e **NENHUM** não estará disponível.
+- Os **dispositivos que devem ser ingressados no Azure ad ou no Azure ad registrados exigem autenticação multifator** – você pode escolher se os usuários devem fornecer um fator de autenticação adicional para ingressar ou registrar seu dispositivo no Azure AD. O padrão é **No**. É recomendável exigir a autenticação multifator ao registrar ou ingressar em um dispositivo. Antes de habilitar a autenticação multifator para este serviço, você deve garantir que a autenticação multifator esteja configurada para os usuários que registram seus dispositivos. Para obter mais informações sobre os diferentes serviços de autenticação multifator do Azure AD, consulte [introdução à autenticação multifator do Azure ad](../authentication/concept-mfa-howitworks.md). 
 
 > [!NOTE]
-> **Exigir a configuração de autenticação multifator para ingressar dispositivos** se aplica a dispositivos que estão ingressados no Azure ad ou o Azure ad registrado. Essa configuração não se aplica a dispositivos ingressados no Azure AD híbrido.
+> Os **dispositivos que devem ser ingressados no Azure ad ou no Azure ad registrados exigem a configuração de autenticação multifator** se aplicam a dispositivos que são associados ao Azure AD (com algumas exceções) ou ao AD do Azure registrado. Essa configuração não se aplica a dispositivos adicionados ao Azure AD híbrido, [VMs Unidas do Azure AD no Azure](./howto-vm-sign-in-azure-ad-windows.md#enabling-azure-ad-login-in-for-windows-vm-in-azure) e dispositivos ingressados no Azure ad usando o [modo de Autoimplantação do Windows AutoPilot](/mem/autopilot/self-deploying).
 
-- **Número máximo de dispositivos** – essa configuração permite que você selecione o número máximo de dispositivos registrados no Azure ad ou do AD do Azure que um usuário pode ter no Azure AD. Se um usuário atingir esta cota, ele não poderá adicionar mais dispositivos até que um ou mais dos seus dispositivos existentes sejam removidos. O valor padrão é **20**.
+- **Número máximo de dispositivos** – essa configuração permite que você selecione o número máximo de dispositivos registrados no Azure ad ou do AD do Azure que um usuário pode ter no Azure AD. Se um usuário atingir esta cota, ele não poderá adicionar mais dispositivos até que um ou mais dos seus dispositivos existentes sejam removidos. O valor padrão é **50**.
 
 > [!NOTE]
 > A configuração **de número máximo de dispositivos** se aplica a dispositivos que estão ingressados no Azure ad ou no Azure ad registrados. Essa configuração não se aplica a dispositivos ingressados no Azure AD híbrido.
@@ -185,11 +194,11 @@ O log de auditoria tem uma exibição de lista padrão que mostra:
 - O iniciador/ator (quem) de uma atividade
 - A atividade (o quê)
 
-![Logs de auditoria](./media/device-management-azure-portal/63.png)
+:::image type="content" source="./media/device-management-azure-portal/63.png" alt-text="Captura de tela de uma tabela na seção atividade da página dispositivos que lista a data, o destino, o ator e a atividade para quatro logs de auditoria." border="false":::
 
 Você pode personalizar o modo de exibição de lista clicando em **colunas** na barra de ferramentas.
 
-![Logs de auditoria](./media/device-management-azure-portal/64.png)
+:::image type="content" source="./media/device-management-azure-portal/64.png" alt-text="Captura de tela mostrando a barra de ferramentas da página dispositivos. O item colunas está realçado." border="false":::
 
 Para restringir os dados relatados a um nível que funciona para você, filtre os dados de auditoria usando os seguintes campos:
 
@@ -202,7 +211,7 @@ Para restringir os dados relatados a um nível que funciona para você, filtre o
 
 Além dos filtros, você pode pesquisar itens específicos.
 
-![Logs de auditoria](./media/device-management-azure-portal/65.png)
+:::image type="content" source="./media/device-management-azure-portal/65.png" alt-text="Captura de tela dos controles de filtro de dados de auditoria, com os campos categoria, tipo de recurso de atividade, atividade, intervalo de datas, destino e ator e um campo de pesquisa." border="false":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

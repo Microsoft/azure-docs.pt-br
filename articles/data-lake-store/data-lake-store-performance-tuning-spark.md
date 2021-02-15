@@ -1,17 +1,17 @@
 ---
 title: Ajuste de desempenho-Spark com Azure Data Lake Storage Gen1
 description: Saiba mais sobre as diretrizes de ajuste de desempenho para o Spark no Azure HDInsight e Azure Data Lake Storage Gen1.
-author: stewu
+author: twooley
 ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 12/19/2016
-ms.author: stewu
-ms.openlocfilehash: 7012808e4ebcd936f30aba767731e7888d92161f
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.author: twooley
+ms.openlocfilehash: 8a39e14b70827947687b7613b9ff86f18017ddfe
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856917"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97722497"
 ---
 # <a name="performance-tuning-guidance-for-spark-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Diretrizes de ajuste de desempenho para Spark no HDInsight e Azure Data Lake Storage Gen1
 
@@ -22,8 +22,8 @@ Ao realizar o ajuste de desempenho no Spark, você deve considerar o número de 
 * **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Uma conta do Azure Data Lake Storage Gen1**. Para obter instruções sobre como criar uma, consulte Introdução [ao Azure data Lake Storage Gen1](data-lake-store-get-started-portal.md)
 * **Cluster Azure HDInsight** com acesso a uma conta do Azure Data Lake Storage Gen1. Veja [Criar um cluster HDInsight com Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md). Certifique-se de habilitar a área de trabalho remota para o cluster.
-* **Executar o cluster Spark no Azure Data Lake Storage Gen1**. Para obter mais informações, consulte [Usar cluster HDInsight do Spark para analisar dados no Data Lake Storage Gen1](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-use-with-data-lake-store)
-* **Diretrizes de ajuste de desempenho no Data Lake Storage Gen1**. Para obter conceitos gerais de desempenho, consulte [diretrizes de ajuste de desempenho data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance) 
+* **Executar o cluster Spark no Azure Data Lake Storage Gen1**. Para obter mais informações, consulte [Usar cluster HDInsight do Spark para analisar dados no Data Lake Storage Gen1](../hdinsight/spark/apache-spark-use-with-data-lake-store.md)
+* **Diretrizes de ajuste de desempenho no Data Lake Storage Gen1**. Para obter conceitos gerais de desempenho, consulte [diretrizes de ajuste de desempenho data Lake Storage Gen1](./data-lake-store-performance-tuning-guidance.md) 
 
 ## <a name="parameters"></a>Parâmetros
 
@@ -43,7 +43,7 @@ Ao executar os trabalhos do Spark, aqui estão as configurações mais important
 
 Por padrão, dois núcleos YARN virtuais são definidos para cada núcleo físico ao executar o Spark no HDInsight. Esse número fornece um bom equilíbrio entre a simultaneidade e a quantidade de trocas de contexto de vários threads.
 
-## <a name="guidance"></a>Diretrizes
+## <a name="guidance"></a>Orientação
 
 Ao executar as cargas de trabalho analíticas do Spark para trabalhar com dados no Data Lake Storage Gen1, é recomendável usar a versão mais recente do HDInsight para obter o melhor desempenho com Data Lake Storage Gen1. Quando o trabalho faz uso mais intensivo de E/S, determinados parâmetros podem ser configurados para melhorar o desempenho. O Data Lake Storage Gen1 é uma plataforma de armazenamento altamente escalonável que pode manipular taxa de transferência. Se o trabalho consistir principalmente em leitura ou gravação, então, aumentar a simultaneidade para E/S de e para o Data Lake Storage Gen1 poderá aumentar o desempenho.
 

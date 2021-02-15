@@ -1,31 +1,24 @@
 ---
 title: Usar pacotes Maven personalizados com Jupyter no Spark – Azure HDInsight
-description: Instruções passo a passo sobre como configurar os blocos de notas do Jupyter disponíveis com clusters Spark HDInsight para usar pacotes personalizados do Maven.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
+description: Instruções passo a passo sobre como configurar notebooks Jupyter disponíveis com clusters Spark do HDInsight para usar pacotes Maven personalizados.
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/22/2019
-ms.openlocfilehash: 6587a055d672bc309c89ff2a37fabb273a4c4621
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: a3d787059345b5971d99ebd7a1e26a9135b61bed
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86084674"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98930348"
 ---
-# <a name="use-external-packages-with-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>Usar pacotes externos com blocos de anotações Jupyter em clusters Apache Spark no HDInsight
-
-> [!div class="op_single_selector"]
-> * [Usando a mágica da célula](apache-spark-jupyter-notebook-use-external-packages.md)
-> * [Usando a ação de script](apache-spark-python-package-installation.md)
+# <a name="use-external-packages-with-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>Usar pacotes externos com blocos de anotações do Jupyter em clusters Apache Spark no HDInsight
 
 Saiba como configurar um [Jupyter Notebook](https://jupyter.org/) no cluster apache Spark no HDInsight para usar pacotes Apache **Maven** externos, contribuídos pela Comunidade, que não estão incluídos de forma integrada no cluster.
 
 Você pode pesquisar o [Repositório do Maven](https://search.maven.org/) para obter uma lista de pacotes que estão disponíveis. Você também pode obter uma lista de pacotes disponíveis de outras fontes. Por exemplo, uma lista completa dos pacotes enviados pela comunidade está disponível em [Pacotes do Spark](https://spark-packages.org/).
 
-Neste artigo, você aprenderá a usar o pacote [Spark-CSV](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar) com o notebook Jupyter.
+Neste artigo, você aprenderá a usar o pacote [Spark-CSV](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar) com o Jupyter notebook.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -35,13 +28,13 @@ Neste artigo, você aprenderá a usar o pacote [Spark-CSV](https://search.maven.
 
 * O [esquema de URI](../hdinsight-hadoop-linux-information.md#URI-and-scheme) do seu armazenamento primário de clusters. Isso seria `wasb://` para o Armazenamento do Azure, `abfs://` para o Azure Data Lake Storage Gen2 ou `adl://` para o Azure Data Lake Storage Gen1. Se a transferência segura estiver habilitada para o Armazenamento do Azure ou para o Data Lake Storage Gen2, o URI será `wasbs://` ou `abfss://`, respectivamente. Confira também [transferência segura](../../storage/common/storage-require-secure-transfer.md).
 
-## <a name="use-external-packages-with-jupyter-notebooks"></a>Usar pacotes externos com blocos de notas Jupyter
+## <a name="use-external-packages-with-jupyter-notebooks"></a>Usar pacotes externos com notebooks Jupyter
 
 1. Navegue até `https://CLUSTERNAME.azurehdinsight.net/jupyter` onde `CLUSTERNAME` é o nome do seu cluster Spark.
 
-1. Crie um novo bloco de anotações. Selecione **novo**e, em seguida, selecione **Spark**.
+1. Crie um novo bloco de anotações. Selecione **novo** e, em seguida, selecione **Spark**.
 
-    ![Criar um novo notebook Spark Jupyter](./media/apache-spark-jupyter-notebook-use-external-packages/hdinsight-spark-create-notebook.png "Criar um novo bloco de anotações do Jupyter")
+    ![Criar uma nova Jupyter Notebook do Spark](./media/apache-spark-jupyter-notebook-use-external-packages/hdinsight-spark-create-notebook.png "Criar um novo Jupyter Notebook")
 
 1. Um novo bloco de anotações é criado e aberto com o nome Untitled.pynb. Selecione o nome do bloco de anotações na parte superior e insira um nome amigável.
 
@@ -61,9 +54,9 @@ Neste artigo, você aprenderá a usar o pacote [Spark-CSV](https://search.maven.
 
     a. Localize o pacote no Repositório Maven. Para este artigo, usamos o [Spark-CSV](https://mvnrepository.com/artifact/com.databricks/spark-csv).
 
-    b. No repositório, colete os valores para **GroupId**, **ArtifactId** e **Version**. Certifique-se de que os valores que você coletar correspondam ao cluster. Nesse caso, estamos usando um pacote escalar 2,11 e Spark 1.5.0, mas talvez seja necessário selecionar versões diferentes para a versão escala ou Spark apropriada no seu cluster. Você pode encontrar a versão do Scala no cluster executando `scala.util.Properties.versionString` no kernel Jupyter do Spark ou em Spark submit. Você pode encontrar a versão do Spark no cluster executando `sc.version` em Notebooks Jupyter.
+    b. No repositório, colete os valores para **GroupId**, **ArtifactId** e **Version**. Certifique-se de que os valores que você coletar correspondam ao cluster. Nesse caso, estamos usando um pacote escalar 2,11 e Spark 1.5.0, mas talvez seja necessário selecionar versões diferentes para a versão escala ou Spark apropriada no seu cluster. Você pode encontrar a versão do Scala no cluster executando `scala.util.Properties.versionString` no kernel Jupyter do Spark ou em Spark submit. Você pode descobrir a versão do Spark no cluster executando `sc.version` em notebooks Jupyter.
 
-    ![Usar pacotes externos com o bloco de notas Jupyter](./media/apache-spark-jupyter-notebook-use-external-packages/use-external-packages-with-jupyter.png "Usar pacotes externos com o bloco de notas Jupyter")
+    ![Usar pacotes externos com Jupyter Notebook](./media/apache-spark-jupyter-notebook-use-external-packages/use-external-packages-with-jupyter.png "Usar pacotes externos com Jupyter Notebook")
 
     c. Concatene os três valores, separados por dois pontos (**:**).
 
@@ -97,7 +90,7 @@ Neste artigo, você aprenderá a usar o pacote [Spark-CSV](https://search.maven.
     df.select("Time").count()
     ```
 
-## <a name="see-also"></a><a name="seealso"></a>Consulte também
+## <a name="see-also"></a><a name="seealso"></a>Veja também
 
 * [Visão geral: Apache Spark no Azure HDInsight](apache-spark-overview.md)
 
@@ -115,11 +108,11 @@ Neste artigo, você aprenderá a usar o pacote [Spark-CSV](https://search.maven.
 
 ### <a name="tools-and-extensions"></a>Ferramentas e extensões
 
-* [Usar pacotes Python externos com notebooks Jupyter em clusters do Apache Spark no HDInsight Linux](apache-spark-python-package-installation.md)
+* [Usar pacotes python externos com notebooks Jupyter em clusters de Apache Spark no HDInsight Linux](apache-spark-python-package-installation.md)
 * [Use o Plug-in de Ferramentas do HDInsight para IntelliJ IDEA para criar e enviar aplicativos Spark Scala](apache-spark-intellij-tool-plugin.md)
 * [Use o Plugin do HDInsight Tools para o IntelliJ IDEA para depurar os aplicativos do Apache Spark remotamente](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [Use os blocos de anotações do Apache Zeppelin com um cluster do Apache Spark no HDInsight](apache-spark-zeppelin-notebook.md)
-* [Kernels disponíveis para o notebook Jupyter no cluster do Apache Spark para HDInsight](apache-spark-jupyter-notebook-kernels.md)
+* [Kernels disponíveis para Jupyter Notebook no cluster Apache Spark para HDInsight](apache-spark-jupyter-notebook-kernels.md)
 * [Instalar o Jupyter em seu computador e conectar-se a um cluster Spark do HDInsight](apache-spark-jupyter-notebook-install-locally.md)
 
 ### <a name="manage-resources"></a>Gerenciar recursos

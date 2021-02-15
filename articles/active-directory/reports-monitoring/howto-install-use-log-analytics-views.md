@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 116c0d5becaea1ca6d488bbf7c94674934d4f7c5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d9fc1592681429998f5082fbadcd45fa068f130e
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85608187"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96180465"
 ---
 # <a name="install-and-use-the-log-analytics-views-for-azure-active-directory"></a>Instalar e usar os modos de exibição do Log Analytics do Azure Active Directory
 
@@ -35,7 +35,7 @@ As exibições do Log Analytics do Azure Active Directory ajuda você a analisar
 
 Para usar as exibições do Log Analytics, você precisará de:
 
-* Um espaço de trabalho do Log Analytics em sua assinatura do Azure. Saiba como [criar um espaço de trabalho do Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace).
+* Um espaço de trabalho do Log Analytics em sua assinatura do Azure. Saiba como [criar um espaço de trabalho do Log Analytics](../../azure-monitor/learn/quick-create-workspace.md).
 * Em primeiro lugar, conclua as etapas para [rotear os logs de atividades do Azure AD para seu espaço de trabalho do Log Analytics](howto-integrate-activity-logs-with-log-analytics.md).
 * Baixar as exibições do [Repositório do GitHub](https://aka.ms/AADLogAnalyticsviews) para seu computador local.
 
@@ -56,7 +56,7 @@ Para usar as exibições do Log Analytics, você precisará de:
 
 3. Selecione qualquer uma dessas exibições para ir para os relatórios individuais. Você também pode definir alertas para qualquer um dos parâmetros do relatório. Por exemplo, vamos definir um alerta sempre que houver um erro de entrada. Para fazer isso, primeiro selecione a exibição **Eventos de Entradas**, selecione o relatório **Erros de entrada ao longo do tempo** e, em seguida, selecione **Analytics** para abrir a página de detalhes com a consulta real subjacente ao relatório. 
 
-    ![Detalhes](./media/howto-install-use-log-analytics-views/details.png)
+    ![Captura de tela mostra a página de detalhes de análise que tem a consulta para o relatório.](./media/howto-install-use-log-analytics-views/details.png)
 
 
 4. Selecione **Definir Alerta** e, em seguida, **Sempre que a pesquisa de logs personalizada for &lt;lógica não definida&gt;** na seção **Critérios de alerta**. Como queremos alertar sempre que houver um erro de conexão, defina o **Limite** da lógica de alerta padrão como **1** e, em seguida, selecione **Concluído**. 
@@ -67,11 +67,11 @@ Para usar as exibições do Log Analytics, você precisará de:
 
     ![Criar regra](./media/howto-install-use-log-analytics-views/create-rule.png)
 
-6. Selecione o grupo de ações para alerta. Em geral, pode ser uma equipe que você deseja notificar por email ou mensagem de texto, ou pode ser uma tarefa automatizada usando webhooks, runbooks, funções, aplicativos lógicos ou soluções ITSM externas. Saiba como [criar e gerenciar grupos de ações no portal do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups).
+6. Selecione o grupo de ações para alerta. Em geral, pode ser uma equipe que você deseja notificar por email ou mensagem de texto, ou pode ser uma tarefa automatizada usando webhooks, runbooks, funções, aplicativos lógicos ou soluções ITSM externas. Saiba como [criar e gerenciar grupos de ações no portal do Azure](../../azure-monitor/platform/action-groups.md).
 
 7. Selecione **Criar regra de alerta** para criar o alerta. Agora você será alertado sempre que houver um erro de conexão.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Como analisar logs de atividade com os logs do Azure Monitor](howto-analyze-activity-logs-log-analytics.md)
-* [Introdução aos logs do Azure Monitor no portal do Azure](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-analytics-portal)
+* [Introdução aos logs do Azure Monitor no portal do Azure](../../azure-monitor/log-query/log-analytics-tutorial.md)

@@ -10,10 +10,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 487308aca3231650aee3fac5ae127006649e19b9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87073902"
 ---
 # <a name="quickstart---configure-a-private-cloud-environment"></a>Início rápido-configurar um ambiente de nuvem privada
@@ -64,7 +64,7 @@ O processo de provisionamento de nuvem particular é iniciado.  Pode levar até 
 
 ## <a name="launch-cloudsimple-portal"></a>Iniciar o portal do CloudSimple
 
-Você pode acessar o portal do CloudSimple do portal do Azure.  O portal do CloudSimple será iniciado com suas credenciais de logon do Azure usando o SSO (logon único).  O acesso ao portal do CloudSimple exige que você autorize o aplicativo de **autorização do serviço CloudSimple** .  Para obter mais informações sobre como conceder permissões, consulte [consentimento ao aplicativo de autorização do serviço CloudSimple](access-cloudsimple-portal.md#consent-to-cloudsimple-service-authorization-application).
+Você pode acessar o portal do CloudSimple do portal do Azure.  O portal do CloudSimple será iniciado com suas credenciais de logon do Azure usando o SSO (Sign-On único).  O acesso ao portal do CloudSimple exige que você autorize o aplicativo de **autorização do serviço CloudSimple** .  Para obter mais informações sobre como conceder permissões, consulte [consentimento ao aplicativo de autorização do serviço CloudSimple](access-cloudsimple-portal.md#consent-to-cloudsimple-service-authorization-application).
 
 1. Selecione **Todos os serviços**.
 2. Procure **Serviços CloudSimples**.
@@ -101,7 +101,7 @@ Uma conexão VPN ponto a site é a maneira mais simples de se conectar à sua nu
 
     * As opções **adicionar automaticamente** definem a política global para esse gateway. As configurações se aplicam ao gateway atual. As configurações podem ser substituídas na área de **seleção** .
     * Selecione **Adicionar VLANs de gerenciamento/sub-redes de nuvens privadas**.
-    * Para adicionar todas as VLANs/sub-redes definidas pelo usuário, clique em **Adicionar VLANs/sub-redes definidas pelo usuário**.
+    * Para adicionar todas as VLANs/sub-redes definidas pelo usuário, clique em  **Adicionar VLANs/sub-redes definidas pelo usuário**.
     * As configurações de **selecionar** substituem as configurações globais em **adicionar automaticamente**.
 
 7. Clique em **Avançar** para revisar as configurações. Clique nos ícones de edição para fazer alterações.
@@ -159,7 +159,7 @@ Agora você pode entrar no vCenter para configurar máquinas virtuais e polític
     ![Iniciar cliente do vSphere](media/launch-vcenter-from-cloudsimple-portal.png)
 
 2. Selecione seu cliente vSphere preferencial para acessar o vCenter e entrar com seu nome de usuário e senha.  Os padrões são:
-    * Nome de usuário:`CloudOwner@cloudsimple.local`
+    * Nome de usuário: `CloudOwner@cloudsimple.local`
     * Senha: `CloudSimple123!`
 
 As telas do vCenter nos próximos procedimentos são do cliente vSphere (HTML5).

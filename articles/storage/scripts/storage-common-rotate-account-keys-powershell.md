@@ -10,12 +10,13 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 12/04/2019
 ms.author: tamram
-ms.openlocfilehash: d532782847ec09d2a480951ecd77ae7746b000c2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 7d8585b5d05012ab2aff2580d41fecf6423b509c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089355"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89070421"
 ---
 # <a name="rotate-storage-account-access-keys-with-powershell"></a>Girar chaves de acesso da conta de armazenamento com o PowerShell
 

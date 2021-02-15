@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 04/16/2019
 ms.author: alkohli
 ms.openlocfilehash: 727b2985711b51f1474fecb014906b08d18437cb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82562111"
 ---
 - Para acessar o serviço do Azure Stack Edge, sua organização precisa ter uma assinatura de Enterprise Agreement (EA) ou provedor de soluções na nuvem (CSP). Para obter mais informações, consulte [inscrever-se para uma assinatura do Azure](https://azure.microsoft.com/resources/videos/sign-up-for-microsoft-azure/).

@@ -1,21 +1,18 @@
 ---
 title: Limpar os logs do SSISDB com Trabalhos de Banco de Dados Elástico do Azure
 description: Este artigo descreve como limpar os logs do SSISDB usando trabalhos de Banco de Dados Elástico do Azure para disparar o procedimento armazenado existente para essa finalidade
-services: data-factory
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/09/2020
 author: swinarko
 ms.author: sawinark
-manager: mflasko
-ms.reviewer: douglasl
-ms.openlocfilehash: c7a4a1a839282618e9723e5fc916770a789fc32b
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: ecabbf88e14d17ac912065c2ed4aa95316efaf9f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187602"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100387638"
 ---
 # <a name="clean-up-ssisdb-logs-with-azure-elastic-database-jobs"></a>Limpar os logs do SSISDB com Trabalhos de Banco de Dados Elástico do Azure
 
@@ -159,7 +156,7 @@ $Job | Set-AzureRmSqlElasticJob -IntervalType $IntervalType -IntervalCount $Inte
 
 ## <a name="clean-up-logs-with-transact-sql"></a>Limpar os logs com o Transact-SQL
 
-Os scripts de exemplo do Transact-SQL a seguir criam um novo Trabalho Elástico para disparar o procedimento armazenado para limpeza de log do SSISDB. Para obter mais informações, confira [Usar o T-SQL (Transact-SQL) para criar e gerenciar Trabalhos de Banco de Dados Elástico](../sql-database/elastic-jobs-tsql.md).
+Os scripts de exemplo do Transact-SQL a seguir criam um novo Trabalho Elástico para disparar o procedimento armazenado para limpeza de log do SSISDB. Para obter mais informações, confira [Usar o T-SQL (Transact-SQL) para criar e gerenciar Trabalhos de Banco de Dados Elástico](../azure-sql/database/elastic-jobs-tsql-create-manage.md).
 
 1. Crie ou identifique um Banco de Dados SQL do Azure S0 ou superior vazio para que ele seja o Banco de Dados de Trabalho de Limpeza do SSISDB. Em seguida, crie um Agente de Trabalho Elástico no [portal do Azure](https://ms.portal.azure.com/#create/Microsoft.SQLElasticJobAgent).
 

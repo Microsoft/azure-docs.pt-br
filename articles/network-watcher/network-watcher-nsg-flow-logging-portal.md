@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: da7d56a0fd8571e796567331a7543074f0bf1eda
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.openlocfilehash: 385d43e46cd3f9465c0fbf9a02eeae356f48fac4
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84808701"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966523"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Tutorial: Registrar em log o tráfego de rede bidirecionalmente em uma máquina virtual usando o portal do Azure
 
@@ -101,7 +101,7 @@ O log de fluxo do NSG exige o provedor **Microsoft.Insights**. Para registrar o 
 4. No canto superior esquerdo do portal, selecione **Todos os serviços**. Na caixa **Filtro**, digite *Observador de Rede*. Quando os resultados da pesquisa exibirem **Observador de Rede**, selecione essa opção.
 5. Em **LOGS**, selecione **Logs de fluxo do NSG**, conforme mostrado na seguinte imagem:
 
-    ![NSGs](./media/network-watcher-nsg-flow-logging-portal/nsgs.png)
+    ![A captura de tela mostra os logs de fluxo do NSG do Observador de Rede.](./media/network-watcher-nsg-flow-logging-portal/nsgs.png)
 
 6. Na lista de NSGs, selecione o NSG chamado **myVm-nsg**.
 7. Em **Configurações dos logs de fluxo**, selecione **Ativado**.
@@ -111,7 +111,7 @@ O log de fluxo do NSG exige o provedor **Microsoft.Insights**. Para registrar o 
 
 9. Selecione a conta de armazenamento criada na etapa 3.
    > [!NOTE]
-   > Os logs do Fluxo do NSG não funcionam com contas de armazenamento que têm [namespace hierárquico](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace) habilitado.
+   > Os logs do Fluxo do NSG não funcionam com contas de armazenamento que têm [namespace hierárquico](../storage/blobs/data-lake-storage-namespace.md) habilitado.
 1. No canto superior esquerdo do portal, selecione **Todos os serviços**. Na caixa **Filtro**, digite *Observador de Rede*. Quando os resultados da pesquisa exibirem **Observador de Rede**, selecione essa opção.
 10. Defina **Retenção (dias)** como 5 e, em seguida, selecione **Salvar**.
 

@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 03/09/2020
 ms.topic: article
-ms.openlocfilehash: e3acfc15b0c12822e48009bef4aabadac701fb2d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 300e0ff26d643ae0263d21e604cb26da37a18841
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80680070"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97723818"
 ---
 # <a name="the-arrinspector-inspection-tool"></a>A ferramenta de inspeção ArrInspector
 
@@ -29,7 +29,7 @@ Se o aplicativo que chama o `ConnectToArrInspectorAsync` já estiver em execuç�
 
 Se o aplicativo estiver em execução em um HoloLens:
 
-1. Acesse o HoloLens usando o [portal de dispositivo do Windows](https://docs.microsoft.com/windows/mixed-reality/using-the-windows-device-portal).
+1. Acesse o HoloLens usando o [portal de dispositivo do Windows](/windows/mixed-reality/using-the-windows-device-portal).
 1. Vá para *sistema > explorador de arquivos*.
 1. Navegue até *pastas de usuário \\ LocalAppData \\ [your_app] \\ AC \\ Temp*.
 1. Salve *StartArrInspector.html* em seu PC.
@@ -108,17 +108,3 @@ No canto superior direito, uma opção permite que você Pause a atualização d
 ![Modo de pausa](./media/pause-mode.png)
 
 Ao habilitar novamente o Live Update, todos os painéis são redefinidos.
-
-## <a name="host-configuration"></a>Configuração do host
-
-Por padrão, a ferramenta se conecta ao servidor ARR que está em execução no mesmo host que atende ao ArrInspector. No entanto, você pode configurá-lo para inspecionar outro servidor, supondo que esteja executando uma instância ARR com a porta de ferramentas aberta.
-
-Para fazer isso, acesse o menu principal à esquerda da barra de cabeçalho e selecione *configuração do host*. Clique em **Adicionar novo host**e digite o nome e o hostname. Para o *nome de host* , use apenas o nome de host que termina em `.mixedreality.azure.com` , não inclua `http://` ou uma porta.
-
-![Configuração do host](./media/host-configuration.png)
-
-Para alternar rapidamente de um host para outro, use a lista suspensa no canto superior direito.
-
-![Combinação de hosts](./media/host-switch-combo.png)
-
-A lista de hosts é armazenada no armazenamento local do navegador, portanto, será preservada ao reabrir o mesmo navegador.

@@ -1,22 +1,22 @@
 ---
 title: Escolher colunas de distribuição – Citus (hiperescala)-banco de dados do Azure para PostgreSQL
-description: Saiba como escolher colunas de distribuição em cenários comuns de hiperescala no banco de dados do Azure para PostgreSQL.
+description: Saiba como escolher colunas de distribuição em cenários comuns no banco de dados do Azure para PostgreSQL-Citus (hiperescala).
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 8ced9767d81affceef851820ee587f4f3dd24deb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 129eff8c954c0c5469d3607e6ae16ce3202630ed
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74975662"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91929329"
 ---
 # <a name="choose-distribution-columns-in-azure-database-for-postgresql--hyperscale-citus"></a>Escolher colunas de distribuição no banco de dados do Azure para PostgreSQL – Citus (hiperescala)
 
-Escolher a coluna de distribuição de cada tabela é uma das decisões de modelagem mais importantes que você fará. Banco de dados do Azure para PostgreSQL – hiperescala (Citus) armazena linhas em fragmentos com base no valor da coluna de distribuição de linhas.
+Escolher a coluna de distribuição de cada tabela é uma das decisões de modelagem mais importantes que você tomará. Banco de dados do Azure para PostgreSQL – hiperescala (Citus) armazena linhas em fragmentos com base no valor da coluna de distribuição de linhas.
 
 A opção correta agrupa os dados relacionados nos mesmos nós físicos, o que torna as consultas rápidas e adiciona suporte a todos os recursos do SQL. Uma opção incorreta faz com que o sistema seja executado lentamente e não dará suporte a todos os recursos do SQL entre nós.
 
@@ -71,8 +71,6 @@ O erro mais comum em modelar informações de série temporal em Citus (hiperesc
 
 -   **Não escolha um carimbo de data/hora como a coluna de distribuição.** Escolha uma coluna de distribuição diferente. Em um aplicativo multilocatário, use a ID do locatário ou em um aplicativo em tempo real, use a ID da entidade.
 -   **Em vez disso, use o particionamento de tabela do PostgreSQL para o tempo.** Use o particionamento de tabela para dividir uma grande tabela de dados ordenados por tempo em várias tabelas herdadas com cada tabela que contém intervalos de tempo diferentes. A distribuição de uma tabela postgres em hiperescala (Citus) cria fragmentos para as tabelas herdadas.
-
-Leia o [tutorial de série temporal](https://aka.ms/hyperscale-tutorial-timeseries) para obter um exemplo de como criar esse tipo de aplicativo.
 
 ## <a name="next-steps"></a>Próximas etapas
 - Saiba como a [colocalização](concepts-hyperscale-colocation.md) entre os dados distribuídos ajuda as consultas a serem executadas rapidamente.

@@ -1,21 +1,22 @@
 ---
 title: Extensão Linux de janelas de VM instantânea para Azure Backup
-description: Fazer backup consistente de aplicativo da máquina virtual para o Azure Backup usando a extensão de VM instantânea
+description: Faça backup consistente com o aplicativo da máquina virtual do backup do Azure usando a extensão do Linux de instantâneo de VM.
 services: backup, virtual-machines-linux
 documentationcenter: ''
 author: trinadhkotturu
 manager: gwallace
 ms.service: virtual-machines-linux
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.date: 12/17/2018
 ms.author: trinadhk
-ms.openlocfilehash: d0ad54c19749d670f9ab753e1e6d8eb130475ffc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2bf653bb42351c9ab4811fde695c8f821fd42d7c
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79415088"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966761"
 ---
 # <a name="vm-snapshot-linux-extension-for-azure-backup"></a>Extensão Linux de janelas de VM instantânea para Azure Backup
 

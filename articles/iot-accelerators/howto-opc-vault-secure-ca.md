@@ -8,14 +8,17 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 88f8188779c5fb6b3cd07c67e9f35a6b8f9ad97d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f54467c03a67797d52ac499ca9ba455c0f75e240
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84687065"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92071448"
 ---
 # <a name="run-the-opc-vault-certificate-management-service-securely"></a>Execute o serviço de gerenciamento de certificados do cofre OPC com segurança
+
+> [!IMPORTANT]
+> Enquanto atualizamos este artigo, confira [IoT Industrial do Azure](https://azure.github.io/Industrial-IoT/) para obter o conteúdo mais atualizado.
 
 Este artigo explica como executar o serviço de gerenciamento de certificados do cofre do OPC com segurança no Azure e revisa outras diretrizes de segurança a serem consideradas.
 
@@ -91,10 +94,10 @@ Todos os sistemas devem ser continuamente monitorados e atualizados com as últi
 
 ### <a name="security-monitoring"></a>Monitoramento de segurança
 
-Assine ou implemente o monitoramento de segurança apropriado. Por exemplo, assine uma solução de monitoramento central (como a central de segurança do Azure ou a solução de monitoramento do Office 365) e configure-a adequadamente para garantir que os eventos de segurança sejam transmitidos para a solução de monitoramento.
+Assine ou implemente o monitoramento de segurança apropriado. Por exemplo, assine uma solução de monitoramento central (como a central de segurança do Azure ou a solução de monitoramento de Microsoft 365) e configure-a adequadamente para garantir que os eventos de segurança sejam transmitidos para a solução de monitoramento.
 
 > [!IMPORTANT]
-> Por padrão, o serviço de cofre do OPC é implantado com o [aplicativo Azure insights](https://docs.microsoft.com/azure/azure-monitor/app/devops) como uma solução de monitoramento. É altamente recomendável adicionar uma solução de segurança como a [central de segurança do Azure](https://azure.microsoft.com/services/security-center/) .
+> Por padrão, o serviço de cofre do OPC é implantado com o [aplicativo Azure insights](../azure-monitor/app/devops.md) como uma solução de monitoramento. É altamente recomendável adicionar uma solução de segurança como a [central de segurança do Azure](https://azure.microsoft.com/services/security-center/) .
 
 ### <a name="assess-the-security-of-open-source-software-components"></a>Avaliar a segurança de componentes de software livre
 
@@ -142,7 +145,7 @@ Forneça um conjunto completo de todos os certificados emitidos nos últimos 12 
 
 ### <a name="document-the-standard-operating-procedure-for-securely-deleting-cryptographic-keys"></a>Documentar o procedimento operacional padrão para excluir com segurança as chaves de criptografia
 
-Durante o tempo de vida de uma autoridade de certificação, a exclusão de chave pode ocorrer raramente. É por isso que nenhum usuário tem Key Vault direito de exclusão de certificado atribuído e por que não há APIs expostas para excluir um certificado de autoridade de certificação do emissor. O procedimento operacional padrão manual para excluir com segurança as chaves de criptografia da autoridade de certificação só está disponível acessando Key Vault diretamente no portal do Azure. Você também pode excluir o grupo de certificados em Key Vault. Para garantir a exclusão imediata, desabilite a funcionalidade de [exclusão reversível Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete) .
+Durante o tempo de vida de uma autoridade de certificação, a exclusão de chave pode ocorrer raramente. É por isso que nenhum usuário tem Key Vault direito de exclusão de certificado atribuído e por que não há APIs expostas para excluir um certificado de autoridade de certificação do emissor. O procedimento operacional padrão manual para excluir com segurança as chaves de criptografia da autoridade de certificação só está disponível acessando Key Vault diretamente no portal do Azure. Você também pode excluir o grupo de certificados em Key Vault. Para garantir a exclusão imediata, desabilite a funcionalidade de [exclusão reversível Key Vault](../key-vault/general/soft-delete-overview.md) .
 
 ## <a name="certificates"></a>Certificados
 

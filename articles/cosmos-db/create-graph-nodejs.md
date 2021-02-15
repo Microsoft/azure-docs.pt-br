@@ -1,22 +1,23 @@
 ---
 title: Criar um aplicativo Node.js do Azure Cosmos DB usando a API do Gremlin
 description: Apresenta um exemplo de código Node.js que pode ser usado para se conectar ao BD Cosmos do Azure e consultá-lo
-author: luisbosquez
+author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 06/05/2019
-ms.author: lbosq
-ms.custom: devx-track-javascript
-ms.openlocfilehash: f1e619468ecbcd533c8cda725cb316d1e2a0e256
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.author: chrande
+ms.custom: devx-track-js
+ms.openlocfilehash: 0b88456bd245f79c38d7829dca76de702f768c06
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420423"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360132"
 ---
 # <a name="quickstart-build-a-nodejs-application-by-using-azure-cosmos-db-gremlin-api-account"></a>Início Rápido: Criar um aplicativo Node.js usando a conta de API do Gremlin do Azure Cosmos DB
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 > [!div class="op_single_selector"]
 > * [Console do Gremlin](create-graph-gremlin-console.md)
@@ -95,7 +96,7 @@ Este aplicativo de console usa o driver [Gremlin Node.js](https://www.npmjs.com/
 
     ```
 
-  Todas as configurações estão em *config.js*, que podemos editar na [seção a seguir](#update-your-connection-string).
+  Todas as configurações estão em *config.js* , que podemos editar na [seção a seguir](#update-your-connection-string).
 
 * Uma série de funções são definidas para executar operações de Gremlin diferentes. Este é um deles:
 
@@ -151,13 +152,13 @@ Este aplicativo de console usa o driver [Gremlin Node.js](https://www.npmjs.com/
 
 1. Abra o arquivo *config.js*. 
 
-2. Em *config.js*, preencha a chave `config.endpoint` com o valor do **Ponto de Extremidade do Gremlin** da página **Visão geral** da sua conta do Cosmos DB no portal do Azure. 
+2. Em *config.js* , preencha a chave `config.endpoint` com o valor do **Ponto de Extremidade do Gremlin** da página **Visão geral** da sua conta do Cosmos DB no portal do Azure. 
 
     `config.endpoint = "https://<your_Gremlin_account_name>.gremlin.cosmosdb.azure.com:443/";`
 
     :::image type="content" source="./media/create-graph-nodejs/gremlin-uri.png" alt-text="Exibir e copiar uma chave de acesso no portal do Azure, página Visão geral":::
 
-3. Em *config.js*, preencha o valor config.primaryKey com o valor da **Chave Primária** da página **Chaves** da sua conta do Cosmos DB no portal do Azure. 
+3. Em *config.js* , preencha o valor config.primaryKey com o valor da **Chave Primária** da página **Chaves** da sua conta do Cosmos DB no portal do Azure. 
 
     `config.primaryKey = "PRIMARYKEY";`
 

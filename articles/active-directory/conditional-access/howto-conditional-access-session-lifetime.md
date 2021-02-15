@@ -5,20 +5,20 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 06/29/2020
+ms.date: 10/23/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28516482cf154c81912de0f8e3f35b9e54ef2f69
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 205136437fa1a2a33b3b337f5cc9f2dde283faef
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88948259"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99491933"
 ---
-# <a name="configure-authentication-session-management-with-conditional-access"></a>Configurar o gerenciamento da sessão de autenticação com Acesso Condicional
+# <a name="configure-authentication-session-management-with-conditional-access"></a>Configurar o gerenciamento de sessão de autenticação com acesso condicional
 
 Em implantações complexas, as organizações podem ter a necessidade de restringir as sessões de autenticação. Alguns cenários podem incluir:
 
@@ -37,14 +37,14 @@ A frequência de entrada define o período de tempo antes que um usuário seja s
 
 A configuração padrão do Azure Active Directory (Azure AD) para a frequência de entrada do usuário é uma janela sem interrupção de 90 dias. Solicitar aos usuários que as credenciais geralmente pareça uma coisa sensata a ser feita, mas pode ser revelado: os usuários treinados para inserir suas credenciais sem pensar podem fornecê-las involuntariamente a um prompt de credencial mal-intencionado.
 
-Pode parecer que o alarme não pede que um usuário entre novamente, na realidade, qualquer violação das políticas de ti revogará a sessão. Alguns exemplos incluem (mas não estão limitados a) uma alteração de senha, um dispositivo incompatível ou uma conta desabilitada. Você também pode [revogar explicitamente as sessões de usuários usando o PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0). A configuração padrão do Azure AD é "não pedir que os usuários forneçam suas credenciais se a postura de segurança de suas sessões não tiver mudado".
+Pode parecer que o alarme não pede que um usuário entre novamente, na realidade, qualquer violação das políticas de ti revogará a sessão. Alguns exemplos incluem (mas não estão limitados a) uma alteração de senha, um dispositivo incompatível ou uma conta desabilitada. Você também pode [revogar explicitamente as sessões de usuários usando o PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0&preserve-view=true). A configuração padrão do Azure AD é "não pedir que os usuários forneçam suas credenciais se a postura de segurança de suas sessões não tiver mudado".
 
 A configuração frequência de entrada funciona com aplicativos que implementaram protocolos OAUTH2 ou OIDC de acordo com os padrões. A maioria dos aplicativos nativos da Microsoft para Windows, Mac e Mobile, incluindo os seguintes aplicativos Web, estão em conformidade com a configuração.
 
 - Word, Excel, PowerPoint online
 - OneNote online
 - Office.com
-- Portal de administração do O365
+- Portal de administração do Microsoft 365
 - Exchange Online
 - SharePoint e OneDrive
 - Cliente Web de equipes
@@ -80,7 +80,7 @@ Exemplo 2:
 
 Uma sessão persistente do navegador permite que os usuários permaneçam conectados após fechar e reabrir a janela do navegador.
 
-O padrão do Azure AD para persistência de sessão de navegador permite que os usuários em dispositivos pessoais escolham se deseja manter a sessão mostrando uma "permanecer conectado?" avisar após a autenticação bem-sucedida. Se a persistência do navegador estiver configurada no AD FS usando as diretrizes no artigo [AD FS configurações de logon único](/windows-server/identity/ad-fs/operations/ad-fs-single-sign-on-settings#enable-psso-for-office-365-users-to-access-sharepoint-online
+O padrão do Azure AD para persistência de sessão de navegador permite que os usuários em dispositivos pessoais escolham se deseja manter a sessão mostrando uma "permanecer conectado?" avisar após a autenticação bem-sucedida. Se a persistência do navegador estiver configurada no AD FS usando as diretrizes no artigo [AD FS configurações de Sign-On único](/windows-server/identity/ad-fs/operations/ad-fs-single-sign-on-settings#enable-psso-for-office-365-users-to-access-sharepoint-online
 ), vamos obedecer a essa política e persistir a sessão do Azure ad também. Você também pode configurar se os usuários em seu locatário veem o "permanecer conectado?" Solicite a alteração da configuração apropriada no painel de identidade visual da empresa em portal do Azure usando as diretrizes no artigo [personalizar sua página de entrada do Azure ad](../fundamentals/customize-branding.md).
 
 ## <a name="configuring-authentication-session-controls"></a>Configurando controles de sessão de autenticação
@@ -88,7 +88,9 @@ O padrão do Azure AD para persistência de sessão de navegador permite que os 
 O acesso condicional é um recurso Azure AD Premium e requer uma licença Premium. Se você quiser saber mais sobre o acesso condicional, consulte [o que é o acesso condicional no Azure Active Directory?](overview.md#license-requirements)
 
 > [!WARNING]
-> Se você estiver usando o recurso de [tempo de vida de token configurável](../develop/active-directory-configurable-token-lifetimes.md) atualmente em visualização pública, observe que não há suporte para a criação de duas políticas diferentes para a mesma combinação de usuário ou aplicativo: uma com esse recurso e outra com o recurso de tempo de vida de token configurável. A Microsoft planeja desativar o recurso de tempo de vida de token configurável em 1º de maio de 2020 e substituí-lo pelo recurso de gerenciamento de sessão de autenticação de acesso condicional.  
+> Se você estiver usando o recurso de [tempo de vida de token configurável](../develop/active-directory-configurable-token-lifetimes.md) atualmente em visualização pública, observe que não há suporte para a criação de duas políticas diferentes para a mesma combinação de usuário ou aplicativo: uma com esse recurso e outra com o recurso de tempo de vida de token configurável. A Microsoft desativou o recurso de tempo de vida de token configurável para atualização e tempos de vida de token de sessão em 30 de janeiro de 2021 e substituído pelo recurso de gerenciamento de sessão de autenticação de acesso condicional.  
+>
+> Antes de habilitar a frequência de entrada, verifique se outras configurações de reautenticação estão desabilitadas em seu locatário. Se "lembrar MFA em dispositivos confiáveis" estiver habilitado, certifique-se de desabilitá-lo antes de usar a frequência de entrada, pois usar essas duas configurações em conjunto pode levar à solicitação de usuários inesperadamente. Para saber mais sobre prompts de reautenticação e tempo de vida da sessão, consulte o artigo [otimizar prompts de reautenticação e entender o tempo de vida da sessão para a autenticação multifator do Azure ad](../authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime.md).
 
 ### <a name="policy-1-sign-in-frequency-control"></a>Política 1: controle de frequência de entrada
 
@@ -98,7 +100,7 @@ O acesso condicional é um recurso Azure AD Premium e requer uma licença Premiu
    > [!NOTE]
    > É recomendável definir a frequência de prompt de autenticação igual para aplicativos de Microsoft Office de chave, como o Exchange Online e o SharePoint Online para melhor experiência do usuário.
 
-1. Acesse a sessão de **controles**  >  **Session** de acesso e clique em **frequência de entrada**
+1. Acesse a sessão de **controles**  >   de acesso e clique em **frequência de entrada**
 1. Insira o valor necessário de dias e horas na primeira caixa de texto
 1. Selecione um valor de **horas** ou **dias** no menu suspenso
 1. Salvar sua política
@@ -115,7 +117,7 @@ No Azure AD, os dispositivos registrados do Windows entram no dispositivo é con
    > [!NOTE]
    > Observe que esse controle exige que você escolha "todos os aplicativos de nuvem" como uma condição. A persistência da sessão do navegador é controlada pelo token da sessão de autenticação. Todas as guias em uma sessão de navegador compartilham um único token de sessão e, portanto, todos precisam compartilhar o estado de persistência.
 
-1. Acesse a sessão de **controles de acesso**  >  **Session** e clique em **sessão de navegador persistente**
+1. Acesse a sessão de **controles de acesso**  >   e clique em **sessão de navegador persistente**
 1. Selecione um valor na lista suspensa
 1. Salvar política
 
@@ -132,9 +134,8 @@ Use a ferramenta What-If para simular um logon do usuário para o aplicativo de 
 
 ## <a name="policy-deployment"></a>Implantação de política
 
-Para garantir que sua política funcione conforme o esperado, a melhor prática é testá-la antes de distribuí-la em produção. O ideal é usar um locatário de teste para verificar se a nova política funciona conforme o esperado. Para obter mais informações, consulte o artigo [práticas recomendadas para acesso condicional no Azure Active Directory](best-practices.md).
+Para garantir que sua política funcione conforme o esperado, a melhor prática é testá-la antes de distribuí-la em produção. O ideal é usar um locatário de teste para verificar se a nova política funciona conforme o esperado. Para obter mais informações, consulte o artigo [planejar uma implantação de acesso condicional](plan-conditional-access.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Se você quiser saber como configurar uma política de acesso condicional, consulte o artigo [exigir MFA para aplicativos específicos com Azure Active Directory acesso condicional](../authentication/tutorial-enable-azure-mfa.md).
-* Se você estiver pronto para configurar políticas de acesso condicional para seu ambiente, consulte o artigo [práticas recomendadas para acesso condicional no Azure Active Directory](best-practices.md).
+* Se você estiver pronto para configurar políticas de acesso condicional para seu ambiente, consulte o artigo [planejar uma implantação de acesso condicional](plan-conditional-access.md).

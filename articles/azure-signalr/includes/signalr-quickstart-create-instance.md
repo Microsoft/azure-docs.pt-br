@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 09/14/2018
 ms.author: antchu
 ms.custom: include file
-ms.openlocfilehash: 0a228f6d8b4f72acd3783f27bf192fe6bd13f988
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: f738daab7ddcf0403f546e7c9ffeaeccb66bc6b7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75392135"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91355629"
 ---
 ## <a name="create-an-azure-signalr-service-instance"></a>Criar uma instância do Serviço Azure SignalR
 
@@ -20,7 +20,7 @@ Seu aplicativo vai se conectar a uma instância do Serviço SignalR no Azure.
 
 1. Selecione no botão Novo localizado no canto superior esquerdo do portal do Azure. Na tela Novo, digite *Serviço SignalR* na caixa de pesquisa e pressione Enter.
 
-    ![Procurar o Serviço SignalR](../media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-new.png)
+    ![A captura de tela mostra a pesquisa do Serviço do SignalR no portal do Azure.](../media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-new.png)
 
 1. Selecione **Serviço SignalR** nos resultados da pesquisa e, em seguida, selecione **Criar**.
 
@@ -36,7 +36,7 @@ Seu aplicativo vai se conectar a uma instância do Serviço SignalR no Azure.
     | **Contagem de unidades** |  Não aplicável | A contagem de unidade especifica quantas conexões sua instância do Serviço SignalR pode aceitar. Só é configurável na camada Standard. |
     | **Modo de serviço** |  Sem servidor | Para uso com o Azure Functions ou a API REST. |
 
-    ![Criar Serviço SignalR](../media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-create.png)
+    ![A captura de tela mostra a guia Noções Básicas do SignalR com valores.](../media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-create.png)
 
 1. Selecione **Criar** para começar a implantar a instância do Serviço SignalR.
 

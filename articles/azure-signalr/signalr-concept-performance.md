@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zhshang
 ms.openlocfilehash: 68cad32be177fa20794399157fca89e87c2f8f59
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74157675"
 ---
 # <a name="performance-guide-for-azure-signalr-service"></a>Guia de desempenho para Serviço do Azure SignalR
@@ -70,7 +70,7 @@ Teoricamente, a capacidade do serviço do Signalr do Azure é limitada por recur
 
 O tipo de transporte é outro fator que afeta o desempenho. Os três tipos são [WebSocket](https://en.wikipedia.org/wiki/WebSocket), [servidor-enviado-evento](https://en.wikipedia.org/wiki/Server-sent_events)e [sondagem longa](https://en.wikipedia.org/wiki/Push_technology). 
 
-WebSocket é um protocolo de comunicação bidirecional e Full-duplex em uma única conexão TCP. O servidor enviado-evento é um protocolo unidirecional para enviar mensagens do servidor para o cliente. A sondagem longa exige que os clientes monitorem periodicamente as informações do servidor por meio de uma solicitação HTTP. Para a mesma API sob as mesmas condições, o WebSocket tem o melhor desempenho, o servidor-enviado-evento é mais lento e a sondagem longa é a mais lenta. O serviço de sinalizador do Azure recomenda WebSocket por padrão.
+WebSocket é um protocolo de comunicação bidirecional e Full-duplex em uma única conexão TCP. O servidor enviado-evento é um protocolo unidirecional para enviar mensagens do servidor para o cliente. Long-Polling exige que os clientes monitorem periodicamente as informações do servidor por meio de uma solicitação HTTP. Para a mesma API sob as mesmas condições, o WebSocket tem o melhor desempenho, o servidor-enviado-evento é mais lento e Long-Polling é o mais lento. O serviço de sinalizador do Azure recomenda WebSocket por padrão.
 
 O custo de roteamento de mensagens também limita o desempenho. O serviço de sinalizador do Azure desempenha uma função como um roteador de mensagem, que roteia a mensagem de um conjunto de clientes ou servidores para outros clientes ou servidores. Um cenário ou API diferente requer uma política de roteamento diferente. 
 
@@ -292,7 +292,7 @@ O custo de roteamento é significativo para enviar mensagens a muitos pequenos g
 | Contagem de grupos               | 100   | 200   | 500    | 1,000  | 2\.000  | 5\.000  | 10.000 
 | Mensagens de entrada por segundo  | 200   | 400   | 1,000  | 2\.500  | 4.000  | 7.000  | 7.000   |
 | Largura de banda de entrada  | 400 KBps  | 800 KBps  | 2 Mbps     | 5 Mbps     | 8 Mbps     | 14 MBps    | 14 MBps     |
-| Mensagens de saída por segundo | 2\.000 | 4.000 | 10.000 | 25.000 | 40.000 | 70.000 | 70.000  |
+| Mensagens de saída por segundo | 2\.000 | 4.000 | 10.000 | 25,000 | 40.000 | 70.000 | 70.000  |
 | Largura de banda de saída | 4 Mbps    | 8 Mbps    | 20 MBps    | 50 MBps     | 80 MBps    | 140 MBps   | 140 MBps    |
 
 Muitas conexões de cliente estão chamando o Hub, portanto, o número do servidor de aplicativos também é crítico para o desempenho. A tabela a seguir lista as contagens sugeridas do servidor de aplicativos.

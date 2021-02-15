@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: pafarley
-ms.openlocfilehash: 15e39eb9f5b8dd3556ea9ff8240bc2c9d252cd31
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 68d1e9744d937cf80327c3f41cc69f4af97d3400
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73743062"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98600177"
 ---
 # <a name="face-detection-and-attributes"></a>Detecção de face e atributos
 
@@ -47,7 +47,7 @@ Os atributos são um conjunto de recursos que, opcionalmente, podem ser detectad
 * **Sexo**. O gênero estimado da face fornecida. Os valores possíveis são masculino, feminino e sexo.
 * **Óculos**. Se a face fornecida tem óculos. Os valores possíveis são novidros, ReadingGlasses, óculos e Goggles de nada.
 * **Cabelo**. O tipo de cabelo da face. Esse atributo mostra se o cabelo está visível, se baldness é detectado e quais cores de cabelo são detectadas.
-* **Pose de cabeçalho**. A orientação da face no espaço 3D. Esse atributo é descrito pelos ângulos de inclinação, roll e guinada em graus. Os intervalos de valores são de-90 graus a 90 graus,-180 graus a 180 graus e-90 graus para 90 graus, respectivamente. Consulte o diagrama a seguir para obter os mapeamentos de ângulo:
+* **Pose de cabeçalho**. A orientação da face no espaço 3D. Esse atributo é descrito pelos ângulos de inclinação, roll e guinada em graus. Os intervalos de valores são de-90 graus a 90 graus,-90 graus a 90 graus e-90 graus para 90 graus, respectivamente. Consulte o diagrama a seguir para obter os mapeamentos de ângulo:
 
     ![Uma cabeça com os eixos de pitch, rolo e guinada rotulados](../Images/headpose.1.jpg)
 * **Composição**. Se a face tem composição. Esse atributo retorna um valor booliano para eyeMakeup e lipMakeup.
@@ -63,8 +63,10 @@ Os atributos são um conjunto de recursos que, opcionalmente, podem ser detectad
 Use as seguintes dicas para garantir que suas imagens de entrada forneçam os resultados de detecção mais precisos:
 
 * Os formatos de imagem de entrada com suporte são JPEG, PNG, GIF para o primeiro quadro e BMP.
-* O tamanho do arquivo de imagem não deve ser maior que 4 MB.
-* O intervalo de tamanhos de face detectáveis é de 36 x 36 a 4096 x 4096 pixels. As faces fora desse intervalo não serão detectadas.
+* O tamanho do arquivo de imagem não deve ser maior que 6 MB.
+* O tamanho mínimo de face detectável é 36 x 36 pixels em uma imagem que não é maior que 1920 x 1080 pixels. Imagens com mais de 1920 x 1080 pixels têm um tamanho de face mínimo proporcionalmente maior. Reduzir o tamanho da face pode fazer com que algumas faces não sejam detectadas, mesmo se forem maiores do que o tamanho de face mínimo detectável.
+* O tamanho máximo de face detectável é de 4096 x 4096 pixels.
+* As faces fora do intervalo de tamanho de 36 x 36 a 4096 x 4096 pixels não serão detectadas.
 * Algumas faces podem não ser detectadas devido a desafios técnicos. Ângulos de face radicais (pose de cabeça) ou oclusão facial (objetos como óculos ou hands que bloqueiam parte da face) podem afetar a detecção. Os rostos frontais e Near-frontais fornecem os melhores resultados.
 
 Se você estiver detectando rostos de um feed de vídeo, poderá melhorar o desempenho ajustando certas configurações em sua câmera de vídeo:

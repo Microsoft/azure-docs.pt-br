@@ -1,20 +1,20 @@
 ---
 title: Criar uma floresta de recursos de Azure AD Domain Services usando Azure PowerShell | Microsoft Docs
 description: Neste artigo, saiba como criar e configurar uma floresta de recursos Azure Active Directory Domain Services e uma floresta de saída para um ambiente de Active Directory Domain Services local usando o Azure PowerShell.
-author: iainfoulds
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/27/2020
-ms.author: iainfou
-ms.openlocfilehash: 893085179c27ce88c3e310170715e2f83a59ddc7
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.author: justinha
+ms.openlocfilehash: ebfc2476b7955b926f86094de03973155386eb8f
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88723156"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96619960"
 ---
 # <a name="create-an-azure-active-directory-domain-services-resource-forest-and-outbound-forest-trust-to-an-on-premises-domain-using-azure-powershell"></a>Criar uma floresta de recursos de Azure Active Directory Domain Services e uma relação de confiança de floresta de saída para um domínio local usando Azure PowerShell
 
@@ -74,12 +74,12 @@ Antes de começar, certifique-se de entender as [considerações de rede, a nome
 
 O AD DS do Azure exige que uma entidade de serviço sincronize dados do Azure AD. Essa entidade de segurança deve ser criada em seu locatário do Azure AD antes de você criar a floresta de recursos de domínio gerenciado.
 
-Crie uma entidade de serviço do Azure AD para o Azure AD DS para se comunicar e se autenticar. É usada uma ID de aplicativo específica denominada *Serviços de Controlador de Domínio* com uma ID de *2565bd9d-da50-47d4-8b85-4c97f669dc36*. Não altere essa ID de aplicativo.
+Crie uma entidade de serviço do Azure AD para o Azure AD DS para se comunicar e se autenticar. É usada uma ID de aplicativo específica denominada *Serviços de Controlador de Domínio* com uma ID de *6ba9a5d4-8456-4118-b521-9c5ca10cdf84*. Não altere essa ID de aplicativo.
 
 Crie uma entidade de serviço do Azure AD usando o cmdlet [New-AzureADServicePrincipal][New-AzureADServicePrincipal]:
 
 ```powershell
-New-AzureADServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
+New-AzureADServicePrincipal -AppId "6ba9a5d4-8456-4118-b521-9c5ca10cdf84"
 ```
 
 ## <a name="create-a-managed-domain-resource-forest"></a>Criar uma floresta de recursos de domínio gerenciado
@@ -106,7 +106,7 @@ Para criar uma floresta de recursos de domínio gerenciado, use o `New-AzureAadd
     |:-----------------------------|---------------------------|:------------|
     | Subscription                 | *-azureSubscriptionId*    | ID da assinatura usada para a cobrança do AD DS do Azure. Você pode obter a lista de assinaturas usando o cmdlet [Get-AzureRMSubscription][Get-AzureRMSubscription] . |
     | Grupo de recursos               | *-aaddsResourceGroupName* | Nome do grupo de recursos para o domínio gerenciado e recursos associados. |
-    | Local                     | *-aaddsLocation*          | A região do Azure para hospedar seu domínio gerenciado. Para as regiões disponíveis, consulte [regiões com suporte para o AD DS do Azure.](https://azure.microsoft.com/global-infrastructure/services/?products=active-directory-ds&regions=all) |
+    | Location                     | *-aaddsLocation*          | A região do Azure para hospedar seu domínio gerenciado. Para as regiões disponíveis, consulte [regiões com suporte para o AD DS do Azure.](https://azure.microsoft.com/global-infrastructure/services/?products=active-directory-ds&regions=all) |
     | Administrador de AD DS do Azure    | *-aaddsAdminUser*         | O nome principal do usuário do primeiro administrador de domínio gerenciado. Essa conta deve ser uma conta de usuário de nuvem existente no seu Azure Active Directory. O usuário e o usuário que executa o script são adicionados ao grupo de *Administradores de DC do AAD* . |
     | Nome de domínio do AD DS do Azure      | *-aaddsDomainName*        | O FQDN do domínio gerenciado, com base nas diretrizes anteriores sobre como escolher um nome de floresta. |
 
@@ -222,7 +222,7 @@ Para resolver corretamente o domínio gerenciado do ambiente local, talvez seja 
 
 1. Selecione **Iniciar | Ferramentas Administrativas | DNS**
 1. Selecione com o botão direito do mouse o servidor DNS, como *myAD01* e selecione **Propriedades**
-1. Escolha **Encaminhadores**e **Editar** para adicionar encaminhadores adicionais.
+1. Escolha **Encaminhadores** e **Editar** para adicionar encaminhadores adicionais.
 1. Adicione os endereços IP do domínio gerenciado, como *10.0.1.4* e *10.0.1.5*.
 1. Em um prompt de comando local, valide a resolução de nomes usando o **nslookup** do nome de domínio da floresta do recurso de domínio gerenciado. Por exemplo, `Nslookup aaddscontoso.com` deve retornar os dois endereços IP para a floresta de recursos de domínio gerenciado.
 
@@ -390,7 +390,7 @@ Para remover a relação de confiança de entrada unidirecional da floresta AD D
 1. Selecione **Iniciar | Ferramentas Administrativas | Domínios e Relações de Confiança do Active Directory**
 1. Selecione com o botão direito do mouse o domínio, como *onprem.contoso.com*, e selecione **Propriedades**
 1. Escolha a guia **relações de confiança** e, em seguida, selecione a relação de confiança de entrada existente da floresta de domínio gerenciado.
-1. Selecione **remover**e confirme que deseja remover a relação de confiança de entrada.
+1. Selecione **remover** e confirme que deseja remover a relação de confiança de entrada.
 
 ## <a name="next-steps"></a>Próximas etapas
 

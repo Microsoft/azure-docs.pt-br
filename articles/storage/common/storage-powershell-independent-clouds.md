@@ -9,12 +9,13 @@ ms.topic: how-to
 ms.date: 12/04/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 2ccacef6f9557bdcf683973c2ad5141b6066347b
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: e924a5f6c765b5b964fe3b1492393b063d9d23b4
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87904302"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92783565"
 ---
 # <a name="managing-storage-in-the-azure-independent-clouds-using-powershell"></a>Gerenciamento do Armazenamento nas nuvens independentes do Azure usando o PowerShell
 
@@ -50,7 +51,7 @@ Entre em sua conta que tem acesso à nuvem com a qual você deseja se conectar e
 Connect-AzAccount –Environment AzureUSGovernment
 ```
 
-Para acessar a Nuvem da China, use o ambiente **AzureChinaCloud**. Para acessar a Nuvem alemã, use **AzureGermanCloud**.
+Para acessar a Nuvem da China, use o ambiente **AzureChinaCloud** . Para acessar a Nuvem alemã, use **AzureGermanCloud** .
 
 Neste ponto, se precisar da lista de locais para criar uma conta de armazenamento ou outro recurso, você poderá consultar os locais disponíveis para a nuvem selecionada usando [Get-AzLocation](/powershell/module/az.resources/get-azlocation).
 
@@ -60,7 +61,7 @@ Get-AzLocation | select Location, DisplayName
 
 A tabela a seguir mostra os locais retornados para a Nuvem alemã.
 
-|Localização | Nome de exibição |
+|Location | Nome de exibição |
 |----|----|
 | `germanycentral` | Alemanha Central|
 | `germanynortheast` | Nordeste da Alemanha |
@@ -68,7 +69,7 @@ A tabela a seguir mostra os locais retornados para a Nuvem alemã.
 
 ## <a name="endpoint-suffix"></a>Sufixo de ponto de extremidade
 
-O sufixo de ponto de extremidade para cada um desses ambientes é diferente do ponto de extremidade da nuvem pública do Azure. Por exemplo, o sufixo de ponto de extremidade do blob da nuvem pública do Azure é **blob.core.windows.net**. Para a nuvem do governo, o sufixo de ponto de extremidade do blob é **blob.core.usgovcloudapi.net**.
+O sufixo de ponto de extremidade para cada um desses ambientes é diferente do ponto de extremidade da nuvem pública do Azure. Por exemplo, o sufixo de ponto de extremidade do blob da nuvem pública do Azure é **blob.core.windows.net** . Para a nuvem do governo, o sufixo de ponto de extremidade do blob é **blob.core.usgovcloudapi.net** .
 
 ### <a name="get-endpoint-using-get-azenvironment"></a>Obter o ponto de extremidade usando Get-AzEnvironment
 
@@ -84,7 +85,7 @@ Get-AzEnvironment | select Name, StorageEndpointSuffix
 
 Esse comando retorna os seguintes resultados.
 
-| Nome| StorageEndpointSuffix|
+| Name| StorageEndpointSuffix|
 |----|----|
 | AzureChinaCloud | core.chinacloudapi.cn|
 | AzureCloud | core.windows.net |
@@ -155,7 +156,7 @@ table endpoint = http://myexistingstorageaccount.table.core.usgovcloudapi.net/
 
 Agora você pode usar o PowerShell para gerenciar suas contas de armazenamento e acessar dados de BLOB, fila, arquivo e tabela. Para obter mais informações, consulte [AZ. Storage](/powershell/module/az.storage).
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se você criou um novo grupo de recursos e uma conta de armazenamento para este exercício, você pode remover ambos os ativos excluindo o grupo de recursos. A exclusão do grupo de recursos exclui todos os recursos contidos nele.
 
@@ -166,7 +167,7 @@ Remove-AzResourceGroup -Name $resourceGroup
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Persistência de logons de usuário nas sessões do PowerShell](/powershell/azure/context-persistence)
-* [Armazenamento do Azure governamental](../../azure-government/documentation-government-services-storage.md)
+* [Armazenamento do Azure governamental](../../azure-government/compare-azure-government-global-azure.md)
 * [Guia do Desenvolvedor do Microsoft Azure Government](../../azure-government/documentation-government-developer-guide.md)
 * [Notas do desenvolvedor para aplicativos da 21Vianet do Azure na China](https://msdn.microsoft.com/library/azure/dn578439.aspx)
 * [Documentação do Azure Alemanha](../../germany/germany-welcome.md)

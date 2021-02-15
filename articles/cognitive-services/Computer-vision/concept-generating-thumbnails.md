@@ -12,10 +12,10 @@ ms.date: 03/11/2018
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: 4874910f37b49990a659b48af0cf27921c3fcd5e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "68945229"
 ---
 # <a name="generating-smart-cropped-thumbnails-with-computer-vision"></a>Gerar miniaturas de corte inteligente com Pesquisa Visual Computacional
@@ -24,7 +24,7 @@ Uma miniatura é uma representação em tamanho reduzido de uma imagem. As minia
 
 O algoritmo de geração de miniatura da Pesquisa Visual Computacional funciona da seguinte maneira:
 
-1. Remova elementos de distração da imagem e identifique a _área de interesse_&mdash;da área da imagem na qual os objetos principais são exibidos.
+1. Remova elementos de distração da imagem e identifique a _área de interesse_ &mdash; da área da imagem na qual os objetos principais são exibidos.
 1. Corte a imagem com base na _área de interesse_ identificada.
 1. Altere a taxa de proporção para se ajustar às dimensões da miniatura de destino.
 
@@ -42,7 +42,7 @@ Remove os elementos que causam distração da imagem e identifica o objeto princ
 
 A tabela a seguir ilustra as miniaturas típicas geradas pelo Computer Vision para as imagens de exemplo. As miniaturas foram geradas para uma altura e largura de destino especificada de 50 pixels, com recorte inteligente ativado.
 
-| Image | Miniatura |
+| Imagem | Thumbnail |
 |-------|-----------|
 |![Montanhas de ar no pôr do sol, com a silhueta de uma pessoa](./Images/mountain_vista.png) | ![Miniatura de montanhas de externa ao sol, com a silhueta de uma pessoa](./Images/mountain_vista_thumbnail.png) |
 |![Uma flor branca com um fundo verde](./Images/flower.png) | ![Miniatura de analisar Flor de visão](./Images/flower_thumbnail.png) |

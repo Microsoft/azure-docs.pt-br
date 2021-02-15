@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: scale-out
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 42a2d571c04d08b5ec868bbd06cd521bfcda24bc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c6ad8b4c80f4b9c2fdb3c1a14209dcf0febc89e9
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84038477"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787135"
 ---
 # <a name="migrate-existing-databases-to-scale-out"></a>Migrar bancos de dados existentes para escalar horizontalmente
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -72,7 +72,7 @@ Para um modelo de locatário único, crie um mapa de fragmentos de **mapeamento 
 
 ![Mapeamento de lista][1]
 
-O modelo multilocatário atribui vários locatários a um banco de dados individual (e você pode distribuir grupos de locatários entre vários bancos de dados). Use esse modelo quando você esperar que cada locatário tenha necessidades de dados pequenas. Nesse modelo, atribua um intervalo de locatários para um banco de dados usando o **mapeamento intervalo**.
+O modelo multilocatário atribui vários locatários a um banco de dados individual (e você pode distribuir grupos de locatários entre vários bancos de dados). Use esse modelo quando você esperar que cada locatário tenha necessidades de dados pequenas. Nesse modelo, atribua um intervalo de locatários para um banco de dados usando o **mapeamento intervalo** .
 
 ![Mapeamento de intervalo][2]
 
@@ -156,7 +156,7 @@ Após ter concluído a configuração, você pode começar a usar a biblioteca d
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Obtenha os scripts do PowerShell do [banco de dados SQL do Azure-scripts de ferramentas de banco de dados elástico](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db).
+Obtenha os scripts do PowerShell do [Azure SQL Database-Elastic scripts de ferramentas de banco de dados](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db).
 
 As ferramentas também estão no GitHub: [Azure/elastic-db-tools](https://github.com/Azure/elastic-db-tools).
 
@@ -168,7 +168,7 @@ Para obter informações sobre os padrões comuns da arquitetura de dados dos ap
 
 ## <a name="questions-and-feature-requests"></a>Perguntas e solicitações de recursos
 
-Em caso de dúvidas, use a [página de perguntas e respostas da Microsoft sobre o Banco de Dados SQL](https://docs.microsoft.com/answers/topics/azure-sql-database.html), e para solicitações de recurso, adicione-as ao [Fórum de comentários do Banco de Dados SQL](https://feedback.azure.com/forums/217321-sql-database/).
+Em caso de dúvidas, use a [página de perguntas e respostas da Microsoft sobre o Banco de Dados SQL](/answers/topics/azure-sql-database.html), e para solicitações de recurso, adicione-as ao [Fórum de comentários do Banco de Dados SQL](https://feedback.azure.com/forums/217321-sql-database/).
 
 <!--Image references-->
 [1]: ./media/elastic-convert-to-use-elastic-tools/listmapping.png

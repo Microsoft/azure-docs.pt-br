@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 1/17/2019
 ms.author: srrengar
-ms.openlocfilehash: 4b4e454532dec31cbcc92269d63c8be1ff92a9f6
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 25a50a2841a03929804be45be8012f9b5d0457ff
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86247516"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91357124"
 ---
 # <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>Monitoramento e diagnóstico no Azure Service Fabric
 
@@ -39,7 +39,7 @@ O Service Fabric fornece um conjunto abrangente de eventos fora da caixa. Esses 
 
 * EventStore - o EventStore é um recurso oferecido pela plataforma que fornece eventos de plataforma do Service Fabric disponíveis no Service Fabric Explorer e por meio da API REST. Você pode ver uma exibição de instantâneo do que está acontecendo em seu cluster para cada entidade, por exemplo, nó, serviço, aplicativo e consulta com base na hora do evento. Você também pode ler mais sobre o EventStore na [visão geral do EventStore](service-fabric-diagnostics-eventstore.md).    
 
-![EventStore](media/service-fabric-diagnostics-overview/eventstore.png)
+![Captura de tela mostra a guia eventos do painel nós vários eventos, incluindo um evento NodeDown.](media/service-fabric-diagnostics-overview/eventstore.png)
 
 Os diagnósticos fornecidos estão na forma de um conjunto abrangente de eventos prontos para uso. Esses [Service Fabric eventos](service-fabric-diagnostics-events.md) ilustram ações executadas pela plataforma em entidades diferentes, como nós, aplicativos, serviços, partições, etc. No último cenário acima, se um nó fosse desativado, a plataforma emitiria um `NodeDown` evento e você poderá ser notificado imediatamente pela ferramenta de monitoramento de sua escolha. Outros exemplos comuns incluem `ApplicationUpgradeRollbackStarted` ou `PartitionReconfigured` durante um failover. **Os mesmos eventos estão disponíveis nos clusters Windows e Linux.**
 

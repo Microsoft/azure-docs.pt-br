@@ -1,25 +1,25 @@
 ---
-title: Usar o namespace agregado do cache do HPC do Azure
+title: Entender o namespace agregado do cache do HPC do Azure
 description: Como planejar o namespace virtual para o cache do Azure HPC
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 10/30/2019
+ms.date: 09/30/2020
 ms.author: v-erkel
-ms.openlocfilehash: c16d2f9e9c94603361d9a096f33d559105f2d28d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 1c28f549cf93d77f6aef6bcde6a2225345a79cc9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86497022"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91612941"
 ---
 # <a name="plan-the-aggregated-namespace"></a>Planejar o namespace agregado
 
 O cache HPC do Azure permite que os clientes acessem uma variedade de sistemas de armazenamento por meio de um namespace virtual que oculta os detalhes do sistema de armazenamento de back-end.
 
-Ao adicionar um destino de armazenamento, você define o caminho do arquivo voltado para o cliente. Os computadores cliente montam esse caminho de arquivo e podem fazer solicitações de leitura de arquivo para o cache em vez de montar o sistema de armazenamento diretamente.
+Depois de adicionar um destino de armazenamento, você configura um ou mais caminhos de namespace voltados para o cliente para o destino de armazenamento. Os computadores cliente montam esse caminho de arquivo e podem fazer solicitações de leitura de arquivo para o cache em vez de montar o sistema de armazenamento diretamente.
 
-Como o cache do HPC do Azure gerencia esse sistema de arquivos virtual, você pode alterar o destino de armazenamento sem alterar o caminho voltado para o cliente. Por exemplo, você pode substituir um sistema de armazenamento de hardware pelo armazenamento em nuvem sem a necessidade de reescrever procedimentos voltados para o cliente.
+Como o cache do HPC do Azure gerencia esse sistema de arquivos virtual, você pode alterar o destino de armazenamento sem alterar o caminho voltado para o cliente. Por exemplo, você pode substituir um sistema de armazenamento de hardware pelo armazenamento em nuvem sem a necessidade de reescrever procedimentos do lado do cliente.
 
 ## <a name="aggregated-namespace-example"></a>Exemplo de namespace agregado
 
@@ -48,7 +48,7 @@ Para permitir acesso fácil por meio do cache, considere a criação de destinos
 | /goldline/templates/acme2017/sku980     | /templates/sku980      |
 | SourceCollection                        | /Source               |
 
-Um destino de armazenamento NFS pode ter vários caminhos de namespace virtual, desde que cada um faça referência a um caminho de exportação exclusivo.
+Um destino de armazenamento NFS pode ter vários caminhos de namespace virtual, desde que cada um faça referência a um caminho de exportação exclusivo. (Leia [caminhos de namespace NFS](add-namespace-paths.md#nfs-namespace-paths) para saber o número máximo recomendado de caminhos de namespace por destino de armazenamento NFS.)
 
 Como os caminhos de origem do NFS são subdiretórios da mesma exportação, você precisará definir vários caminhos de namespace do mesmo destino de armazenamento.
 
@@ -59,6 +59,13 @@ Como os caminhos de origem do NFS são subdiretórios da mesma exportação, voc
 
 Um aplicativo cliente pode montar o cache e acessar facilmente os caminhos de arquivo de namespace agregados ``/source`` , ``/templates/sku798`` e ``/templates/sku980`` .
 
+Uma abordagem alternativa pode ser criar um caminho virtual como `/templates` os links para o diretório pai, `acme2017` e fazer com que os clientes naveguem para o indivíduo `sku798` e os `sku980` diretórios depois de montar o cache. No entanto, você não pode criar um caminho de namespace que seja um subdiretório de outro caminho de namespace. Portanto, se você criar um caminho para o `acme2017` diretório, também não poderá criar caminhos de namespace para acessar diretamente seus subdiretórios.
+
+A página Configurações de **namespace** do cache do Azure HPC mostra o sistema de arquivos voltado para o cliente e permite adicionar ou editar caminhos. Leia [Configurar o namespace agregado](add-namespace-paths.md) para obter detalhes.
+
 ## <a name="next-steps"></a>Próximas etapas
 
-Depois de decidir como configurar seu sistema de arquivos virtual, [crie destinos de armazenamento](hpc-cache-add-storage.md) para mapear seu armazenamento de back-end para os caminhos de arquivos virtuais voltados para o cliente.
+Depois de decidir como configurar seu sistema de arquivos virtual, siga estas etapas para criá-lo:
+
+* [Criar destinos de armazenamento](hpc-cache-add-storage.md) para adicionar seus sistemas de armazenamento de back-end ao cache HPC do Azure
+* [Adicionar caminhos de namespace](add-namespace-paths.md) para criar o namespace agregado que os computadores cliente usam para acessar arquivos

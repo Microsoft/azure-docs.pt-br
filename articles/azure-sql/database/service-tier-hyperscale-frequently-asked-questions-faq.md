@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: ''
-ms.date: 03/03/2020
-ms.openlocfilehash: 359de25d2bdb57ad5c6386586f987942acc120ef
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.date: 02/03/2021
+ms.openlocfilehash: c6faa1703b0935d66d291281f33027b3a66a59d4
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500139"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526815"
 ---
 # <a name="azure-sql-database-hyperscale-faq"></a>FAQ de hiperescala do banco de dados SQL do Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -54,7 +54,7 @@ As camadas de serviço baseadas em vCore são diferenciadas com base na disponib
 |**Disponibilidade**|Tudo|1 réplica, sem escala de leitura, sem cache local | Várias réplicas, até 4 expansão de leitura, cache local parcial | 3 réplicas, 1 expansão de leitura, HA com redundância de zona, armazenamento local completo |
 |**Backups**|Tudo|RA-GRS, 7-35 dias de retenção (7 dias por padrão)| RA-GRS, 7 dias de retenção, PITR (tempo constante de recuperação pontual) | RA-GRS, 7-35 dias de retenção (7 dias por padrão) |
 
-\*Não há suporte para pools elásticos na camada de serviço de hiperescala
+\* Não há suporte para pools elásticos na camada de serviço de hiperescala
 
 ### <a name="who-should-use-the-hyperscale-service-tier"></a>Quem deve usar o nível de serviço Hiperescala
 
@@ -114,11 +114,11 @@ Sim, [benefício híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-b
 
 O hiperscale dá suporte a todas as cargas de trabalho de SQL Server, mas é essencialmente otimizado para OLTP. Você também pode colocar cargas de trabalho híbridas (HTAP) e analíticas (data mart).
 
-### <a name="how-can-i-choose-between-azure-sql-data-warehouse-and-azure-sql-database-hyperscale"></a>Como escolher entre a SQL Data Warehouse do Azure e a hiperescala do banco de dados SQL do Azure
+### <a name="how-can-i-choose-between-azure-synapse-analytics-and-azure-sql-database-hyperscale"></a>Como escolher entre a análise de Synapse do Azure e a hiperescala do banco de dados SQL do Azure
 
 Se você estiver executando consultas de análise interativas usando SQL Server como um data warehouse, o hiperescala é uma ótima opção, pois você pode hospedar data warehouses de pequeno e médio porte (como alguns TB de até 100 TB) a um custo mais baixo e migrar suas cargas de trabalho de SQL Server data warehouse para hiperescala com alterações mínimas de código T-SQL.
 
-Se você estiver executando a análise de dados em grande escala com consultas complexas e taxas de ingestão sustentadas superiores a 100 MB/s ou usando o PDW (Parallel data warehouse), o Teradata ou outros data warehouses de processamento paralelo (MPP), o SQL Data Warehouse poderá ser a melhor opção.
+Se você estiver executando a análise de dados em uma grande escala com consultas complexas e taxas de ingestão sustentadas maiores que 100 MB/s ou usando o PDW (Parallel data warehouse), Teradata ou outros data warehouses de processamento paralelo (MPP), o Azure Synapse Analytics poderá ser a melhor opção.
   
 ## <a name="hyperscale-compute-questions"></a>Perguntas de computação de hiperescala
 
@@ -136,7 +136,7 @@ Não.
 
 ### <a name="how-many-read-scale-out-replicas-are-supported"></a>Quantas réplicas de expansão de leitura têm suporte
 
-Os bancos de dados de hiperescala são criados com uma réplica de escala horizontal de leitura (duas réplicas, incluindo a primária) por padrão. Você pode dimensionar o número de réplicas somente leitura entre 0 e 4 usando o [portal do Azure](https://portal.azure.com) ou a [API REST](https://docs.microsoft.com/rest/api/sql/databases/createorupdate).
+Os bancos de dados de hiperescala são criados com uma réplica de escala horizontal de leitura (duas réplicas, incluindo a primária) por padrão. Você pode dimensionar o número de réplicas somente leitura entre 0 e 4 usando o [portal do Azure](https://portal.azure.com) ou a [API REST](/rest/api/sql/databases/createorupdate).
 
 ### <a name="for-high-availability-do-i-need-to-provision-additional-compute-replicas"></a>Para alta disponibilidade, preciso provisionar réplicas de computação adicionais
 
@@ -158,7 +158,7 @@ O log de transações com a Hiperescala é praticamente infinito. Você não pre
 
 ### <a name="does-my-tempdb-scale-as-my-database-grows"></a>Minha `tempdb` escala conforme meu banco de dados cresce
 
-Seu `tempdb` banco de dados está localizado no armazenamento SSD local e é dimensionado proporcionalmente ao tamanho de computação que você provisiona. Seu `tempdb` é otimizado para fornecer benefícios máximos de desempenho. `tempdb`o tamanho não é configurável e é gerenciado para você.
+Seu `tempdb` banco de dados está localizado no armazenamento SSD local e é dimensionado proporcionalmente ao tamanho de computação que você provisiona. Seu `tempdb` é otimizado para fornecer benefícios máximos de desempenho. `tempdb` o tamanho não é configurável e é gerenciado para você.
 
 ### <a name="does-my-database-size-automatically-grow-or-do-i-have-to-manage-the-size-of-data-files"></a>O tamanho do meu banco de dados aumenta automaticamente ou preciso gerenciar o tamanho dos arquivos
 
@@ -166,7 +166,7 @@ O tamanho do seu banco de dados aumenta automaticamente à medida que você inse
 
 ### <a name="what-is-the-smallest-database-size-that-hyperscale-supports-or-starts-with"></a>Qual é o menor tamanho de banco de dados que o hiperscale dá suporte ou começa com
 
-40 GB. Um banco de dados de hiperescala é criado com um tamanho inicial de 10 GB. Em seguida, ele começa crescendo 10 GB a cada 10 minutos até atingir o tamanho de 40 GB. Cada um desses 10 GB Chuck é alocado em um servidor de página diferente para fornecer mais IOPS e um paralelismo de e/s maior. Por causa dessa otimização, mesmo se você escolher o tamanho inicial do banco de dados menor que 40 GB, o banco de dados aumentará para pelo menos 40 GB automaticamente.
+40 GB. Um banco de dados de hiperescala é criado com um tamanho inicial de 10 GB. Em seguida, ele começa crescendo 10 GB a cada 10 minutos até atingir o tamanho de 40 GB. Cada uma dessas partes de 10 GB é alocada em um servidor de página diferente para fornecer mais IOPS e um paralelismo de e/s maior. Por causa dessa otimização, mesmo se você escolher o tamanho inicial do banco de dados menor que 40 GB, o banco de dados aumentará para pelo menos 40 GB automaticamente.
 
 ### <a name="in-what-increments-does-my-database-size-grow"></a>Em que incrementos o tamanho do meu banco de dados aumenta?
 
@@ -198,7 +198,7 @@ Sim, incluindo a compactação de linha, página e columnstore.
 
 ### <a name="if-i-have-a-huge-table-does-my-table-data-get-spread-out-across-multiple-data-files"></a>Se eu tiver uma tabela enorme, os dados da minha tabela serão espalhados por vários arquivos de dados
 
-Sim. As páginas de dados associadas a uma determinada tabela podem acabar em vários arquivos de dados, que fazem parte do mesmo grupo de arquivos. SQL Server usa a [estratégia de preenchimento proporcional](https://docs.microsoft.com/sql/relational-databases/databases/database-files-and-filegroups#file-and-filegroup-fill-strategy) para distribuir dados em arquivos de dados.
+Sim. As páginas de dados associadas a uma determinada tabela podem acabar em vários arquivos de dados, que fazem parte do mesmo grupo de arquivos. SQL Server usa a [estratégia de preenchimento proporcional](/sql/relational-databases/databases/database-files-and-filegroups#file-and-filegroup-fill-strategy) para distribuir dados em arquivos de dados.
 
 ## <a name="data-migration-questions"></a>Questões de migração de dados
 
@@ -229,11 +229,11 @@ O tempo de inatividade para a migração para o hiperescala é o mesmo que o tem
 
 O hiperscale é capaz de consumir 100 MB/s de dados novos/alterados, mas o tempo necessário para mover dados para bancos de dado no banco de dados SQL do Azure também é afetado pela taxa de transferência de rede disponível, velocidade de leitura de origem e o objetivo de nível de serviço de banco de dados de destino.
 
-### <a name="can-i-read-data-from-blob-storage-and-do-fast-load-like-polybase-in-sql-data-warehouse"></a>Posso ler dados do armazenamento de BLOBs e fazer o carregamento rápido (como o polybase no SQL Data Warehouse)
+### <a name="can-i-read-data-from-blob-storage-and-do-fast-load-like-polybase-in-azure-synapse-analytics"></a>Posso ler dados do armazenamento de BLOBs e fazer o carregamento rápido (como o polybase no Azure Synapse Analytics)
 
-Você pode fazer com que um aplicativo cliente leia dados do armazenamento do Azure e carregue a carga de dados em um banco de dados de hiperescala (assim como você pode com qualquer outro banco de dado no banco de dados SQL do Azure). Atualmente, o polybase não tem suporte no banco de dados SQL do Azure. Como alternativa para fornecer carga rápida, você pode usar [Azure data Factory](https://docs.microsoft.com/azure/data-factory/)ou usar um trabalho do spark no [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/) com o [conector do Spark para SQL](spark-connector.md). O conector do Spark SQL dá suporte à inserção em massa.
+Você pode fazer com que um aplicativo cliente leia dados do armazenamento do Azure e carregue a carga de dados em um banco de dados de hiperescala (assim como você pode com qualquer outro banco de dado no banco de dados SQL do Azure). Atualmente, o polybase não tem suporte no banco de dados SQL do Azure. Como alternativa para fornecer carga rápida, você pode usar [Azure data Factory](../../data-factory/index.yml)ou usar um trabalho do spark no [Azure Databricks](/azure/azure-databricks/) com o [conector do Spark para SQL](spark-connector.md). O conector do Spark SQL dá suporte à inserção em massa.
 
-Também é possível ler em massa dados do armazenamento de BLOBs do Azure usando BULK INSERT ou OPENROWSET: [exemplos de acesso em massa aos dados no armazenamento de BLOBs do Azure](https://docs.microsoft.com/sql/relational-databases/import-export/examples-of-bulk-access-to-data-in-azure-blob-storage?view=sql-server-2017#accessing-data-in-a-csv-file-referencing-an-azure-blob-storage-location).
+Também é possível ler em massa dados do armazenamento de BLOBs do Azure usando BULK INSERT ou OPENROWSET: [exemplos de acesso em massa aos dados no armazenamento de BLOBs do Azure](/sql/relational-databases/import-export/examples-of-bulk-access-to-data-in-azure-blob-storage#accessing-data-in-a-csv-file-referencing-an-azure-blob-storage-location).
 
 A recuperação simples ou o modelo de log em massa não é suportada na Hiperescala. O modelo de recuperação completa é necessário para fornecer alta disponibilidade e recuperação pontual. No entanto, a arquitetura de log de hiperescala fornece uma melhor taxa de ingestão de dados em comparação com outras camadas de serviço do Azure SQL Database.
 
@@ -269,7 +269,7 @@ Sim.
 
 ### <a name="what-is-the-recovery-point-objective-rporecovery-time-objective-rto-for-database-restore-in-hyperscale"></a>O que é o RTO (objetivo de ponto de recuperação)/Recovery tempo (objetivo) para restauração de banco de dados em hiperescala
 
-O RPO é de 0 min. A meta de RTO é menor que 10 minutos, independentemente do tamanho do banco de dados.
+O RPO é de 0 min. A maioria das operações de restauração é concluída em 60 minutos, independentemente do tamanho do banco de dados. O tempo de restauração pode ser mais longo para bancos de dados maiores e, se o banco de dados tiver experimentado uma atividade de gravação significativa antes e até o ponto de restauração no tempo.
 
 ### <a name="does-database-backup-affect-compute-performance-on-my-primary-or-secondary-replicas"></a>O backup de banco de dados afeta o desempenho de computação em minhas réplicas primárias ou secundárias
 
@@ -277,7 +277,7 @@ Não. Os backups são gerenciados pelo subsistema de armazenamento e aproveitam 
 
 ### <a name="can-i-perform-geo-restore-with-a-hyperscale-database"></a>Posso executar a restauração geográfica com um banco de dados de hiperescala
 
-Sim. A restauração geográfica tem suporte total. Diferentemente da restauração pontual, a restauração geográfica requer uma operação de tamanho de dados. Os arquivos de dados são copiados em paralelo, de modo que a duração dessa operação depende principalmente do tamanho do maior arquivo no banco de dados, em vez de ter o tamanho total. O tempo de restauração geográfica será significativamente menor se o banco de dados for restaurado na região do Azure [emparelhada](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) com a região do banco de dados de origem.
+Sim. A restauração geográfica tem suporte total. Diferentemente da restauração pontual, a restauração geográfica requer uma operação de tamanho de dados. Os arquivos de dados são copiados em paralelo, de modo que a duração dessa operação depende principalmente do tamanho do maior arquivo no banco de dados, em vez de ter o tamanho total. O tempo de restauração geográfica será significativamente menor se o banco de dados for restaurado na região do Azure [emparelhada](../../best-practices-availability-paired-regions.md) com a região do banco de dados de origem.
 
 ### <a name="can-i-set-up-geo-replication-with-hyperscale-database"></a>Posso configurar a replicação geográfica com o banco de dados de hiperescala
 
@@ -345,9 +345,9 @@ A expansão ou redução dos resultados em conexões existentes são descartadas
 
 Usuário final. Não é automático.  
 
-### <a name="does-the-size-of-my-tempdb-database-also-grow-as-the-compute-is-scaled-up"></a>O tamanho do meu `tempdb` banco de dados também aumenta à medida que a computação é dimensionada
+### <a name="does-the-size-of-my-tempdb-database-and-rbpex-cache-also-grow-as-the-compute-is-scaled-up"></a>O tamanho do meu `tempdb` banco de dados e do cache RBPEX também aumenta à medida que a computação é dimensionada
 
-Sim. O `tempdb` banco de dados será dimensionado automaticamente conforme a computação aumentar.  
+Sim. O `tempdb` tamanho do [cache RBPEX](service-tier-hyperscale.md#distributed-functions-architecture) e do banco de dados em nós de computação será dimensionado automaticamente conforme o número de núcleos aumentar.
 
 ### <a name="can-i-provision-multiple-primary-compute-replicas-such-as-a-multi-master-system-where-multiple-primary-compute-heads-can-drive-a-higher-level-of-concurrency"></a>Posso provisionar várias réplicas de computação primárias, como um sistema de vários mestres, em que vários cabeçotes de computação primários podem impulsionar um nível mais alto de simultaneidade
 
@@ -357,11 +357,11 @@ Não. Somente a réplica de computação primária aceita solicitações de leit
 
 ### <a name="how-many-secondary-compute-replicas-can-i-provision"></a>Quantas réplicas de computação secundárias posso provisionar
 
-Criamos uma réplica secundária para bancos de dados de hiperescala por padrão. Se você quiser ajustar o número de réplicas, poderá fazer isso usando [portal do Azure](https://portal.azure.com) ou a [API REST](https://docs.microsoft.com/rest/api/sql/databases/createorupdate).
+Criamos uma réplica secundária para bancos de dados de hiperescala por padrão. Se você quiser ajustar o número de réplicas, poderá fazer isso usando [portal do Azure](https://portal.azure.com) ou a [API REST](/rest/api/sql/databases/createorupdate).
 
 ### <a name="how-do-i-connect-to-these-secondary-compute-replicas"></a>Como fazer conectar-se a essas réplicas de computação secundárias
 
-Você pode se conectar a essas réplicas de computação somente leitura, definindo o `ApplicationIntent` argumento na cadeia de conexão como `ReadOnly` . Todas as conexões marcadas com `ReadOnly` são automaticamente roteadas para uma das réplicas de computação somente leitura adicionais.  
+Você pode se conectar a essas réplicas de computação somente leitura, definindo o `ApplicationIntent` argumento na cadeia de conexão como `ReadOnly` . Todas as conexões marcadas com `ReadOnly` são automaticamente roteadas para uma das réplicas de computação somente leitura adicionais. Para obter detalhes, consulte [usar réplicas somente leitura para descarregar cargas de trabalho de consulta somente leitura](read-scale-out.md).
 
 ### <a name="how-do-i-validate-if-i-have-successfully-connected-to-secondary-compute-replica-using-ssms-or-other-client-tools"></a>Como fazer validar se eu me conectasse com êxito à réplica de computação secundária usando o SSMS ou outras ferramentas de cliente?
 
@@ -390,7 +390,7 @@ Não. Os bancos de dados de hiperescala têm armazenamento compartilhado, o que 
 
 ### <a name="how-much-delay-is-there-going-to-be-between-the-primary-and-secondary-compute-replicas"></a>Quanto atraso haverá entre as réplicas de computação primárias e secundárias
 
-Latência de dados do momento em que uma transação é confirmada no primário até o momento em que ela é visível em um secundário depende da taxa de geração de log atual. A latência de dados típica é de poucos milissegundos.
+Latência de dados do momento em que uma transação é confirmada no primário até o momento em que é legível em um secundário depende da taxa de geração de log atual, do tamanho da transação, da carga na réplica e de outros fatores. A latência de dados típica para transações pequenas é em dezenas de milissegundos, no entanto, não há nenhum limite superior de latência de dados. Os dados em uma determinada réplica secundária são sempre consistentes transacionalmente. No entanto, em uma determinada latência de dados pontual pode ser diferente para réplicas secundárias diferentes. As cargas de trabalho que precisam ler dados confirmados imediatamente devem ser executadas na réplica primária.
 
 ## <a name="next-steps"></a>Próximas etapas
 

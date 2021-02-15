@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/10/2020
-ms.openlocfilehash: ff70beef89f6db240db244de1e11e54193858be0
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: 57b350c7772d42e5dbd89c1d03c89f905a26398b
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88705768"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97895522"
 ---
 # <a name="azure-monitor-agent-overview-preview"></a>Visão geral do agente de Azure Monitor (versão prévia)
 O agente de Azure Monitor (AMA) coleta dados de monitoramento do sistema operacional convidado de máquinas virtuais e as entrega ao Azure Monitor. Este artigo fornece uma visão geral do agente de Azure Monitor, incluindo como instalá-lo e como configurar a coleta de dados.
@@ -39,6 +39,14 @@ Os métodos para definir a coleta de dados para os agentes existentes são disti
 
 O agente de Azure Monitor usa [as regras de coleta de dados (DCR)](data-collection-rule-overview.md) para configurar os dados a serem coletados de cada agente. As regras de coleta de dados habilitam a gerenciabilidade das configurações de coleta em escala e ainda habilitam configurações exclusivas e com escopo para subconjuntos de computadores. Eles são independentes do espaço de trabalho e independentes da máquina virtual, o que permite que eles sejam definidos uma vez e reutilizados em computadores e ambientes. Consulte [Configurar a coleta de dados para o agente de Azure monitor (versão prévia)](data-collection-rule-azure-monitor-agent.md).
 
+## <a name="should-i-switch-to-azure-monitor-agent"></a>Devo mudar para Azure Monitor Agent?
+O agente de Azure Monitor coexiste com os [agentes geralmente disponíveis para Azure monitor](agents-overview.md), mas você pode considerar a transição de suas VMs para fora dos agentes atuais durante o período de visualização pública do Azure monitor Agent. Considere os seguintes fatores ao fazer essa determinação.
+
+- **Requisitos de ambiente.** O agente de Azure Monitor tem um conjunto mais limitado de sistemas operacionais, ambientes e requisitos de rede com suporte do que os agentes atuais. O suporte de ambiente futuro, como novas versões de sistema operacional e tipos de requisitos de rede, provavelmente será fornecido apenas no agente Azure Monitor. Você deve avaliar se o seu ambiente tem suporte do Azure Monitor Agent. Caso contrário, você precisará continuar com o agente atual. Se Azure Monitor Agent der suporte ao seu ambiente atual, você deverá considerar a transição para ele.
+- **Tolerância a riscos de visualização pública.** Embora o agente de Azure Monitor tenha sido totalmente testado para os cenários com suporte no momento, o agente ainda está em visualização pública. As atualizações de versão e melhorias de funcionalidade ocorrerão com frequência e podem apresentar bugs. Você deve avaliar o risco de um bug no agente em suas VMs que podem parar a coleta de dados. Se uma lacuna na coleta de dados não tiver um impacto significativo sobre seus serviços, continue com o agente de Azure Monitor. Se você tiver uma tolerância baixa para qualquer instabilidade, você deverá permanecer com os agentes geralmente disponíveis até que Azure Monitor agente atinja esse status.
+- **Requisitos de recursos atuais e novos.** O agente de Azure Monitor introduz vários recursos novos, como filtragem, escopo e hospedagem múltipla, mas ainda não está na paridade com os agentes atuais para outras funcionalidades, como a coleta de log personalizada e a integração com soluções. A maioria dos novos recursos do Azure Monitor só será disponibilizada com o agente do Azure Monitor, assim, ao longo do tempo, mais funcionalidades só estarão disponíveis no novo agente. Você deve considerar se Azure Monitor Agent tem os recursos necessários e se há alguns recursos que você pode fazer temporariamente sem para obter outros recursos importantes no novo agente. Se Azure Monitor Agent tiver todos os recursos principais que você precisa, considere a possibilidade de fazer a transição para ele. Se houver recursos críticos que você precisa, continue com o agente atual até que Azure Monitor agente atinja a paridade.
+- **Tolerância para retrabalho.** Se você estiver configurando um novo ambiente com recursos como scripts de implantação e modelos de integração, você deve considerar se você poderá retrabalhar com eles quando Azure Monitor agente ficar disponível ao público geral. Se o esforço para essa retrabalho for mínimo, continue com os agentes atuais por enquanto. Se for necessário uma quantidade significativa de trabalho, considere configurar seu novo ambiente com o novo agente. Espera-se que o agente de Azure Monitor seja disponibilizado para o público geral e uma data de reprovação publicada para os agentes de Log Analytics no 2021. Os agentes atuais terão suporte por vários anos após o início da reprovação.
+
 
 
 ## <a name="current-limitations"></a>Limitações atuais
@@ -46,7 +54,7 @@ As seguintes limitações se aplicam durante a visualização pública do agente
 
 - O agente de Azure Monitor não oferece suporte a soluções e informações como Azure Monitor para VMs e a central de segurança do Azure. O único cenário com suporte no momento é coletar dados usando as regras de coleta de dados que você configura. 
 - As regras de coleta de dados devem ser criadas na mesma região que qualquer Log Analytics espaço de trabalho usado como destino.
-- No momento, somente as máquinas virtuais do Azure têm suporte. As máquinas virtuais locais, os conjuntos de dimensionamento de máquinas virtuais, o Arc para servidores, o serviço kubernetes do Azure e outros tipos de recursos de computação não têm suporte no momento.
+- Atualmente, há suporte para máquinas virtuais do Azure, conjuntos de dimensionamento de máquinas virtuais e servidores habilitados para Arc do Azure. O serviço kubernetes do Azure e outros tipos de recursos de computação não têm suporte no momento.
 - A máquina virtual deve ter acesso aos seguintes pontos de extremidade HTTPS:
   - *.ods.opinsights.azure.com
   - *. ingest.monitor.azure.com
@@ -70,80 +78,24 @@ O agente de Azure Monitor envia dados para Azure Monitor métricas ou um espaço
 
 | Fonte de dados | Destinos | Descrição |
 |:---|:---|:---|
-| Desempenho        | Métricas do Azure Monitor<br>Workspace do Log Analytics | Valores numéricos que medem o desempenho de diferentes aspectos do sistema operacional e das cargas de trabalho. |
-| Log de eventos do Windows | Workspace do Log Analytics | Informações enviadas ao sistema de registro de evento do Windows. |
-| syslog             | Workspace do Log Analytics | Informações enviadas ao sistema de registro de evento do Linux. |
+| Desempenho        | Métricas do Azure Monitor<br>Espaço de trabalho do Log Analytics | Valores numéricos que medem o desempenho de diferentes aspectos do sistema operacional e das cargas de trabalho. |
+| Log de eventos do Windows | Espaço de trabalho do Log Analytics | Informações enviadas ao sistema de registro de evento do Windows. |
+| syslog             | Espaço de trabalho do Log Analytics | Informações enviadas ao sistema de registro de evento do Linux. |
 
 
 ## <a name="supported-operating-systems"></a>Sistemas operacionais compatíveis
-Os sistemas operacionais a seguir têm suporte no momento pelo agente de Azure Monitor.
+Consulte [sistemas operacionais com suporte](agents-overview.md#supported-operating-systems) para obter uma lista das versões do sistema operacional Windows e Linux com suporte no momento pelo agente de Azure monitor.
 
-### <a name="windows"></a>Windows 
-  - Windows Server 2019
-  - Windows Server 2016
-  - Windows Server 2012
-  - Windows Server 2012 R2
-
-### <a name="linux"></a>Linux
-  - CentOS 6<sup>1</sup>, 7
-  - Debian 9, 10
-  - Oracle Linux 6<sup>1</sup>, 7
-  - RHEL 6<sup>1</sup>, 7, 8
-  - SLES 11, 12, 15
-  - Ubuntu 14, 4 LTS, 16, 4 LTS, 18, 4 LTS
-
-> [!IMPORTANT]
-> <sup>1</sup> Para que essas distribuições enviem dados syslog, você deve remover o rsyslog e instalar o syslog-ng.
 
 
 ## <a name="security"></a>Segurança
 O agente de Azure Monitor não requer nenhuma chave, mas requer uma [identidade gerenciada atribuída pelo sistema](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity). Você deve ter uma identidade gerenciada atribuída pelo sistema habilitada em cada máquina virtual antes de implantar o agente.
 
+## <a name="networking"></a>Rede
+O agente de Azure Monitor dá suporte a marcas de serviço do Azure (as marcas AzureMonitor e AzureResourceManager são necessárias), mas ainda não funcionam com escopos de links privados Azure Monitor ou proxies diretos.
 
-## <a name="install-the-azure-monitor-agent"></a>Instalar o agente de Azure Monitor
-O agente de Azure Monitor é implementado como uma [extensão de VM do Azure](../../virtual-machines/extensions/overview.md) com os detalhes na tabela a seguir. 
-
-| Propriedade | Windows | Linux |
-|:---|:---|:---|
-| Publicador | Microsoft. Azure. monitor  | Microsoft. Azure. monitor |
-| Type      | AzureMonitorWindowsAgent | AzureMonitorLinuxAgent  |
-| TypeHandlerVersion  | 1.0 | 1.5 |
-
-Instale o agente de Azure Monitor usando qualquer um dos métodos para instalar agentes de máquina virtual, incluindo o seguinte usando o PowerShell ou a CLI. Como alternativa, você pode instalar o agente e configurar a coleta de dados em máquinas virtuais em sua assinatura do Azure usando o portal com o procedimento descrito em [Configurar coleta de dados para o agente de Azure monitor (versão prévia)](data-collection-rule-azure-monitor-agent.md#create-using-the-azure-portal).
-
-### <a name="windows"></a>Windows
-
-# <a name="cli"></a>[CLI](#tab/CLI1)
-
-```azurecli
-az vm extension set --name AzureMonitorWindowsAgent --publisher Microsoft.Azure.Monitor --ids {resource ID of the VM}
-
-```
-
-# <a name="powershell"></a>[PowerShell](#tab/PowerShell1)
-
-```powershell
-Set-AzVMExtension -Name AMAWindows -ExtensionType AzureMonitorWindowsAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName {Resource Group Name} -VMName {VM name} -Location eastus
-```
----
-
-
-### <a name="linux"></a>Linux
-
-# <a name="cli"></a>[CLI](#tab/CLI2)
-
-```azurecli
-az vm extension set --name AzureMonitorLinuxAgent --publisher Microsoft.Azure.Monitor --ids {resource ID of the VM}
-
-```
-
-# <a name="powershell"></a>[PowerShell](#tab/PowerShell2)
-
-```powershell
-Set-AzVMExtension -Name AMALinux -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName {Resource Group Name} -VMName {VM name} -Location eastus
-```
----
 
 ## <a name="next-steps"></a>Próximas etapas
 
+- [Instale o agente de Azure monitor](azure-monitor-agent-install.md) em máquinas virtuais Windows e Linux.
 - [Crie uma regra de coleta de dados](data-collection-rule-azure-monitor-agent.md) para coletar dados do agente e enviá-los para Azure monitor.

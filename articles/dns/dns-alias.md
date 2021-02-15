@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 08/09/2019
 ms.author: rohink
-ms.openlocfilehash: 3378036c4800b274d879743abf937c7860e63ded
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8b2576669357aae7e5fe423515933c2ce4a23a7d
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82926223"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94954470"
 ---
 # <a name="azure-dns-alias-records-overview"></a>Visão geral dos registros de alias do DNS do Azure
 
@@ -20,14 +20,14 @@ Os registros de alias do DNS do Azure são qualificações em um conjunto de reg
 
 Um conjunto de registros de alias é suportado para os seguintes tipos de registro em uma zona DNS do Azure: 
 
-- Um
+- A
 - AAAA
 - CNAME
 
 > [!NOTE]
 > Se você pretende usar um registro de alias para os tipos de registros A ou AAAA para apontar para um [perfil do Gerenciador de Tráfego do Azure](../traffic-manager/quickstart-create-traffic-manager-profile.md), verifique se o perfil do Gerenciador de Tráfego tem apenas [pontos de extremidade externos](../traffic-manager/traffic-manager-endpoint-types.md#external-endpoints). Você deve fornecer o endereço IPv4 ou IPv6 para pontos de extremidade externos no Gerenciador de Tráfego. Você não pode usar nomes de domínio totalmente qualificados (FQDNs) em pontos de extremidade. O ideal é usar endereços IP estáticos.
 
-## <a name="capabilities"></a>Capacidades
+## <a name="capabilities"></a>Funcionalidades
 
 - **Aponte para um recurso IP público de um conjunto de registros DNS A / AAAA.** Você pode criar um conjunto de registros A/AAAA e torná-lo um conjunto de registros de alias para apontar para um recurso de IP público (Standard ou Basic). O conjunto de registros DNS será alterado automaticamente se o endereço IP público for alterado ou excluído. Registros DNS pendentes que apontem para endereços IP incorretos são evitados.
 
@@ -79,4 +79,4 @@ Para saber mais sobre registros de alias, consulte os seguintes artigos:
 
 - [Tutorial: Configurar um registro de alias para se referir a um endereço IP público do Azure](tutorial-alias-pip.md)
 - [Tutorial: Configurar um registro de alias para dar suporte a nomes de domínio com o Gerenciador de tráfego do apex](tutorial-alias-tm.md)
-- [PERGUNTAS FREQUENTES SOBRE O DNS](https://docs.microsoft.com/azure/dns/dns-faq#alias-records)
+- [PERGUNTAS FREQUENTES SOBRE O DNS](./dns-faq.md#alias-records)

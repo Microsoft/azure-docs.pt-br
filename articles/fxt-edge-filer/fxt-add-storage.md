@@ -6,42 +6,43 @@ ms.author: rohogue
 ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
-ms.openlocfilehash: 3f736942627d088e3a639f89bef5438714c2608b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7d10c6c1ce440b2ffe964dc78379ef3ab108e78e
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79223133"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92217517"
 ---
-# <a name="tutorial-add-back-end-storage-and-configure-the-virtual-namespace"></a>Tutorial: Adicionar armazenamento de back-end e configurar o namespace virtual 
+# <a name="tutorial-add-back-end-storage-and-configure-the-virtual-namespace"></a>Tutorial: Adicionar armazenamento de back-end e configurar o namespace virtual
 
-Neste tutorial, você aprenderá a adicionar armazenamento de back-end ao cache e a configurar o sistema de arquivos virtual voltado ao cliente. 
+Neste tutorial, você aprenderá a adicionar armazenamento de back-end ao cache e a configurar o sistema de arquivos virtual voltado ao cliente.
 
-O cluster se conecta aos sistemas de armazenamento de back-end para acessar a solicitação do cliente de dados e armazenar as alterações de modo mais permanente que no cache. 
+O cluster se conecta aos sistemas de armazenamento de back-end para acessar a solicitação do cliente de dados e armazenar as alterações de modo mais permanente que no cache.
 
-O namespace é o pseudossistema de arquivos voltado ao cliente que permite trocar o armazenamento de back-end sem alterar os fluxos de trabalho no lado do cliente. 
+O namespace é o pseudossistema de arquivos voltado ao cliente que permite trocar o armazenamento de back-end sem alterar os fluxos de trabalho no lado do cliente.
 
-Neste tutorial, você irá aprender: 
+Neste tutorial, você irá aprender:
 
 > [!div class="checklist"]
-> * Como adicionar armazenamento de back-end ao cluster do Azure FXT Edge Filer 
+>
+> * Como adicionar armazenamento de back-end ao cluster do Azure FXT Edge Filer
 > * Como definir o caminho voltado ao cliente para armazenamento
 
 ## <a name="about-back-end-storage"></a>Sobre o armazenamento de back-end
 
 O cluster do Azure FXT Edge Filer usa uma definição de *arquivista principal* para vincular um sistema de armazenamento de back-end ao cluster do FXT.
 
-O Azure FXT Edge Filer é compatível com vários sistemas de hardware NAS conhecidos. Além disso, pode usar contêineres vazios do Blob do Azure ou outro armazenamento em nuvem. 
+O Azure FXT Edge Filer é compatível com vários sistemas de hardware NAS conhecidos. Além disso, pode usar contêineres vazios do Blob do Azure ou outro armazenamento em nuvem.
 
 Os contêineres de armazenamento em nuvem precisam estar vazios ao serem adicionados. Desse modo, o sistema operacional do FXT poderá gerenciar completamente todos os dados no volume de armazenamento em nuvem. É possível migrar os dados existentes para o contêiner em nuvem após adicionar o contêiner ao cluster como um arquivista principal.
 
 Use o painel de controle para adicionar um arquivista principal ao sistema.
 
 > [!NOTE]
-> 
+>
 > Se você quiser usar o Amazon AWS ou o Google Cloud Storage, precisará instalar uma licença do recurso FlashCloud<sup>TM</sup>. Entre em contato com o representante da Microsoft para obter uma chave de licença. Em seguida, siga as instruções no guia de configuração herdado para [Adicionar ou remover licenças de recurso](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/install_licenses.html#install-licenses).
-> 
-> Há compatibilidade com o Armazenamento de Blobs do Azure na licença de software do Azure FXT Edge Filer. 
+>
+> Há compatibilidade com o Armazenamento de Blobs do Azure na licença de software do Azure FXT Edge Filer.
 
 Para saber mais detalhes sobre como adicionar arquivistas principais, leia estas seções do Guia de Configuração de Clusters:
 
@@ -59,7 +60,7 @@ Defina um arquivista principal clicando no botão **Criar** em **Arquivista Prin
 
 ![Clique no botão "Criar" acima da lista de arquivistas principais na página "Gerenciar Arquivistas Principais"](media/fxt-cluster-config/create-core-filer-button.png)
 
-O assistente **Adicionar Novo Arquivista Principal** orientará você durante o processo de criar um arquivista principal vinculado ao armazenamento de back-end. O Guia de Configuração de Clusters mostra as descrições passo a passo do processo, que são diferentes para o armazenamento NFS/NAS e para o armazenamento em nuvem (links acima). 
+O assistente **Adicionar Novo Arquivista Principal** orientará você durante o processo de criar um arquivista principal vinculado ao armazenamento de back-end. O Guia de Configuração de Clusters mostra as descrições passo a passo do processo, que são diferentes para o armazenamento NFS/NAS e para o armazenamento em nuvem (links acima).
 
 As subtarefas incluem:
 
@@ -71,15 +72,15 @@ As subtarefas incluem:
 
 * Para os arquivistas principais do NAS, fornecer o FQDN (nome de domínio totalmente qualificado) ou o endereço IP. O FQDN é recomendado para todos os arquivistas principais e é obrigatório para acesso SMB.
 
-* Selecionar uma política de cache – A segunda página do assistente lista as políticas de cache disponíveis para o novo arquivista principal. Para saber detalhes, leia a [seção de políticas de cache do Guia de Configuração de Clusters](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_manage_cache_policies.html). 
+* Selecionar uma política de cache – A segunda página do assistente lista as políticas de cache disponíveis para o novo arquivista principal. Para saber detalhes, leia a [seção de políticas de cache do Guia de Configuração de Clusters](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_manage_cache_policies.html).
 
   ![Segunda página do assistente de novo arquivista principal do hardware. O menu suspenso "Política de Cache" está aberto, mostrando várias opções desabilitadas e três opções válidas de política de cache (bypass, ler cache e ler/gravar cache).](media/fxt-cluster-config/new-nas-choose-cache-policy.png)
 
 * Para o armazenamento em nuvem, é necessário especificar o serviço de nuvem e as credenciais de acesso, entre outros parâmetros. Para saber detalhes, leia [Serviço de nuvem e protocolo](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_cloud.html#cloud-service-and-protocol) no Guia de Configuração de Clusters.
 
-  ![Informações sobre o arquivista principal em nuvem no assistente "Novo Arquivista Principal"](media/fxt-cluster-config/new-core-filer-cloud3.png) 
+  ![Informações sobre o arquivista principal em nuvem no assistente "Novo Arquivista Principal"](media/fxt-cluster-config/new-core-filer-cloud3.png)
   
-  Se você já tiver adicionado as credenciais de acesso à nuvem deste cluster, elas aparecerão na lista. Atualize e adicione as credenciais na página de configurações **Cluster** > **Credenciais de Nuvem**. 
+  Se você já tiver adicionado as credenciais de acesso à nuvem deste cluster, elas aparecerão na lista. Atualize e adicione as credenciais na página de configurações **Cluster** > **Credenciais de Nuvem**.
 
 Após preencher todas as configurações obrigatórias no assistente, clique no botão **Adicionar Arquivista** para enviar a alteração.
 
@@ -91,14 +92,14 @@ O arquivista principal nesta captura de tela não tem um vserver. É necessário
 
 ## <a name="configure-the-namespace"></a>Configurar o namespace
 
-O cluster do Azure FXT Edge Filer cria um sistema de arquivos virtual chamado *namespace do cluster*, que simplifica o acesso do cliente aos dados armazenados em vários sistemas de back-end. Como os clientes solicitam arquivos usando um caminho virtual, os sistemas de armazenamento podem ser adicionados ou substituídos sem precisar alterar o fluxo de trabalho do cliente. 
+O cluster do Azure FXT Edge Filer cria um sistema de arquivos virtual chamado *namespace do cluster*, que simplifica o acesso do cliente aos dados armazenados em vários sistemas de back-end. Como os clientes solicitam arquivos usando um caminho virtual, os sistemas de armazenamento podem ser adicionados ou substituídos sem precisar alterar o fluxo de trabalho do cliente.
 
-O namespace do cluster também permite apresentar os sistemas de armazenamento NAS e em nuvem em uma estrutura de arquivos semelhante. 
+O namespace do cluster também permite apresentar os sistemas de armazenamento NAS e em nuvem em uma estrutura de arquivos semelhante.
 
-Os vservers do cluster mantêm o namespace e exibem conteúdo aos clientes. Há duas etapas para criar o namespace do cluster: 
+Os vservers do cluster mantêm o namespace e exibem conteúdo aos clientes. Há duas etapas para criar o namespace do cluster:
 
-1. Criar um vserver 
-1. Configurar as junções entre os sistemas do armazenamento de back-end e os caminhos do sistema de arquivos voltado ao cliente 
+1. Criar um vserver
+1. Configurar as junções entre os sistemas do armazenamento de back-end e os caminhos do sistema de arquivos voltado ao cliente
 
 ### <a name="create-a-vserver"></a>Criar um vserver
 
@@ -109,7 +110,7 @@ Os VServers são servidores de arquivos virtuais que controlam os fluxos de dado
 * Os VServers aplicam controles de acesso a arquivos, incluindo políticas de exportação de arquivistas principais e sistemas de autenticação de usuário
 * Os VServers oferecem infraestrutura SMB
 
-Antes de começar a configurar o vserver do cluster, leia a documentação vinculada e consulte seu representante da Microsoft para entender melhor o namespace e os vservers. Se estiver usando VLANs, [crie-as](fxt-configure-network.md#adjust-network-settings) antes de criar o vserver. 
+Antes de começar a configurar o vserver do cluster, leia a documentação vinculada e consulte seu representante da Microsoft para entender melhor o namespace e os vservers. Se estiver usando VLANs, [crie-as](fxt-configure-network.md#adjust-network-settings) antes de criar o vserver.
 
 Estas seções do Guia de Configuração de Clusters ajudarão você a conhecer melhor os recursos de vserver e namespace global do FXT:
 
@@ -117,7 +118,7 @@ Estas seções do Guia de Configuração de Clusters ajudarão você a conhecer 
 * [Usar um namespace global](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gns_overview.html)
 * [Criar um VServer](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_vserver_manage.html#creating-a-vserver)
 
-Você precisa pelo menos um vserver para o cluster. 
+Você precisa pelo menos um vserver para o cluster.
 
 Para criar um novo vserver, são necessárias as seguintes informações:
 
@@ -129,7 +130,7 @@ Para criar um novo vserver, são necessárias as seguintes informações:
 
 * Se a rede tiver VLANs, qual VLAN usar para o vserver
 
-Use a página de configurações **VServer** > **Gerenciar VServers** para criar um novo vserver. Para saber detalhes, leia [Criar um VServer](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_vserver_manage.html#creating-a-vserver) no Guia de Configuração de Clusters. 
+Use a página de configurações **VServer** > **Gerenciar VServers** para criar um novo vserver. Para saber detalhes, leia [Criar um VServer](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_vserver_manage.html#creating-a-vserver) no Guia de Configuração de Clusters.
 
 ![Janela pop-up para criar um novo vserver](media/fxt-cluster-config/new-vserver.png)
 
@@ -154,7 +155,6 @@ Primeiro, use a página **VServer** > **Regras de Exportação** para adicionar 
 Depois, use a página **VServer** > **Políticas de Exportação** para aplicar a política personalizada às exportações do arquivista principal quando ele for acessado por meio do vserver.
 
 Leia o artigo do Guia de Configuração de Clusters [Controlar o acesso às exportações do arquivista principal](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/export_rules_overview.html) para saber mais detalhes.
-
 
 ## <a name="next-steps"></a>Próximas etapas
 

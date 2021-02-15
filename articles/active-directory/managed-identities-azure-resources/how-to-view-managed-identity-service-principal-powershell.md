@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/29/2018
+ms.date: 09/30/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d958ddf977d0f6926863fa661b25e76fe031822d
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 15ccc0faa4d74a2ef95aca00a6257f27b9a209c3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89009280"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91611938"
 ---
 # <a name="view-the-service-principal-of-a-managed-identity-using-powershell"></a>Exibir a entidade de serviço de uma identidade gerenciada usando o PowerShell
 
@@ -34,19 +35,19 @@ Neste artigo, você aprende a exibir a entidade de serviço de uma identidade ge
 
 - Se você não estiver familiarizado com identidades gerenciadas para recursos do Azure, confira a [seção de visão geral](overview.md).
 - Caso ainda não tenha uma conta do Azure, [inscreva-se para obter uma conta gratuita](https://azure.microsoft.com/free/).
-- Habilite a [identidade designada pelo sistema em uma máquina virtual](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#system-assigned-managed-identity) ou [aplicativo](/azure/app-service/overview-managed-identity#add-a-system-assigned-identity).
-- Instalar a versão mais recente do [Azure PowerShell](/powershell/azure/install-az-ps)
+- Habilite a [identidade designada pelo sistema em uma máquina virtual](./qs-configure-portal-windows-vm.md#system-assigned-managed-identity) ou [aplicativo](../../app-service/overview-managed-identity.md#add-a-system-assigned-identity).
+- Para executar os scripts de exemplo, você tem duas opções:
+    - Use o [Azure Cloud Shell](../../cloud-shell/overview.md), que você pode abrir usando o botão **Experimentar** no canto superior direito dos blocos de código.
+    - Execute os scripts localmente instalando a versão mais recente do [Azure PowerShell](/powershell/azure/install-az-ps) e, em seguida, entre no Azure usando `Connect-AzAccount`.
 
 ## <a name="view-the-service-principal"></a>Exibir a entidade de serviço
 
-O comando a seguir demonstra como exibir a entidade de serviço de um aplicativo ou VM com identidade atribuída pelo sistema habilitada. Substitua `<VM or application name>` pelos seus próprios valores.
+O comando a seguir demonstra como exibir a entidade de serviço de um aplicativo ou VM com identidade atribuída pelo sistema habilitada. Substitua `<Azure resource name>` pelos seus próprios valores.
 
-```powershell
-Get-AzADServicePrincipal -DisplayName <VM or application name>
+```azurepowershell-interactive
+Get-AzADServicePrincipal -DisplayName <Azure resource name>
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Para obter mais informações sobre como exibir entidades de serviço do Azure AD usando o PowerShell, confira [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal).
-
-

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/08/2019
 ms.author: jeedes
-ms.openlocfilehash: e212b8c72a8cf7000a2789034f3ee83a5a0c9cda
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: f999818ab791cabac6b0877b7735fa730dab89e2
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88542731"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673370"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-brightspace-by-desire2learn"></a>Tutorial: Integração do Active Directory do Azure ao Brightspace by Desire2Learn
 
@@ -27,7 +27,7 @@ A integração do Brightspace by Desire2Learn ao Azure AD oferece os seguintes b
 * Você pode permitir que os usuários se conectem automaticamente ao Brightspace by Desire2Learn (logon único) com suas contas do Azure AD.
 * Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](../manage-apps/what-is-single-sign-on.md).
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Prerequisites
@@ -66,7 +66,7 @@ Para configurar a integração do Brightspace by Desire2Learn ao Azure AD, você
 
 4. Na caixa de pesquisa, digite **Brightspace by Desire2Learn**, selecione **Brightspace by Desire2Learn** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
-     ![Brightspace by Desire2Learn na lista de resultados](common/search-new-app.png)
+    ![Brightspace by Desire2Learn na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Azure AD com o Brightspace by Desire2Learn, ex
     ![Informações de logon único de Domínio e URLs do Brightspace by Desire2Learn](common/idp-intiated.png)
 
     a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão:
-    
+
     ```http
     https://<companyname>.tenants.brightspace.com/samlLogin
     https://<companyname>.desire2learn.com/shibboleth-sp
@@ -151,7 +151,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
     a. No campo **Nome**, insira **BrendaFernandes**.
-  
+
     b. No campo **Nome de usuário**, digite **brendafernandes\@dominiodaempresa.extensao**  
     Por exemplo, BrittaSimon@contoso.com
 
@@ -187,7 +187,7 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure co
 
 ### <a name="create-brightspace-by-desire2learn-test-user"></a>Criar um usuário de teste do Brightspace by Desire2Learn
 
-Nesta seção, você criará um usuário chamado Brenda Fernandes no Brightspace by Desire2Learn. Trabalhe com a [equipe de suporte do Brightspace by Desire2Learn](https://www.d2l.com/contact/) para adicionar os usuários à plataforma Brightspace by Desire2Learn. Os usuários devem ser criados e ativados antes de usar o logon único.
+Nesta seção, você criará um usuário chamado Brenda Fernandes no Brightspace by Desire2Learn. Trabalhe com a [equipe de suporte do Brightspace by Desire2Learn](https://www.d2l.com/contact/) para adicionar os usuários na plataforma do Brightspace by Desire2Learn. Os usuários devem ser criados e ativados antes de usar o logon único.
 
 > [!NOTE]
 > Você pode usar qualquer outra ferramenta de criação da conta de usuário do Brightspace by Desire2Learn ou as APIs fornecidas pelo Brightspace by Desire2Learn para provisionar as contas de usuário do Active Directory do Azure.
@@ -196,12 +196,12 @@ Nesta seção, você criará um usuário chamado Brenda Fernandes no Brightspace
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Ao clicar no bloco do Brightspace by Desire2Learn no Painel de Acesso, você deverá ser conectado automaticamente ao Brightspace by Desire2Learn, para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao clicar no bloco do Brightspace by Desire2Learn no Painel de Acesso, você deverá ser conectado automaticamente ao Brightspace by Desire2Learn, para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](./tutorial-list.md)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](../conditional-access/overview.md)

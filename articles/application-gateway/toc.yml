@@ -52,8 +52,20 @@
           href: how-application-gateway-works.md
         - name: Componentes do Gateway de Aplicativo
           href: application-gateway-components.md
-        - name: Visão geral de configuração
-          href: configuration-overview.md
+        - name: Configuração
+          items:
+            - name: Visão geral
+              href: configuration-overview.md
+            - name: Infraestrutura
+              href: configuration-infrastructure.md
+            - name: Endereço IP de front-end
+              href: configuration-front-end-ip.md
+            - name: Ouvintes
+              href: configuration-listeners.md
+            - name: Regras de roteamento de solicitação
+              href: configuration-request-routing-rules.md
+            - name: Configurações de HTTP
+              href: configuration-http-settings.md
     - name: Suporte a alto tráfego
       href: high-traffic-support.md
     - name: SKU de dimensionamento automático v2
@@ -68,6 +80,10 @@
           href: redirect-overview.md
         - name: Reescrever cabeçalhos HTTP e URL
           href: rewrite-http-headers-url.md
+    - name: Segurança
+      items:
+        - name: Linha de base de segurança
+          href: security-baseline.md
     - name: SSL
       items:
         - name: Terminação SSL e SSL de ponta a ponta
@@ -90,8 +106,10 @@
       href: application-gateway-web-app-overview.md
     - name: Suporte para WebSocket
       href: application-gateway-websocket.md
+    - name: Noções básicas sobre preços
+      href: understanding-pricing.md
     - name: Perguntas frequentes
-      href: application-gateway-faq.md
+      href: application-gateway-faq.yml
 - name: Guias de instruções
   items:
     - name: Hospedar site único
@@ -269,7 +287,7 @@
       href: ../azure-resource-manager/management/overview.md
     - name: Modelo do Resource Manager
       displayName: ARM
-      href: 'https://docs.microsoft.com/azure/templates/microsoft.network/applicationgateways'
+      href: /azure/templates/microsoft.network/applicationgateways
 - name: Recursos
   items:
     - name: Modelos de autor

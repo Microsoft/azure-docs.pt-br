@@ -2,26 +2,21 @@
 title: Solucionar problemas de delegação restrita de Kerberos-proxy de aplicativo
 description: Solucionar problemas configurações de delegação restrita de Kerberos para o Proxy do Aplicativo
 services: active-directory
-documentationcenter: ''
 author: kenwith
-manager: celestedg
-ms.assetid: ''
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 04/23/2019
 ms.author: kenwith
-ms.reviewer: asteen
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d086d816be17699989aafda144493d80837188b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.reviewer: asteen, japere
+ms.openlocfilehash: 65d68924fbc3a777ef7ef59d2532a1ae20e23c48
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84760432"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258211"
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>Solucionar problemas configurações de delegação restrita de Kerberos para o Proxy do Aplicativo
 
@@ -56,7 +51,7 @@ O melhor local para posicionar os conectores é o mais próximo possível de seu
 
 O que mostra um problema do KCD? Há várias indicações comuns de que o SSO do KCD está falhando. Os primeiros sinais de um problema aparecem no navegador.
 
-![Exemplo: erro de configuração KCD incorreto](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic1.png)
+![Captura de tela que mostra um exemplo de erro de configuração de K C D incorreto, com o erro "delegação restrita de Kerberos incorreta..." taco.](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic1.png)
 
 ![Exemplo: falha de autorização devido a permissões ausentes](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic2.png)
 
@@ -95,7 +90,7 @@ As entradas correspondentes visualizadas no log de eventos seriam os eventos 130
 1. Usar um registro **A** no seu DNS interno para o endereço do aplicativo, e não um **CName**.
 1. Confirme novamente que o host do conector tenha recebido direitos para delegar para o SPN da conta de destino designada. Confirme novamente que **Usar qualquer protocolo de autenticação** está selecionado. Para obter mais informações sobre este tópico, consulte o [artigo de configuração de SSO](application-proxy-configure-single-sign-on-with-kcd.md).
 1. Verifique se há apenas uma instância do SPN existente no Azure AD. Problema `setspn -x` em um prompt de comando em qualquer host de membro do domínio.
-1. Verifique se uma política de domínio é aplicada que limita o [tamanho máximo de tokens Kerberos emitidos](https://blogs.technet.microsoft.com/askds/2012/09/12/maxtokensize-and-windows-8-and-windows-server-2012/). Essa política impede o conector de obter um token se ele for considerado excessivo.
+1. Verifique se uma política de domínio é aplicada que limita o [tamanho máximo de tokens Kerberos emitidos](/archive/blogs/askds/maxtokensize-and-windows-8-and-windows-server-2012). Essa política impede o conector de obter um token se ele for considerado excessivo.
 
 Um rastreamento de rede que captura as trocas entre o host de conector e um domínio de KDC é a próxima etapa recomendada para obter detalhes de nível mais baixo sobre os problemas. Para obter mais informações, consulte [aprofundamento do papel de solução de problemas](https://aka.ms/proxytshootpaper).
 
@@ -165,7 +160,7 @@ Se você ainda não conseguir progredir, o suporte da Microsoft pode ajudá-lo. 
 
 ## <a name="other-scenarios"></a>Outros cenários
 
-- Application Proxy do Azure solicita um tíquete do Kerberos antes de enviar a solicitação para um aplicativo. Alguns aplicativos de terceiros não gostam desse método de autenticação. Esses aplicativos esperam que as negociações mais convencionais ocorram. A primeira solicitação é anônima, e permite que o aplicativo responda com os tipos de autenticação que ele oferece suporte através de um 401.
+- Application Proxy do Azure solicita um tíquete do Kerberos antes de enviar a solicitação para um aplicativo. Alguns aplicativos de terceiros não gostam desse método de autenticação. Esses aplicativos esperam que as negociações mais convencionais ocorram. A primeira solicitação é anônima, e permite que o aplicativo responda com os tipos de autenticação que ele oferece suporte através de um 401. Esse tipo de negociação Kerberos pode ser habilitado usando as etapas descritas neste documento: [delegação restrita de Kerberos para logon único](application-proxy-configure-single-sign-on-with-kcd.md).
 - Autenticação com salto duplo é comumente usada em cenários com aplicativos em camadas, com um back-end e front-end, ambos exigindo autenticação, como o SQL Server Reporting Services. Para configurar o cenário de salto múltiplo, consulte o artigo de suporte a [delegação restrita de Kerberos pode exigir a transição de protocolo em cenários de multi-hop](https://support.microsoft.com/help/2005838/kerberos-constrained-delegation-may-require-protocol-transition-in-mul).
 
 ## <a name="next-steps"></a>Próximas etapas

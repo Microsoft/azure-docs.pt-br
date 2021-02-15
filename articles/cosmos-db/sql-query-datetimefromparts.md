@@ -3,18 +3,20 @@ title: DateTimeFromParts na linguagem de consulta Azure Cosmos DB
 description: Saiba mais sobre a função do sistema SQL DateTimeFromParts no Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 07/09/2020
 ms.author: tisande
 ms.custom: query-reference
-ms.openlocfilehash: aec567c642f8eb3cb421ef5a119fe58f3a5fe05a
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: da992715b5cf624592db72cacefd35c9513ac43f
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261644"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93335748"
 ---
 # <a name="datetimefromparts-azure-cosmos-db"></a>DateTimeFromParts (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Retorna um valor DateTime da cadeia de caracteres construído a partir de valores de entrada.
   
@@ -26,21 +28,21 @@ DateTimeFromParts(<numberYear>, <numberMonth>, <numberDay> [, numberHour]  [, nu
 
 ## <a name="arguments"></a>Argumentos
   
-*numberYear* Valor inteiro para o ano no formato`YYYY`
+*numberYear* Valor inteiro para o ano no formato `YYYY`
 
 *numberMonth*  
-   Valor inteiro para o mês no formato`MM`
+   Valor inteiro para o mês no formato `MM`
 
 *numberDay*  
-   Valor inteiro para o dia no formato`DD`
+   Valor inteiro para o dia no formato `DD`
 
-*numberHour* (opcional) valor inteiro para a hora no formato`hh`
+*numberHour* (opcional) valor inteiro para a hora no formato `hh`
 
-*numberMinute* (opcional) valor inteiro para o minuto no formato`mm`
+*numberMinute* (opcional) valor inteiro para o minuto no formato `mm`
 
-*numberSecond* (opcional) valor inteiro para o segundo no formato`ss`
+*numberSecond* (opcional) valor inteiro para o segundo no formato `ss`
 
-*numberOfFractionsOfSecond* (opcional) valor inteiro para a fração de um segundo no formato`.fffffff`
+*numberOfFractionsOfSecond* (opcional) valor inteiro para a fração de um segundo no formato `.fffffff`
 
 ## <a name="return-types"></a>Tipos de retorno
 
@@ -53,7 +55,7 @@ Retorna um valor de cadeia de caracteres do UTC de data e hora do ISO 8601 no fo
   |DD|dia de dois dígitos do mês (01 a 31)|
   |T|signifier para o início dos elementos de hora|
   |hh|hora de dois dígitos (00 a 23)|
-  |MM|minutos de dois dígitos (00 a 59)|
+  |mm|minutos de dois dígitos (00 a 59)|
   |ss|segundos de dois dígitos (00 a 59)|
   |. fffffff|segundos fracionários de sete dígitos|
   |Z|Designador UTC (tempo Universal Coordenado)||

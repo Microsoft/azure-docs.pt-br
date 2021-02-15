@@ -7,16 +7,16 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: sumi
-ms.openlocfilehash: a6bbb2abe24eba96fd2c55b7aaf15ccd8ae33530
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: 7983a80da8a5ca9d900e44515b5e078cc9d70d79
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87760933"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684179"
 ---
 # <a name="what-is-azure-private-link-service"></a>O que é o serviço de vínculo privado do Azure?
 
-O serviço de Link Privado do Azure é a referência para seu serviço que é desenvolvido com o Link Privado do Azure. Seu serviço que está sendo executado por trás [do Azure Standard Load Balancer](../load-balancer/load-balancer-standard-overview.md) pode ser habilitado para acesso de link privado para que os consumidores de seu serviço possam acessá-lo de forma privada em seu próprio VNets. Seus clientes podem criar um ponto de extremidade privado dentro de sua VNet e mapeá-lo para esse serviço. Este artigo explica os conceitos relacionados ao lado do provedor de serviço. 
+O serviço de Link Privado do Azure é a referência para seu serviço que é desenvolvido com o Link Privado do Azure. Seu serviço que está sendo executado por trás [do Azure Standard Load Balancer](../load-balancer/load-balancer-overview.md) pode ser habilitado para acesso de link privado para que os consumidores de seu serviço possam acessá-lo de forma privada em seu próprio VNets. Seus clientes podem criar um ponto de extremidade privado dentro de sua VNet e mapeá-lo para esse serviço. Este artigo explica os conceitos relacionados ao lado do provedor de serviço. 
 
 :::image type="content" source="./media/private-link-service-overview/consumer-provider-endpoint.png" alt-text="Fluxo de trabalho do serviço de vínculo privado" border="true":::
 
@@ -57,7 +57,7 @@ Um serviço de vínculo privado especifica as seguintes propriedades:
 |---------|---------|
 |Estado de provisionamento (provisioningState)  |Uma propriedade somente leitura que lista o estado de provisionamento atual para o serviço de vínculo privado. Os Estados de provisionamento aplicáveis são: "excluindo; Falha ao Foi Atualizando ". Quando o estado de provisionamento for "êxito", você terá provisionado com êxito o serviço de vínculo privado.        |
 |Alias (alias)     | Alias é uma cadeia de caracteres somente leitura globalmente exclusiva para seu serviço. Ele ajuda a mascarar os dados do cliente para seu serviço e, ao mesmo tempo, cria um nome de fácil compartilhamento para seu serviço. Quando você cria um serviço de vínculo privado, o Azure gera o alias para o serviço que você pode compartilhar com seus clientes. Seus clientes podem usar esse alias para solicitar uma conexão ao seu serviço.          |
-|Visibilidade (visibilidade)     | Visibility é a propriedade que controla as configurações de exposição para seu serviço de vínculo privado. Os provedores de serviços podem optar por limitar a exposição a seu serviço a assinaturas com permissões de RBAC (controle de acesso baseado em função), um conjunto restrito de assinaturas ou todas as assinaturas do Azure.          |
+|Visibilidade (visibilidade)     | Visibility é a propriedade que controla as configurações de exposição para seu serviço de vínculo privado. Os provedores de serviços podem optar por limitar a exposição a seu serviço a assinaturas com permissões do Azure RBAC (controle de acesso baseado em função), um conjunto restrito de assinaturas ou todas as assinaturas do Azure.          |
 |Aprovação automática (autoaprovação)    |   A aprovação automática controla o acesso automatizado ao serviço de vínculo privado. As assinaturas especificadas na lista aprovação automática são aprovadas automaticamente quando uma conexão é solicitada de pontos de extremidade privados nessas assinaturas.          |
 |Load Balancer configuração de IP de front-end (loadBalancerFrontendIpConfigurations)    |    O serviço de vínculo privado está vinculado ao endereço IP de front-end de um Standard Load Balancer. Todo o tráfego destinado ao serviço alcançará o front-end do SLB. Você pode configurar regras SLB para direcionar esse tráfego para os pools de back-end apropriados onde seus aplicativos estão em execução. As configurações de IP de front-end do balanceador de carga são diferentes das configurações de IP NAT.      |
 |Configuração de IP de NAT (ipConfigurations)    |    Essa propriedade refere-se à configuração de IP NAT (conversão de endereços de rede) para o serviço de link privado. O IP de NAT pode ser escolhido de qualquer sub-rede em uma rede virtual do provedor de serviços. O serviço de vínculo privado executa NAT-ing no tráfego do link privado. Isso garante que não haja nenhum conflito de IP entre a origem (lado do consumidor) e o espaço de endereço de destino (provedor de serviço). No lado de destino (lado do provedor de serviço), o endereço IP de NAT aparecerá como IP de origem para todos os pacotes recebidos pelo seu serviço e IP de destino para todos os pacotes enviados pelo seu serviço.       |
@@ -76,7 +76,7 @@ Um serviço de vínculo privado especifica as seguintes propriedades:
  
 - Um único serviço de vínculo privado pode ser acessado de vários pontos de extremidade privados que pertencem a diferentes VNets, assinaturas e/ou locatários Active Directory. A conexão é estabelecida por meio de um fluxo de trabalho de conexão. 
  
-- Vários serviços de vínculo privado podem ser criados no mesmo Standard Load Balancer usando configurações de IP de front-end diferentes. Há limites para o número de serviços de vínculo privado que você pode criar por Standard Load Balancer e por assinatura. Para obter detalhes, confira  [Limites do Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits).
+- Vários serviços de vínculo privado podem ser criados no mesmo Standard Load Balancer usando configurações de IP de front-end diferentes. Há limites para o número de serviços de vínculo privado que você pode criar por Standard Load Balancer e por assinatura. Para obter detalhes, confira  [Limites do Azure](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
  
 - O serviço de vínculo privado pode ter mais de uma configuração de IP NAT vinculada a ela. A escolha de mais de uma configuração de IP NAT pode ajudar os provedores de serviços a dimensionar. Hoje, os provedores de serviços podem atribuir até oito endereços IP de NAT por serviço de vínculo privado. Com cada endereço IP de NAT, você pode atribuir mais portas para suas conexões TCP e, portanto, escalar horizontalmente. Depois de adicionar vários endereços IP NAT a um serviço de vínculo privado, você não pode excluir os endereços IP de NAT. Isso é feito para garantir que as conexões ativas não sejam afetadas durante a exclusão dos endereços IP de NAT.
 
@@ -91,11 +91,11 @@ O alias é composto por três partes: *prefixo*. *GUID*. *Sufixo*
 - O GUID será fornecido pela plataforma. Isso ajuda a tornar o nome globalmente exclusivo. 
 - O sufixo é acrescentado pelo Azure: *Region*. Azure. privatelinkservice 
 
-Alias completo: *prefixo*. {GUID}. *Region*. Azure. privatelinkservice  
+Alias completo:  *prefixo*. {GUID}. *Region*. Azure. privatelinkservice  
 
 ## <a name="control-service-exposure"></a>Controlar a exposição do serviço
 
-O serviço de vínculo privado fornece opções para controlar a exposição de seu serviço por meio da configuração de "visibilidade". Você pode tornar o serviço particular para consumo de diferentes VNets que você possui (somente permissões RBAC), restringir a exposição a um conjunto limitado de assinaturas em que você confia ou torná-lo público para que todas as assinaturas do Azure possam solicitar conexões no serviço de link privado. Suas configurações de visibilidade decidem se um consumidor pode se conectar ao seu serviço ou não. 
+O serviço de vínculo privado fornece opções para controlar a exposição de seu serviço por meio da configuração de "visibilidade". Você pode tornar o serviço particular para consumo de diferentes VNets que você possui (somente permissões do RBAC do Azure), restringir a exposição a um conjunto limitado de assinaturas em que você confia ou torná-lo público para que todas as assinaturas do Azure possam solicitar conexões no serviço de link privado. Suas configurações de visibilidade decidem se um consumidor pode se conectar ao seu serviço ou não. 
 
 ## <a name="control-service-access"></a>Acesso ao serviço de controle
 
@@ -126,7 +126,7 @@ Detalhes do TLV personalizado:
 A seguir estão as limitações conhecidas ao usar o serviço de link privado:
 - Com suporte apenas em Standard Load Balancer 
 - Dá suporte apenas ao tráfego IPv4
-- Dá suporte apenas ao tráfego TCP
+- Dá suporte somente ao tráfego TCP e UDP
 
 ## <a name="next-steps"></a>Próximas etapas
 - [Criar um serviço de vínculo privado usando Azure PowerShell](create-private-link-service-powershell.md)

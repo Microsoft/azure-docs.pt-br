@@ -2,13 +2,13 @@
 title: Key Vault segredo com o modelo
 description: Mostra como transmitir um segredo de um cofre da chave como um parâmetro durante a implantação.
 ms.topic: conceptual
-ms.date: 01/06/2020
-ms.openlocfilehash: eb57e680090a38a5be725daa7b3a118039aa35f6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 12/17/2020
+ms.openlocfilehash: 8983d51d90e07e21ac4c9489c7ed553530278d3c
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84677858"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672698"
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Usar o Azure Key Vault para passar um valor de parâmetro seguro durante a implantação
 
@@ -377,3 +377,4 @@ O seguinte modelo cria dinamicamente a ID do cofre de chaves e a passa como um p
 
 - Para obter informações gerais sobre os cofres de chaves, consulte [O que é o Cofre de Chaves do Azure?](../../key-vault/general/overview.md).
 - Para obter exemplos completos de referência de segredos de chave, veja [Exemplos do cofre da chave](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).
+- Para um módulo Microsoft Learn que cobre a passagem de um valor seguro de um cofre de chaves, consulte [gerenciar implantações de nuvem complexas usando recursos avançados de modelo ARM](/learn/modules/manage-deployments-advanced-arm-template-features/).

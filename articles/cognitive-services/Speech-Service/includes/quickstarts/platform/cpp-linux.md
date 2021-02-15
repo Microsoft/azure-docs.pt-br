@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 10/14/2019
+ms.date: 10/15/2020
 ms.author: erhopf
-ms.openlocfilehash: 099c835ae2047538c882414660f699341af60b8b
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 10cee7f5b0deff37a9b1df1937fe8f6ed8431daa
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83673247"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96188137"
 ---
 Este guia mostra como instalar o [SDK de Fala](~/articles/cognitive-services/speech-service/speech-sdk.md) no Linux
 
@@ -23,7 +23,7 @@ Este guia mostra como instalar o [SDK de Fala](~/articles/cognitive-services/spe
 
 ## <a name="system-requirements"></a>Requisitos do sistema
 
-Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 7/8, CentOS 7/8)
+Linux; confira a lista de [distribuições do Linux e arquiteturas de destino compatíveis](~/articles/cognitive-services/speech-service/speech-sdk.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -33,19 +33,14 @@ Para concluir este início rápido, você precisa do seguinte:
 
 * As plataformas Linux com suporte deverão ter determinadas bibliotecas instaladas (`libssl` para suporte do protocolo SSL e `libasound2` para um suporte consistente). Consulte a distribuição abaixo para verificar os comandos necessários para instalar as versões corretas dessas bibliotecas.
 
-   * No Ubuntu:
+   * No Ubuntu/Debian:
 
      ```sh
      sudo apt-get update
      sudo apt-get install build-essential libssl1.0.0 libasound2 wget
      ```
 
-   * No Debian 9:
-
-     ```sh
-     sudo apt-get update
-     sudo apt-get install build-essential libssl1.0.2 libasound2 wget
-     ```
+     Se o libssl 1.0.0 não estiver disponível, instale o libssl 1.0.x (em que x é maior que 0) ou o libssl 1.1.
 
    * No RHEL/CentOS:
 

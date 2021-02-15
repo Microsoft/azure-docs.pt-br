@@ -5,12 +5,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 05/12/2020
 ms.custom: mvc
-ms.openlocfilehash: 80944d99c51ae4880a40df8700a73d08a95efe77
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: cd0d4928d5cd0eb15f4f1372a0a3417fc85d13bb
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83656958"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91328761"
 ---
 # <a name="back-up-a-virtual-machine-in-azure"></a>Fazer backup de uma máquina virtual no Azure
 
@@ -24,7 +24,7 @@ Entre no [portal do Azure](https://portal.azure.com).
 
 ## <a name="select-a-vm-to-back-up"></a>Selecionar uma máquina virtual para fazer backup
 
-Crie um backup diário agendado simples em um Cofre de Serviços de Recuperação.
+Crie um backup diário agendado simples em um cofre dos Serviços de Recuperação.
 
 1. No menu à esquerda, selecione **Máquinas virtuais**.
 2. Na lista, escolha uma máquina virtual para fazer backup. Se você tiver usado os comandos de início rápido da VM de exemplo, a VM se chamará *myVM* no grupo de recursos *myResourceGroup*.
@@ -39,7 +39,7 @@ Um cofre dos Serviços de Recuperação é um contêiner lógico que armazena os
 
     ![Habilitar o backup de VM no portal do Azure](./media/quick-backup-vm-portal/enable-backup.png)
 
-    Por padrão, o cofre é definido para o armazenamento com redundância geográfica. Para proteger ainda mais seus dados, esse nível de redundância de armazenamento garante que os dados de backup sejam replicados para uma região secundária do Azure a centenas de milhas de distância da região primária.
+    Por padrão, o cofre é definido para o armazenamento com redundância geográfica. Para proteger ainda mais os seus dados, esse nível de redundância de armazenamento garante que os dados de backup sejam replicados para uma região secundária do Azure a centenas de quilômetros de distância da região primária.
 
     Criar e usar políticas para definir quando um trabalho de backup é executado e por quanto tempo os pontos de recuperação serão armazenados. A política de proteção padrão executa um trabalho de backup a cada dia e retém pontos de recuperação por 30 dias. Você pode usar esses valores de política padrão para proteger rapidamente sua VM.
 
@@ -83,7 +83,7 @@ Se você pretende prosseguir para um tutorial de Backup que explica como restaur
 6. Na lista, escolha o grupo de recursos. Se você tiver usado os comandos de início rápido de VM de exemplo, o grupo de recursos será denominado *myResourceGroup*.
 7. Selecione **Excluir grupo de recursos**. Para confirmar, insira o nome do grupo de recursos, selecione **Excluir**.
 
-    ![Excluir o grupo de recursos do portal do Azure](./media/quick-backup-vm-portal/delete-resource-group.png)
+    ![Excluir o grupo de recursos do portal do Azure](./media/quick-backup-vm-portal/delete-resource-group-from-portal.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -1,15 +1,16 @@
 ---
 title: Alterações de ponto de extremidade de previsão na API v3
 description: As APIs de ponto de extremidade de previsão de consulta foram alteradas. Use este guia para entender como migrar para as APIs de ponto de extremidade da versão 3.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 06/30/2020
-ms.author: diberry
-ms.openlocfilehash: d3d8f4d77793390484c64b03393fb528dfa643b7
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 59dfa439f6428f2db972a8f848887e1a74bc2622
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85610873"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624296"
 ---
 # <a name="prediction-endpoint-changes-for-v3"></a>Alterações de ponto de extremidade de previsão para v3
 
@@ -39,14 +40,14 @@ A V3 fez as seguintes alterações como parte da mudança para GA:
     * [OrdinalV1](luis-reference-prebuilt-ordinal.md)
     * [GeographyV2](luis-reference-prebuilt-geographyv2.md)
     * [DatetimeV2](luis-reference-prebuilt-datetimev2.md)
-    * Nome da chave de unidade mensurável de `units` para`unit`
+    * Nome da chave de unidade mensurável de `units` para `unit`
 
 * Alteração de JSON do corpo da solicitação:
-    * de `preferExternalEntities` para`preferExternalEntities`
+    * de `preferExternalEntities` para `preferExternalEntities`
     * `score`parâmetro opcional para entidades externas
 
 * Alterações de JSON do corpo da resposta:
-    * `normalizedQuery`removido
+    * `normalizedQuery` removido
 
 ## <a name="suggested-adoption-strategy"></a>Estratégia de adoção sugerida
 
@@ -59,15 +60,12 @@ Se você souber que nenhum de seus aplicativos cliente ou integrações (bot Fra
 
 ### <a name="bing-spell-check"></a>Verificação Ortográfica do Bing
 
-Esta API não tem suporte no ponto de extremidade de previsão v3-continue a usar o ponto de extremidade de previsão da API v2 para obter correções ortográficas. Se você precisar de correção ortográfica ao usar a API v3, faça com que o aplicativo cliente chame a API de [verificação ortográfica do Bing](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/overview) e altere o texto para a grafia correta, antes de enviar o texto para a API Luis.
+Esta API não tem suporte no ponto de extremidade de previsão v3-continue a usar o ponto de extremidade de previsão da API v2 para obter correções ortográficas. Se você precisar de correção ortográfica ao usar a API v3, faça com que o aplicativo cliente chame a API de [verificação ortográfica do Bing](../bing-spell-check/overview.md) e altere o texto para a grafia correta, antes de enviar o texto para a API Luis.
 
 ## <a name="bot-framework-and-azure-bot-service-client-applications"></a>Aplicativos cliente do bot Framework e do serviço de bot do Azure
 
 Continue a usar o ponto de extremidade de previsão da API v2 até que a V 4.7 da estrutura de bot seja lançada.
 
-## <a name="v2-api-deprecation"></a>Reprovação da API v2
-
-A API de previsão v2 não será preterida por pelo menos 9 meses após a visualização v3, 8 de junho de 2020.
 
 ## <a name="endpoint-url-changes"></a>Alterações de URL de ponto de extremidade
 
@@ -77,7 +75,7 @@ O [formato da chamada http do ponto de extremidade v3](developer-reference-resou
 
 Se desejar consultar por versão, primeiro você precisará [publicar via API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c3b) com `"directVersionPublish":true` . Consulte o ponto de extremidade que referencia a ID de versão em vez do nome do slot.
 
-|Valores válidos para`SLOT-NAME`|
+|Valores válidos para `SLOT-NAME`|
 |--|
 |`production`|
 |`staging`|
@@ -267,9 +265,6 @@ Em v3, o mesmo resultado com o `verbose` sinalizador para retornar os metadados 
 
 Aprenda [conceitos](schema-change-prediction-runtime.md) sobre como estender o aplicativo no tempo de execução de previsão.
 
-## <a name="deprecation"></a>Reprovação
-
-A API v2 não será preterida por pelo menos 9 meses após a visualização v3.
 
 ## <a name="next-steps"></a>Próximas etapas
 

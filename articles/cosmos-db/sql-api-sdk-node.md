@@ -8,38 +8,39 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 76671ba2dec2590baf4f3df38325b4cfb0129e8d
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.custom: devx-track-js
+ms.openlocfilehash: 7f101097945e5f345bae351ef5ca2a23a3e14be6
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88586096"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93091150"
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>SDK do Node.js do Azure Cosmos DB para API do SQL: Notas sobre a versão e recursos
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 > [!div class="op_single_selector"]
 > * [SDK v3 do .NET](sql-api-sdk-dotnet-standard.md)
 > * [SDK do .NET v2](sql-api-sdk-dotnet.md)
 > * [SDK v2 do .NET Core](sql-api-sdk-dotnet-core.md)
-> * [SDK v2 do feed de alterações do .NET](sql-api-sdk-dotnet-changefeed.md)
+> * [SDK do Feed de Alterações do .NET v2](sql-api-sdk-dotnet-changefeed.md)
 > * [Node.js](sql-api-sdk-node.md)
 > * [SDK do Java v4](sql-api-sdk-java-v4.md)
 > * [SDK do Java Assíncrono v2](sql-api-sdk-async-java.md)
 > * [SDK do Java Síncrono v2](sql-api-sdk-java.md)
-> * [Spring data v2](sql-api-sdk-java-spring-v2.md)
-> * [Spring data v3](sql-api-sdk-java-spring-v3.md)
+> * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
+> * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
 > * [Conector do Spark](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api/cosmos-db/)
 > * [Provedor de recursos REST](/rest/api/cosmos-db-resource-provider/)
-> * [SQL](sql-api-query-reference.md)
-> * [Executor em massa-.NET v2](sql-api-sdk-bulk-executor-dot-net.md)
+> * [SQL](./sql-query-getting-started.md)
+> * [Executor em massa – .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Executor em massa – Java](sql-api-sdk-bulk-executor-java.md)
 
 |Recurso  |Link  |
 |---------|---------|
 |Baixar o SDK  |   [NPM](https://www.npmjs.com/package/@azure/cosmos) 
-|Documentação da API  |  [Documentação de referência de SDK do JavaScript](https://docs.microsoft.com/javascript/api/%40azure/cosmos/?view=azure-node-latest)
+|Documentação da API  |  [Documentação de referência de SDK do JavaScript](/javascript/api/%40azure/cosmos/?preserve-view=true&view=azure-node-latest)
 |Instruções de instalação do SDK  |  [Instruções de instalação](https://github.com/Azure/azure-sdk-for-js)
 |Contribuir para o SDK | [GitHub](https://github.com/Azure/azure-cosmos-js/tree/master)
 | Exemplos | [Exemplos de código do Node.js](sql-api-nodejs-samples.md)
@@ -353,7 +354,7 @@ Nem sempre são as alterações mais visíveis, mas ajudam nossa equipe a fornec
 * Adicionado o suporte para o recurso TTL (tempo de vida) para documentos.
 
 ### <a name="160"></a><a name="1.6.0"></a>1.6.0
-* Implementação de [coleções particionadas](partition-data.md) e [níveis de desempenho definidos pelo usuário](performance-levels.md).
+* Implementação de [coleções particionadas](partitioning-overview.md) e [níveis de desempenho definidos pelo usuário](performance-levels.md).
 
 ### <a name="156"></a><a name="1.5.6"></a>1.5.6
 * O bug RangePartitionResolver.resolveForRead foi corrigido, pois ele não estava retornando links devido a uma concatenação incorreta dos resultados.
@@ -476,4 +477,3 @@ A Microsoft notifica pelo menos **12 meses** antes de desativar um SDK, a fim de
 
 ## <a name="see-also"></a>Confira também
 Para saber mais sobre o Cosmos DB, consulte a página de serviço do [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
-

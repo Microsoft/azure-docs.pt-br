@@ -1,19 +1,18 @@
 ---
 title: Ler entrada em qualquer formato usando desserializadores .NET personalizados no Azure Stream Analytics
 description: Este artigo explica o formato de serialização e as interfaces que definem desserializadores .NET personalizados para trabalhos de nuvem e borda do Azure Stream Analytics.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: sidramadoss
+ms.author: sidram
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 1/28/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4616f6c567b0bba13fe04aed56fd5e4ddc293f90
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 140a836882ad3abe048047120e4fe1ebc0a3067c
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89008379"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98018149"
 ---
 # <a name="read-input-in-any-format-using-net-custom-deserializers"></a>Ler entradas em qualquer formato usando desserializadores .NET personalizados
 
@@ -201,7 +200,7 @@ namespace ExampleCustomCode.Serialization
 
 ## <a name="serialization-format-for-rest-apis"></a>Formato de serialização para APIs REST
 
-Cada entrada do Azure Stream Analytics tem um **formato de serialização**. Para obter mais informações sobre opções de entrada, consulte a documentação [API REST de entrada](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-input).
+Cada entrada do Azure Stream Analytics tem um **formato de serialização**. Para obter mais informações sobre opções de entrada, consulte a documentação [API REST de entrada](/rest/api/streamanalytics/2016-03-01/inputs).
 
 O código JavaScript a seguir é um exemplo do formato de serialização do desserializador do .NET ao se usar a API REST:
 
@@ -239,7 +238,7 @@ Você pode [solicitar suporte](https://aka.ms/ccodereqregion) para outras regiõ
 
 ### <a name="when-will-this-feature-be-available-in-all-azure-regions"></a>Quando esse recurso estará disponível em todas as regiões do Azure?
 
-Esse recurso está disponível em [6 regiões](https://docs.microsoft.com/azure/stream-analytics/custom-deserializer-examples#region-support). Se você estiver interessado em usar essa funcionalidade em outra região, [envie uma solicitação](https://aka.ms/ccodereqregion). Estamos trabalhando para oferecer suporte a todas as regiões do Azure.
+Esse recurso está disponível em [6 regiões](#region-support). Se você estiver interessado em usar essa funcionalidade em outra região, [envie uma solicitação](https://aka.ms/ccodereqregion). Estamos trabalhando para oferecer suporte a todas as regiões do Azure.
 
 ### <a name="can-i-access-metadatapropertyvalue-from-my-inputs-similar-to-getmetadatapropertyvalue-function"></a>Posso acessar o MetadataPropertyValue de minhas entradas semelhantes à função GetMetadataPropertyValue?
 
@@ -249,9 +248,9 @@ Não há mais suporte para essa funcionalidade. Se você precisar desse recurso,
 
 Depois de implementar seu desserializador, você poderá ajudar outras pessoas compartilhando-o com a comunidade. Envie seu código para o [repositório do Azure Stream Analytics no GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/CustomDeserializers).
 
-### <a name="what-are-the-other-limitation-of-using-custom-deserializers-in-stream-analytics"></a>Quais são as outras limitações do uso de desserializadores personalizados no Stream Analytics?
+### <a name="what-are-the-other-limitations-of-using-custom-deserializers-in-stream-analytics"></a>Quais são as outras limitações do uso de desserializadores personalizados no Stream Analytics?
 
-Se a entrada for do formato Protobuf com esquema que contenha o tipo MapField, você não poderá implementar um desserializador personalizado. Estamos trabalhando para oferecer suporte a esse tipo no futuro.
+Se a entrada for do formato Protobuf com um esquema que contém o `MapField` tipo, você não poderá implementar um desserializador personalizado. Além disso, os desserializadores personalizados não dão suporte a dados de exemplo ou dados de visualização. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

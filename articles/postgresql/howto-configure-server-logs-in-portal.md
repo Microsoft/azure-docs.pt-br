@@ -1,17 +1,17 @@
 ---
 title: Gerenciar logs-portal do Azure-banco de dados do Azure para PostgreSQL-servidor único
 description: Este artigo descreve como configurar e acessar os logs do servidor (arquivos. log) no banco de dados do Azure para PostgreSQL-servidor único do portal do Azure.
-author: rachel-msft
-ms.author: raagyema
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 5/6/2019
-ms.openlocfilehash: 2be89f9263c71b7c9d7bc32edd0b1fc7cb2cfbce
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 3b52cea1d440506caf5b8244c9643719edd8755c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118147"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999239"
 ---
 # <a name="configure-and-access-azure-database-for-postgresql---single-server-logs-from-the-azure-portal"></a>Configurar e acessar o banco de dados do Azure para PostgreSQL-logs de servidor único do portal do Azure
 
@@ -29,7 +29,7 @@ Configure o acesso aos logs de consulta e de erros.
 
 3. Na seção **monitoramento** na barra lateral, selecione **logs do servidor**. 
 
-   ![Captura de tela de opções de logs do servidor](./media/howto-configure-server-logs-in-portal/1-select-server-logs-configure.png)
+   :::image type="content" source="./media/howto-configure-server-logs-in-portal/1-select-server-logs-configure.png" alt-text="Captura de tela de opções de logs do servidor":::
 
 4. Para ver os parâmetros do servidor, selecione **clique aqui para habilitar logs e configurar parâmetros de log**.
 
@@ -37,7 +37,7 @@ Configure o acesso aos logs de consulta e de erros.
 
    Depois de alterar os parâmetros, selecione **salvar**. Ou você pode descartar suas alterações. 
 
-   ![Captura de tela de opções de parâmetros de servidor](./media/howto-configure-server-logs-in-portal/3-save-discard.png)
+   :::image type="content" source="./media/howto-configure-server-logs-in-portal/3-save-discard.png" alt-text="Captura de tela de opções de parâmetros de servidor":::
 
 Na página **parâmetros do servidor** , você pode retornar à lista de logs fechando a página.
 
@@ -50,18 +50,18 @@ Após o início do log, você pode exibir uma lista de logs disponíveis e baixa
 
 3. Na seção **monitoramento** na barra lateral, selecione **logs do servidor**. A página mostra uma lista de seus arquivos de log.
 
-   ![Captura de tela da página de logs do servidor, com a lista de logs realçada](./media/howto-configure-server-logs-in-portal/4-server-logs-list.png)
+   :::image type="content" source="./media/howto-configure-server-logs-in-portal/4-server-logs-list.png" alt-text="Captura de tela da página de logs do servidor, com a lista de logs realçada":::
 
    > [!TIP]
    > A convenção de nomenclatura do log é **postgresql-yyyy-mm-dd_hh0000.log**. A data e a hora usadas no nome de arquivo são a hora em que o log foi emitido. Os arquivos de log são girados a cada hora ou 100 MB, o que ocorrer primeiro.
 
 4. Se necessário, use a caixa de pesquisa para restringir rapidamente um log específico, com base na data e hora. A pesquisa busca o nome do log.
 
-   ![Captura de tela da página logs do servidor, com a caixa de pesquisa e os resultados realçados](./media/howto-configure-server-logs-in-portal/5-search.png)
+   :::image type="content" source="./media/howto-configure-server-logs-in-portal/5-search.png" alt-text="Captura de tela da página logs do servidor, com a caixa de pesquisa e os resultados realçados":::
 
 5. Para baixar arquivos de log individuais, selecione o ícone de seta para baixo ao lado de cada arquivo de log na linha da tabela.
 
-   ![Captura de tela da página de logs do servidor, com o ícone de seta para baixo realçado](./media/howto-configure-server-logs-in-portal/6-download.png)
+   :::image type="content" source="./media/howto-configure-server-logs-in-portal/6-download.png" alt-text="Captura de tela da página de logs do servidor, com o ícone de seta para baixo realçado":::
 
 ## <a name="next-steps"></a>Próximas etapas
 - Consulte [logs do servidor de acesso na CLI](howto-configure-server-logs-using-cli.md) para saber como baixar logs programaticamente.

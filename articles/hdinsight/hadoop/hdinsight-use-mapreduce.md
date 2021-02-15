@@ -1,19 +1,16 @@
 ---
 title: MapReduce com Apache Hadoop no HDInsight
 description: Saiba como executar trabalhos do Apache MapReduce em Apache Hadoop em clusters HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
-ms.openlocfilehash: 8b683f12a17d6aabbcdce3190a34675951567f64
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 33d96262ca2e2ff3003fbf2b40ce9ceb496337ae
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86075834"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944254"
 ---
 # <a name="use-mapreduce-in-apache-hadoop-on-hdinsight"></a>Usar MapReduce no Apache Hadoop em HDInsight
 
@@ -110,7 +107,7 @@ O HDInsight pode executar trabalhos de HiveQL usando vários métodos. Use a tab
 | **Use isto**... | **... para fazer isso** |  ... desse **sistema operacional cliente** |
 |:--- |:--- |:--- |:--- |
 | [SSH](apache-hadoop-use-mapreduce-ssh.md) |Usar o comando Hadoop por meio de **SSH** |Linux, Unix, Mac OS X ou Windows |
-| [Curl](apache-hadoop-use-mapreduce-curl.md) |Enviar o trabalho remotamente usando a **REST** |Linux, Unix, Mac OS X ou Windows |
+| [cURL](apache-hadoop-use-mapreduce-curl.md) |Enviar o trabalho remotamente usando a **REST** |Linux, Unix, Mac OS X ou Windows |
 | [Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) |Enviar o trabalho remotamente usando o **Windows PowerShell**  |Windows |
 
 ## <a name="next-steps"></a>Próximas etapas

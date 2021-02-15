@@ -1,22 +1,22 @@
 ---
 title: Grupos de Segurança de Rede com Azure Site Recovery | Microsoft Docs
 description: Descreve como usar os Grupos de Segurança de Rede com o Azure Site Recovery para recuperação de desastre e migração
-author: mayurigupta13
+author: Harsha-CS
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/08/2019
-ms.author: mayg
-ms.openlocfilehash: eb5ba99133f5726c44164b0ba45b7ab5d94e292f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: harshacs
+ms.openlocfilehash: 367aba09f84da1e227c08721077aa1b2132a62bf
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80292373"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367966"
 ---
 # <a name="network-security-groups-with-azure-site-recovery"></a>Grupos de Segurança de Rede com Azure Site Recovery
 
-Os Grupos de Segurança de Rede são usados para limitar o tráfego de rede para recursos em uma rede virtual. Um [Grupo de Segurança de Rede (NSG)](../virtual-network/security-overview.md#network-security-groups) contém uma lista de regras de segurança que permitem ou negam o tráfego de rede de entrada ou saída com base no endereço IP de origem ou destino, na porta e no protocolo.
+Os Grupos de Segurança de Rede são usados para limitar o tráfego de rede para recursos em uma rede virtual. Um [Grupo de Segurança de Rede (NSG)](../virtual-network/network-security-groups-overview.md#network-security-groups) contém uma lista de regras de segurança que permitem ou negam o tráfego de rede de entrada ou saída com base no endereço IP de origem ou destino, na porta e no protocolo.
 
 No modelo de implantação do Gerenciador de Recursos, NSGs podem ser associados a sub-redes ou interfaces de rede individuais. Quando um NSG está associado a uma sub-rede, as regras se aplicam a todos os recursos conectados à sub-rede. O tráfego pode ser restrito associando um NSG a interfaces de rede individuais em uma sub-rede que já tem um NSG associado.
 
@@ -37,7 +37,7 @@ Neste exemplo, para tráfego de entrada, o NSG de sub-rede é avaliado primeiro.
 
 Isso permite a aplicação de regra de segurança granular. Por exemplo, você talvez queira permitir o acesso de internet de entrada para algumas VMs de aplicativo (como VMs front-end) em uma sub-rede, mas restringir o acesso à internet de entrada para outras VMs (como banco de dados e outras VMs de back-end). Nesse caso, você pode ter uma regra mais branda no NSG de sub-rede, permitindo o tráfego de internet e restringir o acesso a VMs específicas por meio de negação do acesso no NSG de VM. O mesmo pode ser aplicado para o tráfego de saída.
 
-Ao definir essas configurações de NSG, certifique-se de que as prioridades corretas sejam aplicadas para as [regras de segurança](../virtual-network/security-overview.md#security-rules). As regras são processadas na ordem de prioridade, com números mais baixos processados antes de números mais altos, pois os números mais baixos têm prioridade mais alta. Depois que o tráfego corresponde a uma regra, o processamento é interrompido. Assim, as regras existentes com baixa prioridade (números mais altos) que têm os mesmos atributos das regras com prioridades mais altas não são processadas.
+Ao definir essas configurações de NSG, certifique-se de que as prioridades corretas sejam aplicadas para as [regras de segurança](../virtual-network/network-security-groups-overview.md#security-rules). As regras são processadas na ordem de prioridade, com números mais baixos processados antes de números mais altos, pois os números mais baixos têm prioridade mais alta. Depois que o tráfego corresponde a uma regra, o processamento é interrompido. Assim, as regras existentes com baixa prioridade (números mais altos) que têm os mesmos atributos das regras com prioridades mais altas não são processadas.
 
 Você pode não saber quando os grupos de segurança de rede são aplicados a um adaptador de rede e a uma sub-rede. É possível verificar as regras de agregação aplicadas a uma interface de rede exibindo as [regras de segurança efetiva](../virtual-network/virtual-network-network-interface.md#view-effective-security-rules) para uma interface de rede. Você também pode usar a funcionalidade de [verificação de fluxo de IP](../network-watcher/diagnose-vm-network-traffic-filtering-problem.md) no [observador de rede do Azure](../network-watcher/network-watcher-monitoring-overview.md) para determinar se a comunicação é permitida para ou a partir de um adaptador de rede. A ferramenta informa se a comunicação é permitida e qual regra de segurança de rede permite ou nega o tráfego.
 
@@ -72,7 +72,7 @@ Considerando o [cenário de exemplo](concepts-network-security-group-with-site-r
 Depois que os NSGs forem criados e configurados, recomendamos executar um [failover de teste](azure-to-azure-tutorial-dr-drill.md) para verificar as associações de NSG com script e conectividade VM após o failover.
 
 ## <a name="next-steps"></a>Próximas etapas
--    Saiba mais sobre [Grupos de Segurança de Rede](../virtual-network/security-overview.md#network-security-groups).
--    Saiba mais sobre as [regras de segurança](../virtual-network/security-overview.md#security-rules) de NSG.
+-    Saiba mais sobre [Grupos de Segurança de Rede](../virtual-network/network-security-groups-overview.md#network-security-groups).
+-    Saiba mais sobre as [regras de segurança](../virtual-network/network-security-groups-overview.md#security-rules) de NSG.
 -    Saiba mais sobre [regras de segurança efetiva](../virtual-network/diagnose-network-traffic-filter-problem.md) para um NSG.
 -    Saiba mais sobre [planos de recuperação](site-recovery-create-recovery-plans.md) para automatizar o failover de aplicativo.

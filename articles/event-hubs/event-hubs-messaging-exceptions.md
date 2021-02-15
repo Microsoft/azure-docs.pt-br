@@ -1,17 +1,22 @@
 ---
-title: Hubs de eventos do Azure-exceções
+title: Hubs de eventos do Azure-exceções (herdadas)
 description: Este artigo fornece uma lista de exceções de mensagens dos Hubs de Eventos do Azure e ações sugeridas.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: a93daa88c468a22838a6f9012f0c4622447f5555
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 02/10/2021
+ms.openlocfilehash: a76c98ec7d6d1f3370ed8787bf10d1d16a7baaa5
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86512360"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100390888"
 ---
-# <a name="event-hubs-messaging-exceptions---net"></a>Exceções de mensagens dos hubs de eventos-.NET
+# <a name="event-hubs-messaging-exceptions---net-legacy"></a>Exceções de mensagens dos hubs de eventos – .NET (Herdado)
 Esta seção lista as exceções .NET geradas por .NET Framework APIs. 
+
+> [!IMPORTANT]
+> Algumas das exceções listadas no artigo se aplicam somente à biblioteca .NET dos hubs de eventos herdados. Por exemplo: exceções Microsoft. ServiceBus. *.
+> 
+> Para obter informações sobre o EventHubsException gerado pela nova biblioteca .NET, consulte [EventHubsException-.net](exceptions-dotnet.md)
 
 ## <a name="exception-categories"></a>Categorias de exceções
 
@@ -19,10 +24,10 @@ As APIs do .NET dos hubs de eventos geram exceções que podem se enquadrar nas 
 
  - Erro de codificação do usuário: 
  
-   - [System. ArgumentException](/dotnet/api/system.argumentexception?view=netcore-3.1)
-   - [System. InvalidOperationException](/dotnet/api/system.invalidoperationexception?view=netcore-3.1)
-   - [System.OperationCanceledException](/dotnet/api/system.operationcanceledexception?view=netcore-3.1)
-   - [System. Runtime. Serialization. Serializaexception](/dotnet/api/system.runtime.serialization.serializationexception?view=netcore-3.1)
+   - [System. ArgumentException](/dotnet/api/system.argumentexception?view=netcore-3.1&preserve-view=true)
+   - [System. InvalidOperationException](/dotnet/api/system.invalidoperationexception?view=netcore-3.1&preserve-view=true)
+   - [System.OperationCanceledException](/dotnet/api/system.operationcanceledexception?view=netcore-3.1&preserve-view=true)
+   - [System. Runtime. Serialization. Serializaexception](/dotnet/api/system.runtime.serialization.serializationexception?view=netcore-3.1&preserve-view=true)
    
    Ação geral: tente corrigir o código antes de continuar.
  
@@ -30,7 +35,7 @@ As APIs do .NET dos hubs de eventos geram exceções que podem se enquadrar nas 
  
    - [Microsoft.ServiceBus.Messaging.MessagingEntityNotFoundException](/dotnet/api/microsoft.servicebus.messaging.messagingentitynotfoundexception)
    - [Microsoft.Azure.EventHubs.MessagingEntityNotFoundException](/dotnet/api/microsoft.azure.eventhubs.messagingentitynotfoundexception)
-   - [System.UnauthorizedAccessException](/dotnet/api/system.unauthorizedaccessexception?view=netcore-3.1)
+   - [System.UnauthorizedAccessException](/dotnet/api/system.unauthorizedaccessexception?view=netcore-3.1&preserve-view=true)
    
    Ação geral: revise sua configuração e altere se necessário.
    
@@ -45,7 +50,7 @@ As APIs do .NET dos hubs de eventos geram exceções que podem se enquadrar nas 
  
  - Outras exceções: 
  
-   - [System. TransactionException](/dotnet/api/system.transactions.transactionexception?view=netcore-3.1)
+   - [System. TransactionException](/dotnet/api/system.transactions.transactionexception?view=netcore-3.1&preserve-view=true)
    - [System.TimeoutException](#timeoutexception)
    - [Microsoft. ServiceBus. Messaging. MessageLockLostException](/dotnet/api/microsoft.servicebus.messaging.messagelocklostexception)
    - [Microsoft. ServiceBus. Messaging. SessionLockLostException](/dotnet/api/microsoft.servicebus.messaging.sessionlocklostexception)
@@ -57,11 +62,11 @@ A tabela a seguir relaciona os tipos de mensagens de exceção e suas causas e a
 
 | Tipo de exceção | Descrição/Causa/Exemplos | Ação sugerida | Observação sobre repetição automática/imediata |
 | -------------- | -------------------------- | ---------------- | --------------------------------- |
-| [TimeoutException](/dotnet/api/system.timeoutexception?view=netcore-3.1) |O servidor não respondeu à operação solicitada dentro do tempo especificado, que é controlado por [OperationTimeout](/dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings). O servidor pode ter concluído a operação solicitada. Essa exceção pode ocorrer devido à rede ou a outros atrasos de infraestrutura. |Verifique o estado do sistema para manter a consistência e tente novamente, se necessário.<br /> Veja [TimeoutException](#timeoutexception). | Uma nova tentativa pode ajudar em alguns casos; Adicione lógica de repetição ao código. |
-| [InvalidOperationException](/dotnet/api/system.invalidoperationexception?view=netcore-3.1) |A operação de usuário solicitada não é permitida no servidor ou serviço. Consulte a mensagem de exceção para obter detalhes. Por exemplo, [Concluir](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) gerará essa exceção se a mensagem tiver sido recebida no modo [ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode) . | Verifique o código e a documentação. Verifique se a operação solicitada é válida. | A repetição não ajudará. |
-| [OperationCanceledException](/dotnet/api/system.operationcanceledexception?view=netcore-3.1) | É feita uma tentativa de invocar uma operação em um objeto que já foi fechado, anulado ou descartado. Em casos raros, a transação de ambiente já foi descartada. | Verifique o código e certifique-se de que ele não invoque operações em um objeto Descartado. | A repetição não ajudará. |
-| [UnauthorizedAccessException](/dotnet/api/system.unauthorizedaccessexception?view=netcore-3.1) | O objeto [TokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider) não pôde adquirir um token, o token é inválido ou o token não contém as declarações necessárias para realizar a operação. | Verifique se o provedor de token for criado com os valores corretos. Verifique a configuração do serviço de controle de acesso. | Uma nova tentativa pode ajudar em alguns casos; Adicione lógica de repetição ao código. |
-| [ArgumentException](/dotnet/api/system.argumentexception?view=netcore-3.1)<br /> [ArgumentNullException](/dotnet/api/system.argumentnullexception?view=netcore-3.1)<br />[ArgumentOutOfRangeException](/dotnet/api/system.argumentoutofrangeexception?view=netcore-3.1) | Um ou mais argumentos fornecidos para o método são inválidos. O URI fornecido para [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) ou [Create](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) contém segmento(s) de caminho. O esquema de URI fornecido para [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) ou [Criar](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) é inválido. O valor da propriedade é maior do que 32 KB. | Verifique o código de chamada e certifique-se de que os argumentos estão corretos. | Tentar novamente não ajudará. |
+| [TimeoutException](/dotnet/api/system.timeoutexception?view=netcore-3.1&preserve-view=true) |O servidor não respondeu à operação solicitada dentro do tempo especificado, que é controlado por [OperationTimeout](/dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings). O servidor pode ter concluído a operação solicitada. Essa exceção pode ocorrer devido à rede ou a outros atrasos de infraestrutura. |Verifique o estado do sistema para manter a consistência e tente novamente, se necessário.<br /> Veja [TimeoutException](#timeoutexception). | Uma nova tentativa pode ajudar em alguns casos; Adicione lógica de repetição ao código. |
+| [InvalidOperationException](/dotnet/api/system.invalidoperationexception?view=netcore-3.1&preserve-view=true) |A operação de usuário solicitada não é permitida no servidor ou serviço. Consulte a mensagem de exceção para obter detalhes. Por exemplo, [Concluir](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) gerará essa exceção se a mensagem tiver sido recebida no modo [ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode) . | Verifique o código e a documentação. Verifique se a operação solicitada é válida. | A repetição não ajudará. |
+| [OperationCanceledException](/dotnet/api/system.operationcanceledexception?view=netcore-3.1&preserve-view=true) | É feita uma tentativa de invocar uma operação em um objeto que já foi fechado, anulado ou descartado. Em casos raros, a transação de ambiente já foi descartada. | Verifique o código e certifique-se de que ele não invoque operações em um objeto Descartado. | A repetição não ajudará. |
+| [UnauthorizedAccessException](/dotnet/api/system.unauthorizedaccessexception?view=netcore-3.1&preserve-view=true) | O objeto [TokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider) não pôde adquirir um token, o token é inválido ou o token não contém as declarações necessárias para realizar a operação. | Verifique se o provedor de token for criado com os valores corretos. Verifique a configuração do serviço de controle de acesso. | Uma nova tentativa pode ajudar em alguns casos; Adicione lógica de repetição ao código. |
+| [ArgumentException](/dotnet/api/system.argumentexception?view=netcore-3.1&preserve-view=true)<br /> [ArgumentNullException](/dotnet/api/system.argumentnullexception?view=netcore-3.1&preserve-view=true)<br />[ArgumentOutOfRangeException](/dotnet/api/system.argumentoutofrangeexception?view=netcore-3.1&preserve-view=true) | Um ou mais argumentos fornecidos para o método são inválidos. O URI fornecido para [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) ou [Create](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) contém segmento(s) de caminho. O esquema de URI fornecido para [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) ou [Criar](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) é inválido. O valor da propriedade é maior do que 32 KB. | Verifique o código de chamada e certifique-se de que os argumentos estão corretos. | Tentar novamente não ajudará. |
 | [Microsoft.ServiceBus.Messaging MessagingEntityNotFoundException](/dotnet/api/microsoft.servicebus.messaging.messagingentitynotfoundexception) <br /><br/> [Microsoft.Azure.EventHubs MessagingEntityNotFoundException](/dotnet/api/microsoft.azure.eventhubs.messagingentitynotfoundexception) | A entidade associada à operação não existe ou foi excluída. | Certifique-se de que a entidade existe. | Tentar novamente não ajudará. |
 | [MessagingCommunicationException](/dotnet/api/microsoft.servicebus.messaging.messagingcommunicationexception) | O cliente não pode estabelecer uma conexão com o Hub de Eventos. |Verifique se o nome de host fornecido está correto e se o host está acessível. | Tentar novamente poderá ajudar se houver problemas intermitentes de conectividade. |
 | [Microsoft. ServiceBus. Messaging ServerBusyException](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception) <br /> <br/>[Microsoft.Azure.EventHubs ServerBusyException](/dotnet/api/microsoft.azure.eventhubs.serverbusyexception) | O serviço não pode processar a solicitação neste momento. | O cliente pode esperar um período de tempo e repetir a operação. <br /> Veja [ServerBusyException](#serverbusyexception). | O cliente pode tentar novamente após um intervalo determinado. Se uma nova tentativa resultar em uma exceção diferente, verifique o comportamento de repetição de tal exceção. |
@@ -80,9 +85,12 @@ Essa exceção pode acontecer se o número máximo de receptores (5) já tiver s
 Os Hubs de Eventos têm um limite de 20 grupos de consumidores por Hub de Eventos. Quando você tenta criar mais, recebe [QuotaExceededException](/dotnet/api/microsoft.servicebus.messaging.quotaexceededexception). 
 
 ## <a name="timeoutexception"></a>TimeoutException
-Um [TimeoutException](/dotnet/api/system.timeoutexception?view=netcore-3.1) indica que uma operação iniciada pelo usuário está demorando mais do que o tempo limite da operação. 
+Um [TimeoutException](/dotnet/api/system.timeoutexception?view=netcore-3.1&preserve-view=true) indica que uma operação iniciada pelo usuário está demorando mais do que o tempo limite da operação. 
 
 Para os Hubs de Eventos, o tempo limite é especificado como parte da cadeia de conexão ou por meio de [ServiceBusConnectionStringBuilder](/dotnet/api/microsoft.servicebus.servicebusconnectionstringbuilder). A mensagem de erro pode variar, mas ele sempre contém o valor de tempo limite especificado para a operação atual. 
+
+Espera-se que os tempos limite ocorram durante ou entre operações de manutenção, como atualizações de serviço de hubs de eventos (ou) atualizações de sistema operacional em recursos que executam o serviço. Durante as atualizações do sistema operacional, as entidades são movidas e os nós são atualizados ou reinicializados, o que pode causar tempos limite. Para obter detalhes de SLA (contrato de nível de serviço) para o serviço de hubs de eventos do Azure, consulte [SLA para hubs de eventos](https://azure.microsoft.com/support/legal/sla/event-hubs/). 
+
 
 ### <a name="common-causes"></a>Causas comuns
 Há duas causas comuns desse erro: configuração incorreta ou um erro de serviço transitório.
@@ -103,16 +111,28 @@ Esse erro pode ocorrer por um dos seguintes motivos:
 
 - O namespace de hubs de eventos não tem unidades de produtividade suficientes (você pode verificar a tela de **métricas** na janela de namespace de hubs de eventos no [portal do Azure](https://portal.azure.com) para confirmar). O portal mostra informações agregadas (1 minuto), mas medimos a taxa de transferência em tempo real – portanto, é apenas uma estimativa.
 
-    **Resolução**: aumentar as unidades de produtividade no namespace pode ajudar. É possível fazer essa operação no portal, na janela **Dimensionar** da tela do namespace dos Hubs de Eventos. Ou você pode usar [Inflar automaticamente](event-hubs-auto-inflate.md).
+    **Resolução**: aumentar as unidades de produtividade no namespace pode ajudar. 
 
-### <a name="error-code-50001"></a>Código do erro 50001
+    Você pode configurar unidades de produtividade na página **escala** ou na página **visão geral** da página de namespace de seus **hubs de eventos** no portal do Azure. Ou, você pode usar o [inflar](event-hubs-auto-inflate.md)automaticamente, que é escalado verticalmente aumentando o número de unidades de produtividade para atender às necessidades de uso.
+
+    As unidades de taxa de transferência (TUs) se aplicam a todos os hubs de eventos em um namespace de hubs de eventos. Isso significa que você compra TUs no nível do namespace e elas são compartilhadas entre os hubs de eventos no namespace. Cada TU proporciona ao namespace os seguintes recursos:
+
+    - Até 1 MB por segundo de eventos de entrada (eventos enviados para um Hub de Eventos), mas não mais de 1.000 eventos de entrada, operações de gerenciamento ou chamadas por segundo à API de controle.
+    - Até 2 MB por segundo de eventos de saída (eventos consumidos de um Hub de Eventos), mas não mais do que 4096 eventos de saída.
+    - Até 84 GB de armazenamento de eventos (suficiente para o período de retenção padrão de 24 horas).
+    
+    Na página **visão geral** , na seção **Mostrar métricas** , alterne para a guia **taxa de transferência** . Selecione o gráfico para abri-lo em uma janela maior com intervalos de 1 minuto no eixo x. Examine os valores de pico e divida-os por 60 para obter bytes de entrada/segundo ou bytes de saída/segundo. Use uma abordagem semelhante para calcular o número de solicitações por segundo em horários de pico na guia **solicitações** . 
+
+    Se você vir valores maiores do que o número de limites de TUs * (1 MB por segundo para solicitações de entrada ou 1000 para entrada/segundo, 2 MB por segundo para saída), aumente o número de TUs usando o **dimensionamento** (no menu à esquerda) página de um namespace de hubs de eventos para dimensionar manualmente mais ou usar o recurso de [inflar automaticamente](event-hubs-auto-inflate.md) dos hubs de eventos. Observe que o inflar automaticamente pode aumentar até 20 TUS. Para prometê-lo a exatamente 40 TUs, envie uma [solicitação de suporte](../azure-portal/supportability/how-to-create-azure-support-request.md).
+
+### <a name="error-code-50008"></a>Código de erro 50008
 
 Esse erro deve ocorrer raramente. Isso acontece quando o contêiner executando o código para seu namespace é insuficiente na CPU – não mais do que alguns segundos, antes de o balanceador de carga dos Hubs de Eventos ser iniciado.
 
-**Resolução**: limite em chamadas para o método GetRuntimeInformation. Os hubs de eventos do Azure dão suporte a até 50 chamadas por segundo para o GetRuntimeInfo por segundo. Você pode receber uma exceção semelhante à seguinte uma vez que o limite for atingido:
+**Resolução**: limite as chamadas para o método GetRuntimeInformation. Os hubs de eventos do Azure dão suporte a até 50 chamadas por segundo por grupo de consumidores para o GetRuntimeInfo por segundo. Você pode receber uma exceção semelhante à seguinte uma vez que o limite for atingido:
 
 ```
-ExceptionId: 00000000000-00000-0000-a48a-9c908fbe84f6-ServerBusyException: The request was terminated because the namespace 75248:aaa-default-eventhub-ns-prodb2b is being throttled. Error code : 50001. Please wait 10 seconds and try again.
+ExceptionId: 00000000000-00000-0000-a48a-9c908fbe84f6-ServerBusyException: The request was terminated because the namespace 75248:aaa-default-eventhub-ns-prodb2b is being throttled. Error code : 50008. Please wait 10 seconds and try again.
 ```
 
 

@@ -2,13 +2,13 @@
 title: Mover VMs do Azure para uma nova assinatura ou grupo de recursos
 description: Use Azure Resource Manager para mover máquinas virtuais para um novo grupo de recursos ou assinatura.
 ms.topic: conceptual
-ms.date: 08/26/2020
-ms.openlocfilehash: d522eb4a6496bc2cc65b4937a19b9ac5228e7f2b
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 12/01/2020
+ms.openlocfilehash: ad7023f309f1ca948711eaa9bdf3867d2ef7a6f8
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88933232"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104902"
 ---
 # <a name="move-guidance-for-virtual-machines"></a>Mover diretrizes para máquinas virtuais
 
@@ -19,8 +19,8 @@ Este artigo descreve os cenários que atualmente não têm suporte e as etapas p
 Ainda não há suporte para os cenários a seguir:
 
 * Conjuntos de dimensionamento de máquinas virtuais com Load Balancer SKU padrão ou IP público SKU Standard não podem ser movidos.
-* As máquinas virtuais criadas por meio de recursos do Marketplace com planos anexados não podem ser movidas entre assinaturas. Desprovisionar a máquina virtual na assinatura atual e implantá-la novamente na nova assinatura.
 * As máquinas virtuais em uma rede virtual existente não podem ser movidas para uma nova assinatura quando você não está movendo todos os recursos na rede virtual.
+* As máquinas virtuais criadas por meio de recursos do Marketplace com planos anexados não podem ser movidas entre assinaturas. Para obter uma possível solução alternativa, consulte [máquinas virtuais com planos do Marketplace](#virtual-machines-with-marketplace-plans).
 * As máquinas virtuais de baixa prioridade e os conjuntos de dimensionamento de máquinas virtuais de baixa prioridade não podem ser movidos entre grupos de recursos ou assinaturas.
 * As máquinas virtuais em um conjunto de disponibilidade não podem ser movidas individualmente.
 
@@ -36,21 +36,39 @@ az vm encryption disable --resource-group demoRG --name myVm1
 Disable-AzVMDiskEncryption -ResourceGroupName demoRG -VMName myVm1
 ```
 
+## <a name="virtual-machines-with-marketplace-plans"></a>Máquinas virtuais com planos do Marketplace
+
+As máquinas virtuais criadas por meio de recursos do Marketplace com planos anexados não podem ser movidas entre assinaturas. Para contornar essa limitação, você pode desprovisionar a máquina virtual na assinatura atual e implantá-la novamente na nova assinatura. As etapas a seguir ajudam a recriar a máquina virtual na nova assinatura. No entanto, eles podem não funcionar para todos os cenários. Se o plano não estiver mais disponível no Marketplace, essas etapas não funcionarão.
+
+1. Copie informações sobre o plano.
+
+1. Clone o disco do sistema operacional para a assinatura de destino ou mova o disco original após excluir a máquina virtual da assinatura de origem.
+
+1. Na assinatura de destino, aceite os termos do Marketplace para seu plano. Você pode aceitar os termos executando o seguinte comando do PowerShell:
+
+   ```azurepowershell
+   Get-AzMarketplaceTerms -Publisher {publisher} -Product {product/offer} -Name {name/SKU} | Set-AzMarketplaceTerms -Accept
+   ```
+
+   Ou, você pode criar uma nova instância de uma máquina virtual com o plano por meio do Portal. Você pode excluir a máquina virtual depois de aceitar os termos na nova assinatura.
+
+1. Na assinatura de destino, recrie a máquina virtual do disco do sistema operacional clonado usando o PowerShell, a CLI ou um modelo de Azure Resource Manager. Inclua o plano do Marketplace que está anexado ao disco. As informações sobre o plano devem corresponder ao plano que você comprou na nova assinatura.
+
 ## <a name="virtual-machines-with-azure-backup"></a>Máquinas virtuais com o backup do Azure
 
 Para mover as máquinas virtuais configuradas com o backup do Azure, você deve excluir os pontos de restauração do cofre.
 
-Se a [exclusão reversível](../../../backup/backup-azure-security-feature-cloud.md) estiver habilitada para sua máquina virtual, você não poderá mover a máquina virtual enquanto esses pontos de restauração forem mantidos. Desabilite a [exclusão reversível](../../../backup/backup-azure-security-feature-cloud.md#enabling-and-disabling-soft-delete) ou aguarde 14 dias depois de excluir os pontos de restauração.
+Se a [exclusão reversível](../../../backup/soft-delete-virtual-machines.md) estiver habilitada para sua máquina virtual, você não poderá mover a máquina virtual enquanto esses pontos de restauração forem mantidos. Desabilite a [exclusão reversível](../../../backup/backup-azure-security-feature-cloud.md#enabling-and-disabling-soft-delete) ou aguarde 14 dias depois de excluir os pontos de restauração.
 
 ### <a name="portal"></a>Portal
 
-1. Interrompa temporariamente o backup e retenha os dados de backup.
+1. Pare temporariamente o backup e mantenha os dados de backup.
 2. Para mover as máquinas virtuais configuradas com o backup do Azure, execute as seguintes etapas:
 
    1. Localize o local da sua máquina virtual.
-   2. Localize um grupo de recursos com o seguinte padrão de nomenclatura: `AzureBackupRG_<location of your VM>_1` . Por exemplo, *AzureBackupRG_westus2_1*
+   2. Localize um grupo de recursos com o seguinte padrão de nomenclatura: `AzureBackupRG_<VM location>_1` . Por exemplo, o nome está no formato de *AzureBackupRG_westus2_1*.
    3. Na portal do Azure, marque **Mostrar tipos ocultos**.
-   4. Localize o recurso com o tipo **Microsoft. Compute/restorePointCollections** que tem o padrão de nomenclatura `AzureBackup_<name of your VM that you're trying to move>_###########` .
+   4. Localize o recurso com o tipo **Microsoft. Compute/restorePointCollections** que tem o padrão de nomenclatura `AzureBackup_<VM name>_###########` .
    5. Exclua este recurso. Esta operação exclui somente os pontos de recuperação instantânea, não os dados de backup no cofre.
    6. Depois que a operação de exclusão for concluída, você poderá mover sua máquina virtual.
 
@@ -59,19 +77,66 @@ Se a [exclusão reversível](../../../backup/backup-azure-security-feature-cloud
 
 ### <a name="powershell"></a>PowerShell
 
-* Localize o local de sua máquina virtual.
-* Localize um grupo de recursos com o seguinte padrão de nomenclatura: `AzureBackupRG_<location of your VM>_1` por exemplo, AzureBackupRG_westus2_1
-* Se estiver no PowerShell, use o cmdlet `Get-AzResource -ResourceGroupName AzureBackupRG_<location of your VM>_1`
-* Localize o recurso com o tipo `Microsoft.Compute/restorePointCollections` que tem o padrão de nomenclatura `AzureBackup_<name of your VM that you're trying to move>_###########`
-* Exclua este recurso. Esta operação exclui somente os pontos de recuperação instantânea, não os dados de backup no cofre.
+1. Localize o local da sua máquina virtual.
+
+1. Localize um grupo de recursos com o padrão de nomenclatura- `AzureBackupRG_<VM location>_1` . Por exemplo, o nome pode ser `AzureBackupRG_westus2_1` .
+
+1. Se você estiver movendo apenas uma máquina virtual, obtenha a coleção de pontos de restauração para essa máquina virtual.
+
+   ```azurepowershell-interactive
+   $restorePointCollection = Get-AzResource -ResourceGroupName AzureBackupRG_<VM location>_1 -name AzureBackup_<VM name>* -ResourceType Microsoft.Compute/restorePointCollections
+   ```
+
+   Exclua este recurso. Esta operação exclui somente os pontos de recuperação instantânea, não os dados de backup no cofre.
+
+   ```azurepowershell-interactive
+   Remove-AzResource -ResourceId $restorePointCollection.ResourceId -Force
+   ```
+
+1. Se você estiver movendo todas as máquinas virtuais com back-ups neste local, obtenha as coleções de pontos de restauração para essas máquinas virtuais.
+
+   ```azurepowershell-interactive
+   $restorePointCollection = Get-AzResource -ResourceGroupName AzureBackupRG_<VM location>_1 -ResourceType Microsoft.Compute/restorePointCollections
+   ```
+
+   Exclua cada recurso. Esta operação exclui somente os pontos de recuperação instantânea, não os dados de backup no cofre.
+
+   ```azurepowershell-interactive
+   foreach ($restorePoint in $restorePointCollection)
+   {
+     Remove-AzResource -ResourceId $restorePoint.ResourceId -Force
+   }
+   ```
 
 ### <a name="azure-cli"></a>CLI do Azure
 
-* Localize o local de sua máquina virtual.
-* Localize um grupo de recursos com o seguinte padrão de nomenclatura: `AzureBackupRG_<location of your VM>_1` por exemplo, AzureBackupRG_westus2_1
-* Se estiver na CLI, use o `az resource list -g AzureBackupRG_<location of your VM>_1`
-* Localize o recurso com o tipo `Microsoft.Compute/restorePointCollections` que tem o padrão de nomenclatura `AzureBackup_<name of your VM that you're trying to move>_###########`
-* Exclua este recurso. Esta operação exclui somente os pontos de recuperação instantânea, não os dados de backup no cofre.
+1. Localize o local da sua máquina virtual.
+
+1. Localize um grupo de recursos com o padrão de nomenclatura- `AzureBackupRG_<VM location>_1` . Por exemplo, o nome pode ser `AzureBackupRG_westus2_1` .
+
+1. Se você estiver movendo apenas uma máquina virtual, obtenha a coleção de pontos de restauração para essa máquina virtual.
+
+   ```azurecli-interactive
+   RESTOREPOINTCOL=$(az resource list -g AzureBackupRG_<VM location>_1 --resource-type Microsoft.Compute/restorePointCollections --query "[?starts_with(name, 'AzureBackup_<VM name>')].id" --output tsv)
+   ```
+
+   Exclua este recurso. Esta operação exclui somente os pontos de recuperação instantânea, não os dados de backup no cofre.
+
+   ```azurecli-interactive
+   az resource delete --ids $RESTOREPOINTCOL
+   ```
+
+1. Se você estiver movendo todas as máquinas virtuais com back-ups neste local, obtenha as coleções de pontos de restauração para essas máquinas virtuais.
+
+   ```azurecli-interactive
+   RESTOREPOINTCOL=$(az resource list -g AzureBackupRG_<VM location>_1 --resource-type Microsoft.Compute/restorePointCollections)
+   ```
+
+   Exclua cada recurso. Esta operação exclui somente os pontos de recuperação instantânea, não os dados de backup no cofre.
+
+   ```azurecli-interactive
+   az resource delete --ids $RESTOREPOINTCOL
+   ```
 
 ## <a name="next-steps"></a>Próximas etapas
 

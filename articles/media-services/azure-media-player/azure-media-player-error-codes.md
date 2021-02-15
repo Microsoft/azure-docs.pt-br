@@ -7,15 +7,15 @@ ms.service: media-services
 ms.topic: error-reference
 ms.date: 04/20/2020
 ms.openlocfilehash: 13d804ec39c3d7753d4ee04962a88d4451fb04d9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81727249"
 ---
 # <a name="error-codes"></a>Códigos do Erro #
 
-Quando a reprodução não puder ser iniciada ou interrompida, um evento de erro será acionado e a `error()` função retornará um código e uma mensagem opcional para ajudar o desenvolvedor do aplicativo a obter mais detalhes. `error().message`Não é a mensagem exibida para o usuário.  A mensagem exibida para o usuário é baseada em `error().code` bits 27-20, consulte a tabela abaixo.
+Quando a reprodução não puder ser iniciada ou interrompida, um evento de erro será acionado e a `error()` função retornará um código e uma mensagem opcional para ajudar o desenvolvedor do aplicativo a obter mais detalhes. `error().message` Não é a mensagem exibida para o usuário.  A mensagem exibida para o usuário é baseada em `error().code` bits 27-20, consulte a tabela abaixo.
 
 ```javascript
 

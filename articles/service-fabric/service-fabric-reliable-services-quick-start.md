@@ -4,12 +4,12 @@ description: Introdução à criação de um aplicativo do Service Fabric do Mic
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.custom: sfrev, devx-track-csharp
-ms.openlocfilehash: 1de77f870bce5766ab704249034d6d7b6c8b098e
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 45341c98a40cbcabfa8b96f2016f02f1755fe2b3
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89012731"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791520"
 ---
 # <a name="get-started-with-reliable-services"></a>Introdução aos Reliable Services
 
@@ -169,11 +169,11 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
 var myDictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<string, long>>("myDictionary");
 ```
 
-[IReliableDictionary](/dotnet/api/microsoft.servicefabric.data.collections.ireliabledictionary-2?view=azure-dotnet#microsoft_servicefabric_data_collections_ireliabledictionary_2) é uma implementação de dicionário que você pode usar para armazenar o estado no serviço de forma confiável. Com o Service Fabric e as Reliable Collections, você agora pode armazenar dados diretamente em seu serviço sem a necessidade de um repositório persistente externo. As Coleções Confiáveis tornam os dados altamente disponíveis. O Service Fabric consegue isso criando e gerenciando várias *réplicas* do seu serviço para você. Ele também fornece uma API que abstrai as complexidades de gerenciar essas réplicas e as respectivas transições de estado.
+[IReliableDictionary](/dotnet/api/microsoft.servicefabric.data.collections.ireliabledictionary-2#microsoft_servicefabric_data_collections_ireliabledictionary_2) é uma implementação de dicionário que você pode usar para armazenar o estado no serviço de forma confiável. Com o Service Fabric e as Reliable Collections, você agora pode armazenar dados diretamente em seu serviço sem a necessidade de um repositório persistente externo. As Coleções Confiáveis tornam os dados altamente disponíveis. O Service Fabric consegue isso criando e gerenciando várias *réplicas* do seu serviço para você. Ele também fornece uma API que abstrai as complexidades de gerenciar essas réplicas e as respectivas transições de estado.
 
 As Reliable Collections podem armazenar qualquer tipo .NET, incluindo tipos personalizados, com algumas limitações:
 
-* O Service Fabric torna seu estado altamente disponível *replicando* o estado entre nós, e as Coleções Confiáveis armazenam seus dados no disco local em cada réplica. Isso significa que tudo o que é armazenado nas Coleções Confiáveis deve ser *serializável*. Por padrão, as Coleções Confiáveis usam [DataContract](/dotnet/api/system.runtime.serialization.datacontractattribute?view=netcore-3.1) para serialização, de modo que é importante verificar se seus tipos têm [suporte do Serializador de Contrato de Dados](/dotnet/framework/wcf/feature-details/types-supported-by-the-data-contract-serializer) quando você usa o serializador padrão.
+* O Service Fabric torna seu estado altamente disponível *replicando* o estado entre nós, e as Coleções Confiáveis armazenam seus dados no disco local em cada réplica. Isso significa que tudo o que é armazenado nas Coleções Confiáveis deve ser *serializável*. Por padrão, as Coleções Confiáveis usam [DataContract](/dotnet/api/system.runtime.serialization.datacontractattribute) para serialização, de modo que é importante verificar se seus tipos têm [suporte do Serializador de Contrato de Dados](/dotnet/framework/wcf/feature-details/types-supported-by-the-data-contract-serializer) quando você usa o serializador padrão.
 * Os objetos são replicados para alta disponibilidade quando você confirma uma transação nas Reliable Collections. Objetos armazenados nas Reliable Collections são mantidos na memória local do serviço. Isso significa que você tem uma referência local para o objeto.
   
    É importante que você não modifique instâncias locais desses objetos sem executar uma operação de atualização na coleção confiável em uma transação. Isso ocorre porque as mudanças para instâncias de objetos locais não serão replicadas automaticamente. Você deve inserir novamente o objeto de volta no dicionário ou usar um dos métodos de *atualização* no dicionário.

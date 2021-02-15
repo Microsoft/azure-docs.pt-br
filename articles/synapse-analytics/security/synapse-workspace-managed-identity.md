@@ -5,17 +5,17 @@ author: RonyMSFT
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: security
-ms.date: 04/15/2020
+ms.date: 10/16/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 07244f28a345bc3290762c657c2189941009faac
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5506a54193efc813927663533ddfd89be3ddf40a
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077734"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461307"
 ---
-# <a name="azure-synapse-workspace-managed-identity-preview"></a>Identidade gerenciada do workspace do Azure Synapse (versão prévia)
+# <a name="azure-synapse-workspace-managed-identity"></a>Identidade gerenciada do workspace do Azure Synapse
 
 Neste artigo, você aprenderá sobre a identidade gerenciada no workspace do Azure Synapse.
 
@@ -32,7 +32,7 @@ Uma identidade gerenciada atribuída pelo sistema é criada para seu workspace d
 >[!NOTE]
 >Essa identidade gerenciada do workspace será referida como identidade gerenciada no restante deste documento.
 
-O Azure Synapse usa a identidade gerenciada para orquestrar pipelines. Azure SynapseO ciclo de vida de identidade gerenciada está diretamente vinculado ao workspace do Azure Synapse. Se você excluir o workspace do Azure Synapse, a identidade gerenciada também será limpa.
+O Azure Synapse usa a identidade gerenciada para integrar pipelines. Azure SynapseO ciclo de vida de identidade gerenciada está diretamente vinculado ao workspace do Azure Synapse. Se você excluir o workspace do Azure Synapse, a identidade gerenciada também será limpa.
 
 A identidade gerenciada do workspace precisa de permissões para executar operações nos pipelines. Você pode usar a ID do objeto ou o nome do workspace do Azure Synapse para localizar a identidade gerenciada ao conceder permissões.
 
@@ -58,4 +58,4 @@ Na próxima janela, escolha **Identidade Gerenciada** para **Método de autentic
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Como conceder permissões para identidade gerenciada do workspace do Azure Synapse](./how-to-grant-workspace-managed-identity-permissions.md)
+Saiba mais sobre [Como conceder permissões para a identidade gerenciada do workspace do Azure Synapse](./how-to-grant-workspace-managed-identity-permissions.md)

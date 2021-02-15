@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: c24cef2cf9e4c54d16ebc75eb1a56273d8826355
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1a11d3a9a972188af4cf8f054349da98d69691a3
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84221103"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91876151"
 ---
 # <a name="monitor-module-twins"></a>Monitorar módulos gêmeos
 
 Módulo gêmeos no Hub IoT do Azure habilite o monitoramento da conectividade e da integridade de suas implantações de IoT Edge. O módulo gêmeos armazena informações úteis em seu hub IoT sobre o desempenho de seus módulos em execução. O [agente de IOT Edge](iot-edge-runtime.md#iot-edge-agent) e os módulos de tempo de execução de [IOT Edge Hub](iot-edge-runtime.md#iot-edge-hub) mantêm o módulo gêmeos e `$edgeAgent` `$edgeHub` , respectivamente:
 
-* `$edgeAgent`contém dados de integridade e conectividade sobre os módulos de tempo de execução do IoT Edge Agent e IoT Edge Hub e seus módulos personalizados. O agente de IoT Edge é responsável por implantar os módulos, monitorá-los e relatar o status da conexão com o Hub IoT do Azure.
-* `$edgeHub`contém dados sobre comunicações entre o Hub de IoT Edge em execução em um dispositivo e o Hub IoT do Azure. Isso inclui o processamento de mensagens de entrada de dispositivos downstream. IoT Edge Hub é responsável por processar as comunicações entre o Hub IoT do Azure e os dispositivos e módulos IoT Edge.
+* `$edgeAgent` contém dados de integridade e conectividade sobre os módulos de tempo de execução do IoT Edge Agent e IoT Edge Hub e seus módulos personalizados. O agente de IoT Edge é responsável por implantar os módulos, monitorá-los e relatar o status da conexão com o Hub IoT do Azure.
+* `$edgeHub` contém dados sobre comunicações entre o Hub de IoT Edge em execução em um dispositivo e o Hub IoT do Azure. Isso inclui o processamento de mensagens de entrada de dispositivos downstream. IoT Edge Hub é responsável por processar as comunicações entre o Hub IoT do Azure e os dispositivos e módulos IoT Edge.
 
 Os dados são organizados em metadados, marcas, juntamente com os conjuntos de propriedades desejados e relatados nas estruturas JSON do módulo gêmeos. As propriedades desejadas que você especificou em seu deployment.jsno arquivo são copiadas para o módulo gêmeos. O agente de IoT Edge e o Hub de IoT Edge atualizam as propriedades relatadas para seus módulos.
 
@@ -168,15 +168,15 @@ Se você estiver enfrentando problemas com seus dispositivos downstream, examina
 
 As informações sobre a conectividade de seus módulos personalizados são mantidas no módulo do agente de IoT Edge. O módulo para o módulo personalizado é usado principalmente para manter os dados da solução. As propriedades desejadas que você definiu em seu deployment.jsno arquivo são refletidas no módulo e o módulo pode atualizar os valores de propriedade relatados conforme necessário.
 
-Você pode usar sua linguagem de programação preferida com os [SDKs de dispositivo do Hub IOT do Azure](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-hub-device-sdks) para atualizar os valores de propriedade relatados no módulo "/", com base no código do aplicativo do seu módulo. O procedimento a seguir usa o SDK do Azure para .NET para fazer isso, usando o código do módulo [SimulatedTemperatureSensor](https://github.com/Azure/iotedge/blob/dd5be125df165783e4e1800f393be18e6a8275a3/edge-modules/SimulatedTemperatureSensor/src/Program.cs) :
+Você pode usar sua linguagem de programação preferida com os [SDKs de dispositivo do Hub IOT do Azure](../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks) para atualizar os valores de propriedade relatados no módulo "/", com base no código do aplicativo do seu módulo. O procedimento a seguir usa o SDK do Azure para .NET para fazer isso, usando o código do módulo [SimulatedTemperatureSensor](https://github.com/Azure/iotedge/blob/dd5be125df165783e4e1800f393be18e6a8275a3/edge-modules/SimulatedTemperatureSensor/src/Program.cs) :
 
-1. Crie uma instância do [ModuleClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient) com o método [CreateFromEnvironmentAysnc](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient.createfromenvironmentasync) .
+1. Crie uma instância do [ModuleClient](/dotnet/api/microsoft.azure.devices.client.moduleclient) com o método [CreateFromEnvironmentAysnc](/dotnet/api/microsoft.azure.devices.client.moduleclient.createfromenvironmentasync) .
 
-1. Obtenha uma coleção das propriedades do módulo ' s ' com o método [GetTwinAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient.gettwinasync?view=azure-dotnet) .
+1. Obtenha uma coleção das propriedades do módulo ' s ' com o método [GetTwinAsync](/dotnet/api/microsoft.azure.devices.client.moduleclient.gettwinasync) .
 
-1. Crie um ouvinte (passando um retorno de chamada) para detectar alterações nas propriedades desejadas com o método [SetDesiredPropertyUpdateCallbackAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.setdesiredpropertyupdatecallbackasync?view=azure-dotnet) .
+1. Crie um ouvinte (passando um retorno de chamada) para detectar alterações nas propriedades desejadas com o método [SetDesiredPropertyUpdateCallbackAsync](/dotnet/api/microsoft.azure.devices.client.deviceclient.setdesiredpropertyupdatecallbackasync) .
 
-1. No seu método de retorno de chamada, atualize as propriedades relatadas no módulo "atualizar" com o método [UpdateReportedPropertiesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient) , passando um [entrelaçacollection](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.shared.twincollection) dos valores de propriedade que você deseja definir.
+1. No seu método de retorno de chamada, atualize as propriedades relatadas no módulo "atualizar" com o método [UpdateReportedPropertiesAsync](/dotnet/api/microsoft.azure.devices.client.moduleclient) , passando um [entrelaçacollection](/dotnet/api/microsoft.azure.devices.shared.twincollection) dos valores de propriedade que você deseja definir.
 
 ## <a name="access-the-module-twins"></a>Acessar o módulo gêmeos
 
@@ -213,7 +213,7 @@ Se você fizer alterações, selecione **Atualizar módulo** ... acima do códig
 
 Para ver se IoT Edge está em execução, use o [método AZ IOT Hub Invoke-Module-Method](how-to-edgeagent-direct-method.md#ping) para executar ping no agente de IOT Edge.
 
-A estrutura [AZ IOT Hub Module-bidimensional](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/module-twin) fornece estes comandos:
+A estrutura [AZ IOT Hub Module-bidimensional](/cli/azure/ext/azure-cli-iot-ext/iot/hub/module-twin) fornece estes comandos:
 
 * **módulo AZ IOT Hub-alto mostrar** -mostrar uma definição de módulo.
 * **módulo AZ IOT Hub-atualização** de maiúsculas-atualização de uma definição de módulo.

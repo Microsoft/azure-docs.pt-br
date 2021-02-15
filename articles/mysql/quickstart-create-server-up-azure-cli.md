@@ -1,19 +1,19 @@
 ---
 title: 'Início Rápido: Criar um Banco de Dados do Azure para MySQL usando az mysql up'
 description: Guia de Início Rápido para criar o servidor Banco de Dados do Azure para MySQL usando o comando para cima da CLI do Azure (interface de linha de comando).
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 3/18/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 4f2c0a51f7c8d2441c9ddff2520dae2f5cc13565
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: d89cc41ed26124ae4ad2e6689be6d59278c3d9da
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495328"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542160"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-using-a-simple-azure-cli-command---az-mysql-up-preview"></a>Início Rápido: Criar um Banco de Dados do Azure para MySQL usando um comando de CLI do Azure simples - az postgres up (versão prévia)
 
@@ -28,7 +28,7 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
 
 Este artigo exige que você esteja executando a CLI do Azure versão 2.0 ou posterior localmente. Para ver a versão instalada, execute o comando `az --version`. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
-Você precisará fazer logon em sua conta usando o comando [login az](/cli/azure/authenticate-azure-cli?view=interactive-log-in). Observe a propriedade **id** da saída do comando para o nome da assinatura correspondente.
+Você precisará fazer logon em sua conta usando o comando [login az](/cli/azure/authenticate-azure-cli). Observe a propriedade **id** da saída do comando para o nome da assinatura correspondente.
 
 ```azurecli
 az login
@@ -75,7 +75,7 @@ admin-password | Gerada pelo sistema | A senha do usuário administrador.
 
 Depois que o servidor é criado, ele vem com as seguintes configurações:
 
-- É criada uma regra de firewall denominada “devbox”. A CLI do Azure tenta detectar o endereço IP do computador, o comando `az mysql up` é executado a partir daí e coloca esse endereço IP.
+- É criada uma regra de firewall denominada “devbox”. A CLI do Azure tenta detectar o endereço IP do computador no qual o comando `az mysql up` é executado e permite esse endereço IP.
 - “Permitir acesso aos Serviços do Azure” está definido como ATIVADO. Isso configura o firewall do servidor para aceitar conexões de todos os recursos do Azure, incluindo os recursos que não estão na sua assinatura.
 - O `wait_timeout` parâmetro é definido como 8 horas
 - É criado um banco de dados vazio chamado "sampledb"

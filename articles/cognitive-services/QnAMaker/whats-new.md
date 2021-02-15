@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: overview
 ms.date: 07/16/2020
-ms.openlocfilehash: 73044f35b90fd3e5996899fd7c3b0a925056f8ed
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 85a5493e1d1c06a68aa9f4b64cd0f3d55c4f5f63
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836863"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99580880"
 ---
 # <a name="whats-new-in-qna-maker"></a>Novidades no QnA Maker
 
@@ -23,10 +23,20 @@ Conheça o que há de novo no serviço. Esses itens podem ser notas sobre a vers
 
 Conheça as novidades do QnA Maker.
 
+### <a name="november-2020"></a>Novembro de 2020
+
+* Nova versão do QnA Maker iniciada na versão prévia pública gratuita. Leia mais [aqui](https://techcommunity.microsoft.com/t5/azure-ai/introducing-qna-maker-managed-now-in-public-preview/ba-p/1845575).
+
+> [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Introducing-QnA-managed-Now-in-Public-Preview/player]
+* Criação simplificada de recursos
+* Suporte de região de ponta a ponta
+* Modelo de classificação de aprendizado profundo
+* Compreensão da leitura de máquina para obter respostas precisas
+  
 ### <a name="july-2020"></a>Julho de 2020
 
 * [Metadados: `OR` combinação lógica de vários pares de metadados](how-to/metadata-generateanswer-usage.md#logical-or-using-strictfilterscompoundoperationtype-property)
-* [Etapas](how-to/set-up-qnamaker-service-azure.md#configuring-cognitive-search-as-a-private-endpoint-inside-a-vnet) para configurar os pontos de extremidade do Cognitive Search para serem privados, mas continuarem sendo acessados pelo QnA Maker.
+* [Etapas](how-to/set-up-qnamaker-service-azure.md#recommended-settings-for-network-isolation) para configurar os pontos de extremidade do Cognitive Search para serem privados, mas continuarem sendo acessados pelo QnA Maker.
 * Os recursos gratuitos do Cognitive Search são removidos após [90 dias de inatividade](how-to/set-up-qnamaker-service-azure.md#inactivity-policy-for-free-search-resources).
 
 ### <a name="june-2020"></a>Junho de 2020
@@ -48,17 +58,17 @@ Conheça as novidades do QnA Maker.
 
 ### <a name="november-2019"></a>Novembro de 2019
 
-* [Suporte de nuvem do Governo dos EUA](https://docs.microsoft.com/azure/azure-government/documentation-government-services-aiandcognitiveservices#qna-maker) para o QnA Maker
-* Recurso de [vários turnos](https://docs.microsoft.com/azure/cognitive-services/qnamaker/how-to/multiturn-conversation) em GA
-* [Suporte a bate-papo](https://docs.microsoft.com/azure/cognitive-services/qnamaker/how-to/chit-chat-knowledge-base#language-support) disponível em idiomas de nível 1
+* [Suporte de nuvem do Governo dos EUA](../../azure-government/compare-azure-government-global-azure.md#guidance-for-developers) para o QnA Maker
+* Recurso de [vários turnos](./how-to/multiturn-conversation.md) em GA
+* [Suporte a bate-papo](./how-to/chit-chat-knowledge-base.md#language-support) disponível em idiomas de nível 1
 
 ### <a name="october-2019"></a>Outubro de 2019
 
-* [Definição explícita da linguagem](./how-to/language-knowledge-base.md#select-language-when-creating-first-knowledge-base) para todas as bases de dados de conhecimento no serviço QnA Maker.
+* [Definição explícita da linguagem](./index.yml) para todas as bases de dados de conhecimento no serviço QnA Maker.
 
 ### <a name="september-2019"></a>Setembro de 2019
 
-* Importar e exportar com o [formato de arquivo XLS](concepts/content-types.md)
+* Importar e exportar com o [formato de arquivo XLS](./index.yml)
 
 ### <a name="june-2019"></a>Junho de 2019
 

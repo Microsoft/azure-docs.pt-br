@@ -3,18 +3,20 @@ title: Como converter formatos de token de sessão no SDK do .NET-Azure Cosmos D
 description: Saiba como converter formatos de token de sessão para garantir as compatibilidades entre diferentes versões do SDK do .NET
 author: vinhms
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 04/30/2020
 ms.author: vitrinh
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 787c39681d0e9aff25d205c7b195be00b8c0bc9c
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 7ed06eeb7330989b4a251dc77e516eb8ac578bff
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020007"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93342038"
 ---
 # <a name="convert-session-token-formats-in-net-sdk"></a>Converter formatos de token de sessão no SDK do .NET
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Este artigo explica como converter entre diferentes formatos de token de sessão para garantir a compatibilidade entre as versões do SDK.
 
@@ -111,6 +113,6 @@ else
 Leia os seguintes artigos:
 
 * [Usar tokens de sessão para gerenciar a consistência no Azure Cosmos DB](how-to-manage-consistency.md#utilize-session-tokens)
-* [Escolher o nível de consistência correto no Azure Cosmos DB](consistency-levels-choosing.md)
-* [Compensações de consistência, disponibilidade e desempenho no Azure Cosmos DB](consistency-levels-tradeoffs.md)
-* [Equilíbrio entre disponibilidade e desempenho para vários níveis de coerência](consistency-levels-tradeoffs.md)
+* [Escolher o nível de consistência correto no Azure Cosmos DB](./consistency-levels.md)
+* [Compensações de consistência, disponibilidade e desempenho no Azure Cosmos DB](./consistency-levels.md)
+* [Equilíbrio entre disponibilidade e desempenho para vários níveis de coerência](./consistency-levels.md)

@@ -1,22 +1,24 @@
 ---
-title: Tutorial – Provisionar uma instância do Azure Spring Cloud com o Terraform
+title: Provisionar uma instância do Azure Spring Cloud com o Terraform
 description: Provisionar uma instância do Azure Spring Cloud com o Terraform.
 author: MikeDodaro
 ms.author: brendm
 ms.service: spring-cloud
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 06/26/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 70a9d9f8b137f02e647d1ea0edddd409ec3cdaf3
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 060ef2d08b849706b47b24748142c608292971b5
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88079185"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533784"
 ---
-# <a name="tutorial-provision-an-azure-spring-cloud-instance-with-terraform"></a>Tutorial: Provisionar uma instância do Azure Spring Cloud com o Terraform
+# <a name="provision-an-azure-spring-cloud-instance-with-terraform"></a>Provisionar uma instância do Azure Spring Cloud com o Terraform
 
-Este tutorial cria uma instância do Azure Spring Cloud usando o Terraform. Os procedimentos orientam você pela criação dos seguintes recursos:
+**Este artigo aplica-se a:** ✔️ Java ✔️ C#
+
+Este exemplo cria uma instância do Azure Spring Cloud usando o Terraform. Os procedimentos orientam você pela criação dos seguintes recursos:
 
 > [!div class="checklist"]
 > * Grupo de recursos
@@ -37,7 +39,7 @@ Este tutorial cria uma instância do Azure Spring Cloud usando o Terraform. Os p
 
 1. Entre no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Abra o [Azure Cloud Shell](https://docs.microsoft.com/azure/app-service/quickstart-java#use-azure-cloud-shell).
+1. Abra o [Azure Cloud Shell](../app-service/quickstart-java.md#use-azure-cloud-shell).
 
 1. Inicie o editor do Cloud Shell:
 
@@ -94,7 +96,7 @@ Nesta seção, use vários comandos do Terraform para executar a configuração.
     terraform apply plan.out
     ```
 
-1. Para verificar os resultados dentro do portal do Azure, navegue até o novo grupo de recursos. A nova **instância do Azure Cosmos DB** aparece no novo grupo de recursos.
+1. Para verificar os resultados dentro do portal do Azure, navegue até o novo grupo de recursos. A nova instância do **Azure Spring Cloud** é exibida no novo grupo de recursos.
 
 ## <a name="update-configuration-to-config-logs-and-metrics"></a>Atualizar a configuração para logs e métricas de configuração
 
@@ -159,7 +161,7 @@ Esta seção mostra como atualizar a configuração para habilitar o log e as m�
 
 Quando não forem mais necessários, exclua os recursos criados neste artigo.
 
-Execute o comando [terraform destroy](https://www.terraform.io/docs/commands/destroy.html) para remover os recursos do Azure criados neste tutorial:
+Execute o comando [terraform destroy](https://www.terraform.io/docs/commands/destroy.html) para remover os recursos do Azure criados neste exercício:
 
 ```bash
 terraform destroy -auto-approve
@@ -168,4 +170,4 @@ terraform destroy -auto-approve
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Instalar e configurar o Terraform para provisionar recursos do Azure](https://docs.microsoft.com/azure/developer/terraform/getting-started-cloud-shell).
+> [Instalar e configurar o Terraform para provisionar recursos do Azure](/azure/developer/terraform/getting-started-cloud-shell).

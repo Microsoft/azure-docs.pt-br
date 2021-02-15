@@ -1,35 +1,35 @@
 ---
-title: Habilitar e gerenciar o controle de versão de BLOB (visualização)
+title: Habilitar e gerenciar o controle de versão de blob
 titleSuffix: Azure Storage
-description: Saiba como habilitar o controle de versão de BLOB (visualização) no portal do Azure ou usando um modelo de Azure Resource Manager.
+description: Saiba como habilitar o controle de versão de blob no portal do Azure ou usando um modelo de Azure Resource Manager.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/10/2020
+ms.date: 02/09/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7e8d712a3477fe7dd9b963f203b3374dd5fa2a2e
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 5b6bd16eacf4b1bbb7b93f5500813e7fa9dc7eef
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89001052"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100095827"
 ---
-# <a name="enable-and-manage-blob-versioning-preview"></a>Habilitar e gerenciar o controle de versão de BLOB (visualização)
+# <a name="enable-and-manage-blob-versioning"></a>Habilitar e gerenciar o controle de versão de blob
 
-Você pode habilitar o controle de versão do armazenamento de BLOBs (visualização) para manter automaticamente as versões anteriores de um objeto.  Quando o controle de versão de blob estiver habilitado, você poderá restaurar uma versão anterior de um blob para recuperar seus dados se eles forem modificados ou excluídos erroneamente.
+Você pode habilitar o controle de versão do armazenamento de BLOBs para manter automaticamente as versões anteriores de um blob quando ele é modificado ou excluído. Quando o controle de versão do blob está habilitado, você pode restaurar uma versão anterior de um blob para recuperar seus dados se eles forem modificados ou excluídos erroneamente.
 
-Este artigo mostra como habilitar ou desabilitar o controle de versão de BLOB para a conta de armazenamento usando o portal do Azure ou um modelo de Azure Resource Manager.
+Este artigo mostra como habilitar ou desabilitar o controle de versão de BLOB para a conta de armazenamento usando o portal do Azure ou um modelo de Azure Resource Manager. Para saber mais sobre o controle de versão de BLOB, consulte [controle de versão de blob](versioning-overview.md).
 
-Você deve se registrar para a visualização antes de habilitar o controle de versão de BLOB. Para saber mais sobre o controle de versão de BLOB, incluindo como registrar-se para a versão prévia, consulte [versionamento de BLOB (visualização)](versioning-overview.md).
+[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 ## <a name="enable-blob-versioning"></a>Habilitar controle de versão de blob
 
-# <a name="azure-portal"></a>[Azure portal](#tab/portal)
+# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
 
-Para habilitar o controle de versão de blob no portal do Azure:
+Para habilitar o controle de versão de BLOB para uma conta de armazenamento no portal do Azure:
 
 1. Navegue até sua conta de armazenamento no Portal.
 1. Em **serviço blob**, escolha **proteção de dados**.
@@ -37,13 +37,39 @@ Para habilitar o controle de versão de blob no portal do Azure:
 
 :::image type="content" source="media/versioning-enable/portal-enable-versioning.png" alt-text="Captura de tela mostrando como habilitar o controle de versão de blob no portal do Azure":::
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Para habilitar o controle de versão de BLOB para uma conta de armazenamento com o PowerShell, primeiro instale o módulo [AZ. Storage](https://www.powershellgallery.com/packages/Az.Storage) versão 2.3.0 ou posterior. Em seguida, chame o comando [Update-AzStorageBlobServiceProperty](/powershell/module/az.storage/update-azstorageblobserviceproperty) para habilitar o controle de versão, conforme mostrado no exemplo a seguir. Lembre-se de substituir os valores entre colchetes angulares com seus próprios valores:
+
+```powershell
+# Set resource group and account variables.
+$rgName = "<resource-group>"
+$accountName = "<storage-account>"
+
+# Enable versioning.
+Update-AzStorageBlobServiceProperty -ResourceGroupName $rgName `
+    -StorageAccountName $accountName `
+    -IsVersioningEnabled $true
+```
+
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
+Para habilitar o controle de versão de BLOB para uma conta de armazenamento com CLI do Azure, primeiro instale o CLI do Azure versão 2.2.0 ou posterior. Em seguida, chame o comando [AZ Storage Account blob-Service-Properties Update](/cli/azure/ext/storage-blob-preview/storage/account/blob-service-properties#ext_storage_blob_preview_az_storage_account_blob_service_properties_update) para habilitar o controle de versão, conforme mostrado no exemplo a seguir. Lembre-se de substituir os valores entre colchetes angulares com seus próprios valores:
+
+```azurecli
+az storage account blob-service-properties update \
+    --resource-group <resource_group> \
+    --account-name <storage-account> \
+    --enable-versioning true
+```
+
 # <a name="template"></a>[Modelo](#tab/template)
 
 Para habilitar o controle de versão de blob com um modelo, crie um modelo com a propriedade **IsVersioningEnabled** como **true**. As etapas a seguir descrevem como criar um modelo no portal do Azure.
 
 1. Na portal do Azure, escolha **criar um recurso**.
-1. Em **Pesquisar no Marketplace**, digite **implantação de modelo**e pressione **Enter**.
-1. Escolha **implantação de modelo**, escolha **criar**e, em seguida, escolha **criar seu próprio modelo no editor**.
+1. Em **Pesquisar no Marketplace**, digite **implantação de modelo** e pressione **Enter**.
+1. Escolha **implantação de modelo**, escolha **criar** e, em seguida, escolha **criar seu próprio modelo no editor**.
 1. No editor de modelo, Cole o JSON a seguir. Substitua o espaço reservado `<accountName>` pelo nome da sua conta de armazenamento.
 1. Salve o modelo.
 1. Especifique o grupo de recursos da conta e, em seguida, escolha o botão **comprar** para implantar o modelo e habilitar o controle de versão de BLOB.
@@ -73,91 +99,21 @@ Para obter mais informações sobre como implantar recursos com modelos no porta
 
 ## <a name="modify-a-blob-to-trigger-a-new-version"></a>Modificar um blob para disparar uma nova versão
 
-O exemplo de código a seguir mostra como disparar a criação de uma nova versão com a biblioteca de cliente de armazenamento do Azure para .NET, versão [12.5.0-Preview. 5](https://www.nuget.org/packages/Azure.Storage.Blobs/12.5.0-preview.5) ou posterior. Antes de executar este exemplo, verifique se você habilitou o controle de versão para sua conta de armazenamento.
+O exemplo de código a seguir mostra como disparar a criação de uma nova versão com a biblioteca de cliente de armazenamento do Azure para .NET, versão [12.5.1](https://www.nuget.org/packages/Azure.Storage.Blobs/12.5.1) ou posterior. Antes de executar este exemplo, verifique se você habilitou o controle de versão para sua conta de armazenamento.
 
 O exemplo cria um blob de blocos e, em seguida, atualiza os metadados do blob. Atualizar os metadados do blob dispara a criação de uma nova versão. O exemplo recupera a versão inicial e a versão atual e mostra que apenas a versão atual inclui os metadados.
 
-```csharp
-public static async Task UpdateVersionedBlobMetadata(string containerName, string blobName)
-{
-    // Create a new service client from the connection string.
-    BlobServiceClient blobServiceClient = new BlobServiceClient(ConnectionString);
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_UpdateVersionedBlobMetadata":::
 
-    // Create a new container client.
-    BlobContainerClient containerClient = blobServiceClient.GetBlobContainerClient(containerName);
+## <a name="list-blob-versions"></a>Listar versões de BLOB
 
-    try
-    {
-        // Create the container.
-        await containerClient.CreateIfNotExistsAsync();
+Para listar versões de BLOB ou instantâneos com a biblioteca de cliente .NET V12, especifique o parâmetro [BlobStates](/dotnet/api/azure.storage.blobs.models.blobstates) com o campo **version** .
 
-        // Upload a block blob.
-        BlockBlobClient blockBlobClient = containerClient.GetBlockBlobClient(blobName);
+O exemplo de código a seguir mostra como listar a versão de BLOBs com a biblioteca de cliente de armazenamento do Azure para .NET, versão [12.5.1](https://www.nuget.org/packages/Azure.Storage.Blobs/12.5.1) ou posterior. Antes de executar este exemplo, verifique se você habilitou o controle de versão para sua conta de armazenamento.
 
-        string blobContents = string.Format("Block blob created at {0}.", DateTime.Now);
-        byte[] byteArray = Encoding.ASCII.GetBytes(blobContents);
-
-        string initalVersionId;
-        using (MemoryStream stream = new MemoryStream(byteArray))
-        {
-            Response<BlobContentInfo> uploadResponse = await blockBlobClient.UploadAsync(stream, null, default);
-
-            // Get the version ID for the current version.
-            initalVersionId = uploadResponse.Value.VersionId;
-        }
-
-        // Update the blob's metadata to trigger the creation of a new version.
-        Dictionary<string, string> metadata = new Dictionary<string, string>
-        {
-            { "key", "value" },
-            { "key1", "value1" }
-        };
-
-        Response<BlobInfo> metadataResponse = await blockBlobClient.SetMetadataAsync(metadata);
-
-        // Get the version ID for the new current version.
-        string newVersionId = metadataResponse.Value.VersionId;
-
-        // Request metadata on the previous version.
-        BlockBlobClient initalVersionBlob = blockBlobClient.WithVersion(initalVersionId);
-        Response<BlobProperties> propertiesResponse = await initalVersionBlob.GetPropertiesAsync();
-        PrintMetadata(propertiesResponse);
-
-        // Request metadata on the current version.
-        BlockBlobClient newVersionBlob = blockBlobClient.WithVersion(newVersionId);
-        Response<BlobProperties> newPropertiesResponse = await newVersionBlob.GetPropertiesAsync();
-        PrintMetadata(newPropertiesResponse);
-    }
-    catch (RequestFailedException e)
-    {
-        Console.WriteLine(e.Message);
-        Console.ReadLine();
-        throw;
-    }
-    finally
-    {
-        await containerClient.DeleteAsync();
-    }
-}
-
-static void PrintMetadata(Response<BlobProperties> propertiesResponse)
-{
-    if (propertiesResponse.Value.Metadata.Count > 0)
-    {
-        Console.WriteLine("Metadata values for version {0}:", propertiesResponse.Value.VersionId);
-        foreach (var item in propertiesResponse.Value.Metadata)
-        {
-            Console.WriteLine("Key:{0}  Value:{1}", item.Key, item.Value);
-        }
-    }
-    else
-    {
-        Console.WriteLine("Version {0} has no metadata.", propertiesResponse.Value.VersionId);
-    }
-}
-```
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_ListBlobVersions":::
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Controle de versão de blob (versão prévia)](versioning-overview.md)
-- [Exclusão reversível para blobs do Armazenamento do Azure ](soft-delete-overview.md)
+- [Controle de versão de BLOB](versioning-overview.md)
+- [Exclusão reversível para blobs do Armazenamento do Azure ](./soft-delete-blob-overview.md)

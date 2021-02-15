@@ -1,6 +1,6 @@
 ---
-title: CLI – criar uma imagem de um instantâneo ou VHD em uma galeria de imagens compartilhadas
-description: Saiba como criar uma imagem de um instantâneo ou VHD em uma galeria de imagens compartilhada usando o CLI do Azure.
+title: CLI – criar uma imagem de um instantâneo ou de um disco gerenciado em uma galeria de imagens compartilhada
+description: Saiba como criar uma imagem de um instantâneo ou de um disco gerenciado em uma galeria de imagens compartilhada usando o CLI do Azure.
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: imaging
@@ -9,16 +9,16 @@ ms.workload: infrastructure
 ms.date: 06/30/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: b5dcadd2381596509a3d2f512d0f4ebbbfbba893
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9cfb1fe6d2050a63070e9c21e4b8c3ef59efcb15
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86502870"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98682674"
 ---
-# <a name="create-an-image-from-a-vhd-or-snapshot-in-a-shared-image-gallery-using-the-azure-cli"></a>Criar uma imagem de um VHD ou instantâneo em uma galeria de imagens compartilhada usando o CLI do Azure
+# <a name="create-an-image-from-a-managed-disk-or-snapshot-in-a-shared-image-gallery-using-the-azure-cli"></a>Criar uma imagem de um disco gerenciado ou instantâneo em uma galeria de imagens compartilhada usando o CLI do Azure
 
-Se você tiver um instantâneo ou VHD existente que deseja migrar para uma galeria de imagens compartilhada, poderá criar uma imagem da Galeria de imagens compartilhada diretamente do VHD ou do instantâneo. Depois de testar a nova imagem, você pode excluir o VHD de origem ou o instantâneo. Você também pode criar uma imagem de um VHD ou instantâneo em uma galeria de imagens compartilhada usando o [Azure PowerShell](image-version-snapshot-powershell.md).
+Se você tiver um instantâneo ou disco gerenciado existente que deseja migrar para uma galeria de imagens compartilhada, poderá criar uma imagem da Galeria de imagens compartilhada diretamente do disco gerenciado ou do instantâneo. Depois de testar a nova imagem, você pode excluir o disco gerenciado de origem ou o instantâneo. Você também pode criar uma imagem de um disco gerenciado ou instantâneo em uma galeria de imagens compartilhada usando o [Azure PowerShell](image-version-snapshot-powershell.md).
 
 As imagens em uma galeria de imagens têm dois componentes, que serão criados neste exemplo:
 - Uma **definição de imagem** contém informações sobre a imagem e os requisitos para usá-la. Isso inclui se a imagem é Windows ou Linux, especializada ou generalizada, notas de versão e requisitos mínimos e máximos de memória. É uma definição de um tipo de imagem. 
@@ -27,13 +27,13 @@ As imagens em uma galeria de imagens têm dois componentes, que serão criados n
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Para concluir este artigo, você deve ter um instantâneo ou VHD. 
+Para concluir este artigo, você deve ter um instantâneo ou um disco gerenciado. 
 
 Se você quiser incluir um disco de dados, o tamanho do disco de dados não poderá ser superior a 1 TB.
 
 Ao trabalhar com este artigo, substitua os nomes de recursos onde necessário.
 
-## <a name="find-the-snapshot-or-vhd"></a>Localizar o instantâneo ou VHD 
+## <a name="find-the-snapshot-or-managed-disk"></a>Localizar o instantâneo ou o disco gerenciado 
 
 Você pode ver uma lista de instantâneos que estão disponíveis em um grupo de recursos usando [AZ snapshot List](/cli/azure/snapshot#az-snapshot-list). 
 
@@ -41,13 +41,13 @@ Você pode ver uma lista de instantâneos que estão disponíveis em um grupo de
 az snapshot list --query "[].[name, id]" -o tsv
 ```
 
-Você também pode usar um VHD em vez de um instantâneo. Para obter um VHD, use [AZ Disk List](/cli/azure/disk#az-disk-list). 
+Você também pode usar um disco gerenciado em vez de um instantâneo. Para obter um disco gerenciado, use [AZ Disk List](/cli/azure/disk#az-disk-list). 
 
 ```azurecli-interactive
 az disk list --query "[].[name, id]" -o tsv
 ```
 
-Quando você tiver a ID do instantâneo ou VHD e atribuí-la a uma variável chamada `$source` a ser usada posteriormente.
+Depois de ter a ID do instantâneo ou do disco gerenciado e atribuí-lo a uma variável chamada `$source` a ser usada posteriormente.
 
 Você pode usar o mesmo processo para obter os discos de dados que deseja incluir na imagem. Atribua-os às variáveis e, em seguida, use essas variáveis posteriormente ao criar a versão da imagem.
 
@@ -67,13 +67,13 @@ az sig list -o table
 
 As definições de imagem criam um agrupamento lógico para as imagens. Eles são usados para gerenciar informações sobre a imagem. Os nomes das definições de imagem podem ser compostos por letras maiúsculas ou minúsculas, dígitos, pontos, traços e pontos finais. 
 
-Ao fazer a definição de imagem, verifique se o tem todas as informações corretas. Neste exemplo, supomos que o instantâneo ou VHD seja de uma VM em uso e não tenha sido generalizado. Se o VHD ou o instantâneo foram tirados de um sistema operacional generalizado (depois de executar o Sysprep para Windows ou [waagent](https://github.com/Azure/WALinuxAgent) `-deprovision` ou `-deprovision+user` para Linux), altere o `-OsState` para `generalized` . 
+Ao fazer a definição de imagem, verifique se o tem todas as informações corretas. Neste exemplo, supomos que o instantâneo ou o disco gerenciado sejam de uma VM em uso e não tenha sido generalizado. Se o disco gerenciado ou o instantâneo foi tirado de um sistema operacional generalizado (depois de executar o Sysprep para Windows ou [waagent](https://github.com/Azure/WALinuxAgent) `-deprovision` ou `-deprovision+user` Linux), altere o `-OsState` para `generalized` . 
 
-Para obter mais informações sobre os valores que pode especificar para uma definição de imagem, confira [Definições de imagem](./linux/shared-image-galleries.md#image-definitions).
+Para obter mais informações sobre os valores que pode especificar para uma definição de imagem, confira [Definições de imagem](./shared-image-galleries.md#image-definitions).
 
 Crie uma definição de imagem na galeria usando [az sig image-definition create](/cli/azure/sig/image-definition#az-sig-image-definition-create).
 
-Neste exemplo, a definição da imagem se chama *myImageDefinition* e é referente a uma imagem [especializada](./linux/shared-image-galleries.md#generalized-and-specialized-images) do SO Linux. Para criar uma definição para imagens usando um SO Windows, use `--os-type Windows`. 
+Neste exemplo, a definição da imagem se chama *myImageDefinition* e é referente a uma imagem [especializada](./shared-image-galleries.md#generalized-and-specialized-images) do SO Linux. Para criar uma definição para imagens usando um SO Windows, use `--os-type Windows`. 
 
 Neste exemplo, a galeria é denominada *myGallery*, está no grupo de recursos *myGalleryRG* e o nome da definição de imagem será *mImageDefinition*.
 
@@ -99,9 +99,9 @@ Crie uma versão de imagem usando [AZ Image Gallery Create-Image-Version](/cli/a
 
 Caracteres permitidos para a versão da imagem são números e pontos. Os números devem estar dentro do intervalo de um inteiro de 32 bits. Formato: *MajorVersion*.*MinorVersion*.*Patch*.
 
-Neste exemplo, a versão da nossa imagem é a *1.0.0* e vamos criar uma réplica na região *do Sul EUA Central* e uma réplica na região *leste dos EUA 2* usando o armazenamento com redundância de zona. Ao escolher regiões de destino para replicação, lembre-se de que você também precisa incluir a região de *origem* do VHD ou do instantâneo como um destino para replicação.
+Neste exemplo, a versão da nossa imagem é a *1.0.0* e vamos criar uma réplica na região *do Sul EUA Central* e uma réplica na região *leste dos EUA 2* usando o armazenamento com redundância de zona. Ao escolher regiões de destino para replicação, lembre-se de que você também precisa incluir a região de *origem* do disco gerenciado ou instantâneo como um destino para replicação.
 
-Passe a ID do instantâneo ou VHD no `--os-snapshot` parâmetro.
+Passe a ID do instantâneo ou do disco gerenciado no `--os-snapshot` parâmetro.
 
 
 ```azurecli-interactive 

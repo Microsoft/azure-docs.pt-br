@@ -7,30 +7,29 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 03/31/2020
 ms.author: jushiman
-ms.openlocfilehash: 2dea6ea292b4ed69d89a6e5e03c58f437446561d
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: a8f39b5a1994574fa3d1472a2b53a3b080f82952
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654779"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99089234"
 ---
 # <a name="m-series"></a>Série M
 
 A série M oferece uma alta contagem de vCPU (até 128 vCPUs) e uma grande quantidade de memória (até 3,8 TiB). Ela também é ideal para bancos de dados extremamente grandes ou outros aplicativos que se beneficiam de altas contagens de vCPU e de grandes quantidades de memória. Os tamanhos da série M têm suporte no Intel &reg; Xeon &reg; CPU E7-8890 v3 @ 2,50 GHz e no Intel &reg; Xeon &reg; Platinum 8280M (cascadey Lake).
 
-A tecnologia Hyper-Threading da VM da série M &reg; .
+O recurso da VM da série M tem a &reg; tecnologia Intel Hyper-Threading.
 
-ACU: 160 a 180
-
-Armazenamento Premium:  Com suporte
-
-Cache de Armazenamento Premium:  Com suporte
-
-Migração ao Vivo: Sem suporte
-
-Atualizações de preservação de memória: Sem suporte
-
-Acelerador de gravação: [com suporte](./how-to-enable-write-accelerator.md)
+[ACU](acu.md): 160-180<br>
+[Armazenamento Premium](premium-storage-performance.md): com suporte<br>
+[Cache de armazenamento Premium](premium-storage-performance.md): com suporte<br>
+[Migração ao vivo](maintenance-and-updates.md): sem suporte<br>
+[Atualizações de preservação de memória](maintenance-and-updates.md): sem suporte<br>
+[Suporte à geração de VM](generation-2.md): geração 1 e 2<br>
+[Acelerador de gravação](./how-to-enable-write-accelerator.md): com suporte<br>
+[Rede acelerada](../virtual-network/create-vm-accelerated-networking-cli.md): com suporte<br>
+[Discos do sistema operacional efêmero](ephemeral-os-disks.md): sem suporte <br>
+<br>
 
 | Tamanho | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Discos de dados máximos | Taxa de transferência máxima de armazenamento em cache e temporária: IOPS/MBps (tamanho do cache em GiB) | Taxa de transferência de disco sem cache: IOPS/MBps | Máximo de NICs|Largura de banda de rede esperada (Mbps) |
 |---|---|---|---|---|---|---|---|---|
@@ -49,7 +48,7 @@ Acelerador de gravação: [com suporte](./how-to-enable-write-accelerator.md)
 | Standard_M128 <sup>1</sup>     | 128 | 2.048   | 14336 | 64 | 250000/1600 (2456)  | 80000/2000 | 8|32000 |
 | Standard_M128m <sup>1</sup>    | 128 | 3892   | 14336 | 64 | 250000/1600 (2456)  | 80000/2000 | 8|32000 |
 
-<sup>1</sup> mais de 64 vCPU requer um destes SOS convidados com suporte: Windows Server 2016, Ubuntu 16, 4 LTS, SLES 12 SP2 e Red Hat Enterprise Linux, CentOS 7,3 ou Oracle Linux 7,3 com Lis 4.2.1.
+<sup>1</sup> mais de 64 vCPU requer uma destas versões de convidado com suporte: Windows Server 2016, Ubuntu 16, 4 LTS, SLES 12 SP2 e Red Hat Enterprise Linux, CentOS 7,3 ou Oracle Linux 7,3 com Lis 4.2.1.
 
 <sup>2</sup> A instância é isolada em hardware dedicado a um único cliente.
 

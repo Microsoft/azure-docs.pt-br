@@ -1,5 +1,6 @@
 ---
-title: Registrar um aplicativo Web que chama APIs da Web-plataforma de identidade da Microsoft | Azure
+title: Registrar um aplicativo Web que chama APIs da Web | Azure
+titleSuffix: Microsoft identity platform
 description: Saiba como registrar um aplicativo Web que chama APIs da Web
 services: active-directory
 author: jmprieur
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 8cb7d86bd419563363779c499962c81f0c59e3b6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bb9a1ca6c2c81e3b0d5dbeff06f4de012446cf79
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80881869"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756324"
 ---
 # <a name="a-web-app-that-calls-web-apis-app-registration"></a>Um aplicativo Web que chama APIs da Web: registro de aplicativo
 
@@ -28,9 +29,8 @@ No entanto, como o aplicativo Web agora também chama APIs da Web, ele se torna 
 
 ## <a name="api-permissions"></a>Permissões de API
 
-Os aplicativos Web chamam APIs em nome do usuário conectado. Para fazer isso, eles devem solicitar *permissões delegadas*. Para obter detalhes, consulte [adicionar permissões para acessar APIs da Web](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis).
+Os aplicativos Web chamam APIs em nome do usuário conectado. Para fazer isso, eles devem solicitar *permissões delegadas*. Para obter detalhes, consulte [adicionar permissões para acessar sua API Web](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-your-web-api).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-> [!div class="nextstepaction"]
-> [Um aplicativo Web que chama as APIs Web: Configuração do código](scenario-web-app-call-api-app-configuration.md)
+Vá para o próximo artigo neste cenário, configuração de [código](scenario-web-app-call-api-app-configuration.md).

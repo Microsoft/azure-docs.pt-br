@@ -3,12 +3,12 @@ title: Solucionar problemas de backup de compartilhamento de arquivos do Azure
 description: Este artigo tem informações sobre a solução de problemas que ocorrem ao proteger seus compartilhamentos de arquivos no Azure.
 ms.date: 02/10/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 9e8869ed75350fd4063832932f076fb6fd52d4e5
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 4908b8ed97bad43d9d24427660a8691ee43d7eaf
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89001732"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89376971"
 ---
 # <a name="troubleshoot-problems-while-backing-up-azure-file-shares"></a>Solucionar problemas ao fazer backup de compartilhamentos de arquivos do Azure
 
@@ -51,7 +51,7 @@ Repita o registro. Se o problema persistir, contate o Suporte.
 
 ### <a name="unable-to-delete-the-recovery-services-vault-after-unprotecting-a-file-share"></a>Não é possível excluir o cofre dos serviços de recuperação após desproteger um compartilhamento de arquivos
 
-Na portal do Azure, abra seu **cofre**  >  **infraestrutura de backup**  >  **contas de armazenamento** e clique em **Cancelar registro** para remover as contas de armazenamento do cofre dos serviços de recuperação.
+Na portal do Azure, abra seu **cofre**  >  **infraestrutura de backup**  >  **contas de armazenamento**. Selecione **Cancelar registro** para remover as contas de armazenamento do cofre dos serviços de recuperação.
 
 >[!NOTE]
 >Um cofre dos serviços de recuperação só pode ser excluído após o cancelamento do registro de todas as contas de armazenamento registradas no cofre.

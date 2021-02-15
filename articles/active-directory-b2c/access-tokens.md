@@ -7,16 +7,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/12/2020
+ms.date: 10/26/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: be43b74e7128f9b250d25f8bdb2642c6f7b41d2a
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: 937041bbb48f112e2c8ed7d222dc7c7ef7ea8d81
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87115527"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92631386"
 ---
 # <a name="request-an-access-token-in-azure-active-directory-b2c"></a>Solicitar um token de acesso no Azure Active Directory B2C
 
@@ -50,10 +50,15 @@ O exemplo a seguir mostra os escopos codificados em uma URL:
 scope=https%3A%2F%2Fcontoso.onmicrosoft.com%2Fapi%2Fread%20openid%20offline_access
 ```
 
-Se você solicitar mais escopos do que o permitido para o aplicativo cliente, a chamada terá sucesso se pelo menos uma permissão for concedida. A declaração **scp** no token de acesso resultante é preenchida apenas com as permissões que foram concedidas com êxito. O padrão de OpenID Connect especifica vários valores especiais de escopo. Os seguintes escopos representam a permissão para acessar o perfil do usuário:
+Se você solicitar mais escopos do que o permitido para o aplicativo cliente, a chamada terá sucesso se pelo menos uma permissão for concedida. A declaração **scp** no token de acesso resultante é preenchida apenas com as permissões que foram concedidas com êxito. 
+
+### <a name="openid-connect-scopes"></a>Escopos do OpenID Connect
+
+O padrão de OpenID Connect especifica vários valores especiais de escopo. Os seguintes escopos declaram a permissão para acessar o perfil do usuário:
 
 - **openid** - Solicita um token de ID.
 - **offline_access** - Solicita um token de atualização usando [fluxos de Código de autenticação](authorization-code-flow.md).
+- **00000000-0000-0000-0000-000000000000** -usar a ID do cliente como o escopo indica que seu aplicativo precisa de um token de acesso que possa ser usado em relação ao seu próprio serviço ou API Web, representado pela mesma ID do cliente.
 
 Se o parâmetro **response_type** em uma solicitação `/authorize` incluir `token`, o parâmetro **scope** deverá incluir o escopo de pelo menos um recurso diferente de `openid` e `offline_access` que será concedido. Caso contrário, a solicitação `/authorize` será rejeitada.
 
@@ -69,7 +74,7 @@ Substitua esses valores no exemplo a seguir:
 - `<redirect-uri>` – O **URI de redirecionamento** que você inseriu ao registrar o aplicativo cliente.
 
 ```http
-GET https://<tenant-name>.b2clogin.com/tfp/<tenant-name>.onmicrosoft.com/<policy-name>/oauth2/v2.0/authorize?
+GET https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/<policy-name>/oauth2/v2.0/authorize?
 client_id=<application-ID>
 &nonce=anyRandomValue
 &redirect_uri=https://jwt.ms

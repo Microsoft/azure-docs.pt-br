@@ -1,25 +1,21 @@
 ---
 title: Copiar dados bidirecionalmente no SAP Cloud for Customer
 description: Saiba como copiar dados do SAP Cloud for Customer para armazenamentos de dados de coletor compatíveis (ou) de armazenamentos de dados de origem compatíveis para o SAP Cloud for Customer usando o Data Factory.
-services: data-factory
-documentationcenter: ''
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 06/12/2020
-ms.openlocfilehash: 3874d3b2b0938b6fd0f763b42ef15f8250b42f1d
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.date: 02/02/2021
+ms.openlocfilehash: 4590129b8d0d7a63ef4291a023ea4d980c89368c
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87529612"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100386638"
 ---
 # <a name="copy-data-from-sap-cloud-for-customer-c4c-using-azure-data-factory"></a>Copiar dados do SAP Cloud for Customer (C4C) usando o Azure Data Factory
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Este artigo descreve como usar Copy Activity no Azure Data Factory para copiar dados de/para SAP Cloud for Customer (C4C). Ele amplia o artigo [Visão geral da atividade de cópia](copy-activity-overview.md) que apresenta uma visão geral da atividade de cópia.
@@ -54,10 +50,7 @@ As propriedades a seguir são compatíveis com o serviço vinculado SAP Cloud fo
 | url | A URL do serviço SAP C4C OData. | Sim |
 | Nome de Usuário | Especifique o nome de usuário para se conectar ao SAP C4C. | Sim |
 | password | Especifique a senha da conta de usuário que você especificou para o nome de usuário. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
-| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Se não for especificado, ele usa o Integration Runtime padrão do Azure. | Não para fonte, Sim para o coletor |
-
->[!IMPORTANT]
->Para copiar dados para o SAP Cloud for Customer, explicitamente [crie um IR Azure](create-azure-integration-runtime.md#create-azure-ir) com um local próximo do SAP Cloud for Customer e associe no serviço vinculado como o seguinte exemplo:
+| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Se não for especificado, ele usa o Integration Runtime padrão do Azure. | Não |
 
 **Exemplo:**
 
@@ -167,8 +160,8 @@ Para copiar dados do SAP Cloud for Customer, defina o tipo de coletor na ativida
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | type | A propriedade type deve ser definida como: **SapCloudForCustomerSink**  | Sim |
-| writeBehavior | O comportamento da operação de gravação. Pode ser “Inserir”, “Atualizar”. | Não. Padrão “Inserir”. |
-| writeBatchSize | O tamanho do lote da operação de gravação. O tamanho do lote para obter o melhor desempenho pode ser diferente da tabela ou do servidor diferente. | Não. Padrão 10. |
+| writeBehavior | O comportamento da operação de gravação. Pode ser “Inserir”, “Atualizar”. | Não. Padrão “Inserir”. |
+| writeBatchSize | O tamanho do lote da operação de gravação. O tamanho do lote para obter o melhor desempenho pode ser diferente da tabela ou do servidor diferente. | Não. Padrão 10. |
 
 **Exemplo:**
 
@@ -215,14 +208,14 @@ Durante a cópia de dados do SAP Cloud for Customer, os mapeamentos a seguir sã
 
 | Tipo de dados SAP C4C OData | Tipo de dados provisório do Data Factory |
 |:--- |:--- |
-| Edm.Binary | Byte[] |
+| Edm.Binary | Byte[] |
 | Edm.Boolean | Bool |
-| Edm.Byte | Byte[] |
+| Edm.Byte | Byte[] |
 | Edm.DateTime | Datetime |
 | Edm.Decimal | Decimal |
 | Edm.Double | Double |
 | Edm.Single | Single |
-| Edm.Guid | Guid |
+| Edm.Guid | Guid |
 | Edm.Int16 | Int16 |
 | Edm.Int32 | Int32 |
 | Edm.Int64 | Int64 |

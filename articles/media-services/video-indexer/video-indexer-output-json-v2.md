@@ -8,18 +8,18 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 08/27/2020
+ms.date: 11/16/2020
 ms.author: juliako
-ms.openlocfilehash: 6eecaaff836d3253d382fdf0280f9a15c3a7b00b
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: bf48f873127a12c3cabb28da33d34cedcda2793b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89050855"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94831559"
 ---
 # <a name="examine-the-video-indexer-output"></a>Examinar a saída de Video Indexer
 
-Quando um vídeo é indexado, Video Indexer poduces o conteúdo JSON que contém detalhes das informações de vídeo especificadas. As informações incluem: transcrições, OCRs, rostos, tópicos, blocos, etc. Cada tipo de insight inclui instâncias de intervalos de tempo que mostram quando a Insight é exibida no vídeo. 
+Quando um vídeo é indexado, Video Indexer produz o conteúdo JSON que contém detalhes das informações de vídeo especificadas. As informações incluem: transcrições, OCRs, rostos, tópicos, blocos, etc. Cada tipo de insight inclui instâncias de intervalos de tempo que mostram quando a Insight é exibida no vídeo. 
 
 Você pode examinar visualmente as ideias resumidas do vídeo pressionando o botão **reproduzir** no vídeo no site [Video indexer](https://www.videoindexer.ai/) . 
 
@@ -53,7 +53,7 @@ Para obter mais informações, consulte [insights de vídeo de exibir e editar](
 
 ## <a name="root-elements-of-the-insights"></a>Elementos raiz das informações
 
-|Name|Descrição|
+|Nome|Descrição|
 |---|---|
 |accountId|ID da conta VI da lista de reprodução.|
 |id|ID. da lista de reprodução.|
@@ -113,7 +113,7 @@ Esta seção mostra o resumo das informações.
 
 ## <a name="videos"></a>Vídeos
 
-|Name|Descrição|
+|Nome|Descrição|
 |---|---|
 |accountId|A ID da conta VI do vídeo.|
 |id|ID do vídeo.|
@@ -187,6 +187,7 @@ Uma face pode ter uma ID, um nome, uma miniatura, outros metadados e uma lista d
 |textualContentModeration|O [textualContentModeration](#textualcontentmoderation) Insight.|
 |emotions| As [emoções](#emotions) insights.|
 |topics|Os [Tópicos](#topics) insights.|
+|alto-falantes|Os [oradores](#speakers) insights.|
 
 Exemplo:
 
@@ -218,48 +219,57 @@ instances|Uma lista de intervalos de tempo deste bloco.|
 
 #### <a name="transcript"></a>transcript
 
-|Name|Descrição|
+|Nome|Descrição|
 |---|---|
 |id|A ID da linha.|
-|text|A própria transcrição.|
+|texto|A própria transcrição.|
+|confidence|A confiança de precisão da transcrição.|
+|palestraid|A ID do orador.|
 |Linguagem|O idioma da transcrição. Tem o objetivo dar suporte à transcrição na qual cada linha pode ter um idioma diferente.|
 |instances|Uma lista com os intervalos de tempo nos quais essa linha apareceu. Se a instância for transcrita, ela terá apenas 1 instância.|
 
 Exemplo:
 
 ```json
-"transcript": [
+"transcript":[
 {
-    "id": 0,
-    "text": "Hi I'm Doug from office.",
-    "language": "en-US",
-    "instances": [
-    {
-        "start": "00:00:00.5100000",
-        "end": "00:00:02.7200000"
-    }
-    ]
+  "id":1,
+  "text":"Well, good morning everyone and welcome to",
+  "confidence":0.8839,
+  "speakerId":1,
+  "language":"en-US",
+  "instances":[
+     {
+    "adjustedStart":"0:00:10.21",
+    "adjustedEnd":"0:00:12.81",
+    "start":"0:00:10.21",
+    "end":"0:00:12.81"
+     }
+  ]
 },
 {
-    "id": 1,
-    "text": "I have a guest. It's Michelle.",
-    "language": "en-US",
-    "instances": [
-    {
-        "start": "00:00:02.7200000",
-        "end": "00:00:03.9600000"
-    }
-    ]
-}
-] 
+  "id":2,
+  "text":"ignite 2016. Your mission at Microsoft is to empower every",
+  "confidence":0.8944,
+  "speakerId":2,
+  "language":"en-US",
+  "instances":[
+     {
+    "adjustedStart":"0:00:12.81",
+    "adjustedEnd":"0:00:17.03",
+    "start":"0:00:12.81",
+    "end":"0:00:17.03"
+     }
+  ]
+},
 ```
 
 #### <a name="ocr"></a>ocr
 
-|Name|Descrição|
+|Nome|Descrição|
 |---|---|
 |id|A ID da linha de OCR.|
-|text|O texto de OCR.|
+|texto|O texto de OCR.|
 |confidence|A confiança do reconhecimento.|
 |Linguagem|O idioma do OCR.|
 |instances|Uma lista de intervalos de tempo nos quais essa OCR apareceu (o mesmo OCR pode aparecer várias vezes).|
@@ -291,10 +301,10 @@ Exemplo:
 
 #### <a name="keywords"></a>palavras-chave
 
-|Name|Descrição|
+|Nome|Descrição|
 |---|---|
 |id|A ID da palavra-chave.|
-|text|O texto da palavra-chave.|
+|texto|O texto da palavra-chave.|
 |confidence|A confiança do reconhecimento da palavra-chave.|
 |Linguagem|O idioma da palavra-chave (quando traduzida).|
 |instances|Uma lista de intervalos de tempo nos quais essa palavra-chave apareceu (uma palavra-chave pode aparecer várias vezes).|
@@ -326,7 +336,7 @@ Exemplo:
 
 Se os rostos (não os caracteres animados) estiverem presentes, Video Indexer usará API de Detecção Facial em todos os quadros do vídeo para detectar rostos e celebridades.
 
-|Name|Descrição|
+|Nome|Descrição|
 |---|---|
 |id|A ID da face.|
 |name|O nome da face. Pode ser “Desconhecido #0”, uma celebridade identificada ou uma pessoa treinada pelo cliente.|
@@ -371,7 +381,7 @@ Se os rostos (não os caracteres animados) estiverem presentes, Video Indexer us
 
 #### <a name="labels"></a>rótulos
 
-|Name|Descrição|
+|Nome|Descrição|
 |---|---|
 |id|A ID do rótulo.|
 |name|O nome do rótulo (por exemplo, "Computador", "TV").|
@@ -430,7 +440,7 @@ Se os rostos (não os caracteres animados) estiverem presentes, Video Indexer us
 
 #### <a name="scenes"></a>scenes
 
-|Name|Descrição|
+|Nome|Descrição|
 |---|---|
 |id|A ID da cena.|
 |instances|Uma lista de intervalos de tempo desta cena (uma cena só pode ter 1 instância).|
@@ -463,7 +473,7 @@ Se os rostos (não os caracteres animados) estiverem presentes, Video Indexer us
 
 #### <a name="shots"></a>shots
 
-|Name|Descrição|
+|Nome|Descrição|
 |---|---|
 |id|A ID da captura.|
 |keyFrames|Uma lista de quadros-chave dentro da captura (cada um tem uma ID e uma lista de instâncias de intervalos de tempo). Cada instância de quadro-chave tem um campo de miniaturaid, que contém a ID de miniatura do quadro-chave.|
@@ -513,7 +523,7 @@ Se os rostos (não os caracteres animados) estiverem presentes, Video Indexer us
 
 Nomes de marcas comerciais e de produtos detectados na fala para transcrição de texto e / ou Vídeo OCR. Isso não inclui reconhecimento visual de marcas ou detecção de logotipo.
 
-|Name|Descrição|
+|Nome|Descrição|
 |---|---|
 |id|A ID de marca.|
 |name|O nome de marcas.|
@@ -572,7 +582,7 @@ Nomes de marcas comerciais e de produtos detectados na fala para transcrição d
 
 #### <a name="statistics"></a>estatísticas
 
-|Name|Descrição|
+|Nome|Descrição|
 |---|---|
 |CorrespondenceCount|Número de correspondências no vídeo.|
 |SpeakerWordCount|O número de palavras por alto-falante.|
@@ -582,7 +592,7 @@ Nomes de marcas comerciais e de produtos detectados na fala para transcrição d
 
 #### <a name="audioeffects"></a>audioEffects
 
-|Name|Descrição|
+|Nome|Descrição|
 |---|---|
 |id|A ID do efeito de áudio.|
 |tipo|O tipo de efeito de áudio (por exemplo, Palmas, Fala, Silêncio).|
@@ -611,7 +621,7 @@ Nomes de marcas comerciais e de produtos detectados na fala para transcrição d
 
 Os sentimentos são agregadas de acordo com seu campo sentimentType (Positivo/Neutro/Negativo). Por exemplo, 0-0.1, 0.1-0.2.
 
-|Name|Descrição|
+|Nome|Descrição|
 |---|---|
 |id|A ID do sentimento.|
 |averageScore |A média de todas as pontuações de todas as instâncias desse tipo de sentimento - Neutral/positivo/negativo|
@@ -650,7 +660,7 @@ O bloco visualContentModeration contém intervalos de tempo que o Video Indexer 
 
 Os vídeos que contêm conteúdo adulto ou atraente podem estar disponíveis apenas para visualização privada. Os usuários têm a opção de enviar uma solicitação para uma revisão humana do conteúdo. Nesse caso, o atributo IsAdult conterá o resultado da revisão humana.
 
-|Name|Descrição|
+|Nome|Descrição|
 |---|---|
 |id|A ID de moderação de conteúdo visual.|
 |adultScore|A pontuação de conteúdo adulta (do moderador de conteúdo).|
@@ -686,7 +696,7 @@ Os vídeos que contêm conteúdo adulto ou atraente podem estar disponíveis ape
 
 #### <a name="textualcontentmoderation"></a>textualContentModeration 
 
-|Name|Descrição|
+|Nome|Descrição|
 |---|---|
 |id|O ID de moderação do conteúdo textual.|
 |bannedWordsCount |O número de palavras proibidas.|
@@ -696,7 +706,7 @@ Os vídeos que contêm conteúdo adulto ou atraente podem estar disponíveis ape
 
 Video Indexer identifica emoções com base em indicações de fala e áudio. A emoção identificada poderia ser: Joy, tristeza, raiva ou medo.
 
-|Name|Descrição|
+|Nome|Descrição|
 |---|---|
 |id|A ID da emoção.|
 |tipo|O momento de emoção que foi identificado com base nas indicações de fala e áudio. A emoção poderia ser: alegria, tristeza, raiva ou medo.|
@@ -786,7 +796,7 @@ Video Indexer identifica emoções com base em indicações de fala e áudio. A 
 
 O Video Indexer faz inferências dos principais tópicos das transcrições. Quando possível, a taxonomia [IPTC](https://iptc.org/standards/media-topics/) de 2º nível é incluída. 
 
-|Name|Descrição|
+|Nome|Descrição|
 |---|---|
 |id|A ID do tópico.|
 |name|O nome do tópico, por exemplo: "Produtos farmacêuticos".|
@@ -827,6 +837,42 @@ O Video Indexer faz inferências dos principais tópicos das transcrições. Qua
 . . .
 ```
 
+#### <a name="speakers"></a>alto-falantes
+
+|Nome|Descrição|
+|---|---|
+|id|A ID do orador.|
+|name|O nome do orador no formato "palestrante # *<number>* ", por exemplo: "viva-voz #1".|
+|instances |Uma lista de intervalos de tempo onde este orador apareceu.|
+
+```json
+"speakers":[
+{
+  "id":1,
+  "name":"Speaker #1",
+  "instances":[
+     {
+    "adjustedStart":"0:00:10.21",
+    "adjustedEnd":"0:00:12.81",
+    "start":"0:00:10.21",
+    "end":"0:00:12.81"
+     }
+  ]
+},
+{
+  "id":2,
+  "name":"Speaker #2",
+  "instances":[
+     {
+    "adjustedStart":"0:00:12.81",
+    "adjustedEnd":"0:00:17.03",
+    "start":"0:00:12.81",
+    "end":"0:00:17.03"
+     }
+  ]
+},
+` ` `
+```
 ## <a name="next-steps"></a>Próximas etapas
 
 [Portal do Desenvolvedor do Video Indexer](https://api-portal.videoindexer.ai)

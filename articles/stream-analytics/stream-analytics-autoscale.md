@@ -3,16 +3,15 @@ title: Trabalhos de autoescala Stream Analytics
 description: Este artigo descreve como fazer o dimensionamento automático Stream Analytics trabalho com base em uma agenda predefinida ou valores de métricas de trabalho
 author: sidramadoss
 ms.author: sidram
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/03/2020
-ms.openlocfilehash: 07cbb28b98fcbac1932424c1c72f388813ec2400
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: a8e089e302e9d40c69cf7ff2a3480c17894e1463
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86037555"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98016279"
 ---
 # <a name="autoscale-stream-analytics-jobs-using-azure-automation"></a>Autoescala Stream Analytics trabalhos usando a automação do Azure
 
@@ -22,18 +21,18 @@ Você pode otimizar o custo de seus trabalhos de Stream Analytics Configurando o
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar a configurar o dimensionamento automático para seu trabalho, conclua as etapas a seguir.
-1. Seu trabalho é otimizado para ter uma [topologia paralela](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization). Se você puder alterar a escala de seu trabalho enquanto ele estiver em execução, seu trabalho terá uma topologia paralela e poderá ser configurado para dimensionamento automático.
-2. [Crie uma conta de automação do Azure](https://docs.microsoft.com/azure/automation/automation-create-standalone-account) com a opção "RunAsAccount" habilitada. Essa conta deve ter permissões para gerenciar seus trabalhos de Stream Analytics.
+1. Seu trabalho é otimizado para ter uma [topologia paralela](./stream-analytics-parallelization.md). Se você puder alterar a escala de seu trabalho enquanto ele estiver em execução, seu trabalho terá uma topologia paralela e poderá ser configurado para dimensionamento automático.
+2. [Crie uma conta de automação do Azure](../automation/automation-create-standalone-account.md) com a opção "RunAsAccount" habilitada. Essa conta deve ter permissões para gerenciar seus trabalhos de Stream Analytics.
 
 ## <a name="set-up-azure-automation"></a>Configurar a automação do Azure
 ### <a name="configure-variables"></a>Configurar variáveis
 Adicione as seguintes variáveis dentro da conta de automação do Azure. Essas variáveis serão usadas nos runbooks descritos nas próximas etapas.
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | --- | --- | --- |
-| **jobName** | String | Nome do seu trabalho de Stream Analytics que você deseja fazer o dimensionamento automático. |
-| **resourceGroupName** | String | Nome do grupo de recursos no qual seu trabalho está presente. |
-| **subId** | String | ID da assinatura na qual seu trabalho está presente. |
+| **jobName** | Cadeia de caracteres | Nome do seu trabalho de Stream Analytics que você deseja fazer o dimensionamento automático. |
+| **resourceGroupName** | Cadeia de caracteres | Nome do grupo de recursos no qual seu trabalho está presente. |
+| **subId** | Cadeia de caracteres | ID da assinatura na qual seu trabalho está presente. |
 | **increasedSU** | Integer | O maior valor de SU para o qual você deseja que o trabalho seja dimensionado em um agendamento. Esse valor deve ser uma das opções de SU válidas que você vê nas configurações de **escala** de seu trabalho enquanto ele está em execução. |
 | **decreasedSU** | Integer | O menor valor de SU para o qual você deseja que seu trabalho seja dimensionado em um agendamento. Esse valor deve ser uma das opções de SU válidas que você vê nas configurações de **escala** de seu trabalho enquanto ele está em execução. |
 | **maxSU** | Integer | O valor máximo de SU para o qual você deseja que seu trabalho seja dimensionado em etapas quando o dimensionamento automático por carga. Esse valor deve ser uma das opções de SU válidas que você vê nas configurações de **escala** de seu trabalho enquanto ele está em execução. |
@@ -43,7 +42,7 @@ Adicione as seguintes variáveis dentro da conta de automação do Azure. Essas 
 
 ### <a name="create-runbooks"></a>Criar runbooks
 A próxima etapa é criar dois runbooks do PowerShell. Um para escalar verticalmente e outro para operações de redução vertical.
-1. Em sua conta de automação do Azure, vá para **Runbooks** em **automação de processo** e selecione **criar runbook**.
+1. Em sua conta de automação do Azure, vá para **Runbooks** em **automação de processo**  e selecione **criar runbook**.
 2. Nomeie o primeiro runbook *ScaleUpRunbook* com o tipo definido como PowerShell. Use o [script do PowerShell do ScaleUpRunbook](https://github.com/Azure/azure-stream-analytics/blob/master/Autoscale/ScaleUpRunbook.ps1) disponível no github. Salve e publique-o.
 3. Crie outro runbook chamado *ScaleDownRunbook* com o tipo PowerShell. Use o [script do PowerShell do ScaleDownRunbook](https://github.com/Azure/azure-stream-analytics/blob/master/Autoscale/ScaleDownRunbook.ps1) disponível no github. Salve e publique-o.
 
@@ -73,7 +72,7 @@ Pode haver casos em que você não pode prever a carga de entrada. Nesses casos,
 5. Preencha os campos obrigatórios. Escolha **runbook de automação** ao selecionar o **tipo de ação**. Selecione o runbook que você deseja disparar quando o alerta for disparado. Em seguida, crie o grupo de ações.
 
    ![Criar grupo de ações](./media/autoscale/create-actiongroup.png)
-6. Crie uma [**nova regra de alerta**](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-set-up-alerts#set-up-alerts-in-the-azure-portal) em seu trabalho. Especifique uma condição com base em uma métrica de sua escolha. [ *Eventos de entrada*, *Su% de utilização* ou eventos de entrada de *registro* ](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-monitoring#metrics-available-for-stream-analytics) posterior são métricas recomendadas a serem usadas para definir a lógica de dimensionamento automático. Também é recomendável usar a granularidade de *agregação* de 1 minuto e a *frequência de avaliação* ao disparar operações de escala vertical. Isso garante que seu trabalho tenha recursos amplos para lidar com grandes picos no volume de entrada.
+6. Crie uma [**nova regra de alerta**](./stream-analytics-set-up-alerts.md#set-up-alerts-in-the-azure-portal) em seu trabalho. Especifique uma condição com base em uma métrica de sua escolha. [ *Eventos de entrada*, *Su% de utilização* ou eventos de entrada de *registro*](./stream-analytics-monitoring.md#metrics-available-for-stream-analytics) posterior são métricas recomendadas a serem usadas para definir a lógica de dimensionamento automático. Também é recomendável usar a granularidade de *agregação* de 1 minuto e a *frequência de avaliação* ao disparar operações de escala vertical. Isso garante que seu trabalho tenha recursos amplos para lidar com grandes picos no volume de entrada.
 7. Selecione o grupo de ação criado na última etapa e crie o alerta.
 8. Repita as etapas de 2 a 4 para todas as operações de escala adicionais que você deseja disparar com base na condição de métricas de trabalho.
 

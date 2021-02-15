@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/16/2018
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 5c02812d4c97b94667fcddcb275243e7a9b36b29
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 01fb93a4b74a35501d0684b822ea83fc7b20770a
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321897"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130571"
 ---
 # <a name="create-an-action-group-with-a-resource-manager-template"></a>Criar um grupo de ações com um modelo do Resource Manager
 Este artigo mostra como você pode usar um [modelo do Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) para configurar grupos de ações. Usando modelos, você pode configurar automaticamente os grupos de ações que podem ser reutilizados em determinados tipos de alertas. Esses grupos de ações garantem que todas as partes corretas serão notificadas quando um alerta for disparado.
@@ -23,11 +23,11 @@ As etapas básicas são:
 
 2. Implantar o modelo usando [qualquer método de implantação](../../azure-resource-manager/templates/deploy-powershell.md).
 
-Primeiro, descreveremos como criar um modelo do Resource Manager para um grupo em que as definições de ação são codificadas no modelo. Em seguida, descreveremos como criar um modelo que usa as informações de configuração de webhook como parâmetros de entrada quando o modelo é implantado.
-
 ## <a name="resource-manager-templates-for-an-action-group"></a>Modelos do Resource Manager para um grupo de ações
 
 Para criar um grupo de ações usando um modelo do Resource Manager, você cria um recurso do tipo `Microsoft.Insights/actionGroups`. Em seguida, você preencherá todas as propriedades relacionadas. Aqui estão dois modelos de exemplo que criam um grupo de ações.
+
+Primeiro modelo, descreve como criar um modelo do Resource Manager para um grupo de ações em que as definições de ação são embutidas em código no modelo. Segundo modelo, descreve como criar um modelo que usa as informações de configuração de webhook como parâmetros de entrada quando o modelo é implantado.
 
 ```json
 {

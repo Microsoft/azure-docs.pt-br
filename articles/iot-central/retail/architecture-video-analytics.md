@@ -8,24 +8,24 @@ ms.topic: conceptual
 ms.service: iot-central
 ms.subservice: iot-central-retail
 services: iot-central
-ms.openlocfilehash: 087c5e5716a4c8c640faebd7470905fde85d0136
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 48808f762536390287bae40e8af3849da20b81c2
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88038166"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91874281"
 ---
 # <a name="video-analytics---object-and-motion-detection-application-architecture"></a>Análise de vídeo – arquitetura de aplicativo de detecção de objetos e de movimento
 
 O modelo de aplicativo **análise de vídeo – objeto e detecção de movimento** permite que você crie soluções de IOT, incluindo recursos de análise de vídeo ao vivo.
 
-:::image type="content" source="media/architecture-video-analytics/architecture.png" alt-text="Arquitetura":::
+:::image type="content" source="media/architecture-video-analytics/architecture.png" alt-text="Diagrama do objeto de análise de vídeo e visão geral dos componentes de detecção de movimento.":::
 
 Os principais componentes da solução de análise de vídeo incluem:
 
 ## <a name="live-video-analytics-lva"></a>LVA (análise de vídeo ao vivo)
 
-O LVA fornece uma plataforma para você criar aplicativos de vídeo inteligentes que abrangem a borda e a nuvem. A plataforma permite que você crie aplicativos de vídeo inteligentes que abrangem a borda e a nuvem. A plataforma oferece a capacidade de capturar, gravar, analisar vídeos ao vivo e publicar os resultados, que podem ser análises de vídeo ou vídeo, para os serviços do Azure. Os serviços do Azure podem estar em execução na nuvem ou na borda. A plataforma pode ser usada para aprimorar soluções de IoT com análise de vídeo.
+O LVA fornece uma plataforma para você criar aplicativos de vídeo inteligentes que abrangem a borda e a nuvem. A plataforma permite que você crie aplicativos de vídeo inteligentes que abrangem a borda e a nuvem. A plataforma permite capturar, gravar, analisar vídeos ao vivo e publicar os resultados, que podem ser vídeos ou análises de vídeo, para os serviços do Azure. Os serviços do Azure podem estar em execução na nuvem ou na borda. A plataforma pode ser usada para aprimorar soluções de IoT com análise de vídeo.
 
 Para obter mais informações, consulte [Live Video Analytics](https://github.com/Azure/live-video-analytics) no github.
 
@@ -41,4 +41,4 @@ O grafo de mídia permite definir para onde capturar a mídia, como processá-la
 
 ## <a name="next-steps"></a>Próximas etapas
 
-A próxima etapa sugerida é aprender a [criar um aplicativo de análise de vídeo no Azure IOT central](tutorial-video-analytics-create-app.md).
+A próxima etapa sugerida é aprender como [implantar um aplicativo IOT central usando o modelo de aplicativo análise de vídeo-objeto e detecção de movimento](tutorial-video-analytics-deploy.md).

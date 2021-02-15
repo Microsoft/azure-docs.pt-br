@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 8/3/2020
 ms.author: baanders
 ms.openlocfilehash: d486b5e8486d2c3c1c343701e0f3f4d474738063
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/05/2020
+ms.lasthandoff: 10/23/2020
 ms.locfileid: "87808867"
 ---
 ## <a name="monitor-event-routes"></a>Monitorar rotas de eventos

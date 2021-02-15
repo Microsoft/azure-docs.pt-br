@@ -1,30 +1,30 @@
 ---
-title: Pipelines de exemplo e conjuntos de dados para o designer (versão prévia)
+title: Pipelines de exemplo e conjuntos de dados para o designer
 titleSuffix: Azure Machine Learning
-description: Use amostras no designer do Azure Machine Learning para iniciar rapidamente seus pipelines de aprendizado de máquina.
+description: Saiba como usar exemplos no designer do Azure Machine Learning para iniciar rapidamente seus pipelines de machine learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: sample
-author: peterclu
-ms.author: peterlu
-ms.date: 03/29/2020
+author: likebupt
+ms.author: keli19
+ms.date: 10/14/2020
 ms.custom: designer
-ms.openlocfilehash: c1d927583ecf0ac5684c607b7d203c3224fe87b1
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 4d594115139321c8a4ad2b3aa6b065474bd426fa
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87318820"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98556164"
 ---
-# <a name="example-pipelines--datasets-for-azure-machine-learning-designer-preview"></a>Pipelines e conjuntos de dados de exemplo para o designer do Azure Machine Learning (versão prévia)
+# <a name="example-pipelines--datasets-for-azure-machine-learning-designer"></a>Pipelines e conjuntos de dados de exemplo para o designer do Azure Machine Learning
 
 Use os exemplos internos do designer do Azure Machine Learning para começar rapidamente a criar os próprios pipelines de aprendizado de máquina. O [repositório GitHub](https://github.com/Azure/MachineLearningDesigner) do designer do Azure Machine Learning contém uma documentação detalhada para ajudar você a entender alguns cenários comuns de aprendizado de máquina.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://aka.ms/AMLFree).
-* Um workspace do Azure Machine Learning com o SKU Enterprise.
+* Uma assinatura do Azure. Se você não tem uma assinatura do Azure, crie uma [conta gratuita](https://aka.ms/AMLFree)
+* Um Workspace do Azure Machine Learning 
 
 [!INCLUDE [machine-learning-missing-ui](../../includes/machine-learning-missing-ui.md)]
 
@@ -55,9 +55,9 @@ Veja como usar um exemplo de designer:
 
 1. Depois que a execução do pipeline for concluída, você poderá examinar o pipeline e exibir a saída de cada módulo para saber mais. Use as seguintes etapas para exibir as saídas do módulo:
 
-   1. Selecione um módulo na tela.
+   1. Clique com o botão direito do mouse no módulo na tela cuja saída você gostaria de ver.
+   1. Selecione **Visualizar**.
 
-   1. No painel de detalhes do módulo à direita da tela, selecione **Saídas + logs**. Selecione o ícone de grafo ![ícone de visualizar](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) para ver os resultados de cada módulo. 
 
    Use os exemplos como pontos de partida para alguns dos cenários de aprendizado de máquina mais comuns.
 
@@ -67,39 +67,49 @@ Explore esses exemplos internos de regressão.
 
 | Titulo do exemplo | Descrição | 
 | --- | --- |
-| [Amostra 1: regressão – previsão de preços de automóveis (básica)](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-regression-automobile-price-basic.md) | Preveja os preços de carros usando a regressão linear. |
-| [Amostra 2: regressão – previsão de preço de automóveis (avançada)](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-regression-automobile-price-compare-algorithms.md) | Preveja os preços de carros usando a floresta de decisão e os regressores de árvore de decisão aumentada. Compare os modelos para encontrar o melhor algoritmo.
+| [Regressão – previsão de preços de automóveis (básica)](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/regression-automobile-price-prediction-basic.md) | Preveja os preços de carros usando a regressão linear. |
+| [Regressão – previsão de preço de automóveis (avançada)](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/regression-automobile-price-prediction-compare-algorithms.md) | Preveja os preços de carros usando a floresta de decisão e os regressores de árvore de decisão aumentada. Compare os modelos para encontrar o melhor algoritmo.
 
 ## <a name="classification"></a>classificação
 
-Explore esses exemplos internos de classificação. Saiba mais sobre as amostras sem os links de documentação abrindo as amostras e vendo os comentários do módulo.
+Explore esses exemplos internos de classificação. Saiba mais sobre os exemplos abrindo-os e vendo os comentários do módulo no designer.
 
 | Titulo do exemplo | Descrição | 
 | --- | --- |
-| [Amostra 3: classificação binária com seleção de recursos – previsão de receita](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-classification-predict-income.md) | Preveja a receita como alta ou baixa usando uma árvore de decisão aumentada de duas classes. Use a correlação de Pearson para selecionar recursos.
-| [Amostra 4: classificação binária com script Python personalizado – previsão de risco de crédito](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-classification-credit-risk-cost-sensitive.md) | Classifique os pedidos de crédito como de alto ou baixo risco. Use o módulo Executar Script Python para ponderar seus dados.
-| [Amostra 5: classificação binária – previsão de relacionamento com o cliente](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-classification-churn.md) | Preveja a rotatividade de clientes usando árvores de decisão aumentadas de duas classes. Use o SMOTE para fazer a amostragem dos dados polarizados.
-| [Amostra 7: classificação de textos – conjunto de dados SP 500 da Wikipédia](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-text-classification.md) | Classifique os tipos de empresas com base nos artigos da Wikipédia com a regressão logística multiclasse. |
-| Amostra 12: Classificação multiclasse – reconhecimento de letras | Crie um conjunto de classificadores binários para classificar letras escritas. |
+| [Classificação binária com seleção de recursos – previsão de receita](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/binary-classification-feature-selection-income-prediction.md) | Preveja a receita como alta ou baixa usando uma árvore de decisão aumentada de duas classes. Use a correlação de Pearson para selecionar recursos.
+| [Classificação binária com script Python personalizado – previsão de risco de crédito](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/binary-classification-python-credit-prediction.md) | Classifique os pedidos de crédito como de alto ou baixo risco. Use o módulo Executar Script Python para ponderar seus dados.
+| [Classificação binária – previsão de relacionamento com o cliente](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/binary-classification-customer-relationship-prediction.md) | Preveja a rotatividade de clientes usando árvores de decisão aumentadas de duas classes. Use o SMOTE para fazer a amostragem dos dados polarizados.
+| [Classificação de textos – conjunto de dados SP 500 da Wikipédia](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/text-classification-wiki.md) | Classifique os tipos de empresas com base nos artigos da Wikipédia com a regressão logística multiclasse. |
+| Classificação multiclasse – reconhecimento de letras | Crie um conjunto de classificadores binários para classificar letras escritas. |
+
+## <a name="computer-vision"></a>Visual computacional
+
+Explore esses exemplos de pesquisa visual computacional internos. Saiba mais sobre os exemplos abrindo-os e vendo os comentários do módulo no designer.
+
+| Titulo do exemplo | Descrição | 
+| --- | --- |
+| Classificação de imagem usando DenseNet | Use módulos da pesquisa visual computacional para criar o modelo de classificação de imagem com base no PyTorch DenseNet.| 
 
 ## <a name="recommender"></a>Sistema de recomendação
 
-Explore esses exemplos internos de sistema de recomendação. Saiba mais sobre as amostras sem os links de documentação abrindo as amostras e vendo os comentários do módulo.
+Explore esses exemplos internos de sistema de recomendação. Saiba mais sobre os exemplos abrindo-os e vendo os comentários do módulo no designer.
 
 | Titulo do exemplo | Descrição | 
 | --- | --- |
-| Amostra 10: recomendação – tweets de classificação de filmes | Crie um mecanismo de recomendação de filmes com base nos títulos e na classificação de filmes. |
+| Recomendação baseada em Wide & Deep – previsão de classificação de restaurante | Crie um mecanismo de recomendação de restaurante usando avaliações e recursos do usuário do restaurante/usuário.|
+| recomendação – tweets de classificação de filmes | Crie um mecanismo de recomendação de filmes com base nas classificações e recursos dos usuários/filmes.|
 
 ## <a name="utility"></a>Utilitário
 
-Saiba mais sobre as amostras que descrevem os recursos e os utilitários de aprendizado de máquina. Saiba mais sobre as amostras sem os links de documentação abrindo as amostras e vendo os comentários do módulo.
+Saiba mais sobre as amostras que descrevem os recursos e os utilitários de aprendizado de máquina. Saiba mais sobre os exemplos abrindo-os e vendo os comentários do módulo no designer.
 
 | Titulo do exemplo | Descrição | 
 | --- | --- |
-| [Amostra 6: usar um script R personalizado – previsão de atraso de voos](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-classification-flight-delay.md) |
-| Amostra 8: validação cruzada para classificação binária – previsão de receita de adulto | Use a validação cruzada para criar um classificador binário para a receita de adulto.
-| Amostra 9: Importância do recurso de permuta | Use a importância do recurso de permuta para computar pontuações de importância para o conjunto de dados de teste. 
-| Amostra 11: ajustar parâmetros para classificação binária – previsão de receita de adulto | Use os hiperparâmetros do modelo de ajuste para encontrar hiperparâmetros ideais para a criação de um classificador binário. |
+| Classificação binária usando modelo do Vowpal Wabbit – previsão de renda adulta | O Vowpal Wabbit é um sistema de machine learning que vai além dos limites do machine learning com técnicas como aprendizado online, hashing, allreduce, reductions, learning2search, ativo e interativo. Este exemplo mostra como usar o modelo Vowpal Wabbit para criar um modelo de classificação binária. 
+| [Usar um script R personalizado – previsão de atraso de voo](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/r-script-flight-delay-prediction.md) | Use o script do R personalizado para prever se um voo de passageiros agendado sofrerá um atraso superior a 15 minutos.
+| validação cruzada para classificação binária – previsão de receita de adulto | Use a validação cruzada para criar um classificador binário para a receita de adulto.
+| Importância do recurso de permuta | Use a importância do recurso de permuta para computar pontuações de importância para o conjunto de dados de teste. 
+| ajustar parâmetros para classificação binária – previsão de receita de adulto | Use os hiperparâmetros do modelo de ajuste para encontrar hiperparâmetros ideais para a criação de um classificador binário. |
 
 ## <a name="datasets"></a>Conjunto de dados
 
@@ -110,7 +120,7 @@ Os conjuntos de dados de exemplo estão disponíveis na categoria **Conjuntos de
 | Nome do&nbsp;conjunto de dados&nbsp;&nbsp;&nbsp;&nbsp;| Descrição do conjunto de dados |
 |-------------|:--------------------|
 | Conjunto de dados de classificação binária de receita no recenseamento adulto | Um subconjunto do banco de dados do recenseamento de 1994, usando adultos em fase de trabalho, com idade acima de 16 anos com um índice de receita ajustado de > 100.<br/>**Uso**: classificar pessoas usando dados demográficos para prever se uma pessoa recebe acima de 50 mil por ano.<br/> **Pesquisa relacionada**: Kohavi, R., Becker, B., (1996). [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml). Irvine, CA: University of California, School of Information and Computer Science|
-|Dados de preço de automóvel (Brutos)|Informações sobre automóveis por marca e modelo, incluindo o preço, recursos como número de cilindradas e MPG, bem como uma pontuação de risco de seguro.<br/> A pontuação de risco é inicialmente associada com preço automático. Depois ela é ajustada ao risco real em um processo conhecido pelos atuários como valor simbólico. Um valor de +3 indica que o automóvel apresenta risco e um valor de -3 indica que ele provavelmente é seguro.<br/>**Uso**:</b> prever a pontuação de risco por recursos, usando a regressão ou a classificação multivariada.<br/>**Pesquisa relacionada**:</b> Schlimmer, J.C. (1987). [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml). Irvine, CA: University of California, School of Information and Computer Science. |
+|Dados de preço de automóvel (Brutos)|Informações sobre automóveis por marca e modelo, incluindo o preço, recursos como número de cilindradas e MPG, bem como uma pontuação de risco de seguro.<br/> A pontuação de risco é inicialmente associada com preço automático. Depois ela é ajustada ao risco real em um processo conhecido pelos atuários como valor simbólico. Um valor de +3 indica que o automóvel apresenta risco e um valor de -3 indica que ele provavelmente é seguro.<br/>**Uso**: prever a pontuação de risco por recursos, usando a regressão ou a classificação multivariada.<br/>**Pesquisa relacionada**: Schlimmer, J.C. (1987). [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml). Irvine, CA: University of California, School of Information and Computer Science. |
 | Rótulos de apetência CRM compartilhados |Rótulos do desafio de previsão de relacionamento com o cliente KDD Cup 2009 ([orange_small_train_appetency.labels](http://www.sigkdd.org/site/2009/files/orange_small_train_appetency.labels)).|
 |Rótulos de variação CRM compartilhados|Rótulos do desafio de previsão de relacionamento com o cliente KDD Cup 2009 ([orange_small_train_churn.labels](http://www.sigkdd.org/site/2009/files/orange_small_train_churn.labels)).|
 |Conjunto de dados CRM compartilhado | Estes dados foram obtidos do desafio de previsão de relacionamento com o cliente KDD Cup 2009 ([orange_small_train.data.zip](http://www.sigkdd.org/site/2009/files/orange_small_train.data.zip)). <br/>Esse conjunto de dados contém 50 mil clientes da empresa francesa de telecomunicações Orange. Cada cliente possui 230 recursos anônimos, dos quais 190 são numéricos e 40 categóricos. Os recursos são muito esparsos. |
@@ -121,7 +131,9 @@ Os conjuntos de dados de exemplo estão disponíveis na categoria **Conjuntos de
 |Classificação de filmes|O conjunto de dados é uma versão estendida do conjunto de dados de Movie Tweetings. O conjunto de dados tem as classificações de 170 mil de filmes, extraídos de tweets bem estruturados no Twitter. Cada instância representa um tweet e é uma tupla: ID de usuário, ID de filme no IMDB, classificação, carimbo de data/hora, número de favoritos para este tweet e número de retweets deste tweet. O conjunto de dados foi disponibilizado por A. Said, S. Dooms, B. Loni e D. Tikk para desafio de sistemas de recomendação 2014.|
 |Conjunto de dados de clima|Observações climáticas terrestres de hora em hora da NOAA ([dados mesclados de 201304 para 201310](https://az754797.vo.msecnd.net/data/WeatherDataset.csv)).<br/>Os dados de clima abrangem observações feitas de estações meteorológica de aeroportos, que abrangem o período de abril a outubro de 2013. Antes do upload no designer, o conjunto de dados foi processado da seguinte forma:    <br/> – As IDs das estações meteorológicas foram mapeadas para as IDs dos aeroportos correspondentes    <br/> – As estações meteorológicas não associadas aos 70 aeroportos mais movimentados foram filtradas    <br/> – A coluna Data foi dividida nas colunas separadas Ano, Mês e Dia    <br/> – As seguintes colunas foram selecionadas: AirportID, Year, Month, Day, Time, TimeZone, SkyCondition, Visibility, WeatherType, DryBulbFarenheit, DryBulbCelsius, WetBulbFarenheit, WetBulbCelsius, DewPointFarenheit, DewPointCelsius, RelativeHumidity, WindSpeed, WindDirection, ValueForWindCharacter, StationPressure, PressureTendency, PressureChange, SeaLevelPressure, RecordType, HourlyPrecip, Altimeter|
 |Conjunto de dados da SP 500 da Wikipédia|Os dados foram extraídos da Wikipédia (https://www.wikipedia.org/), com base em artigos de cada empresa S&P 500, armazenados como dados XML.    <br/>Antes do upload no designer, o conjunto de dados foi processado da seguinte forma:    <br/> – Extração do conteúdo de texto de cada empresa específica    <br/> – Remoção da formatação do wiki    <br/> – Remoção de caracteres não alfanuméricos    <br/> – Conversão de todo o texto em minúsculas    <br/> – Adição de categorias de empresas conhecidas    <br/>Observe que, para algumas empresas, um artigo não foi encontrado, assim, o número de registros é menor que 500.|
-
+|Dados de recurso de restaurante| Um conjunto de metadados sobre restaurantes e seus recursos, como tipo de comida, estilo de jantar e localização. <br/>**Uso**: use esse conjunto de dados, em combinação com os outros dois conjuntos de dados de restaurantes, para treinar e testar um sistema de recomendação.<br/> **Pesquisa relacionada**: Bache, K. e Lichman, M. (2013). [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml). Irvine, CA: University of California, School of Information and Computer Science.|
+|Classificação de restaurantes| Contém a classificação fornecida por usuários de restaurantes em uma escala de 0 a 2.<br/>**Uso**: use esse conjunto de dados, em combinação com os outros dois conjuntos de dados de restaurantes, para treinar e testar um sistema de recomendação. <br/>**Pesquisa relacionada**: Bache, K. e Lichman, M. (2013). [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml). Irvine, CA: University of California, School of Information and Computer Science.|
+|Dados do cliente dos restaurantes| Um conjunto de metadados sobre consumidores, incluindo demografia e preferências. <br/>**Uso**: use esse conjunto de dados, em combinação com os outros dois conjuntos de dados de restaurantes, para treinar e testar um sistema de recomendação. <br/> **Pesquisa relacionada**: Bache, K. e Lichman, M. (2013). [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml) Irvine, CA: University of California, School of Information and Computer Science.|
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
@@ -129,5 +141,5 @@ Os conjuntos de dados de exemplo estão disponíveis na categoria **Conjuntos de
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Conheça os conceitos básicos da análise preditiva e do aprendizado de máquina com o [Tutorial: Prever preço de automóvel com o designer](tutorial-designer-automobile-price-train-score.md)
+Conheça os conceitos fundamentais da análise preditiva e do machine learning com o [Tutorial: Prever preço de automóvel com o designer](tutorial-designer-automobile-price-train-score.md)
 

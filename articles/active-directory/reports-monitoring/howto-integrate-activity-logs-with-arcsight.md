@@ -17,12 +17,12 @@ ms.date: 04/19/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c3c597c172c7ec21c2d46e89602abf87d750127
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fc7bcab04da005fd0d46d18e7b708dcb1c9d58e5
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85608170"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89230510"
 ---
 # <a name="integrate-azure-active-directory-logs-with-arcsight-using-azure-monitor"></a>Integrar logs do Azure Active Directory ao ArcSight usando o Azure Monitor
 
@@ -33,7 +33,7 @@ Neste artigo, você aprende como rotear logs do Azure AD para ArcSight usando o 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para usar esse recurso, você precisa de:
-* Um hub de eventos do azure contendo logs de atividades do Microsoft Azure AD. Saiba como [enviar seus logs de atividades para um hub de eventos](quickstart-azure-monitor-stream-logs-to-event-hub.md). 
+* Um hub de eventos do azure contendo logs de atividades do Microsoft Azure AD. Saiba como [enviar seus logs de atividades para um hub de eventos](./tutorial-azure-monitor-stream-logs-to-event-hub.md). 
 * Uma instância configurada do SmartConnector Daemon Syslog NG (SmartConnector) do ArcSight ou Balanceador de Carga do ArcSight. Se os eventos forem enviados ao Balanceador de Carga do ArcSight, eles serão enviados ao SmartConnector pelo Balanceador de Carga.
 
 Baixe e abra o [guia de configuração do ArcSight SmartConnector para Hub de Eventos do Azure Monitor](https://community.microfocus.com/t5/ArcSight-Connectors/SmartConnector-for-Microsoft-Azure-Monitor-Event-Hub/ta-p/1671292). Este guia contém as etapas necessárias para instalar e configurar o ArcSight SmartConnector para Azure Monitor. 

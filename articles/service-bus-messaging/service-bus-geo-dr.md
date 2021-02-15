@@ -1,23 +1,32 @@
 ---
 title: Recuperação de desastre em área geográfica do Barramento de Serviço do Azure | Microsoft Docs
-description: Como usar regiões geográficas para fazer failover e executar a recuperação de desastre no Barramento de Serviço do Azure
+description: Como usar regiões geográficas para failover e recuperação de desastre no barramento de serviço do Azure
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: fcdeb499b8ebecc4ecddbfcbe32b812ce7e3efe5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 02/10/2021
+ms.openlocfilehash: 86d35465e5b31514f4d215095932b857ce7dcb35
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341481"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100384275"
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Recuperação de desastre em área geográfica do Barramento de Serviço do Azure
 
-Quando datacenters ou regiões inteiras do Azure (se nenhuma [zona de disponibilidade](../availability-zones/az-overview.md) for usada) enfrentam tempo de inatividade, é essencial para o processamento de dados continuar a operar em uma região ou datacenter diferente. Assim, a *recuperação de desastre geográfico* é um recurso importante para qualquer empresa. O Barramento de Serviço do Azure oferece suporte à recuperação de desastre geográfico no nível do namespace.
+A resiliência contra interrupções desastrosas de recursos de processamento de dados é um requisito para muitas empresas e, em alguns casos, até mesmo exigida por regulamentos do setor. 
 
-O recurso de recuperação de desastres em área geográfica fica globalmente disponível para a SKU Premium do Barramento de Serviço. 
+O barramento de serviço do Azure já espalha o risco de falhas catastróficas de máquinas individuais ou até mesmo de racks completos em clusters que abrangem vários domínios de falha em um datacenter e implementa mecanismos de detecção de falha transparente e failover, de modo que o serviço continuará a operar dentro dos níveis de serviço garantidos e, normalmente, sem interrupções perceptíveis quando essas falhas ocorrerem. Se um namespace do barramento de serviço tiver sido criado com a opção habilitado para [zonas de disponibilidade](../availability-zones/az-overview.md), o risco de interrupção será mais disseminado em três instalações fisicamente separadas, e o serviço terá reserva de capacidade suficiente para lidar instantaneamente com a perda catastrófica completa de todo o recurso. 
 
->[!NOTE]
-> A recuperação de desastre geográfico atualmente garante apenas que os metadados (filas, tópicos, assinaturas, filtros) sejam copiados do namespace primário para o namespace secundário quando emparelhados.
+O modelo de cluster do barramento de serviço do Azure tudo ativo com suporte à zona de disponibilidade é superior a qualquer produto do agente de mensagens local em termos de resiliência contra graves falhas de hardware e até mesmo perda catastrófica de instalações de datacenter inteiras. Ainda assim, pode haver grave situações com destruição física generalizada que, até mesmo, as medidas não podem ser conprotegidas de maneira suficiente. 
+
+O recurso de recuperação de desastre geográfica do barramento de serviço foi projetado para facilitar a recuperação de um desastre dessa magnitude e abandonar uma região do Azure com falha para boa e sem precisar alterar as configurações do aplicativo. Abandonar uma região do Azure normalmente envolve vários serviços e esse recurso destina-se principalmente a ajudar a preservar a integridade da configuração do aplicativo composto. O recurso está globalmente disponível para o SKU Premium do barramento de serviço. 
+
+O recurso de recuperação de Geo-Disaster garante que toda a configuração de um namespace (filas, tópicos, assinaturas, filtros) seja replicada continuamente de um namespace primário para um namespace secundário quando emparelhado, e permite que você inicie um failover somente uma vez, do primário para o secundário a qualquer momento. A movimentação de failover reapontará o nome do alias escolhido para o namespace para o namespace secundário e, em seguida, interromperá o emparelhamento. O failover é quase instantâneo depois de iniciado. 
+
+> [!IMPORTANT]
+> O recurso permite a continuidade instantânea de operações com a mesma configuração, mas **não Replica as mensagens mantidas em filas ou assinaturas de tópico ou filas de mensagens mortas**. Para preservar a semântica da fila, essa replicação exigirá não apenas a replicação de dados da mensagem, mas de cada alteração de estado no agente. Para a maioria dos namespaces do barramento de serviço, o tráfego de replicação necessário excederia muito o tráfego do aplicativo e com filas de alta taxa de transferência, a maioria das mensagens ainda seria replicada para o secundário enquanto eles já estão sendo excluídos do primário, causando um tráfego excessiva de desperdício. Para rotas de replicação de alta latência, que se aplicam a vários emparelhamentos que você escolheria para a recuperação de desastres geográficos, também pode ser impossível para o tráfego de replicação acompanhar o tráfego do aplicativo devido a efeitos de limitação induzida por latência.
+ 
+> [!TIP]
+> Para replicar o conteúdo de filas e assinaturas de tópico e operar namespaces correspondentes em configurações ativas/ativas para lidar com interrupções e desastres, não faça o acompanhamento desse conjunto de recursos de recuperação de desastres geograficamente, mas siga as [diretrizes de replicação](service-bus-federation-overview.md).  
 
 ## <a name="outages-and-disasters"></a>Interrupções e desastres
 
@@ -31,7 +40,7 @@ O recurso de recuperação de desastre em área geográfica do Barramento de Ser
 
 ## <a name="basic-concepts-and-terms"></a>Termos e conceitos básicos
 
-O recurso de recuperação de desastre implementa a recuperação de desastre dos metadados e se baseia em namespaces de recuperação de desastre primário e secundário. Observe que o recurso de recuperação de desastre em área geográfica está disponível somente para a [SKU Premium](service-bus-premium-messaging.md). Você não precisa fazer nenhuma alteração de cadeia de conexão, já que a conexão é feita por meio de um alias.
+O recurso de recuperação de desastre implementa a recuperação de desastre dos metadados e se baseia em namespaces de recuperação de desastre primário e secundário. O recurso de recuperação de desastres geograficamente está disponível somente para o [SKU Premium](service-bus-premium-messaging.md) . Você não precisa fazer nenhuma alteração de cadeia de conexão, já que a conexão é feita por meio de um alias.
 
 Os seguintes termos são usados neste artigo:
 
@@ -39,42 +48,64 @@ Os seguintes termos são usados neste artigo:
 
 -  *Namespace primário/secundário*: os namespaces que correspondem ao alias. O namespace primário é "ativo" e recebe mensagens (pode ser um namespace existente ou novo). O namespace secundário "passivo" e não recebe mensagens. Os metadados entre os dois estão sincronizados, para que ambos possam aceitar mensagens continuamente sem quaisquer alterações no código do aplicativo ou na cadeia de conexão. Para garantir que apenas o namespace ativo receba mensagens, você deve usar o alias. 
 
--  *Metadados*: Entidades como filas, tópicos e assinaturas; e suas propriedades do serviço que são associadas ao namespace. Observe que somente entidades e suas configurações são replicadas automaticamente. Mensagens não são replicadas.
+    > [!IMPORTANT]
+    > O recurso de recuperação de desastres geograficamente exige que a assinatura e o grupo de recursos sejam os mesmos para namespaces primários e secundários.
+-  *Metadados*: Entidades como filas, tópicos e assinaturas; e suas propriedades do serviço que são associadas ao namespace. Somente entidades e suas configurações são replicadas automaticamente. As mensagens não são replicadas.
 
 -  *Failover*: o processo de ativação do namespace secundário.
 
 ## <a name="setup"></a>Instalação
 
-A seção a seguir é uma visão geral da configuração do emparelhamento entre os namespaces.
+A seção a seguir é uma visão geral para configurar o emparelhamento entre os namespaces.
 
 ![1][]
 
-O processo de instalação é o seguinte:
+Primeiro crie ou use um namespace primário existente e um novo namespace secundário, depois emparelhe os dois. Esse emparelhamento fornece um alias que você pode usar para se conectar. Como você usa um alias, não precisa alterar cadeias de conexão. Somente novos namespaces podem ser adicionados ao emparelhamento de failover. 
 
-1. Provisione um Namespace Premium do Barramento de Serviço ***primário***.
+1. Crie o namespace primário.
+1. Crie o namespace secundário na assinatura e o grupo de recursos que tem o namespace principal, mas em uma região diferente. Essa etapa é opcional. Você pode criar o namespace secundário ao criar o emparelhamento na próxima etapa. 
+1. No portal do Azure, navegue até o namespace primário.
+1. Selecione **recuperação geográfica** no menu à esquerda e selecione **Iniciar emparelhamento** na barra de ferramentas. 
 
-2. Provisione um Namespace Premium do Barramento de Serviço ***secundário*** em uma região *diferente de onde o namespace primário está provisionado*. Isso ajuda a permitir o isolamento de falhas nas diferentes regiões de datacenter.
+    :::image type="content" source="./media/service-bus-geo-dr/primary-namspace-initiate-pairing-button.png" alt-text="Iniciar emparelhamento a partir do namespace primário":::    
+1. Na página **Iniciar emparelhamento** , siga estas etapas:
+    1. Selecione um namespace secundário existente ou crie um na assinatura e o grupo de recursos que tem o namespace primário. Neste exemplo, um namespace existente é usado como o namespace secundário.  
+    1. Para **alias**, insira um alias para o emparelhamento de Dr geográfica. 
+    1. Em seguida, selecione **Criar**. 
 
-3. Crie o emparelhamento entre os namespaces primário e secundário para obter o ***alias***.
+        :::image type="content" source="./media/service-bus-geo-dr/initiate-pairing-page.png" alt-text="Selecionar o namespace secundário":::        
+1. Você deve ver a página **alias do barramento de serviço geo-Dr** , conforme mostrado na imagem a seguir. Você também pode navegar até a página de **alias do geo-Dr** na página namespace primário selecionando a **recuperação geográfica** no menu à esquerda. 
 
-    >[!NOTE] 
-    > Se você tiver [migrado seu namespace do Barramento de Serviço do Azure Standard para o Barramento de Serviço do Azure Premium](service-bus-migrate-standard-premium.md), use o alias preexistente (ou seja, sua cadeia de conexão de namespace do Barramento de Serviço Standard) para criar a configuração de recuperação de desastre por meio do **PS/CLI** ou da **API REST**.
-    >
-    >
-    > Isso ocorre porque, durante a migração, sua cadeia de conexão de namespace do Barramento de Serviço do Azure Standard/nome DNS em si se torna um alias para o namespace Premium do Barramento de Serviço do Azure.
-    >
-    > Seus aplicativos cliente devem utilizar esse alias (ou seja, a cadeia de conexão de namespace do Barramento de Serviço do Azure Standard) para se conectar ao namespace Premium em que o emparelhamento de recuperação de desastre foi configurado.
-    >
-    > Se você usar o portal para configurar a configuração de recuperação de desastre, o portal abstrairá essa limitação de você.
+    :::image type="content" source="./media/service-bus-geo-dr/service-bus-geo-dr-alias-page.png" alt-text="Página alias da Geo-DR do barramento de serviço":::
+1. Na página **alias do geo-Dr** , selecione **políticas de acesso compartilhado** no menu à esquerda para acessar a cadeia de conexão primária para o alias. Use essa cadeia de conexão em vez de usar a cadeia de conexão para o namespace primário/secundário diretamente. Inicialmente, o alias aponta para o namespace primário.
+1. Alterne para a página **Visão geral**. Você pode executar as seguintes ações: 
+    1. Quebre o emparelhamento entre os namespaces primário e secundário. Selecione **quebrar emparelhamento** na barra de ferramentas. 
+    1. Faça failover manualmente para o namespace secundário. 
+        1. Selecione **failover** na barra de ferramentas. 
+        1. Confirme que você deseja fazer failover para o namespace secundário digitando seu alias. 
+        1. Ative a opção de **failover seguro** para fazer failover com segurança para o namespace secundário. Esse recurso garante que as replicações de DR geográfica pendentes sejam concluídas antes de passar para o secundário. 
+        1. Em seguida, selecione **failover**. 
+        
+            :::image type="content" source="./media/service-bus-geo-dr/failover-page.png" alt-text="{alt-text}":::
+    
+            > [!IMPORTANT]
+            > O failover ativará o namespace secundário e removerá o namespace primário do emparelhamento de recuperação Geo-Disaster. Crie outro namespace para ter um novo par de recuperação de desastres geograficamente. 
 
+1. Por fim, você deve adicionar um monitoramento para detectar se um failover é necessário. Na maioria dos casos, o serviço é uma parte de um grande ecossistema, assim, failovers automáticos raramente são possíveis, uma vez que failovers devem ser executados em sincronia com o subsistema ou a infraestrutura restante.
 
-4. Use o ***alias*** obtido na etapa 3 para conectar os aplicativos clientes ao namespace primário habilitado para recuperação de desastre geográfico. Inicialmente, o alias aponta para o namespace primário.
+### <a name="service-bus-standard-to-premium"></a>Barramento de serviço Standard para Premium
+Se você tiver [migrado seu namespace standard do barramento de serviço do Azure para o barramento de serviço Premium do Azure](service-bus-migrate-standard-premium.md), deverá usar o alias pré-existente (ou seja, sua cadeia de conexão de namespace padrão do barramento de serviço) para criar a configuração de recuperação de desastre por meio do **PS/CLI** ou da **API REST**.
 
-5. [Opcional] Adicione um monitoramento para detectar se um failover é necessário.
+Isso ocorre porque, durante a migração, sua cadeia de conexão de namespace padrão do barramento de serviço do Azure/nome DNS em si se torna um alias para o namespace Premium do barramento de serviço do Azure.
+
+Seus aplicativos cliente devem utilizar esse alias (ou seja, a cadeia de conexão de namespace padrão do barramento de serviço do Azure) para se conectar ao namespace Premium em que o emparelhamento de recuperação de desastre foi configurado.
+
+Se você usar o portal para definir a configuração de recuperação de desastres, o portal abstrairá essa limitação de você.
+
 
 ## <a name="failover-flow"></a>Fluxo do failover
 
-Um failover é disparado manualmente pelo cliente (seja explicitamente por meio de um comando ou por meio da lógica de negócios de propriedade do cliente que aciona o comando) e nunca pelo Azure. Isso dá ao cliente visibilidade e propriedade completa para resolução de interrupção no backbone do Azure.
+Um failover é disparado manualmente pelo cliente (seja explicitamente por meio de um comando ou por meio da lógica de negócios de propriedade do cliente que aciona o comando) e nunca pelo Azure. Ele dá ao cliente a propriedade total e a visibilidade da resolução de interrupção no backbone do Azure.
 
 ![4][]
 
@@ -105,13 +136,13 @@ Se você cometeu um erro, por exemplo, emparelhou as regiões erradas durante a 
 
 ## <a name="use-existing-namespace-as-alias"></a>Usar namespace existente como alias
 
-Caso tenha um cenário no qual você não pode alterar as conexões de produtores e consumidores, você pode reutilizar o nome do namespace como o nome do alias. Consulte o [exemplo de código no GitHub aqui](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/SBGeoDR_existing_namespace_name).
+Se você tiver um cenário no qual não é possível alterar as conexões de produtores e consumidores, você pode reutilizar o nome do namespace como o nome do alias. Consulte o [exemplo de código no GitHub aqui](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/SBGeoDR_existing_namespace_name).
 
 ## <a name="samples"></a>Exemplos
 
 Os [exemplos no GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/) mostram como configurar e iniciar um failover. Esses exemplos demonstram os conceitos a seguir:
 
-- Um exemplo de .NET e configurações necessárias no Azure Active Directory para usar o Azure Resource Manager com o Barramento de Serviço para configurar e habilitar a recuperação de desastre geográfico.
+- Um exemplo do .NET e configurações que são necessárias em Azure Active Directory para usar Azure Resource Manager com o barramento de serviço, configurar e habilitar a recuperação de desastres geograficamente.
 - Etapas necessárias para executar o exemplo de código.
 - Como usar um namespace existente como alias.
 - Etapas para habilitar a recuperação de desastres de geográficos por meio do PowerShell ou CLI como alternativa.
@@ -129,9 +160,11 @@ Observe as seguintes considerações a serem lembradas quanto a esta versão:
 
 4. A sincronização de entidades pode levar algum tempo, cerca de 50 a 100 entidades por minuto. Assinaturas e regras também são contadas como entidades.
 
-## <a name="availability-zones"></a>Zonas de Disponibilidades
+### <a name="availability-zones"></a>Zonas de Disponibilidades
 
-O SKU Premium do Barramento de Serviço também oferece suporte às [Zonas de Disponibilidade](../availability-zones/az-overview.md), fornecendo locais isolados de falhas dentro de uma região do Azure.
+O SKU do Barramento de Serviço Premium oferece suporte às [Zonas de Disponibilidade](../availability-zones/az-overview.md), fornecendo locais isolados de falhas dentro da mesma região do Azure. O barramento de serviço gerencia três cópias do repositório de mensagens (1 primário e 2 secundários). O barramento de serviço mantém todas as três cópias em sincronia para operações de gerenciamento e dados. Se a cópia primária falhar, uma das cópias secundárias será promovida para primária sem nenhum tempo de inatividade percebido. Se os aplicativos conseguirem desconexões transitórias do barramento de serviço, a lógica de repetição no SDK se reconectará automaticamente ao barramento de serviço. 
+
+Quando você usa zonas de disponibilidade, os metadados e os dados (mensagens) são replicados entre data centers na zona de disponibilidade. 
 
 > [!NOTE]
 > O suporte a Zonas de Disponibilidade para o Barramento de Serviço Premium do Azure só é oferecido nas [regiões do Azure](../availability-zones/az-region.md) em que existem zonas de disponibilidade.
@@ -141,7 +174,7 @@ Você pode habilitar as Zonas de Disponibilidade apenas em novos namespaces usan
 ![3][]
 
 ## <a name="private-endpoints"></a>Pontos de extremidade privados
-Esta seção fornece considerações adicionais ao usar a recuperação de desastre geográfico com namespaces que usam pontos de extremidade privados. Para saber mais sobre como usar pontos de extremidade privados com o Barramento de Serviço em geral, confira [Integrar o Barramento de Serviço do Azure ao Link Privado do Azure](private-link-service.md).
+Esta seção fornece mais considerações ao usar a recuperação de desastres geograficamente com namespaces que usam pontos de extremidade privados. Para saber mais sobre como usar pontos de extremidade privados com o Barramento de Serviço em geral, confira [Integrar o Barramento de Serviço do Azure ao Link Privado do Azure](private-link-service.md).
 
 ### <a name="new-pairings"></a>Novos emparelhamentos
 Se você tentar criar um emparelhamento entre um namespace primário com um ponto de extremidade privado e um namespace secundário sem um ponto de extremidade privado, o emparelhamento falhará. O emparelhamento só terá sucesso se os namespaces primários e secundários tiverem pontos de extremidade privados. Recomendamos que você use as mesmas configurações nos namespaces primário e secundário e nas redes virtuais nas quais os pontos de extremidade privados são criados. 
@@ -149,7 +182,7 @@ Se você tentar criar um emparelhamento entre um namespace primário com um pont
 > [!NOTE]
 > Quando você tenta emparelhar o namespace primário com um ponto de extremidade privado e o namespace secundário, o processo de validação verifica apenas se existe um ponto de extremidade privado no namespace secundário. Ele não verifica se o ponto de extremidade funciona nem se funcionará após o failover. É sua responsabilidade garantir que o namespace secundário com ponto de extremidade privado funcione conforme o esperado após o failover.
 >
-> Para testar se as configurações do ponto de extremidade privado são as mesmas, envie uma solicitação [Obter filas](/rest/api/servicebus/queues/get) ao namespace secundário de fora da rede virtual e verifique se você recebeu uma mensagem de erro do serviço.
+> Para testar se as configurações do ponto de extremidade privado são as mesmas, envie uma solicitação [Obter filas](/rest/api/servicebus/stable/queues/get) ao namespace secundário de fora da rede virtual e verifique se você recebeu uma mensagem de erro do serviço.
 
 ### <a name="existing-pairings"></a>Emparelhamentos existentes
 Se o emparelhamento entre o namespace primário e o secundário já existir, a criação de ponto de extremidade privado no namespace primário falhará. Para resolver, crie primeiro um ponto de extremidade privado no namespace secundário e, em seguida, crie um para o namespace primário.
@@ -179,7 +212,7 @@ A vantagem dessa abordagem é que o failover pode ocorrer na camada de aplicativ
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Consulte a [referência da API REST de recuperação de desastre em área geográfica aqui](/rest/api/servicebus/disasterrecoveryconfigs).
+- Consulte a [referência da API REST de recuperação de desastre em área geográfica aqui](/rest/api/servicebus/stable/disasterrecoveryconfigs).
 - Execute o [exemplo no GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/SBGeoDR2) da recuperação de desastre em área geográfica.
 - Consulte o [exemplo que envia mensagens a um alias](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/TestGeoDR/ConsoleApp1) da recuperação de desastre em área geográfica.
 

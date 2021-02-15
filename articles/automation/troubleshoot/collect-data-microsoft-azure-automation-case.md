@@ -1,24 +1,16 @@
 ---
 title: Dados a serem coletados ao abrir um caso para a Automação do Microsoft Azure | Microsoft Docs
 description: Este artigo descreve as informações a serem coletadas antes de abrir um caso para a Automação do Azure com suporte do Microsoft Azure.
-services: virtual-machines-windows, azure-resource-manager
-documentationcenter: ''
-author: v-miegge
-manager: dcscontentpm
-editor: ''
-tags: top-support-issue, azure-resource-manager
-ms.service: virtual-machines-windows
-ms.workload: na
-ms.tgt_pltfrm: vm-windows
+services: automation
+ms.subservice: ''
 ms.topic: troubleshooting
 ms.date: 09/23/2019
-ms.author: v-miegge
-ms.openlocfilehash: d2f97d0b889186324aef9613847e3eddbfe1eb02
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 3d2c0cf780b992d7bb464969c50d60ffa5093e8f
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684853"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896555"
 ---
 # <a name="data-to-collect-when-opening-a-case-for-microsoft-azure-automation"></a>Dados a serem coletados ao abrir um caso para a Automação do Microsoft Azure
 

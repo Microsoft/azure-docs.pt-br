@@ -1,17 +1,15 @@
 ---
 title: Gerenciamento de estado dos Reliable Actors
 description: Descreve como o estado dos Reliable Actors é gerenciado, persistido e replicado para alta disponibilidade.
-author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
-ms.author: vturecek
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 92abfa9937c1ac3f7d4ba68e9228b29e0211e1af
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: badfc490f26b71881e7970c2c0be3472abfec25a
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89007784"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575594"
 ---
 # <a name="reliable-actors-state-management"></a>Gerenciamento de estado dos Reliable Actors
 Reliable Actors são objetos single-threaded que podem encapsular a lógica e o estado. Como os atores são executados nos Reliable Services, eles podem manter o estado de modo confiável usando os mesmos mecanismos de persistência e replicação. Dessa forma, os atores não perdem seu estado após falhas, na reativação após a coleta de lixo ou quando são movidos entre nós em um cluster devido ao balanceamento de recursos ou às atualizações.
@@ -115,7 +113,7 @@ Isso é essencial para o desempenho e uso de recursos do seu aplicativo. Sempre 
 ### <a name="correctly-manage-the-actors-life-cycle"></a>Gerencie o ciclo de vida do ator corretamente
 Você deve ter uma diretiva clara sobre como gerenciar o tamanho do estado de cada partição de um serviço de ator. O serviço de ator deve ter um número fixo de atores e reutilizá-los tanto quanto possível. Se você cria o novo atores continuamente, você deve excluí-los depois que acabarem o trabalho. A estrutura de ator armazena alguns metadados sobre cada ator existente. Excluir todo o estado de um ator não remove os metadados sobre esse ator. Você deve excluir o ator (consulte [excluindo atores e seus estados](service-fabric-reliable-actors-lifecycle.md#manually-deleting-actors-and-their-state)) para remover todas as informações sobre ele armazenadas no sistema. Como verificação adicional, você deve consultar o serviço de ator (consulte [enumerando atores](service-fabric-reliable-actors-enumerate.md)) de vez em quando para verificar se os atores de número estão no intervalo esperado.
  
-Se você vir que o tamanho do arquivo de banco de dados de um serviço de atores está aumentando para além do tamanho esperado, certifique-se de que você esteja seguindo as diretrizes anteriores. Se você estiver seguindo essas diretrizes e ainda houver problemas de tamanho de arquivo do banco de dados, você deverá [abrir um tíquete de suporte](service-fabric-support.md) com a equipe de produto para obter ajuda.
+Se você vir que o tamanho do arquivo de banco de dados de um serviço de atores está aumentando para além do tamanho esperado, certifique-se de que você esteja seguindo as diretrizes anteriores. Se você estiver seguindo essas diretrizes e ainda estiver tendo problemas de tamanho de arquivo de banco de dados, [abra um tíquete de suporte](service-fabric-support.md) com a equipe de produto para obter ajuda.
 
 ## <a name="next-steps"></a>Próximas etapas
 

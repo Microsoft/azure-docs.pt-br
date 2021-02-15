@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/09/2018
 ms.author: genli
-ms.openlocfilehash: a41c1f634c030106dd6936676010fea32da8d436
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 3090b7b889d914fc0cdb598b8bf29a73c81f50cb
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86084011"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98631996"
 ---
 # <a name="azure-vm-startup-is-stuck-at-windows-update"></a>Inicialização de VM do Azure presa no Windows Update
 
@@ -37,6 +37,8 @@ Este artigo ajuda a resolver o problema de quando sua VM (Máquina Virtual) fica
 
 
 ## <a name="solution"></a>Solução
+> [!TIP]
+> Se você tiver um backup recente da VM, poderá tentar [restaurar a VM do backup](../../backup/backup-azure-arm-restore-vms.md) para corrigir o problema de inicialização.
 
 Dependendo do número de atualizações que estão sendo instaladas ou revertidas, o processo de atualização pode levar algum tempo. Deixe a VM nesse estado por 8 horas. Se a VM ainda estiver nesse estado após esse período, reinicie-a pelo portal do Azure e veja se ela consegue iniciar normalmente. Se essa etapa não funcionar, tente a solução a seguir.
 
@@ -80,4 +82,4 @@ Dependendo do número de atualizações que estão sendo instaladas ou revertida
     > [!NOTE] 
     > Dependendo do tamanho do pacote, a ferramenta DISM levará algum tempo para processar a desinstalação. Normalmente, o processo será concluído em 16 minutos.
 
-7. [Desanexe o disco do SO e recrie a VM](troubleshoot-recovery-disks-portal-windows.md#unmount-and-detach-original-virtual-hard-disk). Em seguida, verifique se o problema for resolvido.
+7. [Desanexe o disco do SO e recrie a VM](troubleshoot-recovery-disks-portal-windows.md#unmount-and-detach-the-original-virtual-hard-disk). Em seguida, verifique se o problema for resolvido.

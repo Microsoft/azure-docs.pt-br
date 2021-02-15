@@ -16,18 +16,20 @@ ms.date: 03/18/2019
 ms.author: juliako
 ms.reviewer: anilmur
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ead605462eeb92b31181ce9bba3100df521b471b
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 5f49b951473db4b331bc42de3fb72829270822d5
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89004404"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92014368"
 ---
-# <a name="encode-an-asset-with-media-encoder-standard-using-net"></a>Codificar um ativo com o Codificador de Mídia Padrão usando o .NET  
+# <a name="encode-an-asset-with-media-encoder-standard-using-net"></a>Codificar um ativo com o Codificador de Mídia Padrão usando o .NET
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]  
 
 Os trabalhos de codificação são uma das operações de processamento mais comuns nos serviços de mídia. Você cria trabalhos de codificação para converter arquivos de mídia de uma codificação para outra. Ao codificar, você pode usar o codificador de mídia integrado dos serviços de mídia. Você também pode usar um codificador fornecido por um parceiro de Serviços de Mídia. Os codificadores de terceiros estão disponíveis por meio do Azure Marketplace. 
 
-Este artigo mostra como usar o .NET para codificar seus ativos com o MES (Media Encoder Standard). O Media Encoder Standard é configurado usando um dos codificadores predefinidos descritos [aqui](https://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
+Este artigo mostra como usar o .NET para codificar seus ativos com o MES (Media Encoder Standard). O Media Encoder Standard é configurado usando um dos codificadores predefinidos descritos [aqui](./media-services-mes-presets-overview.md).
 
 Convém sempre codificar arquivos de origem em um conjunto de MP4 de taxa de bits adaptável e, em seguida, converter o conjunto para o formato desejado usando o [Empacotamento Dinâmico](media-services-dynamic-packaging-overview.md). 
 
@@ -42,7 +44,7 @@ Se seu ativo de saída tiver o armazenamento criptografado, você deverá config
 [Formatos e codecs](media-services-media-encoder-standard-formats.md)
 
 ### <a name="mes-presets"></a>Predefinições de MES
-O Media Encoder Standard é configurado usando um dos codificadores predefinidos descritos [aqui](https://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
+O Media Encoder Standard é configurado usando um dos codificadores predefinidos descritos [aqui](./media-services-mes-presets-overview.md).
 
 ### <a name="input-and-output-metadata"></a>Metadados de entrada e saída
 Ao codificar um ativo (ou ativos) de entrada usando MES, você obtém um ativo de saída na conclusão bem-sucedida da tarefa de codificação. O ativo de saída contém vídeo, áudio, miniaturas, manifesto, etc., com base na predefinição de codificação utilizada.
@@ -213,4 +215,3 @@ namespace MediaEncoderStandardSample
 ## <a name="next-steps"></a>Próximas etapas
 [Como gerar miniaturas usando o Media Encoder Standard com o .net](media-services-dotnet-generate-thumbnail-with-mes.md) 
  [Visão geral da codificação dos serviços de mídia](media-services-encode-asset.md)
-

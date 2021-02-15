@@ -3,19 +3,18 @@ title: Início Rápido – Criar um trabalho do Azure Stream Analytics usando um
 description: Este início rápido mostra como usar o modelo do Azure Resource Manager para criar um trabalho do Azure Stream Analytics.
 services: stream-analytics
 ms.service: stream-analytics
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: jasonh
+author: sidramadoss
+ms.author: sidram
 ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc, subject-armqs
 ms.date: 05/28/2020
-ms.openlocfilehash: 26ae0f5add40125b5e9c1ce9451583040322314b
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 2e8e7890adcb6b91d79bbf4e119488e365410d3c
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88641884"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020070"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-by-using-an-arm-template"></a>Início Rápido: Criar um trabalho do Azure Stream Analytics usando um modelo do Resource Manager
 

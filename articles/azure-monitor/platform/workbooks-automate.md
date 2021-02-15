@@ -2,19 +2,16 @@
 title: Azure Monitor pastas de trabalho e modelos de Azure Resource Manager
 description: Simplifique relatórios complexos com pastas de trabalho Azure Monitor parametrizadas predefinidas e personalizadas implantadas por meio de modelos de Azure Resource Manager
 services: azure-monitor
-author: mrbullwinkle
-manager: carmonm
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.author: mbullwin
-ms.openlocfilehash: e2463c2ea4044af0b20a1dee91b30870639dc7ce
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 77190b85da08d09cf05a02dcc5787f0c24229948
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86504913"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91929720"
 ---
 # <a name="programmatically-manage-workbooks"></a>Gerenciar pastas de trabalho programaticamente
 
@@ -203,7 +200,7 @@ Este modelo mostra como implantar uma pasta de trabalho simples que exibe um ' O
 ### <a name="workbook-types"></a>Tipos de pasta de trabalho
 Tipos de pasta de trabalho especifique a Galeria da pasta de trabalho na qual a nova instância da pasta de trabalho será exibida. As opções incluem:
 
-| Tipo | Localização da Galeria |
+| Digite | Localização da Galeria |
 | :------------- |:-------------|
 | `workbook` | O padrão usado na maioria dos relatórios, incluindo a Galeria de pastas de trabalho do Application Insights, Azure Monitor, etc.  |
 | `tsg` | A Galeria de guias de solução de problemas no Application Insights |

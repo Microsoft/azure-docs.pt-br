@@ -1,21 +1,17 @@
 ---
 title: Monitorar o tempo de execução de integração no Azure Data Factory
 description: Saiba como monitorar diferentes tipos de runtime de integração no Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/11/2020
-author: djpmsft
-ms.author: daperlov
-manager: anandsub
-ms.openlocfilehash: b8d3472eeedab72644456b4278d3b9f3625c5850
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+author: dcstwh
+ms.author: weetok
+ms.openlocfilehash: a52fad39e19bdf2edf110990c8f0e392ec5803ce
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88078148"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100377492"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Monitorar um runtime de integração no Azure Data Factory
 
@@ -93,7 +89,7 @@ O valor padrão do limite de trabalhos simultâneos é definido com base no tama
 
 Você escala horizontalmente aumentando o número de nós. Quando você aumenta o número de nós, o limite de trabalhos simultâneos é a soma dos valores de limite de trabalhos simultâneos de todos os nós disponíveis.  Por exemplo, se um nó permitir que você execute um máximo de 12 trabalhos simultâneos, adicionar mais três nós semelhantes permitirá que você execute um máximo de 48 trabalhos simultâneos (ou seja, 4 × 12). É recomendável aumentar o limite de trabalhos simultâneos apenas quando você observar um baixo uso de recursos com os valores padrão em cada nó.
 
-Você pode substituir o valor padrão calculado no portal do Azure. Selecione Autor > Conexões > Integration Runtimes > Editar > Nós > Modificar valor de trabalhos simultâneos por nó. Você também pode usar o comando [Update-Azdatafactoryv2integrationruntimenode](https://docs.microsoft.com/powershell/module/az.datafactory/update-Azdatafactoryv2integrationruntimenode#examples) do PowerShell.
+Você pode substituir o valor padrão calculado no portal do Azure. Selecione Autor > Conexões > Integration Runtimes > Editar > Nós > Modificar valor de trabalhos simultâneos por nó. Você também pode usar o comando [Update-Azdatafactoryv2integrationruntimenode](/powershell/module/az.datafactory/update-Azdatafactoryv2integrationruntimenode#examples) do PowerShell.
   
 ### <a name="status-per-node"></a>Status (por nó)
 
@@ -104,7 +100,7 @@ A tabela a seguir fornece os possíveis status de um nó de runtime de integraç
 | Online | O nó está conectado ao serviço Data Factory. |
 | Offline | O nó está offline. |
 | Atualizando | O nó está sendo atualizado automaticamente. |
-| Limitado | Devido a um problema de conectividade. Pode ser devido a um problema de HTTP da porta 8050, problema de conectividade do barramento de serviço ou problema de sincronização de credenciais. |
+| Limitado | Devido a um problema de conectividade. Pode ser devido ao problema de porta HTTP 8060, problema de conectividade do barramento de serviço ou um problema de sincronização de credencial. |
 | Inativo | O nó está em uma configuração diferente da configuração de outros nós de maioria. |
 
 Um nó pode ficar inativo quando ele não pode se conectar a outros nós.
@@ -193,7 +189,7 @@ A tabela a seguir fornece descrições das propriedades retornadas pelo cmdlet a
 | VNetId                       | A ID de recurso de rede virtual para seu Azure-SSIS IR ingressar. |
 | Sub-rede                       | O nome da sub-rede para o Azure-SSIS IR ingressar. |
 | ID                           | A ID de recurso do seu Azure-SSIS IR. |
-| Type                         | O tipo de IR (gerenciado/auto-hospedado) do seu Azure-SSIS IR. |
+| Digite                         | O tipo de IR (gerenciado/auto-hospedado) do seu Azure-SSIS IR. |
 | ResourceGroupName            | O nome do grupo de recursos do Azure, no qual o ADF e o Azure-SSIS IR foram criados. |
 | DataFactoryName              | O nome do ADF. |
 | Nome                         | O nome do seu Azure-SSIS IR. |
@@ -234,60 +230,60 @@ Em seguida, selecione o nome do seu Azure-SSIS IR para abrir sua página de moni
 
 #### <a name="status-tile"></a>Bloco STATUS
 
-No bloco **status** da sua página de monitoramento de Azure-SSIS ir, você pode ver seu status geral, por exemplo, **em execução** ou **parado**. A seleção do status de **execução** abre uma janela com o botão **parar** ao vivo para parar o Azure-SSIS ir. A seleção do status **parado** exibe uma janela com o botão **Iniciar** ao vivo para iniciar o Azure-SSIS ir. A janela pop-up também tem um botão **Executar Pacote SSIS** para gerar automaticamente um pipeline do ADF com a atividade executar pacote SSIS que é executada no seu Azure-SSIS ir (consulte [executando pacotes do SSIS como executar atividades de pacote do SSIS em pipelines do ADF](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity)) e uma caixa de texto **ID do recurso** , na qual você pode copiar sua Azure-SSIS ir ID do recurso ( `/subscriptions/YourAzureSubscripton/resourcegroups/YourResourceGroup/providers/Microsoft.DataFactory/factories/YourADF/integrationruntimes/YourAzureSSISIR` ). O sufixo de sua ID de recurso de Azure-SSIS IR que contém os nomes do ADF e do Azure-SSIS IR forma uma ID de cluster que pode ser usada para comprar componentes adicionais do SSIS Premium/licenciado de fornecedores de software independentes (ISVs) e associá-los ao seu Azure-SSIS IR (consulte [instalando componentes premium/licenciados em seu Azure-SSIS ir](https://docs.microsoft.com/azure/data-factory/how-to-develop-azure-ssis-ir-licensed-components)).
+No bloco **status** da sua página de monitoramento de Azure-SSIS ir, você pode ver seu status geral, por exemplo, **em execução** ou **parado**. A seleção do status de **execução** abre uma janela com o botão **parar** ao vivo para parar o Azure-SSIS ir. A seleção do status **parado** exibe uma janela com o botão **Iniciar** ao vivo para iniciar o Azure-SSIS ir. A janela pop-up também tem um botão **Executar Pacote SSIS** para gerar automaticamente um pipeline do ADF com a atividade executar pacote SSIS que é executada no seu Azure-SSIS ir (consulte [executando pacotes do SSIS como executar atividades de pacote do SSIS em pipelines do ADF](./how-to-invoke-ssis-package-ssis-activity.md)) e uma caixa de texto **ID do recurso** , na qual você pode copiar sua Azure-SSIS ir ID do recurso ( `/subscriptions/YourAzureSubscripton/resourcegroups/YourResourceGroup/providers/Microsoft.DataFactory/factories/YourADF/integrationruntimes/YourAzureSSISIR` ). O sufixo de sua ID de recurso de Azure-SSIS IR que contém os nomes do ADF e do Azure-SSIS IR forma uma ID de cluster que pode ser usada para comprar componentes adicionais do SSIS Premium/licenciado de fornecedores de software independentes (ISVs) e associá-los ao seu Azure-SSIS IR (consulte [instalando componentes premium/licenciados em seu Azure-SSIS ir](./how-to-develop-azure-ssis-ir-licensed-components.md)).
 
 ![Monitore seu bloco Azure-SSIS IR STATUS](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-status.png)
 
 #### <a name="ssisdb-server-endpoint-tile"></a>Bloco de ponto de extremidade do servidor SSISDB
 
-Se você usar o modelo de implantação de projeto em que os pacotes são armazenados no SSISDB hospedado por seu servidor de banco de dados SQL do Azure ou instância gerenciada, você verá o bloco de **ponto de extremidade do servidor ssisdb** na sua página de monitoramento de Azure-SSIS ir (consulte [definindo suas configurações de implantação de Azure-SSIS ir](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure#deployment-settings-page)). Nesse bloco, você pode selecionar um link designando o servidor do banco de dados SQL do Azure ou a instância gerenciada para exibir uma janela, na qual é possível copiar o ponto de extremidade do servidor de uma caixa de texto e usá-lo ao se conectar do SSMS para implantar, configurar, executar e gerenciar seus pacotes. Na janela pop-up, você também pode selecionar o link **ver seu banco de dados SQL do Azure ou as configurações de instância gerenciada** para reconfigurar/redimensionar seu SSISDB no portal do Azure.
+Se você usar o modelo de implantação de projeto em que os pacotes são armazenados no SSISDB hospedado por seu servidor de banco de dados SQL do Azure ou instância gerenciada, você verá o bloco de **ponto de extremidade do servidor ssisdb** na sua página de monitoramento de Azure-SSIS ir (consulte [definindo suas configurações de implantação de Azure-SSIS ir](./tutorial-deploy-ssis-packages-azure.md#deployment-settings-page)). Nesse bloco, você pode selecionar um link designando o servidor do banco de dados SQL do Azure ou a instância gerenciada para exibir uma janela, na qual é possível copiar o ponto de extremidade do servidor de uma caixa de texto e usá-lo ao se conectar do SSMS para implantar, configurar, executar e gerenciar seus pacotes. Na janela pop-up, você também pode selecionar o link **ver seu banco de dados SQL do Azure ou as configurações de instância gerenciada** para reconfigurar/redimensionar seu SSISDB no portal do Azure.
 
 ![Monitore seu bloco Azure-SSIS IR SSISDB](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-ssisdb.png)
 
 #### <a name="proxy--staging-tile"></a>Bloco PROXY/preparo
 
-Se você baixar, instalar e configurar o SHIR (infravermelho auto-hospedado) como um proxy para o Azure-SSIS IR acessar dados localmente, você verá o bloco **proxy/preparo** na sua página de monitoramento de Azure-SSIS ir (consulte [Configurando o SHIR como um proxy para seu Azure-SSIS ir](https://docs.microsoft.com/azure/data-factory/self-hosted-integration-runtime-proxy-ssis)). Nesse bloco, você pode selecionar um link que designa seu SHIR para abrir sua página de monitoramento. Você também pode selecionar outro link designando o armazenamento de BLOBs do Azure para preparo para reconfigurar seu serviço vinculado.
+Se você baixar, instalar e configurar Self-Hosted IR (SHIR) como um proxy para o Azure-SSIS IR acessar dados no local, você verá o bloco **proxy/preparo** na sua página de monitoramento de Azure-SSIS ir (consulte [Configurando SHIR como um proxy para o Azure-SSIS ir](./self-hosted-integration-runtime-proxy-ssis.md)). Nesse bloco, você pode selecionar um link que designa seu SHIR para abrir sua página de monitoramento. Você também pode selecionar outro link designando o armazenamento de BLOBs do Azure para preparo para reconfigurar seu serviço vinculado.
 
 #### <a name="validate-vnet--subnet-tile"></a>VALIDAR bloco de VNET/sub-rede
 
-Se você ingressar seu Azure-SSIS IR em uma VNet, verá o bloco **validar VNet/sub-rede** na sua página de monitoramento de Azure-SSIS ir (consulte [unindo seu Azure-SSIS ir a uma VNet](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network)). Nesse bloco, você pode selecionar um link que designa sua VNet e sub-rede para exibir uma janela, onde você pode copiar sua ID de recurso de VNet ( `/subscriptions/YourAzureSubscripton/resourceGroups/YourResourceGroup/providers/Microsoft.Network/virtualNetworks/YourARMVNet` ) e o nome da sub-rede de caixas de texto, bem como validar suas configurações de vnet e sub-rede para garantir que os tráfegos de rede de entrada/saída necessários e o gerenciamento de seus Azure-SSIS ir não estejam obstruídos.
+Se você ingressar seu Azure-SSIS IR em uma VNet, verá o bloco **validar VNet/sub-rede** na sua página de monitoramento de Azure-SSIS ir (consulte [unindo seu Azure-SSIS ir a uma VNet](./join-azure-ssis-integration-runtime-virtual-network.md)). Nesse bloco, você pode selecionar um link que designa sua VNet e sub-rede para exibir uma janela, onde você pode copiar sua ID de recurso de VNet ( `/subscriptions/YourAzureSubscripton/resourceGroups/YourResourceGroup/providers/Microsoft.Network/virtualNetworks/YourARMVNet` ) e o nome da sub-rede de caixas de texto, bem como validar suas configurações de vnet e sub-rede para garantir que os tráfegos de rede de entrada/saída necessários e o gerenciamento de seus Azure-SSIS ir não estejam obstruídos.
 
 ![Monitorar seu bloco Azure-SSIS IR-VALIDATE](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-validate.png)
 
 #### <a name="diagnose-connectivity-tile"></a>Bloco DIAGNOSTICAr conectividade
 
-No bloco **diagnosticar conectividade** da sua página de monitoramento de Azure-SSIS ir, você pode selecionar o link **testar conexão** para exibir uma janela, na qual você pode verificar as conexões entre seu Azure-SSIS ir e os armazenamentos de pacote/configuração/dados relevantes, bem como serviços de gerenciamento, por meio de seu endereço de FQDN (nome de domínio totalmente qualificado) e porta designada (consulte [testando conexões de seu Azure-SSIS ir](https://docs.microsoft.com/azure/data-factory/ssis-integration-runtime-diagnose-connectivity-faq))
+No bloco **diagnosticar conectividade** da sua página de monitoramento de Azure-SSIS ir, você pode selecionar o link **testar conexão** para exibir uma janela, na qual você pode verificar as conexões entre seu Azure-SSIS ir e os armazenamentos de pacote/configuração/dados relevantes, bem como serviços de gerenciamento, por meio de seu endereço de FQDN (nome de domínio totalmente qualificado) e porta designada (consulte [testando conexões de seu Azure-SSIS ir](./ssis-integration-runtime-diagnose-connectivity-faq.md))
 
-![Monitore seu bloco Azure-SSIS IR-DIAGNOSTICAr](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-diagnose.png)
+![Captura de tela que mostra onde você pode testar as conexões entre seus Azure-SSIS IR e os armazenamentos de pacote/configuração/dados relevantes.](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-diagnose.png)
 
 #### <a name="static-public-ip-addresses-tile"></a>Bloco de endereços IP públicos ESTÁTICOs
 
-Se você colocar seus próprios endereços IP públicos estáticos para Azure-SSIS IR, verá o bloco **endereços IP públicos estáticos** na sua página de monitoramento de Azure-SSIS ir (consulte [trazendo seus próprios endereços IP públicos estáticos para Azure-SSIS ir](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network#publicIP)). Nesse bloco, você pode selecionar links que designam seus primeiros/segundo endereços IP públicos estáticos para Azure-SSIS IR para exibir uma janela, onde você pode copiar sua ID de recurso ( `/subscriptions/YourAzureSubscripton/resourceGroups/YourResourceGroup/providers/Microsoft.Network/publicIPAddresses/YourPublicIPAddress` ) de uma caixa de texto. Na janela pop-up, você também pode selecionar o link **ver seu primeiro/segundo configurações de endereço IP público estático** para gerenciar seu primeiro/segundo endereço IP público estático no portal do Azure.
+Se você colocar seus próprios endereços IP públicos estáticos para Azure-SSIS IR, verá o bloco **endereços IP públicos estáticos** na sua página de monitoramento de Azure-SSIS ir (consulte [trazendo seus próprios endereços IP públicos estáticos para Azure-SSIS ir](./join-azure-ssis-integration-runtime-virtual-network.md#publicIP)). Nesse bloco, você pode selecionar links que designam seus primeiros/segundo endereços IP públicos estáticos para Azure-SSIS IR para exibir uma janela, onde você pode copiar sua ID de recurso ( `/subscriptions/YourAzureSubscripton/resourceGroups/YourResourceGroup/providers/Microsoft.Network/publicIPAddresses/YourPublicIPAddress` ) de uma caixa de texto. Na janela pop-up, você também pode selecionar o link **ver seu primeiro/segundo configurações de endereço IP público estático** para gerenciar seu primeiro/segundo endereço IP público estático no portal do Azure.
 
-![Monitore seu bloco Azure-SSIS IR-DIAGNOSTICAr](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-static.png)
+![Captura de tela que mostra onde você pode designar seus primeiros/segundo endereços IP públicos estáticos.](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-static.png)
 
 #### <a name="package-stores-tile"></a>Bloco de REPOSITÓRIOs de pacotes
 
-Se você usar o modelo de implantação de pacote em que os pacotes são armazenados no sistema de arquivos/arquivos do Azure/SQL Server do banco de dados (MSDB) hospedados por seu Instância Gerenciada do Azure SQL e gerenciados por meio de repositórios de pacotes do Azure-SSIS IR, você verá o bloco **armazenamentos de pacotes** na sua página de monitoramento de Azure-SSIS ir (consulte [definindo suas configurações Azure-SSIS ir de implantação](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure#deployment-settings-page) Nesse bloco, você pode selecionar um link que designa o número de repositórios de pacotes anexados à sua Azure-SSIS IR para exibir uma janela, na qual é possível reconfigurar os serviços vinculados relevantes para seus armazenamentos de pacotes do Azure-SSIS IR sobre o sistema de arquivos/arquivos do Azure/MSDB hospedado pelo seu Instância Gerenciada SQL do Azure.
+Se você usar o modelo de implantação de pacote em que os pacotes são armazenados no sistema de arquivos/arquivos do Azure/SQL Server do banco de dados (MSDB) hospedados por seu Instância Gerenciada do Azure SQL e gerenciados por meio de repositórios de pacotes do Azure-SSIS IR, você verá o bloco **armazenamentos de pacotes** na sua página de monitoramento de Azure-SSIS ir (consulte [definindo suas configurações Azure-SSIS ir de implantação](./tutorial-deploy-ssis-packages-azure.md#deployment-settings-page) Nesse bloco, você pode selecionar um link que designa o número de repositórios de pacotes anexados à sua Azure-SSIS IR para exibir uma janela, na qual é possível reconfigurar os serviços vinculados relevantes para seus armazenamentos de pacotes do Azure-SSIS IR sobre o sistema de arquivos/arquivos do Azure/MSDB hospedado pelo seu Instância Gerenciada SQL do Azure.
 
 ![Monitorar seu bloco Azure-SSIS IR-PACKAGE](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-package.png)
 
 #### <a name="errors-tile"></a>Bloco de erro (S)
 
-Se houver problemas com a inicialização/interrupção/manutenção/atualização do seu Azure-SSIS IR, você verá um bloco adicional de **erros** na sua página de monitoramento de Azure-SSIS ir. Nesse bloco, você pode selecionar um link que designa o número de erros gerados pelo seu Azure-SSIS IR para exibir uma janela, em que você pode ver esses erros em mais detalhes e copiá-los para encontrar as soluções recomendadas em nosso guia de solução de problemas (consulte [Solucionando problemas de seu Azure-SSIS ir](https://docs.microsoft.com/azure/data-factory/ssis-integration-runtime-management-troubleshoot)).
+Se houver problemas com a inicialização/interrupção/manutenção/atualização do seu Azure-SSIS IR, você verá um bloco adicional de **erros** na sua página de monitoramento de Azure-SSIS ir. Nesse bloco, você pode selecionar um link que designa o número de erros gerados pelo seu Azure-SSIS IR para exibir uma janela, em que você pode ver esses erros em mais detalhes e copiá-los para encontrar as soluções recomendadas em nosso guia de solução de problemas (consulte [Solucionando problemas de seu Azure-SSIS ir](./ssis-integration-runtime-management-troubleshoot.md)).
 
 ![Monitore seu bloco Azure-SSIS IR-DIAGNOSTICAr](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-error.png)
 
 ### <a name="monitor-the-azure-ssis-integration-runtime-with-azure-monitor"></a>Monitorar o tempo de execução de integração do Azure-SSIS com o Azure Monitor
 
-Para monitorar seu Azure-SSIS IR com Azure Monitor, consulte [monitorando operações do SSIS com o Azure monitor](https://docs.microsoft.com/azure/data-factory/monitor-using-azure-monitor#monitor-ssis-operations-with-azure-monitor).
+Para monitorar seu Azure-SSIS IR com Azure Monitor, consulte [monitorando operações do SSIS com o Azure monitor](./monitor-using-azure-monitor.md#monitor-ssis-operations-with-azure-monitor).
 
 ### <a name="more-info-about-the-azure-ssis-integration-runtime"></a>Mais informações sobre o runtime de integração do Azure-SSIS
 
 Consulte os artigos a seguir para saber mais sobre o runtime de integração do Azure-SSIS:
 
 - [Azure-SSIS Integration Runtime](concepts-integration-runtime.md#azure-ssis-integration-runtime). Este artigo fornece informações conceituais sobre runtimes de integração em geral, incluindo o IR do Azure-SSIS. 
-- [Tutorial: implantar pacotes do SSIS para o Azure](tutorial-create-azure-ssis-runtime-portal.md). Este artigo fornece instruções passo a passo para criar seu Azure-SSIS IR e usar o banco de dados SQL do Azure para hospedar o arquivo de catálogo do SSIS (SSISDB). 
+- [Tutorial: implantar pacotes do SSIS para o Azure](./tutorial-deploy-ssis-packages-azure.md). Este artigo fornece instruções passo a passo para criar seu Azure-SSIS IR e usar o banco de dados SQL do Azure para hospedar o arquivo de catálogo do SSIS (SSISDB). 
 - [Como: Criar um runtime de integração do Azure-SSIS](create-azure-ssis-integration-runtime.md). Este artigo expande o tutorial e fornece instruções sobre como usar o Azure SQL Instância Gerenciada para hospedar o SSISDB. 
 - [Gerencie um IR do Azure-SSIS](manage-azure-ssis-integration-runtime.md). Este artigo mostra como iniciar, parar ou excluir seu Azure-SSIS IR. Ele também mostra como dimensioná-lo adicionando mais nós. 
 - [Unir um IR do Azure-SSIS a uma rede virtual](join-azure-ssis-integration-runtime-virtual-network.md). Este artigo fornece instruções sobre como unir seu Azure-SSIS IR a uma rede virtual.

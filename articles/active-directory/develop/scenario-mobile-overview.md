@@ -13,35 +13,28 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 1f90f7f23fbdf10b91d8dfc7cd00cca83cd32fbc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a678e8545f761e98abbdf026886afa624f9d2b4e
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80882566"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98753636"
 ---
-# <a name="scenario-mobile-application-that-calls-web-apis"></a>Cenário: aplicativo móvel que chama APIs da Web
+# <a name="scenario-mobile-application-that-calls-web-apis"></a>Cenário: Aplicativo móvel que chama APIs Web
 
 Saiba como criar um aplicativo móvel que chama as APIs Web.
 
-## <a name="prerequisites"></a>Pré-requisitos
-
-[!INCLUDE [Prerequisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
-
 ## <a name="getting-started"></a>Introdução
 
-Crie seu primeiro aplicativo móvel e experimente um início rápido.
+Se você ainda não fez isso, crie seu primeiro aplicativo concluindo um início rápido:
 
-> [!div class="nextstepaction"]
-> [Início rápido: adquirir um token e chamar Microsoft Graph API de um aplicativo Android](./quickstart-v2-android.md)
->
-> [Início rápido: adquirir um token e chamar Microsoft Graph API de um aplicativo iOS](./quickstart-v2-ios.md)
->
-> [Início rápido: adquirir um token e chamar Microsoft Graph API de um aplicativo Xamarin iOS e Android](https://github.com/Azure-Samples/active-directory-xamarin-native-v2)
+- [Início rápido: adquirir um token e chamar Microsoft Graph API de um aplicativo Android](./quickstart-v2-android.md)
+- [Início rápido: adquirir um token e chamar Microsoft Graph API de um aplicativo iOS](./quickstart-v2-ios.md)
+- [Início rápido: adquirir um token e chamar Microsoft Graph API de um aplicativo Xamarin Ios e Android](https://github.com/Azure-Samples/active-directory-xamarin-native-v2) (github)
 
 ## <a name="overview"></a>Visão geral
 
-Uma experiência de usuário personalizada e direta é essencial para aplicativos móveis.  A plataforma de identidade da Microsoft permite que os desenvolvedores móveis criem essa experiência para usuários de iOS e Android. Seu aplicativo pode entrar Azure Active Directory (Azure AD) usuários, usuários pessoais conta Microsoft e Azure AD B2C usuários. Ele também pode adquirir tokens para chamar uma API da Web em seu nome. Para implementar esses fluxos, usaremos a MSAL (biblioteca de autenticação da Microsoft). O MSAL implementa o fluxo de código de autorização padrão do setor [OAuth 2.0](v2-oauth2-auth-code-flow.md).
+Uma experiência de usuário personalizada e direta é essencial para aplicativos móveis. A plataforma de identidade da Microsoft permite que os desenvolvedores móveis criem essa experiência para usuários de iOS e Android. Seu aplicativo pode entrar Azure Active Directory (Azure AD) usuários, usuários pessoais conta Microsoft e Azure AD B2C usuários. Ele também pode adquirir tokens para chamar uma API da Web em seu nome. Para implementar esses fluxos, usaremos a MSAL (biblioteca de autenticação da Microsoft). O MSAL implementa o fluxo de código de autorização padrão do setor [OAuth 2.0](v2-oauth2-auth-code-flow.md).
 
 ![Aplicativos Daemon](./media/scenarios/mobile-app.svg)
 
@@ -60,7 +53,10 @@ Tenha em mente as seguintes considerações ao criar um aplicativo móvel na pla
 - No iOS e no Android, o MSAL pode usar um navegador externo para conectar usuários. O navegador externo pode aparecer na parte superior do seu aplicativo.
 - Nunca use um segredo em um aplicativo móvel. Nesses aplicativos, os segredos podem ser acessados por todos os usuários.
 
+## <a name="recommended-reading"></a>Leitura recomendada
+
+[!INCLUDE [recommended-topics](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
+
 ## <a name="next-steps"></a>Próximas etapas
 
-> [!div class="nextstepaction"]
-> [Registro de aplicativo](scenario-mobile-app-registration.md)
+Vá para o próximo artigo neste cenário, registro de [aplicativo](scenario-mobile-app-registration.md).

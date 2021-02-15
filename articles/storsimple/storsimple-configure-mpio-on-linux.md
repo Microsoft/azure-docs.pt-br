@@ -7,12 +7,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 06/12/2019
 ms.author: alkohli
-ms.openlocfilehash: 3ce84d3c03c2a24406629b8687c4fb8973809166
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 2b7ddf6423db4c471ee2065635f4e3e89f7eb7b2
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88183625"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98745726"
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>Configurar o MPIO em um host do StorSimple executando o CentOS
 Este artigo explica as etapas necessárias para a configuração do Multipathing IO (MPIO) em seu servidor host do Centos 6.6. O servidor host está conectado ao dispositivo Microsoft Azure StorSimple para alta disponibilidade por meio de iniciadores iSCSI. Ele descreve detalhadamente a descoberta automática de dispositivos de vários caminhos e a configuração específica somente para volumes do StorSimple.
@@ -21,7 +21,6 @@ Este procedimento é aplicável a todos os modelos de dispositivos da série Sto
 
 > [!NOTE]
 > Este procedimento não pode ser usado para um Dispositivo de Nuvem StorSimple. Para saber mais, veja como configurar servidores host para seu dispositivo de nuvem.
-
 
 ## <a name="about-multipathing"></a>Sobre vários caminhos
 O recurso de vários caminhos permite configurar vários caminhos de E/S entre um servidor host e um dispositivo de armazenamento. Esses caminhos de E/S são conexões físicas da SAN que podem incluir cabos, switches, interfaces de rede e controladores separados. Vários caminhos agregam os caminhos de E/S para a configuração de um novo dispositivo associado a todos os caminhos agregados.
@@ -51,7 +50,7 @@ O arquivo multipath.conf tem cinco seções:
 
 - **System level defaults** *(defaults)*: você pode substituir os padrões no nível do sistema.
 - **Blacklisted devices** *(blacklist)*: você pode especificar a lista de dispositivos que não devem ser controlados pelo device-mapper.
-- **Blacklist exceptions** *(blacklist_exceptions)*: você pode identificar dispositivos específicos a serem tratados como dispositivos de vários caminhos, mesmo se relacionados na lista negra.
+- **Exceções de lista negra** *(blacklist_exceptions)*: você pode identificar dispositivos específicos a serem tratados como dispositivos de vários caminhos, mesmo se listados na lista de bloqueios.
 - **Storage controller specific settings** *(devices)*: você pode especificar as definições de configuração que serão aplicadas a dispositivos com informações sobre o fornecedor e o produto.
 - **Device specific settings** *(multipaths)*: você pode usar esta seção para ajustar as definições de configuração para LUNs individuais.
 
@@ -212,12 +211,12 @@ Os dispositivos multipath-supported podem ser automaticamente descobertos e conf
     ```
 
 ### <a name="step-2-configure-multipathing-for-storsimple-volumes"></a>Etapa 2: Configurar vários caminhos para volumes StorSimple
-Por padrão, todos os dispositivos estão na lista negra no arquivo multipath.conf e serão ignorados. Será necessário criar exceções de lista negra para permitir vários caminhos para volumes desde dispositivos StorSimple.
+Por padrão, todos os dispositivos são incluídos no arquivo de vários caminhos. conf e serão ignorados. Você precisará criar exceções de blocklist para permitir vários caminhos para volumes de dispositivos StorSimple.
 
 1. Edite o arquivo `/etc/mulitpath.conf`. Tipo:
    
     `vi /etc/multipath.conf`
-1. Localize a seção blacklist_exceptions no arquivo multipath.conf. Seu dispositivo StorSimple precisa estar relacionado como uma exceção de lista negra nesta seção. Você pode retirar o comentário de linhas relevantes neste arquivo para modificá-lo como mostrado abaixo (use somente o modelo específico do dispositivo que você estiver usando):
+1. Localize a seção blacklist_exceptions no arquivo multipath.conf. Seu dispositivo StorSimple precisa ser listado como uma exceção de lista de bloqueios nesta seção. Você pode retirar o comentário de linhas relevantes neste arquivo para modificá-lo como mostrado abaixo (use somente o modelo específico do dispositivo que você estiver usando):
    
     ```config
     blacklist_exceptions {
@@ -336,23 +335,23 @@ Esta seção fornece algumas dicas úteis se você tiver algum problema durante 
 
 Q. Não vejo as alterações no arquivo `multipath.conf` entrarem em vigor.
 
-A. Se você tiver alguma alteração no arquivo `multipath.conf` , precisará reiniciar o serviço de vários caminhos. Digite o seguinte comando:
+a. Se você tiver alguma alteração no arquivo `multipath.conf` , precisará reiniciar o serviço de vários caminhos. Digite o seguinte comando:
 
 `service multipathd restart`
 
 Q. Habilitei duas interfaces de rede no dispositivo StorSimple e duas interfaces de rede no host. Quando eu listo os caminhos disponíveis, vejo apenas dois caminhos. Eu esperava ver quatro caminhos disponíveis.
 
-A. Verifique se os dois caminhos estão na mesma sub-rede e se são roteáveis. Se as interfaces de rede estiverem em vLANs diferentes e se não forem roteáveis, você verá somente dois caminhos. Uma maneira de verificar isso é garantir que você possa acessar as interfaces de host de uma interface de rede no dispositivo StorSimple. Você precisará [contatar o Suporte da Microsoft](storsimple-8000-contact-microsoft-support.md) , já que essa verificação só poderá ser feita por meio de uma sessão de suporte.
+a. Verifique se os dois caminhos estão na mesma sub-rede e se são roteáveis. Se as interfaces de rede estiverem em vLANs diferentes e se não forem roteáveis, você verá somente dois caminhos. Uma maneira de verificar isso é garantir que você possa acessar as interfaces de host de uma interface de rede no dispositivo StorSimple. Você precisará [contatar o Suporte da Microsoft](storsimple-8000-contact-microsoft-support.md) , já que essa verificação só poderá ser feita por meio de uma sessão de suporte.
 
 Q. Quando eu listo os caminhos disponíveis, não vejo nenhuma saída.
 
-A. Normalmente, não ver nenhum caminho com vários caminhos sugere um problema com o daemon de vários caminhos, e é mais provável que qualquer problema aqui esteja no `multipath.conf` arquivo.
+a. Normalmente, não ver nenhum caminho com vários caminhos sugere um problema com o daemon de vários caminhos, e é mais provável que qualquer problema aqui esteja no `multipath.conf` arquivo.
 
 Também vale a pena verificar se você realmente pode ver alguns discos depois de se conectar ao destino, pois nenhuma resposta das listagens de vários caminhos também pode significar que você não tem discos.
 
 * Use o comando a seguir para examinar novamente o barramento SCSI:
   
-    `$ rescan-scsi-bus.sh`(parte do pacote sg3_utils)
+    `$ rescan-scsi-bus.sh` (parte do pacote sg3_utils)
 * Digite os seguintes comandos:
   
     `$ dmesg | grep sd*`
@@ -377,9 +376,9 @@ Repita esse comando para todas as interfaces de rede conectadas no destino iSCSI
 `iscsiadm -m node --login -T <TARGET_IQN>`
 
 
-Q. Não sei se meu dispositivo está na lista branca.
+Q. Não tenho certeza se meu dispositivo é permitido.
 
-A. Para verificar se seu dispositivo está na lista branca, use o seguinte comando interativo de solução de problemas:
+a. Para verificar se o dispositivo é permitido, use o seguinte comando interativo de solução de problemas:
 
 ```console
 multipathd -k
@@ -423,7 +422,7 @@ dm-3 devnode blacklisted, unmonitored
 Para obter mais informações, acesse [solução de problemas para vários caminhos](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/dm_multipath/mpio_admin-troubleshoot).
 
 ## <a name="list-of-useful-commands"></a>Lista de comandos úteis
-| Type | Comando | Descrição |
+| Tipo | Comando | Descrição |
 | --- | --- | --- |
 | **iSCSI** |`service iscsid start` |Iniciar o serviço iSCSI |
 | &nbsp; |`service iscsid stop` |Parar o serviço iSCSI |
@@ -449,4 +448,3 @@ Já que você está configurando o MPIO no host Linux, talvez também seja neces
 
 * [Configurando o MPIO no CentOS](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/dm_multipath/index)
 * [Guia de treinamento do Linux](http://linux-training.be/linuxsys.pdf)
-

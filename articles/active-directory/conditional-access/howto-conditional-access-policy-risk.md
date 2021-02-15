@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c6e3316afc09992d16e17d9d2e2afe6b92dcd22
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: a09c4513206bea3462577ecba49b5d77b655b0e0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89049036"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91628257"
 ---
 # <a name="conditional-access-sign-in-risk-based-conditional-access"></a>Acesso condicional: acesso condicional com base em risco de entrada
 
@@ -32,12 +32,12 @@ Há dois locais em que essa política pode ser atribuída. As organizações dev
 1. Procure **Azure Active Directory** > **Segurança** > **Acesso Condicional**.
 1. Selecione **Nova política**.
 1. Dê um nome à sua política. Recomendamos que as organizações criem um padrão significativo para os nomes de suas políticas.
-1. Em **Atribuições**, selecione **Usuários e grupos**.
+1. Em **Atribuições**, selecione **Usuários e Grupos**.
    1. Em **Incluir**, selecione **Todos os usuários**.
    1. Em **Excluir**, selecione **Usuários e grupos** e escolha o acesso de emergência ou as contas de interrupção da sua organização. 
    1. Selecione **Concluído**.
 1. Em **aplicativos de nuvem ou ações**  >  **incluem**, selecione **todos os aplicativos de nuvem**.
-1. Em **condições**  >  **risco do usuário**, defina **Configurar** como **Sim**. Em **selecionar o nível de risco de entrada ao qual esta política será aplicada** 
+1. Em **Conditions**  >  **risco de entrada**de condições, defina **Configurar** como **Sim**. Em **selecionar o nível de risco de entrada ao qual esta política será aplicada** 
    1. Selecione **alta** e **média**.
    1. Selecione **Concluído**.
 1. Em **Controles de acesso** > **Conceder**, selecione **Conceder acesso**, **Exigir autenticação multifator** e selecione **Selecionar**.

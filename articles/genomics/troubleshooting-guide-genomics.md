@@ -11,11 +11,11 @@ ms.workload: genomics
 ms.topic: troubleshooting
 ms.date: 10/29/2018
 ms.openlocfilehash: c508c10d619cde1a16d89b446c5cfd1a3ce81daf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82100899"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023816"
 ---
 # <a name="troubleshooting-guide"></a>Guia de Solução de Problemas
 
@@ -29,7 +29,7 @@ Confira algumas dicas de solução de problemas comuns que podem acontecer ao us
 1. Usando a linha de comando e digitando `msgen status`
 2. Examinando o conteúdo de standardoutput.txt.
 
-### <a name="1-using-the-command-line-msgen-status"></a>1. usando a linha de comando`msgen status`
+### <a name="1-using-the-command-line-msgen-status"></a>1. usando a linha de comando `msgen status`
 
 ```bash
 msgen status -u URL -k KEY -w ID 

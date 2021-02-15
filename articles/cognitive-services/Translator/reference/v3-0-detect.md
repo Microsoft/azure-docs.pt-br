@@ -3,19 +3,19 @@ title: Método de detecção de Tradutor
 titleSuffix: Azure Cognitive Services
 description: Identifique o idioma de um pedaço de texto com o método de detecção do tradutor de serviços cognitivas do Azure.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
-ms.author: swmachan
-ms.openlocfilehash: adfd91a3f82a83f6bb5e076247f1539029d5a04e
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.author: lajanuar
+ms.openlocfilehash: cb6660585b5f2b9ab56eaf863f1ec431e5e85109
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592280"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895519"
 ---
 # <a name="translator-30-detect"></a>Tradutor 3,0: detectar
 
@@ -48,8 +48,8 @@ Os cabeçalhos de solicitação incluem:
   <th width="20%">Cabeçalhos</th>
   <th>Descrição</th>
   <tr>
-    <td>Cabeçalho (s) de autenticação</td>
-    <td><em>Cabeçalho de solicitação obrigatório</em>.<br/>Veja <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">Opções disponíveis para autenticação</a>.</td>
+    <td>Cabeçalhos de autenticação</td>
+    <td><em>Cabeçalho de solicitação obrigatório</em>.<br/>Veja <a href="/azure/cognitive-services/translator/reference/v3-0-reference#authentication">Opções disponíveis para autenticação</a>.</td>
   </tr>
   <tr>
     <td>Tipo de conteúdo</td>
@@ -67,7 +67,7 @@ Os cabeçalhos de solicitação incluem:
 
 ## <a name="request-body"></a>Corpo da solicitação
 
-O corpo da solicitação é uma matriz JSON. Cada elemento da matriz é um objeto JSON com uma propriedade de cadeia de caracteres chamada `Text`. A detecção de idioma é aplicada ao valor da propriedade `Text`. Um corpo de solicitação de exemplo é semelhante a:
+O corpo da solicitação é uma matriz JSON. Cada elemento da matriz é um objeto JSON com uma propriedade de cadeia de caracteres chamada `Text`. A detecção de idioma é aplicada ao valor da propriedade `Text`. A detecção automática de idioma funciona melhor com texto de entrada mais longo. Um corpo de solicitação de exemplo é semelhante a:
 
 ```json
 [
@@ -78,7 +78,6 @@ O corpo da solicitação é uma matriz JSON. Cada elemento da matriz é um objet
 As seguintes limitações se aplicam:
 
 * A matriz pode ter no máximo 100 elementos.
-* O valor de texto de um elemento de matriz não pode exceder dez mil caracteres incluindo espaços.
 * Todo o texto incluído na solicitação não pode exceder 50 mil caracteres incluindo espaços.
 
 ## <a name="response-body"></a>Corpo da resposta
@@ -170,7 +169,7 @@ Veja a seguir os possíveis códigos de status HTTP retornados por uma solicita�
   </tr>
 </table> 
 
-Se ocorrer um erro, a solicitação também retornará uma resposta de erro JSON. O código de erro é um número de 6 dígitos que combina o código de status HTTP de 3 dígitos seguido por um número de 3 dígitos para categorizar ainda mais o erro. Códigos de erro comuns podem ser encontrados na [página de referência do tradutor v3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
+Se ocorrer um erro, a solicitação também retornará uma resposta de erro JSON. O código de erro é um número de 6 dígitos que combina o código de status HTTP de 3 dígitos seguido por um número de 3 dígitos para categorizar ainda mais o erro. Códigos de erro comuns podem ser encontrados na [página de referência do tradutor v3](./v3-0-reference.md#errors). 
 
 ## <a name="examples"></a>Exemplos
 

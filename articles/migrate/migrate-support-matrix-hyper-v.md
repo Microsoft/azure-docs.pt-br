@@ -1,14 +1,17 @@
 ---
 title: Suporte para avaliação do Hyper-V em migrações para Azure
 description: Saiba mais sobre o suporte à avaliação do Hyper-V com a avaliação do servidor de migrações para Azure
+author: rashi-ms
+ms.author: rajosh
+ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 06/14/2020
-ms.openlocfilehash: 3d55d71fc4e9551fa19afe8c3f37d31107e4d2e7
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 5b5c85b599f02cedc3bb1bda84c28ef2169c8e2d
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88641816"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96754038"
 ---
 # <a name="support-matrix-for-hyper-v-assessment"></a>Matriz de suporte para avaliação do Hyper-V
 
@@ -23,7 +26,7 @@ Para configurar a avaliação de VM do Hyper-V, você cria um projeto de migraç
 --- | ---
 **Limites de avaliação** | Você pode descobrir e avaliar até 35.000 VMs do Hyper-V em um único [projeto de migrações para Azure](migrate-support-matrix.md#azure-migrate-projects).
 **Limites do projeto** | Você pode criar vários projetos em uma assinatura do Azure. Além das VMs do Hyper-V, um projeto pode incluir VMs VMware e servidores físicos, até os limites de avaliação de cada um.
-**Descoberta** | O dispositivo de migrações para Azure pode descobrir até 5000 VMs do Hyper-V.<br/><br/> O dispositivo pode se conectar a até 300 hosts Hyper-V.
+**Discovery** | O dispositivo de migrações para Azure pode descobrir até 5000 VMs do Hyper-V.<br/><br/> O dispositivo pode se conectar a até 300 hosts Hyper-V.
 **Avaliação** | Você pode adicionar até 35.000 computadores em um único grupo.<br/><br/> Você pode avaliar até 35.000 VMs em uma única avaliação para um grupo.
 
 [Saiba mais](concepts-assessment-calculation.md) sobre as avaliações.
@@ -46,7 +49,7 @@ Para configurar a avaliação de VM do Hyper-V, você cria um projeto de migraç
 | :----------------------------- | :------------------- |
 | **Sistema operacional** | Todos os sistemas operacionais podem ser avaliados quanto à migração.  |
 | **Serviços de Integração**       | Os [Integration Services do Hyper-V](/virtualization/hyper-v-on-windows/reference/integration-services) devem estar em execução em VMs que você avaliar, a fim de capturar informações do sistema operacional. |
-
+| **Storage** | Disco local, DAS, JBOD, espaços de armazenamento, CSV, SMB. Há suporte para esse armazenamento de host Hyper-V no qual VHD/VHDX são armazenados. <br/> Há suporte para os controladores virtuais IDE e SCSI| 
 
 ## <a name="azure-migrate-appliance-requirements"></a>Requisitos de dispositivo para as Migrações para Azure
 
@@ -63,7 +66,7 @@ A tabela a seguir resume os requisitos de porta para avaliação.
 **Dispositivo** | **Conexão**
 --- | ---
 **Dispositivo** | Conexões de entrada na porta TCP 3389 para permitir conexões de área de trabalho remota para o dispositivo.<br/><br/> Conexões de entrada na porta 44368 para acessar remotamente o aplicativo de gerenciamento de dispositivos usando a URL: ``` https://<appliance-ip-or-name>:44368 ```<br/><br/> Conexões de saída nas portas 443 (HTTPS), para enviar metadados de descoberta e desempenho para migrações para Azure.
-**Host/cluster do Hyper-V** | Conexão de entrada na porta do WinRM 5985 (HTTP) para efetuar pull de metadados e dados de desempenho para VMs do Hyper-V usando uma sessão de modelo CIM (CIM).
+**Host/cluster do Hyper-V** | Conexão de entrada na porta do WinRM 5985 (HTTP) ou 5986 (HTTPS) para extrair metadados e dados de desempenho para VMs do Hyper-V usando uma sessão modelo CIM (CIM).
 
 ## <a name="agent-based-dependency-analysis-requirements"></a>Requisitos da análise de dependência baseada em agente
 
@@ -83,4 +86,4 @@ A [análise de dependência](concepts-dependency-visualization.md) ajuda a ident
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Preparar a avaliação de VM do Hyper-V](tutorial-prepare-hyper-v.md)
+[Preparar a avaliação de VM do Hyper-V](./tutorial-discover-hyper-v.md)

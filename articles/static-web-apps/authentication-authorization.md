@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 4c72a80b164e8ca1dd649503dcb968efd92be797
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e95cd313d341844eabf4f5c5feae8a8ca3dc9c2e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85297062"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91826551"
 ---
 # <a name="authentication-and-authorization-for-azure-static-web-apps-preview"></a>Autenticação e autorização para Versão Prévia do serviço Aplicativos Web Estáticos do Azure
 
@@ -107,7 +107,7 @@ Quando remover um usuário, tenha em mente os seguintes itens:
 
 Quando você concede consentimento a um aplicativo como um usuário final, o aplicativo tem acesso ao seu endereço de email ou ao seu nome de usuário, dependendo do provedor de identidade. Depois que essas informações são fornecidas, o proprietário do aplicativo decide como gerenciar informações de identificação pessoal.
 
-Os usuários finais precisam entrar em contato com os administradores de aplicativos Web individuais para revogar essas informações de seus sistemas.
+Os usuários finais precisam contatar os administradores de aplicativos Web individuais para revogar essas informações de seus sistemas.
 
 Para remover informações de identificação pessoal da plataforma de Aplicativos Web Estáticos do Azure e impedir que a plataforma forneça essas informações em solicitações futuras, envie uma solicitação usando a URL:
 

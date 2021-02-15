@@ -1,7 +1,7 @@
 ---
 title: 'Regressão Poisson: referência de módulo'
 titleSuffix: Azure Machine Learning
-description: Saiba como usar o módulo de regressão Poisson para criar um modelo de regressão Poisson.
+description: Saiba como usar o módulo regressão Poisson no designer de Azure Machine Learning para criar um modelo de regressão Poisson.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/13/2020
-ms.openlocfilehash: 6682d9426ed3fe011fe5c493ec34fcdf0a2b35b7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2dfd8b3d919f9eeb3e183135ef543f417c878977
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87095657"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420692"
 ---
-# <a name="poisson-regression"></a>Regressão Poisson
+# <a name="poisson-regression"></a>Regressão de Poisson
 
-Este artigo descreve um módulo no designer do Azure Machine Learning (versão prévia).
+Este artigo descreve um módulo no designer de Azure Machine Learning.
 
 Use este módulo para criar um modelo de regressão Poisson em um pipeline. A regressão Poisson é destinada à previsão de valores numéricos, normalmente conta. Portanto, você deve usar este módulo para criar seu modelo de regressão somente se os valores que você está tentando prever se ajustarem às seguintes condições:
 
@@ -29,7 +29,7 @@ Use este módulo para criar um modelo de regressão Poisson em um pipeline. A re
 - Uma distribuição Poisson é uma distribuição discreta; Portanto, não é significativo usar esse método com números não inteiros.
 
 > [!TIP]
-> Se o destino não for uma contagem, a regressão Poisson provavelmente não é um método apropriado. Tente [outros módulos de regressão no designer](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/module-reference#machine-learning-algorithms). 
+> Se o destino não for uma contagem, a regressão Poisson provavelmente não é um método apropriado. Tente [outros módulos de regressão no designer](./module-reference.md#machine-learning-algorithms). 
 
 Depois de configurar o método de regressão, você deve treinar o modelo usando um conjunto de um DataSet que contém exemplos do valor que você deseja prever. O modelo treinado pode então ser usado para fazer previsões.
 
@@ -49,7 +49,7 @@ Como a variável de resposta tem uma distribuição Poisson, o modelo faz difere
 
 ## <a name="how-to-configure-poisson-regression"></a>Como configurar a regressão Poisson
 
-1. Adicione o módulo **regressão Poisson** ao seu pipeline no designer (versão prévia). Você pode encontrar esse módulo em **algoritmos de Machine Learning**, na categoria **regressão** .
+1. Adicione o módulo **regressão Poisson** ao seu pipeline no designer. Você pode encontrar esse módulo em **algoritmos de Machine Learning** , na categoria **regressão** .
 
 2. Adicione um DataSet que contém dados de treinamento do tipo correto. 
 
@@ -57,13 +57,13 @@ Como a variável de resposta tem uma distribuição Poisson, o modelo faz difere
 
 3. No painel direito do módulo **regressão Poisson** , especifique como você deseja que o modelo seja treinado, definindo a opção **criar modo de instrutor** .  
   
-    - **Parâmetro único**: se você souber como deseja configurar o modelo, forneça um conjunto específico de valores como argumentos.
+    - **Parâmetro único** : se você souber como deseja configurar o modelo, forneça um conjunto específico de valores como argumentos.
   
-    - **Intervalo de parâmetros**: se você não tiver certeza dos melhores parâmetros, faça uma limpeza de parâmetro usando o módulo [ajustar hiperparâmetros de modelo](tune-model-hyperparameters.md) . O instrutor itera em vários valores que você especifica para encontrar a configuração ideal.
+    - **Intervalo de parâmetros** : se você não tiver certeza dos melhores parâmetros, faça uma limpeza de parâmetro usando o módulo [ajustar hiperparâmetros de modelo](tune-model-hyperparameters.md) . O instrutor itera em vários valores que você especifica para encontrar a configuração ideal.
   
-4. **Tolerância de otimização**: digite um valor que defina o intervalo de tolerância durante a otimização. Quanto menor o valor, mais lento e mais preciso o ajuste.
+4. **Tolerância de otimização** : digite um valor que defina o intervalo de tolerância durante a otimização. Quanto menor o valor, mais lento e mais preciso o ajuste.
 
-5. Peso de **regularização de L1** e **peso de regularização L2**: digite valores a serem usados para regularização de L1 e L2. A *Regularização* adiciona restrições ao algoritmo sobre aspectos do modelo que são independentes dos dados de treinamento. A regularização também é usada para evitar o sobreajuste. 
+5. Peso de **regularização de L1** e **peso de regularização L2** : digite valores a serem usados para regularização de L1 e L2. A *Regularização* adiciona restrições ao algoritmo sobre aspectos do modelo que são independentes dos dados de treinamento. A regularização também é usada para evitar o sobreajuste. 
 
     - A regularização L1 será útil se o objetivo for ter um modelo que seja o mais esparso possível.
 
@@ -73,9 +73,9 @@ Como a variável de resposta tem uma distribuição Poisson, o modelo faz difere
 
     Neste módulo, você pode aplicar uma combinação de regularizações L1 e L2. Combinando a regularização L1 e L2, você pode impor uma penalidade na magnitude dos valores de parâmetro. O aprendiz tenta minimizar a penalização, em um compromisso com minimização de perda.
 
-    Para obter uma boa discussão sobre a regularização de L1 e L2, consulte [regularização de L1 e L2 para Machine Learning](https://msdn.microsoft.com/magazine/dn904675.aspx).
+    Para obter uma boa discussão sobre a regularização de L1 e L2, consulte [regularização de L1 e L2 para Machine Learning](/archive/msdn-magazine/2015/february/test-run-l1-and-l2-regularization-for-machine-learning).
 
-6. **Tamanho da memória para L-BFGS**: Especifique a quantidade de memória a ser reservada para ajuste e otimização do modelo.
+6. **Tamanho da memória para L-BFGS** : Especifique a quantidade de memória a ser reservada para ajuste e otimização do modelo.
 
      L-BFGS é um método específico para otimização, com base no algoritmo Broyden – Fletcher – Goldfarb – Shanno (BFGS). O método usa uma quantidade limitada de memória (L) para calcular a direção da próxima etapa.
 
@@ -83,9 +83,9 @@ Como a variável de resposta tem uma distribuição Poisson, o modelo faz difere
 
 7. Conecte o conjunto de e-o de treinamento e o modelo não treinado a um dos módulos de treinamento: 
 
-    - Se você definir **criar modo de instrutor** como **um único parâmetro**, use o módulo [treinar modelo](train-model.md) .
+    - Se você definir **criar modo de instrutor** como **um único parâmetro** , use o módulo [treinar modelo](train-model.md) .
 
-    - Se você definir **criar modo de instrutor** como **intervalo de parâmetros**, use o módulo [ajustar hiperparâmetros de modelo](tune-model-hyperparameters.md) .
+    - Se você definir **criar modo de instrutor** como **intervalo de parâmetros** , use o módulo [ajustar hiperparâmetros de modelo](tune-model-hyperparameters.md) .
 
     > [!WARNING]
     > 
@@ -105,4 +105,4 @@ Após a conclusão do treinamento:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Confira o [conjunto de módulos disponíveis](module-reference.md) no Azure Machine Learning. 
+Confira o [conjunto de módulos disponíveis](module-reference.md) no Azure Machine Learning.

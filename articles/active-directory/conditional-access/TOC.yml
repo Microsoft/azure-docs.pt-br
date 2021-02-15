@@ -10,7 +10,7 @@
       href: require-tou.md
 - name: Tutoriais
   items:
-    - name: Exigir autenticação multifator do Azure
+    - name: Exigir a Autenticação Multifator do Azure AD
       href: ../authentication/tutorial-enable-azure-mfa.md?toc=/azure/active-directory/conditional-access/toc.json&bc=/azure/active-directory/conditional-access/breadcrumb/toc.json
 - name: Conceitos
   expanded: false
@@ -33,8 +33,6 @@
           href: concept-conditional-access-grant.md
         - name: Session
           href: concept-conditional-access-session.md
-    - name: Insights e relatórios
-      href: howto-conditional-access-insights-reporting.md
     - name: Modo somente relatório
       href: concept-conditional-access-report-only.md
     - name: Dependências de serviço
@@ -43,6 +41,8 @@
       href: location-condition.md
     - name: Ferramenta condicional
       href: what-if-tool.md
+    - name: Avaliação contínua de acesso
+      href: concept-continuous-access-evaluation.md
     - name: Controles personalizados
       href: controls.md
     - name: Migrações de políticas clássicas
@@ -52,8 +52,8 @@
   items:
     - name: Planejar sua implantação de acesso condicional
       href: plan-conditional-access.md
-    - name: Práticas recomendadas
-      href: best-practices.md
+    - name: APIs de Acesso Condicional
+      href: howto-conditional-access-apis.md
     - name: Políticas de Acesso Condicional Comum
       items:
         - name: Bloquear a autenticação herdada
@@ -78,6 +78,8 @@
           href: howto-conditional-access-policy-block-access.md
     - name: Bloquear a autenticação herdada
       href: block-legacy-authentication.md
+    - name: Configurar o modo somente relatório
+      href: howto-conditional-access-insights-reporting.md
     - name: Requer aplicativos de cliente aprovados
       href: app-based-conditional-access.md
     - name: Requer política de proteção do aplicativo
@@ -88,12 +90,8 @@
       href: untrusted-networks.md
     - name: Requerer termos de uso
       href: terms-of-use.md
-    - name: Configurar o modo somente relatório
-      href: howto-conditional-access-report-only.md
     - name: Frequência de entrada e controles de persistência do navegador
       href: howto-conditional-access-session-lifetime.md
-    - name: Migrar políticas clássicas
-      href: policy-migration-mfa.md
     - name: Solução de problemas
       items:
         - name: Solucionar problemas de entrada
@@ -102,6 +100,8 @@
           href: troubleshoot-conditional-access-what-if.md
         - name: Perguntas frequentes
           href: faqs.md
+    - name: Migrar políticas clássicas
+      href: policy-migration-mfa.md
 - name: Referência
   items:
     - name: APIs beta do Graph

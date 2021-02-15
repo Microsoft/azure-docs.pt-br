@@ -1,10 +1,10 @@
 ### YamlMime:Hub
 title: Documentação dos Serviços de Mídia do Azure
-summary: Os Serviços de Mídia do Azure são uma plataforma de fluxo de trabalho de mídia baseada em nuvem que permite que você crie soluções que exigem codificação, empacotamento, proteção de conteúdo e transmissão de eventos ao vivo.
+summary: Os Serviços de Mídia do Azure são uma coleção de serviços de fluxo de trabalho de mídia de nuvem e de borda que permitem criar soluções que exigem análise de vídeo ao vivo e em lote, transcodificação, serviços de entrega de vários dispositivos, proteção de conteúdo e transmissão de eventos ao vivo em escala.
 brand: azure
 metadata:
   title: Documentação dos Serviços de Mídia do Azure
-  description: Os Serviços de Mídia do Azure são uma plataforma de fluxo de trabalho de mídia baseada em nuvem que permite que você crie soluções que exigem codificação, empacotamento, proteção de conteúdo e transmissão de eventos ao vivo.
+  description: Os Serviços de Mídia do Azure são uma coleção de serviços de fluxo de trabalho de mídia de nuvem e de borda que permitem criar soluções que exigem análise de vídeo ao vivo e em lote, transcodificação, serviços de entrega de vários dispositivos, proteção de conteúdo e transmissão de eventos ao vivo em escala.
   services: media-services
   ms.service: media-services
   ms.subservice: 
@@ -13,12 +13,12 @@ metadata:
   author: Juliako
   ms.author: juliako
   ms.date: 07//2020
-  ms.openlocfilehash: d6f78b4494a16a0522f93658b063d157819c519e
-  ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+  ms.openlocfilehash: b2fa1520bf73dcd1608c0f3494f4ccc1a3b13be2
+  ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 08/06/2020
-  ms.locfileid: "87826136"
+  ms.lasthandoff: 01/22/2021
+  ms.locfileid: "98695655"
 highlightedContent:
   items:
   - title: Sobre os Serviços de Mídia do Azure v3
@@ -44,7 +44,7 @@ highlightedContent:
     url: ./previous/media-services-overview.md
   - title: Migrar os Serviços de Mídia v2 para v3
     itemType: concept
-    url: ./latest/migrate-from-v2-to-v3.md
+    url: ./latest/migrate-v-2-v-3-migration-introduction.md
 conceptualContent:
   items:
   - title: Desenvolver com a API dos Serviços de Mídia v3

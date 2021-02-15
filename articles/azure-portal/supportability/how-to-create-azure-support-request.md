@@ -1,20 +1,15 @@
 ---
-title: Como criar uma solicitação de suporte do Azure | Microsoft Docs
+title: Como criar uma solicitação de suporte do Azure
 description: Os clientes que precisam de assistência podem usar o portal do Azure para encontrar soluções de autoatendimento e para criar e gerenciar solicitações de suporte.
-services: Azure Supportability
-author: mgblythe
-manager: scotthit
 ms.assetid: fd6841ea-c1d5-4bb7-86bd-0c708d193b89
-ms.service: azure-supportability
 ms.topic: how-to
 ms.date: 06/25/2020
-ms.author: mblythe
-ms.openlocfilehash: d8a480481e47995f9f819122a3e8cc0b0a21a254
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 11ca7925ce1664b5586ab8ec0fb523a2d562ee80
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85851885"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745580"
 ---
 # <a name="create-an-azure-support-request"></a>Como criar uma solicitação de suporte do Azure
 
@@ -39,9 +34,9 @@ O Azure fornece suporte ilimitado para o gerenciamento das assinaturas, que incl
 
 Você pode obter **Ajuda + suporte** no portal do Azure. Disponível no menu do portal do Azure, no cabeçalho global ou no menu de recursos de um serviço. Antes de poder arquivar uma solicitação de suporte, você deverá ter as permissões apropriadas.
 
-### <a name="role-based-access-control"></a>Controle de acesso baseado em função
+### <a name="azure-role-based-access-control"></a>Controle de acesso baseado em função do Azure
 
-Para criar uma solicitação de suporte, você deverá ser um [Proprietário](../../role-based-access-control/built-in-roles.md#owner), [Colaborador](../../role-based-access-control/built-in-roles.md#contributor) ou ser atribuído à função [Colaborador de solicitação de suporte](../../role-based-access-control/built-in-roles.md#support-request-contributor) no nível da assinatura. Para criar uma solicitação de suporte sem uma assinatura, por exemplo, um cenário de Azure Active Directory, você deve ser um [administrador](../../active-directory/users-groups-roles/directory-assign-admin-roles.md).
+Para criar uma solicitação de suporte, você deverá ser um [Proprietário](../../role-based-access-control/built-in-roles.md#owner), [Colaborador](../../role-based-access-control/built-in-roles.md#contributor) ou ser atribuído à função [Colaborador de solicitação de suporte](../../role-based-access-control/built-in-roles.md#support-request-contributor) no nível da assinatura. Para criar uma solicitação de suporte sem uma assinatura, por exemplo, um cenário de Azure Active Directory, você deve ser um [administrador](../../active-directory/roles/permissions-reference.md).
 
 ### <a name="go-to-help--support-from-the-global-header"></a>Vá para Ajuda + suporte no cabeçalho global
 
@@ -114,5 +109,5 @@ Siga estes links para saber mais:
 * [API REST do tíquete de suporte do Azure](/rest/api/support)
 * [Envie-nos seus comentários e sugestões](https://feedback.azure.com/forums/266794-support-feedback)
 * Entre em contato conosco no [Twitter](https://twitter.com/azuresupport)
-* Obter ajuda de seus colegas na [página de perguntas de P e R da Microsoft](https://docs.microsoft.com/answers/products/azure)
+* Obter ajuda de seus colegas na [página de perguntas de P e R da Microsoft](/answers/products/azure)
 * Saiba mais em [Perguntas frequentes sobre o suporte do Azure](https://azure.microsoft.com/support/faq)

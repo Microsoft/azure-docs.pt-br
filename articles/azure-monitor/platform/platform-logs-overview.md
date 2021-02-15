@@ -8,10 +8,10 @@ ms.date: 12/19/2019
 ms.author: bwren
 ms.subservice: logs
 ms.openlocfilehash: 6ea960e93dba634573ec1ef594f1d2c49be57ca9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84945300"
 ---
 # <a name="overview-of-azure-platform-logs"></a>Visão geral dos logs de plataforma do Azure
@@ -24,7 +24,7 @@ A tabela a seguir lista os logs de plataforma específicos que estão disponíve
 |:---|:---|:---|
 | [Logs de recursos](resource-logs.md) | Recursos do Azure | Forneça informações sobre as operações que foram executadas em um recurso do Azure (o *plano de dados*), por exemplo, obter um segredo de um Key Vault ou fazer uma solicitação para um banco de dado. O conteúdo dos logs de recursos varia de acordo com o serviço do Azure e o tipo de recurso.<br><br>*Os logs de recursos foram anteriormente referidos como logs de diagnóstico.*  |
 | [Log de atividades](activity-log.md) | Assinatura do Azure | Fornece informações sobre as operações em cada recurso do Azure na assinatura de fora (*o plano de gerenciamento*), além de atualizações em eventos de integridade do serviço. Use o log de atividades para determinar o _que_, _quem_e _quando_ para qualquer operação de gravação (put, post, Delete) realizada nos recursos em sua assinatura. Há um único log de atividades para cada assinatura do Azure. |
-| [Logs de Azure Active Directory](../../active-directory/reports-monitoring/overview-reports.md) | Locatário do Azure |  Contém o histórico de atividade de entrada e a trilha de auditoria das alterações feitas no Azure Active Directory para um locatário específico.   |
+| [Logs do Azure Active Directory](../../active-directory/reports-monitoring/overview-reports.md) | Locatário do Azure |  Contém o histórico de atividade de entrada e a trilha de auditoria das alterações feitas no Azure Active Directory para um locatário específico.   |
 
 > [!NOTE]
 > O Log de Atividades do Azure é usado principalmente para atividades que ocorrem no Azure Resource Manager. Ele não controla os recursos usando o modelo Clássico/RDFE. Alguns tipos de recursos Clássicos têm um provedor de recursos de proxy no Azure Resource Manager (por exemplo, Microsoft.ClassicCompute). Se você interagir com um tipo de recurso Clássico por meio do Azure Resource Manager usando esses provedores de recursos de proxy, as operações aparecerão no Log de Atividades. Se você interagir com um tipo de recurso clássico fora dos proxies do Azure Resource Manager, suas ações somente serão registradas no Log de Operação. O Log de Operação pode ser pesquisado em uma seção separada do portal.
@@ -46,14 +46,14 @@ Você pode enviar os logs da plataforma para um ou mais dos destinos na tabela a
 
 | Destino | Descrição |
 |:---|:---|
-| Workspace do Log Analytics | Analise os logs de todos os seus recursos do Azure juntos e aproveite todos os recursos disponíveis para [Azure monitor logs](data-platform-logs.md) , incluindo [consultas de log](../log-query/log-query-overview.md) e alertas de [log](alerts-log.md). Fixe os resultados de uma consulta de log em um painel do Azure ou inclua-os em uma pasta de trabalho como parte de um relatório interativo. |  |
+| Espaço de trabalho do Log Analytics | Analise os logs de todos os seus recursos do Azure juntos e aproveite todos os recursos disponíveis para [Azure monitor logs](data-platform-logs.md) , incluindo [consultas de log](../log-query/log-query-overview.md) e alertas de [log](alerts-log.md). Fixe os resultados de uma consulta de log em um painel do Azure ou inclua-os em uma pasta de trabalho como parte de um relatório interativo. |  |
 | Hub de Eventos | Envie dados de log da plataforma fora do Azure, por exemplo, para um SIEM de terceiros ou plataforma de telemetria personalizada.
 | Armazenamento do Azure | Arquive os logs para auditoria ou backup. |
 
 - Para obter detalhes sobre como criar uma configuração de diagnóstico para log de atividades ou logs de recursos, consulte [criar configurações de diagnóstico para enviar logs e métricas de plataforma para destinos diferentes](diagnostic-settings.md). 
 - Para obter detalhes sobre como criar uma configuração de diagnóstico para logs de Azure Active Directory, consulte os artigos a seguir.
   - [Integrar logs do Azure AD com logs de Azure Monitor](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
-  - [Tutorial: transmitir logs de Azure Active Directory para um hub de eventos do Azure](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md)
+  - [Tutorial: Transmitir logs do Azure Active Directory para um hub de eventos do Azure](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md)
   - [Tutorial: arquivar logs do Azure AD em uma conta de armazenamento do Azure](../../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md)
 
 

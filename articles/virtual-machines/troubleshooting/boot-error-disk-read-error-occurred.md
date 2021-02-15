@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 06/01/2020
 ms.author: v-miegge
-ms.openlocfilehash: f59903ed111be1fe414f4b3ded250d754c91d323
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 75d1cf8638f922bb0275322568eb1399db4f49e8
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87069149"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98629718"
 ---
 # <a name="troubleshoot-boot-error---disk-read-error-occurred"></a>Solucionar problemas de erro de inicialização – erro de leitura de disco
 
@@ -38,6 +38,9 @@ Essa mensagem de erro indica que a estrutura do disco está corrompida e ilegív
 ## <a name="solution"></a>Solução
 
 ### <a name="process-overview"></a>Visão geral do processo
+
+> [!TIP]
+> Se você tiver um backup recente da VM, poderá tentar [restaurar a VM do backup](../../backup/backup-azure-arm-restore-vms.md) para corrigir o problema de inicialização.
 
 1. Criar e acessar uma VM de reparo.
 1. Selecionar uma Solução:
@@ -119,7 +122,7 @@ Nas VMs de Geração 1 deve-se verificar primeiro se a partição do sistema ope
    REG LOAD HKLM\BROKENSYSTEM <VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config\SYSTEM
    ```
 
-   **Habilitar em ControlSet001**:
+   **Habilitar em ControlSet001:**
 
    ```
    REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 1 /f 
@@ -127,7 +130,7 @@ Nas VMs de Geração 1 deve-se verificar primeiro se a partição do sistema ope
    REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f 
    ```
 
-   **Habilitar em ControlSet002**:
+   **Habilitar em ControlSet002:**
 
    ```
    REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 1 /f 
@@ -135,7 +138,7 @@ Nas VMs de Geração 1 deve-se verificar primeiro se a partição do sistema ope
    REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f 
    ```
 
-   **Descarregar disco do sistema operacional danificado**:
+   **Descarregar disco do sistema operacional danificado:**
 
    ```
    REG UNLOAD HKLM\BROKENSYSTEM
@@ -143,4 +146,4 @@ Nas VMs de Geração 1 deve-se verificar primeiro se a partição do sistema ope
    
 ### <a name="rebuild-the-vm"></a>Recompilar a VM
 
-Use a [etapa 5 dos comandos de Reparo da VM](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) para remontar a VM.
+Use a [etapa 5 dos comandos de Reparo da VM](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) para recompilar a VM.

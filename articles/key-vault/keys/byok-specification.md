@@ -8,14 +8,14 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: conceptual
-ms.date: 05/29/2020
+ms.date: 02/04/2021
 ms.author: ambapat
-ms.openlocfilehash: 80796d852c07952b7100c6dd7802bc9279f3218c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 141abea0c0946c98b6dfe627f32f01682a18be44
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84198783"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581016"
 ---
 # <a name="bring-your-own-key-specification"></a>Especificação de Bring Your Own Key
 
@@ -33,9 +33,9 @@ A seguir estão os requisitos:
 
 |Nome da Chave|Tipo de Chave|Origem|Descrição|
 |---|---|---|---|
-|Chave de troca de chaves (KEK)|RSA|Azure Key Vault HSM|Um par de chaves RSA com suporte de HSM gerado em Azure Key Vault
+|KEK (Chave de Troca de Chaves)|RSA|HSM do Azure Key Vault|Um par de chaves RSA com suporte de HSM gerado em Azure Key Vault
 Chave de encapsulamento|AES|HSM do fornecedor|Uma chave AES [efêmeral] gerada pelo HSM local
-Chave de destino|RSA, EC, AES|HSM do fornecedor|A chave a ser transferida para o Azure Key Vault HSM
+Chave de destino|RSA, EC, AES (somente HSM gerenciado)|HSM do fornecedor|A chave a ser transferida para o HSM do Azure Key Vault
 
 **Chave de troca de chaves**: uma chave com suporte do HSM que o cliente gera no cofre de chaves em que a chave BYOK será importada. Este KEK deve ter as seguintes propriedades:
 
@@ -119,7 +119,7 @@ Se CKM_RSA_AES_KEY_WRAP_PAD for usado, a serialização JSON do blob de transfer
 
 ```
 
-* Kid = identificador de chave de KEK. Para Key Vault chaves, ela tem esta aparência:https://ContosoKeyVaultHSM.vault.azure.net/keys/mykek/eba63d27e4e34e028839b53fac905621
+* Kid = identificador de chave de KEK. Para Key Vault chaves, ela tem esta aparência: https://ContosoKeyVaultHSM.vault.azure.net/keys/mykek/eba63d27e4e34e028839b53fac905621
 * ALG = algoritmo. 
 * Dir = modo direto, ou seja, o filho referenciado é usado para proteger diretamente o texto cifrado, que é uma representação precisa do CKM_RSA_AES_KEY_WRAP
 * Generator = um campo informativo que denota o nome e a versão da ferramenta BYOK e o fabricante e modelo do HSM de origem. Essas informações são destinadas para uso em solução de problemas e suporte.
@@ -130,9 +130,16 @@ O blob JSON é armazenado em um arquivo com uma extensão ". byok" para que os c
 
 O cliente transferirá o blob de transferência de chave (arquivo ". byok") para uma estação de trabalho online e, em seguida, executará um comando **AZ keyvault Key Import** para importar esse blob como uma nova chave com suporte do HSM para Key Vault. 
 
+Para importar uma chave RSA, use este comando:
 ```azurecli
 az keyvault key import --vault-name ContosoKeyVaultHSM --name ContosoFirstHSMkey --byok-file KeyTransferPackage-ContosoFirstHSMkey.byok --ops encrypt decrypt
 ```
+Para importar uma chave do EC, você deve especificar o tipo de chave e o nome da curva.
+
+```azurecli
+az keyvault key import --vault-name ContosoKeyVaultHSM --name ContosoFirstHSMkey --byok-file --kty EC-HSM --curve-name "P-256" KeyTransferPackage-ContosoFirstHSMkey.byok --ops sign verify
+```
+
 
 Quando o comando acima é executado, ele resulta no envio de uma solicitação da API REST da seguinte maneira:
 
@@ -140,7 +147,7 @@ Quando o comando acima é executado, ele resulta no envio de uma solicitação d
 PUT https://contosokeyvaulthsm.vault.azure.net/keys/ContosoFirstHSMKey?api-version=7.0
 ```
 
-Corpo da solicitação:
+Corpo da solicitação ao importar uma chave RSA:
 ```json
 {
   "key": {
@@ -156,22 +163,29 @@ Corpo da solicitação:
   }
 }
 ```
+
+Corpo da solicitação ao importar uma chave do EC:
+```json
+{
+  "key": {
+    "kty": "EC-HSM",
+    "crv": "P-256",
+    "key_ops": [
+      "sign",
+      "verify"
+    ],
+    "key_hsm": "<Base64 encoded BYOK_BLOB>"
+  },
+  "attributes": {
+    "enabled": true
+  }
+}
+```
+
 o valor "key_hsm" é todo o conteúdo do KeyTransferPackage-ContosoFirstHSMkey. byok codificado no formato base64.
 
 ## <a name="references"></a>Referências
-
-### <a name="azure-key-vault-rest-api"></a>API REST do Azure Key Vault
-
-* [Chave Create](https://docs.microsoft.com/rest/api/keyvault/createkey/createkey)
-* [Obter chave (somente atributos de chave e chave pública)](https://docs.microsoft.com/rest/api/keyvault/getkey/getkey)
-* [Importar chave](https://docs.microsoft.com/rest/api/keyvault/importkey/importkey)
-
-
-### <a name="azure-cli-commands"></a>Comandos da CLI do Azure
-* [az keyvault key create](https://docs.microsoft.com/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-create)
-* [Download da chave AZ keyvault](https://docs.microsoft.com/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-download)
-* [importação de chave AZ keyvault](https://docs.microsoft.com/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-import)
-
+- [Guia do Desenvolvedor do Cofre de Chaves](../general/developers-guide.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 * Instruções BYOK passo a passo: [importar chaves protegidas por HSM para Key Vault (BYOK)](hsm-protected-keys-byok.md)

@@ -1,19 +1,16 @@
 ---
 title: Usar o Serviço de Kubernetes do Azure com Kafka no HDInsight
 description: Saiba como usar o Kafka no HDInsight a partir de imagens de contêiner hospedadas no AKS (Serviço de Kubernetes do Azure).
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/04/2019
-ms.openlocfilehash: baf350e23025342cc74b4d063d9a1604e8ad2ffd
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: d807b591229644984f6658cdacd0bf447759f292
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087415"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98933032"
 ---
 # <a name="use-azure-kubernetes-service-with-apache-kafka-on-hdinsight"></a>Usar o Serviço de Kubernetes do Azure com Apache Kafka no HDInsight
 
@@ -26,7 +23,7 @@ O [Apache Kafka](https://kafka.apache.org) é uma plataforma de streaming distri
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+* [CLI do Azure](/cli/azure/install-azure-cli)
 * Uma assinatura do Azure
 
 Este documento assume que você está familiarizado com a criação e utilização dos seguintes serviços do Azure:
@@ -94,7 +91,7 @@ Se você ainda não possui um cluster do AKS, use um dos documentos a seguir par
     |---|---|
     |Nome do emparelhamento de \<this VN> para rede virtual remota|Insira um nome exclusivo para essa configuração de emparelhamento.|
     |Rede virtual|selecione a rede virtual para o **cluster do AKS**.|
-    |Nome do emparelhamento de \<AKS VN> para\<this VN>|Insira um nome exclusivo.|
+    |Nome do emparelhamento de \<AKS VN> para \<this VN>|Insira um nome exclusivo.|
 
     Deixe todos os outros campos no valor padrão, em seguida, selecione __OK__ para configurar o emparelhamento.
 

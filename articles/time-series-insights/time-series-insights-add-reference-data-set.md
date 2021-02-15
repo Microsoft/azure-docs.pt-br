@@ -9,16 +9,19 @@ manager: diviso
 ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/12/2020
+ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 57e99dfd0cec4ee396cc90173f1f22715c7ba760
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: d80d97a609aa3a464b9b114439fe7f4058e287c3
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88168177"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001823"
 ---
 # <a name="create-a-reference-data-set-for-your-azure-time-series-insights-gen1-environment-using-the-azure-portal"></a>Criar um conjunto de dados de referência para seu ambiente de Azure Time Series Insights Gen1 usando o portal do Azure
+
+> [!CAUTION]
+> Esse é um artigo do Gen1.
 
 Este artigo descreve como adicionar um conjunto de dados de referência ao seu ambiente Azure Time Series Insights. É útil adicionar dados de referência em sua fonte de dados para aumentar os valores.
 
@@ -83,7 +86,7 @@ Os dados de referência não estão unidos retroativamente. Assim, somente os da
    > [!IMPORTANT]
    > Certifique-se de que os nomes de coluna de chave dos dados de referência correspondem exatamente ao nome do evento para seus dados de entrada, incluindo diferenciar maiúsculas de minúsculas. Os nomes de coluna não chave são usados para ampliar os dados de entrada com os valores de dados de referência correspondentes.
 
-1. Digite um valor no campo **Filtrar as linhas... ** para examinar linhas específicas, conforme necessário. O filtro é útil para análise de dados, mas não é aplicado ao carregar os dados.
+1. Digite um valor no campo **Filtrar as linhas...** para examinar linhas específicas, conforme necessário. O filtro é útil para análise de dados, mas não é aplicado ao carregar os dados.
 
 1. Nomeie o conjunto de dados, preenchendo o campo **Nome do conjunto de dados** acima da grade de dados.
 
@@ -104,7 +107,7 @@ Os dados de referência não estão unidos retroativamente. Assim, somente os da
     > [!WARNING]
     > Colunas ou Propriedades compartilhadas entre conjuntos de dados de referência exibirão um erro de carregamento de **nome de propriedade duplicado** . O erro não impedirá o upload bem-sucedido dos conjuntos de dados de referência. Ele pode ser removido por meio da combinação de linhas que compartilham o nome da propriedade duplicada.
 
-1. Selecione **Adicionar uma linha**, **importar linhas em massa**ou **Adicionar uma coluna** para adicionar mais valores de dados de referência, conforme necessário.
+1. Selecione **Adicionar uma linha**, **importar linhas em massa** ou **Adicionar uma coluna** para adicionar mais valores de dados de referência, conforme necessário.
 
     [![Adicione uma linha, importe linhas em massa ou adicione uma coluna.](media/add-reference-data-set/add-row-or-bulk-upload.png)](media/add-reference-data-set/add-row-or-bulk-upload.png#lightbox)
 
@@ -118,4 +121,4 @@ Os dados de referência não estão unidos retroativamente. Assim, somente os da
 
 - [Gerenciar dados de referência](time-series-insights-manage-reference-data-csharp.md) programaticamente.
 
-- Para obter a referência completa da API, leia documento [API de dados de referência](https://docs.microsoft.com/rest/api/time-series-insights/gen1-reference-data-api) .
+- Para obter a referência completa da API, leia documento [API de dados de referência](/rest/api/time-series-insights/gen1-reference-data-api) .

@@ -1,19 +1,16 @@
 ---
 title: Implantar e gerenciar topologias Apache Storm no Microsoft Azure HDInsight
 description: Saiba como implantar, monitorar e gerenciar topologias de Apache Storm usando o painel do Storm no HDInsight baseado em Linux. Use as ferramentas do Hadoop para Visual Studio.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/18/2019
-ms.openlocfilehash: 9b190b5847c7412344e2bb09fd4000985816219b
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 417819cad3bc2ee258381426dfcee7c800b69d42
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085728"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98929174"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-azure-hdinsight"></a>Implantar e gerenciar topologias Apache Storm no Microsoft Azure HDInsight
 
@@ -44,7 +41,7 @@ Você pode usar as ferramentas de Data Lake para Visual Studio para enviar topol
 
 1. Na janela **criar um novo projeto** , selecione a caixa Pesquisar e digite `Storm` . Em seguida, escolha **exemplo do Storm** na lista de resultados e selecione **Avançar**.
 
-1. Na janela **configurar seu novo projeto** , insira um **nome de projeto**e vá para ou crie um **local** para salvar o novo projeto. Em seguida, selecione **Criar**.
+1. Na janela **configurar seu novo projeto** , insira um **nome de projeto** e vá para ou crie um **local** para salvar o novo projeto. Em seguida, selecione **Criar**.
 
     ![Configurar sua nova janela de projeto, Visual Studio](./media/apache-storm-deploy-monitor-topology-linux/apache-storm-sample1.png)
 
@@ -80,7 +77,7 @@ Você pode usar as ferramentas de Data Lake para Visual Studio para enviar topol
 
 ## <a name="submit-a-topology-programmatically"></a>Enviar uma topologia programaticamente
 
-É possível implantar programaticamente uma topologia usando o serviço Nimbus. [https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology](https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology)fornece um exemplo de aplicativo Java que demonstra como implantar e iniciar uma topologia por meio do serviço Nimbus.
+É possível implantar programaticamente uma topologia usando o serviço Nimbus. [https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology](https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology) fornece um exemplo de aplicativo Java que demonstra como implantar e iniciar uma topologia por meio do serviço Nimbus.
 
 ## <a name="monitor-and-manage-a-topology-in-visual-studio"></a>Monitorar e gerenciar uma topologia no Visual Studio
 
@@ -224,11 +221,11 @@ Selecionar um spout nas seções **Spouts** ou **Bolts** exibirá as seguintes i
 | Resumo do componente | Informações básicas sobre o spout ou o bolt. |
 | Ações de componente | Botões **depurar** e **parar depuração** . |
 | Estatísticas de Spout ou estatísticas de raio | Estatísticas sobre o spout ou o bolt. Para definir o intervalo de tempo para uma entrada nesta seção, selecione seu link na coluna **janela** . |
-| (Somente raio)<br/>Estatísticas*de entrada (período)* | Informações sobre os fluxos de entrada consumidos pelo bolt. |
+| (Somente raio)<br/>Estatísticas *de entrada (período)* | Informações sobre os fluxos de entrada consumidos pelo bolt. |
 | Estatísticas *de saída (período)* | Informações sobre os fluxos emitidos pelo spout ou pelo bolt. |
-| Criação de perfil e depuração | Controles para criação de perfil e depuração dos componentes nesta página. Você pode definir o valor de **status/tempo limite (minutos)** e pode selecionar botões para **JStack**, **reiniciar o trabalho**e **heap**. |
+| Criação de perfil e depuração | Controles para criação de perfil e depuração dos componentes nesta página. Você pode definir o valor de **status/tempo limite (minutos)** e pode selecionar botões para **JStack**, **reiniciar o trabalho** e **heap**. |
 | Executores *(período)* | Informações sobre as instâncias do spout ou bolt. Para exibir um log das informações de diagnóstico produzidas para essa instância, selecione a entrada **porta** para um executor específico. Você também pode ver os recursos de trabalho associados a um executor específico selecionando seu link na coluna **host** . |
-| Erros | Qualquer informação de erro para o spout ou bolt. |
+| Errors | Qualquer informação de erro para o spout ou bolt. |
 
 A página de Resumo de parafusos do Storm é semelhante a esta página da Web:
 

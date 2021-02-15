@@ -1,22 +1,18 @@
 ---
 title: Automatizar a instalação do runtime de integração auto-hospedada usando scripts do PowerShell local
 description: Para automatizar a instalação do runtime de integração auto-hospedada em computadores locais.
-services: data-factory
-documentationcenter: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
-manager: anandsub
 ms.custom: seo-lt-2019
 ms.date: 05/09/2020
-ms.openlocfilehash: 068586a96ad3655cb70171266bd58f56ed320fc1
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 8cbe54a23cb1c8b55afd86a18b51c0e392c3f78a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83662854"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100376200"
 ---
 # <a name="automating-self-hosted-integration-runtime-installation-using-local-powershell-scripts"></a>Automatizar a instalação do runtime de integração auto-hospedada usando scripts do PowerShell local
 Para automatizar a instalação do runtime de integração auto-hospedada em computadores locais (além de VMs do Azure em que é possível aproveitar o modelo do Resource Manager em vez disso), é possível scripts do PowerShell local. Este artigo apresenta dois scripts que podem ser usados.
@@ -31,7 +27,7 @@ Para automatizar a instalação do runtime de integração auto-hospedada em com
 ## <a name="scripts-introduction"></a>Introdução a scripts 
 
 > [!NOTE]
-> Esses scripts são criados usando o [utilitário de linha de comando documentado](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime#set-up-an-existing-self-hosted-ir-via-local-powershell) no runtime de integração auto-hospedada. Se necessário, é possível personalizar esses scripts adequadamente para atender às suas necessidades de automação.
+> Esses scripts são criados usando o [utilitário de linha de comando documentado](./create-self-hosted-integration-runtime.md#set-up-an-existing-self-hosted-ir-via-local-powershell) no runtime de integração auto-hospedada. Se necessário, é possível personalizar esses scripts adequadamente para atender às suas necessidades de automação.
 > Os scripts precisam ser aplicados por nó, portanto, execute-o em todos os nós no caso de configuração de alta disponibilidade (2 ou mais nós).
 
 * Para automatizar a configuração: Instalar e registrar um novo nó de runtime de integração auto-hospedada usando **[InstallGatewayOnLocalMachine.ps1](https://github.com/nabhishek/SelfHosted-IntegrationRuntime_AutomationScripts/blob/master/InstallGatewayOnLocalMachine.ps1)** : o script pode ser usado para instalar o nó de runtime de integração auto-hospedada e registrá-lo com uma chave de autenticação. O script aceita dois argumentos, **primeiro** especificando o local do [runtime de integração auto-hospedada](https://www.microsoft.com/download/details.aspx?id=39717) em um disco local, **segundo** especificando a **chave de autenticação** (para registrar o nó IR auto-hospedado).

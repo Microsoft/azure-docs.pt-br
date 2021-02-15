@@ -9,10 +9,10 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: Kinect, sensor, visualizador, sincronização externa, atraso da fase, profundidade, RGB, câmera, cabo de áudio, gravador
 ms.openlocfilehash: 052f6f1ac9f90e764de25d1d4d1b25b3d50a848d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85276334"
 ---
 # <a name="use-azure-kinect-recorder-with-external-synchronized-devices"></a>Usar o gravador de Kinect do Azure com dispositivos sincronizados externos
@@ -118,7 +118,7 @@ Você pode usar o [Azure Kinect Viewer](azure-kinect-viewer.md) para reproduzir 
 
 Para problemas, consulte [solução de problemas](troubleshooting.md)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 - [Configurar a sincronização externa](https://support.microsoft.com/help/4494429/sync-multiple-devices)
 - [Gravador do Azure Kinect](azure-kinect-recorder.md) para configurações do gravador e informações adicionais.

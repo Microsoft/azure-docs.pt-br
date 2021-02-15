@@ -5,13 +5,13 @@ author: mumian
 ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 90d5c2688d20b62a4a5fda78eb67ed01777bc28c
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.custom: ''
+ms.openlocfilehash: 46b32ae7aeb971c9391a69e3ca3d01f669774248
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496875"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106896"
 ---
 # <a name="tutorial-use-azure-quickstart-templates"></a>Tutorial: Usar modelos de Início Rápido do Azure
 
@@ -34,10 +34,10 @@ Esse modelo funciona para implantar contas de armazenamento e planos do Serviço
 ## <a name="find-template"></a>Localizar modelo
 
 1. Abra [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/)
-1. Em **Pesquisar**, insira **implantar aplicativo Web Linux**.
-1. Selecione aquele com o título **Implantar um aplicativo Web Linux básico**. Se você tiver problemas para encontrá-lo, aqui está o [link direto](https://azure.microsoft.com/resources/templates/101-webapp-basic-linux/).
+1. Em **Pesquisar**, insira _implantar aplicativo Web Linux_.
+1. Selecione o bloco com o título **Implantar um aplicativo Web Linux básico**. Se você tiver problemas para encontrá-lo, aqui está o [link direto](https://azure.microsoft.com/resources/templates/101-webapp-basic-linux/).
 1. Selecione **Procurar no GitHub**.
-1. Selecione **azuredeploy.json**.
+1. Selecione _azuredeploy.json_.
 1. Examine o modelo. Em particular, procure o recurso `Microsoft.Web/sites`.
 
     ![Site de início rápido do modelo do Resource Manager](./media/template-tutorial-quickstart-template/resource-manager-template-quickstart-template-web-site.png)
@@ -48,15 +48,15 @@ Mescle o modelo de início rápido com o modelo existente:
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/quickstart-template/azuredeploy.json" range="1-108" highlight="32-45,49,85-100":::
 
-O nome do aplicativo Web precisa ser exclusivo no Azure. Para evitar a existência de nomes duplicados, a variável **webAppPortalName** foi atualizada por meio de **"webAppPortalName": "[concat(parameters('webAppName'), '-webapp')]"** to **"webAppPortalName": "[concat(parameters('webAppName'), uniqueString(resourceGroup().id))]"** .
+O nome do aplicativo Web precisa ser exclusivo no Azure. Para evitar a existência de nomes duplicados, a variável `webAppPortalName` foi atualizada por meio de `"webAppPortalName": "[concat(parameters('webAppName'), '-webapp')]"` to `"webAppPortalName": "[concat(parameters('webAppName'), uniqueString(resourceGroup().id))]"` .
 
 Adicione uma vírgula no final da definição de `Microsoft.Web/serverfarms` para separar a definição do recurso da definição de `Microsoft.Web/sites`.
 
 Há alguns recursos importantes a serem observados nesse novo recurso.
 
-Você notará que ele tem um elemento chamado **dependsOn** que é definido como o plano do Serviço de Aplicativo. Essa configuração é necessária porque o Plano do Serviço de Aplicativo deve existir antes que o aplicativo Web seja criado. O elemento **dependsOn** informa ao Resource Manager como ordenar os recursos para implantação.
+Você notará que ele tem um elemento chamado `dependsOn` definido como o plano do serviço de aplicativo. Essa configuração é necessária porque o Plano do Serviço de Aplicativo deve existir antes que o aplicativo Web seja criado. O elemento `dependsOn` informa ao Resource Manager como ordenar os recursos para implantação.
 
-A propriedade **serverFarmId** usa a função [resourceId](template-functions-resource.md#resourceid). Essa função obtém o identificador exclusivo de um recurso. Nesse caso, ela obtém o identificador exclusivo para o plano do Serviço de Aplicativo. O aplicativo Web está associado a um plano específico do Serviço de Aplicativo.
+A propriedade `serverFarmId` usa a função [resourceId](template-functions-resource.md#resourceid). Essa função obtém o identificador exclusivo de um recurso. Nesse caso, ela obtém o identificador exclusivo para o plano do Serviço de Aplicativo. O aplicativo Web está associado a um plano específico do Serviço de Aplicativo.
 
 ## <a name="deploy-template"></a>Implantar modelo
 
@@ -91,7 +91,7 @@ az deployment group create \
 ---
 
 > [!NOTE]
-> Se a implantação falhar, use a opção **debug** com o comando de implantação para mostrar os logs de depuração.  Use também a opção **verbose** para mostrar os logs de depuração completos.
+> Se a implantação falhar, use a opção `verbose` para obter informações sobre os recursos que estão sendo criados. Use a opção `debug` para obter mais informações de depuração.
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

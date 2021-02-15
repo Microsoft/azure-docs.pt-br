@@ -16,10 +16,10 @@ ms.date: 03/19/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: b459f44308827308c28687db3c3fc33df470ea8d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84790177"
 ---
 # <a name="create-or-update-azure-custom-roles-using-the-rest-api"></a>Criar ou atualizar funções personalizadas do Azure usando a API REST
@@ -61,7 +61,7 @@ Para listar funções personalizadas em um escopo, use as [definições de funç
 1. Dentro da URI, substitua *{scope}* pelo escopo para o qual você deseja listar as funções.
 
     > [!div class="mx-tableFixed"]
-    > | Escopo | Tipo |
+    > | Escopo | Type |
     > | --- | --- |
     > | `subscriptions/{subscriptionId1}` | Subscription |
     > | `subscriptions/{subscriptionId1}/resourceGroups/{resourceGroup1}` | Resource group |
@@ -88,7 +88,7 @@ Para obter informações sobre uma função personalizada por seu nome de exibi�
 1. Dentro da URI, substitua *{scope}* pelo escopo para o qual você deseja listar as funções.
 
     > [!div class="mx-tableFixed"]
-    > | Escopo | Tipo |
+    > | Escopo | Type |
     > | --- | --- |
     > | `subscriptions/{subscriptionId1}` | Subscription |
     > | `subscriptions/{subscriptionId1}/resourceGroups/{resourceGroup1}` | Resource group |
@@ -117,7 +117,7 @@ Para obter informações sobre uma função personalizada por seu identificador 
 1. Dentro da URI, substitua *{scope}* pelo escopo para o qual você deseja listar as funções.
 
     > [!div class="mx-tableFixed"]
-    > | Escopo | Tipo |
+    > | Escopo | Type |
     > | --- | --- |
     > | `subscriptions/{subscriptionId1}` | Subscription |
     > | `subscriptions/{subscriptionId1}/resourceGroups/{resourceGroup1}` | Resource group |
@@ -171,7 +171,7 @@ Para criar uma função personalizada, use [Definições de Função - Criar ou 
 1. Dentro da URI, substita *{scope}* pelo primeiro `assignableScopes` da função personalizada.
 
     > [!div class="mx-tableFixed"]
-    > | Escopo | Tipo |
+    > | Escopo | Type |
     > | --- | --- |
     > | `subscriptions/{subscriptionId1}` | Subscription |
     > | `subscriptions/{subscriptionId1}/resourceGroups/{resourceGroup1}` | Resource group |
@@ -240,7 +240,7 @@ Para atualizar uma função personalizada, use [Definições de Função - Criar
 1. Dentro da URI, substita *{scope}* pelo primeiro `assignableScopes` da função personalizada.
 
     > [!div class="mx-tableFixed"]
-    > | Escopo | Tipo |
+    > | Escopo | Type |
     > | --- | --- |
     > | `subscriptions/{subscriptionId1}` | Subscription |
     > | `subscriptions/{subscriptionId1}/resourceGroups/{resourceGroup1}` | Resource group |
@@ -330,7 +330,7 @@ Para excluir uma função personalizada, use [Definições de Função - Excluir
 1. Dentro da URI, substitua *{scope}* pelo escopo para o qual você deseja excluir a função personalizada.
 
     > [!div class="mx-tableFixed"]
-    > | Escopo | Tipo |
+    > | Escopo | Type |
     > | --- | --- |
     > | `subscriptions/{subscriptionId1}` | Subscription |
     > | `subscriptions/{subscriptionId1}/resourceGroups/{resourceGroup1}` | Resource group |
@@ -342,4 +342,4 @@ Para excluir uma função personalizada, use [Definições de Função - Excluir
 
 - [Funções personalizadas do Azure](custom-roles.md)
 - [Adicionar ou remover atribuições de função do Azure usando a API REST](role-assignments-rest.md)
-- [Referência da API REST do Azure](/rest/api/azure/)
+- [Referência de API REST do Azure](/rest/api/azure/)

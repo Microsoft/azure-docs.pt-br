@@ -1,23 +1,23 @@
 ---
 title: Como usar o provisionamento automático do Serviço de Provisionamento de Dispositivos no Hub IoT do Azure para registrar o MXChip IoT DevKit com o Hub IoT | Microsoft Docs
 description: Como usar o provisionamento automático do DPS (serviço de provisionamento de dispositivos) no Hub IoT do Azure para registrar o MXChip IoT DevKit com o Hub IoT.
-author: liydu
-ms.author: liydu
+author: wesmc7777
+ms.author: wesmc
 ms.date: 06/25/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: jeffya
-ms.openlocfilehash: f05e92f0452b1cfff23e2094354203fd7eaea48b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+manager: eliotgra
+ms.openlocfilehash: d6b6649d03da319171b24baa24983972bf270679
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74975645"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94954538"
 ---
 # <a name="use-azure-iot-hub-device-provisioning-service-auto-provisioning-to-register-the-mxchip-iot-devkit-with-iot-hub"></a>Use o provisionamento automático do Serviço de Provisionamento de Dispositivos no Hub IoT do Azure para registrar o MXChip IoT DevKit com o Hub IoT
 
-Este artigo descreve como usar o [provisionamento automático](concepts-auto-provisioning.md) do Serviço de Provisionamento de Dispositivos no Hub IoT do Azure para registrar o MXChip IoT DevKit com o Hub IoT do Azure. Neste tutorial, você aprenderá como:
+Este artigo descreve como usar o serviço de provisionamento de dispositivos no Hub IoT do Azure para [provisionar](about-iot-dps.md#provisioning-process) o MXChip IOT devkit para um hub IOT do Azure. Neste tutorial, você aprenderá como:
 
 * Configure o terminal global do serviço de provisionamento de dispositivos em um dispositivo.
 * Use UDS (Unique Device Secret) para gerar um certificado X.509.
@@ -30,9 +30,9 @@ O [ Kit de Desenvolvimento da IoT para MXChip](https://aka.ms/iot-devkit) é uma
 
 Para concluir as etapas neste tutorial, faça primeiro as tarefas a seguir:
 
-* Configure o Wi-Fi de seu DevKit e prepare seu ambiente de desenvolvimento seguindo a seção "preparar o ambiente de desenvolvimento" em [conectar o IOT DEVKIT AZ3166 ao Hub IOT do Azure na nuvem](/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started#prepare-the-development-environment).
+* Configure o Wi-Fi do seu DevKit e prepare seu ambiente de desenvolvimento seguindo as etapas da seção "preparar o ambiente de desenvolvimento" em [conectar o IOT DEVKIT AZ3166 ao Hub IOT do Azure na nuvem](../iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started.md#prepare-the-development-environment).
 * Atualize para o firmware mais recente (1.3.0 ou posterior) com o tutorial [Atualização do firmware do Kit de Desenvolvimento](https://microsoft.github.io/azure-iot-developer-kit/docs/firmware-upgrading/).
-* Crie e vincule um Hub IoT a uma instância do serviço de provisionamento de dispositivo seguindo as etapas em [Configurar o serviço de provisionamento de dispositivo do Hub IoT com o portal do Azure](/azure/iot-dps/quick-setup-auto-provision).
+* Crie e vincule um Hub IoT a uma instância do serviço de provisionamento de dispositivo seguindo as etapas em [Configurar o serviço de provisionamento de dispositivo do Hub IoT com o portal do Azure](./quick-setup-auto-provision.md).
 
 ## <a name="open-sample-project"></a>Abra um projeto de exemplo
 
@@ -45,7 +45,7 @@ Para concluir as etapas neste tutorial, faça primeiro as tarefas a seguir:
 
 ## <a name="save-a-unique-device-secret-on-device-security-storage"></a>Salve o Unique Device Secret no armazenamento de segurança do dispositivo
 
-O provisionamento automático pode ser configurado em um dispositivo baseado no [mecanismo de atestado](concepts-security.md#attestation-mechanism) do dispositivo. O Kit de Desenvolvimento da IoT para MXChip usa [Device Identity Composition Engine](https://trustedcomputinggroup.org/wp-content/uploads/Foundational-Trust-for-IOT-and-Resource-Constrained-Devices.pdf) do [ TCG (Trusted Computing Group)](https://trustedcomputinggroup.org). Um **Unique Device Secret** (UDS) salvo no circuito integrado de segurança ([STSAFE-A100](https://microsoft.github.io/azure-iot-developer-kit/docs/understand-security-chip/)) no DevKit é utilizado para gerar o [certificado X.509](concepts-security.md#x509-certificates) exclusivo do dispositivo. O certificado é usado posteriormente para o processo de inscrição no serviço de provisionamento de dispositivos e durante o registro em runtime.
+O provisionamento automático pode ser configurado em um dispositivo baseado no [mecanismo de atestado](concepts-service.md#attestation-mechanism) do dispositivo. O Kit de Desenvolvimento da IoT para MXChip usa [Device Identity Composition Engine](https://trustedcomputinggroup.org/wp-content/uploads/Foundational-Trust-for-IOT-and-Resource-Constrained-Devices.pdf) do [ TCG (Trusted Computing Group)](https://trustedcomputinggroup.org). Um **Unique Device Secret** (UDS) salvo no circuito integrado de segurança ([STSAFE-A100](https://microsoft.github.io/azure-iot-developer-kit/docs/understand-security-chip/)) no DevKit é utilizado para gerar o [certificado X.509](concepts-x509-attestation.md) exclusivo do dispositivo. O certificado é usado posteriormente para o processo de inscrição no serviço de provisionamento de dispositivos e durante o registro em runtime.
 
 Um UDS típico é uma cadeia de 64 caracteres como mostrado no exemplo a seguir:
 
@@ -74,7 +74,7 @@ Salvar uma UDS no Kit de desenvolvimento:
 
 ## <a name="update-the-global-device-endpoint-and-id-scope"></a>Atualizar o ponto de extremidade do dispositivo Global e o escopo da ID
 
-No código de dispositivo, você precisará especificar o [ponto de extremidade de provisionamento de dispositivos](/azure/iot-dps/concepts-service#device-provisioning-endpoint) e escopo da ID para garantir o isolamento de locatários.
+No código de dispositivo, você precisará especificar o [ponto de extremidade de provisionamento de dispositivos](./concepts-service.md#device-provisioning-endpoint) e escopo da ID para garantir o isolamento de locatários.
 
 1. No portal do Azure, selecione o painel **visão geral** do serviço de provisionamento de dispositivos e anote os valores do **ponto de extremidade do dispositivo global** e do **escopo da ID** .
   ![Endpoint global e escopo de ID do serviço de provisionamento de dispositivo](media/how-to-connect-mxchip-iot-devkit/dps-global-endpoint.png)
@@ -90,7 +90,7 @@ No código de dispositivo, você precisará especificar o [ponto de extremidade 
 
 ## <a name="generate-x509-certificate"></a>Gerar certificado X.509
 
-O [mecanismo de atestado](/azure/iot-dps/concepts-device#attestation-mechanism) usado por este exemplo é o certificado X.509. Você precisa usar um utilitário para gerá-lo.
+O [mecanismo de atestado](./concepts-service.md#attestation-mechanism) usado por este exemplo é o certificado X.509. Você precisa usar um utilitário para gerá-lo.
 
 1. No VS Code, clique em `F1`, digite e selecione **abrir Terminal novo** para abrir a janela de terminal.
 
@@ -141,4 +141,3 @@ Em resumo, você aprendeu a:
 > * Verifique se o dispositivo está registrado.
 
 Saiba como [Criar e provisionar um dispositivo simulado](./quick-create-simulated-device.md).
-

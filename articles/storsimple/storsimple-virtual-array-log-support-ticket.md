@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
-ms.openlocfilehash: 0ed8533b093c5af0d8aefdcd5175bed63f37a76c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 57cd9b55f529bde3f6bcb0a25a95c70333f6d8dd
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85507663"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005768"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-log-a-support-request-for-the-storsimple-virtual-array"></a>Usar o serviço do Gerenciador de Dispositivos StorSimple para registrar uma solicitação de Suporte para a Matriz Virtual StorSimple
 
@@ -35,7 +35,7 @@ Dependendo do seu [plano de suporte](https://azure.microsoft.com/support/plans/)
 
 1. Vá até o seu serviço do Gerenciador de Dispositivos StorSimple. Nas configurações de resumo de serviço, vá até a seção **SUPORTE + SOLUÇÃO DE PROBLEMAS** e, em seguida, clique em **Nova solicitação de suporte**.
    
-    ![Nova solicitação de suporte](./media/storsimple-virtual-array-log-support-ticket/log-support-ticket1.png)
+    ![Captura de tela mostra o painel básico para uma nova solicitação de suporte.](./media/storsimple-virtual-array-log-support-ticket/log-support-ticket1.png)
 
 2. Na folha **Básico**, faça o seguinte:
 
@@ -49,11 +49,11 @@ Dependendo do seu [plano de suporte](https://azure.microsoft.com/support/plans/)
 
 3. Em **Etapa 2**, escolha a **Severidade** e especifique se o problema está relacionado à matriz ou ao serviço do Gerenciador de Dispositivos StorSimple. Além disso, escolha uma **Categoria** para este problema e forneça mais **Detalhes** sobre o problema.
    
-    ![Nova solicitação de suporte](./media/storsimple-virtual-array-log-support-ticket/log-support-ticket2.png)
+    ![Captura de tela mostra o painel problema no qual você pode inserir o tipo de problema, a categoria e os detalhes da sua solicitação de suporte.](./media/storsimple-virtual-array-log-support-ticket/log-support-ticket2.png)
 
 4. Na **Etapa 3**, forneça suas informações de contato. O Microsoft Support usará essas informações para entrar em contato com você para obter mais informações, diagnóstico e resolução.
    
-    ![Nova solicitação de suporte](./media/storsimple-virtual-array-log-support-ticket/log-support-ticket3.png)
+    ![Captura de tela mostra o painel de informações de contato.](./media/storsimple-virtual-array-log-support-ticket/log-support-ticket3.png)
 
 ## <a name="manage-a-support-request"></a>Gerenciar uma solicitação de suporte
 

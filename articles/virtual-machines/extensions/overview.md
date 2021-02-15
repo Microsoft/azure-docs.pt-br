@@ -4,21 +4,22 @@ description: Saiba mais sobre extensões de VM do Azure
 services: virtual-machines
 author: amjads1
 ms.service: virtual-machines
+ms.subservice: extensions
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 08/03/2020
 ms.author: amjads
-ms.openlocfilehash: 73738f339bea3e8e075530e5de564c1c0854d283
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: dd3b713a027df80908e1a8a3ae53e8dc526d7d6e
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87552043"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96936940"
 ---
 # <a name="azure-virtual-machine-extensions-and-features"></a>Extensões e recursos da máquina virtual do Azure
 Extensões são pequenos aplicativos que fornecem configuração pós-implantação e automação em VMs do Azure. A plataforma Azure hospeda muitas extensões que abrangem aplicativos de configuração, monitoramento, segurança e utilitário da VM. Os editores usam um aplicativo, o encapsulam em uma extensão e simplificam a instalação. Tudo o que você precisa fazer é fornecer parâmetros obrigatórios. 
 
-## <a name="how-can-i-find-what-extensions-are-available"></a>Como localizar quais extensões estão disponíveis?
+## <a name="how-can-i-find-what-extensions-are-available"></a>Como posso encontrar quais extensões estão disponíveis?
 Você pode exibir as extensões disponíveis selecionando uma VM, selecionando **extensões** no menu à esquerda. Para efetuar pull de uma lista completa de extensões, consulte [descobrindo extensões de VM para Linux](features-linux.md) e [descobrindo extensões de VM para Windows](features-windows.md).
 
 ## <a name="how-can-i-install-an-extension"></a>Como instalar uma extensão?

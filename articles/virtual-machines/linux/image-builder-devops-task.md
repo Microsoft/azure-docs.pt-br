@@ -3,16 +3,16 @@ title: Tarefa DevOps do serviço do construtor de imagem do Azure
 description: A tarefa do Azure DevOps para injetar artefatos de compilação em uma imagem de VM para que você possa instalar e configurar seu aplicativo e sistema operacional.
 author: danielsollondon
 ms.author: danis
-ms.date: 08/10/2020
+ms.date: 01/27/2021
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: imaging
-ms.openlocfilehash: 9f948fcc8ad36f8bef8b1ab6a1b74131faea9bd3
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 56f1e78e0f2bbba15b50664b88bd8808731e6836
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88068084"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807607"
 ---
 # <a name="azure-image-builder-service-devops-task"></a>Tarefa DevOps do serviço do construtor de imagem do Azure
 
@@ -31,8 +31,8 @@ Há duas tarefas de DevOps do AIB (Construtor de imagens de VM) do Azure:
 * Instale a [tarefa DevOps estável de Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=AzureImageBuilder.devOps-task-for-azure-image-builder).
 * Você deve ter uma conta do VSTS DevOps e um pipeline de compilação criado
 * Registre e habilite os requisitos do recurso do Image Builder na assinatura usada pelos pipelines:
-    * [AZ PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder-powershell#register-features)
-    * [AZ CLI](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder#register-the-features)
+    * [AZ PowerShell](../windows/image-builder-powershell.md#register-features)
+    * [AZ CLI](../windows/image-builder.md#register-the-features)
     
 * Criar uma conta de armazenamento do Azure padrão no grupo de recursos de imagem de origem, você pode usar outras contas de armazenamento/grupo de recursos. A conta de armazenamento é usada para transferir os artefatos de compilação da tarefa DevOps para a imagem.
 
@@ -71,14 +71,14 @@ Use o grupo de recursos em que o artefato do modelo de imagem temporária será 
  
 ### <a name="location"></a>Location
 
-O local é a região em que o construtor de imagem será executado. Há suporte apenas para um número definido de [regiões](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder-overview#regions) . As imagens de origem devem estar presentes neste local. Por exemplo, se você estiver usando a Galeria de imagens compartilhadas, uma réplica deverá existir nessa região.
+O local é a região em que o construtor de imagem será executado. Há suporte apenas para um número definido de [regiões](../image-builder-overview.md#regions) . As imagens de origem devem estar presentes neste local. Por exemplo, se você estiver usando a Galeria de imagens compartilhadas, uma réplica deverá existir nessa região.
 
 ### <a name="managed-identity-required"></a>Identidade gerenciada (obrigatória)
-O Image Builder requer uma identidade gerenciada, que ela usa para ler imagens personalizadas de origem, conectar-se ao armazenamento do Azure e criar imagens personalizadas. Veja [aqui](https://aka.ms/azvmimagebuilder#permissions) para obter mais detalhes.
+O Image Builder requer uma identidade gerenciada, que ela usa para ler imagens personalizadas de origem, conectar-se ao armazenamento do Azure e criar imagens personalizadas. Veja [aqui](../image-builder-overview.md#permissions) para obter mais detalhes.
 
 ### <a name="vnet-support"></a>Suporte VNET
 
-Atualmente, a tarefa DevOps não dá suporte à especificação de uma sub-rede existente, isso está no roteiro, mas se você quiser utilizar uma VNET existente, poderá usar um modelo de ARM, com um modelo de construtor de imagem aninhado no, consulte os exemplos de modelo do Windows Image Builder sobre como isso é obtido ou, alternativamente, use [AZ AIB PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder-powershell).
+Atualmente, a tarefa DevOps não dá suporte à especificação de uma sub-rede existente, isso está no roteiro, mas se você quiser utilizar uma VNET existente, poderá usar um modelo de ARM, com um modelo de construtor de imagem aninhado no, consulte os exemplos de modelo do Windows Image Builder sobre como isso é obtido ou, alternativamente, use [AZ AIB PowerShell](../windows/image-builder-powershell.md).
 
 ### <a name="source"></a>Fonte
 
@@ -144,7 +144,7 @@ O exemplo a seguir explica como isso funciona:
 
 * Os arquivos do Windows existem no `C:\` . Um diretório chamado `buildArtifacts` é criado, o que inclui o `webapp` diretório.
 
-* Linux-os arquivos existem no `/tmp` . O `webapp` diretório é criado, o que inclui todos os arquivos e diretórios. Você deve mover os arquivos deste diretório. Caso contrário, eles serão excluídos, pois estão no diretório temporário.
+* Linux-os arquivos existem no  `/tmp` . O `webapp` diretório é criado, o que inclui todos os arquivos e diretórios. Você deve mover os arquivos deste diretório. Caso contrário, eles serão excluídos, pois estão no diretório temporário.
 
 #### <a name="inline-customization-script"></a>Script de personalização embutido
 
@@ -154,6 +154,12 @@ O exemplo a seguir explica como isso funciona:
     & 'c:\buildArtifacts\webapp\webconfig.ps1'
     ```
 
+   Você pode fazer referência a vários scripts ou adicionar mais comandos, por exemplo:
+
+    ```PowerShell
+    & 'c:\buildArtifacts\webapp\webconfig.ps1'
+    & 'c:\buildArtifacts\webapp\installAgent.ps1'
+    ```
 * Linux – em sistemas Linux, os artefatos de compilação são colocados no `/tmp` diretório. No entanto, em muitos sistemas operacionais Linux, em uma reinicialização, o conteúdo do diretório/tmp é excluído. Se você quiser que os artefatos existam na imagem, deverá criar outro diretório e copiá-los.  Por exemplo:
 
     ```bash
@@ -194,7 +200,7 @@ O exemplo a seguir explica como isso funciona:
     
 #### <a name="total-length-of-image-build"></a>Comprimento total da compilação da imagem
 
-O comprimento total não pode ser alterado na tarefa de pipeline DevOps ainda. Ele usa o padrão de 240 minutos. Se você quiser aumentar o [buildTimeoutInMinutes](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-json?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json&bc=%2Fazure%2Fvirtual-machines%2Fwindows%2Fbreadcrumb%2Ftoc.json#properties-buildtimeoutinminutes), poderá usar uma tarefa AZ CLI no pipeline de lançamento. Configure a tarefa para copiar um modelo e enviá-lo. Para obter um exemplo, consulte esta [solução](https://github.com/danielsollondon/azvmimagebuilder/tree/master/solutions/4_Using_ENV_Variables#using-environment-variables-and-parameters-with-image-builder)ou use AZ PowerShell.
+O comprimento total não pode ser alterado na tarefa de pipeline DevOps ainda. Ele usa o padrão de 240 minutos. Se você quiser aumentar o [buildTimeoutInMinutes](./image-builder-json.md#properties-buildtimeoutinminutes), poderá usar uma tarefa AZ CLI no pipeline de lançamento. Configure a tarefa para copiar um modelo e enviá-lo. Para obter um exemplo, consulte esta [solução](https://github.com/danielsollondon/azvmimagebuilder/tree/master/solutions/4_Using_ENV_Variables#using-environment-variables-and-parameters-with-image-builder)ou use AZ PowerShell.
 
 
 #### <a name="storage-account"></a>Conta de armazenamento
@@ -330,9 +336,9 @@ template name:  t_1556938436xxx
 
 ```
 
-O artefato de recurso do modelo de imagem está no grupo de recursos especificado inicialmente na tarefa. Quando você terminar de solucionar o problema, exclua o artefato. Se estiver excluindo usando o portal do Azure, dentro do grupo de recursos, selecione **Mostrar tipos ocultos**para exibir o artefato.
+O artefato de recurso do modelo de imagem está no grupo de recursos especificado inicialmente na tarefa. Quando você terminar de solucionar o problema, exclua o artefato. Se estiver excluindo usando o portal do Azure, dentro do grupo de recursos, selecione **Mostrar tipos ocultos** para exibir o artefato.
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações, consulte [visão geral do construtor de imagens do Azure](image-builder-overview.md).
+Para obter mais informações, consulte [visão geral do construtor de imagens do Azure](../image-builder-overview.md).

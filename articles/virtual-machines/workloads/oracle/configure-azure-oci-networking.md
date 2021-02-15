@@ -1,24 +1,19 @@
 ---
 title: Conectar o Azure ExpressRoute com a infraestrutura de nuvem do Oracle | Microsoft Docs
 description: Conectar o Azure ExpressRoute com o FastConnect de infraestrutura de nuvem da Oracle (OCI) para habilitar soluções de aplicativos Oracle entre nuvem
-documentationcenter: virtual-machines
-author: rgardler
-manager: ''
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
+author: dbakevlar
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
 ms.date: 03/16/2020
 ms.author: rogardle
-ms.openlocfilehash: 95f1f7b42b88baaab6d89192f226ca67962544fb
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.reviewer: cynthn
+ms.openlocfilehash: 2717ba307cac82465e0c5df996ef3b668af5e7d4
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86220466"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94963701"
 ---
 # <a name="set-up-a-direct-interconnection-between-azure-and-oracle-cloud-infrastructure"></a>Configurar uma interconexão direta entre o Azure e a infraestrutura de nuvem do Oracle  
 
@@ -49,7 +44,7 @@ A imagem a seguir mostra uma visão geral de alto nível da interconexão:
     * Um circuito do Azure ExpressRoute fornece opções de largura de banda granulares, enquanto FastConnect dá suporte a 1, 2, 5 ou 10 Gbps. Portanto, é recomendável escolher uma dessas opções de largura de banda correspondentes em ExpressRoute.
 
     ![Criar circuito de ExpressRoute](media/configure-azure-oci-networking/exr-create-new.png)
-1. Anote sua chave de **serviço**do ExpressRoute. Você precisa fornecer a chave ao configurar o circuito do FastConnect.
+1. Anote sua chave de **serviço** do ExpressRoute. Você precisa fornecer a chave ao configurar o circuito do FastConnect.
 
     ![Chave de serviço do ExpressRoute](media/configure-azure-oci-networking/exr-service-key.png)
 
@@ -96,7 +91,7 @@ Instalando agentes em ambas as nuvens, você pode aproveitar o Azure [Monitor de
 
 Para excluir a interconexão, as etapas a seguir devem ser seguidas, na ordem específica especificada. Se não fizer isso, isso resultará em um circuito de ExpressRoute de "estado de falha".
 
-1. Exclua a conexão do ExpressRoute. Exclua a conexão clicando no ícone **excluir** na página de sua conexão. Para obter mais informações, consulte a [documentação do ExpressRoute](../../../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md#delete-a-connection-to-unlink-a-vnet).
+1. Exclua a conexão do ExpressRoute. Exclua a conexão clicando no ícone **excluir** na página de sua conexão. Para obter mais informações, consulte a [documentação do ExpressRoute](../../../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md#clean-up-resources).
 1. Exclua o Oracle FastConnect do console de nuvem da Oracle.
 1. Depois que o circuito do Oracle FastConnect tiver sido excluído, você poderá excluir o circuito do Azure ExpressRoute.
 

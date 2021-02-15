@@ -1,14 +1,16 @@
 ---
 title: Recursos de aprendizado de máquina com LUIS
 description: Adicione recursos a um modelo de linguagem para fornecer dicas sobre como reconhecer a entrada que você deseja identificar ou classificar.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 06/10/2020
-ms.openlocfilehash: 02a6fd27dbe22a40b29b47515edec5506d3b2075
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 09/22/2020
+ms.openlocfilehash: 08ab71375171d4bb4167c725bc7118bec2e1ebfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075178"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91371976"
 ---
 # <a name="machine-learning-features"></a>Recursos de aprendizado de máquina
 
@@ -20,12 +22,10 @@ Um recurso pode ser descrito como uma função, como f (x) = y. No exemplo expre
 
 ## <a name="types-of-features"></a>Tipos de recursos
 
-O LUIS dá suporte a listas de frases e modelos como recursos:
+Os recursos são uma parte necessária do seu design de esquema. O LUIS dá suporte a listas de frases e modelos como recursos:
 
-* Recurso de lista de frases 
+* Recurso de lista de frases
 * Modelo (intenção ou entidade) como um recurso
-
-Os recursos devem ser considerados uma parte necessária do seu design de esquema.
 
 ## <a name="find-features-in-your-example-utterances"></a>Encontre recursos no seu exemplo declarações
 
@@ -43,32 +43,6 @@ Determine se o texto, porque ele distingue uma característica, tem de:
 * Corresponder uma palavra ou frase exata: Considere adicionar uma entidade de expressão regular ou uma entidade de lista como um recurso para a entidade ou intenção.
 * Corresponda a um conceito bem conhecido, como datas, horários ou nomes de pessoas: Use uma entidade predefinida como um recurso para a entidade ou intenção.
 * Aprenda novos exemplos ao longo do tempo: Use uma lista de frases de alguns exemplos do conceito como um recurso para a entidade ou intenção.
-
-## <a name="combine-features"></a>Combinar recursos
-
-Você pode usar mais de um recurso para descrever uma característica ou um conceito. Um emparelhamento comum é usar um recurso de lista de frases e um tipo de entidade que geralmente é usado como um recurso:
-
- * entidade predefinida
- * entidade de expressão regular
- * entidade de lista
-
-### <a name="ticket-booking-entity-example"></a>Exemplo de entidade de escrituração de tíquetes
-
-Como primeiro exemplo, considere um aplicativo para reservar um vôo com uma tentativa de reserva de voo e uma entidade de reserva de tíquetes.
-
-A entidade de reserva de tíquetes é uma entidade de aprendizado de máquina para o destino do vôo. Para ajudar a extrair o local, use dois recursos para ajudar:
-
-* Uma lista de frases de palavras relevantes, como **plano**, **vôo**, **reserva**ou **tíquete**
-* Uma entidade **geographyV2** predefinida como um recurso para a entidade
-
-### <a name="pizza-entity-example"></a>Exemplo de entidade de pizza
-
-Como outro exemplo, considere um aplicativo para ordenar uma pizza que tenha uma intenção criar-pizza-ordem e uma entidade de pizza.
-
-A entidade de pizza é uma entidade de aprendizado de máquina para os detalhes de pizza. Para ajudar a extrair os detalhes, use dois recursos para ajudar:
-
-* Uma lista de frases de palavras relevantes, como **queijo**, **crust**, **pepperoni**ou **Pineapple**
-* Uma entidade de **número** predefinida como um recurso para a entidade
 
 ## <a name="create-a-phrase-list-for-a-concept"></a>Criar uma lista de frases para um conceito
 
@@ -176,12 +150,12 @@ Continuando com o exemplo do endereço de envio:
 
 Endereço de envio (entidade aprendida pelo computador)
 
- * Número da rua (subentidade) 
- * Endereço (subentidade) 
- * Nome da rua (subentidade) 
- * Cidade (subentidade) 
- * Estado ou província (subentidade) 
- * País/região (subentidade) 
+ * Número da rua (subentidade)
+ * Endereço (subentidade)
+ * Nome da rua (subentidade)
+ * Cidade (subentidade)
+ * Estado ou província (subentidade)
+ * País/região (subentidade)
  * CEP (subentidade)
 
 ### <a name="required-feature-using-prebuilt-entities"></a>Recurso necessário usando entidades predefinidas
@@ -217,6 +191,59 @@ Embora o uso mais comum seja aplicar um recurso a um modelo específico, você p
 O uso mais comum de um recurso global é adicionar um vocabulário adicional ao aplicativo. Por exemplo, se os clientes usam um idioma principal, mas esperam poder usar outro idioma dentro do mesmo expressão, você pode adicionar um recurso que inclui palavras do idioma secundário.
 
 Como o usuário espera usar o idioma secundário em qualquer tentativa ou entidade, adicione palavras do idioma secundário à lista de frases. Configure a lista de frases como um recurso global.
+
+## <a name="combine-features-for-added-benefit"></a>Combine recursos para obter benefícios adicionais
+
+Você pode usar mais de um recurso para descrever uma característica ou um conceito. Um emparelhamento comum é usar:
+
+* Um recurso de lista de frases: você pode usar várias listas de frases como recursos para o mesmo modelo.
+* Um modelo como um recurso: [entidade predefinida](luis-reference-prebuilt-entities.md), [entidade de expressão regular](reference-entity-regular-expression.md), [entidade de lista](reference-entity-list.md). 
+
+### <a name="example-ticket-booking-entity-features-for-a-travel-app"></a>Exemplo: recursos de entidade de escrituração de tíquete para um aplicativo de viagem  
+
+Como um exemplo básico, considere um aplicativo para reservar um vôo com uma _tentativa_ de reserva de voo e uma _entidade_de escrituração de tíquetes. A entidade de escrituração de tíquetes captura as informações para registrar um bilhete de avião em um sistema de reserva. 
+
+A entidade de aprendizado de máquina para o catálogo de tíquetes tem duas subentidades para capturar a origem e o destino. Os recursos precisam ser adicionados a cada subentidade, não à entidade de nível superior.
+
+:::image type="content" source="media/luis-concept-features/ticket-booking-entity.png" alt-text="Esquema de entidade Ticketbooking":::
+
+A entidade de reserva de tíquetes é uma entidade de aprendizado de máquina, com subentidades, incluindo _origem_ e _destino_. Essas subentidades indicam uma localização geográfica. Para ajudar a extrair os locais e distinguir entre _origem_ e _destino_, cada subentidade deve ter recursos.
+
+|Type|Subentidade de origem |Subentidade de destino|
+|--|--|--|
+|Modelo como um recurso|entidade predefinida [geographyV2](luis-reference-prebuilt-geographyv2.md?tabs=V3)|entidade predefinida [geographyV2](luis-reference-prebuilt-geographyv2.md?tabs=V3)|
+|Lista de frases|**Palavras de origem**: `start at` , `begin from` , `leave`|**Palavras de destino**:,,,,, `to` `arrive` `land at` `go` `going` `stay` , `heading`|
+|Lista de frases|Códigos de aeroporto – a mesma lista para a origem e o destino|Códigos de aeroporto – a mesma lista para a origem e o destino|
+|Lista de frases|Nomes de aeroportos – a mesma lista para a origem e o destino|Códigos de aeroporto – a mesma lista para a origem e o destino|
+
+Se você antecipar que as pessoas usam códigos de aeroportos e nomes de aeroportos, o LUIS deve ter listas de frases que usam os dois tipos de frases. Os códigos de aeroportos podem ser mais comuns com o texto inserido em um chatbot, enquanto os nomes de aeroportos podem ser mais comuns com uma conversa falada, como um chatbot habilitado para fala.
+
+Os detalhes de correspondência dos recursos são retornados somente para modelos, não para listas de frases porque apenas modelos são retornados em JSON de previsão.
+
+#### <a name="ticket-booking-labeling-in-the-intent"></a>Tíquete-marcação de concessão na intenção
+
+Depois de criar a entidade de aprendizado de máquina, você precisará adicionar o exemplo declarações a uma intenção e rotular a entidade pai e todas as subentidades.
+
+Para o exemplo de reserva de tíquetes, Rotule o exemplo declarações na intenção com a `TicketBooking` entidade e todas as subentidades no texto.
+
+:::image type="content" source="media/luis-concept-features/intent-example-utterances-machine-learning-entity.png" alt-text="Esquema de entidade Ticketbooking":::
+
+### <a name="example-pizza-ordering-app"></a>Exemplo: aplicativo de pedido de pizza
+
+Para um segundo exemplo, considere um aplicativo para um restaurante de pizza, que recebe pedidos de pizza, incluindo os detalhes do tipo de pizza que alguém está solicitando. Cada detalhe da pizza deve ser extraído, se possível, para concluir o processamento do pedido.
+
+A entidade de aprendizado de máquina neste exemplo é mais complexa com subentidades aninhadas, listas de frases, entidades predefinidas e entidades personalizadas.
+
+:::image type="content" source="media/luis-concept-features/pizza-order-entity.png" alt-text="Esquema de entidade Ticketbooking":::
+
+Este exemplo usa recursos no nível de subentidade e o filho do nível de subentidade. O nível que obtém o tipo de lista de frases ou modelo como um recurso é uma parte importante do design de sua entidade.
+
+Embora as subentidades possam ter muitas listas de frases como recursos que ajudam a detectar a entidade, cada uma delas tem apenas um modelo como um recurso. Neste [aplicativo de pizza](https://github.com/Azure/pizza_luis_bot/blob/master/CognitiveModels/MicrosoftPizza.json), esses modelos são listados principalmente.
+
+:::image type="content" source="media/luis-concept-features/intent-example-utterances-machine-learning-entity-pizza.png" alt-text="Esquema de entidade Ticketbooking":::
+
+O exemplo rotulado corretamente declarações é exibido de forma a mostrar como as entidades são aninhadas. 
+
 
 ## <a name="best-practices"></a>Práticas recomendadas
 

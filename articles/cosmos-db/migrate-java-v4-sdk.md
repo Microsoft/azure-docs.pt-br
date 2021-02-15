@@ -5,17 +5,19 @@ author: anfeldma-ms
 ms.custom: devx-track-java
 ms.author: anfeldma
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 06/11/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 24e9087a175385f8e5c347a1d2df3b2785868506
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e537c964d6063b76df63b3d80c5ef72b1ea56c92
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327847"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98600252"
 ---
 # <a name="migrate-your-application-to-use-the-azure-cosmos-db-java-sdk-v4"></a>Migre seu aplicativo para usar o SDK do Java do Azure Cosmos DB v4
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!IMPORTANT]  
 > Para obter mais informações sobre este SDK, veja as [Notas de versão](sql-api-sdk-java-v4.md) do SDK do Java do Azure Cosmos DB v4, [repositório do Maven](https://mvnrepository.com/artifact/com.azure/azure-cosmos), [dicas de desempenho](performance-tips-java-sdk-v4-sql.md) do SDK do Java do Azure Cosmos DB v4 e [guia de solução de problemas](troubleshoot-java-sdk-v4-sql.md) do SDK do Java do Azure Cosmos DB v4.
@@ -44,9 +46,9 @@ Veja a seguir as principais diferenças de implementação entre SDKs diferentes
 
 ### <a name="rxjava-is-replaced-with-reactor-in-azure-cosmos-db-java-sdk-versions-3xx-and-40"></a>RxJava é substituído pelo reator no SDK do Java do Azure Cosmos DB versões 3.x.x e 4.0
 
-Se você não estiver familiarizado com a programação assíncrona ou programação reativa, confira o [guia de padrão do Reator](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-pattern-guide.md) para obter uma introdução à programação assíncrona e ao Reator do Projeto. Este guia pode ser útil se você usou a API Síncrona do SDK do Java Síncrono do Azure Cosmos DB 2.x.x ou do SDK do Java do Azure Cosmos DB 3.x.x no passado.
+Se você não estiver familiarizado com a programação assíncrona ou programação reativa, confira o [guia de padrão do Reator](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/reactor-pattern-guide.md) para obter uma introdução à programação assíncrona e ao Reator do Projeto. Este guia pode ser útil se você usou a API Síncrona do SDK do Java Síncrono do Azure Cosmos DB 2.x.x ou do SDK do Java do Azure Cosmos DB 3.x.x no passado.
 
-Se você usou o SDK do Java Assíncrono do Azure Cosmos DB 2.x.x e planeja migrar para o SDK 4.0, confira o [Guia de Reator versus RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md) para obter orientação sobre a conversão do código RxJava para usar o Reator.
+Se você usou o SDK do Java Assíncrono do Azure Cosmos DB 2.x.x e planeja migrar para o SDK 4.0, confira o [Guia de Reator versus RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/reactor-rxjava-guide.md) para obter orientação sobre a conversão do código RxJava para usar o Reator.
 
 ### <a name="azure-cosmos-db-java-sdk-v4-has-direct-connectivity-mode-in-both-async-and-sync-apis"></a>O SDK do Java do Azure Cosmos DB v4 tem o modo de conectividade direta nas APIs Assíncrona e Síncrona
 
@@ -88,7 +90,8 @@ No SDK do Java do Azure Cosmos DB 3.x.x, o objeto `CosmosItemProperties` é expo
 ### <a name="imports"></a>Importações
 
 * Os pacotes do SDK do Java do Azure Cosmos DB 4.0 começam com `com.azure.cosmos`
-  * Os pacotes do SDK do Java do Azure Cosmos DB 3.x.x começam com `com.azure.data.cosmos`
+* Os pacotes do SDK do Java do Azure Cosmos DB 3.x.x começam com `com.azure.data.cosmos`
+* Azure Cosmos DB pacotes de API de sincronização do SDK do Java 2. x. x começam com `com.microsoft.azure.documentdb`
 
 * O SDK do Java do Azure Cosmos DB 4.0 coloca várias classes em um pacote aninhado `com.azure.cosmos.models`. Alguns desses pacotes incluem:
 
@@ -112,7 +115,7 @@ Isso é diferente do SDK do Java do Azure Cosmos DB 3.x.x, que expõe uma interf
 
 ### <a name="create-resources"></a>Criar recursos
 
-O trecho de código a seguir mostra as diferenças em como os recursos são criados entre as APIs Assíncronas 4.0 e 3.x.x:
+O trecho de código a seguir mostra as diferenças em como os recursos são criados entre as APIs de sincronização do 4,0, 3. x. x e duas APIs. x. x:
 
 # <a name="java-sdk-40-async-api"></a>[API Assíncrona do SDK do Java 4.0](#tab/java-v4-async)
 
@@ -148,11 +151,38 @@ client.createDatabaseIfNotExists("YourDatabaseName")
         return Mono.empty();
 }).subscribe();
 ```
+
+# <a name="java-sdk-2xx-sync-api"></a>[API de sincronização do SDK do Java 2. x. x](#tab/java-v2-sync)
+
+```java
+ConnectionPolicy defaultPolicy = ConnectionPolicy.GetDefault();
+//  Setting the preferred location to Cosmos DB Account region
+defaultPolicy.setPreferredLocations(Lists.newArrayList("Your Account Location"));
+
+//  Create document client
+//  <CreateDocumentClient>
+client = new DocumentClient("your.hostname", "your.masterkey", defaultPolicy, ConsistencyLevel.Eventual)
+
+// Create database with specified name
+Database databaseDefinition = new Database();
+databaseDefinition.setId("YourDatabaseName");
+ResourceResponse<Database> databaseResourceResponse = client.createDatabase(databaseDefinition, new RequestOptions());
+
+// Read database with specified name
+String databaseLink = "dbs/YourDatabaseName";
+databaseResourceResponse = client.readDatabase(databaseLink, new RequestOptions());
+Database database = databaseResourceResponse.getResource();
+
+// Create container with specified name
+DocumentCollection documentCollection = new DocumentCollection();
+documentCollection.setId("YourContainerName");
+documentCollection = client.createCollection(database.getSelfLink(), documentCollection, new RequestOptions()).getResource();
+```
 ---
 
 ### <a name="item-operations"></a>Operações de item
 
-O trecho de código a seguir mostra as diferenças em como as operações de item são realizadas entre as APIs Assíncronas 4.0 e 3.x.x:
+O trecho de código a seguir mostra as diferenças em como as operações de item são executadas entre as APIs de sincronização do 4,0, 3. x. x e 2. x. x:
 
 # <a name="java-sdk-40-async-api"></a>[API Assíncrona do SDK do Java 4.0](#tab/java-v4-async)
 
@@ -170,11 +200,22 @@ Flux.fromIterable(docs)
     .flatMap(doc -> container.createItem(doc))
     .subscribe(); // ...Subscribing triggers stream execution.
 ```
+
+# <a name="java-sdk-2xx-sync-api"></a>[API de sincronização do SDK do Java 2. x. x](#tab/java-v2-sync)
+
+```java
+//  Container is created. Generate documents to insert.
+Document document = new Document();
+document.setId("YourDocumentId");
+ResourceResponse<Document> documentResourceResponse = client.createDocument(documentCollection.getSelfLink(), document,
+    new RequestOptions(), true);
+Document responseDocument = documentResourceResponse.getResource();
+```
 ---
 
 ### <a name="indexing"></a>Indexação
 
-O trecho de código a seguir mostra as diferenças em como a indexação é criada entre as APIs Assíncronas 4.0 e 3.x.x:
+O trecho de código a seguir mostra as diferenças em como a indexação é criada entre as APIs de sincronização do 4,0, 3. x. x e 2. x. x:
 
 # <a name="java-sdk-40-async-api"></a>[API Assíncrona do SDK do Java 4.0](#tab/java-v4-async)
 
@@ -194,7 +235,7 @@ List<IncludedPath> includedPaths = new ArrayList<>();
 IncludedPath includedPath = new IncludedPath();
 includedPath.path("/*");
 includedPaths.add(includedPath);
-indexingPolicy.setIncludedPaths(includedPaths);
+indexingPolicy.includedPaths(includedPaths);
 
 // Excluded paths
 List<ExcludedPath> excludedPaths = new ArrayList<>();
@@ -209,11 +250,39 @@ CosmosContainer containerIfNotExists = database.createContainerIfNotExists(conta
                                                .block()
                                                .container();
 ```
+
+# <a name="java-sdk-2xx-sync-api"></a>[API de sincronização do SDK do Java 2. x. x](#tab/java-v2-sync)
+
+```java
+// Custom indexing policy
+IndexingPolicy indexingPolicy = new IndexingPolicy();
+indexingPolicy.setIndexingMode(IndexingMode.Consistent); //To turn indexing off set IndexingMode.NONE
+
+// Included paths
+List<IncludedPath> includedPaths = new ArrayList<>();
+IncludedPath includedPath = new IncludedPath();
+includedPath.setPath("/*");
+includedPaths.add(includedPath);
+indexingPolicy.setIncludedPaths(includedPaths);
+
+// Excluded paths
+List<ExcludedPath> excludedPaths = new ArrayList<>();
+ExcludedPath excludedPath = new ExcludedPath();
+excludedPath.setPath("/name/*");
+excludedPaths.add(excludedPath);
+indexingPolicy.setExcludedPaths(excludedPaths);
+
+// Create container with specified name and indexing policy
+DocumentCollection documentCollection = new DocumentCollection();
+documentCollection.setId("YourContainerName");
+documentCollection.setIndexingPolicy(indexingPolicy);
+documentCollection = client.createCollection(database.getSelfLink(), documentCollection, new RequestOptions()).getResource();
+```
 ---
 
 ### <a name="stored-procedures"></a>Procedimentos armazenados
 
-O trecho de código a seguir mostra as diferenças em como os procedimentos armazenados são criados entre as APIs Assíncronas 4.0 e 3.x.x:
+O trecho de código a seguir mostra as diferenças em como os procedimentos armazenados são criados entre as APIs de sincronização do 4,0, 3. x. x e 2. x. x:
 
 # <a name="java-sdk-40-async-api"></a>[API Assíncrona do SDK do Java 4.0](#tab/java-v4-async)
 
@@ -260,6 +329,45 @@ container.getScripts()
             return Mono.empty();
         }).block();
 ```
+
+# <a name="java-sdk-2xx-sync-api"></a>[API de sincronização do SDK do Java 2. x. x](#tab/java-v2-sync)
+
+```java
+logger.info("Creating stored procedure...\n");
+
+String sprocId = "createMyDocument";
+String sprocBody = "function createMyDocument() {\n" +
+    "var documentToCreate = {\"id\":\"test_doc\"}\n" +
+    "var context = getContext();\n" +
+    "var collection = context.getCollection();\n" +
+    "var accepted = collection.createDocument(collection.getSelfLink(), documentToCreate,\n" +
+    "    function (err, documentCreated) {\n" +
+    "if (err) throw new Error('Error' + err.message);\n" +
+    "context.getResponse().setBody(documentCreated.id)\n" +
+    "});\n" +
+    "if (!accepted) return;\n" +
+    "}";
+StoredProcedure storedProcedureDef = new StoredProcedure();
+storedProcedureDef.setId(sprocId);
+storedProcedureDef.setBody(sprocBody);
+StoredProcedure storedProcedure = client.createStoredProcedure(documentCollection.getSelfLink(), storedProcedureDef, new RequestOptions())
+                                        .getResource();
+
+// ...
+
+logger.info(String.format("Executing stored procedure %s...\n\n", sprocId));
+
+RequestOptions options = new RequestOptions();
+options.setPartitionKey(new PartitionKey("test_doc"));
+
+StoredProcedureResponse storedProcedureResponse =
+    client.executeStoredProcedure(storedProcedure.getSelfLink(), options, null);
+logger.info(String.format("Stored procedure %s returned %s (HTTP %d), at cost %.3f RU.\n",
+    sprocId,
+    storedProcedureResponse.getResponseAsString(),
+    storedProcedureResponse.getStatusCode(),
+    storedProcedureResponse.getRequestCharge()));
+```
 ---
 
 ### <a name="change-feed"></a>Feed de alteração
@@ -304,11 +412,15 @@ ChangeFeedProcessor.Builder()
                             .subscribeOn(Schedulers.elastic())
                             .subscribe();
 ```
+
+# <a name="java-sdk-2xx-sync-api"></a>[API de sincronização do SDK do Java 2. x. x](#tab/java-v2-sync)
+
+* Este recurso não tem suporte a partir da sincronização do Java SDK v2. 
 ---
 
 ### <a name="container-level-time-to-livettl"></a>Vida útil (TTL) no nível de contêiner
 
-O trecho de código a seguir mostra as diferenças na criação de vida útil para dados no contêiner, usando as APIs Assíncronas 4.0 e 3.x.x:
+O trecho de código a seguir mostra as diferenças em como criar vida útil para dados no contêiner usando as APIs de sincronização do 4,0, 3. x. x e 2. x. x:
 
 # <a name="java-sdk-40-async-api"></a>[API Assíncrona do SDK do Java 4.0](#tab/java-v4-async)
 
@@ -324,11 +436,21 @@ CosmosContainerProperties containerProperties = new CosmosContainerProperties("m
 containerProperties.defaultTimeToLive(90 * 60 * 60 * 24);
 container = database.createContainerIfNotExists(containerProperties, 400).block().container();
 ```
+
+# <a name="java-sdk-2xx-sync-api"></a>[API de sincronização do SDK do Java 2. x. x](#tab/java-v2-sync)
+
+```java
+DocumentCollection documentCollection;
+
+// Create a new container with TTL enabled with default expiration value
+documentCollection.setDefaultTimeToLive(90 * 60 * 60 * 24);
+documentCollection = client.createCollection(database.getSelfLink(), documentCollection, new RequestOptions()).getResource();
+```
 ---
 
 ### <a name="item-level-time-to-livettl"></a>Vida útil (TTL) no nível de item
 
-O trecho de código a seguir mostra as diferenças na criação de vida útil para um item, usando as APIs Assíncronas 4.0 e 3.x.x:
+O trecho de código a seguir mostra as diferenças em como criar vida útil para um item usando as APIs de sincronização do 4,0, 3. x. x e 2. x. x:
 
 # <a name="java-sdk-40-async-api"></a>[API Assíncrona do SDK do Java 4.0](#tab/java-v4-async)
 
@@ -369,10 +491,21 @@ SalesOrder salesOrder = new SalesOrder(
     60 * 60 * 24 * 30  // Expire sales orders in 30 days
 );
 ```
+
+# <a name="java-sdk-2xx-sync-api"></a>[API de sincronização do SDK do Java 2. x. x](#tab/java-v2-sync)
+
+```java
+Document document = new Document();
+document.setId("YourDocumentId");
+document.setTimeToLive(60 * 60 * 24 * 30 ); // Expire document in 30 days
+ResourceResponse<Document> documentResourceResponse = client.createDocument(documentCollection.getSelfLink(), document,
+    new RequestOptions(), true);
+Document responseDocument = documentResourceResponse.getResource();
+```
 ---
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Criar um de aplicativo Java](create-sql-api-java.md) para gerenciar os dados da API do SQL do Azure Cosmos DB, usando o SDK v4
-* Saiba mais sobre os [SDKs do Java baseados em reator](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-pattern-guide.md)
-* Saiba mais sobre como converter o código assíncrono do RxJava em código assíncrono do Reator com o [Guia de Reator versus RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md)
+* Saiba mais sobre os [SDKs do Java baseados em reator](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/reactor-pattern-guide.md)
+* Saiba mais sobre como converter o código assíncrono do RxJava em código assíncrono do Reator com o [Guia de Reator versus RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/reactor-rxjava-guide.md)

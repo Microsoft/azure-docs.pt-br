@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 1aef238ec0b947dda1417b567b343ae9d92754d9
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86249505"
 ---
 # <a name="user-profile-templates-in-azure-api-management"></a>Modelos de perfil de usuário no Gerenciamento de API do Azure
@@ -40,7 +40,7 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
-##  <a name="profile"></a><a name="Profile"></a>Criar  
+##  <a name="profile"></a><a name="Profile"></a> Criar  
  O modelo **perfil** permite que você personalize a seção de perfil do usuário da página correspondente no portal do desenvolvedor.  
   
  ![Página perfil do usuário](./media/api-management-user-profile-templates/APIM-User-Profile-Page.png "Página de perfil de usuário do APIM")  
@@ -185,7 +185,7 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 }  
 ```  
   
-##  <a name="subscriptions"></a><a name="Subscriptions"></a>Assinaturas  
+##  <a name="subscriptions"></a><a name="Subscriptions"></a> Assinaturas  
  O modelo **Assinaturas** permite que você personalize a seção de assinaturas da página de perfil do usuário no portal do desenvolvedor.  
   
  ![Página de assinatura do usuário](./media/api-management-user-profile-templates/APIM-User-Subscription-Page.png "Página de assinatura de usuário do APIM")  
@@ -406,7 +406,7 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 }  
 ```  
   
-##  <a name="applications"></a><a name="Applications"></a>Aplicativos  
+##  <a name="applications"></a><a name="Applications"></a> Aplicativos  
  O modelo **Aplicativos** permite que você personalize a seção de aplicativos da página de perfil do usuário no portal do desenvolvedor.  
   
  ![Página aplicativos de conta de usuário](./media/api-management-user-profile-templates/APIM-User-Account-Applications-Page.png "Página de aplicativos da conta de usuário do APIM")  

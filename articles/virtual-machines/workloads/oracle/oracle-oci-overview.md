@@ -1,25 +1,19 @@
 ---
 title: Integre o Microsoft Azure com o Oracle Cloud Infrastructure | Microsoft Docs
 description: Saiba mais sobre soluções que integram aplicativos Oracle em execução no Microsoft Azure com bancos de dados no Oracle Cloud Infrastructure (OCI).
-services: virtual-machines-linux
-documentationcenter: ''
-author: rgardler
-manager: ''
-tags: ''
-ms.assetid: ''
-ms.service: virtual-machines
+author: dbakevlar
+ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services
 ms.date: 06/01/2020
-ms.author: rogardle
-ms.custom: ''
-ms.openlocfilehash: d93446f4db914c736235daeb4e08e82b9ff00e62
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.author: kegorman
+ms.reviewer: cynthn
+ms.openlocfilehash: e8e9bf23c236f805135d7d46b969c564975448ac
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224495"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965401"
 ---
 # <a name="oracle-application-solutions-integrating-microsoft-azure-and-oracle-cloud-infrastructure"></a>Soluções de aplicativos Oracle que integram o Microsoft Azure e o Oracle Cloud Infrastructure
 
@@ -55,6 +49,7 @@ A conectividade entre nuvens é limitada às seguintes regiões:
 * Azure Central do Canadá (CanadaCentral) e OCI Toronto (sudeste do Canadá)
 * Azure Europa Ocidental (WestEurope) e OCI Amsterdam (Noroeste dos Países Baixos)
 * Azure Leste do Japão (JapanEast) e OCI Tóquio (leste do Japão)
+* Azure oeste dos EUA (Westus) & OCI San José (oeste dos EUA)
 
 ## <a name="networking"></a>Rede
 
@@ -68,7 +63,7 @@ Com o ExpressRoute e o FastConnect, os clientes podem emparelhar uma rede virtua
 
 A segurança de rede é um componente crucial de qualquer aplicativo empresarial e é fundamental para essa solução de várias nuvens. Qualquer tráfego que passe pelo ExpressRoute e pelo FastConnect passará por uma rede privada. Essa configuração permite a comunicação segura entre uma rede virtual do Azure e uma rede de nuvem virtual da Oracle. Você não precisa fornecer um endereço IP público para nenhuma máquina virtual no Azure. Da mesma forma, você não precisa de um gateway de Internet no OCI. Toda a comunicação ocorre por meio do endereço IP privado dos computadores.
 
-Além disso, você pode configurar [listas de segurança](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/securitylists.htm) em sua rede de nuvem virtual do OCI e regras de segurança (conectadas aos [grupos de segurança de rede](../../../virtual-network/security-overview.md) do Azure). Use essas regras para controlar o fluxo de tráfego entre as máquinas nas redes virtuais. As regras de segurança de rede podem ser adicionadas em um nível de máquina, em um nível de sub-rede, bem como no nível de rede virtual.
+Além disso, você pode configurar [listas de segurança](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/securitylists.htm) em sua rede de nuvem virtual do OCI e regras de segurança (conectadas aos [grupos de segurança de rede](../../../virtual-network/network-security-groups-overview.md) do Azure). Use essas regras para controlar o fluxo de tráfego entre as máquinas nas redes virtuais. As regras de segurança de rede podem ser adicionadas em um nível de máquina, em um nível de sub-rede, bem como no nível de rede virtual.
 
 Os [aplicativos WebLogic Server do Azure](oracle-weblogic.md) criam um grupo de segurança de rede pré-configurado para funcionar com as configurações de porta do WebLogic Server.
  

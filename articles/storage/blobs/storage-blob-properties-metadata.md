@@ -4,21 +4,21 @@ description: Saiba como definir e recuperar propriedades do sistema e armazenar 
 services: storage
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 08/12/2020
+ms.date: 09/25/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b1501b61e930b7554063356335b967583c0a3ff5
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 984fb00e163a090534da1fb41850dcfef6c5d516
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89008430"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95521522"
 ---
 # <a name="manage-blob-properties-and-metadata-with-net"></a>Gerenciar Propriedades de BLOB e metadados com o .NET
 
-Além dos dados que eles contêm, os BLOBs dão suporte a propriedades do sistema e metadados definidos pelo usuário. Este artigo mostra como gerenciar Propriedades do sistema e metadados definidos pelo usuário com a [biblioteca de cliente de armazenamento do Azure para .net](/dotnet/api/overview/azure/storage?view=azure-dotnet).
+Além dos dados que eles contêm, os BLOBs dão suporte a propriedades do sistema e metadados definidos pelo usuário. Este artigo mostra como gerenciar Propriedades do sistema e metadados definidos pelo usuário com a [biblioteca de cliente de armazenamento do Azure para .net](/dotnet/api/overview/azure/storage).
 
 ## <a name="about-properties-and-metadata"></a>Sobre propriedades e metadados
 
@@ -126,7 +126,7 @@ Você pode especificar os metadados como um ou mais pares de nome-valor em um re
 - [SetMetadataAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.setmetadataasync)
 ---
 
-Os pares de nome/valor de metadados são cabeçalhos HTTP válidos e devem aderir a todas as restrições que regem os cabeçalhos HTTP. Os nomes de metadados devem ser nomes de cabeçalho HTTP válidos e identificadores C# válidos, podem conter apenas caracteres ASCII e devem ser tratados como não diferenciando maiúsculas de minúsculas. Valores [de metadados de codificação Base64](https://docs.microsoft.com/dotnet/api/system.convert.tobase64string) ou [de codificação de URL](https://docs.microsoft.com/dotnet/api/system.web.httputility.urlencode) que contêm caracteres não ASCII.
+Os pares de nome/valor de metadados são cabeçalhos HTTP válidos e devem aderir a todas as restrições que regem os cabeçalhos HTTP. Os nomes de metadados devem ser nomes de cabeçalho HTTP válidos e identificadores C# válidos, podem conter apenas caracteres ASCII e devem ser tratados como não diferenciando maiúsculas de minúsculas. Valores [de metadados de codificação Base64](/dotnet/api/system.convert.tobase64string) ou [de codificação de URL](/dotnet/api/system.web.httputility.urlencode) que contêm caracteres não ASCII.
 
 O nome dos metadados deve estar em conformidade com as convenções de nomenclatura para os identificadores de C#. Os nomes de metadados mantêm o caso usado quando eles foram criados, mas não diferenciam maiúsculas de minúsculas quando definidos ou lidos. Se dois ou mais cabeçalhos de metadados que usam o mesmo nome forem enviados para um recurso, o armazenamento de BLOBs do Azure retornará o código de erro HTTP 400 (solicitação inadequada).
 
@@ -168,7 +168,7 @@ O exemplo de código a seguir lê os metadados em um blob.
 
 # <a name="net-v12"></a>[.NET V12](#tab/dotnet)
 
-Para recuperar metadados, chame o método [GetProperties](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.getproperties) ou [GetPropertiesAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.getpropertiesasync) em seu BLOB ou contêiner para preencher a coleção de [metadados](/dotnet/api/azure.storage.blobs.models.blobproperties.metadata) e, em seguida, leia os valores, conforme mostrado no exemplo abaixo.
+Para recuperar metadados, chame o método [GetProperties](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.getproperties) ou [GetPropertiesAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.getpropertiesasync) em seu BLOB ou contêiner para preencher a coleção de [metadados](/dotnet/api/azure.storage.blobs.models.blobproperties.metadata) e, em seguida, leia os valores, conforme mostrado no exemplo abaixo. Os métodos **GetProperties** recuperam Propriedades de BLOB e metadados em uma única chamada. Isso é diferente das APIs REST que exigem chamadas separadas para [obter propriedades de blob](/rest/api/storageservices/get-blob-properties) e [obter metadados de blob](/rest/api/storageservices/get-blob-metadata).
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Metadata.cs" id="Snippet_ReadBlobMetadata":::
 

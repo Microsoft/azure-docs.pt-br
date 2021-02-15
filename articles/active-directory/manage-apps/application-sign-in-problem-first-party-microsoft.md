@@ -1,10 +1,10 @@
 ---
 title: Problemas ao entrar em um aplicativo Microsoft | Microsoft Docs
-description: Solucionar problemas comuns enfrentados ao entrar em aplicativos primários da Microsoft usando o Azure AD (como o Office 365)
+description: Solucionar problemas comuns enfrentados ao entrar em aplicativos primários da Microsoft usando o Azure AD (como Microsoft 365).
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -16,20 +16,20 @@ ms.date: 09/10/2018
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69edf8e8dc51f8a8841ceed94221ed44786e280d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 79c8d6d072379853d6eca561d372f61dbb8acc8a
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84759276"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99260004"
 ---
 # <a name="problems-signing-in-to-a-microsoft-application"></a>Problemas ao entrar em um aplicativo Microsoft
 
-Os aplicativos Microsoft (como o Office 365 Exchange, SharePoint, Yammer, etc.) são atribuídos e gerenciados de forma um pouco diferente dos aplicativos SaaS de terceiros ou outros aplicativos que você integra com o Azure AD para o logon único.
+Os aplicativos da Microsoft (como Exchange, SharePoint, Yammer etc.) são atribuídos e gerenciados de maneira um pouco diferente dos aplicativos SaaS de terceiros ou outros aplicativos que você integra com o Azure AD para logon único.
 
 Há três principais maneiras que um usuário pode obter acesso a um aplicativo publicado Microsoft.
 
--   Para aplicativos no Office 365 ou em outros conjuntos de aplicativos pagos, os usuários têm acesso através de **atribuição de licença** diretamente à sua conta de usuário ou através de um grupo que usa nosso recurso de atribuição de licenças baseada em grupo.
+-   Para aplicativos no Microsoft 365 ou em outros pacotes pagos, os usuários recebem acesso por meio da **atribuição de licença** diretamente para sua conta de usuário ou por meio de um grupo usando a funcionalidade de atribuição de licença baseada em grupo.
 
 -   Para aplicativos que a Microsoft ou terceiros publicam livremente para uso de qualquer pessoa, os usuários podem ter o acesso concedido através do **consentimento do usuário**. Isso significa que o usuário se conecta ao aplicativo usando a conta Corporativa ou de Estudante do Azure AD e permite acesso a um conjunto limitado de dados em sua conta.
 
@@ -59,11 +59,11 @@ A seguir, são apresentados alguns problemas comuns que as pessoas se deparam qu
 
   * Verifique se a conta do usuário **não está bloqueada.**
 
-  * Certifique-se de que a**conta do usuário existe** no Azure Active Directory. [Verificar se existe uma conta de usuário no Azure Active Directory](#problems-with-the-users-account)
+  * Certifique-se de que a **conta do usuário existe** no Azure Active Directory. [Verificar se existe uma conta de usuário no Azure Active Directory](#problems-with-the-users-account)
 
-  * Verifique se a conta do usuário está **habilitada** para entradas. [Verifique o status da conta de um usuário](#problems-with-the-users-account)
+  * Verifique se a conta do usuário está **habilitada** para entradas. [Verificar o status da conta de um usuário](#problems-with-the-users-account)
 
-  * Verifique se a **senha do usuário não expirou ou foi esquecida.** [Redefinir uma senha do usuário](#reset-a-users-password) ou [Habilitar a redefinição de senha por autoatendimento](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
+  * Verifique se a **senha do usuário não expirou ou foi esquecida.** [Redefinir uma senha do usuário](#reset-a-users-password) ou [Habilitar a redefinição de senha por autoatendimento](../authentication/tutorial-enable-sspr.md)
 
   * Verifique se a **Autenticação Multifator** não está bloqueando o acesso do usuário. [Verificar o status de autenticação multifator do usuário](#check-a-users-multi-factor-authentication-status) ou [Verificar informações de contato de autenticação do usuário](#check-a-users-authentication-contact-info)
 
@@ -179,9 +179,9 @@ Para redefinir a senha de um usuário, siga estas etapas:
 
 Para habilitar a redefinição de senhas por autoatendimento, execute as etapas de implantação abaixo:
 
--   [Permitir que os usuários redefinam suas senhas do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
+-   [Permitir que os usuários redefinam suas senhas do Azure Active Directory](../authentication/tutorial-enable-sspr.md)
 
--   [Permitir que os usuários redefinam ou alterem suas senhas locais do Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
+-   [Permitir que os usuários redefinam ou alterem suas senhas locais do Active Directory](../authentication/tutorial-enable-sspr.md)
 
 ### <a name="check-a-users-multi-factor-authentication-status"></a>Verificar o status da Autenticação Multifator de um usuário
 
@@ -508,26 +508,25 @@ O acesso do aplicativo pode ser bloqueado porque a operação de consentimento d
 
 -   Para qualquer aplicativo habilitado para Open ID Connect que solicita permissões, navegar até a tela de entrada do aplicativo executa um consentimento de nível de usuário para o aplicativo do usuário conectado.
 
--   Se você quiser fazer isso programaticamente, consulte [Solicitando consentimento do usuário individual](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#requesting-individual-user-consent).
+-   Se você quiser fazer isso programaticamente, consulte [Solicitando consentimento do usuário individual](../develop/v2-permissions-and-consent.md#requesting-individual-user-consent).
 
 ### <a name="perform-administrator-level-consent-operation-for-any-application"></a>Executar operação de consentimento de nível de administrador para qualquer aplicativo
 
 -   Somente **para aplicativos desenvolvidos usando o modelo de aplicativo V1**, você pode forçar que esse consentimento de nível de administrador ocorra, adicionando “**?prompt=admin\_consent**” ao final da URL de entrada do aplicativo.
 
--   Para **qualquer aplicativo desenvolvido usando o modelo de aplicativo V2**, você pode impor que esse consentimento de nível de administrador ocorra, seguindo as instruções na seção **Solicitar permissões de um administrador de diretório** de [Usando o ponto de extremidade de consentimento do administrador](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint).
+-   Para **qualquer aplicativo desenvolvido usando o modelo de aplicativo V2**, você pode impor que esse consentimento de nível de administrador ocorra, seguindo as instruções na seção **Solicitar permissões de um administrador de diretório** de [Usando o ponto de extremidade de consentimento do administrador](../develop/v2-permissions-and-consent.md#using-the-admin-consent-endpoint).
 
 ### <a name="perform-administrator-level-consent-for-a-single-tenant-application"></a>Executar consentimento de nível de administrador para um aplicativo de locatário único
 
 -   Para **aplicativos de locatário único** que solicitam permissões (como os em desenvolvimento ou próprios da organização), é possível executar uma operação de **consentimento de nível administrativo** em nome de todos os usuários, entrando como um Administrador Global e clicando no botão **Conceder permissões** na parte superior do painel **Registro de Aplicativo -&gt; Todos os Aplicativos -&gt; Selecionar um Aplicativo -&gt; Permissões Necessárias**.
 
--   Para **qualquer aplicativo desenvolvido usando o modelo de aplicativo V1 ou V2**, você pode impor que esse consentimento de nível de administrador ocorra, seguindo as instruções na seção **Solicitar permissões de um administrador de diretório** de [Usando o ponto de extremidade de consentimento do administrador](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint).
+-   Para **qualquer aplicativo desenvolvido usando o modelo de aplicativo V1 ou V2**, você pode impor que esse consentimento de nível de administrador ocorra, seguindo as instruções na seção **Solicitar permissões de um administrador de diretório** de [Usando o ponto de extremidade de consentimento do administrador](../develop/v2-permissions-and-consent.md#using-the-admin-consent-endpoint).
 
 ### <a name="perform-administrator-level-consent-for-a-multi-tenant-application"></a>Executar consentimento de nível de administrador para um aplicativo multilocatário
 
 -   Para **Aplicativos de multilocatário** que solicitar permissões (como um aplicativo de terceiros ou desenvolvido pela Microsoft), você pode executar uma operação de **consentimento de nível administrativo**. Entre como um Administrador Global e clique no botão **Conceder permissões** no painel **Aplicativos Empresariais -&gt; Todos os Aplicativos -&gt; Selecionar um Aplicativo -&gt; Permissões** (disponível em breve).
 
--   É possível impor que esse consentimento de nível de administrador ocorra, seguindo as instruções na seção **Solicitar permissões de um administrador de diretório** de [Usando o ponto de extremidade de consentimento do administrado](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint).
+-   É possível impor que esse consentimento de nível de administrador ocorra, seguindo as instruções na seção **Solicitar permissões de um administrador de diretório** de [Usando o ponto de extremidade de consentimento do administrado](../develop/v2-permissions-and-consent.md#using-the-admin-consent-endpoint).
 
 ## <a name="next-steps"></a>Próximas etapas
-[Usando o ponto de extremidade de consentimento do administrador](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint)
-
+[Usando o ponto de extremidade de consentimento do administrador](../develop/v2-permissions-and-consent.md#using-the-admin-consent-endpoint)

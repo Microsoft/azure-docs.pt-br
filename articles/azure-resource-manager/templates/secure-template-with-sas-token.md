@@ -4,10 +4,10 @@ description: Implante recursos no Azure com um modelo de Azure Resource Manager 
 ms.topic: conceptual
 ms.date: 08/25/2020
 ms.openlocfilehash: 8b35e82da8ebca98ec9fe1fb7441612bf61fb142
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88855665"
 ---
 # <a name="deploy-private-arm-template-with-sas-token"></a>Implantar modelo de ARM privado com token SAS

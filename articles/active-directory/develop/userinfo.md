@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/22/2020
+ms.date: 09/21/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 59e811b7813ef94682896e0f95e971ca0094ef65
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 3bd0621d607b121f19bc47c717343b8e2e39b04f
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88119633"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98752722"
 ---
 # <a name="microsoft-identity-platform-userinfo-endpoint"></a>Ponto de extremidade de UserInfo da plataforma de identidade da Microsoft
 
@@ -28,7 +28,7 @@ O ponto de extremidade de UserInfo faz parte do [padrão OpenID Connect](https:/
 
 Você pode descobrir programaticamente o ponto de extremidade do UserInfo usando o documento de descoberta do OpenID Connect em `https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration` . Ele está listado no `userinfo_endpoint` campo, e esse padrão pode ser usado em nuvens para ajudar a apontar para o ponto de extremidade correto.  Não recomendamos embutir o ponto de extremidade UserInfo em seu aplicativo – use o documento de descoberta OIDC para encontrar esse ponto de extremidade em tempo de execução.
 
-Como parte da especificação do OpenID Connect, o ponto de extremidade de UserInfo geralmente é chamado automaticamente por [bibliotecas compatíveis com OIDC](https://openid.net/developers/certified/) para obter informações sobre o usuário.  Sem hospedar tal ponto de extremidade, a plataforma de identidade da Microsoft não seria compatível com padrões e algumas bibliotecas falhariam.  Na [lista de declarações identificadas no padrão OIDC](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) , geramos as declarações de nome, a declaração de assunto e o email quando disponíveis e consentiram para o.  
+Como parte da especificação do OpenID Connect, o ponto de extremidade de UserInfo geralmente é chamado automaticamente por [bibliotecas compatíveis com OIDC](https://openid.net/developers/certified/)  para obter informações sobre o usuário.  Sem hospedar tal ponto de extremidade, a plataforma de identidade da Microsoft não seria compatível com padrões e algumas bibliotecas falhariam.  Na [lista de declarações identificadas no padrão OIDC](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) , geramos as declarações de nome, a declaração de assunto e o email quando disponíveis e consentiram para o.  
 
 ## <a name="consider-use-an-id-token-instead"></a>Considere: Use um token de ID em vez disso
 
@@ -42,7 +42,7 @@ O UserInfo é uma API de token de portador OAuth padrão, chamada como qualquer 
 
 ### <a name="permissions"></a>Permissões
 
-Use as seguintes [permissões OIDC](v2-permissions-and-consent.md#openid-connect-scopes) para chamar a API UserInfo. `openid`é necessário, e os `profile` `email` escopos e garantem que informações adicionais sejam fornecidas na resposta.
+Use as seguintes [permissões OIDC](v2-permissions-and-consent.md#openid-connect-scopes) para chamar a API UserInfo. `openid` é necessário, e os `profile` `email` escopos e garantem que informações adicionais sejam fornecidas na resposta.
 
 |Tipo de permissão      | Permissões    |
 |:--------------------|:---------------------------------------------------------|
@@ -81,7 +81,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJub25jZSI6Il…
 }
 ```
 
-As declarações listadas aqui, incluindo `sub` , são as mesmas declarações que o aplicativo veria no [token de ID](id-tokens.md) emitido para o aplicativo.  
+As declarações listadas aqui são todas as declarações que o ponto de extremidade do UserInfo pode retornar.  Esses são os mesmos valores que o aplicativo veria no token de [ID](id-tokens.md) emitido para o aplicativo.  
 
 ## <a name="notes-and-caveats-on-the-userinfo-endpoint"></a>Observações e advertências sobre o ponto de extremidade de UserInfo
 

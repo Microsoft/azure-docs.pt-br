@@ -7,23 +7,23 @@ ms.reviewer: jdaly, logicappspm
 ms.topic: conceptual
 ms.date: 05/09/2020
 tags: connectors
-ms.openlocfilehash: 00bf8ea2b783e09711a95f203bdfcce0e6b90b2c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fe1e31ce0bc842e1da18327d12e7a52562d84b53
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82994321"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "87284023"
 ---
 # <a name="create-and-manage-records-in-dynamics-365-by-using-azure-logic-apps"></a>Criar e gerenciar registros no Dynamics 365 usando aplicativos lógicos do Azure
 
-O Dynamics 365 usa o [Common Data Service](https://docs.microsoft.com/powerapps/maker/common-data-service/data-platform-intro). Para conexões com o Dynamics 365, use o [conector de Common Data Service](https://docs.microsoft.com/connectors/commondataservice/).
+O Dynamics 365 usa o [Common Data Service](/powerapps/maker/common-data-service/data-platform-intro). Para conexões com o Dynamics 365, use o [conector de Common Data Service](/connectors/commondataservice/).
 
 > [!IMPORTANT]
-> O [conector do Dynamics 365](https://docs.microsoft.com/connectors/dynamicscrmonline/) foi preterido, mas continua funcionando até ser removido. Não use o conector do Dynamics 365 para novos aplicativos lógicos. Nenhuma linha do tempo ainda é anunciada para remover o conector do Dynamics 365. Não é necessário converter os aplicativos lógicos existentes no conector do Common Data Service ou em outro conector novo planejado, mas você precisa converter seus aplicativos lógicos quando o conector é removido. Para obter mais informações, consulte [conector do Dynamics 365 foi preterido](https://docs.microsoft.com/power-platform/important-changes-coming).
+> O [conector do Dynamics 365](/connectors/dynamicscrmonline/) foi preterido, mas continua funcionando até ser removido. Não use o conector do Dynamics 365 para novos aplicativos lógicos. Nenhuma linha do tempo ainda é anunciada para remover o conector do Dynamics 365. Não é necessário converter os aplicativos lógicos existentes no conector do Common Data Service ou em outro conector novo planejado, mas você precisa converter seus aplicativos lógicos quando o conector é removido. Para obter mais informações, consulte [conector do Dynamics 365 foi preterido](/power-platform/important-changes-coming).
 >
-> O [conector do Common Data Service](https://docs.microsoft.com/connectors/commondataservice/) fornece os mesmos recursos do conector do Dynamics 365 preterido, mas inclui melhorias que aumentam a confiabilidade. Para obter informações sobre como usar o conector do Common Data Service em aplicativos lógicos, consulte [Criar e gerenciar registros do Common Data Service usando os Aplicativos Lógicos do Azure](../connectors/connect-common-data-service.md).
+> O [conector do Common Data Service](/connectors/commondataservice/) fornece os mesmos recursos do conector do Dynamics 365 preterido, mas inclui melhorias que aumentam a confiabilidade. Para obter informações sobre como usar o conector do Common Data Service em aplicativos lógicos, consulte [Criar e gerenciar registros do Common Data Service usando os Aplicativos Lógicos do Azure](../connectors/connect-common-data-service.md).
 
 Para obter mais informações sobre Common Data Service, consulte estes tópicos:
 
-* [Aprenda: introdução ao Common Data Service](https://docs.microsoft.com/learn/modules/get-started-with-powerapps-common-data-service/)
-* [Aprenda: Conecte e analise seus dados do Dynamics 365 usando a plataforma de energia e Common Data Service](https://docs.microsoft.com/learn/wwl/connect-analyze-dynamics-365-data/)
+* [Aprenda: introdução ao Common Data Service](/learn/modules/get-started-with-powerapps-common-data-service/)
+* [Aprenda: Conecte e analise seus dados do Dynamics 365 usando a plataforma de energia e Common Data Service](/learn/wwl/connect-analyze-dynamics-365-data/)

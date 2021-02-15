@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: e22908dc5d445f105c199e594443cd051eb4be41
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: a008d7b26738b9552a7a43ab026391bd9afe0aa8
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89051348"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780936"
 ---
 # <a name="load-balancer-health-probes"></a>Investigações de integridade do Load Balancer
 
@@ -66,7 +66,7 @@ Os valores de tempo limite e intervalo especificados determinam se uma instânci
 
 Podemos ilustrar o comportamento mais detalhadamente com um exemplo. Se você tiver definido o número de respostas de investigação como 2 e o intervalo como 5 segundos, isso significará que 2 falhas de tempo limite de investigação devem ser observadas em um intervalo de 10 segundos.  Como a hora em que uma investigação é enviada não é sincronizada quando seu aplicativo pode mudar de estado, podemos associar o tempo para detectar por dois cenários:
 
-1. Se seu aplicativo começar a produzir uma resposta de investigação de tempo limite antes da chegada da primeira investigação, a detecção desses eventos levará 10 segundos (intervalos de 2 x 5 segundos) mais a duração do aplicativo começando a sinalizar um tempo limite para quando a primeira investigação chegar.  Você pode assumir que essa detecção leva um pouco mais de 10 segundos.
+1. Se seu aplicativo começar a produzir uma resposta de investigação de tempo limite imediatamente antes da chegada da primeira investigação, a detecção desses eventos levará 10 segundos (intervalos de 2 x 5 segundos) mais a duração do aplicativo começando a sinalizar um tempo limite para quando a primeira investigação chegar.  Você pode assumir que essa detecção leva um pouco mais de 10 segundos.
 2. Se seu aplicativo começar a produzir uma resposta de investigação de tempo limite logo após a chegada da primeira investigação, a detecção desses eventos não começará até que a próxima investigação chegue (e expire) mais 10 segundos (intervalos de 2 x 5 segundos).  Você pode assumir que essa detecção leva menos de 15 segundos.
 
 Para este exemplo, depois que a detecção tiver ocorrido, a plataforma levará um pouco de tempo para reagir a essa alteração.  Isso significa um dependendo de 
@@ -121,7 +121,7 @@ O seguinte ilustra como você pode expressar esse tipo de configuração de inve
 ### <a name="http--https-probe"></a><a name="httpprobe"></a> <a name="httpsprobe"></a> Investigação HTTP / HTTPS
 
 >[!NOTE]
->Investigação HTTPS está disponível somente para [Standard Load Balancer](load-balancer-standard-overview.md).
+>Investigação HTTPS está disponível somente para [Standard Load Balancer](./load-balancer-overview.md).
 
 As investigações HTTP e HTTPS se baseiam na investigação TCP e emitem um HTTP GET com o caminho especificado. Ambas essas investigações dão suporte a caminhos relativos para o HTTP GET. Investigações HTTPS são iguais às investigações HTTP com a adição de um wrapper de TLS (Transport Layer Security), anteriormente conhecido como SSL. A investigação de integridade é marcada como operante quando a instância responde com um status HTTP 200 dentro do período de tempo limite.  A investigação de integridade tenta verificar a porta de investigação de integridade configurada a cada 15 segundos, por padrão. O intervalo mínimo de investigação é de 5 segundos. A duração total de todos os intervalos não pode exceder 120 segundos.
 
@@ -169,7 +169,7 @@ Por padrão, as funções do serviço de nuvem (funções de trabalho e funçõe
 
 Uma investigação de agente convidado é uma verificação do agente convidado dentro da VM. Em seguida, ele escuta e responde com uma resposta HTTP 200 OK somente quando a instância está no estado Pronto. (Outros estados são Ocupado, Reciclando ou Parando.)
 
-Para obter mais informações, consulte [Configurar o arquivo de definição de serviço (csdef) para investigações de integridade](https://msdn.microsoft.com/library/azure/ee758710.aspx) ou [Introdução à criação de um balanceador de carga público para serviços de nuvem](https://docs.microsoft.com/azure/load-balancer/load-balancer-get-started-internet-classic-cloud#check-load-balancer-health-status-for-cloud-services).
+Para obter mais informações, consulte [Configurar o arquivo de definição de serviço (csdef) para investigações de integridade](/previous-versions/azure/reference/ee758710(v=azure.100)) ou [Introdução à criação de um balanceador de carga público para serviços de nuvem](/previous-versions/azure/load-balancer/load-balancer-get-started-internet-classic-cloud#check-load-balancer-health-status-for-cloud-services).
 
 Se o agente convidado não responder com HTTP 200 OK, o balanceador de carga marcará a instância como sem resposta. Em seguida, ele para de enviar fluxos a essa instância. O balanceador de carga continua a verificar a instância. 
 
@@ -215,7 +215,7 @@ Se todas as investigações para todas as instâncias em um pool de back-end fal
 
 O Load Balancer usa um serviço de investigação distribuído para seu modelo de integridade interno. O serviço de investigação reside em cada host no qual as VMs e podem ser programadas sob demanda para gerar investigações de integridade de acordo com a configuração do cliente. O tráfego da investigação de integridade está diretamente entre o serviço de investigação que gera a investigação de integridade e a VM do cliente. Todas as investigações de integridade do Load Balancer originam-se do endereço IP 168.63.129.16 como sua fonte.  Use o espaço de endereços IP em uma VNET que não seja o espaço RFC1918.  O uso de um endereço IP globalmente reservado e de propriedade da Microsoft reduz a possibilidade de um conflito de endereços IP com o espaço de endereços IP utilizado na VNET.  Esse endereço IP é o mesmo em todas as regiões e não é alterado nem representa um risco à segurança porque apenas o componente interno da plataforma Azure pode obter um pacote desse endereço IP. 
 
-A marca de serviço AzureLoadBalancer identifica esse endereço IP de origem nos [grupos de segurança de rede](../virtual-network/security-overview.md) e permite o tráfego da investigação de integridade por padrão.
+A marca de serviço AzureLoadBalancer identifica esse endereço IP de origem nos [grupos de segurança de rede](../virtual-network/network-security-groups-overview.md) e permite o tráfego da investigação de integridade por padrão.
 
 Além de Load Balancer investigações de integridade, as [seguintes operações usam esse endereço IP](../virtual-network/what-is-ip-address-168-63-129-16.md):
 
@@ -233,15 +233,15 @@ Quando você cria o modelo de integridade para seu aplicativo, você deve invest
 
 Para o balanceamento de carga de UDP, você deve gerar um sinal de investigação de integridade personalizado do ponto de extremidade de back-end e usar uma investigação de integridade TCP, HTTP ou HTTPS direcionando o ouvinte correspondente para refletir a integridade do aplicativo UDP.
 
-Ao usar as [regras de balanceamento de carga das Portas HA](load-balancer-ha-ports-overview.md) com o [Standard Load Balancer](load-balancer-standard-overview.md), as cargas de todas as portas serão balanceadas e uma única resposta da investigação de integridade deverá refletir o status de toda a instância.
+Ao usar as [regras de balanceamento de carga das Portas HA](load-balancer-ha-ports-overview.md) com o [Standard Load Balancer](./load-balancer-overview.md), as cargas de todas as portas serão balanceadas e uma única resposta da investigação de integridade deverá refletir o status de toda a instância.
 
 Não converta uma investigação de integridade nem use um proxy para ela por meio da instância que recebe a investigação de integridade para outra instância na VNET, pois essa configuração pode resultar em falhas em cascata no cenário.  Considere o seguinte cenário: um conjunto de dispositivos de terceiros é implantado no pool de back-end de um recurso do Load Balancer para fornecer escala e redundância para os dispositivos e a investigação de integridade está configurada para investigar uma porta de investigação que o dispositivo de terceiros usa como proxy ou converte em outras máquinas virtuais por trás do dispositivo.  Se você investigar a mesma porta que está usando para converter as solicitações ou usar um proxy para elas para as outras máquinas virtuais por trás do dispositivo, qualquer resposta de investigação de uma única máquina virtual por trás do dispositivo marcará o dispositivo em si como inativo. Essa configuração pode levar a uma falha em cascata de todo o cenário do aplicativo como resultado de um único ponto de extremidade de back-end por trás do dispositivo.  O gatilho pode ser uma falha de investigação intermitente que fará com que o Load Balancer marque o destino original como inoperante (a instância do dispositivo) e, por sua vez, pode desabilitar todo o cenário de aplicativo. Em vez disso, investigue a integridade do dispositivo em si. A seleção da investigação para determinar o sinal de integridade é uma consideração importante para cenários de NVA (soluções de virtualização de rede) e é necessário consultar o fornecedor do aplicativo para descobrir qual é o sinal de integridade apropriado para esses cenários.
 
 Se você não permitir o [IP de origem](#probesource) da investigação nas políticas de firewall, a investigação de integridade falhará, pois não poderá acessar a instância.  Por sua vez, o Load Balancer marcará para a instância como inoperante devido à falha da investigação de integridade.  Essa configuração incorreta poderá causar uma falha no cenário de aplicativo com balanceamento de carga.
 
-Para que a investigação de integridade do Load Balancer marque a instância como operante, é **necessário** permitir esse endereço IP em todos os [grupos de segurança de rede](../virtual-network/security-overview.md) do Azure e nas políticas de firewall local.  Por padrão, cada grupo de segurança de rede inclui a [marca de serviço](../virtual-network/security-overview.md#service-tags) AzureLoadBalancer para permitir o tráfego de investigação de integridade.
+Para que a investigação de integridade do Load Balancer marque a instância como operante, é **necessário** permitir esse endereço IP em todos os [grupos de segurança de rede](../virtual-network/network-security-groups-overview.md) do Azure e nas políticas de firewall local.  Por padrão, cada grupo de segurança de rede inclui a [marca de serviço](../virtual-network/network-security-groups-overview.md#service-tags) AzureLoadBalancer para permitir o tráfego de investigação de integridade.
 
-Caso deseje testar uma falha de investigação de integridade ou marcar uma instância individual como inoperante, use um [grupo de segurança de rede](../virtual-network/security-overview.md) para bloquear explicitamente a investigação de integridade (porta de destino ou [IP de origem](#probesource)) e simular a falha de uma investigação.
+Caso deseje testar uma falha de investigação de integridade ou marcar uma instância individual como inoperante, use um [grupo de segurança de rede](../virtual-network/network-security-groups-overview.md) para bloquear explicitamente a investigação de integridade (porta de destino ou [IP de origem](#probesource)) e simular a falha de uma investigação.
 
 Não configure a VNET com o intervalo de endereços IP de propriedade da Microsoft que contém 168.63.129.16.  Essas configurações entrarão em conflito com o endereço IP da investigação de integridade e poderão resultar na falha do cenário.
 
@@ -251,7 +251,7 @@ Não habilite [carimbos de data/hora TCP](https://tools.ietf.org/html/rfc1323). 
 
 ## <a name="monitoring"></a>Monitoramento
 
-Os [Standard Load Balancer](load-balancer-standard-overview.md) públicos e internos expõem por ponto de extremidade e status de investigação de integridade do ponto de extremidade de back-end como métricas multidimensionais através de Azure monitor Essas métricas podem ser consumidas por outros serviços do Azure ou aplicativos de parceiro. 
+Os [Standard Load Balancer](./load-balancer-overview.md) públicos e internos expõem por ponto de extremidade e status de investigação de integridade do ponto de extremidade de back-end como métricas multidimensionais através de Azure monitor Essas métricas podem ser consumidas por outros serviços do Azure ou aplicativos de parceiro. 
 
 O Load Balancer público básico expõe o status de investigação de integridade resumido por pool de back-end por meio de logs Azure Monitor.  Os logs de Azure Monitor não estão disponíveis para balanceadores de carga básicos internos.  Você pode usar [os logs de Azure monitor](load-balancer-monitor-log.md) para verificar o status de integridade da investigação do balanceador de carga público e a contagem de investigação. O registro em log pode ser usado com o Power BI ou com o Azure Operational Insights para fornecer estatísticas sobre o status da integridade do balanceador de carga.
 
@@ -262,7 +262,7 @@ O Load Balancer público básico expõe o status de investigação de integridad
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre o [Standard Load Balancer](load-balancer-standard-overview.md)
+- Saiba mais sobre o [Standard Load Balancer](./load-balancer-overview.md)
 - [Introdução à criação de um balanceador de carga público no Gerenciador de Recursos usando PowerShell](quickstart-load-balancer-standard-public-powershell.md)
-- [API REST para investigações de integridade](https://docs.microsoft.com/rest/api/load-balancer/loadbalancerprobes/)
+- [API REST para investigações de integridade](/rest/api/load-balancer/loadbalancerprobes/)
 - Solicitar novas habilidades de investigação de integridade com [Uservoice do Load Balancer](https://aka.ms/lbuservoice)

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/11/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 3db9811322d27ab287fa568eeeffcb5f4d57bdf7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
-ms.translationtype: MT
+ms.openlocfilehash: 6f490b6f25112ed8a10bbd865070bd07ea3ee84f
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86530157"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016925"
 ---
 ## <a name="create-the-webapi-project"></a>Criar o projeto WebAPI
 
@@ -30,7 +30,7 @@ Crie um novo back-end WebAPI ASP.NET executando estas ações:
 >
 >Para verificar, inicie o Visual Studio. No menu **Ferramentas**, selecione **Extensões e Atualizações**. Pesquise por **Gerenciador de Pacotes NuGet** na sua versão do Visual Studio e verifique se a versão mais recente está instalada. Se a versão não for a versão mais recente, desinstale-a e reinstale o Gerenciador de Pacotes NuGet.
 
-![Captura de tela da caixa de diálogo extensões e atualizações com o pacote NuGet Manage para Visual estúdios Package realçado.][B4]
+![Captura de tela da caixa de diálogo Extensões e Atualizações, com o gerenciamento do Pacote NuGet para o Pacote do Visual Studio realçado.][B4]
 
 > [!NOTE]
 > Verifique se você instalou o [SDK do Azure](https://azure.microsoft.com/downloads/) do Visual Studio para implantação de site.
@@ -42,7 +42,7 @@ Crie um novo back-end WebAPI ASP.NET executando estas ações:
 3. No Visual Studio, clique com o botão direito na solução do Visual Studio, aponte para **Adicionar** e clique em **Novo Projeto**.
 4. Expanda **Visual C#**, selecione **Web** e clique em **Aplicativo Web do ASP.NET**.
 
-5. Na caixa **Nome** , digite **AppBackend**e selecione **OK**.
+5. Na caixa **Nome** , digite **AppBackend** e selecione **OK**.
 
     ![A janela Novo Projeto][B1]
 
@@ -63,9 +63,9 @@ Crie um novo back-end WebAPI ASP.NET executando estas ações:
 
 ## <a name="authenticate-clients-to-the-webapi-backend"></a>Autenticar clientes para o back-end da WebAPI
 
-Nesta seção, você cria uma nova classe de manipulador de mensagens denominada **AuthenticationTestHandler** para o novo back-end. Essa classe é derivada de [DelegatingHandler](https://msdn.microsoft.com/library/system.net.http.delegatinghandler.aspx) e adicionada como um manipulador de mensagens para poder processar todas as solicitações que chegam ao back-end.
+Nesta seção, você cria uma nova classe de manipulador de mensagens denominada **AuthenticationTestHandler** para o novo back-end. Essa classe é derivada de [DelegatingHandler](/previous-versions/visualstudio/hh193679(v=vs.118)) e adicionada como um manipulador de mensagens para poder processar todas as solicitações que chegam ao back-end.
 
-1. No Gerenciador de Soluções, clique com botão direito do mouse no projeto **AppBackend**, selecione **Adicionar**e selecione **Classe**.
+1. No Gerenciador de Soluções, clique com botão direito do mouse no projeto **AppBackend**, selecione **Adicionar** e selecione **Classe**.
 2. Nomeie a nova classe **AuthenticationTestHandler.cs** e selecione **Adicionar** para gerar a classe. Essa classe usa *Autenticação Básica* para manter a simplicidade na autenticação dos usuários. Seu aplicativo pode utilizar qualquer esquema de autenticação.
 3. Em AuthenticationTestHandler.cs, adicione as seguintes instruções `using`:
 
@@ -88,7 +88,7 @@ Nesta seção, você cria uma nova classe de manipulador de mensagens denominada
 
    Caso contrário, a solicitação é rejeitada. Essa não é uma abordagem de autenticação e autorização verdadeira. É apenas um exemplo simples para este tutorial.
 
-   Se a mensagem de solicitação for autenticada e autorizada pelo `AuthenticationTestHandler`, o usuário de autenticação básica será anexado à solicitação atual no [HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.current.aspx). As informações do usuário no HttpContext serão usadas por outro controlador (RegisterController) posteriormente para adicionar uma [marca](https://msdn.microsoft.com/library/azure/dn530749.aspx) à solicitação de registro de notificação.
+   Se a mensagem de solicitação for autenticada e autorizada pelo `AuthenticationTestHandler`, o usuário de autenticação básica será anexado à solicitação atual no [HttpContext](/dotnet/api/system.web.httpcontext.current). As informações do usuário no HttpContext serão usadas por outro controlador (RegisterController) posteriormente para adicionar uma [marca](/previous-versions/azure/azure-services/dn530749(v=azure.100)) à solicitação de registro de notificação.
 
     ```csharp
     public class AuthenticationTestHandler : DelegatingHandler
@@ -190,7 +190,7 @@ Nesta seção, você adiciona um novo controlador ao back-end WebAPI para manipu
     
 7. Em seguida, crie um novo controlador chamado **RegisterController**. No Gerenciador de Soluções, clique com o botão direito do mouse na pasta **Controladores**, selecione **Adicionar** e **Controlador**.
 
-8. Selecione **Controlador da API Web 2 - Vazio**e selecione **Adicionar**.
+8. Selecione **Controlador da API Web 2 - Vazio** e selecione **Adicionar**.
 
     ![A janela Adicionar Scaffold][B7]
 
@@ -329,11 +329,11 @@ Nesta seção, você adiciona um novo controlador que expõe uma maneira de os d
     using System.Threading.Tasks;
     using System.Web;
     ```
-3. Adicione o seguinte método à classe **NotificationsController** :
+3. Adicione o seguinte método à classe **NotificationsController**:
 
     Esse código envia um tipo de notificação com base no parâmetro `pns` do PNS (Platform Notification Service). O valor de `to_tag` é usado para definir a marca *username* na mensagem. Essa marca deve corresponder a uma marca de nome de usuário de um registro de hub de notificação ativo. A mensagem de notificação é recuperada do corpo da solicitação POST e formatada para o PNS de destino.
 
-    Dependendo do PNS que seus dispositivos com suporte usam para receber notificações, as notificações têm suporte por vários formatos diferentes. Por exemplo, em dispositivos do Windows, você pode usar uma [notificação do sistema com WNS](https://msdn.microsoft.com/library/windows/apps/br230849.aspx) que não tenha suporte direto de outro PNS. Nesse caso, o back-end precisa formatar a notificação em uma notificação com suporte para o PNS de dispositivos aos quais você planeja dar suporte. Em seguida, use a API de envio apropriada na [classe NotificationHubClient](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.notificationhubclient_methods.aspx).
+    Dependendo do PNS que seus dispositivos com suporte usam para receber notificações, as notificações têm suporte por vários formatos diferentes. Por exemplo, em dispositivos do Windows, você pode usar uma [notificação do sistema com WNS](/uwp/schemas/tiles/toastschema/schema-root) que não tenha suporte direto de outro PNS. Nesse caso, o back-end precisa formatar a notificação em uma notificação com suporte para o PNS de dispositivos aos quais você planeja dar suporte. Em seguida, use a API de envio apropriada na [classe NotificationHubClient](/dotnet/api/microsoft.azure.notificationhubs.notificationhubclient).
 
     ```csharp
     public async Task<HttpResponseMessage> Post(string pns, [FromBody]string message, string to_tag)
@@ -386,11 +386,11 @@ Em seguida, implante o aplicativo em um site do Azure para poder ser acessado po
 
 1. Clique com o botão direito do mouse no projeto **AppBackend** e selecione **Publicar**.
 
-2. Selecione **Microsoft Azure serviço de aplicativo** como o destino de publicação e, em seguida, selecione * * publicar. A janela Criar Serviço de Aplicativo é aberta. Aqui, você pode criar todos os recursos do Azure necessários para executar o aplicativo Web ASP.NET no Azure.
+2. Escolha **Serviço de Aplicativo do Microsoft Azure** como destino de publicação e selecione **Publicar. A janela Criar Serviço de Aplicativo é aberta. Aqui, você pode criar todos os recursos do Azure necessários para executar o aplicativo Web ASP.NET no Azure.
 
     ![O bloco Serviço de Aplicativo do Azure][B15]
 
-3. Na janela **Criar Serviço de Aplicativo**, selecione sua conta do Azure. Selecione **alterar tipo**  >  **aplicativo Web**. Mantenha o **Nome do Aplicativo Web** padrão e selecione a **Assinatura**, o **Grupo de Recursos** e o **Plano do Serviço de Aplicativo**.
+3. Na janela **Criar Serviço de Aplicativo**, selecione sua conta do Azure. Selecione **Alterar Tipo** > **Aplicativo Web**. Mantenha o **Nome do Aplicativo Web** padrão e selecione a **Assinatura**, o **Grupo de Recursos** e o **Plano do Serviço de Aplicativo**.
 
 4. Selecione **Criar**.
 

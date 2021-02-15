@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/10/2020
 ms.author: alkohli
 ms.openlocfilehash: 50dbe9ab649a708fb36b1c9e4fe89bccadc7ea90
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86209240"
 ---
 # <a name="audit-logs-for-your-azure-data-box-and-azure-data-box-heavy"></a>Logs de auditoria para seu Azure Data Box e Azure Data Box Heavy
@@ -49,7 +49,7 @@ As seguintes IDs de evento de log do sistema são coletadas como logs de auditor
 |    |                              |
 |Microsoft-Windows-kernel-Power  |41  |Sistema reinicializado sem um desligamento normal.| 
 |    |                              |
-|Microsoft-Windows-BitLocker-driver|Tudo|    |
+|Microsoft-Windows-BitLocker-driver|Todos|    |
 
 ### <a name="security-logs"></a>Logs de segurança
 
@@ -83,7 +83,7 @@ Aqui está uma tabela que resume os vários provedores de eventos e as IDs de ev
 |                                                  |                 |         |
 |Microsoft-Azure-data Box-HcsMgmt-Audit        |65003       |Preparação para o envio evento de estado não foi iniciado, em andamento, com falha, cancelado, com êxito, ScanCompletedWithIssues, SucceededWithWarnings          |
 |                                                  |                 |     |
-|Microsoft-Azure-data Box-IfxAudit    |Tudo |Todos os eventos são registrados com a API do log de auditoria no código |
+|Microsoft-Azure-data Box-IfxAudit    |Todos |Todos os eventos são registrados com a API do log de auditoria no código |
 
 Aqui está um exemplo do log de auditoria do IFX (Instrumentation Framework):
 

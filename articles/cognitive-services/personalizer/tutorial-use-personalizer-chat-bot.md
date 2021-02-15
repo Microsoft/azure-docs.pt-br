@@ -1,14 +1,17 @@
 ---
 title: Usar Personalizador no chatbot – Personalizador
 description: Personalize um chatbot .NET em C# com um loop Personalizador para fornecer o conteúdo correto a um usuário com base em ações (com recursos) e recursos de contexto.
+ms.service: cognitive-services
+ms.subservice: personalizer
 ms.topic: tutorial
 ms.date: 07/17/2020
-ms.openlocfilehash: 8e936b4017ad50434bc7d6b05b4217f82a9080e0
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 7c4920eaa7a5619be37d38afd763e7be416d3124
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131660"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565714"
 ---
 # <a name="tutorial-use-personalizer-in-net-chat-bot"></a>Tutorial: Usar Personalizador no chatbot .NET
 
@@ -20,7 +23,7 @@ Use um chatbot .NET em C# com um loop Personalizador para fornecer o conteúdo c
 > [!div class="checklist"]
 > * Configurar recursos do Azure
 > * Configurar e executar o bot
-> * Interagir com o bot usando o emulador de bot
+> * Interagir com o bot usando o Bot Framework Emulator
 > * Entender onde e como o bot usa o Personalizador
 
 
@@ -127,7 +130,7 @@ git clone https://github.com/Azure-Samples/cognitive-services-personalizer-sampl
 
 Para usar esse chatbot, você precisa criar recursos do Azure para o Personalizador e o LUIS (Reconhecimento vocal).
 
-* [Crie recursos do LUIS](../luis/luis-how-to-azure-subscription.md#create-luis-resources-in-azure-portal). Selecione **ambos** na etapa de criação porque você precisa de recursos de criação e de previsão.
+* [Crie recursos do LUIS](../luis/luis-how-to-azure-subscription.md#create-luis-resources-in-the-azure-portal). Selecione **ambos** na etapa de criação porque você precisa de recursos de criação e de previsão.
 * [Crie o recurso do Personalizador](how-to-create-resource.md) e copie a chave e o ponto de extremidade do portal do Azure. Você precisará definir esses valores no arquivo `appsettings.json` do projeto do .NET.
 
 ### <a name="create-luis-app"></a>Criar um aplicativo LUIS
@@ -173,7 +176,7 @@ Mantenha o site em execução porque o tutorial explica o que o bot está fazend
 
 ## <a name="set-up-the-bot-emulator"></a>Configurar o emulador de bot
 
-1. Abra o Emulador do Bot e selecione **Abrir Bot**.
+1. Abra o Bot Framework Emulator e selecione **Abrir Bot**.
 
     :::image type="content" source="media/tutorial-chat-bot/bot-emulator-startup.png" alt-text="Captura da tela de inicialização do emulador de bot.":::
 

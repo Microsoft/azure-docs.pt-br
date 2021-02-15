@@ -1,19 +1,16 @@
 ---
 title: Autenticação & criptografia TLS Apache Kafka-Azure HDInsight
 description: Configure a criptografia TLS para comunicação entre os clientes Kafka e os agentes Kafka, bem como entre os agentes Kafka. Configurar a autenticação SSL de clientes.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 05/01/2019
-ms.openlocfilehash: 9a95970647a26ea80db9f63fb8523c6a65cc5e06
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 6c020153d5c5cb5aad593c5b15e60e67951b89d4
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86082073"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945189"
 ---
 # <a name="set-up-tls-encryption-and-authentication-for-apache-kafka-in-azure-hdinsight"></a>Configurar a criptografia e a autenticação TLS para Apache Kafka no Azure HDInsight
 
@@ -52,7 +49,7 @@ O resumo do processo de configuração do agente é o seguinte:
 Use as seguintes instruções detalhadas para concluir a configuração do agente:
 
 > [!Important]
-> Nos trechos de código a seguir, wnX é uma abreviação de um dos três nós de trabalho e deve ser substituído `wn0` por `wn1` ou `wn2` conforme apropriado. `WorkerNode0_Name`e `HeadNode0_Name` devem ser substituídos pelos nomes dos respectivos computadores.
+> Nos trechos de código a seguir, wnX é uma abreviação de um dos três nós de trabalho e deve ser substituído `wn0` por `wn1` ou `wn2` conforme apropriado. `WorkerNode0_Name` e `HeadNode0_Name` devem ser substituídos pelos nomes dos respectivos computadores.
 
 1. Execute a configuração inicial no nó de cabeçalho 0, que para o HDInsight preencherá a função da autoridade de certificação (CA).
 

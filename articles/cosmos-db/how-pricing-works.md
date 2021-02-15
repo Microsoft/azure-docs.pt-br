@@ -6,20 +6,21 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: a992d240955f42ec030a84c887ba086ce92f9790
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 573fc4fac413ceed50246bc6fb8df1d9db021c94
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88605256"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247447"
 ---
 # <a name="pricing-model-in-azure-cosmos-db"></a>Modelo de preços no Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 O modelo de preços do Azure Cosmos DB simplifica o planejamento e o gerenciamento dos custos. Com o Azure Cosmos DB, você paga pelas operações executadas no banco de dados e pelo armazenamento consumido por eles.
 
 - **Operações de banco de dados**: a maneira como você é cobrado pelas operações de banco de dados depende do tipo de conta do Azure cosmos que você está usando.
 
-  - **Taxa de transferência provisionada**: a [taxa de transferência provisionada](set-throughput.md) (também chamada de taxa de transferência reservada) garante alto desempenho em qualquer escala. Você especifica a taxa de transferência de que precisa em [unidades de solicitação](request-units.md) por segundo (ru/s) e Azure Cosmos DB dedica os recursos necessários para garantir a taxa de transferência configurada. Você pode [provisionar a taxa de transferência em um banco de dados ou em um contêiner](set-throughput.md). Com base nas suas necessidades de carga de trabalho, você pode dimensionar a taxa de transferência para cima/para baixo a qualquer momento ou usar o [dimensionamento automático](provision-throughput-autoscale.md) (embora haja uma taxa de transferência mínima necessária em um banco de dados ou um contêiner para garantir os SLAs). Você será cobrado por hora pela taxa de transferência máxima provisionada para determinada hora.
+  - **Taxa de transferência provisionada**: a [taxa de transferência provisionada](set-throughput.md) (também chamada de taxa de transferência reservada) fornece alto desempenho em qualquer escala. Você especifica a taxa de transferência de que precisa em [unidades de solicitação](request-units.md) por segundo (ru/s) e Azure Cosmos DB dedica os recursos necessários para fornecer a taxa de transferência configurada. Você pode [provisionar a taxa de transferência em um banco de dados ou em um contêiner](set-throughput.md). Com base nas suas necessidades de carga de trabalho, você pode dimensionar a taxa de transferência para cima/para baixo a qualquer momento ou usar o [dimensionamento automático](provision-throughput-autoscale.md) (embora haja uma taxa de transferência mínima necessária em um banco de dados ou um contêiner para garantir os SLAs). Você será cobrado por hora pela taxa de transferência máxima provisionada para determinada hora.
 
    > [!NOTE]
    > Como o modelo de taxa de transferência provisionado dedica recursos ao contêiner ou banco de dados, você será cobrado pela taxa de transferência que você provisionou mesmo se não executar nenhuma carga de trabalho.
@@ -36,9 +37,9 @@ Se você implantar sua conta de Azure Cosmos DB em uma região não governamenta
 
 O Azure Cosmos DB oferece muitas opções para os desenvolvedores a ele gratuitamente. Estas opções incluem:
 
-* **Azure Cosmos DB camada gratuita**: Azure Cosmos DB camada gratuita facilita a introdução, o desenvolvimento e teste de seus aplicativos ou até mesmo a execução de cargas de trabalho de produção pequenas gratuitamente. Quando a camada gratuita estiver habilitada em uma conta, você obterá os primeiros 400 RU/s e 5 GB de armazenamento na conta gratuitamente, durante o tempo de vida da conta. Você pode ter até uma conta de camada gratuita por assinatura do Azure e deve aceitar ao criar a conta. Para começar, [crie uma nova conta no portal do Azure com a camada gratuita habilitada](create-cosmosdb-resources-portal.md) ou use um [modelo ARM](manage-sql-with-resource-manager.md#free-tier).
+* **Azure Cosmos DB camada gratuita**: Azure Cosmos DB camada gratuita facilita a introdução, o desenvolvimento e teste de seus aplicativos ou até mesmo a execução de cargas de trabalho de produção pequenas gratuitamente. Quando a camada gratuita estiver habilitada em uma conta, você obterá os primeiros 400 RU/s e 5 GB de armazenamento na conta gratuitamente, durante o tempo de vida da conta. Você pode ter até uma conta de camada gratuita por assinatura do Azure e deve aceitar ao criar a conta. Para começar, [crie uma nova conta no portal do Azure com a camada gratuita habilitada](create-cosmosdb-resources-portal.md) ou use um [modelo ARM](./manage-with-templates.md#free-tier).
 
-* **Conta gratuita do Azure**: o Azure oferece uma [camada gratuita](https://azure.microsoft.com/free/) que fornece $200 em créditos do Azure pelos primeiros 30 dias e uma quantidade limitada de serviços gratuitos por 12 meses. Para saber mais, confira [Conta gratuita do Azure](../cost-management-billing/manage/avoid-charges-free-account.md). O Azure Cosmos DB é parte da conta gratuita do Azure. Especificamente para Azure Cosmos DB, essa conta gratuita oferece armazenamento de 5 GB e 400 RU/s de taxa de transferência provisionada para o ano inteiro.
+* **Conta gratuita do Azure**: o Azure oferece uma [camada gratuita](https://azure.microsoft.com/free/) que fornece $200 em créditos do Azure pelos primeiros 30 dias e uma quantidade limitada de serviços gratuitos por 12 meses. Para saber mais, confira [Conta gratuita do Azure](../cost-management-billing/manage/avoid-charges-free-account.md). O Azure Cosmos DB é parte da conta gratuita do Azure. Especificamente para Azure Cosmos DB, essa conta gratuita oferece armazenamento de 25 GB e 400 RU/s de taxa de transferência provisionada para o ano inteiro.
 
 * **Experimente o Azure Cosmos DB gratuitamente**: o Azure Cosmos DB oferece uma experiência de tempo limitado usando o try Azure Cosmos DB para contas gratuitas. Você pode criar uma conta do Azure Cosmos DB, criar um banco de dados e coleções e executar um aplicativo de exemplo usando os inícios rápidos e os tutoriais. É possível executar o aplicativo de exemplo sem se inscrever em uma conta do Azure ou usar seu cartão de crédito. [Experimente o Microsoft Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) oferece o Azure Cosmos DB por um mês, com a possibilidade de renovar sua conta várias vezes.
 
@@ -59,7 +60,7 @@ Você pode aprender mais sobre como otimizar os custos de seus recursos do Azure
 * Saiba mais sobre [Otimizando o custo da taxa de transferência](optimize-cost-throughput.md)
 * Saiba mais sobre [Otimizando o custo de armazenamento](optimize-cost-storage.md)
 * Saiba mais sobre [Otimizando o custo de leituras e gravações](optimize-cost-reads-writes.md)
-* Saiba mais sobre [Otimizando o custo de consultas](optimize-cost-queries.md)
+* Saiba mais sobre [Otimizando o custo de consultas](./optimize-cost-reads-writes.md)
 * Saiba mais sobre [Otimizando o custo de contas do Cosmos em várias regiões](optimize-cost-regions.md)
 * Saiba mais sobre [Capacidade reservada do Azure Cosmos DB](cosmos-db-reserved-capacity.md)
 * Saiba mais sobre o [Emulador do Microsoft Azure Cosmos DB](local-emulator.md)

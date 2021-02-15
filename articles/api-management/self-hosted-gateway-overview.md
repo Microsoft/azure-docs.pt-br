@@ -8,14 +8,14 @@ manager: gwallace
 editor: ''
 ms.service: api-management
 ms.topic: article
-ms.date: 04/26/2020
+ms.date: 01/25/2021
 ms.author: apimpm
-ms.openlocfilehash: b560b02544eeb96167e68ed305d4d9942d2b1e0f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 48abce693ca22163c0a1742ba71faf36fc6156a1
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82232965"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99989095"
 ---
 # <a name="self-hosted-gateway-overview"></a>Visão geral do gateway auto-hospedado
 
@@ -49,7 +49,7 @@ A funcionalidade a seguir encontrada nos gateways gerenciados **não está dispo
 
 - Logs do Azure Monitor
 - Gerenciamento de codificação e versão do TLS do upstream (lado de back-end)
-- Validação de certificados de cliente e servidor usando [certificados raiz de CA](api-management-howto-ca-certificates.md) carregados no serviço de gerenciamento de API. Para adicionar suporte para autoridade de certificação personalizada, adicione uma camada à imagem de contêiner de gateway de hospedagem interna que instala o certificado raiz da autoridade de certificação.
+- Validação de certificados de cliente e servidor usando [certificados raiz de CA](api-management-howto-ca-certificates.md) carregados no serviço de gerenciamento de API. Para obter mais informações, consulte [validação de certificado no gateway de hospedagem interna](api-management-howto-mutual-certificates-for-clients.md#certificate-validation-in-self-hosted-gateway).
 - Integração com o [Service Fabric](../service-fabric/service-fabric-api-management-overview.md)
 - Retomada da sessão TLS
 - Renegociação de certificado de cliente. Isso significa que para [autenticação de certificado de cliente](api-management-howto-mutual-certificates-for-clients.md) para clientes de API de trabalho devem apresentar seus certificados como parte do HANDSHAKE de TLS inicial. Para garantir isso, habilite a configuração negociar certificado de cliente ao configurar um nome de host personalizado de gateway auto-hospedado.

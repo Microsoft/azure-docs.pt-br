@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 1/11/2019
 ms.author: jeedes
-ms.openlocfilehash: 5a8fe24e5fa1935b2363ed5d2c15c72af8af11ff
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 78324cfa58a8ac015b085052bdec7e3793befc1b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88539701"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348374"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-signagelive"></a>Tutorial: Integração do Azure Active Directory ao Signagelive
 
@@ -27,7 +27,7 @@ A integração do Signagelive ao Azure AD oferece os seguintes benefícios:
 * Você pode permitir que os usuários sejam conectados automaticamente ao Signagelive (logon único) com suas contas do Azure AD.
 * Gerencie suas contas em um único local: o portal do Azure.
 
-Para obter mais informações sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis). Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Para obter mais informações sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md). Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Azure AD com o Signagelive, execute as seguint
     Na caixa **URL de Logon**, insira uma URL que use o seguinte padrão: `https://login.signagelive.com/sso/<ORGANIZATIONALUNITNAME>`
 
     > [!NOTE]
-    > O valor não é real. Atualize o valor com a URL de logon real. Para obter o valor, contate a [equipe de suporte ao cliente do Signagelive](mailto:support@signagelive.com). Veja também os padrões exibidos na seção **Configuração Básica do SAML** no portal do Azure.
+    > O valor não é real. Atualize o valor com a URL de logon real. Para obter o valor, entre em contato com a [equipe de suporte ao cliente do Signagelive](mailto:support@signagelive.com). Veja também os padrões exibidos na seção **Configuração Básica do SAML** no portal do Azure.
 
 5. Na página **Configurar Logon Único com o SAML**, na seção **Certificado de Autenticação SAML**, selecione **Baixar** para baixar o **Certificado (Bruto)** usando as opções fornecidas de acordo com suas necessidades. Em seguida, salve-o no computador.
 
@@ -177,19 +177,18 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure co
 
 ### <a name="create-a-signagelive-test-user"></a>Criar um usuário de teste do Signagelive
 
-Nesta seção, você criará um usuário chamado Brenda Fernandes no Signagelive. Trabalhe com a [equipe de suporte do Signagelive](mailto:support@signagelive.com) para adicionar os usuários à plataforma Signagelive. Você precisa criar e ativar os usuários antes de usar o logon único.
+Nesta seção, você criará um usuário chamado Brenda Fernandes no Signagelive. Trabalhe com a [equipe de suporte do Signagelive](mailto:support@signagelive.com) para adicionar os usuários na plataforma do Signagelive. Você precisa criar e ativar os usuários antes de usar o logon único.
 
 ### <a name="test-single-sign-on"></a>Testar logon único 
 
 Nesta seção, você testará a configuração de logon único do Azure AD usando o portal Meus Aplicativos.
 
-Ao selecionar o bloco do **Signagelive** no portal Meus Aplicativos, você deverá ser conectado automaticamente. Para obter mais informações sobre o portal Meus Aplicativos, confira [O que é o portal Meus Aplicativos?](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao selecionar o bloco do **Signagelive** no portal Meus Aplicativos, você deverá ser conectado automaticamente. Para obter mais informações sobre o portal Meus Aplicativos, confira [O que é o portal Meus Aplicativos?](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](./tutorial-list.md)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [O que é o Acesso Condicional no Azure Active Directory?](../conditional-access/overview.md)

@@ -6,15 +6,15 @@ services: virtual-wan
 author: reyandap
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 06/29/2020
+ms.date: 12/08/2020
 ms.author: reyandap
 ms.custom: references_pricing
-ms.openlocfilehash: 2d2234ec333746c6f1da59346bdb74247deb616c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 13451291544f704000ab61d41ed5014fa69298e4
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85567003"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100517681"
 ---
 # <a name="about-virtual-wan-pricing"></a>Sobre os preços da WAN virtual
 
@@ -23,8 +23,7 @@ A WAN virtual do Azure traz vários serviços de rede e segurança juntos em uma
 Cada serviço na WAN virtual é cobrado. Portanto, sugerir um preço único não é aplicável à WAN virtual. A [calculadora de preços do Azure](https://azure.microsoft.com/pricing/calculator/) fornece um mecanismo para derivar o custo, que se baseia nos serviços provisionados em uma WAN virtual. Este artigo aborda as perguntas mais frequentes sobre os preços da WAN virtual.
 
 >[!NOTE]
->Para obter informações de preços atuais, consulte [preços de WAN virtual](https://azure.microsoft.com/pricing/details/virtual-wan/).
->
+>Para obter informações de preços atuais, consulte [preços de WAN virtual](https://azure.microsoft.com/pricing/details/virtual-wan/). Os encargos entre hubs (Hub para Hub) não são mostrados na página de preços da WAN virtual, pois estão sujeitos a Inter-Region (intra/inter-continental) encargos de [transferência de dados do Azure](https://azure.microsoft.com/pricing/details/bandwidth/).
 
 ## <a name="common-pricing-questions"></a><a name="questions"></a>Perguntas comuns sobre preços
 
@@ -38,7 +37,7 @@ Uma **unidade de escala** fornece a unidade para a capacidade de agregação de 
 
 ### <a name="what-is-a-connection-unit"></a><a name="connection-unit"></a>O que é uma unidade de conexão?
 
-Uma **unidade de conexão** se aplica a qualquer ponto de extremidade local/não-Microsoft que se conecte aos gateways do Azure. Para VPN site a site, isso implica ramificações. Para VPN de usuário (ponto a site), isso implica usuários remotos. Para o ExpressRoute, isso implica conexões de circuito do ExpressRoute.<br>Por exemplo:
+Uma **unidade de conexão** se aplica a qualquer ponto de extremidade local/não-Microsoft que se conecte aos gateways do Azure. Para VPN site a site, esse valor implica ramificações. Para VPN de usuário (ponto a site), esse valor implica usuários remotos. Para o ExpressRoute, esse valor implica conexões de circuito do ExpressRoute.<br>Por exemplo:
 
 * Uma conexão de ramificação conectando-se à VPN do Azure em um hub virtual custa US $0,05/h. Portanto, as conexões de ramificação 100 que se conectam a um hub virtual do Azure custarão US $0,05 * 100/hr.
 
@@ -50,32 +49,7 @@ Uma **unidade de conexão** se aplica a qualquer ponto de extremidade local/não
 
 * Qualquer tráfego que insira o Azure não será cobrado. O tráfego que sai do Azure (via VPN, ExpressRoute ou conexões de VPN de usuário ponto a site) está sujeito aos [encargos de transferência de dados do Azure](https://azure.microsoft.com/pricing/details/bandwidth/)padrão.
 
-* Para encargos de transferência de dados entre um hub de WAN virtual e um hub remoto de WAN virtual ou VNet em uma região diferente do hub de origem, as tarifas de transferência de dados se aplicam para o tráfego que sai de um Hub. Exemplo: o tráfego que sai de um hub leste dos EUA será cobrado $0,02/GB para um hub oeste dos EUA. Não há nenhum encargo para o tráfego entrando no Hub oeste dos EUA. As tabelas a seguir mostram os encargos.
-
-As tabelas a seguir usam as seguintes abreviações: {nome: América do Norte}, {UE: Europa}, {MEA: África do Oriente Médio}, {OC: Oceania (Austrália Central e Austrália Central 2)}, {LATAm: América Latina} 
-
-**Preço dentro do continente (*)**
-
-| Intra-continente| Preço ($/GB)|
-|---|---|
-| NAM to NAM|US$ 0,02 |
-| UE para a UE |US$ 0,02 |
-| Ásia-Ásia (exceto China)|$0.10 |
-| MEA MEA|$0.16 |
-| LATAÉ-LATA |$0.16 |
-| OC-OC|$0.12 |
-
-**Preço entre continental (*)**
-
-| Entre continental| Preço ($/GB)|
-|---|---|
-| DE bepara a UE ou para a UE |$0.07 |
-| DO inferem a qualquer lugar |$0.17 |
-| DE MEA para qualquer lugar |$0.17 |
-| DE OCEANIA para qualquer lugar |$0.12 |
-| DA Ásia (exceto a CHINA) a qualquer lugar |$0.12 |
-
-(*) Alguns encargos podem ser aplicados a partir de 1º de agosto de 2020.
+* Para encargos de transferência de dados entre um hub de WAN virtual e um hub remoto de WAN virtual ou VNet em uma região diferente do hub de origem, as tarifas de transferência de dados se aplicam para o tráfego que sai de um Hub. Exemplo: o tráfego que sai de um hub leste dos EUA será cobrado $0,02/GB para um hub oeste dos EUA. Não há nenhum encargo para o tráfego entrando no Hub oeste dos EUA. Todo o tráfego do hub para o Hub está sujeito a Inter-Region (intra/inter-continental) encargos de [transferência de dados do Azure](https://azure.microsoft.com/pricing/details/bandwidth/). 
 
 ### <a name="what-is-the-difference-between-a-standard-hub-fee-and-a-standard-hub-processing-fee"></a><a name="fee"></a>Qual é a diferença entre uma taxa de Hub padrão e uma taxa de processamento de Hub padrão?
 

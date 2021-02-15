@@ -3,18 +3,20 @@ title: Migrar contêineres de Cosmos do Azure não particionados para contêiner
 description: Saiba como migrar todos os contêineres não particionados existentes para contêineres particionados.
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 09/25/2019
 ms.author: mjbrown
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f2defeb2c417e94109721d32d8d4b611e2e46569
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: edb6114406922d55c439ae7426a2be933bba4aee
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89003211"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93334077"
 ---
 # <a name="migrate-non-partitioned-containers-to-partitioned-containers"></a>Migrar contêineres não particionados para contêineres particionados
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Azure Cosmos DB dá suporte à criação de contêineres sem uma chave de partição. No momento, você pode criar contêineres não particionados usando CLI do Azure e Azure Cosmos DB SDKs (.net, Java, NodeJs) que têm uma versão menor ou igual a 2. x. Você não pode criar contêineres não particionados usando o portal do Azure. No entanto, esses contêineres não particionados não são elásticos e têm capacidade de armazenamento fixa de 20 GB e limite de taxa de transferência de 10K RU/s.
 
@@ -132,6 +134,6 @@ Se novos itens forem inseridos com valores diferentes para a chave de partição
 * [Particionamento no Azure Cosmos DB](partitioning-overview.md)
 * [Unidades de Solicitação no Azure Cosmos DB](request-units.md)
 * [Provisionar a taxa de transferência para contêineres e bancos de dados](set-throughput.md)
-* [Como trabalhar com a conta do Azure Cosmos](account-overview.md)
+* [Como trabalhar com a conta do Azure Cosmos](./account-databases-containers-items.md)
 
 [1]: https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/NonPartitionContainerMigration

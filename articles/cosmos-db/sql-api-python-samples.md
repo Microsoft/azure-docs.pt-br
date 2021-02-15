@@ -9,19 +9,21 @@ ms.topic: sample
 ms.date: 08/11/2020
 ms.author: rosouz
 ms.custom: devx-track-python
-ms.openlocfilehash: 34257281470f051f3d385aa729ca5a4f3591e61c
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 4a1cd5b1773a58cf385fc6cc5c22be8df7b21e20
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88586243"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98018948"
 ---
 # <a name="azure-cosmos-db-python-examples"></a>Exemplos do Python no Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [Exemplos de SDK do .NET V2](sql-api-dotnet-samples.md)
 > * [Exemplos de SDK do .NET V3](sql-api-dotnet-v3sdk-samples.md)
 > * [Exemplos do SDK do Java V4](sql-api-java-sdk-samples.md)
+> * [Exemplos do SDK do Spring Data V3](sql-api-spring-data-sdk-samples.md)
 > * [Exemplos do Node.js](sql-api-nodejs-samples.md)
 > * [Exemplos do Python](sql-api-python-samples.md)
 > * [Galeria de Exemplos de Código do Azure](https://azure.microsoft.com/resources/samples/?sort=0&service=cosmos-db)
@@ -37,7 +39,7 @@ Soluções de exemplo que realizam operações CRUD e outras operações comuns 
     * Dentro de uma assinatura ativa do Azure:
         * [Criar uma conta gratuita do Azure](https://azure.microsoft.com/free) ou usar sua assinatura existente 
         * [Créditos mensais do Visual Studio](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers)
-        * [Camada Gratuita do Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/optimize-dev-test#azure-cosmos-db-free-tier)
+        * [Camada Gratuita do Azure Cosmos DB](./optimize-dev-test.md#azure-cosmos-db-free-tier)
     * Sem uma assinatura do Azure:
         * [Experimentar o Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/), um ambiente de testes que dura 30 dias.
         * [Emulador do Azure Cosmos DB](https://aka.ms/cosmosdb-emulator) 
@@ -49,7 +51,7 @@ Soluções de exemplo que realizam operações CRUD e outras operações comuns 
 
 ## <a name="database-examples"></a>Exemplos de banco de dados
 
-O exemplo [database_management.py](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/database_management.py) do Python mostra como realizar as seguintes tarefas. Para saber mais sobre os bancos de dados Azure Cosmos antes de executar os exemplos a seguir, veja o artigo conceitual [Trabalhando com bancos de dados, contêineres e itens](databases-containers-items.md).
+O exemplo [database_management.py](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/database_management.py) do Python mostra como realizar as seguintes tarefas. Para saber mais sobre os bancos de dados Azure Cosmos antes de executar os exemplos a seguir, veja o artigo conceitual [Trabalhando com bancos de dados, contêineres e itens](account-databases-containers-items.md).
 
 | Tarefa | Referência de API |
 | --- | --- |
@@ -61,7 +63,7 @@ O exemplo [database_management.py](https://github.com/Azure/azure-sdk-for-python
 
 ## <a name="container-examples"></a>Exemplos de contêiner
 
-O exemplo [container_management.py](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/container_management.py) do Python mostra como realizar as seguintes tarefas. Para saber mais sobre as coleções do Azure Cosmos antes de executar os exemplos a seguir, veja o artigo conceitual [Trabalhando com bancos de dados, contêineres e itens](databases-containers-items.md).
+O exemplo [container_management.py](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/container_management.py) do Python mostra como realizar as seguintes tarefas. Para saber mais sobre as coleções do Azure Cosmos antes de executar os exemplos a seguir, veja o artigo conceitual [Trabalhando com bancos de dados, contêineres e itens](account-databases-containers-items.md).
 
 | Tarefa | Referência de API |
 | --- | --- |
@@ -74,7 +76,7 @@ O exemplo [container_management.py](https://github.com/Azure/azure-sdk-for-pytho
 
 ## <a name="item-examples"></a>Exemplos de item
 
-O exemplo [item_management.py](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/document_management.py) do Python mostra como realizar as seguintes tarefas. Para saber mais sobre os documentos do Azure Cosmos antes de executar os exemplos a seguir, veja o artigo conceitual [Trabalhando com bancos de dados, contêineres e itens](databases-containers-items.md).
+O exemplo [item_management.py](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/document_management.py) do Python mostra como realizar as seguintes tarefas. Para saber mais sobre os documentos do Azure Cosmos antes de executar os exemplos a seguir, veja o artigo conceitual [Trabalhando com bancos de dados, contêineres e itens](account-databases-containers-items.md).
 
 | Tarefa | Referência de API |
 | --- | --- |
@@ -89,7 +91,7 @@ O exemplo [item_management.py](https://github.com/Azure/azure-sdk-for-python/blo
 
 ## <a name="indexing-examples"></a>Exemplos de indexação
 
-O exemplo [index_management.py](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/index_management.py) do Python mostra como realizar as seguintes tarefas. Para saber mais sobre a indexação no Azure Cosmos DB antes de executar os exemplos a seguir, consulte os artigos conceituais [políticas de indexação](index-policy.md), [tipos de indexação](index-types.md) e [caminhos de indexação](index-paths.md).
+O exemplo [index_management.py](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/index_management.py) do Python mostra como realizar as seguintes tarefas. Para saber mais sobre a indexação no Azure Cosmos DB antes de executar os exemplos a seguir, consulte os artigos conceituais [políticas de indexação](index-policy.md), [tipos de indexação](index-overview.md#index-types) e [caminhos de indexação](index-policy.md#include-exclude-paths).
 
 | Tarefa | Referência de API |
 | --- | --- |

@@ -2,17 +2,17 @@
 title: 'Azure ExpressRoute: projetando para alta disponibilidade'
 description: Esta página fornece recomendações de arquitetura para alta disponibilidade ao usar o Azure ExpressRoute.
 services: expressroute
-author: rambk
+author: duongau
 ms.service: expressroute
 ms.topic: article
 ms.date: 06/28/2019
-ms.author: rambala
-ms.openlocfilehash: da90bbbce485616afdac5997576da99ac4d62c6f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.author: duau
+ms.openlocfilehash: 3602c3944e8731263fbb55f024c276783950329f
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86521897"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "92202354"
 ---
 # <a name="designing-for-high-availability-with-expressroute"></a>Projetando para alta disponibilidade com o ExpressRoute
 
@@ -54,7 +54,7 @@ Como alternativa, executar as conexões primária e secundária de um circuito d
 
 O emparelhamento da Microsoft foi projetado para comunicação entre pontos de extremidade públicos. Normalmente, os pontos de extremidade privados locais são endereços de rede traduzidos (NATed) com IP público no cliente ou na rede de parceiros antes de se comunicarem por emparelhamento da Microsoft. Supondo que você use as conexões primária e secundária no modo ativo-ativo, onde e como o NAT tem um impacto sobre a rapidez de recuperação após uma falha em uma das conexões do ExpressRoute. Duas opções de NAT diferentes são ilustradas na figura a seguir:
 
-[![3]][3]
+[![Beta]][3]
 
 Na opção 1, o NAT é aplicado após a divisão do tráfego entre as conexões primárias e secundárias do ExpressRoute. Para atender aos requisitos de estado do NAT, os pools de NAT independentes são usados entre os dispositivos primário e secundário para que o tráfego de retorno chegue ao mesmo dispositivo de borda por meio do qual o fluxo foi enviado.
 
@@ -93,12 +93,8 @@ Para considerações de design para criar conectividade de rede com redundância
 
 
 <!--Link References-->
-[zone redundant vgw]: https://docs.microsoft.com/azure/vpn-gateway/about-zone-redundant-vnet-gateways
-[conf zone redundant vgw]: https://docs.microsoft.com/azure/vpn-gateway/create-zone-redundant-vnet-gateway
-[Configure Global Reach]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-set-global-reach
-[BFD]: https://docs.microsoft.com/azure/expressroute/expressroute-bfd
-[DR]: https://docs.microsoft.com/azure/expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering
-
-
-
-
+[zone redundant vgw]: ../vpn-gateway/about-zone-redundant-vnet-gateways.md
+[conf zone redundant vgw]: ../vpn-gateway/create-zone-redundant-vnet-gateway.md
+[Configure Global Reach]: ./expressroute-howto-set-global-reach.md
+[BFD]: ./expressroute-bfd.md
+[DR]: ./designing-for-disaster-recovery-with-expressroute-privatepeering.md

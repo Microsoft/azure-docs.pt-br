@@ -3,12 +3,12 @@ title: Executar seu aplicativo de um pacote ZIP
 description: Implante o pacote ZIP do aplicativo com atomicidade. Melhore a previsibilidade e a confiabilidade do comportamento do seu aplicativo durante o processo de implantação ZIP.
 ms.topic: article
 ms.date: 01/14/2020
-ms.openlocfilehash: 5cc909d79b3f5ea2b4c6a3da12bc7250addbe00c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3440653455626af4e3705d89349a66d6bf2fbfc0
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77920715"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008122"
 ---
 # <a name="run-your-app-in-azure-app-service-directly-from-a-zip-package"></a>Executar seu aplicativo no serviço Azure App diretamente de um pacote ZIP
 
@@ -37,17 +37,17 @@ A `WEBSITE_RUN_FROM_PACKAGE` configuração do aplicativo habilita a execução 
 az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings WEBSITE_RUN_FROM_PACKAGE="1"
 ```
 
-`WEBSITE_RUN_FROM_PACKAGE="1"`permite executar seu aplicativo de um pacote local para seu aplicativo. Você também pode [executar a partir de um pacote remoto](#run-from-external-url-instead).
+`WEBSITE_RUN_FROM_PACKAGE="1"` permite executar seu aplicativo de um pacote local para seu aplicativo. Você também pode [executar a partir de um pacote remoto](#run-from-external-url-instead).
 
 ## <a name="run-the-package"></a>Executar o pacote
 
-A maneira mais fácil de executar um pacote em seu serviço de aplicativo é com o comando CLI do Azure [AZ webapp Deployment Source config-zip](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-zip) . Por exemplo:
+A maneira mais fácil de executar um pacote em seu serviço de aplicativo é com o comando CLI do Azure [AZ webapp Deployment Source config-zip](/cli/azure/webapp/deployment/source#az-webapp-deployment-source-config-zip) . Por exemplo:
 
 ```azurecli-interactive
 az webapp deployment source config-zip --resource-group <group-name> --name <app-name> --src <filename>.zip
 ```
 
-Como a `WEBSITE_RUN_FROM_PACKAGE` configuração do aplicativo está definida, esse comando não extrai o conteúdo do pacote para o diretório *D:\home\site\wwwroot* do seu aplicativo. Em vez disso, ele carrega o arquivo ZIP como está para *D:\home\data\SitePackages*e cria um *packagename.txt* no mesmo diretório, que contém o nome do pacote zip a ser carregado em tempo de execução. Se você carregar o pacote ZIP de uma maneira diferente (como [FTP](deploy-ftp.md)), precisará criar o diretório *D:\home\data\SitePackages* e o arquivo de *packagename.txt* manualmente.
+Como a `WEBSITE_RUN_FROM_PACKAGE` configuração do aplicativo está definida, esse comando não extrai o conteúdo do pacote para o diretório *D:\home\site\wwwroot* do seu aplicativo. Em vez disso, ele carrega o arquivo ZIP como está para *D:\home\data\SitePackages* e cria um *packagename.txt* no mesmo diretório, que contém o nome do pacote zip a ser carregado em tempo de execução. Se você carregar o pacote ZIP de uma maneira diferente (como [FTP](deploy-ftp.md)), precisará criar o diretório *D:\home\data\SitePackages* e o arquivo de *packagename.txt* manualmente.
 
 O comando também reinicia o aplicativo. Como `WEBSITE_RUN_FROM_PACKAGE` é definido, o serviço de aplicativo monta o pacote carregado como o diretório *wwwroot* somente leitura e executa o aplicativo diretamente do diretório montado.
 

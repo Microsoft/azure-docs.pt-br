@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a3b4ba62072e26f16a0e39416c9ae346d1acefd9
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: c04f2312926d3b6d668dff712eedb57d816c8bf3
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88997516"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99592000"
 ---
 # <a name="outline-rendering"></a>Renderização de estrutura de tópicos
 
@@ -29,16 +29,16 @@ A classe `OutlineSettings` contém as configurações relacionadas às proprieda
 | `PulseRateHz`    | FLOAT   | A taxa de oscilação por segundo do contorno|
 | `PulseIntensity` | FLOAT   | A intensidade do efeito de pulso do contorno. Deve estar entre 0,0 para nenhuma pulsação e 1,0 para pulsação total. A intensidade define implicitamente a opacidade mínima do contorno como `MinOpacity = 1.0 - PulseIntensity`. |
 
-![Contornos](./media/outlines.png) O efeito de alterar o parâmetro `color` de amarelo (esquerda) para magenta (centro) e `pulseIntensity` de 0 a 0,8 (direita).
+![Um objeto renderizado três vezes com parâmetros de estrutura de tópicos diferentes ](./media/outlines.png) o efeito de alterar o `color` parâmetro de amarelo (esquerdo) para Magenta (centro) e `pulseIntensity` de 0 a 0,8 (à direita).
 
 ## <a name="example"></a>Exemplo
 
 O código a seguir mostra um exemplo de configuração de parâmetros de contorno através da API:
 
 ```cs
-void SetOutlineParameters(AzureSession session)
+void SetOutlineParameters(RenderingSession session)
 {
-    OutlineSettings outlineSettings = session.Actions.OutlineSettings;
+    OutlineSettings outlineSettings = session.Connection.OutlineSettings;
     outlineSettings.Color = new Color4Ub(255, 255, 0, 255);
     outlineSettings.PulseRateHz = 2.0f;
     outlineSettings.PulseIntensity = 0.5f;
@@ -46,9 +46,9 @@ void SetOutlineParameters(AzureSession session)
 ```
 
 ```cpp
-void SetOutlineParameters(ApiHandle<AzureSession> session)
+void SetOutlineParameters(ApiHandle<RenderingSession> session)
 {
-    ApiHandle<OutlineSettings> outlineSettings = session->Actions()->GetOutlineSettings();
+    ApiHandle<OutlineSettings> outlineSettings = session->Connection()->GetOutlineSettings();
     Color4Ub outlineColor;
     outlineColor.channels = { 255, 255, 0, 255 };
     outlineSettings->SetColor(outlineColor);
@@ -60,6 +60,11 @@ void SetOutlineParameters(ApiHandle<AzureSession> session)
 ## <a name="performance"></a>Desempenho
 
 A renderização do contorno pode ter um impacto significativo no desempenho da renderização. Esse impacto varia conforme a relação espacial de espaço na tela entre objetos selecionados e não selecionados para um determinado quadro.
+
+## <a name="api-documentation"></a>Documentação da API
+
+* [Propriedade C# RenderingConnection. OutlineSettings](/dotnet/api/microsoft.azure.remoterendering.renderingconnection.outlinesettings)
+* [C++ RenderingConnection:: OutlineSettings ()](/cpp/api/remote-rendering/renderingconnection#outlinesettings)
 
 ## <a name="next-steps"></a>Próximas etapas
 

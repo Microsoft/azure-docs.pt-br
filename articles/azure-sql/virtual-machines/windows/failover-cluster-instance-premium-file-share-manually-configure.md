@@ -7,18 +7,19 @@ author: MashaMSFT
 editor: monicar
 tags: azure-service-management
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 ms.custom: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/18/2020
 ms.author: mathoma
-ms.openlocfilehash: befab4dfb8d414743b70c535d041112bd9ccb700
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 2fb9677f0874de1fb715082d58a0e354880e654b
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964118"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97358064"
 ---
 # <a name="create-an-fci-with-a-premium-file-share-sql-server-on-azure-vms"></a>Criar um FCI com um compartilhamento de arquivos Premium (SQL Server em VMs do Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -37,12 +38,12 @@ Antes de concluir as instruções neste artigo, você já deve ter:
 - Uma conta que tenha permissões para criar objetos em máquinas virtuais do Azure e no Active Directory.
 - [Duas ou mais máquinas virtuais do Windows Azure](failover-cluster-instance-prepare-vm.md) preparadas em um [conjunto de disponibilidade](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) ou [zonas de disponibilidade](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address)diferentes.
 - Um [compartilhamento de arquivo premium](../../../storage/files/storage-how-to-create-premium-fileshare.md) a ser usado como a unidade clusterizada, com base na cota de armazenamento do seu banco de dados para os arquivos de dados.
-- A versão mais recente do [PowerShell](/powershell/azure/install-az-ps?view=azps-4.2.0). 
+- A versão mais recente do [PowerShell](/powershell/azure/install-az-ps). 
 
 ## <a name="mount-premium-file-share"></a>Montar compartilhamento de arquivos Premium
 
 1. Entre no [portal do Azure](https://portal.azure.com). e vá para sua conta de armazenamento.
-1. Vá para **compartilhamentos de arquivos** em **serviço de arquivo**e selecione o compartilhamento de arquivos premium que você deseja usar para o armazenamento do SQL.
+1. Vá para **compartilhamentos de arquivos** em **serviço de arquivo** e selecione o compartilhamento de arquivos premium que você deseja usar para o armazenamento do SQL.
 1. Selecione **Conectar** para abrir a cadeia de conexão do compartilhamento de arquivo.
 1. Na lista suspensa, selecione a letra da unidade que você deseja usar e copie os dois blocos de código para o bloco de notas.
 
@@ -149,7 +150,7 @@ Configure a solução de quorum mais adequada às suas necessidades de negócios
 
 ## <a name="test-cluster-failover"></a>Testar failover de cluster
 
-Teste o failover do cluster. Em **Gerenciador de cluster de failover**, clique com o botão direito do mouse no cluster, selecione **mais ações**  >  **mover recurso de cluster principal**  >  **selecione nó**e, em seguida, selecione o outro nó do cluster. Mova o recurso principal de cluster para cada nó do cluster e mova-o novamente para o nó primário. Se você puder mover o cluster para cada nó com êxito, estará pronto para instalar o SQL Server.  
+Teste o failover do cluster. Em **Gerenciador de cluster de failover**, clique com o botão direito do mouse no cluster, selecione **mais ações**  >  **mover recurso de cluster principal**  >  **selecione nó** e, em seguida, selecione o outro nó do cluster. Mova o recurso principal de cluster para cada nó do cluster e mova-o novamente para o nó primário. Se você puder mover o cluster para cada nó com êxito, estará pronto para instalar o SQL Server.  
 
 :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/test-cluster-failover.png" alt-text="Testar o failover de cluster movendo o recurso principal para os outros nós":::
 
@@ -168,7 +169,7 @@ Depois de configurar o cluster de failover, crie a FCI do SQL Server.
 
 1. Na **Central de Instalação do SQL Server**, selecione **Instalação**.
 
-1. Selecione **novo SQL Server instalação de cluster de failover**e siga as instruções no Assistente para instalar o SQL Server FCI.
+1. Selecione **novo SQL Server instalação de cluster de failover** e siga as instruções no Assistente para instalar o SQL Server FCI.
 
    Os diretórios de dados da FCI precisam estar no compartilhamento de arquivo premium. Insira o caminho completo do compartilhamento, neste formato: `\\storageaccountname.file.core.windows.net\filesharename\foldername` . Um aviso será exibido, informando que você especificou um servidor de arquivos como o diretório de dados. Esse aviso é esperado. Verifique se a conta de usuário usada para acessar a VM via RDP ao persistir o compartilhamento de arquivos é a mesma conta que o serviço de SQL Server usa para evitar possíveis falhas.
 
@@ -178,7 +179,7 @@ Depois de configurar o cluster de failover, crie a FCI do SQL Server.
 
 1. Depois que a Instalação instalar a FCI com êxito no primeiro nó, conecte-se ao segundo nó usando o RDP.
 
-1. Abra a **central de instalação do SQL Server**e, em seguida, selecione **instalação**.
+1. Abra a **central de instalação do SQL Server** e, em seguida, selecione **instalação**.
 
 1. Selecione **Adicionar um nó a um cluster de failover do SQL Server**. Siga as instruções no assistente para instalar o SQL Server e adicionar o servidor à FCI.
 
@@ -189,7 +190,7 @@ Depois de configurar o cluster de failover, crie a FCI do SQL Server.
 
 ## <a name="register-with-the-sql-vm-rp"></a>Registrar com a VM do SQL RP
 
-Para gerenciar sua VM SQL Server no portal, registre-a com o provedor de recursos de VM do SQL (RP) no [modo de gerenciamento leve](sql-vm-resource-provider-register.md#lightweight-management-mode), atualmente o único modo com suporte com FCI e SQL Server em VMs do Azure. 
+Para gerenciar sua VM SQL Server no portal, registre-a com a extensão do SQL IaaS Agent (RP) no [modo de gerenciamento leve](sql-agent-extension-manually-register-single-vm.md#lightweight-management-mode), atualmente o único modo com suporte com FCI e SQL Server em VMs do Azure. 
 
 Registre uma VM de SQL Server no modo leve com o PowerShell (-LicenseType pode ser `PAYG` ou `AHUB` ):
 
@@ -204,17 +205,18 @@ New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $v
 
 ## <a name="configure-connectivity"></a>Configurar a conectividade 
 
-Para rotear o tráfego adequadamente para o nó primário atual, configure a opção de conectividade adequada para o seu ambiente. Você pode criar um [balanceador de carga do Azure](hadr-vnn-azure-load-balancer-configure.md) ou, se estiver usando SQL Server 2019 e o Windows Server 2019, poderá visualizar o recurso de [nome de rede distribuída](hadr-distributed-network-name-dnn-configure.md) em vez disso. 
+Para rotear o tráfego adequadamente para o nó primário atual, configure a opção de conectividade adequada para o seu ambiente. Você pode criar um [balanceador de carga do Azure](failover-cluster-instance-vnn-azure-load-balancer-configure.md) ou, se você estiver usando SQL Server 2019 Cu2 (ou posterior) e o Windows Server 2016 (ou posterior), poderá usar o recurso de [nome de rede distribuída](failover-cluster-instance-distributed-network-name-dnn-configure.md) em vez disso. 
 
 ## <a name="limitations"></a>Limitações
 
 - O Microsoft Coordenador de Transações Distribuídas (MSDTC) não tem suporte no Windows Server 2016 e versões anteriores. 
 - Não há suporte para o fluxo de arquivos em um cluster de failover com um compartilhamento de arquivo premium. Para usar FILESTREAM, implante o cluster usando [espaços de armazenamento diretos](failover-cluster-instance-storage-spaces-direct-manually-configure.md) ou [discos compartilhados do Azure](failover-cluster-instance-azure-shared-disks-manually-configure.md) em vez disso.
-- Há suporte apenas para o registro com o provedor de recursos de VM do SQL no [modo de gerenciamento leve](sql-vm-resource-provider-register.md#management-modes) . 
+- Há suporte apenas para o registro com a extensão do SQL IaaS Agent no [modo de gerenciamento leve](sql-server-iaas-agent-extension-automate-management.md#management-modes) . 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se você ainda não tiver feito isso, configure a conectividade com o FCI com um [nome de rede virtual e um balanceador de carga do Azure](hadr-vnn-azure-load-balancer-configure.md) ou [DNN (nome de rede distribuída)](hadr-distributed-network-name-dnn-configure.md). 
+Se você ainda não tiver feito isso, configure a conectividade com o FCI com um [nome de rede virtual e um balanceador de carga do Azure](failover-cluster-instance-vnn-azure-load-balancer-configure.md) ou [DNN (nome de rede distribuída)](failover-cluster-instance-distributed-network-name-dnn-configure.md). 
+
 
 Se os compartilhamentos de arquivos Premium não forem a solução de armazenamento FCI apropriada para você, considere criar o FCI usando os [discos compartilhados do Azure](failover-cluster-instance-azure-shared-disks-manually-configure.md) ou [espaços de armazenamento diretos](failover-cluster-instance-storage-spaces-direct-manually-configure.md) em vez disso. 
 
@@ -222,4 +224,4 @@ Para saber mais, confira uma visão geral do [FCI com SQL Server em VMs do Azure
 
 Para obter mais informações, consulte: 
 - [Tecnologias de cluster do Windows](/windows-server/failover-clustering/failover-clustering-overview)   
-- [SQL Server instâncias de cluster de failover](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
+- [Instâncias de cluster de failover do SQL Server](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 520b38f4c733e7bf28a2a06429ad14d016c5bd28
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 52a4dbc4ff01515af8cd7d2503877184a09f7e64
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027606"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566088"
 ---
 # <a name="send-custom-commands-activity-to-client-application"></a>Enviar atividade de comandos personalizados para o aplicativo cliente
 
@@ -29,33 +29,35 @@ Você conclui as seguintes tarefas:
 ## <a name="prerequisites"></a>Pré-requisitos
 > [!div class = "checklist"]
 > * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) ou superior. Este guia usa o Visual Studio 2019
-> * Uma chave de assinatura do Azure para o serviço de fala: [obtenha uma gratuitamente](get-started.md) ou crie-a no [portal do Azure](https://portal.azure.com)
-> * Um [aplicativo de comandos personalizados criado](quickstart-custom-commands-application.md) anteriormente
+> * Uma chave de assinatura do Azure para o serviço de Fala: [Obtenha uma gratuitamente](overview.md#try-the-speech-service-for-free) ou crie-a no [portal do Azure](https://portal.azure.com)
+> * Um [aplicativo de Comandos Personalizados criado](quickstart-custom-commands-application.md) anteriormente
 > * Um aplicativo cliente habilitado para SDK de fala: [como integrar com um aplicativo cliente usando o SDK de fala](./how-to-custom-commands-setup-speech-sdk.md)
 
 ## <a name="setup-send-activity-to-client"></a>Configurar atividade de envio para o cliente 
 1. Abra o aplicativo de comandos personalizados que você criou anteriormente
 1. Selecione o comando **TurnOnOff** , selecione **ConfirmationResponse** em regra de conclusão e, em seguida, selecione **Adicionar uma ação**
-1. Em **nova ação-tipo**, selecione **Enviar atividade para o cliente**
+1. Em **nova ação-tipo** , selecione **Enviar atividade para o cliente**
 1. Copie o JSON abaixo para o **conteúdo da atividade**
    ```json
    {
-     "type": "event",
-     "name": "UpdateDeviceState",
-     "state": "{OnOff}",
-     "device": "{SubjectDevice}"
-   }
+      "type": "event",
+      "name": "UpdateDeviceState",
+      "value": {
+        "state": "{OnOff}",
+        "device": "{SubjectDevice}"
+      }
+    }
    ```
 1. Clique em **salvar** para criar uma nova regra com uma ação enviar atividade, **treinar** e **publicar** a alteração
 
    > [!div class="mx-imgBorder"]
    > ![Regra de conclusão de atividade de envio](media/custom-commands/send-activity-to-client-completion-rules.png)
 
-## <a name="integrate-with-client-application"></a>Integrar com o aplicativo cliente
+## <a name="integrate-with-client-application"></a>Integração ao aplicativo cliente
 
 Em [como: configurar o aplicativo cliente com o SDK de fala (versão prévia)](./how-to-custom-commands-setup-speech-sdk.md), você criou um aplicativo cliente UWP com o SDK de fala que tratou comandos como `turn on the tv` , `turn off the fan` . Com alguns elementos visuais adicionados, você pode ver o resultado desses comandos.
 
-Para adicionar caixas rotuladas com texto indicando **Ativar** ou **desativar**, adicione o seguinte bloco XML de StackPanel a `MainPage.xaml` .
+Para adicionar caixas rotuladas com texto indicando **Ativar** ou **desativar** , adicione o seguinte bloco XML de StackPanel a `MainPage.xaml` .
 
 ```xml
 <StackPanel Orientation="Vertical" H......>
@@ -83,8 +85,8 @@ Para adicionar caixas rotuladas com texto indicando **Ativar** ou **desativar**,
 Como você criou uma carga JSON, precisará adicionar uma referência à biblioteca [JSON.net](https://www.newtonsoft.com/json) para lidar com a desserialização.
 
 1. Cliente à sua solução.
-1. Escolha **gerenciar pacotes NuGet para solução**, selecione **procurar** 
-1. Se você já tiver instalado o **Newtonsoft.jsno**, verifique se sua versão é pelo menos 12.0.3. Caso contrário, vá para **gerenciar pacotes NuGet para solução-atualizações**, procure **Newtonsoft.jsem** para atualizá-lo. Este guia está usando a versão 12.0.3.
+1. Escolha **gerenciar pacotes NuGet para solução** , selecione **procurar** 
+1. Se você já tiver instalado o **Newtonsoft.jsno** , verifique se sua versão é pelo menos 12.0.3. Caso contrário, vá para **gerenciar pacotes NuGet para solução-atualizações** , procure **Newtonsoft.jsem** para atualizá-lo. Este guia está usando a versão 12.0.3.
 
     > [!div class="mx-imgBorder"]
     > ![Enviar carga da atividade](media/custom-commands/send-activity-to-client-json-nuget.png)
@@ -114,8 +116,8 @@ connector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
     if (name.Equals("UpdateDeviceState"))
     {
         Debug.WriteLine("Here");
-        var state = activity?.device != null ? activity.state.ToString() : string.Empty;
-        var device = activity?.device != null ? activity.device.ToString() : string.Empty;
+        var state = activity?.value?.state != null ? activity.value.state.ToString() : string.Empty;
+        var device = activity?.value?.device != null ? activity.value.device.ToString() : string.Empty;
 
         if (state.Equals("on") || state.Equals("off"))
         {
@@ -146,15 +148,15 @@ connector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
 };
 ```
 
-## <a name="try-it-out"></a>Experimentar
+## <a name="try-it-out"></a>Experimente
 
 1. Iniciar o aplicativo
-1. Selecione habilitar microfone
-1. Selecione o botão falar
-1. Mencione`turn on the tv`
+1. Selecione Habilitar microfone
+1. Selecione o botão Falar
+1. Diga `turn on the tv`
 1. O estado visual da TV deve mudar para "on"
    > [!div class="mx-imgBorder"]
-   > ![Enviar carga da atividade](media/custom-commands/send-activity-to-client-turn-on-tv.png)
+   > ![Captura de tela que mostra que o estado visual do T V está agora ativado.](media/custom-commands/send-activity-to-client-turn-on-tv.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

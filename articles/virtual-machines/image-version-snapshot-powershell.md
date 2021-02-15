@@ -1,6 +1,6 @@
 ---
-title: PowerShell-criar uma imagem de um instantâneo ou VHD em uma galeria de imagens compartilhadas
-description: Saiba como criar uma imagem de um instantâneo ou VHD em uma galeria de imagens compartilhada usando o PowerShell.
+title: PowerShell-criar uma imagem de um instantâneo ou de um disco gerenciado em uma galeria de imagens compartilhada
+description: Saiba como criar uma imagem de um instantâneo ou de um disco gerenciado em uma galeria de imagens compartilhada usando o PowerShell.
 author: cynthn
 ms.topic: how-to
 ms.service: virtual-machines
@@ -9,16 +9,16 @@ ms.workload: infrastructure
 ms.date: 06/30/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 315c635ba0864dc1565fd7ba5ccc450223d87ac9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f4ca28efce28933eed9be5cca7bd412f2d9505aa
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86494710"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98679527"
 ---
-# <a name="create-an-image-from-a-vhd-or-snapshot-in-a-shared-image-gallery-using-powershell"></a>Criar uma imagem de um VHD ou instantâneo em uma galeria de imagens compartilhada usando o PowerShell
+# <a name="create-an-image-from-a-managed-disk-or-snapshot-in-a-shared-image-gallery-using-powershell"></a>Criar uma imagem de um disco gerenciado ou instantâneo em uma galeria de imagens compartilhada usando o PowerShell
 
-Se você tiver um instantâneo ou VHD existente que deseja migrar para uma galeria de imagens compartilhada, poderá criar uma imagem da Galeria de imagens compartilhada diretamente do VHD ou do instantâneo. Depois de testar a nova imagem, você pode excluir o VHD de origem ou o instantâneo. Você também pode criar uma imagem de um VHD ou instantâneo em uma galeria de imagens compartilhada usando o [CLI do Azure](image-version-snapshot-cli.md).
+Se você tiver um instantâneo ou disco gerenciado existente que deseja migrar para uma galeria de imagens compartilhada, poderá criar uma imagem da Galeria de imagens compartilhada diretamente do disco gerenciado ou do instantâneo. Depois de testar a nova imagem, você pode excluir o disco gerenciado de origem ou o instantâneo. Você também pode criar uma imagem de um disco gerenciado ou instantâneo em uma galeria de imagens compartilhada usando o [CLI do Azure](image-version-snapshot-cli.md).
 
 As imagens em uma galeria de imagens têm dois componentes, que serão criados neste exemplo:
 - Uma **definição de imagem** contém informações sobre a imagem e os requisitos para usá-la. Isso inclui se a imagem é Windows ou Linux, especializada ou generalizada, notas de versão e requisitos mínimos e máximos de memória. É uma definição de um tipo de imagem. 
@@ -27,14 +27,14 @@ As imagens em uma galeria de imagens têm dois componentes, que serão criados n
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Para concluir este artigo, você deve ter um instantâneo ou VHD. 
+Para concluir este artigo, você deve ter um instantâneo ou um disco gerenciado. 
 
 Se você quiser incluir um disco de dados, o tamanho do disco de dados não poderá ser superior a 1 TB.
 
 Ao trabalhar com este artigo, substitua os nomes de recursos onde necessário.
 
 
-## <a name="get-the-snapshot-or-vhd"></a>Obter o instantâneo ou VHD
+## <a name="get-the-snapshot-or-managed-disk"></a>Obter o instantâneo ou o disco gerenciado
 
 Você pode ver uma lista de instantâneos que estão disponíveis em um grupo de recursos usando [Get-AzSnapshot](/powershell/module/az.compute/get-azsnapshot). 
 
@@ -50,17 +50,17 @@ $source = Get-AzSnapshot `
    -ResourceGroupName myResourceGroup
 ```
 
-Você também pode usar um VHD em vez de um instantâneo. Para obter um VHD, use [Get-AzDisk](/powershell/module/az.compute/get-azdisk). 
+Você também pode usar um disco gerenciado em vez de um instantâneo. Para obter um disco gerenciado, use [Get-AzDisk](/powershell/module/az.compute/get-azdisk). 
 
 ```azurepowershell-interactive
 Get-AzDisk | Format-Table -Property Name,ResourceGroupName
 ```
 
-Em seguida, obtenha o VHD e atribua-o à `$source` variável.
+Em seguida, obtenha o disco gerenciado e atribua-o à `$source` variável.
 
 ```azurepowershell-interactive
 $source = Get-AzDisk `
-   -SnapshotName mySnapshot
+   -Name myDisk
    -ResourceGroupName myResourceGroup
 ```
 
@@ -88,11 +88,11 @@ $gallery = Get-AzGallery `
 
 As definições de imagem criam um agrupamento lógico para as imagens. Eles são usados para gerenciar informações sobre a imagem. Os nomes das definições de imagem podem ser compostos por letras maiúsculas ou minúsculas, dígitos, pontos, traços e pontos finais. 
 
-Ao fazer a definição de imagem, verifique se o tem todas as informações corretas. Neste exemplo, supomos que o instantâneo ou VHD seja de uma VM em uso e não tenha sido generalizado. Se o VHD ou o instantâneo foram tirados de um sistema operacional generalizado (depois de executar o Sysprep para Windows ou [waagent](https://github.com/Azure/WALinuxAgent) `-deprovision` ou `-deprovision+user` para Linux), altere o `-OsState` para `generalized` . 
+Ao fazer a definição de imagem, verifique se o tem todas as informações corretas. Neste exemplo, supomos que o instantâneo ou o disco gerenciado sejam de uma VM em uso e não tenha sido generalizado. Se o disco gerenciado ou o instantâneo foi tirado de um sistema operacional generalizado (depois de executar o Sysprep para Windows ou [waagent](https://github.com/Azure/WALinuxAgent) `-deprovision` ou `-deprovision+user` Linux), altere o `-OsState` para `generalized` . 
 
-Para obter mais informações sobre os valores que pode especificar para uma definição de imagem, confira [Definições de imagem](./windows/shared-image-galleries.md#image-definitions).
+Para obter mais informações sobre os valores que pode especificar para uma definição de imagem, confira [Definições de imagem](./shared-image-galleries.md#image-definitions).
 
-Crie a definição de imagem usando [New-AzGalleryImageDefinition](/powershell/module/az.compute/new-azgalleryimageversion). Neste exemplo, a definição de imagem é chamada *myImageDefinition*e é para um sistema operacional Windows especializado. Para criar uma definição para imagens usando um sistema operacional Linux, use `-OsType Linux` . 
+Crie a definição de imagem usando [New-AzGalleryImageDefinition](/powershell/module/az.compute/new-azgalleryimageversion). Neste exemplo, a definição de imagem é chamada *myImageDefinition* e é para um sistema operacional Windows especializado. Para criar uma definição para imagens usando um sistema operacional Linux, use `-OsType Linux` . 
 
 ```azurepowershell-interactive
 $imageDefinition = New-AzGalleryImageDefinition `
@@ -118,7 +118,7 @@ Crie uma versão de imagem a partir do instantâneo usando [New-AzGalleryImageVe
 
 Caracteres permitidos para a versão da imagem são números e pontos. Os números devem estar dentro do intervalo de um inteiro de 32 bits. Formato: *MajorVersion*.*MinorVersion*.*Patch*.
 
-Se você quiser que sua imagem contenha um disco de dados, além do disco do sistema operacional, adicione o `-DataDiskImage` parâmetro e defina-o como a ID do instantâneo do disco de dados ou VHD.
+Se você quiser que sua imagem contenha um disco de dados, além do disco do sistema operacional, adicione o `-DataDiskImage` parâmetro e defina-o como a ID do instantâneo do disco de dados ou do disco gerenciado.
 
 Neste exemplo, a versão da imagem é *1.0.0* e ela é replicado para os datacenters *Centro-Oeste dos EUA* e *Centro-Sul dos EUA*. Ao escolher regiões de destino para replicação, lembre-se de que você também precisa incluir a região de *origem* como um destino para replicação.
 

@@ -3,17 +3,19 @@ title: Exportar fluxos da energia automatizada para o aplicativo lógico do Azur
 description: Migrar fluxos da Power mate para o aplicativo lógico do Azure exportando-os como modelos de Azure Resource Manager
 services: logic-apps
 ms.suite: integration
-ms.reviewer: jonfan, logicappspm
+ms.reviewer: estfan, sneshaf, pinath, logicappspm
 ms.topic: conceptual
-ms.date: 06/03/2020
-ms.openlocfilehash: b2a45218118282f4f1cadb29c9022fc05b30f907
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 01/20/2021
+ms.openlocfilehash: a90f75db6961ea06b1cf9c2958556c1c2ef24805
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87078744"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100380127"
 ---
 # <a name="export-flows-from-power-automate-and-deploy-to-azure-logic-apps"></a>Exportar fluxos do Power Automate e implantar no Aplicativos Lógicos do Azure
+
+> Para os fluxos criados após outubro de 2020, você não pode mais exportar do Power Automate e implantar no aplicativo lógico do Azure.
 
 Para estender e expandir os recursos do seu fluxo, você pode migrar esse fluxo de [Power mate](https://flow.microsoft.com) para [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md). Você pode exportar seu fluxo como um modelo de Azure Resource Manager para um aplicativo lógico, implantar esse modelo de aplicativo lógico em um grupo de recursos do Azure e, em seguida, abrir esse aplicativo lógico no designer de aplicativo lógico.
 
@@ -22,7 +24,7 @@ Para estender e expandir os recursos do seu fluxo, você pode migrar esse fluxo 
 >
 > * Para descobrir quais conectores de automatização de energia não têm equivalentes aos aplicativos lógicos, consulte [Power Automate Connectors](/connectors/connector-reference/connector-reference-powerautomate-connectors).
 >
-> * Para descobrir quais conectores de aplicativos lógicos não têm os equivalentes de energia automatizada, consulte [conectores de aplicativos lógicos](/connectors/connector-reference/connector-reference-powerautomate-connectors).
+> * Para descobrir quais conectores de aplicativos lógicos não têm os equivalentes de energia automatizada, consulte [conectores de aplicativos lógicos](/connectors/connector-reference/connector-reference-logicapps-connectors).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -96,13 +98,13 @@ Para obter mais informações, consulte [aumentar até os aplicativos lógicos d
 
    1. Para cada etapa que requer uma conexão autorizada, expanda essa etapa e selecione **Adicionar nova**.
 
-      ![Adicionar nova conexão](./media/export-from-microsoft-flow-logic-app-template/add-new-connection.png)
+      ![Captura de tela que mostra o botão "Adicionar novo" selecionado na janela "conexões" do Outlook.](./media/export-from-microsoft-flow-logic-app-template/add-new-connection.png)
 
    1. Entre em cada serviço ou forneça as credenciais necessárias para autorizar a conexão.
 
    1. Depois de atualizar suas conexões, na barra de ferramentas do designer, selecione **salvar**.
 
-1. Quando você estiver pronto para ativar seu aplicativo lógico, no menu do aplicativo lógico, selecione **visão geral**e, em seguida, selecione **habilitar**.
+1. Quando você estiver pronto para ativar seu aplicativo lógico, no menu do aplicativo lógico, selecione **visão geral** e, em seguida, selecione **habilitar**.
 
    ![Habilitar aplicativo lógico](./media/export-from-microsoft-flow-logic-app-template/enable-logic-app.png)
 
@@ -166,7 +168,7 @@ Se você configurou o Visual Studio com os [pré-requisitos](../logic-apps/quick
 
    Após a conclusão da implantação, seu aplicativo lógico é publicado, mas não é ativado no portal do Azure.
 
-1. Quando estiver pronto para ativar seu aplicativo lógico no portal do Azure, localize e abra seu aplicativo lógico no designer do aplicativo lógico. No menu do aplicativo lógico, selecione **visão geral**e, em seguida, selecione **habilitar**.
+1. Quando estiver pronto para ativar seu aplicativo lógico no portal do Azure, localize e abra seu aplicativo lógico no designer do aplicativo lógico. No menu do aplicativo lógico, selecione **visão geral** e, em seguida, selecione **habilitar**.
 
 1. Para evitar a execução de fluxos de trabalho duplicados, certifique-se de desativar ou excluir o fluxo original.
 

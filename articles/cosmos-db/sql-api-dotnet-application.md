@@ -8,20 +8,22 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: sngun
-ms.openlocfilehash: 69a0fec0dd5036b021926045ff3a63a011966654
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.custom: devx-track-dotnet
+ms.openlocfilehash: 528cab915a1ac3918146e428e9ae6b3c401324c8
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85118875"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96010326"
 ---
 # <a name="tutorial-develop-an-aspnet-core-mvc-web-application-with-azure-cosmos-db-by-using-net-sdk"></a>Tutorial: Desenvolver um aplicativo Web ASP.NET Core MVC com o Azure Cosmos DB usando o SDK do .NET
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
 > * [Java](sql-api-java-application.md)
 > * [Node.js](sql-api-nodejs-application.md)
-> * [Python](sql-api-python-application.md)
+> * [Python](./create-sql-api-python.md)
 > * [Xamarin](mobile-apps-with-xamarin.md)
 
 Este tutorial mostra a você como usar o Azure Cosmos DB para armazenar e acessar dados de um aplicativo Web ASP.NET MVC hospedado no Azure. Neste tutorial, você usará o SDK do .NET V3. A imagem abaixo mostra a página da Web que você criará usando o exemplo neste artigo:
@@ -56,7 +58,7 @@ Todas as capturas de tela deste artigo são do Microsoft Visual Studio Community
 
 ## <a name="step-1-create-an-azure-cosmos-account"></a><a name="create-an-azure-cosmos-account"></a>Etapa 1: Criar uma conta do Azure Cosmos
 
-Vamos começar criando uma conta do Azure Cosmos. Se já tiver uma conta da API SQL do Azure Cosmos DB ou se estiver usando o emulador do Azure Cosmos DB, passe para a [Etapa 2: Criar um novo aplicativo MCV do ASP.NET](#create-a-new-mvc-application).
+Vamos começar criando uma conta do Azure Cosmos. Caso já tenha uma conta da API do SQL do Azure Cosmos DB ou esteja usando o Emulador do Azure Cosmos DB, passe para a [Etapa 2: Criar um novo aplicativo MCV do ASP.NET](#create-a-new-mvc-application).
 
 [!INCLUDE [create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
@@ -116,36 +118,19 @@ O Azure Cosmos DB usa JSON para mover e armazenar dados. Você pode usar o atrib
 
 ### <a name="add-views"></a><a name="add-views"></a>Adicionar exibições
 
-Em seguida, vamos criar as três exibições abaixo.
+Em seguida, vamos adicionar as exibições a seguir.
 
-* Adicionar uma exibição de item de lista
-* Adicionar uma nova exibição de item
-* Adicionar uma exibição Editar item
+* Uma exibição de criação de item
+* Uma exibição de exclusão de item
+* Uma exibição para obter detalhes de um item
+* Uma exibição de edição de item
+* Uma exibição para listar todos os itens
 
-#### <a name="add-a-list-item-view"></a><a name="AddItemIndexView"></a>Adicionar uma exibição de item de lista
+#### <a name="create-item-view"></a><a name="AddNewIndexView"></a>Exibição de criação de item
 
 1. No **Gerenciador de Soluções**, clique com o botão direito do mouse na pasta **Exibições** e selecione **Adicionar** > **Nova Pasta**. Nomeie a pasta *Item*.
 
 1. Clique com o botão direito do mouse na pasta vazia **Item** e, em seguida, selecione **Adicionar** > **Exibição**.
-
-1. Em **Adicionar Exibição do MVC**, forneça os seguintes valores:
-
-   * Em **Nome da exibição**, insira *Índice*.
-   * Em **Modelo**, selecione **Lista**.
-   * Em **Classe do modelo**, selecione **Item (todo.Models)** .
-   * Selecione **Usar uma página de layout** e insira *~/Views/Shared/_Layout.cshtml*.
-
-   :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-add-mvc-view.png" alt-text="Captura de tela mostrando a caixa de diálogo Adicionar Exibição do MVC":::
-
-1. Depois de definir todos esses valores, selecione **Adicionar** e deixe o Visual Studio criar uma nova exibição de modelo.
-
-Depois de concluído, o Visual Studio abre o arquivo *cshtml* que é criado. Você pode fechar esse arquivo no Visual Studio. Voltaremos a ele mais tarde.
-
-#### <a name="add-a-new-item-view"></a><a name="AddNewIndexView"></a>Adicionar uma nova exibição de item
-
-Da mesma forma que você criou uma exibição para itens de lista, crie uma nova exibição para criar itens usando as seguintes etapas:
-
-1. No **Gerenciador de Soluções**, clique com o botão direito do mouse na pasta **Item** novamente, selecione **Adicionar** > **Exibição**.
 
 1. Em **Adicionar Exibição do MVC**, faça as seguintes alterações:
 
@@ -155,9 +140,44 @@ Da mesma forma que você criou uma exibição para itens de lista, crie uma nova
    * Selecione **Usar uma página de layout** e insira *~/Views/Shared/_Layout.cshtml*.
    * Selecione **Adicionar**.
 
-#### <a name="add-an-edit-item-view"></a><a name="AddEditIndexView"></a>Adicionar uma exibição Editar item
+   :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-add-mvc-view.png" alt-text="Captura de tela mostrando a caixa de diálogo Adicionar Exibição do MVC":::
 
-E, finalmente, adicione um modo de exibição para editar um item com as seguintes etapas:
+1. Em seguida, selecione **Adicionar** e deixe o Visual Studio criar uma exibição de modelo. Substitua o código no arquivo gerado pelo seguinte conteúdo:
+
+   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Views/Item/Create.cshtml":::
+
+#### <a name="delete-item-view"></a><a name="AddEditIndexView"></a>Exibição de exclusão de item
+
+1. No **Gerenciador de Soluções**, clique com o botão direito do mouse na pasta **Item** novamente, selecione **Adicionar** > **Exibição**.
+
+1. Em **Adicionar Exibição do MVC**, faça as seguintes alterações:
+
+   * Na caixa **Nome da exibição**, digite *Excluir*.
+   * Na caixa **Modelo**, selecione **Excluir**.
+   * Na caixa **Classe de modelo**, selecione **Item (todo.Models)** .
+   * Selecione **Usar uma página de layout** e insira *~/Views/Shared/_Layout.cshtml*.
+   * Selecione **Adicionar**.
+
+1. Em seguida, selecione **Adicionar** e deixe o Visual Studio criar uma exibição de modelo. Substitua o código no arquivo gerado pelo seguinte conteúdo:
+
+   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Views/Item/Delete.cshtml":::
+
+#### <a name="add-a-view-to-get-an-item-details"></a><a name="AddItemIndexView"></a>Adicionar uma exibição para obter detalhes de um item
+
+1. No **Gerenciador de Soluções**, clique com o botão direito do mouse na pasta **Item** novamente, selecione **Adicionar** > **Exibição**.
+
+1. Em **Adicionar Exibição do MVC**, forneça os seguintes valores:
+
+   * Em **Nome da exibição**, insira *Detalhes*.
+   * Em **Modelo**, selecione **Detalhes**.
+   * Em **Classe do modelo**, selecione **Item (todo.Models)** .
+   * Selecione **Usar uma página de layout** e insira *~/Views/Shared/_Layout.cshtml*.
+
+1. Em seguida, selecione **Adicionar** e deixe o Visual Studio criar uma exibição de modelo. Substitua o código no arquivo gerado pelo seguinte conteúdo:
+
+   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Views/Item/Details.cshtml":::
+
+#### <a name="add-an-edit-item-view"></a><a name="AddEditIndexView"></a>Adicionar uma exibição Editar item
 
 1. No **Gerenciador de Soluções**, clique com o botão direito do mouse na pasta **Item** novamente, selecione **Adicionar** > **Exibição**.
 
@@ -169,23 +189,45 @@ E, finalmente, adicione um modo de exibição para editar um item com as seguint
    * Selecione **Usar uma página de layout** e insira *~/Views/Shared/_Layout.cshtml*.
    * Selecione **Adicionar**.
 
-Após concluir essas etapas, feche todos os documentos *cshtml* no Visual Studio, pois você voltará a essas exibições mais tarde.
+1. Em seguida, selecione **Adicionar** e deixe o Visual Studio criar uma exibição de modelo. Substitua o código no arquivo gerado pelo seguinte conteúdo:
+
+   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Views/Item/Edit.cshtml":::
+
+#### <a name="add-a-view-to-list-all-the-items"></a><a name="AddEditIndexView"></a>Adicionar uma exibição para listar todos os itens
+
+E, finalmente, adicione uma exibição para obter todos os itens com as seguintes etapas:
+
+1. No **Gerenciador de Soluções**, clique com o botão direito do mouse na pasta **Item** novamente, selecione **Adicionar** > **Exibição**.
+
+1. Em **Adicionar Exibição do MVC**, faça as seguintes alterações:
+
+   * Na caixa **Nome da exibição**, digite *Índice*.
+   * Na caixa **Modelo**, selecione **Lista**.
+   * Na caixa **Classe de modelo**, selecione **Item (todo.Models)** .
+   * Selecione **Usar uma página de layout** e insira *~/Views/Shared/_Layout.cshtml*.
+   * Selecione **Adicionar**.
+
+1. Em seguida, selecione **Adicionar** e deixe o Visual Studio criar uma exibição de modelo. Substitua o código no arquivo gerado pelo seguinte conteúdo:
+
+   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Views/Item/Index.cshtml":::
+
+Após concluir essas etapas, feche todos os documentos *cshtml* no Visual Studio.
 
 ### <a name="declare-and-initialize-services"></a><a name="initialize-services"></a>Declarar e inicializar serviços
 
-Primeiro, adicionaremos uma classe que contenha a lógica para conectar e usar o Azure Cosmos DB. Para este tutorial, encapsularemos essa lógica em uma classe chamada `CosmosDBService` e uma interface chamada `ICosmosDBService`. Esse serviço executa as operações CRUD. Ele também executa operações de leitura de feed, como listar itens incompletos, criar, editar e excluir os itens.
+Primeiro, adicionaremos uma classe que contenha a lógica para conectar e usar o Azure Cosmos DB. Para este tutorial, encapsularemos essa lógica em uma classe chamada `CosmosDbService` e uma interface chamada `ICosmosDbService`. Esse serviço executa as operações CRUD. Ele também executa operações de leitura de feed, como listar itens incompletos, criar, editar e excluir os itens.
 
 1. No **Gerenciador de Soluções**, clique com o botão direito do mouse no projeto e selecione **Adicionar** > **Nova Pasta**. Nomeie a pasta *Serviços*.
 
-1. Clique com o botão direito do mouse na pasta **Serviços**, selecione **Adicionar** > **Classe**. Nomeie a nova classe *CosmosDBService* e selecione **Adicionar**.
+1. Clique com o botão direito do mouse na pasta **Serviços**, selecione **Adicionar** > **Classe**. Nomeie a nova classe *CosmosDbService* e selecione **Adicionar**.
 
-1. Substitua o conteúdo de *CosmosDBService.cs* pelo código a seguir:
+1. Substitua o conteúdo de *CosmosDbService.cs* pelo seguinte código:
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Services/CosmosDbService.cs":::
 
-1. Clique com o botão direito do mouse na pasta **Serviços**, selecione **Adicionar** > **Classe**. Nomeie a nova classe *ICosmosDBService* e selecione **Adicionar**.
+1. Clique com o botão direito do mouse na pasta **Serviços**, selecione **Adicionar** > **Classe**. Nomeie a nova classe *ICosmosDbService* e selecione **Adicionar**.
 
-1. Adicione o seguinte código à classe *ICosmosDBService*:
+1. Adicione o seguinte código à classe *ICosmosDbService*:
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Services/ICosmosDbService.cs":::
 
@@ -197,7 +239,7 @@ Primeiro, adicionaremos uma classe que contenha a lógica para conectar e usar o
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Startup.cs" id="ConfigureServices":::
 
-   O código nessa etapa inicializa o cliente com base na configuração como uma instância singleton a ser injetada por meio da [Injeção de dependência no ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection).
+   O código nessa etapa inicializa o cliente com base na configuração como uma instância singleton a ser injetada por meio da [Injeção de dependência no ASP.NET Core](/aspnet/core/fundamentals/dependency-injection).
 
    Altere o controlador MVC padrão para `Item` editando as rotas no método `Configure` do mesmo arquivo:
 
@@ -292,11 +334,11 @@ Em poucos segundos, o Visual Studio publicará seu aplicativo Web e iniciará um
 Neste tutorial, você aprendeu a criar um aplicativo Web MVC do ASP.NET Core. Seu aplicativo pode acessar dados armazenados no Azure Cosmos DB. Agora, você pode continuar com estes recursos:
 
 * [Particionamento no Azure Cosmos DB](./partitioning-overview.md)
-* [Guia de Introdução a consultas SQL](./how-to-sql-query.md)
+* [Guia de Introdução a consultas SQL](./sql-query-getting-started.md)
 * [Como modelar e particionar dados no Azure Cosmos DB usando um exemplo do mundo real](./how-to-model-partition-example.md)
 
 [Visual Studio Express]: https://www.visualstudio.com/products/visual-studio-express-vs.aspx
 [Microsoft Web Platform Installer]: https://www.microsoft.com/web/downloads/platform.aspx
-[Preventing Cross-Site Request Forgery]: https://docs.microsoft.com/aspnet/web-api/overview/security/preventing-cross-site-request-forgery-csrf-attacks
-[Basic CRUD Operations in ASP.NET MVC]: https://go.microsoft.com/fwlink/?LinkId=317598
+[Preventing Cross-Site Request Forgery]: /aspnet/web-api/overview/security/preventing-cross-site-request-forgery-csrf-attacks
+[Basic CRUD Operations in ASP.NET MVC]: /aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application
 [GitHub]: https://github.com/Azure-Samples/cosmos-dotnet-core-todo-app

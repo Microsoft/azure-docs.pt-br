@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/09/2019
 ms.author: madsd
-ms.custom: seodec18
-ms.openlocfilehash: fdb502685259a5e12bf0182c36aa6c73ec7c1dd5
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: 58886a8f7dc505a7e68d69eb00b4a2ebd776dd5a
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88958926"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98209842"
 ---
 # <a name="application-gateway-integration-with-service-endpoints"></a>Integração do gateway de aplicativo com pontos de extremidade de serviço
 Há três variações do serviço de aplicativo que exigem uma configuração um pouco diferente da integração com Aplicativo Azure gateway. As variações incluem o serviço de aplicativo regular, também conhecido como ILB (multilocatário, Load Balancer interno) Ambiente do Serviço de Aplicativo (ASE) e ASE externo. Este artigo explicará como configurá-lo com o serviço de aplicativo (multilocatário) e discutirá considerações sobre o ILB e o ASE externo.
@@ -27,20 +27,20 @@ Há três variações do serviço de aplicativo que exigem uma configuração um
 ## <a name="integration-with-app-service-multi-tenant"></a>Integração com o serviço de aplicativo (multilocatário)
 O serviço de aplicativo (multilocatário) tem um ponto de extremidade público voltado para a Internet. Usando [pontos de extremidade de serviço](../../virtual-network/virtual-network-service-endpoints-overview.md) , você pode permitir o tráfego somente de uma sub-rede específica dentro de uma rede virtual do Azure e bloquear todo o resto. No cenário a seguir, usaremos essa funcionalidade para garantir que uma instância do serviço de aplicativo só possa receber tráfego de uma instância específica do gateway de aplicativo.
 
-![Integração do gateway de aplicativo com o serviço de aplicativo](./media/app-gateway-with-service-endpoints/service-endpoints-appgw.png)
+:::image type="content" source="./media/app-gateway-with-service-endpoints/service-endpoints-appgw.png" alt-text="O diagrama mostra o fluxo de Internet para um gateway de aplicativo em uma rede virtual do Azure e fluindo a partir daí por meio de um ícone de firewall para instâncias de aplicativos no serviço de aplicativo.":::
 
 Há duas partes nessa configuração além da criação do serviço de aplicativo e do gateway de aplicativo. A primeira parte é habilitar os pontos de extremidade de serviço na sub-rede da rede virtual em que o gateway de aplicativo está implantado. Os pontos de extremidade de serviço garantirão que todo o tráfego de rede que sai da sub-rede para o serviço de aplicativo será marcado com a ID de sub-rede específica. A segunda parte é definir uma restrição de acesso do aplicativo Web específico para garantir que apenas o tráfego marcado com essa ID de sub-rede específica seja permitido. Você pode configurá-lo usando ferramentas diferentes, dependendo da preferência.
 
 ## <a name="using-azure-portal"></a>Usando o Portal do Azure
 Com portal do Azure, siga quatro etapas para provisionar e configurar a instalação. Se você tiver recursos existentes, poderá ignorar as primeiras etapas.
-1. Criar um serviço de aplicativo usando um dos guias de início rápido na documentação do serviço de aplicativo, por exemplo [.NET Core início rápido](../quickstart-dotnetcore.md)
+1. Criar um serviço de aplicativo usando um dos guias de início rápido na documentação do serviço de aplicativo, por exemplo, [início rápido do .NET Core](../quickstart-dotnetcore.md)
 2. Crie um gateway de aplicativo usando o [início rápido do portal](../../application-gateway/quick-create-portal.md), mas ignore a seção Adicionar destinos de back-end.
 3. Configure o [serviço de aplicativo como um back-end no gateway de aplicativo](../../application-gateway/configure-web-app-portal.md), mas ignore a seção de acesso restrito.
-4. Por fim, crie a [restrição de acesso usando pontos de extremidade de serviço](../../app-service/app-service-ip-restrictions.md#service-endpoints).
+4. Por fim, crie a [restrição de acesso usando pontos de extremidade de serviço](../../app-service/app-service-ip-restrictions.md#set-a-service-endpoint-based-rule).
 
 Agora você pode acessar o serviço de aplicativo por meio do gateway de aplicativo, mas se tentar acessar o serviço de aplicativo diretamente, você deverá receber um erro HTTP 403 indicando que o site está parado.
 
-![Integração do gateway de aplicativo com o serviço de aplicativo](./media/app-gateway-with-service-endpoints/web-site-stopped.png)
+![Captura de tela mostra o texto de um erro 403-Proibido.](./media/app-gateway-with-service-endpoints/website-403-forbidden.png)
 
 ## <a name="using-azure-resource-manager-template"></a>Usar o modelo do Azure Resource Manager
 O [modelo de implantação do Gerenciador de recursos][template-app-gateway-app-service-complete] provisionará um cenário completo. O cenário consiste em uma instância do serviço de aplicativo bloqueada com pontos de extremidade de serviço e restrição de acesso para receber somente o tráfego do gateway de aplicativo. O modelo inclui muitos padrões inteligentes e decorreções exclusivas adicionadas aos nomes de recursos para que seja simples. Para substituí-los, você precisará clonar o repositório ou baixar o modelo e editá-lo. 

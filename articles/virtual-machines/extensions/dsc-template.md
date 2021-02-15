@@ -2,23 +2,23 @@
 title: Extensão de configuração de estado desejado com os modelos do Azure Resource Manager
 description: Saiba mais sobre a definição do modelo do Resource Manager para extensão da Configuração do Estado Desejado (DSC) no Azure.
 services: virtual-machines-windows
-author: bobbytreed
-manager: carmonm
+author: mgoedtel
 tags: azure-resource-manager
 keywords: dsc
 ms.assetid: b5402e5a-1768-4075-8c19-b7f7402687af
 ms.service: virtual-machines-windows
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: na
-ms.date: 10/05/2018
-ms.author: robreed
-ms.openlocfilehash: dc73b5b9f05d24de206b25095ea7eaf93f035298
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 02/09/2021
+ms.author: magoedte
+ms.openlocfilehash: 4e9133697cda4a46a895c7e41eff6d17ccd01e4a
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86511153"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100093651"
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>Extensão de configuração de estado desejado com os modelos do Azure Resource Manager
 
@@ -31,13 +31,13 @@ Este artigo descreve o modelo do Azure Resource Manager para o [manipulador de e
 
 O snippet a seguir vai na seção **Recursos** do modelo.
 A extensão de DSC herda propriedades de extensão padrão.
-Para obter mais informações, consulte a [classe VirtualMachineExtension](/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension?view=azure-dotnet).
+Para obter mais informações, consulte a [classe VirtualMachineExtension](/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension).
 
 ```json
 {
   "type": "Microsoft.Compute/virtualMachines/extensions",
-  "name": "Microsoft.Powershell.DSC",
-  "apiVersion": "2018-06-30",
+  "name": "[concat(parameters('VMName'), '/Microsoft.Powershell.DSC')]",
+  "apiVersion": "2018-06-01",
   "location": "[parameters('location')]",
   "dependsOn": [
     "[concat('Microsoft.Compute/virtualMachines/', parameters('VMName'))]"
@@ -84,7 +84,7 @@ Um nó de conjunto de dimensionamento de máquinas virtuais tem uma seção **pr
 Em **extensões**, adicione os detalhes para a extensão de DSC.
 
 A extensão de DSC herda propriedades de extensão padrão.
-Para obter mais informações, consulte a [classe VirtualMachineScaleSetExtension](/dotnet/api/microsoft.azure.management.compute.models.virtualmachinescalesetextension?view=azure-dotnet).
+Para obter mais informações, consulte a [classe VirtualMachineScaleSetExtension](/dotnet/api/microsoft.azure.management.compute.models.virtualmachinescalesetextension).
 
 ```json
 "extensionProfile": {

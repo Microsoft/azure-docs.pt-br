@@ -3,17 +3,17 @@ title: Criar um cluster de Service Fabric do Azure
 description: Saiba como configurar um cluster do Service Fabric seguro no Azure usando o Azure Resource Manager.  Você pode criar um cluster usando um modelo padrão ou seu próprio modelo de cluster.
 ms.topic: conceptual
 ms.date: 08/16/2018
-ms.openlocfilehash: fd2c472d24f305e42f1706e5fc49168ccde2a580
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: d4daa75fd9383bc19da1b09104ebddff5712c5b4
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258756"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791804"
 ---
 # <a name="create-a-service-fabric-cluster-using-azure-resource-manager"></a>Criar um cluster do Service Fabric usando o Azure Resource Manager 
 > [!div class="op_single_selector"]
 > * [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
-> * [Portal do Azure](service-fabric-cluster-creation-via-portal.md)
+> * [Azure portal](service-fabric-cluster-creation-via-portal.md)
 >
 >
 
@@ -34,7 +34,7 @@ Neste artigo, use os módulos da CLI do Azure ou PowerShell do RM do Service Fab
 
 Você pode encontrar a documentação de referência para os módulos do Service Fabric aqui:
 * [Az.ServiceFabric](/powershell/module/az.servicefabric)
-* [módulo de CLI az SF](/cli/azure/sf?view=azure-cli-latest)
+* [módulo de CLI az SF](/cli/azure/sf)
 
 ### <a name="sign-in-to-azure"></a>Entrar no Azure
 
@@ -285,6 +285,6 @@ Para obter a sintaxe JSON e as propriedades a serem usadas em um modelo, confira
 
 <!-- Links -->
 [azure-powershell]:https://docs.microsoft.com/powershell/azure/install-Az-ps
-[azure-CLI]:https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest
+[azure-CLI]:https://docs.microsoft.com/cli/azure/get-started-with-azure-cli
 [service-fabric-cluster-security]: service-fabric-cluster-security.md
 [customize-your-cluster-template]: service-fabric-cluster-creation-create-template.md

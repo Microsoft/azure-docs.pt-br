@@ -4,12 +4,12 @@ description: Use o agendamento de trabalhos para gerenciar tarefas.
 ms.topic: how-to
 ms.date: 02/20/2020
 ms.custom: seodec18
-ms.openlocfilehash: 89881808e48b3fbe44fbcd5352a15afc4eb427ef
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 7da3c78e00f5d7e41a5396603cf4885a50cb6e5c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964338"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89146344"
 ---
 # <a name="schedule-jobs-for-efficiency"></a>Agendar trabalhos para eficiência
 
@@ -67,7 +67,7 @@ Depois de selecionar **Salvar**, se você acessar **Agendamentos de trabalho** n
 
 ## <a name="for-more-information"></a>Para obter mais informações
 
-Para gerenciar um trabalho usando o CLI do Azure, consulte [Agendamento de trabalhos do Lote do Azure](/cli/azure/batch/job-schedule?view=azure-cli-latest).
+Para gerenciar um trabalho usando o CLI do Azure, consulte [Agendamento de trabalhos do Lote do Azure](/cli/azure/batch/job-schedule).
 
 ## <a name="next-steps"></a>Próximas etapas
 

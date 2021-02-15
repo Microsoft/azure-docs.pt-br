@@ -4,14 +4,14 @@ description: Como conectar clientes a um serviço de cache do Azure HPC
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 04/15/2020
+ms.date: 09/30/2020
 ms.author: v-erkel
-ms.openlocfilehash: 10f8e92138878381b5267742b8211df81e0c49d4
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 7f1d8d34d6351fc344fdb101ac8e9a96678df9d5
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232671"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91651421"
 ---
 # <a name="mount-the-azure-hpc-cache"></a>Montar o Azure HPC Cache
 
@@ -20,7 +20,7 @@ Depois que o cache é criado, os clientes NFS podem acessá-lo com um `mount` co
 O comando Mount é composto por esses elementos:
 
 * Um dos endereços de montagem do cache (listado na página Visão geral do cache)
-* O caminho de namespace virtual que você definiu quando criou o destino de armazenamento
+* Um caminho de namespace virtual que você definiu para o destino de armazenamento (listado na página namespace de cache)
 * O caminho local a ser usado no cliente
 * Parâmetros de comando que otimizam o sucesso desse tipo de montagem de NFS
 
@@ -40,8 +40,8 @@ Por exemplo, crie VMs de cliente na mesma rede virtual ou use um ponto de extrem
 
 Instale o software do utilitário Linux apropriado para dar suporte ao comando de montagem do NFS:
 
-* Para Red Hat Enterprise Linux ou SuSE:`sudo yum install -y nfs-utils`
-* Para Ubuntu ou Debian:`sudo apt-get install nfs-common`
+* Para Red Hat Enterprise Linux ou SuSE: `sudo yum install -y nfs-utils`
+* Para Ubuntu ou Debian: `sudo apt-get install nfs-common`
 
 ### <a name="create-a-local-path"></a>Criar um caminho local
 
@@ -65,7 +65,7 @@ Siga este procedimento para criar o comando Mount.
 
 1. Personalize o campo **caminho do cliente** . Esse campo fornece um comando de exemplo que você pode usar para criar um caminho local no cliente. O cliente acessa o conteúdo do cache do Azure HPC localmente nesse diretório.
 
-   Clique no campo e edite o comando para conter o nome do diretório desejado. O nome aparece no final da cadeia de caracteres após`sudo mkdir -p`
+   Clique no campo e edite o comando para conter o nome do diretório desejado. O nome aparece no final da cadeia de caracteres após `sudo mkdir -p`
 
    ![captura de tela do campo caminho do cliente com cursor posicionado no final](media/mount-edit-client.png)
 
@@ -79,9 +79,9 @@ Siga este procedimento para criar o comando Mount.
 
 1. Escolha o **caminho do namespace virtual** a ser usado para o cliente. Esses caminhos são vinculados a exportações no sistema de armazenamento de back-end.
 
-   ![captura de tela do campo caminhos de namespace com o seletor aberto](media/mount-select-target.png)
+   ![Captura de tela que mostra o campo "caminho do namespace virtual", com o seletor aberto.](media/mount-select-target.png)
 
-   Você pode exibir e alterar os caminhos de namespace virtual na página do portal de destinos de armazenamento. Leia [Adicionar destinos de armazenamento](hpc-cache-add-storage.md) para ver como.
+   Você pode exibir e alterar os caminhos de namespace virtual na página do portal de **namespace** . Leia [Configurar o namespace agregado](add-namespace-paths.md) para ver como.
 
    Para saber mais sobre o recurso namespace agregado do cache HPC do Azure, leia [planejar o namespace agregado](hpc-cache-namespace.md).
 
@@ -89,7 +89,7 @@ Siga este procedimento para criar o comando Mount.
 
    Clique no símbolo de cópia no lado direito do campo para copiá-lo automaticamente para a área de transferência.
 
-   ![captura de tela do campo caminhos de namespace com o seletor aberto](media/mount-command-copy.png)
+   ![captura de tela do campo de comando de montagem do protótipo, mostrando o texto em foco para o botão "copiar para a área de transferência"](media/mount-command-copy.png)
 
 1. Use o comando de montagem copiado no computador cliente para conectá-lo ao cache do HPC do Azure. Você pode emitir o comando diretamente da linha de comando do cliente ou incluir o comando mount em um modelo ou script de configuração do cliente.
 
@@ -124,16 +124,16 @@ Para uma montagem de cliente robusta, passe essas configurações e argumentos n
 
 ### <a name="find-mount-command-components"></a>Localizar componentes de comando de montagem
 
-Se você quiser criar um comando de montagem sem usar a página **instruções de montagem** , poderá encontrar os endereços de montagem na página **visão geral** do cache e os caminhos de namespace virtual na página destino de **armazenamento** .
+Se você quiser criar um comando de montagem sem usar a página **instruções de montagem** , poderá encontrar os endereços de montagem na página **visão geral** do cache e os caminhos do namespace virtual na página **namespace** .
 
 ![captura de tela da página de visão geral da instância do cache HPC do Azure, com uma caixa de realce em volta da lista de endereços de montagem no canto inferior direito](media/hpc-cache-mount-addresses.png)
 
 > [!NOTE]
 > Os endereços de montagem de cache correspondem às interfaces de rede dentro da sub-rede do cache. Em um grupo de recursos, essas NICs são listadas com nomes que terminam em `-cluster-nic-` e um número. Não altere ou exclua essas interfaces, ou o cache ficará indisponível.
 
-Os caminhos de namespace virtual são mostrados na página de detalhes de cada destino de armazenamento. Clique em um nome de destino de armazenamento individual para ver seus detalhes, incluindo caminhos de namespace agregados associados a ele.
+Os caminhos de namespace virtual são mostrados na página de configurações de **namespace** do cache.
 
-![captura de tela da página de detalhes de um destino de armazenamento (cabeçalho "atualizar destino de armazenamento"). Há uma caixa de realce em volta de uma entrada na coluna caminho do namespace virtual da tabela](media/hpc-cache-view-namespace-paths.png)
+![captura de tela da página de namespace > de configurações do portal com uma caixa de realce ao contrário da primeira coluna da tabela: "caminho do namespace"](media/view-namespace-paths.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

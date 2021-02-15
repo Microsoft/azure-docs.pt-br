@@ -4,15 +4,15 @@ description: Saiba como fazer a integração ao Firewall do Azure para proteger 
 author: ccompy
 ms.assetid: 955a4d84-94ca-418d-aa79-b57a5eb8cb85
 ms.topic: article
-ms.date: 07/13/2020
+ms.date: 09/24/2020
 ms.author: ccompy
 ms.custom: seodec18, references_regions
-ms.openlocfilehash: e79381c156247efafa55de51f7e2e0154dbc1b51
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: e5f9cd361d4f130d725f608614159d67fb7b56d1
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962495"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93026353"
 ---
 # <a name="locking-down-an-app-service-environment"></a>Bloqueando um Ambiente do Serviço de Aplicativo
 
@@ -61,11 +61,11 @@ As etapas para bloquear a saída do ASE existente com o Firewall do Azure são:
    
    ![Adicionar regra de aplicativo][1]
    
-1. Na interface do usuário do Firewall do Azure > Regras > Coleção de regras de rede, selecione Adicionar coleção de regras de rede. Forneça um nome e uma prioridade e defina Permitir. Na seção regras, em endereços IP, forneça um nome, selecione um protocolo de **qualquer**, defina * para endereços de origem e de destino e defina as portas como 123. Essa regra permite que o sistema execute a sincronização de relógio usando o NTP. Crie outra regra da mesma forma para a porta 12000 para ajudar na triagem dos problemas do sistema. 
+1. Na interface do usuário do Firewall do Azure > Regras > Coleção de regras de rede, selecione Adicionar coleção de regras de rede. Forneça um nome e uma prioridade e defina Permitir. Na seção regras, em endereços IP, forneça um nome, selecione um protocolo de **qualquer** , defina * para endereços de origem e de destino e defina as portas como 123. Essa regra permite que o sistema execute a sincronização de relógio usando o NTP. Crie outra regra da mesma forma para a porta 12000 para ajudar na triagem dos problemas do sistema. 
 
    ![Adicionar regra de rede NTP][3]
    
-1. Na interface do usuário do Firewall do Azure > Regras > Coleção de regras de rede, selecione Adicionar coleção de regras de rede. Forneça um nome e uma prioridade e defina Permitir. Na seção Regras em Marcas de Serviço, forneça um nome, selecione um protocolo **Qualquer um**, defina * como Endereços de origem, selecione uma marca de serviço igual a AzureMonitor e defina as portas como 80 e 443. Essa regra permite que o sistema forneça ao Azure Monitor informações de integridade e métricas.
+1. Na interface do usuário do Firewall do Azure > Regras > Coleção de regras de rede, selecione Adicionar coleção de regras de rede. Forneça um nome e uma prioridade e defina Permitir. Na seção Regras em Marcas de Serviço, forneça um nome, selecione um protocolo **Qualquer um** , defina * como Endereços de origem, selecione uma marca de serviço igual a AzureMonitor e defina as portas como 80 e 443. Essa regra permite que o sistema forneça ao Azure Monitor informações de integridade e métricas.
 
    ![Adicionar uma regra de rede da marca de serviço NTP][6]
    
@@ -155,6 +155,9 @@ Com um Firewall do Azure, você obtém automaticamente tudo abaixo configurado c
 |wdcpalt.microsoft.com:443 |
 |wdcp.microsoft.com:443 |
 |ocsp.msocsp.com:443 |
+|ocsp.msocsp.com:80 |
+|oneocsp.microsoft.com:80 |
+|oneocsp.microsoft.com:443 |
 |mscrl.microsoft.com:443 |
 |mscrl.microsoft.com:80 |
 |crl.microsoft.com:443 |
@@ -162,6 +165,7 @@ Com um Firewall do Azure, você obtém automaticamente tudo abaixo configurado c
 |www.thawte.com:443 |
 |crl3.digicert.com:80 |
 |ocsp.digicert.com:80 |
+|ocsp.digicert.com:443 |
 |csc3-2009-2.crl.verisign.com:80 |
 |crl.verisign.com:80 |
 |ocsp.verisign.com:80 |
@@ -222,6 +226,7 @@ Com um Firewall do Azure, você obtém automaticamente tudo abaixo configurado c
 |rteventservice.trafficmanager.net:443 |
 |ctldl.windowsupdate.com:80 |
 |ctldl.windowsupdate.com:443 |
+|global-dsms.dsms.core.windows.net:443 |
 
 #### <a name="wildcard-httphttps-dependencies"></a>Dependências de HTTP/HTTPS de curinga 
 
@@ -250,6 +255,7 @@ Com um Firewall do Azure, você obtém automaticamente tudo abaixo configurado c
 |security.ubuntu.com:80 |
 |oryx-cdn.microsoft.io:443 |
 | \*.cdn.mscr.io:443 |
+| \*. data.mcr.microsoft.com:443 |
 |mcr.microsoft.com:443 |
 |\*. data.mcr.microsoft.com:443 |
 |packages.fluentbit.io:80 |
@@ -350,10 +356,9 @@ O Linux não está disponível nas regiões US Gov e, portanto, não está lista
 |management.core.usgovcloudapi.net:80 |
 |management.usgovcloudapi.net:80 |
 |maupdateaccountff.blob.core.usgovcloudapi.net:80 |
-|mscrl.microsoft.com
-|ocsp.digicert.0 |
-|ocsp.msocsp.co|
-|ocsp.verisign.0 |
+|mscrl.microsoft.com:80
+|ocsp.digicert.com:80 |
+|ocsp.verisign.com:80 |
 |rteventse.trafficmanager.net:80 |
 |settings-n.data.microsoft.com:80 |
 |shavamafestcdnprod1.azureedge.net:80 |
@@ -392,6 +397,7 @@ O Linux não está disponível nas regiões US Gov e, portanto, não está lista
 |definitionupdates.microsoft.com:443 |
 |download.windowsupdate.com:443 |
 |fairfax.warmpath.usgovcloudapi.net:443 |
+|gcs.monitoring.core.usgovcloudapi.net:443 |
 |flighting.cp.wd.microsoft.com:443 |
 |gcwsprodgmdm2billing.queue.core.usgovcloudapi.net:443 |
 |gcwsprodgmdm2billing.table.core.usgovcloudapi.net:443 |
@@ -411,6 +417,9 @@ O Linux não está disponível nas regiões US Gov e, portanto, não está lista
 |mscrl.microsoft.com:443 |
 |ocsp.digicert.com:443 |
 |ocsp.msocsp.com:443 |
+|ocsp.msocsp.com:80 |
+|oneocsp.microsoft.com:80 |
+|oneocsp.microsoft.com:443 |
 |ocsp.verisign.com:443 |
 |rteventservice.trafficmanager.net:443 |
 |settings-win.data.microsoft.com:443 |
@@ -422,6 +431,7 @@ O Linux não está disponível nas regiões US Gov e, portanto, não está lista
 |www.microsoft.com:443 |
 |www.msftconnecttest.com:443 |
 |www.thawte.com:443 |
+|global-dsms.dsms.core.usgovcloudapi.net:443 |
 
 <!--Image references-->
 [1]: ./media/firewall-integration/firewall-apprule.png

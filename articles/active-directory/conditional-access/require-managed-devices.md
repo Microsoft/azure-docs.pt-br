@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 06/08/2020
+ms.date: 10/16/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7d3fbb06355772794fbe3fab5cdf3c8622c2baf4
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: c11b58954eefda67f981d618b04ab2bd69fa6b43
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88948820"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93077754"
 ---
 # <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>Como: exigir dispositivos gerenciados para acesso ao aplicativo de nuvem com acesso condicional
 
@@ -50,7 +50,7 @@ Com o acesso condicional do Azure AD, você pode atender a esse requisito com um
 
 Em termos simples, os dispositivos gerenciados são dispositivos que estão sob *algum tipo* de controle organizacional. No Microsoft Azure AD, o pré-requisito para um dispositivo gerenciado é que ele tenha sido registrado com o Azure AD. Registrar um dispositivo cria uma identidade para o dispositivo na forma de um objeto de dispositivo. Esse objeto é usado pelo Azure para rastrear as informações de status sobre um dispositivo. Como um administrador do Microsoft Azure AD, você já pode usar esse objeto para alternar (ativar/desativar) o estado de um dispositivo.
   
-![Condições baseadas no dispositivo](./media/require-managed-devices/32.png)
+:::image type="content" source="./media/require-managed-devices/32.png" alt-text="Captura de tela do painel do dispositivo no Azure A D. habilitar e Desabilitar itens são realçados." border="false":::
 
 Para obter um dispositivo registrado com o Microsoft Azure AD, você tem três opções: 
 
@@ -60,19 +60,19 @@ Para obter um dispositivo registrado com o Microsoft Azure AD, você tem três o
 
 Essas três opções são discutidas no artigo [o que é uma identidade de dispositivo?](../devices/overview.md)
 
-Para se tornar um dispositivo gerenciado, um dispositivo registrado pode ser um **dispositivo ingressado no Microsoft Azure AD Híbrido** ou um **dispositivo que tenha sido marcado como em conformidade**.  
+Para se tornar um dispositivo gerenciado, um dispositivo registrado pode ser um **dispositivo ingressado no Microsoft Azure AD Híbrido** ou um **dispositivo que tenha sido marcado como em conformidade** .  
 
-![Condições baseadas no dispositivo](./media/require-managed-devices/47.png)
+:::image type="content" source="./media/require-managed-devices/47.png" alt-text="Captura de tela do painel do dispositivo no Azure A D. habilitar e Desabilitar itens são realçados." border="false":::
  
 ## <a name="require-hybrid-azure-ad-joined-devices"></a>Requer dispositivos que tenham ingressado no Microsoft Azure AD Híbrido
 
 Em sua política de acesso condicional, você pode selecionar **exigir dispositivo ingressado no Azure ad híbrido** para declarar que os aplicativos de nuvem selecionados só podem ser acessados usando um dispositivo gerenciado. 
 
-![Condições baseadas no dispositivo](./media/require-managed-devices/10.png)
+:::image type="content" source="./media/require-managed-devices/10.png" alt-text="Captura de tela do painel do dispositivo no Azure A D. habilitar e Desabilitar itens são realçados." border="false":::
 
 Essa configuração aplica-se somente ao Windows 10 ou a dispositivos de nível inferior, como o Windows 7 ou o Windows 8, associados a um AD local. Só é possível registrar esses dispositivos com o Microsoft Azure AD usando uma junção do Microsoft Azure AD Híbrido, que é um [processo automatizado](../devices/hybrid-azuread-join-plan.md) para obter um dispositivo Windows 10 registrado. 
 
-![Condições baseadas no dispositivo](./media/require-managed-devices/45.png)
+:::image type="content" source="./media/require-managed-devices/45.png" alt-text="Captura de tela do painel do dispositivo no Azure A D. habilitar e Desabilitar itens são realçados." border="false":::
 
 O que torna um dispositivo ingressado no Microsoft Azure AD Híbrido um dispositivo gerenciado?  Para dispositivos que ingressaram em um AD local, supõe-se que o controle desses dispositivos seja imposto usando soluções de gerenciamento, como **Configuration Manager** ou **GP (política de grupo)** para gerenciá-los. Como não há nenhum método para que o Microsoft Azure AD determine se qualquer um dos métodos a seguir foram aplicados a um dispositivo, exigir um dispositivo ingressado no Microsoft Azure AD híbrido é um mecanismo relativamente fraco para solicitar um dispositivo gerenciado. Cabe a você como administrador avaliar se os métodos que são aplicados a seus dispositivos ingressados no domínio local são fortes o suficiente para constituir um dispositivo gerenciado, se tal dispositivo também for um dispositivo ingressado no Microsoft Azure AD híbrido.
 
@@ -80,14 +80,14 @@ O que torna um dispositivo ingressado no Microsoft Azure AD Híbrido um disposit
 
 A opção de *exigir que um dispositivo seja marcado como em conformidade* é a forma mais segura de solicitar um dispositivo gerenciado.
 
-![Condições baseadas no dispositivo](./media/require-managed-devices/11.png)
+:::image type="content" source="./media/require-managed-devices/11.png" alt-text="Captura de tela do painel do dispositivo no Azure A D. habilitar e Desabilitar itens são realçados." border="false":::
 
 Essa opção requer que um dispositivo seja registrado com o Microsoft Azure AD e também marcado como em conformidade por:
          
 - Intune
 - Um sistema gerenciado por dispositivo móvel de terceiros (MDM) que gerencia os dispositivos Windows 10 por meio da integração do Azure AD. Sistemas MDM de terceiros para tipos de dispositivo OS, exceto Windows 10, não são suportados.
  
-![Condições baseadas no dispositivo](./media/require-managed-devices/46.png)
+:::image type="content" source="./media/require-managed-devices/46.png" alt-text="Captura de tela do painel do dispositivo no Azure A D. habilitar e Desabilitar itens são realçados." border="false":::
 
 Para um dispositivo que esteja marcado como em conformidade, você pode presumir que: 
 
@@ -98,24 +98,24 @@ Para um dispositivo que esteja marcado como em conformidade, você pode presumir
 
 ### <a name="scenario-require-device-enrollment-for-ios-and-android-devices"></a>Cenário: exigir registro de dispositivo para dispositivos iOS e Android
 
-Nesse cenário, a Contoso decidiu que todo o acesso móvel aos recursos do Office 365 deve usar um dispositivo registrado. Todos os seus usuários já entram com as credenciais do Azure AD e têm licenças atribuídas a eles que incluem o Azure AD Premium P1 ou P2 e o Microsoft Intune.
+Nesse cenário, a Contoso decidiu que todo o acesso móvel para Microsoft 365 recursos deve usar um dispositivo registrado. Todos os seus usuários já entram com as credenciais do Azure AD e têm licenças atribuídas a eles que incluem o Azure AD Premium P1 ou P2 e o Microsoft Intune.
 
 As organizações devem concluir as seguintes etapas para exigir o uso de um dispositivo móvel registrado.
 
 1. Entre no **portal do Azure** como administrador global, administrador de segurança ou administrador de acesso condicional.
-1. Procure **Azure Active Directory** > **Segurança** > **Acesso Condicional**.
-1. Selecione **Nova política**.
+1. Procure **Azure Active Directory** > **Segurança** > **Acesso Condicional** .
+1. Selecione **Nova política** .
 1. Dê um nome à sua política. Recomendamos que as organizações criem um padrão significativo para os nomes de suas políticas.
-1. Em **Atribuições**, selecione **Usuários e grupos**.
-   1. Em **Incluir**, selecione **Todos os usuários** ou os **usuários e grupos** específicos aos quais você deseja aplicar essa política. 
-   1. Selecione **Concluído**.
-1. Em **Aplicativos de nuvem ou ações** > **Incluir**, selecione **Office 365 (versão preliminar)** .
-1. Em **Condições**, selecione **Plataformas de dispositivo**.
-   1. Defina **Configurar** como **Sim**.
-   1. Inclua **Android** e **iOS**.
-1. Em **Controles de acesso** > **Conceder**, selecione as seguintes opções:
+1. Em **Atribuições** , selecione **Usuários e grupos** .
+   1. Em **Incluir** , selecione **Todos os usuários** ou os **usuários e grupos** específicos aos quais você deseja aplicar essa política. 
+   1. Selecione **Concluído** .
+1. Em **aplicativos de nuvem ou ações**  >  **incluem** , selecione **Office 365** .
+1. Em **Condições** , selecione **Plataformas de dispositivo** .
+   1. Defina **Configurar** como **Sim** .
+   1. Inclua **Android** e **iOS** .
+1. Em **Controles de acesso** > **Conceder** , selecione as seguintes opções:
    - **Exigir que o dispositivo seja marcado como em conformidade**
-1. Confirme suas configurações e defina **Habilitar política** como **Ativado**.
+1. Confirme suas configurações e defina **Habilitar política** como **Ativado** .
 1. Selecione **Criar** para criar e habilitar sua política.
 
 ### <a name="known-behavior"></a>Comportamento conhecido
@@ -126,4 +126,4 @@ No Windows 7, iOS, Android, macOS e alguns navegadores da Web de terceiros, o Az
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Antes de configurar uma política de acesso condicional com base no dispositivo em seu ambiente, você deve examinar as [práticas recomendadas para acesso condicional no Azure Active Directory](best-practices.md).
+[Avalie o impacto das políticas de acesso condicional antes de habilitar amplamente com o modo somente de relatório](concept-conditional-access-report-only.md).

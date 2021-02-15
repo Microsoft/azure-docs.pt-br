@@ -3,18 +3,21 @@ title: ARRAY_SLICE na linguagem de consulta Azure Cosmos DB
 description: Saiba mais sobre como a função de sistema SQL de fatia de matriz em Azure Cosmos DB retorna parte de uma expressão de matriz
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: a98cb17d22f41776ff788d12ced6aa988ad0b10e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1808070f374614ae6cac9a27098ddf2f4d9d2d12
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78303317"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93332518"
 ---
 # <a name="array_slice-azure-cosmos-db"></a>ARRAY_SLICE (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Retorna parte de uma expressão de matriz.
   
 ## <a name="syntax"></a>Sintaxe

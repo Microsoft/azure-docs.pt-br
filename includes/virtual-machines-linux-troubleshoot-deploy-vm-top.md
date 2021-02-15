@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: a7d2c276e99a2f6bc36070923ca7a41b7e5db250
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67171923"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022795"
 ---
 Os principais problemas a seguir podem ajudar a resolver a sua questão. Para iniciar a solução de problemas, revise estas etapas:
 

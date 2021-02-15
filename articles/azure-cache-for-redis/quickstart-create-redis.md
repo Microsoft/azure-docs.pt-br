@@ -8,10 +8,10 @@ ms.custom: mvc
 ms.topic: quickstart
 ms.date: 05/12/2020
 ms.openlocfilehash: 829f954fede18da2dbf7b3f2d84f69452294a17a
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "83228257"
 ---
 # <a name="quickstart-create-an-azure-cache-for-redis-instance"></a>Início Rápido: Criar uma instância de Cache do Azure para Redis

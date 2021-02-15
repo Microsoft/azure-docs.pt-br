@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 07/28/2020
+ms.date: 11/10/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.custom: seohack1
-ms.openlocfilehash: 839662e496a61ff9a90a6250b417688b91ccaed1
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.custom: seohack1, devx-track-azurecli
+ms.openlocfilehash: e30af9522d7c8fa81c4d93e11d252aefc4426586
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87382569"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184256"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Solucionar problemas do RBAC do Azure
 
@@ -61,13 +61,14 @@ $ras.Count
 
     Se você receber o erro "privilégios insuficientes para concluir a operação", é provável que CLI do Azure esteja tentando Pesquisar a identidade do destinatário no Azure AD e a entidade de serviço não possa ler o Azure AD por padrão.
 
-    Há duas maneiras de resolver esse erro potencialmente. A primeira maneira é atribuir a função [leitores de diretório](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) à entidade de serviço para que possa ler dados no diretório.
+    Há duas maneiras de resolver esse erro potencialmente. A primeira maneira é atribuir a função [leitores de diretório](../active-directory/roles/permissions-reference.md#directory-readers) à entidade de serviço para que possa ler dados no diretório.
 
-    A segunda maneira de resolver esse erro é criar a atribuição de função usando o `--assignee-object-id` parâmetro em vez de `--assignee` . Usando `--assignee-object-id` , CLI do Azure irá ignorar a pesquisa do Azure AD. Será necessário obter a ID de objeto do usuário, do grupo ou do aplicativo ao qual você deseja atribuir a função. Para obter mais informações, consulte [Adicionar ou remover atribuições de função do Azure usando CLI do Azure](role-assignments-cli.md#new-service-principal).
+    A segunda maneira de resolver esse erro é criar a atribuição de função usando o `--assignee-object-id` parâmetro em vez de `--assignee` . Usando `--assignee-object-id` , CLI do Azure irá ignorar a pesquisa do Azure AD. Será necessário obter a ID de objeto do usuário, do grupo ou do aplicativo ao qual você deseja atribuir a função. Para obter mais informações, consulte [Adicionar ou remover atribuições de função do Azure usando CLI do Azure](role-assignments-cli.md#add-role-assignment-for-a-new-service-principal-at-a-resource-group-scope).
 
     ```azurecli
     az role assignment create --assignee-object-id 11111111-1111-1111-1111-111111111111  --role "Contributor" --scope "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}"
     ```
+- Se você tentar remover a atribuição de função do último proprietário de uma assinatura, você poderá ver o erro "não é possível excluir a última atribuição de administrador do RBAC". Não há suporte para a remoção da atribuição da função do último proprietário de uma assinatura para evitar o órfão da assinatura. Se você quiser cancelar sua assinatura, consulte [cancelar sua assinatura do Azure](../cost-management-billing/manage/cancel-azure-subscription.md).
 
 ## <a name="problems-with-custom-roles"></a>Problemas com funções personalizadas
 
@@ -79,14 +80,14 @@ $ras.Count
 
 ## <a name="custom-roles-and-management-groups"></a>Funções personalizadas e grupos de gerenciamento
 
-- Você só pode definir um grupo de gerenciamento em `AssignableScopes` uma função personalizada. A adição de um grupo de gerenciamento ao `AssignableScopes` está em visualização no momento.
+- Você só pode definir um grupo de gerenciamento em `AssignableScopes` uma função personalizada. A adição de um grupo de gerenciamento a `AssignableScopes` está em versão prévia no momento.
 - Funções personalizadas com `DataActions` não podem ser atribuídas no escopo do grupo de gerenciamento.
 - Azure Resource Manager não valida a existência do grupo de gerenciamento no escopo atribuível da definição de função.
 - Para obter mais informações sobre funções personalizadas e grupos de gerenciamento, consulte [organizar seus recursos com grupos de gerenciamento do Azure](../governance/management-groups/overview.md#azure-custom-role-definition-and-assignment).
 
 ## <a name="transferring-a-subscription-to-a-different-directory"></a>Transferindo uma assinatura para um diretório diferente
 
-- Se você precisar de etapas sobre como transferir uma assinatura para um diretório diferente do Azure AD, consulte [transferir a propriedade de uma assinatura do Azure para outra conta](../cost-management-billing/manage/billing-subscription-transfer.md).
+- Se você precisar de etapas sobre como transferir uma assinatura para um diretório diferente do Azure AD, consulte [transferir uma assinatura do Azure para um diretório diferente do Azure ad](transfer-subscription.md).
 - Se você transferir uma assinatura para um diretório diferente do Azure AD, todas as atribuições de função serão excluídas **permanentemente** do diretório do Azure AD de origem e não serão migradas para o diretório de destino do Azure AD. Você deve recriar as atribuições de função no diretório de destino. Você também precisa recriar manualmente as identidades gerenciadas dos recursos do Azure. Para obter mais informações, consulte [perguntas frequentes e problemas conhecidos com identidades gerenciadas](../active-directory/managed-identities-azure-resources/known-issues.md).
 - Se você for um administrador global do Azure AD e não tiver acesso a uma assinatura após sua transferência entre os diretórios, use a opção **Gerenciamento de acesso para recursos do Azure** para [elevar temporariamente seu acesso](elevate-access-global-admin.md) para obter acesso à assinatura.
 
@@ -99,11 +100,17 @@ $ras.Count
 - Se você receber o erro de permissões "O cliente com o ID de objeto não tem autorização para executar a ação no escopo (código: AuthorizationFailed)" ao tentar criar um recurso, verifique se está atualmente conectado como um usuário com atribuição de função que tenha permissão de gravação para o recurso no escopo selecionado. Por exemplo, para gerenciar máquinas virtuais em um grupo de recursos, você deverá ter a função [Colaborador da Máquina Virtual](built-in-roles.md#virtual-machine-contributor) no grupo de recursos (ou escopo pai). Para obter uma lista das permissões para cada função interna, consulte [funções internas do Azure](built-in-roles.md).
 - Se você receber o erro de permissões "você não tem permissão para criar uma solicitação de suporte" ao tentar criar ou atualizar um tíquete de suporte, verifique se você está conectado no momento com um usuário que recebe uma função que tem a `Microsoft.Support/supportTickets/write` permissão, como [colaborador de solicitação de suporte](built-in-roles.md#support-request-contributor).
 
+## <a name="move-resources-with-role-assignments"></a>Mover recursos com atribuições de função
+
+Se você mover um recurso que tenha uma função do Azure atribuída diretamente ao recurso (ou a um recurso filho), a atribuição de função não será movida e se tornará órfã. Após a movimentação, você deve recriar a atribuição de função. Eventualmente, a atribuição de função órfãa será removida automaticamente, mas é uma prática recomendada remover a atribuição de função antes de mover o recurso.
+
+Para obter informações sobre como mover recursos, consulte [mover recursos para um novo grupo de recursos ou assinatura](../azure-resource-manager/management/move-resource-group-and-subscription.md).
+
 ## <a name="role-assignments-with-identity-not-found"></a>Atribuições de função com identidade não encontrada
 
 Na lista de atribuições de função para o portal do Azure, você pode observar que a entidade de segurança (usuário, grupo, entidade de serviço ou identidade gerenciada) está listada como **identidade não encontrada** com um tipo **desconhecido** .
 
-![Grupo de recursos do aplicativo Web](./media/troubleshooting/unknown-security-principal.png)
+![Identidade não encontrada listada nas atribuições de função do Azure](./media/troubleshooting/unknown-security-principal.png)
 
 A identidade pode não ser encontrada por dois motivos:
 
@@ -221,7 +228,7 @@ Estes itens exigem acesso para **gravação** na **Máquina virtual**:
 * Pontos de extremidade  
 * Endereços IP  
 * Discos  
-* Extensões  
+* Extensões do  
 
 Estes exigem acesso para **gravação** tanto na **Máquina virtual** quanto no **Grupo de recursos** (juntamente com o Nome de domínio) encontrados em:  
 

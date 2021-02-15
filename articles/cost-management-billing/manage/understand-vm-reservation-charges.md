@@ -7,12 +7,12 @@ ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: dd21faa07426c80bb3a95dbd1b6d4ee93f783881
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: bda93712dd9a7501fbfddf0e75b8ae3c0088ed55
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686438"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96341233"
 ---
 # <a name="how-the-azure-reservation-discount-is-applied-to-virtual-machines"></a>Como o desconto de reserva do Azure é aplicado a máquinas virtuais
 
@@ -57,7 +57,7 @@ Quando você executa instâncias de VM Windows, a reserva é aplicada para cobri
 
 ## <a name="discount-can-apply-to-different-sizes"></a>O desconto pode se aplicar a diferentes tamanhos
 
-Ao comprar uma Instância de VM Reservada e selecionar **Otimizado para flexibilidade de tamanho da instância**, a cobertura do desconto se aplicará ao tamanho de VM que você selecionar. Ele também poderá se aplicar a outros tamanhos de VMs que estejam no mesmo grupo de flexibilidade de tamanho da instância da série. Para obter mais informações, confira [Flexibilidade de tamanho de máquina virtual com Instâncias de VM Reservadas](../../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
+Ao comprar uma Instância de VM Reservada e selecionar **Otimizado para flexibilidade de tamanho da instância**, a cobertura do desconto se aplicará ao tamanho de VM que você selecionar. Ele também poderá se aplicar a outros tamanhos de VMs que estejam no mesmo grupo de flexibilidade de tamanho da instância da série. Para obter mais informações, confira [Flexibilidade de tamanho de máquina virtual com Instâncias de VM Reservadas](../../virtual-machines/reserved-vm-instance-size-flexibility.md).
 
 ## <a name="premium-storage-vms-dont-get-non-premium-discounts"></a>As VMs de armazenamento Premium não recebem descontos não Premium
 
@@ -106,7 +106,7 @@ Caso tenha dúvidas ou precise de ajuda, [crie uma solicitação de suporte](htt
 Para saber mais sobre as Reservas do Azure, consulte os seguintes artigos:
 
 - [O que são reservas para o Azure?](../reservations/save-compute-costs-reservations.md)
-- [Pré-pagamento para máquinas virtuais com instâncias de VMs reservadas do Azure](../../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Pré-pagamento para máquinas virtuais com instâncias de VMs reservadas do Azure](../../virtual-machines/prepay-reserved-vm-instances.md)
 - [Pagar antecipadamente por recursos de computação de banco de dados SQL com capacidade reservada do Banco de Dados SQL do Azure](../../azure-sql/database/reserved-capacity-overview.md)
 - [Gerenciar reservas do Azure](../reservations/manage-reserved-vm-instance.md)
 - [Entender o uso de reserva para a sua assinatura paga conforme o uso](../reservations/understand-reserved-instance-usage.md)

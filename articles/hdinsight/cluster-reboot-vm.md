@@ -1,66 +1,63 @@
 ---
-title: Reinicializar VMs para o cluster HDInsight do Azure
-description: Saiba como reinicializar VMs sem resposta para o cluster HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
+title: Reinicializar VMs para clusters do Azure HDInsight
+description: Saiba como reinicializar VMs sem resposta para clusters do Azure HDInsight.
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 06/22/2020
-ms.openlocfilehash: c0f0bd9eb423b3de6a602647dff93fd9fce6e13e
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: a61735dba60860459d007eb54d4655f41d5ae51a
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86077007"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946866"
 ---
-# <a name="reboot-vms-for-hdinsight-cluster"></a>Reinicializar VMs para o cluster HDInsight
+# <a name="reboot-vms-for-hdinsight-clusters"></a>Reinicializar VMs para clusters HDInsight
 
-Os clusters HDInsight contêm grupos de VMs como nós de cluster. Para clusters de longa execução, esses nós podem ficar sem resposta por vários motivos. Este artigo descreve como reinicializar VMs sem resposta em um cluster HDInsight.
+Os clusters do Azure HDInsight contêm grupos de VMs (máquinas virtuais) como nós de cluster. Para clusters de execução longa, esses nós podem ficar sem resposta por vários motivos. Este artigo descreve como reinicializar VMs sem resposta em um cluster HDInsight.
 
 ## <a name="when-to-reboot"></a>Quando reinicializar
 
-> [!WARNING]  
-> A reinicialização de VMs no cluster traz o tempo de inatividade do nó e a reinicialização de serviços no nó. 
+> [!WARNING]
+> Quando você reinicializa as VMs em um cluster, o nó não está disponível para uso e os serviços no nó devem ser reiniciados.
 
-Enquanto o nó está sendo reinicializado, o cluster pode se tornar não íntegro, os trabalhos podem ficar lentos ou falhar. Se você estiver tentando reinicializar o nó de cabeçalho ativo, todos os trabalhos em execução serão eliminados e você não poderá enviar trabalhos para o cluster até que os serviços estejam ativos e em execução novamente. Você deve considerar a reinicialização das VMs somente quando necessário. Aqui estão algumas diretrizes para quando considerar a reinicialização das VMs.
+Quando um nó é reinicializado, o cluster pode se tornar não íntegro e os trabalhos podem ficar lentos ou falhar. Se você estiver tentando reinicializar o nó de cabeçalho ativo, todos os trabalhos em execução serão interrompidos. Você não poderá enviar trabalhos para o cluster até que os serviços estejam ativos e em execução novamente. Por esses motivos, você deve reinicializar VMs somente quando necessário. Considere reinicializar VMs quando:
 
-- Não é possível SSH no nó, mas ele responde a pings.
-- O nó de trabalho está inoperante sem pulsação na interface do usuário do amAmbari.
+- Você não pode usar o SSH para entrar no nó, mas ele responde a pings.
+- O nó de trabalho está inoperante sem uma pulsação na interface do usuário do amAmbari.
 - O disco temporário está cheio no nó.
 - A tabela de processo na VM tem muitas entradas em que o processo foi concluído, mas está listado com "estado encerrado".
 
-> [!WARNING]  
-> Você deve ter mais cuidado ao reinicializar VMs para **HBase** e **Kafka** clustes, pois isso pode causar perda de dados.
+> [!NOTE]
+> Não há suporte para a reinicialização de VMs em clusters **HBase** e **Kafka** porque a reinicialização pode fazer com que os dados sejam perdidos.
 
 ## <a name="use-powershell-to-reboot-vms"></a>Usar o PowerShell para reinicializar VMs
 
-Há duas etapas necessárias para usar a operação de reinicialização de nó: listar nós e reiniciar nós.
+São necessárias duas etapas para usar a operação de reinicialização de nó: listar nós e reiniciar nós.
 
-1. Listar nós. Você pode obter a lista de nós de cluster por meio de [Get-AzHDInsightHost](https://docs.microsoft.com/powershell/module/az.hdinsight/get-azhdinsighthost). 
+1. Listar nós. Você pode obter a lista de nós de cluster em [Get-AzHDInsightHost](/powershell/module/az.hdinsight/get-azhdinsighthost).
 
-  ```
-  Get-AzHDInsightHost -ClusterName myclustername
-  ```
+      ```
+      Get-AzHDInsightHost -ClusterName myclustername
+      ```
 
-2. Reinicie os hosts. Depois de obter os nomes dos nós que você deseja reinicializar, reinicie os nós usando [Restart-AzHDInsightHost](https://docs.microsoft.com/powershell/module/az.hdinsight/restart-azhdinsighthost).
+1. Reinicie os hosts. Depois de obter os nomes dos nós que você deseja reinicializar, reinicie os nós usando [Restart-AzHDInsightHost](/powershell/module/az.hdinsight/restart-azhdinsighthost).
 
-  ```
-  Restart-AzHDInsightHost -ClusterName myclustername -Name wn0-myclus, wn1-myclus
-  ```
+      ```
+      Restart-AzHDInsightHost -ClusterName myclustername -Name wn0-myclus, wn1-myclus
+      ```
 
-## <a name="use-rest-api-to-reboot-vms"></a>Usar a API REST para reinicializar VMs
+## <a name="use-a-rest-api-to-reboot-vms"></a>Usar uma API REST para reinicializar VMs
 
-Você pode usar o recurso **experimentar** no documento da API para enviar solicitações ao HDInsight. Há duas etapas necessárias para usar a operação de reinicialização de nó: listar nós e reiniciar nós.
+Você pode usar o recurso **experimentar** no documento da API para enviar solicitações ao HDInsight. São necessárias duas etapas para usar a operação de reinicialização de nó: listar nós e reiniciar nós.
 
-1. Listar nós. Você pode obter a lista de nós de cluster da API REST ou no Ambari. Mais detalhes podem ser encontrados na [lista do HDInsight hospeda a operação da API REST](https://docs.microsoft.com/rest/api/hdinsight/virtualmachines/listhosts).
+1. Listar nós. Você pode obter a lista de nós de cluster da API REST ou no Ambari. Para obter mais informações, consulte a [lista do HDInsight hospeda a operação da API REST](/rest/api/hdinsight/virtualmachines/listhosts).
 
     ```
     POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusters/{clusterName}/listHosts?api-version=2018-06-01-preview
     ```
 
-2. Reinicie os hosts. Depois de obter os nomes dos nós que você deseja reinicializar, use a API REST de reinicialização de nós para reinicializar os nós. O nome do nó segue o padrão de **"NodeType (WN/HN/ZK/GW)" + "x" + "primeiros 6 caracteres do nome do cluster"**. Mais detalhes podem ser encontrados na [operação de reinicialização do HDInsight hospeda a API REST](https://docs.microsoft.com/rest/api/hdinsight/virtualmachines/restarthosts).
+1. Reinicie os hosts. Depois de obter os nomes dos nós que você deseja reinicializar, reinicie os nós usando a API REST para reinicializar os nós. O nome do nó segue o padrão de *NodeType (WN/HN/ZK/GW)*  +  *x* os  +  *primeiros seis caracteres do nome do cluster*. Para obter mais informações, consulte [host de reinicialização do HDInsight operação de API REST](/rest/api/hdinsight/virtualmachines/restarthosts).
 
     ```
     POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusters/{clusterName}/restartHosts?api-version=2018-06-01-preview
@@ -77,6 +74,6 @@ Os nomes reais dos nós que você deseja reinicializar são especificados em uma
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Restart-AzHDInsightHost](https://docs.microsoft.com/powershell/module/az.hdinsight/restart-azhdinsighthost)
-* [API REST de máquinas virtuais do HDInsight](https://docs.microsoft.com/rest/api/hdinsight/virtualmachines)
-* [API REST do HDInsight](https://docs.microsoft.com/rest/api/hdinsight/)
+* [Restart-AzHDInsightHost](/powershell/module/az.hdinsight/restart-azhdinsighthost)
+* [API REST de máquinas virtuais do HDInsight](/rest/api/hdinsight/virtualmachines)
+* [API REST do HDInsight](/rest/api/hdinsight/)

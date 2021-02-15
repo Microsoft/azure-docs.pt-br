@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a0c68bf11d81925c1b9c3e408434a6f7b1b2694
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 85e6a66f4520f12278266203211e1d1ae224c97f
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85608986"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96180448"
 ---
 # <a name="integrate-azure-ad-logs-with-azure-monitor-logs"></a>Integrar logs do Azure AD com logs de Azure Monitor
 
@@ -46,6 +46,7 @@ Você pode rotear os logs de atividade de auditoria e logs de atividade de entra
 
 * **Logs de auditoria**: o [relatório de atividade de logs de auditoria](concept-audit-logs.md) fornece acesso ao histórico de todas as tarefas que são executadas em seu locatário.
 * **Logs de entrada**: com o [relatório de atividade de entrada](concept-sign-ins.md), você pode determinar quem executou as tarefas que são relatadas nos logs de auditoria.
+* **Logs de provisionamento**: com os [logs de provisionamento](../app-provisioning/application-provisioning-log-analytics.md), você pode monitorar quais usuários foram criados, atualizados e excluídos em todos os aplicativos de terceiros. 
 
 > [!NOTE]
 > Não há suporte para logs de atividades de auditoria e entradas relacionados ao B2C no momento.
@@ -58,7 +59,7 @@ Para usar esse recurso, você precisa de:
 * Uma assinatura do Azure. Se não tiver uma assinatura do Azure, você poderá [inscrever-se em uma avaliação gratuita](https://azure.microsoft.com/free/).
 * Um locatário do Azure AD.
 * Um usuário que seja *administrador global* ou *administrador de segurança* do locatário do Azure AD.
-* Um espaço de trabalho do Log Analytics em sua assinatura do Azure. Saiba como [criar um espaço de trabalho do Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace).
+* Um espaço de trabalho do Log Analytics em sua assinatura do Azure. Saiba como [criar um espaço de trabalho do Log Analytics](../../azure-monitor/learn/quick-create-workspace.md).
 
 ## <a name="licensing-requirements"></a>Requisitos de licenciamento
 
@@ -68,7 +69,7 @@ O uso desse recurso requer uma licença Azure AD Premium P1 ou P2. Para localiza
 
 1. Entre no [portal do Azure](https://portal.azure.com). 
 
-2. Selecione **Azure Active Directory**  >  **configurações de diagnóstico**  ->  **Adicionar configuração de diagnóstico**. Você também pode selecionar a página**Exportar Configurações** dos **Logs de Auditoria** ou **Assinaturas** para obter a página de configuração de configurações de diagnóstico.  
+2. Selecione **Azure Active Directory**  >  **configurações de diagnóstico**  ->  **Adicionar configuração de diagnóstico**. Você também pode selecionar a página **Exportar Configurações** dos **Logs de Auditoria** ou **Assinaturas** para obter a página de configuração de configurações de diagnóstico.  
     
 3. No menu **Configurações de Diagnóstico**, marque a caixa de seleção **Enviar para o espaço de trabalho do Log Analytics** e, em seguida, selecione **Configurar**.
 

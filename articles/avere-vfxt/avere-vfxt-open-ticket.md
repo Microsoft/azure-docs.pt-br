@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/13/2020
 ms.author: rohogue
-ms.openlocfilehash: 522d29505d7d10f5f6d97136f270f07a63053d19
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: 8159d83624cdd474d91030d5376a3db447beffe1
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88271100"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008422"
 ---
 # <a name="get-help-with-your-system"></a>Obter ajuda com o sistema
 
@@ -43,7 +43,7 @@ Siga estas etapas para garantir que o tíquete de suporte seja marcado com um re
 
     ![captura de tela de uma nova exibição de solicitação de suporte no portal do Azure. A guia noções básicas está selecionada. Os itens da tela incluem tipo de problema, assinatura, serviço, resumo e tipo de problema.](media/ticket-basics.png)
 
-   Clique em **Avançar** para continuar.
+   Clique em **Próximo** para continuar.
 
 1. A segunda página do formulário de suporte contém sugestões para corrigir o problema com base na descrição resumida. Clique no botão **Avançar** na parte inferior se você ainda precisar criar um tíquete de suporte.
 
@@ -57,4 +57,4 @@ Siga estas etapas para garantir que o tíquete de suporte seja marcado com um re
 
 ## <a name="request-a-quota-increase"></a>Solicitar um aumento de cota
 
-Leia [Cota para o cluster vFXT](avere-vfxt-prereqs.md#quota-for-the-vfxt-cluster) para saber quais componentes são necessários para implantar o Avere vFXT para Azure. Você pode [solicitar um aumento de cota](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request) no portal do Azure.
+Leia [Cota para o cluster vFXT](avere-vfxt-prereqs.md#quota-for-the-vfxt-cluster) para saber quais componentes são necessários para implantar o Avere vFXT para Azure. Você pode [solicitar um aumento de cota](../azure-portal/supportability/resource-manager-core-quotas-request.md) no portal do Azure.

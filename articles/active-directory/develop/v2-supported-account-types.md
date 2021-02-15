@@ -1,5 +1,6 @@
 ---
-title: Tipos de conta com suporte-plataforma Microsoft Identity | Azure
+title: Tipos de conta com suporte | Azure
+titleSuffix: Microsoft identity platform
 description: Documentação conceitual sobre públicos-alvo e tipos de conta com suporte em aplicativos
 services: active-directory
 author: jmprieur
@@ -12,16 +13,16 @@ ms.date: 07/14/2020
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 50a0859b58e2db0d3f644db01cfcde8c533b6871
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d6c184e2983a072dec4b3021a1b58a61cd206dba
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518123"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755985"
 ---
 # <a name="supported-account-types"></a>Tipos de conta compatíveis
 
-Este artigo explica quais tipos de conta (às vezes chamados de *públicos*) têm suporte nos aplicativos da plataforma de identidade da Microsoft.
+Este artigo explica quais tipos de conta (às vezes chamados de *públicos*) têm suporte nos aplicativos da plataforma Microsoft Identity.
 
 <!-- This section can be in an include for many of the scenarios (SPA, web app signing-in users, protecting a web API, Desktop (depending on the flows), Mobile -->
 
@@ -43,7 +44,7 @@ Na nuvem pública Microsoft Azure, a maioria dos tipos de aplicativos pode conec
 Alguns tipos de conta não podem ser usados ​​com determinados fluxos de autenticação. Por exemplo, em aplicativos desktop, UWP ou daemon:
 
 - Os aplicativos daemon podem ser usados somente com as organizações do Azure AD. Não faz sentido tentar usar aplicativos de daemon para manipular contas pessoais da Microsoft. O consentimento do administrador nunca será concedido.
-- Você pode usar o fluxo de autenticação do Windows integrado somente com contas corporativas ou de estudante (em sua organização ou em qualquer organização). A autenticação integrada do Windows funciona com contas de domínio, e exige que os computadores sejam ingressados no domínio ou no Azure AD. Esse fluxo não faz sentido para contas pessoais da Microsoft.
+- Você pode usar o fluxo de autenticação do Windows integrado somente com contas corporativas ou de estudante (em sua organização ou em qualquer organização). A autenticação integrada do Windows funciona com contas de domínio e requer que os computadores sejam ingressados no domínio ou no Azure AD. Esse fluxo não faz sentido para contas pessoais da Microsoft.
 - A [concessão de credenciais de senha do proprietário do recurso](./v2-oauth-ropc.md) (nome de usuário/senha) não pode ser usada com contas pessoais da Microsoft. As contas pessoais da Microsoft exigem que o usuário contenha o acesso a recursos pessoais em cada sessão de entrada. É por isso que esse comportamento não é compatível com fluxos não interativos.
 
 ## <a name="account-types-in-national-clouds"></a>Tipos de conta em nuvens nacionais

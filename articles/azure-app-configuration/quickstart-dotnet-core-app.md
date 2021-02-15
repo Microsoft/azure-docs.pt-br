@@ -2,18 +2,18 @@
 title: Início Rápido da Configuração de Aplicativo do Azure com o .NET Core | Microsoft Docs
 description: Neste guia de início rápido, crie um aplicativo .NET Core com a Configuração de Aplicativos do Azure para centralizar o armazenamento e o gerenciamento de configurações de aplicativo separadas do seu código.
 services: azure-app-configuration
-author: lisaguthrie
+author: AlexandraKemperMS
 ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.date: 1/9/2019
-ms.author: lcozzens
-ms.openlocfilehash: 5925d80f23052324e5512908241ed573c681d835
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.date: 09/28/2020
+ms.author: alkemper
+ms.openlocfilehash: 0ff80287971365b1477be319dc7a04760687f6a9
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88590244"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98663393"
 ---
 # <a name="quickstart-create-a-net-core-app-with-app-configuration"></a>Início Rápido: Criar um aplicativo .NET Core com a Configuração de Aplicativo
 
@@ -21,14 +21,14 @@ Neste guia de início rápido, você incorpora a Configuração de Aplicativos d
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Assinatura do Azure - [criar uma gratuitamente](https://azure.microsoft.com/free/)
+- Assinatura do Azure - [criar uma gratuitamente](https://azure.microsoft.com/free/dotnet)
 - [SDK do .NET Core](https://dotnet.microsoft.com/download) – também disponível no [Azure Cloud Shell](https://shell.azure.com).
 
 ## <a name="create-an-app-configuration-store"></a>Criar um repositório de Configuração de Aplicativos
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Selecione **Gerenciador de Configurações** > **Criar** > **Chave-valor** para adicionar os seguintes pares chave-valor:
+7. Selecione **Gerenciador de Configurações** > **Criar** > **Chave-valor** para adicionar os seguintes pares chave-valor:
 
     | Chave | Valor |
     |---|---|
@@ -36,15 +36,15 @@ Neste guia de início rápido, você incorpora a Configuração de Aplicativos d
 
     Deixe **Rótulo** e **Tipo de Conteúdo** vazios por enquanto.
 
-7. Escolha **Aplicar**.
+8. Escolha **Aplicar**.
 
 ## <a name="create-a-net-core-console-app"></a>Criar um aplicativo de console .NET Core
 
-Você usará a [CLI (interface de linha de comando) do .NET Core](https://docs.microsoft.com/dotnet/core/tools/) para criar um projeto de aplicativo de console .NET Core. A vantagem de usar a CLI do .NET Core em relação ao Visual Studio é que ela está disponível nas plataformas Windows, macOS e Linux.  Como alternativa, use as ferramentas pré-instaladas disponíveis no [Azure Cloud Shell](https://shell.azure.com).
+Você usará a [CLI (interface de linha de comando) do .NET Core](/dotnet/core/tools/) para criar um projeto de aplicativo de console .NET Core. A vantagem de usar a CLI do .NET Core em relação ao Visual Studio é que ela está disponível nas plataformas Windows, macOS e Linux.  Como alternativa, use as ferramentas pré-instaladas disponíveis no [Azure Cloud Shell](https://shell.azure.com).
 
 1. Crie uma nova pasta para o seu projeto.
 
-2. Na nova pasta, execute o seguinte comando para criar um novo projeto de aplicativo do console do ASP.NET Core:
+2. Na nova pasta, execute o seguinte comando para criar um projeto de aplicativo de console .NET Core:
 
     ```dotnetcli
     dotnet new console
@@ -124,7 +124,7 @@ Você usará a [CLI (interface de linha de comando) do .NET Core](https://docs.m
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste início rápido, você criou um repositório de Configuração de Aplicativos e o usou com um aplicativo de console .NET Core por meio do [provedor da Configuração de Aplicativos](https://go.microsoft.com/fwlink/?linkid=2074664). Para saber como configurar seu aplicativo .NET Core para atualizar dinamicamente as configurações, passe para o próximo tutorial.
+Neste início rápido, você criou um repositório de Configuração de Aplicativos e o usou com um aplicativo de console .NET Core por meio do [provedor da Configuração de Aplicativos](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration). Para saber como configurar seu aplicativo .NET Core para atualizar dinamicamente as configurações, passe para o próximo tutorial.
 
 > [!div class="nextstepaction"]
 > [Habilitar configuração dinâmica](./enable-dynamic-configuration-dotnet-core.md)

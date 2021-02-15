@@ -9,16 +9,16 @@ ms.devlang: ''
 ms.topic: conceptual
 author: oslake
 ms.author: moslake
-ms.reviewer: ninarn, carlrab
-ms.date: 07/28/2020
-ms.openlocfilehash: c36a8e6f2e104d91bd7738849918c46802cd0dca
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.reviewer: ninarn, sstein
+ms.date: 12/9/2020
+ms.openlocfilehash: f50042caf21630c5054ead76825e49b820405c5b
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88225913"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98732672"
 ---
-# <a name="elastic-pools-help-you-manage-and-scale-multiple-databases-in-azure-sql-database"></a>Os pools elásticos ajudam você a gerenciar e dimensionar vários bancos de dados no Azure SQL Database
+# <a name="elastic-pools-help-you-manage-and-scale-multiple-databases-in-azure-sql-database"></a>Pools elásticos ajudam a gerenciar e dimensionar vários bancos de dados no Banco de Dados SQL do Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Os pools elásticos do banco de dados SQL do Azure são uma solução simples e econômica para gerenciar e dimensionar vários bancos de dados que têm demandas de uso variáveis e imprevisíveis. Os bancos de dados em um pool elástico estão em um único servidor e compartilham um número definido de recursos a um preço definido. Os pools elásticos no Banco de Dados SQL do Azure permitem que desenvolvedores de SaaS otimizem o desempenho de preço para um grupo de bancos de dados dentro de um orçamento prescrito oferecendo elasticidade de desempenho para cada banco de dados.
@@ -56,7 +56,7 @@ A figura a seguir mostra um exemplo de um banco de dados que passa muito tempo o
 
    ![um banco de dados individual adequado para um pool](./media/elastic-pool-overview/one-database.png)
 
-Para o período de cinco minutos ilustrado, DB1 apresenta picos de até 90 DTUs, mas seu uso geral médio é inferior a cinco DTUs. O tamanho da computação S3 é necessário para executar essa carga de trabalho em um banco de dados individual, mas esse tamanho faz com que a maioria dos recursos fiquem utilizados durante períodos de baixa atividade.
+O gráfico ilustra o uso de DTU em um período de 1 hora de 12:00 a 1:00, em que cada ponto de dados tem uma granularidade de 1 minuto. A 12:10 DB1 atinge picos de até 90 DTUs, mas seu uso médio geral é inferior a cinco DTUs. O tamanho da computação S3 é necessário para executar essa carga de trabalho em um banco de dados individual, mas esse tamanho faz com que a maioria dos recursos fiquem utilizados durante períodos de baixa atividade.
 
 Um pool permite que essas DTUs não utilizadas sejam compartilhadas entre vários bancos de dados, reduzindo as DTUs necessárias e os custos gerais.
 
@@ -74,38 +74,18 @@ Este exemplo é ideal pelas seguintes razões:
 - O pico de utilização de cada banco de dados ocorre em diferentes momentos.
 - eDTUs são compartilhados entre vários bancos de dados.
 
-O preço de um pool é uma função das eDTUs do pool. Embora o preço unitário de eDTU para um pool seja 1,5x maior que o preço unitário de DTU para um banco de dados individual, **as eDTUs do pool podem ser compartilhadas por vários bancos de dados e, assim, menos eDTUs são necessárias no total**. Essas distinções no preço e compartilhamento de eDTU são a base do potencial de economia que os pools podem oferecer.
+No modelo de compra DTU, o preço de um pool é uma função do pool eDTUs. Embora o preço unitário de eDTU para um pool seja 1,5x maior que o preço unitário de DTU para um banco de dados individual, **as eDTUs do pool podem ser compartilhadas por vários bancos de dados e, assim, menos eDTUs são necessárias no total**. Essas distinções no preço e compartilhamento de eDTU são a base do potencial de economia que os pools podem oferecer.
 
-As seguintes regras básicas relacionadas à contagem de banco de dados e à utilização do banco de dados ajudam a garantir que um pool ofereça um custo reduzido em comparação ao uso de tamanhos da computação para bancos de dados individuais.
-
-### <a name="minimum-number-of-databases"></a>Número mínimo de bancos de dados
-
-Se a quantidade agregada de recursos para bancos de dados individuais for maior que 1,5x de recursos necessários para o pool, será mais econômico usar um pool elástico.
-
-***Exemplo de modelo de compra baseado em DTU*** Pelo menos dois bancos de dados S3 ou, pelo menos, 15 bancos de dados S0 são necessários para que um pool de eDTU de 100 seja mais econômico do que usar tamanhos de computação para bancos de dados individuais.
-
-### <a name="maximum-number-of-concurrently-peaking-databases"></a>Número máximo de banco de dados em pico simultaneamente
-
-Ao compartilhar recursos, nem todos os bancos de dados em um pool podem usar recursos simultaneamente até o limite disponível para bancos de dados individuais. Quanto menos bancos de dados em pico simultaneamente, menores serão os recursos do conjunto e mais econômico será o pool. Em geral, não mais que 2/3 (ou 67%) dos bancos de dados no pool devem atingir simultaneamente o limite de recursos.
-
-***Exemplo de modelo de compra baseado em DTU*** Para reduzir os custos de três bancos de dados S3 em um pool de eDTU de 200, no máximo dois desses bancos de dados podem ser simultaneamente picos em sua utilização. Caso contrário, se mais de dois desses quatro bancos de dados S3 entrarem em pico simultaneamente, o pool precisará ser dimensionado para mais de 200 eDTUs. Se o pool for redimensionado para mais de 200 eDTUs, mais bancos de dados S3 precisarão ser adicionados ao pool para manter os custos menores do que os tamanhos da computação para bancos de dados individuais.
-
-Observação Este exemplo não considera a utilização de outros bancos de dados no pool. Se todos os bancos de dados tiverem uma certa utilização em um determinado momento, menos de 2/3 (ou 67%) dos bancos de dados pode atingir o pico simultaneamente.
-
-### <a name="resource-utilization-per-database"></a>Utilização de recursos por banco de dados
-
-Uma grande diferença entre o máximo e média de utilização de um banco de dados indica longos períodos de baixa utilização e curtos períodos de alta utilização. Esse padrão de utilização é ideal para compartilhar recursos entre bancos de dados. Um banco de dados deve ser considerado para um pool quando seu pico de utilização for aproximadamente 1,5 vez maior que sua utilização média.
-
-***Exemplo de modelo de compra baseado em DTU*** Um banco de dados S3 que atinge picos de 100 DTUs e em média usa 67 DTUs ou menos é um bom candidato para compartilhar eDTUs em um pool. Outra opção de bom candidato para um pool elástico seria um banco de dados S1 com pico de 20 DTUs e média de uso de 13 DTUs ou menos.
+No modelo de compra vCore, o preço unitário vCore para pools elásticos é igual ao preço unitário vCore para bancos de dados individuais.
 
 ## <a name="how-do-i-choose-the-correct-pool-size"></a>Como fazer para escolher o tamanho de pool correto
 
 O melhor tamanho para um pool depende dos recursos agregados necessários para todos os bancos de dados no pool. Isso inclui determinar o seguinte:
 
-- Máximo de recursos utilizados por todos os bancos de dados no pool (o máximo de DTUs ou máximo de vCores, dependendo da sua escolha de modelo de compra).
+- Máximo de recursos de computação utilizados por todos os bancos de dados no pool.  Os recursos de computação são indexados por eDTUs ou vCores, dependendo da sua escolha de modelo de compra.
 - Bytes de armazenamento máximo utilizados por todos os bancos de dados no pool.
 
-Para as camadas de serviço e limites disponíveis para cada modelo de recurso, consulte o [modelo de compra baseado em DTU](service-tiers-dtu.md) ou o [modelo de compra baseado em vCore](service-tiers-vcore.md).
+Para camadas de serviço e limites de recursos em cada modelo de compra, consulte o [modelo de compra baseado em DTU](service-tiers-dtu.md) ou o [modelo de compra baseado em vCore](service-tiers-vcore.md).
 
 As etapas a seguir podem ajudá-lo a estimar se um pool é mais econômico do que bancos de dados individuais:
 
@@ -119,10 +99,10 @@ Para o modelo de compra baseado em vCore:
 
 MAX (<*número total de bancos de* *BD X utilização média de VCORE por banco* de>, <*número de bancos de los de pico simultâneos* x utilização de *vcore de pico por BD*>)
 
-2. Estime o espaço de armazenamento necessário para o pool adicionando o número de bytes necessários para todos os bancos de dados no pool. Determine o tamanho do pool em eDTU que fornece essa quantidade de armazenamento.
+2. Estime o espaço de armazenamento total necessário para o pool adicionando o tamanho de dados necessário para todos os bancos de dado no pool. Para o modelo de compra de DTU, determine o tamanho do pool de eDTU que fornece essa quantidade de armazenamento.
 3. Para o modelo de compra baseado em DTU, obtenha as maiores estimativas de eDTU da Etapa 1 e Etapa 2. Para o modelo de compra baseado em vCore, obtenha a estimativa de vCore da Etapa 1.
 4. Consulte a [página de preços do Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/) e localize o menor tamanho de pool que seja maior que a estimativa da Etapa 3.
-5. Compare o preço do pool da Etapa 5 com o preço do uso dos tamanhos da computação apropriados para bancos de dados individuais.
+5. Compare o preço do pool da etapa 4 com o preço de usar os tamanhos de computação apropriados para bancos de dados individuais.
 
 > [!IMPORTANT]
 > Se o número de bancos de dados em um pool se aproximar do máximo com suporte, certifique-se de considerar o [Gerenciamento de recursos em pools elásticos densos](elastic-pool-resource-management.md).
@@ -176,34 +156,7 @@ Quando tiver concluído a configuração do pool, você poderá clicar em "Aplic
 
 No Portal do Azure, é possível monitorar a utilização de um pool elástico e os bancos de dados no pool. Você também pode criar um conjunto de alterações para o pool elástico e enviar todas as alterações ao mesmo tempo. Essas alterações incluem adicionar ou remover bancos de dados, alterar as configurações de pool elástico ou alterar suas configurações de banco de dados.
 
-Para começar a monitorar o pool elástico, localize e abra um pool elástico no portal. Primeiro, você verá uma tela que fornece uma visão geral do status do pool elástico. Isso inclui:
-
-- Monitorar gráficos mostrando o uso de recursos do pool elástico
-- Alertas e recomendações recentes, se disponíveis, para o pool elástico
-
-O gráfico a seguir mostra um exemplo de pool elástico:
-
-![Exibição de pool](./media/elastic-pool-overview/basic.png)
-
-Se você quiser mais informações sobre o pool, clique em qualquer uma das informações disponíveis nessa visão geral. Ao clicar no gráfico **Utilização de Recursos**, você será direcionado para o modo de exibição do Monitoramento do Azure, onde poderá personalizar a janela de tempo e métricas mostrada no gráfico. Ao clicar em qualquer notificação disponível, você será direcionado para uma folha que exibe todos os detalhes desse alerta ou recomendação.
-
-Se você quiser monitorar os bancos de dados dentro do pool, clique em **Utilização de recursos de banco de dados** na seção**Monitoramento** do menu de recursos esquerdo.
-
-![Página Utilização de recursos do banco de dados](./media/elastic-pool-overview/db-utilization.png)
-
-### <a name="to-customize-the-chart-display"></a>Para personalizar a exibição do gráfico
-
-Edite o gráfico e a página de métrica para exibir outras métricas como percentual da CPU, percentual de E/S de dados e percentual de E/S de log usado.
-
-No formulário **Editar Gráfico**, é possível selecionar um intervalo de tempo fixo ou clicar em **personalizar** para selecionar qualquer janela de 24 horas nas últimas duas semanas e, em seguida, selecionar os recursos a serem monitorados.
-
-### <a name="to-select-databases-to-monitor"></a>Para selecionar os bancos de dados a serem monitorados
-
-Por padrão, o gráfico na folha **Utilização de Recursos de Banco de Dados** mostrará os 5 principais bancos de dados por DTU ou CPU (dependendo da camada de serviço). É possível alternar os bancos de dados nesse gráfico, selecionando e desmarcando os bancos de dados da lista abaixo do gráfico por meio das caixas de seleção esquerdas.
-
-Você também pode selecionar mais métricas para exibir lado a lado nessa tabela de banco de dados para obter uma exibição mais completa do desempenho dos bancos de dados.
-
-Para obter mais informações, consulte [Criar alertas do Banco de Dados SQL no portal do Azure](alerts-insights-configure-portal.md).
+Você pode usar as ferramentas internas de [monitoramento](./performance-guidance.md) e [alerta](./alerts-insights-configure-portal.md)de desempenho, combinadas com as classificações de desempenho.  Além disso, o Banco de Dados SQL pode [emitir métrica e logs de recursos](./metrics-diagnostic-telemetry-logging-streaming-export-configure.md?tabs=azure-portal) para facilitar o monitoramento.
 
 ## <a name="customer-case-studies"></a>Estudos de caso de cliente
 

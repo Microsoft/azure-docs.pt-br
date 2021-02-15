@@ -4,12 +4,12 @@ description: Saiba como configurar a rede (avançada) CNI do Azure no AKS (Servi
 services: container-service
 ms.topic: article
 ms.date: 06/03/2019
-ms.openlocfilehash: 0506eb6350358f7256a61c8d6f164b6594d20554
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.openlocfilehash: afb98acf903f90ead137c9b372d33ce82b89f7b5
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88566107"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99062210"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Configurar a rede CNI do Azure no AKS (Serviço de Kubernetes do Azure)
 
@@ -22,7 +22,7 @@ Este artigo mostra como usar a rede *CNI do Azure* para criar e usar uma sub-red
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * A rede virtual do cluster do AKS deve permitir conectividade com a Internet de saída.
-* Os clusters AKs não podem usar `169.254.0.0/16` ,, `172.30.0.0/16` `172.31.0.0/16` ou `192.0.2.0/24` para o intervalo de endereços do serviço kubernetes.
+* Os clusters AKs podem não usar `169.254.0.0/16` ,, `172.30.0.0/16` `172.31.0.0/16` ou `192.0.2.0/24` para o intervalo de endereços do serviço kubernetes, intervalo de endereços Pod ou intervalo de endereços de rede virtual do cluster. 
 * A entidade de serviço usada pelo cluster do AKS deve ter pelo menos permissões de [Colaborador de Rede](../role-based-access-control/built-in-roles.md#network-contributor) na sub-rede na rede virtual. Se você quiser definir uma [função personalizada](../role-based-access-control/custom-roles.md) em vez de usar a função de Colaborador de Rede interna, as seguintes permissões serão necessárias:
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
   * `Microsoft.Network/virtualNetworks/subnets/read`
@@ -52,7 +52,7 @@ O plano de endereço IP de um cluster do AKS consiste em uma rede virtual, pelo 
 | Rede virtual | A rede virtual do Azure pode ser tão grande quanto /8, mas é limitada a 65.536 endereços IP configurados. Considere todas as suas necessidades de rede, incluindo a comunicação com serviços em outras redes virtuais, antes de configurar seu espaço de endereço. Por exemplo, se você configurar um espaço de endereço muito grande, poderá encontrar problemas com a sobreposição de outros espaços de endereço na rede.|
 | Sub-rede | Deve ser grande o suficiente para acomodar os nós, pods e todos os recursos do Kubernetes e do Azure que possam ser provisionados no cluster. Por exemplo, se você implantar um Azure Load Balancer interno, os IPs de front-end serão alocados da sub-rede do cluster, e não IPs públicos. O tamanho da sub-rede também deve levar em conta as operações de atualização ou futuras necessidades de dimensionamento.<p />Para calcular o tamanho *mínimo* da sub-rede , incluindo um nó adicional para operações de atualização: `(number of nodes + 1) + ((number of nodes + 1) * maximum pods per node that you configure)`<p/>Exemplo para um cluster de 50 nós: `(51) + (51  * 30 (default)) = 1,581` (/21 ou maior)<p/>Exemplo para um cluster de 50 nós que também inclui provisão para escalar verticalmente 10 nós adicionais: `(61) + (61 * 30 (default)) = 1,891` (/ 21 ou maior)<p>Se você não especificar um número máximo de pods por nó durante a criação do cluster, o número máximo de pods por nó será definido como *30*. O número mínimo de endereços IP necessário tem base nesse valor. Se você calcular seus requisitos mínimos de endereço IP com um valor máximo diferente, consulte [como configurar o número máximo de pods por nó](#configure-maximum---new-clusters) para definir esse valor ao implantar o cluster. |
 | Intervalo de endereços de serviço do Kubernetes | Esse intervalo não deve ser usado por nenhum elemento de rede ou conectado a essa rede virtual. O endereço de serviço CIDR deve ser menor do que /12. Você pode reutilizar esse intervalo em diferentes clusters AKS. |
-| Endereço IP do serviço DNS do Kubernetes | Endereços IP dentro do intervalo de endereços de serviço do Kubernetes que serão usados pela descoberta do serviço de cluster (kube-dns). Não use o primeiro endereço IP no intervalo de endereços, como.1. O primeiro endereço no seu intervalo de sub-rede é usado para o endereço *kubernetes.default.svc.cluster.local*. |
+| Endereço IP do serviço DNS do Kubernetes | Endereço IP dentro do intervalo de endereços do serviço kubernetes que será usado pela descoberta do serviço de cluster. Não use o primeiro endereço IP no intervalo de endereços, como.1. O primeiro endereço no seu intervalo de sub-rede é usado para o endereço *kubernetes.default.svc.cluster.local*. |
 | Endereço de ponte de docker | O endereço de rede da Ponte Docker representa o endereço de rede de ponte padrão *docker0*, presente em todas as instalações do Docker. Embora a ponte *docker0* não seja usada por clusters AKs ou o próprio pods, você deve definir esse endereço para continuar a dar suporte a cenários como a *compilação do Docker* no cluster AKs. É necessário selecionar um CIDR para o endereço de rede de ponte do Docker porque, caso contrário, o Docker selecionará uma sub-rede automaticamente, o que poderá entrar em conflito com outros CIDRs. Você deve escolher um espaço de endereço que não se colide com o restante dos CIDR em suas redes, incluindo o CIDR de serviço do cluster e o Pod Padrão de 172.17.0.1/16. Você pode reutilizar esse intervalo em diferentes clusters AKS. |
 
 ## <a name="maximum-pods-per-node"></a>Máximo de pods por nó
@@ -63,7 +63,7 @@ O número máximo de pods por nó em um cluster AKS é de 250. O número máximo
 | -- | :--: | :--: | -- |
 | CLI do Azure | 110 | 30 | Sim (até 250) |
 | Modelo do Resource Manager | 110 | 30 | Sim (até 250) |
-| Portal | 110 | 30 | Não |
+| Portal | 110 | 110 (configurado na guia pools de nós) | No |
 
 ### <a name="configure-maximum---new-clusters"></a>Configurar o máximo - novos clusters
 
@@ -96,6 +96,8 @@ Quando você cria um cluster do AKS, os seguintes parâmetros são configurávei
 **Rede virtual**: a rede virtual na qual você deseja implantar o cluster do Kubernetes. Se você quiser criar uma nova rede virtual para o cluster, selecione *Criar nova* e siga as etapas na seção *Criar rede virtual*. Para obter mais informações sobre limites e cotas para uma rede virtual do Azure, consulte [Limites, cotas e restrições de assinatura e serviço do Azure](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits).
 
 **Sub-rede**: a sub-rede dentro da rede virtual em que você quer implantar o cluster. Se você quiser criar uma nova sub-rede na rede virtual para o cluster, selecione *Criar nova* e siga as etapas na seção *Criar sub-rede*. Para conectividade híbrida, o intervalo de endereços não deve se sobrepor a nenhuma outra rede virtual em seu ambiente.
+
+**Plug-in de rede do Azure**: quando o plug-in de rede do Azure é usado, o serviço de balanceador interno com "ExternalTrafficPolicy = local" não pode ser acessado de VMs com um IP em clusterCIDR que não pertence ao cluster AKs.
 
 **Intervalo de endereços do serviço kubernetes**: esse é o conjunto de IPS virtuais que o kubernetes atribui a [Serviços][services] internos em seu cluster. Você pode usar qualquer intervalo de endereço particular que atenda aos seguintes requisitos:
 
@@ -171,7 +173,7 @@ As perguntas e respostas a seguir se aplicam à configuração da rede **CNI do 
 
   A lista completa de propriedades para a rede virtual e as sub-redes que você cria durante a criação do cluster do AKS pode ser configurada na página de configuração de rede virtual padrão no portal do Azure.
 
-* *Eu posso usar uma sub-rede diferente na rede virtual do cluster para o * ** intervalo de endereços de serviço do Kubernetes**?
+* *Eu posso usar uma sub-rede diferente na rede virtual do cluster para o* **intervalo de endereços de serviço do Kubernetes**?
 
   Não é recomendado, mas essa configuração é possível. O intervalo de endereços do serviço é um conjunto de VIPs (IPs virtuais) que o Kubernetes atribui aos serviços internos no cluster. O Azure Networking não tem visibilidade do intervalo de IP de serviço do cluster do Kubernetes. Devido à falta de visibilidade do intervalo de endereços de serviço do cluster, é possível criar posteriormente uma nova sub-rede na rede virtual do cluster que se sobrepõe ao intervalo de endereços de serviço. Se tal sobreposição ocorrer, o Kubernetes poderá atribuir um serviço a um IP que já esteja em uso por outro recurso na sub-rede, causando comportamento ou falhas imprevisíveis. Ao garantir que você use um intervalo de endereços fora da rede virtual do cluster, é possível evitar esse risco de sobreposição.
 

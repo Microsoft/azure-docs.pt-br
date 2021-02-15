@@ -4,11 +4,11 @@ description: 'Início Rápido: Use a Grade de Eventos do Azure e o portal do Azu
 ms.date: 07/07/2020
 ms.topic: quickstart
 ms.openlocfilehash: 592e2d6b7393da8cb55a457b022d6c2358048cfe
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421035"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013659"
 ---
 # <a name="quickstart-route-custom-events-to-web-endpoint-with-the-azure-portal-and-event-grid"></a>Início Rápido: Encaminhar eventos personalizados ao ponto de extremidade Web com o portal do Azure e a Grade de Eventos
 
@@ -31,7 +31,7 @@ Um tópico de grade de evento fornece um ponto de extremidade definido pelo usu�
 
     :::image type="content" source="./media/custom-event-quickstart-portal/add-event-grid-topic-button.png" alt-text="Botão Adicionar Tópico da Grade de Eventos":::
 4. Na página **Criar Tópico**, siga estas etapas:
-    1. Selecione sua **assinatura**do Azure.
+    1. Selecione sua **assinatura** do Azure.
     2. Selecione um grupo de recursos existente ou selecione **Criar novo** e insira um **nome** para o **grupo de recursos**.
     3. Informe um **nome** exclusivo para o tópico personalizado. O nome do tópico deve ser exclusivo, pois é representado por uma entrada DNS. Não use o nome mostrado na imagem. Em vez disso, crie seu próprio nome – ele deve ter entre 3 e 50 caracteres e conter apenas valores a-z, A-Z, 0-9 e "-".
     4. Selecione um **local** para o tópico de grade de eventos.

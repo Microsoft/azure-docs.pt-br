@@ -4,10 +4,10 @@ description: Este artigo descreve as tarefas comuns para gerenciar e monitorar o
 ms.topic: conceptual
 ms.date: 01/07/2020
 ms.openlocfilehash: 784b22f11b57fb025f6d9401e10d527c83751898
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88757618"
 ---
 # <a name="manage-azure-file-share-backups"></a>Gerenciar backups de compartilhamento de arquivos do Azure

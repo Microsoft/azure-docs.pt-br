@@ -5,32 +5,30 @@ services: synapse-analytics
 author: ArnoMicrosoft
 ms.service: synapse-analytics
 ms.topic: how-to
-ms.subservice: ''
+ms.subservice: spark
 ms.date: 06/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: fdf3dc56575a45ad0c9e716054184ba2691133ba
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: a35cdebe5ff4db562b19dc4ceed069a831af4305
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87831695"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98219990"
 ---
 # <a name="analyze-complex-data-types-in-azure-synapse-analytics"></a>Analisar tipos de dados complexos no Azure Synapse Analytics
 
-Este artigo é relevante para arquivos e contêineres parquet no [link do Synapse para Azure Cosmos DB](.\synapse-link\how-to-connect-synapse-link-cosmos-db.md). Ele explica como os usuários podem usar o Spark ou o SQL para ler ou transformar dados com esquemas complexos, como matrizes ou estruturas aninhadas. O exemplo a seguir é concluído com um único documento, mas pode ser facilmente dimensionado para bilhões de documentos com Spark ou SQL. O código incluído neste artigo usa PySpark (Python).
+Este artigo é relevante para arquivos e contêineres parquet no [link Synapse do Azure para Azure Cosmos DB](.\synapse-link\how-to-connect-synapse-link-cosmos-db.md). Você pode usar o Spark ou o SQL para ler ou transformar dados com esquemas complexos, como matrizes ou estruturas aninhadas. O exemplo a seguir é concluído com um único documento, mas pode ser facilmente dimensionado para bilhões de documentos com Spark ou SQL. O código incluído neste artigo usa PySpark (Python).
 
 ## <a name="use-case"></a>Caso de uso
 
-Os tipos de dados complexos são cada vez mais comuns e representam um desafio para os engenheiros de dados, pois analisar o esquema aninhado e as matrizes tendem a incluir consultas SQL demoradas e complexas. Além disso, pode ser difícil renomear ou converter o tipo de dados de colunas aninhadas. Além disso, ocorrem problemas de desempenho ao trabalhar com objetos profundamente aninhados.
+Os tipos de dados complexos são cada vez mais comuns e representam um desafio para engenheiros de dados. Analisar o esquema aninhado e as matrizes pode envolver consultas SQL demoradas e complexas. Além disso, pode ser difícil renomear ou converter o tipo de dados de colunas aninhadas. Além disso, quando você estiver trabalhando com objetos profundamente aninhados, poderá encontrar problemas de desempenho.
 
-Os engenheiros de dados precisam entender como processar com eficiência tipos de dados complexos e torná-los facilmente acessíveis a todos.
-
-No exemplo a seguir, o Spark Synapse é usado para ler e transformar objetos em uma estrutura plana por meio de quadros de dados. O Synapse SQL Serverless é usado para consultar esses objetos diretamente e retornar esses resultados como uma tabela normal.
+Os engenheiros de dados precisam entender como processar com eficiência tipos de dados complexos e torná-los facilmente acessíveis a todos. No exemplo a seguir, você usa o Spark no Azure Synapse Analytics para ler e transformar objetos em uma estrutura plana por meio de quadros de dados. Você usa o modelo sem servidor do SQL no Azure Synapse Analytics para consultar esses objetos diretamente e retornar esses resultados como uma tabela normal.
 
 ## <a name="what-are-arrays-and-nested-structures"></a>O que são matrizes e estruturas aninhadas?
 
-O objeto a seguir vem do [app Insight](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview). Nesse objeto, há estruturas aninhadas e matrizes que contêm estruturas aninhadas.
+O objeto a seguir vem de [Application insights](../azure-monitor/app/app-insights-overview.md). Nesse objeto, há estruturas aninhadas e matrizes que contêm estruturas aninhadas.
 
 ```json
 {
@@ -70,24 +68,26 @@ O objeto a seguir vem do [app Insight](https://docs.microsoft.com/azure/azure-mo
 ```
 
 ### <a name="schema-example-of-arrays-and-nested-structures"></a>Exemplo de esquema de matrizes e estruturas aninhadas
-Ao imprimir o esquema do quadro de dados do objeto (chamado de **DF**) com o comando `df.printschema` , vemos a seguinte representação:
+Quando você estiver imprimindo o esquema do quadro de dados do objeto (chamado de **DF**) com o comando `df.printschema` , verá a seguinte representação:
 
-* A cor amarela representa a estrutura aninhada
-* A cor verde representa uma matriz com dois elementos
+* Amarelo representa estruturas aninhadas.
+* Green representa uma matriz com dois elementos.
 
-[![Origem do esquema](./media/how-to-complex-schema/schema-origin.png)](./media/how-to-complex-schema/schema-origin.png#lightbox)
+[![Código com realce amarelo e verde, mostrando a origem do esquema](./media/how-to-complex-schema/schema-origin.png)](./media/how-to-complex-schema/schema-origin.png#lightbox)
 
-**_rid**, **_ts**e **_etag** foram adicionados ao sistema, pois o documento foi ingerido em Azure Cosmos DB armazenamento transacional.
+`_rid`, `_ts` e `_etag` foram adicionados ao sistema, pois o documento foi ingerido no armazenamento transacional Azure Cosmos DB.
 
-O quadro de dados acima conta somente para 5 colunas e 1 linha. Após a transformação, o quadro de dados organizado terá 13 colunas e 2 linhas em um formato tabular.
+O quadro de dados anterior conta apenas para 5 colunas e 1 linha. Após a transformação, o quadro de dados organizado terá 13 colunas e 2 linhas, em um formato tabular.
 
-## <a name="flatten-nested-structures-and-explode-arrays-with-apache-spark"></a>Mesclar estruturas aninhadas e detalhar matrizes com Apache Spark
+## <a name="flatten-nested-structures-and-explode-arrays"></a>Mesclar estruturas aninhadas e detalhar matrizes
 
-Com o Synapse Spark, é fácil transformar estruturas aninhadas em colunas e elementos de matriz em várias linhas. As etapas a seguir podem ser usadas para implementação.
+Com o Spark no Azure Synapse Analytics, é fácil transformar estruturas aninhadas em colunas e elementos de matriz em várias linhas. Use as etapas a seguir para implementação.
 
-[![Etapas de transformações do Spark](./media/how-to-complex-schema/spark-transform-steps.png)](./media/how-to-complex-schema/spark-transform-steps.png#lightbox)
+[![Fluxograma mostrando etapas para transformações do Spark](./media/how-to-complex-schema/spark-transform-steps.png)](./media/how-to-complex-schema/spark-transform-steps.png#lightbox)
 
-**Etapa 1**: definimos uma função para mesclar o esquema aninhado. Essa função pode ser usada sem alteração. Crie uma célula em um [bloco de anotações PySpark](quickstart-apache-spark-notebook.md) com a seguinte função:
+### <a name="define-a-function-to-flatten-the-nested-schema"></a>Definir uma função para mesclar o esquema aninhado
+
+Você pode usar essa função sem alteração. Crie uma célula em um [bloco de anotações PySpark](quickstart-apache-spark-notebook.md) com a seguinte função:
 
 ```python
 from pyspark.sql.functions import col
@@ -120,7 +120,9 @@ def flatten_df(nested_df):
     return nested_df.select(columns)
 ```
 
-**Etapa 2**: Use a função para mesclar o esquema aninhado do data frame (**DF**) em um novo quadro de dados `df_flat` :
+### <a name="use-the-function-to-flatten-the-nested-schema"></a>Usar a função para mesclar o esquema aninhado
+
+Nesta etapa, você mescla o esquema aninhado do data frame (**DF**) em um novo quadro de dados ( `df_flat` ):
 
 ```python
 from pyspark.sql.types import StringType, StructField, StructType
@@ -130,7 +132,9 @@ display(df_flat.limit(10))
 
 A função de exibição deve retornar 10 colunas e 1 linha. A matriz e seus elementos aninhados ainda estão lá.
 
-**Etapa 3**: transformar a matriz `context_custom_dimensions` no quadro de dados `df_flat` em um novo dataframe `df_flat_explode` . No código a seguir, também definimos qual coluna selecionar:
+### <a name="transform-the-array"></a>Transformar a matriz
+
+Aqui, você transforma a matriz, `context_custom_dimensions` , no quadro de dados `df_flat` , em um novo quadro de dados `df_flat_explode` . No código a seguir, você também define qual coluna selecionar:
 
 ```python
 from pyspark.sql.functions import explode
@@ -144,7 +148,9 @@ display(df_flat_explode.limit(10))
 
 A função de exibição deve retornar 10 colunas e 2 linhas. A próxima etapa é mesclar esquemas aninhados com a função definida na etapa 1.
 
-**Etapa 4**: Use a função para mesclar o esquema aninhado do quadro de dados `df_flat_explode` em um novo quadro de dados `df_flat_explode_flat` :
+### <a name="use-the-function-to-flatten-the-nested-schema"></a>Usar a função para mesclar o esquema aninhado
+
+Por fim, você usa a função para mesclar o esquema aninhado do quadro de dados `df_flat_explode` em um novo quadro de dados, `df_flat_explode_flat` :
 ```python
 df_flat_explode_flat = flatten_df(df_flat_explode)
 display(df_flat_explode_flat.limit(10))
@@ -154,26 +160,23 @@ A função de exibição deve mostrar 13 colunas e 2 linhas.
 
 A função `printSchema` do quadro de dados `df_flat_explode_flat` retorna o seguinte resultado:
 
-[![Final do esquema](./media/how-to-complex-schema/schema-final.png)](./media/how-to-complex-schema/schema-final.png#lightbox)
+[![Código mostrando o esquema final](./media/how-to-complex-schema/schema-final.png)](./media/how-to-complex-schema/schema-final.png#lightbox)
 
-## <a name="read-arrays-and-nested-structures-directly-with-sql-serverless"></a>Ler matrizes e estruturas aninhadas diretamente com o SQL Server
+## <a name="read-arrays-and-nested-structures-directly"></a>Ler matrizes e estruturas aninhadas diretamente
 
-É possível consultar e criar exibições e tabelas em tais objetos com o SQL Server.
+Com o modelo sem servidor do SQL, você pode consultar e criar exibições e tabelas em tais objetos.
 
 Primeiro, dependendo de como os dados foram armazenados, os usuários devem usar a taxonomia a seguir. Tudo o que é mostrado em letras maiúsculas é específico ao seu caso de uso:
 
-| BULK              | FORMAT |
-| -------------------- | --- |
+| Em massa | Formatar |
+| ------ | ------ |
 | 'https://ACCOUNTNAME.dfs.core.windows.net/FILESYSTEM/PATH/FINENAME.parquet' |' Parquet ' (ADLSg2)|
-| N'endpoint = https://ACCOUNTNAME.documents-staging.windows-ppe.net:443/ ; Account = ACCOUNTNAME; banco de dados = DatabaseName; coleção = CollectionName; região = REGIONTOQUERY ', segredo = ' YOURSECRET ' |' CosmosDB ' (link do Synapse)|
+| N'endpoint = https://ACCOUNTNAME.documents-staging.windows-ppe.net:443/ ; Account = ACCOUNTNAME; banco de dados = DatabaseName; coleção = CollectionName; região = REGIONTOQUERY ', segredo = ' YOURSECRET ' |' CosmosDB ' (link Synapse do Azure)|
 
-
-> [!NOTE]
-> O SQL Serverless dará suporte ao serviço vinculado para Synapse link para passagem do Azure Cosmos e AAD. No momento, a funcionalidade está sob a visualização restrita para o link Synapse.
 
 Substitua cada campo da seguinte maneira:
-* ' Sua massa acima ' = a cadeia de conexão da fonte de dados à qual você se conecta
-* ' Seu tipo acima ' = o formato usado para se conectar à origem
+* ' Sua massa acima ' é a cadeia de conexão da fonte de dados à qual você se conecta.
+* ' Seu tipo acima ' é o formato que você usa para se conectar à origem.
 
 ```sql
 select *
@@ -200,22 +203,22 @@ with ( ProfileType varchar(50) '$.customerInfo.ProfileType',
 
 Há dois tipos diferentes de operações:
 
-O primeiro tipo de operação é indicado na linha de código a seguir, que define a coluna chamada `contextdataeventTime` que se refere ao elemento aninhado: Context. Data. EventTime 
-```sql
-contextdataeventTime varchar(50) '$.context.data.eventTime'
-```
+- O primeiro tipo de operação é indicado na linha de código a seguir, que define a coluna chamada `contextdataeventTime` que se refere ao elemento aninhado, `Context.Data.eventTime` . 
+  ```sql
+  contextdataeventTime varchar(50) '$.context.data.eventTime'
+  ```
 
-Essa linha definirá a coluna chamada contextdataeventTime que se refere ao elemento Nest: contexto>dados>EventTime
+  Essa linha define a coluna chamada `contextdataeventTime` que se refere ao elemento aninhado, `Context>Data>eventTime` .
 
-O segundo tipo de operação usa `cross apply` para criar novas linhas para cada elemento na matriz e, em seguida, define cada objeto aninhado semelhante ao primeiro ponto de marcador: 
-```sql
-cross apply openjson (contextcustomdimensions) 
-with ( ProfileType varchar(50) '$.customerInfo.ProfileType', 
-```
+- O segundo tipo de operação usa `cross apply` para criar novas linhas para cada elemento na matriz. Em seguida, ele define cada objeto aninhado. 
+  ```sql
+  cross apply openjson (contextcustomdimensions) 
+  with ( ProfileType varchar(50) '$.customerInfo.ProfileType', 
+  ```
 
-Se a matriz tivesse cinco elementos com 4 estruturas aninhadas, o SQL Server sem retorno retornaria 5 linhas e 4 colunas. O SQL Server sem fazer consultas no local, mapear a matriz em 2 linhas e exibir todas as estruturas aninhadas em colunas.
+  Se a matriz tivesse cinco elementos com 4 estruturas aninhadas, o modelo sem servidor do SQL retornará 5 linhas e 4 colunas. O modelo sem servidor do SQL pode ser consultado no local, mapear a matriz em 2 linhas e exibir todas as estruturas aninhadas em colunas.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Saiba como consultar o link do Synapse para Azure Cosmos DB com o Spark](./synapse-link/how-to-query-analytical-store-spark.md)
-* [Tipos aninhados parquet de consulta](./sql/query-parquet-nested-types.md) 
+* [Consultar tipos aninhados Parquet](./sql/query-parquet-nested-types.md)

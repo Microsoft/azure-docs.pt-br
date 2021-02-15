@@ -1,31 +1,29 @@
 ---
 title: Limpar um cluster autônomo
-description: Neste tutorial, você aprenderá a limpar os recursos do AWS ou do Azure no cluster autônomo do Service Fabric.
-author: dkkapur
+description: Neste tutorial, você aprenderá a excluir os recursos da AWS ou do Azure no cluster autônomo do Service Fabric.
 ms.topic: tutorial
 ms.date: 07/22/2019
-ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: bfb23ca5f5eb9540491fbd05efdfd6997db15e6b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 0d46e9068a311594f779411c3ccee2b408febb3f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75639013"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91842879"
 ---
 # <a name="tutorial-clean-up-your-standalone-cluster"></a>Tutorial: Limpar seu cluster autônomo
 
-Os clusters autônomos do Service Fabric oferecem a opção de escolher seu próprio ambiente e criar um cluster como parte da abordagem “qualquer sistema operacional, qualquer nuvem” que está sendo adotada pelo Service Fabric. Nesta série de tutoriais, você cria um cluster autônomo hospedado no AWS ou no Azure e instala um aplicativo nele.
+Os clusters autônomos do Service Fabric oferecem a opção de escolher o próprio ambiente para hospedar o Service Fabric. Nesta série de tutoriais, você criará um cluster autônomo hospedado na AWS ou no Azure e implantará um aplicativo nele.
 
-Este tutorial é a parte quatro de uma série. Esta parte do tutorial mostra como limpar os recursos do AWS ou do Azure que você criou para hospedar o cluster do Service Fabric.
+Este tutorial é a parte quatro de uma série. Esta parte do tutorial mostra como excluir os recursos da AWS ou do Azure que você criou para hospedar o cluster do Service Fabric.
 
-Na primeira parte da série, você aprende a:
+Neste artigo, você aprenderá a:
 
 > [!div class="checklist"]
-> * Limpar um cluster do Service Fabric
-> * Limpar o AWS ou os recursos do Azure
+> * Remover um cluster do Service Fabric
+> * Limpar os recursos da AWS ou do Azure
 
-## <a name="clean-up-service-fabric-cluster"></a>Limpar um cluster do Service Fabric
+## <a name="remove-a-service-fabric-cluster"></a>Remover um cluster do Service Fabric
 
 1. RDP para a instância de VM que você usou para instalar o Service Fabric.
 2. Abra o PowerShell.
@@ -36,7 +34,7 @@ Na primeira parte da série, você aprende a:
   .\RemoveServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.MultiMachine.json
   ```
 
-5. Insira `Y` quando solicitado; se tiver sido bem-sucedido, a saída será semelhante à mostrada a seguir, com seus próprios endereços IP substituídos:
+5. Insira `Y` quando solicitado. Se tiver êxito, sua saída terá a seguinte aparência (com os próprios endereços IP):
 
   ```powershell
   Best Practices Analyzer completed successfully.
@@ -49,23 +47,23 @@ Na primeira parte da série, você aprende a:
   The cluster is successfully removed.
   ```
 
-## <a name="clean-up-aws-resources"></a>Limpe os recursos do AWS
+## <a name="delete-aws-resources"></a>Excluir recursos da AWS
 
 1. Entre na sua conta do AWS.
 2. Vá para o Console EC2.
 3. Selecione os três nós que você criou na primeira parte do tutorial.
-4. Clique em **Ações** > **Estado da instância** > **Terminar**.
+4. Selecione **Ações** > **Estado da Instância** > **Terminar**.
 
-## <a name="clean-up-azure-resources"></a>Limpar recursos do Azure
+## <a name="delete-azure-resources"></a>Excluir recursos do Azure
 
 1. Entre no portal do Azure.
 2. Vá para a seção **Máquinas Virtuais**.
 3. Marque as caixas de seleção dos três nós que você criou na primeira parte do tutorial.
-4. Clique em **Excluir**.
+4. Selecione **Excluir**.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Na parte quatro da série, você aprendeu a limpar os recursos que foram criados nas etapas anteriores.
+Neste tutorial, você aprendeu a excluir os recursos criados nas etapas anteriores.
 
 > [!div class="checklist"]
 > * Limpar seus recursos

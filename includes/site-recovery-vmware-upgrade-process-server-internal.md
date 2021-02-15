@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 04/28/2010
 ms.author: raynew
 ms.openlocfilehash: 83e9e584967f780532ce9b3c51bf3f41a963eabf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67172452"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019169"
 ---
-1. Entre no servidor de processo como administrador.
-2. Baixe a versão mais recente do [instalador da instalação unificada](https://aka.ms/unifiedinstaller).
+1. Entre no servidor de processos como administrador.
+2. Baixe a versão mais recente do [Instalador de Configuração Unificada](https://aka.ms/unifiedinstaller).
 3. Clique duas vezes o instalador para iniciar o processo de atualização.
-4. O instalador detecta os componentes de Site Recovery que estão instalados e os atualiza para a versão mais recente.
+4. O instalador detecta os componentes do Site Recovery que estão instalados e os atualiza para a versão mais recente.

@@ -1,15 +1,16 @@
 ---
 title: Práticas recomendadas para criar seu aplicativo LUIS
 description: Conheça as práticas recomendadas para obter os melhores resultados do modelo do aplicativo LUIS.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/17/2020
-ms.author: diberry
-ms.openlocfilehash: 9c22256f6fac3647108b7078b774338d7f22d29a
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 2f6ed85416cc5d7c3c2baba2b2cfe489e301d7e5
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683766"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98788478"
 ---
 # <a name="best-practices-for-building-a-language-understanding-luis-app"></a>Práticas recomendadas para a criação de um aplicativo de reconhecimento de linguagem (LUIS)
 Use o processo de criação de aplicativos para criar seu aplicativo LUIS:
@@ -65,7 +66,7 @@ Considere os seguintes exemplos de declaração:
 |Reservar um voo|
 |Reservar um hotel|
 
-`Book a flight`e `Book a hotel` use o mesmo vocabulário de `book a ` . Esse formato é o mesmo, portanto, deve ser a mesma intenção com as diferentes palavras de `flight` e `hotel` como entidades extraídas.
+`Book a flight` e `Book a hotel` use o mesmo vocabulário de `book a ` . Esse formato é o mesmo, portanto, deve ser a mesma intenção com as diferentes palavras de `flight` e `hotel` como entidades extraídas.
 
 ## <a name="do-add-features-to-intents"></a>Adicionar recursos a tentativas
 
@@ -86,7 +87,7 @@ Saiba mais sobre as [entidades aprendidas da máquina em vigor](luis-concept-ent
 
 ## <a name="do-build-your-app-iteratively-with-versions"></a>Compilar seu aplicativo iterativamente com versões
 
-Cada ciclo de criação deve estar dentro de uma nova [versão](luis-concept-version.md), clonada de uma versão existente.
+Cada ciclo de criação deve estar dentro de uma nova [versão](./luis-concept-app-iteration.md), clonada de uma versão existente.
 
 ## <a name="do-build-for-model-decomposition"></a>Fazer compilação para a decomposição do modelo
 
@@ -140,7 +141,7 @@ Use **Examinar declarações de ponto de extremidade** do [aprendizado ativo](lu
 
 ## <a name="do-monitor-the-performance-of-your-app"></a>Monitore o desempenho do seu aplicativo
 
-Monitore a precisão da previsão usando um [conjunto de teste em lote](luis-concept-batch-test.md).
+Monitore a precisão da previsão usando um [conjunto de teste em lote](./luis-how-to-batch-test.md).
 
 Mantenha um conjunto separado de declarações que não são usados como [exemplo declarações](luis-concept-utterance.md) ou Endpoint declarações. Continue melhorando o aplicativo para seu conjunto de testes. Adapte o conjunto de teste para refletir declarações de usuário real. Use este conjunto de teste para avaliar cada iteração ou versão do aplicativo.
 

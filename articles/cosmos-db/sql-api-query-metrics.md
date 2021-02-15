@@ -8,16 +8,17 @@ ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ec98d194921cd9a7eced06ccee20a3375e8c8a82
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: fedcdd55a465f5c09c331a0fa917811c349b15b1
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89008685"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097219"
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Ajustando o desempenho de consulta com o Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-O Azure Cosmos DB fornece um [API do SQL para consultar dados](how-to-sql-query.md), sem a necessidade de esquema ou índices secundários. Este artigo fornece as seguintes informações para desenvolvedores:
+O Azure Cosmos DB fornece um [API do SQL para consultar dados](./sql-query-getting-started.md), sem a necessidade de esquema ou índices secundários. Este artigo fornece as seguintes informações para desenvolvedores:
 
 * Detalhes de alto nível sobre como funciona a execução da consulta SQL do Azure Cosmos DB
 * Obter detalhes sobre cabeçalhos de solicitação e resposta de consulta e opções do SDK do cliente
@@ -26,7 +27,7 @@ O Azure Cosmos DB fornece um [API do SQL para consultar dados](how-to-sql-query.
 
 ## <a name="about-sql-query-execution"></a>Sobre execução de consulta SQL
 
-No Azure Cosmos DB, você pode armazenar dados em contêineres, que podem aumentar a qualquer [tamanho do armazenamento ou taxa de transferência da solicitação](partition-data.md). O Azure Cosmos DB dimensiona perfeitamente os dados em partições físicas nos bastidores para lidar com o crescimento de dados ou aumentar a taxa de transferência fornecida. Você pode emitir consultas SQL para qualquer contêiner usando a API REST ou um com suporte [SDKs do SQL](sql-api-sdk-dotnet.md).
+No Azure Cosmos DB, você pode armazenar dados em contêineres, que podem aumentar a qualquer [tamanho do armazenamento ou taxa de transferência da solicitação](partitioning-overview.md). O Azure Cosmos DB dimensiona perfeitamente os dados em partições físicas nos bastidores para lidar com o crescimento de dados ou aumentar a taxa de transferência fornecida. Você pode emitir consultas SQL para qualquer contêiner usando a API REST ou um com suporte [SDKs do SQL](sql-api-sdk-dotnet.md).
 
 Uma visão geral de particionamento: definir uma chave de partição como "city", que determina como os dados são divididos em partições físicas. Dados que pertencem a uma chave de partição única (por exemplo, "city" = = "Seattle") são armazenados em uma partição física, mas normalmente uma única partição física tem várias chaves de partição. Quando uma partição atinge seu tamanho de armazenamento, o serviço divide perfeitamente a partição em duas novas partições e divide a chave de partição uniformemente entre essas partições. Como as partições são transitórias, as APIs de usam uma abstração de um "intervalo de chave de partição", que indica os intervalos de hashes de chave de partição. 
 
@@ -163,7 +164,7 @@ Com o Azure Cosmos DB, normalmente executa consultas na seguinte ordem de mais r
 
 Consultas que precisam consultar todas as partições que precisam de latência mais alta e podem consumir RUs superior. Como cada partição tem indexação automática em relação a todas as propriedades, a consulta pode ser atendida com eficiência do índice neste caso. Você pode fazer consultas que abrangem partições mais rapidamente, usando as opções de paralelismo.
 
-Para saber mais sobre particionamento e chaves de partição, consulte [Particionamento no Azure Cosmos DB](partition-data.md).
+Para saber mais sobre particionamento e chaves de partição, consulte [Particionamento no Azure Cosmos DB](partitioning-overview.md).
 
 ### <a name="sdk-and-query-options"></a>Opções de consulta e de SDK
 Consulte [Dicas de Desempenho](performance-tips.md) e [Testes de Desempenho](performance-testing.md) para saber como obter o melhor desempenho do lado do cliente do Azure Cosmos DB. Isso inclui usar os mais recentes SDKs, definir configurações específicas de plataforma como o número padrão de conexões, a frequência da coleta de lixo e usar as opções de conectividade leve como Direct/TCP. 
@@ -275,6 +276,4 @@ Aqui estão alguns exemplos de consultas e como interpretar algumas das métrica
 ## <a name="next-steps"></a>Próximas etapas
 * Para saber mais sobre os operadores de consulta SQL e palavras-chave com suporte, consulte [Consulta SQL](sql-query-getting-started.md). 
 * Para saber sobre unidades de solicitação, consulte [Unidades de solicitação](request-units.md).
-* Para saber sobre a política de indexação, consulte [Política de indexação](index-policy.md) 
-
-
+* Para saber sobre a política de indexação, consulte [Política de indexação](index-policy.md)

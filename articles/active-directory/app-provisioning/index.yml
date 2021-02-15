@@ -12,12 +12,12 @@ metadata:
   author: msmimart
   ms.author: mimart
   manager: celested
-  ms.openlocfilehash: 0972d7fe35932aa880a63d1de77a1e8361c95689
-  ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+  ms.openlocfilehash: 788555f808ccc56672b0ea0be24e680c4844a6ae
+  ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 08/14/2020
-  ms.locfileid: "88235648"
+  ms.lasthandoff: 11/20/2020
+  ms.locfileid: "94985477"
 landingContent:
 - title: Provisionar usuários e grupos a um aplicativo de nuvem
   linkLists:
@@ -30,11 +30,11 @@ landingContent:
   - linkListType: tutorial
     links:
     - text: Provisionamento de Autenticação de Identidade do SAP Cloud Platform
-      url: ../saas-apps/sap-cloud-platform-identity-authentication-provisioning-tutorial.md?context=azure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
+      url: ../saas-apps/sap-cloud-platform-identity-authentication-provisioning-tutorial.md?context=%2fazure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
     - text: Provisionamento de ERP do Oracle Fusion
-      url: ../saas-apps/oracle-fusion-erp-provisioning-tutorial.md?context=azure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
+      url: ../saas-apps/oracle-fusion-erp-provisioning-tutorial.md?context=%2fazure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
     - text: Provisionamento de Nuvem da Atlassian
-      url: ../saas-apps/atlassian-cloud-provisioning-tutorial.md?context=azure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
+      url: ../saas-apps/atlassian-cloud-provisioning-tutorial.md?context=%2fazure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
   - linkListType: how-to-guide
     links:
     - text: Adicionando um aplicativo da galeria? Configurar provisionamento para o aplicativo
@@ -62,6 +62,12 @@ landingContent:
   - linkListType: tutorial
     links:
     - text: Provisionamento do Workday
-      url: ../saas-apps/workday-inbound-tutorial.md?context=azure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
+      url: ../saas-apps/workday-inbound-tutorial.md?context=%2fazure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
     - text: Provisionamento do SAP SuccessFactors
-      url: ../saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md?context=azure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
+      url: ../saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md?context=%2fazure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
+- title: Novidades nos documentos
+  linkLists:
+  - linkListType: whats-new
+    links:
+    - text: Novidades na documentação
+      url: whats-new-docs.md

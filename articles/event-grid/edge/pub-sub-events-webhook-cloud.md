@@ -8,12 +8,12 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 12bcb54f4bfdf17209324febeba380ff7789fc0f
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: ec7ecb77d37ed1cdf1d13aa7191f5d50e0008c20
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88998978"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790792"
 ---
 # <a name="tutorial-publish-subscribe-to-events-in-cloud"></a>Tutorial: publicar, assinar eventos na nuvem
 
@@ -31,7 +31,7 @@ Para concluir este tutorial, você precisará de:
 
 ## <a name="create-an-azure-function-in-the-azure-portal"></a>Criar uma função do Azure no portal do Azure
 
-Siga as etapas descritas no [tutorial](../../azure-functions/functions-create-first-azure-function.md) para criar uma função do Azure. 
+Siga as etapas descritas no [tutorial](../../azure-functions/functions-get-started.md) para criar uma função do Azure. 
 
 Substitua o trecho de código pelo código a seguir:
 

@@ -10,33 +10,33 @@ ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/13/2019
+ms.date: 01/05/2020
 ms.author: kumud
 ms.reviewer: ypitsch
-ms.openlocfilehash: 9420d52cf7d88ff84fd23928f92cdc62e9627619
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: a33c7e7d637b519b249c250481a73d04c661d4d5
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87280895"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97915837"
 ---
 # <a name="microsoft-global-network"></a>Rede global da Microsoft
 
-A Microsoft possui e opera uma das maiores redes de backbone do mundo. Essa arquitetura global e sofisticada, abrangendo mais de 160.000 milhas, conecta nossos data centers e clientes. 
+A Microsoft possui e opera uma das maiores redes de backbone do mundo. Essa arquitetura global e sofisticada, abrangendo mais de 165.000 milhas, conecta nossos data centers e clientes. 
  
-Todos os dias, os clientes em todo o mundo se conectam e passam trilhões de solicitações para Microsoft Azure, Bing, Dynamics 365, Office 365, XBox e muitos outros. Independentemente do tipo, os clientes esperam a confiabilidade e a capacidade de resposta instantâneas de nossos serviços. 
+Todos os dias, os clientes em todo o mundo se conectam e passam trilhões de solicitações para Microsoft Azure, Bing, Dynamics 365, Microsoft 365, XBox e muitos outros. Independentemente do tipo, os clientes esperam a confiabilidade e a capacidade de resposta instantâneas de nossos serviços. 
  
-A WAN ( [rede global da Microsoft](https://azure.microsoft.com/global-infrastructure/global-network/) ) é uma parte central do fornecimento de uma ótima experiência em nuvem. Conectando nossos [data centers](https://azure.microsoft.com/global-infrastructure/) da Microsoft em 54 regiões do Azure e grande malha de nós de borda, posicionados estrategicamente em todo o mundo, nossa rede global oferece a disponibilidade, a capacidade e a flexibilidade para atender a qualquer demanda.
+A WAN ( [rede global da Microsoft](https://azure.microsoft.com/global-infrastructure/global-network/) ) é uma parte central do fornecimento de uma ótima experiência em nuvem. Conectando nossos [data centers](https://azure.microsoft.com/global-infrastructure/) da Microsoft em 61 regiões do Azure e grande malha de nós de borda, posicionados estrategicamente em todo o mundo, nossa rede global oferece a disponibilidade, a capacidade e a flexibilidade para atender a qualquer demanda.
 
 ![Rede global da Microsoft](./media/microsoft-global-network/microsoft-global-wan.png)
  
 ## <a name="get-the-premium-cloud-network"></a>Obter a rede de nuvem Premium
  
-Optar pela [melhor experiência possível](https://www.sdxcentral.com/articles/news/azure-tops-aws-gcp-in-cloud-performance-says-thousandeyes/2018/11/) é fácil quando você usa o Microsoft Cloud. A partir do momento em que o tráfego do cliente entra em nossa rede global por meio de nossos nós de borda estrategicamente posicionados, seus dados viajam por rotas otimizadas perto da velocidade da luz. Isso garante a latência ideal para o melhor desempenho. Esses nós de borda, todos interconectados a mais de 3500 parceiros de Internet exclusivos (colegas) por meio de milhares de conexões em mais de 165 locais, fornecem a base de nossa estratégia de interconexão. 
+Optar pela [melhor experiência possível](https://www.sdxcentral.com/articles/news/azure-tops-aws-gcp-in-cloud-performance-says-thousandeyes/2018/11/) é fácil quando você usa o Microsoft Cloud. A partir do momento em que o tráfego do cliente entra em nossa rede global por meio de nossos nós de borda estrategicamente posicionados, seus dados viajam por rotas otimizadas perto da velocidade da luz. Isso garante a latência ideal para o melhor desempenho. Esses nós de borda, todos interconectados a mais de 4000 parceiros de Internet exclusivos (colegas) por meio de milhares de conexões em mais de 175 locais, fornecem a base de nossa estratégia de interconexão. 
  
 Se estiver se conectando de Londres a Tóquio ou de Washington DC a Los Angeles, o desempenho da rede será quantificado e afetado por coisas como latência, tremulação, perda de pacotes e taxa de transferência.  Na Microsoft, preferimos e usamos interconexões diretas em oposição aos links de trânsito, isso mantém o tráfego de resposta simétrico e ajuda a manter saltos, partes emparelhadas e caminhos o mais curto e simples possível. 
 
-Por exemplo, se um usuário em Londres tentar acessar um serviço em Tokyo, o tráfego da Internet entrará em uma de nossas bordas em Londres, passará pela WAN da Microsoft pela França, nossos caminhos de trans-Saudita entre a Europa e a Índia e, em seguida, para o Japão onde o serviço está hospedado. O tráfego de resposta é simétrico. Às vezes, isso é chamado de [Roteamento de irfriar](https://en.wikipedia.org/wiki/Hot-potato_and_cold-potato_routing) , o que significa que o tráfego permanece na rede da Microsoft o mais longo possível antes de sua entrega.  
+Por exemplo, se um usuário em Londres tentar acessar um serviço em Tokyo, o tráfego da Internet entrará em uma de nossas bordas em Londres, passará pela WAN da Microsoft pela França, nossos caminhos de Trans-Arabia entre a Europa e a Índia e, em seguida, para o Japão onde o serviço está hospedado. O tráfego de resposta é simétrico. Às vezes, isso é chamado de [Roteamento de irfriar](https://en.wikipedia.org/wiki/Hot-potato_and_cold-potato_routing) , o que significa que o tráfego permanece na rede da Microsoft o mais longo possível antes de sua entrega.  
   
 Então, isso significa qualquer e todo o tráfego ao usar os serviços da Microsoft? Sim, qualquer tráfego entre data centers, dentro de Microsoft Azure ou entre serviços da Microsoft, como máquinas virtuais, Microsoft 365, XBox, bancos de dados SQL, armazenamento e redes virtuais, é roteado em nossa rede global e nunca pela Internet pública, para garantir o desempenho e a integridade ideais.  
  
@@ -71,4 +71,5 @@ Esses princípios se aplicam a todas as camadas da rede: da interface de rede do
 O crescimento exponencial do Azure e de sua rede atingiu um ponto em que eventualmente percebemos que a intuição humana não podia mais depender de gerenciar as operações de rede global. Para atender à necessidade de validar alterações longas, médias e de curto prazo na rede, desenvolvemos uma plataforma para espelhar e emular nossa rede de produção de forma sintética. A capacidade de criar ambientes espelhados e executar milhões de simulações permite testar alterações de software e hardware e seu impacto, antes de confirmá-las em nossa plataforma de produção e rede. 
 
 ## <a name="next-steps"></a>Próximas etapas
+- [Saiba como a Microsoft está aprimorando a confiabilidade da rede global por meio de software inteligente](https://azure.microsoft.com/blog/advancing-global-network-reliability-through-intelligent-software-part-1-of-2/)
 - [Saiba mais sobre os serviços de rede fornecidos no Azure](https://azure.microsoft.com/product-categories/networking/)

@@ -1,26 +1,28 @@
 ---
-title: Visão geral da transmissão ao vivo com os serviços de mídia do Azure v3 | Microsoft Docs
+title: Visão geral da transmissão ao vivo
 description: Este artigo fornece uma visão geral da transmissão ao vivo usando os serviços de mídia do Azure v3.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
-ms.topic: article
-ms.date: 03/18/2020
-ms.author: juliako
-ms.openlocfilehash: fd592469a4435504f1eecf1f24e50faf23fad17a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.topic: conceptual
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: b552dcc0e6766316e55e9cdda6e462b2d4abfd2b
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87022966"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955912"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Transmissão ao vivo com os Serviços de Mídia do Azure v3
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 O Azure Media Services permite entregar eventos ao vivo para seus clientes na nuvem do Azure. Para transmitir seus eventos ao vivo com os Serviços de Mídia, você precisa do seguinte:  
 
@@ -35,7 +37,7 @@ Para clientes que procuram fornecer conteúdo a grandes públicos da Internet, r
 Este artigo fornece uma visão geral e diretrizes de transmissão ao vivo com os serviços de mídia e links para outros artigos relevantes.
  
 > [!NOTE]
-> Você pode usar o [portal do Azure](https://portal.azure.com/) para gerenciar [eventos ao vivo](live-events-outputs-concept.md)v3, exibir [ativos](assets-concept.md)v3, obter informações sobre como acessar APIs. Para todas as outras tarefas de gerenciamento (por exemplo, Transformações e Trabalhos), use a [API REST](/rest/api/media/), a [CLI](https://aka.ms/ams-v3-cli-ref) ou um dos [SDKs](media-services-apis-overview.md#sdks) compatíveis.
+> Você pode usar o [portal do Azure](https://portal.azure.com/) para gerenciar [eventos ao vivo](live-events-outputs-concept.md)v3, exibir [ativos](assets-concept.md)v3, obter informações sobre como acessar APIs. Para todas as outras tarefas de gerenciamento (por exemplo, Transformações e Trabalhos), use a [API REST](/rest/api/media/), a [CLI](/cli/azure/ams) ou um dos [SDKs](media-services-apis-overview.md#sdks) compatíveis.
 
 ## <a name="dynamic-packaging-and-delivery"></a>Empacotamento e entrega dinâmicos
 
@@ -58,7 +60,7 @@ A filtragem dinâmica é usada para controlar o número de faixas, formatos, tax
 
 ### <a name="pass-through"></a>Passagem
 
-![passagem](./media/live-streaming/pass-through.svg)
+![Diagrama mostrando como os feeds de áudio e vídeo de um evento de passagem ao vivo são ingeridos e processados.](./media/live-streaming/pass-through.svg)
 
 Ao usar o evento de passagem **ao vivo**, você depende de seu codificador ao vivo local para gerar um fluxo de vídeo com várias taxas de bits e enviá-lo como o feed de contribuição para o evento ao vivo (usando o protocolo de entrada RTMP ou MP4 fragmentado). O evento ao vivo então executa os fluxos de vídeo de entrada para o empacotador dinâmico (ponto de extremidade de streaming) sem nenhuma transcodificação adicional. Esse evento ao vivo de passagem é otimizado para eventos ao vivo de execução longa ou transmissão ao vivo linear 24x365. 
 
@@ -133,4 +135,4 @@ Confira o artigo [comunidade dos Serviços de Mídia do Azure](media-services-co
 
 * [Início rápido de transmissão ao vivo](live-events-wirecast-quickstart.md)
 * [Tutorial de live streaming](stream-live-tutorial-with-api.md)
-* [Diretrizes de migração dos Serviços de Mídia v2 para v3](migrate-from-v2-to-v3.md)
+* [Diretrizes de migração dos Serviços de Mídia v2 para v3](migrate-v-2-v-3-migration-introduction.md)

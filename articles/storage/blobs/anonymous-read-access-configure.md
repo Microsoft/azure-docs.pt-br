@@ -6,15 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/02/2020
+ms.date: 11/03/2020
 ms.author: tamram
 ms.reviewer: fryu
-ms.openlocfilehash: 3a45f185a20345dac00bd459789afc9d53bd48f7
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.subservice: blobs
+ms.openlocfilehash: feac7b890c973b1541c5362f860432687082953f
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534304"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533869"
 ---
 # <a name="configure-anonymous-public-read-access-for-containers-and-blobs"></a>Configurar acesso de leitura público anônimo para contêineres e blobs
 
@@ -52,7 +53,7 @@ A despermissão de acesso público para a conta de armazenamento impede o acesso
 
 Para permitir ou impedir o acesso público para uma conta de armazenamento, configure a propriedade **AllowBlobPublicAccess** da conta. Essa propriedade está disponível para todas as contas de armazenamento que são criadas com o modelo de implantação Azure Resource Manager. Para obter mais informações, consulte [visão geral da conta de armazenamento](../common/storage-account-overview.md).
 
-A propriedade **AllowBlobPublicAccess** não é definida por padrão e não retorna um valor até que você a defina explicitamente. A conta de armazenamento permite acesso público quando o valor da propriedade é **nulo** ou quando é **verdadeiro**.
+A propriedade **AllowBlobPublicAccess** não é definida para uma conta de armazenamento por padrão e não retorna um valor até que você a defina explicitamente. A conta de armazenamento permite acesso público quando o valor da propriedade é **nulo** ou **verdadeiro**.
 
 # <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
@@ -131,8 +132,8 @@ az storage account show \
 Para permitir ou impedir o acesso público para uma conta de armazenamento com um modelo, crie um modelo com a propriedade **AllowBlobPublicAccess** definida como **true** ou **false**. As etapas a seguir descrevem como criar um modelo no portal do Azure.
 
 1. Na portal do Azure, escolha **criar um recurso**.
-1. Em **Pesquisar no Marketplace**, digite **implantação de modelo**e pressione **Enter**.
-1. Escolha **implantação de modelo (implantar usando modelos personalizados) (versão prévia)**, escolha **criar**e, em seguida, escolha **criar seu próprio modelo no editor**.
+1. Em **Pesquisar no Marketplace**, digite **implantação de modelo** e pressione **Enter**.
+1. Escolha **implantação de modelo (implantar usando modelos personalizados) (versão prévia)**, escolha **criar** e, em seguida, escolha **criar seu próprio modelo no editor**.
 1. No editor de modelo, Cole o JSON a seguir para criar uma nova conta e definir a propriedade **AllowBlobPublicAccess** como **true** ou **false**. Lembre-se de substituir os espaços reservados entre parênteses pelos seus próprios valores.
 
     ```json

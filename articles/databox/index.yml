@@ -3,7 +3,7 @@ title: Documentação do Azure Data Box – Transferência Offline
 summary: Use os dispositivos do Azure Data Box para transferência de dados offline quando houver limite de hora, rede ou custos. Dependendo do tamanho dos dados, escolher entre Data Box Disk, Data Box ou Data Box Heavy.
 metadata:
   title: Documentação do Azure Data Box - Transferência Offline
-  description: Use os dispositivos do Data Box de transferência de dados offline para o Azure quando houver limite de tempo, rede ou custos.
+  description: Explore o Azure Data Box, um dispositivo de armazenamento para migração de dados offline para a nuvem. Saiba mais sobre serviços de transferência de dados usando um dispositivo de armazenamento proprietário seguro.
   services: databox
   ms.service: databox
   ms.subservice: pod
@@ -12,12 +12,14 @@ metadata:
   author: alkohli
   ms.author: alkohli
   ms.date: 08/16/2019
-  ms.openlocfilehash: 2c42ee93804eb1e0e24b0b67925a092cc8517ceb
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.custom: seo-azure-migrate
+  keywords: cloud data transfer, data migration to cloud, azure data box, data transfer service, data transfer services, azure data transfer
+  ms.openlocfilehash: 6b3ef7ace8bfb481b294ca4d823ccc1c6c2f7367
+  ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "69650366"
+  ms.lasthandoff: 10/16/2020
+  ms.locfileid: "92125227"
 landingContent:
 - title: Sobre a família do Data Box
   linkLists:
@@ -32,7 +34,7 @@ landingContent:
   - linkListType: architecture
     links:
     - text: Escolher opções de transferência de dados do Azure
-      url: /azure/storage/common/storage-choose-data-transfer-solution
+      url: ../storage/common/storage-choose-data-transfer-solution.md
 - title: Introdução
   linkLists:
   - linkListType: quickstart
@@ -46,7 +48,7 @@ landingContent:
   - linkListType: learn
     links:
     - text: Importar dados offline com o Data Box
-      url: https://docs.microsoft.com/learn/modules/move-data-with-azure-data-box/
+      url: /learn/modules/move-data-with-azure-data-box/
 - title: Ver requisitos
   linkLists:
   - linkListType: concept
@@ -77,7 +79,7 @@ landingContent:
       url: data-box-portal-ui-admin.md
     - text: Data Box Heavy no Azure
       url: data-box-portal-admin.md
-- title: Solucionar problemas
+- title: Solução de problemas
   linkLists:
   - linkListType: how-to-guide
     links:

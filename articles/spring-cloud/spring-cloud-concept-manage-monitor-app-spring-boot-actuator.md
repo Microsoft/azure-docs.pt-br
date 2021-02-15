@@ -7,19 +7,21 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 5cfc13700decf0176b283f5f1f9bd81503c1b10a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 93fd286aa76a0409a515abbf8c9dabd88a9a65c4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87037586"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "90904281"
 ---
 # <a name="manage-and-monitor-app-with-azure-spring-boot-actuator"></a>Gerenciar e monitorar o aplicativo com o Azure Spring Boot Actuator
+
+**Este artigo aplica-se a:** ✔️ Java
 
 Depois de implantar um novo binário em seu aplicativo, talvez você queira verificar a funcionalidade e ver informações sobre o aplicativo em execução. Este artigo explica como acessar a API de um ponto de extremidade de teste fornecido pelo Azure Spring Cloud e expor os recursos prontos para produção para seu aplicativo.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Este artigo pressupõe que você tenha um aplicativo Spring boot 2. x que pode ser implantado com êxito e inicializado no serviço de nuvem Spring do Azure.  Consulte [início rápido: iniciar um aplicativo de nuvem Spring do Azure existente usando o portal do Azure](spring-cloud-quickstart-launch-app-portal.md)
+Este artigo pressupõe que você tenha um aplicativo Spring boot 2. x que pode ser implantado com êxito e inicializado no serviço de nuvem Spring do Azure.  Consulte [início rápido: iniciar um aplicativo de nuvem Spring do Azure existente usando o portal do Azure](spring-cloud-quickstart.md)
 
 ## <a name="verify-app-through-test-endpoint"></a>Verificar aplicativo por meio de ponto de extremidade de teste
 1. Vá para o **painel do aplicativo** e clique em seu aplicativo para entrar na página Visão geral do aplicativo.
@@ -63,15 +65,17 @@ Para observar a configuração e o ambiente configurável, precisamos habilitar 
 Agora você pode voltar para o painel Visão geral do aplicativo e aguardar até que o status de provisionamento mude para "êxito".  Haverá mais de uma instância em execução.
 
 > [!Note] 
-> Depois de expor o aplicativo para público, esses pontos de extremidade do atuador também são expostos ao público. Você pode ocultar todos os pontos de extremidade excluindo as variáveis de ambiente `management.endpoints.web.exposure.include` e definir`management.endpoints.web.exposure.exclude=*`
+> Depois de expor o aplicativo para público, esses pontos de extremidade do atuador também são expostos ao público. Você pode ocultar todos os pontos de extremidade excluindo as variáveis de ambiente `management.endpoints.web.exposure.include` e definir `management.endpoints.web.exposure.exclude=*`
 
 ## <a name="view-the-actuator-endpoint-to-view-application-information"></a>Exibir o ponto de extremidade do atuador para exibir informações do aplicativo
 1. Agora você pode acessar a URL `"<test-endpoint>/actuator/"` para ver todos os pontos de extremidade expostos pelo acionador do Spring boot.
 1. URL `"<test-endpoint>/actuator/env"` de acesso, você pode ver os perfis ativos usados pelo aplicativo e todas as variáveis de ambiente carregadas.
-1. Se você quiser pesquisar um ambiente específico, poderá acessar `"<test-endpoint>/actuator/env/{toMatch}"` a URL para exibi-lo.
+1. Se você quiser pesquisar um ambiente específico, poderá acessar  `"<test-endpoint>/actuator/env/{toMatch}"` a URL para exibi-lo.
 
 Para exibir todos os pontos de extremidade internos, consulte [expondo pontos de extremidade](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html#production-ready-endpoints-exposing-endpoints)
 
 ## <a name="next-steps"></a>Próximas etapas
+
 * [Entender as métricas para o Azure Spring Cloud](spring-cloud-concept-metrics.md)
-* [Compreendendo o status do aplicativo no Azure Spring Cloud](spring-cloud-concept-app-status.md))
+* [Noções básicas sobre o status do aplicativo no Azure Spring Cloud](spring-cloud-concept-app-status.md)
+

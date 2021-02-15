@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Implantar funções do Azure como módulos – Azure IoT Edge'
-description: Neste tutorial, você desenvolve uma função do Azure como um módulo do IoT Edge e, em seguida, a implanta em um dispositivo de borda.
+title: 'Tutorial: Implantar o Azure Functions como módulos – Azure IoT Edge'
+description: Neste tutorial, você desenvolverá uma função do Azure como um módulo do IoT Edge e a implantará em um dispositivo de borda.
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,13 +8,13 @@ ms.date: 07/29/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.custom: mvc
-ms.openlocfilehash: d9b9ba3a8092992c9ebca9b3242223213b75ad80
-ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
+ms.custom: mvc, devx-track-csharp
+ms.openlocfilehash: 5b5d60a014cf63bd28f3097ac3131ad4c7018208
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87439678"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621239"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules"></a>Tutorial: Implantar o Azure Functions como módulos do IoT Edge
 
@@ -42,7 +42,7 @@ Antes de iniciar este tutorial, você deve ter passado pelo tutorial anterior pa
 
 * Um [Hub IoT](../iot-hub/iot-hub-create-through-portal.md) na camada padrão ou gratuito no Azure.
 * Um [dispositivo Linux que executa o Azure IoT Edge](quickstart-linux.md)
-* Um registro de contêiner, como o [Registro de Contêiner do Azure](https://docs.microsoft.com/azure/container-registry/).
+* Um registro de contêiner, como o [Registro de Contêiner do Azure](../container-registry/index.yml).
 * O [Visual Studio Code](https://code.visualstudio.com/) configurado com o [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 * O [Docker CE](https://docs.docker.com/install/) configurado para executar contêineres do Linux.
 
@@ -237,7 +237,7 @@ Caso contrário, você pode excluir as configurações locais e os recursos do A
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você criou um módulo de Função do Azure com o código para filtrar os dados brutos gerados pelo seu dispositivo do IoT Edge. Quando estiver pronto para criar seus próprios módulos, você poderá saber mais sobre como [Desenvolver com o Azure IoT Edge para Visual Studio Code](how-to-vs-code-develop-module.md).
+Neste tutorial, você criou um módulo de Função do Azure com o código para filtrar os dados brutos gerados pelo seu dispositivo do IoT Edge.
 
 Siga para os próximos tutoriais para conhecer outras formas pelas quais o Azure IoT Edge pode ajudá-lo a transformar dados em informações de negócios na borda.
 

@@ -5,25 +5,22 @@ author: tamram
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/10/2020
+ms.date: 10/30/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 6c23c034af40d7db2379f9d02357131a00482bd2
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 9350f9aeff90b75a4e1362f6fa2fa1b0d07f20cf
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495736"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95997079"
 ---
 # <a name="create-a-blockblobstorage-account"></a>Criar uma conta do BlockBlobStorage
 
 O tipo de conta BlockBlobStorage permite criar blobs de blocos com características de desempenho premium. Esse tipo de conta de armazenamento é otimizado para cargas de trabalho com altas taxas de transações ou que exigem tempos de acesso muito rápidos. Este artigo mostra como criar uma conta do BlockBlobStorage usando o portal do Azure, o CLI do Azure ou o Azure PowerShell.
 
-> [!NOTE]
-> O recurso de namespace hierárquico em uma conta de armazenamento de blobs de blocos está em visualização pública e está disponível no leste dos EUA, leste dos EUA 2, Centro dos EUA, centro-sul dos EUA, oeste dos EUA 2, Sul do Reino Unido, região central do Canadá e regiões do leste da Austrália. Para revisar as limitações, consulte [recursos de armazenamento de BLOBs disponíveis em Azure data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md) e [problemas conhecidos](data-lake-storage-known-issues.md). Para se registrar na versão prévia, consulte [este formulário](https://aka.ms/adlspremiumonboard).
-
-Para obter mais informações sobre contas do BlockBlobStorage, consulte [visão geral da conta de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-account-overview).
+Para obter mais informações sobre contas do BlockBlobStorage, consulte [visão geral da conta de armazenamento do Azure](../common/storage-account-overview.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -31,7 +28,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Nenhum.
+nenhuma.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -97,7 +94,7 @@ Para criar uma conta do BlockBlobStorage no portal do Azure, siga estas etapas:
 
 3. No campo **assinatura** , selecione a assinatura na qual criar a conta de armazenamento.
 
-4. No campo **grupo de recursos** , selecione um grupo de recursos existente ou selecione **criar novo**e insira um nome para o novo grupo de recursos.
+4. No campo **grupo de recursos** , selecione um grupo de recursos existente ou selecione **criar novo** e insira um nome para o novo grupo de recursos.
 
 5. No campo **nome da conta de armazenamento** , insira um nome para a conta. Observe as seguintes diretrizes:
 
@@ -119,18 +116,13 @@ Para criar uma conta do BlockBlobStorage no portal do Azure, siga estas etapas:
 
 8. Escolha a guia **avançado** .
 
-9. Se você quiser otimizar sua conta de armazenamento para análise de dados, defina o **namespace hierárquico** como **habilitado**. Caso contrário, deixe essa opção definida como o valor padrão.
-
-   Para saber mais, confira [introdução ao Azure data Lake Storage Gen2](data-lake-storage-introduction.md).
-
-   > [!NOTE]
-   > O recurso de namespace hierárquico em uma conta de armazenamento de blobs de blocos está em visualização pública e está disponível no leste dos EUA, leste dos EUA 2, Centro dos EUA, centro-sul dos EUA, oeste dos EUA 2, Sul do Reino Unido, região central do Canadá e regiões do leste da Austrália. Para revisar as limitações, consulte [recursos de armazenamento de BLOBs disponíveis em Azure data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md) e [problemas conhecidos](data-lake-storage-known-issues.md). Para se registrar na versão prévia, consulte [este formulário](https://aka.ms/adlspremiumonboard).
+9. Se você quiser otimizar sua conta de armazenamento para análise de dados, defina o **namespace hierárquico** como **habilitado**. Caso contrário, deixe essa opção definida como seu valor padrão. A habilitação dessa configuração com sua conta do BlockBlobStorage fornece a [camada Premium para data Lake Storage](premium-tier-for-data-lake-storage.md).  Para saber mais sobre Data Lake Storage, consulte [introdução ao Azure data Lake Storage Gen2](data-lake-storage-introduction.md).
 
 8. Selecione **revisão + criar** para revisar as configurações da conta de armazenamento.
 
 9. Selecione **Criar**.
 
-## <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+## <a name="azure-powershell"></a>[PowerShell do Azure](#tab/azure-powershell)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -165,10 +157,7 @@ Para criar uma conta do BlockBlobStorage no portal do Azure, siga estas etapas:
 
    New-AzStorageAccount -ResourceGroupName $resourcegroup -Name $storageaccount -Location $location -Kind "BlockBlobStorage" -SkuName "Premium_LRS"
    ```
-   Se você quiser otimizar sua conta de armazenamento para análise de dados, adicione `-EnableHierarchicalNamespace $True` ao comando. Para saber mais, confira [introdução ao Azure data Lake Storage Gen2](data-lake-storage-introduction.md).
-
-   > [!NOTE]
-   > O recurso de namespace hierárquico em uma conta de armazenamento de blobs de blocos está em visualização pública e está disponível no leste dos EUA, leste dos EUA 2, Centro dos EUA, centro-sul dos EUA, oeste dos EUA 2, Sul do Reino Unido, região central do Canadá e regiões do leste da Austrália. Para revisar as limitações, consulte [recursos de armazenamento de BLOBs disponíveis em Azure data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md) e [problemas conhecidos](data-lake-storage-known-issues.md). Para se registrar na versão prévia, consulte [este formulário](https://aka.ms/adlspremiumonboard).
+   Se você quiser otimizar sua conta de armazenamento para análise de dados, adicione `-EnableHierarchicalNamespace $True` ao comando. A habilitação dessa configuração com sua conta do BlockBlobStorage fornece a [camada Premium para data Lake Storage](premium-tier-for-data-lake-storage.md).  Para saber mais sobre Data Lake Storage, consulte [introdução ao Azure data Lake Storage Gen2](data-lake-storage-introduction.md).
 
 ## <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
@@ -199,15 +188,12 @@ Para criar uma conta de blob de blocos usando o CLI do Azure, você deve primeir
     --sku "Premium_LRS"
    ```
 
-   Se você quiser otimizar sua conta de armazenamento para análise de dados, adicione `--hierarchical-namespace true` ao comando. Para saber mais, confira [introdução ao Azure data Lake Storage Gen2](data-lake-storage-introduction.md).
+   Se você quiser otimizar sua conta de armazenamento para análise de dados, adicione `--hierarchical-namespace true` ao comando. A habilitação dessa configuração com sua conta do BlockBlobStorage fornece a [camada Premium para data Lake Storage](premium-tier-for-data-lake-storage.md).  Para saber mais sobre Data Lake Storage, consulte [introdução ao Azure data Lake Storage Gen2](data-lake-storage-introduction.md).
 
-   > [!NOTE]
-   > O recurso de namespace hierárquico em uma conta de armazenamento de blobs de blocos está em visualização pública e está disponível no leste dos EUA, leste dos EUA 2, Centro dos EUA, centro-sul dos EUA, oeste dos EUA 2, Sul do Reino Unido, região central do Canadá e regiões do leste da Austrália. Para revisar as limitações, consulte [recursos de armazenamento de BLOBs disponíveis em Azure data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md) e [problemas conhecidos](data-lake-storage-known-issues.md). Para se registrar na versão prévia, consulte [este formulário](https://aka.ms/adlspremiumonboard).
-   
 ---
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para saber mais sobre as contas de armazenamento, confira [Visão geral da conta de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-account-overview).
+- Para saber mais sobre as contas de armazenamento, confira [Visão geral da conta de armazenamento do Azure](../common/storage-account-overview.md).
 
-- Para saber mais sobre os grupos de recursos, confira [Visão geral do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
+- Para saber mais sobre os grupos de recursos, confira [Visão geral do Azure Resource Manager](../../azure-resource-manager/management/overview.md).

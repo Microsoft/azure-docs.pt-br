@@ -10,22 +10,27 @@ tags: top-support-issue,azure-resource-manager,azure-service-management
 ms.assetid: 1ef41144-6dd6-4a56-b180-9d8b3d05eae7
 ms.service: virtual-machines
 ms.topic: troubleshooting
-ms.date: 04/13/2018
+ms.date: 11/06/2020
 ms.author: daberry
-ms.openlocfilehash: 3766c31add02799c62bca7e9063e723e0a5b498e
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 79bc043a991404a3ee9da954b9639bf1a41f2c51
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86509351"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94365866"
 ---
 # <a name="troubleshoot-allocation-failures-when-you-create-restart-or-resize-vms-in-azure"></a>Solução de problemas de falha de alocação quando você cria, reinicia ou redimensiona VMs no Azure
 
 Quando você cria uma VM (máquina virtual), reinicia VMs paradas (desalocadas) ou redimensiona uma VM, o Microsoft Azure aloca recursos de computação para sua assinatura. Estamos continuamente investindo em infraestrutura e recursos adicionais para garantir que sempre tenhamos todos os tipos de VM disponíveis para dar suporte à demanda do cliente. No entanto, você pode enfrentar ocasionalmente falhas de alocação de recursos devido ao crescimento sem precedentes da demanda por serviços do Azure em regiões específicas. Esse problema pode ocorrer quando você tenta criar ou iniciar VMs em uma região, enquanto as VMs exibem o seguinte código de erro e a seguinte mensagem:
 
-**Código de erro**: AllocationFailed ou ZonalAllocationFailed
+**Código de erro** : AllocationFailed ou ZonalAllocationFailed
 
-**Mensagem de erro**: "Falha na alocação. Não temos capacidade suficiente para o tamanho de VM solicitado nesta região. Leia mais sobre como melhorar a probabilidade de sucesso de alocação em https: \/ /aka.ms/Allocation-Guidance "
+**Mensagem de erro** : "Falha na alocação. Não temos capacidade suficiente para o tamanho de VM solicitado nesta região. Leia mais sobre como melhorar a probabilidade de sucesso de alocação em https: \/ /aka.ms/Allocation-Guidance "
+
+> [!NOTE]
+> Se você estiver solucionando problemas de um conjunto de dimensionamento de máquinas virtuais (VMSS), o processo será o mesmo que uma VM padrão. Para resolver o problema, você deve seguir as instruções neste artigo.
+> 
+>**Mensagem de erro** : "Falha na alocação. Se você estiver tentando adicionar uma nova VM a um conjunto de dimensionamento de máquinas virtuais com um único grupo de posicionamento ou atualizar/redimensionar uma VM existente em um conjunto de dimensionamento de máquinas virtuais com um único grupo de posicionamento, observe que tal alocação tem como escopo um único cluster e é possível que o cluster esteja sem capacidade. Leia mais sobre como melhorar a probabilidade de sucesso de alocação em http: \/ /aka.ms/Allocation-Guidance. "
 
 Este artigo explica as causas de algumas das falhas de alocação mais comuns e sugere possíveis correções.
 

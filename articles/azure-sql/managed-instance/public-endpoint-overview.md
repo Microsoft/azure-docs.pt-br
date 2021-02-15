@@ -8,14 +8,14 @@ ms.custom: sqldbrb=1
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: vanto, carlrab
+ms.reviewer: vanto, sstein
 ms.date: 05/08/2019
-ms.openlocfilehash: a3339d03607c2286dabbac73fd0b683c61552dc0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d9c1828732b9a4e0e85c3af2263f097edd54437d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708596"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91332841"
 ---
 # <a name="use-azure-sql-managed-instance-securely-with-public-endpoints"></a>Usar o Azure SQL Instância Gerenciada com segurança com pontos de extremidade públicos
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]

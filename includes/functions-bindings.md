@@ -5,32 +5,30 @@ ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 819eed1eb4e32469bf0572a6548f5a2a44091ef0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.openlocfilehash: 182f448ca852f114bb9564e04c1316119f2b6aa3
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77279515"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97506331"
 ---
-Esta tabela mostra as associações com suporte nas versões principais do tempo de execução de Azure Functions:
+Esta tabela mostra as associações que são compatíveis com as versões principais do Azure Functions Runtime:
 
 
-| Type | 1.x | 2. x e superior<sup>1</sup> | Gatilho | Entrada | Saída |
+| Tipo | 1.x | 2.x e posterior<sup>1</sup> | Gatilho | Entrada | Saída |
 | ---- | :-: | :-: | :------: | :---: | :----: |
 | [Armazenamento de Blobs](../articles/azure-functions/functions-bindings-storage-blob.md)          |✔|✔|✔|✔|✔|
-| [Cosmos DB](../articles/azure-functions/functions-bindings-documentdb.md)               |✔|✔|✔|✔|✔|
+| [Azure Cosmos DB](../articles/azure-functions/functions-bindings-cosmosdb-v2.md)               |✔|✔|✔|✔|✔|
+| [Dapr](https://github.com/dapr/azure-functions-extension)<sup>3</sup>             | |✔|✔|✔|✔|
 | [Grade de Eventos](../articles/azure-functions/functions-bindings-event-grid.md)              |✔|✔|✔| |✔|
 | [Hubs de Evento](../articles/azure-functions/functions-bindings-event-hubs.md)              |✔|✔|✔| |✔|
-| [WebHooks de & de HTTP](../articles/azure-functions/functions-bindings-http-webhook.md)             |✔|✔|✔| |✔|
+| [HTTP e webhooks](../articles/azure-functions/functions-bindings-http-webhook.md)             |✔|✔|✔| |✔|
 | [Hub IoT](../articles/azure-functions/functions-bindings-event-iot.md)             |✔|✔|✔| |✔|
-| [Microsoft Graph<br/>Tabelas do Excel](../articles/azure-functions/functions-bindings-microsoft-graph.md)   ||✔| |✔|✔|
-| [Microsoft Graph<br/>Arquivos do OneDrive](../articles/azure-functions/functions-bindings-microsoft-graph.md) ||✔| |✔|✔|
-| [Microsoft Graph<br/>Email do Outlook](../articles/azure-functions/functions-bindings-microsoft-graph.md)  ||✔| | |✔|
-| [Eventos de Microsoft Graph <br/>](../articles/azure-functions/functions-bindings-microsoft-graph.md)         ||✔|✔|✔|✔|
-| [Microsoft Graph<br/>Tokens de autenticação](../articles/azure-functions/functions-bindings-microsoft-graph.md)    ||✔| |✔| |
+| [Kafka](https://github.com/azure/azure-functions-kafka-extension)<sup>2</sup>             | |✔|✔| |✔|
 | [Aplicativos Móveis](../articles/azure-functions/functions-bindings-mobile-apps.md)             |✔| | |✔|✔|
 | [Hubs de Notificação](../articles/azure-functions/functions-bindings-notification-hubs.md) |✔|| | |✔|
 | [Armazenamento de filas](../articles/azure-functions/functions-bindings-storage-queue.md)         |✔|✔|✔| |✔|
+| [RabbitMQ](../articles/azure-functions/functions-bindings-rabbitmq.md)<sup>2</sup>             | |✔|✔| |✔|
 | [SendGrid](../articles/azure-functions/functions-bindings-sendgrid.md)                   |✔|✔| | |✔|
 | [Barramento de Serviço](../articles/azure-functions/functions-bindings-service-bus.md)             |✔|✔|✔| |✔|
 | [SignalR](../articles/azure-functions/functions-bindings-signalr-service.md)             | |✔| |✔|✔|
@@ -38,4 +36,8 @@ Esta tabela mostra as associações com suporte nas versões principais do tempo
 | [Timer](../articles/azure-functions/functions-bindings-timer.md)                         |✔|✔|✔| | |
 | [Twilio](../articles/azure-functions/functions-bindings-twilio.md)                       |✔|✔| | |✔|
 
-<sup>1</sup> a partir do tempo de execução da versão 2. x, todas as associações, exceto http e Timer, devem ser registradas. Confira [Registrar as extensões de associação](../articles/azure-functions/functions-bindings-register.md).
+<sup>1</sup> A partir de runtimes de versão 2.x e posteriores, todas as associações, exceto HTTP e Timer, precisam ser registradas. Confira [Registrar as extensões de associação](../articles/azure-functions/functions-bindings-register.md).
+
+<sup>2</sup> Não há suporte para gatilhos no plano de Consumo. Requer [gatilhos controlados por runtime](../articles/azure-functions/functions-networking-options.md#premium-plan-with-virtual-network-triggers).
+
+<sup>3</sup> Com suporte apenas no Kubernetes, IoT Edge e outros modos com auto-hospedagem.

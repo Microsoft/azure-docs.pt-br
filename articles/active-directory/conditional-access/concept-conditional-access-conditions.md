@@ -5,20 +5,20 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 08/07/2020
+ms.date: 02/10/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f8dfeb8a38e07d94671691bb797d26a32973c910
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: fecf3f1a302a6734d92335bc15722df4d5288a56
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88042472"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100362413"
 ---
-# <a name="conditional-access-conditions"></a>Acesso Condicional: condições
+# <a name="conditional-access-conditions"></a>Acesso condicional: condições
 
 Em uma política de acesso condicional, um administrador pode usar sinais de condições como risco, plataforma de dispositivo ou local para aprimorar suas decisões de política. 
 
@@ -49,6 +49,9 @@ O acesso condicional do Azure AD dá suporte às seguintes plataformas de dispos
 - macOS
 
 Se você bloquear a autenticação herdada usando a condição **outros clientes** , também poderá definir a condição de plataforma do dispositivo.
+
+> [!IMPORTANT]
+> A Microsoft recomenda que você tenha uma política de acesso condicional para plataformas de dispositivo sem suporte. Por exemplo, se você quiser bloquear o acesso aos recursos corporativos do Linux ou de qualquer outro cliente sem suporte, configure uma política com uma condição de plataforma de dispositivo que inclua qualquer dispositivo e exclua as plataformas de dispositivo com suporte e conceda o controle definido para bloquear o acesso.
 
 ## <a name="locations"></a>Locais
 
@@ -116,6 +119,9 @@ Essa configuração funciona com todos os navegadores. No entanto, para satisfaz
 | Windows Server 2008 R2 | Internet Explorer |
 | macOS | Chrome, Safari |
 
+> [!NOTE]
+> O Edge 85 + exige que o usuário esteja conectado ao navegador para passar corretamente a identidade do dispositivo. Caso contrário, ele se comporta como Chrome sem a extensão de contas. Essa entrada pode não ocorrer automaticamente em um cenário de ingresso híbrido do Azure AD. 
+
 #### <a name="why-do-i-see-a-certificate-prompt-in-the-browser"></a>Por que vejo um prompt de certificado no navegador
 
 No Windows 7, iOS, Android e macOS, o Azure AD identifica o dispositivo usando um certificado de cliente que é provisionado quando o dispositivo é registrado no Azure AD.  Quando um usuário entra pela primeira vez por meio do navegador, é solicitado que o usuário selecione o certificado. O usuário deve selecionar esse certificado antes de usar o navegador.
@@ -126,14 +132,14 @@ Para obter suporte ao Chrome na **atualização do Windows 10 para criadores (ve
 
 Para implantar automaticamente essa extensão para os navegadores Chrome, crie a seguinte chave do registro:
 
-- Caminho HKEY_LOCAL_MACHINE \Software\Policies\Google\Chrome\ExtensionInstallForcelist
+- Caminho HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist
 - Nome 1
 - Tipo REG_SZ (cadeia de caracteres)
 - Ppnbnpeolgkicgegkbkbjmhlideopiji de dados; https \: //clients2.google.com/Service/Update2/CRX
 
 Para obter suporte ao Chrome no **Windows 8.1 e 7**, crie a seguinte chave do registro:
 
-- Caminho HKEY_LOCAL_MACHINE \SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls
+- Caminho HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls
 - Nome 1
 - Tipo REG_SZ (cadeia de caracteres)
 - Data {"Pattern": " https://device.login.microsoftonline.com ", "filtro": {"emissor": {"CN": "MS-Organization-Access"}}}
@@ -149,27 +155,27 @@ Essa configuração tem um impacto nas tentativas de acesso feitas a partir dos 
 | Aplicativos cliente | Serviço de Destino | Plataforma |
 | --- | --- | --- |
 | Aplicativo Dynamics CRM | Dynamics CRM | Windows 10, Windows 8.1, iOS e Android |
-| Aplicativo de Calendário/Email/Pessoas, Outlook 2016 Outlook 2013 (com autenticação moderna)| Office 365 Exchange Online | Windows 10 |
+| Aplicativo de Calendário/Email/Pessoas, Outlook 2016 Outlook 2013 (com autenticação moderna)| Exchange Online | Windows 10 |
 | Política de localização e MFA para aplicativos. Não há suporte para políticas baseadas em dispositivo.| Qualquer serviço de aplicativo de Meus Aplicativos | Android e iOS |
 | Microsoft Teams Services – controla todos os serviços que dão suporte ao Microsoft Teams e todos os seus aplicativos cliente – Windows Desktop, iOS, Android, WP e cliente da Web | Microsoft Teams | Windows 10, Windows 8.1, Windows 7, iOS, Android e macOS |
-| Aplicativos do Office 2016, Office 2013 (com autenticação moderna), [cliente de sincronização do onedrive](/onedrive/enable-conditional-access) | Office 365 SharePoint Online | Windows 8.1, Windows 7 |
-| Aplicativos do Office 2016, aplicativos do Universal Office, Office 2013 (com autenticação moderna), [cliente de sincronização do onedrive](/onedrive/enable-conditional-access) | Office 365 SharePoint Online | Windows 10 |
-| Office 2016 (somente Word, Excel, PowerPoint, OneNote). | Office 365 SharePoint Online | macOS |
-| Office 2019| Office 365 SharePoint Online | Windows 10, macOS |
-| Aplicativos móveis do Office | Office 365 SharePoint Online | Android, iOS |
-| Aplicativo Office Yammer | Office 365 Yammer | Windows 10, iOS, Android |
-| Outlook 2019 | Office 365 SharePoint Online | Windows 10, macOS |
-| Outlook 2016 (Office para macOS) | Office 365 Exchange Online | macOS |
-| Outlook 2016, Outlook 2013 (com autenticação moderna), Skype for Business (com autenticação moderna) | Office 365 Exchange Online | Windows 8.1, Windows 7 |
-| Aplicativo Outlook Mobile | Office 365 Exchange Online | Android, iOS |
+| Aplicativos do Office 2016, Office 2013 (com autenticação moderna), [cliente de sincronização do onedrive](/onedrive/enable-conditional-access) | SharePoint | Windows 8.1, Windows 7 |
+| Aplicativos do Office 2016, aplicativos do Universal Office, Office 2013 (com autenticação moderna), [cliente de sincronização do onedrive](/onedrive/enable-conditional-access) | SharePoint online | Windows 10 |
+| Office 2016 (somente Word, Excel, PowerPoint, OneNote). | SharePoint | macOS |
+| Office 2019| SharePoint | Windows 10, macOS |
+| Aplicativos móveis do Office | SharePoint | Android, iOS |
+| Aplicativo Office Yammer | Yammer | Windows 10, iOS, Android |
+| Outlook 2019 | SharePoint | Windows 10, macOS |
+| Outlook 2016 (Office para macOS) | Exchange Online | macOS |
+| Outlook 2016, Outlook 2013 (com autenticação moderna), Skype for Business (com autenticação moderna) | Exchange Online | Windows 8.1, Windows 7 |
+| Aplicativo Outlook Mobile | Exchange Online | Android, iOS |
 | Aplicativo do Power BI | Serviço do Power BI | Windows 10, Windows 8.1, Windows 7, Android e iOS |
-| Skype for Business | Office 365 Exchange Online| Android, iOS |
+| Skype for Business | Exchange Online| Android, iOS |
 | Aplicativo Visual Studio Team Services | Visual Studio Team Services | Windows 10, Windows 8.1, Windows 7, iOS e Android |
 
 ### <a name="exchange-activesync-clients"></a>Clientes do Exchange ActiveSync
 
-- As organizações só podem selecionar clientes do Exchange ActiveSync ao atribuir a política a usuários ou grupos. Selecionar **todos os usuários**, **todos os usuários convidados e externos**ou **funções de diretório** fará com que todos os usuários se tornem bloqueados.
-- Ao criar uma política atribuída aos clientes do Exchange ActiveSync, o **Office 365 Exchange Online** deve ser o único aplicativo de nuvem atribuído à política. 
+- As organizações só podem selecionar clientes do Exchange ActiveSync ao atribuir a política a usuários ou grupos. Selecionar **todos os usuários**, **todos os usuários convidados e externos** ou **funções de diretório** fará com que todos os usuários se tornem bloqueados.
+- Ao criar uma política atribuída aos clientes do Exchange ActiveSync, o **Exchange Online** deve ser o único aplicativo de nuvem atribuído à política. 
 - As organizações podem restringir o escopo dessa política a plataformas específicas usando a condição de **plataformas de dispositivo** .
 
 Se o controle de acesso atribuído à política usar **exigir aplicativo cliente aprovado**, o usuário será direcionado para instalar e usar o cliente móvel do Outlook. No caso de a **autenticação multifator** ser necessária, os usuários afetados são bloqueados, pois a autenticação básica não oferece suporte à autenticação multifator.
@@ -188,7 +194,7 @@ Ao selecionar **Outros clientes**, é possível especificar uma condição que a
 A condição de estado do dispositivo pode ser usada para excluir dispositivos que são ingressados no Azure AD híbrido e/ou dispositivos marcados como compatíveis com uma política de conformidade de Microsoft Intune das políticas de acesso condicional de uma organização.
 
 Por exemplo, *todos os usuários* que acessam o aplicativo de nuvem de *Gerenciamento de Microsoft Azure* , incluindo todo o estado do **dispositivo** , excluindo o dispositivo **híbrido do Azure ad** e o **dispositivo marcado como compatível** e para *controles de acesso*, **Bloquear**. 
-   - Este exemplo criaria uma política que permite apenas o acesso ao gerenciamento de Microsoft Azure de dispositivos que são ingressados no Azure AD híbrido e/ou dispositivos marcados como compatíveis.
+   - Este exemplo criaria uma política que permite apenas o acesso ao gerenciamento de Microsoft Azure de dispositivos que são ingressados no Azure AD híbrido ou dispositivos marcados como compatíveis.
 
 ## <a name="next-steps"></a>Próximas etapas
 

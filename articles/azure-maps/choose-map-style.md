@@ -8,30 +8,30 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 15224afac33a3e236c2d1ed9f60515bdc2f34c4f
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.custom: devx-track-js
+ms.openlocfilehash: 556e265cc0d1aae33823185ec98d23f191ed1694
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036786"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97680020"
 ---
 # <a name="change-the-style-of-the-map"></a>Alterar o estilo do mapa
 
-O controle de mapa dá suporte a várias [Opções de estilo](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.styleoptions) de mapa e estilos de mapa de [base](supported-map-styles.md)diferentes. Todos os estilos podem ser definidos quando o controle de mapa está sendo inicializado. Ou, você pode definir estilos usando a função do controle de mapa `setStyle` . Este artigo mostra como usar essas opções de estilo para personalizar a aparência do mapa. Além disso, você aprenderá a implementar o controle seletor de estilo em seu mapa. O controle de seletor de estilo permite que o usuário alterne entre diferentes estilos de base.
+O controle de mapa dá suporte a várias [Opções de estilo](/javascript/api/azure-maps-control/atlas.styleoptions) de mapa e estilos de mapa de [base](supported-map-styles.md)diferentes. Todos os estilos podem ser definidos quando o controle de mapa está sendo inicializado. Ou, você pode definir estilos usando a função do controle de mapa `setStyle` . Este artigo mostra como usar essas opções de estilo para personalizar a aparência do mapa. Além disso, você aprenderá a implementar o controle seletor de estilo em seu mapa. O controle de seletor de estilo permite que o usuário alterne entre diferentes estilos de base.
 
 ## <a name="set-map-style-options"></a>Definir opções de estilo de mapa
 
-As opções de estilo podem ser definidas durante a inicialização do controle da Web. Ou, você pode atualizar as opções de estilo chamando a função do controle de mapa `setStyle` . Para ver todas as opções de estilo disponíveis, consulte [Opções de estilo](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.styleoptions).
+As opções de estilo podem ser definidas durante a inicialização do controle da Web. Ou, você pode atualizar as opções de estilo chamando a função do controle de mapa `setStyle` . Para ver todas as opções de estilo disponíveis, consulte [Opções de estilo](/javascript/api/azure-maps-control/atlas.styleoptions).
 
 ```javascript
 //Set the style options when creating the map.
 var map = new atlas.Map('map', {
     renderWorldCopies: false,
     showBuildingModels: false,
-    showLogo = true,
-    showFeedbackLink = true,
-    style='road'
+    showLogo: true,
+    showFeedbackLink: true,
+    style: 'road'
 
     //Additional map options.
 };
@@ -40,8 +40,8 @@ var map = new atlas.Map('map', {
 map.setStyle({
     renderWorldCopies: true,
     showBuildingModels: true,
-    showLogo = false,
-    showFeedbackLink = false
+    showLogo: false,
+    showFeedbackLink: false
 });
 ```
 
@@ -82,7 +82,7 @@ O estilo de mapa base pode ser atualizado usando a `setStyle` função e definin
 map.setStyle({ style: 'satellite' });
 ```
 
-No código a seguir, depois que uma instância de mapa é carregada, o estilo de mapa é atualizado de `grayscale_dark` para `satellite` usando a função [SetStyle](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-maps-typescript-latest#setstyle-styleoptions-) .
+No código a seguir, depois que uma instância de mapa é carregada, o estilo de mapa é atualizado de `grayscale_dark` para `satellite` usando a função [SetStyle](/javascript/api/azure-maps-control/atlas.map#setstyle-styleoptions-) .
 
 <br/>
 
@@ -93,18 +93,18 @@ No código a seguir, depois que uma instância de mapa é carregada, o estilo de
 
 O controle de seletor de estilo fornece um botão fácil de usar com o painel flutuante que pode ser usado pelo usuário final para alternar entre os estilos de base.
 
-O seletor de estilo tem duas opções de layout diferentes: `icon` e `list` . Além disso, o seletor de estilo permite que você escolha duas opções de controle de seletor de estilo diferentes `style` : `light` e `dark` . Neste exemplo, o seletor de estilo usa o `icon` layout e exibe uma lista de seleção de estilos de mapa base na forma de ícones. O seletor de controle de estilo inclui o seguinte conjunto base de estilos: `["road", "grayscale_light", "grayscale_dark", "night", "road_shaded_relief"]` . Para obter mais informações sobre opções de controle de seletor de estilo, consulte [Opções de controle de estilo](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.stylecontroloptions).
+O seletor de estilo tem duas opções de layout diferentes: `icon` e `list` . Além disso, o seletor de estilo permite que você escolha duas opções de controle de seletor de estilo diferentes `style` : `light` e `dark` . Neste exemplo, o seletor de estilo usa o `icon` layout e exibe uma lista de seleção de estilos de mapa base na forma de ícones. O seletor de controle de estilo inclui o seguinte conjunto base de estilos: `["road", "grayscale_light", "grayscale_dark", "night", "road_shaded_relief"]` . Para obter mais informações sobre opções de controle de seletor de estilo, consulte [Opções de controle de estilo](/javascript/api/azure-maps-control/atlas.stylecontroloptions).
 
 A imagem abaixo mostra o controle seletor de estilo exibido no `icon` layout.
 
-:::image type="content" source="./media/choose-map-style/style-picker-icon-layout.png" alt-text="Layout da lista do seletor de estilo":::
+:::image type="content" source="./media/choose-map-style/style-picker-icon-layout.png" alt-text="Layout do ícone do seletor de estilo":::
 
 A imagem abaixo mostra o controle seletor de estilo exibido no `list` layout.
 
 :::image type="content" source="./media/choose-map-style/style-picker-list-layout.png" alt-text="Layout da lista do seletor de estilo":::
 
 > [!IMPORTANT]
->Por padrão, o controle seletor de estilo lista todos os estilos disponíveis no tipo de preço S0 dos mapas do Azure. Se você quiser reduzir o número de estilos nessa lista, passe uma matriz dos estilos que você deseja que apareça na lista na `mapStyle` opção do seletor de estilo. Se você estiver usando S1 e quiser mostrar todos os estilos disponíveis, defina a `mapStyles` opção do seletor de estilo como `"all"` .
+> Por padrão, o controle seletor de estilo lista todos os estilos disponíveis no tipo de preço S0 dos mapas do Azure. Se você quiser reduzir o número de estilos nessa lista, passe uma matriz dos estilos que você deseja que apareça na lista na `mapStyle` opção do seletor de estilo. Se você estiver usando S1 e quiser mostrar todos os estilos disponíveis, defina a `mapStyles` opção do seletor de estilo como `"all"` .
 
 O código a seguir mostra como substituir a lista de `mapStyles` estilos base padrão. Neste exemplo, estamos definindo a `mapStyles` opção para listar os estilos base que desejamos exibir pelo controle seletor de estilo.
 
@@ -118,21 +118,24 @@ O código a seguir mostra como substituir a lista de `mapStyles` estilos base pa
 Para saber mais sobre as classes e os métodos usados neste artigo:
 
 > [!div class="nextstepaction"]
-> [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map)
+> [Map](/javascript/api/azure-maps-control/atlas.map)
 
 > [!div class="nextstepaction"]
-> [Estilo da](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.styleoptions)
+> [Estilo da](/javascript/api/azure-maps-control/atlas.styleoptions)
 
 > [!div class="nextstepaction"]
-> [StyleControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.control.stylecontrol)
+> [StyleControl](/javascript/api/azure-maps-control/atlas.control.stylecontrol)
 
 > [!div class="nextstepaction"]
-> [StyleControlOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.stylecontroloptions)
+> [StyleControlOptions](/javascript/api/azure-maps-control/atlas.stylecontroloptions)
 
-Adicione controles aos seus mapas:
+Consulte os artigos a seguir para obter mais exemplos de código para adicionar aos seus mapas:
 
 > [!div class="nextstepaction"]
 > [Adicionar controles de mapa](map-add-controls.md)
 
 > [!div class="nextstepaction"]
-> [Adicionar um PIN](map-add-pin.md)
+> [Adicionar uma camada de símbolo](map-add-pin.md)
+
+> [!div class="nextstepaction"]
+> [Adicionar uma camada de bolhas](map-add-bubble-layer.md)

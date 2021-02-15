@@ -16,12 +16,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c2886b842aab81732beec0fdd7957aab8e2b4f5e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5e55526e0a63a0c603e2b62ccb3ac0efed911cff
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76548859"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996620"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Sincronização do Azure AD Connect: noções básicas sobre a configuração padrão
 Este artigo explica as regras da configuração pronta para uso. Ele documenta as regras e como elas afetarão a configuração. Ele também orienta você pela configuração padrão de sincronização de Azure AD Connect. O objetivo é que o leitor entenda como o modelo de configuração, chamado provisionamento declarativo, está funcionando em um exemplo do mundo real. Este artigo pressupõe que você já instalou e configurou a sincronização do Azure AD Connect usando o assistente de instalação.
@@ -148,7 +148,7 @@ Como essa regra é pronta para uso, você receberá um aviso quando abrir a regr
 
 Uma Regra de Sincronização tem quatro seções de configuração: descrição, filtro de escopo, regras de associação e transformações.
 
-#### <a name="description"></a>Descrição
+#### <a name="description"></a>Description
 A primeira seção fornece informações básicas, como nome e descrição.
 
 ![Guia Descrição no Editor de regras de sincronização](./media/concept-azure-ad-connect-sync-default-configuration/syncruledescription.png)
@@ -160,7 +160,7 @@ Você também pode ver que essa regra de sincronização é usada para sincroniz
 #### <a name="scoping-filter"></a>Filtro de escopo
 A seção Filtro de Escopo é usada para configurar quando uma Regra de Sincronização deve ser aplicada. Como o nome da Regra de Sincronização que você está vendo indica que ela só deve ser aplicada para usuários habilitados, o escopo está configurado para que o atributo do AD **userAccountControl** não precise ter o bit 2 definido. Quando o mecanismo de sincronização encontra um usuário no AD, ele se aplica a essa regra de sincronização quando **userAccountControl** é definido como o valor decimal 512 (usuário normal habilitado). A regra não é aplicável quando o usuário tem **userAccountControl** definido como 514 (usuário normal desabilitado).
 
-![Guia Escopo no Editor de regras de sincronização](./media/concept-azure-ad-connect-sync-default-configuration/syncrulescopingfilter.png)
+![Captura de tela que mostra a seção "filtro de escopo" da janela "Editar regra de sincronização de entrada".](./media/concept-azure-ad-connect-sync-default-configuration/syncrulescopingfilter.png)
 
 O filtro de escopo tem Grupos e Cláusulas que podem ser aninhados. Todas as cláusulas dentro de um grupo devem ser satisfeitas para que uma Regra de Sincronização seja aplicada. Quando vários grupos são definidos, pelo menos um grupo deve ser satisfeito para que a regra seja aplicada. Ou seja, um OR lógico é avaliado entre grupos e um AND lógico é avaliado dentro de um grupo. Um exemplo dessa configuração pode ser encontrado na regra de sincronização de saída **Saída para AAD – Associação no grupo**. Há vários grupos de filtro de sincronização, por exemplo, um para grupos de segurança (`securityEnabled EQUAL True`) e outro para grupos de distribuição (`securityEnabled EQUAL False`).
 
@@ -223,7 +223,7 @@ Agora sabemos o suficiente sobre Regras de Sincronização para poder entender c
 | Nome | Comentário |
 |:--- |:--- |
 | Entrada do AD – Associação de Usuário |Regra para associar objetos de espaço conector com metaverso. |
-| Entrada do AD – UserAccount habilitada |Os atributos necessários para entrar no Azure AD e no Office 365. Queremos esses atributos da conta habilitada. |
+| Entrada do AD – UserAccount habilitada |Atributos necessários para entrar no Azure AD e Microsoft 365. Queremos esses atributos da conta habilitada. |
 | Entrada do AD – usuário comum do Exchange |Atributos encontrados na Lista de Endereços Global. Vamos supor que a qualidade dos dados é melhor na floresta em que achamos a caixa de correio do usuário. |
 | Entrada do AD – usuário comum |Atributos encontrados na Lista de Endereços Global. No caso de não encontramos uma caixa de correio, outros objetos associados podem contribuir com o valor do atributo. |
 | Entrada do AD – usuário do Exchange |Existe somente se o Exchange foi detectado. Flui todos os atributos do Exchange de infraestrutura. |

@@ -1,18 +1,21 @@
 ---
 title: 'Tutorial: Bot de Reconhecimento Vocal C# v4'
 description: Usando C#, crie um bot de bate-papo integrado com reconhecimento vocal (LUIS). O bot é criado com o Bot Framework versão 4 e o serviço de bot do aplicativo Web do Azure.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 06/22/2020
-ms.openlocfilehash: b9da1d1fecbb251ebf27833cc381eb658a9df46b
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 4114dd712028895da03835a2730ebd7a6ab971a4
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85445892"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436871"
 ---
 # <a name="tutorial-use-a-web-app-bot-enabled-with-language-understanding-in-c"></a>Tutorial: Use um Bot de aplicativo Web habilitado com Reconhecimento Vocal em C#
 
-Use C# para criar um bot de bate-papo integrado com reconhecimento vocal (LUIS). O bot é criado com o recurso [bot do aplicativo Web](https://docs.microsoft.com/azure/bot-service/) e o [Bot Framework versão](https://github.com/Microsoft/botbuilder-dotnet) V4.
+Use C# para criar um bot de bate-papo integrado com reconhecimento vocal (LUIS). O bot é criado com o recurso [bot do aplicativo Web](/azure/bot-service/) e o [Bot Framework versão](https://github.com/Microsoft/botbuilder-dotnet) V4.
 
 **Neste tutorial, você aprenderá a:**
 
@@ -24,7 +27,7 @@ Use C# para criar um bot de bate-papo integrado com reconhecimento vocal (LUIS).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [Emulador de bot](https://aka.ms/abs/build/emulatordownload)
+* [Bot Framework Emulator](https://aka.ms/abs/build/emulatordownload)
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/)
 
 ## <a name="create-a-web-app-bot-resource"></a>Criar um recurso de bot do aplicativo Web
@@ -311,20 +314,20 @@ No Visual Studio 2019, inicie o bot. Uma janela do navegador é aberta com o sit
 
 ![Uma página inicial é exibida com informações sobre seu bot.](./media/bfv4-csharp/running-bot-web-home-page-success.png)
 
-## <a name="use-the-bot-emulator-to-test-the-bot"></a>Usar o emulador de bot para testar o bot
+## <a name="use-the-bot-framework-emulator-to-test-the-bot"></a>Use o Bot Framework Emulator para testar o bot
 
-1. Inicie o Emulador do Bot e selecione **Abrir Bot**.
+1. Comece o Bot Framework Emulator e selecione **Abrir Bot**.
 1. Na caixa de diálogo exibida **Abrir um bot**, digite sua URL, como `http://localhost:3978/api/messages`. A rota `/api/messages` é o endereço web do bot.
 1. Insira a **ID do Aplicativo da Microsoft** e a **senha do Aplicativo da Microsoft**, localizadas no arquivo **appsettings.json** na raiz do código do bot que você baixou, e depois selecione **Conectar**.
 
-1. No emulador do bot, insira `Book a flight from Seattle to Berlin tomorrow` e obtenha a mesma resposta para o bot básico como você recebeu em **Testar no Webchat** na seção anterior.
+1. No Bot Framework Emulator, insira `Book a flight from Seattle to Berlin tomorrow` e obtenha a mesma resposta para o bot básico que a recebida em **Testar no Webchat** na seção anterior.
 
-    [![Resposta do bot básico no emulador](./media/bfv4-nodejs/ask-bot-emulator-a-question-and-get-response.png)](./media/bfv4-nodejs/ask-bot-emulator-a-question-and-get-response.png#lightbox)
+    [![A captura de tela mostra o Bot Framework Emulator com uma resposta básica do bot.](./media/bfv4-nodejs/ask-bot-emulator-a-question-and-get-response.png)](./media/bfv4-nodejs/ask-bot-emulator-a-question-and-get-response.png#lightbox)
 
 1. Selecione **Sim** na barra superior. O bot responde com um resumo das ações dele.
-1. No log do emulador de bot, selecione a linha que inclui `<- trace LuisV3 Trace`. Isso exibe a resposta JSON do LUIS para a intenção e as entidades do enunciado.
+1. No log do Bot Framework Emulator, selecione a linha que inclui `<- trace LuisV3 Trace`. Isso exibe a resposta JSON do LUIS para a intenção e as entidades do enunciado.
 
-    [![Resposta do bot básico no emulador](./media/bfv4-nodejs/ask-luis-book-flight-question-get-json-response-in-bot-emulator.png)](./media/bfv4-nodejs/ask-luis-book-flight-question-get-json-response-in-bot-emulator.png#lightbox)
+    [![A captura de tela mostra uma resposta básica do bot com o Rastreamento LuisV3 selecionado e a resposta JSON realçada.](./media/bfv4-nodejs/ask-luis-book-flight-question-get-json-response-in-bot-emulator.png)](./media/bfv4-nodejs/ask-luis-book-flight-question-get-json-response-in-bot-emulator.png#lightbox)
 
 [!INCLUDE [Bot Information](../../../includes/cognitive-services-qnamaker-luis-bot-info.md)]
 
@@ -333,4 +336,4 @@ No Visual Studio 2019, inicie o bot. Uma janela do navegador é aberta com o sit
 Veja mais [exemplos](https://github.com/microsoft/botframework-solutions) com bots de conversação.
 
 > [!div class="nextstepaction"]
-> [Crie um aplicativo de Reconhecimento vocal com um domínio de assunto personalizado](luis-quickstart-intents-only.md)
+> [Crie um aplicativo de Reconhecimento vocal com um domínio de assunto personalizado](./tutorial-intents-only.md)

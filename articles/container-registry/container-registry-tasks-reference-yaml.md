@@ -4,10 +4,10 @@ description: Referência para definir tarefas na YAML para tarefas do ACR, inclu
 ms.topic: article
 ms.date: 07/08/2020
 ms.openlocfilehash: 042310d29f5561c2cd77b0b9cccfc587ca4aa767
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88067576"
 ---
 # <a name="acr-tasks-reference-yaml"></a>Referência das Tarefas do ACR: YAML
@@ -75,11 +75,11 @@ az configure --defaults acr=myregistry
 
 Normalmente, as propriedades da tarefa aparecem na parte superior de um `acr-task.yaml` arquivo e são propriedades globais que se aplicam durante a execução completa das etapas da tarefa. Algumas dessas propriedades globais podem ser substituídas em uma etapa individual.
 
-| Propriedade | Type | Opcional | Descrição | Substituição com suporte | Valor padrão |
+| Propriedade | Tipo | Opcional | Descrição | Substituição com suporte | Valor padrão |
 | -------- | ---- | -------- | ----------- | ------------------ | ------------- |
 | `version` | string | Sim | A versão do arquivo `acr-task.yaml` conforme analisado pelo serviço de Tarefas do ACR. Enquanto as Tarefas do ACR se esforçam para manter a compatibilidade com versões anteriores, esse valor permite que as Tarefas do ACR mantenham a compatibilidade dentro de uma versão definida. Se não for especificado, o padrão será a versão mais recente. | Não | Nenhum |
 | `stepTimeout` | int (segundos) | Sim | O número máximo de segundos em que uma etapa pode ser executada. Se a propriedade for especificada em uma tarefa, ela definirá a `timeout` propriedade padrão de todas as etapas. Se a `timeout` propriedade for especificada em uma etapa, ela substituirá a propriedade fornecida pela tarefa. | Sim | 600 (10 minutos) |
-| `workingDirectory` | string | Sim | O diretório de trabalho do contêiner durante o tempo de execução. Se a propriedade for especificada em uma tarefa, ela definirá a `workingDirectory` propriedade padrão de todas as etapas. Se especificado em uma etapa, ele substituirá a propriedade fornecida pela tarefa. | Sim | `c:\workspace`no Windows ou `/workspace` no Linux |
+| `workingDirectory` | string | Sim | O diretório de trabalho do contêiner durante o tempo de execução. Se a propriedade for especificada em uma tarefa, ela definirá a `workingDirectory` propriedade padrão de todas as etapas. Se especificado em uma etapa, ele substituirá a propriedade fornecida pela tarefa. | Sim | `c:\workspace` no Windows ou `/workspace` no Linux |
 | `env` | [string, string, ...] | Sim |  Matriz de cadeias de caracteres no `key=value` formato que definem as variáveis de ambiente para a tarefa. Se a propriedade for especificada em uma tarefa, ela definirá a `env` propriedade padrão de todas as etapas. Se especificado em uma etapa, ele substituirá as variáveis de ambiente herdadas da tarefa. | Sim | Nenhum |
 | `secrets` | [segredo, segredo,...] | Sim | Matriz de objetos [secretos](#secret) . | Não | Nenhum |
 | `networks` | [rede, rede,...] | Sim | Matriz de objetos de [rede](#network) . | Não | Nenhum |
@@ -89,7 +89,7 @@ Normalmente, as propriedades da tarefa aparecem na parte superior de um `acr-tas
 
 O objeto secreto tem as propriedades a seguir.
 
-| Propriedade | Type | Opcional | Descrição | Valor padrão |
+| Propriedade | Tipo | Opcional | Descrição | Valor padrão |
 | -------- | ---- | -------- | ----------- | ------- |
 | `id` | Cadeia de caracteres | No | O identificador do segredo. | Nenhum |
 | `keyvault` | string | Sim | A URL do segredo do Azure Key Vault. | Nenhum |
@@ -99,7 +99,7 @@ O objeto secreto tem as propriedades a seguir.
 
 O objeto de rede tem as propriedades a seguir.
 
-| Propriedade | Type | Opcional | Descrição | Valor padrão |
+| Propriedade | Tipo | Opcional | Descrição | Valor padrão |
 | -------- | ---- | -------- | ----------- | ------- | 
 | `name` | Cadeia de caracteres | No | O nome da rede. | Nenhum |
 | `driver` | string | Sim | O driver para gerenciar a rede. | Nenhum |
@@ -111,7 +111,7 @@ O objeto de rede tem as propriedades a seguir.
 
 O objeto de volume tem as propriedades a seguir.
 
-| Propriedade | Type | Opcional | Descrição | Valor padrão |
+| Propriedade | Tipo | Opcional | Descrição | Valor padrão |
 | -------- | ---- | -------- | ----------- | ------- | 
 | `name` | Cadeia de caracteres | No | O nome do volume a ser montado. Pode conter somente caracteres alfanuméricos, '-' e ' _ '. | Nenhum |
 | `secret` | Cadeia de caracteres de mapa [cadeia de caracteres] | Não | Cada chave do mapa é o nome de um arquivo criado e populado no volume. Cada valor é a versão de cadeia de caracteres do segredo. Os valores secretos devem ser codificados em base64. | Nenhum |
@@ -151,7 +151,7 @@ O tipo de etapa `build` suporta os parâmetros na tabela a seguir. O tipo de eta
 
 O tipo de etapa `build` dá suporte às propriedades a seguir. Encontre detalhes dessas propriedades na seção [Propriedades da etapa da tarefa](#task-step-properties) deste artigo.
 
-| Propriedades | Type | Obrigatório |
+| Propriedades | Tipo | Obrigatório |
 | -------- | ---- | -------- |
 | `detach` | bool | Opcional |
 | `disableWorkingDirectoryOverride` | bool | Opcional |
@@ -165,8 +165,8 @@ O tipo de etapa `build` dá suporte às propriedades a seguir. Encontre detalhes
 | `network` | objeto | Opcional |
 | `ports` | [string, string, ...] | Opcional |
 | `pull` | bool | Opcional |
-| `repeat` | int | Opcional |
-| `retries` | int | Opcional |
+| `repeat` | INT | Opcional |
+| `retries` | INT | Opcional |
 | `retryDelay` | int (segundos) | Opcional |
 | `secret` | objeto | Opcional |
 | `startDelay` | int (segundos) | Opcional |
@@ -224,7 +224,7 @@ steps:
 
 O tipo de etapa `push` dá suporte às propriedades a seguir. Encontre detalhes dessas propriedades na seção [Propriedades da etapa da tarefa](#task-step-properties) deste artigo.
 
-| Propriedade | Type | Obrigatório |
+| Propriedade | Tipo | Obrigatório |
 | -------- | ---- | -------- |
 | `env` | [string, string, ...] | Opcional |
 | `id` | string | Opcional |
@@ -269,7 +269,7 @@ steps:
 
 O tipo de etapa `cmd` dá suporte às propriedades a seguir:
 
-| Propriedade | Type | Obrigatório |
+| Propriedade | Tipo | Obrigatório |
 | -------- | ---- | -------- |
 | `detach` | bool | Opcional |
 | `disableWorkingDirectoryOverride` | bool | Opcional |
@@ -283,8 +283,8 @@ O tipo de etapa `cmd` dá suporte às propriedades a seguir:
 | `network` | objeto | Opcional |
 | `ports` | [string, string, ...] | Opcional |
 | `pull` | bool | Opcional |
-| `repeat` | int | Opcional |
-| `retries` | int | Opcional |
+| `repeat` | INT | Opcional |
+| `retries` | INT | Opcional |
 | `retryDelay` | int (segundos) | Opcional |
 | `secret` | objeto | Opcional |
 | `startDelay` | int (segundos) | Opcional |
@@ -381,7 +381,7 @@ az acr run -f mounts-secrets.yaml --set-secret mysecret=abcdefg123456 https://gi
 
 Cada tipo de etapa dá suporte a várias propriedades apropriadas para seu tipo. A tabela a seguir define todas as propriedades das etapas disponíveis. Nem todos os tipos de etapas dão suporte a todas as propriedades. Para ver quais dessas propriedades estão disponíveis para cada tipo de etapa, confira as seções de referência de tipo de etapa [cmd](#cmd), [compilar](#build) e [efetuar push](#push).
 
-| Propriedade | Type | Opcional | Descrição | Valor padrão |
+| Propriedade | Tipo | Opcional | Descrição | Valor padrão |
 | -------- | ---- | -------- | ----------- | ------- |
 | `detach` | bool | Sim | Se o contêiner deve ser desanexado quando está em execução. | `false` |
 | `disableWorkingDirectoryOverride` | bool | Sim | Se a funcionalidade de substituição deve ser desabilitada `workingDirectory` . Use isso em combinação com `workingDirectory` para ter controle total sobre o diretório de trabalho do contêiner. | `false` |
@@ -392,28 +392,28 @@ Cada tipo de etapa dá suporte a várias propriedades apropriadas para seu tipo.
 | `ignoreErrors` | bool | Sim | Indica se a etapa será marcada como bem-sucedida, independentemente de ocorrer um erro durante a execução do contêiner. | `false` |
 | `isolation` | string | Sim | O nível de isolamento do contêiner. | `default` |
 | `keep` | bool | Sim | Se o contêiner da etapa deve ser mantido após a execução. | `false` |
-| `network` | object | Sim | Identifica uma rede na qual o contêiner é executado. | Nenhum |
+| `network` | objeto | Sim | Identifica uma rede na qual o contêiner é executado. | Nenhum |
 | `ports` | [string, string, ...] | Sim | Matriz de portas que são publicadas do contêiner para o host. |  Nenhum |
 | `pull` | bool | Sim | Se deve forçar um pull do contêiner antes de executá-lo para evitar qualquer comportamento de cache. | `false` |
 | `privileged` | bool | Sim | Se o contêiner deve ser executado no modo privilegiado. | `false` |
-| `repeat` | int | Sim | O número de tentativas para repetir a execução de um contêiner. | 0 |
-| `retries` | int | Sim | O número de tentativas para tentar se um contêiner falhar na sua execução. Uma nova tentativa só será tentada se o código de saída de um contêiner for diferente de zero. | 0 |
+| `repeat` | INT | Sim | O número de tentativas para repetir a execução de um contêiner. | 0 |
+| `retries` | INT | Sim | O número de tentativas para tentar se um contêiner falhar na sua execução. Uma nova tentativa só será tentada se o código de saída de um contêiner for diferente de zero. | 0 |
 | `retryDelay` | int (segundos) | Sim | O atraso em segundos entre as tentativas da execução de um contêiner. | 0 |
-| `secret` | object | Sim | Identifica um segredo Azure Key Vault ou [identidade gerenciada para recursos do Azure](container-registry-tasks-authentication-managed-identity.md). | Nenhum |
+| `secret` | objeto | Sim | Identifica um segredo Azure Key Vault ou [identidade gerenciada para recursos do Azure](container-registry-tasks-authentication-managed-identity.md). | Nenhum |
 | `startDelay` | int (segundos) | Sim | Número de segundos para atrasar a execução de um contêiner. | 0 |
 | `timeout` | int (segundos) | Sim | Número máximo de segundos em que uma etapa poderá ser executada antes de terminar. | 600 |
 | [`when`](#example-when) | [string, string, ...] | Sim | Configura a dependência de uma etapa em relação a uma ou mais etapas diferentes dentro da tarefa. | Nenhum |
 | `user` | string | Sim | O nome de usuário ou UID de um contêiner | Nenhum |
-| `workingDirectory` | string | Sim | Define o diretório de trabalho para uma etapa. Por padrão, as Tarefas do ACR criam um diretório raiz como o diretório de trabalho. No entanto, se o build tiver várias etapas, as etapas anteriores poderão compartilhar artefatos com as etapas posteriores se o mesmo diretório de trabalho for especificado. | `c:\workspace`no Windows ou `/workspace` no Linux |
+| `workingDirectory` | string | Sim | Define o diretório de trabalho para uma etapa. Por padrão, as Tarefas do ACR criam um diretório raiz como o diretório de trabalho. No entanto, se o build tiver várias etapas, as etapas anteriores poderão compartilhar artefatos com as etapas posteriores se o mesmo diretório de trabalho for especificado. | `c:\workspace` no Windows ou `/workspace` no Linux |
 
 ### <a name="volumemount"></a>volumeMount
 
 O objeto volumeMount tem as propriedades a seguir.
 
-| Propriedade | Type | Opcional | Descrição | Valor padrão |
+| Propriedade | Tipo | Opcional | Descrição | Valor padrão |
 | -------- | ---- | -------- | ----------- | ------- | 
 | `name` | Cadeia de caracteres | No | O nome do volume a ser montado. Deve corresponder exatamente ao nome de uma `volumes` propriedade. | Nenhum |
-| `mountPath`   | string | no | O caminho absoluto para montar arquivos no contêiner.  | Nenhum |
+| `mountPath`   | string | não | O caminho absoluto para montar arquivos no contêiner.  | Nenhum |
 
 ### <a name="examples-task-step-properties"></a>Exemplos: propriedades das etapas das tarefas
 

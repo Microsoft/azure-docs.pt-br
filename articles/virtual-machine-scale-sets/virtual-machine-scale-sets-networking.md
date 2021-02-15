@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: networking
 ms.date: 06/25/2020
 ms.reviewer: mimckitt
-ms.custom: mimckitt
-ms.openlocfilehash: 91157f625b328dfc03927cf0036aea1b6040cdbf
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.custom: mimckitt, devx-track-azurecli
+ms.openlocfilehash: 9ad761f289805d15d316fc6f528a0049adb36b30
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783715"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97722310"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Rede para conjuntos de dimensionamento de máquinas virtuais do Azure
 
@@ -43,7 +43,7 @@ A Rede Acelerada do Azure melhora o desempenho de rede habilitando a SR-IOV (vir
 ```
 
 ## <a name="azure-virtual-machine-scale-sets-with-azure-load-balancer"></a>Conjuntos de dimensionamento de máquinas virtuais do Azure com Azure Load Balancer
-Confira [Azure Load Balancer e conjuntos de dimensionamento de máquinas virtuais](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-virtual-machine-scale-sets) para saber mais sobre como configurar seus Standard Load Balancer com conjuntos de dimensionamento de máquinas virtuais com base em seu cenário.
+Confira [Azure Load Balancer e conjuntos de dimensionamento de máquinas virtuais](../load-balancer/load-balancer-standard-virtual-machine-scale-sets.md) para saber mais sobre como configurar seus Standard Load Balancer com conjuntos de dimensionamento de máquinas virtuais com base em seu cenário.
 
 ## <a name="create-a-scale-set-that-references-an-application-gateway"></a>Criar um conjunto de dimensionamento que referencia um Gateway de Aplicativo
 Para criar um conjunto de dimensionamento que usa um gateway de aplicativo, referencie o pool de endereços de back-end do gateway de aplicativo na seção ipConfigurations do conjunto de dimensionamento como nesta configuração de modelo ARM:
@@ -86,7 +86,7 @@ Para configurar servidores DNS personalizados em um modelo do Azure, adicione um
 ### <a name="creating-a-scale-set-with-configurable-virtual-machine-domain-names"></a>Como criar um conjunto de dimensionamento com nomes de domínio configuráveis de máquina de virtual
 Para criar uma escala configurada com um nome DNS personalizado para máquinas virtuais usando a CLI, adicione o argumento **--vm-domain-name** ao comando **virtual machine scale set create**, seguido por uma cadeia de caracteres representando o nome do domínio.
 
-Para configurar o nome de domínio em um modelo do Azure, adicione uma propriedade **dnsSettings** à seção **networkInterfaceConfigurations ** do conjunto de dimensionamento. Por exemplo:
+Para configurar o nome de domínio em um modelo do Azure, adicione uma propriedade **dnsSettings** à seção **networkInterfaceConfigurations** do conjunto de dimensionamento. Por exemplo:
 
 ```json
 "networkProfile": {
@@ -169,7 +169,7 @@ Para consultar o [Azure Resource Explorer](https://resources.azure.com):
 1. Expanda a assinatura.
 1. Expanda seu grupo de recursos.
 1. Expanda *provedores*.
-1. Expanda *Microsoft.Compute*.
+1. Expanda *Microsoft. Compute*.
 1. Expanda *virtualMachineScaleSets*.
 1. Expanda o conjunto de dimensionamento.
 1. Clique em *publicipaddresses*.
@@ -299,7 +299,7 @@ O exemplo a seguir é um perfil de rede do conjunto de dimensionamento mostrando
 ```
 
 ## <a name="nsg--asgs-per-scale-set"></a>NSG e Grupos de Segurança do Aplicativo por conjunto de dimensionamento
-[Grupos de Segurança de Rede](../virtual-network/security-overview.md) permitem filtrar o tráfego de e para recursos do Azure em uma rede virtual do Azure usando regras de segurança. [Grupos de Segurança de Aplicativo](../virtual-network/security-overview.md#application-security-groups) permitem lidar com a segurança de rede de recursos do Azure e agrupá-los como uma extensão da estrutura de seu aplicativo.
+[Grupos de Segurança de Rede](../virtual-network/network-security-groups-overview.md) permitem filtrar o tráfego de e para recursos do Azure em uma rede virtual do Azure usando regras de segurança. [Grupos de Segurança de Aplicativo](../virtual-network/network-security-groups-overview.md#application-security-groups) permitem lidar com a segurança de rede de recursos do Azure e agrupá-los como uma extensão da estrutura de seu aplicativo.
 
 Os Grupos de Segurança de Rede podem ser aplicados diretamente a um conjunto de dimensionamento referenciando-os na seção de configuração da interface de rede das propriedades de máquina virtual do conjunto de dimensionamento.
 
@@ -381,6 +381,140 @@ az vmss show \
   ]
 ]
 ```
+
+## <a name="make-networking-updates-to-specific-instances"></a>Fazer atualizações de rede em instâncias específicas
+
+Você pode fazer atualizações de rede para instâncias específicas do conjunto de dimensionamento de máquinas virtuais. 
+
+Você pode `PUT` na instância para atualizar a configuração de rede. Isso pode ser usado para fazer coisas como adicionar ou remover NICs (placas de interface de rede) ou remover uma instância de um pool de back-end.
+
+```
+PUT https://management.azure.com/subscriptions/.../resourceGroups/vmssnic/providers/Microsoft.Compute/virtualMachineScaleSets/vmssnic/virtualMachines/1/?api-version=2019-07-01
+```
+
+O exemplo a seguir mostra como adicionar uma segunda configuração de IP à sua NIC.
+
+1. `GET` os detalhes de uma instância específica do conjunto de dimensionamento de máquinas virtuais.
+    
+    ``` 
+    GET https://management.azure.com/subscriptions/.../resourceGroups/vmssnic/providers/Microsoft.Compute/virtualMachineScaleSets/vmssnic/virtualMachines/1/?api-version=2019-07-01
+    ```
+
+    *O seguinte foi simplificado para mostrar apenas os parâmetros de rede deste exemplo.*
+
+    ```json
+    {
+      ...
+      "properties": {
+        ...
+        "networkProfileConfiguration": {
+          "networkInterfaceConfigurations": [
+            {
+              "name": "vmssnic-vnet-nic01",
+              "properties": {
+                "primary": true,
+                "enableAcceleratedNetworking": false,
+                "networkSecurityGroup": {
+                  "id": "/subscriptions/123a1a12-a123-1ab1-12a1-12a1a1234ab1/resourceGroups/vmssnic/providers/Microsoft.Network/networkSecurityGroups/basicNsgvmssnic-vnet-nic01"
+                },
+                "dnsSettings": {
+                  "dnsServers": []
+                },
+                "enableIPForwarding": false,
+                "ipConfigurations": [
+                  {
+                    "name": "vmssnic-vnet-nic01-defaultIpConfiguration",
+                    "properties": {
+                      "publicIPAddressConfiguration": {
+                        "name": "publicIp-vmssnic-vnet-nic01",
+                        "properties": {
+                          "idleTimeoutInMinutes": 15,
+                          "ipTags": [],
+                          "publicIPAddressVersion": "IPv4"
+                        }
+                      },
+                      "primary": true,
+                      "subnet": {
+                        "id": "/subscriptions/123a1a12-a123-1ab1-12a1-12a1a1234ab1/resourceGroups/vmssnic/providers/Microsoft.Network/virtualNetworks/vmssnic-vnet/subnets/default"
+                      },
+                      "privateIPAddressVersion": "IPv4"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        ...
+      }
+    }
+    ```
+ 
+2. `PUT` na instância, atualizando para adicionar a configuração de IP adicional. Isso é semelhante para adicionar outros `networkInterfaceConfiguration` .
+
+    
+    ```
+    PUT https://management.azure.com/subscriptions/.../resourceGroups/vmssnic/providers/Microsoft.Compute/virtualMachineScaleSets/vmssnic/virtualMachines/1/?api-version=2019-07-01
+    ```
+
+    *O seguinte foi simplificado para mostrar apenas os parâmetros de rede deste exemplo.*
+
+    ```json
+      {
+      ...
+      "properties": {
+        ...
+        "networkProfileConfiguration": {
+          "networkInterfaceConfigurations": [
+            {
+              "name": "vmssnic-vnet-nic01",
+              "properties": {
+                "primary": true,
+                "enableAcceleratedNetworking": false,
+                "networkSecurityGroup": {
+                  "id": "/subscriptions/123a1a12-a123-1ab1-12a1-12a1a1234ab1/resourceGroups/vmssnic/providers/Microsoft.Network/networkSecurityGroups/basicNsgvmssnic-vnet-nic01"
+                },
+                "dnsSettings": {
+                  "dnsServers": []
+                },
+                "enableIPForwarding": false,
+                "ipConfigurations": [
+                  {
+                    "name": "vmssnic-vnet-nic01-defaultIpConfiguration",
+                    "properties": {
+                      "publicIPAddressConfiguration": {
+                        "name": "publicIp-vmssnic-vnet-nic01",
+                        "properties": {
+                          "idleTimeoutInMinutes": 15,
+                          "ipTags": [],
+                          "publicIPAddressVersion": "IPv4"
+                        }
+                      },
+                      "primary": true,
+                      "subnet": {
+                        "id": "/subscriptions/123a1a12-a123-1ab1-12a1-12a1a1234ab1/resourceGroups/vmssnic/providers/Microsoft.Network/virtualNetworks/vmssnic-vnet/subnets/default"
+                      },
+                      "privateIPAddressVersion": "IPv4"
+                    }
+                  },
+                  {
+                    "name": "my-second-config",
+                    "properties": {
+                      "subnet": {
+                        "id": "/subscriptions/123a1a12-a123-1ab1-12a1-12a1a1234ab1/resourceGroups/vmssnic/providers/Microsoft.Network/virtualNetworks/vmssnic-vnet/subnets/default"
+                      },
+                      "privateIPAddressVersion": "IPv4"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        ...
+      }
+    }
+    ```
 
 
 

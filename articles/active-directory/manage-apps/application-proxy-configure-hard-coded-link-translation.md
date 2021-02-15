@@ -1,10 +1,10 @@
 ---
 title: Converter links e URLs do Proxy de Aplicativo do Azure AD | Microsoft Docs
-description: Cobre as noções básicas sobre os conectores do Proxy de Aplicativo Azure AD.
+description: Saiba como redirecionar links embutidos em código para aplicativos publicados com o proxy de aplicativo do Azure AD.
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -16,14 +16,14 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e8d6f97870699cea7f55abe42290acdc82c385e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 44266f7a7485b44ba60a27aadd7422e8d1c3acf4
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84764835"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99259399"
 ---
-# <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Redirecione os links inseridos no código para aplicativos publicados com o Proxy de Aplicativo do Azure AD
+# <a name="redirect-hard-coded-links-for-apps-published-with-azure-ad-application-proxy"></a>Redirecionar links embutidos em código para aplicativos publicados com o Azure Proxy de Aplicativo do AD
 
 O Proxy de Aplicativo do Azure AD disponibiliza seus aplicativos locais para usuários remotos ou que estão em seus próprios dispositivos. No entanto, alguns aplicativos foram desenvolvidos com links locais inseridos no HTML. Esses links não funcionam corretamente quando o aplicativo é usado remotamente. Quando você faz com que vários aplicativos locais apontem uns para os outros, os usuários esperam os links para continuar trabalhando quando não estiverem no escritório. 
 
@@ -35,11 +35,11 @@ Se você não pode usar domínios personalizados em seu locatário, há várias 
 > [!NOTE]
 > A conversão de link não tem suporte para URLs internas embutidas em código geradas por meio de JavaScript.
 
-**Opção 1: usar o Managed browser ou o Microsoft Edge** – essa solução só será aplicável se você planeja recomendar ou exigir que os usuários acessem o aplicativo por meio do navegador Intune Managed browser ou Microsoft Edge. Ele manipulará todas as URLs publicadas. 
+**Opção 1: usar o Microsoft Edge** – essa solução só será aplicável se você planeja recomendar ou exigir que os usuários acessem o aplicativo por meio do navegador Microsoft Edge. Ele manipulará todas as URLs publicadas. 
 
 **Opção 2: usar a extensão do MyApps** – essa solução exige que os usuários instalem uma extensão de navegador do lado do cliente, mas manipulará todas as URLs publicadas e funciona com navegadores mais populares. 
 
-**Opção 3: usar a configuração de conversão de link** – esta é uma configuração do lado do administrador que é invisível para os usuários. No entanto, ela apenas manipulará URLs em HTML e CSS.   
+**Opção 3: usar a configuração de conversão de link** – esta é uma configuração do lado do administrador que é invisível para os usuários. No entanto, ele tratará URLs somente em HTML e CSS.   
 
 Esses três recursos mantêm seus vínculos de trabalho, independentemente de onde os usuários estão. Quando você tem aplicativos que apontam diretamente para portas ou pontos de extremidade internos, pode mapear essas URLs internas para as URLs de Proxy de Aplicativo externas publicadas. 
 
@@ -47,14 +47,14 @@ Esses três recursos mantêm seus vínculos de trabalho, independentemente de on
 > [!NOTE]
 > A última opção é apenas para locatários que, por qualquer motivo, não podem usar domínios personalizados para ter as mesmas URLs internas e externas para seus aplicativos. Antes de habilitar esse recurso, verifique se [domínios personalizados no Proxy de Aplicativo do Azure AD](application-proxy-configure-custom-domain.md) podem funcionar para você. 
 > 
-> Ou, se o aplicativo que você precisa configurar com a conversão de link é o SharePoint, consulte [Configurar mapeamentos alternativos de acesso para o SharePoint 2013](https://technet.microsoft.com/library/cc263208.aspx) a fim de conhecer outra abordagem de mapeamento de links. 
+> Ou, se o aplicativo que você precisa configurar com a conversão de link é o SharePoint, consulte [Configurar mapeamentos alternativos de acesso para o SharePoint 2013](/SharePoint/administration/configure-alternate-access-mappings) a fim de conhecer outra abordagem de mapeamento de links. 
 
  
-### <a name="option-1-intune-managed-browser-and-microsoft-edge-integration"></a>Opção 1: integração do Intune Managed Browser e do Microsoft Edge 
+### <a name="option-1-microsoft-edge-integration"></a>Opção 1: integração do Microsoft Edge 
 
-Você pode usar o Intune Managed Browser ou o Microsoft Edge para proteger ainda mais seu aplicativo e conteúdo. Para usar essa solução, você precisa exigir/recomendar aos usuários que acessem o aplicativo por meio do Intune Managed Browser. Todas as URLs internas publicados com o Proxy de Aplicativo serão reconhecidas pelo Managed Browser e redirecionadas para a URL externa correspondente. Isso garante que todas as URLs internas inseridas no código funcionem, e se um usuário for ao navegador e digitar diretamente a URL interna, ela funcione mesmo se o usuário estiver remoto.  
+Você pode usar o Microsoft Edge para proteger ainda mais seu aplicativo e conteúdo. Para usar essa solução, você precisa exigir/recomendar que os usuários acessem o aplicativo por meio do Microsoft Edge. Todas as URLs internas publicadas com o proxy de aplicativo serão reconhecidas pelo Edge e redirecionadas para a URL externa correspondente. Isso garante que todas as URLs internas inseridas no código funcionem, e se um usuário for ao navegador e digitar diretamente a URL interna, ela funcione mesmo se o usuário estiver remoto.  
 
-Para saber mais, incluindo como definir essa opção, consulte a documentação do [Managed Browser](https://docs.microsoft.com/intune/app-configuration-managed-browser).  
+Para saber mais, incluindo como configurar essa opção, consulte a documentação [gerenciar o acesso via Web usando o Edge for Ios e Android com Microsoft Intune](/mem/intune/apps/manage-microsoft-edge) .  
 
 ### <a name="option-2-myapps-browser-extension"></a>Opção 2: extensão de navegador MyApps 
 
@@ -62,7 +62,7 @@ Com a extensão de navegador My Apps, todas as URLs internas publicadas com o Pr
 
 Para usar esse recurso, o usuário deve fazer o download da extensão e estar conectado. Não há nenhuma outra configuração necessária para os administradores ou usuários. 
 
-Para saber mais, incluindo como configurar essa opção, confira a documentação da [extensão do navegador myapps](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access#download-and-install-the-my-apps-secure-sign-in-extension) .
+Para saber mais, incluindo como configurar essa opção, confira a documentação da [extensão do navegador myapps](../user-help/my-apps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension) .
 
 ### <a name="option-3-link-translation-setting"></a>Opção 3: configuração de conversão de link 
 
@@ -73,9 +73,9 @@ Quando a translação de link está habilitada, o serviço de Proxy de Aplicativ
 
 ## <a name="how-link-translation-works"></a>Como a translação de link funciona
 
-Após a autenticação, quando o servidor proxy transmite os dados de aplicativo para o usuário, o Proxy de Aplicativo examina o aplicativo em relação a links inseridos no código e os substitui por suas respectivas URLs externas publicadas.
+Após a autenticação, quando o servidor proxy passa os dados do aplicativo para o usuário, o proxy de aplicativo examina o aplicativo em busca de links embutidos em código e os substitui por suas respectivas URLs externas publicadas.
 
-O Proxy de Aplicativo pressupõe que os aplicativos estejam codificados em UTF-8. Se esse não for o caso, especifique o tipo de codificação em um cabeçalho de resposta HTTP, como `Content-Type:text/html;charset=utf-8`.
+O Proxy de Aplicativo pressupõe que os aplicativos estejam codificados em UTF-8. Se esse não for o caso, especifique o tipo de codificação em um cabeçalho de resposta HTTP, como `Content-Type:text/html;charset=utf-8` .
 
 ### <a name="which-links-are-affected"></a>Quais links são afetados?
 
@@ -84,30 +84,30 @@ O recurso de translação de link procura apenas por links que estão nas marcas
 Há dois tipos comuns de links internos em aplicativos locais:
 
 - **Links internos relativos** que apontam para um recurso compartilhado em uma estrutura de arquivo local como `/claims/claims.html`. Esses links funcionam automaticamente em aplicativos que são publicados por meio do Proxy de Aplicativo e continuam funcionando com ou sem a conversão de link. 
-- **Links internos inseridos no código** para outros aplicativos de locais como `http://expenses` ou arquivos publicados como `http://expenses/logo.jpg`. O recurso de translação de link funciona em links internos inseridos no código e os altera para apontar para as URLs externas de que os usuários remotos precisam para avançar.
+- **Links internos** embutidos em código para outros aplicativos locais como `http://expenses` ou arquivos publicados como `http://expenses/logo.jpg` . O recurso de conversão de link funciona em links internos embutidos em código e os altera para apontar para as URLs externas que os usuários remotos precisam seguir.
 
-A lista completa de marcas de código HTML que o proxy de aplicativo dá suporte à conversão de links para o incluem:
-* a
-* áudio
-* base
-* botão
-* div
-* embed
-* formulário
-* frame
-* head
-* html
-* iframe
-* img
-* input
-* link
-* MenuItem
-* meta
-* objeto
-* Script
-* source
-* rastrear
-* vídeo
+A lista completa de atributos em marcas de código HTML que o proxy de aplicativo dá suporte à conversão de links para o incluem:
+* a (href)
+* áudio (src)
+* base (href)
+* botão (formaaction)
+* div (dados-plano de fundo, estilo, dados-src)
+* Inserir (src)
+* formulário (ação)
+* quadro (src)
+* cabeçalho (perfil)
+* HTML (manifesto)
+* iframe (longdesc, src)
+* img (longdesc, src)
+* Input (forma, src, value)
+* link (href)
+* MenuItem (ícone)
+* meta (conteúdo)
+* objeto (arquivo morto, dados, codebase)
+* script (src)
+* origem (src)
+* Track (src)
+* vídeo (src, pôster)
 
 Além disso, no CSS, o atributo URL também é traduzido.
 
@@ -152,4 +152,4 @@ Queremos sua ajuda para fazer esse recurso funcionar para todos os seus aplicati
 ## <a name="next-steps"></a>Próximas etapas
 [Usar domínios personalizados com o Azure proxy de aplicativo do AD](application-proxy-configure-custom-domain.md) para ter a mesma URL interna e externa
 
-[Configurar mapeamentos alternativos de acesso para o SharePoint 2013](https://technet.microsoft.com/library/cc263208.aspx)
+[Configurar mapeamentos alternativos de acesso para o SharePoint 2013](/SharePoint/administration/configure-alternate-access-mappings)

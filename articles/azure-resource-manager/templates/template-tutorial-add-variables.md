@@ -1,21 +1,21 @@
 ---
 title: Tutorial – adicionar variável ao modelo
-description: Adicione variáveis ao modelo do Azure Resource Manager para simplificar a sintaxe.
+description: Adicione variáveis ao modelo do ARM (modelo do Azure Resource Manager) para simplificar a sintaxe.
 author: mumian
 ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9607ddd4a44af6a515080d4fd6f0c475268470b9
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.custom: ''
+ms.openlocfilehash: 46ed1fc55a108bf80089d249abc58bc5d1a6479a
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497487"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106947"
 ---
 # <a name="tutorial-add-variables-to-your-arm-template"></a>Tutorial: Adicionar variáveis ao seu modelo do ARM
 
-Neste tutorial, você aprenderá a adicionar uma variável ao modelo do ARM (Azure Resource Manager). As variáveis simplificam os modelos, permitindo que você grave uma expressão uma vez e reutilize-a em todo o modelo. Este tutorial leva **7 minutos** para ser concluído.
+Neste tutorial, você aprenderá a adicionar uma variável ao modelo do ARM (modelo do Azure Resource Manager). As variáveis simplificam os modelos, permitindo que você grave uma expressão uma vez e reutilize-a em todo o modelo. Este tutorial leva **7 minutos** para ser concluído.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -37,17 +37,17 @@ O exemplo a seguir realça as alterações para adicionar uma variável ao model
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-variable/azuredeploy.json" range="1-47" highlight="5-9,29-31,36":::
 
-Observe que ele inclui uma variável chamada **uniqueStorageName**. Essa variável usa quatro funções para construir um valor de cadeia de caracteres.
+Observe que ele inclui uma variável chamada `uniqueStorageName`. Essa variável usa quatro funções para construir um valor de cadeia de caracteres.
 
 Você já está familiarizado com a função [parameters](template-functions-deployment.md#parameters), portanto, não a examinaremos.
 
-Você também está familiarizado com a função [resourceGroup](template-functions-resource.md#resourcegroup). Nesse caso, você obtém a propriedade **id** em vez da propriedade **location**, conforme mostrado no tutorial anterior. A propriedade **id** retorna o identificador completo do grupo de recursos, incluindo a ID da assinatura e o nome do grupo de recursos.
+Você também está familiarizado com a função [resourceGroup](template-functions-resource.md#resourcegroup). Nesse caso, você obtém a propriedade `id` em vez da propriedade `location`, conforme mostrado no tutorial anterior. A propriedade `id` retorna o identificador completo do grupo de recursos, incluindo a ID da assinatura e o nome do grupo de recursos.
 
 A função [uniqueString](template-functions-string.md#uniquestring) cria um valor de hash de 13 caracteres. O valor retornado é determinado pelos parâmetros que você passa. Para este tutorial, você usa a ID do grupo de recursos como a entrada para o valor de hash. Isso significa que você pode implantar esse modelo em grupos de recursos diferentes e obter um valor de cadeia de caracteres exclusivo diferente. No entanto, você obterá o mesmo valor se implantar para o mesmo grupo de recursos.
 
-A função [concat](template-functions-string.md#concat) usa valores e os combina. Para essa variável, ela usa a cadeia de caracteres do parâmetro e a da função uniqueString e as combina em uma única cadeia de caracteres.
+A função [concat](template-functions-string.md#concat) usa valores e os combina. Para essa variável, ela usa a cadeia de caracteres do parâmetro e a da função `uniqueString` e as combina em uma cadeia de caracteres.
 
-O parâmetro **storagePrefix** permite que você passe um prefixo que ajuda a identificar contas de armazenamento. Você pode criar sua própria convenção de nomenclatura que facilite a identificação das contas de armazenamento após a implantação de uma longa lista de recursos.
+O parâmetro `storagePrefix` permite que você passe um prefixo que ajuda a identificar contas de armazenamento. Você pode criar sua própria convenção de nomenclatura que facilite a identificação das contas de armazenamento após a implantação de uma longa lista de recursos.
 
 Por fim, observe que o nome do armazenamento agora está definido como a variável em vez de um parâmetro.
 
@@ -55,7 +55,7 @@ Por fim, observe que o nome do armazenamento agora está definido como a variáv
 
 Vamos implantar o modelo. A implantação desse modelo é mais fácil do que a dos modelos anteriores, pois você fornece apenas o prefixo para o nome do armazenamento.
 
-Caso você não tenha criado o grupo de recursos, confira [Criar grupo de recursos](template-tutorial-create-first-template.md#create-resource-group). O exemplo pressupõe que você tenha definido a variável **templateFile** como o caminho para o arquivo de modelo, conforme mostrado no [primeiro tutorial](template-tutorial-create-first-template.md#deploy-template).
+Caso você não tenha criado o grupo de recursos, confira [Criar grupo de recursos](template-tutorial-create-first-template.md#create-resource-group). O exemplo pressupõe que você tenha definido a variável `templateFile` como o caminho para o arquivo de modelo, conforme mostrado no [primeiro tutorial](template-tutorial-create-first-template.md#deploy-template).
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -83,7 +83,7 @@ az deployment group create \
 ---
 
 > [!NOTE]
-> Se a implantação falhar, use a opção **debug** com o comando de implantação para mostrar os logs de depuração.  Use também a opção **verbose** para mostrar os logs de depuração completos.
+> Se a implantação falhar, use a opção `verbose` para obter informações sobre os recursos que estão sendo criados. Use a opção `debug` para obter mais informações de depuração.
 
 ## <a name="verify-deployment"></a>Verificar implantação
 

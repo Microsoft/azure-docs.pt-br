@@ -10,20 +10,20 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 11/13/2020
 ms.author: apimpm
-ms.openlocfilehash: 6ac3457a22128f313084ab070a5a61c2d26d4b85
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 3a37cde79cef59eaf9c3ef130bfbae9cff958bd7
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87851674"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96919436"
 ---
 # <a name="api-management-advanced-policies"></a>Políticas avançadas de Gerenciamento de API
 
-Este tópico fornece uma referência para as políticas de Gerenciamento de API a seguir. Para obter mais informações sobre como adicionar e configurar políticas, consulte [Políticas de Gerenciamento de API](https://go.microsoft.com/fwlink/?LinkID=398186).
+Este tópico fornece uma referência para as políticas de Gerenciamento de API a seguir. Para obter mais informações sobre como adicionar e configurar políticas, consulte [Políticas de Gerenciamento de API](./api-management-policies.md).
 
-## <a name="advanced-policies"></a><a name="AdvancedPolicies"></a>Políticas avançadas
+## <a name="advanced-policies"></a><a name="AdvancedPolicies"></a> Políticas avançadas
 
 -   [Controlar fluxo](api-management-advanced-policies.md#choose) - Aplica-se condicionalmente a instruções de políticas com base nos resultados da avaliação do booliano [expressions](api-management-policy-expressions.md).
 -   [Encaminhar solicitação](#ForwardRequest) -Encaminha a solicitação ao serviço de back-end.
@@ -41,11 +41,11 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 -   [Trace](#Trace) – adiciona rastreamentos personalizados na saída do [Inspetor de API](./api-management-howto-api-inspector.md) , Application insights telemetrias e logs de recursos.
 -   [Wait](#Wait) -aguarda a conclusão das políticas de [envio por solicitação](api-management-advanced-policies.md#SendRequest), [obtenção de valor do cache](api-management-caching-policies.md#GetFromCacheByKey)ou [fluxo de controle](api-management-advanced-policies.md#choose) antes de continuar.
 
-## <a name="control-flow"></a><a name="choose"></a>Fluxo de controle
+## <a name="control-flow"></a><a name="choose"></a> Fluxo de controle
 
 A política `choose` aplica declarações de política embutidas com base no resultado da avaliação de expressões boolianas, semelhantes a um if-then-else ou a um constructo de opção em uma linguagem de programação.
 
-### <a name="policy-statement"></a><a name="ChoosePolicyStatement"></a>Declaração de política
+### <a name="policy-statement"></a><a name="ChoosePolicyStatement"></a> Declaração de política
 
 ```xml
 <choose>
@@ -78,7 +78,7 @@ A segunda política de fluxo de controle está na seção de saída e aplica con
 ```xml
 <policies>
     <inbound>
-        <set-variable name="isMobile" value="@(context.Request.Headers["User-Agent"].Contains("iPad") || context.Request.Headers["User-Agent"].Contains("iPhone"))" />
+        <set-variable name="isMobile" value="@(context.Request.Headers.GetValueOrDefault("User-Agent","").Contains("iPad") || context.Request.Headers.GetValueOrDefault("User-Agent","").Contains("iPhone"))" />
         <base />
         <choose>
             <when condition="@(context.Variables.GetValueOrDefault<bool>("isMobile"))">
@@ -126,7 +126,7 @@ Este exemplo mostra como executar a filtragem de conteúdo removendo elementos d
 
 ### <a name="elements"></a>Elementos
 
-| Elemento   | Descrição                                                                                                                                                                                                                                                               | Necessária |
+| Elemento   | Descrição                                                                                                                                                                                                                                                               | Obrigatório |
 | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | choose    | Elemento raiz.                                                                                                                                                                                                                                                             | Sim      |
 | when      | A condição a ser usada para as partes `if` ou `ifelse` da política `choose`. Se política `choose` tiver várias seções `when`, elas serão avaliadas sequencialmente. Uma vez que o `condition` de um elemento when é avaliado como `true`, nenhuma outra condição `when` é avaliada. | Sim      |
@@ -134,11 +134,11 @@ Este exemplo mostra como executar a filtragem de conteúdo removendo elementos d
 
 ### <a name="attributes"></a>Atributos
 
-| Atributo                                              | Descrição                                                                                               | Necessária |
+| Atributo                                              | Descrição                                                                                               | Obrigatório |
 | ------------------------------------------------------ | --------------------------------------------------------------------------------------------------------- | -------- |
 | condition="Boolean expression &#124; Boolean constant" | A constante ou expressão booliana a ser avaliada quando a declaração de política contendo `when` é avaliada. | Sim      |
 
-### <a name="usage"></a><a name="ChooseUsage"></a>Usos
+### <a name="usage"></a><a name="ChooseUsage"></a> Usos
 
 Essa política pode ser usada nas [seções](./api-management-howto-policies.md#sections) e nos [escopos](./api-management-howto-policies.md#scopes) da política a seguir.
 
@@ -146,7 +146,7 @@ Essa política pode ser usada nas [seções](./api-management-howto-policies.md#
 
 -   **Escopos da política:** todos os escopos
 
-## <a name="forward-request"></a><a name="ForwardRequest"></a>Encaminhar solicitação
+## <a name="forward-request"></a><a name="ForwardRequest"></a> Encaminhar solicitação
 
 A política `forward-request` encaminha a solicitação de entrada para o serviço de back-end especificado na variável de [contexto](api-management-policy-expressions.md#ContextVariables) de solicitação. A URL do serviço de back-end é especificada nas [configurações](./import-and-publish.md) da API e pode ser alterada usando a política [definir serviço de back-end](api-management-transformation-policies.md) .
 
@@ -156,7 +156,7 @@ A política `forward-request` encaminha a solicitação de entrada para o servi�
 ### <a name="policy-statement"></a>Declaração de política
 
 ```xml
-<forward-request timeout="time in seconds" follow-redirects="false | true" buffer-request-body="false | true" fail-on-error-status-code="false | true"/>
+<forward-request timeout="time in seconds" follow-redirects="false | true" buffer-request-body="false | true" buffer-response="true | false" fail-on-error-status-code="false | true"/>
 ```
 
 ### <a name="examples"></a>Exemplos
@@ -244,17 +244,18 @@ Essa política de nível de operação não encaminha solicitações para o serv
 
 ### <a name="elements"></a>Elementos
 
-| Elemento         | Descrição   | Necessária |
+| Elemento         | Descrição   | Obrigatório |
 | --------------- | ------------- | -------- |
 | forward-request | Elemento raiz. | Sim      |
 
 ### <a name="attributes"></a>Atributos
 
-| Atributo                                     | Descrição                                                                                                                                                                                                                                                                                                    | Necessária | Padrão |
+| Atributo                                     | Descrição                                                                                                                                                                                                                                                                                                    | Obrigatório | Padrão |
 | --------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
 | timeout="integer"                             | A quantidade de tempo em segundos a aguardar que os cabeçalhos de resposta HTTP sejam retornados pelo serviço de back-end antes que um erro de tempo limite seja gerado. O valor mínimo é 0 segundos. Valores maiores que 240 segundos podem não ser respeitados, pois a infraestrutura de rede subjacente pode descartar conexões ociosas após esse tempo. | Não       | Nenhum    |
 | Siga-redirecionamentos = "falso &#124; verdadeiro"          | Especifica se os redirecionamentos do serviço de back-end são seguidos pelo gateway ou retornados ao chamador.                                                                                                                                                                                                    | Não       | false   |
 | buffer-Request-Body = "false &#124; true"       | Quando definido como "true", a solicitação é armazenada em buffer e será reutilizada na [nova tentativa](api-management-advanced-policies.md#Retry).                                                                                                                                                                                               | Não       | false   |
+| buffer-Response = "false &#124; true" | Afeta o processamento de respostas em partes. Quando definido como "false", cada parte recebida do back-end é retornada imediatamente para o chamador. Quando definido como partes "true" é armazenado em buffer (8 KB, a menos que o final do fluxo seja detectado) e, em seguida, retornado ao chamador. | Não | true |
 | falha-em-erro-status-código = "falso &#124; verdadeiro" | Quando definido como true triggers [On-Error](api-management-error-handling-policies.md) seção para códigos de resposta no intervalo de 400 a 599, inclusive.                                                                                                                                                                      | Não       | false   |
 
 ### <a name="usage"></a>Uso
@@ -268,7 +269,7 @@ Essa política pode ser usada nas [seções](./api-management-howto-policies.md#
 
 A política `limit-concurrency` impede que políticas fechadas sejam executadas por mais do que o número especificado de solicitações a qualquer momento. Ao exceder esse número, novos pedidos falharão imediatamente com o código de status 429 Número excessivo de solicitações.
 
-### <a name="policy-statement"></a><a name="LimitConcurrencyStatement"></a>Declaração de política
+### <a name="policy-statement"></a><a name="LimitConcurrencyStatement"></a> Declaração de política
 
 ```xml
 <limit-concurrency key="expression" max-count="number">
@@ -296,13 +297,13 @@ O exemplo a seguir demonstra como limitar o número de solicitações encaminhad
 
 ### <a name="elements"></a>Elementos
 
-| Elemento           | Descrição   | Necessária |
+| Elemento           | Descrição   | Obrigatório |
 | ----------------- | ------------- | -------- |
 | limit-concurrency | Elemento raiz. | Sim      |
 
 ### <a name="attributes"></a>Atributos
 
-| Atributo | Descrição                                                                                        | Necessária | Padrão |
+| Atributo | Descrição                                                                                        | Obrigatório | Padrão |
 | --------- | -------------------------------------------------------------------------------------------------- | -------- | ------- |
 | chave       | Uma cadeia de caracteres. Expressão permitida. Especifica o escopo de simultaneidade. Pode ser compartilhado por várias políticas. | Sim      | N/D     |
 | max-count | Um inteiro. Especifica um número máximo de solicitações que são permitidas para inserir a política.           | Sim      | N/D     |
@@ -315,7 +316,7 @@ Essa política pode ser usada nas [seções](./api-management-howto-policies.md#
 
 -   **Escopos da política:** todos os escopos
 
-## <a name="log-to-event-hub"></a><a name="log-to-eventhub"></a>Registrar no Hub de eventos
+## <a name="log-to-event-hub"></a><a name="log-to-eventhub"></a> Registrar no Hub de eventos
 
 A política `log-to-eventhub` envia mensagens no formato especificado para um Hub de Eventos definido por uma entidade Logger. Como o nome sugere, a política é usada para salvar informações de contexto de solicitação ou de resposta solicitadas para a análise online ou offline.
 
@@ -349,13 +350,13 @@ Qualquer cadeia de caracteres pode ser usada como o valor a ser registrado em Hu
 
 ### <a name="elements"></a>Elementos
 
-| Elemento         | Descrição                                                                     | Necessária |
+| Elemento         | Descrição                                                                     | Obrigatório |
 | --------------- | ------------------------------------------------------------------------------- | -------- |
 | log-to-eventhub | Elemento raiz. O valor desse elemento é a cadeia de caracteres a ser registrada no seu hub de eventos. | Sim      |
 
 ### <a name="attributes"></a>Atributos
 
-| Atributo     | Descrição                                                               | Necessária                                                             |
+| Atributo     | Descrição                                                               | Obrigatório                                                             |
 | ------------- | ------------------------------------------------------------------------- | -------------------------------------------------------------------- |
 | logger-id     | A ID do agente de log registrado com o serviço de gerenciamento de API.         | Sim                                                                  |
 | partition-id  | Especifica o índice da partição em que as mensagens são enviadas.             | Opcional. Esse atributo não poderá ser usado se `partition-key` for usado. |
@@ -394,13 +395,13 @@ status code and media type. If no example or schema found, the content is empty.
 
 ### <a name="elements"></a>Elementos
 
-| Elemento       | Descrição   | Necessária |
+| Elemento       | Descrição   | Obrigatório |
 | ------------- | ------------- | -------- |
 | mock-response | Elemento raiz. | Sim      |
 
 ### <a name="attributes"></a>Atributos
 
-| Atributo    | Descrição                                                                                           | Necessária | Padrão |
+| Atributo    | Descrição                                                                                           | Obrigatório | Padrão |
 | ------------ | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
 | status-code  | Especifica o código de status da resposta e é usado para selecionar o exemplo ou o esquema correspondente.                 | Não       | 200     |
 | content-type | Especifica o valor de cabeçalho da resposta `Content-Type` e é usado para selecionar o exemplo ou o esquema correspondente. | Não       | Nenhum    |
@@ -413,7 +414,7 @@ Essa política pode ser usada nas [seções](./api-management-howto-policies.md#
 
 -   **Escopos da política:** todos os escopos
 
-## <a name="retry"></a><a name="Retry"></a>Repita
+## <a name="retry"></a><a name="Retry"></a> Repita
 
 A `retry` política executa suas políticas filho uma vez e, em seguida, tenta novamente a execução até que a nova tentativa `condition` se torne `false` ou tente se `count` esgotar.
 
@@ -453,16 +454,16 @@ No exemplo a seguir o encaminhamento de solicitação será repetido até dez ve
 
 ### <a name="elements"></a>Elementos
 
-| Elemento | Descrição                                                         | Necessária |
+| Elemento | Descrição                                                         | Obrigatório |
 | ------- | ------------------------------------------------------------------- | -------- |
 | tentar novamente   | Elemento raiz. Pode conter quaisquer outras políticas como seus elementos filho. | Sim      |
 
 ### <a name="attributes"></a>Atributos
 
-| Atributo        | Descrição                                                                                                                                           | Necessária | Padrão |
+| Atributo        | Descrição                                                                                                                                           | Obrigatório | Padrão |
 | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
 | condition        | Uma [expressão](api-management-policy-expressions.md) ou literal booliano especificando se as novas tentativas devem ser paradas (`false`) ou continuadas (`true`).      | Sim      | N/D     |
-| contagem            | Um número positivo que especifica o número máximo de novas tentativas a serem realizadas.                                                                                | Sim      | N/D     |
+| count            | Um número positivo que especifica o número máximo de novas tentativas a serem realizadas.                                                                                | Sim      | N/D     |
 | intervalo         | Um número positivo, em segundos, que especifica o intervalo de espera entre as novas tentativas.                                                                 | Sim      | N/D     |
 | max-interval     | Um número positivo, em segundos, que especifica o intervalo de espera máximo entre as novas tentativas. Ele é usado para implementar um algoritmo de nova tentativa exponencial. | Não       | N/D     |
 | delta            | Um número positivo, em segundos, que especifica o incremento do intervalo de espera. Ele é usado para implementar algoritmos de nova tentativa exponenciais e lineares.             | Não       | N/D     |
@@ -510,7 +511,7 @@ A política `return-response` anula a execução do pipeline e retorna uma respo
 
 ### <a name="elements"></a>Elementos
 
-| Elemento         | Descrição                                                                               | Necessária |
+| Elemento         | Descrição                                                                               | Obrigatório |
 | --------------- | ----------------------------------------------------------------------------------------- | -------- |
 | return-response | Elemento raiz.                                                                             | Sim      |
 | set-header      | Uma declaração de política [set-header](api-management-transformation-policies.md#SetHTTPheader). | Não       |
@@ -519,7 +520,7 @@ A política `return-response` anula a execução do pipeline e retorna uma respo
 
 ### <a name="attributes"></a>Atributos
 
-| Atributo              | Descrição                                                                                                                                                                          | Necessária  |
+| Atributo              | Descrição                                                                                                                                                                          | Obrigatório  |
 | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------- |
 | response-variable-name | O nome da variável de contexto referenciada de, por exemplo, uma política [send-request](api-management-advanced-policies.md#SendRequest) upstream e que contém um objeto `Response` | Opcional. |
 
@@ -580,7 +581,7 @@ Essa política de exemplo mostra um exemplo de uso da política `send-one-way-re
 
 ### <a name="elements"></a>Elementos
 
-| Elemento                    | Descrição                                                                                                 | Necessária                        |
+| Elemento                    | Descrição                                                                                                 | Obrigatório                        |
 | -------------------------- | ----------------------------------------------------------------------------------------------------------- | ------------------------------- |
 | send-one-way-request       | Elemento raiz.                                                                                               | Sim                             |
 | url                        | A URL da solicitação.                                                                                     | Não se mode=copy, caso contrário, sim. |
@@ -591,7 +592,7 @@ Essa política de exemplo mostra um exemplo de uso da política `send-one-way-re
 
 ### <a name="attributes"></a>Atributos
 
-| Atributo     | Descrição                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Necessária | Padrão  |
+| Atributo     | Descrição                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Obrigatório | Padrão  |
 | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- |
 | mode="string" | Determina se esta é uma nova solicitação ou uma cópia da solicitação atual. No modo de saída, mode=copy não inicializa o corpo da solicitação.                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Não       | Novo      |
 | name          | Especifica o nome do cabeçalho a ser definido.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Sim      | N/D      |
@@ -664,7 +665,7 @@ Este exemplo mostra uma maneira de verificar um token de referência com um serv
 
 ### <a name="elements"></a>Elementos
 
-| Elemento                    | Descrição                                                                                                 | Necessária                        |
+| Elemento                    | Descrição                                                                                                 | Obrigatório                        |
 | -------------------------- | ----------------------------------------------------------------------------------------------------------- | ------------------------------- |
 | send-request               | Elemento raiz.                                                                                               | Sim                             |
 | url                        | A URL da solicitação.                                                                                     | Não se mode=copy, caso contrário, sim. |
@@ -675,7 +676,7 @@ Este exemplo mostra uma maneira de verificar um token de referência com um serv
 
 ### <a name="attributes"></a>Atributos
 
-| Atributo                       | Descrição                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Necessária | Padrão  |
+| Atributo                       | Descrição                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Obrigatório | Padrão  |
 | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- |
 | mode="string"                   | Determina se esta é uma nova solicitação ou uma cópia da solicitação atual. No modo de saída, mode=copy não inicializa o corpo da solicitação.                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Não       | Novo      |
 | response-variable-name="string" | O nome da variável de contexto que receberá um objeto de resposta. Se a variável não existir, ela será criada após a execução bem-sucedida da política e ficará acessível por meio da [`context.Variable`](api-management-policy-expressions.md#ContextVariables) coleção.                                                                                                                                                                                                                                                                                                                          | Sim      | N/D      |
@@ -714,13 +715,13 @@ Observe o uso de [propriedades](api-management-howto-properties.md) como valores
 
 ### <a name="elements"></a>Elementos
 
-| Elemento | Descrição  | Necessária |
+| Elemento | Descrição  | Obrigatório |
 | ------- | ------------ | -------- |
 | proxy   | Elemento raiz | Sim      |
 
 ### <a name="attributes"></a>Atributos
 
-| Atributo         | Descrição                                            | Necessária | Padrão |
+| Atributo         | Descrição                                            | Obrigatório | Padrão |
 | ----------------- | ------------------------------------------------------ | -------- | ------- |
 | url="string"      | URL do proxy no formato de http://host:port.             | Sim      | N/D     |
 | username="string" | Nome de usuário a ser usado para autenticação com o proxy. | Não       | N/D     |
@@ -777,7 +778,7 @@ Essa política de exemplo que usa a política `set-method` mostra um exemplo de 
 
 ### <a name="elements"></a>Elementos
 
-| Elemento    | Descrição                                                       | Necessária |
+| Elemento    | Descrição                                                       | Obrigatório |
 | ---------- | ----------------------------------------------------------------- | -------- |
 | set-method | Elemento raiz. O valor do elemento especifica o método HTTP. | Sim      |
 
@@ -820,13 +821,13 @@ Este exemplo mostra como retornar uma resposta 401, se o token de autorização 
 
 ### <a name="elements"></a>Elementos
 
-| Elemento    | Descrição   | Necessária |
+| Elemento    | Descrição   | Obrigatório |
 | ---------- | ------------- | -------- |
 | set-status | Elemento raiz. | Sim      |
 
 ### <a name="attributes"></a>Atributos
 
-| Atributo       | Descrição                                                | Necessária | Padrão |
+| Atributo       | Descrição                                                | Obrigatório | Padrão |
 | --------------- | ---------------------------------------------------------- | -------- | ------- |
 | code="integer"  | O código de status HTTP a ser retornado.                            | Sim      | N/D     |
 | reason="string" | Uma descrição do motivo para retornar o código de status. | Sim      | N/D     |
@@ -838,11 +839,11 @@ Essa política pode ser usada nas [seções](./api-management-howto-policies.md#
 -   **Seções de política:** saída, back-end, em caso de erro
 -   **Escopos da política:** todos os escopos
 
-## <a name="set-variable"></a><a name="set-variable"></a>Definir variável
+## <a name="set-variable"></a><a name="set-variable"></a> Definir variável
 
 A política `set-variable` declara uma variável de [contexto](api-management-policy-expressions.md#ContextVariables) e atribui a ela um valor especificado por meio de uma [expressão](api-management-policy-expressions.md) ou literal de cadeia de caracteres. Se a expressão contiver um literal ele será convertido em uma cadeia de caracteres e o tipo do valor será `System.String`.
 
-### <a name="policy-statement"></a><a name="set-variablePolicyStatement"></a>Declaração de política
+### <a name="policy-statement"></a><a name="set-variablePolicyStatement"></a> Declaração de política
 
 ```xml
 <set-variable name="variable name" value="Expression | String literal" />
@@ -853,12 +854,12 @@ A política `set-variable` declara uma variável de [contexto](api-management-po
 O exemplo a seguir demonstra uma política de definir a variável na seção de entrada. Esta política de variável de conjunto cria uma variável de [contexto](api-management-policy-expressions.md#ContextVariables)`isMobile` booliano, que é definida como true se o cabeçalho de solicitação `User-Agent` contiver o texto `iPad` ou `iPhone`.
 
 ```xml
-<set-variable name="IsMobile" value="@(context.Request.Headers["User-Agent"].Contains("iPad") || context.Request.Headers["User-Agent"].Contains("iPhone"))" />
+<set-variable name="IsMobile" value="@(context.Request.Headers.GetValueOrDefault("User-Agent","").Contains("iPad") || context.Request.Headers.GetValueOrDefault("User-Agent","").Contains("iPhone"))" />
 ```
 
 ### <a name="elements"></a>Elementos
 
-| Elemento      | Descrição   | Necessária |
+| Elemento      | Descrição   | Obrigatório |
 | ------------ | ------------- | -------- |
 | set-variable | Elemento raiz. | Sim      |
 
@@ -912,7 +913,7 @@ As expressões usadas na política `set-variable` devem retornar um dos seguinte
 -   System.Char?
 -   System.DateTime?
 
-## <a name="trace"></a><a name="Trace"></a>Rastreou
+## <a name="trace"></a><a name="Trace"></a> Rastreou
 
 A `trace` política adiciona um rastreamento personalizado à saída do Inspetor de API, Application insights telemetrias e/ou logs de recursos.
 
@@ -942,7 +943,7 @@ A `trace` política adiciona um rastreamento personalizado à saída do Inspetor
 
 ### <a name="elements"></a>Elementos
 
-| Elemento  | Descrição                                                                                                                                          | Necessária |
+| Elemento  | Descrição                                                                                                                                          | Obrigatório |
 | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | rastreamento    | Elemento raiz.                                                                                                                                        | Sim      |
 | message  | Uma cadeia de caracteres ou expressão a ser registrada.                                                                                                                 | Sim      |
@@ -950,7 +951,7 @@ A `trace` política adiciona um rastreamento personalizado à saída do Inspetor
 
 ### <a name="attributes"></a>Atributos
 
-| Atributo | Descrição                                                                                                               | Necessária | Padrão |
+| Atributo | Descrição                                                                                                               | Obrigatório | Padrão |
 | --------- | ------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
 | source    | Literal de cadeia de caracteres significativo para o visualizador de rastreamento e especificando a fonte da mensagem.                                   | Sim      | N/D     |
 | severidade  | Especifica o nível de severidade do rastreamento. Os valores permitidos são `verbose` , `information` , `error` (do mais baixo ao mais alto). | Não       | Detalhado |
@@ -965,7 +966,7 @@ Essa política pode ser usada nas [seções](./api-management-howto-policies.md#
 
 -   **Escopos da política:** todos os escopos
 
-## <a name="wait"></a><a name="Wait"></a>Esperado
+## <a name="wait"></a><a name="Wait"></a> Esperado
 
 A política `wait` executa suas políticas filho imediatas em paralelo e aguarda que todas ou uma das políticas filho imediatas sejam concluídas antes de ser concluída. A política de espera pode ter como suas políticas de filho imediatas as políticas de [Enviar solicitação](api-management-advanced-policies.md#SendRequest), [Obter valor do cache](api-management-caching-policies.md#GetFromCacheByKey) e [Controlar fluxo](api-management-advanced-policies.md#choose).
 
@@ -1017,15 +1018,15 @@ No exemplo a seguir há duas políticas `choose` como políticas filho imediatas
 
 ### <a name="elements"></a>Elementos
 
-| Elemento | Descrição                                                                                                   | Necessária |
+| Elemento | Descrição                                                                                                   | Obrigatório |
 | ------- | ------------------------------------------------------------------------------------------------------------- | -------- |
 | wait    | Elemento raiz. Pode conter como elementos filho somente as políticas `send-request`, `cache-lookup-value` e `choose`. | Sim      |
 
 ### <a name="attributes"></a>Atributos
 
-| Atributo | Descrição                                                                                                                                                                                                                                                                                                                                                                                                            | Necessária | Padrão |
+| Atributo | Descrição                                                                                                                                                                                                                                                                                                                                                                                                            | Obrigatório | Padrão |
 | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
-| for       | Determina se a política `wait` aguarda todas as políticas filho imediatas a serem concluídas ou apenas uma. Valores permitidos são:<br /><br /> - `all` – aguarda todas as políticas filho imediatas serem concluídas<br />-Any-aguardar a conclusão de qualquer política filho imediata. Concluída a primeira política filho imediata, a política `wait` é concluída e a execução de qualquer outra política filho imediata é encerrada. | Não       | all     |
+| para       | Determina se a política `wait` aguarda todas as políticas filho imediatas a serem concluídas ou apenas uma. Valores permitidos são:<br /><br /> - `all` – aguarda todas as políticas filho imediatas serem concluídas<br />-Any-aguardar a conclusão de qualquer política filho imediata. Concluída a primeira política filho imediata, a política `wait` é concluída e a execução de qualquer outra política filho imediata é encerrada. | Não       | all     |
 
 ### <a name="usage"></a>Uso
 
@@ -1041,4 +1042,4 @@ Para obter mais informações sobre como trabalhar com políticas, consulte:
 -   [Políticas no Gerenciamento de API](api-management-howto-policies.md)
 -   [Expressões de política](api-management-policy-expressions.md)
 -   [Referência de Política](./api-management-policies.md) para uma lista completa das instruções de política e suas configurações
--   [Exemplos de política](policy-samples.md)
+-   [Exemplos de política](./policy-reference.md)

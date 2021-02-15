@@ -1,7 +1,7 @@
 ---
-title: Tutorial de aplicativo de página única Angular – Azure
+title: 'Tutorial: Criar um aplicativo Angular que usa a plataforma de identidade da Microsoft para autenticação | Azure'
 titleSuffix: Microsoft identity platform
-description: Saiba como aplicativos SPA Angular podem chamar uma API que exige tokens de acesso do ponto de extremidade da plataforma de identidade da Microsoft.
+description: Neste tutorial, você criará um SPA (aplicativo de página única) Angular que usa a plataforma de identidade da Microsoft para conectar usuários e receberá um token de acesso para chamar a API do Microsoft Graph em nome deles.
 services: active-directory
 author: hamiltonha
 manager: CelesteDG
@@ -11,31 +11,37 @@ ms.topic: tutorial
 ms.workload: identity
 ms.date: 03/05/2020
 ms.author: hahamil
-ms.custom: aaddev, identityplatformtop40, devx-track-javascript
-ms.openlocfilehash: a58da8b11876d662173ae83de43d8ed74ab43e93
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.custom: aaddev, identityplatformtop40, devx-track-js
+ms.openlocfilehash: 105353598a2af60c407bacf02b4527b2de84e450
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88118273"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756153"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-an-angular-single-page-application"></a>Tutorial: Conectar usuários e chamar a API do Microsoft Graph de um aplicativo de página única Angular
 
-Este tutorial demonstra como um aplicativo SPA (aplicativo de página única) Angular pode:
-- Conectar contas pessoais, contas corporativas ou de estudante.
-- Adquirir um token de acesso.
-- Chamar a API do Microsoft Graph ou outras APIs que exigem tokens de acesso do *ponto de extremidade da plataforma de identidade da Microsoft*.
+Neste tutorial, você criará um SPA (aplicativo de página única) Angular que conecta usuários e chama a API do Microsoft Graph.
 
->[!NOTE]
->Este tutorial explica como criar um SPA Angular usando a MSAL (Biblioteca de Autenticação da Microsoft). Se desejar baixar um aplicativo de exemplo, confira o [guia de início rápido](quickstart-v2-angular.md).
+Neste tutorial:
+
+> [!div class="checklist"]
+> * Crie um projeto do Angular com `npm`
+> * Registrar o aplicativo no portal do Azure
+> * Adicionar código para entrada e saída do usuário
+> * Adicionar código para chamar a API do Microsoft Graph
+> * Testar o aplicativo
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+* [Node.js](https://nodejs.org/en/download/) para executar um servidor Web local.
+* [Visual Studio Code](https://code.visualstudio.com/download) ou outro editor para modificar arquivos de projeto.
 
 ## <a name="how-the-sample-app-works"></a>Como o aplicativo de exemplo funciona
 
 ![Diagrama que mostra como funciona o aplicativo de exemplo gerado neste tutorial](./media/tutorial-v2-angular/diagram-auth-flow-spa-angular.svg)
 
-### <a name="more-information"></a>Mais informações
-
-O aplicativo de exemplo criado neste tutorial permite que um SPA Angular consulte a API do Microsoft Graph ou uma API Web que aceita tokens do ponto de extremidade da plataforma de identidade da Microsoft. O MSAL para a biblioteca do Angular é um wrapper da biblioteca MSAL.js principal. Ele permite que aplicativos Angular (6 em diante) autentiquem usuários corporativos usando o Microsoft Azure Active Directory, usuários com conta Microsoft e usuários com identidade social (como Facebook, Google, LinkedIn). A biblioteca também permite que os aplicativos tenham acesso aos serviços em nuvem da Microsoft ou ao Microsoft Graph.
+O aplicativo de exemplo criado neste tutorial permite que um SPA Angular consulte a API do Microsoft Graph ou uma API Web que aceita tokens emitidos pela plataforma de identidade da Microsoft. Ele usa a MSAL (Biblioteca de Autenticação da Microsoft) para o Angular, um wrapper da biblioteca MSAL.js de núcleo. A MSAL para Angular permite que aplicativos Angular 6 em diante autentiquem usuários corporativos usando o Azure AD (Azure Active Directory), bem como usuários com contas Microsoft e usuários com identidades sociais, como Facebook, Google e LinkedIn. A biblioteca também permite que os aplicativos tenham acesso aos serviços em nuvem da Microsoft e ao Microsoft Graph.
 
 Nesse cenário, depois que um usuário se conecta, um token de acesso é adicionado às solicitações HTTP por meio do cabeçalho de autorização. A aquisição e a renovação de tokens são manipuladas pela MSAL.
 
@@ -48,13 +54,6 @@ Este tutorial usa a seguinte biblioteca:
 |[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)|Biblioteca de Autenticação da Microsoft para Wrapper Angular JavaScript|
 
 Você pode localizar o código-fonte da biblioteca MSAL.js no repositório [AzureAD/microsoft-authentication-library-for-js](https://github.com/AzureAD/microsoft-authentication-library-for-js) no GitHub.
-
-## <a name="prerequisites"></a>Pré-requisitos
-
-Para este tutorial, você precisa do:
-
-* Um servidor Web local, como [Node.js](https://nodejs.org/en/download/). As instruções neste tutorial se baseiam no Node.js.
-* Um IDE (ambiente de desenvolvimento integrado), como o [Visual Studio Code](https://code.visualstudio.com/download), para editar os arquivos de projeto.
 
 ## <a name="create-your-project"></a>Criar seu projeto
 
@@ -195,7 +194,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 }
 ```
 
-Em seguida, forneça um mapa dos recursos protegidos para `MsalModule.forRoot()` como `protectedResourceMap` e inclua esses escopos no `consentScopes`:
+Em seguida, forneça um mapa dos recursos protegidos para `MsalModule.forRoot()` como `protectedResourceMap` e inclua esses escopos em `consentScopes`. As URLs fornecidas na coleção `protectedResourceMap` diferenciam maiúsculas de minúsculas.
 
 ```javascript
 @NgModule({
@@ -272,7 +271,7 @@ Por exemplo:
 
 #### <a name="get-a-user-token-interactively"></a>Obter um token de usuário interativamente
 
-Às vezes, você precisa que o usuário interaja com o ponto de extremidade da plataforma de identidade da Microsoft. Por exemplo:
+Às vezes, você precisa que o usuário interaja com a plataforma de identidade da Microsoft. Por exemplo:
 
 * Os usuários podem precisar reinserir as credenciais porque a senha expirou.
 * Seu aplicativo está solicitando acesso a escopos de recursos adicionais com os quais o usuário precisa concordar.
@@ -280,7 +279,7 @@ Por exemplo:
 
 O padrão recomendado para a maioria dos aplicativos é chamar `acquireTokenSilent` primeiro, depois capturar a exceção e, em seguida, chamar `acquireTokenPopup` (ou `acquireTokenRedirect`) para iniciar uma solicitação interativa.
 
-Chamar `acquireTokenPopup` resulta em uma janela pop-up de credenciais. Como alternativa, `acquireTokenRedirect` redireciona os usuários para o ponto de extremidade da plataforma de identidade da Microsoft. Nessa janela, os usuários precisam confirmar suas credenciais, dar consentimento ao recurso necessário ou realizar a autenticação de dois fatores.
+Chamar `acquireTokenPopup` resulta em uma janela pop-up de credenciais. Como alternativa, `acquireTokenRedirect` redireciona os usuários para a plataforma de identidade da Microsoft. Nessa janela, os usuários precisam confirmar suas credenciais, dar consentimento ao recurso necessário ou realizar a autenticação de dois fatores.
 
 ```javascript
   const requestObj = {
@@ -343,6 +342,7 @@ Se uma API de back-end não exigir um escopo (não recomendado), você poderá u
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se você é novo no gerenciamento de identidade e acesso, temos vários artigos para ajudar você a aprender conceitos de autenticação modernos, começando com [autenticação vs. autorização](authentication-vs-authorization.md).
+Aprofunde-se no desenvolvimento de SPAs (aplicativos de página única) na plataforma de identidade da Microsoft em nossa série de artigos de várias partes.
 
-Se você quiser aprofundar-se no desenvolvimento de aplicativos de página única na plataforma de identidade da Microsoft, a série de artigos [Cenário: aplicativo de página única](scenario-spa-overview.md) em várias partes pode ajudar você a começar.
+> [!div class="nextstepaction"]
+> [Cenário: Aplicativo de página única](scenario-spa-overview.md)

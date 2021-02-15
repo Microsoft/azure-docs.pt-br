@@ -3,17 +3,18 @@ title: Visão geral do agente de VM Linux do Azure
 description: Saiba como instalar e configurar o agente Linux (waagent) para gerenciar sua interação de máquina virtual com os Recursos de Infraestrutura do Azure.
 author: axayjo
 ms.service: virtual-machines-linux
+ms.subservice: extensions
 ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 10/17/2016
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fda228f6a24e981bb848fbb106709aaa3d8e8613
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: a4a391e52f80ec171d48718a18764f0f88f34133
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87269114"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016481"
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Noções básicas e uso do Agente Linux do Azure
 
@@ -53,7 +54,7 @@ O Agente Linux do Microsoft Azure (waagent) gerencia o provisionamento de Linux 
 * **Extensão de VM**
   
   * Injete o componente criado pela Microsoft e seus Parceiros na VM do Linux (IaaS) para habilitar o software e a automação da configuração
-  * Implementação de referência de extensão de VM em[https://github.com/Azure/azure-linux-extensions](https://github.com/Azure/azure-linux-extensions)
+  * Implementação de referência de extensão de VM em [https://github.com/Azure/azure-linux-extensions](https://github.com/Azure/azure-linux-extensions)
 
 ## <a name="communication"></a>Comunicação
 O fluxo de informações da plataforma para o agente ocorre por meio de dois canais:
@@ -92,6 +93,9 @@ O agente do Linux depende de alguns pacotes de sistema para funcionar corretamen
 * Ferramentas de processamento de texto: sed, grep
 * Ferramentas de rede: roteamento ip
 * Suporte a kernel para montar sistemas de arquivos UDF.
+
+Verifique se sua VM tem acesso ao endereço IP 168.63.129.16. Para obter mais informações, consulte [o que é o endereço IP 168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md).
+
 
 ## <a name="installation"></a>Instalação
 Instalação usando um RPM ou um pacote DEB do repositório de pacotes da distribuição é o método preferencial para instalar e atualizar o Azure do Agente Linux do Azure. Todos os [provedores de distribuição aprovados](../linux/endorsed-distros.md) integram o pacote do agente Linux do Azure em suas imagens e repositórios.

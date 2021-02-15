@@ -5,14 +5,14 @@ services: application gateway
 author: amsriva
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 11/16/2019
+ms.date: 12/17/2020
 ms.author: amsriva
-ms.openlocfilehash: 16c6dd28d47573c2ad5b0d5a331b0dc48e7aacef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 77239cd8586b8fb07abf6862be436979541bdb99
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253623"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97631683"
 ---
 # <a name="application-gateway-tls-policy-overview"></a>Visão geral da política TLS do gateway de aplicativo
 
@@ -23,6 +23,18 @@ A política TLS inclui o controle da versão do protocolo TLS, bem como os conju
 ## <a name="predefined-tls-policy"></a>Política TLS predefinida
 
 O Gateway de Aplicativo tem três políticas de segurança predefinidos. Você pode configurar o gateway com alguma dessas políticas para obter o nível adequado de segurança. Os nomes de política são anotados pelo ano e mês no qual eles foram configurados. Cada política oferece versões de protocolo TLS e conjuntos de codificação diferentes. Recomendamos que você use as políticas de TLS mais recentes para garantir a melhor segurança de TLS.
+
+## <a name="known-issue"></a>Problema conhecido
+O gateway de aplicativo v2 não oferece suporte às seguintes codificações DHE e elas não serão usadas para as conexões TLS com clientes, mesmo que sejam mencionadas nas políticas predefinidas. Em vez de codificações DHE, são recomendadas codificações ECDHE seguras e mais rápidas.
+
+- TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
+- TLS_DHE_RSA_WITH_AES_128_CBC_SHA
+- TLS_DHE_RSA_WITH_AES_256_GCM_SHA384
+- TLS_DHE_RSA_WITH_AES_256_CBC_SHA
+- TLS_DHE_DSS_WITH_AES_128_CBC_SHA256
+- TLS_DHE_DSS_WITH_AES_128_CBC_SHA
+- TLS_DHE_DSS_WITH_AES_256_CBC_SHA256
+- TLS_DHE_DSS_WITH_AES_256_CBC_SHA
 
 ### <a name="appgwsslpolicy20150501"></a>AppGwSslPolicy20150501
 
@@ -54,6 +66,10 @@ O Gateway de Aplicativo tem três políticas de segurança predefinidos. Você p
 ## <a name="custom-tls-policy"></a>Política TLS personalizada
 
 Se uma política TLS predefinida precisar ser configurada para seus requisitos, você deverá definir sua própria política TLS personalizada. Com uma política TLS personalizada, você tem controle total sobre a versão mínima do protocolo TLS para oferecer suporte, bem como os conjuntos de criptografia com suporte e sua ordem de prioridade.
+
+> [!IMPORTANT]
+> Se você estiver usando uma política SSL personalizada no SKU do gateway de aplicativo V1 (Standard ou WAF), certifique-se de adicionar a codificação obrigatória "TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256" à lista. Essa codificação é necessária para habilitar as métricas e o registro em log no SKU do gateway de aplicativo v1.
+> Isso não é obrigatório para o SKU do gateway de aplicativo v2 (Standard_v2 ou WAF_v2).
  
 ### <a name="tlsssl-protocol-versions"></a>Versões do protocolo TLS/SSL
 
@@ -97,17 +113,6 @@ O Gateway de Aplicativo dá suporte aos seguintes conjuntos de criptografia dos 
 
 > [!NOTE]
 > Os conjuntos de criptografia TLS usados para a conexão também são baseados no tipo de certificado que está sendo usado. No cliente para conexões de gateway de aplicativo, os conjuntos de codificação usados são baseados no tipo de certificados de servidor no ouvinte do gateway de aplicativo. No gateway de aplicativo para conexões de pool de back-end, os conjuntos de codificação usados são baseados no tipo de certificados de servidor nos servidores do pool de back-end.
-
-## <a name="known-issue"></a>Problema conhecido
-Atualmente, o gateway de aplicativo v2 não oferece suporte às seguintes codificações:
-- DHE-RSA-AES128-GCM-SHA256
-- DHE-RSA-AES128-SHA
-- DHE-RSA-AES256-GCM-SHA384
-- DHE-RSA-AES256-SHA
-- DHE-DSS-AES128-SHA256
-- DHE-DSS-AES128-SHA
-- DHE-DSS-AES256-SHA256
-- DHE-DSS-AES256-SHA
 
 ## <a name="next-steps"></a>Próximas etapas
 

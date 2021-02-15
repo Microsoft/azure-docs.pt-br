@@ -1,18 +1,16 @@
 ---
-title: Monitorar aplicativos Python com Azure Monitor (versão prévia) | Microsoft Docs
+title: Monitorar aplicativos Python com o Azure Monitor | Microsoft Docs
 description: Fornece instruções para conectar o Python OpenCensus com o Azure Monitor
 ms.topic: conceptual
-author: lzchen
-ms.author: lechen
-ms.date: 10/11/2019
+ms.date: 09/24/2020
 ms.reviewer: mbullwin
 ms.custom: devx-track-python
-ms.openlocfilehash: ac7569a48e4bab25d4db17f2fc6dd92b31afcab5
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 1e6376cd8389a4f1f0defebce0a2c7b6d0f9deed
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87850042"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91323258"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application"></a>Configurar Azure Monitor para seu aplicativo Python
 
@@ -31,8 +29,6 @@ Instale exportadores OpenCensus Azure Monitor:
 ```console
 python -m pip install opencensus-ext-azure
 ```
-
-Para obter uma lista completa de pacotes e integrações, consulte [Pacotes OpenCensus](./nuget.md#common-packages-for-python-using-opencensus).
 
 > [!NOTE]
 > O comando `python -m pip install opencensus-ext-azure` pressupõe que você tenha uma variável de ambiente `PATH` definida para sua instalação do Python. Se você não tiver configurado essa variável, precisará fornecer o caminho completo do diretório para o local em que o executável do Python está localizado. Execute um comando como este: `C:\Users\Administrator\AppData\Local\Programs\Python\Python37-32\python.exe -m pip install opencensus-ext-azure`.

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/23/2020
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: f312170fd357e64e2fbd7d455987993cdad76123
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 62f89106538ab7f57047e211fc8715878f889af1
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87837101"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684552"
 ---
 # <a name="ephemeral-os-disks-for-azure-vms"></a>Discos do sistema operacional efêmero para VMs do Azure
 
@@ -26,7 +26,7 @@ Os principais recursos dos discos efêmeras são:
 - Menor latência, semelhante a um disco temporário. 
 - Discos do sistema operacional efêmero são gratuitos, você não incorre em nenhum custo de armazenamento para o disco do sistema operacional.
 - Eles estão disponíveis em todas as regiões do Azure. 
-- O disco do so efêmero tem suporte pela [Galeria de imagens compartilhadas](./linux/shared-image-galleries.md). 
+- O disco do so efêmero tem suporte pela [Galeria de imagens compartilhadas](./shared-image-galleries.md). 
  
 
  
@@ -42,7 +42,8 @@ Principais diferenças entre discos do sistema operacional persistentes e efême
 | **Estado de parada desalocada**      | As VMs e as instâncias do conjunto de dimensionamento podem ser interrompidas e reiniciadas a partir do estado de parada/desalocada | VMs e instâncias do conjunto de dimensionamento não podem ser interrompidas-desalocadas                                  |
 | **Suporte a disco do so especializado** | Sim                                                                                          | Não                                                                                 |
 | **Redimensionamento de disco do so**              | Com suporte durante a criação da VM e depois que a VM é parada-desalocada                                | Com suporte somente durante a criação da VM                                                  |
-| **Redimensionando para um novo tamanho de VM**   | OS dados do disco do sistema operacional são preservados                                                                    | Os dados no disco do sistema operacional são excluídos, o sistema operacional é reprovisionado                                      |
+| **Redimensionando para um novo tamanho de VM**   | OS dados do disco do sistema operacional são preservados                                                                    | Os dados no disco do sistema operacional são excluídos, o sistema operacional é reprovisionado       
+| **Posicionamento do arquivo de paginação**   | Para o Windows, o arquivo de paginação é armazenado no disco de recursos                                              | Para o Windows, o arquivo de paginação é armazenado no disco do sistema operacional   |
 
 ## <a name="size-requirements"></a>Requisitos de tamanho
 
@@ -51,7 +52,7 @@ Você pode implantar as imagens da VM e da instância até o tamanho do cache da
 Os discos efêmeros também exigem que o tamanho da VM dê suporte ao armazenamento Premium. Os tamanhos geralmente (mas nem sempre) têm um `s` no nome, como DSv2 e EsV3. Para obter mais informações, consulte [tamanhos de VM do Azure](sizes.md) para obter detalhes sobre quais tamanhos dão suporte ao armazenamento Premium.
 
 ## <a name="preview---ephemeral-os-disks-can-now-be-stored-on-temp-disks"></a>Visualização-OS discos do sistema operacional efêmero agora podem ser armazenados em discos temporários
-Os discos do sistema operacional efêmero agora podem ser armazenados no disco temporário/de recurso da VM, além do cache da VM. Então, agora você pode usar discos do sistema operacional efêmero com a VM que não tem um cache ou tem cache insuficiente, mas tem um disco temporário/de recursos para armazenar o disco do sistema operacional efêmero, como Dav3, Dav4, Eav4 e Eav3. Se uma VM tiver um espaço temporário e cache suficiente, você também poderá especificar onde deseja armazenar o disco do sistema operacional efêmero usando uma nova propriedade chamada [DiffDiskPlacement](/rest/api/compute/virtualmachines/list#diffdiskplacement). Esse recurso está atualmente na visualização. Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Para começar, [solicite o acesso](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR6cQw0fZJzdIsnbfbI13601URTBCRUZPMkQwWFlCOTRIMFBSNkM1NVpQQS4u).
+Os discos do sistema operacional efêmero agora podem ser armazenados no disco temporário/de recurso da VM, além do cache da VM. Então, agora você pode usar discos do sistema operacional efêmero com a VM que não tem um cache ou tem cache insuficiente, mas tem um disco temporário/de recursos para armazenar o disco do sistema operacional efêmero, como Dav3, Dav4, Eav4 e Eav3. Se uma VM tiver um espaço temporário e cache suficiente, você também poderá especificar onde deseja armazenar o disco do sistema operacional efêmero usando uma nova propriedade chamada [DiffDiskPlacement](/rest/api/compute/virtualmachines/list#diffdiskplacement). Com esse recurso, quando uma VM do Windows é provisionada, configuramos o arquivo de paginação para estar localizado no disco do sistema operacional. Esse recurso está atualmente na visualização. Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Para começar, [solicite o acesso](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR6cQw0fZJzdIsnbfbI13601URTBCRUZPMkQwWFlCOTRIMFBSNkM1NVpQQS4u).
 
 ## <a name="powershell"></a>PowerShell
 
@@ -85,7 +86,7 @@ az vm create \
 
 Para conjuntos de dimensionamento, use o mesmo `--ephemeral-os-disk true` parâmetro para [AZ-vmss-Create](/cli/azure/vmss#az-vmss-create) e defina o `--os-disk-caching` parâmetro como `ReadOnly` .
 
-## <a name="portal"></a>Portal   
+## <a name="portal"></a>Portal
 
 No portal do Azure, você pode optar por usar discos efêmeros ao implantar uma VM abrindo a seção **avançada** da guia **discos** . Para **usar disco do sistema operacional efêmero** , selecione **Sim**.
 
@@ -119,7 +120,7 @@ O processo para criar um conjunto de dimensionamento que usa um disco do sistema
        "storageProfile": { 
         "osDisk": { 
           "diffDiskSettings": { 
-                "option": "Local" 
+            "option": "Local" 
           }, 
           "caching": "ReadOnly", 
           "createOption": "FromImage" 

@@ -13,24 +13,24 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 93dcfad34e5881cda52a69ceb99d52d9a905befb
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 6385f03556d155941139b77333d6f4a25081fe67
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89047666"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100103151"
 ---
 # <a name="register-mobile-apps-that-call-web-apis"></a>Registrar aplicativos móveis que chamam APIs da Web
 
 Este artigo contém instruções para ajudá-lo a registrar um aplicativo móvel que você está criando.
 
-## <a name="supported-account-types"></a>Tipos de conta compatíveis
+## <a name="supported-account-types"></a>Tipos de conta com suporte
 
 Os tipos de conta aos quais seus aplicativos móveis dão suporte dependem da experiência que você deseja habilitar e dos fluxos que você deseja usar.
 
 ### <a name="audience-for-interactive-token-acquisition"></a>Público-alvo para aquisição de token interativo
 
-A maioria dos aplicativos móveis usa a autenticação interativa. Se seu aplicativo usar essa forma de autenticação, você poderá conectar usuários de qualquer [tipo de conta](quickstart-register-app.md#register-a-new-application-using-the-azure-portal).
+A maioria dos aplicativos móveis usa a autenticação interativa. Se seu aplicativo usar essa forma de autenticação, você poderá conectar usuários de qualquer [tipo de conta](quickstart-register-app.md).
 
 ### <a name="audience-for-integrated-windows-authentication-username-password-and-b2c"></a>Público-alvo para autenticação integrada do Windows, nome de usuário-senha e B2C
 
@@ -44,7 +44,7 @@ Para obter mais informações, consulte [cenários e fluxos de autenticação co
 
 ### <a name="interactive-authentication"></a>Autenticação interativa
 
-Quando você cria um aplicativo móvel que usa a autenticação interativa, a etapa de registro mais crítica é o URI de redirecionamento. Você pode definir a autenticação interativa por meio da [configuração de plataforma na folha **autenticação** ](https://aka.ms/MobileAppReg).
+Quando você cria um aplicativo móvel que usa a autenticação interativa, a etapa de registro mais crítica é o URI de redirecionamento. Você pode definir a autenticação interativa por meio da [configuração de plataforma na folha **autenticação**](https://aka.ms/MobileAppReg).
 
 Essa experiência permitirá que seu aplicativo obtenha SSO (logon único) por meio de Microsoft Authenticator (e Portal da Empresa do Intune no Android). Ele também dará suporte a políticas de gerenciamento de dispositivos.
 
@@ -79,9 +79,14 @@ Se preferir configurar manualmente o URI de redirecionamento, você poderá faze
 
 ### <a name="username-password-authentication"></a>Nome de usuário-autenticação de senha
 
-Se seu aplicativo usar apenas a autenticação de nome de usuário-senha, você não precisará registrar um URI de redirecionamento para seu aplicativo. Esse fluxo faz uma viagem de ida e volta para o ponto de extremidade da plataforma Microsoft Identity versão 2,0. Seu aplicativo não será chamado de volta em nenhum URI específico.
+Se seu aplicativo usar apenas a autenticação de nome de usuário-senha, você não precisará registrar um URI de redirecionamento para seu aplicativo. Esse fluxo faz uma viagem de ida e volta para a plataforma de identidade da Microsoft. Seu aplicativo não será chamado de volta em nenhum URI específico.
 
-No entanto, você precisa identificar seu aplicativo como um aplicativo cliente público. Para fazer isso, inicie na seção de **autenticação** do seu aplicativo. Na subseção **Configurações avançadas** , no tipo de **cliente padrão** parágrafo, para o aplicativo pergunta **tratar como um cliente público**, selecione **Sim**.
+No entanto, identifique seu aplicativo como um aplicativo cliente público. Para fazer isso:
+
+1. Ainda no <a href="https://portal.azure.com/" target="_blank">portal do Azure</a>, selecione seu aplicativo no **registros de aplicativo** e, em seguida, selecione **autenticação**.
+1. Em **Configurações avançadas**,  >  **permitir fluxos de cliente público**  >  **habilite os seguintes fluxos móveis e de área de trabalho:**, selecione **Sim**.
+
+   :::image type="content" source="media/scenarios/default-client-type.png" alt-text="Habilitar a configuração de cliente público no painel de autenticação no portal do Azure":::
 
 ## <a name="api-permissions"></a>Permissões de API
 
@@ -91,5 +96,4 @@ Ao registrar estaticamente as permissões, você permite que os administradores 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-> [!div class="nextstepaction"]
-> [Configuração do código](scenario-mobile-app-configuration.md)
+Vá para o próximo artigo neste cenário, configuração de [código do aplicativo](scenario-mobile-app-configuration.md).

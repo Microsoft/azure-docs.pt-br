@@ -8,19 +8,21 @@ ms.topic: sample
 ms.date: 12/26/2018
 author: sivethe
 ms.author: sivethe
-ms.custom: devx-track-javascript
-ms.openlocfilehash: deb0ca935cd01a0d86eea007711f65e439d4da00
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-js
+ms.openlocfilehash: c2117c535cca679d3a7a3b75491bf60ab9567ceb
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421970"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098205"
 ---
 # <a name="build-an-app-using-nodejs-and-azure-cosmos-dbs-api-for-mongodb"></a>Criar um aplicativo usando o Node.js e a API do Azure Cosmos DB para MongoDB 
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
+
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
-> * [.NET Core](sql-api-dotnetcore-get-started.md)
-> * [Java](sql-api-java-get-started.md)
+> * [.NET Core](./sql-api-get-started.md)
+> * [Java](./create-sql-api-java.md)
 > * [Node.js para MongoDB](mongodb-samples.md)
 > * [Node.js](sql-api-nodejs-get-started.md)
 >
@@ -116,7 +118,7 @@ Para usar este exemplo, você deve:
     });
     ```
     
-    **Opcional**: se você estiver usando o driver **MongoDB Node. js 2.2** , substitua o snippet de código a seguir:
+    **Opcional** : se você estiver usando o driver **MongoDB Node. js 2.2** , substitua o snippet de código a seguir:
 
     Original:
 

@@ -6,17 +6,17 @@ author: yunjchoi
 ms.topic: troubleshooting
 ms.date: 08/18/2020
 ms.author: yunjchoi
-ms.openlocfilehash: d14ed7e714eac175dc7a17bbccd2150f9bb01ef9
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: a409ac944c51d893fc344f82ae83d97559e055ef
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88752705"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070649"
 ---
 # <a name="check-for-resource-health-events-impacting-your-aks-cluster-preview"></a>Verificar Resource Health eventos que afetam o cluster AKS (versão prévia)
 
 
-Ao executar suas cargas de trabalho de contêiner no AKS, você deseja garantir que possa solucionar problemas assim que eles surgirem para minimizar o impacto sobre a disponibilidade de suas cargas de trabalho. [Azure Resource Health](https://docs.microsoft.com/azure/service-health/resource-health-overview) fornece visibilidade de vários eventos de integridade que podem fazer com que o cluster AKs esteja indisponível.
+Ao executar suas cargas de trabalho de contêiner no AKS, você deseja garantir que possa solucionar problemas assim que eles surgirem para minimizar o impacto sobre a disponibilidade de suas cargas de trabalho. [Azure Resource Health](../service-health/resource-health-overview.md) fornece visibilidade de vários eventos de integridade que podem fazer com que o cluster AKs esteja indisponível.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
@@ -33,7 +33,7 @@ Ao executar suas cargas de trabalho de contêiner no AKS, você deseja garantir 
 - Selecione **Resource Health** no painel de navegação esquerdo.
 - Selecione sua assinatura e defina o tipo de recurso como AKS (serviço kubernetes do Azure).
 
-![recurso-integridade-verificação](./media/aks-resource-health/resource-health-check.png)
+![Captura de tela mostra a integridade do recurso para seus clusters de K S.](./media/aks-resource-health/resource-health-check.png)
 
 ## <a name="check-the-health-status"></a>Verificar o status de integridade
 
@@ -49,7 +49,7 @@ Resource Health recebe sinais para o cluster gerenciado para determinar o estado
 
 - **Degradado**: quando há um problema de integridade que exige sua ação, Resource Health relata o cluster como *degradado*.
 
-Para obter detalhes adicionais sobre o que cada status de integridade indica, visite [Resource Health visão geral](https://docs.microsoft.com/azure/service-health/resource-health-overview#health-status).
+Para obter detalhes adicionais sobre o que cada status de integridade indica, visite [Resource Health visão geral](../service-health/resource-health-overview.md#health-status).
 
 ### <a name="view-historical-data"></a>Exibir dados históricos
 
@@ -57,4 +57,4 @@ Você também pode exibir os últimos 30 dias de informações históricas de Re
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Execute verificações no cluster para solucionar problemas de cluster usando o [diagnóstico AKs](https://docs.microsoft.com/azure/aks/concepts-diagnostics).
+Execute verificações no cluster para solucionar problemas de cluster usando o [diagnóstico AKs](./concepts-diagnostics.md).

@@ -10,17 +10,18 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/04/2020
+ms.date: 10/22/2020
 ms.author: radeltch
-ms.openlocfilehash: dd245ddfa7f6be90e37bacc0797a3af4adc8bb96
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: b8f2054296c5b4e567699924305b7f3385f30835
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88650427"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96486208"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-with-azure-netapp-files-for-sap-applications"></a>Alta disponibilidade do SAP NetWeaver em VMs do Azure no SUSE Linux Enterprise Server com o Azure NetApp Files para aplicativos SAP
 
@@ -261,13 +262,13 @@ Primeiro, você precisa criar os volumes do Azure NetApp Files. Implante as VMs.
       1. Selecione as máquinas virtuais do cluster (A)SCS e os respectivos endereços IP.
       1. Clique em Adicionar
    1. Crie as investigações de integridade
-      1. Porta 620**00** para ASCS
+      1. Porta 620 **00** para ASCS
          1. Abra o balanceador de carga, selecione as investigações de integridade e clique em Adicionar
          1. Insira o nome da nova investigação de integridade (por exemplo, **health.QAS.ASCS**)
-         1. Selecione TCP como protocolo, porta 620**00**, mantenha o Intervalo 5 e o limite Não Íntegro 2
+         1. Selecione TCP como protocolo, porta 620 **00**, mantenha o Intervalo 5 e o limite Não Íntegro 2
          1. Clique em OK
-      1. Porta 621**01** para o ERS do ASCS
-            * Repita as etapas acima em "c" para criar uma investigação de integridade para ERS (por exemplo, 621**01** e **health.QAS.ERS**)
+      1. Porta 621 **01** para o ERS do ASCS
+            * Repita as etapas acima em "c" para criar uma investigação de integridade para ERS (por exemplo, 621 **01** e **health.QAS.ERS**)
    1. Regras de balanceamento de carga
       1. Crie um pool de back-end para o ASCS
          1. Abra o balanceador de carga, escolha Regras de balanceamento de carga e clique em Adicionar
@@ -295,15 +296,15 @@ Primeiro, você precisa criar os volumes do Azure NetApp Files. Implante as VMs.
       1. Selecione as máquinas virtuais do cluster (A)SCS
       1. Clique em OK
    1. Crie as investigações de integridade
-      1. Porta 620**00** para ASCS
+      1. Porta 620 **00** para ASCS
          1. Abra o balanceador de carga, selecione as investigações de integridade e clique em Adicionar
          1. Insira o nome da nova investigação de integridade (por exemplo, **health.QAS.ASCS**)
-         1. Selecione TCP como protocolo, porta 620**00**, mantenha o Intervalo 5 e o limite Não Íntegro 2
+         1. Selecione TCP como protocolo, porta 620 **00**, mantenha o Intervalo 5 e o limite Não Íntegro 2
          1. Clique em OK
-      1. Porta 621**01** para o ERS do ASCS
-            * Repita as etapas acima em "c" para criar uma investigação de integridade para ERS (por exemplo, 621**01** e **health.QAS.ERS**)
+      1. Porta 621 **01** para o ERS do ASCS
+            * Repita as etapas acima em "c" para criar uma investigação de integridade para ERS (por exemplo, 621 **01** e **health.QAS.ERS**)
    1. Regras de balanceamento de carga
-      1. 32**00** TCP para ASCS
+      1. 32 **00** TCP para ASCS
          1. Abra o balanceador de carga, escolha Regras de balanceamento de carga e clique em Adicionar
          1. Insira o nome da nova regra do balanceador de carga (por exemplo, **lb.QAS.ASCS.3200**)
          1. Selecione o endereço IP de front-end para ASCS, o pool de back-end e a investigação de integridade criados anteriormente (por exemplo, **frontend.QAS.ASCS**)
@@ -312,9 +313,13 @@ Primeiro, você precisa criar os volumes do Azure NetApp Files. Implante as VMs.
          1. **Habilite o IP Flutuante**
          1. Clique em OK
       1. Portas adicionais para ASCS
-         * Repita as etapas acima em "d" para as portas 36**00**, 39**00**, 81**00**, 5**00**13, 5**00**14, 5**00**16 e TCP para o ASCS
+         * Repita as etapas acima em "d" para as portas 36 **00**, 39 **00**, 81 **00**, 5 **00** 13, 5 **00** 14, 5 **00** 16 e TCP para o ASCS
       1. Portas adicionais para ERS do ASCS
-         * Repita as etapas acima em "d" para as portas 32**01**, 33**01**, 5**01**13, 5**01**14, 5**01**16 e TCP para o ERS do ASCS
+         * Repita as etapas acima em "d" para as portas 32 **01**, 33 **01**, 5 **01** 13, 5 **01** 14, 5 **01** 16 e TCP para o ERS do ASCS
+
+      
+      > [!IMPORTANT]
+      > Não há suporte para IP flutuante em uma configuração de IP secundário de NIC em cenários de balanceamento de carga. Para obter detalhes, consulte [limitações do Azure Load Balancer](../../../load-balancer/load-balancer-multivip-overview.md#limitations). Se você precisar de um endereço IP adicional para a VM, implante uma segunda NIC.  
 
       > [!Note]
       > Quando as VMs sem endereços IP públicos forem colocadas no pool de back-end do Standard Azure Load Balancer (sem endereço IP público), não haverá nenhuma conectividade de saída com a Internet se não houver configuração adicional a fim de permitir o roteamento para pontos de extremidade públicos. Para obter detalhes sobre como alcançar conectividade de saída, confira [Conectividade de ponto de extremidade público para Máquinas Virtuais usando o Azure Standard Load Balancer em cenários de alta disponibilidade do SAP](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
@@ -556,7 +561,7 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
    <pre><code>sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b> SAPINST_USE_HOSTNAME=<b>virtual_hostname</b>
    </code></pre>
 
-   Se a instalação não conseguir criar uma subpasta em /usr/sap/**QAS**/ASCS**00**, tente definir o proprietário e o grupo da pasta do ASCS**00** e tente novamente. 
+   Se a instalação não conseguir criar uma subpasta em /usr/sap/**QAS**/ASCS **00**, tente definir o proprietário e o grupo da pasta do ASCS **00** e tente novamente. 
 
    <pre><code>
    chown <b>qas</b>adm /usr/sap/<b>QAS</b>/ASCS<b>00</b>
@@ -575,7 +580,7 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
      op monitor interval=20s timeout=40s
    
    # If using NFSv4.1
-   sudo crm configure primitive fs_<b>QAS</b>_ERS Filesystem device='<b>10.1.0.4</b>:/usrsap<b>qas</b>/usrsap<b>QAS</b>ers' directory='/usr/sap/<b>QAS</b>/ERS<b>01</b>' fstype='nfs' options='sec=sys,vers=4.1'\
+   sudo crm configure primitive fs_<b>QAS</b>_ERS Filesystem device='<b>10.1.0.4</b>:/usrsap<b>qas</b>/usrsap<b>QAS</b>ers' directory='/usr/sap/<b>QAS</b>/ERS<b>01</b>' fstype='nfs' options='sec=sys,vers=4.1' \
      op start timeout=60s interval=0 \
      op stop timeout=60s interval=0 \
      op monitor interval=20s timeout=40s
@@ -621,7 +626,7 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
    > [!NOTE]
    > Use SWPM SP 20 PL 05 ou superior. Versões anteriores não configurarão as permissões corretamente e a instalação falhará.
 
-   Se a instalação falhar ao criar uma subpasta em /usr/sap/**QAS**/ERS**01**, tente definir o proprietário e o grupo da pasta do ERS**01** e tente novamente.
+   Se a instalação falhar ao criar uma subpasta em /usr/sap/**QAS**/ERS **01**, tente definir o proprietário e o grupo da pasta do ERS **01** e tente novamente.
 
    <pre><code>
    chown qasadm /usr/sap/<b>QAS</b>/ERS<b>01</b>
@@ -669,11 +674,11 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
 
 6. **[A]** Configurar Keep Alive
 
-   A comunicação entre o servidor de aplicativos do SAP NetWeaver e o ASCS/SCS é roteada por meio de um balanceador de carga de software. O balanceador de carga desconecta conexões inativas após um tempo limite configurável. Para evitar isso, você precisa definir um parâmetro no perfil do SAP NetWeaver ASCS/SCS e alterar as configurações do sistema Linux. Leia a [Nota SAP 1410736][1410736] para obter mais informações.
+   A comunicação entre o servidor de aplicativos do SAP NetWeaver e o ASCS/SCS é roteada por meio de um balanceador de carga de software. O balanceador de carga desconecta conexões inativas após um tempo limite configurável. Para evitar isso, você precisa definir um parâmetro no perfil do SAP NetWeaver ASCS/SCS, se estiver usando ENSA1, e alterar as configurações do sistema Linux `keepalive` em todos os servidores SAP para ENSA1/ENSA2. Leia a [Nota SAP 1410736][1410736] para obter mais informações.
 
    <pre><code>
    # Change the Linux system configuration
-   sudo sysctl net.ipv4.tcp_keepalive_time=120
+   sudo sysctl net.ipv4.tcp_keepalive_time=300
    </code></pre>
 
 7. **[A]** Configurar os usuários do SAP após a instalação

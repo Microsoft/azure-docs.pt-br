@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/21/2020
 ms.author: yelevin
 ms.openlocfilehash: c57f4a49ac89f1347fc88f8bacddce3abab7e44e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87038215"
 ---
 # <a name="connect-ai-vectra-detect-to-azure-sentinel"></a>Conectar o ia Vectra detectar ao Azure Sentinel
@@ -43,7 +43,7 @@ Configurar o ia Vectra detectar para encaminhar mensagens de syslog formatadas p
     - Definir o protocolo como **UDP**
     - Definir o formato para **CEF**
     - Definir tipos de log (selecione todos os tipos de log disponíveis)
-    - Clique em **salvar**
+    - Clique em **Salvar**
 
 2. Você pode clicar no botão **testar** para forçar o envio de alguns eventos de teste para o encaminhador de log.
 

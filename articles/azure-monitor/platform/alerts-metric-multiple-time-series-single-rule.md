@@ -4,14 +4,14 @@ description: Alerta em escala usando uma única regra de alerta para várias sé
 author: harelbr
 ms.author: harelbr
 ms.topic: conceptual
-ms.date: 08/11/2020
+ms.date: 01/11/2021
 ms.subservice: alerts
-ms.openlocfilehash: f7ca91ca49d9357285e1307c5051ef5685ad24c9
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 47a2fb9240f6826ed862f7a857264c09b79de9bc
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88186860"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98071078"
 ---
 # <a name="monitor-multiple-time-series-in-a-single-metric-alert-rule"></a>Monitorar várias séries temporais em uma única regra de alerta de métrica
 
@@ -21,7 +21,7 @@ Uma única regra de alerta de métrica pode ser usada para monitorar uma ou vár
 
 Uma série temporal de métrica é uma série de medições (ou "valores de métrica") capturados em um período de tempo. 
 
-Por exemplo: 
+Por exemplo:
 
 - A utilização da CPU de uma máquina virtual
 - Os bytes de entrada (entrada) para uma conta de armazenamento
@@ -87,7 +87,7 @@ Para obter mais informações sobre regras de alerta de vários recursos e os ti
 
 Uma regra de alerta de métrica única também pode monitorar até cinco condições por regra de alerta. 
 
-Por exemplo: 
+Por exemplo:
 
 - Recurso de destino: *myVM1*
 - Condição1
@@ -162,7 +162,8 @@ Para esta regra de alerta, seis séries temporais de métrica estão sendo monit
 
 1.  **Selecionando todas as dimensões atuais e futuras** – você pode optar por monitorar todos os valores possíveis de uma dimensão, incluindo valores futuros. Essa regra de alerta será dimensionada automaticamente para monitorar todos os valores da dimensão sem a necessidade de modificar a regra de alerta toda vez que um valor de dimensão for adicionado ou removido.
 2.  **Excluindo dimensões** – selecionar o operador ' ≠ ' (excluir) para um valor de dimensão é equivalente a selecionar todos os outros valores dessa dimensão, incluindo valores futuros.
-3.  **Dimensões novas e personalizadas** – os valores de dimensão exibidos no portal do Azure são baseados nos dados de métrica coletados nos últimos três dias. Se o valor de dimensão que você está procurando ainda não for emitido, você poderá adicionar um valor de dimensão personalizado.
+3.  **Dimensões novas e personalizadas** – os valores de dimensão exibidos no portal do Azure são baseados nos dados de métrica coletados no último dia. Se o valor de dimensão que você está procurando ainda não for emitido, você poderá adicionar um valor de dimensão personalizado.
+4. **Correspondência de dimensões com um prefixo** -você pode optar por monitorar todos os valores de dimensão que começam com um padrão específico, selecionando o operador "começa com" e inserindo um prefixo personalizado.
 
 ![Recursos avançados de várias dimensões](media/alerts-metric-multiple-time-series-single-rule/advanced-features.png)
 
@@ -174,6 +175,11 @@ O preço das regras de alerta de métrica está disponível na [página de preç
 Ao criar uma regra de alerta de métrica, a estimativa de preço fornecida é baseada nos recursos selecionados e no número de séries temporais monitoradas, que é determinado da configuração da regra e dos valores atuais da métrica. No entanto, o encargo mensal é baseado em avaliações reais da série temporal e, portanto, pode ser diferente da estimativa original se alguma série temporal não tiver dados a serem avaliados ou se a regra de alerta usar recursos que possam torná-lo dimensionado dinamicamente.
 
 Por exemplo, uma regra de alerta pode mostrar uma estimativa de preço alto se ele aproveitar o recurso de várias dimensões e um grande número de combinações de valores de dimensão for selecionado, resultando no monitoramento de muitas séries temporais. Mas o encargo real para essa regra de alerta pode ser menor se nem todas as séries temporais resultantes das combinações de valores de dimensão realmente têm dados a serem avaliados.
+
+## <a name="number-of-time-series-monitored-by-a-single-alert-rule"></a>Número de séries temporais monitoradas por uma única regra de alerta
+
+Para evitar custos excedentes, cada regra de alerta pode monitorar até 5000 séries temporais por padrão. Para aumentar esse limite de sua assinatura, abra um tíquete de suporte.
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

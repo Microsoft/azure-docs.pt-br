@@ -3,16 +3,16 @@ title: Erros de SKU não disponível
 description: Descreve como solucionar o erro SKU não disponível ao implantar recursos com o Azure Resource Manager.
 ms.topic: troubleshooting
 ms.date: 02/18/2020
-ms.openlocfilehash: 3dcc26f2d74799a6d282ee4bd733d36bec7b05e4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5b0bbd653907c109eca526af86979013b3137cfa
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78942722"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737143"
 ---
 # <a name="resolve-errors-for-sku-not-available"></a>Resolva erros de SKU não disponível
 
-Este artigo descreve como resolver o erro **SkuNotAvailable**. Se não for possível encontrar um SKU adequado nessa região/zona ou em uma região/zona alternativa que atenda às suas necessidades de negócios, envie uma [solicitação de SKU](https://aka.ms/skurestriction) para o suporte do Azure.
+Este artigo descreve como resolver o erro **SkuNotAvailable**. Se não for possível encontrar um SKU adequado nessa região/zona ou em uma região/zona alternativa que atenda às suas necessidades de negócios, envie uma [solicitação de SKU](/troubleshoot/azure/general/region-access-request-process) para o suporte do Azure.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -79,7 +79,6 @@ virtualMachines  southcentralus  Standard_F4                ...             None
 ...
 ```
 
-
 ## <a name="solution-3---azure-portal"></a>Solução 3: Portal do Azure
 
 Para determinar quais SKUs estão disponíveis em uma região, use o [portal](https://portal.azure.com). Entre no portal e adicione um recurso por meio da interface. Ao definir os valores, verá os SKUs disponíveis para esse recurso. Você não precisa concluir a implantação.
@@ -125,4 +124,3 @@ Ele retorna SKUs e regiões disponíveis no seguinte formato:
   ]
 }
 ```
-

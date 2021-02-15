@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 06/23/2020
 ms.custom: subject-moving-resources
 ms.openlocfilehash: 573ea96437cf6cb76854ffa417fd3ad3fb86138b
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88860728"
 ---
 # <a name="move-an-azure-service-bus-namespace-to-another-region"></a>Mover um namespace do barramento de serviço do Azure para outra região
@@ -48,19 +48,19 @@ Implante o modelo para criar um namespace do barramento de serviço na região d
 1. Na portal do Azure, selecione **criar um recurso**.
 2. Em **Pesquisar no Marketplace**, digite **implantação de modelo** para o texto de pesquisa, selecione **implantação de modelo (implantar usando modelos personalizados)** e pressione **Enter**.
 
-    :::image type="content" source="./media/move-across-regions/new-template-deployment.png" alt-text="Nova implantação de modelo":::    
+    :::image type="content" source="./media/move-across-regions/new-template-deployment.png" alt-text="Baixar modelo do Resource Manager":::    
 1. Na página **implantação de modelo** , selecione **criar**.
 
-    :::image type="content" source="./media/move-across-regions/template-deployment-create-button.png" alt-text="Novo modelo implantação-botão criar":::        
+    :::image type="content" source="./media/move-across-regions/template-deployment-create-button.png" alt-text="Baixar modelo do Resource Manager":::        
 1. Na página **implantação personalizada** , selecione **criar seu próprio modelo no editor**.
 
-    :::image type="content" source="./media/move-across-regions/build-template-link.png" alt-text="Crie seu próprio modelo no editor – link":::            
+    :::image type="content" source="./media/move-across-regions/build-template-link.png" alt-text="Baixar modelo do Resource Manager":::            
 1. Na página **Editar modelo** , selecione **carregar arquivo** na barra de ferramentas e siga as instruções para carregar o **template.jsno** arquivo que você baixou na última seção.
 
-    :::image type="content" source="./media/move-across-regions/select-template.png" alt-text="Selecionar modelo":::                
+    :::image type="content" source="./media/move-across-regions/select-template.png" alt-text="Baixar modelo do Resource Manager":::                
 1. Selecione **salvar** para salvar o modelo. 
 
-    :::image type="content" source="./media/move-across-regions/save-template.png" alt-text="Salvar modelo":::                    
+    :::image type="content" source="./media/move-across-regions/save-template.png" alt-text="Baixar modelo do Resource Manager":::                    
 1. Na página **implantação personalizada** , siga estas etapas: 
     1. Selecione uma **assinatura**do Azure. 
     2. Selecione um **grupo de recursos** existente ou crie um. 
@@ -68,26 +68,26 @@ Implante o modelo para criar um namespace do barramento de serviço na região d
     4. Insira um novo **nome para o namespace**.
     1. Selecione **Examinar + criar**. 
 
-        :::image type="content" source="./media/move-across-regions/deploy-template.png" alt-text="Implantar modelo do Resource Manager":::
+        :::image type="content" source="./media/move-across-regions/deploy-template.png" alt-text="Baixar modelo do Resource Manager":::
     1. Na página **revisar + criar** , selecione **criar** na parte inferior da página. 
     
 ## <a name="verify"></a>Verificar
 1. Depois que a implantação for bem-sucedida, selecione **ir para o grupo de recursos**.
 
-    :::image type="content" source="./media/move-across-regions/resource-group-navigation-link.png" alt-text="Ir para o link do grupo de recursos":::    
+    :::image type="content" source="./media/move-across-regions/resource-group-navigation-link.png" alt-text="Baixar modelo do Resource Manager":::    
 1. Na página **grupo de recursos** , selecione o namespace do barramento de serviço. 
 
-    :::image type="content" source="./media/move-across-regions/select-namespace.png" alt-text="Selecionar namespace do barramento de serviço":::    
+    :::image type="content" source="./media/move-across-regions/select-namespace.png" alt-text="Baixar modelo do Resource Manager":::    
 1. Na página **namespace do barramento de serviço** , verifique se você vê as filas, os tópicos e as assinaturas da região de origem. 
     1. Você vê as **filas** no namespace na parte inferior do painel direito.         
     
-        :::image type="content" source="./media/move-across-regions/queue-namespace.png" alt-text="Filas no namespace":::
+        :::image type="content" source="./media/move-across-regions/queue-namespace.png" alt-text="Baixar modelo do Resource Manager":::
     2. Alterne para a guia **Tópicos** para ver os tópicos no namespace
     
-        :::image type="content" source="./media/move-across-regions/topics-namespace.png" alt-text="Tópicos no namespace":::
+        :::image type="content" source="./media/move-across-regions/topics-namespace.png" alt-text="Baixar modelo do Resource Manager":::
     3. Selecione o tópico para verificar se as assinaturas foram criadas. 
 
-        :::image type="content" source="./media/move-across-regions/topic-subscriptions.png" alt-text="Assinaturas de tópico":::      
+        :::image type="content" source="./media/move-across-regions/topic-subscriptions.png" alt-text="Baixar modelo do Resource Manager":::      
     
     
 

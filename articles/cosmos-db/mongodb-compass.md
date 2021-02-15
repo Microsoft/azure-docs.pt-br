@@ -5,16 +5,17 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 ms.date: 06/05/2020
-author: LuisBosquez
-ms.author: lbosq
-ms.openlocfilehash: 2f461ebbd84a66470eba012660db3aefebc8c5e7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+author: christopheranderson
+ms.author: chrande
+ms.openlocfilehash: 43bcd54955cb1a8aaf08785368faf13c14f8322c
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85260773"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413047"
 ---
 # <a name="use-mongodb-compass-to-connect-to-azure-cosmos-dbs-api-for-mongodb"></a>Use o MongoDB Compass para conectar-se à API do Azure Cosmos DB para MongoDB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 Este tutorial demonstra como usar o [MongoDB Compass](https://www.mongodb.com/products/compass) ao armazenar o Cosmos DB. Usaremos a API do Azure Cosmos DB para o MongoDB para este passo a passo. Para aqueles não familiarizados, o Compass é uma interface gráfica de usuário para MongoDB. É comumente usado para visualizar dados, executar consultas ad-hoc e gerenciar dados.
 
@@ -26,9 +27,6 @@ Para se conectar à sua conta do Cosmos DB usando o MongoDB Compass, você deve:
 
 * Baixar e instalar [Compass](https://www.mongodb.com/download-center/compass?jmp=hero)
 * Obtenha informações da [cadeia de conexão](connect-mongodb-account.md) do Cosmos DB
-
-> [!NOTE]
-> Atualmente, a API de Azure Cosmos DB para o servidor MongoDB versão 3,2 tem suporte com a versão mais recente da bússola do MongoDB. A bússola do MongoDB ainda não tem suporte com a versão do servidor 3,6. 
 
 ## <a name="connect-to-cosmos-dbs-api-for-mongodb"></a>Conectar-se à API do Azure Cosmos DB para MongoDB
 
@@ -46,11 +44,11 @@ Para conectar sua conta do Cosmos DB ao Compass, você pode seguir as etapas:
 
 4. O Compass irá detectar automaticamente uma cadeia de conexão na área de transferência, e irá pedir para perguntar se você deseja usar isso para se conectar. Clique em **Sim** conforme mostrado na captura de tela abaixo.
 
-    :::image type="content" source="./media/mongodb-compass/mongodb-compass-detect.png" alt-text="Captura de tela do prompt do Compass para conectar":::
+    :::image type="content" source="./media/mongodb-compass/mongodb-compass-detect.png" alt-text="Captura de tela mostra uma caixa de diálogo explicando que seu tem uma cadeia de conexão na área de transferência.":::
 
 5. Ao clicar em **Sim** na etapa anterior, os detalhes da cadeia de conexão serão preenchidos automaticamente. Remova o valor preenchido automaticamente a **nome do conjunto de réplica** campo para garantir que é deixado em branco.
 
-    :::image type="content" source="./media/mongodb-compass/mongodb-compass-replica.png" alt-text="Captura de tela do prompt do Compass para conectar":::
+    :::image type="content" source="./media/mongodb-compass/mongodb-compass-replica.png" alt-text="Captura de tela mostra a caixa de texto nome do conjunto de réplicas.":::
 
 6. Na parte inferior da página, clique em **Conectar**. Sua conta e bancos de dados do Cosmos DB agora devem estar visíveis no MongoDB Compass.
 

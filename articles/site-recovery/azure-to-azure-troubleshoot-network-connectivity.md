@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 04/06/2020
-ms.openlocfilehash: afa2cbdb7b0703f9fc0b419442570744c6fefae1
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 24ffce1528aa5c82fec9666fa0cb7b8717107f54
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89049682"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97652255"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-network-connectivity-issues"></a>Solucionar problemas de conectividade de rede de VM do Azure para Azure
 
@@ -20,7 +20,7 @@ Para replicação de recuperação de Site para o trabalho, conectividade de sa�
 
 | **Nome**                  | **Comercial**                               | **Governo**                                 | **Descrição** |
 | ------------------------- | -------------------------------------------- | ---------------------------------------------- | ----------- |
-| Armazenamento                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net`              | Necessário para que os dados possam ser gravados para a conta de armazenamento de cache da região de origem da VM. Se você souber todas as contas de armazenamento em cache para suas VMs, poderá usar uma lista de permissões para as URLs de conta de armazenamento específicas. Por exemplo, `cache1.blob.core.windows.net` e `cache2.blob.core.windows.net` em vez de `*.blob.core.windows.net` . |
+| Armazenamento                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net` | Necessário para que os dados possam ser gravados para a conta de armazenamento de cache da região de origem da VM. Se você souber todas as contas de armazenamento em cache para suas VMs, poderá usar uma lista de permissões para as URLs de conta de armazenamento específicas. Por exemplo, `cache1.blob.core.windows.net` e `cache2.blob.core.windows.net` em vez de `*.blob.core.windows.net` . |
 | Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Necessário para autorização e autenticação para as URLs do serviço de recuperação de Site. |
 | Replicação               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`   | Necessário para que a comunicação de serviço de recuperação de Site possa ocorrer da VM. Você pode usar o _IP site Recovery_ correspondente se o proxy de firewall oferecer suporte a IPS. |
 | Barramento de Serviço               | `*.servicebus.windows.net`                 | `*.servicebus.usgovcloudapi.net`             | Necessário para que os dados de monitoramento e diagnóstico de recuperação de Site possam ser gravados da VM. Você pode usar o _IP de monitoramento de site Recovery_ correspondente se o proxy de firewall oferecer suporte a IPS. |
@@ -51,16 +51,16 @@ Tente acessar o servidor DNS da máquina virtual. Se o servidor DNS não estiver
 ### <a name="issue-2-site-recovery-configuration-failed-151196"></a>Problema 2: falha na configuração do Azure Site Recovery (151196)
 
 > [!NOTE]
-> Se as VMs estiverem atrás de um balanceador de carga interno **padrão** , por padrão, não teria acesso aos IPS do Office 365, como `login.microsoftonline.com` . Altere-o para o tipo **básico** de balanceador de carga interno ou crie acesso de saída conforme mencionado no artigo [Configurar o balanceamento de carga e as regras de saída no Standard Load Balancer usando CLI do Azure](../load-balancer/quickstart-load-balancer-standard-public-cli.md?tabs=option-1-create-load-balancer-standard#create-outbound-rule-configuration).
+> Se as VMs estiverem atrás de um balanceador de carga interno **padrão** , por padrão, não teria acesso aos IPs de Microsoft 365, como `login.microsoftonline.com` . Altere-o para o tipo **básico** de balanceador de carga interno ou crie acesso de saída conforme mencionado no artigo [Configurar o balanceamento de carga e as regras de saída no Standard Load Balancer usando CLI do Azure](../load-balancer/quickstart-load-balancer-standard-public-cli.md?tabs=option-1-create-load-balancer-standard#create-outbound-rule-configuration).
 
 #### <a name="possible-cause"></a>Causa possível
 
-Não é possível estabelecer uma conexão com os pontos de extremidade IP4 de autenticação e identidade do Office 365.
+Uma conexão não pode ser estabelecida para Microsoft 365 pontos de extremidade de autenticação e identidade IP4.
 
 #### <a name="resolution"></a>Resolução
 
-- Azure Site Recovery requer acesso aos intervalos de IP do Office 365 para autenticação.
-- Se você estiver usando regras de NSG (grupo de segurança de rede) do Azure/proxy de firewall para controlar a conectividade de rede de saída na VM, certifique-se de permitir a comunicação com os intervalos de IP do Office 365. Crie Azure Active Directory uma regra de NSG baseada em [marca de serviço (AD do Azure)](../virtual-network/security-overview.md#service-tags) que permita o acesso a todos os endereços IP correspondentes ao Azure AD.
+- Azure Site Recovery requer acesso aos intervalos de IP de Microsoft 365 para autenticação.
+- Se você estiver usando regras de NSG (grupo de segurança de rede) do Azure/proxy de firewall para controlar a conectividade de rede de saída na VM, certifique-se de permitir a comunicação com os intervalos de IP Microsoft 365. Crie Azure Active Directory uma regra de NSG baseada em [marca de serviço (AD do Azure)](../virtual-network/network-security-groups-overview.md#service-tags) que permita o acesso a todos os endereços IP correspondentes ao Azure AD.
 - Se novos endereços forem adicionados ao Azure AD no futuro, você precisará criar novas regras de NSG.
 
 ### <a name="example-nsg-configuration"></a>Exemplo de Configuração do NSG
@@ -74,11 +74,11 @@ Este exemplo mostra como configurar regras de NSG para uma VM a ser replicada.
 
 1. Crie uma regra de segurança de saída HTTPS para o NSG, conforme mostrado na captura de tela a seguir. Este exemplo usa a **marca de serviço de destino**: _Storage. eastus_ e os **intervalos de porta de destino**: _443_.
 
-     :::image type="content" source="./media/azure-to-azure-about-networking/storage-tag.png" alt-text="storage-tag":::
+     :::image type="content" source="./media/azure-to-azure-about-networking/storage-tag.png" alt-text="Captura de tela mostra um painel Adicionar regra de segurança de saída para uma regra de segurança para o ponto de armazenamento East S.":::
 
 1. Crie uma regra de segurança de saída HTTPS para o NSG, conforme mostrado na captura de tela a seguir. Este exemplo usa a **marca de serviço de destino**: _AzureActiveDirectory_ e intervalos de **porta de destino**: _443_.
 
-     :::image type="content" source="./media/azure-to-azure-about-networking/aad-tag.png" alt-text="aad-tag":::
+     :::image type="content" source="./media/azure-to-azure-about-networking/aad-tag.png" alt-text="Captura de tela mostra um painel Adicionar regra de segurança de saída para uma regra de segurança para Azure Active Directory.":::
 
 1. Semelhante às regras de segurança acima, crie a regra de segurança HTTPS de saída (443) para "EventHub. Centralus" no NSG que corresponde ao local de destino. Isso permite o acesso ao monitoramento de Site Recovery.
 1. Crie uma regra de segurança HTTPS (443) de saída para "AzureSiteRecovery" no NSG. Isso permite o acesso ao Site Recovery Service em qualquer região.
@@ -108,7 +108,7 @@ Não é possível estabelecer uma conexão com Azure Site Recovery pontos de ext
 
 #### <a name="resolution"></a>Resolução
 
-O Azure Site Recovery requer acesso para a [intervalos de IP de recuperação de Site](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags) dependendo da região. Verifique se os intervalos de IP necessários estão acessíveis da VM.
+Se você estiver usando um proxy de Firewall/regra do NSG (grupo de segurança de rede) do Azure para controlar a conectividade de rede de saída no computador, haverá várias marcas de serviço que precisam ser permitidas. [Saiba mais](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags).
 
 ### <a name="issue-4-azure-to-azure-replication-failed-when-the-network-traffic-goes-through-on-premises-proxy-server-151072"></a>Problema 4: falha na replicação do Azure para o Azure quando o tráfego de rede passa pelo servidor proxy local (151072)
 

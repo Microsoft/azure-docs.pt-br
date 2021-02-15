@@ -3,17 +3,17 @@ title: 'Perguntas frequentes: SRE e DevOps | Microsoft Docs'
 titleSuffix: Azure
 description: 'Perguntas frequentes: compreendendo a relação entre SRE e DevOps'
 author: dnblankedelman
-manager: efreeman
+manager: ScottCa
 ms.service: site-reliability-engineering
 ms.topic: article
-ms.date: 04/22/2020
+ms.date: 09/14/2020
 ms.author: dnb
-ms.openlocfilehash: e917c609b484b1a58377fea2f6cdd75dde30ca6c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 62872443c386c45d9821053dc901ad8e0055b74f
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82196407"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674278"
 ---
 # <a name="frequently-asked-questions-whats-the-relationship-between-sre-and-devops"></a>Perguntas frequentes: Qual é a relação entre SRE e DevOps?
 
@@ -24,8 +24,8 @@ Há um conjunto de perguntas comuns que surgem pela relação entre a engenharia
 SRE e DevOps são práticas de operações modernas que foram criadas e desenvolvidas em resposta a desafios que incluíram:
 
 - uma complexidade crescente de nossos ambientes de produção e processos de desenvolvimento
-- aumentando a dependência de negócios no funcionamento contínuo desses ambientes
-- a incapacidade de dimensionar a força de funcionários linearmente com o tamanho desses ambientes
+- o aumento da dependência dos negócios ao funcionamento contínuo desses ambientes
+- a incapacidade de dimensionar a força de funcionários de maneira linear ao tamanho desses ambientes
 - a necessidade de se mover mais rápido enquanto ainda mantém a estabilidade operacional
 
 Ambas as práticas de operações exigem atenção aos assuntos que são cruciais para lidar com esses desafios, como monitoramento/observação, automação, documentação e ferramentas de desenvolvimento de software colaborativo.
@@ -50,7 +50,7 @@ Se usarmos essa definição de SRE do [Hub de engenharia de confiabilidade do si
 
 em seguida, seria fácil dizer que a palavra para SRE é "confiabilidade". Ter o direito no meio do nome também oferece uma excelente evidência para essa declaração.
 
-Se usarmos essa definição de DevOps da [central de recursos DevOps do Azure](https://docs.microsoft.com/azure/devops/learn/):
+Se usarmos essa definição de DevOps da [central de recursos DevOps do Azure](/azure/devops/learn/):
 
 > O DevOps é a união de pessoas, processos e produtos para habilitar a entrega contínua de valor para nossos usuários finais.
 
@@ -80,4 +80,4 @@ Esperamos que as respostas anteriores ofereçam uma ideia de como as duas práti
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Interessado em aprender mais sobre Engenharia de confiabilidade de site ou DevOps? Confira o [Hub de engenharia de confiabilidade do site](../index.yml) e o [centro de recursos do Azure DevOps](https://docs.microsoft.com/azure/devops/learn/).
+Interessado em aprender mais sobre Engenharia de confiabilidade de site ou DevOps? Confira o [Hub de engenharia de confiabilidade do site](../index.yml) e o [centro de recursos do Azure DevOps](/azure/devops/learn/).

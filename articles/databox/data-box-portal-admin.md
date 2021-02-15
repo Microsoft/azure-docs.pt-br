@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 07/20/2020
+ms.date: 12/18/2020
 ms.author: alkohli
-ms.openlocfilehash: 2fc869448bac8303acee902b5d8819fdd3f26138
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 46a18cb2b6e1682427d5674be28b240f35b120fe
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258517"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97678654"
 ---
 # <a name="use-the-azure-portal-to-administer-your-azure-data-box-and-azure-data-box-heavy"></a>Use o portal do Azure para administrar seu Azure Data Box e Azure Data Box Heavy
 
@@ -21,39 +21,33 @@ Este artigo se aplica a Azure Data Box e Azure Data Box Heavy. Este artigo descr
 
 Este artigo se concentra nas tarefas que você pode executar usando o portal do Azure. Use o portal do Azure para gerenciar pedidos, gerenciar Data Box dispositivo e acompanhar o status do pedido à medida que ele prossegue até a conclusão.
 
-[!INCLUDE [Data Box feature is in preview](../../includes/data-box-feature-is-preview-info.md)]
-
-
 ## <a name="cancel-an-order"></a>Cancelar um pedido
 
-Sempre pode haver a necessidade de cancelar um pedido depois de feito, por vários motivos. 
+Talvez seja necessário cancelar um pedido por vários motivos depois de colocá-lo.
 
-Para as ordens de importação e exportação, você só pode cancelar o pedido antes de o pedido ser processado. Depois que o pedido é processado e Data Box dispositivo é preparado, não é possível cancelar o pedido.
+Para as ordens de importação e exportação, você só pode cancelar a ordem antes de ser processada. Depois que o pedido for processado e o dispositivo Data Box estiver preparado, você não poderá cancelar o pedido.
 
 Execute as seguintes etapas para cancelar um pedido.
 
 1.  Vá para **Visão Geral > Cancelar**.
 
-    ![Cancelar pedido 1](media/data-box-portal-admin/cancel-order1.png)
+    ![Comando cancelar na guia Visão geral de um pedido](media/data-box-portal-admin/portal-admin-cancel-command.png)
 
 2.  Preencha um motivo para cancelar o pedido.  
 
-    ![Cancelar pedido 2](media/data-box-portal-admin/cancel-order2.png)
+    ![Caixa de diálogo cancelar pedido](media/data-box-portal-admin/portal-admin-cancel-order-dbox.png)
 
 3.  Depois que o pedido for cancelado, o portal atualizará o status do pedido e o exibirá como **Cancelado**.
 
 ## <a name="clone-an-order"></a>Clonar um pedido
 
-A clonagem é útil em determinadas situações. Por exemplo, um usuário usou o Data Box para transferir alguns dados. À medida que mais dados são gerados, há uma necessidade de outro dispositivo de Data Box transferir esses dados para o Azure. Nesse caso, o mesmo pedido pode simplesmente ser clonado.
-
-> [!IMPORTANT]
-> A clonagem não está disponível para ordens de exportação. Você só pode clonar ordens de importação.
+A clonagem é útil em determinadas situações. Por exemplo, você usou Data Box para transferir alguns dados. À medida que mais dados são gerados, você precisa usar outro dispositivo de Data Box para transferir esses dados para o Azure. Nesse caso, você pode apenas clonar a mesma ordem.
 
 Execute as etapas a seguir para clonar uma ordem de importação.
 
 1.  Vá para **Visão geral > Clonar**. 
 
-    ![Clonar pedido 1](media/data-box-portal-admin/clone-order1.png)
+    ![Clonar comando na guia Visão geral de um pedido](media/data-box-portal-admin/portal-admin-clone-command.png)
 
 2.  Todos os detalhes do pedido permanecem inalterados. O nome do pedido é o nome original do pedido acrescido de *-Clone*. Marque a caixa de seleção para confirmar que você leu as informações de privacidade. Clique em **Criar**.
 
@@ -70,23 +64,23 @@ Só é possível excluir pedidos que tenham sido concluídos ou cancelados. Exec
 
 2. Clique no pedido que você deseja excluir e vá para **Visão Geral**. Na barra de comandos, clique em **Excluir**.
 
-    ![Excluir pedido do Data Box 1](media/data-box-portal-admin/delete-order1.png)
+    ![Comando delete na guia Visão geral de um pedido](media/data-box-portal-admin/portal-admin-delete-command.png)
 
 3. Insira o nome do pedido quando solicitado a confirmar a exclusão de um pedido. Clique em **Excluir**.
 
 ## <a name="download-shipping-label"></a>Faça o download da etiqueta de remessa
 
-Talvez você precise baixar a etiqueta de remessa se a exibição de tinta virtual do Data Box não estiver funcionando e não exibir a etiqueta de remessa de devolução. Não há nenhuma exibição eletrônica na Data Box Heavy e, portanto, esse fluxo de trabalho não se aplica a Data Box Heavy.
+Talvez seja necessário baixar o rótulo de envio se a exibição de E-Ink do seu Data Box não estiver funcionando e não exibir o rótulo de remessa de retorno. Não há nenhuma exibição de tinta na Data Box Heavy, portanto, esse fluxo de trabalho não se aplica a Data Box Heavy.
 
 Execute as etapas a seguir para baixar uma etiqueta de remessa.
 
 1.  Vá para **Visão geral > Baixar etiqueta de remessa**. Essa opção fica disponível somente depois que o dispositivo é enviado. 
 
-    ![Faça o download da etiqueta de remessa](media/data-box-portal-admin/download-shipping-label.png)
+    ![Faça o download da etiqueta de remessa](media/data-box-portal-admin/portal-admin-download-shipping-label.png)
 
 2.  Essa opção baixa a etiqueta de remessa de devolução a seguir. Salve o rótulo e imprima-o. Dobre e insira o rótulo na manga vazia do dispositivo. Verifique se a etiqueta está visível. Remova todos os adesivos do dispositivo referentes ao envio anterior.
 
-    ![Etiqueta de remessa de exemplo](media/data-box-portal-admin/example-shipping-label.png)
+    ![Etiqueta de remessa de exemplo](media/data-box-portal-admin/portal-admin-example-shipping-label.png)
 
 ## <a name="edit-shipping-address"></a>Editar endereço para entrega
 
@@ -96,25 +90,25 @@ Execute as etapas a seguir para editar o pedido.
 
 1. Vá para **Detalhes do pedido > Editar endereço para entrega**.
 
-    ![Editar endereço para entrega 1](media/data-box-portal-admin/edit-shipping-address1.png)
+    ![Editar comando de endereço de envio em detalhes da ordem](media/data-box-portal-admin/portal-admin-edit-shipping-address-command.png)
 
 2. Edite e valide o endereço para entrega e, em seguida, salve as alterações.
 
-    ![Editar endereço para entrega 2](media/data-box-portal-admin/edit-shipping-address2.png)
+    ![Caixa de diálogo Editar endereço de envio](media/data-box-portal-admin/portal-admin-edit-shipping-address-dbox.png)
 
 ## <a name="edit-notification-details"></a>Editar detalhes da notificação
 
-Talvez seja necessário alterar os usuários que devem receber os emails de status do pedido. Por exemplo, um usuário precisa ser informado quando o dispositivo é entregue ou recolhido. Outro usuário talvez precise ser informado quando a cópia de dados é concluída para que possa verificar se os dados estão na conta de armazenamento do Azure antes de excluí-los da origem. Nesses casos, você pode editar os detalhes da notificação.
+Talvez seja necessário alterar os usuários que recebem os emails de status do pedido. Por exemplo, um usuário precisa ser informado quando o dispositivo é entregue ou recolhido. Outro usuário talvez precise ser informado quando a cópia de dados é concluída para que possa verificar se os dados estão na conta de armazenamento do Azure antes de excluí-los da origem. Nesses casos, você pode editar os detalhes da notificação.
 
 Execute as etapas a seguir para editar os detalhes de notificação.
 
 1. Vá para **Detalhes do pedido > Editar detalhes da notificação**.
 
-    ![Editar detalhes da notificação 1](media/data-box-portal-admin/edit-notification-details1.png)
+    ![Editar o comando de detalhes de notificação nos detalhes da ordem](media/data-box-portal-admin/portal-admin-edit-notification-details-command.png)
 
 2. Agora você pode editar os detalhes de notificação e salvar as alterações.
  
-    ![Editar detalhes da notificação 2](media/data-box-portal-admin/edit-notification-details2.png)
+    ![Caixa de diálogo Editar detalhes da notificação](media/data-box-portal-admin/portal-admin-edit-notification-details-dbox.png)
 
 
 ## <a name="download-order-history"></a>Baixar histórico de pedidos
@@ -125,12 +119,12 @@ Execute as etapas a seguir para baixar o histórico de pedidos.
 
 1. No seu pedido do Data Box, vá para **Visão Geral**. Verifique se o pedido está completo. Se o pedido estiver completo e a limpeza for concluída, vá para **Detalhes da ordem**. A opção **Baixar histórico de pedidos** está disponível.
 
-    ![Baixar histórico de pedidos](media/data-box-portal-admin/download-order-history-1.png)
+    ![Baixar histórico de pedidos](media/data-box-portal-admin/portal-admin-download-order-history.png)
 
-2. Clique em **Baixar histórico de pedidos**. No histórico baixado, você verá um registro de logs de rastreamento da operadora. Haverá dois conjuntos de log correspondentes aos dois nós em um Data Box Heavy. Se você rolar para baixo até a parte inferior desse log, poderá ver os links para:
+2. Clique em **Baixar histórico de pedidos**. O histórico baixado inclui um registro de logs de controle da transportadora. Haverá dois conjuntos de log correspondentes aos dois nós em um dispositivo Data Box Heavy. Se você rolar para baixo até a parte inferior desse log, poderá ver os links para:
     
-   - **Copiar logs** – tenha a lista de arquivos que apresentaram erros durante a cópia de dados do data box para sua conta de armazenamento do Azure (ordem de importação) ou *vice-versa* (ordem de exportação).
-   - **Logs de auditoria** -contêm informações sobre como ligar e acessar compartilhamentos no data box quando ele está fora do datacenter do Azure.
+   - **Copiar logs** – tenha a lista de arquivos que apresentaram erros durante a cópia de dados do data box para sua conta de armazenamento do Azure (ordem de importação) ou da sua conta de armazenamento para a data Box (ordem de exportação).
+   - **Logs de auditoria** -contêm informações sobre como ligar os compartilhamentos de data box e acesso quando o data Box está fora do datacenter do Azure.
    - **Arquivos da bom na ordem de importação** -tenha a lista de arquivos (também conhecido como o manifesto do arquivo) que você pode baixar durante a **preparação para o envio** e tem nomes de arquivo, tamanhos de arquivo e as somas de verificação de arquivo.
    - **Logs detalhados na ordem de exportação** -tenha a lista de arquivos com nomes de arquivo, tamanhos de arquivo e computação de soma de verificação quando os dados foram copiados das contas de armazenamento do Azure para o data box.
 
@@ -198,11 +192,11 @@ Execute as etapas a seguir para baixar o histórico de pedidos.
 
     Você pode, em seguida, ir para sua conta de armazenamento e exibir os logs de cópia.
 
-![Logs nas contas de armazenamento](media/data-box-portal-admin/logs-in-storage-acct-2.png)
+   ![Os logs de cópia de uma conta de armazenamento](media/data-box-portal-admin/portal-admin-storage-account-copy-logs.png)
 
-Você também pode exibir a cadeia de logs de custódia que incluem os logs de auditoria e os arquivos BOM.
+   Você também pode exibir a cadeia de logs de custódia, que incluem os logs de auditoria e os arquivos da BOM.
 
-![Logs nas contas de armazenamento](media/data-box-portal-admin/logs-in-storage-acct-1.png)
+   ![Cadeia de logs de custódia para uma conta de armazenamento](media/data-box-portal-admin/portal-admin-storage-account-chain-of-custody-logs.png)
 
 ## <a name="view-order-status"></a>Exibir status do pedido
 
@@ -214,7 +208,7 @@ Aqui estão os status de uma ordem de importação.
 
 |Status do pedido |Descrição |
 |---------|---------|
-|Encomendado     | Pedido feito com êxito. <br>Se o dispositivo estiver disponível, a Microsoft identificará um dispositivo para envio e o preparará. <br> Se o dispositivo não estiver disponível imediatamente, o pedido apenas será processado quando o dispositivo estiver disponível. O pedido pode levar de vários dias a alguns meses para ser processado. Se o pedido não puder ser processado em até 90 dias, ele será cancelado e você será notificado.         |
+|Encomendado     | Pedido feito com êxito. <br>Se o dispositivo estiver disponível, a Microsoft identificará um dispositivo para envio e o preparará. <br> Se o dispositivo não estiver disponível imediatamente, a ordem será processada quando o dispositivo ficar disponível. O pedido pode levar de vários dias a alguns meses para ser processado. Se o pedido não puder ser atendido em 90 dias, o pedido será cancelado e você será notificado.         |
 |Processado     | O processamento de pedidos foi concluído. De acordo com seu pedido, o dispositivo está preparado para o envio no data center.         |
 |Expedido     | O pedido foi enviado. Use a ID de acompanhamento exibida no pedido no portal para acompanhar a remessa.        |
 |Entregue     | A remessa foi entregue no endereço especificado no pedido.        |
@@ -222,9 +216,9 @@ Aqui estão os status de uma ordem de importação.
 |Recebido     | O dispositivo foi recebido e verificado no datacenter do Azure. <br> Depois que a remessa for inspecionada, o upload do dispositivo será iniciado.      |
 |Cópia de dados     | Cópia de dados em andamento. Acompanhe o progresso de cópia do pedido no portal do Azure. <br> Aguarde até que a cópia de dados seja concluída. |
 |Concluído       |Pedido concluído com êxito.<br> Verifique se os dados estão no Azure antes de excluir os dados locais dos servidores.         |
-|Concluído com erros| A cópia de dados foi concluída, mas apresentou erros. <br> Examine os logs de cópia usando o caminho fornecido no portal do Azure. Consulte [exemplos de logs de cópia quando o upload for concluído com erros](https://docs.microsoft.com/azure/databox/data-box-logs#upload-completed-with-errors).   |
-|Concluído com avisos| A cópia de dados foi concluída, mas os dados foram modificados. Os dados tinham erros não críticos de BLOB ou de nome de arquivo que foram corrigidos alterando os nomes de arquivo ou BLOB. <br> Examine os logs de cópia usando o caminho fornecido no portal do Azure. Anote as modificações em seus dados. Consulte [exemplos de logs de cópia quando o upload for concluído com avisos](https://docs.microsoft.com/azure/databox/data-box-logs#upload-completed-with-warnings).   |
-|Canceled            |Pedido cancelado. <br> Você cancelou o pedido ou ocorreu um erro e o serviço cancelou o pedido. Se o pedido não puder ser processado em até 90 dias, ele também será cancelado e você será notificado.     |
+|Concluído com erros| A cópia de dados foi concluída, mas apresentou erros. <br> Examine os logs de cópia usando o caminho fornecido no portal do Azure. Consulte [exemplos de logs de cópia quando o upload for concluído com erros](./data-box-logs.md#upload-completed-with-errors).   |
+|Concluído com avisos| A cópia de dados foi concluída, mas os dados foram modificados. Os dados tinham erros não críticos de BLOB ou de nome de arquivo que foram corrigidos alterando os nomes de arquivo ou BLOB. <br> Examine os logs de cópia usando o caminho fornecido no portal do Azure. Anote as modificações em seus dados. Consulte [exemplos de logs de cópia quando o upload for concluído com avisos](./data-box-logs.md#upload-completed-with-warnings).   |
+|Canceled            |Pedido cancelado. <br> Você cancelou a ordem ou o serviço cancelou a ordem após um erro. Se o pedido não puder ser atendido em 90 dias, o pedido também será cancelado e você será notificado.     |
 |Limpar | Os dados nos discos do dispositivo foram apagados. A limpeza do dispositivo é considerada concluída quando o histórico de pedidos fica disponível no portal do Azure.|
 
 ### <a name="statuses-for-export-order"></a>Status da ordem de exportação
@@ -237,10 +231,10 @@ Aqui estão os status de uma ordem de exportação.
 |Canceled            |Pedido cancelado. <br> Você cancelou o pedido (você pode cancelar somente antes de o pedido ser processado) ou um erro foi encontrado e o serviço cancelou o pedido. Se o pedido não puder ser processado em até 90 dias, ele também será cancelado e você será notificado.     |
 |Processado     | O processamento de pedidos foi concluído. De acordo com seu pedido, o dispositivo está preparado para cópia de dados no datacenter. Os compartilhamentos de dispositivo são criados.         |
 |Cópia de dados em andamento     | A cópia de dados das contas de armazenamento do Azure especificadas para o dispositivo está em andamento. Acompanhe o progresso de cópia do pedido no portal do Azure. <br> Aguarde até que a cópia de dados seja concluída. |
-|Cópia concluída     | A cópia de dados das contas de armazenamento do Azure especificadas para o dispositivo foi concluída. Um arquivo de log detalhado (se a opção tiver sido habilitada na ordem) e um log de cópia será criado na sua conta de armazenamento. O log detalhado contém as informações sobre todos os arquivos (nome, caminho, soma de verificação de computação) que são copiados para o dispositivo. O log de cópia contém o resumo do processo de cópia, incluindo uma lista de arquivos que não puderam ser copiados devido a erros.<br> Os dados da conta de armazenamento permanecem no estado em que se encontram. |
-|Cópia concluída com erros| A cópia de dados foi concluída, mas apresentou erros. <br> Examine os logs de cópia na conta de armazenamento do Azure usando o caminho fornecido na portal do Azure. Consulte [exemplos de logs de cópia quando o download foi concluído com erros](https://docs.microsoft.com/azure/databox/data-box-logs#upload-completed-with-errors).   |
-|Cópia concluída com avisos| A cópia de dados da conta de armazenamento do Azure foi concluída, mas os dados tinham erros não críticos. <br> Examine os logs de cópia usando o caminho fornecido no portal do Azure. Anote os erros não críticos. Consulte [exemplos de logs de cópia quando o download foi concluído com avisos](https://docs.microsoft.com/azure/databox/data-box-logs#upload-completed-with-warnings).   |
-|A cópia falhou com erros| Falha na cópia de dados da conta de armazenamento do Azure e a ordem foi encerrada. Um dispositivo não será enviado.<br> Examine os logs de cópia na conta de armazenamento do Azure usando o caminho fornecido na portal do Azure. Consulte [exemplos de logs de cópia quando o download falhou com erros](https://docs.microsoft.com/azure/databox/data-box-logs#upload-completed-with-errors).   |
+|Cópia concluída     | A cópia de dados das contas de armazenamento do Azure especificadas para o dispositivo foi concluída. Um arquivo de log detalhado (se a opção tiver sido habilitada na ordem) e um log de cópia será criado na sua conta de armazenamento. O log detalhado contém as informações sobre todos os arquivos (nome, caminho, soma de verificação de computação) que são copiados para o dispositivo. O log de cópia contém o resumo do processo de cópia, incluindo uma lista de arquivos que não puderam ser copiados devido a erros. <br> Os dados da conta de armazenamento permanecem como estão. |
+|Cópia concluída com erros| A cópia de dados foi concluída, mas apresentou erros. <br> Examine os logs de cópia na conta de armazenamento do Azure usando o caminho fornecido na portal do Azure. Consulte [exemplos de logs de cópia quando o download foi concluído com erros](./data-box-logs.md#upload-completed-with-errors).   |
+|Cópia concluída com avisos| A cópia de dados da conta de armazenamento do Azure foi concluída, mas os dados tinham erros não críticos. <br> Examine os logs de cópia usando o caminho fornecido no portal do Azure. Anote os erros não críticos. Consulte [exemplos de logs de cópia quando o download foi concluído com avisos](./data-box-logs.md#upload-completed-with-warnings).   |
+|A cópia falhou com erros| Falha na cópia de dados da conta de armazenamento do Azure e a ordem é encerrada. Um dispositivo não será enviado. <br> Examine os logs de cópia na conta de armazenamento do Azure usando o caminho fornecido na portal do Azure. Consulte [exemplos de logs de cópia quando o download falhou com erros](./data-box-logs.md#upload-completed-with-errors).   |
 |Expedido     |O pedido foi enviado. Use a ID de acompanhamento exibida no pedido no portal para acompanhar a remessa.        |
 |Entregue     |A remessa foi entregue no endereço especificado no pedido.        |
 |Recolhido     |A remessa de devolução foi recolhida e verificada pela transportadora.         |
@@ -252,14 +246,14 @@ Aqui estão os status de uma ordem de exportação.
 > Se o trabalho de cópia para exportar dados das contas de armazenamento do Azure para Data Box for concluído com erros ou avisos, o dispositivo ainda será enviado. Somente no caso de uma falha de cópia, a ordem é encerrada e o dispositivo não é enviado.
 
 
-Se estiver usando o envio autogerenciado, depois que a cópia for concluída e antes de você receber o dispositivo, você verá os seguintes Estados (em vez daqueles mencionados na tabela anterior):
+Se você estiver usando o envio autogerenciado, depois que a cópia for concluída e antes de receber o dispositivo, você verá os seguintes Estados (em vez daqueles mencionados na tabela anterior):
 
 |Status do pedido |Descrição |
 |---------|---------|
 |Pronto para retirada no datacenter do Azure      |O dispositivo está pronto para ser selecionado no datacenter do Azure.        |
 |Recolhido    |Você selecionou o dispositivo.         |
 |Pronto para receber no datacenter do Azure     |O dispositivo está pronto para ser recebido no datacenter do Azure.        |
-|Recebido     |O dispositivo é recebido no datacenter do Azure.      |
+|Recebido     |O dispositivo foi recebido no datacenter do Azure.      |
 
 
 

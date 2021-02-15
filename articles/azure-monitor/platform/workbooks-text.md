@@ -2,19 +2,17 @@
 title: Parâmetros de texto de Azure Monitor pastas de trabalho
 description: Simplifique relatórios complexos com pastas de trabalho parametrizadas predefinidas e personalizadas. Saiba mais sobre os parâmetros de texto da pasta de trabalho.
 services: azure-monitor
-author: mrbullwinkle
 manager: carmonm
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
-ms.author: mbullwin
-ms.openlocfilehash: c804cc8942a40e2f30c980636194daa82e0fb0e8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0ac4c348b776cee2356f77424698b078947f4ad3
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81687335"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92143559"
 ---
 # <a name="workbook-text-parameters"></a>Parâmetros de texto da pasta de trabalho
 
@@ -27,10 +25,10 @@ Um uso comum de TextBoxes é como variáveis internas usadas por outros controle
 2. Escolha _adicionar parâmetros_ nos links na pasta de trabalho.
 3. Clique no botão azul _Adicionar parâmetro_ .
 4. No novo painel de parâmetros que aparece, digite:
-    1. Nome do parâmetro:`SlowRequestThreshold`
-    2. Tipo de parâmetro:`Text`
-    3. Necessário:`checked`
-    4. Obter valor padrão da consulta:`unchecked`
+    1. Nome do parâmetro: `SlowRequestThreshold`
+    2. Tipo de parâmetro: `Text`
+    3. Necessário: `checked`
+    4. Obter valor padrão da consulta: `unchecked`
 5. Escolha ' salvar ' na barra de ferramentas para criar o parâmetro.
 
     ![Imagem mostrando a criação de um parâmetro de texto](./media/workbooks-text/text-create.png)
@@ -67,10 +65,10 @@ Um uso comum de TextBoxes é como variáveis internas usadas por outros controle
 2. Escolha _adicionar parâmetros_ nos links na pasta de trabalho.
 3. Clique no botão azul _Adicionar parâmetro_ .
 4. No novo painel de parâmetros que aparece, digite:
-    1. Nome do parâmetro:`SlowRequestThreshold`
-    2. Tipo de parâmetro:`Text`
-    3. Necessário:`checked`
-    4. Obter valor padrão da consulta:`checked`
+    1. Nome do parâmetro: `SlowRequestThreshold`
+    2. Tipo de parâmetro: `Text`
+    3. Necessário: `checked`
+    4. Obter valor padrão da consulta: `checked`
 5. Na caixa KQL, adicione este trecho:
     ```kusto
     requests
@@ -87,5 +85,5 @@ Um uso comum de TextBoxes é como variáveis internas usadas por outros controle
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Comece a aprender mais](workbooks-visualizations.md) sobre pastas de trabalho muitas opções de visualizações ricas.
+* [Comece a aprender mais](./workbooks-overview.md#visualizations) sobre pastas de trabalho muitas opções de visualizações ricas.
 * [Controle](workbooks-access-control.md) e compartilhe o acesso aos recursos da pasta de trabalho.

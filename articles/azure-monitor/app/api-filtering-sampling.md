@@ -3,13 +3,13 @@ title: Filtragem e pré-processamento no SDK do Application Insights | Microsoft
 description: Escreva processadores de telemetria e inicializadores de telemetria para que o SDK filtre ou adicione Propriedades aos dados antes que a telemetria seja enviada ao portal de Application Insights.
 ms.topic: conceptual
 ms.date: 11/23/2016
-ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: c42b3a79e1c816e92c71e41a738bbb116a39aee1
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.custom: devx-track-js, devx-track-csharp
+ms.openlocfilehash: cb9159b98b219c6fb04beb7bbbaade64fc72a30b
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88936547"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98927756"
 ---
 # <a name="filter-and-preprocess-telemetry-in-the-application-insights-sdk"></a>Filtrar e pré-processar telemetria no SDK do Application Insights
 
@@ -292,7 +292,7 @@ protected void Application_Start()
 }
 ```
 
-Veja mais deste [exemplo](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/MvcWebRole).
+Veja mais deste [exemplo](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/MvcWebRole).
 
 **Aplicativos de serviço do ASP.NET Core/Worker: carregar seu inicializador**
 
@@ -327,24 +327,22 @@ Insira um inicializador de telemetria logo após o código de inicialização qu
     // This is called whenever a new telemetry item
     // is created.
 
-    appInsights.queue.push(function () {
-        appInsights.context.addTelemetryInitializer(function (envelope) {
-            var telemetryItem = envelope.data.baseData;
+    appInsights.addTelemetryInitializer(function (envelope) {
+        var telemetryItem = envelope.data.baseData;
 
-            // To check the telemetry items type - for example PageView:
-            if (envelope.name == Microsoft.ApplicationInsights.Telemetry.PageView.envelopeType) {
-                // this statement removes url from all page view documents
-                telemetryItem.url = "URL CENSORED";
-            }
+        // To check the telemetry items type - for example PageView:
+        if (envelope.name == Microsoft.ApplicationInsights.Telemetry.PageView.envelopeType) {
+            // this statement removes url from all page view documents
+            telemetryItem.url = "URL CENSORED";
+        }
 
-            // To set custom properties:
-            telemetryItem.properties = telemetryItem.properties || {};
-            telemetryItem.properties["globalProperty"] = "boo";
-
-            // To set custom metrics:
-            telemetryItem.measurements = telemetryItem.measurements || {};
-            telemetryItem.measurements["globalMetric"] = 100;
-        });
+        // To set custom properties:
+        telemetryItem.properties = telemetryItem.properties || {};
+        telemetryItem.properties["globalProperty"] = "boo";
+        
+        // To set cloud role name / instance
+        envelope.tags["ai.cloud.role"] = "your role name";
+        envelope.tags["ai.cloud.roleInstance"] = "your role instance";
     });
 
     // End of inserted code.
@@ -499,7 +497,7 @@ public void Initialize(ITelemetry telemetry)
 
 #### <a name="add-information-from-httpcontext"></a>Adicionar informações de HttpContext
 
-O inicializador de exemplo a seguir lê dados de [`HttpContext`](/aspnet/core/fundamentals/http-context?view=aspnetcore-3.1) e anexa-os a uma `RequestTelemetry` instância do. O `IHttpContextAccessor` é fornecido automaticamente por injeção de dependência de construtor.
+O inicializador de exemplo a seguir lê dados de [`HttpContext`](/aspnet/core/fundamentals/http-context) e anexa-os a uma `RequestTelemetry` instância do. O `IHttpContextAccessor` é fornecido automaticamente por injeção de dependência de construtor.
 
 ```csharp
 public class HttpContextRequestTelemetryInitializer : ITelemetryInitializer

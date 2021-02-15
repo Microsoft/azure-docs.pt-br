@@ -1,14 +1,16 @@
 ---
 title: Arquivos do SharePoint-QnA Maker
 description: Adicione fontes de dados do SharePoint protegidas à sua base de conhecimento para enriquecer a base de conhecimento com perguntas e respostas que podem ser protegidas com Active Directory.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: 93f17e79834b412ce0babf220ba13649ae07718c
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 0832b54e02cabecb0b1f0e7af600b8adc621a8b0
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83660299"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584763"
 ---
 # <a name="add-a-secured-sharepoint-data-source-to-your-knowledge-base"></a>Adicionar uma fonte de dados protegida do SharePoint à sua base de conhecimento
 
@@ -21,11 +23,11 @@ Se o QnA Maker Gerenciador da base de dados de conhecimento não for o Active Di
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * O SharePoint baseado em nuvem – QnA Maker usa Microsoft Graph para permissões. Se o seu SharePoint for local, você não poderá extrair do SharePoint porque Microsoft Graph não poderá determinar as permissões.
-* Formato da URL-QnA Maker dá suporte apenas a URLs do SharePoint que são geradas para compartilhamento e são do formato`https://\*.sharepoint.com`
+* Formato da URL-QnA Maker dá suporte apenas a URLs do SharePoint que são geradas para compartilhamento e são do formato `https://\*.sharepoint.com`
 
 ## <a name="add-supported-file-types-to-knowledge-base"></a>Adicionar tipos de arquivo com suporte à base de dados de conhecimento
 
-Você pode adicionar todos os tipos de [arquivo](../Concepts/content-types.md) com suporte QnA Maker de um site do SharePoint à sua base de dados de conhecimento. Talvez você precise conceder [permissões](#permissions) se o recurso de arquivo estiver protegido.
+Você pode adicionar todos os tipos de [arquivo](../index.yml) com suporte QnA Maker de um site do SharePoint à sua base de dados de conhecimento. Talvez você precise conceder [permissões](#permissions) se o recurso de arquivo estiver protegido.
 
 1. Na biblioteca com o site do SharePoint, selecione o menu de reticências do arquivo, `...` .
 1. Copie a URL do arquivo.
@@ -121,16 +123,20 @@ The Active Directory manager will get a pop-up window requesting permissions to 
 
     [![Selecionar usuário autenticado para Active Directory admin](../media/add-sharepoint-datasources/grant-aad-permissions-to-enterprise-app.png)](../media/add-sharepoint-datasources/grant-aad-permissions-to-enterprise-app.png#lightbox)
 
-1. Selecione uma conta de logon com permissões para conceder permissões para o Active Directory.
+1. Selecione uma conta de Sign-On com permissões para conceder permissões para o Active Directory.
 
+
+
+
+## <a name="add-sharepoint-data-source-with-apis"></a>Adicionar fonte de dados do SharePoint com APIs
+
+Há uma solução alternativa para adicionar o conteúdo mais recente do SharePoint via API usando o armazenamento de BLOBs do Azure, abaixo estão as etapas: 
+1.  Baixe os arquivos do SharePoint localmente. O usuário que está chamando a API precisa ter acesso ao SharePoint. 
+1.  Carregue-os no armazenamento de BLOBs do Azure. Isso criará um acesso compartilhado seguro [usando o token SAS.](../../../storage/common/storage-sas-overview.md#how-a-shared-access-signature-works) 
+1. Passe a URL do blob gerada com o token SAS para a API de QnA Maker. Para permitir que a pergunta responda à extração dos arquivos, você precisa adicionar o tipo de arquivo de sufixo como ' &ext = PDF ' ou ' &ext = Doc ' no final da URL antes de passá-lo para API de QnA Maker.
 
 
 <!--
-
-## Add SharePoint data source with APIs
-
-You need to get the SharePoint file's URI before adding it to QnA Maker.
-
 ## Get SharePoint File URI
 
 Use the following steps to transform the SharePoint URL into a sharing token.
@@ -154,7 +160,7 @@ Use the following steps to transform the SharePoint URL into a sharing token.
 
 ### Add or update a SharePoint File URI to your knowledge base
 
-Use the **@microsoft.graph.downloadUrl** from the previous section as the `fileuri` in the QnA Maker API for [adding a knowledge base](https://go.microsoft.com/fwlink/?linkid=2092179) or [updating a knowledge base](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update). The following fields are mandatory: name, fileuri, filename, source.
+Use the **@microsoft.graph.downloadUrl** from the previous section as the `fileuri` in the QnA Maker API for [adding a knowledge base](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase) or [updating a knowledge base](/rest/api/cognitiveservices/qnamaker/knowledgebase/update). The following fields are mandatory: name, fileuri, filename, source.
 
 ```
 {
@@ -186,4 +192,4 @@ Use the **@microsoft.graph.downloadUrl** from the previous section as the `fileu
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Colaborar com sua base de dados de conhecimento](collaborate-knowledge-base.md)
+> [Colaborar com sua base de dados de conhecimento](../index.yml)

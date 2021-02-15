@@ -1,15 +1,18 @@
 - name: Azure Active Directory para desenvolvedores
   href: index.yml
 - name: Visão geral
-  href: v1-overview.md
-- name: Exemplos
-  href: sample-v1-code.md
-- name: Conceitos
+  expanded: true
   items:
+    - name: Visão geral
+      href: v1-overview.md
     - name: Evolução da plataforma de identidade da Microsoft
       href: about-microsoft-identity-platform.md
     - name: Por que atualizar para o v2.0
       href: azure-ad-endpoint-comparison.md
+- name: Exemplos
+  href: sample-v1-code.md
+- name: Conceitos
+  items:
     - name: Tipos de aplicativos
       items:
         - name: Tipos de aplicativos
@@ -94,8 +97,6 @@
               href: howto-v1-enable-sso-android.md
             - name: Habilitar SSO em iOS
               href: howto-v1-enable-sso-ios.md
-            - name: Depurar o SSO baseado em SAML
-              href: howto-v1-debug-saml-sso-issues.md
         - name: Configurar declarações
           items:
             - name: Configurar declarações de função
@@ -146,8 +147,6 @@
       items:
         - name: Publicar na Loja de Aplicativos
           href: howto-get-appsource-certified.md
-        - name: Publicar na Galeria de Aplicativos do Azure AD
-          href: howto-app-gallery-listing.md
         - name: Publicar no Painel do Vendedor do Office 365
           href: /office/dev/store/use-the-seller-dashboard-to-submit-to-the-office-store
     - name: Serviço de Controle de Acesso do Azure

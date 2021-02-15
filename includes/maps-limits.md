@@ -9,10 +9,10 @@ ms.date: 05/01/2020
 ms.author: v-stharr
 ms.custom: include file
 ms.openlocfilehash: 9eafc1ee2d873fbb0602c932eab57c45ddaeac08
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
-ms.translationtype: MT
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83673009"
 ---
 A tabela a seguir mostra o limite de uso para o tipo de preço S0 do Azure Mapas. Depende do tipo de preço.

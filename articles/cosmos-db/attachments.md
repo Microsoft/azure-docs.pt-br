@@ -8,14 +8,15 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 08/07/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 27d9297809d2bd028918885a88faf55e8314b71d
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: b6504c0521328edc356dea1c146fe9aeb6bde55f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88817336"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93092731"
 ---
 # <a name="azure-cosmos-db-attachments"></a>Azure Cosmos DB anexos
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Azure Cosmos DB anexos são itens especiais que contêm referências a um metadado associado com um blob externo ou arquivo de mídia.
 
@@ -102,6 +103,7 @@ namespace attachments
                 foreach (Document document in response)
                 {
                     string attachmentContinuation = null;
+                    PartitionKey docPartitionKey = new PartitionKey(document.Id);
 
                     // Iterate through each attachment within the item (if any).
                     do
@@ -110,7 +112,7 @@ namespace attachments
                             document.SelfLink,
                             new FeedOptions
                             {
-                                PartitionKey = new PartitionKey(document.Id),
+                                PartitionKey = docPartitionKey,
                                 RequestContinuation = attachmentContinuation
                             }
                         );
@@ -134,6 +136,15 @@ namespace attachments
 
                             Console.WriteLine("Copied attachment ... Item Id: {0} , Attachment Id: {1}, Blob Id: {2}", document.Id, attachment.Id, blobId);
                             totalCount++;
+
+                            // Clean up attachment from Azure Cosmos DB.
+                            // Warning: please verify you've succesfully migrated attachments to blog storage prior to cleaning up Azure Cosmos DB.
+                            // await cosmosClient.DeleteAttachmentAsync(
+                            //     attachment.SelfLink,
+                            //     new RequestOptions { PartitionKey = docPartitionKey }
+                            // );
+
+                            // Console.WriteLine("Cleaned up attachment ... Document Id: {0} , Attachment Id: {1}", document.Id, attachment.Id);
                         }
 
                     } while (!string.IsNullOrEmpty(attachmentContinuation));
@@ -150,7 +161,7 @@ namespace attachments
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Introdução ao [armazenamento de BLOBs do Azure](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet)
-- Obter referências para usar anexos por meio [do SDK do .net v2 do Azure Cosmos DB](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.attachment?view=azure-dotnet)
-- Obter referências para usar anexos por meio [do SDK do Java v2 de Azure Cosmos DB](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.attachment?view=azure-java-stable)
-- Obter referências para usar anexos via [API REST do Azure Cosmos DB](https://docs.microsoft.com/rest/api/cosmos-db/attachments)
+- Introdução ao [armazenamento de BLOBs do Azure](../storage/blobs/storage-quickstart-blobs-dotnet.md)
+- Obter referências para usar anexos por meio [do SDK do .net v2 do Azure Cosmos DB](/dotnet/api/microsoft.azure.documents.attachment?preserve-view=true&view=azure-dotnet)
+- Obter referências para usar anexos por meio [do SDK do Java v2 de Azure Cosmos DB](/java/api/com.microsoft.azure.documentdb.attachment?preserve-view=true&view=azure-java-stable)
+- Obter referências para usar anexos via [API REST do Azure Cosmos DB](/rest/api/cosmos-db/attachments)

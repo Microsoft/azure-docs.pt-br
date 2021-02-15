@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 18646fc92dda7cebb7a8c1030285956d8fe4df74
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 3985564d49ce8a5c62b15f9537364418c0a8f5da
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88924153"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509913"
 ---
 # <a name="how-to-shape-and-export-enrichments"></a>Como formatar e exportar aprimoramentos
 
@@ -576,13 +576,12 @@ A partir do objeto crossProjection consolidado, divida o objeto em várias tabel
                     }
                 ],
                 "files": [
-                     {
+                    {
                         "storageContainer": "crossimages",
                         "generatedKeyName": "crossimages",
                         "source": "/document/crossProjection/images/*/image"
                     }
-                    ]
-                
+                ]
             }
         ]
     }

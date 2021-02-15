@@ -10,22 +10,22 @@ ms.service: active-directory
 ms.subservice: pim
 ms.topic: how-to
 ms.workload: identity
-ms.date: 08/24/2020
+ms.date: 09/15/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8bad5b0256ee445767689ea2752e918a1fbf5fae
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 5bcfb21ab15355653780355f1b5e459bc806ec8c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815990"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "90600714"
 ---
 # <a name="start-using-privileged-identity-management"></a>Começar usando o Privileged Identity Management
 
 Este artigo descreve como habilitar o PIM (Privileged Identity Management) e começar a usá-lo.
 
-Use o Privileged Identity Management (PIM) para gerenciar, controlar e monitorar o acesso em sua organização do Azure Active Directory (AD do Azure). Com o PIM, você pode fornecer acesso necessário e Just-in-time aos recursos do Azure, aos recursos do Azure AD e a outros serviços online da Microsoft, como o Office 365 ou Microsoft Intune.
+Use o Privileged Identity Management (PIM) para gerenciar, controlar e monitorar o acesso em sua organização do Azure Active Directory (AD do Azure). Com o PIM, você pode fornecer acesso necessário e Just-in-time aos recursos do Azure, aos recursos do Azure AD e a outros serviços online da Microsoft, como Microsoft 365 ou Microsoft Intune.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -35,6 +35,14 @@ Para usar Privileged Identity Management, você deve ter uma das seguintes licen
 - Enterprise Mobility + Security (EMS) E5
 
 Para obter mais informações, consulte [requisitos de licença para usar Privileged Identity Management](subscription-requirements.md).
+
+> [!Note]
+> Quando um usuário que está ativo em uma função privilegiada em uma organização do Azure AD com uma licença Premium P2 vai para **funções e administradores** no Azure AD e seleciona uma função (ou até mesmo apenas visita Privileged Identity Management):
+>
+> - Habilitamos automaticamente o PIM para a organização
+> - Sua experiência agora é que eles podem atribuir uma atribuição de função "regular" ou uma atribuição de função qualificada
+>
+> Quando o PIM está habilitado, ele não tem nenhum outro efeito em sua organização com o qual você precisa se preocupar. Ele fornece opções de atribuição adicionais, como ativo vs qualificado com hora de início e de término. O PIM também permite que você defina o escopo para atribuições de função usando unidades administrativas e funções personalizadas. Se você for um administrador global ou administrador de função com privilégios, poderá começar a obter alguns emails adicionais como o resumo semanal do PIM. Você também pode ver a entidade de serviço MS-PIM no log de auditoria relacionado à atribuição de função. Essa é uma alteração esperada que não deve ter efeito sobre o fluxo de trabalho.
 
 ## <a name="prepare-pim-for-azure-ad-roles"></a>Preparar o PIM para funções do Azure AD
 

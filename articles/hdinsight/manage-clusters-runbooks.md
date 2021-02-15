@@ -1,19 +1,16 @@
 ---
 title: 'Tutorial: Usar runbooks de Automação do Azure para criar clusters – Azure HDInsight'
 description: Saiba como criar e excluir clusters do Azure HDInsight com scripts executados na nuvem usando runbooks de Automação do Azure.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 12/27/2019
-ms.openlocfilehash: 05c0aaf6cc33442fa4f36eb38eb0d6d593fc6c1f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 255542d820d135d1a88e193a8ef13ae590ce4016
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75553116"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944042"
 ---
 # <a name="tutorial-create-azure-hdinsight-clusters-with-azure-automation"></a>Tutorial: Criar clusters do Azure HDInsight com a Automação do Azure
 

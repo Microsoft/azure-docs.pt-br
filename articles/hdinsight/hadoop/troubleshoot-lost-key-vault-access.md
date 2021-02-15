@@ -1,18 +1,15 @@
 ---
 title: Clusters do Azure HDInsight com criptografia de disco perdem Key Vault acesso
-description: Etapas de solução de problemas e possíveis resoluções para problemas ao interagir com clusters do Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
+description: Etapas de solução de problemas e possíveis resoluções para problemas de acesso de Key Vault ao interagir com clusters do Azure HDInsight.
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/30/2020
-ms.openlocfilehash: b1d941fbf86d453a56a5157ed988a32173c614fc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ce2929ca84746de1ab8b51882f3004c3699f17ca
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81461524"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943107"
 ---
 # <a name="scenario-azure-hdinsight-clusters-with-disk-encryption-lose-key-vault-access"></a>Cenário: clusters do Azure HDInsight com criptografia de disco perdem Key Vault acesso
 
@@ -32,11 +29,11 @@ Navegue até a interface do usuário do Apache Ambari para obter mais informaç�
 
 ### <a name="kvaad-outage"></a>Interrupção de KV/AAD
 
-Veja [Azure Key Vault disponibilidade e redundância](../../key-vault/general/disaster-recovery-guidance.md) e a página de status do Azure para obter mais detalheshttps://status.azure.com/
+Veja [Azure Key Vault disponibilidade e redundância](../../key-vault/general/disaster-recovery-guidance.md) e a página de status do Azure para obter mais detalhes https://status.azure.com/
 
 ### <a name="kv-accidental-deletion"></a>Exclusão acidental do KV
 
-* Restaure a chave excluída em KV para recuperar automaticamente. Para obter mais informações, consulte [recuperar chave excluída](https://docs.microsoft.com/rest/api/keyvault/recoverdeletedkey).
+* Restaure a chave excluída em KV para recuperar automaticamente. Para obter mais informações, consulte [recuperar chave excluída](/rest/api/keyvault/recoverdeletedkey).
 * Entre em contato com a equipe do KV para se recuperar de exclusões acidentais.
 
 ### <a name="kv-access-policy-changed"></a>Política de acesso do KV alterada
@@ -88,4 +85,4 @@ Se você não encontrou seu problema ou não conseguiu resolver seu problema, vi
 
 * Conecte-se com [@AzureSupport](https://twitter.com/azuresupport), a conta oficial do Microsoft Azure para melhorar a experiência do cliente. Como se conectar à comunidade do Azure para os recursos certos: respostas, suporte e especialistas.
 
-* Se precisar de mais ajuda, poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **Suporte** na barra de menus ou abra o hub **Ajuda + suporte**. Para obter informações mais detalhadas, consulte [Como criar uma solicitação de Suporte do Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). O acesso ao Gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o suporte técnico é fornecido por meio de um dos [Planos de suporte do Azure](https://azure.microsoft.com/support/plans/).
+* Se precisar de mais ajuda, poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **Suporte** na barra de menus ou abra o hub **Ajuda + suporte**. Para obter informações mais detalhadas, consulte [Como criar uma solicitação de Suporte do Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). O acesso ao Gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o suporte técnico é fornecido por meio de um dos [Planos de suporte do Azure](https://azure.microsoft.com/support/plans/).

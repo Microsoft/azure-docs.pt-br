@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/04/2019
-ms.openlocfilehash: ef34dbfd3af326dbf2d82e09a4c5c8c8e4a91a84
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.date: 11/11/2020
+ms.openlocfilehash: b1e0dbd23fa14c1bd79275d3f9ff6a164293ac19
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319789"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100007339"
 ---
 # <a name="log-analytics-data-security"></a>Segurança de dados do Log Analytics
 Este documento destina-se a fornecer informações específicas do Log Analytics, que é um recurso do Azure Monitor, para complementar as informações na [Central de Confiabilidade do Azure](https://www.microsoft.com/en-us/trust-center?rtc=1).  
@@ -26,6 +26,12 @@ O serviço Log Analytics gerencia seus dados baseados em nuvem com segurança us
 * Gerenciamento de incidentes
 * Conformidade
 * Certificações de padrões de segurança
+
+Você também pode usar recursos de segurança adicionais incorporados em Azure Monitor e Log Analytics. Esses recursos exigem mais gerenciamento de administradores. 
+* Chaves gerenciadas pelo cliente (segurança)
+* Armazenamento privado do Azure
+* Rede do Link Privado 
+* Limites de acesso do suporte do Azure definidos pela Lockbox do Azure
 
 Entre em contato conosco com quaisquer perguntas, sugestões ou problemas sobre qualquer uma das seguintes informações, incluindo nossas políticas de segurança nas [opções de suporte do Azure](https://azure.microsoft.com/support/options/).
 
@@ -121,7 +127,7 @@ O Azure Log Analytics atende aos seguintes requisitos:
 * [ISO 22301](https://azure.microsoft.com/blog/iso22301/)
 * [PCI DSS (Padrão de Segurança de dados do Setor de Cartões de Pagamento (Compatível com PCI))](https://www.microsoft.com/en-us/TrustCenter/Compliance/PCI) pelo PCI Security Standards Council.
 * Compatível com [SOC (Service Organization Controls) 1 Tipo 1 e SOC 2 Tipo 1](https://www.microsoft.com/en-us/TrustCenter/Compliance/SOC1-and-2)
-* [HIPAA e HITECH](https://www.microsoft.com/en-us/TrustCenter/Compliance/hipaa) para empresas que tenham um contrato de sócio corporativo HIPAA
+* [HIPAA e HITECH](/compliance/regulatory/offering-hipaa-hitech) para empresas que tenham um contrato de sócio corporativo HIPAA
 * Critérios de engenharia comum do Windows
 * Microsoft Trustworthy Computing (a página pode estar em inglês)
 * Como um serviço do Azure, os componentes que o Log Analytics usa seguem os requisitos de conformidade do Azure. Você pode ler mais em [Conformidade do Microsoft Trust Center](https://www.microsoft.com/en-us/trustcenter/compliance/default.aspx).
@@ -168,11 +174,21 @@ O serviço Log Analytics garante que os dados de entrada sejam de uma fonte conf
 
 O período de retenção dos dados coletados armazenados no banco de dados depende do plano de preços selecionado. Para a camada *Livre*, os dados coletados estão disponíveis por sete dias. Para a camada *Paga*, os dados coletados ficam disponíveis durante 31 dias por padrão, mas podem ser estendidos para 730 dias. Os dados são armazenados criptografados em repouso no armazenamento do Azure, para garantir a confidencialidade, e os dados são replicados na região local usando o LRS (armazenamento com redundância local). As duas últimas semanas de dados também são armazenadas em cache baseado em SSD e esse cache é criptografado.
 
+Não é possível alterar os dados no armazenamento de banco de dado após a ingestão, mas podem ser excluídos por meio do caminho de API de [ *limpeza*](personal-data-mgmt.md#delete). Embora os dados não possam ser alterados, algumas certificações exigem que os dados sejam mantidos imutáveis e não possam ser alterados ou excluídos no armazenamento. A imutabilidade dos dados pode ser obtida usando a [exportação de dados](logs-data-export.md) para uma conta de armazenamento configurada como [armazenamento imutável](../../storage/blobs/storage-blob-immutability-policies-manage.md).
+
 ## <a name="4-use-log-analytics-to-access-the-data"></a>4. usar Log Analytics para acessar os dados
 Para acessar seu espaço de trabalho do Log Analytics, entre no portal do Azure usando a conta organizacional ou uma conta da Microsoft configurada anteriormente. Todo o tráfego entre o portal e o Log Analytics no serviço é enviado por um canal HTTPS seguro. Ao usar o portal, uma ID de sessão é gerada no cliente do usuário (navegador da Web) e dados são armazenados em um cache local até que a sessão seja encerrada. Após o encerramento, o cache é excluído. Os cookies do lado do cliente, que não contêm informações de identificação pessoal, não são removidos automaticamente. Os cookies de sessão são marcados como HTTPOnly e são protegidos. Após um período ocioso predeterminado, a sessão do portal do Azure é encerrada.
+
+
+## <a name="additional-security-features"></a>Recursos de segurança adicionais
+Você pode usar esses recursos de segurança adicionais para proteger ainda mais seu ambiente de Azure Monitor/Log Analytics. Esses recursos exigem mais gerenciamento de administradores. 
+- [Chaves gerenciadas pelo cliente (segurança)](customer-managed-keys.md) -você pode usar chaves gerenciadas pelo cliente para criptografar dados enviados para seus espaços de trabalho do log Analytics. Ele requer o uso de Azure Key Vault. 
+- [Armazenamento gerenciado por cliente/privado](private-storage.md) -Gerencie sua conta de armazenamento criptografado pessoalmente e diga log Analytics para usá-la para armazenar dados de monitoramento 
+- [Rede de link privado](private-link-security.md) – o link privado do Azure permite vincular com segurança os serviços de PaaS do Azure (incluindo Azure monitor) à sua rede virtual usando pontos de extremidade privados. 
+- O [Lockbox do cliente do Azure](../../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-preview) -Sistema de Proteção de Dados do Cliente para Microsoft Azure fornece uma interface para os clientes revisarem e aprovarem ou rejeitarem solicitações de acesso a dados do cliente. Ele é usado quando um engenheiro da Microsoft precisa acessar os dados do cliente durante uma solicitação de suporte.
+
 
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba como coletar dados com o Log Analytics para as VMs do Azure seguindo o [guia de início rápido da VM do Azure](../learn/quick-collect-azurevm.md).  
 
 *  Se você estiver querendo coletar dados de computadores físicos ou virtuais Windows ou Linux em seu ambiente, confira o [Guia de início rápido para computadores Linux](../learn/quick-collect-linux-computer.md) ou o [Guia de início rápido para computadores Windows](../learn/quick-collect-windows-computer.md)
-

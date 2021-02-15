@@ -1,22 +1,18 @@
 ---
 title: Atualizar modelos Azure Machine Learning Studio (clássico) usando Azure Data Factory
 description: Descreve como criar pipelines preditivas usando Azure Data Factory e Azure Machine Learning Studio (clássico)
-services: data-factory
-documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
-manager: jroth
+author: dcstwh
+ms.author: weetok
 ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/16/2020
-ms.openlocfilehash: 83950c2d3c5439886ff787b69d9da4d0c214de31
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ef89ecef34a7c5afb94547181f449b0fc393e67c
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87092534"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100377560"
 ---
 # <a name="update-azure-machine-learning-studio-classic-models-by-using-update-resource-activity"></a>Atualizar modelos de Azure Machine Learning Studio (clássico) usando atualizar atividade de recurso
 
@@ -63,7 +59,7 @@ O trecho JSON a seguir define uma atividade de execução de lote Azure Machine 
 | :---------------------------- | :--------------------------------------- | :------- |
 | name                          | Nome da atividade no pipeline     | Sim      |
 | descrição                   | Texto que descreve o que a atividade faz.  | Não       |
-| type                          | Para Azure Machine Learning Studio atividade de recurso de atualização (clássica), o tipo de atividade é **AzureMLUpdateResource**. | Sim      |
+| type                          | Para Azure Machine Learning Studio atividade de recurso de atualização (clássica), o tipo de atividade é  **AzureMLUpdateResource**. | Sim      |
 | linkedServiceName             | Azure Machine Learning Studio serviço vinculado (clássico) que contém a propriedade updateResourceEndpoint. | Sim      |
 | trainedModelName              | O nome do módulo de modelo treinado no teste do serviço Web a ser atualizado | Sim      |
 | trainedModelLinkedServiceName | Nome do serviço vinculado do Armazenamento do Azure mantendo o arquivo ilearner que é carregado pela operação de atualização | Sim      |

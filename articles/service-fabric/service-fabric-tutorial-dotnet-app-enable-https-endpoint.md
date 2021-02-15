@@ -3,13 +3,13 @@ title: Adicionar um ponto de extremidade HTTPS usando o Kestrel
 description: Neste tutorial, você aprenderá a adicionar um ponto de extremidade HTTPS a um serviço Web de front-end do ASP.NET Core usando Kestrel e a implantar o aplicativo em um cluster.
 ms.topic: tutorial
 ms.date: 07/22/2019
-ms.custom: mvc
-ms.openlocfilehash: b9e1800d07d418ff385f2c5e7af112b170e3fd44
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.custom: mvc, devx-track-csharp
+ms.openlocfilehash: c675f8ece8369bcfc0055343221ac82aea59dec1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "82780191"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91326228"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>Tutorial: adicionar um ponto de extremidade HTTPS a um serviço de front-end de API Web do ASP.NET Core usando o Kestrel
 
@@ -238,7 +238,7 @@ No Gerenciador de Soluções, abra *VotingWeb/PackageRoot/ServiceManifest.xml*. 
 
 Para executar o PowerShell do ponto **SetupEntryPoint**, execute PowerShell.exe em um arquivo em lotes que aponte para um arquivo do PowerShell. Primeiro, adicione o arquivo em lotes ao projeto de serviço.  No Gerenciador de Soluções, clique com o botão direito do mouse em **VotingWeb**, selecione **Adicionar**->**Novo Item** e adicione um novo arquivo denominado "Setup.bat".  Edite o arquivo *Setup.bat* e adicione o comando a seguir:
 
-```bat
+```cmd
 powershell.exe -ExecutionPolicy Bypass -Command ".\SetCertAccess.ps1"
 ```
 
@@ -354,7 +354,7 @@ No Gerenciador de Soluções, selecione o aplicativo de **Votação** e defina a
 
 Salve todos os arquivos e pressione F5 para executar o aplicativo localmente.  Depois que o aplicativo é implantado, um navegador da Web abre como https:\//localhost:443. Se você estiver usando um certificado autoassinado, verá um aviso informando que seu computador não confia na segurança desse site.  Siga até a página da Web.
 
-![Aplicativo de votação][image2]
+![Captura de tela do aplicativo Exemplo de Votação do Service Fabric em execução em uma janela do navegador com a URL https://localhost/.][image2]
 
 ## <a name="install-certificate-on-cluster-nodes"></a>Instalar certificado em nós de cluster
 
@@ -371,7 +371,7 @@ Em seguida, instale o certificado no cluster remoto usando [estes scripts do Pow
 > [!Warning]
 > Um certificado autoassinado é suficiente para aplicativos de desenvolvimento e teste. Para aplicativos de produção, use um certificado de uma [CA (autoridade de certificação)](https://wikipedia.org/wiki/Certificate_authority) em vez de um certificado autoassinado.
 
-## <a name="open-port-443-in-the-azure-load-balancer"></a>Abrir a porta 443 no balanceador de carga do Azure
+## <a name="open-port-443-in-the-azure-load-balancer-and-virtual-network"></a>Abrir a porta 443 no Azure Load Balancer e na rede virtual
 
 Abra a porta 443 no balanceador de carga, se já não estiver aberta.
 
@@ -396,13 +396,33 @@ $slb | Add-AzLoadBalancerRuleConfig -Name $rulename -BackendAddressPool $slb.Bac
 $slb | Set-AzLoadBalancer
 ```
 
+Faça o mesmo para a rede virtual associada.
+
+```powershell
+$rulename="allowAppPort$port"
+$nsgname="voting-vnet-security"
+$RGname="voting_RG"
+$port=443
+
+# Get the NSG resource
+$nsg = Get-AzNetworkSecurityGroup -Name $nsgname -ResourceGroupName $RGname
+
+# Add the inbound security rule.
+$nsg | Add-AzNetworkSecurityRuleConfig -Name $rulename -Description "Allow app port" -Access Allow `
+    -Protocol * -Direction Inbound -Priority 3891 -SourceAddressPrefix "*" -SourcePortRange * `
+    -DestinationAddressPrefix * -DestinationPortRange $port
+
+# Update the NSG.
+$nsg | Set-AzNetworkSecurityGroup
+```
+
 ## <a name="deploy-the-application-to-azure"></a>Implantar o aplicativo no Azure
 
 Salve todos os arquivos, alterne de Depurar para Lançar e pressione F6 para recompilar.  No Gerenciador de Soluções, clique com o botão direito do mouse em **Votação** e selecione **Publicar**. Selecione o ponto de extremidade de conexão do cluster criado em [Implantar um aplicativo em um cluster](service-fabric-tutorial-deploy-app-to-party-cluster.md) ou selecione outro cluster.  Clique em **Publicar** para publicar o aplicativo no cluster remoto.
 
 Quando o aplicativo é implantado, abra um navegador da Web e navegue até `https://mycluster.region.cloudapp.azure.com:443` (atualize a URL com o ponto de extremidade de conexão para o cluster). Se você estiver usando um certificado autoassinado, verá um aviso informando que seu computador não confia na segurança desse site.  Siga até a página da Web.
 
-![Aplicativo de votação][image3]
+![Captura de tela do aplicativo Exemplo de Votação do Service Fabric em execução em uma janela do navegador com a URL https://mycluster.region.cloudapp.azure.com:443.][image3]
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -1,18 +1,15 @@
 ---
 title: Otimizar o Apache HBase com o Apache Ambari no Azure HDInsight
 description: Use a interface do usuário da Web do Apache amAmbari para configurar e otimizar o Apache HBase.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.date: 05/04/2020
-ms.openlocfilehash: d143c9648f84dd0c8b45122cf2271539a0b9d1cf
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.date: 02/01/2021
+ms.openlocfilehash: 60c9916bc7d7b3b380a332f41924ee744002fd66
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086323"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99428193"
 ---
 # <a name="optimize-apache-hbase-with-apache-ambari-in-azure-hdinsight"></a>Otimizar o Apache HBase com o Apache Ambari no Azure HDInsight
 
@@ -21,6 +18,9 @@ O Apache Ambari é uma interface da Web para gerenciar e monitorar clusters HDIn
 A configuração do Apache HBase é modificada na guia **configurações do HBase** . As seções a seguir descrevem algumas das definições de configuração importantes que afetam o desempenho do HBase.
 
 ## <a name="set-hbase_heapsize"></a>Definir HBASE_HEAPSIZE
+
+> [!NOTE]
+> Este artigo contém referências ao termo *mestre*, um termo que a Microsoft não usa mais. Quando o termo for removido do software, também o removeremos deste artigo.
 
 O tamanho do heap do HBase especifica a quantidade máxima do heap a ser usada, em megabytes, por *região* e por servidores *mestre*. O valor padrão é 1,000 MB. Esse valor deve ser ajustado para a carga de trabalho do cluster.
 
@@ -89,11 +89,11 @@ Quanto maior o tamanho do arquivo de região, menor o número de divisões. É p
 
 ## <a name="define-memstore-size"></a>Definir tamanho do Memstore
 
-O tamanho do Memstore é definido pelos parâmetros `hbase.regionserver.global.memstore.UpperLimit` e `hbase.regionserver.global.memstore.LowerLimit`. Definir esses valores como iguais uns aos outros reduz pausas durante as gravações (também causando liberações mais frequentes) e resulta em um melhor desempenho de gravação.
+O tamanho do Memstore é definido pelos parâmetros `hbase.regionserver.global.memstore.upperLimit` e `hbase.regionserver.global.memstore.lowerLimit`. Definir esses valores como iguais uns aos outros reduz pausas durante as gravações (também causando liberações mais frequentes) e resulta em um melhor desempenho de gravação.
 
 ## <a name="set-memstore-local-allocation-buffer"></a>Definir o buffer de alocação local do Memstore
 
-O uso do buffer de alocação local do Memstore é determinado pela propriedade `hbase.hregion.memstore.mslab.enabled`. Quando habilitado (true), essa configuração impede a fragmentação de heap durante uma operação de gravação pesada. O valor padrão é verdadeiro.
+O uso do buffer de alocação local do Memstore é determinado pela propriedade `hbase.hregion.memstore.mslab.enabled`. Quando habilitado (true), essa configuração impede a fragmentação de heap durante uma operação de gravação pesada. O valor padrão é true.
 
 ![hbase.hregion.memstore.mslab.enabled](./media/optimize-hbase-ambari/hbase-hregion-memstore-mslab-enabled.png)
 

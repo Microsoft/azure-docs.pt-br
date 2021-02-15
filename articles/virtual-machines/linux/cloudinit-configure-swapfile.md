@@ -4,15 +4,15 @@ description: Como usar Cloud-init para configurar uma partição de permuta em u
 author: rickstercdn
 manager: gwallace
 ms.service: virtual-machines-linux
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: 1247652e536042ee249054d86aed3c3f8e7aa7bf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1f8746e67ba712ac4c2c3e832fcb5ffefb170d59
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78969195"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "87371933"
 ---
 # <a name="use-cloud-init-to-configure-a-swap-partition-on-a-linux-vm"></a>Usar Cloud-init para configurar uma partição de permuta em uma VM do Linux
 Este artigo mostra como usar [Cloud-init](https://cloudinit.readthedocs.io) para configurar a partição de permuta em várias distribuições do Linux. A partição de permuta foi tradicionalmente configurada pelo agente do Linux (WALA) com base em quais distribuições exigiam uma.  Este documento descreverá o processo de criação da partição de permuta sob demanda durante o tempo de provisionamento usando Cloud-init.  Para obter mais informações de como o cloud-init funciona nativamente no Azure e as distribuições do Linux compatíveis, consulte [Visão geral de cloud-init](using-cloud-init.md)

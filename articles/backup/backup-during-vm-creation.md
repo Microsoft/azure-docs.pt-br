@@ -3,12 +3,12 @@ title: Habilitar o backup ao criar uma VM do Azure
 description: Descreve como habilitar o backup ao criar uma VM do Azure com o backup do Azure.
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: bbc00239a34fc0eb88991fcabd91c5a0eb7dbea7
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: ad81300545686d61f42cdd8684e502c937b4fd43
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892296"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89377328"
 ---
 # <a name="enable-backup-when-you-create-an-azure-vm"></a>Habilitar o backup ao criar uma VM do Azure
 
@@ -26,14 +26,14 @@ Se você ainda não tiver entrado em sua conta, entre no [portal do Azure](https
 
 ## <a name="create-a-vm-with-backup-configured"></a>Criar uma VM com backup configurado
 
-1. Em portal do Azure, clique em **criar um recurso**.
+1. Na portal do Azure, selecione **criar um recurso**.
 
-2. No Azure Marketplace, clique em **computação**e selecione uma imagem de VM.
+2. No Azure Marketplace, selecione **computação**e, em seguida, selecione uma imagem de VM.
 
 3. Configure a VM de acordo com as instruções do [Windows](../virtual-machines/windows/quick-create-portal.md) ou do [Linux](../virtual-machines/linux/quick-create-portal.md) .
 
-4. Na guia **Gerenciamento** , em **habilitar backup**, clique **em**ativar.
-5. Backups de backup do Azure para um cofre dos serviços de recuperação. Clique em **criar novo** se você não tiver um cofre existente.
+4. Na guia **Gerenciamento** , em **habilitar backup**, selecione **ativado**.
+5. Backups de backup do Azure para um cofre dos serviços de recuperação. Selecione **criar novo** se você não tiver um cofre existente.
 6. Aceite o nome sugerido do cofre ou especifique o seu próprio.
 7. Especifique ou crie um grupo de recursos no qual o cofre será localizado. O cofre do grupo de recursos pode ser diferente do grupo de recursos da VM.
 
@@ -76,8 +76,8 @@ O backup da VM será executado de acordo com sua política de backup. No entanto
 
 Depois que a VM for criada, faça o seguinte:
 
-1. Nas propriedades da VM, clique em **backup**. O status da VM é backup inicial pendente até que o backup inicial seja executado
-2. Clique em **fazer backup agora** para executar um backup sob demanda.
+1. Nas propriedades da VM, selecione **backup**. O status da VM é backup inicial pendente até que o backup inicial seja executado.
+2. Selecione **fazer backup agora** para executar um backup sob demanda.
 
     ![Executar um backup sob demanda](./media/backup-during-vm-creation/run-backup.png)
 

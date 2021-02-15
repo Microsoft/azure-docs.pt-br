@@ -1,20 +1,19 @@
 ---
 title: Visão geral de cargas de trabalho do Red Hat no Azure | Microsoft Docs
 description: Saiba mais sobre as ofertas de produtos do Red Hat disponíveis no Azure.
-services: virtual-machines-linux
 author: asinn826
-manager: borisb2015
 ms.service: virtual-machines-linux
-ms.workload: infrastructure-services
+ms.subservice: workloads
 ms.topic: overview
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: 7394cb50010bddddf8f8eff4b4f04eaf4d3231b6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.reviewer: cynthn
+ms.openlocfilehash: 09612ff3d86c669801f9e824d367a2b9a5bb10ac
+ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87052114"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830642"
 ---
 # <a name="red-hat-workloads-on-azure"></a>Cargas de trabalho do Red Hat no Azure
 
@@ -37,7 +36,7 @@ O ideal é usar as imagens de Pagamento Conforme o Uso se você não quer se pre
 ### <a name="red-hat-gold-images"></a>Imagens do Red Hat Gold
 
 O Azure também oferece imagens do Red Hat Gold (`rhel-byos`). Essas imagens podem ser úteis para os clientes que têm assinaturas existentes do Red Hat e que desejam usá-las no Azure. Você precisa habilitar suas assinaturas existentes do Red Hat para o Red Hat Cloud Access para usá-las no Azure. O acesso a essas imagens é concedido automaticamente quando suas assinaturas do Red Hat são habilitadas para Acesso à Nuvem e atendem aos requisitos de qualificação. O uso dessas imagens permite que um cliente evite a cobrança dupla que poderá ocorrer com o uso das imagens de Pagamento Conforme o Uso.
-* Saiba como [habilitar suas assinaturas do Red Hat para o Cloud Access com o Azure](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/con-enable-subs).
+* Saiba como [habilitar suas assinaturas do Red Hat para o Cloud Access com o Azure](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/enabling-and-maintaining-subs_cloud-access).
 * Saiba como [localizar imagens do Red Hat Gold no portal do Azure, na CLI do Azure ou no cmdlet do PowerShell](./byos.md).
 
 > [!NOTE]
@@ -45,7 +44,7 @@ O Azure também oferece imagens do Red Hat Gold (`rhel-byos`). Essas imagens pod
 
 ### <a name="generation-2-images"></a>Imagens da Geração 2
 
-As VMs (máquinas virtuais) da Geração 2 fornecem alguns recursos mais recentes em comparação com as VMs da Geração 1. Para obter mais informações, confira a documentação da [Geração 2](../../linux/generation-2.md). A principal diferença da perspectiva de imagens do RHEL é que as VMs da Geração 2 usam uma UEFI em vez da interface de firmware do BIOS. Elas também usam uma GPT (tabela de partição GUID) em vez de um MBR (registro mestre de inicialização) no tempo de inicialização. O uso de uma GPT permite, entre outras coisas, tamanhos de disco do sistema operacional maiores que 2 TB. Além disso, as [VMs da série Mv2](../../mv2-series.md) são executadas apenas nas imagens da Geração 2.
+As VMs (máquinas virtuais) da Geração 2 fornecem alguns recursos mais recentes em comparação com as VMs da Geração 1. Para obter mais informações, confira a documentação da [Geração 2](../../generation-2.md). A principal diferença da perspectiva de imagens do RHEL é que as VMs da Geração 2 usam uma UEFI em vez da interface de firmware do BIOS. Elas também usam uma GPT (tabela de partição GUID) em vez de um MBR (registro mestre de inicialização) no tempo de inicialização. O uso de uma GPT permite, entre outras coisas, tamanhos de disco do sistema operacional maiores que 2 TB. Além disso, as [VMs da série Mv2](../../mv2-series.md) são executadas apenas nas imagens da Geração 2.
 
 As imagens do RHEL da Geração 2 estão disponíveis no Azure Marketplace. Procure "gen2" no SKU da imagem na lista de todas as imagens exibidas quando você usa a CLI do Azure. Acesse a guia **Avançado** no processo de implantação da VM para implantar uma VM da Geração 2.
 

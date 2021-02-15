@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 07/16/2020
 ms.reviewer: cynthn
 ms.openlocfilehash: 555e53899ed78a5200009d04659e974f8157057e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87268232"
 ---
 # <a name="using-a-prebuilt-flatcar-image-for-azure"></a>Usando uma imagem flatcar predefinida para o Azure
@@ -20,8 +20,8 @@ ms.locfileid: "87268232"
 Você pode baixar imagens de disco rígido virtual do Azure predefinidas do contêiner do flatcar Linux para cada um dos canais com suporte do flatcar:
 
 - [estável](https://stable.release.flatcar-linux.net/amd64-usr/current/flatcar_production_azure_image.vhd.bz2)
-- [beta](https://beta.release.flatcar-linux.net/amd64-usr/current/flatcar_production_azure_image.vhd.bz2)
-- [Alfa](https://alpha.release.flatcar-linux.net/amd64-usr/current/flatcar_production_azure_image.vhd.bz2)
+- [Beta](https://beta.release.flatcar-linux.net/amd64-usr/current/flatcar_production_azure_image.vhd.bz2)
+- [alpha](https://alpha.release.flatcar-linux.net/amd64-usr/current/flatcar_production_azure_image.vhd.bz2)
 - [perímetro](https://edge.release.flatcar-linux.net/amd64-usr/current/flatcar_production_azure_image.vhd.bz2)
 
 Esta imagem já está totalmente configurada e otimizada para ser executada no Azure. Você só precisa descompactá-lo.

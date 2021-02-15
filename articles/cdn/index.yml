@@ -9,12 +9,12 @@ metadata:
   author: asudbring
   ms.author: allensu
   ms.date: 02/24/2020
-  ms.openlocfilehash: ed3c4f1794407ccdb841ea3c6ca35ff4d8e1a808
-  ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+  ms.openlocfilehash: 194b89058b68b73ff651e9fef85717fcc578d66a
+  ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 08/13/2020
-  ms.locfileid: "88192460"
+  ms.lasthandoff: 10/28/2020
+  ms.locfileid: "92777769"
 landingContent:
 - title: Sobre a CDN do Azure
   linkLists:
@@ -47,7 +47,7 @@ landingContent:
   - linkListType: learn
     links:
     - text: Criar uma Rede de Distribuição de Conteúdo para seu site com os Serviços de blob e a CDN do Azure
-      url: https://docs.microsoft.com/learn/modules/create-cdn-static-resources-blob-storage/
+      url: /learn/modules/create-cdn-static-resources-blob-storage/
 - title: Monitoramento
   linkLists:
   - linkListType: how-to-guide

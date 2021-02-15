@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 95e156c17b723c679772293401c730cbdff2220b
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: f0dd5cf5209924972080af6d22429252338754de
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86169877"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99491241"
 ---
 # <a name="create-modular-runbooks"></a>Criar runbooks modulares
 
@@ -25,7 +25,7 @@ Há duas maneiras de chamar um runbook filho, e há diferenças que você deve e
 | **Saída** |O runbook pai pode obter saída diretamente do runbook filho. |O runbook pai deve recuperar a saída do trabalho do runbook filho *ou* o runbook pai pode obter a saída diretamente do runbook filho. |
 | **Parâmetros** |Os valores para os parâmetros de runbook filho são especificados separadamente e podem usar qualquer tipo de dados. |Os valores para os parâmetros do runbook filho devem ser combinados em uma única tabela de hash. Essa tabela de hash pode apenas incluir tipos de dados simples, de matriz e de objeto que usam a serialização JSON. |
 | **Conta de Automação** |O runbook pai pode usar o runbook filho somente na mesma conta de Automação. |Os runbooks pai podem usar um runbook filho de qualquer conta de Automação da mesma assinatura do Azure e, até mesmo, de uma assinatura diferente com a qual você tenha uma conexão. |
-| **Publicação** |O runbook filho deve ser publicado antes da publicação do runbook pai. |O runbook filho deve ser publicado antes da inicialização do runbook pai. |
+| **Publicando** |O runbook filho deve ser publicado antes da publicação do runbook pai. |O runbook filho deve ser publicado antes da inicialização do runbook pai. |
 
 ## <a name="invoke-a-child-runbook-using-inline-execution"></a>Invocar um runbook filho usando a execução integrada
 
@@ -103,7 +103,7 @@ Connect-AzAccount `
     -ApplicationId $ServicePrincipalConnection.ApplicationId `
     -CertificateThumbprint $ServicePrincipalConnection.CertificateThumbprint
 
-$AzureContext = Get-AzSubscription -SubscriptionId $ServicePrincipalConnection.SubscriptionID
+$AzureContext = Set-AzContext -SubscriptionId $ServicePrincipalConnection.SubscriptionID
 
 $params = @{"VMName"="MyVM";"RepeatCount"=2;"Restart"=$true}
 

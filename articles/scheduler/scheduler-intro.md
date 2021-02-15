@@ -9,12 +9,12 @@ ms.author: deli
 ms.reviewer: klam, estfan
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: e851da0013cf3a9ff6bb1a0fc1c073b5b796c54d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 66ec285554299214122a4093837d3506bf642b13
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78898546"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368121"
 ---
 # <a name="what-is-azure-scheduler"></a>O que é o Agendador do Azure?
 
@@ -25,7 +25,7 @@ ms.locfileid: "78898546"
 
 O [Agendador do Azure](https://azure.microsoft.com/services/scheduler/) ajuda você a criar [trabalhos](../scheduler/scheduler-concepts-terms.md) que são executados na nuvem, descrevendo declarativamente ações. O serviço então agenda e executa automaticamente essas ações. Por exemplo, você pode chamar serviços dentro e fora do Azure, como chamar pontos de extremidade HTTP ou HTTPS, e também publicar mensagens em filas de Armazenamento do Azure e filas ou tópicos do Barramento de Serviço do Azure. Você pode executar trabalhos imediatamente ou em um momento posterior. O Agendador dá facilmente suporte para [agendas complexas e recorrência avançadas](../scheduler/scheduler-advanced-complexity.md). O Agendador especifica quando executar trabalhos, mantém um histórico dos resultados do trabalho que você pode examinar e, em seguida, agenda de modo previsível e confiável cargas de trabalho para serem executadas.
 
-Outros recursos de agendamento do Azure também usam o Agendador em segundo plano, por exemplo, [Azure WebJobs](../app-service/webjobs-create.md), que é um recurso de [Aplicativos Web](https://azure.microsoft.com/services/app-service/web/) no Serviço de Aplicativo do Azure. Você pode gerenciar a comunicação dessas ações usando a [API REST do Agendador](https://docs.microsoft.com/rest/api/scheduler/), que ajuda a gerenciar a comunicação para essas ações.
+Outros recursos de agendamento do Azure também usam o Agendador em segundo plano, por exemplo, [Azure WebJobs](../app-service/webjobs-create.md), que é um recurso de [Aplicativos Web](https://azure.microsoft.com/services/app-service/web/) no Serviço de Aplicativo do Azure. Você pode gerenciar a comunicação dessas ações usando a [API REST do Agendador](/rest/api/scheduler/), que ajuda a gerenciar a comunicação para essas ações.
 
 Aqui estão alguns cenários em que o Agendador pode ajudá-lo:
 
@@ -37,7 +37,7 @@ Aqui estão alguns cenários em que o Agendador pode ajudá-lo:
 
 Embora você possa usar o Agendador para criar, manter e executar cargas de trabalho agendadas, o Agendador não hospeda cargas de trabalho nem executa código. O serviço apenas *invoca* os serviços ou o código hospedados em outro lugar, por exemplo, no Azure, localmente ou com outro provedor. O Agendador pode invocar por meio de HTTP, HTTPS, uma fila de Armazenamento, uma fila do Barramento de Serviço ou um tópico do Barramento de Serviço.
 
-Para criar, agendar, gerenciar, atualizar ou excluir trabalhos e [coleções](../scheduler/scheduler-concepts-terms.md)de trabalhos, você pode usar o código, a [API REST do Agendador](https://docs.microsoft.com/rest/api/scheduler/)ou os [cmdlets do PowerShell do Agendador do Azure](scheduler-powershell-reference.md).
+Para criar, agendar, gerenciar, atualizar ou excluir trabalhos e [coleções](../scheduler/scheduler-concepts-terms.md)de trabalhos, você pode usar o código, a [API REST do Agendador](/rest/api/scheduler/)ou os [cmdlets do PowerShell do Agendador do Azure](scheduler-powershell-reference.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

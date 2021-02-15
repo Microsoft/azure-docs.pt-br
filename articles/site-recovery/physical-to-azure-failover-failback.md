@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 12/17/2019
 ms.author: raynew
-ms.openlocfilehash: ea5893f45962d67f4b6f3e9a261c65aa0ec926bf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2994f68e4159c7c4aa7d82bef7a5891deb5055a0
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75497863"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017416"
 ---
 # <a name="fail-over-and-fail-back-physical-servers-replicated-to-azure"></a>Executar failover e failback de servidores físicos replicados para Azure
 
@@ -75,20 +75,20 @@ Após o failover para o Azure, você protege novamente as VMs do Azure replicand
 1. Servidores físicos replicados no Azure usando o Site Recovery só podem falhar como VMs VMware. Você precisa de uma infraestrutura de VMware local para executar o failback. Siga as etapas neste [artigo](vmware-azure-prepare-failback.md) para se preparar para a nova proteção e o failback, incluindo a configuração de um servidor de processo no Azure e um servidor de destino mestre local e a configuração de uma VPN site a site ou um emparelhamento privado de ExpressRoute para failback.
 2. Verifique se o servidor de configuração local está em execução e conectado ao Azure. Durante o failover para o Azure, o site local pode não estar acessível e o servidor de configuração pode estar indisponível ou desligado. Durante o failback, a VM deve existir no banco de dados do servidor de configuração. Caso contrário, o failback será malsucedido.
 3. Exclua todos os instantâneos no servidor de destino mestre local. A nova proteção não funcionará se houver instantâneos.  Os instantâneos na VM são mesclados automaticamente durante um trabalho de nova proteção.
-4. Se você estiver protegendo novamente as VMs coletadas em um grupo de replicação para consistência de várias VMS, verifique se todas elas têm o mesmo sistema operacional (Windows ou Linux) e certifique-se de que o servidor de destino mestre implantado tenha o mesmo tipo de sistema operacional. Todas as VMs em um grupo de replicação devem usar o mesmo servidor de destino mestre.
-5. Abra [as portas necessárias para o](vmware-azure-prepare-failback.md#ports-for-reprotectionfailback) failback.
+4. Se você estiver protegendo novamente as VMs coletadas em um grupo de replicação para consistência de várias VMS, verifique se todas elas têm o mesmo sistema operacional (Windows ou Linux) e se o servidor de destino mestre implantado tem o mesmo tipo de sistema operacional. Todas as VMs em um grupo de replicação devem usar o mesmo servidor de destino mestre.
+5. Abra [as portas necessárias](vmware-azure-prepare-failback.md#ports-for-reprotectionfailback) para failback.
 6. Verifique se o vCenter Server está conectado antes do failback. Caso contrário, desconectando discos e anexá-los de volta para a máquina virtual falha.
-7. Se um servidor vCenter gerenciar as VMs para as quais você fará failback, verifique se você tem as permissões necessárias. Se você executar a descoberta de vCenter de Usuário somente leitura e proteger as máquinas virtuais, a proteção terá êxito e o failover funcionará. No entanto, durante a nova proteção, o failover falha porque os repositórios de armazenamento não podem ser descobertos e não são listados durante a nova proteção. Para resolver esse problema, você pode atualizar as credenciais do vCenter com uma [conta/permissões apropriadas](vmware-azure-tutorial-prepare-on-premises.md#prepare-an-account-for-automatic-discovery)e, em seguida, repetir o trabalho. 
-8. Se você usou um modelo para criar suas máquinas virtuais, certifique-se de que cada VM tenha seu próprio UUID para os discos. Se o UUID de VM local conflitar com o UUID do servidor de destino mestre porque ambos foram criados a partir do mesmo modelo, a nova proteção falhará. Implantar de um modelo diferente.
-9. Se você estiver fazendo failback para um vCenter Server alternativo, certifique-se de que o novo vCenter Server e o servidor de destino mestre sejam descobertos. Normalmente, se não forem, os repositórios de armazenamento não estarão acessíveis ou não estarão visíveis em **proteger**novamente.
+7. Se um vCenter Server gerenciar as VMs para as quais você fará failback, verifique se você tem as permissões necessárias. Se você executar a descoberta de vCenter de Usuário somente leitura e proteger as máquinas virtuais, a proteção terá êxito e o failover funcionará. No entanto, durante a nova proteção, o failover falha porque os repositórios de armazenamento não podem ser descobertos e não são listados durante a nova proteção. Para resolver esse problema, você pode atualizar as credenciais do vCenter com uma [conta/permissões apropriadas](vmware-azure-tutorial-prepare-on-premises.md#prepare-an-account-for-automatic-discovery) e, depois, repita o trabalho. 
+8. Se você usou um modelo para criar suas máquinas virtuais, verifique se cada VM tem os próprios UUIDs para os discos. Se o UUID de VM local conflitar com o UUID do servidor de destino mestre porque ambos foram criados a partir do mesmo modelo, a nova proteção falhará. Implantar de um modelo diferente.
+9. Se você estiver fazendo failback para um vCenter Server alternativo, o novo vCenter Server e o servidor de destino mestre deverão ser descobertos. Normalmente, se não forem, os armazenamentos de dados não estarão acessíveis ou não estarão visíveis em **Proteger Novamente**.
 10. Verifique os seguintes cenários em que você não pode realizar failback:
-    - Se você estiver usando a edição gratuita ESXi 5,5 ou a edição gratuita do vSphere 6 hypervisor. Atualize para uma versão diferente.
-    - Se você tiver um servidor físico do Windows Server 2008 R2 SP1.
-    - VMs que [foram migradas](migrate-overview.md#what-do-we-mean-by-migration).
+    - Se você estiver usando a edição gratuita ESXi 5.5 ou a edição gratuita do hipervisor vSphere 6. Atualize para uma versão diferente.
+    - Se você tem um servidor físico do Windows Server 2008 R2 SP1.
+    - VMs que foram migradas.
     - Uma VM que foi movida para outro grupo de recursos.
     - Uma VM do Azure de réplica que foi excluída.
     - Uma VM do Azure de réplica que não está protegida (replicando para o site local).
-10. [Examine os tipos de failback](concepts-types-of-failback.md) que você pode usar-recuperação de local original e recuperação de local alternativo.
+10. [Examine os tipos de failback](concepts-types-of-failback.md) você pode usar – recuperação de localização original e recuperação de localização alternativa.
 
 
 ## <a name="reprotect-azure-vms-to-an-alternate-location"></a>Proteger novamente as VMs do Azure para um local alternativo
@@ -115,8 +115,8 @@ Execute o failover da seguinte maneira:
 1. Na página **Itens duplicados**, clique como botão direito do mouse no computador > **Failover Não Planejado**.
 2. Em **Confirmar Failover**, verifique se a direção do failover é do Azure.
 3. Selecione o ponto de recuperação que você deseja usar para o failover.
-    - Recomendamos que você use o ponto de recuperação **mais recente** . O ponto consistente com o aplicativo está atrás do último ponto no tempo e causa perda de dados.
-    - O **mais recente** é um ponto de recuperação consistente com falhas.
+    - Recomendamos que você use o ponto de recuperação **Mais recente**. O ponto consistente do aplicativo está atrás do último ponto no tempo e causa a perda de alguns dados.
+    - O **Mais recente**, há um ponto de recuperação consistente em termos de falha.
     - Quando o failover é executado, o Site Recovery encerra as VMs do Azure e inicializa a VM local. Haverá em certo tempo de inatividade, portanto escolha um momento apropriado.
 4. Com o botão direito do mouse no computador e, em seguida, clique em **Confirmar**. Isso dispara um trabalho que remove as VMs do Azure.
 5. Verifique se as VMs do Azure foram desligadas conforme o esperado.
@@ -132,4 +132,4 @@ Os dados agora devem estar de volta no site local, mas eles não estão sendo re
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Após a conclusão do trabalho de nova proteção, a VM local está replicando para o Azure. Conforme necessário, você pode [executar outro failover](site-recovery-failover.md) no Azure.
+Após a conclusão do trabalho de nova proteção, a VM local está replicando para o Azure. Conforme necessário, você pode [executar outro failover](site-recovery-failover.md) para o Azure.

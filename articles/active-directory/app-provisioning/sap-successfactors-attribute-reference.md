@@ -3,7 +3,7 @@ title: Referência de atributo SAP SuccessFactors
 description: Saiba quais atributos de SuccessFactors são suportados pelo provisionamento controlado por SuccessFactors-HR
 services: active-directory
 author: cmmdesai
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 08/05/2020
 ms.author: chmutali
 ms.reviewer: celested
-ms.openlocfilehash: ef2da377c7720cfb7b431d1ce0fed56656a2b8c7
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 0d1a25f67d3550e79b2339ee060d37acaea0c1c4
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87808500"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99255535"
 ---
 # <a name="sap-successfactors-attribute-reference"></a>Referência de atributo SAP SuccessFactors
 
@@ -34,7 +34,7 @@ A tabela a seguir captura a lista de atributos SuccessFactors incluídos por pad
 
 Consulte a referência de [integração do SAP SuccessFactors](./sap-successfactors-integration-reference.md#retrieving-additional-attributes) para estender o esquema para atributos adicionais. 
 
-| \# | Entidade SuccessFactors                  | Atributo SuccessFactors     | Tipo de operação |
+| \# | Entidade SuccessFactors                  | Atributo do SuccessFactors     | Tipo de operação |
 |----|----------------------------------------|------------------------------|----------------|
 | 1  | Perpessoa                              | personIdExternal             | Ler           |
 | 2  | Perpessoa                              | personId                     | Ler           |
@@ -45,42 +45,42 @@ Consulte a referência de [integração do SAP SuccessFactors](./sap-successfact
 | 7  | Entre pessoas                            | lastName                     | Ler           |
 | 8  | Entre pessoas                            | middleName                   | Ler           |
 | 9  | Entre pessoas                            | preferência                | Ler           |
-| 10 | Usuário                                   | addressLine1                 | Ler           |
-| 11 | Usuário                                   | Endereço2                 | Ler           |
+| 10 | User                                   | addressLine1                 | Ler           |
+| 11 | User                                   | Endereço2                 | Ler           |
 | 12 | Usuário                                   | addressLIne3                 | Ler           |
-| 13 | Usuário                                   | Ficha                | Ler           |
-| 14 | Usuário                                   | Celular                    | Ler           |
+| 13 | User                                   | Ficha                | Ler           |
+| 14 | User                                   | Celular                    | Ler           |
 | 15 | Usuário                                   | city                         | Ler           |
 | 16 | Usuário                                   | country                      | Ler           |
-| 17 | Usuário                                   | custom01                     | Ler           |
-| 18 | Usuário                                   | custom02                     | Ler           |
-| 19 | Usuário                                   | custom03                     | Ler           |
-| 20 | Usuário                                   | custom04                     | Ler           |
-| 21 | Usuário                                   | custom05                     | Ler           |
-| 22 | Usuário                                   | custom06                     | Ler           |
-| 23 | Usuário                                   | custom07                     | Ler           |
-| 24 | Usuário                                   | custom08                     | Ler           |
-| 25 | Usuário                                   | custom09                     | Ler           |
-| 26 | Usuário                                   | personalizado10                     | Ler           |
-| 27 | Usuário                                   | custom11                     | Ler           |
-| 28 | Usuário                                   | custom12                     | Ler           |
-| 29 | Usuário                                   | custom13                     | Ler           |
-| 30 | Usuário                                   | custom14                     | Ler           |
-| 31 | Usuário                                   | empId                        | Ler           |
-| 32 | Usuário                                   | homePhone                    | Ler           |
-| 33 | Usuário                                   | jobFamily                    | Ler           |
-| 34 | Usuário                                   | apelido                     | Ler           |
+| 17 | User                                   | custom01                     | Ler           |
+| 18 | User                                   | custom02                     | Ler           |
+| 19 | User                                   | custom03                     | Ler           |
+| 20 | User                                   | custom04                     | Ler           |
+| 21 | User                                   | custom05                     | Ler           |
+| 22 | User                                   | custom06                     | Ler           |
+| 23 | User                                   | custom07                     | Ler           |
+| 24 | User                                   | custom08                     | Ler           |
+| 25 | User                                   | custom09                     | Ler           |
+| 26 | User                                   | personalizado10                     | Ler           |
+| 27 | User                                   | custom11                     | Ler           |
+| 28 | User                                   | custom12                     | Ler           |
+| 29 | User                                   | custom13                     | Ler           |
+| 30 | User                                   | custom14                     | Ler           |
+| 31 | User                                   | empId                        | Ler           |
+| 32 | User                                   | homePhone                    | Ler           |
+| 33 | User                                   | jobFamily                    | Ler           |
+| 34 | User                                   | apelido                     | Ler           |
 | 35 | Usuário                                   | state                        | Ler           |
-| 36 | Usuário                                   | timeZone                     | Ler           |
-| 37 | Usuário                                   | Nome de Usuário                     | Ler           |
-| 38 | Usuário                                   | zipCode                      | Ler           |
+| 36 | User                                   | timeZone                     | Ler           |
+| 37 | User                                   | Nome de Usuário                     | Ler           |
+| 38 | User                                   | zipCode                      | Ler           |
 | 39 | Por telefone                               | areaCode                     | Ler           |
 | 40 | Por telefone                               | countryCode                  | Ler           |
 | 41 | Por telefone                               | extensão                    | Ler           |
 | 42 | Por telefone                               | phoneNumber                  | Ler           |
 | 43 | Por telefone                               | telefonetype                    | Ler           |
 | 44 | Enviar por email                               | emailAddress                 | Leitura, Gravação    |
-| 45 | Enviar por email                               | emailtype                    | Ler           |
+| 45 | Enviar por email                               | emailType                    | Ler           |
 | 46 | EmpEmployment                          | firstDateWorked              | Ler           |
 | 47 | EmpEmployment                          | lastDateWorked               | Ler           |
 | 48 | EmpEmployment                          | userId                       | Ler           |
@@ -120,7 +120,7 @@ Consulte a referência de [integração do SAP SuccessFactors](./sap-successfact
 
 A tabela a seguir fornece o mapeamento de atributo padrão entre os atributos SuccessFactors listados acima e os atributos AD/Azure AD. Na folha "mapeamento" do aplicativo de provisionamento do Azure AD, você pode modificar esse mapeamento padrão para incluir atributos da lista acima. 
 
-| \# | Entidade SuccessFactors                  | Atributo SuccessFactors | Mapeamento de atributo padrão AD/AD do Azure   | Comentário de processamento                                                                            |
+| \# | Entidade SuccessFactors                  | Atributo do SuccessFactors | Mapeamento de atributo padrão AD/AD do Azure   | Comentário de processamento                                                                            |
 |----|----------------------------------------|--------------------------|-----------------------------------------|----------------------------------------------------------------------------------------------|
 | 1  | Perpessoa                              | personIdExternal         | employeeId                              | Usado como atributo correspondente                                                                   |
 | 2  | Perpessoa                              | perPersonUuid            | \[Não mapeado \- usado como âncora de origem\] | Durante a sincronização inicial, o serviço de provisionamento vincula o personUuid a objectGuid\. existentes  |
@@ -131,8 +131,8 @@ A tabela a seguir fornece o mapeamento de atributo padrão entre os atributos Su
 | 7  | Usuário                                   | city                     | l                                       | NA                                                                                           |
 | 8  | Usuário                                   | country                  | co                                      | NA                                                                                           |
 | 9  | Usuário                                   | state                    | st                                      | NA                                                                                           |
-| 10 | Usuário                                   | Nome de Usuário                 | samAccountName                          | NA                                                                                           |
-| 11 | Usuário                                   | zipCode                  | postalCode                              | NA                                                                                           |
+| 10 | User                                   | Nome de Usuário                 | samAccountName                          | NA                                                                                           |
+| 11 | User                                   | zipCode                  | postalCode                              | NA                                                                                           |
 | 12 | Enviar por email                               | emailAddress             | mail                                    | NA                                                                                           |
 | 13 | EmpJob                                 | jobTitle                 | título                                   | NA                                                                                           |
 | 14 | EmpJob                                 | managerId                | manager                                 | NA                                                                                           |

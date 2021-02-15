@@ -5,12 +5,12 @@ author: chrpap
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: chrpap
-ms.openlocfilehash: 0f25627c852befb03c2c32d741b8fe9b64cd4dc2
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: b8db69792b31fd82646757423e669e39e8539d06
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88948956"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91630695"
 ---
 # <a name="networking"></a>Rede
 
@@ -59,7 +59,7 @@ A expansão da infraestrutura é necessária para habilitar a Rede Acelerada em 
 
 ## <a name="network-security-rules"></a>Regras de Segurança de Rede
 
-As regras básicas aqui são o mínimo para um bloqueio de segurança de um cluster de Service Fabric gerenciado do Azure. Falha ao abrir as portas a seguir ou a lista de permissões o IP/URL impedirá a operação adequada do cluster e talvez não tenha suporte. Com esse conjunto de regras, é estritamente necessário usar [atualizações automáticas de imagem do sistema operacional](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md), caso contrário, as portas adicionais precisarão ser abertas.
+As regras básicas aqui são o mínimo para um bloqueio de segurança de um cluster de Service Fabric gerenciado do Azure. A falha em abrir as portas a seguir ou aprovar o IP/URL impedirá a operação adequada do cluster e poderá não ter suporte. Com esse conjunto de regras, é estritamente necessário usar [atualizações automáticas de imagem do sistema operacional](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md), caso contrário, as portas adicionais precisarão ser abertas.
 
 ### <a name="inbound"></a>Entrada 
 |Prioridade   |Nome               |Porta        |Protocolo  |Fonte             |Destino       |Ação   

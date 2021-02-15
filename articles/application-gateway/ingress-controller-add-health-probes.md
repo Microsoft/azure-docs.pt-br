@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
 ms.openlocfilehash: 8c8b8b0090877db7abc8fae0e44f928e8b10dcf5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84808002"
 ---
 # <a name="add-health-probes-to-your-service"></a>Adicionar investigações de integridade ao seu serviço
 Por padrão, o controlador de entrada provisionará uma investigação HTTP GET para o pods exposto.
 As propriedades da investigação podem ser personalizadas com a adição de uma [investigação de preparação ou dinâmica](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/) à sua `deployment` / `pod` especificação.
 
-## <a name="with-readinessprobe-or-livenessprobe"></a>Com `readinessProbe` ou`livenessProbe`
+## <a name="with-readinessprobe-or-livenessprobe"></a>Com `readinessProbe` ou `livenessProbe`
 ```yaml
 apiVersion: extensions/v1beta1
 kind: Deployment
@@ -50,11 +50,11 @@ Referência da API do kubernetes:
 * [Ação HttpGet](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#httpgetaction-v1-core)
 
 > [!NOTE]
-> * `readinessProbe`e `livenessProbe` têm suporte quando configurado com o `httpGet` .
+> * `readinessProbe` e `livenessProbe` têm suporte quando configurado com o `httpGet` .
 > * No momento, não há suporte para investigação em uma porta diferente daquela exposta no pod.
 > * `HttpHeaders`, `InitialDelaySeconds` , `SuccessThreshold` não tem suporte.
 
-##  <a name="without-readinessprobe-or-livenessprobe"></a>Sem `readinessProbe` ou`livenessProbe`
+##  <a name="without-readinessprobe-or-livenessprobe"></a>Sem `readinessProbe` ou `livenessProbe`
 Se as investigações acima não forem fornecidas, o controlador de entrada fará uma suposição de que o serviço pode ser acessado no `Path` especificado para `backend-path-prefix` a anotação ou o `path` especificado na `ingress` definição do serviço.
 
 ## <a name="default-values-for-health-probe"></a>Valores padrão para investigação de integridade

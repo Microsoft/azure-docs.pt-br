@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 ms.custom: iot-p0-scenario, iot-devices-deviceOEM
 ms.reviewer: nberdy
-ms.openlocfilehash: 3854f353e4ea0b78c0162681e0b89d37419105d8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 788738082cbf9995fb2f7282bc3f574903275528
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80529515"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "90527200"
 ---
 # <a name="security-practices-for-azure-iot-device-manufacturers"></a>Práticas de segurança para fabricantes de dispositivos IoT do Azure
 À medida que mais fabricantes lançam dispositivos IoT, é útil identificar diretrizes relacionadas a práticas comuns. Este artigo resume as práticas de segurança recomendadas a serem consideradas quando você fabrica dispositivos para uso com o serviço de provisionamento de dispositivos IoT do Azure (DPS).  
@@ -182,7 +182,7 @@ Um dispositivo pode ficar em um depósito por 6-12 meses antes de ser implantado
 #### <a name="step-5-device-is-installed-into-the-location"></a>Etapa 5: o dispositivo é instalado no local
 Depois que o dispositivo chega em seu local final, ele passa pelo provisionamento automatizado com o DPS.
 
-Para obter mais informações, consulte [conceitos de provisionamento](concepts-auto-provisioning.md) automático e atestado de [TPM](concepts-tpm-attestation.md). 
+Para obter mais informações, consulte [provisionamento](about-iot-dps.md#provisioning-process) e [atestado de TPM](concepts-tpm-attestation.md). 
 
 ## <a name="resources"></a>Recursos
 

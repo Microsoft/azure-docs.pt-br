@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
-ms.openlocfilehash: b949603b3e6ee51311f9c54f3e1326217f00c82d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fe57a9e8ce9b14f7d1346d819965576770afef3b
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87039101"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324883"
 ---
 # <a name="score-image-model"></a>Pontuar Modelo de Imagem
 
-Este artigo descreve um módulo no designer do Azure Machine Learning (versão prévia).
+Este artigo descreve um módulo no designer de Azure Machine Learning.
 
 Use este módulo para gerar previsões usando um modelo de imagem treinado em dados de imagem de entrada.
 
@@ -38,8 +38,8 @@ Depois de ter gerado um conjunto de pontuações usando o [modelo de imagem de P
 
 ### <a name="publish-scores-as-a-web-service"></a>Publicar pontuações como um serviço Web
 
-Um uso comum de pontuação é retornar a saída como parte de um serviço Web de previsão. Para obter mais informações, consulte [este tutorial](https://docs.microsoft.com/azure/machine-learning/tutorial-designer-automobile-price-deploy) sobre como implantar um ponto de extremidade em tempo real com base em um pipeline no designer de Azure Machine Learning.
+Um uso comum de pontuação é retornar a saída como parte de um serviço Web de previsão. Para obter mais informações, consulte [este tutorial](../tutorial-designer-automobile-price-deploy.md) sobre como implantar um ponto de extremidade em tempo real com base em um pipeline no designer de Azure Machine Learning.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Confira o [conjunto de módulos disponíveis](module-reference.md) no Azure Machine Learning. 
+Confira o [conjunto de módulos disponíveis](module-reference.md) no Azure Machine Learning.

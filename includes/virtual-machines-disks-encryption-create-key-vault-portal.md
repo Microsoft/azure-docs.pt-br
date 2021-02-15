@@ -1,6 +1,6 @@
 ---
-title: incluir arquivo
-description: incluir arquivo
+title: arquivo de inclusão
+description: arquivo de inclusão
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
@@ -9,17 +9,17 @@ ms.date: 03/23/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: a967777b65c06cf23239a47e8e691fb3a29231b4
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88815463"
 ---
 A configuração de chaves gerenciadas pelo cliente para seus discos exigirá que você crie recursos em uma ordem específica, se estiver fazendo isso pela primeira vez. Primeiro, será necessário criar e configurar um Azure Key Vault.
 
 ## <a name="set-up-your-azure-key-vault"></a>Configure o seu Cofre da Chave do Azure
 
-1. Faça logon no [Portal do Azure](https://aka.ms/diskencryptionupdates).
+1. Entre no [Portal do Azure](https://aka.ms/diskencryptionupdates).
 1. Procure e selecione **cofres de chaves**.
 
     [![Captura de tela da portal do Azure com a caixa de diálogo de pesquisa expandida.](./media/virtual-machines-disk-encryption-portal/server-side-encryption-key-vault-portal-search.png)](./media/virtual-machines-disk-encryption-portal/sever-side-encryption-key-vault-portal-search-expanded.png#lightbox)
@@ -65,7 +65,7 @@ A configuração de chaves gerenciadas pelo cliente para seus discos exigirá qu
 1. Selecione **clique para selecionar uma chave**.
 1. Selecione o cofre de chaves e a chave que você criou anteriormente, bem como a versão.
 1. Pressione **Selecionar**.
-1. Selecione **revisar + criar** e **criar**.
+1. Selecione **Examinar + Criar** e **Criar**.
 
     ![Captura de tela da folha de criação de criptografia de disco. Mostrando a assinatura, o grupo de recursos, o nome do conjunto de criptografia de disco, a região e o Key Vault + seletor de chave.](./media/virtual-machines-disk-encryption-portal/server-side-encryption-disk-set-blade.png)
 

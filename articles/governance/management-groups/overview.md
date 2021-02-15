@@ -1,14 +1,15 @@
 ---
 title: Organizar seus recursos com grupos de gerenciamento – Governança do Azure
 description: Saiba mais sobre os grupos de gerenciamento, o funcionamento de suas permissões e como usá-los.
-ms.date: 07/06/2020
+ms.date: 01/22/2021
 ms.topic: overview
-ms.openlocfilehash: c1c054ab67a94b5782187092c572e1e73752c8c2
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: e86501527ff68319fc8d2e942e7ffa977dcecbe6
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87920153"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736315"
 ---
 # <a name="what-are-azure-management-groups"></a>O que são grupos de gerenciamento do Azure?
 
@@ -21,11 +22,13 @@ Por exemplo, aplique políticas a um grupo de gerenciamento que limite as regiõ
 
 É possível compilar uma estrutura flexível de grupos de gerenciamento e assinaturas para organizar seus recursos em uma hierarquia para políticas unificadas e gerenciamento de acesso. O diagrama a seguir mostra um exemplo de criação de uma hierarquia para governança usando grupos de gerenciamento.
 
-:::image type="content" source="./media/tree.png" alt-text="Exemplo de uma árvore de hierarquia do grupo de gerenciamento" border="false":::
+:::image type="complex" source="./media/tree.png" alt-text="Diagrama de uma hierarquia de grupo de gerenciamento de exemplo." border="false":::
+   Diagrama de um grupo de gerenciamento raiz contendo grupos de gerenciamento e assinaturas. Alguns grupos de gerenciamento filho contêm grupos de gerenciamento, uns contêm assinaturas e outros contêm ambos. Exemplo da hierarquia de exemplo: quatro níveis de grupos de gerenciamento com o nível filho sendo todas as assinaturas.
+:::image-end:::
 
 É possível criar uma hierarquia que aplica uma política, por exemplo, que limite os locais de VM à Região Oeste dos EUA no grupo chamado “Produção”. Essa política herdará todas as assinaturas do EA (Enterprise Agreement) descendentes desse grupo de gerenciamento e aplicará a todas as VMs sob essas assinaturas. Essa política de segurança não pode ser alterada pelo recurso ou pelo proprietário da assinatura, permitindo uma governança aprimorada.
 
-Outro cenário em que você usaria grupos de gerenciamento é fornecer acesso de usuário a várias assinaturas. Ao mover várias assinaturas nesse grupo de gerenciamento, você pode criar uma [atribuição de função do Azure](../../role-based-access-control/overview.md) no grupo de gerenciamento, que herdará esse acesso a todas as assinaturas. Uma atribuição no grupo de gerenciamento pode permitir que os usuários tenham acesso a tudo o que precisam em vez de fazer script de atribuições de RBAC em várias assinaturas.
+Outro cenário em que você usaria grupos de gerenciamento é fornecer acesso de usuário a várias assinaturas. Ao mover várias assinaturas nesse grupo de gerenciamento, você pode criar uma [atribuição de função do Azure](../../role-based-access-control/overview.md) no grupo de gerenciamento, que herdará esse acesso a todas as assinaturas. Uma atribuição no grupo de gerenciamento pode permitir que os usuários tenham acesso a tudo que for necessário, em vez de criar scripts do Azure RBAC em assinaturas diferentes.
 
 ### <a name="important-facts-about-management-groups"></a>Fatos importantes sobre os grupos de gerenciamento
 
@@ -72,7 +75,7 @@ Alguns diretórios, que começaram usando grupos de gerenciamento na versão pr�
 Há duas opções para resolver esse problema.
 
 - Remover todas as atribuições de Função e Política do grupo de gerenciamento raiz
-  - Ao remover as atribuições de função e política do grupo de gerenciamento raiz, o serviço preencherá todas as assinaturas na hierarquia no próximo ciclo de 24h. Esse processo é usado para que não haja acesso acidental ou atribuição de política a todas as assinaturas de locatários.
+  - Ao remover todas as políticas e atribuições de função do grupo de gerenciamento raiz, o serviço provisiona todas as assinaturas na hierarquia do próximo ciclo de 24 horas. Esse processo é usado para que não haja acesso acidental ou atribuição de política a todas as assinaturas de locatários.
   - A melhor maneira de fazer esse processo sem afetar seus serviços é aplicar as atribuições de função ou política um nível abaixo do grupo de gerenciamento raiz. Em seguida, você pode remover todas as atribuições do escopo raiz.
 - Chamar a API diretamente para iniciar o processo de preenchimento
   - Qualquer cliente no diretório pode chamar as APIs _TenantBackfillStatusRequest_ ou _StartTenantBackfillRequest_. Quando a API StartTenantBackfillRequest é chamada, ela inicia o processo de configuração inicial de mover todas as assinaturas para a hierarquia. Esse processo também inicia a imposição de que a nova assinatura seja filha do grupo de gerenciamento raiz.
@@ -106,7 +109,7 @@ O suporte à função personalizada do Azure para grupos de gerenciamento está 
 
 ### <a name="example-definition"></a>Definição de exemplo
 
-[Definir e criar uma função personalizada](../../role-based-access-control/custom-roles.md) não muda com a inclusão de grupos de gerenciamento. Use o caminho completo para definir o grupo de gerenciamento **/providers/Microsoft.Management/managementgroups/{groupId}** .
+A opção [Definir e criar uma função personalizada](../../role-based-access-control/custom-roles.md) não será alterada com a inclusão de grupos de gerenciamento. Use o caminho completo para definir o grupo de gerenciamento **/providers/Microsoft.Management/managementgroups/{groupId}** .
 
 Use a ID do grupo de gerenciamento, e não o nome de exibição do grupo de gerenciamento. Esse erro comum ocorre porque ambos são campos definidos personalizados ao criar um grupo de gerenciamento.
 
@@ -147,7 +150,9 @@ As definições de função são um escopo atribuível em qualquer lugar dentro 
 
 Por exemplo, vamos examinar uma pequena seção de uma hierarquia para um visual.
 
-:::image type="content" source="./media/subtree.png" alt-text="subárvore" border="false":::
+:::image type="complex" source="./media/subtree.png" alt-text="Diagrama de um subconjunto da hierarquia de grupo de gerenciamento de exemplo." border="false":::
+   O diagrama se concentra no grupo de gerenciamento raiz com os grupos de gerenciamento filho de TI e Marketing. O grupo de gerenciamento de TI tem um grupo de gerenciamento filho chamado Produção. Já o grupo de gerenciamento de Marketing tem duas assinaturas filho de Avaliação Gratuita.
+:::image-end:::
 
 Digamos que haja uma função personalizada definida no grupo de gerenciamento de marketing. Essa função personalizada é então atribuída nas duas assinaturas de avaliação gratuita.  
 
@@ -157,16 +162,20 @@ Há algumas opções diferentes para corrigir esse cenário:
 - Remova a atribuição de função da assinatura antes de mover a assinatura para uma nova MG pai.
 - Adicione a assinatura ao escopo atribuível da definição de função.
 - Altere o escopo atribuível dentro da definição de função. No exemplo acima, você pode atualizar os escopos atribuíveis do marketing para o grupo de gerenciamento raiz para que ambas as ramificações da hierarquia possam alcançar a definição.  
-- Crie uma função personalizada adicional que será definida na outra ramificação. Essa nova função exigirá que a atribuição de função seja alterada também na assinatura.  
+- Crie outra função personalizada definida na outra ramificação. Essa nova função exige que a atribuição de função seja alterada também na assinatura.  
 
 ### <a name="limitations"></a>Limitações  
 
 Há limitações ao usar funções personalizadas em grupos de gerenciamento. 
 
- - Você só pode definir um grupo de gerenciamento nos escopos atribuíveis de uma nova função. Essa limitação está em vigor para reduzir o número de situações em que as definições de função e as atribuições de função são desconectadas. Essa situação acontece quando uma assinatura ou um grupo de gerenciamento com uma atribuição de função é movido para um pai diferente que não tem a definição de função.  
- - As ações do plano de dados do RBAC não podem ser definidas nas funções personalizadas do grupo de gerenciamento. Essa restrição está em vigor porque há um problema de latência com ações RBAC atualizando os provedores de recursos do plano de dados.
-   Esse problema de latência está sendo resolvido e essas ações serão desabilitadas da definição de função para reduzir os riscos.
- - O Azure Resource Manager não valida a existência do grupo de gerenciamento no escopo atribuível da definição de função. Se houver uma ID de grupo de gerenciamento de digitação ou incorreta listada, a definição de função ainda será criada.  
+ - Você só pode definir um grupo de gerenciamento nos escopos atribuíveis de uma nova função. Essa limitação está em vigor para reduzir o número de situações em que as definições de função e as atribuições de função são desconectadas. Essa situação ocorre quando uma assinatura ou um grupo de gerenciamento com uma atribuição de função é movido para um pai diferente que não tem uma definição de função.  
+ - As ações do plano de dados do provedor de recursos não podem ser definidas nas funções personalizadas do grupo de gerenciamento. Essa restrição está em vigor, pois há um problema de latência com a atualização dos provedores de recursos do plano de dados. Esse problema de latência está sendo resolvido e essas ações serão desabilitadas da definição de função para reduzir os riscos.
+ - O Azure Resource Manager não valida a existência do grupo de gerenciamento no escopo atribuível da definição de função. Se houver uma ID de grupo de gerenciamento com erro de digitação ou incorreta listada, a definição de função ainda será criada.
+ - Não há suporte para a atribuição de função para uma função com _dataActions_. Crie a atribuição de função no escopo de assinatura.
+
+> [!IMPORTANT]
+> A adição de um grupo de gerenciamento a `AssignableScopes` está em versão prévia no momento. Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção.
+> Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="moving-management-groups-and-subscriptions"></a>Como mover grupos de gerenciamento e assinaturas 
 
@@ -189,7 +198,7 @@ Se a função de proprietário na assinatura for herdada do grupo de gerenciamen
 
 Os grupos de gerenciamento são compatíveis com o [Log de atividades do Azure](../../azure-monitor/platform/platform-logs-overview.md). Você pode pesquisar todos os eventos que ocorrem para um grupo de gerenciamento no mesmo local central que os outros recursos do Azure. Por exemplo, você pode ver todas as alterações de atribuições de função ou de política feitas em um grupo de gerenciamento específico.
 
-:::image type="content" source="./media/al-mg.png" alt-text="Logs de atividades com Grupos de Gerenciamento" border="false":::
+:::image type="content" source="./media/al-mg.png" alt-text="Captura de tela de Logs de Atividades e operações relacionados ao grupo de gerenciamento selecionado." border="false":::
 
 Ao analisar a consulta em grupos de gerenciamento fora do portal do Azure, o escopo de destino dos grupos de gerenciamento é semelhante a **"/providers/Microsoft.Management/managementGroups/{yourMgID}"** .
 
@@ -197,6 +206,6 @@ Ao analisar a consulta em grupos de gerenciamento fora do portal do Azure, o esc
 
 Para saber mais sobre grupos de gerenciamento, consulte:
 
-- [Criar grupos de gerenciamento para organizar recursos do Azure](./create.md)
+- [Criar grupos de gerenciamento para organizar recursos do Azure](./create-management-group-portal.md)
 - [Como alterar, excluir ou gerenciar seus grupos de gerenciamento](./manage.md)
 - Veja opções para [Como proteger sua hierarquia de recursos](./how-to/protect-resource-hierarchy.md)

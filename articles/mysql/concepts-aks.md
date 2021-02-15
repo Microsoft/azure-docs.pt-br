@@ -1,17 +1,17 @@
 ---
 title: Conectar-se ao serviço kubernetes do Azure-banco de dados do Azure para MySQL
 description: Saiba como conectar o Serviço de Kubernetes do Azure ao Banco de Dados do Azure para MySQL
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: 712bf702ba355ec3b2ca6184c33da8489f8a178e
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5c4a5f5d792a60ed3fef07797fdbdfa0c9cfb8fe
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519857"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94534323"
 ---
 # <a name="connecting-azure-kubernetes-service-and-azure-database-for-mysql"></a>Conexão do Serviço de Kubernetes do Azure e Banco de Dados do Azure para MySQL
 
@@ -43,5 +43,5 @@ az network nic list --resource-group nodeResourceGroup -o table
 
 
 ## <a name="next-steps"></a>Próximas etapas
-- [Criar um cluster do Serviço de Kubernetes do Azure](../aks/kubernetes-walkthrough.md)
-- Aprenda como [Instalar o WordPress a partir de um gráfico do Helm usando o OSBA e o Banco de Dados do Azure para MySQL](../aks/integrate-azure.md)
+- [Criar um cluster do serviço kubernetes do Azure](../aks/kubernetes-walkthrough.md)
+- Aprenda como [Instalar o WordPress a partir de um gráfico do Helm usando o OSBA e o Banco de Dados do Azure para MySQL](../aks/index.yml)

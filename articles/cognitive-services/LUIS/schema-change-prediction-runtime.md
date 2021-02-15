@@ -1,14 +1,16 @@
 ---
 title: Estender o aplicativo em tempo de execução-LUIS
-description: ''
+description: Saiba como estender um ponto de extremidade de previsão já publicado para passar novas informações.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/14/2020
-ms.openlocfilehash: c0f9d71f5d89d73d9cdce2a2f646859d8eba3adc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1d94e9f59062e4d730b8f3b71022442e81e6eeda
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81538573"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98953014"
 ---
 # <a name="extend-app-at-prediction-runtime"></a>Estender o aplicativo no tempo de execução de previsão
 
@@ -42,7 +44,7 @@ Considere um primeiro expressão em uma conversa de bot de chat, em que um usuá
 
 `Send Hazem a new message`
 
-A solicitação do bate-papo para LUIS pode transmitir informações no corpo `Hazem` da postagem para que ele seja diretamente correspondido como um dos contatos do usuário.
+A solicitação do bate-papo para LUIS pode transmitir informações no corpo da POSTAgem para que `Hazem` ele seja diretamente correspondido como um dos contatos do usuário.
 
 ```json
     "externalEntities": [
@@ -66,7 +68,7 @@ O próximo usuário expressão no bot de chat usa um termo mais vago:
 
 `Send him a calendar reminder for the party.`
 
-Nessa rodada, o expressão usa `him` como uma referência a. `Hazem` O bot de chat de conversa, no corpo da POSTAgem, `him` pode ser mapeado para o valor da entidade extraído `Hazem`da primeira expressão,.
+Nessa rodada, o expressão usa `him` como uma referência a `Hazem` . O bot de chat de conversa, no corpo da POSTAgem, pode `him` ser mapeado para o valor da entidade extraído da primeira expressão, `Hazem` .
 
 ```json
     "externalEntities": [
@@ -117,7 +119,7 @@ Se o usuário enviar a entidade externa:
 }
 ```
 
-Se o `preferExternalEntities` for definido como `false`, Luis retornará uma resposta como se a entidade externa não fosse enviada.
+Se o `preferExternalEntities` for definido como `false` , Luis retornará uma resposta como se a entidade externa não fosse enviada.
 
 ```JSON
 "datetimeV2": [
@@ -133,7 +135,7 @@ Se o `preferExternalEntities` for definido como `false`, Luis retornará uma res
 ]
 ```
 
-Se o `preferExternalEntities` for definido como `true`, Luis retornará uma resposta, incluindo:
+Se o `preferExternalEntities` for definido como `true` , Luis retornará uma resposta, incluindo:
 
 ```JSON
 "datetimeV2": [
@@ -173,7 +175,7 @@ A entidade List pode estar vazia no aplicativo LUIS, mas ela deve existir. A ent
 
 ### <a name="dynamic-list-json-request-body"></a>Corpo da solicitação JSON da lista dinâmica
 
-Envie o seguinte corpo JSON para adicionar uma nova sublista com sinônimos à lista e prever a entidade de lista para o texto, `LUIS`, com a solicitação de `POST` previsão de consulta:
+Envie o seguinte corpo JSON para adicionar uma nova sublista com sinônimos à lista e prever a entidade de lista para o texto, `LUIS` , com a solicitação de `POST` previsão de consulta:
 
 ```JSON
 {

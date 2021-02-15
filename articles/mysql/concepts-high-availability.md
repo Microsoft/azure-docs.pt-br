@@ -1,17 +1,17 @@
 ---
 title: Alta disponibilidade-banco de dados do Azure para MySQL
 description: Este artigo fornece informações sobre a alta disponibilidade no banco de dados do Azure para MySQL
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 7/7/2020
-ms.openlocfilehash: bd2f7798ca02f4d6eab6d6d78d158a48bcccc010
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: b301946ce818559510b4e401b1f0aaf7c235d5a3
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206084"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242289"
 ---
 # <a name="high-availability-in-azure-database-for-mysql"></a>Alta disponibilidade no banco de dados do Azure para MySQL
 O serviço banco de dados do Azure para MySQL fornece um alto nível de disponibilidade garantido com o SLA (contrato de nível de serviço) com suporte financeiro de [99,99%](https://azure.microsoft.com/support/legal/sla/mysql) de tempo de atividade. O banco de dados do Azure para MySQL fornece alta disponibilidade durante eventos planejados, como a operação de computação de escala iniciada pelo do usuário, e também quando ocorrem eventos não planejados, como hardware subjacente, software ou falhas de rede. O banco de dados do Azure para MySQL pode se recuperar rapidamente das circunstâncias mais críticas, garantindo praticamente nenhum tempo de inatividade do aplicativo ao usar esse serviço.
@@ -29,7 +29,7 @@ O banco de dados do Azure para MySQL é adequado para a execução de dados de m
 ## <a name="planned-downtime-mitigation"></a>Mitigação de tempo de inatividade planejada
 O banco de dados do Azure para MySQL é projetado para fornecer alta disponibilidade durante operações de tempo de inatividade planejadas. 
 
-![exibição do dimensionamento elástico no MySQL do Azure](./media/concepts-high-availability/elastic-scaling-mysql-server.png)
+:::image type="content" source="./media/concepts-high-availability/elastic-scaling-mysql-server.png" alt-text="exibição do dimensionamento elástico no MySQL do Azure":::
 
 Aqui estão alguns cenários de manutenção planejada:
 
@@ -46,7 +46,7 @@ Aqui estão alguns cenários de manutenção planejada:
 O tempo de inatividade não planejado pode ocorrer como resultado de falhas imprevistas, incluindo falhas de hardware subjacentes, problemas de rede e bugs de software. Se o servidor de banco de dados ficar inativo inesperadamente, um novo servidor de banco de dados será provisionado automaticamente em segundos. O armazenamento remoto é anexado automaticamente ao novo servidor de banco de dados. O mecanismo MySQL executa a operação de recuperação usando WAL e arquivos de banco de dados e abre o servidor de banco de dados para permitir que os clientes se conectem. As transações não confirmadas são perdidas e precisam ser repetidas pelo aplicativo. Embora não seja possível evitar um tempo de inatividade não planejado, o banco de dados do Azure para MySQL reduz o tempo de inatividade realizando automaticamente operações de recuperação no servidor de banco de dados e nas camadas de armazenamento sem exigir intervenção humana. 
 
 
-![exibição de alta disponibilidade no Azure MySQL](./media/concepts-high-availability/availability-for-mysql-server.png)
+:::image type="content" source="./media/concepts-high-availability/availability-for-mysql-server.png" alt-text="exibição do dimensionamento elástico no MySQL do Azure":::
 
 ### <a name="unplanned-downtime-failure-scenarios-and-service-recovery"></a>Tempo de inatividade não planejado: cenários de falha e recuperação de serviço
 Aqui estão alguns cenários de falha e como o banco de dados do Azure para MySQL recupera automaticamente:
@@ -60,8 +60,8 @@ Aqui estão alguns cenários de falha que exigem a recuperação da ação do us
 
 | **Cenário** | **Plano de recuperação** |
 | ---------- | ---------- |
-| <b>Falha de região | A falha de uma região é um evento raro. No entanto, se você precisar de proteção de uma falha de região, poderá configurar uma ou mais réplicas de leitura em outras regiões para recuperação de desastre (DR). (Consulte [Este artigo](howto-read-replicas-portal.md) sobre como criar e gerenciar réplicas de leitura para obter detalhes). No caso de uma falha de nível de região, você pode promover manualmente a réplica de leitura configurada na outra região para ser seu servidor de banco de dados de produção. |
-| <b>Erros lógicos/de usuário | A recuperação de erros do usuário, como tabelas descartadas acidentalmente ou dados atualizados incorretamente, envolve a execução de uma PITR ( [recuperação pontual](concepts-backup.md) ), restaurando e recuperando os dados até o momento anterior da ocorrência do erro.<br> <br>  Se você quiser restaurar apenas um subconjunto de bancos de dados ou tabelas específicas, em vez de todos os bancos de dados no servidor de banco, poderá restaurar o servidor de banco de dados em uma nova instância, exportar as tabelas via [mysqldump](concepts-migrate-dump-restore.md)e, em seguida, usar [Restore](concepts-migrate-dump-restore.md#restore-your-mysql-database-using-command-line-or-mysql-workbench) para restaurar essas tabelas em seu banco de dados. |
+| <b> Falha de região | A falha de uma região é um evento raro. No entanto, se você precisar de proteção de uma falha de região, poderá configurar uma ou mais réplicas de leitura em outras regiões para recuperação de desastre (DR). (Consulte [Este artigo](howto-read-replicas-portal.md) sobre como criar e gerenciar réplicas de leitura para obter detalhes). No caso de uma falha de nível de região, você pode promover manualmente a réplica de leitura configurada na outra região para ser seu servidor de banco de dados de produção. |
+| <b> Erros lógicos/de usuário | A recuperação de erros do usuário, como tabelas descartadas acidentalmente ou dados atualizados incorretamente, envolve a execução de uma PITR ( [recuperação pontual](concepts-backup.md) ), restaurando e recuperando os dados até o momento anterior da ocorrência do erro.<br> <br>  Se você quiser restaurar apenas um subconjunto de bancos de dados ou tabelas específicas, em vez de todos os bancos de dados no servidor de banco, poderá restaurar o servidor de banco de dados em uma nova instância, exportar as tabelas via [mysqldump](concepts-migrate-dump-restore.md)e, em seguida, usar [Restore](concepts-migrate-dump-restore.md#restore-your-mysql-database-using-command-line-or-mysql-workbench) para restaurar essas tabelas em seu banco de dados. |
 
 
 

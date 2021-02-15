@@ -2,23 +2,23 @@
 title: Importar ou exportar dados com a configuração Azure App
 description: Saiba como importar ou exportar dados de configuração de ou para a configuração do Azure App. Troque dados entre o repositório de configuração do aplicativo e o projeto de código.
 services: azure-app-configuration
-author: lisaguthrie
+author: AlexandraKemperMS
 ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/25/2020
-ms.author: lcozzens
-ms.openlocfilehash: 21eba653bcd853db9550d0d3781aacd281884605
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.author: alkemper
+ms.openlocfilehash: 5e4eeb37bb5efa11a656600072e4aa364fc71500
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88588068"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96931785"
 ---
 # <a name="import-or-export-configuration-data"></a>Importar ou exportar dados de configuração
 
 Azure App configuração dá suporte a operações de importação e exportação de dados. Use essas operações para trabalhar com dados de configuração em massa e trocar dados entre o repositório de configuração do aplicativo e o projeto de código. Por exemplo, você pode configurar um repositório de configuração de aplicativo para teste e outro para produção. Você pode copiar as configurações do aplicativo entre elas para que não precise inserir dados duas vezes.
 
-Este artigo fornece um guia para importar e exportar dados com a configuração do aplicativo. Se você quiser configurar uma sincronização contínua com seu repositório GitHub, dê uma olhada em nossa [ação do GitHub](https://aka.ms/azconfig-gha1).
+Este artigo fornece um guia para importar e exportar dados com a configuração do aplicativo. Se você quiser configurar uma sincronização contínua com seu repositório GitHub, dê uma olhada em nossa [ação do GitHub](./concept-github-action.md).
 
 ## <a name="import-data"></a>Importar dados
 
@@ -28,7 +28,7 @@ Importe dados usando o [portal do Azure](https://portal.azure.com) ou o [CLI do 
 
 1. Navegue até o repositório de configuração do aplicativo e selecione **importar/exportar** no menu **operações** .
 
-1. Na guia **importar** , selecione arquivo de configuração do **serviço de origem**  >  **Configuration File**.
+1. Na guia **importar** , selecione arquivo de configuração do **serviço de origem**  >  .
 
 1. Selecione **para idioma** e selecione o tipo de entrada desejado.
 
@@ -36,7 +36,7 @@ Importe dados usando o [portal do Azure](https://portal.azure.com) ou o [CLI do 
 
     ![Arquivo de importação](./media/import-file.png)
 
-1. Selecione um **separador**e, opcionalmente, insira um **prefixo** a ser usado para nomes de chave importados.
+1. Selecione um **separador** e, opcionalmente, insira um **prefixo** a ser usado para nomes de chave importados.
 
 1. Opcionalmente, selecione um **rótulo**.
 
@@ -52,11 +52,11 @@ Exporte dados usando o [portal do Azure](https://portal.azure.com) ou o [CLI do 
 
 1. Navegue até o repositório de configuração do aplicativo e selecione **importar/exportar**.
 
-1. Na guia **Exportar** , selecione o **Target service**  >  **arquivo de configuração**do serviço de destino.
+1. Na guia **Exportar** , selecione o   >  **arquivo de configuração** do serviço de destino.
 
 1. Opcionalmente, insira um **prefixo** e selecione um **rótulo** e um ponto no tempo para que as chaves sejam exportadas.
 
-1. Selecione um **File type**  >  **separador**de tipo de arquivo.
+1. Selecione um   >  **separador** de tipo de arquivo.
 
 1. Selecione **aplicar** para concluir a exportação.
 
@@ -65,4 +65,4 @@ Exporte dados usando o [portal do Azure](https://portal.azure.com) ou o [CLI do 
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Criar um aplicativo Web ASP.NET Core](./quickstart-aspnet-core-app.md)  
+> [Criar um aplicativo Web ASP.NET Core](./quickstart-aspnet-core-app.md)

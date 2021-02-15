@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/02/2019
 ms.author: memildin
-ms.openlocfilehash: b26f0bab073ce248ca23bb8a815fa3e293ddba51
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 742d7122c60b383e8ab7aa73f73b11b47843a9d5
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73686480"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91613808"
 ---
 # <a name="cloud-smart-alert-correlation-in-azure-security-center-incidents"></a>Correlação de alertas inteligentes na nuvem na central de segurança do Azure (incidentes)
 
@@ -36,7 +36,11 @@ Como os ataques geralmente ocorrem em diferentes locatários, a central de segur
 
 Durante uma investigação de um incidente, os analistas geralmente precisam de um contexto extra para alcançar uma veredicto sobre a natureza da ameaça e como atenuá-la. Por exemplo, mesmo quando uma anomalia de rede é detectada, sem entender o que mais está acontecendo na rede ou em relação ao recurso de destino, é difícil entender as ações a serem tomadas em seguida. Para ajudar, um incidente de segurança pode incluir artefatos, eventos relacionados e informações. As informações adicionais disponíveis para incidentes de segurança variam de acordo com o tipo de ameaça detectada e a configuração do seu ambiente. 
 
-![Captura de tela do relatório de incidente de segurança detectado](./media/security-center-alerts-cloud-smart/security-incident.png)
+> [!TIP]
+> Para obter uma lista de alertas de incidente de segurança que podem ser produzidos pela análise de fusão, consulte a [tabela de referência de alertas](alerts-reference.md#alerts-fusion).
 
-Para entender melhor os incidentes de segurança, consulte [como lidar com incidentes de segurança na central de segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-incident).
+:::image type="content" source="./media/security-center-alerts-cloud-smart/security-incident.png" alt-text="Captura de tela do relatório de incidente de segurança detectado":::
+
+
+Para entender melhor os incidentes de segurança, consulte [como gerenciar incidentes de segurança na central de segurança do Azure](security-center-incident.md).
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: v-miegge
-ms.openlocfilehash: 596303223554589ef26938486ccfd2281ccd46f5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0c0ec45eee86031e1533b97ccf352de0ecf70e38
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86999098"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98633147"
 ---
 # <a name="troubleshoot-os-start-up--windows-update-installation-capacity"></a>Solucionar problemas de inicialização do sistema operacional – capacidade de instalação do Windows Update
 
@@ -39,6 +39,9 @@ Nessa situação, o sistema operacional (SO) não consegue concluir uma instala�
 
 ### <a name="process-overview"></a>Visão geral do processo:
 
+> [!TIP]
+> Se você tiver um backup recente da VM, poderá tentar [restaurar a VM do backup](../../backup/backup-azure-arm-restore-vms.md) para corrigir o problema de inicialização.
+
 1. Criar e acessar uma VM de reparo.
 1. Liberar espaço em disco.
 1. Habilitar o console serial e a coleção de despejo de memória.
@@ -49,7 +52,7 @@ Nessa situação, o sistema operacional (SO) não consegue concluir uma instala�
 
 ### <a name="create-and-access-a-repair-vm"></a>Criar e acessar uma VM de reparo
 
-1. Use as [etapas 1-3 dos comandos de reparo da VM](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) para preparar uma VM de reparo.
+1. Use as [etapas 1 a 3 dos comandos de reparo da VM](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) para preparar uma VM de reparo.
 1. Use a conexão de área de trabalho remota para conectar-se à VM de reparo.
 
 ### <a name="free-up-space-on-the-disk"></a>Liberar espaço em disco
@@ -62,8 +65,6 @@ Como resolver o problema:
 
 1. Verifique se o disco está cheio. Se o tamanho do disco estiver abaixo de 1 TB, expanda-o para um máximo de 1 TB [usando o PowerShell](../windows/expand-os-disk.md).
 1. Se o disco já for de 1 TB, será necessário executar uma limpeza de disco.
-   1. Desanexe o disco de dados da [VM defeituosa](../windows/detach-disk.md).
-   1. Acople o disco de dados [a uma VM em funcionamento](../windows/attach-disk-ps.md#attach-an-existing-data-disk-to-a-vm).
    1. Use a [ferramenta de limpeza de disco](https://support.microsoft.com/help/4026616/windows-10-disk-cleanup) para liberar espaço.
 1. Quando o redimensionamento e a limpeza forem concluídos, desfragmente a unidade usando o seguinte comando:
 
@@ -123,4 +124,4 @@ Dependendo do nível de fragmentação, a desfragmentação poderá levar vária
    
 ### <a name="rebuild-the-vm"></a>Recompilar a VM
 
-Use a [etapa 5 dos comandos de Reparo da VM](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) para remontar a VM.
+Use a [etapa 5 dos comandos de Reparo da VM](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) para recompilar a VM.

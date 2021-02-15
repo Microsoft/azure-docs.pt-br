@@ -1,17 +1,17 @@
 ---
 title: Atualizando suas visualizações do painel de Log Analytics
-description: Consultas que você pode iniciar e modificar para suas necessidades
+description: Saiba como atualizar suas visualizações de Log Analytics Dashboard com consultas que podem fornecer ideias poderosas.
 ms.subservice: logs
 ms.topic: article
 author: rboucher
 ms.author: robb
 ms.date: 07/01/2020
-ms.openlocfilehash: f2824d46917536957839a5734a8d446da7a44ee9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 96aea35a4796eae9d31062cedaf917a736f0fe82
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505764"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547122"
 ---
 # <a name="upgrading-your-log-analytics-dashboard-visualizations"></a>Atualizando suas visualizações do painel de Log Analytics
 
@@ -47,7 +47,7 @@ Quando uma parte fixa Log Analytics é capaz de ser atualizada, uma nova notific
  
 ![Barra lateral](media/dashboard-upgrade/update-message-1.png)
  
-![Barra lateral](media/dashboard-upgrade/update-message-2.png)
+![Captura de tela que mostra como atualizar a visualização do bloco.](media/dashboard-upgrade/update-message-2.png)
 
 > [!WARNING]
 > Depois que o painel é publicado, a atualização é irreversível. No entanto, as alterações serão descartadas se você navegar para fora do painel sem publicar novamente.  
@@ -56,7 +56,7 @@ Depois de clicar, a visualização será atualizada para a nova tecnologia. Dife
 
 Depois que as visualizações forem atualizadas, você precisará republicar seu painel para que a alteração entre em vigor.
 
-![Barra lateral](media/dashboard-upgrade/update-message-3.png)
+![Captura de tela que mostra as visualizações atualizadas.](media/dashboard-upgrade/update-message-3.png)
 
 ## <a name="stage-2---migration-of-all-dashboards"></a>Estágio 2-migração de todos os painéis
 
@@ -74,7 +74,7 @@ Como os painéis podem conter várias visualizações de várias consultas, o es
 
 Os painéis podem ser visualmente densos e complexos. Para reduzir a carga cognitiva ao exibir um painel, otimizamos as visualizações limitando a exibição a 25 tipos de dados diferentes. Quando há mais de 25, Log Analytics otimiza os dados. Ele mostra individualmente os 25 tipos com a maioria dos dados como separados e, em seguida, agrupa os valores restantes em um valor "other". O gráfico a seguir mostra esse caso.  
 
-![Barra lateral](media/dashboard-upgrade/values-25-limit.png)
+![Captura de tela que mostra um painel com 25 tipos de dados diferentes.](media/dashboard-upgrade/values-25-limit.png)
 
 ### <a name="dashboard-refresh-on-load"></a>Atualização do painel ao carregar
 

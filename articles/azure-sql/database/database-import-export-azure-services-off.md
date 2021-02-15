@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: migration
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/08/2020
-ms.openlocfilehash: ea5f2d5838c926fa8ee7b92278b0854264346a7b
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 3a02876234d43df2e98a3a4e60453fc3f1f74ef6
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543751"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98724145"
 ---
 # <a name="import-or-export-an-azure-sql-database-without-allowing-azure-services-to-access-the-server"></a>Importar ou exportar um banco de dados SQL do Azure sem permitir que os serviços do Azure acessem o servidor
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -34,7 +34,7 @@ Crie uma máquina virtual do Azure selecionando o botão **implantar no Azure** 
 Este modelo permite que você implante uma máquina virtual simples do Windows usando algumas opções diferentes para a versão do Windows, usando a versão mais recente com patches. Isso implantará uma VM de tamanho a2 no local do grupo de recursos e retornará o nome de domínio totalmente qualificado da VM.
 <br><br>
 
-[![Imagem mostrando um botão rotulado como "implantar no Azure".](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-vm-simple-windows%2Fazuredeploy.json)
+[![Imagem mostrando um botão rotulado como "Implantar no Azure".](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-vm-simple-windows%2Fazuredeploy.json)
 
 Para obter mais informações, consulte [implantação muito simples de uma VM do Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows).
 
@@ -44,7 +44,7 @@ As etapas a seguir mostram como se conectar à sua máquina virtual usando uma c
 
 1. Após a conclusão da implantação, vá para o recurso da máquina virtual.
 
-   ![VM](./media/database-import-export-azure-services-off/vm.png)  
+   ![Captura de tela mostra uma página de visão geral da máquina virtual com um botão conectar.](./media/database-import-export-azure-services-off/vm.png)  
 
 2. Selecione **Conectar**.
 
@@ -67,9 +67,9 @@ As etapas a seguir mostram como se conectar à sua máquina virtual usando uma c
 
 ## <a name="install-sqlpackage"></a>Instalar SqlPackage
 
-[Baixe e instale a versão mais recente do SqlPackage](https://docs.microsoft.com/sql/tools/sqlpackage-download).
+[Baixe e instale a versão mais recente do SqlPackage](/sql/tools/sqlpackage-download).
 
-Para obter informações adicionais, consulte [SqlPackage.exe](https://docs.microsoft.com/sql/tools/sqlpackage).
+Para obter informações adicionais, consulte [SqlPackage.exe](/sql/tools/sqlpackage).
 
 ## <a name="create-a-firewall-rule-to-allow-the-vm-access-to-the-database"></a>Criar uma regra de firewall para permitir que a VM acesse o banco de dados
 
@@ -95,9 +95,9 @@ As etapas a seguir criam uma regra de firewall de IP no nível de servidor para 
 
 ## <a name="export-a-database-using-sqlpackage"></a>Exportar um banco de dados usando SqlPackage
 
-Para exportar um banco de dados SQL do Azure usando o utilitário de linha de comando [SqlPackage](https://docs.microsoft.com/sql/tools/sqlpackage) , consulte [Exportar parâmetros e propriedades](https://docs.microsoft.com/sql/tools/sqlpackage#export-parameters-and-properties). O utilitário SqlPackage é fornecido com as versões mais recentes do [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) e do [SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt), ou você pode baixar a versão mais recente do [SqlPackage](https://docs.microsoft.com/sql/tools/sqlpackage-download).
+Para exportar um banco de dados SQL do Azure usando o utilitário de linha de comando [SqlPackage](/sql/tools/sqlpackage) , consulte [Exportar parâmetros e propriedades](/sql/tools/sqlpackage#export-parameters-and-properties). O utilitário SqlPackage é fornecido com as versões mais recentes do [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) e do [SQL Server Data Tools](/sql/ssdt/download-sql-server-data-tools-ssdt), ou você pode baixar a versão mais recente do [SqlPackage](/sql/tools/sqlpackage-download).
 
-Recomendamos o uso do utilitário SqlPackage para escala e desempenho na maioria dos ambientes de produção. Para ler uma postagem de blog da Equipe de Consultoria ao Cliente do SQL Server sobre a migração usando arquivos BACPAC, confira [Migrando do SQL Server para o Banco de Dados SQL do Azure usando arquivos BACPAC](https://blogs.msdn.microsoft.com/sqlcat/20../../migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/).
+Recomendamos o uso do utilitário SqlPackage para escala e desempenho na maioria dos ambientes de produção. Para ler uma postagem de blog da Equipe de Consultoria ao Cliente do SQL Server sobre a migração usando arquivos BACPAC, confira [Migrando do SQL Server para o Banco de Dados SQL do Azure usando arquivos BACPAC](/archive/blogs/sqlcat/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files).
 
 Este exemplo mostra como exportar um banco de dados usando SqlPackage.exe com Active Directory autenticação universal. Substituir por valores específicos do seu ambiente.
 
@@ -107,9 +107,9 @@ SqlPackage.exe /a:Export /tf:testExport.bacpac /scs:"Data Source=<servername>.da
 
 ## <a name="import-a-database-using-sqlpackage"></a>Importar um banco de dados usando SqlPackage
 
-Para importar um Banco de Dados do SQL Server usando o utilitário de linha de comando [SqlPackage](https://docs.microsoft.com/sql/tools/sqlpackage), confira [Importar parâmetros e propriedades](https://docs.microsoft.com/sql/tools/sqlpackage#import-parameters-and-properties). O SqlPackage tem as últimas [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) e [SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt). Você também pode baixar a versão mais recente do [SqlPackage](https://docs.microsoft.com/sql/tools/sqlpackage-download).
+Para importar um Banco de Dados do SQL Server usando o utilitário de linha de comando [SqlPackage](/sql/tools/sqlpackage), confira [Importar parâmetros e propriedades](/sql/tools/sqlpackage#import-parameters-and-properties). O SqlPackage tem as últimas [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) e [SQL Server Data Tools](/sql/ssdt/download-sql-server-data-tools-ssdt). Você também pode baixar a versão mais recente do [SqlPackage](/sql/tools/sqlpackage-download).
 
-Para escala e desempenho, recomendamos usar o SqlPackage na maioria dos ambientes de produção em vez de usar no portal do Azure. Para ler uma postagem de blog da Equipe de Consultoria ao Cliente do SQL Server sobre a migração usando arquivos `BACPAC`, confira [Migrando do SQL Server para o Banco de Dados SQL do Azure usando arquivos BACPAC](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/).
+Para escala e desempenho, recomendamos usar o SqlPackage na maioria dos ambientes de produção em vez de usar no portal do Azure. Para ler uma postagem de blog da Equipe de Consultoria ao Cliente do SQL Server sobre a migração usando arquivos `BACPAC`, confira [Migrando do SQL Server para o Banco de Dados SQL do Azure usando arquivos BACPAC](/archive/blogs/sqlcat/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files).
 
 O comando SqlPackage a seguir importa o banco de dados **AdventureWorks2017** do armazenamento local para um banco de dados SQL do Azure. Ele cria um novo banco de dados chamado **myMigratedDatabase** com uma camada de serviço **Premium** e um Objetivo de serviço **P6**. Altere esses valores conforme apropriado para o seu ambiente.
 
@@ -141,13 +141,13 @@ Para obter o melhor desempenho, você pode experimentar as seguintes estratégia
 
 ## <a name="store-the-imported-or-exported-bacpac-file"></a>Armazene o importado ou exportado. Arquivo BACPAC
 
-Dos. O arquivo BACPAC pode ser armazenado em [BLOBs do Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview)ou [arquivos do Azure](https://docs.microsoft.com/azure/storage/files/storage-files-introduction).
+Dos. O arquivo BACPAC pode ser armazenado em [BLOBs do Azure](../../storage/blobs/storage-blobs-overview.md)ou [arquivos do Azure](../../storage/files/storage-files-introduction.md).
 
 Para obter o melhor desempenho, use os arquivos do Azure. O SqlPackage opera com o sistema de arquivos para que ele possa acessar os arquivos do Azure diretamente.
 
-Para reduzir o custo, use BLOBs do Azure, que custam menos do que um compartilhamento de arquivos premium do Azure. No entanto, será necessário copiar o [. Arquivo BACPAC](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/data-tier-applications#bacpac) entre o blob e o sistema de arquivos local antes da operação de importação ou exportação. Como resultado, o processo levará mais tempo.
+Para reduzir o custo, use BLOBs do Azure, que custam menos do que um compartilhamento de arquivos premium do Azure. No entanto, será necessário copiar o [. Arquivo BACPAC](/sql/relational-databases/data-tier-applications/data-tier-applications#bacpac) entre o blob e o sistema de arquivos local antes da operação de importação ou exportação. Como resultado, o processo levará mais tempo.
 
-Para carregar ou baixar. Arquivos BACPAC, consulte [transferir dados com o armazenamento de BLOBs e AzCopy](../../storage/common/storage-use-azcopy-blobs.md)e [transferir dados com o AzCopy e o armazenamento de arquivos](../../storage/common/storage-use-azcopy-files.md).
+Para carregar ou baixar. Arquivos BACPAC, consulte [transferir dados com o armazenamento de BLOBs e AzCopy](../../storage/common/storage-use-azcopy-v10.md#transfer-data)e [transferir dados com o AzCopy e o armazenamento de arquivos](../../storage/common/storage-use-azcopy-files.md).
 
 Dependendo do seu ambiente, talvez seja necessário configurar as [redes virtuais e os firewalls de armazenamento do Azure](../../storage/common/storage-network-security.md).
 
@@ -156,4 +156,4 @@ Dependendo do seu ambiente, talvez seja necessário configurar as [redes virtuai
 - Para saber como se conectar a um banco de dados SQL importado e consultá-lo, consulte [início rápido: Azure SQL Server Management Studio SQL](connect-query-ssms.md)
 - Para ler uma postagem de blog da Equipe de Consultoria ao Cliente do SQL Server sobre a migração usando arquivos BACPAC, confira [Migrando do SQL Server para o Banco de Dados SQL do Azure usando arquivos BACPAC](https://techcommunity.microsoft.com/t5/DataCAT/Migrating-from-SQL-Server-to-Azure-SQL-Database-using-Bacpac/ba-p/305407).
 - Para ver uma discussão sobre todo o processo de migração do banco de dados do SQL Server, incluindo as recomendações de desempenho, consulte [Migração de um banco de dados do SQL Server para o Banco de Dados SQL do Azure](migrate-to-database-from-sql-server.md).
-- Para aprender como gerenciar e compartilhar chaves de armazenamento e assinaturas de acesso compartilhado com segurança, consulte [Guia de Segurança do Armazenamento do Microsoft Azure](https://docs.microsoft.com/azure/storage/common/storage-security-guide).
+- Para aprender como gerenciar e compartilhar chaves de armazenamento e assinaturas de acesso compartilhado com segurança, consulte [Guia de Segurança do Armazenamento do Microsoft Azure](../../storage/blobs/security-recommendations.md).

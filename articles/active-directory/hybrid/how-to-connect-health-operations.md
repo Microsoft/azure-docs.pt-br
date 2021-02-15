@@ -3,7 +3,7 @@ title: Operações do Azure Active Directory Connect Health
 description: Este artigo descreve as operações adicionais que podem ser executadas após a implantação do Azure AD Connect Health.
 services: active-directory
 documentationcenter: ''
-author: zhiweiwangmsft
+author: billmath
 manager: daveba
 ms.assetid: 86cc3840-60fb-43f9-8b2a-8598a9df5c94
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e72e3cb3ccc6273a9b698475c5e5aa0bb87b8b7
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 99ad0963677b9ef536deacc2122130186afe0726
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87828788"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98016959"
 ---
 # <a name="azure-active-directory-connect-health-operations"></a>Operações do Azure Active Directory Connect Health
 Este tópico descreve as várias operações que você pode executar usando o Azure AD (Azure Active Directory) Connect Health.
@@ -103,8 +103,8 @@ Ao excluir uma instância de serviço, esteja ciente do seguinte:
    <br><br>
 
 [//]: # (Início da seção de RBAC)
-## <a name="manage-access-with-role-based-access-control"></a>Gerenciar acesso com controle de acesso baseado em função
-O Azure [RBAC (controle de acesso baseado em função)](../../role-based-access-control/role-assignments-portal.md) do azure para Azure ad Connect Health fornece acesso a usuários e grupos diferentes de administradores globais. O RBAC atribui funções aos usuários e grupos desejados e fornece um mecanismo para limitar os administradores globais em seu diretório.
+## <a name="manage-access-with-azure-rbac"></a>Gerenciar o acesso com o RBAC do Azure
+O Azure [RBAC (controle de acesso baseado em função)](../../role-based-access-control/role-assignments-portal.md) do azure para Azure ad Connect Health fornece acesso a usuários e grupos diferentes de administradores globais. O RBAC do Azure atribui funções aos usuários e grupos pretendidos e fornece um mecanismo para limitar os administradores globais em seu diretório.
 
 ### <a name="roles"></a>Funções
 O Azure AD Connect Health dá suporte às seguintes funções internas:
@@ -135,12 +135,12 @@ Para permitir a um usuário o acesso no nível *Todas as instâncias de serviço
    ![Captura de tela da barra lateral de recursos  do Azure AD Connect Health](./media/how-to-connect-health-operations/startRBAC.png)
 2. Selecione **Adicionar**.
 3. No painel **Selecionar uma função**, selecione uma função (por exemplo, **Proprietário**).<br>
-   ![Captura de tela da janela Usuários do RBAC do Azure AD Connect Health](./media/how-to-connect-health-operations/RBAC_add.png)
+   ![Captura de tela de Azure AD Connect Health e menu Configurar do RBAC do Azure](./media/how-to-connect-health-operations/RBAC_add.png)
 4. Digite o nome ou identificador do usuário ou grupo de destino. Você pode selecionar um ou mais usuários ou grupos ao mesmo tempo. Clique em **Selecionar**.
-   ![Captura de tela da janela Usuários do RBAC do Azure AD Connect Health](./media/how-to-connect-health-operations/RBAC_select_users.png)
+   ![Captura de tela de Azure AD Connect Health e lista de funções do Azure](./media/how-to-connect-health-operations/RBAC_select_users.png)
 5. Selecione **OK**.<br>
 6. Após a conclusão da atribuição de função, os usuários e grupos aparecerão na lista.<br>
-   ![Captura de tela da janela Usuários do RBAC do Azure AD Connect Health, com Novos Usuários realçado](./media/how-to-connect-health-operations/RBAC_user_list.png)
+   ![Captura de tela de Azure AD Connect Health e RBAC do Azure e novos usuários realçados](./media/how-to-connect-health-operations/RBAC_user_list.png)
 
 Agora os usuários e grupos listados têm acesso, de acordo com suas funções atribuídas.
 
@@ -153,7 +153,7 @@ Agora os usuários e grupos listados têm acesso, de acordo com suas funções a
 #### <a name="step-3-share-the-blade-location-with-users-or-groups"></a>Etapa 3: Compartilhe o local da folha com usuários ou grupos
 1. Depois que você atribuir permissões, o usuário poderá acessar o Azure AD Connect Health [aqui](https://aka.ms/aadconnecthealth).
 2. Na folha, o usuário pode fixar a folha ou diferentes partes dela no painel. Basta clicar no ícone **Fixar no painel**.<br>
-   ![Captura de tela da folha de fixar do RBAC do Azure AD Connect Health, com o ícone de pino realçado](./media/how-to-connect-health-operations/RBAC_pin_blade.png)
+   ![Captura de tela de Azure AD Connect Health e folha de PIN do RBAC do Azure, com ícone de pino realçado](./media/how-to-connect-health-operations/RBAC_pin_blade.png)
 
 > [!NOTE]
 > Um usuário com a função Leitor atribuído não pode obter a extensão do Azure AD Connect Health no Azure Marketplace. O usuário não pode executar a operação "create" necessária para fazer isso. O usuário ainda poderá acessar a folha usando o link apresentado anteriormente. Para uso subsequente, o usuário pode fixar a folha no painel.
@@ -161,13 +161,13 @@ Agora os usuários e grupos listados têm acesso, de acordo com suas funções a
 >
 
 ### <a name="remove-users-or-groups"></a>Remover usuários ou grupos
-Você pode remover um usuário ou grupo adicionado ao RBAC do Azure AD Connect Health. Basta clicar com o botão direito do mouse no usuário ou grupo e selecionar **Remover**.<br>
-![Captura de tela da janela Usuários do RBAC do Azure AD Connect Health, com Remover realçado](./media/how-to-connect-health-operations/RBAC_remove.png)
+Você pode remover um usuário ou grupo adicionado ao Azure AD Connect Health e ao RBAC do Azure. Basta clicar com o botão direito do mouse no usuário ou grupo e selecionar **Remover**.<br>
+![Captura de tela de Azure AD Connect Health e RBAC do Azure com remover realçado](./media/how-to-connect-health-operations/RBAC_remove.png)
 
 [//]: # (Fim da seção de RBAC)
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Azure AD Connect Health](whatis-hybrid-identity-health.md)
+* [Azure AD Connect Health](./whatis-azure-ad-connect.md)
 * [Instalação do agente do Azure AD Connect Health](how-to-connect-health-agent-install.md)
 * [Usando o Azure AD Connect Health com o AD FS](how-to-connect-health-adfs.md)
 * [Usando Azure AD Connect Health para sincronização](how-to-connect-health-sync.md)

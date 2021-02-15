@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 06/26/2017
 ms.author: manuaery
 ms.openlocfilehash: 483fa81b409e1bd740af85b431a86b6c814831e6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85511519"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002707"
 ---
 # <a name="storsimple-locally-pinned-volumes-frequently-asked-questions-faq"></a>Volume localmente afixado do StorSimple: perguntas frequentes
 ## <a name="overview"></a>Visão geral
@@ -178,7 +178,7 @@ Mais informações sobre como [converter um volume em camadas em um volume local
 
 **P.:**  Posso clonar um volume localmente afixado?
 
-**R.:**  Sim, pode. No entanto, o volume localmente afixado será clonado como um volume em camadas por padrão. Mais informações sobre como [clonar um volume fixado localmente](storsimple-8000-clone-volume-u2.md)
+**R.:** Sim, você pode. No entanto, o volume localmente afixado será clonado como um volume em camadas por padrão. Mais informações sobre como [clonar um volume fixado localmente](storsimple-8000-clone-volume-u2.md)
 
 ## <a name="questions-about-failing-over-a-locally-pinned-volume"></a>Perguntas sobre como fazer o failover de um volume localmente afixado
 **P.:**  Preciso fazer failover de um dispositivo para outro dispositivo físico. O failover será feito nos volumes localmente afixados como localmente afixados ou em camadas?
@@ -201,5 +201,5 @@ Mais informações sobre [o failover e a DR de volumes fixos localmente entre ve
 
 **P.:**  Posso fazer o failover em um contêiner de volume com volumes localmente afixados para o dispositivo de nuvem?
 
-**R.:**  Sim, pode. Os volumes localmente afixados serão submetidos a failover como volumes em camadas. Mais informações sobre [o failover e a DR de volumes fixos localmente entre versões](storsimple-8000-device-failover-disaster-recovery.md#common-considerations-for-device-failover)
+**R.:** Sim, você pode. Os volumes localmente afixados serão submetidos a failover como volumes em camadas. Mais informações sobre [o failover e a DR de volumes fixos localmente entre versões](storsimple-8000-device-failover-disaster-recovery.md#common-considerations-for-device-failover)
 

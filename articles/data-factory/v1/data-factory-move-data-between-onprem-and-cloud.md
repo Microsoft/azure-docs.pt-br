@@ -1,23 +1,18 @@
 ---
 title: Mover Gerenciamento de Dados gateway de dados
 description: Configure um gateway de dados para mover dados entre o local e a nuvem. Use o Gateway de Gerenciamento de Dados no Azure Data Factory para mover os dados.
-services: data-factory
-documentationcenter: ''
 author: nabhishek
-manager: anandsub
-ms.assetid: 7bf6d8fd-04b5-499d-bd19-eff217aa4a9c
+ms.author: abnarain
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 7f07f08cd320d94495403b0f5ae65d60d8dc93b5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 53fce1744ccbf4289b2415e926e084c90d708a13
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84195988"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100380280"
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Mover dados entre fontes locais e a nuvem com o Gateway de Gerenciamento de Dados
 > [!NOTE]
@@ -61,7 +56,7 @@ Nesta etapa, você usa o Portal do Azure para criar uma instância do Azure Data
     ![Adicionar ao quadro inicial](./media/data-factory-move-data-between-onprem-and-cloud/OnPremNewDataFactoryAddToStartboard.png)
 
    > [!IMPORTANT]
-   > O nome da data factory do Azure deve ser globalmente exclusivo. Se você receber o erro: **O nome da data factory “ADFTutorialOnPremDF” não está disponível**, altere o nome da data factory (por exemplo, yournameADFTutorialOnPremDF) e tente criá-la novamente. Use esse nome em vez de ADFTutorialOnPremDF ao executar as etapas restantes neste tutorial.
+   > O nome da data factory do Azure deve ser globalmente exclusivo. Se você receber o erro: o **nome do data Factory "ADFTutorialOnPremDF" não está disponível**, altere o nome do data Factory (por exemplo, yournameADFTutorialOnPremDF) e tente criar novamente. Use esse nome em vez de ADFTutorialOnPremDF ao executar as etapas restantes neste tutorial.
    >
    > O nome do data factory pode ser registrado como um nome **DNS** no futuro e, portanto, se torna publicamente visível.
    >
@@ -236,7 +231,7 @@ Nesta etapa, você cria conjuntos de dados de entrada e saída que representam d
             }
         }
     }     
-    ```     
+    ```       
    Observe os seguintes pontos:
 
    * **type** é definido como **SqlServerTable**.
@@ -277,7 +272,7 @@ Nesta etapa, você cria conjuntos de dados de entrada e saída que representam d
    * **type** é definido como **AzureBlob**.
    * O **linkedServiceName** é definido como **AzureStorageLinkedService** (você criou esse serviço vinculado na Etapa 2).
    * **folderPath** é definido como **adftutorial/outfromonpremdf**, em que outfromonpremdf é a pasta no contêiner adftutorial. Crie o contêiner **adftutorial** se ele ainda não existir.
-   * A **disponibilidade** é definida como por **hora** (a**frequência** é definida como **hora** e o **intervalo** definido como **1**).  O serviço Data Factory gera uma fatia de dados de saída a cada hora na tabela **emp** no banco de dados SQL do Azure.
+   * A **disponibilidade** é definida como por **hora** (a **frequência** é definida como **hora** e o **intervalo** definido como **1**).  O serviço Data Factory gera uma fatia de dados de saída a cada hora na tabela **emp** no banco de dados SQL do Azure.
 
    Se você não especificar um **nome de arquivo** para uma **tabela de saída**, os arquivos gerados no **FolderPath** serão nomeados no seguinte formato: `Data.<Guid>.txt` (por exemplo:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
 
@@ -302,7 +297,7 @@ Nesta etapa, você cria conjuntos de dados de entrada e saída que representam d
 ## <a name="create-pipeline"></a>Criar um pipeline
 Nesta etapa, você criará um **pipeline** com uma **Atividade de Cópia** que usa **EmpOnPremSQLTable** como entrada e **OutputBlobTable** como saída.
 
-1. No editor de Data Factory, clique em **... Mais**e clique em **novo pipeline**.
+1. No editor de Data Factory, clique em **... Mais** e clique em **novo pipeline**.
 2. Substitua o JSON no painel direito pelo texto a seguir:    
 
     ```JSON   
@@ -384,7 +379,7 @@ Nesta etapa, você criará um **pipeline** com uma **Atividade de Cópia** que u
     É possível ampliar, reduzir, aplicar zoom de 100%, ajustar nível de zoom, posicionar pipelines e conjuntos de dados automaticamente, bem como mostrar informações de linhagem (realça itens upstream e downstream dos itens selecionados).  Você pode clicar duas vezes em um objeto (pipeline ou conjunto de dados de entrada/saída) para ver as propriedades dele.
 
 ## <a name="monitor-pipeline"></a>Monitorar o pipeline
-Nesta etapa, você utiliza o portal do Azure para monitorar o que está acontecendo em um data factory do Azure. Você também pode usar os cmdlets do PowerShell para monitorar conjuntos de dados e pipelines. Para obter detalhes sobre monitoramento, consulte [Monitorar e gerenciar pipelines](data-factory-monitor-manage-pipelines.md).
+Nesta etapa, você usa o portal do Azure para monitorar o que está acontecendo em uma data factory do Azure. Você também pode usar os cmdlets do PowerShell para monitorar conjuntos de dados e pipelines. Para obter detalhes sobre monitoramento, consulte [Monitorar e gerenciar pipelines](data-factory-monitor-manage-pipelines.md).
 
 1. No diagrama, clique duas vezes em **EmpOnPremSQLTable**.  
 

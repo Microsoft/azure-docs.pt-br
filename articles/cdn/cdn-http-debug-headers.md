@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/12/2018
 ms.author: allensu
 ms.openlocfilehash: 4154c6a1e739f935022271e7a101f39d3ee5c500
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84343013"
 ---
 # <a name="x-ec-debug-http-headers-for-azure-cdn-rules-engine"></a>Cabeçalhos HTTP Verizon X-EC-Debug para o Mecanismo de regras de CDN do Azure
@@ -41,7 +41,7 @@ X-EC-Debug: x-ec-check-cacheable | [Cacheable](#cacheable-response-header)
 X-EC-Debug: x-ec-cache-key | [Cache-key](#cache-key-response-header)
 X-EC-Debug: x-ec-cache-state | [Estado do cache](#cache-state-response-header)
 
-### <a name="syntax"></a>Syntax
+### <a name="syntax"></a>Sintaxe
 
 Cabeçalhos de resposta de cache de depuração podem ser solicitados incluindo-se o seguinte cabeçalho e as diretivas especificadas na solicitação:
 
@@ -54,7 +54,7 @@ Cabeçalhos de resposta de cache de depuração podem ser solicitados incluindo-
 ## <a name="cache-status-code-information"></a>Informações de código de status do cache
 O cabeçalho de resposta X-EC-Debug pode identificar um servidor e como ele manipulou a resposta por meio das diretivas a seguir:
 
-parâmetro | Descrição
+Cabeçalho | Descrição
 -------|------------
 X-EC-Debug: x-ec-cache | Esse cabeçalho é informado sempre que o conteúdo é encaminhado por meio da CDN. Ele identifica o servidor POP que atendeu à solicitação.
 X-EC-Debug: x-ec-cache-remote | Esse cabeçalho é relatado somente quando o conteúdo solicitado foi armazenado em cache em um servidor de proteção de origem ou de um servidor de gateway ADN.
@@ -107,7 +107,7 @@ Valor  | Descrição
 -------| --------
 YES    | Indica que o conteúdo solicitado estava elegível para cache.
 Não     | Indica que o conteúdo solicitado estava inelegível para cache. Esse status pode ser devido a um dos seguintes motivos: <br /> - Configuração Específica do cliente: uma configuração específica do cliente para a sua conta pode impedir que os servidores pop armazenem um ativo em cache. Por exemplo, mecanismo de regras pode impedir um ativo que está sendo armazenado em cache, permitindo que o recurso Ignorar Cache qualifique as solicitações.<br /> - Cabeçalhos de resposta cache: Cabeçalhos de Cache-Control e Expires do ativo podem impedir que os servidores POP sejam armazenados em cache.
-UNKNOWN | Indica que os servidores não foram puderam avaliar se o recurso solicitado foi armazenável em cache. Normalmente, esse status ocorre quando a solicitação for negada devido a autenticação baseada em token.
+DESCONHECIDO | Indica que os servidores não foram puderam avaliar se o recurso solicitado foi armazenável em cache. Normalmente, esse status ocorre quando a solicitação for negada devido a autenticação baseada em token.
 
 ### <a name="sample-response-header"></a>Exemplo de cabeçalho de resposta
 

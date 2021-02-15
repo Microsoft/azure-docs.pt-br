@@ -12,20 +12,24 @@ ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 03/16/2020
 ms.author: tagore
-ms.openlocfilehash: 9338ad86595771c1c70d243250c2d57af5eb7858
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 70bcf5bce1c8c07633baf070149a9bb80c331d9c
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683799"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98742566"
 ---
 # <a name="troubleshooting-applications-that-dont-support-tls-12"></a>Solucionar aplicativos que não permitem TLS 1.2
+
+> [!IMPORTANT]
+> Os [serviços de nuvem do Azure (suporte estendido)](../cloud-services-extended-support/overview.md) são um novo modelo de implantação baseado em Azure Resource Manager para o produto de serviços de nuvem do Azure.Com essa alteração, os serviços de nuvem do Azure em execução no modelo de implantação baseado no Azure Service Manager foram renomeados como serviços de nuvem (clássicos) e todas as novas implantações devem usar os [serviços de nuvem (suporte estendido)](../cloud-services-extended-support/overview.md).
+
 Este artigo descreve como habilitar os protocolos TLS mais antigos (TLS 1.0 e 1.1), bem como aplicar pacotes de criptografia herdados para permitir protocolos adicionais na Web do serviço de nuvem do Windows Server 2019 e nas funções de trabalho. 
 
 Entendemos que, enquanto estamos realizando etapas para substituir o TLS 1.0 e TLS 1.1, nossos clientes talvez precisem usar protocolos e conjuntos de codificação mais antigos até que possam planejar a substituição.  Embora não seja recomendável reabilitar esses valores herdados, estamos dando orientações para ajudar os clientes. Incentivamos os clientes a avaliar o risco de regressão antes de implementar as alterações descritas neste artigo. 
 
 > [!NOTE]
-> A versão 6 da família de sistemas operacionais convidados impõe o TLS 1.2 desabilitando explicitamente o TLS 1.0 e 1.1 e definindo um conjunto específico de conjuntos de codificação. Para obter mais informações sobre famílias de sistemas operacionais convidados, consulte as [notícias da versão do SO convidado](https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases)
+> A versão 6 da família de sistemas operacionais convidados impõe o TLS 1.2 desabilitando explicitamente o TLS 1.0 e 1.1 e definindo um conjunto específico de conjuntos de codificação. Para obter mais informações sobre famílias de sistemas operacionais convidados, consulte as [notícias da versão do SO convidado](./cloud-services-guestos-update-matrix.md#family-6-releases)
 
 
 ## <a name="dropping-support-for-tls-10-tls-11-and-older-cipher-suites"></a>Fim do suporte para TLS 1.0, TLS 1.1 e conjuntos de criptografia mais antigos 
@@ -362,4 +366,3 @@ Agora que as etapas acima foram concluídas, publique a atualização em seu ser
 
 Você pode usar [SSLLabs](https://www.ssllabs.com/) para validar o status de TLS de seus pontos de extremidade 
 
- 

@@ -6,10 +6,10 @@ ms.author: jobreen
 author: jjbfour
 ms.date: 06/20/2019
 ms.openlocfilehash: 46b38686b39836f3d4bfb80686d514f932a79bf3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75650455"
 ---
 # <a name="custom-resource-proxy-reference"></a>Referência de proxy de recurso personalizado
@@ -65,10 +65,10 @@ Recurso de exemplo:
 
 Referência de parâmetro:
 
-Property | Amostra | Descrição
+Propriedade | Amostra | Descrição
 ---|---|---
 name | '{myCustomResourceName}' | O nome do recurso personalizado.
-tipo | 'Microsoft.CustomProviders/resourceProviders/{resourceTypeName}' | O namespace do tipo de recurso.
+type | 'Microsoft.CustomProviders/resourceProviders/{resourceTypeName}' | O namespace do tipo de recurso.
 id | '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/<br>providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/<br>myCustomResources/{myCustomResourceName}' | A ID do recurso.
 
 ### <a name="create-a-custom-resource"></a>Criar um recurso personalizado

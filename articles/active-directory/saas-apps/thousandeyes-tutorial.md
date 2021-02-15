@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 2b99d5ea33693431fb3811af50385891684a366e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: aa3c5115a5255d30decbc66691878ffbe2579a06
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88546450"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92514581"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-thousandeyes"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao ThousandEyes
 
@@ -26,7 +26,7 @@ Neste tutorial, você aprenderá a integrar o ThousandEyes ao Azure AD (Azure Ac
 * Permitir que os usuários sejam conectados automaticamente ao ThousandEyes com suas contas do Azure AD.
 * Gerenciar suas contas em um local central: o portal do Azure.
 
-Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -40,7 +40,7 @@ Para começar, você precisará dos seguintes itens:
 Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste.
 
 * O ThousandEyes dá suporte ao SSO iniciado por **SP e IdP**
-* O ThousandEyes é compatível com [provisionamento de usuário **Automatizado**](https://docs.microsoft.com/azure/active-directory/saas-apps/thousandeyes-provisioning-tutorial)
+* O ThousandEyes é compatível com [provisionamento de usuário **Automatizado**](./thousandeyes-provisioning-tutorial.md)
 
 > [!NOTE]
 > O identificador desse aplicativo é um valor de cadeia de caracteres fixo; portanto apenas uma instância pode ser configurada em um locatário.
@@ -53,7 +53,7 @@ Para configurar a integração do ThousandEyes com o Azure AD, é necessário ad
 1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory**.
 1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos**.
 1. Para adicionar um novo aplicativo, escolha **Novo aplicativo**.
-1. Na seção **Adicionar por meio da galeria**, digite **ThousandEyes** na caixa de pesquisa.
+1. Na seção **Adicionar por meio da galeria** , digite **ThousandEyes** na caixa de pesquisa.
 1. Selecione **ThousandEyes** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-thousandeyes"></a>Configurar e testar o logon único do Azure AD para o ThousandEyes
@@ -73,23 +73,23 @@ Para configurar e testar o SSO do Azure AD com o ThousandEyes, conclua os seguin
 
 Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **ThousandEyes**, localize a seção **Gerenciar** e selecione **Logon único**.
-1. Na página **Selecionar um método de logon único**, escolha **SAML**.
-1. Na página **Configurar o logon único com o SAML**, clique no ícone de edição/caneta da **Configuração Básica do SAML** para editar as configurações.
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **ThousandEyes** , localize a seção **Gerenciar** e selecione **Logon único**.
+1. Na página **Selecionar um método de logon único** , escolha **SAML**.
+1. Na página **Configurar o logon único com o SAML** , clique no ícone de edição/caneta da **Configuração Básica do SAML** para editar as configurações.
 
    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-1. Na seção **Configuração Básica de SAML**, o aplicativo é pré-configurado e as URLs necessárias já são preenchidas previamente com o Azure. É necessário que o usuário salve a configuração, clicando no botão **Salvar**.
+1. Na seção **Configuração Básica de SAML** , o aplicativo é pré-configurado e as URLs necessárias já são preenchidas previamente com o Azure. É necessário que o usuário salve a configuração, clicando no botão **Salvar**.
 
 1. Clique em **Definir URLs adicionais** e execute o passo seguinte se quiser configurar a aplicação no modo **SP** iniciado:
 
-    Na caixa de texto **URL de Logon**, digite uma URL: `https://app.thousandeyes.com/login/sso`
+    Na caixa de texto **URL de Logon** , digite uma URL: `https://app.thousandeyes.com/login/sso`
 
-1. Na página **Configurar o logon único com o SAML**, na seção **Certificado de Autenticação SAML**, localize **Certificado (Base64)** e selecione **Baixar** para baixar o certificado e salvá-lo no computador.
+1. Na página **Configurar o logon único com o SAML** , na seção **Certificado de Autenticação SAML** , localize **Certificado (Base64)** e selecione **Baixar** para baixar o certificado e salvá-lo no computador.
 
     ![O link de download do Certificado](common/certificatebase64.png)
 
-1. Na seção **Configurar o ThousandEyes**, copie as URLs apropriadas de acordo com suas necessidades.
+1. Na seção **Configurar o ThousandEyes** , copie as URLs apropriadas de acordo com suas necessidades.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
@@ -97,11 +97,11 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 Nesta seção, você criará um usuário de teste no portal do Azure chamado B.Fernandes.
 
-1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory**, **Usuários** e, em seguida, **Todos os usuários**.
+1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory** , **Usuários** e, em seguida, **Todos os usuários**.
 1. Selecione **Novo usuário** na parte superior da tela.
-1. Nas propriedades do **Usuário**, siga estas etapas:
-   1. No campo **Nome**, insira `B.Simon`.  
-   1. No campo **Nome de usuário**, insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
+1. Nas propriedades do **Usuário** , siga estas etapas:
+   1. No campo **Nome** , insira `B.Simon`.  
+   1. No campo **Nome de usuário** , insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
    1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha**.
    1. Clique em **Criar**.
 
@@ -119,9 +119,9 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
     ![O link Adicionar Usuário](common/add-assign-user.png)
 
-1. Na caixa de diálogo **Usuários e grupos**, selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
-1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função**, escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
-1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
+1. Na caixa de diálogo **Usuários e grupos** , selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função** , escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
+1. Na caixa de diálogo **Adicionar atribuição** , clique no botão **Atribuir**.
 
 ## <a name="configure-thousandeyes-sso"></a>Configurar o SSO do ThousandEyes
 
@@ -129,11 +129,11 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
 2. No menu na parte superior, clique em **Configurações**.
 
-    ![Configurações](./media/thousandeyes-tutorial/ic790066.png "Configurações")
+    ![A captura de tela mostra o site do ThousandEyes com a opção Configurações selecionada.](./media/thousandeyes-tutorial/ic790066.png "Configurações")
 
 3. Clique em **Conta**
 
-    ![Conta](./media/thousandeyes-tutorial/ic790067.png "Conta")
+    ![A captura de tela mostra a opção Conta selecionada no menu Configurações.](./media/thousandeyes-tutorial/ic790067.png "Conta")
 
 4. Clique na guia **Segurança e Autenticação**.
 
@@ -145,13 +145,13 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
     a. Selecione **Habilitar Logon Único**.
 
-    b. Na caixa de texto **URL da Página de Logon**, cole a **URL de Logon** copiada do portal do Azure.
+    b. Na caixa de texto **URL da Página de Logon** , cole a **URL de Logon** copiada do portal do Azure.
 
-    c. Na caixa de texto **URL da Página de Logoff**, cole a **URL de Logoff** copiada do portal do Azure.
+    c. Na caixa de texto **URL da Página de Logoff** , cole a **URL de Logoff** copiada do portal do Azure.
 
-    d. Na caixa de texto **Emissor do Provedor de Identidade**, cole o **Identificador do Azure AD** copiado do portal do Azure.
+    d. Na caixa de texto **Emissor do Provedor de Identidade** , cole o **Identificador do Azure AD** copiado do portal do Azure.
 
-    e. Em **Certificado de Verificação**, clique em **Escolher Arquivo** e carregue o certificado que você baixou do Portal do Azure.
+    e. Em **Certificado de Verificação** , clique em **Escolher Arquivo** e carregue o certificado que você baixou do Portal do Azure.
 
     f. Clique em **Save** (Salvar).
 
@@ -165,23 +165,23 @@ O objetivo desta seção é criar um usuário chamado Brenda Fernandes no Thousa
 
 2. Clique em **Configurações**.
 
-    ![Configurações](./media/thousandeyes-tutorial/IC790066.png "Configurações")
+    ![A captura de tela mostra o site do ThousandEyes com a opção Configurações selecionada.](./media/thousandeyes-tutorial/ic790066.png "Configurações")
 
 3. Clique em **Conta**.
 
-    ![Conta](./media/thousandeyes-tutorial/IC790067.png "Conta")
+    ![A captura de tela mostra a opção Conta selecionada no menu Configurações.](./media/thousandeyes-tutorial/ic790067.png "Conta")
 
 4. Clique na guia **Contas e Usuários**.
 
     ![Contas e Usuários](./media/thousandeyes-tutorial/IC790073.png "Contas e Usuários")
 
-5. Na seção **Adicionar Usuários e Contas**, realize as seguintes etapas:
+5. Na seção **Adicionar Usuários e Contas** , realize as seguintes etapas:
 
     ![Adicionar Contas de Usuário](./media/thousandeyes-tutorial/IC790074.png "Adicionar contas de usuário")
 
-    a. Na caixa de texto **Nome**, digite o nome do usuário como **B.Fernandes**.
+    a. Na caixa de texto **Nome** , digite o nome do usuário como **B.Fernandes**.
 
-    b. Na caixa de texto **Email**, digite o email do usuário como b.simon@contoso.com.
+    b. Na caixa de texto **Email** , digite o email do usuário como b.simon@contoso.com.
 
     b. Clique em **Adicionar Novo Usuário à Conta**.
 
@@ -196,16 +196,16 @@ O objetivo desta seção é criar um usuário chamado Brenda Fernandes no Thousa
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Ao clicar no bloco do ThousandEyes no Painel de Acesso, você deverá ser conectado automaticamente ao ThousandEyes para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao clicar no bloco do ThousandEyes no Painel de Acesso, você deverá ser conectado automaticamente ao ThousandEyes para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](./tutorial-list.md)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)
 
 - [Experimentar o ThousandEyes com o Azure AD](https://aad.portal.azure.com/)
 
-- [Configurar Provisionamento de Usuário](https://docs.microsoft.com/azure/active-directory/saas-apps/thousandeyes-provisioning-tutorial)
+- [Configurar Provisionamento de Usuário](./thousandeyes-provisioning-tutorial.md)

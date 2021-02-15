@@ -7,16 +7,16 @@ ms.topic: how-to
 ms.date: 06/30/2020
 ms.service: azure-education
 ms.subservice: education-hub
-ms.openlocfilehash: dbfb2d32b6aab7660f4fc11865122ad44e9732fb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d556956a4e123d65a5725b56db57b3ce6cbb7aaf
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87095694"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675349"
 ---
 # <a name="help-students-download-software-developer-tools-from-the-azure-education-hub"></a>Ajude os alunos a baixar as ferramentas de desenvolvedor de software da Hub de Educação do Azure
 
-Por meio do programa ferramentas de desenvolvimento do Azure para ensino, os alunos que têm uma assinatura atual e ativa do Azure para estudantes podem baixar determinadas ferramentas de desenvolvedor de software gratuitamente. O Azure for Students fornece acesso a todos os produtos do Azure que são expressamente destinados a dar suporte a educação ou ensino, pesquisa não comercial ou esforços para projetar, desenvolver, testar e demonstrar aplicativos de software para essas finalidades. Os alunos baixam as ferramentas do Hub de Educação do Azure.
+Por meio do programa Azure Dev Tools for Teaching, os alunos que têm uma assinatura atual e ativa do Azure for Students podem baixar algumas ferramentas para desenvolvedores de software gratuitamente. O Azure for Students fornece acesso a todos os produtos do Azure expressamente pretendidos para dar suporte à educação ou ao ensino, à pesquisa não comercial ou a esforços para projetar, desenvolver, testar e demonstrar aplicativos de software para os fins acima. Os alunos baixam as ferramentas do Hub de Educação do Azure.
 
 ## <a name="instructions-for-students-how-to-download-software-developer-tools"></a>Instruções para alunos: como baixar ferramentas para desenvolvedores de software
 
@@ -26,15 +26,15 @@ Faça com que seus alunos sigam este procedimento para baixar as ferramentas de 
 1. Entre com suas credenciais de assinatura do Azure for students.
 1. Selecione qualquer uma das ferramentas de desenvolvedor de software no Hub de Educação para abrir o painel de download.
 1. Leia as informações do software para garantir que o software seja compatível com o sistema de computador.
-1. Depois de confirmar que o software é compatível com seu sistema, selecione **baixar**.
+1. Depois de confirmar que o software é compatível com seu sistema, selecione **baixar** .
 1. Siga as instruções na tela para baixar e instalar o software.
 
-   O Azure for Students oferece crédito de $100 por 12 meses. Ele inclui acesso a mais de 25 serviços gratuitos, incluindo computação, rede, armazenamento e bancos de dados. Quaisquer encargos incorridos durante esse período são deduzidos do crédito. 
+   O Azure for Students oferece um crédito de 100 dólares por 12 meses. Ele inclui acesso a mais de 25 serviços gratuitos, incluindo computação, rede, armazenamento e bancos de dados. Qualquer custo gerado durante esse período será deduzido do crédito. 
 
 
 ## <a name="next-steps"></a>Próximas etapas
 - [Obter ajuda com erros de logon](troubleshoot-login.md)
 - [Azure for Students](azure-students-program.md)
 - [Azure for Students Starter](azure-students-starter-program.md)
-- [Microsoft Learn: uma plataforma de aprendizado online gratuita](https://docs.microsoft.com/learn/)
+- [Microsoft Learn: uma plataforma de aprendizado online gratuita](/learn/)
 - [Perguntas frequentes](program-faq.md#azure-for-students)

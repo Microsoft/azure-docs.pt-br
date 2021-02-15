@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: eb94b67b026ed108f31f6cd802010577665ec0d8
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 6ece3e639e0ef3516696e2a0bad7deeb833433a6
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286080"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98219191"
 ---
 # <a name="troubleshooting-connectivity-problems-between-azure-vms"></a>Solucionar problemas de conectividade entre VMs do Azure
 
@@ -49,7 +49,7 @@ Execute estas etapas para solucionar o problema. Depois de concluir cada etapa, 
 
 ### <a name="step-1-check-whether-nic-is-misconfigured"></a>Etapa 1: verificar se o NIC está configurado incorretamente
 
-Execute as etapas em [Como redefinir o adaptador de rede para uma VM Windows do Azure](../virtual-machines/windows/reset-network-interface.md). 
+Execute as etapas em [Como redefinir o adaptador de rede para uma VM Windows do Azure](../virtual-machines/troubleshooting/reset-network-interface.md). 
 
 Se o problema ocorrer após você modificar o NIC (adaptador de rede), execute estas etapas:
 
@@ -62,8 +62,8 @@ Para saber mais, confira [Adicionar ou remover adaptadores de rede de máquinas 
 
 **VM com NIC único** 
 
-- [Reimplantar VM do Windows](../virtual-machines/windows/redeploy-to-new-node.md)
-- [Reimplantar VM Linux](../virtual-machines/linux/redeploy-to-new-node.md)
+- [Reimplantar VM do Windows](../virtual-machines/troubleshooting/redeploy-to-new-node-windows.md)
+- [Reimplantar VM Linux](../virtual-machines/troubleshooting/redeploy-to-new-node-linux.md)
 
 ### <a name="step-2-check-whether-network-traffic-is-blocked-by-nsg-or-udr"></a>Etapa 2: verificar se o tráfego de rede está bloqueado por NSG ou UDR
 
@@ -103,7 +103,7 @@ Uma ACL (lista de controle de acesso) fornece a capacidade para permitir ou nega
 
 ### <a name="step-7-check-whether-the-endpoint-is-created-for-the-classic-vm"></a>Etapa 7: verificar se o ponto de extremidade é criado para a VM clássica
 
-Todas as VMs criadas no Azure usando o modelo de implantação clássico podem se comunicar automaticamente com outras máquinas virtuais no mesmo serviço de nuvem ou rede virtual por um canal de rede privada. No entanto, os computadores em outras redes virtuais exigem pontos de extremidade para direcionar o tráfego de rede de entrada para uma máquina virtual. Para saber mais, confira [Como configurar pontos de extremidade](../virtual-machines/windows/classic/setup-endpoints.md).
+Todas as VMs criadas no Azure usando o modelo de implantação clássico podem se comunicar automaticamente com outras máquinas virtuais no mesmo serviço de nuvem ou rede virtual por um canal de rede privada. No entanto, os computadores em outras redes virtuais exigem pontos de extremidade para direcionar o tráfego de rede de entrada para uma máquina virtual. Para saber mais, confira [Como configurar pontos de extremidade](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints).
 
 ### <a name="step-8-try-to-connect-to-a-vm-network-share"></a>Etapa 8: tentar se conectar a um compartilhamento de rede de VM
 

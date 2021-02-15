@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 6809e8a44120eddbae4965bff30f80b617bdd024
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: c308824afdcae5f5c04a316c199bad71ad84a429
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88272154"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94961984"
 ---
 # <a name="create-an-azure-network-watcher-instance"></a>Criar uma instância do Observador de Rede do Azure
 
@@ -129,7 +129,7 @@ Remove-AzNetworkWatcher -Name NetworkWatcher_westcentralus -ResourceGroup Networ
 
 Agora que você tem uma instância do Observador de Rede, saiba mais sobre os recursos disponíveis:
 
-* [Topologia](network-watcher-topology-overview.md)
+* [Topologia](./view-network-topology.md)
 * [Captura de pacotes](network-watcher-packet-capture-overview.md)
 * [Verificação de fluxo de IP](network-watcher-ip-flow-verify-overview.md)
 * [Próximo salto](network-watcher-next-hop-overview.md)

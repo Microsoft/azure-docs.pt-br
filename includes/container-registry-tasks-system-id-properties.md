@@ -9,10 +9,10 @@ ms.date: 07/06/2020
 ms.author: danlep
 ms.custom: include file
 ms.openlocfilehash: 1b7c8487eb42204f2741679c9ef6eb2717c272cd
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86057340"
 ---
 Na saída do comando, a seção `identity` mostra que uma identidade do tipo `SystemAssigned` está definida na tarefa. A `principalId` é a ID da entidade de segurança da identidade da tarefa:

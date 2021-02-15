@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/08/2018
 ms.author: kumud
-ms.openlocfilehash: 6eab1803bf5adab42be87b5f8567682c6d75947e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8cb1a490ac8edf2630253b45d99c3394bbe721b8
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74483527"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98234147"
 ---
 # <a name="disaster-recovery-using-azure-dns-and-traffic-manager"></a>Recuperação de desastres usando o DNS do Azure e o Gerenciador de Tráfego
 
@@ -45,7 +45,7 @@ A maioria das empresas estão escolhendo uma arquitetura de várias regiões par
     
     *Figura: Ativo/Passivo com configuração de recuperação de desastre de espera ativa*
     
-Para saber mais sobre failover e alta disponibilidade, consulte [Recuperação de desastre para Aplicativos Azure](https://docs.microsoft.com/azure/architecture/resiliency/disaster-recovery-azure-applications).
+Para saber mais sobre failover e alta disponibilidade, consulte [Recuperação de desastre para Aplicativos Azure](/azure/architecture/resiliency/disaster-recovery-azure-applications).
 
 
 ## <a name="planning-your-disaster-recovery-architecture"></a>Planejar a sua arquitetura de recuperação de desastre
@@ -54,7 +54,7 @@ Há dois aspectos técnicos para a configuração de sua arquitetura de recupera
 -  Usar um mecanismo de implantação para replicar instâncias, dados e configurações entre ambientes primários e de espera. Esse tipo de recuperação de desastre pode ser feito nativamente por meio do Azure Site Recovery através de dispositivos/serviços parceiros do Microsoft Azure como Veritas ou NetApp. 
 - Desenvolver uma solução para desviar o tráfego de rede/da Web do site primário para o site em espera. Esse tipo de recuperação de desastre pode ser obtido por meio do DNS do Azure, Gerenciador de Tráfego do Azure (DNS) ou balanceadores de carga global de terceiros.
 
-Este artigo é limitado a abordagens por meio de redirecionamento do tráfego de rede e da Web. Para obter instruções sobre a configuração do Azure Site Recovery, confira a [Documentação do Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/).
+Este artigo é limitado a abordagens por meio de redirecionamento do tráfego de rede e da Web. Para obter instruções sobre a configuração do Azure Site Recovery, confira a [Documentação do Azure Site Recovery](../site-recovery/index.yml).
 O DNS é um dos mecanismos mais eficientes para desviar o tráfego de rede porque o DNS normalmente é global e externo para o data center e é isolado de quaisquer falhas no nível de zona de disponibilidade (AZ) ou regional. É possível usar um mecanismo de failover com base no DNS e no Azure, dois serviços DNS podem fazer o mesmo de certa maneira - o DNS do Azure DNS (DNS autoritativo) e o Gerenciador de Tráfego do Azure (roteamento de tráfego inteligente baseado em DNS). 
 
 É importante compreender alguns conceitos no DNS que são amplamente usados para discutir as soluções fornecidas neste artigo:
@@ -140,7 +140,7 @@ As etapas para configurar o failover com o Gerenciador de Tráfego do Azure são
 ### <a name="step-1-create-a-new-azure-traffic-manager-profile"></a>Etapa 1: Criar um novo perfil do Gerenciador de Tráfego do Azure
 Criar um novo perfil do Gerenciador de Tráfego do Azure com o nome contoso123 e selecione o Método de roteamento como Prioritário. Se você tiver um grupo de recursos já existente que você deseja associar, então você pode selecionar um grupo de recursos existente, caso contrário, crie um novo grupo de recursos.
 
-![Criar perfil do Gerenciador de tráfego](./media/disaster-recovery-dns-traffic-manager/create-traffic-manager-profile.png)
+![Criar perfil do Gerenciador de Tráfego](./media/disaster-recovery-dns-traffic-manager/create-traffic-manager-profile.png)
 
 *Figura-criar um perfil do Gerenciador de tráfego*
 
@@ -170,12 +170,3 @@ Durante um desastre, o ponto de extremidade primário é analisado e o status é
 ## <a name="next-steps"></a>Próximas etapas
 - Saiba mais sobre o [Gerenciador de Tráfego do Azure](../traffic-manager/traffic-manager-overview.md).
 - Saiba mais sobre o [DNS do Azure](../dns/dns-overview.md).
-
-
-
-
-
-
-
-
-

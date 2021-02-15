@@ -1,18 +1,18 @@
 ---
 title: Limites-banco de dados do Azure para PostgreSQL-servidor único
 description: Este artigo descreve os limites no banco de dados do Azure para PostgreSQL-servidor único, como o número de opções de mecanismo de armazenamento e conexão.
-author: rachel-msft
-ms.author: raagyema
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/28/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 047e722a0e0ade60d1eb93a48e37333fffafd674
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6f48245983898c542197deb7e0b3cd53bd39be33
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76836449"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91707516"
 ---
 # <a name="limits-in-azure-database-for-postgresql---single-server"></a>Limites no banco de dados do Azure para PostgreSQL-servidor único
 As seções a seguir descrevem a capacidade e os limites funcionais no serviço de banco de dados. Se você quiser saber mais sobre as camadas de recurso (computação, memória, armazenamento), consulte o artigo [tipos de preço](concepts-pricing-tiers.md) .
@@ -66,6 +66,11 @@ Uma conexão PostgreSQL, mesmo ociosa, pode ocupar cerca de 10 MB de memória. A
 
 ### <a name="utf-8-characters-on-windows"></a>Caracteres UTF-8 no Windows
 - Em alguns cenários, não há suporte completo para caracteres UTF-8 no PostgreSQL de software livre no Windows, o que afeta o Banco de Dados do Azure para PostgreSQL. Confira o thread [Bug nº 15476 nos arquivos do PostgreSQL](https://www.postgresql-archive.org/BUG-15476-Problem-on-show-trgm-with-4-byte-UTF-8-characters-td6056677.html) para obter mais informações.
+
+### <a name="gss-error"></a>Erro de GSS
+Se você vir um erro relacionado a **GSS**, provavelmente usará uma versão de cliente/driver mais recente que o servidor único do Azure postgres ainda não dá suporte total. Esse erro é conhecido por afetar [as versões 42.2.15 e 42.2.16 do driver JDBC](https://github.com/pgjdbc/pgjdbc/issues/1868).
+   - Planejamos concluir a atualização até o final de novembro. Considere usar uma versão de driver de trabalho enquanto isso.
+   - Ou, considere desabilitar a solicitação de GSS.  Use um parâmetro de conexão como `gssEncMode=disable` .
 
 ## <a name="next-steps"></a>Próximas etapas
 - Entenda [o que está disponível em cada tipo de preço](concepts-pricing-tiers.md)

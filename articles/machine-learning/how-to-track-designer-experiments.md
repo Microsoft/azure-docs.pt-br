@@ -1,5 +1,5 @@
 ---
-title: Métricas de log no designer (versão prévia)
+title: Métricas de log no designer
 titleSuffix: Azure Machine Learning
 description: Monitore seus experimentos do Azure ML designer. Habilite o registro em log usando o módulo executar script Python e exiba os resultados registrados no estúdio.
 services: machine-learning
@@ -8,18 +8,18 @@ ms.author: keli19
 ms.reviewer: peterlu
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 07/30/2020
+ms.date: 01/11/2021
 ms.topic: conceptual
-ms.custom: how-to
-ms.openlocfilehash: 20845a6f1238095b40c9b05b5f5d8d85217b6db5
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.custom: designer
+ms.openlocfilehash: b940f5c9bd14bcec404827daaef666da802d969b
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88950401"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98065245"
 ---
-# <a name="enable-logging-in-azure-machine-learning-designer-preview-pipelines"></a>Habilitar o log em pipelines do designer de Azure Machine Learning (versão prévia)
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+# <a name="enable-logging-in-azure-machine-learning-designer-pipelines"></a>Habilitar o log em pipelines do designer de Azure Machine Learning
+
 
 Neste artigo, você aprende a adicionar o código de registro em log a pipelines de designer. Você também aprenderá a exibir esses logs usando o portal da Web do Azure Machine Learning Studio.
 
@@ -27,7 +27,7 @@ Para obter mais informações sobre as métricas de log usando a experiência de
 
 ## <a name="enable-logging-with-execute-python-script"></a>Habilitar log com script de execução de Python
 
-Use o módulo __Executar script Python__ para habilitar o registro em pipelines do designer. Embora você possa registrar qualquer valor com esse fluxo de trabalho, é especialmente útil registrar métricas do módulo __modelo de avaliação__ para controlar o desempenho do modelo entre as execuções.
+Use o módulo [Executar script Python](./algorithm-module-reference/execute-python-script.md) para habilitar o registro em pipelines do designer. Embora você possa registrar qualquer valor com esse fluxo de trabalho, é especialmente útil registrar métricas do módulo __modelo de avaliação__ para controlar o desempenho do modelo entre as execuções.
 
 O exemplo a seguir mostra como registrar em log o erro de quadrado médio de dois modelos treinados usando os módulos avaliar modelo e executar script Python.
 
@@ -49,17 +49,17 @@ O exemplo a seguir mostra como registrar em log o erro de quadrado médio de doi
         # Log the mean absolute error to the parent run to see the metric in the run details page.
         # Note: 'run.parent.log()' should not be called multiple times because of performance issues.
         # If repeated calls are necessary, cache 'run.parent' as a local variable and call 'log()' on that variable.
-
+        parent_run = Run.get_context().parent
+        
         # Log left output port result of Evaluate Model. This also works when evaluate only 1 model.
-        run.parent.log(name='Mean_Absolute_Error (left port)', value=dataframe1['Mean_Absolute_Error'][0])
+        parent_run.log(name='Mean_Absolute_Error (left port)', value=dataframe1['Mean_Absolute_Error'][0])
+        # Log right output port result of Evaluate Model. The following line should be deleted if you only connect one Score Module to the` left port of Evaluate Model module.
+        parent_run.log(name='Mean_Absolute_Error (right port)', value=dataframe1['Mean_Absolute_Error'][1])
 
-        # Log right output port result of Evaluate Model.
-        run.parent.log(name='Mean_Absolute_Error (right port)', value=dataframe1['Mean_Absolute_Error'][1])
-    
         return dataframe1,
     ```
     
-Esse código usa o SDK do Python Azure Machine Learning para registrar valores. Ele usa Run. get_context () para obter o contexto da execução atual. Em seguida, ele registra valores nesse contexto com o método Run. Parent. log (). Ele usa `parent` para registrar valores na execução do pipeline pai em vez da execução do módulo.
+Esse código usa o SDK do Python Azure Machine Learning para registrar valores. Ele usa Run.get_context () para obter o contexto da execução atual. Em seguida, ele registra valores nesse contexto com o método Run. Parent. log (). Ele usa `parent` para registrar valores na execução do pipeline pai em vez da execução do módulo.
 
 Para obter mais informações sobre como usar o SDK do Python para registrar valores, consulte [habilitar o registro em log nas execuções de treinamento do Azure ml](how-to-track-experiments.md).
 
@@ -78,5 +78,7 @@ Depois que a execução do pipeline for concluída, você poderá ver o *Mean_Ab
 
 Neste artigo, você aprendeu a usar os logs no designer. Para as próximas etapas, consulte estes artigos relacionados:
 
-* Saiba como solucionar problemas de pipelines de designer, consulte [Debug & solucionar problemas de pipelines de ml](how-to-debug-pipelines.md#logging-in-azure-machine-learning-designer-preview).
+
+* Saiba como solucionar problemas de pipelines de designer, consulte [Debug & solucionar problemas de pipelines de ml](how-to-debug-pipelines.md#azure-machine-learning-designer).
 * Saiba como usar o SDK do Python para registrar métricas na experiência de criação do SDK, consulte [habilitar o log nas execuções de treinamento do Azure ml](how-to-track-experiments.md).
+* Saiba como usar o [script Python em execução](./algorithm-module-reference/execute-python-script.md) no designer.

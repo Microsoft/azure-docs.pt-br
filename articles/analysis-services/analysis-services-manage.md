@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a5dce5b53df817bd365d4ce9670ffd556ce365f7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 91ffcac98b2b919a8fc131d235e699aad4fa215d
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84015495"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93078893"
 ---
 # <a name="manage-analysis-services"></a>Gerenciar o Analysis Services
 Depois de criar um servidor do Analysis Services no Azure, talvez seja necessário executar algumas tarefas de administração e gerenciamento imediatamente ou em algum momento no futuro. Por exemplo, executar o processamento nos dados atualizados, controlar quem pode acessar os modelos em seu servidor ou monitorar a integridade do servidor. Algumas tarefas de gerenciamento só podem ser executadas no Portal do Azure, outras no SQL Server Management Studio (SSMS) e algumas tarefas podem ser executadas em ambos.
@@ -20,7 +20,7 @@ Depois de criar um servidor do Analysis Services no Azure, talvez seja necessár
 ## <a name="azure-portal"></a>Portal do Azure
 O [Portal do Azure](https://portal.azure.com/) é o local em que você pode criar e excluir servidores, monitorar recursos de servidor, alterar o tamanho e gerenciar quem tem acesso aos seus servidores.  Se você estiver enfrentando problemas, também poderá enviar uma solicitação de suporte.
 
-![Obter o nome do servidor no Azure](./media/analysis-services-manage/aas-manage-portal.png)
+![Captura de tela que mostra a portal do Azure em que você pode criar e excluir servidores, monitorar recursos do servidor, alterar o tamanho e gerenciar quem tem acesso aos servidores.](./media/analysis-services-manage/aas-manage-portal.png)
 
 ## <a name="sql-server-management-studio"></a>SQL Server Management Studio
 Conectar-se ao seu servidor no Azure é como se conectar a uma instância de servidor em sua própria organização. No SSMS, você pode executar algumas tarefas como processar dados ou criar um script de processamento, gerenciar funções e usar o PowerShell.
@@ -30,19 +30,19 @@ Conectar-se ao seu servidor no Azure é como se conectar a uma instância de ser
 ### <a name="download-and-install-ssms"></a>Baixar e instalar o SSMS
 Para obter todos os recursos mais recentes e a melhor experiência ao se conectar ao servidor do Azure Analysis Services, certifique-se de que está usando a versão mais recente do SSMS. 
 
-[Baixar SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
+[Baixar SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms).
 
 
 ### <a name="to-connect-with-ssms"></a>Para conectar-se com o SSMS
  Ao usar o SSMS, antes de se conectar ao servidor na primeira vez, verifique se que seu nome de usuário está incluído no grupo de administradores do Analysis Services. Para obter mais informações, consulte [Administradores de servidor e usuários de banco de dados](#server-administrators-and-database-users) posteriormente neste artigo.
 
-1. Antes de se conectar, você precisa obter o nome do servidor. No **Portal do Azure** > servidor > **Visão geral** > **Nome do servidor**, copie o nome do servidor.
+1. Antes de se conectar, você precisa obter o nome do servidor. No **Portal do Azure** > servidor > **Visão geral** > **Nome do servidor** , copie o nome do servidor.
    
     ![Obter o nome do servidor no Azure](./media/analysis-services-deploy/aas-deploy-get-server-name.png)
-2. No SSMS > **Pesquisador de Objetos**, clique em **Conectar** > **Analysis Services**.
-3. Na caixa de diálogo **Conectar ao Servidor**, cole o nome do servidor e, em **Autenticação**, escolha um dos seguintes tipos de autenticação:   
+2. No SSMS > **Pesquisador de Objetos** , clique em **Conectar** > **Analysis Services** .
+3. Na caixa de diálogo **Conectar ao Servidor** , cole o nome do servidor e, em **Autenticação** , escolha um dos seguintes tipos de autenticação:   
     > [!NOTE]
-    > O tipo de autenticação, **Active Directory - Universal com suporte MFA**, é recomendado.
+    > O tipo de autenticação, **Active Directory - Universal com suporte MFA** , é recomendado.
 
     > [!NOTE]
     > Se você entrar com uma conta da Microsoft, Live ID, Yahoo, Gmail e etc., deixe o campo de senha em branco. Depois de clicar em Conectar, uma senha será solicitada.
@@ -66,4 +66,3 @@ Ao conectar usando o SSMS, se você tiver problemas, talvez seja necessário lim
 Se você ainda não tiver implantado um modelo de tabela em seu novo servidor, agora é um bom momento. Para saber mais, confira [Implantar no Azure Analysis Services](analysis-services-deploy.md).
 
 Se você tiver implantado um modelo de tabela para seu servidor, você estará pronto para se conectar usando um cliente ou navegador. Para saber mais, confira [Obter dados do servidor do Azure Analysis Services](analysis-services-connect.md).
-

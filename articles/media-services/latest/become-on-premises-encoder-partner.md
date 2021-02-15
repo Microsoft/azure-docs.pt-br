@@ -1,21 +1,23 @@
 ---
-title: Torne-se um parceiro de codificador local-serviços de mídia do Azure
+title: Torne-se um parceiro de codificador local
 description: Este artigo discute como verificar seus codificadores de transmissão ao vivo local.
 services: media-services
 author: johndeu
 manager: johndeu
 ms.author: johndeu
-ms.date: 03/02/2020
-ms.topic: article
+ms.date: 08/31/2020
+ms.topic: how-to
 ms.service: media-services
-ms.openlocfilehash: f98d9942f8c30f06b0144503b056c1e8a393ae52
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e07831ce4a016d49e0343da66efc0345effafd94
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79298624"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954354"
 ---
 # <a name="how-to-verify-your-on-premises-live-streaming-encoder"></a>Como verificar seu codificador de transmissão ao vivo local
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Como um parceiro de codificador local dos Serviços de Mídia do Azure, os Serviços de Mídia promovem seu produto, recomendando seu codificador aos clientes corporativos. Para tornar-se um parceiro de codificador local, é necessário verificar a compatibilidade do seu codificador local com os Serviços de Mídia. Para fazer isso, conclua as seguintes verificações.
 
@@ -67,7 +69,7 @@ Siga as mesmas etapas que as da [verificação de evento ao vivo de passagem](#p
 
 Por fim, envie por email as configurações registradas e os parâmetros dos arquivos ao vivo aos Serviços de Mídia do Azure em amshelp@microsoft.com como uma notificação de que todas as verificações de autoverificação foram aprovadas. Além disso, inclua suas informações de contato para quaisquer acompanhamentos. Contate a equipe dos Serviços de Mídia do Azure para tratar quaisquer questões sobre esse processo.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
 [Codificadores locais testados](recommended-on-premises-live-encoders.md)
 

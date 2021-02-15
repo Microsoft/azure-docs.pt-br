@@ -3,12 +3,12 @@ title: Exportação contínua de telemetria do Application Insights | Microsoft 
 description: Exportar dados de uso e diagnóstico para armazenamento no Microsoft Azure e baixá-los de lá.
 ms.topic: conceptual
 ms.date: 05/26/2020
-ms.openlocfilehash: f67a5c555c438298cee701ca065aaf8c01c6406e
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: a6f636ce9fe30c666f08935d5830eb0c12e6cb5e
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324328"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97674130"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Exportar telemetria do Application Insights
 Deseja manter a telemetria por mais tempo que o período de retenção padrão? Ou processá-la de alguma forma especializada? Exportação contínua é ideal para isso. Os eventos que você vê no portal do Application Insights podem ser exportados para armazenamento no Microsoft Azure no formato JSON. A partir daí, você pode baixar os dados e gravar qualquer código que precisar para processá-los.  
@@ -37,6 +37,9 @@ A exportação contínua **não oferece suporte** aos seguintes recursos/configu
 * [Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-introduction.md).
 
 ## <a name="create-a-continuous-export"></a><a name="setup"></a> Criar uma Exportação Contínua
+
+> [!NOTE]
+> Um aplicativo não pode exportar mais de 3 TB de dados por dia. Se mais de 3 TB por dia for exportado, a exportação será desabilitada. Para exportar sem um limite, use a [exportação baseada em configurações de diagnóstico](#diagnostic-settings-based-export).
 
 1. No recurso do Application Insights do seu aplicativo, em Configurar à esquerda, abra Exportação Contínua e selecione **Adicionar**:
 
@@ -120,7 +123,7 @@ Where
 ## <a name="data-format"></a><a name="format"></a> Formato dos dados
 * Cada blob é um arquivo de texto que contém várias linhas separadas por “ \n”. Ele contém a telemetria processada durante um período de tempo de aproximadamente metade um minuto.
 * Cada linha representa um ponto de dados de telemetria como uma solicitação ou uma exibição de página.
-* Cada linha é um documento JSON não formatado. Se você quiser exibir as linhas, abra o blob no Visual Studio e escolha **Editar**  >  **Advanced**  >  **arquivo de formato**avançado:
+* Cada linha é um documento JSON não formatado. Se você quiser exibir as linhas, abra o blob no Visual Studio e escolha **Editar**  >    >  **arquivo de formato** avançado:
 
    ![Veja a telemetria com uma ferramenta adequada](./media/export-telemetry/06-json.png)
 
@@ -207,6 +210,19 @@ Em escalas maiores, considere usar o [HDInsight](https://azure.microsoft.com/ser
 * [Exemplo do Stream Analytics](export-stream-analytics.md)
 * [Exportar para o SQL usando o Stream Analytics][exportasa]
 * [Referência de modelo de dados detalhados para os tipos de propriedades e valores.](export-data-model.md)
+
+## <a name="diagnostic-settings-based-export"></a>Exportação baseada em configurações de diagnóstico
+
+A exportação baseada em configurações de diagnóstico usa um esquema diferente do que a exportação contínua. Ele também dá suporte a recursos que a exportação contínua não gosta de:
+
+* Contas de armazenamento do Azure com vnet, firewalls e links privados.
+* Exportar para o Hub de eventos.
+
+Para migrar para a exportação baseada em configurações de diagnóstico:
+
+1. Desabilite a exportação contínua atual.
+2. [Migre o aplicativo para o baseado em espaço de trabalho](convert-classic-resource.md).
+3. [Habilite a exportação de configurações de diagnóstico](create-workspace-resource.md#export-telemetry). Selecione **configurações de diagnóstico > adicionar configuração de diagnóstico** de dentro de seu recurso de Application insights.
 
 <!--Link references-->
 

@@ -2,19 +2,16 @@
 title: Aprenda a usar uma área restrita Apache Hadoop, emulador-Azure HDInsight
 description: 'Para começar a aprender sobre o uso do ecossistema do Apache Hadoop, você pode configurar um sandbox do Hadoop a partir do Hortonworks em uma máquina virtual do Azure. '
 keywords: emulador do hadoop,área restrita do hadoop
-ms.reviewer: jasonh
-author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: how-to
 ms.date: 05/29/2019
-ms.author: hrasheed
-ms.openlocfilehash: de2a8e6377ababadc7d42f873a816a01a8f3b77e
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: eb286adfd7267a78fcf80bcf5ad34f8f1cc9f493
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207468"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946621"
 ---
 # <a name="get-started-with-an-apache-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Introdução a uma área restrita do Apache Hadoop, um emulador em uma máquina virtual
 
@@ -85,7 +82,7 @@ Para baixar uma área restrita da versão mais antiga do HDP, consulte os links 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Aprenda a usar o Visual Studio com a Hortonworks Sandbox](../hdinsight-hadoop-emulator-visual-studio.md)
+* [Aprenda a usar o Visual Studio com a Hortonworks Sandbox](./apache-hadoop-visual-studio-tools-get-started.md)
 
 * [Learning the ropes of the Hortonworks Sandbox](https://hortonworks.com/hadoop-tutorial/learning-the-ropes-of-the-hortonworks-sandbox/)
 

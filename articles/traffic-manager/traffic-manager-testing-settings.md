@@ -2,20 +2,20 @@
 title: Verificar as Configurações do Gerenciador de Tráfego do Azure
 description: Neste artigo, saiba como verificar as configurações do Traffic Manager e testar o método de roteamento de tráfego.
 services: traffic-manager
-author: rohinkoul
+author: duongau
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
-ms.author: rohink
-ms.openlocfilehash: 894f01244fef94e9f5a60823ba06ff38c01288a1
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.author: duau
+ms.openlocfilehash: 4bb7458d4258dffb074d663e5cf712c7a0245cc7
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186989"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022319"
 ---
 # <a name="verify-traffic-manager-settings"></a>Verificar as configurações do Gerenciador de Tráfego
 

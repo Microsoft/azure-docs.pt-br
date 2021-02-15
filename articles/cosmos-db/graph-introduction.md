@@ -1,20 +1,21 @@
 ---
 title: Introdução à API do Gremlin do Azure Cosmos DB
 description: Saiba como você pode usar o Azure Cosmos DB para armazenar, consultar e percorrer grafos grandes com baixa latência usando a linguagem de consulta de grafos Gremlin do Apache TinkerPop.
-author: LuisBosquez
+author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: overview
-ms.date: 07/10/2020
-ms.author: lbosq
-ms.openlocfilehash: 3dc534d1cbb195cd93ede091503222b297b17059
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 11/25/2020
+ms.author: chrande
+ms.openlocfilehash: c2165ea6273ad90cfb95242dfe72538c0a5ef64c
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86523733"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350051"
 ---
 # <a name="introduction-to-gremlin-api-in-azure-cosmos-db"></a>Introdução à API do Gremlin no Azure Cosmos DB
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 O [Azure Cosmos DB](introduction.md) é o serviço de banco de dados multimodelo distribuído globalmente da Microsoft para aplicativos de missão crítica. Ele é um banco de dados multimodelo e é compatível com modelos de dados de documentos, de chave-valor, de grafos e de família de colunas. "O Azure Cosmos DB fornece um serviço de banco de dados de grafo por meio da API do Gremlin em um serviço de banco de dados totalmente gerenciado criado para qualquer escala.  
 
@@ -24,6 +25,9 @@ Este artigo fornece uma visão geral da API do Gremlin do Azure Cosmos DB e expl
 
 A API do Gremlin do Azure Cosmos DB combina o poder dos algoritmos de banco de dados de grafo com a infraestrutura altamente escalonável e gerenciada para fornecer uma solução exclusiva e flexível para os problemas mais comuns de dados associados à falta de flexibilidade e abordagens relacionais.
 
+> [!NOTE]
+> O [modo de capacidade sem servidor](serverless.md) já está disponível na API do Azure Cosmos DB para Gremlin.
+
 ## <a name="features-of-azure-cosmos-dbs-gremlin-api"></a>Recursos da API do Gremlin do Azure Cosmos DB
  
 O Azure Cosmos DB é um banco de dados de grafo totalmente gerenciado que oferece distribuição global, dimensionamento elástico do armazenamento e da taxa de transferência, indexação e consulta automática, níveis de consistência ajustáveis e suporte ao padrão TinkerPop.
@@ -32,7 +36,7 @@ Estes são recursos diferenciados oferecidos pela API do Gremlin do Azure Cosmos
 
 * **Dimensionamento elástico do armazenamento e da taxa de transferência**
 
-  Grafos no mundo real precisam ser dimensionados além da capacidade de um único servidor. O Azure Cosmos DB é compatível com bancos de dados de grafo que podem ter um tamanho praticamente ilimitado em termos de armazenamento e de taxa de transferência provisionada. À medida que aumenta a escala do banco de dados de grafo, os dados serão distribuídos automaticamente usando o [particionamento do graph](https://docs.microsoft.com/azure/cosmos-db/graph-partitioning).
+  Grafos no mundo real precisam ser dimensionados além da capacidade de um único servidor. O Azure Cosmos DB é compatível com bancos de dados de grafo que podem ter um tamanho praticamente ilimitado em termos de armazenamento e de taxa de transferência provisionada. À medida que aumenta a escala do banco de dados de grafo, os dados serão distribuídos automaticamente usando o [particionamento do graph](./graph-partitioning.md).
 
 * **Replicação de várias regiões**
 
@@ -48,11 +52,11 @@ Estes são recursos diferenciados oferecidos pela API do Gremlin do Azure Cosmos
 
   O BD Cosmos do Azure elimina a necessidade de gerenciar recursos do computador e do banco de dados. A maioria das plataformas existentes de banco de dados de grafo está associada às limitações de infraestrutura dela e geralmente exigem um alto grau de manutenção para garantir sua operação. 
   
-  Como um serviço totalmente gerenciado, o Cosmos DB acaba com a necessidade de gerenciar máquinas virtuais, atualizar o software de tempo de execução, gerenciar a fragmentação ou a replicação ou lidar com atualizações de camadas de dados complexas. Cada grafo é salvo em backup automaticamente e protegido contra falhas regionais. Essas garantias permitem que os desenvolvedores se concentrem no fornecimento de valor para o aplicativo em vez de operar e gerenciar os bancos de dados de grafo deles. 
+  Como um serviço totalmente gerenciado, o Cosmos DB acaba com a necessidade de gerenciar máquinas virtuais, atualizar o software de tempo de execução, gerenciar a fragmentação ou a replicação ou lidar com atualizações de camadas de dados complexas. Cada grafo é salvo em backup automaticamente e protegido contra falhas regionais. Isso permite que os desenvolvedores se concentrem no fornecimento de valor para o aplicativo em vez de operar e gerenciar os bancos de dados de grafo deles. 
 
 * **Indexação automática**
 
-  Por padrão, o Azure Cosmos DB indexa automaticamente todas as propriedades dentro dos nós (também chamados de vértices) e das bordas no grafo e não espera nem exige nenhum esquema ou a criação de índices secundários. Saiba mais sobre a [indexação no Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/index-overview).
+  Por padrão, o Azure Cosmos DB indexa automaticamente todas as propriedades dentro dos nós (também chamados de vértices) e das bordas no grafo e não espera nem exige nenhum esquema ou a criação de índices secundários. Saiba mais sobre a [indexação no Azure Cosmos DB](./index-overview.md).
 
 * **Compatibilidade com o Apache TinkerPop**
 

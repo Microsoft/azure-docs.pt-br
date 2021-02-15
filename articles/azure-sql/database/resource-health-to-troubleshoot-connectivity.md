@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: aamalvea
 ms.author: aamalvea
-ms.reviewer: jrasnik, carlrab
+ms.reviewer: wiassaf, sstein
 ms.date: 02/26/2019
-ms.openlocfilehash: 27865afd356be9eac64083c1ebdeb6ced43dbd18
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: a51840daa2c8b19c323ad761ff6e6d1dcef15f75
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85986935"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96497955"
 ---
 # <a name="use-resource-health-to-troubleshoot-connectivity-for-azure-sql-database-and-azure-sql-managed-instance"></a>Use Resource Health para solucionar problemas de conectividade do banco de dados SQL do Azure e do SQL Azure Instância Gerenciada
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -39,7 +39,7 @@ Um status **disponível** significa que Resource Health não detectou falhas de 
 
 ### <a name="degraded"></a>Degradado
 
-Um status **degradado** significa que Resource Health detectou a maioria dos logons bem-sucedidos, mas também algumas falhas. Esses são erros de logon transitório mais prováveis. Para reduzir o impacto dos problemas de conexão causados por erros de logon transitórios, implemente a [lógica de repetição](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors) em seu código.
+Um status **Degradado** significa que o Resource Health detectou a maioria dos logins bem-sucedidos, mas também algumas falhas. Esses são erros de logon transitório mais prováveis. Para reduzir o impacto dos problemas de conexão causados por erros de logon transitórios, implemente a [lógica de repetição](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors) em seu código.
 
 ![Degradado](./media/resource-health-to-troubleshoot-connectivity/sql-resource-health-degraded.jpg)
 
@@ -49,11 +49,11 @@ Um status **Indisponível** significa que o Resource Health detectou falhas de l
 
 ![Indisponível](./media/resource-health-to-troubleshoot-connectivity/sql-resource-health-unavailable.jpg)
 
-### <a name="unknown"></a>Unknown (desconhecido)
+### <a name="unknown"></a>Unknown
 
 O status de integridade de **Desconhecido** indica que o Resource Health não recebeu informações sobre esse recurso por mais de 10 minutos. Embora esse status não seja uma indicação definitiva sobre o estado do recurso, é um ponto de dados importante no processo de solução de problemas. Se o seu recurso permanecer nesse estado por um período prolongado, entre em contato com o suporte. Se você está tendo problemas com o recurso, o status de integridade Desconhecido pode sugerir que um evento na plataforma está afetando o recurso.
 
-![Unknown (desconhecido)](./media/resource-health-to-troubleshoot-connectivity/sql-resource-health-unknown.jpg)
+![Unknown](./media/resource-health-to-troubleshoot-connectivity/sql-resource-health-unknown.jpg)
 
 ## <a name="historical-information"></a>Informações de histórico
 

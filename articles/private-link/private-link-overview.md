@@ -5,15 +5,15 @@ services: private-link
 author: malopMSFT
 ms.service: private-link
 ms.topic: overview
-ms.date: 06/18/2020
+ms.date: 01/28/2021
 ms.author: allensu
-ms.custom: fasttrack-edit
-ms.openlocfilehash: 46d1f811593571228d21c687be0a98d413cc9854
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.custom: fasttrack-edit, references_regions
+ms.openlocfilehash: 681e4efc8a9edda896249fdc939d19b4f644f246
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88168143"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986472"
 ---
 # <a name="what-is-azure-private-link"></a>O que é o Link Privado do Azure? 
 O Link Privado do Azure lhe permite acessar os serviços de PaaS do Azure (por exemplo, Armazenamento do Azure e Banco de Dados SQL) e serviços de parceiros/de propriedade de clientes hospedados no Azure em um [ponto de extremidade privado](private-endpoint-overview.md) em sua rede virtual.
@@ -21,15 +21,15 @@ O Link Privado do Azure lhe permite acessar os serviços de PaaS do Azure (por e
 O tráfego entre sua rede virtual e o serviço viaja a rede de backbone da Microsoft. Expor seu serviço à Internet pública não é mais necessário. Você pode criar o próprio [serviço de link privado](private-link-service-overview.md) em sua rede virtual e oferecê-lo aos seus clientes. A configuração e o consumo usando o Link Privado do Azure são consistentes entre os serviços de parceiro de PaaS do Azure, de propriedade do cliente e de parceiros compartilhados.
 
 > [!IMPORTANT]
-> O Link Privado do Azure já está em disponibilidade geral. O Ponto de Extremidade Privado e o serviço de Link Privado (serviço por trás do Standard Load Balancer) estão em disponibilidade geral. O Azure PaaS diferente será integrado ao Link Privado do Azure em datas diferentes. Verifique a seção de [disponibilidade](https://docs.microsoft.com/azure/private-link/private-link-overview#availability) abaixo para obter o status preciso do PaaS do Azure no Link Privado. Para conhecer as limitações conhecidas, confira [Ponto de Extremidade Privado](private-endpoint-overview.md#limitations) e [Serviço de Link Privado](private-link-service-overview.md#limitations). 
+> O Link Privado do Azure já está em disponibilidade geral. O Ponto de Extremidade Privado e o serviço de Link Privado (serviço por trás do Standard Load Balancer) estão em disponibilidade geral. O Azure PaaS diferente será integrado ao Link Privado do Azure em datas diferentes. Verifique a seção de [disponibilidade](#availability) neste artigo para ter um status preciso do PaaS do Azure no Link Privado. Para conhecer as limitações conhecidas, confira [Ponto de Extremidade Privado](private-endpoint-overview.md#limitations) e [Serviço de Link Privado](private-link-service-overview.md#limitations). 
 
-![Visão geral do ponto de extremidade privado](media/private-link-overview/private-endpoint.png)
+:::image type="content" source="./media/private-link-overview/private-link-center.png" alt-text="Centro de Link Privado do Azure no portal do Azure" border="false":::
 
 ## <a name="key-benefits"></a>Principais benefícios
 O Link Privado do Azure fornece os seguintes benefícios:  
 - **Acesse os serviços de forma privada na plataforma Azure**: Conecte sua rede virtual a serviços no Azure sem um endereço IP público na origem ou no destino. Os provedores de serviços podem renderizar seus serviços em sua rede virtual e os consumidores podem acessar esses serviços em sua rede virtual local. A plataforma de Link Privado manipulará a conectividade entre o consumidor e os serviços na rede de backbone do Azure. 
  
-- **Redes locais e emparelhadas**: Acesse serviços em execução no Azure do local por meio de emparelhamento privado do ExpressRoute, túneis de VPN e redes virtuais emparelhadas usando pontos de extremidade privados. Não é necessário configurar o emparelhamento público nem atravessar a Internet para acessar o serviço. O Link Privado fornece uma forma segura de migrar cargas de trabalho para o Azure.
+- **Redes locais e emparelhadas**: Acesse serviços em execução no Azure do local por meio de emparelhamento privado do ExpressRoute, túneis de VPN e redes virtuais emparelhadas usando pontos de extremidade privados. Não é necessário configurar o emparelhamento da Microsoft no ExpressRoute nem atravessar a Internet para acessar o serviço. O Link Privado fornece uma forma segura de migrar cargas de trabalho para o Azure.
  
 - **Proteção contra vazamento de dados**: um ponto de extremidade privado é mapeado para uma instância de um recurso de PaaS em vez de todo o serviço. Os consumidores só podem se conectar ao recurso específico. O acesso a qualquer outro recurso no serviço é bloqueado. Esse mecanismo fornece proteção contra riscos de vazamento de dados. 
  
@@ -42,32 +42,40 @@ O Link Privado do Azure fornece os seguintes benefícios:
 
 |Serviços com suporte  |Regiões disponíveis | Considerações adicionais | Status  |
 |:-------------------|:-----------------|:----------------|:--------|
-|Serviços de Link Privado atrás do Azure Load Balancer padrão | Todas as regiões públicas<br/> Todas as regiões do Governo  | Com suporte no Standard Load Balancer | GA <br/> [Saiba mais](https://docs.microsoft.com/azure/private-link/private-link-service-overview) |
-| Armazenamento do Azure       |  Todas as regiões públicas       |  Com suporte no Tipo de Conta de Uso Geral V2 | GA <br/> [Saiba mais](/azure/storage/common/storage-private-endpoints)  |
-| Azure Data Lake Storage Gen2        |  Todas as regiões públicas      |  Com suporte no Tipo de Conta de Uso Geral V2 | GA <br/> [Saiba mais](/azure/storage/common/storage-private-endpoints)  |
-|  Banco de Dados SQL do Azure         | Todas as regiões públicas <br/> Todas as regiões do Governo      |  Com suporte para [política de conexão](https://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policyhttps://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policy) de Proxy | GA <br/> [Saiba mais](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)      |
-|Azure Synapse Analytics (SQL Data Warehouse)| Todas as regiões públicas <br/> Todas as regiões do Governo |  Com suporte para [política de conexão](https://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policyhttps://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policy) de Proxy |GA <br/> [Saiba mais](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)|
-|Azure Cosmos DB|  Todas as regiões públicas<br/> Todas as regiões do Governo | |GA <br/> [Saiba mais](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-private-endpoints)|
-|  Banco de Dados do Azure para PostgreSQL – Servidor único         | Todas as regiões públicas <br/> Todas as regiões do Governo     | Compatível com os tipos de preço uso geral e otimizado para memória | GA <br/> [Saiba mais](https://docs.microsoft.com/azure/postgresql/concepts-data-access-and-security-private-link)      |
-|  Banco de Dados do Azure para MySQL         | Todas as regiões públicas<br/> Todas as regiões do Governo      |  | GA <br/> [Saiba mais](https://docs.microsoft.com/azure/mysql/concepts-data-access-security-private-link)     |
-|  Banco de Dados do Azure para MariaDB         | Todas as regiões públicas<br/> Todas as regiões do Governo     |  | GA <br/> [Saiba mais](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-private-link)      |
-|  Cofre de Chave do Azure         | Todas as regiões públicas<br/> Todas as regiões do Governo      |  | GA   <br/> [Saiba mais](https://docs.microsoft.com/azure/key-vault/private-link-service)   |
-|Serviço de Kubernetes do Azure – API Kubernetes | Todas as regiões públicas      |  | GA   <br/> [Saiba mais](https://docs.microsoft.com/azure/aks/private-clusters)   |
-|Azure Search | Todas as regiões públicas <br/> Todas as regiões do Governo | Compatível com o serviço no modo privado | GA   <br/> [Saiba mais](https://docs.microsoft.com/azure/search/search-security-overview#endpoint-access)    |
-|Registro de Contêiner do Azure | Todas as regiões públicas<br/> Todas as regiões do Governo    | Compatível com nível Premium do registro de contêiner. [Clique para camadas](https://docs.microsoft.com/azure/container-registry/container-registry-skus)| GA   <br/> [Saiba mais](https://docs.microsoft.com/azure/container-registry/container-registry-private-link)   |
-|Configuração de Aplicativo do Azure | Todas as regiões públicas      |  | Visualização   |
-|Serviço de Backup do Azure | Todas as regiões públicas<br/> Todas as regiões do Governo   |  | GA   <br/> [Saiba mais](https://docs.microsoft.com/azure/backup/private-endpoints)   |
-|Hub de Eventos do Azure | Todas as regiões públicas<br/>Todas as regiões do Governo      |   | GA   <br/> [Saiba mais](https://docs.microsoft.com/azure/event-hubs/private-link-service)  |
-|Barramento de Serviço do Azure | Todas as regiões públicas<br/>Todas as regiões do Governo  | Com suporte com a camada Premium do Barramento de Serviço do Azure. [Clique para camadas](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging) | GA   <br/> [Saiba mais](https://docs.microsoft.com/azure/service-bus-messaging/private-link-service)    |
-|Retransmissão do Azure | Todas as regiões públicas      |  | Visualização <br/> [Saiba mais](https://docs.microsoft.com/azure/service-bus-relay/private-link-service)  |
-|Grade de Eventos do Azure| Todas as regiões públicas<br/> Todas as regiões do Governo       |  | GA   <br/> [Saiba mais](https://docs.microsoft.com/azure/event-grid/network-security) |
-|Aplicativos Web do Azure | Todas as regiões públicas      | Com suporte com as funções PremiumV2 Windows e Linux e Elástico Premium  | Visualização   <br/> [Saiba mais](https://docs.microsoft.com/azure/app-service/networking/private-endpoint)   |
-|Azure Machine Learning | LESTE DOS EUA, OESTE DOS EUA 2      |  | Visualização   <br/> [Saiba mais](https://docs.microsoft.com/azure/machine-learning/how-to-configure-private-link)   |
-| Automação do Azure  | Todas as regiões públicas |  | Visualização | |
-| Hub IoT do Azure | Todas as regiões públicas    |  | GA   <br/> [Saiba mais](https://docs.microsoft.com/azure/iot-hub/virtual-network-support ) |
-| Azure SignalR | LESTE DOS EUA, OESTE DOS EUA 2, CENTRO-SUL DOS EUA      |  | Visualização   <br/> [Saiba mais](https://aka.ms/asrs/privatelink)   |
-| Azure Monitor <br/>(Log Analytics e Application Insights) | Todas as regiões públicas      |  | GA   <br/> [Saiba mais](https://docs.microsoft.com/azure/azure-monitor/platform/private-link-security)   | 
-| Sincronização de Arquivos do Azure | Todas as regiões públicas      | |   GA   <br/> [Saiba mais](https://docs.microsoft.com/azure/storage/files/storage-sync-files-networking-endpoints?tabs=azure-portal)   |
+|Serviços de Link Privado atrás do Azure Load Balancer padrão | Todas as regiões públicas<br/> Todas as regiões do Governo<br/>Todas as regiões da China  | Com suporte no Standard Load Balancer | GA <br/> [Saiba como criar um serviço de link privado.](create-private-link-service-portal.md) |
+| Armazenamento de Blobs do Azure (incluindo Data Lake Storage Gen2)       |  Todas as regiões públicas<br/> Todas as regiões do Governo       |  Com suporte no Tipo de Conta de Uso Geral V2 | GA <br/> [Saiba como criar um ponto de extremidade privado para o armazenamento de blobs.](tutorial-private-endpoint-storage-portal.md)  |
+| Arquivos do Azure | Todas as regiões públicas<br/> Todas as regiões do Governo      | |   GA <br/> [Saiba como criar pontos de extremidade de rede de Arquivos do Azure.](../storage/files/storage-files-networking-endpoints.md)   |
+| Sincronização de Arquivos do Azure | Todas as regiões públicas      | |   GA <br/> [Saiba como criar pontos de extremidade de rede de Arquivos do Azure.](../storage/files/storage-sync-files-networking-endpoints.md)   |
+| Armazenamento de Filas do Azure       |  Todas as regiões públicas<br/> Todas as regiões do Governo       |  Com suporte no Tipo de Conta de Uso Geral V2 | GA <br/> [Saiba como criar um ponto de extremidade privado para o armazenamento de filas.](tutorial-private-endpoint-storage-portal.md) |
+| Armazenamento da tabela do Azure       |  Todas as regiões públicas<br/> Todas as regiões do Governo       |  Com suporte no Tipo de Conta de Uso Geral V2 | GA <br/> [Saiba como criar um ponto de extremidade privado para o armazenamento de tabelas.](tutorial-private-endpoint-storage-portal.md)  |
+|  Banco de Dados SQL do Azure         | Todas as regiões públicas <br/> Todas as regiões do Governo<br/>Todas as regiões da China      |  Com suporte para [política de conexão](../azure-sql/database/connectivity-architecture.md#connection-policy) de Proxy | GA <br/> [Saiba como criar um ponto de extremidade privado para o SQL do Azure](create-private-endpoint-portal.md)      |
+|Azure Synapse Analytics| Todas as regiões públicas <br/> Todas as regiões do Governo |  Com suporte para [política de conexão](../azure-sql/database/connectivity-architecture.md#connection-policy) de Proxy |GA <br/> [Saiba como criar um ponto de extremidade privado para o Azure Synapse Analytics.](../azure-sql/database/private-endpoint-overview.md)|
+|Azure Cosmos DB|  Todas as regiões públicas<br/> Todas as regiões do Governo</br> Todas as regiões da China | |GA <br/> [Saiba como criar um ponto de extremidade privado para o Cosmos DB.](./tutorial-private-endpoint-cosmosdb-portal.md)|
+|  Banco de Dados do Azure para PostgreSQL – Servidor único         | Todas as regiões públicas <br/> Todas as regiões do Governo<br/>Todas as regiões da China     | Compatível com os tipos de preço uso geral e otimizado para memória | GA <br/> [Saiba como criar um ponto de extremidade privado para o Banco de Dados do Azure para PostgreSQL.](../postgresql/concepts-data-access-and-security-private-link.md)      |
+|  Banco de Dados do Azure para MySQL         | Todas as regiões públicas<br/> Todas as regiões do Governo<br/>Todas as regiões da China      |  | GA <br/> [Saiba como criar um ponto de extremidade privado para o Banco de Dados do Azure para MySQL.](../mysql/concepts-data-access-security-private-link.md)     |
+|  Banco de Dados do Azure para MariaDB         | Todas as regiões públicas<br/> Todas as regiões do Governo<br/>Todas as regiões da China     |  | GA <br/> [Saiba como criar um ponto de extremidade privado para o Banco de Dados do Azure para MariaDB.](../mariadb/concepts-data-access-security-private-link.md)      |
+|  Gêmeos Digitais do Azure         | Todas as regiões públicas com suporte nos Gêmeos Digitais do Azure     |  | Versão Prévia <br/> [Saiba como criar um ponto de extremidade privado para os Gêmeos Digitais do Azure.](../digital-twins/how-to-enable-private-link.md)      |
+|  Cofre de Chave do Azure         | Todas as regiões públicas<br/> Todas as regiões do Governo      |  | GA   <br/> [Saiba como criar um ponto de extremidade privado para o Azure Key Vault.](../key-vault/general/private-link-service.md)   |
+|Serviço de Kubernetes do Azure – API Kubernetes | Todas as regiões públicas      |  | GA   <br/> [Saiba como criar um ponto de extremidade privado para Serviço de Kubernetes do Azure.](../aks/private-clusters.md)   |
+|Azure Search | Todas as regiões públicas <br/> Todas as regiões do Governo | Compatível com o serviço no modo privado | GA   <br/> [Saiba como criar um ponto de extremidade privado para o Azure Search.](../search/service-create-private-endpoint.md)    |
+|Registro de Contêiner do Azure | Todas as regiões públicas<br/> Todas as regiões do Governo    | Compatível com nível Premium do registro de contêiner. [Selecione para camadas](../container-registry/container-registry-skus.md)| GA   <br/> [Saiba como criar um ponto de extremidade privado para o Registro de Contêiner do Azure.](../container-registry/container-registry-private-link.md)   |
+|Configuração de Aplicativo do Azure | Todas as regiões públicas      |  | Visualização  </br> [Saiba como criar um ponto de extremidade privado para a Configuração de Aplicativos do Azure](../azure-app-configuration/concept-private-endpoint.md) |
+|Serviço de Backup do Azure | Todas as regiões públicas<br/> Todas as regiões do Governo   |  | GA   <br/> [Saiba como criar um ponto de extremidade privado para o Backup do Azure.](../backup/private-endpoints.md)   |
+|Hub de Eventos do Azure | Todas as regiões públicas<br/>Todas as regiões do Governo      |   | GA   <br/> [Saiba como criar um ponto de extremidade privado para o Hub de Eventos do Azure.](../event-hubs/private-link-service.md)  |
+|Barramento de Serviço do Azure | Todas as regiões públicas<br/>Todas as regiões do Governo  | Com suporte com a camada Premium do Barramento de Serviço do Azure. [Selecione para camadas](../service-bus-messaging/service-bus-premium-messaging.md) | GA   <br/> [Saiba como criar um ponto de extremidade privado para o Barramento de Serviço do Azure.](../service-bus-messaging/private-link-service.md)    |
+|Retransmissão do Azure | Todas as regiões públicas      |  | Visualização <br/> [Saiba como criar um ponto de extremidade privado para a Retransmissão do Azure.](../azure-relay/private-link-service.md)  |
+|Grade de Eventos do Azure| Todas as regiões públicas<br/> Todas as regiões do Governo       |  | GA   <br/> [Saiba como criar um ponto de extremidade privado para a Grade de Eventos do Azure.](../event-grid/network-security.md) |
+|Aplicativos Web do Azure | Todas as regiões públicas      | Com suporte com o plano PremiumV2, PremiumV3 ou Function Premium  | GA   <br/> [Saiba como criar um ponto de extremidade privado para Aplicativos Web do Azure.](./tutorial-private-endpoint-webapp-portal.md)   |
+|Azure Machine Learning | Todas as regiões públicas    |  | GA   <br/> [Saiba como criar um ponto de extremidade privado para o Azure Machine Learning.](../machine-learning/how-to-configure-private-link.md)   |
+| Automação do Azure  | Todas as regiões públicas<br/> Todas as regiões do Governo |  | Visualização </br> [Saiba como criar um ponto de extremidade privado para a Automação do Azure.](../automation/how-to/private-link-security.md)| |
+| Hub IoT do Azure | Todas as regiões públicas    |  | GA   <br/> [Saiba como criar um ponto de extremidade privado para o Hub IoT do Azure.](../iot-hub/virtual-network-support.md) |
+| Azure SignalR | LESTE DOS EUA, CENTRO-SUL DOS EUA,<br/>OESTE DOS EUA 2, Todas as regiões da China      |  | Visualizar   <br/> [Saiba como criar um ponto de extremidade privado para o Azure SignalR.](../azure-signalr/howto-private-endpoints.md)   |
+| Azure Monitor <br/>(Log Analytics e Application Insights) | Todas as regiões públicas      |  | GA   <br/> [Saiba como criar um ponto de extremidade privado para o Azure Monitor.](../azure-monitor/platform/private-link-security.md)   | 
+| Lote do Azure | Todas as regiões públicas, exceto: Alemanha CENTRAL, Nordeste da ALEMANHA <br/> Todas as regiões do Governo  | | GA <br/> [Saiba como criar um ponto de extremidade privado para o Lote do Azure.](../batch/private-connectivity.md) |
+|Fábrica de dados do Azure | Todas as regiões públicas<br/> Todas as regiões do Governo<br/>Todas as regiões da China    | As credenciais devem ser armazenadas no Azure Key Vault| GA   <br/> [Saiba como criar um ponto de extremidade privado para o Azure Data Factory.](../data-factory/data-factory-private-link.md)   |
+|Azure Managed Disks | Todas as regiões públicas<br/> Todas as regiões do Governo<br/>Todas as regiões da China    | [Clique aqui para ver as limitações conhecidas](../virtual-machines/disks-enable-private-links-for-import-export-portal.md#limitations) | GA   <br/> [Saiba como criar um ponto de extremidade privado para os Azure Managed Disks.](../virtual-machines/disks-enable-private-links-for-import-export-portal.md)   |
+
+
 
 Para obter as notificações mais recentes, confira a [página de atualizações de Link Privado do Azure](https://azure.microsoft.com/updates/?product=private-link).
 
@@ -103,6 +111,3 @@ Para SLA, confira [SLA para o Link Privado do Azure](https://azure.microsoft.com
 
 - [Início Rápido: Criar um ponto de extremidade privado usando portal do Azure](create-private-endpoint-portal.md)
 - [Início Rápido: Criar um serviço de Link Privado usando o portal do Azure](create-private-link-service-portal.md)
-
-
- 

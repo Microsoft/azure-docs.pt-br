@@ -6,14 +6,19 @@ ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: vturecek
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 0ae2ed163560aee4c0c3525ab31910e37afaa5b9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 650755cf2692b613b2998e8ef7b706e09022b178
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85847014"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99626902"
 ---
 # <a name="introduction-to-service-fabric-resource-model"></a>Introdução ao Modelo de Recurso do Service Fabric
+
+> [!IMPORTANT]
+> A visualização da malha de Service Fabric do Azure foi desativada. Novas implantações não serão mais permitidas por meio da API de malha Service Fabric. O suporte para implantações existentes continuará até 28 de abril de 2021.
+> 
+> Para obter detalhes, consulte desativação da [Visualização da malha de Service Fabric do Azure](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
 
 O Modelo de Recursos do Service Fabric descreve uma abordagem simples para definir os recursos que compõem um aplicativo de Malha do Service Fabric. Recursos individuais podem ser implantados em qualquer ambiente do Service Fabric.  O Modelo de Recurso do Service Fabric também é compatível com o Modelo do Azure Resource Manager. Atualmente, há suporte para os seguintes tipos de recursos neste modelo:
 
@@ -66,7 +71,7 @@ Recursos de segredos são implantáveis independentes de um recurso de aplicativ
 
 Contêineres frequentemente disponibilizam discos temporários. Discos temporários são efêmeros, no entanto, você obtém um novo disco temporário e perde as informações quando um contêiner falha. Também é difícil de compartilhar informações sobre discos temporários com outros contêineres. Os volumes são diretórios que são montados dentro de suas instâncias de contêiner que você pode usar para manter o estado. Os volumes oferecem armazenamento de arquivos de finalidade geral e permitem a você ler/gravar arquivos usando APIs de arquivo de E/S de disco normal. O recurso de volume é uma maneira declarativa para descrever como um diretório é montado e o armazenamento subjacente para ele (Volume de Arquivos do Azure ou Volume Confiável do Service Fabric).  Para obter mais informações, leia [estado de armazenamento](service-fabric-mesh-storing-state.md#volumes).
 
-![Volumes][Image3]
+![O diagrama mostra um serviço que flui para um volume de disco, que flui para o volume Service Fabric confiável, depois para um disco local replicado e para o volume de arquivos do Azure e, em seguida, para o armazenamento em rede.][Image3]
 
 ## <a name="programming-models"></a>Modelos de programação
 Recurso de serviço requer apenas uma imagem de contêiner em execução, o que é referenciada nos pacotes de código associados ao recurso. Você pode executar qualquer código escrito em qualquer linguagem, usando qualquer estrutura dentro do contêiner sem a necessidade de saber ou usar APIs específicas de Malha do Service Fabric. 

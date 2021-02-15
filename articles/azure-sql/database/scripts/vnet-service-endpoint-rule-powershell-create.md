@@ -12,12 +12,12 @@ ms.reviewer: vanto
 ms.date: 04/17/2019
 ms.custom: sqldbrb=1
 tags: azure-synapse
-ms.openlocfilehash: ae92d2000bb2c0dfd7e7a42c6070c143e5b787e3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f32599c9d289c8fc5e86eb8c7b0574d9703a6dd4
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84170861"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792660"
 ---
 # <a name="powershell-create-a-virtual-service-endpoint-and-vnet-rule-for-azure-sql-database"></a>PowerShell: criar um ponto de extremidade de serviço virtual e uma regra de VNet para o banco de dados SQL do Azure
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]
@@ -30,7 +30,7 @@ ms.locfileid: "84170861"
 Este artigo demonstra um script do PowerShell que executa as seguintes ações:
 
 1. Cria um *ponto de extremidade do Serviço virtual* do Microsoft Azure em sua sub-rede.
-2. Adiciona o ponto de extremidade ao firewall do seu servidor para criar uma *regra de rede virtual*.
+2. Adiciona o ponto de extremidade ao firewall do seu servidor para criar uma *regra de rede virtual* .
 
 Para obter mais informações, consulte [pontos de extremidade de serviço virtual para o banco de dados SQL do Azure][sql-db-vnet-service-endpoint-rule-overview-735r].
 
@@ -40,20 +40,20 @@ Para obter mais informações, consulte [pontos de extremidade de serviço virtu
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> O módulo Azure Resource Manager do PowerShell ainda tem suporte do banco de dados SQL do Azure, mas todo o desenvolvimento futuro é para os [ `Az.Sql` cmdlets](/powershell/module/az.sql). Para obter o módulo mais antigo, consulte [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos.
+> O módulo Azure Resource Manager do PowerShell ainda tem suporte do banco de dados SQL do Azure, mas todo o desenvolvimento futuro é para os [ `Az.Sql` cmdlets](/powershell/module/az.sql). Para obter o módulo mais antigo, consulte [AzureRM. SQL](/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos.
 
 ## <a name="major-cmdlets"></a>Cmdlets principais
 
-Este artigo enfatiza o cmdlet [ **New-AzSqlServerVirtualNetworkRule** ](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlservervirtualnetworkrule) que adiciona o ponto de extremidade de sub-rede à ACL (lista de controle de acesso) do servidor, criando assim uma regra.
+Este artigo enfatiza o cmdlet [ **New-AzSqlServerVirtualNetworkRule**](/powershell/module/az.sql/new-azsqlservervirtualnetworkrule) que adiciona o ponto de extremidade de sub-rede à ACL (lista de controle de acesso) do servidor, criando assim uma regra.
 
-A lista a seguir mostra a sequência de outros cmdlets *principais* que você deve executar para se preparar para a chamada para **New-AzSqlServerVirtualNetworkRule**. Neste artigo, essas chamadas ocorrem no [script 3 "Regra da rede virtual"](#a-script-30):
+A lista a seguir mostra a sequência de outros cmdlets *principais* que você deve executar para se preparar para a chamada para **New-AzSqlServerVirtualNetworkRule** . Neste artigo, essas chamadas ocorrem no [script 3 "Regra da rede virtual"](#a-script-30):
 
-1. [New-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig): cria um objeto de sub-rede.
-2. [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork): cria sua rede virtual, fornecendo-a à sub-rede.
-3. [Set-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/Set-azVirtualNetworkSubnetConfig): atribui um ponto de extremidade de serviço virtual à sua sub-rede.
-4. [Set-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/Set-azVirtualNetwork): mantém atualizações feitas em sua rede virtual.
-5. [New-AzSqlServerVirtualNetworkRule](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlservervirtualnetworkrule): depois que a sub-rede for um ponto de extremidade, o adicionará sua sub-rede como uma regra de rede virtual na ACL do servidor.
-   - Esse cmdlet oferece o parâmetro **-IgnoreMissingVNetServiceEndpoint**, iniciando no Módulo do PowerShell do Azure RM versão 5.1.1.
+1. [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig): cria um objeto de sub-rede.
+2. [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork): cria sua rede virtual, fornecendo-a à sub-rede.
+3. [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/Set-azVirtualNetworkSubnetConfig): atribui um ponto de extremidade de serviço virtual à sua sub-rede.
+4. [Set-AzVirtualNetwork](/powershell/module/az.network/Set-azVirtualNetwork): mantém atualizações feitas em sua rede virtual.
+5. [New-AzSqlServerVirtualNetworkRule](/powershell/module/az.sql/new-azsqlservervirtualnetworkrule): depois que a sub-rede for um ponto de extremidade, o adicionará sua sub-rede como uma regra de rede virtual na ACL do servidor.
+   - Esse cmdlet oferece o parâmetro **-IgnoreMissingVNetServiceEndpoint** , iniciando no Módulo do PowerShell do Azure RM versão 5.1.1.
 
 ## <a name="prerequisites-for-running-powershell"></a>Pré-requisitos para execução do PowerShell
 
@@ -376,13 +376,13 @@ Write-Host 'Completed script 4, the "Clean-Up".';
 
 ## <a name="verify-your-subnet-is-an-endpoint"></a>Verificar se sua sub-rede é um ponto de extremidade
 
-Você pode ter uma sub-rede que já foi atribuída ao nome de tipo **Microsoft.Sql**, o que significa que já é um ponto de extremidade do Serviço virtual. Você pode usar o [portal do Azure][http-azure-portal-link-ref-477t] para criar uma regra da rede virtual do ponto de extremidade.
+Você pode ter uma sub-rede que já foi atribuída ao nome de tipo **Microsoft.Sql** , o que significa que já é um ponto de extremidade do Serviço virtual. Você pode usar o [portal do Azure][http-azure-portal-link-ref-477t] para criar uma regra da rede virtual do ponto de extremidade.
 
-Ou, talvez você não tenha certeza se a sua sub-rede tem o nome do tipo **Microsoft.Sql**. É possível executar o seguinte script do PowerShell para executar estas ações:
+Ou, talvez você não tenha certeza se a sua sub-rede tem o nome do tipo **Microsoft.Sql** . É possível executar o seguinte script do PowerShell para executar estas ações:
 
-1. Confira se sua sub-rede tem o nome do tipo **Microsoft.Sql**.
+1. Confira se sua sub-rede tem o nome do tipo **Microsoft.Sql** .
 2. Opcionalmente, atribua o nome do tipo se ele estiver ausente.
-    - O script solicitará que você *confirme*, antes de aplicar o nome do tipo ausente.
+    - O script solicitará que você *confirme* , antes de aplicar o nome do tipo ausente.
 
 ### <a name="phases-of-the-script"></a>Fases do script
 
@@ -390,8 +390,8 @@ Estas são as fases do script do PowerShell:
 
 1. Faça logon em sua conta do Azure, o que é necessário apenas uma vez por sessão de PS.  Atribua variáveis.
 2. Pesquise pela sua rede virtual e, em seguida, pela sua sub-rede.
-3. Sua sub-rede está marcada como tipo de servidor de ponto de extremidade **Microsoft.Sql**?
-4. Adicione um ponto de extremidade do Serviço virtual do nome do tipo **Microsoft.Sql**, em sua sub-rede.
+3. Sua sub-rede está marcada como tipo de servidor de ponto de extremidade **Microsoft.Sql** ?
+4. Adicione um ponto de extremidade do Serviço virtual do nome do tipo **Microsoft.Sql** , em sua sub-rede.
 
 > [!IMPORTANT]
 > Antes de executar esse script, você deve editar os valores atribuídos a variáveis $-, na parte superior do script.

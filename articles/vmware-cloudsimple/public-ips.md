@@ -1,19 +1,19 @@
 ---
 title: Solução do Azure VMware por CloudSimple-alocar endereços IP públicos
 description: Descreve como alocar endereços IP públicos para máquinas virtuais no ambiente de nuvem privada
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/15/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 565c9ad0fbd37b026a1ba555d83b9032d2efcba4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bb46ad726cd3b99324e9bb96b998ed1b4da885de
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77024289"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97899177"
 ---
 # <a name="allocate-public-ip-addresses-for-private-cloud-environment"></a>Alocar endereços IP públicos para o ambiente de nuvem privada
 

@@ -1,22 +1,19 @@
 ---
-title: 'Script do PowerShell: definir e exibir as configurações de sincronização do compartilhamento de dados do Azure | Microsoft Docs'
+title: 'Script do PowerShell: definir e exibir configurações de sincronização de compartilhamento de dados do Azure'
 description: Este script do PowerShell define e obtém configurações de sincronização de compartilhamento.
-services: data-share
 author: joannapea
 ms.service: data-share
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/07/2019
 ms.author: joanpo
-ms.openlocfilehash: 0ced66c1d3023b7edb3220b45e24d3eb54098df8
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 401754436739e5594c0d7baac6507f9d9984fc31
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86512479"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92221274"
 ---
-# <a name="use-powershell-to-set-azure-data-share-sychronization-settings"></a>Usar o PowerShell para definir as configurações de sincronização do compartilhamento de dados do Azure
+# <a name="use-powershell-to-set-azure-data-share-synchronization-settings"></a>Usar o PowerShell para definir as configurações de sincronização do compartilhamento de dados do Azure
 
 Este script do PowerShell define e obtém configurações de sincronização de compartilhamento.
 
@@ -48,12 +45,12 @@ Este script usa os seguintes comandos:
 
 | Comando | Observações |
 |---|---|
-| [New-AzDataShareSynchronizationSetting](/powershell/module/az.datashare/new-azdatasharesynchronizationsetting?view=azps-2.6.0) | Criar uma sincronização de compartilhamento. |
-| [Get-AzDataShareSynchronizationSetting](/powershell/module/az.datashare/get-azdatasharesynchronizationsetting?view=azps-2.6.0) | Obtém as configurações de sincronização de uma sincronização de compartilhamento. |
+| [New-AzDataShareSynchronizationSetting](/powershell/module/az.datashare/new-azdatasharesynchronizationsetting) | Criar uma sincronização de compartilhamento. |
+| [Get-AzDataShareSynchronizationSetting](/powershell/module/az.datashare/get-azdatasharesynchronizationsetting) | Obtém as configurações de sincronização de uma sincronização de compartilhamento. |
 |||
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre o Azure PowerShell, confira a [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/).
+Para obter mais informações sobre o Azure PowerShell, confira a [Documentação do Azure PowerShell](/powershell/).
 
 Exemplos adicionais de script do PowerShell do compartilhamento de dados do Azure podem ser encontrados nos [exemplos do PowerShell do compartilhamento de dados do Azure](../../samples-powershell.md).

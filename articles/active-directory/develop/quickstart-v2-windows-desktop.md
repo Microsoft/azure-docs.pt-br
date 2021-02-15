@@ -1,6 +1,6 @@
 ---
-title: Início rápido à área de trabalho do Windows na plataforma de identidade da Microsoft
-description: Saiba como um aplicativo .NET da área de trabalho do Windows (XAML) pode obter um token de acesso e chamar uma API protegida por um ponto de extremidade da plataforma de identidade da Microsoft
+title: 'Início Rápido: Conectar usuários e chamar o Microsoft Graph em um aplicativo da área de trabalho da Plataforma Universal do Windows | Azure'
+description: Neste guia de início rápido, saiba como um aplicativo .NET da área de trabalho do Windows (XAML) pode obter um token de acesso e chamar uma API protegida pela plataforma de identidade da Microsoft.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -11,18 +11,24 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: ad45f4c57c336b30f09684c250539bd4452a10a8
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: b54438441b0e34cccda7fbec37dc1d1740101e9e
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88114550"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98754001"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-windows-desktop-app"></a>Início Rápido: Adquirir um token e chamar a API do Microsoft Graph de um aplicativo da área de trabalho do Windows
 
-Neste início rápido, você aprenderá a programar um aplicativo WPF (Windows Presentation Foundation) .NET de área de trabalho do Windows que pode conectar contas corporativas, pessoais ou de estudante, obter um token de acesso e chamar a API do Microsoft Graph. (Confira [Como o exemplo funciona](#how-the-sample-works) para ver uma ilustração.)
+Neste guia de início rápido, você baixará e executará um exemplo de código que demonstra como um aplicativo .NET da área de trabalho do Windows (WPF) pode conectar usuários e obter um token de acesso para chamar a API do Microsoft Graph. 
+
+Confira [Como o exemplo funciona](#how-the-sample-works) para ver uma ilustração.
 
 > [!div renderon="docs"]
+> ## <a name="prerequisites"></a>Pré-requisitos
+>
+> * [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) com a carga de trabalho de [desenvolvimento da Plataforma Universal do Windows](/windows/uwp/get-started/get-set-up) instalada
+>
 > ## <a name="register-and-download-your-quickstart-app"></a>Registrar e baixar o aplicativo de início rápido
 > Você tem duas opções para iniciar o aplicativo de início rápido:
 > * [Express] [Opção 1: Registrar e configurar o aplicativo automaticamente e, em seguida, baixar seu exemplo de código](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)
@@ -30,7 +36,7 @@ Neste início rápido, você aprenderá a programar um aplicativo WPF (Windows P
 >
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Opção 1: Registrar e configurar o aplicativo automaticamente e, em seguida, baixar seu exemplo de código
 >
-> 1. Acesse o novo [portal do Azure – Registros de aplicativo](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/WinDesktopQuickstartPage/sourceType/docs).
+> 1. Acesse a experiência de início rápido do <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/WinDesktopQuickstartPage/sourceType/docs" target="_blank">portal do Azure – Registros de aplicativo<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 > 1. Insira um nome para seu aplicativo e selecione **Registrar**.
 > 1. Siga as instruções para baixar e configurar automaticamente o novo aplicativo com apenas um clique.
 >
@@ -39,16 +45,17 @@ Neste início rápido, você aprenderá a programar um aplicativo WPF (Windows P
 > #### <a name="step-1-register-your-application"></a>Etapa 1: Registre seu aplicativo
 > Para registrar seu aplicativo e adicionar as informações de registro do aplicativo à solução manualmente, siga estas etapas:
 >
-> 1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
-> 1. Se sua conta fornecer acesso a mais de um locatário, selecione sua conta no canto superior direito e defina sua sessão do portal para o locatário desejado do Azure AD.
-> 1. Acesse a folha [Registros de aplicativo](https://aka.ms/MobileAppReg) do Azure Active Directory no portal do Azure.
-> 1. Selecione **Novo registro**.
->      - Na seção **Nome**, insira um nome de aplicativo relevante que será exibido aos usuários do aplicativo, por exemplo, `Win-App-calling-MsGraph`.
->      - Na seção **Tipos de conta com suporte**, selecione **Contas em qualquer diretório organizacional e contas pessoais da Microsoft (por exemplo, Skype, Xbox, Outlook.com)** .
->      - Selecione **Registrar** para criar o aplicativo.
-> 1. Na lista de páginas para o aplicativo, selecione **Autenticação**.
-> 1. Na seção **URIs de Redirecionamento** | **URIs de Redirecionamento Sugeridos para clientes públicos (dispositivo móvel, desktop)** , use **https://login.microsoftonline.com/common/oauth2/nativeclient** .
-> 1. Clique em **Salvar**.
+> 1. Entre no <a href="https://portal.azure.com/" target="_blank">Portal do Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+> 1. Se você tem acesso a vários locatários, use o filtro **Diretório + assinatura** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o locatário no qual você deseja registrar um aplicativo.
+> 1. Pesquise **Azure Active Directory** e selecione-o.
+> 1. Em **Gerenciar**, selecione **Registros de aplicativo** > **Novo registro**.
+> 1. Insira um **Nome** para seu aplicativo, por exemplo, `Win-App-calling-MsGraph`. Os usuários do seu aplicativo podem ver esse nome e você pode alterá-lo mais tarde.
+> 1. Na seção **Tipos de conta com suporte**, selecione **Contas em qualquer diretório organizacional e contas pessoais da Microsoft (por exemplo, Skype, Xbox, Outlook.com)** .
+> 1. Selecione **Registrar** para criar o aplicativo.
+> 1. Em **Gerenciar**, selecione **Autenticação**.
+> 1. Selecione **Adicionar uma plataforma** > **Aplicativos móveis e de área de trabalho**.
+> 1. Na seção **URIs de Redirecionamento**, selecione `https://login.microsoftonline.com/common/oauth2/nativeclient`.
+> 1. Selecione **Configurar**.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-azure-portal"></a>Etapa 1: Configurar seu aplicativo no portal do Azure
@@ -66,7 +73,7 @@ Neste início rápido, você aprenderá a programar um aplicativo WPF (Windows P
 
 > [!div class="sxs-lookup" renderon="portal"]
 > Execute o projeto usando o Visual Studio 2019.
-> [!div renderon="portal" id="autoupdate" class="nextstepaction"]
+> [!div renderon="portal" id="autoupdate" class="sxs-lookup nextstepaction"]
 > [Baixe o exemplo de código](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/msal3x.zip)
 
 > [!div class="sxs-lookup" renderon="portal"]
@@ -138,7 +145,7 @@ A MSAL tem dois métodos para adquirir tokens: `AcquireTokenInteractive` e `Acqu
 
 #### <a name="get-a-user-token-interactively"></a>Obter um token de usuário interativamente
 
-Algumas situações exigem forçar os usuários a interagir com o ponto de extremidade da plataforma de identidade da Microsoft por meio de uma janela pop-up para validar suas credenciais ou para dar consentimento. Alguns exemplos incluem:
+Algumas situações exigem forçar os usuários a interagir com a plataforma de identidade da Microsoft por meio de uma janela pop-up para validar suas credenciais ou para dar consentimento. Alguns exemplos incluem:
 
 - A primeira vez que os usuários entram no aplicativo
 - Quando os usuários precisam reinserir suas credenciais porque a senha expirou

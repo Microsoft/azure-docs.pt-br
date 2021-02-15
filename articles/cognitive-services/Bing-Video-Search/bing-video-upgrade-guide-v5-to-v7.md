@@ -1,7 +1,7 @@
 ---
 title: Atualizar a API de Pesquisa de Vídeo do Bing v5 para v7
 titleSuffix: Azure Cognitive Services
-description: Identifica as partes do aplicativo que você precisa atualizar para usar a versão 7.
+description: Identifica as partes do seu aplicativo Pesquisa de Vídeo do Bing que você precisa atualizar para usar a versão 7.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
@@ -10,14 +10,19 @@ ms.subservice: bing-video-search
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: scottwhi
-ms.openlocfilehash: 5dc4c870ae8dbe9f082456d738836aced1271732
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e47691c82d43a35a7235eb5c3fd3cf7bca081aee
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68500725"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351905"
 ---
 # <a name="video-search-api-upgrade-guide"></a>Guia de atualização da API de Pesquisa de Vídeo
+
+> [!WARNING]
+> As APIs de Pesquisa do Bing estão migrando dos Serviços Cognitivos para os Serviços de Pesquisa do Bing. A partir de **30 de outubro de 2020**, todas as novas instâncias da Pesquisa do Bing precisam ser provisionadas seguindo o processo documentado [aqui](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> As APIs de Pesquisa do Bing provisionadas por meio dos Serviços Cognitivos terão suporte nos próximos três anos ou até o final do seu Contrato Enterprise, o que ocorrer primeiro.
+> Para obter instruções sobre a migração, confira [Serviços de Pesquisa do Bing](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Este guia de atualização identifica as alterações entre a versão 5 e a versão 7 da API de Pesquisa de Vídeo do Bing. Use este guia para ajudá-lo a identificar as partes do aplicativo que você precisa atualizar para usar a versão 7.
 
@@ -71,11 +76,10 @@ Bloqueado|InvalidRequest.Blocked
 
 ### <a name="query-parameters"></a>Parâmetros de consulta
 
-- Renomeado o parâmetro de consulta `modulesRequested` para [módulos](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#modulesrequested).  
+- Renomeado o parâmetro de consulta `modulesRequested` para [módulos](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#modulesrequested).  
 
 ### <a name="object-changes"></a>Alterações de objeto
 
-- Renomeado o campo `nextOffsetAddCount` de [Vídeos](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) para `nextOffset`. A maneira como o deslocamento é utilizado também alterou. Anteriormente, você definiu o parâmetro de consulta [offset](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#offset) para o valor `nextOffset`, mais o valor de deslocamento anterior, mais o número de vídeos no resultado. Agora, basta definir o parâmetro de consulta `offset` ao valor `nextOffset`.  
+- Renomeado o campo `nextOffsetAddCount` de [Vídeos](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) para `nextOffset`. A maneira como o deslocamento é utilizado também alterou. Anteriormente, você definiu o parâmetro de consulta [offset](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#offset) para o valor `nextOffset`, mais o valor de deslocamento anterior, mais o número de vídeos no resultado. Agora, basta definir o parâmetro de consulta `offset` ao valor `nextOffset`.  
   
-- Altere o tipo de dados do campo `relatedVideos` de `Video[]` para [VideosModule](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videosmodule) (consulte [VideoDetails](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videodetails)).
-
+- Altere o tipo de dados do campo `relatedVideos` de `Video[]` para [VideosModule](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videosmodule) (consulte [VideoDetails](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videodetails)).

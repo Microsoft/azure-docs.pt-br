@@ -1,17 +1,17 @@
 ---
 title: Gerenciar grupos de aplicativos para a Área de Trabalho Virtual do Windows (clássica) – Azure
-description: Descreve como configurar locatários da Área de Trabalho Virtual do Windows (clássica) no Azure Active Directory.
+description: Saiba como configurar locatários da Área de Trabalho Virtual do Windows (clássica) no Azure AD (Active Directory).
 author: Heidilohr
 ms.topic: tutorial
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 7ad8afc3d842a134ba09281005e35cf8cb04818a
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: e2a1f38918b2ea6af8a334b6648a463753f5c7b0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009062"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91295202"
 ---
 # <a name="tutorial-manage-app-groups-for-windows-virtual-desktop-classic"></a>Tutorial: Gerenciar grupos de aplicativos para a Área de Trabalho Virtual do Windows (clássica)
 

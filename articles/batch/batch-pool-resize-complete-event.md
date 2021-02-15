@@ -2,13 +2,13 @@
 title: Evento de redimensionamento do conjunto de Lote do Azure concluído
 description: Referência de redimensionamento do pool de lote evento inicial. Confira um exemplo de pool que teve seu tamanho aumentado e foi concluído com êxito.
 ms.topic: reference
-ms.date: 04/20/2017
-ms.openlocfilehash: 94301f29fb6e7968dbe0389754fcf2a3b105d7ef
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.date: 12/28/2020
+ms.openlocfilehash: 9d3342587b5f6e0e134f4295a8c79deeb23df94b
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83723809"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97803639"
 ---
 # <a name="pool-resize-complete-event"></a>Evento de conclusão de redimensionamento de pool
 
@@ -18,18 +18,18 @@ ms.locfileid: "83723809"
 
 ```
 {
-    "id": "myPool",
-    "nodeDeallocationOption": "invalid",
-        "currentDedicatedNodes": 10,
-        "targetDedicatedNodes": 10,
-    "currentLowPriorityNodes": 5,
-        "targetLowPriorityNodes": 5,
-    "enableAutoScale": false,
-    "isAutoPool": false,
-    "startTime": "2016-09-09T22:13:06.573Z",
-    "endTime": "2016-09-09T22:14:01.727Z",
-    "resultCode": "Success",
-    "resultMessage": "The operation succeeded"
+   "id": "myPool",
+   "nodeDeallocationOption": "invalid",
+      "currentDedicatedNodes": 10,
+      "targetDedicatedNodes": 10,
+   "currentLowPriorityNodes": 5,
+     "targetLowPriorityNodes": 5,
+   "enableAutoScale": false,
+   "isAutoPool": false,
+   "startTime": "2016-09-09T22:13:06.573Z",
+   "endTime": "2016-09-09T22:14:01.727Z",
+   "resultCode": "Success",
+   "resultMessage": "The operation succeeded"
 }
 ```
 

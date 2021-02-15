@@ -2,20 +2,20 @@
 title: Sincronização com escopo usando o PowerShell para Azure AD Domain Services | Microsoft Docs
 description: Saiba como usar o PowerShell do Azure AD para configurar a sincronização com escopo do Azure AD para um Azure Active Directory Domain Services domínio gerenciado
 services: active-directory-ds
-author: iainfoulds
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/24/2020
-ms.author: iainfou
-ms.openlocfilehash: 197ae37b0c63b19ebe4dcdf2732169be0f357a07
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.date: 01/20/2021
+ms.author: justinha
+ms.openlocfilehash: 04c611b8a902d27f40893a05f301898c0111748f
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87293937"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98660942"
 ---
 # <a name="configure-scoped-synchronization-from-azure-ad-to-azure-active-directory-domain-services-using-azure-ad-powershell"></a>Configurar a sincronização com escopo do Azure AD para Azure Active Directory Domain Services usando o PowerShell do Azure AD
 
@@ -41,15 +41,14 @@ Para concluir este artigo, você precisará dos seguintes recursos e privilégio
 
 Por padrão, todos os usuários e grupos de um diretório do Azure AD são sincronizados com um domínio gerenciado. Se apenas alguns usuários precisarem acessar o domínio gerenciado, você poderá sincronizar somente as contas de usuário. Essa sincronização com escopo é baseada em grupo. Quando você configura a sincronização com escopo baseado em grupo, somente as contas de usuário que pertencem aos grupos que você especifica são sincronizadas com o domínio gerenciado. Grupos aninhados não são sincronizados, somente os grupos específicos que você selecionar.
 
-Você pode alterar o escopo de sincronização ao criar o domínio gerenciado ou depois de ele ser implantado. Agora, você também pode alterar o escopo da sincronização em um domínio gerenciado existente sem precisar recriá-lo.
+Você pode alterar o escopo de sincronização antes ou depois de criar o domínio gerenciado. O escopo da sincronização é definido por uma entidade de serviço com o identificador de aplicativo 2565bd9d-DA50-47d4-8b85-4c97f669dc36. Para evitar a perda de escopo, não exclua nem altere a entidade de serviço. Se ele for excluído acidentalmente, o escopo de sincronização não poderá ser recuperado. 
+
+Tenha em mente as seguintes advertências se você alterar o escopo de sincronização:
+
+- Ocorre uma sincronização completa.
+- Os objetos que não são mais necessários no domínio gerenciado são excluídos. Novos objetos são criados no domínio gerenciado.
 
 Para saber mais sobre o processo de sincronização, consulte [entender a sincronização no Azure AD Domain Services][concepts-sync].
-
-> [!WARNING]
-> Alterar o escopo da sincronização faz com que o domínio gerenciado sincronize novamente todos os dados. As seguintes considerações se aplicam:
->
->  * Quando você altera o escopo de sincronização para um domínio gerenciado, ocorre uma ressincronização completa.
->  * Os objetos que não são mais necessários no domínio gerenciado são excluídos. Novos objetos são criados no domínio gerenciado.
 
 ## <a name="powershell-script-for-scoped-synchronization"></a>Script do PowerShell para sincronização com escopo
 
@@ -175,7 +174,7 @@ Alterar o escopo da sincronização faz com que o domínio gerenciado sincronize
 
 Para modificar a lista de grupos cujos usuários devem ser sincronizados com o domínio gerenciado, execute `Select-GroupsToSync.ps1` o script e especifique a nova lista de grupos a serem sincronizados.
 
-No exemplo a seguir, os grupos para sincronizar não incluem mais *GroupName2*e agora incluem *GroupName3*.
+No exemplo a seguir, os grupos para sincronizar não incluem mais *GroupName2* e agora incluem *GroupName3*.
 
 > [!WARNING]
 > Você deve incluir o grupo de *Administradores de DC do AAD* na lista de grupos para sincronização com escopo. Se você não incluir esse grupo, o domínio gerenciado será inutilizável.

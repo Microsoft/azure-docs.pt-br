@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/15/2020
-ms.openlocfilehash: 5b7fe9cf6c751bfb96dff8aa911172ae91a17653
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 11ddb2f40ee56b51c5ecbae11465093abb8e4feb
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84886639"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027475"
 ---
 # <a name="schema-drift-in-mapping-data-flow"></a>Descompasso de esquema no fluxo de dados de mapeamento
 
@@ -43,7 +43,7 @@ Em uma transformação de origem, a descompasso de esquema é definida como uma 
 
 ![Origem de descompasso de esquema](media/data-flow/schemadrift001.png "Origem de descompasso de esquema")
 
-Quando a descompasso de esquema está habilitada, todos os campos de entrada são lidos de sua origem durante a execução e passados por todo o fluxo para o coletor. Por padrão, todas as colunas recentemente detectadas, conhecidas como *colunas descompassos*, chegam como um tipo de dados de cadeia de caracteres. Se você quiser que o fluxo de dados infira automaticamente os tipos de dados de colunas desfeitas, marque **inferir tipos de coluna** desfeitas em suas configurações de origem.
+Quando a descompasso de esquema está habilitada, todos os campos de entrada são lidos de sua origem durante a execução e passados por todo o fluxo para o coletor. Por padrão, todas as colunas recentemente detectadas, conhecidas como *colunas descompassos* , chegam como um tipo de dados de cadeia de caracteres. Se você quiser que o fluxo de dados infira automaticamente os tipos de dados de colunas desfeitas, marque **inferir tipos de coluna** desfeitas em suas configurações de origem.
 
 ## <a name="schema-drift-in-sink"></a>Descompasso de esquema no coletor
 
@@ -60,7 +60,7 @@ Se a descompasso de esquema estiver habilitada, verifique se o controle deslizan
 Quando o fluxo de dados tiver colunas descompassos, você poderá acessá-las em suas transformações com os seguintes métodos:
 
 * Use as `byPosition` `byName` expressões e para referenciar explicitamente uma coluna por nome ou número de posição.
-* Adicionar um padrão de coluna em uma coluna derivada ou transformação de agregação para corresponder a qualquer combinação de nome, fluxo, posição ou tipo
+* Adicionar um padrão de coluna em uma transformação de agregação ou coluna derivada para corresponder a qualquer combinação de nome, fluxo, posição, origem ou tipo
 * Adicionar mapeamento baseado em regra em uma transformação SELECT ou Sink para corresponder colunas perrespondidas a aliases de colunas por meio de um padrão
 
 Para obter mais informações sobre como implementar padrões de coluna, consulte [padrões de coluna no fluxo de dados de mapeamento](concepts-data-flow-column-pattern.md).
@@ -69,11 +69,11 @@ Para obter mais informações sobre como implementar padrões de coluna, consult
 
 Para referenciar explicitamente colunas descompassos, você pode gerar rapidamente mapeamentos para essas colunas por meio de uma ação rápida de visualização de dados. Depois que o [modo de depuração](concepts-data-flow-debug-mode.md) estiver ativado, vá para a guia Visualização de dados e clique em **Atualizar** para buscar uma visualização de dados. Se data factory detectar que as colunas descompassos existem, você poderá clicar em **mapear descompasso** e gerar uma coluna derivada que permite que você referencie todas as colunas descompassos em exibições de esquema downstream.
 
-![Mapa descompasso](media/data-flow/mapdrifted1.png "Mapa descompasso")
+![Captura de tela mostra a guia Visualização de dados com o mapa desatualizado chamado.](media/data-flow/mapdrifted1.png "Mapa descompasso")
 
 Na transformação coluna derivada gerada, cada coluna descompasso é mapeada para seu nome e tipo de dados detectados. Na visualização de dados acima, a coluna ' MovieID ' é detectada como um inteiro. Depois que o **mapa** é clicado, o MovieID é definido na coluna derivada como `toInteger(byName('movieId'))` e incluído em exibições de esquema em transformações de downstream.
 
-![Mapa descompasso](media/data-flow/mapdrifted2.png "Mapa descompasso")
+![Captura de tela mostra a guia Configurações da coluna derivada.](media/data-flow/mapdrifted2.png "Mapa descompasso")
 
 ## <a name="next-steps"></a>Próximas etapas
 Na [linguagem de expressão de fluxo de dados](data-flow-expression-functions.md), você encontrará recursos adicionais para padrões de coluna e descompasso de esquema, incluindo "byName" e "byPosition".

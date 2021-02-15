@@ -3,18 +3,18 @@ title: Criar e implantar projetos do grupo de recursos do Visual Studio
 description: Use o Visual Studio para criar um projeto do grupo de recursos do Azure e implantar os recursos no Azure.
 ms.topic: conceptual
 ms.date: 10/16/2019
-ms.openlocfilehash: 5127732ac0c33d4b27f70bd616fb23aaec5c871f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f1a06a3e89c5fd2ea8906ff9a438c170f135d6ec
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76152724"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98704407"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Criação e implantação de grupos de recurso do Azure por meio do Visual Studio
 
 Com o Visual Studio, você pode criar um projeto que implementa sua infraestrutura e o código no Azure. Por exemplo, você pode implantar o host da Web, o site e o código para o site. O Visual Studio fornece muitos modelos iniciais diferentes para implantar cenários comuns. Neste artigo, você implanta um aplicativo Web.
 
-Este artigo mostra como usar o [Visual Studio 2019 ou posterior com as cargas de trabalho de desenvolvimento do Azure e ASP.NET instaladas](/visualstudio/install/install-visual-studio?view=vs-2019). Se você usar o Visual Studio 2017, sua experiência será basicamente a mesma.
+Este artigo mostra como usar o [Visual Studio 2019 ou posterior com as cargas de trabalho de desenvolvimento do Azure e ASP.NET instaladas](/visualstudio/install/install-visual-studio). Se você usar o Visual Studio 2017, sua experiência será basicamente a mesma.
 
 ## <a name="create-azure-resource-group-project"></a>Criar um projeto do Grupo de Recursos do Azure
 
@@ -23,7 +23,7 @@ Nesta seção, você cria um projeto do Grupo de Recursos do Azure com um modelo
 1. No Visual Studio, escolha **arquivo** > **novo** > **projeto**.
 1. Selecione o modelo de projeto **Grupo de Recursos do Azure** e **Avançar**.
 
-    ![Criar projeto](./media/create-visual-studio-deployment-project/create-project.png)
+    ![Captura de tela mostra a janela criar um novo projeto com o grupo de recursos do Azure e o botão Avançar realçado.](./media/create-visual-studio-deployment-project/create-project.png)
 
 1. Dê um nome ao seu projeto. As outras configurações padrão provavelmente não precisam ser modificadas, mas é bom revisá-las para verificar se funcionam para seu ambiente. Ao terminar, selecione **Criar**.
 
@@ -65,7 +65,7 @@ Nesta seção, você cria um projeto do Grupo de Recursos do Azure com um modelo
 
 1. Você pode adicionar um recurso selecionando o botão **Adicionar Recurso** na parte superior da janela Estrutura de Tópicos JSON ou clicando com o botão direito em **recursos** e selecionando **Adicionar Novo Recurso**.
 
-   ![Adicionar recurso](./media/create-visual-studio-deployment-project/add-resource.png)
+   ![Captura de tela mostra a janela de estrutura de tópicos JSON com a opção Adicionar novo recurso realçada.](./media/create-visual-studio-deployment-project/add-resource.png)
 
 1. Selecione **Conta de Armazenamento** e forneça um nome a ela. Forneça um nome que não tenha mais de 11 caracteres e contenha apenas números e letras minúsculas.
 
@@ -189,7 +189,7 @@ Neste ponto, você implantou a infraestrutura de seu aplicativo, mas não há ne
 
 1. Agora, você precisa certificar-se de que seu projeto de grupo de recursos esteja ciente do novo projeto. Volte ao seu projeto de grupo de recursos (ExampleAppDeploy). Clique com botão direito do mouse em **Referências** e selecione **Adicionar Referência**.
 
-    ![Adicionar referência](./media/create-visual-studio-deployment-project/add-new-reference.png)
+    ![Captura de tela mostra o menu ExampleAppDeploy com a opção Adicionar referência realçada.](./media/create-visual-studio-deployment-project/add-new-reference.png)
 
 1. Selecione o projeto de aplicativo Web que você criou.
 
@@ -364,13 +364,13 @@ Você não está limitado apenas aos recursos disponíveis por meio da interface
 
 1. Depois que a implantação for concluída, exiba o painel no portal. Selecione **Painel** e escolha o que você implantou.
 
-   ![Painel personalizado](./media/create-visual-studio-deployment-project/view-custom-dashboards.png)
+   ![Captura de tela mostra a página de painel com um painel personalizado de exemplo realçado.](./media/create-visual-studio-deployment-project/view-custom-dashboards.png)
 
 1. Você vê o painel personalizado.
 
    ![Painel personalizado](./media/create-visual-studio-deployment-project/Ops-DemoSiteGroup-dashboard.png)
 
-É possível gerenciar o acesso ao painel usando grupos RBAC. Você também pode personalizar a aparência do painel após a implantação. No entanto, se você reimplantar o grupo de recursos, o painel será redefinido para o estado padrão em seu modelo. Para saber mais sobre a criação de painéis, consulte [Criar programaticamente os painéis do Azure](../../azure-portal/azure-portal-dashboards-create-programmatically.md).
+Você pode gerenciar o acesso ao painel usando o controle de acesso baseado em função do Azure (RBAC do Azure). Você também pode personalizar a aparência do painel após a implantação. No entanto, se você reimplantar o grupo de recursos, o painel será redefinido para o estado padrão em seu modelo. Para saber mais sobre a criação de painéis, consulte [Criar programaticamente os painéis do Azure](../../azure-portal/azure-portal-dashboards-create-programmatically.md).
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

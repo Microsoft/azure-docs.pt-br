@@ -1,18 +1,18 @@
 ---
 title: Grupos de IP na política de firewall do Azure
-description: Os grupos de IPS permitem que você agrupe e gerencie endereços IP para regras de firewall do Azure.
+description: Os grupos de IPS permitem que você agrupe e gerencie endereços IP para regras de política de firewall do Azure.
 services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: conceptual
 ms.date: 07/30/2020
 ms.author: victorh
-ms.openlocfilehash: 5192ecb31c71364bdf1301b13da0b0742625d44f
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 921a8b6c808d4eef2b02ef0580d5b2ea9045366d
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87460126"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659498"
 ---
 # <a name="ip-groups-in-azure-firewall-policy"></a>Grupos de IP na política de firewall do Azure
 
@@ -72,13 +72,13 @@ Você pode ter um máximo de 100 grupos de IP por firewall com um máximo de 500
 
 Os cmdlets Azure PowerShell a seguir podem ser usados para criar e gerenciar grupos de IPS:
 
-- [New-AzIpGroup](https://docs.microsoft.com/powershell/module/az.network/new-azipgroup?view=azps-3.4.0)
-- [Remove-AzIPGroup](https://docs.microsoft.com/powershell/module/az.network/remove-azipgroup?view=azps-3.4.0)
-- [Get-AzIpGroup](https://docs.microsoft.com/powershell/module/az.network/get-azipgroup?view=azps-3.4.0)
-- [Set-AzIpGroup](https://docs.microsoft.com/powershell/module/az.network/set-azipgroup?view=azps-3.4.0)
-- [New-AzFirewallPolicyNetworkRule](https://docs.microsoft.com/powershell/module/az.network/new-azfirewallpolicynetworkrule?view=azps-3.4.0)
-- [New-AzFirewallPolicyApplicationRule](https://docs.microsoft.com/powershell/module/az.network/new-azfirewallpolicyapplicationrule?view=azps-3.4.0)
-- [New-AzFirewallPolicyNatRule](https://docs.microsoft.com/powershell/module/az.network/new-azfirewallpolicynatrule?view=azps-3.4.0)
+- [New-AzIpGroup](/powershell/module/az.network/new-azipgroup?view=azps-3.4.0)
+- [Remove-AzIPGroup](/powershell/module/az.network/remove-azipgroup?view=azps-3.4.0)
+- [Get-AzIpGroup](/powershell/module/az.network/get-azipgroup?view=azps-3.4.0)
+- [Set-AzIpGroup](/powershell/module/az.network/set-azipgroup?view=azps-3.4.0)
+- [New-AzFirewallPolicyNetworkRule](/powershell/module/az.network/new-azfirewallpolicynetworkrule?view=azps-3.4.0)
+- [New-AzFirewallPolicyApplicationRule](/powershell/module/az.network/new-azfirewallpolicyapplicationrule?view=azps-3.4.0)
+- [New-AzFirewallPolicyNatRule](/powershell/module/az.network/new-azfirewallpolicynatrule?view=azps-3.4.0)
 
 ## <a name="next-steps"></a>Próximas etapas
 

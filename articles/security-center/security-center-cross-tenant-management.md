@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2019
 ms.author: memildin
-ms.openlocfilehash: 7700e151a49dbfbad452927ba4a308651a0b584a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d76ecc55c2e156199b2db789721946fd1f36de27
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84782805"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922914"
 ---
 # <a name="cross-tenant-management-in-security-center"></a>Gerenciamento entre locatários na central de segurança
 
@@ -28,12 +28,10 @@ O gerenciamento entre locatários permite exibir e gerenciar a postura de segura
 
 - As equipes de segurança de organizações com vários locatários podem exibir e gerenciar sua postura de segurança em um único local.
 
-## <a name="set-up-cross-tenant-management"></a>Configurar o gerenciamento de locatários cruzados
+## <a name="set-up-cross-tenant-management"></a>Configurar o gerenciamento entre locatários
 
-Configure o gerenciamento de locatários cruzados delegando acesso a recursos de locatários gerenciados para seu próprio locatário usando o [Gerenciamento de recursos delegado do Azure](../lighthouse/concepts/azure-delegated-resource-management.md).
+O gerenciamento de recursos delegados do Azure é um dos principais componentes do Azure Lighthouse. Configure o gerenciamento de locatários cruzados delegando acesso a recursos de locatários gerenciados para seu próprio locatário usando estas instruções da documentação do Azure Lighthouse: [Gerenciamento de recursos delegado do Azure](../lighthouse/concepts/azure-delegated-resource-management.md).
 
-> [!NOTE]
-> O gerenciamento de recursos delegados do Azure é um dos principais componentes do Azure Lighthouse.
 
 ## <a name="how-does-cross-tenant-management-work-in-security-center"></a>Como o gerenciamento entre locatários funciona na central de segurança
 
@@ -57,4 +55,4 @@ Este artigo explica como o gerenciamento entre locatários funciona na central d
 
 * [Fortaleça sua postura de segurança com a central de segurança do Azure](security-center-monitoring.md) -saiba como monitorar a integridade dos recursos do Azure.
 * [Perguntas frequentes da central de segurança do Azure](faq-general.md) -encontre perguntas frequentes sobre como usar o serviço.
-* [Saiba mais sobre o Azure Lighthouse em cenários empresariais](https://docs.microsoft.com/azure/lighthouse/concepts/enterprise) – Descubra como o Azure Lighthouse pode simplificar o gerenciamento entre locatários em uma empresa que usa vários locatários do Azure AD.
+* [Saiba mais sobre o Azure Lighthouse em cenários empresariais](../lighthouse/concepts/enterprise.md) – Descubra como o Azure Lighthouse pode simplificar o gerenciamento entre locatários em uma empresa que usa vários locatários do Azure AD.

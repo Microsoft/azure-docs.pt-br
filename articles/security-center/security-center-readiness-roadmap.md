@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/03/2018
 ms.author: memildin
-ms.openlocfilehash: 4a62520a9807cd99b5c353c32bb13058fc471a84
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fcaf427c2e0ab275a5a6e08306dda785bca690d6
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84771352"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92784160"
 ---
-# <a name="azure-security-center-readiness-roadmap"></a>Roteiro de Preparação da Central de Segurança do Azure
+# <a name="azure-security-center-readiness-roadmap"></a>Roteiro de preparação da central de segurança do Azure
 Este documento fornece um roteiro de preparação que ajudará você a começar a usar a Central de Segurança do Azure.
 
 ## <a name="understanding-security-center"></a>Noções básicas sobre a Central de Segurança
@@ -29,12 +29,12 @@ A Central de Segurança do Azure fornece gerenciamento de segurança unificado e
 Use os seguintes recursos para começar com a Central de Segurança.
 
 Artigos
-* [Introdução à Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-intro)
-* [Guia de início rápido da Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-get-started)
+- [Introdução à Central de Segurança do Azure](security-center-introduction.md)
+- [Guia de início rápido da Central de Segurança do Azure](security-center-get-started.md)
 
 vídeos
-* [Vídeo de introdução rápida](https://azure.microsoft.com/resources/videos/introduction-to-azure-security-center/)
-* [Visão geral dos recursos de resposta, de detecção e de prevenção da Central de Segurança](https://azure.microsoft.com/resources/videos/azurecon-2015-new-azure-security-center-helps-you-prevent-detect-and-respond-to-threats/)
+- [Vídeo de introdução rápida](https://azure.microsoft.com/resources/videos/introduction-to-azure-security-center/)
+- [Visão geral dos recursos de resposta, de detecção e de prevenção da Central de Segurança](https://azure.microsoft.com/resources/videos/azurecon-2015-new-azure-security-center-helps-you-prevent-detect-and-respond-to-threats/)
 
 ## <a name="planning-and-operations"></a>Planejamento e operações
 
@@ -42,20 +42,16 @@ Para tirar total proveito da Central de Segurança, é importante entender como 
 
 Use os recursos a seguir para ajudá-lo durante os processos de planejamento e de operações.
 
-Artigo
-* [Guia de planejamento e operações da Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide)
+- [Guia de planejamento e operações da Central de Segurança do Azure](security-center-planning-and-operations-guide.md)
 
 
 ### <a name="onboarding-computers-to-security-center"></a>Integração de computadores à Central de Segurança
-A Central de Segurança detecta automaticamente as assinaturas ou workspaces do Azure não habilitados para a Central de Segurança Standard. Isso inclui assinaturas do Azure usando a Central de Segurança Gratuita e workspaces que não têm a solução da Segurança habilitada.
+A central de segurança detecta automaticamente quaisquer assinaturas ou espaços de trabalho do Azure não protegidos pelo Azure defender. Isso inclui assinaturas do Azure usando a central de segurança gratuita e espaços de trabalho que não têm a solução de segurança habilitada.
 
 Use os recursos a seguir para ajudá-lo durante os processos de integração.
 
-Artigo
-* [Integração à Central de Segurança do Azure Standard para uma segurança aprimorada](https://docs.microsoft.com/azure/security-center/security-center-onboarding)
-
-Vídeo
-* [Central de Segurança do Azure híbrido - visão geral](https://youtu.be/NMa4L_M597k)
+- [Integrar computadores não Azure](quickstart-onboard-machines.md)
+- [Central de Segurança do Azure híbrido - visão geral](https://youtu.be/NMa4L_M597k)
 
 ## <a name="mitigating-security-issues-using-security-center"></a>Como eliminar problemas de segurança usando a Central de Segurança
 A Central de segurança coleta, analisa e integra automaticamente os dados de registro de seus recursos do Azure, da rede e das soluções de parceiros conectados, como firewall e soluções de proteção de ponto de extremidade, a fim de detectar ameaças reais e reduzir os falsos positivos.
@@ -63,14 +59,13 @@ A Central de segurança coleta, analisa e integra automaticamente os dados de re
 Use os recursos a seguir para ajudá-lo a gerenciar alertas de segurança e a proteger seus recursos.
 
 Artigos    
-* [Monitoramento da integridade de segurança na Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-monitoring)
-* [Protegendo suas máquinas e aplicativos na Central de segurança do Azure](security-center-virtual-machine-protection.md)
-* [Protegendo sua rede na Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations)
-* [Proteção dos dados e do serviço SQL do Azure na Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-sql-service-recommendations)
+- [Monitoramento da integridade de segurança na Central de Segurança do Azure](./security-center-monitoring.md)
+- [Protegendo sua rede na Central de Segurança do Azure](./security-center-network-recommendations.md)
+- [Proteção dos dados e do serviço SQL do Azure na Central de Segurança do Azure](./security-center-remediate-recommendations.md)
 
 
 Vídeo    
-* [Como eliminar problemas de segurança usando a Central de Segurança do Azure](https://channel9.msdn.com/Blogs/Azure-Security-Videos/Mitigating-Security-Issues-using-Azure-Security-Center)
+- [Como eliminar problemas de segurança usando a Central de Segurança do Azure](https://channel9.msdn.com/Blogs/Azure-Security-Videos/Mitigating-Security-Issues-using-Azure-Security-Center)
 
 ### <a name="security-center-for-incident-response"></a>Central de Segurança para resposta a incidentes
 Para reduzir os custos e danos, é importante ter um plano de resposta a incidentes em vigor antes que um ataque ocorra. A Central de Segurança do Azure pode ser usada em diferentes estágios de uma resposta a incidentes.
@@ -82,8 +77,8 @@ vídeos
 * [Responder rapidamente às ameaças com a operação de segurança de última geração e a investigação](https://youtu.be/e8iFCz5RM4g)
 
 Artigos    
-* [Uso da Central de Segurança do Azure para uma resposta a incidentes](https://docs.microsoft.com/azure/security-center/security-center-incident-response)
-* [Automatizar a resposta com a Automação do Fluxo de Trabalho](workflow-automation.md)
+* [Uso da Central de Segurança do Azure para uma resposta a incidentes](./tutorial-security-incident.md)
+* [Usar a automação para responder aos gatilhos da central de segurança](workflow-automation.md)
 
 ## <a name="advanced-cloud-defense"></a>Defesa da nuvem avançada
 
@@ -96,8 +91,8 @@ vídeos
 * [Central de Segurança do Azure: Controles de Aplicativo Adaptáveis](https://youtu.be/wWWekI1Y9ck)
 
 Artigos    
-* [Gerenciar o acesso à máquina virtual com just-in-time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)
-* [Controles de aplicativo adaptáveis na Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application)
+* [Gerenciar o acesso à máquina virtual com just-in-time](./security-center-just-in-time.md)
+* [Controles de aplicativo adaptáveis na Central de Segurança do Azure](./security-center-adaptive-application.md)
 
 ## <a name="hands-on-activities"></a>Atividades práticas
 
@@ -106,19 +101,17 @@ Artigos
 * [Guia estratégico da Central de Segurança do Azure: Alertas de segurança](https://gallery.technet.microsoft.com/Azure-Security-Center-f621a046)
 
 ## <a name="additional-resources"></a>Recursos adicionais
-* [Página de documentação da Central de Segurança](https://docs.microsoft.com/azure/security-center/)
-* [Página de documentação da API REST da Central de Segurança](https://msdn.microsoft.com/library/mt704034.aspx)
-* [Perguntas frequentes sobre a Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-faq)
+* [Página de documentação da Central de Segurança](./index.yml)
+* [Página de documentação da API REST da Central de Segurança](/previous-versions/azure/reference/mt704034(v=azure.100))
+* [Perguntas frequentes sobre a Central de Segurança do Azure](./faq-general.md)
 * [Página de preços da Central de Segurança do Azure](https://azure.microsoft.com/pricing/details/security-center/)
-* [Práticas recomendadas de segurança de identidade](https://docs.microsoft.com/azure/security/fundamentals/identity-management-best-practices)
-* [Práticas recomendadas de segurança da rede](https://docs.microsoft.com/azure/security/fundamentals/network-best-practices)
-* [Recomendações de PaaS](https://docs.microsoft.com/azure/security/security-paas-deployments)
+* [Práticas recomendadas de segurança de identidade](../security/fundamentals/identity-management-best-practices.md)
+* [Práticas recomendadas de segurança da rede](../security/fundamentals/network-best-practices.md)
+* [Recomendações de PaaS](../security/fundamentals/paas-deployments.md)
 * [Conformidade](https://www.microsoft.com/trustcenter/compliance/due-diligence-checklist)
-* [Os clientes do Log Analytics agora podem usar a Central de Segurança do Azure para proteger suas cargas de trabalho de nuvem híbrida](https://blogs.technet.microsoft.com/msoms/2017/09/25/oms-customers-can-now-use-azure-security-center-to-protect-their-hybrid-cloud-workloads/)
+* [Os clientes do Log Analytics agora podem usar a Central de Segurança do Azure para proteger suas cargas de trabalho de nuvem híbrida](/archive/blogs/msoms/oms-customers-can-now-use-azure-security-center-to-protect-their-hybrid-cloud-workloads)
 
 ## <a name="community-resources"></a>Recursos da comunidade
 
 * [UserVoice da Central de Segurança](https://feedback.azure.com/forums/347535-azure-security-center)
-* [Página de perguntas frequentes da Microsoft para a Central de Segurança](https://docs.microsoft.com/answers/topics/azure-security-center.html)
-
-
+* [P&uma página para A central de segurança](/answers/topics/azure-security-center.html)

@@ -9,12 +9,12 @@ metadata:
   author: anastasia-ms
   ms.author: v-stharr
   ms.date: 1/15/2020
-  ms.openlocfilehash: 01fb176ad6dc2ce097beddf03b724628ba3e1032
-  ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+  ms.openlocfilehash: 17113e3a2564ed56ecbcf8e34de27c4fe398ce03
+  ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 08/18/2020
-  ms.locfileid: "88509919"
+  ms.lasthandoff: 12/18/2020
+  ms.locfileid: "97680677"
 landingContent:
 - title: Sobre o Azure Mapas
   linkLists:
@@ -25,7 +25,7 @@ landingContent:
   - linkListType: concept
     links:
     - text: Cobertura do Azure Mapas
-      url: render-coverage.md
+      url: geographic-coverage.md
     - text: Suporte de Localização
       url: supported-languages.md
     - text: Estilos de mapa compatíveis
@@ -40,6 +40,8 @@ landingContent:
     links:
     - text: Crie um aplicativo Web usando o Azure Mapas
       url: quick-demo-map-app.md
+    - text: Criar um aplicativo Android usando o Azure Mapas
+      url: quick-android-map.md
   - linkListType: concept
     links:
     - text: Escolha o tipo de preço certo para a conta do Azure Mapas
@@ -77,17 +79,17 @@ landingContent:
     - text: Usar o módulo de mapas internos
       url: how-to-use-indoor-module.md
     - text: Usar os Gêmeos Digitais do Azure para atualizar o mapa do interior
-      url: https://docs.microsoft.com/azure/digital-twins/how-to-integrate-maps
+      url: ../digital-twins/how-to-integrate-maps.md
   - linkListType: reference
     links:
     - text: Serviço de conversão
-      url: https://docs.microsoft.com/rest/api/maps/conversion
+      url: /rest/api/maps/conversion
     - text: Serviço de conjunto de dados
-      url: https://docs.microsoft.com/rest/api/maps/dataset
+      url: /rest/api/maps/dataset
     - text: Serviço de conjunto de peças
-      url: https://docs.microsoft.com/rest/api/maps/tileset
+      url: /rest/api/maps/tileset
     - text: Serviço de conjunto de estado de recurso
-      url: https://docs.microsoft.com/rest/api/maps/featurestate
+      url: /rest/api/maps/featurestate
 - title: Como desenvolver com o SDK Web
   linkLists:
   - linkListType: concept
@@ -121,21 +123,35 @@ landingContent:
   - linkListType: reference
     links:
     - text: Controle de mapa
-      url: https://docs.microsoft.com/javascript/api/azure-maps-control/?view=azure-maps-typescript-latest
+      url: /javascript/api/azure-maps-control/
     - text: Módulo de ferramentas de desenho
-      url: https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/?view=azure-maps-typescript-latest
+      url: /javascript/api/azure-maps-drawing-tools/
     - text: Módulo de serviço
-      url: https://docs.microsoft.com/javascript/api/azure-maps-rest/?view=azure-maps-typescript-latest
+      url: /javascript/api/azure-maps-rest/
     - text: Módulo de E/S espacial
-      url: https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/?view=azure-maps-typescript-latest
+      url: /javascript/api/azure-maps-spatial-io/
 - title: Como desenvolver com o SDK do Android
   linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Carregar dados GeoJSON no mapa
+      url: tutorial-load-geojson-file-android.md
   - linkListType: how-to-guide
     links:
     - text: Introdução ao controle de mapeamento do Android
       url: how-to-use-android-map-control-library.md
-    - text: Exibir informações de metadados de um recurso
-      url: display-feature-information-android.md
+    - text: Criar uma fonte de dados
+      url: create-data-source-android-sdk.md
+    - text: Adicionar uma camada de bolha
+      url: map-add-bubble-layer-android.md
+    - text: Adicionar uma camada de símbolo
+      url: how-to-add-symbol-to-android-map.md
+    - text: Adicionar uma camada de linha
+      url: android-map-add-line-layer.md
+    - text: Adicionar uma camada de polígono
+      url: how-to-add-shapes-to-android-map.md
+    - text: Usar expressões de estilo orientadas por dados
+      url: data-driven-style-expressions-android-sdk.md
     - text: Adicionar uma camada de bloco a um mapa
       url: how-to-add-tile-layer-android-map.md
     - text: Adicionar uma forma a um mapa
@@ -165,13 +181,23 @@ landingContent:
   - linkListType: reference
     links:
     - text: Serviço de pesquisa
-      url: https://docs.microsoft.com/rest/api/maps/search
+      url: /rest/api/maps/search
     - text: Serviço de Roteiros
-      url: https://docs.microsoft.com/rest/api/maps/route
+      url: /rest/api/maps/route
     - text: Serviço de tráfego
-      url: https://docs.microsoft.com/rest/api/maps/traffic
+      url: /rest/api/maps/traffic
     - text: Serviço de fuso horário
-      url: https://docs.microsoft.com/rest/api/maps/timezone
+      url: /rest/api/maps/timezone
+- title: Como desenvolver usando o serviço Elevação
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Como recuperar e usar os dados de elevação
+      url: how-to-request-elevation-data.md
+  - linkListType: reference
+    links:
+    - text: Serviço Elevação
+      url: /rest/api/maps/elevation/
 - title: Análise espacial
   linkLists:
   - linkListType: concept
@@ -187,9 +213,9 @@ landingContent:
   - linkListType: reference
     links:
     - text: Serviço de Dados
-      url: https://docs.microsoft.com/rest/api/maps/data
+      url: /rest/api/maps/data
     - text: Serviço espacial
-      url: https://docs.microsoft.com/rest/api/maps/spatial
+      url: /rest/api/maps/spatial
 - title: Análise espacial com o Power BI
   linkLists:
   - linkListType: how-to-guide
@@ -204,7 +230,7 @@ landingContent:
   linkLists:
   - linkListType: concept
     links:
-    - text: Estrutura de dados do serviço Mobilidade
+    - text: Serviço de mobilidade
       url: mobility-service-data-structure.md
   - linkListType: how-to-guide
     links:
@@ -214,19 +240,25 @@ landingContent:
       url: how-to-request-real-time-data.md
   - linkListType: reference
     links:
-    - text: Serviço de Mobilidade
-      url: https://docs.microsoft.com/rest/api/maps/mobility
-- title: Como desenvolver com os Serviços de Clima
+    - text: Serviço de mobilidade
+      url: /rest/api/maps/mobility
+- title: Como desenvolver com os serviços meteorológicos
   linkLists:
   - linkListType: concept
     links:
-    - text: Conceito de Serviço de Clima
+    - text: Conceitos de serviços meteorológicos
       url: weather-services-concepts.md
+    - text: Perguntas frequentes sobre serviços meteorológicos
+      url: weather-services-faq.md
   - linkListType: tutorial
     links:
     - text: Analisar dados climáticos usando o Azure Notebooks (Python)
       url: weather-service-tutorial.md
+  - linkListType: how-to-guide
+    links:
+    - text: Solicitar dados meteorológicos em tempo real e previstos
+      url: how-to-request-weather-data.md
   - linkListType: reference
     links:
-    - text: Serviço de Clima
-      url: https://docs.microsoft.com/rest/api/maps/weather
+    - text: Serviços meteorológicos
+      url: /rest/api/maps/weather

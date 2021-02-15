@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/19/2019
 ms.author: johndeu
 ms.openlocfilehash: 6454bc863cb5fd628d581fff380c5ab61354f762
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87053046"
 ---
 # <a name="smooth-streaming-protocol-ms-sstr-amendment-for-hevc"></a>Aditamento do Protocolo Smooth Streaming para HEVC 
@@ -40,11 +40,11 @@ Os termos a seguir são definidos em *[MS-GLOS]*:
 
 Os termos a seguir são específicos deste documento:
 
->  **hora da composição:** O momento em que um exemplo é apresentado no cliente, conforme definido em [[ISO/IEC-14496-12]](https://go.microsoft.com/fwlink/?LinkId=183695).
+>  **hora da composição:** O momento em que um exemplo é apresentado no cliente, conforme definido em   [[ISO/IEC-14496-12]](https://go.microsoft.com/fwlink/?LinkId=183695).
 > 
 >   **CENC**: Criptografia Comum, conforme definido em [ISO/IEC 23001-7], Segunda Edição.
 > 
->   **tempo de decodificação:** O tempo que um exemplo deve ser decodificado no cliente, conforme definido em [[ISO/IEC 14496-12:2008]](https://go.microsoft.com/fwlink/?LinkId=183695).
+>   **tempo de decodificação:** O tempo que um exemplo deve ser decodificado no cliente, conforme definido em   [[ISO/IEC 14496-12:2008]](https://go.microsoft.com/fwlink/?LinkId=183695).
 
 **fragmento:** uma unidade de **mídia** baixável independentemente, que compreende uma ou mais **amostras**.
 
@@ -56,7 +56,7 @@ Os termos a seguir são específicos deste documento:
 > 
 >   **amostra:** a menor unidade fundamental (como um quadro) na qual a **mídia** é armazenada e processada.
 > 
->   **maio** , deve, deve, não deve: Esses termos (em todos os limites) são usados conforme descrito em [[RFC2119]](https://go.microsoft.com/fwlink/?LinkId=90317) todas as instruções de comportamento opcional usam pode, deve ou não.
+>   **maio** , deve, deve, não deve: Esses termos (em todos os limites) são usados conforme descrito em   [[RFC2119]](https://go.microsoft.com/fwlink/?LinkId=90317) todas as instruções de comportamento opcional usam pode, deve ou não.
 
 ## <a name="12-references"></a>1.2 Referências
 
@@ -64,7 +64,7 @@ Os termos a seguir são específicos deste documento:
 
 ### <a name="121-normative-references"></a>1.2.1 Referências normativas 
 
->  [MS-SSTR] *V20140502* do protocolo de Smooth streaming[https://msdn.microsoft.com/library/ff469518.aspx](/openspecs/windows_protocols/ms-sstr/8383f27f-7efe-4c60-832a-387274457251)
+>  [MS-SSTR] *V20140502* do protocolo de Smooth streaming [https://msdn.microsoft.com/library/ff469518.aspx](/openspecs/windows_protocols/ms-sstr/8383f27f-7efe-4c60-832a-387274457251)
 > 
 >   [ISO/IEC 14496-12] Organização Internacional de Normalização, "Tecnologia da informação -- Codificação de objetos audiovisuais -- Parte 12: Formato de Arquivo de Mídia Base ISO", ISO/IEC 14496-12:2014, Edição 4, Plus Retificação adicional 1, Aditamentos 1 e 2.
 >   <https://standards.iso.org/ittf/PubliclyAvailableStandards/c061988_ISO_IEC_14496-12_2012.zip>
@@ -78,17 +78,17 @@ Os termos a seguir são específicos deste documento:
 > 
 >   [RFC-6381] IETF RFC-6381, "Os parâmetros 'Codecs' e 'Perfis' para tipos de mídia "Bucket"" <https://tools.ietf.org/html/rfc6381>
 > 
->   [MPEG4-RA] A autoridade de registro MP4, "MP4REG",[http://www.mp4ra.org](https://go.microsoft.com/fwlink/?LinkId=327787)
+>   [MPEG4-RA] A autoridade de registro MP4, "MP4REG", [http://www.mp4ra.org](https://go.microsoft.com/fwlink/?LinkId=327787)
 > 
->   RFC2119 Bradner, S., "palavras-chave para uso em RFCs para indicar os níveis de requisito", BCP 14, RFC 2119, Março 1997,[https://www.rfc-editor.org/rfc/rfc2119.txt](https://go.microsoft.com/fwlink/?LinkId=90317)
+>   RFC2119 Bradner, S., "palavras-chave para uso em RFCs para indicar os níveis de requisito", BCP 14, RFC 2119, Março 1997,   [https://www.rfc-editor.org/rfc/rfc2119.txt](https://go.microsoft.com/fwlink/?LinkId=90317)
 
 ### <a name="122-informative-references"></a>1.2.2 Referências informativas 
 
 >   [MS-GLOS] Microsoft Corporation, "*Windows Protocols Master Glossary*."
 > 
->   RFC3548 Josefsson, S., Ed., "as codificações de dados para base16, Base32 e base64", RFC 3548, Julho 2003,[https://www.ietf.org/rfc/rfc3548.txt](https://go.microsoft.com/fwlink/?LinkId=90432)
+>   RFC3548 Josefsson, S., Ed., "as codificações de dados para base16, Base32 e base64", RFC 3548, Julho 2003, [https://www.ietf.org/rfc/rfc3548.txt](https://go.microsoft.com/fwlink/?LinkId=90432)
 > 
->   RFC5234 Crocker, D., Ed. e Overell, P., "aumento de BNF para especificações de sintaxe: ABNF", STD 68, RFC 5234, janeiro de 2008,[https://www.rfc-editor.org/rfc/rfc5234.txt](https://go.microsoft.com/fwlink/?LinkId=123096)
+>   RFC5234 Crocker, D., Ed. e Overell, P., "aumento de BNF para especificações de sintaxe: ABNF", STD 68, RFC 5234, janeiro de 2008,   [https://www.rfc-editor.org/rfc/rfc5234.txt](https://go.microsoft.com/fwlink/?LinkId=123096)
 
 
 ## <a name="13-overview"></a>1.3 Visão geral 

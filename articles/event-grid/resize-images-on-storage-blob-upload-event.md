@@ -3,12 +3,12 @@ title: 'Tutorial: Usar a Grade de Eventos do Azure para automatizar o redimensio
 description: 'Tutorial: A Grade de Eventos do Azure pode ser disparada em carregamentos de blob no Armazenamento do Azure. Você pode usar isso para enviar os arquivos de imagem carregados no Armazenamento do Azure para outros serviços, como o Azure Functions, para redimensionamento e outras melhorias.'
 ms.topic: tutorial
 ms.date: 07/07/2020
-ms.openlocfilehash: 19dfffdcee0fb95ae867b1b26fa51e702658445d
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 47ac8cad6d7c2ead8d25aa3525aafdab735f9e71
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86105788"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91326551"
 ---
 # <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>Tutorial: Automatizar o redimensionamento de imagens carregadas usando a Grade de Eventos
 
@@ -20,11 +20,11 @@ Use a CLI do Azure e o portal do Azure para adicionar a funcionalidade de redime
 
 # <a name="net-v12-sdk"></a>[\.SDK do NET v12](#tab/dotnet)
 
-![Aplicativo Web publicado no navegador](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
+![Captura de tela que mostra um aplicativo Web publicado em um navegador para o SDK \.NET v12.](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
 
 # <a name="nodejs-v10-sdk"></a>[SDK do Node.js V10](#tab/nodejsv10)
 
-![Aplicativo Web publicado no navegador](./media/resize-images-on-storage-blob-upload-event/upload-app-nodejs-thumb.png)
+![Captura de tela que mostra um aplicativo Web publicado em um navegador para o SDK \.NET v10.](./media/resize-images-on-storage-blob-upload-event/upload-app-nodejs-thumb.png)
 
 ---
 
@@ -263,7 +263,7 @@ Uma assinatura de evento indica quais eventos gerados pelo provedor você deseja
 
 1.  Selecione **Integração**, depois escolha o **Gatilho de Grade de Eventos** e selecione **Criar Assinatura de Grade de Eventos**.
 
-    :::image type="content" source="./media/resize-images-on-storage-blob-upload-event/add-event-subscription.png" alt-text="Navegar até Adicionar Assinatura de Grade de Eventos no portal do Azure" :::
+    :::image type="content" source="./media/resize-images-on-storage-blob-upload-event/add-event-subscription.png" alt-text="Escolher a função Miniatura no portal" :::
 
 1. Use as configurações da assinatura de evento, conforme especificado na tabela.
     
@@ -301,7 +301,7 @@ Clique na região **Carregar fotos** para selecionar e carregar um arquivo. Tamb
 
 Observe que, depois que a imagem carregada desaparece, uma cópia da imagem carregada é exibida no carrossel **Miniaturas Geradas**. Essa imagem foi redimensionada pela função, adicionada ao contêiner de *miniaturas* e baixada pelo cliente Web.
 
-![Aplicativo Web publicado no navegador](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
+![Captura de tela que mostra um aplicativo Web publicado intitulado "ImageResizer" em um navegador para o SDK \.NET v12.](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
 
 # <a name="nodejs-v10-sdk"></a>[SDK do Node.js V10](#tab/nodejsv10)
 

@@ -1,9 +1,9 @@
 ### YamlMime:Landing
 title: Documentação do Azure Spring Cloud
-summary: O Azure Spring Cloud fornece um serviço gerenciado que permite aos desenvolvedores de Java criar e executar facilmente microsserviços baseados em Spring-boot no Azure, sem alterações de código.
+summary: O Azure Spring Cloud fornece um serviço gerenciado que permite executar microsserviços no Azure usando Spring-boot ou Steeltoe (versão prévia) sem alterações de código.
 metadata:
   title: Azure Spring Cloud
-  description: O Azure Spring Cloud fornece um serviço gerenciado que permite aos desenvolvedores de Java criar e executar facilmente microsserviços baseados em Spring-boot no Azure, sem alterações de código.
+  description: O Azure Spring Cloud fornece um serviço gerenciado que permite executar microsserviços no Azure usando Spring-boot ou Steeltoe (versão prévia) sem alterações de código.
   services: spring-cloud
   ms.service: spring-cloud
   ms.topic: landing-page
@@ -11,12 +11,12 @@ metadata:
   author: bmitchell287
   ms.author: brendm
   ms.date: 09/26/2019
-  ms.openlocfilehash: fd012e58928b7844b122a826769167cb525f5ba1
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: 7598345ca1d687b8148b41454077ab5fca91e8f1
+  ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "77138189"
+  ms.lasthandoff: 12/09/2020
+  ms.locfileid: "96903940"
 landingContent:
 - title: Sobre o Azure Spring Cloud
   linkLists:
@@ -30,13 +30,13 @@ landingContent:
   linkLists:
   - linkListType: quickstart
     links:
-    - text: Iniciar um aplicativo Spring Java usando o portal
-      url: spring-cloud-quickstart-launch-app-portal.md
-    - text: Iniciar um aplicativo Spring Java usando a CLI do Azure
-      url: spring-cloud-quickstart-launch-app-cli.md
+    - text: Guia de início rápido – Implantar o seu primeiro aplicativo Azure Spring Cloud
+      url: spring-cloud-quickstart.md
+    - text: Introdução ao aplicativo de exemplo PiggyMetrics
+      url: spring-cloud-quickstart-sample-app-introduction.md
   - linkListType: tutorial
     links:
-    - text: Preparar um aplicativo Spring Java para implantação
+    - text: Preparar um aplicativo Spring ou Steeltoe para implantação
       url: spring-cloud-tutorial-prepare-app-deployment.md
 - title: Configurar o serviço
   linkLists:
@@ -81,4 +81,4 @@ landingContent:
   - linkListType: reference
     links:
     - text: Referência da API REST
-      url: https://docs.microsoft.com/rest/api/azurespringclould/
+      url: https://docs.microsoft.com/rest/api/azurespringcloud/

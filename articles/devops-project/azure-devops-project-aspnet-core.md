@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 03/24/2020
 ms.author: mlearned
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: c434abdac19c0afd3a76256c27fc3316a8b09940
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 63d3ac356e4f2c1d17e1511227f5089b7ff4266f
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88163689"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589150"
 ---
 # <a name="create-a-cicd-pipeline-for-net-with-azure-devops-starter"></a>Criar um pipeline de CI/CD para .NET com o Azure DevOps Starter
 
@@ -66,9 +66,9 @@ O DevOps Starter cria um pipeline de CI/CD no Azure DevOps. É possível criar u
 
 O DevOps Starter criou um repositório Git no Azure Repos ou no GitHub. Para exibir o repositório e fazer alterações de código no seu aplicativo, faça o seguinte:
 
-1. Na esquerda do painel do DevOps Starter, selecione o link para o branch **mestre**. Esse link abre uma exibição do repositório de Git recém-criado.
+1. Na esquerda do painel do DevOps Starter, selecione o link para a ramificação **principal**. Esse link abre uma exibição do repositório de Git recém-criado.
 
-2. Nas próximas etapas, você pode usar o navegador da Web para criar e confirmar as alterações de código diretamente no branch **mestre**. Também pode clonar seu repositório Git no seu IDE favorito, selecionando **Clonar** na parte superior direita da página de repositório. 
+2. Nas próximas etapas, você pode usar o navegador da Web para criar e confirmar as alterações de código diretamente na ramificação **principal**. Também pode clonar seu repositório Git no seu IDE favorito, selecionando **Clonar** na parte superior direita da página de repositório. 
 
 3. À esquerda, navegue pela estrutura de arquivos do aplicativo até **Application/aspnet-core-dotnet-core/Pages/Index.cshtml**.
 
@@ -133,7 +133,7 @@ O DevOps Starter cria um pipeline de lançamento para gerenciar implantações n
 Para saber mais sobre como modificar os pipelines de build e de lançamento para atender às necessidades de sua equipe, consulte este tutorial:
 
 > [!div class="nextstepaction"]
-> [Personalizar o processo de CD](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
+> [Personalizar o processo de CD](/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
 
 ## <a name="videos"></a>vídeos
 

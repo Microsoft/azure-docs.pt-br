@@ -8,11 +8,11 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: f38e23a3af1e2c81ee012a4f3c268cbff3fc1bee
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86171458"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002810"
 ---
 # <a name="persist-state-in-windows"></a>Persistir estado no Windows
 
@@ -73,8 +73,8 @@ Os [volumes do Docker](https://docs.docker.com/storage/volumes/) são usados par
     1. Clique com o botão direito do mouse em e selecione **Propriedades**.
     1. Selecione **Segurança**.
     1. Em * nomes de grupo ou de usuário, selecione **Editar**.
-    1. Selecione **Adicionar**, insira `Users` , selecione **verificar nomes**e selecione **OK**.
-    1. Em *permissões para usuários*, selecione **Modificar**e selecione **OK**.
+    1. Selecione **Adicionar**, insira `Users` , selecione **verificar nomes** e selecione **OK**.
+    1. Em *permissões para usuários*, selecione **Modificar** e selecione **OK**.
 1. Usar **associações** para montar este volume e reimplantar o módulo de grade de eventos de portal do Azure
 
    Por exemplo,

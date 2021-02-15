@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: System Architecture'
-ms.openlocfilehash: 1b51e2338dabd34ec69d311a9eb1a5c4a644f628
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 56bb179c50862f09f1b789c359db97976017bbb5
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322747"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92142771"
 ---
 # <a name="connecting-iot-devices-to-azure-iot-hub-and-event-hubs"></a>Conectar Dispositivos IoT ao Azure: Hub IoT e Hubs de Eventos
 
@@ -26,7 +26,7 @@ O Azure fornece serviços desenvolvidos especificamente para diferentes tipos de
 
 O Hub IoT do Azure é o gateway de nuvem que conecta dispositivos IoT para coletar dados e conduzir informações de negócios e automação. Além disso, o Hub IoT inclui recursos que enriquecem a relação entre os dispositivos e seus sistemas de back-end. Os recursos de comunicação bidirecional significam que, enquanto você recebe dados de dispositivos, você também pode enviar comandos e políticas de volta para dispositivos. Por exemplo, use mensagens da nuvem para o dispositivo para atualizar propriedades ou invocar ações de gerenciamento de dispositivo. A comunicação da nuvem para o dispositivo também permite que você envie inteligência de nuvem para seus dispositivos de borda com Azure IoT Edge. A identidade exclusiva no nível de dispositivo fornecida pelo Hub IoT ajuda a proteger melhor a sua solução de IoT contra ataques potenciais. 
 
-[Hubs de Eventos do Azure](../event-hubs/event-hubs-what-is-event-hubs.md) é o serviço de streaming de Big Data do Azure. Ele foi projetado para cenários de streaming de dados de alta taxa de transferência em que os clientes podem enviar bilhões de solicitações por dia. Os Hubs de Eventos usam um modelo de consumidor particionado para expandir sua transmissão e estão integrados aos serviços de big data e análise do Azure, incluindo Databricks, Stream Analytics, ADLS e HDInsight. Com recursos como a Captura e Aumento Automático de Hubs de Eventos, este serviço é criado para dar suporte a aplicativos e soluções de big data. Além disso, o Hub IoT usa hubs de eventos para seu caminho de fluxo de telemetria, de modo que sua solução de IoT também se beneficia da enorme potência dos hubs de eventos.
+[Hubs de Eventos do Azure](../event-hubs/event-hubs-about.md) é o serviço de streaming de Big Data do Azure. Ele foi projetado para cenários de streaming de dados de alta taxa de transferência em que os clientes podem enviar bilhões de solicitações por dia. Os Hubs de Eventos usam um modelo de consumidor particionado para expandir sua transmissão e estão integrados aos serviços de big data e análise do Azure, incluindo Databricks, Stream Analytics, ADLS e HDInsight. Com recursos como a Captura e Aumento Automático de Hubs de Eventos, este serviço é criado para dar suporte a aplicativos e soluções de big data. Além disso, o Hub IoT usa hubs de eventos para seu caminho de fluxo de telemetria, de modo que sua solução de IoT também se beneficia da enorme potência dos hubs de eventos.
 
 Para resumir, ambas as soluções foram projetadas para ingestão de dados em grande escala. Somente o Hub IoT fornece os recursos avançados de IoT específicos que são projetados para você maximizar o valor comercial de conectar seus dispositivos IoT à nuvem do Azure.  Se sua jornada IoT está apenas começando, começar com o Hub IoT para dar suporte a cenários de ingestão de dados garantirá que você tenha acesso instantâneo aos recursos de IoT completos quando suas necessidades comerciais e técnicas o exigir.
 

@@ -3,12 +3,12 @@ title: Sobre o backup do compartilhamento de arquivos do Azure
 description: Saiba como fazer backup de compartilhamentos de arquivos do Azure no cofre dos serviços de recuperação
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.openlocfilehash: 7960040df4208ad021bca3406f6472d8c3206d81
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: e955df7662bd18ed1d1d4ec1f0aa6c9474c5386f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892245"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89378076"
 ---
 # <a name="about-azure-file-share-backup"></a>Sobre o backup do compartilhamento de arquivos do Azure
 
@@ -50,7 +50,13 @@ O backup de compartilhamento de arquivos do Azure é uma solução de backup nat
 
 ## <a name="backup-costs"></a>Custos de backup
 
-No momento, você será cobrado apenas pelos instantâneos, já que o backup do compartilhamento de arquivos do Azure é uma solução baseada em instantâneo. Os encargos de armazenamento incorridos para instantâneos são cobrados junto com o uso de arquivos do Azure de acordo com os detalhes de preços mencionados [aqui](https://azure.microsoft.com/pricing/details/storage/files/).
+Há dois custos associados à solução de backup de compartilhamento de arquivos do Azure:
+
+1. **Custo de armazenamento de instantâneos**: os encargos de armazenamento incorridos para instantâneos são cobrados junto com o uso de arquivos do Azure de acordo com os detalhes de preços mencionados [aqui](https://azure.microsoft.com/pricing/details/storage/files/)
+
+2. **Taxa de instância protegida**: a partir de 1º de setembro de 2020, os clientes serão cobrados por uma taxa de instância protegida de acordo com os detalhes de preços mencionados [aqui](https://azure.microsoft.com/pricing/details/backup/). A taxa de instância protegida depende do tamanho total dos compartilhamentos de arquivos protegidos em uma conta de armazenamento.
+
+Para obter estimativas detalhadas de backup de compartilhamentos de arquivos do Azure, você pode baixar o [avaliador de preço detalhado do backup do Azure](https://aka.ms/AzureBackupCostEstimates).  
 
 ## <a name="next-steps"></a>Próximas etapas
 

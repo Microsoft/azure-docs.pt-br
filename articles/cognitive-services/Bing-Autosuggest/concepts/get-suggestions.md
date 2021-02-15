@@ -10,20 +10,25 @@ ms.subservice: bing-autosuggest
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: 060dbd29ee4ddb78e8ae9b2ed4e7814da3c4eebf
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: be7686c4d8a676d2a1d85516d2e4aa6abe3f3bfd
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74072881"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353401"
 ---
 # <a name="suggesting-query-terms"></a>Sugestão de termos de consulta
+
+> [!WARNING]
+> As APIs de Pesquisa do Bing estão migrando dos Serviços Cognitivos para os Serviços de Pesquisa do Bing. A partir de **30 de outubro de 2020**, todas as novas instâncias da Pesquisa do Bing precisam ser provisionadas seguindo o processo documentado [aqui](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> As APIs de Pesquisa do Bing provisionadas por meio dos Serviços Cognitivos terão suporte nos próximos três anos ou até o final do seu Contrato Enterprise, o que ocorrer primeiro.
+> Para obter instruções sobre a migração, confira [Serviços de Pesquisa do Bing](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Normalmente, você chamará a API de Sugestão Automática do Bing sempre que um usuário digitar um novo caractere na caixa de pesquisa do aplicativo. A integridade da cadeia de caracteres de consulta afeta a relevância dos termos de consulta sugeridos que a API retorna. Quanto mais completa a cadeia de caracteres de consulta, mais relevante é a lista de termos de consulta sugeridos. Por exemplo, as sugestões que a API poderá retornar para `s` provavelmente são menos relevantes do que as consultas retornadas para `sailing dinghies`.
 
 ## <a name="example-request"></a>Solicitação de exemplo
 
-O exemplo a seguir mostra uma solicitação que retorna as cadeias de caracteres de consulta sugeridas para *navegar*. Lembre-se de codificar a URL do termo de consulta parcial do usuário quando você definir o parâmetro de consulta [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#query). Por exemplo, se o usuário inserir *sailing les*, defina `q` como `sailing+les` ou `sailing%20les`.
+O exemplo a seguir mostra uma solicitação que retorna as cadeias de caracteres de consulta sugeridas para *navegar*. Lembre-se de codificar a URL do termo de consulta parcial do usuário quando você definir o parâmetro de consulta [q](/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#query). Por exemplo, se o usuário inserir *sailing les*, defina `q` como `sailing+les` ou `sailing%20les`.
 
 ```http
 GET https://api.cognitive.microsoft.com/bing/v7.0/suggestions?q=sail&mkt=en-us HTTP/1.1
@@ -34,7 +39,7 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com
 ```
 
-A resposta a seguir contém uma lista de objetos de [SearchAction](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#searchaction) que contêm os termos de consulta sugeridos.
+A resposta a seguir contém uma lista de objetos de [SearchAction](/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#searchaction) que contêm os termos de consulta sugeridos.
 
 ```json
 {
@@ -53,7 +58,7 @@ O exemplo a seguir mostra uma caixa de pesquisa suspensa com os termos de consul
 
 ![Lista suspensa da caixa de pesquisa com sugestão automática](../media/cognitive-services-bing-autosuggest-api/bing-autosuggest-drop-down-list.PNG)
 
-Se o usuário selecionar uma consulta sugerida na lista suspensa, você poderá usar o termo de consulta no campo `query` para chamar a [API de Pesquisa na Web do Bing](../../bing-web-search/search-the-web.md) e exibir os resultados por conta própria. Ou você pode usar a URL no campo `url` para enviar o usuário à página de resultados da pesquisa do Bing.
+Se o usuário selecionar uma consulta sugerida na lista suspensa, você poderá usar o termo de consulta no campo `query` para chamar a [API de Pesquisa na Web do Bing](../../bing-web-search/overview.md) e exibir os resultados por conta própria. Ou você pode usar a URL no campo `url` para enviar o usuário à página de resultados da pesquisa do Bing.
 
 ## <a name="next-steps"></a>Próximas etapas
 

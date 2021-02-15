@@ -1,6 +1,6 @@
 ---
-title: Controlar o acesso à conta de armazenamento para SQL sob demanda (versão prévia)
-description: Descreve como o SQL sob demanda (versão prévia) acessa o Armazenamento do Azure e como você pode controlar o acesso ao armazenamento para SQL sob demanda no Azure Synapse Analytics.
+title: Controlar o acesso da conta de armazenamento para o pool de SQL sem servidor
+description: Descreve como o pool de SQL sem servidor acessa o Armazenamento do Azure e como você pode controlar o acesso ao armazenamento do pool de SQL sem servidor no Azure Synapse Analytics.
 services: synapse-analytics
 author: filippopovic
 ms.service: synapse-analytics
@@ -8,32 +8,32 @@ ms.topic: overview
 ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
-ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: fd4cc4cfa7b7be9085ac404cab7fc7447b6d66a7
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.reviewer: jrasnick
+ms.openlocfilehash: c9a5be358c40c3411115d8c2ee3f9471c68771b8
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87987130"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576203"
 ---
-# <a name="control-storage-account-access-for-sql-on-demand-preview"></a>Controlar o acesso à conta de armazenamento para SQL sob demanda (versão prévia)
+# <a name="control-storage-account-access-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Controlar o acesso à conta de armazenamento para o pool de SQL sem servidor no Azure Synapse Analytics
 
-Uma consulta SQL sob demanda lê arquivos diretamente no Armazenamento do Azure. As permissões para acessar os arquivos no armazenamento do Azure são controladas em dois níveis:
+Uma consulta do pool de SQL sem servidor lê arquivos diretamente no Armazenamento do Azure. As permissões para acessar os arquivos no armazenamento do Azure são controladas em dois níveis:
 - **Nível de armazenamento** – o usuário deve ter permissão para acessar os arquivos de armazenamento subjacentes. O administrador de armazenamento deve permitir que a entidade de segurança do Azure AD leia/grave arquivos ou gere uma chave SAS que será usada para acessar o armazenamento.
-- **Nível de serviço do SQL** – o usuário deve ter a permissão `SELECT` para ler dados de [tabela externa](develop-tables-external-tables.md) ou a permissão `ADMINISTER BULK ADMIN` para executar `OPENROWSET`, bem como permissão para usar as credenciais necessárias para acessar o armazenamento.
+- **Nível de serviço do SQL** – o usuário deve ter concedido uma permissão para ler dados usando a [tabela externa](develop-tables-external-tables.md) ou para executar a função `OPENROWSET`. Leia mais sobre [as permissões obrigatórias nesta seção](develop-storage-files-overview.md#permissions).
 
 Este artigo descreve os tipos de credenciais que você pode usar e como a pesquisa de credenciais é aplicada para usuários do SQL e do Azure AD.
 
 ## <a name="supported-storage-authorization-types"></a>Tipos de autorização de armazenamento compatíveis
 
-Um usuário que fez logon em um recurso SQL sob demanda deverá estar autorizado a acessar e consultar os arquivos no Armazenamento do Azure se os arquivos não estiverem disponíveis publicamente. Você pode usar três tipos de autorização para acessar um armazenamento não público: [Identidade do Usuário](?tabs=user-identity), [Assinatura de acesso compartilhado](?tabs=shared-access-signature) e [Identidade Gerenciada](?tabs=managed-identity).
+Um usuário que fez logon em um pool de SQL sem servidor precisará estar autorizado a acessar e consultar os arquivos no Armazenamento do Azure se os arquivos não estiverem disponíveis publicamente. Você pode usar três tipos de autorização para acessar um armazenamento não público: [Identidade do Usuário](?tabs=user-identity), [Assinatura de acesso compartilhado](?tabs=shared-access-signature) e [Identidade Gerenciada](?tabs=managed-identity).
 
 > [!NOTE]
 > **Passagem do Azure AD** é o comportamento padrão quando você cria um workspace.
 
 ### <a name="user-identity"></a>[Identidade do Usuário](#tab/user-identity)
 
-A **Identidade do Usuário**, também conhecida como "passagem do Azure AD", é um tipo de autorização em que a identidade do usuário do Azure AD que fez logon no SQL sob demanda é usada para autorizar o acesso a dados. Antes de acessar os dados, o administrador do Armazenamento do Azure deve conceder permissões ao usuário do Azure AD. Conforme indicado na tabela a seguir, não é compatível para o tipo de usuário do SQL.
+A **Identidade do Usuário**, também conhecida como "passagem do Azure AD", é um tipo de autorização em que a identidade do usuário do Azure AD que fez logon no pool de SQL sem servidor é usada para autorizar o acesso a dados. Antes de acessar os dados, o administrador do Armazenamento do Azure deve conceder permissões ao usuário do Azure AD. Conforme indicado na tabela a seguir, não é compatível para o tipo de usuário do SQL.
 
 > [!IMPORTANT]
 > Você precisa ter uma função de Proprietário/Colaborador/Leitor de dados do blob de armazenamento para usar sua identidade para acessar os dados.
@@ -49,21 +49,21 @@ A **SAS (Assinatura de Acesso Compartilhado)** fornece acesso delegado aos recur
 Você pode obter um token SAS navegando até o **Portal do Azure -> Conta de Armazenamento -> Assinatura de Acesso Compartilhado -> Configurar permissões -> Gerar SAS e cadeia de conexão.**
 
 > [!IMPORTANT]
-> Quando um token SAS é gerado, ele inclui um ponto de interrogação ("?") no início do token. Para usar o token no SQL sob demanda, você deve remover o ponto de interrogação ("?") ao criar uma credencial. Por exemplo:
+> Quando um token SAS é gerado, ele inclui um ponto de interrogação ("?") no início do token. Para usar o token no pool de SQL sem servidor, você precisa remover o ponto de interrogação ("?") ao criar uma credencial. Por exemplo:
 >
 > Token SAS: ?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-04-18T20:42:12Z&st=2019-04-18T12:42:12Z&spr=https&sig=lQHczNvrk1KoYLCpFdSsMANd0ef9BrIPBNJ3VYEIq78%3D
 
-Você precisa criar uma credencial no escopo do banco de dados ou no escopo do servidor para permitir o acesso usando o token SAS.
+Para permitir acesso usando um token SAS, você precisa criar uma credencial no escopo do banco de dados ou no escopo do servidor 
 
 ### <a name="managed-identity"></a>[Identidade gerenciada](#tab/managed-identity)
 
-A **Identidade Gerenciada** também é conhecida como MSI. É um recurso do Azure AD (Azure Active Directory) que fornece serviços do Azure para SQL sob demanda. Além disso, ele implanta uma identidade gerenciada automaticamente no Azure AD. Essa identidade pode ser usada para autorizar a solicitação de acesso a dados no Armazenamento do Azure.
+A **Identidade Gerenciada** também é conhecida como MSI. É um recurso do Azure AD (Azure Active Directory) que fornece serviços do Azure para o pool de SQL sem servidor. Além disso, ele implanta uma identidade gerenciada automaticamente no Azure AD. Essa identidade pode ser usada para autorizar a solicitação de acesso a dados no Armazenamento do Azure.
 
 Antes de acessar os dados, o administrador do Armazenamento do Azure deve conceder permissões para a Identidade Gerenciada a fim de acessar os dados. A concessão de permissões para a Identidade Gerenciada é feita da mesma forma que a concessão de permissão para qualquer outro usuário do Azure AD.
 
 ### <a name="anonymous-access"></a>[Acesso anônimo](#tab/public-access)
 
-Você pode acessar os arquivos publicamente disponíveis colocados em contas do Armazenamento do Azure que [permitem acesso anônimo](/azure/storage/blobs/storage-manage-access-to-resources).
+Você pode acessar os arquivos publicamente disponíveis colocados em contas do Armazenamento do Azure que [permitem acesso anônimo](../../storage/blobs/anonymous-read-access-configure.md).
 
 ---
 
@@ -84,18 +84,95 @@ Você pode usar as seguintes combinações de autorização e tipos de Armazenam
 | Tipo de autorização  | Armazenamento de Blobs   | ADLS Gen1        | ADLS Gen2     |
 | ------------------- | ------------   | --------------   | -----------   |
 | [SAS](?tabs=shared-access-signature#supported-storage-authorization-types)    | Com suporte\*      | Não compatível   | Com suporte\*     |
-| [Identidade gerenciada](?tabs=managed-identity#supported-storage-authorization-types) | Com suporte      | Com suporte        | Suportado     |
+| [Identidade gerenciada](?tabs=managed-identity#supported-storage-authorization-types) | Com suporte      | Suportado        | Suportado     |
 | [Identidade do Usuário](?tabs=user-identity#supported-storage-authorization-types)    | Suportado\*      | Suportado\*        | Suportado\*     |
 
-\* O token SAS e a identidade do Azure AD podem ser usados para acessar um armazenamento que não está protegido com o firewall.
+\* O token SAS e a Identidade do Azure AD podem ser usados para acessar um armazenamento que não está protegido pelo firewall.
 
-> [!IMPORTANT]
-> Ao acessar o armazenamento protegido pelo firewall, somente a Identidade Gerenciada pode ser usada. Você precisa [Permitir a configuração de serviços Microsoft confiáveis...](../../storage/common/storage-network-security.md#trusted-microsoft-services) e [atribuir uma função do Azure](../../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights) explicitamente à [identidade gerenciada atribuída pelo sistema](../../active-directory/managed-identities-azure-resources/overview.md) para essa instância do recurso. Nesse caso, o escopo de acesso para a instância corresponde à função do Azure atribuída à identidade gerenciada.
->
+
+### <a name="querying-firewall-protected-storage"></a>Como consultar o armazenamento protegido por firewall
+
+Ao acessar o armazenamento protegido pelo firewall, é possível usar a **Identidade do Usuário** ou a **Identidade Gerenciada**.
+
+> [!NOTE]
+> O recurso de firewall no Armazenamento está em versão prévia pública e disponível em todas as regiões de nuvem pública. 
+
+#### <a name="user-identity"></a>Identidade do Usuário
+
+Para acessar o armazenamento protegido com o firewall por meio da identidade do usuário, você pode usar o módulo Az.Storage do PowerShell.
+#### <a name="configuration-via-powershell"></a>Configuração por meio do PowerShell
+
+Siga estas etapas para configurar o firewall da conta de armazenamento e adicionar uma exceção para o workspace do Synapse.
+
+1. Abra o PowerShell ou [instale o PowerShell](/powershell/scripting/install/installing-powershell-core-on-windows?preserve-view=true&view=powershell-7.1)
+2. Instale o módulo Az.Storage 3.0.1 e Az.Synapse 0.7.0: 
+    ```powershell
+    Install-Module -Name Az.Storage -RequiredVersion 3.0.1-preview -AllowPrerelease
+    Install-Module -Name Az.Synapse -RequiredVersion 0.7.0
+    ```
+    > [!IMPORTANT]
+    > Use a **versão 3.0.1**. Você pode verificar sua versão do Az.Storage executando este comando:  
+    > ```powershell 
+    > Get-Module -ListAvailable -Name  Az.Storage | select Version
+    > ```
+    > 
+
+3. Conecte-se ao seu locatário do Azure: 
+    ```powershell
+    Connect-AzAccount
+    ```
+4. Defina as variáveis no PowerShell: 
+    - Nome do grupo de recursos: você pode encontrar essa informação no portal do Azure, na visão geral do workspace do Synapse.
+    - Nome da conta: nome da conta de armazenamento que é protegida por regras de firewall.
+    - ID do locatário: você pode encontrá-la nas informações de locatário do Azure Active Directory no portal do Azure.
+    - Nome do workspace: o nome do workspace do Azure Synapse.
+
+    ```powershell
+        $resourceGroupName = "<resource group name>"
+        $accountName = "<storage account name>"
+        $tenantId = "<tenant id>"
+        $workspaceName = "<synapse workspace name>"
+        
+        $workspace = Get-AzSynapseWorkspace -Name $workspaceName
+        $resourceId = $workspace.Id
+        $index = $resourceId.IndexOf("/resourceGroups/", 0)
+        # Replace G with g - /resourceGroups/ to /resourcegroups/
+        $resourceId = $resourceId.Substring(0,$index) + "/resourcegroups/" + $resourceId.Substring($index + "/resourceGroups/".Length)
+        $resourceId
+    ```
+    > [!IMPORTANT]
+    > Verifique se a ID do recurso corresponde a esse modelo na impressão da variável resourceId.
+    >
+    > É importante escrever **resourcegroups** em letras minúsculas.
+    > Exemplo de uma ID do recurso: 
+    > ```
+    > /subscriptions/{subscription-id}/resourcegroups/{resource-group}/providers/Microsoft.Synapse/workspaces/{name-of-workspace}
+    > ```
+    > 
+5. Adicione a regra de rede de armazenamento: 
+    ```powershell
+        Add-AzStorageAccountNetworkRule -ResourceGroupName $resourceGroupName -Name $accountName -TenantId $tenantId -ResourceId $resourceId
+    ```
+6. Verifique se a regra foi aplicada em sua conta de armazenamento: 
+    ```powershell
+        $rule = Get-AzStorageAccountNetworkRuleSet -ResourceGroupName $resourceGroupName -Name $accountName
+        $rule.ResourceAccessRules | ForEach-Object { 
+            if ($_.ResourceId -cmatch "\/subscriptions\/(\w\-*)+\/resourcegroups\/(.)+") { 
+                Write-Host "Storage account network rule is successfully configured." -ForegroundColor Green
+                $rule.ResourceAccessRules
+            } else {
+                Write-Host "Storage account network rule is not configured correctly. Remove this rule and follow the steps in detail." -ForegroundColor Red
+                $rule.ResourceAccessRules
+            }
+        }
+    ```
+
+#### <a name="managed-identity"></a>Identidade Gerenciada
+Você precisa [Permitir a configuração de serviços Microsoft confiáveis...](../../storage/common/storage-network-security.md#trusted-microsoft-services) e [atribuir uma função do Azure](../../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights) explicitamente à [identidade gerenciada atribuída pelo sistema](../../active-directory/managed-identities-azure-resources/overview.md) para essa instância do recurso. Nesse caso, o escopo de acesso para a instância corresponde à função do Azure atribuída à identidade gerenciada.
 
 ## <a name="credentials"></a>Credenciais
 
-Para consultar um arquivo localizado no Armazenamento do Azure, seu ponto de extremidade do SQL sob demanda precisa de uma credencial que contenha as informações de autenticação. São usados dois tipos de credenciais:
+Para consultar um arquivo localizado no Armazenamento do Azure, o seu ponto de extremidade do pool de SQL sem servidor precisa de uma credencial que contenha as informações de autenticação. São usados dois tipos de credenciais:
 - O argumento CREDENTIAL no nível do servidor é usado para consultas ad hoc executadas usando a função `OPENROWSET`. O nome da credencial deve corresponder à URL de armazenamento.
 - DATABASE SCOPED CREDENTIAL é usada para tabelas externas. A tabela externa faz referência a `DATA SOURCE` com a credencial que deve ser usada para acessar o armazenamento.
 
@@ -119,7 +196,7 @@ Para garantir uma experiência de passagem do Azure AD suave, todos os usuários
 
 ## <a name="server-scoped-credential"></a>Credencial no escopo do servidor
 
-As credenciais no escopo do servidor são usadas quando o logon do SQL chama a função `OPENROWSET` sem `DATA_SOURCE` para ler arquivos em alguma conta de armazenamento. O nome da credencial no escopo do servidor **precisa** corresponder à URL do Armazenamento do Azure. Uma credencial é adicionada executando [CREATE CREDENTIAL](/sql/t-sql/statements/create-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest). Você precisará fornecer um argumento CREDENTIAL NAME. Ele deve corresponder a parte ou a todo o caminho para os dados no Armazenamento (veja abaixo).
+As credenciais no escopo do servidor são usadas quando o logon do SQL chama a função `OPENROWSET` sem `DATA_SOURCE` para ler arquivos em alguma conta de armazenamento. O nome da credencial no escopo do servidor **precisa** corresponder à URL do Armazenamento do Azure. Uma credencial é adicionada executando [CREATE CREDENTIAL](/sql/t-sql/statements/create-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). Você precisará fornecer um argumento CREDENTIAL NAME. Ele deve corresponder a parte ou a todo o caminho para os dados no Armazenamento (veja abaixo).
 
 > [!NOTE]
 > Não há suporte para o argumento `FOR CRYPTOGRAPHIC PROVIDER`.
@@ -155,7 +232,7 @@ GO
 
 ### <a name="managed-identity"></a>[Identidade gerenciada](#tab/managed-identity)
 
-O script a seguir cria uma credencial no nível do servidor que pode ser usada pela função `OPENROWSET` para acessar qualquer arquivo no Armazenamento do Azure usando a identidade gerenciada do workspace.
+O script a seguir cria uma credencial no nível do servidor que pode ser usada pela função `OPENROWSET` para acessar qualquer arquivo no armazenamento do Azure usando a identidade gerenciada pelo workspace.
 
 ```sql
 CREATE CREDENTIAL [https://<storage_account>.dfs.core.windows.net/<container>]
@@ -170,7 +247,7 @@ A credencial no escopo do banco de dados não é necessária para permitir o ace
 
 ## <a name="database-scoped-credential"></a>Credencial no escopo do banco de dados
 
-As credenciais no escopo do banco de dados são usadas quando qualquer entidade de segurança chama a função `OPENROWSET` com `DATA_SOURCE` ou seleciona dados de [tabela externa](develop-tables-external-tables.md) que não acessam arquivos públicos. A credencial no escopo do banco de dados não precisa corresponder ao nome da conta de armazenamento, pois ela será usada explicitamente na fonte de dados (argumento DATA SOURCE) que define o local do armazenamento.
+As credenciais no escopo do banco de dados são usadas quando qualquer entidade de segurança chama a função `OPENROWSET` com `DATA_SOURCE` ou seleciona dados de [tabela externa](develop-tables-external-tables.md) que não acessam arquivos públicos. A credencial no escopo do banco de dados não precisa corresponder ao nome da conta de armazenamento. Ela será usada explicitamente no DATA SOURCE que define a localização do armazenamento.
 
 As credenciais no escopo do banco de dados permitem o acesso ao Armazenamento do Azure usando os seguintes tipos de autenticação:
 
@@ -268,7 +345,7 @@ O usuário do banco de dados pode ler o conteúdo dos arquivos da fonte de dados
 SELECT TOP 10 * FROM dbo.userPublicData;
 GO
 SELECT TOP 10 * FROM OPENROWSET(BULK 'parquet/user-data/*.parquet',
-                                DATA_SOURCE = [mysample],
+                                DATA_SOURCE = 'mysample',
                                 FORMAT='PARQUET') as rows;
 GO
 ```
@@ -314,7 +391,7 @@ O usuário do banco de dados pode ler o conteúdo dos arquivos da fonte de dados
 ```sql
 SELECT TOP 10 * FROM dbo.userdata;
 GO
-SELECT TOP 10 * FROM OPENROWSET(BULK 'parquet/user-data/*.parquet', DATA_SOURCE = [mysample], FORMAT='PARQUET') as rows;
+SELECT TOP 10 * FROM OPENROWSET(BULK 'parquet/user-data/*.parquet', DATA_SOURCE = 'mysample', FORMAT='PARQUET') as rows;
 GO
 ```
 

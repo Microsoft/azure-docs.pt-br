@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e27c6661c34ab6d177feec11f8e9ec891987ab48
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 263e45928642aa74d682fc490e424a24deeb8076
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89005744"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790674"
 ---
 # <a name="placement-policies-for-service-fabric-services"></a>Políticas de posicionamento para serviços do Service Fabric
 As políticas de posicionamento são regras adicionais que podem ser usadas para administrar o posicionamento de serviço em alguns cenários específicos, menos comuns. Alguns exemplos desses cenários são:
@@ -20,6 +20,7 @@ As políticas de posicionamento são regras adicionais que podem ser usadas para
 - O ambiente abrange várias áreas de controle geopolítico ou legal, ou algum outro caso em que você tem limites políticos que precisa impor
 - Há considerações de latência ou desempenho de comunicação devido a grandes distâncias ou uso de links de rede mais lentos ou menos confiáveis
 - Você precisa manter determinadas cargas de trabalho colocadas como um melhor esforço, seja com outras cargas de trabalho, seja na proximidade dos clientes
+- Você precisa de várias instâncias sem estado de uma partição em um único nó
 
 A maioria desses requisitos se alinha ao layout físico do cluster, representado como os domínios de falha do cluster. 
 
@@ -29,6 +30,7 @@ As políticas de posicionamento avançado que ajudam a resolver esses cenários 
 2. Domínios necessários
 3. Domínios preferenciais
 4. Desativação de empacotamento de réplica
+5. Permitir várias instâncias sem estado no nó
 
 A maioria dos controles a seguir pode ser configurada por meio das propriedades de nó e de restrições de posicionamento, mas algumas são mais complicadas. Para simplificar, o Cluster Resource Manager do Service Fabric fornece essas políticas de posicionamento adicionais. As políticas de posicionamento são configuradas de acordo com uma instância de serviço nomeada. Elas também podem ser atualizadas dinamicamente.
 
@@ -122,6 +124,42 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 ```
 
 Agora, seria possível usar essas configurações para serviços em um cluster que não tenha sido distribuído geograficamente? Seria, mas também não há um bom motivo para isso. As configurações de domínio obrigatórias, inválidas e preferenciais devem ser evitadas, a menos que os cenários as exijam. Não faz sentido tentar forçar uma determinada carga de trabalho a ser executada em um único rack ou preferir algum segmento do seu cluster local em vez de outro. Diferentes configurações de hardware devem ser distribuídas entre domínios de falha e manipuladas por propriedades de nó e restrições de posicionamento normais.
+
+## <a name="placement-of-multiple-stateless-instances-of-a-partition-on-single-node"></a>Posicionamento de várias instâncias sem estado de uma partição em um único nó
+A política de posicionamento **AllowMultipleStatelessInstancesOnNode** permite o posicionamento de várias instâncias sem estado de uma partição em um único nó. Por padrão, várias instâncias de uma única partição não podem ser colocadas em um nó. Mesmo com um serviço-1, não é possível dimensionar o número de instâncias além do número de nós no cluster para um determinado serviço nomeado. Essa política de posicionamento remove essa restrição e permite que a InstanceCount seja especificada mais alta do que a contagem de nós.
+
+Se você já viu uma mensagem de integridade, como "`The Load Balancer has detected a Constraint Violation for this Replica:fabric:/<some service name> Secondary Partition <some partition ID> is violating the Constraint: ReplicaExclusion`", você atingiu essa condição ou algo parecido. 
+
+Ao especificar a `AllowMultipleStatelessInstancesOnNode` política no serviço, InstanceCount pode ser definido além do número de nós no cluster.
+
+Código:
+
+```csharp
+ServicePlacementAllowMultipleStatelessInstancesOnNodePolicyDescription allowMultipleInstances = new ServicePlacementAllowMultipleStatelessInstancesOnNodePolicyDescription();
+serviceDescription.PlacementPolicies.Add(allowMultipleInstances);
+```
+
+PowerShell:
+
+```posh
+New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName -Stateless –PartitionSchemeSingleton –PlacementPolicy @(“AllowMultipleStatelessInstancesOnNode”) -InstanceCount 10 -ServicePackageActivationMode ExclusiveProcess 
+```
+
+> [!NOTE]
+> A política de posicionamento está atualmente em visualização e atrás da `EnableUnsupportedPreviewFeatures` configuração de cluster. Como esse é um recurso de visualização por enquanto, definir a configuração de visualização impede que o cluster seja atualizado para/de. Em outras palavras, será necessário criar um novo cluster para experimentar o recurso.
+>
+
+> [!NOTE]
+> Atualmente, a política só tem suporte para serviços sem estado com o [modo de ativação do pacote de serviço](/dotnet/api/system.fabric.description.servicepackageactivationmode)ExclusiveProcess.
+>
+
+> [!WARNING]
+> Não há suporte para a política quando usada com pontos de extremidade de porta estática. O uso de ambos em conjunto pode levar a um cluster não íntegro, pois várias instâncias no mesmo nó tentam se associar à mesma porta e não podem vir. 
+>
+
+> [!NOTE]
+> Usar um valor alto de [MinInstanceCount](/dotnet/api/system.fabric.description.statelessservicedescription.mininstancecount) com essa política de posicionamento pode levar a atualizações de aplicativo paralisadas. Por exemplo, se você tiver um cluster de cinco nós e definir InstanceCount = 10, terá duas instâncias em cada nó. Se você definir MinInstanceCount = 9, uma tentativa de atualização do aplicativo poderá ficar presa; com MinInstanceCount = 8, isso pode ser evitado.
+>
 
 ## <a name="next-steps"></a>Próximas etapas
 - Para saber mais sobre como configurar os serviços, [Saiba mais sobre como configurar serviços](service-fabric-cluster-resource-manager-configure-services.md)

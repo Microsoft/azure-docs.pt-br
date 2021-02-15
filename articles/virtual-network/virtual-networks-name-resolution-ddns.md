@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2017
 ms.author: subsarma
-ms.openlocfilehash: 9f5b535a341956e5675ba96ba9570bd3f2ff3443
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ad91eb94aedcdd0e4e715162e3ae064a1d2fb1ea
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84710942"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98220415"
 ---
 # <a name="use-dynamic-dns-to-register-hostnames-in-your-own-dns-server"></a>Usar o DNS dinâmico para registrar os nomes do host em seu próprio servidor DNS
 
@@ -28,7 +28,7 @@ O [Azure fornece resolução de nomes](virtual-networks-name-resolution-for-vms-
 Quando os servidores DNS personalizados forem hospedados como VMs do Azure, você poderá encaminhar consultas de nome do host para a mesma rede virtual do Azure para resolver nomes de host. Se não desejar usar essa opção, você poderá registrar os nomes do host da VM no servidor DNS usando o DDNS (DNS dinâmico). O Azure não tem as credenciais para criar diretamente registros nos servidores DNS, de modo que disposições alternativas muitas vezes são necessárias. Veja a seguir alguns cenários comuns, com alternativas:
 
 ## <a name="windows-clients"></a>Clientes do Windows
-Clientes do Windows não ingressados no domínio tentam atualizar DDNS não seguros quando eles são inicializados ou quando seu endereço IP é alterado. O nome DNS é o nome do host mais o sufixo DNS primário. O Azure deixa o sufixo DNS primário em branco, mas você pode defini-lo na VM, por meio da [interface do usuário](https://technet.microsoft.com/library/cc794784.aspx) ou do [PowerShell](/powershell/module/dnsclient/set-dnsclient).
+Clientes do Windows não ingressados no domínio tentam atualizar DDNS não seguros quando eles são inicializados ou quando seu endereço IP é alterado. O nome DNS é o nome do host mais o sufixo DNS primário. O Azure deixa o sufixo DNS primário em branco, mas você pode defini-lo na VM, por meio da [interface do usuário](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc794784(v=ws.10)) ou do [PowerShell](/powershell/module/dnsclient/set-dnsclient).
 
 Os clientes do Windows ingressados no domínio registram seus endereços IP com o controlador de domínio usando DDNS seguro. O processo de ingresso no domínio define o sufixo DNS primário no cliente e cria e mantém a relação de confiança.
 

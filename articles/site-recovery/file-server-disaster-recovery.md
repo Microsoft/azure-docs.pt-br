@@ -1,19 +1,19 @@
 ---
 title: Proteger um servidor de arquivos usando o Azure Site Recovery
 description: Este artigo descreve como proteger um servidor de arquivos usando o Azure Site Recovery
-author: rajani-janaki-ram
-manager: gauravd
+author: Sharmistha-Rai
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.author: rajanaki
+ms.author: sharrai
 ms.custom: mvc
-ms.openlocfilehash: c4b6d583c2dd3d54c6201917a40fa6165efac18f
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 9cef163c1b53360222ca32a827552fa361e9dd40
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86131269"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98874240"
 ---
 # <a name="protect-a-file-server-by-using-azure-site-recovery"></a>Proteger um servidor de arquivos usando o Azure Site Recovery 
 
@@ -64,7 +64,7 @@ O diagrama a seguir o ajudará a determinar qual estratégia deve ser usada para
 ### <a name="site-recovery-support"></a>Suporte do Site Recovery
 Como a replicação do Site Recovery é independente do aplicativo, estas recomendações devem servir também para os cenários a seguir.
 
-| Origem  |Para um site secundário  |Para o Azure
+| Fonte  |Para um site secundário  |Para o Azure
 |---------|---------|---------|
 |Azure|  -|Sim|
 |Hyper-V|  Sim  |Sim
@@ -77,7 +77,7 @@ Como a replicação do Site Recovery é independente do aplicativo, estas recome
 
 
 
-**Conectividade site a site**: uma conexão direta entre o site local e a rede do Azure deve ser estabelecida para permitir a comunicação entre servidores. Use uma conexão de VPN site a site segura a uma rede virtual do Azure que seja usada como local de recuperação de desastres. Para obter mais informações, consulte [Estabelecer uma conexão de VPN site a site entre um site local e uma rede virtual do Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).
+**Conectividade site a site**: uma conexão direta entre o site local e a rede do Azure deve ser estabelecida para permitir a comunicação entre servidores. Use uma conexão de VPN site a site segura a uma rede virtual do Azure que seja usada como local de recuperação de desastres. Para obter mais informações, consulte [Estabelecer uma conexão de VPN site a site entre um site local e uma rede virtual do Azure](../vpn-gateway/tutorial-site-to-site-portal.md).
 
 **Active Directory**: a DFSR depende do Active Directory. Isso significa que a floresta do Active Directory com controladores de domínio locaia é estendida para o local de recuperação de desastre no Azure. Mesmo se você não estiver usando a DFSR, se os usuários pretendidos precisam obter acesso ou ser verificados para o acesso, você deve realizar essas etapas. Para obter mais informações, consulte [Estender o Active Directory no local para o Azure](./site-recovery-active-directory.md).
 
@@ -123,7 +123,7 @@ As etapas a seguir descrevem a replicação para uma VM do VMware. Para conferir
 1. [Prepare os recursos do Azure](tutorial-prepare-azure.md) para a replicação de computadores locais.
 2. Estabelecer uma conexão VPN site a site entre o site local e a rede do Azure. 
 3. Estender o Active Directory local.
-4. [Preparar servidores VMware locais](./vmware-azure-tutorial-prepare-on-premises.md).
+4. [Prepare servidores VMware locais](./vmware-azure-tutorial-prepare-on-premises.md).
 5. [Configurar a recuperação de desastre](./vmware-azure-tutorial.md) de VMs locais para o Azure.
 
 ## <a name="extend-dfsr-to-an-azure-iaas-virtual-machine"></a>Estender a DFSR para uma máquina virtual IaaS do Azure

@@ -1,18 +1,15 @@
 ---
 title: Aprofundamento e práticas recomendadas do gateway para Apache Hive no Azure HDInsight
 description: Saiba como navegar pelas práticas recomendadas para executar consultas de Hive no gateway do Azure HDInsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/01/2020
-ms.openlocfilehash: 924b1132efeb3ee4211593da190f5b7251029ae3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 63484d882d8ccd387257c6f246c2048a09c77bc8
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80586971"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98933103"
 ---
 # <a name="gateway-deep-dive-and-best-practices-for-apache-hive-in-azure-hdinsight"></a>Aprofundamento e práticas recomendadas do gateway para Apache Hive no Azure HDInsight
 
@@ -56,9 +53,9 @@ Há vários locais para mitigar e entender os problemas de desempenho atendidos 
 
 * Use a cláusula **Limit** ao executar consultas de **seleção** grande. A cláusula **Limit** reduzirá o total de linhas relatadas para o host cliente. A cláusula **Limit** afeta apenas a geração de resultados e não altera o plano de consulta. Para aplicar a cláusula **Limit** ao plano de consulta, use a configuração `hive.limit.optimize.enable` . O **limite** pode ser combinado com um deslocamento usando o limite de formulário de argumento **x, y**.
 
-* Nomeie suas colunas de interesse ao executar consultas **Select** em vez de **usar \* Select **. Selecionar menos colunas reduzirá a quantidade de dados lidos.
+* Nomeie suas colunas de interesse ao executar consultas **Select** em vez de usar ** \* Select* _. Selecionar menos colunas reduzirá a quantidade de dados lidos.
 
-* Tente executar a consulta de interesse por meio do Apache beeline. Se a recuperação de resultado via Apache beeline levar um longo período de tempo, espere atrasos ao recuperar os mesmos resultados por meio de ferramentas externas.
+_ Tente executar a consulta de interesse por meio do Apache beeline. Se a recuperação de resultado via Apache beeline levar um longo período de tempo, espere atrasos ao recuperar os mesmos resultados por meio de ferramentas externas.
 
 * Teste uma consulta de Hive básica para garantir que uma conexão com o gateway do HDInsight possa ser estabelecida. Tente executar uma consulta básica de duas ou mais ferramentas externas para garantir que nenhuma ferramenta individual esteja sendo executada em problemas.
 
@@ -80,7 +77,7 @@ Há vários locais para mitigar e entender os problemas de desempenho atendidos 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Apache beeline no HDInsight](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-use-hive-beeline)
-* [Etapas de solução de problemas de tempo limite do gateway HDInsight](https://docs.microsoft.com/azure/hdinsight/interactive-query/troubleshoot-gateway-timeout)
-* [Redes virtuais para HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-plan-virtual-network-deployment)
-* [HDInsight com rota expressa](https://docs.microsoft.com/azure/hdinsight/connect-on-premises-network)
+* [Apache beeline no HDInsight](../hadoop/apache-hadoop-use-hive-beeline.md)
+* [Etapas de solução de problemas de tempo limite do gateway HDInsight](./troubleshoot-gateway-timeout.md)
+* [Redes virtuais para HDInsight](../hdinsight-plan-virtual-network-deployment.md)
+* [HDInsight com rota expressa](../connect-on-premises-network.md)

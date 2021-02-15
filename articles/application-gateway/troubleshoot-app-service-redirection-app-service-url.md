@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 11/14/2019
 ms.author: absha
-ms.openlocfilehash: 2af52d1e7c211ccc0b5c18ed1ecda66d46d80786
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1cc7df755198461643703cac988c8c31f2ac25db
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84806489"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182879"
 ---
 # <a name="troubleshoot-app-service-issues-in-application-gateway"></a>Solucionar problemas do serviço de aplicativo no gateway de aplicativo
 
@@ -23,9 +23,8 @@ Saiba como diagnosticar e resolver problemas que podem ocorrer quando Azure App 
 
 Neste artigo, você aprenderá a solucionar os seguintes problemas:
 
-> [!div class="checklist"]
-> * A URL do serviço de aplicativo é exposta no navegador quando há um redirecionamento.
-> * O domínio do cookie ARRAffinity do serviço de aplicativo é definido como o nome do host do serviço de aplicativo, example.azurewebsites.net, em vez do host original.
+* A URL do serviço de aplicativo é exposta no navegador quando há um redirecionamento.
+* O domínio do cookie ARRAffinity do serviço de aplicativo é definido como o nome do host do serviço de aplicativo, example.azurewebsites.net, em vez do host original.
 
 Quando um aplicativo de back-end envia uma resposta de redirecionamento, talvez você queira redirecionar o cliente para uma URL diferente daquela especificada pelo aplicativo de back-end. Talvez você queira fazer isso quando um serviço de aplicativo estiver hospedado atrás de um gateway de aplicativo e exigir que o cliente faça um redirecionamento para seu caminho relativo. Um exemplo é um redirecionamento de contoso.azurewebsites.net/path1 para contoso.azurewebsites.net/path2. 
 
@@ -81,10 +80,10 @@ No exemplo anterior, observe que o cabeçalho de resposta tem um código de stat
 
 ## <a name="solution-rewrite-the-location-header"></a>Solução: reescreva o cabeçalho de local
 
-Defina o nome do host no cabeçalho Location como o nome de domínio do gateway de aplicativo. Para fazer isso, crie uma [regra de reescrita](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers) com uma condição que seja avaliada se o cabeçalho de local na resposta contiver azurewebsites.net. Ele também deve executar uma ação para reescrever o cabeçalho de local para ter o nome de host do gateway de aplicativo. Para obter mais informações, consulte instruções sobre [como reescrever o cabeçalho de local](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers#modify-a-redirection-url).
+Defina o nome do host no cabeçalho Location como o nome de domínio do gateway de aplicativo. Para fazer isso, crie uma [regra de reescrita](./rewrite-http-headers.md) com uma condição que seja avaliada se o cabeçalho de local na resposta contiver azurewebsites.net. Ele também deve executar uma ação para reescrever o cabeçalho de local para ter o nome de host do gateway de aplicativo. Para obter mais informações, consulte instruções sobre [como reescrever o cabeçalho de local](./rewrite-http-headers.md#modify-a-redirection-url).
 
 > [!NOTE]
-> O suporte à reescrita do cabeçalho HTTP só está disponível para o [Standard_v2 e WAF_V2 SKU](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant) do gateway de aplicativo. Se você usar a SKU v1, recomendamos que [migre da v1 para a v2](https://docs.microsoft.com/azure/application-gateway/migrate-v1-v2). Você deseja usar a reescrita e outros [recursos avançados](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant#feature-comparison-between-v1-sku-and-v2-sku) que estão disponíveis com o SKU v2.
+> O suporte à reescrita do cabeçalho HTTP só está disponível para o [Standard_v2 e WAF_V2 SKU](./application-gateway-autoscaling-zone-redundant.md) do gateway de aplicativo. Se você usar a SKU v1, recomendamos que [migre da v1 para a v2](./migrate-v1-v2.md). Você deseja usar a reescrita e outros [recursos avançados](./application-gateway-autoscaling-zone-redundant.md#feature-comparison-between-v1-sku-and-v2-sku) que estão disponíveis com o SKU v2.
 
 ## <a name="alternate-solution-use-a-custom-domain-name"></a>Solução alternativa: usar um nome de domínio personalizado
 
@@ -94,7 +93,7 @@ O serviço de aplicativo agora faz o redirecionamento (se houver) no mesmo cabe�
 
 Você deve possuir um domínio personalizado e seguir este processo:
 
-- Registre o domínio na lista de domínios personalizados do serviço de aplicativo. Você deve ter um CNAME em seu domínio personalizado que aponte para o FQDN do serviço de aplicativo. Para obter mais informações, consulte [mapear um nome DNS personalizado existente para o serviço de Azure app](https://docs.microsoft.com//azure/app-service/app-service-web-tutorial-custom-domain).
+- Registre o domínio na lista de domínios personalizados do serviço de aplicativo. Você deve ter um CNAME em seu domínio personalizado que aponte para o FQDN do serviço de aplicativo. Para obter mais informações, consulte [mapear um nome DNS personalizado existente para o serviço de Azure app](../app-service/app-service-web-tutorial-custom-domain.md).
 
     ![Lista de domínios personalizados do serviço de aplicativo](./media/troubleshoot-app-service-redirection-app-service-url/appservice-2.png)
 

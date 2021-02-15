@@ -1,5 +1,5 @@
 ---
-title: Conectar uma solução de ponta a ponta
+title: 'Tutorial: Conectar uma solução de ponta a ponta'
 titleSuffix: Azure Digital Twins
 description: Tutorial para criar uma solução de ponta a ponta dos Gêmeos Digitais do Azure controlada por dados do dispositivo.
 author: baanders
@@ -7,26 +7,27 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 0407046dcafb0dcc1872d5083669e09b378a75cd
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 5ef06f2db487a3e6d897e26758da840f37c3ecaf
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87827296"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575798"
 ---
-# <a name="build-out-an-end-to-end-solution"></a>Criar uma solução de ponta a ponta
+# <a name="tutorial-build-out-an-end-to-end-solution"></a>Tutorial: Criar uma solução de ponta a ponta
 
 Para configurar uma solução de ponta a ponta completa baseada em dados dinâmicos de seu ambiente, você pode conectar sua instância dos Gêmeos Digitais do Azure a outros serviços do Azure para o gerenciamento de dispositivos e de dados.
 
 Neste tutorial, você vai...
-* Configurar uma instância dos Gêmeos Digitais do Azure
-* Aprender sobre o cenário de criação de exemplo e criar instâncias dos componentes pré-gravados
-* Usar um aplicativo do [Azure Functions](../azure-functions/functions-overview.md) para rotear a telemetria simulada de um dispositivo do [Hub IoT](../iot-hub/about-iot-hub.md) para propriedades dos gêmeos digitais
-* Propagar alterações por meio do **gráfico gêmeo**, processando notificações dos gêmeos digitais com o Azure Functions, pontos de extremidade e rotas
+> [!div class="checklist"]
+> * Configurar uma instância dos Gêmeos Digitais do Azure
+> * Aprender sobre o cenário de criação de exemplo e criar instâncias dos componentes pré-gravados
+> * Usar um aplicativo do [Azure Functions](../azure-functions/functions-overview.md) para rotear a telemetria simulada de um dispositivo do [Hub IoT](../iot-hub/about-iot-hub.md) para propriedades dos gêmeos digitais
+> * Propagar alterações por meio do **gráfico gêmeo**, processando notificações dos gêmeos digitais com o Azure Functions, pontos de extremidade e rotas
 
 [!INCLUDE [Azure Digital Twins tutorial: sample prerequisites](../../includes/digital-twins-tutorial-sample-prereqs.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-h3.md)]
 
 ### <a name="set-up-cloud-shell-session"></a>Configurar uma sessão do Cloud Shell
 [!INCLUDE [Cloud Shell for Azure Digital Twins](../../includes/digital-twins-cloud-shell.md)]
@@ -47,12 +48,10 @@ Para trabalhar com o cenário, você vai interagir com os componentes do aplicat
 
 Estes são os componentes implementados pelo aplicativo de exemplo *AdtSampleApp* do cenário de construção:
 * Autenticação de dispositivo 
-* Exemplos de uso do [SDK do .NET (C#)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core) (encontrados em *CommandLoop.cs*)
+* Exemplos de uso do [SDK do .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true) (encontrados em *CommandLoop.cs*)
 * Interface de console para chamar a API dos Gêmeos Digitais do Azure
 * *SampleClientApp* – uma solução de exemplo dos Gêmeos Digitais do Azure
 * *SampleFunctionsApp* – um aplicativo do Azure Functions que atualiza seu gráfico dos Gêmeos Digitais do Azure como resultado da telemetria do Hub IoT e de eventos dos Gêmeos Digitais do Azure
-
-O projeto de exemplo também contém um componente de autorização interativo. Toda vez que você iniciar o projeto, uma janela do navegador será aberta, solicitando que você faça logon com sua conta do Azure.
 
 ### <a name="instantiate-the-pre-created-twin-graph"></a>Criar uma instância do gráfico gêmeo pré-criado
 
@@ -85,6 +84,13 @@ Você pode verificar que os gêmeos foram criados executando o comando a seguir,
 Query
 ```
 
+>[!TIP]
+> Esse método simplificado é fornecido como parte do projeto _**AdtE2ESample**_. Fora do contexto deste exemplo de código, você pode consultar todos os gêmeos na instância a qualquer momento usando as [APIs de Consulta](/rest/api/digital-twins/dataplane/query) ou os [comandos da CLI](how-to-use-cli.md).
+>
+> Este é o corpo da consulta completa para obter todas as gêmeos digitais na instância:
+> 
+> :::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="GetAllTwins":::
+
 Depois disso, você pode parar de executar o projeto. No entanto, mantenha a solução aberta no Visual Studio, pois ela será usada em todo o tutorial.
 
 ## <a name="set-up-the-sample-function-app"></a>Configurar o aplicativo de funções de exemplo
@@ -111,59 +117,23 @@ Isso abrirá o Gerenciador de Pacotes do NuGet. Selecione a guia *Atualizações
 
 ### <a name="publish-the-app"></a>Publicar o aplicativo
 
-De volta à janela do Visual Studio em que o projeto _**AdtE2ESample**_ está aberto, no painel do *Gerenciador de Soluções*, selecione o arquivo de projeto _**SampleFunctionsApp**_ e pressione **Publicar**.
+De volta à janela do Visual Studio em que o projeto _**AdtE2ESample**_ está aberto, localize o projeto _**SampleFunctionsApp**_ no painel *Gerenciador de Soluções*.
 
-:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-1.png" alt-text="Visual Studio: publicar projeto":::
-
-Na página *Publicar* que aparece, deixe a seleção de destino padrão **Azure** e pressione *Avançar*. 
-
-Para um destino específico, escolha **Aplicativo de Funções do Azure (Windows)** e pressione *Avançar*.
-
-:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-2.png" alt-text="Publicar função do Azure no Visual Studio: destino específico":::
-
-Na página da *instância do Azure Functions*, escolha sua assinatura. Isso deve popular uma caixa com os *grupos de recursos* em sua assinatura.
-
-Selecione o grupo de recursos de sua instância e clique em *+ Criar uma função do Azure...* .
-
-:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-3.png" alt-text="Publicar função do Azure no Visual Studio: instância do Azure Functions (antes do aplicativo de funções)":::
-
-Na janela *Aplicativo de Funções (Windows) – Criar*, preencha os campos da seguinte maneira:
-* **Nome** é o nome do plano de consumo que o Azure usará para hospedar o aplicativo do Azure Functions. Ele também se tornará o nome do aplicativo de funções que contém sua função real. Você pode escolher seu valor exclusivo ou deixar a sugestão padrão.
-* **Assinatura** deve corresponder à assinatura que você deseja usar 
-* Da mesma forma, o **Grupo de recursos** deve corresponder ao que você deseja usar
-* Deixe o **Tipo de plano** como *Consumo*
-* Selecione **Local** correspondente ao local de seu grupo de recursos
-* Crie um recurso do **Armazenamento do Azure** usando o link *Novo...* . Defina o local de modo que corresponda ao seu grupo de recursos, use os outros valores padrão e selecione "OK".
-
-:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-4.png" alt-text="Publicar função do Azure no Visual Studio: Aplicativo de Funções (Windows) – Criar":::
-
-Em seguida, selecione **Criar**.
-
-Isso deve levar você de volta à página da *instância do Azure Functions*, em que seu novo aplicativo de funções agora está visível abaixo do grupo de recursos. Selecione *Concluir*.
-
-:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-5.png" alt-text="Publicar função do Azure no Visual Studio: instância do Azure Functions (após o aplicativo de funções)":::
-
-No painel *Publicar* que é aberto na janela principal do Visual Studio, verifique se todas as informações parecem corretas e selecione **Publicar**.
-
-:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-6.png" alt-text="Publicar função do Azure no Visual Studio: publicar":::
-
-> [!NOTE]
-> Você verá um pop-up como este: :::image type="content" source="media/tutorial-end-to-end/publish-azure-function-7.png" alt-text="Publicar função do Azure no Visual Studio: publicar credenciais" border="false":::
-> Selecione **Tentativa de recuperar credenciais do Azure** e escolha **Salvar**.
->
-> Se você vir um aviso para *Versão das Funções de Atualização no Azure* ou se *Sua versão do runtime de funções não corresponder à versão em execução no Azure*:
->
-> siga os prompts para atualizar para a versão mais recente do Azure Functions runtime. Esse problema poderá ocorrer se você estiver usando uma versão mais antiga do Visual Studio do que a recomendada na seção *Pré-requisitos* no início deste tutorial.
+[!INCLUDE [digital-twins-publish-azure-function.md](../../includes/digital-twins-publish-azure-function.md)]
 
 ### <a name="assign-permissions-to-the-function-app"></a>Atribuir permissões ao aplicativo de funções
 
-Para permitir que o aplicativo de funções acesse os Gêmeos Digitais do Azure, a próxima etapa é definir uma configuração do aplicativo, atribuir ao aplicativo uma identidade do Azure AD gerenciada pelo sistema e dar a essa identidade a função *Proprietário de Gêmeos Digitais do Azure (Versão Prévia)* na instância de Gêmeos Digitais do Azure. Essa função é necessária para qualquer usuário ou função que queira executar muitas atividades de plano de dados na instância. Você pode ler mais sobre atribuições de função e segurança em [*Conceitos: segurança para soluções dos Gêmeos Digitais do Azure*](concepts-security.md).
+Para permitir que o aplicativo de funções acesse os Gêmeos Digitais do Azure, a próxima etapa é definir uma configuração do aplicativo, atribuir a ele uma identidade do Azure AD gerenciada pelo sistema e dar a essa identidade a função *Proprietário de Dados dos Gêmeos Digitais do Azure* na instância dos Gêmeos Digitais do Azure. Essa função é necessária para qualquer usuário ou função que queira executar muitas atividades de plano de dados na instância. Você pode ler mais sobre atribuições de função e segurança em [*Conceitos: segurança para soluções dos Gêmeos Digitais do Azure*](concepts-security.md).
 
-No Azure Cloud Shell, use o comando a seguir para definir uma configuração de aplicativo que seu aplicativo de funções usará para fazer referência à sua instância de Gêmeos Digitais do Azure.
+[!INCLUDE [digital-twins-role-rename-note.md](../../includes/digital-twins-role-rename-note.md)]
+
+No Azure Cloud Shell, use o comando a seguir para definir uma configuração de aplicativo que seu aplicativo de funções usará para fazer referência à sua instância de Gêmeos Digitais do Azure. Preencha os espaços reservados com os detalhes de seus recursos (lembre-se de que a URL da instância dos Gêmeos Digitais do Azure é o nome do host precedido por *https://* ).
 
 ```azurecli-interactive
 az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=<your-Azure-Digital-Twins-instance-URL>"
 ```
+
+A saída é a lista de configurações para a Função do Azure, que agora deve conter uma entrada chamada *ADT_SERVICE_URL*.
 
 Use o comando a seguir para criar a identidade gerenciada pelo sistema. Anote o campo *principalId* na saída.
 
@@ -171,10 +141,10 @@ Use o comando a seguir para criar a identidade gerenciada pelo sistema. Anote o 
 az functionapp identity assign -g <your-resource-group> -n <your-App-Service-(function-app)-name>
 ```
 
-Use o valor *principalId* da saída no seguinte comando para atribuir a identidade do aplicativo de funções à função de *Proprietário dos Gêmeos Digitais do Azure (Versão Prévia*) para sua instância de Gêmeos Digitais do Azure:
+Use o valor *principalId* da saída no seguinte comando a fim de atribuir a identidade do aplicativo de funções à função de *Proprietário de Dados dos Gêmeos Digitais do Azure*  para sua instância dos Gêmeos Digitais do Azure:
 
-```azurecli
-az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Owner (Preview)"
+```azurecli-interactive
+az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Data Owner"
 ```
 
 O resultado desse comando são informações de saída sobre a atribuição de função que você criou. Agora, o aplicativo de funções tem permissões para acessar sua instância dos Gêmeos Digitais do Azure.
@@ -253,14 +223,14 @@ Em seguida, configure o simulador do dispositivo para enviar dados para a instâ
 
 Comece obtendo a *cadeia de conexão do Hub IoT* com este comando:
 
-```azurecli
-az iot hub show-connection-string -n <your-IoT-hub-name>
+```azurecli-interactive
+az iot hub connection-string show -n <your-IoT-hub-name>
 ```
 
 Em seguida, obtenha a *cadeia de conexão do dispositivo* com este comando:
 
-```azurecli
-az iot hub device-identity show-connection-string --device-id thermostat67 --hub-name <your-IoT-hub-name>
+```azurecli-interactive
+az iot hub device-identity connection-string show --device-id thermostat67 --hub-name <your-IoT-hub-name>
 ```
 
 Você usará esses valores no código do simulador de dispositivo no projeto local para conectar o simulador ao hub IoT e ao dispositivo do hub IoT.
@@ -273,8 +243,8 @@ Em uma nova janela do Visual Studio, abra (na pasta da solução baixada) _Simul
 No painel do *Gerenciador de Soluções* nessa nova janela do Visual Studio, selecione _DeviceSimulator/**AzureIoTHub.cs**_ para abri-lo na janela de edição. Altere os seguintes valores de cadeia de conexão para os valores que você coletou acima:
 
 ```csharp
-connectionString = <Iot-hub-connection-string>
-deviceConnectionString = <device-connection-string>
+iotHubConnectionString = <your-hub-connection-string>
+deviceConnectionString = <your-device-connection-string>
 ```
 
 Salve o arquivo.
@@ -316,7 +286,7 @@ Para fazer isso, você usará a função do Azure *ProcessDTRoutedData* para atu
 :::image type="content" source="media/tutorial-end-to-end/building-scenario-c.png" alt-text="Um trecho do gráfico do cenário de construção completo realçando a seta C, os elementos depois dos Gêmeos Digitais do Azure: a Grade de Eventos e a segunda função do Azure":::
 
 Estas são as ações que você realizará para configurar este fluxo de dados:
-1. Criar um ponto de extremidade dos Gêmeos Digitais do Azure que conecta a instância à Grade de Eventos
+1. Criar um ponto de extremidade da Grade de Eventos nos Gêmeos Digitais do Azure que conecta a instância à Grade de Eventos
 2. Configurar uma rota nos Gêmeos Digitais do Azure para enviar eventos de alteração de propriedade do gêmeo para o ponto de extremidade
 3. Implantar um aplicativo do Azure Functions que escuta (por meio da [Grade de Eventos](../event-grid/overview.md)) no ponto de extremidade e atualiza outros gêmeos adequadamente
 4. Executar o dispositivo simulado e consultar os Gêmeos Digitais do Azure para ver os resultados de maneira dinâmica
@@ -335,15 +305,15 @@ az eventgrid topic create -g <your-resource-group> --name <name-for-your-event-g
 
 > [!TIP]
 > Para gerar uma lista de nomes de regiões do Azure que podem ser passados para comandos na CLI do Azure, execute este comando:
-> ```azurecli
+> ```azurecli-interactive
 > az account list-locations -o table
 > ```
 
 A saída desse comando são informações sobre o tópico da grade de eventos que você criou.
 
-Em seguida, crie um ponto de extremidade dos Gêmeos Digitais do Azure apontando para o tópico da grade de eventos. Use o comando a seguir, preenchendo os campos de espaço reservado conforme necessário:
+Em seguida, crie um ponto de extremidade da Grade de Eventos nos Gêmeos Digitais do Azure, que conectará sua instância ao tópico da Grade de Eventos. Use o comando a seguir, preenchendo os campos de espaço reservado conforme necessário:
 
-```azurecli
+```azurecli-interactive
 az dt endpoint create eventgrid --dt-name <your-Azure-Digital-Twins-instance> --eventgrid-resource-group <your-resource-group> --eventgrid-topic <your-event-grid-topic> --endpoint-name <name-for-your-Azure-Digital-Twins-endpoint>
 ```
 
@@ -351,7 +321,7 @@ A saída desse comando são informações sobre o ponto de extremidade que você
 
 Você também pode verificar se a criação do ponto de extremidade foi bem-sucedida executando o seguinte comando para consultar sua instância dos Gêmeos Digitais do Azure para este ponto de extremidade:
 
-```azurecli
+```azurecli-interactive
 az dt endpoint show --dt-name <your-Azure-Digital-Twins-instance> --endpoint-name <your-Azure-Digital-Twins-endpoint> 
 ```
 
@@ -359,13 +329,13 @@ Procure o campo `provisioningState` na saída e verifique se o valor é "Êxito"
 
 :::image type="content" source="media/tutorial-end-to-end/output-endpoints.png" alt-text="Resultado da consulta do ponto de extremidade, mostrando o ponto de extremidade com o provisioningState igual a Êxito":::
 
-Salve os nomes que você atribuiu ao tópico da grade de eventos e ao ponto de extremidade dos Gêmeos Digitais do Azure. Você os usará mais tarde.
+Salve os nomes que você deu ao tópico e ao ponto de extremidade da Grade de Eventos nos Gêmeos Digitais do Azure. Você os usará mais tarde.
 
 ### <a name="set-up-route"></a>Configurar rota
 
-Em seguida, crie uma rota dos Gêmeos Digitais do Azure que envia eventos para o ponto de extremidade dos Gêmeos Digitais do Azure que você acabou de criar.
+Em seguida, crie uma rota dos Gêmeos Digitais do Azure que envia eventos para o ponto de extremidade recém-criado da Grade de Eventos.
 
-```azurecli
+```azurecli-interactive
 az dt route create --dt-name <your-Azure-Digital-Twins-instance> --endpoint-name <your-Azure-Digital-Twins-endpoint> --route-name <name-for-your-Azure-Digital-Twins-route>
 ```
 
@@ -431,31 +401,21 @@ Aqui, temos uma revisão do cenário que você criou neste tutorial.
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Se você não precisa mais dos recursos criados neste tutorial, siga estas etapas para excluí-los. 
+Após concluir este tutorial, você poderá escolher quais recursos gostaria de remover, dependendo do que você gostaria de fazer em seguida.
 
-Usando o Azure Cloud Shell, exclua todos os recursos do Azure em um grupo de recursos com o comando [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete). Isso remove o grupo de recursos; a instância dos Gêmeos Digitais do Azure; o Hub IoT e o registro do dispositivo de hub; o tópico da grade de eventos e as assinaturas associadas e os dois aplicativos do Azure Functions, incluindo os recursos associados, como o armazenamento.
+[!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
-> [!IMPORTANT]
-> A exclusão de um grupo de recursos é irreversível. O grupo de recursos e todos os recursos contidos nele são excluídos permanentemente. Não exclua acidentalmente o grupo de recursos ou os recursos incorretos. 
+* **Se você quiser continuar usando a instância dos Gêmeos Digitais do Azure configurada neste artigo, mas limpar alguns ou todos os modelos, gêmeos e relações dela**, poderá usar os comandos da CLI [az dt](/cli/azure/ext/azure-iot/dt?view=azure-cli-latest&preserve-view=true) em uma janela do [Azure Cloud Shell](https://shell.azure.com) para excluir os elementos que deseja remover.
 
-```azurecli-interactive
-az group delete --name <your-resource-group>
-```
+    Essa opção não removerá nenhum dos outros recursos do Azure criados neste tutorial (Hub IoT, aplicativo do Azure Functions etc.). Você pode exclui-los individualmente usando os [comandos dt](/cli/azure/reference-index?view=azure-cli-latest&preserve-view=true) apropriados para cada tipo de recurso.
 
-Em seguida, exclua o registro de aplicativo do Azure AD criado para o aplicativo cliente com este comando:
-
-```azurecli
-az ad app delete --id <your-application-ID>
-```
-
-Por fim, exclua a pasta de exemplo do projeto que você baixou do computador local.
+Talvez seja interessante excluir a pasta do projeto do computador local.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Neste tutorial, você criou um cenário de ponta a ponta que mostra os Gêmeos Digitais do Azure controlados por dados dinâmicos do dispositivo.
 
 Em seguida, comece a examinar a documentação de conceito para saber mais sobre os elementos com os quais você trabalhou no tutorial:
-* [*Conceitos: modelos personalizados*](concepts-models.md)
 
-Ou aprofunde-se com relação aos processos neste tutorial iniciando os artigos de instruções:
-* [*Como usar a CLI dos Gêmeos Digitais do Azure*](how-to-use-cli.md)
+> [!div class="nextstepaction"]
+> [*Conceitos: modelos personalizados*](concepts-models.md)

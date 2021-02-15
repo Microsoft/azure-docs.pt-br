@@ -3,12 +3,12 @@ title: Perguntas comuns sobre a recuperação de desastres do VMware com o Azure
 description: Obtenha respostas para perguntas comuns sobre a recuperação de desastre de VMs VMware locais para o Azure usando Azure Site Recovery.
 ms.date: 11/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: 603dc77e6f2a53abb1d65688ced77e58297b8ab5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a272486eea111ab8c8e489556986f12f382e3f65
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086142"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97587785"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>Perguntas comuns sobre a replicação do VMware para Azure
 
@@ -75,7 +75,7 @@ Site Recovery é certificado para ISO 27001:2013 e 27018, HIPAA e DPA. Ele está
 
 Use a [calculadora de preços](https://aka.ms/asr_pricing_calculator) para estimar os custos ao usar site Recovery.
 
-Para obter uma estimativa detalhada dos custos, execute a ferramenta planejador de implantação para [VMware](https://aka.ms/siterecovery_deployment_planner) e use o [relatório estimativa de custo](https://aka.ms/asr_DP_costreport).
+Para obter uma estimativa detalhada dos custos, execute a ferramenta planejador de implantação para [VMware](./site-recovery-deployment-planner.md) e use o [relatório estimativa de custo](./site-recovery-vmware-deployment-planner-cost-estimation.md).
 
 ### <a name="is-there-any-difference-in-cost-between-replicating-to-storage-or-directly-to-managed-disks"></a>Há alguma diferença no custo entre replicar para armazenamento ou diretamente para discos gerenciados?
 
@@ -114,7 +114,7 @@ Site Recovery Replica VMs VMware locais e servidores físicos para Managed disks
 
 Não. A partir de março de 2019, no portal do Azure, você pode replicar somente para o Azure Managed disks.
 
-A replicação de novas VMs para uma conta de armazenamento está disponível somente usando o PowerShell ou a API REST (versão 2018-01-10 ou 2016-08-10).
+A replicação de novas VMs para uma conta de armazenamento está disponível somente usando o PowerShell ([módulo AZ. recoveryservices versão 1.4.5](https://www.powershellgallery.com/packages/Az.RecoveryServices/1.4.5)) ou a API REST (versão 2018-01-10 ou 2016-08-10). [Saiba como](./vmware-azure-disaster-recovery-powershell.md) configurar a replicação usando os comandos do PowerShell.
 
 ### <a name="what-are-the-benefits-of-replicating-to-managed-disks"></a>Quais são os benefícios da replicação para o Managed disks?
 
@@ -147,6 +147,10 @@ A replicação é contínua ao replicar VMs VMware para o Azure.
 
 Esse tipo de replicação estendida ou encadeada não tem suporte. Solicite esse recurso no [fórum de comentários](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959).
 
+### <a name="how-can-i-track-progress-of-initial-replicationsynchronization"></a>Como posso acompanhar o progresso da replicação/sincronização inicial?
+
+Esse recurso foi recentemente Site Recovery serviços. Atualize sua infraestrutura de Site Recovery (servidores de configuração, servidores de processo de expansão) e o agente de mobilidade para as versões 9,36 ou superiores para obter detalhes precisos. Saiba mais sobre como acompanhar o progresso [aqui](vmware-azure-enable-replication.md#monitor-initial-replication).
+
 ### <a name="can-i-do-an-offline-initial-replication"></a>É possível fazer uma replicação inicial offline?
 
 Não há suporte para replicação offline. Solicite esse recurso no [fórum de comentários](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
@@ -176,7 +180,7 @@ Para a replicação do VMware para o Azure, você pode modificar o tamanho do di
 
 ### <a name="can-i-migrate-on-premises-machines-to-a-new-vcenter-server-without-impacting-ongoing-replication"></a>Posso migrar computadores locais para um novo vCenter Server sem afetar a replicação em andamento?
 
-Não. Uma alteração do VMware vCenter ou da migração afetará a replicação em andamento. Configure Site Recovery com o novo vCenter Server e habilite a replicação para computadores novamente.
+Consulte nossas [diretrizes](vmware-azure-manage-vcenter.md#migrate-all-vms-to-a-new-server) para migrar computadores para um novo vCenter
 
 ### <a name="can-i-replicate-to-a-cache-or-target-storage-account-that-has-a-virtual-network-with-azure-firewalls-configured-on-it"></a>Posso replicar para uma conta de armazenamento de destino ou de cache que tenha uma rede virtual (com firewalls do Azure) configurada nele?
 
@@ -190,7 +194,7 @@ Site Recovery gera pontos de recuperação consistentes com falhas a cada 5 minu
 
 ### <a name="my-version-of-the-mobility-services-agent-or-configuration-server-is-old-and-my-upgrade-failed-what-do-i-do"></a>Minha versão do agente de serviços de mobilidade ou do servidor de configuração é antiga e a minha atualização falhou. O que devo fazer?
 
-Site Recovery segue o modelo de suporte N-4. [Saiba mais](https://aka.ms/asr_support_statement) sobre como atualizar de versões muito antigas.
+Site Recovery segue o modelo de suporte N-4. [Saiba mais](./service-updates-how-to.md#support-statement-for-azure-site-recovery) sobre como atualizar de versões muito antigas.
 
 ### <a name="where-can-i-find-the-release-notes-and-update-rollups-for-azure-site-recovery"></a>Onde posso encontrar as notas de versão e os pacotes cumulativos de atualizações para Azure Site Recovery?
 
@@ -198,11 +202,11 @@ Site Recovery segue o modelo de suporte N-4. [Saiba mais](https://aka.ms/asr_sup
 
 ### <a name="where-can-i-find-upgrade-information-for-disaster-recovery-to-azure"></a>Onde posso encontrar informações de atualização para recuperação de desastres no Azure?
 
-[Saiba mais sobre a atualização](https://aka.ms/asr_vmware_upgrades).
+[Saiba mais sobre a atualização](./service-updates-how-to.md#vmware-vmphysical-server-disaster-recovery-to-azure).
 
 ## <a name="do-i-need-to-reboot-source-machines-for-each-upgrade"></a>É necessário reinicializar computadores de origem para cada atualização?
 
-Uma reinicialização é recomendada, mas não obrigatória para cada atualização. [Saiba mais](https://aka.ms/asr_vmware_upgrades).
+Uma reinicialização é recomendada, mas não obrigatória para cada atualização. [Saiba mais](./service-updates-how-to.md#reboot-after-mobility-service-upgrade).
 
 ## <a name="configuration-server"></a>Servidor de configuração
 
@@ -246,7 +250,7 @@ Embora seja possível, a VM do Azure que executa o servidor de configuração pr
 
 - Você pode encontrar as informações de atualização mais recentes na [página atualizações do Azure](https://azure.microsoft.com/updates/?product=site-recovery).
 - Você pode baixar a versão mais recente no Portal. Ou então, você pode baixar a versão mais recente do servidor de configuração diretamente do [centro de download da Microsoft](https://aka.ms/asrconfigurationserver).
-- Se sua versão tiver mais de quatro versões anteriores à versão atual, consulte a [declaração de suporte](https://aka.ms/asr_support_statement) para obter diretrizes de atualização.
+- Se sua versão tiver mais de quatro versões anteriores à versão atual, consulte a [declaração de suporte](./service-updates-how-to.md#support-statement-for-azure-site-recovery) para obter diretrizes de atualização.
 
 ### <a name="should-i-back-up-the-configuration-server"></a>Devo fazer backup do servidor de configuração?
 

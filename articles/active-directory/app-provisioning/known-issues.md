@@ -3,20 +3,20 @@ title: Problemas conhecidos do provisionamento de aplicativos no Azure AD
 description: Saiba mais sobre problemas conhecidos ao trabalhar com o provisionamento automatizado de aplicativos no Azure AD.
 author: kenwith
 ms.author: kenwith
-manager: celestedg
+manager: daveba
 services: active-directory
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 08/12/2020
+ms.date: 01/05/2021
 ms.reviewer: arvinh
-ms.openlocfilehash: 23c3dfc6670c96f44a10b2ad5d5bfeb3ff96382c
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: 9eba671f6c824c8c88388f2b9d61512dfb1d122f
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88270998"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99256636"
 ---
 # <a name="known-issues-application-provisioning"></a>Problemas conhecidos: provisionamento de aplicativos
 Problemas conhecidos que você deve estar atento ao trabalhar com o provisionamento de aplicativos. Você pode fornecer comentários sobre o serviço de provisionamento de aplicativos no UserVoice, confira [UserVoice de provisionamento de aplicativos do Azure ad](https://aka.ms/appprovisioningfeaturerequest). Nós observamos com atenção o UserVoice para que possamos melhorar o serviço. 
@@ -28,7 +28,7 @@ Problemas conhecidos que você deve estar atento ao trabalhar com o provisioname
 
 **Não é possível salvar após o teste de conexão bem-sucedido**
 
-Se você puder testar uma conexão com êxito, mas não puder salvar, você excedeu o limite de armazenamento permitido para as credenciais. Para saber mais, confira [problema ao salvar credenciais de administrador](application-provisioning-config-problem-storage-limit.md).
+Se você puder testar uma conexão com êxito, mas não puder salvar, você excedeu o limite de armazenamento permitido para as credenciais. Para saber mais, confira [problema ao salvar credenciais de administrador](./user-provisioning.md).
 
 **Não é possível salvar**
 
@@ -57,6 +57,10 @@ Atualmente, o Azure AD não pode provisionar atributos nulos. Se um atributo for
 
 As expressões de mapeamento de atributo podem ter um máximo de 10.000 caracteres. 
 
+**Filtros de escopo sem suporte**
+
+Não há suporte para extensões de diretório, appRoleAssignments, UserType e accountExpires como filtros de escopo.
+
 
 ## <a name="service-issues"></a>Problemas de serviço 
 
@@ -64,13 +68,24 @@ As expressões de mapeamento de atributo podem ter um máximo de 10.000 caracter
 
 - Não há suporte para o provisionamento de senhas. 
 - Não há suporte para o provisionamento de grupos aninhados. 
-- O provisionamento para locatários B2C não tem suporte devido ao tamanho dos locatários. 
+- O provisionamento para locatários B2C não tem suporte devido ao tamanho dos locatários.
+- Nem todos os aplicativos de provisionamento estão disponíveis em todas as nuvens. Por exemplo, Atlassian ainda não está disponível na nuvem governamental. Estamos trabalhando com desenvolvedores de aplicativos para integrar seus aplicativos a todas as nuvens.
 
-**O intervalo de provisionamento é fixo** O [tempo](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user#how-long-will-it-take-to-provision-users) entre os ciclos de provisionamento não é configurável no momento. 
+**O provisionamento automático não está disponível no meu aplicativo baseado em OIDC**
+
+Se você criar um registro de aplicativo, a entidade de serviço correspondente nos aplicativos empresariais não será habilitada para o provisionamento automático de usuário. Você precisará solicitar que o aplicativo seja adicionado à galeria, se destinado para uso por várias organizações, ou criar um segundo aplicativo que não seja da galeria para provisionamento. 
+
+**O intervalo de provisionamento é fixo**
+
+O [tempo](./application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users) entre os ciclos de provisionamento não é configurável no momento. 
 
 **Alterações que não se movem do aplicativo de destino para o Azure AD**
 
 O serviço de provisionamento de aplicativos não está ciente das alterações feitas em aplicativos externos. Portanto, nenhuma ação é executada para reverter. O serviço de provisionamento de aplicativo depende das alterações feitas no Azure AD. 
+
+**A alternância de sincronizar tudo para a sincronização atribuída não está funcionando**
+
+Depois de alterar o escopo de ' sincronizar tudo ' para ' sincronizar atribuído ', certifique-se também de executar uma reinicialização para garantir que a alteração entra em vigor. Você pode fazer a reinicialização da interface do usuário.
 
 **O ciclo de provisionamento continua até a conclusão**
 
@@ -80,6 +95,9 @@ Ao definir `enabled = off` o provisionamento ou ao pressionar parar, o ciclo de 
 
 Quando um grupo estiver no escopo e um membro estiver fora do escopo, o grupo será provisionado. O usuário fora do escopo não será provisionado. Se o membro voltar ao escopo, o serviço não detectará imediatamente a alteração. Reiniciar o provisionamento abordará o problema. É recomendável reiniciar o serviço periodicamente para garantir que todos os usuários sejam provisionados corretamente.  
 
+**O Gerenciador não está provisionado**
+
+Se um usuário e seu gerente estiverem no escopo do provisionamento, o serviço provisionará o usuário e, em seguida, atualizará o Gerenciador. No entanto, se no dia um usuário estiver no escopo e o Gerenciador estiver fora do escopo, provisionaremos o usuário sem a referência do Gerenciador. Quando o gerente chega ao escopo, a referência do Gerenciador não será atualizada até que você reinicie o provisionamento e faça com que o serviço reavalie todos os usuários novamente. 
 
 ## <a name="next-steps"></a>Próximas etapas
 - [Como funciona o provisionamento](how-provisioning-works.md)

@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 65b3d5a29028214a52e6b26430472394c91c6f27
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 81c92b6ef5bdf89391364bc238f55200eb3679f6
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84887057"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92778174"
 ---
 # <a name="monitor-the-health-of-azure-cdn-resources"></a>Monitorar a integridade dos recursos da CDN do Azure
   
-A Azure CDN Resource Health é um subconjunto de [Azure Resource Health](../resource-health/resource-health-overview.md).  Você pode usar a Azure  Resource Health para monitorar a integridade dos recursos CDN e receber as diretrizes de ações para solucionar problemas.
+A Azure CDN Resource Health é um subconjunto de [Azure Resource Health](../service-health/resource-health-overview.md).  Você pode usar a Azure  Resource Health para monitorar a integridade dos recursos CDN e receber as diretrizes de ações para solucionar problemas.
 
 >[!IMPORTANT] 
 >A integridade de recursos do Azure CDN considera no momento somente a integridade da distribuição de CDN global e recursos de API.  A integridade de recursos do Azure CDN não verifica a pontos de extremidade de CDN individuais.
@@ -38,12 +38,12 @@ A Azure CDN Resource Health é um subconjunto de [Azure Resource Health](../reso
 
     ![Botão Configurações](./media/cdn-resource-health/cdn-profile-settings.png)
 
-3. Em *Suporte + solução de problemas*, clique em **Integridade de recursos**.
+3. Em *Suporte + solução de problemas* , clique em **Integridade de recursos** .
 
     ![Integridade de recursos de CDN](./media/cdn-resource-health/cdn-resource-health3.png)
 
 >[!TIP] 
->Você também pode encontrar recursos de CDN listados no bloco *Integridade de recursos* na folha *Ajuda + suporte*.  Você pode ir rapidamente até *Ajuda + suporte* clicando no **?** circulado no canto superior direito do portal.
+>Você também pode encontrar recursos de CDN listados no bloco *Integridade de recursos* na folha *Ajuda + suporte* .  Você pode ir rapidamente até *Ajuda + suporte* clicando no **?** circulado no canto superior direito do portal.
 >
 > ![Ajuda + suporte](./media/cdn-resource-health/cdn-help-support.png)
 
@@ -51,7 +51,7 @@ A Azure CDN Resource Health é um subconjunto de [Azure Resource Health](../reso
 
 Os estados de integridade de recursos do Azure CDN podem ser encontrados abaixo.
 
-|Mensagem | Ação recomendada |
+|Mensagem | Ação recomendada |
 |---|---|
 |Você pode ter parado, removido ou configurado de forma errada um ou mais dos seus pontos de extremidade de CDN | Você pode ter parado, removido ou configurado de forma errada um ou mais dos seus pontos de extremidade de CDN.|
 |Infelizmente, o serviço de gerenciamento de CDN está indisponível no momento | Regresse aqui para ver atualizações de estado; se o problema persistir após o tempo de resolução esperado, contate o suporte.|
@@ -62,6 +62,6 @@ Infelizmente, estamos tendo problemas com alguns dos nossos provedores de CDN | 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Acesse a visão geral do Azure Resource Health](../resource-health/resource-health-overview.md)
+- [Acesse a visão geral do Azure Resource Health](../service-health/resource-health-overview.md)
 - [Solucione problemas com a compactação de arquivo de CDN](./cdn-troubleshoot-compression.md)
 - [Solucione problemas com erros 404](./cdn-troubleshoot-endpoint.md)

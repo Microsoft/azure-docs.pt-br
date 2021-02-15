@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 56514f5dcf4bfe205ef46ee64dcf4dcf638d4f62
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ee92e145acd981bb8c84b43986b90306b994c262
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67172127"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95561457"
 ---
 #### <a name="to-configure-and-register-the-device"></a>Para configurar e registrar o dispositivo
 
@@ -29,7 +29,7 @@ ms.locfileid: "67172127"
 7. Um assistente de instalação aparecerá para ajudá-lo a configurar as definições da rede para o dispositivo. Forneça as seguintes informações:
    
    * Endereço IP para a interface de rede DADOS 0
-   * Máscara da sub-rede
+   * Máscara de sub-rede
    * Gateway
    * Endereço IP do servidor DNS Primário
 
@@ -98,7 +98,7 @@ ms.locfileid: "67172127"
 
     ```
 
-12. Depois do dispositivo ser registrado, uma chave de Criptografia de Dados do Serviço será exibida. Copie essa chave e salve-a em um local seguro. **Essa chave será necessária com a chave de registro do serviço para registrar dispositivos adicionais no serviço StorSimple Device Manager.** Consulte a [segurança do StorSimple](../articles/storsimple/storsimple-security.md) para obter mais informações sobre essa chave.
+12. Depois do dispositivo ser registrado, uma chave de Criptografia de Dados do Serviço será exibida. Copie essa chave e salve-a em um local seguro. **Essa chave será necessária com a chave de registro do serviço para registrar dispositivos adicionais no serviço StorSimple Device Manager.** Consulte a [segurança do StorSimple](../articles/storsimple/storsimple-8000-security.md) para obter mais informações sobre essa chave.
     
     ![Dispositivo de registro do StorSimple 7](./media/storsimple-8000-configure-and-register-device-u2/step3pssetup1.png)
     
@@ -117,4 +117,3 @@ ms.locfileid: "67172127"
         Talvez seja necessário aguardar alguns minutos para que o status do dispositivo mude para **Pronto para configurar**.
        
         Se o dispositivo não aparecer na lista, verifique se a rede do firewall foi configurada conforme descrito nos [requisitos de rede para seu dispositivo StorSimple](../articles/storsimple/storsimple-8000-system-requirements.md). Verifique se a porta 9354 está aberta para comunicações de saída, pois ela é usada pelo barramento de serviço para a comunicação serviço-dispositivo do Gerenciador de Dispositivos do StorSimple.
-

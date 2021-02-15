@@ -15,12 +15,12 @@ ms.topic: reference
 ms.date: 04/26/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 58cddcde71e6e86b9abe07eb4200f13ad55ea659
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 58ecdfefa79716bcc0a69063293d5a1067693a78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84690686"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89182353"
 ---
 # <a name="user-privacy-and-azure-ad-connect-health"></a>Privacidade do usuário e Azure AD Connect Health 
 
@@ -41,7 +41,7 @@ Servidores com alertas **Os dados do serviço de integridade não estão atualiz
 O Azure AD Connect Health habilita interromper a coleta de dados para cada servidor monitorado individual ou para uma instância de um serviço monitorado. Por exemplo, é possível parar a coleta de dados de servidores individuais AD FS (Serviços de Federação do Active Directory) que são monitorados usando o Azure AD Connect Health. Você também pode parar a coleta de dados de toda a instância do AD FS que está sendo monitorada usando o Azure AD Connect Health. Ao optar por fazer isso, os servidores correspondentes serão excluídos do Portal do Azure AD Connect Health após parar a coleta de dados. 
 
 >[!IMPORTANT]
-> É necessário ter privilégios de Administrador Global do Azure Active Directory ou a função Colaborador no RBAC para excluir servidores monitorados do Azure AD Connect Health.
+> Você precisa de privilégios de administrador global do Azure AD ou da função colaborador no RBAC do Azure para excluir servidores monitorados da Azure AD Connect Health.
 >
 > Remover uma instância de serviço ou servidor do Azure AD Connect Health não é uma ação reversível. 
 

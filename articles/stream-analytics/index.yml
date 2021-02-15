@@ -7,15 +7,15 @@ metadata:
   services: service
   ms.service: stream-analytics
   ms.topic: landing-page
-  author: mamccrea
-  ms.author: mamccrea
+  author: sidram
+  ms.author: sidram
   ms.date: 09/16/2019
-  ms.openlocfilehash: 2ef6663ce3ebf21227635fff763d45391281c955
-  ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+  ms.openlocfilehash: 2567279bd2c22a2b6f0ff7bf5203efcce56b2466
+  ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 07/08/2020
-  ms.locfileid: "86119643"
+  ms.lasthandoff: 01/08/2021
+  ms.locfileid: "98015565"
 landingContent:
 - title: Sobre o Azure Stream Analytics
   linkLists:
@@ -143,7 +143,7 @@ landingContent:
       url: stream-analytics-machine-learning-anomaly-detection.md
     - text: Realizar uma análise de sentimento com o Azure Machine Learning Studio (clássico)
       url: stream-analytics-machine-learning-integration-tutorial.md
-    - text: Dimensionar trabalhos com funções do Machine Learning Studio
+    - text: Dimensionar trabalhos com funções do Azure Machine Learning Studio (clássico)
       url: stream-analytics-scale-with-machine-learning-functions.md
 - title: Criar e gerenciar trabalhos com ferramentas para desenvolvedores
   linkLists:
@@ -171,8 +171,8 @@ landingContent:
   linkLists:
   - linkListType: tutorial
     links:
-    - text: Criar e gerenciar um trabalho
-      url: stream-analytics-manage-job.md
+    - text: Detecção de fraude em tempo real
+      url: stream-analytics-real-time-fraud-detection.md
     - text: Disparar uma função do Azure
       url: stream-analytics-with-azure-functions.md
   - linkListType: how-to-guide
@@ -183,8 +183,6 @@ landingContent:
       url: stream-analytics-edge.md
     - text: Criar uma solução de análise de sentimento
       url: stream-analytics-twitter-sentiment-analysis-trends.md
-    - text: Detecção de fraude em tempo real
-      url: stream-analytics-real-time-fraud-detection.md
     - text: Compilar uma solução IoT
       url: stream-analytics-build-an-iot-solution-using-stream-analytics.md
     - text: Simulação de transação de alta frequência
@@ -193,14 +191,10 @@ landingContent:
       url: stream-analytics-threshold-based-rules.md
 - title: Implantar trabalhos do Stream Analytics
   linkLists:
-  - linkListType: tutorial
-    links:
-    - text: Implantar um trabalho com CI/CD usando o Azure Pipelines
-      url: stream-analytics-tools-visual-studio-cicd-vsts.md
   - linkListType: how-to-guide
     links:
     - text: Configurar um pipeline de CI/CD com Visual Studio Code
-      url: setup-cicd-vs-code.md
+      url: ./cicd-overview.md
     - text: Configurar um pipeline de CI/CD com Visual Studio
       url: stream-analytics-tools-for-visual-studio-cicd.md
     - text: Usar as APIs REST para configurar o CI/CD para trabalhos do IoT Edge

@@ -1,14 +1,14 @@
 ---
 title: 'Padrão: Efeitos de uma definição de política'
 description: Esse padrão do Azure Policy fornece um exemplo de como usar os diferentes efeitos de uma definição de política.
-ms.date: 06/29/2020
+ms.date: 10/14/2020
 ms.topic: sample
-ms.openlocfilehash: 9c7e7689aa837a2dba0992112df3cd36ac9affe6
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: f1da9bd153707db35c07ed3c176542797a694d7a
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85565733"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92073029"
 ---
 # <a name="azure-policy-pattern-effects"></a>Padrão do Azure Policy: efeitos
 
@@ -24,7 +24,7 @@ Esta definição de política verifica se a marca definida no parâmetro **tagNa
 
 :::code language="json" source="~/policy-templates/patterns/pattern-effect-details-1.json" range="40-50":::
 
-Um efeito **modify** requer o bloco **policyRule.then.details** que define **roleDefinitionIds** e **operations**. Esses parâmetros informam ao Azure Policy quais funções são necessárias para adicionar a marca e corrigir o recurso e qual operação **modify** a ser executada. Neste exemplo, a **operação** é _adicionar_ e os parâmetros são usados para definir a marca e seu valor.
+Um efeito **modify** requer o bloco **policyRule.then.details** que define **roleDefinitionIds** e **operations**. Esses parâmetros informam ao Azure Policy quais funções são necessárias para adicionar a marca e corrigir o recurso e qual operação **modify** usar. Neste exemplo, a _operação_ **add** e os parâmetros são usados para definir a marca e o valor dela.
 
 ## <a name="sample-2-complex-effect"></a>Exemplo 2: Efeito complexo
 

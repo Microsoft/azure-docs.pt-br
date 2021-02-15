@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 0b7817539a26b7ebfa24efd086edf8b0ef82eae3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 32023fca15de9d3f9258bc05166c3cff4184ea15
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80436002"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499842"
 ---
 # <a name="faq---questions-about-virtual-machines"></a>Perguntas frequentes-perguntas sobre máquinas virtuais
 
 
 ## <a name="what-types-of-virtual-machines-are-supported"></a>Quais tipos de máquinas virtuais têm suporte?
 
-O monitoramento e as recomendações estão disponíveis para VMs (máquinas virtuais) criadas usando os [modelos de implantação clássico e do Resource Manager](../azure-classic-rm.md).
+O monitoramento e as recomendações estão disponíveis para VMs (máquinas virtuais) criadas usando os [modelos de implantação clássico e do Resource Manager](../azure-resource-manager/management/deployment-models.md).
 
 Consulte [Plataformas com suporte na Central de Segurança do Azure](security-center-os-coverage.md) para obter uma lista de plataformas com suporte.
 
@@ -51,7 +51,7 @@ Abaixo estão os tempos de latência para verificações de vulnerabilidades, at
 A Central de segurança normalmente procura novos dados a cada hora e atualiza as recomendações de forma adequada. 
 
 > [!NOTE]
-> A Central de Segurança usa o agente do Log Analytics para coletar e armazenar dados. Para saber mais, veja [Migração da Plataforma Central de Segurança do Azure](security-center-platform-migration.md).
+> A Central de Segurança usa o agente do Log Analytics para coletar e armazenar dados. Para saber mais, veja [Migração da Plataforma Central de Segurança do Azure](./security-center-enable-data-collection.md).
 
 
 ## <a name="why-do-i-get-the-message-vm-agent-is-missing"></a>Por que recebo a mensagem "O Agente de VM está ausente?"

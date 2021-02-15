@@ -9,16 +9,16 @@ ms.service: key-vault
 ms.topic: reference
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: e7cfc707aa4bccdcd72e45efa3693ebd8f88a211
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 8806ff41edabcd3c0875d3c02360dc9a275e3878
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88189916"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460816"
 ---
 # <a name="azure-key-vault-customer-data-features"></a>Recursos de dados de cliente do Azure Key Vault
 
-O Azure Key Vault recebe os dados do cliente durante a criação ou atualização de cofres, chaves, segredos, certificados e contas de armazenamento gerenciadas. Esses dados de cliente estarão diretamente visíveis no portal do Azure e por meio da API REST. Os dados do cliente podem ser editados ou excluídos por atualizar ou excluir o objeto que contém os dados.
+Azure Key Vault recebe dados do cliente durante a criação ou atualização de cofres, pools HSM gerenciados, chaves, segredos, certificados e contas de armazenamento gerenciado. Esses dados de cliente estarão diretamente visíveis no portal do Azure e por meio da API REST. Os dados do cliente podem ser editados ou excluídos por atualizar ou excluir o objeto que contém os dados.
 
 Os logs de acesso do sistema são gerados quando um usuário ou aplicativo acessa o Cofre de Chaves. Os logs detalhados de acesso detalhados estão disponíveis para clientes que usam o Azure Insights.
 
@@ -52,14 +52,14 @@ Os logs de diagnóstico do Azure Key Vault que contêm dados pessoais podem ser 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Log de Azure Key Vault](logging.md))
+- [Logs do Cofre da Chave do Azure](logging.md)
 
-- [Visão geral de exclusão reversível do Azure Key Vault](soft-delete-cli.md)
+- [Visão geral de exclusão reversível do Azure Key Vault](./key-vault-recovery.md)
 
-- [Operações de chave do Azure Key Vault](https://docs.microsoft.com/rest/api/keyvault/key-operations)
+- [Operações de chave do Azure Key Vault](/rest/api/keyvault/key-operations)
 
-- [Operações de segredo do Azure Key Vault](https://docs.microsoft.com/rest/api/keyvault/secret-operations)
+- [Operações de segredo do Azure Key Vault](/rest/api/keyvault/secret-operations)
 
-- [Certificados e políticas do Azure Key Vault](https://docs.microsoft.com/rest/api/keyvault/certificates-and-policies)
+- [Certificados e políticas do Azure Key Vault](/rest/api/keyvault/certificates-and-policies)
 
-- [Chaves de conta de Armazenamento do Azure Key Vault](https://docs.microsoft.com/rest/api/keyvault/storage-account-key-operations)
+- [Chaves de conta de Armazenamento do Azure Key Vault](/rest/api/keyvault/storage-account-key-operations)

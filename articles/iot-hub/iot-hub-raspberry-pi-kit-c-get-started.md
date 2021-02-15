@@ -10,12 +10,12 @@ ms.date: 02/14/2019
 ms.author: wesmc
 ms.custom:
 - 'Role: Cloud Development'
-ms.openlocfilehash: 5b86803b763039846e2101b9caf0232aafa4fa24
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 52da3c28faa375f8b308e3fe78329fec4f996af9
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327456"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97804047"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-c"></a>Conectar o Raspberry Pi ao Hub IoT do Azure (C)
 
@@ -99,7 +99,7 @@ Preparar o cartão microSD para instalação da imagem do Raspbian.
 
 1. Baixe o Raspbian.
 
-   1. [Baixe o Stretch do Raspbian com a área de trabalho](https://www.raspberrypi.org/downloads/raspbian/) (o arquivo. zip).
+   1. [Baixe o Stretch do Raspbian com a área de trabalho](https://www.raspberrypi.org/software/) (o arquivo. zip).
 
    2. Extraia a imagem do Raspbian em uma pasta no computador.
 
@@ -154,7 +154,7 @@ Para os pinos do sensor, use a seguinte fiação:
 | SDI (pino 23F)            | SPI0 MOSI (pino 19)     | Cabo verde   |
 | CS (pino 24F)             | SPI0 CS (pino 24)       | Cabo azul    |
 
-Clique para exibir os [mapeamentos de pinos do Raspberry Pi 2 e 3](https://developer.microsoft.com/windows/iot/docs/pinmappingsrpi) para referência.
+Clique para exibir os [mapeamentos de pinos do Raspberry Pi 2 e 3](/windows/iot-core/learn-about-hardware/pinmappings/pinmappingsrpi) para referência.
 
 Depois de conectar com êxito o BME280 ao Raspberry Pi, ele deve ficar semelhante à imagem abaixo.
 

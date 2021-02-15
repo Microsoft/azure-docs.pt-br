@@ -1,19 +1,16 @@
 ---
 title: Gerenciar uma solicitação de suporte do Azure
 description: Descreve como exibir solicitações de suporte, enviar mensagens, alterar o nível de severidade da solicitação, compartilhar informações de diagnóstico com o suporte do Azure, reabrir uma solicitação de suporte fechada e carregar arquivos.
-author: mgblythe
 tags: billing
 ms.assetid: 86697fdf-3499-4cab-ab3f-10d40d3c1f70
-ms.service: azure-supportability
 ms.topic: how-to
-ms.date: 06/30/2020
-ms.author: mblythe
-ms.openlocfilehash: f3b4806bf46750d74a54f68bd2ab58e402e75091
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.date: 12/14/2020
+ms.openlocfilehash: 8110f87401da1352309fb55615093d49981c754d
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85852210"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97504807"
 ---
 # <a name="manage-an-azure-support-request"></a>Gerenciar uma solicitação de suporte do Azure
 
@@ -53,7 +50,7 @@ Nessa página, você pode pesquisar, filtrar e classificar solicitações de sup
 
         :::image type="content" source="media/how-to-manage-azure-support-request/unassigned-can-change-severity.png" alt-text="Selecione um novo nível de severidade":::
 
-    - Se sua solicitação tiver sido atribuída, você verá uma tela semelhante à seguinte. Selecione **OK**e, em seguida, crie uma [nova mensagem](#send-a-message) para solicitar uma alteração no nível de severidade.
+    - Se sua solicitação tiver sido atribuída, você verá uma tela semelhante à seguinte. Selecione **OK** e, em seguida, crie uma [nova mensagem](#send-a-message) para solicitar uma alteração no nível de severidade.
 
         :::image type="content" source="media/how-to-manage-azure-support-request/assigned-cant-change-severity.png" alt-text="Não é possível selecionar um novo nível de severidade":::
 
@@ -67,7 +64,7 @@ Quando você cria uma solicitação de suporte, por padrão, a opção **compart
 
     1. Na página **todas as solicitações de suporte** , selecione a solicitação de suporte.
     
-    1. Na página **solicitação de suporte** , selecione **conceder permissão**e, em seguida, selecione **Sim** e **OK**.
+    1. Na página **solicitação de suporte** , selecione **conceder permissão** e, em seguida, selecione **Sim** e **OK**.
     
         :::image type="content" source="media/how-to-manage-azure-support-request/grant-permission-manage.png" alt-text="Conceder permissões para informações de diagnóstico":::
 
@@ -91,40 +88,48 @@ Siga estas diretrizes ao usar a opção de carregamento de arquivo:
 * Os arquivos não podem ser maiores que 4 MB.
 * Todos os arquivos devem ter uma extensão de nome de arquivo, como *. docx* ou *. xlsx*. A tabela a seguir mostra as extensões de nome de arquivo que são permitidas para upload.
 
-| 0-9, A-C    | D-G   | H-M         | N-P   | R-T      | U-W        | X-Z     |
+| 0-9, A-C     | D-G   | H-M         | N-P   | R-T      | U-W        | X-Z     |
 |-------------|-------|-------------|-------|----------|------------|---------|
-| .7z         | .dat  | .hwl        | .odx  | .rar     | .tdb       | .xlam   |
-| .a          | .db   | .ics        | .oft  | .rdl     | .tdf       | .xlr    |
-| .abc        | .DMP  | .ini        | .old  | .rdlc    | .text      | .xls    |
-| .adm        | .do_  | .java       | .one  | .re_     | .thmx      | .xlsb   |
-| .aspx       | .doc  | .jpg        | .osd  | .reg     | .tif       | .xlsm   |
-| .ATF        | .docm | .LDF        | .OUT  | .remove  | .trc       | .xlsx   |
-| .b          | .docx | .letterhead | .p1   | .ren     | .TTD       | .xlt    |
-| .ba_        | .dotm | .lnk        | .pcap | .rename  | .tx_       | .xltx   |
-| .bak        | .dotx | .lo_        | .pdb  | .rft     | .txt       | .xml    |
-| .bat        | .dtsx | .log        | .pdf  | .rpt     | .uccapilog | .xmla   |
-| .blg        | .eds  | .lpk        | .piz  | .rte     | .uccplog   | .xps    |
-| .CA_        | .emf  | .manifest   | .pmls | .rtf     | .udcx      | .xsd    |
-| .CAB        | .eml  | .master     | .png  | .run     | .vb_       | .xsn    |
-| .cap        | .emz  | .mdmp       | .potx | .saz     | .vbs_      | .xxx    |
-| .catx       | .err  | .mof        | .ppt  | .sql     | .vcf       | .z_     |
-| .CFG        | .etl  | .mp3        | .pptm | .sqlplan | .vsd       | .z01    |
-| .compressed | .evt  | .mpg        | .pptx | .stp     | .wdb       | .z02    |
-| .Config     | .evtx | .ms_        | .prn  | .svclog  | .wks       | .zi     |
-| .cpk        | .EX   | .msg        | .psf  |   -       | .wma       | .zi_    |
-| .cpp        | .ex_  | .msi        | .pst  |  -        | .wmv       | .zip    |
-| .cs         | .ex0  | .mso        | .pub  | -         | .wmz       | .zip_   |
-| .CSV        | .FRD  | .msu        | -      |-          | .wps       | .zipp   |
-| .cvr        | .gif  | .nfo        | -      |-          | .wpt       | .zipped |
-| -            | .guid | -            | -      | -         | .wsdl      | .zippy  |
-| -            | .gz   | -            | -      | -         | .wsp       | .zipx   |
-| -            | -      | -            | -      | -         | .wtl       | .zit    |
-| -            | -      | -            | -      | -         |     -       | .zix    |
-| -            | -      | -            | -      | -         |  -          | .zzz    |
+| .7z         | .dat  | . Har        | .odx  | .rar     | .tdb       | .xlam   |
+| .a          | .db   | .hwl        | .oft  | .rdl     | .tdf       | .xlr    |
+| .abc        | .DMP  | .ics        | .old  | .rdlc    | .text      | .xls    |
+| .adm        | .do_  | .ini        | .one  | .re_     | .thmx      | .xlsb   |
+| .aspx       | .doc  | .java       | .osd  | .reg     | .tif       | .xlsm   |
+| .ATF        | .docm | .jpg        | .OUT  | .remove  | .trc       | .xlsx   |
+| .b          | .docx | .LDF        | .p1   | .ren     | .TTD       | .xlt    |
+| .ba_        | .dotm | .letterhead | .pcap | .rename  | .tx_       | .xltx   |
+| .bak        | .dotx | .lnk        | .pdb  | .rft     | .txt       | .xml    |
+| .bat        | .dtsx | .lo_        | .pdf  | .rpt     | .uccapilog | .xmla   |
+| .blg        | .eds  | .log        | .piz  | .rte     | .uccplog   | .xps    |
+| .CA_        | .emf  | .lpk        | .pmls | .rtf     | .udcx      | .xsd    |
+| .CAB        | .eml  | .manifest   | .png  | .run     | .vb_       | .xsn    |
+| .cap        | .emz  | .master     | .potx | .saz     | .vbs_      | .xxx    |
+| .catx       | .err  | .mdmp       | .ppt  | .sql     | .vcf       | .z_     |
+| .CFG        | .etl  | .mof        | .pptm | .sqlplan | .vsd       | .z01    |
+| .compressed | .evt  | .mp3        | .pptx | .stp     | .wdb       | .z02    |
+| .Config     | .evtx | .mpg        | .prn  | .svclog  | .wks       | .zi     |
+| .cpk        | .EX   | .ms_        | .psf  | -        | .wma       | .zi_    |
+| .cpp        | .ex_  | .msg        | .pst  | -        | .wmv       | .zip    |
+| .cs         | .ex0  | .msi        | .pub  | -        | .wmz       | .zip_   |
+| .CSV        | .FRD  | .mso        | -     | -        | .wps       | .zipp   |
+| .cvr        | .gif  | .msu        | -     | -        | .wpt       | .zipped |
+| -           | .guid | .nfo        | -     | -        | .wsdl      | .zippy  |
+| -           | .gz   | -           | -     | -        | .wsp       | .zipx   |
+| -           | -     | -           | -     | -        | .wtl       | .zit    |
+| -           | -     | -           | -     | -        | -          | .zix    |
+| -           | -     | -           | -     | -        | -          | .zzz    |
+
+## <a name="close-a-support-request"></a>Fechar uma solicitação de suporte
+
+Se você precisar fechar uma solicitação de suporte, [envie uma mensagem](#send-a-message) solicitando que a solicitação seja fechada.
 
 ## <a name="reopen-a-closed-request"></a>Reabrir uma solicitação fechada
 
 Se você precisar reabrir uma solicitação de suporte fechada, crie uma [nova mensagem](#send-a-message), que reabrirá automaticamente a solicitação.
+
+## <a name="cancel-a-support-plan"></a>Cancelar um plano de suporte
+
+Se você precisar cancelar um plano de suporte, consulte [cancelar um plano de suporte](../../cost-management-billing/manage/cancel-azure-subscription.md#cancel-a-support-plan).
 
 ## <a name="next-steps"></a>Próximas etapas
 

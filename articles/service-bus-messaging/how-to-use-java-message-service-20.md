@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 07/17/2020
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
 ms.openlocfilehash: 8363011187a4c2ef77681ece4bb8b1de73ec7a63
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87801342"
 ---
 # <a name="use-java-message-service-20-api-with-azure-service-bus-premium-preview"></a>Usar a API 2,0 do serviço de mensagens Java com o barramento de serviço Premium do Azure (visualização)
@@ -47,7 +47,7 @@ Depois que as dependências forem importadas, os aplicativos Java podem ser escr
 
 Para se conectar com o barramento de serviço do Azure usando clientes JMS, você precisa da **cadeia de conexão** que está disponível nas ' políticas de acesso compartilhado ' no [portal do Azure](https://portal.azure.com) na **cadeia de conexão primária**.
 
-1. Criar uma instância do`ServiceBusJmsConnectionFactorySettings`
+1. Criar uma instância do `ServiceBusJmsConnectionFactorySettings`
 
     ```java
     ServiceBusJmsConnectionFactorySettings connFactorySettings = new ServiceBusJmsConnectionFactorySettings();
@@ -60,7 +60,7 @@ Para se conectar com o barramento de serviço do Azure usando clientes JMS, voc�
     ConnectionFactory factory = new ServiceBusJmsConnectionFactory(ServiceBusConnectionString, connFactorySettings);
     ```
 
-3. Use o `ConnectionFactory` para criar um `Connection` e, em seguida, um`Session` 
+3. Use o `ConnectionFactory` para criar um `Connection` e, em seguida, um `Session` 
 
     ```java
     Connection connection = factory.createConnection();

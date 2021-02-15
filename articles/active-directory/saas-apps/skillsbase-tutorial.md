@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 1c8135f39517a5983f700c35f08a5c0749113450
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 9b712756b6daf7380998bb98f56113cab29ebb59
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88552230"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015155"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skills-base"></a>Tutorial: integração do Azure Active Directory com o Skills Base
 
@@ -27,7 +27,7 @@ A integração do Skills Base com o Azure AD oferece os seguintes benefícios:
 * Você pode permitir que os usuários sejam conectados automaticamente ao Skills Base (logon único) com as respectivas contas do Azure AD.
 * Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](../manage-apps/what-is-single-sign-on.md).
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Prerequisites
@@ -134,11 +134,11 @@ Para configurar o logon único do Azure AD com o Skills Base, execute as seguint
 
 3. Na página **Autenticação**, selecione Logon Único como **SAML 2**.
 
-    ![Único](./media/skillsbase-tutorial/tutorial_skillsbase_single.png)
+    ![Captura de tela que mostra a página Autenticação com SAML 2 selecionado em Logon Único.](./media/skillsbase-tutorial/tutorial_skillsbase_single.png)
 
 4. Na página **Autenticação**, execute as seguintes etapas:
 
-    ![Único](./media/skillsbase-tutorial/tutorial_skillsbase_save.png)
+    ![Captura de tela que mostra a página Autenticação, na qual você pode inserir os valores descritos.](./media/skillsbase-tutorial/tutorial_skillsbase_save.png)
 
     a. Clique no botão **Atualizar metadados do IdP** ao lado da opção **Status** e cole o conteúdo do XML de metadados que você baixou do portal do Azure na caixa de texto especificada.
 
@@ -209,12 +209,12 @@ Nesta seção, é criado um usuário denominado Brenda Fernandes no Skills Base.
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Ao clicar no bloco do Skills Base no Painel de Acesso, você deverá ser conectado automaticamente ao Skills Base no qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao clicar no bloco do Skills Base no Painel de Acesso, você deverá ser conectado automaticamente ao Skills Base no qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](./tutorial-list.md)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](../conditional-access/overview.md)

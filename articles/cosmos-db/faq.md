@@ -7,14 +7,15 @@ ms.topic: conceptual
 ms.date: 09/01/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: f6b2d081b0dc475e0950b12de31bab83cbe7da8b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 81c959467c4bb3700120917cf150773fb18e866d
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213084"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359822"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Perguntas frequentes sobre diferentes APIs no Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 ### <a name="what-are-the-typical-use-cases-for-azure-cosmos-db"></a>Quais são os casos de uso típicos do Azure Cosmos DB?
 
@@ -40,7 +41,7 @@ Cada API opera de forma independente, exceto as API do Gremlin e do SQL, que sã
 
 ### <a name="is-azure-cosmos-db-hipaa-compliant"></a>O Azure Cosmos DB está em conformidade com a HIPAA?
 
-Sim, o Azure Cosmos DB está em conformidade com a HIPAA. A HIPAA estabelece os requisitos para o uso, a divulgação e a proteção de informações de integridade individualmente identificáveis. Para saber mais, confira o [Centro de Confiabilidade da Microsoft](https://www.microsoft.com/en-us/TrustCenter/Compliance/HIPAA).
+Sim, o Azure Cosmos DB está em conformidade com a HIPAA. A HIPAA estabelece os requisitos para o uso, a divulgação e a proteção de informações de integridade individualmente identificáveis. Para saber mais, confira o [Centro de Confiabilidade da Microsoft](/compliance/regulatory/offering-hipaa-hitech).
 
 ### <a name="what-are-the-storage-limits-of-azure-cosmos-db"></a>Quais são os limites de armazenamento do Azure Cosmos DB?
 
@@ -70,7 +71,7 @@ Também use o [Emulador do Azure Cosmos DB](local-emulator.md) para desenvolver 
 
 Para fazer uma pergunta técnica, poste em um desses dois fóruns de perguntas e respostas:
 
-* [Página de perguntas e respostas da Microsoft](https://docs.microsoft.com/answers/topics/azure-cosmos-db.html)
+* [Página de perguntas e respostas da Microsoft](/answers/topics/azure-cosmos-db.html)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-cosmosdb). O Stack Overflow é o melhor para perguntas sobre programação. Verifique se sua pergunta está [no tópico](https://stackoverflow.com/help/on-topic) e [forneça o máximo de detalhes possíveis, tornando a pergunta clara e possível de responder](https://stackoverflow.com/help/how-to-ask).
 
 Para solicitar novos recursos, crie uma nova solicitação em [Voz do usuário](https://feedback.azure.com/forums/263030-azure-cosmos-db).
@@ -85,7 +86,7 @@ Experimente as assinaturas do Azure Cosmos DB é exibido no portal do Azure ao l
 
 As seguintes condições se aplicam às assinaturas de Experimente o Azure Cosmos DB:
 
-* O acesso à conta pode ser concedido a MSAs (Contas pessoais da Microsoft). Evite usar contas do AAD (Azure Active Directory) ou contas que pertencem a locatários corporativos do AAD, pois elas podem ter limitações em vigor que poderiam bloquear a concessão de acesso.
+* O acesso à conta pode ser concedido a MSAs (Contas pessoais da Microsoft). Evite usar contas do Azure Active Directory (AD do Azure) ou contas que pertencem a locatários corporativos do Azure AD, elas podem ter limitações em vigor que poderiam bloquear a concessão de acesso.
 * Um [contêiner de taxa de transferência provisionada](./set-throughput.md#set-throughput-on-a-container) por assinatura para contas SQL, API do Gremlin e Table.
 * Até três [coleções de taxa de transferência provisionada](./set-throughput.md#set-throughput-on-a-container) por assinatura para contas do MongoDB.
 * Um [banco de dados de taxa de transferência provisionada](./set-throughput.md#set-throughput-on-a-database) por assinatura. Os bancos de dados de taxa de transferência provisionada podem conter qualquer número de contêineres internamente.
@@ -102,9 +103,9 @@ As seguintes condições se aplicam às assinaturas de Experimente o Azure Cosmo
 
 O Azure Cosmos DB está disponível no Portal do Azure. Primeiro, inscreva-se para uma assinatura do Azure. Depois de se inscrever, você poderá adicionar uma conta do Azure Cosmos DB à sua assinatura do Azure.
 
-### <a name="what-is-a-master-key"></a>O que é uma chave mestra?
+### <a name="what-is-a-primary-key"></a>O que é uma chave primária?
 
-Uma chave mestra é um token de segurança para acessar todos os recursos de uma conta. As pessoas que têm a chave têm acesso de leitura e gravação a todos os recursos na conta do banco de dados. Seja cauteloso ao distribuir chaves mestras. As chaves mestras primária e a secundária estão disponíveis na folha **Chaves** do [portal do Azure][azure-portal]. Para saber mais sobre as chaves, consulte [Exibir, copiar e regenerar chaves de acesso](manage-with-cli.md#list-account-keys).
+Uma chave primária é um token de segurança para acessar todos os recursos de uma conta. As pessoas que têm a chave têm acesso de leitura e gravação a todos os recursos na conta do banco de dados. Tenha cuidado ao distribuir chaves primárias. A chave primária primária e a chave primária secundária estão disponíveis na folha **chaves** da [portal do Azure][azure-portal]. Para saber mais sobre as chaves, consulte [Exibir, copiar e regenerar chaves de acesso](manage-with-cli.md#list-account-keys).
 
 ### <a name="what-are-the-regions-that-preferredlocations-can-be-set-to"></a>Quais são as regiões para as quais PreferredLocations pode ser definido?
 
@@ -173,13 +174,13 @@ A linguagem de consulta SQL com suporte nas contas da API do SQL é um subconjun
 
 ### <a name="does-the-sql-api-support-sql-aggregation-functions"></a>A API do SQL dá suporte para funções de agregação SQL?
 
-A API do SQL dá suporte à agregação de baixa latência em qualquer escala por meio das funções de agregação `COUNT`, `MIN`, `MAX`, `AVG` e `SUM` pela gramática SQL. Para saber mais, consulte [Funções de agregação](sql-query-aggregates.md).
+A API do SQL dá suporte à agregação de baixa latência em qualquer escala por meio das funções de agregação `COUNT`, `MIN`, `MAX`, `AVG` e `SUM` pela gramática SQL. Para saber mais, consulte [Funções de agregação](sql-query-aggregate-functions.md).
 
 ### <a name="how-does-the-sql-api-provide-concurrency"></a>Como a API do SQL fornece simultaneidade?
 
 A API do SQL dá suporte ao OCC (controle de simultaneidade otimista) por meio de marcações da entidade HTTP ou Etags. Cada recurso da API do SQL tem uma Etag e a Etag é definida no servidor sempre que um documento é atualizado. O cabeçalho da Etag e o valor atual são incluídos em todas as mensagens de resposta. As Etags podem ser usadas com o cabeçalho If-Match a fim de permitir que o servidor decida se um recurso deve ser atualizado. O valor de If-Match é o valor de Etag a ser comparado. Se o valor de Etag corresponder ao valor de Etag do servidor, o recurso será atualizado. Se a Etag não for mais atual, o servidor rejeitará a operação com um código de resposta "HTTP 412 Falha de pré-condição". O cliente refaz a busca do recurso a fim de obter o valor de Etag atual para o recurso. Além disso, as Etags podem ser usadas com o cabeçalho If-None-Match para determinar se é necessário realizar uma nova busca de um recurso.
 
-Para usar a simultaneidade otimista em .NET, use a classe [AccessCondition](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.accesscondition.aspx) . Para obter um exemplo de .NET, confira [Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DocumentManagement/Program.cs) no exemplo DocumentManagement no GitHub.
+Para usar a simultaneidade otimista em .NET, use a classe [AccessCondition](/dotnet/api/microsoft.azure.documents.client.accesscondition) . Para obter um exemplo de .NET, confira [Program.cs](https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/samples/code-samples/DocumentManagement/Program.cs) no exemplo DocumentManagement no GitHub.
 
 ### <a name="how-do-i-perform-transactions-in-the-sql-api"></a>Como fazer para realizar transações na API do SQL?
 
@@ -210,7 +211,7 @@ Esta é a limitação do JavaScript. O JavaScript usa números de formato de pon
 A criação de permissões usando o ResourceTokens é permitida no nível do contêiner e de seus descendentes (como documentos, anexos). Isso implica que, no momento, tentar criar uma permissão no nível do banco de dados ou da conta não é permitido.
 
 [azure-portal]: https://portal.azure.com
-[query]: sql-api-sql-query.md
+[query]: ./sql-query-getting-started.md
 
 ## <a name="next-steps"></a>Próximas etapas
 

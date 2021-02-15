@@ -4,17 +4,17 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 09c4420647043fccc408631fec75854667923721
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8a442b5de7a256dd8bcf47da741bd41894709c3a
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74085218"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95559913"
 ---
 O diagnóstico de problemas com um serviço de nuvem do Microsoft Azure exige a coleta dos arquivos de log do serviço em máquinas virtuais à medida que os problemas ocorrem. É possível usar a extensão AzureLogCollector sob demanda para executar uma coleta avulsa de logs de uma ou mais VMs do Serviço de Nuvem (de funções Web e funções de trabalho) e transferir os arquivos coletados para uma conta de armazenamento do Azure – tudo sem precisar fazer logon remotamente em qualquer uma das VMs.
 
 > [!NOTE]
-> As descrições para a maioria das informações registradas podem ser encontradas emhttps://blogs.msdn.microsoft.com/kwill/2013/08/09/windows-azure-paas-compute-diagnostics-data/
+> As descrições para a maioria das informações registradas podem ser encontradas em https://blogs.msdn.microsoft.com/kwill/2013/08/09/windows-azure-paas-compute-diagnostics-data/
 > 
 > 
 
@@ -44,7 +44,7 @@ Em ambos os modos de coleta, é possível especificar pastas de coleta de dados 
 * PowerShell do Azure. Consulte [instalar Azure PowerShell](/powershell/azure/install-az-ps)] para obter instruções de instalação.
 
 ## <a name="add-the-extension"></a>Adicionar a extensão
-Você pode usar cmdlets do [Microsoft Azure PowerShell](https://msdn.microsoft.com/library/dn495240.aspx) ou [APIs REST do Gerenciamento de Serviços](https://msdn.microsoft.com/library/ee460799.aspx) para adicionar a extensão AzureLogCollector.
+Você pode usar cmdlets do [Microsoft Azure PowerShell](/previous-versions/azure/dn495240(v=azure.100)) ou [APIs REST do Gerenciamento de Serviços](/previous-versions/azure/ee460799(v=azure.100)) para adicionar a extensão AzureLogCollector.
 
 Para Serviços de Nuvem, o cmdlet do Azure Powershell existente, **Set-AzureServiceExtension**, poderá ser usado para habilitar a extensão em instâncias de função do Serviço de Nuvem. Sempre que essa extensão for habilitada por meio desse cmdlet, a coleção de logs será disparada nas instâncias de função selecionadas das funções selecionadas.
 
@@ -177,7 +177,7 @@ param (
 )
 ```
 
-* **ServiceName: o**nome do serviço de nuvem.
+* **ServiceName: o** nome do serviço de nuvem.
 * **Roles**: uma lista de funções, como "FunçãoWeb1" ou "FunçãoDeTrabalho1".
 * **Instances**: uma lista de nomes de instâncias de função separados por vírgula -- use a cadeia de caracteres curinga ("*") para todas as instâncias de função.
 * **Slot**: nome do slot. “Produção” ou “Preparo”.
@@ -259,7 +259,7 @@ param (
 )
 ```
 
-* **ServiceName: o**nome do serviço de nuvem.
+* **ServiceName: o** nome do serviço de nuvem.
 * **VMName**: o nome da VM.
 * **Mode**: modo de coleta. "Completo" ou "GA".
 * **StorageAccountName**: nome da conta de armazenamento do Azure para armazenar os dados coletados.
@@ -528,4 +528,3 @@ else
 
 ## <a name="next-steps"></a>Próximas etapas
 Agora, você pode examinar ou copiar os logs de um local muito simples.
-

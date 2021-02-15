@@ -3,18 +3,18 @@ title: Solicitar acesso just-in-time
 description: Descreve como os editores de aplicativos gerenciados do Azure solicitam acesso just-in-time a um aplicativo gerenciado.
 author: MSEvanhi
 ms.topic: conceptual
-ms.date: 06/03/2019
+ms.date: 09/25/2020
 ms.author: evanhi
-ms.openlocfilehash: 7f475774828bcaecd471e13de994b156041323ed
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b7c067ca82ea7fbe7eb9c0f3d50b7fe75dfb47df
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75651378"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100377356"
 ---
 # <a name="enable-and-request-just-in-time-access-for-azure-managed-applications"></a>Habilitar e solicitar o acesso just-in-time para aplicativos gerenciados do Azure
 
-Os consumidores do seu aplicativo gerenciado podem ser relutados para conceder a você acesso permanente ao grupo de recursos gerenciado. Como um editor de um aplicativo de gerente, você pode preferir que os consumidores saibam exatamente quando você precisar acessar os recursos gerenciados. Para fornecer aos consumidores maior controle sobre a concessão de acesso a recursos gerenciados, os aplicativos gerenciados do Azure fornecem um recurso chamado acesso JIT (just-in-time), que está atualmente em versão prévia.
+Os consumidores do seu aplicativo gerenciado podem ser relutados para conceder a você acesso permanente ao grupo de recursos gerenciado. Como um editor de um aplicativo gerenciado, você pode preferir que os consumidores saibam exatamente quando você precisar acessar os recursos gerenciados. Para fornecer aos consumidores maior controle sobre a concessão de acesso a recursos gerenciados, os aplicativos gerenciados do Azure fornecem um recurso chamado acesso JIT (just-in-time). Esse recurso está atualmente na visualização.
 
 O acesso JIT permite que você solicite acesso elevado a recursos de um aplicativo gerenciado para solução de problemas ou manutenção. Você sempre tem acesso somente leitura aos recursos, mas, para um período de tempo específico, você pode ter mais acesso.
 
@@ -34,9 +34,7 @@ Este artigo se concentra nas ações que os editores adotam para habilitar o ace
 
 ## <a name="add-jit-access-step-to-ui"></a>Adicionar etapa de acesso JIT à interface do usuário
 
-Seu CreateUiDefinition.jsno arquivo é exatamente como o arquivo da interface do usuário que você cria para acesso permanente, exceto que você deve incluir uma etapa que permite aos consumidores habilitar o acesso JIT. Para saber mais sobre como publicar sua primeira oferta de aplicativo gerenciado no Azure Marketplace, confira [aplicativos gerenciados do Azure no Marketplace](publish-marketplace-app.md).
-
-Para dar suporte à funcionalidade JIT para sua oferta, adicione o seguinte conteúdo ao seu CreateUiDefinition.jsno arquivo:
+Em seu CreateUiDefinition.jsno arquivo, inclua uma etapa que permite aos consumidores habilitar o acesso JIT. Para dar suporte à funcionalidade JIT para sua oferta, adicione o conteúdo a seguir à sua CreateUiDefinition.jsno arquivo.
 
 Em "etapas":
 
@@ -58,7 +56,7 @@ Em "etapas":
     ]
 }
 ```
- 
+
 Em "saídas":
 
 ```json
@@ -70,25 +68,27 @@ Em "saídas":
 
 ## <a name="enable-jit-access"></a>Habilitar acesso JIT
 
-Ao definir sua oferta no Marketplace, certifique-se de habilitar o acesso JIT.
+Ao criar sua oferta no Partner Center, certifique-se de habilitar o acesso JIT.
 
-1. Entre no portal de [publicação de parceiros de nuvem](https://cloudpartner.azure.com).
+1. Entre no portal do Marketplace comercial no [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview).
 
-1. Forneça valores para publicar seu aplicativo gerenciado no Marketplace. Selecione **Sim** para **habilitar o acesso JIT?**
+1. Para obter orientações sobre como criar um novo aplicativo gerenciado, siga as etapas em [criar uma oferta de aplicativo do Azure](../../marketplace/create-new-azure-apps-offer.md).
 
-   ![Habilitar acesso Just-In-Time](./media/request-just-in-time-access/marketplace-enable.png)
+1. Na página **configuração técnica** , marque a caixa de seleção **habilitar acesso JIT (just-in-time)** .
 
-Você adicionou uma etapa de configuração JIT à sua interface do usuário e habilitou o acesso JIT na oferta do Marketplace. Quando os consumidores implantam seu aplicativo gerenciado, eles podem [ativar o acesso JIT para sua instância](approve-just-in-time-access.md#enable-during-deployment).
+   :::image type="content" source="./media/request-just-in-time-access/enable-just-in-time-access.png" alt-text="Habilitar acesso Just-In-Time":::
+
+Você adicionou uma etapa de configuração JIT à sua interface do usuário e habilitou o acesso JIT na oferta do Marketplace comercial. Quando os consumidores implantam seu aplicativo gerenciado, eles podem [ativar o acesso JIT para sua instância](approve-just-in-time-access.md#enable-during-deployment).
 
 ## <a name="request-access"></a>Solicitar acesso
 
-Quando você precisar acessar os recursos gerenciados do consumidor, envie uma solicitação para uma função específica, hora e duração. O consumidor deve, então, aprovar a solicitação.
+Quando você precisar acessar os recursos gerenciados do consumidor, envie uma solicitação para uma função, hora e duração específicas. O consumidor deve, então, aprovar a solicitação.
 
 Para enviar uma solicitação de acesso JIT:
 
 1. Selecione **acesso JIT** para o aplicativo gerenciado que você precisa acessar.
 
-1. Selecione **funções qualificadas**e selecione **Ativar** na coluna ação para a função desejada.
+1. Selecione **funções qualificadas** e selecione **Ativar** na coluna ação para a função desejada.
 
    ![Ativar solicitação de acesso](./media/request-just-in-time-access/send-request.png)
 

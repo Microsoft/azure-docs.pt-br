@@ -1,18 +1,18 @@
 ---
-title: Alertas de métrica de Azure Monitor para contêineres | Microsoft Docs
+title: Alertas de métrica de Azure Monitor para contêineres
 description: Este artigo revisa os alertas de métrica recomendados disponíveis em Azure Monitor para contêineres em visualização pública.
 ms.topic: conceptual
-ms.date: 08/04/2020
-ms.openlocfilehash: 1826896ad2d5c64d389219018f51238826c840d0
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.date: 10/28/2020
+ms.openlocfilehash: a81dfb3fab57b378a56bfa8ac8102d723a50dbbc
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87563357"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97695966"
 ---
 # <a name="recommended-metric-alerts-preview-from-azure-monitor-for-containers"></a>Alertas de métrica recomendados (versão prévia) de Azure Monitor para contêineres
 
-Para alertar sobre problemas de recursos do sistema quando eles estão passando por uma demanda de pico e executando quase capacidade, com Azure Monitor para contêineres, você criaria um alerta de log com base nos dados de desempenho armazenados em logs de Azure Monitor. Azure Monitor para contêineres agora inclui regras de alerta de métrica pré-configuradas para o cluster AKS, que está em visualização pública.
+Para alertar sobre problemas de recursos do sistema quando eles estão passando por uma demanda de pico e executando quase capacidade, com Azure Monitor para contêineres, você criaria um alerta de log com base nos dados de desempenho armazenados em logs de Azure Monitor. Azure Monitor para contêineres agora inclui regras de alerta de métrica pré-configuradas para seu AKS e o cluster kubernetes habilitado para Arc do Azure, que está em visualização pública.
 
 Este artigo revisa a experiência e fornece orientação sobre como configurar e gerenciar essas regras de alerta.
 
@@ -22,22 +22,22 @@ Se você não estiver familiarizado com alertas de Azure Monitor, consulte [vis�
 
 Antes de começar, confirme o seguinte:
 
-* As métricas personalizadas só estão disponíveis em um subconjunto de regiões do Azure. Uma lista de regiões com suporte está documentada [aqui](../platform/metrics-custom-overview.md#supported-regions).
+* As métricas personalizadas só estão disponíveis em um subconjunto de regiões do Azure. Uma lista de regiões com suporte é documentada em [regiões com suporte](../platform/metrics-custom-overview.md#supported-regions).
 
-* Para dar suporte a alertas de métrica e à introdução de métricas adicionais, a versão mínima do agente necessária é **Microsoft/OMS: ciprod05262020**.
+* Para dar suporte a alertas de métricas e à introdução de métricas adicionais, a versão mínima do agente necessária é **MCR.Microsoft.com/azuremonitor/containerinsights/ciprod:ciprod05262020** para AKS e **MCR.Microsoft.com/azuremonitor/containerinsights/ciprod:ciprod09252020** para o cluster kubernetes do Azure com Arc habilitado.
 
     Para verificar se o cluster está executando a versão mais recente do agente, você pode:
 
     * Execute o comando: `kubectl describe <omsagent-pod-name> --namespace=kube-system` . No status retornado, observe o valor em **imagem** para omsagent na seção *contêineres* da saída. 
     * Na guia **nós** , selecione o nó de cluster e, no painel **Propriedades** à direita, observe o valor em **marca de imagem do agente**.
 
-    O valor mostrado deve ser uma versão posterior a **ciprod05262020**. Se o cluster tiver uma versão mais antiga, siga o [agente de atualização em etapas do cluster AKs](container-insights-manage-agent.md#upgrade-agent-on-aks-cluster) para obter a versão mais recente.
-    
+    O valor mostrado para AKS deve ser a versão **ciprod05262020** ou posterior. O valor mostrado para o cluster kubernetes habilitado para Arc do Azure deve ser a versão **ciprod09252020** ou posterior. Se o cluster tiver uma versão mais antiga, consulte [como atualizar o Azure monitor para agente de contêineres](container-insights-manage-agent.md#upgrade-agent-on-aks-cluster) para obter as etapas para obter a versão mais recente.
+
     Para obter mais informações relacionadas à versão do agente, consulte [histórico de versão do agente](https://github.com/microsoft/docker-provider/tree/ci_feature_prod). Para verificar se as métricas estão sendo coletadas, você pode usar Azure Monitor métricas Explorer e verificar no **namespace de métrica** que o **insights** está listado. Se estiver, vá em frente e comece a configurar os alertas. Se você não vir nenhuma métrica coletada, a entidade de serviço de cluster ou a MSI não tem as permissões necessárias. Para verificar se o SPN ou o MSI é um membro da função de **Editor de métricas de monitoramento** , siga as etapas descritas na seção [atualizar por cluster usando CLI do Azure](container-insights-update-metrics.md#upgrade-per-cluster-using-azure-cli) para confirmar e definir a atribuição de função.
 
 ## <a name="alert-rules-overview"></a>Visão geral das regras de alerta
 
-Para alertar sobre o que importa, Azure Monitor para contêineres inclui os seguintes alertas de métrica para seus clusters AKS:
+Para alertar sobre o que importa, Azure Monitor para contêineres inclui os seguintes alertas de métrica para seus clusters kubernetes habilitados para AKS e Azure Arc:
 
 |Nome| Descrição |Limite padrão |
 |----|-------------|------------------|
@@ -45,6 +45,7 @@ Para alertar sobre o que importa, Azure Monitor para contêineres inclui os segu
 |% De memória do conjunto de trabalho de contêiner médio |Calcula a média de memória do conjunto de trabalho usada por contêiner.|Quando o uso médio de memória do conjunto de trabalho por contêiner é maior que 95%. |
 |% de CPU Média |Calcula a média de CPU usada por nó. |Quando a utilização média da CPU do nó for maior que 80% |
 |% De uso médio do disco |Calcula a média de uso do disco para um nó.|Quando o uso do disco para um nó for maior que 80%. |
+|% De uso de volume persistente médio |Calcula o uso médio de VP por Pod. |Quando o uso médio de VP por pod é maior que 80%.|
 |% De memória de conjunto de trabalho média |Calcula a média de memória do conjunto de trabalho para um nó. |Quando a memória do conjunto de trabalho médio para um nó é maior que 80%. |
 |Reiniciando a contagem de contêineres |Calcula o número de contêineres de reinicialização. | Quando as reinicializações de contêiner forem maiores que 0. |
 |Contagens de Pod com falha |Calcula se algum pod no estado de falha.|Quando um número de pods no estado de falha for maior que 0. |
@@ -73,13 +74,15 @@ As seguintes métricas baseadas em alerta têm características de comportamento
 
 * a métrica *oomKilledContainerCount* é enviada somente quando há contêineres mortos de OOM eliminados.
 
-* as métricas *cpuExceededPercentage*, *memoryRssExceededPercentage*e *memoryWorkingSetExceededPercentage* são enviadas quando os valores de conjunto de trabalho CPU, memória RSS e memória excedem o limite configurado (o limite padrão é 95%). Esses limites são exclusivos do limite de condição de alerta especificado para a regra de alerta correspondente. Ou seja, se você quiser coletar essas métricas e analisá-las do [Metrics Explorer](../platform/metrics-getting-started.md), recomendamos que configure o limite para um valor inferior ao limite de alertas. A configuração relacionada às configurações de coleção para seus limites de utilização de recursos de contêiner pode ser substituída no arquivo ConfigMaps na seção `[alertable_metrics_configuration_settings.container_resource_utilization_thresholds]` . Consulte a seção [Configurar métricas realertáveis ConfigMaps](#configure-alertable-metrics-in-configmaps) para obter detalhes relacionados à configuração do arquivo de configuração do ConfigMap.
+* as métricas *cpuExceededPercentage*, *memoryRssExceededPercentage* e *memoryWorkingSetExceededPercentage* são enviadas quando os valores de conjunto de trabalho CPU, memória RSS e memória excedem o limite configurado (o limite padrão é 95%). Esses limites são exclusivos do limite de condição de alerta especificado para a regra de alerta correspondente. Ou seja, se você quiser coletar essas métricas e analisá-las do [Metrics Explorer](../platform/metrics-getting-started.md), recomendamos que configure o limite para um valor inferior ao limite de alertas. A configuração relacionada às configurações de coleção para seus limites de utilização de recursos de contêiner pode ser substituída no arquivo ConfigMaps na seção `[alertable_metrics_configuration_settings.container_resource_utilization_thresholds]` . Consulte a seção [Configurar métricas realertáveis ConfigMaps](#configure-alertable-metrics-in-configmaps) para obter detalhes relacionados à configuração do arquivo de configuração do ConfigMap.
+
+* a métrica *pvUsageExceededPercentage* é enviada quando a porcentagem de uso de volume persistente excede o limite configurado (o limite padrão é 60%). Esse limite é exclusivo do limite de condição de alerta especificado para a regra de alerta correspondente. Ou seja, se você quiser coletar essas métricas e analisá-las do [Metrics Explorer](../platform/metrics-getting-started.md), recomendamos que configure o limite para um valor inferior ao limite de alertas. A configuração relacionada às configurações de coleta para limites de utilização de volume persistente pode ser substituída no arquivo ConfigMaps na seção `[alertable_metrics_configuration_settings.pv_utilization_thresholds]` . Consulte a seção [Configurar métricas realertáveis ConfigMaps](#configure-alertable-metrics-in-configmaps) para obter detalhes relacionados à configuração do arquivo de configuração do ConfigMap. A coleta de métricas de volume persistente com declarações no namespace *Kube-System* são excluídas por padrão. Para habilitar a coleta nesse namespace, use a seção `[metric_collection_settings.collect_kube_system_pv_metrics]` no arquivo ConfigMap. Consulte [configurações de coleta de métrica](./container-insights-agent-config.md#metric-collection-settings) para obter detalhes.
 
 ## <a name="metrics-collected"></a>Métricas coletadas
 
 As métricas a seguir são habilitadas e coletadas, a menos que especificado de outra forma, como parte desse recurso:
 
-|Namespace da métrica |Métrica |Descrição |
+|Namespace da métrica |Metric |Descrição |
 |---------|----|------------|
 |Informações. contêiner/nós |cpuUsageMillicores |Utilização da CPU em milicores por host.|
 |Informações. contêiner/nós |cpuUsagePercentage |Percentual de uso da CPU por nó.|
@@ -97,6 +100,7 @@ As métricas a seguir são habilitadas e coletadas, a menos que especificado de 
 |Informações. contêiner/contêineres |cpuExceededPercentage |Porcentagem de utilização da CPU para contêineres que excedem o limite configurável pelo usuário (o padrão é 95,0) pelo nome do contêiner, nome do controlador, namespace kubernetes, nome do pod.<br> Coleta  |
 |Informações. contêiner/contêineres |memoryRssExceededPercentage |Porcentagem de RSS de memória para contêineres excedendo o limite configurável pelo usuário (o padrão é 95,0) pelo nome do contêiner, nome do controlador, namespace kubernetes, nome do pod.|
 |Informações. contêiner/contêineres |memoryWorkingSetExceededPercentage |Porcentagem do conjunto de trabalho de memória para contêineres que excedem o limite configurável pelo usuário (o padrão é 95,0) pelo nome do contêiner, nome do controlador, namespace kubernetes, nome do pod.|
+|Percepções. Container/persistentvolumes |pvUsageExceededPercentage |Porcentagem de utilização de PV para volumes persistentes que excedem o limite configurável pelo usuário (o padrão é 60,0) pelo nome da declaração, namespace kubernetes, nome do volume, nome do pod e nome do nó.
 
 ## <a name="enable-alert-rules"></a>Habilitar regras de alerta
 
@@ -144,7 +148,7 @@ As etapas básicas são as seguintes:
 
 2. Para implantar um modelo personalizado por meio do portal, selecione **criar um recurso** no [portal do Azure](https://portal.azure.com).
 
-3. Procure **modelo**e, em seguida, selecione **modelo**. planta.
+3. Pesquise por **modelo** e, em seguida, selecione **implantação de modelo**.
 
 4. Selecione **Criar**.
 
@@ -182,7 +186,7 @@ As etapas básicas são as seguintes:
     ```azurecli
     az login
 
-    az group deployment create \
+    az deployment group create \
     --name AlertDeployment \
     --resource-group ResourceGroupofTargetResource \
     --template-file templateFileName.json \
@@ -207,29 +211,40 @@ Para exibir alertas criados para as regras habilitadas, no painel **alertas reco
 
 ## <a name="configure-alertable-metrics-in-configmaps"></a>Configurar métricas de alerta no ConfigMaps
 
-Execute as etapas a seguir para configurar o arquivo de configuração do ConfigMap para substituir os limites de utilização de recursos de contêiner padrão. Essas etapas são aplicáveis somente para as seguintes métricas de alerta.
+Execute as etapas a seguir para configurar o arquivo de configuração do ConfigMap para substituir os limites de utilização padrão. Essas etapas são aplicáveis somente para as seguintes métricas de alerta:
 
 * *cpuExceededPercentage*
 * *memoryRssExceededPercentage*
 * *memoryWorkingSetExceededPercentage*
+* *pvUsageExceededPercentage*
 
-1. Edite o arquivo ConfigMap YAML na seção `[alertable_metrics_configuration_settings.container_resource_utilization_thresholds]` .
+1. Edite o arquivo ConfigMap YAML na seção `[alertable_metrics_configuration_settings.container_resource_utilization_thresholds]` ou `[alertable_metrics_configuration_settings.pv_utilization_thresholds]` .
 
-2. Para modificar o limite de *cpuExceededPercentage* para 90% e iniciar a coleta dessa métrica quando esse limite for atingido e excedido, configure o arquivo ConfigMap usando o exemplo a seguir.
+   - Para modificar o limite de *cpuExceededPercentage* para 90% e iniciar a coleta dessa métrica quando esse limite for atingido e excedido, configure o arquivo ConfigMap usando o exemplo a seguir:
 
-    ```
-    container_cpu_threshold_percentage = 90.0
-    # Threshold for container memoryRss, metric will be sent only when memory rss exceeds or becomes equal to the following percentage
-    container_memory_rss_threshold_percentage = 95.0
-    # Threshold for container memoryWorkingSet, metric will be sent only when memory working set exceeds or becomes equal to the following percentage
-    container_memory_working_set_threshold_percentage = 95.0
-    ```
+     ```
+     [alertable_metrics_configuration_settings.container_resource_utilization_thresholds]
+         # Threshold for container cpu, metric will be sent only when cpu utilization exceeds or becomes equal to the following percentage
+         container_cpu_threshold_percentage = 90.0
+         # Threshold for container memoryRss, metric will be sent only when memory rss exceeds or becomes equal to the following percentage
+         container_memory_rss_threshold_percentage = 95.0
+         # Threshold for container memoryWorkingSet, metric will be sent only when memory working set exceeds or becomes equal to the following percentage
+         container_memory_working_set_threshold_percentage = 95.0
+     ```
 
-3. Execute o seguinte comando kubectl: `kubectl apply -f <configmap_yaml_file.yaml>` .
+   - Para modificar o limite de *pvUsageExceededPercentage* para 80% e iniciar a coleta dessa métrica quando esse limite for atingido e excedido, configure o arquivo ConfigMap usando o exemplo a seguir:
+
+     ```
+     [alertable_metrics_configuration_settings.pv_utilization_thresholds]
+         # Threshold for persistent volume usage bytes, metric will be sent only when persistent volume utilization exceeds or becomes equal to the following percentage
+         pv_usage_threshold_percentage = 80.0
+     ```
+
+2. Execute o seguinte comando kubectl: `kubectl apply -f <configmap_yaml_file.yaml>` .
 
     Exemplo: `kubectl apply -f container-azm-ms-agentconfig.yaml`.
 
-A alteração de configuração pode levar alguns minutos para ser concluída antes de entrar em vigor, e todos os pods de omsagent no cluster serão reiniciados. A reinicialização é uma reinicialização sem interrupção para todos os pods omsagent, nem todas as reinicializações ao mesmo tempo. Quando as reinicializações forem concluídas, será exibida uma mensagem semelhante à seguinte e inclui o resultado: `configmap "container-azm-ms-agentconfig" created` .
+A alteração de configuração pode levar alguns minutos para ser concluída antes de entrar em vigor, e todos os pods de omsagent no cluster serão reiniciados. A reinicialização é uma reinicialização sem interrupção para todos os pods omsagents; Eles nem todos reiniciam ao mesmo tempo. Quando as reinicializações forem concluídas, será exibida uma mensagem semelhante ao exemplo a seguir e inclui o resultado: `configmap "container-azm-ms-agentconfig" created` .
 
 ## <a name="next-steps"></a>Próximas etapas
 

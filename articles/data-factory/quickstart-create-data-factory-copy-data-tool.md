@@ -1,6 +1,6 @@
 ---
 title: Copiar dados usando a ferramenta de Copiar Dados do Azure
-description: Crie um Azure Data Factory e, em seguida, use a ferramenta Copy Data para copiar um local no armazenamento de Blobs do Azure para outro local.
+description: Crie um Azure Data Factory e use a ferramenta Copiar Dados para copiar dados de uma localização no Armazenamento de Blobs do Azure para outra.
 services: data-factory
 documentationcenter: ''
 author: dearandyxu
@@ -10,13 +10,13 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: quickstart
-ms.date: 06/10/2020
-ms.openlocfilehash: 756c62aa070f05c4b66de0cde6c7df59d9b1d09a
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.date: 11/09/2020
+ms.openlocfilehash: 282917a6bbf7edb962a87ad87810adde56206d97
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84735177"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013425"
 ---
 # <a name="quickstart-use-the-copy-data-tool-to-copy-data"></a>Início Rápido: Use a ferramenta Copy Data para copiar dados
 
@@ -37,20 +37,20 @@ Neste guia de início rápido, você usa o Portal do Azure para criar um data fa
 
 1. Iniciar o navegador da Web **Microsoft Edge** ou **Google Chrome**. Atualmente, a interface do usuário do Data Factory tem suporte apenas nos navegadores da Web Microsoft Edge e Google Chrome.
 1. Vá para o [Portal do Azure](https://portal.azure.com). 
-1. No menu do portal do Azure, selecione **Criar um recurso** > **Análise** > **Data Factory**:
+1. No menu do portal do Azure, selecione **Criar um recurso** > **Integração** > **Data Factory**:
 
     ![Criação do novo data factory](./media/doc-common-process/new-azure-data-factory-menu.png)
 
 1. Na página **Novo data factory**, insira **ADFTutorialDataFactory** no campo **Nome**. 
  
-   O nome do Azure Data Factory deve ser *globalmente exclusivo*. Se você visualizar o seguinte erro, altere o nome de data factory (por exemplo, **&lt;yourname&gt;ADFTutorialDataFactory**) e tente criar novamente. Para ver as regras de nomenclatura para artefatos do Data Factory consulte o artigo [Data Factory - regras de nomenclatura](naming-rules.md).
+   O nome do Azure Data Factory precisa ser *globalmente exclusivo*. Se você visualizar o seguinte erro, altere o nome de data factory (por exemplo, **&lt;yourname&gt;ADFTutorialDataFactory**) e tente criar novamente. Para ver as regras de nomenclatura para artefatos do Data Factory consulte o artigo [Data Factory - regras de nomenclatura](naming-rules.md).
   
    ![Erro quando um nome não está disponível](./media/doc-common-process/name-not-available-error.png)
 1. Para **Assinatura**, selecione a assinatura do Azure na qual você deseja criar o data factory. 
 1. Para o **Grupo de Recursos**, use uma das seguintes etapas:
      
    - Selecione **Usar existente** e selecione um grupo de recursos existente na lista. 
-   - Selecione **Criar novo**e insira o nome de um grupo de recursos.   
+   - Selecione **Criar novo** e insira o nome de um grupo de recursos.   
          
    Para saber mais sobre grupos de recursos, consulte [Usando grupos de recursos para gerenciar recursos do Azure](../azure-resource-manager/management/overview.md).  
 1. Para **Versão**, selecione **V2**.

@@ -1,7 +1,7 @@
 ---
 title: Criar, alterar ou excluir uma tabela de rotas do Azure
 titlesuffix: Azure Virtual Network
-description: Aprenda a criar, alterar ou excluir uma tabela de rotas.
+description: Saiba onde encontrar informações sobre o roteamento de tráfego de rede virtual e como criar, alterar ou excluir uma tabela de rotas.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/19/2020
 ms.author: kumud
-ms.openlocfilehash: e694f29bb6f8e7c78c36ad2b8ee90d507529444f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a8c38f4e84a6a653c3a4d887c82340409fc363af
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708256"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98220585"
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Criar, alterar ou excluir uma tabela de rotas
 
@@ -52,7 +52,7 @@ Há um limite para quantas tabelas de rotas você pode criar por assinatura e lo
     1. Insira um **nome** para a tabela de rotas.
     1. Escolha sua **Assinatura**.
     1. Escolha um **grupo de recursos** existente ou selecione **criar novo** para criar um novo grupo de recursos.
-    1. Escolha um **local**.
+    1. Escolha um **Local**.
     1. Se você planeja associar a tabela de rotas a uma sub-rede em uma rede virtual que está conectada à sua rede local por meio de um gateway de VPN e não deseja propagar suas rotas locais para as interfaces de rede na sub-rede, defina a propagação de **rota do gateway de rede virtual** como **desabilitada**.
 
 1. Selecione **criar** para criar sua nova tabela de rotas.
@@ -88,7 +88,7 @@ Para saber mais sobre configurações comuns do Azure, veja as seguintes informa
 - [Log de atividades](../azure-monitor/platform/platform-logs-overview.md)
 - [Controle de acesso (IAM)](../role-based-access-control/overview.md)
 - [Marcas](../azure-resource-manager/management/tag-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-- [Bloquea](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [Bloqueios](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Script de automação](../azure-resource-manager/templates/export-template-portal.md)
 
 ### <a name="view-details-of-route-table---commands"></a>Exibir detalhes da tabela de rotas – comandos
@@ -127,7 +127,7 @@ Opcionalmente, você pode associar uma tabela de rotas a uma sub-rede. Uma tabel
 
 1. Em **tabela de rotas**, escolha a tabela de rotas que você deseja associar à sub-rede.
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 Se sua rede virtual estiver conectada a um gateway de VPN do Azure, não associe uma tabela de rotas à [sub-rede de gateway](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub) que inclui uma rota com um destino de *0.0.0.0/0*. Isso pode impedir que o gateway funcione corretamente. Para obter mais informações sobre como usar *0.0.0.0/0* em uma rota, consulte [Roteamento de tráfego de rede virtual](virtual-networks-udr-overview.md#default-route).
 
@@ -152,7 +152,7 @@ Quando você desassocia uma tabela de rota de uma sub-rede, o Azure roteia o tr�
 
 1. Em **tabela de rotas**, escolha **nenhum**.
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 ### <a name="dissociate-a-route-table---commands"></a>Dissociar uma tabela de rotas – comandos
 
@@ -169,7 +169,7 @@ Não é possível excluir uma tabela de rotas associada a nenhuma sub-rede. [Des
 
 1. Na lista tabela de rotas, escolha a tabela de rotas que você deseja excluir.
 
-1. Selecione **excluir**e, em seguida, selecione **Sim** na caixa de diálogo de confirmação.
+1. Selecione **excluir** e, em seguida, selecione **Sim** na caixa de diálogo de confirmação.
 
 ### <a name="delete-a-route-table---commands"></a>Excluir uma tabela de rotas – comandos
 
@@ -190,7 +190,7 @@ Há um limite para quantas rotas por tabela de rotas podem ser criadas por assin
 
 1. Insira um **nome de rota** exclusivo para a rota dentro da tabela de rotas.
 
-1. Insira o **prefixo de endereço**, em notação CIDR (roteamento entre domínios sem classificação), para a qual você deseja rotear o tráfego. O prefixo não pode ser duplicado em mais de uma rota dentro da tabela de rotas, embora o prefixo possa estar dentro de outro prefixo. Por exemplo, se você definiu *10.0.0.0/16* como um prefixo em uma rota, ainda poderá definir outra rota com o prefixo de endereço *10.0.0.0/22* . O Azure seleciona uma rota para o tráfego com base na correspondência de prefixo mais longa. Para saber mais, confira [como o Azure seleciona uma rota](virtual-networks-udr-overview.md#how-azure-selects-a-route).
+1. Insira o **prefixo de endereço**, na notação CIDR (roteamento sem classe Inter-Domain), para a qual você deseja rotear o tráfego. O prefixo não pode ser duplicado em mais de uma rota dentro da tabela de rotas, embora o prefixo possa estar dentro de outro prefixo. Por exemplo, se você definiu *10.0.0.0/16* como um prefixo em uma rota, ainda poderá definir outra rota com o prefixo de endereço *10.0.0.0/22* . O Azure seleciona uma rota para o tráfego com base na correspondência de prefixo mais longa. Para saber mais, confira [como o Azure seleciona uma rota](virtual-networks-udr-overview.md#how-azure-selects-a-route).
 
 1. Escolha um **tipo de próximo salto**. Para saber mais sobre os tipos de próximo salto, consulte [Roteamento de tráfego de rede virtual](virtual-networks-udr-overview.md).
 
@@ -268,7 +268,7 @@ Uma tabela de rotas contém zero ou mais rotas. Para saber mais sobre as informa
 
 1. Escolha a rota que você deseja excluir.
 
-1. Selecione **excluir**e, em seguida, selecione **Sim** na caixa de diálogo de confirmação.
+1. Selecione **excluir** e, em seguida, selecione **Sim** na caixa de diálogo de confirmação.
 
 ### <a name="delete-a-route---commands"></a>Excluir um comando de rota
 
@@ -333,7 +333,7 @@ Após uma breve espera, o Azure informa o tipo do próximo salto e a ID da rota 
 
 Para realizar tarefas em tabelas de rota e rotas, sua conta deve ser atribuída à [função de colaborador de rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) ou a uma [função personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) que tenha atribuído as ações apropriadas listadas na tabela a seguir:
 
-| Ação                                                          |   Nome                                                  |
+| Ação                                                          |   Name                                                  |
 |--------------------------------------------------------------   |   -------------------------------------------           |
 | Microsoft.Network/routeTables/read                              |   Ler uma tabela de rotas                                    |
 | Microsoft.Network/routeTables/write                             |   Criar ou atualizar tabela de rotas                        |
@@ -348,4 +348,4 @@ Para realizar tarefas em tabelas de rota e rotas, sua conta deve ser atribuída 
 ## <a name="next-steps"></a>Próximas etapas
 
 - Criar uma tabela de rotas usando o [PowerShell](powershell-samples.md) ou [CLI do Azure](cli-samples.md) scripts de exemplo ou modelos do Azure [Resource Manager](template-samples.md)
-- Criar e atribuir [definições de Azure Policy](policy-samples.md) para redes virtuais
+- Criar e atribuir [definições de Azure Policy](./policy-reference.md) para redes virtuais

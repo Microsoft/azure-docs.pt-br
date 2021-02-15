@@ -1,6 +1,6 @@
 ---
 title: Criar uma VNet para aplicativos de várias camadas – exemplo de script do Azure PowerShell
-description: Exemplo de script do Azure PowerShell – Criar uma rede virtual para aplicativos de várias camadas.
+description: Criar uma rede virtual para aplicativos de várias camadas – exemplo de script do Azure PowerShell.
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
@@ -15,12 +15,13 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 12/13/2018
 ms.author: kumud
-ms.openlocfilehash: 773a7d6b12cc515a7525808068080f46d9f79799
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 51cafb0a344c5b6226b3b033d8c60327eaf2c05f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87068705"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91267934"
 ---
 # <a name="create-a-network-for-multi-tier-applications-script-sample"></a>Criar uma rede de exemplo do script de aplicativos de várias camadas
 

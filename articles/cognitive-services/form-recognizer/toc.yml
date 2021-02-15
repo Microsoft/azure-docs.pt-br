@@ -7,53 +7,31 @@
       href: overview.md
     - name: Novidades
       href: whats-new.md
-- name: Inícios rápidos
+- name: Introdução ao Reconhecimento de Formulários
   expaned: true
   items:
-    - name: Como usar biblioteca de clientes
+    - name: Como usar a biblioteca de clientes ou a API REST
       href: quickstarts/client-library.md
     - name: Como usar a ferramenta de rotulagem de exemplo
-      items:
-        - name: Treinar modelo personalizado com rótulos
-          href: quickstarts/label-tool.md
-    - name: Usando a API REST
-      items:
-        - name: Treinar e usar modelo personalizado sem rótulos
-          items:
-            - name: cURL
-              href: quickstarts/curl-train-extract.md
-            - name: Python
-              href: quickstarts/python-train-extract.md
-        - name: Treinar e usar modelo personalizado com rótulos
-          items:
-            - name: Python
-              href: quickstarts/python-labeled-data.md
-        - name: Usar modelo de recebimento predefinido
-          items:
-            - name: cURL
-              href: quickstarts/curl-receipts.md
-            - name: Python
-              href: quickstarts/python-receipts.md
-        - name: Usar modelo de cartão de visita predefinido
-          items:
-            - name: Python
-              href: quickstarts/python-business-cards.md
-        - name: Obter informações de layout de texto
-          items:
-            - name: Python
-              href: quickstarts/python-layout.md
+      href: quickstarts/label-tool.md
 - name: Tutoriais
   items:
     - name: Usar o Reconhecimento de Formulários com o Cognitive Search
-      href: 'https://docs.microsoft.com/azure/search/cognitive-search-custom-skill-form'
+      href: ../../search/cognitive-search-custom-skill-form.md
     - name: Usar o Reconhecimento de Formulários com o AI Builder
       href: tutorial-ai-builder.md
+    - name: Extrair dados de formulário em massa
+      href: tutorial-bulk-processing.md
 - name: Conceitos
   items:
+    - name: Extração de layout
+      href: concept-layout.md
     - name: Recebimentos
       href: concept-receipts.md
     - name: Cartões de visita
       href: concept-business-cards.md
+    - name: Faturas
+      href: concept-invoices.md
 - name: Guias de instruções
   items:
     - name: Criar um conjunto de dados de treinamento
@@ -69,33 +47,36 @@
           href: form-recognizer-container-configuration.md
           displayName: 'docker, container, run, billing, apikey, logging'
         - name: Usar instâncias de contêiner
-          href: deploy-form-recognizer-on-container-instances.md
+          maintainContext: true
+          href: ../containers/azure-container-instance-recipe.md
+        - name: Documentação sobre contêineres de Serviços Cognitivos
+          href: ../containers/index.yml
     - name: Fazer backup de modelos e recuperá-los
       href: disaster-recovery.md
 - name: Referência
   items:
-    - name: Versão prévia da API de Reconhecimento de Formulários v2.1
-      href: 'https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync'
-    - name: API de Reconhecimento de Formulários v2.0
-      href: 'https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm'
+    - name: API REST
+      href: 'https://docs.microsoft.com/rest/api/formrecognizer/'
     - name: SDKs
       items:
         - name: .NET
-          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/ai.formrecognizer-readme-pre'
+          href: /dotnet/api/overview/azure/ai.formrecognizer-readme
         - name: Python
-          href: 'https://docs.microsoft.com/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer'
+          href: /python/api/azure-ai-formrecognizer/?view=azure-python
         - name: Java
-          href: 'https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme-pre'
+          href: /java/api/overview/azure/ai-formrecognizer-readme
         - name: JavaScript
-          href: 'https://docs.microsoft.com/javascript/api/overview/azure/ai-form-recognizer-readme-pre'
+          href: /javascript/api/overview/azure/ai-form-recognizer-readme
 - name: Recursos
   items:
+    - name: Opções de Ajuda e suporte
+      href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/form-recognizer/context/context
     - name: Preços e limites
-      href: 'https://azure.microsoft.com/en-us/pricing/details/cognitive-services/form-recognizer/'
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/form-recognizer/'
     - name: UserVoice
       href: 'https://go.microsoft.com/fwlink/?linkid=2090535'
     - name: Stack Overflow
-      href: 'https://go.microsoft.com/fwlink/?linkid=2087186'
+      href: 'https://stackoverflow.com/questions/tagged/form-recognizer'
     - name: Roteiro do Azure
       href: 'https://azure.microsoft.com/updates/?product=cognitive-services'
     - name: Disponibilidade regional

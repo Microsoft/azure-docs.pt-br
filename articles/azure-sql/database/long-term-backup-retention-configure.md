@@ -6,17 +6,17 @@ ms.service: sql-db-mi
 ms.subservice: backup-restore
 ms.custom: ''
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: anosov1960
 ms.author: sashan
-ms.reviewer: mathoma, carlrab
-ms.date: 04/14/2020
-ms.openlocfilehash: 4da2572e453339baa3f5e2663a7965fff2035e40
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.reviewer: mathoma, sstein
+ms.date: 12/16/2020
+ms.openlocfilehash: a0653f24eeb0a96c28714d00f1d943dfc7d336db
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87531295"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979684"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Gerenciar a retenção de backup de longo prazo do Banco de Dados SQL do Azure
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -76,7 +76,7 @@ Exiba os backups que são retidos para um banco de dados específico com uma pol
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> O módulo Azure Resource Manager do PowerShell ainda tem suporte do Banco de Dados SQL do Azure, mas todo o desenvolvimento futuro é para o módulo Az.Sql. Para esses cmdlets, confira [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos.
+> O módulo Azure Resource Manager do PowerShell ainda tem suporte do Banco de Dados SQL do Azure, mas todo o desenvolvimento futuro é para o módulo Az.Sql. Para esses cmdlets, confira [AzureRM.Sql](/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos.
 
 As seções a seguir mostram como usar o PowerShell para configurar a retenção de backup de longo prazo, Exibir backups no armazenamento do Azure e restaurar de um backup no armazenamento do Azure.
 
@@ -100,7 +100,7 @@ Para **Remove-AzSqlDatabaseLongTermRetentionBackup**, você precisará ter uma d
 > [!NOTE]
 > A função Colaborador do SQL Server não tem permissão para excluir backups de LTR.
 
-As permissões RBAC podem ser concedidas no escopo de *assinatura* ou *grupo de recursos*. No entanto, para acessar backups de LTR que pertencem a um servidor descartado, a permissão deve ser concedida no escopo de *assinatura* desse servidor.
+As permissões do RBAC do Azure podem ser concedidas em escopo de *assinatura* ou *grupo de recursos* . No entanto, para acessar backups de LTR que pertencem a um servidor descartado, a permissão deve ser concedida no escopo de *assinatura* desse servidor.
 
 - Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/delete
 
@@ -183,7 +183,7 @@ Remove-AzSqlDatabaseLongTermRetentionBackup -ResourceId $ltrBackup.ResourceId
 ```
 
 > [!IMPORTANT]
-> A exclusão do backup LTR é irreversível. Para excluir um backup de LTR depois que o servidor tiver sido excluído, você deverá ter a permissão de escopo de Assinatura. Você pode configurar notificações sobre cada exclusão no Azure Monitor filtrando a operação "Exclui um backup de retenção de longo prazo". O log de atividades contém informações sobre quem fez a solicitação e quando. Confira [Criar alertas do log de atividades](../../azure-monitor/platform/alerts-activity-log.md) para obter instruções detalhadas.
+> A exclusão do backup LTR é irreversível. Para excluir um backup EPD após a exclusão do servidor ou do grupo de recursos, você deve ter a permissão de escopo da assinatura. Você pode configurar notificações sobre cada exclusão no Azure Monitor filtrando a operação "Exclui um backup de retenção de longo prazo". O log de atividades contém informações sobre quem fez a solicitação e quando. Confira [Criar alertas do log de atividades](../../azure-monitor/platform/alerts-activity-log.md) para obter instruções detalhadas.
 
 ### <a name="restore-from-ltr-backups"></a>Restaurar a partir de backups LTR
 
@@ -196,10 +196,14 @@ Restore-AzSqlDatabase -FromLongTermRetentionBackup -ResourceId $ltrBackup.Resour
 ```
 
 > [!IMPORTANT]
-> Para restaurar de um backup de LTR após o servidor ter sido excluído, você deverá ter permissões com escopo para a assinatura do servidor, e a assinatura deverá estar ativa. Você também deve omitir o parâmetro -ResourceGroupName opcional.
+> Para restaurar a partir de um backup EPD após a exclusão do servidor ou do grupo de recursos, você deve ter permissões com escopo para a assinatura do servidor e essa assinatura deve estar ativa. Você também deve omitir o parâmetro -ResourceGroupName opcional.
 
 > [!NOTE]
 > A partir daqui, você pode conectar o banco de dados restaurado usando o SQL Server Management Studio para executar as tarefas necessárias, tais como, extrair um pouco de dados do banco de dados restaurado para copiar para o banco de dados existente ou excluir o banco de dados existente e renomear o banco de dados restaurado com o nome do banco de dados existente. Confira [recuperação pontual](recovery-using-backups.md#point-in-time-restore).
+
+## <a name="limitations"></a>Limitações
+- Ao restaurar de um backup EPD, a propriedade de escala de leitura é desabilitada. Para habilitar, leia escala no banco de dados restaurado, atualize o banco de dados depois que ele tiver sido criado.
+- Você precisa especificar o objetivo de nível de serviço de destino ao restaurar de um backup EPD, que foi criado quando o banco de dados estava em um pool elástico. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

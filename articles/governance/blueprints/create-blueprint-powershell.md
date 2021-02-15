@@ -1,14 +1,14 @@
 ---
 title: 'Início Rápido: Criar um blueprint com o PowerShell'
 description: Neste início rápido, você usará o Azure Blueprints para criar, definir e implantar artefatos usando o PowerShell.
-ms.date: 05/06/2020
+ms.date: 01/27/2021
 ms.topic: quickstart
-ms.openlocfilehash: b881731dfdcaf9e9e016d1437e51dbd5c1a7488a
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 65d573d0aec7d5f292bc985483e1f12c350ae03a
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970494"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98918272"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-powershell"></a>Início Rápido: Definir e atribuir um Azure Blueprint com o PowerShell
 
@@ -16,9 +16,9 @@ Aprender a criar e atribuir blueprints permite definir padrões comuns para dese
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free) antes de começar.
-
-Se ainda não estiver instalado, siga as instruções em [Adicionar o módulo Az.Blueprint](./how-to/manage-assignments-ps.md#add-the-azblueprint-module) para instalar e validar o módulo **Az.Blueprint** na Galeria do PowerShell.
+- Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free) antes de começar.
+- Se ainda não estiver instalado, siga as instruções em [Adicionar o módulo Az.Blueprint](./how-to/manage-assignments-ps.md#add-the-azblueprint-module) para instalar e validar o módulo **Az.Blueprint** na Galeria do PowerShell.
+- Se você ainda não usou o Azure Blueprints, registre o provedor de recursos por meio do Azure PowerShell com `Register-AzResourceProvider -ProviderNamespace Microsoft.Blueprint`.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 

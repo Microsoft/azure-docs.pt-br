@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 06/18/2020
+ms.date: 10/08/2020
 ms.author: victorh
-ms.openlocfilehash: eb7cf1899b24ed225941f0a02040206504e6486b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 69eaf3ca60378afd810d712d85ea7ef732e41e3e
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85095537"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98788223"
 ---
 # <a name="azure-firewall-features"></a>Recursos do Firewall do Azure
 
@@ -24,7 +24,7 @@ O Firewall do Azure inclui os seguintes recursos:
 
 - [Alta disponibilidade interna](#built-in-high-availability)
 - [Zonas de Disponibilidade](#availability-zones)
-- [Escalabilidade de nuvem sem restrições](#unrestricted-cloud-scalability)
+- [Escalabilidade de nuvem irrestrita](#unrestricted-cloud-scalability)
 - [Regras de filtragem de FQDN de aplicativo](#application-fqdn-filtering-rules)
 - [Regras de filtragem de tráfego de rede](#network-traffic-filtering-rules)
 - [Marcas de FQDN](#fqdn-tags)
@@ -62,7 +62,7 @@ O Firewall do Azure pode escalar verticalmente o quanto você precisar a fim de 
 
 ## <a name="application-fqdn-filtering-rules"></a>Regras de filtragem de FQDN de aplicativo
 
-Você pode limitar o tráfego HTTP/S de saída ou o tráfego SQL do Azure (versão prévia) para uma lista especificada de FQDNs (nomes de domínio totalmente qualificados), incluindo caracteres curinga. Esse recurso não exige o encerramento de TLS.
+Você pode limitar o tráfego de HTTP/S de saída ou o tráfego SQL do Azure a uma lista especificada de FQDN (nomes de domínio totalmente qualificados), incluindo curingas. Esse recurso não exige o encerramento de TLS.
 
 ## <a name="network-traffic-filtering-rules"></a>Regras de filtragem de tráfego de rede
 
@@ -101,7 +101,11 @@ Isso permite os seguintes cenários:
 
 ## <a name="azure-monitor-logging"></a>Registro em log do Azure Monitor
 
-Todos os eventos são integrados ao Azure Monitor, permitindo que você arquive logs em uma conta de armazenamento, transmita eventos ao Hub de Eventos ou envie-os aos logs do Azure Monitor. Para saber mais, confira [Tutorial: Monitorar os logs e as métricas do Firewall do Azure](tutorial-diagnostics.md).
+Todos os eventos são integrados ao Azure Monitor, permitindo que você arquive logs em uma conta de armazenamento, transmita eventos ao Hub de Eventos ou envie-os aos logs do Azure Monitor. Para obter Azure Monitor exemplos de log, consulte [Azure monitor logs do firewall do Azure](./firewall-workbook.md).
+
+Para saber mais, confira [Tutorial: Monitorar os logs e as métricas do Firewall do Azure](./firewall-diagnostics.md). 
+
+A pasta de trabalho do firewall do Azure fornece uma tela flexível para análise de dados do firewall do Azure. Você pode usá-lo para criar relatórios visuais avançados dentro do portal do Azure. Para obter mais informações, consulte [monitorar logs usando a pasta de trabalho do firewall do Azure](firewall-workbook.md).
 
 ## <a name="forced-tunneling"></a>Túnel forçado
 

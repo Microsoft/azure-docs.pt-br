@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 9f5e69a609931f4f8ead62f4d5c5ba2a1064a6ea
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 6424fc0ff49566fad949b3fba4718acb2bad4cd3
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683004"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362757"
 ---
 # <a name="organize-costs-by-customizing-your-billing-account"></a>Organizar os custos personalizando sua conta de cobrança
 
@@ -53,19 +53,19 @@ Esta seção descreve os cenários comuns para organizar os custos e as estrutur
 |---------|---------|
 |João se inscreve no Azure e precisa de uma fatura mensal única. | Um perfil de cobrança e uma seção da fatura. Essa estrutura é configurada automaticamente para João quando ele se inscreve no Azure e não requer etapas adicionais. |
 
-![Gráfico de informações para um cenário de cobrança simples](./media/mca-section-invoice/organize-billing-scenario1.png)
+![Gráfico de informações para um cenário de cobrança individual.](./media/mca-section-invoice/organize-billing-scenario1.png)
 
 |Cenário  |Estrutura  |
 |---------|---------|
 |A Contoso é uma pequena organização que precisa de uma fatura mensal única com custos agrupados por departamentos – marketing e engenharia.  | Um perfil de cobrança para a Contoso e uma seção da fatura para os departamentos de marketing e engenharia. |
 
-![Gráfico de informações para um cenário de cobrança simples](./media/mca-section-invoice/organize-billing-scenario2.png)
+![Gráfico de informações para um cenário de cobrança múltipla.](./media/mca-section-invoice/organize-billing-scenario2.png)
 
 |Cenário  |Estrutura  |
 |---------|---------|
 |A Fabrikam é uma organização de médio porte que precisa de faturas separadas para seus departamentos de engenharia e marketing. Para o departamento de engenharia, eles desejam agrupar os custos por ambientes – produção e desenvolvimento.  | Um perfil de cobrança para os departamentos de marketing e engenharia. Para o departamento de engenharia, uma seção da fatura para o ambiente de produção e outra para o ambiente de desenvolvimento. |
 
-![Gráfico de informações para um cenário de cobrança simples](./media/mca-section-invoice/organize-billing-scenario3.png)
+![Gráfico de informações para um cenário de cobrança múltipla, com cobrança separada para ambientes de produção e desenvolvimento.](./media/mca-section-invoice/organize-billing-scenario3.png)
 
 ## <a name="create-a-new-invoice-section"></a>Criar uma seção da fatura
 
@@ -79,7 +79,7 @@ Para criar uma seção da fatura, você precisa ser um **proprietário do perfil
 
 3. Selecione **Perfis de cobrança** no painel esquerdo. Na lista, selecione um perfil de cobrança. A nova seção será exibida na fatura do perfil de cobrança selecionado.
 
-   [![Captura de tela que mostra a lista de perfis de cobrança](./media/mca-section-invoice/mca-select-profile.png)](./media/mca-section-invoice/mca-select-profile-zoomed-in.png#lightbox)
+   [![Captura de tela que mostra a lista de perfil de cobrança.](./media/mca-section-invoice/mca-select-profile.png)](./media/mca-section-invoice/mca-select-profile-zoomed-in.png#lightbox)
 
 4. Selecione **Seções da fatura** no painel esquerdo e, em seguida, selecione **Adicionar** na parte superior da página.
 
@@ -107,7 +107,7 @@ Para criar um perfil de cobrança, você precisa ser um **proprietário da conta
 
 3. Selecione **Perfis de cobrança** no painel esquerdo e, em seguida, selecione **Adicionar** na parte superior da página.
 
-   [![Captura de tela que mostra a lista de perfis de cobrança](./media/mca-section-invoice/mca-list-profiles.png)](./media/mca-section-invoice/mca-list-profiles-zoomed-in.png#lightbox)
+   [![Captura de tela que mostra a lista de perfil de cobrança com a opção Adicionar selecionada.](./media/mca-section-invoice/mca-list-profiles.png)](./media/mca-section-invoice/mca-list-profiles-zoomed-in.png#lightbox)
 
     > [!Note]
     >
@@ -136,15 +136,15 @@ Depois de personalizar sua conta de cobrança com base em suas necessidades, voc
 
 2. Pesquise **Assinaturas**.
 
-   [![Captura de tela que mostra a pesquisa no portal para assinatura](./media/mca-section-invoice/search-subscriptions.png)](./media/mca-section-invoice/search-subscriptions.png#lightbox)
+   [![Captura de tela que mostra a pesquisa de assinatura no portal do Azure.](./media/mca-section-invoice/search-subscriptions.png)](./media/mca-section-invoice/search-subscriptions.png#lightbox)
 
 3. Selecione **Adicionar** na parte superior da página.
 
-   ![Captura de tela que mostra o botão Adicionar na exibição Assinaturas](./media/mca-section-invoice/subscription-add.png)
+   ![Captura de tela que mostra o botão Adicionar na exibição Assinaturas para uma nova assinatura.](./media/mca-section-invoice/subscription-add.png)
 
 4. Caso você tenha acesso a várias contas de cobrança, selecione a sua conta de cobrança do Contrato de Cliente da Microsoft.
 
-   ![Captura de tela que mostra o botão Adicionar na exibição Assinaturas](./media/mca-section-invoice/mca-create-azure-subscription.png)
+   ![Captura de tela que mostra o painel Criar assinatura.](./media/mca-section-invoice/mca-create-azure-subscription.png)
 
 5. Selecione o perfil de cobrança que será cobrado pelo uso da assinatura. Os encargos para uso do Azure e outras compras nesta assinatura serão cobrados na fatura do perfil de cobrança selecionado.
 
@@ -166,7 +166,7 @@ Se tiver assinaturas do Azure existentes ou outros produtos, como o Azure Market
 
 2. Pesquise **Gerenciamento de Custos + Cobrança**.
 
-   ![Captura de tela que mostra a pesquisa no portal para assinatura](./media/mca-section-invoice/search-cmb.png)
+   ![Captura de tela que mostra a pesquisa no portal do Azure para Gerenciamento de Custos e Cobrança.](./media/mca-section-invoice/search-cmb.png)
 
 3. Para vincular uma assinatura a uma nova seção da fatura, selecione **Assinaturas do Azure** do lado esquerdo da tela. Para outros produtos, como o Azure Marketplace e os recursos de origem do aplicativo, selecione **Encargos recorrentes**.
 

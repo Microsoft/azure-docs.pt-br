@@ -11,12 +11,12 @@ metadata:
   author: tamram
   ms.author: tamram
   ms.date: 12/23/2019
-  ms.openlocfilehash: 73dc70fb31508667ebcab4803a9263c716ce35c2
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: e6abd9bdcff495ffc040f6e84e70d885765ded77
+  ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "75551889"
+  ms.lasthandoff: 11/20/2020
+  ms.locfileid: "94991818"
 landingContent:
 - title: Sobre o Armazenamento de Tabelas
   linkLists:
@@ -25,7 +25,7 @@ landingContent:
     - text: O que é o Armazenamento de Tabelas do Azure?
       url: table-storage-overview.md
     - text: Escolha o armazenamento de Tabela ou a API Tabela
-      url: ../../cosmos-db/table-support.md?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Fstorage%2Ftables%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Fbread%2Ftoc.json
+      url: ../../cosmos-db/table-support.md?toc=%2Fazure%2Fstorage%2Ftables%2FTOC.json&bc=%2Fazure%2Fbread%2Ftoc.json
 - title: Diretrizes de design de tabela
   linkLists:
   - linkListType: concept

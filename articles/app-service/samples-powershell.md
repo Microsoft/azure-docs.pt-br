@@ -7,10 +7,10 @@ ms.topic: sample
 ms.date: 07/07/2020
 ms.custom: mvc
 ms.openlocfilehash: a1577d42de9a4452467a448a0de5cd5f9575a55f
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86169418"
 ---
 # <a name="powershell-samples-for-azure-app-service"></a>Amostras do PowerShell para o Serviço de Aplicativo do Azure

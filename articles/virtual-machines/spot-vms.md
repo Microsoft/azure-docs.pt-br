@@ -1,19 +1,19 @@
 ---
 title: Usar VMs do Azure Spot
 description: Saiba como usar as VMs pontuais do Azure para economizar nos custos.
-author: cynthn
+author: JagVeerappan
+ms.author: jagaveer
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 07/20/2020
-ms.author: cynthn
-ms.reviewer: jagaveer
-ms.openlocfilehash: c0b8f395dde1d94c4c1efa32a2f78707d1456d88
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.date: 10/05/2020
+ms.reviewer: cynthn
+ms.openlocfilehash: 1e82da3bc45bc8fb88b3955bd59091372f56d292
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88817351"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100375452"
 ---
 # <a name="use-spot-vms-in-azure"></a>Usar VMs pontuais no Azure
 
@@ -58,7 +58,7 @@ As VMs pontuais podem ser implantadas em qualquer região, exceto Microsoft Azur
 Atualmente, há suporte para os seguintes [tipos de oferta](https://azure.microsoft.com/support/legal/offer-details/) :
 
 -   Contrato Enterprise
--   Pago conforme o uso
+-   Código de oferta pago conforme o uso 003P
 -   Patrocinado
 - Para provedor de serviços de nuvem (CSP), entre em contato com seu parceiro
 
@@ -67,8 +67,22 @@ Atualmente, há suporte para os seguintes [tipos de oferta](https://azure.micros
 
 Os preços para VMs pontuais são variáveis, com base na região e SKU. Para obter mais informações, consulte preços de VM para [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) e [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). 
 
+Você também pode consultar informações de preços usando a [API de preços de varejo do Azure](/rest/api/cost-management/retail-prices/azure-retail-prices) para consultar informações sobre preços especiais. O `meterName` e `skuName` os dois conterão `Spot` .
 
 Como o preço é variável, você tem a opção de definir um preço máximo, em dólares americanos (USD), usando até 5 casas decimais. Por exemplo, o valor `0.98765`seria um preço máximo de $0,98765 USD por hora. Se você definir o preço máximo como `-1` , a VM não será removida com base no preço. O preço da VM será o preço atual para o ponto ou o preço de uma VM padrão, o que nunca é menor, desde que haja capacidade e cota disponível.
+
+## <a name="pricing-and-eviction-history"></a>Histórico de preços e remoções
+
+Você pode ver os preços históricos e as taxas de remoção por tamanho em uma região no Portal. Selecione **Exibir histórico de preços e comparar preços em regiões próximas** para ver uma tabela ou gráfico de preços para um tamanho específico.  As taxas de preço e remoção nas imagens a seguir são apenas exemplos. 
+
+**Gráfico**:
+
+:::image type="content" source="./media/spot-chart.png" alt-text="Captura de tela das opções de região com a diferença nas taxas de preço e de remoção como um gráfico.":::
+
+**Tabela**:
+
+:::image type="content" source="./media/spot-table.png" alt-text="Captura de tela das opções de região com a diferença nas taxas de preço e de remoção como uma tabela.":::
+
 
 
 ##  <a name="frequently-asked-questions"></a>Perguntas frequentes
@@ -85,21 +99,26 @@ Como o preço é variável, você tem a opção de definir um preço máximo, em
 
 **P:** Como a cota é gerenciada para VMs pontuais?
 
-**R:** As VMs pontuais terão um pool de cotas separado. A cota do Spot será compartilhada entre as VMs e as instâncias do conjunto de dimensionamento. Para saber mais, confira [Assinatura e limites de serviço, cotas e restrições do Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
+**R:** As VMs pontuais terão um pool de cotas separado. A cota do Spot será compartilhada entre as VMs e as instâncias do conjunto de dimensionamento. Para saber mais, confira [Assinatura e limites de serviço, cotas e restrições do Azure](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 
 **P:** Posso solicitar uma cota adicional para o Spot?
 
-**R:** Sim, você poderá enviar a solicitação para aumentar sua cota de VMs do Spot por meio do [processo de solicitação de cota padrão](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests).
+**R:** Sim, você poderá enviar a solicitação para aumentar sua cota de VMs do Spot por meio do [processo de solicitação de cota padrão](../azure-portal/supportability/per-vm-quota-requests.md).
 
 
 **P:** Onde posso postar perguntas?
 
-**R:** Você pode postar e marcar sua pergunta com `azure-spot` em [Perguntas e respostas](https://docs.microsoft.com/answers/topics/azure-spot.html). 
+**R:** Você pode postar e marcar sua pergunta com `azure-spot` em [Perguntas e respostas](/answers/topics/azure-spot.html). 
+
+
+**P:** Como posso alterar o preço máximo de uma VM Spot?
+
+**R:** Para poder alterar o preço máximo, você precisa desalocar a VM. Em seguida, você pode alterar o preço máximo no portal, na seção de **configuração** da VM. 
 
 ## <a name="next-steps"></a>Próximas etapas
-Use a [CLI](./linux/spot-cli.md), o [portal](./windows/spot-portal.md), o [modelo ARM](./linux/spot-template.md)ou o [PowerShell](./windows/spot-powershell.md) para implantar VMs pontuais.
+Use a [CLI](./linux/spot-cli.md), o [portal](spot-portal.md), o [modelo ARM](./linux/spot-template.md)ou o [PowerShell](./windows/spot-powershell.md) para implantar VMs pontuais.
 
 Você também pode implantar um [conjunto de dimensionamento com instâncias de VM Spot](../virtual-machine-scale-sets/use-spot.md).
 
-Se você encontrar um erro, consulte [códigos de erro](./error-codes-spot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Se você encontrar um erro, consulte [códigos de erro](./error-codes-spot.md).

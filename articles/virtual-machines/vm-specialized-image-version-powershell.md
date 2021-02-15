@@ -9,18 +9,18 @@ ms.topic: how-to
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 44fbbbdb1c36f74a4131d4e5a82de6ef058381f8
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e1c8f664c98d068e9772fd47717c07f44236db2e
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86508740"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881899"
 ---
 # <a name="create-a-vm-using-a-specialized-image"></a>Criar uma VM usando uma imagem especializada 
 
 Crie uma VM com base em uma versão de imagem especializada armazenada em uma galeria de imagens compartilhada. Se desejar criar uma VM usando uma versão de imagem generalizada, consulte [criar uma VM usando uma imagem generalizada](vm-generalized-image-version-powershell.md).
 
-Quando tiver uma versão de imagem especializada, você poderá criar uma ou mais VMs novas. Usando o cmdlet [New-AzVM](/powershell/module/az.compute/new-azvm). 
+Depois de ter uma versão de imagem especializada, você pode criar uma ou mais novas VMs usando o cmdlet [New-AzVM](/powershell/module/az.compute/new-azvm) . 
 
 Neste exemplo, estamos usando a ID de definição de imagem para garantir que sua nova VM usará a versão mais recente de uma imagem. Você também pode usar uma versão específica usando a ID de versão da imagem para `Set-AzVMSourceImage -Id` . Por exemplo, para usar a versão de imagem *1.0.0* Type: `Set-AzVMSourceImage -Id "/subscriptions/<subscription ID where the gallery is located>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition/versions/1.0.0"` . 
 
@@ -124,7 +124,7 @@ Add-AzVMDataDisk `
 
 
 ## <a name="next-steps"></a>Próximas etapas
-O [Construtor de imagens do Azure (visualização)](./linux/image-builder-overview.md) pode ajudar a automatizar a criação da versão da imagem, até mesmo usá-la para atualizar e [criar uma nova versão da imagem a partir de uma versão de imagem existente](./linux/image-builder-gallery-update-image-version.md). 
+O [Construtor de imagens do Azure (visualização)](./image-builder-overview.md) pode ajudar a automatizar a criação da versão da imagem, até mesmo usá-la para atualizar e [criar uma nova versão da imagem a partir de uma versão de imagem existente](./linux/image-builder-gallery-update-image-version.md). 
 
 Você também pode criar um recurso de Galeria de imagens compartilhadas usando modelos. Há vários Modelos de Início Rápido do Azure disponíveis: 
 
@@ -133,4 +133,4 @@ Você também pode criar um recurso de Galeria de imagens compartilhadas usando 
 - [Criar uma Versão da Imagem em uma Galeria de Imagens Compartilhadas](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
 - [Criar uma VM por meio de uma Versão da Imagem](https://azure.microsoft.com/resources/templates/101-vm-from-sig/)
 
-Para obter mais informações sobre galerias de imagens compartilhadas, confira a [Visão geral](./windows/shared-image-galleries.md). Se você enfrentar problemas, confira [Solução de problemas de galerias de imagens compartilhadas](./windows/troubleshooting-shared-images.md).
+Para obter mais informações sobre galerias de imagens compartilhadas, confira a [Visão geral](./shared-image-galleries.md). Se você enfrentar problemas, confira [Solução de problemas de galerias de imagens compartilhadas](troubleshooting-shared-images.md).

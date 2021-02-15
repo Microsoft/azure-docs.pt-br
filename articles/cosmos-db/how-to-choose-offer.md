@@ -1,19 +1,20 @@
 ---
-title: Como escolher a oferta de taxa de transferência certa no Azure Cosmos DB
-description: Saiba mais sobre como escolher entre a taxa de transferência padrão (manual) e a taxa de transferência provisionada de dimensionamento automático para sua carga de trabalho.
+title: Como escolher entre manual e dimensionamento automático em Azure Cosmos DB
+description: Saiba como escolher entre a taxa de transferência padrão (manual) e a taxa de transferência provisionada de dimensionamento automático para sua carga de trabalho.
 author: deborahc
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: dech
-ms.openlocfilehash: fbe17d75ad809c54939624b1409e281b2f62a037
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: d8a6471d53ad4b2428504f9c53cbec6bc1967c49
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88605208"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93089629"
 ---
 # <a name="how-to-choose-between-standard-manual-and-autoscale-provisioned-throughput"></a>Como escolher entre a taxa de transferência padrão (manual) e a de dimensionamento automático provisionada 
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 O Azure Cosmos DB dá suporte a dois tipos ou ofertas de taxa de transferência provisionada: padrão (manual) e de dimensionamento automático. Os dois tipos de taxa de transferência são adequados para cargas de trabalho de missão crítica que exigem alto desempenho e escala, além disso, são apoiados pelos mesmos SLAs do Azure Cosmos DB no que diz respeito a taxa de transferência, disponibilidade, latência e consistência.
 
@@ -54,17 +55,82 @@ Se você tiver um aplicativo existente usando a taxa de transferência padrão (
 
 Primeiro, localize a [métrica de consumo da unidade de solicitação normalizada](monitor-normalized-request-units.md#view-the-normalized-request-unit-consumption-metric) do seu banco de dados ou contêiner. A utilização normalizada é uma medida do quanto você está usando atualmente sua taxa de transferência padrão (manual) provisionada. Quanto mais próximo de 100% estiver o número, mais você estará usando as RU/s provisionadas. [Saiba mais](monitor-normalized-request-units.md#view-the-normalized-request-unit-consumption-metric) sobre a métrica.
 
-Em seguida, determine como a utilização normalizada varia ao longo do tempo. Se você observar que sua utilização normalizada é variável ou imprevisível, considere habilitar o dimensionamento automático em seu banco de dados ou contêiner. Por outro lado, se for constante e previsível, considere mantê-la na taxa de transferência padrão (manual) provisionada. 
+Em seguida, determine como a utilização normalizada varia ao longo do tempo. Localize a maior utilização normalizada para cada hora. Em seguida, calcule a utilização média normalizada em todas as horas. Se você observar que sua utilização média é inferior a 66%, considere habilitar o dimensionamento automático em seu banco de dados ou contêiner. Por outro lado, se a utilização média for maior que 66%, é recomendável permanecer na taxa de transferência padrão (manual) provisionada.
+
+> [!TIP]
+> Se sua conta estiver configurada para usar gravações de várias regiões e tiver mais de uma região, a taxa por 100 RU/s será a mesma para manual e dimensionamento automático. Isso significa que habilitar o dimensionamento automático não provoca nenhum custo adicional, independentemente da utilização. Como resultado, é sempre recomendável usar o dimensionamento automático com gravações de várias regiões quando você tem mais de uma região, para tirar proveito da economia de pagar apenas pela RU/s em que seu aplicativo é dimensionado. Se você tiver gravações de várias regiões e uma região, use a utilização média para determinar se o dimensionamento automático resultará em economia de custos. 
+
+#### <a name="examples"></a>Exemplos
+
+Vamos dar uma olhada em duas cargas de trabalho de exemplo diferentes e analisar se elas são adequadas para taxa de transferência manual ou de dimensionamento automático. Para ilustrar a abordagem geral, analisaremos três horas de histórico para determinar a diferença de custo entre o uso de manual e de dimensionamento automático. Para cargas de trabalho de produção, é recomendável usar de 7 a 30 dias de histórico (ou mais, se disponível) para estabelecer um padrão de uso de RU/s.
+
+> [!NOTE]
+> Todos os exemplos mostrados neste documento baseiam-se no preço de uma conta do Azure Cosmos implantada em uma região não governamental nos EUA. O preço e o cálculo variam de acordo com a região que você está usando, consulte a [página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/) Azure Cosmos DB para obter as informações de preços mais recentes.
+
+Suposições:
+- Suponha que, no momento, temos uma taxa de transferência manual de 30.000 RU/s. 
+- Nossa região é configurada com gravações de região única, com uma região. Se tivéssemos várias regiões, multiplicamos o custo por hora pelo número de regiões.
+- Use taxas de preço público para manual (US $ $0.08 USD por 100 RU/s por hora) e taxa de transferência de dimensionamento automático ($0.12 USD por 100 RU/s por hora) em contas de gravação de região única. Consulte a [página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/) para obter detalhes. 
+
+#### <a name="example-1-variable-workload-autoscale-recommended"></a>Exemplo 1: carga de trabalho variável (recomendado dimensionamento automático)
+
+Em primeiro lugar, examinamos o consumo de RU normalizado. Essa carga de trabalho tem tráfego variável, com consumo normalizado de RU, variando de 6% a 100%. Há picos ocasionais de 100% que são difíceis de prever, mas muitas horas com baixa utilização. 
+
+:::image type="content" source="media/how-to-choose-offer/variable-workload_use_autoscale.png" alt-text="Carga de trabalho com tráfego variável-consumo de RU normalizado entre 6% e 100% para todas as horas":::
+
+Vamos comparar o custo do provisionamento manual de 30.000 RU/s, versus definir o dimensionamento automático de RU/s para 30.000 (dimensiona entre 3000-30.000 RU/s). 
+
+Agora, vamos analisar o histórico. Suponha que tenhamos a utilização descrita na tabela a seguir. A utilização média entre essas três horas é de 39%. Como a média de consumo de RU normalizada é inferior a 66%, salvamos usando o dimensionamento automático. 
+
+Observe que, na hora 1, quando houver 6% de uso, o dimensionamento automático faturará RU/s para 10% do máximo de RU/s, que é o mínimo por hora. Embora o custo do dimensionamento automático possa ser maior do que a taxa de transferência manual em determinadas horas, desde que a utilização média seja inferior a 66% em todas as horas, o dimensionamento automático será mais barato no geral.
+
+|Período de tempo  | Utilização |Autoescalar RU/s cobrado  |Opção 1: manual 30.000 RU/s  | Opção 2: dimensionamento automático entre 3000-30.000 RU/s |
+|---------|---------|---------|---------|---------|
+|Hora 1  | 6%  |     3000  |  30.000 * 0, 8/100 = $2.40        |   3000 * 0, 12/100 = $0.36      |
+|Hora 2  | 100%  |     30,000    |  30.000 * 0, 8/100 = $2.40       |  30.000 * 0, 12/100 = $3.60      |
+|Hora 3 |  11  |     3.300    |  30.000 * 0, 8/100 = $2.40       |    3300 * 0, 12/100 = $0.40     |
+|**Total**   |  |        |  $7.20       |    $4.36 (39% de economia)    |
+
+#### <a name="example-2-steady-workload-manual-throughput-recommended"></a>Exemplo 2: carga de trabalho estável (taxa de transferência manual recomendada)
+
+Essa carga de trabalho tem tráfego constante, com consumo de RU normalizado, que varia de 72% a 100%. Com 30.000 RU/s provisionado, isso significa que estamos consumindo entre 21.600 e 30.000 RU/s.
+
+:::image type="content" source="media/how-to-choose-offer/steady_workload_use_manual_throughput.png" alt-text="Carga de trabalho com tráfego variável-consumo de RU normalizado entre 6% e 100% para todas as horas":::
+
+Vamos comparar o custo do provisionamento manual de 30.000 RU/s, versus definir o dimensionamento automático de RU/s para 30.000 (dimensiona entre 3000-30.000 RU/s).
+
+Suponha que tenhamos o histórico de utilização conforme descrito na tabela. Nossa utilização média entre essas três horas é de 88%. Como a média de consumo de RU normalizada é maior que 66%, salvamos usando a taxa de transferência manual.
+
+Em geral, se a utilização média em todas as 730 horas em um mês for maior que 66%, vamos salvar usando a taxa de transferência manual. 
+
+| Período de tempo | Utilização |Autoescalar RU/s cobrado  |Opção 1: manual 30.000 RU/s  | Opção 2: dimensionamento automático entre 3000-30.000 RU/s |
+|---------|---------|---------|---------|---------|
+|Hora 1  | 72%  |     21.600   |  30.000 * 0, 8/100 = $2.40        |   21600 * 0, 12/100 = $2.59      |
+|Hora 2  | 93%  |     28.000    |  30.000 * 0, 8/100 = $2.40       |  28.000 * 0, 12/100 = $3.36       |
+|Hora 3 |  100%  |     30,000    |  30.000 * 0, 8/100 = $2.40       |    30.000 * 0, 12/100 = $3.60     |
+|**Total**   |  |        |  $7.20       |    $9.55     |
 
 > [!TIP]
 > Com a taxa de transferência padrão (manual), você pode usar a métrica de utilização normalizada para estimar as RU/s reais que você pode usar se alternar para o dimensionamento automático. Multiplique a utilização normalizada em um momento determinado pelas RU/s padrão (manual) configuradas atualmente. Por exemplo, se você tiver provisionado 5.000 RU/s e a utilização normalizada for de 90%, o uso de RU/s será de 0,9 * 5.000 = 4.500 RU/s. Se você observar que o seu padrão de tráfego é variável, mas está acima ou abaixo do provisionado, poderá habilitar o dimensionamento automático e, em seguida, alterar a configuração de RU/s de dimensionamento automático de forma adequada.
 
+#### <a name="how-to-calculate-average-utilization"></a>Como calcular a utilização média
+Faturas de dimensionamento automático para as RU/s mais altas dimensionadas para em uma hora. Ao analisar o consumo de RU normalizado ao longo do tempo, é importante usar a maior utilização por hora ao calcular a média. 
+
+Para calcular a média da maior utilização em todos os horários:
+1. Defina a **agregação** na métrica de consumo de Noramlized ru como **máx** .
+1. Selecione a **granularidade de tempo** para 1 hora.
+1. Navegue até **Opções de gráfico** .
+1. Selecione a opção gráfico de barras. 
+1. Em **compartilhamento** , selecione a opção **baixar para o Excel** . Na planilha gerada, calcule a utilização média em todas as horas. 
+
+:::image type="content" source="media/how-to-choose-offer/variable-workload-highest-util-by-hour.png" alt-text="Carga de trabalho com tráfego variável-consumo de RU normalizado entre 6% e 100% para todas as horas":::
+
 ## <a name="measure-and-monitor-your-usage"></a>Medição e monitoramento de uso
 Ao longo do tempo, depois de escolher o tipo de taxa de transferência, monitore seu aplicativo e faça ajustes conforme necessário. 
 
-Ao usar o dimensionamento automático, use o Azure Monitor para ver o máximo de RU/s de dimensionamento automático provisionado (**Taxa de transferência máxima de dimensionamento automático**) e a RU/s em que o sistema está atualmente dimensionado (**Taxa de transferência provisionada**). Abaixo está um exemplo de carga de trabalho variável ou imprevisível usando o dimensionamento automático. Observação quando não há tráfego, o sistema dimensiona as RU/s para o mínimo de 10% do máximo de RU/s, que neste caso é de 5.000 RU/s e 50.000 RU/s, respectivamente. 
+Ao usar o dimensionamento automático, use o Azure Monitor para ver o máximo de RU/s de dimensionamento automático provisionado ( **Taxa de transferência máxima de dimensionamento automático** ) e a RU/s em que o sistema está atualmente dimensionado ( **Taxa de transferência provisionada** ). Abaixo está um exemplo de carga de trabalho variável ou imprevisível usando o dimensionamento automático. Observação quando não há tráfego, o sistema dimensiona as RU/s para o mínimo de 10% do máximo de RU/s, que neste caso é de 5.000 RU/s e 50.000 RU/s, respectivamente. 
 
-:::image type="content" source="media/how-to-choose-offer/autoscale-metrics-azure-monitor.png" alt-text="Exemplo de carga de trabalho usando o dimensionamento automático":::
+:::image type="content" source="media/how-to-choose-offer/autoscale-metrics-azure-monitor.png" alt-text="Carga de trabalho com tráfego variável-consumo de RU normalizado entre 6% e 100% para todas as horas":::
 
 > [!NOTE]
 > Quando você usa a taxa de transferência padrão (manual) provisionada, a métrica de **taxa de transferência provisionada** refere-se ao que você definiu como um usuário. Quando você usa a taxa de transferência de dimensionamento automático, essa métrica se refere às RU/s nas quais o sistema está atualmente dimensionado.

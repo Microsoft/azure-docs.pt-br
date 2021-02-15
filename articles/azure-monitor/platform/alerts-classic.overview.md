@@ -4,17 +4,17 @@ description: Alertas clássicos estão sendo preteridos. Alerta para permitir qu
 ms.topic: conceptual
 ms.date: 05/19/2018
 ms.subservice: alerts
-ms.openlocfilehash: c7dfbd60b7a668b849c3150bb16e40285c345634
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 82923b461980fbc0740cad08a9e699765f17abc7
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87844101"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99525510"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>O que são alertas clássicos no Microsoft Azure?
 
 > [!NOTE]
-> Este artigo descreve como criar alertas de métrica clássicos mais antigos. O Azure Monitor agora dá suporte [a alertas de métrica quase em tempo real mais recentes e uma nova experiência de alertas](./alerts-overview.md). Os alertas clássicos são [desativados](./monitoring-classic-retirement.md), embora ainda estejam em uso limitado para recursos que ainda não dão suporte aos novos alertas.
+> Este artigo descreve como criar alertas de métrica clássicos mais antigos. O Azure Monitor agora dá suporte [a alertas de métrica quase em tempo real mais recentes e uma nova experiência de alertas](./alerts-overview.md). Os alertas clássicos são [desativados](./monitoring-classic-retirement.md) para usuários de nuvem pública, embora ainda estejam em uso limitado para recursos que ainda não dão suporte aos novos alertas.
 >
 
 Os alertas permitem que você configure condições sobre dados e seja notificado quando as condições corresponderem aos dados de monitoramento mais recentes.
@@ -93,7 +93,7 @@ Obter informações sobre as regras de alerta e sobre como configurá-las usando
 * Saiba mais sobre o [log de atividades](platform-logs-overview.md)
 * Configurar [alertas do Log de Atividades por meio do Portal do Azure](activity-log-alerts.md)
 * Configurar [alertas do Log de Atividades por meio do Resource Manager](alerts-activity-log.md)
-* Examine o [esquema do webhook de alertas do Log de Atividade](activity-log-alerts-webhook.md)
+* Examinar o [esquema de webhook de alerta do log de atividades](activity-log-alerts-webhook.md)
 * Saiba mais sobre [grupos de ação](action-groups.md)
 * Configurar [alertas mais recentes](alerts-metric.md)
 

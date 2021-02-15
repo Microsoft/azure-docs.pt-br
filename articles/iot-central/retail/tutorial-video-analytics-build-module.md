@@ -1,5 +1,5 @@
 ---
-title: Tutorial – Modificar os módulos da Análise Dinâmica de Vídeo do IoT Edge
+title: Tutorial – Modificar os módulos da Análise Dinâmica de Vídeo do Azure IoT Edge
 description: Este tutorial mostra como modificar e criar os módulos de gateway da Análise Dinâmica de Vídeo usados pelo modelo de aplicativo de detecção de objetos e movimentos e análise de vídeo.
 services: iot-central
 ms.service: iot-central
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: d21eb8d8d79ec04f0f7e766b4eeb370811553e64
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: e5236bb7034ae4d5f86ab2f8f965bdbfbc3d6ccd
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037819"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832038"
 ---
 # <a name="tutorial-modify-and-build-the-live-video-analytics-gateway-modules"></a>Tutorial: Modificar e criar os módulos de gateway da Análise Dinâmica de Vídeo
 
@@ -28,8 +28,8 @@ Para concluir as etapas deste tutorial, você precisará do seguinte:
 * [Node.js](https://nodejs.org/en/download/) v10 ou posterior
 * [Visual Studio Code](https://code.visualstudio.com/Download) com a extensão do [TSLint](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-tslint-plugin) instalada
 * Mecanismo do [Docker](https://www.docker.com/products/docker-desktop)
-* Um [Registro de Contêiner do Azure](https://docs.microsoft.com/azure/container-registry/) para hospedar suas versões dos módulos.
-* Uma conta dos [Serviços de Mídia do Azure](https://docs.microsoft.com/azure/media-services/). Se você concluiu os tutoriais anteriores, reutilize aquele que criou anteriormente.
+* Um [Registro de Contêiner do Azure](../../container-registry/index.yml) para hospedar suas versões dos módulos.
+* Uma conta dos [Serviços de Mídia do Azure](../../media-services/index.yml). Se você concluiu os tutoriais anteriores, reutilize aquele que criou anteriormente.
 
 ## <a name="clone-the-repository"></a>Clonar o repositório
 
@@ -50,7 +50,7 @@ Abra a pasta do repositório local *live-video-analytics* com o VS Code.
 1. Edite a seção do módulo `LvaEdgeGatewayModule` para adicionar o nome da imagem e da sua conta do AMS no `env:amsAccountName:value`.
 1. Edite a seção do módulo `lvaYolov3` e adicione o nome da imagem.
 1. Edite a seção do módulo `lvaEdge` e adicione o nome da imagem.
-1. Confira [Criar um aplicativo de análise de vídeo no Azure IoT Central](tutorial-video-analytics-create-app.md) para obter mais informações sobre como concluir a configuração.
+1. Confira [Criar um aplicativo de análise de vídeo no Azure IoT Central](tutorial-video-analytics-create-app-yolo-v3.md) para obter mais informações sobre como concluir a configuração.
 
 ## <a name="build-the-code"></a>Compilar o código
 
@@ -73,6 +73,13 @@ Abra a pasta do repositório local *live-video-analytics* com o VS Code.
 1. Use o terminal do VS Code para executar o comando **npm version patch**. Esse script de build implanta as imagens no registro de contêiner. A saída na janela do terminal do VS Code mostra se o build foi bem-sucedido.
 
 1. A versão da imagem do **LvaEdgeGatewayModule** é incrementada toda vez que o build é concluído. Você precisará usar essa versão no arquivo de manifesto de implantação.
+
+## <a name="clean-up-resources"></a>Limpar recursos
+
+Se você tiver concluído o aplicativo, remova todos os recursos criados da seguinte maneira:
+
+1. No aplicativo do IoT Central, procure a página **Seu aplicativo** na seção **Administração**. Em seguida, selecione **Excluir**.
+1. No portal do Azure, exclua o grupo de recursos **lva-rg**.
 
 ## <a name="next-steps"></a>Próximas etapas
 

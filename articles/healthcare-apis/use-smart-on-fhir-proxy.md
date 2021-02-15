@@ -10,11 +10,11 @@ ms.author: matjazl
 author: matjazl
 ms.date: 04/02/2019
 ms.openlocfilehash: 2e13a9fc32964781dda07e5534e5cab79868ddf0
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87846968"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995532"
 ---
 # <a name="tutorial-azure-active-directory-smart-on-fhir-proxy"></a>Tutorial: Proxy do SMART on FHIR do Azure Active Directory
 

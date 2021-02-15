@@ -6,16 +6,20 @@ ms.service: virtual-machines-linux
 ms.topic: how-to
 ms.date: 03/22/2019
 ms.author: cynthn
-ms.openlocfilehash: ef9650690435a3770e59326e757ab1c783fa7b23
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 184e856636a74ce5b7ac72b2e8cab3d1f19c4e17
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372749"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89074382"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-with-azure-resource-manager-templates"></a>Como criar uma máquina virtual do Linux com os modelos do Azure Resource Manager
 
 Saiba como criar uma VM (máquina virtual) do Linux usando um modelo de Azure Resource Manager e o CLI do Azure do Azure cloud Shell. Para criar uma máquina virtual do Windows, consulte [criar uma máquina virtual do Windows a partir de um modelo do Resource Manager](../windows/ps-template.md).
+
+Uma alternativa é implantar o modelo do portal do Azure. Para abrir o modelo no portal, selecione o botão **implantar no Azure** .
+
+[![Implantar no Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-vm-sshkey%2Fazuredeploy.json)
 
 ## <a name="templates-overview"></a>Visão geral de modelos
 

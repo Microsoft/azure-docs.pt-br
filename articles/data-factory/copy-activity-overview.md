@@ -1,22 +1,17 @@
 ---
 title: Atividade de cópia no Azure Data Factory
 description: Saiba mais sobre a atividade de cópia no Azure Data Factory. Você pode usá-lo para copiar dados de um armazenamento de dados de origem com suporte para um armazenamento de dados de coletor com suporte.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/03/2020
+ms.date: 10/12/2020
 ms.author: jingwang
-ms.openlocfilehash: 54597953aac6fabe419a9d1b62b16de7ca7bd1e0
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: d52a0bba5fddaa865b8fad74b778ba7a3838b2a4
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534338"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100387896"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Atividade de cópia no Azure Data Factory
 
@@ -61,7 +56,7 @@ Você pode usar a atividade de cópia para copiar arquivos no estado em que se e
 * Copie dados no formato de texto compactado gzip (CSV) do armazenamento de BLOBs do Azure e grave-os no banco de dados SQL do Azure.
 * Muitas outras atividades que exigem serialização/desserialização ou compactação/descompactação.
 
-## <a name="supported-regions"></a>Regiões compatíveis
+## <a name="supported-regions"></a>Regiões com suporte
 
 O serviço que habilita a atividade de cópia está disponível globalmente nas regiões e geografias listados em [locais de tempo de execução de integração do Azure](concepts-integration-runtime.md#integration-runtime-location). A topologia globalmente disponível garante a movimentação de dados eficiente, o que geralmente evita saltos entre regiões. Consulte [produtos por região](https://azure.microsoft.com/regions/#services) para verificar a disponibilidade de data Factory e a movimentação de dados em uma região específica.
 
@@ -75,7 +70,7 @@ Em geral, para usar a atividade de cópia no Azure Data Factory, você precisa:
 2. **Crie conjuntos de valores para a origem e o coletor.** Consulte as seções "Propriedades do conjunto de dados" dos artigos do conector de origem e do coletor para obter informações de configuração e propriedades com suporte.
 3. **Crie um pipeline com a atividade de cópia.** A próxima seção fornece um exemplo.
 
-### <a name="syntax"></a>Sintaxe
+### <a name="syntax"></a>Syntax
 
 O modelo a seguir de uma atividade de cópia contém uma lista completa de propriedades com suporte. Especifique as adequadas para o seu cenário.
 
@@ -129,7 +124,7 @@ O modelo a seguir de uma atividade de cópia contém uma lista completa de propr
 
 | Propriedade | Descrição | Necessário? |
 |:--- |:--- |:--- |
-| tipo | Para uma atividade de cópia, defina como`Copy` | Sim |
+| tipo | Para uma atividade de cópia, defina como `Copy` | Sim |
 | entradas | Especifique o conjunto de dados que você criou que aponta para a origem. A atividade de cópia dá suporte a apenas uma única entrada. | Sim |
 | outputs | Especifique o conjunto de dados que você criou que aponta para o coletor. A atividade de cópia dá suporte a apenas uma única saída. | Sim |
 | typeProperties | Especifique as propriedades para configurar a atividade de cópia. | Sim |
@@ -186,10 +181,11 @@ Consulte [mapeamento de tipo de dados e esquema](copy-activity-schema-and-type-m
 Além de copiar dados do armazenamento de dados de origem para o coletor, você também pode configurar o para adicionar colunas de dados adicionais para copiar junto com o coletor. Por exemplo:
 
 - Ao copiar da fonte baseada em arquivo, armazene o caminho relativo do arquivo como uma coluna adicional para rastrear de qual arquivo os dados vêm.
+- Duplicar a coluna de origem especificada como outra coluna. 
 - Adicione uma coluna com a expressão do ADF para anexar variáveis de sistema do ADF, como nome do pipeline/ID do pipeline, ou armazenar outro valor dinâmico da saída da atividade upstream.
 - Adicione uma coluna com valor estático para atender à necessidade de consumo downstream.
 
-Você pode encontrar a seguinte configuração na guia origem da atividade de cópia: 
+Você pode encontrar a seguinte configuração na guia origem da atividade de cópia. Você também pode mapear essas colunas adicionais no [mapeamento de esquema](copy-activity-schema-and-type-mapping.md#schema-mapping) da atividade de cópia como de costume usando os nomes de coluna definidos. 
 
 ![Adicionar colunas adicionais na atividade de cópia](./media/copy-activity-overview/copy-activity-add-additional-columns.png)
 
@@ -198,9 +194,9 @@ Você pode encontrar a seguinte configuração na guia origem da atividade de c�
 
 Para configurá-lo programaticamente, adicione a `additionalColumns` propriedade em sua fonte de atividade de cópia:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessária |
 | --- | --- | --- |
-| additionalColumns | Adicione colunas de dados adicionais para copiar para o coletor.<br><br>Cada objeto sob a `additionalColumns` matriz representa uma coluna extra. O `name` define o nome da coluna e `value` indica o valor de dados dessa coluna.<br><br>Os valores de dados permitidos são:<br>- **`$$FILEPATH`**-uma variável reservada indica armazenar o caminho relativo dos arquivos de origem para o caminho da pasta especificado no conjunto de uma. Aplicar à fonte baseada em arquivo.<br>- **Expressão**<br>- **Valor estático** | Não |
+| additionalColumns | Adicione colunas de dados adicionais para copiar para o coletor.<br><br>Cada objeto sob a `additionalColumns` matriz representa uma coluna extra. O `name` define o nome da coluna e `value` indica o valor de dados dessa coluna.<br><br>Os valores de dados permitidos são:<br>- **`$$FILEPATH`** -uma variável reservada indica armazenar o caminho relativo dos arquivos de origem para o caminho da pasta especificado no conjunto de uma. Aplicar à fonte baseada em arquivo.<br>- **`$$COLUMN:<source_column_name>`** -um padrão de variável reservada indica a duplicação da coluna de origem especificada como outra coluna<br>- **Expressão**<br>- **Valor estático** | Não |
 
 **Exemplo:**
 
@@ -218,6 +214,10 @@ Para configurá-lo programaticamente, adicione a `additionalColumns` propriedade
                     {
                         "name": "filePath",
                         "value": "$$FILEPATH"
+                    },
+                    {
+                        "name": "newColName",
+                        "value": "$$COLUMN:SourceColumnA"
                     },
                     {
                         "name": "pipelineName",
@@ -245,11 +245,11 @@ Para configurá-lo programaticamente, adicione a `additionalColumns` propriedade
 
 Ao copiar os dados para o SQL Database/Azure Synapse Analytics, se a tabela de destino não existir, a atividade de cópia dará suporte à criação automática com base nos dados de origem. Ele tem o objetivo de ajudá-lo a começar a carregar os dados e avaliar o SQL Database/Azure Synapse Analytics. Após a ingestão de dados, você pode revisar e ajustar o esquema da tabela de coletor de acordo com suas necessidades.
 
-Esse recurso tem suporte ao copiar dados de qualquer fonte nos armazenamentos de dados do coletor a seguir. Você pode encontrar a opção na *interface do usuário de criação do ADF* – opção > o *coletor de atividade de cópia* – > *tabela* – > *criação automática de tabela*ou por meio `tableOption` da propriedade na carga do coletor da atividade de cópia.
+Esse recurso tem suporte ao copiar dados de qualquer fonte nos armazenamentos de dados do coletor a seguir. Você pode encontrar a opção na *interface do usuário de criação do ADF* – opção > o *coletor de atividade de cópia* – > *tabela* – > *criação automática de tabela* ou por meio `tableOption` da propriedade na carga do coletor da atividade de cópia.
 
 - [Banco de Dados SQL do Azure](connector-azure-sql-database.md)
 - [Instância Gerenciada do Banco de Dados SQL do Azure](connector-azure-sql-managed-instance.md)
-- [Azure Synapse Analytics (anteriormente SQL Data Warehouse do Azure)](connector-azure-sql-data-warehouse.md)
+- [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md)
 - [SQL Server](connector-sql-server.md)
 
 ![Criar tabelas de coletor](media/copy-activity-overview/create-sink-table.png)
@@ -257,6 +257,13 @@ Esse recurso tem suporte ao copiar dados de qualquer fonte nos armazenamentos de
 ## <a name="fault-tolerance"></a>Tolerância a falhas
 
 Por padrão, a atividade de cópia interrompe a cópia de dados e retorna uma falha quando as linhas de dados de origem são incompatíveis com as linhas de dados do coletor. Para que a cópia seja realizada com sucesso, você pode configurar a atividade de cópia para ignorar e registrar em log as linhas incompatíveis e copiar apenas os dados compatíveis. Consulte [tolerância a falhas da atividade de cópia](copy-activity-fault-tolerance.md) para obter detalhes.
+
+## <a name="data-consistency-verification"></a>Verificação de consistência de dados
+
+Quando você move dados do repositório de origem para o de destino, a atividade de cópia do Azure Data Factory fornece uma opção para realizar a verificação de consistência de dados adicional a fim de garantir que os dados não sejam apenas copiados com êxito da origem para o repositório de destino, mas também verificados como consistentes entre o repositório de origem e destino. Depois que arquivos inconsistentes forem encontrados durante a movimentação de dados, você poderá abortar a atividade de cópia ou continuar a copiar o restante habilitando a configuração de tolerância a falhas para ignorar arquivos inconsistentes. Você pode obter os nomes de arquivo ignorados habilitando a configuração de log de sessão na atividade de cópia. Consulte [verificação de consistência de dados na atividade de cópia](copy-activity-data-consistency.md) para obter detalhes.
+
+## <a name="session-log"></a>Log de sessão
+Você pode registrar em log os nomes de arquivo copiados, o que pode ajudá-lo a garantir que os dados não sejam copiados com êxito da origem para o repositório de destino, mas também consistentes entre o repositório de origem e destino, revisando os logs de sessão da atividade de cópia. Consulte [log de sessão na atividade de cópia](copy-activity-log.md) para obter detalhes.
 
 ## <a name="next-steps"></a>Próximas etapas
 Consulte os seguintes guias de início rápido, tutoriais e exemplos:

@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: a2115e9c1601c86cce8857c10baf12b91cc2b997
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2887e7c5fd875942c3d19391267ddbb9b73ccfec
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75482563"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165546"
 ---
 # <a name="generate-soil-moisture-heatmap"></a>Gerar calor de umidade de solo
 
@@ -54,7 +54,7 @@ Depois de vincular sua conta de sensor ao Azure FarmBeats, você precisará atri
 2.  Selecione **myfarm**  >  **Adicionar dispositivos**.
 3.  A janela **Adicionar dispositivos** é exibida. Selecione qualquer dispositivo que esteja vinculado aos sensores de umidade de solo do seu farm.
 
-    ![Projeto do FarmBeats](./media/get-sensor-data-from-sensor-partner/add-devices-1.png)
+    ![Captura de tela que mostra o botão Adicionar dispositivos.](./media/get-sensor-data-from-sensor-partner/add-devices-1.png)
 
 4. Selecione **Adicionar dispositivos**.     
 
@@ -70,7 +70,7 @@ Esta etapa é criar um trabalho ou uma operação de execução longa que irá g
 6.  Na medida **selecionar** **sensor**de umidade de solo, insira a medida que você deseja usar para o mapa.
     Para localizar a medida do sensor, em **sensores**, selecione qualquer sensor de umidade do solo. Em **Propriedades do sensor**, use o valor **nome da medida** .
 
-    ![Projeto do FarmBeats](./media/get-sensor-data-from-sensor-partner/soil-moisture-1.png)
+    ![Captura de tela que mostra o solo de umidade.](./media/get-sensor-data-from-sensor-partner/soil-moisture-1.png)
 
 
 7.  Selecione **gerar mapas**.
@@ -81,7 +81,7 @@ Esta etapa é criar um trabalho ou uma operação de execução longa que irá g
 
 ### <a name="download-the-soil-moisture-heatmap"></a>Baixe o calor de umidade de solo
 
-Use as etapas a seguir:
+Use as seguintes etapas:
 
 1. Na página **trabalhos** , verifique o **status do trabalho** que você criou no último procedimento.
 2. Quando o status do trabalho for exibido com **êxito**, selecione **mapas** no menu.

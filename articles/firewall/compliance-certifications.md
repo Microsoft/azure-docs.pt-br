@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: article
 ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: b165741f9f7a4eb7af8424b9175aa5ec9261fbcc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fa61046ee87c1cac3c8a8bb93ed97b577019e016
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85602713"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628434"
 ---
 # <a name="azure-firewall-certifications"></a>Certificações de firewall do Azure
 
@@ -34,7 +34,7 @@ As seguintes certificações de firewall do Azure são para o Azure global:
 - CFTC 1,31
 - Atestado CSA STAR
 - Certificação CSA STAR
-- Autoavaliação do CSA STAR
+- Self-Assessment CSA STAR
 - Leis de privacidade canadenses
 - DPP (REINO UNIDO)
 - ENISA DE IAF DA UE

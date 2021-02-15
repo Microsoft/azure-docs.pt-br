@@ -4,10 +4,10 @@ description: Manipuladores de eventos e destinos na grade de eventos no Edge
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: 18e2b944f60ebdf8a1b0c60ba446a13df13134c5
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86171577"
 ---
 # <a name="event-handlers-and-destinations-in-event-grid-on-edge"></a>Manipuladores de eventos e destinos na grade de eventos no Edge
@@ -35,7 +35,7 @@ Para publicar em um ponto de extremidade de webhook, defina `endpointType` como 
         }
     ```
 
-## <a name="azure-event-grid"></a>A Grade de Eventos do Azure
+## <a name="azure-event-grid"></a>Grade de Eventos do Azure
 
 Para publicar em um ponto de extremidade de nuvem da grade de eventos do Azure, defina `endpointType` como `eventGrid` e forneça:
 
@@ -145,7 +145,7 @@ Para publicar em um tópico do barramento de serviço, defina `endpointType` com
 
 ## <a name="storage-queues"></a>Filas de Armazenamento
 
-Para publicar em uma fila de armazenamento, defina `endpointType` como `storageQueue` e forneça:
+Para publicar em uma fila de armazenamento, defina  `endpointType` como `storageQueue` e forneça:
 
 * QueueName: o nome da fila de armazenamento na qual você está publicando.
 * connectionString: cadeia de conexão para a conta de armazenamento na qual a fila de armazenamento está.

@@ -1,18 +1,18 @@
 ---
 title: Controles de Conformidade Regulatória do Azure Policy para o Lote do Azure
 description: Lista os controles de Conformidade Regulatória do Azure Policy disponíveis para o Lote do Azure. Estas definições de políticas internas fornecem abordagens comuns para gerenciar a conformidade dos seus recursos do Azure.
-ms.date: 07/22/2020
+ms.date: 02/09/2021
 ms.topic: sample
 author: JnHs
 ms.author: jenhayes
 ms.service: batch
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: bf58ce14ee1c37fe56065c9b11686a4c281668a6
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 804f2154f4100cf2040309abc0c0ad8282208327
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87135807"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100097460"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-batch"></a>Controles de Conformidade Regulatória do Azure Policy para o Lote do Azure
 

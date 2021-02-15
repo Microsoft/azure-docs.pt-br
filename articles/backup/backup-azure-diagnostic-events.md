@@ -3,12 +3,12 @@ title: Usar configurações de diagnóstico para cofres dos serviços de recuper
 description: Este artigo descreve como usar os eventos de diagnóstico novos e antigos para o backup do Azure.
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: e5f666886dca0959b0f06b799088cadf4593ec39
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 3d10053bae5148f33dba6d1207a81bdb16c37577
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826660"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002878"
 ---
 # <a name="use-diagnostics-settings-for-recovery-services-vaults"></a>Usar configurações de diagnóstico para cofres dos serviços de recuperação
 
@@ -44,8 +44,8 @@ Para enviar os dados de diagnóstico do cofre para Log Analytics:
 1. Vá para seu cofre e selecione **configurações de diagnóstico**. Selecione **+ Adicionar configuração de diagnóstico**.
 1. Dê um nome para a configuração de diagnóstico.
 1. Marque a caixa de seleção **Enviar para log Analytics** e selecione um espaço de trabalho log Analytics.
-1. Selecione **recurso específico** na alternância e selecione os seis eventos a seguir: **CoreAzureBackup**, **AddonAzureBackupJobs**, **AddonAzureBackupAlerts**, **AddonAzureBackupPolicy**, **AddonAzureBackupStorage**e **AddonAzureBackupProtectedInstance**.
-1. Selecione **Salvar**.
+1. Selecione **recurso específico** na alternância e selecione os seis eventos a seguir: **CoreAzureBackup**, **AddonAzureBackupJobs**, **AddonAzureBackupAlerts**, **AddonAzureBackupPolicy**, **AddonAzureBackupStorage** e **AddonAzureBackupProtectedInstance**.
+1. Clique em **Salvar**.
 
    ![Modo específico do recurso](./media/backup-azure-diagnostics-events/resource-specific-blade.png)
 
@@ -114,15 +114,15 @@ Você pode optar por ter configurações de diagnóstico separadas para AzureBac
 
 ## <a name="send-azure-site-recovery-events-to-log-analytics"></a>Enviar Azure Site Recovery eventos para Log Analytics
 
-Os eventos de backup e Azure Site Recovery do Azure são enviados do mesmo cofre dos serviços de recuperação. Atualmente, o Azure Site Recovery não está disponível para tabelas específicas de recursos. Os usuários que desejam enviar Azure Site Recovery eventos para Log Analytics são direcionados a usar *somente*o modo de diagnóstico do Azure, conforme mostrado na imagem. *Escolher o modo específico do recurso para eventos de Azure site Recovery impedirá que os dados necessários sejam enviados para o espaço de trabalho log Analytics*.
+Os eventos de backup e Azure Site Recovery do Azure são enviados do mesmo cofre dos serviços de recuperação. Atualmente, o Azure Site Recovery não está disponível para tabelas específicas de recursos. Os usuários que desejam enviar Azure Site Recovery eventos para Log Analytics são direcionados a usar *somente* o modo de diagnóstico do Azure, conforme mostrado na imagem. *Escolher o modo específico do recurso para eventos de Azure site Recovery impedirá que os dados necessários sejam enviados para o espaço de trabalho log Analytics*.
 
 ![Eventos de Site Recovery](./media/backup-azure-diagnostics-events/site-recovery-settings.png)
 
 Para resumir:
 
 * Se você já tiver Log Analytics diagnósticos configurados com Diagnóstico do Azure e tiver escrito consultas personalizadas sobre ele, mantenha essa configuração *intacta* até migrar suas consultas para usar dados dos novos eventos.
-* Se você também quiser integrar novas tabelas, como recomendamos, crie uma **nova** configuração de diagnóstico, selecione específico do **recurso**e selecione os seis novos eventos.
-* Se você estiver atualmente enviando Azure Site Recovery eventos para *log Analytics, não* escolha o modo específico do recurso para esses eventos. Caso contrário, os dados desses eventos não fluirão para seu espaço de trabalho do Log Analytics. Em vez disso, crie uma configuração de diagnóstico adicional, selecione **diagnóstico do Azure**e selecione os eventos de Azure site Recovery relevantes.
+* Se você também quiser integrar novas tabelas, como recomendamos, crie uma **nova** configuração de diagnóstico, selecione específico do **recurso** e selecione os seis novos eventos.
+* Se você estiver atualmente enviando Azure Site Recovery eventos para *log Analytics, não* escolha o modo específico do recurso para esses eventos. Caso contrário, os dados desses eventos não fluirão para seu espaço de trabalho do Log Analytics. Em vez disso, crie uma configuração de diagnóstico adicional, selecione **diagnóstico do Azure** e selecione os eventos de Azure site Recovery relevantes.
 
 A imagem a seguir mostra um exemplo de um usuário que tem três configurações de diagnóstico para um cofre. A primeira configuração, chamada **Setting1**, envia dados de um evento AzureBackupReport para um espaço de trabalho log Analytics no modo de diagnóstico do Azure. A segunda configuração, chamada **Setting2**, envia dados dos seis novos eventos de backup do Azure para um espaço de trabalho log Analytics no modo específico do recurso. A terceira configuração, chamada **Setting3**, envia dados dos eventos de Azure site Recovery para um espaço de trabalho log Analytics no modo de diagnóstico do Azure.
 

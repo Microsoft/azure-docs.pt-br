@@ -1,18 +1,18 @@
 ---
 title: Trabalhar com a versão anterior das Migrações para Azure
 description: Descreve como trabalhar com a versão anterior das Migrações para Azure.
-author: rayne-wiselman
-ms.service: azure-migrate
-ms.topic: overview
+author: ms-psharma
+ms.author: panshar
+ms.manager: abhemraj
+ms.topic: conceptual
 ms.date: 11/19/2019
-ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: bb4cfcd48608f90898648450a20d246f9fde002b
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 4fda6c51121838bfa1f3624759b1230d8554d573
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87835996"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753936"
 ---
 # <a name="work-with-the-previous-version-of-azure-migrate"></a>Trabalhar com a versão anterior das Migrações para Azure
 
@@ -31,7 +31,7 @@ Há duas versões do serviço de Migrações para Azure:
 
 ## <a name="upgrade-between-versions"></a>Upgrade entre versões
 
-Não é possível fazer upgrade de projetos ou componentes na versão anterior para a nova versão. Você precisa [criar um projeto das Migrações para Azure](create-manage-projects.md) e [adicionar ferramentas de avaliação e migração](how-to-add-tool-first-time.md) a ele. Use os tutoriais para entender como usar as ferramentas de avaliação e migração disponíveis. Se você tinha um workspace do Log Analytics anexado a um projeto clássico, poderá anexá-lo a um projeto da versão atual depois de excluir o projeto clássico.
+Não é possível fazer upgrade de projetos ou componentes na versão anterior para a nova versão. Você precisa [criar um projeto das Migrações para Azure](create-manage-projects.md) e [adicionar ferramentas de avaliação e migração](./create-manage-projects.md) a ele. Use os tutoriais para entender como usar as ferramentas de avaliação e migração disponíveis. Se você tinha um workspace do Log Analytics anexado a um projeto clássico, poderá anexá-lo a um projeto da versão atual depois de excluir o projeto clássico.
 
 ## <a name="find-projects-from-previous-version"></a>Localizar projetos da versão anterior
 
@@ -121,7 +121,7 @@ Windows Server 2012 R2 e todos os SPs | O Azure fornece suporte total. | Pronto 
 Windows Server 2012 e todos os SPs | O Azure fornece suporte total. | Pronto para o Azure
 Windows Server 2008 R2 e todos os SPs | O Azure fornece suporte total.| Pronto para o Azure
 Windows Server 2008 (32 bits e 64 bits) | O Azure fornece suporte total. | Pronto para o Azure
-Windows Server 2003, 2003 R2 | Sem suporte e precisa de um [CSA (contrato personalizado de suporte)](https://aka.ms/WSosstatement) para ter suporte no Azure. | Condicionalmente pronto para o Azure, considere atualizar o sistema operacional antes de migrar para o Azure.
+Windows Server 2003, 2003 R2 | Sem suporte e precisa de um [CSA (contrato personalizado de suporte)](/troubleshoot/azure/virtual-machines/server-software-support) para ter suporte no Azure. | Condicionalmente pronto para o Azure, considere atualizar o sistema operacional antes de migrar para o Azure.
 Windows 2000, 98, 95, NT, 3.1, MS-DOS | Sem suporte. O computador pode ser inicializado no Azure, mas não há suporte ao sistema operacional fornecido pelo Azure. | Condicionalmente pronto para o Azure, considere atualizar o sistema operacional antes de migrar para o Azure.
 Cliente do Windows 7, 8 e 10 | O Azure oferece suporte apenas [com a Assinatura do Visual Studio.](../virtual-machines/windows/client-images.md) | Condicionalmente pronta para o Azure
 Windows 10 Pro Desktop | O Azure oferece suporte com [Direitos de Hospedagem multilocatário.](../virtual-machines/windows/windows-desktop-multitenant-hosting-deployment.md) | Condicionalmente pronta para o Azure
@@ -219,7 +219,7 @@ Para usar a visualização de dependência, associe um espaço de trabalho do Lo
 
 Depois de configurar um espaço de trabalho, baixe e instale agentes em cada computador local que deseja avaliar. Além disso, se você tiver máquinas sem conectividade com a Internet, será necessário fazer o download e instalar o [gateway do Log Analytics](../azure-monitor/platform/gateway.md) nelas.
 
-1. Em **Visão geral**, clique em **Gerenciar** > **Máquinas**e selecione a máquina exigida.
+1. Em **Visão geral**, clique em **Gerenciar** > **Máquinas** e selecione a máquina exigida.
 2. Na coluna **Dependências**, clique em **Instalar agentes**.
 3. Na página **Dependências**, baixe e instale o MMA (Microsoft Monitoring Agent) e o Agente de dependência em cada VM que você deseja avaliar.
 4. Copie a ID e a chave do workspace. Você precisará delas quando instalar o MMA na máquina local.
@@ -238,7 +238,7 @@ Para instalar o agente em uma máquina com Windows:
 4. Em **Opções de Configuração do Agente**, selecione **Azure Log Analytics** > **Avançar**.
 5. Clique em **Adicionar** para adicionar um espaço de trabalho do Log Analytics. Cole a ID do workspace e a chave que você copiou do portal. Clique em **Próximo**.
 
-Você pode instalar o agente na linha de comando ou usando um método automatizado, como o Configuration Manager. [Saiba mais](../azure-monitor/platform/log-analytics-agent.md#installation-and-configuration) sobre como usar esses métodos para instalar o agente do MMA.
+Você pode instalar o agente na linha de comando ou usando um método automatizado, como o Configuration Manager. [Saiba mais](../azure-monitor/platform/log-analytics-agent.md#installation-options) sobre como usar esses métodos para instalar o agente do MMA.
 
 #### <a name="install-the-mma-agent-on-a-linux-machine"></a>Instalar o agente MMA em um computador com Linux
 
@@ -249,7 +249,7 @@ Para instalar o agente em uma máquina com Linux:
 
     ```sudo sh ./omsagent-<version>.universal.x64.sh --install -w <workspace id> -s <workspace key>```
 
-[Saiba mais](../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems) sobre a lista de sistemas de operacionais Linux com suporte no MMA.
+[Saiba mais](../azure-monitor/platform/agents-overview.md#supported-operating-systems) sobre a lista de sistemas de operacionais Linux com suporte no MMA.
 
 ### <a name="install-the-mma-agent-on-a-machine-monitored-by-operations-manager"></a>Instalar o agente MMA em um computador monitorado pelo Operations Manager
 
@@ -308,7 +308,7 @@ Para executar as consultas do Kusto:
 4. Crie sua consulta para coletar dados de dependência usando os logs do Azure Monitor. Encontre consultas de exemplo na próxima seção.
 5. Execute a consulta clicando em Executar. 
 
-[Saiba mais](../azure-monitor/log-query/get-started-portal.md) sobre como codificar consultas Kusto. 
+[Saiba mais](../azure-monitor/log-query/log-analytics-tutorial.md) sobre como codificar consultas Kusto. 
 
 ### <a name="sample-azure-monitor-logs-queries"></a>Consultas aos logs do Azure Monitor de exemplo
 

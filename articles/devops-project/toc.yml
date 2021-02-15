@@ -1,53 +1,63 @@
-- name: Documentação do Azure DevOps Starter
+- name: Documentação do DevOps Starter
   href: index.yml
 - name: Visão geral
   items:
-    - name: O que é o Azure DevOps Starter?
+    - name: O que é o DevOps Starter?
       href: overview.md
 - name: Inícios rápidos
   expanded: true
   items:
-    - name: .NET
-      href: /azure/devops-project/azure-devops-project-aspnet-core
-      maintainContext: true
-    - name: Node.js
-      href: /azure/devops-project/azure-devops-project-nodejs
-      maintainContext: true
-    - name: Java
-      href: /azure/devops-project/azure-devops-project-java
-      maintainContext: true
-    - name: Python
-      href: /azure/devops-project/azure-devops-project-python
-      maintainContext: true
-    - name: PHP
-      href: /azure/devops-project/azure-devops-project-php
-      maintainContext: true
-    - name: Ruby
-      href: /azure/devops-project/azure-devops-project-ruby
-      maintainContext: true
-    - name: Go
-      href: /azure/devops-project/azure-devops-project-go
-      maintainContext: true
+    - name: GitHub Actions
+      items:
+        - name: Node.js
+          href: ./devops-starter-gh-nodejs.md
+          maintainContext: true
+    - name: Azure DevOps
+      items:
+        - name: .NET
+          href: ./azure-devops-project-aspnet-core.md
+          maintainContext: true
+        - name: Node.js
+          href: ./azure-devops-project-nodejs.md
+          maintainContext: true
+        - name: Java
+          href: ./azure-devops-project-java.md
+          maintainContext: true
+        - name: Python
+          href: ./azure-devops-project-python.md
+          maintainContext: true
+        - name: PHP
+          href: ./azure-devops-project-php.md
+          maintainContext: true
+        - name: Ruby
+          href: ./azure-devops-project-ruby.md
+          maintainContext: true
+        - name: Go
+          href: ./azure-devops-project-go.md
+          maintainContext: true
 - name: Tutoriais
   items:
-    - name: 1 – GitHub e DevOps Starter
+    - name: Implantação no Aplicativo Web do Azure com o GitHub Actions
+      href: devops-starter-gh-web-app.md
+      maintainContext: true
+    - name: BYOC com o GitHub
       href: azure-devops-project-github.md
       maintainContext: true
-    - name: 2 - Implantar em VMs
+    - name: Implantação em VMs com o Azure DevOps
       href: azure-devops-project-vms.md
       maintainContext: true
-    - name: 3 - Implantar no Banco de Dados SQL do Azure
+    - name: Implantação no Banco de Dados SQL do Azure com o Azure DevOps
       href: azure-devops-project-sql-database.md
       maintainContext: true
-    - name: 4 - Implantar no AKS
+    - name: Implantação no AKS com o Azure DevOps
       href: azure-devops-project-aks.md
       maintainContext: true
-    - name: 5 - Implantar no Azure Service Fabric
+    - name: Implantação no Azure Service Fabric com o Azure DevOps
       href: azure-devops-project-service-fabric.md
       maintainContext: true
-    - name: 6 – Implantar no Azure Cosmos DB
+    - name: Implantação no Azure Cosmos DB com o Azure DevOps
       href: azure-devops-project-cosmos-db.md
       maintainContext: true
-    - name: 7 – Implantar no Azure Functions
+    - name: Implantação no Azure Functions com o Azure DevOps
       href: azure-devops-project-functions.md
       maintainContext: true

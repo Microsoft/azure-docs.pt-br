@@ -8,11 +8,11 @@ ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
 ms.openlocfilehash: b80f27e490dd3b1890eab7740fb4650ba4280abb
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88207799"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008983"
 ---
 # <a name="collect-custom-metrics-for-a-linux-vm-with-the-influxdata-telegraf-agent"></a>Coletar métricas personalizadas para uma VM do Linux com o Agente InfluxData Telegraf
 
@@ -111,7 +111,7 @@ Agora o agente coletará as métricas de cada um dos plug-ins de entrada especif
 
 ## <a name="plot-your-telegraf-metrics-in-the-azure-portal"></a>Plotar as métricas do Telegraf no portal do Azure 
 
-1. Abra o [portal do Azure](https://portal.azure.com). 
+1. Abra o [Portal do Azure](https://portal.azure.com). 
 
 1. Navegue até a nova guia **Monitor** . Em seguida, selecione **métricas**.  
 

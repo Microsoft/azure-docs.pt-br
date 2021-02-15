@@ -1,17 +1,17 @@
 ---
 title: Configurar alertas de métrica-portal do Azure-banco de dados do Azure para MariaDB
 description: Este artigo descreve como configurar e acessar os alertas de métricas para o Banco de Dados do Azure para MariaDB usando o portal do Azure.
-author: ajlam
-ms.author: andrela
-ms.service: mariadb
+author: savjani
+ms.author: pariks
+ms.service: jroth
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: 5687255057fdd5e73478626721c789c98b2ea366
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 1e7dafaba6b6792afdec1f1866629fac9ba5a577
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120068"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664411"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mariadb"></a>Usar o portal do Azure para configurar alertas de métricas no Banco de Dados do Azure para MariaDB
 
@@ -27,7 +27,7 @@ Você pode configurar um alerta para fazer as seguintes ações quando ele dispa
 Você pode configurar e obter informações sobre as regras de alerta usando:
 * [Azure portal](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
 * [CLI do Azure](../azure-monitor/platform/alerts-metric.md#with-azure-cli)
-* [API REST do Monitor do Azure](https://docs.microsoft.com/rest/api/monitor/metricalerts)
+* [API REST do Azure Monitor](/rest/api/monitor/metricalerts)
 
 ## <a name="create-an-alert-rule-on-a-metric"></a>Criar uma regra de alerta em uma métrica
 1. No [portal do Azure](https://portal.azure.com/), selecione o servidor do Banco de Dados do Azure para MariaDB que você deseja monitorar.
@@ -52,7 +52,7 @@ Você pode configurar e obter informações sobre as regras de alerta usando:
    
    Selecione **Concluído** ao concluir.
 
-   ![Selecionar métrica](./media/howto-alert-metric/7-set-threshold-time.png)
+   ![Selecionar métrica 2](./media/howto-alert-metric/7-set-threshold-time.png)
 
 8. Dentro da seção **Grupos de Ações**, selecione **Criar Novo** para criar um novo grupo para receber notificações sobre o alerta.
 
@@ -70,7 +70,7 @@ Você pode configurar e obter informações sobre as regras de alerta usando:
 
 11. Especifique um Nome da regra de alerta, uma Descrição e uma Gravidade.
 
-    ![Grupo de ações](./media/howto-alert-metric/11-name-description-severity.png) 
+    ![Grupo de ação 2](./media/howto-alert-metric/11-name-description-severity.png) 
 
 12. Selecione **Criar regra de alerta** para criar o alerta.
 
@@ -85,5 +85,5 @@ Depois de criar um alerta, você poderá selecioná-lo e executar as seguintes a
 
 
 ## <a name="next-steps"></a>Próximas etapas
-* Saiba mais sobre como [configurar webhooks em alertas](../monitoring-and-diagnostics/insights-webhooks-alerts.md).
-* Tenha uma [visão geral da coleção de métricas](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) para verificar se o serviço está disponível e responsivo.
+* Saiba mais sobre como [configurar webhooks em alertas](../azure-monitor/platform/alerts-webhooks.md).
+* Tenha uma [visão geral da coleção de métricas](../azure-monitor/platform/data-platform.md) para verificar se o serviço está disponível e responsivo.

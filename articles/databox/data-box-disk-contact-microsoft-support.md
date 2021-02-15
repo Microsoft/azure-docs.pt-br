@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: how-to
 ms.date: 05/24/2019
 ms.author: alkohli
-ms.openlocfilehash: d4622ae1fa87a47915094b7ab90390c753b82dbb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d0c45626016049424c8028eea7ffbd7f281e9012
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84609107"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91744144"
 ---
 # <a name="open-a-support-ticket-for-azure-data-box"></a>Abrir um tíquete de suporte para o Azure Data Box
 
@@ -76,7 +76,7 @@ Depois de criar um tíquete de suporte, você pode gerenciar o ciclo de vida do 
 
 2. Uma lista tabular de **Solicitações recentes de suporte** é exibida em **Ajuda + suporte**.
 
-    ![Gerenciar solicitações de suporte](./media/data-box-disk-contact-microsoft-support/data-box-disk-manage-support-ticket2.png)
+    ![Gerenciar solicitações de suporte 2](./media/data-box-disk-contact-microsoft-support/data-box-disk-manage-support-ticket2.png)
 
 3. Selecione e clique em uma solicitação de suporte. Você pode exibir o status e os detalhes para esta solicitação. Clique em **+ Nova mensagem** se desejar acompanhar esta solicitação.
 

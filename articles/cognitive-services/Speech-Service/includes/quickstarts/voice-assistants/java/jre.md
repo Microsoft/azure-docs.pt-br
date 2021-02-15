@@ -4,21 +4,21 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/04/2020
 ms.author: travisw
-ms.openlocfilehash: 38e6bae69710dc9e1dbc8789ee9ccb636193c7f7
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 8ee14b94977b3152e0aab853fa3919a739d0dfdd
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80671226"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187483"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, é preciso:
 
 > [!div class="checklist"]
-> * [Criar um recurso de Fala do Azure](~/articles/cognitive-services/speech-service/get-started.md)
+> * [Criar um recurso de Fala do Azure](../../../../overview.md#try-the-speech-service-for-free)
 > * [Configurar seu ambiente de desenvolvimento e criar um projeto vazio](~/articles/cognitive-services/speech-service/quickstarts/setup-platform.md?tabs=jre&pivots=programming-language-java)
-> * Criar um bot conectado ao [canal de Fala do Direct Line](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
+> * Criar um bot conectado ao [canal de Fala do Direct Line](/azure/bot-service/bot-service-channel-connect-directlinespeech)
 > * Verificar se você tem acesso a um microfone para captura de áudio
 
   > [!NOTE]
@@ -115,7 +115,7 @@ Além disso, para habilitar o log, atualize o arquivo _pom.xml_ para incluir a s
 
 1. No método `main`, primeiro você configurará o `DialogServiceConfig` e o usará para criar uma instância do `DialogServiceConnector`. Essa instância se conecta ao canal de Fala do Direct Line para interagir com o bot. Uma instância de `AudioConfig` também é usada para especificar a origem da entrada de áudio. Neste exemplo, o microfone padrão é usado com `AudioConfig.fromDefaultMicrophoneInput()`.
 
-   - Substitua a cadeia de caracteres `YourSubscriptionKey` por sua chave de assinatura, que pode ser obtida [neste site](~/articles/cognitive-services/speech-service/get-started.md).
+   - Substitua a cadeia de caracteres `YourSubscriptionKey` por sua chave de assinatura, que pode ser obtida [neste site](../../../../overview.md#try-the-speech-service-for-free).
    - Substitua a cadeia de caracteres `YourServiceRegion` pela [região](~/articles/cognitive-services/speech-service/regions.md) associada à sua assinatura.
 
    > [!NOTE]

@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: matjazl
-ms.openlocfilehash: 5b42d61d59a3c816c3b664297470cfbf91f17439
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 706d7e081743f2bab1f593e00dc792f218a000ea
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87851759"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "90033618"
 ---
 # <a name="find-identity-object-ids-for-authentication-configuration"></a>Localizar IDs de objeto de identidade para configuração de autenticação
 
@@ -21,16 +21,16 @@ Neste artigo, você aprenderá a encontrar IDs de objeto de identidade necessár
 
 ## <a name="find-user-object-id"></a>Localizar ID de objeto de usuário
 
-Se você tiver um usuário com nome de usuário `myuser@consoso.com` , poderá localizar os usuários `ObjectId` usando o seguinte comando do PowerShell:
+Se você tiver um usuário com nome de usuário `myuser@contoso.com` , poderá localizar os usuários `ObjectId` usando o seguinte comando do PowerShell:
 
 ```azurepowershell-interactive
-$(Get-AzureADUser -Filter "UserPrincipalName eq 'myuser@consoso.com'").ObjectId
+$(Get-AzureADUser -Filter "UserPrincipalName eq 'myuser@contoso.com'").ObjectId
 ```
 
 ou você pode usar o CLI do Azure:
 
 ```azurecli-interactive
-az ad user show --id myuser@consoso.com --query objectId --out tsv
+az ad user show --id myuser@contoso.com --query objectId --out tsv
 ```
 
 ## <a name="find-service-principal-object-id"></a>Localizar ID de objeto da entidade de serviço

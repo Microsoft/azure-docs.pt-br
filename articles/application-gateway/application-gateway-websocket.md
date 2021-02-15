@@ -7,12 +7,12 @@ ms.service: application-gateway
 services: application-gateway
 ms.topic: conceptual
 ms.date: 11/16/2019
-ms.openlocfilehash: baa02c4d946a121f26f421af99835ae2bea18847
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 59ca7708b24d2e75381290b80adeb671e2b49822
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74130338"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91362688"
 ---
 # <a name="overview-of-websocket-support-in-application-gateway"></a>Visão geral do suporte para WebSocket no Gateway de Aplicativo
 
@@ -28,7 +28,7 @@ Ele é usado em aplicativos que se beneficiam de comunicação rápida e em temp
 
 Para estabelecer uma conexão WebSocket, um handshake baseado em HTTP específico é trocado entre o cliente e o servidor. Em caso de êxito, o protocolo de camada de aplicativo é "atualizado" de HTTP para WebSockets usando a conexão TCP estabelecida anteriormente. Assim que isso ocorre, o HTTP fica totalmente fora de cogitação. Os dados podem ser enviados ou recebidos usando o protocolo WebSocket por ambos os pontos de extremidade até o encerramento da conexão com o WebSocket. 
 
-![WebSocket](./media/application-gateway-websocket/websocket.png)
+![O diagrama compara um cliente que interage com um servidor Web, conectando duas vezes para obter duas respostas, com uma interação WebSocket, em que um cliente se conecta a um servidor uma vez para obter várias respostas.](./media/application-gateway-websocket/websocket.png)
 
 ### <a name="listener-configuration-element"></a>Elemento de configuração do ouvinte
 

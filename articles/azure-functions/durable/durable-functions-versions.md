@@ -3,14 +3,14 @@ title: Visão geral das versões do Durable Functions-Azure Functions
 description: Saiba mais sobre as versões do Durable Functions.
 author: cgillum
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 12/23/2020
 ms.author: azfuncdf
-ms.openlocfilehash: d6662259494bba5747e01c4574186e9030112247
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: c4d10bab06428295bbc8c5319bd47787d7b1fb34
+ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88719403"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97763363"
 ---
 # <a name="durable-functions-versions-overview"></a>Visão geral das versões do Durable Functions
 
@@ -50,6 +50,8 @@ Instale a versão 2. x mais recente da extensão de associações de Durable Fun
 
 O Durable Functions 2. x está disponível na versão 2. x do [pacote de extensão de Azure Functions](../functions-bindings-register.md#extension-bundles).
 
+O suporte do Python no Durable Functions requer Durable Functions 2. x.
+
 Para atualizar a versão do pacote de extensão em seu projeto, abra host.jsem e atualize a `extensionBundle` seção para usar a versão 2. x ( `[2.*, 3.0.0)` ).
 
 ```json
@@ -61,6 +63,9 @@ Para atualizar a versão do pacote de extensão em seu projeto, abra host.jsem e
     }
 }
 ```
+
+> [!NOTE]
+> Se Visual Studio Code não estiver exibindo os modelos corretos depois de alterar a versão do pacote de extensão, recarregue a janela executando o comando *Developer: recarregar janela* (<kbd>Ctrl + R</kbd> no Windows e Linux, <kbd>Command + r</kbd> no MacOS).
 
 #### <a name="net"></a>.NET
 

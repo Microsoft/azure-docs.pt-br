@@ -3,18 +3,20 @@ title: Funções de matriz no Azure Cosmos DB linguagem de consulta
 description: Saiba mais sobre como as funções de matriz permitem executar operações em matrizes no Azure Cosmos DB
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 2a4033088a9152363a91c368109136062cace4ce
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e27f9c0af62c4cbdd550fd9907a0dd88d72bba6e
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85563508"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96549201"
 ---
 # <a name="array-functions-azure-cosmos-db"></a>Funções de matriz (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 As funções de matriz permitem que você execute operações em matrizes no Azure Cosmos DB.
 
@@ -36,4 +38,4 @@ As seguintes funções escalares executam uma operação em um valor de entrada 
 - [Funções de sistema do Azure Cosmos DB](sql-query-system-functions.md)
 - [Introdução ao Azure Cosmos DB](introduction.md)
 - [Funções definidas pelo usuário](sql-query-udfs.md)
-- [Agregações](sql-query-aggregates.md)
+- [Agregações](sql-query-aggregate-functions.md)

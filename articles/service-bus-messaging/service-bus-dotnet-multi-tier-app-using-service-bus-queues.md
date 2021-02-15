@@ -5,12 +5,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 746257195220d26ad5d011a39022a3957e8cb1ae
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 40529df5195a29fbf2ff4887311932c2ffbf471d
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021775"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96029888"
 ---
 # <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>Aplicativo multicamadas .NET usando filas do Barramento de Serviço do Azure
 
@@ -63,7 +63,7 @@ Depois, adiciona o código que envia os itens para uma fila do Barramento de Ser
 
 ### <a name="create-the-project"></a>Criar o projeto
 
-1. Usando os privilégios de administrador, inicie o Visual Studio: clique com o botão direito no ícone do programa do **Visual Studio**, em seguida, clique em **Executar como administrador**. O emulador de computação do Azure, discutido mais adiante neste artigo, exige iniciar o Visual Studio com privilégios de administrador.
+1. Usando os privilégios de administrador, inicie o Visual Studio: clique com o botão direito no ícone do programa do **Visual Studio**, em seguida, clique em **Executar como administrador**. O emulador de computação do Azure, discutido mais adiante neste artigo, requer que o Visual Studio seja iniciado com privilégios de administrador.
    
    No Visual Studio, no menu **Arquivo**, clique em **Novo** e, em seguida, clique em **Projeto**.
 2. Em **Modelos Instalados**, em **Visual C#**, clique em **Nuvem** e em **Serviço de Nuvem do Azure**. Nomeie o projeto como **AppVáriasCamadas**. Em seguida, clique em **OK**.

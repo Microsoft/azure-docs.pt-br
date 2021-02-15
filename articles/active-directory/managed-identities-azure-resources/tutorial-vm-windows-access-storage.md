@@ -3,7 +3,7 @@ title: Acesse o Armazenamento do Azure usando uma identidade gerenciada atribuí
 description: Um tutorial que o conduz pelo processo de usar uma identidade gerenciada atribuída pelo sistema da VM do Windows para acessar o Armazenamento do Azure.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: daveba
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/14/2020
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 182bf02bfaad598a447304cc9f2ed42f6221176d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: de1cc69b3cfdac307edf6dfe999a5d538c2cb811
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75971956"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89263171"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage"></a>Tutorial: Usar uma identidade gerenciada atribuída pelo sistema da VM do Windows para acessar o Armazenamento do Azure
 
@@ -184,4 +184,4 @@ A resposta tem o conteúdo do arquivo:
 Neste tutorial, você aprendeu a habilitar uma identidade atribuída pelo sistema da VM do Windows para acessar o Armazenamento do Azure.  Para saber mais sobre o Armazenamento do Azure, confira:
 
 > [!div class="nextstepaction"]
-> [Armazenamento do Azure](/azure/storage/common/storage-introduction)
+> [Armazenamento do Azure](../../storage/common/storage-introduction.md)

@@ -8,13 +8,13 @@ metadata:
   ms.topic: landing-page
   author: b-juche
   ms.author: b-juche
-  ms.date: 03/11/2020
-  ms.openlocfilehash: bcca681fcae02df3e3521b48f710acd36127c882
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.date: 08/25/2020
+  ms.openlocfilehash: f44cd7bc6269a7efbaaaaf2788f660363bafcbac
+  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "79369045"
+  ms.lasthandoff: 10/09/2020
+  ms.locfileid: "91567835"
 landingContent:
 - title: Sobre o Azure NetApp Files
   linkLists:
@@ -22,6 +22,8 @@ landingContent:
     links:
     - text: O que é o Azure NetApp Files?
       url: azure-netapp-files-introduction.md
+    - text: Novidades
+      url: whats-new.md
     - text: Noções básicas sobre a hierarquia de armazenamento
       url: azure-netapp-files-understand-storage-hierarchy.md
   - linkListType: concept

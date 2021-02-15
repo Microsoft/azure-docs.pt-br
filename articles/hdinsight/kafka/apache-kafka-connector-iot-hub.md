@@ -1,19 +1,16 @@
 ---
 title: Use o Apache Kafka no HDInsight com o Microsoft Azure Hub IoT
 description: Saiba como usar o Apache Kafka no HDInsight com o Microsoft Azure Hub IoT. O projeto Hub IoT do Microsoft Azure do Kafka Connect fornece uma fonte e conector de coletor para o Kafka. O conector de origem pode ler dados de Hub IoT e o conector de coletor grava o Hub IoT.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/26/2019
-ms.openlocfilehash: ea7aa7758b5ccf7be02fa8d450ce710dcbef86a4
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 7980003dd63e5e51d87f85542029a1f25e7223df
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087377"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98932868"
 ---
 # <a name="use-apache-kafka-on-hdinsight-with-azure-iot-hub"></a>Use o Apache Kafka no HDInsight com o Microsoft Azure Hub IoT
 
@@ -37,7 +34,7 @@ Para obter mais informações sobre a API de conexão, consulte [https://kafka.a
 
 * Um cliente SSH. Para saber mais, confira [Conectar-se ao HDInsight (Apache Hadoop) usando SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-* Um hub IoT do Azure e um dispositivo. Para este artigo, considere usar [conectar simulador online do Raspberry Pi ao Hub IOT do Azure](https://docs.microsoft.com/azure/iot-hub/iot-hub-raspberry-pi-web-simulator-get-started).
+* Um hub IoT do Azure e um dispositivo. Para este artigo, considere usar [conectar simulador online do Raspberry Pi ao Hub IOT do Azure](../../iot-hub/iot-hub-raspberry-pi-web-simulator-get-started.md).
 
 * [Ferramenta de criação escalar](https://www.scala-sbt.org/).
 
@@ -85,7 +82,7 @@ Em sua conexão SSH com o nó de borda, use as seguintes etapas para configurar 
     export password='PASSWORD'
     ```
 
-1. Instale o utilitário [JQ](https://stedolan.github.io/jq/) . JQ torna mais fácil processar documentos JSON retornados de consultas Ambari. Insira o seguinte comando:
+1. Instale o utilitário [JQ](https://stedolan.github.io/jq/) . JQ torna mais fácil processar documentos JSON retornados de consultas Ambari. Digite o seguinte comando:
 
     ```bash
     sudo apt -y install jq
@@ -123,7 +120,7 @@ Em sua conexão SSH com o nó de borda, use as seguintes etapas para configurar 
     |`bootstrap.servers=localhost:9092`|Substitua o `localhost:9092` valor pelos hosts do agente da etapa anterior|Define a configuração autônoma para o nó de borda para localizar os agentes Kafka.|
     |`key.converter=org.apache.kafka.connect.json.JsonConverter`|`key.converter=org.apache.kafka.connect.storage.StringConverter`|Essa alteração permite que você teste usando o produtor do console incluído com Kafka. Talvez seja necessário conversores diferentes para outros produtores e consumidores. Para obter informações sobre como usar outros valores de conversor, consulte [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md) .|
     |`value.converter=org.apache.kafka.connect.json.JsonConverter`|`value.converter=org.apache.kafka.connect.storage.StringConverter`|Mesmo que acima.|
-    |N/D|`consumer.max.poll.records=10`|Adicionar ao final do arquivo. Essa alteração é evitar os tempos limite no conector do coletor limitando a 10 registros por vez. Para obter mais informações, consulte [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md).|
+    |N/D|`consumer.max.poll.records=10`|Adicionar ao final do arquivo. Essa alteração é evitar os tempos limite no conector do coletor limitando a 10 registros por vez. Para obter mais informações, confira [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md).|
 
 1. Para salvar o arquivo, use __Ctrl + X__, __Y__ e, em seguida, __Enter__.
 
@@ -162,7 +159,7 @@ Para recuperar informações de Hub IoT usadas pelo conector, use as seguintes e
         > [!IMPORTANT]  
         > O valor de ponto de extremidade do portal pode conter texto extra que não é necessário neste exemplo. Extrair o texto que corresponde a esse padrão `sb://<randomnamespace>.servicebus.windows.net/`.
 
-   * __Na [CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)__ digite o seguinte comando:
+   * __Na [CLI do Azure](/cli/azure/get-started-with-azure-cli)__ digite o seguinte comando:
 
        ```azurecli
        az iot hub show --name myhubname --query "{EventHubCompatibleName:properties.eventHubEndpoints.events.path,EventHubCompatibleEndpoint:properties.eventHubEndpoints.events.endpoint,Partitions:properties.eventHubEndpoints.events.partitionCount}"
@@ -184,7 +181,7 @@ Para recuperar informações de Hub IoT usadas pelo conector, use as seguintes e
         2. Copie o valor da __chave primária__ .
         3. Copie o valor da __cadeia de conexão--chave primária__ .
 
-    * __Na [CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)__ digite o seguinte comando:
+    * __Na [CLI do Azure](/cli/azure/get-started-with-azure-cli)__ digite o seguinte comando:
 
         1. Para obter o valor de chave primária, use o seguinte comando:
 

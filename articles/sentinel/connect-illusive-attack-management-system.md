@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
 ms.openlocfilehash: ea7953be25473357f7ed572fa8b76076edc6f75a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87038106"
 ---
 # <a name="connect-your-illusive-attack-management-system-to-azure-sentinel"></a>Conectar seu sistema de gerenciamento de ataques do illusive ao Azure Sentinel

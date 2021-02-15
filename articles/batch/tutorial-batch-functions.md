@@ -1,21 +1,29 @@
 ---
-title: Disparar um trabalho em lotes usando o Azure Functions
+title: Tutorial – Disparar um trabalho em lotes usando o Azure Functions
 description: Tutorial – Aplicar OCR a documentos digitalizados conforme eles são adicionados a um blob de armazenamento
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: peshultz
-ms.custom: mvc
-ms.openlocfilehash: 88937e5bc9870075bfe273c21b11f886d32bf99d
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.custom: mvc, devx-track-csharp
+ms.openlocfilehash: b441b4c4fcbeb089cef24c3a84fa33021e7840de
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85963845"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106375"
 ---
 # <a name="tutorial-trigger-a-batch-job-using-azure-functions"></a>Tutorial: Disparar um trabalho em lotes usando o Azure Functions
 
-Neste tutorial, você aprenderá como disparar um trabalho em lotes usando o Azure Functions. Vamos examinar um exemplo no qual os documentos adicionados a um contêiner de blobs do Armazenamento do Microsoft Azure têm OCR (reconhecimento óptico de caracteres) aplicado a eles por meio do Lote do Azure. Para simplificar o processamento de OCR, configuraremos uma função do Azure que executa um trabalho OCR do Lote cada vez que um arquivo é adicionado ao contêiner de blob.
+Neste tutorial, você aprenderá como disparar um trabalho em lotes usando o [Azure Functions](../azure-functions/functions-overview.md). Vamos examinar um exemplo no qual os documentos adicionados a um contêiner de blobs do Armazenamento do Microsoft Azure têm OCR (reconhecimento óptico de caracteres) aplicado a eles por meio do Lote do Azure. Para simplificar o processamento de OCR, configuraremos uma função do Azure que executa um trabalho OCR do Lote cada vez que um arquivo é adicionado ao contêiner de blob. Você aprenderá como:
+
+> [!div class="checklist"]
+> * Usar o Batch Explorer para criar pools e trabalhos
+> * Usar o Gerenciador de Armazenamento para criar contêineres de blob e uma SAS (assinatura de acesso compartilhado)
+> * Criar uma função do Azure disparada por blob
+> * Carregar arquivos de entrada no armazenamento
+> * Monitorar a execução de tarefas
+> * Recuperar arquivos de saída
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -40,7 +48,7 @@ Nesta seção, você usará o Batch Explorer para criar o pool em lotes e o trab
     1. Defina o tipo de escala para **Tamanho fixo** e defina a contagem do nó dedicado para 3.
     1. Selecione **Ubuntu 18.04-LTS** como o sistema operacional.
     1. Escolha `Standard_f2s_v2` como o tamanho da máquina virtual.
-    1. Habilite a tarefa de início e adicione o comando `/bin/bash -c "sudo update-locale LC_ALL=C.UTF-8 LANG=C.UTF-8; sudo apt-get update; sudo apt-get -y install ocrmypdf"`. Defina a identidade do usuário como **Usuário padrão da tarefa (Admin)** , que permite que as tarefas de início incluam comandos com `sudo`.
+    1. Habilite a tarefa de início e adicione o comando `/bin/bash -c "sudo update-locale LC_ALL=C.UTF-8 LANG=C.UTF-8; sudo apt-get update; sudo apt-get -y install ocrmypdf"`. Defina a identidade do usuário como **Usuário padrão da tarefa (Admin)**, que permite que as tarefas de início incluam comandos com `sudo`.
     1. Selecione **OK**.
 ### <a name="create-a-job"></a>Criar um trabalho
 
@@ -97,9 +105,13 @@ Para baixar os arquivos de saída do Gerenciador de Armazenamento em seu computa
 > [!TIP]
 > Os arquivos baixados poderão ser pesquisados se abertos em um leitor de PDF.
 
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+Você é cobrado pelo pool enquanto os nós estão em execução, mesmo se não há trabalhos agendados. Quando você não precisa mais do pool, exclua-o. Na exibição da conta, selecione **Pools** e o nome do pool. Em seguida, selecione **Excluir**. Quando você excluir o pool, todas as saídas de tarefa nos nós são excluídas. No entanto, os arquivos de saída permanecerão na conta de armazenamento. Quando não for mais necessário, você também poderá excluir a conta do Lote e a conta de armazenamento.
+
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu a: 
+Neste tutorial, você aprendeu a:
 
 > [!div class="checklist"]
 > * Usar o Batch Explorer para criar pools e trabalhos
@@ -109,6 +121,10 @@ Neste tutorial, você aprendeu a:
 > * Monitorar a execução de tarefas
 > * Recuperar arquivos de saída
 
-* Para obter mais exemplos de como usar a API do .NET para agendar e processar cargas de trabalho do Lote, confira [os exemplos no GitHub](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp). 
 
-* Para ver mais gatilhos do Azure Functions que você pode usar para executar cargas de trabalho do Lote, confira [a documentação do Azure Functions](../azure-functions/functions-triggers-bindings.md).
+Continue explorando os aplicativos de renderização disponíveis por meio do Batch Explorer na seção **Galeria**. Para cada aplicativo, existem vários modelos disponíveis, e essa lista aumentará com o tempo. Por exemplo, para o Blender existem modelos que dividem uma única imagem em blocos, ou seja, partes de uma imagem podem ser processadas em paralelo.
+
+Para obter mais exemplos de como usar a API do .NET para agendar e processar cargas de trabalho do Lote, consulte os exemplos no GitHub.
+
+> [!div class="nextstepaction"]
+> [Exemplos em C# do Lote](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp)

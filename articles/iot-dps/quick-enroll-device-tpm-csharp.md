@@ -1,20 +1,20 @@
 ---
-title: Registrar o dispositivo TPM no Serviço de Provisionamento de Dispositivos do Azure usando C#
+title: Guia de Início Rápido – Registrar o dispositivo TPM no Serviço de Provisionamento de Dispositivos do Azure usando C#
 description: Início Rápido – Registrar um dispositivo TPM no DPS (Serviço de Provisionamento de Dispositivos) no Hub IoT do Azure usando o SDK do serviço C#. Este início rápido usa registros individuais.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 11/08/2019
+ms.date: 09/28/2020
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.devlang: csharp
-ms.custom: mvc
-ms.openlocfilehash: ee1b803459e0c81b86021b617a29e0b29ee19909
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.custom: mvc, devx-track-csharp
+ms.openlocfilehash: 14f17c6716fe98a11d03e8d1021bcdb1058fe671
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74976835"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968104"
 ---
 # <a name="quickstart-enroll-tpm-device-to-iot-hub-device-provisioning-service-using-c-service-sdk"></a>Início Rápido: Registrar dispositivo TPM no Serviço de Provisionamento de Dispositivos no Hub IoT usando o SDK do serviço C#
 
@@ -47,7 +47,7 @@ Para o exemplo deste início rápido, é preciso ter a cadeia de conexão do ser
 
 ## <a name="create-the-individual-enrollment-sample"></a>Criar o exemplo de registro individual
 
-Esta seção mostra como criar um aplicativo de console .NET Core que adiciona um registro individual para um dispositivo TPM ao serviço de provisionamento. Com algumas modificações, você também pode seguir estas etapas para criar um aplicativo de console do [Windows IoT Core](https://developer.microsoft.com/en-us/windows/iot) para adicionar o registro individual. Para saber mais sobre como desenvolver com o IoT Core, confira a [documentação do desenvolvedor do Windows IoT Core](https://docs.microsoft.com/windows/iot-core/).
+Esta seção mostra como criar um aplicativo de console .NET Core que adiciona um registro individual para um dispositivo TPM ao serviço de provisionamento. Com algumas modificações, você também pode seguir estas etapas para criar um aplicativo de console do [Windows IoT Core](https://developer.microsoft.com/en-us/windows/iot) para adicionar o registro individual. Para saber mais sobre como desenvolver com o IoT Core, confira a [documentação do desenvolvedor do Windows IoT Core](/windows/iot-core/).
 
 1. Abra o Visual Studio e selecione **Criar um projeto**. Em **Criar um projeto**, escolha o modelo de projeto **Aplicativo de Console (.NET Core)** para o C# e selecione **Avançar**.
 
@@ -128,12 +128,15 @@ Esta seção mostra como criar um aplicativo de console .NET Core que adiciona u
    }
    ```
 
-1. Por fim, substitua o corpo do método `Main` pelas seguintes linhas:
+1. Por fim, substitua o método `Main` pelas seguintes linhas:
 
    ```csharp
-   RunSample().GetAwaiter().GetResult();
-   Console.WriteLine("\nHit <Enter> to exit ...");
-   Console.ReadLine();
+    static async Task Main(string[] args)
+    {
+        await RunSample();
+        Console.WriteLine("\nHit <Enter> to exit ...");
+        Console.ReadLine();
+    }
    ```
 
 1. Compile a solução.

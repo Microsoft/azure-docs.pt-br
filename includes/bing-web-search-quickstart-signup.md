@@ -5,10 +5,10 @@ ms.service: cognitiveservices
 ms.topic: include
 ms.date: 05/20/2020
 ms.openlocfilehash: f04ddf2515f218d254b5704d75cdcc84481e8dce
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/01/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "85602169"
 ---
 ## <a name="create-an-azure-resource"></a>Criar um recurso do Azure

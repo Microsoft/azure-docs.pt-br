@@ -1,6 +1,6 @@
 ---
-title: Sincronizar dados do SQL do Azure no Edge (visualização) usando a Sincronização de Dados SQL
-description: Saiba mais sobre a sincronização de dados do SQL do Azure no Edge (visualização) usando a Sincronização de Dados SQL do Azure
+title: Sincronizar dados do SQL do Azure no Edge usando a Sincronização de Dados SQL
+description: Saiba mais sobre a sincronização de dados do SQL do Azure no Edge usando a Sincronização de Dados SQL do Azure
 keywords: SQL do Azure no Edge, sincronizar dados do SQL do Azure no Edge, sincronização de dados do SQL do Azure no Edge
 services: sql-edge
 ms.service: sql-edge
@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 6c0518e12a2c654b8f971db3a6733b0e64f80a1f
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 5659ce5fa6f99463f58a33662563d768248fd8cb
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85254043"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93394893"
 ---
 # <a name="tutorial-sync-data-from-sql-edge-to-azure-sql-database-by-using-sql-data-sync"></a>Tutorial: Sincronizar dados do SQL do Azure no Edge para o Banco de Dados SQL do Azure usando a Sincronização de Dados SQL
 
@@ -55,7 +55,7 @@ Para saber mais informações sobre a Sincronização de Dados SQL, confira este
 
 * [Práticas recomendadas](../azure-sql/database/sql-data-sync-best-practices.md) e [Como solucionar problemas comuns com a Sincronização de Dados SQL do Azure](../azure-sql/database/sql-data-sync-troubleshoot.md)
 
-* [Monitorar a Sincronização de Dados SQL com logs do Azure Monitor](../azure-sql/database/sql-data-sync-monitor-sync.md)
+* [Monitorar a Sincronização de Dados SQL com logs do Azure Monitor](../azure-sql/database/monitor-tune-overview.md)
 
 * [Atualizar o esquema de sincronização com o Transact-SQL](../azure-sql/database/sql-data-sync-update-sync-schema.md) ou o [PowerShell](../azure-sql/database/scripts/update-sync-schema-in-sync-group.md)
 

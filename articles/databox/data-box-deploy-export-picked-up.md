@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 07/21/2020
+ms.date: 02/03/2021
 ms.author: alkohli
-ms.openlocfilehash: 04e4394e6a439c923558ef90e13c14c0adaa4020
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: 6c2eed9aac614b0765582d5cf373caf50323ef7a
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88142104"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99537350"
 ---
-# <a name="tutorial-return-azure-data-box-preview"></a>Tutorial: Devolução do Azure Data Box Disk (versão prévia)
+# <a name="tutorial-return-azure-data-box"></a>Tutorial: Devolução do Azure Data Box
 
 Este tutorial descreve como retornar o Azure Data Box e os dados são apagados depois que o dispositivo é recebido nos dados do Azure.
 
@@ -27,8 +27,6 @@ Neste tutorial, você aprenderá sobre tópicos como:
 > * Preparar para o envio
 > * Enviar o Data Box para a Microsoft
 > * Eliminar dados do Data Box
-
-[!INCLUDE [Data Box feature is in preview](../../includes/data-box-feature-is-preview-info.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -53,12 +51,12 @@ Execute as etapas a seguir se estiver devolvendo o dispositivo nos EUA, no Canad
 
 1. Verifique se o dispositivo está desligado e se os cabos foram removidos. 
 2. Enrole e coloque o cabo de alimentação fornecido com o dispositivo com segurança na parte posterior do dispositivo.
-3. Certifique-se de que a etiqueta de remessa esteja aparecendo no papel eletrônico e agende uma retirada com a operadora. Se a etiqueta for danificada ou perdida ou não for exibida na tela do E-ink, contate o Suporte da Microsoft. Se o Suporte sugerir, acesse **Visão Geral > Baixar etiqueta de remessa** no portal do Azure. Baixe a etiqueta de remessa e afixe-a ao dispositivo. 
+3. Verifique se o rótulo de remessa está aparecendo no E-ink e agende uma retirada com a operadora. Se o rótulo for danificado ou perdido ou não for exibida na tela do E-ink, entre em contato com o Suporte da Microsoft. Se o Suporte sugerir, acesse **Visão Geral > Baixar etiqueta de remessa** no portal do Azure. Baixe a etiqueta de remessa e afixe-a ao dispositivo. 
 4. Agende uma retirada com a UPS se estiver devolvendo o dispositivo. Para agendar uma retirada:
 
-    - Ligue para a UPS local (linha gratuita específica do país/região).
-    - Em sua chamada, mencione a remessa inversa, conforme mostrado na exibição E-ink ou sua etiqueta impressa de número de controle.
-    - Se o número de controle não está entre aspas, o serviço de no-break exigirá que você pague um encargo adicional durante a retirada.
+   - Ligue para a UPS local (linha gratuita específica do país/região).
+   - Em sua chamada, mencione a remessa inversa, conforme mostrado na exibição E-ink ou sua etiqueta impressa de número de controle. Se você não citar o número de rastreamento, o no-break exigirá uma cobrança adicional durante a retirada.
+   - Se algum problema surgir enquanto você estiver agendando a retirada ou for solicitado a pagar valores adicionais, entre em contato com a equipe de Operações do Azure Data Box. Envie um email para [adbops@microsoft.com](mailto:adbops@microsoft.com).
 
     Em vez de agendar a retirada, você também pode descartar o Data Box no local mais próximo de redistribuição.
 4. Após a coleta e registro do Data Box por sua operadora, o status do pedido no portal será atualizado para **Recolhido**. Uma ID de rastreamento também é exibida.
@@ -129,7 +127,7 @@ Se necessário, você poderá contatar o Suporte da Quantium Solutions (em japon
 
 ## <a name="south-africa"></a>[África do Sul](#tab/in-sa)
 
-1. Mantenha a caixa original usada para empacotar o dispositivo para a remessa de devolução.
+1. Guarde a caixa original usada para empacotar o dispositivo para a remessa de devolução.
 2. Anote o número de referência (número da nota de entrega) mostrado na IU da Web local do dispositivo. Esse número é exibido depois que a **executada de Preparação para o envio** é bem-sucedida.
 3. Baixe e imprima a etiqueta de remessa que está disponível na IU da Web local do dispositivo e afixe-a ao pacote de remessa.
 4. Para agendar uma retirada com a DHL, escolha uma das seguintes opções:
@@ -145,11 +143,11 @@ Se necessário, você poderá contatar o Suporte da Quantium Solutions (em japon
       *  Requested pickup date: yyyy/mm/dd;time:HH MM
     ```
 
-    * Como alternativa, você pode deixar o pacote no ponto de serviço da DHL mais próximo.
+    * Em vez disso, você pode deixar o pacote no ponto de serviço da DHL mais próximo.
 
-5. Se você encontrar algum problema, envie um email para [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) com detalhes dos problemas encontrados e coloque o número da nota de entrega na linha Assunto:. Você também pode ligar para +27 (0) 119213902.
+5. Se você encontrar algum problema, envie um email para [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) com detalhes dos problemas encontrados e coloque o número da carta de porte na linha Assunto:. Você também pode ligar para +27 (0) 119213902.
 
-## <a name="hong-kong"></a>[Hong Kong](#tab/in-hk)
+## <a name="hong-kong"></a>[RAE de Hong Kong](#tab/in-hk)
 
 1. Empacote o dispositivo para a remessa de devolução na caixa original.
 2. Anote o número de referência (número de acompanhamento para remessa reversa) mostrado na IU da Web local do dispositivo. Esse número é exibido depois que a **executada de Preparação para o envio** é bem-sucedida.
@@ -172,11 +170,29 @@ Se necessário, você poderá contatar o Suporte da Quantium Solutions (em japon
        * Pickup time:
     ```
 
-Se tiver problemas, envie um email para a Data Box Operations Ásia [adbo@microsoft.com](mailto:adbo@microsoft.com) fornecendo o nome do trabalho no cabeçalho de assunto e o problema encontrado.
+Se tiver problemas, envie um email para a equipe de Operações do Data Box na Ásia [adbo@microsoft.com](mailto:adbo@microsoft.com) fornecendo o nome do trabalho no cabeçalho de assunto e o problema encontrado.
+
+## <a name="united-arab-emirates"></a>[Emirados Árabes Unidos](#tab/in-uae)
+
+1. Mantenha a caixa original usada para enviar o dispositivo para a remessa de devolução.
+2. Verifique se a cópia de dados para o dispositivo foi concluída e se a etapa **Preparação para o envio** foi concluída com êxito.
+3. Anote o número de referência na página **Preparação para o envio** da IU da Web local do dispositivo.
+4. Desligue o dispositivo e remova os cabos. Enrole e coloque o cabo de alimentação fornecido com o dispositivo com segurança na parte traseira do dispositivo.
+6. Empacote o dispositivo para a remessa de devolução na caixa original.
+7. Envie um email para [Operações do Azure Data Box](mailto:adbops@microsoft.com) para obter uma ID que será usada para identificar o pacote quando ele chegar ao datacenter.
+8. Anote essa ID no rótulo de envio impresso, ao lado do endereço de retorno, de modo que fique claramente visível.  
+9. Agende uma retirada online acessando [DHL Express UAE](https://mydhl.express.dhl/ae/en/home.html#/schedulePickupTab) > **Agendar uma retirada**.
+   - Insira o número de referência da página **Preparação para o envio** da IU da Web local do dispositivo no campo de número do conhecimento de embarque.
+   - Reservas são aceitas das 9h às 14h, seis dias por semana (exceto às sextas-feiras e feriados públicos).
+   - As solicitações de retirada devem ser feitas pelo menos 90 minutos antes do horário de encerramento do atendimento a clientes.
+10. Se tiver algum problema com a ferramenta de reservas da DHL, entre em contato com a DHL por meio de um destes métodos:
+    - Telefone para 04-2924545.
+    - Envie um email para [ecom.ae@dhl.com](mailto:ecom.ae@dhl.com) com detalhes dos problemas e coloque o número da nota de entrega na linha Assunto:.
+    - Entre em contato com o atendimento ao cliente da DHL pelo número 600 567567.
 
 ## <a name="self-managed"></a>[Autogerenciado](#tab/in-selfmanaged)
 
-Se estiver usando o Data Box no Japão, em Singapura, na Coreia do Sul, na Índia, na África do Sul ou no Oeste da Europa e tiver selecionado a opção de remessa autogerenciada durante a criação do pedido, siga estas instruções.
+Se estiver usando o Data Box no Japão, em Singapura, na Coreia do Sul, na Índia, na África do Sul, no Reino Unido, no Oeste da Europa ou na Austrália e tiver selecionado a opção de remessa autogerenciada durante a criação do pedido, siga estas instruções.
 
 1. Após a conclusão dessa etapa, anote o código de Autorização mostrado na página Preparar para o Envio da IU da Web local do Data Box.
 2. Desligue o dispositivo e remova os cabos. Enrole o cabo de alimentação fornecido com o dispositivo e coloque-o com segurança na parte traseira do dispositivo.
@@ -194,7 +210,7 @@ Se estiver usando o Data Box no Japão, em Singapura, na Coreia do Sul, na Índi
 ---
 
 ## <a name="erasure-of-data-from-data-box"></a>Eliminar dados do Data Box
- 
+
 Após o dispositivo chegar ao datacenter do Azure, o Data Box apaga os dados nos respectivos discos de acordo com as [diretrizes do NIST SP 800-88 Revisão 1](https://csrc.nist.gov/News/2014/Released-SP-800-88-Revision-1,-Guidelines-for-Medi).
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -211,5 +227,3 @@ Avance para o próximo artigo para saber como gerenciar seu Data Box.
 
 > [!div class="nextstepaction"]
 > [Gerenciar Data Box via portal do Azure](./data-box-portal-admin.md)
-
-

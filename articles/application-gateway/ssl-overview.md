@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 08/21/2020
 ms.author: victorh
-ms.openlocfilehash: 3d714b579bebb096745a47410da3f8f458e27161
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.openlocfilehash: c39401289ffc6f27c292168adaa15c5163a3967b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88723292"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001279"
 ---
 # <a name="overview-of-tls-termination-and-end-to-end-tls-with-application-gateway"></a>Visão geral do encerramento de TLS e TLS de ponta a ponta com um Gateway de Aplicativo
 
@@ -51,10 +51,10 @@ O gateway de aplicativo dá suporte aos seguintes tipos de certificados:
 - Certificado curinga: Esse certificado dá suporte a qualquer número de subdomínios com base em *.site.com, em que o subdomínio substitui o *. No entanto, ele não dá suporte a site.com; por isso, caso os usuários estejam acessando seu site sem digitar o "www" inicial, o certificado curinga não abordará isso.
 - Certificados autoassinados: Os navegadores cliente não confiam nesses certificados e avisam o usuário de que o certificado do serviço virtual não faz parte de uma cadeia de confiança. Os certificados autoassinados são ideais para testes ou ambientes em que os administradores controlam os clientes e podem ignorar com segurança os alertas de segurança do navegador. As cargas de trabalho de produção nunca devem usar certificados autoassinados.
 
-Para obter mais informações, consulte [configurar o encerramento de TLS com o gateway de aplicativo](https://docs.microsoft.com/azure/application-gateway/create-ssl-portal).
+Para obter mais informações, consulte [configurar o encerramento de TLS com o gateway de aplicativo](./create-ssl-portal.md).
 
 ### <a name="size-of-the-certificate"></a>Tamanho do certificado
-Verifique a seção [Limites do Gateway de Aplicativo](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#application-gateway-limits) para saber o tamanho máximo do certificado TLS/SSL compatível.
+Verifique a seção [Limites do Gateway de Aplicativo](../azure-resource-manager/management/azure-subscription-service-limits.md#application-gateway-limits) para saber o tamanho máximo do certificado TLS/SSL compatível.
 
 ## <a name="end-to-end-tls-encryption"></a>Criptografia TLS de ponta a ponta
 
@@ -62,7 +62,7 @@ Talvez você não queira uma comunicação não criptografada para os servidores
 
 O TLS de ponta a ponta permite criptografar e transmitir com segurança dados confidenciais para o back-end enquanto você usa os recursos de balanceamento de carga da camada 7 do Gateway de Aplicativo. Esses recursos incluem afinidade de sessão baseada em cookie, roteamento baseado em URL, suporte para roteamento com base em sites, a capacidade de reescrever ou injetar cabeçalhos X-Forwarded-* e assim por diante.
 
-Quando configurado com o modo de comunicação TLS de ponta a ponta, o Gateway de Aplicativo encerra as sessões de TLS no gateway e descriptografa o tráfego do usuário. Ele aplica as regras configuradas para selecionar uma instância de pool de back-end apropriada para rotear o tráfego. Depois, o Gateway de Aplicativo inicia uma nova conexão TLS com o servidor de back-end e criptografa novamente os dados usando o certificado de chave pública do servidor de back-end antes de transmitir a solicitação ao back-end. Qualquer resposta do servidor Web passa pelo mesmo processo de volta para o usuário final. O TLS de ponta a ponta é habilitado definindo a configuração de protocolo em [Configuração de HTTP de back-end](https://docs.microsoft.com/azure/application-gateway/configuration-overview#http-settings) para HTTPS, que é então aplicado a um pool de back-end.
+Quando configurado com o modo de comunicação TLS de ponta a ponta, o Gateway de Aplicativo encerra as sessões de TLS no gateway e descriptografa o tráfego do usuário. Ele aplica as regras configuradas para selecionar uma instância de pool de back-end apropriada para rotear o tráfego. Depois, o Gateway de Aplicativo inicia uma nova conexão TLS com o servidor de back-end e criptografa novamente os dados usando o certificado de chave pública do servidor de back-end antes de transmitir a solicitação ao back-end. Qualquer resposta do servidor Web passa pelo mesmo processo de volta para o usuário final. O TLS de ponta a ponta é habilitado definindo a configuração de protocolo em [Configuração de HTTP de back-end](./configuration-overview.md#http-settings) para HTTPS, que é então aplicado a um pool de back-end.
 
 Para o Gateway de Aplicativo e a SKU WAF v1, a política TLS aplica-se ao tráfego de front-end e back-end. No front-end, o Gateway de Aplicativo atua como o servidor e impõe a política. No back-end, o Gateway de Aplicativo atua como o cliente e envia as informações de protocolo/codificação como a preferência durante o handshake de TLS.
 

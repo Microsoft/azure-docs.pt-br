@@ -7,12 +7,12 @@ ms.custom: subject-armqs
 ms.author: mathoma
 ms.date: 06/29/2020
 ms.service: dms
-ms.openlocfilehash: 24a0d16a6ff052df4b7a9bcdd078542987b4fd50
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: a9c68bca4d50af734a0a2cd8a91c7e46d9b56ff1
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88661173"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94963208"
 ---
 # <a name="quickstart-create-instance-of-azure-database-migration-service-using-arm-template"></a>Início Rápido: Criar uma instância do Serviço de Migração de Banco de Dados do Azure usando um modelo do ARM
 
@@ -109,7 +109,7 @@ Write-Host "Press [ENTER] to continue..."
 Para obter um tutorial passo a passo que orienta você durante o processo de criação de um modelo, confira:
 
 > [!div class="nextstepaction"]
-> [ Tutorial: Criar e implantar seu primeiro modelo do Resource Manager](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
+> [ Tutorial: Criar e implantar seu primeiro modelo do Resource Manager](../azure-resource-manager/templates/template-tutorial-create-first-template.md)
 
 Para outras maneiras de implantar o Serviço de Migração de Banco de Dados do Azure, confira: 
 - [Azure portal](quickstart-create-data-migration-service-portal.md)

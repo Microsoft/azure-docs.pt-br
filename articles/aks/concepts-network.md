@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 06/11/2020
 ms.custom: fasttrack-edit
 ms.openlocfilehash: edb195fae2e05a1f746c10482576f7e0b1bff7c9
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88243897"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Conceitos de rede para aplicativos no Serviço de Kubernetes do Azure (AKS)
@@ -96,7 +96,7 @@ O kubenet e o Azure CNI fornecem conectividade de rede para seus clusters AKS. N
 
 Existem as seguintes diferenças de comportamento entre kubenet e CNI do Azure:
 
-| Recurso                                                                                   | Kubenet   | CNI do Azure |
+| Funcionalidade                                                                                   | Kubenet   | CNI do Azure |
 |----------------------------------------------------------------------------------------------|-----------|-----------|
 | Implantar cluster em uma rede virtual nova ou existente                                            | Com suporte-UDRs aplicado manualmente | Com suporte |
 | Conectividade de pod de Pod                                                                         | Com suporte | Com suporte |

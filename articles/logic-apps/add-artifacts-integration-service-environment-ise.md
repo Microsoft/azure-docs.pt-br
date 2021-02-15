@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/28/2020
-ms.openlocfilehash: d8fe945b028b574e71ae24b1483ad8e7fd67b01d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 147247c663311cfb3e05a986c6fb2bffbb41158b
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87078722"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675208"
 ---
 # <a name="add-resources-to-your-integration-service-environment-ise-in-azure-logic-apps"></a>Adicionar recursos ao ISE (ambiente do serviço de integração) nos aplicativos lógicos do Azure
 
@@ -34,23 +34,23 @@ Depois de criar um [ambiente do serviço de integração (ISE)](../logic-apps/co
 
 Para criar aplicativos lógicos que são executados em seu ISE (ambiente do serviço de integração), siga estas etapas:
 
-1. Localize e abra o ISE, se ainda não estiver aberto. No menu ISE, em **configurações**, selecione **aplicativos lógicos**  >  **Adicionar**.
+1. Localize e abra o ISE, se ainda não estiver aberto. No menu ISE, em **configurações** , selecione **aplicativos lógicos**  >  **Adicionar** .
 
    ![Adicionar novo aplicativo lógico ao ISE](./media/add-artifacts-integration-service-environment-ise/add-logic-app-to-ise.png)
 
 1. Forneça informações sobre o aplicativo lógico que você deseja criar, por exemplo:
 
-   ![Selecionar o ambiente de serviço de integração](./media/add-artifacts-integration-service-environment-ise/create-logic-app-integration-service-environment.png)
+   ![Captura de tela que mostra a janela "criar" aplicativo lógico com informações de exemplo inseridas.](./media/add-artifacts-integration-service-environment-ise/create-logic-app-integration-service-environment.png)
 
    | Propriedade | Obrigatório | Descrição |
    |----------|----------|-------------|
    | **Nome** | Sim | O nome do aplicativo lógico a ser criado |
    | **Assinatura** | Sim | O nome da assinatura do Azure a ser usado |
    | **Grupo de recursos** | Sim | O nome do grupo de recursos do Azure (novo ou existente) a ser usado |
-   | **Localidade** | Sim | Em **ambientes do serviço de integração**, selecione o ISE a ser usado, se ainda não estiver selecionado. <p><p> **Importante**: para usar seus aplicativos lógicos com uma conta de integração, ambos devem usar o mesmo ISE. |
+   | **Localidade** | Sim | Em **ambientes do serviço de integração** , selecione o ISE a ser usado, se ainda não estiver selecionado. <p><p> **Importante** : para usar seus aplicativos lógicos com uma conta de integração, ambos devem usar o mesmo ISE. |
    ||||
 
-1. Quando terminar, selecione **Criar**.
+1. Quando terminar, selecione **Criar** .
 
 1. Continue [criando seu aplicativo lógico da maneira usual](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
@@ -66,7 +66,7 @@ Com base no [SKU do ISE](../logic-apps/connect-virtual-network-vnet-isolated-env
 
 Para criar uma conta de integração que usa um ISE, siga estas etapas:
 
-1. Localize e abra o ISE, se ainda não estiver aberto. No menu ISE, em **configurações**, selecione **contas de integração**  >  **Adicionar**.
+1. Localize e abra o ISE, se ainda não estiver aberto. No menu ISE, em **configurações** , selecione **contas de integração**  >  **Adicionar** .
 
    ![Adicionar nova conta de integração ao ISE](./media/add-artifacts-integration-service-environment-ise/add-integration-account-to-ise.png)
 
@@ -80,10 +80,10 @@ Para criar uma conta de integração que usa um ISE, siga estas etapas:
    | **Assinatura** | Sim | O nome da assinatura do Azure que você deseja usar |
    | **Grupo de recursos** | Sim | O nome do grupo de recursos do Azure (novo ou existente) a ser usado |
    | **Tipo de preços** | Sim | O tipo de preço a ser usado para a conta de integração |
-   | **Localidade** | Sim | Em **ambientes de serviço de integração**, selecione o mesmo ISE que seus aplicativos lógicos usam, se ainda não tiver selecionado. <p><p> **Importante**: para usar sua conta de integração com os aplicativos lógicos, ambos devem usar o mesmo ISE. |
+   | **Localidade** | Sim | Em **ambientes de serviço de integração** , selecione o mesmo ISE que seus aplicativos lógicos usam, se ainda não tiver selecionado. <p><p> **Importante** : para usar sua conta de integração com os aplicativos lógicos, ambos devem usar o mesmo ISE. |
    ||||
 
-1. Quando terminar, selecione **Criar**.
+1. Quando terminar, selecione **Criar** .
 
 1. [Vincule seu aplicativo lógico à sua conta de integração da maneira usual](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account).
 
@@ -95,13 +95,27 @@ Para criar uma conta de integração que usa um ISE, siga estas etapas:
 
 ## <a name="add-ise-connectors"></a>Adicionar conectores do ISE
 
-Os conectores gerenciados pela Microsoft que ficam disponíveis depois que você cria o ISE não aparecem automaticamente no seletor de conector no designer de aplicativo lógico. Antes de poder usar esses conectores do ISE, você precisa adicionar e implantar manualmente esses conectores no ISE para que eles apareçam no designer do aplicativo lógico.
+Depois de criar o ISE, os conectores do ISE gerenciados não aparecem automaticamente no seletor de conector no designer do aplicativo lógico. Antes de poder usar esses conectores do ISE, você precisa adicionar e implantar manualmente esses conectores no ISE para que eles apareçam no designer do aplicativo lógico.
 
-1. No menu do ISE, em **configurações**, selecione **conectores gerenciados**. Na barra de ferramentas, selecione **Adicionar**.
+> [!IMPORTANT]
+> Conectores ISE gerenciados atualmente não dão suporte a [marcas](../azure-resource-manager/management/tag-support.md). Se você configurar uma política que impõe a marcação, tentar adicionar conectores do ISE poderá falhar com um erro semelhante a este exemplo:
+> 
+> ```json
+> {
+>    "error": { 
+>       "code": "IntergrationServiceEnvironmentManagedApiDefinitionTagsNotSupported", 
+>       "message": "The tags are not supported in the managed API 'azureblob'."
+>    }
+> }
+> ```
+> 
+> Portanto, para adicionar conectores ISE, você precisa desabilitar ou remover sua política. 
+
+1. No menu do ISE, em **configurações** , selecione **conectores gerenciados** . Na barra de ferramentas, selecione **Adicionar** .
 
    ![Exibir conectores gerenciados](./media/add-artifacts-integration-service-environment-ise/ise-view-managed-connectors.png)
 
-1. No painel **Adicionar um novo conector gerenciado** , abra a lista **Localizar conector** . Selecione o conector do ISE que você deseja usar, mas ainda não está implantado no ISE. Selecione **Criar**.
+1. No painel **Adicionar um novo conector gerenciado** , abra a lista **Localizar conector** . Selecione o conector do ISE que você deseja usar, mas ainda não está implantado no ISE. Selecione **Criar** .
 
    ![Selecione o conector do ISE que você deseja implantar em seu ISE](./media/add-artifacts-integration-service-environment-ise/add-managed-connector.png)
 
@@ -113,17 +127,17 @@ Os conectores gerenciados pela Microsoft que ficam disponíveis depois que você
 
 Para usar conectores personalizados no ISE, crie esses conectores personalizados diretamente dentro do ISE.
 
-1. Localize e abra o ISE, se ainda não estiver aberto. No menu ISE, em **configurações**, selecione **conectores personalizados**  >  **Adicionar**.
+1. Localize e abra o ISE, se ainda não estiver aberto. No menu ISE, em **configurações** , selecione **conectores personalizados**  >  **Adicionar** .
 
    ![Criar conector personalizado](./media/add-artifacts-integration-service-environment-ise/add-custom-connector-to-ise.png)
 
 1. Forneça o nome, a assinatura do Azure e o grupo de recursos do Azure (novo ou existente) a serem usados para o conector personalizado.
 
-1. Na lista **local** , na seção **ambientes do serviço de integração** , selecione o mesmo ISE que seus aplicativos lógicos usam e selecione **criar**, por exemplo:
+1. Na lista **local** , na seção **ambientes do serviço de integração** , selecione o mesmo ISE que seus aplicativos lógicos usam e selecione **criar** , por exemplo:
 
-   ![Selecionar o ambiente de serviço de integração](./media/add-artifacts-integration-service-environment-ise/create-custom-connector-integration-service-environment.png)
+   ![Captura de tela que mostra a janela "criar conector personalizado de aplicativos lógicos" com informações de exemplo selecionadas.](./media/add-artifacts-integration-service-environment-ise/create-custom-connector-integration-service-environment.png)
 
-1. Selecione o novo conector personalizado e, em seguida, selecione **Editar**, por exemplo:
+1. Selecione o novo conector personalizado e, em seguida, selecione **Editar** , por exemplo:
 
    ![Selecionar e editar conector personalizado](./media/add-artifacts-integration-service-environment-ise/edit-custom-connectors.png)
 

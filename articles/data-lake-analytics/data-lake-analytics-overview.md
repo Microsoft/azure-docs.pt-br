@@ -1,20 +1,18 @@
 ---
 title: Visão geral do Azure Data Lake Analytics
 description: O Data Lake Analytics permite a você conduzir seus negócios usando insights decorrentes de seus dados de nuvem em qualquer escala.
-services: data-lake-analytics
 author: saveenr
 ms.author: saveenr
 ms.reviewer: jasonwhowell
-ms.assetid: 1e1d443a-48a2-47fb-bc00-bf88274222de
 ms.service: data-lake-analytics
 ms.topic: overview
 ms.date: 06/23/2017
-ms.openlocfilehash: b86b569b1b14b943cdc6dcc805a7b7a208d03447
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 4a6ef2821080982e2b34108703bd80574443244a
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475112"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96445530"
 ---
 # <a name="what-is-azure-data-lake-analytics"></a>O que é a Análise Azure Data Lake?
 
@@ -49,7 +47,7 @@ A Análise Data Lake é uma solução econômica para executar cargas de trabalh
 
 ## <a name="works-with-all-your-azure-data"></a>Funciona com todos os seus dados do Azure
   
-O Data Lake Analytics funciona com o Azure Data Lake Storage para proporcionar o mais alto desempenho, a taxa de transferência e a paralelização e funciona com blobs de Armazenamento do Azure, Banco de Dados SQL do Azure, Azure Synapse Analytics (antigo Azure SQL Data Warehouse).
+O Data Lake Analytics funciona com o Azure Data Lake Storage para proporcionar o mais alto desempenho, a taxa de transferência e a paralelização e funciona com blobs do Armazenamento do Azure, o Banco de Dados SQL do Azure e o Azure Synapse Analytics.
 
 
 ## <a name="next-steps"></a>Próximas etapas

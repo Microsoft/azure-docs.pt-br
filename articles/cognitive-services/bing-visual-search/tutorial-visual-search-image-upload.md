@@ -10,15 +10,20 @@ ms.subservice: bing-visual-search
 ms.topic: tutorial
 ms.date: 03/31/2020
 ms.author: scottwhi
-ms.custom: devx-track-javascript
-ms.openlocfilehash: c2e0e907734f30010690817ddb7bb15527c93bbf
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.custom: devx-track-js
+ms.openlocfilehash: 96a4b13d11e40e24e78d3aed8dfebcc88b41c525
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87404001"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96486871"
 ---
 # <a name="tutorial-upload-images-to-the-bing-visual-search-api"></a>Tutorial: Carregar imagens para a API da Pesquisa Visual do Bing
+
+> [!WARNING]
+> As APIs de Pesquisa do Bing estão migrando dos Serviços Cognitivos para os Serviços de Pesquisa do Bing. A partir de **30 de outubro de 2020**, todas as novas instâncias da Pesquisa do Bing precisaram ser provisionadas seguindo o processo documentado [aqui](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> As APIs de Pesquisa do Bing provisionadas por meio dos Serviços Cognitivos terão suporte nos próximos três anos ou até o final do seu Contrato Enterprise, o que ocorrer primeiro.
+> Para obter instruções sobre a migração, confira [Serviços de Pesquisa do Bing](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 A API da Pesquisa Visual do Bing permite pesquisar na Web imagens semelhantes às que você carregar. Use este tutorial para criar um aplicativo Web que pode enviar uma imagem à API e exibir os insights que ela retorna dentro da página da Web. Observe que esse aplicativo não adere a todos os [requisitos de exibição e uso do Bing](../bing-web-search/use-display-requirements.md) para usar a API.
 
@@ -472,7 +477,7 @@ function addDivContent(div, tag, json) {
 
 ## <a name="display-insights-for-different-actions"></a>Exibir insights para ações diferentes
 
-As funções a seguir exibem insights para ações diferentes. As funções fornecem uma imagem que pode ser clicada ou um link que pode ser clicado que direciona você a uma página da Web com mais informações sobre a imagem. Esta página é hospedada pelo Bing.com ou pelo site original da imagem. Nem todos os dados dos insights são exibidos neste aplicativo. Para ver todos os campos disponíveis para um insight, confira a referência de [Imagens – Pesquisa Visual](https://aka.ms/bingvisualsearchreferencedoc).
+As funções a seguir exibem insights para ações diferentes. As funções fornecem uma imagem que pode ser clicada ou um link que pode ser clicado que direciona você a uma página da Web com mais informações sobre a imagem. Esta página é hospedada pelo Bing.com ou pelo site original da imagem. Nem todos os dados dos insights são exibidos neste aplicativo. Para ver todos os campos disponíveis para um insight, confira a referência de [Imagens – Pesquisa Visual](/rest/api/cognitiveservices/bingvisualsearch/images/visualsearch).
 
 > [!NOTE]
 > Há uma quantidade mínima de informações de insight que deve ser exibida na página. Veja [Requisitos de uso e exibição da API de Pesquisa do Bing](../bing-web-search/use-display-requirements.md) para saber mais.

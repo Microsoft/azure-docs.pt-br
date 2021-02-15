@@ -1,6 +1,6 @@
 ---
 title: Otimizar o desempenho nas máquinas virtuais da série Lsv2 do Azure – armazenamento
-description: Saiba como otimizar o desempenho da sua solução nas máquinas virtuais da série Lsv2.
+description: Saiba como otimizar o desempenho da sua solução nas máquinas virtuais da série Lsv2 usando um exemplo do Linux.
 services: virtual-machines-linux
 author: laurenhughes
 ms.service: virtual-machines-linux
@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/05/2019
 ms.author: joelpell
-ms.openlocfilehash: cd9e539e01e8e11d866186552ab3b8dde7e03f91
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 650164556223a73a722bc91ecb31491ee98cb8a5
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654762"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91307094"
 ---
 # <a name="optimize-performance-on-the-lsv2-series-linux-virtual-machines"></a>Otimizar o desempenho nas máquinas virtuais do Linux da série Lsv2
 
@@ -97,7 +97,7 @@ Para saber mais sobre as opções de backup de dados no armazenamento local, con
    A configuração de rq_affinity é um ajuste secundário ao usar o máximo de operações de entrada/saída absolutas por segundo (IOPS). Depois que tudo estiver funcionando bem, tente definir rq_affinity como 0 para ver se isso faz diferença.
 
 * **Preciso alterar as configurações de blk_mq?**  
-   RHEL/CentOS 7. x usa o BLK-MQ automaticamente para os dispositivos NVMe. Não são necessárias alterações de configuração ou configurações. A configuração scsi_mod. use_blk_mq é apenas para SCSI e foi usada durante a visualização do Lsv2 porque os dispositivos NVMe estavam visíveis nas VMs convidadas como dispositivos SCSI. Atualmente, os dispositivos NVMe são visíveis como dispositivos NVMe, portanto, a configuração SCSI BLK-MQ é irrelevante.
+   RHEL/CentOS 7. x usa o BLK-MQ automaticamente para os dispositivos NVMe. Não são necessárias alterações de configuração ou configurações. A configuração scsi_mod. Use _blk_mq é somente para SCSI e foi usada durante a versão prévia do Lsv2 porque os dispositivos NVMe estavam visíveis nas VMs convidadas como dispositivos SCSI. Atualmente, os dispositivos NVMe são visíveis como dispositivos NVMe, portanto, a configuração SCSI BLK-MQ é irrelevante.
 
 * **Preciso alterar "fio"?**  
    Para obter o máximo de IOPS com uma ferramenta de medição de desempenho como ' fio ' nos tamanhos de VM L64v2 e L80v2, defina "rq_affinity" como 0 em cada dispositivo NVMe.  Por exemplo, essa linha de comando definirá "rq_affinity" como zero para todos os 10 dispositivos NVMe em uma VM L80v2:

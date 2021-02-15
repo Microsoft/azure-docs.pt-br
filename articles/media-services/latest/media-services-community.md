@@ -3,7 +3,7 @@ title: Visão geral da comunidade dos Serviços de Mídia do Azure v3
 description: Confira a página da comunidade dos Serviços de Mídia do Azure para ver diferentes maneiras de fazer perguntas, comentários e obter atualizações sobre os Serviços de Mídia.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,16 +11,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/22/2020
-ms.author: juliako
-ms.openlocfilehash: 9c47488915997f054487d8343c7c3c032135dcdb
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: 445155ed48334c9680dfa0be7b5402d057c98cef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87833056"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91329713"
 ---
-# <a name="azure-media-services-v3-community"></a>Comunidade dos Serviços de Mídia do Azure v3  
+# <a name="azure-media-services-v3-community"></a>Comunidade dos Serviços de Mídia do Azure v3
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]  
 
 Confira a página da comunidade dos Serviços de Mídia do Azure para ver diferentes maneiras de fazer perguntas, comentários e obter atualizações sobre os Serviços de Mídia.
 
@@ -40,7 +42,7 @@ Os fóruns a seguir podem ser usados para fazer perguntas sobre produtos e recur
 
 Atualmente, o MSDN é o principal fórum da comunidade da equipe dos Serviços de Mídia.
 
-[![MSDN](./media/media-services-community/msdn.png)](/answers/topics/azure-media-services.html) 
+[![Captura de tela mostrando o logotipo do MSDN, o fórum da comunidade principal da equipe de serviços de mídia.](./media/media-services-community/msdn.png)](/answers/topics/azure-media-services.html) 
 
 A equipe também monitora perguntas marcadas com 'azure-media-services' no Stack Overflow.
 

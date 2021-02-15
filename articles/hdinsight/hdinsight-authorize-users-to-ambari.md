@@ -1,19 +1,16 @@
 ---
 title: Autorizar usuários para o Ambari Views – Azure HDInsight
 description: Como gerenciar permissões de usuários e grupos do Ambari para clusters do HDInsight com o ESP habilitado.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/27/2019
-ms.openlocfilehash: fc10d385df1dffed07e771d622d9bf9d8bedee39
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 0b6d4dacf43d80f371a2a4d286af1972198c3be3
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086527"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98942713"
 ---
 # <a name="authorize-users-for-apache-ambari-views"></a>Autorizar usuários para o Apache Ambari Views
 
@@ -24,7 +21,7 @@ Active Directory os usuários podem entrar nos nós do cluster usando suas crede
 > [!WARNING]  
 > Não altere a senha do watchdog Ambari (hdinsightwatchdog) no seu cluster HDInsight baseado em Linux. A alteração da senha interrompe a capacidade de usar as ações de script ou executar operações de dimensionamento com o cluster.
 
-Se você ainda não fez isso, siga [estas instruções](./domain-joined/apache-domain-joined-configure.md) para provisionar um novo cluster ESP.
+Se você ainda não fez isso, siga [estas instruções](./domain-joined/apache-domain-joined-configure-using-azure-adds.md) para provisionar um novo cluster ESP.
 
 ## <a name="access-the-ambari-management-page"></a>Acessar a página de gerenciamento do Ambari
 
@@ -240,7 +237,7 @@ A exibição Bloco exibe cada função em sua própria linha e fornece as opçõ
 
 ![Exibição de bloco de funções do Apache Ambari](./media/hdinsight-authorize-users-to-ambari/ambari-roles-block-view.png)
 
-### <a name="list-view"></a>Exibição Lista
+### <a name="list-view"></a>Modo de exibição de lista
 
 A exibição Lista fornece recursos de edição rápidos em duas categorias: Usuários e Grupos.
 

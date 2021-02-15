@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: c301ed2b612c2f3a7aca40ed5ed733800323adcc
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: ba50def51bcea4f477bea5cecbe5b1ed0409b01a
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86230942"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98792267"
 ---
 Você pode optar por gerenciar a criptografia no nível de cada disco gerenciado com suas próprias chaves. A criptografia do lado do servidor para discos gerenciados com chaves gerenciadas pelo cliente oferece uma experiência integrada com o Azure Key Vault. É possível importar [as chaves RSA](../articles/key-vault/keys/hsm-protected-keys.md) para o Key Vault ou gerar novas chaves RSA no Azure Key Vault. 
 
@@ -22,8 +22,6 @@ Os discos gerenciados do Azure tratam a criptografia e a descriptografia de mane
 #### <a name="full-control-of-your-keys"></a>Controle total de suas chaves
 
 Você deve conceder acesso a discos gerenciados em seu Key Vault para usar suas chaves para criptografar e descriptografar o DEK. Isso permite o controle total de dados e chaves. É possível desabilitar as chaves ou revogar o acesso aos discos gerenciados a qualquer momento. Você também pode auditar o uso da chave de criptografia com monitoramento do Azure Key Vault para garantir que apenas os discos gerenciados ou outros serviços confiáveis do Azure acessem as chaves.
-
-Quando você desabilita ou exclui sua chave, todas as VMs com discos que usam essa chave serão desligadas automaticamente. Depois disso, as VMs não serão utilizáveis, a menos que a chave seja habilitada novamente ou você atribua uma nova chave.
 
 Para SSDs premium, SSDs padrão e HDDs padrão: Ao desabilitar ou excluir a chave, todas as VMs com discos que usam essa chave serão desligadas automaticamente. Depois disso, as VMs não serão utilizáveis, a menos que a chave seja habilitada novamente ou você atribua uma nova chave.    
 
@@ -44,4 +42,4 @@ A lista a seguir explica o diagrama mais detalhadamente:
 1. Os discos gerenciados usam a identidade gerenciada para enviar solicitações ao Azure Key Vault.
 1. Para leitura ou gravação de dados, os discos gerenciados enviam solicitações ao Azure Key Vault para criptografar (encapsular) e descriptografar (desencapsular) a chave de criptografia de dados, a fim de criptografar e descriptografar os dados. 
 
-Para revogar o acesso às chaves gerenciadas pelo cliente, confira [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/) e [Azure Key Vault CLI](https://docs.microsoft.com/cli/azure/keyvault). Revogar o acesso bloqueia o acesso a todos os dados na conta de armazenamento, pois a chave de criptografia não é acessível pelo Armazenamento do Microsoft Azure.
+Para revogar o acesso às chaves gerenciadas pelo cliente, confira [Azure Key Vault PowerShell](/powershell/module/azurerm.keyvault/) e [Azure Key Vault CLI](/cli/azure/keyvault). Revogar o acesso bloqueia o acesso a todos os dados na conta de armazenamento, pois a chave de criptografia não é acessível pelo Armazenamento do Microsoft Azure.

@@ -6,12 +6,12 @@ ms.service: fxt-edge-filer
 ms.topic: conceptual
 ms.date: 06/20/2019
 ms.author: rohogue
-ms.openlocfilehash: 30af35075c06585b9c490495e9897c145e9974d9
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: b1a172adb54593421ef56e09c131e0ddcaee9f6e
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88184679"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92215817"
 ---
 # <a name="azure-fxt-edge-filer-specifications"></a>Especificações do Azure FXT Edge Filer
 
@@ -28,7 +28,7 @@ Este artigo explica as especificações de hardware exigidas para os nós de har
 
 ## <a name="drive-specifications"></a>Especificações da unidade
 
-O sistema tem dez compartimentos de disco que podem ser acessados pela parte da frente. Cada unidade preenchida tem um rótulo à direita com informações sobre sua capacidade. 
+O sistema tem dez compartimentos de disco que podem ser acessados pela parte da frente. Cada unidade preenchida tem um rótulo à direita com informações sobre sua capacidade.
 
 Os números das unidades estão impressos no espaço entre elas. No Azure FXT Edge Filer, a unidade 0 é aquela no canto superior esquerdo e a unidade 1, a que fica imediatamente abaixo dela.
 
@@ -39,10 +39,9 @@ Os números das unidades estão impressos no espaço entre elas. No Azure FXT Ed
 | 0, 1             | Sistema operacional     | SSD SATA de 480 GB |
 | 2, 3, 4, 5, 6, 7, 8, 9 | Dados   | FXT 6600:3,2 TB de SSD do NVMe <br> FXT 6400:1,6 TB de SSD do NVMe |
 
-
 ## <a name="dimensions-and-weight"></a>Dimensões e peso
 
-O Azure FXT Edge Filer foi projetado para caber em um rack de equipamento padrão de 19 pol. e tem a altura de uma unidade de rack (1U). 
+O Azure FXT Edge Filer foi projetado para caber em um rack de equipamento padrão de 19 pol. e tem a altura de uma unidade de rack (1U).
 
 <!-- 10x2.5 inches version -->
 
@@ -84,39 +83,39 @@ Esta seção indica as classificações e medidas de potência do Azure FXT Edge
 
 <!-- matches the Dell regulatory label exactly -->
 
-### <a name="power-and-thermal-measurements"></a>Medidas térmicas e de potência 
+### <a name="power-and-thermal-measurements"></a>Medidas térmicas e de potência
 
-Os nós do Azure FXT Edge Filer usam ventoinhas de diferentes velocidades, ou seja, a potência depende da temperatura e da carga. As ventoinhas podem atingir sua velocidade máxima em determinadas combinações de carga e temperaturas elevadas. 
+Os nós do Azure FXT Edge Filer usam ventoinhas de diferentes velocidades, ou seja, a potência depende da temperatura e da carga. As ventoinhas podem atingir sua velocidade máxima em determinadas combinações de carga e temperaturas elevadas.
 
-Estes gráficos mostram o consumo de energia e as medidas térmicas em combinações de frequência e voltagem usadas comumente. 
+Estes gráficos mostram o consumo de energia e as medidas térmicas em combinações de frequência e voltagem usadas comumente.
 
-| Potência do FXT 6600 em temperatura ambiente <br />(22 °C, 71,6 °F) | 100 V, 60 Hz | 120 V, 60 Hz | 208 V, 60 Hz | 230 V, 50 Hz | 240 V, 50 Hz | 
+| Potência do FXT 6600 em temperatura ambiente <br />(22 °C, 71,6 °F) | 100 V, 60 Hz | 120 V, 60 Hz | 208 V, 60 Hz | 230 V, 50 Hz | 240 V, 50 Hz |
 |---------|---|---|---|---|---|
-| Voltagem (V) | 100 | 120 | 208 | 230 | 240 | 
+| Voltagem (V) | 100 | 120 | 208 | 230 | 240 |
 | Frequência (Hz) | 60 | 60 | 60 | 50 | 50 |
 | Corrente (A) | 5,02 | 4,16 |2,40 | 2,20 | 2.16 |
 | Potência aparente (VA) | 502 | 499 | 499 | 506 | 518|
-| Fator de potência | 0.99 | 0.99 |0.98 | 0.98 | 0.98 |
+| Fator de potência | 0,99 | 0,99 |0,98 | 0,98 | 0,98 |
 | Potência real (W) | 497 |494 | 489 | 496 | 508 |
 | Dissipação térmica (BTU/h) |1.696 | 1.686 | 1.669 | 1.692 | 1.733 |
 
-| Potência do FXT 6600 com a ventoinha em velocidade máxima | 100 V, 60 Hz | 120 V, 60 Hz | 208 V, 60 Hz | 230 V, 50 Hz | 240 V, 50 Hz | 
+| Potência do FXT 6600 com a ventoinha em velocidade máxima | 100 V, 60 Hz | 120 V, 60 Hz | 208 V, 60 Hz | 230 V, 50 Hz | 240 V, 50 Hz |
 |---------|---|---|---|---|---|
-| Voltagem (V) | 100 |120 | 208 | 230 | 240| 
+| Voltagem (V) | 100 |120 | 208 | 230 | 240|
 | Frequência (Hz) | 60 | 60 | 60 | 50 | 50 |
 | Corrente (A) | 5,98 | 5,01 | 2.81 | 2.55 | 2,48 |
 | Potência aparente (VA) | 598 | 601 | 584 | 587 | 595 |
-| Fator de potência | 0.99 | 0.99 | 0.98 | 0.98 | 0.98 |
+| Fator de potência | 0,99 | 0,99 | 0,98 | 0,98 | 0,98 |
 | Potência real (W) | 592 | 595 | 573 | 575 | 583 |
 | Dissipação térmica (BTU/h) | 2020 |2031 | 1.954 | 1.961 | 1990 |
 
-| Potência do FXT 6400 em temperatura ambiente <br />(22 °C, 71,6 °F) | 100 V, 60 Hz | 120 V, 60 Hz | 208 V, 60 Hz | 230 V, 50 Hz | 240 V, 50 Hz | 
+| Potência do FXT 6400 em temperatura ambiente <br />(22 °C, 71,6 °F) | 100 V, 60 Hz | 120 V, 60 Hz | 208 V, 60 Hz | 230 V, 50 Hz | 240 V, 50 Hz |
 |---------|---|---|---|---|---|
 | Voltagem (V) | 100 | 120 | 208 | 230 | 240 |
 | Frequência (Hz) |60 | 60 | 60 | 50 | 50 |
 | Corrente (A) | 4,63 | 3,86 | 2.24 | 2,04 | 1,94 |
 | Potência aparente (VA) | 463 | 463 | 466 | 469 | 466 |
-| Fator de potência | 0.99 | 0.99 | 0.98 | 0.98 | 0.98 | 
+| Fator de potência | 0,99 | 0,99 | 0,98 | 0,98 | 0,98 |
 | Potência real (W) | 458 | 459 | 457 | 460 | 456 |
 | Dissipação térmica (BTU/h) | 1.564 | 1.565 | 1.558 | 1.569 | 1.557 |
 
@@ -124,9 +123,9 @@ Estes gráficos mostram o consumo de energia e as medidas térmicas em combinaç
 |---------|---|---|---|---|---|
 | Voltagem (V) | 100 | 120 | 208 | 230 | 240 |
 | Frequência (Hz) | 60 | 60 | 60 | 50 | 50 |
-| Corrente (A) | 5.15 | 4,28 | 2,48 | 2,28 | 2,13 |
+| Corrente (A) | 5.15 | 4,28 | 2,48 | 2.28 | 2,13 |
 | Potência aparente (VA) | 515 | 514 | 516 | 524 | 511 |
-| Fator de potência | 0.99 | 0.99 | 0.98 | 0.98 | 0.98 |
+| Fator de potência | 0,99 | 0,99 | 0,98 | 0,98 | 0,98 |
 | Potência real (W) | 510 | 508 | 506 | 514 | 501 |
 | Dissipação térmica (BTU/h) | 1.740 | 1.735 | 1.725 | 1753 | 1.709 |
 
@@ -143,10 +142,10 @@ Esta seção fornece especificações para o ambiente do hardware.
 | Ponto de condensação máximo         | 29° C (84° F)                       | 33 °C (91 °F)                 |
 | Altitude                  | até 3.048 metros (10.000 pés), sujeito à revogação da classificação de temperatura indicada abaixo | até 12.000 metros (39.370 pés) |
 
-> [!NOTE] 
+> [!NOTE]
 > **Desclassificação de temperatura de altitude:** A temperatura máxima é reduzida em 1 ° c/300 m (1 ° f/547 pés) acima de 950 m (3.117 pés).
 
-### <a name="airflow-shock-and-vibration"></a>Fluxo de ar, choque e vibração 
+### <a name="airflow-shock-and-vibration"></a>Fluxo de ar, choque e vibração
 
 | Atributo         | Especificação |
 |-------------------|---------------|
@@ -156,13 +155,13 @@ Esta seção fornece especificações para o ambiente do hardware.
 | Vibração, operacional     | 0,26 G<sub>RMS</sub> 5 Hz a 350 Hz aleatório         |
 | Vibração, não operacional | 1,88 G<sub>RMS</sub> 10 hz a 500 Hz por 15 minutos (todos os seis lados testados)  |
 
-## <a name="safety-regulation-compliance"></a>Conformidade com a norma de segurança 
+## <a name="safety-regulation-compliance"></a>Conformidade com a norma de segurança
 
-O Azure FXT Edge Filer está em conformidade com as regulamentações listadas. 
+O Azure FXT Edge Filer está em conformidade com as regulamentações listadas.
 
-| Categoria       | Especificação regulatória | 
+| Categoria       | Especificação regulatória |
 |----------------|--------------------------|
-| Segurança geral | EN 60950-1:2006 + A1:2010 + A2:2013 + A11:2009 + A12:2011/IEC 60950-1:2005 ed2 + A1:2009 +A2: 2013 <br>EN 62311:2008 | 
+| Segurança geral | EN 60950-1:2006 + A1:2010 + A2:2013 + A11:2009 + A12:2011/IEC 60950-1:2005 ed2 + A1:2009 +A2: 2013 <br>EN 62311:2008 |
 | EMC            | FCC A, ICES-003  <br>EN 55032:2012/CISPR 32:2012  <br>EN 55032:2015/CISPR 32:2015  <br>EN 55024:2010 + A1:2015/CISPR 24:2010 + A1:2015  <br>EN 61000-3-2:2014/IEC 61000-3-2:2014 (classe D)   <br>EN 61000-3-3:2013/IEC 61000-3-3:2013 |
 | Energia         | Regulamento da Comissão (UE) n.º 617/2013  |
 | RoHS           |    EN 50581:2012   |

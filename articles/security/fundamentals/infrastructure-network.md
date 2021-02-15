@@ -4,8 +4,7 @@ description: Este artigo fornece uma descrição geral da rede de produção Mic
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: barbkess
-editor: TomSh
+manager: rkarlin
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security
 ms.subservice: security-fundamentals
@@ -13,87 +12,60 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/20/2019
+ms.date: 09/08/2020
 ms.author: terrylan
-ms.openlocfilehash: c4756c36c2243840df69f3696e7ddac3628f3a00
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3b047489f9cfa3623c11e324cf58114b707c10b7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "68727169"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89567853"
 ---
 # <a name="azure-network-architecture"></a>Arquitetura de rede do Azure
-A arquitetura de rede do Azure segue uma versão modificada do modelo de núcleo/distribuição/acesso padrão do setor, com camadas de hardware distintas. As camadas incluem:
+A arquitetura de rede do Azure fornece conectividade da Internet para os data centers do Azure. Qualquer carga de trabalho implantada (IaaS, PaaS e SaaS) no Azure está aproveitando a rede de datacenter do Azure.
 
-- Núcleo (roteadores de datacenter)
-- Distribuição (roteadores de acesso e agregação de L2). A camada de distribuição separa o roteamento de L3 da comutação de L2.
-- Acesso (opções de host de L2)
+## <a name="network-topology"></a>Topologia de rede
+A arquitetura de rede de um datacenter do Azure consiste nos seguintes componentes:
 
-A arquitetura de rede tem dois níveis de opções de camada 2. Uma camada agrega o tráfego da outra camada. A segunda camada faz um loop para incorporar redundância. A arquitetura oferece uma superfície de VLAN mais flexível e melhora o dimensionamento da porta. A arquitetura mantém L2 e L3 distintas, que permite o uso de hardware em cada uma das camadas distintas na rede e minimiza a falha em uma camada não afetem a outra camada (s). Permite o uso de troncos para compartilhamento de recursos, como a conectividade com a infraestrutura de L3.
-
-## <a name="network-configuration"></a>Configuração de rede
-A arquitetura de rede de um cluster do Azure em um data center consiste nos seguintes dispositivos:
-
-- Roteadores (datacenter, roteador de acesso e roteadores de folha de borda)
-- Comutadores (comutadores de agregação e topo de rack)
-- Digi CMs
-- Unidades de distribuição de energia
-
-O Azure tem duas arquiteturas separadas. Alguns clientes do Azure existentes e os serviços compartilhados residem na DLA (arquitetura de LAN) padrão, enquanto novas regiões e clientes virtuais residem na arquitetura do Quantum 10 (Q10). A arquitetura do DLA é um projeto de árvore tradicional com roteadores de acesso ativos/passivos e ACLs (listas de controle de acesso) de segurança aplicadas aos roteadores de acesso. A arquitetura do Quantum 10 é um design Close/malha de roteadores, em que as ACLs não são aplicadas nos roteadores. Em vez disso, as ACLs são aplicadas abaixo o roteamento, por meio de SLB (Balanceamento de Carga de Software) ou VLANs definida por software.
-
-O diagrama a seguir apresenta uma visão geral da arquitetura de rede dentro de um cluster do Azure:
+- Rede de borda
+- Rede de longa distância
+- Rede de gateways regionais
+- Rede de datacenter
 
 ![Diagrama da rede do Azure](./media/infrastructure-network/network-arch.png)
 
-### <a name="quantum-10-devices"></a>Dispositivos Quantum 10
-O design do Quantum 10 conduz a comutação de camada 3 distribuída em vários dispositivos em um design Clos/malha. As vantagens do design P10 incluem maior funcionalidade e maior capacidade de dimensionar a infraestrutura de rede existente. O design utiliza roteadores de folha de borda, comutadores de lombada e roteadores de topo do rack para passar tráfego a clusters entre várias rotas, permitindo tolerância a falhas. Balanceamento de carga de software, em vez de dispositivos de hardware, lida com serviços de segurança, como tradução de endereço de rede.
+## <a name="network-components"></a>Componentes de rede
+Uma breve descrição dos componentes de rede.
 
-### <a name="access-routers"></a>Roteadores de acesso
-Os roteadores de acesso/distribuição L3 (ARs) executam a funcionalidade de roteamento principal para as camadas de acesso e distribuição. Esses dispositivos são implantados como um par e são o gateway padrão para as sub-redes. Cada par de RA pode dar suporte a vários pares de comutador de agregação de L2, dependendo da capacidade. O número máximo depende na capacidade do dispositivo, bem como os domínios de falha. Um número típico é três pares de comutador de agregação de L2 por par de RA.
+- Rede de borda
 
-### <a name="l2-aggregation-switches"></a>Comutadores de agregação de L2  
-Esses dispositivos servem como um ponto de agregação para o tráfego de L2. Eles são a camada de distribuição para a malha de L2 e podem lidar com grandes quantidades de tráfego. Como esses dispositivos agregam tráfego, eles exigem a funcionalidade 802.1q, além de tecnologias de alta largura de banda, como agregação de porta e 10GE.
+   - Ponto de demarcação entre a rede da Microsoft e outras redes (por exemplo, Internet, rede corporativa)
+   - Fornece emparelhamento de Internet e [ExpressRoute](../../expressroute/expressroute-introduction.md) no Azure
 
-### <a name="l2-host-switches"></a>Comutadores de host de L2
-Hosts se conecta diretamente a essas opções. Eles podem ser comutadores montados em rack ou implantações de chassi. O padrão de 802.1q permite a designação de uma VLAN como uma VLAN nativa, tratando VLAN como normal quadros Ethernet (sem marcas). Em circunstâncias normais, os quadros na VLAN nativa são transmitidos e recebidos sem marcas em um 802.1q porta de tronco. Esse recurso foi projetado para a migração para 802.1q e compatibilidade com non-802.1q dispositivos habilitados. Nessa arquitetura, apenas a infraestrutura de rede utiliza a VLAN nativa.
+- Rede de longa distância
 
-Essa arquitetura especifica um padrão para a seleção de VLAN nativa. O padrão garante que, sempre que possível, os dispositivos de RA tenham uma VLAN nativa exclusiva para cada tronco e a L2Aggregation para troncos de L2Aggregation. O L2Aggregation para troncos L2Host Switch tiver uma VLAN nativa de não-padrão.
+   - Rede de backbone inteligente da Microsoft que abrange o globo
+   - Fornece conectividade entre [regiões do Azure](https://azure.microsoft.com/global-infrastructure/geographies/)
 
-### <a name="link-aggregation-8023ad"></a>Agregação de link (802.3ad)
-A agregação de link permite que vários links individuais sejam agrupados e tratados como um único link lógico. Para facilitar a depuração operacional, o número usado para designar as interfaces entre porta e canal deve ser padronizado. O restante da rede usa o mesmo número em ambas as extremidades de uma porta e canal.
+- Gateway regional
 
-Os números especificados para o L2Agg ao comutador L2Host são os números de porta de canal usados no lado do L2Agg. Como o intervalo de números é mais limitado no lado do L2Host, o padrão é usar números de 1 e 2 no lado do L2Host. Eles fazem referência à porta e canal indo para o lado "a" e para o lado "b", respectivamente.
+   - Ponto de agregação para todos os data centers em uma região do Azure
+   - Fornece conectividade maciça entre data centers em uma região do Azure (por exemplo, várias centenas de terabits por Datacenter)
 
-### <a name="vlans"></a>VLANs
-A arquitetura de rede usa VLANs para servidores de grupo juntos em um único domínio de difusão. Os números da VLAN estão em conformidade com padrões 802.1q, que oferecem suporte a VLANs numeradas de 1 a 4094.
+- Rede de datacenter
 
-### <a name="customer-vlans"></a>VLANS do cliente
-Você tem várias opções de implementação de VLAN para implantar no portal do Azure para atender às necessidades de separação e arquitetura da sua solução. Você implanta essas soluções por meio de máquinas virtuais. Para exemplos de arquitetura de referência do cliente, veja [Arquiteturas de referência do Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/).
+   - Fornece conectividade entre os servidores no datacenter com baixa largura de banda superscrição
 
-### <a name="edge-architecture"></a>Arquitetura de borda
-Data centers do Azure baseiam-se a infraestruturas de rede bem provisionada e altamente redundantes. A Microsoft implementa redes nos datacenters do Azure com arquiteturas de redundância "necessidade mais de um" (N + 1) ou melhor. Os recursos completos de failover dentro e entre os datacenters ajudam a garantir a disponibilidade da rede e do serviço. Externamente, os datacenters são atendidos por circuitos de rede dedicados de alta largura de banda. Esses circuitos conectam de modo redundante propriedades com mais de 1.200 provedores de serviços de Internet globalmente em vários pontos de emparelhamento. Isso fornece mais de 2.000 Gbps de capacidade de borda em potencial em toda a rede.
+Os componentes de rede acima foram projetados para fornecer disponibilidade máxima para dar suporte aos negócios de nuvem sempre ativas e sempre disponíveis. A redundância é projetada e incorporada à rede a partir do aspecto físico até o protocolo de controle.
 
-Os roteadores de filtragem na camada de acesso e na borda da rede do Azure fornecem segurança bem estabelecida no nível de pacote e ajudam a impedir tentativas não autorizadas para se conectar ao Azure. Os roteadores ajudam a garantir que o conteúdo real dos pacotes inclua dados no formato esperado e esteja em conformidade com o esquema de comunicação cliente/servidor esperado. O Azure implementa uma arquitetura em camadas que consiste nos seguintes componentes de controle de acesso e segregação de rede:
+## <a name="datacenter-network-resiliency"></a>Resiliência de rede do datacenter
+Vamos ilustrar o princípio de design de resiliência usando a rede do datacenter.
 
-- **Roteadores de borda.** Segregam o ambiente de aplicativo da Internet. Os roteadores de borda são projetados para fornecer proteção contra falsificação e limitar o acesso usando ACLs.
-- **Roteadores de distribuição (acesso).** Eles permitem somente endereços IP aprovados pela Microsoft, fornecem recurso contra falsificação e estabelecem conexões usando ACLs.
+A rede do datacenter é uma versão modificada de uma [rede FEC](https://en.wikipedia.org/wiki/Clos_network), fornecendo alta largura de banda de alto nível para o tráfego de escala de nuvem. A rede é construída usando um grande número de dispositivos de mercadoria para reduzir o impacto causado por uma falha de hardware individual. Esses dispositivos estão estrategicamente localizados em locais físicos diferentes com um domínio de energia e resfriamento separado para reduzir o impacto de um evento de ambiente.  No plano de controle, todos os dispositivos de rede estão sendo executados como o modo de roteamento da camada 3 do modelo OSI, o que elimina a questão histórica do loop de tráfego. Todos os caminhos entre diferentes camadas estão ativos para fornecer alta redundância e largura de banda usando o roteamento de Equal-Cost vários caminhos (ECMP).
 
-### <a name="ddos-mitigation"></a>Mitigação de DDOS
-Ataques de negação de serviço distribuído (DDoS) continuam a impor uma ameaça real à confiabilidade dos serviços online. Conforme os ataques se tornam mais direcionados e sofisticados, e conforme os serviços que a Microsoft fornece se tornam mais geograficamente diversificados, identificar e minimizar o impacto desses ataques é uma alta prioridade.
+O diagrama a seguir demonstra que a rede do datacenter é construída por diferentes camadas de dispositivos de rede. As barras no diagrama representam grupos de dispositivos de rede que fornecem conectividade de alta largura de banda e redundância.
 
-O [Padrão de Proteção contra DDoS do Azure](../../virtual-network/ddos-protection-overview.md) oferece uma defesa contra ataques de DDoS. Consulte [proteção contra DDoS do Azure: práticas recomendadas e arquiteturas de referência](ddos-best-practices.md) para saber mais.
-
-> [!NOTE]
-> A Microsoft fornece proteção contra DDoS por padrão para todos os clientes do Azure.
->
->
-
-## <a name="network-connection-rules"></a>Regras de conexão de rede
-Na sua rede, o Azure implanta roteadores de borda para fornecer segurança no nível de pacote para impedir tentativas não autorizadas de conexão ao Azure. Os roteadores de borda garantem que o conteúdo real dos pacotes contenha dados no formato esperado e estejam em conformidade com o esquema de comunicação de cliente/servidor esperado.
-
-Roteadores de borda segregam o ambiente de aplicativo da Internet. Esses roteadores são projetados para fornecer proteção contra falsificação, e limitam o acesso por meio de ACLs. A Microsoft configura roteadores de borda usando uma abordagem de ACL em camadas para limitar os protocolos de rede que têm permissão para transitar em roteadores de borda e roteadores de acesso.
-
-A Microsoft posiciona os dispositivos de rede nos locais de acesso e de borda para que atuem como pontos de limite nos quais os filtros de entrada ou saída são aplicados.
+![Rede de datacenter](./media/infrastructure-network/datacenter-network.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre o que a Microsoft faz para ajudar a proteger a infraestrutura do Azure, consulte:
@@ -107,5 +79,3 @@ Para saber mais sobre o que a Microsoft faz para ajudar a proteger a infraestrut
 - [Monitoramento de infraestrutura do Microsoft Azure](infrastructure-monitoring.md)
 - [Integridade da infraestrutura do Azure](infrastructure-integrity.md)
 - [Proteção de dados do cliente do Microsoft Azure](protection-customer-data.md)
-
-

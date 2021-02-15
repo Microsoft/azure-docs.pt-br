@@ -3,15 +3,15 @@ title: Problemas de diagnóstico da Área de Trabalho Virtual do Windows - Azure
 description: Como usar o recurso de diagnóstico da Área de Trabalho Virtual do Windows para diagnosticar problemas.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 08/11/2020
+ms.date: 09/21/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 50fe1eb6e5aed551b56bcd1526daa5d441185501
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 70676bd1a07acdfcbba071a906b390ed66d70074
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121401"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91279851"
 ---
 # <a name="identify-and-diagnose-windows-virtual-desktop-issues"></a>Identificar e diagnosticar problemas de área de trabalho virtual do Windows
 
@@ -24,10 +24,10 @@ As conexões que não acessam a Área de Trabalho Virtual do Windows não são e
 
 ## <a name="common-error-scenarios"></a>Cenários de erro comuns
 
-Os cenários de erro são categorizados como internos ao serviço e externos à Área de Trabalho Virtual do Windows.
+A tabela WVDErrors rastreia erros em todos os tipos de atividade. A coluna chamada "inerror" fornece um sinalizador adicional marcado como "true" ou "false". Esse sinalizador informará se o erro está relacionado ao serviço.
 
-* Problema interno: especifica cenários que não podem ser mitigados pelo cliente e precisam ser resolvidos como um problema de suporte. Ao fornecer comentários por meio da [comunidade de tecnologia de área de trabalho virtual do Windows](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop), inclua a ID de correlação e o período de tempo aproximado de quando o problema ocorreu.
-* Problema externo: relaciona-se a cenários que podem ser atenuados pelo cliente. São externos à Área de Trabalho Virtual do Windows.
+* Se o valor for "true", a equipe de serviço talvez já tenha investigado esse problema. Se isso afetar a experiência do usuário e aparecer um número alto de vezes, recomendamos que você envie um tíquete de suporte para a área de trabalho virtual do Windows.
+* Se o valor for "false", isso pode ser uma configuração incorreta que você pode corrigir por conta própria. A mensagem de erro pode lhe dar uma pista sobre onde começar.
 
 A tabela a seguir lista os erros comuns que os administradores podem encontrar.
 
@@ -46,7 +46,7 @@ A tabela a seguir lista os erros comuns que os administradores podem encontrar.
 |Falha ao cancelar a atribuição do usuário do grupo de aplicativos|Não foi possível cancelar a publicação de um grupo de aplicativos para um usuário. Verifique se o usuário está disponível no Azure AD. Verifique se o usuário faz parte de um grupo de usuários no qual o grupo de aplicativos está publicado. |
 |Erro ao recuperar os locais disponíveis |Verifique o local da VM usado no Assistente para criar pool de hosts. Se a imagem não estiver disponível nesse local, adicione a imagem nesse local ou escolha um local de VM diferente. |
 
-### <a name="external-connection-error-codes"></a>Códigos de erro de conexão externa
+### <a name="connection-error-codes"></a>Códigos de erro de conexão
 
 |Código numérico|Código do erro|Solução sugerida|
 |---|---|---|

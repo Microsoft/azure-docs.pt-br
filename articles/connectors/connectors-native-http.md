@@ -5,28 +5,32 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 06/09/2020
+ms.date: 09/14/2020
 tags: connectors
-ms.openlocfilehash: 23c6a555909d43f640fb5089fb60da8bac065886
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f2835bda8ac7242b7a3ea4ea63401f26b9c8e426
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84609498"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99062988"
 ---
 # <a name="call-service-endpoints-over-http-or-https-from-azure-logic-apps"></a>Chamar pontos de extremidade de serviço via HTTP ou HTTPS de Aplicativos Lógicos do Azure
 
-Com os [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md) e o gatilho ou ação http interno, você pode criar tarefas automatizadas e fluxos de trabalho que enviam solicitações para pontos de extremidade de serviço por http ou HTTPS. Por exemplo, você pode monitorar o ponto de extremidade de serviço para seu site verificando esse ponto de extremidade em um agendamento específico. Quando o evento especificado ocorre nesse ponto de extremidade, como seu site ficar inativo, o evento dispara o fluxo de trabalho do aplicativo lógico e executa as ações nesse fluxo de trabalho. Se você quiser receber e responder a chamadas HTTPS de entrada em vez disso, use a ação interna de [gatilho ou resposta de solicitação](../connectors/connectors-native-reqres.md).
+Com os [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md) e o gatilho ou ação http interno, você pode criar tarefas automatizadas e fluxos de trabalho que podem enviar solicitações de saída para pontos de extremidade em outros serviços e sistemas por http ou HTTPS. Para receber e responder a chamadas HTTPS de entrada, use o gatilho de solicitação interno [e a ação de resposta](../connectors/connectors-native-reqres.md).
+
+Por exemplo, você pode monitorar um ponto de extremidade de serviço para seu site verificando esse ponto de extremidade em um agendamento específico. Quando o evento especificado ocorre nesse ponto de extremidade, como seu site ficar inativo, o evento dispara o fluxo de trabalho do aplicativo lógico e executa as ações nesse fluxo de trabalho.
 
 * Para verificar ou *sondar* um ponto de extremidade em um agendamento recorrente, [adicione o gatilho http](#http-trigger) como a primeira etapa no fluxo de trabalho. Cada vez que o gatilho verifica o ponto de extremidade, o gatilho chama ou envia uma *solicitação* para o ponto de extremidade. A resposta do ponto de extremidade determina se o fluxo de trabalho do aplicativo lógico é executado. O gatilho passa qualquer conteúdo da resposta do ponto de extremidade para as ações em seu aplicativo lógico.
 
 * Para chamar um ponto de extremidade de qualquer outro lugar no fluxo de trabalho, [adicione a ação http](#http-action). A resposta do ponto de extremidade determina como as ações restantes do fluxo de trabalho são executadas.
 
-Este artigo mostra como adicionar um gatilho ou uma ação HTTP ao fluxo de trabalho do aplicativo lógico.
+Este artigo mostra como usar o gatilho HTTP e a ação HTTP para que seu aplicativo lógico possa enviar chamadas de saída para outros serviços e sistemas.
+
+Para obter informações sobre criptografia, segurança e autorização para chamadas de saída de seu aplicativo lógico, como [TLS (segurança de camada de transporte)](https://en.wikipedia.org/wiki/Transport_Layer_Security), anteriormente conhecido como SSL (protocolo SSL), certificados autoassinados ou [Azure Active Directory autenticação aberta (Azure ad OAuth)](../active-directory/develop/index.yml), consulte [acesso seguro e acesso a dados para chamadas de saída para outros serviços e sistemas](../logic-apps/logic-apps-securing-a-logic-app.md#secure-outbound-requests).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/).
+* Uma conta e uma assinatura do Azure. Se você não tiver uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/).
 
 * A URL para o ponto de extremidade de destino que você deseja chamar
 
@@ -96,21 +100,27 @@ Essa ação interna faz uma chamada HTTP para a URL especificada para um ponto d
 
 1. Quando terminar, lembre-se de salvar seu aplicativo lógico. Selecione **Salvar** na barra de ferramentas do designer.
 
-<a name="tls-support"></a>
+## <a name="trigger-and-action-outputs"></a>Saídas de gatilho e ação
 
-## <a name="transport-layer-security-tls"></a>Protocolo TLS
+Aqui estão mais informações sobre as saídas de um gatilho ou ação HTTP, que retorna essas informações:
 
-Com base na capacidade do ponto de extremidade de destino, as chamadas de saída dão suporte ao protocolo TLS, que era anteriormente protocolo SSL (SSL), versões 1,0, 1,1 e 1,2. Os aplicativos lógicos negociam com o ponto de extremidade do usando a versão mais recente com suporte possível.
+| Propriedade | Tipo | Descrição |
+|----------|------|-------------|
+| `headers` | Objeto JSON | Os cabeçalhos da solicitação |
+| `body` | Objeto JSON | O objeto com o conteúdo do corpo da solicitação |
+| `status code` | Integer | O código de status da solicitação |
+|||
 
-Por exemplo, se o ponto de extremidade der suporte a 1,2, o conector HTTP usará a 1,2 primeiro. Caso contrário, o conector usará a próxima versão com suporte mais alta.
-
-<a name="self-signed"></a>
-
-## <a name="self-signed-certificates"></a>Certificados autoassinados
-
-* Para aplicativos lógicos no ambiente global multilocatário do Azure, o conector HTTP não permite certificados TLS/SSL autoassinados. Se seu aplicativo lógico fizer uma chamada HTTP para um servidor e apresentar um certificado autoassinado por TLS/SSL, a chamada HTTP falhará com um `TrustFailure` erro.
-
-* Para aplicativos lógicos em um [ambiente do serviço de integração (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), o conector http permite certificados autoassinados para Handshakes TLS/SSL. No entanto, primeiro você deve [habilitar o suporte de certificado autoassinado](../logic-apps/create-integration-service-environment-rest-api.md#request-body) para um ISE existente ou um novo ISE usando a API REST de aplicativos lógicos e instalar o certificado público no `TrustedRoot` local.
+| Código de status | Descrição |
+|-------------|-------------|
+| 200 | OK |
+| 202 | Aceita |
+| 400 | Solicitação incorreta |
+| 401 | Não Autorizado |
+| 403 | Proibido |
+| 404 | Não encontrado |
+| 500 | Erro interno do servidor. Ocorreu um erro desconhecido. |
+|||
 
 ## <a name="content-with-multipartform-data-type"></a>Conteúdo com tipo de dados de várias partes/formulário
 
@@ -158,11 +168,19 @@ Aqui está o mesmo exemplo que mostra a definição de JSON da ação HTTP na de
 }
 ```
 
+## <a name="content-with-applicationx-www-form-urlencoded-type"></a>Conteúdo com aplicativo/x-www-form-tipo urlencoded
+
+Para fornecer dados urlencoded no corpo de uma solicitação HTTP, você precisa especificar que os dados têm o `application/x-www-form-urlencoded` tipo de conteúdo. Na ação ou gatilho HTTP, adicione o `content-type` cabeçalho. Defina o valor do cabeçalho como `application/x-www-form-urlencoded` .
+
+Por exemplo, suponha que você tenha um aplicativo lógico que envia uma solicitação HTTP POST para um site, que dá suporte ao `application/x-www-form-urlencoded` tipo. Veja como essa ação pode parecer:
+
+![Captura de tela que mostra uma solicitação HTTP com o cabeçalho ' Content-Type ' definido como ' application/x-www-form-urlencoded '](./media/connectors-native-http/http-action-urlencoded.png)
+
 <a name="asynchronous-pattern"></a>
 
 ## <a name="asynchronous-request-response-behavior"></a>Comportamento assíncrono de solicitação-resposta
 
-Por padrão, todas as ações baseadas em HTTP nos aplicativos lógicos do Azure seguem o [padrão de operação assíncrona](https://docs.microsoft.com/azure/architecture/patterns/async-request-reply)padrão. Esse padrão especifica que depois que uma ação HTTP chama ou envia uma solicitação para um ponto de extremidade, serviço, sistema ou API, o receptor retorna imediatamente uma resposta ["202 aceito"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.3) . Esse código confirma que o receptor aceitou a solicitação, mas não concluiu o processamento. A resposta pode incluir um `location` cabeçalho que especifica a URL e uma ID de atualização que o chamador pode usar para sondar ou verificar o status da solicitação assíncrona até que o receptor pare de processar e retorne uma resposta de êxito ["200 OK"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1) ou outra resposta diferente de 202. No entanto, o chamador não precisa esperar que a solicitação conclua o processamento e possa continuar executando a próxima ação. Para obter mais informações, consulte [integração assíncrona de microserviço impõe autonomia de microserviço](https://docs.microsoft.com/azure/architecture/microservices/design/interservice-communication#synchronous-versus-asynchronous-messaging).
+Por padrão, todas as ações baseadas em HTTP nos aplicativos lógicos do Azure seguem o [padrão de operação assíncrona](/azure/architecture/patterns/async-request-reply)padrão. Esse padrão especifica que depois que uma ação HTTP chama ou envia uma solicitação para um ponto de extremidade, serviço, sistema ou API, o receptor retorna imediatamente uma resposta ["202 aceito"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.3) . Esse código confirma que o receptor aceitou a solicitação, mas não concluiu o processamento. A resposta pode incluir um `location` cabeçalho que especifica a URL e uma ID de atualização que o chamador pode usar para sondar ou verificar o status da solicitação assíncrona até que o receptor pare de processar e retorne uma resposta de êxito ["200 OK"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1) ou outra resposta diferente de 202. No entanto, o chamador não precisa esperar que a solicitação conclua o processamento e possa continuar executando a próxima ação. Para obter mais informações, consulte [integração assíncrona de microserviço impõe autonomia de microserviço](/azure/architecture/microservices/design/interservice-communication#synchronous-versus-asynchronous-messaging).
 
 * No designer do aplicativo lógico, a ação HTTP, mas não o gatilho, tem uma configuração **padrão assíncrona** , que é habilitada por padrão. Essa configuração especifica que o chamador não aguarda o processamento ser concluído e possa passar para a próxima ação, mas continua verificando o status até que o processamento seja interrompido. Se desabilitada, essa configuração especifica que o chamador aguarda o processamento ser concluído antes de passar para a próxima ação.
 
@@ -229,9 +247,9 @@ Alguns pontos de extremidade, serviços, sistemas ou APIs retornam uma resposta 
 
 Se um gatilho ou ação HTTP incluir esses cabeçalhos, os aplicativos lógicos removerão esses cabeçalhos da mensagem de solicitação gerada sem mostrar nenhum aviso ou erro:
 
-* `Accept-*`
+* `Accept-*` cabeçalhos, exceto para `Accept-version`
 * `Allow`
-* `Content-*` com estas exceções: `Content-Disposition`, `Content-Encoding` e `Content-Type`
+* `Content-*` cabeçalhos, exceto para `Content-Disposition` , `Content-Encoding` e `Content-Type` quando você usa operações post e put, mas não são incluídos para operações Get
 * `Cookie`
 * `Expires`
 * `Host`
@@ -249,28 +267,7 @@ Para obter mais informações sobre parâmetros de ação e gatilho, consulte es
 * [Parâmetros de gatilho HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md#http-trigger)
 * [Parâmetros de ação HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action)
 
-### <a name="output-details"></a>Detalhes de saída
-
-Aqui estão mais informações sobre as saídas de um gatilho ou ação HTTP, que retorna essas informações:
-
-| Propriedade | Tipo | Description |
-|----------|------|-------------|
-| `headers` | Objeto JSON | Os cabeçalhos da solicitação |
-| `body` | Objeto JSON | O objeto com o conteúdo do corpo da solicitação |
-| `status code` | Integer | O código de status da solicitação |
-|||
-
-| Código de status | Descrição |
-|-------------|-------------|
-| 200 | OK |
-| 202 | Aceita |
-| 400 | Solicitação incorreta |
-| 401 | Não Autorizado |
-| 403 | Proibido |
-| 404 | Não encontrado |
-| 500 | Erro interno do servidor. Ocorreu um erro desconhecido. |
-|||
-
 ## <a name="next-steps"></a>Próximas etapas
 
-* Saiba mais sobre outros [conectores de Aplicativos Lógicos](../connectors/apis-list.md)
+* [Acesso seguro e acesso a dados para chamadas de saída para outros serviços e sistemas](../logic-apps/logic-apps-securing-a-logic-app.md#secure-outbound-requests)
+* [Conectores para Aplicativos Lógicos](../connectors/apis-list.md)

@@ -3,26 +3,26 @@ title: Publicar aplicativo-LUIS
 titleSuffix: Azure Cognitive Services
 description: Quando terminar de compilar e testar seu aplicativo LUIS ativo, disponibilize-o ao seu aplicativo cliente publicando-o no ponto de extremidade.
 services: cognitive-services
-author: diberry
+author: aahill
 manager: nitinme
+ms.author: aahi
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 05/17/2020
-ms.author: diberry
-ms.openlocfilehash: e9c8b607b1dc3f7f67ee1fdad353d15023318947
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.date: 01/12/2021
+ms.openlocfilehash: 8db0f5fa39c7f489db0e30e98ee2684c74eee7e8
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84340684"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98180023"
 ---
 # <a name="publish-your-active-trained-app-to-a-staging-or-production-endpoint"></a>Publicar seu aplicativo ativo, treinado em um ponto de extremidade de preparo ou produção
 
 Quando você terminar de criar, treinar e testar seu aplicativo LUIS ativo, disponibilize-o para o aplicativo cliente publicando-o no ponto de extremidade.
 
-## <a name="publishing"></a>Publicação
+## <a name="publishing"></a>Publicando
 1. Entre no [portal do LUIS](https://www.luis.ai) selecione sua **Assinatura** e **Recurso de criação** para ver os aplicativos atribuídos a esse recurso.
 1. Abra seu aplicativo selecionando seu nome na página **meus aplicativos** .
 1. Para publicar no ponto de extremidade, selecione **Publicar** no painel superior direito.
@@ -37,7 +37,7 @@ Quando você terminar de criar, treinar e testar seu aplicativo LUIS ativo, disp
 
 Selecione o slot correto quando a janela pop-up for exibida:
 
-* Staging
+* Preparo
 * Produção
 
 Usando os dois slots de publicação, isso permite que você tenha duas versões diferentes do seu aplicativo disponíveis nos pontos de extremidade publicados ou na mesma versão em dois pontos de extremidade diferentes.
@@ -57,7 +57,7 @@ Por exemplo, para um aplicativo criado em [www.Luis.ai](https://www.luis.ai), se
 Depois de selecionar o slot, defina as configurações de publicação para:
 
 * Análise de sentimento
-* [Correção ortográfica](luis-tutorial-bing-spellcheck.md) -somente ponto de extremidade de previsão v2
+* [Correção ortográfica](luis-tutorial-bing-spellcheck.md)
 * Preparação da fala
 
 Depois de publicar, essas configurações estarão disponíveis para análise na página **gerenciar** configurações de **publicação** da seção. Você pode alterar as configurações com cada publicação. Se você cancelar uma publicação, as alterações feitas durante a publicação também serão canceladas.
@@ -82,7 +82,32 @@ Para obter mais informações sobre a resposta do ponto de extremidade JSON com 
 
 ## <a name="spelling-correction"></a>Correção ortográfica
 
-[!INCLUDE [Not supported in V3 API prediction endpoint](./includes/v2-support-only.md)]
+A API de previsão v3 agora dá suporte à API de verificação ortográfica do Bing. Você pode adicionar a verificação ortográfica ao seu aplicativo, incluindo a chave para o recurso de pesquisa do Bing no cabeçalho de suas solicitações. Você pode usar um recurso existente do Bing se você já tiver um ou [criar um novo](https://portal.azure.com/#create/Microsoft.BingSearch) para usar esse recurso. 
+
+|Chave de cabeçalho|Valor do cabeçalho|
+|--|--|
+|`mkt-bing-spell-check-key`|Chaves encontradas em **chaves e** folha de ponto de extremidade do recurso|
+
+Exemplo de saída de previsão para uma consulta grafada incorretamente:
+
+```json
+{
+  "query": "bouk me a fliht to kayro",
+  "prediction": {
+    "alteredQuery": "book me a flight to cairo",
+    "topIntent": "book a flight",
+    "intents": {
+      "book a flight": {
+        "score": 0.9480589
+      }
+      "None": {
+        "score": 0.0332136229
+      }
+    },
+    "entities": {}
+  }
+}
+```
 
 As correções de ortografia são feitas antes da previsão de expressão do usuário LUIS. Você pode ver quaisquer alterações no expressão original, incluindo a ortografia, na resposta.
 

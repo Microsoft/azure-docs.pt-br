@@ -6,14 +6,20 @@ ms.author: jzim
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.openlocfilehash: f6c4fb5caf746650f95872d50afe31e5693422be
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ee8613d0300a941f80577c98be106173d5d3ced1
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81382909"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92220696"
 ---
 # <a name="azure-active-directory-integration-for-azure-red-hat-openshift"></a>Integração do Azure Active Directory para o Azure Red Hat OpenShift
+
+> [!IMPORTANT]
+> O Azure Red Hat OpenShift 3,11 será desativado em 30 de junho de 2022. O suporte para a criação de novos clusters do Azure Red Hat OpenShift 3,11 continua até 30 de novembro de 2020. Após a aposentadoria, os clusters restantes do Azure Red Hat OpenShift 3,11 serão desligados para evitar vulnerabilidades de segurança.
+> 
+> Siga este guia para [criar um cluster do Azure Red Hat OpenShift 4](tutorial-create-cluster.md).
+> Se você tiver dúvidas específicas, [entre em contato conosco](mailto:arofeedback@microsoft.com).
 
 Se você ainda não criou um locatário do Azure Active Directory (Azure AD), siga as instruções em [criar um locatário do Azure ad para o Azure Red Hat OpenShift](howto-create-tenant.md) antes de continuar com estas instruções.
 
@@ -30,7 +36,7 @@ Crie um novo usuário do Azure Active Directory ' proprietário ' para entrar no
 1. Vá para a folha [usuários – todos os usuários](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers) .
 2. Clique em **+ novo usuário** para abrir o painel **usuário** .
 3. Insira um **nome** para este usuário.
-4. Crie um **nome de usuário** com base no nome do locatário que você criou, com `.onmicrosoft.com` anexado no final. Por exemplo, `yourUserName@yourTenantName.onmicrosoft.com`. Anote este nome de usuário. Você precisará dela para entrar no cluster.
+4. Crie um **nome de usuário** com base no nome do locatário que você criou, com  `.onmicrosoft.com` anexado no final. Por exemplo, `yourUserName@yourTenantName.onmicrosoft.com`. Anote este nome de usuário. Você precisará dela para entrar no cluster.
 5. Clique em **função de diretório** para abrir o painel função de diretório e selecione **proprietário** e, em seguida, clique em **OK** na parte inferior do painel.
 6. No painel **usuário** , clique em **Mostrar senha** e registre a senha temporária. Depois de entrar na primeira vez, você será solicitado a redefini-la.
 7. Na parte inferior do painel, clique em **criar** para criar o usuário.
@@ -86,9 +92,9 @@ Gere um segredo do cliente para autenticar seu aplicativo para Azure Active Dire
 
 ![Captura de tela do painel certificados e segredos](./media/howto-create-tenant/create-key.png)
 
-Para obter mais informações sobre objetos Aplicativo Azure, consulte [objetos de aplicativo e entidade de serviço no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals).
+Para obter mais informações sobre objetos Aplicativo Azure, consulte [objetos de aplicativo e entidade de serviço no Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md).
 
-Para obter detalhes sobre como criar um novo aplicativo do Azure AD, consulte [registrar um aplicativo com o ponto de extremidade Azure Active Directory v 1.0](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-add-azure-ad-app).
+Para obter detalhes sobre como criar um novo aplicativo do Azure AD, consulte [registrar um aplicativo com o ponto de extremidade Azure Active Directory v 1.0](../active-directory/develop/quickstart-register-app.md).
 
 ## <a name="add-api-permissions"></a>Adicionar permissões de API
 
@@ -110,12 +116,12 @@ Para obter detalhes sobre como criar um novo aplicativo do Azure AD, consulte [r
 > [!IMPORTANT]
 > A sincronização do grupo de administradores de cluster só funcionará depois que o consentimento tiver sido concedido. Você verá um círculo verde com uma marca de seleção e uma mensagem "concedida para o *nome da assinatura*" na coluna *consentimento do administrador obrigatório* .
 
-Para obter detalhes sobre como gerenciar administradores e outras funções, consulte [Adicionar ou alterar administradores de assinatura do Azure](https://docs.microsoft.com/azure/billing/billing-add-change-azure-subscription-administrator).
+Para obter detalhes sobre como gerenciar administradores e outras funções, consulte [Adicionar ou alterar administradores de assinatura do Azure](../cost-management-billing/manage/add-change-subscription-administrator.md).
 
 ## <a name="resources"></a>Recursos
 
-* [Aplicativos e objetos de entidade de serviço no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals)
-* [Início Rápido: registrar um aplicativo no ponto de extremidade v1.0 do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-add-azure-ad-app)
+* [Aplicativos e objetos de entidade de serviço no Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md)
+* [Início Rápido: registrar um aplicativo no ponto de extremidade v1.0 do Azure Active Directory](../active-directory/develop/quickstart-register-app.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 

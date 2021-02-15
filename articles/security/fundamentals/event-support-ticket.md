@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/13/2017
 ms.author: terrylan
 ms.openlocfilehash: fc5899fe5aca4bbaa9250cf41b240816e2cbedb0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80548599"
 ---
 # <a name="how-to-log-a-security-event-support-ticket"></a>Como registrar um tíquete de suporte de evento de segurança
@@ -43,7 +43,7 @@ ms.locfileid: "80548599"
     - Se precisar se comunicar conosco sobre seu problema, use o número de confirmação em todas as correspondências.
     - Você pode exibir o andamento da resolução do seu problema a qualquer momento.
 
-5. O que acontece em seguida? Dependendo do problema e da gravidade, as etapas a seguir podem ser tomadas:
+5. O que acontecerá em seguida? Dependendo do problema e da gravidade, as etapas a seguir podem ser tomadas:
 
     - Comunicaremos o resultado da nossa avaliação para você. Dependendo do resultado, podemos remover ou solicitar que você modifique sua oferta. Nesse caso, trabalharemos com você para garantir que as interrupções nos clientes afetados sejam minimizadas.
     - Trabalharemos com você para ajudar a reduzir o impacto do incidente/vulnerabilidade para nossos clientes mútuos.

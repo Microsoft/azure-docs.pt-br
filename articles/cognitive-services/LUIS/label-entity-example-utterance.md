@@ -1,14 +1,16 @@
 ---
 title: Rotular o enunciado de exemplo da entidade
 description: Saiba como rotular uma entidade de aprendizado de máquina com subentidades em um exemplo expressão em uma página de detalhes da intenção do portal do LUIS.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: f576f42f46930d81212ff754a14ee30c75b79624
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: ffbaa2e40d5924ba61e548398e63295cf7dba2b0
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85610482"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019728"
 ---
 # <a name="label-machine-learning-entity-in-an-example-utterance"></a>Rotular entidade Machine-Learning em um exemplo de expressão
 
@@ -53,7 +55,7 @@ A paleta de entidades oferece uma alternativa à experiência de rotulagem anter
 3. No enunciado de exemplo, _pinte_ a entidade com o cursor.
 
     > [!div class="mx-imgBorder"]
-    > ![Paleta de entidades para entidade de aprendizado de máquina](media/label-utterances/example-1-label-machine-learned-entity-palette-label-action.png)
+    > ![Captura de tela mostra a entidade pintada com o cursor.](media/label-utterances/example-1-label-machine-learned-entity-palette-label-action.png)
 
 ## <a name="adding-entity-as-a-feature-from-the-entity-palette"></a>Adicionando a entidade como um recurso da paleta de entidades
 

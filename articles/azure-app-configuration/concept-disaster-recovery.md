@@ -1,17 +1,17 @@
 ---
 title: Resiliência de configuração Azure App e recuperação de desastre
 description: Saiba como implementar resiliência e recuperação de desastre com a configuração de Azure App.
-author: lisaguthrie
-ms.author: lcozzens
+author: AlexandraKemperMS
+ms.author: alkemper
 ms.service: azure-app-configuration
 ms.topic: conceptual
-ms.date: 02/20/2020
-ms.openlocfilehash: 5c62f10d67345d68cde27af7d0a7663b22d978a0
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.date: 07/09/2020
+ms.openlocfilehash: 7910e2092259081aade799fc662052e5a1375e25
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207190"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96930476"
 ---
 # <a name="resiliency-and-disaster-recovery"></a>Resiliência e recuperação de desastre
 
@@ -76,7 +76,7 @@ No portal do Azure, efetue push de uma alteração para outro repositório de co
 
 1. Na nova folha que é aberta, especifique a assinatura, o grupo de recursos e o nome do recurso do armazenamento secundário e, em seguida, selecione **aplicar**.
 
-1. A interface do usuário será atualizada para que você possa escolher quais dados de configuração deseja exportar para o repositório secundário. Você pode deixar o valor de hora padrão como está e definir ambos **de rótulo** e **rótulo** com o mesmo valor. Escolha **Aplicar**. Repita isso para todos os rótulos em seu repositório primário.
+1. A interface do usuário será atualizada para que você possa escolher quais dados de configuração deseja exportar para o repositório secundário. Você pode deixar o valor de hora padrão como está e definir ambos **de rótulo** e **rótulo** com o mesmo valor. Selecione **Aplicar**. Repita isso para todos os rótulos em seu repositório primário.
 
 1. Repita as etapas anteriores sempre que a configuração for alterada.
 

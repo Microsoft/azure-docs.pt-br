@@ -6,15 +6,15 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2019
-ms.openlocfilehash: ec5717135ec7bbf2236b5f5672dbf0b5d1413b44
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.openlocfilehash: a817c12a367d7c14f693389920e49b368a35cc06
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88565716"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95522865"
 ---
 # <a name="optimize-log-queries-in-azure-monitor"></a>Otimizar consultas de log no Azure Monitor
-Os logs de Azure Monitor usam o [Data Explorer do Azure (ADX)](/azure/data-explorer/) para armazenar dados de log e executar consultas para analisar esses dados. Ele cria, gerencia e mantém os clusters ADX para você e os otimiza para sua carga de trabalho de análise de log. Quando você executa uma consulta, ela é otimizada e roteada para o cluster ADX apropriado que armazena os dados do espaço de trabalho. Os logs de Azure Monitor e o Data Explorer do Azure usam muitos mecanismos de otimização de consulta automática. Embora as otimizações automáticas forneçam um aumento significativo, elas estão em alguns casos em que você pode melhorar drasticamente o desempenho da consulta. Este artigo explica as considerações de desempenho e várias técnicas para corrigi-las.
+Os logs de Azure Monitor usam o [Data Explorer do Azure (ADX)](/azure/data-explorer/) para armazenar dados de log e executar consultas para analisar esses dados. Ele cria, gerencia e mantém os clusters ADX para você e os otimiza para sua carga de trabalho de análise de log. Quando você executa uma consulta, ela é otimizada e roteada para o cluster ADX apropriado que armazena os dados do espaço de trabalho. Os logs de Azure Monitor e o Data Explorer do Azure usam muitos mecanismos de otimização de consulta automática. Embora as otimizações automáticas forneçam um aumento significativo, há alguns casos em que você pode melhorar drasticamente o desempenho da consulta. Este artigo explica as considerações de desempenho e várias técnicas para corrigi-las.
 
 A maioria das técnicas é comum a consultas que são executadas diretamente no Azure Data Explorer e nos logs de Azure Monitor, embora haja várias considerações de logs de Azure Monitor exclusivas que são discutidas aqui. Para obter mais dicas de otimização de Data Explorer do Azure, consulte [práticas recomendadas de consulta](/azure/kusto/query/best-practices).
 
@@ -52,6 +52,8 @@ Os seguintes indicadores de desempenho de consulta estão disponíveis para cada
 
 ## <a name="total-cpu"></a>Total de CPU
 A CPU de computação real que foi investido para processar essa consulta em todos os nós de processamento de consulta. Como a maioria das consultas é executada em um grande número de nós, isso geralmente será muito maior do que a duração que a consulta realmente levou para ser executada. 
+
+A consulta que utiliza mais de 100 segundos de CPU é considerada uma consulta que consome recursos excessivos. A consulta que utiliza mais de 1.000 segundos de CPU é considerada uma consulta abusiva e pode ser limitada.
 
 O tempo de processamento de consulta é gasto em:
 - Recuperação de dados – a recuperação de dados antigos consumirá mais tempo do que a recuperação de dados recentes.
@@ -96,18 +98,34 @@ Por exemplo, as consultas a seguir produzem exatamente o mesmo resultado, mas a 
 
 ```Kusto
 //less efficient
-Heartbeat 
-| extend IPRegion = iif(RemoteIPLongitude  < -94,"WestCoast","EastCoast")
-| where IPRegion == "WestCoast"
-| summarize count(), make_set(IPRegion) by Computer
+Syslog
+| extend Msg = strcat("Syslog: ",SyslogMessage)
+| where  Msg  has "Error"
+| count 
 ```
 ```Kusto
 //more efficient
-Heartbeat 
-| where RemoteIPLongitude  < -94
-| extend IPRegion = iif(RemoteIPLongitude  < -94,"WestCoast","EastCoast")
-| summarize count(), make_set(IPRegion) by Computer
+Syslog
+| where  SyslogMessage  has "Error"
+| count 
 ```
+
+Em alguns casos, a coluna avaliada é criada implicitamente pelo mecanismo de processamento de consulta, já que a filtragem é feita não apenas no campo:
+```Kusto
+//less efficient
+SecurityEvent
+| where tolower(Process) == "conhost.exe"
+| count 
+```
+```Kusto
+//more efficient
+SecurityEvent
+| where Process =~ "conhost.exe"
+| count 
+```
+
+
+
 
 ### <a name="use-effective-aggregation-commands-and-dimensions-in-summarize-and-join"></a>Usar comandos e dimensões de agregação efetivas em resumir e unir
 
@@ -176,6 +194,8 @@ SecurityEvent
 ## <a name="data-used-for-processed-query"></a>Dados usados para consulta processada
 
 Um fator crítico no processamento da consulta é o volume de dados que é verificado e usado para o processamento da consulta. O Azure Data Explorer usa otimizações agressivas que reduzem drasticamente o volume de dados em comparação com outras plataformas de dados. Ainda assim, há fatores críticos na consulta que podem afetar o volume de dados que é usado.
+
+A consulta que processa mais de 2, 000KB de dados é considerada uma consulta que consome recursos excessivos. A consulta que está processando mais de 20, 000KB de dados é considerada uma consulta abusiva e pode ser limitada.
 
 Nos logs de Azure Monitor, a coluna **TimeGenerated** é usada como uma maneira de indexar os dados. A restrição dos valores **TimeGenerated** para o mais estreito possível fará uma melhoria significativa no desempenho da consulta, limitando significativamente a quantidade de dados a serem processados.
 
@@ -275,7 +295,7 @@ SecurityEvent
 | distinct FilePath, CallerProcessName1
 ```
 
-Quando o mostrado acima não permite o uso de subconsultas, outra técnica é a dica ao mecanismo de consulta de que há um único dado de origem usado em cada um deles usando a [função materializar ()](/azure/data-explorer/kusto/query/materializefunction?pivots=azuremonitor). Isso é útil quando os dados de origem são provenientes de uma função que é usada várias vezes dentro da consulta.
+Quando o mostrado acima não permite o uso de subconsultas, outra técnica é a dica ao mecanismo de consulta de que há um único dado de origem usado em cada um deles usando a [função materializar ()](/azure/data-explorer/kusto/query/materializefunction?pivots=azuremonitor). Isso é útil quando os dados de origem são provenientes de uma função que é usada várias vezes dentro da consulta. O materializar é eficaz quando a saída da subconsulta é muito menor do que a entrada. O mecanismo de consulta armazenará em cache e reutilizará a saída em todas as ocorrências.
 
 
 
@@ -300,6 +320,8 @@ SecurityEvent
 
 Todos os logs em logs de Azure Monitor são particionados de acordo com a coluna **TimeGenerated** . O número de partições acessadas está diretamente relacionado ao período de tempo. Reduzir o intervalo de tempo é a maneira mais eficiente de garantir uma execução de consulta de prompt.
 
+A consulta com período de mais de 15 dias é considerada uma consulta que consome recursos excessivos. A consulta com período de mais de 90 dias é considerada uma consulta abusiva e pode ser limitada.
+
 O intervalo de tempo pode ser definido usando o seletor de intervalo de tempo na tela de Log Analytics, conforme descrito em [escopo de consulta de log e intervalo de tempo em Azure Monitor log Analytics](scope.md#time-range). Esse é o método recomendado, pois o intervalo de tempo selecionado é passado para o back-end usando os metadados de consulta. 
 
 Um método alternativo é incluir explicitamente uma condição [Where](/azure/kusto/query/whereoperator) em **TimeGenerated** na consulta. Você deve usar esse método, pois garante que o período de tempo seja fixo, mesmo quando a consulta for usada de uma interface diferente.
@@ -320,7 +342,7 @@ Perf
 ) on Computer
 ```
 
-Um caso comum em que esse erro ocorre é quando [ARG_MAX ()](/azure/kusto/query/arg-max-aggfunction) é usado para localizar a ocorrência mais recente. Por exemplo:
+Um caso comum em que esse erro ocorre é quando [ARG_MAX ()](/azure/kusto/query/arg-max-aggfunction) é usado para localizar a ocorrência mais recente. Por exemplo: 
 
 ```Kusto
 Perf
@@ -389,6 +411,9 @@ Há vários casos em que o sistema não pode fornecer uma medição precisa do i
 ## <a name="age-of-processed-data"></a>Idade dos dados processados
 O Azure Data Explorer usa várias camadas de armazenamento: em memória, discos SSD locais e BLOBs do Azure muito mais lentos. Quanto mais novos os dados, mais alto é a chance de que ele seja armazenado em uma camada mais eficaz com menor latência, reduzindo a duração da consulta e a CPU. Além dos dados em si, o sistema também tem um cache para metadados. Quanto mais antigos os dados, menos chance seus metadados estarão no cache.
 
+A consulta que processa dados além de 14 dias de idade é considerada uma consulta que consome recursos excessivos.
+
+
 Embora algumas consultas exijam o uso de dados antigos, há casos em que os dados antigos são usados por engano. Isso acontece quando as consultas são executadas sem fornecer um intervalo de tempo em seus metadados e nem todas as referências de tabela incluem o filtro na coluna **TimeGenerated** . Nesses casos, o sistema examinará todos os dados armazenados nessa tabela. Quando a retenção de dados é longa, ela pode cobrir intervalos de tempo longos e, portanto, dados tão antigos quanto o período de retenção de dados.
 
 Esses casos podem ser por exemplo:
@@ -408,6 +433,8 @@ Há várias situações em que uma única consulta pode ser executada em diferen
 A execução de consulta entre regiões exige que o sistema Serialize e transfira no back-end grandes partes de dados intermediários que geralmente são muito maiores do que os resultados finais da consulta. Ele também limita a capacidade do sistema de executar otimizações, heurística e utilizar caches.
 Se não houver nenhum motivo para verificar todas essas regiões, você deve ajustar o escopo para abranger menos regiões. Se o escopo do recurso for minimizado, mas ainda muitas regiões forem usadas, isso pode acontecer devido a uma configuração incorreta. Por exemplo, os logs de auditoria e as configurações de diagnóstico são enviados para espaços de trabalho diferentes em regiões diferentes ou há várias configurações de configurações de diagnóstico. 
 
+A consulta que abrange mais de três regiões é considerada uma consulta que consome recursos excessivos. A consulta que abrange mais de 6 regiões é considerada uma consulta abusiva e pode ser limitada.
+
 > [!IMPORTANT]
 > Quando uma consulta é executada em várias regiões, as medições de CPU e dados não serão precisas e representarão a medida somente em uma das regiões.
 
@@ -420,6 +447,8 @@ O uso de vários espaços de trabalho pode resultar de:
 - Quando uma consulta com escopo de recurso está buscando dados e os dados são armazenados em vários espaços de trabalho.
  
 A execução de consultas entre regiões e entre clusters exige que o sistema Serialize e transfira no back-end grandes partes de dados intermediários que geralmente são muito maiores do que os resultados finais da consulta. Ele também limita a capacidade do sistema de executar otimizações, heurística e utilização de caches.
+
+A consulta que abrange mais de 5 espaço de trabalho é considerada uma consulta que consome recursos excessivos. As consultas não podem abranger mais de 100 espaços de trabalho.
 
 > [!IMPORTANT]
 > Em alguns cenários de vários espaços de trabalho, as medições de CPU e dados não serão precisas e representarão a medida apenas para alguns dos espaços de trabalho.
@@ -434,7 +463,7 @@ Os comportamentos de consulta que podem reduzir o paralelismo incluem:
 - O uso de funções de serialização e de janela, como o [operador serializar](/azure/kusto/query/serializeoperator), [Next ()](/azure/kusto/query/nextfunction), [Ant ()](/azure/kusto/query/prevfunction)e as funções [Row](/azure/kusto/query/rowcumsumfunction) . As funções de série temporal e análise de usuário podem ser usadas em alguns desses casos. A serialização ineficiente também poderá ocorrer se os operadores a seguir forem usados não no final da consulta: [intervalo](/azure/kusto/query/rangeoperator), [classificação](/azure/kusto/query/sortoperator), [ordem](/azure/kusto/query/orderoperator), [superior](/azure/kusto/query/topoperator), [superior Hitters](/azure/kusto/query/tophittersoperator), [GetSchema](/azure/kusto/query/getschemaoperator).
 -    O uso da função de agregação [DContar ()](/azure/kusto/query/dcount-aggfunction) força o sistema a ter uma cópia central dos valores distintos. Quando a escala de dados é alta, considere usar os parâmetros opcionais da função DContar para reduzir a precisão.
 -    Em muitos casos, o operador de [junção](/azure/kusto/query/joinoperator?pivots=azuremonitor) reduz o paralelismo geral. Examine a junção em ordem aleatória como alternativa quando o desempenho é problemático.
--    Em consultas de escopo de recurso, as verificações de pré-instalação RBAC podem permanecer em situações em que há um número muito grande de atribuições de função do Azure. Isso pode levar a verificações mais longas que resultaria em um paralelismo inferior. Por exemplo, uma consulta é executada em uma assinatura em que há milhares de recursos e cada recurso tem muitas atribuições de função no nível de recurso, não na assinatura ou no grupo de recursos.
+-    Em consultas de escopo de recurso, as verificações de RBAC ou RBAC do Azure kubernetes podem permanecer em situações em que há um número muito grande de atribuições de função do Azure. Isso pode levar a verificações mais longas que resultaria em um paralelismo inferior. Por exemplo, uma consulta é executada em uma assinatura em que há milhares de recursos e cada recurso tem muitas atribuições de função no nível de recurso, não na assinatura ou no grupo de recursos.
 -    Se uma consulta estiver processando pequenas partes de dados, seu paralelismo será baixo, pois o sistema não o espalhará em muitos nós de computação.
 
 

@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 04/07/2020
+ms.date: 09/25/2020
 ms.author: victorh
-ms.openlocfilehash: 560d836f99f7a1be85007bb9d488f80a68d7999b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ba9f42bc932a37e1052f17db2ae00413e0769d59
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87067972"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91355730"
 ---
 # <a name="azure-application-gateway-features"></a>Recursos de gateway de Aplicativo Azure
 
@@ -35,7 +35,7 @@ O gateway de aplicativo inclui os seguintes recursos:
 - [Tráfego do WebSocket e HTTP/2](#websocket-and-http2-traffic)
 - [Descarregamento de conexão](#connection-draining)
 - [Páginas de erro personalizadas](#custom-error-pages)
-- [Reescrever cabeçalhos e URL HTTP](#rewrite-http-headers-and-url)
+- [Reescrever cabeçalhos HTTP e URL](#rewrite-http-headers-and-url)
 - [Dimensionamento](#sizing)
 
 ## <a name="secure-sockets-layer-ssltls-termination"></a>Terminação do protocolo SSL/TLS (Secure Sockets Layer)
@@ -83,13 +83,13 @@ Para obter mais informações, consulte [visão geral de roteamento baseado em c
 
 ## <a name="multiple-site-hosting"></a>Hospedagem de vários sites
 
-Com o gateway de aplicativo, você pode configurar o roteamento com base no nome do host ou nome de domínio para mais de um aplicativo Web no mesmo gateway de aplicativo. Ele permite que você configure uma topologia mais eficiente para suas implantações adicionando até mais de 100 sites a um gateway de aplicativo. Cada site pode ser direcionado para seu próprio pool de back-end. Por exemplo, três domínios, contoso.com, fabrikam.com e adatum.com, apontam para o endereço IP do gateway de aplicativo. Você criaria três ouvintes multissite e configuraria cada ouvinte para as respectivas configurações de porta e protocolo. 
+Com o gateway de aplicativo, você pode configurar o roteamento com base no nome do host ou nome de domínio para mais de um aplicativo Web no mesmo gateway de aplicativo. Permite que você configure a topologia mais eficiente para suas implantações adicionando até mais de 100 sites a um gateway de aplicativo. Cada site pode ser direcionado para seu próprio pool de back-end. Por exemplo, três domínios, contoso.com, fabrikam.com e adatum.com, apontam para o endereço IP do gateway de aplicativo. Você criaria três ouvintes com vários sites e configuraria cada ouvinte para as respectivas configurações de porta e protocolo. 
 
 As solicitações de `http://contoso.com` são roteadas para ContosoServerPool, `http://fabrikam.com` são roteadas para FabrikamServerPool e assim por diante.
 
 Da mesma forma, dois subdomínios do mesmo domínio pai podem ser hospedados na mesma implantação de gateway de aplicativo. Exemplos de uso de subdomínios podem incluir `http://blog.contoso.com` e `http://app.contoso.com` hospedados em uma implantação de gateway de aplicativo único. Para obter mais informações, consulte [Hospedagem de vários sites do gateway de aplicativo](multiple-site-overview.md).
 
-Você também pode definir nomes de host curinga em um ouvinte multissite e até 5 nomes de host por ouvinte. Para saber mais, confira [nomes de host curinga no ouvinte (versão prévia)](multiple-site-overview.md#wildcard-host-names-in-listener-preview).
+Você também pode definir nomes do host curinga em um ouvinte com vários sites e até cinco nomes do host por ouvinte. Para saber mais, confira [nomes de host curinga no ouvinte (versão prévia)](multiple-site-overview.md#wildcard-host-names-in-listener-preview).
 
 ## <a name="redirection"></a>Redirecionamento
 
@@ -117,13 +117,13 @@ O Gateway de Aplicativo fornece suporte nativo para os protocolos WebSocket e HT
 
 Os protocolos WebSocket e HTTP/2 permitem uma comunicação full duplex entre um servidor e um cliente em uma conexão TCP de execução longa. Isso permite uma comunicação mais interativa entre o servidor Web e o cliente, que pode ser bidirecional, sem a necessidade de sondagem, necessária nas implementações baseadas em HTTP. Esses protocolos têm baixa sobrecarga, diferentemente de HTTP, e podem reutilizar a mesma conexão TCP para várias solicitações/respostas, resultando em uma utilização de recursos mais eficiente. Esses protocolos foram projetados para funcionar em portas HTTP tradicionais de 80 e 443.
 
-Para obter mais informações, consulte [suporte ao WebSocket](application-gateway-websocket.md) e [suporte ao HTTP/2](configuration-overview.md#http2-support).
+Para obter mais informações, consulte [suporte ao WebSocket](application-gateway-websocket.md) e [suporte ao HTTP/2](configuration-listeners.md#http2-support).
 
 ## <a name="connection-draining"></a>Descarregamento de conexão
 
 O descarregamento de conexão ajuda você a efetuar a remoção normal de membros do pool de back-end durante atualizações de serviço planejadas. Essa configuração é habilitada por meio da configuração do http de back-end e pode ser aplicada a todos os membros de um pool de back-end durante a criação da regra. Uma vez habilitado, o gateway de aplicativo garante que todas as instâncias de cancelamento de registro de um pool de back-end não recebam nenhuma nova solicitação, permitindo a conclusão de solicitações existentes dentro de um limite de tempo configurado Isso se aplica a instâncias de back-end removidas explicitamente do pool de back-end por uma alteração de configuração do usuário e a instâncias de back-end relatadas como não íntegras, conforme determinado por investigações de integridade. A única exceção a isso são solicitações associadas para cancelamento de registro de instâncias, que foram desregistradas explicitamente, devido à afinidade de sessão gerenciada por gateway e continuam a ser proxy para as instâncias de cancelamento de registro.
 
-Para obter mais informações, consulte [visão geral de configuração do gateway de aplicativo](configuration-overview.md#connection-draining).
+Para obter mais informações, consulte [visão geral de configuração do gateway de aplicativo](configuration-http-settings.md#connection-draining).
 
 ## <a name="custom-error-pages"></a>Páginas de erro personalizadas
 
@@ -131,7 +131,7 @@ O Gateway de Aplicativo permite que você crie páginas de erro personalizadas e
 
 Para obter mais informações, confira [Erros Personalizados](custom-error.md).
 
-## <a name="rewrite-http-headers-and-url"></a>Reescrever cabeçalhos e URL HTTP
+## <a name="rewrite-http-headers-and-url"></a>Reescrever cabeçalhos HTTP e URL
 
 Os cabeçalhos HTTP permitem que o cliente e o servidor passem informações adicionais com a solicitação ou a resposta. A reescrita desses cabeçalhos HTTP ajuda você a realizar vários cenários importantes, como:
 
@@ -139,17 +139,17 @@ Os cabeçalhos HTTP permitem que o cliente e o servidor passem informações adi
 - Remoção de campos de cabeçalho de resposta que podem revelar informações confidenciais.
 - Remoção de informações de porta de cabeçalhos X-Forwarded-For.
 
-O gateway de aplicativo e a SKU WAF v2 dão suporte à capacidade de adicionar, remover ou atualizar cabeçalhos de solicitação e resposta HTTP, enquanto os pacotes de solicitação e resposta são movidos entre os pools de cliente e de back-end. Você também pode reescrever URLs, parâmetros de cadeia de caracteres de consulta e nome do host. Com a regravação de URL e o roteamento baseado em caminho de URL, você pode optar por rotear solicitações para um dos pools de back-end com base no caminho original ou no caminho reescrito, usando a opção reavaliar mapa de caminho. 
+O Gateway de Aplicativo e a SKU v2 do WAF permitem adicionar, remover ou atualizar solicitações HTTP e cabeçalhos de resposta, enquanto os pacotes de solicitação e resposta são transferidos entre os pools de cliente e de back-end. Você também pode reescrever URLs, parâmetros de cadeia de caracteres de consulta e o nome do host. Com a reescrita de URL e o roteamento baseado em caminho de URL, você pode optar por rotear solicitações para um dos pools de back-end de acordo com o caminho original ou o caminho reescrito, usando a opção de reavaliação de mapa de caminho. 
 
-Ele também fornece a capacidade de adicionar condições para garantir que os cabeçalhos ou a URL especificados sejam regravados somente quando determinadas condições forem atendidas. Essas condições se baseiam nas informações de solicitação e resposta.
+Ele também fornece a capacidade de adicionar condições para garantir que os cabeçalhos ou URLs especificados sejam reescritos somente quando determinadas condições forem atendidas. Essas condições se baseiam nas informações de solicitação e resposta.
 
 Para obter mais informações, consulte [reescrever cabeçalhos HTTP e URL](rewrite-http-headers-url.md).
 
 ## <a name="sizing"></a>Dimensionamento
 
-Os Standard_v2 do gateway de aplicativo podem ser configurados para implantações de tamanho automático ou fixo. Esta SKU não oferece tamanhos de instância diferentes. Para obter mais informações sobre o desempenho e os preços do v2, confira [Dimensionamento automático do SKU v2](application-gateway-autoscaling-zone-redundant.md#pricing).
+Os Standard_v2 do gateway de aplicativo podem ser configurados para implantações de tamanho automático ou fixo. A SKU v2 não oferece tamanhos de instância diferentes. Para obter mais informações sobre o desempenho e os preços de v2, consulte [dimensionamento automático v2](application-gateway-autoscaling-zone-redundant.md) e [noções básicas sobre preços](understanding-pricing.md).
 
-O padrão de gateway de aplicativo é oferecido em três tamanhos: **pequeno**, **médio**e **grande**. Os tamanhos de instância pequenos são destinados a cenários de desenvolvimento e teste.
+O padrão de gateway de aplicativo (v1) é oferecido em três tamanhos: **pequeno**, **médio**e **grande**. Os tamanhos de instância pequenos são destinados a cenários de desenvolvimento e teste.
 
 Para obter uma lista completa de limites do gateway de aplicativo, consulte [Limites de serviço do Gateway de Aplicativo](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits).
 

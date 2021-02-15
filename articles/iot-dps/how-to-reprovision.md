@@ -3,30 +3,22 @@ title: Reprovisionar dispositivos no serviço de provisionamento de dispositivos
 description: Saiba como reprovisionar dispositivos com sua instância do DPS (serviço de provisionamento de dispositivos) e por que talvez seja necessário fazer isso.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 04/04/2019
+ms.date: 01/25/2021
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 0ded494debab19daa15a953715b1ab7b0b10ad18
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d704e8f9687f3987d80018d84b41c0fd519da172
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74974897"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791889"
 ---
 # <a name="how-to-reprovision-devices"></a>Como reprovisionar dispositivos
 
-Durante o ciclo de vida de uma solução IoT, é comum mover dispositivos entre os Hubs IoT. Os motivos para essa mudança podem incluir os seguintes cenários:
+Durante o ciclo de vida de uma solução IoT, é comum mover dispositivos entre os Hubs IoT. Este tópico foi escrito para auxiliar os operadores de solução a configurar políticas de reprovisionamento.
 
-* **Localização geográfica**: uma vez que um dispositivo se move entre locais, a latência de rede é aprimorada fazendo com que o dispositivo seja migrado para um Hub IoT mais próximo a cada localização.
-
-* **Multilocação**: um dispositivo poderia ser usado dentro da mesma solução de IoT, mas reatribuído ou concedido a um novo cliente ou site do cliente. Esse novo cliente pode ser atendido usando um Hub IoT diferente.
-
-* **Alteração de solução**: um dispositivo pode ser movido para uma solução de IoT nova ou atualizada. Essa reatribuição pode exigir que o dispositivo se comunique com um novo Hub IoT que está conectado a outros componentes de back-end. 
-
-* **Quarentena**: semelhante a uma alteração de solução. Um dispositivo que está com defeito, comprometido ou desatualizado pode ser reatribuído a um Hub IoT em que tudo o que ele pode fazer é atualizar e voltar em conformidade. Depois que o dispositivo estiver funcionando corretamente, ele é migrado de volta a seu hub principal.
-
-Para obter mais uma visão geral mais detalhada do reprovisionamento, consulte [conceitos de reprovisionamento de dispositivo do Hub IOT](concepts-device-reprovision.md).
+Para obter mais uma visão geral mais detalhada dos cenários de reprovisionamento, consulte [conceitos de reprovisionamento de dispositivo do Hub IOT](concepts-device-reprovision.md).
 
 
 ## <a name="configure-the-enrollment-allocation-policy"></a>Configurar a política de alocação de registro
@@ -45,7 +37,7 @@ As seguintes etapas configuram a política de alocação para o registro do disp
     
     * **Distribuição uniformemente ponderada**: esta política distribui os dispositivos entre os Hubs IoT vinculados com base no peso de alocação atribuído a cada Hub IoT vinculado. Essa política permite que você faça o balanceamento de carga de dispositivos em um grupo de hubs vinculados com base nos pesos de alocação definidos nesses hubs. Se estiver provisionando dispositivos para apenas um Hub IoT, recomendamos essa configuração. Essa é a configuração padrão. 
     
-    * **Configuração estática**: esta política requer que um Hub IoT desejado seja listado na entrada de registro de um dispositivo a ser provisionado. Essa política permite que você designe um único Hub IoT específico ao qual deseja atribuir dispositivos.
+    * **Configuração estática**: essa política requer que um hub IOT desejado seja listado na entrada de registro de um dispositivo a ser provisionado. Essa política permite que você designe um único Hub IoT específico ao qual deseja atribuir dispositivos.
 
 4. Em **Selecione os hubs IoT aos quais esse grupo pode ser atribuído**, selecione os Hubs IoT vinculados que você deseja incluir na sua política de alocação. Opcionalmente, adicione um novo Hub IoT vinculado usando o botão **Vincular um novo Hub IoT**.
 
@@ -75,7 +67,7 @@ As seguintes etapas configuram a política de alocação para o registro do disp
 
 4. Clique em **Salvar** para habilitar o reprovisionamento do dispositivo com base em suas alterações.
 
-    ![Selecionar a política de alocação de registro](./media/how-to-reprovision/reprovisioning-policy.png)
+    ![Captura de tela que realça as alterações feitas e o botão salvar.](./media/how-to-reprovision/reprovisioning-policy.png)
 
 
 

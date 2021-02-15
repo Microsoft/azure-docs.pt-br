@@ -5,15 +5,15 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: include
-ms.date: 08/14/2020
+ms.date: 09/11/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 48c18e08943e170fdd53f04b49b517424b511c62
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: 74b5014b6590fc501291355ee4d142c52ceff129
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88246265"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183865"
 ---
 >[!NOTE]
 >Estamos trabalhando intensamente para adicionar outras regiões. Quando uma região é adicionada, ela é adicionada a esta lista.
@@ -66,4 +66,5 @@ ms.locfileid: "88246265"
 * Gov. dos EUA – Virgínia
 
 **Azure China:**
+* Leste da China 2
 * Norte da China 2

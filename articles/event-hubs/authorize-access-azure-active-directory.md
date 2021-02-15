@@ -3,20 +3,20 @@ title: Autorizar o acesso com o Azure Active Directory
 description: Este artigo fornece informações sobre como autorizar o acesso aos recursos de hubs de eventos usando Azure Active Directory.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 101e40420493156c7b1a0c3c5b767eda023e62c6
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: d794b03fdbb5429983788c74cbb05a7c13bf2d76
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87831831"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92910790"
 ---
 # <a name="authorize-access-to-event-hubs-resources-using-azure-active-directory"></a>Autorizar o acesso aos recursos de hubs de eventos usando Azure Active Directory
-Os hubs de eventos do Azure dão suporte ao uso de Azure Active Directory (AD do Azure) para autorizar solicitações para recursos de hubs de eventos. Com o Azure AD, você pode usar o RBAC (controle de acesso baseado em função) para conceder permissões a uma entidade de segurança, que pode ser um usuário ou uma entidade de serviço de aplicativo. Para saber mais sobre funções e atribuições de função, confira [noções básicas sobre as diferentes funções](../role-based-access-control/overview.md).
+Os hubs de eventos do Azure dão suporte ao uso de Azure Active Directory (AD do Azure) para autorizar solicitações para recursos de hubs de eventos. Com o Azure AD, você pode usar o Azure RBAC (controle de acesso baseado em função) para conceder permissões a uma entidade de segurança, que pode ser um usuário ou uma entidade de serviço de aplicativo. Para saber mais sobre funções e atribuições de função, confira [noções básicas sobre as diferentes funções](../role-based-access-control/overview.md).
 
 ## <a name="overview"></a>Visão geral
 Quando uma entidade de segurança (um usuário ou um aplicativo) tenta acessar um recurso de hubs de eventos, a solicitação deve ser autorizada. Com o Azure AD, o acesso a um recurso é um processo de duas etapas. 
 
- 1. Primeiro, a identidade da entidade de segurança é autenticada e um token OAuth 2,0 é retornado. O nome do recurso para solicitar um token é `https://eventhubs.azure.net/` . Para clientes Kafka, o recurso para solicitar um token é `https://<namespace>.servicebus.windows.net` .
+ 1. Primeiro, a identidade da entidade de segurança é autenticada e um token OAuth 2,0 é retornado. O nome do recurso para solicitar um token é `https://eventhubs.azure.net/` , e é o mesmo para todas as nuvens/locatários. Para clientes Kafka, o recurso para solicitar um token é `https://<namespace>.servicebus.windows.net` .
  1. Em seguida, o token é passado como parte de uma solicitação para o serviço de hubs de eventos para autorizar o acesso ao recurso especificado.
 
 A etapa de autenticação requer que uma solicitação do aplicativo contenha um token de acesso OAuth 2.0 no runtime. Se um aplicativo estiver em execução em uma entidade do Azure, como uma VM do Azure, um conjunto de dimensionamento de máquinas virtuais ou um aplicativo de funções do Azure, ele poderá usar uma identidade gerenciada para acessar os recursos. Para saber como autenticar solicitações feitas por uma identidade gerenciada para o serviço de hubs de eventos, consulte [autenticar o acesso aos recursos dos hubs de eventos do Azure com Azure Active Directory e identidades gerenciadas para recursos do Azure](authenticate-managed-identity.md). 
@@ -33,20 +33,24 @@ Quando uma função do Azure é atribuída a uma entidade de segurança do Azure
 ## <a name="azure-built-in-roles-for-azure-event-hubs"></a>Funções internas do Azure para hubs de eventos do Azure
 O Azure fornece as seguintes funções internas do Azure para autorizar o acesso aos dados de hubs de eventos usando o Azure AD e o OAuth:
 
-- [Proprietário de dados dos hubs de eventos do Azure](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner): Use essa função para fornecer acesso completo aos recursos dos hubs de eventos.
-- [Remetente de dados dos hubs de eventos do Azure](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender): Use essa função para fornecer acesso de envio aos recursos dos hubs de eventos.
-- [Receptor de dados dos hubs de eventos do Azure](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver): Use essa função para fornecer o acesso de consumo/recebimento aos recursos dos hubs de eventos.
+| Função | Descrição | 
+| ---- | ----------- | 
+| [Proprietário de dados dos hubs de eventos do Azure](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner) | Use essa função para fornecer acesso completo aos recursos dos hubs de eventos. |
+| [Remetente de dados dos hubs de eventos do Azure](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender) | Use essa função para fornecer acesso de envio aos recursos dos hubs de eventos. |
+| [Receptor de dados dos hubs de eventos do Azure](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver) | Use essa função para fornecer o acesso de consumo/recebimento aos recursos dos hubs de eventos. |
+
+Para funções internas do registro de esquema, consulte [funções de registro de esquema](schema-registry-overview.md#azure-role-based-access-control).
 
 ## <a name="resource-scope"></a>Escopo do recurso 
 Antes de atribuir uma função do Azure a uma entidade de segurança, determine o escopo do acesso que essa entidade de segurança deve ter. De acordo com as melhores práticas, sempre é melhor conceder o escopo mais estreito possível.
 
 A lista a seguir descreve os níveis nos quais você pode fazer o escopo de acesso a recursos de hubs de eventos, começando com o escopo mais estreito:
 
-- **Grupo de consumidores**: nesse escopo, a atribuição de função se aplica somente a essa entidade. Atualmente, o portal do Azure não dá suporte à atribuição de uma função do Azure a uma entidade de segurança nesse nível. 
-- **Hub de eventos**: a atribuição de função se aplica à entidade do hub de eventos e ao grupo de consumidores sob ela.
-- **Namespace**: a atribuição de função abrange toda a topologia de hubs de eventos no namespace e no grupo de consumidores associado a ela.
-- **Grupo de recursos**: a atribuição de função se aplica a todos os recursos de hubs de eventos no grupo de recursos.
-- **Assinatura**: a atribuição de função se aplica a todos os recursos de hubs de eventos em todos os grupos de recursos na assinatura.
+- **Grupo de consumidores** : nesse escopo, a atribuição de função se aplica somente a essa entidade. Atualmente, o portal do Azure não dá suporte à atribuição de uma função do Azure a uma entidade de segurança nesse nível. 
+- **Hub de eventos** : a atribuição de função se aplica à entidade do hub de eventos e ao grupo de consumidores sob ela.
+- **Namespace** : a atribuição de função abrange toda a topologia de hubs de eventos no namespace e no grupo de consumidores associado a ela.
+- **Grupo de recursos** : a atribuição de função se aplica a todos os recursos de hubs de eventos no grupo de recursos.
+- **Assinatura** : a atribuição de função se aplica a todos os recursos de hubs de eventos em todos os grupos de recursos na assinatura.
 
 > [!NOTE]
 > - Tenha em mente que as atribuições de função do Azure podem levar até cinco minutos para serem propagadas. 
@@ -69,7 +73,7 @@ Para obter mais informações sobre como as funções internas são definidas, c
 
 ## <a name="next-steps"></a>Próximas etapas
 - Saiba como atribuir uma função interna do Azure a uma entidade de segurança, consulte [autenticar o acesso aos recursos dos hubs de eventos usando Azure Active Directory](authenticate-application.md).
-- Saiba [como criar funções personalizadas com o RBAC](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac/CustomRole).
+- Saiba [como criar funções personalizadas com o RBAC do Azure](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac/CustomRole).
 - Saiba [como usar Azure Active Directory com eh](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac/AzureEventHubsSDK)
 
 Consulte os seguintes artigos relacionados:

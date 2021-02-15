@@ -4,21 +4,21 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/25/2020
 ms.author: trrwilson
-ms.openlocfilehash: ee6b6c29c89c39c72144371af8268760da843170
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 8f5a8aa2b949ddd07208cac054147596512f783f
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87374807"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99215434"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar:
 
 > [!div class="checklist"]
-> * [Criar um Recurso de Fala do Azure](../../../../get-started.md)
+> * [Criar um Recurso de Fala do Azure](../../../../overview.md#try-the-speech-service-for-free)
 > * [Configurar seu ambiente de desenvolvimento e criar um projeto vazio](../../../../quickstarts/setup-platform.md)
-> * Criar um bot conectado ao [canal de Fala do Direct Line](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
+> * Criar um bot conectado ao [canal de Fala do Direct Line](/azure/bot-service/bot-service-channel-connect-directlinespeech)
 > * Verificar se você tem acesso a um microfone para captura de áudio
 >
   > [!NOTE]
@@ -29,7 +29,7 @@ Antes de começar:
 Atualize o arquivo go.mod com a versão mais recente do SDK adicionando esta linha
 ```sh
 require (
-    github.com/Microsoft/cognitive-services-speech-sdk-go v1.13.0
+    github.com/Microsoft/cognitive-services-speech-sdk-go v1.15.0
 )
 ```
 
@@ -108,7 +108,7 @@ Substitua os valores `YOUR_SUBSCRIPTION_KEY` e `YOUR_BOT_REGION` pelos valores r
    > Confira [a lista de regiões compatíveis com assistentes de voz](~/articles/cognitive-services/speech-service/regions.md#voice-assistants) e implante seus recursos em uma dessas regiões.
 
    > [!NOTE]
-   > Para saber mais sobre como configurar, confira a documentação do Bot Framework para [o canal de Fala do Direct Line](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech).
+   > Para saber mais sobre como configurar, confira a documentação do Bot Framework para [o canal de Fala do Direct Line](/azure/bot-service/bot-service-channel-connect-directlinespeech).
 
 ## <a name="code-explanation"></a>Explicação de código
 A região e a chave de assinatura da Fala são necessárias para criar um objeto de configuração de fala. O objeto de configuração é necessário para criar uma instância de um objeto de reconhecedor de fala.

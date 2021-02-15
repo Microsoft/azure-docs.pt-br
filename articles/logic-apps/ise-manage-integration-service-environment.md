@@ -5,27 +5,29 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 04/29/2020
-ms.openlocfilehash: 41e511bce3599dd341ccf8192612e3f08111245a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 10/25/2020
+ms.openlocfilehash: 4df9543e5e747de640562b7e5be224e257e0cfd1
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82598412"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676111"
 ---
 # <a name="manage-your-integration-service-environment-ise-in-azure-logic-apps"></a>Gerencie o ambiente do serviço de integração (ISE) nos Aplicativos Lógicos do Azure
 
 Este artigo mostra como executar tarefas de gerenciamento para o [ambiente do serviço de integração (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), por exemplo:
 
 * Gerencie os recursos, como aplicativos lógicos, conexões, contas de integração e conectores no ISE.
+
 * Verifique a integridade da rede do ISE.
+
 * Adicione capacidade, reinicie o ISE ou exclua o ISE, siga as etapas neste tópico. Para adicionar esses artefatos ao ISE, consulte [Adicionar artefatos ao seu ambiente do serviço de integração](../logic-apps/add-artifacts-integration-service-environment-ise.md).
 
 ## <a name="view-your-ise"></a>Exibir seu ISE
 
 1. Entre no [portal do Azure](https://portal.azure.com).
 
-1. Na caixa de pesquisa do portal, insira "ambientes do serviço de integração" e, em seguida, selecione **ambientes do serviço de integração**.
+1. Na caixa de pesquisa do portal, insira "ambientes do serviço de integração" e, em seguida, selecione **ambientes do serviço de integração** .
 
    ![Localizar ambientes de serviço de integração](./media/ise-manage-integration-service-environment/find-integration-service-environment.png)
 
@@ -39,9 +41,17 @@ Este artigo mostra como executar tarefas de gerenciamento para o [ambiente do se
 
 ## <a name="check-network-health"></a>Verificar a integridade da rede
 
-No menu do ISE, em **configurações**, selecione **integridade da rede**. Esse painel mostra o status de integridade para suas sub-redes e dependências de saída em outros serviços.
+No menu do ISE, em **configurações** , selecione **integridade da rede** . Esse painel mostra o status de integridade para suas sub-redes e dependências de saída em outros serviços.
 
 ![Verificar a integridade da rede](./media/ise-manage-integration-service-environment/ise-check-network-health.png)
+
+> [!CAUTION]
+> Se a rede do ISE se tornar não íntegra, o Ambiente do Serviço de Aplicativo interno (ASE) que é usado pelo ISE também pode se tornar não íntegro. Se o ASE não estiver íntegro por mais de sete dias, o ASE será suspenso. Para resolver esse Estado, verifique sua configuração de rede virtual. Resolva os problemas encontrados e reinicie o ISE. Caso contrário, após 90 dias, o ASE suspenso será excluído e o ISE se tornará inutilizável. Portanto, certifique-se de manter seu ISE íntegro para permitir o tráfego necessário.
+> 
+> Para saber mais, consulte esses tópicos:
+>
+> * [Visão geral de diagnóstico do Serviço de Aplicativo do Azure](../app-service/overview-diagnostics.md)
+> * [Log de mensagens para Ambiente do Serviço de Aplicativo do Azure](../app-service/environment/using-an-ase.md#logging)
 
 <a name="find-logic-apps"></a>
 
@@ -49,11 +59,11 @@ No menu do ISE, em **configurações**, selecione **integridade da rede**. Esse 
 
 Você pode exibir e gerenciar os aplicativos lógicos que estão no ISE.
 
-1. No menu do ISE, em **configurações**, selecione **aplicativos lógicos**.
+1. No menu do ISE, em **configurações** , selecione **aplicativos lógicos** .
 
    ![Exibir aplicativos lógicos](./media/ise-manage-integration-service-environment/ise-find-logic-apps.png)
 
-1. Para remover os aplicativos lógicos que você não precisa mais no ISE, selecione esses aplicativos lógicos e, em seguida, selecione **excluir**. Para confirmar que deseja excluir, selecione **Sim**.
+1. Para remover os aplicativos lógicos que você não precisa mais no ISE, selecione esses aplicativos lógicos e, em seguida, selecione **excluir** . Para confirmar que deseja excluir, selecione **Sim** .
 
 > [!NOTE]
 > Se você excluir e recriar um aplicativo lógico filho, deverá salvar novamente o aplicativo lógico pai. O aplicativo filho recriado terá metadados diferentes.
@@ -65,11 +75,11 @@ Você pode exibir e gerenciar os aplicativos lógicos que estão no ISE.
 
 Você pode exibir e gerenciar as conexões que foram criadas pelos aplicativos lógicos em execução no ISE.
 
-1. No menu do ISE, em **configurações**, selecione **conexões de API**.
+1. No menu do ISE, em **configurações** , selecione **conexões de API** .
 
    ![Exibir conexões de API](./media/ise-manage-integration-service-environment/ise-find-api-connections.png)
 
-1. Para remover as conexões que você não precisa mais no ISE, selecione essas conexões e, em seguida, selecione **excluir**. Para confirmar que deseja excluir, selecione **Sim**.
+1. Para remover as conexões que você não precisa mais no ISE, selecione essas conexões e, em seguida, selecione **excluir** . Para confirmar que deseja excluir, selecione **Sim** .
 
 <a name="manage-api-connectors"></a>
 
@@ -77,11 +87,11 @@ Você pode exibir e gerenciar as conexões que foram criadas pelos aplicativos l
 
 Você pode exibir e gerenciar os conectores de API que são implantados no ISE.
 
-1. No menu do ISE, em **configurações**, selecione **conectores gerenciados**.
+1. No menu do ISE, em **configurações** , selecione **conectores gerenciados** .
 
    ![Exibir conectores gerenciados](./media/ise-manage-integration-service-environment/ise-view-managed-connectors.png)
 
-1. Para remover os conectores que você não deseja disponibilizar no ISE, selecione esses conectores e, em seguida, selecione **excluir**. Para confirmar que deseja excluir, selecione **Sim**.
+1. Para remover os conectores que você não deseja disponibilizar no ISE, selecione esses conectores e, em seguida, selecione **excluir** . Para confirmar que deseja excluir, selecione **Sim** .
 
 <a name="find-custom-connectors"></a>
 
@@ -89,21 +99,21 @@ Você pode exibir e gerenciar os conectores de API que são implantados no ISE.
 
 Você pode exibir e gerenciar os conectores personalizados que você implantou no ISE.
 
-1. No menu do ISE, em **configurações**, selecione **conectores personalizados**.
+1. No menu do ISE, em **configurações** , selecione **conectores personalizados** .
 
    ![Localizar conectores personalizados](./media/ise-manage-integration-service-environment/ise-find-custom-connectors.png)
 
-1. Para remover conectores personalizados que não são mais necessários no ISE, selecione esses conectores e, em seguida, selecione **excluir**. Para confirmar que deseja excluir, selecione **Sim**.
+1. Para remover conectores personalizados que não são mais necessários no ISE, selecione esses conectores e, em seguida, selecione **excluir** . Para confirmar que deseja excluir, selecione **Sim** .
 
 <a name="find-integration-accounts"></a>
 
 ## <a name="manage-integration-accounts"></a>Gerenciar contas de integração
 
-1. No menu do ISE, em **configurações**, selecione **contas de integração**.
+1. No menu do ISE, em **configurações** , selecione **contas de integração** .
 
    ![Localizar contas de integração](./media/ise-manage-integration-service-environment/ise-find-integration-accounts.png)
 
-1. Para remover contas de integração do ISE quando não forem mais necessárias, selecione as contas de integração e, em seguida, selecione **excluir**.
+1. Para remover contas de integração do ISE quando não forem mais necessárias, selecione as contas de integração e, em seguida, selecione **excluir** .
 
 <a name="add-capacity"></a>
 
@@ -113,52 +123,52 @@ A unidade base do ISE Premium tem capacidade fixa, portanto, se você precisar d
 
 1. No [portal do Azure](https://portal.azure.com), vá para o ISE.
 
-1. Para examinar o uso e as métricas de desempenho do ISE, no menu do ISE, selecione **visão geral**.
+1. Para examinar o uso e as métricas de desempenho do ISE, no menu do ISE, selecione **visão geral** .
 
    ![Exibir o uso do ISE](./media/ise-manage-integration-service-environment/integration-service-environment-usage.png)
 
-1. Em **configurações**, selecione **escalar horizontalmente**. No painel **Configurar** , selecione uma destas opções:
+1. Em **configurações** , selecione **escalar horizontalmente** . No painel **Configurar** , selecione uma destas opções:
 
    * [**Escala manual**](#manual-scale): escala com base no número de unidades de processamento que você deseja usar.
    * [**Dimensionamento automático personalizado**](#custom-autoscale): dimensione com base nas métricas de desempenho selecionando vários critérios e especificando as condições de limite para atender aos critérios.
 
-   ![Selecione o tipo de dimensionamento desejado](./media/ise-manage-integration-service-environment/select-scale-out-options.png)
+   ![Captura de tela que mostra a página "scale out" com a "escala manual" selecionada.](./media/ise-manage-integration-service-environment/select-scale-out-options.png)
 
 <a name="manual-scale"></a>
 
 ### <a name="manual-scale"></a>Dimensionamento manual
 
-1. Depois de selecionar a **escala manual**, para **capacidade adicional**, selecione o número de unidades de dimensionamento que você deseja usar.
+1. Depois de selecionar a **escala manual** , para **capacidade adicional** , selecione o número de unidades de dimensionamento que você deseja usar.
 
    ![Selecione o tipo de dimensionamento desejado](./media/ise-manage-integration-service-environment/select-manual-scale-out-units.png)
 
-1. Quando terminar, selecione **Salvar**.
+1. Quando terminar, selecione **Salvar** .
 
 <a name="custom-autoscale"></a>
 
 ### <a name="custom-autoscale"></a>Dimensionamento automático personalizado
 
-1. Depois de selecionar o **dimensionamento automático personalizado**, para o **nome da configuração de dimensionamento automático**, forneça um nome para sua configuração e, opcionalmente, selecione o grupo de recursos do Azure ao qual a configuração pertence.
+1. Depois de selecionar o **dimensionamento automático personalizado** , para o **nome da configuração de dimensionamento automático** , forneça um nome para sua configuração e, opcionalmente, selecione o grupo de recursos do Azure ao qual a configuração pertence.
 
    ![Forneça o nome para a configuração de dimensionamento automático e selecione grupo de recursos](./media/ise-manage-integration-service-environment/select-custom-autoscale.png)
 
-1. Para a condição **padrão** , selecione **escala com base em uma métrica** ou **escala para uma contagem de instâncias específica**.
+1. Para a condição **padrão** , selecione **escala com base em uma métrica** ou **escala para uma contagem de instâncias específica** .
 
    * Se você escolher baseado em instância, insira o número para as unidades de processamento, que é um valor de 0 a 10.
 
    * Se você escolher baseado em métrica, siga estas etapas:
 
-     1. Na seção **regras** , selecione **Adicionar uma regra**.
+     1. Na seção **regras** , selecione **Adicionar uma regra** .
 
      1. No painel **regra de dimensionamento** , configure os critérios e a ação a serem tomadas quando a regra for disparada.
 
-     1. Para **limites de instância**, especifique estes valores:
+     1. Para **limites de instância** , especifique estes valores:
 
-        * **Mínimo**: o número mínimo de unidades de processamento a serem usadas
-        * **Máximo**: o número máximo de unidades de processamento a ser usado
-        * **Padrão**: se algum problema ocorrer durante a leitura das métricas de recurso e a capacidade atual estiver abaixo da capacidade padrão, o dimensionamento automático escalará para o número padrão de unidades de processamento. No entanto, se a capacidade atual exceder a capacidade padrão, o dimensionamento automático não será dimensionado horizontalmente.
+        * **Mínimo** : o número mínimo de unidades de processamento a serem usadas
+        * **Máximo** : o número máximo de unidades de processamento a ser usado
+        * **Padrão** : se algum problema ocorrer durante a leitura das métricas de recurso e a capacidade atual estiver abaixo da capacidade padrão, o dimensionamento automático escalará para o número padrão de unidades de processamento. No entanto, se a capacidade atual exceder a capacidade padrão, o dimensionamento automático não será dimensionado horizontalmente.
 
-1. Para adicionar outra condição, selecione **Adicionar condição de escala**.
+1. Para adicionar outra condição, selecione **Adicionar condição de escala** .
 
 1. Quando tiver concluído as configurações de dimensionamento automático, salve as alterações.
 
@@ -170,7 +180,7 @@ Se você alterar o servidor DNS ou as configurações desse servidor, terá que 
 
 1. No [portal do Azure](https://portal.azure.com), vá para o ISE.
 
-1. No menu ISE, selecione **visão geral**. Na barra de ferramentas visão geral, **reinicie**o.
+1. No menu ISE, selecione **visão geral** . Na barra de ferramentas visão geral, **reinicie** o.
 
    ![Reiniciar o ambiente do serviço de integração](./media/connect-virtual-network-vnet-isolated-environment/restart-integration-service-environment.png)
 

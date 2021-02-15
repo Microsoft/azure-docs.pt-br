@@ -7,23 +7,22 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 3/5/2020
 ms.author: matjazl
-ms.openlocfilehash: 46a55b83b38593a514d40a9f75d99739a1efb8a2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e4adceea5c2cd2a36d7a867ca9b9d2ad7c33c155
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84871016"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91529976"
 ---
-# <a name="configure-export-setting-and-export-the-data-to-a-storage-account"></a>Configurar a configuração de exportação e exportar os dados para uma conta de armazenamento
+# <a name="configure-export-setting-and-set-up-the-storage-account"></a>Configurar a configuração de exportação e configurar a conta de armazenamento
 
 A API do Azure para FHIR dá suporte ao comando $export que permite exportar os dados da API do Azure para a conta FHIR para uma conta de armazenamento.
 
-Há quatro etapas envolvidas na execução da exportação na API do Azure para FHIR:
+Há três etapas envolvidas na configuração da exportação na API do Azure para FHIR:
 
 1. Habilitar identidade gerenciada na API do Azure para o serviço FHIR
 2. Criar uma conta de armazenamento do Azure (se não for feito antes) e atribuir permissão à API do Azure para FHIR à conta de armazenamento
 3. Selecionando a conta de armazenamento na API do Azure para FHIR como exportar conta de armazenamento
-4. Executando a exportação invocando $export comando na API do Azure para FHIR
 
 ## <a name="enabling-managed-identity-on-azure-api-for-fhir"></a>Habilitando identidade gerenciada na API do Azure para FHIR
 
@@ -41,28 +40,21 @@ A próxima etapa na exportação é atribuir permissão para a API do Azure para
 
 Depois de criarmos uma conta de armazenamento, navegue até a folha controle de acesso (IAM) na conta de armazenamento e selecione Adicionar atribuições de função
 
-![Habilitar identidade gerenciada](media/export-data/fhir-export-role-assignment.png)
+![Exportar atribuição de função](media/export-data/fhir-export-role-assignment.png)
 
 Aqui, adicionamos o colaborador de dados de blob de armazenamento de função ao nosso nome de serviço.
 
-![Habilitar identidade gerenciada](media/export-data/fhir-export-role-add.png)
+![Adicionar função](media/export-data/fhir-export-role-add.png)
 
 Agora estamos prontos para a próxima etapa, na qual podemos selecionar a conta de armazenamento na API do Azure para FHIR como uma conta de armazenamento padrão para $export.
 
 ## <a name="selecting-the-storage-account-for-export"></a>Selecionando a conta de armazenamento para $export
 
-Etapa final antes de invocar $export comando é atribuir a conta de armazenamento do Azure que a API do Azure para FHIR usará para exportar os dados para o. Para fazer isso, navegue até a folha de integração na API do Azure para serviço FHIR em portal do Azure e selecione a conta de armazenamento 
+A etapa final é atribuir a conta de armazenamento do Azure que a API do Azure para FHIR usará para exportar os dados para o. Para fazer isso, navegue até a folha de integração na API do Azure para serviço FHIR em portal do Azure e selecione a conta de armazenamento
 
-![Habilitar identidade gerenciada](media/export-data/fhir-export-storage.png)
+![Armazenamento de exportação FHIR](media/export-data/fhir-export-storage.png)
 
 Depois disso, estamos prontos para exportar os dados usando $export comando.
-
-## <a name="exporting-the-data-using-export-command"></a>Exportando os dados usando o comando $export
-
-Depois de configurar a API do Azure para FHIR para exportação, agora podemos usar o comando $export para exportar os dados do serviço para a conta de armazenamento que especificamos. Para saber como invocar $export comando no FHIR Server, leia a documentação sobre especificação de $export em[https://hl7.org/Fhir/uv/bulkdata/export/index.html](https://hl7.org/Fhir/uv/bulkdata/export/index.html)
-
-> [!IMPORTANT]
-> Observe que atualmente a API do Azure para FHIR dá suporte apenas à exportação no nível do sistema, conforme definido na especificação de exportação em [https://hl7.org/Fhir/uv/bulkdata/export/index.html](https://hl7.org/Fhir/uv/bulkdata/export/index.html) . No momento, não há suporte para parâmetros de consulta com o $export.
 
 >[!div class="nextstepaction"]
 >[Configurações adicionais](azure-api-for-fhir-additional-settings.md)

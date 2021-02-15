@@ -1,22 +1,17 @@
 ---
 title: Copiar dados do Amazon redshift
 description: Saiba mais sobre como copiar dados do Amazon Redshift para armazenamentos de dados de coletor com suporte por meio do Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/04/2018
-ms.openlocfilehash: ce63da745fb84ebccd57b246fc934f595dd7cda1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 12/09/2020
+ms.openlocfilehash: 9441885766dad97dfc237ab81a59710245bf13ce
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81418245"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100364249"
 ---
 # <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Copiar dados do Amazon Redshift usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -24,7 +19,6 @@ ms.locfileid: "81418245"
 > * [Versão atual](connector-amazon-redshift.md)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
-
 
 Este artigo descreve como usar a atividade de cópia no Azure Data Factory para copiar dados de um Amazon Redshift. Ele amplia o artigo [Visão geral da atividade de cópia](copy-activity-overview.md) que apresenta uma visão geral da atividade de cópia.
 
@@ -164,11 +158,11 @@ Saiba mais sobre como usar o UNLOAD para copiar dados do Amazon Redshift com efi
 
 [UNLOAD](https://docs.aws.amazon.com/redshift/latest/dg/r_UNLOAD.html) é um mecanismo fornecido pelo Amazon Redshift, que pode descarregar os resultados de uma consulta para um ou mais arquivos no Amazon S3 (Serviço de Armazenamento Simples da Amazon). É a maneira recomendada pela Amazon para copiar um conjunto de dados grande do Redshift.
 
-**Exemplo: copiar dados do Amazon Redshift para o SQL Data Warehouse do Azure usando UNLOAD, cópia em etapas e PolyBase**
+**Exemplo: copiar dados do Amazon redshift para o Azure Synapse Analytics usando UNLOAD, cópia preparada e polybase**
 
-Nesse caso de uso de exemplo, a atividade de cópia descarrega os dados do Amazon Redshift para o Amazon S3 conforme configurado em "redshiftUnloadSettings" e, em seguida, copia os dados do Amazon S3 para o Blob do Azure como especificado em "stagingSettings", por fim, usa o PolyBase para carregar os dados no SQL Data Warehouse. Todos os formatos provisórios são adequadamente tratados pela atividade de cópia.
+Para este caso de uso de exemplo, a atividade de cópia descarrega dados do Amazon redshift para o Amazon S3 conforme configurado em "redshiftUnloadSettings" e, em seguida, copia dados do Amazon S3 para o blob do Azure, conforme especificado em "stagingSettings", use por último o polybase para carregar dados no Azure Synapse Analytics. Todos os formatos provisórios são adequadamente tratados pela atividade de cópia.
 
-![Redshift para o fluxo de trabalho de cópia do SQL DW](media/copy-data-from-amazon-redshift/redshift-to-sql-dw-copy-workflow.png)
+![Fluxo de trabalho de cópia do redshift para o Azure Synapse Analytics](media/copy-data-from-amazon-redshift/redshift-to-sql-dw-copy-workflow.png)
 
 ```json
 "activities":[
@@ -227,7 +221,7 @@ Ao copiar dados do Amazon Redshift, os seguintes mapeamentos são usados de tipo
 | DECIMAL |Decimal |
 | DOUBLE PRECISION |Double |
 | INTEGER |Int32 |
-| REAL |Single |
+| real |Único |
 | SMALLINT |Int16 |
 | TEXT |String |
 | timestamp |Datetime |

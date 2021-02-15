@@ -9,16 +9,16 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: cdbd78808d1758b43d2b2fe6e8f7ac03652ff92b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1ee38196f0b1a6e00d385dc0d2c88d45a4291d3b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85296331"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "90087429"
 ---
-# <a name="monitoring-key-vault-with-azure-event-grid-preview"></a>Monitoramento do Key Vault com a Grade de Eventos do Azure (versão prévia)
+# <a name="monitoring-key-vault-with-azure-event-grid"></a>Monitoramento do Key Vault com a Grade de Eventos do Azure
 
-A integração do Key Vault com a Grade de Eventos encontra-se atualmente em versão prévia. Ela permite que os usuários sejam notificados quando o status de um segredo armazenado no cofre de chaves é alterado. Uma alteração de status é definida como um segredo que está prestes a expirar (30 dias antes da expiração), um segredo que expirou ou um segredo que tem uma nova versão disponível. Há suporte para as notificações de todos os três tipos de segredos (chave, certificado e segredo).
+A integração do Key Vault com a grade de eventos permite que os usuários sejam notificados quando o status de um segredo armazenado no cofre de chaves for alterado. Uma alteração de status é definida como um segredo que está prestes a expirar (30 dias antes da expiração), um segredo que expirou ou um segredo que tem uma nova versão disponível. Há suporte para as notificações de todos os três tipos de segredos (chave, certificado e segredo).
 
 Os aplicativos podem reagir a esses eventos por meio de arquiteturas modernas sem servidor, sem a necessidade de código complicado ou serviços de sondagem ineficientes e caros. Os eventos são enviados por push pela [Grade de Eventos do Azure](https://azure.microsoft.com/services/event-grid/) aos manipuladores de eventos como o [Azure Functions](https://azure.microsoft.com/services/functions/), [Aplicativos Lógicos do Azure](https://azure.microsoft.com/services/logic-apps/) ou até seu próprio Webhook, e você só paga pelo que usa. Para saber mais sobre preços, confira [Preços da Grade de Eventos](https://azure.microsoft.com/pricing/details/event-grid/).
 
@@ -29,7 +29,7 @@ A Grade de eventos usa [assinaturas de evento](../../event-grid/concepts.md#even
 Para obter mais informações, confira o [Esquema de eventos do Key Vault](../../event-grid/event-schema-key-vault.md).
 
 > [!WARNING]
-> Os eventos de notificação são disparados apenas sobre novas versões de segredos, chaves e certificados. Você precisará primeiro assinar o evento no cofre de chaves para receber essas notificações.
+> Os eventos de notificação são disparados apenas em novas versões de segredos, chaves e certificados, e você deve primeiro assinar o evento em seu cofre de chaves para receber essas notificações.
 
 ## <a name="practices-for-consuming-events"></a>Práticas para consumo de eventos
 
@@ -42,9 +42,9 @@ Os aplicativos que manipulam eventos do Key Vault devem seguir algumas práticas
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Visão geral de Azure Key Vault](overview.md)
+- [Visão geral do Azure Key Vault](overview.md)
 - [Visão geral da Grade de Eventos do Azure](../../event-grid/overview.md)
-- Como: [rotear eventos de Key Vault para o runbook de automação (visualização)](event-grid-tutorial.md).
+- Como: [rotear eventos de Key Vault para o runbook de automação](event-grid-tutorial.md).
 - Como fazer: [Receber emails quando o status do cofre de chaves secreto é alterado](event-grid-logicapps.md)
-- [Esquema de eventos da Grade de Eventos do Azure para o Azure Key Vault (versão prévia)](../../event-grid/event-schema-key-vault.md)
+- [Esquema de eventos da Grade de Eventos do Azure para o Azure Key Vault](../../event-grid/event-schema-key-vault.md)
 - [Visão geral da Automação do Azure](../../automation/index.yml)

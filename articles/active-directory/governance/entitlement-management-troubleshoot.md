@@ -3,7 +3,7 @@ title: Solucionar problemas de gerenciamento de direitos-Azure AD
 description: Saiba mais sobre alguns itens que você deve verificar para ajudá-lo a solucionar problemas de gerenciamento de direitos Azure Active Directory.
 services: active-directory
 documentationCenter: ''
-author: barclayn
+author: ajburnle
 manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
 ms.subservice: compliance
-ms.date: 06/17/2020
-ms.author: barclayn
+ms.date: 12/23/2020
+ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 216cff03ac6ce64dee9aae1e9daa4a86385eeb0e
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: 5b01321c2cbb15be5526bbe9ed04f52238390574
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783324"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100516882"
 ---
 # <a name="troubleshoot-azure-ad-entitlement-management"></a>Solucionar problemas de gerenciamento de direitos do Azure AD
 
@@ -47,7 +47,6 @@ Este artigo descreve alguns itens que você deve verificar para ajudá-lo a solu
 
 * Quando você remove um membro de uma equipe, eles são removidos do grupo de Microsoft 365 também. A remoção da funcionalidade de chat da equipe pode ser atrasada. Para obter mais informações, consulte [Associação de grupo](/microsoftteams/office-365-groups#group-membership).
 
-* Verifique se o diretório não está configurado para várias áreas geográficas. No momento, o gerenciamento de direitos não dá suporte a locais de várias áreas geográficas para o SharePoint Online. Os sites do SharePoint Online devem estar na localização geográfica padrão para serem governados com o gerenciamento de direitos. Para obter mais informações, consulte [recursos de várias regiões geográficas no onedrive e no SharePoint Online](/Office365/Enterprise/multi-geo-capabilities-in-onedrive-and-sharepoint-online-in-office-365).
 
 ## <a name="access-packages"></a>Pacotes de acesso
 
@@ -75,7 +74,7 @@ Este artigo descreve alguns itens que você deve verificar para ajudá-lo a solu
 
 ### <a name="view-a-requests-delivery-errors"></a>Exibir os erros de entrega de uma solicitação
 
-**Função de pré-requisito:** Administrador global, Administrador de usuário, Proprietário do catálogo ou Gerenciador de pacote de acesso
+**Função de pré-requisito:** Administrador global, administrador de usuário, proprietário do catálogo, Gerenciador de pacotes de acesso ou Gerenciador de atribuição de pacotes de acesso
 
 1. No portal do Azure, clique em **Azure Active Directory** e, em seguida, em **Governança de Identidade**.
 
@@ -103,7 +102,7 @@ Você só pode reprocessar uma solicitação que tenha um status de **entrega co
 
 - Se o erro não foi corrigido durante a janela de avaliações, o status da solicitação pode ser **entrega com falha** ou **parcialmente entregue**. Em seguida, você pode usar o botão **Reprocessar** . Você terá sete dias para reprocessar a solicitação.
 
-**Função de pré-requisito:** Administrador global, Administrador de usuário, Proprietário do catálogo ou Gerenciador de pacote de acesso
+**Função de pré-requisito:** Administrador global, administrador de usuário, proprietário do catálogo, Gerenciador de pacotes de acesso ou Gerenciador de atribuição de pacotes de acesso
 
 1. No portal do Azure, clique em **Azure Active Directory** e, em seguida, em **Governança de Identidade**.
 
@@ -121,7 +120,7 @@ Você só pode reprocessar uma solicitação que tenha um status de **entrega co
 
 Você só pode cancelar uma solicitação pendente que ainda não foi entregue ou cuja entrega falhou. Caso contrário, o botão **Cancelar** estaria esmaecido.
 
-**Função de pré-requisito:** Administrador global, Administrador de usuário, Proprietário do catálogo ou Gerenciador de pacote de acesso
+**Função de pré-requisito:** Administrador global, administrador de usuário, proprietário do catálogo, Gerenciador de pacotes de acesso ou Gerenciador de atribuição de pacotes de acesso
 
 1. No portal do Azure, clique em **Azure Active Directory** e, em seguida, em **Governança de Identidade**.
 
@@ -146,7 +145,7 @@ Você só pode cancelar uma solicitação pendente que ainda não foi entregue o
     | P1 | Usuários e grupos específicos em seu diretório ou em organizações conectadas específicas |
     | P2 | Todos os membros em seu diretório (exceto convidados) |
     | P3 | Todos os usuários em seu diretório (incluindo convidados) ou organizações conectadas específicas |
-    | P4 | Todas as organizações conectadas ou todos os usuários (todas as organizações conectadas + quaisquer novos usuários externos) |
+    | P4 | Todas as organizações conectadas configuradas ou todos os usuários (todas as organizações conectadas + quaisquer novos usuários externos) |
     
     Se alguma política estiver em uma categoria de prioridade mais alta, as categorias de prioridade mais baixa serão ignoradas. Para obter um exemplo de como várias políticas com a mesma prioridade são exibidas para o solicitante, consulte [selecionar uma política](entitlement-management-request-access.md#select-a-policy).
 

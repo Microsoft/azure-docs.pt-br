@@ -6,12 +6,12 @@ ms.topic: quickstart
 author: bwren
 ms.author: bwren
 ms.date: 06/25/2020
-ms.openlocfilehash: 6f13a465aa43f0c45fa99d2ea396a5ca92d75d66
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
+ms.openlocfilehash: 47cf0a1f1d40b9e8358d6bdb4a3ea6a501b67da2
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85446221"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91439212"
 ---
 # <a name="send-azure-activity-log-to-log-analytics-workspace-using-azure-portal"></a>Enviar o log de atividades do Azure para o workspace do Log Analytics usando o portal do Azure
 O log de atividades é um log de plataforma no Azure que fornece insights sobre eventos no nível de assinatura. Isso inclui informações como quando um recurso é modificado ou quando uma máquina virtual é iniciada. Veja o log de atividades no portal do Azure ou recupere as entradas com o PowerShell e a CLI. Este guia de início rápido mostra como usar o portal do Azure para criar um workspace do Log Analytics e uma configuração de diagnóstico para enviar o log de atividades para os Logs do Azure Monitor, em que você poderá analisá-los usando [consultas de log](../log-query/log-query-overview.md) e habilitar outros recursos, como [alertas de log](../platform/alerts-log-query.md) e [pastas de trabalho](../platform/workbooks-overview.md). 
@@ -24,7 +24,7 @@ Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com)
 ## <a name="create-a-log-analytics-workspace"></a>Criar um espaço de trabalho do Log Analytics
 No portal do Azure, procure e selecione **Workspaces do Log Analytics**. 
 
-![Portal do Azure](media/quick-create-workspace/azure-portal-01.png)
+![Captura de tela do portal do Azure que mostra "workspaces do log analytics" na caixa de pesquisa e os workspaces do Log Analytics realçados em Serviços.](media/quick-create-workspace/azure-portal-01.png)
   
 Clique em **Adicionar** e forneça valores para o **Grupo de recursos**, o workspace **Nome** e a **Localização**. O nome do workspace precisa ser exclusivo em todas as assinaturas do Azure.
 
@@ -36,7 +36,7 @@ Clique em **Examinar + criar** para examinar as configurações e em **Criar** p
 ## <a name="create-diagnostic-setting"></a>Criar configuração de diagnóstico
 No portal do Azure, procure e selecione **Monitor**. 
 
-![Portal do Azure](media/quick-collect-activity-log/azure-portal-monitor.png)
+![Captura de tela do portal do Azure com "monitor" na caixa de pesquisa e Monitor realçado em Serviços.](media/quick-collect-activity-log/azure-portal-monitor.png)
 
 Selecione **Log de atividades**. Você verá os eventos recentes da assinatura atual. Clique em **Configurações de diagnóstico** para ver as configurações de diagnóstico da assinatura.
 

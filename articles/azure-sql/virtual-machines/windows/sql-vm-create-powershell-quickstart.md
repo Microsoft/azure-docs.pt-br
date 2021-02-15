@@ -6,18 +6,20 @@ documentationcenter: na
 author: MashaMSFT
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
+ms.subservice: deployment
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 12/21/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: eafbf102c092b180a1f3c882f5ae626e60b80f30
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 350df1aede076120fd14dc46da351835c894c5b4
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86514604"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97356813"
 ---
 # <a name="quickstart-create-sql-server-on-a-windows-virtual-machine-with-azure-powershell"></a>Início Rápido: Criar um SQL Server em uma máquina virtual do Windows no Azure PowerShell
 
@@ -149,9 +151,9 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 ## <a name="register-with-sql-vm-rp"></a>Registrar-se com o RP da VM do SQL 
 
-Para obter a integração do portal e os recursos da VM do SQL, registre-se com o [Provedor de recursos da VM do SQL](sql-vm-resource-provider-register.md).
+Para obter a integração do portal e os recursos da VM do SQL, registre-se na [extensão do Agente de IaaS do SQL](sql-agent-extension-manually-register-single-vm.md).
 
-Para obter a funcionalidade completa, você precisará registrar-se com o provedor de recursos no modo completo. No entanto, isso reinicia o serviço SQL Server, portanto, a abordagem recomendada é registrar-se no modo leve e atualizar para completo em uma janela de manutenção. 
+Para obter a funcionalidade completa, você precisará se registrar na extensão no modo completo. No entanto, isso reinicia o serviço SQL Server, portanto, a abordagem recomendada é registrar-se no modo leve e atualizar para completo em uma janela de manutenção. 
 
 Primeiro, registre a VM do SQL Server no modo leve: 
 
@@ -170,8 +172,8 @@ Em seguida, durante uma janela de manutenção, atualize para o modo completo:
 # Get the existing Compute VM
 $vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
       
-# Register with SQL VM resource provider in full mode
-New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -SqlManagementType Full
+# Register with SQL IaaS Agent extension in full mode
+Update-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -SqlManagementType Full
 ```
 
 

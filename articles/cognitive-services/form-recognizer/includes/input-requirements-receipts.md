@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 08/17/2019
 ms.author: pafarley
 ms.openlocfilehash: 01524c103c420fe719cc68d01e9421a321d05968
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88944351"
 ---
 * Formatos de arquivo com suporte: JPEG, PNG, PDF e TIFF 

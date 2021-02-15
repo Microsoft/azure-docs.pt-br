@@ -2,21 +2,21 @@
 title: 'Bastiões do Azure: Exibir sessão de máquina virtual: tela inteira'
 description: Saiba como alterar a exibição de máquina virtual para tela inteira e de volta em seu navegador para uma conexão RDP ou SSH na bastiões do Azure.
 services: bastion
-author: charwen
+author: cherylmc
 ms.service: bastion
 ms.topic: how-to
 ms.date: 02/03/2020
-ms.author: charwen
-ms.openlocfilehash: fa795d7b066733aba54f8612bbabecf264a11c70
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.author: cherylmc
+ms.openlocfilehash: 7db85c5e1d5f67c30adf08969c51bb4c57838fb5
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88270284"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92079132"
 ---
 # <a name="change-to-full-screen-view-for-a-vm-session-azure-bastion"></a>Alterar para exibição de tela inteira de uma sessão de VM: bastiões do Azure
 
-Este artigo ajuda você a alterar a exibição de máquina virtual para tela inteira e de volta em seu navegador. Antes de trabalhar com uma VM, certifique-se de ter seguido as etapas para [criar um host de bastiões](bastion-create-host-portal.md). Em seguida, conecte-se à VM com a qual você deseja trabalhar usando o [RDP](bastion-connect-vm-rdp.md) ou [SSH](bastion-connect-vm-ssh.md).
+Este artigo ajuda você a alterar a exibição de máquina virtual para tela inteira e de volta em seu navegador. Antes de trabalhar com uma VM, certifique-se de ter seguido as etapas para [criar um host de bastiões](./tutorial-create-host-portal.md). Em seguida, conecte-se à VM com a qual você deseja trabalhar usando o [RDP](bastion-connect-vm-rdp.md) ou [SSH](bastion-connect-vm-ssh.md).
 
 ## <a name="launch-the-clipboard-tool"></a>Iniciar a ferramenta da área de transferência
 

@@ -8,12 +8,12 @@ ms.author: ramero
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/06/2020
-ms.openlocfilehash: c32e1bc6e219ff645223cc34cf78991e229b86f0
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 97797e309c32c6ea996d5ae1901b9a266a683173
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935918"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91537626"
 ---
 # <a name="add-scoring-profiles-to-an-azure-cognitive-search-index"></a>Adicionar perfis de pontuação a um índice da Azure Cognitive Search
 
@@ -254,7 +254,7 @@ A pontuação de pesquisa é calculada com base nas propriedades estatísticas d
 ##  <a name="set-interpolations"></a><a name="bkmk_interpolation"></a> Definir interpolações  
  As interpolações permitem que você defina a forma da inclinação usada para pontuação. Como a pontuação é decrescente, a inclinação está sempre diminuindo, mas é a interpolação que determina a curva da inclinação descendente. As seguintes interpolações podem ser usadas:  
 
-| Interpola | DESCRIÇÃO |  
+| Interpola | Descrição |  
 |-|-|  
 |`linear`|Para itens que estão dentro do intervalo máximo e mínimo, o aumento aplicado ao item será feito em uma quantidade constantemente decrescente. Linear é a interpolação padrão para um perfil de pontuação.|  
 |`constant`|Para itens que estão dentro do intervalo inicial e final, um aumento constante será aplicado aos resultados de classificação.|  
@@ -281,6 +281,6 @@ A pontuação de pesquisa é calculada com base nas propriedades estatísticas d
 
 ## <a name="see-also"></a>Confira também  
 
-+ [Referência da API REST](/rest/api/searchservice/)   
-+ [Criar API de índice](/rest/api/searchservice/create-index)   
-+ [SDK do .NET do Azure Cognitive Search](/dotnet/api/overview/azure/search?view=azure-dotnet)
++ [Referência da API REST](/rest/api/searchservice/)
++ [Criar API de índice](/rest/api/searchservice/create-index)
++ [SDK do .NET do Azure Cognitive Search](/dotnet/api/overview/azure/search?)

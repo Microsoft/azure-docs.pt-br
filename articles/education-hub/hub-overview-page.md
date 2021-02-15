@@ -8,10 +8,10 @@ ms.service: azure-education
 ms.subservice: education-hub
 ms.date: 06/30/2020
 ms.openlocfilehash: 5a29fa8d60d3c581a502cded1a7e04026f768667
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86540636"
 ---
 # <a name="managing-your-academic-grant"></a>Gerenciando sua concessão acadêmica
@@ -19,7 +19,7 @@ ms.locfileid: "86540636"
 Sua página de aterrissagem principal na Hub de Educação do Azure é a página de visão geral. Esta página contém todas as informações relevantes sobre sua concessão acadêmica, como o número de classes que você estabeleceu e o crédito total em execução alocado e usado nessas classes. Ele também exibe atalhos para outros benefícios fornecidos pelos modelos Hub de Educação: software, aprendizagem e início rápido.
 
 ## <a name="overview-page"></a>Página de visão geral
-:::image type="content" source="media/hub-overview-page/overview.png" alt-text="Mensagem de erro de conexão." border="false":::
+:::image type="content" source="media/hub-overview-page/overview.png" alt-text="Mensagem de erro de entrada." border="false":::
 
 1. Os **cursos** mostram o número total de cursos ativos na conta do instrutor.
 1. Os **laboratórios** mostram o número total de laboratórios ativos que foram passados para os alunos.

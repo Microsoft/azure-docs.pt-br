@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 09/07/2017
 ms.openlocfilehash: f6bfb3a244874f6160d34c174b6d10b9a03ca437
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87024105"
 ---
 # <a name="create-a-log-analytics-workspace-with-powershell"></a>Criar um espaço de trabalho do Log Analytics com o PowerShell

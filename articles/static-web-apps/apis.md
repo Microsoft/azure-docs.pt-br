@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 09daffa74ccd279c8187391ba3b86063aed7d204
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 6724d8eb8df29ccfb033f5951ec56b7770e3c413
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607018"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "90903568"
 ---
 # <a name="api-support-in-azure-static-web-apps-preview-with-azure-functions"></a>Suporte de API na Versão Prévia dos Aplicativos Web Estáticos do Azure com Azure Functions
 
@@ -20,19 +20,19 @@ Os Aplicativos Web Estáticos do Azure fornecem pontos de extremidade de API sem
 
 - **Segurança integrada** com acesso direto aos dados de [ autenticação e autorização baseada em função](user-information.md) do usuário.
 - **Roteamento contínuo** que torna a rota da _api_ disponível para o aplicativo web com segurança sem a necessidade de regras CORS personalizadas.
-- **Azure Functions** v3 compatíveis com o Node.js 12.
-- **Gatilhos HTTP** e associações de saída.
+- **Azure Functions** v3 compatível com o Node.js 12, .net Core 3,1 e Python 3,8.
+- **Gatilhos http** e associações de entrada/saída.
 
 ## <a name="configuration"></a>Configuração
 
-Os pontos de extremidade da API estão disponíveis para o aplicativo web por meio da rota da _api_. Embora essa rota seja corrigida, você tem controle sobre a pasta onde localiza o aplicativo Azure Functions associado. Você pode alterar esse local [editando o arquivo YAML do fluxo de trabalho](github-actions-workflow.md#build-and-deploy) localizado na pasta _.github/workflows_ do repositório.
+Os pontos de extremidade da API estão disponíveis para o aplicativo web por meio da rota da _api_. Embora essa rota seja corrigida, você tem controle sobre a pasta e o projeto onde você localiza o aplicativo Azure Functions associado. Você pode alterar esse local [editando o arquivo YAML do fluxo de trabalho](github-actions-workflow.md#build-and-deploy) localizado na pasta _.github/workflows_ do repositório.
 
 ## <a name="constraints"></a>Restrições
 
 Os Aplicativos Web Estáticos do Azure fornecem uma API por meio das Azure Functions. As funcionalidades das Azure Functions estão concentradas em um conjunto específico de recursos que permitem criar uma API para um aplicativo web, possibilitando que o aplicativo Web conecte a API com segurança. Esses recursos têm algumas restrições, incluindo:
 
 - O prefixo de rota da API deve ser _api_.
-- O aplicativo de funções de API deve estar em JavaScript.
+- A API deve ser um aplicativo de Azure Functions de JavaScript, C# ou Python.
 - As regras de rota para funções de API só dão suporte a [redirecionamentos](routes.md#redirects) e [proteção de rotas com funções](routes.md#securing-routes-with-roles).
 - Os gatilhos são limitados a [http](../azure-functions/functions-bindings-http-webhook.md).
   - Há suporte para [associações](../azure-functions/functions-triggers-bindings.md#supported-bindings) de entrada e saída.

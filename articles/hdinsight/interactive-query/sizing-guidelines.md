@@ -1,18 +1,15 @@
 ---
 title: Guia de dimensionamento do cluster de Consulta Interativa no Azure HDInsight
 description: Guia de Dimensionamento da Consulta Interativa no Azure HDInsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: a81eff1dcf48996c319933aa4dd46170043b943b
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: a7baa9340a1f0a99b94bfcbe535c73d0b502e2a0
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83663644"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98933061"
 ---
 # <a name="interactive-query-cluster-sizing-guide-in-azure-hdinsight"></a>Guia de dimensionamento do cluster de Consulta Interativa no Azure HDInsight
 

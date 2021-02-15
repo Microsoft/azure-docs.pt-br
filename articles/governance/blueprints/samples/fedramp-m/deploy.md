@@ -1,14 +1,14 @@
 ---
 title: Implantar amostra de blueprint do FedRAMP Moderado
 description: Etapas de implantação da amostra de blueprint FedRAMP Moderado, incluindo detalhes do parâmetro do artefato de blueprint.
-ms.date: 07/31/2020
+ms.date: 01/08/2021
 ms.topic: sample
-ms.openlocfilehash: 5fb8855f82b16a149e2ab8091a1722236f115171
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: a0e391b20ec662d2bb7bc5b22a7f33c056a9378e
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495821"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98034825"
 ---
 # <a name="deploy-the-fedramp-moderate-blueprint-sample"></a>Implantar a amostra de blueprint do FedRAMP Moderado
 

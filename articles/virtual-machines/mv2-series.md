@@ -7,28 +7,28 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: jushiman
-ms.openlocfilehash: c91e9832e4b415a59c12b71964a0da580e9fda21
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 962fb8cbd4c64aa2ef625b478afa587099234617
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88651124"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99427627"
 ---
 # <a name="mv2-series"></a>Série Mv2
 
 A Mv2-Series apresenta alta taxa de transferência, plataforma de baixa latência em execução em um processador Hyper-Threading Intel® Xeon® Platinum 8180M 2,5 GHz (Skylake) com uma frequência base básica de 2,5 GHz e uma frequência máxima de Turbo de 3,8 GHz. Todos os tamanhos de máquina virtual da série Mv2 podem usar discos persistentes Standard e Premium. As instâncias da série Mv2 são tamanhos de VM com otimização de memória que fornecem desempenho computacional inigualável para dar suporte a grandes bancos de dados na memória e cargas de trabalho, com uma alta taxa de memória para CPU, ideal para servidores de banco de dados relacionais, caches grandes e análise na memória.
 
-O recurso da VM da série Mv2 Intel® tecnologia Hyper-Threading
+O recurso da VM Mv2-Series Intel® Hyper-Threading Technology
 
-Armazenamento Premium: com suporte
-
-Cache de armazenamento Premium: com suporte
-
-Migração ao Vivo: Sem suporte
-
-Atualizações de preservação de memória: Sem suporte
-
-Acelerador de Gravação: [com suporte](./how-to-enable-write-accelerator.md)
+[Armazenamento Premium](premium-storage-performance.md): com suporte<br>
+[Cache de armazenamento Premium](premium-storage-performance.md): com suporte<br>
+[Migração ao vivo](maintenance-and-updates.md): sem suporte<br>
+[Atualizações de preservação de memória](maintenance-and-updates.md): sem suporte<br>
+[Suporte à geração de VM](generation-2.md): geração 2<br>
+[Acelerador de gravação](./how-to-enable-write-accelerator.md): com suporte<br>
+[Rede acelerada](../virtual-network/create-vm-accelerated-networking-cli.md): com suporte<br>
+[Discos do sistema operacional efêmero](ephemeral-os-disks.md): sem suporte <br>
+<br>
 
 |Tamanho | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Discos de dados máximos | Taxa de transferência máxima de armazenamento temporário: IOPS / MBps (tamanho do cache em GiB) | Taxa de transferência máxima do disco não armazenado em cache: IOPS / MBps | Máximo de NICs | Largura de banda de rede esperada (Mbps) |
 |---|---|---|---|---|---|---|---|---|
@@ -37,7 +37,7 @@ Acelerador de Gravação: [com suporte](./how-to-enable-write-accelerator.md)
 | Standard_M416ms_v2<sup>1</sup> | 416 | 11400 | 8192 | 64 | 250000/1600 (14080) | 80000/2000 | 8 | 32000 |
 | Standard_M416s_v2<sup>1</sup> | 416 | 5700 | 8192 | 64 | 250000/1600 (14080) | 80000/2000 | 8 | 32000 |
 
-<sup>1</sup> as VMs da série Mv2 são somente geração 2 e dão suporte a um subconjunto de imagens com suporte de geração 2. Veja abaixo a lista completa de imagens com suporte para a série Mv2. Se você estiver usando o Linux, consulte [suporte para VMs de geração 2 no Azure](./linux/generation-2.md) para obter instruções sobre como localizar e selecionar uma imagem. Se você estiver usando o Windows, consulte [suporte para VMs de geração 2 no Azure](./windows/generation-2.md) para obter instruções sobre como localizar e selecionar uma imagem. 
+<sup>1</sup> as VMs da série Mv2 são somente geração 2 e dão suporte a um subconjunto de imagens com suporte de geração 2. Veja abaixo a lista completa de imagens com suporte para a série Mv2. Se você estiver usando o Linux, consulte [suporte para VMs de geração 2 no Azure](./generation-2.md) para obter instruções sobre como localizar e selecionar uma imagem. Se você estiver usando o Windows, consulte [suporte para VMs de geração 2 no Azure](./generation-2.md) para obter instruções sobre como localizar e selecionar uma imagem. 
 
 - Windows Server 2019 ou posterior
 - SUSE Linux Enterprise Server 12 SP4 e posterior ou SUSE Linux Enterprise Server 15 SP1 e posterior

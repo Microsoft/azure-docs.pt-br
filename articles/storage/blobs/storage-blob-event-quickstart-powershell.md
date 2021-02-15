@@ -8,12 +8,13 @@ ms.date: 08/23/2018
 ms.topic: article
 ms.service: storage
 ms.subservice: blobs
-ms.openlocfilehash: 809ab593d4d3f58fa3c91b896e5df3a0db7865f9
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 06be168ff9dfd55a56578b3afcdab8d984416756
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87824504"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89078003"
 ---
 # <a name="quickstart-route-storage-events-to-web-endpoint-with-powershell"></a>Início rápido: rotear eventos de armazenamento para o ponto de extremidade da Web com o PowerShell
 

@@ -10,16 +10,19 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: troubleshooting
-ms.date: 06/30/2020
+ms.date: 09/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 9fa47c81aede9de5d083f16f9e1705f687ad39a4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e89189b22b144d9e92ee8315bc6fd9aabe699eec
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87046438"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91531642"
 ---
 # <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights-gen1"></a>Monitorar e mitigar a limitação para reduzir a latência no Azure Time Series Insights Gen1
+
+> [!CAUTION]
+> Esse é um artigo do Gen1.
 
 Quando a quantidade de dados de entrada excede a configuração do ambiente, você pode enfrentar latência ou limitação no Azure Time Series Insights.
 
@@ -74,17 +77,17 @@ Os alertas podem ajudá-lo a diagnosticar e atenuar problemas de latência que o
 
 ## <a name="throttling-and-ingress-management"></a>Limitação e gerenciamento de entrada
 
-* Se você estiver sendo limitado, um valor para o *retardo de tempo de mensagens recebidas de entrada* será registrado informando a você como há muitos segundos atrás do ambiente de Azure Time Series insights do tempo real em que a mensagem atinge a origem do evento (excluindo o tempo de indexação de Appx. 30-60 segundos).  
+- Se você estiver sendo limitado, um valor para o *retardo de tempo de mensagens recebidas de entrada* será registrado informando a você como há muitos segundos atrás do ambiente de Azure Time Series insights do tempo real em que a mensagem atinge a origem do evento (excluindo o tempo de indexação de Appx. 30-60 segundos).  
 
   *Retardo de contagem de mensagens recebidas de entrada* também deve ter um valor, permitindo que você determine a quantas mensagens atrás você está.  A maneira mais fácil de alcançar é aumentar a capacidade do seu ambiente para um tamanho que permitirá superar a diferença.  
 
   Por exemplo, se o seu ambiente S1 estiver demonstrando o atraso de 5 milhões mensagens, você poderá aumentar o tamanho do seu ambiente para seis unidades por cerca de um dia para ser pego.  Você pode aumentar ainda mais para alcançar mais rapidamente. O período de atualização é uma ocorrência comum ao provisionar inicialmente um ambiente, especialmente ao se conectar a uma origem de evento que já tenha eventos nela ou quando você carrega em massa grandes quantidades de dados históricos.
 
-* Outra técnica é definir um alerta **Eventos de Entrada Armazenados** >= um limite um pouco abaixo da capacidade total do ambiente por um período de 2 horas.  Esse alerta pode ajudá-lo a entender se você está constantemente na capacidade, o que indica uma alta probabilidade de latência. 
+- Outra técnica é definir um alerta **Eventos de Entrada Armazenados** >= um limite um pouco abaixo da capacidade total do ambiente por um período de 2 horas.  Esse alerta pode ajudá-lo a entender se você está constantemente na capacidade, o que indica uma alta probabilidade de latência.
 
   Por exemplo, se você tiver três unidades S1 provisionadas (ou 2.100 eventos por capacidade de entrada por minuto), poderá definir um alerta **Eventos de Entrada Armazenados** para >= 1.900 eventos por 2 horas. Caso você esteja excedendo esse limite constantemente e, portanto, disparando o alerta, provavelmente, está com um provisionamento insuficiente.  
 
-* Se você suspeitar que está sendo limitado, poderá comparar as **mensagens de entrada recebidas** com as mensagens de saída da origem do evento.  Se a entrada no Hub de eventos for maior do que as **mensagens de entrada recebidas**, suas Azure Time Series insights provavelmente estão sendo limitadas.
+- Se você suspeitar que está sendo limitado, poderá comparar as **mensagens de entrada recebidas** com as mensagens de saída da origem do evento.  Se a entrada no Hub de eventos for maior do que as **mensagens de entrada recebidas**, suas Azure Time Series insights provavelmente estão sendo limitadas.
 
 ## <a name="improving-performance"></a>Melhorando o desempenho
 

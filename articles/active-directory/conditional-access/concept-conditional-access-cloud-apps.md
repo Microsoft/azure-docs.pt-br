@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 02/11/2020
+ms.date: 10/16/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8b1440f34feb1cda2661178e520590cb9ec54f1
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 1b3b4da4e21bca421b76f820c04ba68375be5ca0
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88948395"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93307775"
 ---
 # <a name="conditional-access-cloud-apps-or-actions"></a>Acesso Condicional: Aplicativos na nuvem ou ações
 
@@ -31,12 +31,12 @@ Os aplicativos de nuvem ou as ações são um sinal importante em uma política 
 
 Muitos aplicativos de nuvem da Microsoft existentes estão incluídos na lista de aplicativos entre os quais você pode selecionar. 
 
-Os administradores podem atribuir uma política de Acesso Condicional aos aplicativos de nuvem da Microsoft a seguir. Alguns aplicativos como o Office 365 (versão prévia) e o Gerenciamento do Microsoft Azure incluem vários aplicativos ou serviços filho relacionados. A lista a seguir não é exaustiva e está sujeita a alterações.
+Os administradores podem atribuir uma política de Acesso Condicional aos aplicativos de nuvem da Microsoft a seguir. Alguns aplicativos, como o Office 365 e o gerenciamento de Microsoft Azure, incluem vários aplicativos ou serviços filho relacionados. A lista a seguir não é exaustiva e está sujeita a alterações.
 
-- [Office 365 (versão prévia)](#office-365-preview)
+- [Office 365](#office-365)
 - Azure Analysis Services
 - Azure DevOps
-- [Banco de Dados SQL do Azure e Data Warehouse](../../azure-sql/database/conditional-access-configure.md)
+- [Banco de dados SQL do Azure e análise de Synapse do Azure](../../azure-sql/database/conditional-access-configure.md)
 - Dynamics CRM Online
 - Análise do Microsoft Application Insights
 - [Proteção de Informações do Microsoft Azure](/azure/information-protection/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
@@ -55,9 +55,9 @@ Os administradores podem atribuir uma política de Acesso Condicional aos aplica
 - Microsoft StaffHub
 - Microsoft Stream
 - Equipes da Microsoft
-- Office 365 Exchange Online
-- Office 365 SharePoint Online
-- Office 365 Yammer
+- Exchange Online
+- SharePoint
+- Yammer
 - Office Delve
 - Office Sway
 - Outlook Groups
@@ -67,25 +67,25 @@ Os administradores podem atribuir uma política de Acesso Condicional aos aplica
 - VPN (Rede Privada Virtual)
 - Windows Defender ATP
 
-### <a name="office-365-preview"></a>Office 365 (versão prévia)
+### <a name="office-365"></a>Office 365
 
-O Office 365 fornece serviços de produtividade e colaboração baseados em nuvem, como o Exchange, o SharePoint e o Microsoft Teams. Os serviços de nuvem do Office 365 são integrados profundamente para que haja experiências suaves e colaborativas. Essa integração pode causar confusão ao criar políticas, pois alguns aplicativos como o Microsoft Teams têm dependências de outros como SharePoint ou Exchange.
+O Microsoft 365 fornece serviços de produtividade e colaboração baseados em nuvem como o Exchange, SharePoint e Microsoft Teams. Microsoft 365 serviços de nuvem estão profundamente integrados para garantir experiências suaves e colaborativas. Essa integração pode causar confusão ao criar políticas, pois alguns aplicativos como o Microsoft Teams têm dependências de outros como SharePoint ou Exchange.
 
-O aplicativo Office 365 (versão prévia) torna possível direcionar esses serviços de uma só vez. É recomendável usar o novo aplicativo Office 365 (versão prévia), em vez de direcionar aplicativos de nuvem individuais para evitar problemas com [dependências de serviço](service-dependencies.md). Direcionar esse grupo de aplicativos ajuda a evitar problemas que possam surgir devido a políticas e dependências inconsistentes.
+O aplicativo Office 365 torna possível direcionar esses serviços de uma só vez. É recomendável usar o novo aplicativo do Office 365, em vez de direcionar aplicativos de nuvem individuais para evitar problemas com [dependências de serviço](service-dependencies.md). Direcionar esse grupo de aplicativos ajuda a evitar problemas que possam surgir devido a políticas e dependências inconsistentes.
 
-Os administradores poderão optar por excluir aplicativos específicos da política se desejarem; basta incluir o aplicativo Office 365 (versão prévia) e excluir os aplicativos específicos de preferência na política.
+Os administradores podem optar por excluir aplicativos específicos da política se quiserem incluindo o aplicativo do Office 365 e excluindo os aplicativos específicos de sua escolha na política.
 
-Aplicativos-chave incluídos no aplicativo cliente do Office 365 (versão prévia):
+Aplicativos-chave incluídos no aplicativo cliente do Office 365:
 
    - Microsoft Flow
    - Microsoft Forms
    - Microsoft Stream
    - Microsoft To-Do
    - Equipes da Microsoft
-   - Office 365 Exchange Online
-   - Office 365 SharePoint Online
-   - Serviço de Pesquisa do Office 365
-   - Office 365 Yammer
+   - Exchange Online
+   - SharePoint online
+   - Microsoft 365 Serviço de Pesquisa
+   - Yammer
    - Office Delve
    - Office Online
    - Office.com
@@ -102,6 +102,7 @@ O aplicativo de Gerenciamento do Microsoft Azure inclui vários serviços subjac
    - Provedor do Azure Resource Manager
    - APIs de modelo de implantação clássico
    - Azure PowerShell
+   - CLI do Azure
    - Portal do administrador de assinaturas do Visual Studio
    - Azure DevOps
    - Portal do Azure Data Factory
@@ -120,12 +121,11 @@ Além dos aplicativos Microsoft, os administradores podem adicionar qualquer apl
 - Aplicativos que usam [logon único baseado em senha](../manage-apps/configure-password-single-sign-on-non-gallery-applications.md)
 
 > [!NOTE]
-> Como a política de Acesso condicional define os requisitos para acessar um serviço que você não pode aplicar a um aplicativo cliente (público/nativo). Em outras palavras, a política não é definida diretamente em um aplicativo cliente (público/nativo), mas é aplicada quando um cliente chama um serviço. Por exemplo, uma política definida no serviço SharePoint se aplica aos clientes que chamam o SharePoint. Uma política definida no Exchange se aplica à tentativa de acessar o email usando o cliente do Outlook. É por isso que aplicativos cliente (públicos/nativos) não estão disponíveis para seleção no seletor de Aplicativos de Nuvem e a opção de Acesso Condicional não está disponível nas configurações do aplicativo para o aplicativo cliente (público/nativo) registrado em seu locatário. 
-
+> Como a política de acesso condicional define os requisitos para acessar um serviço, você não pode aplicá-lo a um aplicativo cliente (público/nativo). Em outras palavras, a política não é definida diretamente em um aplicativo cliente (público/nativo), mas é aplicada quando um cliente chama um serviço. Por exemplo, uma política definida no serviço SharePoint se aplica aos clientes que chamam o SharePoint. Uma política definida no Exchange se aplica à tentativa de acessar o email usando o cliente do Outlook. É por isso que aplicativos cliente (públicos/nativos) não estão disponíveis para seleção no seletor de Aplicativos de Nuvem e a opção de Acesso Condicional não está disponível nas configurações do aplicativo para o aplicativo cliente (público/nativo) registrado em seu locatário. 
 
 ## <a name="user-actions"></a>Ações do usuário
 
-As ações do usuário são tarefas que podem ser executadas por um usuário. A única ação com suporte no momento é **Registrar informações de segurança**, que permite que a política de Acesso Condicional imponha quando os usuários habilitados para a tentativa de registro combinada registraram as informações de segurança deles. Mais informações podem ser encontradas no artigo [Registro de informações de segurança combinadas](../authentication/concept-registration-mfa-sspr-combined.md).
+As ações do usuário são tarefas que podem ser executadas por um usuário. A única ação com suporte no momento é **Registrar informações de segurança** , que permite que a política de Acesso Condicional imponha quando os usuários habilitados para a tentativa de registro combinada registraram as informações de segurança deles. Mais informações podem ser encontradas no artigo [Registro de informações de segurança combinadas](../authentication/concept-registration-mfa-sspr-combined.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -1,6 +1,6 @@
 ---
 title: Solucionar problemas de inicialização de VM Linux devido a erros do sistema de arquivos | Microsoft Docs
-description: Explica por que a VM do Linux não pode iniciar e como resolver o problema.
+description: Saiba como solucionar problemas de inicialização de VM Linux devido a erros do sistema de arquivos
 services: virtual-machines-linux
 documentationcenter: ''
 author: v-miegge
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 10/09/2019
 ms.author: v-six
-ms.openlocfilehash: e26d4070bc9fabeb3467e7bdc805faad4e6646c3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 8f12b88a0ddbc6ae31f40ab31b0126e4fd66b1a5
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86526496"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91325939"
 ---
 # <a name="troubleshoot-linux-vm-starting-issues-due-to-file-system-errors"></a>Solucionar problemas de inicialização de VM Linux devido a erros do sistema de arquivos
 
@@ -83,12 +83,12 @@ Para resolver esse problema, inicialize a VM no modo de emergência usando o [co
 
    > [!Note]
    > Para obter mais informações sobre como usar o console serial para Linux, consulte:
-   > * [Usar o console serial para acessar o GRUB e o modo de usuário único](../linux/serial-console-grub-single-user-mode.md)
+   > * [Usar o console serial para acessar o GRUB e o modo de usuário único](serial-console-grub-single-user-mode.md)
    > * [Usar o console serial para chamadas SysRq e NMI](./serial-console-nmi-sysrq.md)
 
 2. Selecione o botão ícone de energia e, em seguida, selecione reiniciar VM. (Se o console serial não estiver habilitado ou não estiver conectado com êxito, você não verá o botão.)
 
-   ![IMAGE](./media/linux-recovery-cannot-ssh-to-linux-vm-due-to-file-system-errors-fsck/restart-vm.png)
+   ![IMAGEM](./media/linux-recovery-cannot-ssh-to-linux-vm-due-to-file-system-errors-fsck/restart-vm.png)
 
 3. Inicialize a VM no modo de emergência.
 

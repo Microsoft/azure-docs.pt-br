@@ -9,10 +9,10 @@ ms.date: 07/06/2020
 ms.author: danis
 ms.reviewer: cynthn
 ms.openlocfilehash: f5028abadbe5600058c83a144d0095aee1278fe6
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86042061"
 ---
 # <a name="diving-deeper-into-cloud-init"></a>Aprofundando-se na Cloud-init
@@ -21,7 +21,7 @@ Para saber mais sobre a [inicialização de nuvem](https://cloudinit.readthedocs
 Quando Cloud-init é incluído em uma imagem generalizada, e uma VM é criada a partir dessa imagem, ela processará as configurações e executará 5 estágios durante a inicialização inicial. Esses estágios são importantes, pois mostram em que ponto a Cloud-init aplicará as configurações. 
 
 
-## <a name="understand-cloud-init-configuration"></a>Entender a configuração de inicialização de nuvem
+## <a name="understand-cloud-init-configuration"></a>Entender a configuração Cloud-Init
 Configurar uma VM para ser executada em uma plataforma, significa que a Cloud-init precisa aplicar várias configurações, como um consumidor de imagem, as principais configurações com as quais você irá interagir é `User data` (customData), que dá suporte a vários formatos, elas são documentadas [aqui](https://cloudinit.readthedocs.io/en/latest/topics/format.html#user-data-formats). Você também tem a capacidade de adicionar e executar scripts (/var/lib/Cloud/scripts) para configuração adicional, abaixo aborda isso mais detalhadamente.
 
 Algumas configurações já estão inclusas nas imagens do Azure Marketplace que vêm com o Cloud-init, como:
@@ -71,9 +71,9 @@ Ao provisionar com Cloud-init, há cinco estágios de inicialização, que proce
 5. [Estágio final de Cloud-init](https://cloudinit.readthedocs.io/en/latest/topics/boot.html#final): neste estágio final, os módulos em `cloud_final_modules` , listados em/etc/Cloud/Cloud.cfg, serão executados. Aqui estão os módulos que precisam ser executados no final da execução do processo de inicialização, como instalações de pacotes e scripts de execução etc. 
 
    -   Durante esse estágio, você pode executar scripts colocando-os nos diretórios em `/var/lib/cloud/scripts` :
-   - `per-boot`-scripts dentro deste diretório, executados em cada reinicialização
-   - `per-instance`-os scripts dentro desse diretório são executados quando uma nova instância é inicializada pela primeira vez
-   - `per-once`-os scripts dentro deste diretório são executados apenas uma vez
+   - `per-boot` -scripts dentro deste diretório, executados em cada reinicialização
+   - `per-instance` -os scripts dentro desse diretório são executados quando uma nova instância é inicializada pela primeira vez
+   - `per-once` -os scripts dentro deste diretório são executados apenas uma vez
 
 ## <a name="next-steps"></a>Próximas etapas
 

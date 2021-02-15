@@ -8,17 +8,18 @@ editor: ''
 tags: azure-service-management
 ms.assetid: 53981f7e-8370-4979-b26a-93a5988d905f
 ms.service: virtual-machines-sql
-ms.topic: article
+ms.subservice: hadr
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/29/2020
 ms.author: mathoma
-ms.openlocfilehash: 93819332def05022272eabc130e0f2240938f244
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 0f194101720481f71434709c467d0e3130a0f1f9
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85955498"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359448"
 ---
 # <a name="configure-a-workgroup-availability-group"></a>Configurar um grupo de disponibilidade de grupo de trabalho 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -62,11 +63,11 @@ Para configurar o sufixo DNS, siga estas etapas:
 1. Selecione **Mais...** para abrir a caixa de diálogo **Sufixo DNS e Nome do Computador NetBIOS**. 
 1. Digite o nome do seu sufixo DNS em **Sufixo DNS primário deste computador**, como `ag.wgcluster.example.com` e, em seguida, selecione **OK**: 
 
-   ![Adicionar sufixo DNS](./media/availability-group-clusterless-workgroup-configure/2-add-dns-suffix.png)
+   ![Captura de tela mostra o sufixo D N S e a caixa de diálogo nome do computador NetBIOS onde você pode inserir o valor.](./media/availability-group-clusterless-workgroup-configure/2-add-dns-suffix.png)
 
 1. Confirme se o **Nome completo do computador** agora está mostrando o sufixo DNS e, em seguida, selecione **OK** para salvar as alterações: 
 
-   ![Adicionar sufixo DNS](./media/availability-group-clusterless-workgroup-configure/3-confirm-full-computer-name.png)
+   ![Captura de tela mostra onde ver o nome completo do computador.](./media/availability-group-clusterless-workgroup-configure/3-confirm-full-computer-name.png)
 
 1. Reinicialize o servidor quando solicitado a fazê-lo. 
 1. Repita essas etapas em outros nós que serão usados para o grupo de disponibilidade. 
@@ -291,6 +292,4 @@ Nesta etapa final, configure o balanceador de carga usando o [portal do Azure](a
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Você também pode usar a [CLI do AZ em VM do SQL](availability-group-az-cli-configure.md) para configurar um grupo de disponibilidade. 
-
-
+Você também pode usar a [CLI do AZ em VM do SQL](./availability-group-az-commandline-configure.md) para configurar um grupo de disponibilidade.

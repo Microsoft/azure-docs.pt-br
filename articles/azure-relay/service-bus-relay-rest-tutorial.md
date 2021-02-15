@@ -2,13 +2,14 @@
 title: 'Tutorial: Tutorial do REST usando a Retransmissão do Azure'
 description: 'Tutorial: Crie um aplicativo host de Retransmissão do Azure que expõe uma interface baseada em REST.'
 ms.topic: tutorial
+ms.custom: devx-track-csharp
 ms.date: 06/23/2020
-ms.openlocfilehash: 0d42bd664be0881ee0c1f036231acc67e49b6f8a
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 0620f55650d0e4da0cd7a616649df952f3017455
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85316632"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "88922320"
 ---
 # <a name="tutorial-azure-wcf-relay-rest-tutorial"></a>Tutorial: Tutorial do REST de Retransmissão de WCF do Azure
 

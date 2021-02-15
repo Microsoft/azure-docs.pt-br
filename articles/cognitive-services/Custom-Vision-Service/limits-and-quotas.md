@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: pafarley
-ms.openlocfilehash: 21b90f423a3ba3c7fa38334c79aec9dc65a250cd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3392cc5f3ee9daef1ae8397f6829f4ca7a42373a
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079173"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98871393"
 ---
 # <a name="limits-and-quotas"></a>Limites e cotas
 
@@ -39,11 +39,12 @@ Espera-se que o número de imagens de treinamento por projeto e tags por projeto
 |[Outras chamadas à API](https://go.microsoft.com/fwlink/?linkid=865446) (Transações por Segundo)|10|10|
 |Tipos de imagem aceitos|jpg, png, BMP, gif|jpg, png, BMP, gif|
 |Altura/largura da imagem mínima em pixels|256 (consulte a observação)|256 (consulte a observação)|
-|Altura/largura máxima da imagem em pixels|ilimitado|ilimitado|
+|Altura/largura máxima da imagem em pixels|10.240|10.240|
 |Tamanho máximo da imagem (upload da imagem de treinamento) |6 MB|6 MB|
 |Tamanho máximo da imagem (previsão)|4 MB|4 MB|
-|Imagem de treinamento da detecção de regiões máximas por objeto|300|300|
-|Máximo de marcas por imagem de classificação|100|100|
+|Número máximo de regiões por imagem (detecção de objeto)|300|300|
+|Número máximo de marcas por imagem (classificação)|100|100|
 
 > [!NOTE]
 > Imagens com menos de 256 pixels serão aceitas, mas em escala.
+> A taxa de proporção da imagem não deve ser maior que 25

@@ -3,20 +3,18 @@ title: Intenções e entidades-LUIS
 titleSuffix: Azure Cognitive Services
 description: Uma única intenção representa uma tarefa ou ação que o usuário deseja executar. É uma finalidade ou uma meta expressa no enunciado de um usuário. Defina um conjunto de intenções que corresponda às ações que os usuários desejem executar em seu aplicativo.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/10/2019
-ms.author: diberry
-ms.openlocfilehash: f2e4f91dbc03853d6f1a5240f693ea8ff510e8c4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: bf5ab7361c84fb787366c7c361829e52362fe427
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82101069"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025901"
 ---
 # <a name="intents-in-your-luis-app"></a>Tentativas em seu aplicativo LUIS
 
@@ -34,7 +32,7 @@ Intenções do aplicativo de viagem   |   Exemplo de enunciados   |
 Todos os aplicativos vêm com a intenção predefinida, "[None](#none-intent)", que é a tentativa de fallback.
 
 ## <a name="prebuilt-domains-provide-intents"></a>Domínios predefinidos fornecem intenções
-Além de tentativas que você define, você pode usar tentativas predefinidas de um dos [domínios predefinidos](luis-how-to-use-prebuilt-domains.md).
+Além de tentativas que você define, você pode usar tentativas predefinidas de um dos [domínios predefinidos](./howto-add-prebuilt-models.md).
 
 ## <a name="return-all-intents-scores"></a>Retornar pontuações de todas as intenções
 Atribua uma declaração a uma única intenção. Quando LUIS recebe um expressão no ponto de extremidade, por padrão, ele retorna a principal intenção desse expressão.
@@ -55,17 +53,17 @@ A intenção representa a ação que o aplicativo deve executar para o usuário 
 
 |Intencional   | Entidade | Exemplo de enunciado   |
 |------------------|------------------------------|------------------------------|
-| CheckWeather | { "type": "location", "entity": "seattle" }<br>{ "type": "builtin.datetimeV2.date","entity": "tomorrow","resolution":"2018-05-23" } | Qual é o clima como em `Seattle` `tomorrow`? |
+| CheckWeather | { "type": "location", "entity": "seattle" }<br>{ "type": "builtin.datetimeV2.date","entity": "tomorrow","resolution":"2018-05-23" } | Qual é o clima como em `Seattle` `tomorrow` ? |
 | CheckWeather | { "type": "date_range", "entity": "this weekend" } | Mostre-me a previsão para `this weekend` |
 ||||
 
 ## <a name="prebuilt-domain-intents"></a>Intenções de domínio predefinidas
 
-[Domínios pré-criados](luis-how-to-use-prebuilt-domains.md) fornecem intenções com declarações.
+[Domínios pré-criados](./howto-add-prebuilt-models.md) fornecem intenções com declarações.
 
 ## <a name="none-intent"></a>Intenção None
 
-A intenção **None** é criada, mas deixada vazia de propósito. A intenção **None** é uma intenção necessária e não pode ser excluída nem renomeada. Preencha-a com declarações que estejam fora de seu domínio.
+A intenção **None** é criada, mas deixada vazia de propósito. A tentativa **None** é uma intenção necessária e não pode ser excluída ou renomeada. Preencha-a com declarações que estejam fora de seu domínio.
 
 A intenção **None** é a intenção de fallback, importante em todos os aplicativos e deve ter 10% do total de declarações. Ela é usada para ensinar ao LUIS declarações que não são importantes no domínio de aplicativo (área de assunto). Se você não adicionar nenhuma declaração para a intenção **None**, o LUIS forçará uma declaração que está fora do domínio para uma das intenções do domínio. Isso distorcerá as pontuações de previsão ensinando ao LUIS a intenção incorreta para a declaração.
 

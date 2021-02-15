@@ -7,14 +7,14 @@ ms.service: bastion
 ms.topic: how-to
 ms.date: 02/03/2020
 ms.author: charwen
-ms.openlocfilehash: 82f92a6dc33173918102015c8cedea1755d77805
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1e76fffd17ee565d4103ca8a7bf1523bbd16209d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84744197"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91445383"
 ---
-# <a name="enable-and-work-with-bastion-resource-logs"></a>Habilitar e trabalhar com logs de recursos de bastiões
+# <a name="enable-and-work-with-bastion-resource-logs"></a>Habilitar e trabalhar com logs de recursos do Bastion
 
 À medida que os usuários se conectam a cargas de trabalho usando a bastiões do Azure, a bastiões pode registrar em log o diagnóstico das sessões remotas. Você pode usar o diagnóstico para exibir quais usuários se conectaram a quais cargas de trabalho, em que hora, de onde e outras informações de registro em log relevantes. Para usar o diagnóstico, você deve habilitar os logs de diagnóstico na bastiões do Azure. Este artigo ajuda você a habilitar os logs de diagnóstico e a exibir os logs.
 
@@ -22,13 +22,13 @@ ms.locfileid: "84744197"
 
 1. Na [portal do Azure](https://portal.azure.com), navegue até o recurso de bastiões do Azure e selecione **configurações de diagnóstico** na página de bastiões do Azure.
 
-   ![configurações de diagnóstico](./media/diagnostic-logs/1diagnostics-settings.png)
+   ![Captura de tela que mostra a página "configurações de diagnóstico".](./media/diagnostic-logs/1diagnostics-settings.png)
 2. Selecione **configurações de diagnóstico**e, em seguida, selecione **+ Adicionar configuração de diagnóstico** para adicionar um destino para os logs.
 
-   ![Adicionar configuração de diagnóstico](./media/diagnostic-logs/2add-diagnostic-setting.png)
+   ![Captura de tela que mostra a página "configurações de diagnóstico" com o botão "adicionar configuração de diagnóstico" selecionado.](./media/diagnostic-logs/2add-diagnostic-setting.png)
 3. Na página **configurações de diagnóstico** , selecione o tipo de conta de armazenamento a ser usado para armazenar os logs de diagnóstico.
 
-   ![selecionar local de armazenamento](./media/diagnostic-logs/3add-storage-account.png)
+   ![Captura de tela da página "configurações de diagnóstico" com a seção para selecionar um local de armazenamento realçado.](./media/diagnostic-logs/3add-storage-account.png)
 4. Quando você concluir as configurações, a aparência será semelhante a este exemplo:
 
    ![configurações de exemplo](./media/diagnostic-logs/4example-settings.png)

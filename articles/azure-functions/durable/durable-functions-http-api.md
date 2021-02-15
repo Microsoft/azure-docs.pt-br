@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 4e4081ecca4714c713d105d363a83a4f96a0d3fc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84697836"
 ---
 # <a name="http-api-reference"></a>Referência de API HTTP
@@ -24,7 +24,7 @@ Todas as APIs HTTP implementadas pela extensão exigem os seguintes parâmetros.
 | **`connection`** | Cadeia de consulta    | O **nome** da cadeia de conexão para a conta de armazenamento. Se não for especificada, a cadeia de conexão padrão do aplicativo de funções será presumida. |
 | **`systemKey`**  | Cadeia de consulta    | A chave de autorização necessária para invocar a API. |
 
-`systemKey`é uma chave de autorização gerada automaticamente pelo host Azure Functions. Ela concede acesso especificamente às APIs da extensão de Tarefas Duráveis e pode ser gerenciada da mesma maneira que as [outras chaves de autorização](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Key-management-API). Você pode gerar URLs que contêm os valores corretos `taskHub` , `connection` e de cadeia de caracteres de `systemKey` consulta usando APIs de [Associação de cliente de orquestração](durable-functions-bindings.md#orchestration-client) , como as `CreateCheckStatusResponse` `CreateHttpManagementPayload` APIs e no .net, ou as `createCheckStatusResponse` `createHttpManagementPayload` APIs e em JavaScript.
+`systemKey` é uma chave de autorização gerada automaticamente pelo host Azure Functions. Ela concede acesso especificamente às APIs da extensão de Tarefas Duráveis e pode ser gerenciada da mesma maneira que as [outras chaves de autorização](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Key-management-API). Você pode gerar URLs que contêm os valores corretos `taskHub` , `connection` e de cadeia de caracteres de `systemKey` consulta usando APIs de [Associação de cliente de orquestração](durable-functions-bindings.md#orchestration-client) , como as `CreateCheckStatusResponse` `CreateHttpManagementPayload` APIs e no .net, ou as `createCheckStatusResponse` `createHttpManagementPayload` APIs e em JavaScript.
 
 As próximas seções tratam das APIs HTTP específicas com suporte da extensão e fornecem exemplos de como elas podem ser usadas.
 
@@ -385,7 +385,7 @@ A carga de resposta para o caso de **HTTP 200** é um objeto JSON com o seguinte
 
 | Campo                  | Tipo de dados | Descrição |
 |------------------------|-----------|-------------|
-| **`instancesDeleted`** | inteiro   | O número de instâncias excluídas. Para o caso de instância única, esse valor sempre deve ser `1` . |
+| **`instancesDeleted`** | Número inteiro   | O número de instâncias excluídas. Para o caso de instância única, esse valor sempre deve ser `1` . |
 
 Veja um exemplo de carga de resposta (formatada para facilitar a leitura):
 
@@ -447,7 +447,7 @@ A carga de resposta para o caso de **HTTP 200** é um objeto JSON com o seguinte
 
 | Campo                   | Tipo de dados | Descrição |
 |-------------------------|-----------|-------------|
-| **`instancesDeleted`**  | inteiro   | O número de instâncias excluídas. |
+| **`instancesDeleted`**  | Número inteiro   | O número de instâncias excluídas. |
 
 Veja um exemplo de carga de resposta (formatada para facilitar a leitura):
 

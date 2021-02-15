@@ -1,18 +1,17 @@
 ---
 title: Noções básicas sobre a manipulação de horas no Azure Stream Analytics
 description: Saiba como escolher a melhor hora de início, lidar com eventos atrasados e antigos e saber as métricas de tratamento de tempo em Azure Stream Analytics.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: sidramadoss
+ms.author: sidram
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: 0830a8b552283b5b39fa78c505ed177d1959989f
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: f9dbdb3907b376df8de988730c6c48ed01bfccd0
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83640028"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019934"
 ---
 # <a name="understand-time-handling-in-azure-stream-analytics"></a>Noções básicas sobre a manipulação de horas no Azure Stream Analytics
 
@@ -46,7 +45,7 @@ A hora de chegada é usada por padrão e é mais adequada para cenários de arqu
 
 A hora do aplicativo é atribuída quando o evento é gerado, e faz parte da carga do evento. Para processar eventos por hora do aplicativo, use a cláusula **Timestamp by** na consulta SELECT. Se **Timestamp by** estiver ausente, os eventos serão processados na hora de chegada.
 
-É importante usar um carimbo de data/hora no payload quando a lógica temporal estiver envolvida, para considerar os atrasos no sistema de origem ou na rede. O tempo atribuído a um evento está disponível no sistema [SYSTEM.TIMESTAMP](https://docs.microsoft.com/stream-analytics-query/system-timestamp-stream-analytics).
+É importante usar um carimbo de data/hora no payload quando a lógica temporal estiver envolvida, para considerar os atrasos no sistema de origem ou na rede. O tempo atribuído a um evento está disponível no sistema [SYSTEM.TIMESTAMP](/stream-analytics-query/system-timestamp-stream-analytics).
 
 ## <a name="how-time-progresses-in-azure-stream-analytics"></a>Como o tempo progride no Azure Stream Analytics
 
@@ -222,5 +221,5 @@ Nesta ilustração, as seguintes tolerâncias são usadas:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Considerações sobre a ordem dos eventos do Azure Stream Analytics](stream-analytics-out-of-order-and-late-events.md)
+- [Considerações sobre a ordem dos eventos do Azure Stream Analytics]()
 - [Métricas de trabalho do Stream Analytics](stream-analytics-monitoring.md)

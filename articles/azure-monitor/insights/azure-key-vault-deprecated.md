@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/27/2019
-ms.openlocfilehash: 286d8d8c202a4fc59a18501eff16a569e2d09047
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 71eb49c84b8ab92c9ba2ad8e05e8d74054bd4ee7
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87318038"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91938824"
 ---
 # <a name="azure-key-vault-analytics-solution-in-azure-monitor"></a>Solução de análise de Azure Key Vault no Azure Monitor
 
@@ -42,10 +42,10 @@ Use as instruções a seguir para instalar e configurar a solução de Cofre de 
 1. No Portal do Azure, navegue até o recurso do Key Vault a ser monitorado
 2. Selecione *configurações de diagnóstico* para abrir a página a seguir
 
-   ![imagem do bloco Cofre de Chaves do Azure](media/azure-key-vault/log-analytics-keyvault-enable-diagnostics01.png)
+   ![Captura de tela da página de configurações de diagnóstico para o recurso de Key Vault ContosoKVSCUS. a opção para ativar o diagnóstico é realçada.](media/azure-key-vault/log-analytics-keyvault-enable-diagnostics01.png)
 3. Clique em *Ativar diagnóstico* para abrir a página seguinte
 
-   ![imagem do bloco Cofre de Chaves do Azure](media/azure-key-vault/log-analytics-keyvault-enable-diagnostics02.png)
+   ![Captura de tela da página para definir as configurações de diagnóstico. As opções para enviar para Log Analytics, log AuditEvent e Biometria são selecionadas.](media/azure-key-vault/log-analytics-keyvault-enable-diagnostics02.png)
 4. Dê um nome para a configuração de diagnóstico.
 5. Clique na caixa de seleção para *Enviar para o Log Analytics*
 6. Selecione um espaço de trabalho do Log Analytics existente ou crie um espaço de trabalho
@@ -75,9 +75,9 @@ A tabela a seguir mostra os métodos de coleta de dados e outros detalhes sobre 
 | Azure |  |  |&#8226; |  |  | na chegada |
 
 ## <a name="use-azure-key-vault"></a>Usar o Cofre de Chaves do Azure
-Depois de [instalar a solução](https://azuremarketplace.microsoft.com/en-usrketplace/marketplace/apps/Microsoft.KeyVaultAnalyticsOMS?tab=Overview), exiba os dados de Key Vault clicando no bloco **análise do Key Vault** na página **visão geral** Azure monitor. Abra essa página do **Azure Monitor** menu clicando em **Mais** na seção **Insights**. 
+Depois de [instalar a solução](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.KeyVaultAnalyticsOMS?source=intercept.nl&tab=Overview), exiba os dados de Key Vault clicando no bloco **análise do Key Vault** na página **visão geral** Azure monitor. Abra essa página do **Azure Monitor** menu clicando em **Mais** na seção **Insights**. 
 
-![imagem do bloco Cofre de Chaves do Azure](media/azure-key-vault/log-analytics-keyvault-tile.png)
+![Captura de tela do bloco Análise do Key Vault na página de visão geral Azure Monitor mostrando um grafo do volume de operações do cofre de chaves ao longo do tempo.](media/azure-key-vault/log-analytics-keyvault-tile.png)
 
 Depois de clicar no bloco **análise do Key Vault** , você poderá exibir resumos de seus logs e, em seguida, analisar os detalhes para as seguintes categorias:
 
@@ -86,9 +86,9 @@ Depois de clicar no bloco **análise do Key Vault** , você poderá exibir resum
 * Latência operacional média por operação
 * Qualidade de serviço para operações com o número de operações que levam mais de 1.000 ms e uma lista das operações que levam mais de 1.000 ms
 
-![imagem do painel Cofre de Chaves do Azure](media/azure-key-vault/log-analytics-keyvault01.png)
+![Captura de tela do painel de Azure Key Vault mostrando blocos com dados gráficos para todas as operações, operações com falha e latência operacional média.](media/azure-key-vault/log-analytics-keyvault01.png)
 
-![imagem do painel Cofre de Chaves do Azure](media/azure-key-vault/log-analytics-keyvault02.png)
+![Captura de tela do painel de Azure Key Vault mostrando blocos com dados para latência operacional média, qualidade de serviço e pesquisas recomendadas.](media/azure-key-vault/log-analytics-keyvault02.png)
 
 ### <a name="to-view-details-for-any-operation"></a>Para exibir detalhes de qualquer operação
 1. Na página **visão geral** , clique no bloco **análise do Key Vault** .

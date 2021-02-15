@@ -1,5 +1,5 @@
 ---
-title: Usar o controle de acesso baseado em função para StorSimple | Microsoft Docs
+title: Usar o controle de acesso baseado em função do Azure para StorSimple | Microsoft Docs
 description: Descreve como usar o controle de acesso baseado em função do Azure (RBAC do Azure) no contexto do StorSimple.
 services: storsimple
 documentationcenter: ''
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/11/2017
 ms.author: alkohli
-ms.openlocfilehash: 38500edeca2241bfa9ab093e037af18159994b02
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 49c38e23ddbbfe983ff82ad25363c744292d4d69
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87920392"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518969"
 ---
-# <a name="role-based-access-control-for-storsimple"></a>Controle de acesso baseado em função para StorSimple
+# <a name="azure-role-based-access-control-for-storsimple"></a>Controle de acesso baseado em função do Azure para StorSimple
 
-Este artigo fornece uma breve descrição de como o controle de acesso baseado em função do Azure (RBAC do Azure) pode ser usado para seu dispositivo StorSimple. O RBAC oferece gerenciamento de acesso refinado para o Azure. Use o RBAC para conceder a quantidade certa de acesso para os usuários do StorSimple realizarem seus trabalhos, em vez de acesso irrestrito. Para obter mais informações sobre os conceitos básicos do gerenciamento de acesso no Azure, consulte [Introdução ao controle de acesso baseado em função no portal do Azure](../role-based-access-control/overview.md).
+Este artigo fornece uma breve descrição de como o controle de acesso baseado em função do Azure (RBAC do Azure) pode ser usado para seu dispositivo StorSimple. O RBAC do Azure oferece gerenciamento de acesso refinado para o Azure. Use o RBAC do Azure para conceder apenas a quantidade certa de acesso aos usuários do StorSimple para fazer seus trabalhos em vez de conceder a todos acesso irrestrito. Para obter mais informações sobre os fundamentos do gerenciamento de acesso no Azure, consulte [o que é o Azure RBAC (controle de acesso baseado em função do Azure)](../role-based-access-control/overview.md).
 
 Este artigo se aplica a dispositivos da série StorSimple 8000 executando Atualização 3.0 ou posterior no portal do Azure.
 
@@ -31,7 +31,7 @@ Este artigo se aplica a dispositivos da série StorSimple 8000 executando Atuali
 
 ## <a name="azure-roles-for-storsimple"></a>Funções do Azure para StorSimple
 
-O RBAC pode ser atribuído com base em funções. As funções garantem determinados níveis de permissão com base nos recursos disponíveis no ambiente. Há dois tipos de funções que os usuários do StorSimple podem escolher: internas ou personalizadas.
+O RBAC do Azure pode ser atribuído com base nas funções. As funções garantem determinados níveis de permissão com base nos recursos disponíveis no ambiente. Há dois tipos de funções que os usuários do StorSimple podem escolher: internas ou personalizadas.
 
 * **Funções internas** – funções internas podem ser de proprietário, colaborador, leitor ou administrador de acesso do usuário. Para obter mais informações, consulte [funções internas para o controle de acesso baseado em função do Azure](../role-based-access-control/built-in-roles.md).
 

@@ -1,5 +1,5 @@
 ---
-title: Um sistema de proteção de conteúdo de vários DRM-serviços de mídia do Azure v3
+title: Um sistema de proteção de conteúdo de vários DRM
 description: Este artigo fornece uma descrição detalhada de como criar um sistema de proteção de conteúdo de vários DRM com os serviços de mídia do Azure.
 services: media-services
 documentationcenter: ''
@@ -10,18 +10,20 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 12/21/2018
+ms.topic: conceptual
+ms.date: 08/31/2020
 ms.author: willzhan
 ms.custom: seodec18
-ms.openlocfilehash: 79f06bd5d6af05e334faf4e1f6d8cd3e358f89ba
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e0104dd2761f74fbd84486aebbf8c3c4e128eb08
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87039184"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954894"
 ---
-# <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>Criação de um sistema de proteção de conteúdo de DRM múltiplo com controle de acesso 
+# <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>Criação de um sistema de proteção de conteúdo de DRM múltiplo com controle de acesso
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 O design e a criação de um subsistema de Microsoft Ad Rights Management (gerenciamento de direitos digitais) para uma solução de streaming OTT (over-the-top) ou online é uma tarefa complexa. Os operadores ou provedores de vídeo online normalmente terceirizam essa tarefa para provedores de serviço de DRM especializados. A meta deste documento é apresentar um design e uma implementação de referência de um subsistema DRM de ponta a ponta em uma solução de streaming OTT ou online.
 
@@ -138,7 +140,7 @@ A tabela abaixo mostra o mapeamento.
 | **STS (Serviço de Token Seguro)** |Azure AD |
 | **Fluxo de trabalho de proteção de DRM** |Proteção dinâmica dos Serviços de Mídia do Azure |
 | **Entrega de licença do DRM** |* Entrega de licença dos Serviços de Mídia (PlayReady, Widevine, FairPlay) <br/>* Servidor de licença Axinom <br/>* Servidor de licença do PlayReady personalizado |
-| **Ter** |Ponto de extremidade dos Serviços de Mídia do Azure |
+| **Origem** |Ponto de extremidade dos Serviços de Mídia do Azure |
 | **Gerenciamento de chaves** |Não é necessário para a implementação de referência |
 | **Gerenciamento de conteúdo** |Aplicativo do console C# |
 

@@ -2,19 +2,16 @@
 title: Ambiente interativo do PySpark com as ferramentas do Azure HDInsight
 description: Saiba como usar as Ferramentas do Azure HDInsight para Visual Studio Code para criar e enviar consultas e scripts.
 keywords: VSCode, Ferramentas do Azure HDInsight, Hive, Python, PySpark, Spark, HDInsight, Hadoop, LLAP, Hive Interativo, Consulta Interativa
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, devx-track-python
 ms.date: 04/23/2020
-ms.openlocfilehash: 14f0c7177953e43b0c58b4f5432d0c08c5f03f45
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 337a9f3f2ea25e5a4d4fa4204a0f3fa4dcc9369b
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87876607"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98940636"
 ---
 # <a name="set-up-the-pyspark-interactive-environment-for-visual-studio-code"></a>Configurar o ambiente interativo do PySpark para o Visual Studio Code
 
@@ -26,9 +23,7 @@ Usamos comando **python/pip** para criar o ambiente virtual em seu caminho de P�
 
    * Instale o Python do [https://www.python.org/downloads/](https://www.python.org/downloads/) . 
    * Instale o Pip do [https://pip.pypa.io/en/stable/installing](https://pip.pypa.io/en/stable/installing/) (se ele não estiver instalado na instalação do Python).
-   * Valide se o Python e o Pip foram instalados com êxito usando os comandos a seguir. (Opcional)
-
-        ![Verificar o comando de versão do Python Pip](./media/set-up-pyspark-interactive-environment/check-python-pip-version.png)
+   * Opcionalmente, valide se o Python e o Pip são instalados com êxito usando os comandos `python --version` e `pip --version` , respectivamente. 
 
      > [!NOTE]
      > É recomendável instalar o Python manualmente em vez de usar a versão padrão do macOS.

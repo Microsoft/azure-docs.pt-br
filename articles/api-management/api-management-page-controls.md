@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: b826c986a0af26bb79fb0823e4e8626f0165d460
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86250015"
 ---
 # <a name="azure-api-management-page-controls"></a>Controles de página do Gerenciamento de API do Azure
@@ -43,7 +43,7 @@ Para saber mais sobre como trabalhar com modelos, consulte [Como personalizar o 
 -   [paging-control](#paging-control)  
 -   [providers](#providers)  
 -   [controle de pesquisa](#search-control)  
--   [sign-up](#sign-up)  
+-   [inscrever-se](#sign-up)  
 -   [assinar-botão](#subscribe-button)  
 -   [assinatura-cancelar](#subscription-cancel)  
   
@@ -88,7 +88,7 @@ Para saber mais sobre como trabalhar com modelos, consulte [Como personalizar o 
   
 -   [Entrar](api-management-page-templates.md#SignIn)  
   
-##  <a name="paging-control"></a><a name="paging-control"></a>controle de paginação  
+##  <a name="paging-control"></a><a name="paging-control"></a> controle de paginação  
  O `paging-control` fornece funcionalidade de paginação nas páginas do portal do desenvolvedor que exibem uma lista de itens.  
   
  ![controle de paginação](./media/api-management-page-controls/APIM-paging-control.png "Controle de paginação APIM")  
@@ -111,7 +111,7 @@ Para saber mais sobre como trabalhar com modelos, consulte [Como personalizar o 
   
 -   [Lista de produtos](api-management-product-templates.md#ProductList)  
   
-##  <a name="providers"></a><a name="providers"></a>fornecedor  
+##  <a name="providers"></a><a name="providers"></a> fornecedor  
  O controle `providers` fornece um controle para seleção de provedores de autenticação na página de entrada do portal do desenvolvedor.  
   
  ![controle de provedores](./media/api-management-page-controls/APIM-providers-control.png "Controle de provedores de APIM")  
@@ -151,7 +151,7 @@ Para saber mais sobre como trabalhar com modelos, consulte [Como personalizar o 
   
 -   [Lista de produtos](api-management-product-templates.md#ProductList)  
   
-##  <a name="sign-up"></a><a name="sign-up"></a>inscrever-se  
+##  <a name="sign-up"></a><a name="sign-up"></a> inscrever-se  
  O controle `sign-up` fornece um controle para coletar informações de perfil do usuário na página de entrada do portal do desenvolvedor.  
   
  ![assinar&#45;controle](./media/api-management-page-controls/APIM-sign-up-control.png "Controle de inscrição APIM")  

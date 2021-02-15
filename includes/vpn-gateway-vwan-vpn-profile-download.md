@@ -5,37 +5,30 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 07/31/2020
+ms.date: 02/08/2021
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: fc2393cfe87e2639ce40e66e6053d4d430518719
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: f3eb2d9469ab3a3d2c1d09e4adc3ee2cb1f86e6e
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87515336"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979055"
 ---
-## <a name="1-download-the-file"></a>1. Baixar o arquivo
-
-Execute os seguintes comandos: Copie a URL do resultado no navegador para baixar o arquivo zip do perfil.
-
-```azurepowershell-interactive
-$profile = New-AzVpnClientConfiguration -ResourceGroupName AADAuth -Name AADauthGW -AuthenticationMethod "EapTls"
-   
-$PROFILE.VpnProfileSASUrl
-```
-
-## <a name="2-extract-the-zip-file"></a>2. Extrair o arquivo zip
+## <a name="extract-the-zip-file"></a>Extrair o arquivo zip
 
 Extraia o arquivo zip. O arquivo contém as seguintes pastas:
 
 * AzureVPN
 * Genérico
-* OpenVPN (se você tiver habilitado o OpenVPN com o **certificado do Azure** ou com as configurações de **autenticação RADIUS** no gateway). Para o Gateway de VPN, consulte [Criar um locatário](../articles/vpn-gateway/openvpn-azure-ad-tenant.md). Para a WAN Virtual, consulte [Criar um locatário — VWAN](../articles/virtual-wan/openvpn-azure-ad-tenant.md).
+* OpenVPN (se você tiver habilitado o OpenVPN com o **certificado do Azure** ou com as configurações de **autenticação RADIUS** no gateway). Selecione o artigo apropriado que corresponde à sua configuração para criar um locatário.
 
-## <a name="3-retrieve-information"></a>3. Recuperar informações
+  * [Gateway de VPN-criar um locatário](../articles/vpn-gateway/openvpn-azure-ad-tenant.md).
+  * [Wan virtual-criar um locatário](../articles/virtual-wan/openvpn-azure-ad-tenant.md).
 
-Na pasta **AzureVPN**, navegue até o arquivo ***azurevpnconfig.xml*** e abra-o com o Bloco de notas. Anote o texto entre as marcas a seguir.
+## <a name="retrieve-information"></a>Recuperar informações
+
+Na pasta **AzureVPN** , navegue até o arquivo de **_azurevpnconfig.xml_** e abra-o com o bloco de notas. Anote o texto entre as marcas a seguir.
 
 ```
 <audience>          </audience>
@@ -49,11 +42,11 @@ Na pasta **AzureVPN**, navegue até o arquivo ***azurevpnconfig.xml*** e abra-o 
 
 Ao adicionar uma conexão, use as informações coletadas na etapa anterior na página de detalhes do perfil. Os campos correspondem às seguintes informações:
 
-   * **Público:** Identifica o recurso de destinatário ao qual o token é destinado
-   * **Emissor:** Identifica o STS (serviço de token de segurança) que emitiu o token e o locatário do Azure AD
-   * **Locatário:** Contém um identificador exclusivo e imutável do locatário do diretório que emitiu o token
-   * **FQDN:** O FQDN (nome de domínio totalmente qualificado) no gateway de VPN do Azure
-   * **ServerSecret:** A chave pré-compartilhada do gateway de VPN
+* **Público-alvo:** Identifica o recurso de destinatário para o qual o token se destina.
+* **Emissor:** Identifica o serviço de token de segurança (STS) que emitiu o token, bem como o locatário do Azure AD.
+* **Locatário:** Contém um identificador exclusivo e imutável do locatário do diretório que emitiu o token.
+* **FQDN:** O FQDN (nome de domínio totalmente qualificado) no gateway de VPN do Azure.
+* **ServerSecret:** A chave pré-compartilhada do gateway de VPN.
 
 ## <a name="folder-contents"></a>Conteúdo da pasta
 

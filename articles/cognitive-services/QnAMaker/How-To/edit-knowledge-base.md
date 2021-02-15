@@ -1,14 +1,16 @@
 ---
 title: Editar uma base de dados de conhecimento – QnA Maker
 description: O QnA Maker permite que você gerencie o conteúdo de sua base de dados de conhecimento, fornecendo uma experiência de edição fácil de usar.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 07/16/2020
-ms.openlocfilehash: 52aaaf630806ed6c71101860a1286f88a23ec3fa
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8d9f54c1fcd142c77fb73c294b81bf0f11ee083f
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87054010"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99557691"
 ---
 # <a name="edit-qna-pairs-in-your-knowledge-base"></a>Editar pares de QnA na sua base de dados de conhecimento
 
@@ -18,7 +20,26 @@ Os pares de QnA são adicionados de uma fonte de arquivos, como um arquivo ou um
 
 <a name="add-an-editorial-qna-set"></a>
 
+## <a name="question-and-answer-pairs"></a>Pares de pergunta e resposta
+
+Uma base de dados de conhecimento consiste em pares de perguntas e respostas (QnA).  Cada par tem uma resposta e um par contém todas as informações associadas a essa _resposta_. Uma resposta pode se assemelhar livremente a uma linha de banco de dados ou a uma instância de estrutura de dado. As configurações **necessárias** em um par de QnA (perguntas e respostas) são:
+
+* um texto de **pergunta** da consulta do usuário, usado para o aprendizado de máquina de QnA Maker, para se alinhar com o texto da pergunta do usuário com palavras diferentes, mas a mesma resposta
+* a **resposta-a resposta do** par é a resposta retornada quando uma consulta de usuário é correspondida com a pergunta associada
+
+Cada par é representado por uma **ID**.
+
+As configurações **opcionais** para um par incluem:
+
+* **Formas alternativas da pergunta** – isso ajuda a QnA Maker retornar a resposta correta para uma variedade maior de frases de pergunta
+* **Metadados**: os metadados são marcas associadas a um par de QnA e são representados como pares de chave-valor. As marcas de metadados são usadas para filtrar pares QnA e limitar o conjunto sobre o qual a correspondência da consulta será executada.
+* **Prompts de múltipla ativação**, usados para continuar uma conversa com vários folheios
+
+![Bases de conhecimento do QnA Maker](../media/qnamaker-concepts-knowledgebase/knowledgebase.png)
+
 ## <a name="add-an-editorial-qna-pair"></a>Adicionar um par editorial QnA
+
+Se você não tiver conteúdo pré-existente para preencher a base de dados de conhecimento, poderá adicionar pares de QnA editorial no portal de QnA Maker.
 
 1. Entre no portal do [QnA](https://www.qnamaker.ai/)e selecione a base de dados de conhecimento para adicionar o par QnA.
 1. Na página **Editar** da base de dados de conhecimento, selecione **Adicionar par de QnA** para adicionar um novo par de QnA.
@@ -58,21 +79,21 @@ A edição de texto completo do seu texto de resposta oferece uma redução do e
     |--|--|
     |Alterne entre o editor de Rich-Text e a redução. `</>`|CTRL+M|
     |Aplique. **B**|CTR + LB|
-    |Itálico, indicado com um I em itálico ** _I_**|Ctrl+I|
+    |Itálico, indicado com um I em itálico ****|Ctrl+I|
     |Lista não ordenada||
     |Lista ordenada||
     |Estilo de parágrafo||
     |Imagem – adicione uma imagem disponível de uma URL pública.|CTRL+G|
     |Adicionar link à URL disponível publicamente.|CTRL+K|
     |Emoticon – adicionar de uma seleção de emoticons.|CTRL+E|
-    |Menu avançado – desfazer|Ctrl+Z|
+    |Menu avançado – desfazer|CTRL+Z|
     |Menu avançado – refazer|CTRL+Y|
 
 1. Adicione uma imagem à resposta usando o ícone de imagem na barra de ferramentas de Rich Text. O editor in-loco precisa da URL da imagem publicamente acessível e do texto alternativo para a imagem.
 
 
     > [!div class="mx-imgBorder"]
-    > ![Use o editor de Rich-Text para adicionar uma imagem publicamente acessível e seu texto ALT.](../media/qnamaker-how-to-edit-kb/add-image-url-alternate-text.png)
+    > ![Captura de tela mostra o editor in-loco com a URL da imagem publicamente acessível e texto alternativo para a imagem inserida.](../media/qnamaker-how-to-edit-kb/add-image-url-alternate-text.png)
 
 1. Adicione um link a uma URL selecionando o texto na resposta, selecionando o ícone de link na barra de ferramentas ou selecionando o ícone vincular na barra de ferramentas e, em seguida, inserindo o novo texto e a URL.
 
@@ -110,10 +131,10 @@ Não é possível vincular pares de QnA nos metadados da resposta.
 
 ## <a name="add-metadata"></a>Adicionar metadados
 
-Adicione pares de metadados selecionando primeiro **as opções de exibição**e, em seguida, selecionando **Mostrar metadados**. Isso exibe a coluna de metadados. Em seguida, selecione o **+** sinal para adicionar um par de metadados. Esse par consiste em uma chave e um valor.
+Adicione pares de metadados selecionando primeiro **as opções de exibição** e, em seguida, selecionando **Mostrar metadados**. Isso exibe a coluna de metadados. Em seguida, selecione o **+** sinal para adicionar um par de metadados. Esse par consiste em uma chave e um valor.
 
 Saiba mais sobre metadados no início rápido do portal QnA Maker para obter os metadados:
-* [Criação-adicionar metadados ao par QnA](../quickstarts/add-question-metadata-portal.md#add-metadata-to-filter-the-answers)
+* [Criação – adicionar metadados ao par de pergunta e resposta](../quickstarts/add-question-metadata-portal.md#add-metadata-to-filter-the-answers)
 * [Previsão de consulta – filtrar respostas por metadados](../quickstarts/get-answer-from-knowledge-base-using-url-tool.md)
 
 ## <a name="save-changes-to-the-qna-pairs"></a>Salvar alterações nos pares de QnA
@@ -126,11 +147,19 @@ Selecione periodicamente **salvar e treinar** depois de fazer edições para evi
 
 A edição de respostas em [Rich Text](#add-an-editorial-qna-set) permite que você, como autor, use uma barra de ferramentas de formatação para selecionar e formatar rapidamente o texto.
 
-A [redução](../reference-markdown-format.md) é uma ferramenta melhor quando você precisa gerar o conteúdo automaticamente para criar bases de dados de conhecimento a serem importadas como parte de um pipeline de CI/CD ou para [testes em lotes](../Quickstarts/batch-testing.md).
+A [redução](../reference-markdown-format.md) é uma ferramenta melhor quando você precisa gerar o conteúdo automaticamente para criar bases de dados de conhecimento a serem importadas como parte de um pipeline de CI/CD ou para [testes em lotes](../index.yml).
+
+## <a name="editing-your-knowledge-base-locally"></a>Como editar sua base de dados de conhecimento localmente
+
+Após criar uma base de conhecimento, é recomendável que você faça as edições no texto da base de conhecimento no [portal QnA Maker](https://qnamaker.ai), em vez de exportar e reimportar por meio de arquivos locais. No entanto, pode haver ocasiões em que você precisa editar uma base de conhecimento localmente.
+
+Exporte a base de conhecimento na página **Configurações** e, em seguida, edite-a com o Microsoft Excel. Se você optar por usar outro aplicativo para editar o arquivo exportado, o aplicativo poderá introduzir erros de sintaxe porque não é compatível totalmente com TSV. Em geral, os arquivos TSV do Microsoft Excel não introduzem nenhum erro de formatação.
+
+Depois de concluir as edições, reimporte o arquivo TSV na página **Configurações**. Isso substitui totalmente a base de conhecimento atual pela base de conhecimento importada.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Colaborar em uma base de dados de conhecimento](./collaborate-knowledge-base.md)
+> [Colaborar em uma base de dados de conhecimento](../index.yml)
 
 * [Gerenciar recursos do Azure usados pelo QnA Maker](set-up-qnamaker-service-azure.md)

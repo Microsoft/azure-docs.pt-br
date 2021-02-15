@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 04/22/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 082148ecfd4332abb42f96afcd94032d428069ce
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1a05216fd44a64c037561662009987615f5657a8
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84782510"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207165"
 ---
 # <a name="azure-remote-rendering-support-options"></a>Opções de suporte à renderização remota do Azure
 
@@ -30,8 +30,8 @@ Para abrir um tíquete de suporte técnico dentro do portal do Azure para render
 
 1. Preencha os campos:
 
-    * **Tipo de problema**:`Technical`
-    * **Serviço**:`Remote Rendering`
+    * **Tipo de problema**: `Technical`
+    * **Serviço**: `Remote Rendering`
 
     ![portal do Azure campos de tíquete de suporte](media/portal-request.png)
 
@@ -56,7 +56,7 @@ Para fornecer comentários, compartilhar uma ideia ou sugestão para a renderiza
 
 ## <a name="microsoft-qa"></a>P e R da Microsoft
 
-Para obter respostas rápidas e confiáveis para suas perguntas técnicas sobre produtos com os engenheiros da Microsoft, os MVPs (profissionais mais valiosos) do Azure ou nossa comunidade de especialistas, entre em [P e R da Microsoft](https://docs.microsoft.com/answers/topics/azure-remote-rendering.html), o destino preferido do Azure para suporte à comunidade.
+Para obter respostas rápidas e confiáveis para suas perguntas técnicas sobre produtos com os engenheiros da Microsoft, os MVPs (profissionais mais valiosos) do Azure ou nossa comunidade de especialistas, entre em [P e R da Microsoft](/answers/topics/azure-remote-rendering.html), o destino preferido do Azure para suporte à comunidade.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 05/2/2020
 ms.author: derekol
 Customer intent: With Azure Peering service enhancing the customer connectivity to Microsoft cloud services .
-ms.openlocfilehash: f04ae0d2e541be0a7984e944298fa8d7b47fd126
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: f8f0ee71a8dd00498d868bb6dc11b3fa083df766
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "84870569"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021088"
 ---
 # <a name="tutorial-create-a-peering-service-connection"></a>Tutorial: Criar uma conexão do Serviço de Emparelhamento
 
@@ -43,13 +43,13 @@ Este tutorial mostra como criar um recurso de Serviço de Emparelhamento e como 
 
 1. Selecione **Chave de Prefixo** e adicione a chave de prefixo que foi atribuída a você pelo seu provedor (ISP ou PTT). Essa chave permite que o MS valide o prefixo e o provedor que alocou o prefixo de IP.
 
-    ![Guia Registrar configuração do Serviço de Emparelhamento](./media/peering-service-portal/peering-serviceconfiguration.png)
+    ![A captura de tela mostra a guia Configuração da página Criar uma conexão de serviço de emparelhamento, em que é possível inserir a chave Prefixo.](./media/peering-service-portal/peering-serviceconfiguration.png)
 
 1. Selecione o botão **Examinar + criar** na parte inferior esquerda da página. A página **Examinar + criar** é exibida e o Azure valida sua configuração.
 
  1. Quando a mensagem **Validação aprovada** for exibida, selecione **Criar**.
 
-> ![Guia Registrar configuração do Serviço de Emparelhamento](./media/peering-service-portal/peering-service-prefix.png)
+> ![A captura de tela mostra a guia Examinar + criar da página Criar uma conexão de serviço de emparelhamento.](./media/peering-service-portal/peering-service-prefix.png)
 
 1. Depois de registrar uma conexão de Serviço de Emparelhamento, a validação adicional é executada nos prefixos incluídos. Você pode examinar o status de validação na seção **Prefixos** do nome do recurso. Se a validação falhar, uma das seguintes mensagens de erro será exibida:
 

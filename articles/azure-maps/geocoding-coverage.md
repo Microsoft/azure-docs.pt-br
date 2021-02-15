@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 1f79add26af40abfa320bc23a3287d8246237701
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 3cf27319fa84ff5d693e74e90664b7a86f4d934a
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037432"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92897204"
 ---
 # <a name="azure-maps-geocoding-coverage"></a>Cobertura da geocodificação dos Mapas do Azure
 
-O serviço de [pesquisa](https://docs.microsoft.com/rest/api/maps/search) do Azure Maps dá suporte a geocodificação, o que significa que sua solicitação de API pode ter termos de pesquisa, como um endereço ou o nome de um local, e retorna o resultado como coordenadas de latitude e longitude. Por exemplo, a [API obter endereço de pesquisa](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) do Azure Maps recebe consultas que contêm informações de localização e retorna resultados como coordenadas de latitude e longitude.
+O serviço de [pesquisa](/rest/api/maps/search) do Azure Maps dá suporte a geocodificação, o que significa que sua solicitação de API pode ter termos de pesquisa, como um endereço ou o nome de um local, e retorna o resultado como coordenadas de latitude e longitude. Por exemplo, a [API obter endereço de pesquisa](/rest/api/maps/search/getsearchaddress) do Azure Maps recebe consultas que contêm informações de localização e retorna resultados como coordenadas de latitude e longitude.
 
-No entanto, o [serviço de pesquisa](https://docs.microsoft.com/rest/api/maps/search) do Azure Maps não tem o mesmo nível de informações e precisão para todas as regiões e países. Use este artigo para determinar que tipo de locais você pode procurar de forma confiável em cada região.
+No entanto, o [serviço de pesquisa](/rest/api/maps/search) do Azure Maps não tem o mesmo nível de informações e precisão para todas as regiões e países. Use este artigo para determinar que tipo de locais você pode procurar de forma confiável em cada região.
 
 A capacidade de geocódigo em um país/região depende da cobertura de dados de estrada e da precisão geocodificação do serviço de geocodificação. As categorizações a seguir são usadas para especificar o nível de suporte de geocodificação em cada país/região.
 
@@ -44,7 +44,7 @@ A capacidade de geocódigo em um país/região depende da cobertura de dados de 
 | Bolívia                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Bonaire, Santo Eustáquio e Saba                   |                 |                |              |      ✓     |          ✓         |
 | Brasil                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| Canadá                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Canada                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Ilhas Cayman                                      |                 |                |       ✓      |      ✓     |          ✓         |
 | Chile                                               |       ✓         |        ✓       |       ✓      |      ✓     |          ✓         |
 | Colômbia                                            |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -213,7 +213,7 @@ A capacidade de geocódigo em um país/região depende da cobertura de dados de 
 | Turquia                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Turcomenistão                                        |                 |                |              |      ✓     |          ✓         |
 | Ucrânia                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| Reino Unido                                      |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| United Kingdom                                      |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Uzbequistão                                          |                 |                |              |      ✓     |          ✓         |
 | Cidade do Vaticano                                        |                 |                |       ✓      |      ✓     |          ✓         |
 
@@ -301,4 +301,4 @@ A capacidade de geocódigo em um país/região depende da cobertura de dados de 
 
 Saiba mais sobre a geocodificação do Azure Maps:
 > [!div class="nextstepaction"]
-> [Serviço de pesquisa do Azure Maps](https://docs.microsoft.com/rest/api/maps/search)
+> [Serviço Pesquisa do Azure Mapas](/rest/api/maps/search)

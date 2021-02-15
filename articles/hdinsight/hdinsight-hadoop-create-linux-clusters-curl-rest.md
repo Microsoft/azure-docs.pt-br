@@ -1,19 +1,16 @@
 ---
 title: Criar clusters do Apache Hadoop usando a API de REST do Azure - Azure
 description: Saiba como criar clusters do HDInsight enviando os modelos do Azure Resource Manager para a API REST do Azure.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive, devx-track-azurecli
 ms.date: 12/10/2019
-ms.openlocfilehash: 75eda1720e80a886ca0efb2d1f4204416a5b55f8
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: fa5675104d9614e1bd917585ea537c92dddd88cc
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86083331"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945783"
 ---
 # <a name="create-apache-hadoop-clusters-using-the-azure-rest-api"></a>Criar clusters do Apache Hadoop usando a API REST do Azure
 
@@ -214,12 +211,12 @@ Esse exemplo será usado nas etapas presentes neste documento. Substitua os *val
 
 ## <a name="sign-in-to-your-azure-subscription"></a>Entre em sua assinatura do Azure
 
-Siga as etapas documentadas em [Introdução à CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) e conecte-se à sua assinatura usando o `az login` comando.
+Siga as etapas documentadas em [Introdução à CLI do Azure](/cli/azure/get-started-with-az-cli2) e conecte-se à sua assinatura usando o `az login` comando.
 
 ## <a name="create-a-service-principal"></a>Criar uma entidade de serviço
 
 > [!NOTE]  
-> Essas etapas são uma versão resumida da seção *Criar a entidade de serviço com uma senha* do documento [Usar a CLI do Azure para criar uma entidade de serviço para acessar recursos](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md). Estas etapas criam uma entidade de serviço que é usada para autenticar a API REST do Azure.
+> Essas etapas são uma versão resumida da seção *Criar a entidade de serviço com uma senha* do documento [Usar a CLI do Azure para criar uma entidade de serviço para acessar recursos](/cli/azure/create-an-azure-service-principal-azure-cli). Estas etapas criam uma entidade de serviço que é usada para autenticar a API REST do Azure.
 
 1. Em uma linha de comando, use o seguinte comando para listar as assinaturas do Azure.
 

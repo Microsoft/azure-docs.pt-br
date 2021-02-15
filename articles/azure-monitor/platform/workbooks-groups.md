@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: lagayhar
 ms.openlocfilehash: b6377cdcdb5816426eba62fdbef79eeb42659dcc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82892076"
 ---
 # <a name="how-to-use-groups-in-workbooks"></a>Como usar grupos em pastas de trabalho
@@ -68,7 +68,7 @@ O grupo será carregado somente quando o item estiver visível. Isso permite que
 
 Para grupos criados por meio de um modelo, o conteúdo do modelo não é recuperado e os itens no grupo não são criados até que o grupo se torne visível. O usuário verá os esavanços de andamento para o grupo inteiro enquanto o conteúdo é recuperado.
 
-### <a name="explicit"></a>Explícito
+### <a name="explicit"></a>Explícita
 
 Nesse modo, um botão é exibido onde o grupo seria, e nenhum conteúdo é recuperado ou criado até que o usuário clique explicitamente no botão para carregar o conteúdo. Isso é útil em cenários em que o conteúdo pode ser caro para ser computado ou raramente usado. O autor pode especificar o texto a ser exibido no botão.
 
@@ -98,8 +98,8 @@ Quando um modelo é carregado em um grupo, a pasta de trabalho tenta mesclar tod
 
 Considere um modelo que tenha dois parâmetros na parte superior.
 
-- `TimeRange`-um parâmetro de intervalo de tempo.
-- `Filter`-um parâmetro de texto.
+- `TimeRange` -um parâmetro de intervalo de tempo.
+- `Filter` -um parâmetro de texto.
 
 ![Editando parâmetros item: "parâmetros de nível superior"](./media/workbooks-groups/groups-top-level-params.png)
 
@@ -113,12 +113,12 @@ Quando o segundo modelo é carregado no grupo, os parâmetros duplicados serão 
 
 Considere o modelo de um grupo que tem dois parâmetros na parte superior.
 
-- `TimeRange`-um parâmetro de intervalo de tempo.
-- `FilterB`-um parâmetro de texto, observe que não é `Filter` como o modelo superior tinha.
+- `TimeRange` -um parâmetro de intervalo de tempo.
+- `FilterB` -um parâmetro de texto, observe que não é `Filter` como o modelo superior tinha.
 
 ![Editando um item de grupo com o resultado de parâmetros mesclados fora](./media/workbooks-groups/groups-wont-merge-away.png)
 
-Quando o modelo item's do grupo for carregado, o `TimeRange` parâmetro será mesclado fora do grupo. Em seguida, a pasta de trabalho terá os parâmetros iniciais Step com `TimeRange` e `Filter` , e a etapa do parâmetro do grupo incluirá apenas`FilterB`
+Quando o modelo item's do grupo for carregado, o `TimeRange` parâmetro será mesclado fora do grupo. Em seguida, a pasta de trabalho terá os parâmetros iniciais Step com `TimeRange` e `Filter` , e a etapa do parâmetro do grupo incluirá apenas `FilterB`
 
 ![resultado de parâmetros que não serão mesclados](./media/workbooks-groups/groups-wont-merge-away-result.png)
 

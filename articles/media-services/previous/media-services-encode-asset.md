@@ -13,17 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: juliako
-ms.openlocfilehash: ef558b9339fe1d4525156cf58efe5056862de0a2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d6e64ed7476b3f9fd5427c2f3d26855bc4d5f97d
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87052749"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98695756"
 ---
-# <a name="overview-of-azure-on-demand-media-encoders"></a>Visão geral dos codificadores de mídia sob demanda do Azure 
+# <a name="overview-of-azure-on-demand-media-encoders"></a>Visão geral dos codificadores de mídia sob demanda do Azure
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
-> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](../latest/index.yml). Além disso, consulte s [diretrizes de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
+> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](../latest/index.yml). Além disso, consulte s [diretrizes de migração da v2 para a v3](../latest/migrate-v-2-v-3-migration-introduction.md)
 
 Os Serviços de Mídia do Azure fornecem várias opções para a codificação de mídia na nuvem.
 
@@ -34,12 +36,11 @@ Os Serviços de Mídia fornecem empacotamento dinâmico, o que permite distribui
 
 Quando sua conta de serviços de mídia for criada, um ponto de extremidade de streaming **padrão** será adicionado à sua conta no estado **parado** . Para iniciar seu conteúdo de streaming e tirar proveito do empacotamento dinâmico e da criptografia dinâmica, o ponto de extremidade de streaming do qual você deseja transmitir o conteúdo deve estar em estado **Executando**. A cobrança para pontos de extremidade de streaming ocorre sempre que o ponto de extremidade está em um estado de **execução** .
 
-Os Serviços de Mídia são compatíveis com os seguintes codificadores sob demanda descritos neste artigo:
+Os serviços de mídia oferecem suporte ao seguinte codificador sob demanda:
 
 * [Media Encoder Standard](media-services-encode-asset.md#media-encoder-standard)
-* [Fluxo de trabalho do Media Encoder Premium](media-services-encode-asset.md#media-encoder-premium-workflow)
 
-Este artigo fornece uma breve visão geral dos codificadores de mídia sob demanda e fornece links para artigos que oferecem informações mais detalhadas. O tópico também fornece uma comparação entre os codificadores.
+Este artigo fornece uma breve visão geral dos codificadores de mídia sob demanda e links para artigos com informações mais detalhadas.
 
 Por padrão, cada conta dos Serviços de Mídia pode ter uma tarefa de codificação ativa por vez. Você pode reservar unidades de codificação que permitem ter várias tarefas de codificação em execução simultaneamente, uma para cada unidade reservada de codificação que você comprar. Para saber mais, consulte [Dimensionamento das unidades de codificação](media-services-scale-media-processing-overview.md).
 
@@ -52,7 +53,7 @@ Por padrão, cada conta dos Serviços de Mídia pode ter uma tarefa de codifica�
 [Formatos e codecs](media-services-media-encoder-standard-formats.md)
 
 ### <a name="presets"></a>Predefinições
-O Codificador de Mídia Padrão é configurado usando um dos codificadores predefinidos descritos [aqui](https://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
+O Codificador de Mídia Padrão é configurado usando um dos codificadores predefinidos descritos [aqui](./media-services-mes-presets-overview.md).
 
 ### <a name="input-and-output-metadata"></a>Metadados de entrada e saída
 Os metadados de entrada dos codificadores estão descritos [aqui](media-services-input-metadata-schema.md).
@@ -60,7 +61,7 @@ Os metadados de entrada dos codificadores estão descritos [aqui](media-services
 Os metadados de saída dos codificadores estão descritos [aqui](media-services-output-metadata-schema.md).
 
 ### <a name="generate-thumbnails"></a>Gerar miniaturas
-Para obter informações, veja [Como gerar miniaturas usando o Codificador de Mídia Padrão](media-services-advanced-encoding-with-mes.md#thumbnails).
+Para obter informações, veja [Como gerar miniaturas usando o Codificador de Mídia Padrão](media-services-advanced-encoding-with-mes.md).
 
 ### <a name="trim-videos-clipping"></a>Cortar vídeos (recorte)
 Para obter informações, veja [Como cortar vídeos usando o Codificador de Mídia Padrão](media-services-advanced-encoding-with-mes.md#trim_video).
@@ -68,17 +69,8 @@ Para obter informações, veja [Como cortar vídeos usando o Codificador de Míd
 ### <a name="create-overlays"></a>Criar sobreposições
 Para obter informações, veja [Como criar sobreposições usando o Codificador de Mídia Padrão](media-services-advanced-encoding-with-mes.md#overlay).
 
-### <a name="see-also"></a>Confira também
+### <a name="see-also"></a>Consulte também
 [O blog Serviços de Mídia](https://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/)
-
-## <a name="media-encoder-premium-workflow"></a>Fluxo de trabalho do Media Encoder Premium
-### <a name="overview"></a>Visão geral
-[Apresentando a codificação Premium nos Serviços de Mídia do Azure](https://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services/)
-
-### <a name="how-to-use"></a>Como usar
-O fluxo de trabalho do Media Encoder Premium é configurado usando fluxos de trabalho complexos. Os arquivos de fluxo de trabalho podem ser criados e atualizados usando a ferramenta [Designer de Fluxo de Trabalho](media-services-workflow-designer.md) .
-
-[Como usar a codificação Premium nos Serviços de Mídia do Azure](https://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services/)
 
 ### <a name="known-issues"></a>Problemas conhecidos
 Se o vídeo de entrada não contiver a legendagem oculta, o ativo de saída ainda conterá um arquivo TTML vazio.

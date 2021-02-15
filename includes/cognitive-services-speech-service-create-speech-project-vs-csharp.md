@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 08/30/2019
 ms.author: wolfma
 ms.openlocfilehash: c7332177795a45331749225e0f3dc3856e28a6a2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "71327045"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001076"
 ---
 Para criar um projeto do Visual Studio para desenvolvimento de Windows, é necessário criar o projeto, configurar o Visual Studio para desenvolvimento de área de trabalho do .NET, instalar o SDK de Fala e escolher a arquitetura de destino.
 
@@ -25,7 +25,7 @@ Para começar, crie o projeto no Visual Studio e verifique se o Visual Studio es
 
 1. Na janela **Configure seu novo projeto**, insira *olámundo* no **Nome do projeto**, escolha ou crie o caminho do diretório na **Localização** e selecione **Criar**.
 
-1. Na barra de menus do Visual Studio, selecione **ferramentas** > **obter ferramentas e recursos**, que abre instalador do Visual Studio e exibe a caixa de diálogo **modificando** .
+1. Na barra de menus do Visual Studio, selecione **ferramentas**  >  **obter ferramentas e recursos**, que abre instalador do Visual Studio e exibe a caixa de diálogo **modificando** .
 
 1. Verifique se a carga de trabalho **desenvolvimento de área de trabalho do .NET** está disponível. Se a carga de trabalho não tiver sido instalada, selecione a caixa de seleção ao lado dela e, em seguida, **Modificar** para iniciar a instalação. Talvez o download e a instalação demore alguns minutos.
 
@@ -61,7 +61,7 @@ A próxima etapa é instalar o [pacote NuGet do SDK de Fala](https://aka.ms/cssp
 
 Agora, para criar e executar o aplicativo de console, crie uma configuração de plataforma que corresponda à arquitetura do seu computador.
 
-1. Na barra de menus, selecione **criar** > **Configuration Manager**. A caixa de diálogo **Gerenciador de Configurações** é exibida.
+1. Na barra de menus, selecione **criar**  >  **Configuration Manager**. A caixa de diálogo **Gerenciador de Configurações** é exibida.
 
    ![Caixa de diálogo Gerenciador de Configurações](../articles/cognitive-services/speech-service/media/sdk/vs-configuration-manager-dialog-box.png)
 

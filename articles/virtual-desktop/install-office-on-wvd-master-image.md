@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 05/02/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3e53d8bf8f7cb024b468983f596d3d1bd5c91ee7
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: b6369013d605ae538ad611a28a90e9c099bb7d80
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88007294"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91326041"
 ---
 # <a name="install-office-on-a-master-vhd-image"></a>Instalar o Office em uma imagem de VHD mestre
 
@@ -56,7 +56,7 @@ Veja o que este XML de configuração de exemplo não fará:
 
 A ferramenta de implantação do Office contém setup.exe. Para instalar o Office, execute o seguinte comando em uma linha de comando:
 
-```batch
+```cmd
 Setup.exe /configure configuration.xml
 ```
 
@@ -79,7 +79,7 @@ O exemplo de XML a seguir instalará a versão mensal do canal empresarial.
   <RemoveMSI/>
   <Updates Enabled="FALSE"/>
   <Display Level="None" AcceptEULA="TRUE" />
-  <Logging Level=" Standard" Path="%temp%\WVDOfficeInstall" />
+  <Logging Level="Standard" Path="%temp%\WVDOfficeInstall" />
   <Property Name="FORCEAPPSHUTDOWN" Value="TRUE"/>
   <Property Name="SharedComputerLicensing" Value="1"/>
 </Configuration>
@@ -90,7 +90,7 @@ O exemplo de XML a seguir instalará a versão mensal do canal empresarial.
 
 Depois de instalar o Office, você pode atualizar o comportamento padrão do Office. Execute os comandos a seguir individualmente ou em um arquivo em lotes para atualizar o comportamento.
 
-```batch
+```cmd
 rem Mount the default user registry hive
 reg load HKU\TempDefault C:\Users\Default\NTUSER.DAT
 rem Must be executed with default registry hive mounted.
@@ -117,41 +117,41 @@ Veja como instalar o OneDrive no modo por máquina:
 
 1. Primeiro, crie um local para preparar o instalador do OneDrive. Um local de pasta de disco local ou [ \\ \\ UNC] (file://UNC) está bem.
 
-2. Baixe OneDriveSetup.exe em seu local de preparação com este link:<https://aka.ms/OneDriveWVD-Installer>
+2. Baixe OneDriveSetup.exe em seu local de preparação com este link: <https://aka.ms/OneDriveWVD-Installer>
 
 3. Se você instalou o Office com o OneDrive omitindo **\<ExcludeApp ID="OneDrive" /\>** , desinstale todas as instalações existentes do onedrive por usuário em um prompt de comando elevado executando o seguinte comando:
 
-    ```batch
+    ```cmd
     "[staged location]\OneDriveSetup.exe" /uninstall
     ```
 
 4. Execute este comando em um prompt de comando elevado para definir o valor do registro **AllUsersInstall** :
 
-    ```batch
+    ```cmd
     REG ADD "HKLM\Software\Microsoft\OneDrive" /v "AllUsersInstall" /t REG_DWORD /d 1 /reg:64
     ```
 
 5. Execute este comando para instalar o OneDrive no modo por máquina:
 
-    ```batch
+    ```cmd
     Run "[staged location]\OneDriveSetup.exe" /allusers
     ```
 
 6. Execute este comando para configurar o OneDrive para iniciar na entrada para todos os usuários:
 
-    ```batch
+    ```cmd
     REG ADD "HKLM\Software\Microsoft\Windows\CurrentVersion\Run" /v OneDrive /t REG_SZ /d "C:\Program Files (x86)\Microsoft OneDrive\OneDrive.exe /background" /f
     ```
 
 7. Habilite **Configurar silenciosamente a conta de usuário** executando o comando a seguir.
 
-    ```batch
+    ```cmd
     REG ADD "HKLM\SOFTWARE\Policies\Microsoft\OneDrive" /v "SilentAccountConfig" /t REG_DWORD /d 1 /f
     ```
 
 8. Redirecione e mova as pastas conhecidas do Windows para o OneDrive executando o comando a seguir.
 
-    ```batch
+    ```cmd
     REG ADD "HKLM\SOFTWARE\Policies\Microsoft\OneDrive" /v "KFMSilentOptIn" /t REG_SZ /d "<your-AzureAdTenantId>" /f
     ```
 

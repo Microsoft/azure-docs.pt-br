@@ -7,12 +7,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: twooley
-ms.openlocfilehash: ec0e62297e6eee995fc571589d450176c81f8aac
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 240018381a3139a6378141d78514e43ae469de5d
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192834"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "92146302"
 ---
 # <a name="security-in-azure-data-lake-storage-gen1"></a>Segurança no Azure Data Lake Storage Gen1
 
@@ -31,7 +31,7 @@ Autenticação é o processo pelo qual a identidade do usuário é verificada qu
 Toda assinatura do Azure pode ser associada a uma instância do Azure Active Directory. Somente os usuários e identidades de serviço que estão definidos no serviço Azure Active Directory podem acessar sua conta do Azure Data Lake Storage Gen1, usando o portal do Azure, as ferramentas de linha de comando, ou aplicativos de cliente criados pela sua organização usando o SDK do Azure Data Lake Storage Gen1 SDK. As principais vantagens de usar o Azure Active Directory como um mecanismo de controle de acesso centralizado são:
 
 * Gerenciamento de ciclo de vida de identidade simplificado. A identidade de um usuário ou um serviço (uma entidade principal do serviço) pode ser criada rapidamente e revogada simplesmente excluindo ou desabilitando a conta no diretório.
-* Multi-Factor Authentication. [Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md) fornece uma camada adicional de segurança para os logons e as transações dos usuários.
+* Multi-Factor Authentication. [Multi-Factor Authentication](../active-directory/authentication/concept-mfa-howitworks.md) fornece uma camada adicional de segurança para os logons e as transações dos usuários.
 * A autenticação de clientes por meio de um protocolo aberto padrão, como OAuth ou OpenID.
 * Federação com serviços de diretório da empresa e provedores de identidade da nuvem.
 
@@ -42,7 +42,7 @@ Depois que o Microsoft Azure Active Directory autentica um usuário para que ele
 * [Controle de acesso baseado em função do Azure (RBAC do Azure)](../role-based-access-control/overview.md) para gerenciamento de conta
 * ACL POSIX para acessar dados no repositório
 
-### <a name="rbac-for-account-management"></a>RBAC para o gerenciamento da conta
+### <a name="azure-rbac-for-account-management"></a>RBAC do Azure para gerenciamento de conta
 
 Quatro funções básicas são definidas para o Azure Data Lake Storage Gen1 por padrão. As funções permitem operações diferentes em uma conta do Azure Data Lake Storage Gen1 usando o portal do Azure, os cmdlets do PowerShell e as APIs REST. As funções Proprietário e Colaborador podem realizar várias funções de administração na conta. Você pode atribuir a função Leitor para os usuários que só visualizam os dados de gerenciamento da conta.
 
@@ -117,7 +117,7 @@ Os clientes corporativos exigem uma plataforma de nuvem da análise de dados que
 
 Se você quer ver os novos recursos incluídos no Azure Data Lake Storage Gen1, envie seus comentários para o [Fórum UserVoice do Azure Data Lake Storage Gen1](https://feedback.azure.com/forums/327234-data-lake).
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 
 * [Visão Geral do Azure Data Lake Storage Gen1](data-lake-store-overview.md)
 * [Introdução ao Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)

@@ -9,10 +9,10 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: Kinect, Azure, sensor, SDK, corpo, acompanhamento, conjunta
 ms.openlocfilehash: 1b62022242144d5db51455a32ac04b67c3e5dd7a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85276406"
 ---
 # <a name="get-body-tracking-results"></a>Obter resultados de acompanhamento do corpo
@@ -50,7 +50,7 @@ if (K4A_RESULT_SUCCEEDED != k4abt_tracker_create(&sensor_calibration, tracker_co
 A captura de imagem usando o Azure Kinect DK é abordada na página [recuperar imagens](retrieve-images.md) .
 
 >[!NOTE]
-> `K4A_DEPTH_MODE_NFOV_UNBINNED`os `K4A_DEPTH_MODE_WFOV_2X2BINNED` modos ou são recomendados para melhor desempenho e precisão. Não use os `K4A_DEPTH_MODE_OFF` modos ou `K4A_DEPTH_MODE_PASSIVE_IR` .
+> `K4A_DEPTH_MODE_NFOV_UNBINNED` os `K4A_DEPTH_MODE_WFOV_2X2BINNED` modos ou são recomendados para melhor desempenho e precisão. Não use os `K4A_DEPTH_MODE_OFF` modos ou `K4A_DEPTH_MODE_PASSIVE_IR` .
 
 Os modos do Azure Kinect DK com suporte são descritos na especificação de [hardware](hardware-specification.md) do Azure Kinect dk e [k4a_depth_mode_t](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___enumerations_ga3507ee60c1ffe1909096e2080dd2a05d.html#ga3507ee60c1ffe1909096e2080dd2a05d) enumerações.
 

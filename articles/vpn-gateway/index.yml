@@ -10,12 +10,12 @@ metadata:
   author: cherylmc
   ms.author: cherylmc
   ms.date: 08/28/2019
-  ms.openlocfilehash: 5a75e2ef81c2ea584e7819d278f63e5ae53b9ce9
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: 8619e0948cc08d06d27a09864bbff13ad6ad3791
+  ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "70885615"
+  ms.lasthandoff: 12/07/2020
+  ms.locfileid: "96780324"
 landingContent:
 - title: Sobre o Gateway de VPN
   linkLists:
@@ -35,20 +35,16 @@ landingContent:
       url: vpn-gateway-vpn-faq.md
 - title: Introdução
   linkLists:
-  - linkListType: how-to-guide
-    links:
-    - text: Criar um gateway de VPN
-      url: create-routebased-vpn-gateway-portal.md
-    - text: Criar uma conexão site a site
-      url: vpn-gateway-howto-site-to-site-resource-manager-portal.md
-    - text: Criar uma conexão ponto a site
-      url: vpn-gateway-howto-point-to-site-resource-manager-portal.md
   - linkListType: tutorial
     links:
     - text: Criar e gerenciar um gateway de VPN
-      url: vpn-gateway-tutorial-create-gateway-powershell.md
-    - text: Criar e gerenciar uma conexão site a site
-      url: vpn-gateway-tutorial-vpnconnection-powershell.md
+      url: tutorial-create-gateway-portal.md
+    - text: Criar uma conexão VPN site a site
+      url: tutorial-site-to-site-portal.md
+  - linkListType: how-to-guide
+    links:
+    - text: Criar uma conexão VPN ponto a site
+      url: vpn-gateway-howto-point-to-site-resource-manager-portal.md
 - title: Dispositivos VPN
   linkLists:
   - linkListType: concept
@@ -67,10 +63,10 @@ landingContent:
     links:
     - text: Definições de configuração do Gateway
       url: vpn-gateway-about-vpn-gateway-settings.md
-    - text: Roteamento ponto a site
-      url: vpn-gateway-about-point-to-site-routing.md
     - text: SKUs de gateway
       url: vpn-gateway-about-vpn-gateway-settings.md#gwsku
+    - text: Roteamento ponto a site
+      url: vpn-gateway-about-point-to-site-routing.md
   - linkListType: how-to-guide
     links:
     - text: Verificar um gateway de VPN
@@ -84,7 +80,7 @@ landingContent:
   - linkListType: concept
     links:
     - text: Controles de segurança
-      url: vpn-gateway-security-controls.md
+      url: ./security-baseline.md
   - linkListType: how-to-guide
     links:
     - text: Monitoramento e alertas

@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 01/10/2020
+ms.date: 10/21/2020
 ms.author: cherylmc
-ms.openlocfilehash: 6f801b94a16ae6fcee6896dd70510469c5e20098
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 1aba87b2139fb8a7d395fb3180d2074e47310fa9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036905"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010741"
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>Sobre definições de configuração do Gateway de VPN
 
@@ -27,8 +27,6 @@ Os valores neste artigo aplicam gateways VPN (gateways de rede virtual que usam 
 * Para gateways redundantes de zona, consulte [Sobre gateways redundantes de zona](about-zone-redundant-vnet-gateways.md).
 
 * Para WAN virtual, consulte [Sobre a WAN virtual](../virtual-wan/virtual-wan-about.md).
-
-
 
 ## <a name="gateway-types"></a><a name="gwtype"></a>Tipos de gateway
 
@@ -55,11 +53,11 @@ New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 
 ### <a name="configure-a-gateway-sku"></a>Configurar uma SKU de gateway
 
-#### <a name="azure-portal"></a>Portal do Azure
+**Portal do Azure**
 
 Se você usa o portal do Azure para criar um gateway de rede virtual do Resource Manager, é possível selecionar o SKU do gateway usando o menu suspenso. As opções apresentadas correspondem ao tipo de Gateway e ao tipo de VPN que você selecionar.
 
-#### <a name="powershell"></a>PowerShell
+**PowerShell**
 
 O exemplo do PowerShell a seguir especifica o `-GatewaySku` como VpnGw1. Ao usar o PowerShell para criar um gateway, você precisa primeiro criar a configuração de IP e, em seguida, usar uma variável para fazer referência a ele. Neste exemplo, a variável de configuração é $gwipconfig.
 
@@ -69,7 +67,7 @@ New-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
 -GatewayType Vpn -VpnType RouteBased
 ```
 
-#### <a name="azure-cli"></a>CLI do Azure
+**CLI do Azure**
 
 ```azurecli
 az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWPIP --resource-group TestRG1 --vnet VNet1 --gateway-type Vpn --vpn-type RouteBased --sku VpnGw1 --no-wait
@@ -84,6 +82,12 @@ Se você tiver um gateway de VPN e quer usar uma SKU de gateway diferente, suas 
 3. **Não é possível** redimensionar de SKUs Basic/Standard/HighPerformance para SKUs VpnGw. Em vez disso, você deve [alterar](#change) para as novas SKUs.
 
 #### <a name="to-resize-a-gateway"></a><a name="resizegwsku"></a>Para redimensionar um gateway
+
+**Azure portal**
+
+[!INCLUDE [Resize a SKU - portal](../../includes/vpn-gateway-resize-gw-portal-include.md)]
+
+**PowerShell**
 
 [!INCLUDE [Resize a SKU](../../includes/vpn-gateway-gwsku-resize-include.md)]
 
@@ -152,9 +156,9 @@ Add-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/2
 
 ## <a name="local-network-gateways"></a><a name="lng"></a>Gateways de rede locais
 
- Um gateway de rede local e diferente de um gateway de rede virtual. Ao criar uma configuração de gateway de VPN, o gateway de rede local geralmente representa sua localização no local. No modelo de implantação clássico, o gateway de rede local era conhecido como um Site Local.
+Um gateway de rede local e diferente de um gateway de rede virtual. Ao criar uma configuração de gateway de VPN, o gateway de rede local geralmente representa a rede no local e o dispositivo VPN correspondente. No modelo de implantação clássico, o gateway de rede local era conhecido como um Site Local.
 
-Você dá ao gateway de rede local um nome e o endereço IP público do dispositivo VPN local e especifica os prefixos de endereço que estão localizados no caminho local. O Azure examina os prefixos de endereço de destino para o tráfego de rede, consulta a configuração que você especificou para o gateway de rede local e roteia os pacotes adequadamente. Você também especifica os gateways de rede para configurações de rede virtual para rede virtual que usam uma conexão de gateway de VPN.
+Você dá um nome ao gateway de rede local, o endereço IP público ou o FQDN (nome de domínio totalmente qualificado) do dispositivo VPN local e especifica os prefixos de endereço que estão localizados no local. O Azure examina os prefixos de endereço de destino para o tráfego de rede, consulta a configuração que você especificou para o gateway de rede local e roteia os pacotes adequadamente. Se você usar o Border Gateway Protocol (BGP) em seu dispositivo VPN, você fornecerá o endereço IP do par de BGP do seu dispositivo VPN e o número do sistema autônomo (ASN) da sua rede local. Você também especifica os gateways de rede para configurações de rede virtual para rede virtual que usam uma conexão de gateway de VPN.
 
 O seguinte exemplo de PowerShell cria um novo gateway de rede local:
 
@@ -172,7 +176,7 @@ Para obter recursos técnicos adicionais e requisitos de sintaxe específicos ao
 | **Clássico** | **Resource Manager** |
 | --- | --- |
 | [PowerShell](/powershell/module/az.network/#networking) |[PowerShell](/powershell/module/az.network#vpn) |
-| [REST API](https://msdn.microsoft.com/library/jj154113) |[REST API](/rest/api/network/virtualnetworkgateways) |
+| [REST API](/previous-versions/azure/reference/jj154113(v=azure.100)) |[REST API](/rest/api/network/virtualnetworkgateways) |
 | Sem suporte | [CLI do Azure](/cli/azure/network/vnet-gateway)|
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -3,12 +3,12 @@ title: Habilitar a conexão do navegador em máquinas virtuais Azure DevTest Lab
 description: O DevTest Labs agora se integra à bastiões do Azure, como proprietário do laboratório, você pode habilitar o acesso a todas as máquinas virtuais do laboratório por meio de um navegador.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 28a3c11f3df578265f9746a173fcb3029a132b26
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 6d9d631c79c22f1f713cfc4ee7cdd766a4ad8f06
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88870486"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96341165"
 ---
 # <a name="enable-browser-connection-on-azure-devtest-labs-virtual-machines"></a>Habilitar a conexão do navegador em máquinas virtuais Azure DevTest Labs 
 O DevTest Labs integra-se à [bastiões do Azure](../bastion/index.yml), que permite que você se conecte às suas máquinas virtuais por meio de um navegador. Primeiro, você precisa habilitar a conexão do navegador em máquinas virtuais do laboratório.
@@ -20,7 +20,7 @@ Este artigo mostra como habilitar a conexão do navegador em máquinas virtuais 
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 - Implante um host bastião na rede virtual do laboratório existente **(ou)** Conecte seu laboratório com uma rede virtual configurada para bastiões.
-Para saber como implantar um host de bastiões em uma rede virtual, consulte  [criar um host de bastiões do Azure](../bastion/bastion-create-host-portal.md). Ao criar o host de bastiões, selecione a rede virtual do laboratório. 
+Para saber como implantar um host de bastiões em uma rede virtual, consulte  [criar um host de bastiões do Azure](../bastion/tutorial-create-host-portal.md). Ao criar o host de bastiões, selecione a rede virtual do laboratório. 
 - O usuário do laboratório precisa ter uma função de **leitor** no host de bastiões e a rede virtual que tem a bastiões configurada. 
 
 ## <a name="create-a-second-sub-net-in-the-bastion-virtual-network"></a>Criar uma segunda sub rede na rede virtual de bastiões

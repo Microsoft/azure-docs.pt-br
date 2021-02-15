@@ -7,14 +7,16 @@ ms.author: brendm
 author: bmitchell287
 ms.date: 10/18/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: 38ef1188503d0076cfd98843f6f68c990fba7463
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: 3033be3a793c318135f8150b86114b6fee55fac7
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88762346"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655180"
 ---
 # <a name="set-up-a-spring-cloud-config-server-instance-for-your-service"></a>Configurar uma instância do Servidor de Configuração do Spring Cloud para seu serviço
+
+**Este artigo aplica-se a:** ✔️ Java ✔️ C#
 
 Este artigo mostra como conectar uma instância do Servidor de Configuração do Spring Cloud ao seu serviço do Azure Spring Cloud.
 
@@ -22,7 +24,7 @@ A configuração do Spring Cloud oferece suporte no lado do servidor e do client
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
-* Um serviço do Azure Spring Cloud já provisionado e em execução. Para configurar e iniciar um serviço do Azure Spring Cloud, confira [Início Rápido: iniciar um aplicativo Java Spring usando a CLI do Azure](spring-cloud-quickstart-launch-app-cli.md).
+* Um serviço do Azure Spring Cloud já provisionado e em execução. Para configurar e iniciar um serviço do Azure Spring Cloud, confira [Início Rápido: iniciar um aplicativo Java Spring usando a CLI do Azure](spring-cloud-quickstart.md).
 
 ## <a name="restriction"></a>Restrição
 
@@ -80,6 +82,9 @@ Todas as propriedades configuráveis usadas para configurar o repositório Git p
 | `host-key-algorithm`       | Não     | O algoritmo da chave de host, que deve ser *ssh-dss*, *ssh-rsa*, *ecdsa-sha2-nistp256*, *ecdsa-sha2-nistp384* ou *ecdsa-sha2-nistp521*. *Necessário* somente se `host-key` existir. |
 | `strict-host-key-checking` | Não     | Indica se a inicialização da instância do Servidor de Configuração falhará ao fazer uso do `host-key` privado. Deve ser *true* (valor padrão) ou *false*. |
 
+> [!NOTE]
+> O servidor de configuração usa `master` (OM git em si) como rótulo padrão, se não for especificado. Mas o GitHub alterou a ramificação padrão de `master` para `main` recentemente. Para evitar a falha do servidor de configuração do Azure Spring Cloud, preste atenção ao rótulo padrão ao configurar o servidor de configuração com o GitHub, especialmente para novos repositórios criados.
+
 -----
 
 ### <a name="private-repository-with-basic-authentication"></a>Repositório privado com autenticação Básica
@@ -128,13 +133,25 @@ Agora que você salvou seus arquivos de configuração em um repositório, é ne
 
 1. Entre no [portal do Azure](https://portal.azure.com).
 
-1. Vá até a página **Visão geral** do Azure Spring Cloud.
+2. Vá até a página **Visão geral** do Azure Spring Cloud.
 
-1. Escolha o serviço a ser configurado.
+3. Selecione **servidor de configuração** no painel de navegação esquerdo.
 
-1. No painel esquerdo da página Serviço, em **Configurações**, selecione a guia **Servidor de Configuração**.
+4. Na seção **Repositório padrão**, defina **URI** como "https://github.com/Azure-Samples/piggymetrics-config".
 
-![A janela Servidor de Configuração](media/spring-cloud-tutorial-config-server/portal-config-server.png)
+5. Clique em **Validar**.
+
+    ![Navegar até o servidor de configuração](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
+
+6. Quando a validação for concluída, clique em **aplicar** para salvar as alterações.
+
+    ![Validando o servidor de configuração](media/spring-cloud-quickstart-launch-app-portal/validate-complete.png)
+
+7. A atualização da configuração pode levar alguns minutos.
+ 
+    ![Atualizando o servidor de configuração](media/spring-cloud-quickstart-launch-app-portal/updating-config.png) 
+
+8. Você deve receber uma notificação quando a configuração for concluída.
 
 ### <a name="enter-repository-information-directly-to-the-azure-portal"></a>Insira as informações do repositório diretamente para o portal do Azure
 
@@ -163,7 +180,7 @@ Se você quiser usar um **Repositório de padrões** opcional para configurar se
 
 Se você tiver escrito um arquivo YAML com as configurações do repositório, poderá importar o arquivo diretamente do computador local para o Azure Spring Cloud. Um arquivo YAML simples para um repositório privado com autenticação Básica ficaria assim:
 
-```yml
+```yaml
 spring:
     cloud:
         config:

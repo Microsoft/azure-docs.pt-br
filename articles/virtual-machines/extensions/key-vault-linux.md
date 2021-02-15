@@ -5,15 +5,16 @@ services: virtual-machines-linux
 author: msmbaldwin
 tags: keyvault
 ms.service: virtual-machines-linux
+ms.subservice: extensions
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: e6702ab3753604af50e21f931dd23f63de3c1451
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 0558513d88eb5ffb03484e9d3bd8e37b2c9a0dcf
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88936190"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97895012"
 ---
 # <a name="key-vault-virtual-machine-extension-for-linux"></a>Extensão da máquina virtual de Key Vault para Linux
 
@@ -32,6 +33,26 @@ A extensão de VM do Key Vault dá suporte a essas distribuições do Linux:
 
 - PKCS #12
 - PEM
+
+## <a name="prerequisities"></a>Pré-requisitos
+  - Key Vault instância com certificado. Consulte [criar um Key Vault](../../key-vault/general/quick-create-portal.md)
+  - VM/VMSS devem ter uma [identidade gerenciada](../../active-directory/managed-identities-azure-resources/overview.md) atribuída
+  - A política de acesso de Key Vault deve ser definida com segredos `get` e `list` permissão para a identidade gerenciada VM/VMSS para recuperar a parte de um segredo do certificado. Consulte [como autenticar para Key Vault](../../key-vault/general/authentication.md) e [atribuir uma política de acesso de Key Vault](../../key-vault/general/assign-access-policy-cli.md).
+  -  VMSS deve ter a seguinte configuração de identidade: ` 
+  "identity": {
+  "type": "UserAssigned",
+  "userAssignedIdentities": {
+  "[parameters('userAssignedIdentityResourceId')]": {}
+  }
+  }
+  `
+  
+ - A extensão AKV deve ter essa configuração: `
+                 "authenticationSettings": {
+                    "msiEndpoint": "[parameters('userAssignedIdentityEndpoint')]",
+                    "msiClientId": "[reference(parameters('userAssignedIdentityResourceId'), variables('msiApiVersion')).clientId]"
+                  }
+   `
 
 ## <a name="extension-schema"></a>Esquema de extensão
 
@@ -57,7 +78,7 @@ O JSON a seguir mostra o esquema para a extensão da VM de Key Vault. A extensã
           "linkOnRenewal": <Not available on Linux e.g.: false>,
           "certificateStoreLocation": <disk path where certificate is stored, default: "/var/lib/waagent/Microsoft.Azure.KeyVault">,
           "requireInitialSync": <initial synchronization of certificates e..g: true>,
-          "observedCertificates": <list of KeyVault URIs representing monitored certificates, e.g.: "https://myvault.vault.azure.net/secrets/mycertificate"
+          "observedCertificates": <list of KeyVault URIs representing monitored certificates, e.g.: ["https://myvault.vault.azure.net/secrets/mycertificate", "https://myvault.vault.azure.net/secrets/mycertificate2"]>
         },
         "authenticationSettings": {
                 "msiEndpoint":  <Optional MSI endpoint e.g.: "http://169.254.169.254/metadata/identity">,
@@ -90,8 +111,8 @@ O JSON a seguir mostra o esquema para a extensão da VM de Key Vault. A extensã
 | certificateStoreName | Ele é ignorado no Linux | string |
 | linkOnRenewal | false | booleano |
 | certificateStoreLocation  | /var/lib/waagent/Microsoft.Azure.KeyVault | string |
-| requiredInitialSync | true | booleano |
-| observedCertificates  | ["https://myvault.vault.azure.net/secrets/mycertificate"] | Matriz de cadeia de caracteres
+| requireInitialSync | true | booleano |
+| observedCertificates  | ["https://myvault.vault.azure.net/secrets/mycertificate", "https://myvault.vault.azure.net/secrets/mycertificate2"] | Matriz de cadeia de caracteres
 | msiEndpoint | http://169.254.169.254/metadata/identity | string |
 | msiClientId | c7373ae5-91c2-4165-8ab6-7381d6e75619 | string |
 
@@ -101,6 +122,10 @@ O JSON a seguir mostra o esquema para a extensão da VM de Key Vault. A extensã
 Extensões de VM do Azure podem ser implantadas com modelos do Azure Resource Manager. Modelos são ideais ao implantar uma ou mais máquinas virtuais que exigem renovação de certificados pós-implantação. A extensão pode ser implantada em VMs individuais ou conjunto de dimensionamento de máquinas virtuais. O esquema e a configuração são comuns a ambos os tipos de modelo. 
 
 A configuração JSON para uma extensão de máquina virtual deve ser aninhada dentro do fragmento do recurso de máquina virtual do modelo, especificamente o objeto `"resources": []` para o modelo de máquina virtual e, no caso de conjunto de dimensionamento de máquinas virtuais, no objeto `"virtualMachineProfile":"extensionProfile":{"extensions" :[]`.
+
+ > [!NOTE]
+> A extensão de VM exigiria que a identidade gerenciada do sistema ou do usuário fosse atribuída para autenticar no Key Vault.  Consulte [como autenticar para Key Vault e atribuir uma política de acesso de Key Vault.](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
+> 
 
 ```json
     {
@@ -128,6 +153,17 @@ A configuração JSON para uma extensão de máquina virtual deve ser aninhada d
     }
 ```
 
+### <a name="extension-dependency-ordering"></a>Ordenação de dependência de extensão
+A extensão de VM Key Vault dá suporte à ordenação de extensão, se configurada. Por padrão, a extensão relata que ela foi iniciada com êxito assim que começou a sondagem. No entanto, ele pode ser configurado para aguardar até que tenha baixado com êxito a lista completa de certificados antes de relatar um início bem-sucedido. Se outras extensões dependerem de ter o conjunto completo de certificados instalados antes de serem iniciadas, habilitar essa configuração permitirá que essas extensões declarem uma dependência na extensão de Key Vault. Isso impedirá que essas extensões sejam iniciadas até que todos os certificados dos quais dependem tenham sido instalados. A extensão tentará novamente o download inicial de forma indefinida e permanecerá em um `Transitioning` estado.
+
+Para ativar isso, defina o seguinte:
+```
+"secretsManagementSettings": {
+    "requireInitialSync": true,
+    ...
+}
+```
+> Anotações O uso desse recurso não é compatível com um modelo ARM que cria uma identidade atribuída pelo sistema e atualiza uma política de acesso de Key Vault com essa identidade. Isso resultará em um deadlock, uma vez que a política de acesso do cofre não pode ser atualizada até que todas as extensões sejam iniciadas. Em vez disso, você deve usar uma *identidade de MSI atribuída por um único usuário* e pré-ACL de seus cofres com essa identidade antes da implantação.
 
 ## <a name="azure-powershell-deployment"></a>Implantação do Azure PowerShell
 > [!WARNING]
@@ -143,7 +179,7 @@ O Azure PowerShell pode ser usado para implantar a extensão da VM do Diagnósti
         { "pollingIntervalInS": "' + <pollingInterval> + 
         '", "certificateStoreName": "' + <certStoreName> + 
         '", "certificateStoreLocation": "' + <certStoreLoc> + 
-        '", "observedCertificates": ["' + <observedCerts> + '"] } }'
+        '", "observedCertificates": ["' + <observedCert1> + '","' + <observedCert2> + '"] } }'
         $extName =  "KeyVaultForLinux"
         $extPublisher = "Microsoft.Azure.KeyVault"
         $extType = "KeyVaultForLinux"
@@ -163,7 +199,7 @@ O Azure PowerShell pode ser usado para implantar a extensão da VM do Diagnósti
         { "pollingIntervalInS": "' + <pollingInterval> + 
         '", "certificateStoreName": "' + <certStoreName> + 
         '", "certificateStoreLocation": "' + <certStoreLoc> + 
-        '", "observedCertificates": ["' + <observedCerts> + '"] } }'
+        '", "observedCertificates": ["' + <observedCert1> + '","' + <observedCert2> + '"] } }'
         $extName = "KeyVaultForLinux"
         $extPublisher = "Microsoft.Azure.KeyVault"
         $extType = "KeyVaultForLinux"
@@ -189,7 +225,7 @@ A CLI do Azure pode ser usada para implantar a extensão da VM do Key Vault em u
          --publisher Microsoft.Azure.KeyVault `
          -g "<resourcegroup>" `
          --vm-name "<vmName>" `
-         --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\ <observedCerts>\"] }}'
+         --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\" <observedCert1> \", \" <observedCert2> \"] }}'
     ```
 
 * Para implantar a extensão em um conjunto de dimensionamento de máquinas virtuais:
@@ -200,37 +236,47 @@ A CLI do Azure pode ser usada para implantar a extensão da VM do Key Vault em u
         --publisher Microsoft.Azure.KeyVault `
         -g "<resourcegroup>" `
         --vm-name "<vmName>" `
-        --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\ <observedCerts>\"] }}'
+        --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\" <observedCert1> \", \" <observedCert2> \"] }}'
     ```
-
 Por favor esteja ciente das seguintes restrições/exigências:
 - Restrições de Key Vault:
   - Ele deve existir no momento da implantação 
-  - A política de acesso do Key Vault deve ser definida para Identidade VM/VMSS usando uma identidade gerenciada. Consulte [Fornecer autenticação do Key Vault com uma identidade gerenciada](../../key-vault/general/managed-identity.md)
+  - A política de acesso de Key Vault deve ser definida para a identidade VM/VMSS usando uma identidade gerenciada. Consulte [como autenticar para Key Vault](../../key-vault/general/authentication.md) e [atribuir uma política de acesso de Key Vault](../../key-vault/general/assign-access-policy-cli.md).
 
+### <a name="frequently-asked-questions"></a>Perguntas frequentes
 
-## <a name="troubleshoot-and-support"></a>Solução de problemas e suporte
+* Há um limite no número de observedCertificates que você pode configurar?
+  Não, Key Vault extensão de VM não tem limite no número de observedCertificates.
+
 
 ### <a name="troubleshoot"></a>Solucionar problemas
 
 Os dados sobre o estado das implantações de extensão podem ser recuperados no Portal do Azure usando o Azure PowerShell. Para ver o estado da implantação das extensões de uma determinada VM, execute o comando a seguir usando o Azure PowerShell.
 
-## <a name="azure-powershell"></a>Azure PowerShell
+**PowerShell do Azure**
 ```powershell
 Get-AzVMExtension -VMName <vmName> -ResourceGroupname <resource group name>
 ```
 
-## <a name="azure-cli"></a>CLI do Azure
+**CLI do Azure**
 ```azurecli
  az vm get-instance-view --resource-group <resource group name> --name  <vmName> --query "instanceView.extensions"
 ```
-### <a name="logs-and-configuration"></a>Logs e configuração
+#### <a name="logs-and-configuration"></a>Logs e configuração
 
 ```
 /var/log/waagent.log
 /var/log/azure/Microsoft.Azure.KeyVault.KeyVaultForLinux/*
 /var/lib/waagent/Microsoft.Azure.KeyVault.KeyVaultForLinux-<most recent version>/config/*
 ```
+### <a name="using-symlink"></a>Usando symlink
+
+Links simbólicos ou symlinks são basicamente atalhos avançados. Para evitar o monitoramento da pasta e obter o certificado mais recente automaticamente, você pode usar esse symlink `([VaultName].[CertificateName])` para obter a versão mais recente do certificado no Linux.
+
+### <a name="frequently-asked-questions"></a>Perguntas frequentes
+
+* Há um limite no número de observedCertificates que você pode configurar?
+  Não, Key Vault extensão de VM não tem limite no número de observedCertificates.
 
 ### <a name="support"></a>Suporte
 

@@ -3,20 +3,18 @@ title: Criar um novo aplicativo-LUIS
 titleSuffix: Azure Cognitive Services
 description: Criar e gerenciar seus aplicativos na página da Web do Serviço Inteligente de Reconhecimento Vocal (LUIS).
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/18/2020
-ms.author: diberry
-ms.openlocfilehash: 304e76a2bf8bae3e6ee2120b892ef97d89c3decc
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 2dd06a7b4c8e6296cda747d17fd3d5be5db0af6b
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86144403"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018881"
 ---
 # <a name="create-a-new-luis-app-in-the-luis-portal"></a>Criar um aplicativo LUIS no portal do LUIS
 Há algumas maneiras de criar um aplicativo do LUIS. Você pode criar um aplicativo do LUIS no portal do LUIS ou por meio das [APIs](developer-reference-resource.md) de criação do LUIS.
@@ -26,7 +24,7 @@ Há algumas maneiras de criar um aplicativo do LUIS. Você pode criar um aplicat
 Você pode criar um novo aplicativo no portal de várias maneiras:
 
 * Inicie com um aplicativo vazio e crie intenções, declarações e entidades.
-* Inicie com um aplicativo vazio e adicione um [domínio predefinido](luis-how-to-use-prebuilt-domains.md).
+* Inicie com um aplicativo vazio e adicione um [domínio predefinido](./howto-add-prebuilt-models.md).
 * Importe um aplicativo LUIS de um `.lu` `.json` arquivo ou que já contenha intenções, declarações e entidades.
 
 ## <a name="using-the-authoring-apis"></a>Usando as APIs de criação
@@ -45,7 +43,7 @@ Você pode criar um aplicativo com as APIs de criação de várias maneiras:
 
 ## <a name="create-new-app-in-luis"></a>Criar aplicativo no LUIS
 
-1. Na página **meus aplicativos** , selecione sua **assinatura**e crie o **recurso** e, em seguida, **+ criar**. 
+1. Na página **meus aplicativos** , selecione sua **assinatura** e crie o  **recurso** e, em seguida, **+ criar**. 
 
 > [!div class="mx-imgBorder"]
 > ![Lista de aplicativos LUIS](./media/create-app-in-portal.png)
@@ -69,7 +67,7 @@ Você pode criar um aplicativo com as APIs de criação de várias maneiras:
 A barra de ferramentas de contexto fornece outras ações:
 
 * Renomear aplicativo
-* Importar do arquivo usando `.lu` ou`.json`
+* Importar do arquivo usando `.lu` ou `.json`
 * Exportar aplicativo como `.lu` (para [LUDown](https://github.com/microsoft/botbuilder-tools/tree/master/packages/Ludown)), `.json` ou `.zip` (para o [contêiner Luis](luis-container-howto.md))
 * Importar logs de ponto de extremidade de contêiner para examinar o ponto de extremidade declarações
 * Exportar logs de ponto de extremidade, como um `.csv` , para análise offline
@@ -77,4 +75,4 @@ A barra de ferramentas de contexto fornece outras ações:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se o design do aplicativo incluir a detecção de intenção, [crie novas tentativas](luis-how-to-add-intents.md)e adicione o exemplo declarações. Se o design do aplicativo for apenas extração de dados, adicione o exemplo declarações à intenção nenhum, [crie entidades](luis-how-to-add-example-utterances.md)e Rotule o exemplo declarações com essas entidades.
+Se o design do aplicativo incluir a detecção de intenção, [crie novas tentativas](luis-how-to-add-intents.md)e adicione o exemplo declarações. Se o design do aplicativo for apenas extração de dados, adicione o exemplo declarações à intenção nenhum, [crie entidades](./luis-how-to-add-entities.md)e Rotule o exemplo declarações com essas entidades.

@@ -1,22 +1,17 @@
 ---
 title: Atividade da Web no Azure Data Factory
 description: Saiba como você pode usar a atividade da Web, uma das atividades de fluxo de controle com suporte pelo Data Factory, para invocar um ponto de extremidade REST de um pipeline.
-services: data-factory
-documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
-manager: jroth
-ms.reviewer: douglasl
+author: dcstwh
+ms.author: weetok
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/19/2018
-ms.openlocfilehash: 150ee15adb042841f74ffbf3b75338b2dd569333
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e4578b41e5cbb62c8a1bfa0c48d4fd60d042a506
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84017640"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100361512"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Atividade da Web no Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -25,7 +20,10 @@ ms.locfileid: "84017640"
 A atividade da Web pode ser usada para chamar um ponto de extremidade REST personalizado de um pipeline do Data Factory. Você pode passar conjuntos de dados e serviços vinculados a serem consumidos e acessados pela atividade.
 
 > [!NOTE]
-> A atividade da Web pode chamar apenas URLs expostas publicamente. Não há suporte para URLs que são hospedadas em uma rede virtual privada.
+> A atividade da Web também pode invocar URLs que são hospedadas em uma rede virtual privada aproveitando o runtime de integração auto-hospedada. O runtime de integração deve ter uma linha de visão para o ponto de extremidade da URL. 
+
+> [!NOTE]
+> O tamanho máximo de carga de resposta de saída com suporte é 4 MB.  
 
 ## <a name="syntax"></a>Sintaxe
 
@@ -36,6 +34,10 @@ A atividade da Web pode ser usada para chamar um ponto de extremidade REST perso
    "typeProperties":{
       "method":"Post",
       "url":"<URLEndpoint>",
+      "connectVia": {
+          "referenceName": "<integrationRuntimeName>",
+          "type": "IntegrationRuntimeReference"
+      }
       "headers":{
          "Content-Type":"application/json"
       },
@@ -77,6 +79,7 @@ body | Representa o conteúdo enviado para o ponto de extremidade.  | Cadeia de 
 autenticação | Método de autenticação usado para chamar o ponto de extremidade. Os tipos com suporte são "Basic ou ClientCertificate." Para obter mais informações, consulte a seção [autenticação](#authentication) . Se a autenticação não for necessária, exclua essa propriedade. | Cadeia de caracteres (ou expressão com um resultType de cadeia de caracteres) | Não
 conjuntos de dados | Lista de conjuntos de dados passados para o ponto de extremidade. | Matriz de referências do conjunto de dados. Pode ser uma matriz vazia. | Sim
 linkedServices | Lista de serviços vinculados passado ao ponto de extremidade. | Matriz de referências de serviço vinculado. Pode ser uma matriz vazia. | Sim
+connectVia | O [runtime de integração](./concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar o tempo de execução de integração do Azure ou o tempo de execução de integração auto-hospedado (se o armazenamento de dados estiver em uma rede privada). Se essa propriedade não for especificada, o serviço usará o tempo de execução de integração do Azure padrão. | A referência do Integration Runtime. | Não 
 
 > [!NOTE]
 > Os pontos de extremidade REST que invoca a atividade da Web invoca devem retornar para uma resposta do JSON de tipo. A atividade atingirá o tempo limite em 1 minuto com um erro se não receber uma resposta do ponto de extremidade.
@@ -85,7 +88,7 @@ A tabela a seguir mostra os requisitos para o conteúdo JSON:
 
 | Tipo de valor | Corpo da solicitação | Corpo da resposta |
 |---|---|---|
-|Objeto JSON | Suportado | Com suporte |
+|Objeto JSON | Com suporte | Com suporte |
 |Matriz JSON | Com suporte <br/>(No momento, matrizes JSON não funcionam como resultado de um bug. A correção está em andamento.) | Sem suporte |
 | Valor JSON | Com suporte | Sem suporte |
 | Tipo não-JSON | Sem suporte | Sem suporte |
@@ -99,7 +102,7 @@ Abaixo estão os tipos de autenticação com suporte na atividade da Web.
 
 Se a autenticação não for necessária, não inclua a propriedade "authentication".
 
-### <a name="basic"></a>Basic
+### <a name="basic"></a>Básico
 
 Especifique o nome de usuário e senha a serem usados com a autenticação básica.
 
@@ -125,7 +128,7 @@ Especifique o conteúdo codificado em base64 de um arquivo PFX e a senha.
 
 ### <a name="managed-identity"></a>Identidade Gerenciada
 
-Especifique o URI do recurso para o qual o token de acesso será solicitado usando a identidade gerenciada para o data factory. Para chamar a API de Gerenciamento de Recursos do Azure, use `https://management.azure.com/`. Para obter mais informações sobre como identidades gerenciadas funcionam, confira a [página de visão geral de identidades gerenciadas para recursos do Azure](/azure/active-directory/managed-identities-azure-resources/overview).
+Especifique o URI do recurso para o qual o token de acesso será solicitado usando a identidade gerenciada para o data factory. Para chamar a API de Gerenciamento de Recursos do Azure, use `https://management.azure.com/`. Para obter mais informações sobre como identidades gerenciadas funcionam, confira a [página de visão geral de identidades gerenciadas para recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md).
 
 ```json
 "authentication": {

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: ningk
-ms.openlocfilehash: bf6691310ec964a1d6293f3a60c151e3d6f8e641
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fde0afcd37cd464b0b87e5ccd257d4a7a684eeb0
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76277352"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021581"
 ---
 # <a name="deploy-azure-log-analytics-nozzle-for-cloud-foundry-system-monitoring"></a>Implantar o Bocal do Azure Log Analytics para Monitoramento do Sistema do Cloud Foundry
 
@@ -67,7 +67,7 @@ Antes de configurar o cliente de linha de comando UAA, verifique se o RubyGems e
    * **Local**: insira o local.
    * **Tipo de preço**: selecione **OK** para concluir.
 
-Para obter mais informações, confira [Introdução aos logs do Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started).
+Para obter mais informações, confira [Introdução aos logs do Azure Monitor](../azure-monitor/overview.md).
 
 #### <a name="to-create-the-log-analytics-workspace-through-the-monitoring-template-from-azure-market-place"></a>Para criar o espaço de trabalho do Log Analytics por meio do modelo de monitoramento do Azure Marketplace:
 
@@ -183,7 +183,7 @@ Se você tiver criado o espaço de trabalho do Log Analytics manualmente, siga a
 
 ### <a name="1-import-the-oms-view"></a>1. importar a exibição do OMS
 
-No portal do OMS, navegue até o **Designer de exibição**  >  **importar**  >  **procurar**e selecione um dos arquivos omsview. Por exemplo, selecione *Cloud Foundry.omsview* e salve a exibição. Agora um bloco é exibido na página **Visão Geral** do OMS. Selecione-a para ver as métricas visualizadas.
+No portal do OMS, navegue até o **Designer de exibição**  >  **importar**  >  **procurar** e selecione um dos arquivos omsview. Por exemplo, selecione *Cloud Foundry.omsview* e salve a exibição. Agora um bloco é exibido na página **Visão Geral** do OMS. Selecione-a para ver as métricas visualizadas.
 
 É possível personalizar essas exibições ou criar novas por meio do **Designer de exibição**.
 
@@ -191,9 +191,9 @@ O *"Cloud Foundry.omsview"* é uma versão prévia do modelo de exibição do OM
 
 ### <a name="2-create-alert-rules"></a>2. criar regras de alerta
 
-É possível [criar os alertas](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts) e personalizar as consultas e os valores limite conforme necessário. A seguir estão os alertas recomendados:
+É possível [criar os alertas](../azure-monitor/platform/alerts-overview.md) e personalizar as consultas e os valores limite conforme necessário. A seguir estão os alertas recomendados:
 
-| Consulta de pesquisa                                                                  | Gerar alerta com base em | Descrição                                                                       |
+| Consulta de pesquisa                                                                  | Gerar alerta com base em | Description                                                                       |
 | ----------------------------------------------------------------------------- | ----------------------- | --------------------------------------------------------------------------------- |
 | Type=CF_ValueMetric_CL Origin_s=bbs Name_s="Domain.cf-apps"                   | Número de resultados < 1   | **bbs.Domain.cf-apps** indica se o domínio cf-aps está atualizado. Isso significa que as solicitações de aplicativo do CF enviadas pelo Cloud Controller estão sincronizadas com o bbs.LRPsDesired (AIs recomendadas para Diego) para execução. Nenhum dado recebido significa que o domínio cf-apps não está atualizado na janela de tempo especificada. |
 | Type=CF_ValueMetric_CL Origin_s=rep Name_s=UnhealthyCell Value_d>1            | Número de resultados > 0   | Para células Diego, 0 significa íntegro e 1 significa não íntegro. Defina o alerta se várias células Diego não íntegras forem detectadas na janela de tempo especificada. |
@@ -204,7 +204,7 @@ O *"Cloud Foundry.omsview"* é uma versão prévia do modelo de exibição do OM
 | Type=CF_ValueMetric_CL Name_s=slowConsumerAlert                               | Número de resultados > 0   | Quando o bocal recebe um alerta de consumidor lento do agregador, ele envia o **valuemetric slowconsumeralert** ao para logs de Azure monitor. |
 | Type=CF_CounterEvent_CL Job_s=nozzle Name_s=eventsLost Delta_d>0              | Número de resultados > 0   | Se o número delta de eventos perdidos atingir um limite, isso significará que o bocal terá problemas de execução. |
 
-## <a name="scale"></a>Escala
+## <a name="scale"></a>Dimensionar
 
 É possível dimensionar o Bocal e o agregador de logs.
 

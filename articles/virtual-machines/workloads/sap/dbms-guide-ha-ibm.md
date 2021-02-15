@@ -1,30 +1,27 @@
 ---
 title: Configurar o IBM DB2 HADR em VMs (máquinas virtuais) do Azure | Microsoft Docs
 description: Estabeleça alta disponibilidade do IBM DB2 LUW em VMs (máquinas virtuais) do Azure.
-services: virtual-machines-linux
-documentationcenter: ''
 author: msjuergent
-manager: patfilot
-editor: ''
-tags: azure-resource-manager
-keywords: SAP
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.subservice: workloads
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
-ms.date: 03/06/2020
+ms.date: 10/16/2020
 ms.author: juergent
-ms.openlocfilehash: 7d453fba37e62e8528ae7b4ea86d1604973b84a1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.reviewer: cynthn
+ms.openlocfilehash: 54bde8c9dd47e88ffdc831ccb9f7833720583238
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87051994"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621375"
 ---
 # <a name="high-availability-of-ibm-db2-luw-on-azure-vms-on-suse-linux-enterprise-server-with-pacemaker"></a>Alta disponibilidade do IBM DB2 LUW em VMs do Azure em SUSE Linux Enterprise Server com pacemaker
 
 O IBM DB2 para Linux, UNIX e Windows (LUW) na [configuração de alta disponibilidade e recuperação de desastres (HADR)](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_10.5.0/com.ibm.db2.luw.admin.ha.doc/doc/c0011267.html) consiste em um nó que executa uma instância de banco de dados primário e pelo menos um nó que executa uma instância de banco de dados secundária. As alterações na instância do banco de dados primário são replicadas para uma instância de banco de dados secundária de forma síncrona ou assíncrona, dependendo de sua configuração. 
 
+> [!NOTE]
+> Este artigo contém referências aos termos *mestre* e *subordinado*, termos que a Microsoft não usa mais. Quando esses termos forem removidos do software, nós os removeremos deste artigo.
+   
 Este artigo descreve como implantar e configurar as VMs (máquinas virtuais) do Azure, instalar a estrutura de cluster e instalar o IBM DB2 LUW com a configuração do HADR. 
 
 O artigo não aborda como instalar e configurar o IBM DB2 LUW com o HADR ou a instalação do software SAP. Para ajudá-lo a realizar essas tarefas, fornecemos referências a manuais de instalação do SAP e IBM. Este artigo se concentra em partes específicas do ambiente do Azure. 
@@ -138,7 +135,7 @@ Verifique se o sistema operacional selecionado tem suporte do IBM/SAP para IBM D
 
 ## <a name="create-the-pacemaker-cluster"></a>Criar o cluster do Pacemaker
     
-Para criar um cluster pacemaker básico para este servidor IBM DB2, consulte [Configurar o pacemaker em SuSE Linux Enterprise Server no Azure][sles-pacemaker]. 
+Para criar um cluster pacemaker básico para este servidor IBM DB2, consulte [Configurar o pacemaker em SuSE Linux Enterprise Server no Azure][sles-pacemaker]. 
 
 ## <a name="install-the-ibm-db2-luw-and-sap-environment"></a>Instalar o ambiente IBM DB2 LUW e SAP
 
@@ -174,7 +171,7 @@ Para configurar a instância de banco de dados do IBM DB2 LUW principal:
 
 Para configurar o servidor de banco de dados em espera usando o procedimento de cópia do sistema SAP homogêneo, execute estas etapas:
 
-1. Selecione a opção de **cópia do sistema** > instância de banco de **Target systems**  >  **Distributed**  >  **dados**distribuído de sistemas de destino.
+1. Selecione a opção de **cópia do sistema** > instância de banco de **Target systems**  >  **Distributed**  >  **dados** distribuído de sistemas de destino.
 1. Como um método de cópia, selecione **sistema homogêneo** para que você possa usar o backup para restaurar um backup na instância do servidor em espera.
 1. Quando você chegar à etapa sair para restaurar o banco de dados para a cópia homogênea do sistema, saia do instalador. Restaure o banco de dados de um backup do host primário. Todas as fases de instalação subsequentes já foram executadas no servidor de banco de dados primário.
 1. Configure o HADR para IBM DB2.
@@ -401,13 +398,16 @@ Para configurar Azure Load Balancer, recomendamos que você use o [SKU de Standa
 > [!NOTE]
 > O Standard Load Balancer SKU tem restrições para acessar endereços IP públicos dos nós sob a Load Balancer. O artigo [conectividade de ponto de extremidade público para máquinas virtuais usando o Azure Standard Load Balancer em cenários de alta disponibilidade do SAP](./high-availability-guide-standard-load-balancer-outbound-connections.md) está descrevendo maneiras de habilitar esses nós para acessar endereços IP públicos
 
+> [!IMPORTANT]
+> Não há suporte para IP flutuante em uma configuração de IP secundário de NIC em cenários de balanceamento de carga. Para obter detalhes, consulte [limitações do Azure Load Balancer](../../../load-balancer/load-balancer-multivip-overview.md#limitations). Se você precisar de um endereço IP adicional para a VM, implante uma segunda NIC.  
+
 1. Criar um pool de IPS de front-end:
 
-   a. No portal do Azure, abra o Azure Load Balancer, selecione **pool de IPS de front-end**e, em seguida, selecione **Adicionar**.
+   a. No portal do Azure, abra o Azure Load Balancer, selecione **pool de IPS de front-end** e, em seguida, selecione **Adicionar**.
 
    b. Insira o nome do novo pool de IPS de front-end (por exemplo, **DB2-Connection**).
 
-   c. Defina a **atribuição** como **estática**e insira o endereço IP **virtual-IP** definido no início.
+   c. Defina a **atribuição** como **estática** e insira o endereço IP **virtual-IP** definido no início.
 
    d. Selecione **OK**.
 
@@ -415,7 +415,7 @@ Para configurar Azure Load Balancer, recomendamos que você use o [SKU de Standa
 
 1. Criar um pool de back-ends:
 
-   a. No portal do Azure, abra o Azure Load Balancer, selecione **pools de back-end**e, em seguida, selecione **Adicionar**.
+   a. No portal do Azure, abra o Azure Load Balancer, selecione **pools de back-end** e, em seguida, selecione **Adicionar**.
 
    b. Insira o nome do novo pool de back-end (por exemplo, **DB2-backend**).
 
@@ -429,23 +429,23 @@ Para configurar Azure Load Balancer, recomendamos que você use o [SKU de Standa
 
 1. Criar uma investigação de integridade:
 
-   a. No portal do Azure, abra o Azure Load Balancer, selecione **investigações de integridade**e selecione **Adicionar**.
+   a. No portal do Azure, abra o Azure Load Balancer, selecione **investigações de integridade** e selecione **Adicionar**.
 
    b. Insira o nome da nova investigação de integridade (por exemplo, **DB2-HP**).
 
-   c. Selecione **TCP** como o protocolo e a porta **62500**. Mantenha o valor de **intervalo** definido como **5**e mantenha o valor de **limite não íntegro** definido como **2**.
+   c. Selecione **TCP** como o protocolo e a porta **62500**. Mantenha o valor de **intervalo** definido como **5** e mantenha o valor de **limite não íntegro** definido como **2**.
 
    d. Selecione **OK**.
 
 1. Crie as regras de balanceamento de carga:
 
-   a. No portal do Azure, abra o Azure Load Balancer, selecione **regras de balanceamento de carga**e, em seguida, selecione **Adicionar**.
+   a. No portal do Azure, abra o Azure Load Balancer, selecione **regras de balanceamento de carga** e, em seguida, selecione **Adicionar**.
 
    b. Insira o nome da nova regra de Load Balancer (por exemplo, **DB2-Sid**).
 
    c. Selecione o endereço IP de front-end, o pool de back-ends e a investigação de integridade que você criou anteriormente (por exemplo, **DB2-frontend**).
 
-   d. Mantenha o **protocolo** definido como **TCP**e insira porta de *comunicação do banco de dados*de porta.
+   d. Mantenha o **protocolo** definido como **TCP** e insira porta de *comunicação do banco de dados* de porta.
 
    e. Aumente o **tempo limite de ociosidade** para 30 minutos.
 
@@ -478,7 +478,7 @@ Se você executou a instalação antes de criar a configuração do DB2 HADR, fa
 
 Use a ferramenta de configuração do J2EE para verificar ou atualizar a URL JDBC. Como a ferramenta de configuração do J2EE é uma ferramenta gráfica, você precisa ter o X Server instalado:
  
-1. Entre no servidor de aplicativos primário da instância J2EE e execute:`sudo /usr/sap/*SID*/*Instance*/j2ee/configtool/configtool.sh`
+1. Entre no servidor de aplicativos primário da instância J2EE e execute:   `sudo /usr/sap/*SID*/*Instance*/j2ee/configtool/configtool.sh`
 1. No quadro à esquerda, escolha **armazenamento de segurança**.
 1. No quadro à direita, escolha a chave JDBC/pool/ \<SAPSID> /URL.
 1. Altere o nome do host na URL JDBC para o nome do host virtual.
@@ -576,8 +576,8 @@ crm resource clear msl_<b>Db2_db2ptr_PTR</b>
 </code></pre>
 
 - **migração de recursos de CRM \<res_name> \<host> :** cria restrições de local e pode causar problemas com tomada
-- **recurso CRM limpar \<res_name> **: limpa as restrições de local
-- **limpeza \<res_name> de recursos de CRM **: limpa todos os erros do recurso
+- **recurso CRM limpar \<res_name>**: limpa as restrições de local
+- **limpeza \<res_name> de recursos de CRM**: limpa todos os erros do recurso
 
 ### <a name="test-the-fencing-agent"></a>Testar o agente de isolamento
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 03/25/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 16f6919577955bda5b04db26deb9fe78a467e364
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 14da41815e177ece64c72ac27a7cb126e69fdc62
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86509028"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98633181"
 ---
 # <a name="boot-error--this-is-not-a-bootable-disk"></a>Erro de inicialização – este não é um disco inicializável
 
@@ -40,6 +40,9 @@ Essa mensagem de erro significa que o processo de inicialização do sistema ope
 ## <a name="solution"></a>Solução
 
 ### <a name="process-overview"></a>Visão geral do processo
+
+> [!TIP]
+> Se você tiver um backup recente da VM, poderá tentar [restaurar a VM do backup](../../backup/backup-azure-arm-restore-vms.md) para corrigir o problema de inicialização.
 
 1. Criar e acessar uma VM de reparo.
 2. Defina status da partição como ativo.
@@ -75,7 +78,7 @@ As VMs de geração 1 devem primeiro verificar se a partição do sistema operac
 
    ![A Figura 3 mostra a janela * DISKPART * com a saída do comando * list Partition *. A partição 1 e a partição 2 são exibidas na tabela. Ele também mostra a saída do comando * SEL Partition 1 *, quando a partição 1 é o disco selecionado.](media/troubleshoot-guide-not-bootable-disk/3.jpg)
 
-7. Insira ' partição de detalhes ' para verificar o status da partição. Consulte a Figura 4, em que a partição está *ativa: não*ou a Figura 5, em que a partição é ' ativa: Sim '.
+7. Insira ' partição de detalhes ' para verificar o status da partição. Consulte a Figura 4, em que a partição está *ativa: não* ou a Figura 5, em que a partição é ' ativa: Sim '.
 
    Figura 4
 

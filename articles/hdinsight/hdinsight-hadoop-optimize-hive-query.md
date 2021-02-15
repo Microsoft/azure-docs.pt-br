@@ -1,27 +1,32 @@
 ---
 title: Otimizar consultas do Hive no Azure HDInsight | Microsoft Docs
-description: Este artigo descreve como otimizar suas consultas do Apache Hive para Hadoop no HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
+description: Este artigo descreve como otimizar suas consultas de Apache Hive no Azure HDInsight.
 ms.service: hdinsight
-ms.topic: how-to
+ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 04/14/2020
-ms.openlocfilehash: 89c276ffe6059a61323755eaf928d525ab5ea416
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.date: 10/28/2020
+ms.openlocfilehash: a15c3e0fb3550c6e50b3fba2279611fdba25bc84
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085286"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945561"
 ---
 # <a name="optimize-apache-hive-queries-in-azure-hdinsight"></a>Otimizar as consultas do Apache Hive no Azure HDInsight
 
-No Azure HDInsight, há vários tipos de cluster e tecnologias que podem executar consultas do Apache Hive. Escolha o tipo de cluster apropriado para ajudar a otimizar o desempenho para suas necessidades de carga de trabalho.
+Este artigo descreve algumas das otimizações de desempenho mais comuns que você pode usar para melhorar o desempenho de suas consultas de Apache Hive.
 
-Por exemplo, escolha tipo de cluster de **consulta interativa** para otimizar `ad hoc` consultas interativas. Escolha o tipo de cluster Apache **Hadoop** para otimizar para consultas do Hive usadas como um processo em lote. Os tipos de cluster **Spark** e **HBase** também podem executar consultas Hive. Para saber mais sobre como executar consultas Hive em vários tipos de cluster do HDInsight, confira [O que é o Apache Hive e HiveQL no Azure HDInsight?](hadoop/hdinsight-use-hive.md).
+## <a name="cluster-type-selection"></a>Seleção de tipo de cluster
 
-Os clusters HDInsight do tipo de cluster Hadoop não são otimizados para desempenho por padrão. Este artigo descreve alguns dos métodos de otimização de desempenho do Hive mais comuns que você pode aplicar às suas consultas.
+No Azure HDInsight, você pode executar Apache Hive consultas em alguns tipos de cluster diferentes. 
+
+Escolha o tipo de cluster apropriado para ajudar a otimizar o desempenho para suas necessidades de carga de trabalho:
+
+* Escolha tipo de cluster de **consulta interativa** para otimizar `ad hoc` consultas interativas. 
+* Escolha o tipo de cluster Apache **Hadoop** para otimizar para consultas do Hive usadas como um processo em lote. 
+* Os tipos de cluster **Spark** e **HBase** também podem executar consultas Hive e podem ser apropriados se você estiver executando essas cargas de trabalho. 
+
+Para saber mais sobre como executar consultas Hive em vários tipos de cluster do HDInsight, confira [O que é o Apache Hive e HiveQL no Azure HDInsight?](hadoop/hdinsight-use-hive.md).
 
 ## <a name="scale-out-worker-nodes"></a>Escalar nós de trabalho horizontalmente
 
@@ -191,13 +196,12 @@ Há mais métodos de otimização que você pode considerar, por exemplo:
 
 * **Bucketing do Hive:** uma técnica que permite clusterizar ou segmentar grandes conjuntos de dados para otimizar o desempenho da consulta.
 * **Otimização de junção:** otimização do planejamento da execução de consultas do Hive para melhorar a eficiência de junções e reduzir a necessidade de dicas de usuário. Para obter mais informações, consulte [Otimização de junção](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+JoinOptimization#LanguageManualJoinOptimization-JoinOptimization).
-* **Aumentar**os redutores.
+* **Aumentar** os redutores.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Neste artigo, você aprendeu a vários métodos comuns de otimização de consultas do Hive. Para saber mais, leia os seguintes artigos:
 
-* [Usar o Apache Hive no HDInsight](hadoop/hdinsight-use-hive.md)
 * [Otimizar o Apache Hive](./optimize-hive-ambari.md)
 * [Analisar dados de atraso de voo usando a consulta interativa no HDInsight](./interactive-query/interactive-query-tutorial-analyze-flight-data.md)
 * [Analise os dados do Twitter usando o Apache Hive no HDInsight](hdinsight-analyze-twitter-data-linux.md)

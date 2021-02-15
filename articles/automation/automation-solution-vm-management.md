@@ -1,20 +1,20 @@
 ---
 title: Visão geral do recurso Iniciar/Parar VMs fora do horário comercial da Automação do Azure
-description: Este artigo descreve o recurso Iniciar/Parar VMs fora do horário comercial, que inicia ou interrompe as VMs de acordo com um agendamento e as monitora proativamente a partir de logs do Azure Monitor.
+description: Este artigo descreve o recurso Iniciar/Parar VMs fora do horário comercial, que inicia ou interrompe as VMs em um agendamento e os monitora proativamente de logs de Azure Monitor.
 services: automation
 ms.subservice: process-automation
-ms.date: 06/04/2020
+ms.date: 02/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2cbed4d6dd2a9c5e63e73d89e5327fa3759777fd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 991ef6e7ffc26294f75ba5bd2f24c62ea6e0b421
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87064460"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100006999"
 ---
 # <a name="startstop-vms-during-off-hours-overview"></a>Visão geral do recurso Iniciar/Parar VMs fora do horário comercial
 
-O recurso Iniciar/Parar VMs fora do horário comercial inicia ou para as VMs do Azure habilitadas. Ele inicia ou interrompe computadores conforme agendamentos definidos pelo usuário, fornece informações por meio de logs de Azure Monitor e envia emails opcionais usando [grupos de ações](../azure-monitor/platform/action-groups.md). O recurso pode ser habilitado em VMs clássicas e do Azure Resource Manager na maioria dos cenários. 
+O recurso Iniciar/Parar VMs fora do horário comercial inicia ou para as VMs do Azure habilitadas. Ele inicia ou interrompe computadores conforme agendamentos definidos pelo usuário, fornece informações por meio de logs de Azure Monitor e envia emails opcionais usando [grupos de ações](../azure-monitor/platform/action-groups.md). O recurso pode ser habilitado em VMs clássicas e do Azure Resource Manager na maioria dos cenários.
 
 Esse recurso usa o cmdlet [Start-AzVm](/powershell/module/az.compute/start-azvm) para iniciar as VMs. Ele usa [Stop-AzVM](/powershell/module/az.compute/stop-azvm) para parar as VMs.
 
@@ -37,13 +37,15 @@ A seguir estão as limitações do recurso atual:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Os runbooks para o recurso Iniciar/Parar VMs fora do horário comercial funcionam com uma [conta Executar como do Azure](./manage-runas-account.md). A conta Executar como é o método de autenticação preferencial, pois ela usa a autenticação de certificado em vez de uma senha que poderá expirar ou ser alterada com frequência.
+- Os runbooks para o recurso Iniciar/Parar VMs fora do horário comercial funcionam com uma [conta Executar como do Azure](./automation-security-overview.md#run-as-accounts). A conta Executar como é o método de autenticação preferencial, pois ela usa a autenticação de certificado em vez de uma senha que poderá expirar ou ser alterada com frequência.
 
-Recomendamos que você use uma conta de Automação separada para trabalhar com VMs habilitadas para o recurso Iniciar/Parar VMs fora do horário comercial. As versões de módulo do Azure são atualizadas com frequência, e seus parâmetros podem ser alterados. O recurso não é atualizado na mesma cadência e pode não funcionar com as versões mais recentes dos cmdlets que ele usa. É recomendável testar as atualizações do módulo em uma conta de Automação de teste antes de importá-las para suas contas de Automação de produção.
+- Um [Azure monitor espaço de trabalho log Analytics](../azure-monitor/platform/design-logs-deployment.md) que armazena os logs de trabalho do runbook e os resultados do fluxo de trabalho em um espaço de trabalho para consultar e analisar. A conta de automação pode ser vinculada a um espaço de trabalho Log Analytics novo ou existente e os dois recursos precisam estar no mesmo grupo de recursos.
+
+Recomendamos que você use uma conta de Automação separada para trabalhar com VMs habilitadas para o recurso Iniciar/Parar VMs fora do horário comercial. As versões de módulo do Azure são atualizadas com frequência, e seus parâmetros podem ser alterados. O recurso não é atualizado na mesma cadência e pode não funcionar com as versões mais recentes dos cmdlets que ele usa. Antes de importar os módulos atualizados para suas contas de automação de produção, recomendamos que você os importe em uma conta de automação de teste para verificar se não há nenhum problema de compatibilidade.
 
 ## <a name="permissions"></a>Permissões
 
-Você deve ter determinadas permissões a fim de habilitar as VMs para o recurso Iniciar/Parar VMs fora do horário comercial. As permissões são diferentes dependendo se o recurso usar uma conta de Automação criada previamente e um workspace do Log Analytics ou criar uma conta e um workspace. 
+Você deve ter determinadas permissões a fim de habilitar as VMs para o recurso Iniciar/Parar VMs fora do horário comercial. As permissões são diferentes dependendo se o recurso usar uma conta de Automação criada previamente e um workspace do Log Analytics ou criar uma conta e um workspace.
 
 Você não precisará configurar permissões se for um Colaborador na assinatura e um Administrador global em seu locatário do Azure AD (Active Directory). Se você não tiver esses direitos ou precisar configurar uma função personalizada, verifique se tem as permissões descritas abaixo.
 
@@ -53,31 +55,31 @@ Para habilitar as VMs para o recurso Iniciar/Parar VMs fora do horário comercia
 
 | Permissão | Escopo|
 | --- | --- |
-| Microsoft.Automation/automationAccounts/read | Grupo de Recursos |
-| Microsoft.Automation/automationAccounts/variables/write | Grupo de Recursos |
-| Microsoft.Automation/automationAccounts/schedules/write | Grupo de Recursos |
-| Microsoft.Automation/automationAccounts/runbooks/write | Grupo de Recursos |
-| Microsoft.Automation/automationAccounts/connections/write | Grupo de Recursos |
-| Microsoft.Automation/automationAccounts/certificates/write | Grupo de Recursos |
-| Microsoft.Automation/automationAccounts/modules/write | Grupo de Recursos |
-| Microsoft.Automation/automationAccounts/modules/read | Grupo de Recursos |
-| Microsoft.automation/automationAccounts/jobSchedules/write | Grupo de Recursos |
-| Microsoft.Automation/automationAccounts/jobs/write | Grupo de Recursos |
-| Microsoft.Automation/automationAccounts/jobs/read | Grupo de Recursos |
-| Microsoft.OperationsManagement/solutions/write | Grupo de Recursos |
-| Microsoft.OperationalInsights/workspaces/* | Grupo de Recursos |
-| Microsoft.Insights/diagnosticSettings/write | Grupo de Recursos |
-| Microsoft.Insights/ActionGroups/Write | Grupo de Recursos |
-| Microsoft.Insights/ActionGroups/read | Grupo de Recursos |
-| Microsoft.Resources/subscriptions/resourceGroups/read | Grupo de Recursos |
-| Microsoft.Resources/deployments/* | Grupo de Recursos |
+| Microsoft.Automation/automationAccounts/read | Grupo de recursos |
+| Microsoft.Automation/automationAccounts/variables/write | Grupo de recursos |
+| Microsoft.Automation/automationAccounts/schedules/write | Grupo de recursos |
+| Microsoft.Automation/automationAccounts/runbooks/write | Grupo de recursos |
+| Microsoft.Automation/automationAccounts/connections/write | Grupo de recursos |
+| Microsoft.Automation/automationAccounts/certificates/write | Grupo de recursos |
+| Microsoft.Automation/automationAccounts/modules/write | Grupo de recursos |
+| Microsoft.Automation/automationAccounts/modules/read | Grupo de recursos |
+| Microsoft.automation/automationAccounts/jobSchedules/write | Grupo de recursos |
+| Microsoft.Automation/automationAccounts/jobs/write | Grupo de recursos |
+| Microsoft.Automation/automationAccounts/jobs/read | Grupo de recursos |
+| Microsoft.OperationsManagement/solutions/write | Grupo de recursos |
+| Microsoft.OperationalInsights/workspaces/* | Grupo de recursos |
+| Microsoft.Insights/diagnosticSettings/write | Grupo de recursos |
+| Microsoft.Insights/ActionGroups/Write | Grupo de recursos |
+| Microsoft.Insights/ActionGroups/read | Grupo de recursos |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Grupo de recursos |
+| Microsoft.Resources/deployments/* | Grupo de recursos |
 
 ### <a name="permissions-for-new-automation-account-and-new-log-analytics-workspace"></a>Permissões para uma nova conta de Automação e um novo workspace do Log Analytics
 
 Você pode habilitar VMs para o recurso Iniciar/Parar VMs fora do horário comercial usando uma nova conta de Automação e um novo workspace do Log Analytics. Nesse caso, você precisa das permissões definidas na seção anterior, bem como das permissões definidas nesta seção. Você também precisa das seguintes funções:
 
-- Coadministrador na assinatura. Essa função é necessária para criar a conta Executar como clássica se você pretende gerenciar VMs clássicas. [Contas Executar como clássicas](automation-create-standalone-account.md#create-a-classic-run-as-account) não são mais criadas por padrão.
-- Associação na função de Desenvolvedor de Aplicativo do [Azure AD](../active-directory/users-groups-roles/directory-assign-admin-roles.md). Para obter mais informações sobre contas Executar como, confira [Permissões para configurar contas Executar como](manage-runas-account.md#permissions).
+- Co-Administrator na assinatura. Essa função é necessária para criar a conta Executar como clássica se você pretende gerenciar VMs clássicas. [Contas Executar como clássicas](automation-create-standalone-account.md#create-a-classic-run-as-account) não são mais criadas por padrão.
+- Associação na função de Desenvolvedor de Aplicativo do [Azure AD](../active-directory/roles/permissions-reference.md). Para obter mais informações sobre contas Executar como, confira [Permissões para configurar contas Executar como](automation-security-overview.md#permissions).
 - Colaborador na assinatura ou as permissões a seguir.
 
 | Permissão |Escopo|
@@ -86,9 +88,9 @@ Você pode habilitar VMs para o recurso Iniciar/Parar VMs fora do horário comer
 | Microsoft.Authorization/permissions/read |Subscription|
 | Microsoft.Authorization/roleAssignments/read | Subscription |
 | Microsoft.Authorization/roleAssignments/write | Subscription |
-| Microsoft.Authorization/roleAssignments/delete | Subscription || Microsoft.Automation/automationAccounts/connections/read | Grupo de Recursos |
-| Microsoft.Automation/automationAccounts/certificates/read | Grupo de Recursos |
-| Microsoft.Automation/automationAccounts/write | Grupo de Recursos |
+| Microsoft.Authorization/roleAssignments/delete | Subscription || Microsoft.Automation/automationAccounts/connections/read | Grupo de recursos |
+| Microsoft.Automation/automationAccounts/certificates/read | Grupo de recursos |
+| Microsoft.Automation/automationAccounts/write | Grupo de recursos |
 | Microsoft.OperationalInsights/workspaces/write | Grupo de recursos |
 
 ## <a name="components"></a>Componentes
@@ -107,7 +109,7 @@ Todos os runbooks pai incluem o parâmetro `WhatIf`. Quando definido como True, 
 |Runbook | Parâmetros | Descrição|
 | --- | --- | ---|
 |AutoStop_CreateAlert_Child | VMObject <br> AlertAction <br> WebHookURI | Chamada a partir do runbook pai. Esse runbook cria alertas por recurso para o cenário Auto-Stop.|
-|AutoStop_CreateAlert_Parent | VMList<br> WhatIf: Verdadeiro ou Falso  | Cria ou atualiza regras de alerta do Azure em VMs nos grupos de assinatura ou de recursos de destino. <br> `VMList`é uma lista separada por vírgulas de VMs (sem espaços em branco), por exemplo, `vm1,vm2,vm3` .<br> `WhatIf` habilita a validação da lógica do runbook sem execução.|
+|AutoStop_CreateAlert_Parent | VMList<br> WhatIf: Verdadeiro ou Falso  | Cria ou atualiza regras de alerta do Azure em VMs nos grupos de assinatura ou de recursos de destino. <br> `VMList` é uma lista separada por vírgulas de VMs (sem espaços em branco), por exemplo, `vm1,vm2,vm3` .<br> `WhatIf` habilita a validação da lógica do runbook sem execução.|
 |AutoStop_Disable | Nenhum | Desabilita os alertas de Auto-Stop e o agendamento padrão.|
 |AutoStop_VM_Child | WebHookData | Chamada a partir do runbook pai. As regras de alerta chamam esse runbook para parar uma VM clássica.|
 |AutoStop_VM_Child_ARM | WebHookData |Chamada a partir do runbook pai. As regras de alerta chamam esse runbook para interromper uma VM.  |
@@ -146,22 +148,22 @@ A tabela a seguir lista as variáveis criadas na sua conta da Automação. Modif
 |Internal_ResourceGroupName | O nome do grupo de recursos da conta de Automação.|
 
 >[!NOTE]
->Para a variável `External_WaitTimeForVMRetryInSeconds`, o valor padrão foi atualizado de 600 para 2100. 
+>Para a variável `External_WaitTimeForVMRetryInSeconds`, o valor padrão foi atualizado de 600 para 2100.
 
 Em todos os cenários, as variáveis `External_Start_ResourceGroupNames`, `External_Stop_ResourceGroupNames` e `External_ExcludeVMNames` são necessárias para o direcionamento às VMs, exceto as listas de VMs separadas por vírgulas dos runbooks **AutoStop_CreateAlert_Parent**, **SequencedStartStop_Parent** e **ScheduledStartStop_Parent**. Em outras palavras, suas VMs devem pertencer a grupos de recursos de destino para que as ações iniciar e parar ocorram. A lógica funciona semelhante ao Azure Policy, ou seja, você pode direcionar para a assinatura ou o grupo de recursos e fazer com que as ações sejam herdadas por VMs recém-criadas. Com essa abordagem, não é necessário ter um agendamento distinto para cada VM nem gerenciar as ações iniciar e parar em escala.
 
 ### <a name="schedules"></a>Agendas
 
-A tabela a seguir lista cada uma das agendas padrão criadas em sua conta de Automação. É possível modificá-las ou criar suas próprias agendas personalizadas. Por padrão, todos os agendamentos são desabilitados, exceto **Scheduled_StartVM** e **Scheduled_StopVM**.
+A tabela a seguir lista cada uma das agendas padrão criadas em sua conta de Automação.  É possível modificá-las ou criar suas próprias agendas personalizadas.  Por padrão, todos os agendamentos são desabilitados, exceto **Scheduled_StartVM** e **Scheduled_StopVM**.
 
 Você não deve habilitar todos os agendamentos, pois isso poderá criar ações de agendamento sobrepostas. É melhor determinar quais otimizações você deseja executar e modificá-las da forma apropriada. Consulte os exemplos de cenários na seção Visão geral para obter explicações adicionais.
 
 |Nome da agenda | Frequência | Descrição|
 |--- | --- | ---|
 |Schedule_AutoStop_CreateAlert_Parent | A cada 8 horas | Executa o runbook **AutoStop_CreateAlert_Parent** a cada oito horas, o que, por sua vez, interrompe os valores baseados em VM nas variáveis `External_Start_ResourceGroupNames`, `External_Stop_ResourceGroupNames` e `External_ExcludeVMNames`. Como alternativa, você pode especificar uma lista de VMs separadas por vírgula utilizando o parâmetro `VMList`.|
-|Scheduled_StopVM | Definido pelo usuário, diariamente | Executa o runbook **ScheduledStopStart_Parent** com um parâmetro de `Stop` todos os dias no horário especificado. Interrompe automaticamente todas as VMs que atendem às regras definidas por ativos variáveis. Habilite o agendamento relacionado, **Scheduled-StartVM**.|
-|Scheduled_StartVM | Definido pelo usuário, diariamente | Executa o runbook **ScheduledStopStart_Parent** com um valor de parâmetro `Start` todos os dias no horário especificado. Inicia automaticamente todas as VMs que atendem às regras definidas por ativos variáveis. Habilite o agendamento relacionado, **Sequenced-StopVM**.|
-|Sequenced-StopVM | 1h (UTC), toda sexta-feira | Executa o runbook **Sequenced_StopStop_Parent** com um valor de parâmetro `Stop` toda sexta-feira no horário especificado. Para sequencialmente (em ordem crescente) todas as VMs com uma marca de **SequenceStop** definida pelas variáveis adequadas. Para obter mais informações sobre valores de tags e variáveis de ativo, confira [Runbooks](#runbooks). Habilite o agendamento relacionado, **Sequenced-StartVM**.|
+|Scheduled_StopVM | Definido pelo usuário, diariamente | Executa o runbook **ScheduledStopStart_Parent** com um parâmetro de `Stop` todos os dias no horário especificado.  Interrompe automaticamente todas as VMs que atendem às regras definidas por ativos variáveis.  Habilite o agendamento relacionado, **Scheduled-StartVM**.|
+|Scheduled_StartVM | Definido pelo usuário, diariamente | Executa o runbook **ScheduledStopStart_Parent** com um valor de parâmetro `Start` todos os dias no horário especificado. Inicia automaticamente todas as VMs que atendem às regras definidas por ativos variáveis.  Habilite o agendamento relacionado, **Sequenced-StopVM**.|
+|Sequenced-StopVM | 1h (UTC), toda sexta-feira | Executa o runbook **Sequenced_StopStop_Parent** com um valor de parâmetro `Stop` toda sexta-feira no horário especificado.  Para sequencialmente (em ordem crescente) todas as VMs com uma marca de **SequenceStop** definida pelas variáveis adequadas. Para obter mais informações sobre valores de tags e variáveis de ativo, confira [Runbooks](#runbooks).  Habilite o agendamento relacionado, **Sequenced-StartVM**.|
 |Sequenced-StartVM | 13h (UTC), toda segunda-feira | Executa o runbook **SequencedStopStart_Parent** com um valor de parâmetro `Start` toda segunda-feira no horário especificado. Inicia sequencialmente (em ordem decrescente) todas as VMs com uma marca de **SequenceStart** definida pelas variáveis adequadas. Para obter mais informações sobre valores de tags e ativos variáveis, confira [Runbooks](#runbooks). Habilite o agendamento relacionado, **Sequenced-StopVM**.
 
 ## <a name="use-the-feature-with-classic-vms"></a>Usar o recurso com VMs clássicas
@@ -172,18 +174,14 @@ Para o uso do recurso com VMs clássicas, você precisa de uma conta Executar co
 
 Se você tiver mais de 20 VMs por serviço de nuvem, confira algumas recomendações:
 
-* Crie vários agendamentos com o runbook pai **ScheduledStartStop_Parent** e especifique 20 VMs por agendamento. 
-* Nas propriedades da agenda, use o `VMList` parâmetro para especificar nomes de VM como uma lista separada por vírgulas (sem espaços em branco). 
+* Crie vários agendamentos com o runbook pai **ScheduledStartStop_Parent** e especifique 20 VMs por agendamento.
+* Nas propriedades da agenda, use o `VMList` parâmetro para especificar nomes de VM como uma lista separada por vírgulas (sem espaços em branco).
 
 Caso contrário, se o trabalho de Automação para esse recurso for executado por mais de três horas, ele será temporariamente descarregado ou interrompido de acordo com o limite de [compartilhamento justo](automation-runbook-execution.md#fair-share).
 
 As assinaturas do CSP do Azure dão suporte apenas ao modelo do Azure Resource Manager. Serviços que não pertencem ao Azure Resource Manager não estão disponíveis no programa. Quando o recurso de Iniciar/Parar VMs fora do horário comercial é executado, você pode receber erros, já que ele tem cmdlets para gerenciar recursos clássicos. Para saber mais sobre CSP, confira [Serviços disponíveis em assinaturas do CSP](/azure/cloud-solution-provider/overview/azure-csp-available-services). Se você usar uma assinatura do CSP, defina a variável [External_EnableClassicVMs](#variables) como False após a implantação.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
-
-## <a name="enable-the-feature"></a>habilitar o recurso
-
-Para começar a usar o recurso, siga as etapas em [Habilitar o recurso Iniciar/Parar VMs fora do horário comercial](automation-solution-vm-management-enable.md).
 
 ## <a name="view-the-feature"></a>Exibir o recurso
 
@@ -193,7 +191,7 @@ Use um dos seguintes mecanismos para acessar o recurso habilitado:
 
 * Navegue até o workspace do Log Analytics vinculado à sua conta de Automação. Depois de selecionar o workspace, escolha **Soluções** no painel esquerdo. Na página Soluções, selecione **Start-Stop-VM[workspace]** na lista.  
 
-A seleção do recurso exibe a página Start-Stop-VM[workspace]. Nela, você pode examinar detalhes importantes, como as informações no bloco **StartStopVM**. Assim como no seu workspace do Log Analytics, esse bloco exibe uma contagem e uma representação gráfica dos trabalhos de runbook do recurso que foram iniciados e encerrados com êxito.
+A seleção do recurso exibe a página **Start-Stop-VM [Workspace]** . Nela, você pode examinar detalhes importantes, como as informações no bloco **StartStopVM**. Assim como no seu workspace do Log Analytics, esse bloco exibe uma contagem e uma representação gráfica dos trabalhos de runbook do recurso que foram iniciados e encerrados com êxito.
 
 ![Página Gerenciamento de Atualizações de Automação](media/automation-solution-vm-management/azure-portal-vmupdate-solution-01.png)
 
@@ -201,37 +199,7 @@ Você pode executar outras análises dos registros de trabalho clicando no bloco
 
 ## <a name="update-the-feature"></a>Atualizar o recurso
 
-Se você implantou uma versão anterior do recurso Iniciar/Parar VMs fora do horário comercial, exclua-a da sua conta antes de implantar uma versão atualizada. Siga as etapas para [remover o recurso](#remove-the-feature), depois siga as etapas para [habilitá-lo](automation-solution-vm-management-enable.md).
-
-## <a name="remove-the-feature"></a>Remover o recurso
-
-Se você não precisar mais usar o recurso, poderá excluí-lo da conta de Automação. A exclusão do recurso remove apenas os runbooks associados. Ela não exclui os agendamentos ou as variáveis criados quando o recurso foi adicionado. 
-
-Para excluir o recurso Iniciar/Parar VMs fora do horário comercial:
-
-1. Na sua conta de Automação, selecione **Workspace vinculado** em **Recursos relacionados**.
-
-2. Selecione **Acessar o workspace**.
-
-3. Em **Geral**, clique em **Soluções**. 
-
-4. Na página Soluções, selecione **Start-Stop-VM[Workspace]** . 
-
-5. Na página VMManagementSolution[Workspace], selecione **Excluir** no menu.<br><br> ![Excluir recurso de gerenciamento de VM](media/automation-solution-vm-management/vm-management-solution-delete.png)
-
-6. Na janela Excluir Solução, confirme que você deseja excluir o recurso.
-
-7. Enquanto as informações são verificadas e o recurso é excluído, você pode acompanhar o andamento em **Notificações**, disponível no menu. Você retornará à página Soluções após o processo de remoção.
-
-8. A conta de Automação e o workspace do Log Analytics não serão excluídos como parte desse processo. Se não quiser manter o workspace do Log Analytics, você deverá excluí-lo manualmente do portal do Azure:
-
-    1. Procure e selecione **workspaces do Log Analytics**.
-
-    2. Na página de workspace do Log Analytics, selecione o workspace.
-
-    3. Selecione **Excluir** no menu.
-
-    4. Se não quiser manter os [componentes de recurso](#components) da conta de Automação do Azure, você poderá excluir cada um manualmente.
+Se você implantou uma versão anterior do recurso Iniciar/Parar VMs fora do horário comercial, exclua-a da sua conta antes de implantar uma versão atualizada. Siga as etapas para [remover o recurso](automation-solution-vm-management-remove.md#delete-the-feature), depois siga as etapas para [habilitá-lo](automation-solution-vm-management-enable.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

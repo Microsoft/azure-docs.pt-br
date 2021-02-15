@@ -4,19 +4,19 @@ description: Pesquise logs gerados por Trace, NLog ou Log4Net.
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 05/08/2019
-ms.openlocfilehash: c17f1f4eb8d2fb680f31a42009247b25c74941c9
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 083ddbd06561550f89e414d6c679cdc6433fa338
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88936445"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98937563"
 ---
 # <a name="explore-netnet-core-and-python-trace-logs-in-application-insights"></a>Explorar os logs de rastreamento do .NET/.NET Core e do Python no Application Insights
 
 Envie logs de rastreamento de diagnóstico referentes ao seu aplicativo ASP.NET/ASP.NET Core do ILogger, NLog, log4Net ou System.Diagnostics.Trace para o [Azure Application Insights][start]. Para aplicativos em Python, envie logs de rastreamento de diagnóstico usando o AzureLogHandler em OpenCensus Python para o Azure Monitor. Em seguida, você pode explorá-los e pesquisá-los. Esses logs são mesclados a outros arquivos de log do seu aplicativo, de modo que você pode identificar os rastreamentos associados a cada solicitação de usuário e correlacioná-los com outros relatórios de eventos e exceções.
 
 > [!NOTE]
-> Você precisa do módulo de captura de log? Ele é um adaptador útil para agentes de terceiros. No entanto, se você ainda não usa o NLog, o log4Net nem o System.Diagnostics.Trace, convém chamar apenas o [**Application Insights TrackTrace()** ](./api-custom-events-metrics.md#tracktrace) diretamente.
+> Você precisa do módulo de captura de log? Ele é um adaptador útil para agentes de terceiros. No entanto, se você ainda não usa o NLog, o log4Net nem o System.Diagnostics.Trace, convém chamar apenas o [**Application Insights TrackTrace()**](./api-custom-events-metrics.md#tracktrace) diretamente.
 >
 >
 ## <a name="install-logging-on-your-app"></a>Instalar o log no seu aplicativo
@@ -50,20 +50,20 @@ Use este método se o tipo de projeto não tiver suporte no instalador do Applic
 3. Pesquise por "Application Insights".
 4. Selecione um dos seguintes pacotes:
 
-   - Para o ILogger: [Microsoft.Extensions.Logging.ApplicationInsights](https://www.nuget.org/packages/Microsoft.Extensions.Logging.ApplicationInsights/)
-[![NuGet](https://img.shields.io/nuget/vpre/Microsoft.Extensions.Logging.ApplicationInsights.svg)](https://www.nuget.org/packages/Microsoft.Extensions.Logging.ApplicationInsights/)
-   - Para o NLog: [Microsoft.ApplicationInsights.NLogTarget](https://www.nuget.org/packages/Microsoft.ApplicationInsights.NLogTarget/)
-[![NuGet](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.NLogTarget.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.NLogTarget/)
-   - Para o Log4Net: [Microsoft.ApplicationInsights.Log4NetAppender](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Log4NetAppender/)
-[![NuGet](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.Log4NetAppender.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Log4NetAppender/)
-   - Para o System.Diagnostics: [Microsoft.ApplicationInsights.TraceListener](https://www.nuget.org/packages/Microsoft.ApplicationInsights.TraceListener/)
-[![NuGet](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.TraceListener.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.TraceListener/)
-   - [Microsoft.ApplicationInsights.DiagnosticSourceListener](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DiagnosticSourceListener/)
-[![NuGet](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.DiagnosticSourceListener.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DiagnosticSourceListener/)
-   - [Microsoft.ApplicationInsights.EtwCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EtwCollector/)
-[![NuGet](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.EtwCollector.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EtwCollector/)
-   - [Microsoft.ApplicationInsights.EventSourceListener](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EventSourceListener/)
-[![Nuget](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.EventSourceListener.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EventSourceListener/)
+   - Para ILogger: [Microsoft. Extensions. Logging. ApplicationInsights](https://www.nuget.org/packages/Microsoft.Extensions.Logging.ApplicationInsights/) 
+ [ ![ NuGet ILogger banner](https://img.shields.io/nuget/vpre/Microsoft.Extensions.Logging.ApplicationInsights.svg)](https://www.nuget.org/packages/Microsoft.Extensions.Logging.ApplicationInsights/)
+   - Para NLog: [Microsoft. ApplicationInsights. NLogTarget](https://www.nuget.org/packages/Microsoft.ApplicationInsights.NLogTarget/) 
+ [ ![ NuGet NLog banner](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.NLogTarget.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.NLogTarget/)
+   - Para log4net: [Microsoft. ApplicationInsights. Log4NetAppender](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Log4NetAppender/) 
+ [ ![ NuGet log4net banner](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.Log4NetAppender.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Log4NetAppender/)
+   - Para System. Diagnostics: [Microsoft. ApplicationInsights. TraceListener](https://www.nuget.org/packages/Microsoft.ApplicationInsights.TraceListener/) 
+ [ ![ NuGet System. Diagnostic banner](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.TraceListener.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.TraceListener/)
+   - [Microsoft. ApplicationInsights. DiagnosticSourceListener](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DiagnosticSourceListener/) 
+ [ ![ Faixa de ouvinte de origem de diagnóstico do NuGet](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.DiagnosticSourceListener.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DiagnosticSourceListener/)
+   - [Microsoft. ApplicationInsights. EtwCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EtwCollector/) 
+ [ ![ Faixa do coletor ETW do NuGet](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.EtwCollector.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EtwCollector/)
+   - [Microsoft. ApplicationInsights. EventSourceListener](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EventSourceListener/) 
+ [ ![ Faixa de ouvinte de origem do evento NuGet](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.EventSourceListener.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EventSourceListener/)
 
 O pacote NuGet instala os assemblies necessários e, quando aplicável, modifica o web.config ou o app.config.
 
@@ -85,7 +85,7 @@ Se você preferir log4net ou NLog, use:
 ```
 
 ## <a name="use-eventsource-events"></a>Usar eventos EventSource
-É possível configurar eventos [System.Diagnostics.Tracing.EventSource](/dotnet/api/system.diagnostics.tracing.eventsource?view=netcore-3.1) para que eles sejam enviados para o Application Insights como rastreamentos. Primeiro, instale o pacote NuGet `Microsoft.ApplicationInsights.EventSourceListener`. Depois, edite a seção `TelemetryModules` do arquivo [ApplicationInsights.config](./configuration-with-applicationinsights-config.md).
+É possível configurar eventos [System.Diagnostics.Tracing.EventSource](/dotnet/api/system.diagnostics.tracing.eventsource) para que eles sejam enviados para o Application Insights como rastreamentos. Primeiro, instale o pacote NuGet `Microsoft.ApplicationInsights.EventSourceListener`. Depois, edite a seção `TelemetryModules` do arquivo [ApplicationInsights.config](./configuration-with-applicationinsights-config.md).
 
 ```xml
     <Add Type="Microsoft.ApplicationInsights.EventSourceListener.EventSourceTelemetryModule, Microsoft.ApplicationInsights.EventSourceListener">
@@ -139,7 +139,8 @@ Você pode chamar a API de rastreamento do Application Insights diretamente. Os 
 Por exemplo:
 
 ```csharp
-var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
+TelemetryConfiguration configuration = TelemetryConfiguration.CreateDefault();
+var telemetryClient = new TelemetryClient(configuration);
 telemetry.TrackTrace("Slow response - database01");
 ```
 
@@ -148,10 +149,11 @@ Uma vantagem de TrackTrace é que você pode colocar dados relativamente comprid
 Você também pode adicionar um nível de severidade à mensagem. E, como ocorre com outros casos de telemetria, você pode adicionar valores de propriedade para ajudar a filtrar ou a pesquisar diferentes conjuntos de rastreamentos. Por exemplo:
 
   ```csharp
-  var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
-  telemetry.TrackTrace("Slow database response",
-                 SeverityLevel.Warning,
-                 new Dictionary<string,string> { {"database", db.ID} });
+  TelemetryConfiguration configuration = TelemetryConfiguration.CreateDefault();
+  var telemetryClient = new TelemetryClient(configuration);
+  telemetryClient.TrackTrace("Slow database response",
+                              SeverityLevel.Warning,
+                              new Dictionary<string, string> { { "database", "db.ID" } });
   ```
 
 Isso permite que você filtre facilmente, em [Pesquisa][diagnostic], todas as mensagens de um nível de severidade específico relacionadas a um determinado banco de dados.
@@ -201,11 +203,11 @@ Se você estiver usando o SDK do Java, use os [adaptadores de log Java](./java-t
 
 ### <a name="theres-no-log-adapter-option-in-the-configuration-tool"></a>Não há nenhuma opção de adaptador de log na ferramenta de configuração
 * Instale primeiro a estrutura de registros.
-* Se estiver usando System.Diagnostics.Trace, verifique se você o [configurou no *web.config*](/dotnet/api/system.diagnostics.eventlogtracelistener?view=dotnet-plat-ext-3.1).
+* Se estiver usando System.Diagnostics.Trace, verifique se você o [configurou no *web.config*](/dotnet/api/system.diagnostics.eventlogtracelistener).
 * Verifique se você tem a versão mais recente do Application Insights. No Visual Studio, acesse **Ferramentas** > **Extensões e Atualizações** e abra a guia **Atualizações**. Se o **Developer Analytics Tools** estiver presente, selecione-o para atualizá-lo.
 
 ### <a name="i-get-the-instrumentation-key-cannot-be-empty-error-message"></a><a name="emptykey"></a>Recebo a mensagem de erro "A chave de instrumentação não pode estar vazia"
-Você provavelmente instalou o pacote NuGet de adaptador de log sem instalar o Application Insights. No Gerenciador de Soluções, clique com o botão direito do mouse em *ApplicationInsights.config* e selecione **Atualizar Application Insights**. Você receberá uma solicitação para entrar no Azure e criar um recurso do Application Insights ou, alternativamente, reutilizar um recurso existente. Isso deve corrigir o problema.
+Você provavelmente instalou o pacote NuGet do adaptador de log sem instalar Application Insights. No Gerenciador de Soluções, clique com o botão direito do mouse em *ApplicationInsights.config* e selecione **Atualizar Application Insights**. Você receberá uma solicitação para entrar no Azure e criar um recurso do Application Insights ou, alternativamente, reutilizar um recurso existente. Isso deve corrigir o problema.
 
 ### <a name="i-can-see-traces-but-not-other-events-in-diagnostic-search"></a>Posso ver rastreamentos na pesquisa de diagnóstico, mas não os outros eventos
 Pode levar algum tempo para que todos os eventos e solicitações percorram o pipeline.

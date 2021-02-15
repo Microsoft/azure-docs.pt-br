@@ -11,12 +11,12 @@ author: MarkusVi
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cffd72171693499365f31b6eb51fd2586187b98b
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: 2bdf3a763dc71eb842496775b6cc91b8ca39b4b3
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88271255"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96343834"
 ---
 # <a name="tutorial-configure-the-log-analytics-wizard"></a>Tutorial: Configurar o assistente do Log Analytics
 
@@ -41,15 +41,15 @@ Neste tutorial, você aprende a:
 
 Familiarize-se com estes artigos:
 
-- [Tutorial: Coletar e analisar logs de recursos de um recurso do Azure](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-resource-logs)
+- [Tutorial: Coletar e analisar logs de recursos de um recurso do Azure](../../azure-monitor/learn/tutorial-resource-logs.md)
 
-- [Como integrar logs de atividades ao Log Analytics](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Como integrar logs de atividades ao Log Analytics](./howto-integrate-activity-logs-with-log-analytics.md)
 
-- [Gerenciar conta de acesso de emergência no Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access)
+- [Gerenciar conta de acesso de emergência no Azure AD](../roles/security-emergency-access.md)
 
-- [Referência rápida de KQL](https://docs.microsoft.com/azure/data-explorer/kql-quick-reference)
+- [Referência rápida de KQL](/azure/data-explorer/kql-quick-reference)
 
-- [Pastas de trabalho do Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview)
+- [Pastas de trabalho do Azure Monitor](../../azure-monitor/platform/workbooks-overview.md)
 
 
 
@@ -72,7 +72,7 @@ Configurar um workspace do log Analytics consiste em duas etapas principais:
 
 3. Na página workspaces do log Analytics, clique em **Adicionar**.
 
-    ![Adicionar](./media/tutorial-log-analytics-wizard/add.png)
+    ![A captura de tela mostra o botão Adicionar na página dos workspaces do Log Analytics.](./media/tutorial-log-analytics-wizard/add.png)
 
 4.  Na página **Criar workspace do Log Analytics**, execute as seguintes etapas:
 
@@ -96,11 +96,11 @@ Configurar um workspace do log Analytics consiste em duas etapas principais:
 
 7. Pesquise o **Azure Active Directory**.
 
-    ![Azure Active Directory](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
+    ![A captura de tela mostra o Azure Active Directory no Azure Search.](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
 
 8. Na seção **Monitoramento**, clique em **Configuração de diagnóstico**.
 
-    ![Azure Active Directory](./media/tutorial-log-analytics-wizard/diagnostic-settings.png)
+    ![A captura de tela mostra as configurações de diagnóstico selecionadas no Monitoramento.](./media/tutorial-log-analytics-wizard/diagnostic-settings.png)
 
 9. Na página **Configurações de diagnóstico**, clique em **Adicionar configuração de diagnóstico**.
 
@@ -128,7 +128,7 @@ Este procedimento mostra como executar consultas usando a **KQL (Kusto Query Lan
 
 2. Pesquise o **Azure Active Directory**.
 
-    ![Azure active Directory](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
+    ![A captura de tela mostra o Azure Active Directory no Azure Search.](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
 
 3. Na seção **Monitoramento**, clique em **Logs**.
 
@@ -172,7 +172,7 @@ Dinamizar os resultados no nome da operação
 
 Mescle Logs de Auditoria e de Entrada usando uma junção interna:
 
-`AuditLogs |where OperationName contains "Add User" |extend UserPrincipalName = tostring(TargetResources[0].userPrincipalName) | |project TimeGenerated , UserPrincipalName |join kind = inner (SigninLogs) on UserPrincipalName |summarize arg_min(TimeGenerated, *) by UserPrincipalName |extend SigninDate = TimeGenerated` 
+`AuditLogs |where OperationName contains "Add User" |extend UserPrincipalName = tostring(TargetResources[0].userPrincipalName) | |project TimeGenerated, UserPrincipalName |join kind = inner (SigninLogs) on UserPrincipalName |summarize arg_min(TimeGenerated, *) by UserPrincipalName |extend SigninDate = TimeGenerated` 
 
 
 Veja o número de entradas por tipo de aplicativo cliente:
@@ -210,7 +210,7 @@ Este procedimento mostra como enviar alertas quando a conta breakglass é usada.
 
 2. Pesquise o **Azure Active Directory**.
 
-    ![Azure Active Directory](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
+    ![A captura de tela mostra o Azure Active Directory no Azure Search.](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
 
 3. Na seção **Monitoramento**, clique em **Logs**.
 
@@ -301,11 +301,11 @@ Este procedimento mostra como criar uma pasta de trabalho usando o modelo de in�
 
 2. Pesquise o **Azure Active Directory**.
 
-    ![Azure Active Directory](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
+    ![A captura de tela mostra o Azure Active Directory no Azure Search.](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
 
 3. Na seção **Monitoramento**, clique em **Pastas de trabalho**.
 
-    ![Pastas de trabalho](./media/tutorial-log-analytics-wizard/workbooks.png)
+    ![A captura de tela mostra Monitoramento no menu do portal do Azure com a opção Pastas de Trabalho selecionada.](./media/tutorial-log-analytics-wizard/workbooks.png)
 
 4. Na seção **Início rápido**, clique em **Vazio**.
 
@@ -332,7 +332,7 @@ Este procedimento mostra como criar uma pasta de trabalho usando o modelo de in�
 
 10. Clique em **Executar Consulta**.
 
-    ![Executar consulta](./media/tutorial-log-analytics-wizard/run-workbook-query.png)
+    ![A captura de tela mostra o botão Executar Consulta.](./media/tutorial-log-analytics-wizard/run-workbook-query.png)
 
 11. Na barra de ferramentas, em **Visualização**, clique em **Gráfico de pizza**.
 
@@ -353,19 +353,19 @@ Este procedimento mostra como adicionar uma consulta a um modelo de pasta de tra
 
 2. Pesquise o **Azure Active Directory**.
 
-    ![Azure Active Directory](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
+    ![A captura de tela mostra o Azure Active Directory no Azure Search.](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
 
 3. Na seção **Monitoramento**, clique em **Pastas de trabalho**.
 
-    ![Pastas de trabalho](./media/tutorial-log-analytics-wizard/workbooks.png)
+    ![A captura de tela mostra Monitoramento no menu com a opção Pastas de Trabalho selecionada.](./media/tutorial-log-analytics-wizard/workbooks.png)
 
 4. Na seção **Acesso condicional**, clique em **Relatório e Insights de Acesso Condicional**.
 
-    ![Modelo de acesso condicional](./media/tutorial-log-analytics-wizard/conditional-access-template.png)
+    ![A captura de tela mostra a opção de Relatórios e Insights de Acesso Condicional.](./media/tutorial-log-analytics-wizard/conditional-access-template.png)
 
 5. Na barra de ferramentas, clique em **Editar**.
 
-    ![Modelo de acesso condicional](./media/tutorial-log-analytics-wizard/edit-workbook-template.png)
+    ![A captura de tela mostra o botão Editar.](./media/tutorial-log-analytics-wizard/edit-workbook-template.png)
 
 6. Na barra de ferramentas, clique nos três pontos, **Adicionar** e em **Adicionar consulta**.
 
@@ -375,7 +375,7 @@ Este procedimento mostra como adicionar uma consulta a um modelo de pasta de tra
 
 8. Clique em **Executar Consulta**.
 
-    ![Executar consulta](./media/tutorial-log-analytics-wizard/run-workbook-insights-query.png)
+    ![A captura de tela mostra o botão Executar Consulta para executar essa consulta.](./media/tutorial-log-analytics-wizard/run-workbook-insights-query.png)
 
 9. Clique em **Intervalo de Tempo** e selecione **Definir na consulta**.
 

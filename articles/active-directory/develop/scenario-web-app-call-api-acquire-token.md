@@ -1,5 +1,6 @@
 ---
-title: Obter um token em um aplicativo Web que chama APIs da Web-plataforma de identidade da Microsoft | Azure
+title: Obter um token em um aplicativo Web que chama APIs da Web | Azure
+titleSuffix: Microsoft identity platform
 description: Saiba como adquirir um token para um aplicativo Web que chama APIs da Web
 services: active-directory
 author: jmprieur
@@ -8,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/14/2020
+ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 4904cd95dc81aad959c88c1dfdb09416923046e6
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: cfd479382cb69e7355b033312e165699223fdbf0
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518174"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756301"
 ---
 # <a name="a-web-app-that-calls-web-apis-acquire-a-token-for-the-app"></a>Um aplicativo Web que chama APIs da Web: adquirir um token para o aplicativo
 
@@ -27,7 +28,11 @@ Você criou o objeto de aplicativo cliente. Agora, você o usará para adquirir 
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-Os métodos do controlador são protegidos por um `[Authorize]` atributo que força os usuários que estão sendo autenticados a usar o aplicativo Web. Este é o código que chama Microsoft Graph:
+*Microsoft. Identity. Web* adiciona métodos de extensão que fornecem serviços de conveniência para chamar Microsoft Graph ou uma API da Web downstream. Esses métodos são explicados em detalhes em [um aplicativo Web que chama APIs da Web: chamar uma API](scenario-web-app-call-api-call-api.md). Com esses métodos auxiliares, você não precisa adquirir um token manualmente.
+
+No entanto, se você quiser adquirir um token manualmente, o código a seguir mostrará um exemplo de como usar *Microsoft. Identity. Web* para fazer isso em um controlador doméstico. Ele chama Microsoft Graph usando a API REST (em vez do SDK do Microsoft Graph). Para obter um token para chamar a API downstream, insira o `ITokenAcquisition` serviço por injeção de dependência no construtor do controlador (ou no construtor da página se você usar o mais bem) e use-o em suas ações do controlador, obtendo um token para o usuário ( `GetAccessTokenForUserAsync` ) ou para o próprio aplicativo ( `GetAccessTokenForAppAsync` ) em um cenário de daemon.
+
+Os métodos do controlador são protegidos por um `[Authorize]` atributo que garante que somente usuários autenticados possam usar o aplicativo Web.
 
 ```csharp
 [Authorize]
@@ -198,5 +203,4 @@ def graphcall():
 
 ## <a name="next-steps"></a>Próximas etapas
 
-> [!div class="nextstepaction"]
-> [Chamar uma API da Web](scenario-web-app-call-api-call-api.md)
+Vá para o próximo artigo neste cenário, [chame uma API da Web](scenario-web-app-call-api-call-api.md).

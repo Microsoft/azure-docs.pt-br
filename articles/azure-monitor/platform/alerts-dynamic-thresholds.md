@@ -4,13 +4,13 @@ description: Criar alertas com limites dinâmicos baseados em aprendizado de má
 author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
-ms.date: 02/16/2020
-ms.openlocfilehash: 1d21c7ed93ac2ce2ab61282707d57fbf43e0b71a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 01/04/2021
+ms.openlocfilehash: 92fafc9357ca08cd31c9ba7badbf7f6433f44f86
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81261067"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97862579"
 ---
 # <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor"></a>Alertas de métrica com limites dinâmicos no Azure Monitor
 
@@ -39,7 +39,7 @@ Os Limites Dinâmicos aprendem continuamente os dados da série de métrica e te
 Os limites são selecionados de modo que um desvio deles indique uma anomalia no comportamento da métrica.
 
 > [!NOTE]
-> A detecção de padrão sazonal é definida como um intervalo de hora, dia ou semana. Isso significa que outros padrões como padrão bihora ou semiweekly podem não ser detectados.
+> Os limites dinâmicos podem detectar sazonalidade por horas, diariamente ou por padrões semanais. Outros padrões, como sazonalidade de bi ou quinzenal, podem não ser detectados. Para detectar sazonalidade semanais, pelo menos três semanas de dados históricos são necessárias. 
 
 ## <a name="what-does-sensitivity-setting-in-dynamic-thresholds-mean"></a>O que a configuração de 'Sensibilidade' em Limites Dinâmicos significa?
 
@@ -98,7 +98,7 @@ Para recursos existentes com dados de métrica suficientes, os limites dinâmico
 
 ## <a name="dynamic-thresholds-best-practices"></a>Melhores práticas para Limites Dinâmicos
 
-Os Limites Dinâmicos podem ser aplicados a qualquer plataforma ou métrica personalizada no Azure Monitor e também foram ajustados para as métricas comuns de aplicativo e infraestrutura.
+Os limites dinâmicos podem ser aplicados à maioria das métricas de plataforma e personalizadas no Azure Monitor e também foram ajustados para as métricas comuns de aplicativo e infraestrutura.
 Os itens a seguir são melhores práticas sobre como configurar alertas em algumas dessas métricas usando Limites Dinâmicos.
 
 ### <a name="dynamic-thresholds-on-virtual-machine-cpu-percentage-metrics"></a>Limites dinâmicos em métricas de percentual de CPU da máquina virtual

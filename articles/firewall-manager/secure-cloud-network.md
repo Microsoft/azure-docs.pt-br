@@ -5,14 +5,14 @@ services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: tutorial
-ms.date: 07/29/2020
+ms.date: 09/08/2020
 ms.author: victorh
-ms.openlocfilehash: 458ebe14e77c7b190a5c4cdd9b408396589d5d27
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 9d1e2d257074555e7a2e78930e1f9be6cd4d90fe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420814"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89535995"
 ---
 # <a name="tutorial-secure-your-virtual-hub-using-azure-firewall-manager"></a>Tutorial: Proteger seu hub virtual usando o Gerenciador de Firewall do Azure
 
@@ -32,6 +32,10 @@ Neste tutorial, você aprenderá como:
 > * Implantar os servidores
 > * Criar uma política de firewall e proteger seu hub
 > * Testar o firewall
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="create-a-hub-and-spoke-architecture"></a>Criar uma arquitetura de hub e spoke
 
@@ -105,30 +109,6 @@ Agora você pode emparelhar as redes virtuais hub e spoke.
 8. Selecione **Criar**.
 
 Repita para conectar a rede virtual **Spoke-02**: nome da conexão – **hub-spoke-02**
-
-### <a name="configure-the-hub-and-spoke-routing"></a>Configurar o roteamento hub e spoke
-
-No portal do Azure, abra um Cloud Shell e execute o Azure PowerShell a seguir para configurar o roteamento hub e spoke necessário. As conexões emparelhadas de spoke/branch precisam definir a propagação como **NONE**. Isso impede qualquer comunicação entre os spokes e, em vez disso, roteia o tráfego para o firewall usando a rota padrão.
-
-```azurepowershell
-$noneRouteTable = Get-AzVHubRouteTable -ResourceGroupName fw-manager `
-                  -HubName hub-01 -Name noneRouteTable
-$vnetConns = Get-AzVirtualHubVnetConnection -ResourceGroupName fw-manager `
-             -ParentResourceName hub-01
-
-$vnetConn = $vnetConns[0]
-$vnetConn.RoutingConfiguration.PropagatedRouteTables.Ids = @($noneRouteTable)
-$vnetConn.RoutingConfiguration.PropagatedRouteTables.Labels = @("none")
-Update-AzVirtualHubVnetConnection -ResourceGroupName fw-manager `
-   -ParentResourceName hub-01 -Name $vnetConn.Name `
-   -RoutingConfiguration $vnetConn.RoutingConfiguration
-
-$vnetConn = $vnetConns[1]
-$vnetConn.RoutingConfiguration.PropagatedRouteTables.Ids = @($noneRouteTable)
-$vnetConn.RoutingConfiguration.PropagatedRouteTables.Labels = @("none")
-Update-AzVirtualHubVnetConnection -ResourceGroupName fw-manager `
-   -ParentResourceName hub-01 -Name $vnetConn.Name -RoutingConfiguration $vnetConn.RoutingConfiguration
-```
 
 ## <a name="deploy-the-servers"></a>Implantar os servidores
 
@@ -270,6 +250,10 @@ Agora teste a regra de rede.
 
 Agora que você verificou se a regra de rede de firewall está funcionando:
 * Você pode conectar uma Área de Trabalho Remota a um servidor localizado em outra rede virtual.
+
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+Quando você terminar de testar seus recursos de firewall, exclua o grupo de recursos **fw-manager** para excluir todos os recursos relacionados ao firewall.
 
 ## <a name="next-steps"></a>Próximas etapas
 

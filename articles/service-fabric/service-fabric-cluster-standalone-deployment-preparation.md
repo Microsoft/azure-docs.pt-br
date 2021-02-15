@@ -1,16 +1,14 @@
 ---
 title: Preparação de implantação de cluster autônomo
 description: Documentação relacionada à preparação do ambiente e à criação da configuração de cluster a ser considerada antes de implantar um cluster voltado para a manipulação de uma carga de trabalho de produção.
-author: dkkapur
 ms.topic: conceptual
 ms.date: 9/11/2018
-ms.author: dekapur
-ms.openlocfilehash: 6b07e3fe14478cf45df2f02378da4e83853cf9ea
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 18b8b0ce8c0e877bf9dd274596b19f85b1febe12
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261035"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790945"
 ---
 # <a name="plan-and-prepare-your-service-fabric-standalone-cluster-deployment"></a>Planejar e preparar a implantação de cluster Autônomo do Service Fabric
 
@@ -59,10 +57,10 @@ Aqui estão as especificações recomendadas para computadores em um Cluster Ser
 * Conectividade com uma rede segura para todos os computadores
 * Sistema operacional Windows Server instalado (versões válidas: 2012 R2, 2016, 1709 ou 1803). Service Fabric versão 6.4.654.9590 e posterior também dá suporte ao servidor 2019 e 1809.
 * [.NET Framework 4.5.1 ou posterior](https://www.microsoft.com/download/details.aspx?id=40773), instalação completa
-* [Windows PowerShell 3.0](/powershell/scripting/windows-powershell/install/installing-windows-powershell?view=powershell-7)
+* [Windows PowerShell 3.0](/powershell/scripting/windows-powershell/install/installing-windows-powershell)
 * O [serviço RemoteRegistry](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754820(v=ws.11)) deve estar em execução em todos os computadores
 * **Service Fabric unidade de instalação deve ser um sistema de arquivos NTFS**
-* ** *Os logs de desempenho* do Windows Services & alertas e o *log de eventos do Windows* devem [ser habilitados](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc755249(v=ws.11))**.
+* ***Os logs de desempenho* do Windows Services & alertas e o *log de eventos do Windows* devem [ser habilitados](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc755249(v=ws.11))**.
 
 > [!IMPORTANT]
 > O administrador do cluster que implanta e configura o cluster deve ter [privilégios de administrador](https://social.technet.microsoft.com/wiki/contents/articles/13436.windows-server-2012-how-to-add-an-account-to-a-local-administrator-group.aspx) em cada um dos computadores. Você não pode instalar o Service Fabric em um controlador de domínio.
@@ -105,7 +103,7 @@ Quando um administrador de cluster configura um cluster autônomo do Service Fab
 5. Se os computadores do cluster não são acessíveis pela Internet, defina o seguinte na configuração do cluster:
    * Desabilitar telemetria: em *Propriedades* , defina *"enableTelemetry": false*
    * Desabilite a versão automática do Fabric baixando & notificações de que a versão atual do cluster está se aproximando do fim do suporte: em *Properties* Set *"fabricClusterAutoupgradeEnabled": false*
-   * Como alternativa, se o acesso à rede da Internet estiver limitado aos domínios na lista de permissões, os domínios abaixo serão necessários para a atualização automática: go.microsoft.com download.microsoft.com
+   * Como alternativa, se o acesso à rede à Internet estiver limitado a domínios allowlisted, os domínios abaixo serão necessários para a atualização automática: go.microsoft.com download.microsoft.com
 
 6. Defina as exclusões de antivírus do Service Fabric apropriadas:
 

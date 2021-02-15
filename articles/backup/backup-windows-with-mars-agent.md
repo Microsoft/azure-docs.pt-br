@@ -3,12 +3,12 @@ title: Fazer backup de computadores Windows usando o agente MARS
 description: Use o agente de Serviços de Recuperação do Microsoft Azure (MARS) para fazer backup de computadores Windows.
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.openlocfilehash: 381df40dfe4149b2f43dc22bb2186ec1f17b0515
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 54932192d61633da55657e2ba57adf4e30c4fbc7
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88825878"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98702761"
 ---
 # <a name="back-up-windows-server-files-and-folders-to-azure"></a>Fazer backup de arquivos e pastas do Windows Server no Azure
 
@@ -104,7 +104,7 @@ Para fazer uma transferência offline:
 1. Grave os dados de backup em um local de preparo.
 1. Use a ferramenta AzureOfflineBackupDiskPrep para copiar os dados do local de preparo para um ou mais discos SATA.
 
-    A ferramenta cria um trabalho de importação do Azure. Para obter mais informações, consulte [o que é o serviço de importação/exportação do Azure](../storage/common/storage-import-export-service.md).
+    A ferramenta cria um trabalho de importação do Azure. Para obter mais informações, consulte [o que é o serviço de importação/exportação do Azure](../import-export/storage-import-export-service.md).
 1. Envie os discos SATA para um datacenter do Azure.
 
     No datacenter, os dados do disco são copiados para uma conta de armazenamento do Azure. O backup do Azure copia os dados da conta de armazenamento para o cofre e os backups incrementais são agendados.
@@ -125,7 +125,7 @@ Para habilitar a limitação de rede:
 1. Na guia **limitação** , selecione **habilitar limitação de uso de largura de banda da Internet para operações de backup**.
 
     ![Configurar a limitação de rede para operações de backup](./media/backup-configure-vault/throttling-dialog.png)
-1. Especifique a largura de banda permitida durante as horas de trabalho e as horas não úteis. Os valores de largura de banda começam em 512 kbps e vão até 1.023 MBps. Depois, selecione **OK**.
+1. Especifique a largura de banda permitida durante as horas de trabalho e as horas não úteis. Os valores de largura de banda começam em 512 kbps e vão até 1.023 Mbps. Depois, selecione **OK**.
 
 ## <a name="run-an-on-demand-backup"></a>Executar um backup sob demanda
 

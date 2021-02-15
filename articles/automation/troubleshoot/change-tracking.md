@@ -2,23 +2,19 @@
 title: Solucionar Problemas de Controle de Alterações e Inventário de Automação do Azure
 description: Este artigo informa como solucionar problemas e resolver dúvidas com o recurso Controle de Alterações e Inventário de Automação do Azure.
 services: automation
-ms.service: automation
 ms.subservice: change-inventory-management
-author: mgoedtel
-ms.author: magoedte
 ms.date: 01/31/2019
-ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: ddd41756f0e373e3bf627a88f441512fe0db91b7
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.topic: troubleshooting
+ms.openlocfilehash: 516f1a4e5e7c677b17a2941ee3c300db44d49a3b
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187227"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896538"
 ---
 # <a name="troubleshoot-change-tracking-and-inventory-issues"></a>Solucionar problemas do Controle de Alterações e do Inventário
 
-Este artigo descreve como solucionar problemas e resolver dúvidas de Controle de Alterações e Inventário de Automação do Azure. Para obter informações gerais sobre Controle de Alterações e Inventário, confira [Visão Geral de Controle de Alterações e Inventário](../change-tracking.md).
+Este artigo descreve como solucionar problemas e resolver dúvidas de Controle de Alterações e Inventário de Automação do Azure. Para obter informações gerais sobre Controle de Alterações e Inventário, confira [Visão Geral de Controle de Alterações e Inventário](../change-tracking/overview.md).
 
 ## <a name="windows"></a>Windows
 
@@ -108,11 +104,11 @@ Para obter mais soluções para esse problema, confira [Problema: Você não vê
 
 ##### <a name="log-analytics-agent-for-linux-not-configured-correctly"></a>O agente do Log Analytics para Linux não foi configurado corretamente
 
-O agente do Log Analytics para Linux pode não estar configurado corretamente para a coleção de saída de linha de comando e de log, usando a ferramenta do Coletor de logs do OMS. Confira [Visão Geral do Controle de Alterações e Inventário](../change-tracking.md).
+O agente do Log Analytics para Linux pode não estar configurado corretamente para a coleção de saída de linha de comando e de log, usando a ferramenta do Coletor de logs do OMS. Confira [Visão Geral do Controle de Alterações e Inventário](../change-tracking/overview.md).
 
 ##### <a name="fim-conflicts"></a>Conflitos do FIM
 
-O recurso FIM da Central de Segurança do Azure pode estar validando incorretamente a integridade dos arquivos Linux. Verifique se o FIM está funcionando e se foi configurado corretamente para o monitoramento de arquivos Linux. Confira [Visão Geral do Controle de Alterações e Inventário](../change-tracking.md).
+O recurso FIM da Central de Segurança do Azure pode estar validando incorretamente a integridade dos arquivos Linux. Verifique se o FIM está funcionando e se foi configurado corretamente para o monitoramento de arquivos Linux. Confira [Visão Geral do Controle de Alterações e Inventário](../change-tracking/overview.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

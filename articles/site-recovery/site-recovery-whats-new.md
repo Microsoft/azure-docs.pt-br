@@ -2,13 +2,13 @@
 title: O que há de novo no Azure Site Recovery
 description: Fornece um resumo dos novos recursos e das atualizações mais recentes no serviço de Azure Site Recovery.
 ms.topic: conceptual
-ms.date: 08/20/2020
-ms.openlocfilehash: 837344d10e21d20488760f6d5aa4749c039f9b07
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.date: 01/26/2021
+ms.openlocfilehash: 51d54ca4d46af3b9e0746f36114fadc47edd5b1f
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816942"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98805046"
 ---
 # <a name="whats-new-in-site-recovery"></a>Novidades do Site Recovery
 
@@ -20,16 +20,65 @@ Você pode seguir e assinar Site Recovery notificações de atualização no can
 
 Para componentes de Site Recovery, damos suporte a versões N-4, em que N é a versão mais recente lançada. Esses métodos estão resumidos na tabela a seguir.
 
-**Atualização** |  **Instalação unificada** | **Ova do servidor de configuração** | **Agente de serviço de mobilidade** | **Provedor de Recuperação de Site** | **Agente dos Serviços de Recuperação**
+**Atualizar** |  **Instalação unificada** | **Ova do servidor de configuração** | **Agente de serviço de mobilidade** | **Provedor de Recuperação de Site** | **Agente dos Serviços de Recuperação**
 --- | --- | --- | --- | --- | ---
+[ROLLUP 53](https://support.microsoft.com/topic/update-rollup-53-for-azure-site-recovery-060268ef-5835-bb49-7cbc-e8c1e6c6e12a)  | 9.40.5850.1 | 5.1.6537.0 | 9.40.5850.1 | 5.1.6537.0  | 2.0.9202.0
+[ROLLUP 52](https://support.microsoft.com/help/4597409/)  | 9.39.5796.1 | 5.1.6458.0 | 9.39.5796.1 | 5.1.6458.0  | 2.0.9196.0
+[ROLLUP 51](https://support.microsoft.com/help/4590304)  | 9.38.5761.1 | 5.1.6400.0 | 9.38.5761.1 | 5.1.6400.0  | 2.0.9193.0
+[ROLLUP 50](https://support.microsoft.com/help/4582666/) | 9.37.5724.1 | 5.1.6347.0 | 9.37.5724.1 | 5.1.6347.0  | 2.0.9192.0
 [ROLLUP 49](https://support.microsoft.com/help/4578241/) | 9.36.5696.1 | 5.1.6315.0 | 9.36.5696.1 | 5.1.6315.0 | 2.0.9188.0
-[ROLLUP 48](https://support.microsoft.com/help/4573888/) | 9.35.5659.1 | 5.1.6200.0 | 9.35.5659.1 | 5.1.6200.0 | 2.0.9186.0
-[ROLLUP 47](https://support.microsoft.com/help/4570609/) | 9.34.5634.1 | 5.1.6100.0 | 9.34.5634.1 | 5.1.6100.0 | Máquinas HyperV-2.0.9183.0 <br> Máquinas VMware-2.0.9177.0
-[ROLLUP 46](https://support.microsoft.com/help/4564347/) | 9.33.5598.1 | 5.1.5900.0 | 9.33.5598.1 | 5.1.5900.0 | 2.0.9175.0
-[ROLLUP 45](https://support.microsoft.com/help/4550047/) | 9.32.5487.1 | 5.1.5400.0 | 9.32.5487.1 | 5.1.5400.0 | 2.0.9165.0
+
 
 [Saiba mais](service-updates-how-to.md) sobre a instalação e o suporte da atualização.
 
+## <a name="updates-january-2021"></a>Atualizações (janeiro de 2021)
+
+### <a name="update-rollup-53"></a>Pacote cumulativo de atualizações 53
+
+O [pacote cumulativo](https://support.microsoft.com/topic/update-rollup-53-for-azure-site-recovery-060268ef-5835-bb49-7cbc-e8c1e6c6e12a) de atualizações 53 fornece as seguintes atualizações:
+
+**Atualizar** | **Detalhes**
+--- | ---
+**Provedores e agentes** | Atualizações para Site Recovery agentes e provedores conforme detalhado no acúmulo.
+**Correções de problemas/aprimoramentos** | Várias correções e aprimoramentos, conforme detalhado no acúmulo. 
+**Recuperação de desastre da VM do Azure** | Agora há suporte para replicação de marcas. Todas as marcas adicionadas às VMs do Azure, discos e NICs na região de origem são replicadas para computadores na região de destino.<br/><br/> As VMs do Azure que executam o Debian 10 agora têm suporte para replicação.
+**VM VMware/recuperação de desastre físico para o Azure** | A atualização inclui aprimoramentos de log para replicação de VM do VMware no Azure e mensagens de erro aprimoradas.<br/><br/> As VMs VMware e máquinas físicas que executam o Debian 10 agora têm suporte para replicação.
+
+
+## <a name="updates-november-2020"></a>Atualizações (novembro de 2020)
+
+### <a name="update-rollup-52"></a>Pacote cumulativo de atualizações 52
+
+O [pacote cumulativo](https://support.microsoft.com/help/4597409/update-rollup-52-for-azure-site-recovery) de atualizações 52 fornece as seguintes atualizações:
+
+**Atualizar** | **Detalhes**
+--- | ---
+**Provedores e agentes** | Atualizações para Site Recovery agentes e provedores conforme detalhado no acúmulo.
+**Correções de problemas/aprimoramentos** | Várias correções e aprimoramentos, conforme detalhado no ROLLUP, incluindo o novo suporte do Linux para o serviço de mobilidade.
+**Recuperação de desastre da VM do Azure** | Agora com suporte para VMs que executam RHEL 8,3 e Oracle Linux 7,9
+**VM VMware/recuperação de desastre físico para o Azure** | Agora com suporte para VMs que executam o RHEL 8,3, Oracle Linux 7.9/8.3.
+
+## <a name="updates-october-2020"></a>Atualizações (outubro de 2020)
+
+### <a name="update-rollup-51"></a>Pacote cumulativo de atualizações 51
+
+O [pacote cumulativo](https://support.microsoft.com/help/4590304/update-rollup-51-for-azure-site-recovery) de atualizações 51 fornece as seguintes atualizações:
+
+**Atualizar** | **Detalhes**
+--- | ---
+**Provedores e agentes** | Atualizações para Site Recovery agentes e provedores conforme detalhado no acúmulo.
+**Correções de problemas/aprimoramentos** | Várias correções e aprimoramentos, conforme detalhado no ROLLUP, incluindo o novo suporte do Linux para o serviço de mobilidade.
+
+## <a name="updates-september-2020"></a>Atualizações (setembro de 2020)
+
+### <a name="update-rollup-50"></a>Pacote cumulativo de atualizações 50
+
+O [pacote cumulativo](https://support.microsoft.com/help/4582666/update-rollup-50-for-azure-site-recovery) de atualizações 50 fornece as seguintes atualizações:
+
+**Atualizar** | **Detalhes**
+--- | ---
+**Provedores e agentes** | Atualizações para Site Recovery agentes e provedores conforme detalhado no acúmulo.
+**Correções de problemas/aprimoramentos** | Várias correções e aprimoramentos, conforme detalhado no acúmulo.
 
 ## <a name="updates-august-2020"></a>Atualizações (agosto de 2020)
 
@@ -37,10 +86,10 @@ Para componentes de Site Recovery, damos suporte a versões N-4, em que N é a v
 
 O [pacote cumulativo](https://support.microsoft.com/help/4578241/update-rollup-49-for-azure-site-recovery) de atualizações 49 fornece as seguintes atualizações:
 
-**Atualização** | **Detalhes**
+**Atualizar** | **Detalhes**
 --- | ---
 **Provedores e agentes** | Atualizações para Site Recovery agentes e provedores conforme detalhado no acúmulo.
-**Correções de problemas/aprimoramentos** | Várias correções e aprimoramentos, conforme detalhado no acúmulo.
+**Correções de problemas/aprimoramentos** | Várias correções e aprimoramentos, conforme detalhado no ROLLUP, incluindo o novo suporte do Linux para o serviço de mobilidade.
 
 ## <a name="updates-july-2020"></a>Atualizações (julho de 2020)
 
@@ -48,7 +97,7 @@ O [pacote cumulativo](https://support.microsoft.com/help/4578241/update-rollup-4
 
 O [pacote cumulativo](https://support.microsoft.com/help/4573888/update-rollup-48-for-azure-site-recovery) de atualizações 48 fornece as seguintes atualizações:
 
-**Atualização** | **Detalhes**
+**Atualizar** | **Detalhes**
 --- | ---
 **Provedores e agentes** | Atualizações para Site Recovery agentes e provedores conforme detalhado no acúmulo.
 **Correções de problemas/aprimoramentos** | Várias correções e aprimoramentos, conforme detalhado no acúmulo.
@@ -60,7 +109,7 @@ O [pacote cumulativo](https://support.microsoft.com/help/4573888/update-rollup-4
 
 O [pacote cumulativo](https://support.microsoft.com/help/4570609/update-rollup-47-for-azure-site-recovery) de atualizações 47 fornece as seguintes atualizações:
 
-**Atualização** | **Detalhes**
+**Atualizar** | **Detalhes**
 --- | ---
 **Provedores e agentes** | Atualizações para Site Recovery agentes e provedores conforme detalhado no acúmulo.
 **Correções de problemas/aprimoramentos** | Várias correções e aprimoramentos, conforme detalhado no acúmulo.
@@ -71,7 +120,7 @@ O [pacote cumulativo](https://support.microsoft.com/help/4570609/update-rollup-4
 
 O [pacote cumulativo](https://support.microsoft.com/help/4564347/update-rollup-46-for-azure-site-recovery) de atualizações 46 fornece as seguintes atualizações:
 
-**Atualização** | **Detalhes**
+**Atualizar** | **Detalhes**
 --- | ---
 **Provedores e agentes** | Atualizações para Site Recovery agentes e provedores conforme detalhado no acúmulo.
 **Correções de problemas/aprimoramentos** | Várias correções e aprimoramentos, conforme detalhado no acúmulo.
@@ -82,7 +131,7 @@ O [pacote cumulativo](https://support.microsoft.com/help/4564347/update-rollup-4
 
 O [pacote cumulativo](https://support.microsoft.com/help/4550047/update-rollup-45-for-azure-site-recovery) de atualizações 45 fornece as seguintes atualizações:
 
-**Atualização** | **Detalhes**
+**Atualizar** | **Detalhes**
 --- | ---
 **Provedores e agentes** | Atualizações para Site Recovery agentes e provedores conforme detalhado no acúmulo.
 **Correções de problemas/aprimoramentos** | Várias correções e aprimoramentos, conforme detalhado no acúmulo.
@@ -93,7 +142,7 @@ O [pacote cumulativo](https://support.microsoft.com/help/4550047/update-rollup-4
 
 O [pacote cumulativo](https://support.microsoft.com/help/4538187/update-rollup-44-for-azure-site-recovery) de atualizações 44 fornece as seguintes atualizações.
 
-**Atualização** | **Detalhes**
+**Atualizar** | **Detalhes**
 --- | ---
 **Provedores e agentes** | Não havia atualizações para os provedores e agentes de Site Recovery.
 **Correções de problemas/aprimoramentos** | Várias correções e aprimoramentos, conforme detalhado no acúmulo.
@@ -107,7 +156,7 @@ As máquinas virtuais do Azure agora dão suporte a VMs habilitadas para criptog
 
 O [pacote cumulativo](https://support.microsoft.com/help/4537047/update-rollup-43-for-azure-site-recovery) de atualizações 43 fornece as seguintes atualizações.
 
-**Atualização** | **Detalhes**
+**Atualizar** | **Detalhes**
 --- | ---
 **Provedores e agentes** | Atualizações para Site Recovery agentes e provedores (conforme detalhado no acúmulo)
 **Correções de problemas/aprimoramentos** | Várias correções e aprimoramentos (conforme detalhado no acúmulo)
@@ -119,7 +168,7 @@ O [pacote cumulativo](https://support.microsoft.com/help/4537047/update-rollup-4
 
 O [pacote cumulativo](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery) de atualizações 42 fornece as seguintes atualizações.
 
-**Atualização** | **Detalhes**
+**Atualizar** | **Detalhes**
 --- | ---
 **Provedores e agentes** | Atualizações para Site Recovery agentes e provedores (conforme detalhado no acúmulo)
 **Correções de problemas/aprimoramentos** | Várias correções e aprimoramentos (conforme detalhado no acúmulo)
@@ -166,7 +215,7 @@ Para a recuperação de desastre de VMs do Azure para uma região secundária ou
 
 O [pacote cumulativo](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery) de atualizações 41 fornece as seguintes atualizações.
 
-**Atualização** | **Detalhes**
+**Atualizar** | **Detalhes**
 --- | ---
 **Provedores e agentes** | Atualizações para Site Recovery agentes e provedores (conforme detalhado no acúmulo)
 **Correções de problemas/aprimoramentos** | Várias correções e aprimoramentos (conforme detalhado no acúmulo)
@@ -197,7 +246,7 @@ Novos recursos para a recuperação de desastre do VMware para o Azure são resu
 
 O [pacote cumulativo](https://support.microsoft.com/help/4521530/update-rollup-40-for-azure-site-recovery) de atualizações 40 fornece as seguintes atualizações.
 
-**Atualização** | **Detalhes**
+**Atualizar** | **Detalhes**
 --- | ---
 **Provedores e agentes** | Atualizações para Site Recovery agentes e provedores (conforme detalhado no acúmulo)
 **Correções de problemas/aprimoramentos** | Várias correções e aprimoramentos (conforme detalhado no acúmulo)
@@ -237,7 +286,7 @@ Conta de armazenamento | O Site Recovery agora dá suporte ao uso de contas de a
 
 O [pacote cumulativo](https://support.microsoft.com/help/4517283/update-rollup-39-for-azure-site-recovery) de atualizações 39 fornece as seguintes atualizações.
 
-**Atualização** | **Detalhes**
+**Atualizar** | **Detalhes**
 --- | ---
 **Provedores e agentes** | Atualizações para Site Recovery agentes e provedores (conforme detalhado no acúmulo)
 **Correções de problemas/aprimoramentos** | Várias correções e aprimoramentos (conforme detalhado no acúmulo)
@@ -258,7 +307,7 @@ Os novos recursos para a recuperação de desastres de VM do Azure são resumido
 
 O [pacote cumulativo](https://support.microsoft.com/help/4513507/) de atualizações 38 fornece as seguintes atualizações.
 
-**Atualização** | **Detalhes**
+**Atualizar** | **Detalhes**
 --- | ---
 **Provedores e agentes** | Atualizações para Site Recovery agentes e provedores (conforme detalhado no acúmulo)
 **Correções de problemas/aprimoramentos** | Várias correções e aprimoramentos (conforme detalhado no acúmulo)
@@ -279,7 +328,7 @@ Agora você pode replicar discos de até 8 TB ao replicar para uma VM do Azure c
 
 O [pacote cumulativo](https://support.microsoft.com/help/4508614/) de atualizações 37 fornece as seguintes atualizações.
 
-**Atualização** | **Detalhes**
+**Atualizar** | **Detalhes**
 --- | ---
 **Provedores e agentes** | Atualizações para Site Recovery agentes e provedores (conforme detalhado no acúmulo)
 **Correções de problemas/aprimoramentos** | Várias correções e aprimoramentos (conforme detalhado no acúmulo)
@@ -301,7 +350,7 @@ Os recursos adicionados neste mês são resumidos na tabela.
 
 O [pacote cumulativo](https://support.microsoft.com/help/4503156) de atualizações 36 fornece as seguintes atualizações.
 
-**Atualização** | **Detalhes**
+**Atualizar** | **Detalhes**
 --- | ---
 **Provedores e agentes** | Uma atualização para Site Recovery agentes e provedores (conforme detalhado no acúmulo)
 **Correções de problemas/aprimoramentos** | Várias correções e aprimoramentos (conforme detalhado no acúmulo)
@@ -334,7 +383,7 @@ Os recursos adicionados neste mês são resumidos na tabela.
 
 O [pacote cumulativo](https://support.microsoft.com/en-us/help/4494485/update-rollup-35-for-azure-site-recovery) de atualizações 35 fornece as seguintes atualizações.
 
-**Atualização** | **Detalhes**
+**Atualizar** | **Detalhes**
 --- | ---
 **Provedores e agentes** | Uma atualização para Site Recovery agentes e provedores (conforme detalhado no acúmulo)
 **Correções de problemas/aprimoramentos** | Várias correções e aprimoramentos (conforme detalhado no acúmulo)
@@ -355,7 +404,7 @@ Os recursos adicionados neste mês são resumidos na tabela.
 
 O [pacote cumulativo](https://support.microsoft.com/help/4490016/update-rollup-34-for-azure-site-recovery) de atualizações 34 fornece as seguintes atualizações.
 
-**Atualização** | **Detalhes**
+**Atualizar** | **Detalhes**
 --- | ---
 **Provedores e agentes** | Uma atualização para Site Recovery agentes e provedores (conforme detalhado no acúmulo).
 **Correções de problemas/aprimoramentos** | Várias correções e aprimoramentos (conforme detalhado no acúmulo).
@@ -365,7 +414,7 @@ O [pacote cumulativo](https://support.microsoft.com/help/4490016/update-rollup-3
 
 O [pacote cumulativo](https://support.microsoft.com/help/4489582/update-rollup-33-for-azure-site-recovery) de atualizações 33 fornece as seguintes atualizações.
 
-**Atualização** | **Detalhes**
+**Atualizar** | **Detalhes**
 --- | ---
 **Provedores e agentes** | Uma atualização para Site Recovery agentes e provedores (conforme detalhado no acúmulo).
 **Correções de problemas/aprimoramentos** | Várias correções e aprimoramentos (conforme detalhado no acúmulo).
@@ -405,7 +454,7 @@ A rede acelerada habilita o SR-IOV (virtualização de e/s de raiz única) para 
 
 O [pacote cumulativo](https://support.microsoft.com/help/4485985/update-rollup-32-for-azure-site-recovery) de atualizações 32 fornece as seguintes atualizações.
 
-**Atualização** | **Detalhes**
+**Atualizar** | **Detalhes**
 --- | ---
 **Provedores e agentes** | Uma atualização para Site Recovery agentes e provedores (conforme detalhado no acúmulo).
 **Correções de problemas/aprimoramentos** | Várias correções e aprimoramentos (conforme detalhado no acúmulo).
@@ -432,7 +481,7 @@ Os recursos adicionados neste mês são resumidos na tabela.
 
 O [pacote cumulativo](https://support.microsoft.com/help/4478871/update-rollup-31-for-azure-site-recovery) de atualizações 31 fornece as seguintes atualizações.
 
-**Atualização** | **Detalhes**
+**Atualizar** | **Detalhes**
 --- | ---
 **Provedores e agentes** | Uma atualização para Site Recovery agentes e provedores (conforme detalhado no acúmulo).
 **Correções de problemas/aprimoramentos** | Várias correções e aprimoramentos (conforme detalhado no acúmulo).
@@ -445,7 +494,7 @@ Os recursos adicionados neste mês são resumidos na tabela.
 --- | ---
 **Suporte a Linux** |  Foi adicionado suporte para Oracle Linux 6,8, Oracle Linux 6,9 e Oracle Linux 7,0 com kernel compatível com Red Hat e para o UEK (inbreakable Enterprise kernel) versão 5.
 **LVM** | Suporte adicionado para volumes LVM e LVM2.<br/><br/> Agora há suporte para o diretório/boot em uma partição de disco e em volumes LVM.
-**Listas** | O suporte foi adicionado para esses diretórios configurados como partições separadas ou sistemas de arquivos que não estão no mesmo disco do sistema:<br/><br/> /(raiz),/boot,/usr,/usr/local,/var,/etc.
+**Diretórios** | O suporte foi adicionado para esses diretórios configurados como partições separadas ou sistemas de arquivos que não estão no mesmo disco do sistema:<br/><br/> /(raiz),/boot,/usr,/usr/local,/var,/etc.
 **Windows Server 2008** | Suporte adicionado para discos dinâmicos.
 **Failover** | Tempo de failover melhorado para VMs VMware em que storvsc e vsbus não são drivers de inicialização.
 **Suporte a UEFI** | As VMs do Azure não dão suporte ao tipo de inicialização UEFI. Agora você pode migrar servidores físicos locais com UEFI para o Azure com o Site Recovery. Site Recovery migra o servidor convertendo o tipo de inicialização para BIOS antes da migração. Site Recovery anteriormente suportava essa conversão somente para VMs. O suporte está disponível para servidores físicos que executam o Windows Server 2012 ou posterior.
@@ -487,7 +536,7 @@ A recuperação de desastres de VMs do Azure incorre em custos de licenciamento 
 
 O [pacote cumulativo](https://support.microsoft.com/help/4468181/azure-site-recovery-update-rollup-30) de atualizações 30 fornece as atualizações a seguir.
 
-**Atualização** | **Detalhes**
+**Atualizar** | **Detalhes**
 --- | ---
 **Provedores e agentes** | Uma atualização para Site Recovery agentes e provedores (conforme detalhado no acúmulo).
 **Correções de problemas/aprimoramentos** | Várias correções e aprimoramentos (conforme detalhado no acúmulo).
@@ -507,7 +556,7 @@ Os recursos adicionados neste mês são resumidos na tabela.
 
 O [pacote cumulativo](https://support.microsoft.com/help/4466466/update-rollup-29-for-azure-site-recovery) de atualizações 29 fornece as seguintes atualizações.
 
-**Atualização** | **Detalhes**
+**Atualizar** | **Detalhes**
 --- | ---
 **Provedores e agentes** | Uma atualização para Site Recovery agentes e provedores (conforme detalhado no acúmulo).
 **Correções de problemas/aprimoramentos** | Várias correções e aprimoramentos (conforme detalhado no acúmulo).
@@ -519,7 +568,7 @@ O [pacote cumulativo](https://support.microsoft.com/help/4466466/update-rollup-2
 
 O [pacote cumulativo](https://support.microsoft.com/help/4460079/update-rollup-28-for-azure-site-recovery) de atualizações 28 fornece as seguintes atualizações.
 
-**Atualização** | **Detalhes**
+**Atualizar** | **Detalhes**
 --- | ---
 **Provedores e agentes** | Uma atualização para Site Recovery agentes e provedores (conforme detalhado no acúmulo).
 **Correções de problemas/aprimoramentos** | Várias correções e aprimoramentos (conforme detalhado no acúmulo).
@@ -548,7 +597,7 @@ Os recursos adicionados neste mês são resumidos na tabela.
 
 O [pacote cumulativo](https://support.microsoft.com/help/4055712/update-rollup-27-for-azure-site-recovery) de atualizações 27 fornece as seguintes atualizações.
 
-**Atualização** | **Detalhes**
+**Atualizar** | **Detalhes**
 --- | ---
 **Provedores e agentes** | Uma atualização para Site Recovery agentes e provedores (conforme detalhado no acúmulo).
 **Correções de problemas/aprimoramentos** | Várias correções e aprimoramentos (conforme detalhado no acúmulo).

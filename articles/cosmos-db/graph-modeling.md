@@ -1,20 +1,21 @@
 ---
 title: Modelagem de dados de grafo da API do Gremlin do Azure Cosmos DB
 description: Saiba como modelar um banco de dados de grafo usando a API do Gremlin do Azure Cosmos DB. Este artigo descreve quando usar um banco de dados de grafo e as melhores recomendadas para modelar entidades e relacionamentos.
-author: LuisBosquez
+author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 12/02/2019
-ms.author: lbosq
-ms.openlocfilehash: ea3aab76c8d7eaad46ae1c20f6ddb4547b25b5b7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: chrande
+ms.openlocfilehash: d99e2e2ffd63b050e7373c98084fed3fb14727bf
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85261810"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93357038"
 ---
 # <a name="graph-data-modeling-for-azure-cosmos-db-gremlin-api"></a>Modelagem de dados de grafo da API do Gremlin do Azure Cosmos DB
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 O documento a seguir foi desenvolvido para fornecer recomendações de modelagem de dados de grafo. Esta etapa é essencial para garantir a escalabilidade e o desempenho de um sistema de banco de dados de grafo conforme os dados evoluem. Um modelo de dados eficiente é especialmente importante com grafos em grande escala.
 
@@ -35,9 +36,9 @@ Uma solução de banco de dados de grafo pode ser aplicada de forma ideal se as 
 * Há **relações muitos para muitos** entre as entidades.
 * Há **requisitos de gravação e leitura nas entidades e nas relações**. 
 
-Se os critérios acima forem atendidos, será provável que uma abordagem de banco de dados de grafo fornecerá vantagens para **complexidade da consulta**, **escalabilidade do modelo de dados** e **desempenho de consulta**.
+Se os critérios acima forem atendidos, será provável que uma abordagem de banco de dados de grafo fornecerá vantagens para **complexidade da consulta** , **escalabilidade do modelo de dados** e **desempenho de consulta**.
 
-A próxima etapa é determinar se o grafo será usado para fins analíticos ou transacionais. Se o grafo se destinar a ser usado para cargas de trabalho de processamento de dados e cálculo intensivos, valerá a pena explorar o [conector do Spark do Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/spark-connector) e o uso da [biblioteca do GraphX](https://spark.apache.org/graphx/). 
+A próxima etapa é determinar se o grafo será usado para fins analíticos ou transacionais. Se o grafo se destinar a ser usado para cargas de trabalho de processamento de dados e cálculo intensivos, valerá a pena explorar o [conector do Spark do Cosmos DB](./spark-connector.md) e o uso da [biblioteca do GraphX](https://spark.apache.org/graphx/). 
 
 ## <a name="how-to-use-graph-objects"></a>Como usar objetos de grafo
 
@@ -51,9 +52,9 @@ Estas são as melhores práticas para as propriedades nos objetos de grafo:
 | Vértice | label | String | Essa propriedade é usada para definir o tipo de entidade representado pelo vértice. Se um valor não for fornecido, um valor padrão "vértice" será usado. |
 | Vértice | properties | Cadeia de caracteres, booliano, numérico | Uma lista de propriedades separadas armazenadas como pares chave-valor em cada vértice. |
 | Vértice | partition key | Cadeia de caracteres, booliano, numérico | Essa propriedade define em que local o vértice e suas bordas de saída serão armazenados. Leia mais sobre o [particionamento de grafo](graph-partitioning.md). |
-| Edge | ID | String | Imposto com exclusividade por partição. Gerado automaticamente por padrão. Geralmente, as bordas não precisam ser recuperadas exclusivamente por uma ID. |
-| Edge | label | String | Essa propriedade é usada para definir o tipo de relação existente entre dois vértices. |
-| Edge | properties | Cadeia de caracteres, booliano, numérico | Uma lista de propriedades separadas armazenadas como pares chave-valor em cada borda. |
+| Microsoft Edge | ID | String | Imposto com exclusividade por partição. Gerado automaticamente por padrão. Geralmente, as bordas não precisam ser recuperadas exclusivamente por uma ID. |
+| Microsoft Edge | label | String | Essa propriedade é usada para definir o tipo de relação existente entre dois vértices. |
+| Microsoft Edge | properties | Cadeia de caracteres, booliano, numérico | Uma lista de propriedades separadas armazenadas como pares chave-valor em cada borda. |
 
 > [!NOTE]
 > As bordas não exigem um valor de chave de partição, pois seu valor é atribuído automaticamente com base no vértice de origem. Saiba mais no artigo [Particionamento de grafo](graph-partitioning.md).
@@ -71,13 +72,13 @@ A primeira etapa de um modelo de dados de grafo é mapear cada entidade identifi
 
 Uma armadilha comum é mapear propriedades de uma única entidade como vértices separados. Considere o exemplo abaixo, em que a mesma entidade é representada de duas maneiras diferentes:
 
-* **Propriedades baseadas em vértice**: nessa abordagem, a entidade usa três vértices separados e duas bordas para descrever suas propriedades. Embora essa abordagem possa reduzir a redundância, ela aumenta a complexidade do modelo. Um aumento na complexidade do modelo pode resultar em latência adicionada, complexidade da consulta e custo de computação. Esse modelo também pode apresentar desafios no particionamento.
+* **Propriedades baseadas em vértice** : nessa abordagem, a entidade usa três vértices separados e duas bordas para descrever suas propriedades. Embora essa abordagem possa reduzir a redundância, ela aumenta a complexidade do modelo. Um aumento na complexidade do modelo pode resultar em latência adicionada, complexidade da consulta e custo de computação. Esse modelo também pode apresentar desafios no particionamento.
 
 :::image type="content" source="./media/graph-modeling/graph-modeling-1.png" alt-text="Modelo de entidade com vértices para propriedades." border="false":::
 
-* **Vértices inseridos na propriedade**: essa abordagem aproveita a lista de pares chave-valor para representar todas as propriedades da entidade dentro de um vértice. Ela fornece complexidade reduzida do modelo, o que leva a consultas mais simples e travessias mais econômicas.
+* **Vértices inseridos na propriedade** : essa abordagem aproveita a lista de pares chave-valor para representar todas as propriedades da entidade dentro de um vértice. Ela fornece complexidade reduzida do modelo, o que leva a consultas mais simples e travessias mais econômicas.
 
-:::image type="content" source="./media/graph-modeling/graph-modeling-2.png" alt-text="Modelo de entidade com vértices para propriedades." border="false":::
+:::image type="content" source="./media/graph-modeling/graph-modeling-2.png" alt-text="Diagrama mostra o vértice Luis do diagrama anterior com i d, Label e Properties." border="false":::
 
 > [!NOTE]
 > Os exemplos acima mostram um modelo de grafo simplificado para mostrar apenas a comparação entre as duas formas de dividir as propriedades da entidade.

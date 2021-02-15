@@ -2,18 +2,18 @@
 title: Substituição de Azure Site Recovery recurso de criptografia de dados | Microsoft Docs
 description: Detalhes regarig Azure Site Recovery recurso de criptografia de dados
 services: site-recovery
-author: rajani-janaki-ram
+author: Sharmistha-Rai
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 11/15/2019
-ms.author: rajanaki
-ms.openlocfilehash: 79c129fee6d0339eed752abe94059fa566859bc0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.author: sharrai
+ms.openlocfilehash: 5860928d71c0e7431190908d5df5d7496e8ffb17
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086176"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89426309"
 ---
 # <a name="deprecation-of-site-recovery-data-encryption-feature"></a>Substituição do recurso de criptografia de dados Site Recovery
 

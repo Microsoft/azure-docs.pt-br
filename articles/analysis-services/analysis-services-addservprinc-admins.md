@@ -8,12 +8,12 @@ ms.date: 07/07/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: fasttrack-edit
-ms.openlocfilehash: ce8f7347e4813e72ede426ab17f09221ab859136
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b1d5f8ec628245756c53e4dfeeecdeb3a4bebc2e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87015401"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100721"
 ---
 # <a name="add-a-service-principal-to-the-server-administrator-role"></a>Adicionar uma entidade de serviço à função de administrador do servidor 
 
@@ -33,14 +33,14 @@ Antes de concluir essa tarefa, você deverá ter uma entidade de serviço regist
 Você pode configurar administradores de servidor usando o SSMS (SQL Server Management Studio). Para concluir essa tarefa, você deve ter permissões de [administrador do servidor](analysis-services-server-admins.md) no servidor do AS do Azure. 
 
 1. No SSMS, conecte o servidor do AS do Azure.
-2. Em **Propriedades do Servidor** > **Segurança**, clique em **Adicionar**.
-3. Em **Selecionar Usuário ou Grupo**, procure o aplicativo registrado pelo nome, selecione e clique em**Adicionar**.
+2. Em **Propriedades do Servidor** > **Segurança** , clique em **Adicionar** .
+3. Em **Selecionar Usuário ou Grupo** , procure o aplicativo registrado pelo nome, selecione e clique em **Adicionar** .
 
     ![Pesquise a conta de entidade de serviço](./media/analysis-services-addservprinc-admins/aas-add-sp-ssms-picker.png)
 
-4. Verifique o ID da conta da entidade do serviço e clique em **OK**.
+4. Verifique o ID da conta da entidade do serviço e clique em **OK** .
     
-    ![Pesquise a conta de entidade de serviço](./media/analysis-services-addservprinc-admins/aas-add-sp-ssms-add.png)
+    ![Captura de tela que mostra a ID da conta da entidade de serviço e realça o botão OK.](./media/analysis-services-addservprinc-admins/aas-add-sp-ssms-add.png)
 
 ## <a name="using-a-resource-manager-template"></a>Usar um modelo do Resource Manager
 
@@ -117,5 +117,5 @@ Você pode usar essa ID de cliente em conjunto com a ID de locatário para adici
 
 ## <a name="related-information"></a>Informações relacionadas
 
-* [Baixar o módulo do PowerShell do SQL Server](https://docs.microsoft.com/sql/ssms/download-sql-server-ps-module)   
-* [Baixar o SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)   
+* [Baixar o módulo do PowerShell do SQL Server](/sql/ssms/download-sql-server-ps-module)   
+* [Baixar o SSMS](/sql/ssms/download-sql-server-management-studio-ssms)

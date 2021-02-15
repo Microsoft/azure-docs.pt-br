@@ -6,17 +6,17 @@ ms.service: sql-db-mi
 ms.subservice: service
 ms.custom: overview-samples sqldbrb=2
 ms.devlang: ''
-ms.topic: sample
+ms.topic: guide
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 02/04/2019
-ms.openlocfilehash: ee2c6580285246d3b170602e507aed038b2507f4
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 5202145af6f60f34bdce57aa94f4fec92a8b227f
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85983631"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677259"
 ---
 # <a name="azure-resource-manager-templates-for-azure-sql-database--sql-managed-instance"></a>Modelos do Azure Resource Manager para o Banco de Dados SQL do Azure e a Instância Gerenciada de SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -39,7 +39,7 @@ A tabela a seguir inclui links para modelos do Azure Resource Manager para o Ban
 | [Aplicativo Web do Azure com o Banco de Dados SQL](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-sql-database) | Esse exemplo cria um aplicativo Web do Azure gratuito e um banco de dados no Banco de Dados SQL do Azure o nível de serviço "Básico".|
 | [Aplicativo Web do Azure e Cache Redis com o Banco de Dados SQL](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-redis-cache-sql-database) | Esse modelo cria um aplicativo Web, um Cache Redis e um banco de dados no mesmo grupo de recursos e duas cadeias de conexão no aplicativo Web para o banco de dados e o Cache Redis.|
 | [Importar dados do Armazenamento de blobs usando o ADF V2](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-v2-blob-to-sql-copy) | Esse modelo do Azure Resource Manager cria uma instância do Azure Data Factory V2 que copia dados do Armazenamento de blobs do Azure para o Banco de Dados SQL.|
-| [Cluster HDInsight com um banco de dados](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-with-sql-database) | Esse modelo permite que você crie um cluster HDInsight, um servidor SQL lógico, um banco de dados e duas tabelas. Esse modelo é usado pelo [artigo Usar o Sqoop com o Hadoop no HDInsight](https://docs.microsoft.com/azure/hdinsight/hadoop/hdinsight-use-sqoop). |
+| [Cluster HDInsight com um banco de dados](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-with-sql-database) | Esse modelo permite que você crie um cluster HDInsight, um servidor SQL lógico, um banco de dados e duas tabelas. Esse modelo é usado pelo [artigo Usar o Sqoop com o Hadoop no HDInsight](../../hdinsight/hadoop/hdinsight-use-sqoop.md). |
 | [Aplicativo Lógico do Azure que executa um procedimento armazenado SQL de acordo com um agendamento](https://github.com/Azure/azure-quickstart-templates/tree/master/101-logic-app-sql-proc) | Esse modelo permite que você crie um aplicativo lógico que executará um procedimento armazenado SQL de acordo com um agendamento. Os argumentos para o procedimento podem ser colocados na seção do corpo do modelo.|
 
 ## <a name="azure-sql-managed-instance"></a>[Instância Gerenciada do SQL do Azure](#tab/managed-instance)
@@ -54,4 +54,3 @@ A tabela a seguir inclui links para modelos do Azure Resource Manager da Instân
 | [Instância Gerenciada de SQL com uma máquina virtual](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sqlmi-new-vnet-w-jumpbox) | Essa implantação criará uma rede virtual do Azure com duas sub-redes, `ManagedInstance` e `Management`. A Instância Gerenciada de SQL será implantada na sub-rede `ManagedInstance`. Uma máquina virtual com a última versão do SSMS (SQL Server Management Studio) será implantada na sub-rede `Management`. |
 
 ---
-

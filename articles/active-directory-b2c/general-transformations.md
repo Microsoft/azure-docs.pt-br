@@ -12,10 +12,10 @@ ms.date: 02/03/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 52831a1907d5ca8d13b0477c909d0d0358873973
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85202213"
 ---
 # <a name="general-claims-transformations"></a>Transformações de declarações gerais
@@ -49,7 +49,7 @@ Use essa transformação de declarações para copiar um valor de uma declaraç�
 ### <a name="example"></a>Exemplo
 
 - Declarações de entrada:
-    - **inputClaim**:bob@contoso.com
+    - **inputClaim**: bob@contoso.com
 - Declarações de saída:
     - **outputClaim**: bob@contoso.com
 
@@ -78,7 +78,7 @@ Use essa transformação de declarações para verificar se uma declaração exi
 ### <a name="example"></a>Exemplo
 
 - Declarações de entrada:
-  - **inputClaim**:someone@contoso.com
+  - **inputClaim**: someone@contoso.com
 - Declarações de saída:
   - **outputClaim**: true
 
@@ -111,7 +111,7 @@ Transforme o texto sem formatação fornecido em hash usando o sal e um segredo.
 ### <a name="example"></a>Exemplo
 
 - Declarações de entrada:
-  - **texto sem formatação**:MyPass@word1
+  - **texto sem formatação**: MyPass@word1
   - **sal**: 487624568
   - **randomizerSecret**: B2C_1A_AccountTransformSecret
 - Declarações de saída:

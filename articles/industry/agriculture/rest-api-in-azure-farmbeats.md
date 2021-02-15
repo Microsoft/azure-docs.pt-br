@@ -5,12 +5,12 @@ author: sunasing
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: sunasing
-ms.openlocfilehash: f15bee7e802b04d04a3c87d7f84fc975b88bf260
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 292374bcce90da042dc6bd672feaad3750759aa9
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536565"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674513"
 ---
 # <a name="azure-farmbeats-apis"></a>APIs FarmBeats do Azure
 
@@ -23,7 +23,7 @@ Este artigo descreve as APIs FarmBeats do Azure. As APIs do Azure FarmBeats forn
 - Agregações de sequência de tempo geradas automaticamente para criação rápida de modelos.
 - O mecanismo de Azure Data Factory integrado para criar facilmente pipelines de processamento de dados personalizados.
 
-## <a name="application-development"></a>Desenvolvimento do aplicativo
+## <a name="application-development"></a>Desenvolvimento de aplicativo
 
 As APIs FarmBeats contêm documentação técnica do Swagger. Para obter informações sobre todas as APIs e suas solicitações ou respostas correspondentes, consulte [Swagger](https://aka.ms/FarmBeatsDatahubSwagger).
 
@@ -40,7 +40,7 @@ Telemetria  | A telemetria fornece a capacidade de ler mensagens de telemetria p
 Trabalho  | O trabalho corresponde a qualquer Workflow de atividades executadas no sistema FarmBeats para obter uma saída desejada. Cada trabalho é associado a uma ID de trabalho e tipo de trabalho.
 JobType  | JobType corresponde a diferentes tipos de trabalho com suporte no sistema. Os tipos de trabalho definidos pelo sistema e definidos pelo usuário estão incluídos.
 ExtendedType  | O extendetype corresponde à lista de tipos definidos pelo usuário e pelo sistema no sistema. O Extended ajuda a configurar um novo tipo de arquivo de sensor, cena ou cena no sistema FarmBeats.
-Partner (parceiro)  | O parceiro corresponde ao parceiro de integração de sensor e imagens para FarmBeats.
+Parceiro  | O parceiro corresponde ao parceiro de integração de sensor e imagens para FarmBeats.
 Cena  | A cena corresponde a qualquer saída gerada no contexto de um farm. Cada cena tem uma ID de cena, origem da cena, tipo de cena e ID de farm associada a ela. Cada ID de cena pode ter vários arquivos de cena associados a ela.
 Scenefile |O scenefile corresponde a todos os arquivos que são gerados para uma única cena. Uma única ID de cena pode ter várias IDs de Scenefile associadas a ela.
 Regra  |A regra corresponde a uma condição para que os dados relacionados ao farm disparem um alerta. Cada regra está no contexto dos dados de um farm.
@@ -143,23 +143,23 @@ Neste exemplo, quando um farm foi criado, o campo obrigatório "Name" não foi e
 
 As APIs FarmBeats do Azure podem ser acessadas por um usuário ou um registro de aplicativo no Azure Active Directory. Para criar um registro de aplicativo no Azure Active Directory, siga estas etapas:
 
-1. Vá para a [portal do Azure](https://portal.azure.com)e selecione **Azure Active Directory**  >  **registros de aplicativo**  >  **novo registro**. Como alternativa, você pode usar uma conta existente.
+1. Vá para a [portal do Azure](https://portal.azure.com)e selecione **Azure Active Directory**  >  **registros de aplicativo**  >  **novo registro** . Como alternativa, você pode usar uma conta existente.
 2. Para uma nova conta, faça o seguinte:
 
     - Insira um nome.
-    - Selecione **contas neste diretório organizacional somente (locatário único)**.
+    - Selecione **contas neste diretório organizacional somente (locatário único)** .
     - Use os valores padrão no restante dos campos.
-    - Selecione **Registrar**.
+    - Selecione **Registrar** .
 
 3. No painel **visão geral** do registro de aplicativo novo e existente, faça o seguinte:
 
-    - Capture a **ID do cliente** e a **ID do locatário**.
-    - Vá para **certificados e segredos** para gerar um novo segredo do cliente e capturar o **segredo do cliente**.
-    - Volte para **visão geral**e selecione o link ao lado de **gerenciar aplicativo no diretório local**.
-    - Vá para **Propriedades** para capturar a **ID do objeto**.
+    - Capture a **ID do cliente** e a **ID do locatário** .
+    - Vá para **certificados e segredos** para gerar um novo segredo do cliente e capturar o **segredo do cliente** .
+    - Volte para **visão geral** e selecione o link ao lado de **gerenciar aplicativo no diretório local** .
+    - Vá para **Propriedades** para capturar a **ID do objeto** .
 
 4. Vá para o Swagger do Datahub (https:// <yourdatahub> . azurewebsites.net/swagger/index.html) e faça o seguinte:
-    - Vá para a **API do RoleAssignment**.
+    - Vá para a **API do RoleAssignment** .
     - Execute uma POSTAgem para criar um objeto **RoleAssignment** para a **ID de objeto** que você acabou de criar.
  
 ```json
@@ -172,7 +172,7 @@ As APIs FarmBeats do Azure podem ser acessadas por um usuário ou um registro de
 ```
 
   > [!NOTE]
-  > Para obter mais informações sobre como adicionar usuários e Active Directory registro, consulte [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+  > Para obter mais informações sobre como adicionar usuários e Active Directory registro, consulte [Azure Active Directory](../../active-directory/develop/howto-create-service-principal-portal.md).
 
 Depois de concluir as etapas anteriores, seu registro de aplicativo (cliente) pode chamar as APIs FarmBeats do Azure usando um token de acesso por meio da autenticação de portador.
 

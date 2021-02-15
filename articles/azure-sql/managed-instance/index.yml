@@ -8,16 +8,16 @@ metadata:
   ms.service: sql-managed-instance
   ms.subservice: operations
   ms.topic: landing-page
-  author: MashaMSFT
-  ms.author: mathoma
-  ms.reviewer: carlrab
+  author: stevestein
+  ms.author: sstein
+  ms.reviewer: 
   ms.date: 05/27/2020
-  ms.openlocfilehash: 6c02f1f12ed32cbced046f9937d4b8a28d74f97a
-  ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+  ms.openlocfilehash: a647b65725b15b04d30ae7789d6d4429fe949377
+  ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 08/19/2020
-  ms.locfileid: "88590414"
+  ms.lasthandoff: 11/13/2020
+  ms.locfileid: "94593902"
 landingContent:
 - title: Instância Gerenciada do Azure SQL
   linkLists:
@@ -72,7 +72,7 @@ landingContent:
     - text: SQL do Azure para iniciantes
       url: https://aka.ms/azuresql4beginners
     - text: Princípios Básicos do SQL do Azure
-      url: https://docs.microsoft.com/learn/paths/azure-sql-fundamentals/
+      url: /learn/paths/azure-sql-fundamentals/
     - text: Laboratórios práticos do SQL do Azure
       url: https://aka.ms/asqlworkshop
     - text: Bootcamp do SQL do Azure
@@ -106,11 +106,11 @@ landingContent:
     - text: Transact-SQL (T-SQL)
       url: /sql/t-sql/language-reference
     - text: CLI do Azure
-      url: https://docs.microsoft.com/cli/azure/sql
+      url: /cli/azure/sql
     - text: PowerShell
-      url: https://docs.microsoft.com/powershell/module/az.sql
+      url: /powershell/module/az.sql
     - text: API REST
-      url: https://docs.microsoft.com/rest/api/sql/
+      url: /rest/api/sql/
 - title: Continuidade de negócios
   linkLists:
   - linkListType: how-to-guide

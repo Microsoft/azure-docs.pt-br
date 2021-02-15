@@ -1,37 +1,42 @@
 ---
 title: Usar o Visualizador de Erros de Desenho do Azure Mapas
-description: Neste artigo, você aprenderá como visualizar avisos e erros retornados pela API de conversão do criador.
+description: Neste artigo, você aprenderá como Visualizar avisos e erros retornados pela API de conversão do criador (versão prévia).
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 06/12/2020
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: b3f9451a5ffd13c67232107d8db1e2da4a3891ec
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: db88e347e12783205ea8c31fed0bb374fccb4736
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86524736"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96903574"
 ---
-# <a name="using-the-azure-maps-drawing-error-visualizer"></a>Usando o Visualizador de Erros de Desenho do Azure Mapas
+# <a name="using-the-azure-maps-drawing-error-visualizer-with-creator-preview"></a>Usando o Visualizador de erros de desenho do Azure Maps com o criador (versão prévia)
 
-O Visualizador de Erros de Desenho é um aplicativo Web autônomo que exibe [avisos e erros de pacote de desenho](drawing-conversion-error-codes.md) detectados durante o processo de conversão. O aplicativo Web Visualizador de Erros consiste em uma página estática que você pode usar sem se conectar à Internet.  Você pode usar o Visualizador de Erros para corrigir erros e avisos de acordo com os [Requisitos de pacote de desenho](drawing-requirements.md). A [API de conversão do Azure Mapas](https://docs.microsoft.com/rest/api/maps/conversion) só retornará uma resposta com um link para o Visualizador de Erros quando um erro for detectado.
+> [!IMPORTANT]
+> Os serviços do Azure Maps Creator estão atualmente em visualização pública.
+> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+
+O Visualizador de Erros de Desenho é um aplicativo Web autônomo que exibe [avisos e erros de pacote de desenho](drawing-conversion-error-codes.md) detectados durante o processo de conversão. O aplicativo Web Visualizador de Erros consiste em uma página estática que você pode usar sem se conectar à Internet.  Você pode usar o Visualizador de Erros para corrigir erros e avisos de acordo com os [Requisitos de pacote de desenho](drawing-requirements.md). A [API de conversão do Azure Mapas](/rest/api/maps/conversion) só retornará uma resposta com um link para o Visualizador de Erros quando um erro for detectado.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para poder baixar o Visualizador de Erros de Desenho, você precisará:
 
 1. [Criar uma conta do Azure Mapas](quick-demo-map-app.md#create-an-azure-maps-account)
-2. [Obter uma chave de assinatura primária](quick-demo-map-app.md#get-the-primary-key-for-your-account), também conhecida como a chave primária ou a chave de assinatura.
-3. [Criar um recurso do Criador](how-to-manage-creator.md)
+2. [Obtenha uma chave de assinatura primária](quick-demo-map-app.md#get-the-primary-key-for-your-account), também conhecida como a chave primária ou a chave de assinatura.
+3. [Criar um recurso de criador (versão prévia)](how-to-manage-creator.md)
 
 Este tutorial usa o aplicativo [Postman](https://www.postman.com/), mas você pode escolher um ambiente de desenvolvimento de API diferente.
 
 ## <a name="download"></a>Baixar
 
-1. Carregue seu pacote de desenho no serviço do Criador do Azure Mapas para obter um `udid` para o pacote carregado. Para obter as etapas sobre como carregar um pacote, consulte [Carregar um pacote de desenho](tutorial-creator-indoor-maps.md#upload-a-drawing-package).
+1. Carregue seu pacote de desenho no serviço Azure Maps Creator (versão prévia) para obter um `udid` para o pacote carregado. Para obter as etapas sobre como carregar um pacote, consulte [Carregar um pacote de desenho](tutorial-creator-indoor-maps.md#upload-a-drawing-package).
 
 2. Agora que o pacote do Drawing foi carregado, usaremos `udid` para o pacote carregado converter o pacote em dados do mapa. Para obter as etapas sobre como converter um pacote, consulte [Converter um pacote de desenho](tutorial-creator-indoor-maps.md#convert-a-drawing-package).
 
@@ -90,13 +95,13 @@ Depois que o arquivo _ConversionWarningsAndErrors.json_ for carregado, você ver
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Depois que o [pacote de desenho atender aos requisitos](drawing-requirements.md), você poderá usar o [serviço do Conjunto de dados do Azure Mapas](https://docs.microsoft.com/rest/api/maps/conversion) para converter o pacote de desenho em um conjunto de dados. Em seguida, você pode usar o módulo Web do Azure Mapas Interno para desenvolver seu aplicativo. Para saber mais, leia os seguintes artigos:
+Depois que o [pacote de desenho atender aos requisitos](drawing-requirements.md), você poderá usar o [serviço do Conjunto de dados do Azure Mapas](/rest/api/maps/conversion) para converter o pacote de desenho em um conjunto de dados. Em seguida, você pode usar o módulo Web do Azure Mapas Interno para desenvolver seu aplicativo. Para saber mais, leia os seguintes artigos:
 
 > [!div class="nextstepaction"]
 > [Códigos de erro de conversão de desenho](drawing-conversion-error-codes.md)
 
 > [!div class="nextstepaction"]
-> [Criador de mapas internos](creator-indoor-maps.md)
+> [Criador (visualização) para mapas de interno](creator-indoor-maps.md)
 
 > [!div class="nextstepaction"]
 > [Usar o módulo do Azure Mapas Interno](how-to-use-indoor-module.md)

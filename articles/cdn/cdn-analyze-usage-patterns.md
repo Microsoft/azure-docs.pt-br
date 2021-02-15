@@ -1,6 +1,6 @@
 ---
 title: Relatórios de núcleo da Verizon | Microsoft Docs
-description: 'É possível exibir os padrões de uso da CDN usando os seguintes relatórios: largura de banda, dados transferidos, ocorrências, status do cache, taxa de ocorrências no cache, dados IPV4/IPV6 transferidos.'
+description: Saiba como acessar e exibir os relatórios do Verizon Core por meio do portal gerenciar para perfis Verizon.
 services: cdn
 documentationcenter: ''
 author: zhangmanling
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 3dc7547dbcf2bde7dd7db0d3f0db3f163a5910ef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5353fa70be4705b28dab9350fcdf7819b22faf54
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84888447"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "90985539"
 ---
 # <a name="core-reports-from-verizon"></a>Relatórios de núcleo da Verizon
 

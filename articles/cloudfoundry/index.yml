@@ -12,10 +12,10 @@ metadata:
   ms.author: gwallace
   ms.date: 03/08/2020
   ms.openlocfilehash: 8191a179474db5e9d60e0cd10fb1efff189a3a73
-  ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 08/14/2020
+  ms.lasthandoff: 10/09/2020
   ms.locfileid: "88224961"
 landingContent:
 - title: Sobre o Cloud Foundry no Azure

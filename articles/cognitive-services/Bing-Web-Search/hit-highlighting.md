@@ -11,22 +11,27 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: scottwhi
-ms.openlocfilehash: a6d394fec6e7cf0a230f61ad05c236a1f84dad9d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 32c3279cacddf10e77e8d245ba525ab766efd6fd
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68854053"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351871"
 ---
 # <a name="using-decoration-markers-to-highlight-text"></a>Usar marcadores de decoração para realçar texto
 
-O Bing dá suporte ao realce de visita, que marca os termos de consulta (ou outros termos que o Bing encontra relevante) nas cadeias de caracteres de exibição de algumas respostas. Por exemplo, os campos, `name` `displayUrl`e `snippet` dos resultados de uma página da Web podem conter os termos de consulta marcados. 
+> [!WARNING]
+> As APIs de Pesquisa do Bing estão migrando dos Serviços Cognitivos para os Serviços de Pesquisa do Bing. A partir de **30 de outubro de 2020**, todas as novas instâncias da Pesquisa do Bing precisam ser provisionadas seguindo o processo documentado [aqui](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> As APIs de Pesquisa do Bing provisionadas por meio dos Serviços Cognitivos terão suporte nos próximos três anos ou até o final do seu Contrato Enterprise, o que ocorrer primeiro.
+> Para obter instruções sobre a migração, confira [Serviços de Pesquisa do Bing](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
-Por padrão, o Bing não inclui realce de marcadores em cadeias de exibição. Para habilitar os marcadores, inclua o `textDecorations` parâmetro de consulta em sua solicitação e defina-o `true`como.
+O Bing dá suporte ao realce de visita, que marca os termos de consulta (ou outros termos que o Bing encontra relevante) nas cadeias de caracteres de exibição de algumas respostas. Por exemplo, os campos, e dos resultados de uma página da Web `name` `displayUrl` `snippet` podem conter os termos de consulta marcados. 
+
+Por padrão, o Bing não inclui realce de marcadores em cadeias de exibição. Para habilitar os marcadores, inclua o `textDecorations` parâmetro de consulta em sua solicitação e defina-o como `true` .
 
 ## <a name="hit-highlighting-example"></a>Exemplo de realce de clique
 
-O exemplo a seguir mostra um resultado da `Sailing Dinghy`Web para. Bing marcou o início e o final do termo de consulta usando os caracteres Unicode E000 e E001.
+O exemplo a seguir mostra um resultado da Web para `Sailing Dinghy` . Bing marcou o início e o final do termo de consulta usando os caracteres Unicode E000 e E001.
   
 ![Realce de ocorrência](./media/cognitive-services-bing-web-api/bing-hit-highlighting.png) 
 
@@ -34,7 +39,7 @@ Antes de exibir o resultado na interface do usuário, substitua os caracteres Un
 
 ## <a name="marker-formatting"></a>Formatação do marcador
 
-O Bing fornece a opção de usar caracteres Unicode ou marcas HTML como marcadores. Para especificar quais marcadores usar, inclua o parâmetro de consulta [TextFormat](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#textformat) : 
+O Bing fornece a opção de usar caracteres Unicode ou marcas HTML como marcadores. Para especificar quais marcadores usar, inclua o parâmetro de consulta [TextFormat](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#textformat) : 
 
 | Valor             | Marker                       |
 |-------------------|------------------------------|
@@ -43,13 +48,13 @@ O Bing fornece a opção de usar caracteres Unicode ou marcas HTML como marcador
 
 ## <a name="additional-text-decorations"></a>Decorações de texto adicionais
 
-O Bing pode retornar várias decorações de texto diferentes. Por exemplo, uma `Computation` resposta pode conter marcadores de subscrito para o termo `log(2)` de consulta no `expression` campo.
+O Bing pode retornar várias decorações de texto diferentes. Por exemplo, uma `Computation` resposta pode conter marcadores de subscrito para o termo de consulta `log(2)` no `expression` campo.
 
 ![marcadores de computação](./media/cognitive-services-bing-web-api/bing-markers-computation.png) 
 
-Se a solicitação não especificou decorações, o `expression` campo conterá `log10(2)`. 
+Se a solicitação não especificou decorações, o `expression` campo conterá `log10(2)` . 
 
-Se `textDecorations` for `true`, o Bing pode incluir os marcadores a seguir nas cadeias de caracteres de exibição de respostas. Se não houver nenhuma marca HTML equivalente, a célula da tabela estará vazia.
+Se `textDecorations` for `true` , o Bing pode incluir os marcadores a seguir nas cadeias de caracteres de exibição de respostas. Se não houver nenhuma marca HTML equivalente, a célula da tabela estará vazia.
 
 |Unicode|HTML|Descrição
 |-|-|-

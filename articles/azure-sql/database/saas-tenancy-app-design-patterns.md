@@ -10,12 +10,12 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 493c18efa8bad2e366424c8c8130754ce0098913
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8a13c641d50a68d9661b4aa6caf8effb82d53dd7
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85250683"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793221"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Padrões de locatário de banco de dados de SaaS multilocatários
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -24,13 +24,13 @@ Este artigo descreve os vários modelos de locação disponíveis para um aplica
 
 Ao criar um aplicativo de SaaS multilocatário, você deve escolher cuidadosamente o modelo de aluguel que melhor atenda às necessidades do seu aplicativo.  Um modelo de locação determina como os dados de cada locatário são mapeados para o armazenamento.  A escolha do modelo de aluguel afeta o design de aplicativo e gerenciamento.  Alternar para um modelo diferente mais tarde, às vezes, é caro.
 
-## <a name="a-saas-concepts-and-terminology"></a>a. Conceitos e terminologia de SaaS
+## <a name="a-saas-concepts-and-terminology"></a>A. Conceitos e terminologia de SaaS
 
 No Software como um modelo de serviço (SaaS), sua empresa não vende *licenças* com o seu software. Em vez disso, cada cliente faz alugar pagamentos à sua empresa, tornando a cada cliente um *locatário* da sua empresa.
 
 Em troca de pagamento de aluguel, cada locatário recebe acesso aos componentes do seu aplicativo SaaS, e tem seus dados armazenados no sistema de SaaS.
 
-O termo * modelo de locação * refere-se a como os dados armazenados dos locatários são organizados:
+O termo *modelo de locação* refere-se a como os dados armazenados dos locatários são organizados:
 
 - *Locação única:* &nbsp; Cada Database armazena dados de apenas um locatário.
 - *Multilocação:* &nbsp; Cada Database armazena dados de vários locatários separados (com mecanismos para proteger a privacidade de dados).
@@ -62,7 +62,7 @@ Em geral, o modelo de aluguel não afeta a função de um aplicativo, mas provav
 
 - **Personalização:** &nbsp; Facilidade de suporte a personalizações de esquema que são específicas de locatário ou específicos de classe de locatário.
 
-A discussão de aluguel enfoca na camada de *dados*.  Mas considere por um momento a camada de *aplicativo*.  A camada de aplicativo é tratada como uma entidade monolítica.  Se você dividir o aplicativo em vários componentes pequenos, a escolha do modelo de aluguel pode ser alterada.  Você pode tratar alguns componentes diferentemente de outras pessoas sobre tanto aluguel e a tecnologia de armazenamento quanto a plataforma usada.
+A discussão de aluguel enfoca na camada de *dados* .  Mas considere por um momento a camada de *aplicativo* .  A camada de aplicativo é tratada como uma entidade monolítica.  Se você dividir o aplicativo em vários componentes pequenos, a escolha do modelo de aluguel pode ser alterada.  Você pode tratar alguns componentes diferentemente de outras pessoas sobre tanto aluguel e a tecnologia de armazenamento quanto a plataforma usada.
 
 ## <a name="c-standalone-single-tenant-app-with-single-tenant-database"></a>C. Aplicativo de único locatário autônomo com o banco de dados único locatário
 
@@ -204,7 +204,7 @@ A tabela a seguir resume as diferenças entre o Functions e o WebJobs.
 
 [http-visual-studio-devops-485m]: https://www.visualstudio.com/devops/
 
-[docu-sql-svr-db-row-level-security-947w]: https://docs.microsoft.com/sql/relational-databases/security/row-level-security
+[docu-sql-svr-db-row-level-security-947w]: /sql/relational-databases/security/row-level-security
 
 [docu-elastic-db-client-library-536r]:elastic-database-client-library.md
 [docu-sql-db-saas-tutorial-deploy-wingtip-db-per-tenant-496y]: saas-dbpertenant-get-started-deploy.md
@@ -221,4 +221,3 @@ A tabela a seguir resume as diferenças entre o Functions e o WebJobs.
 [image-mt-app-db-per-tenant-pool-153p]: media/saas-tenancy-app-design-patterns/saas-multi-tenant-app-database-per-tenant-pool-15.png "Aplicativo de multilocatário com o banco de dados por locatário."
 
 [image-mt-app-sharded-mt-db-174s]: media/saas-tenancy-app-design-patterns/saas-multi-tenant-app-sharded-multi-tenant-databases-17.png " de multilocatário com o banco de dados por locatário."
-

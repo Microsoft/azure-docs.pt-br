@@ -7,29 +7,29 @@ ms.author: jimmyca
 ms.date: 02/20/2020
 ms.topic: article
 ms.service: azure-app-configuration
-ms.openlocfilehash: ae3417f991c0d810d8946cdaf358218ebbe4f6a5
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 12a62bbd06cf9adf3b5978bb061e1d014599b44c
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88590023"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550735"
 ---
 # <a name="reacting-to-azure-app-configuration-events"></a>Reagindo a Azure App eventos de configuração
 
 Azure App eventos de configuração permitem que os aplicativos reajam às alterações nos valores de chave. Isso é feito sem a necessidade de código complicado ou serviços de sondagem caros e ineficientes. Em vez disso, os eventos são enviados por Push por meio da [grade de eventos do Azure](https://azure.microsoft.com/services/event-grid/) para assinantes como [Azure Functions](https://azure.microsoft.com/services/functions/), [aplicativos lógicos do Azure](https://azure.microsoft.com/services/logic-apps/)ou até mesmo para seu próprio ouvinte HTTP personalizado. Criticamente, você paga apenas pelo que usar.
 
-Azure App eventos de configuração são enviados para a grade de eventos do Azure, que fornece serviços de entrega confiáveis para seus aplicativos por meio de políticas de repetição avançadas e entrega de mensagens mortas. Para saber mais, confira [entrega e repetição de mensagem da grade de eventos](https://docs.microsoft.com/azure/event-grid/delivery-and-retry).
+Azure App eventos de configuração são enviados para a grade de eventos do Azure, que fornece serviços de entrega confiáveis para seus aplicativos por meio de políticas de repetição avançadas e entrega de mensagens mortas. Para saber mais, confira [entrega e repetição de mensagem da grade de eventos](../event-grid/delivery-and-retry.md).
 
 Os cenários de evento de configuração de aplicativo comuns incluem a atualização da configuração do aplicativo, o disparo de implantações ou qualquer fluxo de trabalho orientado à configuração. Quando as alterações não forem frequentes, mas seu cenário exigir uma capacidade de resposta imediata, a arquitetura baseada em eventos pode ser especialmente eficaz.
 
-Dê uma olhada na [rota Azure app eventos de configuração para um ponto de extremidade da Web personalizado-CLI](./howto-app-configuration-event.md) para obter um exemplo rápido. 
+Dê uma olhada em [usar a grade de eventos para obter notificações de alteração de dados](./howto-app-configuration-event.md) para um exemplo rápido. 
 
 ![Modelo da Grade de Eventos](./media/event-grid-functional-model.png)
 
 ## <a name="available-azure-app-configuration-events"></a>Azure App eventos de configuração disponíveis
 A Grade de eventos usa [assinaturas de evento](../event-grid/concepts.md#event-subscriptions) para rotear mensagens de evento para os assinantes. Azure App as assinaturas de evento de configuração podem incluir dois tipos de eventos:  
 
-> |Nome do evento|Descrição|
+> |Nome do evento|Description|
 > |----------|-----------|
 > |`Microsoft.AppConfiguration.KeyValueModified`|Acionado quando um valor de chave é criado ou substituído|
 > |`Microsoft.AppConfiguration.KeyValueDeleted`|Acionado quando um valor de chave é excluído|
@@ -37,7 +37,7 @@ A Grade de eventos usa [assinaturas de evento](../event-grid/concepts.md#event-s
 ## <a name="event-schema"></a>Esquema do evento
 Azure App eventos de configuração contêm todas as informações de que você precisa para responder às alterações em seus dados. Você pode identificar um evento de configuração de aplicativo porque a propriedade eventType começa com "Microsoft. AppConfiguration". Encontre informações adicionais sobre o uso de propriedades de evento da Grade de Eventos em [Esquema de eventos da Grade de Eventos](../event-grid/event-schema.md).  
 
-> |Propriedade|Type|Descrição|
+> |Propriedade|Tipo|Descrição|
 > |-------------------|------------------------|-----------------------------------------------------------------------|
 > |topic|string|ID de Azure Resource Manager completo da configuração do aplicativo que emite o evento.|
 > |subject|string|O URI do valor de chave que é o assunto do evento.|
@@ -87,4 +87,4 @@ Os aplicativos que lidam com eventos de configuração de aplicativo devem segui
 Saiba mais sobre a grade de eventos e dê uma tentativa de Azure App eventos de configuração:
 
 - [Sobre a Grade de Eventos](../event-grid/overview.md)
-- [Rotear eventos de configuração de Azure App para um ponto de extremidade da Web personalizado](./howto-app-configuration-event.md)
+- [Como usar a grade de eventos para notificações de alteração de dados](./howto-app-configuration-event.md)

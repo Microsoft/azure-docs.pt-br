@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/28/2019
 ms.author: cshoe
-ms.openlocfilehash: 863620ce6f0af33b05ef290ae95ccdc99a53a54d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9e60fd9a20720d75f96a0b78ee783bd5509a8f90
+ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77523029"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97763482"
 ---
 # <a name="signalr-service-bindings-for-azure-functions"></a>Associações do Serviço SignalR para o Azure Functions
 
@@ -18,6 +18,7 @@ Este conjunto de artigos explica como autenticar e enviar mensagens em tempo rea
 
 | Ação | Tipo |
 |---------|---------|
+| Tratar mensagens do serviço Signalr | [Disparar Associação](./functions-bindings-signalr-service-trigger.md) |
 | Retornar a URL do ponto de extremidade de serviço e o token de acesso | [Associação de entrada](./functions-bindings-signalr-service-input.md) |
 | Enviar mensagens do serviço Signalr |[Associação de saída](./functions-bindings-signalr-service-output.md) |
 
@@ -36,7 +37,7 @@ Trabalhar com o gatilho e as associações exige que você referencie o pacote a
 [Pacote NuGet]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SignalRService
 [core tools]: ./functions-run-local.md
 [pacote de extensão]: ./functions-bindings-register.md#extension-bundles
-[Atualizar suas extensões]: ./install-update-binding-extensions-manual.md
+[Atualizar suas extensões]: ./functions-bindings-register.md
 [Extensão de ferramentas do Azure]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
 
 Para obter detalhes sobre como configurar e usar o serviço de sinalização e Azure Functions juntos, consulte [Azure Functions desenvolvimento e configuração com o serviço de signaler do Azure](../azure-signalr/signalr-concept-serverless-development-config.md).
@@ -55,5 +56,6 @@ Para usar as anotações do serviço Signalr em funções Java, você precisa ad
 
 ## <a name="next-steps"></a>Próximas etapas
 
+- [Manipular mensagens do serviço de sinalização (Associação de gatilho)](./functions-bindings-signalr-service-trigger.md)
 - [Retornar a URL do ponto de extremidade de serviço e o token de acesso (Associação de entrada)](./functions-bindings-signalr-service-input.md)
-- [Enviar mensagens do serviço Signalr (Associação de saída)](./functions-bindings-signalr-service-output.md) 
+- [Enviar mensagens do serviço Signalr (Associação de saída)](./functions-bindings-signalr-service-output.md)

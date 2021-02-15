@@ -10,10 +10,10 @@ metadata:
   ms.author: flborn
   ms.date: 03/26/2020
   ms.openlocfilehash: e740fd08dc3e616b0768c6c15fd4191cb58e261a
-  ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 06/30/2020
+  ms.lasthandoff: 10/09/2020
   ms.locfileid: "85565419"
 landingContent:
 - title: Sobre o Azure Remote Rendering

@@ -2,13 +2,13 @@
 title: Introdução ao Azure Advisor
 description: Use o Azure Advisor para otimizar as implantações do Azure.
 ms.topic: article
-ms.date: 02/01/2019
-ms.openlocfilehash: 27e49fa28e7b02b873ca145d514920784689b407
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.date: 09/27/2020
+ms.openlocfilehash: 12e56bf44a29a32b2149bca14f7c99f319c9c4ea
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654014"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91405200"
 ---
 # <a name="introduction-to-azure-advisor"></a>Introdução ao Azure Advisor
 
@@ -68,7 +68,9 @@ Para adiar ou ignorar uma recomendação, clique no link **Adiar**. Você pode e
 Para saber mais sobre as recomendações do Assistente, consulte:
 
 * [Introdução ao Assistente](advisor-get-started.md)
+* [Pontuação do supervisor](azure-advisor-score.md)
 * [Recomendações de confiabilidade do Advisor](advisor-high-availability-recommendations.md)
 * [Recomendações de segurança do Advisor](advisor-security-recommendations.md)
 * [Recomendações de desempenho do Advisor](advisor-performance-recommendations.md)
 * [Recomendações de custo do Advisor](advisor-cost-recommendations.md)
+* [Recomendações de excelência operacional do Advisor](advisor-operational-excellence-recommendations.md)

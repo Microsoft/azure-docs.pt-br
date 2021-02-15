@@ -2,7 +2,7 @@
   tocHref: /azure/
   topicHref: /azure/index
   items:
-    - name: Serviços de mídia
+    - name: Serviços de Mídia
       tocHref: /azure/media-services
       topicHref: /azure/media-services/index
       items:

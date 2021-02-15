@@ -3,12 +3,12 @@ title: Diretrizes para coleções confiáveis
 description: Diretrizes e recomendações para usar Service Fabric coleções confiáveis em um aplicativo de Service Fabric do Azure.
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 63e6de436bdaceed7f1d2a78e8385dd14bfc0ed6
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: f12db76f324d07c178b49150d4e574476e7d9929
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86260922"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98784318"
 ---
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Diretrizes e recomendações para Coleções Confiáveis no Azure Service Fabric
 Esta seção fornece diretrizes para usar o Gerenciador de Estado Confiável e Coleções Confiáveis. A meta é ajudar os usuários a evitar armadilhas comuns.
@@ -40,17 +40,17 @@ Eis aqui algumas coisas que se deve manter em mente:
   Isso significa que uma versão dos dados que é lida por meio de um único secundário pode ter um progresso falso.
   As leituras do Primário são sempre estáveis: elas nunca podem ter um progresso falso.
 * Segurança/privacidade dos dados persistidos pelo seu aplicativo em uma coleção confiável é a sua decisão e estão sujeitas às proteções fornecidas pelo seu gerenciamento de armazenamento; OU SEJA Criptografia de disco do sistema operacional pode ser usada para proteger seus dados em repouso.
-* `ReliableDictionary`a enumeração usa uma estrutura de dados classificada ordenada por chave. Para tornar a enumeração eficiente, as confirmações são adicionadas a uma Hashtable temporária e posteriormente movidas para o ponto de verificação de postagem de estrutura de dados classificados principal. O ADDS/atualizações/exclusões têm O melhor tempo de execução de caso de O (1) e o pior tempo de execução de caso do (log n), no caso de verificações de validação na presença da chave. Gets pode ser O (1) ou O (log n) dependendo se você estiver lendo de uma confirmação recente ou de uma confirmação mais antiga.
+* `ReliableDictionary` a enumeração usa uma estrutura de dados classificada ordenada por chave. Para tornar a enumeração eficiente, as confirmações são adicionadas a uma Hashtable temporária e posteriormente movidas para o ponto de verificação de postagem de estrutura de dados classificados principal. O ADDS/atualizações/exclusões têm O melhor tempo de execução de caso de O (1) e o pior tempo de execução de caso do (log n), no caso de verificações de validação na presença da chave. Gets pode ser O (1) ou O (log n) dependendo se você estiver lendo de uma confirmação recente ou de uma confirmação mais antiga.
 
 ## <a name="volatile-reliable-collections"></a>Coleções confiáveis voláteis
 Ao decidir usar coleções confiáveis voláteis, considere o seguinte:
 
-* ```ReliableDictionary```tem suporte volátil
-* ```ReliableQueue```tem suporte volátil
-* ```ReliableConcurrentQueue```Não tem suporte a volátil
+* ```ReliableDictionary``` tem suporte volátil
+* ```ReliableQueue``` tem suporte volátil
+* ```ReliableConcurrentQueue``` Não tem suporte a volátil
 * Os serviços persistentes não podem se tornar voláteis. Alterar o ```HasPersistedState``` sinalizador para ```false``` requer a recriação de todo o serviço do zero
 * Os serviços voláteis não podem ser mantidos. Alterar o ```HasPersistedState``` sinalizador para ```true``` requer a recriação de todo o serviço do zero
-* ```HasPersistedState```é uma configuração de nível de serviço. Isso significa que **todas as** coleções serão persistentes ou voláteis. Você não pode misturar coleções voláteis e persistentes
+* ```HasPersistedState``` é uma configuração de nível de serviço. Isso significa que **todas as** coleções serão persistentes ou voláteis. Você não pode misturar coleções voláteis e persistentes
 * A perda de quorum de uma partição volátil resulta em uma perda de dados completa
 * O backup e a restauração não estão disponíveis para serviços voláteis
 
@@ -64,4 +64,4 @@ Ao decidir usar coleções confiáveis voláteis, considere o seguinte:
   * [Configuração do Gerenciador de Estado Confiável](service-fabric-reliable-services-configuration.md)
 * Outras pessoas
   * [Início Rápido dos Reliable Services](service-fabric-reliable-services-quick-start.md)
-  * [Referência do desenvolvedor para Coleções Confiáveis](/dotnet/api/microsoft.servicefabric.data.collections?view=azure-dotnet#microsoft_servicefabric_data_collections)
+  * [Referência do desenvolvedor para Coleções Confiáveis](/dotnet/api/microsoft.servicefabric.data.collections#microsoft_servicefabric_data_collections)

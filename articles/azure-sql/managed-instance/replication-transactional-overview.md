@@ -1,7 +1,7 @@
 ---
 title: Replicação transacional
 titleSuffix: Azure SQL Managed Instance
-description: Saiba como usar SQL Server replicação transacional com o Instância Gerenciada SQL do Azure.
+description: Saiba como usar SQL Server replicação transacional com o SQL Instância Gerenciada do Azure (versão prévia).
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: data-movement
@@ -10,21 +10,21 @@ ms.devlang: ''
 ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
-ms.reviewer: carlrab
+ms.reviewer: sstein
 ms.date: 04/20/2020
-ms.openlocfilehash: ec1dfa3edea5364151c543889d974944a1a1cd5a
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 3e4b4fc3d4a6c9529c7c0ac0daef8a28173e0bf3
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87920110"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99225336"
 ---
-# <a name="transactional-replication-with-azure-sql-managed-instance"></a>Replicação transacional com o Azure SQL Instância Gerenciada
+# <a name="transactional-replication-with-azure-sql-managed-instance-preview"></a>Replicação transacional com o Azure SQL Instância Gerenciada (versão prévia)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 A replicação transacional é um recurso do Azure SQL Instância Gerenciada e SQL Server que permite replicar dados de uma tabela no Instância Gerenciada SQL do Azure ou uma instância de SQL Server para tabelas colocadas em bancos de dados remotos. Esse recurso permite que você sincronize várias tabelas em bancos de dados diferentes. 
 
-A replicação transacional está atualmente em visualização pública para SQL Instância Gerenciada. 
+A replicação transacional está atualmente em versão prévia pública para a Instância Gerenciada de SQL. 
 
 ## <a name="overview"></a>Visão geral
 
@@ -35,15 +35,15 @@ Você pode usar a replicação transacional para enviar por push as alterações
 - Um banco de dados de instância no Azure SQL Instância Gerenciada
 
   > [!NOTE]
-  > Para usar todos os recursos do Azure SQL Instância Gerenciada, você deve usar as versões mais recentes do [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) e [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).
+  > Para usar todos os recursos do Azure SQL Instância Gerenciada, você deve usar as versões mais recentes do [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) e [SQL Server Data Tools (SSDT)](/sql/ssdt/download-sql-server-data-tools-ssdt).
 
 ### <a name="components"></a>Componentes
 
-Os principais componentes na replicação transacional são o **Publicador**, o **distribuidor**e o **assinante**, conforme mostrado na figura a seguir:  
+Os principais componentes na replicação transacional são o **Publicador**, o **distribuidor** e o **assinante**, conforme mostrado na figura a seguir:  
 
 ![replicação com um Banco de Dados SQL](./media/replication-transactional-overview/replication-to-sql-database.png)
 
-| Função | Banco de Dados SQL do Azure | Instância Gerenciada do Azure SQL |
+| Função | Banco de Dados SQL do Azure | Instância Gerenciada de SQL do Azure |
 | :----| :------------- | :--------------- |
 | **Publicador** | Não | Sim |
 | **Distribuidor** | Não | Sim|
@@ -65,21 +65,21 @@ O Azure SQL Instância Gerenciada pode dar suporte a um assinante das seguintes 
 
    > [!NOTE]
    >
-   > - Para outras versões do SQL Server que não dão suporte à publicação para objetos no Azure, é possível utilizar o método de [republicação de dados](https://docs.microsoft.com/sql/relational-databases/replication/republish-data) para mover dados para versões mais recentes do SQL Server.
+   > - Para outras versões do SQL Server que não dão suporte à publicação para objetos no Azure, é possível utilizar o método de [republicação de dados](/sql/relational-databases/replication/republish-data) para mover dados para versões mais recentes do SQL Server.
    > - Tentativa de configurar a replicação usando uma versão mais antiga pode resultar em erro número MSSQL_REPL20084 (o processo não pôde se conectar ao Assinante.) e MSSQ_REPL40532 (não é possível abrir o servidor \<name> solicitado pelo logon. Houve falha no logon).
 
 ### <a name="types-of-replication"></a>Tipos de replicação
 
-Existem diferentes [tipos de replicação](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication):
+Existem diferentes [tipos de replicação](/sql/relational-databases/replication/types-of-replication):
 
-| Replicação | Banco de Dados SQL do Azure | Instância Gerenciada do Azure SQL |
+| Replicação | Banco de Dados SQL do Azure | Instância Gerenciada de SQL do Azure |
 | :----| :------------- | :--------------- |
-| [**Transacional padrão**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | Sim (somente como assinante) | Sim |
-| [**Instantâneo**](https://docs.microsoft.com/sql/relational-databases/replication/snapshot-replication) | Sim (somente como assinante) | Sim|
-| [**Replicação de mesclagem**](https://docs.microsoft.com/sql/relational-databases/replication/merge/merge-replication) | Não | Não|
-| [**Ponto a ponto**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/peer-to-peer-transactional-replication) | Não | Não|
-| [**Bidirecional**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | Não | Sim|
-| [**Assinaturas atualizáveis**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication) | Não | Não|
+| [**Transacional padrão**](/sql/relational-databases/replication/transactional/transactional-replication) | Sim (somente como assinante) | Sim |
+| [**Instantâneo**](/sql/relational-databases/replication/snapshot-replication) | Sim (somente como assinante) | Sim|
+| [**Replicação de mesclagem**](/sql/relational-databases/replication/merge/merge-replication) | Não | Não|
+| [**Ponto a ponto**](/sql/relational-databases/replication/transactional/peer-to-peer-transactional-replication) | Não | Não|
+| [**Bidirecional**](/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | Não | Sim|
+| [**Assinaturas atualizáveis**](/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication) | Não | Não|
 | &nbsp; | &nbsp; | &nbsp; |
 
 ### <a name="supportability-matrix"></a>Matriz de suporte
@@ -109,7 +109,7 @@ A replicação transacional é útil nos seguintes cenários:
 | Categoria | Sincronização de Dados | Replicação transacional |
 |---|---|---|
 | Vantagens | – Suporte ativo-ativo<br/>– Bidirecional entre o Banco de Dados SQL do Azure e o local | – Menor latência<br/>– Consistência transacional<br/>– Reutilização da topologia existente após a migração |
-| Desvantagens | – Latência de 5 minutos ou mais<br/>– Não há consistência transacional<br/>– Maior impacto do desempenho | -Não é possível publicar do banco de dados SQL do Azure <br/>– Alto custo de manutenção |
+| Desvantagens | – Não há consistência transacional<br/>– Maior impacto do desempenho | -Não é possível publicar do banco de dados SQL do Azure <br/>– Alto custo de manutenção |
 
 ## <a name="common-configurations"></a>Configurações comuns
 
@@ -148,7 +148,7 @@ Nessa configuração, um banco de dados no banco de dados SQL do Azure ou Azure 
 - Configure o emparelhamento VPN entre as redes virtuais dos participantes da replicação se as redes virtuais forem diferentes.
 
 > [!NOTE]
-> Você poderá encontrar o erro 53 ao se conectar a um arquivo de armazenamento do Azure se a porta 445 de saída do grupo de segurança de rede (NSG) for bloqueada quando o distribuidor for um banco de dados SQL Instância Gerenciada do Azure e o assinante for local. [Atualize a VNET NSG](/azure/storage/files/storage-troubleshoot-windows-file-connection-problems) para resolver esse problema.
+> Você poderá encontrar o erro 53 ao se conectar a um arquivo de armazenamento do Azure se a porta 445 de saída do grupo de segurança de rede (NSG) for bloqueada quando o distribuidor for um banco de dados SQL Instância Gerenciada do Azure e o assinante for local. [Atualize a VNET NSG](../../storage/files/storage-troubleshoot-windows-file-connection-problems.md) para resolver esse problema.
 
 ## <a name="with-failover-groups"></a>Com grupos de failover
 
@@ -196,16 +196,16 @@ Para obter mais informações sobre como configurar a replicação transacional,
 
 - [Configurar a replicação entre um Publicador do SQL Instância Gerenciada e um assinante](../managed-instance/replication-between-two-instances-configure-tutorial.md)
 - [Configurar a replicação entre um Publicador do SQL Instância Gerenciada, o distribuidor do SQL Instância Gerenciada e o assinante do SQL Server](../managed-instance/replication-two-instances-and-sql-server-configure-tutorial.md)
-- [Crie uma publicação](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication).
-- [Crie uma assinatura push](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription) usando o nome do servidor como o assinante (por exemplo `N'azuresqldbdns.database.windows.net` , e o banco de dados no nome do banco de dados SQL do Azure como o banco de dados de destino (por exemplo, **AdventureWorks**. )
+- [Crie uma publicação](/sql/relational-databases/replication/publish/create-a-publication).
+- [Crie uma assinatura push](/sql/relational-databases/replication/create-a-push-subscription) usando o nome do servidor como o assinante (por exemplo `N'azuresqldbdns.database.windows.net` , e o banco de dados no nome do banco de dados SQL do Azure como o banco de dados de destino (por exemplo, **AdventureWorks**. )
 
-## <a name="see-also"></a>Consulte também  
+## <a name="see-also"></a>Confira também  
 
 - [Replicação com um Instância Gerenciada SQL e um grupo de failover](transact-sql-tsql-differences-sql-server.md#replication)
 - [Replicação para um Banco de Dados SQL](../database/replication-to-sql-database.md)
 - [Replicação para instância gerenciada](../managed-instance/replication-between-two-instances-configure-tutorial.md)
-- [Criar uma publicação](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
-- [Criar uma Assinatura Push](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/)
-- [Tipos de Replicação](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication)
-- [Monitoramento (Replicação)](https://docs.microsoft.com/sql/relational-databases/replication/monitor/monitoring-replication)
-- [Inicializar uma Assinatura](https://docs.microsoft.com/sql/relational-databases/replication/initialize-a-subscription)  
+- [Criar uma publicação](/sql/relational-databases/replication/publish/create-a-publication)
+- [Criar uma Assinatura Push](/sql/relational-databases/replication/create-a-push-subscription/)
+- [Tipos de Replicação](/sql/relational-databases/replication/types-of-replication)
+- [Monitoramento (Replicação)](/sql/relational-databases/replication/monitor/monitoring-replication)
+- [Inicializar uma Assinatura](/sql/relational-databases/replication/initialize-a-subscription)

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/16/2018
 ms.author: allensu
 ms.openlocfilehash: e20f6ce9540d357b61ae2cfdf0e8f96d127dc6c0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84343210"
 ---
 # <a name="verizon-specific-http-headers-for-azure-cdn-rules-engine"></a>Cabeçalhos HTTP Verizon específicos para o mecanismo de regras de CDN do Microsoft Azure
@@ -37,7 +37,7 @@ Cabeçalho da solicitação | Descrição | Exemplo
 ---------------|-------------|--------
 [Pela](#via-request-header) | Identifica o servidor POP que faz o proxy da solicitação para um servidor de origem. | HTTP/1.1 ECS (dca/1A2B)
 X-Forwarded-For | Indica o endereço IP do solicitante.| 10.10.10.10
-X-Forwarded-Proto | Indica o endereço IP do solicitante. | http
+X-Forwarded-Proto | Indica o endereço IP do solicitante. | HTTP
 X-Host | Indica o nome do host da solicitação. | cdn.mydomain.com
 X-Midgress | Indica se a solicitação foi proxy por meio de um servidor adicional de CDN. Por exemplo, um servidor de proteção do servidor de origem POP ou um servidor POP de gateway de servidor para ADN. <br />Esse cabeçalho é adicionado à solicitação somente quando o tráfego de midgress ocorrer. Nesse caso, o cabeçalho é definido como 1 para indicar que a solicitação foi proxy por meio de um servidor adicional de CDN.| 1
 [Host](#host-request-header) | Identifica o host e a porta em que o conteúdo solicitado pode ser encontrado. | marketing.mydomain.com:80

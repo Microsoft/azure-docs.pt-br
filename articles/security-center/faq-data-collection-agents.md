@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/25/2020
+ms.date: 11/15/2020
 ms.author: memildin
-ms.openlocfilehash: 0bcf81e0c762dd2a8e63ae242fec77d30f5b2c3d
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 64fa6c72e3bc37276dd108e3981bbefb5a2021a7
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89011847"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96444523"
 ---
 # <a name="faq---questions-about-data-collection-agents-and-workspaces"></a>Perguntas frequentes - perguntas sobre coleta de dados, agentes e workspaces
 
@@ -29,9 +29,9 @@ A Central de Segurança coleta dados das VMs (máquinas virtuais) do Azure, dos 
 
 Não. Os workspaces criados pela Central de Segurança, embora sejam configurados para os logs do Azure Monitor por cobrança de nó, não incorrerão em encargos de logs do Azure Monitor. A cobrança da Central de Segurança sempre tem base em sua política de segurança da Central de Segurança e nas soluções instaladas em um workspace:
 
-- **Camada gratuita**: a Central de Segurança instala a solução 'SecurityCenterFree' no workspace padrão. Você não será cobrado pela Camada gratuita.
+- **Azure defender desativado** – a central de segurança habilita a solução ' SecurityCenterFree ' no espaço de trabalho padrão. Você não será cobrado se o Azure defender estiver desativado.
 
-- **Camada Standard**: a Central de Segurança habilita a solução 'Security' no workspace padrão.
+- O **Azure defender em** – central de segurança habilita a solução ' segurança ' no espaço de trabalho padrão.
 
 Para saber mais sobre preços, confira [preços da Central de Segurança](https://azure.microsoft.com/pricing/details/security-center/).
 
@@ -43,7 +43,7 @@ Para saber mais sobre preços, confira [preços da Central de Segurança](https:
 
 ## <a name="what-is-the-log-analytics-agent"></a>O que é o agente de Log Analytics?
 
-Para monitorar vulnerabilidades de segurança e ameaças, a central de segurança do Azure depende do [agente de log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent) – esse é o mesmo agente usado pelo serviço de Azure monitor. 
+Para monitorar vulnerabilidades de segurança e ameaças, a central de segurança do Azure depende do [agente de log Analytics](../azure-monitor/platform/log-analytics-agent.md) – esse é o mesmo agente usado pelo serviço de Azure monitor. 
 
 O agente, às vezes, é chamado de Microsoft Monitoring Agent (ou "MMA"). 
 
@@ -51,9 +51,9 @@ O agente coleta vários detalhes de configuração relacionados à segurança e 
 
 Verifique se os computadores estão executando um dos sistemas operacionais com suporte para o agente, conforme descrito nas páginas a seguir:
 
-* [Agente de Log Analytics para sistemas operacionais com suporte do Windows](../azure-monitor/platform/agents-overview.md#supported-operating-systems)
+* [Agente do Log Analytics para sistemas operacionais compatíveis com o Windows](../azure-monitor/platform/agents-overview.md#supported-operating-systems)
 
-* [Agente de Log Analytics para sistemas operacionais com suporte do Linux](../azure-monitor/platform/agents-overview.md#supported-operating-systems)
+* [Agente do Log Analytics para sistemas operacionais compatíveis com o Linux](../azure-monitor/platform/agents-overview.md#supported-operating-systems)
 
 Saiba mais sobre os [dados coletados pelo agente de log Analytics](security-center-enable-data-collection.md).
 
@@ -66,7 +66,7 @@ As VMs Windows ou Linux IaaS se qualificam se:
 
 - Atualmente, a extensão do agente do Log Analytics não está instalada na máquina virtual.
 - A VM está em estado de execução.
-- O [Agente de Máquina Virtual do Azure](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) do Windows ou Linux está instalado.
+- O [Agente de Máquina Virtual do Azure](../virtual-machines/extensions/agent-windows.md) do Windows ou Linux está instalado.
 - A máquina virtual não é usada como um dispositivo, como o firewall de aplicativo Web ou o firewall mais recente.
 
 
@@ -86,9 +86,9 @@ O local do workspace padrão depende da região do Azure:
 - Para VMs na Austrália, o local do workspace é Austrália
 
 
-## <a name="what-data-is-collected-by-the-log-analytics-agent"></a>Quais dados são coletados pelo agente de Log Analytics?
+## <a name="what-security-events-are-collected-by-the-log-analytics-agent"></a>Quais eventos de segurança são coletados pelo agente de Log Analytics?
 
-Para obter uma lista completa dos aplicativos e serviços monitorados pelo agente, consulte [o que é monitorado pelo Azure monitor?](https://docs.microsoft.com/azure/azure-monitor/monitor-reference#azure-services).
+Para obter uma lista completa dos eventos de segurança coletados pelo agente, consulte [quais tipos de eventos são armazenados para as configurações de eventos de segurança "comum" e "mínimo"?](security-center-enable-data-collection.md#what-event-types-are-stored-for-common-and-minimal).
 
 > [!IMPORTANT]
 > Observe que, para alguns serviços, como o Firewall do Azure, se você tiver habilitado o registro em log e escolhido um recurso informativo para registrar (por exemplo, definir o log como *detalhado*), poderá encontrar impactos significativos em suas necessidades de armazenamento log Analytics espaço de trabalho. 
@@ -109,14 +109,19 @@ Você pode selecionar um espaço de trabalho do Log Analytics existente para arm
 
 Para selecionar um espaço de trabalho do Log Analytics existente:
 
-1. Em **Política de segurança – Coleta de dados**, selecione **Usar outro workspace**.
+1. No menu da Central de Segurança, selecione **Preço e configurações**.
+1. Selecione a assinatura relevante.
+1. Abra a página de **provisionamento automático** , s
+1. Para o agente de Log Analytics, selecione **Editar configuração**. 
 
-    ![Usar outro workspace][4]
+    :::image type="content" source="./media/security-center-enable-data-collection/edit-configuration-auto-deploy-agent.png" alt-text="A configuração do agente de Log Analytics para usar ao usar a implantação automática" lightbox="./media/security-center-enable-data-collection/edit-configuration-auto-deploy-agent.png":::
 
-1. No menu suspenso, selecione um workspace para armazenar os dados coletados.
+1. Selecione **conectar VMs do Azure a um espaço de trabalho diferente** e escolha seu espaço de trabalho existente.
 
-    > [!NOTE]
-    > No menu suspenso, são mostrados apenas os workspaces aos quais você tem acesso e que estejam em sua assinatura do Azure.
+    :::image type="content" source="./media/security-center-enable-data-collection/choose-workspace.png" alt-text="Selecionando um espaço de trabalho não padrão para o agente de Log Analytics reportar para" lightbox="./media/security-center-enable-data-collection/choose-workspace.png":::
+
+    > [!TIP]
+    > A lista inclui apenas espaços de trabalho aos quais você tem acesso e que estão em sua assinatura do Azure.
 
 1. Clique em **Salvar**. Você será questionado se deseja reconfigurar as VMs monitoradas.
 
@@ -126,7 +131,6 @@ Para selecionar um espaço de trabalho do Log Analytics existente:
     > [!NOTE]
     > Se você selecionar **Sim**, não exclua os workspaces criados pela Central de Segurança até que todas as VMs sejam reconectadas ao novo workspace de destino. Essa operação falhará se um workspace for excluído muito cedo.
 
-    - Para cancelar a operação, selecione **Cancelar**.
 
 ## <a name="what-if-the-log-analytics-agent-was-already-installed-as-an-extension-on-the-vm"></a>E se o agente do Log Analytics já foi instalado como extensão na VM?<a name="mmaextensioninstalled"></a>
 
@@ -162,14 +166,19 @@ Se você remover a Extensão de Monitoramento da Microsoft, a Central de Seguran
 
 ## <a name="how-do-i-stop-the-automatic-agent-installation-and-workspace-creation"></a>Como fazer para impedir a instalação automática do agente e a criação do workspace?
 
-Você pode desligar o provisionamento automático para suas assinaturas na política de segurança, mas isso não é recomendado. Desativar o provisionamento automático limita as recomendações e os alertas da Central de Segurança. Para desabilitar o provisionamento automático:
+Você pode desligar o provisionamento automático para suas assinaturas na política de segurança, mas isso não é recomendado. Desativar o provisionamento automático limita os alertas e recomendações da central de segurança. Para desabilitar o provisionamento automático:
 
-1. Se sua assinatura estiver configurada para a camada Standard, abra a política de segurança para essa assinatura e selecione a camada **gratuita** .
+1. No menu da Central de Segurança, selecione **Preço e configurações**.
+1. Selecione a assinatura relevante.
+1. Se sua assinatura tiver o Azure defender habilitado, abra os **planos do Azure defender** e selecione **Azure defender desativado**.
 
-   ![Tipo de preço][1]
+    :::image type="content" source="./media/security-center-platform-migration-faq/pricing-tier.png" alt-text="Habilitar ou desabilitar o Azure defender":::
 
-1. Em seguida, desligue o provisionamento automático, selecionando **Desativar** na página **Política de segurança – Coleta de dados**.
-   ![Coleta de dados][2]
+1. Na página **provisionamento automático** , selecione caneta e desative provisionamento automático na página  **política de segurança – coleta de dados** .
+
+    :::image type="content" source="./media/security-center-enable-data-collection/agent-toggles.png" alt-text="Habilitar a implantação automática para o agente de Log Analytics":::
+
+1. Clique em **Salvar**.
 
 
 ## <a name="should-i-opt-out-of-the-automatic-agent-installation-and-workspace-creation"></a>Devo recusar a instalação do agente e a criação do workspace automáticas?
@@ -200,7 +209,7 @@ Instale manualmente a extensão do agente do Log Analytics para que a Central de
 
 Você pode conectar o agente a qualquer workspace personalizado existente ou a um workspace criado pela Central de Segurança. Se um workspace personalizado não tiver as soluções 'Security' ou 'SecurityCenterFree' habilitadas, você precisará aplicar uma solução. Para aplicar, selecione o workspace ou a assinatura personalizada e aplique uma camada de preços na página **Política de segurança – tipo de preço**.
 
-   ![Tipo de preço][1]
+:::image type="content" source="./media/security-center-platform-migration-faq/pricing-tier.png" alt-text="Habilitar ou desabilitar o Azure defender":::
 
 A Central de Segurança habilitará a solução correta no workspace com base no tipo de preço selecionado.
 
@@ -232,13 +241,11 @@ O provisionamento automático é altamente recomendável a fim de obter alertas 
 
 Se você o habilitou, mas agora deseja desabilitá-lo:
 
-1. No [portal do Azure](https://portal.azure.com), abra **central de segurança** e selecione **política de segurança**.
+1. No [portal do Azure](https://portal.azure.com), abra **central de segurança** e selecione **preços e configurações**.
 
 1. Selecione a assinatura na qual você deseja desabilitar o provisionamento automático.
 
-    **Política de segurança-a coleta de dados** é aberta.
-
-1. Em **Provisionamento automático**, selecione **Desabilitado**.
+1. Em **provisionamento automático**, desative a alternância para o agente de log Analytics.
 
 
 ## <a name="how-do-i-enable-data-collection"></a>Como habilitar a coleta de dados?
@@ -271,7 +278,6 @@ O agente consome uma quantidade nominal de recursos do sistema e devem causar po
 
 
 <!--Image references-->
-[1]: ./media/security-center-platform-migration-faq/pricing-tier.png
 [2]: ./media/security-center-platform-migration-faq/data-collection.png
 [3]: ./media/security-center-platform-migration-faq/remove-the-agent.png
 [4]: ./media/security-center-platform-migration-faq/use-another-workspace.png

@@ -1,24 +1,20 @@
 ---
 title: Atualizar modelos de Machine Learning usando Azure Data Factory
-description: Descreve como criar pipelines preditivas usando Azure Data Factory e Azure Machine Learning
-services: data-factory
-documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
-manager: jroth
+description: Descreve como criar pipelines preditivas usando Azure Data Factory v1 e Azure Machine Learning Studio (clássico)
+author: dcstwh
+ms.author: weetok
 ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: 0204a2873b288dcb2082dbd5c9c984d29fa6d456
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7a27ed657ba21d9e2125df903b40d74cd81eacf6
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85254915"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100379294"
 ---
-# <a name="updating-azure-machine-learning-models-using-update-resource-activity"></a>Atualizando os modelos do Machine Learning do Azure usando a Atividade de Recurso de Atualização
+# <a name="updating-azure-machine-learning-studio-classic-models-using-update-resource-activity"></a>Atualizando modelos de Azure Machine Learning Studio (clássico) usando atualizar atividade de recurso
 
 > [!div class="op_single_selector" title1="Atividades de transformação"]
 > * [Atividade do hive](data-factory-hive-activity.md) 
@@ -26,8 +22,8 @@ ms.locfileid: "85254915"
 > * [Atividade MapReduce](data-factory-map-reduce.md)
 > * [Atividade de streaming do Hadoop](data-factory-hadoop-streaming-activity.md)
 > * [Atividade do Spark](data-factory-spark.md)
-> * [Atividade de Execução em Lote de Machine Learning](data-factory-azure-ml-batch-execution-activity.md)
-> * [Atividade de Atualização de Recursos do Machine Learning](data-factory-azure-ml-update-resource-activity.md)
+> * [Atividade de execução em lotes do Azure Machine Learning Studio (clássico)](data-factory-azure-ml-batch-execution-activity.md)
+> * [Atividade do recurso de atualização do Azure Machine Learning Studio (clássico)](data-factory-azure-ml-update-resource-activity.md)
 > * [Atividade de Procedimento Armazenado](data-factory-stored-proc-activity.md)
 > * [Atividade do U-SQL da Análise Data Lake](data-factory-usql-activity.md)
 > * [Atividade personalizada do .NET](data-factory-use-custom-activities.md)
@@ -36,29 +32,29 @@ ms.locfileid: "85254915"
 > [!NOTE]
 > Este artigo aplica-se à versão 1 do Data Factory. Se você estiver usando a versão atual do serviço Data Factory, consulte [atualizar modelos de aprendizado de máquina no Data Factory](../update-machine-learning-models.md).
 
-Este artigo complementa o principal Azure Data Factory - Artigo de integração do Azure Machine Learning: [Criar pipelines de previsão usando o Azure Machine Learning e o Azure Data Factory](data-factory-azure-ml-batch-execution-activity.md). Se você ainda não fez isso, leia o artigo principal antes de ler este. 
+Este artigo complementa o principal artigo de integração Azure Data Factory-Azure Machine Learning Studio (clássico): [criar pipelines preditivas usando Azure Machine Learning Studio (clássico) e Azure data Factory](data-factory-azure-ml-batch-execution-activity.md). Se você ainda não fez isso, leia o artigo principal antes de ler este. 
 
 ## <a name="overview"></a>Visão geral
-Ao longo do tempo, os modelos de previsão nos experimentos de pontuação do AM do Azure precisam ser treinados novamente usando novos conjuntos de dados de entrada. Depois de concluir o novo treinamento, você deseja atualizar o serviço Web de pontuação com o modelo do AM treinado novamente. As etapas típicas para habilitar novos treinamentos e a atualização de modelos do AM do Azure por meio de serviços Web são:
+Ao longo do tempo, os modelos de previsão nos experimentos de Pontuação Azure Machine Learning Studio (clássico) precisam ser retreinados usando novos conjuntos de dados de entrada. Depois de concluir o novo treinamento, você deseja atualizar o serviço Web de pontuação com o modelo do AM treinado novamente. As etapas típicas para habilitar o retreinamento e a atualização de modelos de estúdio (clássico) por meio de serviços Web são:
 
 1. Crie um experimento no [Azure Machine Learning Studio (clássico)](https://studio.azureml.net).
 2. Quando estiver satisfeito com o modelo, use Azure Machine Learning Studio (clássico) para publicar serviços Web para o teste de **treinamento** e a pontuação/**teste de previsão**.
 
-A tabela a seguir descreve os serviços Web usados neste exemplo.  Consulte [readaptação de modelos de Machine Learning Studio (clássico) programaticamente](../../machine-learning/studio/retrain-machine-learning-model.md) para obter detalhes.
+A tabela a seguir descreve os serviços Web usados neste exemplo.  Consulte [readaptação de modelos de Azure Machine Learning Studio (clássico) programaticamente](../../machine-learning/classic/retrain-machine-learning-model.md) para obter detalhes.
 
 - **Treinamento do serviço Web** - recebe dados de treinamento e produz modelos treinados. A saída do novo treinamento é um arquivo .ilearner em um Armazenamento de Blobs do Azure. O **ponto de extremidade padrão** é criado automaticamente para você quando o experimento de treinamento é publicado como um serviço Web. Você pode criar mais pontos de extremidade, mas o exemplo usa apenas o ponto de extremidade padrão.
 - **Pontuação do serviço Web** - recebe exemplos de dados sem rótulo de e faz previsões. A saída da previsão pode ter várias formas, como um arquivo. csv ou linhas no banco de dados SQL do Azure, dependendo da configuração do experimento. O ponto de extremidade padrão é criado automaticamente para você quando o teste preditivo é publicado como um serviço Web. 
 
-A figura a seguir descreve o relacionamento entre os pontos de extremidade de treinamento e de pontuação no AM do Azure.
+A imagem a seguir descreve a relação entre os pontos de extremidade de treinamento e pontuação no Azure Machine Learning Studio (clássico).
 
 ![Serviços da Web](./media/data-factory-azure-ml-batch-execution-activity/web-services.png)
 
-Você pode invocar o **training web service** usando o **Atividade de Execução de Lote do AM do Azure**. A invocação de um serviço Web de treinamento é igual à invocação de um serviço Web do AM do Azure ML (serviço Web de pontuação) para pontuação de dados. As seções anteriores abordam em detalhes como invocar um serviço Web de AM do Azure de um pipeline do Azure Data Factory. 
+Você pode invocar o **serviço Web de treinamento** usando a **atividade de execução em lote Azure Machine Learning Studio (clássico)**. Invocar um serviço Web de treinamento é o mesmo que invocar um serviço Web Azure Machine Learning Studio (clássico) (serviço Web de pontuação) para dados de pontuação. As seções anteriores abordam como invocar um serviço Web Azure Machine Learning Studio (clássico) de um pipeline de Azure Data Factory em detalhes. 
 
-Você pode invocar o **scoring web service** usando o **Atividade de Recurso de Atualização de AM do Azure** para atualizar o serviço Web com o modelo recém-treinado. Os exemplos a seguir fornecem as definições de serviço vinculado: 
+Você pode invocar o **serviço Web de Pontuação** usando a **atividade de recurso de atualização Azure Machine Learning Studio (clássica)** para atualizar o serviço Web com o modelo treinado recentemente. Os exemplos a seguir fornecem as definições de serviço vinculado: 
 
 ## <a name="scoring-web-service-is-a-classic-web-service"></a>Serviço web de pontuação é um serviço web clássico
-Se o serviço Web de pontuação for um **serviço Web clássico**, crie o segundo **ponto de extremidade não padrão e atualizável** usando o portal do Azure. Confira o artigo [Criar pontos de extremidade](../../machine-learning/studio/create-endpoint.md) para conhecer as etapas. Depois de criar o ponto de extremidade atualizável não padrão, execute as seguintes etapas:
+Se o serviço Web de pontuação for um **serviço Web clássico**, crie o segundo **ponto de extremidade não padrão e atualizável** usando o portal do Azure. Confira o artigo [Criar pontos de extremidade](../../machine-learning/classic/create-endpoint.md) para conhecer as etapas. Depois de criar o ponto de extremidade atualizável não padrão, execute as seguintes etapas:
 
 * Clique em **EXECUÇÃO EM LOTE** para obter o valor do URI para a propriedade JSON **mlEndpoint**.
 * Clique no link **ATUALIZAR RECURSO** para obter o valor do URI para a propriedade JSON **updateResourceEndpoint**. A chave de API está na própria página do ponto de extremidade (no canto inferior direito).
@@ -88,7 +84,7 @@ Se o serviço web é o novo tipo de serviço da web que expõe um ponto de extre
 https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resource-group-name}/providers/Microsoft.MachineLearning/webServices/{web-service-name}?api-version=2016-05-01-preview. 
 ```
 
-Você pode obter valores para espaços reservados na URL ao consultar o serviço da web sobre o [Portal de serviços da Web do Azure Machine Learning](https://services.azureml.net/). O novo tipo de ponto de extremidade de recursos de atualização requer um token do AAD (Azure Active Directory). Especifique **servicePrincipalName** e **servicePrincipalKey** no serviço vinculado Azure Machine Learning. Consulte [como criar entidade de serviço e atribuir permissões para gerenciar recursos do Azure](../../active-directory/develop/howto-create-service-principal-portal.md). Aqui está um exemplo de definição de serviço AzureML vinculado: 
+Você pode obter valores para colocar os contentores na URL ao consultar o serviço Web no [portal de serviços web Azure Machine Learning Studio (clássico)](https://services.azureml.net/). O novo tipo de ponto de extremidade de recursos de atualização requer um token do AAD (Azure Active Directory). Especifique **servicePrincipalName** e **servicePrincipalKey** no serviço vinculado do estúdio (clássico). Consulte [como criar entidade de serviço e atribuir permissões para gerenciar recursos do Azure](../../active-directory/develop/howto-create-service-principal-portal.md). Aqui está um exemplo de definição de serviço AzureML vinculado: 
 
 ```json
 {
@@ -108,20 +104,20 @@ Você pode obter valores para espaços reservados na URL ao consultar o serviço
 }
 ```
 
-O cenário a seguir fornece mais detalhes. Ele tem um exemplo de readaptação e atualização de modelos de AM do Azure de um pipeline do Azure Data Factory.
+O cenário a seguir fornece mais detalhes. Ele tem um exemplo para retreinar e atualizar modelos de estúdio (clássico) de um pipeline Azure Data Factory.
 
-## <a name="scenario-retraining-and-updating-an-azure-ml-model"></a>Cenário: novo treinamento e atualização de um modelo do AM do Azure
-Esta seção fornece um pipeline de exemplo que usa a **atividade de Execução em lote do AM do Azure** para treinar novamente um modelo. O pipeline também usa a **atividade do Recurso de atualização do AM do Azure** para atualizar o modelo no serviço Web de pontuação. A seção também fornece snippets de JSON para todos os serviços vinculados, conjuntos de dados e pipeline no exemplo.
+## <a name="scenario-retraining-and-updating-a-studio-classic-model"></a>Cenário: retreinar e atualizar um modelo de estúdio (clássico)
+Esta seção fornece um pipeline de exemplo que usa a **atividade de execução de lote Azure Machine Learning Studio (clássica)** para treinar novamente um modelo. O pipeline também usa a **atividade de recurso de atualização Azure Machine Learning Studio (clássica)** para atualizar o modelo no serviço Web de pontuação. A seção também fornece snippets de JSON para todos os serviços vinculados, conjuntos de dados e pipeline no exemplo.
 
-Este é o modo de exibição de diagrama do pipeline de exemplo. Como você pode ver, a atividade de Execução em lote do AM do Azure assume a entrada de treinamento e produz uma saída de treinamento (arquivo iLearner). A Atividade de Recurso de Atualização do AM do Azure obtém a saída deste treinamento e atualiza o modelo no ponto de extremidade de serviço Web de pontuação. A Atividade do Recurso de Atualização não produz nenhuma saída. O placeholderBlob é apenas um conjunto de dados de saída fictício necessário ao serviço Azure Data Factory para executar o pipeline.
+Este é o modo de exibição de diagrama do pipeline de exemplo. Como você pode ver, a atividade de execução em lote do estúdio (clássico) usa a entrada de treinamento e produz uma saída de treinamento (arquivo iLearner). A atividade de recurso de atualização do estúdio (clássico) usa essa saída de treinamento e atualiza o modelo no ponto de extremidade do serviço Web de pontuação. A Atividade do Recurso de Atualização não produz nenhuma saída. O placeholderBlob é apenas um conjunto de dados de saída fictício necessário ao serviço Azure Data Factory para executar o pipeline.
 
 ![diagrama de pipeline](./media/data-factory-azure-ml-batch-execution-activity/update-activity-pipeline-diagram.png)
 
 ### <a name="azure-blob-storage-linked-service"></a>Serviço vinculado do armazenamento de Blob do Azure:
 O Armazenamento do Azure contém os seguintes dados:
 
-* dados de treinamento. Os dados de entrada para o serviço Web de treinamento de AM do Azure.  
-* Arquivo iLearner. Os dados de saída do serviço Web de treinamento de AM do Azure. Este arquivo também é a entrada para a atividade do Recurso de atualização.  
+* dados de treinamento. Os dados de entrada para o serviço Web de treinamento do Studio (clássico).  
+* Arquivo iLearner. A saída do serviço Web de treinamento do Studio (clássico). Este arquivo também é a entrada para a atividade do Recurso de atualização.  
 
 Veja a definição JSON de exemplo do serviço vinculado:
 
@@ -138,7 +134,7 @@ Veja a definição JSON de exemplo do serviço vinculado:
 ```
 
 ### <a name="training-input-dataset"></a>Conjunto de dados de entrada do treinamento:
-O DataSet a seguir representa os dados de treinamento de entrada para o serviço Web de treinamento Azure Machine Learning. A atividade de execução de Azure Machine Learning lote usa esse conjunto de dados como uma entrada.
+O DataSet a seguir representa os dados de treinamento de entrada para o serviço Web de treinamento do Studio (clássico). A atividade de execução em lote do estúdio (clássico) usa esse conjunto de dados como uma entrada.
 
 ```JSON
 {
@@ -169,7 +165,7 @@ O DataSet a seguir representa os dados de treinamento de entrada para o serviço
 ```
 
 ### <a name="training-output-dataset"></a>Conjunto de dados de saída de treinamento:
-O conjunto de dados a seguir representa o arquivo do iLearner de saída do serviço Web de treinamento do AM do Azure. A Atividade de Execução de Lote do AM do Azure produz este conjunto de dados. O conjunto de dados também é a entrada para a atividade do Recurso de Atualização do AM do Azure.
+O conjunto de resultados a seguir representa o arquivo iLearner de saída do serviço Web de treinamento Azure Machine Learning Studio (clássico). A atividade de execução de lote Azure Machine Learning Studio (clássica) produz esse conjunto de DataSet. Esse conjunto de dados também é a entrada para a atividade de recurso de atualização Azure Machine Learning Studio (clássica).
 
 ```JSON
 {
@@ -192,8 +188,8 @@ O conjunto de dados a seguir representa o arquivo do iLearner de saída do servi
 }
 ```
 
-### <a name="linked-service-for-azure-machine-learning-training-endpoint"></a>Serviço vinculado para Azure Machine Learning ponto de extremidade de treinamento
-O snippet JSON a seguir define um serviço vinculado de Azure Machine Learning que aponta para o ponto de extremidade padrão do serviço Web de treinamento.
+### <a name="linked-service-for-studio-classic-training-endpoint"></a>Serviço vinculado para o ponto de extremidade de treinamento do Studio (clássico)
+O trecho JSON a seguir define um serviço vinculado de estúdio (clássico) que aponta para o ponto de extremidade padrão do serviço Web de treinamento.
 
 ```JSON
 {    
@@ -216,8 +212,8 @@ Em **Azure Machine Learning Studio (clássico)**, faça o seguinte para obter va
 4. No **Azure Machine Learning Studio (clássico)**, clique no link **execução em lote** .
 5. Copie o **URI da Solicitação** da seção **Solicitação** e cole-o no editor de JSON do Data Factory.   
 
-### <a name="linked-service-for-azure-ml-updatable-scoring-endpoint"></a>Serviço Vinculado para o ponto de extremidade de pontuação atualizável do AM do Azure:
-O snippet de código do JSON a seguir define um serviço vinculado do Azure Machine Learning que aponta para o ponto de extremidade não padrão atualizável do serviço Web de pontuação.  
+### <a name="linked-service-for-studio-classic-updatable-scoring-endpoint"></a>Serviço vinculado para o ponto de extremidade de Pontuação atualizável do Studio (clássico):
+O trecho JSON a seguir define um serviço vinculado de estúdio (clássico) que aponta para o ponto de extremidade atualizável não padrão do serviço Web de pontuação.  
 
 ```JSON
 {
@@ -237,7 +233,7 @@ O snippet de código do JSON a seguir define um serviço vinculado do Azure Mach
 ```
 
 ### <a name="placeholder-output-dataset"></a>Conjunto de dados de saída de espaço reservado:
-A atividade de Atualização do recurso do AM do Azure não gera qualquer saída. No entanto, o Azure Data Factory exige um conjunto de dados de saída para gerar a agenda de um pipeline. Portanto, usamos um conjunto de dados fictício/espaço reservado neste exemplo.  
+A atividade de recurso de atualização do estúdio (clássico) não gera nenhuma saída. No entanto, o Azure Data Factory exige um conjunto de dados de saída para gerar a agenda de um pipeline. Portanto, usamos um conjunto de dados fictício/espaço reservado neste exemplo.  
 
 ```JSON
 {
@@ -260,7 +256,7 @@ A atividade de Atualização do recurso do AM do Azure não gera qualquer saída
 ```
 
 ### <a name="pipeline"></a>Pipeline
-O pipeline tem duas atividades: **AzureMLBatchExecution** e **AzureMLUpdateResource**. A atividade de Execução em lote do AM do Azure usa os dados de treinamento como entrada e produz um arquivo iLearner como saída. A atividade invoca o serviço Web de treinamento (experimento de treinamento exposto como um serviço Web) com os dados de treinamento de entrada e recebe o arquivo ilearner do serviço Web. O placeholderBlob é apenas um conjunto de dados de saída fictício necessário ao serviço Azure Data Factory para executar o pipeline.
+O pipeline tem duas atividades: **AzureMLBatchExecution** e **AzureMLUpdateResource**. A atividade de execução de lote Azure Machine Learning Studio (clássica) usa os dados de treinamento como entrada e produz um arquivo iLearner como uma saída. A atividade invoca o serviço Web de treinamento (experimento de treinamento exposto como um serviço Web) com os dados de treinamento de entrada e recebe o arquivo ilearner do serviço Web. O placeholderBlob é apenas um conjunto de dados de saída fictício necessário ao serviço Azure Data Factory para executar o pipeline.
 
 ![diagrama de pipeline](./media/data-factory-azure-ml-batch-execution-activity/update-activity-pipeline-diagram.png)
 

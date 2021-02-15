@@ -14,12 +14,12 @@ ms.topic: how-to
 ms.date: 06/12/2018
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 43718f8ebc851f27035f2999bfb4ff3ec12ca5b4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7bbd54ed68863a4704319a25af96b6463ad2377b
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84887721"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539704"
 ---
 # <a name="create-an-azure-cdn-endpoint"></a>Criar um ponto de extremidade CDN do Azure
 Este artigo descreve todas as configurações para criar um ponto de extremidade [CDN (Rede de Distribuição de Conteúdo) do Azure](cdn-overview.md) em um perfil CDN existente. Depois de criar um perfil e um ponto de extremidade, você pode iniciar a distribuição de conteúdo para seus clientes. Para ver um início rápido sobre como criar um perfil e um ponto de extremidade, confira [Início rápido: criar um ponto de extremidade e um perfil CDN do Azure](cdn-create-new-endpoint.md).
@@ -97,11 +97,11 @@ Faça logon no [Portal do Azure](https://portal.azure.com) com sua conta do Azur
     Como o registro demora um pouco para se propagar, o ponto de extremidade não fica imediatamente disponível para uso: 
     - Para perfis da **CDN Standard do Azure da Microsoft**, a propagação geralmente é concluída em dez minutos. 
     - Para perfis da **CDN Standard do Azure da Akamai**, a propagação normalmente é concluída em um minuto. 
-    - Para perfis da **CDN Standard do Azure da Verizon** e **CDN Premium do Azure da Verizon**, a propagação geralmente conclui em 90 minutos. 
+    - Para perfis **da CDN standard do Azure da Verizon** e do **Azure CDN Premium da Verizon** , a propagação geralmente é concluída em 30 minutos. 
    
     Se você tentar usar o nome de domínio da CDN antes que a configuração do ponto de extremidade seja propagada para os servidores POP (ponto de presença), talvez você receba um status de resposta HTTP 404. Se passaram várias horas desde que você criou o ponto de extremidade e ainda está recebendo um status de resposta 404, confira [Solução de problemas dos pontos de extremidade da CDN do Azure que retornam o código de status 404](cdn-troubleshoot-endpoint.md).
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 Para excluir um ponto de extremidade quando ele não for mais necessário, selecione-o e, em seguida, clique em **Excluir**. 
 
 ## <a name="next-steps"></a>Próximas etapas

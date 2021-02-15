@@ -3,18 +3,19 @@ title: Webhooks como manipuladores de eventos para eventos da Grade de Eventos d
 description: Descreve como você pode usar os webhooks como manipuladores de eventos para os eventos da Grade de Eventos do Azure. Os runbooks e os aplicativos lógicos da Automação do Azure têm suporte como manipuladores de eventos por meio de webhooks.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 3dc75b15c55c82b6164e77f0ac93a87bced94a64
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: aa20c75789a18b93f787134dffe165e60ff1ab6f
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86105601"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91875794"
 ---
 # <a name="webhooks-automation-runbooks-logic-apps-as-event-handlers-for-azure-event-grid-events"></a>WebHooks, runbooks de Automação, Aplicativos Lógicos como manipuladores de eventos para eventos da Grade de Eventos do Azure
 Um manipulador de eventos é o local para o qual o evento é enviado. O manipulador usa alguma ação adicional para processar o evento. Vários serviços do Azure são automaticamente configurados para manipular eventos. Você também pode usar qualquer WebHook para manipular eventos. O WebHook não precisa ser hospedado no Azure para manipular eventos. A Grade de Eventos dá suporte apenas a pontos de extremidade do Webhook HTTPS.
 
 > [!NOTE]
-> Os runbooks e os aplicativos lógicos da Automação do Azure têm suporte como manipuladores de eventos por meio de webhooks. 
+> - Os runbooks e os aplicativos lógicos da Automação do Azure têm suporte como manipuladores de eventos por meio de webhooks. 
+> - Embora você possa usar **webhook** como um **tipo de ponto de extremidade** para configurar uma função do Azure como um manipulador de eventos, use o **Azure function** como um tipo de ponto de extremidade. Para obter mais informações, consulte [Azure function como um manipulador de eventos](handler-functions.md).
 
 ## <a name="webhooks"></a>Webhooks
 Consulte os artigos a seguir para obter uma visão geral e exemplos de como usar webhooks como manipuladores de eventos. 

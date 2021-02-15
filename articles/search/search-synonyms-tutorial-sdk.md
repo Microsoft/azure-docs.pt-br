@@ -7,31 +7,33 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 12/18/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 982aa4bdb37af53999e75b7e33db990adb057938
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 50d5d73e71b8129f061ec49b363a0ebb13d22bdf
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89019752"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97704649"
 ---
 # <a name="example-add-synonyms-for-azure-cognitive-search-in-c"></a>Exemplo: Adicionar sinônimos para o Azure Pesquisa Cognitiva em C #
 
 Os sinônimos expandem uma consulta correspondendo os termos considerados semanticamente equivalentes com o termo de entrada. Por exemplo, você pode querer que "carro" corresponda aos documentos contendo os termos "automóvel" ou "veículo". 
 
-No Azure Pesquisa Cognitiva, os sinônimos são definidos em um *mapa de sinônimos*, por meio de *regras de mapeamento* que associam termos equivalentes. Este exemplo aborda as etapas essenciais para adicionar e usar sinônimos com um índice existente. Você aprenderá como:
+No Azure Pesquisa Cognitiva, os sinônimos são definidos em um *mapa de sinônimos*, por meio de *regras de mapeamento* que associam termos equivalentes. Este exemplo aborda as etapas essenciais para adicionar e usar sinônimos com um índice existente.
+
+Neste exemplo, você aprenderá a:
 
 > [!div class="checklist"]
-> * Crie um mapa de sinônimos usando a classe  [SynonymMap](/dotnet/api/microsoft.azure.search.models.synonymmap?view=azure-dotnet) . 
-> * Defina a propriedade [SynonymMaps](/dotnet/api/microsoft.azure.search.models.field.synonymmaps?view=azure-dotnet) em campos que devem dar suporte à expansão de consulta por meio de sinônimos.
+> * Crie um mapa de sinônimos usando a [classe SynonymMap](/dotnet/api/azure.search.documents.indexes.models.synonymmap). 
+> * Defina a [Propriedade SynonymMapsName](/dotnet/api/azure.search.documents.indexes.models.searchfield.synonymmapnames) em campos que devem dar suporte à expansão de consulta por meio de sinônimos.
 
 Você pode consultar um campo habilitado para sinônimo como faria normalmente. Não há nenhuma sintaxe de consulta adicional necessária para acessar sinônimos.
 
 Você pode criar vários mapas de sinônimos, publicá-los como um recurso de todo o serviço disponível em qualquer índice e fazer referência a qual deles usar no nível do campo. No momento da consulta, além de Pesquisar um índice, o Azure Pesquisa Cognitiva faz uma pesquisa em um mapa de sinônimos, se um for especificado em campos usados na consulta.
 
 > [!NOTE]
-> Os sinônimos podem ser criados programaticamente, mas não no Portal. Se o suporte do portal do Azure para sinônimos é útil para você, forneça seus comentários no [UserVoice](https://feedback.azure.com/forums/263029-azure-search)
+> Os sinônimos podem ser criados programaticamente, mas não no Portal.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -39,116 +41,114 @@ Os requisitos do tutorial incluem o seguinte:
 
 * [Visual Studio](https://www.visualstudio.com/downloads/)
 * [Serviço de Pesquisa Cognitiva do Azure](search-create-service-portal.md)
-* [Biblioteca do .NET Microsoft.Azure.Search](/dotnet/api/overview/azure/search)
-* [Como usar o Azure Pesquisa Cognitiva de um aplicativo .NET](./search-howto-dotnet-sdk.md)
+* [Azure.Search.Docpacote uments](https://www.nuget.org/packages/Azure.Search.Documents/)
+
+Se você não estiver familiarizado com a biblioteca de cliente .NET, consulte [como usar o Azure pesquisa cognitiva no .net](search-howto-dotnet-sdk.md).
+
+## <a name="sample-code"></a>Código de exemplo
+
+Você pode encontrar o código-fonte completo do aplicativo de exemplo usado neste exemplo no [GitHub](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToSynonyms).
 
 ## <a name="overview"></a>Visão geral
 
-As contas antes e depois demonstram o valor dos sinônimos. Neste exemplo, use um aplicativo de exemplo que execute consultas e retorne os resultados em um índice de exemplo. O aplicativo de exemplo cria um pequeno índice chamado "hotéis" preenchido com dois documentos. O aplicativo executa as consultas de pesquisa usando termos e frases que não aparecem no índice, habilita o recurso de sinônimos e emite as mesmas pesquisas novamente. O código abaixo demonstra o fluxo geral.
+As consultas antes e depois são usadas para demonstrar o valor de sinônimos. Neste exemplo, um aplicativo de exemplo executa consultas e retorna resultados em um índice de exemplo "Hotéis" preenchido com dois documentos. Primeiro, o aplicativo executa consultas de pesquisa usando termos e frases que não aparecem no índice. Em segundo lugar, o código habilita o recurso de sinônimos e, em seguida, emite novamente as mesmas consultas, desta vez retornando resultados com base nas correspondências no mapa de sinônimos. 
+
+O código abaixo demonstra o fluxo geral.
 
 ```csharp
-  static void Main(string[] args)
-  {
-      SearchServiceClient serviceClient = CreateSearchServiceClient();
+static void Main(string[] args)
+{
+   SearchIndexClient indexClient = CreateSearchIndexClient();
 
-      Console.WriteLine("{0}", "Cleaning up resources...\n");
-      CleanupResources(serviceClient);
+   Console.WriteLine("Cleaning up resources...\n");
+   CleanupResources(indexClient);
 
-      Console.WriteLine("{0}", "Creating index...\n");
-      CreateHotelsIndex(serviceClient);
+   Console.WriteLine("Creating index...\n");
+   CreateHotelsIndex(indexClient);
 
-      ISearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
+   SearchClient searchClient = indexClient.GetSearchClient("hotels");
 
-      Console.WriteLine("{0}", "Uploading documents...\n");
-      UploadDocuments(indexClient);
+   Console.WriteLine("Uploading documents...\n");
+   UploadDocuments(searchClient);
 
-      ISearchIndexClient indexClientForQueries = CreateSearchIndexClient();
+   SearchClient searchClientForQueries = CreateSearchClientForQueries();
 
-      RunQueriesWithNonExistentTermsInIndex(indexClientForQueries);
+   RunQueriesWithNonExistentTermsInIndex(searchClientForQueries);
 
-      Console.WriteLine("{0}", "Adding synonyms...\n");
-      UploadSynonyms(serviceClient);
-      EnableSynonymsInHotelsIndex(serviceClient);
-      Thread.Sleep(10000); // Wait for the changes to propagate
+   Console.WriteLine("Adding synonyms...\n");
+   UploadSynonyms(indexClient);
 
-      RunQueriesWithNonExistentTermsInIndex(indexClientForQueries);
+   Console.WriteLine("Enabling synonyms in the test index...\n");
+   EnableSynonymsInHotelsIndexSafely(indexClient);
+   Thread.Sleep(10000); // Wait for the changes to propagate
 
-      Console.WriteLine("{0}", "Complete.  Press any key to end application...\n");
+   RunQueriesWithNonExistentTermsInIndex(searchClientForQueries);
 
-      Console.ReadKey();
-  }
+   Console.WriteLine("Complete.  Press any key to end application...\n");
+
+   Console.ReadKey();
+}
 ```
-As etapas para criar e popular o índice de exemplo são explicadas em [como usar o Azure pesquisa cognitiva de um aplicativo .net](./search-howto-dotnet-sdk.md).
 
 ## <a name="before-queries"></a>Consultas "antes"
 
 Em `RunQueriesWithNonExistentTermsInIndex`, emitimos as consultas de pesquisa com "cinco estrelas", "Internet" e "economia E hotel".
+
+As consultas de frase, como "cinco estrelas", devem ser colocadas entre aspas e também podem precisar de caracteres de escape, dependendo do cliente.
+
 ```csharp
 Console.WriteLine("Search the entire index for the phrase \"five star\":\n");
-results = indexClient.Documents.Search<Hotel>("\"five star\"", parameters);
+results = searchClient.Search<Hotel>("\"five star\"", searchOptions);
 WriteDocuments(results);
 
 Console.WriteLine("Search the entire index for the term 'internet':\n");
-results = indexClient.Documents.Search<Hotel>("internet", parameters);
+results = searchClient.Search<Hotel>("internet", searchOptions);
 WriteDocuments(results);
 
 Console.WriteLine("Search the entire index for the terms 'economy' AND 'hotel':\n");
-results = indexClient.Documents.Search<Hotel>("economy AND hotel", parameters);
+results = searchClient.Search<Hotel>("economy AND hotel", searchOptions);
 WriteDocuments(results);
 ```
-Nenhum dos dois documentos indexados contêm os termos, portanto, recebemos a seguinte saída da primeira `RunQueriesWithNonExistentTermsInIndex`.
-~~~
-Search the entire index for the phrase "five star":
 
-no document matched
-
-Search the entire index for the term 'internet':
-
-no document matched
-
-Search the entire index for the terms 'economy' AND 'hotel':
-
-no document matched
-~~~
+Nenhum dos dois documentos indexados contém os termos, então obtemos a seguinte saída do primeiro `RunQueriesWithNonExistentTermsInIndex` :  **nenhum documento foi correspondido**.
 
 ## <a name="enable-synonyms"></a>Habilitar sinônimos
 
-A habilitação dos sinônimos é um processo com duas etapas. Primeiro, definimos e carregamos as regras do sinônimo, em seguida, configuramos os campos para usá-las. O processo é descrito em `UploadSynonyms` e `EnableSynonymsInHotelsIndex`.
+Depois que as consultas "Before" são executadas, o código de exemplo permite sinônimos. A habilitação dos sinônimos é um processo com duas etapas. Primeiro, defina e carregue as regras de sinônimo. Em segundo lugar, configure os campos para usá-los. O processo é descrito em `UploadSynonyms` e `EnableSynonymsInHotelsIndex`.
 
 1. Adicione um mapa de sinônimos ao serviço de pesquisa. Em `UploadSynonyms`, definimos quatro regras no nosso mapa sinônimos 'desc synonymmap' e carregamos no serviço.
-   ```csharp
-    var synonymMap = new SynonymMap()
-    {
-        Name = "desc-synonymmap",
-        Format = "solr",
-        Synonyms = "hotel, motel\n
-                    internet,wifi\n
-                    five star=>luxury\n
-                    economy,inexpensive=>budget"
-    };
 
-    serviceClient.SynonymMaps.CreateOrUpdate(synonymMap);
+   ```csharp
+   private static void UploadSynonyms(SearchIndexClient indexClient)
+   {
+      var synonymMap = new SynonymMap("desc-synonymmap", "hotel, motel\ninternet,wifi\nfive star=>luxury\neconomy,inexpensive=>budget");
+
+      indexClient.CreateOrUpdateSynonymMap(synonymMap);
+   }
    ```
-   Um mapa de sinônimos deve estar de acordo com o formato padrão do código-fonte aberto`solr`. O formato é explicado em [sinônimos no Azure pesquisa cognitiva](search-synonyms.md) na seção `Apache Solr synonym format` .
 
-2. Configure os campos de pesquisa para usar o mapa de sinônimos na definição do índice. Em `EnableSynonymsInHotelsIndex`, habilitamos os sinônimos nos dois campos `category` e `tags` definindo a propriedade `synonymMaps` para o nome do mapa de sinônimos recém-carregado.
+1. Configure os campos de pesquisa para usar o mapa de sinônimos na definição do índice. Em `AddSynonymMapsToFields`, habilitamos os sinônimos nos dois campos `category` e `tags` definindo a propriedade `SynonymMapNames` para o nome do mapa de sinônimos recém-carregado.
+
    ```csharp
-   Index index = serviceClient.Indexes.Get("hotels");
-   index.Fields.First(f => f.Name == "category").SynonymMaps = new[] { "desc-synonymmap" };
-   index.Fields.First(f => f.Name == "tags").SynonymMaps = new[] { "desc-synonymmap" };
-
-   serviceClient.Indexes.CreateOrUpdate(index);
+   private static SearchIndex AddSynonymMapsToFields(SearchIndex index)
+   {
+      index.Fields.First(f => f.Name == "category").SynonymMapNames.Add("desc-synonymmap");
+      index.Fields.First(f => f.Name == "tags").SynonymMapNames.Add("desc-synonymmap");
+      return index;
+   }
    ```
-   Quando você adiciona um mapa de sinônimos, as recompilações do índice não são necessárias. Você pode adicionar um mapa de sinônimos ao serviço, em seguida, corrigir as definições do campo existentes em qualquer índice para usar o novo mapa de sinônimos. A adição de novos atributos não tem impacto sobre a disponibilidade do índice. O mesmo se aplica ao desabilitar os sinônimos para um campo. Você pode simplesmente definir a propriedade `synonymMaps` para uma lista vazia.
+
+   Quando você adiciona um mapa de sinônimos, as recompilações do índice não são necessárias. Você pode adicionar um mapa de sinônimos ao serviço, em seguida, corrigir as definições do campo existentes em qualquer índice para usar o novo mapa de sinônimos. A adição de novos atributos não tem impacto sobre a disponibilidade do índice. O mesmo se aplica ao desabilitar os sinônimos para um campo. Você pode simplesmente definir a propriedade `SynonymMapNames` para uma lista vazia.
+
    ```csharp
-   index.Fields.First(f => f.Name == "category").SynonymMaps = new List<string>();
+   index.Fields.First(f => f.Name == "category").SynonymMapNames.Add("desc-synonymmap");
    ```
 
 ## <a name="after-queries"></a>Consultas "depois"
 
 Depois do mapa de sinônimos ser carregado e o índice ser atualizado para usar o mapa de sinônimos, a segunda chamada `RunQueriesWithNonExistentTermsInIndex` gera o seguinte:
 
-~~~
+```dos
 Search the entire index for the phrase "five star":
 
 Name: Fancy Stay        Category: Luxury        Tags: [pool, view, wifi, concierge]
@@ -160,13 +160,11 @@ Name: Fancy Stay        Category: Luxury        Tags: [pool, view, wifi, concier
 Search the entire index for the terms 'economy' AND 'hotel':
 
 Name: Roach Motel       Category: Budget        Tags: [motel, budget]
-~~~
+```
+
 A primeira consulta encontra o documento a partir da regra `five star=>luxury`. A segunda consulta expande a pesquisa usando `internet,wifi` e a terceira usando `hotel, motel` e `economy,inexpensive=>budget` ao encontrar os documentos correspondentes.
 
 Adicionar sinônimos muda completamente a experiência de pesquisa. Neste exemplo, as consultas originais não retornaram resultados significativos, embora os documentos em nosso índice fossem relevantes. Habilitando os sinônimos, podemos expandir um índice para incluir os termos de uso comum, sem alterações nos dados subjacentes no índice.
-
-## <a name="sample-application-source-code"></a>Código-fonte do aplicativo de exemplo
-Você pode encontrar o código-fonte completo do aplicativo de exemplo usado neste passo a passo no [GitHub](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToSynonyms).
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
@@ -174,7 +172,7 @@ A maneira mais rápida de limpar após um exemplo é excluir o grupo de recursos
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Este exemplo demonstrou o recurso de sinônimos no código C# para criar e postar regras de mapeamento e, em seguida, chamar o mapa de sinônimos em uma consulta. Informações adicionais podem ser encontradas na documentação de referência do [SDK do .NET](/dotnet/api/microsoft.azure.search) e da [API REST](/rest/api/searchservice/).
+Este exemplo demonstrou o recurso de sinônimos no código C# para criar e postar regras de mapeamento e, em seguida, chamar o mapa de sinônimos em uma consulta. Informações adicionais podem ser encontradas na documentação de referência do [SDK do .NET](/dotnet/api/overview/azure/search.documents-readme) e da [API REST](/rest/api/searchservice/).
 
 > [!div class="nextstepaction"]
 > [Como usar sinônimos no Azure Pesquisa Cognitiva](search-synonyms.md)

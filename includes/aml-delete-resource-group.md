@@ -8,12 +8,12 @@ ms.topic: include
 author: j-martens
 ms.author: jmartens
 ms.date: 12/04/2018
-ms.openlocfilehash: 00980cc69acbe0da8773aa798b693171d07cc1e1
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 9c6d29287f86cd6334692e2be5376caf9dd98bdd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73476164"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91372554"
 ---
 >[!IMPORTANT]
 >Os recursos que você criou podem ser usados como pré-requisitos em outros tutoriais e artigos de instruções do Azure Machine Learning. 
@@ -23,10 +23,10 @@ Se você não pretende usar os recursos criados, exclua-os para não gerar encar
 
 1. No portal do Azure, selecione **Grupos de recursos** no canto esquerdo.
  
-   [![Excluir no portal do Azure](./media/aml-delete-resource-group/delete-resources.png)](./media/aml-delete-resource-group/delete-resources-expanded.png)
-
-1. Selecione o grupo de recursos criado na lista.
+1. Selecione o grupo de recursos que você criou por meio da lista.
 
 1. Selecione **Excluir grupo de recursos**.
+
+   ![Captura de tela das seleções para excluir um grupo de recursos no portal do Azure.](./media/aml-delete-resource-group/delete-resources.png)
 
 1. Insira o nome do grupo de recursos. Em seguida, selecione **Excluir**.

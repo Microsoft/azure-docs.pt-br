@@ -1,24 +1,19 @@
 ---
 title: Configuração e otimização de máquinas virtuais do Azure das séries H e N-Series habilitadas para InfiniBand
 description: Saiba como configurar e otimizar as VMs da série H e da série N habilitada para InfiniBand para HPC.
-services: virtual-machines
-documentationcenter: ''
 author: vermagit
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
 ms.service: virtual-machines
-ms.workload: infrastructure-services
+ms.subservice: workloads
 ms.topic: article
-ms.date: 08/07/2020
+ms.date: 10/23/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: d4661c0819d214a2c750eb1582559f8d8a5959ed
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: b1686b08608e4f1c49cd918e86e8149f0fe2a21c
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88006597"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94963361"
 ---
 # <a name="configure-and-optimize-vms"></a>Configurar e otimizar VMs
 
@@ -42,11 +37,24 @@ Para [VMs compatíveis com RDMA com](../../sizes-hpc.md#rdma-capable-instances)n
   Para [VMs compatíveis](../../sizes-hpc.md#rdma-capable-instances)com o RDMA do Sr-IOV, [a versão 7,6 do CentOS-HPC ou uma versão posterior](https://techcommunity.microsoft.com/t5/Azure-Compute/CentOS-HPC-VM-Image-for-SR-IOV-enabled-Azure-HPC-VMs/ba-p/665557) das imagens de VM no Marketplace são adequadas. Essas imagens de VM são otimizadas e pré-carregadas com os drivers OFED para RDMA e várias bibliotecas MPI comumente usadas e pacotes de computação científica e são a maneira mais fácil de começar.
 
   Exemplo de scripts usados na criação do CentOS-HPC versão 7,6 e imagens de VM posteriores de uma imagem do Marketplace do CentOS base estão no [repositório azhpc-images](https://github.com/Azure/azhpc-images/tree/master/centos).
+  
+  > [!NOTE] 
+  > As imagens mais recentes do Azure HPC Marketplace têm Mellanox OFED 5,1 e superior, que não dão suporte a cartões InfiniBand ConnectX3-Pro. Os tamanhos de VM da série N habilitados para SR-IOV com FDR InfiniBand (por exemplo, NCv3) poderão usar as seguintes versões de imagem de VM CentOS-HPC ou mais antigas:
+  >- OpenLogic: CentOS-HPC: 7.6:7.6.2020062900
+  >- OpenLogic: CentOS-HPC: 7_6gen2:7.6.2020062901
+  >- OpenLogic: CentOS-HPC: 7.7:7.7.2020062600
+  >- OpenLogic: CentOS-HPC: 7_7-Gen2:7.7.2020062601
+  >- OpenLogic: CentOS-HPC: 8_1:8.1.2020062400
+  >- OpenLogic: CentOS-HPC: 8_1-Gen2:8.1.2020062401
+
 
 ### <a name="rhelcentos-vm-images"></a>Imagens de VM RHEL/CentOS
 Imagens de VM não HPC baseadas em RHEL ou CentOS no Marketplace podem ser configuradas para uso em [VMs compatíveis com RDMA](../../sizes-hpc.md#rdma-capable-instances)de Sr-IOV habilitadas. Saiba mais sobre como [habilitar o InfiniBand](enable-infiniband.md) e configurar o [MPI](setup-mpi.md) nas VMs.
 
   Exemplo de scripts usados na criação do CentOS-HPC versão 7,6 e imagens de VM posteriores de uma imagem do Marketplace do CentOS base estão no [repositório azhpc-images](https://github.com/Azure/azhpc-images/tree/master/centos).
+  
+  > [!NOTE]
+  > O Mellanox OFED 5,1 e versões superiores não dão suporte a ConnectX3-Pro placas InfiniBand em tamanhos de VM da série N habilitada para a FDR InfiniBand (por exemplo, NCv3). Use o LTS Mellanox OFED versão 4.9-0.1.7.0 ou mais antigo nas VMs da série N com cartões de ConnectX3-Pro. Veja mais detalhes [aqui](https://www.mellanox.com/products/infiniband-drivers/linux/mlnx_ofed).
 
 ### <a name="ubuntu-vm-images"></a>Imagens de VM Ubuntu
 As imagens de VM do Ubuntu Server 16, 4 LTS, 18, 4 LTS e 20, 4 LTS no Marketplace têm suporte para [VMs compatíveis com](../../sizes-hpc.md#rdma-capable-instances)Sr-IOV e não-Sr-IOV RDMA. Saiba mais sobre como [habilitar o InfiniBand](enable-infiniband.md) e configurar o [MPI](setup-mpi.md) nas VMs.
@@ -118,6 +126,6 @@ Opcionalmente, o WALinuxAgent pode ser desabilitado como uma etapa de pré-traba
 
 - Saiba mais sobre como [habilitar o InfiniBand](enable-infiniband.md) nas VMs da série [H](../../sizes-hpc.md) e da [série N](../../sizes-gpu.md) habilitada para InfiniBand.
 - Saiba mais sobre como instalar várias [bibliotecas MPI com suporte](setup-mpi.md) e sua configuração ideal nas VMs.
-- Examine as visão geral da série [HB](hb-series-overview.md) e [HC-Series](hc-series-overview.md) para saber mais sobre como configurar de forma ideal as cargas de trabalho para desempenho e escalabilidade.
-- Leia sobre os comunicados mais recentes e alguns exemplos e resultados do HPC nos [Blogs da comunidade de computação técnica do Azure](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
-- Para uma exibição de arquitetura de nível superior da execução de cargas de trabalho do HPC, consulte [computação de alto desempenho (HPC) no Azure](/azure/architecture/topics/high-performance-computing/).
+- Examine a [visão geral da série HB](hb-series-overview.md) e a [visão geral da série HC](hc-series-overview.md) para saber mais sobre como configurar de maneira ideal as cargas de trabalho para desempenho e escalabilidade.
+- Leia os comunicados mais recentes e alguns exemplos e resultados da HPC nos [Blogs da Tech Community da Computação do Azure](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
+- Para obter uma visão de nível superior da arquitetura de execução de cargas de trabalho de HPC, confira [HPC (computação de alto desempenho) no Azure](/azure/architecture/topics/high-performance-computing/).

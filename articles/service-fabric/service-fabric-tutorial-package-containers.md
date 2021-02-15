@@ -1,17 +1,15 @@
 ---
 title: Empacotar e implantar contêineres
 description: Neste tutorial, você aprende a gerar uma definição de aplicativo do Azure Service Fabric usando o Yeoman e a empacotar o aplicativo.
-author: suhuruli
 ms.topic: tutorial
 ms.date: 07/22/2019
-ms.author: suhuruli
-ms.custom: mvc
-ms.openlocfilehash: cc1d6e04b19d36f0ca8c7ed4b2bb3d62f5e8e15a
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 995291a783d14a6d2db8ed8319c720f55c009d91
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "78252758"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92738855"
 ---
 # <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application-using-yeoman"></a>Tutorial: Empacotar e implantar contêineres como um aplicativo do Service Fabric usando Yeoman
 
@@ -82,7 +80,7 @@ O conteúdo a seguir mostra a entrada e a saída da execução do comando yo:
 
 Para adicionar outro serviço de contêiner a um aplicativo já criado usando o Yeoman, execute as seguintes etapas:
 
-1. Altere o nível de um diretório para o diretório **TestContainer**, por exemplo, *. / TestContainer*
+1. Altere o nível de um diretório para o diretório **TestContainer** , por exemplo, *. / TestContainer*
 2. Execute `yo azuresfcontainer:AddService`
 3. Chame o serviço de 'azurevoteback'
 4. Forneça o caminho da imagem de contêiner para Redis - 'alpine:redis'
@@ -101,7 +99,7 @@ As entradas para adicionar o serviço usado são todas mostradas:
    create TestContainer/azurevotebackPkg/code/Dummy.txt
 ```
 
-Para o restante deste tutorial, estamos trabalhando no diretório **TestContainer**. Por exemplo, *./TestContainer/TestContainer*. O conteúdo deste diretório deve ser da seguinte maneira.
+Para o restante deste tutorial, estamos trabalhando no diretório **TestContainer** . Por exemplo, *./TestContainer/TestContainer* . O conteúdo deste diretório deve ser da seguinte maneira.
 
 ```bash
 $ ls
@@ -110,7 +108,7 @@ ApplicationManifest.xml azurevotefrontPkg azurevotebackPkg
 
 ## <a name="configure-the-application-manifest-with-credentials-for-azure-container-registry"></a>Configurar o manifesto do aplicativo com as credenciais para o Registro de Contêiner do Azure
 
-Para que o Service Fabric efetuar pull das imagens de contêiner do Registro de Contêiner do Azure, é necessário fornecer as credenciais no **ApplicationManifest.xml**.
+Para que o Service Fabric efetuar pull das imagens de contêiner do Registro de Contêiner do Azure, é necessário fornecer as credenciais no **ApplicationManifest.xml** .
 
 Entre na instância do ACR. Use o comando **az acr login** para concluir a operação. Forneça o nome exclusivo fornecido para o Registro de contêiner quando ele foi criado.
 
@@ -126,7 +124,7 @@ Em seguida, execute o seguinte comando para obter a senha do Registro de contêi
 az acr credential show -n <acrName> --query passwords[0].value
 ```
 
-No **ApplicationManifest.xml**, adicione o snippet de código no elemento **ServiceManifestImport** para o serviço de front-end. Insira seu **acrName** para o campo **AccountName** e a senha retornada do comando anterior é usada para o campo **Senha**. Um **ApplicationManifest.xml** completo é fornecido no final deste documento.
+No **ApplicationManifest.xml** , adicione o snippet de código no elemento **ServiceManifestImport** para o serviço de front-end. Insira seu **acrName** para o campo **AccountName** e a senha retornada do comando anterior é usada para o campo **Senha** . Um **ApplicationManifest.xml** completo é fornecido no final deste documento.
 
 ```xml
 <Policies>
@@ -140,7 +138,7 @@ No **ApplicationManifest.xml**, adicione o snippet de código no elemento **Serv
 
 ### <a name="configure-communication-port"></a>Configurar a porta de comunicação
 
-Configure um ponto de extremidade HTTP para que os clientes possam se comunicar com o serviço. Abra o arquivo *./TestContainer/azurevotefrontPkg/ServiceManifest.xml* e declare um recurso de ponto de extremidade no elemento **ServiceManifest**.  Adicione protocolo, porta e nome. Para este tutorial, o serviço escuta na porta 80. O snippet a seguir está sob a marca *ServiceManifest* no recurso.
+Configure um ponto de extremidade HTTP para que os clientes possam se comunicar com o serviço. Abra o arquivo *./TestContainer/azurevotefrontPkg/ServiceManifest.xml* e declare um recurso de ponto de extremidade no elemento **ServiceManifest** .  Adicione protocolo, porta e nome. Para este tutorial, o serviço escuta na porta 80. O snippet a seguir está sob a marca *ServiceManifest* no recurso.
 
 ```xml
 <Resources>
@@ -154,7 +152,7 @@ Configure um ponto de extremidade HTTP para que os clientes possam se comunicar 
 
 ```
 
-Da mesma forma, modifique o Manifesto do serviço para o serviço de back-end. Abra o *./TestContainer/azurevotebackPkg/ServiceManifest.xml* e declare um recurso de ponto de extremidade no elemento **ServiceManifest**. Para este tutorial, o padrão de redis de 6379 é mantido. O snippet a seguir está sob a marca *ServiceManifest* no recurso.
+Da mesma forma, modifique o Manifesto do serviço para o serviço de back-end. Abra o *./TestContainer/azurevotebackPkg/ServiceManifest.xml* e declare um recurso de ponto de extremidade no elemento **ServiceManifest** . Para este tutorial, o padrão de redis de 6379 é mantido. O snippet a seguir está sob a marca *ServiceManifest* no recurso.
 
 ```xml
 <Resources>
@@ -167,11 +165,11 @@ Da mesma forma, modifique o Manifesto do serviço para o serviço de back-end. A
 </Resources>
 ```
 
-Ao fornecer o **UriScheme**, o ponto de extremidade do contêiner é registrado automaticamente no serviço de nomenclatura do Service Fabric para capacidade de descoberta. Um arquivo de exemplo ServiceManifest.xml completo para o serviço de back-end é fornecido no final deste artigo como um exemplo.
+Ao fornecer o **UriScheme** , o ponto de extremidade do contêiner é registrado automaticamente no serviço de nomenclatura do Service Fabric para capacidade de descoberta. Um arquivo de exemplo ServiceManifest.xml completo para o serviço de back-end é fornecido no final deste artigo como um exemplo.
 
 ### <a name="map-container-ports-to-a-service"></a>Mapear portas de contêiner para um serviço
 
-Para expor os contêineres no cluster, também é necessário criar uma associação de porta no 'ApplicationManifest.xml'. A política **PortBinding** referencia os **Pontos de extremidade** definidos nos arquivos **ServiceManifest.xml**. Solicitações de entrada para esses pontos de extremidade são mapeadas para as portas de contêiner abertas e limitadas aqui. No arquivo **ApplicationManifest.xml**, adicione o código a seguir para associar a porta 80 e 6379 aos pontos de extremidade. Um **ApplicationManifest.xml** completo está disponível no final deste documento.
+Para expor os contêineres no cluster, também é necessário criar uma associação de porta no 'ApplicationManifest.xml'. A política **PortBinding** referencia os **Pontos de extremidade** definidos nos arquivos **ServiceManifest.xml** . Solicitações de entrada para esses pontos de extremidade são mapeadas para as portas de contêiner abertas e limitadas aqui. No arquivo **ApplicationManifest.xml** , adicione o código a seguir para associar a porta 80 e 6379 aos pontos de extremidade. Um **ApplicationManifest.xml** completo está disponível no final deste documento.
 
 ```xml
 <ContainerHostPolicies CodePackageRef="Code">
@@ -187,7 +185,7 @@ Para expor os contêineres no cluster, também é necessário criar uma associa�
 
 ### <a name="add-a-dns-name-to-the-backend-service"></a>Adicionar um nome DNS para o serviço de back-end
 
-Para o Service Fabric atribuir esse nome DNS ao serviço de back-end, o nome precisa ser especificado no **ApplicationManifest.xml**. Adicione o atributo **ServiceDnsName** ao elemento **Serviço** conforme mostrado:
+Para o Service Fabric atribuir esse nome DNS ao serviço de back-end, o nome precisa ser especificado no **ApplicationManifest.xml** . Adicione o atributo **ServiceDnsName** ao elemento **Serviço** conforme mostrado:
 
 ```xml
 <Service Name="azurevoteback" ServiceDnsName="redisbackend.testapp">
@@ -278,7 +276,7 @@ Abra um navegador e navegue até o Service Fabric Explorer em http:\//containert
 
 Para se conectar ao aplicativo em execução, abra um navegador da Web e acesse a URL do cluster – por exemplo, http:\//containertestcluster.eastus.cloudapp.azure.com:80. Você deve ver o aplicativo de votação na interface do usuário da Web.
 
-![votingapp][votingapp]
+![A captura de tela mostra o aplicativo Azure Voting com os botões Gatos, Cachorros, Redefinir e Totais.][votingapp]
 
 ## <a name="clean-up"></a>Limpar
 

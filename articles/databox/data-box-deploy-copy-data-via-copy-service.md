@@ -9,12 +9,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: alkohli
-ms.openlocfilehash: 5b3db919056f24ad8b46c9925c044453e671d99f
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: e664055893bbdef0f7090811b8a160a1b8a4a1fd
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84219157"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92124041"
 ---
 # <a name="tutorial-use-the-data-copy-service-to-copy-data-into-azure-data-box-preview"></a>Tutorial: Usar o serviço de cópia de dados para copiar dados para o Azure Data Box (versão prévia)
 
@@ -71,7 +71,7 @@ Para copiar dados usando o serviço de cópia de dados, é necessário criar um 
     |**Conta de armazenamento de destino**    |Selecione na lista a conta de armazenamento de destino na qual os dados serão carregados.         |
     |**Tipo de destino**       |Selecione o tipo de armazenamento de destino na lista: **Blob de Blocos**, **Blob de Páginas** ou **Arquivos do Azure**.        |
     |**Contêiner/compartilhamento de destino**    |Insira o nome do contêiner ou do compartilhamento no qual deseja carregar os dados em sua conta de armazenamento de destino. O nome pode ser um nome do compartilhamento ou um nome de contêiner. Por exemplo, use `myshare` ou `mycontainer`. Insira também o nome no formato `sharename\directory_name` ou `containername\virtual_directory_name`.        |
-    |**Copiar arquivos que correspondem a um padrão**    | Você pode inserir o nome do arquivo que corresponde a um padrão das duas seguintes maneiras:<ul><li>**Usar expressões curinga:** Há suporte apenas para `*` e `?` em expressões curinga. Por exemplo, a expressão `*.vhd` corresponde a todos os arquivos que têm a extensão `.vhd`. Da mesma forma, `*.dl?` corresponde a todos os arquivos com a extensão `.dl` ou que começam com `.dl`, como `.dll`. Da mesma forma, `*foo` corresponde a todos os arquivos cujos nomes terminam com `foo`.<br>É possível inserir a expressão curinga diretamente no campo. Por padrão, o valor inserido no campo é tratado como uma expressão curinga.</li><li>**Usar expressões regulares:** Há suporte para expressões regulares baseadas em POSIX. Por exemplo, a expressão regular `.*\.vhd` corresponderá a todos os arquivos que têm a extensão `.vhd`. Para expressões regulares, forneça o `<pattern>` diretamente como `regex(<pattern>)`. Para obter mais informações sobre expressões regulares, acesse [Linguagem de expressões regulares – referência rápida](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference).</li><ul>|
+    |**Copiar arquivos que correspondem a um padrão**    | Você pode inserir o nome do arquivo que corresponde a um padrão das duas seguintes maneiras:<ul><li>**Usar expressões curinga:** Há suporte apenas para `*` e `?` em expressões curinga. Por exemplo, a expressão `*.vhd` corresponde a todos os arquivos que têm a extensão `.vhd`. Da mesma forma, `*.dl?` corresponde a todos os arquivos com a extensão `.dl` ou que começam com `.dl`, como `.dll`. Da mesma forma, `*foo` corresponde a todos os arquivos cujos nomes terminam com `foo`.<br>É possível inserir a expressão curinga diretamente no campo. Por padrão, o valor inserido no campo é tratado como uma expressão curinga.</li><li>**Usar expressões regulares:** Há suporte para expressões regulares baseadas em POSIX. Por exemplo, a expressão regular `.*\.vhd` corresponderá a todos os arquivos que têm a extensão `.vhd`. Para expressões regulares, forneça o `<pattern>` diretamente como `regex(<pattern>)`. Para obter mais informações sobre expressões regulares, acesse [Linguagem de expressões regulares – referência rápida](/dotnet/standard/base-types/regular-expression-language-quick-reference).</li><ul>|
     |**Otimização de arquivo**              |Quando esse recurso é habilitado, os arquivos menores que 1 MB são empacotados durante a ingestão. Esse empacotamento agiliza a cópia de dados para arquivos pequenos. Ele também economiza uma quantidade de tempo significativa quando o número de arquivos é muito maior do que o número de diretórios.        |
  
 4. Selecione **Iniciar**. As entradas são validadas e, se a validação é bem-sucedida, o trabalho é iniciado. Poderá levar alguns minutos para o trabalho ser iniciado.

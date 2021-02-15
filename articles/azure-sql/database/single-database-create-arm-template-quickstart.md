@@ -4,19 +4,19 @@ description: Criar um banco de dados individual no Banco de Dados SQL do Azure u
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
-ms.custom: subject-armqs sqldbrb=1, devx-track-azurecli
+ms.custom: subject-armqs sqldbrb=1
 ms.devlang: ''
 ms.topic: quickstart
 author: mumian
 ms.author: jgao
-ms.reviewer: carlrab
+ms.reviewer: sstein
 ms.date: 06/24/2020
-ms.openlocfilehash: 2c1ae6bd69a87ad0ae941fba66785344d91e8268
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: b7883144509760c9670decd50062d2595b8dc495
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88660816"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187078"
 ---
 # <a name="quickstart-create-a-single-database-in-azure-sql-database-using-an-arm-template"></a>Início Rápido: Criar um banco de dados individual no Banco de Dados SQL do Azure usando um modelo do ARM
 
@@ -85,7 +85,7 @@ Remove-AzResourceGroup -Name $resourceGroupName
 - Crie uma regra de firewall no nível do servidor para se conectar ao banco de dados individual por meio de ferramentas locais ou remotas. Para obter mais informações, consulte [Criar uma regra de firewall no nível do servidor](firewall-create-server-level-portal-quickstart.md).
 - Depois de criar uma regra de firewall no nível do servidor, [conecte-se e consulte](connect-query-content-reference-guide.md) seu banco de dados usando várias ferramentas e linguagens diferentes.
   - [Conectar e consultar usando o SQL Server Management Studio](connect-query-ssms.md)
-  - [Conectar e consultar usando o Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)
+  - [Conectar e consultar usando o Azure Data Studio](/sql/azure-data-studio/quickstart-sql-database?toc=%2fazure%2fsql-database%2ftoc.json)
 - Para criar um banco de dados individual usando a CLI do Azure, confira [Amostras da CLI do Azure](az-cli-script-samples-content-guide.md).
 - Para criar um banco de dados individual usando o Azure PowerShell, confira [Amostras do Azure PowerShell](powershell-script-content-guide.md).
 - Para saber como criar modelos do ARM, confira [Criar seu primeiro modelo](../../azure-resource-manager/templates/template-tutorial-create-first-template.md).

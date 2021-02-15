@@ -1,21 +1,19 @@
 ---
 title: Transformar dados na nuvem usando o PowerShell
 description: Este script do PowerShell transforma os dados na nuvem executando o programa Spark em um cluster do Azure HDInsight Spark.
-author: djpmsft
-ms.author: daperlov
-manager: anandsub
+author: dcstwh
+ms.author: weetok
 ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/12/2017
-ms.openlocfilehash: c09d0532b845472d0ccaac1ad57e3772630bb5c9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2e1178f91344038fc86f1411fca1beafbe901d05
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74932058"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100389817"
 ---
 # <a name="powershell-script---transform-data-in-cloud-using-azure-data-factory"></a>Script do PowerShell – transformar dados na nuvem usando o Azure Data Factory
 
@@ -54,14 +52,14 @@ Este script do PowerShell de exemplo cria um pipeline que transforma os dados na
     if __name__ == "__main__":
         main()
     ```
-2. Substitua ** &lt; storageAccountName &gt; ** pelo nome da sua conta de armazenamento do Azure. Em seguida, salve o arquivo. 
+2. Substitua **&lt; storageAccountName &gt;** pelo nome da sua conta de armazenamento do Azure. Em seguida, salve o arquivo. 
 3. No seu Armazenamento de Blobs do Azure, crie um contêiner denominado **adftutorial** se ele não existir. 
 4. Crie uma pasta chamada **spark**.
 5. Criar uma subpasta chamada **script** na pasta **spark**. 
 6. Carregue o arquivo **WordCount_Spark.py** na subpasta **script**. 
 
 
-### <a name="upload-the-input-file"></a>Carregue o arquivo de entrada
+### <a name="upload-the-input-file"></a>Carregar o arquivo de entrada
 1. Crie um arquivo chamado **minecraftstory.txt** com um pouco de texto. O programa Spark conta o número de palavras no texto. 
 2. Crie uma subpasta chamada `inputfiles` na pasta `spark` do contêiner de blobs. 
 3. Carregue o `minecraftstory.txt` na subpasta `inputfiles`. 
@@ -102,6 +100,6 @@ Este script usa os seguintes comandos:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre o Azure PowerShell, confira a [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/).
+Para obter mais informações sobre o Azure PowerShell, confira a [Documentação do Azure PowerShell](/powershell/).
 
 Exemplos adicionais de scripts do Azure Data Factory PowerShell podem ser encontrados nos [Exemplos do Azure Data Factory PowerShell](../samples-powershell.md).

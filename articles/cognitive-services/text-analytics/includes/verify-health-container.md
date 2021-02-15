@@ -6,15 +6,16 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
+ms.subservice: text-analytics
 ms.topic: include
 ms.date: 07/07/2020
 ms.author: aahi
-ms.openlocfilehash: 1a8ce0bc94c61a0cfe6cdad11375763ba954957d
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 83a9eeb7644d107a808494ad06a8bef91d471fe1
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88122548"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009834"
 ---
 ### <a name="verify-that-a-container-is-running"></a>Verificar se um contêiner está em execução
 

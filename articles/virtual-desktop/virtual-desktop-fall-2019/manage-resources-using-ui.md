@@ -6,17 +6,17 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: c261ea174f37de51a8fbd5b36aeb40c26d44e6a9
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: f96365bcdf64d19dc0b894f2f1230233b3137bc7
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88691387"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842644"
 ---
 # <a name="deploy-a-windows-virtual-desktop-classic-management-tool-with-an-azure-resource-manager-template"></a>Implantar uma ferramenta de gerenciamento de área de trabalho virtual do Windows (clássica) com um modelo de Azure Resource Manager
 
 >[!IMPORTANT]
->Este conteúdo se aplica à Área de Trabalho Virtual do Windows (clássica), que não dá suporte a objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager.
+>Este conteúdo se aplica à Área de Trabalho Virtual do Windows (clássica), que não é compatível com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager.
 
 As instruções deste artigo lhe dirão como implantar a interface do usuário usando um modelo do Azure Resource Manager.
 
@@ -36,7 +36,7 @@ Os seguintes navegadores são compatíveis com a ferramenta de gerenciamento:
 
 Antes de implantar a ferramenta de gerenciamento, você precisará que um usuário do Azure AD (Azure Active Directory) crie um registro de aplicativo e implante a interface do usuário de gerenciamento. Esse usuário precisa:
 
-- Ter a (MFA) Autenticação Multifator do Azure desabilitada
+- Ter a autenticação multifator (MFA) do Azure AD desabilitada
 - Ter permissão para criar recursos em sua assinatura do Azure
 - Ter permissão para criar um aplicativo do Azure AD. Siga estas etapas para verificar se o usuário tem as permissões necessárias, seguindo as instruções em [Permissões necessárias](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
@@ -98,7 +98,7 @@ Após ter fornecido consentimento para a organização ou para um usuário espec
 
 Siga estas instruções para iniciar a ferramenta:
 
-1. Selecione o recurso dos Serviços de Aplicativos do Azure com o nome fornecido no modelo (por exemplo, Apr3UX) e navegue até a URL associada a ele; por exemplo, <https://rdmimgmtweb-210520190304.azurewebsites.net>.
+1. Selecione o recurso dos Serviços de Aplicativos do Azure com o nome fornecido no modelo (por exemplo, Apr3UX) e navegue até a URL associada a ele; por exemplo, `https://rdmimgmtweb-210520190304.azurewebsites.net`.
 2. Entre usando suas credenciais da Área de Trabalho Virtual do Windows.
 3. Quando solicitado a escolher um Grupo de Locatários, selecione **Grupo de Locatários Padrão** na lista suspensa.
 4. Quando você seleciona **Grupo de Locatários Padrão**, um menu deve ser exibido no lado esquerdo da janela. Nesse menu, encontre o nome do seu grupo de locatários e selecione-o.

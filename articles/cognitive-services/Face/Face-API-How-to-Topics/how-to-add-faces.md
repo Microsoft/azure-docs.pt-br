@@ -10,12 +10,13 @@ ms.subservice: face-api
 ms.topic: sample
 ms.date: 04/10/2019
 ms.author: sbowles
-ms.openlocfilehash: 240905d538afc5c0f4b7f0e0bf400fac23c3183f
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 3643fad1c9e821a78df6d78edeede2341ec79ea8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76169820"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91303754"
 ---
 # <a name="add-faces-to-a-persongroup"></a>Adicionar faces a um PersonGroup
 
@@ -137,6 +138,5 @@ Os seguintes recursos foram explicados e demonstrados:
 
 ## <a name="related-topics"></a>Tópicos relacionados
 
-- [Identificar faces em imagens](HowtoIdentifyFacesinImage.md)
 - [Detectar faces em uma imagem](HowtoDetectFacesinImage.md)
 - [Usar o recurso de larga escala](how-to-use-large-scale.md)

@@ -11,19 +11,19 @@ ms.workload: identity
 ms.date: 02/13/2020
 ms.author: davidmu
 ms.custom: aaddev
-ms.openlocfilehash: fb6f5c4840f127ac174b6b60359dd52a4797b3ec
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: a799d7c32ad632303931adf838ca8e2e715b2adc
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88119667"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860177"
 ---
 # <a name="microsoft-graph-api"></a>API do Microsoft Graph
 
 A API de Microsoft Graph é uma API Web RESTful que permite que você acesse Microsoft Cloud recursos de serviço. Depois de registrar seu aplicativo e obter tokens de autenticação para um usuário ou serviço, você pode fazer solicitações para a API de Microsoft Graph. Para obter mais informações, consulte [visão geral do Microsoft Graph](/graph/overview).
 
 O Microsoft Graph expõe as bibliotecas de cliente e APIs REST para acessar dados nos seguintes serviços de Microsoft 365:
-- Serviços do Office 365: Delve, Excel, Microsoft Books, Microsoft Teams, OneDrive, OneNote, Outlook/Exchange, Planner e SharePoint
+- Serviços Microsoft 365s: Delve, Excel, Microsoft Books, Microsoft Teams, OneDrive, OneNote, Outlook/Exchange, Planner e SharePoint
 - Serviços de segurança e mobilidade corporativa: análise avançada de ameaças, proteção avançada contra ameaças, Azure Active Directory, Identity Manager e Intune
 - Serviços do Windows 10: atividades, dispositivos, notificações
 - Dynamics 365 Business Central
@@ -34,7 +34,7 @@ O Microsoft Graph atualmente dá suporte a duas versões: v 1.0 e beta. A versã
 
 Para começar a usar as APIs beta, consulte [referência de ponto de extremidade do Microsoft Graph beta](/graph/api/overview?view=graph-rest-beta)
 
-Para começar a usar as APIs v 1.0, confira [Microsoft Graph referência da API REST v 1.0](/graph/api/overview?view=graph-rest-1.0)
+Para começar a usar as APIs v 1.0, confira [Microsoft Graph referência da API REST v 1.0](/graph/api/overview)
 
 ## <a name="get-started"></a>Introdução
 

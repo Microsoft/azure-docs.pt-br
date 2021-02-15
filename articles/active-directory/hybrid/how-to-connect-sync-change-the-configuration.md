@@ -1,5 +1,5 @@
 ---
-title: 'Sincronização do Azure AD Connect: Fazer uma alteração de configuração na sincronização do Azure AD Connect'
+title: 'Sincronização do Azure AD Connect: Fazer uma alteração na configuração padrão'
 description: Explica como fazer uma alteração da configuração na sincronização do Azure AD Connect.
 services: active-directory
 author: billmath
@@ -12,12 +12,12 @@ ms.date: 08/30/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea7f2fbd910f574a6486f1db2eaa9b99a4e3ca3e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2044653673da10de59d5ff125da44ac1f89e22f9
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85357861"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861843"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Sincronização do Azure AD Connect: Fazer uma alteração na configuração padrão
 O objetivo deste artigo é orientá-lo sobre como fazer alterações na configuração padrão na sincronização do Azure Active Directory (Azure AD) Connect. Ele fornece etapas para alguns cenários comuns. Com esse conhecimento, você deve ser capaz de fazer alterações simples em sua própria configuração com base em suas próprias regras de negócios.
@@ -113,7 +113,7 @@ Se tudo estiver como o esperado, você poderá habilitar o agendador novamente. 
 A seção anterior descreveu como fazer alterações em um fluxo de atributos. Nesta seção, são fornecidos alguns exemplos adicionais. As etapas para criar a regra de sincronização estão abreviadas, mas você pode encontrar as etapas completas na seção anterior.
 
 ### <a name="use-an-attribute-other-than-the-default"></a>Usar outro atributo diferente do padrão
-Nesse cenário do Fabrikam, há uma floresta na qual o alfabeto local é usado para o nome dado, sobrenome e nome de exibição. A representação de caracteres latinos desses atributos pode ser encontrada nos atributos de extensão. Para compilar uma lista de endereços global no Azure AD e no Office 365, a organização deseja usar esses atributos.
+Nesse cenário do Fabrikam, há uma floresta na qual o alfabeto local é usado para o nome dado, sobrenome e nome de exibição. A representação de caracteres latinos desses atributos pode ser encontrada nos atributos de extensão. Para criar uma lista de endereços global no Azure AD e Microsoft 365, a organização deseja usar esses atributos em vez disso.
 
 Com uma configuração padrão, um objeto da floresta local tem esta aparência:  
 ![Fluxo de atributos 1](./media/how-to-connect-sync-change-the-configuration/attributeflowjp1.png)
@@ -200,7 +200,7 @@ Por padrão, o atributo UserType não está habilitado para sincronização porq
 
 - O Azure AD aceita apenas dois valores para o atributo UserType: **Membro** e **Convidado**.
 - Se o atributo UserType não estiver habilitado para sincronização no Azure AD Connect, os usuários do Azure AD, criados por meio da sincronização de diretório, terão o atributo UserType definido como **Membro**.
-- Antes da versão 1.5.30.0, o Azure Active Directory não permitia que o atributo UserType em usuários existentes do Azure Active Directory fosse alterado pelo Azure AD Connect. Em versões mais antigas, ele pode ser definido apenas durante a criação dos usuários do Azure Active Directory e [alterado por meio do PowerShell](/powershell/module/azuread/set-azureaduser?view=azureadps-2.0).
+- Antes da versão 1.5.30.0, o Azure Active Directory não permitia que o atributo UserType em usuários existentes do Azure Active Directory fosse alterado pelo Azure AD Connect. Em versões mais antigas, ele pode ser definido apenas durante a criação dos usuários do Azure AD e [alterado por meio do PowerShell](/powershell/module/azuread/set-azureaduser).
 
 Antes de habilitar a sincronização do atributo UserType, você deve decidir como o atributo será derivado do Active Directory local. A seguir, estão as abordagens mais comuns:
 

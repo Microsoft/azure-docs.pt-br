@@ -3,18 +3,21 @@ title: LIGAR Azure Cosmos DB linguagem de consulta
 description: Saiba mais sobre o POWER function do sistema SQL no Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 683c53c369f136ad4b917b93e9a92a71072d05e0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 39db52223feea63a4e3afbd4775f884acbbca548
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "71349640"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341681"
 ---
 # <a name="power-azure-cosmos-db"></a>ENERGIA (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Retorna o valor da expressão especificada para a potência indicada.  
   
 ## <a name="syntax"></a>Sintaxe

@@ -9,12 +9,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 04/30/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 3a6ce5860704e6fd16b79fc253650dd45ec743e7
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: cdfeb2fdeefabb0d2d4af2fb63222adda5d023fb
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852609"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576018"
 ---
 # <a name="tutorial-convert-ml-experiments-to-production-python-code"></a>Tutorial: Converter experimentos do ML em código Python de produção
 
@@ -67,7 +67,7 @@ args = {
 }
 
 reg_model = Ridge(**args)
-reg.fit(data["train"]["X"], data["train"]["y"])
+reg_model.fit(data["train"]["X"], data["train"]["y"])
 
 preds = reg_model.predict(data["test"]["X"])
 mse = mean_squared_error(preds, y_test)
@@ -353,7 +353,7 @@ Em terceiro lugar, as funções relacionadas precisam ser mescladas em arquivos 
 Converta o notebook em um script executável executando a seguinte instrução em um prompt de comando, que usa o pacote `nbconvert` e o caminho de `experimentation/Diabetes Ridge Regression Training.ipynb`:
 
 ```
-jupyter nbconvert -- to script "Diabetes Ridge Regression Training.ipynb" –output train
+jupyter nbconvert "Diabetes Ridge Regression Training.ipynb" --to script --output train
 ```
 
 Depois que o notebook for convertido em `train.py`, remova os comentários indesejados. Substitua a chamada a `main()` ao final do arquivo por uma invocação condicional como o seguinte código:
@@ -441,7 +441,7 @@ O arquivo `train_aml.py` encontrado no diretório `diabetes_regression/training`
 Converta o notebook em um script executável executando a seguinte instrução em um prompt de comando, que usa o pacote `nbconvert` e o caminho de `experimentation/Diabetes Ridge Regression Scoring.ipynb`:
 
 ```
-jupyter nbconvert -- to script "Diabetes Ridge Regression Scoring.ipynb" –output score
+jupyter nbconvert "Diabetes Ridge Regression Scoring.ipynb" --to script --output score
 ```
 
 Depois que o notebook for convertido em `score.py`, remova os comentários indesejados. O arquivo `score.py` deverá ser semelhante ao seguinte código:
@@ -527,5 +527,5 @@ def test_train_model():
 Agora que você entendeu como fazer a conversão de um experimento para um código de produção, confira os seguintes links para obter mais informações e as próximas etapas:
 
 + [MLOpsPython](https://github.com/microsoft/MLOpsPython/blob/master/docs/custom_model.md): crie um pipeline de CI/CD para treinar, avaliar e implantar um modelo próprio usando o Azure Pipelines e o Azure Machine Learning
-+ [Monitorar métricas e execuções de experimento do Azure ML](https://docs.microsoft.com/azure/machine-learning/how-to-track-experiments)
-+ [Monitorar e coletar dados de pontos de extremidade de serviço Web do ML](https://docs.microsoft.com/azure/machine-learning/how-to-enable-app-insights)
++ [Monitorar métricas e execuções de experimento do Azure ML](./how-to-track-experiments.md)
++ [Monitorar e coletar dados de pontos de extremidade de serviço Web do ML](./how-to-enable-app-insights.md)

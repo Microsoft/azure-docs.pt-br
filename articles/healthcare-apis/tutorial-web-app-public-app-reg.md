@@ -9,19 +9,20 @@ ms.reviewer: matjazl
 ms.author: cavoeg
 author: caitlinv39
 ms.date: 01/03/2020
-ms.openlocfilehash: 483ca63abbabaabd3b25446c9267a1b0540f60dd
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: bf357dcc9c4790632a1131278edc41c13ac810b1
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852966"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97802602"
 ---
 # <a name="client-application-registration"></a>Registro de aplicativo cliente
 No tutorial anterior, você implantou e configurou sua API do Azure para FHIR. Agora que você tem a configuração da API do Azure para FHIR, vamos registrar um aplicativo cliente público. Você pode ler todo o guia de instruções passo a passo para [registrar um aplicativo cliente público](register-public-azure-ad-client-app.md) para obter mais detalhes ou solução de problemas, mas nós apresentamos as principais etapas para este tutorial abaixo.
 
 1. Navegue para o Azure Active Directory
 1. Selecione **Registro de Aplicativo** --> **Novo Registro**
-1. Dê um nome ao seu aplicativo e configure o URI de redirecionamento para https://www.getpostman.com/oauth2/callback
+1. Nomeie seu aplicativo
+1. Selecione **Cliente público/nativo (móvel e área de trabalho)** e defina o URI de redirecionamento como `https://www.getpostman.com/oauth2/callback`.
 
    :::image type="content" source="media/tutorial-web-app/register-public-app.png" alt-text="Captura de tela do painel Registrar um aplicativo e um exemplo de nome de aplicativo e URL de redirecionamento.":::
 

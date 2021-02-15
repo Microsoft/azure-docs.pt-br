@@ -1,16 +1,16 @@
 ---
 title: Azure Remote Rendering Asset Tool
-description: Link para o repositório GitHub que hospeda o aplicativo de demonstração
+description: Saiba mais sobre a ARRT (Azure Remote Rendering Asset Tool), um aplicativo de área de trabalho de software livre desenvolvido em C++/Qt.
 author: mafranc
 ms.author: mafranc
 ms.date: 06/09/2020
 ms.topic: sample
-ms.openlocfilehash: c02bb46cfdfa37fed7f9c9cc2ad3c2a426547ce8
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
+ms.openlocfilehash: e20d21f1f8b58b69ee760fd4e95d6f194e13105a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84636896"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91322165"
 ---
 # <a name="azure-remote-rendering-asset-tool-arrt"></a>ARRT (Azure Remote Rendering Asset Tool)
 

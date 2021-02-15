@@ -12,12 +12,12 @@ ms.date: 04/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e5ad7badfa44a006fd7e71d3b0e42ee95ac698d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 3d9f59906c566d80344891c0796a85b0a4972e68
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "64919002"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91313086"
 ---
 # <a name="tutorial--setting-up-phs-as-backup-for-ad-fs-in-azure-ad-connect"></a>Tutorial:  Configurando o PHS como backup para o AD FS no Azure AD Connect
 
@@ -33,7 +33,7 @@ O tutorial a seguir orientará você pela configuração da sincronização de h
 Esse tutorial é baseado no [Tutorial: Federar um ambiente com uma única floresta do AD na nuvem](tutorial-federation.md) e é um pré-requisito antes de tentar realizar este tutorial.  Se você não tiver concluído este tutorial, faça isso antes de tentar realizar as etapas neste documento.
 
 >[!IMPORTANT]
->Antes de mudar para o PHS, você deve criar um backup do seu ambiente do AD FS.  Isso pode ser feito usando a [Ferramenta de Restauração Rápida do AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/ad-fs-rapid-restore-tool#how-to-use-the-tool).
+>Antes de mudar para o PHS, você deve criar um backup do seu ambiente do AD FS.  Isso pode ser feito usando a [Ferramenta de Restauração Rápida do AD FS](/windows-server/identity/ad-fs/operations/ad-fs-rapid-restore-tool#how-to-use-the-tool).
 
 ## <a name="enable-phs-in-azure-ad-connect"></a>Habilitar o PHS no Azure AD Connect
 A primeira etapa, agora que temos um ambiente do Azure AD Connect que está usando a federação, é ativar a sincronização de hash de senha e permitir que o Azure AD Connect sincronize os hashes.
@@ -74,7 +74,7 @@ Agora, mostraremos a você como alternar para a sincronização de hash de senha
 
 1. Navegue até [https://myapps.microsoft.com](https://myapps.microsoft.com)
 2. Entre com uma conta de usuário que foi criada no novo locatário.  Será necessário entrar usando o formato a seguir: (user@domain.onmicrosoft.com). Use a mesma senha que o usuário usa para entrar localmente.</br>
-   ![Verificar](media/tutorial-password-hash-sync/verify1.png)</br>
+   ![Captura de tela que mostra uma mensagem de sucesso ao testar a conexão. ](media/tutorial-password-hash-sync/verify1.png)</br>
 
 ## <a name="switch-back-to-federation"></a>Volte para a federação
 Agora mostraremos como voltar para a federação.  Para fazer isso, execute o seguinte:
@@ -91,7 +91,7 @@ Agora mostraremos como voltar para a federação.  Para fazer isso, execute o se
 10. Depois que a configuração for concluída, clique em **Avançar**.
 ![Configurar](media/tutorial-phs-backup/backup4.png)</br>
 11. Na tela **Verificar conectividade da federação**, clique em **Verificar**.  Talvez seja necessário configurar registros DNS (adicionar registros A e AAAA) para que isso seja concluído com êxito.
-![Verificar](media/tutorial-phs-backup/backup5.png)</br>
+![Captura de tela que mostra a tela Verificar conectividade da federação e o botão Verificar.](media/tutorial-phs-backup/backup5.png)</br>
 12. Clique em **Sair**.
 
 ## <a name="reset-the-ad-fs-and-azure-trust"></a>Redefinir a confiança do AD FS e do Azure
@@ -106,7 +106,7 @@ Agora é necessário redefinir a confiança entre o AD FS e o Azure.
 6.  Na tela **Conectar-se ao AD FS**, insira o nome de usuário e a senha de contoso\Administrator e clique em **Avançar.**
 7.  Na tela **Certificados**, clique em **Avançar**.
 
-## <a name="test-signing-in-with-one-of-our-users"></a>Testar entrando com um dos usuários
+## <a name="test-signing-in-with-a-user"></a>Testar a entrada com um usuário
 
 1.  Navegue até [https://myapps.microsoft.com](https://myapps.microsoft.com)
 2. Entre com uma conta de usuário que foi criada no novo locatário.  Será necessário entrar usando o formato a seguir: (user@domain.onmicrosoft.com). Use a mesma senha que o usuário usa para entrar no local.

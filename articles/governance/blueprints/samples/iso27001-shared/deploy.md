@@ -1,14 +1,14 @@
 ---
 title: Implantar a amostra de blueprint dos Serviços Compartilhados ISO 27001
 description: Etapas de implantação do modelo de blueprint dos Serviços Compartilhados da ISO 27001, incluindo detalhes do parâmetro do artefato de blueprint.
-ms.date: 07/13/2020
+ms.date: 02/05/2021
 ms.topic: sample
-ms.openlocfilehash: 0f2fa71e56deadba1188ab0fa69898c261861eb5
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 8b28954b6145a9e6c1827107cf11aa85326dcc1f
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86521455"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627792"
 ---
 # <a name="deploy-the-iso-27001-shared-services-blueprint-sample"></a>Implantar a amostra de blueprint dos Serviços Compartilhados ISO 27001
 

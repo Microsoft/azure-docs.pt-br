@@ -6,10 +6,10 @@ ms.date: 08/17/2020
 ms.author: inhenkel
 ms.custom: CLI
 ms.openlocfilehash: 5c0341087cdd348e973da5faaa1f90081780c9c8
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88602226"
 ---
 <!--Create a media services account -->

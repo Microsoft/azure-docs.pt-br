@@ -1,19 +1,18 @@
 ---
 title: Fazer a rotação de credenciais de logon em trabalhos do Azure Stream Analytics
 description: Este artigo descreve como atualizar as credenciais dos coletores de entrada e saída em trabalhos do Azure Stream Analytics.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3154447e4df64b9b335beae99cfd208d1a21efc4
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: fd6c072f9783e8ff5d4d5e465b513c2e530bfd63
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044406"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98015225"
 ---
 # <a name="rotate-login-credentials-for-inputs-and-outputs-of-a-stream-analytics-job"></a>Fazer a rotação de credenciais de logon para entradas e saídas de um trabalho do Stream Analytics
 
@@ -52,7 +51,7 @@ Nesta seção, vamos orientar você a regenerar as credenciais para o armazename
 Você precisa se conectar ao banco de dados SQL para atualizar as credenciais de logon de um usuário existente. Você pode atualizar as credenciais usando o portal do Azure ou uma ferramenta do cliente, como o SQL Server Management Studio. Esta seção demonstra o processo de atualização de credenciais usando o portal do Azure.
 
 1. Entre no portal do Azure > procure o banco de dados SQL que você usou como saída para o trabalho do Stream Analytics.    
-2. No **Explorador de Dados**, faça o logon/se conecte ao seu banco de dados > selecione o tipo de Autorização como **Autenticação do servidor SQL** > digite seus detalhes de **Logon** e ** Senha** > Selecione **Ok**.  
+2. No **Explorador de Dados**, faça o logon/se conecte ao seu banco de dados > selecione o tipo de Autorização como **Autenticação do servidor SQL** > digite seus detalhes de **Logon** e **Senha** > Selecione **Ok**.  
    ![Regenerar credenciais para o banco de dados SQL](media/stream-analytics-login-credentials-inputs-outputs/regenerate-sql-credentials.png)
 
 3. Na guia de consulta, altere a senha para um dos seus usuários executando a consulta a seguir (certifique-se de substituir `<user_name>` por seu nome de usuário e `<new_password>` pela sua nova senha):  
@@ -84,5 +83,5 @@ Você precisa se conectar ao banco de dados SQL para atualizar as credenciais de
 * [Introdução ao Stream Analytics do Azure](stream-analytics-introduction.md)
 * [Introdução ao uso do Stream Analytics do Azure](stream-analytics-real-time-fraud-detection.md)
 * [Dimensionar trabalhos do Stream Analytics do Azure](stream-analytics-scale-jobs.md)
-* [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Referência de Linguagem de Consulta do Stream Analytics do Azure](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Referência da API REST do Gerenciamento do Azure Stream Analytics](/rest/api/streamanalytics/)

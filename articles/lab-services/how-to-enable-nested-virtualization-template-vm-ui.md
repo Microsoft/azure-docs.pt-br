@@ -5,12 +5,12 @@ author: emaher
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: enewman
-ms.openlocfilehash: ad92862c78260e7385168faf794c013e85f66b82
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f8135e11fb7b7ddb588ab3a8ed01227712072fd2
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445722"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647912"
 ---
 # <a name="enable-nested-virtualization-on-a-template-virtual-machine-in-azure-lab-services-manually"></a>Habilitar a virtualização aninhada em uma máquina virtual de modelo no Azure Lab Services manualmente
 
@@ -41,7 +41,7 @@ As etapas a seguir descrevem as ações necessárias para habilitar o Hyper-V no
 14. Quando a janela pop-up **Assistente de adição de funções e recursos** for exibida, clique em **Sim**.
 15. Clique em **Instalar**.
 16. Aguarde a página **progresso da instalação** para indicar que a função do Hyper-V foi concluída.  O computador pode ser reiniciado no meio da instalação.
-17. Clique em **Fechar**.
+17. Clique em **fechar**
 
 ## <a name="enable-dhcp-role"></a>Habilitar a função DHCP
 
@@ -75,12 +75,12 @@ Todas as máquinas virtuais de cliente Hyper-V criadas, precisam de um endereço
 7. Na página **acesso remoto** , clique em **Avançar**.
 8. Na página **serviços de função** , selecione **Roteamento**.
 9. O pop-up **Assistente para adicionar funções e recursos** será exibido.  Selecione **incluir ferramentas de gerenciamento (se aplicável)**.  Clique em **Adicionar Recursos**.
-10. Clique em **Próximo**.
+10. Clique em **Avançar**.
 11. Na página **Função de Servidor Web (IIS)**, clique em **Avançar**.
 12. Na página **Selecionar serviços de função**, clique em **Avançar**.
 13. Na página **Confirmar seleções de instalação**, clique em **Instalar**.
 14. Aguarde a página **progresso da instalação** para indicar que a função de acesso remoto foi concluída.  
-15. Clique em **Fechar**.
+15. Clique em **fechar**
 
 ## <a name="create-virtual-nat-network"></a>Criar rede NAT virtual
 
@@ -101,12 +101,12 @@ Agora que todas as funções necessárias foram instaladas, é hora de criar a r
 2. Selecione o servidor local na página de navegação à esquerda.
 3. Escolha **ação**  ->  **configurar e habilitar roteamento e acesso remoto**.
 4. Quando o **Assistente de configuração do servidor de roteamento e acesso remoto** for exibido, clique em **Avançar**.
-5. Na página **configuração** , selecione configuração **de NAT (conversão de endereços de rede)** .  Clique em **Próximo**.
+5. Na página **configuração** , selecione configuração **de NAT (conversão de endereços de rede)** .  Clique em **Avançar**.
 
     >[!WARNING]
     >Não escolha a opção "acesso à VPN (rede virtual privada) e NAT".
 
-6. Na página **conexão de Internet NAT** , escolha "Ethernet".  Não escolha a conexão ' vEthernet (LabServicesSwitch) ' que criamos no Gerenciador do Hyper-V. Clique em **Próximo**.
+6. Na página **conexão de Internet NAT** , escolha "Ethernet".  Não escolha a conexão ' vEthernet (LabServicesSwitch) ' que criamos no Gerenciador do Hyper-V. Clique em **Avançar**.
 7. Clique em **concluir** na última página do assistente.
 8. Quando a caixa de diálogo **iniciar o serviço** for exibida, clique em **Iniciar serviço**.
 9. Aguarde até que o serviço seja iniciado.
@@ -135,7 +135,7 @@ As etapas a seguir são instruções para adicionar o escopo DHCP.  Neste artigo
 2. Na ferramenta **DHCP** , expanda o nó do servidor atual e selecione **IPv4**.
 3. No menu Ação, escolha **novo escopo...**
 4. Quando o **Assistente de novo escopo** for exibido, clique em **Avançar** na página de **boas-vindas** .
-5. Na página **nome do escopo** , insira ' LabServicesDhcpScope ' ou algo mais fácil de lembrar para o nome.  Clique em **Próximo**.
+5. Na página **nome do escopo** , insira ' LabServicesDhcpScope ' ou algo mais fácil de lembrar para o nome.  Clique em **Avançar**.
 6. Na página **intervalo de endereços IP** , insira os valores a seguir.
 
     - 192.168.0.100 para o endereço IP inicial
@@ -143,20 +143,20 @@ As etapas a seguir são instruções para adicionar o escopo DHCP.  Neste artigo
     - 24 para o comprimento
     - 255.255.255.0 para a máscara de sub-rede
 
-7. Clique em **Próximo**.
+7. Clique em **Avançar**.
 8. Na página **adicionar exclusões e atraso** , clique em **Avançar**.
 9. Na página **duração da concessão** , clique em **Avançar**.
-10. Na página **Configurar opções de DHCP** , selecione **Sim, desejo configurar essas opções agora**. Clique em **Próximo**.
+10. Na página **Configurar opções de DHCP** , selecione **Sim, desejo configurar essas opções agora**. Clique em **Avançar**.
 11. No **roteador (gateway padrão)**
-12. Adicione 192.168.0.1, se ainda não tiver feito isso. Clique em **Próximo**.
-13. Na página **nome de domínio e servidores DNS** , adicione 168.63.129.16 como um endereço IP do servidor DNS, se ainda não tiver feito isso.  168.63.129.16 é o endereço IP para um servidor DNS estático do Azure. Clique em **Próximo**.
+12. Adicione 192.168.0.1, se ainda não tiver feito isso. Clique em **Avançar**.
+13. Na página **nome de domínio e servidores DNS** , adicione 168.63.129.16 como um endereço IP do servidor DNS, se ainda não tiver feito isso.  168.63.129.16 é o endereço IP para um servidor DNS estático do Azure. Clique em **Avançar**.
 14. Na página **servidores WINS** , clique em **Avançar**.
-15. Na página **Ativar escopo** , selecione **Sim, desejo ativar esse escopo agora**.  Clique em **Próximo**.
+15. Na página **Ativar escopo** , selecione **Sim, desejo ativar esse escopo agora**.  Clique em **Avançar**.
 16. Na página **concluindo o assistente de novo escopo** , clique em **concluir**.
 
 ## <a name="conclusion"></a>Conclusão
 
-Agora seu computador de modelo está pronto para criar máquinas virtuais do Hyper-V.   Consulte [criar uma máquina virtual no Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/create-a-virtual-machine-in-hyper-v) para obter instruções sobre como criar máquinas virtuais do Hyper-v.  Consulte também o [centro de avaliação da Microsoft](https://www.microsoft.com/evalcenter/) para conferir o software e os sistemas operacionais disponíveis.
+Agora seu computador de modelo está pronto para criar máquinas virtuais do Hyper-V.   Consulte [criar uma máquina virtual no Hyper-V](/windows-server/virtualization/hyper-v/get-started/create-a-virtual-machine-in-hyper-v) para obter instruções sobre como criar máquinas virtuais do Hyper-v.  Consulte também o [centro de avaliação da Microsoft](https://www.microsoft.com/evalcenter/) para conferir o software e os sistemas operacionais disponíveis.
 
 ## <a name="next-steps"></a>Próximas etapas
 

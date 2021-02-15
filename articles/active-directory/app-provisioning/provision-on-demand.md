@@ -3,20 +3,20 @@ title: Provisionar um usuário sob demanda usando Azure Active Directory
 description: Forçar sincronização
 services: active-directory
 author: msmimart
-manager: CelesteDG
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/23/2020
+ms.date: 10/01/2020
 ms.author: mimart
 ms.reviewer: arvinh
-ms.openlocfilehash: 52819fc37cf0d10cb36009feb82dec234184752c
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: be03a149f34c16621905081a2f9bb663d85bc53c
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88235529"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99255654"
 ---
 # <a name="on-demand-provisioning"></a>Provisionamento sob demanda
 Use o provisionamento sob demanda para provisionar um usuário em um aplicativo em segundos. Entre outras coisas, você pode usar essa capacidade para:
@@ -28,12 +28,15 @@ Use o provisionamento sob demanda para provisionar um usuário em um aplicativo 
 ## <a name="how-to-use-on-demand-provisioning"></a>Como usar o provisionamento sob demanda
 
 1. Entre no **portal do Azure**.
-2. Vá para **todos os serviços**  >  **aplicativos empresariais**.
-3. Selecione seu aplicativo e vá para a página de configuração de provisionamento.
-4. Configure o provisionamento fornecendo suas credenciais de administrador.
-5. Selecione **provisionar sob demanda**.
-6. Pesquisar um usuário por nome, sobrenome, nome de exibição, nome principal de usuário ou endereço de email.
-7. Selecione **provisionar** na parte inferior da página.
+1. Vá para **todos os serviços**  >  **aplicativos empresariais**.
+1. Selecione seu aplicativo e vá para a página de configuração de provisionamento.
+1. Configure o provisionamento fornecendo suas credenciais de administrador.
+1. Selecione **provisionar sob demanda**.
+1. Pesquisar um usuário por nome, sobrenome, nome de exibição, nome principal de usuário ou endereço de email.
+   > [!NOTE]
+   > Para o aplicativo de provisionamento de RH na nuvem (workday/SuccessFactors para AD/Azure AD), o valor de entrada é diferente. Para o cenário workday, forneça "WID" do usuário no workday. Para o cenário SuccessFactors, forneça "personIdExternal" do usuário no SuccessFactors. 
+ 
+1. Selecione **provisionar** na parte inferior da página.
 
 :::image type="content" source="media/provision-on-demand/on-demand-provision-user.jpg" alt-text="Captura de tela que mostra a interface do usuário do portal do Azure para provisionamento de usuários sob demanda.":::
 
@@ -144,7 +147,7 @@ Atualmente, há algumas limitações conhecidas para o provisionamento sob deman
 > [!NOTE]
 > As limitações a seguir são específicas para o recurso de provisionamento sob demanda. Para obter informações sobre se um aplicativo dá suporte a grupos de provisionamento, exclusões ou outros recursos, consulte o tutorial do aplicativo.
 
-* O workday, Amazon Web Services (AWS) e aplicativos SuccessFactors não dão suporte ao provisionamento sob demanda. 
+* O aplicativo Amazon Web Services (AWS) não oferece suporte ao provisionamento sob demanda. 
 * Não há suporte para o provisionamento sob demanda de grupos e funções.
 * O provisionamento sob demanda dá suporte à desabilitação de usuários que foram desatribuídos do aplicativo. No entanto, ele não dá suporte à desabilitação ou exclusão de usuários que foram desabilitados ou excluídos do Azure AD. Esses usuários não aparecerão quando você procurar um usuário.
 

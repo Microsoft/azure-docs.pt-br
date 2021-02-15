@@ -5,19 +5,19 @@ services: sql-database
 ms.service: sql-managed-instance
 ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: danimir
 ms.author: danil
-ms.reviewer: douglas, carlrab, sstein
-ms.date: 08/18/2020
-ms.openlocfilehash: 1833f0343aa3e41119e215e7ce022f122d13489b
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.reviewer: douglas, sstein
+ms.date: 01/26/2021
+ms.openlocfilehash: 7588ce055ce0df89a7dca87a75a38c8acccf6d46
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88589496"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98806081"
 ---
-# <a name="user-initiated-manual-failover-on-sql-managed-instance"></a>Failover manual iniciado pelo usuário no SQL Instância Gerenciada
+# <a name="user-initiated-manual-failover-on-sql-managed-instance"></a>Failover manual iniciado pelo usuário na Instância Gerenciada de SQL
 
 Este artigo explica como fazer failover manual de um nó primário nas camadas de serviço GP (SQL Instância Gerenciada Uso Geral) e Comercialmente Crítico (BC) e como fazer failover manualmente de um nó de réplica somente leitura secundário na camada de serviço BC.
 
@@ -37,7 +37,16 @@ Você pode considerar a execução de um [failover manual](../database/high-avai
 
 ## <a name="initiate-manual-failover-on-sql-managed-instance"></a>Iniciar o failover manual no SQL Instância Gerenciada
 
-### <a name="using-powershell"></a>Usando o PowerShell
+### <a name="azure-rbac-permissions-required"></a>Permissões do RBAC do Azure necessárias
+
+O usuário que estiver iniciando um failover precisará ter uma das seguintes funções do Azure:
+
+- Função de proprietário da assinatura ou
+- Instância Gerenciada função colaborador ou
+- Função personalizada com a seguinte permissão:
+  - `Microsoft.Sql/managedInstances/failover/action`
+
+### <a name="using-powershell"></a>Usar o PowerShell
 
 A versão mínima do AZ. SQL precisa ser [v 2.9.0](https://www.powershellgallery.com/packages/Az.Sql/2.9.0). Considere o uso de [Azure cloud Shell](../../cloud-shell/overview.md) do portal do Azure que sempre tenha a versão mais recente do PowerShell disponível. 
 
@@ -53,7 +62,7 @@ Connect-AzAccount
 Select-AzSubscription -SubscriptionId $subscription
 ```
 
-Use o comando [Invoke do PowerShell-AzSqlInstanceFailover](https://docs.microsoft.com/powershell/module/az.sql/invoke-azsqlinstancefailover) com o exemplo a seguir para iniciar o failover do nó primário, aplicável à camada de serviço BC e GP.
+Use o comando [Invoke do PowerShell-AzSqlInstanceFailover](/powershell/module/az.sql/invoke-azsqlinstancefailover) com o exemplo a seguir para iniciar o failover do nó primário, aplicável à camada de serviço BC e GP.
 
 ```powershell
 $ResourceGroup = 'enter resource group of your MI'
@@ -85,9 +94,9 @@ Use o comando da CLI a seguir para fazer failover do nó secundário de leitura,
 az sql mi failover -g myresourcegroup -n myinstancename --replica-type ReadableSecondary
 ```
 
-### <a name="using-rest-api"></a>Usando a API REST
+### <a name="using-rest-api"></a>Uso da API REST
 
-Para usuários avançados que talvez precisem automatizar failovers de suas instâncias gerenciadas do SQL para fins de implementação do pipeline de teste contínuo, ou mitigadores de desempenho automatizados, essa função pode ser realizada por meio de um failover de inicialização por meio de uma chamada à API. consulte [instâncias gerenciadas – API REST de failover](https://docs.microsoft.com/rest/api/sql/managed%20instances%20-%20failover/failover) para obter detalhes.
+Para usuários avançados que talvez precisem automatizar failovers de suas instâncias gerenciadas do SQL para fins de implementação do pipeline de teste contínuo, ou mitigadores de desempenho automatizados, essa função pode ser realizada por meio de um failover de inicialização por meio de uma chamada à API. consulte [instâncias gerenciadas – API REST de failover](/rest/api/sql/managed%20instances%20-%20failover/failover) para obter detalhes.
 
 Para iniciar o failover usando a chamada à API REST, primeiro gere o token de autenticação usando o cliente de API de sua escolha. O token de autenticação gerado é usado como propriedade de autorização no cabeçalho da solicitação de API e é obrigatório.
 
@@ -116,7 +125,7 @@ O status da operação pode ser acompanhado por meio da revisão de respostas de
 
 ## <a name="monitor-the-failover"></a>Monitorar o failover
 
-Para monitorar o progresso do failover manual iniciado pelo usuário, execute a seguinte consulta T-SQL em seu cliente favorito (como o SSMS) no SQL Instância Gerenciada. Ele lerá a exibição do sistema sys. dm_hadr_fabric_replica_states e as réplicas de relatório disponíveis na instância. Atualize a mesma consulta depois de iniciar o failover manual.
+Para monitorar o progresso do failover iniciado pelo usuário para sua instância de BC, execute a seguinte consulta T-SQL em seu cliente favorito (como o SSMS) no SQL Instância Gerenciada. Ele lerá o sys.dm_hadr_fabric_replica_states de exibição do sistema e as réplicas de relatório disponíveis na instância. Atualize a mesma consulta depois de iniciar o failover manual.
 
 ```T-SQL
 SELECT DISTINCT replication_endpoint_url, fabric_replica_role_desc FROM sys.dm_hadr_fabric_replica_states
@@ -124,16 +133,23 @@ SELECT DISTINCT replication_endpoint_url, fabric_replica_role_desc FROM sys.dm_h
 
 Antes de iniciar o failover, sua saída indicará a réplica primária atual na camada de serviço BC que contém um primário e três secundários no grupo de disponibilidade AlwaysOn. Após a execução de um failover, executar essa consulta novamente precisará indicar uma alteração do nó primário.
 
-Você não poderá ver a mesma saída com a camada de serviço GP como aquela acima mostrada para BC. Isso ocorre porque a camada de serviço de GP é baseada apenas em um único nó. A saída de consulta T-SQL para a camada de serviço do GP mostrará um único nó somente antes e depois do failover. A perda de conectividade do cliente durante o failover, normalmente duradoura em um minuto, será a indicação da execução do failover.
+Você não poderá ver a mesma saída com a camada de serviço GP como aquela acima mostrada para BC. Isso ocorre porque a camada de serviço de GP é baseada apenas em um único nó. Você pode usar a consulta T-SQL alternativa mostrando a hora em que o processo SQL foi iniciado no nó da instância da camada de serviço do GP:
+
+```T-SQL
+SELECT sqlserver_start_time, sqlserver_start_time_ms_ticks FROM sys.dm_os_sys_info
+```
+
+A pequena perda de conectividade do cliente durante o failover, normalmente duradoura em um minuto, será a indicação da execução do failover, independentemente da camada de serviço.
 
 > [!NOTE]
 > A conclusão do processo de failover (não a indisponibilidade curta real) pode levar vários minutos por vez no caso de cargas de trabalho de **alta intensidade** . Isso ocorre porque o mecanismo de instância está tomando cuidado com todas as transações atuais no primário e acompanhe o nó secundário, antes de ser capaz de realizar o failover.
 
 > [!IMPORTANT]
 > As limitações funcionais do failover manual iniciado pelo usuário são:
-> - Pode haver um (1) failover iniciado no mesmo Instância Gerenciada a cada **30 minutos**.
+> - Pode haver um (1) failover iniciado no mesmo Instância Gerenciada a cada **15 minutos**.
 > - Para instâncias de BC, deve existir quorum de réplicas para que a solicitação de failover seja aceita.
 > - Para instâncias de BC, não é possível especificar em qual réplica secundária legível iniciar o failover.
+> - O failover não será permitido até que o primeiro backup completo de um novo banco de dados seja concluído por sistemas de backup automatizados.
 
 ## <a name="next-steps"></a>Próximas etapas
 

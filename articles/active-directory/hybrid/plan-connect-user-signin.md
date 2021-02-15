@@ -16,12 +16,12 @@ ms.date: 05/31/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a08120b98c7a08bca50453df59df313b1645c5c5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3365a58a0c667ca55b74a5120cdd7a78ad0abc79
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80331261"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997776"
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Opções de entrada de usuário do Azure AD Connect
 O Azure AD (Azure Active Directory) Connect permite que os usuários se conectem a recursos de nuvem e locais usando as mesmas senhas. Este artigo descreve os principais conceitos de cada modelo de identidade, a fim de ajudá-lo a escolher a identidade que você deseja usar para entrar no Azure AD.
@@ -47,9 +47,9 @@ O Azure AD suporta os seguintes métodos de autenticação:
    * **Autenticação de passagem (PTA)** - Essa opção é semelhante à hash sync de senha, mas fornece uma validação de senha simples usando agentes de software locais para organizações com políticas de segurança e conformidade fortes.
 * **Autenticação federada** - quando você escolhe esse método de autenticação, o Azure AD transferirá o processo de autenticação para um sistema de autenticação confiável separado, como o AD FS ou um sistema de federação de terceiros, para validar a entrada do usuário. 
 
-Para a maioria das organizações que deseja apenas habilitar a conexão do usuário no Office 365, em aplicativos SaaS e em outros recursos baseados no Azure AD, recomendamos a opção de sincronização de hash padrão.
+Para a maioria das organizações que desejam apenas habilitar a entrada do usuário para Microsoft 365, aplicativos SaaS e outros recursos baseados no Azure AD, recomendamos a opção de sincronização de hash de senha padrão.
  
-Para obter informações detalhadas sobre como escolher um método de autenticação, confira [Escolher o método de autenticação adequado para sua solução de identidade híbrida do Azure Active Directory](../../security/fundamentals/choose-ad-authn.md)
+Para obter informações detalhadas sobre como escolher um método de autenticação, confira [Escolher o método de autenticação adequado para sua solução de identidade híbrida do Azure Active Directory](./choose-ad-authn.md)
 
 ### <a name="password-hash-synchronization"></a>Sincronização de hash de senha
 Com a sincronização de hash de senha, hashes de senhas de usuário são sincronizados do Active Directory local para o Azure AD. Quando as senhas são alteradas ou redefinidas localmente, os novos hashes de senha são sincronizados com o Azure AD imediatamente, para que os usuários sempre possam usar a mesma senha para recursos de nuvem e recursos locais. As senhas nunca são enviadas ao Azure AD nem armazenadas no Azure AD em texto não criptografado. É possível usar a sincronização de hash de senha em conjunto com write-back de senha para habilitar a redefinição de senha de autoatendimento no Azure AD.
@@ -139,12 +139,12 @@ A página de conexão do Azure AD lista os sufixos UPN definidos para o Active D
 É possível clicar no botão atualizar para buscar novamente o último status dos domínios personalizados do Azure AD.
 
 ### <a name="selecting-the-attribute-for-the-user-principal-name-in-azure-ad"></a>Selecionando o atributo para o nome UPN no Azure AD
-O atributo userPrincipalName é o atributo que os usuários usam ao se conectarem ao Azure AD e ao Office 365. É necessário verificar os domínios (também conhecidos como sufixos UPN) usados no Azure AD antes de sincronizar os usuários.
+O atributo userPrincipalName é o atributo que os usuários usam ao entrarem no Azure AD e Microsoft 365. É necessário verificar os domínios (também conhecidos como sufixos UPN) usados no Azure AD antes de sincronizar os usuários.
 
 É altamente recomendável manter o atributo userPrincipalName padrão. Se esse atributo não for roteável e se não puder ser verificado, será possível selecionar outro atributo (email, por exemplo) como o atributo que contém a ID de conexão. Isso é conhecido como a ID Alternativa. O valor de atributo da ID Alternativa deve seguir o padrão RFC 822. É possível usar uma ID Alternativa tanto com o SSO de senha quanto com o SSO de federação como a solução de conexão.
 
 > [!NOTE]
-> O uso de uma ID Alternativa não é compatível com todas as cargas de trabalho do Office 365. Para obter mais informações, consulte [Configurando uma ID de logon alternativa](https://technet.microsoft.com/library/dn659436.aspx).
+> O uso de uma ID alternativa não é compatível com todas as cargas de trabalho de Microsoft 365. Para obter mais informações, consulte [Configurando uma ID de logon alternativa](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id).
 >
 >
 
@@ -179,7 +179,7 @@ Se você selecionou a opção de conexão do usuário **Federação com o AD FS*
 
 Na próxima página, você deverá fornecer as credenciais do Azure AD.
 
-![Conecte-se ao AD do Azure](./media/plan-connect-user-signin/changeusersignin2.png)
+![Captura de tela que mostra onde você deve digitar as credenciais do Azure AD.](./media/plan-connect-user-signin/changeusersignin2.png)
 
 Na página **Entrada de usuário**, selecione a entrada do usuário desejada.
 

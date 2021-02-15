@@ -6,14 +6,15 @@ services: internet-peering
 author: prmitiki
 ms.service: internet-peering
 ms.topic: how-to
-ms.date: 11/27/2019
+ms.date: 12/15/2020
 ms.author: prmitiki
-ms.openlocfilehash: c0ad9ae885a458da5df8975d5d13018fd92bbdaf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 3b463293899dc2586404d68145943caff3105e89
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84710772"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97590181"
 ---
 # <a name="associate-peer-asn-to-azure-subscription-using-powershell"></a>Associar o ASN do par à assinatura do Azure usando o PowerShell
 

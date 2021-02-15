@@ -5,12 +5,12 @@ ms.date: 3/5/2020
 ms.topic: quickstart
 ms.service: azure-functions
 ms.custom: subject-armqs
-ms.openlocfilehash: 362ff5cd59982c1d848ed59af8381090344f5c5e
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 1e623405faa89ff41eccdaa57578bc8ac94cd78c
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88642258"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422817"
 ---
 # <a name="quickstart-create-and-deploy-azure-functions-resources-from-an-arm-template"></a>Início Rápido: Criar e implantar recursos do Azure Functions com base em um modelo do ARM
 
@@ -38,7 +38,14 @@ Escolha uma das seguintes guias, siga o link e conclua a seção para criar um a
 
 # <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-[Criar seu projeto de funções locais no Visual Studio Code](functions-create-first-function-vs-code.md#create-an-azure-functions-project)
+Crie um projeto local de funções usando a linguagem que escolher no Visual Studio Code:  
+
++ [C#](create-first-function-vs-code-csharp.md)
++ [Java](create-first-function-vs-code-java.md)
++ [JavaScript](create-first-function-vs-code-node.md)
++ [PowerShell](create-first-function-vs-code-powershell.md)
++ [Python](create-first-function-vs-code-python.md)
++ [TypeScript](create-first-function-vs-code-typescript.md)
 
 # <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -46,7 +53,14 @@ Escolha uma das seguintes guias, siga o link e conclua a seção para criar um a
 
 # <a name="command-line"></a>[Linha de comando](#tab/command-line)
 
-[Criar seu projeto de funções locais da linha de comando](functions-create-first-azure-function-azure-cli.md#create-a-local-function-project)
+Crie um projeto local de funções usando a linguagem que escolher da linha de comando:
+
++ [C#](create-first-function-cli-csharp.md)
++ [Java](create-first-function-cli-java.md)
++ [JavaScript](create-first-function-cli-node.md)
++ [PowerShell](create-first-function-cli-powershell.md)
++ [Python](create-first-function-cli-python.md)
++ [TypeScript](create-first-function-cli-typescript.md)
 
 ---
 

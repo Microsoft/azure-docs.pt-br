@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 3b4a9547a1bd62b7464b4a79fe68720572630f3d
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 9763835142e66bbbce51cd5c863dff87f261c270
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88961883"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060153"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Guia de solução de problemas e práticas recomendadas para aplicativos de nó no Serviço de Aplicativo do Azure Windows
 
@@ -121,13 +121,13 @@ Leia [Depurar aplicativos node.js no Windows](https://tomasz.janczuk.org/2011/11
 
 Muitos aplicativos desejam fazer conexões de saída como parte de suas operações normais. Por exemplo, quando uma solicitação chega, o aplicativo de nó deseja contatar uma API REST em outro lugar e obter algumas informações para processar a solicitação. Convém usar um agente keep alive ao fazer chamadas http ou https. Você poderia usar o módulo agentkeepalive como o agente keep alive ao fazer essas chamadas de saída.
 
-O módulo agentkeepalive garante que os soquetes sejam reutilizados na VM do WebApp do Azure. Criar um novo soquete em cada solicitação de saída adiciona sobrecarga ao aplicativo. O aplicativo reutilizar soquetes para solicitações de saída garante que o aplicativo não exceda os maxSockets alocados por VM. A recomendação no Serviço de Aplicativo do Azure é definir o valor de maxSockets do agentKeepAlive como um total de (4 instâncias de node.exe \* 40 maxSockets/instância) 160 soquetes por VM.
+O módulo agentkeepalive garante que os soquetes sejam reutilizados na VM do WebApp do Azure. Criar um novo soquete em cada solicitação de saída adiciona sobrecarga ao aplicativo. O aplicativo reutilizar soquetes para solicitações de saída garante que o aplicativo não exceda os maxSockets alocados por VM. A recomendação no serviço de Azure App é definir o valor de maxSockets de agentKeepAlive para um total de (4 instâncias de node.exe \* 32 maxSockets/Instance) 128 soquetes por VM.
 
 Exemplo de configuração de [agentKeepALive](https://www.npmjs.com/package/agentkeepalive) :
 
 ```nodejs
 let keepaliveAgent = new Agent({
-    maxSockets: 40,
+    maxSockets: 32,
     maxFreeSockets: 10,
     timeout: 60000,
     keepAliveTimeout: 300000
@@ -140,7 +140,7 @@ let keepaliveAgent = new Agent({
 
 #### <a name="my-node-application-is-consuming-too-much-cpu"></a>O aplicativo de nó está consumindo muita CPU
 
-Você pode receber uma recomendação do Serviço de Aplicativo do Azure no portal sobre o alto consumo de CPU. Você também pode configurar monitores para observar determinadas [métricas](web-sites-monitor.md). Ao conferir o uso de CPU no [Painel do Portal do Azure](../azure-monitor/app/web-monitor-performance.md), verifique os valores máximo de CPU para que você não deixe de ver os valores de pico.
+Você pode receber uma recomendação do Serviço de Aplicativo do Azure no portal sobre o alto consumo de CPU. Você também pode configurar monitores para observar determinadas [métricas](web-sites-monitor.md). Ao verificar o uso da CPU no [painel de portal do Azure](../azure-monitor/platform/metrics-charts.md), verifique os valores máximos da CPU para que você não perca os valores de pico.
 Se você achar que o aplicativo está consumindo muita CPU e não consegue determinar o motivo, você poderá analisar o aplicativo de nó para descobrir.
 
 #### <a name="profiling-your-node-application-on-azure-app-service-with-v8-profiler"></a>Criar o perfil do aplicativo de nó no Serviço de Aplicativo do Azure com o V8-Profiler
@@ -205,7 +205,7 @@ As alterações anteriores criarão o perfil da função WriteConsoleLog e grava
 
 ![Captura de tela que mostra o arquivo Profile. cpuprofile.](./media/app-service-web-nodejs-best-practices-and-troubleshoot-guide/scm_profile.cpuprofile.png)
 
-Fazer o download do arquivo e abri-lo com as ferramentas do Chrome F12. Pressione F12 no Chrome e escolha a guia **perfis** . escolha o botão **carregar** . Selecione o arquivo profile.cpuprofile que você baixou. Clique no perfil que você acabou de carregar.
+Fazer o download do arquivo e abri-lo com as ferramentas do Chrome F12. Pressione F12 no Chrome e escolha a guia **perfis** . Escolha o botão **carregar** . Selecione o arquivo profile.cpuprofile que você baixou. Clique no perfil que você acabou de carregar.
 
 ![Captura de tela que mostra o arquivo Profile. cpuprofile que você carregou.](./media/app-service-web-nodejs-best-practices-and-troubleshoot-guide/chrome_tools_view.png)
 
@@ -213,7 +213,7 @@ Você verá que 95% do tempo foi consumido pela função WriteConsoleLog. A saí
 
 ### <a name="my-node-application-is-consuming-too-much-memory"></a>Meu aplicativo de nó está consumindo muita memória
 
-Se o seu aplicativo estiver consumindo muita memória, você verá um aviso do Serviço de Aplicativo do Azure em seu portal sobre o alto consumo de memória. Você pode configurar monitores para observar determinadas [métricas](web-sites-monitor.md). Ao conferir o uso de CPU no [Painel do Portal do Azure](../azure-monitor/app/web-monitor-performance.md), verifique os valores máximo de CPU para a memória para que você não deixe de ver os valores de pico.
+Se o seu aplicativo estiver consumindo muita memória, você verá um aviso do Serviço de Aplicativo do Azure em seu portal sobre o alto consumo de memória. Você pode configurar monitores para observar determinadas [métricas](web-sites-monitor.md). Ao verificar o uso de memória no [painel portal do Azure](../azure-monitor/platform/metrics-charts.md), certifique-se de verificar os valores máximos de memória para que você não perca os valores de pico.
 
 #### <a name="leak-detection-and-heap-diff-for-nodejs"></a>Detecção de vazamento e Comparação de Heap para node.js
 
@@ -245,9 +245,8 @@ O aplicativo está lançando exceções não identificadas – Verifique o arqui
 A causa comum para os tempos de início longos do aplicativo é um número alto de arquivos nos módulos do nó\_. O aplicativo tenta carregar a maioria desses arquivos ao iniciar. Por padrão, como os arquivos estão armazenados no compartilhamento de rede no Serviço de Aplicativo do Azure, o carregamento de muitos arquivos pode demorar algum tempo.
 Algumas soluções para tornar esse processo mais rápido são:
 
-1. Verifique se você tem uma estrutura de dependência simples e nenhuma dependência duplicada usando npm3 para instalar os módulos.
-2. Tente carregar lentamente os node\_modules e não carregue todos os módulos na inicialização do aplicativo. Para módulos de carregamento Lento, a chamada para exigir (‘módulo’) deve ser feita quando você realmente precisar do módulo dentro da função antes da primeira execução do código do módulo.
-3. O Serviço de Aplicativo do Azure oferece um recurso chamado cache local. Esse recurso copia o conteúdo do compartilhamento de rede para o disco local na VM. Como os arquivos são locais, o tempo de carregamento do nó\_módulos é muito mais rápido.
+1. Tente carregar lentamente os node\_modules e não carregue todos os módulos na inicialização do aplicativo. Para módulos de carregamento Lento, a chamada para exigir (‘módulo’) deve ser feita quando você realmente precisar do módulo dentro da função antes da primeira execução do código do módulo.
+2. O Serviço de Aplicativo do Azure oferece um recurso chamado cache local. Esse recurso copia o conteúdo do compartilhamento de rede para o disco local na VM. Como os arquivos são locais, o tempo de carregamento do nó\_módulos é muito mais rápido.
 
 ## <a name="iisnode-http-status-and-substatus"></a>Substatus e status http de IISNODE
 

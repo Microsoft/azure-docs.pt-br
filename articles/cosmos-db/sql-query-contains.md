@@ -3,18 +3,20 @@ title: Função CONTAINS na linguagem de consulta do Azure Cosmos DB
 description: Saiba mais sobre como a função de sistema CONTAINS do SQL no Azure Cosmos DB retorna um booliano que indica se a primeira expressão de cadeia de caracteres contém a segunda
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 06/02/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 4877272fc2db521977a4111317118380399d27c5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4b6835b22e5cfa4ca703b95d70e20112b8723def
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84322696"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339165"
 ---
 # <a name="contains-azure-cosmos-db"></a>CONTAINS (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Retorna um valor booliano que indica se a primeira expressão de cadeia de caracteres contém a segunda.  
   

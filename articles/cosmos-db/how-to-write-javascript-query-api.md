@@ -3,18 +3,20 @@ title: Escrever procedimentos armazenados e gatilhos usando a API de consulta Ja
 description: Saiba como escrever procedimentos armazenados e gatilhos usando a API de Consulta do JavaScript no Azure Cosmos DB
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 05/07/2020
 ms.author: tisande
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 2182e77ee673ea655762c765e2cfccb3decbe6af
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-js
+ms.openlocfilehash: 449af63ef3409b8c8173edef7a5d77074cca02b9
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420168"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93335833"
 ---
 # <a name="how-to-write-stored-procedures-and-triggers-in-azure-cosmos-db-by-using-the-javascript-query-api"></a>Como escrever procedimentos armazenados e gatilhos no Azure Cosmos DB usando a API de consulta do JavaScript
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 O Azure Cosmos DB permite que você execute consultas otimizadas usando uma interface fluente do JavaScript sem nenhum conhecimento da linguagem SQL que pode ser usada para escrever procedimentos armazenados ou gatilhos. Para saber mais sobre o suporte à API de Consulta do JavaScript no Azure Cosmos DB, confira o artigo [Trabalhando com a API de consulta integrada da linguagem JavaScript no Azure Cosmos DB](javascript-query-api.md).
 

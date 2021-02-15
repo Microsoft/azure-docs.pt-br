@@ -1,22 +1,22 @@
 ---
-title: Melhorar o desempenho do índice columnstore (visualização de espaços de trabalho)
+title: Melhorar o desempenho do índice columnstore
 description: Reduza os requisitos de memória ou aumente a memória disponível para maximizar o número de linhas que um índice columnstore compacta em cada rowgroup.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: fa3bee706049bbeaed0a01cb4f3f5c0422050fa2
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 4f98d00477b7dc8fbbbe7d17705e398a708ce2af
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88797574"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120930"
 ---
 # <a name="maximize-rowgroup-quality-for-columnstore-index-performance"></a>Maximizar a qualidade do rowgroup para o desempenho do índice columnstore
 
@@ -26,7 +26,7 @@ A qualidade do grupo de linhas é determinada pelo número de linhas em um grupo
 
 Como um índice columnstore examina uma tabela com o exame de segmentos de coluna de rowgroups individuais, maximizar o número de linhas em cada rowgroup melhora o desempenho da consulta. Quando os rowgroups têm um número elevado de linhas, a compactação de dados melhora, o que significa que há menos dados para serem lidos do disco.
 
-Para obter mais informações sobre rowgroups, consulte [Guia de índices Columnstore](/sql/relational-databases/indexes/columnstore-indexes-overview?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
+Para obter mais informações sobre rowgroups, consulte [Guia de índices Columnstore](/sql/relational-databases/indexes/columnstore-indexes-overview?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 ## <a name="target-size-for-rowgroups"></a>Tamanho de destino para rowgroups
 
@@ -34,15 +34,15 @@ Para o melhor desempenho de consulta, o objetivo é maximizar o número de linha
 
 ## <a name="rowgroups-can-get-trimmed-during-compression"></a>Os rowgroups podem ser cortados durante a compactação
 
-Durante um carregamento em massa ou uma recompilação de índices columnstore, às vezes, não há memória suficiente disponível para compactar todas as linhas designadas para cada rowgroup. Quando há pressão de memória, os índices columnstore cortam o tamanho do rowgroup para que a compactação no columnstore possa ser bem-sucedida.
+Durante um carregamento em massa ou uma recompilação de índice columnstore, às vezes não há memória suficiente disponível para compactar todas as linhas designadas para cada rowgroup. Quando há pressão de memória, os índices columnstore cortam o tamanho do rowgroup para que a compactação no columnstore possa ser bem-sucedida.
 
 Quando não houver memória suficiente para compactar pelo menos 10.000 linhas em cada rowgroup, um erro será gerado.
 
-Para obter mais informações sobre o carregamento em massa, consulte [Carregamento em massa em um índice columnstore clusterizado](/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest#Bulk ).
+Para obter mais informações sobre o carregamento em massa, consulte [Carregamento em massa em um índice columnstore clusterizado](/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest#Bulk&preserve-view=true ).
 
 ## <a name="how-to-monitor-rowgroup-quality"></a>Como monitorar a qualidade do grupo de linhas
 
-O DMV sys. dm_pdw_nodes_db_column_store_row_group_physical_stats ([Sys. dm_db_column_store_row_group_physical_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) contém a definição de exibição correspondente ao banco de dados SQL) que expõe informações úteis, como o número de linhas em RowGroups e o motivo para aparar se houver corte. Você pode criar a exibição a seguir como uma maneira útil consultar essa DMV para obter informações sobre a fragmentação do grupo de linhas.
+O sys.dm_pdw_nodes_db_column_store_row_group_physical_stats DMV ([Sys.dm_db_column_store_row_group_physical_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) contém a definição da exibição correspondente ao banco de dados SQL) que expõe informações úteis, como o número de linhas em RowGroups, e o motivo para corte, se houver corte. Você pode criar a exibição a seguir como uma maneira útil consultar essa DMV para obter informações sobre a fragmentação do grupo de linhas.
 
 ```sql
 create view dbo.vCS_rg_physical_stats
@@ -69,9 +69,6 @@ select *
 from cte;
 ```
 
->[!TIP]
-> Para melhorar o desempenho no Synapse SQL, considere usar **Sys. pdw_permanent_table_mappings** em vez de **Sys. pdw_table_mappings** em tabelas de usuário permanentes. Consulte **[Sys. pdw_permanent_table_mappings &#40;&#41;Transact-SQL ](/sql/relational-databases/system-catalog-views/sys-pdw-permanent-table-mappings-transact-sql?view=azure-sqldw-latest)** para obter mais informações.
-
 O trim_reason_desc informa se o grupo de linhas foi cortado (trim_reason_desc = NO_TRIM implica que não houve corte e grupo de linhas é de melhor qualidade). Os motivos de corte a seguir indicam prematuro corte do grupo de linhas:
 
 - CARREGAMENTO EM MASSA: Esse motivo de corte é usado quando o lote de entrada de linhas para a carga tinha menos de 1 milhão de linhas. O mecanismo criará grupos de linhas compactado se houver mais que 100.000 linhas sendo inseridas (em vez de inserir no repositório delta), mas define o motivo do corte para CARREGAMENTO EM MASSA. Nesse cenário, considere aumentar a carga do lote para incluir mais linhas. Além disso, reavalie o esquema de particionamento para garantir que não está muito granular, já que os grupos de linhas não podem abranger os limites de partição.
@@ -80,14 +77,15 @@ O trim_reason_desc informa se o grupo de linhas foi cortado (trim_reason_desc = 
 
 ## <a name="how-to-estimate-memory-requirements"></a>Como estimar os requisitos de memória
 
-O máximo de memória necessário para compactar um rowgroup é aproximadamente
+A memória máxima necessária para compactar um rowgroup é, aproximadamente, da seguinte maneira:
 
 - 72 MB +
 - \#linhas \* \# colunas \* 8 bytes +
 - \#linhas \* \# de cadeia de caracteres curta-colunas \* 32 bytes +
 - \#colunas de cadeia de caracteres longa \* 16 MB para o dicionário de compactação
 
-em que as colunas de cadeia de caracteres curta usam tipos de dados de cadeia de caracteres de <= 32 bytes e as colunas de cadeia de caracteres longa usam tipos de dados de cadeia de caracteres de > 32 bytes.
+> [!NOTE]
+> Onde as colunas de cadeia de caracteres curta usam tipos de dados de cadeia de caracteres de <= 32 bytes e colunas de cadeia de caracteres longa usam tipos de dados de cadeia de caracteres de > 32 bytes.
 
 As cadeias de caracteres longas são compactadas com um método de compactação projetado para a compactação de texto. Esse método de compactação usa um *dicionário* para armazenar os padrões de texto. O tamanho máximo de um dicionário é de 16 MB. Há apenas um dicionário para cada coluna de cadeia de caracteres longa no rowgroup.
 
@@ -124,7 +122,7 @@ Crie a consulta de carga para que ela se concentre apenas no carregamento da con
 
 ### <a name="adjust-maxdop"></a>Ajustar o MAXDOP
 
-Cada distribuição compacta rowgroups no columnstore em paralelo quando há mais de um núcleo de CPU disponível por distribuição. O paralelismo exige recursos de memória adicionais, o que pode levar à pressão de memória e ao corte de rowgroup.
+Cada distribuição compacta os RowGroups no columnstore em paralelo quando há mais de um núcleo de CPU disponível por distribuição. O paralelismo exige recursos de memória adicionais, o que pode levar à pressão de memória e ao corte de rowgroup.
 
 Para reduzir a pressão de memória, use a dica de consulta MAXDOP para forçar a operação de carregamento a ser executada em modo serial em cada distribuição.
 
@@ -144,6 +142,5 @@ O tamanho da DWU e a classe de recurso de usuário em conjunto determinam a quan
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para encontrar mais maneiras de melhorar o desempenho no Synapse SQL, consulte a [visão geral de desempenho](../overview-cheat-sheet.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+Para encontrar mais maneiras de melhorar o desempenho no Synapse SQL, consulte a [visão geral de desempenho](../overview-terminology.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json).
 
- 

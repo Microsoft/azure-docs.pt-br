@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: d4846a69f548c99de735cc9d9e06bd6bb263b4bd
-ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
+ms.openlocfilehash: e46105f5889f4925be9873fd8613021fe5e8ac2d
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87439699"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920768"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-windows-devices"></a>Tutorial: Desenvolver módulos do IoT Edge para dispositivos Windows
 
@@ -32,24 +32,6 @@ Neste tutorial, você aprenderá como:
 > * Usar as ferramentas do IoT Edge para o Visual Studio para criar um projeto.
 > * Criar seu projeto como um contêiner e armazená-lo em um Registro de Contêiner do Azure.
 > * Implantar seu código em um dispositivo IoT Edge.
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
-## <a name="key-concepts"></a>Principais conceitos
-
-Este tutorial explica o desenvolvimento de um módulo do IoT Edge. Um *módulo do IoT Edge* ou, às vezes, apenas *módulo* de forma abreviada, é um contêiner que contém o código executável. É possível implantar um ou mais módulos em um dispositivo IoT Edge. Módulos executam tarefas específicas, como ingerir dados de sensores, executar análise de dados ou operações de limpeza de dados ou enviar mensagens a um hub IoT. Para saber mais, confira [Understand Azure IoT Edge modules](iot-edge-modules.md) (Noções básicas sobre módulos do Azure IoT Edge).
-
-Ao desenvolver módulos do IoT Edge, é importante entender as diferenças entre o computador de desenvolvimento e o dispositivo IoT Edge de destino em que o módulo será implantado eventualmente. O contêiner que você criar para armazenar seu código de módulo deverá corresponder ao SO (sistema operacional) do *dispositivo de destino*. Para o desenvolvimento de contêiner do Windows, esse conceito é mais simples porque os contêineres do Windows são executados somente em sistemas de operacionais do Windows. Entretanto, você poderia, por exemplo, usar seu computador de desenvolvimento do Windows para criar módulos para dispositivos Linux IoT Edge. Nesse cenário, você precisa garantir que seu computador de desenvolvimento estava executando contêineres do Linux. Ao percorrer este tutorial, lembre-se da diferença entre o *sistema operacional do computador de desenvolvimento* e o *sistema operacional do contêiner*.
-
-Este tutorial direciona dispositivos Windows que executam o IoT Edge. Os dispositivos Windows IoT Edge usam contêineres do Windows. É recomendável usar o Visual Studio para desenvolvimento para dispositivos Windows, portanto, é isso que este tutorial usará. É possível usar o Visual Studio Code também, embora haja diferenças no suporte entre as duas ferramentas.
-
-A tabela a seguir lista os cenários de desenvolvimento compatíveis com os **contêineres do Windows** no Visual Studio Code e no Visual Studio.
-
-|   | Visual Studio Code | Visual Studio 2017/2019 |
-| - | ------------------ | ------------------ |
-| **Serviços do Azure** | Funções do Azure <br> Stream Analytics do Azure |   |
-| **Idiomas** | C# (depuração não compatível) | C <br> C# |
-| **Mais informações** | [Azure IoT Edge para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) | [Ferramentas do Azure IoT Edge para Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools)<br>[Ferramentas do Azure IoT Edge para Visual Studio 2019](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) |
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -69,6 +51,24 @@ Recursos de nuvem:
 
 * Um [hub IoT](../iot-hub/iot-hub-create-through-portal.md) gratuito ou de camada padrão no Azure.
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+## <a name="key-concepts"></a>Principais conceitos
+
+Este tutorial explica o desenvolvimento de um módulo do IoT Edge. Um *módulo do IoT Edge* ou, às vezes, apenas *módulo* de forma abreviada, é um contêiner que contém o código executável. É possível implantar um ou mais módulos em um dispositivo IoT Edge. Módulos executam tarefas específicas, como ingerir dados de sensores, executar análise de dados ou operações de limpeza de dados ou enviar mensagens a um hub IoT. Para saber mais, confira [Understand Azure IoT Edge modules](iot-edge-modules.md) (Noções básicas sobre módulos do Azure IoT Edge).
+
+Ao desenvolver módulos do IoT Edge, é importante entender as diferenças entre o computador de desenvolvimento e o dispositivo IoT Edge de destino em que o módulo será implantado eventualmente. O contêiner que você criar para armazenar seu código de módulo deverá corresponder ao SO (sistema operacional) do *dispositivo de destino*. Para o desenvolvimento de contêiner do Windows, esse conceito é mais simples porque os contêineres do Windows são executados somente em sistemas de operacionais do Windows. Entretanto, você poderia, por exemplo, usar seu computador de desenvolvimento do Windows para criar módulos para dispositivos Linux IoT Edge. Nesse cenário, você precisa garantir que seu computador de desenvolvimento estava executando contêineres do Linux. Ao percorrer este tutorial, lembre-se da diferença entre o *sistema operacional do computador de desenvolvimento* e o *sistema operacional do contêiner*.
+
+Este tutorial direciona dispositivos Windows que executam o IoT Edge. Os dispositivos Windows IoT Edge usam contêineres do Windows. É recomendável usar o Visual Studio para desenvolvimento para dispositivos Windows, portanto, é isso que este tutorial usará. É possível usar o Visual Studio Code também, embora haja diferenças no suporte entre as duas ferramentas.
+
+A tabela a seguir lista os cenários de desenvolvimento compatíveis com os **contêineres do Windows** no Visual Studio Code e no Visual Studio.
+
+|   | Visual Studio Code | Visual Studio 2017/2019 |
+| - | ------------------ | ------------------ |
+| **Serviços do Azure** | Funções do Azure <br> Stream Analytics do Azure |   |
+| **Idiomas** | C# (depuração não compatível) | C <br> C# |
+| **Mais informações** | [Azure IoT Edge para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) | [Ferramentas do Azure IoT Edge para Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools)<br>[Ferramentas do Azure IoT Edge para Visual Studio 2019](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) |
+
 ## <a name="install-container-engine"></a>Instalar o mecanismo de contêiner
 
 Os módulos do IoT Edge são empacotados como contêineres, portanto, você precisa de um mecanismo de contêiner no computador de desenvolvimento para criar e gerenciar os contêineres. É recomendável usar o Docker Desktop para o desenvolvimento por causa dos seus muitos recursos e de sua popularidade como um mecanismo de contêiner. Com o Docker Desktop em um computador Windows, é possível alternar entre contêineres do Linux e do Windows para poder desenvolver módulos facilmente para tipos diferentes de dispositivos IoT Edge.
@@ -87,13 +87,13 @@ Este tutorial ensina as etapas de desenvolvimento para o Visual Studio 2019. Se 
 
 1. Prepare o Visual Studio 2019 no seu computador de desenvolvimento.
 
-   * Se você ainda não tiver o Visual Studio em seu computador de desenvolvimento, [instale o Visual Studio 2019](https://docs.microsoft.com/visualstudio/install/install-visual-studio) com as cargas de trabalho a seguir:
+   * Se você ainda não tiver o Visual Studio em seu computador de desenvolvimento, [instale o Visual Studio 2019](/visualstudio/install/install-visual-studio) com as cargas de trabalho a seguir:
 
       * Desenvolvimento do Azure
       * Desenvolvimento para desktop com C++
       * Desenvolvimento multiplataforma com o .NET Core
 
-   * Se você já tiver o Visual Studio de 2019 no computador de desenvolvimento, siga as etapas em [Modificar o Visual Studio](https://docs.microsoft.com/visualstudio/install/modify-visual-studio) para adicionar as cargas de trabalho necessárias.
+   * Se você já tiver o Visual Studio de 2019 no computador de desenvolvimento, siga as etapas em [Modificar o Visual Studio](/visualstudio/install/modify-visual-studio) para adicionar as cargas de trabalho necessárias.
 
 2. Baixe e instale a extensão [Ferramentas do Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) para Visual Studio 2019.
 
@@ -181,17 +181,17 @@ O modelo de solução criado inclui um exemplo de código para um módulo do IoT
 
 Cada módulo pode ter várias filas de *entrada* e de *saída* declaradas em seu código. O hub do IoT Edge em execução no dispositivo roteia mensagens da saída de um módulo para a entrada de um ou mais módulos. O código específico para declarar entradas e saídas varia entre as linguagens, mas o conceito é o mesmo em todos os módulos. Para saber mais sobre o roteamento entre módulos, confira [Declarar rotas](module-composition.md#declare-routes).
 
-O código de exemplo C# que vem com o modelo de projeto usa a [classe ModuleClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet) do SDK do Hub IoT para .NET.
+O código de exemplo C# que vem com o modelo de projeto usa a [classe ModuleClient](/dotnet/api/microsoft.azure.devices.client.moduleclient) do SDK do Hub IoT para .NET.
 
 1. No arquivo **program.cs**, localize o método **SetInputMessageHandlerAsync**.
 
-2. O método [SetInputMessageHandlerAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient.setinputmessagehandlerasync?view=azure-dotnet) configura uma fila de entrada para receber mensagens de entrada. Examine essa função e veja como inicializa uma fila de entrada chamada **input1**.
+2. O método [SetInputMessageHandlerAsync](/dotnet/api/microsoft.azure.devices.client.moduleclient.setinputmessagehandlerasync) configura uma fila de entrada para receber mensagens de entrada. Examine essa função e veja como inicializa uma fila de entrada chamada **input1**.
 
    ![Localizar o nome de entrada no construtor SetInputMessageHandlserAsync](./media/tutorial-develop-for-windows/declare-input-queue.png)
 
 3. Em seguida, localize o método **SendEventAsync**.
 
-4. O método [SendEventAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient.sendeventasync?view=azure-dotnet) processa as mensagens recebidas e configura uma fila de saída para passá-las a diante. Examine esse método e veja que inicia uma fila de saída chamada **output1**.
+4. O método [SendEventAsync](/dotnet/api/microsoft.azure.devices.client.moduleclient.sendeventasync) processa as mensagens recebidas e configura uma fila de saída para passá-las a diante. Examine esse método e veja que inicia uma fila de saída chamada **output1**.
 
    ![Localizar o nome da saída no construtor SendEventAsync](./media/tutorial-develop-for-windows/declare-output-queue.png)
 
@@ -205,7 +205,7 @@ O código de exemplo C# que vem com o modelo de projeto usa a [classe ModuleClie
 
 7. Localize a propriedade **routes** das propriedades desejadas de $edgeHub.
 
-   Uma das funções do módulo do hub do IoT Edge é rotear mensagens entre todos os módulos em uma implantação. Examine os valores na propriedade routes. Uma das rotas, **IotEdgeModule1ToIoTHub**, usa um caractere curinga ( **\*** ) para incluir qualquer mensagem recebida de qualquer fila de saída no módulo IotEdgeModule1. Essas mensagens entram em *$upstream*, que é um nome reservado que indica o Hub IoT. A outra rota, **sensorToIotEdgeModule1**, usa mensagens provenientes do módulo SimulatedTemperatureSensor e as roteia para a fila de entrada *input1* do módulo IotEdgeModule1.
+   Uma das funções do módulo do hub do IoT Edge é rotear mensagens entre todos os módulos em uma implantação. Examine os valores na propriedade routes. Uma das rotas, **IotEdgeModule1ToIoTHub**, usa um caractere curinga (* *\** _) para incluir qualquer mensagem recebida de qualquer fila de saída no módulo IotEdgeModule1. Essas mensagens entram em _$upstream*, um nome reservado que indica o hub IoT. A outra rota, **sensorToIotEdgeModule1**, usa mensagens provenientes do módulo SimulatedTemperatureSensor e as roteia para a fila de entrada *input1* do módulo IotEdgeModule1.
 
    ![Examinar rotas em deployment.template.json](./media/tutorial-develop-for-windows/deployment-routes.png)
 
@@ -275,7 +275,7 @@ Se encontrar erros ao criar e enviar sua imagem de módulo por push, isso geralm
 
 Você verificou que as imagens de contêineres criadas estão armazenadas em seu registro de contêiner, portanto, chegou a hora de implantá-las em um dispositivo. Verifique se seu dispositivo IoT Edge está em funcionamento.
 
-1. Abra o Cloud Explorer no Visual Studio e expanda os detalhes para o hub IoT.
+1. Abra o Cloud Explorer no Visual Studio e expanda os detalhes para obter o hub IoT.
 
 2. Selecione o nome do dispositivo que você deseja implantar. Na lista **Ações**, selecione **Criar Implantação**.
 
@@ -285,7 +285,7 @@ Você verificou que as imagens de contêineres criadas estão armazenadas em seu
 
    Não use o arquivo deployment.template.json, que não tem os valores de imagem de módulo completo nele.
 
-4. Expanda os detalhes de seu dispositivo IoT Edge no Cloud Explorer para ver os módulos no seu dispositivo.
+4. Expanda os detalhes de seu dispositivo IoT Edge no Cloud Explorer para conferir os módulos do dispositivo.
 
 5. Use o botão **Atualizar** para atualizar o status do dispositivo e ver que os módulos SimulatedTemperatureSensor e IotEdgeModule1 estão implantados no dispositivo.
 

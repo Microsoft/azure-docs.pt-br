@@ -6,17 +6,17 @@ ms.service: sql-db-mi
 ms.subservice: development
 ms.custom: sqldbrb=2
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: bonova
 ms.author: bonova
-ms.reviewer: carlrab
+ms.reviewer: sstein
 ms.date: 09/25/2018
-ms.openlocfilehash: 8c5ea1f7ef094944c3e5a20dd19bce6d8cce294d
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 1d68163a9fba3ba3bcd4c0c0f3fb5f442296e781
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985436"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91619382"
 ---
 # <a name="manage-historical-data-in-temporal-tables-with-retention-policy"></a>Gerenciar dados históricos em tabelas temporais com política de retenção
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -42,7 +42,7 @@ SELECT is_temporal_history_retention_enabled, name
 FROM sys.databases
 ```
 
-O sinalizador de banco de dados **is_temporal_history_retention_enabled** é definido como ON por padrão, mas os usuários podem alterá-lo com a instrução ALTER DATABASE. Ele é automaticamente definido como OFF após a operação [restauração pontual](recovery-using-backups.md). Para habilitar a limpeza da retenção de histórico temporal para seu banco de dados, execute a seguinte instrução:
+O sinalizador de banco de dados **is_temporal_history_retention_enabled** é definido como ON por padrão, mas os usuários podem alterá-lo com a instrução ALTER DATABASE. Ele também é definido automaticamente como OFF após a operação [de restauração pontual](recovery-using-backups.md) . Para habilitar a limpeza da retenção de histórico temporal para seu banco de dados, execute a seguinte instrução:
 
 ```sql
 ALTER DATABASE <myDB>
@@ -110,7 +110,7 @@ A tarefa de limpeza para o columnstore clusterizado remove [grupos de linhas](/s
 
 ![Retenção de columnstore clusterizado](./media/temporal-tables-retention-policy/cciretention.png)
 
-A excelente compactação de dados e eficiente limpeza da retenção torna o índice de columnstore clusterizado uma opção ideal para cenários em que sua carga de trabalho gera rapidamente uma grande quantidade de dados históricos. Esse padrão é típico para o [cargas de trabalho de processamento transacional intensas que usam tabelas temporais](/sql/relational-databases/tables/temporal-table-usage-scenarios) para controle de alterações e auditoria, análise de tendências ou ingestão de dados de IoT.
+A excelente compactação de dados e eficiente limpeza da retenção torna o índice de columnstore clusterizado uma opção ideal para cenários em que sua carga de trabalho gera rapidamente uma grande quantidade de dados históricos. Esse padrão é típico para [cargas de trabalho de processamento transacionais intensivas que usam tabelas temporais](/sql/relational-databases/tables/temporal-table-usage-scenarios) para controle de alterações e auditoria, análise de tendência ou ingestão de dados de IOT.
 
 ## <a name="index-considerations"></a>Considerações de índice
 
@@ -120,7 +120,7 @@ A tarefa de limpeza para tabelas com um índice clusterizado de rowstore requer 
 
 É importante observar que a tabela de histórico padrão criada pelo banco de dados SQL do Azure e o Azure SQL Instância Gerenciada já tem um índice clusterizado, que é compatível com a política de retenção. Se você tentar remover o índice em uma tabela com o período de retenção finito, a operação falhará com o seguinte erro:
 
-*MSG 13766, nível 16, estado 1 <br> </br> não é possível descartar o índice clusterizado ' WebsiteUserInfoHistory. IX_WebsiteUserInfoHistory ' porque ele está sendo usado para limpeza automática de dados antigos. Considere definir HISTORY_RETENTION_PERIOD como infinito na tabela temporal com versão do sistema correspondente se você precisar descartar esse índice.*
+*MSG 13766, nível 16, estado 1 <br> </br> não é possível descartar o índice clusterizado ' WebsiteUserInfoHistory.IX_WebsiteUserInfoHistory ' porque ele está sendo usado para limpeza automática de dados antigos. Considere definir HISTORY_RETENTION_PERIOD como infinito na tabela temporal com versão do sistema correspondente se você precisar descartar esse índice.*
 
 A limpeza no índice columnstore clusterizado funciona de maneira ideal se as linhas históricas forem inseridas em ordem crescente (ordenadas no final da coluna do período), que sempre será o caso quando a tabela de histórico for populada exclusivamente pelo mecanismo SYSTEM_VERSIONIOING. Se as linhas da tabela de histórico não forem ordenadas pelo final da coluna do período (o que pode ser o caso se você migrar dados históricos existentes), você deverá recriar o índice columnstore clusterizado além do índice rowstore de árvore B ordenado corretamente para obter o desempenho ideal.
 

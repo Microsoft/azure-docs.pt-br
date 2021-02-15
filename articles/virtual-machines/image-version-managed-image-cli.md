@@ -1,6 +1,6 @@
 ---
-title: Migrar de uma imagem gerenciada para uma versão de imagem com o CLI do Azure
-description: Saiba como migrar de uma imagem gerenciada para uma versão de imagem em uma galeria de imagens compartilhada usando o CLI do Azure.
+title: Clonar uma imagem gerenciada para uma versão de imagem com o CLI do Azure
+description: Saiba como clonar uma imagem gerenciada para uma versão de imagem em uma galeria de imagens compartilhada usando o CLI do Azure.
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: imaging
@@ -10,15 +10,15 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 8631a411b26f91bc72e23ac7ff9fb2278f61168c
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 56611794bc2f190eccef739679da8474c9b04eb4
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502878"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98675953"
 ---
-# <a name="migrate-from-a-managed-image-to-an-image-version-using-the-azure-cli"></a>Migrar de uma imagem gerenciada para uma versão de imagem usando o CLI do Azure
-Se você tiver uma imagem gerenciada existente que deseja migrar para uma galeria de imagens compartilhada, poderá criar uma imagem da Galeria de imagens compartilhada diretamente da imagem gerenciada. Depois de testar a nova imagem, você pode excluir a imagem gerenciada de origem. Você também pode migrar de uma imagem gerenciada para uma galeria de imagens compartilhada usando o [PowerShell](image-version-managed-image-powershell.md).
+# <a name="clone-a-managed-image-to-an-image-version-using-the-azure-cli"></a>Clonar uma imagem gerenciada para uma versão de imagem usando o CLI do Azure
+Se você tiver uma imagem gerenciada existente que deseja clonar em uma galeria de imagens compartilhada, poderá criar uma imagem da Galeria de imagens compartilhada diretamente da imagem gerenciada. Depois de testar a nova imagem, você pode excluir a imagem gerenciada de origem. Você também pode migrar de uma imagem gerenciada para uma galeria de imagens compartilhada usando o [PowerShell](image-version-managed-image-powershell.md).
 
 As imagens em uma galeria de imagens têm dois componentes, que serão criados neste exemplo:
 - Uma **definição de imagem** contém informações sobre a imagem e os requisitos para usá-la. Isso inclui se a imagem é Windows ou Linux, especializada ou generalizada, notas de versão e requisitos mínimos e máximos de memória. É uma definição de um tipo de imagem. 
@@ -41,11 +41,11 @@ Como as imagens gerenciadas são sempre imagens generalizadas, você criará uma
 
 Os nomes das definições de imagem podem ser compostos por letras maiúsculas ou minúsculas, dígitos, pontos, traços e pontos finais. 
 
-Para obter mais informações sobre os valores que pode especificar para uma definição de imagem, confira [Definições de imagem](./linux/shared-image-galleries.md#image-definitions).
+Para obter mais informações sobre os valores que pode especificar para uma definição de imagem, confira [Definições de imagem](./shared-image-galleries.md#image-definitions).
 
 Crie uma definição de imagem na galeria usando [az sig image-definition create](/cli/azure/sig/image-definition#az-sig-image-definition-create).
 
-Neste exemplo, a definição de imagem é chamada *myImageDefinition*e é para uma imagem [generalizada](./linux/shared-image-galleries.md#generalized-and-specialized-images) do SO Linux. Para criar uma definição para imagens usando um SO Windows, use `--os-type Windows`. 
+Neste exemplo, a definição de imagem é chamada *myImageDefinition* e é para uma imagem [generalizada](./shared-image-galleries.md#generalized-and-specialized-images) do SO Linux. Para criar uma definição para imagens usando um SO Windows, use `--os-type Windows`. 
 
 ```azurecli-interactive 
 resourceGroup=myGalleryRG

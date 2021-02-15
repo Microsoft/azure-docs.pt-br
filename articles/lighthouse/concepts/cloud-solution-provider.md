@@ -1,14 +1,14 @@
 ---
 title: Considerações sobre o programa Provedor de Soluções na Nuvem
 description: Para parceiros CSP, o gerenciamento de recursos delegados do Azure ajuda a melhorar a segurança e o controle oferecendo permissões granulares.
-ms.date: 07/29/2020
+ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0ae7ef0b78f2f37708c6b442a9591fcbcce25646
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 27bb1c4f82fe3c9ff8abe74b74bef19f16a8a874
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87429456"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "90967161"
 ---
 # <a name="azure-lighthouse-and-the-cloud-solution-provider-program"></a>Azure Lighthouse e o programa Provedor de Soluções na Nuvem
 
@@ -23,15 +23,15 @@ Com o [Azure Lighthouse](../overview.md), você pode usar o gerenciamento de rec
 
 Com o AOBO, qualquer usuário com a função [Agente Administrador](/partner-center/permissions-overview#manage-commercial-transactions-in-partner-center-azure-ad-and-csp-roles) em seu locatário terá acesso AOBO às assinaturas do Azure que você criar por meio do programa CSP. Os usuários que precisarem de acesso às assinaturas de clientes deverão ser um membro deste grupo. O AOBO não permite a flexibilidade de criar grupos distintos que funcionam com clientes diferentes ou de habilitar funções diferentes para grupos ou usuários.
 
-![Gerenciamento de locatário usando AOBO](../media/csp-1.jpg)
+![Diagrama mostrando o gerenciamento de locatários usando AOBO.](../media/csp-1.jpg)
 
 ## <a name="azure-delegated-resource-management"></a>Gerenciamento de recursos delegados do Azure
 
-Usando o Azure Lighthouse, você pode atribuir diferentes grupos a diferentes clientes ou funções, conforme mostrado no diagrama a seguir. Como os usuários terão o nível apropriado de acesso por meio do gerenciamento de recursos delegado do Azure, você poderá reduzir o número de usuários que têm a função de Agente Administrador (e, portanto, ter acesso total por meio do AOBO). Isso ajuda a melhorar a segurança limitando o acesso desnecessário aos recursos dos seus clientes. Isso também proporciona mais flexibilidade para gerenciar vários clientes em escala.
+Usando o Azure Lighthouse, você pode atribuir diferentes grupos a diferentes clientes ou funções, conforme mostrado no diagrama a seguir. Como os usuários terão o nível apropriado de acesso por meio do gerenciamento de recursos delegado do Azure, você poderá reduzir o número de usuários que têm a função de Agente Administrador (e, portanto, ter acesso total por meio do AOBO). Isso ajuda a melhorar a segurança limitando o acesso desnecessário aos recursos de seus clientes. Isso também proporciona mais flexibilidade para gerenciar vários clientes em escala.
 
 A integração de uma assinatura que você criou por meio do programa CSP segue as etapas descritas em integrar [uma assinatura ao Lighthouse do Azure](../how-to/onboard-customer.md). Qualquer usuário que tenha a função Agente Administrador em seu locatário poderá realizar essa integração.
 
-![Gerenciamento de locatários usando AOBO e gerenciamento de recursos delegados do Azure](../media/csp-2.jpg)
+![Diagrama mostrando o gerenciamento de locatários usando o AOBO e o gerenciamento de recursos delegado do Azure.](../media/csp-2.jpg)
 
 > [!TIP]
 > [Ofertas de serviço gerenciado](managed-services-offers.md) com planos privados não têm suporte com assinaturas estabelecidas por meio de um revendedor do programa CSP (provedor de soluções na nuvem). Você pode integrar essas assinaturas ao Azure Lighthouse [usando modelos de Azure Resource Manager](../how-to/onboard-customer.md).
@@ -39,7 +39,7 @@ A integração de uma assinatura que você criou por meio do programa CSP segue 
 > [!NOTE]
 > A [página **meus clientes** no portal do Azure](../how-to/view-manage-customers.md) agora inclui uma seção **provedor de soluções na nuvem (versão prévia)** , que exibe informações de cobrança e recursos para clientes do CSP que [assinaram o MCA (contrato de cliente da Microsoft)](/partner-center/confirm-customer-agreement) e estão [no plano do Azure](/partner-center/azure-plan-get-started). Para saber mais, confira [Introdução à conta de cobrança do Contrato de Parceiro da Microsoft](../../cost-management-billing/understand/mpa-overview.md).
 >
-> Os clientes do CSP podem aparecer nesta seção se também tiverem sido integrados ao gerenciamento de recursos delegado do Azure. Se eles tiverem, eles também aparecerão na seção **clientes** , conforme descrito em [Exibir e gerenciar clientes e recursos delegados](../how-to/view-manage-customers.md). Da mesma forma, um cliente CSP não precisa aparecer na seção **provedor de soluções na nuvem (versão prévia)** de **meus clientes** para que você possa integrá-los para o gerenciamento de recursos delegado do Azure.
+> Os clientes do CSP podem aparecer nesta seção se também tiverem sido integrados ao Azure Lighthouse. Se eles tiverem, eles também aparecerão na seção **clientes** , conforme descrito em [Exibir e gerenciar clientes e recursos delegados](../how-to/view-manage-customers.md). Da mesma forma, um cliente CSP não precisa aparecer na seção **provedor de soluções na nuvem (versão prévia)** de **meus clientes** para que você possa integrá-los ao Azure Lighthouse.
 
 ## <a name="next-steps"></a>Próximas etapas
 

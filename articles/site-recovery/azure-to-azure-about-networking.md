@@ -2,18 +2,18 @@
 title: Sobre a rede na recuperação de desastre da VM do Azure com o Azure Site Recovery
 description: Fornece uma visão geral da rede para a replicação de VMs do Azure usando o Azure Site Recovery.
 services: site-recovery
-author: sujayt
+author: Harsha-CS
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 3/13/2020
-ms.author: sutalasi
-ms.openlocfilehash: f9e2d82130ae188d269847d0e0236ea0e33d00dc
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.author: harshacs
+ms.openlocfilehash: b9fdaf8a0791570ecee402442c5faefe2f70a22b
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86131385"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370433"
 ---
 # <a name="about-networking-in-azure-vm-disaster-recovery"></a>Sobre a rede na recuperação de desastre da VM do Azure
 
@@ -29,22 +29,24 @@ Saiba como o Site Recovery fornece recuperação de desastre para [esse cenário
 
 O diagrama a seguir ilustra um ambiente típico do Azure para aplicativos em execução em VMs do Azure:
 
-![ambiente do cliente](./media/site-recovery-azure-to-azure-architecture/source-environment.png)
+![Diagrama que descreve um ambiente típico do Azure para aplicativos em execução em VMs do Azure.](./media/site-recovery-azure-to-azure-architecture/source-environment.png)
 
 Caso você esteja usando o Azure ExpressRoute ou uma conexão VPN na rede local com o Azure, o ambiente terá a seguinte aparência:
 
 ![ambiente do cliente](./media/site-recovery-azure-to-azure-architecture/source-environment-expressroute.png)
 
-As redes geralmente são protegidas usando firewalls e NSGs (grupos de segurança de rede). Os firewalls usam lista branca baseada em IP ou em URL para controlar a conectividade de rede. Os NSGs fornecem regras que usam intervalos de endereços IP para controlar a conectividade de rede.
+As redes geralmente são protegidas usando firewalls e NSGs (grupos de segurança de rede). As marcas de serviço devem ser usadas para controlar a conectividade de rede. NSGs deve permitir várias marcas de serviço para controlar a conectividade de saída.
 
 >[!IMPORTANT]
 > O uso de um proxy autenticado para controlar a conectividade de rede não é compatível com o Site Recovery e a replicação não pode ser habilitada.
 
+>[!NOTE]
+>- A filtragem baseada em endereço IP não deve ser executada para controlar a conectividade de saída.
+>- Azure Site Recovery endereços IP não devem ser adicionados na tabela de roteamento do Azure para controlar a conectividade de saída.
 
 ## <a name="outbound-connectivity-for-urls"></a>Conectividade de saída para URLs
 
 Se você está usando um proxy de firewall baseado em URL para controlar a conectividade de saída, permita estas URLs do Site Recovery:
-
 
 **URL** | **Detalhes**
 --- | ---
@@ -57,16 +59,16 @@ login.microsoftonline.com | Necessário para autorização e autenticação para
 
 ## <a name="outbound-connectivity-using-service-tags"></a>Conectividade de saída usando marcas de serviço
 
-Se você estiver usando um NSG para controlar a conectividade de saída, essas marcas de serviço precisarão ser permitidas.
+Ao usar o NSG para controlar a conectividade de saída, essas marcas de serviço precisam ser permitidas.
 
 - Para as contas de armazenamento na região de origem:
-    - Crie uma [marcação de serviço de armazenamento](../virtual-network/security-overview.md#service-tags) com base na regra NSG para a região de origem.
+    - Crie uma [marcação de serviço de armazenamento](../virtual-network/network-security-groups-overview.md#service-tags) com base na regra NSG para a região de origem.
     - Permita esses endereços para que os dados possam ser gravados da VM para a conta de armazenamento de cache.
-- Criar uma [marca de serviço do Azure Active Directory (AAD)](../virtual-network/security-overview.md#service-tags) com base em regra NSG para permitir o acesso a todos os endereços IP correspondente para o AAD
-- Crie uma regra de NSG baseada na marca de serviço EventsHub para a região de destino, permitindo o acesso ao monitoramento de Site Recovery.
-- Crie uma regra de NSG baseada na marca de serviço AzureSiteRecovery para permitir acesso ao Site Recovery Service em qualquer região.
-- Crie uma regra de NSG baseada na marca de serviço AzureKeyVault. Isso é necessário apenas para habilitar a replicação de máquinas virtuais habilitadas para ADE por meio do Portal.
-- Crie uma regra de NSG baseada na marca de serviço GuestAndHybridManagement. Isso é necessário apenas para habilitar a atualização automática do agente de mobilidade para um item replicado por meio do Portal.
+- Criar uma [marca de serviço do Azure Active Directory (AAD)](../virtual-network/network-security-groups-overview.md#service-tags) com base em regra NSG para permitir o acesso a todos os endereços IP correspondente para o AAD
+- Crie uma regra de NSG baseada em marca de serviço EventsHub para a região de destino, permitindo o acesso ao monitoramento de Site Recovery.
+- Crie uma regra de NSG baseada em marca de serviço do AzureSiteRecovery para permitir acesso ao Site Recovery Service em qualquer região.
+- Crie uma regra de NSG baseada em marca de serviço do AzureKeyVault. Isso é necessário apenas para habilitar a replicação de máquinas virtuais habilitadas para ADE por meio do Portal.
+- Crie uma regra de NSG baseada em marca de serviço do GuestAndHybridManagement. Isso é necessário apenas para habilitar a atualização automática do agente de mobilidade para um item replicado por meio do Portal.
 - É recomendável que você crie as regras de NSG necessárias em um NSG de teste e verifique se não há nenhum problema antes de criar as regras em um NSG de produção.
 
 ## <a name="example-nsg-configuration"></a>Exemplo de Configuração do NSG
@@ -80,11 +82,11 @@ Este exemplo mostra como configurar regras de NSG para uma VM a ser replicada.
 
 1. Crie uma regra de segurança HTTPS (443) de saída para "Storage.EastUS" no NSG conforme mostrado na captura de tela abaixo.
 
-      ![storage-tag](./media/azure-to-azure-about-networking/storage-tag.png)
+      ![A captura de tela mostra Adicionar regra de segurança de saída para um grupo de segurança de rede para o ponto de armazenamento leste U S.](./media/azure-to-azure-about-networking/storage-tag.png)
 
 2. Crie uma regra de segurança HTTPS (443) de saída para "AzureActiveDirectory" no NSG conforme mostrado na captura de tela abaixo.
 
-      ![aad-tag](./media/azure-to-azure-about-networking/aad-tag.png)
+      ![A captura de tela mostra Adicionar regra de segurança de saída para um grupo de segurança de rede para o Azure A D.](./media/azure-to-azure-about-networking/aad-tag.png)
 
 3. Semelhante às regras de segurança acima, crie a regra de segurança HTTPS de saída (443) para "EventHub. Centralus" no NSG que corresponde ao local de destino. Isso permite o acesso ao monitoramento de Site Recovery.
 

@@ -1,17 +1,15 @@
 ---
 title: Implantar um aplicativo Java em um cluster do Service Fabric no Azure
 description: Neste tutorial, saiba como implantar um aplicativo Java do Service Fabric em um cluster do Azure Service Fabric.
-author: suhuruli
 ms.topic: tutorial
 ms.date: 02/26/2018
-ms.author: suhuruli
-ms.custom: mvc, devx-track-java
-ms.openlocfilehash: 50ae4d34cd7b238403ee95bd36a97ac82392f3ba
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.custom: mvc, devx-track-java, devx-track-azurecli
+ms.openlocfilehash: 48cb7df49fb918ebd30883edc573cc63b6e35e4a
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320724"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98789390"
 ---
 # <a name="tutorial-deploy-a-java-application-to-a-service-fabric-cluster-in-azure"></a>Tutorial: Implantar um aplicativo Java em um cluster do Service Fabric no Azure
 
@@ -37,7 +35,7 @@ Nesta série de tutoriais, você aprenderá a:
 Antes de começar este tutorial:
 
 * Se você não tem uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* [Instalar a CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest)
+* [Instalar a CLI do Azure](/cli/azure/install-azure-cli)
 * Instalar o SDK do Service Fabric para [Mac](service-fabric-get-started-mac.md) ou [Linux](service-fabric-get-started-linux.md)
 * [Instalar o Python 3](https://wiki.python.org/moin/BeginnersGuide/Download)
 
@@ -116,10 +114,10 @@ As etapas a seguir criam os recursos necessários para implantar seu aplicativo 
 10. Crie um recurso de Hubs de Eventos usando o comando a seguir. Siga os prompts para inserir detalhes para namespaceName, eventHubName, consumerGroupName, sendAuthorizationRule e receiveAuthorizationRule.
 
     ```azurecli
-    az group deployment create -g [RESOURCE-GROUP-NAME] --template-file eventhubsdeploy.json
+    az deployment group create -g [RESOURCE-GROUP-NAME] --template-file eventhubsdeploy.json
 
     Example:
-    az group deployment create -g testeventhubsrg --template-file eventhubsdeploy.json
+    az deployment group create -g testeventhubsrg --template-file eventhubsdeploy.json
     Please provide string value for 'namespaceName' (? for help): testeventhubnamespace
     Please provide string value for 'eventHubName' (? for help): testeventhub
     Please provide string value for 'consumerGroupName' (? for help): testeventhubconsumergroup

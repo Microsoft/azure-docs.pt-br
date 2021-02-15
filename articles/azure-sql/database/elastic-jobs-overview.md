@@ -11,14 +11,14 @@ author: srinia
 ms.author: srinia
 ms.reviewer: sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: 62202946193c111921c97dc95a7ec7955a63804f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f9a026ed47d662b80ef01e505bfbcf8f32d20b04
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85251152"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792167"
 ---
-# <a name="create-configure-and-manage-elastic-jobs"></a>Criar, configurar e gerenciar trabalhos elásticos
+# <a name="create-configure-and-manage-elastic-jobs-preview"></a>Criar, configurar e gerenciar trabalhos elásticos (visualização)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Neste artigo, você aprenderá a criar, configurar e gerenciar trabalhos elásticos.
@@ -50,11 +50,11 @@ Os trabalhos usam [credenciais no escopo do banco de dados](/sql/t-sql/statement
 
 A configuração das devidas credenciais para executar um trabalho pode ser um pouco confusa e, portanto, tenha os seguintes pontos em mente:
 
-- As credenciais no escopo do banco de dados devem ser criadas no *banco de dados do trabalho*.
-- **Todos os bancos de dados de destino devem ter um logon com [permissões suficientes](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine) para que o trabalho seja concluído com êxito** (`jobuser` no diagrama abaixo).
+- As credenciais no escopo do banco de dados devem ser criadas no *banco de dados do trabalho* .
+- **Todos os bancos de dados de destino devem ter um logon com [permissões suficientes](/sql/relational-databases/security/permissions-database-engine) para que o trabalho seja concluído com êxito** (`jobuser` no diagrama abaixo).
 - As credenciais podem ser reutilizadas entre os trabalhos e as senhas de credencial são criptografadas e protegidas contra usuários que têm acesso somente leitura a objetos de trabalho.
 
-A imagem a seguir foi criada para ajudar na compreensão e na configuração das credenciais de trabalho adequadas. **Lembre-se de criar o usuário em cada banco de dados (todos os *bancos de dados de usuário de destino*) em que o trabalho será executado**.
+A imagem a seguir foi criada para ajudar na compreensão e na configuração das credenciais de trabalho adequadas. **Lembre-se de criar o usuário em cada banco de dados (todos os *bancos de dados de usuário de destino* ) em que o trabalho será executado** .
 
 ![Credenciais de trabalhos elásticos](./media/elastic-jobs-overview/job-credentials.png)
 
@@ -63,7 +63,7 @@ A imagem a seguir foi criada para ajudar na compreensão e na configuração das
 Algumas considerações sobre melhores práticas para usar trabalhos elásticos:
 
 - Limite o uso das APIs somente a pessoas confiáveis.
-- As credenciais devem ter os privilégios mínimos necessários para executar a etapa do trabalho. Para obter mais informações, consulte [autorização e permissões](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/authorization-and-permissions-in-sql-server).
+- As credenciais devem ter os privilégios mínimos necessários para executar a etapa do trabalho. Para obter mais informações, consulte [autorização e permissões](/dotnet/framework/data/adonet/sql/authorization-and-permissions-in-sql-server).
 - Ao usar um servidor e/ou um membro do grupo de destino de pool, é altamente recomendável criar uma credencial separada com direitos sobre o banco de dados mestre para exibir/listar bancos de dados, que será usada para expandir as listas de banco de dados dos servidores e/ou pools antes da execução do trabalho.
 
 ## <a name="agent-performance-capacity-and-limitations"></a>Desempenho, capacidade e limitações do agente

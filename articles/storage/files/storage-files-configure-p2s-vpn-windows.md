@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: da49d1c94584393bfef066d61c1caf360b249c3b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: HT
+ms.openlocfilehash: 6253deb53229172cd499a6aa14b8d8f19bc07b63
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85515320"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629250"
 ---
 # <a name="configure-a-point-to-site-p2s-vpn-on-windows-for-use-with-azure-files"></a>Configurar uma VPN P2S (ponto a site) no Windows para uso com os Arquivos do Azure
 Você pode usar uma conexão de VPN P2S (ponto a site) para montar compartilhamentos de arquivo do Azure no SMB de fora do Azure, sem precisar abrir a porta 445. Uma conexão VPN Ponto a Site é uma conexão VPN entre o Azure e um cliente individual. Para usar uma conexão VPN P2S com os Arquivos do Azure, será preciso configurar uma conexão VPN P2S para cada cliente que desejar se conectar. Se muitos clientes precisarem se conectar aos seus compartilhamentos de arquivo do Azure de suas redes locais, você poderá usar uma VPN S2S (Site a Site) em vez de uma conexão ponto a site para cada um deles. Para saber mais, confira [Configurar uma VPN Site a Site para usar com os Arquivos do Azure](storage-files-configure-s2s-vpn.md).
@@ -22,7 +22,7 @@ Recomendamos que você leia [Considerações de rede para acesso direto ao compa
 O artigo detalha as etapas de configuração de uma VPN Ponto a Site no Windows (cliente Windows e Windows Server) para criar compartilhamentos de arquivo do Azure diretamente no local. Se você deseja encaminhar o tráfego da Sincronização de Arquivos do Azure por uma VPN, confira [Definir configurações de proxy e firewall da Sincronização de Arquivos do Azure](storage-sync-files-firewall-and-proxy.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
-- A versão mais recente do módulo do Azure PowerShell. Para obter mais informações sobre como instalar o Azure PowerShell, confira [Instalar e configurar o módulo do Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) e escolha seu sistema operacional. Se preferir, você poderá usar a CLI do Azure no Windows. No entanto, as instruções a seguir são apresentadas para o Azure PowerShell.
+- A versão mais recente do módulo do Azure PowerShell. Para obter mais informações sobre como instalar o Azure PowerShell, confira [Instalar e configurar o módulo do Azure PowerShell](/powershell/azure/install-az-ps) e escolha seu sistema operacional. Se preferir, você poderá usar a CLI do Azure no Windows. No entanto, as instruções a seguir são apresentadas para o Azure PowerShell.
 
 - Um compartilhamento de arquivos do Azure que você gostaria de montar no local. Os compartilhamentos de arquivo do Azure são implantados em contas de armazenamento, que são constructos de gerenciamento que representam um pool compartilhado de armazenamento no qual você pode implantar vários compartilhamentos de arquivo bem como outros recursos de armazenamento, como filas ou contêineres de blobs. Você pode aprender mais sobre como implantar compartilhamentos de arquivo do Azure e contas de armazenamento em [Criar um compartilhamento de arquivo do Azure](storage-how-to-create-file-share.md).
 
@@ -212,7 +212,7 @@ Export-PfxCertificate `
 ```
 
 ## <a name="configure-the-vpn-client"></a>Configurar o cliente VPN
-O gateway de rede virtual do Azure criará um pacote que poderá ser baixado contendo os arquivos de configuração necessários para iniciar a conexão VPN em seu computador Windows local. Configuraremos a conexão VPN usando o recurso [VPN Always On](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/) do Windows 10/Windows Server 2016+. Este pacote também contém pacotes executáveis para configurar o cliente VPN do Windows herdado, caso seja desejado. Este guia usa a VPN Always On em vez do cliente VPN do Windows herdado, pois o cliente VPN Always On permite que os usuários finais se conectem/desconectem da VPN do Azure sem ter permissões de administrador em seus computadores. 
+O gateway de rede virtual do Azure criará um pacote que poderá ser baixado contendo os arquivos de configuração necessários para iniciar a conexão VPN em seu computador Windows local. Configuraremos a conexão VPN usando o recurso [VPN Always On](/windows-server/remote/remote-access/vpn/always-on-vpn/) do Windows 10/Windows Server 2016+. Este pacote também contém pacotes executáveis para configurar o cliente VPN do Windows herdado, caso seja desejado. Este guia usa a VPN Always On em vez do cliente VPN do Windows herdado, pois o cliente VPN Always On permite que os usuários finais se conectem/desconectem da VPN do Azure sem ter permissões de administrador em seus computadores. 
 
 O script a seguir instalará o certificado do cliente necessário para autenticação no gateway de rede virtual, além de baixar e instalar o pacote da VPN. Lembre-se de substituir `<computer1>` e `<computer2>` pelos computadores desejados. Você pode executar este script em quantos computadores desejar adicionando mais sessões do PowerShell à matriz `$sessions`. Sua conta de usuário deve ser de administrador em todos esses computadores. Se um desses computadores for o computador virtual de onde você está rodando o script, você precisará executar o script em uma sessão do PowerShell elevada. 
 

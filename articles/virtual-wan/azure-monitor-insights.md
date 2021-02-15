@@ -1,51 +1,51 @@
 ---
-title: Monitorando a WAN virtual do Azure usando o Azure Monitor insights
-description: Saiba mais sobre como monitorar a WAN virtual usando o Azure Monitor insights
+title: Monitorando a WAN virtual usando o Azure Monitor insights
+description: Neste artigo, você aprenderá sobre como monitorar a WAN virtual do Azure usando o Azure Monitor insights.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 07/22/2020
+ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: e3316b4a2255652972a0b9deef813f894f993589
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: d14ae86d41caec3c1bd897c2c81bee748dcc312c
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836064"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98050877"
 ---
-# <a name="azure-monitor-insights-for-virtual-wan-preview"></a>Azure Monitor insights para WAN virtual (versão prévia)
+# <a name="azure-monitor-insights-for-virtual-wan"></a>Azure Monitor insights para WAN virtual
 
-[Azure monitor insights](../azure-monitor/insights/network-insights-overview.md) para WAN virtual oferece aos usuários e operadores a capacidade de exibir o estado e o status da WAN virtual, apresentada por meio de um mapa topológica autodescoberto. O estado e o status do recurso são sobrepostos no mapa para fornecer uma exibição de instantâneo da integridade geral da WAN virtual. A navegação de recursos é habilitada no mapa por meio de acesso de um clique às páginas de configuração de recurso do portal de WAN virtual.
+[Azure monitor insights](../azure-monitor/insights/network-insights-overview.md) para a WAN virtual do Azure fornece aos usuários e operadores a capacidade de exibir o estado e o status de uma WAN virtual, apresentada por meio de um mapa topológica autodescoberto. As sobreposições de estado e status do recurso no mapa fornecem uma exibição de instantâneo da integridade geral da WAN virtual. Você pode navegar pelos recursos no mapa por meio de acesso de um clique às páginas de configuração de recurso do portal de WAN virtual.
 
-As métricas de nível de recurso da WAN virtual são coletadas e apresentadas por meio de uma pasta de trabalho de métricas de WAN virtual predefinida que mostra as métricas em um WAN virtual, Hub, gateway e níveis de conexão. Este artigo explica as etapas para usar Azure Monitor informações para a WAN virtual para exibir sua topologia e métricas de WAN virtual em um único local.
+As métricas de nível de recurso da WAN virtual são coletadas e apresentadas por meio de uma pasta de trabalho de métricas de WAN virtual predefinida. A pasta de trabalho mostra as métricas nos níveis de WAN virtual, Hub, gateway e conexão. Este artigo explica as etapas para usar Azure Monitor informações para a WAN virtual para exibir sua topologia e métricas de WAN virtual em um único local.
 
 > [!NOTE]
-> A opção de menu insights no portal de WAN virtual está em processo de distribuição. Embora o menu insights para a WAN virtual esteja sendo distribuído, a topologia e a pasta de trabalho de métricas da WAN virtual podem ser acessadas diretamente usando o Azure montor para redes. Confira [Azure monitor insights](../azure-monitor/insights/network-insights-overview.md) para obter mais informações. 
+> A opção de menu **insights** está no portal de WAN virtual em **monitoramento**. Você também pode acessar a topologia de WAN virtual e a pasta de trabalho de métricas usando Azure Monitor para redes. Para obter mais informações, consulte [Azure monitor para redes](../azure-monitor/insights/network-insights-overview.md). 
 >
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-As etapas neste artigo pressupõem que você já implantou uma WAN virtual com um ou mais hubs. Para criar uma nova WAN virtual e um novo hub, siga as etapas nos artigos a seguir:
+Para concluir as etapas neste artigo, você precisa ter uma WAN virtual com um ou mais hubs. Para criar uma WAN virtual e um Hub, siga as etapas nestes artigos:
 
 * [Criação de uma WAN virtual](virtual-wan-site-to-site-portal.md#openvwan)
 * [Criação de um hub](virtual-wan-site-to-site-portal.md#hub)
 
 ## <a name="view-vwan-topology"></a><a name="topology"></a>Exibir topologia VWAN
 
-Na **Wan virtual de portal do Azure >**, no menu do **Monitor** à esquerda, selecione **insights (versão prévia)**. Isso abre o **modo de exibição de informações**, que exibe o mapa de dependência de WAN virtual e a mini-pasta de métricas de alto nível.
+Vá para **portal do Azure**  >  **Wan virtual**. No menu **monitorar** no painel esquerdo, selecione **insights (versão prévia)**. A exibição **insights** é exibida. Ele mostra o mapa de dependência de WAN virtual e a mini pasta de trabalho de **métricas** de alto nível.
 
-**Figura 1: menu do monitor-insights**
+**Figura 1: monitorar o menu do > insights**
 
-:::image type="content" source="./media/azure-monitor-insights/monitor-menu.png" alt-text="figuras" lightbox="./media/azure-monitor-insights/monitor-menu.png":::
+:::image type="content" source="./media/azure-monitor-insights/monitor-menu.png" alt-text="Captura de tela que mostra a exibição das informações (visualização)." lightbox="./media/azure-monitor-insights/monitor-menu.png":::
 
-No modo de exibição de **informações** , você pode exibir os recursos de WAN virtuais autodescobertos, como hubs, gateways, firewalls, conexões e VNets de spoke, NVAs de terceiros e branches em uma WAN virtual de ponta a ponta, como mostra a **Figura 2**.
+Na exibição do **insights** , você pode exibir os recursos da WAN virtual descoberta automática. Esses recursos incluem hubs, gateways, firewalls, conexões e redes virtuais spoke, NVAs de terceiros e ramificações em uma WAN virtual de ponta a ponta. Para obter um exemplo, consulte a **Figura 2**.
 
-O **estado do recurso** e o **status** são codificados por cor e sobrepostos nos ícones de recurso no mapa. As métricas de alto nível da WAN virtual, como capacidades de Hub e utilização de gateway, são exibidas à direita por meio de uma mini pasta de trabalho.
+O estado do recurso e o status são codificados por cor e sobrepostos nos ícones de recurso no mapa. As métricas de WAN virtual de alto nível, como capacidades de Hub e utilização de gateway, aparecem no lado direito da janela em uma mini pasta de trabalho.
 
 **Figura 2: exibição do insights**
 
-:::image type="content" source="./media/azure-monitor-insights/insights-view.png" alt-text="figuras" lightbox="./media/azure-monitor-insights/insights-view.png":::
+:::image type="content" source="./media/azure-monitor-insights/insights-view.png" alt-text="Captura de tela que mostra a exibição de informações." lightbox="./media/azure-monitor-insights/insights-view.png":::
 
 ## <a name="dependency-view"></a><a name="dependency"></a>Exibição de dependência
 
@@ -53,39 +53,39 @@ A exibição de **dependência** para WAN virtual ajuda a visualizar a exibiçã
 
 **Figura 3: exibição de dependência VWAN**
 
-:::image type="content" source="./media/azure-monitor-insights/dependency-map.png" alt-text="Mapa de dependências" lightbox="./media/azure-monitor-insights/dependency-map.png":::
+:::image type="content" source="./media/azure-monitor-insights/dependency-map.png" alt-text="Captura de tela que mostra a exibição de dependência." lightbox="./media/azure-monitor-insights/dependency-map.png":::
 
-O mapa da exibição de dependência exibe os seguintes recursos como um grafo conectado:
+O mapa da exibição de **dependência** exibe os seguintes recursos como um grafo conectado:
 
 * Hubs de WAN virtual em várias regiões do Azure.
-* Spoke VNets que estão diretamente conectados ao Hub.
-* Sites de Branch VPN e ExpressRoute e usuários P2S que estão conectados a cada Hub por meio de suas respectivas conexões de ExpressRoute, S2S e P2S e gateways de rede virtual.
+* Redes virtuais spoke conectadas diretamente ao Hub.
+* Sites de filial e de Azure ExpressRoute e P2S usuários que estão conectados a cada Hub por meio de suas respectivas conexões de ExpressRoute, S2S e P2S e gateways de rede virtual.
 * Firewalls do Azure (incluindo proxies de firewall de terceiros) implantados em um Hub (Hub protegido).
-* NVA de terceiros (dispositivos de rede virtual) que são implantados em um VNets de spoke.
+* NVAs de terceiros (dispositivos de rede virtual) que são implantados em redes virtuais spoke.
 
-O mapa de dependência também exibe VNets conectadas indiretamente (VNet que são emparelhadas com um VNets de spoke de WAN virtual).
+O mapa de dependências também exibe redes virtuais conectadas indiretamente (redes virtuais emparelhadas com redes virtuais de spoke de WAN virtual).
 
-O mapa de dependências permite uma fácil navegação para as definições de configuração de cada recurso. Por exemplo, você pode passar o mouse sobre o recurso de Hub para exibir a configuração básica de recursos, como região do Hub e prefixo do Hub. Clique com o botão direito do mouse para acessar a página de portal do Azure do recurso de Hub.
+O mapa de dependências permite uma fácil navegação para as definições de configuração de cada recurso. Por exemplo, você pode passar o mouse sobre o recurso de Hub para exibir a configuração básica de recursos, como a região do Hub e o prefixo do Hub. Clique com o botão direito do mouse para acessar a página de portal do Azure do recurso de Hub.
 
 **Figura 4: navegar para informações específicas do recurso**
 
-:::image type="content" source="./media/azure-monitor-insights/resource-information.png" alt-text="informações do recurso":::
+:::image type="content" source="./media/azure-monitor-insights/resource-information.png" alt-text="Captura de tela que mostra como navegar para informações específicas do recurso.":::
 
-A barra de pesquisa e filtro na exibição de dependência fornece uma maneira fácil de Pesquisar no grafo. Filtros diferentes fornecem ajuda para restringir a pesquisa a um caminho e estado específicos.
+A barra de pesquisa e filtro na exibição de **dependência** fornece uma maneira fácil de Pesquisar no grafo. Vários filtros fornecem ajuda para restringir a pesquisa a um caminho e estado específicos.
 
 **Figura 5: pesquisa e filtragem**
 
-:::image type="content" source="./media/azure-monitor-insights/search-filter.png" alt-text="barra de pesquisa e filtro" lightbox="./media/azure-monitor-insights/search-filter.png":::
+:::image type="content" source="./media/azure-monitor-insights/search-filter.png" alt-text="Captura de tela que mostra a barra de pesquisa e de filtro." lightbox="./media/azure-monitor-insights/search-filter.png":::
 
 ## <a name="detailed-metrics"></a><a name="detailed"></a>Métricas detalhadas
 
-Você pode selecionar **Exibir métricas detalhadas** para acessar a página de **métricas** detalhadas. A página métricas é um painel pré-configurado com guias separadas, fornecendo informações úteis sobre a capacidade, o desempenho e a utilização de recursos de WAN virtual no nível de WAN virtual, nível de Hub e conexões individuais.
+Você pode selecionar **Exibir métricas detalhadas** para acessar a página de **métricas** detalhadas. A página **métricas** é um painel pré-configurado com guias separadas. Essas guias fornecem informações sobre a capacidade, o desempenho e a utilização do recurso de WAN virtual no nível do Hub e do ponto de WAN virtual e no nível de conexões individuais.
 
 **Figura 6: painel de métricas detalhado**
 
-:::image type="content" source="./media/azure-monitor-insights/detailed-metrics.png" alt-text="métricas detalhadas" lightbox="./media/azure-monitor-insights/detailed-metrics.png":::
+:::image type="content" source="./media/azure-monitor-insights/detailed-metrics.png" alt-text="Captura de tela que mostra o painel de métricas detalhado." lightbox="./media/azure-monitor-insights/detailed-metrics.png":::
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para saber mais sobre as métricas em Azure Monitor, consulte [métricas em Azure monitor](../azure-monitor/platform/data-platform-metrics.md).
+* Para saber mais, confira [métricas em Azure monitor](../azure-monitor/platform/data-platform-metrics.md).
 * Para obter uma descrição completa de todas as métricas de WAN virtual, consulte [métricas e logs de WAN virtual](logs-metrics.md).

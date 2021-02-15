@@ -1,6 +1,6 @@
 ---
 title: Conceitos de segurança X.509 do Hub IoT do Azure | Microsoft Docs
-description: Conceito – compreender os certificados de autoridade de certificação de valor X.509 na fabricação de dispositivo IoT e autenticação.
+description: Conceito-noções básicas sobre o valor X. 509 certificados de autoridade de certificado na fabricação do dispositivo IoT e autenticação.
 author: eustacea
 manager: arjmands
 ms.service: iot-hub
@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
-ms.openlocfilehash: 3c7e1167b3326620863d35cb2d4b07235cbd5517
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 877200cbafbe68fa6161025572abfddad651e172
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "61320061"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96490713"
 ---
 # <a name="conceptual-understanding-of-x509-ca-certificates-in-the-iot-industry"></a>Entendimento conceitual de certificados de AC X.509 no setor de IoT
 
@@ -29,6 +29,8 @@ Este artigo descreve:
 
 * Como os dispositivos assinados com a AC X.509 se conectam ao Hub IoT
 
+[!INCLUDE [iot-hub-include-x509-ca-signed-support-note](../../includes/iot-hub-include-x509-ca-signed-support-note.md)]
+
 ## <a name="overview"></a>Visão geral
 
 A autenticação da AC (autoridade de certificação) X.509 é uma abordagem para autenticar dispositivos no Hub IoT usando um método que simplifica bastante o gerenciamento de ciclo de vida e criação da identidade do dispositivo na cadeia de fornecimento.
@@ -38,6 +40,8 @@ Um atributo distinto da autenticação de AC X.509 é uma relação de um para m
 Outro atributo importante da autenticação de AC X.509 é a simplificação da logística da cadeia de fornecimento. A autenticação segura de dispositivos requer que cada dispositivo tenha um segredo único como uma chave como base para a relação de confiança. Na autenticação baseada em certificados, esse segredo é uma chave privada. Um fluxo de dados de fabricação de dispositivo típico envolve várias etapas e responsáveis. Gerenciar com segurança chaves privadas de dispositivo em vários responsáveis e manter a confiança é difícil e caro. Usar autoridades de certificação resolve esse problema, inscrevendo cada responsável em uma cadeia de confiança de criptografia em vez de confiar a confiança deles com chaves privadas de dispositivo. Cada responsável, por sua vez, inscreve dispositivos em sua respectiva etapa do processo do fluxo de fabricação. O resultado geral é uma cadeia de fornecimento ideal com responsabilidade interna por meio do uso da cadeia de confiança de criptografia. Vale a pena observar que esse processo resulta na maior parte da segurança quando os dispositivos protegem suas chaves privadas exclusivas. Para esse fim, recomendamos enfaticamente o uso de HSM (Módulos Seguros de Hardware) capaz de gerar internamente chaves privadas que nunca verão a luz do dia.
 
 Este artigo oferece uma exibição de ponta a ponta do uso da autenticação de AC X.509, da configuração da cadeia de fornecimento à conexão do dispositivo, ao fazer uso de um exemplo do mundo real para solidificar a compreensão.
+
+Você também pode usar grupos de registro com o serviço de provisionamento de dispositivos do Hub IoT do Azure (DPS) para lidar com o provisionamento de dispositivos em hubs. Para obter mais informações sobre como usar o DPS para provisionar dispositivos de certificado X. 509, consulte [tutorial: provisionar vários dispositivos x. 509 usando grupos de registro](../iot-dps/tutorial-custom-hsm-enrollment-group-x509.md).
 
 ## <a name="introduction"></a>Introdução
 
@@ -63,17 +67,17 @@ Detalhes sobre como realizar essas etapas diferem com vários provedores de serv
 
 ### <a name="purchasing-an-x509-ca-certificate"></a>Adquirir um Certificado de Autoridade de Certificação X.509
 
-Adquirir um Certificado de Autoridade de Certificação tem a vantagem de ter uma AC raiz bem conhecida atuando como um terceiro confiável para garantir a legitimidade de dispositivos IoT quando os dispositivos se conectarem. A Empresa X poderá escolher esta opção se seu objetivo for que o Widget inteligente X interaja com produtos ou serviços de terceiros após a conexão inicial com o Hub IoT.
+Adquirir um Certificado de Autoridade de Certificação tem a vantagem de ter uma AC raiz bem conhecida atuando como um terceiro confiável para garantir a legitimidade de dispositivos IoT quando os dispositivos se conectarem. A empresa X escolheria essa opção se pretender que o widget inteligente X interaja com produtos ou serviços de terceiros após a conexão inicial ao Hub IoT.
 
 Para adquirir um Certificado de Autoridade de Certificação X.509, a Empresa X escolherá um provedor de serviços de certificados raiz. Uma pesquisa na Internet pela frase “AC raiz” produzirá ótimos clientes potenciais. A AC raiz orientará a Empresa X sobre como criar o par de chaves públicas/privadas e como gerar uma CSR (Solicitação de assinatura de certificado) para seus serviços. Uma CSR é o processo formal de se candidatar para um certificado de uma autoridade de certificação. O resultado desta aquisição é um certificado para uso como um certificado de autoridade. Por causa da ubiquidade de certificados X.509, é provável que o certificado tenha sido formatado corretamente de acordo com o padrão RFC 5280 da IETF.
 
 ### <a name="creating-a-self-signed-x509-ca-certificate"></a>Criar um Certificado de Autoridade de Certificação X.509 autoassinado
 
-O processo para criar um Certificado de Autoridade de Certificação X.509 autoassinado é semelhante a comprar com a exceção de que envolve um assinante de terceiros, como a autoridade de certificação raiz. Em nosso exemplo, a Empresa X assinará o seu certificado de autoridade em vez de uma autoridade de certificação raiz. A Empresa X pode escolher essa opção para teste até que esteja pronta para adquirir um certificado de autoridade. A Empresa X também pode usar um Certificado de Autoridade de Certificação X.509 autoassinado na produção, se o Widget inteligente X não for destinado a se conectar a todos os serviços de terceiros de fora do Hub IoT.
+O processo para criar um Self-Signed certificado de autoridade de certificação X. 509 é semelhante a comprar com a exceção de envolver um assinante de terceiros como a autoridade de certificação raiz. Em nosso exemplo, a Empresa X assinará o seu certificado de autoridade em vez de uma autoridade de certificação raiz. A Empresa X pode escolher essa opção para teste até que esteja pronta para adquirir um certificado de autoridade. A empresa-X também poderá usar um certificado de autoridade de certificação X. 509 autoassinado em produção, se o widget inteligente X não se destinar a se conectar a qualquer serviço de terceiros fora do Hub IoT.
 
 ## <a name="register-the-x509-certificate-to-iot-hub"></a>Registrar o certificado X.509 no Hub IoT
 
-A Empresa X precisa registrar a AC X.509 no Hub IoT onde ela servirá para autenticar o Widget inteligente X como à medida que ele se conecta. Este é um processo único que habilita a capacidade de autenticar e gerenciar qualquer quantidade de dispositivos de Widget inteligente X. Esse processo é único devido a uma relação de um para muitos entre dispositivos e o certificado de autoridade e também é uma das principais vantagens de usar o método de autenticação de AC X.509. A alternativa é carregar impressões digitais do certificado individuais para cada dispositivo do Widget inteligente X, aumentando assim os custos operacionais.
+A Empresa X precisa registrar a AC X.509 no Hub IoT onde ela servirá para autenticar o Widget inteligente X como à medida que ele se conecta. Este é um processo único que habilita a capacidade de autenticar e gerenciar qualquer quantidade de dispositivos de Widget inteligente X. Esse é um processo único devido a uma relação um-para-muitos entre o certificado de autoridade de certificação e os certificados de dispositivo assinados pelo certificado de autoridade de certificação ou um certificado intermediário. Essa relação constitui uma das principais vantagens de usar o método de autenticação de autoridade de certificação X. 509. A alternativa é carregar impressões digitais do certificado individuais para cada dispositivo do Widget inteligente X, aumentando assim os custos operacionais.
 
 Registrar o Certificado de Autoridade de Certificação X.509 é um processo de duas etapas, o upload do certificado e prova de posse do certificado.
 
@@ -85,7 +89,7 @@ O processo de upload do Certificado de Autoridade de Certificação X.509 é ape
 
 ### <a name="proof-of-possession-of-the-certificate"></a>Prova de posse do certificado
 
-O Certificado de Autoridade de Certificação X.509, assim como qualquer certificado digital, é de informações públicas que são suscetíveis à interceptação. Dessa maneira, um interceptador pode interceptar um certificado e tentar carregá-lo como seu próprio. Em nosso exemplo, o Hub IoT gostaria de garantir que o Certificado de Autoridade de Certificação que a Empresa X está carregando realmente pertence à Empresa X. Ele o faz ao desafiar a Empresa X a provar que ela, de fato, tem o certificado por meio de um [fluxo de PoP (Prova de posse)](https://tools.ietf.org/html/rfc5280#section-3.1). O fluxo de prova de posse envolve o Hub IoT gerando um número aleatório a ser assinado pela Empresa-X usando sua chave privada. Se a Empresa X seguiu as práticas recomendadas de PKI e protegeu sua chave privada, então, somente ela estaria na posição de responder corretamente ao desafio de prova de posse. O Hub IoT prossegue para registrar o Certificado de Autoridade de Certificação X.509 após uma resposta bem-sucedida do desafio de prova de posse.
+O Certificado de Autoridade de Certificação X.509, assim como qualquer certificado digital, é de informações públicas que são suscetíveis à interceptação. Dessa maneira, um interceptador pode interceptar um certificado e tentar carregá-lo como seu próprio. Em nosso exemplo, o Hub IoT gostaria de garantir que o Certificado de Autoridade de Certificação que a Empresa X está carregando realmente pertence à Empresa X. Ele faz isso desafiando a empresa X a provar que ela, de fato, possui o certificado por meio de um [fluxo de prova de posse (pop)](https://tools.ietf.org/html/rfc5280#section-3.1). O fluxo de prova de posse envolve o Hub IoT gerando um número aleatório a ser assinado pela Empresa-X usando sua chave privada. Se a Empresa X seguiu as práticas recomendadas de PKI e protegeu sua chave privada, então, somente ela estaria na posição de responder corretamente ao desafio de prova de posse. O Hub IoT prossegue para registrar o Certificado de Autoridade de Certificação X.509 após uma resposta bem-sucedida do desafio de prova de posse.
 
 Uma resposta bem-sucedida para o desafio de prova de posse do Hub IoT conclui o registro da AC X.509.
 

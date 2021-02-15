@@ -3,12 +3,12 @@ title: Instalar Servidor de Backup do Azure no Azure Stack
 description: Neste artigo, saiba como usar o Servidor de Backup do Azure para proteger ou fazer backup de cargas de trabalho no Azure Stack.
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: a95ee42c3229e642bd48b812eb6bc01636af3ba2
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 12dfd15c2bd43816dd361fdf45995bcbcd6fba56
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018120"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986998"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Instalar Servidor de Backup do Azure no Azure Stack
 
@@ -107,7 +107,7 @@ Sempre ingresse o Servidor de Backup do Azure em um domínio. Se você precisa m
 
 ### <a name="set-storage-replication"></a>Definir replicação de armazenamento
 
-A opção de replicação de armazenamento de cofre dos Serviços de Recuperação permite que você escolha entre o armazenamento com redundância geográfica e o armazenamento com redundância local. Por padrão, os cofres dos Serviços de Recuperação usam armazenamento com redundância geográfica. Se este cofre for o primário, deixe a opção de armazenamento definida como armazenamento com redundância geográfica. Escolha armazenamento com redundância local se quiser uma opção mais barata que seja menos durável. Leia mais sobre as opções de armazenamento com [redundância geográfica](../storage/common/storage-redundancy.md) e [redundância local](../storage/common/storage-redundancy.md) na [Visão geral da replicação do Armazenamento do Azure](../storage/common/storage-redundancy.md).
+A opção de replicação de armazenamento de cofre dos Serviços de Recuperação permite que você escolha entre o armazenamento com redundância geográfica e o armazenamento com redundância local. Por padrão, os cofres dos Serviços de Recuperação usam armazenamento com redundância geográfica. Se este cofre for o primário, deixe a opção de armazenamento definida como armazenamento com redundância geográfica. Escolha armazenamento com redundância local se quiser uma opção mais barata que seja menos durável. Leia mais sobre as opções de armazenamento [com redundância geográfica](../storage/common/storage-redundancy.md#geo-redundant-storage), [localmente redundante](../storage/common/storage-redundancy.md#locally-redundant-storage)e [com redundância de zona](../storage/common/storage-redundancy.md#zone-redundant-storage) na [visão geral da replicação de armazenamento do Azure](../storage/common/storage-redundancy.md).
 
 Para editar a configuração de replicação de armazenamento:
 
@@ -243,7 +243,7 @@ O Servidor de Backup do Azure compartilha código com o Data Protection Manager.
 
     ![Fornecer local para a instalação de arquivos](./media/backup-mabs-install-azure-stack/mabs-install-wizard-settings-11.png)
 
-    O local temporário é um requisito para o backup no Azure. Verifique se o tamanho do local temporário é equivalente a pelo menos 5% dos dados planejados para fazer backup no Azure. Para proteção de disco, será necessário configurar discos separados após a conclusão da instalação. Para obter mais informações sobre pools de armazenamento, consulte [preparar o armazenamento de dados](/system-center/dpm/plan-long-and-short-term-data-storage?view=sc-dpm-2019).
+    O local temporário é um requisito para o backup no Azure. Verifique se o tamanho do local temporário é equivalente a pelo menos 5% dos dados planejados para fazer backup no Azure. Para proteção de disco, será necessário configurar discos separados após a conclusão da instalação. Para obter mais informações sobre pools de armazenamento, consulte [preparar o armazenamento de dados](/system-center/dpm/plan-long-and-short-term-data-storage).
 
 6. Na tela **configurações de segurança** , forneça uma senha forte para contas de usuário locais restritas e selecione **Avançar**.
 
@@ -255,7 +255,7 @@ O Servidor de Backup do Azure compartilha código com o Data Protection Manager.
    > É recomendável fazer o Windows Update ser redirecionado para o Microsoft Update, que oferece segurança e atualizações importantes para o Windows e outros produtos, como o Servidor de Backup do Microsoft Azure.
    >
 
-    ![Microsoft Update tela de aceitação](./media/backup-mabs-install-azure-stack/mabs-install-wizard-update-13.png)
+    ![Tela de Opt-In de Microsoft Update](./media/backup-mabs-install-azure-stack/mabs-install-wizard-update-13.png)
 
 8. Examine o *Resumo das configurações* e selecione **instalar**.
 
@@ -335,13 +335,19 @@ Quando você souber o estado da conectividade do Azure e da assinatura do Azure,
 
 ### <a name="recovering-from-loss-of-connectivity"></a>Recuperação de perda de conectividade
 
-Se um firewall ou um proxy estiver impedindo o acesso ao Azure, adicione os seguintes endereços de domínio na lista de permissões no perfil do firewall/proxy:
+Se o seu computador tiver acesso limitado à Internet, verifique se as configurações de firewall no computador ou proxy permitem as seguintes URLs e endereços IP:
 
-- `http://www.msftncsi.com/ncsi.txt`
-- \*.Microsoft.com
-- \*.WindowsAzure.com
-- \*.microsoftonline.com
-- \*.windows.net
+* URLs
+  * `www.msftncsi.com`
+  * `*.Microsoft.com`
+  * `*.WindowsAzure.com`
+  * `*.microsoftonline.com`
+  * `*.windows.net`
+  * `www.msftconnecttest.com`
+* Endereços IP
+  * 20.190.128.0/18
+  * 40.126.0.0/18
+
 
 Depois que a conectividade com o Azure for restaurada para o Servidor de Backup do Azure, o estado da assinatura do Azure determinará as operações que podem ser realizadas. Depois que o servidor estiver **Conectado**, use a tabela em [Conectividade de rede](backup-mabs-install-azure-stack.md#network-connectivity) para ver as operações disponíveis.
 

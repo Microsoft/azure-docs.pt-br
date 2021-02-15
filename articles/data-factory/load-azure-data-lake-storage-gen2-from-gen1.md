@@ -1,23 +1,18 @@
 ---
 title: Copiar dados de Azure Data Lake Storage Gen1 para Gen2
 description: Usar o Azure Data Factory para copiar dados do Azure Data Lake Storage Gen1 para Gen2
-services: data-factory
-documentationcenter: ''
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/13/2019
-ms.openlocfilehash: 6655510a4cfdb88e98319c7fc26c7ae83255bb6f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1b90ff8969edf3ce2886630dc88c50bc9185b85e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81415817"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100370845"
 ---
 # <a name="copy-data-from-azure-data-lake-storage-gen1-to-gen2-with-azure-data-factory"></a>Copiar dados do Azure Data Lake Storage Gen1 para Gen2 com o Azure Data Factory
 
@@ -39,7 +34,7 @@ Este artigo mostra como usar a ferramenta Data Factory copiar dados para copiar 
 * Conta do Azure Data Lake Store Gen1 contendo dados.
 * Conta de armazenamento do Azure com Data Lake Storage Gen2 habilitado. Se você não tiver uma conta de armazenamento, [crie uma conta](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM).
 
-## <a name="create-a-data-factory"></a>Criar uma data factory
+## <a name="create-a-data-factory"></a>Criar um data factory
 
 1. No menu à esquerda, selecione **criar um recurso**  >  **dados + análise**  >  **Data Factory**.
    
@@ -97,7 +92,7 @@ Este artigo mostra como usar a ferramenta Data Factory copiar dados para copiar 
 
 7. Especifique o comportamento de cópia selecionando as opções copiar **arquivos recursivamente** e **cópia binária** . Selecione **Avançar**.
 
-    ![Especifique a pasta de saída](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-binary-copy.png)
+    ![Captura de tela mostra o arquivo de entrada ou a pasta onde você pode selecionar Copiar arquivo recursivamente e cópia binária.](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-binary-copy.png)
     
 8. Na página **armazenamento de dados de destino** , selecione **+ criar nova conexão**  >  **Azure data Lake Storage Gen2**  >  **continuar**.
 
@@ -113,7 +108,7 @@ Este artigo mostra como usar a ferramenta Data Factory copiar dados para copiar 
 
 10. Na página **escolher o arquivo de saída ou a pasta** , insira **copyfromadlsgen1** como o nome da pasta de saída e selecione **Avançar**. Data Factory cria o Azure Data Lake Storage Gen2 sistema de arquivos e as subpastas correspondentes durante a cópia, se eles não existirem.
 
-    ![Especifique a pasta de saída](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen2-path.png)
+    ![Captura de tela mostra o caminho da pasta que você inseriu.](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen2-path.png)
 
 11. Na página **Configurações**, selecione **Avançar** para usar as configurações padrão.
 
@@ -131,7 +126,7 @@ Este artigo mostra como usar a ferramenta Data Factory copiar dados para copiar 
 
     ![Monitorar execuções de atividade](./media/load-azure-data-lake-storage-gen2-from-gen1/monitor-activity-runs.png)
 
-16. Para monitorar os detalhes de execução de cada atividade de cópia, selecione o link **Detalhes** (imagem de óculos) em **Ações** na exibição de monitoramento de atividade. Você pode monitorar detalhes como o volume de dados copiados da origem para o coletor, a taxa de transferência de dados, as etapas de execução com a duração correspondente e as configurações usadas.
+16. Para monitorar os detalhes de execução de cada atividade de cópia, selecione o link **Detalhes** (imagem de óculos) em **Ações** na exibição de monitoramento de atividade. Você pode monitorar detalhes como o volume de dados copiados da fonte para o coletor, taxa de transferência de dados, etapas de execução com duração correspondente e configurações usadas.
 
     ![Monitorar detalhes da execução da atividade](./media/load-azure-data-lake-storage-gen2-from-gen1/monitor-activity-run-details.png)
 

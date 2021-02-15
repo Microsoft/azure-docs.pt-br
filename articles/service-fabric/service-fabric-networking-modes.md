@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 2/23/2018
 ms.author: atsenthi
 ms.openlocfilehash: e6174f35bd54b3ca0b2c5240a663369350b30ce8
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86241889"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Modos de rede de contêiner do Service Fabric
@@ -195,7 +195,7 @@ Quando um serviço de contêiner é reiniciado ou movido para outro nó no clust
    | --- | --- |
    |Prioridade |2000 |
    |Nome |Custom_Dns  |
-   |Origem |VirtualNetwork |
+   |Fonte |VirtualNetwork |
    |Destino | VirtualNetwork |
    |Serviço | DNS (UDP/53) |
    |Ação | Allow  |

@@ -6,10 +6,10 @@ ms.author: chmant
 ms.date: 03/20/2020
 ms.topic: quickstart
 ms.openlocfilehash: 26531e80292a53400671ac3507b47371c1fbbcad
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88796809"
 ---
 # <a name="quickstart-deploy-unity-sample-to-desktop"></a>Início Rápido: Implantar a amostra de Unity na Área de Trabalho
@@ -38,7 +38,7 @@ No momento, há suporte apenas para aplicativos da área de trabalho simples no 
 1. Selecione **Player** à esquerda.
 1. Selecione a guia **Configurações da Plataforma Universal do Windows**.
 1. Expanda **Configurações de XR**.
-1. Desabilite a **Realidade Virtual com Suporte**.
+1. Desabilite a **Realidade Virtual com Suporte**.\
     ![configurações do player](./media/unity-disable-xr.png)
 1. Em cima de *Configurações de XR*, expanda **Configurações de Publicação**.
 1. Em **Famílias de Dispositivos com Suporte**, verifique se **Área de Trabalho** está selecionada.
@@ -49,13 +49,13 @@ No momento, há suporte apenas para aplicativos da área de trabalho simples no 
 1. Altere a *Plataforma* para a **Plataforma Universal do Windows** (**PC autônomo** também tem suporte, mas não é usado aqui. Consulte as [limitações de plataforma](../reference/limits.md#platform-limitations)).
 1. Defina o *Dispositivo de Destino* como **PC**.
 1. Defina *Arquitetura* como **x86**.
-1. Defina *Tipo de Build* como **Projeto D3D**.
+1. Defina *Tipo de Build* como **Projeto D3D**.\
   ![Configurações de build](./media/unity-build-settings-pc.png)
 1. Selecione **Alterar para a Plataforma**.
 1. Ao pressionar **Criar** (ou 'Criar e Executar'), você deverá selecionar alguma pasta na qual a solução deve ser armazenada.
 1. Abra o **Quickstart.sln** gerado com o Visual Studio.
 1. Altere a configuração para **Versão** e **x86**.
-1. Alterne o modo do depurador para **Computador Local**.
+1. Alterne o modo do depurador para **Computador Local**.\
   ![Configuração da solução](./media/unity-deploy-config-pc.png)
 1. Compile a solução.
 

@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e3b0b8ab4a432254835e43bff4893aaee81b04e
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: fc631e4329c1df2cdcbfe57c2b43ccccf14afa85
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87541865"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936440"
 ---
 # <a name="plan-your-azure-active-directory-device-deployment"></a>Planejar a implantação do dispositivo Azure Active Directory
 
@@ -44,17 +44,17 @@ Os principais benefícios de fornecer a seus dispositivos uma identidade do Azur
 
 * Aumentar a produtividade – com o Azure AD, os usuários podem fazer [logon contínuo (SSO)](./azuread-join-sso.md) para seus recursos locais e na nuvem, o que permite que eles sejam produtivos onde quer que estejam.
 
-* Aumentar a segurança – os dispositivos do Azure AD permitem que você aplique [políticas de acesso condicional (CA)](../conditional-access/require-managed-devices.md) a recursos com base na identidade do dispositivo ou usuário. As políticas de CA podem oferecer proteção extra usando [Azure ad Identity Protection](../identity-protection/overview-identity-protection.md). Ingressar um dispositivo no Azure AD é um pré-requisito para aumentar sua segurança com uma estratégia de [autenticação sem senha](../authentication/concept-authentication-passwordless.md) .
+* Aumentar a segurança – os dispositivos do Azure AD permitem que você aplique [políticas de acesso condicional](../conditional-access/require-managed-devices.md) a recursos com base na identidade do dispositivo ou usuário. As políticas de acesso condicional podem oferecer proteção extra usando [Azure ad Identity Protection](../identity-protection/overview-identity-protection.md). Ingressar um dispositivo no Azure AD é um pré-requisito para aumentar sua segurança com uma estratégia de [autenticação sem senha](../authentication/concept-authentication-passwordless.md) .
 
 * Melhorar a experiência do usuário – com identidades de dispositivo no Azure AD, você pode fornecer aos usuários acesso fácil aos recursos baseados em nuvem de sua organização de dispositivos pessoais e corporativos. Os administradores podem habilitar a [Enterprise State roaming](enterprise-state-roaming-overview.md) para uma experiência unificada em todos os dispositivos Windows.
 
-* Simplifique a implantação e o gerenciamento – o gerenciamento de identidades de dispositivo simplifica o processo de colocar dispositivos no Azure AD com o [Windows AutoPilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot), [provisionamento em massa](https://docs.microsoft.com/mem/intune/enrollment/windows-bulk-enroll)e [autoatendimento: OOBE (configuração inicial pelo uso)](../user-help/user-help-join-device-on-network.md). Você pode gerenciar esses dispositivos com ferramentas de MDM (gerenciamento de dispositivo móvel), como [Microsoft Intune](https://docs.microsoft.com/mem/intune/fundamentals/what-is-intune), e suas identidades no [portal do Azure](https://portal.azure.com/).
+* Simplifique a implantação e o gerenciamento – o gerenciamento de identidades de dispositivo simplifica o processo de colocar dispositivos no Azure AD com o [Windows AutoPilot](/windows/deployment/windows-autopilot/windows-10-autopilot), [provisionamento em massa](/mem/intune/enrollment/windows-bulk-enroll)e [autoatendimento: OOBE (configuração inicial pelo uso)](../user-help/user-help-join-device-on-network.md). Você pode gerenciar esses dispositivos com ferramentas de MDM (gerenciamento de dispositivo móvel), como [Microsoft Intune](/mem/intune/fundamentals/what-is-intune), e suas identidades no [portal do Azure](https://portal.azure.com/).
 
 ### <a name="training-resources"></a>Recursos de treinamento
 
-Vídeo: [acesso condicional com controles de dispositivo](https://youtu.be/NcONUf-jeS4)
+Vídeo:  [acesso condicional com controles de dispositivo](https://youtu.be/NcONUf-jeS4)
 
-Perguntas frequentes: perguntas [frequentes sobre gerenciamento de dispositivo do Azure ad](faq.md) e [perguntas frequentes sobre roaming de dados](enterprise-state-roaming-faqs.md) 
+Perguntas frequentes: perguntas [frequentes sobre gerenciamento de dispositivo do Azure ad](faq.md)  e [perguntas frequentes sobre roaming de dados](enterprise-state-roaming-faqs.md) 
 
 ## <a name="plan-the-deployment-project"></a>Planejar o projeto de implantação
 
@@ -62,7 +62,7 @@ Considere suas necessidades organizacionais enquanto determina a estratégia par
 
 ### <a name="engage-the-right-stakeholders"></a>Envolva os participantes certos
 
-Quando os projetos de tecnologia falham, eles normalmente fazem isso devido a expectativas incompatíveis com o impacto, os resultados e as responsabilidades. Para evitar essas armadilhas, [Verifique se você está participando dos participantes certos](https://aka.ms/deploymentplans) e se as funções de Stakeholder no projeto são bem compreendidas. 
+Quando os projetos de tecnologia falham, eles normalmente fazem isso devido a expectativas incompatíveis com o impacto, os resultados e as responsabilidades. Para evitar essas armadilhas, [Verifique se você está participando dos participantes certos](../fundamentals/active-directory-deployment-plans.md) e se as funções de Stakeholder no projeto são bem compreendidas. 
 
 Para este plano, adicione os seguintes participantes à sua lista:
 
@@ -105,43 +105,43 @@ dispositivos iOS e Android só podem ser registrados no AD do Azure. A tabela a 
 | Consideração | Azure AD registrado| Ingresso no Azure AD| Ingresso no Azure AD Híbrido |
 | - | - | - | - |
 | **Sistemas operacionais cliente**| | |  |
-| Dispositivos com Windows 10| ![marcar](./media/plan-device-deployment/check.png)| ![marcar](./media/plan-device-deployment/check.png)| ![marcar](./media/plan-device-deployment/check.png) |
-| Dispositivos de nível inferior do Windows (Windows 8.1 ou Windows 7)| | | ![marcar](./media/plan-device-deployment/check.png) |
+| Dispositivos com Windows 10| ![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png)| ![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png)| ![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png) |
+| Dispositivos de nível inferior do Windows (Windows 8.1 ou Windows 7)| | | ![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png) |
 |**Opções de entrada**| | |  |
-| Credenciais locais do usuário final| ![marcar](./media/plan-device-deployment/check.png)| |  |
-| Senha| ![marcar](./media/plan-device-deployment/check.png)| ![marcar](./media/plan-device-deployment/check.png)| ![marcar](./media/plan-device-deployment/check.png) |
-| PIN do dispositivo| ![marcar](./media/plan-device-deployment/check.png)| |  |
-| Windows Hello| ![marcar](./media/plan-device-deployment/check.png)| |  |
-| Windows Hello for Business| | ![marcar](./media/plan-device-deployment/check.png)| ![marcar](./media/plan-device-deployment/check.png) |
-| Chaves de segurança do FIDO 2,0| | ![marcar](./media/plan-device-deployment/check.png)| ![marcar](./media/plan-device-deployment/check.png) |
-| Microsoft Authenticator aplicativo (com senha)| ![marcar](./media/plan-device-deployment/check.png)| ![marcar](./media/plan-device-deployment/check.png)| ![marcar](./media/plan-device-deployment/check.png) |
+| Credenciais locais do usuário final| ![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png)| |  |
+| Senha| ![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png)| ![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png)| ![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png) |
+| PIN do dispositivo| ![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png)| |  |
+| Windows Hello| ![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png)| |  |
+| Windows Hello para Empresas| | ![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png)| ![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png) |
+| Chaves de segurança do FIDO 2,0| | ![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png)| ![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png) |
+| Microsoft Authenticator aplicativo (com senha)| ![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png)| ![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png)| ![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png) |
 |**Principais funcionalidades**| | |  |
-| SSO para recursos de nuvem| ![marcar](./media/plan-device-deployment/check.png)| ![marcar](./media/plan-device-deployment/check.png)| ![marcar](./media/plan-device-deployment/check.png) |
-| Recursos de SSO a locais| | ![marcar](./media/plan-device-deployment/check.png)| ![marcar](./media/plan-device-deployment/check.png) |
-| Acesso condicional <br> (Exigir que os dispositivos sejam marcados como em conformidade) <br> (Deve ser gerenciado pelo MDM)| ![marcar](./media/plan-device-deployment/check.png) | ![marcar](./media/plan-device-deployment/check.png)|![marcar](./media/plan-device-deployment/check.png) |
-Acesso condicional <br>(Exigir dispositivos ingressados no Azure AD híbrido)| | | ![marcar](./media/plan-device-deployment/check.png)
-| Tela de logon de autoatendimento de redefinição de senha do Windows| | ![marcar](./media/plan-device-deployment/check.png)| ![marcar](./media/plan-device-deployment/check.png) |
-| Redefinição de PIN do Windows Hello| | ![marcar](./media/plan-device-deployment/check.png)| ![marcar](./media/plan-device-deployment/check.png) |
-| Roaming de estado empresarial entre dispositivos| | ![marcar](./media/plan-device-deployment/check.png)| ![marcar](./media/plan-device-deployment/check.png) |
+| SSO para recursos de nuvem| ![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png)| ![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png)| ![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png) |
+| Recursos de SSO a locais| | ![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png)| ![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png) |
+| Acesso Condicional <br> (Exigir que os dispositivos sejam marcados como em conformidade) <br> (Deve ser gerenciado pelo MDM)| ![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png) | ![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png)|![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png) |
+Acesso Condicional <br>(Exigir dispositivos ingressados no Azure AD híbrido)| | | ![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png)
+| Tela de logon de autoatendimento de redefinição de senha do Windows| | ![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png)| ![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png) |
+| Redefinição de PIN do Windows Hello| | ![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png)| ![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png) |
+| Roaming de estado empresarial entre dispositivos| | ![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png)| ![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png) |
 
 
 ## <a name="azure-ad-registration"></a>Registro do Azure AD 
 
-Dispositivos registrados geralmente são gerenciados com [Microsoft Intune](https://docs.microsoft.com/mem/intune/enrollment/device-enrollment). Os dispositivos são registrados no Intune de várias maneiras, dependendo do sistema operacional. 
+Dispositivos registrados geralmente são gerenciados com [Microsoft Intune](/mem/intune/enrollment/device-enrollment). Os dispositivos são registrados no Intune de várias maneiras, dependendo do sistema operacional. 
 
-Os dispositivos registrados no Azure AD fornecem suporte para BYOD (traga seus próprios dispositivos) e dispositivos corporativos para SSO para recursos de nuvem. O acesso a recursos é baseado nas políticas de [autoridade de certificação](../conditional-access/require-managed-devices.md) do Azure ad aplicadas ao dispositivo e ao usuário.
+Os dispositivos registrados no Azure AD fornecem suporte para BYOD (traga seus próprios dispositivos) e dispositivos corporativos para SSO para recursos de nuvem. O acesso a recursos é baseado nas políticas de [acesso condicional](../conditional-access/require-managed-devices.md) do Azure ad aplicadas ao dispositivo e ao usuário.
 
 ### <a name="registering-devices"></a>Registro de dispositivos
 
-Dispositivos registrados geralmente são gerenciados com [Microsoft Intune](https://docs.microsoft.com/mem/intune/enrollment/device-enrollment). Os dispositivos são registrados no Intune de várias maneiras, dependendo do sistema operacional. 
+Dispositivos registrados geralmente são gerenciados com [Microsoft Intune](/mem/intune/enrollment/device-enrollment). Os dispositivos são registrados no Intune de várias maneiras, dependendo do sistema operacional. 
 
 O BYOD e o dispositivo móvel de propriedade corporativa são registrados por usuários que instalam o aplicativo do portal da empresa.
 
-* [iOS](https://docs.microsoft.com/mem/intune/user-help/install-and-sign-in-to-the-intune-company-portal-app-ios)
+* [iOS](/mem/intune/user-help/install-and-sign-in-to-the-intune-company-portal-app-ios)
 
-* [Android](https://docs.microsoft.com/mem/intune/user-help/enroll-device-android-company-portal)
+* [Android](/mem/intune/user-help/enroll-device-android-company-portal)
 
-* [Windows 10](https://docs.microsoft.com/mem/intune/user-help/enroll-windows-10-device)
+* [Windows 10](/mem/intune/user-help/enroll-windows-10-device)
 
 Se o registro de seus dispositivos for a melhor opção para sua organização, consulte os seguintes recursos:
 
@@ -171,9 +171,9 @@ Se você tiver o Windows 10 Professional ou o Windows 10 Enterprise em um dispos
 
 * [Configurações de OOBE (configuração inicial pelo uso do Windows) ou do Windows](../user-help/user-help-join-device-on-network.md)
 
-* [Windows Autopilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-autopilot)
+* [Windows Autopilot](/windows/deployment/windows-autopilot/windows-autopilot)
 
-* [Registro em massa](https://docs.microsoft.com/mem/intune/enrollment/windows-bulk-enroll)
+* [Registro em massa](/mem/intune/enrollment/windows-bulk-enroll)
 
 Escolha seu procedimento de implantação após [uma comparação](azureadjoin-plan.md)cuidadosa dessas abordagens.
 
@@ -216,7 +216,7 @@ Você pode determinar que o ingresso do Azure AD híbrido é a melhor solução 
 | Estado atual do dispositivo| Estado do dispositivo desejado| Como fazer |
 | - | - | - |
 | Ingresso no domínio local| Ingresso híbrido no Azure AD| Usar o Azure AD Connect ou AD FS para ingressar no Azure |
-| Ingressado no grupo de trabalho local ou novo| Ingresso híbrido no Azure AD| Com suporte com o [Windows AutoPilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-autopilot). Caso contrário, o dispositivo precisa ser ingressado no domínio local antes da junção híbrida do Azure AD |
+| Ingressado no grupo de trabalho local ou novo| Ingresso híbrido no Azure AD| Com suporte com o [Windows AutoPilot](/windows/deployment/windows-autopilot/windows-autopilot). Caso contrário, o dispositivo precisa ser ingressado no domínio local antes da junção híbrida do Azure AD |
 | Adicionado ao Azure AD| Ingresso híbrido no Azure AD| Desingresse do Azure AD, que o coloca no grupo de trabalho local ou no novo estado. |
 | Azure AD registrado| Ingresso híbrido no Azure AD| Depende da versão do Windows. [Veja essas considerações](hybrid-azuread-join-plan.md). |
 
@@ -239,13 +239,13 @@ Examine as plataformas com suporte e sem suporte para dispositivos integrados:
 
 | Ferramentas de gerenciamento de dispositivo| Azure AD registrado| Ingresso no Azure AD| Ingresso no Azure AD Híbrido|
 | - | - | - | - |
-| [MDM (gerenciamento de dispositivo móvel)](https://docs.microsoft.com/windows/client-management/mdm/azure-active-directory-integration-with-mdm) <br>Exemplo: Microsoft Intune| ![marcar](./media/plan-device-deployment/check.png)| ![marcar](./media/plan-device-deployment/check.png)| ![marcar](./media/plan-device-deployment/check.png)|  |
-| [Gerenciamento de co com Microsoft Intune e Microsoft Endpoint Configuration Manager](https://docs.microsoft.com/mem/configmgr/comanage/overview) <br>(Windows 10 e posterior)| | ![marcar](./media/plan-device-deployment/check.png)| ![marcar](./media/plan-device-deployment/check.png)|  |
-| [Política de grupo](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831791(v=ws.11))<br>(Somente Windows)| | | ![marcar](./media/plan-device-deployment/check.png)|  |
+| [MDM (gerenciamento de dispositivo móvel) ](/windows/client-management/mdm/azure-active-directory-integration-with-mdm) <br>Exemplo: Microsoft Intune| ![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png)| ![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png)| ![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png)|  |
+| [Gerenciamento de co com Microsoft Intune e Microsoft Endpoint Configuration Manager](/mem/configmgr/comanage/overview) <br>(Windows 10 e posterior)| | ![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png)| ![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png)|  |
+| [Política de grupo](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831791(v=ws.11))<br>(Somente Windows)| | | ![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png)|  |
 
 
 
- Recomendamos que você considere [Microsoft INTUNE MAM (gerenciamento de aplicativo móvel)](https://docs.microsoft.com/mem/intune/apps/app-management) com ou sem gerenciamento de dispositivo para dispositivos IOS ou Android registrados.
+ Recomendamos que você considere [Microsoft INTUNE MAM (gerenciamento de aplicativo móvel)](/mem/intune/apps/app-management) com ou sem gerenciamento de dispositivo para dispositivos IOS ou Android registrados.
 
  Os administradores também podem [implantar as plataformas de VDI (Virtual Desktop Infrastructure)](howto-device-identity-virtual-desktop-infrastructure.md) que hospedam sistemas operacionais Windows em suas organizações para simplificar o gerenciamento e reduzir os custos por meio de consolidação e centralização de recursos. 
 

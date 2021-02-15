@@ -7,64 +7,64 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 06/30/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 58c5fdcfef5e866d0c69d65412582c0ed649f7c6
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 2396aac67a17352987d9d6e3b49535c19ffe8917
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86230818"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792371"
 ---
 # <a name="key-vault-versions"></a>Versões do Key Vault
 
-Aqui está o que há de novo com Azure Key Vault. Novos recursos e aprimoramentos também são anunciados no [canal de atualizações Key Vault do Azure](https://azure.microsoft.com/updates/?category=security&query=Key%20vault).
+Veja a seguir as novidades do Azure Key Vault. Os novos recursos e os aprimoramentos também foram anunciados no [canal do Key Vault de atualizações do Azure](https://azure.microsoft.com/updates/?category=security&query=Key%20vault).
 
 ## <a name="june-2020"></a>Junho de 2020
 
-Azure Monitor para Key Vault agora está em visualização.  O Azure Monitor fornece monitoramento abrangente de seus cofres de chaves, fornecendo uma exibição unificada de suas solicitações de Key Vault, desempenho, falhas e latência. Para obter mais informações, consulte [Azure monitor para Key Vault (versão prévia).](../../azure-monitor/insights/key-vault-insights-overview.md).
+O Azure Monitor para Key Vault já está em versão prévia.  O Azure Monitor fornece monitoramento abrangente de cofres de chaves, fornecendo uma visão unificada das solicitações, do desempenho, das falhas e da latência do Key Vault. Para obter mais informações, confira [Azure Monitor para Key Vault (versão prévia)](../../azure-monitor/insights/key-vault-insights-overview.md).
 
 ## <a name="may-2020"></a>Maio de 2020
 
-Key Vault "Traga sua própria chave" (BYOK) agora está disponível para o público geral. Consulte a [especificação do Azure Key Vault BYOK](../keys/byok-specification.md)e saiba como [importar chaves protegidas por HSM para Key Vault (BYOK)](../keys/hsm-protected-keys-byok.md).
+O BYOK "bring your own key" do Key Vault já está em disponibilidade geral. Confira a [especificação do BYOK do Azure Key Vault](../keys/byok-specification.md) e saiba como [Importar chaves protegidas por HSM para o Key Vault (BYOK)](../keys/hsm-protected-keys-byok.md).
 
 ## <a name="march-2020"></a>Março de 2020
 
-Pontos de extremidade privados agora disponíveis na visualização. O serviço de vínculo privado do Azure permite que você acesse Azure Key Vault e serviços hospedados de cliente/parceiro do Azure por meio de um ponto de extremidade privado em sua rede virtual.  Saiba como [integrar o Key Vault com o link privado do Azure](private-link-service.md).
+Os pontos de extremidade privados já estão disponíveis em versão prévia. O Serviço de Link Privado do Azure permite que você acesse o Azure Key Vault e os serviços de parceiros/clientes hospedados no Azure em um ponto de extremidade privado na sua rede virtual.  Saiba como [Integrar o Key Vault ao Link Privado do Azure](private-link-service.md).
 
 ## <a name="2019"></a>2019
 
-- Versão dos SDKs de Azure Key Vault da próxima geração. Para obter exemplos de uso, consulte os guias de início rápido do segredo Azure Key Vault para [Python](../secrets/quick-create-python.md), [.net](../secrets/quick-create-net.md), [Java](../secrets/quick-create-java.md)e [Node.js](../secrets/quick-create-node.md)
-- Novas políticas do Azure para gerenciar certificados do cofre de chaves. Consulte as [definições internas de Azure Policy para Key Vault](../policy-samples.md).
-- A extensão de máquina virtual Azure Key Vault agora está disponível para o público geral.  Consulte [Key Vault extensão de máquina virtual para Linux](../../virtual-machines/extensions/key-vault-linux.md) e [Key Vault extensão de máquina virtual para Windows](../../virtual-machines/extensions/key-vault-windows.md).
-- O gerenciamento de segredos controlados por eventos para Azure Key Vault agora disponível na grade de eventos do Azure. Para obter mais informações, consulte [o esquema da grade de eventos para eventos no Azure Key Vault] (.. /.. /Event-Grid/Event-Schema-Key-Vault.MD] e saiba como [receber e responder a notificações do Key Vault com a grade de eventos do Azure](event-grid-tutorial.md).
+- Versão dos SDKs do Azure Key Vault de próxima geração. Para obter exemplos de uso, confira os guias de início rápido de segredos do Azure Key Vault para [Python](../secrets/quick-create-python.md), [.NET](../secrets/quick-create-net.md), [Java](../secrets/quick-create-java.md) e [Node.js](../secrets/quick-create-node.md)
+- Novas políticas do Azure para gerenciar certificados do cofre de chaves. Confira as [Definições internas do Azure Policy para o Key Vault](../policy-reference.md).
+- A extensão de Máquina Virtual do Azure Key Vault já está em disponibilidade geral.  Confira [Extensão de máquina virtual do Key Vault para Linux](../../virtual-machines/extensions/key-vault-linux.md) e [Extensão de máquina virtual do Key Vault para Windows](../../virtual-machines/extensions/key-vault-windows.md).
+- O gerenciamento de segredos controlado por evento para o Azure Key Vault já está disponível na Grade de Eventos do Azure. Para obter mais informações, confira [o esquema da Grade de Eventos para os eventos no Azure Key Vault](../../event-grid/event-schema-key-vault.md] e saiba como [Receber notificações do cofre de chaves e responder a elas com a Grade de Eventos do Azure](event-grid-tutorial.md).
 
 ## <a name="2018"></a>2018
 
-Novos recursos e integrações lançados neste ano:
+Novas integrações e novos recursos lançados neste ano:
 
-- Integração com o Azure Functions. Para um cenário de exemplo que aproveita [Azure Functions](../../azure-functions/index.yml) para operações do Key Vault, consulte [automatizar a rotação de um segredo](../secrets/tutorial-rotation.md). 
-- [Integração com o Azure Databricks](/azure/databricks/scenarios/store-secrets-azure-key-vault). Com isso, Azure Databricks agora dá suporte a dois tipos de escopos secretos: com backup Azure Key Vault e databricks-com suporte. Para obter mais informações, consulte [criar um escopo de segredo com backup Azure Key Vault](/azure/databricks/security/secrets/secret-scopes#--create-an-azure-key-vault-backed-secret-scope)
-- [Pontos de extremidade de serviço de rede virtual para Azure Key Vault](overview-vnet-service-endpoints.md).
+- Integração ao Azure Functions. Para obter um exemplo de cenário que utiliza o [Azure Functions](../../azure-functions/index.yml) para operações do cofre de chaves, confira [Automatizar a rotação de um segredo](../secrets/tutorial-rotation.md). 
+- [Integração ao Azure Databricks](/azure/databricks/scenarios/store-secrets-azure-key-vault). Com isso, o Azure Databricks agora dá suporte a dois tipos de escopos de segredos: Com backup do Azure Key Vault e com backup do Databricks. Para obter mais informações, confira [Criar um escopo de segredo com backup do Azure Key Vault](/azure/databricks/security/secrets/secret-scopes#--create-an-azure-key-vault-backed-secret-scope)
+- [Pontos de extremidade de serviço de rede virtual para o Azure Key Vault](overview-vnet-service-endpoints.md).
 
 ## <a name="2016"></a>2016
 
 Novos recursos lançados neste ano:
 
-- Chaves da conta de armazenamento gerenciada. O recurso chaves da conta de armazenamento adicionou a integração mais fácil com o armazenamento do Azure. Consulte o tópico de visão geral para saber mais, [Visão geral das Chaves de Conta de Armazenamento Gerenciado](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-storage-keys).
-- Exclusão reversível. O recurso de exclusão reversível melhora a proteção de dados de seus cofres de chaves e objetos do cofre de chaves. Para saber mais, confira o tópico de visão geral, [Visão geral da exclusão reversível](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete).
+- Chaves de conta de armazenamento gerenciadas. O recurso Chaves de Conta de Armazenamento facilitou a integração ao Armazenamento do Azure. Consulte o tópico de visão geral para saber mais, [Visão geral das Chaves de Conta de Armazenamento Gerenciado](../secrets/overview-storage-keys.md).
+- Exclusão reversível. O recurso de exclusão reversível aprimora a proteção de dados de cofres de chave e objetos do cofre de chaves. Para saber mais, confira o tópico de visão geral, [Visão geral da exclusão reversível](./soft-delete-overview.md).
 
 ## <a name="2015"></a>2015
 
 Novos recursos lançados neste ano:
-- Gerenciamento de certificado. Adicionado como um recurso à versão de GA 2015-06-01 em 26 de setembro de 2016.
+- Gerenciamento de certificados. Adicionado como um recurso à versão GA 2015-06-01 em 26 de setembro de 2016.
 
 A disponibilidade geral (versão 2015-06-01) foi anunciada em 24 de junho de 2015. As seguintes alterações foram feitas nessa versão: 
-- Excluir um campo "Use" de chave removido.
-- Obter informações sobre um campo de "uso" de chave removido.
-- Importar uma chave para um cofre-campo "usar" removido.
-- Restaurar um campo de "uso" de chave removido.     
-- "RSA_OAEP" foi alterado para "RSA-OAEP" para algoritmos RSA. Consulte [sobre chaves, segredos e certificados](about-keys-secrets-certificates.md).    
+- Exclusão de uma chave – remoção do campo "usar".
+- Obtenção de informações sobre uma chave – remoção do campo "usar".
+- Importação de uma chave para um cofre – remoção do campo "usar".
+- Restauração de uma chave – remoção do campo "usar".     
+- Alteração de "RSA_OAEP" para "RSA-OAEP" em Algoritmos RSA. Confira [Sobre chaves, segredos e certificados](about-keys-secrets-certificates.md).    
  
-A segunda versão de visualização (versão 2015-02-01-Preview) foi anunciada em 20 de abril de 2015. Para saber mais, consulte a postagem no blog [Atualização da API REST](https://docs.microsoft.com/archive/blogs/kv/rest-api-update). As seguintes tarefas foram atualizadas:
+A segunda versão prévia (versão 2015-02-01-preview) foi anunciada em 20 de abril de 2015. Para saber mais, consulte a postagem no blog [Atualização da API REST](/archive/blogs/kv/rest-api-update). As seguintes tarefas foram atualizadas:
  
 - Listar as chaves em um cofre - adição de suporte a paginação para a operação.
 - Listar as versões de uma chave - adição de operação para listar as versões de uma chave.  
@@ -80,7 +80,7 @@ A segunda versão de visualização (versão 2015-02-01-Preview) foi anunciada e
  
 ## <a name="2014"></a>2014
  
-A primeira versão de visualização (versão 2014-12-08-Preview) foi anunciada em 8 de janeiro de 2015.  
+A primeira versão prévia (versão 2014-12-08-preview) foi lançada em 8 de janeiro de 2015.  
  
 ## <a name="next-steps"></a>Próximas etapas
 

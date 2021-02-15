@@ -13,12 +13,13 @@ ms.date: 08/13/2019
 ms.author: ryanwi
 ms.reviewer: lenalepa
 ms.custom: aaddev
-ms.openlocfilehash: 0574eb0b8ab0b5d4de671ad44a45a85e434393f1
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ROBOTS: NOINDEX
+ms.openlocfilehash: 6a33da602eaa9bee20f155eaa550e558e5dcbeca
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88115570"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755562"
 ---
 # <a name="app-registration-reference"></a>Referência de registro de aplicativo
 
@@ -26,7 +27,7 @@ Este documento fornece contexto e descrições de vários recursos encontrados n
 
 ## <a name="my-applications-or-converged-applications"></a>Meus aplicativos ou Aplicativos convergidos
 
-Esta lista contém todos os aplicativos registrados para uso com o ponto de extremidade da plataforma de identidade da Microsoft (v2.0). Esses aplicativos permitem que usuários com contas pessoais da Microsoft e contas corporativas/de estudante do Azure Active Directory façam logon. Para saber mais sobre o ponto de extremidade da plataforma de identidade, confira a [Visão geral da v2.0](./v2-overview.md). Esses aplicativos também podem ser usados para integração com o ponto de extremidade de autenticação da conta da Microsoft, `https://login.live.com`.
+Esta lista contém todos os seus aplicativos registrados para uso com a plataforma de identidade da Microsoft. Esses aplicativos permitem que usuários com contas pessoais da Microsoft e contas corporativas/de estudante do Azure Active Directory façam logon. Para saber mais sobre a plataforma de identidade da Microsoft, consulte a [visão geral v 2.0](./v2-overview.md). Esses aplicativos também podem ser usados para integração com o ponto de extremidade de autenticação da conta da Microsoft, `https://login.live.com`.
 
 ## <a name="azure-ad-only-applications"></a>Aplicativos somente do Azure AD
 

@@ -10,14 +10,14 @@ metadata:
   ms.topic: landing-page
   author: MashaMSFT
   ms.author: mathoma
-  ms.reviewer: carlrab
+  ms.reviewer: sstein
   ms.date: 05/27/2020
-  ms.openlocfilehash: 2a7690f4587f9f113bed35e3a30b294b7bd8b5d4
-  ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+  ms.openlocfilehash: f8be335fed98d404687002f8c826e881d93e3a10
+  ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 08/19/2020
-  ms.locfileid: "88587898"
+  ms.lasthandoff: 11/12/2020
+  ms.locfileid: "94556481"
 landingContent:
 - title: SQL Server na VM do Azure
   linkLists:
@@ -58,7 +58,7 @@ landingContent:
     - text: Gerenciar com o portal do Azure
       url: windows/manage-sql-vm-portal.md
     - text: Registrar com o provedor de recursos de VM do SQL
-      url: windows/sql-vm-resource-provider-register.md
+      url: windows/sql-agent-extension-manually-register-single-vm.md
     - text: Aplicação de patch automatizada
       url: windows/automated-patching.md
     - text: Alterar tipo de licença
@@ -82,7 +82,7 @@ landingContent:
   - linkListType: how-to-guide
     links:
     - text: Grupo de disponibilidade (CLI Az)
-      url: windows/availability-group-az-cli-configure.md
+      url: ./windows/availability-group-az-commandline-configure.md
     - text: Grupo de disponibilidade sem cluster
       url: windows/availability-group-clusterless-workgroup-configure.md
     - text: FCI (Espaços de Armazenamento Diretos)
@@ -104,7 +104,7 @@ landingContent:
     - text: SQL do Azure para iniciantes
       url: https://aka.ms/azuresql4beginners
     - text: Princípios Básicos do SQL do Azure
-      url: https://docs.microsoft.com/learn/paths/azure-sql-fundamentals/
+      url: /learn/paths/azure-sql-fundamentals/
     - text: Laboratórios práticos do SQL do Azure
       url: https://aka.ms/asqlworkshop
     - text: Bootcamp do SQL do Azure
@@ -140,8 +140,8 @@ landingContent:
     - text: Transact-SQL (T-SQL)
       url: /sql/t-sql/language-reference
     - text: CLI do Azure
-      url: https://docs.microsoft.com/cli/azure/sql
+      url: /cli/azure/sql
     - text: PowerShell
-      url: https://docs.microsoft.com/powershell/module/az.sql
+      url: /powershell/module/az.sql
     - text: API REST
-      url: https://docs.microsoft.com/rest/api/sql/
+      url: /rest/api/sql/

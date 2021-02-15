@@ -1,14 +1,14 @@
 ---
 title: Solução de problemas comuns
 description: Saiba como solucionar problemas de criação, atribuição e remoção de plantas como violações de política e funções de parâmetro Blueprint.
-ms.date: 06/29/2020
+ms.date: 01/27/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: d1dcd88fd6f7a9ab5035a5977ab5d50f3e6caf54
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 65cf8ef9a5dcba0165aad8522f91ff1eb2c963a8
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85557507"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98918837"
 ---
 # <a name="troubleshoot-errors-using-azure-blueprints"></a>Solucionar problemas usando o Azure Blueprint
 
@@ -22,9 +22,9 @@ Muitos erros serão o resultado da atribuição de um blueprint para um escopo. 
 
 1. Selecione **plantas atribuídas** na página à esquerda e use a caixa de pesquisa para filtrar as atribuições de plano gráfico para localizar a atribuição com falha. Você também pode classificar a tabela de atribuições de acordo com a coluna **Estado de Provisionamento** para ver todas as atribuições com falha agrupadas.
 
-1. Clique no plano gráfico com o status com _falha_ ou clique com o botão direito do mouse e selecione **Exibir detalhes da atribuição**.
+1. Selecione o plano gráfico com o status com _falha_ ou clique com o botão direito do mouse e selecione **Exibir detalhes da atribuição**.
 
-1. Uma faixa vermelha que falhou a atribuição de aviso está na parte superior da página de atribuição de plano gráfico. Clique em qualquer lugar na faixa para obter mais detalhes.
+1. Uma faixa vermelha que falhou a atribuição de aviso está na parte superior da página de atribuição de plano gráfico. Selecione qualquer lugar na faixa para obter mais detalhes.
 
 É comum o erro a ser causado por um artefato e não o plano gráfico como um todo. Se um artefato cria um cofre de chaves e a Azure Policy impede a criação de Cofre de chaves, a atribuição inteira falhará.
 
@@ -59,7 +59,7 @@ Passar um parâmetro de blueprint que usa uma função, como `[resourceGroup().t
 
 #### <a name="resolution"></a>Resolução
 
-Para passar uma função como um parâmetro, faça o escape de toda a cadeia de caracteres com `[`, de modo que o parâmetro de blueprint se pareça com `[[resourceGroup().tags.myTag]`. O caractere de escape faz com que o Blueprints trate o valor como uma cadeia de caracteres ao processar o blueprint. O Blueprints, em seguida, coloca a função no artefato, permitindo que ela seja dinâmica conforme o esperado. Para obter mais informações, consulte [sintaxe e expressões em modelos de Azure Resource Manager](../../../azure-resource-manager/templates/template-expressions.md).
+Para passar uma função como um parâmetro, faça o escape de toda a cadeia de caracteres com `[`, de modo que o parâmetro de blueprint se pareça com `[[resourceGroup().tags.myTag]`. O caractere de escape faz com que o Blueprints trate o valor como uma cadeia de caracteres ao processar o blueprint. Em seguida, o serviço plantas coloca a função no artefato, permitindo que ele seja dinâmico conforme o esperado. Para obter mais informações, consulte [sintaxe e expressões em modelos de Azure Resource Manager](../../../azure-resource-manager/templates/template-expressions.md).
 
 ## <a name="delete-errors"></a>Erros de exclusão
 
@@ -75,7 +75,7 @@ Uma atribuição de Blueprint pode ficar paralisada em um estado não terminal q
 
 #### <a name="resolution"></a>Resolução
 
-As atribuições do Blueprint em um estado não terminal são marcadas automaticamente **com falha** após um tempo limite de _6 horas_ . Depois que o tempo limite tiver ajustado o estado da atribuição Blueprint, a exclusão poderá ser repetida.
+As atribuições do Blueprint em um estado não terminal são marcadas automaticamente **com falha** após um tempo limite de _seis horas_ . Depois que o tempo limite tiver ajustado o estado da atribuição Blueprint, a exclusão poderá ser repetida.
 
 ## <a name="next-steps"></a>Próximas etapas
 

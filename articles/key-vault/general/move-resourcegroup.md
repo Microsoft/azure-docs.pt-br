@@ -11,18 +11,22 @@ ms.topic: how-to
 ms.date: 04/29/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to move my vault to another resource group.
-ms.openlocfilehash: fe8051d551077666c06ac033f22303fd643ac602
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: ea152e1d78ab1ea610eee5420394c89524673993
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88585726"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92042375"
 ---
 # <a name="moving-an-azure-key-vault-across-resource-groups"></a>Movendo um Azure Key Vault entre grupos de recursos
 
 ## <a name="overview"></a>Visão geral
 
 Mover um cofre de chaves entre grupos de recursos é um recurso de cofre de chaves com suporte. Mover um cofre de chaves entre grupos de recursos não afetará as configurações de política de acesso ou firewall do cofre de chaves. Os aplicativos conectados e as entidades de serviço devem continuar funcionando conforme o esperado.
+
+> [!IMPORTANT]
+> **Os cofres de chaves usados para a criptografia de disco não podem ser movidos.**
+> Se você estiver usando o Key Vault com criptografia de disco para uma VM, o cofre de chaves não poderá ser movido para um grupo de recursos diferente ou uma assinatura enquanto a criptografia de disco estiver habilitada. Você deve desabilitar a criptografia de disco antes de mover o cofre de chaves para um novo grupo de recursos ou assinatura. 
 
 ## <a name="design-considerations"></a>Considerações de criação
 

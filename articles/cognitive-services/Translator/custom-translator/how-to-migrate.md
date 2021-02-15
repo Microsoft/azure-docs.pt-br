@@ -2,19 +2,19 @@
 title: Migrar workspace e projetos do Hub do Microsoft Translator? - Tradutor Personalizado
 titleSuffix: Azure Cognitive Services
 description: Este artigo explica como migrar seu espaço de trabalho de Hub e projetos para o tradutor personalizado de serviços cognitivas do Azure.
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 05/26/2020
-ms.author: swmachan
+ms.author: lajanuar
 ms.topic: conceptual
-ms.openlocfilehash: 5334168081ea18650bd6afd2411e076952e08749
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 89658ce88b4f1ac9d5bacac7bd45511b4aa0a1be
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537979"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895701"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>Migrar workspace e projetos do Hub para o Tradutor Personalizado
 
@@ -27,7 +27,7 @@ Estas ações são executadas durante a migração:
 * A qualquer momento, a pontuação de BLEU migrada do treinamento de Hub pode ser encontrada na página TrainingDetails do modelo no cabeçalho "Pontuação Bleu no Hub MT".
 
 > [!Note] 
-> Para que um treinamento tenha sucesso, o tradutor personalizado requer um mínimo de 10.000 frases extraídas exclusivas. O tradutor personalizado não pode conduzir um treinamento com menos do que o [mínimo sugerido](https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/sentence-alignment#suggested-minimum-number-of-sentences).
+> Para que um treinamento tenha sucesso, o tradutor personalizado requer um mínimo de 10.000 frases extraídas exclusivas. O tradutor personalizado não pode conduzir um treinamento com menos do que o [mínimo sugerido](./sentence-alignment.md#suggested-minimum-number-of-sentences).
 
 ## <a name="find-custom-translator-workspace-id"></a>Encontrar a ID do workspace do Tradutor Personalizado
 
@@ -55,7 +55,7 @@ Para migrar um projeto:
 
 3. Clique no link "Migrar" do projeto apropriado.
 
-    ![Como migrar do Hub](media/how-to/how-to-migrate-from-hub.png)
+    ![Captura de tela que realça o botão migrar do projeto selecionado.](media/how-to/how-to-migrate-from-hub.png)
 
 4. Ao pressionar o link de migração, você verá um formulário permitindo:
    * Especificar o workspace que deseja transferir para o Tradutor Personalizado
@@ -76,7 +76,7 @@ Para migrar um workspace:
 
 3. Na página &quot;Configurações&quot;, clique em &quot;Migrar dados do workspace para o Tradutor Personalizado&quot;.
 
-    ![Como migrar do Hub](media/how-to/how-to-migrate-workspace-from-hub.png)
+    ![Captura de tela que realça a opção migrar dados do espaço de trabalho para o tradutor personalizado.](media/how-to/how-to-migrate-workspace-from-hub.png)
 
 4. Na próxima página, selecione uma destas duas opções:
 
@@ -122,7 +122,7 @@ Se quiser um relatório de migração mais detalhado sobre os projetos, treiname
 * Sistemas com pares de idiomas ainda não disponíveis no Tradutor personalizado só estarão disponíveis para acessar dados ou Desimplantar por meio de um tradutor personalizado. Esses projetos serão marcados como "indisponíveis" na página projetos. À medida que habilitarmos novos pares de idiomas com o tradutor personalizado, os projetos ficarão ativos para treinar e implantar. 
 * A migração de um projeto do Hub para o Tradutor Personalizado não terá nenhum impacto sobre os treinamentos ou projetos do Hub. Não podemos excluir projetos ou documentos do Hub durante uma migração e não podemos desfazer a implantação de modelos.
 * Só é possível migrar uma vez por projeto. Se você precisar repetir uma migração em um projeto, entre em contato conosco.
-* O tradutor personalizado dá suporte a pares de idiomas NMT de e para inglês. [Veja a lista completa de idiomas com suporte](https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization). O Hub não exige que os modelos de linha de base e, portanto, dá suporte a várias linguagens de milhar. Você pode migrar um par linguístico sem suporte; no entanto, faremos apenas a migração de documentos e as definições do projeto. Não poderemos treinar o novo modelo. Além disso, esses documentos e projetos serão exibidos como inativos para indicar que não podem ser usados no momento. Caso o suporte a esses projetos e/ou documentos seja adicionado, eles ficarão ativos e poderão ser treinados.
+* O tradutor personalizado dá suporte a pares de idiomas NMT de e para inglês. [Veja a lista completa de idiomas com suporte](../language-support.md#customization). O Hub não exige que os modelos de linha de base e, portanto, dá suporte a várias linguagens de milhar. Você pode migrar um par linguístico sem suporte; no entanto, faremos apenas a migração de documentos e as definições do projeto. Não poderemos treinar o novo modelo. Além disso, esses documentos e projetos serão exibidos como inativos para indicar que não podem ser usados no momento. Caso o suporte a esses projetos e/ou documentos seja adicionado, eles ficarão ativos e poderão ser treinados.
 * Atualmente, o Tradutor Personalizado não dá suporte a dados de treinamento monolíngues. Assim como em pares linguísticos sem suporte, você poderá migrar documentos monolíngues, mas eles aparecerão como inativos até que passem a receber suporte.
 * O Tradutor Personalizado requer 10 mil sentenças paralelas para treinamento. O Hub da Microsoft pode treinar com um conjunto menor de dados. Se um treinamento for migrado e não atender a esse requisito, ele não será treinado.
 
@@ -146,4 +146,4 @@ Se você for uma comunidade ou organização trabalhando na criação de um novo
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Treinar um modelo](how-to-train-model.md).
-- Comece a usar seu modelo de tradução personalizado implantado por meio do [Tradutor v3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl).
+- Comece a usar seu modelo de tradução personalizado implantado por meio do [Tradutor v3](../reference/v3-0-translate.md?tabs=curl).

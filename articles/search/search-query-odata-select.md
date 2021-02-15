@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 54b6ae227fc4b3b951717799660543c02874dda0
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88919651"
 ---
 # <a name="odata-select-syntax-in-azure-cognitive-search"></a>Sintaxe de $select OData no Azure Pesquisa Cognitiva
@@ -32,7 +32,7 @@ ms.locfileid: "88919651"
 
 ## <a name="syntax"></a>Sintaxe
 
-O parâmetro **$Select** determina quais campos de cada documento são retornados no conjunto de resultados da consulta. O EBNF a seguir ([formulário Backus-Naur Estendido](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) define a gramática para o parâmetro **$Select** :
+O parâmetro **$Select** determina quais campos de cada documento são retornados no conjunto de resultados da consulta. O seguinte EBNF ([formulário estendido Backus-Naur](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) define a gramática para o parâmetro **$Select** :
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 

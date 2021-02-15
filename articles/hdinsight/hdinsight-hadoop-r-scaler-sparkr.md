@@ -1,19 +1,16 @@
 ---
 title: Usar o ScaleR e o SparkR com o Azure HDInsight
 description: Use o scaler e o Sparkr para a manipulação de dados e o desenvolvimento de modelos com os serviços de ML no Azure HDInsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/26/2019
-ms.openlocfilehash: 28a97edcbe84ae63a3d3d0cad2b9275c672f5664
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 95fcca289b0776cc19464b13eb7d243ca4f8d5ed
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86082268"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945517"
 ---
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>Combinar o ScaleR e o SparkR no HDInsight
 
@@ -25,7 +22,7 @@ Este exemplo foi inicialmente compartilhado em uma palestra no Strata 2016, por 
 
 O código foi originalmente gravado para Microsoft ML Server em execução no Spark em um cluster HDInsight no Azure. Mas o conceito de misturar o uso de SparkR e ScaleR em um script também é válido no contexto de ambientes locais.
 
-As etapas neste documento consideram que você possui um nível intermediário de conhecimento do R e R da biblioteca [ScaleR](https://msdn.microsoft.com/microsoft-r/scaler-user-guide-introduction) do Microsoft ML Server. Você é apresentado ao [sparkr](https://spark.apache.org/docs/2.1.0/sparkr.html) ao percorrer esse cenário.
+As etapas neste documento consideram que você possui um nível intermediário de conhecimento do R e R da biblioteca [ScaleR](/machine-learning-server/r/concept-what-is-revoscaler) do Microsoft ML Server. Você é apresentado ao [sparkr](https://spark.apache.org/docs/2.1.0/sparkr.html) ao percorrer esse cenário.
 
 ## <a name="the-airline-and-weather-datasets"></a>Os conjuntos de dados de linhas aéreas e clima
 
@@ -218,7 +215,7 @@ weatherDF <- read.df(sqlContext, weatherPath, source = "com.databricks.spark.csv
 
 ## <a name="data-cleansing-and-transformation"></a>Limpeza de dados e transformação
 
-Em seguida, fazemos uma limpeza nos dados de linhas áreas que você importou para renomear colunas. Mantemos apenas as variáveis necessárias e arrendondamos os horários de partida agendados para a hora mais próxima para habilitar a mesclagem com os dados meteorológicos mais recentes na partida:
+Em seguida, fazemos uma limpeza nos dados de companhia aérea que importamos para renomear colunas. Mantemos apenas as variáveis necessárias e arrendondamos os horários de partida agendados para a hora mais próxima para habilitar a mesclagem com os dados meteorológicos mais recentes na partida:
 
 ```
 logmsg('clean the airline data') 
@@ -459,7 +456,7 @@ rxGetInfo(testDS)
 
 ## <a name="train-and-test-a-logistic-regression-model"></a>Treinar e testar um modelo de regressão logística
 
-Agora estamos prontos para criar um modelo. Para ver a influência de dados meteorológicos sobre o atraso no horário de chegada, usamos a rotina de regressão logística do ScaleR. Nós a usamos para modelar se um atraso de chegada de mais de 15 minutos é influenciado pelas condições meteorológicas nos aeroportos de partida e de e chegada:
+Agora estamos prontos para criar um modelo. Para ver a influência dos dados meteorológicos em atraso no tempo de chegada, usamos a rotina de regressão logística do scaler. Nós a usamos para modelar se um atraso de chegada de mais de 15 minutos é influenciado pelas condições meteorológicas nos aeroportos de partida e de e chegada:
 
 ```
 logmsg('train a logistic regression model for Arrival Delay > 15 minutes') 
@@ -479,7 +476,7 @@ logitModel <- rxLogit(formula, data = trainDS, maxIterations = 3)
 base::summary(logitModel)
 ```
 
-Agora vamos ver como ele faz isso nos dados de teste, fazendo algumas previsões e observando ROC e AUC.
+Agora, vamos ver como ele faz com os dados de teste fazendo algumas previsões e observando ROC e AUC.
 
 ```
 # Predict over test data (Logistic Regression).
@@ -506,7 +503,7 @@ plot(logitRoc)
 
 ## <a name="scoring-elsewhere"></a>Pontuação em outro lugar
 
-Também podemos usar o modelo para pontuação de dados em outra plataforma. Fazemos isso salvando-os em um arquivo RDS e transferindo e importando esse RDS para o ambiente de pontuação de destino, tal como Microsoft SQL Server R Services. É importante garantir que os níveis de fator dos dados a serem pontuados correspondam àqueles nos quais o modelo foi criado. Essa correspondência pode ser obtida, extraindo e salvando as informações da coluna associadas aos dados de modelagem por meio da função `rxCreateColInfo()` do ScaleR e, em seguida, aplicando essas informações da coluna à fonte de dados de entrada para previsão. A seguir, salvaremos algumas linhas do conjunto de dados de teste e extrairemos e usaremos as informações da coluna deste exemplo no script de previsão:
+Também podemos usar o modelo para pontuação de dados em outra plataforma. Salvando-o em um arquivo RDS e, em seguida, transferindo e importando esse RDS para um ambiente de Pontuação de destino, como Microsoft SQL Server R Services. É importante garantir que os níveis de fator dos dados a serem pontuados correspondam àqueles nos quais o modelo foi criado. Essa correspondência pode ser obtida extraindo e salvando as informações de coluna associadas aos dados de modelagem por meio da função do scaler `rxCreateColInfo()` e, em seguida, aplicando essas informações de coluna à fonte de dados de entrada para previsão. No exemplo de código a seguir, salvamos algumas linhas do conjunto de dados de teste e extraímos e usamos as informações de coluna deste exemplo no script de previsão:
 
 ```
 # save the model and a sample of the test dataset 
@@ -535,7 +532,7 @@ Neste artigo, mostramos como é possível combinar o uso do Sparkr para a manipu
 
 ## <a name="next-steps-and-more-information"></a>Próximas etapas e mais informações
 
-- Para obter mais informações sobre o uso de ML Server em Apache Spark, consulte o [Guia de introdução](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started).
+- Para obter mais informações sobre o uso de ML Server em Apache Spark, consulte o [Guia de introdução](/machine-learning-server/r/how-to-revoscaler-spark).
 
 - Para obter informações sobre os serviços do ML no HDInsight, consulte [visão geral dos serviços do ml no hdinsight](r-server/r-server-overview.md).
 
@@ -543,4 +540,4 @@ Para obter mais informações sobre o uso de SparkR, veja:
 
 - [Documento do Apache sparkr](https://spark.apache.org/docs/2.1.0/sparkr.html).
 
-- [Visão geral do sparkr](https://docs.databricks.com/spark/latest/sparkr/overview.html) do databricks.
+- [Visão geral do sparkr](/azure/databricks/spark/latest/sparkr/overview)

@@ -1,5 +1,5 @@
 ---
-title: Início rápido de síntese de Fala – serviço de Fala
+title: Início rápido de conversão de texto em fala – serviço de fala
 titleSuffix: Azure Cognitive Services
 description: Saiba como usar o SDK de Fala para converter texto em fala. Neste guia de início rápido, você aprenderá sobre construção de objetos e padrões de design, formatos de saída de áudio compatíveis, a CLI de Fala e opções de configuração personalizadas para síntese de fala.
 services: cognitive-services
@@ -8,28 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 08/11/2020
+ms.date: 10/01/2020
 ms.author: trbye
-ms.custom: devx-track-python, devx-track-javascript
-zone_pivot_groups: speech-full-stack
-ms.openlocfilehash: e66da95bea0b03ddad1096b2b19751f73aaacbe0
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
+zone_pivot_groups: programming-languages-set-twenty-four
+keywords: conversão de texto em fala
+ms.openlocfilehash: c3f1db836ce028b6881efe0b2fa90e9ac19caac8
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88170105"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92058226"
 ---
-# <a name="get-started-with-speech-synthesis"></a>Introdução à síntese de fala
-
-Neste início rápido, você aprende os padrões de design comuns para fazer uma síntese da conversão de texto em fala usando o SDK de Fala. Você começa fazendo a configuração e a sintetização básicas e passa para exemplos mais avançados de desenvolvimento de aplicativos personalizados, incluindo:
-
-* Obter respostas como fluxos na memória
-* Personalizar a taxa de bits e a taxa de amostragem de saída
-* Enviar solicitações de sintetização usando SSML (linguagem de marcação de sintetização de voz)
-* Usar vozes neurais
-
-> [!TIP]
-> Se você quiser pular diretamente para o código de exemplo, consulte os [exemplos do guia de início rápido](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart) no GitHub.
+# <a name="get-started-with-text-to-speech"></a>Introdução à conversão de texto em fala
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [C# Basics include](includes/how-to/text-to-speech-basics/text-to-speech-basics-csharp.md)]
@@ -47,12 +38,20 @@ Neste início rápido, você aprende os padrões de design comuns para fazer uma
 [!INCLUDE [JavaScript Basics include](includes/how-to/text-to-speech-basics/text-to-speech-basics-javascript.md)]
 ::: zone-end
 
+::: zone pivot="programming-languages-objectivec-swift"
+[!INCLUDE [Objective-C and Swift Basics include](includes/how-to/text-to-speech-basics/text-to-speech-basics-objectivec-swift.md)]
+::: zone-end
+
 ::: zone pivot="programming-language-python"
 [!INCLUDE [Python Basics include](includes/how-to/text-to-speech-basics/text-to-speech-basics-python.md)]
 ::: zone-end
 
-::: zone pivot="programming-language-spx"
-[!INCLUDE [CLI include](includes/how-to/text-to-speech-basics/text-to-speech-basics-cli.md)]
+::: zone pivot="programming-language-curl"
+[!INCLUDE [REST include](includes/how-to/text-to-speech-basics/text-to-speech-basics-curl.md)]
+::: zone-end
+
+::: zone pivot="programmer-tool-spx"
+[!INCLUDE [CLI Basics include](includes/how-to/text-to-speech-basics/text-to-speech-basics-cli.md)]
 ::: zone-end
 
 ## <a name="next-steps"></a>Próximas etapas

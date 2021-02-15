@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 06/29/2020
 ms.author: genli
 ms.openlocfilehash: 23f31e8d36d6ba615b21a4043c7d39716fc6d89a
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88653487"
 ---
 # <a name="vhd-is-not-supported-when-you-create-a-virtual-machine-in-azure"></a>Não há suporte para VHD quando você cria uma máquina virtual no Azure

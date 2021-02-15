@@ -1,19 +1,19 @@
 ---
 title: 'Gerar e exportar certificados para P2S: PowerShell'
 titleSuffix: Azure VPN Gateway
-description: Crie um certificado raiz autoassinado, exportar a chave pública e gerar os certificados do cliente usando o PowerShell no Windows 10 ou no Windows Server 2016.
+description: Crie um certificado raiz autoassinado, exporte a chave pública e gere certificados de cliente para P2S usando o PowerShell no Windows 10 ou no Windows Server 2016.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 10/10/2019
+ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: f9792f52ae60039ff4891ea95688f961e73283af
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c1c69b301199b054fe6b1ef42cfcf7878a7a161c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84983434"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91306677"
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-using-powershell"></a>Gerar e exportar certificados para Ponto a Site usando o PowerShell
 

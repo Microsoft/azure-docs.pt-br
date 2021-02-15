@@ -1,21 +1,15 @@
 ---
 title: incluir arquivo
 description: incluir arquivo
-services: cognitive-services
-author: diberry
-manager: nitinme
 ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.date: 02/14/2020
 ms.topic: include
-ms.author: diberry
-ms.openlocfilehash: 4d6bc91345e8b46a234f4fa7ca0f4277dd8cac42
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: f9749c9e283a9b0c3c726856d51c49d2efc6743f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "87374725"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91544942"
 ---
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

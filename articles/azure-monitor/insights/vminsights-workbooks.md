@@ -6,16 +6,16 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
-ms.openlocfilehash: a6ab126c3a5b0d2a82b17fac42dcc9e20f6aba3f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 43cdb9de111bdea5486e49a56d58d38279b685c7
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79480446"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95985536"
 ---
 # <a name="create-interactive-reports-azure-monitor-for-vms-with-workbooks"></a>Criar relatórios interativos do Azure Monitor para VMs com pastas de trabalho
 
-As pastas de trabalho combinam texto, [consultas de log](../log-query/query-language.md), métricas e parâmetros em relatórios interativos sofisticados. As Pastas de Trabalho são editáveis por qualquer membro da equipe com acesso aos mesmos recursos do Azure.
+As pastas de trabalho combinam texto, [consultas de log](/azure/data-explorer/kusto/query/), métricas e parâmetros em relatórios interativos sofisticados. As Pastas de Trabalho são editáveis por qualquer membro da equipe com acesso aos mesmos recursos do Azure.
 
 As pastas de trabalho são úteis para cenários como:
 
@@ -26,7 +26,7 @@ As pastas de trabalho são úteis para cenários como:
 
 A tabela a seguir resume as pastas de trabalho que o Azure Monitor para VMs inclui para ajudá-lo a começar.
 
-| Pasta de trabalho | Descrição | Escopo |
+| Pasta de trabalho | Description | Escopo |
 |----------|-------------|-------|
 | Desempenho | Fornece uma versão personalizável do nosso modo de exibição de lista e gráficos em uma única pasta de trabalho que aproveita todos os contadores de desempenho de Log Analytics que você habilitou.| Em escala |
 | Contadores de desempenho | Uma exibição de gráfico N superior em um amplo conjunto de contadores de desempenho. | Em escala |
@@ -66,7 +66,7 @@ Uma pasta de trabalho composta por seções consiste em gráficos editáveis de 
 
 Pastas de Trabalho têm dois modos: **modo de edição**, e **modo de leitura**. Quando uma nova pasta de trabalho é iniciada pela primeira vez, ela é aberta no **modo de edição**. Ele mostra todo o conteúdo da pasta de trabalho, incluindo quaisquer etapas e parâmetros ocultos. **Modo de leitura** apresenta uma exibição de estilo do relatório simplificado. O modo de leitura permite abstrair a complexidade que deu na criação de um relatório enquanto ainda tem a mecânica subjacente apenas alguns cliques quando necessário para modificação.
 
-![Controles de edição da seção Azure Monitor para VMs pastas de trabalho](media/vminsights-workbooks/workbook-new-workbook-editor-01.png)
+![Captura de tela da seção da pasta de trabalho das máquinas virtuais no Azure Monitor mostrando uma nova pasta de trabalho no modo de edição com controles de edição realçados.](media/vminsights-workbooks/workbook-new-workbook-editor-01.png)
 
 1. Quando terminar de editar uma seção, clique em **edição concluída** no canto inferior esquerdo da seção.
 
@@ -102,7 +102,7 @@ Para incluir dados de outros espaços de trabalho do Log Analytics ou de um apli
 
 Cada seção tem suas próprias configurações avançadas, que podem ser acessadas por meio da ![ seção Configurações pastas de trabalho ícone de controles ](media/vminsights-workbooks/006-settings.png) de edição localizadas à direita do botão **adicionar parâmetros** .
 
-![Controles de edição da seção Azure Monitor para VMs pastas de trabalho](media/vminsights-workbooks/007-settings-expanded.png)
+![Captura de tela da caixa de diálogo Configurações avançadas na seção pasta de trabalho das máquinas virtuais do Azure Monitor. O ícone que abre a caixa de diálogo é realçado.](media/vminsights-workbooks/007-settings-expanded.png)
 
 |         |          |
 | ---------------- |:-----|
@@ -118,11 +118,11 @@ Uma das pastas de trabalho predefinidas – **tráfego TCP**, fornece informaç�
 
 A primeira seção da pasta de trabalho é baseada em dados de consulta de log. A segunda seção também é baseada em dados de consulta de log, mas a seleção de uma linha na primeira tabela atualizará interativamente o conteúdo dos gráficos:
 
-![Controles de edição da seção Azure Monitor para VMs pastas de trabalho](media/vminsights-workbooks/008-workbook-tcp-traffic.png)
+![Captura de tela da seção máquinas virtuais em Azure Monitor mostrando o tráfego TCP da pasta de trabalho predefinida.](media/vminsights-workbooks/008-workbook-tcp-traffic.png)
 
 O comportamento é possível por meio do uso de **quando um item é selecionado, exportar um parâmetro** configurações avançadas, que são habilitadas na consulta de log da tabela.
 
-![Controles de edição da seção Azure Monitor para VMs pastas de trabalho](media/vminsights-workbooks/009-settings-export.png)
+![Captura de tela da caixa de diálogo Configurações avançadas para uma pasta de trabalho de máquinas virtuais com a opção "quando um item é selecionado, exportar um parâmetro" marcada.](media/vminsights-workbooks/009-settings-export.png)
 
 A segunda consulta de log utiliza os valores exportados quando uma linha é selecionada para criar um conjunto de valores que são usados pelo cabeçalho e pelos gráficos da seção. Se nenhuma linha for selecionada, ela ocultará o cabeçalho e os gráficos da seção. 
 
@@ -141,7 +141,7 @@ As seções métricas dão acesso completo ao incorporar dados de métricas do A
 
 Aqui está um exemplo de dados da máquina virtual que estão sendo obtidos em uma pasta de trabalho para fornecer uma visualização em grade do desempenho da CPU:
 
-![Controles de edição da seção Azure Monitor para VMs pastas de trabalho](media/vminsights-workbooks/010-metrics-grid.png)
+![Captura de tela da seção de métricas de uma pasta de trabalho de máquina virtual no Azure Monitor. O desempenho da CPU para cada máquina virtual é mostrado graficamente.](media/vminsights-workbooks/010-metrics-grid.png)
 
 ## <a name="adding-parameter-sections"></a>Adicionando seções de parâmetro
 
@@ -155,7 +155,7 @@ Há quatro tipos diferentes de parâmetros, que atualmente têm suporte:
 
 |                  |      |
 | ---------------- |:-----|
-| **Texto**    | Permite que o usuário edite uma caixa de texto e, opcionalmente, você pode fornecer uma consulta para preencher o valor padrão. |
+| **Text**    | Permite que o usuário edite uma caixa de texto e, opcionalmente, você pode fornecer uma consulta para preencher o valor padrão. |
 | **Lista suspensa** | Permite que o usuário escolha entre um conjunto de valores. |
 | **Seletor de intervalo de tempo**| Permite que o usuário escolha entre um conjunto predefinido de valores de intervalo de tempo ou escolha um intervalo de tempo personalizado.|
 | **Seletor de recursos** | Permite que o usuário escolha entre os recursos selecionados para a pasta de trabalho.|
@@ -180,11 +180,11 @@ Se a coluna for um tipo de cadeia de caracteres, cadeia de caracteres nula ou es
 
 Vamos examinar os parâmetros presentes no relatório visão geral de conexões. Clique no símbolo de edição ao lado de **direção**.
 
-![Controles de edição da seção Azure Monitor para VMs pastas de trabalho](media/vminsights-workbooks/011-workbook-using-dropdown.png)
+![Captura de tela da seção para adicionar e editar parâmetros de relatório no Azure Monitor. O ícone Editar para o parâmetro de direção é selecionado.](media/vminsights-workbooks/011-workbook-using-dropdown.png)
 
 Isso abrirá o item de menu **Editar parâmetro** .
 
-![Controles de edição da seção Azure Monitor para VMs pastas de trabalho](media/vminsights-workbooks/012-workbook-edit-parameter.png)
+![Captura de tela da caixa de diálogo Editar parâmetro. O nome do parâmetro é direção, o tipo de parâmetro é lista suspensa e obter dados de JSON é selecionado.](media/vminsights-workbooks/012-workbook-edit-parameter.png)
 
 O JSON permite gerar uma tabela arbitrária populada com conteúdo. Por exemplo, o JSON a seguir gera dois valores na lista suspensa:
 

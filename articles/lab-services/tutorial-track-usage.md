@@ -3,12 +3,12 @@ title: Acompanhar o uso de um laboratório no Azure Lab Services | Microsoft Doc
 description: Neste tutorial, você, como um criador/proprietário de laboratório, acompanha o uso do laboratório.
 ms.topic: tutorial
 ms.date: 06/26/2020
-ms.openlocfilehash: a9a9b49b568decc621be1969a8578d61ac7e4861
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 8a3ca9e011eb89b3db8b202bab11d14f10d74e7e
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85445025"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96434610"
 ---
 # <a name="tutorial-track-usage-of-a-lab-in-azure-lab-service"></a>Tutorial: Acompanhar o uso de um laboratório no Azure Lab Services
 Este tutorial mostra como um criador/proprietário de laboratório pode acompanhar o uso de um laboratório.
@@ -50,4 +50,4 @@ Para obter mais informações sobre como gerenciar um pool de máquinas virtuais
 > Quando um educador ativa a VM de um aluno, a cota do aluno não é afetada. A cota de um usuário especifica o número de horas de laboratório disponíveis para o usuário fora da hora da classe agendada. Para obter mais informações sobre cotas, confira [Definir cotas para usuários](how-to-configure-student-usage.md?#set-quotas-for-users).
 
 ## <a name="next-steps"></a>Próximas etapas
-Para saber mais sobre os laboratórios da sala de aula, confira os artigos nos [Guias de instruções](how-to-manage-lab-accounts.md).
+Para saber mais sobre laboratórios, confira os artigos nos [Guias de instruções](how-to-manage-lab-accounts.md).

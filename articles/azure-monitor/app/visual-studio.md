@@ -2,17 +2,14 @@
 title: Depurar no Visual Studio com o Aplicativo Azure insights
 description: Análise de desempenho do aplicativo Web e diagnóstico durante a depuração e na produção.
 ms.topic: conceptual
-author: NumberByColors
-ms.author: daviste
-ms.date: 07/07/2017
-ms.reviewer: mbullwin
+ms.date: 03/17/2017
 ms.custom: vs-azure
-ms.openlocfilehash: 1bb18cc43ef306a208500ff49ec41dbfb74b788e
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: d2de29d897c84496fd44d74d88d58decbc64b7f8
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323461"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94532895"
 ---
 # <a name="debug-your-applications-with-azure-application-insights-in-visual-studio"></a>Depure seus aplicativos com o Azure Application Insights no Visual Studio
 No Visual Studio (2015 e posterior), você pode analisar o desempenho e diagnosticar problemas em seu aplicativo Web ASP.NET na depuração e na produção usando a telemetria do [Application Insights do Azure](./app-insights-overview.md).
@@ -56,12 +53,12 @@ Os relatórios de exceção aparecem na Janela de pesquisa. (Em alguns tipos mai
 
 Clique em uma exceção para obter um rastreamento de pilha. Se o código do aplicativo for aberto no Visual Studio, você poderá clicar desde o rastreamento de pilha até a linha relevante no código.
 
-![Rastreamento de pilha de exceção](./media/visual-studio/17.png)
+![Captura de tela mostra o objeto about em um rastreamento de pilha.](./media/visual-studio/17.png)
 
 ## <a name="view-request-and-exception-summaries-in-the-code"></a>Exibir resumos de solicitação e exceção no código
 Na linha de CodeLens acima de cada método manipulador, você verá uma contagem das solicitações e exceções registradas pelo Application Insights nas últimas 24 horas.
 
-![Rastreamento de pilha de exceção](./media/visual-studio/21.png)
+![Captura de tela mostra uma exceção em uma caixa de diálogo de contexto.](./media/visual-studio/21.png)
 
 > [!NOTE] 
 > O CodeLens mostrará dados do Application Insights somente se você tiver [configurado seu aplicativo para enviar telemetria ao portal do Application Insights](./asp-net.md).
@@ -94,8 +91,6 @@ Também será particularmente útil se você tiver [telemetria personalizada](./
 
 
 ## <a name="next-steps"></a>Próximas etapas
-|  |  |
-| --- | --- |
-| **[Adicionar mais dados](./asp-net-more.md)**<br/>Monitorar o uso, a disponibilidade, as dependências e as exceções. Integrar rastreamentos de estruturas de logs. Escrever telemetria personalizada. |![Visual Studio](./media/visual-studio/64.png) |
-| **[Trabalhando com o portal do Application Insights](./overview-dashboard.md)**<br/>Exiba painéis, poderosas ferramentas de diagnóstico e análise, alertas, um mapa de dependências em tempo real de seu aplicativo e os dados telemétricos exportados. |![Visual Studio](./media/visual-studio/62.png) |
+
+ * **[Trabalhando com o portal de Application insights](./overview-dashboard.md)**. Exiba painéis, poderosas ferramentas de diagnóstico e análise, alertas, um mapa de dependências em tempo real de seu aplicativo e os dados telemétricos exportados. 
 

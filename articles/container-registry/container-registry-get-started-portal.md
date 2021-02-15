@@ -4,12 +4,12 @@ description: Aprenda rapidamente a criar um registro de contêiner do Azure priv
 ms.topic: quickstart
 ms.date: 08/04/2020
 ms.custom: seodec18, mvc
-ms.openlocfilehash: ace1030923ea226376369941badafafa662d25ce
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: ff74232edf5c96f091082f8486c44fed6125b0b1
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88031756"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97825845"
 ---
 # <a name="quickstart-create-an-azure-container-registry-using-the-azure-portal"></a>Início Rápido: Criar um Registro de Contêiner do Azure usando o portal do Azure
 
@@ -45,7 +45,7 @@ Anote o nome do registro e o valor do **servidor de logon**. Você usará esses 
 
 ## <a name="log-in-to-registry"></a>Fazer logon no registro
 
-Antes de efetuar push e pull das imagens de contêiner, você precisa fazer logon na instância do registro. [Entre na CLI do Azure][get-started-with-azure-cli] no computador local e, em seguida, execute o comando [az acr login][az-acr-login]. (Especifique somente o nome do Registro ao fazer logon com a CLI do Azure. Não inclua o sufixo de domínio 'azurecr.io'.)
+Antes de efetuar push e pull das imagens de contêiner, você precisa fazer logon na instância do registro. [Entre na CLI do Azure][get-started-with-azure-cli] no computador local e, em seguida, execute o comando [az acr login][az-acr-login]. Especifique somente o nome do Registro ao fazer logon com a CLI do Azure. Não use o nome do servidor de logon, que inclui um sufixo de domínio como `azurecr.io`.
 
 ```azurecli
 az acr login --name <registry-name>

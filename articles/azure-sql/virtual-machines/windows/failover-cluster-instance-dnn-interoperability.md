@@ -7,17 +7,18 @@ author: MashaMSFT
 editor: monicar
 tags: azure-service-management
 ms.service: virtual-machines-sql
-ms.topic: article
+ms.subservice: hadr
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: f9c4f58c3318d9d030637f85f3c1597b98d458c7
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 3c92aa3b35240831fad14919dc73609d803c610a
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965431"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97358207"
 ---
 # <a name="feature-interoperability-with-sql-server-fci--dnn"></a>Interoperabilidade de recursos com SQL Server FCI & DNN
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -75,8 +76,8 @@ Continue usando o nome do VNN como o nome do FCI na replicação, mas crie um al
 
 | **Componente de replicação (FCI com DNN)** | **Componente remoto** | **Mapa de alias de rede** | **Servidor com mapa de rede**| 
 |---------|---------|---------|-------- | 
-|Publisher | Distribuidor | VNN do Publicador para o Publicador DNN| Distribuidor| 
-|Distribuidor|Assinante |VNN do distribuidor para DNN do distribuidor| Assinante | 
+|Publicador | Distribuidor | VNN do Publicador para o Publicador DNN| Distribuidor| 
+|Distribuidor|Subscriber |VNN do distribuidor para DNN do distribuidor| Subscriber | 
 |Distribuidor|Publicador | VNN do distribuidor para DNN do distribuidor | Publicador| 
 |Subscriber| Distribuidor| Assinante VNN para Assinante DNN | Distribuidor| 
 
@@ -177,5 +178,5 @@ Em seguida, crie um alias de rede para o qual Mapear `vnnname\insta1` `dnnlsnr\i
 Para obter mais informações, consulte: 
 
 - [Tecnologias de cluster do Windows](/windows-server/failover-clustering/failover-clustering-overview)   
-- [SQL Server instâncias de cluster de failover](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
+- [Instâncias de cluster de failover do SQL Server](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
 

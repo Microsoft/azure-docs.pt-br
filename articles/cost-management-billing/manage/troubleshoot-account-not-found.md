@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: f701e41c62336bcd7638360a27a0fb4c3ce3ec7d
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 71561f6ecdde09f259e54260e7bab4dcc0e85c98
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686659"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132628"
 ---
 # <a name="troubleshoot-viewing-your-billing-account-in-the-azure-portal"></a>Solucionar problemas de exibição da sua conta de cobrança no portal do Azure
 
@@ -59,7 +59,7 @@ Se você tiver dúvidas ou precisar de ajuda, [crie uma solicitação de suporte
 
 Leia os artigos de cobrança e assinatura a seguir para ajudar a solucionar problemas.
 
-- [Cartão recusado](https://docs.microsoft.com/azure/cost-management-billing/manage/troubleshoot-declined-card)
-- [Problemas de entrada de assinatura](https://docs.microsoft.com/azure/cost-management-billing/manage/troubleshoot-sign-in-issue)
-- [Nenhuma assinatura encontrada](https://docs.microsoft.com/azure/cost-management-billing/manage/no-subscriptions-found)
-- [Exibição do custo da empresa desabilitado](https://docs.microsoft.com/azure/cost-management-billing/manage/enterprise-mgmt-grp-troubleshoot-cost-view)
+- [Cartão recusado](./troubleshoot-declined-card.md)
+- [Problemas de entrada de assinatura](./troubleshoot-sign-in-issue.md)
+- [Nenhuma assinatura encontrada](./no-subscriptions-found.md)
+- [Exibição do custo da empresa desabilitado](./enterprise-mgmt-grp-troubleshoot-cost-view.md)

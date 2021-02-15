@@ -4,13 +4,12 @@ description: Etapas para criar um aplicativo de pizza do LUIS.
 ms.date: 05/05/2020
 ms.topic: include
 ms.custom: include file
-ms.author: diberry
-ms.openlocfilehash: 583394a31d220878eb403f702ba82b2f525d4dda
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 739a8d240f1e3c9928209dbd17e6468bc0921077
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83588915"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91545472"
 ---
 1. Entre no portal do LUIS com a URL [https://www.luis.ai](https://www.luis.ai).
 

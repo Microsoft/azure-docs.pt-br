@@ -1,23 +1,23 @@
 ---
 title: Tópicos sobre espelho do Apache Kafka – Azure HDInsight
 description: Saiba como usar o recurso de espelhamento do Apache Kafka para manter uma réplica de um cluster Kafka no HDInsight espelhando tópicos para um cluster secundário.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/29/2019
-ms.openlocfilehash: 278fbdf7010fe7b14488bb021ab8a366393ad512
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: c2fce6d4ee95a56cc087d50184fcd69ac113620f
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087355"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98940851"
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight"></a>Use MirrorMaker para replicar tópicos do Apache Kafka com Kafka no HDInsight
 
 Saiba como usar o recurso de espelhamento do Apache Kafka para replicar tópicos para um cluster secundário. O espelhamento pode ser executado como um processo contínuo ou usado de forma intermitente como um método de migração de dados de um cluster para outro.
+
+> [!NOTE]
+> Este artigo contém referências ao termo *lista de permissões*, um termo que a Microsoft não usa mais. Quando o termo for removido do software, também o removeremos deste artigo.
 
 Neste exemplo, o espelhamento é usado para replicar tópicos entre dois clusters de HDInsight. Ambos os clusters estão em diferentes redes virtuais em data centers diferentes.
 
@@ -73,7 +73,7 @@ Essa arquitetura apresenta dois clusters em diferentes grupos de recursos e rede
 
 1. Crie dois novos clusters Kafka:
 
-    | Nome do cluster | Grupo de recursos | Rede Virtual | Conta de Armazenamento |
+    | Nome do cluster | Grupo de recursos | Rede Virtual | Conta de armazenamento |
     |---|---|---|---|
     | Kafka-primário-cluster | Kafka-principal-RG | Kafka-Primary-vnet | kafkaprimarystorage |
     | Kafka-secundário-cluster | Kafka-secundário-RG | Kafka-secundário-vnet | kafkasecondarystorage |
@@ -113,7 +113,7 @@ Configure o anúncio de IP para permitir que um cliente se conecte usando endere
     
 1. Permaneça na guia **configurações** em **Serviços**  >  **Kafka**. Na seção **agente Kafka** , defina a propriedade **Listeners** como `PLAINTEXT://0.0.0.0:9092` .
 1. Selecione **Salvar**.
-1. Selecione **reiniciar**e **confirme reiniciar tudo**.
+1. Selecione **reiniciar** e **confirme reiniciar tudo**.
 
 ### <a name="record-broker-ip-addresses-and-zookeeper-addresses-for-primary-cluster"></a>Endereços IP do agente de registro e endereços Zookeeper para o cluster primário.
 
@@ -132,7 +132,7 @@ Configure o anúncio de IP para permitir que um cliente se conecte usando endere
     ssh sshuser@PRIMARYCLUSTER-ssh.azurehdinsight.net
     ```
 
-    Substitua**sshuser** pelo nome de usuário do SSH usado ao criar o cluster. Substitua **PRIMARYCLUSTER** pelo nome base usado ao criar o cluster.
+    Substitua **sshuser** pelo nome de usuário do SSH usado ao criar o cluster. Substitua **PRIMARYCLUSTER** pelo nome base usado ao criar o cluster.
 
     Para obter informações, consulte [Usar SSH com HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -177,7 +177,7 @@ Configure o anúncio de IP para permitir que um cliente se conecte usando endere
     ssh sshuser@SECONDARYCLUSTER-ssh.azurehdinsight.net
     ```
 
-    Substitua**sshuser** pelo nome de usuário do SSH usado ao criar o cluster. Substitua **SECONDARYCLUSTER** pelo nome usado ao criar o cluster.
+    Substitua **sshuser** pelo nome de usuário do SSH usado ao criar o cluster. Substitua **SECONDARYCLUSTER** pelo nome usado ao criar o cluster.
 
     Para obter informações, consulte [Usar SSH com HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -254,7 +254,7 @@ Configure o anúncio de IP para permitir que um cliente se conecte usando endere
         1. Clique em **Serviços**  >  **Kafka**. Selecione a guia **Configurações** .
         1. No campo __filtro__ , insira um valor de `auto.create` . Isso filtrará a lista de propriedades e exibirá a configuração `auto.create.topics.enable`.
         1. Altere o valor de `auto.create.topics.enable` para true e, em seguida, selecione __Salvar__. Adicione uma observação e, em seguida, selecione __salvar__ novamente.
-        1. Selecione o serviço __Kafka__ , selecione __reiniciar__e, em seguida, selecione __reiniciar todos os afetados__. Quando solicitado, selecione __confirmar reiniciar tudo__.
+        1. Selecione o serviço __Kafka__ , selecione __reiniciar__ e, em seguida, selecione __reiniciar todos os afetados__. Quando solicitado, selecione __confirmar reiniciar tudo__.
 
         ![Kafka habilitar tópicos de criação automática](./media/apache-kafka-mirroring/kafka-enable-auto-create-topics.png)
 

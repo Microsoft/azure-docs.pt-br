@@ -6,19 +6,19 @@ ms.assetid: 6d00c73c-13cb-446f-8926-923db4101afa
 ms.topic: quickstart
 ms.date: 07/11/2019
 ms.custom: mvc, cli-validate, seodec18
-ms.openlocfilehash: 875649d2405aa5542a7b66e247cc50d4b2cba20d
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 45c87f690c24e989a797cbd82147b9125e447e79
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88083293"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97561776"
 ---
 # <a name="create-a-ruby-on-rails-app-in-app-service"></a>Criar um aplicativo Ruby on Rails no Serviço de Aplicativo
 
-O [Serviço de Aplicativo do Azure no Linux](overview.md#app-service-on-linux) fornece um serviço de hospedagem na Web altamente escalonável e com aplicação automática de patches usando o sistema operacional Linux. Este tutorial de início rápido mostra como implantar um aplicativo Ruby on Rails no Serviço de Aplicativo no Linux usando o [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
+O [Serviço de Aplicativo do Azure no Linux](overview.md#app-service-on-linux) fornece um serviço de hospedagem na Web altamente escalonável e com aplicação automática de patches usando o sistema operacional Linux. Este tutorial de início rápido mostra como implantar um aplicativo Ruby on Rails no Serviço de Aplicativo no Linux usando o [Cloud Shell](../cloud-shell/overview.md).
 
 > [!NOTE]
-> A pilha de desenvolvimento Ruby só dá suporte ao Ruby on Rails no momento. Se prefere usar outra plataforma, como o Sinatra, ou uma versão do Ruby sem suporte, você precisa [executá-lo em um contêiner personalizado](containers/quickstart-docker-go.md).
+> A pilha de desenvolvimento Ruby só dá suporte ao Ruby on Rails no momento. Se prefere usar outra plataforma, como o Sinatra, ou uma versão do Ruby sem suporte, você precisa [executá-lo em um contêiner personalizado](./quickstart-custom-container.md?pivots=platform-linux%3fpivots%3dplatform-linux).
 
 ![Olá, Mundo](./media/quickstart-ruby/hello-world-configured.png)
 
@@ -85,7 +85,7 @@ Execute os seguintes comandos para implantar o aplicativo local em seu aplicativ
 
 ```bash
 git remote add azure <Git deployment URL from above>
-git push azure master
+git push azure main
 ```
 
 Confirme que as operações de implantação remota relatam êxito. Os comandos produzem uma saída semelhante ao texto a seguir:
@@ -104,7 +104,7 @@ remote: Running post deployment command(s)...
 remote: Deployment successful.
 remote: App container will begin restart within 10 seconds.
 To https://<app-name>.scm.azurewebsites.net/<app-name>.git
-   a6e73a2..ae34be9  master -> master
+   a6e73a2..ae34be9  main -> main
 ```
 
 Após a implantação ser concluída, aguarde cerca de 10 segundos para que o aplicativo Web seja reiniciado e, em seguida, navegue até ele e verifique os resultados.

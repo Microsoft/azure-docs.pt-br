@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e134c2e49df5b53ed37acddd86e41af17f43a048
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 366d68be1a7f115980973015e363da6095876754
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84464157"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997623"
 ---
 # <a name="how-to-configure-and-enable-risk-policies"></a>Como configurar e habilitar políticas de risco
 
@@ -33,7 +33,7 @@ Ambas as políticas funcionam para automatizar a resposta a detecções de risco
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 
-Se sua organização quiser permitir que os usuários se recorrir automaticamente quando forem detectados riscos, os usuários deverão ser registrados para a redefinição de senha de autoatendimento e a autenticação multifator do Azure. É recomendável [habilitar a experiência combinada de registro de informações de segurança](../authentication/howto-registration-mfa-sspr-combined.md) para obter a melhor experiência. Permitir que os usuários se corrijam novamente para um estado produtivo mais rapidamente, sem a necessidade de intervenção do administrador. Os administradores ainda podem ver esses eventos e investigue-os após o fato. 
+Se sua organização quiser permitir que os usuários se recorrir automaticamente quando forem detectados riscos, os usuários deverão ser registrados para a redefinição de senha de autoatendimento e a autenticação multifator do Azure AD. É recomendável [habilitar a experiência combinada de registro de informações de segurança](../authentication/howto-registration-mfa-sspr-combined.md) para obter a melhor experiência. Permitir que os usuários se corrijam novamente para um estado produtivo mais rapidamente, sem a necessidade de intervenção do administrador. Os administradores ainda podem ver esses eventos e investigue-os após o fato. 
 
 ## <a name="choosing-acceptable-risk-levels"></a>Escolhendo níveis de risco aceitáveis
 
@@ -45,7 +45,7 @@ Escolher um limite **Alto** reduz o número de vezes que uma política é dispar
 
 ## <a name="exclusions"></a>Exclusões
 
-Todas as políticas permitem a exclusão de usuários, como suas [contas de administrador de interrupção ou de acesso de emergência](../users-groups-roles/directory-emergency-access.md). As organizações podem determinar que precisam excluir outras contas de políticas específicas com base na maneira como as contas são usadas. Todas as exclusões devem ser revisadas regularmente para ver se elas ainda são aplicáveis.
+Todas as políticas permitem a exclusão de usuários, como suas [contas de administrador de interrupção ou de acesso de emergência](../roles/security-emergency-access.md). As organizações podem determinar que precisam excluir outras contas de políticas específicas com base na maneira como as contas são usadas. Todas as exclusões devem ser revisadas regularmente para ver se elas ainda são aplicáveis.
 
 Os [locais de rede](../conditional-access/location-condition.md) confiáveis configurados são usados pela proteção de identidade em algumas detecções de risco para reduzir os falsos positivos.
 
@@ -54,8 +54,8 @@ Os [locais de rede](../conditional-access/location-condition.md) confiáveis con
 Para habilitar o risco do usuário e as políticas de risco de entrada, conclua as etapas a seguir.
 
 1. Navegue até o [Portal do Azure](https://portal.azure.com).
-1. Navegue até **Azure Active Directory**  >  **Security**  >  **Identity Protection**  >  **visão geral**da proteção de identidade de segurança.
-1. Selecione **Configurar política de risco do usuário**.
+1. Navegue até **Azure Active Directory**  >  **Security**  >  **Identity Protection**  >  **visão geral** da proteção de identidade de segurança.
+1. Selecione a **política de risco do usuário**.
    1. Em **atribuições**
       1. **Usuários** – escolha **todos os usuários** ou **selecione indivíduos e grupos** se limitar a distribuição.
          1. Opcionalmente, você pode optar por excluir usuários da política.
@@ -64,7 +64,7 @@ Para habilitar o risco do usuário e as políticas de risco de entrada, conclua 
       1. **Acesso** -a recomendação da Microsoft é **permitir o acesso** e **exigir alteração de senha**.
    1. **Impor política**  -  **Em**
    1. **Salvar** – esta ação retornará à página **visão geral** .
-1. Selecione **Configurar política de risco de entrada**.
+1. Selecione **a política de risco de entrada**.
    1. Em **atribuições**
       1. **Usuários** – escolha **todos os usuários** ou **selecione indivíduos e grupos** se limitar a distribuição.
          1. Opcionalmente, você pode optar por excluir usuários da política.
@@ -76,7 +76,7 @@ Para habilitar o risco do usuário e as políticas de risco de entrada, conclua 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Habilitar a política de registro da Autenticação Multifator do Azure](howto-identity-protection-configure-mfa-policy.md)
+- [Habilitar a política de registro da autenticação multifator do Azure AD](howto-identity-protection-configure-mfa-policy.md)
 
 - [O que é risco](concept-identity-protection-risks.md)
 

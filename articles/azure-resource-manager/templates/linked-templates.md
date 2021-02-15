@@ -1,30 +1,32 @@
 ---
 title: Vincular modelos para implantação
-description: Descreve como usar modelos vinculados em um modelo do Gerenciador de Recursos do Azure para criar uma solução de modelo modular. Mostra como passar valores de parâmetros, especificar um arquivo de parâmetro e URLs criadas dinamicamente.
+description: Descreve como usar modelos vinculados em um modelo de Azure Resource Manager (modelo ARM) para criar uma solução de modelo modular. Mostra como passar valores de parâmetros, especificar um arquivo de parâmetro e URLs criadas dinamicamente.
 ms.topic: conceptual
-ms.date: 07/21/2020
-ms.openlocfilehash: 40da2443828a07f2171922fcc6d8976d464d0ad4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 01/26/2021
+ms.openlocfilehash: aae3947656e475d15bc4f0da770d0398fafa13c5
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086805"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880417"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Usando modelos vinculados e aninhados ao implantar os recursos do Azure
 
-Para implantar soluções complexas, você pode dividir o modelo em muitos modelos relacionados e implantá-los juntos por meio de um modelo principal. Os modelos relacionados podem ser arquivos separados ou a sintaxe de modelo que é inserida no modelo principal. Este artigo usa o termo **vinculado modelo** para se referir a um arquivo de modelo separado que é referenciado por meio de um link do modelo principal. Ele usa o termo **modelo aninhado** para se referir à sintaxe de modelo incorporado no modelo principal.
+Para implantar soluções complexas, você pode dividir seu modelo de Azure Resource Manager (modelo ARM) em muitos modelos relacionados e implantá-los juntos por meio de um modelo principal. Os modelos relacionados podem ser arquivos separados ou a sintaxe de modelo que é inserida no modelo principal. Este artigo usa o termo **vinculado modelo** para se referir a um arquivo de modelo separado que é referenciado por meio de um link do modelo principal. Ele usa o termo **modelo aninhado** para se referir à sintaxe de modelo incorporado no modelo principal.
 
-Para pequenas e médias soluções, um único modelo é mais fácil de entender e manter. Você pode ver todos os recursos e valores em um único arquivo. Para cenários avançados, os modelos vinculados permitem dividir a solução em componentes de destino. Você pode facilmente reutilizar esses modelos para outros cenários.
+Para pequenas e médias soluções, um único modelo é mais fácil de entender e manter. Você pode ver todos os recursos e valores em um único arquivo. Para cenários avançados, os modelos vinculados permitem que você detalhe a solução em componentes de destino. Você pode reutilizar esses modelos para outros cenários com facilidade.
 
-Para obter um tutorial, consulte [Tutorial: criar modelos vinculados do Azure Resource Manager](./deployment-tutorial-linked-template.md).
+Para obter um tutorial, consulte [tutorial: implantar um modelo vinculado](./deployment-tutorial-linked-template.md).
 
 > [!NOTE]
-> Para modelos vinculados ou aninhados, você só pode usar o modo de implantação [Incremental](deployment-modes.md).
+> Para modelos vinculados ou aninhados, você só pode definir o modo de implantação como [incremental](deployment-modes.md). No entanto, o modelo principal pode ser implantado no modo completo. Se você implantar o modelo principal no modo completo e o modelo vinculado ou aninhado tiver como alvo o mesmo grupo de recursos, os recursos implantados no modelo vinculado ou aninhado serão incluídos na avaliação para a implantação do modo completo. A coleção combinada de recursos implantados no modelo principal e em modelos vinculados ou aninhados é comparada com os recursos existentes no grupo de recursos. Todos os recursos não incluídos nessa coleção combinada são excluídos.
+>
+> Se o modelo vinculado ou aninhado tiver como alvo um grupo de recursos diferente, essa implantação usará o modo incremental.
 >
 
 ## <a name="nested-template"></a>Modelo aninhado
 
-Para aninhar um modelo, adicione um [recurso de implantações](/azure/templates/microsoft.resources/deployments) ao seu modelo principal. Na propriedade de **modelo** , especifique a sintaxe do modelo.
+Para aninhar um modelo, adicione um [recurso de implantações](/azure/templates/microsoft.resources/deployments) ao seu modelo principal. Na `template` propriedade, especifique a sintaxe do modelo.
 
 ```json
 {
@@ -94,7 +96,7 @@ O exemplo a seguir implanta uma conta de armazenamento por meio de um modelo ani
 
 ### <a name="expression-evaluation-scope-in-nested-templates"></a>Escopo de avaliação de expressão em modelos aninhados
 
-Ao usar um modelo aninhado, você pode especificar se as expressões de modelo são avaliadas dentro do escopo do modelo pai ou do modelo aninhado. O escopo determina como os parâmetros, as variáveis e as funções, como o [resourcegroup](template-functions-resource.md#resourcegroup) e a [assinatura](template-functions-resource.md#subscription) , são resolvidos.
+Ao usar um modelo aninhado, você pode especificar se as expressões de modelo serão avaliadas dentro do escopo do modelo pai ou do próprio modelo aninhado. O escopo determina como os parâmetros, as variáveis e as funções, como o [resourcegroup](template-functions-resource.md#resourcegroup) e a [assinatura](template-functions-resource.md#subscription) , são resolvidos.
 
 Você define o escopo por meio da `expressionEvaluationOptions` propriedade. Por padrão, a `expressionEvaluationOptions` propriedade é definida como `outer` , o que significa que ele usa o escopo do modelo pai. Defina o valor como `inner` para fazer com que as expressões sejam avaliadas dentro do escopo do modelo aninhado.
 
@@ -109,6 +111,10 @@ Você define o escopo por meio da `expressionEvaluationOptions` propriedade. Por
   },
   ...
 ```
+
+> [!NOTE]
+>
+> Quando o escopo é definido como `outer` , não é possível usar a `reference` função na seção de saídas de um modelo aninhado para um recurso que você implantou no modelo aninhado. Para retornar os valores de um recurso implantado em um modelo aninhado, use `inner` Scope ou Converta seu modelo aninhado em um modelo vinculado.
 
 O modelo a seguir demonstra como as expressões de modelo são resolvidas de acordo com o escopo. Ele contém uma variável chamada `exampleVar` que é definida no modelo pai e no modelo aninhado. Ele retorna o valor da variável.
 
@@ -160,7 +166,7 @@ O modelo a seguir demonstra como as expressões de modelo são resolvidas de aco
 
 O valor de `exampleVar` alterações dependendo do valor da `scope` propriedade em `expressionEvaluationOptions` . A tabela a seguir mostra os resultados para ambos os escopos.
 
-| `expressionEvaluationOptions`com | Saída |
+| Escopo da avaliação | Saída |
 | ----- | ------ |
 | interna | do modelo aninhado |
 | externo (ou padrão) | do modelo pai |
@@ -275,13 +281,132 @@ O exemplo a seguir implanta um SQL Server e recupera um segredo do Key Vault a s
 }
 ```
 
-> [!NOTE]
->
-> Quando o escopo é definido como `outer` , não é possível usar a `reference` função na seção de saídas de um modelo aninhado para um recurso que você implantou no modelo aninhado. Para retornar os valores de um recurso implantado em um modelo aninhado, use `inner` Scope ou Converta seu modelo aninhado em um modelo vinculado.
+Tenha cuidado ao usar valores de parâmetros seguros em um modelo aninhado. Se você definir o escopo como externo, os valores seguros serão armazenados como texto sem formatação no histórico de implantação. Um usuário que exibe o modelo no histórico de implantação pode ver os valores seguros. Em vez disso, use o escopo interno ou adicione ao modelo pai os recursos que precisam de valores seguros.
+
+O trecho a seguir mostra quais valores são seguros e quais não são seguros.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "adminUsername": {
+      "type": "string",
+      "metadata": {
+        "description": "Username for the Virtual Machine."
+      }
+    },
+    "adminPasswordOrKey": {
+      "type": "securestring",
+      "metadata": {
+        "description": "SSH Key or password for the Virtual Machine. SSH key is recommended."
+      }
+    }
+  },
+  ...
+  "resources": [
+    {
+      "type": "Microsoft.Compute/virtualMachines",
+      "apiVersion": "2020-06-01",
+      "name": "mainTemplate",
+      "properties": {
+        ...
+        "osProfile": {
+          "computerName": "mainTemplate",
+          "adminUsername": "[parameters('adminUsername')]",
+          "adminPassword": "[parameters('adminPasswordOrKey')]" // Yes, secure because resource is in parent template
+        }
+      }
+    },
+    {
+      "name": "outer",
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2019-10-01",
+      "properties": {
+        "expressionEvaluationOptions": {
+          "scope": "outer"
+        },
+        "mode": "Incremental",
+        "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "resources": [
+            {
+              "type": "Microsoft.Compute/virtualMachines",
+              "apiVersion": "2020-06-01",
+              "name": "outer",
+              "properties": {
+                ...
+                "osProfile": {
+                  "computerName": "outer",
+                  "adminUsername": "[parameters('adminUsername')]",
+                  "adminPassword": "[parameters('adminPasswordOrKey')]" // No, not secure because resource is in nested template with outer scope
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "inner",
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2019-10-01",
+      "properties": {
+        "expressionEvaluationOptions": {
+          "scope": "inner"
+        },
+        "mode": "Incremental",
+        "parameters": {
+          "adminPasswordOrKey": {
+              "value": "[parameters('adminPasswordOrKey')]"
+          },
+          "adminUsername": {
+              "value": "[parameters('adminUsername')]"
+          }
+        },
+        "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "parameters": {
+            "adminUsername": {
+              "type": "string",
+              "metadata": {
+                "description": "Username for the Virtual Machine."
+              }
+            },
+            "adminPasswordOrKey": {
+              "type": "securestring",
+              "metadata": {
+                "description": "SSH Key or password for the Virtual Machine. SSH key is recommended."
+              }
+            }
+          },
+          "resources": [
+            {
+              "type": "Microsoft.Compute/virtualMachines",
+              "apiVersion": "2020-06-01",
+              "name": "inner",
+              "properties": {
+                ...
+                "osProfile": {
+                  "computerName": "inner",
+                  "adminUsername": "[parameters('adminUsername')]",
+                  "adminPassword": "[parameters('adminPasswordOrKey')]" // Yes, secure because resource is in nested template and scope is inner
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
+```
 
 ## <a name="linked-template"></a>Modelo vinculado
 
-Para vincular um modelo, adicione um [recurso de implantações](/azure/templates/microsoft.resources/deployments) ao seu modelo principal. Na propriedade **templateLink** , ESPECIFIQUE o URI do modelo a ser incluído. O exemplo a seguir contém links para um modelo que implanta uma nova conta de armazenamento.
+Para vincular um modelo, adicione um [recurso de implantações](/azure/templates/microsoft.resources/deployments) ao seu modelo principal. Na `templateLink` propriedade, especifique o URI do modelo a ser incluído. O exemplo a seguir contém links para um modelo que está em uma conta de armazenamento.
 
 ```json
 {
@@ -308,67 +433,168 @@ Para vincular um modelo, adicione um [recurso de implantações](/azure/template
 }
 ```
 
-Ao fazer referência a um modelo vinculado, o valor de `uri` não deve ser um arquivo local ou um arquivo que só esteja disponível em sua rede local. Você deve fornecer um valor de URI que pode ser baixado como **http** ou **https**.
+Ao fazer referência a um modelo vinculado, o valor de `uri` não pode ser um arquivo local ou um arquivo que está disponível apenas em sua rede local. Azure Resource Manager deve ser capaz de acessar o modelo. Forneça um valor de URI que pode ser baixado como HTTP ou HTTPS.
 
-> [!NOTE]
->
-> Você pode referenciar modelos usando parâmetros que, por fim, resolvem para algo que usa **http** ou **https**, por exemplo, usando o `_artifactsLocation` parâmetro da seguinte forma:`"uri": "[concat(parameters('_artifactsLocation'), '/shared/os-disk-parts-md.json', parameters('_artifactsLocationSasToken'))]",`
+Você pode referenciar modelos usando parâmetros que incluem HTTP ou HTTPS. Por exemplo, um padrão comum é usar o `_artifactsLocation` parâmetro. Você pode definir o modelo vinculado com uma expressão como:
 
-O Resource Manager precisa ser capaz de acessar o modelo. Uma opção é colocar o modelo vinculado em uma conta de armazenamento e usar o URI do item.
+```json
+"uri": "[concat(parameters('_artifactsLocation'), '/shared/os-disk-parts-md.json', parameters('_artifactsLocationSasToken'))]"
+```
 
-As [especificações de modelo](./template-specs.md) (atualmente em visualização privada) permitem que você compartilhe modelos de ARM com outros usuários em sua organização. As especificações de modelos também podem ser usadas para empacotar um modelo principal e seus modelos vinculados. Para obter mais informações, consulte:
+Se você estiver vinculando a um modelo no GitHub, use a URL bruta. O link tem o formato: `https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-with-templates/quickstart-template/azuredeploy.json` . Para obter o link bruto, selecione **RAW**.
 
-- [Tutorial: criar uma especificação de modelo com modelos vinculados](./template-specs-create-linked.md).
-- [Tutorial: implantar uma especificação de modelo como um modelo vinculado](./template-specs-deploy-linked-template.md).
+:::image type="content" source="./media/linked-templates/select-raw.png" alt-text="Selecionar URL bruta":::
 
 ### <a name="parameters-for-linked-template"></a>Parâmetros para o modelo vinculado
 
-Você pode fornecer os parâmetros para o modelo vinculado, seja em um arquivo externo ou embutido. Ao fornecer um arquivo de parâmetro externo, use a propriedade **parametersLink** :
+Você pode fornecer os parâmetros para o modelo vinculado, seja em um arquivo externo ou embutido. Ao fornecer um arquivo de parâmetro externo, use a `parametersLink` Propriedade:
 
 ```json
 "resources": [
   {
-  "type": "Microsoft.Resources/deployments",
-  "apiVersion": "2019-10-01",
-  "name": "linkedTemplate",
-  "properties": {
-    "mode": "Incremental",
-    "templateLink": {
-      "uri":"https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.json",
-      "contentVersion":"1.0.0.0"
-    },
-    "parametersLink": {
-      "uri":"https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.parameters.json",
-      "contentVersion":"1.0.0.0"
+    "type": "Microsoft.Resources/deployments",
+    "apiVersion": "2019-10-01",
+    "name": "linkedTemplate",
+    "properties": {
+      "mode": "Incremental",
+      "templateLink": {
+        "uri": "https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.json",
+        "contentVersion": "1.0.0.0"
+      },
+      "parametersLink": {
+        "uri": "https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.parameters.json",
+        "contentVersion": "1.0.0.0"
+      }
     }
-  }
   }
 ]
 ```
 
-Para passar valores de parâmetro embutidos, use a propriedade **Parameters** .
+Para passar valores de parâmetro embutidos, use a `parameters` propriedade.
 
 ```json
 "resources": [
   {
-   "type": "Microsoft.Resources/deployments",
-   "apiVersion": "2019-10-01",
-   "name": "linkedTemplate",
-   "properties": {
-     "mode": "Incremental",
-     "templateLink": {
-      "uri":"https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.json",
-      "contentVersion":"1.0.0.0"
-     },
-     "parameters": {
-      "storageAccountName":{"value": "[parameters('storageAccountName')]"}
+    "type": "Microsoft.Resources/deployments",
+    "apiVersion": "2019-10-01",
+    "name": "linkedTemplate",
+    "properties": {
+      "mode": "Incremental",
+      "templateLink": {
+        "uri": "https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.json",
+        "contentVersion": "1.0.0.0"
+      },
+      "parameters": {
+        "storageAccountName": {
+          "value": "[parameters('storageAccountName')]"
+        }
+      }
     }
-   }
   }
 ]
 ```
 
 Você não pode usar os dois parâmetros inline e um link para um arquivo de parâmetros. A implementação falha com um erro quando `parametersLink` e `parameters` são especificados.
+
+### <a name="use-relative-path-for-linked-templates"></a>Usar caminho relativo para modelos vinculados
+
+A `relativePath` propriedade de `Microsoft.Resources/deployments` torna mais fácil criar modelos vinculados. Essa propriedade pode ser usada para implantar um modelo vinculado remoto em um local relativo ao pai. Esse recurso requer que todos os arquivos de modelo sejam preparados e estejam disponíveis em um URI remoto, como o GitHub ou a conta de armazenamento do Azure. Quando o modelo principal é chamado usando um URI de Azure PowerShell ou CLI do Azure, o URI de implantação filho é uma combinação de pai e relativePath.
+
+> [!NOTE]
+> Ao criar um templateSpec, todos os modelos referenciados pela `relativePath` propriedade são empacotados no recurso templateSpec por Azure PowerShell ou CLI do Azure. Ele não exige que os arquivos sejam preparados. Para obter mais informações, consulte [criar uma especificação de modelo com modelos vinculados](./template-specs.md#create-a-template-spec-with-linked-templates).
+
+Suponha uma estrutura de pastas como esta:
+
+![caminho relativo do modelo vinculado do Gerenciador de recursos](./media/linked-templates/resource-manager-linked-templates-relative-path.png)
+
+O modelo a seguir mostra como *mainTemplate.jsno* implanta *nestedChild.jssobre* ilustrado na imagem anterior.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {},
+  "functions": [],
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2020-10-01",
+      "name": "childLinked",
+      "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+          "relativePath": "children/nestedChild.json"
+        }
+      }
+    }
+  ],
+  "outputs": {}
+}
+```
+
+Na implantação a seguir, o URI do modelo vinculado no modelo anterior é **https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/linked-template-relpath/children/nestedChild.json** .
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+New-AzResourceGroupDeployment `
+  -Name linkedTemplateWithRelativePath `
+  -ResourceGroupName "myResourceGroup" `
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/linked-template-relpath/mainTemplate.json"
+```
+
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
+```azurecli
+az deployment group create \
+  --name linkedTemplateWithRelativePath \
+  --resource-group myResourceGroup \
+  --template-uri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/linked-template-relpath/mainTemplate.json"
+```
+
+---
+
+Para implantar modelos vinculados com caminho relativo armazenado em uma conta de armazenamento do Azure, use o `QueryString` / `query-string` parâmetro para especificar o token SAS a ser usado com o parâmetro TemplateUri. Só há suporte para esse parâmetro no CLI do Azure versão 2,18 ou posterior e Azure PowerShell versão 5,4 ou posterior.
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+New-AzResourceGroupDeployment `
+  -Name linkedTemplateWithRelativePath `
+  -ResourceGroupName "myResourceGroup" `
+  -TemplateUri "https://stage20210126.blob.core.windows.net/template-staging/mainTemplate.json" `
+  -QueryString $sasToken
+```
+
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
+```azurecli
+az deployment group create \
+  --name linkedTemplateWithRelativePath \
+  --resource-group myResourceGroup \
+  --template-uri "https://stage20210126.blob.core.windows.net/template-staging/mainTemplate.json" \
+  --query-string $sasToken
+```
+
+---
+
+Verifique se não há "?" à esquerda em QueryString. A implantação adiciona uma ao montar o URI para as implantações.
+
+## <a name="template-specs"></a>Especificações de modelo
+
+Em vez de manter seus modelos vinculados em um ponto de extremidade acessível, você pode criar uma [especificação de modelo](template-specs.md) que empacota o modelo principal e seus modelos vinculados em uma única entidade que você pode implantar. A especificação do modelo é um recurso em sua assinatura do Azure. Ele facilita o compartilhamento seguro do modelo com usuários em sua organização. Use o controle de acesso baseado em função do Azure (RBAC do Azure) para conceder acesso à especificação do modelo. Este recurso está atualmente em visualização.
+
+Para obter mais informações, consulte:
+
+- [Tutorial: criar uma especificação de modelo com modelos vinculados](./template-specs-create-linked.md).
+- [Tutorial: implantar uma especificação de modelo como um modelo vinculado](./template-specs-deploy-linked-template.md).
+
+## <a name="dependencies"></a>Dependências
+
+Assim como ocorre com outros tipos de recursos, você pode definir dependências entre os modelos vinculados. Se os recursos em um modelo vinculado precisarem ser implantados antes dos recursos em um segundo modelo vinculado, defina o segundo modelo dependente do primeiro.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/linkedtemplates/linked-dependency.json" highlight="10,22,24":::
 
 ## <a name="contentversion"></a>contentVersion
 
@@ -378,7 +604,7 @@ Você não precisa fornecer a `contentVersion` propriedade para a `templateLink`
 
 Os exemplos anteriores mostraram valores codificados de URL para os vínculos de modelo. Essa abordagem pode funcionar para um modelo simples, mas não funciona bem para um grande conjunto de modelos modulares. Em vez disso, você pode criar uma variável estática que armazena uma URL de base para o modelo principal e, em seguida, criar dinamicamente URLs para os modelos vinculados dessa URL de base. O benefício dessa abordagem é que você pode facilmente mover ou bifurcar o modelo porque precisa alterar apenas a variável estática no modelo principal. O modelo principal passa os URIs corretos em todo o modelo decomposto.
 
-O exemplo a seguir mostra como usar uma URL base para criar duas URLs para modelos vinculados (**sharedTemplateUrl** e **vmTemplate**).
+O exemplo a seguir mostra como usar uma URL base para criar duas URLs para modelos vinculados ( `sharedTemplateUrl` e `vmTemplateUrl` ).
 
 ```json
 "variables": {
@@ -388,7 +614,7 @@ O exemplo a seguir mostra como usar uma URL base para criar duas URLs para model
 }
 ```
 
-Você também pode usar [deployment()](template-functions-deployment.md#deployment) para obter a URL base para o modelo atual e usá-lo para obter a URL para outros modelos no mesmo local. Essa abordagem será útil se o local do modelo é alterado ou para evitar embutir URLs no arquivo de modelo. A propriedade templateLink só será retornada ao vincular a um modelo remoto com uma URL. Se você estiver usando um modelo local, essa propriedade não estará disponível.
+Você também pode usar [deployment()](template-functions-deployment.md#deployment) para obter a URL base para o modelo atual e usá-lo para obter a URL para outros modelos no mesmo local. Essa abordagem será útil se o local do modelo é alterado ou para evitar embutir URLs no arquivo de modelo. A `templateLink` propriedade só é retornada ao vincular a um modelo remoto com uma URL. Se você estiver usando um modelo local, essa propriedade não estará disponível.
 
 ```json
 "variables": {
@@ -407,49 +633,49 @@ Por fim, você usaria a variável na `uri` propriedade de uma `templateLink` pro
 
 ## <a name="using-copy"></a>Usando a cópia
 
-Para criar várias instâncias de um recurso com um modelo aninhado, adicione o elemento Copy no nível do recurso **Microsoft. Resources/Implantations** . Ou, se o escopo for interno, você poderá adicionar a cópia dentro do modelo aninhado.
+Para criar várias instâncias de um recurso com um modelo aninhado, adicione o `copy` elemento no nível do `Microsoft.Resources/deployments` recurso. Ou, se o escopo for `inner` , você poderá adicionar a cópia dentro do modelo aninhado.
 
-O modelo de exemplo a seguir mostra como usar Copy com um modelo aninhado.
+O modelo de exemplo a seguir mostra como usar `copy` com um modelo aninhado.
 
 ```json
 "resources": [
   {
-  "type": "Microsoft.Resources/deployments",
-  "apiVersion": "2019-10-01",
-  "name": "[concat('nestedTemplate', copyIndex())]",
-  // yes, copy works here
-  "copy":{
-    "name": "storagecopy",
-    "count": 2
-  },
-  "properties": {
-    "mode": "Incremental",
-    "expressionEvaluationOptions": {
-    "scope": "inner"
+    "type": "Microsoft.Resources/deployments",
+    "apiVersion": "2019-10-01",
+    "name": "[concat('nestedTemplate', copyIndex())]",
+    // yes, copy works here
+    "copy": {
+      "name": "storagecopy",
+      "count": 2
     },
-    "template": {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [
-      {
-      "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2019-04-01",
-      "name": "[concat(variables('storageName'), copyIndex())]",
-      "location": "West US",
-      "sku": {
-        "name": "Standard_LRS"
+    "properties": {
+      "mode": "Incremental",
+      "expressionEvaluationOptions": {
+        "scope": "inner"
       },
-      "kind": "StorageV2"
-      // Copy works here when scope is inner
-      // But, when scope is default or outer, you get an error
-      //"copy":{
-      //  "name": "storagecopy",
-      //  "count": 2
-      //}
+      "template": {
+        "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+        "contentVersion": "1.0.0.0",
+        "resources": [
+          {
+            "type": "Microsoft.Storage/storageAccounts",
+            "apiVersion": "2019-04-01",
+            "name": "[concat(variables('storageName'), copyIndex())]",
+            "location": "West US",
+            "sku": {
+              "name": "Standard_LRS"
+            },
+            "kind": "StorageV2"
+            // Copy works here when scope is inner
+            // But, when scope is default or outer, you get an error
+            //"copy":{
+            //  "name": "storagecopy",
+            //  "count": 2
+            //}
+          }
+        ]
       }
-    ]
     }
-  }
   }
 ]
 ```
@@ -460,158 +686,21 @@ Para obter um valor de saída de um modelo vinculado, recupere o valor da propri
 
 Ao obter uma propriedade de saída de um modelo vinculado, o nome da propriedade não deve incluir um traço.
 
-Os exemplos a seguir demonstram como fazer referência a um modelo vinculado e recuperar um valor de saída. O modelo vinculado retorna uma mensagem simples.  Primeiro, o modelo vinculado:
+Os exemplos a seguir demonstram como fazer referência a um modelo vinculado e recuperar um valor de saída. O modelo vinculado retorna uma mensagem simples. Primeiro, o modelo vinculado:
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {},
-  "variables": {},
-  "resources": [],
-  "outputs": {
-    "greetingMessage": {
-      "value": "Hello World",
-      "type" : "string"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/linkedtemplates/helloworld.json":::
 
 O modelo principal implanta o modelo vinculado e obtém o valor retornado. Observe que ele faz referência aos recursos de implantação por nome, e ele usa o nome da propriedade retornada pelo modelo vinculado.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {},
-  "variables": {},
-  "resources": [
-    {
-      "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2019-10-01",
-      "name": "linkedTemplate",
-      "properties": {
-        "mode": "Incremental",
-        "templateLink": {
-          "uri": "[uri(deployment().properties.templateLink.uri, 'helloworld.json')]",
-          "contentVersion": "1.0.0.0"
-        }
-      }
-    }
-  ],
-  "outputs": {
-    "messageFromLinkedTemplate": {
-      "type": "string",
-      "value": "[reference('linkedTemplate').outputs.greetingMessage.value]"
-    }
-  }
-}
-```
-
-Assim como ocorre com outros tipos de recursos, você pode definir dependências entre o modelo vinculado e outros recursos. Quando outros recursos exigirem um valor de saída do modelo vinculado, verifique se o modelo vinculado está implantado antes deles. Ou, quando o modelo vinculado depender de outros recursos, certifique-se que outros recursos foram implantados antes do modelo vinculado.
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/linkedtemplates/helloworldparent.json" highlight="10,23":::
 
 O exemplo a seguir mostra um modelo que implanta um endereço IP público e retorna a ID de recurso do recurso do Azure para esse IP público:
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "publicIPAddresses_name": {
-      "type": "string"
-    }
-  },
-  "variables": {},
-  "resources": [
-    {
-      "type": "Microsoft.Network/publicIPAddresses",
-      "apiVersion": "2018-11-01",
-      "name": "[parameters('publicIPAddresses_name')]",
-      "location": "eastus",
-      "properties": {
-        "publicIPAddressVersion": "IPv4",
-        "publicIPAllocationMethod": "Dynamic",
-        "idleTimeoutInMinutes": 4
-      },
-      "dependsOn": []
-    }
-  ],
-  "outputs": {
-    "resourceID": {
-      "type": "string",
-      "value": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_name'))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/linkedtemplates/public-ip.json" highlight="27":::
 
 Para usar o endereço IP público do modelo anterior ao implantar um balanceador de carga, vincule ao modelo e declare uma dependência no `Microsoft.Resources/deployments` recurso. O endereço IP público no balanceador de carga é definido como o valor de saída do modelo vinculado.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "loadBalancers_name": {
-      "defaultValue": "mylb",
-      "type": "string"
-    },
-    "publicIPAddresses_name": {
-      "defaultValue": "myip",
-      "type": "string"
-    }
-  },
-  "variables": {},
-  "resources": [
-    {
-      "type": "Microsoft.Network/loadBalancers",
-      "apiVersion": "2018-11-01",
-      "name": "[parameters('loadBalancers_name')]",
-      "location": "eastus",
-      "properties": {
-        "frontendIPConfigurations": [
-          {
-            "name": "LoadBalancerFrontEnd",
-            "properties": {
-              "privateIPAllocationMethod": "Dynamic",
-              "publicIPAddress": {
-                // this is where the output value from linkedTemplate is used
-                "id": "[reference('linkedTemplate').outputs.resourceID.value]"
-              }
-            }
-          }
-        ],
-        "backendAddressPools": [],
-        "loadBalancingRules": [],
-        "probes": [],
-        "inboundNatRules": [],
-        "outboundNatRules": [],
-        "inboundNatPools": []
-      },
-      // This is where the dependency is declared
-      "dependsOn": [
-        "linkedTemplate"
-      ]
-    },
-    {
-      "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2019-10-01",
-      "name": "linkedTemplate",
-      "properties": {
-        "mode": "Incremental",
-        "templateLink": {
-          "uri": "[uri(deployment().properties.templateLink.uri, 'publicip.json')]",
-          "contentVersion": "1.0.0.0"
-        },
-        "parameters":{
-          "publicIPAddresses_name":{"value": "[parameters('publicIPAddresses_name')]"}
-        }
-      }
-    }
-  ]
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json" highlight="28,41":::
 
 ## <a name="deployment-history"></a>Histórico de implantações
 
@@ -724,6 +813,9 @@ O arquivo de parâmetro também pode ter o acesso limitado por meio de um token 
 
 No momento, não é possível vincular a um modelo em uma conta de armazenamento que está atrás de um [Firewall de armazenamento do Azure](../../storage/common/storage-network-security.md).
 
+> [!IMPORTANT]
+> Em vez de proteger seu modelo vinculado com um token SAS, considere a criação de uma [especificação de modelo](template-specs.md). A especificação do modelo armazena com segurança o modelo principal e seus modelos vinculados como um recurso em sua assinatura do Azure. Você usa o Azure RBAC para conceder acesso a usuários que precisam implantar o modelo.
+
 O exemplo a seguir mostra como passar um token SAS ao vincular a um modelo:
 
 ```json
@@ -731,28 +823,28 @@ O exemplo a seguir mostra como passar um token SAS ao vincular a um modelo:
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-  "containerSasToken": { "type": "securestring" }
+    "containerSasToken": { "type": "securestring" }
   },
   "resources": [
-  {
-    "type": "Microsoft.Resources/deployments",
-    "apiVersion": "2019-10-01",
-    "name": "linkedTemplate",
-    "properties": {
-    "mode": "Incremental",
-    "templateLink": {
-      "uri": "[concat(uri(deployment().properties.templateLink.uri, 'helloworld.json'), parameters('containerSasToken'))]",
-      "contentVersion": "1.0.0.0"
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2019-10-01",
+      "name": "linkedTemplate",
+      "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+          "uri": "[concat(uri(deployment().properties.templateLink.uri, 'helloworld.json'), parameters('containerSasToken'))]",
+          "contentVersion": "1.0.0.0"
+        }
+      }
     }
-    }
-  }
   ],
   "outputs": {
   }
 }
 ```
 
-No PowerShell, você obtém um token para o contêiner e implanta os modelos com os comandos a seguir. Observe que o parâmetro **containerSasToken** está definido no modelo. Não é um parâmetro no comando **New-AzResourceGroupDeployment**.
+No PowerShell, você obtém um token para o contêiner e implanta os modelos com os comandos a seguir. Observe que o `containerSasToken` parâmetro é definido no modelo. Não é um parâmetro no `New-AzResourceGroupDeployment` comando.
 
 ```azurepowershell-interactive
 Set-AzCurrentStorageAccount -ResourceGroupName ManageGroup -Name storagecontosotemplates
@@ -792,13 +884,13 @@ Os exemplos a seguir mostram os usos comuns dos modelos vinculados.
 
 |Modelo principal  |Modelo vinculado |Descrição  |
 |---------|---------| ---------|
-|[Olá, Mundo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworldparent.json) |[o modelo vinculado](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworld.json) | Retorna a cadeia de caracteres do modelo vinculado. |
-|[Azure Load Balancer com o endereço IP público](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) |[o modelo vinculado](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) |Retorna o endereço IP público do modelo vinculado e define esse valor no balanceador de carga. |
-|[Vários endereços IP](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip-parent.json) | [o modelo vinculado](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip.json) |Cria vários endereços IP públicos no modelo vinculado.  |
+|[Olá, Mundo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworldparent.json) |[modelo vinculado](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworld.json) | Retorna a cadeia de caracteres do modelo vinculado. |
+|[Azure Load Balancer com o endereço IP público](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) |[modelo vinculado](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) |Retorna o endereço IP público do modelo vinculado e define esse valor no balanceador de carga. |
+|[Vários endereços IP](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip-parent.json) | [modelo vinculado](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip.json) |Cria vários endereços IP públicos no modelo vinculado.  |
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para percorrer um tutorial, consulte [Tutorial: criar modelos vinculados do Azure Resource Manager](./deployment-tutorial-linked-template.md).
-* Para saber mais sobre como definir a ordem de implantação para seus recursos, consulte [Definição de dependências nos modelos do Azure Resource Manager](define-resource-dependency.md).
-* Para saber como definir um recurso, mas criando várias instâncias dele, consulte [Criar várias instâncias de recursos no Azure Resource Manager](copy-resources.md).
-* Para ver as etapas para configurar um modelo em uma conta de armazenamento e gerar um token SAS, consulte [Implantar recursos com modelos do Resource Manager e o Azure PowerShell](deploy-powershell.md) ou [Implantar recursos com modelos do Resource Manager e a CLI do Azure](deploy-cli.md).
+* Para percorrer um tutorial, consulte [tutorial: implantar um modelo vinculado](./deployment-tutorial-linked-template.md).
+* Para saber mais sobre como definir a ordem de implantação para seus recursos, consulte [definir a ordem de implantação de recursos em modelos ARM](define-resource-dependency.md).
+* Para saber como definir um recurso, mas criar várias instâncias dele, consulte [iteração de recurso em modelos ARM](copy-resources.md).
+* Para obter as etapas sobre como configurar um modelo em uma conta de armazenamento e gerar um token SAS, consulte [implantar recursos com modelos ARM e Azure PowerShell](deploy-powershell.md) ou [implantar recursos com modelos ARM e CLI do Azure](deploy-cli.md).

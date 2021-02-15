@@ -4,17 +4,17 @@ description: Saiba como adicionar ícones de imagem e polígonos preenchidos por
 author: rbrundritt
 ms.author: richbrun
 ms.date: 8/6/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
-ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: ae3fa4684e4e71115d2d4ddce3c34ccb4f1cb703
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.custom: codepen, devx-track-js
+ms.openlocfilehash: 5f455a1132a0f63e1ba3eb5d2a57a1f9bfa9a867
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88004655"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895674"
 ---
 # <a name="how-to-use-image-templates"></a>Como usar modelos de imagem
 
@@ -24,7 +24,7 @@ As imagens podem ser usadas com marcadores de HTML e várias camadas no SDK da W
  - Camadas de polígono podem ser renderizadas com uma imagem de padrão de preenchimento. 
  - Marcadores de HTML podem renderizar pontos usando imagens e outros elementos HTML.
 
-Para garantir um bom desempenho com camadas, carregue as imagens no recurso mapear imagem Sprite antes de renderizar. O [íconeoptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.iconoptions), da SymbolLayer, sobrecarrega algumas imagens de marcador em algumas cores na imagem de mapa Sprite, por padrão. Essas imagens de marcador e mais estão disponíveis como modelos SVG. Eles podem ser usados para criar imagens com escalas personalizadas ou usadas como uma cor primária e secundária do cliente. No total, há 42 modelos de imagem fornecidos: 27 ícones de símbolo e 15 padrões de preenchimento de polígono.
+Para garantir um bom desempenho com camadas, carregue as imagens no recurso mapear imagem Sprite antes de renderizar. O [íconeoptions](/javascript/api/azure-maps-control/atlas.iconoptions), da SymbolLayer, sobrecarrega algumas imagens de marcador em algumas cores na imagem de mapa Sprite, por padrão. Essas imagens de marcador e mais estão disponíveis como modelos SVG. Eles podem ser usados para criar imagens com escalas personalizadas ou usadas como uma cor primária e secundária do cliente. No total, há 42 modelos de imagem fornecidos: 27 ícones de símbolo e 15 padrões de preenchimento de polígono.
 
 Os modelos de imagem podem ser adicionados à imagem do mapa recursos de Sprite usando a `map.imageSprite.createFromTemplate` função. Essa função permite que até cinco parâmetros sejam passados;
 
@@ -58,7 +58,7 @@ O exemplo a seguir renderiza uma camada de símbolo usando o `marker-flat` model
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Camada de símbolo com o modelo de ícone interno" src="//codepen.io/azuremaps/embed/VoQMPp/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="Camada de símbolo com o modelo de ícone interno" src="//codepen.io/azuremaps/embed/VoQMPp/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
 Consulte a camada de símbolo de caneta <a href='https://codepen.io/azuremaps/pen/VoQMPp/'>com o modelo de ícone interno</a> pelo Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
@@ -70,7 +70,7 @@ O exemplo a seguir renderiza uma linha rosa no mapa e usa uma camada de símbolo
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Camada de linha com modelo de ícone interno" src="//codepen.io/azuremaps/embed/KOQvJe/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="Camada de linha com modelo de ícone interno" src="//codepen.io/azuremaps/embed/KOQvJe/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
 Veja a camada de linha de caneta <a href='https://codepen.io/azuremaps/pen/KOQvJe/'>com o modelo de ícone interno</a> pelo Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
@@ -85,7 +85,7 @@ O exemplo a seguir renderiza uma camada de polígono usando o `dot` modelo de im
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Preencher polígono com o modelo de ícone interno" src="//codepen.io/azuremaps/embed/WVMEmz/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="Preencher polígono com o modelo de ícone interno" src="//codepen.io/azuremaps/embed/WVMEmz/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
 Consulte o <a href='https://codepen.io/azuremaps/pen/WVMEmz/'>polígono preenchimento da caneta com o modelo de ícone interno</a> pelo Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
@@ -100,7 +100,7 @@ O exemplo a seguir usa o `marker-arrow` modelo com uma cor primária vermelha, u
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Marcador HTML com modelo de ícone interno" src="//codepen.io/azuremaps/embed/EqQvzq/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="Marcador HTML com modelo de ícone interno" src="//codepen.io/azuremaps/embed/EqQvzq/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
 Consulte o <a href='https://codepen.io/azuremaps/pen/EqQvzq/'>marcador HTML de caneta com o modelo de ícone interno</a> pelo Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
@@ -138,7 +138,7 @@ O exemplo a seguir mostra como pegar um modelo SVG e adicioná-lo ao SDK da Web 
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Adicionar modelo de ícone personalizado ao namespace do Atlas" src="//codepen.io/azuremaps/embed/NQyvEX/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="Adicionar modelo de ícone personalizado ao namespace do Atlas" src="//codepen.io/azuremaps/embed/NQyvEX/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
 Consulte a caneta <a href='https://codepen.io/azuremaps/pen/NQyvEX/'>Adicionar modelo de ícone personalizado ao namespace do Atlas</a> pelo Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
@@ -505,7 +505,7 @@ Com a ferramenta a seguir, você pode renderizar os diferentes modelos de imagem
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Opções de modelo de ícone" src="//codepen.io/azuremaps/embed/NQyaaO/?height=500&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="Opções de modelo de ícone" src="//codepen.io/azuremaps/embed/NQyaaO/?height=500&theme-id=0&default-tab=result" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
 Consulte as <a href='https://codepen.io/azuremaps/pen/NQyaaO/'>Opções de modelo de ícone</a> de caneta por mapas do Azure ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
@@ -514,10 +514,10 @@ Consulte as <a href='https://codepen.io/azuremaps/pen/NQyaaO/'>Opções de model
 Saiba mais sobre as classes e métodos usados neste artigo:
 
 > [!div class="nextstepaction"]
-> [ImageSpriteManager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.imagespritemanager)
+> [ImageSpriteManager](/javascript/api/azure-maps-control/atlas.imagespritemanager)
 
 > [!div class="nextstepaction"]
-> [namespace do Atlas](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas?view=azure-maps-typescript-latest#functions
+> [namespace do Atlas](/javascript/api/azure-maps-control/atlas#functions
 )
 
 Consulte os artigos a seguir para obter mais exemplos de código em que modelos de imagem podem ser usados:

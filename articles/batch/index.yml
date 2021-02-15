@@ -8,13 +8,13 @@ metadata:
   ms.topic: landing-page
   author: JnHs
   ms.author: jenhayes
-  ms.date: 09/23/2019
-  ms.openlocfilehash: e5240786ecb26ad0a72c6a9b82cd03ca9050113b
-  ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+  ms.date: 10/09/2020
+  ms.openlocfilehash: ca8ef13ac3440d2298b817c12d1126e1526a74c1
+  ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 07/05/2020
-  ms.locfileid: "85964848"
+  ms.lasthandoff: 01/15/2021
+  ms.locfileid: "98234375"
 landingContent:
 - title: Sobre o Lote do Azure
   linkLists:
@@ -40,8 +40,12 @@ landingContent:
       url: quick-run-python.md
   - linkListType: concept
     links:
-    - text: Fluxo de trabalho e visão geral do recurso para desenvolvedores
+    - text: Visão geral do fluxo de trabalho e do recurso
       url: batch-service-workflow-features.md
+    - text: Trabalhos e tarefas
+      url: jobs-and-tasks.md
+    - text: Nós e pools
+      url: nodes-and-pools.md
 - title: Guias passo a passo
   linkLists:
   - linkListType: tutorial
@@ -50,14 +54,10 @@ landingContent:
       url: tutorial-parallel-dotnet.md
     - text: Processamento de arquivo paralelo - Python
       url: tutorial-parallel-python.md
+    - text: Scripts Python com o Data Factory
+      url: tutorial-run-python-batch-azure-data-factory.md
     - text: OCR com o Lote e o Functions
       url: tutorial-batch-functions.md
-    - text: Renderização de cena com Arnold
-      url: tutorial-rendering-cli.md
-    - text: Renderizar usando o Batch Explorer
-      url: tutorial-rendering-batchexplorer-blender.md
-    - text: Simulação R paralela
-      url: tutorial-r-doazureparallel.md
 - title: Configurar e gerenciar recursos
   linkLists:
   - linkListType: how-to-guide
@@ -65,11 +65,13 @@ landingContent:
     - text: Criar uma conta do Batch
       url: batch-account-create-portal.md
     - text: Criar e gerenciar pools
-      url: batch-custom-images.md
+      url: batch-sig-images.md
     - text: Executar tarefas simultaneamente
       url: batch-parallel-node-tasks.md
-    - text: Como usar pacotes de aplicativos
+    - text: Usar pacotes de aplicativos
       url: batch-application-packages.md
+    - text: Executar aplicativos de contêiner
+      url: batch-docker-container-workloads.md
   - linkListType: concept
     links:
     - text: Tamanhos de VM com suporte
@@ -83,16 +85,18 @@ landingContent:
   - linkListType: reference
     links:
     - text: CLI do Azure
-      url: /cli/azure/batch?view=azure-cli-latest
+      url: /cli/azure/batch
     - text: Azure PowerShell
-      url: /powershell/module/az.batch/?view=azps-2.6.0
+      url: /powershell/module/az.batch/
     - text: .NET
-      url: /dotnet/api/overview/azure/batch?view=azure-dotnet
+      url: /dotnet/api/overview/azure/batch
     - text: Java
-      url: /java/api/overview/azure/batch?view=azure-java-stable
+      url: /java/api/overview/azure/batch
     - text: Node.js
-      url: /javascript/api/overview/azure/batch?view=azure-node-latest
+      url: /javascript/api/overview/azure/batch
     - text: Python
-      url: /python/api/overview/azure/batch?view=azure-python
+      url: /python/api/overview/azure/batch
     - text: REST
       url: /rest/api/batchservice/
+    - text: Ciclo de vida da API de Lote
+      url: /rest/api/batchservice/batch-api-status

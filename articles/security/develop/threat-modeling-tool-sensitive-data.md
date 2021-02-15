@@ -15,20 +15,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: 1de363e66a4d5780258b75d777a95318f36333fd
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.custom: devx-track-js, devx-track-csharp
+ms.openlocfilehash: 0bcbe35fc6d9f104325bec8a3404ad57a6376cf2
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89000491"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94518117"
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>Estrutura de segurança: Dados confidenciais | Atenuações 
 | Produto/Serviço | Artigo |
 | --------------- | ------- |
 | **Limite de confiança de computador** | <ul><li>[Garantir que os binários sejam obscurecidos se contiverem informações confidenciais](#binaries-info)</li><li>[Considere usar o EFS (sistema de arquivos criptografados) é usado para proteger dados confidenciais específicos do usuário](#efs-user)</li><li>[Garantir que os dados confidenciais armazenados pelo aplicativo no sistema de arquivos sejam criptografados](#filesystem)</li></ul> | 
 | **Aplicativo Web** | <ul><li>[Garantir que o conteúdo confidencial não seja armazenado em cache no navegador](#cache-browser)</li><li>[Criptografar as seções dos arquivos de configuração do aplicativo Web que contêm dados confidenciais](#encrypt-data)</li><li>[Desabilitar explicitamente o atributo HTML de preenchimento automático em formulários e entradas confidenciais](#autocomplete-input)</li><li>[Garantir que os dados confidenciais exibidos na tela do usuário sejam mascarados](#data-mask)</li></ul> | 
-| **Banco de dados** | <ul><li>[Implementar a máscara de dados dinâmicos para limitar a exposição de dados confidenciais usuários sem privilégios](#dynamic-users)</li><li>[Verifique se as senhas estão armazenadas no formato de hash salted](#salted-hash)</li><li>[Certifique-se de que os dados confidenciais nas colunas de dados estejam criptografados](#db-encrypted)</li><li>[Verifique se a criptografia no nível do banco de dados (TDE) está habilitada](#tde-enabled)</li><li>[Garantir que os backups de banco de dados sejam criptografados](#backup)</li></ul> | 
+| **Backup de banco de dados** | <ul><li>[Implementar a máscara de dados dinâmicos para limitar a exposição de dados confidenciais usuários sem privilégios](#dynamic-users)</li><li>[Verifique se as senhas estão armazenadas no formato de hash salted](#salted-hash)</li><li>[Certifique-se de que os dados confidenciais nas colunas de dados estejam criptografados](#db-encrypted)</li><li>[Verifique se a criptografia no nível do banco de dados (TDE) está habilitada](#tde-enabled)</li><li>[Garantir que os backups de banco de dados sejam criptografados](#backup)</li></ul> | 
 | **API da Web** | <ul><li>[Garantir que os dados confidenciais relevantes para a API da Web não sejam armazenados no armazenamento do navegador](#api-browser)</li></ul> | 
 | Azure Document DB | <ul><li>[Criptografar dados confidenciais armazenados no Azure Cosmos DB](#encrypt-docdb)</li></ul> | 
 | **Limite de confiança da VM da IaaS do Azure** | <ul><li>[Usar Azure Disk Encryption para criptografar discos usados por máquinas virtuais](#disk-vm)</li></ul> | 
@@ -88,7 +88,7 @@ ms.locfileid: "89000491"
   <system.webServer>
    <httpProtocol>
     <customHeaders>
-        <add name="Cache-Control" value="no-cache" />
+        <add name="Cache-Control" value="no-store" />
         <add name="Pragma" value="no-cache" />
         <add name="Expires" value="-1" />
     </customHeaders>
@@ -132,7 +132,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | **Fase do SDL**               | Build |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/D  |
-| **Referências**              | [Como Criptografar seções de configuração no ASP.NET 2.0 usando DPAPI](https://msdn.microsoft.com/library/ff647398.aspx), [Especificar um provedor de configuração protegido](https://msdn.microsoft.com/library/68ze1hb2.aspx), [Como usar o Azure Key Vault para proteger os segredos do aplicativo](https://azure.microsoft.com/documentation/articles/guidance-multitenant-identity-keyvault/) |
+| **Referências**              | [Como Criptografar seções de configuração no ASP.NET 2.0 usando DPAPI](/previous-versions/msp-n-p/ff647398(v=pandp.10)), [Especificar um provedor de configuração protegido](/previous-versions/68ze1hb2(v=vs.140)), [Como usar o Azure Key Vault para proteger os segredos do aplicativo](/azure/architecture/multitenant-identity/web-api) |
 | **Etapas** | Arquivos de configuração, tais como Web. config e appsettings.json geralmente são usados para armazenar informações confidenciais, incluindo nomes de usuários, senhas, cadeias de conexão de banco de dados e chaves de criptografia. Se você não proteger essas informações, o aplicativo ficará vulnerável a usuários mal-intencionados, que podem obter informações sigilosas, como nomes usuários e senhas de contas, nomes de bancos de dados e nomes de servidores. Com base no tipo de implantação (no Azure ou local), criptografe as seções confidenciais dos arquivos de configuração usando a DPAPI ou serviços, como o Azure Key Vault. |
 
 ## <a name="explicitly-disable-the-autocomplete-html-attribute-in-sensitive-forms-and-inputs"></a><a id="autocomplete-input"></a>Desabilitar explicitamente o atributo HTML de preenchimento automático em formulários e entradas com informações confidenciais
@@ -143,7 +143,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | **Fase do SDL**               | Build |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/D  |
-| **Referências**              | [MSDN: o atributo de preenchimento automático](https://msdn.microsoft.com/library/ms533486(VS.85).aspx), [Usando o preenchimento automático com HTML](https://msdn.microsoft.com/library/ms533032.aspx), [Vulnerabilidade de limpeza de HTML](https://technet.microsoft.com/security/bulletin/MS10-071), [Preencher automaticamente de novo?](https://blog.mindedsecurity.com/2011/10/autocompleteagain.html) |
+| **Referências**              | [MSDN: o atributo de preenchimento automático](https://msdn.microsoft.com/library/ms533486(VS.85).aspx), [Usando o preenchimento automático com HTML](/previous-versions/windows/internet-explorer/ie-developer/), [Vulnerabilidade de limpeza de HTML](/security-updates/SecurityBulletins/2010/ms10-071), [Preencher automaticamente de novo?](https://blog.mindedsecurity.com/2011/10/autocompleteagain.html) |
 | **Etapas** | O atributo de preenchimento automático especifica se o preenchimento automático estará ativado ou desativado em um formulário. Quando o preenchimento automático está ativado, o navegador preenche automaticamente o formulário com os valores inseridos pelo usuário em uma ocasião anterior. Por exemplo, quando um novo nome de usuário e senha são inseridos em um formulário e o formulário é enviado, o navegador pergunta se a senha deve ser salva. Da próxima vez que o formulário for exibido, o nome de usuário e a senha serão preenchidos automaticamente ou quando o nome de usuário for digitado. Um invasor com acesso local poderia obter o texto não criptografado da senha pelo cache do navegador. Por padrão, o preenchimento automático está habilitado e deve ser desabilitado explicitamente. |
 
 ### <a name="example"></a>Exemplo
@@ -173,7 +173,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | **Fase do SDL**               | Build |  
 | **Tecnologias aplicáveis** | SQL Azure, OnPrem |
 | **Atributos**              | Versão do SQL - V12, Versão do SQL - MsSQL2016 |
-| **Referências**              | [Mascaramento de dados dinâmicos](https://msdn.microsoft.com/library/mt130841) |
+| **Referências**              | [Mascaramento de dados dinâmicos](/sql/relational-databases/security/dynamic-data-masking) |
 | **Etapas** | A finalidade do mascaramento de dados dinâmicos é limitar a exposição de dados confidenciais, impedindo que os usuários que não devem ter acesso a esses dados os visualizem. O mascaramento de dados dinâmicos não pretende impedir que usuários de banco de dados se conectem diretamente ao banco de dados e executem consultas abrangentes que exponham dados confidenciais. Ele é complementar aos outros recursos de segurança do SQL Server (auditoria, criptografia, segurança no nível da linha, etc.). É extremamente recomendável usar o mascaramento de dados dinâmicos junto com outros recursos para melhor proteger ainda mais os dados confidenciais presentes no banco de dados. Observe que esse recurso tem suporte apenas a partir do SQL Server 2016 e do Banco de Dados SQL do Azure. |
 
 ## <a name="ensure-that-passwords-are-stored-in-salted-hash-format"></a><a id="salted-hash"></a>Garantir que as senhas sejam armazenadas em um formato hash salgado
@@ -195,7 +195,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | **Fase do SDL**               | Build |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | Versão do SQL - Todas |
-| **Referências**              | [Criptografando dados confidenciais no SQL Server](https://technet.microsoft.com/library/ff848751(v=sql.105).aspx), [Como: criptografar uma coluna de dados no SQL Server](https://msdn.microsoft.com/library/ms179331), [Criptografar por certificado](https://msdn.microsoft.com/library/ms188061) |
+| **Referências**              | [Criptografando dados confidenciais no SQL Server](/previous-versions/sql/sql-server-2008-r2/ff848751(v=sql.105)), [Como: criptografar uma coluna de dados no SQL Server](/sql/relational-databases/security/encryption/encrypt-a-column-of-data), [Criptografar por certificado](/sql/t-sql/functions/encryptbycert-transact-sql) |
 | **Etapas** | Dados confidenciais, como números de cartão de crédito, devem ser criptografados no banco de dados. Isso pode ser feito usando a criptografia no nível da coluna ou uma função de aplicativo que utilize as funções de criptografia. |
 
 ## <a name="ensure-that-database-level-encryption-tde-is-enabled"></a><a id="tde-enabled"></a>Garantir que a criptografia no nível do banco de dados (TDE) esteja habilitada
@@ -206,7 +206,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | **Fase do SDL**               | Build |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/D  |
-| **Referências**              | [Noções básicas sobre a TDE (Transparent Data Encryption) do SQL Server](https://technet.microsoft.com/library/bb934049(v=sql.105).aspx) |
+| **Referências**              | [Noções básicas sobre a TDE (Transparent Data Encryption) do SQL Server](/previous-versions/sql/sql-server-2008-r2/bb934049(v=sql.105)) |
 | **Etapas** | O recurso Transparent Data Encryption do SQL Server ajuda a criptografar dados confidenciais em um banco de dados e protege as chaves usadas para criptografar os dados com um certificado. Isso impede que alguém sem as chaves use os dados. A TDE protege os dados “em repouso”, ou seja, os dados e arquivos de log. Fornece a capacidade de se adequar a muitas leis, regulamentos e diretrizes estabelecidos em vários setores. |
 
 ## <a name="ensure-that-database-backups-are-encrypted"></a><a id="backup"></a>Garantir que os backups de banco de dados estejam criptografados
@@ -217,7 +217,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | **Fase do SDL**               | Build |  
 | **Tecnologias aplicáveis** | SQL Azure, OnPrem |
 | **Atributos**              | Versão do SQL - V12, Versão do SQL - MsSQL2014 |
-| **Referências**              | [Criptografia do backup do banco de dados SQL](https://msdn.microsoft.com/library/dn449489) |
+| **Referências**              | [Criptografia do backup do banco de dados SQL](/sql/relational-databases/backup-restore/backup-encryption) |
 | **Etapas** | O SQL Server tem a capacidade de criptografar os dados durante a criação de um backup. Especificar o algoritmo de criptografia e o criptografador (um certificado ou uma chave assimétrica) durante a criação de um backup permite criar um arquivo de backup criptografado. |
 
 ## <a name="ensure-that-sensitive-data-relevant-to-web-api-is-not-stored-in-browsers-storage"></a><a id="api-browser"></a>Garantir que os dados confidenciais relevantes para a API Web não sejam salvos no armazenamento do navegador
@@ -263,7 +263,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 | **Fase do SDL**               | Implantação |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/D  |
-| **Referências**              | [Usando o Azure Disk Encryption para criptografar discos usados pelas máquinas virtuais](https://azure.microsoft.com/documentation/articles/storage-security-guide/#_using-azure-disk-encryption-to-encrypt-disks-used-by-your-virtual-machines) |
+| **Referências**              | [Usando o Azure Disk Encryption para criptografar discos usados pelas máquinas virtuais](../../storage/blobs/security-recommendations.md#data-protection) |
 | **Etapas** | <p>O Azure Disk Encryption é um novo recurso que, atualmente, está na versão de visualização. Esse recurso permite criptografar os discos do sistema operacional e de dados usados por uma Máquina Virtual IaaS. No Windows, as unidades são criptografadas usando a tecnologia de criptografia BitLocker padrão do setor. No Linux, os discos são criptografados usando a tecnologia DM-Crypt. Esse recurso é integrado ao Cofre de Chaves do Azure para permitir que você controle e gerencie as chaves de criptografia de disco. A solução Azure Disk Encryption é compatível com os três cenários de criptografia do cliente a seguir:</p><ul><li>Habilite a criptografia em novas VMs IaaS criadas de arquivos VHD criptografados pelo cliente e chaves de criptografia fornecidas pelo cliente, que são armazenados no Cofre de Chaves do Azure.</li><li>Habilite a criptografia em novas VMs IaaS criadas no Marketplace do Azure.</li><li>Habilite a criptografia em VMs IaaS existentes já em execução no Azure.</li></ul>| 
 
 ## <a name="encrypt-secrets-in-service-fabric-applications"></a><a id="fabric-apps"></a>Criptografar segredos nos aplicativos do Service Fabric
@@ -274,7 +274,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 | **Fase do SDL**               | Build |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | Ambiente - Azure |
-| **Referências**              | [Gerenciando segredos em aplicativos do Service Fabric](https://azure.microsoft.com/documentation/articles/service-fabric-application-secret-management/) |
+| **Referências**              | [Gerenciando segredos em aplicativos do Service Fabric](../../service-fabric/service-fabric-application-secret-management.md) |
 | **Etapas** | Os segredos podem ser informações confidenciais, como cadeias de conexão de armazenamento, senhas ou outros valores que não devem ser tratados como texto sem formatação. Use o Azure Key Vault para gerenciar chaves e segredos em aplicativos do Service Fabric. |
 
 ## <a name="perform-security-modeling-and-use-business-unitsteams-where-required"></a><a id="modeling-teams"></a>Executar a modelagem de segurança e usar unidades de negócios/equipes onde for necessário
@@ -329,7 +329,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 | **Fase do SDL**               | Build |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | StorageType - Blob |
-| **Referências**              | [Criptografia do Serviço de Armazenamento do Azure para dados em repouso (visualização)](https://azure.microsoft.com/documentation/articles/storage-service-encryption/) |
+| **Referências**              | [Criptografia do Serviço de Armazenamento do Azure para dados em repouso (visualização)](../../storage/common/storage-service-encryption.md) |
 | **Etapas** | <p>A SSE (Criptografia do Serviço de Armazenamento) do Azure para dados em repouso ajuda a proteger seus dados a fim de atender aos compromissos de conformidade e segurança da organização. Com esse recurso, o Armazenamento do Azure criptografa automaticamente seus dados antes de persistir no armazenamento e os descriptografa antes da recuperação. A criptografia, descriptografia e o gerenciamento de chaves é totalmente transparente para os usuários. A SSE se aplica somente aos blobs de blocos, aos blobs de páginas e aos blobs de acréscimo. Os outros tipos de dados, incluindo tabelas, filas e arquivos, não serão criptografados.</p><p>Fluxo de trabalho de criptografia e descriptografia:</p><ul><li>O cliente habilita a criptografia na conta de armazenamento.</li><li>Quando o cliente grava os novos dados (PUT Blob, PUT Block, PUT Page etc.) no armazenamento de blobs, todas as gravações são criptografadas com a criptografia AES de 256 bits, uma das codificações de bloco mais fortes disponíveis.</li><li>Quando o cliente precisa acessar os dados (GET Blob etc.), esses dados são descriptografados automaticamente antes de serem retornados para o usuário.</li><li>Se a criptografia estiver desabilitada, as novas gravações não serão criptografadas, e os dados criptografados existentes permanecerão criptografados até que sejam regravados pelo usuário. Enquanto a criptografia estiver habilitada, as gravações no Armazenamento de Blobs serão criptografadas. O estado dos dados não muda quando o usuário habilita/desabilita a criptografia na conta de armazenamento.</li><li>Todas as chaves de criptografia são armazenadas, criptografadas e gerenciadas pela Microsoft.</li></ul><p>No momento, as chaves usadas para criptografia são gerenciadas pela Microsoft. Podemos gerar as chaves originalmente e gerenciar o armazenamento seguro delas, bem como sua rotatividade regular, conforme definido pela política interna da Microsoft. No futuro, os usuários poderão gerenciar suas próprias chaves de criptografia e fornecer um caminho de migração de chaves gerenciadas pela Microsoft para as chaves gerenciadas pelos usuários.</p>| 
 
 ## <a name="use-client-side-encryption-to-store-sensitive-data-in-azure-storage"></a><a id="client-storage"></a>Criptografar o cliente para armazenar dados confidenciais no Armazenamento do Azure
@@ -340,7 +340,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 | **Fase do SDL**               | Build |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/D  |
-| **Referências**              | [Criptografia no cliente e Azure Key Vault para o Armazenamento do Microsoft Azure](https://azure.microsoft.com/documentation/articles/storage-client-side-encryption/), [Tutorial: criptografar e descriptografar blobs no Armazenamento do Microsoft Azure usando o Azure Key Vault](https://azure.microsoft.com/documentation/articles/storage-encrypt-decrypt-blobs-key-vault/), [Armazenando dados com segurança no Armazenamento de Blobs do Azure com as extensões de criptografia do Azure](https://blogs.msdn.microsoft.com/partnercatalystteam/2015/06/17/storing-data-securely-in-azure-blob-storage-with-azure-encryption-extensions/) |
+| **Referências**              | [Criptografia no cliente e Azure Key Vault para o Armazenamento do Microsoft Azure](../../storage/common/storage-client-side-encryption.md), [Tutorial: criptografar e descriptografar blobs no Armazenamento do Microsoft Azure usando o Azure Key Vault](../../storage/blobs/storage-encrypt-decrypt-blobs-key-vault.md), [Armazenando dados com segurança no Armazenamento de Blobs do Azure com as extensões de criptografia do Azure](/archive/blogs/partnercatalystteam/storing-data-securely-in-azure-blob-storage-with-azure-encryption-extensions) |
 | **Etapas** | <p>O pacote Nuget da Biblioteca de Clientes do Armazenamento do Azure para .NET dá suporte à criptografia de dados em aplicativos clientes antes do carregamento para o Armazenamento do Azure e à descriptografia de dados durante o download para o cliente. A biblioteca também dá suporte à integração com o Cofre de Chaves do Azure para o gerenciamento de chaves de contas de armazenamento. Aqui está uma breve descrição de como funciona a criptografia do lado do cliente:</p><ul><li>O SDK do cliente do Armazenamento do Azure gera uma CEK (chave de criptografia de conteúdo), que é uma chave simétrica de uso único.</li><li>Os dados do cliente são criptografados com essa CEK</li><li>O CEK é empacotada (criptografada) usando o KEK (Chave de Criptografia de Chave). A KEK é identificada por um identificador de chave e pode ser um par de chaves assimétricas ou uma chave simétrica, podendo ser gerenciada localmente ou armazenada no Cofre da Chave do Azure. O cliente de Armazenamento, por si só, nunca tem acesso à KEK. Ele simplesmente chama o algoritmo de quebra de chave fornecido pelo Cofre da Chave. Os clientes podem escolher usar provedores personalizados para encapsular/desencapsular a chave, se desejado.</li><li>Os dados criptografados, em seguida, são carregados para o serviço de Armazenamento do Azure. Consulte os links na seção de referências para obter detalhes sobre a implementação de nível baixo.</li></ul>|
 
 ## <a name="encrypt-sensitive-or-pii-data-written-to-phones-local-storage"></a><a id="pii-phones"></a>Criptografar os dados confidenciais ou de informações de identificação pessoal (PII) gravados no armazenamento local de telefones
@@ -351,7 +351,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 | **Fase do SDL**               | Build |  
 | **Tecnologias aplicáveis** | Genéricas, Xamarin  |
 | **Atributos**              | N/D  |
-| **Referências**              | [Gerenciar configurações e recursos em dispositivos com as políticas do Microsoft Intune](https://docs.microsoft.com/mem/intune/configuration/), [Keychain Valet](https://components.xamarin.com/view/square.valet) |
+| **Referências**              | [Gerenciar configurações e recursos em dispositivos com as políticas do Microsoft Intune](/mem/intune/configuration/), [Keychain Valet](https://components.xamarin.com/view/square.valet) |
 | **Etapas** | <p>Se o aplicativo gravar informações confidenciais, como informações de identificação pessoal do usuário (email, número de telefone, nome, sobrenome, preferências etc.), no sistema de arquivos do dispositivo móvel, ele precisará ser criptografado antes de gravar dados no sistema de arquivos local. Se o aplicativo for um aplicativo empresarial, verifique a possibilidade de publicá-lo usando o Windows Intune.</p>|
 
 ### <a name="example"></a>Exemplo
@@ -431,7 +431,7 @@ Defina clientCredentialType para o certificado ou o Windows.
 | **Fase do SDL**               | Build |  
 | **Tecnologias aplicáveis** | Genérico, .NET Framework 3 |
 | **Atributos**              | Modo de segurança - Transport, Modo de segurança - Message |
-| **Referências**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_class_reference), [Noções básicas da segurança do WCF (CoDe Magazine)](https://www.codemag.com/article/0611051) |
+| **Referências**              | [MSDN](/previous-versions/msp-n-p/ff648500(v=pandp.10)), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_class_reference), [Noções básicas da segurança do WCF (CoDe Magazine)](https://www.codemag.com/article/0611051) |
 | **Etapas** | Nenhuma segurança foi definida para transporte ou mensagens. Os aplicativos que transmitem mensagens sem segurança de transporte ou de mensagem não podem garantir a integridade ou a confidenciabilidade das mensagens. Quando uma associação de segurança do WCF é definida como None, as seguranças de transporte e de mensagem são desabilitadas. |
 
 ### <a name="example"></a>Exemplo
@@ -449,7 +449,7 @@ A configuração mostrada abaixo define o modo de segurança como None.
 
 ### <a name="example"></a>Exemplo
 Há cinco modos de segurança disponíveis para todas as associações de serviço, são eles: 
-* Nenhum. desativa a segurança. 
+* nenhuma. desativa a segurança. 
 * Transport: usa a segurança de transporte para a proteção de autenticações e mensagens. 
 * Message. usa a segurança de mensagem para a proteção de autenticações e mensagens. 
 * Both: permite que você defina configurações de transporte e mensagem (somente o MSMQ oferece suporte a esse modo). 

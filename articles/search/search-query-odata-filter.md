@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 0f33b5a28d7c83be7e546c3f61bc517047c51312
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88934847"
 ---
 # <a name="odata-filter-syntax-in-azure-cognitive-search"></a>Sintaxe de $filter OData no Azure Pesquisa Cognitiva
@@ -32,7 +32,7 @@ O Azure Pesquisa Cognitiva usa [expressões de filtro OData](query-odata-filter-
 
 ## <a name="syntax"></a>Sintaxe
 
-Um filtro na linguagem OData é uma expressão booleana que, por sua vez, pode ser um dos vários tipos de expressão, conforme mostrado pelo seguinte EBNF ([formulário Backus-Naur Estendido](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)):
+Um filtro na linguagem OData é uma expressão booleana que, por sua vez, pode ser um dos vários tipos de expressão, conforme mostrado pelo seguinte EBNF ([formulário estendido Backus-Naur](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)):
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 

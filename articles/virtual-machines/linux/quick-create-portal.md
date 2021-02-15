@@ -9,11 +9,11 @@ ms.date: 06/25/2020
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 405cb107711845a6699e09bc09a1d2d9f3005cd6
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87499969"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016039"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-the-azure-portal"></a>Início Rápido: Criar uma máquina virtual do Linux no portal do Azure
 

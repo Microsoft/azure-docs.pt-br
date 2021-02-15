@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: 714148815fa4ff543ecbf86ab21e8d51fe775543
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7926d5dd33df5538713f8de152dbbace2bc29864
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77153767"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "90890284"
 ---
 # <a name="select-columns-in-dataset-module"></a>Selecionar colunas no módulo DataSet
 
-Este artigo descreve um módulo no designer do Azure Machine Learning (versão prévia).
+Este artigo descreve um módulo no designer de Azure Machine Learning.
 
 Use este módulo para escolher um subconjunto de colunas a ser usado em operações de downstream. O módulo não remove fisicamente as colunas do conjunto de fonte de origem; em vez disso, ele cria um subconjunto de colunas, assim como uma *exibição* ou *projeção*de banco de dados.
 
@@ -62,7 +62,7 @@ Há várias opções no módulo para escolher colunas por nome:
     Se seu conjunto de seus conjuntos de seus for amplo, pode ser mais fácil usar índices ou listas de nomes geradas, em vez de selecionar colunas individualmente. Supondo que você preparou a lista com antecedência:
 
     1. Clique na opção **com regras** . 
-    2. Selecione **nenhuma coluna**, selecione **incluir**e, em seguida, clique dentro da caixa de texto com o ponto de exclamação vermelho. 
+    2. Selecione **nenhuma coluna**, selecione  **incluir**e, em seguida, clique dentro da caixa de texto com o ponto de exclamação vermelho. 
     3. Cole ou digite uma lista separada por vírgulas de nomes de coluna validados anteriormente. Você não poderá salvar o módulo se alguma coluna tiver um nome inválido, portanto, certifique-se de verificar os nomes com antecedência.
     
     Você também pode usar esse método para especificar uma lista de colunas usando seus valores de índice. 

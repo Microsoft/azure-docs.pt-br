@@ -18,6 +18,14 @@ groups:
     title: cURL
   - id: url-test-tool-postman
     title: postman
+- id: python-frameworks-01
+  title: Estrutura Web
+  prompt: Escolher uma estrutura
+  pivots:
+  - id: python-framework-flask
+    title: Flask
+  - id: python-framework-django
+    title: Django
 - id: programming-languages-set-one
   title: Linguagens de programação
   prompt: Escolha uma linguagem de programação
@@ -32,6 +40,22 @@ groups:
     title: JavaScript
   - id: programming-language-python
     title: Python
+- id: programming-languages-set-cusvis
+  title: Linguagens de programação
+  prompt: Escolha uma linguagem de programação
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-go
+    title: Go
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-rest-api
+    title: API REST
 - id: programming-languages-set-two
   title: Linguagens de programação
   prompt: Escolha uma linguagem de programação
@@ -124,7 +148,7 @@ groups:
     title: C++
 - id: programming-languages-text-analytics
   title: Linguagens de programação
-  prompt: Escolha uma linguagem de programação.
+  prompt: Escolha uma das linguagens da biblioteca de clientes ou a API REST.
   pivots:
   - id: programming-language-csharp
     title: C#
@@ -134,8 +158,8 @@ groups:
     title: JavaScript
   - id: programming-language-java
     title: Java
-  - id: programming-language-other
-    title: Outras linguagens...
+  - id: rest-api
+    title: API REST
 - id: programming-languages-set-ten
   title: Linguagens de programação
   prompt: Escolha uma linguagem de programação
@@ -148,6 +172,20 @@ groups:
     title: JavaScript
   - id: programming-language-python
     title: Python
+- id: programming-languages-set-formre
+  title: Linguagens de programação
+  prompt: Escolha uma linguagem de programação
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-rest-api
+    title: API REST
 - id: programming-languages-set-eleven
   title: Linguagens de programação
   prompt: Escolha uma linguagem de programação
@@ -158,6 +196,18 @@ groups:
     title: Java
   - id: programming-language-python
     title: Python
+- id: programming-languages-set-conmod
+  title: Linguagens de programação
+  prompt: Escolha uma linguagem de programação
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-rest-api
+    title: API REST
 - id: programming-languages-set-fifteen
   title: Linguagens de programação
   prompt: Escolha uma linguagem de programação
@@ -166,6 +216,90 @@ groups:
     title: C#
   - id: programming-language-go
     title: Go
+- id: programming-languages-set-sixteen
+  title: Linguagens de programação
+  prompt: Escolha uma linguagem de programação
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-go
+    title: Go
+  - id: programming-language-ruby
+    title: Ruby
+- id: programming-languages-set-twenty-five
+  title: Linguagens de programação
+  prompt: Escolha uma linguagem de programação ou uma CLI
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-curl
+    title: REST
+- id: programming-languages-set-twenty-three
+  title: Linguagens de programação
+  prompt: Escolha uma linguagem de programação ou uma CLI
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-go
+    title: Go
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-languages-objectivec-swift
+    title: Objective-C/Swift
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-curl
+    title: REST
+  - id: programmer-tool-spx
+    title: CLI
+- id: programming-languages-set-twenty-four
+  title: Linguagens de programação
+  prompt: Escolha uma linguagem de programação ou uma CLI
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-languages-objectivec-swift
+    title: Objective-C/Swift
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-curl
+    title: REST
+  - id: programmer-tool-spx
+    title: CLI
+- id: programming-languages-set-twenty-six
+  title: Linguagens de programação
+  prompt: Escolha uma linguagem de programação
+  pivots:
+  - id: programming-language-ansi-c
+    title: C
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-python
+    title: Python
 - id: cogsvcs-text-analytics-features
   title: Recursos de Análise de Texto
   prompt: Escolher uma oferta de recurso de Análise de Texto
@@ -176,6 +310,20 @@ groups:
     title: Detecção de Idioma
   - id: text-analytics-sentiment-analysis
     title: Análise de Sentimento
+- id: programming-languages-set-functions-lang-workers
+  title: Linguagens de programação
+  prompt: Escolha uma linguagem de programação
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-powershell
+    title: PowerShell
+  - id: programming-language-python
+    title: Python
 - id: programming-languages-set-functions
   title: Linguagens de programação
   prompt: Escolha uma linguagem de programação
@@ -192,7 +340,25 @@ groups:
     title: Python
   - id: programming-language-typescript
     title: TypeScript
-- id: programming-languages-text-analytics
+- id: programming-languages-set-functions-full
+  title: Linguagens de programação
+  prompt: Escolha uma linguagem de programação
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-powershell
+    title: PowerShell
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-typescript
+    title: TypeScript
+  - id: programming-language-other
+    title: Outro
+- id: programming-languages-metrics-monitor
   title: Linguagens de programação
   prompt: Escolha uma linguagem de programação.
   pivots:
@@ -204,8 +370,24 @@ groups:
     title: Java
   - id: programming-language-javascript
     title: JavaScript
-  - id: programming-language-other
-    title: Outras linguagens...
+  - id: programming-language-rest-api
+    title: API REST
+- id: programming-languages-computer-vision
+  title: Linguagens de programação
+  prompt: Escolha uma linguagem de programação.
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-go
+    title: Go
+  - id: programming-language-rest-api
+    title: API REST
 - id: programming-languages-set-diberry-3core
   title: Linguagens de programação
   prompt: Escolha uma linguagem de programação
@@ -216,6 +398,18 @@ groups:
     title: JavaScript
   - id: programming-language-python
     title: Python
+- id: programming-languages-set-luis
+  title: Linguagens de programação
+  prompt: Faça uma seleção
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-python
+    title: Python
+  - id: rest-api
+    title: API REST
 - id: java-build-tools-set
   title: Ferramentas de build
   prompt: Escolha uma ferramenta de build
@@ -274,34 +468,6 @@ groups:
     title: Java
   - id: programming-language-more
     title: Mais linguagens...
-- id: programming-languages-set-fifteen
-  title: Linguagens de programação
-  prompt: Escolha uma linguagem de programação
-  pivots:
-  - id: programming-language-csharp
-    title: C#
-  - id: programming-language-go
-    title: Go
-  - id: programming-language-java
-    title: Java
-  - id: programming-language-more
-    title: Mais linguagens...
-- id: programming-languages-set-sixteen
-  title: Linguagens de programação
-  prompt: Escolha uma linguagem de programação
-  pivots:
-  - id: programming-language-csharp
-    title: C#
-  - id: programming-language-cpp
-    title: C++
-  - id: programming-language-go
-    title: Go
-  - id: programming-language-java
-    title: Java
-  - id: programming-language-python
-    title: Python
-  - id: programming-language-more
-    title: Mais linguagens...
 - id: programming-languages-set-seventeen
   title: Linguagens de programação
   prompt: Escolha uma linguagem de programação
@@ -322,6 +488,18 @@ groups:
     title: Go
   - id: programming-language-python
     title: Python
+- id: programming-languages-set-face
+  title: Linguagens de programação
+  prompt: Escolha uma linguagem de programação
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-go
+    title: Go
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-rest-api
+    title: API REST
 - id: programming-languages-set-two-with-js
   title: Linguagens de programação
   prompt: Escolha uma linguagem de programação
@@ -342,20 +520,18 @@ groups:
   title: Linguagens de programação
   prompt: Escolha uma linguagem de programação ou uma CLI
   pivots:
-  - id: programmer-tool-spx
-    title: CLI
   - id: programming-language-csharp
     title: C#
   - id: programming-language-cpp
     title: C++
   - id: programming-language-java
     title: Java
-  - id: programming-language-python
-    title: Python
   - id: programming-language-javascript
     title: JavaScript
-  - id: programming-language-more
-    title: Mais linguagens...
+  - id: programming-language-python
+    title: Python
+  - id: programmer-tool-spx
+    title: CLI
 - id: programming-languages-set-two-with-js-go
   title: Linguagens de programação
   prompt: Escolha uma linguagem de programação
@@ -516,10 +692,28 @@ groups:
     title: C++
   - id: programming-language-java
     title: Java
-  - id: programming-language-python
-    title: Python
   - id: programming-language-javascript
     title: JavaScript
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-spx
+    title: CLI
+- id: speech-full-stack-objectivec-swift
+  title: Linguagens de programação
+  prompt: Escolha uma linguagem de programação
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-languages-objectivec-swift
+    title: Objective-C/Swift
+  - id: programming-language-python
+    title: Python
   - id: programming-language-spx
     title: CLI
 - id: programming-languages-voice-assistants
@@ -566,10 +760,258 @@ groups:
     title: Java
   - id: programming-language-csharp
     title: C#
+- id: speech-full-stack-go
+  title: Linguagens de programação
+  prompt: Escolha uma linguagem de programação
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-go
+    title: Go
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-spx
+    title: CLI
+- id: speech-full-stack-go-objectivec-swift
+  title: Linguagens de programação
+  prompt: Escolha uma linguagem de programação
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-go
+    title: Go
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-languages-objectivec-swift
+    title: Objective-C/Swift
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-spx
+    title: CLI
+- id: acs-js-csharp
+  title: Pivôs JS e C#
+  prompt: Escolha uma linguagem de programação
+  pivots:
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-csharp
+    title: C#
+- id: acs-js-csharp-java-python
+  title: Linguagens de programação
+  prompt: Escolha uma linguagem de programação
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
+- id: acs-js-csharp-java-python-swift
+  title: Linguagens de programação
+  prompt: Escolha uma linguagem de programação
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-swift
+    title: Swift
+- id: acs-web-ios-android
+  title: Plataforma
+  prompt: Escolher uma plataforma
+  pivots:
+  - id: platform-web
+    title: Web
+  - id: platform-ios
+    title: iOS
+  - id: platform-android
+    title: Android
+- id: acs-web-ios
+  title: Plataforma
+  prompt: Escolher uma plataforma
+  pivots:
+  - id: platform-web
+    title: Web
+  - id: platform-ios
+    title: iOS
+- id: acs-js-csharp-ios-android-python
+  title: Linguagens de programação
+  prompt: Escolha uma linguagem de programação
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-java-android
+    title: Java (Android)
+  - id: programming-language-ios
+    title: iOS
+  - id: programming-language-python
+    title: Python
+- id: acs-js-csharp-ios-android
+  title: Linguagens de programação
+  prompt: Escolha uma linguagem de programação
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-java-android
+    title: Java (Android)
+  - id: programming-language-ios
+    title: iOS
+- id: acs-plat-web-net-ios-android
+  title: Plataforma
+  prompt: Escolher uma plataforma
+  pivots:
+  - id: platform-net
+    title: .NET
+  - id: platform-web
+    title: Web
+  - id: platform-android
+    title: Android
+  - id: platform-ios
+    title: iOS
+- id: acs-plat-web-ios-android
+  title: Plataforma
+  prompt: Escolher uma plataforma
+  pivots:
+  - id: platform-web
+    title: Web
+  - id: platform-android
+    title: Android
+  - id: platform-ios
+    title: iOS
+- id: acs-plat-azp-js
+  title: Plataforma
+  prompt: Escolher uma plataforma
+  pivots:
+  - id: platform-azp
+    title: Portal do Azure
+  - id: platform-javascript
+    title: JavaScript
+- id: acs-plat-azp-net
+  title: Plataforma
+  prompt: Escolher uma plataforma
+  pivots:
+  - id: platform-azp
+    title: Portal do Azure
+  - id: platform-azcli
+    title: CLI do Azure
+  - id: platform-net
+    title: .NET
+- id: acs-plat-azp-arm-net-python-go-powershell
+  title: Plataforma
+  prompt: Escolher uma plataforma
+  pivots:
+  - id: platform-azp
+    title: Portal do Azure
+  - id: platform-arm
+    title: Azure Resource Manager
+  - id: platform-net
+    title: .NET
+  - id: platform-python
+    title: Python
+  - id: platform-go
+    title: Go
+  - id: platform-powershell
+    title: PowerShell
+- id: non-azure-machines
+  title: Computadores não Azure
+  prompt: Como você conectará o computador não Azure?
+  pivots:
+  - id: azure-arc
+    title: Azure Arc
+  - id: azure-portal
+    title: Páginas do portal da Central de Segurança
+- id: client-operating-system-macos-and-linux-windows-powershell
+  title: Sistema operacional/console
+  prompt: Escolha um sistema operacional e um console
+  pivots:
+  - id: client-operating-system-macos-and-linux
+    title: macOS e Linux
+  - id: client-operating-system-windows-command
+    title: Shell de comando do Windows
+  - id: client-operating-system-powershell
+    title: PowerShell
+- id: ad-quickstart-one
+  title: Linguagens de programação
+  prompt: Escolha uma linguagem de programação
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-python
+    title: Python
+- id: keyword-quickstart
+  title: Linguagens de programação
+  prompt: Escolha uma linguagem de programação
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-python
+    title: Python
+  - id: programming-languages-objectivec-swift
+    title: Objective-C/Swift
+- id: b2c-policy-type
+  title: Tipo de política do Azure AD B2C
+  prompt: Escolher um tipo de política
+  pivots:
+  - id: b2c-user-flow
+    title: Fluxo de usuário
+  - id: b2c-custom-policy
+    title: Política personalizada
+- id: anomaly-detector-quickstart
+  title: Linguagens de programação
+  prompt: Escolha uma linguagem de programação
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-python
+    title: Python
+  - id: rest-api
+    title: REST
+- id: qnamaker-quickstart
+  title: Linguagens de programação
+  prompt: Escolha uma linguagem de programação
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-go
+    title: Go
+  - id: programming-language-ruby
+    title: Ruby
+  - id: rest
+    title: Rest
 metadata:
-  ms.openlocfilehash: 0659c68f39493c3e3b2e66ebc5a38d96cd13404d
-  ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+  ms.openlocfilehash: 79b9f9d871ffd5d410dd00b7dfbc1aca8fc98c4a
+  ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 08/27/2020
-  ms.locfileid: "88998910"
+  ms.lasthandoff: 02/08/2021
+  ms.locfileid: "99820799"

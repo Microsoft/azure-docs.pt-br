@@ -6,13 +6,13 @@ author: MarkHeff
 ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/24/2020
-ms.openlocfilehash: 2caf4c66cdbb11ed42c4131ef1584c372ec10332
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/25/2020
+ms.openlocfilehash: 4056e892855c06ce6c412ec4a592ebcd97fc11a6
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935102"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325376"
 ---
 # <a name="visualize-azure-cognitive-search-logs-and-metrics-with-power-bi"></a>Visualize os logs e as métricas do Azure Pesquisa Cognitiva com Power BI
 O [Azure pesquisa cognitiva](./search-what-is-azure-search.md) permite que você armazene logs de operação e métricas de serviço sobre o serviço de pesquisa em uma conta de armazenamento do Azure. Esta página fornece instruções sobre como você pode visualizar essas informações por meio de um aplicativo de modelo de Power BI. O aplicativo fornece informações detalhadas sobre o seu serviço de pesquisa, incluindo informação sobre pesquisa, indexação, operações e métricas de serviço.
@@ -27,12 +27,12 @@ Você pode encontrar o aplicativo de modelo de Power BI **pesquisa cognitiva do 
     1. Navegue até o serviço de Pesquisa Cognitiva do Azure no portal do Azure
     1. Na seção monitoramento, na coluna à esquerda, selecione **configurações de diagnóstico**
 
-        ![Captura de tela mostrando como selecionar as configurações de diagnóstico na seção monitoramento do serviço de Pesquisa Cognitiva do Azure.](media/search-monitor-logs-powerbi/diagnostic-settings.png)
+        :::image type="content" source="media/search-monitor-logs-powerbi/diagnostic-settings.png" alt-text="Captura de tela mostrando como selecionar as configurações de diagnóstico na seção monitoramento do serviço de Pesquisa Cognitiva do Azure." border="false":::
 
     1. Selecione **+ Adicionar configuração de diagnóstico**
     1. Verificar o **arquivamento em uma conta de armazenamento**, fornecer as informações da conta de armazenamento e verificar **OperationLogs** e **biométricas**
 
-        ![Captura de tela mostrando como fazer seleções para métricas e log de recursos na página Configurações de diagnóstico.](media/search-monitor-logs-powerbi/add-diagnostic-setting.png)
+        :::image type="content" source="media/search-monitor-logs-powerbi/add-diagnostic-setting.png" alt-text="Captura de tela mostrando como fazer seleções para métricas e log de recursos na página Configurações de diagnóstico.":::
     1. Selecione **Salvar**
 
 1. Depois que o registro em log tiver sido habilitado, use o serviço de pesquisa para começar a gerar logs e métricas. Leva até uma hora antes que os contêineres apareçam no armazenamento de BLOBs com esses logs. Você verá um contêiner **insights-logs-operationlogs** para os logs de tráfego de pesquisa e um contêiner **insights-Metrics-PT1M** para métricas.
@@ -41,48 +41,48 @@ Você pode encontrar o aplicativo de modelo de Power BI **pesquisa cognitiva do 
 
 1. Depois de instalar o aplicativo, selecione o aplicativo na lista de aplicativos no Power BI.
 
-    ![Captura de tela mostrando o aplicativo de Pesquisa Cognitiva do Azure para selecionar na lista de aplicativos.](media/search-monitor-logs-powerbi/azure-search-app-tile.png)
+    :::image type="content" source="media/search-monitor-logs-powerbi/azure-search-app-tile.png" alt-text="Captura de tela mostrando o aplicativo de Pesquisa Cognitiva do Azure para selecionar na lista de aplicativos.":::
 
 1. Selecione **conectar** para conectar seus dados
 
-    ![Captura de tela mostrando como se conectar aos seus dados no aplicativo Pesquisa Cognitiva do Azure.](media/search-monitor-logs-powerbi/get-started-with-your-new-app.png)
+    :::image type="content" source="media/search-monitor-logs-powerbi/get-started-with-your-new-app.png" alt-text="Captura de tela mostrando como se conectar aos seus dados no aplicativo Pesquisa Cognitiva do Azure.":::
 
 1. Insira o nome da conta de armazenamento que contém os logs e as métricas. Por padrão, o aplicativo examinará os últimos 10 dias de dados, mas esse valor pode ser alterado com o parâmetro **Days** .
 
-    ![Captura de tela mostrando como inserir o nome da conta de armazenamento e o número de dias a serem consultados na página conectar ao Azure Pesquisa Cognitiva.](media/search-monitor-logs-powerbi/connect-to-storage-account.png)
+    :::image type="content" source="media/search-monitor-logs-powerbi/connect-to-storage-account.png" alt-text="Captura de tela mostrando como inserir o nome da conta de armazenamento e o número de dias a serem consultados na página conectar ao Azure Pesquisa Cognitiva.":::
 
 1. Selecione a **chave** como o método de autenticação e forneça sua chave de conta de armazenamento. Selecione **privado** como o nível de privacidade. Clique em Entrar para iniciar o processo de carregamento.
 
-    ![Captura de tela mostrando como inserir o método de autenticação, a chave de conta e o nível de privacidade na página conectar ao Azure Pesquisa Cognitiva.](media/search-monitor-logs-powerbi/connect-to-storage-account-step-two.png)
+    :::image type="content" source="media/search-monitor-logs-powerbi/connect-to-storage-account-step-two.png" alt-text="Captura de tela mostrando como inserir o método de autenticação, a chave de conta e o nível de privacidade na página conectar ao Azure Pesquisa Cognitiva.":::
 
 1. Aguarde até que os dados sejam atualizados. Isso pode levar algum tempo, dependendo da quantidade de dados que você tem. Você pode ver se os dados ainda estão sendo atualizados com base no indicador abaixo.
 
-    ![Captura de tela mostrando como ler as informações na página atualização de dados.](media/search-monitor-logs-powerbi/workspace-view-refreshing.png)
+    :::image type="content" source="media/search-monitor-logs-powerbi/workspace-view-refreshing.png" alt-text="Captura de tela mostrando como ler as informações na página atualização de dados.":::
 
 1. Depois que a atualização de dados for concluída, selecione **relatório de pesquisa cognitiva do Azure** para exibir o relatório.
 
-    ![Captura de tela mostrando como selecionar o relatório de Pesquisa Cognitiva do Azure na página atualização de dados.](media/search-monitor-logs-powerbi/workspace-view-select-report.png)
+    :::image type="content" source="media/search-monitor-logs-powerbi/workspace-view-select-report.png" alt-text="Captura de tela mostrando como selecionar o relatório de Pesquisa Cognitiva do Azure na página atualização de dados.":::
 
 1. Certifique-se de atualizar a página depois de abrir o relatório para que ele seja aberto com seus dados.
 
-    ![Captura de tela do relatório de Power BI do Pesquisa Cognitiva do Azure.](media/search-monitor-logs-powerbi/powerbi-search.png)
+    :::image type="content" source="media/search-monitor-logs-powerbi/powerbi-search.png" alt-text="Captura de tela do relatório de Power BI do Pesquisa Cognitiva do Azure.":::
 
 ## <a name="how-to-change-the-app-parameters"></a>Como alterar os parâmetros do aplicativo
 Se você quiser Visualizar dados de uma conta de armazenamento diferente ou alterar o número de dias de dados a serem consultados, siga as etapas abaixo para alterar os parâmetros de **dias** e **StorageAccount** .
 
 1. Navegue até seu Power BI aplicativos, localize o aplicativo de Pesquisa Cognitiva do Azure e selecione o botão **Editar aplicativo** para exibir o espaço de trabalho.
 
-    ![Captura de tela mostrando como selecionar o botão Editar aplicativo para o aplicativo Pesquisa Cognitiva do Azure.](media/search-monitor-logs-powerbi/azure-search-app-tile-edit.png)
+    :::image type="content" source="media/search-monitor-logs-powerbi/azure-search-app-tile-edit.png" alt-text="Captura de tela mostrando como selecionar o botão Editar aplicativo para o aplicativo Pesquisa Cognitiva do Azure.":::
 
 1. Selecione **configurações** nas opções de conjunto de
 
-    ![Captura de tela mostrando como selecionar as configurações nas opções de conjunto de Congnitive de pesquisa do Azure.](media/search-monitor-logs-powerbi/workspace-view-select-settings.png)
+    :::image type="content" source="media/search-monitor-logs-powerbi/workspace-view-select-settings.png" alt-text="Captura de tela mostrando como selecionar configurações nas opções do conjunto de Pesquisa Cognitiva do Azure.":::
 
 1. Na guia conjuntos de valores, altere os valores de parâmetro e selecione **aplicar**. Se houver um problema com a conexão, atualize as credenciais da fonte de dados na mesma página.
 
 1. Navegue de volta para o espaço de trabalho e selecione **Atualizar agora** nas opções de conjunto de
 
-    ![Captura de tela mostrando como selecionar atualizar agora nas opções de conjunto de pesquisa do Azure Congnitive Search.](media/search-monitor-logs-powerbi/workspace-view-select-refresh-now.png)
+    :::image type="content" source="media/search-monitor-logs-powerbi/workspace-view-select-refresh-now.png" alt-text="Captura de tela mostrando como selecionar atualizar agora nas opções do conjunto de Pesquisa Cognitiva do Azure.":::
 
 1. Abra o relatório para exibir os dados atualizados. Talvez você também precise atualizar o relatório para exibir os dados mais recentes.
 

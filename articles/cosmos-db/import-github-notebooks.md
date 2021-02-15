@@ -4,16 +4,18 @@ description: Saiba como se conectar ao GitHub e importar os notebooks de um repo
 author: deborahc
 ms.author: dech
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 05/19/2020
-ms.openlocfilehash: d85f020152fa3cadb1d437c125d327f5e895e14e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8315369d2100036a50aae770267aa04bceb2dfb0
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85262881"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339794"
 ---
 # <a name="import-notebooks-from-a-github-repo-into-azure-cosmos-db"></a>Importar notebooks de um repositório do GitHub para o Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Após [habilitar o suporte ao notebook](enable-notebooks.md) para suas contas do Azure Cosmos, você pode criar novos notebooks, carregar novos notebooks do computador local ou importar os notebooks existentes de suas contas do GitHub. Este artigo mostra como conectar seu espaço de trabalho de notebooks ao GitHub e importar os notebooks de um repositório do GitHub para sua conta do Azure Cosmos. Após a importação, você pode executá-las, fazer alterações e salvar as alterações de volta no GitHub.
 
@@ -43,7 +45,7 @@ Você pode se conectar a seus próprios repositórios do GitHub ou a outros repo
 
 Após a integração com uma conta do GitHub, só você poderá ver a lista de repositórios e notebooks na sua conta do Azure Cosmos. Essa instrução é verdadeira mesmo que vários usuários façam logon na conta de Azure Cosmos DB e adicionem suas próprias contas. Em outras palavras, vários usuários podem usar a mesma conta do Azure Cosmos para conectar o espaço de trabalho do notebook ao GitHub. No entanto, os usuários veem apenas a lista de repositórios e notebooks que eles importaram. Os notebooks importados por outros não são visíveis para você.
 
-Para desconectar sua conta do GitHub do espaço de trabalho do notebook, abra a guia **Data Explorer**, selecione `…` ao lado de **Repositórios do GitHub** e selecione **Desconectar do GitHub**.
+Para desconectar sua conta do GitHub do espaço de trabalho do notebook, abra a guia **Data Explorer** , selecione `…` ao lado de **Repositórios do GitHub** e selecione **Desconectar do GitHub**.
 
 ## <a name="edit-a-notebook-and-push-changes-to-github"></a>Edite um notebook e enviar por push alterações para o GitHub
 

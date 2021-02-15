@@ -3,26 +3,24 @@ title: Migrar para v3-Translator
 titleSuffix: Azure Cognitive Services
 description: Este artigo fornece as etapas para ajudá-lo a migrar de v2 para V3 do tradutor de serviços cognitivas do Azure.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 05/26/2020
-ms.author: swmachan
-ms.openlocfilehash: fb907e0b9c923a77c6956723f6df397fabd84da8
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.author: lajanuar
+ms.openlocfilehash: 13c4d39284fad293c945f8b7e31076dccee84fda
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86523971"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896826"
 ---
 # <a name="translator-v2-to-v3-migration"></a>Conversor v2 para migração v3
 
 > [!NOTE]
-> O v2 foi preterido em 30 de abril de 2018. Migre seus aplicativos para v3 a fim de aproveitar as novas funcionalidades disponíveis exclusivamente na v3.
-> 
-> O Hub do Microsoft Translator será desativado em 17 de maio de 2019. [Exiba datas e informações importantes de migração](https://www.microsoft.com/translator/business/hub/).  
+> O v2 foi preterido em 30 de abril de 2018. Migre seus aplicativos para v3 a fim de aproveitar as novas funcionalidades disponíveis exclusivamente na v3. O v2 será desativado em 24 de maio de 2021. 
 
 A equipe do Microsoft Translator lançou a versão 3 (v3) do tradutor. Esta versão inclui novos recursos, métodos preteridos e um novo formato para enviar e receber dados do Serviço do Microsoft Translator. Este documento apresenta informações sobre como alterar os aplicativos para usar a V3. 
 
@@ -37,7 +35,7 @@ O fim deste documento contém links úteis para saber mais.
 * Transliterate – um método transliterate foi adicionado à API. Esse método converterá palavras e frases em um script (ex.: árabe) em outro script (ex.: latim).
 * Idiomas – um novo método ' Languages ' fornece informações de idioma, no formato JSON, para uso com os métodos ' translate ', ' Dictionary ' e ' transliterate '.
 * Novo para traduzir-novos recursos foram adicionados ao método ' translate ' para dar suporte a alguns dos recursos que estavam na API v2 como métodos separados. Um exemplo é TranslateArray.
-* Método de fala – não há mais suporte para a funcionalidade de conversão de texto em fala no Microsoft Translator. A funcionalidade de texto para fala está disponível no [Microsoft Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech).
+* Método de fala – não há mais suporte para a funcionalidade de conversão de texto em fala no Microsoft Translator. A funcionalidade de texto para fala está disponível no [Microsoft Speech Service](../speech-service/text-to-speech.md).
 
 A seguinte lista de métodos V2 e V3 identifica as APIs e os métodos da V3 que fornecerão a funcionalidade disponibilizada com a V2.
 
@@ -47,8 +45,8 @@ A seguinte lista de métodos V2 e V3 identifica as APIs e os métodos da V3 que 
 | `TranslateArray`      | [Translate](reference/v3-0-translate.md)        |
 | `GetLanguageNames`      | [Linguagens](reference/v3-0-languages.md)         |
 | `GetLanguagesForTranslate`     | [Linguagens](reference/v3-0-languages.md)       |
-| `GetLanguagesForSpeak`      | [Serviço de fala da Microsoft](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#text-to-speech)         |
-| `Speak`     | [Serviço de fala da Microsoft](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech)          |
+| `GetLanguagesForSpeak`      | [Serviço de fala da Microsoft](../speech-service/language-support.md#text-to-speech)         |
+| `Speak`     | [Serviço de fala da Microsoft](../speech-service/text-to-speech.md)          |
 | `Detect`     | [Detect](reference/v3-0-detect.md)         |
 | `DetectArray`     | [Detect](reference/v3-0-detect.md)         |
 | `AddTranslation`     | Não há mais suporte para o recurso       |
@@ -116,7 +114,7 @@ Por padrão, o Microsoft Translator V3 usa tradução automática neural. Como t
 
 A tradução neural com a API de texto V3 não dá suporte ao uso de categorias padrão (SMT, fala, texto, generalnn).
 
-| Versão | Ponto de extremidade | Conformidade de processador do RGPD | Usar o Hub do Tradutor | Usar o Tradutor Personalizado (Versão Prévia) |
+| Versão | Ponto de Extremidade | Conformidade de processador do RGPD | Usar o Hub do Tradutor | Usar o Tradutor Personalizado (Versão Prévia) |
 | :------ | :------- | :------------------------ | :----------------- | :------------------------------ |
 |Tradutor versão 2|    api.microsofttranslator.com|    Não    |Sim    |Não|
 |Tradutor versão 3|    api.cognitive.microsofttranslator.com|    Sim|    Não|    Sim|

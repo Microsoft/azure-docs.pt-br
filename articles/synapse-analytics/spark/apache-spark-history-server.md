@@ -6,21 +6,21 @@ author: euangMS
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: spark
-ms.date: 04/15/2020
+ms.date: 10/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: e8dece3478e00c6f9279767e57e3bb8aca865f45
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 94c30cad1e09a01686a9042a6271a152d0f433fd
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87059985"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995379"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>Usar o servidor de histórico de Apache Spark estendido para depurar e diagnosticar Apache Spark aplicativos
 
 Este artigo fornece orientação sobre como usar o servidor de histórico de Apache Spark estendido para depurar e diagnosticar aplicativos Spark concluídos e em execução.
 
-A extensão inclui uma guia dados, guia gráfico e guia diagnóstico. Use a guia **dados** para verificar os dados de entrada e saída do trabalho do Spark. A guia **grafo** mostra o fluxo de dados e a reprodução do grafo de trabalho. A guia **diagnóstico** mostra a **distorção de dados**, a **distorção de tempo**e a análise de uso de **executor**.
+A extensão inclui uma guia dados, guia gráfico e guia diagnóstico. Use a guia **dados** para verificar os dados de entrada e saída do trabalho do Spark. A guia **grafo** mostra o fluxo de dados e a reprodução do grafo de trabalho. A guia **diagnóstico** mostra a  **distorção de dados**, a **distorção de tempo** e a análise de uso de **executor**.
 
 ## <a name="access-the-apache-spark-history-server"></a>Acessar o servidor de histórico de Apache Spark
 
@@ -30,15 +30,15 @@ Apache Spark servidor de histórico é a interface do usuário da Web para aplic
 
 1. Abra o [Azure Synapse Analytics](https://web.azuresynapse.net/).
 
-2. Clique em **Monitor**e, em seguida, selecione **Apache Spark aplicativos**.
+2. Selecione **Monitor** e, em seguida, selecione **Apache Spark aplicativos**.
 
-    ![Clique em monitorar e selecione aplicativo Spark.](./media/apache-spark-history-server/click-monitor-spark-application.png)
+    ![Selecione monitor e, em seguida, selecione aplicativo Spark.](./media/apache-spark-history-server/click-monitor-spark-application.png)
 
-3. Selecione um aplicativo e, em seguida, abra a **consulta de log** clicando nele.
+3. Selecione um aplicativo e, em seguida, abra a **consulta de log** selecionando-o.
 
     ![Abrir janela de consulta de log.](./media/apache-spark-history-server/open-application-window.png)
 
-4. Selecione **servidor de histórico do Spark**e, em seguida, a interface do usuário da Web do servidor de histórico do Spark aparecerá.
+4. Selecione **servidor de histórico do Spark** e, em seguida, a interface do usuário da Web do servidor de histórico do Spark aparecerá.
 
     ![Abra o servidor de histórico do Spark.](./media/apache-spark-history-server/open-spark-history-server.png)
 
@@ -46,11 +46,11 @@ Apache Spark servidor de histórico é a interface do usuário da Web para aplic
 
 1. No seu notebook do Azure Synapse Studio, selecione **servidor de histórico do Spark** na célula saída de execução do trabalho ou no painel de status na parte inferior do documento do notebook. Selecione **Detalhes da sessão**.
 
-   ![Iniciar o servidor de histórico do Spark](./media/apache-spark-history-server/launch-history-server2.png "Iniciar o servidor de histórico do Spark")
+   ![Inicie o servidor de histórico do Spark 1](./media/apache-spark-history-server/launch-history-server2.png "Iniciar o servidor de histórico do Spark")
 
 2. Selecione **servidor de histórico do Spark** no painel deslizar.
 
-   ![Iniciar o servidor de histórico do Spark](./media/apache-spark-history-server/launch-history-server.png "Iniciar o servidor de histórico do Spark")
+   ![Inicie o servidor de histórico do Spark 2](./media/apache-spark-history-server/launch-history-server.png "Iniciar o servidor de histórico do Spark")
 
 ## <a name="explore-the-data-tab-in-spark-history-server"></a>Explorar a guia dados no servidor de histórico do Spark
 
@@ -68,7 +68,7 @@ Selecione a ID do trabalho que você deseja exibir. Em seguida, selecione **dado
 
     ![Dados para salvar aplicativo Spark](./media/apache-spark-history-server/apache-spark-data-save.png)
 
-* Pesquise inserindo palavras-chave na **pesquisa**de campo. Os resultados da pesquisa são exibidos imediatamente.
+* Pesquise inserindo palavras-chave na **pesquisa** de campo. Os resultados da pesquisa são exibidos imediatamente.
 
     ![Dados para pesquisa de aplicativo Spark](./media/apache-spark-history-server/apache-spark-data-search.png)
 
@@ -80,7 +80,7 @@ Selecione a ID do trabalho que você deseja exibir. Em seguida, selecione **dado
 
     ![Dados para a linha de download do aplicativo Spark](./media/apache-spark-history-server/sparkui-data-download-row.png)
 
-* Para copiar um caminho completo ou relativo, selecione as opções **Copiar caminho completo** ou **Copiar caminho relativo** que se expande no menu suspenso. Para Azure Data Lake Storage arquivos, **abra no Gerenciador de armazenamento do Azure** inicia Gerenciador de armazenamento do Azure e localiza a pasta quando seu estiver conectado.
+* Para copiar um caminho completo ou relativo, selecione as opções **Copiar caminho completo** ou **Copiar caminho relativo** que se expande no menu suspenso. Para Azure Data Lake Storage arquivos, **abra no Gerenciador de armazenamento do Azure** inicia Gerenciador de armazenamento do Azure e localiza a pasta quando você está conectado.
 
     ![Dados para o caminho de cópia do aplicativo Spark](./media/apache-spark-history-server/sparkui-data-copy-path.png)
 
@@ -112,7 +112,7 @@ Por padrão, a exibição de **progresso** é selecionada. Você pode verificar 
 
 ![Vídeo do aplicativo Spark e do grafo de trabalho](./media/apache-spark-history-server/sparkui-graph-display.png)
 
-O nó do gráfico exibe as cores mostradas na legenda calor.
+O nó do grafo exibe as cores mostradas na legenda calor.
 
 ![Aplicativo Spark e grafo de trabalho calor](./media/apache-spark-history-server/sparkui-graph-heatmap.png)
 
@@ -120,7 +120,7 @@ O nó do gráfico exibe as cores mostradas na legenda calor.
 
 Para reproduzir o trabalho, selecione **reprodução**. Você pode selecionar **parar** a qualquer momento para parar. As cores da tarefa mostram status diferentes ao executar novamente:
 
-|Cor|Significado|
+|Color|Significado|
 |-|-|
 |Verde|Êxito: o trabalho foi concluído com êxito.|
 |Laranja|Repetidas: instâncias de tarefas que falharam, mas não afetam o resultado final do trabalho. Essas tarefas tiveram instâncias duplicadas ou repetidas que poderão ser bem-sucedidas mais tarde.|
@@ -200,7 +200,7 @@ Confira as informações de **Distorção de dados**, **Distorção de tempo** e
 
 Quando você seleciona a guia **distorção de dados** , as tarefas distorcidas correspondentes são exibidas com base nos parâmetros especificados.
 
-* **Especificar Parâmetros** – a primeira seção exibe os parâmetros, que são usados para detectar a Distorção de dados. A regra padrão é: a leitura dos dados da tarefa é maior que três vezes a média de dados da tarefa lida e a leitura dos dados da tarefa é maior que 10 MB. Se você quiser definir sua própria regra para tarefas distorcidas, poderá escolher seus parâmetros, as seções **distorção** e **distorção de caracteres de inclinação** serão atualizadas de acordo.
+* **Especificar Parâmetros** – a primeira seção exibe os parâmetros, que são usados para detectar a Distorção de dados. A regra padrão é: a leitura dos dados da tarefa é maior que três vezes a média de dados da tarefa lida e a leitura dos dados da tarefa é maior que 10 MB. Se você quiser definir sua própria regra para tarefas distorcidas, poderá escolher seus parâmetros. As seções de **caractere** de inclinação e distorção **inclinadas** são atualizadas de acordo.
 
 * **Fase Distorcida** – a segunda seção exibe as fases que têm tarefas distorcidas que atendem aos critérios especificados acima. Se houver mais de uma tarefa distorcida em uma fase, a tabela de fase distorcida exibirá apenas a tarefa mais distorcida (por exemplo, com os maiores dados para distorção de dados).
 
@@ -216,7 +216,7 @@ A guia **Distorção de Tempo** exibe tarefas distorcidas com base no tempo de e
 
 * **Especificar Parâmetros** – a primeira seção exibe os parâmetros, que são usados para detectar a Distorção de tempo. Os critérios padrão para detectar a distorção de tempo são: o tempo de execução da tarefa é maior do que três vezes o tempo médio de execução e o tempo de execução da tarefa é maior que 30 segundos. Você pode alterar os parâmetros com base em suas necessidades. A **Fase Distorcida** e o **Gráfico de Distorção** exibem as informações sobre as fases e as tarefas correspondentes, assim como a guia **Distorção de Dados** acima.
 
-* Selecione **distorção de tempo**e o resultado filtrado é exibido na seção de **estágio distorcido** de acordo com os parâmetros definidos na seção **especificar parâmetros**. Selecione um item na seção **estágio inclinado** , o gráfico correspondente é exibido em section3 e os detalhes da tarefa são exibidos no painel inferior direito.
+* Selecione **distorção de tempo** e o resultado filtrado é exibido na seção de **estágio distorcido** de acordo com os parâmetros definidos na seção **especificar parâmetros**. Selecione um item na seção **estágio inclinado** , o gráfico correspondente é exibido em section3 e os detalhes da tarefa são exibidos no painel inferior direito.
 
     ![seção de distorção de tempo de diagnóstico sparkui](./media/apache-spark-history-server/sparkui-diagnosis-timeskew-section2.png)
 
@@ -224,7 +224,7 @@ A guia **Distorção de Tempo** exibe tarefas distorcidas com base no tempo de e
 
 O grafo de uso do executor visualiza a alocação e o status de execução do executor de trabalho do Spark.  
 
-1. Selecione **análise de uso de executor**, quatro tipos de curvas de uso de executor são rascunhos, incluindo **executores alocados**, **execuções em execução**, **executores ociosos**e **instâncias de executor máximo**. Em relação aos executores alocados, cada evento "executor adicionado" ou "executor removido" aumenta ou diminui os executores alocados. Você pode verificar "Linha do tempo do evento" na guia "Trabalhos" para fazer mais comparações.
+1. Selecione **análise de uso de executor**, quatro tipos de curvas de uso de executor são rascunhos, incluindo **executores alocados**, **execuções em execução**, **executores ociosos** e **instâncias de executor máximo**. Para executores alocados, cada evento "executor adicionado" ou "executor removido" aumenta ou diminui os executores alocados. Você pode verificar "Linha do tempo do evento" na guia "Trabalhos" para fazer mais comparações.
 
    ![guia executores de diagnóstico do sparkui](./media/apache-spark-history-server/sparkui-diagnosis-executors.png)
 

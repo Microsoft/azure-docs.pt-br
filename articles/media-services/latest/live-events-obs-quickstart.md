@@ -1,20 +1,22 @@
 ---
-title: Criar uma transmissão ao vivo dos Serviços de Mídia do Azure com o OBS Studio
+title: Criar uma transmissão ao vivo com o OBS Studio
 description: Saiba como criar uma transmissão ao vivo dos Serviços de Mídia do Azure usando o portal e o OBS Studio
 services: media-services
 ms.service: media-services
 ms.topic: quickstart
 ms.author: inhenkel
 author: IngridAtMicrosoft
-ms.date: 04/16/2020
-ms.openlocfilehash: 671609fc1db7325823e8ac40b2b8153682596588
-ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
+ms.date: 08/31/2020
+ms.openlocfilehash: 83f072b67f5aa162137a55d2b311dccf0daf7f53
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84147810"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98956065"
 ---
 # <a name="create-an-azure-media-services-live-stream-with-obs"></a>Criar uma transmissão ao vivo dos Serviços de Mídia do Azure com o OBS
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Este guia de início rápido ajudará você a criar uma transmissão ao vivo dos Serviços de Mídia do Azure usando o portal do Azure e o OBS (Open Broadcasting Studio). Ele pressupõe que você tenha uma assinatura do Azure e que tenha criado uma conta dos Serviços de Mídia.
 

@@ -11,12 +11,12 @@ ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bdc8b68206161abdd1782561c904d4e670ecca22
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 94710e99fa7d04d757f2ad5fd7b2d3f6e01371d1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85358949"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91306324"
 ---
 # <a name="move-azure-ad-connect-database-from-sql-server-express-to-sql-server"></a>Mover o banco de dados do Azure AD Connect do SQL Server Express para o SQL Server 
 
@@ -41,13 +41,13 @@ Use as etapas a seguir para mover o banco de dados do Azure AD Connect para um S
 
 8. Depois que o banco de dados for anexado, volte para o servidor do Azure AD Connect e instale o Azure AD Connect.
 9. Depois de concluir a instalação do MSI, o assistente do Azure AD Connect começa a instalação do modo Express. Feche a tela clicando no ícone de Saída.
-   ![Bem-vindo](./media/how-to-connect-install-move-db/db1.png)
+   ![Captura de tela que mostra a página "bem-vindo ao Azure a D Connect" com "configurações expressas" no menu do lado esquerdo realçado.](./media/how-to-connect-install-move-db/db1.png)
 10. Inicie um novo prompt de comando ou sessão do PowerShell. Navegue até a pasta \<drive>\Program Files\Microsoft Azure AD Connect. Execute o comando .\AzureADConnect.exe /useexistingdatabase para iniciar o assistente do Azure AD Connect no modo de configuração "Usar banco de dados existente".
     ![PowerShell](./media/how-to-connect-install-move-db/db2.png)
 11. Você receberá boas-vindas com a tela Bem-vindo ao Azure AD Connect. Depois que você concordar com os termos de licença e o aviso de privacidade, clique em **Continuar**.
-    ![Bem-vindo](./media/how-to-connect-install-move-db/db3.png)
+    ![Captura de tela que mostra a página "bem-vindo ao Azure A D Connect"](./media/how-to-connect-install-move-db/db3.png)
 12. Na tela **Instalar os componentes necessários**, a opção **Usar um SQL Server existente** é habilitada. Especifique o nome do SQL Server hospedando o banco de dados ADSync. Se a instância do mecanismo SQL usada para hospedar o banco de dados ADSync não for a instância padrão no SQL Server, você deverá especificar o nome de instância do mecanismo SQL. Além disso, se a pesquisa do SQL não está habilitada, você também deve especificar o número da porta da instância do mecanismo SQL. Por exemplo:         
-    ![Bem-vindo](./media/how-to-connect-install-move-db/db4.png)           
+    ![Captura de tela que mostra a página "instalar componentes necessários".](./media/how-to-connect-install-move-db/db4.png)           
 
 13. Na tela **Conectar ao Azure AD**, você deve fornecer as credenciais de um administrador global do seu diretório do Azure AD. Uma recomendação é usar uma conta no domínio onmicrosoft.com padrão. Lembre-se de que essa conta é usada apenas para criar uma conta de serviço no Azure AD e não é usada após a conclusão do assistente.
     ![Connect](./media/how-to-connect-install-move-db/db5.png)
@@ -57,11 +57,11 @@ Use as etapas a seguir para mover o banco de dados do Azure AD Connect para um S
  
 
 15. No diálogo pop-up, você pode (i) fornecer uma credencial de admin corporativo e permitir que o Azure AD Connect crie a conta do AD DS para você ou (ii) criar a conta do AD DS você mesmo e fornecer a credencial dela para o Azure AD Connect. Depois que você tiver selecionado uma opção e fornecido as credenciais necessárias, clique em **OK** para fechar o diálogo pop-up.
-    ![Bem-vindo](./media/how-to-connect-install-move-db/db7.png)
+    ![Captura de tela da caixa de diálogo pop-up "uma conta da floresta D" com a "criar nova conta D" selecionada.](./media/how-to-connect-install-move-db/db7.png)
  
 
-16. Depois que as credenciais são fornecidas, o ícone de cruz vermelha é substituído por um ícone de tique verde. Clique em **Próximo**.
-    ![Bem-vindo](./media/how-to-connect-install-move-db/db8.png)
+16. Depois que as credenciais são fornecidas, o ícone de cruz vermelha é substituído por um ícone de tique verde. Clique em **Avançar**.
+    ![Captura de tela que mostra a página "conectar seus diretórios" depois de inserir as credenciais da conta.](./media/how-to-connect-install-move-db/db8.png)
  
 
 17. Na tela **pronto para configurar** , clique em **instalar**.

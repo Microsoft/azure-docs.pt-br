@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: ac37dc66c9861c974c2d5fea435a3ae6771e6c7d
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: ca0e95d311adedf613ed168927491dfa85b1cabd
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88035001"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97095314"
 ---
 # <a name="azure-storage-compliance-offerings"></a>Ofertas de conformidade do Armazenamento do Azure
 
@@ -27,7 +27,7 @@ Encontre abaixo as ofertas de conformidade do Armazenamento do Azure para garant
 * [CSA-Star-Certification](https://www.microsoft.com/trustcenter/compliance/csa-star-certification)
 * [CSA-STAR-Self-Assessment](https://www.microsoft.com/trustcenter/compliance/csa-self-assessment)
 * [ISO 20000-1:2011](https://www.microsoft.com/TrustCenter/Compliance/ISO-20000-1)
-* [ISO 22301](https://www.microsoft.com/trustcenter/compliance/iso-22301)
+* [ISO 22301](/compliance/regulatory/offering-iso-22301)
 * [ISO 27001](https://www.microsoft.com/trustcenter/compliance/iso-iec-27017)
 * [ISO 27017](https://www.microsoft.com/trustcenter/compliance/iso-iec-27017)
 * [ISO 27018](https://www.microsoft.com/trustcenter/compliance/iso-iec-27018)
@@ -58,7 +58,7 @@ Encontre abaixo as ofertas de conformidade do Armazenamento do Azure para garant
 * [FISC (Japão)](https://www.microsoft.com/trustcenter/compliance/fisc)
 * [GLBA](https://aka.ms/AzureCompliance)
 * [GxP](https://www.microsoft.com/TrustCenter/Compliance/FDA)
-* [HIPAA/HITECH](https://www.microsoft.com/trustcenter/compliance/hipaa)
+* [HIPAA/HITECH](/compliance/regulatory/offering-hipaa-hitech)
 * [HITRUST](https://www.microsoft.com/trustcenter/Compliance/HITRUST)
 * [MARS-E](https://www.microsoft.com/trustcenter/compliance/mars-e)
 * [MAS + ABS (Singapura)](https://aka.ms/AzureCompliance)

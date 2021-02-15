@@ -5,21 +5,21 @@ author: kirillg
 ms.author: kirillg
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/04/2020
-ms.openlocfilehash: 20b0bcfe5043d4767199c36796fa1123ed779363
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 12/11/2020
+ms.custom: seo-nov-2020
+ms.openlocfilehash: ba0dd347c4ee2cb41b34c2fc34f1848a7295dc3a
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84791139"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368657"
 ---
 # <a name="create-azure-cosmos-containers-and-databases-with-autoscale-throughput"></a>Criar contêineres e bancos de dados do Azure Cosmos com taxa de transferência de dimensionamento automático
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-O Azure Cosmos DB permite que você defina a taxa de transferência provisionada padrão (manual) ou de dimensionamento automático nos seus bancos de dados e contêineres. Este artigo descreve os benefícios e casos de uso da taxa de transferência provisionada de dimensionamento automático. 
+No Azure Cosmos DB, você pode configurar a taxa de transferência padrão (manual) ou autoescala provisionada em seus bancos de dados e contêineres. A taxa de transferência provisionada prodimensionada no Azure Cosmos DB permite que você **dimensione a taxa de transferência (ru/s) do seu banco de dados ou contêiner de forma automática e instantânea**. A taxa de transferência é dimensionada com base no uso, sem afetar a disponibilidade, a latência, a taxa de transferência ou o desempenho da carga de trabalho.
 
-A taxa de transferência provisionada de dimensionamento automático é adequada para cargas de trabalho críticas que têm padrões de tráfego variáveis ou imprevisíveis e exigem SLAs em alto desempenho e escala. 
-
-Com o dimensionamento automático, o Azure Cosmos DB **dimensiona automática e instantaneamente a taxa de transferência (RU/s)** do seu banco de dados ou contêiner com base no uso, sem afetar a disponibilidade, latência, taxa de transferência ou desempenho da carga de trabalho. 
+A taxa de transferência provisionada de dimensionamento automático é adequada para cargas de trabalho críticas que têm padrões de tráfego variáveis ou imprevisíveis e exigem SLAs em alto desempenho e escala. Este artigo descreve os benefícios e casos de uso da taxa de transferência provisionada de dimensionamento automático.
 
 ## <a name="benefits-of-autoscale"></a>Benefícios de dimensionamento automático
 
@@ -59,7 +59,7 @@ O ponto de entrada para taxa de transferência máxima de dimensionamento autom�
 
 ## <a name="enable-autoscale-on-existing-resources"></a>Habilitar dimensionamento automático em recursos existentes
 
-Use o [portal do Azure](how-to-provision-autoscale-throughput.md#enable-autoscale-on-existing-database-or-container) para habilitar o dimensionamento automático em um banco de dados ou contêiner existente. Você pode alternar entre o dimensionamento automático e a taxa de transferência provisionada (manual) padrão a qualquer momento. Confira esta [documentação](autoscale-faq.md#how-does-the-migration-between-autoscale-and-standard-manual-provisioned-throughput-work) para obter mais informações. Atualmente, para todas as APIs, você só pode usar o portal do Azure para habilitar o dimensionamento automático em recursos existentes.
+Use o [portal do Azure](how-to-provision-autoscale-throughput.md#enable-autoscale-on-existing-database-or-container), o [modelo de Azure Resource Manager](how-to-provision-autoscale-throughput.md#azure-resource-manager), a [CLI](how-to-provision-autoscale-throughput.md#azure-cli) ou o [PowerShell](how-to-provision-autoscale-throughput.md#azure-powershell) para habilitar o dimensionamento automático em um banco de dados ou contêiner existente. Você pode alternar entre o dimensionamento automático e a taxa de transferência provisionada (manual) padrão a qualquer momento. Confira esta [documentação](autoscale-faq.md#how-does-the-migration-between-autoscale-and-standard-manual-provisioned-throughput-work) para obter mais informações.
 
 ## <a name="throughput-and-storage-limits-for-autoscale"></a><a id="autoscale-limits"></a> Limites de taxa de transferência e armazenamento para dimensionamento automático
 
@@ -77,7 +77,7 @@ Para obter mais detalhes, consulte esta [documentação](how-to-choose-offer.md)
 | **Taxa de transferência provisionada (RU/s)** | Provisionado manualmente. | Dimensionado de forma automática e instantânea com base nos padrões de uso da carga de trabalho. |
 | **Limitação de taxa de solicitações/operações (429)**  | Pode acontecer se o consumo exceder a capacidade provisionada. | Não ocorrerá se você consumir RU/s dentro do intervalo de taxa de transferência de dimensionamento automático definido.    |
 | **Planejamento da capacidade** |  Você precisa fazer o planejamento de capacidade e provisionar a taxa de transferência exata necessária. |    O sistema cuida automaticamente do planejamento de capacidade e do gerenciamento de capacidade. |
-| **Preços** | Você paga pelas RU/s provisionadas manualmente por hora, usando a [taxa de RU/s padrão (manual) por hora](https://azure.microsoft.com/pricing/details/cosmos-db/). | Você paga por hora pela RU/s mais alta que o sistema dimensionou dentro de uma hora. <br/><br/> Para contas de região de gravação única, você paga pela RU/s usada por hora, usando a [taxa de RU/s de dimensionamento automático por hora](https://azure.microsoft.com/pricing/details/cosmos-db/). <br/><br/>Para contas com várias regiões de gravação, não há custo adicional para o dimensionamento automático. Você paga pela taxa de transferência usada por hora, usando a mesma [taxa de RU/s de vários mestres por hora ](https://azure.microsoft.com/pricing/details/cosmos-db/). |
+| **Preços** | Você paga pelas RU/s provisionadas manualmente por hora, usando a [taxa de RU/s padrão (manual) por hora](https://azure.microsoft.com/pricing/details/cosmos-db/). | Você paga por hora pela RU/s mais alta que o sistema dimensionou dentro de uma hora. <br/><br/> Para contas de região de gravação única, você paga pela RU/s usada por hora, usando a [taxa de RU/s de dimensionamento automático por hora](https://azure.microsoft.com/pricing/details/cosmos-db/). <br/><br/>Para contas com várias regiões de gravação, não há custo adicional para o dimensionamento automático. Você paga pela taxa de transferência usada por hora usando as mesmas [taxas de gravação de várias regiões/s por hora](https://azure.microsoft.com/pricing/details/cosmos-db/). |
 | **Mais adequado para tipos de carga de trabalho** |  Cargas de trabalho previsíveis e estáveis|   Cargas de trabalho imprevisíveis e variáveis  |
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -85,6 +85,6 @@ Para obter mais detalhes, consulte esta [documentação](how-to-choose-offer.md)
 * Examine as [Perguntas frequentes sobre dimensionamento automático](autoscale-faq.md).
 * Saiba como [escolher entre taxa de transferência manual e de dimensionamento automático](how-to-choose-offer.md).
 * Saiba como [provisionar a taxa de transferência de dimensionamento automático em um banco de dados ou contêiner do Azure Cosmos](how-to-provision-autoscale-throughput.md).
-* Saiba mais sobre [particionamento](partition-data.md) no Azure Cosmos DB.
+* Saiba mais sobre [particionamento](partitioning-overview.md) no Azure Cosmos DB.
 
 

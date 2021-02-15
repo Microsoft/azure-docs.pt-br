@@ -1,7 +1,7 @@
 ---
 title: 'Início Rápido: Sugerir consultas de pesquisa com a API de REST de sugestão automática do Bing e o Node.js'
 titleSuffix: Azure Cognitive Services
-description: Saiba como começar rapidamente sugerindo termos de pesquisa em tempo real com a API de Sugestão Automática do Bing.
+description: Saiba como começar rapidamente a sugerir termos de pesquisa em tempo real com a API de Sugestão Automática do Bing e o Node.js.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,15 +10,20 @@ ms.subservice: bing-autosuggest
 ms.topic: quickstart
 ms.date: 05/06/2020
 ms.author: aahi
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 6a78c2ae4145a65739d5db56a70dca498d7d6a82
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.custom: devx-track-js
+ms.openlocfilehash: 03545aafa1cbf6efa82ae063e7e966443b1d5e8b
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87406479"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106114"
 ---
 # <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-nodejs"></a>Início Rápido: Sugerir consultas de pesquisa com a API de REST de sugestão automática do Bing e o Node.js
+
+> [!WARNING]
+> As APIs de Pesquisa do Bing estão migrando dos Serviços Cognitivos para os Serviços de Pesquisa do Bing. A partir de **30 de outubro de 2020**, todas as novas instâncias da Pesquisa do Bing precisam ser provisionadas seguindo o processo documentado [aqui](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> As APIs de Pesquisa do Bing provisionadas por meio dos Serviços Cognitivos terão suporte nos próximos três anos ou até o final do seu Contrato Enterprise, o que ocorrer primeiro.
+> Para obter instruções sobre a migração, confira [Serviços de Pesquisa do Bing](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Siga este guia de início rápido para saber como fazer chamadas à API de Sugestão Automática do Bing e ler a resposta JSON. Esse aplicativo simples do Node.js envia uma consulta de pesquisa parcial para a API e retorna as sugestões para pesquisas. Embora esse aplicativo seja escrito em JavaScript, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação. O código-fonte dessa amostra está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingAutosuggestv7.js)
 
@@ -38,7 +43,7 @@ Siga este guia de início rápido para saber como fazer chamadas à API de Suges
     let https = require ('https');
     ```
 
-2. Crie variáveis para o host e o caminho do ponto de extremidade da API, sua chave de assinatura, o [código de mercado](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes) e o termo de pesquisa. Use o ponto de extremidade global no código a seguir ou usar o ponto de extremidade do [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso.
+2. Crie variáveis para o host e o caminho do ponto de extremidade da API, sua chave de assinatura, o [código de mercado](/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes) e o termo de pesquisa. Use o ponto de extremidade global no código a seguir ou usar o ponto de extremidade do [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso.
 
     ```javascript
     // Replace the subscriptionKey string value with your valid subscription key.
@@ -81,14 +86,13 @@ Siga este guia de início rápido para saber como fazer chamadas à API de Suges
         //...
         let req = https.request(request_params, response_handler);
         req.end();
-        ```
+    ```
 
-## Create a search handler
+## <a name="create-a-search-handler"></a>Criar um manipulador de pesquisa
 
-1. Define a function named `response_handler` that takes an HTTP call, `response`, as a parameter. 
-Do the following steps within this function:
+1. Defina uma função chamada `response_handler` que usa uma chamada HTTP, `response`, como um parâmetro. Siga estas etapas nesta função:
     
-    1. Define a variable to contain the body of the JSON response.  
+    1. Defina uma variável para conter o corpo da resposta JSON.  
 
         ```javascript
         let response_handler = function (response) {
@@ -96,7 +100,7 @@ Do the following steps within this function:
         };
         ```
 
-    2. Store the body of the response when the `data` flag is called
+    2. Armazene o corpo da resposta quando o sinalizador `data` for chamado
         
         ```javascript
         response.on ('data', function (d) {
@@ -104,7 +108,7 @@ Do the following steps within this function:
         });
         ```
 
-    3. When an `end` flag is signaled, use `JSON.parse()` and `JSON.stringify()` to print the response.
+    3. Quando um sinalizador `end` é sinalizado, use `JSON.parse()` e `JSON.stringify()` para imprimir a resposta.
     
         ```javascript
         response.on ('end', function () {
@@ -117,11 +121,11 @@ Do the following steps within this function:
         });
         ```
 
-2. Call `get_suggestions()` to send the request to the Bing Autosuggest API.
+2. Ligue para `get_suggestions()` para enviar a solicitação à API de sugestão automática do Bing.
 
-## Example JSON response
+## <a name="example-json-response"></a>Resposta JSON de exemplo
 
-A successful response is returned in JSON, as shown in the following example: 
+Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exemplo: 
 
 ```json
 {
@@ -193,4 +197,4 @@ A successful response is returned in JSON, as shown in the following example:
 > [Criar um aplicativo Web de página única](../tutorials/autosuggest.md)
 
 - [O que é a Sugestão Automática do Bing?](../get-suggested-search-terms.md)
-- [Referência de API de Sugestão Automática do Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference)
+- [Referência de API de Sugestão Automática do Bing v7](/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference)

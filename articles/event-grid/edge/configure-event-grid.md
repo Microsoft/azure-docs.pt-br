@@ -8,10 +8,10 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: 632227579fd021a0d2ce1d0b1bb0b8a8288c5f47
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86171662"
 ---
 # <a name="event-grid-configuration"></a>Configuração da grade de eventos
@@ -65,7 +65,7 @@ Para saber mais sobre esse recurso em geral, confira [entrega e repetição](del
 | Nome da propriedade | Descrição |
 | ---------------- | ------------ |
 | `broker__defaultMaxDeliveryAttempts` | Número máximo de tentativas para entregar um evento. O valor padrão é 30.
-| `broker__defaultEventTimeToLiveInSeconds` | Tempo de vida (TTL) em segundos após o qual um evento será Descartado se não for entregue. O valor padrão é **7200** segundos
+| `broker__defaultEventTimeToLiveInSeconds` | Tempo de vida (TTL) em segundos após o qual um evento será Descartado se não for entregue. O valor padrão é  **7200** segundos
 
 ## <a name="output-batching"></a>Envio em lote de saída
 

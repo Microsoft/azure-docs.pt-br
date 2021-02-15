@@ -2,14 +2,14 @@
 title: Dimensionar automaticamente nós de computação em um pool do Lote do Azure
 description: Habilite o dimensionamento automático em um pool de nuvem para ajustar dinamicamente o número de nós de computação no pool.
 ms.topic: how-to
-ms.date: 07/27/2020
+ms.date: 11/23/2020
 ms.custom: H1Hack27Feb2017, fasttrack-edit, devx-track-csharp
-ms.openlocfilehash: e3e7a354e015ffa8a6164de59edcf572ab773319
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 06f717e7c3ab8285b494f89c39838af6b0d96c8f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88932314"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100381419"
 ---
 # <a name="create-an-automatic-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Criar uma fórmula de dimensionamento automático de nós de computação em um pool do Lote
 
@@ -128,12 +128,16 @@ Você pode obter o valor dessas variáveis definidas pelo serviço para fazer aj
 | $PendingTasks |A soma de $ActiveTasks e $RunningTasks. |
 | $SucceededTasks |O número de tarefas que foram concluídas com êxito. |
 | $FailedTasks |O número de tarefas que falharam. |
+| $TaskSlotsPerNode |O número de Slots de tarefas que podem ser usados para executar tarefas simultâneas em um único nó de computação no pool. |
 | $CurrentDedicatedNodes |O número atual de nós de computação dedicados. |
 | $CurrentLowPriorityNodes |O número atual de nós de computação de baixa prioridade, incluindo nós que tenham sofrido preempção. |
 | $PreemptedNodeCount | O número de nós no pool que estão em estado de prevenção. |
 
 > [!TIP]
 > Essas variáveis definidas pelo serviço somente leitura são *objetos* que fornecem vários métodos para acessar os dados associados a cada um. Para obter mais informações, consulte [Obter amostras de dados](#obtain-sample-data) a seguir neste artigo.
+
+> [!NOTE]
+> Use `$RunningTasks` ao dimensionar com base no número de tarefas em execução em um ponto no tempo e `$ActiveTasks` ao dimensionar com base no número de tarefas que estão na fila para serem executadas.
 
 ## <a name="types"></a>Tipos
 
@@ -289,7 +293,7 @@ Os métodos a seguir podem ser usados para obter dados de exemplo sobre variáve
 | HistoryBeginTime() |Retorna o carimbo de data/hora da amostra de dados mais antiga disponível para a métrica. |
 | GetSamplePercent() |Retorna a porcentagem de exemplos disponíveis para um determinado intervalo de tempo. Por exemplo, `doubleVec GetSamplePercent( (timestamp or timeinterval) startTime [, (timestamp or timeinterval) endTime] )`. Como o método `GetSample` falhará se o percentual de amostras retornadas for menor do que o `samplePercent` especificado, você poderá usar o método `GetSamplePercent` para verificar primeiro. Em seguida, você pode executar uma ação alternativa se não houver exemplos suficientes, sem interromper a avaliação do dimensionamento automático. |
 
-### <a name="samples"></a>Amostras
+### <a name="samples"></a>Exemplos
 
 O serviço de Lote periodicamente obtém exemplos de métricas das tarefas e recursos e disponibiliza-os para suas fórmulas de autoescala. Esses exemplos são gravados a cada 30 segundos pelo serviço de Lote. No entanto, normalmente há algum atraso entre quando esses exemplos foram gravados e quando eles são disponibilizados para as fórmulas de autoescala (e podem ser lidos por elas). Além disso, os exemplos não podem ser registrados para um intervalo específico devido a fatores como rede ou outros problemas de infraestrutura.
 
@@ -381,7 +385,7 @@ $NodeDeallocationOption = taskcompletion;
 ```
 
 > [!NOTE]
-> Se você optar por, poderá incluir comentários e quebras de linha em cadeias de caracteres de fórmula.
+> Se você optar por, poderá incluir comentários e quebras de linha em cadeias de caracteres de fórmula. Lembre-se também de que o ponto-e-vírgula ausente pode resultar em erros de avaliação.
 
 ## <a name="automatic-scaling-interval"></a>Intervalo de dimensionamento automático
 
@@ -648,6 +652,24 @@ Result:
 Error:
 ```
 
+## <a name="get-autoscale-run-history-using-pool-autoscale-events"></a>Obter histórico de execução de autoescala usando eventos de dimensionamento automático do pool
+Você também pode verificar o histórico automático de dimensionamento consultando [PoolAutoScaleEvent](batch-pool-autoscale-event.md). Esse evento é emitido pelo serviço de lote para registrar cada ocorrência de avaliação e execução de fórmulas de dimensionamento automático, o que pode ser útil para solucionar possíveis problemas.
+
+Evento de exemplo para PoolAutoScaleEvent:
+```json
+{
+    "id": "poolId",
+    "timestamp": "2020-09-21T23:41:36.750Z",
+    "formula": "...",
+    "results": "$TargetDedicatedNodes=10;$NodeDeallocationOption=requeue;$curTime=2016-10-14T18:36:43.282Z;$isWeekday=1;$isWorkingWeekdayHour=0;$workHours=0",
+    "error": {
+        "code": "",
+        "message": "",
+        "values": []
+    }
+}
+```
+
 ## <a name="example-autoscale-formulas"></a>Fórmulas de autoescala de exemplo
 
 Vejamos algumas fórmulas que mostram diferentes maneiras de ajustar a quantidade de recursos de computação em um pool.
@@ -691,7 +713,7 @@ $NodeDeallocationOption = taskcompletion;
 
 ### <a name="example-3-accounting-for-parallel-tasks"></a>Exemplo 3: contabilização de tarefas paralelas
 
-Este exemplo de C# ajusta o tamanho do pool com base no número de tarefas. Essa fórmula também leva em conta o valor [MaxTasksPerComputeNode](/dotnet/api/microsoft.azure.batch.cloudpool.maxtaskspercomputenode) definido para o pool. Essa abordagem é útil em situações nas quais a [execução de tarefas paralelas](batch-parallel-node-tasks.md) foi habilitada em seu pool.
+Este exemplo de C# ajusta o tamanho do pool com base no número de tarefas. Essa fórmula também leva em conta o valor de [TaskSlotsPerNode](/dotnet/api/microsoft.azure.batch.cloudpool.taskslotspernode) que foi definido para o pool. Essa abordagem é útil em situações nas quais a [execução de tarefas paralelas](batch-parallel-node-tasks.md) foi habilitada em seu pool.
 
 ```csharp
 // Determine whether 70 percent of the samples have been recorded in the past
@@ -699,7 +721,7 @@ Este exemplo de C# ajusta o tamanho do pool com base no número de tarefas. Essa
 $samples = $ActiveTasks.GetSamplePercent(TimeInterval_Minute * 15);
 $tasks = $samples < 70 ? max(0,$ActiveTasks.GetSample(1)) : max( $ActiveTasks.GetSample(1),avg($ActiveTasks.GetSample(TimeInterval_Minute * 15)));
 // Set the number of nodes to add to one-fourth the number of active tasks
-// (theMaxTasksPerComputeNode property on this pool is set to 4, adjust
+// (the TaskSlotsPerNode property on this pool is set to 4, adjust
 // this number for your use case)
 $cores = $TargetDedicatedNodes * 4;
 $extraVMs = (($tasks - $cores) + 3) / 4;

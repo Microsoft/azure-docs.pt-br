@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: jeedes
-ms.openlocfilehash: d820a3fc9b12a36a76e2eb887b32d27acc156c76
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 094b1a029c8e10abce3ca282de0cc99be34d313a
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88522324"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92318854"
 ---
 # <a name="tutorial-integrate-alertops-with-azure-active-directory"></a>Tutorial: Integrar AlertOps com o Azure Active Directory
 
@@ -26,7 +26,7 @@ Neste tutorial, você aprenderá a integrar o AlertOps ao Azure AD (Azure Active
 * Permitir que os usuários sejam conectados automaticamente ao AlertOps com suas contas do Azure AD.
 * Gerenciar suas contas em um local central: o portal do Azure.
 
-Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -108,11 +108,11 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 4. Clique em **Configurações de conta** do painel de navegação esquerdo.
 
-    ![Configuração de AlertOps](./media/alertops-tutorial/configure1.png)
+    ![Captura de tela que mostra o menu do AlertOps com as Configurações de conta em destaque.](./media/alertops-tutorial/configure1.png)
 
 5. Na página **Configurações de assinatura**, selecione **SSO** e execute as seguintes etapas:
 
-    ![Configuração de AlertOps](./media/alertops-tutorial/configure2.png)
+    ![Captura de tela que mostra a janela Configurações de assinatura para SSO, com valores inseridos conforme descrito nesta etapa.](./media/alertops-tutorial/configure2.png)
 
     a. Marque a caixa de seleção **Usar SSO (Logon Único)** .
 
@@ -164,15 +164,15 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
 2. Clique em **Usuários** do painel de navegação à esquerda.
 
-    ![Configuração de AlertOps](./media/alertops-tutorial/user1.png)
+    ![Captura de tela que mostra o menu do AlertOps com Usuários em destaque.](./media/alertops-tutorial/user1.png)
 
 3. Selecione **Adicionar usuário**.
 
-    ![Configuração de AlertOps](./media/alertops-tutorial/user2.png)
+    ![Captura de tela que mostra a janela Usuários com o botão Adicionar Usuário.](./media/alertops-tutorial/user2.png)
 
 4. No diálogo **Adicionar Usuário** , realize as seguintes etapas:
 
-    ![Configuração de AlertOps](./media/alertops-tutorial/user3.png)
+    ![Captura de tela que mostra o painel Adicionar Usuários com valores inseridos conforme descrito nesta etapa.](./media/alertops-tutorial/user3.png)
 
     a. Na caixa de texto **Nome de Usuário de Logon**, insira o nome de usuário, como **Brendafernandes**.
 
@@ -190,12 +190,12 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
 ### <a name="test-sso"></a>Testar o SSO
 
-Ao selecionar o bloco do AlertOps no Painel de Acesso, você deverá ser conectado automaticamente ao AlertOps, para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao selecionar o bloco do AlertOps no Painel de Acesso, você deverá ser conectado automaticamente ao AlertOps, para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](./tutorial-list.md)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](../conditional-access/overview.md)

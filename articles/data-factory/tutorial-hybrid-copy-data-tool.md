@@ -1,22 +1,18 @@
 ---
 title: Copiar dados locais usando a ferramenta de Copiar Dados do Azure
-description: Crie um Azure Data Factory e, em seguida, use a ferramenta Copiar Dados para copiar dados de um banco de dados do SQL Server para o Armazenamento de Blobs do Azure.
-services: data-factory
+description: Crie um Azure Data Factory e use a ferramenta Copiar Dados para copiar dados de um banco de dados do SQL Server para o Armazenamento de Blobs do Azure.
 ms.author: abnarain
 author: nabhishek
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 06/09/2020
-ms.openlocfilehash: 0e3c2d4fe4d9377b6f9a563825a14e10eb724637
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.date: 11/09/2020
+ms.openlocfilehash: 33dd1a1ca203ee57d3ef263bc5e8686841f03c1f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84660931"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100391245"
 ---
 # <a name="copy-data-from-a-sql-server-database-to-azure-blob-storage-by-using-the-copy-data-tool"></a>Copie dados de um banco de dados do SQL Server para um Armazenamento de Blobs do Azure usando a ferramenta Copiar Dados
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -44,12 +40,12 @@ Antes de começar, se você ainda não tiver uma assinatura do Azure, [crie uma 
 ### <a name="azure-roles"></a>Funções do Azure
 Para criar instâncias de data factory, a conta de usuário usada para fazer logon no Azure deve ter uma função *Colaborador* ou *Proprietário* atribuída ou deve ser um *administrador* da assinatura do Azure.
 
-Para exibir as permissões que você tem na assinatura, acesse o portal do Azure. Selecione seu nome de usuário no canto superior direito, depois selecione **Permissões**. Se tiver acesso a várias assinaturas, selecione a que for adequada. Para obter instruções de exemplo sobre como adicionar um usuário a uma função, confira [Gerenciar o acesso usando o portal do Azure e o RBAC](../role-based-access-control/role-assignments-portal.md).
+Para exibir as permissões que você tem na assinatura, acesse o portal do Azure. Selecione seu nome de usuário no canto superior direito, depois selecione **Permissões**. Se tiver acesso a várias assinaturas, selecione a que for adequada. Para obter instruções de exemplo sobre como adicionar um usuário a uma função, confira [Adicionar ou remover atribuições de função do Azure usando o portal do Azure](../role-based-access-control/role-assignments-portal.md).
 
 ### <a name="sql-server-2014-2016-and-2017"></a>SQL Server 2014, 2016 e 2017
 Neste tutorial, você usa um banco de dados do SQL Server como um armazenamento de dados de *origem*. O pipeline no data factory criado neste tutorial copia dados desse banco de dados do SQL Server (origem) para um Armazenamento de Blobs (coletor). Depois você cria uma tabela chamada **emp** no seu banco de dados do SQL Server e insere algumas entradas de exemplo na tabela.
 
-1. Inicie o SQL Server Management Studio. Se ainda não estiver instalado em seu computador, vá para [Baixar o SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
+1. Inicie o SQL Server Management Studio. Se ainda não estiver instalado em seu computador, vá para [Baixar o SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms).
 
 1. Conecte-se à sua instância do SQL Server usando suas credenciais.
 
@@ -109,7 +105,7 @@ Nesta seção, você cria um contêiner de blobs chamado **adftutorial** no seu 
 
 ## <a name="create-a-data-factory"></a>Criar um data factory
 
-1. No menu à esquerda, selecione **+ Criar um recurso** > **Analytics** > **Data Factory**.
+1. No menu à esquerda, selecione **Criar um recurso** > **Integração** > **Data Factory**.
 
    ![Criação do novo data factory](./media/doc-common-process/new-azure-data-factory-menu.png)
 
@@ -121,9 +117,9 @@ Nesta seção, você cria um contêiner de blobs chamado **adftutorial** no seu 
 1. Selecione a **assinatura** do Azure na qual deseja criar o data factory.
 1. Em **Grupo de Recursos**, use uma das seguintes etapas:
 
-   - Selecione **Usar existente**e selecione um grupo de recursos existente na lista suspensa.
+   - Selecione **Usar existente** e selecione um grupo de recursos existente na lista suspensa.
 
-   - Selecione **Criar novo**e insira o nome de um grupo de recursos. 
+   - Selecione **Criar novo** e insira o nome de um grupo de recursos. 
         
      Para saber mais sobre grupos de recursos, confira [Usar grupos de recursos para gerenciar recursos do Azure](../azure-resource-manager/management/overview.md).
 1. Em **Versão**, selecione **V2**.

@@ -3,12 +3,12 @@ title: Exibir os logs de atividades do Azure para monitorar recursos
 description: Use os logs de atividade para examinar erros e ações do usuário. Mostra portal do Azure PowerShell, CLI do Azure e REST.
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.openlocfilehash: b02865e4487a187d1296b2971918aa101d711b5b
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 14015e9b2792515e6818af551b8bd9f54c686bee
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87827037"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91371585"
 ---
 # <a name="view-activity-logs-to-monitor-actions-on-resources"></a>Exibir logs de atividade para monitorar ações em recursos
 
@@ -20,7 +20,7 @@ Com os logs de atividade, você pode determinar:
 * o status da operação
 * os valores de outras propriedades que podem ajudar você a pesquisar a operação
 
-O log de atividades contém todas as operações de gravação (PUT, POST, DELETE) de seus recursos. Ele não inclui operações de leitura (GET). Para obter uma lista de ações de recursos, consulte [Operações do provedor de recursos do Azure Resource Manager](../../role-based-access-control/resource-provider-operations.md). É possível usar os logs de atividade para encontrar um erro ao solucionar problemas ou para monitorar como um usuário de sua organização modificou um recurso.
+O log de atividades contém todas as operações de gravação (PUT, POST, DELETE) de seus recursos. Ele não inclui operações de leitura (GET). Para obter uma lista de ações de recursos, consulte [operações do provedor de recursos do Azure](../../role-based-access-control/resource-provider-operations.md). É possível usar os logs de atividade para encontrar um erro ao solucionar problemas ou para monitorar como um usuário de sua organização modificou um recurso.
 
 Os logs de atividades são mantidos por 90 dias. Você pode consultar qualquer intervalo de datas, desde que a data inicial não seja anterior a 90 dias no passado.
 
@@ -195,4 +195,4 @@ As operações de REST para trabalhar com o log de atividade fazem parte da [API
 * Para exibir mais detalhes sobre as alterações em seus aplicativos da camada de infraestrutura até a implantação do aplicativo, consulte [usar a análise de alterações do aplicativo no Azure monitor](../../azure-monitor/app/change-analysis.md).
 * Para saber mais sobre os comandos para exibir as operações de implantação, consulte [Exibir operações de implantação](../templates/deployment-history.md).
 * Para saber como impedir exclusões em um recurso para todos os usuários, confira [Bloquear recursos com o Azure Resource Manager](lock-resources.md).
-* Para ver a lista de operações disponíveis para cada provedor do Microsoft Azure Resource Manager, consulte [operações do provedor de recursos do Azure Resource Manager](../../role-based-access-control/resource-provider-operations.md)
+* Para ver a lista de operações disponíveis para cada provedor Microsoft Azure Resource Manager, consulte [operações do provedor de recursos do Azure](../../role-based-access-control/resource-provider-operations.md)

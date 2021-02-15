@@ -2,19 +2,28 @@
 title: Recuperação de desastre geográfico – Hubs de Eventos do Azure | Microsoft Docs
 description: Como usar regiões geográficas para fazer failover e executar a recuperação de desastre nos Hubs de Eventos do Azure
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 1807c22645c3246f4cf18d723fc19da475e4d4f4
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 02/10/2021
+ms.openlocfilehash: 2fd13ac98e80aa67a2a3150e8406a0b0b1b08d13
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88934065"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100390667"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Hubs de Eventos do Azure – Recuperação de desastre geográfico 
-Quando datacenters ou regiões inteiras do Azure (se nenhuma [zona de disponibilidade](../availability-zones/az-overview.md) for usada) enfrentam tempo de inatividade, é crítico para o processamento de dados continuar a operar em uma região ou datacenter diferente. Como tal, *a recuperação de desastre em área geográfica* e a *replicação geográfica* são recursos importantes para qualquer empresa. Os Hubs de Eventos do Azure dão suporte à recuperação de desastre de área geográfica e à replicação geográfica no nível do namespace. 
 
-> [!NOTE]
-> O recurso de recuperação de desastre geográfico só está disponível para [SKUs padrão e dedicadas](https://azure.microsoft.com/pricing/details/event-hubs/).  
+A resiliência contra interrupções desastrosas de recursos de processamento de dados é um requisito para muitas empresas e, em alguns casos, até mesmo exigida por regulamentos do setor. 
+
+Os hubs de eventos do Azure já espalham o risco de falhas catastróficas de máquinas individuais ou até mesmo de racks completos em clusters que abrangem vários domínios de falha em um datacenter e implementam mecanismos de detecção de falha transparente e failover, de modo que o serviço continuará a operar dentro dos níveis de serviço garantidos e, normalmente, sem interrupções perceptíveis no caso de tais falhas Se um namespace de hubs de eventos tiver sido criado com a opção habilitado para [zonas de disponibilidade](../availability-zones/az-overview.md), o risco de interrupção estará mais espalhado em três instalações fisicamente separadas, e o serviço terá reserva de capacidade suficiente para lidar instantaneamente com a perda completa e catastrófica de todo o recurso. 
+
+O modelo de cluster todos os hubs de eventos do Azure ativos com suporte à zona de disponibilidade fornece resiliência contra graves falhas de hardware e até mesmo perda catastrófica de instalações de datacenter inteiras. Ainda assim, pode haver grave situações com a destruição física abrangente que, até mesmo, as medidas não podem se defender suficientemente. 
+
+O recurso de recuperação de desastres de hubs de eventos é projetado para facilitar a recuperação de um desastre dessa magnitude e abandonar uma região do Azure com falha para boa e sem precisar alterar as configurações do aplicativo. Abandonar uma região do Azure normalmente envolve vários serviços e esse recurso destina-se principalmente a ajudar a preservar a integridade da configuração do aplicativo composto.  
+
+O recurso de recuperação de Geo-Disaster garante que toda a configuração de um namespace (hubs de eventos, grupos de consumidores e configurações) seja replicada continuamente de um namespace primário para um namespace secundário quando emparelhado, e permite que você inicie uma movimentação de failover somente uma vez do primário para o secundário a qualquer momento. A movimentação de failover irá redirecionar o nome do alias escolhido para o namespace para o namespace secundário e, em seguida, interromperá o emparelhamento. O failover é quase instantâneo depois de iniciado. 
+
+> [!IMPORTANT]
+> O recurso permite a continuidade instantânea de operações com a mesma configuração, mas não **replica os dados de evento**. A menos que o desastre tenha causado a perda de todas as zonas, os dados de evento preservados no Hub de eventos primário após o failover serão recuperáveis e os eventos históricos poderão ser obtidos a partir daí quando o acesso for restaurado. Para replicar dados de eventos e operar namespaces correspondentes em configurações ativas/ativas para lidar com interrupções e desastres, não faça o acompanhamento desse conjunto de recursos de recuperação de desastres geograficamente, mas siga as [diretrizes de replicação](event-hubs-federation-overview.md).  
 
 ## <a name="outages-and-disasters"></a>Interrupções e desastres
 
@@ -34,8 +43,10 @@ Os seguintes termos são usados neste artigo:
 
 -  *Alias*: o nome para uma configuração de recuperação de desastre que você configurou. O alias fornece uma única cadeia de conexão estável do FQDN (Nome de Domínio Totalmente Qualificado). Aplicativos usam essa cadeia de conexão de alias para conectarem-se a um namespace. 
 
--  *Namespace primário/secundário*: os namespaces que correspondem ao alias. O namespace primário é "ativo" e recebe mensagens (pode ser um namespace existente ou novo). O namespace secundário "passivo" e não recebe mensagens. Os metadados entre os dois estão sincronizados, para que ambos possam aceitar mensagens continuamente sem quaisquer alterações no código do aplicativo ou na cadeia de conexão. Para garantir que apenas o namespace ativo receba mensagens, você deve usar o alias. 
+-  *Namespace primário/secundário*: os namespaces que correspondem ao alias. O namespace primário é "ativo" e recebe mensagens (pode ser um namespace existente ou novo). O namespace secundário "passivo" e não recebe mensagens. Os metadados entre os dois estão sincronizados, para que ambos possam aceitar mensagens continuamente sem quaisquer alterações no código do aplicativo ou na cadeia de conexão. Para garantir que apenas o namespace ativo receba mensagens, você deve usar o alias.
 
+    > [!IMPORTANT]
+    > O recurso de recuperação de desastres geograficamente exige que a assinatura e o grupo de recursos sejam os mesmos para namespaces primários e secundários. 
 -  *Metadados*: entidades, como hubs de eventos e os grupos de consumidores; e suas propriedades do serviço que são associadas ao namespace. Somente entidades e suas configurações são replicadas automaticamente. Mensagens e eventos não são replicados. 
 
 -  *Failover*: o processo de ativação do namespace secundário.
@@ -61,11 +72,36 @@ A seção a seguir é uma visão geral do processo de failover e explica como co
 
 ### <a name="setup"></a>Instalação
 
-Primeiro crie ou use um namespace primário existente e um novo namespace secundário, depois emparelhe os dois. Esse emparelhamento fornece um alias que você pode usar para se conectar. Como você usa um alias, não precisa alterar cadeias de conexão. Somente novos namespaces podem ser adicionados ao emparelhamento de failover. Por fim, você deve adicionar um monitoramento para detectar se um failover é necessário. Na maioria dos casos, o serviço é uma parte de um grande ecossistema, assim, failovers automáticos raramente são possíveis, uma vez que failovers devem ser executados em sincronia com o subsistema ou a infraestrutura restante.
+Primeiro crie ou use um namespace primário existente e um novo namespace secundário, depois emparelhe os dois. Esse emparelhamento fornece um alias que você pode usar para se conectar. Como você usa um alias, não precisa alterar cadeias de conexão. Somente novos namespaces podem ser adicionados ao emparelhamento de failover. 
+
+1. Crie o namespace primário.
+1. Crie o namespace secundário na assinatura e o grupo de recursos que tem o namespace principal, mas em uma região diferente. Essa etapa é opcional. Você pode criar o namespace secundário ao criar o emparelhamento na próxima etapa. 
+1. No portal do Azure, navegue até o namespace primário.
+1. Selecione **recuperação geográfica** no menu à esquerda e selecione **Iniciar emparelhamento** na barra de ferramentas. 
+
+    :::image type="content" source="./media/event-hubs-geo-dr/primary-namspace-initiate-pairing-button.png" alt-text="Iniciar emparelhamento a partir do namespace primário":::    
+1. Na página **Iniciar emparelhamento** , siga estas etapas:
+    1. Selecione um namespace secundário existente ou crie um na assinatura e o grupo de recursos que tem o namespace primário. Neste exemplo, um namespace existente é selecionado.  
+    1. Para **alias**, insira um alias para o emparelhamento de Dr geográfica. 
+    1. Em seguida, selecione **Criar**. 
+
+    :::image type="content" source="./media/event-hubs-geo-dr/initiate-pairing-page.png" alt-text="Selecionar o namespace secundário":::        
+1. Você deverá ver a página de **alias do geo-Dr** . Você também pode navegar até essa página do namespace primário selecionando **recuperação geográfica** no menu à esquerda.
+
+    :::image type="content" source="./media/event-hubs-geo-dr/geo-dr-alias-page.png" alt-text="Página de alias do geo-DR":::    
+1. Na página **alias do geo-Dr** , selecione **políticas de acesso compartilhado** no menu à esquerda para acessar a cadeia de conexão primária para o alias. Use essa cadeia de conexão em vez de usar a cadeia de conexão para o namespace primário/secundário diretamente. 
+1. Nesta página de **visão geral** , você pode executar as seguintes ações: 
+    1. Quebre o emparelhamento entre os namespaces primário e secundário. Selecione **quebrar emparelhamento** na barra de ferramentas. 
+    1. Fazer failover manual para o namespace secundário. Selecione **failover** na barra de ferramentas. 
+    
+        > [!WARNING]
+        > O failover ativará o namespace secundário e removerá o namespace primário do emparelhamento de recuperação Geo-Disaster. Crie outro namespace para ter um novo par de recuperação de desastres geograficamente. 
+
+Por fim, você deve adicionar um monitoramento para detectar se um failover é necessário. Na maioria dos casos, o serviço é uma parte de um grande ecossistema, assim, failovers automáticos raramente são possíveis, uma vez que failovers devem ser executados em sincronia com o subsistema ou a infraestrutura restante.
 
 ### <a name="example"></a>Exemplo
 
-Em um exemplo desse cenário, considere uma solução de ponto de venda (PDV) que emita mensagens ou eventos. Os Hubs de Eventos transmitem esses eventos para uma solução de mapeamento ou de reformatação, que encaminha dados mapeado para outro sistema para processamento adicional. Nesse ponto, todos esses sistemas podem ser hospedados na mesma região do Azure. A decisão sobre quando fazer o failover e em qual parte depende do fluxo de dados em sua infraestrutura. 
+Em um exemplo desse cenário, considere uma solução de ponto de venda (PDV) que emita mensagens ou eventos. Os Hubs de Eventos transmitem esses eventos para uma solução de mapeamento ou de reformatação, que encaminha dados mapeado para outro sistema para processamento adicional. Nesse ponto, todos esses sistemas podem ser hospedados na mesma região do Azure. A decisão de quando e de qual parte fazer failover depende do fluxo de dados em sua infraestrutura. 
 
 Você pode automatizar o failover tanto com sistemas de monitoramento ou com soluções de monitoramento personalizadas. No entanto, essa automação precisa de planejamento e trabalho adicionais, o que está fora do escopo deste artigo.
 
@@ -96,17 +132,17 @@ O [exemplo no GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samp
 
 ## <a name="considerations"></a>Considerações
 
-Observe as seguintes considerações a serem lembradas quanto a esta versão:
+Observe as seguintes considerações para ter em mente:
 
 1. Por design, a recuperação de desastre geográfico dos Hubs de Eventos não replica os dados e, portanto, você não pode reutilizar o valor de deslocamento antigo do seu hub de eventos primário em seu hub de eventos secundário. É recomendável reiniciar o receptor de eventos com um dos seguintes métodos:
 
-- *EventPosition.FromStart()* – se você quiser ler todos os dados em seu hub de eventos secundário.
-- *EventPosition.FromEnd()* – se você quiser ler todos os novos dados da hora da conexão com o hub de eventos secundário.
-- *EventPosition.FromEnqueuedTime(dateTime)* – se você desejar ler todos os dados recebidos em seu hub de eventos secundário a partir de uma determinada data e hora.
+   - *EventPosition.FromStart()* – se você quiser ler todos os dados em seu hub de eventos secundário.
+   - *EventPosition.FromEnd()* – se você quiser ler todos os novos dados da hora da conexão com o hub de eventos secundário.
+   - *EventPosition.FromEnqueuedTime(dateTime)* – se você desejar ler todos os dados recebidos em seu hub de eventos secundário a partir de uma determinada data e hora.
 
 2. Em seu planejamento de failover, você também deve considerar o fator tempo. Por exemplo, se você perder a conectividade por mais de 15 a 20 minutos, pode decidir iniciar o failover. 
  
-3. O fato de que nenhum dado seja replicado significa que sessões atualmente ativas não são replicadas. Além disso, a detecção duplicada e mensagens programadas podem não funcionar. Novas sessões, mensagens programadas e novas duplicatas funcionarão. 
+3. O fato de que nenhum dado é replicado significa que as sessões ativas atuais não são replicadas. Além disso, a detecção duplicada e mensagens programadas podem não funcionar. Novas sessões, mensagens programadas e novas duplicatas funcionarão. 
 
 4. O failover de uma infraestrutura complexa distribuída deve ser [testado](/azure/architecture/reliability/disaster-recovery#disaster-recovery-plan) pelo menos uma vez. 
 
@@ -121,10 +157,12 @@ O SKU Standard dos Hubs de Eventos oferece suporte às [Zonas de Disponibilidade
 
 Você pode habilitar as Zonas de Disponibilidade apenas em novos namespaces usando o portal do Azure. Os Hubs de Eventos não dão suporte à migração dos namespaces existentes. Você não pode desabilitar a redundância de zona depois de habilitá-la em seu namespace.
 
+Quando você usa zonas de disponibilidade, os metadados e os dados (eventos) são replicados entre data centers na zona de disponibilidade. 
+
 ![3][]
 
 ## <a name="private-endpoints"></a>Pontos de extremidade privados
-Esta seção fornece considerações adicionais ao usar a recuperação de desastre geográfico com namespaces que usam pontos de extremidade privados. Para aprender a usar pontos de extremidade privados com Hubs de Eventos em geral, confira [Configurar pontos de extremidade privados](private-link-service.md).
+Esta seção fornece mais considerações ao usar a recuperação de desastres geograficamente com namespaces que usam pontos de extremidade privados. Para aprender a usar pontos de extremidade privados com Hubs de Eventos em geral, confira [Configurar pontos de extremidade privados](private-link-service.md).
 
 ### <a name="new-pairings"></a>Novos emparelhamentos
 Se você tentar criar um emparelhamento entre um namespace primário com um ponto de extremidade privado e um namespace secundário sem um ponto de extremidade privado, o emparelhamento falhará. O emparelhamento só terá sucesso se os namespaces primários e secundários tiverem pontos de extremidade privados. Recomendamos que você use as mesmas configurações nos namespaces primário e secundário e nas redes virtuais nas quais os pontos de extremidade privados são criados.  

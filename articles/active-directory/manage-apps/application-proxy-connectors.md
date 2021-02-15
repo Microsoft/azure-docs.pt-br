@@ -1,9 +1,9 @@
 ---
 title: Noções básicas sobre conectores do Proxy de Aplicativo Azure AD | Microsoft Docs
-description: Cobre as noções básicas sobre os conectores do Proxy de Aplicativo Azure AD.
+description: Saiba mais sobre os conectores de Proxy de Aplicativo do AD do Azure.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,12 +12,12 @@ ms.date: 11/15/2018
 ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 236e8e32eedce1a075aa4b3d1600c9c5595b7e2c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f57d390ed71cb4e0e76972e02170afde7b13e4ae
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84764665"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99253452"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Noções básicas sobre conectores de Proxy de Aplicativo Azure AD
 
@@ -25,7 +25,7 @@ Os conectores são o que torna o Proxy de Aplicativo Azure AD possível. Eles s�
 
 ## <a name="what-is-an-application-proxy-connector"></a>O que é um conector do Proxy de Aplicativo?
 
-Conectores são agentes leves que ficam no local e facilitam a conexão de saída para o serviço Proxy de Aplicativo. Os conectores devem ser instalados em um servidor Windows que tenha acesso ao aplicativo de back-end. Você pode organizar os conectores em grupos de conector, com cada grupo tratando o tráfego de aplicativos específicos.
+Conectores são agentes leves que ficam no local e facilitam a conexão de saída para o serviço Proxy de Aplicativo. Os conectores devem ser instalados em um servidor Windows que tenha acesso ao aplicativo de back-end. Você pode organizar os conectores em grupos de conector, com cada grupo tratando o tráfego de aplicativos específicos. Para obter mais informações sobre o proxy de aplicativo e uma representação diagramáticas da arquitetura de proxy de aplicativo, consulte [usando o Azure proxy de aplicativo do AD para publicar aplicativos locais para usuários remotos](what-is-application-proxy.md#application-proxy-connectors)
 
 ## <a name="requirements-and-deployment"></a>Requisitos e implantação
 
@@ -37,7 +37,7 @@ Você precisa de um servidor executando o Windows Server 2012 R2 ou posterior no
 O servidor do Windows precisa ter o TLS 1.2 ativado antes de instalar o conector do Proxy de Aplicativo. Para habilitar o TLS 1,2 no servidor:
 
 1. Defina as seguintes chaves do registro:
-    
+
     ```
     [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2]
     [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client] "DisabledByDefault"=dword:00000000 "Enabled"=dword:00000001
@@ -99,12 +99,12 @@ Em geral, quanto mais usuários você tiver, maior será o computador necessári
 |8|32|270|1190|
 |16|64|245|1200*|
 
-\*Este computador usou uma configuração personalizada para gerar alguns dos limites de conexão padrão além das configurações recomendadas do .NET. Recomendamos a execução de um teste com as configurações padrão antes de contatar o suporte para alterar esse limite para o seu locatário.
+\* Este computador usou uma configuração personalizada para gerar alguns dos limites de conexão padrão além das configurações recomendadas do .NET. Recomendamos a execução de um teste com as configurações padrão antes de contatar o suporte para alterar esse limite para o seu locatário.
 
 > [!NOTE]
 > Não há muita diferença no TPS máximo entre computadores de 4, 8 e 16 núcleos. A principal diferença entre eles é a latência prevista.
 >
-> Esta tabela também se concentra no desempenho esperado de um conector com base no tipo de computador em que ele está instalado. Isso é separado dos limites de limitação do serviço proxy de aplicativo, consulte [limites e restrições de serviço](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-service-limits-restrictions).
+> Esta tabela também se concentra no desempenho esperado de um conector com base no tipo de computador em que ele está instalado. Isso é separado dos limites de limitação do serviço proxy de aplicativo, consulte [limites e restrições de serviço](../enterprise-users/directory-service-limits-restrictions.md).
 
 ## <a name="security-and-networking"></a>Rede e segurança
 
@@ -155,14 +155,17 @@ Os certificados usados são específicos ao serviço de Proxy de Aplicativo. Ele
 
 Após a primeira renovação de certificado bem-sucedida, o serviço do conector de Proxy de Aplicativo do AD do Azure (serviço de rede) não tem permissão para remover o certificado antigo do repositório do computador local. Se o certificado tiver expirado ou não for mais usado pelo serviço, você poderá excluí-lo com segurança.
 
-Para evitar problemas com a renovação do certificado, verifique se a comunicação de rede do conector em direção aos [destinos documentados](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#prepare-your-on-premises-environment) está habilitada.
+Para evitar problemas com a renovação do certificado, verifique se a comunicação de rede do conector em direção aos [destinos documentados](./application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment) está habilitada.
 
 Se um conector não estiver conectado ao serviço por vários meses, seus certificados poderão estar desatualizados. Nesse caso, desinstale e reinstale o conector para disparar o registro. É possível executar os seguintes comandos do PowerShell:
 
 ```
 Import-module AppProxyPSModule
-Register-AppProxyConnector
+Register-AppProxyConnector -EnvironmentName "AzureCloud"
 ```
+
+Para o governo, use `-EnvironmentName "AzureUSGovernment"` . Para obter mais detalhes, consulte [instalar o agente para a nuvem do Azure governamental](../hybrid/reference-connect-government-cloud.md#install-the-agent-for-the-azure-government-cloud).
+
 Para saber mais sobre como verificar o certificado e solucionar problemas, consulte [verificar o suporte de componentes de computador e back-end para o certificado de confiança de proxy de aplicativo](application-proxy-connector-installation-problem.md#verify-machine-and-backend-components-support-for-application-proxy-trust-certificate).
 
 ## <a name="under-the-hood"></a>Nos bastidores

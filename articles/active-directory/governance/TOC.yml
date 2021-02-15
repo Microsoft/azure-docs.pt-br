@@ -9,6 +9,8 @@
       href: entitlement-management-overview.md
     - name: O que são revisões de acesso?
       href: access-reviews-overview.md
+    - name: O que é o gerenciamento do ciclo de vida de identidades?
+      href: what-is-identity-lifecycle-management.md
 - name: Tutoriais
   expanded: true
   items:
@@ -23,6 +25,16 @@
           href: entitlement-management-delegate.md
         - name: Solicitar processo e emails
           href: entitlement-management-process.md
+    - name: Gerenciamento do ciclo de vida de identidades
+      items:
+        - name: O que é provisionamento?
+          href: what-is-provisioning.md
+        - name: O que é provisionamento impulsionado por RH?
+          href: what-is-hr-driven-provisioning.md
+        - name: O que é provisionamento de aplicativos?
+          href: what-is-app-provisioning.md
+        - name: O que é provisionamento entre diretórios?
+          href: what-is-inter-directory-provisioning.md
     - name: Análises de acesso
       items:
         - name: Gerenciar o acesso do convidado com revisões
@@ -31,6 +43,8 @@
           href: manage-user-access-with-access-reviews.md
         - name: Gerenciar usuários excluídos do acesso condicional
           href: conditional-access-exclusion.md
+    - name: Examinar e remover usuários de organizações externas
+      href: access-reviews-external-users.md
 - name: Guias de instruções
   expanded: true
   items:
@@ -58,7 +72,7 @@
               href: entitlement-management-catalog-create.md
             - name: Delegar para gerenciadores de pacotes de acesso
               href: entitlement-management-delegate-managers.md
-        - name: Gerenciadores de pacotes de acesso
+        - name: Gerenciadores de pacotes de acesso e Gerenciadores de atribuição de pacotes de acesso
           items:
             - name: Criar um pacote de acesso
               href: entitlement-management-access-package-create.md
@@ -66,8 +80,10 @@
               href: entitlement-management-access-package-settings.md
             - name: Alterar funções de recurso
               href: entitlement-management-access-package-resources.md
-            - name: Alterar configurações de solicitação e aprovação
+            - name: Alterar configurações de solicitação
               href: entitlement-management-access-package-request-policy.md
+            - name: Alterar configurações de aprovação
+              href: entitlement-management-access-package-approval-policy.md
             - name: Alterar configurações de ciclo de vida
               href: entitlement-management-access-package-lifecycle-policy.md
             - name: Exibir solicitações
@@ -126,6 +142,6 @@
   expanded: true
   items:
     - name: Revisões de acesso – API do Graph
-      href: /graph/api/resources/accessreviews-root?view=graph-rest-beta
+      href: /graph/api/resources/accessreviewsv2-root?view=graph-rest-beta
     - name: Gerenciamento de direitos – API do Graph
       href: /graph/api/resources/entitlementmanagement-root?view=graph-rest-beta

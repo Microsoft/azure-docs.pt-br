@@ -6,13 +6,13 @@ ms.service: security
 ms.topic: conceptual
 ms.date: 05/27/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
-ms.openlocfilehash: 996793f2851949f7474312a18ccff04e88db2232
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: 3f4e855c52488652b88a3b14e9817f1755167b67
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259163"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99806114"
 ---
 # <a name="azure-security-baseline-for-container-instances"></a>Linha de base de segurança do Azure para instâncias de contêiner
 
@@ -73,7 +73,7 @@ Para obter mais informações, confira a [Visão geral sobre linhas de base de s
 
 * [Como implantar o Firewall do Azure](../firewall/tutorial-firewall-deploy-portal.md)
 
-* [Compreender a inteligência contra ameaças integrada da Central de Segurança do Azure](../security-center/threat-protection.md)
+* [Compreender a inteligência contra ameaças integrada da Central de Segurança do Azure](../security-center/azure-defender.md)
 
 * [Entender a proteção de rede adaptável da central de segurança do Azure](../security-center/security-center-adaptive-network-hardening.md)
 
@@ -143,7 +143,7 @@ Você também pode usar grupos de segurança de aplicativo para ajudar a simplif
 
 * [Entender e usar marcas de serviço](../virtual-network/service-tags-overview.md) 
 
-* [Entender e usar grupos de segurança de aplicativos](../virtual-network/security-overview.md#application-security-groups)
+* [Entender e usar grupos de segurança de aplicativos](../virtual-network/network-security-groups-overview.md#application-security-groups)
 
 * [Implantar em uma rede virtual – instâncias de contêiner do Azure](./container-instances-vnet.md)
 
@@ -155,11 +155,11 @@ Você também pode usar grupos de segurança de aplicativo para ajudar a simplif
 
 ### <a name="19-maintain-standard-security-configurations-for-network-devices"></a>1.9: manter configurações de segurança padrão para dispositivos de rede
 
-**Orientação**: você também pode usar plantas do Azure para simplificar implantações do Azure de grande escala ao empacotar artefatos de ambiente-chave, como modelos do Azure Resource Manager, controles RBAC e políticas, em uma única definição de Blueprint. Você pode aplicar o plano gráfico a novas assinaturas e ajustar o controle e o gerenciamento por meio da versão. 
+**Orientação**: você também pode usar plantas do Azure para simplificar implantações do Azure de grande escala ao empacotar artefatos de ambiente-chave, como modelos do Azure Resource Manager, controles RBAC do Azure e políticas, em uma única definição de Blueprint. Você pode aplicar o plano gráfico a novas assinaturas e ajustar o controle e o gerenciamento por meio da versão. 
 
 * [Como configurar e gerenciar o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-* [Exemplos de Azure Policy para rede](/azure/governance/policy/samples/#network)
+* [Exemplos de Azure Policy para rede](../governance/policy/samples/built-in-policies.md#network)
 
 * [Como criar um blueprint do Azure](../governance/blueprints/create-blueprint-portal.md)
 
@@ -263,7 +263,7 @@ Você pode usar Azure PowerShell ou CLI do Azure para pesquisar ou executar aç�
 
 * [Log de instância e grupo de contêineres com logs de Azure Monitor](./container-instances-log-analytics.md)
 
-* [Compreender o workspace do Log Analytics](../azure-monitor/log-query/get-started-portal.md)
+* [Compreender o workspace do Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)
 
 * [Como realizar consultas personalizadas no Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 
@@ -385,7 +385,7 @@ Se você usar um registro de contêiner do Azure com instâncias de contêiner d
 
 **Diretrizes**: Use PAWs (estações de trabalho com acesso privilegiado) com a MFA configurada para fazer logon e configurar recursos do Azure.
 
-* [Saiba mais sobre Estações de Trabalho com Acesso Privilegiado](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+* [Saiba mais sobre Estações de Trabalho com Acesso Privilegiado](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 * [Como habilitar a MFA no Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
@@ -498,7 +498,7 @@ Imagens de contêiner de marca e versão, para auxiliar no rastreamento de image
 
 * [Como criar assinaturas adicionais do Azure](../cost-management-billing/manage/create-subscription.md)
 
-* [Como criar grupos de gerenciamento](../governance/management-groups/create.md)
+* [Como criar grupos de gerenciamento](../governance/management-groups/create-management-group-portal.md)
 
 * [Como criar e usar marcas](../azure-resource-manager/management/tag-resources.md)
 
@@ -557,9 +557,9 @@ Para a plataforma subjacente que é gerenciada pela Microsoft, a Microsoft trata
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: usar o RBAC do Azure para controlar o acesso a recursos
 
-**Orientação**: Use o RBAC do Azure ad para controlar o acesso a dados e recursos de instâncias de contêiner do Azure. 
+**Orientação**: Use o controle de acesso baseado em função do Azure (RBAC do Azure) para controlar o acesso a dados e recursos de instâncias de contêiner do Azure. 
 
-* [Como configurar o RBAC no Azure](../role-based-access-control/role-assignments-portal.md)
+* [Como configurar o RBAC do Azure](../role-based-access-control/role-assignments-portal.md)
 
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
@@ -582,7 +582,7 @@ Para a plataforma subjacente que é gerenciada pela Microsoft, a Microsoft trata
 
 **Orientação**: por padrão, todos os dados de implantação em instâncias de contêiner do Azure são criptografados em repouso usando chaves gerenciadas pela Microsoft. Opcionalmente, gerencie a criptografia com sua própria chave (chave gerenciada pelo cliente).
 
-* [Entender a criptografia em repouso no Azure](../security/fundamentals/encryption-atrest.md)
+* [Noções básicas sobre a criptografia em repouso do Azure](../security/fundamentals/encryption-atrest.md)
 
 * [Criptografar dados de implantação com instâncias de contêiner do Azure](./container-instances-encrypt-data.md)
 
@@ -613,7 +613,7 @@ Para a plataforma subjacente que é gerenciada pela Microsoft, a Microsoft trata
 
 * [Considerações de segurança para instâncias de contêiner do Azure](./container-instances-image-security.md)
 
-* [Integração do registro de contêiner do Azure com a central de segurança](../security-center/azure-container-registry-integration.md)
+* [Integração do registro de contêiner do Azure com a central de segurança](../security-center/defender-for-container-registries-introduction.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -652,7 +652,7 @@ Use uma solução personalizada ou de terceiros para corrigir imagens de contêi
 
 * [Considerações de segurança para instâncias de contêiner do Azure](./container-instances-image-security.md)
 
-* [Integração do registro de contêiner do Azure com a central de segurança](../security-center/azure-container-registry-integration.md)
+* [Integração do registro de contêiner do Azure com a central de segurança](../security-center/defender-for-container-registries-introduction.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -664,7 +664,7 @@ Use uma solução personalizada ou de terceiros para corrigir imagens de contêi
 
 * [Considerações de segurança para instâncias de contêiner do Azure](./container-instances-image-security.md)
 
-* [Integração do registro de contêiner do Azure com a central de segurança](../security-center/azure-container-registry-integration.md)
+* [Integração do registro de contêiner do Azure com a central de segurança](../security-center/defender-for-container-registries-introduction.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -707,7 +707,7 @@ Embora os recursos clássicos do Azure possam ser descobertos por meio do Resour
 
 * [Como criar assinaturas adicionais do Azure](../cost-management-billing/manage/create-subscription.md)
 
-* [Como criar Grupos de Gerenciamento](../governance/management-groups/create.md)
+* [Como criar Grupos de Gerenciamento](../governance/management-groups/create-management-group-portal.md)
 
 * [Como criar e usar marcas](../azure-resource-manager/management/tag-resources.md)
 
@@ -750,12 +750,12 @@ Monitore os logs de instâncias de contêiner do Azure para comportamento anorma
 
 * [Log de instância e grupo de contêineres com logs de Azure Monitor](./container-instances-log-analytics.md)
 
-* [Compreender o workspace do Log Analytics](../azure-monitor/log-query/get-started-portal.md)
+* [Compreender o workspace do Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)
 
 * [Como realizar consultas personalizadas no Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 
 * [Considerações de segurança para instâncias de contêiner do Azure](./container-instances-image-security.md)
-* [Integração do registro de contêiner do Azure com a central de segurança](../security-center/azure-container-registry-integration.md)
+* [Integração do registro de contêiner do Azure com a central de segurança](../security-center/defender-for-container-registries-introduction.md)
 
 
 
@@ -789,7 +789,7 @@ Monitore os logs de instâncias de contêiner do Azure para comportamento anorma
 
 * [Como configurar e gerenciar o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-* [Como negar um tipo de recurso específico com o Azure Policy](/azure/governance/policy/samples/not-allowed-resource-types)
+* [Como negar um tipo de recurso específico com o Azure Policy](../governance/policy/samples/index.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -825,7 +825,7 @@ Gerencie e examine o acesso a recursos de instâncias de contêiner do Azure usa
 
 * [Como criar assinaturas adicionais do Azure](../cost-management-billing/manage/create-subscription.md)
 
-* [Como criar grupos de gerenciamento](../governance/management-groups/create.md)
+* [Como criar grupos de gerenciamento](../governance/management-groups/create-management-group-portal.md)
 
 * [Implantar em uma rede virtual – instâncias de contêiner do Azure](./container-instances-vnet.md)
 
@@ -900,7 +900,7 @@ Use uma solução personalizada ou de terceiros para corrigir imagens de contêi
 
 * [Monitoramento de contêiner e recomendações de segurança de verificação para instâncias de contêiner do Azure](./container-instances-image-security.md)
 
-* [Integração do registro de contêiner do Azure com a central de segurança](../security-center/azure-container-registry-integration.md)
+* [Integração do registro de contêiner do Azure com a central de segurança](../security-center/defender-for-container-registries-introduction.md)
 * [Sobre as atualizações de imagem de base para tarefas do registro de contêiner do Azure](../container-registry/container-registry-tasks-base-images.md)
 
 
@@ -923,13 +923,13 @@ Use uma solução personalizada ou de terceiros para corrigir imagens de contêi
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7.6: armazenar imagens personalizadas do sistema operacional com segurança
 
-**Diretrizes**: armazene imagens de contêiner no registro de contêiner do Azure e aproveite o RBAC para garantir que somente usuários autorizados possam acessar as imagens.
+**Orientação**: armazene imagens de contêiner no registro de contêiner do Azure e aproveite o RBAC do Azure para garantir que somente usuários autorizados possam acessar as imagens.
 
-* [Entender o RBAC no Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
+* [Entender o RBAC do Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
 
-* [Entender o RBAC para registro de contêiner](../container-registry/container-registry-roles.md)
+* [Entender o RBAC do Azure para registro de contêiner](../container-registry/container-registry-roles.md)
 
-* [Como configurar o RBAC no Azure](../role-based-access-control/quickstart-assign-role-user-portal.md)
+* [Como configurar o RBAC do Azure](../role-based-access-control/quickstart-assign-role-user-portal.md)
 
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
@@ -988,7 +988,9 @@ Use Azure Policy para colocar restrições no tipo de recursos que podem ser cri
 
 * [Como criar um Key Vault](../key-vault/secrets/quick-create-portal.md)
 
-* [Como fornecer Key Vault autenticação com uma identidade gerenciada](../key-vault/general/managed-identity.md)
+* [Como autenticar-se no Key Vault](../key-vault/general/authentication.md)
+
+* [Como atribuir uma política de acesso de Key Vault](../key-vault/general/assign-access-policy-portal.md)
 
 * [Como usar identidades gerenciadas com Instâncias de Contêiner do Azure](./container-instances-managed-identity.md)
 
@@ -1101,9 +1103,9 @@ Opcionalmente, faça backup de imagens de contêiner importando de um registro p
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9.4: garantir a proteção de backups e chaves gerenciadas pelo cliente
 
-**Orientação**: você pode habilitar a exclusão reversível em Azure Key Vault para proteger as chaves contra exclusão acidental ou mal-intencionada.
+**Orientação**: você pode habilitar Soft-Delete em Azure Key Vault para proteger as chaves contra exclusão acidental ou mal-intencionada.
 
-* [Como habilitar a exclusão reversível no Key Vault](../storage/blobs/soft-delete-overview.md?tabs=azure-portal)
+* [Como habilitar a exclusão reversível no Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -1156,7 +1158,7 @@ Além disso, marque claramente as assinaturas (por exemplo, produção, não pro
 
 **Diretriz**: as informações de contato do incidente serão usadas pela Microsoft para contatá-lo se o MSRC (Microsoft Security Response Center) descobrir que os dados do cliente foram acessados por uma pessoa não autorizada ou ilegal. Examine os incidentes após o fato para garantir que os problemas sejam resolvidos.
 
-* [Como definir o contato da segurança da central de segurança do Azure](../security-center/security-center-provide-security-contact-details.md)
+* [Como definir o contato de segurança da Central de Segurança do Azure](../security-center/security-center-provide-security-contact-details.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -1164,7 +1166,7 @@ Além disso, marque claramente as assinaturas (por exemplo, produção, não pro
 
 ### <a name="105-incorporate-security-alerts-into-your-incident-response-system"></a>10.5: incorporar alertas de segurança em seu sistema de resposta a incidentes
 
-**Diretriz**: exporte os alertas e recomendações da Central de Segurança do Azure usando o recurso de exportação contínua. A exportação contínua permite exportar alertas e recomendações de forma manual ou contínua. Você pode usar o conector de dados da Central de Segurança do Azure para transmitir os alertas do Sentinel.
+**Diretriz**: exporte os alertas e recomendações da Central de Segurança do Azure usando o recurso de exportação contínua. A exportação contínua permite exportar alertas e recomendações de forma manual ou contínua. Você pode usar o conector de dados da Central de Segurança do Azure para transmitir os alertas do Azure Sentinel.
 
 * [Como configurar a exportação contínua](../security-center/continuous-export.md)
 
@@ -1192,9 +1194,9 @@ Além disso, marque claramente as assinaturas (por exemplo, produção, não pro
 
 **Diretrizes**: siga as regras de envolvimento da Microsoft para garantir que seus testes de penetração não sejam violações das políticas da Microsoft. Use a estratégia da Microsoft e a execução de equipes vermelhas e testes de penetração de sites ativos em infraestrutura de nuvem, serviços e aplicativos gerenciados pela Microsoft.
 
-* [Regras de teste de penetração do Engagement](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
+* [Regras de participação para testes de penetração](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
-* [Microsoft Cloud o agrupamento vermelho](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+* [Equipes Vermelhas do Microsoft Cloud](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável

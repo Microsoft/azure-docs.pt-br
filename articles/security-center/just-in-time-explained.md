@@ -5,15 +5,15 @@ services: security-center
 author: memildin
 manager: rkarlin
 ms.service: security-center
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: 9c77ed2bf0d764fbbbe24770cc70b3fbeec7f678
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 9a52596aa0dd5fa7b9a7226d2ae57259dab08d37
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87833446"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93285725"
 ---
 # <a name="understanding-just-in-time-jit-vm-access"></a>Noções básicas sobre acesso à VM JIT (just-in-time)
 
@@ -24,7 +24,7 @@ Para saber como aplicar o JIT às suas VMs usando o portal do Azure (a central d
 
 ## <a name="the-risk-of-open-management-ports-on-a-virtual-machine"></a>O risco de abrir portas de gerenciamento em uma máquina virtual
 
-Os atores de ameaças buscam ativamente computadores acessíveis com portas de gerenciamento abertas, como RDP ou SSH. Todas as suas máquinas virtuais são alvos potenciais de um ataque. Quando uma VM é comprometida com êxito, ela é usada como o ponto de entrada para atacar outros recursos em seu ambiente.
+Os atores de ameaças buscam ativamente computadores acessíveis com portas de gerenciamento abertas, como RDP ou SSH. Todas as suas máquinas virtuais são alvos potenciais de um ataque. Quando uma VM é comprometida com êxito, ela é usada como o ponto de entrada para atacar outros recursos no seu ambiente.
 
 
 
@@ -40,14 +40,14 @@ Para resolver esse dilema, a central de segurança do Azure oferece JIT. Com o J
 
 ## <a name="how-jit-operates-with-network-security-groups-and-azure-firewall"></a>Como o JIT opera com grupos de segurança de rede e o Firewall do Azure
 
-Ao habilitar o acesso just-in-time à VM, você pode selecionar as portas na VM para a qual o tráfego de entrada será bloqueado. A central de segurança garante que as regras "negar todo o tráfego de entrada" existem para as portas selecionadas no [grupo de segurança de rede](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) (NSG) e nas regras de [Firewall do Azure](https://docs.microsoft.com/azure/firewall/rule-processing). Essas regras restringem o acesso às portas de gerenciamento das VMs do Azure e as defendem contra ataques. 
+Ao habilitar o acesso just-in-time à VM, você pode selecionar as portas na VM para a qual o tráfego de entrada será bloqueado. A central de segurança garante que as regras "negar todo o tráfego de entrada" existem para as portas selecionadas no [grupo de segurança de rede](../virtual-network/network-security-groups-overview.md#security-rules) (NSG) e nas regras de [Firewall do Azure](../firewall/rule-processing.md). Essas regras restringem o acesso às portas de gerenciamento das VMs do Azure e as defendem contra ataques. 
 
 Se outras regras já existirem para as portas selecionadas, essas regras existentes têm prioridade sobre as novas regras "negar todo o tráfego de entrada". Se não houver nenhuma regra existente nas portas selecionadas, as novas regras têm a prioridade mais alta no NSG e no firewall do Azure.
 
-Quando um usuário solicita acesso a uma VM, a central de segurança verifica se o usuário tem permissões do Azure [RBAC (controle de acesso baseado em função)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) para essa VM. Se a solicitação for aprovada, a central de segurança configurará o NSGs e o Firewall do Azure para permitir o tráfego de entrada para as portas selecionadas do endereço IP (ou intervalo) relevante, para o período de tempo especificado. Depois que o tempo expirar, a Central de Segurança restaura os NSGs aos seus estados anteriores. As conexões que já estão estabelecidas não são interrompidas.
+Quando um usuário solicita acesso a uma VM, a central de segurança verifica se o usuário tem permissões do Azure [RBAC (controle de acesso baseado em função)](../role-based-access-control/role-assignments-portal.md) para essa VM. Se a solicitação for aprovada, a central de segurança configurará o NSGs e o Firewall do Azure para permitir o tráfego de entrada para as portas selecionadas do endereço IP (ou intervalo) relevante, para o período de tempo especificado. Depois que o tempo expirar, a Central de Segurança restaura os NSGs aos seus estados anteriores. As conexões que já estão estabelecidas não são interrompidas.
 
 > [!NOTE]
-> O JIT não oferece suporte a VMs protegidas por firewalls do Azure controlados pelo [Gerenciador de firewall do Azure](https://docs.microsoft.com/azure/firewall-manager/overview).
+> O JIT não oferece suporte a VMs protegidas por firewalls do Azure controlados pelo [Gerenciador de firewall do Azure](../firewall-manager/overview.md).
 
 
 
@@ -67,6 +67,10 @@ Quando a central de segurança encontra um computador que pode se beneficiar do 
 
 ### <a name="what-permissions-are-needed-to-configure-and-use-jit"></a>Quais permissões são necessárias para configurar e usar o JIT?
 
+O JIT requer que o [Azure defender para servidores](defender-for-servers-introduction.md) seja habilitado na assinatura. 
+
+As funções **leitor** e **SecurityReader** podem exibir o status e os parâmetros do JIT.
+
 Se você quiser criar funções personalizadas que possam funcionar com o JIT, precisará dos detalhes da tabela a seguir.
 
 > [!TIP]
@@ -74,9 +78,9 @@ Se você quiser criar funções personalizadas que possam funcionar com o JIT, p
 
 | Para permitir que um usuário: | Permissões a serem definidas|
 | --- | --- |
-| Configurar ou editar uma política JIT para uma VM | *Atribua essas ações à função:*  <ul><li>No escopo de uma assinatura ou grupo de recursos associado à VM:<br/> `Microsoft.Security/locations/jitNetworkAccessPolicies/write` </li><li> No escopo de uma assinatura ou grupo de recursos da VM: <br/>`Microsoft.Compute/virtualMachines/write`</li></ul> | 
+|Configurar ou editar uma política JIT para uma VM | *Atribua essas ações à função:*  <ul><li>No escopo de uma assinatura ou grupo de recursos associado à VM:<br/> `Microsoft.Security/locations/jitNetworkAccessPolicies/write` </li><li> No escopo de uma assinatura ou grupo de recursos da VM: <br/>`Microsoft.Compute/virtualMachines/write`</li></ul> | 
 |Solicitar acesso JIT a uma VM | *Atribua essas ações ao usuário:*  <ul><li>No escopo de uma assinatura ou grupo de recursos associado à VM:<br/>  `Microsoft.Security/locations/jitNetworkAccessPolicies/initiate/action` </li><li>No escopo de uma assinatura ou grupo de recursos associado à VM:<br/>  `Microsoft.Security/locations/jitNetworkAccessPolicies/*/read` </li><li>  No escopo de uma assinatura ou grupo de recursos ou VM:<br/> `Microsoft.Compute/virtualMachines/read` </li><li>  No escopo de uma assinatura ou grupo de recursos ou VM:<br/> `Microsoft.Network/networkInterfaces/*/read` </li></ul>|
-|Ler políticas JIT| *Atribua essas ações ao usuário:*  <ul><li>`Microsoft.Security/locations/jitNetworkAccessPolicies/read`</li><li>`Microsoft.Security/locations/jitNetworkAccessPolicies/initiate/action`</li><li>`Microsoft.Security/policies/read`</li><li>`Microsoft.Compute/virtualMachines/read`</li><li>`Microsoft.Network/*/read`</li>|
+|Ler políticas JIT| *Atribua essas ações ao usuário:*  <ul><li>`Microsoft.Security/locations/jitNetworkAccessPolicies/read`</li><li>`Microsoft.Security/locations/jitNetworkAccessPolicies/initiate/action`</li><li>`Microsoft.Security/policies/read`</li><li>`Microsoft.Security/pricings/read`</li><li>`Microsoft.Compute/virtualMachines/read`</li><li>`Microsoft.Network/*/read`</li>|
 |||
 
 

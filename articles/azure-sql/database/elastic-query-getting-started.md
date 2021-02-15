@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: scale-out
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 10/10/2019
-ms.openlocfilehash: e743d557f70aaa92e464244d0198debbc25a1e46
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 586dad7439cc57ed2c863ee5f6692e12f7a78c50
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85956890"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92781219"
 ---
 # <a name="report-across-scaled-out-cloud-databases-preview"></a>Relatórios entre bancos de dados expandidos na nuvem (preview)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -37,7 +37,7 @@ Aqui você vai criar um gerenciador de mapa de fragmentos juntamente com vários
 1. Crie e execute o aplicativo de exemplo **introdução às ferramentas de banco de dados elástico** seguindo as etapas na seção do artigo [baixar e executar o aplicativo de exemplo](elastic-scale-get-started.md#download-and-run-the-sample-app-1). Depois de concluir todas as etapas, você verá o seguinte prompt de comando:
 
     ![prompt de comando][1]
-2. Na janela Comando, digite "1" e pressione **Enter**. Isso cria o gerenciador de mapa de fragmentos e adiciona dois fragmentos ao servidor. Em seguida, digite "3" e pressione **Enter**. Repita a ação quatro vezes. Isso insere linhas de dados de exemplo no seus fragmentos.
+2. Na janela Comando, digite "1" e pressione **Enter** . Isso cria o gerenciador de mapa de fragmentos e adiciona dois fragmentos ao servidor. Em seguida, digite "3" e pressione **Enter** . Repita a ação quatro vezes. Isso insere linhas de dados de exemplo no seus fragmentos.
 3. O [Portal do Azure](https://portal.azure.com) deve mostrar três novos bancos de dados em seu servidor:
 
    ![Confirmação do Visual Studio][2]
@@ -121,13 +121,13 @@ Você observará que a consulta agrega os resultados de todos os fragmentos e fo
 
 1. Inicie o Excel 2013.
 2. Navegue até a faixa de opções **Dados** .
-3. Clique em **De Outras Fontes** e em **Do SQL Server**.
+3. Clique em **De Outras Fontes** e em **Do SQL Server** .
 
    ![Importação de outras fontes para o Excel][5]
-4. No **Assistente para conexão de dados** , digite as credenciais de logon e nome do servidor. Clique em **Avançar**.
-5. Na caixa de diálogo **Selecione o banco de dados que contém os dados que você deseja**, selecione o banco de dados **ElasticDBQuery**.
-6. Selecione a tabela **Clientes** na exibição de lista e clique em **Avançar**. Em seguida, clique em **Concluir**.
-7. No formulário **Importar Dados** em **Selecione como deseja exibir esses dados na sua pasta de trabalho**, selecione **Tabela** e clique em **OK**.
+4. No **Assistente para conexão de dados** , digite as credenciais de logon e nome do servidor. Em seguida, clique em **Próximo** .
+5. Na caixa de diálogo **Selecione o banco de dados que contém os dados que você deseja** , selecione o banco de dados **ElasticDBQuery** .
+6. Selecione a tabela **Clientes** na exibição de lista e clique em **Avançar** . Em seguida, clique em **Concluir** .
+7. No formulário **Importar Dados** em **Selecione como deseja exibir esses dados na sua pasta de trabalho** , selecione **Tabela** e clique em **OK** .
 
 Todas as linhas da tabela **Clientes** , armazenada em fragmentos diferentes, populam a planilha do Excel.
 
@@ -144,7 +144,7 @@ Para obter informações sobre os preços, consulte [Detalhes de preços do Banc
 * Para obter um tutorial sobre particionamento vertical, veja [Introdução à consulta entre bancos de dados (particionamento vertical)](elastic-query-getting-started-vertical.md).
 * Para sintaxe e amostras de consultas para dados particionados verticalmente, consulte [Consultando dados particionados verticalmente)](elastic-query-vertical-partitioning.md)
 * Para sintaxe e amostras de consultas para dados particionados horizontalmente, consulte [Consultando dados particionados horizontalmente)](elastic-query-horizontal-partitioning.md)
-* Consulte [sp\_execute \_remote](https://msdn.microsoft.com/library/mt703714) para um procedimento armazenado que executa uma instrução Transact-SQL em um único Banco de Dados SQL do Azure remoto ou um conjunto de bancos de dados que serve como fragmentos em um esquema de particionamento horizontal.
+* Consulte [sp\_execute \_remote](/sql/relational-databases/system-stored-procedures/sp-execute-remote-azure-sql-database) para um procedimento armazenado que executa uma instrução Transact-SQL em um único Banco de Dados SQL do Azure remoto ou um conjunto de bancos de dados que serve como fragmentos em um esquema de particionamento horizontal.
 
 
 <!--Image references-->

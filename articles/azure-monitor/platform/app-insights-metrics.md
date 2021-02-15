@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 07/03/2019
 ms.author: vitalyg
 ms.subservice: application-insights
-ms.openlocfilehash: 9ea98df4b6cd8572412e7082b451feac3736919c
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 5c61287475eb82241aa5c9e1d1649e8b20e3b28c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327065"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185939"
 ---
 # <a name="application-insights-log-based-metrics"></a>Application Insights métricas baseadas em log
 
@@ -35,10 +35,10 @@ Quando você plota a mesma métrica no [Metrics Explorer](metrics-getting-starte
 
 - Todas as dimensões de **filtro** selecionadas são convertidas em cláusulas *Where* adicionais.
 
-- A dimensão de **gráfico dividido** selecionada é convertida em uma propriedade resumida extra. Por exemplo, se você dividir o gráfico por *local*e plotar usando uma granularidade de tempo de 5 minutos, a cláusula *resumete* será resumida *... por compartimento (carimbo de data/hora, 5 m), local*.
+- A dimensão de **gráfico dividido** selecionada é convertida em uma propriedade resumida extra. Por exemplo, se você dividir o gráfico por *local* e plotar usando uma granularidade de tempo de 5 minutos, a cláusula *resumete* será resumida *... por compartimento (carimbo de data/hora, 5 m), local*.
 
 > [!NOTE]
-> Se você for novo na linguagem de consulta do Kusto, comece copiando e colando instruções Kusto no painel de consulta Log Analytics sem fazer nenhuma modificação. Clique em **executar** para ver o gráfico básico. Ao começar a entender a sintaxe da linguagem de consulta, você pode começar a fazer pequenas modificações e ver o impacto de sua alteração. Explorar seus próprios dados é uma ótima maneira de começar a concretizar todo o poder da [log Analytics](../log-query/get-started-portal.md) e [Azure monitor](../overview.md).
+> Se você for novo na linguagem de consulta do Kusto, comece copiando e colando instruções Kusto no painel de consulta Log Analytics sem fazer nenhuma modificação. Clique em **executar** para ver o gráfico básico. Ao começar a entender a sintaxe da linguagem de consulta, você pode começar a fazer pequenas modificações e ver o impacto de sua alteração. Explorar seus próprios dados é uma ótima maneira de começar a concretizar todo o poder da [log Analytics](../log-query/log-analytics-tutorial.md) e [Azure monitor](../overview.md).
 
 ## <a name="availability-metrics"></a>Métricas de disponibilidade
 
@@ -182,7 +182,7 @@ As métricas em **falhas** mostram problemas com solicitações de processamento
 
 Essa métrica reflete o número de exceções geradas do código do aplicativo em execução no navegador. Somente as exceções rastreadas com uma ```trackException()``` chamada à API Application insights são incluídas na métrica.
 
-|Unidade de medida|Agregações com suporte|Dimensões previamente agregadas|Observações|
+|Unidade de medida|Agregações com suporte|Dimensões previamente agregadas|Anotações|
 |---|---|---|---|
 |Contagem|Contagem|Nenhum|A versão baseada em log usa agregação **sum**|
 
@@ -197,7 +197,7 @@ exceptions
 
 O número de chamadas de dependência com falha.
 
-|Unidade de medida|Agregações com suporte|Dimensões previamente agregadas|Observações|
+|Unidade de medida|Agregações com suporte|Dimensões previamente agregadas|Anotações|
 |---|---|---|---|
 |Contagem|Contagem|Nenhum|A versão baseada em log usa agregação **sum**|
 
@@ -212,7 +212,7 @@ dependencies
 
 Cada vez que você registra uma exceção em Application Insights, há uma chamada para o [método trackexception ()](../app/api-custom-events-metrics.md#trackexception) do SDK. A métrica de exceções mostra o número de exceções registradas.
 
-|Unidade de medida|Agregações com suporte|Dimensões previamente agregadas|Observações|
+|Unidade de medida|Agregações com suporte|Dimensões previamente agregadas|Anotações|
 |---|---|---|---|
 |Contagem|Contagem|Nome da função de nuvem, instância de função de nuvem, tipo de dispositivo|A versão baseada em log usa agregação **sum**|
 
@@ -224,9 +224,9 @@ exceptions
 
 ### <a name="failed-requests-requestsfailed"></a>Solicitações com falha (solicitações/falha)
 
-A contagem de solicitações de servidor rastreadas que foram marcadas como *com falha*. Por padrão, o SDK do Application Insights marca automaticamente cada solicitação do servidor que retornou o código de resposta HTTP 5xx ou 4xx como uma solicitação com falha. Você pode personalizar essa lógica modificando a propriedade *Success* do item telemetria de solicitação em um [inicializador de telemetria personalizado](../app/api-filtering-sampling.md#addmodify-properties-itelemetryinitializer).
+A contagem de solicitações de servidor rastreadas que foram marcadas como *com falha*. Por padrão, o SDK do Application Insights marca automaticamente cada solicitação do servidor que retornou o código de resposta HTTP 5xx ou 4xx como uma solicitação com falha. Você pode personalizar essa lógica modificando a propriedade  *Success* do item telemetria de solicitação em um [inicializador de telemetria personalizado](../app/api-filtering-sampling.md#addmodify-properties-itelemetryinitializer).
 
-|Unidade de medida|Agregações com suporte|Dimensões previamente agregadas|Observações|
+|Unidade de medida|Agregações com suporte|Dimensões previamente agregadas|Anotações|
 |---|---|---|---|
 |Contagem|Contagem|Instância de função de nuvem, nome da função de nuvem, tráfego real ou sintético, desempenho da solicitação, código de resposta|A versão baseada em log usa agregação **sum**|
 
@@ -241,7 +241,7 @@ requests
 
 Essa métrica mostra o número de exceções de servidor.
 
-|Unidade de medida|Agregações com suporte|Dimensões previamente agregadas|Observações|
+|Unidade de medida|Agregações com suporte|Dimensões previamente agregadas|Anotações|
 |---|---|---|---|
 |Contagem|Contagem|Nome da função de nuvem, instância de função de nuvem|A versão baseada em log usa agregação **sum**|
 
@@ -361,7 +361,7 @@ Consumo de CPU por *todos os* processos em execução na instância do servidor 
 |Porcentagem|Média, mín., máx.|Instância de função de nuvem
 
 >[!NOTE]
-> A métrica de tempo do processador não está disponível para os aplicativos hospedados nos serviços de Azure App. Use a métrica [processar CPU](#process-cpu-performancecountersprocesscpupercentage) para acompanhar a utilização da CPU dos aplicativos Web hospedados nos serviços de aplicativos.
+> A métrica de tempo do processador não está disponível para os aplicativos hospedados nos serviços de Azure App. Use a métrica  [processar CPU](#process-cpu-performancecountersprocesscpupercentage) para acompanhar a utilização da CPU dos aplicativos Web hospedados nos serviços de aplicativos.
 
 ```Kusto
 performanceCounters
@@ -492,4 +492,3 @@ union traces, requests, pageViews, dependencies, customEvents, availabilityResul
 | summarize dcount(user_AuthenticatedId) by bin(timestamp, 1h)
 | render barchart
 ```
-

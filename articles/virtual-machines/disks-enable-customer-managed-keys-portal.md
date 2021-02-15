@@ -7,19 +7,19 @@ ms.topic: how-to
 ms.author: rogarana
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: 1b40eef0a4cae8fa68631426ff72003db43d7530
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 5452b1e2ffc3ca8a11f3acb591c6288806445e1b
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88817311"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499383"
 ---
 # <a name="use-the-azure-portal-to-enable-server-side-encryption-with-customer-managed-keys-for-managed-disks"></a>Usar o portal do Azure para habilitar a criptografia do lado do servidor com chaves gerenciadas pelo cliente para discos gerenciados
 
 Armazenamento em Disco do Azure permite que você gerencie suas próprias chaves ao usar a criptografia do lado do servidor (SSE) para discos gerenciados, se você escolher. Para obter informações conceituais sobre o SSE com chaves gerenciadas pelo cliente, bem como outros tipos de criptografia de disco gerenciado, consulte a seção **chaves gerenciadas pelo cliente** do nosso artigo sobre criptografia de disco:
 
-- Para Linux: [chaves gerenciadas pelo cliente](./linux/disk-encryption.md#customer-managed-keys)
-- Para Windows: [chaves gerenciadas pelo cliente](./windows/disk-encryption.md#customer-managed-keys)
+- Para Linux: [chaves gerenciadas pelo cliente](./disk-encryption.md#customer-managed-keys)
+- Para Windows: [chaves gerenciadas pelo cliente](./disk-encryption.md#customer-managed-keys)
 
 ## <a name="restrictions"></a>Restrições
 

@@ -3,14 +3,14 @@ title: Referência do desenvolvedor do PowerShell para Azure Functions
 description: Entenda como desenvolver funções usando o PowerShell.
 author: eamonoreilly
 ms.topic: conceptual
-ms.custom: devx-track-dotnet
+ms.custom: devx-track-dotnet, devx-track-azurepowershell
 ms.date: 04/22/2019
-ms.openlocfilehash: 8af1e52477cf047bbbec46884717166ec014fc6c
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 61ed3ed274505101c65e251260bd759fe78f7b31
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88933487"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936780"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Guia do desenvolvedor do PowerShell do Azure Functions
 
@@ -20,7 +20,7 @@ Uma função do PowerShell do Azure (função) é representada como um script do
 
 Assim como outros tipos de funções, as funções de script do PowerShell assumem parâmetros que correspondem aos nomes de todas as associações de entrada definidas no `function.json` arquivo. `TriggerMetadata`Também é passado um parâmetro que contém informações adicionais sobre o gatilho que iniciou a função.
 
-Este artigo pressupõe que você já tenha lido a [Referência do desenvolvedor do Azure Functions](functions-reference.md). Você também deve ter concluído o guia de [início rápido do Functions para o PowerShell](./functions-create-first-function-vs-code.md?pivots=programming-language-powershell) para criar sua primeira função do PowerShell.
+Este artigo pressupõe que você já tenha lido a [Referência do desenvolvedor do Azure Functions](functions-reference.md). Você também deve ter concluído o guia de [início rápido do Functions para o PowerShell](./create-first-function-vs-code-powershell.md) para criar sua primeira função do PowerShell.
 
 ## <a name="folder-structure"></a>Estrutura de pastas
 
@@ -76,7 +76,7 @@ $TriggerMetadata.sys
 
 | Propriedade   | Descrição                                     | Type     |
 |------------|-------------------------------------------------|----------|
-| UtcNow     | Quando, em UTC, a função foi disparada        | Datetime |
+| UtcNow     | Quando, em UTC, a função foi disparada        | DateTime |
 | MethodName | O nome da função que foi disparada     | string   |
 | RandGuid   | um GUID exclusivo para esta execução da função | string   |
 
@@ -126,7 +126,7 @@ Produce-MyOutputValue | Push-OutputBinding -Name myQueue
 
 Veja a seguir os parâmetros válidos para chamar `Push-OutputBinding` :
 
-| Nome | Type | Posição | Descrição |
+| Nome | Tipo | Posição | Descrição |
 | ---- | ---- |  -------- | ----------- |
 | **`-Name`** | String | 1 | O nome da Associação de saída que você deseja definir. |
 | **`-Value`** | Objeto | 2 | O valor da Associação de saída que você deseja definir, que é aceita do pipeline ByValue. |
@@ -143,9 +143,9 @@ Os seguintes parâmetros comuns também têm suporte:
 * `PipelineVariable`
 * `OutVariable` 
 
-Para obter mais informações, consulte [sobre CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
+Para obter mais informações, consulte [sobre CommonParameters](/powershell/module/microsoft.powershell.core/about/about_commonparameters).
 
-#### <a name="push-outputbinding-example-http-responses"></a>Exemplo de push-OutputBinding: respostas HTTP
+#### <a name="push-outputbinding-example-http-responses"></a>Exemplo de Push-OutputBinding: respostas HTTP
 
 Um gatilho HTTP retorna uma resposta usando uma associação de saída denominada `response` . No exemplo a seguir, a associação de saída de `response` tem o valor de "saída #1":
 
@@ -174,7 +174,7 @@ PS >Push-OutputBinding -Name response -Value ([HttpResponseContext]@{
 }) -Clobber
 ```
 
-#### <a name="push-outputbinding-example-queue-output-binding"></a>Exemplo de push-OutputBinding: Associação de saída da fila
+#### <a name="push-outputbinding-example-queue-output-binding"></a>Exemplo de Push-OutputBinding: Associação de saída de fila
 
 `Push-OutputBinding` é usado para enviar dados para associações de saída, como uma [Associação de saída do armazenamento de filas do Azure](functions-bindings-storage-queue-output.md). No exemplo a seguir, a mensagem gravada na fila tem um valor de "saída #1":
 
@@ -227,13 +227,13 @@ MyQueue                        myData
 
 Há suporte para caracteres curinga (*) no `Get-OutputBinding` .
 
-## <a name="logging"></a>Registrando em log
+## <a name="logging"></a>Log
 
 O registro em log nas funções do PowerShell funciona como log normal do PowerShell. Você pode usar os cmdlets de log para gravar em cada fluxo de saída. Cada cmdlet é mapeado para um nível de log usado pelas funções.
 
 | Nível de log de funções | Cmdlet de registro em log |
 | ------------- | -------------- |
-| Erro do | **`Write-Error`** |
+| Erro | **`Write-Error`** |
 | Aviso | **`Write-Warning`**  | 
 | Informação | **`Write-Information`** <br/> **`Write-Host`** <br /> **`Write-Output`**      | Informação | Grava no log do nível de _informações_ . |
 | Depurar | **`Write-Debug`** |
@@ -560,7 +560,7 @@ Há alguns modelos de simultaneidade que você pode explorar dependendo do tipo 
 
 Defina essas variáveis de ambiente nas [configurações de aplicativo](functions-app-settings.md) do seu aplicativo de funções.
 
-Dependendo do seu caso de uso, Durable Functions pode melhorar significativamente a escalabilidade. Para saber mais, consulte [padrões de aplicativo Durable Functions](/azure/azure-functions/durable/durable-functions-overview?tabs=powershell#application-patterns).
+Dependendo do seu caso de uso, Durable Functions pode melhorar significativamente a escalabilidade. Para saber mais, consulte [padrões de aplicativo Durable Functions](./durable/durable-functions-overview.md?tabs=powershell#application-patterns).
 
 >[!NOTE]
 > Você pode receber avisos de "solicitações sendo enfileiradas devido a nenhum Runspaces disponível", observe que isso não é um erro. A mensagem está informando que as solicitações estão sendo enfileiradas e elas serão tratadas quando as solicitações anteriores forem concluídas.
@@ -649,11 +649,11 @@ Ao trabalhar com as funções do PowerShell, esteja ciente das considerações n
 
 ### <a name="cold-start"></a>Inicialização a frio
 
-Ao desenvolver Azure Functions no [modelo de hospedagem sem servidor](functions-scale.md#consumption-plan), inícios frios são uma realidade. *Início frio* refere-se ao período de tempo que leva para seu aplicativo de funções iniciar a execução para processar uma solicitação. A inicialização a frio acontece com mais frequência no plano de consumo porque seu aplicativo de funções é desligado durante períodos de inatividade.
+Ao desenvolver Azure Functions no [modelo de hospedagem sem servidor](consumption-plan.md), inícios frios são uma realidade. *Início frio* refere-se ao período de tempo que leva para seu aplicativo de funções iniciar a execução para processar uma solicitação. A inicialização a frio acontece com mais frequência no plano de consumo porque seu aplicativo de funções é desligado durante períodos de inatividade.
 
 ### <a name="bundle-modules-instead-of-using-install-module"></a>Agrupar módulos em vez de usar `Install-Module`
 
-O script é executado em cada invocação. Evite usar `Install-Module` em seu script. Em vez disso, use `Save-Module` antes de publicar para que sua função não precise perder tempo baixando o módulo. Se a frio for iniciada, afetando suas funções, considere implantar seu aplicativo de funções em um [plano do serviço de aplicativo](functions-scale.md#app-service-plan) definido como *Always on* ou em um [plano Premium](functions-scale.md#premium-plan).
+O script é executado em cada invocação. Evite usar `Install-Module` em seu script. Em vez disso, use `Save-Module` antes de publicar para que sua função não precise perder tempo baixando o módulo. Se a frio for iniciada, afetando suas funções, considere implantar seu aplicativo de funções em um [plano do serviço de aplicativo](dedicated-plan.md) definido como *Always on* ou em um [plano Premium](functions-premium-plan.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

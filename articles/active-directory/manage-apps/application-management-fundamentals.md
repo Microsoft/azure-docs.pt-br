@@ -4,7 +4,7 @@ description: Conheça as práticas recomendadas e recomendações para o gerenci
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 editor: ''
 ms.assetid: ''
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.date: 11/13/2019
 ms.subservice: app-mgmt
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d32728c1f388e9013b922d1f60d30e65d350bbc1
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 23c688d9b2e118ef29303d435bb83ef02ad36105
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88642428"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99259127"
 ---
 # <a name="application-management-best-practices"></a>Melhores práticas de gerenciamento de aplicativos
 
@@ -30,18 +30,18 @@ Este artigo contém recomendações e práticas recomendadas para o gerenciament
 ## <a name="cloud-app-and-single-sign-on-recommendations"></a>Recomendações de logon único e de aplicativo de nuvem
 | Recomendação | Comentários |
 | --- | --- |
-| Verificar a Galeria de aplicativos do Azure AD para aplicativos  | O Azure AD tem uma galeria que contém milhares de aplicativos previamente integrados que são habilitados com o SSO (logon único) corporativo. Para obter diretrizes de instalação específicas do aplicativo, consulte a [lista de tutoriais do aplicativo SaaS](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/).  | 
+| Verificar a Galeria de aplicativos do Azure AD para aplicativos  | O Azure AD tem uma galeria que contém milhares de aplicativos previamente integrados que são habilitados com o SSO (logon único) corporativo. Para obter diretrizes de instalação específicas do aplicativo, consulte a [lista de tutoriais do aplicativo SaaS](../saas-apps/tutorial-list.md).  | 
 | Usar SSO baseado em SAML federado  | Quando um aplicativo dá suporte a ele, use SSO Federado baseado em SAML com o Azure AD em vez de SSO baseado em senha e ADFS.  | 
 | Usar SHA-256 para assinatura de certificado  | O Azure AD usa o algoritmo SHA-256 por padrão para assinar a resposta SAML. Use SHA-256, a menos que o aplicativo exija SHA-1 (consulte [Opções de assinatura de certificado](certificate-signing-options.md) e problema de [conexão do aplicativo](application-sign-in-problem-application-error.md)).  | 
-| Exigir atribuição de usuário  | Por padrão, os usuários podem acessar seus aplicativos empresariais sem serem atribuídos a eles. No entanto, se o aplicativo expor funções ou se você quiser que o aplicativo apareça nos meus aplicativos de um usuário, exija a atribuição de usuário. (Consulte as [diretrizes para desenvolvedores para a integração de aplicativos](developer-guidance-for-integrating-applications.md).)  | 
-| Implantar meus aplicativos para seus usuários | [Meus aplicativos](end-user-experiences.md) em `https://myapps.microsoft.com` é um portal baseado na Web que fornece aos usuários um único ponto de entrada para seus aplicativos baseados em nuvem atribuídos. Como recursos adicionais como gerenciamento de grupo e redefinição de senha de autoatendimento são adicionados, os usuários podem encontrá-los em meus aplicativos. Consulte [planejar a implantação de meus aplicativos](access-panel-deployment-plan.md).
-| Usar atribuição de grupo  | Se estiver incluído em sua assinatura, atribua grupos a um aplicativo para que você possa delegar o gerenciamento de acesso contínuo ao proprietário do grupo. (Consulte as [diretrizes para desenvolvedores para a integração de aplicativos](developer-guidance-for-integrating-applications.md).)   | 
+| Exigir atribuição de usuário  | Por padrão, os usuários podem acessar seus aplicativos empresariais sem serem atribuídos a eles. No entanto, se o aplicativo expor funções ou se você quiser que o aplicativo apareça nos meus aplicativos de um usuário, exija a atribuição de usuário.  | 
+| Implantar meus aplicativos para seus usuários | [Meus aplicativos](end-user-experiences.md) em `https://myapps.microsoft.com` é um portal baseado na Web que fornece aos usuários um único ponto de entrada para seus aplicativos baseados em nuvem atribuídos. Como recursos adicionais como gerenciamento de grupo e redefinição de senha de autoatendimento são adicionados, os usuários podem encontrá-los em meus aplicativos. Consulte [planejar a implantação de meus aplicativos](my-apps-deployment-plan.md).
+| Usar atribuição de grupo  | Se estiver incluído em sua assinatura, atribua grupos a um aplicativo para que você possa delegar o gerenciamento de acesso contínuo ao proprietário do grupo.  | 
 | Estabelecer um processo para gerenciar certificados | O tempo de vida máximo de um certificado de autenticação é de três anos. Para evitar ou minimizar a interrupção devido a um certificado expirando, use funções e listas de distribuição de email para garantir que as notificações de alteração relacionadas ao certificado sejam monitoradas de forma detalhada. |
 
 ## <a name="provisioning-recommendations"></a>Recomendações de provisionamento
 | Recomendação | Comentários |
 | --- | --- |
-| Use os tutoriais para configurar o provisionamento com aplicativos de nuvem | Consulte a [lista de tutoriais do aplicativo SaaS](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/) para obter diretrizes passo a passo sobre como configurar o provisionamento para o aplicativo da galeria que você deseja adicionar. |
+| Use os tutoriais para configurar o provisionamento com aplicativos de nuvem | Consulte a [lista de tutoriais do aplicativo SaaS](../saas-apps/tutorial-list.md) para obter diretrizes passo a passo sobre como configurar o provisionamento para o aplicativo da galeria que você deseja adicionar. |
 | Usar logs de provisionamento (versão prévia) para monitorar o status | Os [logs de provisionamento](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) fornecem detalhes sobre todas as ações executadas pelo serviço de provisionamento, incluindo o status para usuários individuais. |
 | Atribuir um grupo de distribuição ao email de notificação de provisionamento | Para aumentar a visibilidade dos alertas críticos enviados pelo serviço de provisionamento, atribua um grupo de distribuição à configuração emails de notificação. |
 

@@ -1,19 +1,16 @@
 ---
 title: Banco de dados do Apache Ambari personalizado no Azure HDInsight
 description: Saiba como criar clusters HDInsight com seu próprio banco de dados do Apache Ambari personalizado.
-author: hrasheed-msft
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
-ms.date: 06/24/2019
-ms.author: hrasheed
-ms.openlocfilehash: 1858e06567a0ab0907e6d2cb60358ff4ac00f9a2
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.date: 01/12/2021
+ms.openlocfilehash: fe38ddc594060c78a2d26e9b25476e38736b4cf7
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086340"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946054"
 ---
 # <a name="set-up-hdinsight-clusters-with-a-custom-ambari-db"></a>Configurar clusters do HDInsight com um Ambari DB personalizado
 
@@ -59,11 +56,25 @@ Edite os parâmetros no `azuredeploy.parameters.json` para especificar informaç
 Você pode iniciar a implantação usando o CLI do Azure. Substitua `<RESOURCEGROUPNAME>` pelo grupo de recursos no qual você deseja implantar o cluster.
 
 ```azurecli
-az group deployment create --name HDInsightAmbariDBDeployment \
+az deployment group create --name HDInsightAmbariDBDeployment \
     --resource-group <RESOURCEGROUPNAME> \
     --template-file azuredeploy.json \
     --parameters azuredeploy.parameters.json
 ```
+
+## <a name="database-sizing"></a>Dimensionamento do banco de dados
+
+A tabela a seguir fornece diretrizes sobre qual camada do BD SQL do Azure selecionar com base no tamanho do cluster HDInsight.
+
+| Número de nós de trabalho | Camada de banco de BD necessária |
+|---|---|
+| <= 4 | S0 |
+| >4 && <= 8 | S1 |
+| >8 && <= 16 | S2 |
+| >16 && <= 32 | S3 |
+| >32 && <= 64 | S4 |
+| >64 && <= 128 | P2 |
+| >128 | Contatar o suporte |
 
 ## <a name="next-steps"></a>Próximas etapas
 

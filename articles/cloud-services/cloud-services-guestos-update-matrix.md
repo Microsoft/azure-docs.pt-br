@@ -10,14 +10,14 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 8/17/2020
+ms.date: 2/5/2021
 ms.author: yohaddad
-ms.openlocfilehash: 7ac7fd67032c49ca07a2a050b72dce199cfebf54
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 2f7670dfeb83611fe6168f9ed06e7f3e754eed60
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548490"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807692"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Matriz de compatibilidade de versões de SOs Convidados e do SDK do Azure
 Fornece a você informações atualizadas sobre as versões mais recentes do SO convidado do Azure para serviços de nuvem. Essas informações ajudam a planejar seu caminho de atualização antes que um SO convidado seja desabilitado. Se você configurar suas funções para usar atualizações *automáticas* de SO convidado, conforme descrito em [Configurações de atualização de SO convidado do Azure][Azure Guest OS Update Settings], não é essencial ler esta página.
@@ -41,6 +41,24 @@ Fornece a você informações atualizadas sobre as versões mais recentes do SO 
 Você não tem certeza de como atualizar o SO convidado? Confira [isto][cloud updates].
 
 ## <a name="news-updates"></a>Notícias atualizadas
+
+###### <a name="february-5-2021"></a>**5 de fevereiro de 2021**
+O SO convidado de janeiro foi lançado. 
+
+###### <a name="january-15-2021"></a>**15 de janeiro de 2021**
+O sistema operacional convidado de dezembro foi lançado. 
+
+###### <a name="december-19-2020"></a>**19 de dezembro de 2020**
+O SO convidado de novembro foi lançado. 
+
+###### <a name="november-17-2020"></a>**17 de novembro de 2020**
+O SO convidado de outubro foi lançado. 
+
+###### <a name="october-10-2020"></a>**10 de outubro de 2020**
+O SO convidado de setembro foi lançado. 
+
+###### <a name="september-5-2020"></a>**5 de setembro de 2020**
+O sistema operacional convidado de agosto foi lançado. 
 
 ###### <a name="august-17-2020"></a>**17 de agosto de 2020**
 O SO convidado de julho foi lançado. 
@@ -127,7 +145,7 @@ O SO convidado de setembro foi lançado.
 >Etapas da instalação:
 >1. Desinstale todas as versões mais antigas do MicrosoftAzureAuthoringTools*. msi
 >2. Instalar o [SDK do Azure para .net-3,0][Windows Azure SDK]
->3. Reiniciar o computador
+>3. Reinicie o computador
 >4. Criar um novo projeto de serviço de nuvem e adicionar uma única função de trabalho
 >5. Altere a família do sistema operacional para 6 e crie um pacote
 >6. Implantar o pacote no Azure usando o portal do Azure ou o Visual Studio
@@ -137,8 +155,14 @@ O SO convidado de setembro foi lançado.
 
 | Cadeia de caracteres de configuração | Data de liberação | Data da desabilitação |
 | --- | --- | --- |
-|  WA-GUEST-OS-6.21 _202007-01  |  17 de agosto de 2020  |  Post 6,23  |  
-|  WA-GUEST-OS-6.20 _202006-02  |  10 de agosto de 2020  |  Post 6,22  |  
+|  WA-GUEST-OS-6.27 _202101-01 |  5 de fevereiro de 2021  |  Post 6,29  |  
+|  WA-GUEST-OS-6.26 _202012-01 |  15 de janeiro de 2021  |  Post 6,28  |  
+|~~WA-GUEST-OS-6,25 _202011-01~~|  19 de dezembro de 2020  |  5 de fevereiro de 2021  |  
+|~~WA-GUEST-OS-6.24 _202010-02~~|  17 de novembro de 2020  |  15 de janeiro de 2021  |  
+|~~WA-GUEST-OS-6.23 _202009-01~~|  10 de outubro de 2020  |  19 de dezembro de 2020  |  
+|~~WA-GUEST-OS-6.22 _202008-02~~|  5 de setembro de 2020  |  17 de novembro de 2020  |  
+|~~WA-GUEST-OS-6.21 _202007-01~~|  17 de agosto de 2020  |  10 de outubro de 2020  |  
+|~~WA-GUEST-OS-6.20 _202006-02~~|  10 de agosto de 2020  |  5 de setembro de 2020  |  
 |~~WA-GUEST-OS-6.19 _202005-02~~|  2 de junho de 2020  |  17 de agosto de 2020  |  
 |~~WA-GUEST-OS-6.18 _202004-01~~|  4 de maio de 2020  |  10 de agosto de 2020  |  
 |~~WA-GUEST-OS-6.17 _202003-01~~|  2 de abril de 2020  |  2 de junho de 2020  |  
@@ -171,8 +195,14 @@ O SO convidado de setembro foi lançado.
 
 | Cadeia de caracteres de configuração | Data de liberação | Data da desabilitação |
 | --- | --- | --- |
-|  WA-GUEST-OS-5.45 _202007-01  |  17 de agosto de 2020  |  Post 5,47  |  
-|  WA-GUEST-OS-5.44 _202006-02  |  10 de agosto de 2020  |  Post 5,46  |  
+|  WA-GUEST-OS-5.51 _202101-01  |  5 de fevereiro de 2021  |  Post 5,53  | 
+|  WA-GUEST-OS-5.50 _202012-01  |  15 de janeiro de 2021  |  Post 5,52  | 
+|~~WA-GUEST-OS-5.49 _202011-01~~|  19 de dezembro de 2020  |  5 de fevereiro de 2021  | 
+|~~WA-GUEST-OS-5.48 _202010-02~~|  17 de novembro de 2020  |  15 de janeiro de 2021  | 
+|~~WA-GUEST-OS-5.47 _202009-01~~|  10 de outubro de 2020  |  19 de dezembro de 2020  | 
+|~~WA-GUEST-OS-5.46 _202008-02~~|  5 de setembro de 2020  |  17 de novembro de 2020  |  
+|~~WA-GUEST-OS-5.45 _202007-01~~|  17 de agosto de 2020  |  10 de outubro de 2020  |  
+|~~WA-GUEST-OS-5.44 _202006-02~~|  10 de agosto de 2020  |  5 de setembro de 2020  |  
 |~~WA-GUEST-OS-5.43 _202005-02~~|  2 de junho de 2020  |  17 de agosto de 2020  |  
 |~~WA-GUEST-OS-5.42 _202004-01~~|  4 de maio de 2020  |  10 de agosto de 2020  |  
 |~~WA-GUEST-OS-5.41 _202003-01~~|  2 de abril de 2020  |  2 de junho de 2020  |  
@@ -202,8 +232,14 @@ O SO convidado de setembro foi lançado.
 
 | Cadeia de caracteres de configuração | Data de liberação | Data da desabilitação |
 | --- | --- | --- |
-|  WA-GUEST-OS-4.80 _202007-01  |  17 de agosto de 2020  |  Post 4,82  | 
-|  WA-GUEST-OS-4.79 _202006-02  |  10 de agosto de 2020  |  Post 4,81  | 
+|  WA-GUEST-OS-4.86 _202101-01  |  5 de fevereiro de 2021  |  Post 4,88  | 
+|  WA-GUEST-OS-4.85 _202012-01  |  15 de janeiro de 2021  |  Post 4,87  | 
+|~~WA-GUEST-OS-4.84 _202011-01~~|  19 de dezembro de 2020  |  5 de fevereiro de 2021  | 
+|~~WA-GUEST-OS-4.83 _202010-02~~|  17 de novembro de 2020  |  15 de janeiro de 2021  | 
+|~~WA-GUEST-OS-4.82 _202009-01~~|  10 de outubro de 2020  |  19 de dezembro de 2020  | 
+|~~WA-GUEST-OS-4.81 _202008-02~~|  5 de setembro de 2020  |  17 de novembro de 2020  | 
+|~~WA-GUEST-OS-4.80 _202007-01~~|  17 de agosto de 2020  |  10 de outubro de 2020  | 
+|~~WA-GUEST-OS-4.79 _202006-02~~|  10 de agosto de 2020  |  5 de setembro de 2020  | 
 |~~WA-GUEST-OS-4.78 _202005-02~~|  2 de junho de 2020  |  17 de agosto de 2020  |  
 |~~WA-GUEST-OS-4.77 _202004-01~~|  4 de maio de 2020  |  10 de agosto de 2020  |  
 |~~WA-GUEST-OS-4.76 _202003-01~~|  2 de abril de 2020  |  2 de junho de 2020  |  
@@ -233,8 +269,14 @@ O SO convidado de setembro foi lançado.
 
 | Cadeia de caracteres de configuração | Data de liberação | Data da desabilitação |
 | --- | --- | --- |
-|  WA-GUEST-OS-3.87 _202007-01  |  17 de agosto de 2020  |  Post 3,89  |  
-|  WA-GUEST-OS-3.86 _202006-02  |  10 de agosto de 2020  |  Post 3,88  |  
+|  WA-GUEST-OS-3.93 _202101-01  |  5 de fevereiro de 2021  |  Post 3,95  |
+|  WA-GUEST-OS-3.92 _202012-01  |  15 de janeiro de 2021  |  Post 3,94  |  
+|~~WA-GUEST-OS-3.91 _202011-01~~|  19 de dezembro de 2020  |  5 de fevereiro de 2021  |  
+|~~WA-GUEST-OS-3.90 _202010-02~~|  17 de novembro de 2020  |  15 de janeiro de 2021  |  
+|~~WA-GUEST-OS-3.89 _202009-01~~|  10 de outubro de 2020  |  19 de dezembro de 2020  |  
+|~~WA-GUEST-OS-3.88 _202008-02~~|  5 de setembro de 2020  |  17 de novembro de 2020  |  
+|~~WA-GUEST-OS-3.87 _202007-01~~|  17 de agosto de 2020  |  10 de outubro de 2020  |  
+|~~WA-GUEST-OS-3.86 _202006-02~~|  10 de agosto de 2020  |  5 de setembro de 2020  |  
 |~~WA-GUEST-OS-3.85 _202005-02~~|  2 de junho de 2020  |  17 de agosto de 2020  |  
 |~~WA-GUEST-OS-3.84 _202004-01~~|  4 de maio de 2020  |  10 de agosto de 2020  |  
 |~~WA-GUEST-OS-3.83 _202003-01~~|  2 de abril de 2020  |  2 de junho de 2020  |  
@@ -264,8 +306,14 @@ O SO convidado de setembro foi lançado.
 
 | Cadeia de caracteres de configuração | Data de liberação | Data da desabilitação |
 | --- | --- | --- |
-|  WA-GUEST-OS-2.100 _202007-01  |  17 de agosto de 2020  |  Post 2,102  |  
-|  WA-GUEST-OS-2.99 _202006-02  |  10 de agosto de 2020  |  Post 2,101  |  
+|  WA-GUEST-OS-2.106 _202101-01  |  5 de fevereiro de 2021  |  Post 2,108  |  
+|  WA-GUEST-OS-2.105 _202012-01  |  15 de janeiro de 2021  |  Post 2,107  |  
+|~~WA-GUEST-OS-2.104 _202011-01~~|  19 de dezembro de 2020  |  5 de fevereiro de 2021  |  
+|~~WA-GUEST-OS-2.103 _202010-02~~|  17 de novembro de 2020  |  15 de janeiro de 2021  |  
+|~~WA-GUEST-OS-2.102 _202009-01~~|  10 de outubro de 2020  |  19 de dezembro de 2020  |  
+|~~WA-GUEST-OS-2.101 _202008-02~~|  5 de setembro de 2020  |  17 de novembro de 2020 |    
+|~~WA-GUEST-OS-2.100 _202007-01~~|  17 de agosto de 2020  |  10 de outubro de 2020  |  
+|~~WA-GUEST-OS-2.99 _202006-02~~|  10 de agosto de 2020  | 5 de setembro de 2020  |  
 |~~WA-GUEST-OS-2.98 _202005-02~~|  2 de junho de 2020  |  17 de agosto de 2020  |  
 |~~WA-GUEST-OS-2.97 _202004-01~~|  4 de maio de 2020  |  10 de agosto de 2020  |  
 |~~WA-GUEST-OS-2.96 _202003-01~~|  2 de abril de 2020  |  2 de junho de 2020  |  
@@ -291,7 +339,7 @@ O SO convidado de setembro foi lançado.
 ## <a name="msrc-patch-updates"></a>Atualizações de patch do MSRC
 A lista de patches incluídos em cada lançamento mensal de SO convidado está disponível [aqui][patches].
 
-## <a name="sdk-support"></a>Suporte do SDK
+## <a name="sdk-support"></a>Suporte a SDK
 Embora a [política de desativação do SDK do Azure][retire policy sdk] indique que somente as versões acima da 2.2 têm suporte, as famílias de SO convidado específicas permitem que você use as versões anteriores. Você sempre deve usar o SDK mais recente com suporte.
 
 | Família de SO convidado | Versões compatíveis do SDK |
@@ -344,26 +392,26 @@ Se você atualizar manualmente o SO convidado, veja [Política de desativação 
 ## <a name="guest-os-supportability-and-retirement-policy"></a>Política de suporte e desativação do SO convidado
 A política de suporte e desativação do SO convidado é explicada [aqui][retirepolicy].
 
-[cloud updates]: https://docs.microsoft.com/azure/cloud-services/cloud-services-update-azure-service
+[cloud updates]: ./cloud-services-update-azure-service.md
 [Feed RSS de atualização do SO convidado]: https://raw.githubusercontent.com/MicrosoftDocs/azure-cloud-services-files/master/GuestOS/GuestOSFeed.xml
-[Install .NET on a Cloud Service Role]: https://azure.microsoft.com/documentation/articles/cloud-services-dotnet-install-dotnet/?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
+[Install .NET on a Cloud Service Role]: ./cloud-services-dotnet-install-dotnet.md?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
 [Azure Guest OS Update Settings]: cloud-services-how-to-configure-portal.md
 [ssl3 announcement]: https://azure.microsoft.com/blog/2014/12/09/azure-security-ssl-3-0-update/
-[Microsoft Security Advisory 3009008]: https://technet.microsoft.com/library/security/3009008.aspx
+[Microsoft Security Advisory 3009008]: /security-updates/SecurityAdvisories/2015/3009008
 [ssl3-fixit]: https://go.microsoft.com/?linkid=9863266
-[MS14-066]: https://technet.microsoft.com/library/security/ms14-066.aspx
-[MS14-046]: https://technet.microsoft.com/library/security/ms14-046.aspx
-[retire policy sdk]: https://msdn.microsoft.com/library/dn479282.aspx
+[MS14-066]: /security-updates/SecurityBulletins/2014/ms14-066
+[MS14-046]: /security-updates/SecurityBulletins/2014/ms14-046
+[retire policy sdk]: /previous-versions/azure/reference/dn479282(v=azure.100)
 [server and gos]: https://msdn.microsoft.com/library/dn775043.aspx
 [azuresupport]: https://azure.microsoft.com/support/options/
 [net install pkg]: https://www.microsoft.com/download/details.aspx?id=42643
 [msrc]: https://technet.microsoft.com/security/dn440717.aspx
 [update guest os portal]: https://msdn.microsoft.com/library/gg433101.aspx
 [update guest os svc]: https://msdn.microsoft.com/library/gg456324.aspx
-[restarts]: https://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx
+[restarts]: /archive/blogs/kwill/role-instance-restarts-due-to-os-upgrades
 [patches]: cloud-services-guestos-msrc-releases.md
 [retirepolicy]: cloud-services-guestos-retirement-policy.md
 [fam1retire]: cloud-services-guestos-family1-retirement.md
-[fix]: https://technet.microsoft.com/library/security/ms17-010.aspx
+[fix]: /security-updates/SecurityBulletins/2017/ms17-010
 [Windows Azure SDK]: https://www.microsoft.com/en-us/download/details.aspx?id=54917
-[more]: https://docs.microsoft.com/azure/cloud-services/applications-dont-support-tls-1-2  
+[more]: ./applications-dont-support-tls-1-2.md

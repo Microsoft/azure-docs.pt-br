@@ -2,14 +2,14 @@
 author: alkohli
 ms.service: databox
 ms.topic: include
-ms.date: 11/05/2018
+ms.date: 02/05/2021
 ms.author: alkohli
-ms.openlocfilehash: a4adef26153870dbce4c24303a403c69285f7252
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b5fa444e223991ba6f7e6587a66df858fb7f9c31
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67172363"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99831562"
 ---
 Aqui está uma lista dos navegadores com suporte para a interface do usuário da Web local para o dispositivo virtual.
 
@@ -17,5 +17,5 @@ Aqui está uma lista dos navegadores com suporte para a interface do usuário da
 |---------|---------|---------|
 |Google Chrome   |Última versão         |         |
 |Microsoft Edge    | Última versão        |         |
-|Internet Explorer     | Última versão        |         |
+|Internet Explorer     | Última versão        |Se os recursos de segurança aprimorados estiverem habilitados, talvez você não consiga acessar páginas da interface do usuário da Web local. Desabilite a segurança reforçada e reinicie o navegador. |
 |Firefox    |Última versão         |         |

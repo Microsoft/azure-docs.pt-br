@@ -1,6 +1,6 @@
 ---
 title: O que é um dispositivo adicionado ao Azure AD?
-description: Saiba como o gerenciamento de identidade do dispositivo pode ajudar você a gerenciar dispositivos que estão acessando os recursos em seu ambiente.
+description: Saiba mais sobre os dispositivos ingressados no Azure AD e como o gerenciamento de identidade do dispositivo pode ajudá-lo a gerenciar dispositivos que estão acessando recursos em seu ambiente.
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 31374b851d90e43e7380024923c3ad025859b7a0
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 2b7cc0535549f2dbcdef4ab043ee506527fdbc5f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87923723"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "90601445"
 ---
 # <a name="azure-ad-joined-devices"></a>Dispositivos adicionados ao Azure AD
 
 A adição ao Azure AD destina-se a organizações que desejam estar somente em nuvem ou priorizam a nuvem. Qualquer organização pode implantar dispositivos adicionados ao Azure AD, independentemente do tamanho ou do setor. A adição ao Azure AD funciona bem até mesmo em um ambiente híbrido, permitindo acesso aos recursos e aplicativos locais e de nuvem.
 
-| Ingresso no AD do Azure | Descrição |
+| Ingresso no AD do Azure | DESCRIÇÃO |
 | --- | --- |
 | **Definição** | Adicionado somente ao Azure AD, exigindo que a conta da organização se conecte ao dispositivo |
 | **Público principal** | Adequado para organizações híbridas e somente de nuvem. |
@@ -58,7 +58,7 @@ Embora a adição ao Azure AD se destine basicamente às organizações que não
 
 - Você deseja fazer a transição para infraestrutura baseada em nuvem usando o Azure AD e um MDM como o Intune.
 - Não é possível usar um ingresso no domínio local, por exemplo, caso seja necessário colocar dispositivos móveis, como tablets e telefones, sob controle.
-- Os usuários precisam basicamente acessar o Office 365 ou outros aplicativos SaaS integrados ao Azure AD.
+- Os usuários precisam principalmente acessar Microsoft 365 ou outros aplicativos SaaS integrados ao Azure AD.
 - Você quer gerenciar um grupo de usuários no Azure AD, e não no Active Directory. Esse cenário pode se aplicar, por exemplo, a funcionários temporários, prestadores de serviços ou alunos.
 - Você deseja fornecer recursos de ingresso para trabalhadores em escritórios remotos com infraestrutura local limitada.
 

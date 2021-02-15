@@ -1,29 +1,27 @@
 ---
-title: Detalhes técnicos da migração clássica para Azure Resource Manager
+title: Ferramenta de migração com suporte da plataforma.
 description: Aprofundamento técnico sobre a migração de recursos com suporte da plataforma do modelo de implantação clássico para Azure Resource Manager.
 author: tanmaygore
 manager: vashan
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: conceptual
-ms.date: 02/06/2020
+ms.date: 12/17/2020
 ms.author: tagore
-ms.openlocfilehash: da75e1d6208db5adf5f0f63d2a5525fc651513b0
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: bc12d626d8a331981cbbad015b376b826c617209
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855910"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735125"
 ---
 # <a name="technical-deep-dive-on-platform-supported-migration-from-classic-to-azure-resource-manager"></a>Análise técnica aprofundada sobre a migração com suporte da plataforma do clássico para o Azure Resource Manager
 
 > [!IMPORTANT]
 > Hoje, cerca de 90% das VMs de IaaS estão usando [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). A partir de 28 de fevereiro de 2020, as VMs clássicas foram preteridas e serão totalmente desativadas em 1º de março de 2023. [Saiba mais]( https://aka.ms/classicvmretirement) sobre essa reprovação e [como ela afeta você](./classic-vm-deprecation.md#how-does-this-affect-me).
 
-Vamos fazer uma análise aprofundada da migração do modelo de implantação clássico do Azure para o modelo de implantação do Azure Resource Manager. Nós vamos examinar os recursos no nível da funcionalidade e do recurso para ajudá-lo a entender como a plataforma do Azure migra recursos entre os dois modelos de implantação. Para obter mais informações, leia o artigo anúncio de serviço:
+Vamos fazer uma análise aprofundada da migração do modelo de implantação clássico do Azure para o modelo de implantação do Azure Resource Manager. Nós vamos examinar os recursos no nível da funcionalidade e do recurso para ajudá-lo a entender como a plataforma do Azure migra recursos entre os dois modelos de implantação. Para obter mais informações, leia o artigo de comunicado do serviço - [Migração de recursos de IaaS com suporte da plataforma do clássico para o Azure Resource Manager](migration-classic-resource-manager-overview.md).
 
-* Para Linux: [migração de recursos de IaaS com suporte da plataforma do clássico para o Azure Resource Manager](./linux/migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-* Para Windows:  [migração de recursos de IaaS com suporte da plataforma do clássico para o Azure Resource Manager](./windows/migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## <a name="migrate-iaas-resources-from-the-classic-deployment-model-to-azure-resource-manager"></a>Migrar recursos de IaaS do modelo de implantação clássico para o Azure Resource Manager
 Primeiro, é importante compreender a diferença entre as operações de plano de dados e de plano de gerenciamento nos recursos de IaaS (infraestrutura como serviço).
@@ -33,7 +31,7 @@ Primeiro, é importante compreender a diferença entre as operações de plano d
 
 O plano de dados é o mesmo entre o modelo de implantação Clássico e a pilha do Gerenciador de Recursos. A diferença é que, durante o processo de migração, a Microsoft converte a representação dos recursos do modelo de implantação Clássico para aquela da pilha do Gerenciador de Recursos. Como resultado, você precisa usar novas ferramentas, APIs e SDKs para gerenciar seus recursos na pilha do Gerenciador de Recursos.
 
-![Diagrama que mostra a diferença entre o plano de gerenciamento/controle e o plano de dados](media/virtual-machines-windows-migration-classic-resource-manager/data-control-plane.png)
+![Diagrama que mostra a diferença entre o plano de gerenciamento/controle e o plano de dados](./media/virtual-machines-windows-migration-classic-resource-manager/data-control-plane.png)
 
 
 > [!NOTE]
@@ -48,11 +46,11 @@ Antes de iniciar a migração:
 * Planeje a migração fora do horário comercial para acomodar falhas inesperadas que possam ocorrer durante a migração.
 * Baixe a configuração atual das VMs usando o PowerShell, os comandos da CLI (interface de linha de comando) ou as APIs REST para facilitar a validação após a conclusão da etapa de preparação.
 * Atualize os scripts de automação e operacionalização para lidar com o modelo de implantação do Gerenciador de Recursos antes de iniciar a migração. Se preferir, você poderá realizar operações GET quando os recursos estiverem no estado preparado.
-* Avalie as políticas de RBAC (controle de acesso baseado em função) que são configuradas nos recursos de IaaS no modelo de implantação clássico e planeje a conclusão da migração.
+* Avalie as políticas do Azure RBAC (controle de acesso baseado em função) que são configuradas nos recursos de IaaS no modelo de implantação clássico e planeje após a conclusão da migração.
 
 O fluxo de trabalho de migração está descrito abaixo:
 
-![Diagrama que mostra o fluxo de trabalho de migração](windows/media/migration-classic-resource-manager/migration-workflow.png)
+![Diagrama que mostra o fluxo de trabalho de migração](./media/migration-classic-resource-manager/migration-workflow.png)
 
 > [!NOTE]
 > As operações descritas nas seções a seguir são todas idempotentes. Caso você tenha algum problema que não seja um recurso sem suporte ou um erro de configuração, repita a operação de preparação, anulação ou confirmação. O Azure tenta a ação novamente.
@@ -98,13 +96,13 @@ Assim que a operação de preparação for concluída, você tem a opção de vi
 
 As duas telas a seguir mostram o resultado após uma operação de preparação bem-sucedida. A primeira mostra um grupo de recursos que contém o serviço de nuvem original. A segunda mostra o novo grupo de recursos “-Migrated” que contém os recursos equivalentes do Azure Resource Manager.
 
-![Captura de tela que mostra o serviço de nuvem original](windows/media/migration-classic-resource-manager/portal-classic.png)
+![Captura de tela que mostra o serviço de nuvem original](./media/migration-classic-resource-manager/portal-classic.png)
 
-![Captura de tela que mostra os recursos do Azure Resource Manager na operação de preparação](windows/media/migration-classic-resource-manager/portal-arm.png)
+![Captura de tela que mostra os recursos do Azure Resource Manager na operação de preparação](./media/migration-classic-resource-manager/portal-arm.png)
 
 Aqui damos uma olhada nos bastidores dos seus recursos após a conclusão da fase de preparação. Observe que o recurso no plano de dados é o mesmo. Ele é representado no plano de gerenciamento (modelo de implantação clássico) e no plano de controle (Resource Manager).
 
-![Diagrama da fase de preparação](windows/media/migration-classic-resource-manager/behind-the-scenes-prepare.png)
+![Diagrama da fase de preparação](./media/migration-classic-resource-manager/behind-the-scenes-prepare.png)
 
 > [!NOTE]
 > Máquinas virtuais que não estão em uma rede virtual no modelo de implantação clássico são interrompidas e desalocadas nesta fase de migração.
@@ -124,7 +122,7 @@ Caso encontre problemas, sempre será possível anular a migração e voltar par
 ### <a name="abort"></a>Anular
 Essa é uma etapa opcional se você quiser reverter as alterações para o modelo de implantação clássico e interromper a migração. Essa operação exclui os metadados dos seus recursos no Gerenciador de Recursos (criados na etapa de preparação). 
 
-![Diagrama da etapa de anulação](windows/media/migration-classic-resource-manager/behind-the-scenes-abort.png)
+![Diagrama da etapa de anulação](media/migration-classic-resource-manager/behind-the-scenes-abort.png)
 
 
 > [!NOTE]
@@ -135,24 +133,24 @@ Essa é uma etapa opcional se você quiser reverter as alterações para o model
 Após a conclusão da validação, é possível confirmar a migração. Os recursos não aparecerão mais no modelo de implantação clássico e estão disponíveis apenas no modelo de implantação do Gerenciador de Recursos. Os recursos migrados só podem ser gerenciados no novo portal.
 
 > [!NOTE]
-> Esta é uma operação idempotente. Se ela falhar, repita a operação. Se ele continuar falhando, crie um tíquete de suporte ou crie um fórum em [Página de P e R da Microsoft](https://docs.microsoft.com/answers/index.html)
+> Esta é uma operação idempotente. Se ela falhar, repita a operação. Se ele continuar falhando, crie um tíquete de suporte ou crie um fórum em [Página de P e R da Microsoft](/answers/index.html)
 >
 >
 
-![Diagrama da etapa de confirmação](windows/media/migration-classic-resource-manager/behind-the-scenes-commit.png)
+![Diagrama da etapa de confirmação](media/migration-classic-resource-manager/behind-the-scenes-commit.png)
 
 ## <a name="migration-flowchart"></a>Fluxograma de migração
 
 Aqui está um fluxograma que mostra como proceder com a migração:
 
-![Screenshot that shows the migration steps](windows/media/migration-classic-resource-manager/migration-flow.png)
+![Screenshot that shows the migration steps](media/migration-classic-resource-manager/migration-flow.png)
 
 ## <a name="translation-of-the-classic-deployment-model-to-resource-manager-resources"></a>Conversão do modelo de implantação clássico para recursos do Gerenciador de Recursos
 Você pode encontrar o modelo de implantação clássico e representações do Resource Manager dos recursos na tabela a seguir. Atualmente, não há suporte para outros recursos e funcionalidades.
 
 | Representação do clássico | Representação do Gerenciador de Recursos | Observações |
 | --- | --- | --- |
-| Nome do serviço de nuvem |Nome DNS |Durante a migração, um novo grupo de recursos é criado para cada serviço de nuvem com o padrão de nomenclatura `<cloudservicename>-migrated`. Esse grupo de recursos contém todos os seus recursos. O nome do serviço de nuvem torna-se um nome DNS associado ao endereço IP público. |
+| Nome do serviço de nuvem (nome do serviço hospedado) |Nome DNS |Durante a migração, um novo grupo de recursos é criado para cada serviço de nuvem com o padrão de nomenclatura `<cloudservicename>-migrated`. Esse grupo de recursos contém todos os seus recursos. O nome do serviço de nuvem torna-se um nome DNS associado ao endereço IP público. |
 | Máquina virtual |Máquina virtual |As propriedades específicas da VM são migradas sem alterações. Determinadas informações de osProfile, como nome do computador, não foram armazenadas no modelo de implantação clássica e permanecem vazias após a migração. |
 | Recursos de disco anexados à VM |Discos implícitos anexados à VM |Os discos não são modelados como recursos de nível superior no modelo de implantação do Gerenciador de Recursos. Eles são migrados como discos implícitos na VM. No momento, há suporte apenas aos discos anexados a uma VM. Agora, VMs do Gerenciador de Recursos podem usar contas de armazenamento no modelo de implantação clássico, o que permite que os discos sejam migrados facilmente sem quaisquer atualizações. |
 | Extensões de VM |Extensões de VM |Todas as extensões de recurso, exceto as extensões XML, são migradas do modelo de implantação clássica. |
@@ -165,11 +163,11 @@ Você pode encontrar o modelo de implantação clássico e representações do R
 | Regras NAT de entrada |Regras NAT de entrada |Os pontos de extremidade de entrada definidos na VM são convertidos em regras de conversão de endereços de rede de entrada sob o balanceador de carga durante a migração. |
 | Endereço VIP |Endereço IP público com o nome DNS |O endereço IP virtual se torna um endereço IP público e é associado ao balanceador de carga. Um IP virtual só pode ser migrado se houver um ponto de extremidade de entrada atribuído a ele. |
 | Rede virtual |Rede virtual |A rede virtual é migrada com todas as propriedades para o modelo de implantação do Gerenciador de Recursos. É criado um novo grupo de recursos com o nome `-migrated`. |
-| IPs Reservados |Endereço IP público com método de alocação estático |Os IPs Reservados associados ao balanceador de carga são migrados, juntamente com a migração do serviço de nuvem ou da máquina virtual. Os IPs reservados não associados podem ser migrados usando [move-AzureReservedIP](/powershell/module/servicemanagement/azure.service/move-azurereservedip?view=azuresmps-4.0.0).  |
+| IPs Reservados |Endereço IP público com método de alocação estático |Os IPs Reservados associados ao balanceador de carga são migrados, juntamente com a migração do serviço de nuvem ou da máquina virtual. Os IPs reservados não associados podem ser migrados usando [move-AzureReservedIP](/powershell/module/servicemanagement/azure.service/move-azurereservedip).  |
 | Endereço IP público por VM |Endereço IP público com método de alocação dinâmico |O endereço IP público associado à VM é convertido como um recurso de endereço IP público, com o método de alocação definido como estático. |
-| NSGs |NSGs |Os grupos de segurança de rede associados a uma sub-rede são clonados como parte da migração para o modelo de implantação do Gerenciador de Recursos. O NSG no modelo de implantação clássica não é removido durante a migração. No entanto, as operações do plano de gerenciamento referentes ao NSG serão bloqueadas quando a migração estiver em andamento. O NSGs não associado pode ser migrado usando [Move-AzureNetworkSecurityGroup](/powershell/module/servicemanagement/azure.service/move-azurenetworksecuritygroup?view=azuresmps-4.0.0).|
+| NSGs |NSGs |Os grupos de segurança de rede associados a uma sub-rede são clonados como parte da migração para o modelo de implantação do Gerenciador de Recursos. O NSG no modelo de implantação clássica não é removido durante a migração. No entanto, as operações do plano de gerenciamento referentes ao NSG serão bloqueadas quando a migração estiver em andamento. O NSGs não associado pode ser migrado usando [Move-AzureNetworkSecurityGroup](/powershell/module/servicemanagement/azure.service/move-azurenetworksecuritygroup).|
 | Servidores DNS |Servidores DNS |Os servidores DNS associados a uma rede virtual ou à VM são migrados como parte da migração do recurso correspondente, juntamente com todas as propriedades. |
-| UDRs |UDRs |As rotas definidas pelo usuário associados a uma sub-rede são clonadas como parte da migração para o modelo de implantação do Gerenciador de Recursos. A UDR no modelo de implantação clássica não é removida durante a migração. As operações do plano de gerenciamento referentes à UDR serão bloqueadas quando a migração estiver em andamento. As UDRs não associadas podem ser migradas usando [Move-AzureReservedIP](/powershell/module/servicemanagement/azure.service/Move-AzureRouteTable?view=azuresmps-4.0.0). |
+| UDRs |UDRs |As rotas definidas pelo usuário associados a uma sub-rede são clonadas como parte da migração para o modelo de implantação do Gerenciador de Recursos. A UDR no modelo de implantação clássica não é removida durante a migração. As operações do plano de gerenciamento referentes à UDR serão bloqueadas quando a migração estiver em andamento. As UDRs não associadas podem ser migradas usando [Move-AzureReservedIP](/powershell/module/servicemanagement/azure.service/Move-AzureRouteTable). |
 | Propriedade de encaminhamento IP em uma configuração de rede da VM |Propriedade de encaminhamento IP na NIC |A propriedade de encaminhamento IP em uma VM é convertida em uma propriedade na interface de rede durante a migração. |
 | Balanceador de carga com vários IPs |Balanceador de carga com vários recursos IP públicos |Cada IP público associado ao balanceador de carga é convertido em um recurso IP público e associado ao balanceador de carga após a migração. |
 | Nomes DNS internos na VM |Nomes DNS internos na NIC |Durante a migração, os sufixos DNS internos das VMs são migrados para uma propriedade somente leitura chamada "InternalDomainNameSuffix" no NIC. O sufixo permanece inalterado após a migração, e a resolução da VM deve continuar a funcionar como antes. |
@@ -183,24 +181,12 @@ Como parte da migração dos recursos do modelo de implantação clássico para 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para Linux:
-
-* [Visão geral da migração de recursos de IaaS com suporte da plataforma do clássico para o Azure Resource Manager](./linux/migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Planejamento para a migração de recursos de IaaS do clássico para o Azure Resource Manager](./linux/migration-classic-resource-manager-plan.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Usar o PowerShell para migrar recursos de IaaS do clássico para o Azure Resource Manager](./windows/migration-classic-resource-manager-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Usar a CLI para migrar recursos de IaaS do clássico para o Azure Resource Manager](./linux/migration-classic-resource-manager-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Ferramentas da comunidade para ajudar com a migração de recursos de IaaS do clássico para o Azure Resource Manager](./windows/migration-classic-resource-manager-community-tools.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Examinar os erros de migração mais comuns](./linux/migration-classic-resource-manager-errors.md?toc=/azure/virtual-machines/linux/toc.json)
-* [Confira as perguntas mais frequentes sobre a migração de recursos de IaaS do clássico para o Azure Resource Manager](migration-classic-resource-manager-faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
-Para Windows:
-
-* [Visão geral da migração de recursos de IaaS com suporte da plataforma do clássico para o Azure Resource Manager](./windows/migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Planejamento para a migração de recursos de IaaS do clássico para o Azure Resource Manager](./windows/migration-classic-resource-manager-plan.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Usar o PowerShell para migrar recursos de IaaS do clássico para o Azure Resource Manager](./windows/migration-classic-resource-manager-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Usar a CLI para migrar recursos de IaaS do clássico para o Azure Resource Manager](./linux/migration-classic-resource-manager-cli.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Visão geral da migração de recursos de IaaS com suporte da plataforma do clássico para o Azure Resource Manager](migration-classic-resource-manager-overview.md)
+* [Planejamento para a migração de recursos de IaaS do clássico para o Azure Resource Manager](migration-classic-resource-manager-plan.md)
+* [Usar o PowerShell para migrar recursos de IaaS do clássico para o Azure Resource Manager](migration-classic-resource-manager-ps.md)
+* [Usar a CLI para migrar recursos de IaaS do clássico para o Azure Resource Manager](migration-classic-resource-manager-cli.md)
 * [Gateway de VPN clássico para migração do Resource Manager](../vpn-gateway/vpn-gateway-classic-resource-manager-migration.md)
 * [Migrar circuitos do ExpressRoute e redes virtuais associadas do clássico para o modelo de implantação do Resource Manager](../expressroute/expressroute-migration-classic-resource-manager.md)
-* [Ferramentas da comunidade para ajudar com a migração de recursos de IaaS do clássico para o Azure Resource Manager](./windows/migration-classic-resource-manager-community-tools.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Examinar os erros de migração mais comuns](./windows/migration-classic-resource-manager-errors.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Confira as perguntas mais frequentes sobre a migração de recursos de IaaS do clássico para o Azure Resource Manager](migration-classic-resource-manager-faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Ferramentas da comunidade para ajudar com a migração de recursos de IaaS do clássico para o Azure Resource Manager](migration-classic-resource-manager-community-tools.md)
+* [Examinar os erros de migração mais comuns](migration-classic-resource-manager-errors.md)
+* [Confira as perguntas mais frequentes sobre a migração de recursos de IaaS do clássico para o Azure Resource Manager](migration-classic-resource-manager-faq.md)

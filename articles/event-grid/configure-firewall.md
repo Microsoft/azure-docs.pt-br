@@ -3,12 +3,12 @@ title: Configurar o firewall IP para tópicos ou domínios da grade de eventos d
 description: Este artigo descreve como definir as configurações de firewall para os tópicos ou os domínios da grade de eventos.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: df6098df4817ee6c47378704c25d07433d6b9480
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: fd190a13a177b6b6d0f6b0dbcaa35d63dccd93c9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88509411"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91324154"
 ---
 # <a name="configure-ip-firewall-for-azure-event-grid-topics-or-domains"></a>Configurar o firewall IP para tópicos ou domínios da grade de eventos do Azure 
 Por padrão, o tópico e o domínio podem ser acessados pela Internet, desde que a solicitação venha com autenticação e autorização válidas. Com o firewall de IP, você pode restringir ainda mais a um conjunto de endereços IPv4 ou intervalos de endereços IPv4 na notação [CIDR (roteamento entre domínios sem classificação)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing). Os Publicadores provenientes de qualquer outro endereço IP serão rejeitados e receberão uma resposta 403 (proibido). Para obter mais informações sobre os recursos de segurança de rede com suporte na grade de eventos, consulte [segurança de rede para a grade de eventos](network-security.md).
@@ -23,7 +23,7 @@ Esta seção mostra como usar o portal do Azure para criar regras de firewall de
 
     Você pode restringir o tráfego usando regras de firewall baseadas em IP. Especifique um único endereço IPv4 ou um intervalo de endereços IP na notação CIDR (roteamento entre domínios sem classificação). 
 
-    ![Página redes públicas](./media/configure-firewall/public-networks-page.png)
+    ![Captura de tela que mostra a página "acesso à rede pública" com "redes públicas" selecionada.](./media/configure-firewall/public-networks-page.png)
 3. Selecione **pontos de extremidade privados somente** para permitir que somente as conexões de ponto final privado acessem esse recurso. Use a guia **conexões de ponto de extremidade privado** nesta página para gerenciar conexões. 
 
     ![Página redes públicas](./media/configure-firewall/private-endpoints-page.png)

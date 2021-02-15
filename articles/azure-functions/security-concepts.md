@@ -3,12 +3,12 @@ title: Proteger o Azure Functions
 description: Saiba mais sobre como tornar o código de função em execução no modo seguro do Azure contra ataques comuns.
 ms.date: 4/13/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9bec32c4c3d8005ef0d3c9fc5732785a5fa19a0c
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 351bdca7ff94b6c058b5ab62fd9c16d707e7dc78
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87850705"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100368482"
 ---
 # <a name="securing-azure-functions"></a>Proteger o Azure Functions
 
@@ -24,7 +24,7 @@ Esta seção orienta você sobre como configurar e executar seu aplicativo de fu
 
 ### <a name="security-center"></a>Central de Segurança
 
-A Central de Segurança integra-se ao seu aplicativo de funções no portal. Ele fornece, gratuitamente, uma avaliação rápida de possíveis vulnerabilidades de segurança relacionadas à configuração. Os aplicativos de funções em execução em um plano dedicado também podem usar os recursos de segurança em tempo real da Central de Segurança para obter um custo adicional. Para saber mais, confira [Proteger seus aplicativos Web e APIs do Azure App Service](../security-center/security-center-app-services.md). 
+A Central de Segurança integra-se ao seu aplicativo de funções no portal. Ele fornece, gratuitamente, uma avaliação rápida de possíveis vulnerabilidades de segurança relacionadas à configuração. Os aplicativos de funções em execução em um plano dedicado também podem usar os recursos de segurança em tempo real da Central de Segurança para obter um custo adicional. Para saber mais, confira [Proteger seus aplicativos Web e APIs do Azure App Service](../security-center/defender-for-app-service-introduction.md). 
 
 ### <a name="log-and-monitor"></a>Registrar e monitorar
 
@@ -76,7 +76,7 @@ Para saber mais sobre as chaves de acesso, consulte o [Artigo de associação de
 
 Por padrão, as chaves são armazenadas em um contêiner de armazenamento de BLOBs na conta fornecida pela `AzureWebJobsStorage` configuração. Você pode usar configurações de aplicativo específicas para substituir esse comportamento e armazenar as chaves em um local diferente.
 
-|Localização  |Setting | Valor | Descrição  |
+|Location  |Setting | Valor | Descrição  |
 |---------|---------|---------|---------|
 |Conta de armazenamento diferente     |  `AzureWebJobsSecretStorageSas`       | `<BLOB_SAS_URL` | Armazena chaves no armazenamento de blobs de uma segunda conta de armazenamento, com base na URL da SAS fornecida. As chaves são criptografadas antes de serem armazenadas usando um segredo exclusivo para seu aplicativo de funções. |
 |Sistema de arquivos   | `AzureWebJobsSecretStorageType`   |  `files`       | As chaves são mantidas no sistema de arquivos, criptografadas antes do armazenamento usando um segredo exclusivo para seu aplicativo de funções. |
@@ -107,6 +107,8 @@ As cadeias de conexão e outras credenciais armazenadas nas configurações do a
 
 [!INCLUDE [app-service-managed-identities](../../includes/app-service-managed-identities.md)]
 
+Identidades gerenciadas podem ser usadas no lugar de segredos para conexões de alguns gatilhos e associações. Consulte [conexões baseadas em identidade](#identity-based-connections).
+
 Para obter mais informações, consulte [Como usar identidades gerenciadas para o Serviço de Aplicativo e o Azure Functions](../app-service/overview-managed-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json).
 
 #### <a name="restrict-cors-access"></a>Restringir o acesso CORS
@@ -129,11 +131,21 @@ Por exemplo, cada aplicativo de funções requer uma conta de armazenamento asso
 
 As configurações do aplicativo e cadeias de conexão são armazenadas e criptografadas no Azure. Elas são descriptografadas somente antes de serem injetadas na memória do processo do aplicativo quando o aplicativo é iniciado. As chaves de criptografia são giradas regularmente. Se você preferir gerenciar o armazenamento seguro de seus segredos, a configuração do aplicativo deverá, em vez disso, fazer referência a Azure Key Vault. 
 
+Você também pode criptografar as configurações por padrão na local.settings.jsno arquivo ao desenvolver funções em seu computador local. Para saber mais, consulte a `IsEncrypted` propriedade no [arquivo de configurações local](functions-run-local.md#local-settings-file).  
+
 #### <a name="key-vault-references"></a>Referências de Key Vault
 
 Embora as configurações do aplicativo sejam suficientes para a maioria das funções, talvez você queira compartilhar os mesmos segredos em vários serviços. Nesse caso, o armazenamento redundante de segredos resulta em mais vulnerabilidades potenciais. Uma abordagem mais segura é para um serviço de armazenamento de segredo central e usar referências a esse serviço em vez dos próprios segredos.      
 
 [Azure Key Vault](../key-vault/general/overview.md) é um serviço que fornece gerenciamento centralizado de segredos, com controle total sobre políticas de acesso e histórico de auditoria. Você pode usar uma referência de Key Vault no lugar de uma cadeia de conexão ou chave em suas configurações de aplicativo. Para saber mais, consulte [Usar as referências do Key Vault para o Serviço de Aplicativo e o Azure Functions](../app-service/app-service-key-vault-references.md?toc=%2fazure%2fazure-functions%2ftoc.json).
+
+### <a name="identity-based-connections"></a>Conexões baseadas em identidade
+
+As identidades podem ser usadas no lugar de segredos para se conectar a alguns recursos. Isso tem a vantagem de não exigir o gerenciamento de um segredo e fornece auditoria e controle de acesso mais refinados. 
+
+Quando você está escrevendo um código que cria a conexão com os [Serviços do Azure que dão suporte à autenticação do Azure ad](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication), você pode optar por usar uma identidade em vez de uma cadeia de conexão ou segredo. Os detalhes de ambos os métodos de conexão são abordados na documentação de cada serviço.
+
+Alguns Azure Functions gatilho e extensões de associação podem ser configurados usando uma conexão baseada em identidade. Hoje, isso inclui o [blob do Azure](./functions-bindings-storage-blob.md) e as extensões de [fila do Azure](./functions-bindings-storage-queue.md) . Para obter informações sobre como configurar essas extensões para usar uma identidade, consulte [como usar conexões baseadas em identidade no Azure Functions](./functions-reference.md#configure-an-identity-based-connection).
 
 ### <a name="set-usage-quotas"></a>Definir cotas de uso
 

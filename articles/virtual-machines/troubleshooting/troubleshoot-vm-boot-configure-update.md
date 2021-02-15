@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: delhan
-ms.openlocfilehash: d7e56fe36af3d841cfd888dd6c1bf05502837cdd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f3e4d51b4d41fa0dc23e9b12ac0251c14215de5c
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079835"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98633003"
 ---
 # <a name="vm-startup-is-stuck-on-getting-windows-ready-dont-turn-off-your-computer-in-azure"></a>A inicialização da VM está parada em “Preparando o Windows. Não desligue o computador” no Azure
 
@@ -39,6 +39,9 @@ Uma VM do Windows não é inicializada. Ao usar o **diagnóstico de inicializaç
 Normalmente, esse problema ocorre quando o servidor está fazendo a reinicialização final depois que a configuração foi alterada. A alteração na configuração pode ter sido iniciada por atualizações do Windows ou alterações nos recursos ou nas funções do servidor. Para o Windows Update, quando o tamanho das atualizações é grande, o sistema operacional precisa de mais tempo para reconfigurar as alterações.
 
 ## <a name="collect-an-os-memory-dump"></a>Coletar um despejo de memória do sistema operacional
+
+> [!TIP]
+> Se você tiver um backup recente da VM, poderá tentar [restaurar a VM do backup](../../backup/backup-azure-arm-restore-vms.md) para corrigir o problema de inicialização.
 
 Se o problema não for resolvido depois de aguardar as alterações serem processadas, você precisará coletar um arquivo de despejo de memória e entrar em contato com o suporte. Para coletar o arquivo de despejo, siga estas etapas:
 
@@ -105,6 +108,6 @@ Para habilitar o log de despejo e o Console Serial, execute o script a seguir.
     ![a imagem sobre onde enviar uma interrupção não mascarável](./media/troubleshoot-vm-configure-update-boot/run-nmi.png)
 6. Anexe o disco do sistema operacional a uma VM de recuperação novamente, colete o arquivo de despejo.
 
-## <a name="contact-microsoft-support"></a>Contatar Suporte da Microsoft
+## <a name="contact-microsoft-support"></a>Entrar em contato com o suporte da Microsoft
 
 Depois de coletar o arquivo de despejo, entre em contato com o [suporte da Microsoft](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para executar a análise da causa raiz.

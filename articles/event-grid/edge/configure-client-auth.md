@@ -1,18 +1,18 @@
 ---
 title: Configurar a autenticação de cliente de chamadas de entrada-IoT Edge de grade de eventos do Azure | Microsoft Docs
-description: Configure os protocolos de API expostos pela grade de eventos em IoT Edge.
+description: Saiba mais sobre as possíveis configurações de autenticação de cliente para o módulo de grade de eventos.
 author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
-ms.openlocfilehash: a0bba9559c2a0b4ff6c8a4e5f2287692e27f8a1a
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 9525da4204e270d033f0c2354318bd71874eaf54
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86171696"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91290765"
 ---
 # <a name="configure-client-authentication-of-incoming-calls"></a>Configurar a autenticação de cliente de chamadas de entrada
 

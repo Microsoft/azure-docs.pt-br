@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: victorh
-ms.openlocfilehash: ec9fb3c9b27d21ac65888379f59d51ecc8042eb0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 83e9a96573bbc72e0afff61cc0f151f95b081e30
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74168680"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97031572"
 ---
 # <a name="azure-firewall-service-tags"></a>Marcas de serviço do Firewall do Azure
 
@@ -22,7 +22,7 @@ As marcas de serviço de Firewall do Azure podem ser usadas no campo de destino 
 
 ## <a name="supported-service-tags"></a>Marcas de serviço com suporte
 
-Consulte [grupos de segurança](../virtual-network/security-overview.md#service-tags) para obter uma lista de marcas de serviço que estão disponíveis para uso em regras de rede do firewall do Azure.
+Consulte [marcas de serviço de rede virtual](../virtual-network/service-tags-overview.md#available-service-tags) para obter uma lista de marcas de serviço que estão disponíveis para uso em regras de rede do firewall do Azure.
 
 ## <a name="next-steps"></a>Próximas etapas
 

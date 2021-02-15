@@ -1,30 +1,26 @@
 ---
 title: Dimensionar automaticamente os clusters do Azure HDInsight
-description: Usar o recurso de autoescala do Azure HDInsight para Apache Hadoop automaticamente os clusters de escala
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
+description: Use o recurso de dimensionamento automático para dimensionar automaticamente os clusters do Azure HDInsight com base em métricas de desempenho ou agendamento.
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: contperfq1
-ms.date: 08/21/2020
-ms.openlocfilehash: 4c4b9c60eb967b5791af724e5c15bba887263d44
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.custom: contperf-fy21q1, contperf-fy21q2
+ms.date: 12/14/2020
+ms.openlocfilehash: 130a5a58fc7dab6f94c011cf9764743f9114e48a
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757856"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98942635"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters"></a>Dimensionar automaticamente os clusters do Azure HDInsight
 
-O recurso de dimensionamento automático gratuito do Azure HDInsight pode aumentar ou diminuir automaticamente o número de nós de trabalho no cluster com base nos critérios definidos anteriormente. Você define um número mínimo e máximo de nós durante a criação do cluster, estabelece os critérios de dimensionamento usando uma agenda de dia útil ou métricas de desempenho específicas, e a plataforma HDInsight faz o resto.
+O recurso de dimensionamento automático gratuito do Azure HDInsight pode aumentar ou diminuir automaticamente o número de nós de trabalho no cluster com base nos critérios definidos anteriormente. O recurso de dimensionamento automático funciona dimensionando o número de nós dentro dos limites predefinidos com base em métricas de desempenho ou em uma agenda de operações de expansão e redução.
 
 ## <a name="how-it-works"></a>Como ele funciona
 
-O recurso de dimensionamento automático usa dois tipos de condições para disparar eventos de dimensionamento: limites para várias métricas de desempenho de cluster (chamadas *de dimensionamento baseado em carga*) e gatilhos baseados em tempo (chamados *de dimensionamento baseado em agenda*). O dimensionamento baseado em carga altera o número de nós no cluster, dentro de um intervalo definido, para garantir o uso ideal da CPU e minimizar o custo de execução. O dimensionamento baseado em agendamento altera o número de nós no cluster com base nas operações que você associa a datas e horários específicos.
+O recurso de dimensionamento automático usa dois tipos de condições para disparar eventos de dimensionamento: limites para várias métricas de desempenho de cluster (chamadas *de dimensionamento baseado em carga*) e gatilhos baseados em tempo (chamados *de dimensionamento baseado em agenda*). O dimensionamento baseado em carga altera o número de nós no cluster, dentro de um intervalo definido, para garantir o uso ideal da CPU e minimizar o custo de execução. O dimensionamento baseado em agendamento altera o número de nós no cluster com base em uma agenda de operações de escala vertical e redução.
 
 O vídeo a seguir fornece uma visão geral dos desafios que o dimensionamento automático resolve e como ele pode ajudá-lo a controlar os custos com o HDInsight.
-
 
 > [!VIDEO https://www.youtube.com/embed/UlZcDGGFlZ0?WT.mc_id=dataexposed-c9-niner]
 
@@ -68,11 +64,11 @@ Para reduzir verticalmente, o dimensionamento automático emite uma solicitaçã
 > [!Important]
 > O recurso de dimensionamento automático do Azure HDInsight foi lançado para disponibilidade geral em 7 de novembro de 2019, para clusters Spark e Hadoop, e incluía aprimoramentos não estão disponíveis na versão prévia do recurso. Se você criou um cluster Spark antes de 7 de novembro de 2019 e deseja usar o recurso de dimensionamento automático em seu cluster, o caminho recomendado é criar um novo cluster e habilitar o dimensionamento automático no novo cluster.
 >
-> O dimensionamento automático para clusters Interactive Query (LLAP) e HBase ainda está na versão prévia. O dimensionamento automático só está disponível em clusters Spark, Hadoop, Interactive Query e HBase.
+> O dimensionamento automático para consulta interativa (LLAP) foi liberado para disponibilidade geral para HDI 4,0 em agosto de 27, 2020. Clusters HBase ainda estão em versão prévia. O dimensionamento automático só está disponível em clusters Spark, Hadoop, Interactive Query e HBase.
 
 A tabela a seguir descreve os tipos de cluster e as versões que são compatíveis com o recurso de dimensionamento automático.
 
-| Versão | Spark | Hive | LLAP | HBase | Kafka | Storm | ML |
+| Versão | Spark | Hive | Consulta Interativa | HBase | Kafka | Storm | ML |
 |---|---|---|---|---|---|---|---|
 | HDInsight 3,6 sem ESP | Sim | Sim | Sim | Sim* | Não | Não | Não |
 | HDInsight 4,0 sem ESP | Sim | Sim | Sim | Sim* | Não | Não | Não |
@@ -133,7 +129,7 @@ Para obter mais informações sobre a criação de clusters HDInsight usando o p
 
 #### <a name="load-based-autoscaling"></a>Dimensionamento automático baseado em carga
 
-Você pode criar um cluster HDInsight com o dimensionamento automático baseado em carga um modelo de Azure Resource Manager, adicionando um `autoscale` nó à `computeProfile`  >  `workernode` seção com as propriedades `minInstanceCount` e `maxInstanceCount` conforme mostrado no trecho de JSON abaixo. Para obter um modelo completo do Resource Manager, consulte [modelo de início rápido: implantar cluster Spark com dimensionamento automático baseado em loadhabilitado](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-autoscale-loadbased).
+Você pode criar um cluster HDInsight com o dimensionamento automático baseado em carga um modelo de Azure Resource Manager, adicionando um `autoscale` nó à `computeProfile`  >  `workernode` seção com as propriedades `minInstanceCount` e `maxInstanceCount` conforme mostrado no trecho de JSON abaixo. Para obter um modelo completo do Resource Manager, consulte [modelo de início rápido: implantar cluster Spark com dimensionamento automático baseado em carga habilitado](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-autoscale-loadbased).
 
 ```json
 {
@@ -231,7 +227,7 @@ Todas as mensagens de status do cluster que você pode ver são explicadas na li
 | Atualizar  | A configuração de autoescala do cluster está sendo atualizada.  |
 | Configuração do HDInsight  | Uma operação de expansão ou redução do cluster está em andamento.  |
 | Erro de atualização  | O HDInsight atendeu a problemas durante a atualização de configuração de dimensionamento automático. Os clientes podem optar por repetir a atualização ou desabilitar o dimensionamento automático.  |
-| Erro do  | Algo está errado com o cluster e não é utilizável. Exclua este cluster e crie um novo.  |
+| Erro  | Algo está errado com o cluster e não é utilizável. Exclua este cluster e crie um novo.  |
 
 Para exibir o número atual de nós no cluster, acesse o gráfico de **tamanho do cluster** na página **visão geral** do cluster. Ou selecione o **tamanho do cluster** em **configurações**.
 
@@ -243,41 +239,43 @@ Selecione **métricas** em **monitoramento**. Em seguida, selecione **Adicionar 
 
 ![Habilitar métrica de dimensionamento automático baseado em agenda de nó de trabalho](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-chart-metric.png)
 
-## <a name="other-considerations"></a>Outras considerações
+## <a name="best-practices"></a>Práticas recomendadas
 
-### <a name="consider-the-latency-of-scale-up-or-scale-down-operations"></a>Considerar a latência de operações de aumento ou redução
+### <a name="consider-the-latency-of-scale-up-and-scale-down-operations"></a>Considere a latência das operações de escalar verticalmente e reduzir horizontalmente
 
 Pode levar de 10 a 20 minutos para que uma operação de dimensionamento seja concluída. Ao configurar um agendamento personalizado, planeje esse atraso. Por exemplo, se você precisar que o tamanho do cluster seja 20 às 9:00 AM, defina o gatilho de agendamento como um tempo anterior, como 8:30, para que a operação de dimensionamento seja concluída pela 9:00 AM.
 
-### <a name="preparation-for-scaling-down"></a>Preparação para reduzir
+### <a name="prepare-for-scaling-down"></a>Preparar para reduzir verticalmente
 
-Durante o processo de redução do dimensionamento do cluster, o dimensionamento automático encerrará os nós para atender ao tamanho do destino. Se as tarefas estiverem em execução nesses nós, o dimensionamento automático aguardará até que as tarefas sejam concluídas. Como cada nó de trabalho também serve uma função no HDFS, os dados temporários serão deslocados para os nós restantes. Portanto, você deve verificar se há espaço suficiente nos nós restantes para hospedar todos os dados temporários.
+Durante o processo de redução do dimensionamento do cluster, o dimensionamento automático encerra os nós para atender ao tamanho do destino. Se as tarefas estiverem em execução nesses nós, o dimensionamento automático aguardará até que as tarefas sejam concluídas para clusters Spark e Hadoop. Como cada nó de trabalho também atende a uma função no HDFS, os dados temporários são deslocados para os nós restantes. Verifique se há espaço suficiente nos nós restantes para hospedar todos os dados temporários.
 
 Os trabalhos em execução continuarão. Os trabalhos pendentes aguardarão o agendamento com menos nós de trabalho disponíveis.
 
-### <a name="minimum-cluster-size"></a>Tamanho mínimo do cluster
+### <a name="be-aware-of-the-minimum-cluster-size"></a>Lembre-se do tamanho mínimo do cluster
 
-Não dimensione o cluster para menos de três nós. Dimensionar o cluster para menos de três nós pode fazer com que ele fique preso no modo de segurança devido à replicação de arquivo insuficiente.  Para obter mais informações, consulte [ficando preso no modo de segurança](./hdinsight-scaling-best-practices.md#getting-stuck-in-safe-mode).
+Não dimensione o cluster para menos de três nós. Dimensionar o cluster para menos de três nós pode fazer com que ele fique preso no modo de segurança devido à replicação de arquivo insuficiente. Para obter mais informações, consulte [ficando preso no modo de segurança](hdinsight-scaling-best-practices.md#getting-stuck-in-safe-mode).
 
-### <a name="llap-daemons-count"></a>Contagem de daemons LLAP
+### <a name="increase-the-number-of-mappers-and-reducers"></a>Aumentar o número de Mapeadores e redutores
 
-No caso de clusters LLAP habilitados para autoescala, o evento de dimensionamento automático/baixo também aumenta/reduz o número de daemons LLAP para o número de nós de trabalho ativos. Mas essa alteração no número de daemons não é persistida na configuração **num_llap_nodes** no Ambari. Se os serviços do hive forem reiniciados manualmente, o número de daemons LLAP será redefinido de acordo com a configuração em Ambari.
+O dimensionamento automático para clusters Hadoop também monitora o uso do HDFS. Se o HDFS estiver ocupado, ele assumirá que o cluster ainda precisa dos recursos atuais. Quando há dados maciços envolvidos na consulta, você pode aumentar o número de Mapeadores e redutores para aumentar o paralelismo e acelerar as operações de HDFS. Dessa forma, o dimensionamento adequado será disparado quando houver recursos extras. 
 
-Vamos fazer o cenário abaixo:
-1. Um cluster habilitado para autoescala LLAP é criado com 3 nós de trabalho e o dimensionamento automático baseado em carga está habilitado com os nós de trabalho mínimos como 3 e máximo de nós de trabalho como 10.
-2. A configuração da contagem de daemons LLAP de acordo com o LLAP Configuration e Ambari é 3, pois o cluster foi criado com 3 nós de trabalho.
-3. Em seguida, um dimensionamento automático é disparado devido à carga no cluster, o cluster agora é dimensionado para 10 nós.
-4. A verificação de dimensionamento automático em execução em intervalos regulares observa que a contagem de daemons LLAP é 3, mas o número de nó de trabalho ativo é 10, o processo de dimensionamento automático agora aumentará a contagem de daemon LLAP para 10, mas essa alteração não será persistida no num_llap_nodes config-reAmbari.
-5. O dimensionamento automático agora está desabilitado.
-6. O cluster agora tem 10 nós de trabalho e 10 daemons LLAP.
-7. O serviço LLAP é reiniciado manualmente.
-8. Durante a reinicialização, ele verifica o num_llap_nodes config na configuração LLAP e observa o valor como 3, de modo que ele gira a 3 instância de daemons, mas o número de nós de trabalho é 10. Agora há uma incompatibilidade entre os dois.
+### <a name="set-the-hive-configuration-maximum-total-concurrent-queries-for-the-peak-usage-scenario"></a>Definir o total de consultas simultâneas no máximo de configuração do hive para o cenário de pico de uso
 
-Quando isso acontece, precisamos alterar manualmente a configuração de **num_llap_node (número de nós para para executar o daemon LLAP do hive) em Hive-Interactive-env avançado** para corresponder à contagem de nós do trabalho ativo atual.
+Os eventos de dimensionamento automático não alteram a configuração do hive *total de consultas simultâneas* em Ambari. Isso significa que o serviço interativo do hive Server 2 pode manipular apenas o número determinado de consultas simultâneas em qualquer ponto de tempo, mesmo que a contagem de daemons de consulta interativa seja dimensionada para cima e para baixo com base na carga e na agenda. A recomendação geral é definir essa configuração para o cenário de pico de uso para evitar a intervenção manual.
 
-**Observação**
+No entanto, você pode experimentar uma falha de reinicialização do servidor do hive 2 se houver apenas um pequeno número de nós de trabalho e o valor para o total de consultas simultâneas máxima estiver configurado muito alto. No mínimo, você precisa do número mínimo de nós de trabalho que podem acomodar o número determinado de tez AMS (igual à configuração total de consultas simultâneas máximas). 
 
-Os eventos de dimensionamento automático não alteram as **consultas simultâneas máximas** de configuração do hive em Ambari. Isso significa que o serviço interativo do hive Server 2 **pode manipular apenas o número determinado de consultas simultâneas em qualquer ponto de tempo, mesmo que a contagem de daemons LLAP seja dimensionada para cima e para baixo com base na carga/agendamento**. A recomendação geral é definir essa configuração para o cenário de pico de uso para que a intervenção manual possa ser evitada. No entanto, deve estar ciente de que **a definição de um valor alto para a configuração máxima de consultas simultâneas pode falhar na reinicialização do serviço interativo do servidor 2 se o número mínimo de nós de trabalho não puder acomodar o número determinado de tez AMS (igual à configuração de consultas simultâneas total máxima)**
+## <a name="limitations"></a>Limitações
+
+### <a name="node-label-file-missing"></a>Arquivo de rótulo de nó ausente
+
+O dimensionamento automático do HDInsight usa um arquivo de rótulo de nó para determinar se um nó está pronto para executar tarefas. O arquivo de rótulo do nó é armazenado no HDFS com três réplicas. Se o tamanho do cluster for reduzido drasticamente e houver uma grande quantidade de dados temporários, haverá uma pequena chance de que todas as três réplicas possam ser descartadas. Se isso acontecer, o cluster entrará em um estado de erro.
+
+### <a name="interactive-query-daemons-count"></a>Contagem de daemons de consulta interativa
+
+No caso de clusters de consulta interativa habilitados para autoescala, um evento de dimensionamento/redução vertical também aumenta/reduz o número de daemons de consulta interativa para o número de nós de trabalho ativos. A alteração no número de daemons não é persistida na `num_llap_nodes` configuração em Ambari. Se os serviços do hive forem reiniciados manualmente, o número de daemons de consulta interativa será redefinido de acordo com a configuração em Ambari.
+
+Se o serviço de consulta interativa for reiniciado manualmente, você precisará alterar manualmente a `num_llap_node` configuração (o número de nós necessários para executar o daemon de consulta interativa do hive) em *avançado Hive-Interactive-env* para corresponder à contagem atual de nós do trabalho ativo.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/14/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: cafde6ed66e5b636be60533abafcd6f221fe33a1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 74c77356df4f35461a8b9f1459712cdcf7f77cbf
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86502497"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95564378"
 ---
 Os discos compartilhados do Azure são um novo recurso para discos gerenciados do Azure que permite anexar um disco gerenciado a várias VMs (máquinas virtuais) simultaneamente. Anexar um disco gerenciado a várias VMs permite implantar novos aplicativos clusterizados ou migrar os existentes para o Azure.
 
@@ -41,7 +41,7 @@ Os discos compartilhados dão suporte a vários sistemas operacionais. Consulte 
 
 ### <a name="windows"></a>Windows
 
-Os discos compartilhados do Azure têm suporte no Windows Server 2008 e mais recentes. A maioria dos clusters baseados em Windows se baseia no WSFC, que lida com toda a infraestrutura básica para comunicação de nó de cluster, permitindo que seus aplicativos aproveitem os padrões de acesso paralelo. O WSFC permite opções de CSV e não baseadas em CSV, dependendo da sua versão do Windows Server. Para obter mais detalhes, consulte [Criar um cluster de failover](https://docs.microsoft.com/windows-server/failover-clustering/create-failover-cluster).
+Os discos compartilhados do Azure têm suporte no Windows Server 2008 e mais recentes. A maioria dos clusters baseados em Windows se baseia no WSFC, que lida com toda a infraestrutura básica para comunicação de nó de cluster, permitindo que seus aplicativos aproveitem os padrões de acesso paralelo. O WSFC permite opções de CSV e não baseadas em CSV, dependendo da sua versão do Windows Server. Para obter mais detalhes, consulte [Criar um cluster de failover](/windows-server/failover-clustering/create-failover-cluster).
 
 Alguns aplicativos populares em execução no WSFC incluem:
 
@@ -54,10 +54,10 @@ Alguns aplicativos populares em execução no WSFC incluem:
 ### <a name="linux"></a>Linux
 
 Os discos compartilhados do Azure têm suporte em:
-- [SUSE EPU para SAP e SUSE EPU HA 15 SP1 e superior](https://documentation.suse.com/sle-ha/15-SP1/single-html/SLE-HA-guide/index.html)
+- [SUSE EPU para SAP e SUSE EPU HA 15 SP1 e superior](https://www.suse.com/c/azure-shared-disks-excercise-w-sles-for-sap-or-sle-ha/)
 - [Ubuntu 18, 4 e superior](https://discourse.ubuntu.com/t/ubuntu-high-availability-corosync-pacemaker-shared-disk-environments/14874)
-- [Versão prévia de desenvolvedor do RHEL em qualquer uma das versões RHEL 8](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_high_availability_clusters/index)
-- [Oracle Enterprise Linux] (https://docs.oracle.com/en/operating-systems/oracle-linux/8/availability/hacluster-1.html)
+- [Versão prévia de desenvolvedor do RHEL em qualquer uma das versões RHEL 8](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/deploying_red_hat_enterprise_linux_8_on_public_cloud_platforms/index?lb_target=production#azure-configuring-shared-block-storage_configuring-rhel-high-availability-on-azure)
+- [Oracle Enterprise Linux](https://docs.oracle.com/en/operating-systems/oracle-linux/8/availability/hacluster-1.html)
 
 Os clusters do Linux podem utilizar os gerenciadores de cluster, como o [Pacemaker](https://wiki.clusterlabs.org/wiki/Pacemaker). O Pacemaker se baseia no [Corosync](http://corosync.github.io/corosync/), o que permite a comunicação de cluster para aplicativos implantados em ambientes altamente disponíveis. Alguns sistemas de arquivos clusterizados comuns incluem [ocfs2](https://oss.oracle.com/projects/ocfs2/) e [gfs2](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/global_file_system_2/ch-overview-gfs2). Você pode usar os modelos de clustering de reserva persistente de SCSI (RP) e/ou SBD (dispositivo de bloco STONITH) para arbitrar o acesso ao disco. Ao usar o SCSI PR, você pode manipular reservas e registros usando utilitários como [fence_scsi](http://manpages.ubuntu.com/manpages/eoan/man8/fence_scsi.8.html) e [sg_persist](https://linux.die.net/man/8/sg_persist).
 

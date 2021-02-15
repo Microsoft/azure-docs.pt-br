@@ -4,12 +4,12 @@ description: Entender como as Instâncias de Contêiner do Azure interagem com o
 ms.topic: article
 ms.date: 04/15/2019
 ms.custom: mvc
-ms.openlocfilehash: f3f8693d1a9a12e7c35d126ab3e3ca53448e5e40
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c7faeecfcc3a1d006cc923b48339a1242a0b9e9b
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74533654"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148602"
 ---
 # <a name="azure-container-instances-and-container-orchestrators"></a>Instâncias de Contêiner do Azure e orquestradores de contêiner
 
@@ -54,7 +54,7 @@ Em vez de expandir o número de máquinas virtuais em seu cluster e, em seguida,
 
 Para dimensionar rapidamente as cargas de trabalho do aplicativo em um cluster do [Serviço de Kubernetes do Azure](../aks/intro-kubernetes.md) (AKS), você pode usar os *nós virtuais* criados dinamicamente nas Instâncias de Contêiner do Azure. Nós virtuais permitem a comunicação de rede entre pods executados em ACI e o cluster do AKS. 
 
-Os nós virtuais atualmente dão suporte a instâncias de contêiner do Linux. Comece com os nós virtuais usando a [CLI do Azure](https://go.microsoft.com/fwlink/?linkid=2047538) ou o [portal do Azure](https://go.microsoft.com/fwlink/?linkid=2047545).
+Os nós virtuais atualmente dão suporte a instâncias de contêiner do Linux. Comece com os nós virtuais usando a [CLI do Azure](../aks/virtual-nodes-cli.md) ou o [portal do Azure](../aks/virtual-nodes-portal.md).
 
 Nós virtuais usam software livre [Virtual Kubelet][aci-connector-k8s] para imitar o Kubernetes [kubelet][kubelet-doc] registrando-se como um nó com capacidade ilimitada. O Virtual Kubelet expede a criação de [pods][pod-doc] como grupos de contêineres em Instâncias de Contêiner do Azure.
 

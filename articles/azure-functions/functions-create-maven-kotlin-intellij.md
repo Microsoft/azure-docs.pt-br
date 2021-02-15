@@ -1,29 +1,29 @@
 ---
-title: Criar uma função do Azure com Kotlin e IntelliJ
-description: Saiba como criar e publicar um aplicativo sem servidor simples disparado por HTTP no Azure com Kotlin e IntelliJ.
+title: Criar uma função Kotlin no Azure Functions usando IntelliJ
+description: Saiba como usar o IntelliJ para criar uma função Kotlin simples disparada por HTTP, que você publica para executar em um ambiente sem servidor no Azure.
 author: dglover
 ms.service: azure-functions
 ms.topic: quickstart
 ms.date: 03/25/2020
 ms.author: dglover
-ms.openlocfilehash: fa834e3ac4946c4f617e857342f850445eebfd30
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0207e4af9f845343866714ec207ca306cb327b36
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87055446"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98035165"
 ---
-# <a name="quickstart-create-your-first-http-triggered-function-with-kotlin-and-intellij"></a>Início Rápido: Criar sua primeira função disparada por HTTP com Kotlin e IntelliJ
+# <a name="create-your-first-kotlin-function-in-azure-using-intellij"></a>Criar sua primeira função Kotlin no Azure usando o IntelliJ
 
-Este artigo mostra como criar um projeto de função [sem servidor](https://azure.microsoft.com/overview/serverless-computing/) com IntelliJ IDEA e Apache Maven. Ele também mostra como depurar localmente seu código de função no IDE (ambiente de desenvolvimento integrado) e, em seguida, implantar o projeto de função no Azure.
+Este artigo mostra como criar uma função Java disparada por HTTP em um projeto IntelliJ IDEA, executar e depurar o projeto no IDE (ambiente de desenvolvimento integrado) e, por fim, implantar o projeto de função em um aplicativo de funções no Azure.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="set-up-your-development-environment"></a>Configurar seu ambiente de desenvolvimento
 
-Para desenvolver uma função com Kotlin e IntelliJ, instale o seguinte software:
+Para criar e publicar funções Kotlin no Azure usando o IntelliJ, instale o seguinte software:
 
-- JDK ([Java Developer Kit](https://aka.ms/azure-jdks)), versão 8
+- JDK ([Java Developer Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support)), versão 8
 - [Apache Maven](https://maven.apache.org), versão 3.0 ou superior
 - [IntelliJ IDEA](https://www.jetbrains.com/idea/download), versões Community ou Ultimate com Maven
 - [CLI do Azure](/cli/azure)
@@ -32,7 +32,7 @@ Para desenvolver uma função com Kotlin e IntelliJ, instale o seguinte software
 > [!IMPORTANT]
 > A variável de ambiente JAVA_HOME deve ser definida como o local de instalação do JDK para concluir as etapas neste artigo.
 
-## <a name="create-a-functions-project"></a>Criar um projeto do Functions
+## <a name="create-a-function-project"></a>Criar um projeto de função
 
 1. No IntelliJ IDEA, selecione **Criar Novo Projeto**.  
 1. Na janela **Novo Projeto**, selecione **Maven** no painel esquerdo.
@@ -47,10 +47,10 @@ Para desenvolver uma função com Kotlin e IntelliJ, instale o seguinte software
 
 Maven cria os arquivos de projeto em uma nova pasta com o mesmo nome que o valor _ArtifactId_. O código gerado no projeto é uma função [Disparada por HTTP](./functions-bindings-http-webhook.md) simples que ecoa o corpo da solicitação HTTP que está sendo disparada.
 
-## <a name="run-functions-locally-in-the-ide"></a>Executar funções localmente no IDE
+## <a name="run-project-locally-in-the-ide"></a>Executar o projeto localmente no IDE
 
 > [!NOTE]
-> Para executar e depurar funções localmente, verifique se você instalou o [Azure Functions Core Tools, versão 2](functions-run-local.md#v2).
+> Para executar e depurar o projeto localmente, verifique se você instalou o [Azure Functions Core Tools, versão 2](functions-run-local.md#v2).
 
 1. Importe as alterações manualmente ou habilite a [importação automática](https://www.jetbrains.com/help/idea/creating-and-optimizing-imports.html).
 1. Abra a barra de ferramentas **Projetos Maven**.
@@ -60,7 +60,7 @@ Maven cria os arquivos de projeto em uma nova pasta com o mesmo nome que o valor
 
 1. Feche a caixa de diálogo de execução quando terminar de testar a função. Apenas um host de função pode estar ativo e em execução localmente de cada vez.
 
-## <a name="debug-the-function-in-intellij"></a>Depurar a função no IntelliJ
+## <a name="debug-the-project-in-intellij"></a>Depure o projeto no IntelliJ
 
 1. Para iniciar o host de função no modo de depuração, adicione **-DenableDebug** como argumento quando ao executar sua função. Você pode alterar a configuração em [metas do maven](https://www.jetbrains.com/help/idea/maven-support.html#run_goal) ou execute o seguinte comando em uma janela de terminal:  
 
@@ -75,25 +75,25 @@ Maven cria os arquivos de projeto em uma nova pasta com o mesmo nome que o valor
 1. Preencha os campos _Nome_ e _Configurações_ e, em seguida, selecione **OK** para salvar a configuração.
 1. Após a instalação, selecione **Depurar < Nome da Configuração Remota >** ou pressione Shift+F9 em seu teclado para iniciar a depuração.
 
-   ![Depurar funções no IntelliJ](media/functions-create-first-kotlin-intellij/debug-configuration-intellij.PNG)
+   ![Depurar projeto no IntelliJ](media/functions-create-first-kotlin-intellij/debug-configuration-intellij.PNG)
 
 1. Ao terminar, pare o depurador e o processo em execução. Apenas um host de função pode estar ativo e em execução localmente de cada vez.
 
-## <a name="deploy-the-function-to-azure"></a>Implantar a função no Azure
+## <a name="deploy-the-project-to-azure"></a>Implantar o projeto no Azure
 
-1. Antes de implantar sua função no Azure, você deve [fazer logon usando a CLI do Azure](/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
+1. Para implantar seu projeto em um aplicativo de funções no Azure, [faça logon usando a CLI do Azure](/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
 
    ``` azurecli
    az login
    ```
 
-1. Implante seu código em uma nova função usando o destino do Maven `azure-functions:deploy`. Você também pode selecionar a opção **azure-functions:deploy** na janela de projetos do Maven.
+1. Implante seu código em um novo aplicativo de funções usando o destino Maven `azure-functions:deploy`. Você também pode selecionar a opção **azure-functions:deploy** na janela de projetos do Maven.
 
    ```
    mvn azure-functions:deploy
    ```
 
-1. Encontre a URL para sua função na saída da CLI do Azure depois que a função tiver sido implantada com êxito.
+1. Encontre a URL para sua função de gatilho HTTP na saída da CLI do Azure depois que o aplicativo de funções tiver sido implantado com êxito.
 
    ``` output
    [INFO] Successfully deployed Function App with package.
@@ -105,5 +105,5 @@ Maven cria os arquivos de projeto em uma nova pasta com o mesmo nome que o valor
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora que você implantou sua primeira função Kotlin no Azure, examine o [guia do desenvolvedor de Funções do Java](functions-reference-java.md) para obter mais informações sobre o desenvolvimento de funções do Java e Kotlin.
-- Adicione outras funções com gatilhos diferentes ao seu projeto usando o destino do Maven `azure-functions:add`.
+Agora que você implantou seu primeiro aplicativo de funções Kotlin no Azure, leia o [Guia do desenvolvedor do Java do Azure Functions](functions-reference-java.md) para obter mais informações sobre o desenvolvimento de funções do Java e do Kotlin.
+- Adicione outros aplicativos de funções com gatilhos diferentes ao seu projeto usando o destino do Maven `azure-functions:add`.

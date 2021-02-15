@@ -1,6 +1,5 @@
 ---
-title: Ativos
-titleSuffix: Azure Media Services
+title: Ativos nos serviços de mídia do Azure
 description: Saiba quais são os ativos e como eles são usados pelos serviços de mídia do Azure.
 services: media-services
 documentationcenter: ''
@@ -9,18 +8,20 @@ manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
-ms.topic: article
-ms.date: 08/18/2020
+ms.topic: conceptual
+ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 27082499263af6eedd7d9d628b7b1746a9177672
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 5159432107e60f6c21bcf70e0bbc9a9e2123a728
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88606835"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897689"
 ---
 # <a name="assets-in-azure-media-services-v3"></a>Ativos nos serviços de mídia do Azure v3
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Nos serviços de mídia do Azure, um [ativo](/rest/api/media/assets) é um conceito básico. É onde você insere a mídia (por exemplo, por meio de carregamento ou ingestão dinâmica), mídia de saída (de uma saída de trabalho) e publicação de mídia de (para streaming). 
 
@@ -46,4 +47,4 @@ Os nomes de Arquivos/blobs em um ativo devem seguir os [requisitos de nome de bl
 
 ## <a name="see-also"></a>Confira também
 
-[Diferenças entre os Serviços de Mídia do Azure v2 e v3](migrate-from-v2-to-v3.md)
+[Diferenças entre os Serviços de Mídia do Azure v2 e v3](migrate-v-2-v-3-migration-introduction.md)

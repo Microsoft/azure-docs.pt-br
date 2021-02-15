@@ -1,22 +1,18 @@
 ---
 title: Monitorar e gerenciar pipelines usando o portal do Azure e o PowerShell
 description: Saiba como usar o Portal do Azure e o Azure PowerShell para monitorar e gerenciar as data factories e os pipelines do Azure que você criou.
-services: data-factory
-documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
-manager: jroth
+author: dcstwh
+ms.author: weetok
 ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/30/2018
-ms.openlocfilehash: 44aadecfa80524345932c03abb51e8ebd040a902
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 486f12c29c473d46e3aff73abe747f8aa5a2ef8d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73666974"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100380399"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Monitorar e gerenciar os pipelines do Azure Data Factory usando o Portal do Azure e o PowerShell
 > [!div class="op_single_selector"]
@@ -32,7 +28,7 @@ Este artigo descreve como monitorar, gerenciar e depurar seus pipelines usando o
 > O aplicativo de monitoramento e gerenciamento fornece um melhor suporte para monitorar e gerenciar seus pipelines de dados e solucionar os problemas. Para obter detalhes sobre como usar o aplicativo, consulte [Monitorar e gerenciar os pipelines do Data Factory usando o aplicativo de Monitoramento e Gerenciamento](data-factory-monitor-manage-app.md). 
 
 > [!IMPORTANT]
-> O Azure Data Factory versão 1 agora usa a nova [infraestrutura de alerta do Azure Monitor](../../monitoring-and-diagnostics/monitor-alerts-unified-usage.md). A infraestrutura de alerta antiga foi preterida. Como resultado, os alertas existentes configurados para data factories versão 1 deixará de funcionar. Os alertas existentes para data factories v1 não são migrados automaticamente. Você precisa recriar esses alertas na nova infraestrutura de alerta. Faça logon no portal do Azure e selecione **Monitor** para criar novos alertas em métricas (como execuções com falha ou execuções com êxito) para a data factories versão 1.
+> O Azure Data Factory versão 1 agora usa a nova [infraestrutura de alerta do Azure Monitor](../../azure-monitor/platform/alerts-metric.md). A infraestrutura de alerta antiga foi preterida. Como resultado, os alertas existentes configurados para data factories versão 1 deixará de funcionar. Os alertas existentes para data factories v1 não são migrados automaticamente. Você precisa recriar esses alertas na nova infraestrutura de alerta. Faça logon no portal do Azure e selecione **Monitor** para criar novos alertas em métricas (como execuções com falha ou execuções com êxito) para a data factories versão 1.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -121,7 +117,7 @@ As fatias do conjunto de dados no data factory podem ter um dos seguintes status
 <td>A fatia está sendo processada.</td>
 </tr>
 <tr>
-<td rowspan="4">Falhou</td><td>TimedOut</td><td>A execução demorou mais do que o permitido pela atividade.</td>
+<td rowspan="4">Failed (Falha)</td><td>TimedOut</td><td>A execução demorou mais do que o permitido pela atividade.</td>
 </tr>
 <tr>
 <td>Canceled</td><td>A fatia foi cancelada por ação do usuário.</td>
@@ -288,7 +284,7 @@ Em caso de falha na validação da fatia devido a uma falha de política (por ex
 ![Corrigir os erros e validar](./media/data-factory-monitor-manage-pipelines/fix-error-and-validate.png)
 
 ### <a name="use-azure-powershell"></a>Usar PowerShell do Azure
-Você pode executar novamente as falhas usando o cmdlet **set-AzDataFactorySliceStatus** . Consulte o tópico [set-AzDataFactorySliceStatus](https://docs.microsoft.com/powershell/module/az.datafactory/set-azdatafactoryslicestatus) para obter a sintaxe e outros detalhes sobre o cmdlet.
+Você pode executar novamente as falhas usando o cmdlet **set-AzDataFactorySliceStatus** . Consulte o tópico [set-AzDataFactorySliceStatus](/powershell/module/az.datafactory/set-azdatafactoryslicestatus) para obter a sintaxe e outros detalhes sobre o cmdlet.
 
 **Exemplo:**
 

@@ -1,25 +1,25 @@
 ---
-title: Configurar uma conexão com uma fonte de dados usando uma identidade gerenciada (versão prévia)
+title: Configurar uma conexão com uma fonte de dados usando uma identidade gerenciada
 titleSuffix: Azure Cognitive Search
-description: Aprenda a configurar uma conexão do indexador com uma fonte de dados usando uma identidade gerenciada (versão prévia)
+description: Saiba como configurar uma conexão de indexador com uma fonte de dados usando uma identidade gerenciada
 manager: luisca
 author: markheff
 ms.author: maheff
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/18/2020
-ms.openlocfilehash: d303de23a04d183d0ca280c3b3591299d883adf7
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/22/2020
+ms.openlocfilehash: 95f1c4bf9b599da8285ac69e299549e5aa73c2f9
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88936581"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92519581"
 ---
-# <a name="set-up-an-indexer-connection-to-a-data-source-using-a-managed-identity-preview"></a>Configurar uma conexão do indexador com uma fonte de dados usando uma identidade gerenciada (versão prévia)
+# <a name="set-up-an-indexer-connection-to-a-data-source-using-a-managed-identity"></a>Configurar uma conexão do indexador com uma fonte de dados usando uma identidade gerenciada
 
 > [!IMPORTANT] 
-> O suporte para configurar uma conexão com uma fonte de dados usando uma identidade gerenciada está atualmente em visualização pública. A funcionalidade de versão prévia é fornecida sem um Contrato de Nível de Serviço e, portanto, não é recomendada para cargas de trabalho de produção.
+> Não há suporte para a configuração de uma conexão com uma fonte de dados usando uma identidade gerenciada com a camada gratuita de Pesquisa Cognitiva do Azure.
 
 No Azure Cognitive Search, o [indexador](search-indexer-overview.md) é um rastreador que fornece uma maneira de efetuar pull de dados de sua fonte de dados para o Azure Cognitive Search. Um indexador obtém uma conexão de fonte de dados por meio do objeto da fonte de dados criado por você. O objeto da fonte de dados geralmente inclui as credenciais da fonte de dados de destino. Por exemplo, o objeto da fonte de dados poderá incluir uma chave de conta de armazenamento do Azure se você quiser indexar dados de um contêiner de armazenamento de blobs.
 
@@ -31,7 +31,7 @@ Essa situação pode ser resolvida configurando uma conexão com uma identidade 
 
 ## <a name="using-managed-identities"></a>Usar identidades gerenciadas
 
-O recurso de [identidades gerenciadas](../active-directory/managed-identities-azure-resources/overview.md) fornece serviços do Azure com uma identidade gerenciada automaticamente no Azure AD (Azure Active Directory). Você pode usar esse recurso no Azure Cognitive Search para criar um objeto da fonte de dados com uma cadeia de conexão que não inclua credenciais. Em vez disso, o serviço de pesquisa receberá acesso à fonte de dados por meio do RBAC (controle de acesso baseado em função).
+O recurso de [identidades gerenciadas](../active-directory/managed-identities-azure-resources/overview.md) fornece serviços do Azure com uma identidade gerenciada automaticamente no Azure AD (Azure Active Directory). Você pode usar esse recurso no Azure Cognitive Search para criar um objeto da fonte de dados com uma cadeia de conexão que não inclua credenciais. Em vez disso, o serviço de pesquisa receberá acesso à fonte de dados por meio do controle de acesso baseado em função do Azure (RBAC do Azure).
 
 Ao configurar uma fonte de dados usando uma identidade gerenciada, você pode alterar as credenciais da fonte de dados enquanto ainda mantém a conexão entre os indexadores e a fonte de dados. Você também pode criar objetos de fonte de dados em seu código sem precisar incluir uma chave de conta ou usar Key Vault para recuperar uma chave de conta.
 

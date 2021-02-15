@@ -11,10 +11,10 @@ metadata:
   ms.author: crtreasu
   ms.date: 03/11/2020
   ms.openlocfilehash: 9a5d087416f29f0e4a15ae749453438a05f8ee9d
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 03/25/2020
+  ms.lasthandoff: 10/09/2020
   ms.locfileid: "79471227"
 landingContent:
 - title: Sobre as Âncoras Espaciais do Azure
@@ -39,7 +39,7 @@ landingContent:
       url: ./concepts/logging-diagnostics.md
     - text: Relocalização grosseira
       url: ./concepts/coarse-reloc.md
-- title: Crie seu primeiro aplicativo
+- title: Criar seu primeiro aplicativo
   linkLists:
   - linkListType: quickstart
     links:

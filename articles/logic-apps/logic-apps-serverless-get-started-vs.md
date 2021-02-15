@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 06/20/2019
-ms.openlocfilehash: 86ee81f3802b7ec7f8189123192c20143a08cf3d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1758cca902eb77ffc66824cb56b8add9446fabf9
+ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090239"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96749140"
 ---
 # <a name="build-your-first-serverless-app-by-using-azure-logic-apps-and-azure-functions-in-visual-studio"></a>Crie seu primeiro aplicativo sem servidor usando os aplicativos lógicos do Azure e o Azure Functions no Visual Studio
 
@@ -32,7 +32,7 @@ Para criar um aplicativo sem servidor no Visual Studio, você precisa:
     > Ao instalar o Visual Studio 2019 ou 2017, selecione a carga de trabalho **Desenvolvimento do Azure**.
 
   * [Microsoft Azure SDK para .net (versão 2.9.1 ou posterior)](https://azure.microsoft.com/downloads/). 
-  Saiba mais sobre o [SDK do Azure para .NET](/dotnet/azure/dotnet-tools?view=azure-dotnet).
+  Saiba mais sobre o [SDK do Azure para .NET](/dotnet/azure/intro).
 
   * [Azure PowerShell](https://github.com/Azure/azure-powershell#installation).
 
@@ -64,7 +64,7 @@ Para começar, crie um [projeto do Grupo de Recursos do Azure](../azure-resource
 
    ![Criar um novo projeto no Visual Studio](./media/logic-apps-serverless-get-started-vs/create-new-project-visual-studio.png)
 
-1. Em **Instalado**, selecione **Visual C#** ou **Visual Basic**. Em seguida, **Cloud**selecione  >  **grupo de recursos do Azure**na nuvem.
+1. Em **Instalado**, selecione **Visual C#** ou **Visual Basic**. Em seguida, **Cloud** selecione  >  **grupo de recursos do Azure** na nuvem.
 
    > [!NOTE]
    > Se a categoria de **nuvem** ou o projeto de **grupo de recursos do Azure** não existir, verifique se você instalou o SDK do Azure para Visual Studio.

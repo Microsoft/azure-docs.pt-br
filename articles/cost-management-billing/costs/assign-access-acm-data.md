@@ -9,20 +9,20 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: secdec18
-ms.openlocfilehash: c69dc63af6bacb4aaf1beda1a0846a98b06ec209
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 660b5751e3b3cbc632331e99d797af3392a8aea4
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88689245"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "91371959"
 ---
 # <a name="assign-access-to-cost-management-data"></a>Atribuir acesso a dados do Gerenciamento de Custos
 
-Para usuários com contratos Azure Enterprise, uma combinação de permissões concedidas no portal do Azure e no portal do EA (Contrato Enterprise) define o nível de acesso de um usuário aos dados do Gerenciamento de Custos do Azure. Para usuários com outros tipos de contas do Azure, definir o nível de acesso de um usuário aos dados do Gerenciamento de Custos é mais simples usando o controle de acesso baseado em função do Azure. Este artigo orienta você pela atribuição de acesso aos dados do Gerenciamento de Custos. Depois que a combinação de permissões é atribuída, os dados das exibições do usuário no Gerenciamento de Custos com base no escopo ao qual eles têm acesso e no escopo que eles selecionam no portal do Azure.
+Para usuários com contratos Azure Enterprise, uma combinação de permissões concedidas no portal do Azure e no portal do EA (Contrato Enterprise) define o nível de acesso de um usuário aos dados do Gerenciamento de Custos do Azure. Para usuários com outros tipos de contas do Azure, definir o nível de acesso de um usuário aos dados do Gerenciamento de Custos é mais simples usando o Azure RBAC (controle de acesso baseado em função). Este artigo orienta você pela atribuição de acesso aos dados do Gerenciamento de Custos. Depois que a combinação de permissões é atribuída, os dados das exibições do usuário no Gerenciamento de Custos com base no escopo ao qual eles têm acesso e no escopo que eles selecionam no portal do Azure.
 
 O escopo que um usuário seleciona é usado em todo o Gerenciamento de Custos para fornecer a consolidação de dados e para controlar o acesso a informações de custo. Ao usar escopos, os usuários não selecionam vários deles. Em vez disso, eles selecionam um escopo mais amplo que em que os escopos filho se acumulam, para depois filtrarem o que desejam exibir. A consolidação de dados é importante para entender por que algumas pessoas não devem ter acesso a um escopo pai acumulado por escopos filho.
 
-Assista ao vídeo [Gerenciamento de Custos controlando acesso](https://www.youtube.com/watch?v=_uQzQ9puPyM) para saber como atribuir acesso para ver custos e encargos com o controle de acesso baseado em função do Azure. Para assistir a outros vídeos, visite o [Canal do YouTube do Gerenciamento de Custos](https://www.youtube.com/c/AzureCostManagement).
+Assista ao vídeo [Gerenciamento de Custos controlando acesso](https://www.youtube.com/watch?v=_uQzQ9puPyM) para saber como atribuir acesso para exibir custos e encargos com o Azure RBAC (controle de acesso baseado em função). Para assistir a outros vídeos, visite o [Canal do YouTube do Gerenciamento de Custos](https://www.youtube.com/c/AzureCostManagement).
 
 >[!VIDEO https://www.youtube.com/embed/_uQzQ9puPyM]
 
@@ -71,7 +71,7 @@ Para habilitar uma opção no portal do Azure:
 1. Em **Configurações**, selecione o item de menu **Políticas** e, em seguida, defina a configuração.  
     ![Políticas de escopo de cobrança mostrando as opções de exibição de cobranças](./media/assign-access-acm-data/azure-portal-policies-view-charges.png)
 
-Depois que as opções de cobrança de exibição estiverem ativadas, a maioria dos escopos também exigirá configuração de permissão de controle de acesso baseado em função (RBAC) no portal do Microsoft Azure.
+Depois que as opções de exibição de preço estiverem habilitadas, a maioria dos escopos também exigirá configuração de permissão do Azure RBAC (controle de acesso baseado em função) no portal do Microsoft Azure.
 
 ## <a name="enable-access-to-costs-in-the-ea-portal"></a>Habilitar o acesso aos custos no portal do EA
 
@@ -84,7 +84,7 @@ Para habilitar uma opção no portal do EA:
 3. Para os escopos do Gerenciamento de Custos aos quais você deseja permitir acesso, habilite a opção de cobrança **Encargos de exibição do administrador de departamento** e/ou **Encargos de exibição do proprietário da conta**.  
     ![Guia Registro, mostrando as opções de encargos de exibição do administrador de departamento e do proprietário da conta](./media/assign-access-acm-data/ea-portal-enrollment-tab.png)
 
-Depois que as opções de cobrança de exibição estiverem ativadas, a maioria dos escopos também exigirá configuração de permissão de controle de acesso baseado em função (RBAC) no portal do Microsoft Azure.
+Depois que as opções de exibição de preço estiverem habilitadas, a maioria dos escopos também exigirá configuração de permissão do Azure RBAC (controle de acesso baseado em função) no portal do Microsoft Azure.
 
 ## <a name="enterprise-administrator-role"></a>Função de administrador corporativo
 
@@ -182,9 +182,9 @@ O acesso a um grupo de recursos requer pelo menos a permissão do Leitor de Gere
 
 ## <a name="cross-tenant-authentication-issues"></a>Problemas de autenticação entre locatários
 
-Atualmente, o Gerenciamento de Custos do Azure tem suporte limitado para autenticação entre locatários. Em algumas circunstâncias, quando tenta autenticar entre locatários, você pode receber um erro de **Acesso negado** na análise de custo. Esse problema poderá ocorrer se você configurar o RBAC (controle de acesso baseado em função) para a assinatura de outro locatário e, em seguida, tentar exibir dados de custo.
+Atualmente, o Gerenciamento de Custos do Azure tem suporte limitado para autenticação entre locatários. Em algumas circunstâncias, quando tenta autenticar entre locatários, você pode receber um erro de **Acesso negado** na análise de custo. Esse problema poderá ocorrer se você configurar o Azure RBAC (controle de acesso baseado em função) para a assinatura de outro locatário e, em seguida, tentar exibir dados de custo.
 
-*Para contornar o problema*: depois de configurar o RBAC entre locatários, aguarde uma hora. Em seguida, tente exibir os custos na análise de custos ou conceder acesso de Gerenciamento de Custos aos usuários em ambos os locatários.  
+*Para contornar o problema*: depois de configurar o Azure RBAC entre locatários, aguarde uma hora. Em seguida, tente exibir os custos na análise de custos ou conceder acesso de Gerenciamento de Custos aos usuários em ambos os locatários.  
 
 
 ## <a name="next-steps"></a>Próximas etapas

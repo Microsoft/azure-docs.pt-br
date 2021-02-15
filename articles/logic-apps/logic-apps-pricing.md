@@ -1,173 +1,152 @@
 ---
-title: Modelo de cobrança de & de preços
-description: Visão geral sobre como o modelo de cobrança e preços funciona para aplicativos lógicos do Azure
+title: Modelos de preços de & de cobrança
+description: Visão geral de como os modelos de preços e cobrança funcionam nos aplicativos lógicos do Azure
 services: logic-apps
 ms.suite: integration
-author: jonfancey
-ms.author: jonfan
-ms.reviewer: estfan, logicappspm
+ms.reviewer: estfan, logicappspm, azla
 ms.topic: conceptual
-ms.date: 06/25/2020
-ms.openlocfilehash: a5511d7cd4b5bb0f3fe901a735535f8db9036ee7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 01/29/2021
+ms.openlocfilehash: 103855748c4b5d998dfc81eeb4044f5f53dae9e5
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87078156"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100372001"
 ---
-# <a name="pricing-model-for-azure-logic-apps"></a>Modelo de preços para os Aplicativos Lógicos do Azure
+# <a name="pricing-and-billing-models-for-azure-logic-apps"></a>Modelos de preços e cobrança para aplicativos lógicos do Azure
 
-Os [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md) ajudam a criar e executar fluxos de trabalho de integração automatizados que podem ser dimensionados na nuvem. Este artigo descreve como a cobrança e os preços funcionam para os aplicativos lógicos do Azure. Para obter taxas de preços, consulte [preços dos aplicativos lógicos](https://azure.microsoft.com/pricing/details/logic-apps).
+Os [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md) ajudam a criar e executar fluxos de trabalho de integração automatizados que podem ser dimensionados na nuvem. Este artigo descreve como os modelos de cobrança e preços funcionam para o serviço de aplicativos lógicos e recursos relacionados. Para obter taxas de preços específicas, consulte [preços dos aplicativos lógicos](https://azure.microsoft.com/pricing/details/logic-apps). Para saber como você pode planejar, gerenciar e monitorar custos, consulte [planejar e gerenciar custos para aplicativos lógicos do Azure](plan-manage-costs.md).
 
 <a name="consumption-pricing"></a>
 
-## <a name="consumption-pricing-model"></a>Modelo de preço por consumo
+## <a name="multi-tenant-pricing"></a>Preços de vários locatários
 
-Para novos aplicativos lógicos executados no serviço público, "global", multilocatário aplicativos lógicos do Azure, você paga apenas pelo que usar. Esses aplicativos lógicos usam um plano baseado em consumo e modelo de preços. Em seu aplicativo lógico, cada etapa é uma ação, e os aplicativos lógicos do Azure medem todas as ações executadas em seu aplicativo lógico.
+Um modelo de preços de consumo de pagamento por uso se aplica a aplicativos lógicos que são executados no serviço de aplicativos lógicos multilocatários públicos, "globais". Todas as execuções bem-sucedidas e malsucedidas são medidas e cobradas.
 
-Por exemplo, as ações incluem:
+Por exemplo, uma solicitação que um gatilho de sondagem faz ainda é medida como uma execução, mesmo que o gatilho seja ignorado, e nenhuma instância de fluxo de trabalho do aplicativo lógico é criada.
 
-* [Gatilhos](#triggers), que são ações especiais. Todos os aplicativos lógicos exigem um gatilho como a primeira etapa.
+| Itens | Descrição |
+|-------|-------------|
+| Gatilhos e ações [internas](../connectors/apis-list.md#built-in) | Executar nativamente no serviço de aplicativos lógicos e é medido usando o [preço de **ações**](https://azure.microsoft.com/pricing/details/logic-apps/). <p><p>Por exemplo, o gatilho HTTP e o gatilho de solicitação são gatilhos internos, enquanto que a ação HTTP e a ação de resposta são ações internas. Operações de dados, operações em lote, operações de variáveis e [ações de controle de fluxo de trabalho](../connectors/apis-list.md#control-workflow), como loops, condições, comutador, ramificações paralelas e assim por diante, também são ações internas. |
+| Ações e gatilhos de [conector padrão](../connectors/apis-list.md#managed-connectors) <p><p>Gatilhos e ações de [conector personalizado](../connectors/apis-list.md#custom) | Medido usando o [preço do conector padrão](https://azure.microsoft.com/pricing/details/logic-apps/). |
+| Gatilhos e ações do [Enterprise Connector](../connectors/apis-list.md#managed-connectors) | Medido usando o [preço do conector Enterprise](https://azure.microsoft.com/pricing/details/logic-apps/). No entanto, durante a visualização pública, os conectores Enterprise são medidos usando o [preço do conector *padrão*](https://azure.microsoft.com/pricing/details/logic-apps/). |
+| Ações dentro de [loops](logic-apps-control-flow-loops.md) | Cada ação executada em um loop é medida para cada ciclo de loop executado. <p><p>Por exemplo, suponha que você tenha um loop "for each" que inclui ações que processam uma lista. O serviço de aplicativos lógicos mede cada ação que é executada nesse loop multiplicando o número de itens de lista pelo número de ações no loop e adiciona a ação que inicia o loop. Portanto, o cálculo para uma lista de 10 itens é (10 * 1) + 1, o que resulta em 11 execuções de ação. |
+| Tentativas de repetição | Para lidar com as exceções e erros mais básicos, você pode configurar uma [política de repetição](logic-apps-exception-handling.md#retry-policies) em gatilhos e ações quando houver suporte. Essas repetições junto com a solicitação original são cobradas a taxas com base em se o gatilho ou a ação tem tipo interno, padrão ou empresarial. Por exemplo, uma ação que é executada com 2 tentativas é cobrada por 3 execuções de ação. |
+| [Retenção de dados e consumo de armazenamento](#data-retention) | Medido usando o preço de retenção de dados, que pode ser encontrado na [página de preços dos aplicativos lógicos](https://azure.microsoft.com/pricing/details/logic-apps/), na tabela **detalhes de preços** . |
+|||
 
-* [Ações "internas" ou nativas](../connectors/apis-list.md#built-in) como http, chamadas para Azure Functions e gerenciamento de API e assim por diante
+Para saber mais, consulte o seguinte:
 
-* Chamadas para [conectores gerenciados](../connectors/apis-list.md#managed-connectors) , como o Outlook 365, Dropbox e assim por diante
+* [Exibir métricas para execuções e consumo de armazenamento](plan-manage-costs.md#monitor-billing-metrics)
+* [Limites em aplicativos lógicos do Azure](logic-apps-limits-and-config.md)
 
-* [Controlar ações de fluxo de trabalho](../connectors/apis-list.md#control-workflow) como loops, instruções condicionais e assim por diante
+### <a name="not-metered"></a>Não medido
 
-Os [conectores padrão](../connectors/apis-list.md#managed-connectors) são cobrados com o [preço do conector padrão](https://azure.microsoft.com/pricing/details/logic-apps). Os [conectores empresariais](../connectors/apis-list.md#managed-connectors) geralmente disponíveis são cobrados pelo [preço do conector corporativo](https://azure.microsoft.com/pricing/details/logic-apps), enquanto os conectores corporativos de visualização pública são cobrados com o [preço do conector padrão](https://azure.microsoft.com/pricing/details/logic-apps).
+* Gatilhos que são ignorados devido a condições não atendidas
+* Ações que não foram executadas porque o aplicativo lógico parou antes de concluir
+* [Aplicativos lógicos desabilitados](#disabled-apps)
 
-Saiba mais sobre como a cobrança funciona nos níveis de [gatilhos](#triggers) e [ações](#actions) . Ou, para obter informações sobre limites, consulte [limites e configuração para aplicativos lógicos do Azure](logic-apps-limits-and-config.md).
+### <a name="other-related-resources"></a>Outros recursos relacionados
+
+Os aplicativos lógicos funcionam com outros recursos relacionados, como contas de integração, gateways de dados locais e ambientes de serviço de integração (ISEs). Para saber mais sobre os preços desses recursos, examine estas seções mais adiante neste tópico:
+
+* [On-premises data gateway (Gateway de dados local)](#data-gateway)
+* [Modelo de preços da conta de integração](#integration-accounts)
+* [Modelo de preços do ISE](#fixed-pricing)
+
+### <a name="tips-for-estimating-consumption-costs"></a>Dicas para estimar os custos de consumo
+
+Para ajudá-lo a estimar custos de consumo mais precisos, leia estas dicas:
+
+* Considere o número possível de mensagens ou eventos que podem chegar em um determinado dia, em vez de basear seus cálculos apenas no intervalo de sondagem.
+
+* Quando um evento ou mensagem atende aos critérios do gatilho, muitos disparadores imediatamente tentam ler todos e quaisquer outros eventos ou mensagens em espera que atendam aos critérios. Esse comportamento significa que, mesmo quando você seleciona um intervalo de sondagem mais longo, o gatilho dispara com base no número de eventos ou mensagens em espera que qualificam-se para iniciar os fluxos de trabalho. Os disparadores que seguem esse comportamento incluem o Barramento de Serviço do Azure e o Hub de Eventos do Azure.
+
+  Por exemplo, suponha que você configure o gatilho que verifica um ponto de extremidade todos os dias. Quando o gatilho verifica o ponto de extremidade e encontra 15 eventos que atendem aos critérios, o gatilho dispara e executa o fluxo de trabalho correspondente 15 vezes. O serviço de aplicativos lógicos mede todas as ações que esses 15 fluxos de trabalho executam, incluindo as solicitações de gatilho.
 
 <a name="fixed-pricing"></a>
 
-## <a name="fixed-pricing-model"></a>Modelo de preços fixo
+## <a name="ise-pricing"></a>Preços do ISE
 
-Um [ISE ( *ambiente do serviço de integração* )](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) fornece uma maneira isolada para criar e executar aplicativos lógicos que podem acessar recursos em uma rede virtual do Azure. Os aplicativos lógicos executados em um ISE não incorrem em custos de retenção de dados. Ao criar um ISE e somente durante a criação, você pode escolher um [nível de ISE ou "SKU"](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level), que têm [taxas de preços](https://azure.microsoft.com/pricing/details/logic-apps)diferentes:
+Um modelo de preço fixo se aplica a aplicativos lógicos executados em um [ *ambiente do serviço de integração* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). Um ISE é cobrado usando o [preço de ambiente de serviço de integração](https://azure.microsoft.com/pricing/details/logic-apps), que depende do [nível do ISE ou da *SKU*](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) que você criar. Esse preço é diferente do preço de multilocatário, pois você está pagando pela capacidade reservada e pelos recursos dedicados, independentemente de usá-los ou não.
 
-* **Premium** ISE: a unidade base deste SKU tem capacidade fixa, mas se você precisar de mais taxa de transferência, poderá [adicionar mais unidades de escala](../logic-apps/ise-manage-integration-service-environment.md#add-capacity) durante a criação do ISE ou posteriormente. Para limites do ISE, consulte [limites e configuração para aplicativos lógicos do Azure](logic-apps-limits-and-config.md#integration-service-environment-ise).
+| SKU do ISE | Descrição |
+|---------|-------------|
+| **Premium** | A unidade base tem [capacidade fixa](logic-apps-limits-and-config.md#integration-service-environment-ise) e é [cobrada a uma taxa por hora para o SKU Premium](https://azure.microsoft.com/pricing/details/logic-apps). Se precisar de mais taxa de transferência, você poderá [adicionar mais unidades de escala](../logic-apps/ise-manage-integration-service-environment.md#add-capacity) ao criar o ISE ou posteriormente. Cada unidade de escala é cobrada a uma [taxa por hora que é aproximadamente metade da taxa de unidade base](https://azure.microsoft.com/pricing/details/logic-apps). <p><p>Para obter informações sobre capacidade e limites, consulte [limites do ISE em aplicativos lógicos do Azure](logic-apps-limits-and-config.md#integration-service-environment-ise). |
+| **Desenvolvedor** | A unidade base tem [capacidade fixa](logic-apps-limits-and-config.md#integration-service-environment-ise) e é [cobrada a uma taxa por hora para a SKU do desenvolvedor](https://azure.microsoft.com/pricing/details/logic-apps). No entanto, essa SKU não tem nenhum SLA (contrato de nível de serviço), capacidade de expansão ou redundância durante a reciclagem, o que significa que você pode enfrentar atrasos ou tempo de inatividade. As atualizações de back-end podem interromper o serviço intermitentemente. <p><p>**Importante**: Certifique-se de usar essa SKU somente para exploração, experimentos, desenvolvimento e teste-não para teste de produção ou de desempenho. <p><p>Para obter informações sobre capacidade e limites, consulte [limites do ISE em aplicativos lógicos do Azure](logic-apps-limits-and-config.md#integration-service-environment-ise). |
+|||
 
-* **Desenvolvedor** ISE: essa SKU não tem capacidade de escalar verticalmente, nenhum SLA (contrato de nível de serviço) e nenhum limite publicado. Use esse SKU somente para experimentar, desenvolver e testar, não para produção ou teste de desempenho.
+### <a name="included-at-no-extra-cost"></a>Incluído sem custo extra
 
-Para aplicativos lógicos que você cria e executa em um ISE, você paga um [preço fixo](https://azure.microsoft.com/pricing/details/logic-apps) (versus pagamento por uso) para esses recursos:
+| Itens | Descrição |
+|-------|-------------|
+| Gatilhos e ações [internas](../connectors/apis-list.md#built-in) | Exiba o rótulo **principal** e execute no mesmo ISE que seus aplicativos lógicos. |
+| [Conectores padrão](../connectors/apis-list.md#managed-connectors) <p><p>[Conectores empresariais](../connectors/apis-list.md#enterprise-connectors) | -Conectores gerenciados que exibem o rótulo do **ISE** são especialmente projetados para funcionar sem o gateway de dados local e são executados no mesmo ISE que seus aplicativos lógicos. Os preços do ISE incluem quantas conexões corporativas desejar. <p><p>-Conectores que não exibem a execução do rótulo do ISE no serviço de aplicativos lógicos multilocatário. No entanto, o preço do ISE inclui essas execuções para aplicativos lógicos que são executados em um ISE. |
+| Ações dentro de [loops](logic-apps-control-flow-loops.md) | Os preços do ISE incluem cada ação executada em um loop para cada ciclo de loop executado. <p><p>Por exemplo, suponha que você tenha um loop "for each" que inclui ações que processam uma lista. Para obter o número total de execuções de ação, multiplique o número de itens de lista com o número de ações no loop e adicione a ação que inicia o loop. Portanto, o cálculo para uma lista de 10 itens é (10 * 1) + 1, o que resulta em 11 execuções de ação. |
+| Tentativas de repetição | Para lidar com as exceções e erros mais básicos, você pode configurar uma [política de repetição](logic-apps-exception-handling.md#retry-policies) em gatilhos e ações quando houver suporte. O preço do ISE inclui novas tentativas junto com a solicitação original. |
+| [Retenção de dados e consumo de armazenamento](#data-retention) | Os aplicativos lógicos em um ISE não incorrem em custos de retenção e armazenamento. |
+| [Contas de integração](#integration-accounts) | Inclui o uso de uma única camada de conta de integração, com base na SKU do ISE, sem custo adicional. |
+|||
 
-* Gatilhos e ações [internas](../connectors/apis-list.md#built-in)
-
-  Em um ISE, gatilhos e ações internas exibem o rótulo **principal** e são executados no mesmo ISE que seus aplicativos lógicos.
-
-* Conectores [padrão](../connectors/apis-list.md#managed-connectors) e conectores [corporativos](../connectors/apis-list.md#enterprise-connectors) , que permitem que você tenha tantas conexões corporativas quanto desejar
-
-   Conectores Standard e Enterprise que exibem o rótulo do **ISE** executados no mesmo ISE que seus aplicativos lógicos. Os conectores que não exibem a etiqueta do ISE são executados no serviço Public, "global", de aplicativos lógicos multilocatários. O preço fixo também se aplica aos conectores que são executados no serviço multilocatário ao usá-los com aplicativos lógicos executados em um ISE.
-
-* Uso da [conta de integração](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) sem custo adicional, com base em seu [SKU do ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level):
-
-  * **Premium** SKU do ISE: uma única conta de integração de [camada Standard](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits)
-
-  * **Desenvolvedor** SKU do ISE: uma única conta de integração de [camada gratuita](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits)
-
-  Cada SKU do ISE é limitado a 5 contas de integração totais. Para obter um custo adicional, você pode ter mais contas de integração, com base em seu SKU do ISE:
-
-  * **Premium** SKU do ISE: até quatro mais contas padrão. Nenhuma conta gratuita ou básica.
-
-  * **Desenvolvedor** SKU do ISE: até quatro mais contas padrão ou até 5 contas padrão totais. Nenhuma conta básica.
-
-  Para obter mais informações sobre limites de conta de integração, consulte [limites e configuração para aplicativos lógicos do Azure](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits). Você pode aprender mais sobre [as camadas de conta de integração e seu modelo de preços](#integration-accounts) posteriormente neste tópico.
-
-<a name="connectors"></a>
-
-## <a name="connectors"></a>Conectores
-
-Os conectores de aplicativos lógicos do Azure ajudam seu aplicativo lógico a acessar aplicativos, serviços e sistemas na nuvem ou localmente, fornecendo [gatilhos](#triggers), [ações](#actions)ou ambos. Os conectores são classificados como Standard ou Enterprise. Para obter uma visão geral sobre esses conectores, consulte [conectores para aplicativos lógicos do Azure](../connectors/apis-list.md). Se nenhum conector predefinido estiver disponível para as APIs REST que você deseja usar em seus aplicativos lógicos, você poderá criar [conectores personalizados](/connectors/custom-connectors), que são apenas wrappers em volta dessas APIs REST. Os conectores personalizados são cobrados como conectores padrão. As seções a seguir fornecem mais informações sobre como a cobrança de gatilhos e ações funcionam.
-
-<a name="triggers"></a>
-
-## <a name="triggers"></a>Gatilhos
-
-Um gatilho é sempre a primeira etapa em um fluxo de trabalho de aplicativo lógico e é uma ação especial que cria e executa uma instância de aplicativo lógico quando critérios específicos são atendidos ou um evento específico ocorre. Dispara ações de diferentes formas, o que afeta o modo como o aplicativo lógico é monitorado. Aqui estão os vários tipos de gatilhos que existem nos aplicativos lógicos do Azure:
-
-* **Gatilho de recorrência**: você pode usar esse gatilho genérico, que não é específico de nenhum serviço ou sistema, para iniciar qualquer fluxo de trabalho de aplicativo lógico e criar uma instância de aplicativo lógico que é executada com base no intervalo de recorrência que você configurou no gatilho. Por exemplo, você pode configurar um gatilho de recorrência que é executado a cada três dias ou em uma agenda mais complexa.
-
-* **Gatilho de sondagem**: você pode usar esse gatilho de recorrência mais especializado, que é geralmente associado ao conector gerenciado para um serviço ou sistema específico, para verificar se há eventos ou mensagens que atendam aos critérios para criar e executar a instância do aplicativo lógico com base no intervalo de recorrência que você configurou no gatilho. Mesmo quando nenhuma instância de aplicativo lógico é criada, por exemplo, quando os gatilhos são ignorados, o serviço de aplicativos lógicos mede cada solicitação de sondagem como uma execução. Para especificar o intervalo de sondagem, configure o gatilho no Designer de Aplicativos Lógicos.
-
-  [!INCLUDE [logic-apps-polling-trigger-non-standard-metering](../../includes/logic-apps-polling-trigger-non-standard-metering.md)]
-
-* **Gatilho de webhook**: em vez de usar um gatilho de sondagem, você pode usar um gatilho de webhook para aguardar que o cliente envie uma solicitação para seu aplicativo lógico em uma URL de ponto de extremidade específica. Cada solicitação enviada para o ponto de extremidade do webhook conta como uma execução de ação. Por exemplo, a solicitação e o gatilho de webhook HTTP são gatilhos de webhook genéricos. Alguns conectores para serviços ou sistemas também têm gatilhos de webhook.
-
-<a name="actions"></a>
-
-## <a name="actions"></a>Ações
-
-O aplicativo lógico do Azure monitora as ações "internas", como HTTP, como ações nativas. Por exemplo, ações internas incluem chamadas HTTP, chamadas de Azure Functions ou gerenciamento de API e etapas de fluxo de controle, como condições, loops e instruções switch. Cada ação tem seu próprio tipo de ação. Por exemplo, ações que chamam [conectores](/connectors) têm o tipo "ApiConnection". Esses conectores são classificados como conectores Standard ou Enterprise, que são medidos com base em seus respectivos [preços](https://azure.microsoft.com/pricing/details/logic-apps). Conectores empresariais na versão *prévia* são cobrados como conectores padrão.
-
-Os aplicativos lógicos do Azure medem todas as ações bem-sucedidas e malsucedidas como execuções. No entanto, os aplicativos lógicos não medim essas ações:
-
-* Ações que são ignoradas devido a condições não atendidas
-* Ações que não são executadas porque o aplicativo lógico parou antes de terminar
-
-Para ações executadas dentro de loops, os aplicativos lógicos do Azure contam cada ação para cada ciclo no loop. Por exemplo, suponha que você tenha um loop "para cada" que processe uma lista. Os aplicativos lógicos medem uma ação nesse loop multiplicando o número de itens da lista pelo número de ações no loop e adiciona a ação que inicia o loop. Portanto, o cálculo para uma lista de 10 itens é (10 * 1) + 1, o que resulta em 11 execuções de ação.
-
-## <a name="disabled-logic-apps"></a>Aplicativos lógicos desabilitados
-
-Os aplicativos lógicos desabilitados não são cobrados porque não podem criar novas instâncias enquanto estão desabilitados. Depois de desativar um aplicativo lógico, qualquer instância em execução no momento pode demorar algum tempo antes de parar completamente.
+Para obter informações sobre limites, consulte [limites do ISE em aplicativos lógicos do Azure](logic-apps-limits-and-config.md#integration-service-environment-ise).
 
 <a name="integration-accounts"></a>
 
 ## <a name="integration-accounts"></a>Contas de integração
 
-Um [modelo de preço fixo](https://azure.microsoft.com/pricing/details/logic-apps) se aplica a [contas de integração](logic-apps-enterprise-integration-create-integration-account.md) em que você pode explorar, desenvolver e testar os recursos [B2B e](logic-apps-enterprise-integration-b2b.md) de [processamento XML](logic-apps-enterprise-integration-xml.md) no aplicativo lógico do Azure sem custo adicional. Cada assinatura do Azure pode ter até um [limite específico de contas de integração](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits). Cada conta de integração pode armazenar até o [limite específico de artefatos](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits), que incluem parceiros comerciais, contratos, mapas, esquemas, assemblies, certificados, configurações de lote e assim por diante.
+Uma [conta de integração](../logic-apps/logic-apps-pricing.md#integration-accounts) é um recurso separado que você cria e vincula a aplicativos lógicos para que você possa explorar, compilar e testar soluções de integração B2B que usam recursos de processamento [EDI](logic-apps-enterprise-integration-b2b.md) e [XML](logic-apps-enterprise-integration-xml.md) . O aplicativo lógico do Azure oferece esses níveis de conta de integração ou camadas:
 
-O aplicativo lógico do Azure oferece contas de integração gratuitas, básicas e padrão. As camadas básica e Standard têm suporte do SLA (contrato de nível de serviço) dos aplicativos lógicos, enquanto a camada gratuita não tem suporte de um SLA e tem limites de disponibilidade, taxa de transferência e uso da região. Exceto para contas de integração de camada gratuita, você pode ter mais de uma conta de integração em cada região do Azure. Para obter os valores, consulte [Preços dos Aplicativos Lógicos](https://azure.microsoft.com/pricing/details/logic-apps/).
+| Camada | Descrição |
+|------|-------------|
+| **Basic** | Para cenários em que você deseja apenas manipulação de mensagens ou atue como um parceiro comercial pequeno que tenha uma relação de parceiro comercial com uma entidade de negócios maior. <p><p>Compatível com o SLA dos aplicativos lógicos. |
+| **Standard** | Para cenários em que você tem relações B2B mais complexas e um número maior de entidades que você deve gerenciar. <p><p>Compatível com o SLA dos aplicativos lógicos. |
+| **Gratuito** | Para cenários exploratórios, não cenários de produção. Essa camada tem limites de disponibilidade, taxa de transferência e uso da região. Por exemplo, a camada gratuita está disponível somente para regiões públicas no Azure, por exemplo, oeste dos EUA ou sudeste asiático, mas não para o [Azure China 21vianet](/azure/china/overview-operations) ou [Azure governamental](../azure-government/documentation-government-welcome.md). <p><p>**Observação**: não há suporte para o SLA dos aplicativos lógicos. |
+|||
 
-Se você tiver um [ISE ( *ambiente do serviço de integração* )](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), [Premium ou desenvolvedor](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level), o ISE poderá ter 5 contas de integração total. Para saber como o modelo de preços fixo funciona para um ISE, consulte a seção [modelo de preços fixos](#fixed-pricing) anteriores neste tópico. Para obter os valores, consulte [Preços dos Aplicativos Lógicos](https://azure.microsoft.com/pricing/details/logic-apps).
+Para obter informações sobre limites de conta de integração, consulte [limites e configuração para aplicativos lógicos do Azure](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits), como:
 
-Para escolher entre uma conta de integração gratuita, básica ou padrão, examine estas descrições de caso de uso:
+* [Limites em contas de integração por assinatura do Azure](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits)
 
-* **Gratuito**: para quando você quiser experimentar cenários exploratórios, não cenários de produção. Essa camada está disponível somente para regiões públicas no Azure, por exemplo, oeste dos EUA ou sudeste asiático, mas não para o [Azure China 21vianet](/azure/china/overview-operations) ou [Azure governamental](../azure-government/documentation-government-welcome.md).
+* [Limites em vários artefatos por conta de integração](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits). Os artefatos incluem parceiros comerciais, contratos, mapas, esquemas, assemblies, certificados, configurações de lote e assim por diante.
 
-* **Básico**: para quando você desejar apenas a manipulação de mensagens ou para atuar como um pequeno parceiro comercial que tenha uma relação de parceiro comercial com uma entidade de negócios maior
+### <a name="integration-accounts-for-consumption-based-logic-apps"></a>Contas de integração para aplicativos lógicos baseados em consumo
 
-* **Standard**: para quando você tem relações B2B mais complexas e um número maior de entidades que você deve gerenciar
+As contas de integração são cobradas usando um preço fixo da [conta de integração](https://azure.microsoft.com/pricing/details/logic-apps/) baseado na camada de conta que você usa.
+
+### <a name="ise-based-logic-apps"></a>Aplicativos lógicos baseados no ISE
+
+Sem nenhum custo extra, o ISE inclui uma única conta de integração, com base em sua SKU do ISE. Para obter um custo extra, você pode criar mais contas de integração para o ISE usar até o [limite total do ISE](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits). Saiba mais sobre o [modelo de preços do ISE](#fixed-pricing) anteriormente neste tópico.
+
+| SKU do ISE | Conta de integração incluída | Custo adicional |
+|---------|------------------------------|-----------------|
+| **Premium** | Uma única conta de integração [padrão](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) | Até 19 contas padrão. Nenhuma conta Gratuita ou Básica é permitida. |
+| **Desenvolvedor** | Uma única conta de integração [gratuita](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) | Até 19 contas padrão, se você já tiver uma conta gratuita ou 20 contas padrão, se não tiver uma conta gratuita. Nenhuma conta Básica é permitida. |
+||||
 
 <a name="data-retention"></a>
 
-## <a name="data-retention"></a>Retenção de dados
+## <a name="data-retention-and-storage-consumption"></a>Retenção de dados e consumo de armazenamento
 
-Exceto para aplicativos lógicos que são executados em um ambiente do serviço de integração (ISE), todas as entradas e saídas armazenadas no histórico de execução do aplicativo lógico são cobradas com base em um [período de retenção de execução](logic-apps-limits-and-config.md#run-duration-retention-limits)do aplicativo lógico. Os aplicativos lógicos executados em um ISE não incorrem em custos de retenção de dados. Para obter os valores, consulte [Preços dos Aplicativos Lógicos](https://azure.microsoft.com/pricing/details/logic-apps).
+Todas as entradas e saídas no histórico de execução do aplicativo lógico são armazenadas e limitadas com base na duração de [execução](logic-apps-limits-and-config.md#run-duration-retention-limits)do aplicativo e no período de retenção do histórico.
 
-Para ajudá-lo a monitorar o consumo de armazenamento do aplicativo lógico, você pode:
+* Para aplicativos lógicos no serviço de aplicativos lógicos multilocatários, o consumo de armazenamento é cobrado a um preço fixo, que pode ser encontrado na [página de preços dos aplicativos lógicos](https://azure.microsoft.com/pricing/details/logic-apps), na tabela **detalhes de preços** .
 
-* Exiba o número de unidades de armazenamento em GB que seu aplicativo lógico usa mensalmente.
-* Exiba os tamanhos das entradas e saídas de uma ação específica no histórico de execução do aplicativo lógico.
+* Para aplicativos lógicos no ISEs, o consumo de armazenamento não incorre em custos de retenção de dados.
 
-<a name="storage-consumption"></a>
+Para monitorar o uso do consumo de armazenamento, consulte [Exibir métricas para execuções e consumo de armazenamento](plan-manage-costs.md#monitor-billing-metrics).
 
-### <a name="view-logic-app-storage-consumption"></a>Exibir consumo de armazenamento do aplicativo lógico
+<a name="data-gateway"></a>
 
-1. No portal do Azure, encontre e abra seu aplicativo lógico.
+## <a name="on-premises-data-gateway"></a>Gateway de dados local
 
-1. No menu do aplicativo lógico, em **monitoramento**, selecione **métricas**.
+Um [Gateway de dados local](../logic-apps/logic-apps-gateway-install.md) é um recurso separado que você cria para que seus aplicativos lógicos possam acessar dados locais usando conectores específicos com suporte de gateway. As operações de conectores que são executadas pelo gateway incorrem em encargos, mas o próprio gateway não provoca cobranças.
 
-1. No painel direito, em **título do gráfico**, na lista **métrica** , selecione **uso de cobrança para execuções de consumo de armazenamento**.
+<a name="disabled-apps"></a>
 
-   Essa métrica fornece o número de unidades de consumo de armazenamento em GB por mês que estão sendo cobradas.
+## <a name="disabled-logic-apps"></a>Aplicativos lógicos desabilitados
 
-<a name="input-output-sizes"></a>
-
-### <a name="view-action-input-and-output-sizes"></a>Exibir os tamanhos de entrada e saída da ação
-
-1. No portal do Azure, encontre e abra seu aplicativo lógico.
-
-1. No menu do aplicativo lógico, selecione **visão geral**.
-
-1. No painel direito, em **histórico de execuções**, selecione a execução que tem as entradas e saídas que você deseja verificar.
-
-1. Em **execução do aplicativo lógico**, escolha **detalhes da execução**.
-
-1. No painel **detalhes de execução do aplicativo lógico** , na tabela ações, que lista o status e a duração de cada ação, selecione a ação que você deseja exibir.
-
-1. No painel de **ação do aplicativo lógico** , localize os tamanhos das entradas e saídas da ação, respectivamente, sob o link **entradas** e **saídas**.
+Os aplicativos lógicos desabilitados não são cobrados porque não podem criar novas instâncias enquanto estão desabilitados. Depois de desativar um aplicativo lógico, qualquer instância em execução no momento pode demorar algum tempo antes de parar completamente.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Saiba mais sobre os aplicativos lógicos do Azure](logic-apps-overview.md)
-* [Criar seu primeiro aplicativo lógico](quickstart-create-first-logic-app-workflow.md)
+* [Planejar e gerenciar custos para aplicativos lógicos do Azure](plan-manage-costs.md)

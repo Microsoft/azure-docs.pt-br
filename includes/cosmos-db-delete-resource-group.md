@@ -6,11 +6,11 @@ ms.date: 01/22/2020
 ms.author: sngun
 ms.custom: seo-java-september2019
 ms.openlocfilehash: caefb11e3d691cea940bae5103bf918d3d31cc96
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
-ms.translationtype: MT
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77134411"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95972398"
 ---
 Quando o aplicativo e a conta do Azure Cosmos DB estiverem prontos, você poderá excluir os recursos do Azure criados para não incorrer em mais cobranças. Para excluir os recursos:
 

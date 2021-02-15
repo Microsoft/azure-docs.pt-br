@@ -10,11 +10,11 @@ ms.date: 08/02/2019
 ms.author: cshoe
 ms.custom: include file
 ms.openlocfilehash: 4a879c4041fe317955a07eda9dd8a3ef9f542275
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87056052"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95998815"
 ---
 Você pode usar os seguintes tipos de parâmetros para o blob que está disparando:
 

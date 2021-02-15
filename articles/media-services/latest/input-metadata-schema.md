@@ -1,7 +1,7 @@
 ---
 title: Esquema de metadados de entrada dos serviços de mídia do Azure v3
 description: Este artigo fornece uma visão geral do esquema de metadados de entrada dos serviços de mídia do Azure v3.
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
@@ -10,17 +10,19 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 04/14/2020
-ms.author: juliako
-ms.openlocfilehash: 40e61061878c8aec6bad353bfd0c5f2f4178ce14
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.topic: reference
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: 1ca526b7ecbe20a54ec115521cdfbc93c713e0da
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85095541"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360047"
 ---
-# <a name="input-metadata"></a>Metadados de entrada 
+# <a name="input-metadata"></a>Metadados de entrada
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Um trabalho de codificação é associado um ativo (ou ativos) de entrada no qual você deseja executar algumas tarefas de codificação.  Após a conclusão de uma tarefa, um ativo de saída é produzido. O ativo de saída contém vídeo, áudio, miniaturas, manifesto e outros arquivos. 
 
@@ -63,14 +65,14 @@ Contém uma coleção de elementos AssetFile para o trabalho de codificação.
 
 ## <a name="videotracks"></a>VideoTracks
 
-| Nome |  | Descrição |
+| Nome | Descrição |
 | --- | --- |
 | **FourCC**<br />Obrigatório |Código FourCC do codec de vídeo relatado por ffmpeg.<br /><br />Exemplo: `"FourCC": "avc1"` |
 | **Perfil** |Perfil da faixa de vídeo. <br /><br />Exemplo: `"Profile": "Main"`|
 | **Level** |Nível da faixa de vídeo. <br /><br />Exemplo: `"Level": "3.2"`|
 | **PixelFormat** |Formato de pixel da faixa de vídeo. <br /><br />Exemplo: `"PixelFormat": "yuv420p"`|
 | **Largura**<br />Obrigatório |Largura do vídeo codificado em pixels. <br /><br />Exemplo: `"Width": "1280"`|
-| **Altura**<br />Obrigatório |Altura do vídeo codificado em pixels.<br /><br />Exemplo: `"Height": "720"` |
+| **Tamanho**<br />Obrigatório |Altura do vídeo codificado em pixels.<br /><br />Exemplo: `"Height": "720"` |
 | **DisplayAspectRatioNumerator**<br />Obrigatório |Numerador de taxa de proporção de exibição do vídeo.<br /><br />Exemplo: `"DisplayAspectRatioNumerator": 16.0` |
 | **DisplayAspectRatioDenominator**<br />Obrigatório |Denominador de taxa de proporção de exibição do vídeo. <br /><br />Exemplo: `"DisplayAspectRatioDenominator": 9.0`|
 | **SampleAspectRatioNumerator** |Numerador de proporção de amostra de vídeo. <br /><br />Exemplo: `"SampleAspectRatioNumerator": 1.0`|
@@ -94,7 +96,7 @@ Contém uma coleção de elementos AssetFile para o trabalho de codificação.
 | --- | --- | 
 | **SampleFormat** |Formato de exemplo. <br /><br />Exemplo: `"SampleFormat": "fltp"`|
 | **ChannelLayout** |Layout do canal. <br /><br />Exemplo: `"ChannelLayout": "stereo"`|
-| **Channels**<br />Obrigatório |Número (0 ou mais) de canais de áudio. <br /><br />Exemplo: `"Channels": 2`|
+| **Canais**<br />Obrigatório |Número (0 ou mais) de canais de áudio. <br /><br />Exemplo: `"Channels": 2`|
 | **SamplingRate**<br />Obrigatório |Taxa de amostragem de áudio em amostras/s ou Hz. <br /><br />Exemplo: `"SamplingRate": 48000`|
 | **720p** |Taxa média de bits de áudio em bits por segundo, calculada com base no arquivo de ativo. Apenas a carga de fluxo elementar é contada, e a sobrecarga de empacotamento não está incluída nesta contagem. <br /><br />Exemplo: `"Bitrate": 192080`|
 | **Metadados** |As cadeias de caracteres de chave/valor genéricas que podem ser usadas para armazenar uma variedade de informações.  <br />Consulte o exemplo completo no final do artigo. |
@@ -110,8 +112,8 @@ Contém uma coleção de elementos AssetFile para o trabalho de codificação.
 
 | Nome | Descrição |
 | --- | --- |
-| **chave**<br />Obrigatório |A chave no par chave/valor. |
-| **value**<br /> Obrigatório |O valor do par chave/valor. |
+| **chave**<br />Obrigatório |A chave do par chave/valor. |
+| **value**<br /> Obrigatório |O valor no par chave/valor. |
 
 ## <a name="schema-example"></a>Exemplo de esquema
 

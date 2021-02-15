@@ -1,22 +1,22 @@
 ---
 title: Usar CLI do Azure para atribuir uma função do Azure para acesso a dados
 titleSuffix: Azure Storage
-description: Saiba como usar CLI do Azure para atribuir permissões a uma entidade de segurança de Azure Active Directory com o RBAC (controle de acesso baseado em função). O armazenamento do Azure dá suporte a funções personalizadas e internas do Azure para autenticação por meio do Azure AD.
+description: Saiba como usar CLI do Azure para atribuir permissões a uma entidade de segurança de Azure Active Directory com o Azure RBAC (controle de acesso baseado em função). O armazenamento do Azure dá suporte a funções personalizadas e internas do Azure para autenticação por meio do Azure AD.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/16/2020
+ms.date: 02/10/2021
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 5714ab17f82f9c4d9c1d00f297c0950e41f54cdc
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: c42061520b73966f2cd516716039d78c2b9cbeb8
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87827972"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100375979"
 ---
 # <a name="use-azure-cli-to-assign-an-azure-role-for-access-to-blob-and-queue-data"></a>Use CLI do Azure para atribuir uma função do Azure para acesso aos dados de BLOB e de fila
 
@@ -24,7 +24,7 @@ O Azure Active Directory (AD do Azure) autoriza os direitos de acesso a recursos
 
 Quando uma função do Azure é atribuída a uma entidade de segurança do Azure AD, o Azure concede acesso a esses recursos para essa entidade de segurança. O escopo do acesso pode ser definido para o nível de assinatura, o grupo de recursos, a conta de armazenamento ou um contêiner ou fila individual. Uma entidade de segurança do Azure AD pode ser um usuário, um grupo, uma entidade de serviço de aplicativo ou uma [identidade gerenciada para recursos do Azure](../../active-directory/managed-identities-azure-resources/overview.md).
 
-Este artigo descreve como usar CLI do Azure para listar funções internas do Azure e atribuí-las aos usuários. Para obter mais informações sobre como usar CLI do Azure, consulte [interface de linha de comando (CLI) do Azure](/cli/azure).
+Este artigo descreve como usar CLI do Azure para listar funções internas do Azure e atribuí-las aos usuários. Para obter mais informações sobre como usar CLI do Azure, consulte [CLI (interface de Command-Line do Azure)](/cli/azure).
 
 ## <a name="azure-roles-for-blobs-and-queues"></a>Funções do Azure para BLOBs e filas
 
@@ -57,6 +57,11 @@ Storage Queue Data Reader                 Allows for read access to Azure Storag
 ## <a name="assign-an-azure-role-to-a-security-principal"></a>Atribuir uma função do Azure a uma entidade de segurança
 
 Para atribuir uma função do Azure a uma entidade de segurança, use o comando [AZ role Assignment Create](/cli/azure/role/assignment#az-role-assignment-create) . O formato do comando pode diferir com base no escopo da atribuição. Os exemplos a seguir mostram como atribuir uma função a um usuário em vários escopos, mas você pode usar o mesmo comando para atribuir uma função a qualquer entidade de segurança.
+
+> [!IMPORTANT]
+> Ao criar uma conta de armazenamento do Azure, você não recebe automaticamente permissões para acessar dados por meio do Azure AD. Você deve atribuir explicitamente a si mesmo uma função de RBAC do Azure para acesso a dados. Você pode atribuí-la no nível de assinatura, grupo de recursos, conta de armazenamento ou contêiner ou fila.
+>
+> Se a conta de armazenamento estiver bloqueada com um bloqueio de Azure Resource Manager somente leitura, o bloqueio impedirá a atribuição de funções RBAC do Azure que estão no escopo da conta de armazenamento ou em um contêiner de dados (contêiner ou fila de BLOB).
 
 ### <a name="container-scope"></a>Escopo do contêiner
 
@@ -139,6 +144,6 @@ az role assignment create \
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Gerenciar o acesso aos recursos do Azure usando o RBAC e o Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
-- [Conceder acesso ao blob do Azure e a dados da fila com o RBAC usando Azure PowerShell](storage-auth-aad-rbac-powershell.md)
-- [Conceder acesso a dados de blob e fila do Azure com RBAC no portal do Azure](storage-auth-aad-rbac-portal.md)
+- [Adicionar ou remover atribuições de função do Azure usando o módulo Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
+- [Usar o módulo Azure PowerShell para atribuir uma função do Azure para acesso aos dados de BLOB e de fila](storage-auth-aad-rbac-powershell.md)
+- [Usar o portal do Azure para atribuir uma função do Azure para acesso aos dados de blob e de fila](storage-auth-aad-rbac-portal.md)

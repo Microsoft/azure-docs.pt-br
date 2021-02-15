@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/05/2016
 ms.author: erikre
 ms.openlocfilehash: f2d653441598a47986913d525057672eed24b435
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "60931697"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015410"
 ---
 # <a name="how-to-send-email-using-sendgrid-from-nodejs"></a>Como enviar emails usando o SendGrid do Node.js
 
@@ -36,7 +36,7 @@ SendGrid é um [serviço de email baseado em nuvem] que fornece uma [entrega de 
 * Encaminhamento de consultas dos clientes
 * Notificações de email de seu aplicativo
 
-Para obter mais informações, consulte [https://sendgrid.com](https://sendgrid.com).
+Para obter mais informações, confira [https://sendgrid.com](https://sendgrid.com).
 
 ## <a name="create-a-sendgrid-account"></a>Criar uma conta do SendGrid
 
@@ -213,7 +213,7 @@ Agora que você já conhece as noções básicas do serviço de email SendGrid, 
 
 * Repositório do módulo SendGrid Node.js: [sendgrid-nodejs][sendgrid-nodejs]
 * Documentação da API do SendGrid: <https://sendgrid.com/docs>
-* Oferta especial do SendGrid para clientes do Azure:[http://sendgrid.com/azure.html](https://sendgrid.com/windowsazure.html)
+* Oferta especial do SendGrid para clientes do Azure: [http://sendgrid.com/azure.html](https://sendgrid.com/windowsazure.html)
 
 [special offer]: https://sendgrid.com/windowsazure.html
 [sendgrid-nodejs]: https://github.com/sendgrid/sendgrid-nodejs

@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 01/04/2019
+ms.date: 08/31/2020
 ms.author: curtand
 ms.reviewer: jairoc
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: b59ebe0bdab66a5ce6bdb1eefe6d9ae4b47bba0c
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 0435b99525c34eb72d7cc5315ccb4359859cd528
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88799393"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "90033040"
 ---
 # <a name="register-your-personal-device-on-your-organizations-network"></a>Registre seu dispositivo pessoal na rede da sua organização
 Registre seu dispositivo pessoal, geralmente um telefone ou tablet, na rede da sua organização. Depois que seu dispositivo for registrado, ele poderá acessar os recursos restritos da sua organização.
@@ -31,7 +31,7 @@ Enquanto você estiver registrando seu dispositivo na rede da sua organização,
 
 - Windows registra seu dispositivo na rede da sua organização.
 
-- Opcionalmente, com base nas escolhas da sua organização, pode ser solicitado que você configure a verificação em duas etapas por meio de [Autenticação de vários fatores](multi-factor-authentication-end-user-first-time.md) ou [informações de segurança](./security-info-setup-signin.md).
+- Opcionalmente, com base nas opções da sua organização, você pode ser solicitado a configurar a verificação em duas etapas por meio de [autenticação de dois fatores](multi-factor-authentication-end-user-first-time.md) ou [informações de segurança](./security-info-setup-signin.md).
 
 - Opcionalmente, com base nas opções da sua organização, você pode estar automaticamente inscrito no gerenciamento de dispositivos móveis, como o Microsoft Intune. Para obter mais informações sobre como se inscrever no Microsoft Intune, consulte [Inscrever seu dispositivo no Intune](/intune-user-help/enroll-your-device-in-intune-all).
 

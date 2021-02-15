@@ -1,15 +1,17 @@
 ---
 title: Preparar computadores para migração com as Migrações para Azure
 description: Saiba como preparar computadores locais para migração com as Migrações para Azure.
-ms.topic: tutorial
+author: anvar-ms
+ms.author: anvar
+ms.manager: bsiva
+ms.topic: how-to
 ms.date: 06/08/2020
-ms.custom: MVC
-ms.openlocfilehash: 8acbb867d98a547787e207c410d4e1a852aa68f3
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 979f40e13aab71f02a316e4ddf60306170166845
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88606818"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753919"
 ---
 # <a name="prepare-on-premises-machines-for-migration-to-azure"></a>Preparar computadores locais para migração para Azure
 
@@ -109,11 +111,13 @@ Defina essa configuração manualmente da seguinte maneira:
 
 As Migrações para Azure concluem essas ações automaticamente para estas versões
 
-- Red Hat Enterprise Linux 7.0 e posterior, 6.5 e posterior
-- CentOS 7.0 e posterior, 6.5 e posterior
+- Red Hat Enterprise Linux  7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x
+- Cent OS 7.7, 7.6, 7.5, 7.4, 6.x
 - SUSE Linux Enterprise Server 12 SP1+
-- Ubuntu 18.04 LTS, 16.04 LTS, 14.04 LTS
+- SUSE Linux Enterprise Server 15 SP1
+- Ubuntu 19.04, 19.10, 18.04LTS, 16.04LTS, 14.04LTS
 - Debian 8, 7
+- Oracle Linux 7.7, 7.7-CI
 
 Para outras versões, prepare os computadores conforme resumido na tabela.  
 

@@ -1,29 +1,47 @@
 ---
-title: Como configurar vários mestres no Azure Cosmos DB
-description: Saiba como configurar vários mestres para seus aplicativos usando SDKs diferentes no Azure Cosmos DB.
+title: Como configurar gravações de várias regiões no Azure Cosmos DB
+description: Saiba como configurar gravações de várias regiões para seus aplicativos usando SDKs diferentes no Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 12/02/2019
+ms.date: 09/10/2020
 ms.author: mjbrown
-ms.custom: devx-track-python, devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: 94465e44a6cc2c4fa94ec8ea4504cbed80742f0f
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp, "seo-nov-2020"
+ms.openlocfilehash: 6f71f4c0ec353f36614ea6dcabf4d698b31baacb
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89019140"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94336719"
 ---
-# <a name="configure-multi-master-in-your-applications-that-use-azure-cosmos-db"></a>Configurar vários mestres nos aplicativos que usam o Azure Cosmos DB
+# <a name="configure-multi-region-writes-in-your-applications-that-use-azure-cosmos-db"></a>Configurar gravações de várias regiões em seus aplicativos que usam Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-Quando uma conta tiver sido criada com várias regiões de gravação habilitadas, faça duas alterações em seu aplicativo em ConnectionPolicy para DocumentClient a fim de habilitar os recursos de vários mestres e a hospedagem múltipla no Azure Cosmos DB. Em ConnectionPolicy, defina UseMultipleWriteLocations como true e passe o nome da região em que o aplicativo é implantado em SetCurrentLocation. Isso preencherá a propriedade PreferredLocations com base na proximidade geográfica do local passado. Se uma nova região posteriormente é adicionada à conta, o aplicativo não precisa ser atualizado ou reimplantado, ele detectará automaticamente a região mais próxima e será automaticamente iniciado em caso de evento regional.
+Depois que uma conta tiver sido criada com várias regiões de gravação habilitadas, você deverá fazer duas alterações em seu aplicativo para o ConnectionPolicy para o DocumentClient para habilitar as gravações de várias regiões e os recursos de hospedagem múltipla no Azure Cosmos DB. Em ConnectionPolicy, defina UseMultipleWriteLocations como true e passe o nome da região em que o aplicativo é implantado em SetCurrentLocation. Isso preencherá a propriedade PreferredLocations com base na proximidade geográfica do local passado. Se uma nova região posteriormente é adicionada à conta, o aplicativo não precisa ser atualizado ou reimplantado, ele detectará automaticamente a região mais próxima e será automaticamente iniciado em caso de evento regional.
 
 > [!Note]
-> Contas do Cosmos configuradas inicialmente com uma região de gravação podem ser configuradas para várias regiões de gravação (ou seja, vários mestres) sem nenhum tempo de inatividade. Para saber mais, consulte [Configurar a gravação de várias regiões](how-to-manage-database-account.md#configure-multiple-write-regions)
+> As contas do cosmos inicialmente configuradas com uma única região de gravação podem ser configuradas para várias regiões de gravação com tempo de inatividade zero. Para saber mais, consulte [Configurar a gravação de várias regiões](how-to-manage-database-account.md#configure-multiple-write-regions)
+
+## <a name="azure-portal"></a><a id="portal"></a> portal do Azure
+
+Para habilitar gravações de várias regiões de portal do Azure, use as seguintes etapas:
+
+1. Entre no [portal do Azure](https://portal.azure.com/).
+
+1. Navegue até sua conta do Azure Cosmos e, no menu, abra o painel **replicar dados globalmente** .
+
+1. Na opção **gravações de várias regiões** , escolha **habilitar**. Ele adiciona automaticamente as regiões existentes às regiões de leitura e gravação.
+
+1. Você pode adicionar outras regiões selecionando os ícones no mapa ou selecionando o botão **Adicionar região** . Todas as regiões que você adicionar terão a leitura e a gravação habilitadas.
+
+1. Depois de atualizar a lista região, selecione **salvar** para aplicar as alterações.
+
+   :::image type="content" source="./media/how-to-multi-master/enable-multi-region-writes.png" alt-text="Captura de tela para habilitar gravações em várias regiões usando portal do Azure" lightbox="./media/how-to-multi-master/enable-multi-region-writes.png":::
 
 ## <a name="net-sdk-v2"></a><a id="netv2"></a>SDK v2 do .NET
 
-Para habilitar vários mestres em seu aplicativo, defina `UseMultipleWriteLocations` como `true`. Além disso, defina `SetCurrentLocation` como a região na qual o aplicativo está sendo implantado e em que o Azure Cosmos DB está replicado:
+Para habilitar as gravações de várias regiões em seu aplicativo, defina `UseMultipleWriteLocations` como `true` . Além disso, defina `SetCurrentLocation` como a região na qual o aplicativo está sendo implantado e em que o Azure Cosmos DB está replicado:
 
 ```csharp
 ConnectionPolicy policy = new ConnectionPolicy
@@ -37,7 +55,7 @@ policy.SetCurrentLocation("West US 2");
 
 ## <a name="net-sdk-v3"></a><a id="netv3"></a>SDK v3 do .NET
 
-Para habilitar vários mestres no seu aplicativo, defina `ApplicationRegion` como a região na qual o aplicativo está sendo implantado e o Cosmos DB está replicado:
+Para habilitar as gravações de várias regiões em seu aplicativo, defina `ApplicationRegion` para a região em que o aplicativo está sendo implantado e onde Cosmos DB é replicado:
 
 ```csharp
 CosmosClient cosmosClient = new CosmosClient(
@@ -56,9 +74,9 @@ CosmosClientBuilder cosmosClientBuilder = new CosmosClientBuilder("<connection-s
 CosmosClient client = cosmosClientBuilder.Build();
 ```
 
-## <a name="java-v4-sdk"></a><a id="java4-multi-master"></a> SDK do Java v4
+## <a name="java-v4-sdk"></a><a id="java4-multi-region-writes"></a> SDK do Java v4
 
-Para habilitar o multimestre em seu aplicativo, chame `.multipleWriteRegionsEnabled(true)` e `.preferredRegions(preferredRegions)` no Client Builder, onde `preferredRegions` é um `List` elemento que contém um, que é a região em que o aplicativo está sendo implantado e onde Cosmos DB é replicado:
+Para habilitar as gravações de várias regiões em seu aplicativo, chame `.multipleWriteRegionsEnabled(true)` e `.preferredRegions(preferredRegions)` no construtor de cliente, em que `preferredRegions` é um `List` elemento contendo um, que é a região em que o aplicativo está sendo implantado e onde Cosmos DB é replicado:
 
 # <a name="async"></a>[Async](#tab/api-async)
 
@@ -74,9 +92,9 @@ Para habilitar o multimestre em seu aplicativo, chame `.multipleWriteRegionsEnab
 
 --- 
 
-## <a name="async-java-v2-sdk"></a><a id="java2-milti-master"></a> SDK do Java v2 assíncrono
+## <a name="async-java-v2-sdk"></a><a id="java2-multi-region-writes"></a> SDK do Java v2 assíncrono
 
-O SDK do Java v2 usava o Maven [com. Microsoft. Azure:: Azure-cosmosdb](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb). Para habilitar vários mestres no seu aplicativo, defina `policy.setUsingMultipleWriteLocations(true)` e defina `policy.setPreferredLocations` como a região na qual o aplicativo está sendo implantado e o Cosmos DB está replicado:
+O SDK do Java v2 usava o Maven [com. Microsoft. Azure:: Azure-cosmosdb](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb). Para habilitar as gravações de várias regiões em seu aplicativo, defina `policy.setUsingMultipleWriteLocations(true)` e defina `policy.setPreferredLocations` como a região em que o aplicativo está sendo implantado e onde Cosmos DB é replicado:
 
 ```java
 ConnectionPolicy policy = new ConnectionPolicy();
@@ -93,7 +111,7 @@ AsyncDocumentClient client =
 
 ## <a name="nodejs-javascript-and-typescript-sdks"></a><a id="javascript"></a>SDK do Node.js, do JavaScript e do TypeScript
 
-Para habilitar vários mestres em seu aplicativo, defina `connectionPolicy.UseMultipleWriteLocations` como `true`. Além disso, defina `connectionPolicy.PreferredLocations` como a região na qual o aplicativo está sendo implantado e em que o Cosmos DB está replicado:
+Para habilitar as gravações de várias regiões em seu aplicativo, defina `connectionPolicy.UseMultipleWriteLocations` como `true` . Além disso, defina `connectionPolicy.PreferredLocations` como a região na qual o aplicativo está sendo implantado e em que o Cosmos DB está replicado:
 
 ```javascript
 const connectionPolicy: ConnectionPolicy = new ConnectionPolicy();
@@ -110,7 +128,7 @@ const client = new CosmosClient({
 
 ## <a name="python-sdk"></a><a id="python"></a>SDK do Python
 
-Para habilitar vários mestres em seu aplicativo, defina `connection_policy.UseMultipleWriteLocations` como `true`. Além disso, defina `connection_policy.PreferredLocations` como a região na qual o aplicativo está sendo implantado e em que o Cosmos DB está replicado.
+Para habilitar as gravações de várias regiões em seu aplicativo, defina `connection_policy.UseMultipleWriteLocations` como `true` . Além disso, defina `connection_policy.PreferredLocations` como a região na qual o aplicativo está sendo implantado e em que o Cosmos DB está replicado.
 
 ```python
 connection_policy = documents.ConnectionPolicy()
@@ -129,8 +147,8 @@ Leia os seguintes artigos:
 * [Tipos de conflitos e políticas de resolução no Azure Cosmos DB](conflict-resolution-policies.md)
 * [Alta disponibilidade no Azure Cosmos DB](high-availability.md)
 * [Níveis de consistência no Azure Cosmos DB](consistency-levels.md)
-* [Escolher o nível de consistência correto no Azure Cosmos DB](consistency-levels-choosing.md)
-* [Compensações de consistência, disponibilidade e desempenho no Azure Cosmos DB](consistency-levels-tradeoffs.md)
-* [Equilíbrio entre disponibilidade e desempenho para vários níveis de coerência](consistency-levels-tradeoffs.md)
-* [Taxa de transferência provisionada para dimensionamento global](scaling-throughput.md)
+* [Escolher o nível de consistência correto no Azure Cosmos DB](./consistency-levels.md)
+* [Compensações de consistência, disponibilidade e desempenho no Azure Cosmos DB](./consistency-levels.md)
+* [Equilíbrio entre disponibilidade e desempenho para vários níveis de coerência](./consistency-levels.md)
+* [Taxa de transferência provisionada para dimensionamento global](./request-units.md)
 * [Distribuição global: nos bastidores](global-dist-under-the-hood.md)

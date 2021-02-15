@@ -1,6 +1,6 @@
 ---
 title: Desativar e excluir um dispositivo StorSimple da série 8000 | Microsoft Docs
-description: Descreve como remover o dispositivo StorSimple do serviço primeiro desativando-o e então excluindo-o.
+description: Saiba como desativar e excluir um dispositivo StorSimple que está conectado a um serviço de Device Manager do StorSimple.
 services: storsimple
 documentationcenter: ''
 author: alkohli
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2018
 ms.author: alkohli
-ms.openlocfilehash: 825a10bec7a9d415bdcf76e5b6f28f04060bb411
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 07d108306fdca9bfe8f793b61660550e43151d71
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514026"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017178"
 ---
 # <a name="deactivate-and-delete-a-storsimple-device"></a>Desativar e excluir um dispositivo StorSimple
 
@@ -63,16 +63,16 @@ Se você estiver interessado em excluir o dispositivo completamente e não quise
         ![Desativar o dispositivo StorSimple](./media/storsimple-8000-deactivate-and-delete-device/deactivate1.png)
    2. Na folha **Desativar**, digite o nome do dispositivo para confirmar e clique em **Desativar**. O processo de desativação começará e levará alguns minutos para ser concluído.
 
-        ![Desativar o dispositivo StorSimple](./media/storsimple-8000-deactivate-and-delete-device/deactivate2.png)
+        ![Desativar o dispositivo StorSimple 2](./media/storsimple-8000-deactivate-and-delete-device/deactivate2.png)
 
 3. Após a desativação, você pode excluir o dispositivo completamente. Excluir um dispositivo o remove da lista de dispositivos conectados ao serviço. O serviço não poderá mais gerenciar o dispositivo excluído. Use as etapas a seguir para excluir o dispositivo:
    
    1. Acesse o serviço Gerenciador de Dispositivo StorSimple e clique em **Dispositivos**. Na folha **Dispositivos**, selecione o dispositivo desativado que você deseja excluir, clique com o botão direito do mouse e clique em **Excluir**.
 
-        ![Desativar o dispositivo StorSimple](./media/storsimple-8000-deactivate-and-delete-device/deactivate5.png)
+        ![Desativar o dispositivo StorSimple 3](./media/storsimple-8000-deactivate-and-delete-device/deactivate5.png)
    2. Na folha **Excluir**, digite o nome do dispositivo para confirmar e clique em **Excluir**. A exclusão levará alguns minutos para ser concluída.
 
-        ![Desativar o dispositivo StorSimple](./media/storsimple-8000-deactivate-and-delete-device/deactivate6.png)
+        ![Desativar o dispositivo StorSimple 4](./media/storsimple-8000-deactivate-and-delete-device/deactivate6.png)
    3. Você será notificado quando a exclusão for concluída com êxito. A lista de dispositivos também é atualizada para refletir a exclusão.
 
 ## <a name="deactivate-and-retain-data"></a>Desativar e reter dados
@@ -85,19 +85,19 @@ Se você tiver interesse em excluir o dispositivo, porém deseja manter os dados
    
    1. Acesse o serviço Gerenciador de Dispositivo StorSimple e clique em **Dispositivos**. Na folha **Dispositivos**, selecione o dispositivo que você deseja desativar, clique com o botão direito do mouse e clique em **Desativar**.
 
-         ![Desativar o dispositivo StorSimple](./media/storsimple-8000-deactivate-and-delete-device/deactivate1.png)
+         ![Desativar o dispositivo StorSimple 5](./media/storsimple-8000-deactivate-and-delete-device/deactivate1.png)
    2. Na folha **Desativar**, digite o nome do dispositivo para confirmar e clique em **Desativar**. O processo de desativação começará e levará alguns minutos para ser concluído.
 
-         ![Desativar o dispositivo StorSimple](./media/storsimple-8000-deactivate-and-delete-device/deactivate2.png)
+         ![Desativar o dispositivo StorSimple 6](./media/storsimple-8000-deactivate-and-delete-device/deactivate2.png)
 2. Agora é possível realizar failover dos contêineres de volume e dos instantâneos associados. Para procedimentos, vá para [Failover e recuperação de desastres para o seu dispositivo StorSimple](storsimple-8000-device-failover-disaster-recovery.md).
 3. Após a desativação e failover, você poderá excluir o dispositivo completamente. Excluir um dispositivo o remove da lista de dispositivos conectados ao serviço. O serviço não poderá mais gerenciar o dispositivo excluído. Para excluir o dispositivo, execute as seguintes etapas:
    
    1. Acesse o serviço Gerenciador de Dispositivo StorSimple e clique em **Dispositivos**. Na folha **Dispositivos**, selecione o dispositivo desativado que você deseja excluir, clique com o botão direito do mouse e clique em **Excluir**.
 
-       ![Desativar o dispositivo StorSimple](./media/storsimple-8000-deactivate-and-delete-device/deactivate5.png)
+       ![Desativar o dispositivo do StorSimple 7](./media/storsimple-8000-deactivate-and-delete-device/deactivate5.png)
    2. Na folha **Excluir**, digite o nome do dispositivo para confirmar e clique em **Excluir**. A exclusão levará alguns minutos para ser concluída.
 
-       ![Desativar o dispositivo StorSimple](./media/storsimple-8000-deactivate-and-delete-device/deactivate6.png)
+       ![Desativar o dispositivo do StorSimple 8](./media/storsimple-8000-deactivate-and-delete-device/deactivate6.png)
    3. Você será notificado quando a exclusão for concluída com êxito. A lista de dispositivos também é atualizada para refletir a exclusão.
 
 ## <a name="deactivate-and-delete-a-cloud-appliance"></a>Desativar e excluir uma dispositivo de nuvem

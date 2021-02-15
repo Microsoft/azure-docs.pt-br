@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4f082ec896bf0542b63c8c1d0257679681334050
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85358660"
 ---
 # <a name="install-azure-ad-connect-using-sql-delegated-administrator-permissions"></a>Instalar o Azure AD Connect usando permissões de administrador do SQL delegado
@@ -46,7 +46,7 @@ Para provisionar o banco de dados fora da banda e instalar o Azure AD Connect co
 
 1. Peça ao Administrador do SQL para criar o banco de dados ADSync com uma sequência de ordenação sem diferenciar maiúsculas de minúsculas **(Latin1_General_CI_AS)**.  O banco de dados deve ser nomeado **ADSync**.  O modelo de recuperação, o nível de compatibilidade e o tipo de conteúdo serão atualizados para os valores corretos quando o Azure AD Connect for instalado.  No entanto, a sequência de ordenação deve ser definida corretamente pelo administrador do SQL ou então o Azure AD Connect bloqueará a instalação.  Para recuperar, o SA deve excluir e recriar o banco de dados.
  
-   ![Ordenação](./media/how-to-connect-install-sql-delegation/sql4.png)
+   ![Collation](./media/how-to-connect-install-sql-delegation/sql4.png)
 2. Conceda as seguintes permissões ao administrador do Azure AD Connect e à conta de serviço do domínio:
    - Logon do SQL 
    - Direitos do **proprietário do banco de dados (dbo)**.

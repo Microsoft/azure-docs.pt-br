@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: d2df7388018c463ba58b57be46945915210b84b6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9832a961562930e61e94b28ed78976fd9f8c6f78
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67172120"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93376155"
 ---
 #### <a name="to-install-an-update-from-the-azure-portal"></a>Para instalar uma atualização por meio do portal do Azure
 
@@ -21,13 +21,13 @@ ms.locfileid: "67172120"
 
     ![Clique em Atualizações de dispositivo](./media/storsimple-8000-install-update5-via-portal/update2.png)
 
-2. Uma notificação será exibida se houver novas atualizações disponíveis. Como alternativa, na folha **Atualizações de dispositivo**, clique em **Verificar Atualizações**. Um trabalho é criado para verificar se há atualizações disponíveis. Você será notificado quando o trabalho for concluído com êxito.
+2. Uma notificação será exibida se houver novas atualizações disponíveis. Como alternativa, na folha **Atualizações de dispositivo** , clique em **Verificar Atualizações**. Um trabalho é criado para verificar se há atualizações disponíveis. Você será notificado quando o trabalho for concluído com êxito.
 
-    ![Clique em Atualizações de dispositivo](./media/storsimple-8000-install-update5-via-portal/update3.png)
+    ![Clique em atualizações de dispositivo 2](./media/storsimple-8000-install-update5-via-portal/update3.png)
 
-3. É recomendável examinar as notas de versão antes de aplicar uma atualização em seu dispositivo. Para aplicar atualizações, clique em **Instalar atualizações**. Na folha **Confirmar atualizações regulares**, examine os pré-requisitos a serem concluídos antes de aplicar as atualizações. Marque a caixa de seleção para indicar que você está pronto para atualizar o dispositivo e, em seguida, clique em **Instalar**.
+3. É recomendável examinar as notas de versão antes de aplicar uma atualização em seu dispositivo. Para aplicar atualizações, clique em **Instalar atualizações**. Na folha **Confirmar atualizações regulares** , examine os pré-requisitos a serem concluídos antes de aplicar as atualizações. Marque a caixa de seleção para indicar que você está pronto para atualizar o dispositivo e, em seguida, clique em **Instalar**.
 
-    ![Clique em Atualizações de dispositivo](./media/storsimple-8000-install-update5-via-portal/update4.png)
+    ![Clique em atualizações do dispositivo 3](./media/storsimple-8000-install-update5-via-portal/update4.png)
 
 6. Um conjunto de verificações de pré-requisito é iniciado. Essas verificações incluem:
    
@@ -45,11 +45,11 @@ ms.locfileid: "67172120"
 
 9. A atualização demora algumas horas para ser concluída. Selecione o trabalho de atualização e clique em **Detalhes** para exibir os detalhes do trabalho a qualquer momento.
 
-    ![Criação do trabalho de atualização](./media/storsimple-8000-install-update5-via-portal/update8.png)
+    ![Criação de trabalho de atualização 2](./media/storsimple-8000-install-update5-via-portal/update8.png)
 
-     Você também pode monitorar o andamento do trabalho de atualização de **Configurações do dispositivo > Trabalhos**. Na folha **Trabalhos**, você pode ver o andamento da atualização.
+     Você também pode monitorar o andamento do trabalho de atualização de **Configurações do dispositivo > Trabalhos**. Na folha **Trabalhos** , você pode ver o andamento da atualização.
 
-     ![Criação do trabalho de atualização](./media/storsimple-8000-install-update5-via-portal/update7.png)
+     ![Atualizar criação de trabalho 3](./media/storsimple-8000-install-update5-via-portal/update7.png)
 
 10. Após a conclusão do trabalho, navegue até **Configurações do dispositivo > Atualizações do dispositivo**. A versão do software deve ser atualizada.
 

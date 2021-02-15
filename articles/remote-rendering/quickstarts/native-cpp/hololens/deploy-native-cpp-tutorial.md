@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/08/2020
 ms.topic: quickstart
-ms.openlocfilehash: 71760e9b54ff3a520f0784ecda4484bb3ea047e3
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: b469f0cae1e356c47bfe60af99c4fa2e73eab78d
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892653"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594020"
 ---
 # <a name="quickstart-deploy-native-c-sample-to-hololens"></a>Início Rápido: Implantar exemplo nativo do C++ no HoloLens
 
@@ -32,14 +32,14 @@ O seguinte software deve ser instalado:
 
 * SDK do Windows 10.0.18362.0 [(baixar)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
 * A versão mais recente do Visual Studio 2019 [(baixar)](https://visualstudio.microsoft.com/vs/older-downloads/)
-* [Ferramentas do Visual Studio para Realidade Misturada](https://docs.microsoft.com/windows/mixed-reality/install-the-tools). Especificamente, as seguintes instalações de *carga de trabalho* são obrigatórias:
+* [Ferramentas do Visual Studio para Realidade Misturada](/windows/mixed-reality/install-the-tools). Especificamente, as seguintes instalações de *carga de trabalho* são obrigatórias:
   * **Desenvolvimento para desktop com C++**
   * **Desenvolvimento da UWP (Plataforma Universal do Windows)**
 * GIT [(baixar)](https://git-scm.com/downloads)
 
 ## <a name="clone-the-arr-samples-repository"></a>Clonar o repositório de exemplos do ARR
 
-Como uma primeira etapa, clonamos o repositório Git, que abriga os exemplos públicos do Azure Remote Rendering. Abra um prompt de comando (digite `cmd` no menu iniciar do Windows) e mude para um diretório no qual é interessante armazenar o projeto de exemplo do ARR.
+Como uma primeira etapa, clonamos o repositório Git, que abriga os exemplos globais do Azure Remote Rendering. Abra um prompt de comando (digite `cmd` no menu iniciar do Windows) e mude para um diretório no qual é interessante armazenar o projeto de exemplo do ARR.
 
 Execute os seguintes comandos:
 
@@ -61,26 +61,27 @@ Alterne a configuração de Build para *Depuração* (ou *Versão*) e *ARM64*. V
 
 ![Configuração do Visual Studio](media/vs-config-native-cpp-tutorial.png)
 
-Como as credenciais da conta são codificadas no código-fonte do tutorial, altere-as para credenciais válidas. Para isso, abra o arquivo `HolographicAppMain.cpp` dentro do Visual Studio e altere a parte em que o front-end é criado dentro do construtor da classe `HolographicAppMain`:
+Como as credenciais da conta são codificadas no código-fonte do tutorial, altere-as para credenciais válidas. Para isso, abra o arquivo `HolographicAppMain.cpp` dentro do Visual Studio e altere a parte em que o cliente é criado dentro do construtor da classe `HolographicAppMain`:
 
 ```cpp
-// 2. Create front end
+// 2. Create Client
 {
     // Users need to fill out the following with their account data and model
-    RR::AzureFrontendAccountInfo init;
+    RR::SessionConfiguration init;
     init.AccountId = "00000000-0000-0000-0000-000000000000";
     init.AccountKey = "<account key>";
-    init.AccountDomain = "westus2.mixedreality.azure.com"; // <change to your region>
+    init.RemoteRenderingDomain = "westus2.mixedreality.azure.com"; // <change to the region that the rendering session should be created in>
+    init.AccountDomain = "westus2.mixedreality.azure.com"; // <change to the region the account was created in>
     m_modelURI = "builtin://Engine";
     m_sessionOverride = ""; // If there is a valid session ID to re-use, put it here. Otherwise a new one is created
-    m_frontEnd = RR::ApiHandle(RR::AzureFrontend(init));
+    m_client = RR::ApiHandle(RR::RemoteRenderingClient(init));
 }
 ```
 
 Especificamente, altere os seguintes valores:
-* `init.AccountId` e `init.AccountKey` para usar os dados da sua conta. Veja o parágrafo sobre como [recuperar informações da conta](../../../how-tos/create-an-account.md#retrieve-the-account-information).
-* A parte da região da cadeia de caracteres `init.AccountDomain` para regiões diferentes de `westus2`, por exemplo, `"westeurope.mixedreality.azure.com"`
-* Além disso, `m_sessionOverride` pode ser alterada para uma ID de sessão existente. As sessões podem ser criadas fora deste exemplo, por exemplo, usando [o script do PowerShell](../../../samples/powershell-example-scripts.md#script-renderingsessionps1) ou usando a [API REST da sessão](../../../how-tos/session-rest-api.md#create-a-session) diretamente.
+* `init.AccountId`, `init.AccountKey` e `init.AccountDomain` para usar os dados de sua conta. Veja o parágrafo sobre como [recuperar informações da conta](../../../how-tos/create-an-account.md#retrieve-the-account-information).
+* Especifique onde criar a sessão de renderização remota modificando a parte da região da cadeia de caracteres `init.RemoteRenderingDomain` para outras regiões diferentes de `westus2`, por exemplo, `"westeurope.mixedreality.azure.com"`.
+* Além disso, `m_sessionOverride` pode ser alterada para uma ID de sessão existente. As sessões podem ser criadas fora deste exemplo, por exemplo, usando [o script do PowerShell](../../../samples/powershell-example-scripts.md#script-renderingsessionps1) ou a [API REST da sessão](../../../how-tos/session-rest-api.md#create-a-session) diretamente.
 A criação de uma sessão fora do exemplo é recomendada quando o exemplo deve ser executado várias vezes. Se nenhuma sessão for passada, o exemplo criará uma nova sessão após cada inicialização, o que pode levar vários minutos.
 
 Agora o aplicativo pode ser compilado.

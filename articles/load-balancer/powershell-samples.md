@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 12/10/2018
 ms.author: allensu
 ms.openlocfilehash: 3bb42bf1a1a7e80a141d2476ead62a29f8c7188c
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86201562"
 ---
 # <a name="azure-powershell-samples-for-load-balancer"></a>Exemplos do Azure PowerShell para o Balanceador de Carga

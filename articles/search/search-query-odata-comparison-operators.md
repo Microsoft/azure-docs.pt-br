@@ -20,15 +20,15 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: fc5803f96c30ea1df362676aa8c4104bb0b69db3
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88934864"
 ---
 # <a name="odata-comparison-operators-in-azure-cognitive-search---eq-ne-gt-lt-ge-and-le"></a>Operadores de comparação OData no Azure pesquisa cognitiva- `eq` ,,,, `ne` `gt` `lt` `ge` e `le`
 
-A operação mais básica em uma [expressão de filtro OData](query-odata-filter-orderby-syntax.md) no Azure pesquisa cognitiva é comparar um campo com um determinado valor. Dois tipos de comparação são possíveis – comparação de igualdade e comparação de intervalo. Você pode usar os seguintes operadores para comparar um campo com um valor constante:
+A operação mais básica em uma [expressão de filtro OData](query-odata-filter-orderby-syntax.md) no Azure pesquisa cognitiva é comparar um campo com um determinado valor. Dois tipos de comparação são possíveis – comparação de igualdade e comparação de intervalo. Use os seguintes operadores para comparar um campo com um valor constante:
 
 Operadores de igualdade:
 
@@ -49,7 +49,7 @@ Você pode usar os operadores de intervalo em combinação com os [operadores l�
 
 ## <a name="syntax"></a>Sintaxe
 
-O EBNF a seguir ([formulário Backus-Naur Estendido](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) define a gramática de uma expressão OData que usa os operadores de comparação.
+O seguinte EBNF ([formulário estendido Backus-Naur](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) define a gramática de uma expressão OData que usa os operadores de comparação.
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 
@@ -81,9 +81,9 @@ Os tipos de dados em ambos os lados de um operador de comparação devem ser com
 | --- | --- | --- |
 | `Edm.Double` | `Edm.Double` | A comparação está sujeita a [regras especiais `NaN` para](#special-case-nan) |
 | `Edm.Double` | `Edm.Int64` | A constante é convertida em `Edm.Double` , resultando em uma perda de precisão para valores de grande magnitude |
-| `Edm.Double` | `Edm.Int32` | N/D |
+| `Edm.Double` | `Edm.Int32` | n/a |
 | `Edm.Int64` | `Edm.Double` | Comparações com `NaN` , `-INF` , ou `INF` não são permitidas |
-| `Edm.Int64` | `Edm.Int64` | N/D |
+| `Edm.Int64` | `Edm.Int64` | n/a |
 | `Edm.Int64` | `Edm.Int32` | A constante é convertida `Edm.Int64` antes da comparação |
 | `Edm.Int32` | `Edm.Double` | Comparações com `NaN` , `-INF` , ou `INF` não são permitidas |
 | `Edm.Int32` | `Edm.Int64` | n/d |

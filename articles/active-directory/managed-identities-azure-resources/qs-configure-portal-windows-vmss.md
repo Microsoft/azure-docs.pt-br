@@ -1,9 +1,9 @@
 ---
-title: Configurar identidades gerenciadas no Azure VMSS – Azure AD
+title: Configurar identidades gerenciadas no conjunto de dimensionamento de máquinas virtuais – Azure AD
 description: Instruções passo a passo para configurar identidades gerenciadas para recursos do Azure em um conjunto de dimensionamento de máquinas virtuais usando o portal do Azure.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/20/2018
-ms.author: markvi
+ms.date: 12/15/2020
+ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d05ee1be18b315c63ccf9d564ea95391a163826e
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 73c2f4167d6ce5465a879f6b2ef7e96d91065c4d
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87924488"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97590912"
 ---
-# <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-the-azure-portal"></a>Configurar identidades gerenciadas para recursos do Azure em um conjunto de dimensionamento de máquinas virtuais usando o portal do Azure
+# <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-vmss-using-the-azure-portal"></a>Configurar identidades gerenciadas para recursos do Azure em um VMSS (conjunto de dimensionamento de máquinas virtuais) usando o portal do Azure
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
@@ -37,7 +37,7 @@ Neste artigo, usando o PowerShell, você aprende como executar as seguintes iden
     > [!NOTE]
     > Não são necessárias atribuições de função do diretório adicionais do Azure AD.
 
-    - [Colaborador de Máquina Virtual](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) para habilitar e remover identidade gerenciada atribuída ao sistema de um conjunto de dimensionamento de máquinas virtuais.
+    - [Colaborador de Máquina Virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) para habilitar e remover identidade gerenciada atribuída ao sistema de um conjunto de dimensionamento de máquinas virtuais.
 
 ## <a name="system-assigned-managed-identity"></a>Identidade gerenciada atribuída pelo sistema
 
@@ -59,7 +59,7 @@ Para habilitar a identidade gerenciada atribuída ao sistema em um conjunto de d
 
 3. Em **Sistema atribuído**, **Status**, selecione **Ativado** e, em seguida, clique em **Salvar**:
 
-   ![Captura de tela da página de configuração](./media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png) 
+   ![A captura de tela mostra a página "Identidade (versão prévia)" com "Atribuído pelo sistema" selecionado, o status "Ativado" e o botão "Salvar" realçado.](./media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png) 
 
 ### <a name="remove-system-assigned-managed-identity-from-a-virtual-machine-scale-set"></a>Remover identidade gerenciada atribuída ao sistema de um conjunto de dimensionamento de máquinas virtuais
 
@@ -88,7 +88,7 @@ Atualmente, o portal do Azure não dá suporte à atribuição de uma identidade
 1. Entre no [Portal do Azure](https://portal.azure.com) usando uma conta associada à assinatura do Azure que contém o conjunto de dimensionamento de máquinas virtuais.
 2. Navegue até o conjunto de dimensionamento de máquinas virtuais desejado e clique em **Identidade**, **Usuário atribuído** e, em seguida, **\+Adicionar**.
 
-   ![Adicionar identidade atribuída ao usuário ao VMSS](./media/msi-qs-configure-portal-windows-vm/add-user-assigned-identity-vmss-screenshot1.png)
+   ![Captura de tela que mostra a página "Identidade" com "Atribuído pelo usuário" selecionado e o botão "Adicionar" realçado.](./media/msi-qs-configure-portal-windows-vm/add-user-assigned-identity-vmss-screenshot1.png)
 
 3. Clique na identidade atribuída ao usuário que você quer adicionar ao conjunto de dimensionamento de máquinas virtuais e, em seguida, clique em **Adicionar**.
    

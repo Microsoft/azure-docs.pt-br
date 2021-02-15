@@ -1,19 +1,19 @@
 ---
 title: Solução do Azure VMware por CloudSimple-escalonar privilégios de CloudSimple
 description: Descreve como escalonar permissões de CloudSimple para executar funções administrativas no vCenter de nuvem privada
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/16/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 36c6969ed89d0bb9222f52aa81de0d4128b9e533
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d481717a79856583d23f61107678d2ecd1af68d6
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77025326"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97895720"
 ---
 # <a name="escalate-cloudsimple-privileges-to-perform-administrative-functions-in-private-cloud-vcenter"></a>Escalonar privilégios de CloudSimple para executar funções administrativas no vCenter de nuvem privada
 
@@ -22,7 +22,7 @@ A abordagem de privilégios CloudSimple foi projetada para dar aos usuários do 
 Os motivos para escalonar privilégios podem incluir o seguinte:
 
 * Configuração de fontes de identidade
-* Gerenciamento de Usuários
+* Gerenciamento de usuários
 * Exclusão do grupo de portas distribuídas
 * Instalando soluções do vCenter (como aplicativos de backup)
 * Criar contas de serviço

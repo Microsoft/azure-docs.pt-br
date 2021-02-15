@@ -1,6 +1,6 @@
 ---
-title: incluir arquivo
-description: incluir arquivo
+title: arquivo de inclusão
+description: arquivo de inclusão
 services: expressroute
 author: cherylmc
 ms.service: expressroute
@@ -9,10 +9,10 @@ ms.date: 03/19/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 317a480c13c5c6e00653fd61878a379df3f65ac4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "67171658"
 ---
 ### <a name="what-is-expressroute-global-reach"></a>O que é o Alcance Global do ExpressRoute?
@@ -33,15 +33,15 @@ O ExpressRoute permite a conectividade da rede local com os serviços em nuvem d
 
 ### <a name="where-is-expressroute-global-reach-supported"></a>Quais países dão suporte ao Alcance Global do ExpressRoute?
 
-Há suporte para o ExpressRoute Alcance Global em [países/regiões ou locais selecionados](../articles/expressroute/expressroute-global-reach.md). Os circuitos do ExpressRoute devem ser criados nos locais de emparelhamento nesses países/regiões ou locais.
+O Alcance Global do ExpressRoute tem suporte em [alguns países/regiões ou locais selecionados](../articles/expressroute/expressroute-global-reach.md). Os circuitos do ExpressRoute precisam ser criados nos locais de emparelhamento desses países/regiões ou locais.
 
 ### <a name="i-have-more-than-two-on-premises-networks-each-connected-to-an-expressroute-circuit-can-i-enable-expressroute-global-reach-to-connect-all-of-my-on-premises-networks-together"></a>Tenho mais de duas redes locais, cada uma conectada a um circuito do ExpressRoute. Posso habilitar o Alcance Global do ExpressRoute para conectar todas as redes locais?
 
-Sim, você pode, contanto que os circuitos estejam nos países/regiões com suporte. Você precisa conectar dois circuitos do ExpressRoute por vez. Para criar uma rede de malha completa, você precisa enumerar todos os pares de circuitos e repetir a configuração. 
+Sim, você pode, desde que os circuitos estejam em países/regiões com suporte. Você precisa conectar dois circuitos do ExpressRoute por vez. Para criar uma rede de malha completa, você precisa enumerar todos os pares de circuitos e repetir a configuração. 
 
 ### <a name="can-i-enable-expressroute-global-reach-between-two-expressroute-circuits-at-the-same-peering-location"></a>Posso habilitar o Alcance Global do ExpressRoute entre dois circuitos do ExpressRoute no mesmo local de emparelhamento?
 
-Não. Os dois circuitos precisam vir de locais de emparelhamento diferentes. Se um metro em um país/região com suporte tiver mais de um local de emparelhamento de ExpressRoute, você poderá se conectar aos circuitos do ExpressRoute criados em diferentes locais de emparelhamento nesse metro. 
+Não. Os dois circuitos precisam vir de locais de emparelhamento diferentes. Se um metrô em um país/região com suporte tiver mais de uma localização de emparelhamento do ExpressRoute, você poderá conectar todos os circuitos do ExpressRoute criados em locais de emparelhamento diferentes nesse metrô. 
 
 ### <a name="if-expressroute-global-reach-is-enabled-between-circuit-x-and-circuit-y-and-between-circuit-y-and-circuit-z-will-my-on-premises-networks-connected-to-circuit-x-and-circuit-z-talk-to-each-other-via-microsofts-network"></a>Se o Alcance Global do ExpressRoute estiver habilitado entre o circuito X e o circuito Y, e entre o circuito Y e o circuito Z, minhas redes locais conectadas ao circuito X e ao circuito Z se comunicarão por meio da rede da Microsoft?
 
@@ -49,7 +49,7 @@ Não. Para habilitar a conectividade entre duas redes locais, é necessário con
 
 ### <a name="what-is-the-network-throughput-i-can-expect-between-my-on-premises-networks-after-i-enable-expressroute-global-reach"></a>Qual é a taxa de transferência de rede que posso esperar entre minhas redes locais depois de habilitar o Alcance Global do ExpressRoute?
 
-A taxa de transferência de rede entre as redes locais, habilitadas pelo Alcance Global do ExpressRoute, é limitada pelo menor dos dois circuitos do ExpressRoute. O tráfego local para o Azure e o tráfego local para o compartilhamento do mesmo circuito e estão sujeitos ao mesmo limite de largura de banda. 
+A taxa de transferência de rede entre as redes locais, habilitadas pelo Alcance Global do ExpressRoute, é limitada pelo menor dos dois circuitos do ExpressRoute. O tráfego do local para o Azure e do local para o local compartilham o mesmo circuito e estão sujeitos ao mesmo limite de largura de banda. 
 
 ### <a name="with-expressroute-global-reach-what-are-the-limits-on-the-number-of-routes-i-can-advertise-and-the-number-of-routes-i-will-receive"></a>Com o alcance Global do ExpressRoute, quais são os limites no número de rotas que posso anunciar e o número de rotas que vou receber?
 

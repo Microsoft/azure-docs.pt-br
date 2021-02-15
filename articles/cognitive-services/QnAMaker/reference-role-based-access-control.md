@@ -1,17 +1,19 @@
 ---
-title: RBAC (controle de acesso baseado em função)-QnA Maker
+title: Controle de acesso baseado em função do Azure (RBAC do Azure)-QnA Maker
 description: Controlar o acesso a QnA Maker com as funções do Azure para o recurso de QnA Maker
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 05/15/2020
-ms.openlocfilehash: 07afdde258c8fa8ee0d98e95881170d5ddb23dff
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: f24efaacefb269134232d3d88f4fff09413552e5
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83665955"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92146193"
 ---
-# <a name="role-based-access-control-rbac"></a>RBAC (Controle de Acesso Baseado em Função)
+# <a name="azure-role-based-access-control-azure-rbac"></a>RBAC do Azure (controle de acesso baseado em função do Azure)
 
 Use a tabela a seguir para determinar suas necessidades de acesso para seu recurso de QnA Maker.
 
-[!INCLUDE [RBAC list](./includes/role-based-access-control.md)]
+[!INCLUDE [Azure RBAC list](./includes/role-based-access-control.md)]

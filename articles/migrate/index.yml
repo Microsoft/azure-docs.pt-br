@@ -3,19 +3,21 @@ title: Documentação das Migrações para Azure
 summary: Encontre artigos para ajudar você a descobrir, avaliar e migrar seu ambiente local usando ferramentas no hub de Migrações para Azure.
 metadata:
   title: Documentação das Migrações para Azure
-  description: Saiba como usar as ferramentas no hub de Migrações para Azure para descobrir, avaliar e migrar seu ambiente local para o Azure.
+  description: Encontre tutoriais de migração, recursos e ferramentas de avaliação de migração para o Azure. Saiba como usar as ferramentas no hub de Migrações para Azure para descobrir, avaliar e migrar seu ambiente local para o Azure.
   ms.service: azure-migrate
   ms.topic: landing-page
   ms.collection: collection
   author: rayne-wiselman
   ms.author: raynew
   ms.date: 07/08/2020
-  ms.openlocfilehash: a3c9be5e123892d5d1b8d8e4a0677eb520e34dc6
-  ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+  ms.custom: seo-azure-migrate
+  keywords: azure migrate, azure migration, azure migrate assessment tool, azure migrate tool, azure migrate documentation, azure migration documentation
+  ms.openlocfilehash: 40a510aa30ad76f4d6007bad337415c133d667e0
+  ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 07/08/2020
-  ms.locfileid: "86112656"
+  ms.lasthandoff: 10/21/2020
+  ms.locfileid: "92318167"
 landingContent:
 - title: Sobre as Migrações para Azure
   linkLists:
@@ -32,13 +34,13 @@ landingContent:
   - linkListType: tutorial
     links:
     - text: Avaliar VMs do VMware com a Avaliação do Servidor
-      url: ./tutorial-prepare-vmware.md
+      url: ./tutorial-discover-vmware.md
     - text: Avaliar VMs do Hyper-V com a Avaliação do Servidor
-      url: ./tutorial-prepare-hyper-v.md
+      url: ./tutorial-discover-hyper-v.md
     - text: Avaliar servidores físicos com a Avaliação de Servidor
-      url: ./tutorial-prepare-physical.md
+      url: ./tutorial-discover-physical.md
     - text: Avaliar servidores por meio de dados importados
-      url: tutorial-assess-import.md
+      url: ./tutorial-discover-import.md
     - text: Migrar VMs do VMware com a Migração do Servidor
       url: ./server-migrate-overview.md
     - text: Migrar VMs do Hyper-V com a Migração do Servidor

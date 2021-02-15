@@ -3,18 +3,20 @@ title: Teste de desempenho e escala com o Azure Cosmos DB
 description: Saiba como realizar testes de desempenho e escala com o Azure Cosmos DB. Também é possível avaliar a funcionalidade do Azure Cosmos DB para cenários de aplicativos de alto desempenho.
 author: SnehaGunda
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: ffe368d763ee93d1864f0f807cbe18b8ebfe41c9
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: cb0dd8eb879c5511da3c79a3dee6a715fb1275e4
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85851660"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97358632"
 ---
 # <a name="performance-and-scale-testing-with-azure-cosmos-db"></a>Teste de desempenho e escala com o Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 O teste de desempenho e escalabilidade é uma etapa importante no desenvolvimento de aplicativos. Para muitos aplicativos, a camada de banco de dados tem um impacto significativo no desempenho e escalabilidade gerais. Portanto, é um componente crítico do teste de desempenho. O [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) foi desenvolvido para escala elástica e desempenho previsível. Esses recursos o tornam ideal para aplicativos que precisam de uma camada de banco de dados de alto desempenho. 
 
@@ -25,7 +27,7 @@ Após ler este artigo, você poderá responder as perguntas a seguir:
 * Onde posso encontrar um aplicativo cliente do .NET de exemplo para testar o desempenho do Azure Cosmos DB? 
 * Como fazer para obter altos níveis de produtividade com o Azure Cosmos DB em meu aplicativo cliente?
 
-Para começar a codificar, baixe o projeto na [Amostra de Teste de Desempenho do Azure Cosmos DB](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark). 
+Para começar a codificar, baixe o projeto na [Amostra de Teste de Desempenho do Azure Cosmos DB](https://github.com/Azure/azure-cosmos-dotnet-v2/tree/master/samples/documentdb-benchmark). 
 
 > [!NOTE]
 > A meta deste aplicativo é demonstrar como obter o melhor desempenho do Azure Cosmos DB com um número pequeno de computadores cliente. A meta da amostra não é atingir a capacidade de produtividade de pico do Azure Cosmos DB (que pode ser dimensionada sem limites).
@@ -35,7 +37,7 @@ Se você estiver procurando opções de configuração do lado do cliente para m
 ## <a name="run-the-performance-testing-application"></a>Execute o aplicativo de teste de desempenho
 A maneira mais rápida de começar é compilar e executar o exemplo do .NET, conforme descrito nas etapas a seguir. Você também pode examinar o código-fonte e implementar configurações semelhantes nos seus aplicativos clientes.
 
-**Etapa 1:** Baixe o projeto do [Azure Cosmos DB exemplo de teste de desempenho](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark)ou faça fork do repositório github.
+**Etapa 1:** Baixe o projeto do [Azure Cosmos DB exemplo de teste de desempenho](https://github.com/Azure/azure-cosmos-dotnet-v2/tree/master/samples/documentdb-benchmark)ou faça fork do repositório github.
 
 **Etapa 2:** Modifique as configurações para EndpointUrl, AuthorizationKey, CollectionThroughput e DocumentTemplate (opcional) em App.config.
 
@@ -95,8 +97,8 @@ Uma vez que o aplicativo estiver em execução, você poderá experimentar [Pol�
 
 Neste artigo, analisamos como você pode realizar testes de desempenho e escala com o Azure Cosmos DB usando um aplicativo de console .NET. Para obter mais informações, consulte os seguintes artigos:
 
-* [Amostra de teste de desempenho do Azure Cosmos DB](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark)
+* [Amostra de teste de desempenho do Azure Cosmos DB](https://github.com/Azure/azure-cosmos-dotnet-v2/tree/master/samples/documentdb-benchmark)
 * [Opções de configuração do cliente para melhorar o desempenho do Azure Cosmos DB](performance-tips.md)
-* [Particionamento do lado do servidor no Azure Cosmos DB](partition-data.md)
+* [Particionamento do lado do servidor no Azure Cosmos DB](partitioning-overview.md)
 
 

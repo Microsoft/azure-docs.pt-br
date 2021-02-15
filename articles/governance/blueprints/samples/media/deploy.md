@@ -1,14 +1,14 @@
 ---
 title: Exemplo de implantação do blueprint de Mídia
 description: Etapas de implantação do modelo de blueprint de Mídia, incluindo detalhes do parâmetro do artefato de blueprint.
-ms.date: 08/13/2020
+ms.date: 01/08/2021
 ms.topic: sample
-ms.openlocfilehash: c8ac1726bc5007c1790f5efbc45c72f9712fcdf2
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 5dc3720ceb1bdd8e50ab220288cef64c73e304ff
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88208436"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98034995"
 ---
 # <a name="deploy-the-media-blueprint-sample"></a>Exemplo de implantação do blueprint de Mídia
 

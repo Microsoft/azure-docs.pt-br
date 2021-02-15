@@ -7,10 +7,10 @@ ms.topic: troubleshooting
 ms.date: 03/18/2020
 ms.author: v-erkel
 ms.openlocfilehash: efa163a2c10a7dc93bf5d26865a0e7eb43f11dea
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87082759"
 ---
 # <a name="troubleshoot-nas-configuration-and-nfs-storage-target-issues"></a>Solucionar problemas de configuração do NAS e destino de armazenamento NFS
@@ -96,7 +96,7 @@ Para evitar essa colisão de arquivo possível para arquivos em várias exporta�
 
 O NAS deve listar suas exportações quando o cache HPC do Azure a consulta.
 
-Na maioria dos sistemas de armazenamento NFS, você pode testar isso enviando a seguinte consulta de um cliente Linux:``showmount -e <storage IP address>``
+Na maioria dos sistemas de armazenamento NFS, você pode testar isso enviando a seguinte consulta de um cliente Linux: ``showmount -e <storage IP address>``
 
 Use um cliente Linux da mesma rede virtual que o seu cache, se possível.
 
@@ -120,9 +120,9 @@ Não há uma maneira simples de dizer se o seu sistema tem esse problema, a meno
 
   Estas são as opções no comando:
 
-  * ``-M do``-Não fragmentar
-  * ``-c 1``-Enviar apenas um pacote
-  * ``-s 1472``-Defina o tamanho da carga para 1472 bytes. Essa é a carga de tamanho máximo para um pacote de 1500 bytes após a contabilização da sobrecarga de Ethernet.
+  * ``-M do`` -Não fragmentar
+  * ``-c 1`` -Enviar apenas um pacote
+  * ``-s 1472`` -Defina o tamanho da carga para 1472 bytes. Essa é a carga de tamanho máximo para um pacote de 1500 bytes após a contabilização da sobrecarga de Ethernet.
 
   Uma resposta bem-sucedida tem a seguinte aparência:
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: fmegen
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3c8d3162e13c31204ed317edc653756b04ef8dd4
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 87fa97dafe9de4a23f5eaadfd4083cd1ca517cde
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88934116"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026583"
 ---
 # <a name="about-the-speech-sdk-audio-input-stream-api"></a>Sobre a API de fluxo de entrada de áudio do SDK de Fala
 
@@ -26,7 +26,7 @@ As etapas a seguir são necessárias ao usar fluxos de entrada de áudio:
 
 - Identificar o formato do fluxo de áudio. O formato deve ter suporte no SDK de Fala e no serviço de Fala. Atualmente, apenas a configuração a seguir tem suporte:
 
-  Exemplos de áudio no formato PCM, um canal, 16 bits por amostra, 8000 ou 16000 amostras por segundo (16000 ou 32000 bytes por segundo), dois alinhamento de bloco (16 bits, incluindo preenchimento para um exemplo).
+  As amostras de áudio estão no formato PCM, um canal, 16 bits por amostra, 8000 ou 16000 amostras por segundo (16000 ou 32000 bytes por segundo), dois alinhamentos de bloco (16 bits, incluindo o preenchimento de um exemplo).
 
   O código correspondente no SDK para criar o formato de áudio tem esta aparência:
 
@@ -37,7 +37,7 @@ As etapas a seguir são necessárias ao usar fluxos de entrada de áudio:
   var audioFormat = AudioStreamFormat.GetWaveFormatPCM(samplesPerSecond, bitsPerSample, channels);
   ```
 
-- Garanta que seu código possa fornecer os dados de áudio RAW de acordo com estas especificações. Se os dados de origem do áudio não corresponderem aos formatos com suporte, o áudio deverá ser transcodificado no formato exigido.
+- Verifique se seu código fornece os dados de áudio BRUTOs de acordo com essas especificações. Além disso, garanta que amostras de 16 bits cheguem no formato little-endian. Também há suporte para amostras assinadas. Se os dados de origem do áudio não corresponderem aos formatos com suporte, o áudio deverá ser transcodificado no formato exigido.
 
 - Crie sua própria classe de fluxo de entrada de áudio derivada de `PullAudioInputStreamCallback`. Implemente os membros `Read()` e `Close()`. A assinatura de função exata é dependente de idioma, mas o código será semelhante a este exemplo de código:
 
@@ -77,4 +77,4 @@ As etapas a seguir são necessárias ao usar fluxos de entrada de áudio:
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Criar uma conta gratuita do Azure](https://azure.microsoft.com/free/cognitive-services/)
-- [Veja como reconhecer fala em C#](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet)
+- [Veja como reconhecer fala em C#](./get-started-speech-to-text.md?pivots=programming-language-csharp&tabs=dotnet)

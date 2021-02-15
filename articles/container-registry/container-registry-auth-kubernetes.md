@@ -7,10 +7,10 @@ ms.author: karolz
 ms.reviewer: danlep
 ms.date: 05/28/2020
 ms.openlocfilehash: fbf5dfd68b823b600b11cad3643e5d4004b85ff5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84309808"
 ---
 # <a name="pull-images-from-an-azure-container-registry-to-a-kubernetes-cluster"></a>Efetuar pull de imagens de um registro de contêiner do Azure para um cluster kubernetes
@@ -74,7 +74,7 @@ spec:
     - name: acr-secret
 ```
 
-No exemplo anterior, `my-awesome-app:v1` é o nome da imagem a ser extraída do registro de contêiner do Azure e `acr-secret` é o nome do segredo de pull que você criou para acessar o registro. Quando você implantar o Pod, o kubernetes extrairá automaticamente a imagem do registro, se ela ainda não estiver presente no cluster.
+No exemplo anterior, `my-awesome-app:v1` é o nome da imagem a ser extraída do registro de contêiner do Azure e  `acr-secret` é o nome do segredo de pull que você criou para acessar o registro. Quando você implantar o Pod, o kubernetes extrairá automaticamente a imagem do registro, se ela ainda não estiver presente no cluster.
 
 
 ## <a name="next-steps"></a>Próximas etapas

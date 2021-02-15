@@ -1,19 +1,16 @@
 ---
 title: Operacionalizar o ML Services no HDInsight - Azure
 description: Saiba como colocar seu modelo de dados em operação para fazer previsões com os serviços de ML no Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 06/27/2018
-ms.openlocfilehash: 1a5a46957c92fb2c14907db728216481f3f57aac
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: c90642e58c026c78ce854e7fe74dd36963d48b67
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087683"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944002"
 ---
 # <a name="operationalize-ml-services-cluster-on-azure-hdinsight"></a>Operacionalizar o cluster do ML Services no Azure HDInsight
 
@@ -23,12 +20,12 @@ Após usar o cluster do ML Services no HDInsight para concluir a modelagem de da
 
 * Um cluster dos Serviços de ML no HDInsight. Veja [Criar clusters Apache Hadoop usando o portal do Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) e selecione **Serviços de ML** como **Tipo de cluster**.
 
-* Um cliente Secure Shell (SSH): um cliente SSH é usado para se conectar ao cluster HDInsight remotamente e executar comandos diretamente no cluster. Para obter mais informações, consulte [usar SSH com HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
+* Um cliente Secure Shell (SSH): um cliente SSH é usado para se conectar ao cluster HDInsight remotamente e executar comandos diretamente no cluster. Para obter mais informações, confira [Usar SSH com HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="operationalize-ml-services-cluster-with-one-box-configuration"></a>Operacionalizar o cluster do ML Services com configuração de uma caixa
 
 > [!NOTE]  
-> As etapas abaixo aplicam-se ao Microsoft R Server 9.0 e ML Server 9.1. Para o ML Server 9.3, consulte [Usar a ferramenta de administração para gerenciar a configuração de operacionalização](https://docs.microsoft.com/machine-learning-server/operationalize/configure-admin-cli-launch).
+> As etapas abaixo aplicam-se ao Microsoft R Server 9.0 e ML Server 9.1. Para o ML Server 9.3, consulte [Usar a ferramenta de administração para gerenciar a configuração de operacionalização](/machine-learning-server/operationalize/configure-admin-cli-launch).
 
 1. SSH no nó de borda.
 
@@ -103,7 +100,7 @@ chmod 777 /var/RevoShare/rserve2
 rxSparkConnect(reset = TRUE)
 ```
 
-Nesse estágio, a configuração de operacionalização foi concluída. Agora, você pode usar o pacote `mrsdeploy`em seu RClient para conectar a operacionalização no nó de borda e começar a usar seus recursos como a [execução remota](https://docs.microsoft.com/machine-learning-server/r/how-to-execute-code-remotely) e os [serviços web](https://docs.microsoft.com/machine-learning-server/operationalize/concept-what-are-web-services). A depender se o cluster está configurado em uma rede virtual ou não, você pode precisar configurar o túnel de encaminhamento da porta por meio de logon de SSH. As seções a seguir explicam como configurar esse túnel.
+Nesse estágio, a configuração de operacionalização foi concluída. Agora, você pode usar o pacote `mrsdeploy`em seu RClient para conectar a operacionalização no nó de borda e começar a usar seus recursos como a [execução remota](/machine-learning-server/r/how-to-execute-code-remotely) e os [serviços web](/machine-learning-server/operationalize/concept-what-are-web-services). A depender se o cluster está configurado em uma rede virtual ou não, você pode precisar configurar o túnel de encaminhamento da porta por meio de logon de SSH. As seções a seguir explicam como configurar esse túnel.
 
 ### <a name="ml-services-cluster-on-virtual-network"></a>Cluster do ML Service na rede virtual
 

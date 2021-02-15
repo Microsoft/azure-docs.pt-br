@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 03a32b37f5ca29c6a0dd6b810b4e097379c6c32e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9dc195f98310e63cbde06885effe86ea3c239249
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85515151"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91576091"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Autenticação de serviço a serviço com o Azure Data Lake Storage Gen1 usando o Active Directory do Azure
 > [!div class="op_single_selector"]
@@ -65,12 +65,12 @@ Ao fazer logon por meio de programação, você precisa da ID para seu aplicativ
     ![Adicionar um grupo](./media/data-lake-store-authenticate-using-active-directory/adl.acl.3.png "Adicionar um grupo")
 6. Clique em **Selecionar Permissões**, selecione as permissões e se você desejar atribuir as permissões como uma ACL padrão, acessar a ACL ou ambos. Clique em **OK**.
    
-    ![Atribuir permissões ao grupo](./media/data-lake-store-authenticate-using-active-directory/adl.acl.4.png "Atribuir permissões ao grupo")
+    ![Captura de tela da folha adicionar acesso personalizado com a opção Selecionar permissões chamada out e a folha selecionar permissões com a opção OK chamada out.](./media/data-lake-store-authenticate-using-active-directory/adl.acl.4.png "Atribuir permissões ao grupo")
    
     Para obter mais informações sobre permissões no Data Lake armazenamento Gen1 e ACLs de acesso/padrão, consulte [controle de acesso no Data Lake armazenamento Gen1](data-lake-store-access-control.md).
 7. Na folha **Adicionar Acesso Personalizado**, clique em **OK**. Os grupos adicionados recentemente, com as permissões associadas, são listados na folha **acesso** .
    
-    ![Atribuir permissões ao grupo](./media/data-lake-store-authenticate-using-active-directory/adl.acl.5.png "Atribuir permissões ao grupo")
+    ![Captura de tela da folha de acesso com o grupo recém-adicionado chamado na seção acesso personalizado.](./media/data-lake-store-authenticate-using-active-directory/adl.acl.5.png "Atribuir permissões ao grupo")
 
 > [!NOTE]
 > Se você planeja restringir o aplicativo do Azure Active Directory a uma pasta específica, também será necessário conceder a esse aplicativo do Azure Active Directory a mesma permissão **Executar** à raiz para permitir o acesso de criação de arquivo por meio do SDK do .NET.
@@ -88,11 +88,11 @@ Ao fazer logon por meio de programação, você precisa da ID para seu aplicativ
 
 3. Na parte superior da folha Registros do aplicativo, clique em **Pontos de extremidade**.
 
-    ![Ponto de extremidade de token OAuth](./media/data-lake-store-authenticate-using-active-directory/oauth-token-endpoint.png "Ponto de extremidade de token OAuth")
+    ![Captura de tela de Active Directory com a opção Registros de aplicativo e a opção pontos de extremidade chamados.](./media/data-lake-store-authenticate-using-active-directory/oauth-token-endpoint.png "Ponto de extremidade de token OAuth")
 
 4. Da lista de pontos de extremidade, copie o ponto de extremidade do token OAuth 2.0.
 
-    ![Ponto de extremidade de token OAuth](./media/data-lake-store-authenticate-using-active-directory/oauth-token-endpoint-1.png "Ponto de extremidade de token OAuth")   
+    ![Captura de tela da folha de pontos de extremidade com o ícone de cópia de ponto final de autenticação o do ponto de entrada 2.](./media/data-lake-store-authenticate-using-active-directory/oauth-token-endpoint-1.png "Ponto de extremidade de token OAuth")   
 
 ## <a name="next-steps"></a>Próximas etapas
 Neste artigo, você criou um aplicativo Web do Azure AD e reuniu as informações necessárias em seus aplicativos cliente que você cria usando o SDK do .NET, Java, Python, API REST, etc. Agora você pode prosseguir para os seguintes artigos que falam sobre como usar o aplicativo nativo do Azure AD para primeiro autenticar com Data Lake Storage Gen1 e, em seguida, executar outras operações no repositório.

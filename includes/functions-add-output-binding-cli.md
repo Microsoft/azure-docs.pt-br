@@ -4,17 +4,19 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 03/25/2020
 ms.author: glenga
-ms.openlocfilehash: 121f6ffa5c1a7c903e59be8a5bc3e1e1db0834fc
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.openlocfilehash: 7ef3bd0f401ba54d56ed42df34cd2e761681dbc7
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80673322"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96904050"
 ---
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python,programming-language-java"
+
 ## <a name="add-an-output-binding-definition-to-the-function"></a>Adicionar uma definição de associação de saída à função
 
 Embora uma função possa ter apenas um gatilho, ela pode ter várias associações de entrada e saída, o que permite que você se conecte a outros serviços e recursos do Azure sem escrever um código de integração personalizado. 
-
+::: zone-end
 ::: zone pivot="programming-language-python,programming-language-javascript,programming-language-powershell,programming-language-typescript"  
 Você declara essas associações no arquivo *function.json* em sua pasta de funções. No início rápido anterior, o arquivo *function.json* na pasta *HttpExample* contém duas associações na coleção `bindings`:  
 ::: zone-end

@@ -3,19 +3,19 @@ title: Converter por trás de firewalls-Tradutor
 titleSuffix: Azure Cognitive Services
 description: O tradutor de serviços cognitivas do Azure pode traduzir por trás de firewalls usando o nome de domínio ou a filtragem de IP.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 05/26/2020
-ms.author: swmachan
-ms.openlocfilehash: 78a53c99f5f184c1b6b45d59d86c23efb898d7dc
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.author: lajanuar
+ms.openlocfilehash: f5dd72328180574809c812d670f8165ad84963ae
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83996951"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897740"
 ---
 # <a name="how-to-translate-behind-ip-firewalls-with-translator"></a>Como converter por trás de firewalls IP com o tradutor
 

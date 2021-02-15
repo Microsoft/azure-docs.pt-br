@@ -1,9 +1,9 @@
 ---
-title: Usar um SDK para configurar identidades gerenciadas em uma VM-Azure AD
+title: Use o SDK para configurar identidades gerenciadas em uma VM – Azure AD
 description: Instruções passo a passo para configurar e usar identidades gerenciadas para recursos do Azure em uma VM do Azure, usando um SDK do Azure.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/28/2017
-ms.author: markvi
+ms.date: 11/03/2020
+ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9472f9fa2084a1665b4a103df359fd3b4f19d6ad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 41d1be35d2add24cbbc171c3da3bd4d06bce4337
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85609037"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93359656"
 ---
 # <a name="configure-a-vm-with-managed-identities-for-azure-resources-using-an-azure-sdk"></a>Configurar uma VM com identidades gerenciadas para recursos do Azure usando um SDK do Azure
 
@@ -48,4 +48,4 @@ O Azure dá suporte a várias plataformas de programação por meio de uma séri
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Consulte os artigos relacionados em **Configurar identidade para uma VM do Azure**, para saber como também é possível usar o portal do Azure, o PowerShell, a CLI e os modelos de recursos.
+- Consulte os artigos relacionados em **Configurar identidade para uma VM do Azure** , para saber como também é possível usar o portal do Azure, o PowerShell, a CLI e os modelos de recursos.

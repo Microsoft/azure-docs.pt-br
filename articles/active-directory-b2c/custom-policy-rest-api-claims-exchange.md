@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/18/2020
+ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 997a6941e2ccc26dabe1a593fe938094099bc98d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 84053df34ffda0d4686ad80a9e5f3af00ac53d72
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85388979"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94949472"
 ---
 # <a name="walkthrough-add-rest-api-claims-exchanges-to-custom-policies-in-azure-active-directory-b2c"></a>Passo a passo: Adicionar trocas de declarações da API REST a políticas personalizadas no Azure Active Directory B2C
 
@@ -41,7 +41,7 @@ O código JSON a seguir ilustra os dados que o Azure AD B2C enviará para o pont
 ```json
 {
     "objectId": "User objectId",
-    "language": "Current UI language"
+    "lang": "Current UI language"
 }
 ```
 
@@ -53,7 +53,7 @@ Depois que a API REST validar os dados, ela deverá retornar um HTTP 200 (Ok), c
 }
 ```
 
-A configuração do ponto de extremidade da API REST está fora do escopo deste artigo. Criamos um exemplo do [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-reference). Você pode acessar o código completo de função do Azure no [GitHub](https://github.com/azure-ad-b2c/rest-api/tree/master/source-code/azure-function).
+A configuração do ponto de extremidade da API REST está fora do escopo deste artigo. Criamos um exemplo do [Azure Functions](../azure-functions/functions-reference.md). Você pode acessar o código completo de função do Azure no [GitHub](https://github.com/azure-ad-b2c/rest-api/tree/master/source-code/azure-function).
 
 ## <a name="define-claims"></a>Definir declarações
 
@@ -75,9 +75,9 @@ Uma declaração fornece armazenamento temporário de dados durante uma execuç�
 </ClaimType>
 ```
 
-## <a name="configure-the-restful-api-technical-profile"></a>Configurar o perfil técnico da API RESTful 
+## <a name="add-the-restful-api-technical-profile"></a>Adicionar o perfil técnico da API RESTful 
 
-Um[perfil técnico RESTful](restful-technical-profile.md) fornece suporte para a interface com seu próprio serviço RESTful. O Azure AD B2C envia dados para o serviço RESTful em uma coleção`InputClaims` e recebe dados de volta em uma coleção`OutputClaims`. Localize o elemento**ClaimsProviders**no seu arquivo <em> **`TrustFrameworkExtensions.xml`**</em> e adicione um novo provedor de declarações da seguinte maneira:
+Um[perfil técnico RESTful](restful-technical-profile.md) fornece suporte para a interface com seu próprio serviço RESTful. O Azure AD B2C envia dados para o serviço RESTful em uma coleção`InputClaims` e recebe dados de volta em uma coleção`OutputClaims`. Localize o elemento **ClaimsProviders** no seu arquivo <em> **`TrustFrameworkExtensions.xml`**</em> e adicione um novo provedor de declarações da seguinte maneira:
 
 ```xml
 <ClaimsProvider>
@@ -87,6 +87,7 @@ Um[perfil técnico RESTful](restful-technical-profile.md) fornece suporte para a
       <DisplayName>Get user extended profile Azure Function web hook</DisplayName>
       <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
       <Metadata>
+        <!-- Set the ServiceUrl with your own REST API endpoint -->
         <Item Key="ServiceUrl">https://your-account.azurewebsites.net/api/GetProfile?code=your-code</Item>
         <Item Key="SendClaimsIn">Body</Item>
         <!-- Set AuthenticationType to Basic or ClientCertificate in production environments -->
@@ -107,9 +108,20 @@ Um[perfil técnico RESTful](restful-technical-profile.md) fornece suporte para a
     </TechnicalProfile>
   </TechnicalProfiles>
 </ClaimsProvider>
-```
+``` 
 
 Neste exemplo, `userLanguage` será enviado para o serviço REST como `lang` no conteúdo do JSON. O valor da declaração `userLanguage` contém a ID de idioma do usuário atual. Para obter mais informações, confira [resolvedor de declarações](claim-resolver-overview.md).
+
+### <a name="configure-the-restful-api-technical-profile"></a>Configurar o perfil técnico da API RESTful 
+
+Depois de implantar sua API REST, defina os metadados do `REST-ValidateProfile` perfil técnico para refletir sua própria API REST, incluindo:
+
+- **ServiceUrl**. Defina a URL do ponto de extremidade da API REST.
+- **SendClaimsIn**. Especifique como as declarações de entrada são enviadas para o provedor de declarações RESTful.
+- **AuthenticationType**. Defina o tipo de autenticação que está sendo executada pelo provedor de declarações RESTful. 
+- **AllowInsecureAuthInProduction**. Em um ambiente de produção, certifique-se de definir esses metadados para `true`
+    
+Consulte os [metadados do perfil técnico RESTful](restful-technical-profile.md#metadata) para obter mais configurações.
 
 Os comentários acima de `AuthenticationType` e `AllowInsecureAuthInProduction` especificam as alterações que você deve fazer ao mudar para um ambiente de produção. Para saber como proteger suas APIs RESTful para produção, confira [Proteger API RESTful](secure-rest-api.md).
 

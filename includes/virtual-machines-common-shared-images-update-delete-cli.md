@@ -7,13 +7,13 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 04/25/2019
 ms.author: cynthn
-ms.custom: include file
-ms.openlocfilehash: 8d0f9866864ca4b02ca6238be2ac44537a586c2d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: include file, devx-track-azurecli
+ms.openlocfilehash: fe37b0c9dbc16520a0dcb0993236db2797da6b68
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67171934"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95556551"
 ---
 ## <a name="update-resources"></a>Atualizar recursos
 
@@ -36,7 +36,7 @@ Versão da imagem:
 
 Se você planeja adicionar regiões de réplica, não exclua a imagem gerenciada de origem. A imagem gerenciada de origem é necessária para replicar a versão da imagem para regiões adicionais. 
 
-Atualize a descrição de uma galeria usando o ([AZ SIG Update](https://docs.microsoft.com/cli/azure/sig?view=azure-cli-latest#az-sig-update). 
+Atualize a descrição de uma galeria usando o ([AZ SIG Update](/cli/azure/sig?view=azure-cli-latest#az-sig-update). 
 
 ```azurecli-interactive
 az sig update \
@@ -46,7 +46,7 @@ az sig update \
 ```
 
 
-Atualize a descrição de uma definição de imagem usando [AZ SIG Image-Definition Update](https://docs.microsoft.com/cli/azure/sig/image-definition?view=azure-cli-latest#az-sig-image-definition-update).
+Atualize a descrição de uma definição de imagem usando [AZ SIG Image-Definition Update](/cli/azure/sig/image-definition?view=azure-cli-latest#az-sig-image-definition-update).
 
 ```azurecli-interactive
 az sig image-definition update \
@@ -56,7 +56,7 @@ az sig image-definition update \
    --set description="My updated description."
 ```
 
-Atualize uma versão de imagem para adicionar uma região a ser replicada usando [AZ SIG Image-Version Update](https://docs.microsoft.com/cli/azure/sig/image-definition?view=azure-cli-latest#az-sig-image-definition-update). Essa alteração levará algum tempo, pois a imagem será replicada para a nova região.
+Atualize uma versão de imagem para adicionar uma região a ser replicada usando [AZ SIG Image-Version Update](/cli/azure/sig/image-definition?view=azure-cli-latest#az-sig-image-definition-update). Essa alteração levará algum tempo, pois a imagem será replicada para a nova região.
 
 ```azurecli-interactive
 az sig image-version update \
@@ -67,11 +67,33 @@ az sig image-version update \
    --add publishingProfile.targetRegions  name=eastus
 ```
 
+Este exemplo mostra como usar [AZ SIG Image-Version Update](/cli/azure/sig/image-definition?view=azure-cli-latest#az-sig-image-definition-update) para excluir essa versão da imagem de ser usada como a imagem *mais recente* .
+
+```azurecli-interactive
+az sig image-version update \
+   --resource-group myGalleryRG \
+   --gallery-name myGallery \
+   --gallery-image-definition myImageDefinition \
+   --gallery-image-version 1.0.0 \
+   --set publishingProfile.excludeFromLatest=true
+```
+
+Este exemplo mostra como usar [AZ SIG Image-Version Update](/cli/azure/sig/image-definition?view=azure-cli-latest#az-sig-image-definition-update) para incluir essa versão de imagem em ser considerada para a imagem *mais recente* .
+
+```azurecli-interactive
+az sig image-version update \
+   --resource-group myGalleryRG \
+   --gallery-name myGallery \
+   --gallery-image-definition myImageDefinition \
+   --gallery-image-version 1.0.0 \
+   --set publishingProfile.excludeFromLatest=false
+```
+
 ## <a name="delete-resources"></a>Excluir recursos
 
 Você precisa excluir os recursos na ordem inversa, excluindo a versão da imagem primeiro. Após excluir todas as versões da imagem, você poderá excluir a definição da imagem. Após excluir todas as definições da imagem, você poderá excluir a galeria. 
 
-Exclua uma versão de imagem usando [AZ SIG Image-Version Delete](https://docs.microsoft.com/cli/azure/sig/image-version?view=azure-cli-latest#az-sig-image-version-delete).
+Exclua uma versão de imagem usando [AZ SIG Image-Version Delete](/cli/azure/sig/image-version?view=azure-cli-latest#az-sig-image-version-delete).
 
 ```azurecli-interactive
 az sig image-version delete \
@@ -81,7 +103,7 @@ az sig image-version delete \
    --gallery-image-version 1.0.0 
 ```
 
-Exclua uma definição de imagem usando [AZ SIG Image-Definition Delete](https://docs.microsoft.com/cli/azure/sig/image-definition?view=azure-cli-latest#az-sig-image-definition-delete).
+Exclua uma definição de imagem usando [AZ SIG Image-Definition Delete](/cli/azure/sig/image-definition?view=azure-cli-latest#az-sig-image-definition-delete).
 
 ```azurecli-interactive
 az sig image-definition delete \
@@ -91,7 +113,7 @@ az sig image-definition delete \
 ```
 
 
-Exclua uma galeria de imagens usando [AZ SIG Delete](https://docs.microsoft.com/cli/azure/sig?view=azure-cli-latest#az-sig-delete).
+Exclua uma galeria de imagens usando [AZ SIG Delete](/cli/azure/sig?view=azure-cli-latest#az-sig-delete).
 
 ```azurecli-interactive
 az sig delete \

@@ -4,15 +4,15 @@ description: Saiba como usar o armazenamento de tabela do Azure para configurar 
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 08/25/2020
-ms.openlocfilehash: db2bae9d9e1c9658937e725a04d919743ff9999e
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 71b9c96c1855180106f7dfa9a31f0ee8b06ceb67
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855746"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347856"
 ---
 # <a name="use-azure-table-storage-to-manage-commercial-marketplace-leads"></a>Usar o armazenamento de tabela do Azure para gerenciar clientes potenciais do Marketplace comercial
 
@@ -26,7 +26,7 @@ Se o sistema de gerenciamento de relacionamentos com o cliente (CRM) não for ex
 
     1. Selecione **+ Criar um recurso** na barra de menu esquerda. O painel **Novo** é exibido à direita.
     1. Selecione **Armazenamento** no painel **Novo**. Uma lista **Em destaque** aparece à direita.
-    1. Selecione a **conta de armazenamento**  para iniciar a criação da conta. Siga as instruções para [Criar uma conta de armazenamento](../../storage/common/storage-quickstart-create-account.md?tabs=azure-portal).
+    1. Selecione a **conta de armazenamento**  para iniciar a criação da conta. Siga as instruções para [Criar uma conta de armazenamento](../../storage/common/storage-account-create.md?tabs=azure-portal).
 
         :::image type="content" source="media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-create.png" alt-text="Etapas para criar uma conta de armazenamento do Azure.":::
 
@@ -51,15 +51,15 @@ Se o sistema de gerenciamento de relacionamentos com o cliente (CRM) não for ex
     :::image type="content" source="media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-keys.png" alt-text="Chave de armazenamento do Azure.":::
 
 
-1. No painel da sua conta de armazenamento, escolha **Tabelas**e **+ Tabela** para criar uma tabela. Insira um nome para a tabela e selecione **OK**. Salve esse valor, pois você precisará dele se quiser configurar um fluxo para receber notificações por email quando os clientes potenciais forem recebidos.
+1. No painel da sua conta de armazenamento, escolha **Tabelas** e **+ Tabela** para criar uma tabela. Insira um nome para a tabela e selecione **OK**. Salve esse valor, pois você precisará dele se quiser configurar um fluxo para receber notificações por email quando os clientes potenciais forem recebidos.
 
     ![Tabelas do Azure](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-tables.png)
 
-    Você pode usar o [Gerenciador de Armazenamento do Microsoft Azure](https://archive.codeplex.com/?p=azurestorageexplorer) ou qualquer outra ferramenta para ver os dados em sua tabela de armazenamento. Você também pode exportar os dados na tabela do Azure.
+    Você pode usar o [Gerenciador de Armazenamento do Microsoft Azure](https://www.storageexplorer.com) ou qualquer outra ferramenta para ver os dados em sua tabela de armazenamento. Você também pode exportar os dados na tabela do Azure.
 
 ## <a name="optional-use-power-automate-to-get-lead-notifications"></a>(Opcional) Use o Power Automate para obter notificações de clientes potenciais
 
-Você pode usar o [Power Automate](https://docs.microsoft.com/flow/) para automatizar as notificações sempre que um cliente potencial for adicionado à sua tabela do Armazenamento do Microsoft Azure. Se você ainda não tem uma conta, pode [inscrever-se em uma conta gratuita](https://flow.microsoft.com/).
+Você pode usar o [Power Automate](/flow/) para automatizar as notificações sempre que um cliente potencial for adicionado à sua tabela do Armazenamento do Microsoft Azure. Se você ainda não tem uma conta, pode [inscrever-se em uma conta gratuita](https://flow.microsoft.com/).
 
 ### <a name="lead-notification-example"></a>Exemplo de notificação de cliente potencial
 
@@ -135,7 +135,7 @@ O exemplo cria um fluxo que envia automaticamente uma notificação por email qu
    Nas próximas etapas, configure a ação para executar com base no resultado da condição:
 
    * Se a condição for resolvida para **Em caso negativo**, não faça nada.
-   * Se a condição for resolvida para **Em caso afirmativo**, dispare uma ação que conecta sua conta do Office 365 para enviar um email.
+   * Se a condição for resolvida como **Sim**, dispare uma ação que conecta sua conta corporativa ou de estudante para enviar um email. 
 
 1. Selecione **Adicionar uma ação** em **Em caso afirmativo**.
 

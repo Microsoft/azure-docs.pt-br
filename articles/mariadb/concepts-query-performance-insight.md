@@ -1,17 +1,17 @@
 ---
 title: Análise de Desempenho de Consultas-banco de dados do Azure para MariaDB
 description: Este artigo descreve o recurso Análise de Desempenho de Consultas no banco de dados do Azure para MariaDB
-author: ajlam
-ms.author: andrela
-ms.service: mariadb
+author: savjani
+ms.author: pariks
+ms.service: jroth
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 88777ee44551ed6abdb7a6c7c909d6bf55db48c0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9e8e4527ba1717b4d152f501a38c3c8f65faf70e
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79527837"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664224"
 ---
 # <a name="query-performance-insight-in-azure-database-for-mariadb"></a>Análise de Desempenho de Consultas no Banco de Dados do Azure para MariaDB
 

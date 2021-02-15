@@ -5,22 +5,22 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 11/21/2019
-ms.author: iainfou
-author: iainfoulds
+ms.date: 12/17/2020
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f75c08f0a390e798435b70bbe2409ec4a9732214
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: bfff8d450a6506cb37730838e4f70609080ca7b1
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88717159"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97670784"
 ---
 # <a name="authentication-methods-usage--insights-preview"></a>Uso de métodos de autenticação & insights (versão prévia)
 
-O uso & insights permite que você entenda como os métodos de autenticação para recursos como a autenticação multifator do Azure e a redefinição de senha de autoatendimento estão funcionando em sua organização. Essa funcionalidade de relatório fornece à sua organização os meios para entender quais métodos estão sendo registrados e como eles estão sendo usados.
+O uso & insights permite que você entenda como os métodos de autenticação para recursos como a autenticação multifator do Azure AD e a redefinição de senha de autoatendimento estão funcionando em sua organização. Essa funcionalidade de relatório fornece à sua organização os meios para entender quais métodos estão sendo registrados e como eles estão sendo usados.
 
 ## <a name="permissions-and-licenses"></a>Permissões e licenças
 
@@ -31,14 +31,14 @@ As funções a seguir podem acessar o uso e as informações:
 - Administrador de Segurança
 - Leitor de Relatórios
 
-Nenhum licenciamento adicional é necessário para acessar o uso e as informações. A autenticação multifator do Azure e as informações de licenciamento de redefinição de senha de autoatendimento (SSPR) podem ser encontradas no [site de preços Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
+ Uma licença Azure AD Premium P1 ou P2 é necessária para acessar o uso e as informações. As informações de licenciamento de autenticação multifator do Azure AD e SSPR (redefinição de senha de autoatendimento) podem ser encontradas no [site de preços Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## <a name="how-it-works"></a>Como ele funciona
 
 Para acessar o uso e as informações do método de autenticação:
 
 1. Navegue até o [Portal do Azure](https://portal.azure.com).
-1. Navegue até **Azure Active Directory**  >  uso de**redefinição de senha**  >  **& insights**.
+1. Navegue até **Azure Active Directory**  >  uso de **redefinição de senha**  >  **& insights**.
 1. Nas visões gerais de **registro** ou **uso** , você pode optar por abrir os relatórios previamente filtrados para filtrar com base em suas necessidades.
 
 ![Visão geral do uso & insights](./media/howto-authentication-methods-usage-insights/usage-insights-overview.png)
@@ -61,11 +61,11 @@ Usando o controle no canto superior direito, você pode alterar o intervalo de d
 
 ### <a name="registration-details"></a>Detalhes do registro
 
-Clicar nos blocos **usuários registrados**, **usuários habilitados**ou **usuários com capacidade** de inscrição levará você aos detalhes do registro.
+Clicar nos blocos **usuários registrados**, **usuários habilitados** ou **usuários com capacidade** de inscrição levará você aos detalhes do registro.
 
 O relatório detalhes do registro mostra as seguintes informações para cada usuário:
 
-- Name
+- Nome
 - Nome de usuário
 - Status do registro (tudo, registrado, não registrado)
 - Status habilitado (tudo, habilitado, não habilitado)
@@ -80,7 +80,7 @@ Clicar nos gráficos de registros ou redefinições irá levá-lo para os detalh
 
 O relatório detalhes de redefinir mostra o registro e a redefinição dos eventos dos últimos 30 dias, incluindo:
 
-- Name
+- Nome
 - Nome de usuário
 - Recurso (tudo, registro, redefinição)
 - Método de autenticação (notificação do aplicativo, código do aplicativo, chamada telefônica, chamada do Office, SMS, email, perguntas de segurança)
@@ -92,7 +92,7 @@ Usando os controles na parte superior da lista, você pode pesquisar um usuário
 
 Os dados mostrados nesses relatórios serão atrasados em até 60 minutos. Um campo "última atualização" existe no portal do Azure para identificar o quanto os dados são recentes.
 
-Os dados de uso e insight não são uma substituição para os relatórios de atividade da autenticação multifator do Azure ou informações contidas no relatório de entradas do Azure AD.
+Os dados de uso e insight não são uma substituição para os relatórios de atividade da autenticação multifator do Azure AD ou informações contidas no relatório de entradas do Azure AD.
 
 O relatório não pode ser filtrado no momento para excluir usuários externos.
 

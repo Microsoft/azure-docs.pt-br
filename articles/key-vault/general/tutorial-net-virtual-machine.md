@@ -1,6 +1,6 @@
 ---
 title: Tutorial – Usar o Azure Key Vault com uma máquina virtual no .NET | Microsoft Docs
-description: Neste tutorial, você vai configurar um aplicativo do ASP.NET Core para ler um segredo no cofre de chaves.
+description: Neste tutorial, você vai configurar uma máquina virtual com um aplicativo do ASP.NET Core para ler um segredo do cofre de chaves.
 services: key-vault
 author: msmbaldwin
 ms.service: key-vault
@@ -8,13 +8,13 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 07/20/2020
 ms.author: mbaldwin
-ms.custom: mvc
-ms.openlocfilehash: ead0c13a1fce0b5d56c9dd875c594a2269e2c78c
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.custom: mvc, devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: 9557ada8001022d460c35a091fdac7699ac5e5ec
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87513104"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289385"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-virtual-machine-in-net"></a>Tutorial: Usar o Azure Key Vault com uma máquina virtual no .NET
 
@@ -204,4 +204,4 @@ Quando eles não forem mais necessários, exclua a máquina virtual e o cofre de
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [API REST do Azure Key Vault](https://docs.microsoft.com/rest/api/keyvault/)
+> [API REST do Azure Key Vault](/rest/api/keyvault/)

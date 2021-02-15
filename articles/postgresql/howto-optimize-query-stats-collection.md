@@ -6,12 +6,12 @@ ms.author: dianas
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 5/6/2019
-ms.openlocfilehash: a4c2051a3f52ae363d8dc704aef790d8ce77efbd
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: bc731f6f6a5a60bce0851bf8fe5874f7149f3899
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86116192"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "90901464"
 ---
 # <a name="optimize-query-statistics-collection-on-an-azure-database-for-postgresql---single-server"></a>Otimizar a coleta de estatísticas de consulta em um banco de dados do Azure para PostgreSQL-servidor único
 Este artigo descreve como otimizar a coleção de estatísticas de consulta em um servidor do Banco de Dados do Azure para PostgreSQL.
@@ -27,7 +27,7 @@ Para definir `pg_stat_statements.track = NONE`:
 
 - No portal do Azure, vá para a [página de gerenciamento de recursos do PostgreSQL e escolha a folha de parâmetros do servidor](howto-configure-server-parameters-using-portal.md).
 
-  ![Folha de parâmetros do servidor PostgreSQL](./media/howto-optimize-query-stats-collection/pg_stats_statements_portal.png)
+  :::image type="content" source="./media/howto-optimize-query-stats-collection/pg_stats_statements_portal.png" alt-text="Folha de parâmetros do servidor PostgreSQL":::
 
 - Use configuração de servidor az postgres da [CLI do Azure](howto-configure-server-parameters-using-cli.md) definida como `--name pg_stat_statements.track --resource-group myresourcegroup --server mydemoserver --value NONE`.
 
@@ -38,5 +38,5 @@ O recurso [Repositório de Consultas](concepts-query-store.md) no Banco de Dados
 Considere configurar `pg_stat_statements.track = NONE` no [portal do Azure](howto-configure-server-parameters-using-portal.md) ou usar a [CLI do Azure](howto-configure-server-parameters-using-cli.md).
 
 Para obter mais informações, consulte: 
-- [Cenários de uso do Repositório de Consultas](concepts-query-store-scenarios.md) 
-- [Práticas recomendadas para o Repositório de Consultas](concepts-query-store-best-practices.md) 
+- [Cenários de uso de Repositório de Consultas](concepts-query-store-scenarios.md) 
+- [Práticas recomendadas de Repositório de Consultas](concepts-query-store-best-practices.md) 

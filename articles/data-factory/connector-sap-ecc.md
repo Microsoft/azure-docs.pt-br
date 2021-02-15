@@ -1,22 +1,18 @@
 ---
 title: Copiar dados do SAP ECC
 description: Saiba como copiar dados do SAP ECC para armazenamentos de dados de coletor com suporte usando uma atividade de cópia em um pipeline do Azure Data Factory.
-services: data-factory
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/03/2020
-ms.openlocfilehash: 9088b36acead9f47e94949ee102d66a8aff2d226
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.date: 10/28/2020
+ms.openlocfilehash: a3e701f3d433b5b52d8992035ac4ad75b78cb795
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87529595"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100386689"
 ---
 # <a name="copy-data-from-sap-ecc-by-using-azure-data-factory"></a>Copiar dados do SAP ECC usando o Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -46,6 +42,13 @@ Especificamente, este conector do SAP ECC dá suporte à:
   - Dados ou documentos intermediários (IDOCs) enviados ao SAP PI (Process Integration) que podem ser recebidos como OData por meio de adaptadores relativos.
 
 - Cópia de dados por meio da autenticação básica.
+
+A versão 7,0 ou posterior refere-se à versão do SAP NetWeaver em vez da versão do SAP ECC. Por exemplo, o SAP ECC 6,0 EHP 7 em geral tem a versão NetWeaver >= 7,4. Caso você não tenha certeza sobre o seu ambiente, aqui estão as etapas para confirmar a versão do seu sistema SAP:
+
+1. Use a GUI do SAP para se conectar ao sistema SAP. 
+2. Vá para   ->  **status** do sistema. 
+3. Verifique o lançamento do SAP_BASIS, verifique se ele é igual ou maior que 701.  
+      ![Verificar SAP_BASIS](./media/connector-sap-table/sap-basis.png)
 
 >[!TIP]
 >Para copiar dados do SAP ECC por meio de uma tabela ou uma exibição do SAP, use o conector de [tabela do SAP](connector-sap-table.md), que é mais rápido e mais escalonável.

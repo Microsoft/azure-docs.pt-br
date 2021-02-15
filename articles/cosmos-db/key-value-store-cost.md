@@ -3,20 +3,22 @@ title: Encargos de unidade de solicitação para o Azure Cosmos DB como um repos
 description: Saiba mais sobre os encargos da unidade de solicitação do Azure Cosmos DB para operações simples de gravação e leitura quando ele é usado como um repositório de chaves/valores.
 author: SnehaGunda
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 08/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 1cd6b4b52db224db5febcec1eff79b01379a5956
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9354ae0a22ef2e8ab4ee6a57563d3f3c4c8e4547
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85262813"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339288"
 ---
 # <a name="azure-cosmos-db-as-a-key-value-store--cost-overview"></a>Azure Cosmos DB como um repositório de valor de chave – visão geral do custo
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-O Azure Cosmos DB é um serviço de multimodelo de banco de dados distribuído globalmente para a criação fácil de aplicativos altamente disponíveis de grande escala. Por padrão, Azure Cosmos DB indexa de forma automática e eficiente todos os dados ingeridos. Isso permite consultas [SQL](how-to-sql-query.md) (e [JavaScript](stored-procedures-triggers-udfs.md)) rápidas e consistentes nos dados. 
+O Azure Cosmos DB é um serviço de multimodelo de banco de dados distribuído globalmente para a criação fácil de aplicativos altamente disponíveis de grande escala. Por padrão, Azure Cosmos DB indexa de forma automática e eficiente todos os dados ingeridos. Isso permite consultas [SQL](./sql-query-getting-started.md) (e [JavaScript](stored-procedures-triggers-udfs.md)) rápidas e consistentes nos dados. 
 
 Este artigo descreve o custo do Azure Cosmos DB para operações simples de gravação e leitura quando ele é usado como um repositório de chaves/valores. As operações de gravação incluem inserções, substituições, exclusões e upserts de itens de dados. Além de garantir um SLA de disponibilidade de 99,999% para todas as contas de várias regiões, Azure Cosmos DB oferece garantia de <latência de 10 ms para leituras e para as gravações (indexadas), no 99 º percentil. 
 
@@ -48,4 +50,3 @@ A maioria dos repositórios de blob ou de objeto básicos cobra $ 0,40 por um mi
 ## <a name="next-steps"></a>Próximas etapas
 
 * Use a [calculadora de ru](https://cosmos.azure.com/capacitycalculator/) para estimar a taxa de transferência para suas cargas de trabalho.
-

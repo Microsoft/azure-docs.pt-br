@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 4/10/2020
 ms.author: moala
 ms.custom: devops
-ms.openlocfilehash: 0d001144f1a2703db118261e5cae5417b1d8c17a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f349ff62fe211f0610341864a4c7528ee6bfe9c5
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080124"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91961520"
 ---
 # <a name="tutorial---configure-the-blue-green-deployment-strategy-for-azure-linux-virtual-machines"></a>Tutorial – Configurar a estratégia de implantação azul-verde para máquinas virtuais do Linux do Azure
 
@@ -25,7 +25,7 @@ ms.locfileid: "87080124"
 
 O Azure Pipelines fornece um conjunto de ferramentas de automação de CI/CD para implantações em máquinas virtuais. Você pode configurar um pipeline de entrega contínua para uma VM do Azure do portal do Azure.
 
-Este artigo mostra como configurar um pipeline de CI/CD que usa a estratégia azul-verde para implantações em vários computadores. O portal do Azure também dá suporte a outras estratégias, como [sem interrupção](https://aka.ms/AA7jlh8) e [canário](https://aka.ms/AA7jdrz).
+Este artigo mostra como configurar um pipeline de CI/CD que usa a estratégia azul-verde para implantações em vários computadores. O portal do Azure também dá suporte a outras estratégias, como [sem interrupção](./tutorial-devops-azure-pipelines-classic.md) e [canário](./tutorial-azure-devops-canary-strategy.md).
 
 ### <a name="configure-cicd-on-virtual-machines"></a>Configurar CI/CD em máquinas virtuais
 
@@ -73,8 +73,8 @@ Usando a opção de entrega contínua, você pode configurar implantações do t
 
 ## <a name="other-deployment-strategies"></a>Outras estratégias de implantação
 
-- [Configurar a estratégia de implantação distribuída](https://aka.ms/AA7jlh8)
-- [Configurar a estratégia de implantação canário](https://aka.ms/AA7jdrz)
+- [Configurar a estratégia de implantação distribuída](./tutorial-devops-azure-pipelines-classic.md)
+- [Configurar a estratégia de implantação canário](./tutorial-azure-devops-canary-strategy.md)
 
 ## <a name="azure-devops-projects"></a>Azure DevOps Projects
 

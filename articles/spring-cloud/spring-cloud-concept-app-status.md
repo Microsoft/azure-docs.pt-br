@@ -7,14 +7,16 @@ ms.topic: conceptual
 ms.date: 04/10/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: e3ef202a1a98b8193b55bcc4c2cb616d4a2000d8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ec87c5523d6f608363ca615037f20365705609df
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87037756"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "90892858"
 ---
 # <a name="understanding-app-status-in-azure-spring-cloud"></a>Noções básicas sobre o status do aplicativo no Azure Spring Cloud
+
+**Este artigo aplica-se a:** ✔️ Java ✔️ C#
 
 A interface do usuário do Azure Spring Cloud fornece informações sobre o status dos aplicativos em execução.  Há uma opção de **aplicativos** para cada grupo de recursos em uma assinatura que exibe o status geral dos tipos de aplicativos.  Para cada tipo de aplicativo, há uma exibição das **instâncias do aplicativo**.
 
@@ -32,7 +34,7 @@ Para exibir o status geral de um tipo de aplicativo, selecione **aplicativos** n
 
 | Enumeração | Definição |
 |:--:|:----------------:|
-| Em execução | A implantação deve estar em execução. |
+| Executando | A implantação deve estar em execução. |
 | Parado | A implantação deve ser interrompida. |
 
 **O estado de provisionamento é acessível somente da CLI.  Ele é relatado como um dos seguintes valores:**
@@ -41,9 +43,9 @@ Para exibir o status geral de um tipo de aplicativo, selecione **aplicativos** n
 |:--:|:----------------:|
 | Criando | O recurso está sendo criado. |
 | Atualizar | O recurso está sendo atualizado. |
-| Com sucesso | Recursos fornecidos com êxito e implantação do binário. |
-| Com falha | Falha ao obter a meta *bem-sucedida* . |
-| Excluindo | O recurso está sendo excluído. Isso impede a operação e o recurso não está disponível nesse status. |
+| Êxito | Recursos fornecidos com êxito e implantação do binário. |
+| Failed (Falha) | Falha ao obter a meta *bem-sucedida* . |
+| Excluir | O recurso está sendo excluído. Isso impede a operação e o recurso não está disponível nesse status. |
 
 ## <a name="app-instances-status"></a>Status de instâncias do aplicativo
 
@@ -58,8 +60,8 @@ Para exibir o status de uma instância específica de um aplicativo implantado, 
 | Enumeração | Definição |
 |:--:|:----------------:|
 | Iniciando | O binário é implantado com êxito na instância especificada. A inicialização da instância do arquivo JAR pode falhar porque o jar não pode ser executado corretamente. |
-| Em execução | A instância funciona. |
-| Com falha | A instância do aplicativo não pôde iniciar o binário do usuário após várias tentativas. |
+| Executando | A instância funciona. |
+| Failed (Falha) | A instância do aplicativo não pôde iniciar o binário do usuário após várias tentativas. |
 | Final | A instância do aplicativo está sendo desligada. |
 
 **O status de descoberta da instância é relatado como um dos seguintes valores:**
@@ -72,4 +74,4 @@ Para exibir o status de uma instância específica de um aplicativo implantado, 
 
 
 ## <a name="see-also"></a>Confira também
-* [Preparar um aplicativo Spring Java para implantação no Azure Spring Cloud](spring-cloud-tutorial-prepare-app-deployment.md)
+* [Preparar um aplicativo Spring ou Steeltoe para implantação no Azure Spring Cloud](spring-cloud-tutorial-prepare-app-deployment.md)

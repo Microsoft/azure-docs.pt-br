@@ -1,18 +1,18 @@
 ---
 title: Controles de Conformidade Regulatória do Azure Policy para o Azure RBAC
 description: Lista os controles de Conformidade Regulatória do Azure Policy disponíveis para as Mensagens do Azure RBAC (controle de acesso baseado em função). Estas definições de políticas internas fornecem abordagens comuns para gerenciar a conformidade dos seus recursos do Azure.
-ms.date: 07/22/2020
+ms.date: 02/09/2021
 ms.topic: sample
 author: rolyon
 ms.author: rolyon
 ms.service: role-based-access-control
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: a40244fb958993cbed9e8585190939eb43e5acc2
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: afaa76cb475ad9d63d69bd8d535180e2d7dbe4e2
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87461775"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100093346"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-rbac"></a>Controles de Conformidade Regulatória do Azure Policy para o Azure RBAC
 

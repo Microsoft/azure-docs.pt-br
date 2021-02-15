@@ -16,12 +16,12 @@ ms.topic: reference
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b4c4b1f7aed6a188c491e6f4961442fa85744b6b
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 6185c5408f74b914ce5ad47634999786ba1d7ab6
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88718536"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100367989"
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Perguntas frequentes do Azure AD Connect Health
 Este artigo inclui respostas para FAQs (perguntas frequentes) sobre o Azure AD (Azure Active Directory) Connect Health. Essas perguntas frequentes abordam perguntas sobre como usar o serviço, o que inclui o modelo de cobrança, os recursos, as limitações e o suporte.
@@ -29,7 +29,7 @@ Este artigo inclui respostas para FAQs (perguntas frequentes) sobre o Azure AD (
 ## <a name="general-questions"></a>Perguntas gerais
 **P: gerencio vários diretórios do Azure AD. Como fazer mudar para aquela que tem Azure Active Directory Premium?**
 
-Para mudar entre diferentes locatários do Azure AD, selecione o **Nome de Usuário** conectado atualmente no canto superior direito e escolhendo a conta apropriada. Se a conta não estiver listada aqui, selecione **Sair** e use as credenciais de administrador global do Diretório que tiver o Azure Active Directory Premium habilitado para entrar.
+Para mudar entre diferentes locatários do Azure AD, selecione o **Nome de Usuário** conectado atualmente no canto superior direito e escolhendo a conta apropriada. Se a conta não estiver listada aqui, selecione **sair** e, em seguida, use as credenciais de administrador global do diretório que tem Azure Active Directory Premium (P1 ou P2) habilitado para entrar.
 
 **P: Qual versão de funções de identidade tem suporte do Azure AD Connect Health?**
 
@@ -47,8 +47,8 @@ Observe que os recursos fornecidos pelo serviço mudam de acordo com a função 
 
 **P: quantas licenças é necessário monitorar minha infra-estrutura?**
 
-* O primeiro o Agente do Connect Health requer pelo menos uma licença Azure AD Premium.
-* Cada agente registrado adicional requer 25 licenças Azure AD Premium adicionais.
+* O primeiro agente do Connect Health requer pelo menos uma licença Azure AD Premium (P1 ou P2).
+* Cada agente registrado adicional requer 25 licenças adicionais de Azure AD Premium (P1 ou P2).
 * A contagem de agentes é equivalente ao número total de agentes registrados em todas as funções monitoradas (AD FS, Azure AD Connect e/ou AD DS).
 * Licenciamento AAD Connect Health não exige que você atribua a licença para usuários específicos. Você só precisa ter o número necessário de licenças válidas.
 
@@ -110,7 +110,7 @@ Leia mais sobre [configurar HTTP Proxy para agentes de integridade](how-to-conne
 Se precisar configurar um proxy durante o registro do agente, talvez seja necessário modificar as configurações de proxy do Internet Explorer com antecedência.
 
 1. Abra o Internet Explorer > **configurações**  >  **Opções da Internet**  >  **conexões**  >  **configurações de LAN**.
-2. Selecione **Usar um Servidor Proxy para a LAN**.
+2. Selecione **usar um servidor proxy para sua LAN**.
 3. Selecione **Avançado** se você tiver portas de proxy diferentes para HTTP e HTTPS/Seguro.
 
 **P: O Azure AD Connect Health dá suporte à autenticação básica ao se conectar a proxies HTTP?**
@@ -129,6 +129,10 @@ Você pode refazer a imagem de um servidor ou criar um novo servidor com os mesm
 
 Nesse caso, exclua manualmente a entrada que pertence ao servidor mais antigo. Os dados para esse servidor devem estar desatualizados.
 
+**P: posso instalar o agente de integridade Azure AD Connect no Windows Server Core?**
+
+Não.  Não há suporte para a instalação no Server Core.
+
 ## <a name="health-agent-registration-and-data-freshness"></a>Registro de Agente de Integridade e atualização de dados
 
 **P: Quais são os motivos comuns para as falhas de registro do Agente de Integridade e como solucionar problemas?**
@@ -137,7 +141,7 @@ O agente de integridade não conseguirá registrar devido a motivos possíveis:
 
 * O agente não pode se comunicar com os pontos de extremidade necessários porque um firewall está bloqueando o tráfego. Isso é especialmente comum em servidores proxy de aplicativo Web. Cerifique de ter permitido a comunicação de saída para as portas e os pontos de extremidade necessários. Consulte a [seção requisitos](how-to-connect-health-agent-install.md#requirements) para obter detalhes.
 * A comunicação de saída está sujeita a uma inspeção de TLS pela camada de rede. Isso faz com que o certificado usado pelo agente seja substituído por entidade/servidor de inspeção e ocorre falha nas etapas necessárias para concluir o registro do agente.
-* O usuário não tem acesso para executar o registro do agente. Por padrão, os administradores globais têm acesso. Você pode usar o [controle de acesso baseado em função do Azure (RBAC do Azure)](how-to-connect-health-operations.md#manage-access-with-role-based-access-control) para delegar acesso a outros usuários.
+* O usuário não tem acesso para executar o registro do agente. Por padrão, os administradores globais têm acesso. Você pode usar o [controle de acesso baseado em função do Azure (RBAC do Azure)](how-to-connect-health-operations.md#manage-access-with-azure-rbac) para delegar acesso a outros usuários.
 
 **P: Estou recebendo um alerta de que "Serviço de Integridade dados não estão atualizados". Como fazer solucionar o problema?**
 
@@ -190,18 +194,19 @@ CheckForMS17-010
 
 **P: Por que o cmdlet do PowerShell <i>Get-MsolDirSyncProvisioningError</i> mostra menos erros de sincronização no resultado?**
 
-O <i>Get-MsolDirSyncProvisioningError</i> só retornará erros de provisionamento do DirSync. Além disso, o portal de Integridade de Conexão também mostra outros tipos de erros de sincronização, como erros de exportação. Isso é consistente com o resultado do delta do Microsoft Azure AD Connect. Leia mais sobre [erros de sincronização do Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-troubleshoot-sync-errors).
+O <i>Get-MsolDirSyncProvisioningError</i> só retornará erros de provisionamento do DirSync. Além disso, o portal de Integridade de Conexão também mostra outros tipos de erros de sincronização, como erros de exportação. Isso é consistente com o resultado do delta do Microsoft Azure AD Connect. Leia mais sobre [erros de sincronização do Azure AD Connect](./tshoot-connect-sync-errors.md).
 
 **P: Por que minhas auditorias do ADFS não estão sendo geradas?**
 
-Use o cmdlet do PowerShell <i>Get-AdfsProperties -AuditLevel</i> para garantir que os logs de auditoria não estejam no estado desabilitado. Leia mais sobre [os logs de auditoria do ADFS](https://docs.microsoft.com/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server#auditing-levels-in-ad-fs-for-windows-server-2016). Observe que, se houver configurações de auditoria avançadas enviadas por push para o servidor do ADFS, todas as alterações com auditpol.exe serão substituídas (evento se o Aplicativo Gerado não estiver configurado). Nesse caso, defina a política de segurança local para registrar falhas e êxitos do Aplicativo Gerado.
+Use o cmdlet do PowerShell <i>Get-AdfsProperties -AuditLevel</i> para garantir que os logs de auditoria não estejam no estado desabilitado. Leia mais sobre [os logs de auditoria do ADFS](/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server#auditing-levels-in-ad-fs-for-windows-server-2016). Observe que, se houver configurações de auditoria avançadas enviadas por push para o servidor do ADFS, todas as alterações com auditpol.exe serão substituídas (evento se o Aplicativo Gerado não estiver configurado). Nesse caso, defina a política de segurança local para registrar falhas e êxitos do Aplicativo Gerado.
 
 **P: quando o certificado do agente será renovado automaticamente antes da expiração?**
 A certificação do agente será renovada automaticamente **6 meses** antes da data de validade. Se não for renovado, verifique se a conexão de rede do agente está estável. Reiniciar os serviços de agente ou atualizar para a versão mais recente também pode resolver o problema.
 
 
+
 ## <a name="related-links"></a>Links relacionados
-* [Azure AD Connect Health](whatis-hybrid-identity-health.md)
+* [Azure AD Connect Health](./whatis-azure-ad-connect.md)
 * [Instalação do agente do Azure AD Connect Health](how-to-connect-health-agent-install.md)
 * [Operações de Azure AD Connect Health](how-to-connect-health-operations.md)
 * [Usando o Azure AD Connect Health com o AD FS](how-to-connect-health-adfs.md)

@@ -8,12 +8,13 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: kgremban
-ms.openlocfilehash: 877467b65d346c871dd93f4b3f96b2c1664fa4b9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 37b411792ea1a3e21e0f26df0c7905eb8d46310e
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73906795"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97897698"
 ---
 # <a name="compare-message-routing-and-event-grid-for-iot-hub"></a>Comparar roteamento de mensagens e Grade de Eventos para Hub IoT
 
@@ -31,10 +32,10 @@ Embora o roteamento de mensagens e a Grade de Eventos habilitam a configuração
 
 | Recurso | Roteamento de mensagens do Hub IoT | Integração do Hub IoT com a Grade de Eventos |
 | ------- | --------------- | ---------- |
-| **Mensagens e eventos do dispositivo** | Sim, o roteamento de mensagens pode ser usado para dados de telemetria, alterações no dispositivo de relatório, eventos de ciclo de vida do dispositivo e eventos de alteração de troca digital (parte da [Visualização pública do IoT plug and Play](../iot-pnp/overview-iot-plug-and-play.md)). | Sim, a grade de eventos pode ser usada para dados de telemetria, mas também pode relatar quando os dispositivos são criados, excluídos, conectados e desconectados do Hub IoT |
-| **Ordenação** | Sim, a ordenação de eventos é mantida.  | Não, a ordem dos eventos não é garantida. | 
+| **Mensagens e eventos do dispositivo** | Sim, o roteamento de mensagens pode ser usado para dados de telemetria, alterações de dispositivo de troca, eventos de ciclo de vida de dispositivo e eventos de alteração de mensagens digitais. | Sim, a grade de eventos pode ser usada para dados de telemetria e eventos de dispositivo, como dispositivos criados/excluídos/conectados/desconectados. Mas a grade de eventos não pode ser usada para eventos de alteração de dispositivo e eventos de alteração de troca digital. |
+| **Ordenando** | Sim, a ordenação de eventos é mantida.  | Não, a ordem dos eventos não é garantida. | 
 | **Filtragem** | Filtragem avançada em propriedades do aplicativo de mensagens, propriedades do sistema de mensagens, corpo da mensagem, tags de gêmeos de dispositivo e propriedades de gêmeos de dispositivo. A filtragem não é aplicada a eventos de alteração de troca digital. Para exemplos, consulte [Sintaxe de Consulta de Roteamento de Mensagens](iot-hub-devguide-routing-query-syntax.md). | Filtragem com base no tipo de evento, tipo de assunto e atributos em cada evento. Para obter exemplos, consulte [entender os eventos de filtragem em assinaturas da grade de eventos](../event-grid/event-filtering.md). Ao assinar eventos de telemetria, você pode aplicar filtros adicionais aos dados para filtrar as propriedades da mensagem, o corpo da mensagem e o dispositivo de mensagens no Hub IoT, antes de publicar na grade de eventos. Consulte [como filtrar eventos](../iot-hub/iot-hub-event-grid.md#filter-events). |
-| **Pontos de extremidade** | <ul><li>Hubs de Eventos</li> <li>Armazenamento do Blobs do Azure</li> <li>Fila do Barramento de Serviço</li> <li>Tópicos do Barramento de Serviço</li></ul><br>As SKUs do Hub IoT pagas (S1, S2 e S3) estão limitadas a 10 pontos de extremidades personalizados. 100 rotas podem ser criadas por Hub IoT. | <ul><li>Funções do Azure</li> <li>Automação do Azure</li> <li>Hubs de Eventos</li> <li>Aplicativos Lógicos</li> <li>Blob de Armazenamento</li> <li>Tópicos personalizados</li> <li>Armazenamento de Filas</li> <li>Microsoft Flow</li> <li>Serviços de terceiros através de WebHooks</li></ul><br>500 pontos de extremidade por Hub IoT têm suporte. Para obter a lista mais atualizada de pontos de extremidades, consulte [Manipuladores de eventos da Grade de Eventos](../event-grid/overview.md#event-handlers). |
+| **Pontos de extremidade** | <ul><li>Hubs de Eventos</li> <li>Armazenamento do Blobs do Azure</li> <li>Fila do Barramento de Serviço</li> <li>Tópicos do Barramento de Serviço</li></ul><br>As SKUs do Hub IoT pagas (S1, S2 e S3) estão limitadas a 10 pontos de extremidades personalizados. 100 rotas podem ser criadas por Hub IoT. | <ul><li>Azure Functions</li> <li>Automação do Azure</li> <li>Hubs de Eventos</li> <li>Aplicativos Lógicos</li> <li>Blob de Armazenamento</li> <li>Tópicos personalizados</li> <li>Armazenamento de Filas</li> <li>Power Automate</li> <li>Serviços de terceiros através de WebHooks</li></ul><br>500 pontos de extremidade por Hub IoT têm suporte. Para obter a lista mais atualizada de pontos de extremidades, consulte [Manipuladores de eventos da Grade de Eventos](../event-grid/overview.md#event-handlers). |
 | **Custo** | Não há encargos separados para roteamento de mensagens. Somente o ingresso de telemetria no Hub IoT é cobrado. Por exemplo, se você tiver uma mensagem roteada para três pontos de extremidades diferentes, você será cobrado por apenas uma mensagem. | Não há nenhum custo do Hub IoT. A grade de eventos oferece as primeiras 100.000 operações por mês gratuitamente e, em seguida, $0.60 por milhão de operações posteriormente. |
 
 ## <a name="similarities"></a>Semelhanças

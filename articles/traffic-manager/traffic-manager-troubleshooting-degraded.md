@@ -3,7 +3,7 @@ title: Solucionando problemas de status degradado do Gerenciador de Tráfego
 description: Como solucionar problemas de perfis do Gerenciador de Tráfego quando ele aparece com status de degradado.
 services: traffic-manager
 documentationcenter: ''
-author: rohinkoul
+author: duongau
 manager: kumudD
 ms.service: traffic-manager
 ms.devlang: na
@@ -11,17 +11,17 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
-ms.author: rohink
-ms.openlocfilehash: 88c2536ad53be0beb583dc64e633322b2a531d15
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.author: duau
+ms.openlocfilehash: b76eab5771d724e4f0ec56b7d5acd5cf5f91edc0
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86183436"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98183448"
 ---
 # <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>Solucionando problemas de status degradado do Gerenciador de Tráfego do Azure
 
-Este artigo descreve como solucionar problemas de um perfil do Gerenciador de Tráfego do Azure que mostra um estado degradado. Como uma primeira etapa na solução de problemas de um estado degradado do Gerenciador de tráfego do Azure é habilitar o registro em log.  Consulte [Habilitar logs de recursos](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-diagnostic-logs) para obter mais informações. Para esse cenário, considere a possibilidade de que você configurou um perfil do Gerenciador de Tráfego apontando para alguns dos serviços hospedados do cloudapp.net. Se a integridade do seu Gerenciador de Tráfego exibe um status **Degradado**, o status de um ou mais pontos de extremidade pode ser **Degradado**:
+Este artigo descreve como solucionar problemas de um perfil do Gerenciador de Tráfego do Azure que mostra um estado degradado. Como uma primeira etapa na solução de problemas de um estado degradado do Gerenciador de tráfego do Azure é habilitar o registro em log.  Consulte [Habilitar logs de recursos](./traffic-manager-diagnostic-logs.md) para obter mais informações. Para esse cenário, considere a possibilidade de que você configurou um perfil do Gerenciador de Tráfego apontando para alguns dos serviços hospedados do cloudapp.net. Se a integridade do seu Gerenciador de Tráfego exibe um status **Degradado**, o status de um ou mais pontos de extremidade pode ser **Degradado**:
 
 ![status do ponto de extremidade degradado](./media/traffic-manager-troubleshooting-degraded/traffic-manager-degradedifonedegraded.png)
 
@@ -31,8 +31,8 @@ Se a integridade do seu Gerenciador de Tráfego exibe um status **Inativo**, amb
 
 ## <a name="understanding-traffic-manager-probes"></a>Noções básicas sobre as investigações do Gerenciador de Tráfego
 
-* O Gerenciador de Tráfego considera um ponto de extremidade como estando ONLINE somente quando a investigação recebe uma resposta HTTP 200 do caminho de investigação. Se seu aplicativo retornar qualquer outro código de resposta HTTP, você deverá adicionar esse código de resposta aos [intervalos de código de status esperados](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring#configure-endpoint-monitoring) do seu perfil do Gerenciador de tráfego.
-* Uma resposta de redirecionamento de 30 vezes é tratada como falha, a menos que você tenha especificado isso como um código de resposta válido em [intervalos de códigos de status esperados](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring#configure-endpoint-monitoring) do seu perfil do Gerenciador de tráfego. O Gerenciador de tráfego não investiga o destino de redirecionamento.
+* O Gerenciador de Tráfego considera um ponto de extremidade como estando ONLINE somente quando a investigação recebe uma resposta HTTP 200 do caminho de investigação. Se seu aplicativo retornar qualquer outro código de resposta HTTP, você deverá adicionar esse código de resposta aos [intervalos de código de status esperados](./traffic-manager-monitoring.md#configure-endpoint-monitoring) do seu perfil do Gerenciador de tráfego.
+* Uma resposta de redirecionamento de 30 vezes é tratada como falha, a menos que você tenha especificado isso como um código de resposta válido em [intervalos de códigos de status esperados](./traffic-manager-monitoring.md#configure-endpoint-monitoring) do seu perfil do Gerenciador de tráfego. O Gerenciador de tráfego não investiga o destino de redirecionamento.
 * Para investigações de HTTPs, os erros de certificado são ignorados.
 * O conteúdo real do caminho de investigação não importa, contanto que uma resposta 200 seja retornada. A investigação de uma URL para algum conteúdo estático como “/favicon.ico” é uma técnica comum. O conteúdo dinâmico, como as páginas ASP, nem sempre poderá retornar a resposta 200, mesmo quando o aplicativo estiver íntegro.
 * Uma prática recomendada é definir o caminho de investigação para algo que tenha lógica suficiente para determinar se o site está ativo ou inativo. No exemplo anterior, ao configurar o caminho como “/favicon.ico”, você está apenas testando se w3wp.exe está respondendo. Essa investigação pode não indicar que o aplicativo Web está íntegro. Uma opção melhor seria definir um caminho para algo como “/Probe.aspx”, que tem lógica para determinar a integridade do site. Por exemplo, você poderá usar contadores de desempenho para a utilização da CPU ou medir o número de solicitações com falha. Se preferir, você poderá tentar acessar os recursos de banco de dados ou o estado de sessão para verificar se o aplicativo Web está funcionando.
@@ -87,12 +87,12 @@ public class TrustAllCertsPolicy : ICertificatePolicy {
 
 [O que é o Gerenciador de tráfego](traffic-manager-overview.md)
 
-[Serviços de Nuvem](https://go.microsoft.com/fwlink/?LinkId=314074)
+[Serviços de Nuvem](/previous-versions/azure/jj155995(v=azure.100))
 
 [Serviço de Aplicativo do Azure](https://azure.microsoft.com/documentation/services/app-service/web/)
 
-[Operações no Gerenciador de Tráfego (referência de API REST)](https://go.microsoft.com/fwlink/?LinkId=313584)
+[Operações no Gerenciador de Tráfego (referência de API REST)](/previous-versions/azure/reference/hh758255(v=azure.100))
 
 [Cmdlets do Gerenciador de Tráfego do Azure][1]
 
-[1]: https://docs.microsoft.com/powershell/module/az.trafficmanager
+[1]: /powershell/module/az.trafficmanager

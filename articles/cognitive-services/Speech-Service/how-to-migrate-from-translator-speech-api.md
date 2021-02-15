@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: aahi
-ms.openlocfilehash: 305242e13dab23b6a003c5d864073372a052601a
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 2fb03721baa80e77a5fd387600a272e6b1cfc7d3
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83593164"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95013639"
 ---
 # <a name="migrate-from-the-translator-speech-api-to-the-speech-service"></a>Migrar do API de Tradução de Fala para o serviço de fala
 
@@ -37,7 +37,7 @@ Use este artigo para migrar seus aplicativos do Microsoft API de Tradução de F
 | Traduzido para vários idiomas em uma única solicitação | :heavy_minus_sign:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
 | SDKs disponíveis                                    | :heavy_minus_sign:                                              | :heavy_check_mark:                 | Consulte a [documentação do serviço de fala](index.yml) para SDKs disponíveis.                                                                                                                                                    |
 | Conexões WebSockets                            | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
-| API de Idiomas                                     | :heavy_check_mark:                                              | :heavy_minus_sign:                 | O serviço de fala dá suporte ao mesmo intervalo de idiomas descrito no artigo de [referência de idiomas do tradutor](../translator-speech/languages-reference.md) . |
+| API de Idiomas                                     | :heavy_check_mark:                                              | :heavy_minus_sign:                 | O serviço de fala dá suporte ao mesmo intervalo de idiomas descrito no artigo de [referência de idiomas do tradutor]() . |
 | Marcador e filtro de conteúdo ofensivo                       | :heavy_minus_sign:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
 | .WAV/PCM como entrada                                 | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
 | Outros tipos de arquivo como entrada                         | :heavy_minus_sign:                                              | :heavy_minus_sign:                 |                                                                                                                                                                                                                                                                                    |
@@ -61,10 +61,10 @@ Se você ou sua organização tiver aplicativos em desenvolvimento ou produção
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Experimente gratuitamente o serviço de fala](get-started.md)
-* [Início rápido: Reconhecer fala em um aplicativo UWP usando SDK de Fala](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=uwp)
+* [Experimente gratuitamente o serviço de fala](overview.md#try-the-speech-service-for-free)
+* [Início rápido: Reconhecer fala em um aplicativo UWP usando SDK de Fala](./get-started-speech-to-text.md?pivots=programming-language-csharp&tabs=uwp)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 * [O que é o serviço de fala](overview.md)
-* [Documentação do Speech Service e do Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-qsg)
+* [Documentação do Speech Service e do Speech SDK](./speech-devices-sdk-quickstart.md?pivots=platform-android)

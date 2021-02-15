@@ -1,23 +1,20 @@
 ---
 title: 'Início Rápido: Criar um cluster Spark no HDInsight usando o portal do Azure'
 description: Este início rápido mostra como usar o portal do Azure para criar um cluster Apache Spark no Azure HDInsight e executar uma consulta Spark SQL.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 02/25/2020
-ms.openlocfilehash: 1d816a84dc8062890633661716cf78aa5ba58527
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: 18225703b2a390f64b4bebd58b0167dd77c454d0
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82888855"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98930375"
 ---
 # <a name="quickstart-create-apache-spark-cluster-in-azure-hdinsight-using-azure-portal"></a>Início Rápido: Criar um cluster do Apache Spark no Azure HDInsight usando o portal do Azure
 
-Neste início rápido, você usará o portal do Azure para criar um cluster Apache Spark do Azure HDInsight. Em seguida, você criará um Jupyter notebook e o usará para executar consultas SQL do Spark em tabelas do Apache Hive. O Azure HDInsight é um serviço de análise de software livre gerenciado e de amplo espectro para empresas. A estrutura Apache Spark para HDInsight permite análises rápidas de dados e computação de cluster usando o processamento na memória. O Jupyter notebook permite que você interaja com seus dados, combine o código com texto markdown e faça visualizações simples.
+Neste início rápido, você usará o portal do Azure para criar um cluster Apache Spark do Azure HDInsight. Em seguida, você criará um Jupyter Notebook e o usará para executar consultas SQL do Spark em tabelas do Apache Hive. O Azure HDInsight é um serviço de análise de software livre gerenciado e de amplo espectro para empresas. A estrutura Apache Spark para HDInsight permite análises rápidas de dados e computação de cluster usando o processamento na memória. O Jupyter Notebook permite que você interaja com os seus dados, combine o código com texto Markdown e realizar visualizações simples.
 
 Para obter explicações detalhadas sobre as configurações disponíveis, confira [Configurar clusters no HDInsight](../hdinsight-hadoop-provision-linux-clusters.md). Para obter mais informações sobre o uso do portal para criar clusters, confira [Criar clusters no portal](../hdinsight-hadoop-create-linux-clusters-portal.md).
 
@@ -32,7 +29,7 @@ Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](http
 
 ## <a name="create-an-apache-spark-cluster-in-hdinsight"></a>Criar um cluster Apache Spark no HDInsight
 
-Você usará o portal do Azure para criar um cluster HDInsight que usa blobs do Armazenamento do Azure como o armazenamento de cluster. Para obter mais informações sobre como usar o Data Lake Storage Gen2, consulte o [Guia de Início Rápido: Configurar clusters no HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
+Você usará o portal do Azure para criar um cluster HDInsight que usa blobs do Armazenamento do Azure como o armazenamento de cluster. Para obter mais informações sobre como usar o Data Lake Storage Gen2, consulte o [Guia de Início Rápido: Configurar clusters no HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
 
 1. Entre no [portal do Azure](https://portal.azure.com/).
 
@@ -52,11 +49,11 @@ Você usará o portal do Azure para criar um cluster HDInsight que usa blobs do 
     |Região   | Na lista suspensa, selecione uma região em que o cluster foi criado. |
     |Tipo de cluster| Escolha Selecionar tipo de cluster para abrir uma lista. Na lista, selecione **Spark**.|
     |Versão do cluster|Esse campo será preenchido automaticamente com a versão padrão depois que o tipo de cluster tiver sido selecionado.|
-    |Nome de usuário de logon do cluster| Insira o nome de logon do usuário do cluster.  O nome padrão é **admin**. Você pode usar essa conta fazer logon no bloco de anotações do Jupyter mais tarde no início rápido. |
+    |Nome de usuário de logon do cluster| Insira o nome de logon do usuário do cluster.  O nome padrão é **admin**. Você pode usar essa conta fazer logon no Jupyter Notebook mais tarde no início rápido. |
     |Senha de logon do cluster| Insira a senha de logon do cluster. |
-    |Nome de usuário do Secure Shell (SSH)| Insira um Nome de Usuário SSH. O nome de usuário de SSH usado para este início rápido é **sshuser**. Por padrão, essa conta tem a mesma senha que a conta de*nome de usuário de logon do cluster*. |
+    |Nome de usuário do Secure Shell (SSH)| Insira um Nome de Usuário SSH. O nome de usuário de SSH usado para este início rápido é **sshuser**. Por padrão, essa conta tem a mesma senha que a conta de *nome de usuário de logon do cluster*. |
 
-    ![Criar configurações básicas do cluster HDInsight](./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-cluster-basics-spark.png "Criar cluster Spark no HDInsight com as Configurações básicas")
+    ![A captura de tela mostra a opção Criar um cluster do HDInsight com a guia Noções básicas selecionada.](./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-cluster-basics-spark.png "Criar cluster Spark no HDInsight com as Configurações básicas")
 
     Selecione **Avançar: Armazenamento >>** para continuar para a página **Armazenamento**.
 
@@ -69,7 +66,7 @@ Você usará o portal do Azure para criar um cluster HDInsight que usa blobs do 
     |Conta de armazenamento primária|Use o valor preenchido automaticamente.|
     |Contêiner|Use o valor preenchido automaticamente.|
 
-    ![Criar configurações básicas do cluster HDInsight](./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-cluster-storage.png "Criar cluster Spark no HDInsight com as Configurações básicas")
+    ![A captura de tela mostra a opção Criar um cluster do HDInsight com a guia Armazenamento selecionada.](./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-cluster-storage.png "Criar cluster Spark no HDInsight com as Configurações básicas")
 
     Selecione **Examinar + criar** para continuar.
 
@@ -77,7 +74,7 @@ Você usará o portal do Azure para criar um cluster HDInsight que usa blobs do 
 
 Se você tiver um problema com a criação de clusters HDInsight, talvez não tenha as permissões corretas para fazer isso. Para saber mais, confira [Requisitos do controle de acesso](../hdinsight-hadoop-customize-cluster-linux.md#access-control).
 
-## <a name="create-a-jupyter-notebook"></a>Criar um notebook Jupyter
+## <a name="create-a-jupyter-notebook"></a>Criará um Jupyter Notebook
 
 O Jupyter Notebook é um ambiente de notebook interativo que oferece suporte a várias linguagens de programação. O notebook permite que você interaja com seus dados, combine código com texto markdown e execute visualizações simples.
 
@@ -95,7 +92,7 @@ O SQL (Structured Query Language) é a linguagem mais comum e amplamente usada p
 
 1. Verifique se o kernel está pronto. O kernel estará pronto quando você vir um círculo vazio ao lado do nome do kernel no notebook. Círculo sólido indica que o kernel está ocupado.
 
-    ![Consulta do Apache Hive no HDInsight](./media/apache-spark-jupyter-spark-sql/jupyter-spark-kernel-status.png "Consulta do Hive no HDInsight")
+    ![A captura de tela mostra uma janela do Jupyter com um indicador do PySpark.](./media/apache-spark-jupyter-spark-sql/jupyter-spark-kernel-status.png "Consulta do Hive no HDInsight")
 
     Quando você inicia o notebook pela primeira vez, o kernel executa algumas tarefas em segundo plano. Aguarde a leitura do kernel.
 
@@ -108,7 +105,7 @@ O SQL (Structured Query Language) é a linguagem mais comum e amplamente usada p
 
     Quando você usa um Jupyter Notebook com o cluster HDInsight, obtém uma predefinição `sqlContext` que pode ser usada para executar consultas do Hive usando o Spark SQL. `%%sql` informa ao Notebook Jupyter para usar a predefinição `sqlContext` para executar a consulta Hive. A consulta recupera as primeiras 10 linhas de uma tabela Hive (**hivesampletable**) que vem com todos os clusters HDInsight por padrão. Ele leva aproximadamente 30 segundos para obter os resultados. A saída se parece com isso:
 
-    ![Consulta do Apache Hive no HDInsight](./media/apache-spark-jupyter-spark-sql-use-portal/hdinsight-spark-get-started-hive-query.png "Consulta do Hive no HDInsight")
+    ![A captura de tela mostra uma janela do Jupyter para o notebook criado neste início rápido.](./media/apache-spark-jupyter-spark-sql-use-portal/hdinsight-spark-get-started-hive-query.png "Consulta do Hive no HDInsight")
 
     Toda vez que você executar uma consulta no Jupyter, o título da janela do navegador da Web mostrará um status **(Ocupado)** com o título do bloco de anotações. Você também verá um círculo sólido ao lado do texto **PySpark** no canto superior direito.
 

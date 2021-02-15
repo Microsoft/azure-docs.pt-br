@@ -5,20 +5,20 @@ services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: article
-ms.date: 03/26/2020
+ms.date: 12/22/2020
 ms.author: tyao
-ms.openlocfilehash: f41dc688996b2431060a3cde209ca1ed4a21fe8c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 60a4ef47bc30955c918983d54f613cbdb5cbed73
+ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87005609"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97746755"
 ---
 # <a name="configure-an-ip-restriction-rule-with-a-web-application-firewall-for-azure-front-door"></a>Configurar uma regra de restrição de IP com um firewall do aplicativo Web para a porta frontal do Azure
 
 Este artigo mostra como configurar regras de restrição de IP em um WAF (firewall do aplicativo Web) para a porta frontal do Azure usando o portal do Azure, CLI do Azure, Azure PowerShell ou um modelo Azure Resource Manager.
 
-Uma regra de controle de acesso baseada em endereço IP é uma regra de WAF personalizada que permite controlar o acesso aos seus aplicativos Web. Ele faz isso especificando uma lista de endereços IP ou intervalos de endereços IP em formato CIDR (roteamento entre domínios sem classificação).
+Uma regra de controle de acesso baseada em endereço IP é uma regra de WAF personalizada que permite controlar o acesso aos seus aplicativos Web. Ele faz isso especificando uma lista de endereços IP ou intervalos de endereços IP no formato CIDR (roteamento sem classe Inter-Domain). Há dois tipos de variáveis de correspondência na correspondência de endereço IP, **RemoteAddr** e **SocketAddr**. RemoteAddr é o IP do cliente original que geralmente é enviado via cabeçalho X-Forwardd-for Request. SocketAddr é o endereço IP de origem que o WAF vê. Se o usuário estiver protegido por um proxy, o SocketAddr geralmente será o endereço do servidor proxy.
 
 Por padrão, seu aplicativo Web pode ser acessado pela Internet. Se você quiser limitar o acesso a clientes de uma lista de endereços IP conhecidos ou intervalos de endereços IP, você poderá criar uma regra de correspondência de IP que contenha a lista de endereços IP como valores correspondentes e definir operador como "Not" (negar é verdadeiro) e a ação a ser **bloqueada**. Depois que uma regra de restrição de IP é aplicada, as solicitações originadas de endereços fora dessa lista de permissão recebem uma resposta de 403 Proibido.
 
@@ -30,7 +30,7 @@ Crie um perfil de porta frontal do Azure seguindo as instruções descritas em [
 
 ### <a name="create-a-waf-policy"></a>Criar uma política de WAF
 
-1. Na portal do Azure, selecione **criar um recurso**, digite **Firewall do aplicativo Web** na caixa de pesquisa e, em seguida, selecione **Firewall do aplicativo Web (WAF)**.
+1. Na portal do Azure, selecione **criar um recurso**, digite  **Firewall do aplicativo Web** na caixa de pesquisa e, em seguida, selecione **Firewall do aplicativo Web (WAF)**.
 2. Selecione **Criar**.
 3. Na página **criar uma política de WAF** , use os seguintes valores para concluir a guia **noções básicas** :
    
@@ -166,9 +166,9 @@ Neste exemplo, a política WAF é aplicada a **FrontendEndpoints [0]**. Você po
 Antes de começar a configurar uma política de restrição de IP, configure o ambiente do PowerShell e crie um perfil de porta frontal do Azure.
 
 #### <a name="set-up-your-powershell-environment"></a>Configurar o ambiente do PowerShell
-Azure PowerShell fornece um conjunto de cmdlets que usam o modelo de [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) para gerenciar recursos do Azure.
+Azure PowerShell fornece um conjunto de cmdlets que usam o modelo de [Azure Resource Manager](../../azure-resource-manager/management/overview.md) para gerenciar recursos do Azure.
 
-Você pode instalar o [Azure PowerShell](https://docs.microsoft.com/powershell/azure/) no computador local e usá-lo em qualquer sessão do PowerShell. Siga as instruções na página para entrar no PowerShell usando suas credenciais do Azure e, em seguida, instale o módulo AZ.
+Você pode instalar o [Azure PowerShell](/powershell/azure/) no computador local e usá-lo em qualquer sessão do PowerShell. Siga as instruções na página para entrar no PowerShell usando suas credenciais do Azure e, em seguida, instale o módulo AZ.
 
 1. Conecte-se ao Azure usando o comando a seguir e, em seguida, use uma caixa de diálogo interativa para entrar.
     ```

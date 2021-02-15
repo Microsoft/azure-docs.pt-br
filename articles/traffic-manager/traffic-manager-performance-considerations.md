@@ -3,24 +3,24 @@ title: Considerações sobre o desempenho para o Gerenciador de Tráfego do Azur
 description: Compreenda o desempenho no Gerenciador de Tráfego e como testar o desempenho de seu site ao usar o Gerenciador de Tráfego
 services: traffic-manager
 documentationcenter: ''
-author: rohinkoul
+author: duongau
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
-ms.author: rohink
-ms.openlocfilehash: 84367a00643c48e7fe2fb7f907bab64589193b2e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: 5a0de772598877029649f8a985c79e28f5264535
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76938537"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98186168"
 ---
 # <a name="performance-considerations-for-traffic-manager"></a>Considerações de desempenho sobre Gerenciador de Tráfego
 
-Esta página explica as considerações de desempenho usando o Gerenciador de Tráfego. Considere o cenário a seguir.
+Esta página explica as considerações de desempenho usando o Gerenciador de Tráfego. Considere o seguinte cenário:
 
 Você tem instâncias do seu site nas regiões WestUS e EastAsia. Uma das instâncias está falhando na verificação de integridade para a investigação do gerenciador de tráfego. O tráfego de aplicativo é direcionado para a região íntegra. Esse failover é esperado, mas o desempenho pode ser um problema com base na latência do tráfego que agora viaja para uma região distante.
 
@@ -50,7 +50,7 @@ As ferramentas nesses sites medem as latências de DNS e exibem os endereços IP
 
     Uma das ferramentas mais simples é o WebSitePulse. Insira a URL para ver o tempo de resolução DNS, o Primeiro Byte, o Último Byte e outras estatísticas de desempenho. Você pode escolher entre três locais de teste diferentes. Neste exemplo, você verá que a primeira execução mostra que a pesquisa de DNS leva 0,204 s.
 
-    ![pulse1](./media/traffic-manager-performance-considerations/traffic-manager-web-site-pulse.png)
+    ![Captura de tela que mostra a ferramenta "WebSitePulse" com o resultado de pesquisa "DNS" realçado.](./media/traffic-manager-performance-considerations/traffic-manager-web-site-pulse.png)
 
     Uma vez que os resultados estão armazenados em cache, no segundo teste para o mesmo ponto de extremidade do Gerenciador de Tráfego, a pesquisa de DNS leva 0,002 segundo.
 
@@ -80,7 +80,6 @@ As ferramentas nesses sites medem as latências de DNS e exibem os endereços IP
 
 [Teste as configurações do Gerenciador de Tráfego](traffic-manager-testing-settings.md)
 
-[Operações no Gerenciador de Tráfego (referência de API REST)](https://go.microsoft.com/fwlink/?LinkId=313584)
+[Operações no Gerenciador de Tráfego (referência de API REST)](/previous-versions/azure/reference/hh758255(v=azure.100))
 
-[Cmdlets do Gerenciador de Tráfego do Azure](https://docs.microsoft.com/powershell/module/az.trafficmanager)
-
+[Cmdlets do Gerenciador de Tráfego do Azure](/powershell/module/az.trafficmanager)

@@ -1,6 +1,6 @@
 ---
 title: Registrar um aplicativo de serviço no Azure AD – API do Azure para FHIR
-description: Saiba como registrar um aplicativo cliente de serviço no Azure Active Directory que pode ser usado para autenticar e obter tokens.
+description: Saiba como registrar um aplicativo cliente de serviço no Azure Active Directory.
 services: healthcare-apis
 author: matjazl
 ms.service: healthcare-apis
@@ -8,68 +8,72 @@ ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: matjazl
-ms.openlocfilehash: 34eec3ad0d2fc193744898b6f08cbe50c261c945
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 6f7bf122b292ca144eac406957f19a13c7ba6662
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87853009"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91975817"
 ---
 # <a name="register-a-service-client-application-in-azure-active-directory"></a>Registrar um aplicativo cliente de serviço no Azure Active Directory
 
 Neste artigo, você aprenderá a registrar um aplicativo cliente de serviço no Azure Active Directory. Os registros de aplicativo cliente são Azure Active Directory representações de aplicativos que podem ser usados para autenticar e obter tokens. Um cliente de serviço destina-se a ser usado por um aplicativo para obter um token de acesso sem autenticação interativa de um usuário. Ele terá determinadas permissões de aplicativo e usará um segredo de aplicativo (senha) ao obter tokens de acesso.
 
-Siga as etapas abaixo para criar um novo cliente de serviço.
+Siga estas etapas para criar um novo cliente de serviço.
 
 ## <a name="app-registrations-in-azure-portal"></a>Registros de aplicativo em portal do Azure
 
-1. No [portal do Azure](https://portal.azure.com), no painel navegação à esquerda, clique em **Azure Active Directory**.
+1. Na [portal do Azure](https://portal.azure.com), navegue até **Azure Active Directory**.
 
-2. Na folha **Azure Active Directory** , clique em **registros de aplicativo**:
+2. Selecione **Registros do Aplicativo**.
 
     ![portal do Azure. Novo registro de aplicativo.](media/how-to-aad/portal-aad-new-app-registration.png)
 
-3. Clique em **Novo registro**.
+3. Selecione **Novo registro**.
 
-## <a name="service-client-application-details"></a>Detalhes do aplicativo cliente do serviço
+4. Dê ao cliente de serviço um nome de exibição. Aplicativos cliente de serviço normalmente não usam uma URL de resposta.
 
-* O cliente de serviço precisa de um nome de exibição e você também pode fornecer uma URL de resposta, mas ela normalmente não será usada.
+    :::image type="content" source="media/service-client-app/service-client-registration.png" alt-text="portal do Azure. Novo registro de aplicativo cliente de serviço.":::
 
-    ![portal do Azure. Novo registro de aplicativo cliente de serviço.](media/how-to-aad/portal-aad-register-new-app-registration-SERVICE-CLIENT-NAME.png)
+5. Selecione **Registrar**.
 
 ## <a name="api-permissions"></a>Permissões de API
 
-Você precisará conceder as funções de aplicativo do cliente de serviço. 
+Agora que você registrou seu aplicativo, precisará selecionar quais permissões de API esse aplicativo deve ser capaz de solicitar em nome dos usuários:
 
-1. Abra as **permissões de API** e selecione o [registro do aplicativo de recurso de API do FHIR](register-resource-azure-ad-client-app.md). Se estiver usando a API do Azure para FHIR, você adicionará uma permissão às APIs de assistência médica do Azure pesquisando as APIs de assistência médica do Azure em **APIs que minha organização usa**.
+1. Selecione **Permissões de API**.
+1. Selecione **Adicionar uma permissão**.
 
-    ![portal do Azure. Permissões de API de cliente de serviço](media/how-to-aad/portal-aad-register-new-app-registration-SERVICE-CLIENT-API-PERMISSIONS.png)
+    Se estiver usando a API do Azure para FHIR, você adicionará uma permissão às APIs de assistência médica do Azure pesquisando as **APIs de assistência médica do Azure** em **APIs que minha organização usa**. 
 
-2. Selecione o aplicativo que você deseja para as funções que estão definidas no aplicativo de recurso:
+    Se você estiver fazendo referência a um aplicativo de recurso diferente, selecione o [registro de aplicativo do recurso de API do FHIR](register-resource-azure-ad-client-app.md) que você criou anteriormente em **minhas APIs**.
 
-    ![portal do Azure. Permissões de aplicativo do cliente de serviço](media/how-to-aad/portal-aad-register-new-app-registration-SERVICE-CLIENT-APPLICATION-PERMISSIONS.png)
+    :::image type="content" source="media/service-client-app/service-client-org-api.png" alt-text="portal do Azure. Novo registro de aplicativo cliente de serviço." lightbox="media/service-client-app/service-client-org-api-expanded.png":::
 
-3. Conceda consentimento ao aplicativo. Se você não tiver as permissões necessárias, verifique com o administrador do Azure Active Directory:
+1. Selecione os escopos (permissões) que o aplicativo confidencial deve ser capaz de solicitar em nome de um usuário:
 
-    ![portal do Azure. Consentimento do administrador do cliente de serviço](media/how-to-aad/portal-aad-register-new-app-registration-SERVICE-CLIENT-ADMIN-CONSENT.png)
+    :::image type="content" source="media/service-client-app/service-client-add-permission.png" alt-text="portal do Azure. Novo registro de aplicativo cliente de serviço.":::
+
+1. Conceda consentimento ao aplicativo. Se você não tiver as permissões necessárias, verifique com o administrador do Azure Active Directory:
+
+    :::image type="content" source="media/service-client-app/service-client-grant-permission.png" alt-text="portal do Azure. Novo registro de aplicativo cliente de serviço.":::
 
 ## <a name="application-secret"></a>Segredo do aplicativo
 
-O cliente de serviço precisa de um segredo (senha), que você usará ao obter tokens.
+O cliente de serviço precisa de um segredo (senha) para obter um token.
 
-1. Clique em **certificados &amp; segredos**
-
-2. Clique em **Novo segredo do cliente**
+1. Selecione **Certificados e segredos**.
+2. Selecione **Novo segredo do cliente**.
 
     ![portal do Azure. Segredo do cliente de serviço](media/how-to-aad/portal-aad-register-new-app-registration-SERVICE-CLIENT-SECRET.png)
 
-3. Forneça uma duração do segredo.
+3. Forneça uma descrição e a duração do segredo (1 ano, 2 anos ou nunca).
 
-4. Depois que ele tiver sido gerado, ele só será exibido uma vez no Portal. Anote-a e armazene-a com segurança.
+4. Depois que o segredo tiver sido gerado, ele só será exibido uma vez no Portal. Anote-a e armazene-a com segurança.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste artigo, você aprendeu como registrar um aplicativo cliente de serviço no Azure Active Directory. Em seguida, implante uma API do FHIR no Azure.
+Neste artigo, você aprendeu como registrar um aplicativo cliente de serviço no Azure Active Directory. Em seguida, teste o acesso ao seu servidor FHIR usando o postmaster.
  
 >[!div class="nextstepaction"]
->[Implantar o servidor FHIR de código-fonte aberto](fhir-oss-powershell-quickstart.md)
+>[Acessar a API do Azure para FHIR com o Postman](access-fhir-postman-tutorial.md)

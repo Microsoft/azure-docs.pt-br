@@ -1,19 +1,16 @@
 ---
 title: Monitorar o desempenho do cluster – Azure HDInsight
 description: Como monitorar a integridade e o desempenho de clusters de Apache Hadoop no Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 03/09/2020
-ms.openlocfilehash: 78ff8adcc2b50f89daa37112b14d219233559dab
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: f910054c803093eb62db494a596219c50791d136
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86075563"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945341"
 ---
 # <a name="monitor-cluster-performance-in-azure-hdinsight"></a>Monitorar o desempenho do cluster no Azure HDInsight
 
@@ -27,7 +24,7 @@ Os clusters do Hadoop podem oferecer o desempenho mais ideal quando a carga no c
 
 Para obter uma visão de alto nível dos nós do cluster e do seu carregamento, entre na [interface do usuário da Web do AmAmbari](hdinsight-hadoop-manage-ambari.md)e selecione a guia **hosts** . Seus hosts são listados por seus nomes de domínio totalmente qualificados. O status operacional de cada host é mostrado por um indicador de integridade colorido:
 
-| Cor | Descrição |
+| Color | DESCRIÇÃO |
 | --- | --- |
 | Vermelho | Pelo menos um componente mestre no host está inoperante. Passe o mouse para ver uma dica de ferramenta que lista os componentes afetados. |
 | Laranja | Pelo menos um componente secundário no host está inoperante. Passe o mouse para ver uma dica de ferramenta que lista os componentes afetados. |
@@ -74,7 +71,7 @@ Na interface do usuário do Gerenciador de Recursos, selecione **Agendador** no 
 
 O gargalo do desempenho de um cluster pode ocorrer no nível de armazenamento. Esse tipo de afunilamento é geralmente causado pelo *bloqueio* de operações de e/s (entrada/saída), que ocorrem quando as tarefas em execução enviam mais e/s do que o serviço de armazenamento pode manipular. Esse bloqueio cria uma fila de solicitações de E/S aguardando para serem processadas até que as E/Ss atuais sejam processadas. Os blocos são devido à *limitação de armazenamento*, que não é um limite físico, mas sim um limite imposto pelo serviço de armazenamento por um SLA (contrato de nível de serviço). Esse limite serve para garantir que um único cliente ou locatário não monopolize o serviço. O SLA limita o número de IOs por segundo (IOPS) para o armazenamento do Azure-para obter detalhes, consulte [escalabilidade e metas de desempenho para contas de armazenamento padrão](../storage/common/scalability-targets-standard-account.md).
 
-Se você estiver usando o armazenamento do Azure, para obter informações sobre como monitorar problemas relacionados ao armazenamento, incluindo a limitação, consulte [monitorar, diagnosticar e solucionar problemas armazenamento do Microsoft Azure](https://docs.microsoft.com/azure/storage/storage-monitoring-diagnosing-troubleshooting).
+Se você estiver usando o armazenamento do Azure, para obter informações sobre como monitorar problemas relacionados ao armazenamento, incluindo a limitação, consulte [monitorar, diagnosticar e solucionar problemas armazenamento do Microsoft Azure](../storage/common/storage-monitoring-diagnosing-troubleshooting.md).
 
 Se o armazenamento de backup do seu cluster for Azure Data Lake Storage (ADLS), sua limitação provavelmente será devido aos limites de largura de banda. A limitação, nesse caso, poderia ser identificada pela observação de erros de limitação nos logs de tarefa. Para o ADLS, consulte a seção sobre limitação do serviço apropriado nesses artigos:
 
@@ -84,7 +81,7 @@ Se o armazenamento de backup do seu cluster for Azure Data Lake Storage (ADLS), 
 
 ## <a name="troubleshoot-sluggish-node-performance"></a>Solucionar problemas de desempenho de nó lento
 
-Em alguns casos, a economia pode ocorrer devido a pouco espaço em disco no cluster. Investigue com estas etapas:
+Em alguns casos, a lentidão pode ocorrer devido a pouco espaço em disco no cluster. Investigue com estas etapas:
 
 1. Use o [comando ssh](./hdinsight-hadoop-linux-use-ssh-unix.md) para se conectar a cada um dos nós.
 
@@ -97,7 +94,7 @@ Em alguns casos, a economia pode ocorrer devido a pouco espaço em disco no clus
 
 1. Examine a saída e verifique a presença de arquivos grandes na `mnt` pasta ou em outras pastas. Normalmente, as `usercache` pastas e `appcache` (mnt/Resource/Hadoop/yarn/local/usercache/Hive/AppCache/) contêm arquivos grandes.
 
-1. Se houver arquivos grandes, um trabalho atual está causando o crescimento do arquivo ou um trabalho anterior com falha pode ter contribuído para esse problema. Para verificar se esse comportamento é causado por um trabalho atual, execute o seguinte comando:
+1. Se houver arquivos grandes, um trabalho atual está causando o crescimento do arquivo ou um trabalho anterior com falha pode ter contribuído para esse problema. Para verificar se esse comportamento está sendo causado por um trabalho atual, execute o seguinte comando: 
 
     ```bash
     sudo du -h --max-depth=1 /mnt/resource/hadoop/yarn/local/usercache/hive/appcache/
@@ -126,6 +123,6 @@ Para obter mais informações sobre problemas de espaço em disco, consulte [sem
 
 Visite os links a seguir para obter mais informações sobre o monitoramento e a solução de problemas dos seus clusters:
 
-* [Analisar logs do HDInsight](hdinsight-debug-jobs.md)
+* [Analisar logs do HDInsight](./hdinsight-troubleshoot-guide.md)
 * [Depurar aplicativos com logs do YARN do Apache Hadoop](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 * [Habilitar despejos de heap para serviços do Apache Hadoop no HDInsight baseado em Linux](hdinsight-hadoop-collect-debug-heap-dump-linux.md)

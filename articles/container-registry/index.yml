@@ -13,10 +13,10 @@ metadata:
   ms.author: danlep
   ms.date: 11/08/2019
   ms.openlocfilehash: 53c66bd6dc7e9be548533650d9d3ee7540e1e5c3
-  ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 07/11/2020
+  ms.lasthandoff: 10/09/2020
   ms.locfileid: "86260043"
 landingContent:
 - title: Sobre o Registro de Contêiner do Azure

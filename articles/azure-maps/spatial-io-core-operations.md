@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 021680a81cc5f97bb92c3a9e14036e1a88dae278
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.custom: devx-track-js
+ms.openlocfilehash: 08966549d2c4d2bf701ee0dbfc5ed24f202396fc
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87279501"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92891369"
 ---
 # <a name="core-io-operations"></a>Operações de e/s básica
 
@@ -34,7 +34,7 @@ Por padrão, o leitor usará o caractere de vírgula como o delimitador. No enta
 | Delimitador | Caractere |
 | :-- | :-- |
 | Vírgula | `,` |
-| Tab | `\t` |
+| Guia | `\t` |
 | Pipe | `|` |
 
 Esse leitor também dá suporte a qualificadores de texto que são usados para manipular células que contêm o caractere delimitador. O caractere quote ( `'"'` ) é o qualificador de texto padrão, mas pode ser alterado para qualquer caractere único.
@@ -131,19 +131,14 @@ O XML gerado do código acima seria semelhante ao seguinte.
 
 Saiba mais sobre as classes e métodos usados neste artigo:
 
-> [!div class="nextstepaction"]
-> [CsvReader](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io.core.csvreader)
+[CsvReader](/javascript/api/azure-maps-spatial-io/atlas.io.core.csvreader)
 
-> [!div class="nextstepaction"]
-> [CsvWriter](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io.core.csvwriter)
+[CsvWriter](/javascript/api/azure-maps-spatial-io/atlas.io.core.csvwriter)
 
-> [!div class="nextstepaction"]
-> [SimpleXmlReader](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io.core.simplexmlreader)
+[SimpleXmlReader](/javascript/api/azure-maps-spatial-io/atlas.io.core.simplexmlreader)
 
-> [!div class="nextstepaction"]
-> [SimpleXmlWriter](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io.core.simplexmlwriter)
+[SimpleXmlWriter](/javascript/api/azure-maps-spatial-io/atlas.io.core.simplexmlwriter)
 
 Consulte os artigos a seguir para obter mais exemplos de código para adicionar aos seus mapas:
 
-> [!div class="nextstepaction"]
-> [Detalhes do formato de dados com suporte](spatial-io-supported-data-format-details.md)
+[Detalhes do formato de dados com suporte](spatial-io-supported-data-format-details.md)

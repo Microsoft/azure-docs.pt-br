@@ -1,22 +1,17 @@
 ---
 title: Copiar dados do DB2 com o Azure Data Factory
 description: Saiba como copiar dados do DB2 para armazenamentos de dados de coletor com suporte usando uma atividade de cópia em um pipeline do Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: jingwang
-ms.openlocfilehash: 3c65ed7e5fa6bb1652791eee75d4caa4c9c5f1ca
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 642f12386a7695e026eb0c30016acf6f53fc9e95
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873630"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100381113"
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Copiar dados do DB2 usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -49,7 +44,7 @@ Especificamente, esse conector de DB2 dá suporte às seguintes plataformas e ve
 * IBM DB2 para LUW 10.1
 
 >[!TIP]
->O conector de DB2 é criado com base no Provedor Microsoft OLE DB para DB2. Para solucionar problemas de erros do conector de DB2, confira [Códigos de erro do Provedor de Dados](https://docs.microsoft.com/host-integration-server/db2oledbv/data-provider-error-codes#drda-protocol-errors).
+>O conector de DB2 é criado com base no Provedor Microsoft OLE DB para DB2. Para solucionar problemas de erros do conector de DB2, confira [Códigos de erro do Provedor de Dados](/host-integration-server/db2oledbv/data-provider-error-codes#drda-protocol-errors).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -82,7 +77,7 @@ Propriedades típicas dentro da cadeia de conexão:
 | authenticationType |Tipo de autenticação usado para se conectar ao banco de dados DB2.<br/>O valor permitido é: **Básica**. |Sim |
 | Nome de Usuário |Especifica o nome de usuário para se conectar ao banco de dados DB2. |Sim |
 | password |Especifique a senha da conta de usuário que você especificou para o nome de usuário. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |Sim |
-| packageCollection | Especifique onde os pacotes necessários são criados automaticamente pelo ADF ao consultar o banco de dados. Se isso não estiver definido, o Data Factory usará o {nome de usuário} como valor padrão. | Não |
+| packageCollection    | Especifique onde os pacotes necessários são criados automaticamente pelo ADF ao consultar o banco de dados. Se isso não estiver definido, o Data Factory usará o {nome de usuário} como valor padrão. | Não |
 | certificateCommonName | Ao usar a criptografia do Protocolo SSL ou do Protocolo TLS, insira um valor para o nome comum do Certificado. | Não |
 
 > [!TIP]
@@ -114,13 +109,13 @@ Propriedades típicas dentro da cadeia de conexão:
         "type": "Db2",
         "typeProperties": {
             "connectionString": "server=<server:port>;database=<database>;authenticationType=Basic;username=<username>;packageCollection=<packagecollection>;certificateCommonName=<certname>;",
-            "password": { 
-                "type": "AzureKeyVaultSecret", 
-                "store": { 
-                    "referenceName": "<Azure Key Vault linked service name>", 
-                    "type": "LinkedServiceReference" 
-                }, 
-                "secretName": "<secretName>" 
+            "password": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
             }
         },
         "connectVia": {

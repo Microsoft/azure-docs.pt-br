@@ -7,12 +7,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 08/06/2020
-ms.openlocfilehash: ef85b6f9e4595e7b4ff367da415fad777de68679
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: bafd8a9752d2587ec52fe586e442e3bfc86d7537
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88211297"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97585761"
 ---
 # <a name="azure-cache-for-redis-development-faqs"></a>Perguntas frequentes de desenvolvimento do cache do Azure para Redis
 
@@ -56,7 +56,7 @@ Normalmente, os valores padrão do cliente são suficientes. Você pode realizar
 * **Novas tentativas**
   * Para ConnectRetry e ConnectTimeout, a orientação geral é falhar rapidamente e tentar novamente. Essa diretriz se baseia na sua carga de trabalho e em quanto tempo em média leva para o cliente emitir um comando Redis e receber uma resposta.
   * Deixe o StackExchange.Redis reconectar-se automaticamente, em vez de você verificar o status de conexão e realizar a reconexão. **Evitar usar a propriedade ConnectionMultiplexer.IsConnected**.
-  * Bola de neve - às vezes, você poderá ter um problema em que você esteja realizando novas tentativas e isso se torne uma bola de neve, sem nunca se recuperar. Caso ocorra essa bola de neve, você deve considerar usar um algoritmo de nova tentativa de retirada exponencial, conforme descrito em [Orientação geral sobre novas tentativas](../best-practices-retry-general.md) publicado pelo grupo de Padrões e práticas da Microsoft.
+  * Bola de neve - às vezes, você poderá ter um problema em que você esteja realizando novas tentativas e isso se torne uma bola de neve, sem nunca se recuperar. Caso ocorra essa bola de neve, você deve considerar usar um algoritmo de nova tentativa de retirada exponencial, conforme descrito em [Orientação geral sobre novas tentativas](/azure/architecture/best-practices/transient-faults) publicado pelo grupo de Padrões e práticas da Microsoft.
   
 * **Valores de tempo limite**
   * Considere sua carga de trabalho e defina os valores adequadamente. Se você estiver armazenando valores grandes, defina o tempo limite como um valor mais alto.
@@ -64,12 +64,12 @@ Normalmente, os valores padrão do cliente são suficientes. Você pode realizar
   * Use uma única instância de ConnectionMultiplexer para o aplicativo. Você pode usar uma LazyConnection para criar uma única instância que é retornada por uma propriedade Connection, conforme mostrado em [Conectar-se ao cache usando a classe ConnectionMultiplexer](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache).
   * Defina a propriedade `ConnectionMultiplexer.ClientName` como um nome exclusivo de instância de aplicativo para fins de diagnóstico.
   * Usar várias instâncias de `ConnectionMultiplexer` para cargas de trabalho personalizadas.
-      * Você pode seguir este modelo se tem variação de carga em seu aplicativo. Por exemplo:
-      * Você pode ter um multiplexador para lidar com chaves grandes.
-      * Você pode ter um multiplexador para lidar com chaves pequenas.
-      * Você pode definir valores diferentes para o tempo limite da conexão e a lógica de repetição para cada ConnectionMultiplexer que você usa.
-      * Definir a propriedade `ClientName` em cada multiplexador para ajudar no diagnóstico.
-      * Essas diretrizes podem levar mais simplificada latência por `ConnectionMultiplexer`.
+    * Você pode seguir este modelo se tem variação de carga em seu aplicativo. Por exemplo:
+    * Você pode ter um multiplexador para lidar com chaves grandes.
+    * Você pode ter um multiplexador para lidar com chaves pequenas.
+    * Você pode definir valores diferentes para o tempo limite da conexão e a lógica de repetição para cada ConnectionMultiplexer que você usa.
+    * Definir a propriedade `ClientName` em cada multiplexador para ajudar no diagnóstico.
+    * Essas diretrizes podem levar mais simplificada latência por `ConnectionMultiplexer`.
 
 ### <a name="what-azure-cache-for-redis-clients-can-i-use"></a>Quais clientes do Cache do Azure para Redis posso usar?
 Uma das coisas legais sobre o Redis é que há muitos clientes que dão suporte a várias linguagens de programação diferentes. Para obter uma lista atual de clientes, confira [Clientes Redis](https://redis.io/clients). Para obter tutoriais que abrangem várias linguagens e clientes diferentes, confira [Como usar o Cache Redis do Azure](cache-dotnet-how-to-use-azure-redis-cache.md) e seus artigos relacionados no sumário.
@@ -109,7 +109,7 @@ Você pode usar qualquer comando listado em [Comandos do Redis](https://redis.io
 * `redis-cli -h <Azure Cache for Redis name>.redis.cache.windows.net -a <key>`
 
 > [!NOTE]
-> As ferramentas de linha de comando do Redis não funcionam com a porta TLS, mas você pode usar um utilitário como o `stunnel` para conectar as ferramentas com segurança à porta TLS seguindo as instruções no artigo [Como usar a ferramenta de linha de comando Redis com o Cache do Azure para Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-redis-cli-tool).
+> As ferramentas de linha de comando do Redis não funcionam com a porta TLS, mas você pode usar um utilitário como o `stunnel` para conectar as ferramentas com segurança à porta TLS seguindo as instruções no artigo [Como usar a ferramenta de linha de comando Redis com o Cache do Azure para Redis](./cache-how-to-redis-cli-tool.md).
 >
 >
 

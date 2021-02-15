@@ -6,13 +6,13 @@ ms.service: security
 ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
-ms.openlocfilehash: 0004b7689b6ede2200e3fe4cb06bba2bbc168d6d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: ccb287a63cf372ff78c750a4690188de7ccc59e6
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259406"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807930"
 ---
 # <a name="azure-security-baseline-for-azure-container-registry"></a>Linha de base de segurança do Azure para registro de contêiner do Azure
 
@@ -30,9 +30,9 @@ Para obter mais informações, consulte [Visão geral sobre linhas de base de se
 
 **Diretrizes**: a rede virtual do Azure fornece uma rede segura e privada para seus recursos do Azure e locais. Ao limitar o acesso ao seu registro de contêiner do Azure privado de uma rede virtual do Azure, você garante que somente os recursos na rede virtual acessem o registro. Para cenários entre instalações, você também pode configurar regras de firewall para permitir o acesso ao registro somente de endereços IP específicos. Por trás de um firewall, configure as regras de acesso de firewall e as marcas de serviço para acessar o registro de contêiner.
 
-Restringir o acesso a um registro de contêiner do Azure usando uma rede virtual do Azure ou regras de firewall:https://docs.microsoft.com/azure/container-registry/container-registry-vnet 
+Restringir o acesso a um registro de contêiner do Azure usando uma rede virtual do Azure ou regras de firewall: https://docs.microsoft.com/azure/container-registry/container-registry-vnet 
 
-Configurar regras para acessar um registro de contêiner do Azure atrás de um firewall:https://docs.microsoft.com/azure/container-registry/container-registry-firewall-access-rules
+Configurar regras para acessar um registro de contêiner do Azure atrás de um firewall: https://docs.microsoft.com/azure/container-registry/container-registry-firewall-access-rules
 
 
 **Monitoramento da Central de Segurança do Azure**: Sim
@@ -43,9 +43,9 @@ Configurar regras para acessar um registro de contêiner do Azure atrás de um f
 
 **Orientação**: Use a central de segurança do Azure e corrija as recomendações de proteção de rede para ajudar a proteger seus recursos de rede no Azure. Habilite logs de fluxo de NSG e envie logs para uma conta de armazenamento para auditoria de tráfego.
 
-Como habilitar os logs de fluxo do NSG:https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal
+Como habilitar os logs de fluxo do NSG: https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal
 
-Proteja seus recursos de rede:https://docs.microsoft.com/azure/security-center/security-center-network-recommendations
+Proteja seus recursos de rede: https://docs.microsoft.com/azure/security-center/security-center-network-recommendations
 
 
 
@@ -67,15 +67,15 @@ Proteja seus recursos de rede:https://docs.microsoft.com/azure/security-center/s
 
 Você pode usar o acesso à rede just in time da central de segurança do Azure para configurar o NSGs para limitar a exposição de pontos de extremidade a endereços IP aprovados por um período limitado. Além disso, use a proteção de rede adaptável da central de segurança do Azure para recomendar configurações de NSG que limitam portas e IPs de origem com base no tráfego real e na inteligência contra ameaças.
 
-Como configurar a proteção contra DDoS:https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection
+Como configurar a proteção contra DDoS:  https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection
 
-Como implantar o Firewall do Azure:https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal
+Como implantar o Firewall do Azure: https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal
 
-Entenda a inteligência de ameaças integrada da central de segurança do Azure:https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer
+Entenda a inteligência de ameaças integrada da central de segurança do Azure: https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer
 
-Entender a proteção de rede adaptável da central de segurança do Azure:https://docs.microsoft.com/azure/security-center/security-center-adaptive-network-hardening
+Entender a proteção de rede adaptável da central de segurança do Azure: https://docs.microsoft.com/azure/security-center/security-center-adaptive-network-hardening
 
-Controle de acesso à rede just in time da central de segurança do Azure:https://docs.microsoft.com/azure/security-center/security-center-just-in-time
+Controle de acesso à rede just in time da central de segurança do Azure: https://docs.microsoft.com/azure/security-center/security-center-just-in-time
 
 
 **Monitoramento da Central de Segurança do Azure**: Sim
@@ -86,9 +86,9 @@ Controle de acesso à rede just in time da central de segurança do Azure:https:
 
 **Orientação**: habilitar os logs de fluxo do NSG (grupo de segurança de rede) para o NSG anexado à sub-rede que está sendo usada para proteger o registro de contêiner do Azure. Você pode registrar os logs de fluxo do NSG em uma conta de armazenamento do Azure para gerar registros de fluxo. Se necessário para investigar a atividade anômala, habilite a captura de pacotes do observador de rede do Azure.
 
-Como habilitar os logs de fluxo do NSG:https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal
+Como habilitar os logs de fluxo do NSG: https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal
 
-Como habilitar o observador de rede:https://docs.microsoft.com/azure/network-watcher/network-watcher-create
+Como habilitar o observador de rede: https://docs.microsoft.com/azure/network-watcher/network-watcher-create
 
 
 **Monitoramento da Central de Segurança do Azure**: Sim
@@ -101,11 +101,11 @@ Como habilitar o observador de rede:https://docs.microsoft.com/azure/network-wat
 
 Implante a solução de firewall de sua escolha em cada um dos limites de rede da sua organização para detectar e/ou negar tráfego mal-intencionado.
 
-Azure Marketplace:https://azuremarketplace.microsoft.com/marketplace/?term=Firewall 
+Azure Marketplace:  https://azuremarketplace.microsoft.com/marketplace/?term=Firewall 
 
-Como implantar o Firewall do Azure:https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal
+Como implantar o Firewall do Azure: https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal
 
-Como configurar alertas com o Firewall do Azure:https://docs.microsoft.com/azure/firewall/threat-intel
+Como configurar alertas com o Firewall do Azure: https://docs.microsoft.com/azure/firewall/threat-intel
 
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
@@ -124,7 +124,7 @@ Como configurar alertas com o Firewall do Azure:https://docs.microsoft.com/azure
 
 **Orientação**: para recursos que precisam de acesso ao seu registro de contêiner, use marcas de serviço de rede virtual para o serviço de registro de contêiner do Azure para definir os controles de acesso à rede em grupos de segurança de rede ou no firewall do Azure. Você pode usar marcas de serviço em vez de endereços IP específicos ao criar regras de segurança. Ao especificar o nome da marca de serviço "AzureContainerRegistry" no campo de origem ou de destino apropriado de uma regra, você pode permitir ou negar o tráfego para o serviço correspondente. A Microsoft gerencia os prefixos de endereço englobados pela marca de serviço e atualiza automaticamente a marca de serviço em caso de alteração de endereços.
 
-Permitir acesso por marca de serviço:https://docs.microsoft.com/azure/container-registry/container-registry-firewall-access-rules#allow-access-by-service-tag
+Permitir acesso por marca de serviço: https://docs.microsoft.com/azure/container-registry/container-registry-firewall-access-rules#allow-access-by-service-tag
 
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
@@ -135,9 +135,9 @@ Permitir acesso por marca de serviço:https://docs.microsoft.com/azure/container
 
 **Diretrizes**: defina e implemente configurações de segurança padrão para recursos de rede associados a seus registros de contêiner do Azure com o Azure Policy. Use aliases de Azure Policy nos namespaces "Microsoft. ContainerRegistry" e "Microsoft. Network" para criar políticas personalizadas para auditar ou impor a configuração de rede de seus registros de contêiner. 
 
-Você pode usar plantas do Azure para simplificar implantações do Azure de grande escala ao empacotar artefatos de ambiente-chave, como modelos de Azure Resource Manager, controles RBAC e políticas, em uma única definição de Blueprint. Aplique facilmente o plano gráfico às novas assinaturas e ajuste o controle e o gerenciamento de controles por meio da versão.
+Você pode usar plantas do Azure para simplificar implantações do Azure de grande escala ao empacotar artefatos de ambiente-chave, como modelos de Azure Resource Manager, controles RBAC do Azure e políticas, em uma única definição de Blueprint. Aplique facilmente o plano gráfico às novas assinaturas e ajuste o controle e o gerenciamento de controles por meio da versão.
 
-Auditar a conformidade de registros de contêiner do Azure usando o Azure Policy:https://docs.microsoft.com/azure/container-registry/container-registry-azure-policy
+Auditar a conformidade de registros de contêiner do Azure usando o Azure Policy:  https://docs.microsoft.com/azure/container-registry/container-registry-azure-policy
 
 Como criar um Azure Blueprint: https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal
 
@@ -148,7 +148,7 @@ Como criar um Azure Blueprint: https://docs.microsoft.com/azure/governance/bluep
 
 ### <a name="110-document-traffic-configuration-rules"></a>1.10: documentar regras de configuração de tráfego
 
-**Orientação**: o cliente pode usar plantas do Azure para simplificar implantações do Azure de grande escala ao empacotar artefatos de ambiente-chave, como modelos de Azure Resource Manager, controles RBAC e políticas, em uma única definição de Blueprint. Aplique facilmente o plano gráfico às novas assinaturas e ajuste o controle e o gerenciamento de controles por meio da versão.
+**Orientação**: o cliente pode usar plantas do Azure para simplificar implantações do Azure de grande escala ao empacotar artefatos de ambiente-chave, como modelos de Azure Resource Manager, controles RBAC do Azure e políticas, em uma única definição de Blueprint. Aplique facilmente o plano gráfico às novas assinaturas e ajuste o controle e o gerenciamento de controles por meio da versão.
 
 Como criar um Azure Blueprint: https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal
 
@@ -162,9 +162,9 @@ Como criar um Azure Blueprint: https://docs.microsoft.com/azure/governance/bluep
 
 **Orientação**: Use o log de atividades do Azure para monitorar as configurações de recursos de rede e detectar alterações de recursos de rede relacionados aos seus registros de contêiner. Crie alertas no Azure Monitor que serão disparados quando ocorrerem alterações em recursos de rede críticos.
 
-Como exibir e recuperar eventos do log de atividades do Azure:https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view
+Como exibir e recuperar eventos do log de atividades do Azure:  https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view
 
-Como criar alertas no Azure Monitor:https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
+Como criar alertas no Azure Monitor:  https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 
 
 
@@ -180,7 +180,7 @@ Como criar alertas no Azure Monitor:https://docs.microsoft.com/azure/azure-monit
 
 **Diretrizes**: No entanto, a Microsoft mantém fontes de data/hora para recursos do Azure. Você tem a opção de gerenciar as configurações de sincronização de data/hora para seus recursos de computação.
 
-Como configurar a sincronização de horário para recursos de computação do Azure:https://docs.microsoft.com/azure/virtual-machines/windows/time-sync
+Como configurar a sincronização de horário para recursos de computação do Azure: https://docs.microsoft.com/azure/virtual-machines/windows/time-sync
 
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
@@ -191,7 +191,7 @@ Como configurar a sincronização de horário para recursos de computação do A
 
 **Orientação**: ingerir logs por meio de Azure monitor para agregar dados de segurança gerados por um registro de contêiner do Azure. No Azure Monitor, use o Workspace do Log Analytics para consultar e realizar análises, e use contas de Armazenamento do Microsoft Azure para armazenamento de longo prazo/arquivamento.
 
-Logs de registro de contêiner do Azure para avaliação de diagnóstico e auditoria:https://docs.microsoft.com/azure/container-registry/container-registry-diagnostics-audit-logs
+Logs de registro de contêiner do Azure para avaliação de diagnóstico e auditoria:  https://docs.microsoft.com/azure/container-registry/container-registry-diagnostics-audit-logs
 
 
 
@@ -203,7 +203,7 @@ Logs de registro de contêiner do Azure para avaliação de diagnóstico e audit
 
 **Diretrizes**: Azure monitor coleta logs de recursos (anteriormente chamados de logs de diagnóstico) para eventos controlados pelo usuário no registro. Colete e consuma esses dados para auditar eventos de autenticação de registro e fornecer uma trilha de atividade completa em artefatos de registro, como eventos de pull e Push, para que você possa diagnosticar problemas de segurança com o registro.
 
-Logs de registro de contêiner do Azure para avaliação de diagnóstico e auditoria:https://docs.microsoft.com/azure/container-registry/container-registry-diagnostics-audit-logs
+Logs de registro de contêiner do Azure para avaliação de diagnóstico e auditoria: https://docs.microsoft.com/azure/container-registry/container-registry-diagnostics-audit-logs
 
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
@@ -233,9 +233,9 @@ Como definir parâmetros de retenção de log para workspaces do Log Analytics: 
 
 **Orientação**: analise e monitore os logs do registro de contêiner do Azure para comportamento anormal e analise os resultados regularmente. Use o espaço de trabalho Log Analytics do Azure Monitor para examinar os logs e executar consultas nos dados de log.
 
-Logs de registro de contêiner do Azure para avaliação de diagnóstico e auditoria:https://docs.microsoft.com/azure/container-registry/container-registry-diagnostics-audit-logs
+Logs de registro de contêiner do Azure para avaliação de diagnóstico e auditoria:  https://docs.microsoft.com/azure/container-registry/container-registry-diagnostics-audit-logs
 
-Entender Log Analytics espaço de trabalho:https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal
+Entender Log Analytics espaço de trabalho: https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal
 
 Como realizar consultas personalizadas no Azure Monitor: https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries
 
@@ -248,9 +248,9 @@ Como realizar consultas personalizadas no Azure Monitor: https://docs.microsoft.
 
 **Diretrizes**: Use o espaço de trabalho do Azure log Analytics para monitoramento e alertas em atividades anormais em logs de segurança e eventos relacionados ao registro de contêiner do Azure.
 
-Logs de registro de contêiner do Azure para avaliação de diagnóstico e auditoria:https://docs.microsoft.com/azure/container-registry/container-registry-diagnostics-audit-logs
+Logs de registro de contêiner do Azure para avaliação de diagnóstico e auditoria: https://docs.microsoft.com/azure/container-registry/container-registry-diagnostics-audit-logs
 
-Como alertar sobre os dados de log do log Analytics:https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response
+Como alertar sobre os dados de log do log Analytics:  https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response
 
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
@@ -293,11 +293,11 @@ Como alertar sobre os dados de log do log Analytics:https://docs.microsoft.com/a
 
 Para cada registro de contêiner do Azure, acompanhe se a conta interna do administrador está habilitada ou desabilitada. Desabilite a conta quando ela não estiver em uso.
 
-Como obter uma função de diretório no Azure AD com o PowerShell:https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0
+Como obter uma função de diretório no Azure AD com o PowerShell: https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0
 
-Como obter membros de uma função de diretório no Azure AD com o PowerShell:https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0
+Como obter membros de uma função de diretório no Azure AD com o PowerShell: https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0
 
-Conta de administrador do registro de contêiner do Azure:https://docs.microsoft.com/azure/container-registry/container-registry-authentication#admin-account
+Conta de administrador do registro de contêiner do Azure:  https://docs.microsoft.com/azure/container-registry/container-registry-authentication#admin-account
 
 
 **Monitoramento da Central de Segurança do Azure**: Sim
@@ -310,7 +310,7 @@ Conta de administrador do registro de contêiner do Azure:https://docs.microsoft
 
 Se a conta de administrador padrão de um registro de contêiner do Azure estiver habilitada, as senhas complexas serão criadas automaticamente e deverão ser giradas. Desabilite a conta quando ela não estiver em uso.
 
-Conta de administrador do registro de contêiner do Azure:https://docs.microsoft.com/azure/container-registry/container-registry-authentication#admin-account
+Conta de administrador do registro de contêiner do Azure: https://docs.microsoft.com/azure/container-registry/container-registry-authentication#admin-account
 
 
 
@@ -324,9 +324,9 @@ Conta de administrador do registro de contêiner do Azure:https://docs.microsoft
 
 Além disso, crie procedimentos para habilitar a conta de administrador interno de um registro de contêiner. Desabilite a conta quando ela não estiver em uso.
 
-Entenda a identidade e o acesso da central de segurança do Azure:https://docs.microsoft.com/azure/security-center/security-center-identity-access
+Entenda a identidade e o acesso da central de segurança do Azure:  https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
-Conta de administrador do registro de contêiner do Azure:https://docs.microsoft.com/azure/container-registry/container-registry-authentication#admin-account
+Conta de administrador do registro de contêiner do Azure:  https://docs.microsoft.com/azure/container-registry/container-registry-authentication#admin-account
 
 
 
@@ -340,9 +340,9 @@ Conta de administrador do registro de contêiner do Azure:https://docs.microsoft
 
 Para acesso individual ao registro de contêiner, use logon individual integrado com Azure Active Directory.
 
-Entenda o SSO com o Azure AD:https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on
+Entenda o SSO com o Azure AD:  https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on
 
-Logon individual para um registro de contêiner:https://docs.microsoft.com/azure/container-registry/container-registry-authentication#individual-login-with-azure-ad
+Logon individual para um registro de contêiner:  https://docs.microsoft.com/azure/container-registry/container-registry-authentication#individual-login-with-azure-ad
 
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
@@ -355,7 +355,7 @@ Logon individual para um registro de contêiner:https://docs.microsoft.com/azure
 
 Como habilitar a MFA no Azure: https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
 
-Como monitorar a identidade e o acesso na central de segurança do Azure:https://docs.microsoft.com/azure/security-center/security-center-identity-access
+Como monitorar a identidade e o acesso na central de segurança do Azure:  https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
 
 **Monitoramento da Central de Segurança do Azure**: Sim
@@ -366,7 +366,7 @@ Como monitorar a identidade e o acesso na central de segurança do Azure:https:/
 
 **Diretrizes**: Use PAWs (estações de trabalho com acesso privilegiado) com a MFA configurada para fazer logon e configurar recursos do Azure.
 
-Saiba mais sobre estações de trabalho com acesso privilegiado:https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations
+Saiba mais sobre estações de trabalho com acesso privilegiado:  https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/
 
 Como habilitar a MFA no Azure: https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
 
@@ -379,9 +379,9 @@ Como habilitar a MFA no Azure: https://docs.microsoft.com/azure/active-directory
 
 **Diretrizes**: Use os relatórios de segurança do Azure Active Directory (AD do Azure) para a geração de logs e alertas quando uma atividade suspeita ou não segura ocorrer no ambiente. Use a Central de Segurança do Azure para monitorar a atividade de identidade e acesso.
 
-Como identificar usuários do Azure AD sinalizados para atividades arriscadas:https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-user-at-risk
+Como identificar usuários do Azure AD sinalizados para atividades arriscadas:  https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-user-at-risk
 
-Como monitorar a atividade de identidade e acesso dos usuários na central de segurança do Azure:https://docs.microsoft.com/azure/security-center/security-center-identity-access
+Como monitorar a atividade de identidade e acesso dos usuários na central de segurança do Azure:  https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
@@ -392,7 +392,7 @@ Como monitorar a atividade de identidade e acesso dos usuários na central de se
 
 **Diretrizes**: Use localizações nomeadas de acesso condicional para permitir o acesso somente de agrupamentos lógicos de intervalos de endereços IP ou de países/regiões específicos.
 
-Como configurar locais nomeados no Azure:https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations
+Como configurar locais nomeados no Azure:  https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations
 
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
@@ -403,7 +403,7 @@ Como configurar locais nomeados no Azure:https://docs.microsoft.com/azure/active
 
 **Diretrizes**: Use Azure Active Directory (AD do Azure) como o sistema de autenticação e autorização central. O Azure AD protege os dados usando criptografia forte para dados em repouso e em trânsito. O Azure Active Directory também inclui sais, hashes e armazena com segurança as credenciais do usuário.
 
-Como criar e configurar uma instância do Azure AD:https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant
+Como criar e configurar uma instância do Azure AD: https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant
 
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
@@ -414,9 +414,9 @@ Como criar e configurar uma instância do Azure AD:https://docs.microsoft.com/az
 
 **Diretrizes**: o Azure Active Directory (Azure AD) fornece logs para ajudar a descobrir contas obsoletas. Além disso, use as revisões de acesso de identidade do Azure para gerenciar com eficiência as associações de grupo, o acesso aos aplicativos empresariais e as atribuições de função. O acesso de usuários pode ser examinado regularmente para garantir que somente os usuários corretos tenham acesso contínuo.
 
-Entender os relatórios do Azure AD:https://docs.microsoft.com/azure/active-directory/reports-monitoring/
+Entender os relatórios do Azure AD:  https://docs.microsoft.com/azure/active-directory/reports-monitoring/
 
-Como usar as revisões de acesso de identidade do Azure:https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview
+Como usar as revisões de acesso de identidade do Azure:  https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview
 
 
 
@@ -430,7 +430,7 @@ Como usar as revisões de acesso de identidade do Azure:https://docs.microsoft.c
 
 Você pode simplificar esse processo criando configurações de diagnóstico para contas de usuário do Azure Active Directory e enviando os logs de auditoria e os logs de entrada para um workspace do Log Analytics. Você pode configurar os alertas desejados no workspace do Log Analytics.
 
-Como integrar os logs de atividades do Azure ao Azure Monitor:https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics
+Como integrar os logs de atividades do Azure ao Azure Monitor:  https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics
 
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
@@ -443,7 +443,7 @@ Como integrar os logs de atividades do Azure ao Azure Monitor:https://docs.micro
 
 Como exibir entradas suspeitas do Azure AD: https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins
 
-Como configurar e habilitar políticas de risco de proteção de identidade:https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies
+Como configurar e habilitar políticas de risco de proteção de identidade: https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies
 
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
@@ -472,11 +472,11 @@ Lista de serviços suportados do Sistema de Proteção de Dados do Cliente: http
 
 Imagens de contêiner de versão e de marca ou outros artefatos em um registro e bloqueio de imagens ou repositórios, para auxiliar no rastreamento de imagens que armazenam ou processam informações confidenciais.
 
-Como criar e usar marcas:https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
+Como criar e usar marcas:  https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
-Recomendações para marcação e controle de versão de imagens de contêiner:https://docs.microsoft.com/azure/container-registry/container-registry-image-tag-version
+Recomendações para marcação e controle de versão de imagens de contêiner:  https://docs.microsoft.com/azure/container-registry/container-registry-image-tag-version
 
-Bloquear uma imagem de contêiner em um registro de contêiner do Azure:https://docs.microsoft.com/azure/container-registry/container-registry-image-lock
+Bloquear uma imagem de contêiner em um registro de contêiner do Azure:  https://docs.microsoft.com/azure/container-registry/container-registry-image-lock
 
 
 
@@ -490,15 +490,15 @@ Bloquear uma imagem de contêiner em um registro de contêiner do Azure:https://
 
 Os recursos devem ser separados por uma rede virtual ou sub-rede, marcados adequadamente e protegidos por um NSG (grupo de segurança de rede) ou firewall do Azure.
 
-Como criar assinaturas adicionais do Azure:https://docs.microsoft.com/azure/billing/billing-create-subscription
+Como criar assinaturas adicionais do Azure:  https://docs.microsoft.com/azure/billing/billing-create-subscription
 
-Como criar grupos de gerenciamento:https://docs.microsoft.com/azure/governance/management-groups/create
+Como criar grupos de gerenciamento:  https://docs.microsoft.com/azure/governance/management-groups/create
 
 Como criar e usar marcas: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
-Restringir o acesso a um registro de contêiner do Azure usando uma rede virtual do Azure ou regras de firewall:https://docs.microsoft.com/azure/container-registry/container-registry-vnet
+Restringir o acesso a um registro de contêiner do Azure usando uma rede virtual do Azure ou regras de firewall: https://docs.microsoft.com/azure/container-registry/container-registry-vnet
 
-Como criar um NSG com uma configuração de segurança:https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic
+Como criar um NSG com uma configuração de segurança: https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic
 
 Como implantar o Firewall do Azure:
 
@@ -520,7 +520,7 @@ https://docs.microsoft.com/azure/firewall/threat-intel
 
 Para a plataforma subjacente que é gerenciada pela Microsoft, a Microsoft trata todo o conteúdo do cliente como confidencial e faz todo o esforço possível para proteger contra perda e exposição de dados do cliente. Para garantir que os dados do cliente no Azure permaneçam seguros, a Microsoft implementou e mantém um conjunto de recursos e controles robustos de proteção de dados.
 
-Entender a proteção de dados do cliente no Azure:https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
+Entender a proteção de dados do cliente no Azure:  https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
@@ -533,7 +533,7 @@ Entender a proteção de dados do cliente no Azure:https://docs.microsoft.com/az
 
 Siga as recomendações da central de segurança do Azure para criptografia em repouso e criptografia em trânsito, quando aplicável.
 
-Entenda a criptografia em trânsito com o Azure:https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit
+Entenda a criptografia em trânsito com o Azure:  https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit
 
 
 
@@ -556,11 +556,11 @@ Entenda a proteção de dados do cliente no Azure: https://docs.microsoft.com/az
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: usar o RBAC do Azure para controlar o acesso a recursos
 
-**Diretrizes**: Use o RBAC do Azure Active Directory (Azure AD) para controlar o acesso a dados e recursos em um registro de contêiner do Azure. 
+**Orientação**: Use o controle de acesso baseado em função do Azure (RBAC do Azure) para controlar o acesso a dados e recursos em um registro de contêiner do Azure. 
 
-Como configurar o RBAC no Azure:https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal
+Como configurar o RBAC do Azure:  https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal
 
-Funções e permissões do registro de contêiner do Azure:https://docs.microsoft.com/azure/container-registry/container-registry-roles
+Funções e permissões do registro de contêiner do Azure:  https://docs.microsoft.com/azure/container-registry/container-registry-roles
 
 
 
@@ -574,7 +574,7 @@ Funções e permissões do registro de contêiner do Azure:https://docs.microsof
 
 Para a plataforma subjacente que é gerenciada pela Microsoft, a Microsoft trata todo o conteúdo do cliente como confidencial e faz todo o esforço possível para proteger contra perda e exposição de dados do cliente. Para garantir que os dados do cliente no Azure permaneçam seguros, a Microsoft implementou e mantém um conjunto de recursos e controles robustos de proteção de dados.
 
-Entender a proteção de dados do cliente no Azure:https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
+Entender a proteção de dados do cliente no Azure:  https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
@@ -585,9 +585,9 @@ Entender a proteção de dados do cliente no Azure:https://docs.microsoft.com/az
 
 **Diretrizes**: Use a criptografia em repouso em todos os recursos do Azure. Por padrão, todos os dados em um registro de contêiner do Azure são criptografados em repouso usando chaves gerenciadas pela Microsoft.
 
-Entender a criptografia em repouso no Azure:https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest
+Entender a criptografia em repouso no Azure: https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest
 
-Chaves gerenciadas pelo cliente no registro de contêiner do Azure:https://aka.ms/acr/cmk
+Chaves gerenciadas pelo cliente no registro de contêiner do Azure:  https://aka.ms/acr/cmk
 
 
 
@@ -599,7 +599,7 @@ Chaves gerenciadas pelo cliente no registro de contêiner do Azure:https://aka.m
 
 **Diretrizes**: Azure monitor coleta logs de recursos (anteriormente chamados de logs de diagnóstico) para eventos controlados pelo usuário no registro. Colete e consuma esses dados para auditar eventos de autenticação de registro e fornecer uma trilha de atividade completa em artefatos de registro, como eventos pull e pull para que você possa diagnosticar problemas operacionais com o registro.
 
-Logs de registro de contêiner do Azure para avaliação de diagnóstico e auditoria:https://docs.microsoft.com/azure/container-registry/container-registry-diagnostics-audit-logs
+Logs de registro de contêiner do Azure para avaliação de diagnóstico e auditoria: https://docs.microsoft.com/azure/container-registry/container-registry-diagnostics-audit-logs
 
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
@@ -614,9 +614,9 @@ Logs de registro de contêiner do Azure para avaliação de diagnóstico e audit
 
 **Orientação**: siga as recomendações da central de segurança do Azure sobre como executar avaliações de vulnerabilidade em suas imagens de contêiner. Opcionalmente, implante soluções de terceiros do Azure Marketplace para executar avaliações de vulnerabilidade de imagem.
 
-Como implementar recomendações de avaliação de vulnerabilidade da central de segurança do Azure:https://docs.microsoft.com/azure/security-center/security-center-vulnerability-assessment-recommendations
+Como implementar recomendações de avaliação de vulnerabilidade da central de segurança do Azure:  https://docs.microsoft.com/azure/security-center/security-center-vulnerability-assessment-recommendations
 
-Integração do registro de contêiner do Azure com a central de segurança (versão prévia):https://docs.microsoft.com/azure/security-center/azure-container-registry-integration
+Integração do registro de contêiner do Azure com a central de segurança (versão prévia):  https://docs.microsoft.com/azure/security-center/azure-container-registry-integration
 
 
 
@@ -630,7 +630,7 @@ Integração do registro de contêiner do Azure com a central de segurança (ver
 
 Automatize as atualizações de imagem de contêiner quando atualizações de imagens base do sistema operacional e de outros patches forem detectadas.
 
-Sobre as atualizações de imagem de base para tarefas do registro de contêiner do Azure:https://docs.microsoft.com/azure/container-registry/container-registry-tasks-base-images
+Sobre as atualizações de imagem de base para tarefas do registro de contêiner do Azure:  https://docs.microsoft.com/azure/container-registry/container-registry-tasks-base-images
 
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
@@ -641,7 +641,7 @@ Sobre as atualizações de imagem de base para tarefas do registro de contêiner
 
 **Orientação**: você pode usar a solução de terceiros para corrigir imagens de aplicativos.  Além disso, você pode executar tarefas de registro de contêiner do Azure para automatizar atualizações para imagens de aplicativo em um registro de contêiner com base em patches de segurança ou outras atualizações em imagens de base.
 
-Sobre as atualizações de imagem base para tarefas ACR:https://docs.microsoft.com/azure/container-registry/container-registry-tasks-base-images
+Sobre as atualizações de imagem base para tarefas ACR:  https://docs.microsoft.com/azure/container-registry/container-registry-tasks-base-images
 
 
 
@@ -653,7 +653,7 @@ Sobre as atualizações de imagem base para tarefas ACR:https://docs.microsoft.c
 
 **Orientação**: integre o registro de contêiner do Azure (ACR) com a central de segurança do Azure para habilitar a verificação periódica de imagens de contêiner para vulnerabilidades. Opcionalmente, implante soluções de terceiros do Azure Marketplace para executar verificações de vulnerabilidade de imagem periódica.
 
-Integração do registro de contêiner do Azure com a central de segurança (versão prévia):https://docs.microsoft.com/azure/security-center/azure-container-registry-integration
+Integração do registro de contêiner do Azure com a central de segurança (versão prévia):  https://docs.microsoft.com/azure/security-center/azure-container-registry-integration
 
 
 **Monitoramento da Central de Segurança do Azure**: Sim
@@ -664,7 +664,7 @@ Integração do registro de contêiner do Azure com a central de segurança (ver
 
 **Orientação**: integre o registro de contêiner do Azure (ACR) com a central de segurança do Azure para habilitar a verificação periódica de imagens de contêiner para vulnerabilidades e classificar riscos. Opcionalmente, implante soluções de terceiros do Azure Marketplace para executar verificações de vulnerabilidade de imagem periódica e classificação de risco.
 
-Integração do registro de contêiner do Azure com a central de segurança (versão prévia):https://docs.microsoft.com/azure/security-center/azure-container-registry-integration
+Integração do registro de contêiner do Azure com a central de segurança (versão prévia):  https://docs.microsoft.com/azure/security-center/azure-container-registry-integration
 
 
 
@@ -682,11 +682,11 @@ Integração do registro de contêiner do Azure com a central de segurança (ver
 
 Embora os recursos clássicos do Azure possam ser descobertos por meio do Resource Graph, é altamente recomendável criar e usar recursos do Azure Resource Manager no futuro.
 
-Como criar consultas com o grafo de recursos do Azure:https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+Como criar consultas com o grafo de recursos do Azure:  https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
-Como exibir suas assinaturas do Azure:https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0 
+Como exibir suas assinaturas do Azure:  https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0 
 
-Entender o RBAC do Azure:https://docs.microsoft.com/azure/role-based-access-control/overview
+Entender o RBAC do Azure:  https://docs.microsoft.com/azure/role-based-access-control/overview
 
 
 
@@ -698,9 +698,9 @@ Entender o RBAC do Azure:https://docs.microsoft.com/azure/role-based-access-cont
 
 **Diretrizes**: o registro de contêiner do Azure mantém metadados, incluindo marcas e manifestos para imagens em um registro. Siga as práticas recomendadas para a marcação de artefatos.
 
-Sobre registros, repositórios e imagens:https://docs.microsoft.com/azure/container-registry/container-registry-concepts
+Sobre registros, repositórios e imagens: https://docs.microsoft.com/azure/container-registry/container-registry-concepts
 
-Recomendações para marcação e controle de versão de imagens de contêiner:https://docs.microsoft.com/azure/container-registry/container-registry-image-tag-version
+Recomendações para marcação e controle de versão de imagens de contêiner: https://docs.microsoft.com/azure/container-registry/container-registry-image-tag-version
 
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
@@ -711,9 +711,9 @@ Recomendações para marcação e controle de versão de imagens de contêiner:h
 
 **Diretrizes**: o registro de contêiner do Azure mantém metadados, incluindo marcas e manifestos para imagens em um registro. Siga as práticas recomendadas para a marcação de artefatos.
 
-Sobre registros, repositórios e imagens:https://docs.microsoft.com/azure/container-registry/container-registry-concepts
+Sobre registros, repositórios e imagens: https://docs.microsoft.com/azure/container-registry/container-registry-concepts
 
-Recomendações para marcação e controle de versão de imagens de contêiner:https://docs.microsoft.com/azure/container-registry/container-registry-image-tag-version
+Recomendações para marcação e controle de versão de imagens de contêiner:  https://docs.microsoft.com/azure/container-registry/container-registry-image-tag-version
 
 
 
@@ -735,11 +735,11 @@ Recomendações para marcação e controle de versão de imagens de contêiner:h
 
 Use o Azure Resource Graph para consultar/descobrir recursos em suas assinaturas.  Verifique se todos os recursos do Azure presentes no ambiente foram aprovados.
 
-Auditar a conformidade de registros de contêiner do Azure usando o Azure Policy:https://docs.microsoft.com/azure/container-registry/container-registry-azure-policy
+Auditar a conformidade de registros de contêiner do Azure usando o Azure Policy:  https://docs.microsoft.com/azure/container-registry/container-registry-azure-policy
 
-Como configurar e gerenciar Azure Policy:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Como configurar e gerenciar Azure Policy:  https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-Como criar consultas com o grafo do Azure:https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+Como criar consultas com o grafo do Azure:  https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
@@ -750,11 +750,11 @@ Como criar consultas com o grafo do Azure:https://docs.microsoft.com/azure/gover
 
 **Orientação**: analise e monitore os logs do registro de contêiner do Azure para comportamento anormal e analise os resultados regularmente. Use o espaço de trabalho Log Analytics do Azure Monitor para examinar os logs e executar consultas nos dados de log.
 
-Logs de registro de contêiner do Azure para avaliação de diagnóstico e auditoria:https://docs.microsoft.com/azure/container-registry/container-registry-diagnostics-audit-logs
+Logs de registro de contêiner do Azure para avaliação de diagnóstico e auditoria:  https://docs.microsoft.com/azure/container-registry/container-registry-diagnostics-audit-logs
 
-Entender Log Analytics espaço de trabalho:https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal
+Entender Log Analytics espaço de trabalho:  https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal
 
-Como executar consultas personalizadas no Azure Monitor:https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries
+Como executar consultas personalizadas no Azure Monitor:  https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries
 
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
@@ -763,7 +763,7 @@ Como executar consultas personalizadas no Azure Monitor:https://docs.microsoft.c
 
 ### <a name="67-remove-unapproved-azure-resources-and-software-applications"></a>6.7: Remover recursos e aplicativos de software não aprovados do Azure
 
-**Orientação**: a automação do Azure fornece controle completo durante a implantação, operações e encerramento de cargas de trabalho e recursos.  Você pode implementar sua própria solução para remover recursos não autorizados do Azure. Uma introdução à automação do Azure:https://docs.microsoft.com/azure/automation/automation-intro
+**Orientação**: a automação do Azure fornece controle completo durante a implantação, operações e encerramento de cargas de trabalho e recursos.  Você pode implementar sua própria solução para remover recursos não autorizados do Azure. Uma introdução à automação do Azure:  https://docs.microsoft.com/azure/automation/automation-intro
 
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
@@ -783,11 +783,11 @@ Como executar consultas personalizadas no Azure Monitor:https://docs.microsoft.c
 
 **Orientação**: Aproveite Azure Policy para restringir quais serviços você pode provisionar em seu ambiente.
 
-Auditar a conformidade de registros de contêiner do Azure usando o Azure Policy:https://docs.microsoft.com/azure/container-registry/container-registry-azure-policy
+Auditar a conformidade de registros de contêiner do Azure usando o Azure Policy:  https://docs.microsoft.com/azure/container-registry/container-registry-azure-policy
 
 Como configurar e gerenciar o Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-Como negar um tipo de recurso específico com Azure Policy:https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
+Como negar um tipo de recurso específico com Azure Policy:  https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
 
 
 
@@ -809,7 +809,7 @@ Como negar um tipo de recurso específico com Azure Policy:https://docs.microsof
 
 **Orientação**: usar configurações específicas do sistema operacional ou recursos de terceiros para limitar a capacidade dos usuários de executar scripts nos recursos de computação do Azure.
 
-Como configurar o acesso condicional para bloquear o acesso ao Gerenciador de recursos do Azure:https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
+Como configurar o acesso condicional para bloquear o acesso ao Gerenciador de recursos do Azure:  https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
 
 
 
@@ -821,7 +821,7 @@ Como configurar o acesso condicional para bloquear o acesso ao Gerenciador de re
 
 **Orientação**: Use configurações específicas do sistema operacional ou recursos de terceiros para limitar a capacidade dos usuários de executar scripts nos recursos de computação do Azure.
 
-Por exemplo, como controlar a execução de script do PowerShell em ambientes Windows:https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6
+Por exemplo, como controlar a execução de script do PowerShell em ambientes Windows:  https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6
 
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
@@ -832,9 +832,9 @@ Por exemplo, como controlar a execução de script do PowerShell em ambientes Wi
 
 **Orientação**: software necessário para operações de negócios, mas pode incorrer em um risco maior para a organização, deve ser isolado em sua própria máquina virtual e/ou rede virtual e é suficientemente protegido com um firewall do Azure ou grupo de segurança de rede.
 
-Como criar uma rede virtual:https://docs.microsoft.com/azure/virtual-network/quick-create-portal
+Como criar uma rede virtual:  https://docs.microsoft.com/azure/virtual-network/quick-create-portal
 
-Como criar um NSG com uma configuração de segurança:https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic
+Como criar um NSG com uma configuração de segurança:  https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic
 
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
@@ -849,9 +849,9 @@ Como criar um NSG com uma configuração de segurança:https://docs.microsoft.co
 
 **Diretrizes**: Use Azure Policy ou a central de segurança do Azure para manter as configurações de segurança para todos os recursos do Azure.
 
-Como configurar e gerenciar Azure Policy:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Como configurar e gerenciar Azure Policy:  https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-Auditar a conformidade de registros de contêiner do Azure usando o Azure Policy:https://docs.microsoft.com/azure/container-registry/container-registry-azure-policy
+Auditar a conformidade de registros de contêiner do Azure usando o Azure Policy:  https://docs.microsoft.com/azure/container-registry/container-registry-azure-policy
 
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
@@ -862,9 +862,9 @@ Auditar a conformidade de registros de contêiner do Azure usando o Azure Policy
 
 **Diretrizes**: utilize a recomendação da central de segurança do Azure "corrigir vulnerabilidades nas configurações de segurança em suas máquinas virtuais" para manter as configurações de segurança em todos os recursos de computação.
 
-Como monitorar as recomendações da central de segurança do Azure:https://docs.microsoft.com/azure/security-center/security-center-recommendations
+Como monitorar as recomendações da central de segurança do Azure:  https://docs.microsoft.com/azure/security-center/security-center-recommendations
 
-Como corrigir as recomendações da central de segurança do Azure:https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations
+Como corrigir as recomendações da central de segurança do Azure:  https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations
 
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
@@ -875,11 +875,11 @@ Como corrigir as recomendações da central de segurança do Azure:https://docs.
 
 **Diretriz**: use o Azure Policy [negar] e [implantar se não existir] para impor configurações seguras em seus recursos do Azure.
 
-Auditar a conformidade de registros de contêiner do Azure usando o Azure Policy:https://docs.microsoft.com/azure/container-registry/container-registry-azure-policy
+Auditar a conformidade de registros de contêiner do Azure usando o Azure Policy:  https://docs.microsoft.com/azure/container-registry/container-registry-azure-policy
 
 Como configurar e gerenciar o Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-Entender Azure Policy efeitos:https://docs.microsoft.com/azure/governance/policy/concepts/effects
+Entender Azure Policy efeitos:  https://docs.microsoft.com/azure/governance/policy/concepts/effects
 
 
 
@@ -899,9 +899,9 @@ Entender Azure Policy efeitos:https://docs.microsoft.com/azure/governance/policy
 
 **Orientação**: se estiver usando definições de Azure Policy personalizadas, use Azure Repos para armazenar e gerenciar seu código com segurança.
 
-Como armazenar código no Azure DevOps:https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
+Como armazenar código no Azure DevOps:  https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
 
-Documentação do Azure Repos:https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
+Documentação do Azure Repos:  https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
 
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
@@ -921,9 +921,9 @@ Documentação do Azure Repos:https://docs.microsoft.com/azure/devops/repos/inde
 
 **Diretrizes**: Use Azure Policy para alertar, auditar e impor configurações do sistema. Desenvolva também um processo e um pipeline para gerenciar exceções de política.
 
-Auditar a conformidade de registros de contêiner do Azure usando o Azure Policy:https://docs.microsoft.com/azure/container-registry/container-registry-azure-policy
+Auditar a conformidade de registros de contêiner do Azure usando o Azure Policy:  https://docs.microsoft.com/azure/container-registry/container-registry-azure-policy
 
-Como configurar e gerenciar Azure Policy:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Como configurar e gerenciar Azure Policy:  https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
@@ -945,9 +945,9 @@ Como configurar e gerenciar Azure Policy:https://docs.microsoft.com/azure/govern
 
 Use Azure Policy para colocar restrições no tipo de recursos que podem ser criados em suas assinaturas.
 
-Como corrigir recomendações na central de segurança do Azure:https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations
+Como corrigir recomendações na central de segurança do Azure:  https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations
 
-Auditar a conformidade de registros de contêiner do Azure usando o Azure Policy:https://docs.microsoft.com/azure/container-registry/container-registry-azure-policy
+Auditar a conformidade de registros de contêiner do Azure usando o Azure Policy:  https://docs.microsoft.com/azure/container-registry/container-registry-azure-policy
 
 
 
@@ -968,13 +968,15 @@ Auditar a conformidade de registros de contêiner do Azure usando o Azure Policy
 
 **Diretrizes**: Use identidade de serviço gerenciada em conjunto com Azure Key Vault para simplificar e proteger o gerenciamento de segredos para seus aplicativos de nuvem.
 
-Como integrar com identidades gerenciadas do Azure:https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
+Como integrar com identidades gerenciadas do Azure:  https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
 
-Como criar um Key Vault:https://docs.microsoft.com/azure/key-vault/quick-create-portal
+Como criar um cofre de chaves: https://docs.microsoft.com/azure/key-vault/general/quick-create-portal
 
-Como fornecer Key Vault autenticação com uma identidade gerenciada:https://docs.microsoft.com/azure/key-vault/managed-identity
+Como autenticar para o Key Vault: https://docs.microsoft.com/azure/key-vault/general/authentication
 
-Usar uma identidade gerenciada pelo Azure nas tarefas do registro de contêiner do Azure:https://docs.microsoft.com/azure/container-registry/container-registry-tasks-authentication-managed-identity
+Como atribuir uma política de acesso de Key Vault: https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal
+
+Usar uma identidade gerenciada pelo Azure nas tarefas do registro de contêiner do Azure:  https://docs.microsoft.com/azure/container-registry/container-registry-tasks-authentication-managed-identity
 
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
@@ -985,9 +987,9 @@ Usar uma identidade gerenciada pelo Azure nas tarefas do registro de contêiner 
 
 **Diretrizes**: Use identidades gerenciadas para fornecer aos serviços do Azure uma identidade gerenciada automaticamente no Azure AD. As identidades gerenciadas permitem que você se autentique em qualquer serviço que dê suporte à autenticação do Azure AD, incluindo o Key Vault, sem ter credenciais em seu código.
 
-Como configurar identidades gerenciadas:https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm
+Como configurar identidades gerenciadas:  https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm
 
-Use uma identidade gerenciada para autenticar em um registro de contêiner do Azure:https://docs.microsoft.com/azure/container-registry/container-registry-authentication-managed-identity
+Use uma identidade gerenciada para autenticar em um registro de contêiner do Azure:  https://docs.microsoft.com/azure/container-registry/container-registry-authentication-managed-identity
 
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
@@ -998,7 +1000,7 @@ Use uma identidade gerenciada para autenticar em um registro de contêiner do Az
 
 **Diretriz**: implemente o verificador de credenciais para identificar credenciais no código. O verificador de credenciais também encorajará a migração de credenciais descobertas para locais mais seguros, como o Azure Key Vault.
 
-Como configurar o verificador de credenciais:https://secdevtools.azurewebsites.net/helpcredscan.html
+Como configurar o verificador de credenciais:  https://secdevtools.azurewebsites.net/helpcredscan.html
 
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
@@ -1013,7 +1015,7 @@ Como configurar o verificador de credenciais:https://secdevtools.azurewebsites.n
 
 **Diretrizes**: Use o Microsoft antimalware para serviços de nuvem do Azure e máquinas virtuais para monitorar e defender continuamente seus recursos. Para o Linux, use a solução antimalware de terceiros.
 
-Como configurar o Microsoft antimalware para serviços de nuvem e máquinas virtuais:https://docs.microsoft.com/azure/security/fundamentals/antimalware
+Como configurar o Microsoft antimalware para serviços de nuvem e máquinas virtuais:  https://docs.microsoft.com/azure/security/fundamentals/antimalware
 
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
@@ -1050,7 +1052,7 @@ Pré-examinar todos os arquivos que estão sendo carregados em recursos que não
 
 Opcionalmente, replique geograficamente um registro de contêiner para manter as réplicas de registro em várias regiões do Azure. 
 
-Replicação geográfica no registro de contêiner do Azure:https://docs.microsoft.com/azure/container-registry/container-registry-geo-replication
+Replicação geográfica no registro de contêiner do Azure:  https://docs.microsoft.com/azure/container-registry/container-registry-geo-replication
 
 
 
@@ -1064,9 +1066,9 @@ Replicação geográfica no registro de contêiner do Azure:https://docs.microso
 
 Fazer backup de chaves gerenciadas pelo cliente no Azure Key Vault usando ferramentas de linha de comando do Azure ou SDKs.
 
-Importar imagens de contêiner para um registro de contêiner:https://docs.microsoft.com/azure/container-registry/container-registry-import-images
+Importar imagens de contêiner para um registro de contêiner:  https://docs.microsoft.com/azure/container-registry/container-registry-import-images
 
-Como fazer backup de chaves do Key Vault no Azure:https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0
+Como fazer backup de chaves do Key Vault no Azure:  https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0
 
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
@@ -1077,7 +1079,7 @@ Como fazer backup de chaves do Key Vault no Azure:https://docs.microsoft.com/pow
 
 **Diretrizes**: testar a restauração de chaves de backup gerenciadas pelo cliente no Azure Key Vault usando ferramentas de linha de comando do Azure ou SDKs.
 
-Como restaurar chaves de Azure Key Vault no Azure:https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0
+Como restaurar chaves de Azure Key Vault no Azure:  https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0
 
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
@@ -1086,9 +1088,9 @@ Como restaurar chaves de Azure Key Vault no Azure:https://docs.microsoft.com/pow
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9.4: garantir a proteção de backups e chaves gerenciadas pelo cliente
 
-**Orientação**: você pode habilitar a exclusão reversível em Azure Key Vault para proteger as chaves contra exclusão acidental ou mal-intencionada.
+**Orientação**: você pode habilitar Soft-Delete em Azure Key Vault para proteger as chaves contra exclusão acidental ou mal-intencionada.
 
-Como habilitar a exclusão reversível no Key Vault:https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal
+Como habilitar Soft-Delete no Key Vault: https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal
 
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
@@ -1103,13 +1105,13 @@ Como habilitar a exclusão reversível no Key Vault:https://docs.microsoft.com/a
 
 **Diretriz**: crie um guia de resposta a incidentes para sua organização. Verifique se há planos de resposta a incidentes escritos que definem todas as funções de pessoal, bem como as fases de tratamento/gerenciamento de incidentes, desde a detecção até a revisão após o incidente.
 
-Como configurar Automaçãos de fluxo de trabalho na central de segurança do Azure:https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide
+Como configurar Automaçãos de fluxo de trabalho na central de segurança do Azure:  https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide
 
-Orientação sobre como criar seu próprio processo de resposta a incidentes de segurança:https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/
+Orientação sobre como criar seu próprio processo de resposta a incidentes de segurança:  https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/
 
-Anatomia de um incidente do Microsoft Security Response Center:https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/
+Anatomia de um incidente do Microsoft Security Response Center:  https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/
 
-O cliente também pode aproveitar o guia de tratamento de incidentes de segurança do computador da NIST para ajudar na criação de seu próprio plano de resposta a incidentes:https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf
+O cliente também pode aproveitar o guia de tratamento de incidentes de segurança do computador da NIST para ajudar na criação de seu próprio plano de resposta a incidentes:  https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf
 
 
 
@@ -1132,7 +1134,7 @@ Além disso, marque claramente as assinaturas (por exemplo, produção, não pro
 
 **Orientação**: conduza exercícios para testar os recursos de resposta a incidentes de seus sistemas em uma cadência regular. Identifique pontos fracos e lacunas e revise o plano conforme necessário.
 
-Consulte a publicação do NIST: guia para testar, treinar e preparar programas para planos de ti e recursos:https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf
+Consulte a publicação do NIST: guia para testar, treinar e preparar programas para planos de ti e recursos:  https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf
 
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
@@ -1143,7 +1145,7 @@ Consulte a publicação do NIST: guia para testar, treinar e preparar programas 
 
 **Diretriz**: as informações de contato do incidente serão usadas pela Microsoft para contatá-lo se o MSRC (Microsoft Security Response Center) descobrir que os dados do cliente foram acessados por uma pessoa não autorizada ou ilegal.  Examine os incidentes após o fato para garantir que os problemas sejam resolvidos.
 
-Como definir o contato da segurança da central de segurança do Azure:https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details
+Como definir o contato da segurança da central de segurança do Azure:  https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details
 
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
@@ -1152,11 +1154,11 @@ Como definir o contato da segurança da central de segurança do Azure:https://d
 
 ### <a name="105-incorporate-security-alerts-into-your-incident-response-system"></a>10.5: incorporar alertas de segurança em seu sistema de resposta a incidentes
 
-**Diretriz**: exporte os alertas e recomendações da Central de Segurança do Azure usando o recurso de exportação contínua. A exportação contínua permite exportar alertas e recomendações de forma manual ou contínua. Você pode usar o conector de dados da Central de Segurança do Azure para transmitir os alertas do Sentinel.
+**Diretriz**: exporte os alertas e recomendações da Central de Segurança do Azure usando o recurso de exportação contínua. A exportação contínua permite exportar alertas e recomendações de forma manual ou contínua. Você pode usar o conector de dados da Central de Segurança do Azure para transmitir os alertas do Azure Sentinel.
 
-Como configurar a exportação contínua:https://docs.microsoft.com/azure/security-center/continuous-export
+Como configurar a exportação contínua:  https://docs.microsoft.com/azure/security-center/continuous-export
 
-Como transmitir alertas para o Azure Sentinel:https://docs.microsoft.com/azure/sentinel/connect-azure-security-center
+Como transmitir alertas para o Azure Sentinel:  https://docs.microsoft.com/azure/sentinel/connect-azure-security-center
 
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
@@ -1167,7 +1169,7 @@ Como transmitir alertas para o Azure Sentinel:https://docs.microsoft.com/azure/s
 
 **Diretriz**: use o recurso de automação de fluxo de trabalho na Central de Segurança do Azure para disparar automaticamente respostas por meio de “Aplicativos Lógicos” em alertas de segurança e recomendações.
 
-Como configurar a automação de fluxo de trabalho e os aplicativos lógicos:https://docs.microsoft.com/azure/security-center/workflow-automation
+Como configurar a automação de fluxo de trabalho e os aplicativos lógicos:  https://docs.microsoft.com/azure/security-center/workflow-automation
 
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
@@ -1180,9 +1182,9 @@ Como configurar a automação de fluxo de trabalho e os aplicativos lógicos:htt
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings-within-60-days"></a>11.1: realizar testes de penetração regulares de seus recursos do Azure e garanta a correção de todas as constatações de segurança críticas em 60 dias
 
-**Diretrizes**: siga as regras de envolvimento da Microsoft para garantir que seus testes de penetração não estejam em violação às políticas da Microsoft:https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1
+**Diretrizes**: siga as regras de envolvimento da Microsoft para garantir que seus testes de penetração não estejam em violação às políticas da Microsoft:  https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1
 
-Você pode encontrar mais informações sobre a estratégia da Microsoft e a execução de equipes vermelhas e testes de penetração de sites ativos em infraestrutura, serviços e aplicativos de nuvem gerenciados pela Microsoft, aqui:https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
+Você pode encontrar mais informações sobre a estratégia da Microsoft e a execução de equipes vermelhas e testes de penetração de sites ativos em infraestrutura, serviços e aplicativos de nuvem gerenciados pela Microsoft, aqui:  https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
 
 
 

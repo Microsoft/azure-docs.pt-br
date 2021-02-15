@@ -5,14 +5,14 @@ keywords: serviço de aplicativo, serviço de aplicativo do azure, authN, authZ,
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/29/2020
-ms.custom: devx-track-csharp, seodec18
+ms.custom: devx-track-csharp, seodec18, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: c1c3f52dafe63e3f829eb12d4fb872ed3ce85f36
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 8c3fca6cf7782c3aaac91388a8f8395e288f5ea5
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88211708"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558735"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>Tutorial: Autenticar e autorizar usuários de ponta a ponta no Serviço de Aplicativo do Azure
 
@@ -55,8 +55,9 @@ Você pode seguir as etapas deste tutorial no macOS, no Linux e no Windows.
 
 Para concluir este tutorial:
 
-* <a href="https://git-scm.com/" target="_blank">Instalar o Git</a>
-* <a href="https://dotnet.microsoft.com/download/dotnet-core/3.1" target="_blank">Instalar o SDK do .NET Core 3.1 mais recente</a>
+- <a href="https://git-scm.com/" target="_blank">Instalar o Git</a>
+- <a href="https://dotnet.microsoft.com/download/dotnet-core/3.1" target="_blank">Instale o SDK do .NET Core 3.1 mais recente</a>
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## <a name="create-local-net-core-app"></a>Criar um aplicativo .NET Core local
 
@@ -77,8 +78,6 @@ Navegue até `http://localhost:5000` e tente adicionar, editar e remover itens d
 ![API do ASP.NET Core em execução localmente](./media/tutorial-auth-aad/local-run.png)
 
 Para parar o ASP.NET Core a qualquer momento, pressione `Ctrl+C` no terminal.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="deploy-apps-to-azure"></a>Implantar aplicativos no Azure
 
@@ -145,7 +144,7 @@ http://<back-end-app-name>.azurewebsites.net
 http://<front-end-app-name>.azurewebsites.net
 ```
 
-![API do ASP.NET Core em execução no Serviço de Aplicativo do Azure](./media/tutorial-auth-aad/azure-run.png)
+:::image type="content" source="./media/tutorial-auth-aad/azure-run.png" alt-text="Captura de tela de um Exemplo de API REST do Serviço de Aplicativo do Azure em uma janela do navegador, que mostra um aplicativo de lista de Tarefas pendentes.":::
 
 > [!NOTE]
 > Se seu aplicativo foi reiniciado, talvez você tenha notado que os novos dados foram apagados. Esse comportamento é por design porque o aplicativo ASP.NET Core de exemplo usa um banco de dados na memória.
@@ -225,7 +224,7 @@ Navegue até `http://<front-end-app-name>.azurewebsites.net` e adicione alguns i
 
 Navegue até `http://<back-end-app-name>.azurewebsites.net` para ver os itens adicionados do aplicativo de front-end. Além disso, adicione alguns itens, como `from back end 1` e `from back end 2` e atualize o aplicativo de front-end para ver se ele reflete as alterações.
 
-![API do ASP.NET Core em execução no Serviço de Aplicativo do Azure](./media/tutorial-auth-aad/remote-api-call-run.png)
+:::image type="content" source="./media/tutorial-auth-aad/remote-api-call-run.png" alt-text="Captura de tela de um Exemplo de API REST do Serviço de Aplicativo do Azure em uma janela do navegador, que mostra um aplicativo de lista de Tarefas pendentes com itens adicionados no aplicativo de front-end.":::
 
 ## <a name="configure-auth"></a>Configurar autenticação
 
@@ -239,7 +238,7 @@ No menu do [portal do Azure](https://portal.azure.com), selecione **Grupos de re
 
 Clique em **grupos de recursos** e selecione o grupo de recursos. Em **Visão geral**, selecione a página de gerenciamento do aplicativo de back-end.
 
-![API do ASP.NET Core em execução no Serviço de Aplicativo do Azure](./media/tutorial-auth-aad/portal-navigate-back-end.png)
+:::image type="content" source="./media/tutorial-auth-aad/portal-navigate-back-end.png" alt-text="Captura de tela da janela Grupos de recursos que mostra a Visão geral de um grupo de recursos de exemplo e uma página de gerenciamento do aplicativo de back-end selecionada.":::
 
 No menu esquerdo do aplicativo de back-end, selecione **Autenticação/Autorização** e habilite a autenticação do Serviço de Aplicativo selecionando **Ativo**.
 
@@ -247,7 +246,7 @@ Em **Ação a tomar quando a solicitação não está autenticada**, selecione *
 
 Em **Provedores de Autenticação**, selecione **Azure Active Directory**.
 
-![API do ASP.NET Core em execução no Serviço de Aplicativo do Azure](./media/tutorial-auth-aad/configure-auth-back-end.png)
+:::image type="content" source="./media/tutorial-auth-aad/configure-auth-back-end.png" alt-text="Captura de tela do menu à esquerda no aplicativo de back-end que mostra a Autenticação/Autorização selecionada e as configurações selecionadas no menu à direita.":::
 
 Selecione **Expresso**, aceite as configurações padrão para criar um novo aplicativo AD e selecione **OK**.
 
@@ -259,7 +258,7 @@ Selecione **Azure Active Directory** novamente e selecione **Aplicativo Azure AD
 
 Copie a **ID do Cliente** do aplicativo do Azure AD para um bloco de notas. Você precisará desse valor mais tarde.
 
-![API do ASP.NET Core em execução no Serviço de Aplicativo do Azure](./media/tutorial-auth-aad/get-application-id-back-end.png)
+:::image type="content" source="./media/tutorial-auth-aad/get-application-id-back-end.png" alt-text="Captura de tela da janela Configurações do Azure Active Directory que mostra o Aplicativo Azure AD; e a janela Aplicativos Azure AD que mostra a ID do Cliente a ser copiada.":::
 
 Se parar por aqui, você terá um aplicativo autossuficiente que já está protegido pela autenticação e pela autorização do Serviço de Aplicativo. As seções restantes mostram como proteger uma solução de vários aplicativos "levando" o usuário autenticado do front-end para o back-end. 
 
@@ -284,13 +283,13 @@ No menu [portal do Azure](https://portal.azure.com), selecione **Azure Active Di
 
 Selecione **Registros de aplicativo** > **Aplicativos próprios** > **Exibir todos os aplicativos neste diretório**. Selecione o nome do aplicativo front-end e, em seguida, **permissões de API**.
 
-![API do ASP.NET Core em execução no Serviço de Aplicativo do Azure](./media/tutorial-auth-aad/add-api-access-front-end.png)
+:::image type="content" source="./media/tutorial-auth-aad/add-api-access-front-end.png" alt-text="Captura de tela da janela Microsoft – Registros de aplicativo com Aplicativos próprios, um nome do aplicativo de front-end e permissões de API selecionados.":::
 
 Selecione **Adicionar uma permissão** e, em seguida, selecione **APIs que a minha organização usa** >  **\<back-end-app-name>** .
 
 Na página **Solicitar permissões de API** para o aplicativo de back-end, selecione **Permissões delegadas** e **user_impersonation**, então selecione **Adicionar permissões**.
 
-![API do ASP.NET Core em execução no Serviço de Aplicativo do Azure](./media/tutorial-auth-aad/select-permission-front-end.png)
+:::image type="content" source="./media/tutorial-auth-aad/select-permission-front-end.png" alt-text="Captura de tela da página Solicitar permissões de API que mostra as permissões Delegadas, user_impersonation e o botão Adicionar permissão selecionado.":::
 
 ### <a name="configure-app-service-to-return-a-usable-access-token"></a>Configurar o Serviço de Aplicativo para retornar um token de acesso utilizável
 
@@ -300,7 +299,7 @@ Navegue até [Azure Resource Explorer](https://resources.azure.com) e usando, a 
 
 O [Azure Resource Explorer](https://resources.azure.com) agora está aberto com seu aplicativo de front-end selecionado na árvore de recursos. Na parte superior da página, clique em **Leitura/Gravação** para permitir a edição dos recursos do Azure.
 
-![API do ASP.NET Core em execução no Serviço de Aplicativo do Azure](./media/tutorial-auth-aad/resources-enable-write.png)
+:::image type="content" source="./media/tutorial-auth-aad/resources-enable-write.png" alt-text="Captura de tela dos botões Somente Leitura e Leitura/Gravação na parte superior da página do Azure Resource Explorer, com o botão Leitura/Gravação selecionado.":::
 
 No navegador esquerdo, faça uma busca detalhada até **config** > **authsettings**.
 
@@ -310,7 +309,7 @@ No modo de exibição **authsettings**, clique em **Editar**. Defina `additional
 "additionalLoginParams": ["response_type=code id_token","resource=<back-end-client-id>"],
 ```
 
-![API do ASP.NET Core em execução no Serviço de Aplicativo do Azure](./media/tutorial-auth-aad/additional-login-params-front-end.png)
+:::image type="content" source="./media/tutorial-auth-aad/additional-login-params-front-end.png" alt-text="Captura de tela de um exemplo de código no modo de exibição authsettings que mostra a cadeia de caracteres additionalLoginParams com um exemplo de uma ID de cliente.":::
 
 Salve suas configurações clicando em **PUT**.
 

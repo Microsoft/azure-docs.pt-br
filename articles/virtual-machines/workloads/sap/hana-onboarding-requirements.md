@@ -7,18 +7,19 @@ author: msjuergent
 manager: bburns
 editor: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 01/31/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 141a75a75a214ff4a6f136df7570d6e81f7f4e82
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f72342a318e3436fb80fb06b2312f664c9d04969
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77617014"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967611"
 ---
 # <a name="onboarding-requirements"></a>Requisitos de integração
 
@@ -61,7 +62,7 @@ Para a matriz de compatibilidade do sistema operacional e as versões de firmwar
 > Para unidades do tipo II, somente a versão SLES 12 SP2 do sistema operacional tem suporte atualmente. 
 
 
-**Backup de banco de dados**
+**Banco de dados**
 
 - As licenças e os componentes de instalação de software para SAP HANA (plataforma ou enterprise edition).
 

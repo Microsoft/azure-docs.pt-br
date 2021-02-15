@@ -3,17 +3,17 @@ title: Criar um cluster do Service Fabric no portal do Azure
 description: Saiba como configurar um cluster seguro do Service Fabric no Azure usando o portal do Azure e o Azure Key Vault.
 ms.topic: conceptual
 ms.date: 09/06/2018
-ms.openlocfilehash: b47f3b756ef4d012b41fd15686ffc08ab54fc187
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: c679a804db09b1034f31e9d8da1f7d2ad206f684
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259314"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "90563719"
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Criar um cluster do Service Fabric no usando o portal do Azure
 > [!div class="op_single_selector"]
 > * [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
-> * [Portal do Azure](service-fabric-cluster-creation-via-portal.md)
+> * [Azure portal](service-fabric-cluster-creation-via-portal.md)
 > 
 > 
 
@@ -128,42 +128,42 @@ Siga as telas para adicionar ou reutilizar um cofre de chaves existente e adicio
 
 Resista à tentação de sair da tela até o processo anterior ser concluído.
 
-![CreateKeyVault]
+![Captura de tela mostra a página de segurança com básico selecionado com o painel Key Vault e criar o painel Key Vault.][CreateKeyVault]
 
 Agora que o Cofre de chaves é criado, edite as políticas de acesso para o Cofre de chaves. 
 
-![CreateKeyVault2]
+![Captura de tela mostra o painel criar Service Fabric cluster com a opção 3 segurança selecionada e uma explicação de que o cofre de chaves não está habilitado.][CreateKeyVault2]
 
 Clique em **Editar políticas de acesso**, em seguida, **Mostrar políticas de acesso avançados** e habilitar o acesso às máquinas virtuais do Azure para implantação. Também é recomendável habilitar a implantação de modelo. Depois de fazer suas seleções, não se esqueça de clicar no botão **Salvar** e fechar o painel **Políticas de acesso**.
 
-![CreateKeyVault3]
+![Captura de tela mostra o painel criar Service Fabric cluster com o painel de segurança aberto e o painel políticas de acesso aberto.][CreateKeyVault3]
 
 Insira o nome do certificado e clique em **OK**.
 
-![CreateKeyVault4]
+![Captura de tela mostra o painel criar Service Fabric cluster com segurança selecionada como antes, mas sem a explicação de que o cofre de chaves não está habilitado.][CreateKeyVault4]
 
 #### <a name="custom-option"></a>Opção Personalizada
 Ignore esta seção, caso você já tenha realizado as etapas na opção **Básica**.
 
-![SecurityCustomOption]
+![Captura de tela mostra a caixa de diálogo Definir configurações de segurança do cluster.][SecurityCustomOption]
 
 Você precisa do cofre da chave de Origem, URL do Certificado e informações de impressão digital do Certificado para concluir a página de segurança. Se você não estiver à mão, abra outra janela do navegador e, no portal do Azure, faça o seguinte
 
 1. Navegue até seu serviço de Cofre de chaves.
 2. Selecione a guia "Propriedades" e copie a "ID RECURSO" para "Cofre da chave de origem" na outra janela do navegador 
 
-    ![CertInfo0]
+    ![Captura de tela mostra a janela Propriedades para o cofre de chaves.][CertInfo0]
 
 3. Agora selecione a guia “Certificados”.
 4. Clique na impressão digital do certificado, que leva você até a página Versões.
 5. Clique nas Guids na Versão atual.
 
-    ![CertInfo1]
+    ![Captura de tela mostra a janela do certificado para o cofre de chaves][CertInfo1]
 
 6. Agora você deve estar em uma tela como abaixo. Copie a impressão digital SHA-1 hexadecimal para "Impressão digital do certificado" na outra janela do navegador
 7. Copie o identificador' segredo' para a "URL do certificado" em outra janela do navegador.
 
-    ![CertInfo2]
+    ![Captura de tela mostra a caixa de diálogo versão do certificado com uma opção para copiar o identificador do certificado.][CertInfo2]
 
 Marque a caixa **Definir configurações avançadas** para inserir certificados de cliente para **cliente administrativo** e **cliente somente leitura**. Nesses campos, insira a impressão digital do seu certificado de cliente do administrador e a impressão digital do seu certificado de cliente do usuário somente leitura, se aplicável. Quando os administradores tentam se conectar ao cluster, eles só receberão acesso se tiverem um certificado com uma impressão digital que corresponda aos valores da impressão digital inseridos aqui.  
 
@@ -173,7 +173,7 @@ Agora você está pronto para implantar o cluster. Antes disso, baixe o certific
 
 Para concluir a criação do cluster, clique em **Criar**. Você também pode baixar o modelo.
 
-![Resumo]
+![Captura de tela mostra a página de resumo criar Service Fabric cluster com um link para exibir e baixar um certificado.][Summary]
 
 Você pode ver o progresso da criação nas notificações. (Clique no ícone "Bell" próximo à barra de status na parte superior direita da tela.) Se você clicou **em fixar no quadro inicial** ao criar o cluster, você vê **implantando Service Fabric cluster** fixado no quadro **inicial** . Esse processo levará algum tempo. 
 
@@ -230,7 +230,7 @@ Neste ponto, você tem um cluster seguro usando certificados para autenticação
 [CertInfo2]: ./media/service-fabric-cluster-creation-via-portal/CertInfo2.PNG
 [SecurityCustomOption]: ./media/service-fabric-cluster-creation-via-portal/SecurityCustomOption.PNG
 [DownloadCert]: ./media/service-fabric-cluster-creation-via-portal/DownloadCert.PNG
-[Resumo]: ./media/service-fabric-cluster-creation-via-portal/Summary.PNG
+[Summary]: ./media/service-fabric-cluster-creation-via-portal/Summary.PNG
 [SecurityConfigs]: ./media/service-fabric-cluster-creation-via-portal/SecurityConfigs.png
 [Notifications]: ./media/service-fabric-cluster-creation-via-portal/notifications.png
 [ClusterDashboard]: ./media/service-fabric-cluster-creation-via-portal/ClusterDashboard.png

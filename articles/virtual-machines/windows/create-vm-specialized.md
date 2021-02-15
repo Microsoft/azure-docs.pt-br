@@ -7,18 +7,16 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 10/10/2019
 ms.author: cynthn
-ms.openlocfilehash: bce702873fc4e66f283a9785bb408bbfa7fda83c
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 577b8527d95a6410deca8002cddfaae31be1fc97
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87266887"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98197482"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>Criar uma VM do Windows a partir de um disco especializado usando o PowerShell
 
 Crie uma nova VM anexando um disco gerenciado especializado como o disco do sistema operacional. Um disco especializado é uma cópia de um disco rígido virtual (VHD) de uma VM existente que contém as contas de usuário, aplicativos e outros dados de estado de sua VM original. 
-
-Quando você usar um VHD especializado para criar uma nova VM, a nova VM retém o nome do computador da VM original. Outras informações específicas de computador também são mantidas e, em alguns casos, essas informações duplicadas podem causar problemas. Ao copiar uma VM, esteja ciente de quais tipos de informações específicas do computador seus aplicativos dependem.
 
 Você tem várias opções:
 * [Use um disco gerenciado existente](#option-1-use-an-existing-disk). Essa opção é útil se você tiver uma VM que não esteja funcionando corretamente. Você pode excluir a VM e reutilizar o disco gerenciado para criar uma nova VM. 
@@ -27,7 +25,12 @@ Você tem várias opções:
 
 Você também pode usar o portal do Azure para [criar uma nova VM a partir de um VHD especializado](create-vm-specialized-portal.md).
 
-Este artigo mostra como usar discos gerenciados. Se você tiver uma implantação legada que exija o uso de uma conta de armazenamento, consulte [Criar uma VM a partir de um VHD especializado em uma conta de armazenamento](sa-create-vm-specialized.md).
+Este artigo mostra como usar discos gerenciados. Se você tiver uma implantação legada que exija o uso de uma conta de armazenamento, consulte [Criar uma VM a partir de um VHD especializado em uma conta de armazenamento](/previous-versions/azure/virtual-machines/windows/sa-create-vm-specialized).
+
+> [!IMPORTANT]
+> 
+> Quando você usa um disco especializado para criar uma nova VM, a nova VM retém o nome do computador da VM original. Outras informações específicas do computador (por exemplo, CMID) também são mantidas e, em alguns casos, essas informações duplicadas podem causar problemas. Ao copiar uma VM, esteja ciente de quais tipos de informações específicas do computador seus aplicativos dependem.  
+> Portanto, não use um disco especializado se desejar criar várias VMs. Em vez disso, para implantações maiores, [criar uma imagem](capture-image-resource.md) e, em seguida [usar essa imagem para criar várias VMs](create-vm-generalized-managed.md).
 
 É recomendável que você limite o número de implantações simultâneas para 20 VMs a partir de um único VHD ou instantâneo. 
 
@@ -51,7 +54,7 @@ Você pode carregar o VHD de uma VM especializada criado com uma ferramenta de v
 ### <a name="prepare-the-vm"></a>Preparar a VM
 Use o VHD como-é criar uma nova VM. 
   
-  * [Preparar um VHD do Windows para carregar no Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). **Não** generalize a VM usando o Sysprep.
+  * [Preparar um VHD do Windows para carregar no Azure](prepare-for-upload-vhd-image.md). **Não** generalize a VM usando o Sysprep.
   * Remova quaisquer ferramentas e agentes de virtualização de convidados instalados na VM (como ferramentas VMware).
   * Verifique se a VM está configurada para obter o endereço IP e as configurações de DNS do DHCP. Isso garante que o servidor obtenha um endereço IP dentro da rede virtual quando for inicializado. 
 
@@ -190,7 +193,7 @@ $nsg = New-AzNetworkSecurityGroup `
     
 ```
 
-Para obter mais informações sobre pontos de extremidade e regras do NSG, consulte [abrir portas para uma VM no Azure usando o PowerShell](nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Para obter mais informações sobre pontos de extremidade e regras do NSG, consulte [abrir portas para uma VM no Azure usando o PowerShell](nsg-quickstart-powershell.md).
 
 ### <a name="create-a-public-ip-address-and-nic"></a>Criar um endereço IP público e uma NIC
 Para permitir a comunicação com a máquina virtual na rede virtual, você precisará de um [endereço IP público](../../virtual-network/public-ip-addresses.md) e uma interface de rede.

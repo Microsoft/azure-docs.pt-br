@@ -4,16 +4,16 @@ description: Modelo de dados do Application Insights para telemetria de dependê
 ms.topic: conceptual
 ms.date: 04/17/2017
 ms.reviewer: sergkanz
-ms.openlocfilehash: ba0d848904d1ba885dc53e2941953d8dfb4864cf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0f9fc96479569c3411024068ed614d422035ab17
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77671912"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "87315964"
 ---
 # <a name="dependency-telemetry-application-insights-data-model"></a>Telemetria de dependências: modelo de dados do Application Insights
 
-A telemetria de dependência (em [Application Insights](../../azure-monitor/app/app-insights-overview.md)) representa uma interação do componente monitorado com um componente remoto como SQL ou um ponto de extremidade HTTP.
+A telemetria de dependência (em [Application Insights](./app-insights-overview.md)) representa uma interação do componente monitorado com um componente remoto como SQL ou um ponto de extremidade HTTP.
 
 ## <a name="name"></a>Nome
 
@@ -21,19 +21,19 @@ Nome do comando iniciado com esta chamada de dependência. Valor de baixa cardin
 
 ## <a name="id"></a>ID
 
-Identificador de uma instância de chamada de dependência. Usado para correlação com o item de telemetria de solicitação correspondente a essa chamada de dependência. Para obter mais informações, consulte a página de [correlação](../../azure-monitor/app/correlation.md).
+Identificador de uma instância de chamada de dependência. Usado para correlação com o item de telemetria de solicitação correspondente a essa chamada de dependência. Para obter mais informações, consulte a página de [correlação](./correlation.md).
 
 ## <a name="data"></a>Dados
 
 Comando iniciado por essa chamada de dependência. Exemplos são a instrução SQL e a URL HTTP com todos os parâmetros de consulta.
 
-## <a name="type"></a>Tipo
+## <a name="type"></a>Type
 
 Nome do tipo de dependência. Valor de baixa cardinalidade para agrupamento lógico de dependências e a interpretação de outros campos como commandName e resultCode. Exemplos são HTTP, tabela do Azure e SQL.
 
 ## <a name="target"></a>Destino
 
-Site de destino de uma chamada de dependência. Os exemplos são o nome do servidor e o endereço do host. Para obter mais informações, consulte a página de [correlação](../../azure-monitor/app/correlation.md).
+Site de destino de uma chamada de dependência. Os exemplos são o nome do servidor e o endereço do host. Para obter mais informações, consulte a página de [correlação](./correlation.md).
 
 ## <a name="duration"></a>Duration
 
@@ -58,8 +58,9 @@ Indicação de chamada bem-sucedida ou malsucedida.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Configurar o acompanhamento de dependência para [.NET](../../azure-monitor/app/asp-net-dependencies.md).
-- Configurar o acompanhamento de dependência para [Java](../../azure-monitor/app/java-agent.md).
-- [Escrever telemetria de dependência personalizada](../../azure-monitor/app/api-custom-events-metrics.md#trackdependency)
+- Configurar o acompanhamento de dependência para [.NET](./asp-net-dependencies.md).
+- Configurar o acompanhamento de dependência para [Java](./java-agent.md).
+- [Escrever telemetria de dependência personalizada](./api-custom-events-metrics.md#trackdependency)
 - Consulte [modelo de dados](data-model.md) para modelo de dados e tipos do Application Insights.
-- Confira as [plataformas](../../azure-monitor/app/platforms.md) com suporte do Application Insights.
+- Confira as [plataformas](./platforms.md) com suporte do Application Insights.
+

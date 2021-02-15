@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: how-to
 ms.date: 07/30/2020
-ms.openlocfilehash: 540cdc2948cbcd97bf7c8872f3aace2862280434
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: 3bfa911921e9bacde2649ee8c4f0d4bc31b56f54
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87513482"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92910535"
 ---
 # <a name="how-to-add-datasets-to-an-existing-share-in-azure-data-share"></a>Como adicionar conjuntos de dados a um compartilhamento existente no Azure data share
 
@@ -21,15 +21,15 @@ Para obter informações sobre como adicionar conjuntos de dados à medida que v
 
 ## <a name="navigate-to-a-sent-data-share"></a>Navegar até um compartilhamento de dados enviado
 
-No compartilhamento de dados do Azure, navegue até o compartilhamento enviado e selecione a guia **conjuntos** de dados. Clique no botão **+ Adicionar conjuntos** de dados para adicionar mais conjuntos de dados.
+No compartilhamento de dados do Azure, navegue até o compartilhamento enviado e selecione a guia **conjuntos** de dados. Clique no botão **+ Adicionar conjuntos** de itens para adicionar mais conjuntos de informações.
 
-![Adicionar conjuntos de dados](./media/how-to/how-to-add-datasets/add-datasets.png)
+![Captura de tela mostra Adicionar conjuntos de valores selecionados.](./media/how-to/how-to-add-datasets/add-datasets.png)
 
-No painel à direita, selecione o tipo de conjunto de texto que você deseja adicionar e clique em **Avançar**. Selecione a assinatura e o grupo de recursos dos dados que você deseja adicionar. Usando as setas suspensas, localize e marque a caixa ao lado dos dados a serem adicionados.
+No painel à direita, selecione o tipo de conjunto de texto que você deseja adicionar e clique em **Avançar** . Selecione a assinatura e o grupo de recursos dos dados que você deseja adicionar. Usando as setas suspensas, localize e marque a caixa ao lado dos dados a serem adicionados.
 
-![Adicionar conjuntos de dados](./media/how-to/how-to-add-datasets/add-datasets-side.png)
+![Captura de tela mostra o painel Adicionar armazenamento de BLOBs onde você pode selecionar dados.](./media/how-to/how-to-add-datasets/add-datasets-side.png)
 
-Depois de clicar em **Adicionar conjuntos**de os, os conjuntos de valores serão adicionados ao seu compartilhamento. Observação: um instantâneo deve ser disparado por seus consumidores para que eles vejam os novos conjuntos de clientes. Se houver configurações de instantâneo configuradas, os consumidores verão os novos conjuntos de clientes assim que o próximo instantâneo agendado for concluído. Sem configurações de instantâneo configuradas, o consumidor deve disparar manualmente uma cópia completa ou incremental dos dados para receber as atualizações. Para obter mais informações sobre instantâneos, consulte [instantâneos](terminology.md).
+Depois de clicar em **Adicionar conjuntos** de os, os conjuntos de valores serão adicionados ao seu compartilhamento. Observação: um instantâneo deve ser disparado por seus consumidores para que eles vejam os novos conjuntos de clientes. Se houver configurações de instantâneo configuradas, os consumidores verão os novos conjuntos de clientes assim que o próximo instantâneo agendado for concluído. Sem configurações de instantâneo configuradas, o consumidor deve disparar manualmente uma cópia completa ou incremental dos dados para receber as atualizações. Para obter mais informações sobre instantâneos, consulte [instantâneos](terminology.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre como [Adicionar destinatários a um compartilhamento de dados existente](how-to-add-recipients.md).

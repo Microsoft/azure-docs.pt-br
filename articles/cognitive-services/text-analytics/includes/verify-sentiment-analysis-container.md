@@ -6,15 +6,16 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
+ms.subservice: text-analytics
 ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: c9b5411c044bb45d284cac0d30705c2b3d40ccd0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d0a5e09f1d697c2f5f842edfb06be4b13229d095
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80876381"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009835"
 ---
 ### <a name="verify-the-sentiment-analysis-container-instance"></a>Verificar a instância de contêiner de Análise de Sentimento
 

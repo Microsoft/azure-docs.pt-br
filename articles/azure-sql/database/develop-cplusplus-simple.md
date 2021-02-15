@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: development
 ms.custom: sqldbrb=1
 ms.devlang: cpp
-ms.topic: conceptual
+ms.topic: how-to
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/12/2018
-ms.openlocfilehash: 610e21064c26734461ba8fd6639868dc930f926c
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: e891c5797c9ce93e6cab7a07d2f68de1a9157249
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85963930"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674759"
 ---
 # <a name="connect-to-sql-database-using-c-and-c"></a>Conectar-se ao Banco de Dados SQL usando C e C++
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -29,7 +29,7 @@ Verifique se você tem o seguinte:
 
 * Uma conta ativa do Azure. Se não tiver uma, você poderá se inscrever em uma [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 * [Do Visual Studio](https://www.visualstudio.com/downloads/). Você deve instalar os componentes de linguagem C++ para compilar e executar esse exemplo.
-* [Desenvolvimento no Linux para Visual Studio](https://docs.microsoft.com/cpp/linux/?view=vs-2019). Se você estiver desenvolvendo no Linux, também deverá instalar a extensão do Linux do Visual Studio.
+* [Desenvolvimento no Linux para Visual Studio](/cpp/linux/?view=vs-2019). Se você estiver desenvolvendo no Linux, também deverá instalar a extensão do Linux do Visual Studio.
 
 ## <a name="azure-sql-database-and-sql-server-on-virtual-machines"></a><a id="AzureSQL"></a>Banco de dados SQL do Azure e SQL Server em máquinas virtuais
 
@@ -39,7 +39,7 @@ Atualmente, o Azure tem duas opções para hospedar cargas de trabalho do SQL Se
 
 ## <a name="data-access-technologies-odbc-and-ole-db"></a><a id="ODBC"></a>Tecnologias de acesso a dados: ODBC e OLE DB
 
-Conectar-se ao banco de dados SQL do Azure não é diferente e atualmente há duas maneiras de se conectar a bancos de dados: ODBC (conectividade de banco de dados aberta) e OLE DB (vinculação de objeto e banco de dados de incorporação). Nos últimos anos, a Microsoft tem se alinhado com o [ODBC para acesso a dados relacionais nativos](https://blogs.msdn.microsoft.com/sqlnativeclient/20../../microsoft-is-aligning-with-odbc-for-native-relational-data-access/). O ODBC é relativamente simples e também muito mais rápido que o OLE DB. A única limitação é que o ODBC usa uma API de estilo C antiga.
+Conectar-se ao banco de dados SQL do Azure não é diferente e atualmente há duas maneiras de se conectar a bancos de dados: ODBC (conectividade de banco de dados aberta) e OLE DB (vinculação de objeto e banco de dados de incorporação). Nos últimos anos, a Microsoft tem se alinhado com o [ODBC para acesso a dados relacionais nativos](/archive/blogs/sqlnativeclient/microsoft-is-aligning-with-odbc-for-native-relational-data-access). O ODBC é relativamente simples e também muito mais rápido que o OLE DB. A única limitação é que o ODBC usa uma API de estilo C antiga.
 
 ## <a name="step-1--creating-your-azure-sql-database"></a><a id="Create"></a>Etapa 1: Criando seu Banco de Dados SQL do Azure
 
@@ -55,7 +55,7 @@ Em [portal do Azure](https://portal.azure.com/), vá para a cadeia de conexão O
 
 ![ODBCConnectionStringProps](./media/develop-cplusplus-simple/dbconnection.png)
 
-Copie o conteúdo da cadeia de caracteres **ODBC (inclui Node.js) [autenticação do SQL]**. Usaremos essa cadeia de caracteres posteriormente para conectar do nosso interpretador de linha de comando ODBC C++. Essa cadeia de caracteres fornece detalhes como o driver, servidor e outros parâmetros de conexão de banco de dados.
+Copie o conteúdo da cadeia de caracteres **ODBC (inclui Node.js) [autenticação do SQL]** . Usaremos essa cadeia de caracteres posteriormente para conectar do nosso interpretador de linha de comando ODBC C++. Essa cadeia de caracteres fornece detalhes como o driver, servidor e outros parâmetros de conexão de banco de dados.
 
 ## <a name="step-3--add-your-ip-to-the-firewall"></a><a id="Firewall"></a>Etapa 3: Adicionar o IP do firewall
 
@@ -123,7 +123,7 @@ A última coisa a fazer antes de compilar é adicionar **odbc** como uma depend�
 
 ![Adicionando o ODBC como uma biblioteca de entrada](./media/develop-cplusplus-simple/lib.png)
 
-Para iniciar o aplicativo, abra o Console do Linux no menu **Depurar**:
+Para iniciar o aplicativo, abra o Console do Linux no menu **Depurar** :
 
 ![Console do Linux](./media/develop-cplusplus-simple/linuxconsole.png)
 
@@ -143,7 +143,7 @@ Você pode encontrar a solução de Introdução que contém todos os exemplos n
 ## <a name="next-steps"></a>Próximas etapas
 
 * Examine a [visão geral do desenvolvimento do banco de dados SQL](develop-overview.md)
-* Mais informações na [Referência da API ODBC](https://docs.microsoft.com/sql/odbc/reference/syntax/odbc-api-reference/)
+* Mais informações na [Referência da API ODBC](/sql/odbc/reference/syntax/odbc-api-reference/)
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 7ec61bf4db949649c993fad4a3255b55626cb259
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: b352bd92ecc69ca68a6870d3a59ef5e0cdd1daba
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056220"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920860"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-linux-devices"></a>Tutorial: Desenvolver módulos do IoT Edge para dispositivos Linux
 
@@ -32,6 +32,26 @@ Neste tutorial, você aprenderá como:
 > * Usar as ferramentas do IoT Edge para o Visual Studio Code para criar um projeto.
 > * Criar seu projeto como um contêiner e armazená-lo em um Registro de Contêiner do Azure.
 > * Implantar seu código em um dispositivo IoT Edge.
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+Um computador de desenvolvimento:
+
+* É possível usar seu próprio computador ou uma máquina virtual, dependendo de suas preferências de desenvolvimento.
+  * Verifique se o computador de desenvolvimento dá suporte à virtualização aninhada. Essa funcionalidade é necessária para executar um mecanismo de contêiner, que será instalado na próxima seção.
+* A maioria dos sistemas operacionais que pode executar um mecanismo de contêiner pode ser usada para desenvolver módulos do IoT Edge para dispositivos Linux. Este tutorial usa um computador Windows, mas indica diferenças conhecidas no macOS ou no Linux.
+* Instale o [Git](https://git-scm.com/) para extrair pacotes de modelo de módulo posteriormente neste tutorial.  
+* [C# para extensão do Visual Studio Code (com OmniSharp)](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).
+* [SDK do .NET Core 2.1](https://www.microsoft.com/net/download).
+
+Um dispositivo do Azure IoT Edge no Linux:
+
+* Recomendamos que você não execute o IoT Edge no computador de desenvolvimento, mas use, em vez disso, um dispositivo separado. Essa distinção entre computador de desenvolvimento e dispositivo IoT Edge mais precisamente reflete um cenário de implantação verdadeiro e ajuda a manter os diversos conceitos claros.
+* Se não tiver um segundo dispositivo disponível, use o artigo de início rápido para criar um dispositivo IoT Edge no Azure com uma [máquina virtual Linux](quickstart-linux.md).
+
+Recursos de nuvem:
+
+* Um [hub IoT](../iot-hub/iot-hub-create-through-portal.md) gratuito ou de camada padrão no Azure.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -56,27 +76,6 @@ A tabela a seguir lista os cenários de desenvolvimento compatíveis para **cont
 >O suporte para dispositivos Linux ARM64 está disponível na [versão prévia pública](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Para obter mais informações, confira [Desenvolver e depurar módulos do IoT Edge ARM64 no Visual Studio Code (versão prévia)](https://devblogs.microsoft.com/iotdev/develop-and-debug-arm64-iot-edge-modules-in-visual-studio-code-preview).
 
 Este tutorial ensina as etapas de desenvolvimento para o Visual Studio Code. Se preferir usar o Visual Studio, veja as instruções em [Usar o Visual Studio 2019 para desenvolver e depurar módulos para o Azure IoT Edge](how-to-visual-studio-develop-module.md).
-
-## <a name="prerequisites"></a>Pré-requisitos
-
-Um computador de desenvolvimento:
-
-* É possível usar seu próprio computador ou uma máquina virtual, dependendo de suas preferências de desenvolvimento.
-  * Verifique se o computador de desenvolvimento dá suporte à virtualização aninhada. Essa funcionalidade é necessária para executar um mecanismo de contêiner, que será instalado na próxima seção.
-* A maioria dos sistemas operacionais que pode executar um mecanismo de contêiner pode ser usada para desenvolver módulos do IoT Edge para dispositivos Linux. Este tutorial usa um computador Windows, mas indica diferenças conhecidas no macOS ou no Linux.
-* Instale o [Git](https://git-scm.com/) para extrair pacotes de modelo de módulo posteriormente neste tutorial.  
-* [C# para extensão do Visual Studio Code (com OmniSharp)](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).
-* [SDK do .NET Core 2.1](https://www.microsoft.com/net/download).
-
-Um dispositivo do Azure IoT Edge no Linux:
-
-* Recomendamos que você não execute o IoT Edge no computador de desenvolvimento, mas use, em vez disso, um dispositivo separado. Essa distinção entre computador de desenvolvimento e dispositivo IoT Edge mais precisamente reflete um cenário de implantação verdadeiro e ajuda a manter os diversos conceitos claros.
-* Se não tiver um segundo dispositivo disponível, use o artigo de início rápido para criar um dispositivo IoT Edge no Azure com uma [máquina virtual Linux](quickstart-linux.md).
-
-Recursos de nuvem:
-
-* Um [hub IoT](../iot-hub/iot-hub-create-through-portal.md) gratuito ou de camada padrão no Azure.
-
 ## <a name="install-container-engine"></a>Instalar o mecanismo de contêiner
 
 Os módulos do IoT Edge são empacotados como contêineres, portanto, você precisa de um mecanismo de contêiner no computador de desenvolvimento para criar e gerenciá-los. Recomendamos o Docker Desktop para desenvolvimento devido à sua popularidade e ao seu suporte a recursos. O Docker Desktop no Windows permite alternar entre contêineres do Linux e do Windows para poder desenvolver módulos facilmente para tipos diferentes de dispositivos IoT Edge.
@@ -177,19 +176,19 @@ O modelo de solução criado inclui um exemplo de código para um módulo do IoT
 
 Cada módulo pode ter várias filas de *entrada* e de *saída* declaradas em seu código. O hub do IoT Edge em execução no dispositivo roteia mensagens da saída de um módulo para a entrada de um ou mais módulos. O código específico para declarar entradas e saídas varia entre as linguagens, mas o conceito é o mesmo em todos os módulos. Para saber mais sobre o roteamento entre módulos, confira [Declarar rotas](module-composition.md#declare-routes).
 
-O código de exemplo C# que vem com o modelo de projeto usa a [classe ModuleClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet) do SDK do Hub IoT para .NET.
+O código de exemplo C# que vem com o modelo de projeto usa a [classe ModuleClient](/dotnet/api/microsoft.azure.devices.client.moduleclient) do SDK do Hub IoT para .NET.
 
 1. Abra o arquivo **Program.cs**, na pasta **modules/SampleModule/** .
 
 2. Em program.cs, localize o método **SetInputMessageHandlerAsync**.
 
-3. O método [SetInputMessageHandlerAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient.setinputmessagehandlerasync?view=azure-dotnet) configura uma fila de entrada para receber mensagens de entrada. Examine essa função e veja como inicializa uma fila de entrada chamada **input1**.
+3. O método [SetInputMessageHandlerAsync](/dotnet/api/microsoft.azure.devices.client.moduleclient.setinputmessagehandlerasync) configura uma fila de entrada para receber mensagens de entrada. Examine essa função e veja como inicializa uma fila de entrada chamada **input1**.
 
    ![Localizar o nome da entrada no construtor SetInputMessageCallback](./media/tutorial-develop-for-linux/declare-input-queue.png)
 
 4. Em seguida, localize o método **SendEventAsync**.
 
-5. O método [SendEventAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient.sendeventasync?view=azure-dotnet) processa as mensagens recebidas e configura uma fila de saída para passá-las a diante. Examine esse método e veja que inicia uma fila de saída chamada **output1**.
+5. O método [SendEventAsync](/dotnet/api/microsoft.azure.devices.client.moduleclient.sendeventasync) processa as mensagens recebidas e configura uma fila de saída para passá-las a diante. Examine esse método e veja que inicia uma fila de saída chamada **output1**.
 
    ![Localizar o nome da saída em SendEventToOutputAsync](./media/tutorial-develop-for-linux/declare-output-queue.png)
 
@@ -201,7 +200,7 @@ O código de exemplo C# que vem com o modelo de projeto usa a [classe ModuleClie
 
 8. Na parte inferior do arquivo, localize as propriedades desejadas para o módulo **$edgeHub**.
 
-   Uma das funções do módulo do hub do IoT Edge é rotear mensagens entre todos os módulos em uma implantação. Examine os valores na propriedade **rotas**. Uma rota, **SampleModuleToIoTHub**, usa um caractere curinga ( **\*** ) para indicar as mensagens provenientes das filas de saída no módulo SampleModule. Essas mensagens entram em *$upstream*, que é um nome reservado que indica o Hub IoT. A outra rota, **sensorToSampleModule**, usa mensagens provenientes do módulo SimulatedTemperatureSensor e as roteia para a fila de entrada *input1* que você viu inicializada no código SampleModule.
+   Uma das funções do módulo do hub do IoT Edge é rotear mensagens entre todos os módulos em uma implantação. Examine os valores na propriedade **rotas**. Uma rota, **SampleModuleToIoTHub**, usa um caractere curinga (* *\** _) para indicar as mensagens provenientes das filas de saída no módulo SampleModule. Essas mensagens entram em _$upstream*, um nome reservado que indica o hub IoT. A outra rota, **sensorToSampleModule**, usa mensagens provenientes do módulo SimulatedTemperatureSensor e as roteia para a fila de entrada *input1* que você viu inicializada no código SampleModule.
 
    ![Examinar rotas em deployment.template.json](./media/tutorial-develop-for-linux/deployment-routes.png)
 

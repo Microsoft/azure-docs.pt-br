@@ -1,23 +1,18 @@
 ---
 title: Copiar dados do Dynamics AX
 description: Saiba como copiar dados do Dynamics AX para armazenamentos de dados de coletor com suporte usando uma atividade de cópia em um pipeline do Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/12/2020
-ms.openlocfilehash: 23a486dfe1256cea46f6722873950ffcb1bde084
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 38ff77ad56f16fbd33b77021b18be77f6a153b3f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84982689"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100380977"
 ---
 # <a name="copy-data-from-dynamics-ax-by-using-azure-data-factory"></a>Copiar dados do Dynamics AX usando o Azure Data Factory
 
@@ -37,7 +32,7 @@ Você pode copiar dados do Dynamics AX para qualquer armazenamento de dados de c
 Especificamente, este conector do Dynamics AX é compatível com à cópia de dados do Dynamics AX usando o **protocolo OData** com **Autenticação de Entidade de serviço**.
 
 >[!TIP]
->Você também pode usar esse conector para copiar dados do **Dynamics 365 Finance and Operations**. Consulte o [suporte OData](https://docs.microsoft.com/dynamics365/unified-operations/dev-itpro/data-entities/odata) e o [método de autenticação](https://docs.microsoft.com/dynamics365/unified-operations/dev-itpro/data-entities/services-home-page#authentication) do Dynamic 365.
+>Você também pode usar esse conector para copiar dados do **Dynamics 365 Finance and Operations**. Consulte o [suporte OData](/dynamics365/unified-operations/dev-itpro/data-entities/odata) e o [método de autenticação](/dynamics365/unified-operations/dev-itpro/data-entities/services-home-page#authentication) do Dynamic 365.
 
 ## <a name="get-started"></a>Introdução
 

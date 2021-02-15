@@ -10,23 +10,28 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: aahi
-ms.openlocfilehash: f00ffee47e3eb6366d632d8b6ee9beb01f048442
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 07b0dd68e39f555171e5606b71cd1eec92a4035c
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76983105"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353333"
 ---
 # <a name="call-your-bing-custom-search-instance-from-the-portal"></a>Chame sua instância de Pesquisa Personalizada do Bing no Portal
+
+> [!WARNING]
+> As APIs de Pesquisa do Bing estão migrando dos Serviços Cognitivos para os Serviços de Pesquisa do Bing. A partir de **30 de outubro de 2020**, todas as novas instâncias da Pesquisa do Bing precisam ser provisionadas seguindo o processo documentado [aqui](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> As APIs de Pesquisa do Bing provisionadas por meio dos Serviços Cognitivos terão suporte nos próximos três anos ou até o final do seu Contrato Enterprise, o que ocorrer primeiro.
+> Para obter instruções sobre a migração, confira [Serviços de Pesquisa do Bing](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Depois de configurar sua experiência de pesquisa personalizada, você pode testar a partir do [portal](https://customsearch.ai) de Pesquisa Personalizada do Bing. 
 
 ![uma captura de tela do portal de pesquisa personalizada do Bing](media/portal-search-screen.png)
 ## <a name="create-a-search-query"></a>Criar uma consulta de pesquisa 
 
-Depois de entrar no [portal](https://customsearch.ai)de pesquisa personalizada do Bing, selecione sua instância de pesquisa e clique na guia **produção** . Em **ponto**de extremidade, selecione um ponto de extremidade de API (por exemplo, API Web). Sua assinatura determina quais pontos de extremidade são mostrados.
+Depois de entrar no [portal](https://customsearch.ai)de pesquisa personalizada do Bing, selecione sua instância de pesquisa e clique na guia **produção** . Em **ponto** de extremidade, selecione um ponto de extremidade de API (por exemplo, API Web). Sua assinatura determina quais pontos de extremidade são mostrados.
 
-Para criar uma consulta de pesquisa, insira os valores de parâmetro para seu ponto de extremidade. Observe que os parâmetros exibidos no portal podem mudar dependendo do ponto de extremidade queescolher. Consulte a [referência de API de pesquisa personalizada](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters) para obter mais informações. Para alterar a assinatura que sua instância de pesquisa usa, adicione a chave de assinatura apropriada e atualize os parâmetros de mercado e/ou de idioma apropriados.
+Para criar uma consulta de pesquisa, insira os valores de parâmetro para seu ponto de extremidade. Observe que os parâmetros exibidos no portal podem mudar dependendo do ponto de extremidade queescolher. Consulte a [referência de API de pesquisa personalizada](/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters) para obter mais informações. Para alterar a assinatura que sua instância de pesquisa usa, adicione a chave de assinatura apropriada e atualize os parâmetros de mercado e/ou de idioma apropriados.
 
 Alguns parâmetros importantes estão abaixo:
 
@@ -42,7 +47,7 @@ Clicar em **Parâmetros adicionais** revela os seguintes parâmetros:
 
 |Parâmetro  |Descrição  |
 |---------|---------|
-|Salvar pesquisa     | Um filtro usado para filtrar as páginas da Web para conteúdo adulto. Disponível somente para Web, Imagem, Vídeo e ponto de extremidade da Interface do Usuário Hospedada. Observe que o Pesquisa de Vídeo personalizado do Bing dá suporte apenas `moderate` a `strict`dois valores: e.        |
+|Salvar pesquisa     | Um filtro usado para filtrar as páginas da Web para conteúdo adulto. Disponível somente para Web, Imagem, Vídeo e ponto de extremidade da Interface do Usuário Hospedada. Observe que o Pesquisa de Vídeo personalizado do Bing dá suporte apenas a dois valores: `moderate` e `strict` .        |
 |Linguagens de Interface do Usuário    | A linguagem a ser usada para cadeias de caracteres de interface do usuário. Por exemplo, se você habilitar imagens e vídeos na interface do usuário hospedada, as guias **Imagem** e **Vídeo** usarão o idioma especificado.        |
 |Contagem     | O número de resultados da pesquisa a ser retornado na resposta. Disponível somente para pontos de extremidade da Web, de Imagem e de Vídeo.         |
 |Deslocamento    | O número de resultados da pesquisa a ignorar antes de retornar resultados. Disponível somente para pontos de extremidade da Web, de Imagem e de Vídeo.        |
@@ -60,4 +65,4 @@ Você pode alterar a assinatura associada à sua instância de Pesquisa Personal
 - [Chamar o modo de exibição personalizado com NodeJs](./call-endpoint-nodejs.md)
 - [Chamar o modo de exibição personalizado com Python](./call-endpoint-python.md)
 
-- [Chamar a exibição personalizada com o SDK do C#](./sdk-csharp-quick-start.md)
+- [Chamar a exibição personalizada com o SDK do C#](./quickstarts/client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp)

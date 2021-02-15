@@ -7,27 +7,27 @@ ms.author: baanders
 ms.date: 4/24/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 3cf14ce3e8ef9b1d783191fe6c01c5e311d57786
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.custom: devx-track-js
+ms.openlocfilehash: e0c0d18dbb3596733d02430554fd40ec16180c64
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855944"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980653"
 ---
 # <a name="create-custom-sdks-for-azure-digital-twins-using-autorest"></a>Criar SDKs personalizados para o gêmeos digital do Azure usando o REST
 
-No momento, o único SDK do plano de dados publicado para interagir com as APIs do gêmeos digital do Azure é para .NET (C#). Você pode ler sobre o SDK do .NET e as APIs em geral, em [*How-to: Use the Azure digital gêmeos APIs and SDKs*](how-to-use-apis-sdks.md). Se você estiver trabalhando em outra linguagem, este artigo mostrará como gerar seu próprio SDK do plano de dados no idioma de sua escolha, usando o REST.
+No momento, os únicos SDKs de plano de dados publicados para interagir com as APIs do Azure digital gêmeos são para .NET (C#), JavaScript e Java. Você pode ler sobre esses SDKs e as APIs em geral, em [*How-to: Use the Azure digital gêmeos APIs and SDKs*](how-to-use-apis-sdks.md). Se você estiver trabalhando em outra linguagem, este artigo mostrará como gerar seu próprio SDK do plano de dados no idioma de sua escolha, usando o REST.
 
 >[!NOTE]
-> Você também pode usar o autorest para gerar um SDK do plano de controle, se desejar. Para fazer isso, conclua as etapas neste artigo usando o [arquivo Swagger (openapi) do plano de controle](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/preview/2020-03-01-preview) em vez do plano de dados um.
+> Você também pode usar o autorest para gerar um SDK do plano de controle, se desejar. Para fazer isso, conclua as etapas neste artigo usando o arquivo **Swagger** (openapi) mais recente do plano de controle da [pasta Swagger do plano de controle](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/) em vez do plano de dados um.
 
 ## <a name="set-up-your-machine"></a>Configurar seu computador
 
 Para gerar um SDK, será necessário:
 * O [REST](https://github.com/Azure/autorest), versão 2.0.4413 (versão 3 não tem suporte no momento)
 * [Node.js](https://nodejs.org) como um pré-requisito para o REST
-* O [arquivo Swagger (openapi)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/data-plane/Microsoft.DigitalTwins/preview/2020-05-31-preview) do Azure digital gêmeos data Plane é intitulado *digitaltwins.jsem*e sua pasta de exemplos que o acompanha. Baixe o arquivo do Swagger e sua pasta de exemplos em seu computador local.
+* O arquivo Swagger (openapi) do Azure digital gêmeos **Data plano** mais recente da [pasta Swagger do plano de dados](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/data-plane/Microsoft.DigitalTwins)e sua pasta de exemplos que o acompanha.  Baixe o arquivo do Swagger *digitaltwins.jsem* e sua pasta de exemplos em seu computador local.
 
 Depois que o computador estiver equipado com tudo, na lista acima, você estará pronto para usar o REST para criar o SDK.
 
@@ -99,17 +99,7 @@ Sempre que ocorrer um erro no SDK (incluindo erros de HTTP, como 404), o SDK ger
 
 Aqui está um trecho de código que tenta adicionar um entrelaçamento e captura todos os erros nesse processo:
 
-```csharp
-try
-{
-    await client.DigitalTwins.AddAsync(id, initData);
-    Console.WriteLine($"Created a twin successfully: {id}");
-}
-catch (ErrorResponseException e)
-{
-    Console.WriteLine($"*** Error creating twin {id}: {e.Response.StatusCode}"); 
-}
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="CreateTwin_errorHandling":::
 
 ### <a name="paging"></a>Paginamento
 
@@ -117,77 +107,18 @@ O REST gera dois tipos de padrões de paginação para o SDK:
 * Um para todas as APIs, exceto a API de consulta
 * Um para a API de consulta
 
-No padrão de paginação não consulta, há duas versões de cada chamada:
-* Uma versão para fazer a chamada inicial (como `DigitalTwins.ListEdges()` )
-* Uma versão para obter as páginas a seguir. Essas chamadas têm um sufixo de "Next" (como `DigitalTwins.ListEdgesNext()` )
+No padrão de paginação não consulta, aqui está um método de exemplo que mostra como recuperar uma lista paginável de relações de saída do Azure digital gêmeos:
 
-Aqui está um trecho de código que mostra como recuperar uma lista paginável de relações de saída do Azure digital gêmeos:
-```csharp
-try
-{
-    // List to hold the results in
-    List<object> relList = new List<object>();
-    // Enumerate the IPage object returned to get the results
-    // ListAsync will throw if an error occurs
-    IPage<object> relPage = await client.DigitalTwins.ListEdgesAsync(id);
-    relList.AddRange(relPage);
-    // If there are more pages, the NextPageLink in the page is set
-    while (relPage.NextPageLink != null)
-    {
-        // Get more pages...
-        relPage = await client.DigitalTwins.ListEdgesNextAsync(relPage.NextPageLink);
-        relList.AddRange(relPage);
-    }
-    Console.WriteLine($"Found {relList.Count} relationships on {id}");
-    // Do something with each object found
-    // As relationships are custom types, they are JSON.Net types
-    foreach (JObject r in relList)
-    {
-        string relId = r.Value<string>("$edgeId");
-        string relName = r.Value<string>("$relationship");
-        Console.WriteLine($"Found relationship {relId} from {id}");
-    }
-}
-catch (ErrorResponseException e)
-{
-    Console.WriteLine($"*** Error retrieving relationships on {id}: {e.Response.StatusCode}");
-}
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="FindOutgoingRelationshipsMethod":::
 
 O segundo padrão é gerado somente para a API de consulta. Ele usa um `continuationToken` explicitamente.
 
+>[!TIP]
+> Um motivo principal para obter páginas é calcular os [encargos de unidade de consulta](concepts-query-units.md) para uma chamada à API de consulta.
+
 Aqui está um exemplo com esse padrão:
 
-```csharp
-string query = "SELECT * FROM digitaltwins";
-string conToken = null; // continuation token from the query
-int page = 0;
-try
-{
-    // Repeat the query while there are pages
-    do
-    {
-        QuerySpecification spec = new QuerySpecification(query, conToken);
-        QueryResult qr = await client.Query.QueryTwinsAsync(spec);
-        page++;
-        Console.WriteLine($"== Query results page {page}:");
-        if (qr.Items != null)
-        {
-            // Query returns are JObjects
-            foreach(JObject o in qr.Items)
-            {
-                string twinId = o.Value<string>("$dtId");
-                Console.WriteLine($"  Found {twinId}");
-            }
-        }
-        Console.WriteLine($"== End query results page {page}");
-        conToken = qr.ContinuationToken;
-    } while (conToken != null);
-} catch (ErrorResponseException e)
-{
-    Console.WriteLine($"*** Error in twin query: ${e.Response.StatusCode}");
-}
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/queries.cs" id="PagedQuery":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

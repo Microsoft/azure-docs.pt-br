@@ -1,30 +1,32 @@
 ---
-title: Criar um pool do lote do Azure sem endereços IP públicos
+title: Criar um pool do Lote do Azure sem endereços IP públicos
 description: Saiba como criar um pool sem endereços IP públicos
 author: pkshultz
 ms.topic: how-to
-ms.date: 06/26/2020
+ms.date: 12/9/2020
 ms.author: peshultz
-ms.openlocfilehash: 30792314f5bffaf4d40fc4bf60a2706acdaad34b
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.custom: references_regions
+ms.openlocfilehash: 806e85fca0a509d56e248fc7779fba0f0a59a61d
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85962434"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007663"
 ---
-# <a name="create-an-azure-batch-pool-without-public-ip-addresses"></a>Criar um pool do lote do Azure sem endereços IP públicos
+# <a name="create-an-azure-batch-pool-without-public-ip-addresses"></a>Criar um pool do Lote do Azure sem endereços IP públicos
 
 Ao criar um pool do lote do Azure, você pode provisionar o pool de configuração de máquina virtual sem um endereço IP público. Este artigo explica como configurar um pool do lote sem endereços IP públicos.
 
 ## <a name="why-use-a-pool-without-public-ip-addresses"></a>Por que usar um pool sem endereços IP públicos?
 
-Por padrão, todos os nós de computação em um pool de configuração de máquina virtual do lote do Azure recebem um endereço IP público. Esse endereço é usado pelo serviço de lote para agendar tarefas e para comunicação com nós de computação, incluindo acesso de saída à Internet. 
+Por padrão, todos os nós de computação em um pool de configuração de máquina virtual do lote do Azure recebem um endereço IP público. Esse endereço é usado pelo serviço de lote para agendar tarefas e para comunicação com nós de computação, incluindo acesso de saída à Internet.
 
 Para restringir o acesso a esses nós e reduzir a capacidade de descoberta desses nós da Internet, você pode provisionar o pool sem endereços IP públicos.
 
 > [!IMPORTANT]
-> O suporte para pools sem endereços IP públicos no lote do Azure está atualmente em visualização pública para as regiões Oeste EUA Central, leste dos EUA, Sul EUA Central, oeste dos EUA 2, US Gov-Virgínia e US Gov Arizona.
-> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> O suporte para pools sem endereços IP públicos no lote do Azure está atualmente em visualização pública para as seguintes regiões: França central, Ásia Oriental, Oeste EUA Central, Sul EUA Central, oeste dos EUA 2, leste dos EUA, Europa Setentrional, leste dos EUA 2, EUA Central, Europa Ocidental, norte EUA Central, oeste dos EUA, leste da Austrália, leste do Japão, oeste do Japão.
+> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos.
+> Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -33,8 +35,8 @@ Para restringir o acesso a esses nós e reduzir a capacidade de descoberta desse
 - **Uma rede virtual do Azure**. Se você estiver criando seu pool em uma [rede virtual](batch-virtual-network.md), siga estes requisitos e configurações. Para preparar uma rede virtual com uma ou mais sub-redes com antecedência, você pode usar o portal do Azure, o Azure PowerShell, a interface de linha de comando (CLI) do Azure ou outros métodos.
   - A VNet deve estar na mesma assinatura e região da conta do Lote que você usa para criar o pool.
   - A sub-rede especificada para o pool deve ter endereços IP não atribuídos suficientes para acomodar o número de VMs direcionadas para o pool, ou seja, a soma das propriedades `targetDedicatedNodes` e `targetLowPriorityNodes` do pool. Se a sub-rede não tiver endereços IP não atribuídos suficientes, o pool alocará parcialmente os nós de computação e ocorrerá um erro de redimensionamento.
-  - Você deve desabilitar o serviço de vínculo privado e as políticas de rede de ponto de extremidade. Isso pode ser feito usando CLI do Azure:```az network vnet subnet update --vnet-name <vnetname> -n <subnetname> --disable-private-endpoint-network-policies --disable-private-link-service-network-policies```
-  
+  - Você deve desabilitar o serviço de vínculo privado e as políticas de rede do ponto de extremidade. Isso pode ser feito usando CLI do Azure: ```az network vnet subnet update --vnet-name <vnetname> -n <subnetname> --resouce-group <resourcegroup> --disable-private-endpoint-network-policies --disable-private-link-service-network-policies```
+
 > [!IMPORTANT]
 > Para cada nó de 100 ou de baixa prioridade dedicado, o lote aloca um serviço de link privado e um balanceador de carga. Esses recursos são limitados pelas [cotas de recursos](../azure-resource-manager/management/azure-subscription-service-limits.md) da assinatura. Para grandes pools, talvez seja necessário [solicitar um aumento de cota](batch-quota-limit.md#increase-a-quota) para um ou mais desses recursos. Além disso, nenhum bloqueio de recurso deve ser aplicado a qualquer recurso criado pelo lote, pois isso impede a limpeza de recursos como resultado de ações iniciadas pelo usuário, como a exclusão de um pool ou o redimensionamento para zero.
 
@@ -46,16 +48,16 @@ Para restringir o acesso a esses nós e reduzir a capacidade de descoberta desse
 
 ## <a name="create-a-pool-without-public-ip-addresses-in-the-azure-portal"></a>Criar um pool sem endereços IP públicos no portal do Azure
 
-1. Navegue até sua conta do Lote no portal do Azure. 
+1. Navegue até sua conta do Lote no portal do Azure.
 1. Na janela **configurações** à esquerda, selecione **pools**.
 1. Na janela **pools** , selecione **Adicionar**.
 1. Na janela **Adicionar pool**, selecione a opção que você deseja usar na lista suspensa **Tipo de imagem**.
 1. Selecione o **Publicador/oferta/SKU** correto da sua imagem.
-1. Especifique as configurações necessárias restantes, incluindo o **tamanho do nó**, os **nós dedicados de destino**e os **nós de baixa prioridade**, bem como as configurações opcionais desejadas.
+1. Especifique as configurações necessárias restantes, incluindo o **tamanho do nó**, os **nós dedicados de destino** e os **nós de baixa prioridade**, bem como as configurações opcionais desejadas.
 1. Opcionalmente, selecione uma rede virtual e uma sub-rede que você deseja usar. Essa rede virtual deve estar no mesmo grupo de recursos que o pool que você está criando.
 1. Em **tipo de provisionamento de endereço IP**, selecione **NoPublicIPAddresses**.
 
-![Tela Adicionar pool com NoPublicIPAddresses selecionado](./media/batch-pool-no-public-ip-address/create-pool-without-public-ip-address.png)
+![Captura de tela do botão Adicionar pool com NoPublicIPAddresses selecionado.](./media/batch-pool-no-public-ip-address/create-pool-without-public-ip-address.png)
 
 ## <a name="use-the-batch-rest-api-to-create-a-pool-without-public-ip-addresses"></a>Usar a API REST do lote para criar um pool sem endereços IP públicos
 
@@ -91,7 +93,7 @@ client-request-id: 00000000-0000-0000-0000-000000000000
      "resizeTimeout": "PT15M",
      "targetDedicatedNodes": 5,
      "targetLowPriorityNodes": 0,
-     "maxTasksPerNode": 3,
+     "taskSlotsPerNode": 3,
      "taskSchedulingPolicy": {
           "nodeFillType": "spread"
      },

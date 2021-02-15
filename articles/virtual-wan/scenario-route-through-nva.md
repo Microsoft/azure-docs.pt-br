@@ -6,17 +6,17 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 08/04/2020
+ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 6b62f8c33c73ded978c0c2e3a8c3b7fadea49c96
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 24671a34214864e253d96c356dc8b2853bf6d560
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88852083"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100519789"
 ---
-# <a name="scenario-route-traffic-through-an-nva"></a>Cenário: rotear o tráfego por meio de um NVA
+# <a name="scenario-route-traffic-through-an-nva"></a>Cenário: Rotear o tráfego por meio de uma NVA
 
 Ao trabalhar com o roteamento de Hub virtual de WAN virtual, há alguns cenários disponíveis. Nesse cenário de NVA, o objetivo é rotear o tráfego por meio de um NVA (solução de virtualização de rede) para Branch para VNet e VNet para Branch. Para obter informações sobre roteamento de Hub virtual, consulte [sobre roteamento de Hub virtual](about-virtual-hub-routing.md).
 
@@ -30,9 +30,9 @@ Ao trabalhar com o roteamento de Hub virtual de WAN virtual, há alguns cenário
 
 Neste cenário, usaremos a Convenção de nomenclatura:
 
-* "NVA VNets" para redes virtuais em que os usuários implantaram um NVA e se conectaram a outras redes virtuais como spokes (VNet 2 e VNet 4 na **matriz de conectividade**, abaixo).
-* "NVA spokes" para redes virtuais conectadas a uma VNet NVA (VNet 5, VNet 6, VNet 7 e VNet 8 na **matriz de conectividade**, abaixo).
-* "Não NVA VNets" para redes virtuais conectadas à WAN virtual que não têm um NVA ou outros VNets emparelhadas com elas (VNet 1 e VNet 3 na matriz de **conectividade**, abaixo).
+* "NVA VNets" para redes virtuais em que os usuários implantaram um NVA e se conectaram a outras redes virtuais como spokes (VNet 2 e VNet 4 na **Figura 2** mais adiante no artigo).
+* "NVA spokes" para redes virtuais conectadas a uma VNet NVA (VNet 5, VNet 6, VNet 7 e VNet 8 na **Figura 2** mais adiante no artigo).
+* "Não NVA VNets" para redes virtuais conectadas à WAN virtual que não têm um NVA ou outros VNets emparelhadas com elas (VNet 1 e VNet 3 na **Figura 2** mais adiante no artigo).
 * "Hubs" para hubs de WAN virtual gerenciados pela Microsoft, nos quais NVA VNets estão conectados. NVA spoke VNets não precisa estar conectado a hubs de WAN virtual, somente ao NVA VNets.
 
 A matriz de conectividade a seguir resume os fluxos com suporte neste cenário:
@@ -41,16 +41,16 @@ A matriz de conectividade a seguir resume os fluxos com suporte neste cenário:
 
 | De             | Para:|   *NVA spokes*|*NVA VNets*|*VNets não NVA*|*Branches*|
 |---|---|---|---|---|---|
-| **NVA spokes**   | &#8594; | 0/0 UDR  |  Emparelhamento |   0/0 UDR    |  0/0 UDR  |
-| **NVA VNets**    | &#8594; |   Estático |      X   |        X     |      X    |
-| **VNets não NVA**| &#8594; |   Estático |      X   |        X     |      X    |
-| **Branches**     | &#8594; |   Estático |      X   |        X     |      X    |
+| **NVA spokes**   | &#8594; | Sobre VNet NVA | Emparelhamento | Sobre VNet NVA | Sobre VNet NVA |
+| **NVA VNets**    | &#8594; | Emparelhamento | Direto | Direto | Direto |
+| **VNets não NVA**| &#8594; | Sobre VNet NVA | Direto | Direto | Direto |
+| **Branches**     | &#8594; | Sobre VNet NVA | Direto | Direto | Direto |
 
-Cada uma das células na matriz de conectividade descreve se uma conexão de WAN virtual (o lado "de" do fluxo, os cabeçalhos de linha na tabela) aprende um prefixo de destino (o lado "para" do fluxo, os cabeçalhos de coluna em itálico na tabela) para um fluxo de tráfego específico. Considere o seguinte:
+Cada uma das células na matriz de conectividade descreve como uma VNet ou ramificação (o lado "de" do fluxo, os cabeçalhos de linha na tabela) se comunica com uma VNet ou ramificação de destino (o lado "para" do fluxo, os cabeçalhos de coluna em itálico na tabela). "Direto" significa que a conectividade é fornecida nativamente pela WAN virtual, "emparelhamento" significa que a conectividade é fornecida por uma User-Defined rota na VNet, "via VNet NVA" significa que a conectividade atravessa o NVA implantado na VNet NVA. Considere o seguinte:
 
 * Os spokes NVA não são gerenciados pela WAN virtual. Como resultado, os mecanismos com os quais eles se comunicarão com outros VNets ou branches serão mantidos pelo usuário. A conectividade com a VNet NVA é fornecida por um emparelhamento de VNet e uma rota padrão para 0.0.0.0/0 apontando para o NVA como o próximo salto deve abranger a conectividade com a Internet, com outros spokes e para branches
-* NVA VNets saberá sobre seus próprios spokes de NVA, mas não sobre os raios de NVA conectados a outros NVA VNets. Por exemplo, na tabela 1, a VNet 2 sabe sobre VNet 5 e VNet 6, mas não sobre outros spokes como VNet 7 e VNet 8. Uma rota estática é necessária para injetar os prefixos dos outros spokes em NVA VNets
-* Da mesma forma, branches e VNets não NVA não conhecem nenhum spoke NVA, já que os raios de NVA não estão conectados a hubs de VWAN. Como resultado, as rotas estáticas também serão necessárias aqui.
+* NVA VNets saberá sobre seus próprios spokes de NVA, mas não sobre os raios de NVA conectados a outros NVA VNets. Por exemplo, na Figura 2 mais adiante neste artigo, a VNet 2 sabe sobre VNet 5 e VNet 6, mas não sobre outros spokes como VNet 7 e VNet 8. Uma rota estática é necessária para injetar os prefixos dos outros spokes em NVA VNets
+* Da mesma forma, branches e VNets não NVA não conhecem nenhum spoke NVA, já que os raios de NVA não estão conectados aos hubs de WAN virtuais. Como resultado, as rotas estáticas também serão necessárias aqui.
 
 Levando em conta que os spokes NVA não são gerenciados pela WAN virtual, todas as outras linhas mostram o mesmo padrão de conectividade. Como resultado, uma única tabela de rotas (a padrão) fará:
 
@@ -111,7 +111,9 @@ Para configurar o roteamento via NVA, aqui estão as etapas a serem consideradas
    * De VNet 5 e VNet 6 para IP NVA VNet 2
    * Da vnet 7 e da VNet 8 para o IP NVA VNet 4 
    
-   Você não precisa conectar o VNets 5, 6, 7, 8 aos hubs virtuais diretamente. Verifique se NSGs no VNets 5, 6, 7, 8 permitem o tráfego para Branch (VPN/ER/P2S) ou VNets conectado à sua VNets remota. Por exemplo, VNets 5 deve garantir que o NSGs permita o tráfego para prefixos de endereço local e VNets 7, 8 que estão conectados ao Hub remoto 2.
+   Você não precisa conectar o VNets 5, 6, 7, 8 aos hubs virtuais diretamente. Verifique se NSGs no VNets 5, 6, 7, 8 permitem o tráfego para Branch (VPN/ER/P2S) ou VNets conectado à sua VNets remota. Por exemplo, VNets 5, 6 deve garantir que o NSGs permita o tráfego para prefixos de endereço local e VNets 7, 8 que estejam conectados ao Hub remoto 2.
+
+A WAN virtual não oferece suporte a um cenário em que o VNets 5, 6 Conecte-se ao Hub virtual e se comunique por meio do IP de VNet 2 NVA; Portanto, a necessidade de conectar VNets 5, 6 a VNet2 e, da mesma forma, a VNet 7, 8 a VNet 4.
 
 2. Adicione uma entrada de rota estática agregada para VNets 2, 5, 6 à tabela de rotas padrão do hub 1.
 

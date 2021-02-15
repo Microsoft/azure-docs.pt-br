@@ -1,19 +1,19 @@
 ---
 title: Instalar e configurar a extensão WAD (Diagnóstico do Azure para Windows)
-description: Saiba como coletar dados de diagnóstico do Azure em uma conta de armazenamento do Azure para visualizar com uma das várias ferramentas disponíveis.
+description: Saiba mais sobre como instalar e configurar a extensão de diagnóstico do Windows. Além disso, saiba como uma descrição de como os dados são armazenados no e na conta de armazenamento do Azure.
 services: azure-monitor
 author: bwren
 ms.subservice: diagnostic-extension
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: bwren
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 4e38e9ee301d080110e8019e3fe407e7d5cdc026
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: 14f37d0779f245301b3750329658a580dc3f9e42
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87499187"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946214"
 ---
 # <a name="install-and-configure-windows-azure-diagnostics-extension-wad"></a>Instalar e configurar a extensão WAD (Diagnóstico do Azure para Windows)
 A [extensão de diagnóstico do Azure](diagnostics-extension-overview.md) é um agente no Azure Monitor que coleta dados de monitoramento do sistema operacional convidado e cargas de trabalho de máquinas virtuais do Azure e outros recursos de computação. Este artigo fornece detalhes sobre como instalar e configurar a extensão de diagnóstico do Windows e uma descrição de como os dados são armazenados na conta de armazenamento do Azure.
@@ -51,7 +51,7 @@ Você pode instalar e configurar a extensão de diagnóstico em uma máquina vir
 
 6. Na guia **Logs**, selecione os logs para coletar da máquina virtual. Os logs podem ser enviados para os hubs de eventos ou armazenamento, mas não para o Azure Monitor. Use o [agente de análise de logs](log-analytics-agent.md) para coletar logs de convidado para o Azure Monitor.
 
-   ![Logs](media/diagnostics-extension-windows-install/logs.png)
+   ![Captura de tela mostra a guia logs com diferentes logs selecionados para uma máquina virtual.](media/diagnostics-extension-windows-install/logs.png)
 
 7. Na guia **Despejos de memória**, especifique todos os processos para coletar os despejos das memórias após uma falha. Os dados serão gravados na conta de armazenamento para a configuração de diagnóstico, e você poderá especificar um contêiner de BLOB.
 
@@ -59,7 +59,7 @@ Você pode instalar e configurar a extensão de diagnóstico em uma máquina vir
 
 8. Na guia **Coletores**, especifique se deseja enviar os dados para locais diferentes do armazenamento do Azure. Se você selecionar **Azure Monitor**, os dados de desempenho do convidado serão enviados para as métricas do Azure Monitor. Você não pode configurar o coletor dos hubs de eventos usando o portal do Azure.
 
-   ![Coletores](media/diagnostics-extension-windows-install/sinks.png)
+   ![Captura de tela mostra a guia coletores com a opção enviar dados de diagnóstico para Azure Monitor habilitada.](media/diagnostics-extension-windows-install/sinks.png)
    
    Se você não tiver habilitado uma identidade atribuída ao sistema configurada para sua máquina virtual, poderá ver o aviso abaixo ao salvar uma configuração com o coletor do Azure Monitor. Clique na faixa para habilitar a identidade atribuída ao sistema.
    
@@ -67,7 +67,7 @@ Você pode instalar e configurar a extensão de diagnóstico em uma máquina vir
 
 9. No **Agente**, você pode alterar a conta de armazenamento, definir a cota de disco e especificar se os logs de infraestrutura de diagnóstico devem ser coletados.  
 
-   ![Agente](media/diagnostics-extension-windows-install/agent.png)
+   ![Captura de tela mostra a guia agente com a opção de definir a conta de armazenamento.](media/diagnostics-extension-windows-install/agent.png)
 
 10. Clique em **Salvar** para salvar a configuração. 
 
@@ -78,7 +78,7 @@ Você pode instalar e configurar a extensão de diagnóstico em uma máquina vir
 Confira [Use monitoramento e diagnóstico com uma VM do Windows e modelos do Azure Resource Manager](../../virtual-machines/extensions/diagnostics-template.md) sobre como implantar a extensão de diagnóstico com os modelos do Azure Resource Manager. 
 
 ## <a name="azure-cli-deployment"></a>Implantação da CLI do Azure
-A CLI do Azure pode ser usado para implantar a extensão de Diagnóstico do Azure para uma máquina virtual existente usando [az vm extension set](/cli/azure/vm/extension?view=azure-cli-latest#az-vm-extension-set) como no exemplo a seguir. 
+A CLI do Azure pode ser usado para implantar a extensão de Diagnóstico do Azure para uma máquina virtual existente usando [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set) como no exemplo a seguir. 
 
 ```azurecli
 az vm extension set \

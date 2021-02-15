@@ -1,0 +1,11 @@
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+    - name: Serviços Cognitivos
+      tocHref: /azure/cognitive-services/
+      topicHref: /azure/cognitive-services/index
+      items:
+        - name: Detecção Facial
+          tocHref: /azure/cognitive-services/
+          topicHref: /azure/cognitive-services/face/index

@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
-ms.openlocfilehash: c260643d7d553e407d0758f286aac76c91ae08d8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 403576454615effeb53651b51679681422b08e9e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82137681"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "90890358"
 ---
 # <a name="neural-network-regression-module"></a>Módulo de regressão de rede neural
 
@@ -24,7 +24,7 @@ ms.locfileid: "82137681"
   
 ## <a name="module-overview"></a>Visão geral do módulo  
 
-Este artigo descreve um módulo no designer do Azure Machine Learning (versão prévia).
+Este artigo descreve um módulo no designer de Azure Machine Learning.
 
 Use este módulo para criar um modelo de regressão usando um algoritmo de rede neural personalizável.
   
@@ -50,7 +50,7 @@ As redes neurais podem ser amplamente personalizadas. Esta seção descreve como
     
     Essa opção é melhor se você já estiver um pouco familiarizado com redes neurais. Você usa a linguagem net # para definir a arquitetura de rede.  
 
-##  <a name="create-a-neural-network-model-using-the-default-architecture"></a><a name="bkmk_DefaultArchitecture"></a>Criar um modelo de rede neural usando a arquitetura padrão
+##  <a name="create-a-neural-network-model-using-the-default-architecture"></a><a name="bkmk_DefaultArchitecture"></a> Criar um modelo de rede neural usando a arquitetura padrão
 
 1.  Adicione o módulo de **regressão de rede neural** ao seu pipeline no designer. Você pode encontrar esse módulo em **Machine Learning**, **inicializar**, na categoria **regressão** . 
   

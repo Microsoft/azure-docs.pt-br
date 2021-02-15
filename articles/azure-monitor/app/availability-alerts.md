@@ -1,17 +1,17 @@
 ---
 title: Configurar alertas de disponibilidade com o Aplicativo Azure insights | Microsoft Docs
-description: Configure testes da web no Application Insights. Obtenha alertas se um site fica indisponível ou responde lentamente.
+description: Saiba como configurar testes da Web no Application Insights. Obtenha alertas se um site fica indisponível ou responde lentamente.
 ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 06/19/2019
 ms.reviewer: sdash
-ms.openlocfilehash: c53b43d811e5e2b9cd8d70e3c8e05af444895154
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: a0e8540d9488e9cc3756eb09c69349ac90d20b83
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320639"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93043377"
 ---
 # <a name="availability-alerts"></a>Alertas de disponibilidade
 
@@ -28,11 +28,11 @@ Os alertas agora são automaticamente habilitados por padrão, mas para configur
 
 1. Depois de salvar o teste de disponibilidade, na guia Detalhes, clique nas reticências do teste que acabou de criar. Clique em "Editar alerta".
 
-   ![Editar depois de salvar](./media/availability-alerts/edit-alert.png)
+   ![Captura de tela mostra editar alerta selecionado no menu.](./media/availability-alerts/edit-alert.png)
 
 2. Defina o nível de severidade desejados, a descrição da regra e mais importante, o grupo de ação que tem as preferências de notificação que você deseja usar para essa regra de alerta.
 
-   ![Editar depois de salvar](./media/availability-alerts/set-action-group.png)
+   ![Captura de tela mostra a página de gerenciamento de regras em que você pode editar a regra.](./media/availability-alerts/set-action-group.png)
 
 > [!NOTE]
 > Os alertas de disponibilidade criados por meio dessa experiência são baseados em estado. Isso significa que quando os critérios de alerta são atendidos, um único alerta é gerado quando o site é detectado como indisponível. Se o site ainda estiver inoperante na próxima vez que os critérios de alerta forem avaliados, isso não gerará um novo alerta. Portanto, se o seu site esteve inativo por uma hora e você tivesse configurado um alerta por email, você só receberia um email quando o site ficou inativo e um email subsequente quando o site estava em backup. Você não receberá alertas contínuos lembrando que o site ainda não estava disponível.

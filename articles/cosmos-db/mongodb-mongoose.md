@@ -8,15 +8,16 @@ ms.topic: how-to
 ms.date: 03/20/2020
 author: timsander1
 ms.author: tisande
-ms.custom: seodec18, devx-track-javascript
-ms.openlocfilehash: eb91b6108cedd12299fcb3cfa89bf2cc91bcd69f
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: seodec18, devx-track-js
+ms.openlocfilehash: 8958699ae279d2613f8dbadca802ee2137407e75
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422004"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94442388"
 ---
 # <a name="connect-a-nodejs-mongoose-application-to-azure-cosmos-db"></a>Conectar um aplicativo Mongoose do Node.js ao Azure Cosmos DB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 Este tutorial demonstra como usar o [Mongoose Framework](https://mongoosejs.com/) ao armazenar o Azure Cosmos DB. Vamos usar a API do Azure Cosmos DB para o MongoDB para este passo a passo. Para aqueles não familiarizados, Mongoose é uma estrutura de modelagem de objeto para o MongoDB no Node.js e fornece uma solução simples, com base em esquema para modelar os dados do aplicativo.
 
@@ -38,11 +39,11 @@ Vamos criar uma conta do Cosmos. Caso já tenha uma conta que queira usar, você
 
 ### <a name="create-a-database"></a>Criar um banco de dados 
 Neste aplicativo, abordaremos duas maneiras de criar coleções no Azure Cosmos DB: 
-- **Armazenando cada modelo de objeto em uma coleção separada**: é recomendável [criar um banco de dados com taxa de transferência dedicada](set-throughput.md#set-throughput-on-a-database). Usar esse modelo de capacidade proporcionará uma melhor eficiência aos custos.
+- **Armazenando cada modelo de objeto em uma coleção separada** : é recomendável [criar um banco de dados com taxa de transferência dedicada](set-throughput.md#set-throughput-on-a-database). Usar esse modelo de capacidade proporcionará uma melhor eficiência aos custos.
 
-    :::image type="content" source="./media/mongodb-mongoose/db-level-throughput.png" alt-text="Tutorial deNode.js-captura de tela do portal do Azure, mostrando como criar um banco de dados no Data Explorer para uma conta de Azure Cosmos DB, para uso com o módulo de nó Mongoose":::
+    :::image type="content" source="./media/mongodb-mongoose/db-level-throughput.png" alt-text=" Tutorial deNode.js-captura de tela do portal do Azure, mostrando como criar um banco de dados no Data Explorer para uma conta de Azure Cosmos DB, para uso com o módulo de nó Mongoose":::
 
-- **Armazenando todos os modelos de objeto em uma única coleção de Cosmos DB**: se você preferir armazenar todos os modelos em uma única coleção, basta criar um novo banco de dados sem selecionar a opção provisionar taxa de transferência. Usar esse modelo de capacidade criará cada coleção com sua própria capacidade de taxa de transferência para cada modelo de objeto.
+- **Armazenando todos os modelos de objeto em uma única coleção de Cosmos DB** : se você preferir armazenar todos os modelos em uma única coleção, basta criar um novo banco de dados sem selecionar a opção provisionar taxa de transferência. Usar esse modelo de capacidade criará cada coleção com sua própria capacidade de taxa de transferência para cada modelo de objeto.
 
 Depois de criar o banco de dados, você usará o nome na `COSMOSDB_DBNAME` variável de ambiente abaixo.
 
@@ -81,7 +82,7 @@ Depois de criar o banco de dados, você usará o nome na `COSMOSDB_DBNAME` vari�
     ```JavaScript
    # You can get the following connection details from the Azure portal. You can find the details on the Connection string pane of your Azure Cosmos account.
 
-   COSMODDB_USER = "<Azure Cosmos account's user name, usually the database account name>"
+   COSMOSDB_USER = "<Azure Cosmos account's user name, usually the database account name>"
    COSMOSDB_PASSWORD = "<Azure Cosmos account password, this is one of the keys specified in your account>"
    COSMOSDB_DBNAME = "<Azure Cosmos database name>"
    COSMOSDB_HOST= "<Azure Cosmos Host name>"
@@ -92,7 +93,7 @@ Depois de criar o banco de dados, você usará o nome na `COSMOSDB_DBNAME` vari�
     ```JavaScript
    mongoose.connect("mongodb://"+process.env.COSMOSDB_HOST+":"+process.env.COSMOSDB_PORT+"/"+process.env.COSMOSDB_DBNAME+"?ssl=true&replicaSet=globaldb", {
       auth: {
-        user: process.env.COSMODDB_USER,
+        user: process.env.COSMOSDB_USER,
         password: process.env.COSMOSDB_PASSWORD
       },
     useNewUrlParser: true,
@@ -197,7 +198,7 @@ Esta seção explora como conseguir isso com a API do Azure Cosmos DB para Mongo
 
 1. Agora, ao ir ao portal do Azure, você observa duas coleções criadas no Azure Cosmos DB.
 
-   :::image type="content" source="./media/mongodb-mongoose/mongo-mutliple-collections.png" alt-text="Tutorial deNode.js – captura de tela da portal do Azure, mostrando uma conta de Azure Cosmos DB, com vários nomes de coleção realçado – banco de dados de nó":::
+   :::image type="content" source="./media/mongodb-mongoose/mongo-mutliple-collections.png" alt-text=" Tutorial deNode.js – captura de tela da portal do Azure, mostrando uma conta de Azure Cosmos DB, com vários nomes de coleção realçado – banco de dados de nó":::
 
 1. Por fim, vamos ler os dados do Azure Cosmos DB. Como estamos usando o modelo operacional de Mongoose padrão, as leituras são as mesmas que quaisquer outras leituras com o Mongoose.
 
@@ -302,7 +303,7 @@ Aqui, criamos um modelo do objeto base, definimos uma chave de diferenciação e
 
 1. Agora, se você voltar ao portal do Azure, observe que você tem apenas uma coleção chamada ```alldata``` com dados de 'Família' e 'Destinos de Férias'.
 
-   :::image type="content" source="./media/mongodb-mongoose/mongo-collections-alldata.png" alt-text="Tutorial deNode.js – captura de tela da portal do Azure, mostrando uma conta de Azure Cosmos DB, com o nome da coleção realçado – banco de dados do nó":::
+   :::image type="content" source="./media/mongodb-mongoose/mongo-collections-alldata.png" alt-text=" Tutorial deNode.js – captura de tela da portal do Azure, mostrando uma conta de Azure Cosmos DB, com o nome da coleção realçado – banco de dados do nó":::
 
 1. Além disso, observe que cada objeto tem outro atributo chamado de ```__type```, que ajuda você a diferenciar entre os dois modelos de objeto diferente.
 

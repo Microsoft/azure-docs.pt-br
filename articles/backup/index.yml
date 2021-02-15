@@ -9,12 +9,12 @@ metadata:
   author: dcurwin
   ms.author: dacurwin
   ms.date: 12/01/2019
-  ms.openlocfilehash: f78a311125340f447cb0f2dda960e34c289c123a
-  ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+  ms.openlocfilehash: 077fcfd38c42b722b73937d75eb65276fa93d2c8
+  ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 08/20/2020
-  ms.locfileid: "88650835"
+  ms.lasthandoff: 01/26/2021
+  ms.locfileid: "98807055"
 landingContent:
 - title: Saiba mais sobre o Backup do Azure
   linkLists:
@@ -40,8 +40,6 @@ landingContent:
       url: quick-backup-vm-cli.md
     - text: Fazer backup de uma VM com o modelo do Resource Manager
       url: quick-backup-vm-template.md
-- title: Experimente estes tutoriais passo a passo
-  linkLists:
   - linkListType: tutorial
     links:
     - text: Fazer backup de VMs do Azure
@@ -56,12 +54,22 @@ landingContent:
   linkLists:
   - linkListType: whats-new
     links:
+    - text: Backup de Disco do Azure
+      url: disk-backup-overview.md
+    - text: Centro de Backup
+      url: backup-center-overview.md
+    - text: Backup do Banco de Dados do Azure para PostgreSQL
+      url: backup-azure-database-postgresql.md
+    - text: Backup e restauração de discos seletivos para VMs do Azure
+      url: selective-disk-backup-restore.md
+    - text: Restauração entre regiões para bancos de dados do SQL Server em VMs do Azure
+      url: restore-sql-database-azure-vm.md#cross-region-restore
+    - text: Suporte para backup de VM com até 32 discos
+      url: backup-support-matrix-iaas.md#vm-storage-support
     - text: Exclusão temporária para o Backup do Azure
       url: backup-azure-security-feature-cloud.md
     - text: SQL Server nas VMs do Azure para restaurar como arquivos
       url: restore-sql-database-azure-vm.md#restore-as-files
-    - text: Bancos de dados do SAP HANA no backup de VMs do Azure
-      url: backup-azure-sap-hana-database.md
 - title: Fazer backup de VMs do Azure
   linkLists:
   - linkListType: concept
@@ -71,9 +79,23 @@ landingContent:
     - text: Matriz de suporte para backup de VM do Azure
       url: backup-support-matrix-iaas.md
     - text: Perguntas frequentes – Backup de VM do Azure
-      url: backup-azure-vm-backup-faq.md
+      url: backup-azure-vm-backup-faq.yml
     - text: Gerenciar backups de VM do Azure
       url: backup-azure-manage-vms.md
+- title: Fazer backup do Azure Managed Disks (em versão prévia)
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Visão geral do Backup de Disco do Azure
+      url: disk-backup-overview.md
+    - text: Matriz de suporte Backup de Disco do Azure
+      url: disk-backup-support-matrix.md
+    - text: Fazer backup do Azure Managed Disks
+      url: backup-managed-disks.md
+    - text: Perguntas frequentes – Azure Managed Disks
+      url: disk-backup-faq.md
+    - text: Solucionar problemas de backup do Azure Managed Disks
+      url: disk-backup-troubleshoot.md
 - title: Fazer backup do SQL Server nas VMs do Azure
   linkLists:
   - linkListType: concept
@@ -134,6 +156,8 @@ landingContent:
   linkLists:
   - linkListType: how-to-guide
     links:
+    - text: Gerenciar em escala com o Centro de Backup
+      url: backup-center-monitor-operate.md
     - text: Governar em escala com o Azure Policy
       url: backup-azure-auto-enable-backup.md
     - text: Monitorar e operar em escala com o Gerenciador de Backup

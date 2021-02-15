@@ -4,12 +4,12 @@ description: Uma análise detalhada das configurações de dimensionamento autom
 ms.topic: conceptual
 ms.date: 12/18/2017
 ms.subservice: autoscale
-ms.openlocfilehash: 6d6b868f745803263339e6b27e2610aaca8f63fb
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: a914f6d71c013acea8dfde0f6578985bc009bb26
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87317460"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97605230"
 ---
 # <a name="understand-autoscale-settings"></a>Compreender configurações de Autoescala
 As configurações de Autoescala ajudam a garantir que você tenha a quantidade certa de recursos em execução para lidar com a carga flutuante do seu aplicativo. Você pode definir as configurações de Autoescala para serem disparadas com base em métricas que indicam carga ou desempenho ou para serem disparadas em uma data e hora agendadas. Este artigo analisa detalhadamente a anatomia de uma configuração de Autoescala. O artigo começa com o esquema e as propriedades de uma configuração e, em seguida, percorre os diferentes tipos de perfil que podem ser configurados. Por fim, o artigo aborda como o recurso de Autoescala no Azure decide qual o perfil a ser executado em um determinado momento.
@@ -60,7 +60,7 @@ Para ilustrar o esquema de configuração de Autoescala, a seguinte configuraç�
               "cooldown": "PT5M"
             }
           },
-    {
+          {
             "metricTrigger": {
               "metricName": "Percentage CPU",
               "metricResourceUri": "/subscriptions/s1/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachineScaleSets/vmss1",
@@ -91,7 +91,7 @@ Para ilustrar o esquema de configuração de Autoescala, a seguinte configuraç�
 | Configuração | name | O nome da configuração de dimensionamento automático. |
 | Configuração | local | O local da configuração de dimensionamento automático. Esse local pode ser diferente do local em que o recurso está sendo dimensionado. |
 | properties | targetResourceUri | A ID do recurso que está sendo dimensionado. Você só pode ter uma configuração de dimensionamento automático por recurso. |
-| properties | perfis | Uma configuração de dimensionamento automático é composta de um ou mais perfis. Cada vez que o mecanismo de dimensionamento automático é executado, ele executa um perfil. |
+| properties | profiles | Uma configuração de dimensionamento automático é composta de um ou mais perfis. Cada vez que o mecanismo de dimensionamento automático é executado, ele executa um perfil. |
 | perfil | name | O nome do perfil. Escolha qualquer nome que o ajude a identificar o perfil. |
 | perfil | Capacity.maximum | A capacidade máxima permitida. Garante que a Autoescala, ao executar este perfil, não dimensione os recursos acima desse limite. |
 | perfil | Capacity.minimum | A capacidade mínima permitida. Garante que a Autoescala, ao executar este perfil, não dimensione os recursos abaixo desse limite. |
@@ -119,34 +119,41 @@ Há três tipos de perfis de dimensionamento automático:
 
 - **Perfil de data fixa:** esse perfil é para casos especiais. Por exemplo, digamos que você tenha um evento importante se aproximando em 26 de dezembro de 2017 (PST). Você deseja que as capacidades mínima e máxima do recurso sejam diferentes naquele dia, mas que ainda sejam dimensionadas de acordo com as mesmas métricas. Nesse caso, você deve adicionar um perfil de data fixa à lista de perfis da configuração. O perfil será configurado para ser executado somente no dia do evento. Para qualquer outro dia, a Autoescala usa o perfil regular.
 
-    ``` JSON
-    "profiles": [{
-    "name": " regularProfile",
-    "capacity": {
-    ...
-    },
-    "rules": [{
-    ...
-    },
-    {
-    ...
-    }]
-    },
-    {
-    "name": "eventProfile",
-    "capacity": {
-    ...
-    },
-    "rules": [{
-    ...
-    }, {
-    ...
-    }],
-    "fixedDate": {
-        "timeZone": "Pacific Standard Time",
-               "start": "2017-12-26T00:00:00",
-               "end": "2017-12-26T23:59:00"
-    }}
+    ```json
+    "profiles": [
+        {
+            "name": " regularProfile",
+            "capacity": {
+                ...
+            },
+            "rules": [
+                {
+                ...
+                },
+                {
+                ...
+                }
+            ]
+        },
+        {
+            "name": "eventProfile",
+            "capacity": {
+            ...
+            },
+            "rules": [
+                {
+                ...
+                }, 
+                {
+                ...
+                }
+            ],
+            "fixedDate": {
+                "timeZone": "Pacific Standard Time",
+                "start": "2017-12-26T00:00:00",
+                "end": "2017-12-26T23:59:00"
+            }
+        }
     ]
     ```
     

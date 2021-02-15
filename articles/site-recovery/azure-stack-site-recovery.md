@@ -3,12 +3,12 @@ title: Replicar VMs do Azure Stack no Azure usando Azure Site Recovery | Microso
 description: Saiba como configurar a recuperação de desastre para VMs do Azure Stack com o serviço do Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: 873b9c5efc2a89d3cda1bfe14a7518e6786a6870
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 36e11bfe5354644f9ef6603ffe20cb2e86074323
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86131601"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016890"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Replicar VMs do Azure Stack para Azure
 
@@ -36,7 +36,7 @@ Com essas etapas concluídas, será possível executar um failover completo no A
 
 ## <a name="architecture"></a>Arquitetura
 
-![Arquitetura](./media/azure-stack-site-recovery/architecture.png)
+![O diagrama mostra cofres dos serviços de recuperação para dois locatários em nuvens associadas a assinaturas de locatário em uma infraestrutura de Azure Stack comum.](./media/azure-stack-site-recovery/architecture.png)
 
 **Localidade** | **Componente** |**Detalhes**
 --- | --- | ---
@@ -137,15 +137,15 @@ Para cada máquina que você quer replicar, localize o endereço IP:
 
 ## <a name="step-2-create-a-vault-and-select-a-replication-goal"></a>Etapa 2: criar um cofre e selecionar uma meta de replicação
 
-1. Na portal do Azure, selecione **criar um recurso**  >  **ferramentas de gerenciamento**de  >  **backup e site Recovery**.
+1. Na portal do Azure, selecione **criar um recurso**  >  **ferramentas de gerenciamento** de  >  **backup e site Recovery**.
 2. Em **Nome**, digite um nome amigável para identificar o cofre.
 3. Em **Grupo de recursos**, crie ou selecione um grupo de recursos. Nós estamos usando **contosoRG**.
 4. Em **Localização**, insira a região do Azure. Estamos usando **Europa Ocidental**.
-5. Para acessar rapidamente o cofre no painel, selecione **fixar no painel**  >  **criar**.
+5. Para acessar rapidamente o cofre do painel, selecione **Fixar no painel** > **Criar**.
 
    ![Criar um novo cofre](./media/azure-stack-site-recovery/new-vault-settings.png)
 
-   O novo cofre aparece no **painel**  >  **todos os recursos**e na página **cofres dos serviços de recuperação** principal.
+   O novo cofre é exibido em **Painel** > **Todos os recursos** e na página principal **Cofres dos Serviços de Recuperação**.
 
 ### <a name="select-a-replication-goal"></a>Selecione uma meta de replicação
 
@@ -164,13 +164,13 @@ Configure a máquina do servidor de configuração, registre-a no cofre e descub
 1. Clique em **Preparar a Infraestrutura** > **Origem**.
 2. Em **Preparar a origem**, clique em **+Servidor de configuração**.
 
-    ![Configurar origem](./media/azure-stack-site-recovery/plus-config-srv.png)
+    ![Captura de tela da caixa de diálogo + servidor de configuração com a mensagem "clique em + servidor de configuração na barra de comandos acima para configurar uma...".](./media/azure-stack-site-recovery/plus-config-srv.png)
 
 3. Em **Adicionar Servidor**, verifique se **Servidor de Configuração** aparece em **Tipo de servidor**.
 5. Baixe o arquivo de instalação Configuração Unificada da Recuperação de Site.
 6. Baixe a chave do registro do cofre. Você precisa da chave de registro ao executar a Instalação Unificada. A chave é válida por cinco dias após ser gerada.
 
-    ![Configurar origem](./media/azure-stack-site-recovery/set-source2.png)
+    ![Captura de tela da caixa de diálogo Adicionar servidor com o tipo de servidor definido como servidor de configuração e o botão baixar a chave de registro do cofre realçado.](./media/azure-stack-site-recovery/set-source2.png)
 
 
 ### <a name="run-azure-site-recovery-unified-setup"></a>Executar a Configuração Unificada do Azure Site Recovery
@@ -186,7 +186,7 @@ Agora instale o servidor de configuração:
 > [!NOTE]
 > O servidor de configuração também pode ser instalado a partir da linha de comando. [Saiba mais](physical-manage-configuration-server.md#install-from-the-command-line).
 >
-> Pode levar 15 minutos ou mais para que o nome da conta apareça no portal. Para atualizar imediatamente, selecione **Servidores de Configuração** > ***nome do servidor*** > **Atualizar Servidor**.
+> Pode levar 15 minutos ou mais para que o nome da conta apareça no portal. Para atualizar imediatamente, selecione **Servidores de Configuração** > **_nome do servidor_ *_ > _* Atualizar Servidor**.
 
 ## <a name="step-4-set-up-the-target-environment"></a>Etapa 4: Configurar o ambiente de origem
 
@@ -201,7 +201,7 @@ Selecione e verifique os recursos de destino.
 
 ### <a name="create-a-replication-policy"></a>Criar uma política de replicação
 
-1. Clique em **preparar**  >  **configurações de replicação**de infraestrutura.
+1. Clique em **preparar**  >  **configurações de replicação** de infraestrutura.
 2. Em **Criar política de replicação**, especifique um nome de política.
 3. Em **Limite de RPO**, especifique o limite de RPO (objetivo de pontos de recuperação).
     - Os pontos de recuperação para dados replicados são criados de acordo com o tempo definido.
@@ -231,7 +231,7 @@ Certifique-se de ter concluído todas as tarefas na [Etapa 1: preparar a máquin
 5. Em **Destino**, selecione a assinatura e o grupo de recursos no qual você quer criar as VMs após failover. Escolha o modelo de implantação que você quer usar para as VMs com failover.
 6. Selecione a conta de armazenamento do Azure na qual deseja armazenar dados replicados.
 7. Selecione a rede e a sub-rede do Azure às quais conectar as VMs do Azure quando elas forem criadas após o failover.
-8. Selecione **Configurar agora para computadores selecionados** para aplicar a configuração de rede a todos os computadores selecionados para proteção. Selecione **Configurar mais tarde**, se quiser selecionar a rede do Azure separadamente para cada máquina.
+8. Selecione **Configurar agora para as máquinas selecionadas** para aplicar a configuração de rede a todos os computadores selecionados para proteção. Selecione **Configurar mais tarde**, se quiser selecionar a rede do Azure separadamente para cada máquina.
 9. Em **Máquinas físicas**, clique em **+Máquina física**. Especifique o nome, o endereço IP e o tipo de sistema operacional de cada computador a ser replicado.
 
     - Use o endereço IP interno da máquina.
@@ -239,7 +239,7 @@ Certifique-se de ter concluído todas as tarefas na [Etapa 1: preparar a máquin
 
 10. Em **Propriedades**  >  **Configurar Propriedades**, selecione a conta que o servidor de processo usará para instalar automaticamente o serviço de mobilidade no computador.
 11. Em **configurações de replicação**  >  **definir configurações de replicação**, verifique se a política de replicação correta está selecionada.
-12. Clique em **habilitar replicação**.
+12. Clique em **Habilitar a Replicação**.
 13. Acompanhe o progresso do trabalho **habilitar proteção** em **configurações**  >  **trabalhos**  >  **site Recovery trabalhos**. Após o trabalho de **Finalizar Proteção** ser executado, o computador estará pronto para failover.
 
 > [!NOTE]
@@ -282,7 +282,7 @@ Quando você executar um failover de teste, acontecerá o seguinte:
 
 Execute um failover de teste para uma VM, conforme a seguir:
 
-1. Em **configurações**  >  **itens replicados**, clique na VM > **+ failover de teste**.
+1. Em **Configurações** > **Itens Replicados**, clique na VM > **+Failover de Teste**.
 2. Para este passo a passo, selecionaremos para usar o ponto de recuperação **Mais recente processado**.
 3. No **Failover de Teste**, selecione a rede do Azure de destino.
 4. Clique em **OK** para iniciar o failover.
@@ -314,26 +314,7 @@ Em seguida, execute um failover conforme a seguir:
 
 ### <a name="fail-back-to-azure-stack"></a>Failback do Azure Stack
 
-Quando o site primário estiver ativo e em execução novamente, será possível fazer o fail back do Azure para o Azure Stack. Para fazer isso, é necessário baixar o VHD da VM do Azure e enviá-lo para o Azure Stack.
-
-1. Desligue a VM do Azure para que o VHD possa ser baixado.
-2. Para iniciar o download do VHD, instale o [Gerenciador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/).
-3. Navegue até a VM no Portal do Azure (usando o nome da VM).
-4. Em **Discos**, clique no nome do disco e agrupe as configurações.
-
-    - Por exemplo, o URI de VHD usado em nosso teste: `https://502055westcentralus.blob.core.windows.net/wahv9b8d2ceb284fb59287/copied-3676553984.vhd` pode ser dividido para obter os seguintes parâmetros de entrada usados para baixar o VHD.
-        - Conta de Armazenamento: 502055westcentralus
-        - Contêiner: wahv9b8d2ceb284fb59287
-        - Nome do VHD: copied-3676553984.vhd
-
-5. Agora, use o Gerenciador de Armazenamento do Azure para baixar o VHD.
-6. Carregue o VHD no Azure Stack com [estas etapas](/azure-stack/user/azure-stack-manage-vm-disks#use-powershell-to-add-multiple-disks-to-a-vm).
-7. Na VM existente ou na VM nova, anexe os VHDs carregados.
-8. Verifique se o Disco do SO está correto e inicie a VM.
-
-
-Neste estágio, o failback está completo.
-
+Quando o site primário estiver ativo e em execução novamente, será possível fazer o fail back do Azure para o Azure Stack. Para fazer isso, siga as etapas listadas [aqui](/azure-stack/operator/site-recovery-failback?view=azs-2005).
 
 ## <a name="conclusion"></a>Conclusão
 
@@ -342,4 +323,3 @@ Neste artigo, replicamos as VMs do Azure Stack no Azure. Com a replicação em v
 ## <a name="next-steps"></a>Próximas etapas
 
 Após o failback, será possível proteger novamente a VM e começar a replicá-la no Azure novamente e, para fazer isso, repita as etapas deste artigo.
-

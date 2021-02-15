@@ -2,27 +2,27 @@
 title: Usar o perfil de execução para avaliar consultas na API Azure Cosmos DB Gremlin
 description: Saiba como solucionar problemas e aprimorar suas consultas do Gremlin usando a etapa perfil de execução.
 services: cosmos-db
-author: luisbosquez
-manager: kfile
+author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 03/27/2019
-ms.author: lbosq
-ms.openlocfilehash: faacaf6700b14ba068d5cf0a48ea851f562e2302
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: chrande
+ms.openlocfilehash: 18cefb1dd80368a8ccdad9f6f3ffc30881a8a889
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85261793"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93087478"
 ---
 # <a name="how-to-use-the-execution-profile-step-to-evaluate-your-gremlin-queries"></a>Como usar a etapa de perfil de execução para avaliar suas consultas do Gremlin
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 Este artigo fornece uma visão geral de como usar a etapa de perfil de execução para bancos de dados de grafo da API Gremlin do Azure Cosmos DB. Esta etapa fornece informações relevantes para solução de problemas e otimizações de consulta e é compatível com qualquer consulta Gremlin que possa ser executada em uma conta de API do Gremlin do Cosmos DB.
 
 Para usar essa etapa, basta acrescentar a `executionProfile()` chamada de função ao final da consulta Gremlin. **Sua consulta Gremlin será executada** e o resultado da operação retornará um objeto de resposta JSON com o perfil de execução de consulta.
 
-Por exemplo:
+Por exemplo: 
 
 ```java
     // Basic traversal
@@ -139,12 +139,12 @@ Este é um exemplo anotado da saída que será retornada:
 ## <a name="execution-profile-response-objects"></a>Objetos de resposta do perfil de execução
 
 A resposta de uma função executionProfile () produzirá uma hierarquia de objetos JSON com a seguinte estrutura:
-  - **Objeto de operação Gremlin**: representa a operação Gremlin inteira que foi executada. Contém as propriedades a seguir.
+  - **Objeto de operação Gremlin** : representa a operação Gremlin inteira que foi executada. Contém as propriedades a seguir.
     - `gremlin`: A instrução Gremlin explícita que foi executada.
     - `totalTime`: O tempo, em milissegundos, que a execução da etapa incorreu no. 
     - `metrics`: Uma matriz que contém cada um dos operadores de tempo de execução Cosmos DB que foram executados para atender à consulta. Essa lista é classificada em ordem de execução.
     
-  - **Operadores de tempo de execução Cosmos DB**: representa cada um dos componentes de toda a operação Gremlin. Essa lista é classificada em ordem de execução. Cada objeto contém as seguintes propriedades:
+  - **Operadores de tempo de execução Cosmos DB** : representa cada um dos componentes de toda a operação Gremlin. Essa lista é classificada em ordem de execução. Cada objeto contém as seguintes propriedades:
     - `name`: O nome do operador. Esse é o tipo de etapa que foi avaliado e executado. Leia mais na tabela a seguir.
     - `time`: Quantidade de tempo, em milissegundos, que um determinado operador levou.
     - `annotations`: Contém informações adicionais, específicas para o operador que foi executado.
@@ -177,7 +177,7 @@ Veja a seguir exemplos de otimizações comuns que podem ser expostas usando a r
 
 ### <a name="blind-fan-out-query-patterns"></a>Padrões de consulta de Fan-out cego
 
-Suponha a seguinte resposta de perfil de execução de um **grafo particionado**:
+Suponha a seguinte resposta de perfil de execução de um **grafo particionado** :
 
 ```json
 [
@@ -220,8 +220,8 @@ Suponha a seguinte resposta de perfil de execução de um **grafo particionado**
 
 As seguintes conclusões podem ser feitas a partir dela:
 - A consulta é uma pesquisa de ID única, uma vez que a instrução Gremlin segue o padrão `g.V('id')` .
-- Julgamento da `time` métrica, a latência dessa consulta parece estar alta, pois é [mais de 10 ms para uma única operação de leitura de ponto](https://docs.microsoft.com/azure/cosmos-db/introduction#guaranteed-low-latency-at-99th-percentile-worldwide).
-- Se olharmos para o `storeOps` objeto, podemos ver que o `fanoutFactor` é `5` , o que significa que [5 partições](https://docs.microsoft.com/azure/cosmos-db/partition-data) foram acessadas por essa operação.
+- Julgamento da `time` métrica, a latência dessa consulta parece estar alta, pois é [mais de 10 ms para uma única operação de leitura de ponto](./introduction.md#guaranteed-speed-at-any-scale).
+- Se olharmos para o `storeOps` objeto, podemos ver que o `fanoutFactor` é `5` , o que significa que [5 partições](./partitioning-overview.md) foram acessadas por essa operação.
 
 Como uma conclusão dessa análise, podemos determinar que a primeira consulta está acessando mais partições do que o necessário. Isso pode ser resolvido especificando-se a chave de particionamento na consulta como um predicado. Isso resultará em menos latência e menos custo por consulta. Saiba mais sobre o [particionamento de grafo](graph-partitioning.md). Uma consulta mais ideal seria `g.V('tt0093640').has('partitionKey', 't1001')` .
 

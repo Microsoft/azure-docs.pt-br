@@ -9,11 +9,11 @@ ms.date: 03/05/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: f4af8a150b062526f08c1d15581ec26e2fe12d8c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87102433"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95992929"
 ---
 - Os instantâneos incrementais atualmente não podem ser movidos entre assinaturas.
 - No momento, você pode gerar apenas URIs SAS de até cinco instantâneos de uma família de instantâneos específica em um determinado momento.

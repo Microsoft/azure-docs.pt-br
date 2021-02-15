@@ -6,6 +6,6 @@
       tocHref: /azure/active-directory/
       topicHref: /azure/active-directory/index
       items:
-        - name: Acesso Condicional
+        - name: Acesso condicional
           tocHref: /azure/active-directory/conditional-access/
           topicHref: /azure/active-directory/authentication/index

@@ -2,20 +2,20 @@
 title: Como desabilitar funções no Azure Functions
 description: Saiba como desabilitar e habilitar funções no Azure Functions.
 ms.topic: conceptual
-ms.date: 04/08/2020
+ms.date: 02/03/2021
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 761a78f050aa25a62075dd7a53836afb48f89cd7
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: cbb84308507ea15f1c44c00122a9a59472f12a88
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213149"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99551036"
 ---
 # <a name="how-to-disable-functions-in-azure-functions"></a>Como desabilitar funções no Azure Functions
 
-Este artigo explica como desabilitar uma função no Azure Functions. *Desabilitar*uma função significa fazer com que o runtime ignore o gatilho automático que está definido para a função. Isso permite impedir que uma função específica seja executada sem interromper todo o aplicativo de funções.
+Este artigo explica como desabilitar uma função no Azure Functions. *Desabilitar* uma função significa fazer com que o runtime ignore o gatilho automático que está definido para a função. Isso permite impedir que uma função específica seja executada sem interromper todo o aplicativo de funções.
 
-A maneira recomendada de desabilitar uma função é usar uma configuração de aplicativo no formato `AzureWebJobs.<FUNCTION_NAME>.Disabled`. Você pode criar e modificar essa configuração de aplicativo de várias maneiras, usando a [CLI do Azure](/cli/azure/) e a partir da guia **Gerenciar** da sua função no [portal do Azure](https://portal.azure.com). 
+A maneira recomendada para desabilitar uma função é com uma configuração de aplicativo no formato `AzureWebJobs.<FUNCTION_NAME>.Disabled` definido como `true` . Você pode criar e modificar essa configuração de aplicativo de várias maneiras, incluindo usando o [CLI do Azure](/cli/azure/) e da guia **visão geral** da função na [portal do Azure](https://portal.azure.com). 
 
 > [!NOTE]  
 > Quando você desabilita uma função disparada por HTTP usando os métodos descritos neste artigo, o ponto de extremidade ainda pode ser acessado se estiver em execução no computador local.  
@@ -40,9 +40,11 @@ az functionapp config appsettings set --name <myFunctionApp> \
 
 ## <a name="use-the-portal"></a>Uso do Portal
 
-Use os botões **Habilitar** e **Desabilitar** na página **Visão geral** da função. Esses botões criam e excluem a configuração de aplicativo `AzureWebJobs.<FUNCTION_NAME>.Disabled`.
+Use os botões **Habilitar** e **Desabilitar** na página **Visão geral** da função. Esses botões funcionam alterando o valor da `AzureWebJobs.<FUNCTION_NAME>.Disabled` configuração do aplicativo. Essa configuração específica de função é criada na primeira vez que ela é desabilitada. 
 
 ![Alternar o estado da Função](media/disable-function/function-state-switch.png)
+
+Mesmo quando você publica em seu aplicativo de funções de um projeto local, ainda é possível usar o portal para desabilitar funções no aplicativo de funções. 
 
 > [!NOTE]  
 > A funcionalidade de teste integrada ao portal ignora a configuração `Disabled`. Isso significa que uma função desabilitada continua sendo executada quando é iniciada na janela **Testar** do portal. 
@@ -68,23 +70,7 @@ Embora o método de configuração de aplicativo seja recomendado para todas as 
 
 ### <a name="c-class-libraries"></a>Biblioteca de Classes C#
 
-Também é possível usar o atributo `Disable` para impedir que a função seja disparada em uma função da biblioteca de classes. Você pode usar o atributo sem um parâmetro de construtor, conforme mostrado no exemplo a seguir:
-
-```csharp
-public static class QueueFunctions
-{
-    [Disable]
-    [FunctionName("QueueTrigger")]
-    public static void QueueTrigger(
-        [QueueTrigger("myqueue-items")] string myQueueItem, 
-        TraceWriter log)
-    {
-        log.Info($"C# function processed: {myQueueItem}");
-    }
-}
-```
-
-O atributo sem parâmetro de construtor exige que você recompilar e reimplanta o projeto para alterar o estado de desabilitado da função. Uma maneira mais flexível para usar o atributo deve incluir um parâmetro de construtor que se refere a uma configuração de aplicativo booliano, conforme mostrado no exemplo a seguir:
+Também é possível usar o atributo `Disable` para impedir que a função seja disparada em uma função da biblioteca de classes. Esse atributo permite que você personalize o nome da configuração usada para desabilitar a função. Use a versão do atributo que permite definir um parâmetro de construtor que se refere a uma configuração de aplicativo booliana, conforme mostrado no exemplo a seguir:
 
 ```csharp
 public static class QueueFunctions
@@ -102,12 +88,7 @@ public static class QueueFunctions
 
 Esse método permite habilitar e desabilitar a função, alterando a configuração de aplicativo, sem recompilar ou reinstalar. Alterar uma configuração de aplicativo faz com que o aplicativo de funções seja reiniciado, portanto, a alteração de estado desabilitado é reconhecida imediatamente.
 
-> [!IMPORTANT]
-> O `Disabled` atributo é a única maneira de desabilitar uma função de biblioteca de classe. Gerado o arquivo *function. JSON* para uma função de biblioteca de classe não se destina a ser editado diretamente. Se você editar esse arquivo, tudo o que faria para a `disabled` propriedade não terá efeito.
->
-> O mesmo vale para o **estado de função** ative a guia **Gerenciar**, assim que funcionar, alterando o arquivo *Function. JSON*.
->
-> Além disso, observe que o portal pode indicar que a função está desabilitada quando não estiver.
+Também há um construtor para o parâmetro que não aceita uma cadeia de caracteres para o nome da configuração. Esta versão do atributo não é recomendada. Se você usar essa versão, deverá recompilar e reimplantar o projeto para alterar o estado de desabilitado da função.
 
 ### <a name="functions-1x---scripting-languages"></a>Functions 1.x - linguagens de script
 
@@ -139,7 +120,7 @@ ou
 No segundo exemplo, a função está desabilitada quando há uma configuração de aplicativo chamada IS_DISABLED e é definida como `true` ou 1.
 
 >[!IMPORTANT]  
->O portal agora usa as configurações de aplicativo para desabilitar as funções v1.x. Pode ocorrer um erro quando uma configuração de aplicativo apresenta um conflito com o arquivo function.json. Remova a propriedade `disabled` do arquivo function.json para evitar erros. 
+>O portal usa as configurações do aplicativo para desabilitar as funções v1. x. Pode ocorrer um erro quando uma configuração de aplicativo apresenta um conflito com o arquivo function.json. Remova a propriedade `disabled` do arquivo function.json para evitar erros. 
 
 
 ## <a name="next-steps"></a>Próximas etapas

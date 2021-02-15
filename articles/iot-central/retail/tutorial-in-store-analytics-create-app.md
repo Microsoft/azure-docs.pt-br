@@ -11,16 +11,14 @@ ms.custom:
 ms.author: timlt
 author: timlt
 ms.date: 11/12/2019
-ms.openlocfilehash: 50dd6038a8642f13cea7840fff723a5cf12ce2dd
-ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
+ms.openlocfilehash: 112039b9227d5ff34e68b6dc6643597f335fbdb5
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80999776"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832225"
 ---
 # <a name="tutorial-create-an-in-store-analytics-application-in-azure-iot-central"></a>Tutorial: Criar um aplicativo de análise na loja no Azure IoT Central
-
-
 
 O tutorial mostra aos criadores de solução como criar um aplicativo de análise na loja do Azure IoT Central. O aplicativo de exemplo é para uma loja de varejo. Trata-se de uma solução para a necessidade comercial comum de monitorar e adaptar-se às condições de ocupação e ambientais.
 
@@ -148,7 +146,7 @@ Para adicionar um modelo de dispositivo RuuviTag a seu aplicativo:
 
 1. Selecione **Avançar: Personalizar**.
 
-    ![Modelo de dispositivo do sensor RuuviTag do Azure IoT Central](./media/tutorial-in-store-analytics-create-app/ruuvitag-device-template.png)
+    ![Captura de tela que realça o botão Avançar: Personalizar.](./media/tutorial-in-store-analytics-create-app/ruuvitag-device-template.png)
 
 1. Selecione **Criar**. O aplicativo adiciona o modelo de dispositivo RuuviTag.
 
@@ -191,7 +189,7 @@ Para o tipo de telemetria `humidity`, faça as seguintes alterações:
 
 1. Selecione **Salvar** para salvar as alterações.
 
-    ![Personalização do modelo de dispositivo RuuviTag do Azure IoT Central](./media/tutorial-in-store-analytics-create-app/ruuvitag-device-template-customize.png)
+    ![Captura de tela que mostra a tela Personalizar e realça o botão Salvar.](./media/tutorial-in-store-analytics-create-app/ruuvitag-device-template-customize.png)
 
 Para adicionar uma propriedade de nuvem a um modelo de dispositivo em seu aplicativo:
 
@@ -276,7 +274,12 @@ Para adicionar uma ação à regra:
 
     Em alguns minutos, a conta de email especificada deve começar a receber emails. O aplicativo envia email sempre que um sensor indica que o nível de umidade excedeu o valor em sua condição.
 
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+[!INCLUDE [iot-central-clean-up-resources](../../../includes/iot-central-clean-up-resources.md)]
+
 ## <a name="next-steps"></a>Próximas etapas
+
 Neste tutorial, você aprendeu a:
 
 * Use o modelo de **Análise na loja – finalização de compra** do Azure IoT Central modelo para criar um aplicativo de loja de varejo

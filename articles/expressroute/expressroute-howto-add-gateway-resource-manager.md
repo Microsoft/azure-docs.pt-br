@@ -1,42 +1,136 @@
 ---
-title: 'Azure ExpressRoute: adicionar um gateway a uma VNet: PowerShell'
-description: Este artigo ensina como adicionar gateway de VNet a uma VNet do Resource Manager já existente do ExpressRoute.
+title: 'Tutorial – Azure ExpressRoute: Adicionar um gateway a uma VNet – Azure PowerShell'
+description: Este tutorial ajuda você a adicionar gateway de VNet a uma VNet do Resource Manager já existente do ExpressRoute usando o Azure PowerShell.
 services: expressroute
-author: charwen
+author: duongau
 ms.service: expressroute
-ms.topic: how-to
-ms.date: 02/21/2019
-ms.author: charwen
+ms.topic: tutorial
+ms.date: 10/05/2020
+ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 58d2949a18bfbf2800ae6ab4ac74b02b05b3eb07
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.openlocfilehash: 9f01961ec7c7f8e0a4e2d72e28e6def50e93ad5d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84736383"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91854300"
 ---
-# <a name="configure-a-virtual-network-gateway-for-expressroute-using-powershell"></a>Configurar um gateway de rede virtual para ExpressRoute usando PowerShell
+# <a name="tutorial-configure-a-virtual-network-gateway-for-expressroute-using-powershell"></a>Tutorial: Configurar um gateway de rede virtual para ExpressRoute usando PowerShell
 > [!div class="op_single_selector"]
 > * [Resource Manager - portal do Azure](expressroute-howto-add-gateway-portal-resource-manager.md)
 > * [Resource Manager - PowerShell](expressroute-howto-add-gateway-resource-manager.md)
 > * [Clássico - PowerShell](expressroute-howto-add-gateway-classic.md)
 > * [Vídeo – Portal do Azure](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-vpn-gateway-for-your-virtual-network)
 > 
-> 
 
-Este artigo ensina como adicionar, redimensionar e remover um gateway de VNet (rede virtual) para uma rede virtual já existente. As etapas para essa configuração se aplicam ao VNets que foram criados usando o modelo de implantação do Gerenciador de recursos para uma configuração do ExpressRoute. Para obter mais informações, confira [Sobre os gateways de rede virtual para ExpressRoute](expressroute-about-virtual-network-gateways.md).
+Este tutorial ensina a adicionar, redimensionar e remover um gateway de VNet (rede virtual) para uma rede virtual já existente. As etapas para essa configuração se aplicam a VNets criadas usando o modelo de implantação do Resource Manager em uma configuração do ExpressRoute. Para obter mais informações, confira [Sobre os gateways de rede virtual para ExpressRoute](expressroute-about-virtual-network-gateways.md).
 
-## <a name="before-beginning"></a>Antes de começar
+Neste tutorial, você aprenderá como:
+> [!div class="checklist"]
+> - Criar uma sub-rede de gateway.
+> - Criar gateway de rede virtual.
 
-### <a name="working-with-powershell"></a>Trabalhando com o PowerShell
-
-[!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
-
-[!INCLUDE [working with cloud shell](../../includes/expressroute-cloudshell-powershell-about.md)]
+## <a name="prerequisites"></a>Pré-requisitos
 
 ### <a name="configuration-reference-list"></a>Lista de referência de configuração
 
-[!INCLUDE [expressroute-gateway-rm-ps](../../includes/expressroute-gateway-rm-ps-include.md)]
+As etapas para essa tarefa usam uma VNet com base nos valores na lista de referência de configuração a seguir. Nomes e configurações adicionais também são descritos nesta lista. Não usamos essa lista diretamente em nenhuma uma das etapas, embora adicionemos variáveis com base nos valores contidos nessa lista. É possível fazer uma cópia da lista para usá-la como referência, substituindo os valores pelos seus próprios.
+
+| Configuração                   | Valor                                              |
+| ---                       | ---                                                |
+| Nome da VNET | *TestVNet* |    
+| Espaço de endereço da rede virtual | *192.168.0.0/16* |
+| Grupo de recursos | *TestRG* |
+| Nome da sub-rede 1 | *FrontEnd* |   
+| Espaço de endereço da sub-rede 1 | *192.168.1.0/24* |
+| Nome da sub-rede 1 | *FrontEnd* |
+| Nome da sub-rede do gateway | *GatewaySubnet* |    
+| Espaço de endereço da sub-rede do gateway | *192.168.200.0/26* |
+| Região | *Leste dos EUA* |
+| Nome do Gateway | *GW* |   
+| Nome do IP do gateway | *GWIP* |
+| Nome de configuração de IP do gateway | *gwipconf* |
+| Type | *ExpressRoute* |
+| Nome do IP público do gateway  | *gwpip* |
+
+## <a name="add-a-gateway"></a>Adicionar um gateway
+
+1. Para se conectar com o Azure, execute `Connect-AzAccount`.
+
+1. Declare as variáveis para este exercício. Lembre-se de editar o exemplo para que elas reflitam as configurações que deseja usar.
+
+   ```azurepowershell-interactive 
+   $RG = "TestRG"
+   $Location = "East US"
+   $GWName = "GW"
+   $GWIPName = "GWIP"
+   $GWIPconfName = "gwipconf"
+   $VNetName = "TestVNet"
+   ```
+1. Armazene o objeto de rede virtual como uma variável.
+
+   ```azurepowershell-interactive
+   $vnet = Get-AzVirtualNetwork -Name $VNetName -ResourceGroupName $RG
+   ```
+1. Adicione uma sub-rede de gateway à sua Rede Virtual. A sub-rede de gateway deve ser nomeada “GatewaySubnet”. A sub-rede do gateway precisa ser /27 ou maior (/26, /25 e assim por diante).
+
+   ```azurepowershell-interactive
+   Add-AzVirtualNetworkSubnetConfig -Name GatewaySubnet -VirtualNetwork $vnet -AddressPrefix 192.168.200.0/26
+   ```
+1. Defina a configuração.
+
+   ```azurepowershell-interactive
+   $vnet = Set-AzVirtualNetwork -VirtualNetwork $vnet
+   ```
+1. Armazene a sub-rede de gateway como uma variável.
+
+   ```azurepowershell-interactive
+   $subnet = Get-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork $vnet
+   ```
+1. Solicite um endereço IP público. O endereço IP é solicitado antes da criação do gateway. Não é possível especificar o endereço IP que você deseja usar; ele é atribuído dinamicamente. Você usará esse endereço IP na próxima seção de configuração. O AllocationMethod deve ser Dynamic.
+
+   ```azurepowershell-interactive
+   $pip = New-AzPublicIpAddress -Name $GWIPName  -ResourceGroupName $RG -Location $Location -AllocationMethod Dynamic
+   ```
+1. Crie a configuração de seu gateway. A configuração do gateway define a sub-rede e o endereço IP público a serem usados. Nesta etapa, você especificará a configuração que será usada quando o gateway for criado. Use o exemplo a seguir para criar a configuração do gateway.
+
+   ```azurepowershell-interactive
+   $ipconf = New-AzVirtualNetworkGatewayIpConfig -Name $GWIPconfName -Subnet $subnet -PublicIpAddress $pip
+   ```
+1. Crie o gateway. Nesta etapa, o **-GatewayType** é especialmente importante. É necessário usar o valor **ExpressRoute**. Observe que, depois de executar esses cmdlets, o gateway pode levar 45 minutos ou mais para ser criado.
+
+   ```azurepowershell-interactive
+   New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG -Location $Location -IpConfigurations $ipconf -GatewayType Expressroute -GatewaySku Standard
+   ```
+
+## <a name="verify-the-gateway-was-created"></a>Verificar se o gateway foi criado
+Use os comandos a seguir para verificar se o gateway foi criado:
+
+```azurepowershell-interactive
+Get-AzVirtualNetworkGateway -ResourceGroupName $RG
+```
+
+## <a name="resize-a-gateway"></a>Redimensionar um gateway
+Há uma série de [SKUs de Gateway](expressroute-about-virtual-network-gateways.md). Você pode usar o comando a seguir para alterar a SKU de gateway a qualquer momento.
+
+> [!IMPORTANT]
+> Esse comando não funciona para o gateway UltraPerformance. Para alterar o gateway para um gateway UltraPerformance, primeiro remova o gateway do ExpressRoute existente e crie um novo gateway UltraPerformance. Para fazer downgrade do gateway de um gateway UltraPerformance, primeiro remova o gateway UltraPerformance e crie um novo gateway.
+> 
+
+```azurepowershell-interactive
+$gw = Get-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG
+Resize-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku HighPerformance
+```
+
+## <a name="clean-up-resources"></a>Limpar os recursos
+Use o seguinte comando para remover o gateway:
+
+```azurepowershell-interactive
+Remove-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG
+```
 
 ## <a name="next-steps"></a>Próximas etapas
-Depois de criar o gateway de VNet, é possível vincular sua VNet a um circuito do ExpressRoute. Consulte [Vincular uma Rede Virtual a um circuito do ExpressRoute](expressroute-howto-linkvnet-arm.md).
+Depois de criar o gateway de VNet, é possível vincular sua VNet a um circuito do ExpressRoute. 
+
+> [!div class="nextstepaction"]
+> [Vincular uma rede virtual a um circuito de ExpressRoute](expressroute-howto-linkvnet-arm.md)

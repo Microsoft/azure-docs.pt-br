@@ -1,14 +1,14 @@
 ---
 title: Remover o acesso a uma delegação
 description: Saiba como remover o acesso a recursos que foram delegados a um provedor de serviços para o Azure Lighthouse.
-ms.date: 08/12/2020
+ms.date: 12/03/2020
 ms.topic: how-to
-ms.openlocfilehash: 72a2c49dde8cccfcc298d4128384a10bb7e8840f
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 7218c8829c9b2500e8311fbb3d5e9ff4eb986529
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167209"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791349"
 ---
 # <a name="remove-access-to-a-delegation"></a>Remover o acesso a uma delegação
 
@@ -41,7 +41,7 @@ O exemplo a seguir mostra uma atribuição que concede a **função de exclusão
     ] 
 ```
 
-Essa função também pode ser selecionada em uma **autorização** ao [criar uma oferta de serviço gerenciado](../../marketplace/partner-center-portal/create-new-managed-service-offer.md#authorization) para publicar no Azure Marketplace.
+Essa função também pode ser selecionada em uma **autorização** ao [criar uma oferta de serviço gerenciado](../../marketplace/plan-managed-service-offer.md) para publicar no Azure Marketplace.
 
 Um usuário com essa permissão pode remover uma delegação de uma das maneiras a seguir.
 
@@ -99,3 +99,4 @@ az managedservices assignment delete --assignment <id or full resourceId>
 
 - Saiba mais sobre o [Gerenciamento de recursos delegados do Azure](../concepts/azure-delegated-resource-management.md).
 - [Exiba e gerencie clientes](view-manage-customers.md) acessando **Meus clientes** no portal do Azure.
+- Saiba como [atualizar uma delegação anterior](update-delegation.md).

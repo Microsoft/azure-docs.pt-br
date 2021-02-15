@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/30/2020
 ms.author: glenga
 ms.openlocfilehash: f89383c1b7d0ccce82f35d91acbe1ff8c902db29
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84448896"
 ---
 ::: zone pivot="programming-language-python"  

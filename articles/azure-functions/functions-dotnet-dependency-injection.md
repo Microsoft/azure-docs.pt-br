@@ -4,15 +4,15 @@ description: Saiba como usar a injeção de dependência para registrar e usar s
 author: ggailey777
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.date: 08/15/2020
+ms.date: 01/27/2021
 ms.author: glenga
 ms.reviewer: jehollan
-ms.openlocfilehash: 6fe6079ca4cdf76757088cbdc00dd1af3c2225ea
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 66e2cd22f4bcb95be65d6d04345dcac622436a04
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88642360"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955081"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Usar injeção de dependência no .NET do Azure Functions
 
@@ -29,6 +29,8 @@ Antes de poder usar a injeção de dependência, você precisa instalar os segui
 - [Microsoft.Azure.Functions.Extensions](https://www.nuget.org/packages/Microsoft.Azure.Functions.Extensions/)
 
 - Pacote [Microsoft.NET.Sdk.Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/) versão 1.0.28 ou posterior
+
+- [Microsoft. Extensions. DependencyInjection](https://www.nuget.org/packages/Microsoft.Extensions.DependencyInjection/) (atualmente, somente a versão 3. x e versões anteriores têm suporte)
 
 ## <a name="register-services"></a>Serviços de registro
 
@@ -92,7 +94,7 @@ namespace MyNamespace
         private readonly HttpClient _client;
         private readonly IMyService _service;
 
-        public MyHttpTrigger(HttpClient httpClient, MyService service)
+        public MyHttpTrigger(HttpClient httpClient, IMyService service)
         {
             this._client = httpClient;
             this._service = service;
@@ -118,8 +120,8 @@ Este exemplo usa o pacote [Microsoft.Extensions.Http](https://www.nuget.org/pack
 
 Os aplicativos do Azure Functions oferecem os mesmos tempos de vida de serviço que a [injeção de dependência do ASP.NET](/aspnet/core/fundamentals/dependency-injection#service-lifetimes). Para um aplicativo do Functions, tempos de vida de serviço diferentes se comportam da seguinte maneira:
 
-- **Transitório**: Os serviços transitórios são criados após cada solicitação do serviço.
-- **Com escopo**: O tempo de vida do serviço com escopo corresponde a um tempo de vida de execução de função. Serviços com escopo são criados uma vez por execução. Solicitações posteriores para esse serviço durante a execução reutilizam a instância de serviço existente.
+- **Transitório**: os serviços transitórios são criados após cada resolução do serviço.
+- **Com escopo**: O tempo de vida do serviço com escopo corresponde a um tempo de vida de execução de função. Os serviços com escopo são criados uma vez por execução de função. Solicitações posteriores para esse serviço durante a execução reutilizam a instância de serviço existente.
 - **Singleton**: O tempo de vida do serviço singleton corresponde ao tempo de vida do host e é reutilizado em execuções de função nessa instância. Os serviços de vida útil singleton são recomendados para conexões e clientes, por exemplo `DocumentClient` ou instâncias `HttpClient`.
 
 Veja ou baixe um [exemplo de tempos de vida de serviço diferentes](https://github.com/Azure/azure-functions-dotnet-extensions/tree/main/src/samples/DependencyInjection/Scopes) no GitHub.
@@ -131,8 +133,8 @@ Se você precisar de seu próprio provedor de log, registre um tipo personalizad
 O Application Insights é adicionado automaticamente pelo Azure Functions.
 
 > [!WARNING]
-> - Não adicione `AddApplicationInsightsTelemetry()` à coleção de serviços porque ele registra os serviços que entram em conflito com os serviços fornecidos pelo ambiente.
-> - Não registre seu próprio `TelemetryConfiguration` ou `TelemetryClient` se você estiver usando a funcionalidade interna do Application Insights. Se você precisar configurar sua própria instância `TelemetryClient`, crie uma por meio de `TelemetryConfiguration` injetado, como mostrado em [Monitorar Azure Functions](./functions-monitoring.md#version-2x-and-later-2).
+> - Não adicione `AddApplicationInsightsTelemetry()` à coleção de serviços, que registra serviços que entram em conflito com os serviços fornecidos pelo ambiente.
+> - Não Registre seu próprio `TelemetryConfiguration` ou `TelemetryClient` se você estiver usando a funcionalidade interna de Application insights. Se você precisar configurar sua própria `TelemetryClient` instância, crie uma por meio do injetado `TelemetryConfiguration` conforme mostrado em [log telemetria personalizada em funções C#](functions-dotnet-class-library.md?tabs=v2%2Ccmd#log-custom-telemetry-in-c-functions).
 
 ### <a name="iloggert-and-iloggerfactory"></a>ILogger<T> e ILoggerFactory
 
@@ -170,9 +172,9 @@ O arquivo de exemplo a seguir `host.json` adiciona o filtro de log.
     "version": "2.0",
     "logging": {
         "applicationInsights": {
-            "samplingExcludedTypes": "Request",
             "samplingSettings": {
-                "isEnabled": true
+                "isEnabled": true,
+                "excludedTypes": "Request"
             }
         },
         "logLevel": {
@@ -181,6 +183,8 @@ O arquivo de exemplo a seguir `host.json` adiciona o filtro de log.
     }
 }
 ```
+
+Para obter mais informações sobre os níveis de log, consulte [configurar níveis de log](configure-monitoring.md#configure-log-levels).
 
 ## <a name="function-app-provided-services"></a>Serviços oferecidos pelo aplicativo de funções
 
@@ -253,7 +257,25 @@ public class HttpTrigger
 
 Consulte o [padrão de opções no ASP.NET Core](/aspnet/core/fundamentals/configuration/options) para mais informações com relação ao trabalho com opções.
 
-### <a name="customizing-configuration-sources"></a>Personalizando fontes de configuração
+## <a name="using-aspnet-core-user-secrets"></a>Usando os segredos do usuário ASP.NET Core
+
+Ao desenvolver localmente, ASP.NET Core fornece uma [ferramenta de Gerenciador de segredo](/aspnet/core/security/app-secrets#secret-manager) que permite armazenar informações secretas fora da raiz do projeto. Isso torna menos provável que os segredos sejam acidentalmente confirmados no controle do código-fonte. Azure Functions Core Tools (versão 3.0.3233 ou posterior) lê automaticamente os segredos criados pelo ASP.NET Core Gerenciador de segredo.
+
+Para configurar um projeto do .NET Azure Functions para usar os segredos do usuário, execute o seguinte comando na raiz do projeto.
+
+```bash
+dotnet user-secrets init
+```
+
+Em seguida, use o `dotnet user-secrets set` comando para criar ou atualizar segredos.
+
+```bash
+dotnet user-secrets set MySecret "my secret value"
+```
+
+Para acessar valores de segredos de usuário no código do aplicativo de funções, use `IConfiguration` ou `IOptions` .
+
+## <a name="customizing-configuration-sources"></a>Personalizando fontes de configuração
 
 > [!NOTE]
 > A personalização da fonte de configuração está disponível a partir do Azure Functions versões do host 2.0.14192.0 e 3.0.14191.0.
@@ -280,13 +302,14 @@ namespace MyNamespace
 
             builder.ConfigurationBuilder
                 .AddJsonFile(Path.Combine(context.ApplicationRootPath, "appsettings.json"), optional: true, reloadOnChange: false)
-                .AddJsonFile(Path.Combine(context.ApplicationRootPath, $"appsettings.{context.EnvironmentName}.json"), optional: true, reloadOnChange: false);
+                .AddJsonFile(Path.Combine(context.ApplicationRootPath, $"appsettings.{context.EnvironmentName}.json"), optional: true, reloadOnChange: false)
+                .AddEnvironmentVariables();
         }
     }
 }
 ```
 
-Adicione provedores de configuração à `ConfigurationBuilder` propriedade de `IFunctionsConfigurationBuilder` . Para obter mais informações sobre como usar provedores de configuração, consulte [Configuration in ASP.NET Core](/aspnet/core/fundamentals/configuration/?view=aspnetcore-3.1#configuration-providers).
+Adicione provedores de configuração à `ConfigurationBuilder` propriedade de `IFunctionsConfigurationBuilder` . Para obter mais informações sobre como usar provedores de configuração, consulte [Configuration in ASP.NET Core](/aspnet/core/fundamentals/configuration/#configuration-providers).
 
 Um `FunctionsHostBuilderContext` é obtido do `IFunctionsConfigurationBuilder.GetContext()` . Use este contexto para recuperar o nome do ambiente atual e resolver o local dos arquivos de configuração em sua pasta de aplicativo de funções.
 

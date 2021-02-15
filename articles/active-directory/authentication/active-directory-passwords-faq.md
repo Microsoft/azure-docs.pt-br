@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 07/20/2020
-ms.author: iainfou
-author: iainfoulds
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e210a11dbcde17c8a5dfd16c46c0d3b3d5c6523
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 0874f6aeb74b028e92e10d972757cc5971735e39
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88716326"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96744305"
 ---
 # <a name="self-service-password-reset-frequently-asked-questions"></a>Perguntas frequentes sobre redefinição de senha de autoatendimento
 
@@ -38,7 +38,7 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
 
   > **R:** Sim. Desde que a redefinição de senha esteja habilitada e eles sejam licenciados, os usuários podem ir para o portal de registro de redefinição de senha (https://aka.ms/ssprsetup) ) para registrar as informações de autenticação. Os usuários também podem registrar por meio do painel de acesso (https://myapps.microsoft.com) ). Para registrar-se por meio do Painel de Acesso, eles precisam selecionar a imagem do perfil, selecionar **Perfil** e, em seguida, selecionar a opção **Registrar-se para redefinição de senha**.
   >
-  > Se você habilitar o [registro combinado](concept-registration-mfa-sspr-combined.md), os usuários poderão se registrar para o SSPR e a autenticação multifator do Azure ao mesmo tempo.
+  > Se você habilitar o [registro combinado](concept-registration-mfa-sspr-combined.md), os usuários poderão se registrar para o SSPR e a autenticação multifator do Azure AD ao mesmo tempo.
 * **P:  Se eu habilitar a redefinição de senha para um grupo e, em seguida, decidir habilitá-la para todos, os usuários deverão se registrar novamente?**
 
   > **R:** Não. Os usuários que possuem dados de autenticação populados não devem se registrar novamente.
@@ -104,7 +104,7 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
   > * Verifique se os dados de autenticação no diretório estão formatados corretamente, por exemplo, +1 4255551234 ou *user\@contoso.com*. 
 * **P:  Quais idiomas são compatíveis com a redefinição de senha?**
 
-  > **R:** A interface do usuário, as mensagens SMS e as chamadas de voz da redefinição de senha estão localizadas nos mesmos idiomas compatíveis com o Office 365.
+  > **R:** A interface do usuário de redefinição de senha, as mensagens SMS e as chamadas de voz são localizadas nos mesmos idiomas com suporte no Microsoft 365.
   >
   >
 * **P:  Quais partes da experiência de redefinição de senha recebem identidade visual quando defino os itens de identidade visual organizacional na guia Configurar do meu diretório?**
@@ -263,7 +263,7 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
   >
 * **P:  O write-back de senha funciona com quais tipos de conta?**
 
-  > **R:** O write-back de senha funciona com contas de usuário sincronizadas do Active Directory local para o Azure AD, incluindo usuários federados, sincronizados com hash de senha e de autenticação de passagem.
+  > **R:** O Write-back de senha funciona para contas de usuário que são sincronizadas do Active Directory local para o Azure AD, incluindo usuários federados, sincronizados com hash de senha e Pass-Through autenticação.
   >
   >
 * **P:  O write-back de senha impõe as políticas de senha do meu domínio?**
@@ -289,4 +289,4 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
 * [O que é o write-back de senha e por que devo me importar com isso?](./tutorial-enable-sspr-writeback.md)
 * [Como faço para informar sobre a atividade no SSPR?](howto-sspr-reporting.md)
 * [Quais são todas as opções no SSPR e o que elas significam?](concept-sspr-howitworks.md)
-* [Acho que algo não está funcionando. Como faço para solucionar o problema no SSPR?](active-directory-passwords-troubleshoot.md)
+* [Acho que algo não está funcionando. Como faço para solucionar o problema no SSPR?](./troubleshoot-sspr.md)

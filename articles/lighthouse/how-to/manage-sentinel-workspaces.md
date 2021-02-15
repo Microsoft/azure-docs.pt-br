@@ -1,14 +1,14 @@
 ---
 title: Gerenciar espaços de trabalho do Azure Sentinel em escala
 description: Saiba como gerenciar efetivamente o Azure Sentinel em recursos de clientes delegados.
-ms.date: 08/27/2020
+ms.date: 09/30/2020
 ms.topic: how-to
-ms.openlocfilehash: 328c55afc141a7f2efd85104453342b62eae0bb2
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 91e2f875aa2fc067420c0c6eda4e7dd56bd2b088
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89050804"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424101"
 ---
 # <a name="manage-azure-sentinel-workspaces-at-scale"></a>Gerenciar espaços de trabalho do Azure Sentinel em escala
 
@@ -36,7 +36,10 @@ Esse modelo centralizado de implantação tem as seguintes vantagens:
 - Reduz a latência de rede.
 - Fácil de adicionar ou remover novas subsidiárias ou clientes.
 
-## <a name="granular-role-based-access-control-rbac"></a>RBAC (controle de acesso baseado em função) granular
+> [!NOTE]
+> Você pode gerenciar recursos delegados que estão localizados em [regiões](../../availability-zones/az-overview.md#regions)diferentes. No entanto, a delegação de assinaturas em uma [nuvem nacional](../../active-directory/develop/authentication-national-cloud.md) e na nuvem pública do Azure ou em duas nuvens nacionais separadas não tem suporte.
+
+## <a name="granular-azure-role-based-access-control-azure-rbac"></a>Controle de acesso baseado em função do Azure granular (RBAC do Azure)
 
 Cada assinatura de cliente que um MSSP gerenciará deve ser [integrada ao Azure Lighthouse](onboard-customer.md). Isso permite que usuários designados no locatário de gerenciamento acessem e realizem operações de gerenciamento em espaços de trabalho do Azure Sentinel implantados em locatários do cliente.
 
@@ -65,7 +68,7 @@ Os [Guias estratégicos](../../sentinel/tutorial-respond-threats-playbook.md) po
 
 [Azure monitor pastas de trabalho no Azure Sentinel](../../sentinel/overview.md#workbooks) o ajudam a visualizar e monitorar dados de suas fontes de dados conectadas para obter informações. Você pode usar os modelos de pasta de trabalho internos no Azure Sentinel ou criar pastas de trabalho personalizadas para seus cenários.
 
-Você pode implantar pastas de trabalho no seu locatário de gerenciamento e criar painéis em escala para monitorar e consultar dados entre locatários do cliente. Para obter mais informações, consulte [monitoramento entre espaços de trabalho](../../sentinel/extend-sentinel-across-workspaces-tenants.md#using-cross-workspace-workbooks). Observe que alguns recursos [não têm suporte em vários espaços de trabalho](../../sentinel/extend-sentinel-across-workspaces-tenants.md#whats-not-supported-across-workspaces).
+Você pode implantar pastas de trabalho no seu locatário de gerenciamento e criar painéis em escala para monitorar e consultar dados entre locatários do cliente. Para obter mais informações, consulte [monitoramento entre espaços de trabalho](../../sentinel/extend-sentinel-across-workspaces-tenants.md#using-cross-workspace-workbooks). 
 
 Você também pode implantar pastas de trabalho diretamente em um locatário individual que você gerencia para cenários específicos para esse cliente.
 
@@ -76,8 +79,6 @@ Crie e salve Log Analytics consultas para detecção de ameaças de forma centra
 ## <a name="use-automation-for-cross-workspace-management"></a>Usar a automação para gerenciamento entre espaços de trabalho
 
 Você pode usar a automação para gerenciar vários espaços de trabalho do Azure Sentinel e configurar [consultas de busca](../../sentinel/hunting.md), guias estratégicos e pastas de trabalho. Para obter mais informações, consulte [gerenciamento entre espaços de trabalho usando automação](../../sentinel/extend-sentinel-across-workspaces-tenants.md#cross-workspace-management-using-automation).
-
-Observe que alguns recursos [não têm suporte no momento em vários espaços de trabalho](../../sentinel/extend-sentinel-across-workspaces-tenants.md#whats-not-supported-across-workspaces).
 
 ## <a name="manage-security-of-office-365-environments"></a>Gerenciar a segurança dos ambientes do Office 365
 

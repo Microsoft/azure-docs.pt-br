@@ -3,12 +3,12 @@ title: Configurar pontos de extremidade de nó no pool do Lote do Azure
 description: Como configurar ou desabilitar o acesso a portas SSH ou RDP em nós de computação em um pool do Lote do Azure.
 ms.topic: how-to
 ms.date: 02/13/2018
-ms.openlocfilehash: 1713637a9aba937525e64e1c4146589fca443461
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: 4e7df7da539be75ef1befdff4b4e1fe5244c1702
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83780300"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92109299"
 ---
 # <a name="configure-or-disable-remote-access-to-compute-nodes-in-an-azure-batch-pool"></a>Configurar ou desabilitar o acesso remoto a nós de computação em um pool do Lote do Azure
 
@@ -19,7 +19,7 @@ Em seu ambiente, talvez seja necessário restringir ou desabilitar essas configu
 ## <a name="about-the-pool-endpoint-configuration"></a>Sobre a configuração de ponto de extremidade do pool
 A configuração de ponto de extremidade consiste em um ou mais [pools de NAT (Conversão de Endereços de Rede)](/rest/api/batchservice/pool/add#inboundnatpool) de portas de front-end. (Não confunda um pool de NAT com o pool de Lote de nós de computação.) Você pode configurar cada pool de NAT para substituir as configurações de conexão padrão nos nós de computação do pool. 
 
-Cada configuração de pool de NAT inclui uma ou mais [Regras de NSG (Grupo de Segurança de Rede)](/rest/api/batchservice/pool/add#networksecuritygrouprule). Cada regra de NSG permite ou nega determinado tráfego de rede para o ponto de extremidade. Você pode optar por permitir ou negar todo o tráfego, o tráfego identificado por uma [marca de serviço](../virtual-network/security-overview.md#service-tags) (como "Internet") ou o tráfego de endereços IP ou sub-redes específicas.
+Cada configuração de pool de NAT inclui uma ou mais [Regras de NSG (Grupo de Segurança de Rede)](/rest/api/batchservice/pool/add#networksecuritygrouprule). Cada regra de NSG permite ou nega determinado tráfego de rede para o ponto de extremidade. Você pode optar por permitir ou negar todo o tráfego, o tráfego identificado por uma [marca de serviço](../virtual-network/network-security-groups-overview.md#service-tags) (como "Internet") ou o tráfego de endereços IP ou sub-redes específicas.
 
 ### <a name="considerations"></a>Considerações
 * A configuração de ponto de extremidade do pool é parte da [configuração de rede](/rest/api/batchservice/pool/add#networkconfiguration) do pool. A configuração de rede, opcionalmente, pode incluir configurações para ingressar o pool em uma [rede virtual do Azure](batch-virtual-network.md). Se você configurar o pool em uma rede virtual, poderá criar regras de NSG que usarão configurações de endereço na rede virtual.
@@ -121,4 +121,4 @@ pool.network_configuration = batchmodels.NetworkConfiguration(
 ## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre o [Fluxo de trabalho e recursos primários do serviço de lote](batch-service-workflow-features.md) como pools, nós, trabalhos e tarefas.
-- Para obter mais informações sobre regras de NSG no Azure, veja [Filtrar o tráfego de rede com grupos de segurança de rede](../virtual-network/security-overview.md).
+- Para obter mais informações sobre regras de NSG no Azure, veja [Filtrar o tráfego de rede com grupos de segurança de rede](../virtual-network/network-security-groups-overview.md).

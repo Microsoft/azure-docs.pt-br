@@ -1,26 +1,26 @@
 ---
 title: 'Azure ExpressRoute: redefinir emparelhamento de circuito'
-description: Saiba como desabilitar e habilitar emparelhamentos de um circuito do Azure ExpressRoute usando Azure PowerShell. Quando você configura emparelhamentos, eles são habilitados por padrão.
+description: Saiba como habilitar e desabilitar emparelhamentos para um circuito do Azure ExpressRoute usando Azure PowerShell.
 services: expressroute
 author: charwen
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 01/13/2018
-ms.author: charwen
-ms.openlocfilehash: e576fe2f08d54d2642603e3b7974e00feec8ce93
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.date: 12/15/2020
+ms.author: duau
+ms.openlocfilehash: 0bde96ae5f4a9aff6f4a16a4f1544d9b39e5cb66
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192176"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97559566"
 ---
 # <a name="reset-expressroute-circuit-peerings"></a>Redefinir emparelhamentos de circuitos do ExpressRoute
 
-Este artigo descreve como desabilitar e habilitar peerings de um circuito da Rota Expressa usando o PowerShell. Quando você desativa um emparelhamento, a sessão do BGP na conexão principal e na conexão secundária do circuito da ExpressRoute será encerrada. Você perderá conectividade por meio desse peering para a Microsoft. Quando você ativa um emparelhamento, a sessão do BGP na conexão principal e na conexão secundária do circuito da ExpressRoute será ativada. Você vai recuperar a conectividade através deste peering para a Microsoft. Você pode habilitar e desabilitar o Microsoft Peering e o Azure Private Peering em um circuito do ExpressRoute de forma independente. Quando você configura primeiro os peerings em seu circuito da Rota Expressa, os peerings são ativados por padrão.
+Este artigo descreve como habilitar e desabilitar emparelhamentos de um circuito do ExpressRoute usando o PowerShell. Os emparelhamentos são habilitados por padrão quando você os cria. Quando você desabilita um emparelhamento, a sessão BGP nas conexões primária e secundária do circuito do ExpressRoute será desligada. Você perderá a conectividade para esse emparelhamento para a Microsoft. Quando você habilita um emparelhamento, a sessão BGP na conexão primária e secundária do circuito do ExpressRoute será estabelecida. A conectividade com a Microsoft será restaurada para esse emparelhamento. Você pode habilitar e desabilitar o emparelhamento para o emparelhamento da Microsoft e o emparelhamento privado do Azure de forma independente no circuito do ExpressRoute.
 
-Há alguns cenários em que você pode achar útil redefinir seus peerings da ExpressRoute.
-* Teste seu design de recuperação de desastres e implementação. Por exemplo, você tem dois circuitos ExpressRoute. Você pode desabilitar os peerings de um circuito e forçar o tráfego de sua rede a falhar no outro circuito.
-* Habilite a detecção de encaminhamento bidirecional (BFD) no emparelhamento privado do Azure ou no emparelhamento da Microsoft do circuito do ExpressRoute. O BFD será habilitado por padrão no emparelhamento privado do Azure se o circuito do ExpressRoute for criado após 1 2018 de agosto e no emparelhamento da Microsoft se o circuito do ExpressRoute for criado após 10 2020 de Janeiro. Se o circuito foi criado antes dessa, BFD não foi habilitado. Você pode habilitar BFD desabilitando o emparelhamento e reabilitando a ele. 
+Há dois cenários em que você pode achar útil redefinir os emparelhamentos do ExpressRoute.
+* Se você quiser testar o design e a implementação da recuperação de desastres. Por exemplo, você tem dois circuitos ExpressRoute. Você pode desabilitar os emparelhamentos em um circuito e forçar o failover do tráfego de rede para o outro circuito.
+* Habilite a detecção de encaminhamento bidirecional (BFD) no emparelhamento privado do Azure ou no emparelhamento da Microsoft do circuito do ExpressRoute. O BFD é habilitado por padrão no emparelhamento privado do Azure se você criou o circuito do ExpressRoute após 1º de agosto de 2018 e para o emparelhamento da Microsoft após 10 de janeiro de 2020. Se o circuito foi criado antes da data listada, você precisará redefinir o emparelhamento para habilitar BFD. 
 
 ### <a name="working-with-azure-powershell"></a>Trabalhando com o Azure PowerShell
 
@@ -142,6 +142,6 @@ Há alguns cenários em que você pode achar útil redefinir seus peerings da Ex
    O emparelhamento deve estar em um estado que você definir. 
 
 ## <a name="next-steps"></a>Próximas etapas
-Se você precisar de ajuda para solucionar um problema do ExpressRoute, confira os seguintes artigos:
+Se precisar de ajuda para solucionar um problema de ExpressRoute, consulte os seguintes artigos:
 * [Verificando a conectividade do ExpressRoute](expressroute-troubleshooting-expressroute-overview.md)
 * [Solucionando problemas de desempenho de rede](expressroute-troubleshooting-network-performance.md)

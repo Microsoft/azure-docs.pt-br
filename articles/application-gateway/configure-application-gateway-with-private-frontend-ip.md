@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 04/16/2020
 ms.author: victorh
-ms.openlocfilehash: c7a0022c5cff405a993f30cdf2ab5900485c84a1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 64dfe284772faf2a345b7959f1a1bd6f474cd1bf
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84808123"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "90562478"
 ---
 # <a name="configure-an-application-gateway-with-an-internal-load-balancer-ilb-endpoint"></a>Configurar um gateway de aplicativo com um ponto de extremidade de ILB (balanceador de carga interno)
 
@@ -73,7 +73,7 @@ Para que o Azure se comunique entre os recursos que você cria, ele precisa de u
 24. Para **porta de back-end**, digite *80*.
 25. Aceite os padrões restantes e selecione **Adicionar**.
 26. Na página **Adicionar uma regra de roteamento** , selecione **Adicionar**.
-27. Selecione **Avançar: marcas**.
+27. Selecione **Avançar: Marcas**.
 28. Selecione **Avançar: Revisar + criar**.
 29. Examine as configurações na página Resumo e, em seguida, selecione **criar** para criar os recursos de rede e o gateway de aplicativo. Pode levar vários minutos para criar o gateway de aplicativo. Aguarde até que a implantação seja concluída com êxito antes de passar para a próxima seção.
 
@@ -90,7 +90,7 @@ Para fazer isto:
 ### <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
 
 1. Selecione **Criar um recurso**.
-2. Selecione **computação** e, em seguida, selecione **máquina virtual**.
+2. Selecione **Computação** e **Máquina virtual**.
 4. Insira esses valores para a máquina virtual:
    - Selecione *myResourceGroupAG* para o **grupo de recursos**.
    - *myVM* – para o **nome da máquina virtual**.
@@ -103,14 +103,14 @@ Para fazer isto:
 8. Aceite os padrões restantes e selecione **Avançar: gerenciamento**.
 9. Selecione **Desligar** para desabilitar o diagnóstico de inicialização.
 10. Aceite os padrões restantes e selecione **Avançar: avançado**.
-11. Selecione **Avançar: marcas**.
+11. Selecione **Avançar: Marcas**.
 12. Selecione **Avançar: revisar + criar**.
 13. Examine as configurações na página de resumo e, em seguida, selecione **Criar**. Pode levar vários minutos para criar a VM. Aguarde até que a implantação seja concluída com êxito antes de passar para a próxima seção.
 
 ### <a name="install-iis"></a>Instalar o IIS
 
 1. Abra o Cloud Shell e verifique se ele está definido como **PowerShell**.
-    ![privado-frontendip-3](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-3.png)
+    ![Captura de tela mostra uma janela aberta Azure Cloud Shell console que usa o PowerShell.](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-3.png)
 2. Execute o comando a seguir para instalar o IIS na máquina virtual:
 
    ```azurepowershell
@@ -142,15 +142,15 @@ Para fazer isto:
 
 1. Selecione **Todos os recursos** e, em seguida, **myAppGateway**.
 2. Selecione **Pools de back-end**. Selecione **appGatewayBackendPool**.
-3. Em **tipo de destino** , selecione **máquina virtual** e, em **destino**, selecione o vNIC associado a myVM.
+3. Em **tipo de destino** , selecione **máquina virtual**  e, em **destino**, selecione o vNIC associado a myVM.
 4. Repita para adicionar MyVM2.
-   ![privado-frontendip-4](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-4.png)
+   ![Captura de tela mostra o painel Editar pool de back-end com tipos de destino e destinos realçados.](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-4.png)
 5. Selecione **salvar.**
 
 ## <a name="test-the-application-gateway"></a>Testar o gateway de aplicativo
 
 1. Verifique o IP de front-end que foi atribuído clicando na página **configurações de IP de front-end** no Portal.
-    ![privado-frontendip-5](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-5.png)
+    ![Captura de tela mostra o painel configurações de IP de front-end com o tipo particular realçado.](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-5.png)
 2. Copie o endereço IP privado e cole-o na barra de endereços do navegador em uma VM na mesma VNet ou local que tenha conectividade com essa VNet e tente acessar o gateway de aplicativo.
 
 ## <a name="next-steps"></a>Próximas etapas

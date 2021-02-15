@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 5306439184561e8dec8303a7b149f51d6c2f6e08
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75551855"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018895"
 ---
 # <a name="availability-of-service-fabric-services"></a>Disponibilidade dos serviços de malha do serviço
 Este artigo apresenta uma visão geral de como o Azure Service Fabric mantém a disponibilidade de um serviço.
@@ -23,7 +23,7 @@ Criar um serviço sem estado requer a definição de uma `InstanceCount`. A cont
 Quando uma instância de um serviço chamado sem monitoração de estado falha, uma nova instância é criada em um nó qualificado no cluster. Por exemplo, uma instância de serviço sem estado pode falhar no Node1 e ser recriada no Node5.
 
 ## <a name="availability-of-service-fabric-stateful-services"></a>Disponibilidade dos serviços de malha do serviço com monitoração do estado
-Um serviço com estado tem um estado associado a ele. Na malha de serviço, um serviço com monitoração de estado é modelado como um conjunto de réplicas. Cada réplica é uma instância em execução do código do serviço. A réplica também tem uma cópia do estado para o serviço. As operações de leitura e gravação são realizadas em uma réplica chamada de *Primária*. As alterações no estado de operações de gravação são *replicadas* para as outras réplicas no conjunto de réplicas, chamadas de *secundárias ativas*e aplicadas. 
+Um serviço com estado tem um estado associado a ele. Na malha de serviço, um serviço com monitoração de estado é modelado como um conjunto de réplicas. Cada réplica é uma instância em execução do código do serviço. A réplica também tem uma cópia do estado para o serviço. As operações de leitura e gravação são realizadas em uma réplica chamada de *Primária*. As alterações no estado de operações de gravação são *replicadas* para as outras réplicas no conjunto de réplicas, chamadas de *secundárias ativas* e aplicadas. 
 
 Pode haver apenas uma réplica Primária, mas pode haver várias réplicas Secundárias Ativas. O número de réplicas Secundárias ativas é configurável e um número maior de réplicas pode tolerar um número maior de falhas simultâneas de hardware e de software.
 

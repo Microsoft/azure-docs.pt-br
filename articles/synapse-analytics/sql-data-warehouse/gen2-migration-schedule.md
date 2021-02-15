@@ -1,6 +1,6 @@
 ---
-title: Migrar seu pool SQL para Gen2
-description: Instruções para migrar um pool SQL existente para Gen2 e o agendamento de migração por região.
+title: Migre seu pool SQL dedicado (anteriormente conhecido como SQL DW) para Gen2
+description: Instruções para migrar um pool SQL dedicado existente (anteriormente conhecido como SQL DW) para Gen2 e a agenda de migração por região.
 services: synapse-analytics
 author: mlee3gsd
 ms.author: anjangsh
@@ -12,16 +12,16 @@ ms.topic: article
 ms.subservice: sql-dw
 ms.date: 01/21/2020
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 71219abaf6493d6dce03f05ad0e61fb71bff1745
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0ce07ff3ca5fbcc9776792129d3bfb4ef54efe7d
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85207712"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120114"
 ---
-# <a name="upgrade-your-sql-pool-to-gen2"></a>Atualizar o pool SQL para Gen2
+# <a name="upgrade-your-dedicated-sql-pool-formerly-sql-dw-to-gen2"></a>Atualize seu pool SQL dedicado (anteriormente conhecido como SQL DW) para Gen2
 
-A Microsoft está ajudando a reduzir o custo de nível de entrada da execução de um pool SQL.  As camadas de computação mais baixas capazes de lidar com consultas exigentes agora estão disponíveis para o pool do SQL. Leia o suporte de [camada de computação inferior](https://azure.microsoft.com/blog/azure-sql-data-warehouse-gen2-now-supports-lower-compute-tiers/)do anúncio completo para Gen2. A nova oferta está disponível nas regiões indicadas na tabela a seguir. Para regiões com suporte, os pools de SQL Gen1 existentes podem ser atualizados para Gen2 por meio de um dos dois:
+A Microsoft está ajudando a reduzir o custo de nível de entrada da execução de um pool SQL dedicado (anteriormente conhecido como SQL DW).  As camadas de computação mais baixas capazes de lidar com consultas exigentes agora estão disponíveis para o pool SQL dedicado (anteriormente conhecido como SQL DW). Leia o suporte de [camada de computação inferior](https://azure.microsoft.com/blog/azure-sql-data-warehouse-gen2-now-supports-lower-compute-tiers/)do anúncio completo para Gen2. A nova oferta está disponível nas regiões indicadas na tabela a seguir. Para regiões com suporte, o pool SQL dedicado Gen1 (anteriormente conhecido como SQL DW) pode ser atualizado para Gen2 por meio de:
 
 - **O processo de atualização automática:** As atualizações automáticas não são iniciadas assim que o serviço está disponível em uma região.  Quando as atualizações automáticas forem iniciadas em uma região específica, as atualizações data warehouse individuais ocorrerão durante o agendamento de manutenção selecionado.
 - [**Atualização automática para Gen2:**](#self-upgrade-to-gen2) Você pode controlar quando atualizar fazendo uma autoatualização para Gen2. Se sua região ainda não tiver suporte, você poderá restaurar de um ponto de restauração diretamente para uma instância do Gen2 em uma região com suporte.
@@ -43,9 +43,9 @@ A tabela a seguir resume por região quando a camada de computação inferior Ge
 
 ## <a name="automatic-upgrade-process"></a>Processo de atualização automática
 
-Com base no gráfico de disponibilidade acima, vamos agendar atualizações automatizadas para suas instâncias do Gen1. Para evitar quaisquer interrupções inesperadas na disponibilidade do pool SQL, as atualizações automatizadas serão agendadas durante o agendamento de manutenção. A capacidade de criar uma nova instância de Gen1 será desabilitada em regiões que passam por atualização automática para Gen2. O Gen1 será preterido depois que as atualizações automáticas forem concluídas. Para saber mais sobre agendamentos, consulte [Exibir um agendamento de manutenção](maintenance-scheduling.md#view-a-maintenance-schedule)
+Com base no gráfico de disponibilidade acima, vamos agendar atualizações automatizadas para suas instâncias do Gen1. Para evitar quaisquer interrupções inesperadas na disponibilidade do pool de SQL dedicado (anteriormente conhecido como SQL DW), as atualizações automatizadas serão agendadas durante seu agendamento de manutenção. A capacidade de criar uma nova instância de Gen1 será desabilitada em regiões que passam por atualização automática para Gen2. O Gen1 será preterido depois que as atualizações automáticas forem concluídas. Para saber mais sobre agendamentos, consulte [Exibir um agendamento de manutenção](maintenance-scheduling.md#view-a-maintenance-schedule)
 
-O processo de atualização envolverá uma breve queda na conectividade (aproximadamente 5 min) à medida que reiniciamos o pool SQL.  Depois que o pool do SQL for reiniciado, ele estará totalmente disponível para uso. No entanto, você pode enfrentar uma degradação no desempenho enquanto o processo de atualização continua a atualizar os arquivos de dados em segundo plano. O tempo total para a degradação do desempenho varia de acordo com o tamanho dos seus arquivos de dados.
+O processo de atualização envolverá uma breve queda na conectividade (aproximadamente 5 min) à medida que reiniciamos seu pool SQL dedicado (anteriormente conhecido como SQL DW).  Depois que seu pool SQL dedicado (anteriormente conhecido como SQL DW) for reiniciado, ele estará totalmente disponível para uso. No entanto, você pode enfrentar uma degradação no desempenho enquanto o processo de atualização continua a atualizar os arquivos de dados em segundo plano. O tempo total para a degradação do desempenho varia de acordo com o tamanho dos seus arquivos de dados.
 
 Você também pode agilizar o processo de atualização do arquivo de dados executando [Alter Index rebuild](sql-data-warehouse-tables-index.md) em todas as tabelas columnstore primárias usando uma classe maior de SLO e recursos após a reinicialização.
 
@@ -54,12 +54,12 @@ Você também pode agilizar o processo de atualização do arquivo de dados exec
 
 ## <a name="self-upgrade-to-gen2"></a>Autoatualização para Gen2
 
-Você pode optar por fazer a autoatualização seguindo estas etapas em um pool SQL Gen1 existente. Se você optar por atualizar automaticamente, deverá concluí-lo antes que o processo de atualização automática comece na sua região. Isso garante que você evite qualquer risco de atualizações automáticas causando um conflito.
+Você pode optar por AutoAtualizar seguindo estas etapas em um pool SQL dedicado de Gen1 existente (anteriormente conhecido como SQL DW). Se você optar por atualizar automaticamente, deverá concluí-lo antes que o processo de atualização automática comece na sua região. Isso garante que você evite qualquer risco de atualizações automáticas causando um conflito.
 
-Há duas opções ao realizar uma autoatualização.  Você pode atualizar o pool SQL atual no local ou pode restaurar um pool SQL do Gen1 em uma instância do Gen2.
+Há duas opções ao realizar uma autoatualização.  Você pode atualizar seu pool SQL dedicado atual (anteriormente conhecido como SQL DW) ou pode restaurar um pool de SQL dedicado Gen1 (anteriormente conhecido como SQL DW) em uma instância Gen2.
 
-- [Atualização in-loco](upgrade-to-latest-generation.md) -essa opção atualizará seu pool SQL Gen1 existente para Gen2. O processo de atualização envolverá uma breve queda na conectividade (aproximadamente 5 min) à medida que reiniciamos o pool SQL.  Depois que o pool do SQL for reiniciado, ele estará totalmente disponível para uso. Se você tiver problemas durante a atualização, abra uma [solicitação de suporte](sql-data-warehouse-get-started-create-support-ticket.md) e faça referência a "atualização Gen2" como a possível causa.
-- [Atualização do ponto de restauração](sql-data-warehouse-restore-points.md) – crie um ponto de restauração definido pelo usuário no pool atual do SQL Gen1 e, em seguida, restaure diretamente para uma instância do Gen2. O pool de SQL Gen1 existente permanecerá em vigor. Depois que a restauração for concluída, seu pool do SQL Gen2 estará totalmente disponível para uso.  Depois de executar todos os processos de teste e validação na instância Gen2 restaurada, a instância Gen1 original pode ser excluída.
+- [Atualização in-loco](upgrade-to-latest-generation.md) -essa opção atualizará seu pool SQL dedicado Gen1 (anteriormente conhecido como SQL DW) para Gen2. O processo de atualização envolverá uma breve queda na conectividade (aproximadamente 5 min) à medida que reiniciamos seu pool SQL dedicado (anteriormente conhecido como SQL DW).  Depois de reiniciado, ele estará totalmente disponível para uso. Se você tiver problemas durante a atualização, abra uma [solicitação de suporte](sql-data-warehouse-get-started-create-support-ticket.md) e faça referência a "atualização Gen2" como a possível causa.
+- [Atualização do ponto de restauração](sql-data-warehouse-restore-points.md) – crie um ponto de restauração definido pelo usuário no pool SQL dedicado Gen1 atual (anteriormente conhecido como SQL DW) e, em seguida, restaure diretamente para uma instância do Gen2. O pool de SQL dedicado Gen1 existente (anteriormente conhecido como SQL DW) permanecerá em vigor. Depois que a restauração for concluída, seu pool SQL dedicado do Gen2 (anteriormente conhecido como SQL DW) estará totalmente disponível para uso.  Depois de executar todos os processos de teste e validação na instância Gen2 restaurada, a instância Gen1 original pode ser excluída.
 
   - Etapa 1: no portal do Azure, [crie um ponto de restauração definido pelo usuário](sql-data-warehouse-restore-active-paused-dw.md).
   - Etapa 2: ao restaurar de um ponto de restauração definido pelo usuário, defina o "nível de desempenho" para sua camada de Gen2 preferida.
@@ -71,7 +71,7 @@ Para acelerar o processo de migração de dados em segundo plano, você pode for
 > [!NOTE]
 > Alter Index rebuild é uma operação offline e as tabelas não estarão disponíveis até que a recompilação esteja concluída.
 
-Se você encontrar problemas com o pool do SQL, crie uma [solicitação de suporte](sql-data-warehouse-get-started-create-support-ticket.md) e faça referência a "atualização Gen2" como a possível causa.
+Se você encontrar problemas com seu pool SQL dedicado (anteriormente conhecido como SQL DW), crie uma [solicitação de suporte](sql-data-warehouse-get-started-create-support-ticket.md) e faça referência a "atualização Gen2" como a possível causa.
 
 Para saber mais, confira [Atualizar para Gen2](upgrade-to-latest-generation.md).
 
@@ -89,12 +89,12 @@ Para saber mais, confira [Atualizar para Gen2](upgrade-to-latest-generation.md).
 
 - R: você pode atualizar no local ou atualizar de um ponto de restauração.
 
-  - A atualização in-loco fará com que o pool do SQL Pause e retome momentaneamente.  Um processo em segundo plano continuará enquanto o pool SQL estiver online.  
+  - A atualização in-loco fará com que seu pool de SQL dedicado (anteriormente o SQL DW) PAUSE e retome momentaneamente.  Um processo em segundo plano continuará enquanto o pool do SQL dedicado (antigo SQL DW) estiver online.  
   - Será mais demorado se você atualizar usando um ponto de restauração, pois a atualização passará pelo processo completo de restauração.
 
 **P: quanto tempo ocorrerá a atualização automática?**
 
-- R: o tempo de inatividade real para a atualização é a única vez que leva para pausar e retomar o serviço, que está entre 5 e 10 minutos. Após esse breve tempo de inatividade, um processo em segundo plano executará uma migração de armazenamento. O período de tempo para o processo em segundo plano depende do tamanho do seu pool SQL.
+- R: o tempo de inatividade real para a atualização é a única vez que leva para pausar e retomar o serviço, que está entre 5 e 10 minutos. Após esse breve tempo de inatividade, um processo em segundo plano executará uma migração de armazenamento. O período de tempo para o processo em segundo plano depende do tamanho do seu pool SQL dedicado (anteriormente conhecido como SQL DW).
 
 **P: quando essa atualização automática ocorrerá?**
 
@@ -110,7 +110,7 @@ Para saber mais, confira [Atualizar para Gen2](upgrade-to-latest-generation.md).
 
 **P: posso desabilitar o backup geográfico?**
 
-- R: Não. O backup geográfico é um recurso empresarial para preservar a disponibilidade do pool do SQL no caso de uma região ficar indisponível. Abra uma [solicitação de suporte](sql-data-warehouse-get-started-create-support-ticket.md) em caso de outras dúvidas.
+- R: Não. O backup geográfico é um recurso empresarial para preservar a disponibilidade do pool SQL dedicado (antes do SQL DW) no caso de uma região ficar indisponível. Abra uma [solicitação de suporte](sql-data-warehouse-get-started-create-support-ticket.md) em caso de outras dúvidas.
 
 **P: há uma diferença na sintaxe de T-SQL entre Gen1 e Gen2?**
 
@@ -133,4 +133,4 @@ Para saber mais, confira [Atualizar para Gen2](upgrade-to-latest-generation.md).
 - [Atualizar in-loco e atualizar de um ponto de restauração](upgrade-to-latest-generation.md)
 - [Crie um ponto restauração definido pelo usuário](sql-data-warehouse-restore-points.md)
 - [Saiba como restaurar para Gen2](sql-data-warehouse-restore-active-paused-dw.md)
-- [Abrir uma solicitação de suporte para SQL Data Warehouse](https://go.microsoft.com/fwlink/?linkid=857950)
+- [Abrir uma solicitação de suporte do Azure Synapse Analytics](./sql-data-warehouse-get-started-create-support-ticket.md)

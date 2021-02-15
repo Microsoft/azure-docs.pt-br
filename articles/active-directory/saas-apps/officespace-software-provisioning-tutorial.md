@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: configurar o software OfficeSpace para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs'
-description: Saiba como configurar o Azure Active Directory para provisionar e desprovisionar automaticamente contas de usuário para o OfficeSpace software.
+title: 'Tutorial: Configurar o OfficeSpace para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs'
+description: Saiba como configurar o Azure Active Directory para provisionar e desprovisionar automaticamente contas de usuário no OfficeSpace.
 services: active-directory
 author: zchia
 writer: zchia
@@ -8,19 +8,19 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/02/2019
 ms.author: Zhchia
-ms.openlocfilehash: ab2fd7f78373f9fee349e59c374088f67f165339
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
-ms.translationtype: MT
+ms.openlocfilehash: fc67d649e3a7cd094eb2c3d633244077abcab308
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554187"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359911"
 ---
-# <a name="tutorial-configure-officespace-software-for-automatic-user-provisioning"></a>Tutorial: configurar o software OfficeSpace para o provisionamento automático de usuário
+# <a name="tutorial-configure-officespace-software-for-automatic-user-provisioning"></a>Tutorial: Configurar o OfficeSpace Software para o provisionamento automático de usuário
 
-O objetivo deste tutorial é demonstrar as etapas a serem executadas no OfficeSpace software e Azure Active Directory (AD do Azure) para configurar o Azure AD para provisionar e desprovisionar automaticamente usuários e/ou grupos no software OfficeSpace.
+O objetivo deste tutorial é demonstrar as etapas a serem executadas no OfficeSpace Software e no Azure AD (Active Directory) a fim de configurar o Azure AD para provisionar e desprovisionar automaticamente usuários e/ou grupos no OfficeSpace Software.
 
 > [!NOTE]
 > Este tutorial descreve um conector compilado na parte superior do Serviço de Provisionamento de Usuário do Microsoft Azure AD. Para detalhes importantes sobre o que esse serviço faz, como funciona e as perguntas frequentes, consulte [Automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS com o Azure Active Directory](../app-provisioning/user-provisioning.md).
@@ -32,43 +32,43 @@ O objetivo deste tutorial é demonstrar as etapas a serem executadas no OfficeSp
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes pré-requisitos:
 
 * Um locatário do Azure AD
-* Um [locatário do OfficeSpace software](https://www.officespacesoftware.com/)
-* Uma conta de usuário no OfficeSpace software com permissões de administrador.
+* Um [locatário do OfficeSpace Software](https://www.officespacesoftware.com/)
+* Uma conta de usuário no OfficeSpace Software com permissões de Administrador.
 
-## <a name="assigning-users-to-officespace-software"></a>Atribuindo usuários ao OfficeSpace software
+## <a name="assigning-users-to-officespace-software"></a>Como atribuir usuários ao OfficeSpace Software
 
-O Azure Active Directory usa um conceito chamado *atribuições* para determinar quais usuários devem receber acesso aos aplicativos selecionados. No contexto do provisionamento automático de usuário, somente os usuários e/ou grupos que foram atribuídos a um aplicativo no Azure AD são sincronizados.
+O Azure Active Directory usa um conceito chamado *atribuições* para determinar quais usuários devem receber acesso aos aplicativos selecionados. No contexto do provisionamento automático de usuário, somente os usuários e/ou os grupos que foram atribuídos a um aplicativo no Azure AD são sincronizados.
 
-Antes de configurar e habilitar o provisionamento automático de usuário, você deve decidir quais usuários e/ou grupos no Azure AD precisam de acesso ao OfficeSpace software. Depois de decidir, você pode atribuir esses usuários e/ou grupos ao OfficeSpace software seguindo estas instruções:
+Para configurar e habilitar o provisionamento automático de usuário, decida quais usuários e/ou grupos no Azure AD precisam de acesso ao OfficeSpace Software. Depois de decidir isso, você poderá atribuir esses usuários e/ou grupos ao OfficeSpace Software seguindo estas instruções:
 * [Atribuir um usuário ou um grupo a um aplicativo empresarial](../manage-apps/assign-user-or-group-access-portal.md)
 
-## <a name="important-tips-for-assigning-users-to-officespace-software"></a>Dicas importantes para atribuir usuários ao OfficeSpace software
+## <a name="important-tips-for-assigning-users-to-officespace-software"></a>Dicas importantes para atribuir usuários ao OfficeSpace Software
 
-* É recomendável que um único usuário do Azure AD seja atribuído ao OfficeSpace software para testar a configuração automática de provisionamento de usuário. Outros usuários e/ou grupos podem ser atribuídos mais tarde.
+* Recomendamos que um só usuário do Azure AD seja atribuído ao OfficeSpace Software para testar a configuração de provisionamento automático de usuário. Outros usuários e/ou grupos podem ser atribuídos mais tarde.
 
-* Ao atribuir um usuário ao OfficeSpace software, você deve selecionar qualquer função específica do aplicativo válida (se disponível) na caixa de diálogo de atribuição. Usuários com a função **Acesso padrão** são excluídos do provisionamento.
+* Ao atribuir um usuário ao OfficeSpace Software, você precisará selecionar qualquer função válida específica do aplicativo (se disponível) na caixa de diálogo de atribuição. Usuários com a função **Acesso padrão** são excluídos do provisionamento.
 
-## <a name="set-up-officespace-software-for-provisioning"></a>Configurar o software OfficeSpace para provisionamento
+## <a name="set-up-officespace-software-for-provisioning"></a>Configurar o OfficeSpace Software para provisionamento
 
-1. Entre no console de [Administração do OfficeSpace software](https://support.officespacesoftware.com/hc). Navegue até **configurações > conectores**.
+1. Entre no [Console de Administração do OfficeSpace Software](https://support.officespacesoftware.com/hc). Procure **Configurações > Conectores**.
 
-    ![Console de administração de software OfficeSpace](media/officespace-software-provisioning-tutorial/settings.png)
+    ![Console de Administração do OfficeSpace Software](media/officespace-software-provisioning-tutorial/settings.png)
 
-2.  Navegue até **sincronização de diretório > scim**.
+2.  Procure **Sincronização de Diretório > SCIM**.
 
-    ![OfficeSpace software Add SCIM](media/officespace-software-provisioning-tutorial/scim.png)
+    ![Adicionar SCIM no OfficeSpace Software](media/officespace-software-provisioning-tutorial/scim.png)
 
-3.  Copie o **token de autenticação scim**. Esse valor será inserido no campo token secreto na guia provisionamento do seu aplicativo OfficeSpace software na portal do Azure.
+3.  Copie o **Token de Autenticação do SCIM**. Esse valor será inserido no campo Token Secreto na guia Provisionamento do aplicativo OfficeSpace Software no portal do Azure.
 
-    ![Token de criação de software OfficeSpace](media/officespace-software-provisioning-tutorial/token.png)
+    ![Criar Token no OfficeSpace Software](media/officespace-software-provisioning-tutorial/token.png)
 
-## <a name="add-officespace-software-from-the-gallery"></a>Adicionar o OfficeSpace software da Galeria
+## <a name="add-officespace-software-from-the-gallery"></a>Adicionar o OfficeSpace Software por meio da galeria
 
-Antes de configurar o OfficeSpace software para o provisionamento automático de usuário com o Azure AD, você precisa adicionar o OfficeSpace software da Galeria de aplicativos do Azure AD à sua lista de aplicativos SaaS gerenciados.
+Antes de configurar o OfficeSpace Software para o provisionamento automático de usuário com o Azure AD, é necessário adicionar o OfficeSpace Software por meio da galeria de aplicativos do Azure AD à lista de aplicativos SaaS gerenciados.
 
-**Para adicionar o OfficeSpace software da Galeria de aplicativos do Azure AD, execute as seguintes etapas:**
+**Para adicionar o OfficeSpace Software por meio da galeria de aplicativos do Azure AD, execute as seguintes etapas:**
 
-1. No **[portal do Azure](https://portal.azure.com)**, no painel de navegação à esquerda, selecione **Azure Active Directory**.
+1. No **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, selecione **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -76,22 +76,22 @@ Antes de configurar o OfficeSpace software para o provisionamento automático de
 
     ![A folha Aplicativos empresariais](common/enterprise-applications.png)
 
-3. Para adicionar um novo aplicativo, selecione o botão **novo aplicativo** na parte superior do painel.
+3. Para adicionar um novo aplicativo, selecione o botão **Novo aplicativo** na parte superior do painel.
 
     ![O botão Novo aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, digite **OfficeSpace software**, selecione **OfficeSpace software** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa, insira **OfficeSpace Software**, selecione **OfficeSpace Software** no painel de resultados e clique no botão **Adicionar** para adicionar o aplicativo.
 
     ![OfficeSpace Software na lista de resultados](common/search-new-app.png)
 
-## <a name="configuring-automatic-user-provisioning-to-officespace-software"></a>Configurando o provisionamento automático de usuário para o OfficeSpace software 
+## <a name="configuring-automatic-user-provisioning-to-officespace-software"></a>Como configurar o provisionamento automático de usuário no OfficeSpace Software 
 
-Esta seção orienta você pelas etapas para configurar o serviço de provisionamento do Azure AD para criar, atualizar e desabilitar usuários e/ou grupos no OfficeSpace software com base em atribuições de usuário e/ou grupo no Azure AD.
+Esta seção descreve as etapas de configuração do serviço de provisionamento do Azure AD para criar, atualizar e desabilitar usuários e/ou grupos no OfficeSpace Software com base em atribuições de usuário e/ou de grupo no Azure AD.
 
 > [!TIP]
-> Você também pode optar por habilitar o logon único baseado em SAML para o OfficeSpace software seguindo as instruções fornecidas no tutorial de [logon único do OfficeSpace software](https://docs.microsoft.com/azure/active-directory/saas-apps/officespace-tutorial). O logon único pode ser configurado independentemente do provisionamento automático de usuário, embora esses dois recursos se complementem.
+> Você também pode optar por habilitar o logon único baseado em SAML para o OfficeSpace Software seguindo as instruções fornecidas no [tutorial de logon único do OfficeSpace Software](./officespace-tutorial.md). O logon único pode ser configurado independentemente do provisionamento automático de usuário, embora esses dois recursos sejam complementares.
 
-### <a name="to-configure-automatic-user-provisioning-for-officespace-software-in-azure-ad"></a>Para configurar o provisionamento automático de usuário para o OfficeSpace software no Azure AD:
+### <a name="to-configure-automatic-user-provisioning-for-officespace-software-in-azure-ad"></a>Para configurar o provisionamento automático de usuário para o OfficeSpace Software no Azure AD:
 
 1. Entre no [portal do Azure](https://portal.azure.com). Selecione **Aplicativos Empresariais** e **Todos os Aplicativos**.
 
@@ -103,13 +103,13 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
 3. Selecione a guia **Provisionamento**.
 
-    ![Guia Provisionamento](common/provisioning.png)
+    ![Captura de tela das opções Gerenciar com a opção Provisionamento destacada.](common/provisioning.png)
 
 4. Defina o **Modo de Provisionamento** como **Automático**.
 
-    ![Guia Provisionamento](common/provisioning-automatic.png)
+    ![Captura de tela da lista suspensa Modo de Provisionamento com a opção Automático destacada.](common/provisioning-automatic.png)
 
-5. Na seção **credenciais de administrador** , digite o `https://<subdomain>.officespacesoftware.com/api/scim/v2/` formato da URL de entrada na **URL do locatário**. Por exemplo, `https://contoso.officespacesoftware.com/api/scim/v2/`. Insira o valor do **token de autenticação scim** recuperado anteriormente no **token secreto**. Clique em **testar conexão** para garantir que o Azure ad possa se conectar ao OfficeSpace software. Se a conexão falhar, verifique se sua conta do OfficeSpace software tem permissões de administrador e tente novamente.
+5. Na seção **Credenciais de Administrador**, insira o formato de URL `https://<subdomain>.officespacesoftware.com/api/scim/v2/` em **URL do Locatário**. Por exemplo, `https://contoso.officespacesoftware.com/api/scim/v2/`. Insira o valor do **Token de Autenticação do SCIM** recuperado anteriormente em **Token Secreto**. Clique em **Testar Conectividade** para verificar se o Azure AD pode se conectar ao OfficeSpace Software. Se a conexão falhar, verifique se a sua conta do OfficeSpace Software tem permissões de Administrador e tente novamente.
 
     ![URL do locatário + token](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -119,21 +119,21 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
 7. Clique em **Save** (Salvar).
 
-8. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários para OfficeSpace software**.
+8. Na seção **Mapeamentos**, selecione **Sincronizar Usuários do Azure Active Directory com o OfficeSpace Software**.
 
-    ![Mapeamentos de usuário do software OfficeSpace](media/officespace-software-provisioning-tutorial/usermappings.png)
+    ![Mapeamentos de Usuário do OfficeSpace Software](media/officespace-software-provisioning-tutorial/usermappings.png)
 
-9. Examine os atributos de usuário que são sincronizados do Azure AD para o OfficeSpace software na seção **mapeamento de atributos** . Os atributos selecionados como propriedades **correspondentes** são usados para corresponder as contas de usuário no OfficeSpace software para operações de atualização. Selecione o botão **Salvar** para confirmar as alterações.
+9. Examine os atributos de usuário que serão sincronizados do Azure AD para o OfficeSpace Software na seção **Mapeamento de Atributos**. Os atributos selecionados como propriedades **Correspondentes** são usados para fazer a correspondência das contas de usuário no OfficeSpace Software em operações de atualização. Selecione o botão **Salvar** para confirmar as alterações.
 
-    ![Atributos de usuário do software OfficeSpace](media/officespace-software-provisioning-tutorial/userattributes.png)
+    ![Atributos de Usuário do OfficeSpace Software](media/officespace-software-provisioning-tutorial/userattributes.png)
 
 11. Para configurar filtros de escopo, consulte as seguintes instruções fornecidas no [tutorial do Filtro de Escopo](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-12. Para habilitar o serviço de provisionamento do Azure AD para o OfficeSpace software, altere o **status de provisionamento** para **ativado** na seção **configurações** .
+12. Para habilitar o serviço de provisionamento do Azure AD no OfficeSpace Software, altere o **Status de Provisionamento** para **Ativado** na seção **Configurações**.
 
     ![Status do provisionamento ativado](common/provisioning-toggle-on.png)
 
-13. Defina os usuários e/ou grupos que você deseja provisionar para OfficeSpace software escolhendo os valores desejados no **escopo** na seção **configurações** .
+13. Defina os usuários e/ou os grupos que deseja provisionar no OfficeSpace Software escolhendo os valores desejados em **Escopo** na seção **Configurações**.
 
     ![Escopo de provisionamento](common/provisioning-scope.png)
 
@@ -141,7 +141,7 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
     ![Salvando a configuração de provisionamento](common/provisioning-configuration-save.png)
 
-Essa operação inicia a sincronização inicial de todos os usuários e/ou grupos definidos no **Escopo** na seção **Configurações**. Observe que a sincronização inicial levará mais tempo do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento do Microsoft Azure Active Directory esteja em execução. Você pode usar a seção **detalhes de sincronização** para monitorar o progresso e seguir os links para o relatório de atividade de provisionamento, que descreve todas as ações executadas pelo serviço de provisionamento do Azure AD no OfficeSpace software.
+Essa operação inicia a sincronização inicial de todos os usuários e/ou grupos definidos no **Escopo** na seção **Configurações**. Observe que a sincronização inicial levará mais tempo do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento do Microsoft Azure Active Directory esteja em execução. Use a seção **Detalhes de Sincronização** para monitorar o progresso e siga os links para o relatório das atividades de provisionamento, que descreve todas as ações executadas pelo serviço de provisionamento do Azure AD no OfficeSpace Software.
 
 Para saber mais sobre como ler os logs de provisionamento do Azure AD, consulte [Relatórios sobre o provisionamento automático de contas de usuário](../app-provisioning/check-status-user-account-provisioning.md).
 
@@ -153,4 +153,3 @@ Para saber mais sobre como ler os logs de provisionamento do Azure AD, consulte 
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Saiba como fazer revisão de logs e obter relatórios sobre atividade de provisionamento](../app-provisioning/check-status-user-account-provisioning.md)
-

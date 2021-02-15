@@ -9,12 +9,12 @@ ms.author: deli
 ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 02/29/2020
-ms.openlocfilehash: dd61ac9751010d57cbf5b742a5081beb3ac560e9
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 0e9ca2c7b5d15fcc6be451bbe215c8b85d5309eb
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83826053"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368257"
 ---
 # <a name="migrate-azure-scheduler-jobs-to-azure-logic-apps"></a>Migrar trabalhos do Agendador do Azure para Aplicativos Lógicos do Azure
 
@@ -96,7 +96,7 @@ Cada trabalho do Agendador é exclusivo, portanto, não existe uma única ferram
 
    Por exemplo, é possível incluir uma ação HTTP que envia uma solicitação para uma URL ou ações que funcionam com Filas de Armazenamento, filas ou tópicos de Barramento de Serviço:
 
-   ![Ação HTTP](./media/migrate-from-scheduler-to-logic-apps/request-http-action.png)
+   ![Captura de tela mostra um atraso até a ação seguida de uma ação H T T P com um método POST.](./media/migrate-from-scheduler-to-logic-apps/request-http-action.png)
 
 1. Quando terminar, salve o aplicativo lógico.
 
@@ -133,7 +133,7 @@ Após enviar a chamada, a resposta do seu aplicativo lógico será exibida na ca
 
 ## <a name="cancel-a-one-time-job"></a>Cancelar um trabalho único
 
-Nos Aplicativos Lógicos, cada trabalho único é executado como uma instância de execução de aplicativo lógico individual. Para cancelar um trabalho único, é possível usar [Execuções de fluxo de trabalho – Cancelar](https://docs.microsoft.com/rest/api/logic/workflowruns/cancel) na API REST dos Aplicativos Lógicos. Quando você envia uma chamada para o gatilho, forneça a [ID de execução do fluxo de trabalho](#workflow-run-id).
+Nos Aplicativos Lógicos, cada trabalho único é executado como uma instância de execução de aplicativo lógico individual. Para cancelar um trabalho único, é possível usar [Execuções de fluxo de trabalho – Cancelar](/rest/api/logic/workflowruns/cancel) na API REST dos Aplicativos Lógicos. Quando você envia uma chamada para o gatilho, forneça a [ID de execução do fluxo de trabalho](#workflow-run-id).
 
 ## <a name="schedule-recurring-jobs"></a>Agendar trabalhos recorrentes
 
@@ -155,7 +155,7 @@ Nos Aplicativos Lógicos, cada trabalho único é executado como uma instância 
 
    Por exemplo, é possível incluir uma ação HTTP que envia uma solicitação para uma URL ou ações que funcionam com Filas de Armazenamento, filas ou tópicos de Barramento de Serviço:
 
-   ![Ação HTTP](./media/migrate-from-scheduler-to-logic-apps/recurrence-http-action.png)
+   ![A captura de tela mostra uma ação H T T P com um método POST.](./media/migrate-from-scheduler-to-logic-apps/recurrence-http-action.png)
 
 1. Quando terminar, salve o aplicativo lógico.
 
@@ -239,7 +239,7 @@ Se a assinatura do Azure tiver um plano de suporte pago, será possível criar u
 
 **Comunidade**
 
-* [Página de Perguntas e respostas da Microsoft para o serviço de Aplicativos Lógicos do Azure](https://docs.microsoft.com/answers/topics/azure-logic-apps.html)
+* [Página de Perguntas e respostas da Microsoft para o serviço de Aplicativos Lógicos do Azure](/answers/topics/azure-logic-apps.html)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-scheduler)
 
 ## <a name="next-steps"></a>Próximas etapas

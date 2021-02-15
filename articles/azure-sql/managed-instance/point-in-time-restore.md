@@ -7,17 +7,17 @@ ms.service: sql-managed-instance
 ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: sstein, carlrab, mathoma
+ms.reviewer: sstein, mathoma
 ms.date: 08/25/2019
-ms.openlocfilehash: 407d56c209f64d350906a17c0746b1c43f969d43
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d3414cb31192211c1663a84e1541f56b63674660
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708619"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99525374"
 ---
 # <a name="restore-a-database-in-azure-sql-managed-instance-to-a-previous-point-in-time"></a>Restaurar um banco de dados no Azure SQL Instância Gerenciada para um ponto anterior no tempo
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -46,7 +46,7 @@ A tabela a seguir mostra cenários de restauração pontual para o SQL Instânci
 
 |           |Restaurar o banco de BD existente para a mesma instância do SQL Instância Gerenciada| Restaurar o BD existente para outro SQL Instância Gerenciada|Restaurar o banco de BD removido para o mesmo SQL Instância Gerenciada|Restaurar o BD removido para outro Instância Gerenciada do SQL|
 |:----------|:----------|:----------|:----------|:----------|
-|**Azure portal**| Sim|Não |Sim|Não|
+|**Portal do Azure**| Sim|Não |Sim|Não|
 |**CLI do Azure**|Sim |Sim |Não|Não|
 |**PowerShell**| Sim|Sim |Sim|Sim|
 
@@ -67,7 +67,7 @@ Restaure um banco de dados existente para o mesmo SQL Instância Gerenciada usan
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Se você ainda não tiver Azure PowerShell instalado, consulte [instalar o módulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+Se você ainda não tiver Azure PowerShell instalado, consulte [instalar o módulo Azure PowerShell](/powershell/azure/install-az-ps).
 
 Para restaurar o banco de dados usando o PowerShell, especifique os valores para os parâmetros no comando a seguir. Em seguida, execute o comando:
 
@@ -106,7 +106,7 @@ Restore-AzSqlInstanceDatabase -FromPointInTimeBackup `
                               -TargetInstanceName $targetInstanceName 
 ```
 
-Para obter detalhes, consulte [Restore-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase).
+Para obter detalhes, consulte [Restore-AzSqlInstanceDatabase](/powershell/module/az.sql/restore-azsqlinstancedatabase).
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
@@ -128,7 +128,7 @@ az sql midb restore -g mygroupname --mi myinstancename -n mymanageddbname |
        --dest-mi mytargetinstancename
 ```
 
-Para obter uma explicação detalhada dos parâmetros disponíveis, consulte a [documentação da CLI para restaurar um banco de dados em um instância gerenciada do SQL](https://docs.microsoft.com/cli/azure/sql/midb?view=azure-cli-latest#az-sql-midb-restore).
+Para obter uma explicação detalhada dos parâmetros disponíveis, consulte a [documentação da CLI para restaurar um banco de dados em um instância gerenciada do SQL](/cli/azure/sql/midb?view=azure-cli-latest#az-sql-midb-restore).
 
 ---
 
@@ -162,7 +162,7 @@ $targetDatabaseName = "<target database name>"
 $deletedDatabase = Get-AzSqlDeletedInstanceDatabaseBackup -ResourceGroupName $resourceGroupName `
 -InstanceName $managedInstanceName -DatabaseName $deletedDatabaseName
 
-Restore-AzSqlinstanceDatabase -Name $deletedDatabase.Name `
+Restore-AzSqlinstanceDatabase -FromPointInTimeBackup -Name $deletedDatabase.Name `
    -InstanceName $deletedDatabase.ManagedInstanceName `
    -ResourceGroupName $deletedDatabase.ResourceGroupName `
    -DeletionDate $deletedDatabase.DeletionDate `
@@ -176,7 +176,7 @@ Para restaurar o banco de dados para outro Instância Gerenciada do SQL, especif
 $targetResourceGroupName = "<Resource group of target SQL Managed Instance>"
 $targetInstanceName = "<Target SQL Managed Instance name>"
 
-Restore-AzSqlinstanceDatabase -Name $deletedDatabase.Name `
+Restore-AzSqlinstanceDatabase -FromPointInTimeBackup -Name $deletedDatabase.Name `
    -InstanceName $deletedDatabase.ManagedInstanceName `
    -ResourceGroupName $deletedDatabase.ResourceGroupName `
    -DeletionDate $deletedDatabase.DeletionDate `
@@ -205,9 +205,9 @@ DROP DATABASE WorldWideImporters;
 
 Use um dos seguintes métodos para se conectar ao banco de dados no SQL Instância Gerenciada:
 
-- [SSMS/Azure Data Studio por meio de uma máquina virtual do Azure](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-vm)
-- [Ponto a site](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-p2s)
-- [Ponto de extremidade público](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure)
+- [SSMS/Azure Data Studio por meio de uma máquina virtual do Azure](./connect-vm-instance-configure.md)
+- [Ponto a site](./point-to-site-p2s-configure.md)
+- [Ponto de extremidade público](./public-endpoint-configure.md)
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -247,9 +247,9 @@ ALTER DATABASE WorldWideImportersPITR MODIFY NAME = WorldWideImporters;
 
 Use um dos seguintes métodos para se conectar ao banco de dados no SQL Instância Gerenciada:
 
-- [Máquina virtual do Azure](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-vm)
-- [Ponto a site](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-p2s)
-- [Ponto de extremidade público](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure)
+- [Máquina virtual do Azure](./connect-vm-instance-configure.md)
+- [Ponto a site](./point-to-site-p2s-configure.md)
+- [Ponto de extremidade público](./public-endpoint-configure.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 

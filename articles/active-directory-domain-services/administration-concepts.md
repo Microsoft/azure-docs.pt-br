@@ -2,20 +2,20 @@
 title: Conceitos de gerenciamento para Azure AD Domain Services | Microsoft Docs
 description: Saiba mais sobre como administrar um Azure Active Directory Domain Services domínio gerenciado e o comportamento de contas de usuário e senhas
 services: active-directory-ds
-author: iainfoulds
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 06/05/2020
-ms.author: iainfou
-ms.openlocfilehash: 6266248b817485562c7ed2643b3dda5f32cecc53
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.author: justinha
+ms.openlocfilehash: 76af477af8290634d2658c58574b8f96cff7b1fb
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87489666"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96620334"
 ---
 # <a name="management-concepts-for-user-accounts-passwords-and-administration-in-azure-active-directory-domain-services"></a>Conceitos de gerenciamento para contas de usuário, senhas e administração no Azure Active Directory Domain Services
 
@@ -81,7 +81,7 @@ No Azure AD DS, o desempenho e os recursos disponíveis são baseados na SKU. Vo
 | Nome do SKU   | Contagem máxima de objetos | Frequência de backup | Número máximo de relações de confiança de floresta de saída |
 |------------|----------------------|------------------|----|
 | Standard   | Ilimitado            | A cada 7 dias     | 0  |
-| Empresarial | Ilimitado            | A cada 3 dias     | 5  |
+| Enterprise | Ilimitado            | A cada 3 dias     | 5  |
 | Premium    | Ilimitado            | Diariamente            | 10 |
 
 Antes dessas SKUs do Azure AD DS, um modelo de cobrança baseado no número de objetos (contas de usuário e de computador) no domínio gerenciado foi usado. Não há mais preços variáveis com base no número de objetos no domínio gerenciado.

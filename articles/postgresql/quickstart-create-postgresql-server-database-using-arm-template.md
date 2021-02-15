@@ -1,18 +1,18 @@
 ---
 title: 'Início Rápido: Criar um BD do Azure para PostgreSQL – modelo do ARM'
-description: Neste artigo, aprenda a criar um servidor do Banco de Dados do Azure para PostgreSQL usando um modelo do Azure Resource Manager.
-author: mgblythe
+description: Neste início rápido, aprenda a criar um servidor único de Banco de Dados do Azure para PostgreSQL usando um modelo do Azure Resource Manager.
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.author: mblythe
 ms.date: 05/14/2020
-ms.openlocfilehash: 0661e743fb2493b9eab4b90dcb65297e99c2cc64
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 9b022f83ed2a4e3a23165cc6bda298a53c008c7c
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88661207"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93331634"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-postgresql---single-server"></a>Início Rápido: Usar um modelo do ARM para criar um Banco de Dados do Azure para PostgreSQL – servidor único
 
@@ -22,7 +22,7 @@ O Banco de Dados do Azure para PostgreSQL é um serviço gerenciado usado para e
 
 Se seu ambiente atender aos pré-requisitos e você estiver familiarizado com o uso de modelos ARM, selecione o botão **Implantar no Azure**. O modelo será aberto no portal do Azure.
 
-[![Implantar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-managed-postgresql-with-vnet%2fazuredeploy.json)
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Implantar no Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-managed-postgresql-with-vnet%2fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -66,34 +66,34 @@ Mais exemplos de modelos do Banco de Dados do Azure para PostgreSQL podem ser en
 
 Selecione o seguinte link para implantar o modelo de servidor do Banco de Dados do Azure para PostgreSQL no portal do Azure:
 
-[![Implantar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-managed-postgresql-with-vnet%2fazuredeploy.json)
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Implantar no Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-managed-postgresql-with-vnet%2fazuredeploy.json)
 
-Na página **Implantar Banco de Dados do Azure para PostgreSQL com VNet**:
+Na página **Implantar Banco de Dados do Azure para PostgreSQL com VNet** :
 
-1. Para **Grupo de recursos**, selecione **Criar**, insira um nome para o novo grupo de recursos e, em seguida, selecione **OK**.
+1. Para **Grupo de recursos** , selecione **Criar** , insira um nome para o novo grupo de recursos e, em seguida, selecione **OK**.
 
 2. Caso tenha criado um grupo de recursos, selecione uma **Localização** para o grupo de recursos e para o novo servidor.
 
-3. Insira um **Nome do Servidor**, um **Logon de Administrador** e uma **Senha de Logon de Administrador**.
+3. Insira um **Nome do Servidor** , um **Logon de Administrador** e uma **Senha de Logon de Administrador**.
 
-    ![Implantar o Banco de Dados do Azure para PostgreSQL com a janela de VNet, o modelo de início rápido do Azure e o portal do Azure](./media/quickstart-create-postgresql-server-database-using-arm-template/deploy-azure-database-for-postgresql-with-vnet.png)
+    :::image type="content" source="./media/quickstart-create-postgresql-server-database-using-arm-template/deploy-azure-database-for-postgresql-with-vnet.png" alt-text="Implantar o Banco de Dados do Azure para PostgreSQL com a janela de VNet, o modelo de início rápido do Azure e o portal do Azure":::
 
 4. Se desejar, altere as outras configurações padrão:
 
-    * **Assinatura**: a assinatura do Azure que você deseja usar para o servidor.
-    * **Capacidade de SKU**: a capacidade vCore, que pode ser *2* (o padrão), *4*, *8*, *16*, *32* ou *64*.
-    * **Nome do SKU**: o prefixo do nível de SKU, a família de SKU e a capacidade de SKU, unidos por sublinhados, como *B_Gen5_1*, *GP_Gen5_2* (o padrão) ou *MO_Gen5_32*.
-    * **Tamanho do SKU em MB**: o tamanho do armazenamento, em megabytes, do servidor do Banco de Dados do Azure para PostgreSQL (padrão *51200*).
-    * **Nível do SKU**: o nível de implantação, como *Basic*, *GeneralPurpose* (o padrão) ou *MemoryOptimized*.
-    * **Família do SKU**: *Gen4* ou *Gen5* (o padrão), que indica a geração de hardware para a implantação do servidor.
-    * **Versão do PostgreSQL**: a versão do servidor PostgreSQL a ser implantada, como *9.5*, *9.6*, *10* ou *11* (a padrão).
-    * **Dias de retenção de backup**: o período desejado para retenção de backup com redundância geográfica, em dias (padrão *7*).
-    * **Backup de redundância geográfica**: *Habilitado* ou *Desabilitado* (o padrão), dependendo dos requisitos de Geo-DR (recuperação de desastre geográfico).
-    * **Nome da Rede Virtual**: o nome da rede virtual (padrão *azure_postgresql_vnet*).
-    * **Nome da Sub-Rede**: o nome da sub-rede (padrão *azure_postgresql_subnet*).
-    * **Nome da Regra da Rede Virtual**: o nome da regra da rede virtual que permite a sub-rede (padrão *AllowSubnet*).
-    * **Prefixo de Endereço da VNET**: o prefixo de endereço para a rede virtual (padrão *10.0.0.0/16*).
-    * **Prefixo da Sub-Rede**: o prefixo de endereço da sub-rede (padrão *10.0.0.0/16*).
+    * **Assinatura** : a assinatura do Azure que você deseja usar para o servidor.
+    * **Capacidade de SKU** : a capacidade vCore, que pode ser *2* (o padrão), *4* , *8* , *16* , *32* ou *64*.
+    * **Nome do SKU** : o prefixo do nível de SKU, a família de SKU e a capacidade de SKU, unidos por sublinhados, como *B_Gen5_1* , *GP_Gen5_2* (o padrão) ou *MO_Gen5_32*.
+    * **Tamanho do SKU em MB** : o tamanho do armazenamento, em megabytes, do servidor do Banco de Dados do Azure para PostgreSQL (padrão *51200* ).
+    * **Nível do SKU** : o nível de implantação, como *Basic* , *GeneralPurpose* (o padrão) ou *MemoryOptimized*.
+    * **Família do SKU** : *Gen4* ou *Gen5* (o padrão), que indica a geração de hardware para a implantação do servidor.
+    * **Versão do PostgreSQL** : a versão do servidor PostgreSQL a ser implantada, como *9.5* , *9.6* , *10* ou *11* (a padrão).
+    * **Dias de retenção de backup** : o período desejado para retenção de backup com redundância geográfica, em dias (padrão *7* ).
+    * **Backup de redundância geográfica** : *Habilitado* ou *Desabilitado* (o padrão), dependendo dos requisitos de Geo-DR (recuperação de desastre geográfico).
+    * **Nome da Rede Virtual** : o nome da rede virtual (padrão *azure_postgresql_vnet* ).
+    * **Nome da Sub-Rede** : o nome da sub-rede (padrão *azure_postgresql_subnet* ).
+    * **Nome da Regra da Rede Virtual** : o nome da regra da rede virtual que permite a sub-rede (padrão *AllowSubnet* ).
+    * **Prefixo de Endereço da VNET** : o prefixo de endereço para a rede virtual (padrão *10.0.0.0/16* ).
+    * **Prefixo da Sub-Rede** : o prefixo de endereço da sub-rede (padrão *10.0.0.0/16* ).
 
 5. Leia os termos e condições e depois selecione **Eu concordo com os termos e condições declarados acima**.
 

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/03/2016
 ms.author: cephalin
 ms.openlocfilehash: 0019e50615f3e66778709ad8cb28f92967c66e2e
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86050283"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018404"
 ---
 ## <a name="deployment-customization"></a>Personalização da implantação
 

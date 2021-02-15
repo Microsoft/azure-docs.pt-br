@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: 2809ff6abe36956123e0e581e16aa85edeb40395
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c7429108f70d735cb6e314a0d4daa27ba0d31637
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87095677"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100090404"
 ---
 # <a name="connect-your-symantec-vip-to-azure-sentinel"></a>Conectar seu Symantec VIP ao Azure Sentinel
 

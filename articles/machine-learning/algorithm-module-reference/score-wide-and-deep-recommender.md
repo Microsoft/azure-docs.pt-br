@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 08/12/2020
-ms.openlocfilehash: 43dca9cd9f9000faae701e618e9a5fdf21d31ee3
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 9a1a3892e6a47aabd9b5129ca551900494616bc8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192742"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "90905162"
 ---
 # <a name="score-wide-and-deep-recommender"></a>Pontuar o sistema de recomendação grande e profundo
 
-Este artigo descreve como usar o módulo de **recomendação de largura e de fundo profundo** no Azure Machine Learning designer (versão prévia), para criar previsões com base em um modelo de recomendação treinado, com base no amplo & aprendizado profundo do Google.
+Este artigo descreve como usar o módulo de recomendação de **Pontuação e de largura profunda** no Azure Machine Learning designer, para criar previsões com base em um modelo de recomendação treinado, com base na ampla & aprendizado profundo do Google.
 
 O recomendador amplo e profundo pode gerar dois tipos diferentes de previsões:
 

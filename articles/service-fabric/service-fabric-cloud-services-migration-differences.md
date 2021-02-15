@@ -1,16 +1,14 @@
 ---
 title: Diferenças entre os serviços de nuvem e Service Fabric
 description: Uma visão geral conceitual para a migração de aplicativos dos Serviços de Nuvem para o Service Fabric.
-author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
-ms.author: vturecek
-ms.openlocfilehash: c98aeaff3ba39a28fad68454d76f6f4d33f44e5d
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: c7e7d346b5a39a262d1d55265becadb1c718cc04
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836727"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575764"
 ---
 # <a name="learn-about-the-differences-between-cloud-services-and-service-fabric-before-migrating-applications"></a>Saiba mais sobre as diferenças entre os Serviços de Nuvem e o Service Fabric antes de migrar os aplicativos.
 O Service Fabric do Microsoft Azure é a plataforma de aplicativos de nuvem de última geração para aplicativos distribuídos altamente escalonáveis e altamente confiáveis. Ele apresenta muitos recursos novos para empacotamento, implantação, atualização e gerenciamento de aplicativos em nuvem distribuídos. 
@@ -36,7 +34,7 @@ O modelo de aplicativo Service Fabric tem uma série de vantagens:
 * A plataforma Service Fabric pode ser executada em qualquer lugar que tenha computadores com Windows Server ou Linux, seja do Azure ou locais. A plataforma fornece uma camada de abstração sobre a infraestrutura subjacente para que seu aplicativo possa ser executado em diferentes ambientes. 
 * Gerenciamento de aplicativo distribuído. O Service Fabric é uma plataforma que não apenas hospeda aplicativos distribuídos, mas também ajuda a gerenciar o ciclo de vida, independentemente do ciclo de vida da VM de hospedagem ou do computador.
 
-## <a name="application-architecture"></a>Arquitetura do aplicativo
+## <a name="application-architecture"></a>Arquitetura de aplicativo
 A arquitetura de um aplicativo de Serviços de Nuvem geralmente inclui várias dependências de serviço externo, como o Barramento de Serviço, Armazenamento de Tabelas e de Blobs do Azure, SQL, Redis e outros para gerenciar o estado e os dados de um aplicativo e a comunicação entre funções de trabalho e Web em uma implantação de Serviços de Nuvem. Um exemplo de um aplicativo de Serviços de Nuvem completo pode ter esta aparência:  
 
 ![Arquitetura dos Serviços de Nuvem][9]
@@ -69,7 +67,7 @@ Com a comunicação direta, as camadas podem se comunicar diretamente por meio d
 
 O Service Fabric fornece um mecanismo de descoberta de serviço chamado Serviço de Nomenclatura, que pode ser usado para resolver endereços de ponto de extremidade de serviços. 
 
-![Comunicação direta do Service Fabric][6]
+![Diagrama que mostra como Service Fabric fornece um mecanismo de descoberta de serviço, chamado de Serviço de Nomenclatura, que pode ser usado para resolver endereços de ponto de extremidade de serviços.][6]
 
 ### <a name="queues"></a>Filas
 Um mecanismo de comunicação comum entre camadas em ambientes sem estado, como os Serviços de Nuvem, é o uso de uma fila de armazenamento externo para armazenar permanentemente as tarefas de trabalho de uma camada para outra. Um cenário comum é uma camada da Web que envia os trabalhos para uma fila do Azure ou Barramento de Serviço, onde as instâncias de função de trabalho podem remover os trabalhos da fila e processá-los.

@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
+ms.reviewer: ''
 ms.date: 12/20/2018
-ms.openlocfilehash: a45fc5f4e56ff3a5d7f0be167c5d758aa0e47caf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 59e28e4a3d630aac0954802e8777058c00261006
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84196362"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791436"
 ---
 # <a name="best-practices-for-azure-sql-data-sync"></a>Melhores práticas para a Sincronização de Dados SQL do Azure 
 
@@ -41,11 +41,11 @@ Para obter uma visão geral da Sincronização de Dados SQL, consulte [Sincroniz
 
 ### <a name="database-accounts-with-least-required-privileges"></a>Contas de banco de dados com o mínimo de privilégios necessários
 
--   **Para configuração da sincronização**. Criar/alterar tabela; alterar banco de dados; criar procedimento; selecionar/alterar esquema; criar tipo definido pelo usuário.
+-   **Para configuração da sincronização** . Criar/alterar tabela; alterar banco de dados; criar procedimento; selecionar/alterar esquema; criar tipo definido pelo usuário.
 
--   **Para sincronização em andamento**. Selecionar/inserir/atualizar/excluir em tabelas selecionadas para sincronização e em metadados de sincronização e tabelas de acompanhamento; Permissão EXECUTE em procedimentos armazenados criados pelo serviço; Permissão EXECUTE em tipos de tabela definidos pelo usuário.
+-   **Para sincronização em andamento** . Selecionar/inserir/atualizar/excluir em tabelas selecionadas para sincronização e em metadados de sincronização e tabelas de acompanhamento; Permissão EXECUTE em procedimentos armazenados criados pelo serviço; Permissão EXECUTE em tipos de tabela definidos pelo usuário.
 
--   **Para desprovisionamento**. Alterar em tabelas que fazem parte da sincronização; Selecionar/Excluir em tabelas de metadados de sincronização; Controlar em tabelas de sincronização, procedimentos armazenados e tipos definidos pelo usuário.
+-   **Para desprovisionamento** . Alterar em tabelas que fazem parte da sincronização; Selecionar/Excluir em tabelas de metadados de sincronização; Controlar em tabelas de sincronização, procedimentos armazenados e tipos definidos pelo usuário.
 
 O banco de dados SQL do Azure oferece suporte a apenas um único conjunto de credenciais. Para realizar essas tarefas dentro desta restrição, considere as seguintes opções:
 
@@ -152,7 +152,7 @@ As alterações podem apresentar falha na propagação por um dos seguintes moti
 
 #### <a name="what-happens-when-changes-fail-to-propagate"></a>O que acontece quando as alterações falham ao ser propagadas?
 
--   O grupo de sincronização mostra que ele está em um estado de **Aviso**.
+-   O grupo de sincronização mostra que ele está em um estado de **Aviso** .
 -   Os detalhes estão listados no visualizador de log de interface do usuário do portal.
 -   Se o problema não for resolvido por 45 dias, o banco de dados se tornará desatualizado.
 
@@ -168,7 +168,7 @@ Monitore a integridade do banco de dados e do grupo de sincronização regularme
 
 ### <a name="avoid-out-of-date-databases-and-sync-groups"></a><a name="avoid-out-of-date-databases-and-sync-groups"></a> Evitar bancos de dados e grupos de sincronização desatualizados
 
-Um grupo de sincronização ou um banco de dados em um grupo de sincronização pode ficar desatualizado. Quando o status de um grupo de sincronização for **Desatualizado**, ele deixará de funcionar. Quando o status de um banco de dados é **Desatualizado**, os dados podem ser perdidos. É melhor evitar este cenário em vez de tentar recuperá-lo.
+Um grupo de sincronização ou um banco de dados em um grupo de sincronização pode ficar desatualizado. Quando o status de um grupo de sincronização for **Desatualizado** , ele deixará de funcionar. Quando o status de um banco de dados é **Desatualizado** , os dados podem ser perdidos. É melhor evitar este cenário em vez de tentar recuperá-lo.
 
 #### <a name="avoid-out-of-date-databases"></a>Evitar bancos de dados desatualizados
 
@@ -238,7 +238,7 @@ Para obter mais informações sobre a Sincronização de Dados SQL, consulte:
         -  [Usar o PowerShell para sincronizar entre vários bancos de dados no banco de dados SQL do Azure](scripts/sql-data-sync-sync-data-between-sql-databases.md)
         -  [Usar o PowerShell para sincronizar entre um banco de dados no banco de dados SQL e um banco de dados em uma instância do SQL Server](scripts/sql-data-sync-sync-data-between-azure-onprem.md)
 -   Agente de Sincronização de Dados - [Agente de Sincronização de Dados para Sincronização de Dados SQL do Azure](sql-data-sync-agent-overview.md)
--   Monitor – [monitore a Sincronização de Dados SQL com logs do Azure Monitor](sql-data-sync-monitor-sync.md)
+-   Monitor – [monitore a Sincronização de Dados SQL com logs do Azure Monitor](./monitor-tune-overview.md)
 -   Solucionar problemas - [Solucionar problemas com o SQL Data Sync do Azure](sql-data-sync-troubleshoot.md)
 -   Atualizar o esquema de sincronização
     -   Com Transact-SQL - [Automatize a replicação de alterações de esquema no Azure SQL Data Sync](sql-data-sync-update-sync-schema.md)
@@ -247,4 +247,4 @@ Para obter mais informações sobre a Sincronização de Dados SQL, consulte:
 Para saber mais sobre Bancos de Dados SQL, confira:
 
 -   [Visão geral do Banco de Dados SQL](sql-database-paas-overview.md)
--   [Gerenciamento do ciclo de vida do banco](https://msdn.microsoft.com/library/jj907294.aspx)
+-   [Gerenciamento do ciclo de vida do banco](/previous-versions/sql/sql-server-guides/jj907294(v=sql.110))

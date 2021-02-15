@@ -1,6 +1,6 @@
 ---
 title: Usar o construtor de imagens do Azure & Galeria de imagens compartilhadas para VMs do Linux (versão prévia)
-description: Crie imagens de VM do Linux com o Construtor de Imagens do Azure e a Galeria de Imagens Compartilhadas.
+description: Saiba como usar o construtor de imagens do Azure e o CLI do Azure, para criar uma versão de imagem em uma galeria de imagens compartilhada e, em seguida, distribuir a imagem globalmente.
 author: cynthn
 ms.author: cynthn
 ms.date: 05/05/2019
@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.reviewer: danis
-ms.openlocfilehash: 1eeb8df2605bbe63fe72c5bd451b43111322a7f6
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 0cf081fb7723972013d61f385c823a3b0c4d2aee
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500905"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98679510"
 ---
 # <a name="preview-create-a-linux-image-and-distribute-it-to-a-shared-image-gallery"></a>Visualização: Criar uma imagem do Linux e distribuí-la para uma Galeria de Imagens Compartilhadas 
 
-Este artigo mostra como usar o Construtor de Imagens do Azure e a CLI do Azure para criar uma versão de imagem em uma [Galeria de Imagens Compartilhadas](../windows/shared-image-galleries.md) e distribuir a imagem globalmente. Faça isso também com o [Azure PowerShell](../windows/image-builder-gallery.md).
+Este artigo mostra como usar o Construtor de Imagens do Azure e a CLI do Azure para criar uma versão de imagem em uma [Galeria de Imagens Compartilhadas](../shared-image-galleries.md) e distribuir a imagem globalmente. Faça isso também com o [Azure PowerShell](../windows/image-builder-gallery.md).
 
 
 Usaremos um modelo .json de exemplo para configurar a imagem. O arquivo .json que estamos usando está aqui: [helloImageTemplateforSIG.json](https://github.com/danielsollondon/azvmimagebuilder/blob/master/quickquickstarts/1_Creating_a_Custom_Linux_Shared_Image_Gallery_Image/helloImageTemplateforSIG.json). 
@@ -298,4 +298,4 @@ az group delete -n $sigResourceGroup -y
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre as [Galerias de Imagens Compartilhadas do no Azure](shared-image-galleries.md).
+Saiba mais sobre as [Galerias de Imagens Compartilhadas do no Azure](../shared-image-galleries.md).

@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 7b925a25e1e246008f393f7b15160417c3b3d7a1
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 42d1d66c67b554b4b98cd8267b5945049215f843
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85254847"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98556011"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-net-api"></a>Tutorial: Criar um pipeline com a Atividade de Cópia usando a API do .NET
 > [!div class="op_single_selector"]
@@ -39,7 +39,7 @@ Neste tutorial, você criará um pipeline com uma atividade: Atividade de cópia
 Um pipeline pode ter mais de uma atividade. E você pode encadear duas atividades (executar uma atividade após a outra) definindo o conjunto de dados de saída de uma atividade como o conjunto de dados de entrada da outra atividade. Para saber mais, confira [Várias atividades em um pipeline](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline). 
 
 > [!NOTE] 
-> Confira [Referência da API do .NET do Data Factory](/dotnet/api/index?view=azuremgmtdatafactories-4.12.1) para obter uma documentação abrangente sobre a API do .NET do Data Factory.
+> Confira [Referência da API do .NET do Data Factory](/dotnet/api/overview/azure/data-factory) para obter uma documentação abrangente sobre a API do .NET do Data Factory.
 > 
 > O pipeline de dados neste tutorial copia os dados de um armazenamento de dados de origem para um armazenamento de dados de destino. Para ver um tutorial sobre como transformar dados usando o Azure Data Factory, consulte [Tutorial: Criar um pipeline para transformar dados usando um cluster Hadoop](data-factory-build-your-first-pipeline.md).
 
@@ -108,7 +108,7 @@ Crie um aplicativo do Azure Active Directory, crie uma entidade de serviço para
 9. Obtenha a ID do aplicativo.
 
     ```powershell
-    $azureAdApplication 
+    $azureAdApplication
     ```
     Anote a ID do aplicativo (IDaplicativo) na saída.
 
@@ -503,7 +503,7 @@ Você deve ter quatro valores após estas etapas:
     }
     ```
 
-15. No Gerenciador de Soluções, expanda o projeto (DataFactoryAPITestApp), clique com botão direito em **Referências**e clique em **Adicionar Referência**. Marque a caixa de seleção do assembly **System. Configuration**. E clique em **OK**.
+15. No Gerenciador de Soluções, expanda o projeto (DataFactoryAPITestApp), clique com botão direito em **Referências** e clique em **Adicionar Referência**. Marque a caixa de seleção do assembly **System. Configuration**. E clique em **OK**.
 16. Compile o aplicativo de console. Clique no menu **Compilar** e clique em **Solução de Compilação**.
 17. Confirme se há pelo menos um arquivo no contêiner **adftutorial** no seu armazenamento de BLOBs do Azure. Caso contrário, crie o arquivo **Emp.txt** no bloco de notas com o seguinte conteúdo e carregue-o no contêiner adftutorial.
 
@@ -519,7 +519,7 @@ Você deve ter quatro valores após estas etapas:
 20. Verifique se os dois registros de funcionários são criados na tabela **emp** do banco de dados especificado.
 
 ## <a name="next-steps"></a>Próximas etapas
-Confira [Referência da API do .NET do Data Factory](/dotnet/api/index?view=azuremgmtdatafactories-4.12.1) para obter uma documentação abrangente sobre a API do .NET do Data Factory.
+Confira [Referência da API do .NET do Data Factory](/dotnet/api/overview/azure/data-factory) para obter uma documentação abrangente sobre a API do .NET do Data Factory.
 
 Neste tutorial, você usou o Armazenamento de Blobs do Azure como um armazenamento de dados de origem e o Banco de Dados SQL do Azure como um armazenamento de dados de destino em uma operação de cópia. A tabela a seguir fornece uma lista de armazenamentos de dados com suporte como origens ou destinos na atividade de cópia: 
 

@@ -5,10 +5,10 @@ ms.date: 08/24/2020
 ms.topic: tutorial
 ms.reviewer: ravastra
 ms.openlocfilehash: add790a069d2e0ea66d84bbd632825cf9331fd38
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88784021"
 ---
 # <a name="tutorial-create-a-blockchain-application-for-azure-blockchain-workbench"></a>Tutorial: Criar um aplicativo de blockchain no Azure Blockchain Workbench
@@ -208,7 +208,7 @@ O início do arquivo de configuração contém informações sobre o aplicativo,
 
 A seção de funções de aplicativo define as funções de usuário que podem agir ou participar do aplicativo blockchain. Você define um conjunto de funções diferentes com base na funcionalidade. No cenário de solicitação-resposta, há uma distinção entre a funcionalidade de um solicitante como uma entidade que produz solicitações e um respondente como uma entidade que gera respostas.
 
-### <a name="workflows"></a>Fluxos de Trabalho
+### <a name="workflows"></a>Fluxos de trabalho
 
 Fluxos de trabalho definem uma ou mais etapas e ações do contrato. No cenário de solicitação-resposta, a primeira etapa (estado) do fluxo de trabalho é um solicitante (função) que executa uma ação (transição) para enviar uma solicitação (função). A próxima etapa (estado) é que um respondente (função) que executa uma ação (transição) para enviar uma resposta (função). O fluxo de trabalho de um aplicativo pode envolver propriedades, funções e estados necessários que descrevem o fluxo de um contrato.
 

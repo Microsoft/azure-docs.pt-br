@@ -12,12 +12,12 @@ ms.date: 04/24/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma
-ms.openlocfilehash: 298c5b96951ed616b324535cf3fe2585180789a1
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 77a4e7389952b81df13dae929dc1aec664fcc0b7
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88117236"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755639"
 ---
 # <a name="microsoft-identity-platform-developer-glossary"></a>Glossário do desenvolvedor da plataforma de identidade da Microsoft
 
@@ -34,7 +34,7 @@ Os tokens de acesso às vezes são chamados de "Usuário+Aplicativo" ou "Somente
 * [Concessão de autorização de "código de autorização"](#authorization-grant), o usuário final é autenticado primeiro como o proprietário do recurso, delegando a autorização ao cliente para acessar o recurso. O cliente é autenticado depois, ao obter o token de acesso. Às vezes, o token pode ser chamado mais especificamente de token de "Usuário+Aplicativo", que representa o usuário que autorizou o aplicativo cliente e o aplicativo.
 * [Concessão de autorização de "credenciais de cliente"](#authorization-grant), o cliente fornece a única autenticação, funcionando sem a autenticação/autorização do proprietário do recurso. Portanto, às vezes o token pode ser chamado de token "Somente de Aplicativo".
 
-Consulte [referência de token da plataforma de identidade da Microsoft][AAD-Tokens-Claims] para obter mais detalhes.
+Consulte a [referência de token da plataforma Microsoft Identity][AAD-Tokens-Claims] para obter mais detalhes.
 
 ## <a name="application-id-client-id"></a>ID do aplicativo (ID do cliente)
 
@@ -95,7 +95,7 @@ No caso da integração de aplicativos da plataforma de identidade da Microsoft,
 
 Um [token de segurança](#security-token) contêm declarações, que fornecem asserções sobre uma entidade (como um [aplicativo cliente](#client-application) ou um [proprietário de recursos](#resource-owner)) para outra entidade (como o [servidor de recursos](#resource-server)). As declarações são pares de nome/valor que transmitem fatos sobre a entidade do token (por exemplo, a entidade de segurança que foi autenticada pelo [servidor de autorização](#authorization-server)). As declarações presentes em um token específico dependem de diversas variáveis, incluindo o tipo de token, o tipo de credencial usado para autenticar a entidade, a configuração de aplicativo etc.
 
-Consulte [referência de token da plataforma de identidade da Microsoft][AAD-Tokens-Claims] para obter mais detalhes.
+Consulte a [referência de token da plataforma Microsoft Identity][AAD-Tokens-Claims] para obter mais detalhes.
 
 ## <a name="client-application"></a>aplicativo cliente
 
@@ -113,11 +113,11 @@ Veja [estrutura de consentimento](consent-framework.md) para obter mais informa�
 
 Um [token de segurança](#security-token) do [OpenID Connect][OpenIDConnect-ID-Token] fornecido por um [ponto de extremidade de autorização](#authorization-endpoint) [do servidor de autorização](#authorization-server) , que contém [declarações](#claim) referentes à autenticação de um [proprietário de recurso](#resource-owner)do usuário final. Assim como um token de acesso, os tokens de ID também são representados como um [JWT (Token Web JSON)][JWT] assinado digitalmente. Diferentemente de um token de acesso, as declarações de um token de ID não são usadas para fins relacionados ao acesso a recursos e ao controle de acesso especificamente.
 
-Consulte [referência de token da plataforma de identidade da Microsoft][AAD-Tokens-Claims] para obter mais detalhes.
+Consulte a [referência de token da plataforma Microsoft Identity][AAD-Tokens-Claims] para obter mais detalhes.
 
 ## <a name="microsoft-identity-platform"></a>Plataforma de identidade da Microsoft
 
-A plataforma de identidade da Microsoft é uma evolução da plataforma de desenvolvedor e serviço de identidade do Azure AD (Azure Active Directory). Ela permite que os desenvolvedores criem aplicativos que se conectam a todas as identidades da Microsoft e obtenham tokens para chamar o Microsoft Graph, outras APIs da Microsoft ou APIs que os desenvolvedores criaram. Trata-se de uma plataforma completa que consiste em um serviço de autenticação, bibliotecas, registro de aplicativo e configuração, documentação completa do desenvolvedor, exemplos de código e outros conteúdos do desenvolvedor. A plataforma de identidade da Microsoft dá suporte a protocolos padrão do setor, como OAuth 2.0 e OpenID Connect.
+A plataforma de identidade da Microsoft é uma evolução do serviço de identidade do Azure Active Directory (AD do Azure) e da plataforma de desenvolvedor. Ela permite que os desenvolvedores criem aplicativos que se conectam a todas as identidades da Microsoft e obtenham tokens para chamar o Microsoft Graph, outras APIs da Microsoft ou APIs que os desenvolvedores criaram. Trata-se de uma plataforma completa que consiste em um serviço de autenticação, bibliotecas, registro de aplicativo e configuração, documentação completa do desenvolvedor, exemplos de código e outros conteúdos do desenvolvedor. A plataforma de identidade da Microsoft dá suporte a protocolos padrão do setor, como OAuth 2.0 e OpenID Connect.
 
 ## <a name="multi-tenant-application"></a>Aplicativos multilocatários
 
@@ -154,7 +154,7 @@ Conforme definido pela [Estrutura de Autorização OAuth2][OAuth2-Role-Def], uma
 
 Conforme definido pela [Estrutura de Autorização OAuth2][OAuth2-Role-Def], um servidor que hospeda recursos protegidos, capaz de aceitar e responder a solicitações de recursos protegidos de [aplicativos cliente](#client-application) que apresentam um [token de acesso](#access-token). Também conhecido como um servidor de recursos protegidos ou aplicativo de recurso.
 
-Um servidor de recursos expõe APIs e impõe o acesso a seus recursos protegidos por meio de [escopos](#scopes) e [funções](#roles), usando a Estrutura de Autorização OAuth 2.0. Os exemplos incluem a [API Microsoft Graph][Microsoft-Graph] que fornece acesso aos dados de locatário do Azure AD e as APIs do Office 365 que fornecem acesso a dados como email e calendário.
+Um servidor de recursos expõe APIs e impõe o acesso a seus recursos protegidos por meio de [escopos](#scopes) e [funções](#roles), usando a Estrutura de Autorização OAuth 2.0. Os exemplos incluem a [API Microsoft Graph][Microsoft-Graph] que fornece acesso aos dados de locatário do Azure AD e as APIs de Microsoft 365 que fornecem acesso a dados como email e calendário.
 
 Assim como um aplicativo cliente, a configuração de identidade do aplicativo de recurso é estabelecida via [registro](#application-registration) em um locatário do Azure AD, fornecendo o objeto de entidade de serviço e de aplicativo. Algumas APIs fornecidas pela Microsoft, como a API de Microsoft Graph, têm entidades de serviço previamente registradas disponibilizadas em todos os locatários durante o provisionamento.
 
@@ -164,7 +164,7 @@ Assim como os [escopos](#scopes), as funções fornecem uma maneira para que um 
 
 As funções são cadeias de caracteres definidas por recursos (por exemplo, "Aprovador de despesas", "Somente leitura", "Directory.ReadWrite.All"), gerenciadas no [Portal do Azure][AZURE-portal] por meio do [manifesto do aplicativo](#application-manifest) do recurso e armazenadas na [propriedade appRoles][Graph-Sp-Resource] do recurso. O Portal do Azure também é usado para atribuir usuários às funções de "usuário" e configurar [permissões de aplicativo](#permissions) do cliente para acessar uma função de "aplicativo".
 
-Para obter uma discussão detalhada sobre as funções de aplicativo expostas pela API de Microsoft Graph, consulte [API do Graph escopos de permissão][Graph-Perm-Scopes]. Para um exemplo de implementação passo a passo, consulte [Gerenciar acesso usando RBAC e o portal do Azure][AAD-RBAC].
+Para obter uma discussão detalhada sobre as funções de aplicativo expostas pela API de Microsoft Graph, consulte [API do Graph escopos de permissão][Graph-Perm-Scopes]. Para obter um exemplo de implementação passo a passo, consulte [Adicionar ou remover atribuições de função do Azure usando o portal do Azure][AAD-RBAC].
 
 ## <a name="scopes"></a>escopos
 
@@ -172,7 +172,7 @@ Assim como as [funções](#roles), os escopos fornecem uma maneira para que um [
 
 Os escopos são cadeias de caracteres definidas por recursos (por exemplo "Mail.Read", "Directory.ReadWrite.All"), gerenciados no [Portal do Azure][AZURE-portal] por meio do [manifesto do aplicativo](#application-manifest) do recurso e armazenados na [propriedade oauth2Permissions][Graph-Sp-Resource] do recurso. O Portal do Azure também é usado para configurar [permissões delegadas](#permissions) do aplicativo cliente para acessar um escopo.
 
-Uma prática recomendada para a convenção de nomenclatura é usar um formato "resource.operation.constraint". Para obter uma discussão detalhada dos escopos expostos pela API Microsoft Graph, consulte [API do Graph escopos de permissão][Graph-Perm-Scopes]. Para escopos expostos por serviços do Office 365, veja [Referência de permissões de API do Office 365][O365-Perm-Ref].
+Uma prática recomendada para a convenção de nomenclatura é usar um formato "resource.operation.constraint". Para obter uma discussão detalhada dos escopos expostos pela API Microsoft Graph, consulte [API do Graph escopos de permissão][Graph-Perm-Scopes]. Para escopos expostos por serviços de Microsoft 365, consulte [referência de permissões de API Microsoft 365][O365-Perm-Ref].
 
 ## <a name="security-token"></a>token de segurança
 
@@ -202,7 +202,7 @@ Uma instância de um diretório do Azure AD é chamada de locatário do Azure AD
 * autenticação de contas de usuário e aplicativos registrados
 * Pontos de extremidade REST necessários para dar suporte a vários protocolos, incluindo OAuth2 e SAML, incluindo [ponto de extremidade de autorização](#authorization-endpoint), [ponto de extremidade de token](#token-endpoint) e ponto de extremidade "comum" usado por [aplicativos de multilocação](#multi-tenant-application).
 
-Locatários do Azure AD são criados/associados com assinaturas do Azure e o Office 365 durante a inscrição, fornecendo recursos de Gerenciamento de Identidades e Acesso para a assinatura. Os administradores de assinatura do Azure também podem criar locatários do Azure AD adicionais por meio do Portal do Azure. Veja [Como obter um locatário do Azure Active Directory][AAD-How-To-Tenant] para saber mais sobre as várias maneiras de obter acesso a um locatário. Consulte [associar ou adicionar uma assinatura do Azure ao seu locatário Azure Active Directory][AAD-How-Subscriptions-Assoc] para obter detalhes sobre a relação entre assinaturas e um locatário do Azure AD e para obter instruções sobre como associar ou adicionar uma assinatura a um locatário do Azure AD.
+Os locatários do Azure AD são criados/associados ao Azure e Microsoft 365 assinaturas durante a inscrição, fornecendo recursos de gerenciamento de acesso & identidade para a assinatura. Os administradores de assinatura do Azure também podem criar locatários do Azure AD adicionais por meio do Portal do Azure. Veja [Como obter um locatário do Azure Active Directory][AAD-How-To-Tenant] para saber mais sobre as várias maneiras de obter acesso a um locatário. Consulte [associar ou adicionar uma assinatura do Azure ao seu locatário Azure Active Directory][AAD-How-Subscriptions-Assoc] para obter detalhes sobre a relação entre assinaturas e um locatário do Azure AD e para obter instruções sobre como associar ou adicionar uma assinatura a um locatário do Azure AD.
 
 ## <a name="token-endpoint"></a>ponto de extremidade de token
 
@@ -222,7 +222,7 @@ Um tipo de [aplicativo cliente](#client-application) que executa todo o código 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-O [Guia do desenvolvedor da plataforma de identidade da Microsoft][AAD-Dev-Guide] é a página de aterrissagem a ser usada para todos os tópicos relacionados ao desenvolvimento da plataforma de identidade da Microsoft, incluindo uma visão geral da [integração de aplicativos][AAD-How-To-Integrate] e os conceitos básicos da [autenticação da plataforma Microsoft Identity e dos cenários de autenticação com suporte][AAD-Auth-Scenarios]. Você também pode encontrar exemplos de código & tutoriais sobre como entrar em funcionamento rapidamente no [GitHub](https://github.com/azure-samples?utf8=%E2%9C%93&q=active%20directory&type=&language=).
+O [Guia do desenvolvedor da plataforma de identidade da Microsoft][AAD-Dev-Guide] é a página de aterrissagem a ser usada para todos os tópicos relacionados ao desenvolvimento da plataforma Microsoft Identity, incluindo uma visão geral da [integração de aplicativos][AAD-How-To-Integrate] e os conceitos básicos da [autenticação da plataforma Microsoft Identity e dos cenários de autenticação com suporte][AAD-Auth-Scenarios]. Você também pode encontrar exemplos de código & tutoriais sobre como entrar em funcionamento rapidamente no [GitHub](https://github.com/azure-samples?utf8=%E2%9C%93&q=active%20directory&type=&language=).
 
 Use a seção de comentários a seguir para fornecer comentários e ajudar a refinar e moldar esse conteúdo, incluindo solicitações de novas definições ou atualizando as existentes!
 
@@ -235,7 +235,7 @@ Use a seção de comentários a seguir para fornecer comentários e ajudar a ref
 [AAD-Dev-Guide]:azure-ad-developers-guide.md
 [Graph-Perm-Scopes]: /graph/permissions-reference
 [Graph-App-Resource]: /graph/api/resources/application
-[Graph-Sp-Resource]: /graph/api/resources/serviceprincipal?view=graph-rest-beta
+[Graph-Sp-Resource]: /graph/api/resources/serviceprincipal?view=graph-rest-beta&preserve-view=true
 [Graph-User-Resource]: /graph/api/resources/user
 [AAD-How-Subscriptions-Assoc]:../fundamentals/active-directory-how-subscriptions-associated-directory.md
 [AAD-How-To-Integrate]: ./active-directory-how-to-integrate.md

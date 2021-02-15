@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: na
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6048ee9237640799b7bec37083e607fc74ffb8e4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85252960"
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Referência de configurações de roaming do Windows 10
@@ -26,7 +26,7 @@ Veja a seguir uma lista das configurações que serão móveis ou submetidas a b
 
 Veja a tabela a seguir para obter um resumo dos dispositivos e dos tipos de conta compatíveis com a estrutura de sincronização, de backup e de restauração no Windows 10.
 
-| Tipo e operação de conta | Desktop | Dispositivos móveis |
+| Tipo e operação de conta | Desktop | Móvel |
 | --- | --- | --- |
 | Active Directory do Azure: sincronização |Sim |Não |
 | Active Directory do Azure: backup/restauração |Não |Não |
@@ -69,11 +69,11 @@ Na tabela a seguir, outras entradas na coluna grupo de configurações referem-s
 As entradas internas na coluna Grupo de Configurações referem-se às configurações e aos aplicativos que só podem ter a sincronização desabilitada no próprio aplicativo ou por meio da desabilitação da sincronização do dispositivo inteiro usando o gerenciamento de dispositivos móveis (MDM) ou as configurações da Política de Grupo.
 As configurações que não forem movidas ou sincronizadas não pertencerão a um grupo.
 
-| Configurações | Desktop | Dispositivos móveis | Agrupar |
+| Configurações | Desktop | Móvel | Grupo |
 | --- | --- | --- | --- |
 | **Contas**: imagem da conta |sync |X |Tema |
 | **Contas**: outras configurações de conta |X |X | |
-| **Banda larga móvel avançada**: nome da rede de compartilhamento de conexão com a Internet (habilita a descoberta automática de hotspots Wi-Fi móveis via Bluetooth) |X |X |Senhas |
+| **Banda larga móvel avançada**: nome da rede de compartilhamento de conexão com a Internet (habilita a descoberta automática de hotspots móveis Wi-Fi via Bluetooth) |X |X |Senhas |
 | **Dados de aplicativo**: aplicativos individuais podem sincronizar dados |sincronizar backup |sincronizar backup |interno |
 | **Lista de aplicativos**: lista de aplicativos instalados |X |backup |Outros |
 | **Bluetooth**: todas as configurações do Bluetooth |X |X | |
@@ -95,7 +95,7 @@ As configurações que não forem movidas ou sincronizadas não pertencerão a u
 | **Personalização da área de trabalho**: papel de parede de apresentação de slides |sync |X |Tema |
 | **Personalização da área de trabalho**: configurações da barra de tarefas (posição, ocultar automaticamente etc.) |sync |X |Tema |
 | **Personalização da área de trabalho**: iniciar o layout da tela |X |backup | |
-| **Dispositivos**: impressoras compartilhadas às quais você se conectou |X |X |outros |
+| **Dispositivos**: impressoras compartilhadas às quais você se conectou |X |X |other |
 | **Navegador Microsoft Edge**: lista de leitura |sync |sync |interno |
 | **Navegador Microsoft Edge**: favoritos |sync |sync |interno |
 | **Navegador Microsoft Edge**: principais sites <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
@@ -152,8 +152,8 @@ As configurações que não forem movidas ou sincronizadas não pertencerão a u
 | **Lupa**: controle - acompanhar o foco do teclado |sync |X |facilidade de acesso |
 | **Lupa**: controle - acompanhar o cursor do mouse |sync |X |facilidade de acesso |
 | **Magnifier**: iniciar quando os usuários entram (desativado por padrão) |sync |X |facilidade de acesso |
-| **Mouse**: alterar o tamanho do cursor do mouse |sync |X |outros |
-| **Mouse**: alterar a cor do cursor do mouse |sync |X |outros |
+| **Mouse**: alterar o tamanho do cursor do mouse |sync |X |other |
+| **Mouse**: alterar a cor do cursor do mouse |sync |X |other |
 | **Mouse**: todas as outras configurações |X |X | |
 | **Narrador**: início rápido |sync |X |facilidade de acesso |
 | **Narrador**: os usuários podem alterar o tom de fala do Narrador |sync |X |facilidade de acesso |

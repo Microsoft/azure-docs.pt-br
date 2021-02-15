@@ -1,23 +1,23 @@
 ---
 title: Portal do Azure – Restringir o acesso de importação/exportação aos discos gerenciados com Links Privados
-description: Habilite Links Privados para seus discos gerenciados com o portal do Azure, atualmente na versão prévia. Permitindo que você exporte e importe discos com segurança em sua rede virtual.
+description: Habilite Links Privados para os seus discos gerenciados com o portal do Azure. Permitindo que você exporte e importe discos com segurança em sua rede virtual.
 author: roygara
 ms.service: virtual-machines
 ms.topic: overview
-ms.date: 08/11/2020
+ms.date: 08/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 83f204a35e48962e525ad7d64c018eef301f9933
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: b80100216003e91fde54b5e555bafb755c942810
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88135837"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98682912"
 ---
-# <a name="azure-portal---restrict-importexport-access-for-managed-disks-with-private-links"></a>Portal do Azure – Restringir o acesso de importação/exportação aos discos gerenciados com Links Privados
+# <a name="use-the-azure-portal-to-restrict-importexport-access-for-managed-disks-with-private-links"></a>Usar o portal do Azure para restringir o acesso de importação/exportação aos discos gerenciados com Links Privados
 
-O suporte dos Links Privados para discos gerenciados está na versão prévia e permite que você restrinja a exportação e a importação de discos gerenciados para que elas ocorram somente dentro de sua rede virtual do Azure. Gere um URI de SAS (Assinatura de Acesso Compartilhado) com limite de tempo para discos gerenciados e instantâneos desanexados a fim de exportar os dados para outra região para expansão regional, recuperação de desastre e a fim de ler os dados para análise forense. Use também o URI de SAS para carregar diretamente o VHD em um disco vazio do local. O tráfego de rede entre os clientes na rede virtual e os discos gerenciados atravessa somente a rede virtual e um link privado na rede de backbone da Microsoft, eliminando a exposição à Internet pública.
+O suporte dos Links Privados para discos gerenciados permite que você restrinja a exportação e a importação de discos gerenciados para que elas ocorram somente dentro da sua rede virtual do Azure. Gere um URI de SAS (Assinatura de Acesso Compartilhado) com limite de tempo para discos gerenciados e instantâneos desanexados a fim de exportar os dados para outra região para expansão regional, recuperação de desastre e a fim de ler os dados para análise forense. Use também o URI de SAS para carregar diretamente o VHD em um disco vazio do local. O tráfego de rede entre os clientes na rede virtual e os discos gerenciados atravessa somente a rede virtual e um link privado na rede de backbone da Microsoft, eliminando a exposição à Internet pública.
 
 Crie um recurso de acesso a disco e vincule-o à sua rede virtual na mesma assinatura criando um ponto de extremidade privado. Você precisará associar um disco ou um instantâneo a um acesso a disco para exportar e importar os dados por meio de Links Privados. Além disso, você precisará definir a propriedade NetworkAccessPolicy do disco ou do instantâneo como `AllowPrivate`. 
 
@@ -27,15 +27,6 @@ Você pode definir a propriedade NetworkAccessPolicy como `DenyAll` para impedir
 
 [!INCLUDE [virtual-machines-disks-private-links-limitations](../../includes/virtual-machines-disks-private-links-limitations.md)]
 
-## <a name="regional-availability"></a>Disponibilidade regional
-
-[!INCLUDE [virtual-machines-disks-private-links-regions](../../includes/virtual-machines-disks-private-links-regions.md)]
-
-## <a name="prerequisites"></a>Pré-requisitos
-
-Para usar pontos de extremidade privados para exportar e importar discos gerenciados, habilite o recurso na sua assinatura. Envie um email para mdprivatelinks@microsoft.com com as suas IDs de assinatura para habilitar o recurso para suas assinaturas.
-
-Você precisará anotar a rede virtual da VM à qual os discos estão anexados. A rede virtual é necessária ao configurar o ponto de extremidade privado.
 
 ## <a name="create-a-disk-access-resource"></a>Criar um recurso de acesso a disco
 
@@ -100,5 +91,5 @@ Agora você concluiu a configuração de Links Privados que podem ser usados ao 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Perguntas frequentes sobre os Links Privados](linux/faq-for-disks.md#private-links-for-securely-exporting-and-importing-managed-disks)
-- [Exportar/copiar instantâneos gerenciados como VHD para uma conta de armazenamento em outa região com o PowerShell](scripts/virtual-machines-windows-powershell-sample-copy-snapshot-to-storage-account.md)
+- [Perguntas frequentes sobre os Links Privados](./faq-for-disks.md#private-links-for-securely-exporting-and-importing-managed-disks)
+- [Exportar/copiar instantâneos gerenciados como VHD para uma conta de armazenamento em outa região com o PowerShell](/previous-versions/azure/virtual-machines/scripts/virtual-machines-powershell-sample-copy-snapshot-to-storage-account)

@@ -14,10 +14,10 @@ ms.topic: troubleshooting
 ms.date: 08/28/2019
 ms.author: tiag
 ms.openlocfilehash: 5a2fd7fcfdae8559bfb39bffff7c73c7082a86aa
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87543275"
 ---
 # <a name="linux-vm-boots-to-grub-rescue"></a>A VM do Linux é inicializada para a resgate grub
@@ -45,7 +45,7 @@ Siga as etapas de mitigação abaixo, dependendo do erro que você receber:
 
     1. Verifique se `/etc/default/grub` existe e se tem as configurações corretas/desejadas. Se você não souber quais são as configurações padrão, poderá verificar com uma VM em funcionamento.
 
-    2. Em seguida, execute o seguinte comando para regenerar sua configuração:`grub2-mkconfig -o /boot/grub2/grub.cfg`
+    2. Em seguida, execute o seguinte comando para regenerar sua configuração: `grub2-mkconfig -o /boot/grub2/grub.cfg`
 
    * Se o arquivo ausente for `/boot/grub/menu.lst` , esse erro será para versões mais antigas do sistema operacional (**RHEL 6. x**, **CentOS 6. x** e **Ubuntu 14, 4**) para que os comandos pudessem ser diferentes. Você precisará criar um servidor antigo e testar para garantir que os comandos corretos sejam fornecidos.
 

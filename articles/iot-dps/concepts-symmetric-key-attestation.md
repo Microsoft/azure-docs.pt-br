@@ -9,18 +9,18 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ba4f67f924455b911d76426231cc71b661faf4a0
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 994c2c3124d6822f047af942268ad7a401d5a976
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020330"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "90531552"
 ---
 # <a name="symmetric-key-attestation"></a>Atestado de chave simétrica
 
 Este artigo descreve o processo de atestado de identidade ao usar chaves simétricas com o serviço de provisionamento de dispositivos. 
 
-O atestado de chave simétrica é uma abordagem simples para autenticar o dispositivo com uma instância do serviço de provisionamento de dispositivos. Esse método de atestado representa uma experiência de "Olá, Mundo" para desenvolvedores que são novos no provisionamento de dispositivos ou não tem requisitos de segurança rígidos. O atestado de dispositivos usando um [TPM](concepts-tpm-attestation.md) ou um [certificado X.509](concepts-security.md#x509-certificates) é mais seguro e deve ser usado para as exigências de segurança mais rigorosas.
+O atestado de chave simétrica é uma abordagem simples para autenticar o dispositivo com uma instância do serviço de provisionamento de dispositivos. Esse método de atestado representa uma experiência de "Olá, Mundo" para desenvolvedores que são novos no provisionamento de dispositivos ou não tem requisitos de segurança rígidos. O atestado de dispositivos usando um [TPM](concepts-tpm-attestation.md) ou um [certificado X.509](concepts-x509-attestation.md) é mais seguro e deve ser usado para as exigências de segurança mais rigorosas.
 
 Os registros de chave simétrica também são uma ótima maneira para que dispositivos herdados, com a funcionalidade de segurança limitada, sejam inicializados na nuvem por meio do IoT do Azure. Para obter mais informações sobre o atestado de chave simétrica com dispositivos herdados, confira [Como usar chaves simétricas com dispositivos herdados](how-to-legacy-device-symm-key.md).
 
@@ -109,12 +109,12 @@ Considere o seguinte diagrama que mostra uma tabela de chaves de dispositivo ger
 
 A identidade de cada dispositivo é representada pela ID de registro e a chave do dispositivo derivada que instaladas no alocador. A chave do dispositivo nunca é copiada para outro local e a chave de grupo nunca é armazenada em um dispositivo.
 
-Se as chaves de dispositivo não estiverem instaladas no alocador, um [HSM de módulo de segurança de hardware](concepts-security.md#hardware-security-module) deverá ser usado para armazenar a identidade do dispositivo com segurança.
+Se as chaves de dispositivo não estiverem instaladas no alocador, um [HSM de módulo de segurança de hardware](concepts-service.md#hardware-security-module) deverá ser usado para armazenar a identidade do dispositivo com segurança.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Agora que você já entende um pouco sobre atestado de chave simétrica, confira os artigos a seguir para saber mais:
 
-* [Início Rápido: provisionar um dispositivo simulado com chaves simétricas](quick-create-simulated-device-symm-key.md)
-* [Saiba mais sobre os conceitos de provisionamento automático](./concepts-auto-provisioning.md)
+* [Início rápido: Provisionar um dispositivo simulado com chaves simétricas](quick-create-simulated-device-symm-key.md)
+* [Saiba mais sobre os conceitos de provisionamento](about-iot-dps.md#provisioning-process)
 * [Introdução ao uso do provisionamento automático](./quick-setup-auto-provision.md) 

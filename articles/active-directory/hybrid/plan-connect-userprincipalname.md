@@ -10,12 +10,12 @@ ms.workload: identity
 ms.service: active-directory
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c748df10e432e3bebbce0dc8cb39dd2101d52e2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 58b4bbcac110398ee4ff132b76ce8c4868ee17f8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81680036"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91317584"
 ---
 # <a name="azure-ad-userprincipalname-population"></a>Preenchimento de UserPrincipalName do Azure AD
 
@@ -25,7 +25,7 @@ O valor do atributo UserPrincipalName é o nome de usuário do Azure AD para as 
 ## <a name="upn-terminology"></a>Terminologia de UPN
 A seguinte terminologia é usada neste artigo:
 
-|Termo|Descrição|
+|Termo|DESCRIÇÃO|
 |-----|-----|
 |Domínio inicial|O domínio padrão (monmicrosoft.com) no locatário do Azure AD. Por exemplo, contoso.onmicrosoft.com.|
 |MOERA (endereço de roteamento de email online da Microsoft)|O Azure AD calcula o MOERA por meio do atributo MailNickName do Azure AD e do domínio inicial do Azure AD como: &lt;MailNickName&gt;&#64;&lt;domínio inicial&gt;.|
@@ -54,9 +54,9 @@ ID de logon alternativo permite configurar uma experiência de entrada, onde os 
 
 Ao usar o Azure AD Connect, não são necessárias etapas de configurações adicionais para se habilitar a ID de logon alternativa com o Azure AD. A ID alternativa pode ser configurada no assistente. Confira configuração de entrada do Azure AD para seus usuários na seção sincronização. Na lista suspensa **nome principal do usuário** , selecione o atributo para a ID de logon alternativa.
 
-![Domínios não verificados](./media/plan-connect-userprincipalname/altloginid.png)  
+![Captura de tela que realça a lista de nome principal do usuário em que você seleciona o atributo de ID de logon alternativo.](./media/plan-connect-userprincipalname/altloginid.png)  
 
-Para obter mais informações, consulte [ID de logon alternativo configurar](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) e [configuração de entrada do AD do Azure](how-to-connect-install-custom.md#azure-ad-sign-in-configuration)
+Para obter mais informações, consulte [ID de logon alternativo configurar](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) e [configuração de entrada do AD do Azure](how-to-connect-install-custom.md#azure-ad-sign-in-configuration)
 
 ## <a name="non-verified-upn-suffix"></a>Sufixo UPN não verificado
 Se o atributo local UserPrincipalName/sufixo de ID de logon alternativa não for verificado com o locatário do Azure AD, o valor do atributo UserPrincipalName do Azure AD será definido como MOERA. O Azure AD calcula o MOERA usando o atributo MailNickName do Azure AD e o domínio inicial do Azure AD como: &lt;MailNickName&gt;&#64;&lt;domínio inicial&gt;.

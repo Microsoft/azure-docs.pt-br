@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c915898d3eec4494b6a300e88ffde216f21d5d68
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 396344ba90aa3850d7d23dc40d6df95f6d1f6c3f
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85358116"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996569"
 ---
 # <a name="user-privacy-and-azure-active-directory-pass-through-authentication"></a>Privacidade do usuário e autenticação de passagem do Azure Active Directory
 
@@ -67,7 +67,7 @@ Para saber mais sobre os requisitos do GDPR do Azure AD Connect relacionados, co
 
 ### <a name="delete-authentication-agent-event-logs"></a>Excluir logs de eventos do Agente de Autenticação
 
-Este produto também pode criar **Logs de Eventos do Windows**. Para saber mais, leia [este artigo](https://msdn.microsoft.com/library/windows/desktop/aa385780(v=vs.85).aspx).
+Este produto também pode criar **Logs de Eventos do Windows**. Para saber mais, leia [este artigo](/windows/win32/wes/windows-event-log).
 
 Para exibir logs relacionados ao Agente de Autenticação de Passagem, abra o aplicativo **Visualizador de Eventos** no servidor e verifique em **Application and Service Logs\Microsoft\AzureAdConnect\AuthenticationAgent\Admin**.
 
@@ -103,7 +103,7 @@ Para agendar esse script para ser executado a cada 48 horas, siga estas etapas:
  
 ### <a name="note-about-domain-controller-logs"></a>Observação sobre os logs do Controlador de Domínio
 
-Se o log de auditoria estiver habilitado, esse produto poderá gerar logs de segurança para os Controladores de Domínio. Para saber mais sobre como configurar políticas de auditoria, leia este [artigo](https://technet.microsoft.com/library/dd277403.aspx).
+Se o log de auditoria estiver habilitado, esse produto poderá gerar logs de segurança para os Controladores de Domínio. Para saber mais sobre como configurar políticas de auditoria, leia este [artigo](/previous-versions/tn-archive/dd277403(v=technet.10)).
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Revise a Política de Privacidade da Microsoft na Central de Confiabilidade](https://www.microsoft.com/trustcenter)

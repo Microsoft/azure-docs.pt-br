@@ -1,18 +1,18 @@
 ---
 title: Configurar a proteção de bot para o Firewall do aplicativo Web com a porta frontal do Azure (versão prévia)
-description: Saiba mais sobre o WAF (firewall do aplicativo Web).
+description: Saiba como configurar a regra de proteção de bot no firewall do aplicativo Web do Azure (WAF) para a porta frontal usando portal do Azure.
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: article
 services: web-application-firewall
 ms.date: 08/21/2019
 ms.author: victorh
-ms.openlocfilehash: f48b683044bc727cda461fb64a743c055188962a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2357c51f47bcb9bd8bbc6c408cb6d8edbab4d10e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76934676"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91266999"
 ---
 # <a name="configure-bot-protection-for-web-application-firewall-preview"></a>Configurar a proteção de bot para o Firewall do aplicativo Web (versão prévia)
 Este artigo mostra como configurar a regra de proteção de bot no firewall do aplicativo Web do Azure (WAF) para a porta frontal usando portal do Azure. A regra de proteção de bot também pode ser configurada usando a CLI, Azure PowerShell ou modelo de Azure Resource Manager.

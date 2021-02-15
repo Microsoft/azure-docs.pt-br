@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: shants
-ms.openlocfilehash: 09693a09e35503a2a221f8de1903b4218b8766f4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 318095e6cf68ec100dc9ea5221ecd93cba8f7c1e
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082436"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656811"
 ---
 # <a name="handling-planned-maintenance-notifications-using-the-portal"></a>Lidando com notificações de manutenção planejada usando o portal
 
@@ -32,15 +32,14 @@ Depois que uma onda de [manutenção planejada](maintenance-notifications.md) fo
 
    **Status de manutenção**: mostra o status de manutenção para a VM. Estes são os valores possíveis:
       
-      | Valor | Descrição |
-      |-------|-------------|
-      | Comece agora | A VM está na janela de manutenção de autoatendimento, na qual você pode iniciar a manutenção por conta própria. Veja a seguir como iniciar a manutenção na VM. | 
-      | Agendado | A VM está programada para manutenção sem a opção para iniciar a manutenção. Para saber mais sobre a janela de manutenção, selecione a janela de manutenção agendada neste modo de exibição ou clique na VM. | 
-      | Já atualizado | A VM já está atualizada e nenhuma ação adicional é necessária neste momento. | 
-      | Tente novamente mais tarde | Você iniciou a manutenção, mas ela apresentou falha. Você poderá usar a opção de manutenção de autoatendimento posteriormente. | 
-      | Tente agora | Tente realizar a manutenção que foi iniciada automaticamente sem êxito. | 
-      | - | Sua VM não faz parte de uma onda de manutenção planejada. |
-      
+    | Valor | Descrição |
+    |-------|-------------|
+    | Comece agora | A VM está na janela de manutenção de autoatendimento que permite que você inicie a manutenção por conta própria. Veja abaixo como iniciar a manutenção em sua VM. | 
+    | Agendado | A VM está agendada para manutenção sem a opção de iniciar a manutenção. Você pode aprender sobre a janela de manutenção selecionando a janela de manutenção agendada neste modo de exibição ou clicando na VM. | 
+    | Já atualizado | Sua VM já está atualizada e nenhuma ação adicional é necessária no momento. | 
+    | Tente novamente mais tarde | Você iniciou a manutenção, mas ela apresentou falha. Você poderá usar a opção de manutenção de autoatendimento em um momento posterior. | 
+    | Tente agora | Você pode tentar novamente uma manutenção autoiniciada anteriormente malsucedida. | 
+    | - | Sua VM não faz parte de uma onda de manutenção planejada. |
 
    **Janela de manutenção de autoatendimento**: mostra a janela de tempo, quando é possível iniciar automaticamente a manutenção nas VMs.
    
@@ -52,7 +51,7 @@ Depois que uma onda de [manutenção planejada](maintenance-notifications.md) fo
 
 O Azure comunica uma agenda para manutenção planejada, enviando um email para o grupo de proprietário e os coadministradores de assinatura. Você pode adicionar outros destinatários e canais para essa comunicação com a criação de alertas de log de atividades do Azure. Para obter mais informações, consulte [Criar alertas do log de atividades em notificações de serviço](../service-health/alerts-activity-log-service-notifications-portal.md).
 
-Certifique-se de definir o **tipo de evento** como **manutenção planejada**e **Serviços** como conjuntos de **dimensionamento** de máquinas virtuais e/ou **máquinas virtuais**.
+Certifique-se de definir o **tipo de evento** como **manutenção planejada** e **Serviços** como conjuntos de **dimensionamento** de máquinas virtuais e/ou **máquinas virtuais**.
 
 ## <a name="start-maintenance-on-your-vm-from-the-portal"></a>Iniciar Manutenção na sua VM do portal
 

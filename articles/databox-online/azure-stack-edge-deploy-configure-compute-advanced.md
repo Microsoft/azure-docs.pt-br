@@ -1,24 +1,24 @@
 ---
-title: Tutorial para filtrar e analisar dados para implantação avançada com a computação no Azure Stack Edge | Microsoft Docs
-description: Saiba como configurar a função de computação no Azure Stack Edge e usá-la para fluxo de implantação avançada antes de enviar para o Azure.
+title: Tutorial para filtrar e analisar dados para implantação avançada com a computação no Azure Stack Edge Pro | Microsoft Docs
+description: Saiba como configurar a função de computação no Azure Stack Edge Pro e usá-la para fluxo de implantação avançada antes de enviar para o Azure.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 05/20/2019
+ms.date: 01/06/2021
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge for advanced deployment flow so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: 59983530d93885f28dfb1625ca6d58fe572609b8
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro for advanced deployment flow so I can use it to transform the data before sending it to Azure.
+ms.openlocfilehash: 8946dfca9a416009effb45cad1e81348dd900f98
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86080347"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97968076"
 ---
-# <a name="tutorial-transform-data-with-azure-stack-edge-for-advanced-deployment-flow"></a>Tutorial: Transformar dados com o Azure Stack Edge para o fluxo de implantação avançada
+# <a name="tutorial-transform-data-with-azure-stack-edge-pro-for-advanced-deployment-flow"></a>Tutorial: Transformar dados com o Azure Stack Edge Pro para o fluxo de implantação avançada
 
-Este tutorial descreve como configurar uma função de computação para um fluxo de implantação avançada no dispositivo Azure Stack Edge. Depois de configurar a função de computação, o Azure Stack Edge pode transformar os dados antes de enviar para o Azure.
+Este tutorial descreve como configurar uma função de computação para um fluxo de implantação avançada no dispositivo Azure Stack Edge Pro. Depois de configurar a função de computação, o Azure Stack Edge Pro pode transformar os dados antes de enviar para o Azure.
 
 Computação pode ser configurada para o fluxo de implantação simples ou avançada em seu dispositivo.
 
@@ -43,41 +43,43 @@ Neste tutorial, você aprenderá como:
  
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de configurar uma função de computação em seu dispositivo Azure Stack Edge, certifique-se de que:
+Antes de configurar uma função de computação em seu dispositivo Azure Stack Edge Pro, verifique o seguinte:
 
-- Você ativou o dispositivo Azure Stack Edge conforme descrito em [Conectar, configurar e ativar o Azure Stack Edge](azure-stack-edge-deploy-connect-setup-activate.md).
+- Você ativou o dispositivo Azure Stack Edge Pro conforme descrito em [Conectar, configurar e ativar o Azure Stack Edge Pro](azure-stack-edge-deploy-connect-setup-activate.md).
 
 
 ## <a name="configure-compute"></a>Configurar a computação
 
-Para configurar a computação no Azure Stack Edge, você criará um recurso do Hub IoT.
+Para configurar a computação no Azure Stack Edge Pro, você criará um recurso do Hub IoT.
 
-1. No portal do Azure do recurso do Azure Stack Edge, acesse **Visão geral**. No painel direito, no bloco **Computação**, selecione **Introdução**.
+1. No portal do Azure do recurso do Azure Stack Edge, acesse **Visão geral**. No painel direito, selecione o bloco **IoT Edge**.
 
     ![Introdução à computação](./media/azure-stack-edge-deploy-configure-compute-advanced/configure-compute-1.png)
 
-2. No bloco **Configurar computação de borda**, selecione **Configurar computação**.
+2. No bloco **Habilitar o serviço IoT Edge**, selecione **Adicionar**. Essa ação habilita o serviço do IoT Edge que lhe permite implantar os módulos do IoT Edge localmente em seu dispositivo.
 
-    ![Introdução à computação](./media/azure-stack-edge-deploy-configure-compute-advanced/configure-compute-2.png)
+    ![Introdução à computação 2](./media/azure-stack-edge-deploy-configure-compute-advanced/configure-compute-2.png)
 
-3. Na folha **Configurar computação de borda**, insira o seguinte:
+3. Em **Criar serviço do IoT Edge**, insira o seguinte:
 
    
     |Campo  |Valor  |
     |---------|---------|
-    |Hub IoT     | Escolha **Novo** ou **Existente**. <br> Por padrão, uma camada Standard (S1) é usada para criar um recurso de IoT. Para usar um recurso de IoT de Camada gratuita, crie um e, em seguida, selecione o recurso existente. <br> Em cada caso, o recurso do Hub IoT usa a mesma assinatura e o mesmo grupo de recursos usados pelo recurso do Azure Stack Edge.     |
-    |Nome     |Insira um nome para o recurso do Hub IoT.         |
+    |Subscription     |Selecione uma assinatura para o recurso do Hub IoT. Você pode selecionar a mesma assinatura usada pelo recurso Azure Stack Edge.        |
+    |Grupo de recursos     |Insira um nome para o grupo de recursos para o recurso do Hub IoT. Você pode selecionar o mesmo grupo de recursos usado pelo recurso do Azure Stack Edge.         |
+    |Hub IoT     | Escolha **Novo** ou **Existente**. <br> Por padrão, uma camada Standard (S1) é usada para criar um recurso de IoT. Para usar um recurso de IoT de Camada gratuita, crie um e, em seguida, selecione o recurso existente.      |
+    |Nome     |Aceite o padrão ou insira um nome para o recurso do Hub IoT.         |
 
-    ![Introdução à computação](./media/azure-stack-edge-deploy-configure-compute-advanced/configure-compute-3.png)
+    ![Introdução à computação 3](./media/azure-stack-edge-deploy-configure-compute-advanced/configure-compute-3.png)
 
-4. Selecione **Criar**. A criação do recurso do Hub IoT leva alguns minutos. Depois que o recurso do Hub IoT for criado, o bloco **Configurar computação de borda** será atualizado para mostrar a configuração de computação. Para confirmar que a função de computação de borda foi configurada, selecione **Exibir configuração** no bloco **Configurar computação**.
+4. Selecione **Examinar + criar**. A criação do recurso do Hub IoT leva alguns minutos. Depois da criação do recurso do Hub IoT, a **visão geral** é atualizada para indicar que o serviço IoT Edge está em execução. 
+
+    Quando o serviço de IoT Edge é configurado no dispositivo de borda, ele cria dois dispositivos: um dispositivo IoT e um dispositivo IoT Edge. Os dois dispositivos podem ser exibidos no recurso do Hub IoT. Um runtime do IoT Edge também está em execução no dispositivo do IoT Edge. No momento, somente a plataforma Linux está disponível para o dispositivo IoT Edge.
+
+    Para confirmar que a função de computação de borda foi configurada, selecione **Serviço IoT Edge > Propriedades** e veja o dispositivo IoT e o dispositivo IoT Edge. 
+
+    ![Introdução à computação 4](./media/azure-stack-edge-deploy-configure-compute-advanced/configure-compute-4.png)
     
-    ![Introdução à computação](./media/azure-stack-edge-deploy-configure-compute-advanced/configure-compute-4.png)
-
-    Quando a função de computação de borda está configurada no dispositivo de borda, são criados dois dispositivos: um dispositivo IoT e um dispositivo IoT Edge. Os dois dispositivos podem ser exibidos no recurso do Hub IoT. Um runtime do IoT Edge também está em execução no dispositivo do IoT Edge.
-
-    No momento, somente a plataforma Linux está disponível para o dispositivo IoT Edge.
-
 
 ## <a name="add-shares"></a>Adicionar compartilhamentos
 
@@ -85,19 +87,13 @@ Para a implantação avançada neste tutorial, você precisará de dois comparti
 
 1. Adicione um compartilhamento do Microsoft Edge no dispositivo seguindo as seguintes etapas:
 
-    1. No recurso Azure Stack Edge, acesse **Computação de Borda > Introdução**.
-    2. No bloco **Adicionar compartilhamentos**, selecione **Adicionar**.
+    1. Em seu recurso do Azure Stack Edge, vá para **IoT Edge > Compartilhamentos**.
+    2. Na página **Compartilhamentos**, na barra de comandos, selecione **+ Adicionar compartilhamento**.
     3. Na folha **Adicionar compartilhamento**, forneça o nome do compartilhamento e selecione o tipo de compartilhamento.
     4. Para montar o compartilhamento do Microsoft Edge, marque a caixa de seleção **Usar o compartilhamento com a computação de borda**.
     5. Selecione a **Conta de armazenamento**, o **Serviço de armazenamento**, um usuário existente e, em seguida, selecione **Criar**.
 
         ![Adicionar um compartilhamento do Microsoft Edge](./media/azure-stack-edge-deploy-configure-compute-advanced/add-edge-share-1.png)
-
-    <!--If you created a local NFS share, use the following remote sync (rsync) command option to copy files onto the share:
-
-    `rsync <source file path> < destination file path>`
-
-    For more information about the rsync command, go to [Rsync documentation](https://www.computerhope.com/unix/rsync.htm).-->
 
     Após o compartilhamento do Edge ser criado, você receberá uma notificação de êxito na criação. A lista de compartilhamentos é atualizada para refletir o novo compartilhamento.
 
@@ -124,7 +120,7 @@ Para a implantação avançada neste tutorial, você precisará de dois comparti
 
 ## <a name="add-a-trigger"></a>Adicionar um gatilho
 
-1. Acesse **Computação de borda > Gatilhos**. Selecione **+ Adicionar gatilho**.
+1. Vá para o recurso do Azure Stack Edge e para **IoT Edge > Gatilhos**. Selecione **+ Adicionar gatilho**.
 
     ![Adicionar gatilho](./media/azure-stack-edge-deploy-configure-compute-advanced/add-trigger-1.png)
 
@@ -136,25 +132,25 @@ Para a implantação avançada neste tutorial, você precisará de dois comparti
     |Tipo de gatilho     | Selecione o gatilho **Arquivo**. Um gatilho de arquivo é acionado sempre que ocorre um evento de arquivo, como uma gravação de arquivo no compartilhamento de entrada. Um gatilho agendado, por sua vez, é acionado de acordo com um agendamento definido por você. Neste exemplo, precisamos de um gatilho de arquivo.    |
     |Compartilhamento de entrada     | Selecione um compartilhamento de entrada. O compartilhamento local do Microsoft Edge é o compartilhamento de entrada, nesse caso. O módulo usado aqui move os arquivos do compartilhamento local do Microsoft Edge para um compartilhamento do Microsoft Edge, em que são carregados para a nuvem.        |
 
-    ![Adicionar gatilho](./media/azure-stack-edge-deploy-configure-compute-advanced/add-trigger-2.png)
+    ![Adicionar gatilho 2](./media/azure-stack-edge-deploy-configure-compute-advanced/add-trigger-2.png)
 
 3. Você será notificado depois que o gatilho for criado. A lista de gatilhos é atualizada para exibir o gatilho criado recentemente. Selecione o gatilho que você acabou de criar.
 
-    ![Adicionar gatilho](./media/azure-stack-edge-deploy-configure-compute-advanced/add-trigger-3.png)
+    ![Adicionar gatilho 3](./media/azure-stack-edge-deploy-configure-compute-advanced/add-trigger-3.png)
 
 4. Copie e salve a rota de exemplo. Você modificará essa rota de exemplo e a usará mais tarde no Hub IoT.
 
     `"sampleroute": "FROM /* WHERE topic = 'mydbesmbedgelocalshare1' INTO BrokeredEndpoint(\"/modules/modulename/inputs/input1\")"`
 
-    ![Adicionar gatilho](./media/azure-stack-edge-deploy-configure-compute-advanced/add-trigger-4.png)
+    ![Adicionar gatilho 4](./media/azure-stack-edge-deploy-configure-compute-advanced/add-trigger-4.png)
 
 ## <a name="add-a-module"></a>Adicionar um módulo
 
-Não há módulos personalizados neste dispositivo do Edge. Você pode adicionar um módulo personalizado ou pré-criado. Para saber como criar um módulo personalizado, acesse [Desenvolver um módulo em C# para o dispositivo Azure Stack Edge](azure-stack-edge-create-iot-edge-module.md).
+Não há módulos personalizados neste dispositivo do Edge. Você pode adicionar um módulo personalizado ou pré-criado. Para saber como criar um módulo personalizado, acesse [Desenvolver um módulo em C# para o dispositivo Azure Stack Edge Pro](azure-stack-edge-create-iot-edge-module.md).
 
-Nesta seção, você adiciona um módulo personalizado ao dispositivo do IoT Edge que foi criado em [Desenvolver um módulo em C# para o Azure Stack Edge](azure-stack-edge-create-iot-edge-module.md). Esse módulo personalizado usa arquivos de um compartilhamento local do Microsoft Edge no dispositivo do Microsoft Edge e move-os para um compartilhamento do Microsoft Edge (nuvem) no dispositivo. O compartilhamento em nuvem então efetua o push dos arquivos para a conta de Armazenamento do Azure associada com o compartilhamento em nuvem.
+Nesta seção, você adiciona um módulo personalizado ao dispositivo do IoT Edge que foi criado em [Desenvolver um módulo em C# para o Azure Stack Edge Pro](azure-stack-edge-create-iot-edge-module.md). Esse módulo personalizado usa arquivos de um compartilhamento local do Microsoft Edge no dispositivo do Microsoft Edge e move-os para um compartilhamento do Microsoft Edge (nuvem) no dispositivo. O compartilhamento em nuvem então efetua o push dos arquivos para a conta de Armazenamento do Azure associada com o compartilhamento em nuvem.
 
-1. Acesse **Computação de borda > Introdução**. No bloco **Adicionar módulos**, selecione o tipo de cenário como **avançado**. Selecione **Ir para o Hub IoT**.
+1. Vá para o recurso do Azure Stack Edge e para **IoT Edge > Visão geral**. No bloco **Módulos**, selecione **Ir para Hub IoT do Azure**.
 
     ![Selecionar a implantação avançada](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-1.png)
 
@@ -175,7 +171,7 @@ Nesta seção, você adiciona um módulo personalizado ao dispositivo do IoT Edg
 4. Em **Adicionar Módulos**, faça o seguinte:
 
     1. Insira o nome, o endereço, o nome de usuário e a senha para as configurações do registro de contêiner do módulo personalizado.
-    O nome, o endereço e as credenciais listadas são usados para recuperar módulos com uma URL correspondente. Para implantar este módulo, em **Módulos de implantação**, selecione **Módulo do IoT Edge**. Este módulo do IoT Edge é um contêiner do Docker que você pode implantar no dispositivo do IoT Edge associado ao seu dispositivo Azure Stack Edge.
+    O nome, o endereço e as credenciais listadas são usados para recuperar módulos com uma URL correspondente. Para implantar este módulo, em **Módulos de implantação**, selecione **Módulo do IoT Edge**. Este módulo do IoT Edge é um contêiner do Docker que você pode implantar no dispositivo do IoT Edge associado ao seu dispositivo Azure Stack Edge Pro.
 
         ![A página Definir Módulos](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-4.png) 
  
@@ -183,7 +179,7 @@ Nesta seção, você adiciona um módulo personalizado ao dispositivo do IoT Edg
      
         |Campo  |Valor  |
         |---------|---------|
-        |Nome     | Um nome exclusivo para o módulo. Esse módulo é um contêiner do Docker que você pode implantar no dispositivo do IoT Edge associado ao Azure Stack Edge.        |
+        |Nome     | Um nome exclusivo para o módulo. Esse módulo é um contêiner do Docker que você pode implantar no dispositivo do IoT Edge associado ao Azure Stack Edge Pro.        |
         |URI da imagem     | O URI da imagem para a imagem de contêiner correspondente ao módulo.        |
         |Credenciais necessárias     | Se essa opção for marcada, o nome de usuário e a senha serão usados para recuperar os módulos com uma URL correspondente.        |
     
@@ -213,7 +209,7 @@ Nesta seção, você adiciona um módulo personalizado ao dispositivo do IoT Edg
  
     4. Se necessário, defina as configurações avançadas de runtime do Edge e, em seguida, clique em **Avançar**.
 
-        ![Adicionar módulo personalizado](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-6.png)
+        ![Adicionar módulo personalizado 2](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-6.png)
  
 5. Em **Especificar Rotas**, defina rotas entre módulos.  
    
@@ -229,11 +225,11 @@ Nesta seção, você adiciona um módulo personalizado ao dispositivo do IoT Edg
 
 6. Em **Examinar implantação**, examine todas as configurações e, em seguida, selecione **Enviar** para enviar o módulo para implantação.
 
-   ![A página Definir Módulos](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-9.png)
+   ![A página Definir Módulos 2](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-9.png)
  
     Essa ação inicia a implantação do módulo. Depois que a implantação for concluída, o **Status de runtime** do módulo será **em execução**.
 
-    ![Adicionar módulo personalizado](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-10.png)
+    ![Adicionar módulo personalizado 3](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-10.png)
 
 ## <a name="verify-data-transform-transfer"></a>Verificar a transformação e a transferência de dados
 
@@ -247,15 +243,15 @@ Execute as etapas a seguir para verificar a transformação e transferência de 
  
 1. Adicione dados ao compartilhamento de local.
 
-   ![Verifique a transformação de dados](./media/azure-stack-edge-deploy-configure-compute-advanced/verify-data-3.png)
+   ![Verificar a transformação de dados 2](./media/azure-stack-edge-deploy-configure-compute-advanced/verify-data-3.png)
  
     Os dados são movidos para o compartilhamento em nuvem.
 
-    ![Verifique a transformação de dados](./media/azure-stack-edge-deploy-configure-compute-advanced/verify-data-4.png)  
+    ![Verificar a transformação de dados 3](./media/azure-stack-edge-deploy-configure-compute-advanced/verify-data-4.png)  
 
     Os dados são então enviados por push do compartilhamento em nuvem para a conta de armazenamento. Para exibir os dados, vá para sua conta de armazenamento e, em seguida, selecione **Gerenciador de Armazenamento**. Você pode exibir os dados carregados em sua conta de armazenamento.
 
-    ![Verifique a transformação de dados](./media/azure-stack-edge-deploy-configure-compute-advanced/verify-data-5.png)
+    ![Verificar a transformação de dados 4](./media/azure-stack-edge-deploy-configure-compute-advanced/verify-data-5.png)
  
 Você concluiu o processo de validação.
 
@@ -270,7 +266,7 @@ Neste tutorial, você aprendeu a:
 > * Adicionar um módulo de computação
 > * Verificar a transformação e a transferência de dados
 
-Para saber como administrar seu dispositivo Azure Stack Edge, confira:
+Para saber como administrar seu dispositivo Azure Stack Edge Pro, confira:
 
 > [!div class="nextstepaction"]
-> [Usar IU da Web local para administrar um Azure Stack Edge](azure-stack-edge-manage-access-power-connectivity-mode.md)
+> [Usar IU da Web local para administrar um Azure Stack Edge Pro](azure-stack-edge-manage-access-power-connectivity-mode.md)

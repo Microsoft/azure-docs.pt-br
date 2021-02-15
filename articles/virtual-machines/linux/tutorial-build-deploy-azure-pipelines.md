@@ -10,13 +10,13 @@ ms.tgt_pltfrm: azure-pipelines
 ms.workload: infrastructure
 ms.date: 1/3/2020
 ms.author: ushan
-ms.custom: devops, devx-track-javascript
-ms.openlocfilehash: 140365abad266617443d58b7ed59f05a27009f59
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.custom: devops, devx-track-js
+ms.openlocfilehash: 4ca431290fe168f8fc073908bb3735ecb5992562
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87433049"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98731244"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-using-azure-devops-services-and-azure-pipelines"></a>Tutorial: Implantar seu aplicativo em máquinas virtuais do Linux no Azure usando o Azure DevOps Services e o Azure Pipelines
 
@@ -24,7 +24,7 @@ A CI (integração contínua) e a CD (implantação contínua) formam um pipelin
 
 O Azure Pipelines fornece um conjunto completo de ferramentas de automação de CI/CD para implantações em máquinas virtuais, tanto localmente quanto em qualquer nuvem.
 
-Neste tutorial, você configurará um pipeline de CI/CD baseado em YAML para implantar seu aplicativo em um [ambiente do Azure Pipelines](/azure/devops/pipelines/process/environments?view=azure-devops) com máquinas virtuais do Linux como recursos, cada uma das quais servirá como um servidor Web para executar o aplicativo.
+Neste tutorial, você configurará um pipeline de CI/CD baseado em YAML para implantar seu aplicativo em um [ambiente do Azure Pipelines](/azure/devops/pipelines/process/environments) com máquinas virtuais do Linux como recursos, cada uma das quais servirá como um servidor Web para executar o aplicativo.
 
 Você aprenderá como:
 
@@ -41,7 +41,7 @@ Você aprenderá como:
   Você precisa obter uma [organização do Azure DevOps Services gratuita](https://go.microsoft.com/fwlink/?LinkId=307137&clcid=0x409&wt.mc_id=o~msft~vscom~home-vsts-hero~27308&campaign=o~msft~vscom~home-vsts-hero~27308).
 
   > [!NOTE]
-  > Para saber mais, confira [Conectar-se ao Azure DevOps Services](/azure/devops/organizations/projects/connect-to-projects?view=vsts).
+  > Para saber mais, confira [Conectar-se ao Azure DevOps Services](/azure/devops/organizations/projects/connect-to-projects).
 
 *  É necessária uma máquina virtual Linux para um destino de implantação.  Para obter mais informações, consulte [Criar e gerenciar VMs Linux com a CLI do Azure](./tutorial-manage-vm.md).
 
@@ -84,13 +84,14 @@ Siga as etapas adicionais descritas abaixo com base na pilha de runtime usada pa
 
 #### <a name="java"></a>[Java](#tab/java)
 
-- Para implantar aplicativos baseados em Java Spring Boot e Spring Cloud, crie uma VM do Linux no Azure usando [este](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-ubuntu-1804) modelo, que fornece um runtime baseado em OpenJDK totalmente compatível.
-- Para implantar Servlets Java no servidor Tomcat, crie uma VM do Linux com o Java 8 usando [este](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-ubuntu-1804) modelo do Azure e [configure o Tomcat 9.x como um serviço](https://tomcat.apache.org/tomcat-9.0-doc/setup.html).
-- Para implantar o aplicativo baseado em Java EE, use um modelo do Azure para criar uma [VM do Linux + Java + WebSphere 9.x](https://azuremarketplace.microsoft.com/marketplace/apps/midvision.websphere-application-server-nde-90) ou [uma VM do Linux + Java + WebLogic 12.x](https://azuremarketplace.microsoft.com/marketplace/apps/oracle.20191009-arm-oraclelinux-wls-admin) ou uma [VM do Linux + Java](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-ubuntu-1804) + WildFly/JBoss 14 
+- Para implantar aplicativos baseados em Java Spring Boot e Spring Cloud, crie uma VM do Linux no Azure usando [este](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu13-ubuntu-2004) modelo, que fornece um runtime baseado em OpenJDK totalmente compatível.
+- Para implantar Servlets Java no servidor Tomcat, crie uma VM do Linux com o Java 8 usando [este](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu13-ubuntu-2004) modelo do Azure e [configure o Tomcat 9.x como um serviço](https://tomcat.apache.org/tomcat-9.0-doc/setup.html).
+- Para implantar o aplicativo baseado em Java EE, use um modelo do Azure para criar uma [VM do Linux + Java + WebSphere 9.x](https://azuremarketplace.microsoft.com/marketplace/apps/midvision.websphere-application-server-nde-90) ou [uma VM do Linux + Java + WebLogic 12.x](https://azuremarketplace.microsoft.com/marketplace/apps/oracle.20191009-arm-oraclelinux-wls-admin) ou uma [VM do Linux + Java](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu13-ubuntu-2004) + WildFly/JBoss 14 
+
 
 #### <a name="javascript"></a>[JavaScript](#tab/java-script)
 
-Para instalar um aplicativo JavaScript ou um aplicativo Node.js, você precisará de uma VM do Linux com o servidor Web Nginx para implantar o aplicativo.
+Para instalar um aplicativo JavaScript ou Node.js, será necessário obter uma VM do Linux com o servidor Web Nginx para implantar o aplicativo.
 Se você ainda não tiver uma VM do Linux com Nginx, crie uma agora no Azure usando as etapas [neste](./quick-create-cli.md) exemplo.
 
 * * * 
@@ -117,7 +118,7 @@ Você pode criar um ambiente no Hub "**Ambientes**" na seção "**Pipelines**".
 
     ![VMresource_view](media/tutorial-deploy-vms-azure-pipelines/vm-resourceview.png)
 
-9. Você pode adicionar marcas à VM como parte do script interativo de registro do PS ou também pode adicionar/remover esse script da exibição de recursos clicando nas reticências no final de cada recurso da VM na exibição de recursos.
+9. É possível adicionar marcas à VM como parte do script de registro interativo do PowerShell ou adicionar/remover esse script do modo de exibição de recursos, clicando no ícone de três pontos disponível no final de cada recurso da VM no modo de exibição de recursos.
 
    As marcas atribuídas permitem que você limite a implantação a máquinas virtuais específicas quando o ambiente é usado em um trabalho de implantação. As marcas são limitadas a 256 caracteres, mas não há nenhum limite para o número de marcas que você pode usar.
 
@@ -146,6 +147,7 @@ Você precisará de um pipeline de build de CI (integração contínua) que publ
 Selecione o modelo **inicial** e copie o snippet de código YAML abaixo que cria seu projeto Java e executa testes com o Apache Maven:
 
 ```YAML
+jobs:
 - job: Build
   displayName: Build Maven Project
   steps:
@@ -200,7 +202,7 @@ Para obter mais diretrizes, siga as etapas em [Crie seu aplicativo Node.js com o
 
 - Dê uma olhada no pipeline para compreender o que ele faz. Verifique se todas as entradas padrão são apropriadas para seu código.
 
-- Selecione **Salvar e executar**, depois selecione **Confirmar diretamente para o branch mestre** e, em seguida, escolha **Salvar e executar** novamente.
+- Clique em **Salvar e executar** e selecione **Fazer commit diretamente para a ramificação principal**. Depois clique de novo em **Salvar e executar**.
 
 - Uma nova execução é iniciada. Aguarde a conclusão da execução.
 
@@ -208,7 +210,7 @@ Para obter mais diretrizes, siga as etapas em [Crie seu aplicativo Node.js com o
 
 ## <a name="define-cd-steps-to-deploy-to-the-linux-vm"></a>Definir as etapas da CD para implantar na VM do Linux
 
-1. Edite o pipeline acima e inclua um [trabalho de implantação](/azure/devops/pipelines/process/deployment-jobs), referenciando o ambiente e os recursos da VM que você tinha anteriormente usando a sintaxe do YAML abaixo:
+1. Altere o arquivo YAML do pipeline acima para incluir um [trabalho de implantação](/azure/devops/pipelines/process/deployment-jobs) referenciando o ambiente e os recursos da VM que você usou anteriormente com a sintaxe YAML abaixo:
 
    ```YAML
    jobs:  
@@ -217,13 +219,12 @@ Para obter mais diretrizes, siga as etapas em [Crie seu aplicativo Node.js com o
      environment:
        name:  <environment name>
        resourceType: VirtualMachine
-       tags: web1
-     strategy:
+       tags: web
    ```
 2. Você pode selecionar conjuntos específicos de máquinas virtuais do ambiente para receber a implantação, especificando as **marcas** que você definiu para cada máquina virtual no ambiente.
-Confira [aqui](/azure/devops/pipelines/yaml-schema?view=azure-devops&tabs=schema#deployment-job) o esquema completo do YAML para o trabalho de implantação.
+Confira [aqui](/azure/devops/pipelines/yaml-schema?tabs=schema#deployment-job) o esquema completo do YAML para o trabalho de implantação.
 
-3. Você pode especificar `runOnce` ou `rolling` como a estratégia de implantação. 
+3. É possível especificar `runOnce` ou `rolling` como a estratégia de implantação. 
 
    `runOnce` é a estratégia de implantação mais simples, em que todos os ganchos de ciclo de vida, especificamente `preDeploy` `deploy`, `routeTraffic` e `postRouteTraffic`, são executados uma vez. Em seguida, `on:` `success` ou `on:` `failure` é executado.
 

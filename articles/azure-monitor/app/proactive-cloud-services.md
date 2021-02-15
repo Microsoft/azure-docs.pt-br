@@ -4,12 +4,12 @@ description: Monitore problemas como falhas na inicialização, panes e loops de
 ms.topic: conceptual
 ms.date: 06/07/2018
 ms.reviewer: harelbr
-ms.openlocfilehash: 997c5e063c4181a597520e60e2a7669401b9677d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1cdfc6dc3ac74997743512ee07f9293699e3ad10
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77669736"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "87309283"
 ---
 # <a name="alert-on-issues-in-azure-cloud-services-using-the-azure-diagnostics-integration-with-azure-application-insights"></a>Alerta sobre problemas nos Serviços de Nuvem do Azure usando a integração do diagnóstico do Azure com o Azure Application Insights
 
@@ -111,7 +111,7 @@ Após definir o Grupo de ação, confirme suas alterações e clique em **Criar 
 
 Saiba mais sobre como detectar automaticamente:
 
-[Anomalias](../../azure-monitor/app/proactive-failure-diagnostics.md) 
- de falha [Vazamentos](../../azure-monitor/app/proactive-potential-memory-leak.md) 
- de memória [Anomalias de desempenho](../../azure-monitor/app/proactive-performance-diagnostics.md)
+[Anomalias](./proactive-failure-diagnostics.md) 
+ de falha [Vazamentos](./proactive-potential-memory-leak.md) 
+ de memória [Anomalias de desempenho](./proactive-performance-diagnostics.md)
 

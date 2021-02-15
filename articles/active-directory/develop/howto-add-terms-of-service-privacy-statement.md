@@ -12,12 +12,12 @@ ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja
 ms.custom: aaddev
-ms.openlocfilehash: 517d6f7f06025b35dd27fa69d1de1b4139de6c8d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 311dfd976610c392909a0ec3d91fecaa4d733539
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85478001"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104188"
 ---
 # <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>Como: configurar os termos de serviço e a política de privacidade para um aplicativo
 
@@ -58,17 +58,22 @@ Quando os termos de serviço e a declaração de privacidade estiverem prontos, 
 ### <a name="using-the-azure-portal"></a><a name="azure-portal"></a>Usando o portal do Azure
 Siga estas etapas na portal do Azure.
 
-1. Entre no [portal do Azure](https://portal.azure.com/).
-2. Navegue até a seção **Registros de aplicativo** e selecione seu aplicativo.
-3. Abra o painel de **identidade visual** .
+1. Entre no <a href="https://portal.azure.com/" target="_blank">portal do Azure</a> e selecione o locatário do Azure ad correto (não B2C).
+2. Navegue até a seção **registros de aplicativo** e selecione seu aplicativo.
+3. Em **gerenciar**, selecione **identidade visual**.
 4. Preencha os campos da **URL de termos de serviço** e **Política de privacidade**.
-5. Salve suas alterações.
+5. Clique em **Salvar**.
 
     ![As propriedades do aplicativo contêm termos de serviço e URLs de política de privacidade](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
 
 ### <a name="using-the-app-object-json"></a><a name="app-object-json"></a> Usando o objeto de aplicativo JSON 
 
 Se preferir modificar diretamente o objeto JSON do aplicativo, você poderá usar o editor de manifesto no Portal do Azure ou no Portal de Registro do Aplicativo para incluir links para os termos de serviço e a declaração de privacidade do seu aplicativo.
+
+1. Navegando até a seção **registros de aplicativo** e selecionando seu aplicativo.
+2. Abra o painel **manifesto** .
+3. Ctrl + F, pesquise "informationalUrls". Preencha as informações.
+4. Salve suas alterações.
 
 ```json
     "informationalUrls": { 

@@ -3,17 +3,19 @@ title: Perguntas frequentes sobre a API de Tabela no Azure Cosmos DB
 description: Obtenha respostas para perguntas frequentes sobre a API de Tabela no Azure Cosmos DB
 author: SnehaGunda
 ms.service: cosmos-db
+ms.subservice: cosmosdb-table
 ms.topic: conceptual
 ms.date: 08/12/2020
 ms.author: sngun
-ms.openlocfilehash: 65f276662ac4837003c7a7078b6197ba155eadc9
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: c5404c026385f9ebf06c4f0289a4db0bf944d172
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167582"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341223"
 ---
 # <a name="frequently-asked-questions-about-the-table-api-in-azure-cosmos-db"></a>Perguntas frequentes sobre a API de Tabela no Azure Cosmos DB
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 A API de Tabela do Azure Cosmos DB está disponível no [portal do Azure](https://portal.azure.com), mas primeiro você deve se inscrever em uma assinatura do Azure. Depois de se inscrever, você pode adicionar uma conta de API de Tabela do Azure Cosmos DB à sua assinatura e, em seguida, adicionar tabelas à conta. Você pode encontrar linguagens com suporte e inícios rápidos associados na [Introdução à API de Tabela do Azure Cosmos DB](table-introduction.md).
 
@@ -97,7 +99,7 @@ Use o portal do Azure para procurar os dados. Você também pode usar o código 
 
 ### <a name="which-tools-work-with-the-table-api"></a>Quais ferramentas funcionam com a API de Tabela?
 
-Você pode usar o [Gerenciador de Armazenamento do Azure](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
+Você pode usar o [Gerenciador de Armazenamento do Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md).
 
 Ferramentas que têm a flexibilidade para aceitar uma cadeia de conexão no formato especificado anteriormente podem dar suporte à nova API de Tabela. Uma lista das ferramentas de tabela é fornecida na página [Ferramentas de cliente do Armazenamento do Azure](../storage/common/storage-explorers.md).
 
@@ -115,7 +117,7 @@ Sim, você pode se conectar criando duas instâncias separadas do CloudTableClie
 
 ### <a name="how-do-i-migrate-an-existing-azure-table-storage-application-to-this-offering"></a>Como fazer para migrar um aplicativo do armazenamento de Tabelas do Azure existente para essa oferta?
 
-O [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy) e a [Ferramenta de migração de dados do Azure Cosmos DB](import-data.md) têm suporte.
+O [AzCopy](../storage/common/storage-use-azcopy-v10.md) e a [Ferramenta de migração de dados do Azure Cosmos DB](import-data.md) têm suporte.
 
 ### <a name="how-is-expansion-of-the-storage-size-done-for-this-service-if-for-example-i-start-with-n-gb-of-data-and-my-data-will-grow-to-1-tb-over-time"></a>Como a expansão do tamanho do armazenamento é feita nesse serviço se, por exemplo, eu começar com *n* GB de dados e meus dados aumentarem para 1 TB ao longo do tempo?
 
@@ -195,7 +197,7 @@ Sim, a API de Tabela do Azure Cosmos DB fornece a indexação automática de tod
 
 Sim, você pode alterar a política de indexação fornecendo a definição de índice. Você precisa codificar e escapar adequadamente as configurações.
 
-Para o SDKs não .NET, a política de indexação só pode ser definida no portal no **Data Explorer**, navegue até a tabela específica que deseja alterar e depois até **Escala e Configurações**-> Política de Indexação, faça as alterações desejadas e depois selecione **Salvar**.
+Para o SDKs não .NET, a política de indexação só pode ser definida no portal no **Data Explorer** , navegue até a tabela específica que deseja alterar e depois até **Escala e Configurações** -> Política de Indexação, faça as alterações desejadas e depois selecione **Salvar**.
 
 No SDK do .NET, pode ser enviado no arquivo app.config:
 
@@ -231,7 +233,7 @@ No SDK do .NET, pode ser enviado no arquivo app.config:
 
 ### <a name="azure-cosmos-db-as-a-platform-seems-to-have-lot-of-capabilities-such-as-sorting-aggregates-hierarchy-and-other-functionality-will-you-be-adding-these-capabilities-to-the-table-api"></a>O Azure Cosmos DB como plataforma parece ter muitas funcionalidades, como classificação, agregações, hierarquia e outras. Vocês adicionarão esses recursos à API de tabela?
 
-A API de Tabela fornece a mesma funcionalidade de consulta que o armazenamento de Tabelas do Azure. O Azure Cosmos DB também oferece suporte à classificação, agregações, consulta geoespacial, hierarquia e uma ampla variedade de funções internas. Para obter mais informações, consulte [Consultas SQL](how-to-sql-query.md).
+A API de Tabela fornece a mesma funcionalidade de consulta que o armazenamento de Tabelas do Azure. O Azure Cosmos DB também oferece suporte à classificação, agregações, consulta geoespacial, hierarquia e uma ampla variedade de funções internas. Para obter mais informações, consulte [Consultas SQL](./sql-query-getting-started.md).
 
 ### <a name="when-should-i-change-tablethroughput-for-the-table-api"></a>Quando devo alterar a TableThroughput da API de Tabela?
 
@@ -293,7 +295,7 @@ O Azure Cosmos DB é um sistema baseado em SLA que fornece garantia de latência
 Você pode compartilhar seus comentários em qualquer uma das seguintes maneiras:
 
 * [Voz do usuário](https://feedback.azure.com/forums/263030-azure-cosmos-db)
-* [Página de perguntas e respostas da Microsoft](https://docs.microsoft.com/answers/topics/azure-cosmos-db.html)
+* [Página de perguntas e respostas da Microsoft](/answers/topics/azure-cosmos-db.html)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-cosmosdb). O Stack Overflow é o melhor para perguntas sobre programação. Verifique se sua pergunta está [no tópico](https://stackoverflow.com/help/on-topic) e [forneça o máximo de detalhes possíveis, tornando a pergunta clara e possível de responder](https://stackoverflow.com/help/how-to-ask).
 
 ## <a name="next-steps"></a>Próximas etapas

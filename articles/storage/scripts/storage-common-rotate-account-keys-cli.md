@@ -7,15 +7,15 @@ ms.service: storage
 ms.subservice: blobs
 ms.devlang: cli
 ms.topic: sample
-ms.date: 06/22/2017
+ms.date: 10/20/2020
 ms.author: tamram
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: bfda6c5315e11a4a924b82dc3eacdf692357827b
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 08e1b3837863b197f8463a0d969e78afab2b9858
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87503677"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370399"
 ---
 # <a name="create-a-storage-account-and-rotate-its-account-access-keys"></a>Criar uma conta de armazenamento e reciclar suas chaves de acesso da conta
 

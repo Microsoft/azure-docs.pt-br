@@ -1,7 +1,7 @@
 ---
 title: Configurar aplicativos móveis que chamam APIs da Web | Azure
 titleSuffix: Microsoft identity platform
-description: Saiba como criar um aplicativo móvel que chama APIs da Web (configuração de código do aplicativo)
+description: Saiba como configurar o código do aplicativo móvel para chamar uma API da Web
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 06/16/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 717b6ed7e711b4db4cb15e55282cfcdea4659178
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 1187c768a54dd04d25b6de0e6785ebb81a7dfc24
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89051331"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584424"
 ---
 # <a name="configure-a-mobile-app-that-calls-web-apis"></a>Configurar um aplicativo móvel que chama APIs da Web
 
@@ -82,7 +82,7 @@ As seções a seguir fornecem mais informações sobre como instanciar o aplicat
 
 ##### <a name="specify-the-parent-ui-window-or-activity"></a>Especificar a interface do usuário pai, a janela ou a atividade
 
-No Android, você precisa passar a atividade pai antes de fazer a autenticação interativa. No iOS, ao usar um agente, você precisará entrar `ViewController` . Da mesma forma no UWP, talvez você queira passar a janela pai. Você o passa quando adquire o token. Mas quando você estiver criando o aplicativo, também poderá especificar um retorno de chamada como um delegado que retorna `UIParent` .
+No Android, passe a atividade pai antes de fazer a autenticação interativa. No iOS, quando você usa um agente, o Pass-in `ViewController` . Da mesma forma no UWP, talvez você queira passar a janela pai. Você o passa quando adquire o token. Mas quando você estiver criando o aplicativo, também poderá especificar um retorno de chamada como um delegado que retorna `UIParent` .
 
 ```csharp
 IPublicClientApplication application = PublicClientApplicationBuilder.Create(clientId)
@@ -160,7 +160,7 @@ Para habilitar a autenticação orientada para o Xamarin. iOS, siga as etapas na
 
 ### <a name="enable-the-broker-for-msal-for-android"></a>Habilitar o agente para MSAL para Android
 
-Para obter informações sobre como habilitar um agente no Android, consulte [autenticação orientada no Android](brokered-auth.md).
+Para obter informações sobre como habilitar um agente no Android, consulte [autenticação orientada no Android](msal-android-single-sign-on.md).
 
 ### <a name="enable-the-broker-for-msal-for-ios-and-macos"></a>Habilitar o agente para MSAL para iOS e macOS
 
@@ -218,7 +218,7 @@ Para definir a janela de objeto, siga estas etapas:
 
     `"uiviewcontroller_required_for_ios_broker":"UIViewController is null, so MSAL.NET cannot invoke the iOS broker. See https://aka.ms/msal-net-ios-broker."`
 
-1. Na `AcquireTokenInteractive` chamada, use `.WithParentActivityOrWindow(App.RootViewController)` . Passe a referência à janela de objeto que você usará. Veja um exemplo:
+1. Na `AcquireTokenInteractive` chamada, use `.WithParentActivityOrWindow(App.RootViewController)` . Passe a referência à janela de objeto que você usará. Aqui está um exemplo:
 
     Em `App.cs`:
     ```csharp
@@ -249,8 +249,8 @@ Para registrar o esquema de URL do seu aplicativo, siga estas etapas:
 
    Aqui, `BundleId` identifica exclusivamente seu dispositivo. Por exemplo, se `BundleId` for `yourcompany.xforms` , o esquema de URL será `msauth.com.yourcompany.xforms` .
 
-   > [!NOTE]
-   > Esse esquema de URL se tornará parte do URI de redirecionamento que identifica exclusivamente seu aplicativo quando receber a resposta do agente.
+  
+      Esse esquema de URL se tornará parte do URI de redirecionamento que identifica exclusivamente seu aplicativo quando receber a resposta do agente.
 
    ```XML
     <key>CFBundleURLTypes</key>
@@ -310,10 +310,9 @@ Quando o MSAL para iOS e macOS chama o agente, o agente retorna ao seu aplicativ
     }
 ```
 
-> [!NOTE]
-> Se você adotou `UISceneDelegate` no Ios 13 ou posterior, coloque o retorno de chamada MSAL no `scene:openURLContexts:` de `UISceneDelegate` em vez disso. MSAL `handleMSALResponse:sourceApplication:` deve ser chamado apenas uma vez para cada URL.
->
-> Para obter mais informações, consulte a [documentação da Apple](https://developer.apple.com/documentation/uikit/uiscenedelegate/3238059-scene?language=objc).
+Se você adotou `UISceneDelegate` no Ios 13 ou posterior, coloque o retorno de chamada MSAL no `scene:openURLContexts:` de `UISceneDelegate` em vez disso. MSAL `handleMSALResponse:sourceApplication:` deve ser chamado apenas uma vez para cada URL.
+
+Para obter mais informações, consulte a [documentação da Apple](https://developer.apple.com/documentation/uikit/uiscenedelegate/3238059-scene?language=objc).
 
 #### <a name="step-2-register-a-url-scheme"></a>Etapa 2: registrar um esquema de URL
 
@@ -329,8 +328,7 @@ Para registrar um esquema para seu aplicativo:
 
    Aqui, `BundleId` identifica exclusivamente seu dispositivo. Por exemplo, se `BundleId` for `yourcompany.xforms` , o esquema de URL será `msauth.com.yourcompany.xforms` .
 
-   > [!NOTE]
-   > Esse esquema de URL se tornará parte do URI de redirecionamento que identifica exclusivamente seu aplicativo quando receber a resposta do agente. Verifique se o URI de redirecionamento no formato `msauth.(BundleId)://auth` está registrado para seu aplicativo no [portal do Azure](https://portal.azure.com).
+    Esse esquema de URL se tornará parte do URI de redirecionamento que identifica exclusivamente seu aplicativo quando receber a resposta do agente. Verifique se o URI de redirecionamento no formato `msauth.(BundleId)://auth` está registrado para seu aplicativo no [portal do Azure](https://portal.azure.com).
 
    ```XML
    <key>CFBundleURLTypes</key>
@@ -367,5 +365,4 @@ Para obter informações sobre como habilitar um agente no Android, consulte [au
 
 ## <a name="next-steps"></a>Próximas etapas
 
-> [!div class="nextstepaction"]
-> [Adquirindo um token](scenario-mobile-acquire-token.md)
+Vá para o próximo artigo neste cenário, [adquirindo um token](scenario-mobile-acquire-token.md).

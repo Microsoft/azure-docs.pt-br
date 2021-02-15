@@ -3,19 +3,19 @@ title: Alinhamento de palavras – Tradutor
 titleSuffix: Azure Cognitive Services
 description: Para receber informações de alinhamento, use o método Traduzir e inclua o parâmetro opcional includeAlignment.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 05/26/2020
-ms.author: swmachan
-ms.openlocfilehash: 7288087bfe7d2a7bb03ce8a99831ad8b7f5b549f
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.author: lajanuar
+ms.openlocfilehash: 8368ca0ca4c3f2f0ab3cb88a5d54295d71451636
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83995608"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98898012"
 ---
 # <a name="how-to-receive-word-alignment-information"></a>Como receber informações de alinhamento de palavras
 

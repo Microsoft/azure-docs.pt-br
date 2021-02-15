@@ -2,32 +2,24 @@
 title: Criar um índice de pesquisa no portal do Azure
 titleSuffix: Azure Cognitive Search
 description: Neste início rápido do portal do Azure, use o assistente de Importação de Dados para criar, carregar e consultar seu primeiro índice de pesquisa no Azure Cognitive Search.
-author: tchristiani
 manager: nitinme
-ms.author: terrychr
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 06/07/2020
-ms.openlocfilehash: 632071c2a9597fc11ab4ffc0971493ef5b52d807
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.date: 12/12/2020
+ms.openlocfilehash: 1e9d63c88cf0cd6f65db99b2bc878797770d53cd
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86083552"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368623"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>Início Rápido: Criar um índice da Pesquisa Cognitiva do Azure no portal do Azure
-> [!div class="op_single_selector"]
-> * [Portal](search-get-started-portal.md)
-> * [C#](search-get-started-dotnet.md)
-> * [Java](search-get-started-java.md)
-> * [Node.js](search-get-started-nodejs.md)
-> * [PowerShell](search-get-started-powershell.md)
-> * [Postman](search-get-started-postman.md)
-> * [Python](search-get-started-python.md)
 
-O assistente **Importar dados** é uma ferramenta do portal do Azure que orienta você durante a criação de um índice de pesquisa para poder escrever consultas interessantes em minutos. 
+Crie seu primeiro índice usando o assistente para **Importação de dados** e uma fonte de dados de exemplo interna que consiste em dados fictícios de hotéis. O assistente orientará você durante a criação de um índice de pesquisa (hotels-sample-index) para que você possa escrever consultas interessantes em minutos. 
 
-O assistente também tem páginas para enriquecimento de IA para que você possa extrair texto e estrutura de arquivos de imagem e texto não estruturado. O processamento de conteúdo com a IA inclui o OCR (Reconhecimento Óptico de Caracteres), a extração de frases-chave e entidade e análise de imagem.
+Embora você não vá usar as opções deste guia de início rápido, o assistente inclui uma página de enriquecimento de IA, de modo que você possa extrair o texto e a estrutura de arquivos de imagem e texto não estruturado. Para obter um passo a passo semelhante que inclui o enriquecimento de IA, confira [Guia de início rápido: Criar um conjunto de habilidades cognitivas](cognitive-search-quickstart-blob.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -43,7 +35,7 @@ Muitos clientes começam com o serviço gratuito. Essa versão é limitada a tr�
 
 As seções no painel de serviço mostram quantos índices, indexadores e fontes de dados você já tem. 
 
-![Listas de índices, indexadores e fontes de dados](media/search-get-started-portal/tiles-indexers-datasources.png)
+:::image type="content" source="media/search-get-started-portal/tiles-indexers-datasources.png" alt-text="Listas de índices, indexadores e fontes de dados":::
 
 ## <a name="create-an-index-and-load-data"></a><a name="create-index"></a> Criar um índice e carregar dados
 
@@ -57,11 +49,11 @@ Para este tutorial, usamos um conjunto de dados interno de exemplo que pode ser 
 
 1. [Encontre seu serviço de pesquisa](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) e, na página Visão Geral, clique em **Importar dados** na barra de comandos para criar e preencher um índice de pesquisa.
 
-   ![Comando Importar de dados](media/search-get-started-portal/import-data-cmd.png)
+   :::image type="content" source="media/search-get-started-portal/import-data-cmd.png" alt-text="Comando Importar de dados":::
 
 1. No assistente, clique em **Conectar-se aos seus dados** > **Exemplos** > **hotels-sample**. Essa fonte de dados é interna. Se você estiver criando sua própria fonte de dados, precisará especificar um nome, um tipo e as informações de conexão. Depois de criada, ela se torna uma "fonte de dados existente" que pode ser reutilizada em outras operações de importação.
 
-   ![Selecionar o conjunto de dados de exemplo](media/search-get-started-portal/import-datasource-sample.png)
+   :::image type="content" source="media/search-get-started-portal/import-datasource-sample.png" alt-text="Selecionar o conjunto de dados de exemplo":::
 
 1. Continue para a próxima página.
 
@@ -71,7 +63,7 @@ O assistente dá suporte à criação de um [pipeline de enriquecimento de IA](c
 
 Ignoraremos esta etapa por enquanto e passaremos diretamente para **Personalizar o índice de destino**.
 
-   ![Ignorar etapa de habilidades cognitivas](media/search-get-started-portal/skip-cog-skill-step.png)
+   :::image type="content" source="media/search-get-started-portal/skip-cog-skill-step.png" alt-text="Ignorar etapa de habilidades cognitivas":::
 
 > [!TIP]
 > Você pode percorrer um exemplo de indexação de inteligência artificial em um [guia de início rápido](cognitive-search-quickstart-blob.md) ou [tutorial](cognitive-search-tutorial-blob.md).
@@ -91,24 +83,24 @@ Os requisitos de armazenamento não variam como resultado de sua seleção. Por 
 
 Por padrão, o assistente procura na fonte de dados identificadores exclusivos como base para o campo de chave. As *cadeias de caracteres* são atribuídas como **Recuperáveis** e **Pesquisáveis**. Os *inteiros* são atribuídos como **Recuperáveis**, **Filtráveis**, **Classificáveis** e **Com Faceta**.
 
-1. Aceite os padrões. 
+1. Aceite os padrões.
 
    Se você executar o assistente uma segunda vez usando uma fonte de dados de hotéis existente, o índice não será configurado com os atributos padrão. Você precisará selecionar manualmente os atributos em importações futuras. 
 
-   ![Índice de hotéis gerado](media/search-get-started-portal/hotelsindex.png)
+   :::image type="content" source="media/search-get-started-portal/hotelsindex.png" alt-text="Índice de hotéis gerado":::
 
 2. Continue para a próxima página.
 
 
 ### <a name="step-4---configure-indexer"></a>Etapa 4 – Configurar o indexador
 
-Ainda no assistente **Importar dados**, clique em **Indexador** > **Nome**e digite um nome para o indexador.
+Ainda no assistente **Importar dados**, clique em **Indexador** > **Nome** e digite um nome para o indexador.
 
 Esse objeto define um processo executável. Você poderá colocá-lo em uma agenda recorrente, mas, por enquanto, use a opção padrão para executar o indexador uma vez, imediatamente.
 
 Clique em **Enviar** para criar e executar simultaneamente o indexador.
 
-  ![indexador de hotéis](media/search-get-started-portal/hotels-indexer.png)
+  :::image type="content" source="media/search-get-started-portal/hotels-indexer.png" alt-text="indexador de hotéis":::
 
 ## <a name="monitor-progress"></a>Monitorar o progresso
 
@@ -116,7 +108,7 @@ O assistente levará você para a lista Indexadores, na qual você poderá monit
 
 Podem ser necessários alguns minutos para que o portal atualize a página, mas você deverá ver o indexador recém-criado na lista, com o status indicando "em andamento" ou êxito, juntamente com o número de documentos indexados.
 
-   ![Mensagem de andamento do indexador](media/search-get-started-portal/indexers-inprogress.png)
+   :::image type="content" source="media/search-get-started-portal/indexers-inprogress.png" alt-text="Mensagem de andamento do indexador":::
 
 ## <a name="view-the-index"></a>Exibir índice
 
@@ -124,13 +116,13 @@ A página principal do serviço fornece links para os recursos criados em seu se
 
 Aguarde a atualização da página do portal. Após alguns minutos, você deverá ver o índice com uma contagem de documentos e tamanho de armazenamento.
 
-   ![Lista de índices no painel de serviço](media/search-get-started-portal/indexes-list.png)
+   :::image type="content" source="media/search-get-started-portal/indexes-list.png" alt-text="Lista de índices no painel de serviço":::
 
 Nesta lista, você pode clicar no índice *hotels-sample* que acabou de criar e exibir o esquema de índice. e, opcionalmente, adicionar novos campos. 
 
 A guia **Campos** mostra o esquema de índice. Role até a parte inferior da lista para inserir um novo campo. Na maioria dos casos, você não pode alterar os campos existentes. Os campos existentes têm uma representação física na Pesquisa Cognitiva do Azure e, portanto, não podem ser modificados, nem mesmo no código. Para alterar fundamentalmente um campo existente, crie um índice, removendo o original.
 
-   ![exemplo de definição de índice](media/search-get-started-portal/sample-index-def.png)
+   :::image type="content" source="media/search-get-started-portal/sample-index-def.png" alt-text="exemplo de definição de índice":::
 
 Outros constructos, como perfis de pontuação e opções de CORS, podem ser adicionados a qualquer momento.
 
@@ -140,7 +132,7 @@ Para entender claramente o que é possível editar ou não durante o design de �
 
 Agora você terá um índice de pesquisa que está pronto para consulta na página de consulta interna [**Gerenciador de pesquisa**](search-explorer.md). Ele fornece uma caixa de pesquisa para que você possa testar cadeias de caracteres de consulta arbitrárias.
 
-O **Gerenciador de pesquisa** só é capaz de lidar com [Solicitações da API REST](https://docs.microsoft.com/rest/api/searchservice/search-documents), mas aceita a sintaxe de [consulta simples](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) e [completa do analisador de consulta Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), além de todos os parâmetros de pesquisa disponíveis nas operações da [API REST de pesquisa de documento](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples).
+O **Gerenciador de pesquisa** só é capaz de lidar com [Solicitações da API REST](/rest/api/searchservice/search-documents), mas aceita a sintaxe de [consulta simples](/rest/api/searchservice/simple-query-syntax-in-azure-search) e [completa do analisador de consulta Lucene](/rest/api/searchservice/lucene-query-syntax-in-azure-search), além de todos os parâmetros de pesquisa disponíveis nas operações da [API REST de pesquisa de documento](/rest/api/searchservice/search-documents#bkmk_examples).
 
 > [!TIP]
 > As etapas a seguir são demonstradas no momento 6m08s do [vídeo Visão geral da Pesquisa Cognitiva do Azure](https://channel9.msdn.com/Events/Connect/2016/138).
@@ -148,15 +140,15 @@ O **Gerenciador de pesquisa** só é capaz de lidar com [Solicitações da API R
 
 1. Clique em **Gerenciador de pesquisa** na barra de comandos.
 
-   ![Comando Search Explorer](media/search-get-started-portal/search-explorer-cmd.png)
+   :::image type="content" source="media/search-get-started-portal/search-explorer-cmd.png" alt-text="Comando Search Explorer":::
 
 2. Na lista suspensa **Índice**, escolha *hotels-sample-index*. Clique na lista suspensa **Versão da API** para ver quais APIs REST estão disponíveis. Para as consultas a seguir, use a versão em disponibilidade geral (30/06/2020).
 
-   ![Comandos de índice e API](media/search-get-started-portal/search-explorer-changeindex.png)
+   :::image type="content" source="media/search-get-started-portal/search-explorer-changeindex.png" alt-text="Comandos de índice e API":::
 
 3. Na barra de pesquisa, cole as cadeias de consulta abaixo e clique em **Pesquisar**.
 
-   ![Botão de pesquisa e de cadeia de consulta](media/search-get-started-portal/search-explorer-query-string-example.png)
+   :::image type="content" source="media/search-get-started-portal/search-explorer-query-string-example.png" alt-text="Botão de pesquisa e de cadeia de consulta":::
 
 ## <a name="example-queries"></a>Consultas de exemplo
 
@@ -188,7 +180,7 @@ Os filtros são incluídos nas solicitações de pesquisa quando você acrescent
 
 * O parâmetro **$filter** retorna resultados que correspondem aos critérios fornecidos. Nesse caso, classificações maiores que 4.
 
-* A sintaxe de filtro é uma construção de OData. Para saber mais, confira [Sintaxe de filtro OData](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search).
+* A sintaxe de filtro é uma construção de OData. Para saber mais, confira [Sintaxe de filtro OData](/rest/api/searchservice/odata-expression-syntax-for-azure-search).
 
 ### <a name="facet-the-query"></a><a name="facet-query"></a> Facetar a consulta
 
@@ -196,8 +188,8 @@ Os filtros de faceta estão incluídos em solicitações de pesquisa. Você pode
 
 #### <a name="example-faceted-with-scope-reduction-searchfacetcategorytop2"></a>Exemplo (facetado com redução de escopo): `search=*&facet=Category&$top=2`
 
-* **search=** * é uma pesquisa vazia. Pesquisas vazias pesquisam tudo. Um motivo de envio de uma consulta vazia é fazer a filtragem ou faceta no conjunto completo de documentos. Por exemplo, você deseja que uma estrutura de navegação de facetas contenha todos os hotéis no índice.
-* **facet** retorna uma estrutura de navegação que você pode passar para um controle de interface do usuário. Ela retorna categorias e uma contagem. Nesse caso, as categorias são baseadas em um campo convenientemente denominado *Categoria*. Não há nenhuma agregação na Pesquisa Cognitiva do Azure, mas você pode aproximar a agregação com `facet`, que retorna uma contagem de documentos em cada categoria.
+* **search=** _ é uma pesquisa vazia. Pesquisas vazias pesquisam tudo. Um motivo de envio de uma consulta vazia é fazer a filtragem ou faceta no conjunto completo de documentos. Por exemplo, você deseja que uma estrutura de navegação de facetas contenha todos os hotéis no índice.
+_ **facet** retorna uma estrutura de navegação que você pode transmitir para um controle de interface do usuário. Ela retorna categorias e uma contagem. Nesse caso, as categorias são baseadas em um campo convenientemente denominado *Categoria*. Não há nenhuma agregação na Pesquisa Cognitiva do Azure, mas você pode aproximar a agregação com `facet`, que retorna uma contagem de documentos em cada categoria.
 
 * **$top=2** recupera dois documentos, ilustrando a que você pode usar `top` para reduzir ou aumentar os resultados.
 
@@ -207,7 +199,7 @@ Os filtros de faceta estão incluídos em solicitações de pesquisa. Você pode
 
 * Somente campos filtráveis podem ser facetados. Somente os campos recuperáveis podem ser retornados nos resultados.
 
-* O campo *Classificação* é um ponto flutuante de precisão dupla e o agrupamento será pelo valor preciso. Para obter mais informações sobre o agrupamento por intervalo (por exemplo, "classificações de 3 estrelas," "classificações de 4 estrelas" etc.), confira [Como implementar a navegação facetada na Pesquisa Cognitiva do Azure](https://docs.microsoft.com/azure/search/search-faceted-navigation#filter-based-on-a-range).
+* O campo *Classificação* é um ponto flutuante de precisão dupla e o agrupamento será pelo valor preciso. Para obter mais informações sobre o agrupamento por intervalo (por exemplo, "classificações de 3 estrelas," "classificações de 4 estrelas" etc.), confira [Como implementar a navegação facetada na Pesquisa Cognitiva do Azure](./search-faceted-navigation.md#filter-based-on-a-range).
 
 
 ### <a name="highlight-search-results"></a><a name="highlight-query"></a> Realçar resultados da pesquisa
@@ -240,11 +232,11 @@ Quando **queryType** for especificado, o analisador de consulta simples padrão 
 
 A pesquisa difusa e a pesquisa curinga têm implicações nos resultados da pesquisa. A análise linguística não é executada nesses formatos de consulta. Antes de usar pesquisas difusa e curinga, reveja [Como a pesquisa de texto completa funciona na Pesquisa Cognitiva do Azure](search-lucene-query-architecture.md#stage-2-lexical-analysis) e procure a seção sobre exceções à análise léxica.
 
-Para saber mais sobre cenários de consulta habilitados pelo analisador de consulta completo, confira [Sintaxe de consulta Lucene na Pesquisa Cognitiva do Azure](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search).
+Para saber mais sobre cenários de consulta habilitados pelo analisador de consulta completo, confira [Sintaxe de consulta Lucene na Pesquisa Cognitiva do Azure](/rest/api/searchservice/lucene-query-syntax-in-azure-search).
 
 ### <a name="try-geospatial-search"></a><a name="geo-search"></a> Experimentar a pesquisa geoespacial
 
-A pesquisa geográfica tem suporte pelo [tipo de dados edm.GeographyPoint](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) em um campo que contém coordenadas. A pesquisa geográfica é um tipo de filtro, especificado na [sintaxe do filtro OData](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search).
+A pesquisa geográfica tem suporte pelo [tipo de dados edm.GeographyPoint](/rest/api/searchservice/supported-data-types) em um campo que contém coordenadas. A pesquisa geográfica é um tipo de filtro, especificado na [sintaxe do filtro OData](/rest/api/searchservice/odata-expression-syntax-for-azure-search).
 
 #### <a name="example-geo-coordinate-filters-searchcounttruefiltergeodistancelocationgeographypoint-12212-4767-le-5"></a>Exemplo (filtros de coordenadas geográficas): `search=*&$count=true&$filter=geo.distance(Location,geography'POINT(-122.12 47.67)') le 5`
 
@@ -256,7 +248,7 @@ A pesquisa geográfica é útil se seu aplicativo de pesquisa tem um recurso de 
 
 Este tutorial forneceu uma rápida introdução à Pesquisa Cognitiva do Azure usando o portal do Azure.
 
-Você aprendeu a criar um índice de pesquisa usando o assistente **Importar dados**. Você aprendeu sobre [indexadores](search-indexer-overview.md) e sobre o fluxo de trabalho básico para criar índices, incluindo [modificações com suporte em um índice publicado](https://docs.microsoft.com/rest/api/searchservice/update-index).
+Você aprendeu a criar um índice de pesquisa usando o assistente **Importar dados**. Você aprendeu sobre [indexadores](search-indexer-overview.md) e sobre o fluxo de trabalho básico para criar índices, incluindo [modificações com suporte em um índice publicado](/rest/api/searchservice/update-index).
 
 Usando o **explorador do Search** no portal do Azure, você aprendeu algumas sintaxes de consulta básicas por meio de exemplos práticos que demonstraram os recursos principais, como filtros, realce de ocorrência, pesquisa difusa e pesquisa geográfica.
 
@@ -276,8 +268,3 @@ Use um assistente do portal para gerar um aplicativo Web pronto para uso executa
 
 > [!div class="nextstepaction"]
 > [Criar um aplicativo de demonstração no portal](search-create-app-portal.md)
-
-Deseja otimizar e reduzir seus gastos com a nuvem?
-
-> [!div class="nextstepaction"]
-> [Comece a analisar os custos com o Gerenciamento de Custos](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

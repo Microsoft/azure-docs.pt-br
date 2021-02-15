@@ -13,12 +13,12 @@ ms.date: 09/12/2019
 ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman
-ms.openlocfilehash: f5950347fff380fcfbaa89834407ff5f497a9719
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: aa0ce6a5f909e67f0551c8667bb7e5c5e6d7eb04
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88854912"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92275600"
 ---
 # <a name="android-microsoft-authentication-library-configuration-file"></a>Arquivo de configuração da biblioteca de autenticação do Android da Microsoft
 
@@ -34,6 +34,7 @@ Este artigo o ajudará a entender as várias configurações no arquivo de confi
 |-----------|------------|-------------|-------|
 | `client_id` | String | Sim | A ID do cliente do aplicativo na [página de registro do aplicativo](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
 | `redirect_uri`   | String | Sim | O URI de redirecionamento do seu aplicativo da [página de registro do aplicativo](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
+| `broker_redirect_uri_registered` | Boolean | Não | Valores possíveis: `true` , `false` |
 | `authorities` | Lista\<Authority> | Não | A lista de autoridades que seu aplicativo precisa |
 | `authorization_user_agent` | AuthorizationAgent (enum) | Não | Valores possíveis: `DEFAULT` , `BROWSER` , `WEBVIEW` |
 | `http` | HttpConfiguration | Não | Configurar `HttpUrlConnection` `connect_timeout` e `read_timeout` |
@@ -46,6 +47,10 @@ A ID do cliente ou a ID do aplicativo que foi criada quando você registrou seu 
 ### <a name="redirect_uri"></a>redirect_uri
 
 O URI de redirecionamento que você registrou quando registrou seu aplicativo. Se o URI de redirecionamento for para um aplicativo de agente, consulte [URI de redirecionamento para aplicativos cliente públicos](msal-client-application-configuration.md#redirect-uri-for-public-client-apps) para garantir que você esteja usando o formato de URI de redirecionamento correto para seu aplicativo de agente.
+
+### <a name="broker_redirect_uri_registered"></a>broker_redirect_uri_registered
+
+Se você quiser usar a autenticação orientada, a `broker_redirect_uri_registered` Propriedade deverá ser definida como `true` . Em um cenário de autenticação orientada, se o aplicativo não estiver no formato correto para se comunicar com o agente conforme descrito em [URI de redirecionamento para aplicativos cliente públicos](msal-client-application-configuration.md#redirect-uri-for-public-client-apps), o aplicativo validará o URI de redirecionamento e lançará uma exceção quando ele for iniciado.
 
 ### <a name="authorities"></a>pelas
 
@@ -86,7 +91,7 @@ A lista de autoridades que são conhecidas e confiáveis por você. Além das au
 
 #### <a name="map-aad-authority--audience-to-microsoft-identity-platform-endpoints"></a>Mapear a autoridade do AAD & público para pontos de extremidade da plataforma Microsoft Identity
 
-| Tipo | Público | ID do locatário | Authority_Url | Ponto de extremidade resultante | Observações |
+| Type | Público | ID do locatário | Authority_Url | Ponto de extremidade resultante | Observações |
 |------|------------|------------|----------------|----------------------|---------|
 | AAD | AzureADandPersonalMicrosoftAccount | | | `https://login.microsoftonline.com/common` | `common` é um alias de locatário para onde a conta é. Como um locatário específico de Azure Active Directory ou o sistema conta Microsoft. |
 | AAD | AzureADMyOrg | contoso.com | | `https://login.microsoftonline.com/contoso.com` | Somente as contas presentes no contoso.com podem adquirir um token. Qualquer domínio verificado, ou o GUID do locatário, pode ser usado como a ID do locatário. |
@@ -98,6 +103,7 @@ A lista de autoridades que são conhecidas e confiáveis por você. Além das au
 > A validação de autoridade não pode ser habilitada e desabilitada em MSAL.
 > As autoridades são conhecidas por você como o desenvolvedor especificado por meio da configuração ou são conhecidas pela Microsoft por meio de metadados.
 > Se MSAL receber uma solicitação de um token para uma autoridade desconhecida, um `MsalClientException` dos resultados do tipo `UnknownAuthority` .
+> A autenticação orientada não funciona para Azure AD B2C.
 
 #### <a name="authority-properties"></a>Propriedades da autoridade
 

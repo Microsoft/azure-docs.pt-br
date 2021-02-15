@@ -8,10 +8,10 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: Kinect, Azure, sensor, SDK, profundidade, RGB, registro, reprodução, Matroska, MKV
 ms.openlocfilehash: fe403f314c1df415537d090433f34627eb1249e7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85276333"
 ---
 # <a name="the-azure-kinect-playback-api"></a>A API de reprodução do Azure Kinect
@@ -134,13 +134,13 @@ Abaixo está uma lista de todas as marcas padrão que podem ser incluídas em um
 
 Se uma marca não existir, supõe-se que tenha o valor padrão.
 
-| Nome da marca                     | Valor padrão      | [`k4a_record_configuration_t`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/structk4a__record__configuration__t.html)Campo | Observações     |
+| Nome da marca                     | Valor padrão      | [`k4a_record_configuration_t`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/structk4a__record__configuration__t.html) Campo | Observações     |
 |------------------------------|--------------------|--------------------------------------|----------------------------------------------------------------------------------------------------------------|
 | `K4A_COLOR_MODE`             | DESCONTO              | `color_format` / `color_resolution`  | Valores possíveis: "OFF", "MJPG_1080P", "NV12_720P", "YUY2_720P" e assim por diante                                      |
 | `K4A_DEPTH_MODE`             | DESCONTO              | `depth_mode` / `depth_track_enabled` | Valores possíveis: "OFF", "NFOV_UNBINNED", "PASSIVE_IR" e assim por diante                                                |
 | `K4A_IR_MODE`                | DESCONTO              | `depth_mode` / `ir_track_enabled`    | Valores possíveis: "OFF", "ativo", "passivo"                                                                    |
 | `K4A_IMU_MODE`               | DESCONTO              | `imu_track_enabled`                  | Valores possíveis: "ON", "OFF"                                                                                   |
-| `K4A_CALIBRATION_FILE`       | "calibration.js" | N/D                                  | Esse[`k4a_device_get_raw_calibration()`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga8c4e46642cee3115aeb0b33e2b43b24f.html#ga8c4e46642cee3115aeb0b33e2b43b24f) |
+| `K4A_CALIBRATION_FILE`       | "calibration.js" | N/D                                  | Confira [`k4a_device_get_raw_calibration()`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga8c4e46642cee3115aeb0b33e2b43b24f.html#ga8c4e46642cee3115aeb0b33e2b43b24f) |
 | `K4A_DEPTH_DELAY_NS`         | "0"                | `depth_delay_off_color_usec`         | Valor armazenado em nanossegundos, a API fornece microssegundos.                                                        |
 | `K4A_WIRED_SYNC_MODE`        | AUTÔNOMO       | `wired_sync_mode`                    | Valores possíveis: "autônomo", "mestre", "SUBORDINAdo"                                                         |
 | `K4A_SUBORDINATE_DELAY_NS`   | "0"                | `subordinate_delay_off_master_usec`  | Valor armazenado em nanossegundos, a API fornece microssegundos.                                                        |

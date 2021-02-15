@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 9c84b35318637f5b89e6c88c0ebb3fd6616533fc
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: aeb90e8e064c44f4d17f920261ed58310f0e55f0
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86023118"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025694"
 ---
 # <a name="debug-errors-when-authoring-a-custom-commands-application"></a>Erros de depuração ao criar um aplicativo de comandos personalizados
 
@@ -24,7 +24,7 @@ Este artigo descreve como depurar quando você encontrar erros ao criar aplicati
 ## <a name="errors-when-creating-an-application"></a>Erros ao criar um aplicativo
 Comandos personalizados também criam um aplicativo no [Luis](https://www.luis.ai/) ao criar um aplicativo de comandos personalizados. 
 
-[Luis limita 500 aplicativos por recurso de criação](https://docs.microsoft.com/azure/cognitive-services/luis/luis-limits). A criação do aplicativo LUIS poderá falhar se você estiver usando um recurso de criação que já tenha 500 aplicativos. 
+[Luis limita 500 aplicativos por recurso de criação](../luis/luis-limits.md). A criação do aplicativo LUIS poderá falhar se você estiver usando um recurso de criação que já tenha 500 aplicativos. 
 
 Verifique se o recurso de criação de LUIS selecionado tem menos de 500 aplicativos. Caso contrário, você pode criar um novo recurso de criação de LUIS, alternar para outro ou tentar limpar seus aplicativos LUIS.  
 
@@ -48,20 +48,20 @@ Você não tem permissão para excluir um parâmetro quando ele está sendo usad
 Você não tem permissão para excluir um ponto de extremidade da Web quando ele está sendo usado. Remova qualquer ação de **ponto de extremidade Web de chamada** que usa esse ponto de extremidade da Web antes de remover um ponto de extremidade da Web
 
 ## <a name="errors-when-training-an-application"></a>Erros ao treinar um aplicativo
-### <a name="built-in-intents"></a>Propósitos internos
+### <a name="built-in-intents"></a>Built-In tentativas
 LUIS tem intenções internas Sim/não. Ter frases de amostra com apenas "Sim", "não", falharia no treinamento. 
 
 | Palavra-chave | Variações | 
 | ------- | --------- | 
-| Sim | Certo, OK |
-| Não | Verão, não | 
+| Yes | Certo, OK |
+| No | Verão, não | 
 
 ### <a name="common-sample-sentences"></a>Sentenças de exemplo comuns
 Os comandos personalizados não permitem frases de exemplo comuns compartilhadas entre comandos diferentes. O treinamento de um aplicativo poderá falhar se algumas frases de exemplo em um comando já estiverem definidas em outro comando. 
 
 Verifique se você não tem frases de exemplo comuns compartilhadas entre comandos diferentes. 
 
-Para obter uma prática recomendada de balanceamento de frases de exemplo em diferentes comandos, consulte a [prática recomendada do Luis](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-best-practices).
+Para obter uma prática recomendada de balanceamento de frases de exemplo em diferentes comandos, consulte a [prática recomendada do Luis](../luis/luis-concept-best-practices.md).
 
 ### <a name="empty-sample-sentences"></a>Sentenças de exemplo vazias
 Você precisa ter pelo menos uma frase de exemplo para cada comando.
@@ -82,7 +82,7 @@ Por exemplo, você pode definir um parâmetro {veículo} para as sentenças de e
 | Reservar um voo | Agendar um {veículo} |
 | Agendar um táxi | Agendar um {veículo} |
 
-Para obter a melhor prática do treinamento do LUIS, consulte a [prática recomendada do Luis](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-best-practices).
+Para obter a melhor prática do treinamento do LUIS, consulte a [prática recomendada do Luis](../luis/luis-concept-best-practices.md).
 
 ## <a name="cant-update-luis-key"></a>Não é possível atualizar a chave LUIS
 ### <a name="reassign-to-e0-authoring-resource"></a>Reatribuir ao recurso de criação de E0

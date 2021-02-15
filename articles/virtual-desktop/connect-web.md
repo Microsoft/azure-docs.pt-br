@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 09/24/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 7c97009a69c937863a5776d63bab1c994a8a9160
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: c8a4b22966c3d4db268e212bb3f2d1bbb78fee74
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88007600"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89400629"
 ---
 # <a name="connect-to-windows-virtual-desktop-with-the-web-client"></a>Conectar-se à área de trabalho virtual do Windows com o cliente Web
 
@@ -41,11 +41,32 @@ Em um navegador, vá até a versão integrada do Azure Resource Manager do clien
 
 >[!NOTE]
 >Se você estiver usando a área de trabalho virtual do Windows (clássica) sem integração Azure Resource Manager, conecte-se aos seus recursos em <https://rdweb.wvd.microsoft.com/webclient> vez disso.
+>
+> Se você estiver usando o portal de US Gov, use <https://rdweb.wvd.azure.us/arm/webclient/index.html> .
 
 >[!NOTE]
 >Se já tiver entrado com uma conta do Azure Active Directory diferente da que deseja usar para a Área de Trabalho Virtual do Windows, você deverá sair ou usar uma janela de navegador privada.
 
 Depois de entrar, você verá uma lista de recursos. Você pode iniciar os recursos selecionando-os da mesma maneira que faria com um aplicativo normal na guia **Todos os recursos**.
+
+## <a name="using-an-input-method-editor"></a>Usando um editor de método de entrada
+
+O cliente Web dá suporte ao uso de um IME (editor de método de entrada) na sessão remota na versão **1.0.21.16 ou posterior**. O pacote de idiomas do teclado que você deseja usar na sessão remota deve ser instalado na máquina virtual do host. Para saber mais sobre como configurar pacotes de idiomas na sessão remota, confira [adicionar pacotes de idiomas a uma imagem de várias sessões do Windows 10](language-packs.md).
+
+Para habilitar a entrada do IME usando o cliente Web:
+
+1. Antes de se conectar à sessão remota, vá para o painel de **configurações** do cliente Web.
+
+2. Alterne a configuração **habilitar editor de método de entrada** para **ativado**.
+
+3. No menu suspenso, selecione o teclado que será usado na sessão remota.
+
+4. Conecte-se à sessão remota.
+
+O cliente Web irá suprimir a janela local do IME quando você estiver concentrado na sessão remota. Alterar as configurações do IME depois que você já tiver se conectado à sessão remota não terá nenhum efeito.
+
+>[!NOTE]
+>Se o pacote de idiomas não estiver instalado na máquina virtual do host, a sessão remota usará como padrão o teclado inglês (Estados Unidos).
 
 ## <a name="next-steps"></a>Próximas etapas
 

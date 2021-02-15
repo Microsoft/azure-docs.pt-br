@@ -1,22 +1,21 @@
 ---
-title: Acompanhamento de experimento e implantação de modelos
+title: Acompanhamento de experimentos e implantação de modelos
 titleSuffix: Azure Data Science Virtual Machine
-description: Saiba como acompanhar e registrar experimentos do DSVM com o serviço do Azure Machine Learning e/ou MLFlow.
+description: Saiba como acompanhar e registrar experimentos do Máquina Virtual de Ciência de Dados com Azure Machine Learning e/ou MLFlow.
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: data-science-vm
+ms.service: data-science-vm
 author: samkemp
 ms.author: samkemp
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: 687cd6570a9518be6f398a40fcd2d0e10a9634f2
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 3795d531c5c4c543587ab817c05cd1cfeea6be06
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88817337"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100518531"
 ---
-# <a name="track-experiments-and-deploy-models-in-azureml"></a>Acompanhe experimentos e implante modelos no AzureML
+# <a name="track-experiments-and-deploy-models-in-azure-machine-learning"></a>Acompanhe experimentos e implante modelos no Azure Machine Learning
 
 Aprimore o processo de criação de modelo acompanhando seus experimentos e monitorando métricas de execução. Neste artigo, saiba como adicionar o código de registro em log ao seu script de treinamento usando a API [MLflow](https://mlflow.org/) e acompanhar o experimento em Azure Machine Learning.
 
@@ -26,11 +25,11 @@ O diagrama a seguir ilustra isso com o Acompanhamento do MLflow, você acompanha
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Será necessário [provisionar um Workspace do Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace#create-a-workspace)
+* Você precisará [provisionar um Workspace do Azure Machine Learning](../how-to-manage-workspace.md#create-a-workspace)
 
 ## <a name="create-a-new-notebook"></a>Criar um novo notebook
 
-O SDK do Azure Machine Learning e do MLFlow são pré-instalados no VM de Ciência de Dados e podem ser acessados no ambiente do **azureml_py36_ \* ** Conda. No Jupyterlab, clique no iniciador e selecione o seguinte kernel:
+O SDK do Azure Machine Learning e do MLFlow são pré-instalados no VM de Ciência de Dados e podem ser acessados no ambiente do **azureml_py36_ \*** Conda. No JupyterLab, clique no iniciador e selecione o seguinte kernel:
 
 ![seleção de kernel](./media/how-to-track-experiments/experiment-tracking-1.png)
 
@@ -40,7 +39,7 @@ Vá para a [portal do Azure](https://portal.azure.com) e selecione o espaço de 
 
 ![Obter arquivo de configuração](./media/how-to-track-experiments/experiment-tracking-2.png)
 
-A configuração contém informações como o nome do espaço de trabalho, a assinatura, etc., e isso significa que você não precisa embutir em código esses parâmetros.
+A configuração contém informações como o nome do espaço de trabalho, assinatura, etc., e isso significa que você não precisa embutir em código esses parâmetros.
 
 ## <a name="track-dsvm-runs"></a>Rastrear execuções de DSVM
 
@@ -123,7 +122,7 @@ Você deve ver o MSE (erro ao quadrado da média registrada):
 
 ![DESSE](./media/how-to-track-experiments/mlflow-experiments-2.png)
 
-Se você clicar na execução, verá outros detalhes e também o modelo Pickled nas __saídas + logs__
+Se você clicar em executar, verá outros detalhes e também o modelo Pickled nas __saídas + logs__
 
 ## <a name="deploy-model-in-azure-machine-learning"></a>Implantar modelo no Azure Machine Learning
 
@@ -131,7 +130,7 @@ Nesta seção, descreveremos como implantar modelos treinados em um DSVM para Az
 
 ### <a name="step-1-create-inference-compute"></a>Etapa 1: criar uma computação de inferência
 
-No menu à esquerda no [AzureML Studio](https://ml.azure.com) , clique em __computação__ e, em seguida, na guia __clusters de inferência__ . Em seguida, clique em __+ novo__ como articulado abaixo:
+No menu à esquerda no [AzureML Studio](https://ml.azure.com) , clique em __computação__ e, em seguida, na guia __clusters de inferência__ . Em seguida, clique em __+ novo__ , conforme discutido abaixo:
 
 ![Criar a inferência de computação](./media/how-to-track-experiments/mlflow-experiments-6.png)
 
@@ -167,7 +166,7 @@ Em seguida, clique no botão __implantar__ no painel detalhes do modelo:
 
 ![Implantar](./media/how-to-track-experiments/mlflow-experiments-4.png)
 
-Implantaremos o modelo no cluster de inferência (serviço kubernetes do Azure) que criamos na etapa 1. Preencha os detalhes abaixo fornecendo um nome para o serviço e o nome do cluster de computação AKS (criado na etapa 1). Também recomendamos que você aumente a __capacidade de reserva de CPU__ para 1 (de 0,1) e a __capacidade de reserva de memória__ para 1 (de 0,5) – você pode fazer isso clicando em __avançado__ e preenchendo os detalhes. Em seguida, clique em __implantar__.
+Implantaremos o modelo no cluster de inferência (serviço kubernetes do Azure) que criamos na etapa 1. Preencha os detalhes abaixo fornecendo um nome para o serviço e o nome do cluster de computação AKS (criado na etapa 1). Também recomendamos que você aumente a __capacidade de reserva da CPU__ para 1 (de 0,1) e a __capacidade de reserva de memória__ para 1 (de 0,5) – você pode fazer esse aumento clicando em __avançado__ e preenchendo os detalhes. Em seguida, clique em __implantar__.
 
 ![detalhes da implantação](./media/how-to-track-experiments/mlflow-experiments-5.png)
 
@@ -177,9 +176,9 @@ Quando o modelo tiver sido implantado com êxito, você deverá ver o seguinte (
 
 ![Consumir modelo](./media/how-to-track-experiments/mlflow-experiments-8.png)
 
-Você deve observar que o estado da implantação vai de __transição__ para __íntegro__. Além disso, essa seção de detalhes fornece o ponto de extremidade REST e as URLs do Swagger que um desenvolvedor de aplicativos pode usar para integrar seu modelo ML em seus aplicativos.
+Você deve ver que o estado da implantação vai de __transição__ para __íntegro__. Além disso, esta seção de detalhes fornece o ponto de extremidade REST e as URLs do Swagger que um desenvolvedor de aplicativos pode usar para integrar seu modelo ML em seus aplicativos.
 
-Você pode testar o ponto de extremidade usando o [postmaster](https://www.postman.com/), como alternativa, você pode usar o SDK do AzureML:
+Você pode testar o ponto de extremidade usando o [postmaster](https://www.postman.com/)ou pode usar o SDK do AzureML:
 
 ```python
 from azureml.core import Webservice
@@ -200,8 +199,8 @@ print(output)
 
 ### <a name="step-4-clean-up"></a>Etapa 4: limpar
 
-Você deve excluir a computação de inferência criada na etapa 1 para que você não incorra em encargos de computação em andamento. No menu à esquerda no Azure Machine Learning Studio clique em clusters de > de inferência de computação > selecione a computação > excluir.
+Exclua a computação de inferência criada na etapa 1 para que você não incorra em encargos de computação em andamento. No menu à esquerda na Azure Machine Learning Studio, clique em clusters de > de inferência de computação > selecione a computação > excluir.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Saiba mais sobre a [implantação de modelos no AzureML](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where)
+* Saiba mais sobre a [implantação de modelos no AzureML](../how-to-deploy-and-where.md)

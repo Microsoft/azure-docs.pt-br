@@ -3,22 +3,22 @@ title: Introdução ao Azure Maps Power BI Visual | Mapas do Microsoft Azure
 description: Neste artigo, você aprenderá a usar o Visual do Microsoft Azure Maps para Power BI.
 author: rbrundritt
 ms.author: richbrun
-ms.date: 06/26/2020
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 9f7f44e053cfb26cbf7d897b8a1df1ad2861fd07
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: a563a7776e84289e38743057778e8fe10fd17503
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87551992"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96904696"
 ---
 # <a name="getting-started-with-the-azure-maps-power-bi-visual"></a>Introdução ao Visual do Azure Maps Power BI
 
-<Token>**aplica-se a:** ![ Sim ](media/power-bi-visual/yes.png) serviço do Power bi para ***consumers*** ![ os consumidores sim ](media/power-bi-visual/yes.png) serviço do Power bi para designers & os desenvolvedores ![ Sim ](media/power-bi-visual/yes.png) Power bi desktop ![ não ](media/power-bi-visual/no.png) requer licença pro ou Premium</Token>
+<Token>**aplica-se a:** ![ Marca de seleção verde. ](media/power-bi-visual/yes.png) Serviço do Power BI para **_consumidores_* _ ![ marca de seleção verde. ](media/power-bi-visual/yes.png) Serviço do Power BI para designers & ![ marca de seleção verde de desenvolvedores. ](media/power-bi-visual/yes.png) Power BI Desktop ![ X indicando não. ](media/power-bi-visual/no.png) Requer licença pro ou Premium</Token>
 
 Este artigo mostra como usar o Visual do Microsoft Azure Maps para Power BI.
 
@@ -45,15 +45,15 @@ Você, ou seu administrador, talvez precise atualizar seu firewall para permitir
 
 Para saber mais, sobre privacidade e termos de uso relacionados ao Visual do Azure Maps, consulte [Microsoft Azure informações legais](https://azure.microsoft.com/support/legal/).
 
-## <a name="preview-behavior-and-requirements"></a>Comportamento e requisitos da versão prévia
+## <a name="azure-maps-visual-preview-behavior-and-requirements"></a>Comportamento e requisitos do Visual do Azure Maps (visualização)
 
-Há algumas considerações e requisitos para esta versão de visualização do **Azure Maps**:
+Há algumas considerações e requisitos para o Visual *Maps * do Azure*. :
 
--   O Visual do **Azure Maps** está em visualização e deve ser habilitado no Power bi desktop. Para habilitar o **mapas do Azure**, selecione opções de **arquivo** &gt; **e configurações** &gt; **Opções** de &gt; **Visualização recursos**e marque a caixa de seleção **Visual do Azure Maps** . Se o Visual do Azure Maps não estiver disponível depois de fazer isso, é provável que uma opção de administrador de locatários no portal de administração precise ser habilitada.
+-   O Visual do **mapas do Azure** (visualização) deve estar habilitado no Power bi desktop. Para habilitar o Visual **do Azure Maps** , selecione **File** &gt; **Opções de arquivo e configurações** &gt; **Opções** de &gt; **Visualização recursos** e marque a caixa de seleção **Visual do Azure Maps** . Se o Visual do Azure Maps não estiver disponível depois de fazer isso, é provável que uma opção de administrador de locatários no portal de administração precise ser habilitada.
 -   O conjunto de dados deve ter campos que contenham informações de **latitude** e **longitude** . A codificação geográfica de campos de localização será adicionada em uma atualização futura.
 -   O controle de legenda interno para Power BI não aparece atualmente nesta visualização. Ele será adicionado em uma atualização futura.
 
-## <a name="use-the-azure-maps-visual"></a>Usar o Visual do Azure Maps
+## <a name="use-the-azure-maps-visual-preview"></a>Usar o Visual do Azure Maps (visualização)
 
 Depois que o Visual do **Azure Maps** estiver habilitado, selecione o ícone **mapas do Azure** no painel **visualizações** .
 
@@ -92,7 +92,7 @@ Execute as seguintes etapas para carregar o Visual do Azure Maps:
 
 Os seguintes buckets de dados estão disponíveis no painel **campos** do Visual mapas do Azure.
 
-| Campo     | DESCRIÇÃO  |
+| Campo     | Descrição  |
 |-----------|--------------|
 | Latitude  | O campo usado para especificar o valor de latitude dos pontos de dados. Os valores de latitude devem estar entre-90 e 90 no formato decimal graus.  |
 | Longitude | O campo usado para especificar o valor de longitude dos pontos de dados. Os valores de longitude devem estar entre-180 e 180 no formato decimal graus.  |
@@ -110,7 +110,7 @@ A seção **configurações do mapa** do painel Formatar fornece opções para p
 | Quebra automática de mundo          | Permite ao usuário deslocar o mapa horizontalmente infinitamente. |
 | Seletor de estilo        | Adiciona um botão ao mapa que permite que os leitores de relatório alterem o estilo do mapa. |
 | Controles de navegação | Adiciona botões ao mapa como outro método para permitir que os leitores de relatório apliquem zoom, giram e alterem o timbre do mapa. Para obter mais informações, consulte este documento sobre como [navegar no mapa](map-accessibility.md#navigating-the-map) para obter detalhes sobre todas as diferentes maneiras que os usuários podem navegar no mapa. |
-| Estilo do mapa           | O estilo do mapa. Para obter mais informações, consulte este documento para obter mais informações sobre os [estilos de mapa com suporte](supported-map-styles.md). |
+| Estilo de mapa           | O estilo do mapa. Para obter mais informações, consulte este documento para obter mais informações sobre os [estilos de mapa com suporte](supported-map-styles.md). |
 
 ### <a name="map-view-settings"></a>Configurações de exibição do mapa
 
@@ -173,7 +173,7 @@ Saiba mais sobre o Visual do Azure Maps Power BI:
 Personalize o Visual:
 
 > [!div class="nextstepaction"]
-> [Dicas e truques para formatação de cores no Power BI](https://docs.microsoft.com/power-bi/visuals/service-tips-and-tricks-for-color-formatting)
+> [Dicas e truques para formatação com cores no Power BI](/power-bi/visuals/service-tips-and-tricks-for-color-formatting)
 
 > [!div class="nextstepaction"]
-> [Personalizar títulos, telas de fundo e legendas de visualizações](https://docs.microsoft.com/power-bi/visuals/power-bi-visualization-customize-title-background-and-legend)
+> [Personalizar títulos, telas de fundo e legendas de visualizações](/power-bi/visuals/power-bi-visualization-customize-title-background-and-legend)

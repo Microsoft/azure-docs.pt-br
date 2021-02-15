@@ -1,27 +1,26 @@
 ---
-title: Player de Mídia do Azure configuração completa
+title: Configuração completa do Player de Mídia do Azure
 description: Saiba como configurar o Player de Mídia do Azure.
 author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: how-to
 ms.date: 04/20/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: d7e6d3c1554f70ea14e097ff2fe6df47987b5927
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-js
+ms.openlocfilehash: b6b239f44311424db2e80c59e2aba639ae3c0000
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423041"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797461"
 ---
 # <a name="azure-media-player-full-setup"></a>Configuração completa do Player de Mídia do Azure #
 
 O Player de Mídia do Azure é fácil de configurar. Leva apenas alguns minutos para obter a reprodução básica do conteúdo de mídia diretamente da sua conta dos serviços de mídia do Azure. Os [exemplos](https://github.com/Azure-Samples/azure-media-player-samples) também são fornecidos no diretório de exemplos da versão.
 
-
 ## <a name="step-1-include-the-javascript-and-css-files-in-the-head-of-your-page"></a>Etapa 1: incluir os arquivos JavaScript e CSS no cabeçalho da página ##
 
-Com Player de Mídia do Azure, você pode acessar os scripts da versão hospedada da CDN. Geralmente, é recomendável colocar o JavaScript antes da marca do corpo final `<body>` em vez de `<head>` , mas player de mídia do Azure inclui um ' HTML5 Shiv ', que precisa estar no cabeçalho das versões mais antigas do IE para respeitar a marca de vídeo como um elemento válido.
+Com Player de Mídia do Azure, você pode acessar os scripts da versão hospedada da CDN. Geralmente, é recomendável colocar o JavaScript antes da marca do corpo final `<body>` em vez de `<head>` , mas o Azure meia Player inclui um ' HTML5 Shiv ', que precisa estar no cabeçalho das versões mais antigas do IE para respeitar a marca de vídeo como um elemento válido.
 
 > [!NOTE]
 > Se você já estiver usando um HTML5 Shiv como o [Modernizr](https://modernizr.com/) , poderá incluir o player de mídia do Azure JavaScript em qualquer lugar. No entanto, verifique se sua versão do Modernizr inclui o Shiv para vídeo.
@@ -56,12 +55,12 @@ Com Player de Mídia do Azure, você pode usar uma marca de vídeo HTML5 para in
 1. O `<data-setup>` atributo no `<video>` diz player de mídia do Azure para configurar automaticamente o vídeo quando a página estiver pronta e ler qualquer (no formato JSON) do atributo.
 1. O `id` atributo: deve ser usado e exclusivo para cada vídeo na mesma página.
 1. O `class` atributo contém duas classes:
-    - `azuremediaplayer`aplica estilos necessários para Player de Mídia do Azure funcionalidade de interface do usuário
-    - `amp-default-skin`aplica a aparência padrão aos controles HTML5
+    - `azuremediaplayer` aplica estilos necessários para Player de Mídia do Azure funcionalidade de interface do usuário
+    - `amp-default-skin` aplica a aparência padrão aos controles HTML5
 1. O `<source>` inclui dois atributos necessários
-    - `src`o atributo pode incluir um arquivo **. ISM/manifest* dos serviços de mídia do Azure é adicionado, player de mídia do Azure adiciona automaticamente as URLs para traço, Smooth e HLS ao Player
-    - `type`o atributo é o tipo MIME necessário do fluxo. O tipo MIME associado a *". ISM/Manifest"* é *"application/vnd. ms-SSTR + XML"*
-1. O *optional* `<data-setup>` atributo opcional no `<source>` informa player de mídia do Azure se há alguma política de entrega exclusiva para o fluxo dos serviços de mídia do Azure, incluindo, mas não se limitando a, tipo de criptografia (AES ou PlayReady, Widevine ou Fairplay) e token.
+    - `src` o atributo pode incluir um arquivo **. ISM/manifest* dos serviços de mídia do Azure é adicionado, player de mídia do Azure adiciona automaticamente as URLs para traço, Smooth e HLS ao Player
+    - `type` o atributo é o tipo MIME necessário do fluxo. O tipo MIME associado a *". ISM/Manifest"* é *"application/vnd. ms-SSTR + XML"*
+1. O  `<data-setup>` atributo opcional no `<source>` informa player de mídia do Azure se há alguma política de entrega exclusiva para o fluxo dos serviços de mídia do Azure, incluindo, mas não se limitando a, tipo de criptografia (AES ou PlayReady, Widevine ou Fairplay) e token.
 
 Inclua/exclua atributos, configurações, fontes e faixas exatamente como você faria para o vídeo do HTML5.
 

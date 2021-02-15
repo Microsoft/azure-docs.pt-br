@@ -4,19 +4,19 @@ description: Use este exemplo de script da CLI do Azure para criar um banco de d
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, devx-track-azurecli
 ms.devlang: azurecli
 ms.topic: sample
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 06/25/2019
-ms.openlocfilehash: cb8850adaf638aca3ed69c3939916e132f66062d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: dc17ab55cb473036d8c40bd1e533bcc20c4c6259
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86504556"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92742256"
 ---
 # <a name="use-the-azure-cli-to-create-a-single-database-and-configure-a-firewall-rule"></a>Use a CLI do Azure para criar um banco de dados individual e configurar uma regra de firewall
 

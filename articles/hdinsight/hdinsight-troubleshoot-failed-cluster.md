@@ -1,19 +1,16 @@
 ---
 title: Solucionar problemas de um trabalho lento ou com falha no cluster HDInsight do Azure
 description: Diagnostique e solucione problemas de um trabalho lento ou com falha em um cluster do Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: be991b63784a2c72a51bfbdc8506f3b4695ed6c7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: de5fa6c881f808bcd580f6fae3329d579573d876
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75895308"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98931524"
 ---
 # <a name="troubleshoot-a-slow-or-failing-job-on-a-hdinsight-cluster"></a>Solucionar problemas de um trabalho do cluster do HDInsight lento ou com falha
 
@@ -56,7 +53,7 @@ O Portal do Azure pode fornecer essas informações:
 
 ![Informações do HDInsight do Portal do Azure](./media/hdinsight-troubleshoot-failed-cluster/hdi-azure-portal-info.png)
 
-Você também pode usar [CLI do Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest):
+Você também pode usar [CLI do Azure](/cli/azure/):
 
 ```azurecli
 az hdinsight list --resource-group <ResourceGroup>
@@ -90,8 +87,8 @@ O HDInsight depende de vários serviços do Azure. Ele executa servidores virtua
 
 #### <a name="check-azure-service-usage-limits"></a>Verifique os limites de uso do serviço do Azure
 
-Se você estiver iniciando um cluster grande ou iniciou simultaneamente vários clusters, um cluster pode falhar caso você tenha excedido o limite do serviço do Azure. Os limites de serviço variam, dependendo de sua assinatura do Azure. Para saber mais, confira [Assinatura e limites de serviço, cotas e restrições do Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
-Você pode solicitar que a Microsoft aumente o número de recursos de HDInsight disponíveis (por exemplo, núcleos de VMs e instâncias de VM) com uma [solicitação de aumento de cota de núcleos do Gerenciador de Recursos](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request).
+Se você estiver iniciando um cluster grande ou iniciou simultaneamente vários clusters, um cluster pode falhar caso você tenha excedido o limite do serviço do Azure. Os limites de serviço variam, dependendo de sua assinatura do Azure. Para saber mais, confira [Assinatura e limites de serviço, cotas e restrições do Azure](../azure-resource-manager/management/azure-subscription-service-limits.md).
+Você pode solicitar que a Microsoft aumente o número de recursos de HDInsight disponíveis (por exemplo, núcleos de VMs e instâncias de VM) com uma [solicitação de aumento de cota de núcleos do Gerenciador de Recursos](../azure-portal/supportability/resource-manager-core-quotas-request.md).
 
 #### <a name="check-the-release-version"></a>Verificar a versão de lançamento
 
@@ -262,7 +259,7 @@ Para ajudar a diagnosticar a origem de um erro do cluster, inicie um novo cluste
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Gerenciar clusters HDInsight usando a interface do usuário da Web do Apache Ambari](hdinsight-hadoop-manage-ambari.md)
-* [Analisar logs do HDInsight](hdinsight-debug-jobs.md)
+* [Analisar logs do HDInsight](./hdinsight-troubleshoot-guide.md)
 * [Acessar Apache Hadoop entrada do aplicativo YARN no HDInsight baseado em Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 * [Habilitar despejos de heap para serviços do Apache Hadoop no HDInsight baseado em Linux](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
-* [Problemas conhecidos para o cluster do Apache Spark no HDInsight](hdinsight-apache-spark-known-issues.md)
+* [Problemas conhecidos para o cluster do Apache Spark no HDInsight](./spark/apache-spark-known-issues.md)

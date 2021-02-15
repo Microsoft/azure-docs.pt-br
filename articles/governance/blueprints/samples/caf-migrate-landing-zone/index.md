@@ -1,14 +1,14 @@
 ---
 title: Visão Geral do exemplo de blueprint da zona de destino de Migração do CAF
 description: Visão geral e arquitetura do exemplo de blueprint da zona de destino do CAF (Cloud Adoption Framework) para o Azure Migration.
-ms.date: 04/15/2020
+ms.date: 09/14/2020
 ms.topic: sample
-ms.openlocfilehash: 6deb671070a742448560309b1b1a3572f5aa082d
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 6b8e3484690d263a43d3824c054b28344ea07fb1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852303"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "90531671"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-migration-landing-zone-blueprint-sample"></a>Visão geral do exemplo de blueprint da zona de aterrissagem de migração do Cloud Adoption Framework da Microsoft para o Azure
 
@@ -20,7 +20,9 @@ O exemplo de blueprint da [Base do CAF](../caf-foundation/index.md) estende esse
 
 O exemplo de blueprint da zona de aterrissagem de migração do CAF implanta recursos de infraestrutura de base no Azure, que podem ser usados pelas organizações para preparar a assinatura delas para receber a migração de máquinas virtuais. Ela também ajuda a implementar os controles de governança necessários para gerenciar sua propriedade de nuvem. Este exemplo implantará e aplicará recursos, políticas e modelos que permitirão às organizações começar a usar o Azure com confiança.
 
-:::image type="content" source="../../media/caf-blueprints/caf-migration-landing-zone-architecture.png" alt-text="Zona de destino de migração do CAF, a imagem descreve o que é instalado como parte das diretrizes do CAF para a zona de destino inicial" border="false":::
+:::image type="complex" source="../../media/caf-blueprints/caf-migration-landing-zone-architecture.png" alt-text="Zona de destino de Migração do C A F, a imagem descreve o que é instalado como parte das diretrizes do C A F para a zona de destino inicial." border="false":::
+   Descreve uma arquitetura do Azure obtida implantando o blueprint de migração do C A F.  Ela é aplicável a uma assinatura com grupos de recursos que são compostos por uma rede virtual do Azure, uma conta de armazenamento para armazenar logs e o Log Analytics configurado para ser armazenado na conta de armazenamento.  Ela também ilustra o Azure Key Vault configurado e a configuração inicial das Migrações para Azure criada.  Todas essas infraestruturas principais são acessadas usando o Azure Active Directory.     
+:::image-end:::
 
 Este ambiente é composto de vários serviços do Azure usados para oferecer uma governança segura, totalmente monitorada e pronta para empresas. Esse ambiente é composto de:
 

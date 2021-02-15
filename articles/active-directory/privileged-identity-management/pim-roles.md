@@ -14,16 +14,16 @@ ms.date: 05/11/2020
 ms.author: curtand
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 862b304d1f36567aecd4452f91f31d1a50c3198a
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: c72587c5486ed61215fd20c215a1dd194f4b7bc4
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88782474"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372405"
 ---
 # <a name="roles-you-cant-manage-in-privileged-identity-management"></a>Funções que você não pode gerenciar no Privileged Identity Management
 
-O Azure Active Directory (Azure AD) Privileged Identity Management (PIM) permite que você gerencie todas as [funções do Azure ad](../users-groups-roles/directory-assign-admin-roles.md) e todas as [funções do Azure](../../role-based-access-control/built-in-roles.md). As funções do Azure também podem incluir suas funções personalizadas anexadas aos grupos de gerenciamento, assinaturas, grupos de recursos e recursos. No entanto, há algumas poucas funções que não podem ser gerenciadas. Este artigo descreve as funções que você não pode gerenciar no Privileged Identity Management.
+O Azure Active Directory (Azure AD) Privileged Identity Management (PIM) permite que você gerencie todas as [funções do Azure ad](../roles/permissions-reference.md) e todas as [funções do Azure](../../role-based-access-control/built-in-roles.md). As funções do Azure também podem incluir suas funções personalizadas anexadas aos grupos de gerenciamento, assinaturas, grupos de recursos e recursos. No entanto, há algumas poucas funções que não podem ser gerenciadas. Este artigo descreve as funções que você não pode gerenciar no Privileged Identity Management.
 
 ## <a name="classic-subscription-administrator-roles"></a>Funções de administrador de assinatura Clássico
 
@@ -35,9 +35,9 @@ Você não pode gerenciar as seguintes funções de administrador de assinatura 
 
 Para obter mais informações sobre as funções de administrador de assinatura clássica, consulte [funções de administrador de assinatura clássica, funções do Azure e funções de administrador do Azure ad](../../role-based-access-control/rbac-and-directory-admin-roles.md).
 
-## <a name="what-about-office-365-admin-roles"></a>E as funções de administrador do Office 365?
+## <a name="what-about-microsoft-365-admin-roles"></a>E quanto Microsoft 365 funções de administrador?
 
-Damos suporte a todas as funções do Office365 na experiência do portal de funções e administradores do Azure AD, como administrador do Exchange e administrador do SharePoint, mas não damos suporte a funções específicas no RBAC do Exchange ou no RBAC do SharePoint. Para saber mais sobre esses serviços do Office 365, confira [Funções de administrador do Office 365](/office365/admin/add-users/about-admin-roles).
+Damos suporte a todas as funções de Microsoft 365 na experiência do portal de funções e administradores do Azure AD, como administrador do Exchange e administrador do SharePoint, mas não damos suporte a funções específicas no RBAC do Exchange ou no RBAC do SharePoint. Para obter mais informações sobre esses serviços de Microsoft 365, consulte [Microsoft 365 funções de administrador](/office365/admin/add-users/about-admin-roles).
 
 > [!NOTE]
 > Usuários qualificados para a função de administrador do SharePoint, a função de administrador do dispositivo e todas as funções que tentam acessar o centro de conformidade e segurança da Microsoft podem enfrentar atrasos de até algumas horas após a ativação de sua função. Estamos trabalhando com essas equipes para corrigir os problemas.

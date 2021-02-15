@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 03/20/2020
 ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: fa30c6c2c3ecd9c9c119fee80b7ef90999e42d30
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 799699662b738804790e3fe18ce9bd579027808d
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962614"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97616308"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Implantação contínua no Serviço de Aplicativo do Azure
 
@@ -23,7 +23,7 @@ Para obter mais informações sobre os serviços de controle do código-fonte, c
 
 ## <a name="authorize-azure-app-service"></a>Autorizar serviço Azure App 
 
-Para usar Azure Repos, verifique se sua organização do Azure DevOps está vinculada à sua assinatura do Azure. Para obter mais informações, consulte [Configurar uma conta de Azure DevOps Services para que ela possa ser implantada em um aplicativo Web](/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps?view=azure-devops).
+Para usar Azure Repos, verifique se sua organização do Azure DevOps está vinculada à sua assinatura do Azure. Para obter mais informações, consulte [Configurar uma conta de Azure DevOps Services para que ela possa ser implantada em um aplicativo Web](/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps?view=azure-devops&preserve-view=true).
 
 Para bitbucket ou GitHub, autorize o serviço de Azure App a se conectar ao repositório. Você só precisa autorizar com um serviço de controle do código-fonte uma vez. 
 
@@ -37,7 +37,7 @@ Para bitbucket ou GitHub, autorize o serviço de Azure App a se conectar ao repo
    
 1. Na página do aplicativo, selecione **central de implantação** no menu à esquerda.
    
-1. Na página **centro de implantação** , selecione **GitHub** ou **bitbucket**e, em seguida, selecione **autorizar**. 
+1. Na página **centro de implantação** , selecione **GitHub** ou **bitbucket** e, em seguida, selecione **autorizar**. 
    
    ![Selecione serviço de controle do código-fonte, em seguida, selecione autorizar.](media/app-service-continuous-deployment/github-choose-source.png)
    
@@ -51,32 +51,32 @@ Depois de autorizar um serviço de controle do código-fonte, configure seu apli
 
 Você pode usar o servidor de Build do serviço de aplicativo kudu interno para implantar continuamente do GitHub, do bitbucket ou do Azure Repos. 
 
-1. Na [portal do Azure](https://portal.azure.com), procure serviços de **aplicativos**e, em seguida, selecione o serviço de aplicativo que você deseja implantar. 
+1. Na [portal do Azure](https://portal.azure.com), procure serviços de **aplicativos** e, em seguida, selecione o serviço de aplicativo que você deseja implantar. 
    
 1. Na página do aplicativo, selecione **central de implantação** no menu à esquerda.
    
 1. Selecione o provedor de controle do código-fonte autorizado na página **centro de implantação** e selecione **continuar**. Para o GitHub ou o bitbucket, você também pode selecionar **alterar conta** para alterar a conta autorizada. 
    
    > [!NOTE]
-   > Para usar Azure Repos, verifique se sua organização de Azure DevOps Services está vinculada à sua assinatura do Azure. Para obter mais informações, consulte [Configurar uma conta de Azure DevOps Services para que ela possa ser implantada em um aplicativo Web](/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps?view=azure-devops).
+   > Para usar Azure Repos, verifique se sua organização de Azure DevOps Services está vinculada à sua assinatura do Azure. Para obter mais informações, consulte [Configurar uma conta de Azure DevOps Services para que ela possa ser implantada em um aplicativo Web](/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps?view=azure-devops&preserve-view=true).
    
-1. Para o GitHub ou o Azure Repos, na página do **provedor de compilação** , selecione serviço de compilação do **serviço de aplicativo**e, em seguida, selecione **continuar**. O bitbucket sempre usa o serviço de compilação do serviço de aplicativo.
+1. Para o GitHub ou o Azure Repos, na página do **provedor de compilação** , selecione serviço de compilação do **serviço de aplicativo** e, em seguida, selecione **continuar**. O bitbucket sempre usa o serviço de compilação do serviço de aplicativo.
    
    ![Selecione serviço de compilação do serviço de aplicativo e selecione continuar.](media/app-service-continuous-deployment/choose-kudu.png)
    
 1. Na página **Configurar** :
    
-   - Para o GitHub, clique na lista suspensa e selecione a **organização**, o **repositório**e a **ramificação** que você deseja implantar continuamente.
+   - Para o GitHub, clique na lista suspensa e selecione a **organização**, o **repositório** e a **ramificação** que você deseja implantar continuamente.
      
      > [!NOTE]
-     > Se você não vir nenhum repositório, talvez seja necessário autorizar o serviço Azure App no GitHub. Navegue até o repositório do GitHub e vá para **configurações**  >  **aplicativo aplicativos**  >  **OAuth autorizados**. Selecione **Azure app serviço**e, em seguida, selecione **conceder**. Em repositórios corporativos, você precisa ser um proprietário da organização para conceder as permissões.
+     > Se você não vir nenhum repositório, talvez seja necessário autorizar o serviço Azure App no GitHub. Navegue até o repositório do GitHub e vá para **configurações**  >  **aplicativo aplicativos**  >  **OAuth autorizados**. Selecione **Azure app serviço** e, em seguida, selecione **conceder**. Em repositórios corporativos, você precisa ser um proprietário da organização para conceder as permissões.
      
-   - Para bitbucket, selecione a **equipe**do bitbucket, o **repositório**e a **ramificação** que você deseja implantar continuamente.
+   - Para bitbucket, selecione a **equipe** do bitbucket, o **repositório** e a **ramificação** que você deseja implantar continuamente.
      
-   - Para Azure Repos, selecione a **organização do Azure DevOps**, o **projeto**, o **repositório**e a **ramificação** que você deseja implantar continuamente.
+   - Para Azure Repos, selecione a **organização do Azure DevOps**, o **projeto**, o **repositório** e a **ramificação** que você deseja implantar continuamente.
      
      > [!NOTE]
-     > Se sua organização do Azure DevOps não estiver listada, verifique se ele está vinculada à sua assinatura do Azure. Para obter mais informações, consulte [Configurar uma conta de Azure DevOps Services para que ela possa ser implantada em um aplicativo Web](/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps?view=azure-devops).
+     > Se sua organização do Azure DevOps não estiver listada, verifique se ele está vinculada à sua assinatura do Azure. Para obter mais informações, consulte [Configurar uma conta de Azure DevOps Services para que ela possa ser implantada em um aplicativo Web](/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps?view=azure-devops&preserve-view=true).
      
 1. Selecione **Continuar**.
    
@@ -96,7 +96,7 @@ Se sua conta tiver as permissões necessárias, você poderá configurar Azure P
 
 Para Azure App serviço para criar a entrega contínua usando Azure Pipelines, sua organização do Azure DevOps deve ter as seguintes permissões: 
 
-- Sua conta do Azure deve ter permissões para gravar em Azure Active Directory e criar um serviço. 
+- Sua conta do Azure deve ter permissões para gravar em Azure Active Directory e criar um registro de aplicativo. 
   
 - Sua conta do Azure deve ter a função de **proprietário** em sua assinatura do Azure.
 
@@ -104,30 +104,30 @@ Para Azure App serviço para criar a entrega contínua usando Azure Pipelines, s
 
 #### <a name="github--azure-pipelines"></a>GitHub + Azure Pipelines
 
-1. Na [portal do Azure](https://portal.azure.com), procure serviços de **aplicativos**e, em seguida, selecione o serviço de aplicativo que você deseja implantar. 
+1. Na [portal do Azure](https://portal.azure.com), procure serviços de **aplicativos** e, em seguida, selecione o serviço de aplicativo que você deseja implantar. 
    
 1. Na página do aplicativo, selecione **central de implantação** no menu à esquerda.
 
 1. Selecione **GitHub** como o provedor de controle do código-fonte na página **centro de implantação** e selecione **continuar**. Para o **GitHub**, você pode selecionar **alterar conta** para alterar a conta autorizada.
 
-    ![controle do código-fonte](media/app-service-continuous-deployment/deployment-center-src-control.png)
+    :::image type="content" source="media/app-service-continuous-deployment/deployment-center-src-control.png" alt-text="Captura de tela da página do centro de implantação do serviço de aplicativo.":::
    
 1. Na página **provedor de compilação** , selecione **Azure pipelines (versão prévia)** e, em seguida, selecione **continuar**.
 
-    ![provedor de compilação](media/app-service-continuous-deployment/select-build-provider.png)
+    :::image type="content" source="media/app-service-continuous-deployment/select-build-provider.png" alt-text="Captura de tela mostrando a página da central de implantação com Azure Pipelines (versão prévia) selecionada.":::
    
-1. Na página **Configurar** , na seção **código** , selecione a **organização**, o **repositório**e a **ramificação** que você deseja implantar continuamente e selecione **continuar**.
+1. Na página **Configurar** , na seção **código** , selecione a **organização**, o **repositório** e a **ramificação** que você deseja implantar continuamente e selecione **continuar**.
      
      > [!NOTE]
-     > Se você não vir nenhum repositório, talvez seja necessário autorizar o serviço Azure App no GitHub. Navegue até o repositório do GitHub e vá para **configurações**  >  **aplicativo aplicativos**  >  **OAuth autorizados**. Selecione **Azure app serviço**e, em seguida, selecione **conceder**. Em repositórios corporativos, você precisa ser um proprietário da organização para conceder as permissões.
+     > Se você não vir nenhum repositório, talvez seja necessário autorizar o serviço Azure App no GitHub. Navegue até o repositório do GitHub e vá para **configurações**  >  **aplicativo aplicativos**  >  **OAuth autorizados**. Selecione **Azure app serviço** e, em seguida, selecione **conceder**. Em repositórios corporativos, você precisa ser um proprietário da organização para conceder as permissões.
        
     Na seção **Build** , especifique a organização de DevOps do Azure, o projeto, a estrutura de linguagem que Azure pipelines deve usar para executar tarefas de compilação e, em seguida, selecione **continuar**.
 
-   ![provedor de compilação](media/app-service-continuous-deployment/build-configure.png)
+   :::image type="content" source="media/app-service-continuous-deployment/build-configure.png" alt-text="Captura de tela da seção de compilação com texto de exemplo nos campos.":::
 
 1. Depois de configurar o provedor de compilação, examine as configurações na página **Resumo** e selecione **concluir**.
 
-   ![provedor de compilação](media/app-service-continuous-deployment/summary.png)
+   :::image type="content" source="media/app-service-continuous-deployment/summary.png" alt-text="Captura de tela da página da central de implantação mostrando as confirmações e implantações com o botão atualizar realçado.":::
    
 1. Novas confirmações no repositório e Branch selecionados agora são implantadas continuamente em seu serviço de aplicativo. Você pode acompanhar as confirmações e implantações na página do **Centro de Implantação**.
    
@@ -135,30 +135,30 @@ Para Azure App serviço para criar a entrega contínua usando Azure Pipelines, s
 
 #### <a name="azure-repos--azure-pipelines"></a>Azure Repos + Azure Pipelines
 
-1. Na [portal do Azure](https://portal.azure.com), procure serviços de **aplicativos**e, em seguida, selecione o serviço de aplicativo que você deseja implantar. 
+1. Na [portal do Azure](https://portal.azure.com), procure serviços de **aplicativos** e, em seguida, selecione o serviço de aplicativo que você deseja implantar. 
    
 1. Na página do aplicativo, selecione **central de implantação** no menu à esquerda.
 
 1. Selecione **Azure Repos** como o provedor de controle do código-fonte na página **centro de implantação** e selecione **continuar**.
 
-    ![controle do código-fonte](media/app-service-continuous-deployment/deployment-center-src-control.png)
+    :::image type="content" source="media/app-service-continuous-deployment/deployment-center-src-control.png" alt-text="Captura de tela da página da central de implantação mostrando as seleções de CI/CD (implantação contínua).":::
 
 1. Na página **provedor de compilação** , selecione **Azure pipelines (versão prévia)** e, em seguida, selecione **continuar**.
 
-    ![controle do código-fonte](media/app-service-continuous-deployment/azure-pipelines.png)
+    :::image type="content" source="media/app-service-continuous-deployment/azure-pipelines.png" alt-text="Captura de tela da central de implantação mostrando Azure Pipelines (versão prévia).":::
 
-1. Na página **Configurar** , na seção **código** , selecione a **organização**, o **repositório**e a **ramificação** que você deseja implantar continuamente e selecione **continuar**.
+1. Na página **Configurar** , na seção **código** , selecione a **organização**, o **repositório** e a **ramificação** que você deseja implantar continuamente e selecione **continuar**.
 
    > [!NOTE]
    > Se sua organização do Azure DevOps existente não estiver listada, talvez seja necessário vinculá-la à sua assinatura do Azure. Para obter mais informações, consulte [definir o pipeline de liberação de CD](/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps#cd).
 
    Na seção **Build** , especifique a organização de DevOps do Azure, o projeto, a estrutura de linguagem que Azure pipelines deve usar para executar tarefas de compilação e, em seguida, selecione **continuar**.
 
-   ![provedor de compilação](media/app-service-continuous-deployment/build-configure.png)
+   :::image type="content" source="media/app-service-continuous-deployment/build-configure.png" alt-text="Captura de tela da seção Build mostrando a organização DevOps do Azure e os campos de projeto preenchidos com exemplos.":::
 
 1. Depois de configurar o provedor de compilação, examine as configurações na página **Resumo** e selecione **concluir**.  
      
-   ![provedor de compilação](media/app-service-continuous-deployment/summary-azure-pipelines.png)
+   :::image type="content" source="media/app-service-continuous-deployment/summary-azure-pipelines.png" alt-text="Captura de tela mostrando as configurações selecionadas na página Resumo.":::
 
 1. Novas confirmações no repositório e Branch selecionados agora são implantadas continuamente em seu serviço de aplicativo. Você pode acompanhar as confirmações e implantações na página do **Centro de Implantação**.
 

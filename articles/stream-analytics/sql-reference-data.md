@@ -1,18 +1,17 @@
 ---
 title: Usar dados de referência de Banco de Dados SQL em um trabalho do Azure Stream Analytics
 description: Este artigo descreve como usar um Banco de Dados SQL como entrada de dados de referência para um trabalho do Azure Stream Analytics no portal do Azure e no Visual Studio.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 01/29/2019
-ms.openlocfilehash: e00ab059c68d7a3f2288d94894199773cab63ac5
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: e7d16de8a7a5c6f5353d64e25580b19845ce96c1
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86039289"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98016398"
 ---
 # <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job"></a>Usar dados de referência de um Banco de Dados SQL para um trabalho do Azure Stream Analytics
 
@@ -34,11 +33,11 @@ Siga as etapas abaixo para adicionar o Banco de Dados SQL do Azure como uma font
 
 1. No trabalho do Stream Analytics, selecione **Entradas** em **Topologia do trabalho**. Clique em **Adicionar referência de entrada** e escolha **Banco de Dados SQL**.
 
-   ![Entrada de trabalho do Stream Analytics](./media/sql-reference-data/stream-analytics-inputs.png)
+   ![Entradas é selecionada no painel de navegação esquerdo. Em entradas, + adicionar entrada de referência é selecionado, revelando uma lista suspensa que mostra os valores armazenamento de BLOBs e banco de dados SQL.](./media/sql-reference-data/stream-analytics-inputs.png)
 
 2. Preencha as Configurações de entrada do Stream Analytics. Escolha o nome do banco de dados, o nome do servidor, o nome de usuário e a senha. Se quiser que os dados de referência de entrada sejam atualizados periodicamente, escolha "On" para especificar a taxa de atualização em DD:HH:MM. Se tiver grandes conjuntos de dados com uma taxa de atualização curta, você poderá usar uma [consulta delta](sql-reference-data.md#delta-query).
 
-   ![Configuração da referência do Banco de Dados SQL](./media/sql-reference-data/sql-input-config.png)
+   ![Quando banco de dados SQL é selecionado, a página novo banco de dados SQL é exibida. Há um formulário de configuração no painel esquerdo e uma consulta de instantâneo no painel direito.](./media/sql-reference-data/sql-input-config.png)
 
 3. Teste a consulta de instantâneo no editor de consultas SQL. Para obter mais informações, confira o artigo sobre como [usar o editor de consultas SQL do portal do Azure para se conectar e consultar dados](../azure-sql/database/connect-query-portal.md)
 
@@ -46,7 +45,7 @@ Siga as etapas abaixo para adicionar o Banco de Dados SQL do Azure como uma font
 
 Navegue até **Configurações da conta de armazenamento** em **Configurar** e selecione **Adicionar conta de armazenamento**.
 
-   ![Configurações de conta de armazenamento do Stream Analytics](./media/sql-reference-data/storage-account-settings.png)
+   ![Configurações da conta de armazenamento está selecionada no painel esquerdo. Há um botão Adicionar conta de armazenamento no painel direito.](./media/sql-reference-data/storage-account-settings.png)
 
 ### <a name="start-the-job"></a>Iniciar o trabalho
 
@@ -91,27 +90,27 @@ create table chemicals(Id Bigint,Name Nvarchar(max),FullName Nvarchar(max));
 
 3. Insira o **Nome**, o **Local** e o **Nome da solução** do projeto e selecione **OK**.
 
-   ![Projeto do Stream Analytics no Visual Studio](./media/sql-reference-data/stream-analytics-vs-new-project.png)
+   ![O modelo de Stream Analytics é selecionado, Azure Stream Analytics aplicativo é selecionado e as caixas nome, local e nomes de solução são realçadas.](./media/sql-reference-data/stream-analytics-vs-new-project.png)
 
 ### <a name="define-sql-database-reference-data-input"></a>Definir a entrada de dados de referência do Banco de Dados SQL
 
 1. Crie uma nova entrada.
 
-   ![Entrada do New Stream Analytics no Visual Studio](./media/sql-reference-data/stream-analytics-vs-input.png)
+   ![Em Adicionar novo item, a entrada é selecionada.](./media/sql-reference-data/stream-analytics-vs-input.png)
 
 2. Clique duas vezes em **Input.json** no **Gerenciador de soluções**.
 
 3. Preencha as **Configurações de entrada do Stream Analytics**. Escolha o nome do banco de dados, o nome do servidor, tipo de atualização e a taxa de atualização. Especifique a taxa de atualização no formato `DD:HH:MM`.
 
-   ![Configuração de entrada do Stream Analytics no Visual Studio](./media/sql-reference-data/stream-analytics-vs-input-config.png)
+   ![Em Stream Analytics configuração de entrada, os valores são inseridos ou selecionados nas listas suspensas.](./media/sql-reference-data/stream-analytics-vs-input-config.png)
 
    Se escolher "Executar apenas uma vez" ou "Executar periodicamente", um arquivo CodeBehind do SQL chamado **[Alias de entrada].snapshot.sql** é gerado no projeto sob o nó de arquivo **Input.json**.
 
-   ![Entrada do CodeBehind no Visual Studio](./media/sql-reference-data/once-or-periodically-codebehind.png)
+   ![O arquivo code-behind do SQL química. snapshot. SQL está realçado.](./media/sql-reference-data/once-or-periodically-codebehind.png)
 
    Se escolher "Atualizar periodicamente com Delta", dois arquivos CodeBehind do SQL serão gerados: **[Alias de entrada].snapshot.sql** e **[Alias de entrada].delta.sql**.
 
-   ![CodeBehind no Gerenciador de Soluções](./media/sql-reference-data/periodically-delta-codebehind.png)
+   ![Os arquivos codebehind SQL químicos. Delta. SQL e química. snapshot. SQL são realçados.](./media/sql-reference-data/periodically-delta-codebehind.png)
 
 4. Abra o arquivo SQL no editor e grave a consulta SQL.
 
@@ -121,7 +120,7 @@ create table chemicals(Id Bigint,Name Nvarchar(max),FullName Nvarchar(max));
 
 Abra o **JobConfig.json** para especificar a conta de armazenamento para armazenar instantâneos de referência do SQL.
 
-   ![Configuração de trabalho do Stream Analytics no Visual Studio](./media/sql-reference-data/stream-analytics-job-config.png)
+   ![Stream Analytics configuração de definição de trabalho é mostrada com valores padrão. As configurações de armazenamento global são realçadas.](./media/sql-reference-data/stream-analytics-job-config.png)
 
 ### <a name="test-locally-and-deploy-to-azure"></a>Testar localmente e implantar no Azure
 
@@ -147,7 +146,7 @@ Ao usar a consulta delta, são recomendadas [tabelas temporais no Banco de Dados
    ```
 2. Crie a consulta de instantâneo. 
 
-   Use o parâmetro ** \@ SnapshotTime** para instruir o tempo de execução do Stream Analytics a obter o conjunto de dados de referência da tabela temporal do banco de dado SQL válida na hora do sistema. Se não fornecer esse parâmetro, você corre o risco de obter um conjunto impreciso de dados de referência de base devido à defasagem de horário. Veja a seguir um exemplo de uma consulta completa de instantâneo:
+   Use o parâmetro **\@ SnapshotTime** para instruir o tempo de execução do Stream Analytics a obter o conjunto de dados de referência da tabela temporal do banco de dado SQL válida na hora do sistema. Se não fornecer esse parâmetro, você corre o risco de obter um conjunto impreciso de dados de referência de base devido à defasagem de horário. Veja a seguir um exemplo de uma consulta completa de instantâneo:
    ```SQL
       SELECT DeviceId, GroupDeviceId, [Description]
       FROM dbo.DeviceTemporal
@@ -156,7 +155,7 @@ Ao usar a consulta delta, são recomendadas [tabelas temporais no Banco de Dados
  
 2. Crie a consulta delta. 
    
-   Essa consulta recupera todas as linhas no banco de dados SQL que foram inseridas ou excluídas em uma hora de início, ** \@ deltaStartTime**e uma hora de término ** \@ deltaEndTime**. A consulta delta terá de retornar as mesmas colunas como a consulta de instantâneo, bem como a coluna **_operação_**. Esta coluna define se a linha é inserida ou excluída entre **\@deltaStartTime** e **\@deltaEndTime**. As linhas resultantes são sinalizadas como **1**, se os registros foram inseridos, ou **2** se excluídos. A consulta também deve adicionar uma **marca-d'água** do lado do SQL Server para garantir que todas as atualizações no período delta sejam capturadas adequadamente. Usar a consulta delta sem a **marca-d'água** pode resultar em um conjunto de dados de referência incorreto.  
+   Essa consulta recupera todas as linhas no banco de dados SQL que foram inseridas ou excluídas em uma hora de início, **\@ deltaStartTime** e uma hora de término **\@ deltaEndTime**. A consulta delta terá de retornar as mesmas colunas como a consulta de instantâneo, bem como a coluna **_operação_**. Esta coluna define se a linha é inserida ou excluída entre **\@deltaStartTime** e **\@deltaEndTime**. As linhas resultantes são sinalizadas como **1**, se os registros foram inseridos, ou **2** se excluídos. A consulta também deve adicionar uma **marca-d'água** do lado do SQL Server para garantir que todas as atualizações no período delta sejam capturadas adequadamente. Usar a consulta delta sem a **marca-d'água** pode resultar em um conjunto de dados de referência incorreto.  
 
    Quanto aos registros que foram atualizados, a tabela temporal faz a contabilidade, capturando uma operação de inserção e exclusão. O runtime do Stream Analytics aplicará os resultados da consulta delta para o instantâneo anterior a fim de manter os dados de referência atualizados. Veja a seguir um exemplo de consulta delta:
 
@@ -173,7 +172,36 @@ Ao usar a consulta delta, são recomendadas [tabelas temporais no Banco de Dados
    O runtime do Stream Analytics pode executar periodicamente a consulta de instantâneo além da consulta delta para armazenar pontos de verificação.
 
 ## <a name="test-your-query"></a>Testar a consulta
-   É importante verificar se a consulta está retornando o conjunto de dados esperado que o trabalho de Stream Analytics usará como dados de referência. Para testar sua consulta, vá para entrada na seção Topologia do Trabalho no portal. Em seguida, você pode selecionar dados de exemplo em sua entrada de Referência do Banco de Dados SQL. Depois que o exemplo for disponibilizado, você poderá baixar o arquivo e verificar se os dados estão sendo retornados conforme o esperado. Se você quiser otimizar suas iterações de desenvolvimento e teste, é recomendável usar [ferramentas do Stream Analytics para Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-install). Você também pode usar qualquer outra ferramenta de sua preferência para primeiro garantir que a consulta esteja retornando os resultados certos do Banco de Dados SQL do Azure e, em seguida, usá-la em seu trabalho do Stream Analytics. 
+   É importante verificar se a consulta está retornando o conjunto de dados esperado que o trabalho de Stream Analytics usará como dados de referência. Para testar sua consulta, vá para entrada na seção Topologia do Trabalho no portal. Em seguida, você pode selecionar dados de exemplo em sua entrada de Referência do Banco de Dados SQL. Depois que o exemplo for disponibilizado, você poderá baixar o arquivo e verificar se os dados estão sendo retornados conforme o esperado. Se você quiser otimizar suas iterações de desenvolvimento e teste, é recomendável usar [ferramentas do Stream Analytics para Visual Studio](./stream-analytics-tools-for-visual-studio-install.md). Você também pode usar qualquer outra ferramenta de sua preferência para primeiro garantir que a consulta esteja retornando os resultados certos do Banco de Dados SQL do Azure e, em seguida, usá-la em seu trabalho do Stream Analytics. 
+
+### <a name="test-your-query-with-visual-studio-code"></a>Teste sua consulta com Visual Studio Code
+
+   Instale as [ferramentas de Azure Stream Analytics](https://marketplace.visualstudio.com/items?itemName=ms-bigdatatools.vscode-asa) e [SQL Server (mssql)](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql) no Visual Studio Code e configure seu projeto asa. Para obter mais informações, consulte [início rápido: criar um trabalho de Azure Stream Analytics no Visual Studio Code](./quick-create-visual-studio-code.md) e o [tutorial de extensão MSSQL (SQL Server)](/sql/tools/visual-studio-code/sql-server-develop-use-vscode).
+
+1. Configure sua entrada de dados de referência do SQL.
+   
+   ![Um editor de Visual Studio Code (guia) mostra ReferenceSQLDatabase.jsem.](./media/sql-reference-data/configure-sql-reference-data-input.png)
+
+2. Selecione o ícone de SQL Server e clique em **Adicionar conexão**.
+   
+   ![+ Adicionar conexão aparece no painel esquerdo e é realçado.](./media/sql-reference-data/add-sql-connection.png)
+
+3. Preencha as informações de conexão.
+   
+   ![As duas caixas de informações de banco de dados e servidor são realçadas.](./media/sql-reference-data/fill-connection-information.png)
+
+4. Clique com o botão direito do mouse em referência SQL e selecione **Executar consulta**.
+   
+   ![Executar consulta é realçado no menu de contexto.](./media/sql-reference-data/execute-query.png)
+
+5. Escolha sua conexão.
+   
+   ![A caixa de diálogo informa "criar um perfil de conexão na lista abaixo", e a lista tem uma entrada, que é realçado.](./media/sql-reference-data/choose-connection.png)
+
+6. Examine e verifique o resultado da consulta.
+   
+   ![Os resultados da pesquisa de consulta estão em uma guia do editor de VS Code.](./media/sql-reference-data/verify-result.png)
+
 
 ## <a name="faqs"></a>Perguntas frequentes
 

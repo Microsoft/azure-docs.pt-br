@@ -9,17 +9,18 @@ ms.service: cognitive-search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: c432b89574949b31612aeba862ece7687c12dde4
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: a1b317b651b0e17c07eb17dbdb8a7c6657d39564
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88922830"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "90971621"
 ---
 # <a name="how-to-configure-caching-for-incremental-enrichment-in-azure-cognitive-search"></a>Como configurar o Caching para aprimoramento incremental no Azure Pesquisa Cognitiva
 
 > [!IMPORTANT] 
-> O enriquecimento incremental está atualmente em visualização pública. Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). A [API REST versões 2019-05-06-Preview e 2020-06-30-Preview](search-api-preview.md) fornecem esse recurso. Não há suporte para Portal ou SDK do .NET no momento.
+> O enriquecimento incremental está atualmente em visualização pública. Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
+> [As versões de visualização da API REST](search-api-preview.md) fornecem esse recurso. Não há suporte para Portal ou SDK do .NET no momento.
 
 Este artigo mostra como adicionar o Caching a um pipeline de enriquecimento para que você possa modificar as etapas incrementalmente sem precisar recompilar todas as vezes. Por padrão, um qualificable é sem monitoração de estado e a alteração de qualquer parte de sua composição requer uma execução completa do indexador. Com o aprimoramento incremental, o indexador pode determinar quais partes da árvore de documentos precisam ser atualizadas com base nas alterações detectadas nas definições do concordador ou do indexador. A saída processada existente é preservada e reutilizada sempre que possível. 
 

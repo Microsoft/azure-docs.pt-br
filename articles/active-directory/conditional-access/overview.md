@@ -5,23 +5,25 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: overview
-ms.date: 05/21/2020
+ms.date: 01/27/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.custom: contperfq4
-ms.openlocfilehash: 9bd4c7f17ec1a75e54ca857325cdbb7bf3358511
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.custom: contperf-fy20q4, azuread-video-2020
+ms.openlocfilehash: 7b43cf23b3f01e64c0be31ed013aa990ff80d3db
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88234696"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98938335"
 ---
 # <a name="what-is-conditional-access"></a>O que é Acesso Condicional?
 
 O perímetro de segurança moderno agora se estende para além da rede de uma organização para incluir a identidade do usuário e do dispositivo. As organizações podem utilizar esses sinais de identidade como parte de suas decisões de controle de acesso. 
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4MwZs]
 
 O acesso condicional é a ferramenta usada pelo Azure Active Directory para reunir sinais, tomar decisões e impor políticas organizacionais. O acesso condicional está no centro do novo plano de controle controlado por identidade.
 
@@ -78,17 +80,10 @@ Muitas organizações têm [preocupações comuns sobre o acesso, com as quais a
 - Exigir a autenticação multifator para usuários com funções administrativas
 - Exigir a autenticação multifator para tarefas de gerenciamento do Azure
 - Bloquear entradas de usuários que tentam usar protocolos de autenticação herdados
-- Exigir localizações confiáveis para o registro da Autenticação Multifator do Azure
+- Exigir localizações confiáveis para o registro da Autenticação Multifator do Azure AD
 - Bloquear ou permitir acesso em localizações específicas
 - Bloquear comportamentos de entrada de risco
 - Exigir dispositivos gerenciados pela organização para aplicativos específicos
-
-## <a name="customer-case-studies"></a>Estudos de caso de cliente
-
-Descubra como outras organizações usam o Acesso Condicional do Azure AD para definir e implementar decisões de controle de acesso automatizadas. As seguintes histórias em destaque demonstram como essas necessidades do cliente são atendidas.
-
-* [A Wipro impulsiona a produtividade móvel com as ferramentas de segurança de nuvem da Microsoft para melhorar o engajamento do cliente.](https://customers.microsoft.com/story/wipro-professional-services-enterprise-mobility-security) As políticas de Acesso Condicional no Azure AD habilitaram a empresa a compartilhar documentos, recursos e aplicativos com entidades externas confiáveis (que podem usar as próprias credenciais), mantendo, ao mesmo tempo, o controle dos dados corporativos.
-* [A Aramex Delivery Limited, empresa de transporte e logística global, criou um escritório conectado à nuvem com a solução de gerenciamento de acesso e identidade](https://customers.microsoft.com/story/aramex-azure-active-directory-travel-transportation-united-arab-emirates-en). Garantir o acesso seguro era especialmente difícil com os funcionários remotos da Aramex. A empresa agora está aplicando o Acesso Condicional para permitir que esses funcionários remotos acessem seus aplicativos SaaS de fora da rede. A regra do Acesso Condicional decidirá se é necessário impor a Autenticação Multifator, concedendo às pessoas certas o acesso adequado.
 
 ## <a name="license-requirements"></a>Requisitos de licença
 
@@ -96,10 +91,12 @@ Descubra como outras organizações usam o Acesso Condicional do Azure AD para d
 
 Os clientes com [licenças do Microsoft 365 Business Premium](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description) também têm acesso aos recursos do acesso condicional. 
 
+O [Risco de Entrada](concept-conditional-access-conditions.md#sign-in-risk) requer acesso à [Proteção de Identidade](../identity-protection/overview-identity-protection.md)
+
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Como criar uma política de acesso condicional por partes](concept-conditional-access-policies.md)
 - [Planejar sua implantação de Acesso Condicional](plan-conditional-access.md)
-- [Sais mais sobre o Identity Protection](../identity-protection/overview-v2.md)
+- [Sais mais sobre o Identity Protection](../identity-protection/overview-identity-protection.md)
 - [Saiba mais sobre o Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security)
 - [Saiba mais sobre o Microsoft Intune](/intune/index)

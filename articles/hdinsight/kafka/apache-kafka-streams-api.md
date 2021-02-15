@@ -1,19 +1,16 @@
 ---
 title: 'Tutorial: Usar a API de Streams do Apache Kafka – Azure HDInsight '
 description: Tutorial - Saiba como usar a API de Streams do Apache Kafka com o Kafka no HDInsight. Essa API permite realizar processamento de fluxo entre tópicos no Kafka.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive
 ms.date: 03/20/2020
-ms.openlocfilehash: 0174c40a0fada0f78cc8d52f5c45b991c3851da0
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 5a1548cdf1d05a1f9d42f5c64b7fdc18f514518e
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85850561"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98939207"
 ---
 # <a name="tutorial-use-apache-kafka-streams-api-in-azure-hdinsight"></a>Tutorial: Usar a API de streams do Apache Kafka no Azure HDInsight
 
@@ -39,7 +36,7 @@ Neste tutorial, você aprenderá como:
 
 * Conclua as etapas no documento [API de Produtor e Consumidor do Apache Kafka](apache-kafka-producer-consumer-api.md). As etapas neste documento usam o aplicativo de exemplo e os tópicos criados neste tutorial.
 
-* [JDK (Java Developer Kit) versão 8](https://aka.ms/azure-jdks) ou um equivalente, como o OpenJDK.
+* [JDK (Java Developer Kit) versão 8](/azure/developer/java/fundamentals/java-jdk-long-term-support) ou um equivalente, como o OpenJDK.
 
 * [Apache Maven](https://maven.apache.org/download.cgi) corretamente [instalado](https://maven.apache.org/install.html) de acordo com o Apache.  O Maven é um sistema de construção de projetos para projetos Java.
 

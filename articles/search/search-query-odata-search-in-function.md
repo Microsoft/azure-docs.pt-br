@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 9ad6f89392846564631b70f0acfb5658a050be80
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88922813"
 ---
 # <a name="odata-searchin-function-in-azure-cognitive-search"></a>`search.in`Função OData no Azure pesquisa cognitiva
@@ -48,7 +48,7 @@ No entanto, há uma maneira mais curta de escrever isso, usando a `search.in` fu
 
 ## <a name="syntax"></a>Sintaxe
 
-O EBNF a seguir ([formulário Backus-Naur Estendido](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) define a gramática da `search.in` função:
+O seguinte EBNF ([formulário estendido Backus-Naur](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) define a gramática da `search.in` função:
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 
@@ -74,7 +74,7 @@ Há duas sobrecargas da `search.in` função:
 
 Os parâmetros são definidos na tabela a seguir:
 
-| Nome do parâmetro | Type | DESCRIÇÃO |
+| Nome do parâmetro | Tipo | Descrição |
 | --- | --- | --- |
 | `variable` | `Edm.String` | Uma referência de campo de cadeia de caracteres (ou uma variável de intervalo em um campo de coleção de cadeia de caracteres no caso em que `search.in` é usada dentro de uma `any` `all` expressão ou). |
 | `valueList` | `Edm.String` | Uma cadeia de caracteres que contém uma lista delimitada de valores para corresponder ao `variable` parâmetro. Se o `delimiters` parâmetro não for especificado, os delimitadores padrão serão espaço e vírgula. |

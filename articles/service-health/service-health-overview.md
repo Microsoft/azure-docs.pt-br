@@ -1,14 +1,14 @@
 ---
 title: Visão geral da Integridade de Serviço | Microsoft Docs
-description: Informações personalizadas sobre como seus aplicativos do Azure são afetados pela manutenção e pelos problemas de serviço atuais e futuros do Azure.
+description: Saiba como a integridade do serviço fornece um painel personalizável que controla a integridade dos serviços do Azure nas regiões em que você os utiliza.
 ms.topic: conceptual
 ms.date: 05/10/2019
-ms.openlocfilehash: 2f2f0c8bf2cf4fe5beae7d48b198a23edba4e9ae
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8246b0ab93b95c13858e4ff96d0f24b255d05e55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089593"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "90967786"
 ---
 # <a name="service-health-overview"></a>Visão geral da integridade do serviço
 

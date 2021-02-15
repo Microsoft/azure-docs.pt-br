@@ -1,22 +1,21 @@
 ---
 title: Entender o analisador do modelo digital gêmeos | Microsoft Docs
-description: Como desenvolvedor, saiba como usar o analisador DTDL para validar modelos
+description: Como desenvolvedor, saiba como usar o analisador DTDL para validar modelos.
 author: rido-min
 ms.author: rmpablos
-ms.date: 04/29/2020
+ms.date: 10/21/2020
 ms.topic: conceptual
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
-manager: peterpr
-ms.openlocfilehash: 20c4452a32c791f33e08c883d8cec89a345ab188
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: d68abe8548dac3306228683e4b6ce8935a248ebc
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87352107"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331780"
 ---
-# <a name="understand-the-digital-twins-model-parser"></a>Entender o analisador do modelo digital gêmeos
+# <a name="understand-the-digital-twins-model-parser"></a>Entender o analisador do modelo dos Gêmeos Digitais
 
 A DTDL (digital gêmeos Definition Language) é descrita na [especificação DTDL](https://github.com/Azure/opendigitaltwins-dtdl). Os usuários podem usar o pacote NuGet do _digital gêmeos Model Parser_ para validar e consultar um modelo definido em vários arquivos.
 
@@ -28,9 +27,12 @@ O analisador está disponível em NuGet.org com a ID: [Microsoft. Azure. Digital
 dotnet add package Microsoft.Azure.DigitalTwins.Parser
 ```
 
+> [!NOTE]
+> No momento da gravação, a versão do analisador é `3.12.5` .
+
 ## <a name="use-the-parser-to-validate-a-model"></a>Usar o analisador para validar um modelo
 
-O modelo que você deseja validar pode ser composto por uma ou mais interfaces descritas em arquivos JSON. Você pode usar o analisador para carregar todos os arquivos em uma determinada pasta e usar o analisador para validar todos os arquivos como um todo, incluindo quaisquer referências entre os arquivos:
+Um modelo pode ser composto por uma ou mais interfaces descritas em arquivos JSON. Você pode usar o analisador para carregar todos os arquivos em uma determinada pasta e usar o analisador para validar todos os arquivos como um todo, incluindo quaisquer referências entre os arquivos:
 
 1. Crie um `IEnumerable<string>` com uma lista de todo o conteúdo do modelo:
 
@@ -57,18 +59,20 @@ O modelo que você deseja validar pode ser composto por uma ou mais interfaces d
     IReadOnlyDictionary<Dtmi, DTEntityInfo> parseResult = await modelParser.ParseAsync(modelJson);
     ```
 
-1. Verifique se há erros de validação. Se o analisador encontrar erros, ele lançará um `AggregateException` com uma lista de mensagens de erro detalhadas:
+1. Verifique se há erros de validação. Se o analisador encontrar erros, ele lançará um `ParsingException` com uma lista de erros:
 
     ```csharp
     try
     {
         IReadOnlyDictionary<Dtmi, DTEntityInfo> parseResult = await modelParser.ParseAsync(modelJson);
     }
-    catch (AggregateException ae)
+    catch (ParsingException pex)
     {
-        foreach (var e in ae.InnerExceptions)
+        Console.WriteLine(pex.Message);
+        foreach (var err in pex.Errors)
         {
-            Console.WriteLine(e.Message);
+            Console.WriteLine(err.PrimaryID);
+            Console.WriteLine(err.Message);
         }
     }
     ```
@@ -76,19 +80,10 @@ O modelo que você deseja validar pode ser composto por uma ou mais interfaces d
 1. Inspecione o `Model` . Se a validação for realizada com sucesso, você poderá usar a API do analisador de modelo para inspecionar o modelo. O trecho de código a seguir mostra como iterar todos os modelos analisados e exibe as propriedades existentes:
 
     ```csharp
-    foreach (var m in parseResult)
+    foreach (var item in parseResult)
     {
-        Console.WriteLine(m.Key);
-        foreach (var item in m.Value.AsEnumerable<DTEntityInfo>())
-        {
-            var p = item as DTInterfaceInfo;
-            if (p!=null)
-            {
-                Console.WriteLine($"\t{p.Id}");
-                Console.WriteLine($"\t{p.Description.FirstOrDefault()}");
-            }
-            Console.WriteLine("--------------");
-        }
+        Console.WriteLine($"\t{item.Key}");
+        Console.WriteLine($"\t{item.Value.DisplayName?.Values.FirstOrDefault()}");
     }
     ```
 

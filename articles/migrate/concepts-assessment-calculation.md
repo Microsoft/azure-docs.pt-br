@@ -1,14 +1,17 @@
 ---
 title: Avaliações de VM do Azure na avaliação do servidor de migrações para Azure
 description: Saiba mais sobre as avaliações na avaliação do servidor de migrações para Azure
+author: rashi-ms
+ms.author: rajosh
+ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 05/27/2020
-ms.openlocfilehash: 1d9c887f42089611ce7402aa32174958cd8c0b07
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 9bdf907ede2c09f7e314df619cd81059956f17dc
+ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88261847"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98567750"
 ---
 # <a name="server-assessment-overview-migrate-to-azure-vms"></a>Visão geral da avaliação do servidor (migrar para VMs do Azure)
 
@@ -54,7 +57,7 @@ Se você estiver implantando um dispositivo de migrações para Azure para desco
 
 Depois que o dispositivo iniciar a descoberta de máquina, você poderá reunir as máquinas que deseja avaliar em um grupo e executar uma avaliação para o grupo com o tipo de avaliação **VM do Azure**.
 
-Siga nossos tutoriais para [VMware](tutorial-prepare-vmware.md), [Hyper-V](tutorial-prepare-hyper-v.md)ou [servidores físicos](tutorial-prepare-physical.md) para experimentar essas etapas.
+Siga nossos tutoriais para [VMware](./tutorial-discover-vmware.md), [Hyper-V](./tutorial-discover-hyper-v.md)ou [servidores físicos](./tutorial-discover-physical.md) para experimentar essas etapas.
 
 ## <a name="how-do-i-assess-with-imported-data"></a>Como fazer avaliar com os dados importados?
 
@@ -80,7 +83,7 @@ Se você usar o dispositivo para descoberta, ele coletará dados de desempenho p
     - **VMs do Hyper-V**: um ponto de amostra é coletado A cada 30 segundos.
     - **Servidores físicos**: um ponto de amostra é coletado A cada cinco minutos.
 
-1. O dispositivo combina os pontos de exemplo para criar um único ponto de dados a cada 10 minutos. Para criar o ponto de dados, o dispositivo seleciona os valores de pico de todos os exemplos. Em seguida, ele envia o ponto de dados para o Azure.
+1. O dispositivo combina os pontos de exemplo para criar um único ponto de dados a cada 10 minutos para servidores VMware e Hyper-V e a cada 5 minutos para servidores físicos. Para criar o ponto de dados, o dispositivo seleciona os valores de pico de todos os exemplos. Em seguida, ele envia o ponto de dados para o Azure.
 1. A avaliação do servidor armazena todos os pontos de dados de 10 minutos para o último mês.
 1. Quando você cria uma avaliação, a avaliação do servidor identifica o ponto de dados apropriado a ser usado para a identificação de direitos. A identificação é baseada nos valores de percentil para o *histórico de desempenho* e *utilização de percentil*.
 
@@ -121,9 +124,9 @@ Aqui estão as novidades incluídas em uma avaliação de VM do Azure na avalia�
 **Critérios de dimensionamento** | Usado para asrightr a VM do Azure.<br/><br/> Use o tamanho com base no tamanho ou no desempenho.
 **Histórico de desempenho** | Usado com o dimensionamento baseado em desempenho. Histórico de desempenho especifica a duração usada quando os dados de desempenho são avaliados.
 **Utilização de percentual** | Usado com o dimensionamento baseado em desempenho. Utilização de percentil especifica o valor percentual do exemplo de desempenho usado para a permissão de direitos.
-**Série da VM** | A série de VMs do Azure que você deseja considerar para a permissão de direitos. Por exemplo, se você não tiver um ambiente de produção que precise de VMs série A no Azure, poderá excluir uma série da lista de séries.
+**Série da VM** | A série de VMs do Azure que você deseja considerar para a permissão de direitos. Por exemplo, se você não tiver um ambiente de produção que exija VMs da série A no Azure, poderá excluir a série A da lista de séries.
 **Fator de conforto** | O buffer usado durante a avaliação. Ele é aplicado aos dados de CPU, RAM, disco e rede para VMs. Ele conta com problemas como uso sazonal, histórico de desempenho curto e, provavelmente, aumenta o uso futuro.<br/><br/> Por exemplo, uma VM de 10 núcleos com 20% de utilização normalmente resulta em uma VM de dois núcleos. Com um fator de conforto de 2,0, o resultado é uma VM de quatro núcleos.
-**Oferta** | A [oferta do Azure](https://azure.microsoft.com/support/legal/offer-details/) na qual você está inscrito. A avaliação do servidor estima o custo dessa oferta.
+**Oferta** | A [oferta do Azure](https://azure.microsoft.com/support/legal/offer-details/) na qual você está inscrito. A Avaliação de Servidor estima o custo dessa oferta.
 **Moeda** | A moeda de cobrança da sua conta.
 **Desconto (%)** | Quaisquer descontos específicos de assinatura recebidos por cima da oferta do Azure. A configuração padrão é 0%.
 **Tempo de atividade da VM** | A duração em dias por mês e horas por dia para VMs do Azure que não serão executadas continuamente. As estimativas de custo são baseadas nessa duração.<br/><br/> Os valores padrão são 31 dias por mês e 24 horas por dia.
@@ -173,7 +176,7 @@ Windows Server 2012 R2 e todos os SPs | O Azure fornece suporte total. | Pronto 
 Windows Server 2012 e todos os SPs | O Azure fornece suporte total. | Pronto para o Azure.
 Windows Server 2008 R2 com todos os SPs | O Azure fornece suporte total.| Pronto para o Azure.
 Windows Server 2008 (32 bits e 64 bits) | O Azure fornece suporte total. | Pronto para o Azure.
-Windows Server 2003 e Windows Server 2003 R2 | Esses sistemas operacionais passaram suas datas de fim de suporte e precisam de um [contrato de suporte personalizado (CSA)](https://aka.ms/WSosstatement) para dar suporte no Azure. | Condicionalmente pronto para o Azure. Considere atualizar o sistema operacional antes de migrar para o Azure.
+Windows Server 2003 e Windows Server 2003 R2 | Esses sistemas operacionais passaram suas datas de fim de suporte e precisam de um [contrato de suporte personalizado (CSA)](/troubleshoot/azure/virtual-machines/server-software-support) para dar suporte no Azure. | Condicionalmente pronto para o Azure. Considere atualizar o sistema operacional antes de migrar para o Azure.
 Windows 2000, Windows 98, Windows 95, Windows NT, Windows 3,1 e MS-DOS | Esses sistemas operacionais passaram por suas datas de fim de suporte. O computador pode iniciar no Azure, mas o Azure não fornece suporte ao sistema operacional. | Condicionalmente pronto para o Azure. Recomendamos que você atualize o sistema operacional antes de migrar para o Azure.
 Windows 7, Windows 8 e Windows 10 | O Azure fornece suporte apenas com uma [assinatura do Visual Studio.](../virtual-machines/windows/client-images.md) | Condicionalmente pronto para o Azure.
 Windows 10 Pro | O Azure oferece suporte com [Direitos de Hospedagem multilocatário.](../virtual-machines/windows/windows-desktop-multitenant-hosting-deployment.md) | Condicionalmente pronto para o Azure.
@@ -265,8 +268,14 @@ Esta tabela mostra as classificações de confiança de avaliação, que depende
 Aqui estão algumas razões pelas quais uma avaliação pode obter uma classificação de baixa confiança:
 
 - Você não fez o profile do seu ambiente pela duração para a qual está criando a avaliação. Por exemplo, se você criar a avaliação com duração de desempenho definida como um dia, deverá aguardar pelo menos um dia depois de iniciar a descoberta para todos os pontos de dados a serem coletados.
-- Algumas VMs foram desligadas durante o tempo durante o qual a avaliação foi calculada. Se alguma VM for desativada por alguma duração, a avaliação do servidor não poderá coletar os dados de desempenho para esse período.
-- Algumas VMs foram criadas durante o tempo durante o qual a avaliação foi calculada. Por exemplo, suponha que você criou uma avaliação para o histórico de desempenho do último mês, mas algumas VMs foram criadas há apenas uma semana atrás. O histórico de desempenho das novas VMs não existirá durante toda a duração.
+- A avaliação não é capaz de coletar os dados de desempenho de algumas ou de todas as VMs no período de avaliação. Para uma classificação de alta confiança, verifique se: 
+    - As VMs são ativadas durante a avaliação
+    - Conexões de saída nas portas 443 são permitidas
+    - Para VMs do Hyper-V, a memória dinâmica está habilitada 
+    
+    “Recalcule” a avaliação para refletir as alterações mais recentes na classificação de confiança.
+
+- Algumas VMs foram criadas durante o tempo durante o qual a avaliação foi calculada. Por exemplo, suponha que você criou uma avaliação para o histórico de desempenho do último mês, mas algumas VMs foram criadas há apenas uma semana atrás. Nesse caso, os dados de desempenho das novas VMs não estariam disponíveis durante todo o período e a classificação de confiança seria baixa.
 
 > [!NOTE]
 > Se a classificação de confiança de qualquer avaliação for menor que cinco estrelas, recomendamos que você aguarde pelo menos um dia para o dispositivo criar o perfil do ambiente e, em seguida, recalcular a avaliação. Caso contrário, o dimensionamento baseado em desempenho pode não ser confiável. Nesse caso, recomendamos que você alterne a avaliação para o dimensionamento local.
@@ -282,7 +291,7 @@ Após a conclusão das recomendações de dimensionamento, uma avaliação de VM
     - Software Assurance
     - Instâncias reservadas
     - Tempo de atividade da VM
-    - Location
+    - Local
     - Configurações de moeda
 
     A avaliação do servidor agrega o custo em todas as máquinas para calcular o custo de computação mensal total.
@@ -297,6 +306,6 @@ Os custos são exibidos na moeda especificada nas configurações de avaliação
 
 [Examine](best-practices-assessment.md) as melhores práticas para a criação de avaliações. 
 
-- Saiba mais sobre a execução de Avaliações para [VMs VMware](tutorial-prepare-vmware.md), [VMs Hyper-V](tutorial-prepare-hyper-v.md)e [servidores físicos](tutorial-prepare-physical.md).
-- Saiba mais sobre como avaliar servidores [importados com um arquivo CSV](tutorial-assess-import.md).
+- Saiba mais sobre a execução de Avaliações para [VMs VMware](./tutorial-discover-vmware.md), [VMs Hyper-V](./tutorial-discover-hyper-v.md)e [servidores físicos](./tutorial-discover-physical.md).
+- Saiba mais sobre como avaliar servidores [importados com um arquivo CSV](./tutorial-discover-import.md).
 - Saiba mais sobre como configurar a [visualização de dependência](concepts-dependency-visualization.md).

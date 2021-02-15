@@ -1,97 +1,47 @@
 ---
-title: Novidades do Azure Key Vault | Microsoft Docs
+title: Novidades do Azure Key Vault
 description: Atualizações recentes do Azure Key Vault
 services: key-vault
 author: msmbaldwin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
-ms.topic: overview
-ms.date: 07/27/2020
+ms.topic: reference
+ms.date: 01/12/2020
 ms.author: mbaldwin
-ms.openlocfilehash: b469ea0d0a91cc4ca7f0602dffbcc63b31c60855
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: ef2c42ae76dc5e1511494635904228a8b574d483
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88588357"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132181"
 ---
 # <a name="whats-new-for-azure-key-vault"></a>Novidades do Azure Key Vault
 
-> [!WARNING]
-> **Julho de 2020**: há duas atualizações no cofre de chaves que têm o potencial de afetar as implementações do serviço: [exclusão reversível do cofre de chaves ativada por padrão](#soft-delete-on-by-default) e [alterações do certificado TLS do Azure](#azure-tls-certificate-changes). Confira os detalhes abaixo.
-
 Veja a seguir as novidades do Azure Key Vault. Os novos recursos e os aprimoramentos também foram anunciados no [canal do Key Vault de atualizações do Azure](https://azure.microsoft.com/updates/?category=security&query=Key%20vault).
 
-## <a name="soft-delete-on-by-default"></a>Exclusão reversível ativada por padrão
+## <a name="october-2020"></a>Outubro de 2020
 
-Até o final de 2020, a **exclusão reversível estará ativada por padrão em todos os cofres de chaves**, novos e pré-existentes. Para obter todos os detalhes sobre essa possível alteração da falha, bem como as etapas necessárias para encontrar os cofres de chaves afetados e atualizá-los com antecedência, confira o artigo [A exclusão reversível será habilitada em todos os cofres de chaves](soft-delete-change.md). 
+> [!WARNING]
+> Essas atualizações têm o potencial de afetar as implementações do Azure Key Vault.
 
-## <a name="azure-tls-certificate-changes"></a>Alterações do certificado TLS do Azure  
+Para dar suporte à [exclusão temporária agora ativada por padrão](#soft-delete-on-by-default), foram feitas duas alterações nos cmdlets do PowerShell do Azure Key Vault:
 
-A Microsoft está atualizando os serviços do Azure para que eles usem certificados TLS de outro conjunto de ACs (autoridades de certificação) raiz. Essa alteração está sendo feita porque os Certificados de Autoridade de Certificação atuais não estão em conformidade com um dos requisitos de linha de base do fórum do navegador/da AC.
+- Os parâmetros DisableSoftDelete e EnableSoftDelete de [Update-AzKeyVault](/powershell/module/az.keyvault/update-azkeyvault) foram preteridos.
+- A saída do cmdlet [Get-AzKeyVaultSecret](/powershell/module/az.keyvault/get-azkeyvaultsecret) não tem mais o atributo `SecretValueText`.
 
-### <a name="when-will-this-change-happen"></a>Quando ocorrerá essa alteração?
+## <a name="july-2020"></a>Julho de 2020
 
-- Os serviços do Azure AD (Azure Active Directory) iniciaram essa transição em 7 de julho de 2020.
-- Todos os pontos de extremidade do TLS/SSL do Azure recém-criados contêm o encadeamento de certificados atualizados até as novas ACs raiz. 
-- Os pontos de extremidade existentes do Azure farão a transição em fases a partir de 13 de agosto de 2020 e a concluirão até 26 de outubro de 2020.
+> [!WARNING]
+> Essas duas atualizações têm o potencial de afetar as implementações do Azure Key Vault.
 
-> [!IMPORTANT]
-> É possível que os clientes precisem atualizar os respectivos aplicativos após essa alteração para evitar falhas de conectividade durante a tentativa de se conectarem aos serviços do Azure. 
+### <a name="soft-delete-on-by-default"></a>Exclusão reversível ativada por padrão
 
-### <a name="what-is-changing"></a>O que está mudando?
+**A exclusão reversível deve estar habilitada para todos os cofres de chaves**, tanto novos quanto preexistentes. Nos próximos meses, a capacidade de recusar a exclusão reversível será preterida. Para obter todos os detalhes sobre essa possível alteração da falha, bem como as etapas necessárias para encontrar os cofres de chaves afetados e atualizá-los com antecedência, confira o artigo [A exclusão reversível será habilitada em todos os cofres de chaves](soft-delete-change.md).
 
-Hoje, a maioria dos certificados TLS usados pelos serviços do Azure são encadeados à seguinte AC raiz:
+### <a name="azure-tls-certificate-changes"></a>Alterações no certificado TLS do Azure
 
-| Nome comum da AC | Impressão digital (SHA1) |
-|--|--|
-| [Baltimore CyberTrust Root](https://cacerts.digicert.com/BaltimoreCyberTrustRoot.crt) | d4de20d05e66fc53fe1a50882c78db2852cae474 |
-
-Os certificados TLS usados pelos serviços do Azure serão encadeados a uma das seguintes ACs raiz:
-
-| Nome comum da AC | Impressão digital (SHA1) |
-|--|--|
-| [DigiCert Global Root G2](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt) | df3c24f9bfd666761b268073fe06d1cc8d4f82a4 |
-| [DigiCert Global Root CA](https://cacerts.digicert.com/DigiCertGlobalRootCA.crt) | a8985d3a65e5e5c4b2d7d66d40c6dd2fb19c5436 |
-| [Baltimore CyberTrust Root](https://cacerts.digicert.com/BaltimoreCyberTrustRoot.crt) | d4de20d05e66fc53fe1a50882c78db2852cae474 |
-| [D-TRUST Root Class 3 CA 2 2009](https://www.d-trust.net/cgi-bin/D-TRUST_Root_Class_3_CA_2_2009.crt) | 58e8abb0361533fb80f79b1b6d29d3ff8d5f00f0 |
-| [Microsoft RSA Root Certificate Authority 2017](https://www.microsoft.com/pkiops/certs/Microsoft%20RSA%20Root%20Certificate%20Authority%202017.crt) | 73a5e64a3bff8316ff0edccc618a906e4eae4d74 | 
-| [Microsoft EV ECC Root Certificate Authority 2017](https://www.microsoft.com/pkiops/certs/Microsoft%20EV%20ECC%20Root%20Certificate%20Authority%202017.crt) | 6b1937abfd64e1e40daf2262a27857c015d6228d |
-
-### <a name="when-can-i-retire-the-old-intermediate-thumbprint"></a>Quando posso desativar a impressão digital intermediária antiga?
-
-Os Certificados de Autoridade de Certificação atuais *não* serão revogados até 15 de fevereiro de 2021. Após essa data, você poderá remover as impressões digitais antigas do código.
-
-Se essa data for alterada, você será notificado sobre a nova data de revogação.
-
-### <a name="will-this-affect-me"></a>Isso me afetará?
-
-Esperamos que **a maioria dos clientes do Azure não** seja afetada.  No entanto, seu aplicativo poderá ser afetado se ele especificar explicitamente uma lista de ACs aceitáveis. Essa prática é conhecida como anexação de certificado.
-
-Estas são algumas maneiras de detectar se o seu aplicativo foi afetado:
-
-- Pesquise o código-fonte para obter a impressão digital, o nome comum e outras propriedades de certificado de uma das ACs do TLS de TI da Microsoft encontradas [aqui](https://www.microsoft.com/pki/mscorp/cps/default.htm). Se houver uma correspondência, seu aplicativo será afetado. Para resolver esse problema, atualize o código-fonte, incluindo as novas ACs. Como melhor prática, verifique se as ACs podem ser adicionadas ou editadas em curto prazo. Os regulamentos do setor exigem que os Certificados de Autoridade de Certificação sejam substituídos no prazo de até 7 dias e, portanto, os clientes que dependem da anexação precisam tomar uma medida rapidamente.
-
-- Se você tiver um aplicativo que se integra às APIs do Azure ou a outros serviços do Azure e não tiver certeza se ele usa a anexação de certificado, verifique com o fornecedor do aplicativo.
-
-- Diferentes sistemas operacionais e runtimes de linguagem que se comunicam com os serviços do Azure podem exigir etapas adicionais para a criação correta da cadeia de certificados com estas novas raízes: 
-    - **Linux**: muitas distribuições exigem a adição das ACs listadas acima a /etc/ssl/certs. Para obter instruções específicas, veja a documentação da distribuição.
-    - **Java**: verifique se o repositório de chaves Java contém as ACs listadas acima.
-    - **Windows em execução em ambientes desconectados**: os sistemas em execução em ambientes desconectados precisarão ter as raízes listadas acima adicionadas ao repositório de Autoridades de Certificação Raiz Confiáveis e os intermediários adicionados ao repositório de Autoridades de Certificação Intermediárias.
-    - **Android**: verifique a documentação do dispositivo e a versão do Android.
-    - **Outros dispositivos de hardware, especialmente IoT**: entre em contato com o fabricante do dispositivo. 
-
-- Caso você tenha um ambiente em que as regras de firewall estejam definidas para permitir chamadas de saída somente a localizações específicas de download da CRL (lista de certificados revogados) e/ou de verificação do protocolo OCSP. Você precisará permitir as seguintes URLs da CRL e do OCSP:
-
-    - http://crl3&#46;digicert&#46;com
-    - http://crl4&#46;digicert&#46;com
-    - http://ocsp&#46;digicert&#46;com
-    - http://www&#46;d-trust&#46;net
-    - http://root-c3-ca2-2009&#46;ocsp&#46;d-trust&#46;net
-    - http://crl&#46;microsoft&#46;com
-    - http://oneocsp&#46;microsoft&#46;com
-    - http://ocsp&#46;msocsp&#46;com
+A Microsoft está atualizando os serviços do Azure para que eles usem certificados TLS de outro conjunto de ACs (autoridades de certificação) raiz. Essa alteração está sendo feita porque os Certificados de Autoridade de Certificação atuais não estão em conformidade com um dos requisitos de linha de base do fórum do navegador/da AC.  Para ver todos os detalhes, confira [Alterações no certificado TLS do Azure](../../security/fundamentals/tls-certificate-changes.md).
 
 ## <a name="june-2020"></a>Junho de 2020
 
@@ -108,7 +58,7 @@ Os pontos de extremidade privados já estão disponíveis em versão prévia. O 
 ## <a name="2019"></a>2019
 
 - Versão dos SDKs do Azure Key Vault de próxima geração. Para obter exemplos de uso, confira os guias de início rápido de segredos do Azure Key Vault para [Python](../secrets/quick-create-python.md), [.NET](../secrets/quick-create-net.md), [Java](../secrets/quick-create-java.md) e [Node.js](../secrets/quick-create-node.md)
-- Novas políticas do Azure para gerenciar certificados do cofre de chaves. Confira as [Definições internas do Azure Policy para o Key Vault](../policy-samples.md).
+- Novas políticas do Azure para gerenciar certificados do cofre de chaves. Confira as [Definições internas do Azure Policy para o Key Vault](../policy-reference.md).
 - A extensão de Máquina Virtual do Azure Key Vault já está em disponibilidade geral.  Confira [Extensão de máquina virtual do Key Vault para Linux](../../virtual-machines/extensions/key-vault-linux.md) e [Extensão de máquina virtual do Key Vault para Windows](../../virtual-machines/extensions/key-vault-windows.md).
 - O gerenciamento de segredos controlado por evento para o Azure Key Vault já está disponível na Grade de Eventos do Azure. Para obter mais informações, confira [o esquema da Grade de Eventos para os eventos no Azure Key Vault](../../event-grid/event-schema-key-vault.md] e saiba como [Receber notificações do cofre de chaves e responder a elas com a Grade de Eventos do Azure](event-grid-tutorial.md).
 
@@ -116,7 +66,7 @@ Os pontos de extremidade privados já estão disponíveis em versão prévia. O 
 
 Novas integrações e novos recursos lançados neste ano:
 
-- Integração ao Azure Functions. Para obter um exemplo de cenário que utiliza o [Azure Functions](../../azure-functions/index.yml) para operações do cofre de chaves, confira [Automatizar a rotação de um segredo](../secrets/tutorial-rotation.md). 
+- Integração ao Azure Functions. Para obter um exemplo de cenário que utiliza o [Azure Functions](../../azure-functions/index.yml) para operações do cofre de chaves, confira [Automatizar a rotação de um segredo](../secrets/tutorial-rotation.md).
 - [Integração ao Azure Databricks](/azure/databricks/scenarios/store-secrets-azure-key-vault). Com isso, o Azure Databricks agora dá suporte a dois tipos de escopos de segredos: Com backup do Azure Key Vault e com backup do Databricks. Para obter mais informações, confira [Criar um escopo de segredo com backup do Azure Key Vault](/azure/databricks/security/secrets/secret-scopes#--create-an-azure-key-vault-backed-secret-scope)
 - [Pontos de extremidade de serviço de rede virtual para o Azure Key Vault](overview-vnet-service-endpoints.md).
 
@@ -124,39 +74,39 @@ Novas integrações e novos recursos lançados neste ano:
 
 Novos recursos lançados neste ano:
 
-- Chaves de conta de armazenamento gerenciadas. O recurso Chaves de Conta de Armazenamento facilitou a integração ao Armazenamento do Azure. Consulte o tópico de visão geral para saber mais, [Visão geral das Chaves de Conta de Armazenamento Gerenciado](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-storage-keys).
-- Exclusão reversível. O recurso de exclusão reversível aprimora a proteção de dados de cofres de chave e objetos do cofre de chaves. Para saber mais, confira o tópico de visão geral, [Visão geral da exclusão reversível](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete).
+- Chaves de conta de armazenamento gerenciadas. O recurso Chaves de Conta de Armazenamento facilitou a integração ao Armazenamento do Azure. Consulte o tópico de visão geral para saber mais, [Visão geral das Chaves de Conta de Armazenamento Gerenciado](../secrets/overview-storage-keys.md).
+- Exclusão reversível. O recurso de exclusão reversível aprimora a proteção de dados de cofres de chave e objetos do cofre de chaves. Para saber mais, confira o tópico de visão geral, [Visão geral da exclusão reversível](./soft-delete-overview.md).
 
 ## <a name="2015"></a>2015
 
 Novos recursos lançados neste ano:
 - Gerenciamento de certificados. Adicionado como um recurso à versão GA 2015-06-01 em 26 de setembro de 2016.
 
-A disponibilidade geral (versão 2015-06-01) foi anunciada em 24 de junho de 2015. As seguintes alterações foram feitas nessa versão: 
+A disponibilidade geral (versão 2015-06-01) foi anunciada em 24 de junho de 2015. As seguintes alterações foram feitas nessa versão:
 - Exclusão de uma chave – remoção do campo "usar".
 - Obtenção de informações sobre uma chave – remoção do campo "usar".
 - Importação de uma chave para um cofre – remoção do campo "usar".
-- Restauração de uma chave – remoção do campo "usar".     
-- Alteração de "RSA_OAEP" para "RSA-OAEP" em Algoritmos RSA. Confira [Sobre chaves, segredos e certificados](about-keys-secrets-certificates.md).    
- 
-A segunda versão prévia (versão 2015-02-01-preview) foi anunciada em 20 de abril de 2015. Para saber mais, consulte a postagem no blog [Atualização da API REST](https://docs.microsoft.com/archive/blogs/kv/rest-api-update). As seguintes tarefas foram atualizadas:
- 
+- Restauração de uma chave – remoção do campo "usar".
+- Alteração de "RSA_OAEP" para "RSA-OAEP" em Algoritmos RSA. Confira [Sobre chaves, segredos e certificados](about-keys-secrets-certificates.md).
+
+A segunda versão prévia (versão 2015-02-01-preview) foi anunciada em 20 de abril de 2015. Para saber mais, consulte a postagem no blog [Atualização da API REST](/archive/blogs/kv/rest-api-update). As seguintes tarefas foram atualizadas:
+
 - Listar as chaves em um cofre - adição de suporte a paginação para a operação.
-- Listar as versões de uma chave - adição de operação para listar as versões de uma chave.  
+- Listar as versões de uma chave - adição de operação para listar as versões de uma chave.
 - Listar os segredos em um cofre - adição de suporte a paginação.
-- Listar as versões de um segredo - adição de operação para listar as versões de um segredo.  
-- Todas as operações - adição de carimbos de data/hora de criação/atualização dos atributos.  
+- Listar as versões de um segredo - adição de operação para listar as versões de um segredo.
+- Todas as operações - adição de carimbos de data/hora de criação/atualização dos atributos.
 - Criar um segredo - adição de Content-Type aos segredos.
 - Criar uma chave - adição de marcas como informações opcionais.
 - Criar um segredo - adição de marcas como informações opcionais.
 - Atualizar uma chave - adição de marcas como informações opcionais.
 - Atualizar um segredo - adição de marcas como informações opcionais.
-- Alteração do tamanho máximo para segredos de 10 K para 25 K Bytes. Confira [Sobre chaves, segredos e certificados](about-keys-secrets-certificates.md).    
+- Alteração do tamanho máximo para segredos de 10 K para 25 K Bytes. Confira [Sobre chaves, segredos e certificados](about-keys-secrets-certificates.md).
 
 ## <a name="2014"></a>2014
- 
-A primeira versão prévia (versão 2014-12-08-preview) foi lançada em 8 de janeiro de 2015.  
+
+A primeira versão prévia (versão 2014-12-08-preview) foi lançada em 8 de janeiro de 2015.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Caso tenha outras dúvidas, entre em contato conosco por meio do [suporte](https://azure.microsoft.com/support/options/).  
+Caso tenha outras dúvidas, entre em contato conosco por meio do [suporte](https://azure.microsoft.com/support/options/).

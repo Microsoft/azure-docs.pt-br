@@ -6,18 +6,19 @@ documentationcenter: na
 author: MashaMSFT
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
+ms.subservice: deployment
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 07/11/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: fb10e85b07037805d59dcba91ff20a4bc2a6574e
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
+ms.openlocfilehash: 335a63faa440e057c282f992b67b301289a7a4bb
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84667634"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97356949"
 ---
 # <a name="quickstart-create-sql-server-2017-on-a-windows-virtual-machine-in-the-azure-portal"></a>Início Rápido: Criar um SQL Server 2017 em uma máquina virtual do Windows no portal do Azure
 
@@ -47,7 +48,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 1. Selecione **+Adicionar** para abrir a página **Selecionar opção de implantação do SQL**. Você pode exibir informações adicionais selecionando **mostrar detalhes** no bloco **máquinas virtuais do SQL**.
 1. Selecione a imagem **Licença Gratuita do SQL Server: Imagem do SQL Server 2017 Developer no Windows Server 2016** da lista suspensa.
 
-   ![Nova janela de pesquisa](./media/sql-vm-create-portal-quickstart/select-sql-2017-vm-image.png)
+   ![Captura de tela que mostra onde você seleciona a Licença gratuita do SQL Server: Imagem do SQL Server 2017 Developer no Windows Server 2016.](./media/sql-vm-create-portal-quickstart/select-sql-2017-vm-image.png)
 
 1. Selecione **Criar**.
 
@@ -64,7 +65,7 @@ Na folha **Informações Básicas**, forneça as seguintes informações:
 1. Em **Detalhes da instância**:
     1. Digite _SQLVM_ para o **Nome da máquina virtual**. 
     1. Escolha uma localização para sua **região**. 
-    1. Para a finalidade deste Início Rápido, mantenha **Opções de disponibilidade** definido como _Nenhuma redundância de infraestrutura necessária_. Para obter mais informações sobre as opções de disponibilidade, consulte [Disponibilidade](../../../virtual-machines/windows/availability.md). 
+    1. Para a finalidade deste Início Rápido, mantenha **Opções de disponibilidade** definido como _Nenhuma redundância de infraestrutura necessária_. Para obter mais informações sobre as opções de disponibilidade, consulte [Disponibilidade](../../../virtual-machines/availability.md). 
     1. Na lista **Imagem**, selecione _Licença Gratuita do SQL Server: SQL Server 2017 Developer no Windows Server 2016_. 
     1. Escolha **Alterar tamanho** para o **Tamanho** da máquina virtual e selecione a oferta **A2 Básico**. Limpe os recursos assim que terminar de trabalhar com eles para evitar encargos inesperados. 
 

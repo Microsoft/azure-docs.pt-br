@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ea834ed874f3011d95f8b924df860576f72bc4ee
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 70a56b7efc34ba2fd3c06521c6e4cac6ea28778f
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88825606"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302470"
 ---
 # <a name="create-a-profile-container-with-azure-files-and-azure-ad-ds"></a>Criar um contêiner de perfil com arquivos do Azure e AD DS do Azure
 
@@ -27,7 +27,7 @@ Para adicionar administradores adicionais, você cria um novo usuário e concede
 
 Para adicionar um administrador:
 
-1. Selecione **Azure Active Directory** na barra lateral, selecione **todos os usuários**e, em seguida, selecione **novo usuário**.
+1. Selecione **Azure Active Directory** na barra lateral, selecione **todos os usuários** e, em seguida, selecione **novo usuário**.
 
 2.  Insira os detalhes do usuário nos campos.
 
@@ -35,7 +35,7 @@ Para adicionar um administrador:
 
 4. Selecione o grupo de **Administradores do AAD DC** .
 
-5. No painel esquerdo, selecione **Membros**e, em seguida, selecione **adicionar membros** no painel principal. Isso mostrará uma lista de todos os usuários disponíveis no Azure AD. Selecione o nome do perfil de usuário que você acabou de criar.
+5. No painel esquerdo, selecione **Membros** e, em seguida, selecione **adicionar membros** no painel principal. Isso mostrará uma lista de todos os usuários disponíveis no Azure AD. Selecione o nome do perfil de usuário que você acabou de criar.
 
 ## <a name="set-up-an-azure-storage-account"></a>Configurar uma conta de armazenamento do Azure
 
@@ -96,10 +96,10 @@ Para obter a chave de acesso da conta de armazenamento:
 
 6. Quando você tiver entrado na VM, execute um prompt de comando como administrador.
 
-7. Execute o comando a seguir:
+7. Execute o seguinte comando:
 
      ```cmd
-     net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> <storage-account-key> /user:Azure\<storage-account-name>
+     net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> /user:Azure\<storage-account-name> <storage-account-key>
      ```
 
     - Substitua `<desired-drive-letter>` por uma letra da unidade de sua escolha (por exemplo, `y:` ).
@@ -142,29 +142,29 @@ Para configurar um contêiner de perfil do FSLogix:
 
 1. Entre na VM host da sessão que você configurou no início deste artigo e, em seguida, [Baixe e instale o agente do FSLogix](/fslogix/install-ht/).
 
-2. Descompacte o arquivo do agente FSLogix que você **x64**baixou e vá para  >  **versões**x64 e, em seguida, abra **FSLogixAppsSetup.exe**.
+2. Descompacte o arquivo do agente FSLogix que você **x64** baixou e vá para  >  **versões** x64 e, em seguida, abra **FSLogixAppsSetup.exe**.
 
 3. Depois que o instalador for iniciado, selecione **concordo com os termos e condições de licença.** Se aplicável, forneça uma nova chave.
 
 4. Selecione **Instalar**.
 
-5. Abra a **unidade C**e vá para **arquivos de programas**  >  **FSLogix**  >  **aplicativos** para certificar-se de que o agente FSLogix foi instalado corretamente.
+5. Abra a **unidade C** e vá para **arquivos de programas**  >  **FSLogix**  >  **aplicativos** para certificar-se de que o agente FSLogix foi instalado corretamente.
 
      >[!NOTE]
      > Se houver várias VMs no pool de hosts, você precisará repetir as etapas de 1 a 5 para cada VM.
 
 6. Execute o **Editor do registro** (regedit) como administrador.
 
-7. Navegue até **computador**  >  **HKEY_LOCAL_MACHINE**  >  **software**  >  **FSLogix**, clique com o botão direito do mouse em **FSLogix**, selecione **novo**e selecione **chave**.
+7. Navegue até **computador**  >  **HKEY_LOCAL_MACHINE**  >  **software**  >  **FSLogix**, clique com o botão direito do mouse em **FSLogix**, selecione **novo** e selecione **chave**.
 
 8. Crie uma nova chave chamada **perfis**.
 
-9.  Clique com o botão direito do mouse em **perfis**, selecione **novo**e, em seguida, selecione **valor DWORD (32 bits).** Nomeie o valor como **habilitado** e defina o valor de **dados** como **1**.
+9.  Clique com o botão direito do mouse em **perfis**, selecione **novo** e, em seguida, selecione **valor DWORD (32 bits).** Nomeie o valor como **habilitado** e defina o valor de **dados** como **1**.
 
     > [!div class="mx-imgBorder"]
     > ![Uma captura de tela da chave de perfis. O arquivo de REG_DWORD é realçado e seu valor de dados é definido como 1.](media/dword-value.png)
 
-10. Clique com o botão direito do mouse em **perfis**, selecione **novo**e, em seguida, selecione **valor de cadeia de caracteres múltipla**. Nomeie o valor **VHDLocations** e defina Insira o URI para o compartilhamento de arquivos do Azure `\\fsprofile.file.core.windows.net\share` como o valor de dados.
+10. Clique com o botão direito do mouse em **perfis**, selecione **novo** e, em seguida, selecione **valor de cadeia de caracteres múltipla**. Nomeie o valor **VHDLocations** e defina Insira o URI para o compartilhamento de arquivos do Azure `\\fsprofile.file.core.windows.net\share` como o valor de dados.
 
     > [!div class="mx-imgBorder"]
     > ![Uma captura de tela da chave de perfis que mostra o arquivo VHDLocations. Seu valor de dados mostra o URI para o compartilhamento de arquivos do Azure.](media/multi-string-value.png)

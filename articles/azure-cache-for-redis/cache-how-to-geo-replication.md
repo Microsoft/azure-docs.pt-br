@@ -1,24 +1,28 @@
 ---
-title: Como configurar a replicação geográfica para o cache do Azure para Redis | Microsoft Docs
-description: Saiba como replicar as instâncias do Cache do Azure para Redis entre regiões geográficas.
+title: Configurar a replicação geográfica para o cache Premium do Azure para instâncias Redis
+description: Saiba como replicar seu cache do Azure para instâncias do Redis Premium em regiões do Azure
 author: yegu-ms
 ms.service: cache
 ms.topic: conceptual
-ms.date: 03/06/2019
+ms.date: 02/08/2021
 ms.author: yegu
-ms.openlocfilehash: 956e3e83686677f3eb9895354a008783df5f7dcd
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 27ccc81ddf0a771de9fb15f60820dfd3efa6146e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88003708"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100386862"
 ---
-# <a name="how-to-set-up-geo-replication-for-azure-cache-for-redis"></a>Como configurar a replicação geográfica para o cache do Azure para Redis
+# <a name="configure-geo-replication-for-premium-azure-cache-for-redis-instances"></a>Configurar a replicação geográfica para o cache Premium do Azure para instâncias Redis
 
-A replicação geográfica fornece um mecanismo para vincular duas instâncias do Cache do Azure para Redis de camada Premium. Um cache é escolhido como o cache vinculado primário e o outro como o cache vinculado secundário. O cache vinculado secundário se torna somente leitura e os dados gravados no cache primário são replicados para o cache vinculado secundário. A transferência de dados entre as instâncias de cache primária e secundária é protegida por TLS. A replicação geográfica pode ser usada para configurar um cache que abrange duas regiões do Azure. Este artigo fornece um guia para configurar a replicação geográfica para o cache do Azure da camada Premium para instâncias Redis.
+Neste artigo, você aprenderá a configurar um cache do Azure com replicação geográfica usando o portal do Azure.
+
+A replicação geográfica vincula dois caches do Azure Premium para instâncias Redis e cria um relacionamento de replicação de dados. Essas instâncias de cache geralmente estão localizadas em diferentes regiões do Azure, embora não sejam necessárias. Uma instância age como a primária e a outra como a secundária. O primário lida com solicitações de leitura e gravação e propaga as alterações para o secundário. Esse processo continua até que o link entre as duas instâncias seja removido.
 
 > [!NOTE]
-> A replicação geográfica é projetada como uma solução de recuperação de desastre. Por padrão, seu aplicativo irá gravar e ler a partir da região primária. Opcionalmente, ele pode ser configurado para ler a partir da região secundária. A replicação geográfica não fornece failover automático devido a preocupações sobre a latência de rede adicionada entre regiões se o restante do seu aplicativo permanecer na região primária. Você precisará gerenciar e iniciar o failover desvinculando o cache secundário. Isso irá promovê-lo para ser a nova instância primária.
+> A replicação geográfica é projetada como uma solução de recuperação de desastre.
+>
+>
 
 ## <a name="geo-replication-prerequisites"></a>Pré-requisitos de replicação geográfica
 
@@ -73,7 +77,7 @@ Após a configuração da replicação geográfica, as seguintes restrições se
 
     Você também pode exibir o status de vinculação na folha **Visão geral** para os caches primário e secundário.
 
-    ![Status do cache](./media/cache-how-to-geo-replication/cache-geo-location-link-status.png)
+    ![Captura de tela que realça como exibir o status de vinculação para os caches primários e secundários.](./media/cache-how-to-geo-replication/cache-geo-location-link-status.png)
 
     Quando o processo de replicação é concluído, o **Status da vinculação** é alterado para **Êxito**.
 
@@ -111,6 +115,7 @@ Após a configuração da replicação geográfica, as seguintes restrições se
 - [Por que a operação falhou quando tentei excluir meu cache vinculado?](#why-did-the-operation-fail-when-i-tried-to-delete-my-linked-cache)
 - [Qual região devo usar para meu cache vinculado secundário?](#what-region-should-i-use-for-my-secondary-linked-cache)
 - [Como funciona o failover para o cache vinculado secundário?](#how-does-failing-over-to-the-secondary-linked-cache-work)
+- [Posso configurar o firewall com a replicação geográfica?](#can-i-configure-a-firewall-with-geo-replication)
 
 ### <a name="can-i-use-geo-replication-with-a-standard-or-basic-tier-cache"></a>Posso usar a replicação geográfica com um cache de camada Standard ou Basic?
 
@@ -144,9 +149,9 @@ Sim, há suporte para a replicação geográfica de caches em VNETs com as adver
 
 - Há suporte para a replicação geográfica entre caches na mesma VNET.
 - Também há suporte para a replicação geográfica entre caches em diferentes VNETs.
-  - Se os VNETs estiverem na mesma região, você poderá conectá-los usando o [emparelhamento vnet](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) ou uma [conexão vnet a vnet do gateway de VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways#V2V).
-  - Se os VNETs estiverem em regiões diferentes, a replicação geográfica usando o emparelhamento VNET não terá suporte devido a uma restrição com balanceadores de carga internos básicos. Para obter mais informações sobre restrições de emparelhamento VNET, consulte [rede virtual – emparelhamento-requisitos e restrições](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering#requirements-and-constraints). A solução recomendada é usar uma conexão VNET a VNET do gateway de VPN.
-
+  - Se os VNETs estiverem na mesma região, você poderá conectá-los usando o [emparelhamento vnet](../virtual-network/virtual-network-peering-overview.md) ou uma [conexão vnet a vnet do gateway de VPN](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
+  - Se os VNETs estiverem em regiões diferentes, a replicação geográfica usando o emparelhamento VNET terá suporte, mas uma VM de cliente na VNET 1 (região 1) não poderá acessar o cache na VNET 2 (região 2) por meio de seu nome DNS devido a uma restrição com balanceadores de carga internos básicos. Para obter mais informações sobre restrições de emparelhamento VNET, consulte [rede virtual – emparelhamento-requisitos e restrições](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). A solução recomendada é usar uma conexão VNET a VNET do gateway de VPN.
+  
 Usando [este modelo do Azure](https://azure.microsoft.com/resources/templates/201-redis-vnet-geo-replication/), você pode implantar rapidamente dois caches replicados geograficamente em uma VNET conectada a uma conexão VNET a vnet do gateway de VPN.
 
 ### <a name="what-is-the-replication-schedule-for-redis-geo-replication"></a>O que é o cronograma de replicação para replicação geográfica do Redis?
@@ -165,7 +170,7 @@ Para obter um ponto de recuperação, [exporte](cache-how-to-import-export-data.
 
 ### <a name="can-i-use-powershell-or-azure-cli-to-manage-geo-replication"></a>Posso usar o PowerShell ou o CLI do Azure para gerenciar a replicação geográfica?
 
-Sim, a replicação geográfica pode ser gerenciada usando o portal do Azure, o PowerShell ou o CLI do Azure. Para obter mais informações, consulte os documentos do [PowerShell](https://docs.microsoft.com/powershell/module/az.rediscache/?view=azps-1.4.0#redis_cache) ou [CLI do Azure docs](https://docs.microsoft.com/cli/azure/redis/server-link?view=azure-cli-latest).
+Sim, a replicação geográfica pode ser gerenciada usando o portal do Azure, o PowerShell ou o CLI do Azure. Para obter mais informações, consulte os documentos do [PowerShell](/powershell/module/az.rediscache/?view=azps-1.4.0#redis_cache) ou [CLI do Azure docs](/cli/azure/redis/server-link?view=azure-cli-latest).
 
 ### <a name="how-much-does-it-cost-to-replicate-my-data-across-azure-regions"></a>Quanto custa para replicar meus dados entre regiões do Azure?
 
@@ -185,7 +190,12 @@ O failover automático nas regiões do Azure não tem suporte para caches com re
 
 Para iniciar um failover iniciado pelo cliente, primeiro desvincule os caches. Em seguida, altere o cliente Redis para usar o ponto de extremidade de conexão do cache secundário (anteriormente vinculado). Quando os dois caches são desvinculados, o cache secundário se torna um cache de leitura-gravação regular e aceita solicitações diretamente de clientes Redis.
 
+### <a name="can-i-configure-a-firewall-with-geo-replication"></a>Posso configurar um firewall com replicação geográfica?
+
+Sim, você pode configurar um [Firewall](./cache-configure.md#firewall) com replicação geográfica. Para que a replicação geográfica funcione junto com um firewall, verifique se o endereço IP do cache secundário foi adicionado às regras de firewall do cache primário.
+
 ## <a name="next-steps"></a>Próximas etapas
+
 Saiba mais sobre o cache do Azure para recursos do Redis.
 
 * [Cache do Azure para camadas de serviço Redis](cache-overview.md#service-tiers)

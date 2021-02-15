@@ -1,17 +1,17 @@
 ---
 title: Criptografia dupla de infraestrutura-portal do Azure-banco de dados do Azure para MySQL
 description: Saiba como configurar e gerenciar a criptografia dupla de infraestrutura para o banco de dados do Azure para MySQL.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 06/30/2020
-ms.openlocfilehash: d3076f2591718931bdab4dba9510d25fe07b2d02
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 3f9c22a690859b459b6bb748c3b1001c4aa7660d
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118753"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241745"
 ---
 # <a name="infrastructure-double-encryption-for-azure-database-for-mysql"></a>Criptografia dupla de infraestrutura para o banco de dados do Azure para MySQL
 
@@ -27,21 +27,21 @@ Siga estas etapas para criar um servidor de banco de dados do Azure para MySQL c
 
 1. Selecione **Criar um recurso** (+) no canto superior esquerdo do portal.
 
-2. Selecione **Bancos de Dados** > **Banco de Dados do Azure para MySQL**. Você também pode inserir **MySQL** na caixa de pesquisa para localizar o serviço.
+2. Selecione **Bancos de Dados** > **Banco de Dados do Azure para MySQL** . Você também pode inserir **MySQL** na caixa de pesquisa para localizar o serviço.
 
-   ![Opção do Banco de Dados do Azure para MySQL](./media/quickstart-create-mysql-server-database-using-azure-portal/2_navigate-to-mysql.png)
+   :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/2_navigate-to-mysql.png" alt-text="Opção do Banco de Dados do Azure para MySQL":::
 
 3. Forneça as informações básicas do servidor. Selecione **configurações adicionais** e habilite a caixa de seleção **criptografia dupla de infraestrutura** para definir o parâmetro.
 
-    ![Seleções do banco de dados do Azure para MySQL](./media/howto-double-encryption/infrastructure-encryption-selected.png)
+    :::image type="content" source="./media/howto-double-encryption/infrastructure-encryption-selected.png" alt-text="Opção do Banco de Dados do Azure para MySQL":::
 
-4. Selecione **revisão + criar** para provisionar o servidor.
+4. Selecione **Examinar + criar** para provisionar o servidor.
 
-    ![Resumo do banco de dados do Azure para MySQL](./media/howto-double-encryption/infrastructure-encryption-summary.png)
+    :::image type="content" source="./media/howto-double-encryption/infrastructure-encryption-summary.png" alt-text="Opção do Banco de Dados do Azure para MySQL":::
 
 5. Depois que o servidor for criado, você poderá validar a criptografia dupla da infraestrutura verificando o status na folha do servidor de **criptografia de dados** .
 
-    ![Validação do banco de dados do Azure para MySQL](./media/howto-double-encryption/infrastructure-encryption-validation.png)
+    :::image type="content" source="./media/howto-double-encryption/infrastructure-encryption-validation.png" alt-text="Opção do Banco de Dados do Azure para MySQL":::
 
 ## <a name="create-an-azure-database-for-mysql-server-with-infrastructure-double-encryption---cli"></a>Criar um servidor de banco de dados do Azure para MySQL com a infraestrutura de criptografia dupla-CLI
 
@@ -52,7 +52,7 @@ Este exemplo cria um grupo de recursos chamado `myresourcegroup` no `westus` loc
 ```azurecli-interactive
 az group create --name myresourcegroup --location westus
 ```
-O exemplo a seguir cria um servidor MySQL 5.7 no Oeste dos EUA chamado `mydemoserver` em seu grupo de recursos `myresourcegroup` com o logon de administrador de servidor `myadmin`. Esse é um servidor **Gen 4 de ** **Uso Geral** com **2 vCores**. Isso também habilitará a criptografia dupla de infraestrutura para o servidor criado. Substitua o `<server_admin_password>` com seu próprio valor.
+O exemplo a seguir cria um servidor MySQL 5.7 no Oeste dos EUA chamado `mydemoserver` em seu grupo de recursos `myresourcegroup` com o logon de administrador de servidor `myadmin`. Esse é um servidor **Gen 4 de** **Uso Geral** com **2 vCores** . Isso também habilitará a criptografia dupla de infraestrutura para o servidor criado. Substitua o `<server_admin_password>` com seu próprio valor.
 
 ```azurecli-interactive
 az mysql server create --resource-group myresourcegroup --name mydemoserver  --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen5_2 --version 5.7 --infrastructure-encryption <Enabled/Disabled>

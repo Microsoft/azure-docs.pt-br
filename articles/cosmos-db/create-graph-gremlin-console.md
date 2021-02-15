@@ -1,20 +1,21 @@
 ---
 title: 'Consulta com a API do Gremlin do Azure Cosmos DB usando o Console do Gremlin TinkerPop: Tutorial'
 description: Um início rápido do Azure Cosmos DB para criar vértices, bordas e consultas usando a API do Gremlin do Azure Cosmos DB.
-author: luisbosquez
+author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: quickstart
 ms.date: 07/10/2020
-ms.author: lbosq
-ms.openlocfilehash: e1ce632a04269704b498a69e1a0dd4fe72e00c87
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.author: chrande
+ms.openlocfilehash: 20cb4cea52317022aea8a5b9e4b8280f8b88ff85
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543768"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93361504"
 ---
 # <a name="quickstart-create-query-and-traverse-an-azure-cosmos-db-graph-database-using-the-gremlin-console"></a>Início Rápido: Criar, consultar e percorrer um banco de dados de grafo do Azure Cosmos DB usando o console do Gremlin
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 > [!div class="op_single_selector"]
 > * [Console do Gremlin](create-graph-gremlin-console.md)
@@ -52,22 +53,22 @@ Também é necessário instalar o [Console do Gremlin](https://tinkerpop.apache.
 ## <a name="connect-to-your-app-servicegraph"></a><a id="ConnectAppService"></a>Conectar-se ao serviço de aplicativo/Graph
 
 1. Antes de iniciar o console do Gremlin, crie ou modifique seu arquivo de configuração remote-secure.yaml no diretório `apache-tinkerpop-gremlin-console-3.2.5/conf`.
-2. Preencha as configurações de *host*, *porta*, *nome de usuário*, *senha*, *connectionPool* e *serializador* como definido nesta tabela:
+2. Preencha as configurações de *host* , *porta* , *nome de usuário* , *senha* , *connectionPool* e *serializador* como definido nesta tabela:
 
     Configuração|Valor sugerido|Descrição
     ---|---|---
-    hosts|[*nome-da-conta*.**gremlin**.cosmos.azure.com]|Consulte a seguinte captura de tela. Esse é o valor de **URI Gremlin** na página Visão geral do portal do Azure, entre colchetes, com a sequência :443/ à direita removida. Observação: é preciso usar o valor Gremlin e **não** o URI que termina com [*nome-da-conta*.documents.azure.com], o qual provavelmente resultaria em uma exceção "O host não respondeu em tempo hábil" ao tentar executar as consultas de Gremlin posteriormente. 
+    hosts|[ *nome-da-conta*. **gremlin**.cosmos.azure.com]|Consulte a seguinte captura de tela. Esse é o valor de **URI Gremlin** na página Visão geral do portal do Azure, entre colchetes, com a sequência :443/ à direita removida. Observação: é preciso usar o valor Gremlin e **não** o URI que termina com [ *nome-da-conta*.documents.azure.com], o qual provavelmente resultaria em uma exceção "O host não respondeu em tempo hábil" ao tentar executar as consultas de Gremlin posteriormente. 
     porta|443|Definir para 443.
     Nome de Usuário|*Seu nome de usuário*|O recurso do formulário `/dbs/<db>/colls/<coll>` onde `<db>` é o nome do banco de dados e `<coll>` é o nome da coleção.
     password|*Sua chave primária*| Confira a segunda captura de tela abaixo. Esta é sua chave primária, que você pode recuperar da página de chaves do portal do Azure, na caixa de chave Primária. Use o botão de cópia no lado esquerdo da caixa para copiar o valor.
     connectionPool|{enableSsl: true}|Sua configuração do pool de conexão para TLS.
     serializador|{ className: org.apache.tinkerpop.gremlin.<br>driver.ser.GraphSONMessageSerializerV2d0,<br> config: { serializeResultToString: true }}|Defina para esse valor e exclua todas as quebras de linha `\n` ao colar o valor.
 
-   Para obter o valor de hosts, copie o valor **URI do Gremlin** na página **Visão geral**:
+   Para obter o valor de hosts, copie o valor **URI do Gremlin** na página **Visão geral** :
 
    :::image type="content" source="./media/create-graph-gremlin-console/gremlin-uri.png" alt-text="Exibir e copiar o valor URI do Gremlin na página Visão geral no portal do Azure":::
 
-   Para obter o valor da senha, copie a **Chave Primária** da página **Chaves**:
+   Para obter o valor da senha, copie a **Chave Primária** da página **Chaves** :
 
    :::image type="content" source="./media/create-graph-gremlin-console/keys.png" alt-text="Exibir e copiar sua chave primária no portal do Azure, página Chaves":::
 
@@ -108,7 +109,7 @@ g.V().count()
 
 ## <a name="create-vertices-and-edges"></a>Criar vértices e bordas
 
-Vamos começar pela adição de quatro vértices pessoais para *Paulo*, *Maria Eduarda*, *Valentina*, *Pedro* e *Davi*.
+Vamos começar pela adição de quatro vértices pessoais para *Paulo* , *Maria Eduarda* , *Valentina* , *Pedro* e *Davi*.
 
 Entrada (Thomas):
 

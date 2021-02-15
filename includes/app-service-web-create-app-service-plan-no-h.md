@@ -9,11 +9,11 @@ ms.date: 02/02/2018
 ms.author: cephalin
 ms.custom: include file
 ms.openlocfilehash: add73e1399b11d4bd8f039c72bb4e5e9f2b82cfa
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82085154"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997981"
 ---
 No Cloud Shell, crie um plano do Serviço de Aplicativo com o comando [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest).
 

@@ -1,9 +1,9 @@
 ---
-title: Transmitir arquivos de vídeo com os Serviços de Mídia do Azure - .NET | Microsoft Docs
-description: Execute as etapas deste tutorial para criar uma nova conta dos Serviços de Mídia do Azure, codificar um arquivo e transmiti-lo para o Player de Mídia do Azure.
+title: Transmitir arquivos de vídeo com os Serviços de Mídia do Azure – .NET
+description: Siga as etapas deste tutorial para usar o .NET para criar uma conta dos Serviços de Mídia do Azure, codificar um arquivo e transmiti-lo para o Player de Mídia do Azure.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 keywords: serviços de mídia do azure, stream
@@ -11,16 +11,18 @@ ms.service: media-services
 ms.workload: media
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 08/19/2019
-ms.author: juliako
-ms.openlocfilehash: 0ba272d76cade53529b198876f0ad06c4ae79649
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: dc6b240a2d97e0b4aa313f858b3965f241dd0b08
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87074522"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98898182"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---net"></a>Tutorial: Codificar um arquivo remoto baseado em URL e transmitir o vídeo – .NET
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Este tutorial mostra como é fácil codificar e iniciar a transmissão de vídeos por streaming em vários navegadores e dispositivos usando os Serviços de Mídia do Azure. Um conteúdo de entrada pode ser especificado usando URLs HTTPS, URLs SAS ou caminhos para arquivos localizados no Armazenamento de Blobs do Azure.
 O exemplo neste tópico codifica o conteúdo disponibilizado por meio de uma URL HTTPS. Observe que, no momento, o AMS v3 não dá suporte à codificação de transferência em partes sobre URLs HTTPS.
@@ -68,7 +70,7 @@ Quando você executa o aplicativo, as URLs que podem ser usadas para reproduzir 
 1. Pressione Ctrl + F5 para executar o aplicativo *EncodeAndStreamFiles*.
 2. Escolha o protocolo **HLS** da Apple (termina com *manifest(format=m3u8-aapl)* ) e copie a URL de streaming do console.
 
-![Saída](./media/stream-files-tutorial-with-api/output.png)
+![Captura de tela da saída do aplicativo EncodeAndStreamFiles no Visual Studio mostrando três URLs de streaming para uso no Player de Mídia do Azure.](./media/stream-files-tutorial-with-api/output.png)
 
 No exemplo de [código-fonte](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/Program.cs), você pode ver como a URL é criada. Para criá-la, você precisa concatenar o nome do host do ponto de extremidade de streaming e o caminho do localizador de streaming.  
 

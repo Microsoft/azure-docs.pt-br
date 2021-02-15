@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2020
-ms.openlocfilehash: 14f7b5546d30d98adf4a14408882c972687a2d71
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: bde1c503d0aaaff1afcee67a26245d5021c43bb4
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86498790"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807743"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Solução de gerenciamento do Office 365 no Microsoft Azure | (Versão prévia)
 
@@ -95,7 +95,7 @@ ms.locfileid: "86498790"
 > - [Detecte ameaças prontas para uso](../../sentinel/tutorial-detect-threats-built-in.md)
 > - [Criar regras analíticas personalizadas para detectar ameaças suspeitas](../../sentinel/tutorial-detect-threats-custom.md)
 > - [Monitorar seus dados](../../sentinel/tutorial-monitor-your-data.md)
-> - [Investigue incidentes com o Azure Sentinel](../../sentinel/tutorial-investigate-cases.md)
+> - [Investigar incidentes com o Azure Sentinel](../../sentinel/tutorial-investigate-cases.md)
 > - [Configurar respostas de ameaças automatizadas no Azure Sentinel](../../sentinel/tutorial-respond-threats-playbook.md)
 > - [Comunidade GitHub do Azure Sentinel](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks)
 > 
@@ -104,12 +104,12 @@ ms.locfileid: "86498790"
 > 
 > ###    <a name="q-what-will-happen-on-october-31-do-i-need-to-offboard-beforehand"></a>P: o que acontecerá em 31 de outubro? Eu preciso transferir com antecedência?
 > 
-> - Você não poderá receber dados da solução do **Office365** . A solução não estará mais disponível no Marketplace
+> - Você não poderá receber dados da solução do **Office365** . A solução será removida do seu espaço de trabalho e não estará mais disponível no Marketplace.
 > - Para clientes do Azure Sentinel, a solução de espaço de trabalho Log Analytics **Office365** será incluída na solução **SecurityInsights** do Azure Sentinel.
-> - Se você não transferir sua solução manualmente, seus dados serão desconectados automaticamente em 31 de outubro.
+> - Se você não transferir sua solução manualmente até 31 de outubro, seus dados serão desconectados automaticamente e a tabela **OfficeActivity** será removida. Mesmo assim, você ainda poderá restaurar a tabela quando habilitar o conector do Office 365 no Azure Sentinel, conforme explicado abaixo.
 > 
 > ### <a name="q-will-my-data-transfer-to-the-new-solution"></a>P: meus dados serão transferidos para a nova solução?
-> Sim. Quando você remove a solução do **Office 365** do seu espaço de trabalho, seus dados ficarão temporariamente indisponíveis porque o esquema é removido. Quando você habilita o novo conector do **Office 365** no sentinela, o esquema é restaurado para o espaço de trabalho e todos os dados já coletados ficarão disponíveis. 
+> Sim. Quando você remove a solução do **Office 365** do seu espaço de trabalho, seus dados ficarão temporariamente indisponíveis porque o esquema é removido. Quando você habilita o novo conector do **Office 365** no Azure Sentinel, o esquema é restaurado para o espaço de trabalho e todos os dados já coletados ficarão disponíveis. 
  
 
 A solução de gerenciamento do Office 365 permite que você monitore o ambiente do Office 365 no Azure Monitor.
@@ -272,7 +272,7 @@ As propriedades a seguir são comuns a todos os registros do Office 365.
 | ResultStatus | Indica se a ação (especificada na propriedade Operation) foi bem-sucedida ou não. Os valores possíveis são Succeeded, PartiallySucceeded ou Failed. Para a atividade de administração do Exchange, o valor é True ou False. |
 | UserId | O nome UPN do usuário que executou a ação que resultou em o registro ser incluído em log. Por exemplo, my_name@my_domain_name. Observe que os registros para a atividade realizada por contas do sistema (como SHAREPOINT\system ou NTAUTHORITY\SYSTEM) também são incluídos. | 
 | UserKey | Uma ID alternativa para o usuário identificado na propriedade UserId.  Por exemplo, essa propriedade é preenchida com a PUID (ID exclusiva do passport) para eventos executadas por usuários no SharePoint, no OneDrive for Business e no Exchange. Essa propriedade também pode especificar o mesmo valor que a propriedade UserID para eventos que ocorrem em outros serviços e eventos executados por contas do sistema|
-| UserType | O tipo de usuário que realizou a operação.<br><br>Admin<br>Aplicativo<br>DcAdmin<br>Regular<br>Reservado<br>ServicePrincipal<br>Sistema |
+| UserType | O tipo de usuário que realizou a operação.<br><br>Administrador<br>Aplicativo<br>DcAdmin<br>Regular<br>Reservado<br>ServicePrincipal<br>Sistema |
 
 
 ### <a name="azure-active-directory-base"></a>Base do Azure Active Directory

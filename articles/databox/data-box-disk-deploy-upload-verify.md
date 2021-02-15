@@ -7,14 +7,14 @@ ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
 ms.localizationpriority: high
-ms.date: 09/04/2019
+ms.date: 09/17/2019
 ms.author: alkohli
-ms.openlocfilehash: 3f89d713003f1f4265a7ab7c467454af750fab48
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: abe09cf10e241ec95ceed767e7038cde07667fc9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84707796"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322726"
 ---
 ::: zone target="docs"
 
@@ -68,7 +68,12 @@ Verifique se seus dados estão nas contas de armazenamento antes de excluí-los 
 
       ![Grupo de recursos para discos gerenciados](media/data-box-disk-deploy-picked-up/resource-group-attached-managed-disk.png)
 
-  - Se você copiou um VHDX, ou um VHD diferencial/dinâmico, o VHDX/VHD será carregado para a conta de armazenamento de preparo como um blob de blocos. Acesse sua **conta de armazenamento de preparo > Blobs** e selecione o contêiner apropriado - StandardSSD, StandardHDD ou PremiumSSD. Os VHDX/VHDs devem aparecer como blobs de blocos na conta de armazenamento de preparo.
+    > [!NOTE]
+    > Caso um blob de páginas não seja convertido com êxito em um disco gerenciado durante uma cópia de dados, ele permanecerá na conta de armazenamento e você será cobrado pelo armazenamento.
+
+  -  Se você copiou um VHDX, ou um VHD diferencial/dinâmico, o VHDX/VHD será carregado para a conta de armazenamento de preparo como um blob de blocos. Acesse sua **conta de armazenamento de preparo > Blobs** e selecione o contêiner apropriado - StandardSSD, StandardHDD ou PremiumSSD. Os VHDX/VHDs devem aparecer como blobs de blocos na conta de armazenamento de preparo.
+  
+
   
 ::: zone-end
 

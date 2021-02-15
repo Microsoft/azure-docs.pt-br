@@ -3,18 +3,21 @@ title: PISO na linguagem de consulta de Azure Cosmos DB
 description: Saiba mais sobre a função de sistema SQL de piso em Azure Cosmos DB para retornar o maior inteiro menor ou igual à expressão numérica especificada
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 04dfa6a028cf7c44bf99c665b396d51d8a0f3cef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4696b90531b63a01fd4bd9260b24b9af5c6bbd93
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78303181"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93335593"
 ---
 # <a name="floor-azure-cosmos-db"></a>FLOOR (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Retorna o maior inteiro menor ou igual à expressão numérica especificada.  
   
 ## <a name="syntax"></a>Sintaxe

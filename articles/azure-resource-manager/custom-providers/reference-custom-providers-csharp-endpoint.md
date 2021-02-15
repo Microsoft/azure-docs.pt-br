@@ -5,13 +5,13 @@ ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.author: jobreen
 author: jjbfour
-ms.date: 06/20/2019
-ms.openlocfilehash: ce329e7cd8db73e217162fa0bc1bb433d57e9971
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 01/14/2021
+ms.openlocfilehash: 3b951cd0878bda4a3f65f9208f6997419a10d537
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935629"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98200253"
 ---
 # <a name="custom-provider-c-restful-endpoint-reference"></a>Referência do ponto de extremidade do C# RESTful do provedor personalizado
 
@@ -24,7 +24,7 @@ O código a seguir funciona com um aplicativo de funções do Azure. Para saber 
 ```csharp
 #r "Newtonsoft.Json"
 #r "Microsoft.WindowsAzure.Storage"
-#r "../bin/Microsoft.Azure.Management.ResourceManager.Fluent.dll"
+#r "../bin/Microsoft.Azure.Management.ResourceManager.Fluent"
 
 using System;
 using System.Net;

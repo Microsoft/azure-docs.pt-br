@@ -7,15 +7,17 @@ author: TheovanKraay
 ms.author: thvankra
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 05/18/2020
-ms.openlocfilehash: e30bee23b634db12def62e906183c6087c6613e6
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.date: 10/01/2020
+ms.custom: devx-track-dotnet
+ms.openlocfilehash: f228386d8cf0e708080b7f6c5f6cef7258b2eafb
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044287"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099973"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-net-core-and-azure-cosmos-db"></a>Início Rápido: Criar um aplicativo do Cassandra com o .NET Core e o Azure Cosmos DB
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](create-cassandra-dotnet.md)
@@ -154,6 +156,12 @@ Agora, volte ao portal do Azure para obter informações sobre a cadeia de conex
     A linha 14 do Program.cs agora deve ser semelhante a 
 
     `private const string Password = "2Ggkr662ifxz2Mg...==";`
+
+1. Volte ao portal e copie o valor do PONTO DE CONTATO. Cole o valor do PONTO DE CONTATO do portal sobre `<PROVIDE>` na linha 16.
+
+    A linha 16 de Program.cs agora será semelhante a 
+
+    `private const string CASSANDRACONTACTPOINT = "quickstart-cassandra-api.cassandra.cosmos.azure.com";`
 
 1. Salve o arquivo Program.cs.
     

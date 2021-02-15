@@ -7,14 +7,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: tutorial
-ms.date: 08/20/2020
+ms.date: 12/02/2020
 ms.author: banders
-ms.openlocfilehash: 4adb3bb1408357d40e3869c2a0d251b11d015195
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: b5de81f5eaf76c16c1ea8fc78075c4567c77aeee
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88689517"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96531965"
 ---
 # <a name="tutorial-review-your-microsoft-customer-agreement-invoice"></a>Tutorial: Examinar sua fatura do Contrato de Cliente da Microsoft
 
@@ -47,13 +47,15 @@ Verifique o tipo de contrato para determinar se você tem acesso a uma conta de 
 
 Na portal do Azure, digite *gerenciamento de custos + cobrança* na caixa de pesquisa e, em seguida, selecione **Gerenciamento de Custos + Cobrança**.
 
-![Captura de tela que mostra a pesquisa do portal do Azure para gerenciamento de custos + cobrança](./media/review-customer-agreement-bill/billing-search-cost-management-billing.png)
+![A captura de tela mostra a pesquisa de gerenciamento de custos e cobrança no portal do Azure.](./media/review-customer-agreement-bill/billing-search-cost-management-billing.png)
 
 Caso você tenha acesso a apenas um escopo do orçamento, selecione **Propriedades** no lado esquerdo. Você tem acesso a uma conta de cobrança para um Contrato de Cliente da Microsoft se o tipo de conta de cobrança é **Contrato de Cliente da Microsoft**.
 
 ![Captura de tela mostrando o Contrato de Cliente da Microsoft na página de propriedades](./media/review-customer-agreement-bill/billing-mca-property.png)
 
 Caso tenha acesso a vários escopos do orçamento, verifique o tipo na coluna da conta de cobrança. Você tem acesso a uma conta de cobrança para um Contrato de Cliente da Microsoft se o tipo de conta de cobrança para um dos escopos é **Contrato de Cliente da Microsoft**.
+
+Na página de escopos do orçamento, selecione **Escopos do orçamento** e a conta de cobrança, que será usada no pagamento do uso das assinaturas. A conta de cobrança deve ser do tipo **Contrato de Cliente da Microsoft**.
 
 ![Captura de tela mostrando o Contrato de Cliente da Microsoft na página de lista de contas de cobrança](./media/review-customer-agreement-bill/billing-mca-in-the-list.png)
 
@@ -106,7 +108,7 @@ Selecione a guia **Resumo** na parte superior da tela.
 
 A seção de encargos exibe os encargos do mês atual e do mês passado.
 
-![Captura de tela que mostra a pesquisa do portal do Azure para gerenciamento de custos + cobrança](./media/review-customer-agreement-bill/mca-billing-profile-summary.png)
+![A captura de tela mostra um resumo do perfil de cobrança.](./media/review-customer-agreement-bill/mca-billing-profile-summary.png)
 
 Os encargos do mês atual são os encargos pendentes do mês atual e são faturados quando a fatura é gerada para o mês. Se a fatura do mês passado ainda não foi gerada, os encargos do mês passado também ficam pendentes e são exibidos em sua próxima fatura.
 
@@ -138,7 +140,7 @@ Selecione **Todas as assinaturas** no lado esquerdo da página.
 
 A página de assinaturas do Azure exibe os encargos do mês atual e do mês passado para cada assinatura do perfil de cobrança. Os encargos do mês atual são os encargos pendentes do mês atual e são faturados quando a fatura é gerada para o mês. Se a fatura do mês passado ainda não foi gerada, os encargos do mês passado também ficam pendentes.
 
-![Captura de tela que mostra a lista de assinaturas do Azure para o perfil de cobrança](./media/review-customer-agreement-bill/mca-billing-profile-subscriptions-list.png)
+![A captura de tela mostra assinaturas com encargos do mês atual e encargos do mês passado.](./media/review-customer-agreement-bill/mca-billing-profile-subscriptions-list.png)
 
 ## <a name="analyze-your-azure-usage-charges"></a>Analisar os encargos de uso do Azure
 
@@ -146,7 +148,7 @@ Use o arquivo CSV de uso e encargos do Azure para analisar os encargos com base 
 
 ### <a name="download-your-invoice-and-usage-details"></a>Baixar a fatura e os detalhes de uso
 
-Dependendo de seu acesso, talvez você precise selecionar uma conta de cobrança ou um perfil de cobrança no Gerenciamento de Custos + Cobrança. No menu esquerdo, selecione **Faturas** em **Cobrança**. Na grade da fatura, encontre a linha da fatura que você deseja baixar. Clique no símbolo de download ou nas reticências (...) no final da linha. Na caixa **Baixar**, baixe o arquivo de detalhes de uso e a fatura.
+Dependendo de seu acesso, talvez você precise selecionar uma conta de cobrança ou um perfil de cobrança no Gerenciamento de Custos + Cobrança. No menu esquerdo, selecione **Faturas** em **Cobrança**. Na grade da fatura, encontre a linha da fatura que você deseja baixar. Selecione o símbolo de download ou as reticências (...) no final da linha. Na caixa **Baixar**, baixe o arquivo de detalhes de uso e a fatura.
 
 ### <a name="view-detailed-usage-by-invoice-section"></a>Exibir o uso detalhado por seção da fatura
 
@@ -172,7 +174,7 @@ Filtre o arquivo CSV de uso e encargos do Azure para reconciliar os encargos de 
 
 A imagem a seguir mostra a lista de assinaturas no portal do Azure.
 
-![Captura de tela que mostra a lista de assinaturas do Azure para o perfil de cobrança](./media/review-customer-agreement-bill/mca-billing-profile-subscriptions-list-highlighted.png)
+![A captura de tela mostra a lista de assinaturas no portal do Azure com uma assinatura destacada.](./media/review-customer-agreement-bill/mca-billing-profile-subscriptions-list-highlighted.png)
 
 Filtre a coluna **subscriptionName** no arquivo CSV de uso e encargos do Azure para **WA_Subscription** para exibir os encargos de uso detalhado de WA_Subscription.
 

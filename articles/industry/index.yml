@@ -12,10 +12,10 @@ metadata:
   ms.author: dacoulte
   ms.date: 11/04/2019
   ms.openlocfilehash: 1ea17f2aef7cd2dc55b93db7e9114adcd534d004
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 03/25/2020
+  ms.lasthandoff: 10/09/2020
   ms.locfileid: "75435160"
 highlightedContent:
   items:
@@ -43,11 +43,11 @@ productDirectory:
     imageSrc: ../media/index/industry-health.png
     summary: Soluções e casos de uso para o setor de Saúde e Ciências Naturais.
     url: /azure/industry-marketing/health/
-  - title: Manufatura
+  - title: Produção
     imageSrc: ../media/index/industry-manufacturing.png
     summary: Soluções e casos de uso para o setor de manufatura.
     url: /azure/industry-marketing/manufacturing/
-  - title: Varejo
+  - title: Retail
     imageSrc: ../media/index/industry-retail.png
     summary: Soluções e casos de uso para o setor de varejo.
     url: /azure/industry-marketing/retail/

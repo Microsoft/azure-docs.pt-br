@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d5423a61c8febee72f32935f3dee4e9f9e868630
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89049070"
 ---
 # <a name="conditional-access-user-risk-based-conditional-access"></a>Acesso condicional: acesso condicional baseado em risco do usuário
@@ -30,7 +30,7 @@ Há dois locais em que essa política pode ser atribuída. As organizações dev
 1. Procure **Azure Active Directory** > **Segurança** > **Acesso Condicional**.
 1. Selecione **Nova política**.
 1. Dê um nome à sua política. Recomendamos que as organizações criem um padrão significativo para os nomes de suas políticas. Para obter mais informações, [defina os padrões de nomenclatura para suas políticas](./plan-conditional-access.md#set-naming-standards-for-your-policies).
-1. Em **Atribuições**, selecione **Usuários e grupos**.
+1. Em **Atribuições**, selecione **Usuários e Grupos**.
    1. Em **Incluir**, selecione **Todos os usuários**.
    1. Em **Excluir**, selecione **Usuários e grupos** e escolha o acesso de emergência ou as contas de interrupção da sua organização. 
    1. Selecione **Concluído**.

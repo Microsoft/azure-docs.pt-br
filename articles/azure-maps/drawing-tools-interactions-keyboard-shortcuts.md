@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: fb8a1e1a8c29086553500bdad2e4604d1e1ef471
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b609a21348222150faf5fb828f2cc38ca6658f5d
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77198285"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895810"
 ---
 # <a name="interaction-types-and-keyboard-shortcuts-in-the-drawing-tools-module"></a>Tipos de interação e atalhos de teclado no módulo ferramentas de desenho
 
@@ -21,9 +21,9 @@ Este artigo descreve todas as diferentes maneiras de desenhar e editar formas us
 
 O Gerenciador de desenho dá suporte a três maneiras diferentes de interagir com o mapa, para desenhar formas.
 
-* `click`-As coordenadas são adicionadas quando o mouse ou toque é clicado.
-* `freehand `-As coordenadas são adicionadas quando o mouse ou toque é arrastado no mapa.
-* `hybrid`-As coordenadas são adicionadas quando o mouse ou toque é clicado ou arrastado.
+* `click` -As coordenadas são adicionadas quando o mouse ou toque é clicado.
+* `freehand ` -As coordenadas são adicionadas quando o mouse ou toque é arrastado no mapa.
+* `hybrid` -As coordenadas são adicionadas quando o mouse ou toque é clicado ou arrastado.
 
 ## <a name="how-to-draw-shapes"></a>Como desenhar formas
 
@@ -146,7 +146,7 @@ As ferramentas de desenho dão suporte a atalhos de teclado. Esses atalhos de te
 Saiba mais sobre as classes no módulo ferramentas de desenho:
 
 > [!div class="nextstepaction"]
-> [Gerenciador de desenho](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager?view=azure-node-latest)
+> [Gerenciador de desenho](/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager)
 
 > [!div class="nextstepaction"]
-> [Barra de ferramentas desenho](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar?view=azure-node-latest)
+> [Barra de ferramentas desenho](/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar)

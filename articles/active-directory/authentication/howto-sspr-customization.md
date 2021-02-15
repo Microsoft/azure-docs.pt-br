@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 07/17/2020
-ms.author: iainfou
-author: iainfoulds
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8690b1a4b8527a397fcf4c04892e167b5332358d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3766db0d5070f15216ac612353e2c25737ad092a
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87035393"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96741619"
 ---
 # <a name="customize-the-user-experience-for-azure-active-directory-self-service-password-reset"></a>Personalizar a experiência do usuário para Azure Active Directory redefinição de senha de autoatendimento
 
@@ -50,13 +50,13 @@ O email de contato padrão é enviado aos destinatários na seguinte ordem:
 
 Em todos os casos, no máximo 100 destinatários serão notificados.
 
-Para obter mais informações sobre as diferentes funções de administrador e sobre como atribuí-las, consulte [Atribuindo funções de administrador no Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).
+Para obter mais informações sobre as diferentes funções de administrador e sobre como atribuí-las, consulte [Atribuindo funções de administrador no Azure Active Directory](../roles/permissions-reference.md).
 
 ### <a name="disable-contact-your-administrator-emails"></a>Desabilitar os emails "Contate o administrador"
 
 Se sua organização não deseja notificar os administradores sobre solicitações de redefinição de senha, as seguintes opções de configuração podem ser usadas:
 
-* Personalizar o link de assistência técnica para fornecer uma URL da Web ou um endereço mailto: que os usuários podem usar para obter assistência. Esta opção está em **Password Reset**  >  **Customization**  >  **email ou URL do helpdesk personalizado de**redefinição de senha.
+* Personalizar o link de assistência técnica para fornecer uma URL da Web ou um endereço mailto: que os usuários podem usar para obter assistência. Esta opção está em **Password Reset**  >  **Customization**  >  **email ou URL do helpdesk personalizado de** redefinição de senha.
 * Habilite a redefinição de senha de autoatendimento para todos os usuários. Essa opção está em Propriedades de **redefinição de senha**  >  **Properties**. Se você não quiser que os usuários redefinam as próprias senhas, poderá definir o escopo de acesso como um grupo vazio. *Não recomendamos essa opção.*
 
 ## <a name="customize-the-sign-in-page-and-access-panel"></a>Personalizar a página de entrada e o painel de acesso
@@ -67,8 +67,8 @@ Os gráficos que escolher são mostrados nas seguintes circunstâncias:
 
 * Depois que um usuário inserir seu nome de usuário
 * Se o usuário acessar a URL personalizada:
-   * Passando o `whr` parâmetro para a página de redefinição de senha, como`https://login.microsoftonline.com/?whr=contoso.com`
-   * Passando o `username` parâmetro para a página de redefinição de senha, como`https://login.microsoftonline.com/?username=admin@contoso.com`
+   * Passando o `whr` parâmetro para a página de redefinição de senha, como `https://login.microsoftonline.com/?whr=contoso.com`
+   * Passando o `username` parâmetro para a página de redefinição de senha, como `https://login.microsoftonline.com/?username=admin@contoso.com`
 
 ### <a name="directory-name"></a>Nome do diretório
 
@@ -91,4 +91,4 @@ Set-ADFSGlobalWebContent -SigninPageDescriptionText "<p><a href='https://passwor
 
 Para entender o uso de SSPR em seu ambiente, consulte [Opções de relatório para o gerenciamento de senhas do Azure ad](howto-sspr-reporting.md).
 
-Se você ou os usuários tiverem problemas com o SSPR, consulte [solucionar problemas de redefinição de senha de autoatendimento](active-directory-passwords-troubleshoot.md)
+Se você ou os usuários tiverem problemas com o SSPR, consulte [solucionar problemas de redefinição de senha de autoatendimento](./troubleshoot-sspr.md)

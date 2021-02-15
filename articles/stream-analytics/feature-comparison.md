@@ -1,21 +1,21 @@
 ---
 title: Comparação de recursos do Azure Stream Analytics
 description: Este artigo compara os recursos com suporte para trabalhos Azure Stream Analytics nuvem e IoT Edge no portal do Azure, no Visual Studio e no Visual Studio Code.
-author: mamccrea
-ms.author: mamccrea
+author: an-emma
+ms.author: raan
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: b169a067f05de422b714e18a4d7ebb9c9e7f0428
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 037bd8bc823cd8c77241d0ca25174e29d25149b9
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82133492"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020529"
 ---
 # <a name="azure-stream-analytics-feature-comparison"></a>Comparação de recursos do Azure Stream Analytics
 
-Com o Azure Stream Analytics, você pode criar soluções de streaming na nuvem e no IoT Edge usando [portal do Azure](stream-analytics-quick-create-portal.md), [Visual Studio](stream-analytics-quick-create-vs.md)e [Visual Studio Code](quick-create-vs-code.md). As tabelas neste artigo mostram quais recursos têm suporte em cada plataforma para ambos os tipos de trabalho.
+Com o Azure Stream Analytics, você pode criar soluções de streaming na nuvem e no IoT Edge usando [portal do Azure](stream-analytics-quick-create-portal.md), [Visual Studio](stream-analytics-quick-create-vs.md)e [Visual Studio Code](quick-create-visual-studio-code.md). As tabelas neste artigo mostram quais recursos têm suporte em cada plataforma para ambos os tipos de trabalho.
 
 > [!NOTE]
 > As ferramentas do Visual Studio e do Visual Studio Code não são compatíveis com trabalhos nas regiões Leste da China, Norte da China, Alemanha Central e Nordeste da Alemanha.
@@ -44,7 +44,7 @@ Com o Azure Stream Analytics, você pode criar soluções de streaming na nuvem 
 |Função de código personalizado C# e desserializador|Modo somente leitura|Sim|Não|
 |UDF e UDA do JavaScript     |Sim         |Sim         |Somente Windows         |
 |Serviço Machine Learning     |Sim        |Sim         |Não         |
-|Machine Learning Studio     |Sim, mas a consulta não pode ser testada        |Sim |Não         |
+|Azure Machine Learning Studio (clássico)|Sim, mas a consulta não pode ser testada        |Sim |Não         |
 |Nível de Compatibilidade     |1.0</br>1,1</br>1,2 (padrão)         |1.0</br>1,1</br>1,2 (padrão)           |1.0</br>1,1</br>1,2 (padrão)           |
 |Funções internas de detecção de anomalias baseadas em ML     |Sim         |Sim         |Sim         |
 |Funções geoespaciais internas     |Sim         |Sim         |Sim         |

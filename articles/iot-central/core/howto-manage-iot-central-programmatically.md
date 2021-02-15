@@ -7,12 +7,12 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 05/19/2020
 ms.topic: how-to
-ms.openlocfilehash: ba0ee0a610299bbe6b7e550f204cd2fd50d6d71a
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 773793c7681890098fea1a37cc5b9912c0ecb75c
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83748625"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122987"
 ---
 # <a name="manage-iot-central-programmatically"></a>Gerenciar IoT Central de forma programática
 
@@ -35,7 +35,7 @@ A tabela a seguir lista os repositórios do SDK e os comandos de instalação do
 
 ## <a name="samples"></a>Exemplos
 
-O repositório de [exemplos do SDK ARM do Azure IoT Central](https://docs.microsoft.com/samples/azure-samples/azure-iot-central-arm-sdk-samples/azure-iot-central-arm-sdk-samples/) contém exemplos de código para várias linguagens de programação que mostram como criar, atualizar, listar e excluir aplicativos do Azure IoT Central.
+O repositório de [exemplos do SDK ARM do Azure IoT Central](/samples/azure-samples/azure-iot-central-arm-sdk-samples/azure-iot-central-arm-sdk-samples/) contém exemplos de código para várias linguagens de programação que mostram como criar, atualizar, listar e excluir aplicativos do Azure IoT Central.
 
 ## <a name="next-steps"></a>Próximas etapas
 

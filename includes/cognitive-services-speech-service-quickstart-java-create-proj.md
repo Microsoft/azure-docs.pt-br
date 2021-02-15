@@ -2,14 +2,14 @@
 author: erhopf
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 02/10/2020
+ms.date: 10/15/2020
 ms.author: erhopf
-ms.openlocfilehash: be62cb9cd9f9e603e60006d5482b59ed37a516ff
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 68e83ca0fc92247a31e840e76fc8019736b71dd9
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87375337"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99215430"
 ---
 1. Inicie o Eclipse.
 
@@ -45,7 +45,7 @@ ms.locfileid: "87375337"
 
      [!code-xml[POM Repositories](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-microphone/pom.xml#repositories)]
 
-   * Adicione também um elemento `dependencies`, com o SDK de Fala versão 1.13.0 como uma dependência:
+   * Adicione também um elemento `dependencies`, com o SDK de Fala versão 1.15.0 como uma dependência:
 
      [!code-xml[POM Dependencies](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-microphone/pom.xml#dependencies)]
 

@@ -16,12 +16,12 @@ ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 327d365cd1b110a6b57b11f92e70d221d3712cfb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7454733233f1fd487d774d52a6f46187354ae05c
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85550184"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98246699"
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD Connect Sync: referência de funções
 No Azure Active Directory Sync, as funções são usadas para manipular um valor de atributo durante a sincronização.  
@@ -98,12 +98,12 @@ As funções com os tipos **mvbin**, **mvstr** e **mvref** funcionam somente nos
   * [DNComponent](#dncomponent)
   * [DNComponentRev](#dncomponentrev)
   * [EscapeDNComponent](#escapedncomponent)
-* **Período**
+* **Evaluation**
   * [IsBitSet](#isbitset)
   * [IsDate](#isdate)
   * [IsEmpty](#isempty)
   * [IsGuid](#isguid)
-  * [Énulo](#isnull)
+  * [IsNull](#isnull)
   * [IsNullOrEmpty](#isnullorempty)
   * [IsNumeric](#isnumeric)
   * [IsPresent](#ispresent)
@@ -113,33 +113,33 @@ As funções com os tipos **mvbin**, **mvstr** e **mvref** funcionam somente nos
   * [BitOr](#bitor)
   * [RandomNum](#randomnum)
 * **Vários valores**
-  * [Terá](#contains)
+  * [Contém](#contains)
   * [Count](#count)
   * [Item](#item)
   * [ItemOrNull](#itemornull)
-  * [Join](#join)
+  * [Unir](#join)
   * [RemoveDuplicates](#removeduplicates)
-  * [Divisão](#split)
+  * [Split](#split)
 * **Fluxo do Programa**
   * [Erro](#error)
   * [IIF](#iif)
   * [Selecionar](#select)
-  * [Alternar](#switch)
-  * [Posição](#where)
+  * [Switch](#switch)
+  * [Where](#where)
   * [Por](#with)
-* **Texto**
-  * [VOLUME](#guid)
+* **Text**
+  * [GUID](#guid)
   * [InStr](#instr)
   * [InStrRev](#instrrev)
   * [LCase](#lcase)
   * [Mantida](#left)
   * [Len](#len)
   * [LTrim](#ltrim)
-  * [Mid](#mid)
+  * [Meio](#mid)
   * [PadLeft preenche](#padleft)
   * [PadRight](#padright)
   * [PCase](#pcase)
-  * [Substitua](#replace)
+  * [Substituir](#replace)
   * [ReplaceChars](#replacechars)
   * [Certo](#right)
   * [RTrim](#rtrim)
@@ -660,11 +660,11 @@ Se dn for "cn=Joe,ou=Atlanta,ou=GA,ou=US, dc=contoso,dc=com" então
 * format: uma cadeia de caracteres que representa o formato para o qual converter.
 
 **Comentários**  
-Os valores possíveis para o formato podem ser encontrados aqui: [formatos de data e hora personalizados para a função de formato](https://docs.microsoft.com/dax/custom-date-and-time-formats-for-the-format-function).
+Os valores possíveis para o formato podem ser encontrados aqui: [formatos de data e hora personalizados para a função de formato](/dax/custom-date-and-time-formats-for-the-format-function).
 
 **Exemplo:**  
 
-`FormatDateTime(CDate("12/25/2007"),"yyyy-mm-dd")`  
+`FormatDateTime(CDate("12/25/2007"),"yyyy-MM-dd")`  
  resulta em "25/12/2007".
 
 `FormatDateTime(DateFromNum([pwdLastSet]),"yyyyMMddHHmmss.0Z")`  
@@ -703,7 +703,7 @@ A função GUID gera um novo GUID aleatório
 
 `num InStr(str stringcheck, str stringmatch)`  
 `num InStr(str stringcheck, str stringmatch, num start)`  
-`num InStr(str stringcheck, str stringmatch, num start , enum compare)`
+`num InStr(str stringcheck, str stringmatch, num start, enum compare)`
 
 * stringcheck: cadeia de caracteres a ser pesquisada
 * stringmatch: cadeia de caracteres a ser localizada
@@ -913,7 +913,7 @@ Se o índice estiver fora dos limites, retornará um valor Null.
 `str Join(mvstr attribute, str Delimiter)`
 
 * attribute: um atributo de valores múltiplos contendo cadeias de caracteres a serem unidas.
-* delimiter: qualquer cadeia de caracteres usada para separar as subcadeias de caracteres na cadeia de caracteres retornada. Se omitido, o caractere de espaço (" ") é usado. Se o Delimitador é uma cadeia de caracteres de comprimento zero ("") ou Nada, todos os itens na lista são concatenados sem delimitadores.
+* delimiter: qualquer cadeia de caracteres usada para separar as subcadeias de caracteres na cadeia de caracteres retornada. Se omitido, o caractere de espaço (" ") será usado. Se o Delimitador é uma cadeia de caracteres de comprimento zero ("") ou Nada, todos os itens na lista são concatenados sem delimitadores.
 
 **Comentários**  
  há paridade entre as funções Join e Split. A função Join pega uma matriz de cadeias de caracteres e une-as usando uma cadeia de caracteres do delimitador, para retornar uma única cadeia de caracteres. A função Split pega uma cadeia de caracteres e a separa no delimitador, para retornar uma matriz de cadeias de caracteres. No entanto, uma diferença importante é que a Join pode concatenar cadeias de caracteres com qualquer cadeia de caracteres delimitadora, enquanto Split só pode separar cadeias de caracteres usando um único caractere delimitador.
@@ -1275,7 +1275,7 @@ Retorna todos os valores no atributo de valores múltiplos otherPhone depois que
 `str StringFromSid(bin ObjectSID)`  
 
 ---
-### <a name="switch"></a>Alternar
+### <a name="switch"></a>Opção
 **Descrição:**  
  a função Switch é usada para retornar um único valor com base nas condições avaliadas.
 

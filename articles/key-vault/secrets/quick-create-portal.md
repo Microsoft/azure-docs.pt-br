@@ -11,59 +11,47 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/03/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 33842707f04e55b311aeeabe2f1bbc83204ec0c9
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 904c00c26171854a32234d7b6ba5cac81ac43e5c
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83652287"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936661"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>Início Rápido: definir e recuperar um segredo do Azure Key Vault usando o portal do Azure
 
-O Azure Key Vault é um serviço de nuvem que funciona como um repositório seguro de segredos. Você pode armazenar chaves, senhas, certificados e outros segredos com segurança. Os cofres de chaves do Azure podem ser criados e gerenciados por meio do portal do Azure. Neste início rápido, você cria um cofre de chaves e o utiliza para armazenar um segredo. Para saber mais sobre o Key Vault, analise a [Visão geral](../general/overview.md).
+O Azure Key Vault é um serviço de nuvem que funciona como um repositório seguro de segredos. Você pode armazenar chaves, senhas, certificados e outros segredos com segurança. Os cofres de chaves do Azure podem ser criados e gerenciados por meio do portal do Azure. Neste início rápido, você cria um cofre de chaves e o utiliza para armazenar um segredo. 
 
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Para obter mais informações, confira 
+- [Visão Geral do Key Vault](../general/overview.md)
+- [Visão Geral dos Segredos](about-secrets.md).
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+Para acessar o Azure Key Vault, você precisará de uma assinatura do Azure. Se você ainda não tiver uma assinatura, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+
+Todo o acesso a segredos ocorre por meio do Azure Key Vault. Para este início rápido, crie um cofre de chaves usando o [portal do Azure](../general/quick-create-portal.md), a [CLI do Azure](../general/quick-create-cli.md) ou o [Azure PowerShell](../general/quick-create-powershell.md).
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
 Entre no Portal do Azure em https://portal.azure.com.
 
-## <a name="create-a-vault"></a>Criar um cofre
-
-1. No menu do portal do Azure ou na página **Início**, selecione **Criar um recurso**.
-2. Digite **Key Vault** na caixa Pesquisar.
-3. Na lista de resultados, escolha **Key Vault**.
-4. Na seção Key Vault, escolha **Criar**.
-5. A seção **Criar cofre de chaves** fornece as seguintes informações:
-    - **Name**: um nome exclusivo é necessário. Para este início rápido, usamos **Contoso-vault2**. 
-    - **Assinatura**: Escolha uma assinatura.
-    - Em **Grupo de Recursos**, escolha **Criar novo** e digite um nome para o grupo de recursos.
-    - No menu suspenso **Local**, escolha um local.
-    - Deixe as outras opções em seus padrões.
-6. Depois de fornecer as informações acima, selecione **Criar**.
-
-Anote as duas propriedades listadas abaixo:
-
-* **Nome do cofre**: no exemplo, é **Contoso-Vault2**. Você usará esse nome nas outras etapas.
-* **URI do cofre**: no exemplo, é https://contoso-vault2.vault.azure.net/. Aplicativos que usam seu cofre via API REST devem usar esse URI.
-
-Nesse ponto, sua conta do Azure é a única autorizada a executar operações nesse novo cofre.
-
-![Saída após a conclusão da criação do Key Vault](../media/quick-create-portal/vault-properties.png)
-
 ## <a name="add-a-secret-to-key-vault"></a>Adicionar um segredo ao Key Vault
 
-Para adicionar um segredo ao cofre, basta executar algumas etapas adicionais. Nesse caso, adicionamos uma senha que pode ser usada por um aplicativo. A senha é chamada **ExamplePassword**, e armazenamos o valor **hVFkk965BuUv** nela.
+Para adicionar um segredo ao cofre, siga estas etapas:
 
-1. Na página de propriedades do Key Vault, selecione **Segredos**.
-2. Clique em **Gerar/Importar**.
-3. Na tela **Criar um segredo**, escolha os seguintes valores:
+1. Navegue até seu novo cofre de chaves no portal do Azure
+1. Na página de configurações do Key Vault, selecione **Segredos**.
+1. Clique em **Gerar/Importar**.
+1. Na tela **Criar um segredo**, escolha os seguintes valores:
     - **Opções de upload**: Manual.
-    - **Name**: ExamplePassword.
-    - **Valor**: hVFkk965BuUv
+    - **Nome**: Digite um nome para o segredo. O nome do segredo precisa ser exclusivo dentro de um Key Vault. O nome deve ser uma sequência de 1 a 127 caracteres, que começam com uma letra e contêm somente 0 – 9, a – z, A – Z e -. Para obter mais informações sobre Nomenclatura, confira [Objetos, identificadores e controle de versão do Key Vault](../general/about-keys-secrets-certificates.md#objects-identifiers-and-versioning)
+    - **Valor**: digite um valor para o segredo. As APIs do Key Vault aceitam e retornam valores do segredo como cadeias de caracteres. 
     - Deixe os outros valores com seus padrões. Clique em **Criar**.
 
 Quando receber a mensagem de que o segredo foi criado com êxito, clique nele na lista. 
+
+Para obter mais informações sobre atributos de segredos, confira [Sobre segredos do Azure Key Vault](./about-secrets.md)
 
 ## <a name="retrieve-a-secret-from-key-vault"></a>Recuperar um segredo do Key Vault
 
@@ -75,6 +63,8 @@ Ao clicar no botão "Mostrar o valor de segredo" no painel direito, será possí
 
 ![O valor do segredo apareceu](../media/quick-create-portal/current-version-shown.png)
 
+Você também pode usar a [CLI do Azure]() ou o [Azure PowerShell]() para recuperar o segredo criado anteriormente.
+
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
 Outros tutoriais e inícios rápidos do Key Vault complementam este início rápido. Se você planeja continuar a trabalhar com os tutoriais e inícios rápidos subsequentes, deixe esses recursos onde estão.
@@ -84,11 +74,16 @@ Quando não for mais necessário, exclua o grupo de recursos, que excluirá o Ke
 2. Selecione **Excluir grupo de recursos**.
 3. Na caixa **DIGITE O NOME DO GRUPO DE RECURSOS:** , digite o nome do grupo de recursos e selecione **Excluir**.
 
+> [!NOTE]
+> É importante observar que depois que um segredo, uma chave, um certificado ou um cofre de chaves for excluído, ele permanecerá recuperável por um período configurável de 7 a 90 dias calendários. Se nenhuma configuração for especificada, o período de recuperação padrão será definido como 90 dias. Isso fornece aos usuários tempo suficiente para perceber uma exclusão de segredo acidental e responder. Para obter mais informações sobre como excluir e recuperar cofres de chaves e objetos do cofre de chaves, confira [Visão geral da exclusão temporária do Azure Key Vault](../general/soft-delete-overview.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Neste início rápido, você criou um Key Vault e armazenou um segredo nele. Para saber mais sobre o Key Vault e como integrá-lo a seus aplicativos, confira os artigos abaixo.
 
 - Leia uma [Visão geral do Azure Key Vault](../general/overview.md)
+- Leia [Proteger o acesso a um Key Vault](../general/secure-your-key-vault.md)
+- Confira [Usar o Key Vault com o aplicativo Web do Serviço de Aplicativo](../general/tutorial-net-create-vault-azure-web-app.md)
+- Confira [Usar o Key Vault com o aplicativo implantado na VM](../general/tutorial-net-virtual-machine.md)
 - Confira o [Guia do desenvolvedor do Azure Key Vault](../general/developers-guide.md)
-- Examine as [Melhores práticas do Azure Key Vault](../general/best-practices.md)
+- Examine a [Visão geral de segurança do Key Vault](../general/security-overview.md)

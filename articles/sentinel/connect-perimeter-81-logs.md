@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/21/2020
 ms.author: yelevin
-ms.openlocfilehash: 8c9a7a09d3085b1ec67bf29f142c6e7b205561ef
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e70bfd12b018e785e7b3b91e098c99fea1101c04
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87021742"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100093090"
 ---
 # <a name="connect-your-perimeter-81-activity-logs-to-azure-sentinel"></a>Conectar seus logs de atividade do perímetro 81 ao Azure Sentinel
 

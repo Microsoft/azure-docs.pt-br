@@ -3,18 +3,21 @@ title: Subcadeia de caracteres na linguagem de consulta Azure Cosmos DB
 description: Saiba mais sobre a subcadeia de caracteres da função do sistema SQL no Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: d4462fc407093b23510bddfae4d9f55d68f8c0fa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 17888ccd8fc51ed96f7fc92a0f9275d2c8cb56f8
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78303691"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340816"
 ---
 # <a name="substring-azure-cosmos-db"></a>Subcadeia de caracteres (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Retorna parte de uma expressão de cadeia de caracteres começando na posição baseada em zero do caractere especificado e continua até o comprimento especificado ou até o final da cadeia de caracteres.  
   
 ## <a name="syntax"></a>Sintaxe

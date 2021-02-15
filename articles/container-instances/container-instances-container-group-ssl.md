@@ -3,12 +3,12 @@ title: Habilitar TLS com contêiner sidecar
 description: Criar um ponto de extremidade SSL ou TLS para um grupo de contêineres em execução em instâncias de contêiner do Azure executando Nginx em um contêiner sidecar
 ms.topic: article
 ms.date: 07/02/2020
-ms.openlocfilehash: f7f5d8e8136f4357067888f5a39fa0c3635122d1
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 6587a84e7cbe655c509f74e9e39e93010e7058be
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86169843"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558072"
 ---
 # <a name="enable-a-tls-endpoint-in-a-sidecar-container"></a>Habilitar um ponto de extremidade TLS em um contêiner sidecar
 
@@ -22,9 +22,9 @@ Neste exemplo, o grupo de contêineres expõe apenas a porta 443 para nginx com 
 
 Consulte [as próximas etapas](#next-steps) para obter outras abordagens para habilitar o TLS em um grupo de contêineres.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Você pode usar o Azure Cloud Shell ou uma instalação local da CLI do Azure para concluir esse arquivo. Se você quer usá-lo localmente, recomendamos usar a versão 2.0.55 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
+- Este artigo requer a versão 2.0.55 ou posterior do CLI do Azure. Se você está usando o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ## <a name="create-a-self-signed-certificate"></a>Criará um certificado autoassinado
 

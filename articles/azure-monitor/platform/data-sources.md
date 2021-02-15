@@ -5,13 +5,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 12/19/2019
-ms.openlocfilehash: d469566d7ae5feda37944dda5a0702dca6fca19b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 10/06/2020
+ms.openlocfilehash: c6b976ca1beb9beb78f7c56d7ae512c1f499c2c5
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86515573"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186517"
 ---
 # <a name="sources-of-monitoring-data-for-azure-monitor"></a>Fontes de dados de monitoramento para Azure Monitor
 O Azure Monitor se baseia em uma [plataforma de dados de monitoramento comum](data-platform.md) que inclui [logs](data-platform-logs.md) e [métricas](data-platform-metrics.md). Coletar dados nessa plataforma permite que os dados de vários recursos sejam analisados juntos usando um conjunto comum de ferramentas no Azure Monitor. Os dados de monitoramento também podem ser enviados para outros locais para dar suporte a determinados cenários, e alguns recursos podem gravar em outros locais antes que possam ser coletados em logs ou métricas.
@@ -20,7 +20,7 @@ Este artigo descreve as diferentes fontes de monitoramento de dados coletadas po
 
 ## <a name="application-tiers"></a>Camadas de aplicativo
 
-Fontes de dados de monitoramento de aplicativos do Azure podem ser organizadas em camadas, as camadas mais altas sendo seu próprio aplicativo e as camadas inferiores são componentes da plataforma do Azure. O método de acesso a dados de cada camada varia. As camadas de aplicativo são resumidas na tabela abaixo, e as fontes de dados de monitoramento em cada camada são apresentadas nas seções a seguir. Consulte [monitorando locais de dados no Azure](data-locations.md) para obter uma descrição de cada local de dados e como você pode acessar seus dados.
+Fontes de dados de monitoramento de aplicativos do Azure podem ser organizadas em camadas, as camadas mais altas sendo seu próprio aplicativo e as camadas inferiores são componentes da plataforma do Azure. O método de acesso a dados de cada camada varia. As camadas de aplicativo são resumidas na tabela abaixo, e as fontes de dados de monitoramento em cada camada são apresentadas nas seções a seguir. Consulte [monitorando locais de dados no Azure](../monitor-reference.md) para obter uma descrição de cada local de dados e como você pode acessar seus dados.
 
 
 ![Camadas de monitoramento](../media/overview/overview.png)
@@ -86,7 +86,7 @@ O [log de atividades do Azure](platform-logs-overview.md) inclui registros de in
 ## <a name="azure-resources"></a>Recursos do Azure
 Métricas e logs de recursos fornecem informações sobre a operação _interna_ dos recursos do Azure. Eles estão disponíveis para a maioria dos serviços do Azure, e as soluções e informações de monitoramento coletam dados adicionais para serviços específicos.
 
-![Coleção de recursos do Azure](media/data-sources/azure-resources.png)
+![Coleção de recursos do Azure](media/data-sources/data-source-azure-resources.svg)
 
 
 ### <a name="platform-metrics"></a>Métricas de plataforma 
@@ -94,7 +94,7 @@ A maioria dos serviços do Azure enviará [métricas de plataforma](data-platfor
 
 | Destino | Descrição | Referência |
 |:---|:---|:---|
-| Métricas do Azure Monitor | As métricas de plataforma serão gravadas no banco de dados de métricas Azure Monitor sem configuração. Acesse as métricas de plataforma de Metrics Explorer.  | [Introdução ao Azure Metrics Explorer](metrics-getting-started.md)<br>[Métricas compatíveis com o Azure Monitor](metrics-supported.md) |
+| Métricas do Azure Monitor | As métricas de plataforma serão gravadas no banco de dados de métricas Azure Monitor sem configuração. Acesse as métricas de plataforma de Metrics Explorer.  | [Introdução ao Azure Metrics Explorer](metrics-getting-started.md)<br>[Métricas com suporte com Azure Monitor](metrics-supported.md) |
 | Logs do Azure Monitor | Copie métricas de plataforma para os logs para tendência e outras análises usando Log Analytics. | [Direcionar o diagnóstico do Azure para o Log Analytics](./resource-logs.md#send-to-log-analytics-workspace) |
 | Hubs de Eventos | Transmita métricas para outros locais usando os hubs de eventos. |[Transmitir dados de monitoramento do Azure para um hub de eventos para consumo por uma ferramenta externa](stream-monitoring-data-event-hubs.md) |
 
@@ -164,7 +164,7 @@ Quando você habilita o Application Insights para um aplicativo por meio da inst
 |            | Os dados de instantâneo de depuração capturados para um subconjunto de exceções são armazenados no armazenamento do Azure. Use Application Insights no portal do Azure para baixar para análise local.  | [Como os instantâneos funcionam](../app/snapshot-debugger.md#how-snapshots-work) |
 
 ## <a name="monitoring-solutions-and-insights"></a>Soluções e ideias de monitoramento
-O [monitoramento de soluções](../insights/solutions.md) e [informações](../insights/insights-overview.md) coleta dados para fornecer informações adicionais sobre a operação de um serviço ou aplicativo específico. Eles podem tratar recursos em diferentes camadas de aplicativo e até mesmo várias camadas.
+O [monitoramento de soluções](../insights/solutions.md) e [informações](../monitor-reference.md) coleta dados para fornecer informações adicionais sobre a operação de um serviço ou aplicativo específico. Eles podem tratar recursos em diferentes camadas de aplicativo e até mesmo várias camadas.
 
 ### <a name="monitoring-solutions"></a>Soluções de monitoramento
 
@@ -180,7 +180,7 @@ O [monitoramento de soluções](../insights/solutions.md) e [informações](../i
 |:---|:---|:---|
 | Logs do Azure Monitor | Armazena dados de monitoramento para AKS, incluindo inventário, logs e eventos. Os dados de métrica também são armazenados em logs a fim de aproveitar sua funcionalidade de análise no Portal. | [Compreender o desempenho de cluster do AKS com o Azure Monitor para contêineres](../insights/container-insights-analyze.md) |
 | Métricas do Azure Monitor | Os dados de métrica são armazenados no banco de dado de métrica para impulsionar a visualização e os alertas. | [Exibir métricas de contêiner no Metrics Explorer](../insights/container-insights-analyze.md#view-container-metrics-in-metrics-explorer) |
-| Serviço de Kubernetes do Azure | Fornece acesso direto aos logs de contêiner do AKS (serviço kubernetes do Azure) (stdout/stderr), eventos e métricas de Pod no Portal. | [Como exibir logs de kubernetes, eventos e métricas de pod em tempo real](../insights/container-insights-livedata-overview.md) |
+| Serviço de Kubernetes do Azure | Fornece acesso direto aos logs de contêiner do AKS (serviço kubernetes do Azure) (stdout/stderr), eventos e métricas de Pod no Portal. | [Como exibir logs de kubernetes, eventos e métricas de pod em tempo real ](../insights/container-insights-livedata-overview.md) |
 
 ### <a name="azure-monitor-for-vms"></a>Azure Monitor para VMs
 [Azure monitor para VMs](../insights/vminsights-overview.md) fornece uma experiência personalizada para monitorar máquinas virtuais. Uma descrição dos dados coletados pelo Azure Monitor para VMs está incluída na seção do [sistema operacional (convidado)](#operating-system-guest) acima.
@@ -208,4 +208,4 @@ Outros serviços no Azure gravam dados na plataforma de dados Azure Monitor. Iss
 ## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre os [tipos de dados de monitoramento coletados pelo Azure Monitor](data-platform.md) e como exibir e analisar esses dados.
-- Liste os [diferentes locais em que os recursos do Azure armazenam dados](data-locations.md) e como você pode acessá-los. 
+- Liste os [diferentes locais em que os recursos do Azure armazenam dados](../monitor-reference.md) e como você pode acessá-los.

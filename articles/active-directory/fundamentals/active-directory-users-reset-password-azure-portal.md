@@ -14,26 +14,26 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69da6aa0253f92f9242a988c6b46de873df0677e
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 397c74203aae2f52ce81844695266cc36fdf3042
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87797196"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370892"
 ---
 # <a name="reset-a-users-password-using-azure-active-directory"></a>Redefinir a senha de um usuário usando o Azure Active Directory
 
 Como um administrador, você pode redefinir a senha de um usuário se a senha for esquecida, se o usuário for bloqueado em um dispositivo ou se o usuário nunca recebeu uma senha.
 
 >[!Note]
->A menos que o locatário do Azure AD seja o diretório base de um usuário, você não poderá redefinir a senha. Isso significa que, se o usuário estiver conectado na organização usando uma conta de outra organização, uma conta Microsoft ou uma conta do Google, você não poderá redefinir a senha.<br><br>Se o usuário tiver uma fonte de autoridade, como Windows Server Active Directory, somente será possível redefinir a senha se você ativar o write-back de senha.<br><br>Se o usuário tiver uma fonte de autoridade como Azure AD Externo, não será possível redefinir a senha. Somente o usuário, ou um administrador no Azure AD Externo, pode redefinir a senha.
+>A menos que o locatário do Azure AD seja o diretório base de um usuário, você não poderá redefinir a senha. Isso significa que, se o usuário estiver conectado na organização usando uma conta de outra organização, uma conta Microsoft ou uma conta do Google, você não poderá redefinir a senha.<br><br>Se o usuário tiver uma fonte de autoridade, como Windows Server Active Directory, somente será possível redefinir a senha se você ativar o write-back de senha.<br><br>Se o usuário tiver uma fonte de autoridade como Azure AD Externo, não será possível redefinir a senha. Somente o usuário ou um administrador no Azure AD externo pode redefinir a senha.
 
 >[!Note]
 >Se você não for um administrador e estiver procurando para obter instruções sobre como redefinir sua própria senha corporativa ou de estudante, consulte [Redefinir a senha corporativa ou de estudante](../user-help/active-directory-passwords-update-your-own-password.md).
 
 ## <a name="to-reset-a-password"></a>Para redefinir uma senha
 
-1. Entre no [portal do Azure](https://portal.azure.com/) como um administrador de usuário ou administrador de senha. Para obter mais informações sobre as funções disponíveis, consulte [Atribuindo funções de administrador no Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md#available-roles)
+1. Entre no [portal do Azure](https://portal.azure.com/) como um administrador de usuário ou administrador de senha. Para obter mais informações sobre as funções disponíveis, consulte [Atribuindo funções de administrador no Azure Active Directory](../roles/permissions-reference.md#available-roles)
 
 2. Selecione **Azure Active Directory**, selecione **Usuários**, pesquise e selecione o usuário que precisa da redefinição e, em seguida, selecione **Redefinir Senha**.
 
@@ -63,4 +63,4 @@ Após redefinir a senha do usuário, você poderá executar os processos básico
 
 - [Criar um grupo básico e adicionar membros](active-directory-groups-create-azure-portal.md)
 
-Ou poderá executar cenários de usuário mais complexos como atribuir delegados, usar políticas e compartilhar contas de usuários. Para obter mais informações sobre outras ações disponíveis, consulte [documentação de gerenciamento de usuário do Azure Active Directory](../users-groups-roles/index.yml).
+Ou poderá executar cenários de usuário mais complexos como atribuir delegados, usar políticas e compartilhar contas de usuários. Para obter mais informações sobre outras ações disponíveis, consulte [documentação de gerenciamento de usuário do Azure Active Directory](../enterprise-users/index.yml).

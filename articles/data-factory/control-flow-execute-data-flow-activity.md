@@ -1,20 +1,17 @@
 ---
 title: Atividade de Fluxo de Dados
 description: Como executar fluxos de dados de dentro de um pipeline de data factory.
-services: data-factory
-documentationcenter: ''
 author: kromerm
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.author: makromer
-ms.date: 04/30/2020
-ms.openlocfilehash: 1004f7fcc8ff93a170b724a6d8b1c2216b9c39b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 01/03/2021
+ms.openlocfilehash: 0663690318773ccad3bddfaaa03e456c2f58895e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84726944"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100383374"
 ---
 # <a name="data-flow-activity-in-azure-data-factory"></a>Atividade de fluxo de dados no Azure Data Factory
 
@@ -37,6 +34,9 @@ Use a atividade fluxo de dados para transformar e mover dados por meio de fluxos
          "coreCount": 8,
          "computeType": "General"
       },
+      "traceLevel": "Fine",
+      "runConcurrently": true,
+      "continueOnError": true,      
       "staging": {
           "linkedService": {
               "referenceName": "MyStagingLinkedService",
@@ -60,8 +60,9 @@ Flow | A referência ao fluxo de dados que está sendo executado | DataFlowRefer
 integrationRuntime | O ambiente de computação no qual o fluxo de dados é executado. Se não for especificado, a solução de tempo de execução de integração do Azure será usada automaticamente. | IntegrationRuntimeReference | Não
 Compute. coreCount | O número de núcleos usados no cluster do Spark. Só poderá ser especificado se a resolução automática do tempo de execução de integração do Azure for usada | 8, 16, 32, 48, 80, 144, 272 | Não
 Compute. computetype | O tipo de computação usado no cluster do Spark. Só poderá ser especificado se a resolução automática do tempo de execução de integração do Azure for usada | "Geral", "ComputeOptimized", "MemoryOptimized" | Não
-preparo. linkedService | Se você estiver usando uma fonte ou coletor do SQL DW, a conta de armazenamento usada para preparo do polybase | LinkedServiceReference | Somente se o fluxo de dados lê ou grava em um SQL DW
-preparo. folderPath | Se você estiver usando uma fonte ou coletor do SQL DW, o caminho da pasta na conta de armazenamento de BLOBs usada para preparo do polybase | String | Somente se o fluxo de dados lê ou grava em um SQL DW
+preparo. linkedService | Se você estiver usando uma origem ou coletor do Azure Synapse Analytics, especifique a conta de armazenamento usada para o preparo do polybase.<br/><br/>Se o armazenamento do Azure estiver configurado com o ponto de extremidade do serviço VNet, você deverá usar a autenticação de identidade gerenciada com "permitir serviço Microsoft confiável" habilitado na conta de armazenamento, consulte o [impacto de usar pontos de extremidade do serviço de VNet com o armazenamento do Azure](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-virtual-network-service-endpoints-with-azure-storage). Além disso, Aprenda as configurações necessárias para o [blob do Azure](connector-azure-blob-storage.md#managed-identity) e [Azure data Lake Storage Gen2](connector-azure-data-lake-storage.md#managed-identity) , respectivamente.<br/> | LinkedServiceReference | Somente se o fluxo de dados lê ou grava em uma análise de Synapse do Azure
+preparo. folderPath | Se você estiver usando uma origem ou coletor do Azure Synapse Analytics, o caminho da pasta na conta de armazenamento de BLOBs usada para preparo do polybase | String | Somente se o fluxo de dados lê ou grava no Azure Synapse Analytics
+traceLevel | Definir o nível de log da sua execução de atividade de fluxo de dados | Bem, grande, nenhum | Não
 
 ![Executar fluxo de dados](media/data-flow/activity-data-flow.png "Executar fluxo de dados")
 
@@ -86,7 +87,21 @@ Para execuções de pipeline, o cluster é um cluster de trabalho, que leva vár
 
 ### <a name="polybase"></a>PolyBase
 
-Se você estiver usando um SQL Data Warehouse do Azure como um coletor ou fonte, deverá escolher um local de preparo para a carga do lote do polybase. O polybase permite o carregamento em lote em massa, em vez de carregar os dados linha por linha. O polybase reduz drasticamente o tempo de carregamento no SQL DW.
+Se você estiver usando uma análise de Synapse do Azure como um coletor ou uma fonte, deverá escolher um local de preparo para a carga do lote do polybase. O polybase permite o carregamento em lote em massa, em vez de carregar os dados linha por linha. O polybase reduz drasticamente o tempo de carregamento na análise de Synapse do Azure.
+
+## <a name="logging-level"></a>Nível de log
+
+Se você não precisar de cada execução de pipeline de suas atividades de fluxo de dados para registrar completamente todos os logs de telemetria detalhados, você pode, opcionalmente, definir seu nível de log como "básico" ou "nenhum". Ao executar seus fluxos de dados no modo "detalhado" (padrão), você está solicitando que o ADF Registre totalmente a atividade em cada nível de partição individual durante a transformação dos dados. Isso pode ser uma operação cara, portanto, somente habilitar o modo detalhado ao solucionar problemas pode melhorar o fluxo geral de dados e o desempenho do pipeline. O modo "básico" só registrará as durações de transformação, enquanto "nenhum" fornecerá apenas um resumo das durações.
+
+![Nível de log](media/data-flow/logging.png "Definir nível de log")
+
+## <a name="sink-properties"></a>Propriedades do coletor
+
+O recurso de agrupamento em fluxos de dados permite que você defina a ordem de execução de seus coletores, bem como os coletores de grupo juntos usando o mesmo número de grupo. Para ajudar a gerenciar grupos, você pode pedir que o ADF execute coletores, no mesmo grupo, em paralelo. Você também pode definir o grupo de coletor para continuar mesmo depois que um dos coletores encontrar um erro.
+
+O comportamento padrão dos coletores de fluxo de dados é executar cada coletor sequencialmente, de maneira serial, e falhar no fluxo de dados quando um erro for encontrado no coletor. Além disso, todos os coletores são padronizados para o mesmo grupo, a menos que você vá para as propriedades de fluxo de dados e defina prioridades diferentes para os coletores.
+
+![Propriedades do coletor](media/data-flow/sink-properties.png "Definir propriedades do coletor")
 
 ## <a name="parameterizing-data-flows"></a>Parametrizando fluxos de dados
 

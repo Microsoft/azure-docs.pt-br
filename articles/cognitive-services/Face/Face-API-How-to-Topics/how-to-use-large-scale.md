@@ -10,12 +10,13 @@ ms.subservice: face-api
 ms.topic: sample
 ms.date: 05/01/2019
 ms.author: sbowles
-ms.openlocfilehash: dc0964e40e9214e414d865c06006f1d36e97eeb2
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.custom: devx-track-csharp
+ms.openlocfilehash: b35b66615bd5c577dd73faca77d3ea20468442f8
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76169775"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913510"
 ---
 # <a name="example-use-the-large-scale-feature"></a>Exemplo: Use o recurso de larga escala
 
@@ -231,7 +232,7 @@ Fluxo de trabalho de exemplo:
 
 Se uma latência relativamente longa for aceitável, não será necessário acionar a operação Treinar, logo após adicionar novos dados. Em vez disso, a operação de treinamento pode dividir da lógica principal e disparada regularmente. Esta estratégia é adequada para cenários dinâmicos com uma latência aceitável. É possível aplicá-la a cenários estáticos para reduzir ainda mais a frequência da operação Treinar.
 
-Digamos que haja uma função `TrainLargePersonGroup` semelhante a `TrainLargeFaceList`. Uma implementação típica de treinamento autônomo em um objeto LargePersonGroup invocando a classe [`Timer`](https://msdn.microsoft.com/library/system.timers.timer(v=vs.110).aspx), em `System.Timers`, seria:
+Digamos que haja uma função `TrainLargePersonGroup` semelhante a `TrainLargeFaceList`. Uma implementação típica de treinamento autônomo em um objeto LargePersonGroup invocando a classe [`Timer`](/dotnet/api/system.timers.timer), em `System.Timers`, seria:
 
 ```csharp
 private static void Main()
@@ -259,7 +260,7 @@ private static void TrainTimerOnElapsed(string largePersonGroupId, int timeInter
 }
 ```
 
-Para saber mais sobre gerenciamento de dados e implementações relacionadas à identificação, confira os tópicos [Adicionar faces](how-to-add-faces.md) e [Identificar faces em imagens](HowtoIdentifyFacesinImage.md).
+Para saber mais sobre gerenciamento de dados e implementações relacionadas à identificação, confira os tópicos [Adicionar rostos](how-to-add-faces.md).
 
 ## <a name="summary"></a>Resumo
 
@@ -270,7 +271,7 @@ Neste guia, você viu como migrar o código existente do PersonGroup ou do FaceL
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Siga um guia de instruções para aprender como adicionar faces a um PersonGroup ou executar a operação Identificar em um PersonGroup.
+Siga um guia de instruções para aprender a adicionar faces a um PersonGroup ou escreva um script para a operação Identificar em um PersonGroup.
 
 - [Adicionar faces](how-to-add-faces.md)
-- [Identificar faces em imagens](HowtoIdentifyFacesinImage.md)
+- [Início rápido da biblioteca de clientes de Detecção Facial](../Quickstarts/client-libraries.md)

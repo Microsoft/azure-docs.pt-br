@@ -1,38 +1,42 @@
 ---
-title: Limites de borda Azure Stack | Microsoft Docs
-description: Saiba mais sobre os limites e os tamanhos recomendados ao implantar e operar Azure Stack borda, incluindo limites de serviço, limites de dispositivo e limites de armazenamento.
+title: Limites do Azure Stack Edge pro | Microsoft Docs
+description: Saiba mais sobre os limites e os tamanhos recomendados ao implantar e operar Azure Stack o Edge pro, incluindo limites de serviço, limites de dispositivo e limites de armazenamento.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/22/2019
+ms.date: 10/12/2020
 ms.author: alkohli
-ms.openlocfilehash: 8bbcf3f61121813b91cb951809992d10977a640c
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: f1bb5662b48765c08ec58d1f7fa9d341de4937bc
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87922703"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91992764"
 ---
-# <a name="azure-stack-edge-limits"></a>Limites do Azure Stack Edge
+# <a name="azure-stack-edge-pro-limits"></a>Limites do Azure Stack Edge Pro
 
-Considere esses limites ao implantar e operar sua solução de borda de Microsoft Azure Stack. 
+Considere esses limites ao implantar e operar sua solução Microsoft Azure Stack Edge pro. 
 
 ## <a name="azure-stack-edge-service-limits"></a>Limites de serviço do Azure Stack Edge
 
 [!INCLUDE [data-box-edge-gateway-service-limits](../../includes/data-box-edge-gateway-service-limits.md)]
 
-## <a name="azure-stack-device-limits"></a>Azure Stack limites de dispositivo
+## <a name="azure-stack-edge-device-limits"></a>Limites de dispositivo do Azure Stack Edge
 
-A tabela a seguir descreve os limites para o dispositivo Azure Stack Edge. 
+A tabela a seguir descreve os limites para o dispositivo Azure Stack Edge pro. 
+
+A tabela a seguir descreve os limites para o dispositivo Azure Stack Edge.
 
 | Descrição | Valor |
 |---|---|
 |Não. de arquivos por dispositivo |100 milhões |
-|Não. de compartilhamentos por dispositivo |24 |
 |Não. de compartilhamentos por contêiner |1 |
+|N º máximo de pontos de extremidade de compartilhamento e pontos de extremidade REST por dispositivo| 24 |
+|N º máximo de contas de armazenamento em camadas por dispositivo| 24|
 |Tamanho máximo do arquivo gravado em um compartilhamento| 5 TB |
+|Número máximo de grupos de recursos por dispositivo| 800 |
 
 ## <a name="azure-storage-limits"></a>Limites de armazenamento do Azure
 
@@ -53,4 +57,4 @@ A tabela a seguir descreve os limites para o dispositivo Azure Stack Edge.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Preparar para implantar Azure Stack borda](azure-stack-edge-deploy-prep.md)
+- [Preparar para implantar o Azure Stack Edge pro](azure-stack-edge-deploy-prep.md)

@@ -1,19 +1,16 @@
 ---
 title: Otimizar o uso de memória no Apache Spark - Azure HDInsight
 description: Saiba como otimizar o uso de memória no Apache Spark no Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.custom: contperfq1
-ms.openlocfilehash: 056060f8b94747651c78c757150d5e5a5982c7af
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: d54cf4e9025dfd75d9029dec534fc5dc5dd990a5
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757771"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944168"
 ---
 # <a name="memory-usage-optimization-for-apache-spark"></a>Otimização de uso de memória para Apache Spark
 

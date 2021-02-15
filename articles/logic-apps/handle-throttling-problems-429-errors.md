@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: deli, logicappspm
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.openlocfilehash: 495847d31682aff64fed3c81b1d5d68cf67dfd38
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ea153b1927a337be29c2eb69e2417cc250abf5e8
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086431"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366042"
 ---
 # <a name="handle-throttling-problems-429---too-many-requests-errors-in-azure-logic-apps"></a>Lidar com problemas de limitação (429-erros de "excesso de solicitações") nos aplicativos lógicos do Azure
 
@@ -22,7 +22,7 @@ Em [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md), seu ap
 Aqui estão alguns tipos comuns de limitação que seu aplicativo lógico pode ter:
 
 * [Aplicativo lógico](#logic-app-throttling)
-* [Conector](#connector-throttling)
+* [Connector](#connector-throttling)
 * [Serviço ou sistema de destino](#destination-throttling)
 
 <a name="logic-app-throttling"></a>
@@ -35,9 +35,9 @@ Para localizar eventos de limitação neste nível, verifique o painel de **mét
 
 1. No [portal do Azure](https://portal.azure.com), abra o aplicativo lógico no Designer do aplicativo lógico.
 
-1. No menu do aplicativo lógico, em **monitoramento**, selecione **métricas**.
+1. No menu do aplicativo lógico, em **monitoramento** , selecione **métricas**.
 
-1. Em **título do gráfico**, selecione **Adicionar métrica** para adicionar outra métrica ao existente.
+1. Em **título do gráfico** , selecione **Adicionar métrica** para adicionar outra métrica ao existente.
 
 1. Na primeira barra de métricas, na lista **métrica** , selecione **eventos com restrição de ação**. Na segunda barra de métricas, na lista **métrica** , selecione **disparar eventos restringidos**.
 
@@ -51,15 +51,15 @@ Para lidar com a limitação nesse nível, você tem estas opções:
 
 * Habilite o modo de alta taxa de transferência.
 
-  Um aplicativo lógico tem um [limite padrão para o número de ações que podem ser executadas em um intervalo de interrupção de 5 minutos](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). Para aumentar esse limite para o número máximo de ações, ative o [modo de alta taxa de transferência](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode) em seu aplicativo lógico.
+  Um aplicativo lógico tem um [limite padrão para o número de ações que podem ser executadas em um intervalo de interrupção de 5 minutos](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). Para aumentar esse limite para o número máximo de ações, ative o [modo de alta taxa de transferência](../logic-apps/logic-apps-limits-and-config.md#run-high-throughput-mode) em seu aplicativo lógico.
 
 * Desabilitar o comportamento de deslote de matriz ("split on") em gatilhos.
 
-  Se um gatilho retornar uma matriz para que as ações de fluxo de trabalho restantes sejam processadas, a [configuração **dividir** ](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) do gatilho dividirá os itens da matriz e iniciará uma instância de fluxo de trabalho para cada item da matriz, disparando efetivamente várias execuções simultâneas até o limite de [ **divisão** ](../logic-apps/logic-apps-limits-and-config.md#concurrency-looping-and-debatching-limits). Para controlar a limitação, desative a **divisão no** comportamento e faça com que seu aplicativo lógico processe toda a matriz com uma única chamada, em vez de lidar com um único item por chamada.
+  Se um gatilho retornar uma matriz para que as ações de fluxo de trabalho restantes sejam processadas, a [configuração **dividir**](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) do gatilho dividirá os itens da matriz e iniciará uma instância de fluxo de trabalho para cada item da matriz, disparando efetivamente várias execuções simultâneas até o limite de [ **divisão**](../logic-apps/logic-apps-limits-and-config.md#concurrency-looping-and-debatching-limits). Para controlar a limitação, desative a **divisão no** comportamento e faça com que seu aplicativo lógico processe toda a matriz com uma única chamada, em vez de lidar com um único item por chamada.
 
 * Refatorar ações em aplicativos lógicos menores.
 
-  Como mencionado anteriormente, um aplicativo lógico é limitado a um [número padrão de ações que podem ser executadas em um período de 5 minutos](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). Embora seja possível aumentar esse limite habilitando o [modo de alta taxa de transferência](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode), você também pode considerar se deseja dividir as ações do seu aplicativo lógico em aplicativos lógicos menores para que o número de ações executadas em cada aplicativo lógico permaneça sob o limite. Dessa forma, você reduzirá a carga em um único recurso de aplicativo lógico e distribuirá a carga entre vários aplicativos lógicos. Essa solução funciona melhor para ações que lidam com grandes conjuntos de dados ou que muitas ações em execução simultânea, iterações de loop ou ações dentro de cada iteração de loop que excedem o limite de execução da ação.
+  Como mencionado anteriormente, um aplicativo lógico é limitado a um [número padrão de ações que podem ser executadas em um período de 5 minutos](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). Embora seja possível aumentar esse limite habilitando o [modo de alta taxa de transferência](../logic-apps/logic-apps-limits-and-config.md#run-high-throughput-mode), você também pode considerar se deseja dividir as ações do seu aplicativo lógico em aplicativos lógicos menores para que o número de ações executadas em cada aplicativo lógico permaneça sob o limite. Dessa forma, você reduzirá a carga em um único recurso de aplicativo lógico e distribuirá a carga entre vários aplicativos lógicos. Essa solução funciona melhor para ações que lidam com grandes conjuntos de dados ou que muitas ações em execução simultânea, iterações de loop ou ações dentro de cada iteração de loop que excedem o limite de execução da ação.
 
   Por exemplo, esse aplicativo lógico faz todo o trabalho para obter tabelas de um banco de dados SQL Server e obtém as linhas de cada tabela. O loop **for each** itera simultaneamente em cada tabela para que a ação **obter linhas** retorne as linhas de cada tabela. Com base nas quantidades de dados nessas tabelas, essas ações podem exceder o limite de execuções de ação.
 

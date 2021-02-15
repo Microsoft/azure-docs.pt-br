@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/29/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 6c88a1eaee50676cfe6bb9589779d7156b805e30
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 77dc64d9660f9a0bf66559c4a5a976362cf1acd0
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87920969"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951631"
 ---
 ::: zone target = "docs"
 
@@ -97,11 +97,11 @@ Se estiver usando um computador host do Windows Server, siga estas etapas para c
 
 1. O primeiro passo é autenticar e iniciar uma sessão. Vá para **conectar e copiar**. Clique em **Obter credenciais** para obter as credenciais de acesso aos compartilhamentos associados à sua conta de armazenamento.
 
-    ![Obter as credenciais de compartilhamento 1](media/data-box-heavy-deploy-copy-data/get-share-credentials-1.png)
+    ![Obter credenciais de compartilhamento](media/data-box-heavy-deploy-copy-data/get-share-credentials-1.png)
 
 2. No compartilhamento de acesso e caixa de diálogo de dados de cópia, copie o **nome de usuário** e o **senha** correspondente para o compartilhamento. Clique em **OK**.
     
-    ![Obter as credenciais de compartilhamento 1](media/data-box-heavy-deploy-copy-data/get-share-credentials-2.png)
+    ![Obter as credenciais de compartilhamento 2](media/data-box-heavy-deploy-copy-data/get-share-credentials-2.png)
 
 3. Para acessar os compartilhamentos associados à sua conta de armazenamento (*databoxe2etest* no exemplo a seguir) no computador host, abra uma janela Comando. No prompt de comando, digite:
 
@@ -122,7 +122,7 @@ Se estiver usando um computador host do Windows Server, siga estas etapas para c
 
 4. Pressione Windows + R. Na janela **Executar**, especifique o `\\<device IP address>`. Clique em **OK** para abrir o Explorador de Arquivos.
     
-    ![Conecte-se para compartilhar via File Explorer 2](media/data-box-heavy-deploy-copy-data/connect-shares-file-explorer-1.png)
+    ![Conectar-se ao compartilhamento por meio do Explorador de Arquivos](media/data-box-heavy-deploy-copy-data/connect-shares-file-explorer-1.png)
 
     Agora você verá os compartilhamentos como pastas.
     

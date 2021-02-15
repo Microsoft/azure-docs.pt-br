@@ -3,20 +3,17 @@ title: Backup e restauração de disco seletivo para máquinas virtuais do Azure
 description: Neste artigo, saiba mais sobre o backup e a restauração de disco seletivo usando a solução de backup de máquina virtual do Azure.
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.custom: references_regions
-ms.openlocfilehash: 12b5b4cd35d70d8ebbd6b269e82c46984652bd07
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.custom: references_regions , devx-track-azurecli
+ms.openlocfilehash: 38ead1591bf2ecadc8bfca5875ac1fa3e69d56ef
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88961985"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98806380"
 ---
 # <a name="selective-disk-backup-and-restore-for-azure-virtual-machines"></a>Backup e restauração de disco seletivo para máquinas virtuais do Azure
 
 O backup do Azure dá suporte ao backup de todos os discos (sistema operacional e dados) em uma VM juntas usando a solução de backup de máquina virtual. Agora, usando a funcionalidade de backup e restauração dos discos seletivos, você pode fazer backup de um subconjunto dos discos de dados em uma VM. Isso fornece uma solução eficiente e econômica para suas necessidades de backup e restauração. Cada ponto de recuperação contém apenas os discos que são incluídos na operação de backup. Isso permite ainda que você tenha um subconjunto de discos restaurados do ponto de recuperação fornecido durante a operação de restauração. Isso se aplica a ambas as restaurações de instantâneos e do cofre.
-
->[!NOTE]
->O backup e a restauração de disco seletivo para máquinas virtuais do Azure estão em visualização pública em todas as regiões.
 
 ## <a name="scenarios"></a>Cenários
 
@@ -38,7 +35,7 @@ Verifique se você está usando AZ CLI versão 2.0.80 ou superior. Você pode ob
 az --version
 ```
 
-Entre na ID da assinatura em que reside o cofre dos serviços de recuperação e a VM:
+Entre na ID da assinatura onde reside o cofre dos serviços de recuperação e a VM:
 
 ```azurecli
 az account set -s {subscriptionID}
@@ -49,7 +46,7 @@ az account set -s {subscriptionID}
 
 ### <a name="configure-backup-with-azure-cli"></a>Configurar o backup com o CLI do Azure
 
-Durante a operação de configuração de proteção, você precisa especificar a configuração de lista de discos com um parâmetro de exclusão de **inclusão**  /  **exclusion** , fornecendo os números de LUN dos discos a serem incluídos ou excluídos no backup.
+Durante a operação de configuração de proteção, você precisa especificar a configuração de lista de discos com um parâmetro de exclusão de **inclusão**  /   , fornecendo os números de LUN dos discos a serem incluídos ou excluídos no backup.
 
 ```azurecli
 az backup protection enable-for-vm --resource-group {resourcegroup} --vault-name {vaultname} --vm {vmname} --policy-name {policyname} --disk-list-setting include --diskslist {LUN number(s) separated by space}
@@ -62,7 +59,7 @@ az backup protection enable-for-vm --resource-group {resourcegroup} --vault-name
 Se a VM não estiver no mesmo grupo de recursos que o cofre, o **resourcegroup** se referirá ao grupo de recursos em que o cofre foi criado. Em vez do nome da VM, forneça a ID da VM, conforme indicado abaixo.
 
 ```azurecli
-az backup protection enable-for-vm  --resource-group {ResourceGroup} --vault-name {vaultname} --vm $(az vm show -g VMResourceGroup -n MyVm --query id | tr -d '"') --policy-name {policyname} --disk-list-setting include --diskslist {LUN number(s) separated by space}
+az backup protection enable-for-vm  --resource-group {ResourceGroup} --vault-name {vaultname} --vm $(az vm show -g VMResourceGroup -n MyVm --query id --output tsv) --policy-name {policyname} --disk-list-setting include --diskslist {LUN number(s) separated by space}
 ```
 
 ### <a name="modify-protection-for-already-backed-up-vms-with-azure-cli"></a>Modificar a proteção para as VMs já submetidas a backup com CLI do Azure
@@ -86,7 +83,7 @@ az backup protection update-for-vm --resource-group {resourcegroup} --vault-name
 ### <a name="restore-disks-with-azure-cli"></a>Restaurar discos com CLI do Azure
 
 ```azurecli
-az backup restore restore-disks --resource-group {resourcegroup} --vault-name {vaultname} -c {vmname} -i {vmname} --backup-management-type AzureIaasVM -r {restorepoint} --target-resource-group {targetresourcegroup} --storage-account {storageaccountname} --diskslist {LUN number of the disk(s) to be restored}
+az backup restore restore-disks --resource-group {resourcegroup} --vault-name {vaultname} -c {vmname} -i {vmname} -r {restorepoint} --target-resource-group {targetresourcegroup} --storage-account {storageaccountname} --diskslist {LUN number of the disk(s) to be restored}
 ```
 
 ### <a name="restore-only-os-disk-with-azure-cli"></a>Restaurar somente disco do sistema operacional com CLI do Azure
@@ -188,14 +185,29 @@ az backup item show -c {vmname} -n {vmname} --vault-name {vaultname} --resource-
 
 Ao executar esses comandos, você verá `"diskExclusionProperties": null` .
 
-## <a name="using-powershell"></a>Usando o PowerShell
+## <a name="using-powershell"></a>Usar o PowerShell
 
 Verifique se você está usando Azure PowerShell versão 3.7.0 ou superior.
 
+Durante a operação de configuração de proteção, você precisa especificar a configuração da lista de discos com um parâmetro de inclusão/exclusão, fornecendo os números de LUN dos discos a serem incluídos ou excluídos no backup.
+
 ### <a name="enable-backup-with-powershell"></a>Habilitar backup com o PowerShell
 
+Por exemplo:
+
 ```azurepowershell
-Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGroupName "RGName1"  -DiskListSetting "Include"/"Exclude" -DisksList[Strings] -VaultId $targetVault.ID
+$disks = ("0","1")
+$targetVault = Get-AzRecoveryServicesVault -ResourceGroupName "rg-p-recovery_vaults" -Name "rsv-p-servers"
+Get-AzRecoveryServicesBackupProtectionPolicy
+$pol = Get-AzRecoveryServicesBackupProtectionPolicy -Name "P-Servers"
+```
+
+```azurepowershell
+Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGroupName "RGName1"  -InclusionDisksList $disks -VaultId $targetVault.ID
+```
+
+```azurepowershell
+Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGroupName "RGName1"  -ExclusionDisksList $disks -VaultId $targetVault.ID
 ```
 
 ### <a name="backup-only-os-disk-during-configure-backup-with-powershell"></a>Fazer backup somente do disco do sistema operacional durante a configuração de backup com o PowerShell
@@ -215,7 +227,11 @@ Você precisa passar o objeto de **$Item** obtido acima para o parâmetro **– 
 ### <a name="modify-protection-for-already-backed-up-vms-with-powershell"></a>Modificar a proteção de VMs já submetidas a backup com o PowerShell
 
 ```azurepowershell
-Enable-AzRecoveryServicesBackupProtection -Item $item -DiskListSetting "Include"/"Exclude" -DisksList[Strings]   -VaultId $targetVault.ID
+Enable-AzRecoveryServicesBackupProtection -Item $item -InclusionDisksList[Strings] -VaultId $targetVault.ID
+```
+
+```azurepowershell
+Enable-AzRecoveryServicesBackupProtection -Item $item -ExclusionDisksList[Strings] -VaultId $targetVault.ID
 ```
 
 ### <a name="backup-only-os-disk-during-modify-protection-with-powershell"></a>Fazer backup somente do disco do sistema operacional durante a proteção de modificação com o PowerShell
@@ -227,7 +243,7 @@ Enable-AzRecoveryServicesBackupProtection -Item $item  -ExcludeAllDataDisks -Vau
 ### <a name="reset-disk-exclusion-setting-with-powershell"></a>Redefinir a configuração de exclusão de disco com o PowerShell
 
 ```azurepowershell
-Enable-AzRecoveryServicesBackupProtection -Item $item -DiskListSetting "Reset" -VaultId $targetVault.ID
+Enable-AzRecoveryServicesBackupProtection -Item $item -ResetExclusionSettings -VaultId $targetVault.ID
 ```
 
 ### <a name="restore-selective-disks-with-powershell"></a>Restaurar discos seletivos com o PowerShell
@@ -243,6 +259,8 @@ Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -StorageAccountName "
 ```
 
 ## <a name="using-the-azure-portal"></a>Usando o portal do Azure
+
+[!INCLUDE [backup-center.md](../../includes/backup-center.md)]
 
 Usando o portal do Azure, você pode exibir os discos incluídos e excluídos no painel detalhes de backup da VM e no painel detalhes do trabalho de backup.  Durante a restauração, ao selecionar o ponto de recuperação do qual restaurar, você pode exibir os discos de backup nesse ponto de recuperação.
 
@@ -269,6 +287,10 @@ Ao habilitar o backup usando portal do Azure, você pode escolher a opção **so
 
 ![Configurar o backup somente para o disco do sistema operacional](./media/selective-disk-backup-restore/configure-backup-operating-system-disk.png)
 
+## <a name="using-azure-rest-api"></a>Usando a API REST do Azure
+
+Você pode configurar o backup de VM do Azure com alguns discos selecionados ou pode modificar a proteção de uma VM existente para incluir/excluir alguns discos, conforme documentado [aqui](backup-azure-arm-userestapi-backupazurevms.md#excluding-disks-in-azure-vm-backup).
+
 ## <a name="selective-disk-restore"></a>Restauração de disco seletivo
 
 A restauração de disco seletivo é uma funcionalidade adicional que você obtém ao habilitar o recurso de backup de discos seletivos. Com essa funcionalidade, você pode restaurar discos seletivos de todos os discos de backup em um ponto de recuperação. É mais eficiente e ajuda a economizar tempo em cenários em que você sabe quais discos precisam ser restaurados.
@@ -285,13 +307,34 @@ A funcionalidade de backup de discos seletivos não tem suporte para máquinas v
 
 As opções de restauração para **criar uma nova VM** e **substituir existentes** não têm suporte para a VM para a qual a funcionalidade de backup de discos seletivos está habilitada.
 
+Atualmente, o backup de VM do Azure não dá suporte a VMs com ultra discos ou discos compartilhados anexados a eles. O backup de disco seletivo não pode ser usado nesses casos, o que exclui o disco e o backup da VM.
+
 ## <a name="billing"></a>Cobrança
 
 O backup de máquina virtual do Azure segue o modelo de preços existente, explicado em detalhes [aqui](https://azure.microsoft.com/pricing/details/backup/).
 
-O **custo da instância protegida (PI)** é calculado para o disco do sistema operacional somente se você optar por fazer backup usando a opção **somente disco do sistema operacional** .  Se você configurar o backup e selecionar pelo menos um disco de dados, o custo de PI será calculado para todos os discos anexados à VM. O **custo de armazenamento de backup** é calculado com base apenas nos discos incluídos e, portanto, você tem de economizar no custo de armazenamento. O **custo do instantâneo** é sempre calculado para todos os discos na VM (os discos incluídos e excluídos).  
+O **custo da instância protegida (PI)** é calculado para o disco do sistema operacional somente se você optar por fazer backup usando a opção **somente disco do sistema operacional** .  Se você configurar o backup e selecionar pelo menos um disco de dados, o custo de PI será calculado para todos os discos anexados à VM. O **custo de armazenamento de backup** é calculado com base apenas nos discos incluídos e, portanto, você tem de economizar no custo de armazenamento. O **custo do instantâneo** é sempre calculado para todos os discos na VM (os discos incluídos e excluídos).
+
+Se você tiver escolhido o recurso de CRR (restauração entre regiões), o [Preço da CRR](https://azure.microsoft.com/pricing/details/backup/) se aplicará ao custo de armazenamento de backup depois de excluir o disco.
+
+## <a name="frequently-asked-questions"></a>Perguntas frequentes
+
+### <a name="how-is-protected-instance-pi-cost-calculated-for-only-os-disk-backup-in-windows-and-linux"></a>Como o custo de instância protegida (PI) é calculado para apenas o backup de disco do so no Windows e no Linux?
+
+O custo de PI é calculado com base no tamanho real (usado) da VM.
+
+- Para o Windows: o cálculo de espaço usado se baseia na unidade que armazena o sistema operacional (que geralmente é C:).
+- Para o Linux: o cálculo de espaço usado se baseia no dispositivo em que o sistema de arquivos raiz (/) está montado.
+
+### <a name="i-have-configured-only-os-disk-backup-why-is-the-snapshot-happening-for-all-the-disks"></a>Configurei apenas o backup de disco do so, por que o instantâneo ocorre em todos os discos?
+
+Os recursos de backup de disco seletivo permitem economizar no custo de armazenamento do cofre de backup, protegendo os discos incluídos que fazem parte do backup. No entanto, o instantâneo é tomado para todos os discos que estão anexados à VM. Portanto, o custo do instantâneo é sempre calculado para todos os discos na VM (os discos incluídos e excluídos). Para obter mais informações, consulte [cobrança](#billing).
+
+### <a name="i-cant-configure-backup-for-the-azure-virtual-machine-by-excluding-ultra-disk-or-shared-disks-attached-to-the-vm"></a>Não consigo configurar o backup para a máquina virtual do Azure, excluindo discos de ultra disco ou compartilhados anexados à VM
+
+O recurso de backup de disco seletivo é um recurso fornecido sobre a solução de backup de máquina virtual do Azure. Atualmente, o backup de VM do Azure não dá suporte a VMs com discos de ultra ou de disco compartilhado anexados a eles.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Matriz de suporte para backup de VM do Azure](backup-support-matrix-iaas.md)
-- [Perguntas frequentes-fazer backup de VMs do Azure](backup-azure-vm-backup-faq.md)
+- [Perguntas frequentes-fazer backup de VMs do Azure](backup-azure-vm-backup-faq.yml)

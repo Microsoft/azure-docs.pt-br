@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 01/01/2020
 ms.openlocfilehash: bccf69362279afd9e8148b20b61ff3ea9b472a03
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76906963"
 ---
 # <a name="create-schemas-for-tracking-as2-messages-in-azure-logic-apps"></a>Criar esquemas para acompanhar mensagens AS2 nos aplicativos lógicos do Azure
@@ -59,7 +59,7 @@ Você pode usar esses esquemas de acompanhamento AS2 em sua conta de integraçã
 | as2To | Sim | String | Nome do destinatário da mensagem AS2 dos cabeçalhos da mensagem AS2 |
 | as2From | Sim | String | Nome do remetente da mensagem AS2 dos cabeçalhos da mensagem AS2 |
 | agreementName | Não | String | Nome do contrato AS2 para o qual as mensagens são resolvidas |
-| direction | Sim | String | Direção do fluxo de mensagens, que é `receive` ou`send` |
+| direction | Sim | String | Direção do fluxo de mensagens, que é `receive` ou `send` |
 | messageId | Não | String | ID da mensagem AS2 dos cabeçalhos da mensagem AS2 |
 | dispositionType | Não | String | Valor do tipo de disposição de notificação de disposição de mensagem (MDN) |
 | fileName | Não | String | Nome do arquivo do cabeçalho da mensagem AS2 |
@@ -72,7 +72,7 @@ Você pode usar esses esquemas de acompanhamento AS2 em sua conta de integraçã
 | outgoingHeaders | Não | Dicionário de JToken | Detalhes do cabeçalho da mensagem AS2 de saída |
 | isNrrEnabled | Sim | Boolean | Se o valor padrão deve ser usado se o valor não for conhecido |
 | isMdnExpected | Sim | Boolean | Se o valor padrão deve ser usado se o valor não for conhecido |
-| mdnType | Sim | Enumeração | Valores permitidos: `NotConfigured` , `Sync` e`Async` |
+| mdnType | Sim | Enumeração | Valores permitidos: `NotConfigured` , `Sync` e `Async` |
 |||||
 
 ## <a name="as2-mdn-tracking-schema"></a>Esquema de acompanhamento MDN AS2
@@ -112,15 +112,15 @@ Você pode usar esses esquemas de acompanhamento AS2 em sua conta de integraçã
 | as2To | Sim | String | Nome do parceiro que recebe a mensagem AS2 |
 | as2From | Sim | String | Nome do parceiro que envia a mensagem AS2 |
 | agreementName | Não | String | Nome do contrato AS2 para o qual as mensagens são resolvidas |
-| direction | Sim | String | Direção do fluxo de mensagens, que é `receive` ou`send` |
+| direction | Sim | String | Direção do fluxo de mensagens, que é `receive` ou `send` |
 | messageId | Não | String | ID da mensagem AS2 |
 | originalMessageId | Não | String | ID da mensagem original AS2 |
 | dispositionType | Não | String | Valor do tipo de disposição MDN |
 | isMessageFailed | Sim | Boolean | Se a mensagem AS2 falhou |
 | isMessageSigned | Sim | Boolean | Se a mensagem AS2 foi assinada |
 | isNrrEnabled | Sim | Boolean | Se o valor padrão deve ser usado se o valor não for conhecido |
-| statusCode | Sim | Enumeração | Valores permitidos: `Accepted` , `Rejected` e`AcceptedWithErrors` |
-| micVerificationStatus | Sim | Enumeração | Valores permitidos: `NotApplicable` , `Succeeded` e`Failed` |
+| statusCode | Sim | Enumeração | Valores permitidos: `Accepted` , `Rejected` e `AcceptedWithErrors` |
+| micVerificationStatus | Sim | Enumeração | Valores permitidos: `NotApplicable` , `Succeeded` e `Failed` |
 | correlationMessageId | Não | String | ID de correlação, que é a ID da mensagem original que tem o MDN configurado |
 | incomingHeaders | Não | Dicionário de JToken | Detalhes do cabeçalho da mensagem de entrada |
 | outgoingHeaders | Não | Dicionário de JToken | Detalhes do cabeçalho da mensagem de saída |

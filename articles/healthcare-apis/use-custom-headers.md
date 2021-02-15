@@ -10,10 +10,10 @@ ms.author: matjazl
 author: matjazl
 ms.date: 10/13/2019
 ms.openlocfilehash: 937be72bfec96119474e7effe9ba88a2cf253444
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86081836"
 ---
 # <a name="add-data-to-audit-logs-by-using-custom-http-headers"></a>Adicionar dados a logs de auditoria usando cabeçalhos HTTP personalizados
@@ -24,7 +24,7 @@ Por exemplo, quando o usuário da API é autenticado por um sistema externo, ess
 
 Você pode ver esse fluxo de dados no seguinte diagrama:
 
-:::image type="content" source="media/custom-headers/custom-headers-diagram.png" alt-text="Diagrama de cabeçalhos personalizados":::
+:::image type="content" source="media/custom-headers/custom-headers-diagram.png" alt-text="Diagrama de cabeçalhos personalizados&quot;:::
 
 Você pode usar cabeçalhos personalizados para capturar vários tipos de informações. Por exemplo:
 
@@ -47,9 +47,9 @@ Esses cabeçalhos HTTP são incluídos em um recipiente de propriedades que é a
 Essas informações são serializadas para JSON quando são adicionadas à coluna de propriedades no log. Por exemplo:
 
 ```json
-{ "X-MS-AZUREFHIR-AUDIT-USERID" : "1234",
-"X-MS-AZUREFHIR-AUDIT-USERLOCATION" : "XXXX",
-"X-MS-AZUREFHIR-AUDIT-XYZ" : "1234" }
+{ &quot;X-MS-AZUREFHIR-AUDIT-USERID&quot; : &quot;1234&quot;,
+&quot;X-MS-AZUREFHIR-AUDIT-USERLOCATION&quot; : &quot;XXXX&quot;,
+&quot;X-MS-AZUREFHIR-AUDIT-XYZ&quot; : &quot;1234&quot; }
 ```
  
 Assim como ocorre com qualquer cabeçalho HTTP, o mesmo nome de cabeçalho pode ser repetido com valores diferentes. Por exemplo:
@@ -59,7 +59,7 @@ Assim como ocorre com qualquer cabeçalho HTTP, o mesmo nome de cabeçalho pode 
 
 Quando adicionado ao log, os valores são combinados a uma lista delimitada por vírgulas. Por exemplo:
 
-{ "X-MS-AZUREFHIR-AUDIT-USERLOCATION": "HospitalA, Emergency" }
+{ &quot;X-MS-AZUREFHIR-AUDIT-USERLOCATION&quot;: &quot;HospitalA, Emergency" }
  
 Você pode adicionar um máximo de 10 cabeçalhos exclusivos (as repetições do mesmo cabeçalho com valores diferentes só são contadas uma vez). O comprimento máximo total do valor para qualquer cabeçalho é de 2.048 caracteres.
 

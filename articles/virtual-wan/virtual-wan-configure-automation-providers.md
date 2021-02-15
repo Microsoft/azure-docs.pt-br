@@ -7,14 +7,14 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: cherylmc
-ms.openlocfilehash: 0029f3fbcf96036a247356042e4c39d59f86a224
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 29fff3a6a430e3bc1a0b3a13876b55d22f7cb545
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88208353"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566462"
 ---
-# <a name="automation-guidelines-for-virtual-wan-partners"></a>Diretrizes de automação para parceiros de WAN virtual
+# <a name="automation-guidelines-for-virtual-wan-partners"></a>Diretrizes de automação para parceiros da WAN Virtual
 
 Este artigo ajuda a entender como configurar o ambiente de automação para conectar e configurar um dispositivo de branch (um dispositivo de VPN local do cliente ou CPE SDWAN) para WAN Virtual do Azure. Se você é um provedor que fornece dispositivos de branch que podem acomodar conectividade de VPN sobre IPsec/IKEv2 ou IPsec/IKEv1, este artigo é para você.
 
@@ -33,9 +33,9 @@ Um dispositivo de branch (um dispositivo VPN local do cliente ou CPE SDWAN) norm
 
 ### <a name="additional-information"></a><a name ="additional"></a>Informações adicionais
 
-* [API REST](https://docs.microsoft.com/rest/api/virtualwan/virtualhubs) para automatizar a criação do Hub virtual
-* [API REST](https://docs.microsoft.com/rest/api/virtualwan/vpngateways) para automatizar o gateway de VPN do Azure para WAN virtual
-* [API REST](https://docs.microsoft.com/rest/api/virtualwan/vpnconnections) para conectar um VPNSite a um hub de VPN do Azure
+* [API REST](/rest/api/virtualwan/virtualhubs) para automatizar a criação do Hub virtual
+* [API REST](/rest/api/virtualwan/vpngateways) para automatizar o gateway de VPN do Azure para WAN virtual
+* [API REST](/rest/api/virtualwan/vpnconnections) para conectar um VPNSite a um hub de VPN do Azure
 * [Políticas IPsec padrão](#default)
 
 ## <a name="customer-experience"></a><a name ="ae"></a>Experiência do usuário
@@ -63,11 +63,11 @@ Os clientes devem ser capazes de configurar o controle de acesso apropriado para
 
 ###  <a name="upload-branch-device-information"></a><a name="branch"></a>Fazer upload de informações do dispositivo de branch
 
-Você deve projetar a experiência do usuário para carregar informações de Branch (site local) no Azure. Você pode usar [APIs REST](https://docs.microsoft.com/rest/api/virtualwan/vpnsites) para VPNSite para criar as informações do site na WAN virtual. É possível fornecer todos os dispositivos VPN/SDWAN de branch ou selecionar personalizações de dispositivo, conforme apropriado.
+Você deve projetar a experiência do usuário para carregar informações de Branch (site local) no Azure. Você pode usar [APIs REST](/rest/api/virtualwan/vpnsites) para VPNSite para criar as informações do site na WAN virtual. É possível fornecer todos os dispositivos VPN/SDWAN de branch ou selecionar personalizações de dispositivo, conforme apropriado.
 
 ### <a name="device-configuration-download-and-connectivity"></a><a name="device"></a>Conectividade e download da configuração do dispositivo
 
-Esta etapa envolve o download da configuração do Azure e configuração da conectividade do dispositivo de branch na WAN Virtual do Azure. Nesta etapa, um cliente que não estivesse usando um provedor, baixaria manualmente a configuração do Azure e a aplicaria ao dispositivo VPN/SDWAN local. Como provedor, é necessário automatizar esta etapa. Exiba as [APIs REST](https://docs.microsoft.com/rest/api/virtualwan/vpnsitesconfiguration/download) de download para obter informações adicionais. O controlador de dispositivo pode chamar a API REST ' GetVpnConfiguration ' para baixar a configuração do Azure.
+Esta etapa envolve o download da configuração do Azure e configuração da conectividade do dispositivo de branch na WAN Virtual do Azure. Nesta etapa, um cliente que não estivesse usando um provedor, baixaria manualmente a configuração do Azure e a aplicaria ao dispositivo VPN/SDWAN local. Como provedor, é necessário automatizar esta etapa. Exiba as [APIs REST](/rest/api/virtualwan/vpnsitesconfiguration/download) de download para obter informações adicionais. O controlador de dispositivo pode chamar a API REST ' GetVpnConfiguration ' para baixar a configuração do Azure.
 
 **Notas de configuração**
 

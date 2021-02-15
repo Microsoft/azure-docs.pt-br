@@ -1,9 +1,9 @@
 ---
-title: Trabalhar com servidores proxy locais existentes e o Azure AD | Microsoft Docs
-description: Cobre como trabalhar com os servidores proxy locais existentes.
+title: Trabalhar com servidores proxy locais existentes e Azure Active Directory
+description: Aborda como trabalhar com servidores proxy locais existentes com o Azure Active Directory.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -11,13 +11,13 @@ ms.topic: how-to
 ms.date: 04/07/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: d177dce250d65b4f9d825c9d70916f70c4076d4b
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: 09a257c4b80fd796ac4e1e8203f00857d2d95eaf
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88077502"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99259110"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Trabalhar com servidores proxy locais existentes
 
@@ -111,18 +111,19 @@ Há quatro aspectos a considerar no proxy de saída:
 
 Permita o acesso às seguintes URLs:
 
-| URL | Como ele é usado |
-| --- | --- |
-| \*.msappproxy.net<br>\*.servicebus.windows.net | Comunicação entre o conector e o serviço de nuvem do Proxy de Aplicativo |
-| mscrl.microsoft.com:80<br>crl.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | O conector usa essas URLs para verificar certificados |
-| login.windows.net<br>Secure.aadcdn.microsoftonline p.com<br>*.microsoftonline.com<br>* .microsoftonline-p.com<br>*.msauth.net<br>* .msauthimages.net<br>*.msecnd.net<br>* .msftauth.net<br>*.msftauthimages.net<br>* .phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctldl.windowsupdate.com:80 | O conector usa essas URLs durante o processo de registro. |
+| URL | Porta |  Como ele é usado |
+| --- | --- | --- |
+| &ast;.msappproxy.net<br>&ast;.servicebus.windows.net | 443/HTTPS | Comunicação entre o conector e o serviço de nuvem do Proxy de Aplicativo |
+| crl3.digicert.com<br>crl4.digicert.com<br>ocsp.digicert.com<br>crl.microsoft.com<br>oneocsp.microsoft.com<br>ocsp.msocsp.com<br> | 80/HTTP | O conector usa essas URLs para verificar certificados. |
+| login.windows.net<br>Secure.aadcdn.microsoftonline p.com<br>&ast;.microsoftonline.com<br>&ast;.microsoftonline-p.com<br>&ast;.msauth.net<br>&ast;.msauthimages.net<br>&ast;.msecnd.net<br>&ast;.msftauth.net<br>&ast;.msftauthimages.net<br>&ast;.phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctldl.windowsupdate.com | 443/HTTPS | O conector usa essas URLs durante o processo de registro. |
+| ctldl.windowsupdate.com | 80/HTTP | O conector usa essa URL durante o processo de registro. |
 
-Se o firewall ou o proxy permitir a configuração de listas de permissões de DNS, você poderá permitir conexões a \*.msappproxy.net e \*.servicebus.windows.net. Caso contrário, você precisará permitir o acesso aos [intervalos de IP do Data Center do Azure](https://www.microsoft.com/download/details.aspx?id=41653). Os intervalos de IP são atualizados a cada semana.
+Se o firewall ou o proxy permitir a configuração de listas de permissões de DNS, você poderá permitir conexões a \*.msappproxy.net e \*.servicebus.windows.net.
 
 Se você não puder permitir a conectividade pelo FQDN e precisar especificar intervalos IP, use estas opções:
 
 * permitir o acesso de saída do conector para todos os destinos.
-* Permitir o acesso de saída do conector para os [intervalos de IP do datacenter do Azure](https://www.microsoft.com//download/details.aspx?id=41653). O desafio de usar a lista de intervalos IP do datacenter do Azure é que ela é atualizada semanalmente. Você precisa implantar um processo para garantir que as regras de acesso sejam atualizadas de acordo. Usar apenas um subconjunto dos endereços IP pode interromper sua configuração.
+* Permitir o acesso de saída do conector para os intervalos de IP do datacenter do Azure. O desafio de usar a lista de intervalos IP do datacenter do Azure é que ela é atualizada semanalmente. Você precisa implantar um processo para garantir que as regras de acesso sejam atualizadas de acordo. Usar apenas um subconjunto dos endereços IP pode interromper sua configuração. Para baixar os intervalos de IP mais recentes do Data Center do Azure, navegue até [https://download.microsoft.com](https://download.microsoft.com) e pesquise por "intervalos de IP e marcas de serviço do Azure". Certifique-se de selecionar a nuvem relevante. Por exemplo, os intervalos de IP de nuvem pública podem ser encontrados com "intervalos de IP do Azure e marcas de serviço – nuvem pública". A nuvem do governo dos EUA pode ser encontrada pesquisando "intervalos de IP do Azure e marcas de serviço – nuvem do governo dos EUA".
 
 #### <a name="proxy-authentication"></a>Autenticação do proxy
 
@@ -167,6 +168,9 @@ A melhor maneira de identificar e solucionar os problemas de conectividade do co
 
 Você pode usar a ferramenta de monitoramento de sua preferência. Para este artigo, usamos o Microsoft Message Analyzer.
 
+> [!NOTE]
+> O [MMA (analisador de mensagens da Microsoft) foi desativado](/openspecs/blog/ms-winintbloglp/dd98b93c-0a75-4eb0-b92e-e760c502394f) e seus pacotes de download foram removidos dos sites do Microsoft.com em novembro de 25 2019.  No momento, não há substituição da Microsoft para o Microsoft Message Analyzer em desenvolvimento no momento.  Para uma funcionalidade semelhante, considere o uso de uma ferramenta de analisador de protocolo de rede de terceiros, como o Wireshark.
+
 Os exemplos a seguir são específicos para o Message Analyzer, mas os princípios podem ser aplicados a qualquer ferramenta de análise.
 
 ### <a name="take-a-capture-of-connector-traffic"></a>Fazer uma captura do tráfego do conector
@@ -207,4 +211,4 @@ Caso sejam exibidos outros códigos de resposta, como 407 ou 502, isso indica qu
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Noções básicas sobre conectores de Proxy de Aplicativo do Azure AD](application-proxy-connectors.md)
-* Se você tiver problemas de conectividade do conector, faça sua pergunta na [Página de P e R Microsoft para o Azure Active Directory](https://docs.microsoft.com/answers/topics/azure-active-directory.html) ou crie um tíquete com nossa equipe de suporte.
+* Se você tiver problemas de conectividade do conector, faça sua pergunta na [Página de P e R Microsoft para o Azure Active Directory](/answers/topics/azure-active-directory.html) ou crie um tíquete com nossa equipe de suporte.

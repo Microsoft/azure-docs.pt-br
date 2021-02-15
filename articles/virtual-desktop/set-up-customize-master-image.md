@@ -3,19 +3,22 @@ title: Preparar e personalizar uma imagem VHD mestre – Azure
 description: Como preparar, personalizar e carregar uma imagem mestra de área de trabalho virtual do Windows no Azure.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 10/14/2019
+ms.date: 01/19/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 2a10a32a98a240f740f48f7b25e6fa6ac3f2e873
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 33af83934e8ecc5745f2edad3a7832a870406452
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009504"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602370"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Preparar e personalizar uma imagem de VHD mestre
 
 Este artigo mostra como preparar uma imagem de VHD (disco rígido virtual) mestre para carregar no Azure, incluindo como criar máquinas virtuais (VMs) e instalar software neles. Essas instruções são referentes a uma configuração específica da Área de Trabalho Virtual do Windows que pode ser usada com os processos existentes de sua organização.
+
+>[!IMPORTANT]
+>Recomendamos que você use uma imagem da Galeria de imagens do Azure. No entanto, se você precisar usar uma imagem personalizada, certifique-se de que você ainda não tem o agente de área de trabalho virtual do WIndows instalado em seu dispositivo. Usar uma imagem personalizada com o agente de área de trabalho virtual do Windows pode causar problemas com a imagem.  
 
 ## <a name="create-a-vm"></a>Criar uma máquina virtual
 
@@ -93,7 +96,7 @@ Para desabilitar Atualizações Automáticas via Política de Grupo local:
 
 Você também pode executar o comando a seguir em um prompt de comando para desabilitar o Atualizações Automáticas.
 
-```batch
+```cmd
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /v NoAutoUpdate /t REG_DWORD /d 1 /f
 ```
 
@@ -101,7 +104,7 @@ reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /v NoAutoUpd
 
 Execute este comando para especificar um layout inicial para PCs com Windows 10.
 
-```batch
+```cmd
 reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" /v SpecialRoamingOverrideAllowed /t REG_DWORD /d 1 /f
 ```
 
@@ -119,20 +122,20 @@ Para redirecionar fusos horários:
 
 Você também pode executar esse comando na imagem mestra para redirecionar os fusos horários:
 
-```batch
+```cmd
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fEnableTimeZoneRedirection /t REG_DWORD /d 1 /f
 ```
 
 ### <a name="disable-storage-sense"></a>Desabilitar o sensor de armazenamento
 
-Para o host de sessão de área de trabalho virtual do Windows que usa o Windows 10 Enterprise ou Windows 10 Enterprise Multi-Session, é recomendável desabilitar o sensor de armazenamento. Você pode desabilitar o sensor de armazenamento no menu configurações, em **armazenamento**, conforme mostrado na seguinte captura de tela:
+Para o host de sessão de Área de Trabalho Virtual do Windows que usa multisseção do Windows 10 Enterprise ou Windows 10 Enterprise, é recomendável desabilitar o sensor de armazenamento. Você pode desabilitar o sensor de armazenamento no menu configurações, em **armazenamento**, conforme mostrado na seguinte captura de tela:
 
 > [!div class="mx-imgBorder"]
 > ![Uma captura de tela do menu armazenamento em configurações. A opção "sensor de armazenamento" está desativada.](media/storagesense.png)
 
 Você também pode alterar a configuração com o registro executando o seguinte comando:
 
-```batch
+```cmd
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\StorageSense\Parameters\StoragePolicy" /v 01 /t REG_DWORD /d 0 /f
 ```
 
@@ -153,19 +156,19 @@ Esta seção aborda a configuração do aplicativo e do sistema operacional. Tod
 
 Para coleta de Hub de comentários de dados de telemetria no Windows 10 Enterprise Multi-Session, execute este comando:
 
-```batch
+```cmd
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\DataCollection" /v AllowTelemetry /t REG_DWORD /d 3 /f
 ```
 
 Execute o seguinte comando para corrigir falhas do Watson:
 
-```batch
+```cmd
 remove CorporateWerServer* from Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\Windows Error Reporting
 ```
 
 Insira os seguintes comandos no editor do registro para corrigir o suporte à resolução de 5K. Você deve executar os comandos para poder habilitar a pilha lado a lado.
 
-```batch
+```cmd
 reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v MaxMonitors /t REG_DWORD /d 4 /f
 reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v MaxXResolution /t REG_DWORD /d 5120 /f
 reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v MaxYResolution /t REG_DWORD /d 2880 /f
@@ -189,7 +192,7 @@ As instruções a seguir lhe dirão como carregar sua imagem mestra em uma conta
 
 1. Converta a imagem de VM (VHD) para fixa se você ainda não tiver feito isso. Se você não converter a imagem em Fixed, não será possível criar a imagem com êxito.
 
-2. Carregue o VHD em um contêiner de BLOB em sua conta de armazenamento. Você pode carregar rapidamente com a [ferramenta de Gerenciador de armazenamento](https://azure.microsoft.com/features/storage-explorer/). Para saber mais sobre a ferramenta de Gerenciador de Armazenamento, consulte [Este artigo](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows).
+2. Carregue o VHD em um contêiner de BLOB em sua conta de armazenamento. Você pode carregar rapidamente com a [ferramenta de Gerenciador de armazenamento](https://azure.microsoft.com/features/storage-explorer/). Para saber mais sobre a ferramenta de Gerenciador de Armazenamento, consulte [Este artigo](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows).
 
     > [!div class="mx-imgBorder"]
     > ![Uma captura de tela da janela de pesquisa da ferramenta de Gerenciador de Armazenamento do Microsoft Azure. A caixa de seleção "carregar arquivos. VHD ou vhdx como BLOBs de página (recomendado)" está marcada.](media/897aa9a9b6acc0aa775c31e7fd82df02.png)

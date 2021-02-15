@@ -1,10 +1,10 @@
 ---
-title: Detecção Avançada de Ameaças do Azure | Microsoft Docs
-description: Saiba mais sobre a funcionalidade interna de detecção de ameaças avançada para o Azure, como o serviço de Azure AD Identity Protection.
+title: Proteção contra ameaças do Azure | Microsoft Docs
+description: Saiba mais sobre a funcionalidade interna de proteção contra ameaças para o Azure, como o serviço de Azure AD Identity Protection.
 services: security
 documentationcenter: na
-author: UnifyCloud
-manager: barbkess
+author: TerryLanfear
+manager: rkarlin
 editor: TomSh
 ms.assetid: ''
 ms.service: security
@@ -13,24 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
-ms.author: TomSh
-ms.openlocfilehash: 1522d143f2837a57481a4d678911e7a3c44d084d
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.date: 02/03/2021
+ms.author: terrylan
+ms.openlocfilehash: eb8332bda2105c3f83c0c1cc28fb7db4b1ca0102
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87541015"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99549910"
 ---
-# <a name="azure-advanced-threat-detection"></a>Detecção avançada de ameaças do Azure
+# <a name="azure-threat-protection"></a>Proteção contra ameaças do Azure
 
-O Azure oferece a funcionalidade de detecção avançada de ameaças por meio de serviços como o Azure Active Directory (Azure AD), os logs do Azure Monitor e a Central de Segurança do Azure. Esta coleção de recursos e serviços de segurança fornece uma maneira simples e rápida de compreender o que está acontecendo em suas implantações do Azure.
+O Azure oferece a funcionalidade de proteção contra ameaças incorporada por meio de serviços como o Azure Active Directory (Azure AD), os logs de Azure Monitor e a central de segurança do Azure. Esta coleção de recursos e serviços de segurança fornece uma maneira simples e rápida de compreender o que está acontecendo em suas implantações do Azure.
 
 O Azure fornece uma ampla gama de opções para configurar e personalizar a segurança para atender às necessidades de implantações de seu aplicativo. Este artigo discute como atender a esses requisitos.
 
 ## <a name="azure-active-directory-identity-protection"></a>Azure Active Directory Identity Protection
 
-O [Azure AD Identity Protection](../../active-directory/identity-protection/overview.md) é um recurso da edição [Azure Active Directory Premium P2](../../active-directory/active-directory-whatis.md) que oferece uma visão geral das detecções de risco e das possíveis vulnerabilidades que podem afetar as identidades da sua organização. O Identity Protection usa as funcionalidades existentes de detecção de anomalias do Azure AD, que estão disponíveis por meio dos [Relatórios de Atividade Anômala do Azure AD](../../active-directory/active-directory-reporting-azure-portal.md), e apresenta novos tipos de detecção de risco que podem identificar anomalias em tempo real.
+O [Azure AD Identity Protection](../../active-directory/identity-protection/overview-identity-protection.md) é um recurso da edição [Azure Active Directory Premium P2](../../active-directory/fundamentals/active-directory-whatis.md) que oferece uma visão geral das detecções de risco e das possíveis vulnerabilidades que podem afetar as identidades da sua organização. O Identity Protection usa as funcionalidades existentes de detecção de anomalias do Azure AD, que estão disponíveis por meio dos [Relatórios de Atividade Anômala do Azure AD](../../active-directory/reports-monitoring/overview-reports.md), e apresenta novos tipos de detecção de risco que podem identificar anomalias em tempo real.
 
 ![Diagrama do Azure AD Identity Protection](./media/threat-detection/azure-threat-detection-fig1.png)
 
@@ -38,7 +38,7 @@ O Identity Protection usa algoritmos de aprendizado de máquina adaptáveis e he
 
 O Azure Active Directory Identity Protection é mais do que apenas uma ferramenta de monitoramento e criação de relatórios. Com base nas detecções de risco, o Identity Protection calcula um nível de risco para cada usuário, permitindo que você configure políticas baseadas em risco para proteger automaticamente as identidades da sua organização.
 
-Essas políticas baseadas em risco, entre outros [controles de Acesso Condicional](../../active-directory/active-directory-conditional-access-azure-portal.md) fornecidos pelo Azure Active Directory e pelo [EMS](../../active-directory/active-directory-conditional-access-azure-portal.md), podem fazer o bloqueio automático ou oferecer ações de correção adaptáveis que incluem redefinições de senha e a imposição da autenticação multifator.
+Essas políticas baseadas em risco, entre outros [controles de Acesso Condicional](../../active-directory/conditional-access/overview.md) fornecidos pelo Azure Active Directory e pelo [EMS](../../active-directory/conditional-access/overview.md), podem fazer o bloqueio automático ou oferecer ações de correção adaptáveis que incluem redefinições de senha e a imposição da autenticação multifator.
 
 ### <a name="identity-protection-capabilities"></a>Recursos do Identity Protection
 
@@ -46,31 +46,31 @@ O Azure Active Directory Identity Protection é mais do que apenas uma ferrament
 
 Os exemplos de algumas das maneiras como o Azure Identity Protection pode ajudar a proteger suas contas e identidades incluem:
 
-[Identificando detecções de risco e contas arriscadas](../../active-directory/identity-protection/overview.md)
+[Identificando detecções de risco e contas arriscadas](../../active-directory/identity-protection/overview-identity-protection.md)
 -   Identifique seis tipos de detecção de risco usando aprendizado de máquina e regras heurísticas.
 -   Calcule os níveis de risco do usuário.
 -   Forneça recomendações personalizadas para melhorar a situação geral de segurança destacando as vulnerabilidades.
 
-[Como investigar as detecções de risco](../../active-directory/identity-protection/overview.md)
+[Como investigar as detecções de risco](../../active-directory/identity-protection/overview-identity-protection.md)
 -   Envie notificações para as detecções de risco.
 -   Investigue as detecções de risco usando informações relevantes e contextuais.
 -   Forneça fluxos de trabalho básicos para acompanhar as investigações.
 -   Forneça acesso fácil a ações de correção, como redefinição de senha.
 
-[Políticas de acesso condicional baseadas em risco](../../active-directory/identity-protection/overview.md)
+[Políticas de acesso condicional baseadas em risco](../../active-directory/identity-protection/overview-identity-protection.md)
 -   Atenue entradas arriscadas ao bloquear entradas ou exigir desafios de autenticação multifator.
 -   Bloqueie ou proteja contas de usuário arriscadas.
 -   Exija que os usuários se registrem na autenticação multifator.
 
 ### <a name="azure-ad-privileged-identity-management"></a>Gerenciamento de identidades com privilégios do AD do Azure
 
-Com o [PIM (Azure Active Directory Privileged Identity Management)](../../active-directory/privileged-identity-management/pim-configure.md), você pode gerenciar, controlar e monitorar o acesso em sua organização. Esse recurso inclui o acesso aos recursos do Azure AD e a outros serviços online da Microsoft, como o Office 365 ou o Microsoft Intune.
+Com o [PIM (Azure Active Directory Privileged Identity Management)](../../active-directory/privileged-identity-management/pim-configure.md), você pode gerenciar, controlar e monitorar o acesso em sua organização. Esse recurso inclui acesso a recursos no Azure AD e outros serviços online da Microsoft, como Microsoft 365 ou Microsoft Intune.
 
 ![Azure AD Privileged Identity Management](./media/threat-detection/azure-threat-detection-fig2.png)
 
 O PIM ajuda você a:
 
--   Obter alertas e gerar relatórios sobre o acesso administrativo JIT (Just-In-Time) e de administradores do Azure AD aos serviços online da Microsoft, como o Office 365 e o Intune.
+-   Obtenha alertas e relatórios sobre os administradores do Azure AD e o acesso administrativo just-in-time (JIT) ao Microsoft serviços online, como o Microsoft 365 e o Intune.
 
 -   Obter relatórios sobre o histórico de acesso de administrador e as alterações nas atribuições de administrador.
 
@@ -80,50 +80,31 @@ O PIM ajuda você a:
 
 Os [logs do Azure Monitor](../../azure-monitor/index.yml) são a solução de gerenciamento de TI baseada em nuvem da Microsoft que o ajudará a gerenciar e proteger sua infraestrutura local e de nuvem. Já que os logs do Azure Monitor são implementados como um serviço baseado em nuvem, é possível colocá-los em funcionamento com investimentos mínimos em serviços de infraestrutura. Novos recursos de segurança são entregues automaticamente, economizando em manutenção contínua e custos de atualização.
 
-Além de fornecer serviços importantes por conta própria, os logs do Azure Monitor podem ser integrados aos componentes do System Center, como o [System Center Operations Manager](https://blogs.technet.microsoft.com/cbernier/2013/10/23/monitoring-windows-azure-with-system-center-operations-manager-2012-get-me-started/), para estender para a nuvem os seus investimentos em gerenciamento de segurança existentes. O System Center e os logs do Azure Monitor podem trabalhar juntos para proporcionar uma experiência completa de gerenciamento híbrido.
+Além de fornecer serviços importantes por conta própria, os logs do Azure Monitor podem ser integrados aos componentes do System Center, como o [System Center Operations Manager](/archive/blogs/cbernier/monitoring-windows-azure-with-system-center-operations-manager-2012-get-me-started), para estender para a nuvem os seus investimentos em gerenciamento de segurança existentes. O System Center e os logs do Azure Monitor podem trabalhar juntos para proporcionar uma experiência completa de gerenciamento híbrido.
 
 ### <a name="holistic-security-and-compliance-posture"></a>Situação de conformidade e de segurança abrangente
 
-O [painel de Segurança e Auditoria do Log Analytics](../../security-center/security-center-intro.md) fornece uma exibição abrangente da situação de segurança de TI da organização, com consultas de pesquisa internas para problemas importantes que exigem atenção. O painel Segurança e Auditoria é a tela inicial para tudo que está relacionado à segurança nos logs do Azure Monitor. Ela fornece uma análise de alto nível do estado de segurança de seus computadores. Você também pode exibir todos os eventos das últimas 24 horas, 7 dias ou de qualquer outro período personalizado.
+A [central de segurança do Azure](../../security-center/security-center-introduction.md) fornece uma visão abrangente da postura de segurança de ti de sua organização, com consultas de pesquisa internas para problemas importantes que exigem atenção. Ela fornece uma análise de alto nível do estado de segurança de seus computadores. Você também pode exibir todos os eventos das últimas 24 horas, 7 dias ou qualquer outro período de tempo personalizado.
 
 Os logs do Azure Monitor ajudam a entender com rapidez e facilidade a situação geral de segurança de qualquer ambiente, tudo isso dentro do contexto das operações de TI, inclusive com avaliação de atualização de software, avaliação de antimalware e linhas de base de configuração. Os dados de log de segurança ficam prontamente acessíveis para simplificar os processos de auditoria de segurança e conformidade.
 
-![O painel de Segurança e Auditoria do Log Analytics](./media/threat-detection/azure-threat-detection-fig3.jpg)
-
-O painel de Segurança e Auditoria do Log Analytics é organizado em quatro categorias principais:
-
--   **Domínios de Segurança**: Permite explorar mais os registros de segurança ao longo do tempo; acessar avaliações de malware; atualizar avaliações; exibir informações de acesso, identidade e segurança de rede; exibir computadores com eventos de segurança e acessar rapidamente o painel da Central de Segurança do Azure.
-
--   **Problemas Importantes**: Permite identificar rapidamente o número de problemas ativos e sua gravidade.
-
--   **Detecções (Versão Prévia)** : Permite identificar padrões de ataque exibindo os alertas de segurança à medida que eles ocorrem nos recursos.
-
--   **Inteligência contra Ameaças**: Permite identificar padrões de ataque exibindo o número total de servidores com tráfego IP de saída mal-intencionado, o tipo de ameaça mal-intencionada e um mapa dos locais desses IPs.
-
--   **Consultas comuns de segurança**: Lista as consultas de segurança mais comuns que você pode usar para monitorar seu ambiente. Quando você seleciona qualquer consulta, o painel Pesquisa é aberto e exibe os resultados da consulta.
-
 ### <a name="insight-and-analytics"></a>Insight e análise
-No centro dos [logs do Azure Monitor](../../log-analytics/log-analytics-queries.md) está o repositório que é hospedado pelo Azure.
+No centro dos [logs do Azure Monitor](../../azure-monitor/log-query/log-query-overview.md) está o repositório que é hospedado pelo Azure.
 
 ![Diagrama de insight e análise](./media/threat-detection/azure-threat-detection-fig4.png)
 
 Colete dados no repositório de fontes conectadas configurando fontes de dados e adicionando soluções à sua assinatura.
 
-![O painel dos logs do Azure Monitor](./media/threat-detection/azure-threat-detection-fig5.png)
-
 As fontes de dados e as soluções criam tipos de registro separados com seus próprios conjuntos de propriedades, mas também é possível analisá-los juntos fazendo consultas ao repositório. Você pode usar as mesmas ferramentas e métodos para trabalhar com uma variedade de dados que são coletados por várias fontes.
 
-
 Grande parte da sua interação com os logs do Azure Monitor se dará por meio do portal do Azure, que é executado em qualquer navegador e dá acesso às definições de configuração e a várias ferramentas para a análise e tomada de medidas sobre os dados coletados. No portal, você pode usar:
-* [Pesquisas de logs](../../log-analytics/log-analytics-queries.md) nas quais é possível construir consultas para analisar os dados coletados.
+* [Pesquisas de logs](../../azure-monitor/log-query/log-query-overview.md) nas quais é possível construir consultas para analisar os dados coletados.
 * [Painéis](../../azure-monitor/learn/tutorial-logs-dashboards.md), que você pode personalizar com exibições gráficas das pesquisas mais valiosas.
-* [Soluções](../../monitoring/monitoring-solutions.md), que fornecem ferramentas de análise e funcionalidade adicionais.
-
-![Ferramentas de análise](./media/threat-detection/azure-threat-detection-fig6.png)
+* [Soluções](../../azure-monitor/insights/solutions.md), que fornecem ferramentas de análise e funcionalidade adicionais.
 
 As soluções acrescentam funcionalidades aos logs do Azure Monitor. Elas são executadas principalmente na nuvem e fornecem a análise dos dados que são coletados no repositório de análise de logs. As soluções também podem definir novos tipos de registro a serem coletados que podem ser analisados com pesquisas de logs ou por meio de uma interface de usuário adicional que a solução fornece no painel do Log Analytics.
 
-O painel Segurança e Auditoria é um exemplo desses tipos de soluções.
+A central de segurança é um exemplo desses tipos de soluções.
 
 ### <a name="automation-and-control-alert-on-security-configuration-drifts"></a>Automação e controle: Alerta de dessincronização da configuração de segurança
 
@@ -135,27 +116,31 @@ Você pode criar e gerenciar recursos de DSC hospedados no Azure e aplicá-los a
 
 ## <a name="azure-security-center"></a>Central de Segurança do Azure
 
-A Central de Segurança do Azure ajuda a proteger os recursos do Azure. Ela fornece monitoramento de segurança integrado e gerenciamento de políticas em suas assinaturas do Azure. Dentro do serviço, você pode definir políticas em relação às assinaturas e aos [grupos de recursos](../../azure-resource-manager/management/manage-resources-portal.md) do Azure para aumentar a granularidade.
+A central de segurança do Azure ajuda a proteger seu ambiente de nuvem híbrida. Ao executar avaliações de segurança contínuas de seus recursos conectados, é possível fornecer recomendações de segurança detalhadas para as vulnerabilidades descobertas.
 
-![Diagrama da Central de Segurança do Azure](./media/threat-detection/azure-threat-detection-fig8.png)
+As recomendações da central de segurança são baseadas no [benchmark de segurança do Azure](../benchmarks/introduction.md) – o conjunto de diretrizes criadas pela Microsoft e pelo Azure para práticas recomendadas de segurança e conformidade com base em estruturas de conformidade comuns. Esse benchmark amplamente respeitado se baseia nos controles do [centro de segurança da Internet (CIS)](https://www.cisecurity.org/benchmark/azure/) e do [Instituto Nacional de normas e tecnologia (NIST)](https://www.nist.gov/) com foco na segurança centrada na nuvem.
+
+A CWPP (plataforma de proteção de carga de trabalho de nuvem) integrada da central de segurança, o **Azure defender**, traz proteção avançada e inteligente de seus recursos e cargas de trabalho do Azure e híbridos. Habilitar o Azure defender traz uma variedade de recursos de segurança adicionais (consulte [introdução ao Azure defender](../../security-center/azure-defender.md)). O painel do Azure Defender na Central de Segurança fornece visibilidade e controle dos recursos de PCTN em seu ambiente:
+
+:::image type="content" source="../../security-center/media/azure-defender/sample-defender-dashboard.png" alt-text="Um exemplo do painel do Azure Defender" lightbox="../../security-center/media/azure-defender/sample-defender-dashboard.png":::
 
 Os pesquisadores de segurança da Microsoft estão constantemente à procura de ameaças. Eles têm acesso a um conjunto expansivo de telemetria obtida com a presença global da Microsoft na nuvem e localmente. Esta coleção diversa e abrangente de conjuntos de dados permite que a Microsoft descubra novos padrões de ataque e tendências em seus produtos de consumidor e empresariais no local, bem como em serviços on-line.
 
 Dessa forma, a Central de Segurança pode atualizar rapidamente seus algoritmos de detecção conforme os invasores lançam explorações novas e cada vez mais sofisticadas. Isso ajuda a acompanhar o ritmo de um ambiente de ameaças que muda rapidamente.
 
-![Detecção de ameaças da Central de Segurança](./media/threat-detection/azure-threat-detection-fig9.jpg)
+:::image type="content" source="../../security-center/media/security-center-managing-and-responding-alerts/alerts-page.png" alt-text="Lista de alertas de segurança da central de segurança do Azure":::
 
-A detecção de ameaças da Central de Segurança funciona coletando informações de segurança de seus recursos do Azure, de rede e de soluções de parceiros conectados automaticamente. Ele analisa essas informações, correlacionando informações de várias fontes para identificar ameaças.
+O Azure defender coleta automaticamente informações de segurança de seus recursos, da rede e das soluções de parceiros conectadas. Ele analisa essas informações, correlacionando informações de várias fontes para identificar ameaças.
 
-Os alertas de segurança são priorizados na Central de Segurança, juntamente com recomendações sobre como corrigir a ameaça.
+Os alertas do Azure defender são priorizados na central de segurança juntamente com recomendações sobre como corrigir as ameaças.
 
-A Central de Segurança emprega análise de segurança avançada, que vai além das abordagens baseadas em assinatura. As inovações nas tecnologias de big data e de [aprendizado de máquina](https://azure.microsoft.com/blog/machine-learning-in-azure-security-center/) são usadas para avaliar eventos em toda a malha de nuvem. As análises avançadas podem detectar ameaças que seriam impossíveis de serem identificadas com métodos manuais e prevendo a evolução dos ataques. Esses tipos de análise de segurança são abordados nas seções a seguir.
+A Central de Segurança emprega análise de segurança avançada, que vai além das abordagens baseadas em assinatura. As inovações em tecnologias de Big Data e de [aprendizado de máquina](https://azure.microsoft.com/blog/machine-learning-in-azure-security-center/) são usadas para avaliar eventos em toda a nuvem. A análise avançada pode detectar ameaças que seriam impossíveis de identificar por meio de abordagens manuais e prever a evolução dos ataques. Esses tipos de análise de segurança são abordados nas seções a seguir.
 
 ### <a name="threat-intelligence"></a>Inteligência contra ameaças
 
 A Microsoft tem acesso a uma grande quantidade de inteligência global contra ameaças.
 
-A telemetria flui de várias fontes, como o Azure, o Office 365, o Microsoft CRM online, o Microsoft Dynamics AX, o outlook.com, o MSN.com, a DCU (Unidade de Crimes Digitais da Microsoft) e o Microsoft Security Response Center (MSRC).
+A telemetria flui de várias fontes, como Azure, Microsoft 365, Microsoft CRM Online, Microsoft Dynamics AX, outlook.com, MSN.com, unidade de crimes digitais da Microsoft (DCU) e Microsoft Security Response Center (MSRC).
 
 ![Descobertas de inteligência contra ameaças](./media/threat-detection/azure-threat-detection-fig10.jpg)
 
@@ -190,7 +175,7 @@ Alguns exemplos incluem:
 
 -   **Scripts do PowerShell mal-intencionados**: O PowerShell pode ser usado por invasores para executar um código mal-intencionado em máquinas virtuais de destino com diversas finalidades. A Central de Segurança inspeciona a atividade do PowerShell para obter evidência de atividades suspeitas.
 
--   **Ataques de saída**: Os invasores costumam atacar os recursos de nuvem com a meta de usá-los para montar ataques adicionais. As máquinas virtuais comprometidas, por exemplo, podem ser usadas para iniciar ataques de força bruta contra outras máquinas virtuais, enviar spam ou verificar portas abertas e outros dispositivos na Internet. Aplicando o aprendizado de máquina ao tráfego de rede, a Central de Segurança pode detectar quando as comunicações de rede de saída excedem a norma. Quando um spam é detectado, a Central de Segurança também correlaciona o tráfego de email incomum à inteligência do Office 365 para determinar se o email pode ser perigoso ou é o resultado de uma campanha de email legítima.
+-   **Ataques de saída**: Os invasores costumam atacar os recursos de nuvem com a meta de usá-los para montar ataques adicionais. As máquinas virtuais comprometidas, por exemplo, podem ser usadas para iniciar ataques de força bruta contra outras máquinas virtuais, enviar spam ou verificar portas abertas e outros dispositivos na Internet. Aplicando o aprendizado de máquina ao tráfego de rede, a Central de Segurança pode detectar quando as comunicações de rede de saída excedem a norma. Quando o spam é detectado, a central de segurança também correlaciona o tráfego de email incomum com inteligência de Microsoft 365 para determinar se o email é provavelmente perigoso ou o resultado de uma campanha de email legítima.
 
 ### <a name="anomaly-detection"></a>Detecção de anomalias
 
@@ -212,7 +197,7 @@ A Central de Segurança do Azure opera com equipes de pesquisas de segurança e 
 
 Esses esforços combinados culminam em detecções novas e melhores, das quais você pode se beneficiar instantaneamente. Não há nenhuma ação a ser executada.
 
-## <a name="advanced-threat-detection-features-other-azure-services"></a>Recursos de detecção avançada de ameaças: Outros serviços do Azure
+## <a name="threat-protection-features-other-azure-services"></a>Recursos de proteção contra ameaças: outros serviços do Azure
 
 ### <a name="virtual-machines-microsoft-antimalware"></a>Máquinas virtuais: Microsoft Antimalware
 
@@ -268,7 +253,7 @@ Os detectores de ameaças do Banco de Dados SQL usam uma das seguintes metodolog
 
 ### <a name="application-gateway-web-application-firewall"></a>Firewall do Aplicativo Web do Gateway de Aplicativo
 
-O [WAF (firewall do aplicativo Web)](../../app-service/environment/app-service-app-service-environment-web-application-firewall.md) é um recurso do [Gateway de Aplicativo do Azure](../../application-gateway/application-gateway-web-application-firewall-overview.md) que fornece proteção para aplicativos Web que usam um gateway de aplicativo para as funções padrão de [controle de entrega de aplicativos](https://kemptechnologies.com/in/application-delivery-controllers). O firewall do aplicativo Web faz isso protegendo-os contra a maioria das [10 principais vulnerabilidades comuns da Web do OWASP (Projeto Aberto de Segurança em Aplicações Web)](https://owasp.org/www-project-top-ten/).
+O [WAF (firewall do aplicativo Web)](../../app-service/environment/app-service-app-service-environment-web-application-firewall.md) é um recurso do [Gateway de Aplicativo do Azure](../../web-application-firewall/ag/ag-overview.md) que fornece proteção para aplicativos Web que usam um gateway de aplicativo para as funções padrão de [controle de entrega de aplicativos](https://kemptechnologies.com/in/application-delivery-controllers). O firewall do aplicativo Web faz isso protegendo-os contra a maioria das [10 principais vulnerabilidades comuns da Web do OWASP (Projeto Aberto de Segurança em Aplicações Web)](https://owasp.org/www-project-top-ten/).
 
 ![Diagrama do firewall do aplicativo Web do Gateway de Aplicativo](./media/threat-detection/azure-threat-detection-fig13.png)
 
@@ -336,7 +321,7 @@ A API de detecção de anomalias é uma solução efetiva e eficiente para uma a
 
 ### <a name="cloud-app-security"></a>Segurança de Aplicativo de Nuvem
 
-[Segurança de aplicativo em nuvem](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security) é um componente crítico da pilha de segurança de nuvem da Microsoft. É uma solução abrangente que pode ajudar sua organização a aproveitar ao máximo a promessa dos aplicativos de nuvem à medida que os adota. Ele mantém você no controle com melhor visibilidade das atividades. Ele também ajuda a aumentar a proteção de dados críticos em aplicativos de nuvem.
+[Segurança de aplicativo em nuvem](/cloud-app-security/what-is-cloud-app-security) é um componente crítico da pilha de segurança de nuvem da Microsoft. É uma solução abrangente que pode ajudar sua organização a aproveitar ao máximo a promessa dos aplicativos de nuvem à medida que os adota. Ele mantém você no controle com melhor visibilidade das atividades. Ele também ajuda a aumentar a proteção de dados críticos em aplicativos de nuvem.
 
 Com as ferramentas que ajudam a descobrir sombra IT, avaliar os riscos, políticas, investigar atividades e evitar ameaças, sua organização com mais segurança pode mudar para a nuvem, mantendo o controle dos dados críticos.
 
@@ -363,7 +348,7 @@ O Cloud App Security integra visibilidade à sua nuvem por:
 
 Ao coletar dados dessas fontes, o Cloud App Security executa uma análise sofisticada nos dados. Ele imediatamente alerta para atividades anormais e fornece visibilidade profunda em seu ambiente de nuvem. Você pode configurar uma política de segurança de aplicativo de nuvem e usá-lo para proteger tudo em seu ambiente de nuvem.
 
-## <a name="third-party-advanced-threat-detection-capabilities-through-the-azure-marketplace"></a>Funcionalidades de detecção avançada de ameaças de terceiros por meio do Azure Marketplace
+## <a name="third-party-threat-protection-capabilities-through-the-azure-marketplace"></a>Recursos de proteção contra ameaças de terceiros por meio do Azure Marketplace
 
 ### <a name="web-application-firewall"></a>Firewall do Aplicativo Web
 

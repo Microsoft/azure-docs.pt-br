@@ -12,12 +12,12 @@ ms.devlang: ruby
 ms.topic: article
 ms.date: 11/25/2014
 ms.author: gwallace
-ms.openlocfilehash: 19372b30a5e56738230216777897c08b07a0a86a
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 49203195bf7746d0bff1b9543d1641f69ab23359
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170693"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95542670"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-ruby"></a>Como usar o Twilio para recursos de voz e SMS no Ruby
 Este guia demonstra como executar tarefas comuns de programação com o serviço de API do Twilio no Azure. Os cenários abrangidos incluem fazer uma chamada telefônica e enviar uma mensagem serviço de mensagem curta (SMS). Para obter mais informações sobre o Twilio e o uso de voz e SMS em seus aplicativos, consulte a seção [Próximas etapas](#NextSteps) .
@@ -48,20 +48,20 @@ Por exemplo, o seguinte TwiML converteria a mensagem **Olá, mundo** em fala.
 Todos os documentos do TwiML têm `<Response>` como seu elemento raiz. Por meio disso, você usará os verbos do Twilio para definir o comportamento do seu aplicativo.
 
 ### <a name="twiml-verbs"></a><a id="Verbs"></a>Verbos do TwiML
-Os verbos do Twilio são marcas XML que dizem ao Twilio o que **fazer**. Por exemplo, o verbo ** &lt; digamos &gt; ** instrui o twilio a forma audível a entregar uma mensagem em uma chamada. 
+Os verbos do Twilio são marcas XML que dizem ao Twilio o que **fazer**. Por exemplo, o verbo **&lt; digamos &gt;** instrui o twilio a forma audível a entregar uma mensagem em uma chamada. 
 
 A seguir está uma lista de verbos do Twilio.
 
-* ** &lt; Discar &gt; **: conecta o chamador a outro telefone.
-* ** &lt; Coletar &gt; **: coleta dígitos numéricos inseridos no teclado do telefone.
-* ** &lt; Desligamento &gt; **: encerra uma chamada.
-* ** &lt; Play &gt; **: reproduz um arquivo de áudio.
-* ** &lt; Pausa &gt; **: aguarda silenciosamente por um número especificado de segundos.
-* ** &lt; Registro &gt; **: registra a voz do chamador e retorna uma URL de um arquivo que contém a gravação.
-* ** &lt; Redirect &gt; **: transfere o controle de uma chamada ou SMS para o TwiML em uma URL diferente.
-* ** &lt; Rejeitar &gt; **: rejeita uma chamada recebida para o número do twilio sem cobrança
-* ** &lt; Digamos &gt; **: converte o texto em fala que é feito em uma chamada.
-* ** &lt; SMS &gt; **: envia uma mensagem SMS.
+* **&lt; Discar &gt;**: conecta o chamador a outro telefone.
+* **&lt; Coletar &gt;**: coleta dígitos numéricos inseridos no teclado do telefone.
+* **&lt; Desligamento &gt;**: encerra uma chamada.
+* **&lt; Play &gt;**: reproduz um arquivo de áudio.
+* **&lt; Pausa &gt;**: aguarda silenciosamente por um número especificado de segundos.
+* **&lt; Registro &gt;**: registra a voz do chamador e retorna uma URL de um arquivo que contém a gravação.
+* **&lt; Redirect &gt;**: transfere o controle de uma chamada ou SMS para o TwiML em uma URL diferente.
+* **&lt; Rejeitar &gt;**: rejeita uma chamada recebida para o número do twilio sem cobrança
+* **&lt; Digamos &gt;**: converte o texto em fala que é feito em uma chamada.
+* **&lt; SMS &gt;**: envia uma mensagem SMS.
 
 Para obter mais informações sobre os verbos do Twilio, seus atributos e o TwiML, consulte [TwiML][twiml]. Para obter mais informações sobre a API do Twilio, consulte [API do Twilio][twilio_api].
 
@@ -206,4 +206,4 @@ Agora que você já conhece os princípios do serviço Twilio, acesse estes link
 [twilio_support]: https://www.twilio.com/help/contact
 [twilio_quickstarts]: https://www.twilio.com/docs/quickstart
 [sinatra]: http://www.sinatrarb.com/
-[azure_vm_setup]: https://docs.microsoft.com/azure/virtual-machines/linux/classic/ruby-rails-web-app
+[azure_vm_setup]: /previous-versions/azure/virtual-machines/linux/classic/ruby-rails-web-app

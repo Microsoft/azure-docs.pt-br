@@ -1,15 +1,15 @@
 ---
-title: PowerShell-criar imagem personalizada do arquivo VHD no Azure Lab Services
+title: PowerShell – Criar imagem personalizada do arquivo VHD no Azure Lab Services
 description: Este script do PowerShell cria uma imagem personalizada de um arquivo VHD no Azure Lab Services.
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 08/11/2020
 ms.openlocfilehash: d22e6e1d226e826bf114a0fdb378879b828d9b4a
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88136177"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022227"
 ---
 # <a name="use-powershell-to-create-a-custom-image-from-a-vhd-file-in-azure-lab-services"></a>Usar o PowerShell para criar uma imagem personalizada de um arquivo VHD no Azure Lab Services
 

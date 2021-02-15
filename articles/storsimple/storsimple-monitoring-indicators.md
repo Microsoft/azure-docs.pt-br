@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: alkohli
 ms.openlocfilehash: 97209dca7d30de037dbd21f5cc145b2941060e70
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85512976"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015393"
 ---
 # <a name="use-storsimple-monitoring-indicators-to-manage-your-device"></a>Usar indicadores de monitoramento do StorSimple para gerenciar seu dispositivo
 
@@ -61,7 +61,7 @@ Use a tabela a seguir para identificar o status indicado pelos LEDs no painel fr
 | Verde |ATIVADO |N/D |LEDs de falha do ventilador, LEDs de falha de PCM |Qualquer falha de PCM, falha do ventilador, temperatura acima ou abaixo do recomendado |
 | Verde |ATIVADO |N/D |LEDs de módulo de E/S |Qualquer falha do módulo do controlador |
 | Verde |ATIVADO |N/D |N/D |Falha lógica no compartimento |
-| Verde |Piscando |N/D |LED de status de módulo no módulo do controlador. LEDs de falha do ventilador, LEDs de falha de PCM |Tipo de módulo controlador desconhecido instalado, falha de barramento I2C, erro de configuração dos dados vitais do produto (VPD) do módulo do controlador |
+| Verde |Flash |N/D |LED de status de módulo no módulo do controlador. LEDs de falha do ventilador, LEDs de falha de PCM |Tipo de módulo controlador desconhecido instalado, falha de barramento I2C, erro de configuração dos dados vitais do produto (VPD) do módulo do controlador |
 
 ## <a name="power-cooling-module-pcm-indicator-leds"></a>LEDs indicadores de refrigeração do módulo de energia (PCM)
 LEDs indicadores de refrigeração do módulo de energia (PCM) podem ser encontrados na parte traseira do compartimento principal ou do compartimento EBOD em cada módulo PCM. Este tópico discute como usar os seguintes LEDs para monitorar o status do seu dispositivo StorSimple.  
@@ -136,7 +136,7 @@ A ilustração a seguir ajuda a identificar os LEDs no controlador primário. (T
 Use a tabela a seguir para determinar se o módulo do controlador está operando corretamente.  
 
 ### <a name="controller-indicator-leds"></a>LEDs indicadores do controlador
-| LED | Descrição |
+| LED | Description |
 | --- | --- |
 | LED de ID (azul) |Indica se o módulo está sendo identificado. Se o LED azul estiver piscando em um controlador em execução, então o controlador é o controlador ativo e o outro é o controlador standby. Para saber mais, consulte [Identificar o controlador ativo no seu dispositivo](storsimple-8000-controller-replacement.md#identify-the-active-controller-on-your-device). |
 | LED de falha (âmbar) |Indica uma falha no controlador. |

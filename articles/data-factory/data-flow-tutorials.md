@@ -1,17 +1,17 @@
 ---
 title: Mapeamento de tutoriais em vídeo de fluxo de dados
 description: Uma lista de tutoriais em vídeo explicando os conceitos do fluxo de dados de mapeamento
-author: djpmsft
-ms.author: daperlov
+author: kromerm
+ms.author: makromer
 ms.service: data-factory
 ms.topic: tutorial
-ms.date: 08/11/2020
-ms.openlocfilehash: 809011df3c8cd6dbc1ee2a2129a261102adb43c0
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.date: 12/14/2020
+ms.openlocfilehash: 289f22230a38ef8dd6e369573091c5b30dd4a5c7
+ms.sourcegitcommit: 0830e02635d2f240aae2667b947487db01f5fdef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067844"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97706993"
 ---
 # <a name="mapping-data-flow-video-tutorials"></a>Mapeamento de tutoriais em vídeo de fluxo de dados
 
@@ -83,6 +83,14 @@ Veja a seguir uma lista de tutoriais em vídeo sobre o fluxo de dados de mapeame
 
 [Mesclar transformação](https://youtu.be/VY2tFQJoAXE)
 
+[Transformar dados hierárquicos](https://youtu.be/oAEh21NFgWQ)
+
+[Classificar a transformação](https://youtu.be/6XvgkbMtws0)
+
+[Pesquisa armazenada em cache](https://www.youtube.com/watch?v=HqCn42FaRJs)
+
+[Contexto de linha por meio da transformação de Janela](http://youtu.be/jqt1gmX2XUg)
+
 ## <a name="source-and-sink"></a>Fonte e coletor
 
 [Lendo e gravando JSONs](https://www.youtube.com/watch?v=yY5aB7Kdhjg)
@@ -107,8 +115,6 @@ Veja a seguir uma lista de tutoriais em vídeo sobre o fluxo de dados de mapeame
 
 [Linhagem de dados](https://www.youtube.com/watch?v=5KvqYF-y93s)
 
-[Dicas de otimização](https://www.youtube.com/watch?v=a2KtwUJngHo)
-
 [Iterar arquivos com parâmetros](http://youtu.be/uEgz0ptYRDM?hd=1)
 
 [Diminuir tempos de inicialização](https://youtu.be/FFCbU4ujCiY?t=528)
@@ -121,7 +127,7 @@ Veja a seguir uma lista de tutoriais em vídeo sobre o fluxo de dados de mapeame
 
 [Otimizar os horários de inicialização do fluxo de dados](https://www.youtube.com/watch?v=VT_2ZV3a7Fc)
 
-[Azure Integration Runtimes para fluxos de dados](https://mssqldude.wordpress.com/)
+[Azure Integration Runtimes para fluxos de dados](https://www.youtube.com/watch?v=VT_2ZV3a7Fc)
 
 ## <a name="mapping-data-flow-scenarios"></a>Cenários de fluxo de dados de mapeamento
 
@@ -131,7 +137,7 @@ Veja a seguir uma lista de tutoriais em vídeo sobre o fluxo de dados de mapeame
 
 [Padrão de endereços limpos](https://youtu.be/axEYbuU3lmw)
 
-[Eliminação de duplicação](https://www.youtube.com/watch?v=OLenvYwg__I)
+[Eliminação de duplicação](https://youtu.be/QOi26ETtPTw)
 
 [Mesclar arquivos](http://youtu.be/WbDTBAyYte8)
 
@@ -172,3 +178,7 @@ Veja a seguir uma lista de tutoriais em vídeo sobre o fluxo de dados de mapeame
 [Expressões de qualidade de dados](https://www.youtube.com/watch?v=O8gmv5-lXhs)
 
 [Coletar função de agregação](https://www.youtube.com/watch?v=zneE18EHJSE)
+
+## <a name="metadata"></a>Metadados
+
+[Regras de validação de metadados](https://www.youtube.com/watch?v=E_UD3R-VpYE)

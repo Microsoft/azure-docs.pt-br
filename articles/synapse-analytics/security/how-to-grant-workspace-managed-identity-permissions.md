@@ -8,27 +8,27 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5c07943d517f893e67eed5103660a953b508cc87
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 46fe27205a2c30d6cb2319bf620c6fe1ee34c31e
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87535035"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96459001"
 ---
-# <a name="grant-permissions-to-workspace-managed-identity-preview"></a>Conceder permissões para identidade gerenciada do espaço de trabalho (versão prévia)
+# <a name="grant-permissions-to-workspace-managed-identity"></a>Conceder permissões para a identidade gerenciada do espaço de trabalho
 
-Este artigo ensina como conceder permissões para a identidade gerenciada no espaço de trabalho Synapse do Azure. As permissões, por sua vez, permitem o acesso a pools SQL no espaço de trabalho e ADLS Gen2 conta de armazenamento por meio do portal do Azure.
+Este artigo ensina como conceder permissões para a identidade gerenciada no espaço de trabalho Synapse do Azure. As permissões, por sua vez, permitem o acesso a pools dedicados do SQL no espaço de trabalho e ADLS Gen2 conta de armazenamento por meio do portal do Azure.
 
 >[!NOTE]
 >Essa identidade gerenciada do workspace será referida como identidade gerenciada no restante deste documento.
 
-## <a name="grant-managed-identity-permissions-to-the-sql-pool"></a>Conceder permissões de identidade gerenciadas para o pool do SQL
+## <a name="grant-managed-identity-permissions-to-the-dedicated-sql-pool"></a>Conceder permissões de identidade gerenciadas para o pool SQL dedicado
 
-A identidade gerenciada concede permissões aos pools do SQL no espaço de trabalho. Com as permissões concedidas, você pode orquestrar pipelines que executam atividades relacionadas ao pool do SQL. Ao criar um espaço de trabalho Synapse do Azure usando portal do Azure, você pode conceder as permissões de controle de identidade gerenciadas em pools SQL.
+A identidade gerenciada concede permissões aos pools do SQL dedicados no espaço de trabalho. Com as permissões concedidas, você pode orquestrar pipelines que executam atividades dedicadas relacionadas ao pool do SQL. Ao criar um espaço de trabalho Synapse do Azure usando portal do Azure, você pode conceder as permissões de controle de identidade gerenciadas em pools SQL dedicados.
 
-Selecione **segurança + rede** ao criar seu espaço de trabalho Synapse do Azure. Em seguida, selecione **conceder controle à identidade gerenciada do espaço de trabalho em pools SQL**.
+Selecione **segurança** quando estiver criando seu espaço de trabalho Synapse do Azure. Em seguida, selecione **permitir pipelines (em execução como identidade atribuída pelo sistema do espaço de trabalho) para acessar pools SQL.**.
 
-![Permissão CONTROL em pools SQL](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-16.png)
+![Permissão CONTROL em pools SQL dedicados](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-16.png)
 
 ## <a name="grant-the-managed-identity-permissions-to-adls-gen2-storage-account"></a>Conceder as permissões de identidade gerenciada para ADLS Gen2 conta de armazenamento
 
@@ -70,7 +70,7 @@ A identidade gerenciada deve ter acesso a dados ao contêiner (sistema de arquiv
 
 
 Selecione o mesmo contêiner ou sistema de arquivos para conceder a função de *colaborador de dados de blob de armazenamento* à identidade gerenciada.
-![Seleção de contêiner de conta de armazenamento ADLS Gen2](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-6.png)
+![Captura de tela que mostra o contêiner ou o sistema de arquivos que você deve selecionar.](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-6.png)
 
 #### <a name="step-3-navigate-to-access-control"></a>Etapa 3: navegar até o controle de acesso
 

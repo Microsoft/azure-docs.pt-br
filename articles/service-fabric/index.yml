@@ -6,14 +6,38 @@ metadata:
   ms.topic: landing-page
   author: erikadoyle
   ms.author: edoyle
-  ms.date: 12/04/2019
-  ms.openlocfilehash: a2651387a425439d09ad68b0e763ff0c6c3f7f27
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.date: 07/31/2020
+  ms.openlocfilehash: 2f9b7264fe8199cb25772b0598354e474196ca93
+  ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "75452219"
+  ms.lasthandoff: 12/02/2020
+  ms.locfileid: "96499791"
 landingContent:
+- title: Experimentar clusters do Service Fabric (versão prévia)
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: O que são clusters do Service Fabric (versão prévia)
+      url: overview-managed-cluster.md
+    - text: Implantar um cluster gerenciado (versão prévia)
+      url: quickstart-managed-cluster-template.md
+  - linkListType: tutorial
+    links:
+    - text: Criar um cluster gerenciado (versão prévia)
+      url: tutorial-managed-cluster-deploy.md
+    - text: Escalar horizontalmente um tipo de nó de cluster gerenciado (versão prévia)
+      url: tutorial-managed-cluster-scale.md
+    - text: Adicionar e remover tipos de nó de cluster gerenciado (versão prévia)
+      url: tutorial-managed-cluster-add-remove-node-type.md
+    - text: Implantar um aplicativo em um cluster gerenciado (versão prévia)
+      url: tutorial-managed-cluster-deploy-app.md
+    - text: Adicionar uma extensão de conjunto de dimensionamento de VM a um tipo de nó de cluster gerenciado (versão prévia)
+      url: how-to-managed-cluster-vmss-extension.md
+  - linkListType: whats-new
+    links:
+    - text: Perguntas frequentes sobre clusters gerenciados do Service Fabric
+      url: faq-managed-cluster.md
 - title: Sobre o Service Fabric
   linkLists:
   - linkListType: overview
@@ -102,14 +126,14 @@ landingContent:
   linkLists:
   - linkListType: concept
     links:
-    - text: Melhores práticas de segurança
+    - text: Práticas recomendadas de segurança
       url: service-fabric-best-practices-security.md
     - text: Segurança do aplicativo
       url: service-fabric-application-and-service-security.md
     - text: Segurança de cluster
       url: service-fabric-cluster-security.md
     - text: Controles de segurança para Service Fabric
-      url: service-fabric-security-controls.md
+      url: ./security-baseline.md
     - text: Repositório de segredos do Service Fabric
       url: service-fabric-application-secret-store.md
   - linkListType: how-to-guide

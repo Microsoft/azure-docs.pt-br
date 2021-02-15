@@ -4,12 +4,12 @@ description: Saiba como associar dados de saída para conectar suas funções da
 ms.date: 07/22/2019
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: b18401037bf14c99ed198eb3754438ece5718c9b
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 635392212027c73e5aa954eb671be31228796a0d
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84235365"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185123"
 ---
 # <a name="connect-functions-to-azure-storage-using-visual-studio"></a>Conectar funções ao Armazenamento do Azure usando o Visual Studio
 
@@ -29,7 +29,7 @@ Antes de iniciar este artigo, você deve:
 
 ## <a name="download-the-function-app-settings"></a>Baixar as configurações do aplicativo de funções
 
-No [artigo de início rápido anterior](functions-create-first-function-vs-code.md), você criou um aplicativo de funções no Azure, juntamente com a Conta de armazenamento necessária. A cadeia de conexão dessa conta é armazenada com segurança nas configurações do aplicativo no Azure. Neste artigo, você escreverá mensagens em uma Fila de armazenamento na mesma conta. Para se conectar à Conta de armazenamento ao executar a função localmente, é necessário baixar as configurações do aplicativo para o arquivo *local.settings.json*. 
+No [artigo de início rápido anterior](./create-first-function-vs-code-csharp.md), você criou um aplicativo de funções no Azure, juntamente com a Conta de armazenamento necessária. A cadeia de conexão dessa conta é armazenada com segurança nas configurações do aplicativo no Azure. Neste artigo, você escreverá mensagens em uma Fila de armazenamento na mesma conta. Para se conectar à Conta de armazenamento ao executar a função localmente, é necessário baixar as configurações do aplicativo para o arquivo *local.settings.json*. 
 
 1. No **Gerenciador de Soluções**, clique com o botão direito do mouse no nome do projeto e selecione **Publicar**. 
 
@@ -106,7 +106,7 @@ Você atualizou sua função disparada por HTTP para gravar dados em uma Fila de
 Em seguida, você deve habilitar o monitoramento do Application Insights para seu aplicativo de funções:
 
 > [!div class="nextstepaction"]
-> [Habilitar a integração do Application Insights](functions-monitoring.md#manually-connect-an-app-insights-resource)
+> [Habilitar a integração do Application Insights](configure-monitoring.md#add-to-an-existing-function-app)
 
 [Azure Storage Explorer]: https://storageexplorer.com/
 [artigo de Início Rápido anterior]: functions-create-your-first-function-visual-studio.md

@@ -10,18 +10,19 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 01/14/2020
 ms.author: kumud
-ms.openlocfilehash: 5fc565ecc1b501f52e934784695594dcfef2a83a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c3056415d3432dbe64dd1f2bcf974a676bbf6c6b
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87047278"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97586050"
 ---
 # <a name="customize-a-brands-model-with-the-video-indexer-api"></a>Personalizar um modelo de marcas com a API do Video Indexer
 
-O Video Indexer dá suporte à detecção de marca de fala e texto visual durante a indexação e a reindexação de conteúdo de áudio e de vídeo. O recurso de detecção de marca identifica menções a produtos, serviços e empresas sugeridos pelo banco de dados de marcas do Bing. Por exemplo, se a Microsoft for mencionada em conteúdo de vídeo ou áudio ou se aparecer no texto visual em um vídeo, Video Indexer o detectará como uma marca no conteúdo. Um modelo de marcas personalizado permite que você exclua algumas marcas da lista daquelas a serem detectadas, além de incluir marcas que devem ser parte de seu modelo e que podem não estar no banco de dados de marcas do Bing.
+O Video Indexer dá suporte à detecção de marca de fala e texto visual durante a indexação e a reindexação de conteúdo de áudio e de vídeo. O recurso de detecção de marca identifica menções a produtos, serviços e empresas sugeridos pelo banco de dados de marcas do Bing. Por exemplo, se a Microsoft for mencionada em conteúdo de vídeo ou áudio ou se aparecer no texto visual em um vídeo, Video Indexer o detectará como uma marca no conteúdo. Um modelo de marcas personalizado permite que você exclua algumas marcas da lista daquelas a serem detectadas, além de incluir marcas que devem ser parte de seu modelo e que podem não estar no banco de dados de marcas do Bing. Para obter mais informações, consulte [visão geral](customize-brands-model-overview.md).
 
-Para obter uma visão geral detalhada, confira [Visão geral](customize-brands-model-overview.md).
+> [!NOTE]
+> Se o vídeo tiver sido indexado antes de adicionar uma marca, você precisará reindexá-la.
 
 Você pode usar a API do Video Indexer para criar, usar e editar modelos personalizados de marcas detectados em um vídeo, conforme descrito neste tópico. Você também pode usar o site do Video Indexer, conforme descrito em [Personalizar o modelo de marcas usando o site do Video Indexer](customize-brands-model-with-api.md).
 
@@ -94,7 +95,7 @@ A resposta fornece informações sobre a marca que você pesquisou (usando a ID 
 ```
 
 > [!NOTE]
-> `enabled`sendo definido como `true` significa que a marca está na lista de *inclusão* para video indexer detectar e `enabled` ser false significa que a marca está na lista de *exclusões* , portanto, Video indexer não a detectará.
+> `enabled` sendo definido como `true` significa que a marca está na lista de *inclusão* para video indexer detectar e `enabled` ser false significa que a marca está na lista de *exclusões* , portanto, Video indexer não a detectará.
 
 ## <a name="update-a-specific-brand"></a>Atualiza uma marca específica
 
@@ -178,7 +179,7 @@ A resposta mostra se as marcas do Bing estão habilitadas seguindo o formato do 
 ```
 
 > [!NOTE]
-> `useBuiltIn`ser definido como true representa que as marcas do Bing estão habilitadas. Se `useBuiltin` for false, as marcas do Bing serão desabilitadas. O `state` valor pode ser ignorado porque foi preterido.
+> `useBuiltIn` ser definido como true representa que as marcas do Bing estão habilitadas. Se `useBuiltin` for false, as marcas do Bing serão desabilitadas. O `state` valor pode ser ignorado porque foi preterido.
 
 ## <a name="update-brands-model-settings"></a>Atualizar configurações de modelo de marcas
 

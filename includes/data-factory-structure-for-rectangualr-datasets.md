@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
 ms.openlocfilehash: 1ab404b838af65dcb75395dfeee1ca0553e497a1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "67172592"
 ---
 ## <a name="specifying-structure-definition-for-rectangular-datasets"></a>Especifica a definição de estrutura para conjuntos de dados retangulares
@@ -16,7 +16,7 @@ A seção de estrutura em conjuntos de dados JSON é uma seção **opvional** pa
 
 Cada coluna contém as seguintes propriedades:
 
-| Property | Descrição | Obrigatório |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | name |Nome da coluna. |Sim |
 | type |Tipo de dados da coluna. Consulte a seção de conversões de tipo abaixo para obter mais detalhes sobre quando deve você especificar informações de tipo |Não |
@@ -39,7 +39,7 @@ Use as diretrizes a seguir referentes a quando incluir informações de "estrutu
 * **Para fontes de dados estruturados** que armazenam o esquema de dados e informações de tipo junto com os dados em si (fontes como tabela do Azure do SQL Server, Oracle, etc.), você deve especificar a seção "estrutura" apenas se quiser fazer o mapeamento de coluna de colunas de origem específicas para colunas específicas no coletor e seus nomes não forem iguais (consulte detalhes na seção mapeamento de coluna abaixo). 
   
     Conforme mencionado acima, as informações de tipo são opcionais na seção "estrutura". Para fontes estruturadas, as informações de tipo já estão disponíveis como parte da definição de conjunto de dados no repositório de dados, portanto, você não deve incluir informações de tipo quando você incluir a seção "estrutura".
-* **Para esquema em fontes de dados de leitura (especificamente o blob do Azure)** , você pode optar por armazenar dados sem armazenar nenhuma informação de tipo ou esquema com os dados. Para esses tipos de fontes de dados, você deve incluir "estrutura" nos 2 casos a seguir:
+* **Para esquema em fontes de dados de leitura (especificamente o blob do Azure)**  , você pode optar por armazenar dados sem armazenar nenhuma informação de tipo ou esquema com os dados. Para esses tipos de fontes de dados, você deve incluir "estrutura" nos 2 casos a seguir:
   * Você deseja fazer o mapeamento de coluna.
   * Quando o conjunto de dados é uma fonte em uma Atividade de cópia, você pode fornecer informações de tipo em "estrutura" e o data factory usará essas informações de tipo para conversão em tipos nativos para o coletor. Consulte o artigo [Mover dados de e para o Blob do Azure](../articles/data-factory/v1/data-factory-azure-blob-connector.md) para obter mais informações.
 

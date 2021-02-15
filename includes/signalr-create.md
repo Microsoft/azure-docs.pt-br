@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/17/2018
 ms.author: wesmc
 ms.custom: include file
-ms.openlocfilehash: ba46d4dbe90b696398ed4c78383e127861c1a066
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: e5cfc9beb5473917a76f822862ce3d61675d6493
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86050462"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93406675"
 ---
 1. Para criar um recurso de Serviço do Azure SignalR, primeiro, entre no [portal do Azure](https://portal.azure.com). No canto superior esquerdo da página, escolha **+ Criar um recurso**. Na caixa de texto **Pesquisar no Marketplace**, insira **Serviço do SignalR**.
 
@@ -30,9 +30,11 @@ ms.locfileid: "86050462"
     | Tipo de preço | *Gratuito* | Atualmente, as opções **Gratuito** e **Standard** estão disponíveis. |
     | Fixar no painel | ✔ | Marque esta caixa para fixar o recurso no painel e facilitar a localização. |
 
-4. Selecione **Criar**. A implantação pode levar alguns minutos para ser concluída.
+4. Selecione **Examinar + criar**. Aguarde a conclusão da validação. 
 
-5. Após a conclusão da implantação, escolha **Chaves** em **CONFIGURAÇÕES**. Copie a cadeia de conexão para a chave primária. Você usará essa cadeia de caracteres posteriormente para configurar seu aplicativo para usar o recurso do Serviço do Azure SignalR.
+5. Selecione **Criar**. A implantação pode levar alguns minutos para ser concluída.
+
+6. Após a conclusão da implantação, escolha **Chaves** em **CONFIGURAÇÕES**. Copie a cadeia de conexão para a chave primária. Você usará essa cadeia de caracteres posteriormente para configurar seu aplicativo para usar o recurso do Serviço do Azure SignalR.
 
     A cadeia de conexão terá o seguinte formato:
     

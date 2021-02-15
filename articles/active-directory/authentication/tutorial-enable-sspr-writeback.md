@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
 ms.date: 07/13/2020
-ms.author: iainfou
-author: iainfoulds
+ms.author: justinha
+author: justinha
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.custom: contperfq4
-ms.openlocfilehash: f4687a98bfb58db8ed5e8a853fa0db2207f435e8
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: contperf-fy20q4
+ms.openlocfilehash: 444ca19732921b336cae32a9b1eb5755a08e4bd3
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87419641"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97028046"
 ---
 # <a name="tutorial-enable-azure-active-directory-self-service-password-reset-writeback-to-an-on-premises-environment"></a>Tutorial: Habilitar o write-back da redefinição de senha por autoatendimento do Azure Active Directory para um ambiente local
 
@@ -119,7 +119,7 @@ Com o write-back de senha habilitado no Azure AD Connect, agora configure o SSPR
 Para habilitar o write-back de senha no SSPR, conclua as seguintes etapas:
 
 1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta de administrador global.
-1. Procure e selecione **Azure Active Directory**, selecione **redefinição de senha**e, em seguida, escolha **Integração local**.
+1. Procure e selecione **Azure Active Directory**, selecione **redefinição de senha** e, em seguida, escolha **Integração local**.
 1. Defina a opção de **Fazer write-back de senhas em seu diretório local?** como *Sim*.
 1. Defina a opção de **Permitir aos usuários desbloquear contas sem redefinir a senha?** como *Sim*.
 
@@ -132,7 +132,7 @@ Para habilitar o write-back de senha no SSPR, conclua as seguintes etapas:
 Se você não deseja mais usar a funcionalidade de write-back do SSPR configurada como parte deste tutorial, conclua as seguintes etapas:
 
 1. Entre no [portal do Azure](https://portal.azure.com).
-1. Procure e selecione **Azure Active Directory**, selecione **redefinição de senha**e, em seguida, escolha **Integração local**.
+1. Procure e selecione **Azure Active Directory**, selecione **redefinição de senha** e, em seguida, escolha **Integração local**.
 1. Defina a opção **Fazer write-back de senhas em seu diretório local?** como *Não*.
 1. Defina a opção de **Permitir aos usuários desbloquear contas sem redefinir a senha?** como *Não*.
 

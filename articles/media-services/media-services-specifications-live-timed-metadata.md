@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2019
 ms.author: johndeu
-ms.openlocfilehash: 665bb89d929433db5868eff1c2a5d182d7a94d54
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: f826ee9ef3c9fff0b721a9c79d3c12e0adbd5f7f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87800272"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91336387"
 ---
 # <a name="signaling-timed-metadata-in-live-streaming"></a>A sinalização atingiu o tempo de metadados na transmissão ao vivo 
 
@@ -72,10 +72,10 @@ Os documentos a seguir contêm provisões, que, por meio de referência neste te
 | [Adobe-Primetime] | [Especificação de sinalização de inserção de programa digital Primetime 1,2](https://www.adobe.com/content/dam/acom/en/devnet/primetime/PrimetimeDigitalProgramInsertionSignalingSpecification.pdf)                       |
 | [Adobe-Flash-AS]  | [Referência de linguagem FLASH ActionScript](https://help.adobe.com/archive/en_US/as2/flashlite_2.x_3.x_aslr.pdf)                                                                                                   |
 | AMF0            | ["Formato da mensagem de ação AMF0"](https://download.macromedia.com/pub/labs/amf/amf0_spec_121207.pdf)                                                                                                              |
-| [DASH-IF-IOP]     | Orientação de interoperabilidade do fórum do setor v 4,2[https://dashif-documents.azurewebsites.net/DASH-IF-IOP/master/DASH-IF-IOP.html](https://dashif-documents.azurewebsites.net/DASH-IF-IOP/master/DASH-IF-IOP.html)    |
-| [HLS-TMD]         | Metadados cronometrados para HTTP Live Streaming-[https://developer.apple.com/streaming](https://developer.apple.com/streaming)                                                                                        |
+| [DASH-IF-IOP]     | Orientação de interoperabilidade do fórum do setor v 4,2 [https://dashif-documents.azurewebsites.net/DASH-IF-IOP/master/DASH-IF-IOP.html](https://dashif-documents.azurewebsites.net/DASH-IF-IOP/master/DASH-IF-IOP.html)    |
+| [HLS-TMD]         | Metadados cronometrados para HTTP Live Streaming- [https://developer.apple.com/streaming](https://developer.apple.com/streaming)                                                                                        |
 | [CMAF-ID3]        | [Metadados cronometrados no formato de aplicativo de mídia comum (CMAF)](https://github.com/AOMediaCodec/id3-emsg)                                                                                                        |
-| [ID3v2]           | 2.4.0 de versão da marca ID3[http://id3.org/id3v2.4.0-structure](http://id3.org/id3v2.4.0-structure)                                                                                                                |
+| [ID3v2]           | 2.4.0 de versão da marca ID3  [http://id3.org/id3v2.4.0-structure](http://id3.org/id3v2.4.0-structure)                                                                                                                |
 | [ISO-14496-12]    | ISO/IEC 14496-12: parte 12 formato de arquivo de mídia de base ISO, FourthEdition 2012-07-15                                                                                                                                 |
 | [MPEGDASH]        | Tecnologia da informação – streaming adaptável dinâmico sobre HTTP (DASH)--parte 1: Descrição da apresentação de mídia e formatos de segmento. Maio de 2014. Checked. URL: https://www.iso.org/standard/65274.html         |
 | [MPEGCMAF]        | Tecnologia da informação--formato de aplicativo de multimídia (MPEG-A)--parte 19: formato de aplicativo de mídia comum (CMAF) para mídia segmentada. Janeiro de 2018. Checked. URL: https://www.iso.org/standard/71975.html |
@@ -83,11 +83,11 @@ Os documentos a seguir contêm provisões, que, por meio de referência neste te
 | [MS-SSTR]         | ["Microsoft Smooth Streaming Protocol", 15 de maio de 2014](/openspecs/windows_protocols/ms-sstr/8383f27f-7efe-4c60-832a-387274457251)                                                     |
 | [MS-SSTR-ingestão]  | [Especificação de ingestão dinâmica de MP4 fragmentado dos serviços de mídia do Azure](./media-services-fmp4-live-ingest-overview.md)                                                      |
 | [RFC8216]         | R. Pantos, Ed.; W. Maio. HTTP Live Streaming. Agosto de 2017. Informativa. [https://tools.ietf.org/html/rfc8216](https://tools.ietf.org/html/rfc8216)                                                            |
-| RFC4648         | As codificações de dados para base16, Base32 e Base64-[https://tools.ietf.org/html/rfc4648](https://tools.ietf.org/html/rfc4648)                                                                                     |
-| RTMP            | ["Protocolo de mensagens em tempo real da Adobe", 21 de dezembro de 2012](https://www.adobe.com/devnet/rtmp.html)                                                                                                            |
-| [SCTE-35-2019]    | SCTE 35:2019-mensagem de advertência de inserção de programa digital para cabo-https://www.scte.org/SCTEDocs/Standards/ANSI_SCTE%2035%202019r1.pdf                                                                       |
-| [SCTE-214-1]      | SCTE 214-1 2016 – MPEG DASH para serviços de cabo baseados em IP parte 1: restrições e extensões do MPD                                                                                                                 |
-| [SCTE-214-3]      | SCTE 214-3 2015 MPEG DASH para serviços de cabo baseados em IP parte 3: perfil de traço/FF                                                                                                                                  |
+| RFC4648         | As codificações de dados para base16, Base32 e Base64- [https://tools.ietf.org/html/rfc4648](https://tools.ietf.org/html/rfc4648)                                                                                     |
+| RTMP            | ["Protocolo de mensagens Real-Time da Adobe", 21 de dezembro de 2012](https://www.adobe.com/devnet/rtmp.html)                                                                                                            |
+| [SCTE-35-2019]    | SCTE 35:2019-mensagem de advertência de inserção de programa digital para cabo- https://www.scte.org/SCTEDocs/Standards/ANSI_SCTE%2035%202019r1.pdf                                                                       |
+| [SCTE-214-1]      | SCTE 214-1 2016 – MPEG DASH para serviços de cabo IP-Based parte 1: restrições e extensões do MPD                                                                                                                 |
+| [SCTE-214-3]      | SCTE 214-3 2015 MPEG DASH para IP-Based serviços de cabo parte 3: perfil DASH/FF                                                                                                                                  |
 | [SCTE-224]        | SCTE 224 2018r1 – agendamento de eventos e interface de notificação                                                                                                                                                  |
 | [SCTE-250]        | API de gerenciamento de evento e sinalização (ESAM)                                                                                                                                                                      |
 
@@ -251,7 +251,7 @@ A seção a seguir mostra o conteúdo RTMP "modo simples", que pode ser usado pa
 
 Confira o exemplo [3.3.2.1 MPEG Dash. MPD EventStream usando o modo simples do Adobe](#3321-example-mpeg-dash-mpd-manifest-signaling-of-rtmp-streaming-using-adobe-simple-mode)
 
-Consulte o exemplo [de manifesto 3.3.3.1 Dash com um único ponto e modo simples do Adobe](#3331-example-mpeg-dash-manifest-mpd-with-single-period-eventstream-using-adobe-simple-mode-signals)
+Consulte o exemplo [de manifesto 3.3.3.1 Dash com um único ponto e modo simples do Adobe ](#3331-example-mpeg-dash-manifest-mpd-with-single-period-eventstream-using-adobe-simple-mode-signals)
 
 #### <a name="example-hls-manifest-output-when-using-adobe-rtmp-simple-mode"></a>Exemplo de saída de manifesto HLS ao usar o modo simples do Adobe RTMP
 
@@ -298,7 +298,7 @@ O tipo de mensagem "onCuePoint" é definido em [Adobe-Flash-AS] e tem a seguinte
 | name       | O nome deve ser '**scte35**' por um elemento ao vivo.                                                                                                                                                                              |
 | time       | O tempo em segundos no qual o ponto de sinalização ocorreu no arquivo de vídeo durante a linha do tempo                                                                                                                                           |
 | type       | O tipo de ponto de sinalização deve ser definido como "**evento**".                                                                                                                                                                             |
-| parâmetros | Uma matriz associativa de cadeias de caracteres de pares de nome/valor que contém as informações da mensagem SCTE-35, incluindo a ID e a duração. Esses valores são analisados pelos serviços de mídia do Azure e incluídos na marca de decoração do manifesto. |
+| parameters | Uma matriz associativa de cadeias de caracteres de pares de nome/valor que contém as informações da mensagem SCTE-35, incluindo a ID e a duração. Esses valores são analisados pelos serviços de mídia do Azure e incluídos na marca de decoração do manifesto. |
 
 
 Quando esse modo de marcador do AD é usado, a saída do manifesto HLS é semelhante ao modo "simples" da Adobe.
@@ -306,7 +306,7 @@ Quando esse modo de marcador do AD é usado, a saída do manifesto HLS é semelh
 
 #### <a name="example-mpeg-dash-mpd-single-period-adobe-simple-mode-signals"></a>Exemplo MPEG DASH MPD, ponto único, sinais de modo simples do Adobe
 
-~~~ xml
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <MPD xmlns="urn:mpeg:dash:schema:mpd:2011" 
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" profiles="urn:mpeg:dash:profile:isoff-live:2011" type="dynamic" publishTime="2020-01-07T18:58:03Z" minimumUpdatePeriod="PT0S" timeShiftBufferDepth="PT58M56S" availabilityStartTime="2020-01-07T17:44:47Z" minBufferTime="PT7S">
@@ -357,14 +357,13 @@ Quando esse modo de marcador do AD é usado, a saída do manifesto HLS é semelh
         </AdaptationSet>
     </Period>
 </MPD>
-~~~
-
+```
 
 #### <a name="example-hls-playlist-adobe-simple-mode-signals-using-ext-x-cue-tag-truncated--for-brevity"></a>Exemplo de lista de reprodução HLS, sinais de modo simples da Adobe usando marca de indicação EXT-X (truncado "..." para fins de brevidade)
 
 O exemplo a seguir mostra a saída do empacotador dinâmico dos serviços de mídia para um fluxo de ingestão RTMP usando sinais de modo "simples" e a marca "Primetime] EXT-X-CUE herdada.  
 
-~~~
+```
 #EXTM3U
 #EXT-X-VERSION:8
 #EXT-X-MEDIA-SEQUENCE:0
@@ -401,8 +400,7 @@ Fragments(video=1583487999666666,format=m3u8-aapl-v8)
 #EXTINF:6.400000,no-desc
 Fragments(video=1583488022000000,format=m3u8-aapl-v8)
 ...
-
-~~~
+```
 
 ### <a name="216-cancellation-and-updates"></a>cancelamento e atualizações do 2.1.6
 
@@ -480,7 +478,7 @@ A caixa MediaDataBox (' mdat ') **deve** ter o seguinte formato:
 | version                 | Inteiro sem sinal de 32 bits (uimsbf) | Obrigatório      | Determina o formato do conteúdo da caixa ' mdat '. Versões não reconhecidas serão ignoradas. Atualmente, a única versão aceita é 1.                                                                                                                                                                                                                                                                                                                                                                      |
 | id                      | Inteiro sem sinal de 32 bits (uimsbf) | Obrigatório      | Identifica esta instância da mensagem. Mensagens com semântica equivalente devem ter o mesmo valor. Ou seja, o processamento de qualquer caixa de mensagem de um evento com a mesma ID é suficiente.                                                                                                                                                                                                                                                                                                                            |
 | presentation_time_delta | Inteiro sem sinal de 32 bits (uimsbf) | Obrigatório      | A soma da fragment_absolute_time, especificada em TrackFragmentExtendedHeaderBox, e a presentation_time_delta **deve** ser a hora da apresentação do evento. A hora e a duração da apresentação **devem** alinhar-se com os pontos de acesso do fluxo (SAP) do tipo 1 ou 2, conforme definido em [ISO-14496-12] anexo I. Para saída de HLS, o tempo e a duração **devem ser** alinhados com limites de segmento. A hora da apresentação e a duração de diferentes mensagens de evento dentro do mesmo fluxo de eventos não **devem** se sobrepor. |
-| message                 | matriz de bytes                       | Obrigatório      | A mensagem do evento. Para mensagens [SCTE-35], a mensagem é o splice_info_section binário (). Para mensagens [SCTE-35], isso **deve** ser o splice_info_section () para que as mensagens sejam enviadas aos clientes HLS, Smooth e Dash em conformidade com [SCTE-35]. Para mensagens [SCTE-35], o binário splice_info_section () é a carga da caixa ' mdat ' e **não** é codificado em base64.                                                                                                                     |
+| mensagem                 | matriz de bytes                       | Obrigatório      | A mensagem do evento. Para mensagens [SCTE-35], a mensagem é o splice_info_section binário (). Para mensagens [SCTE-35], isso **deve** ser o splice_info_section () para que as mensagens sejam enviadas aos clientes HLS, Smooth e Dash em conformidade com [SCTE-35]. Para mensagens [SCTE-35], o binário splice_info_section () é a carga da caixa ' mdat ' e **não** é codificado em base64.                                                                                                                     |
 
 ---
 
@@ -506,7 +504,7 @@ Consulte tratamento de faixas esparsas [MS-SSTR] para obter detalhes sobre como 
 O StreamIndex **deve** ter um subtipo de "data" e o CustomAttributes **deve** conter um atributo com Name = "Schema" e Value = "urn: SCTE: scte35:2013: bin".
 
 #### <a name="smooth-client-manifest-example-showing-base64-encoded-scte35-splice_info_section"></a>Exemplo de manifesto de cliente suave mostrando splice_info_section codificado na base64 [SCTE35] ()
-~~~ xml
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <SmoothStreamingMedia MajorVersion="2" MinorVersion="0" TimeScale="10000000" IsLive="true" Duration="0"
   LookAheadFragmentCount="2" DVRWindowLength="6000000000">
@@ -542,7 +540,7 @@ O StreamIndex **deve** ter um subtipo de "data" e o CustomAttributes **deve** co
     </c>
   </StreamIndex>
 </SmoothStreamingMedia>
-~~~
+```
 
 ## <a name="32-apple-hls-manifest-decoration"></a>Decoração de manifesto do Apple HLS 3,2
 
@@ -567,7 +565,7 @@ The **RECOMMENDED** approach in Azure Media Services (version 3 API) is to follo
 
 O exemplo de saída de manifesto HLS a seguir do empacotador dinâmico dos serviços de mídia mostra a marca de indicação EXT-X para [Adobe-Primetime] no modo SCTE35. 
 
-~~~
+```
 #EXTM3U
 #EXT-X-VERSION:8
 #EXT-X-MEDIA-SEQUENCE:0
@@ -719,7 +717,7 @@ Fragments(video=28513485,format=m3u8-aapl-v8)
 #EXTINF:1.501500,no-desc
 Fragments(video=28648620,format=m3u8-aapl-v8)
 
-~~~
+```
 
 
 <!---
@@ -949,7 +947,7 @@ O exemplo a seguir mostra a decoração de manifesto HLS usando a marca Primetim
 --->
 
 
-~~~
+```
 #EXTM3U
 #EXT-X-VERSION:4
 #EXT-X-PLAYLIST-TYPE:VOD
@@ -1008,7 +1006,7 @@ Fragments(video=4011692972,format=m3u8-aapl)
 #EXTINF:8.008000,no-desc
 Fragments(video=4011702982,format=m3u8-aapl)
 
-~~~
+```
 
 ### <a name="324-hls-message-handling-for-adobe-primetime-ext-x-cue"></a>Manipulação de mensagens 3.2.4 HLS para Adobe Primetime EXT-X-CUE
 
@@ -1065,7 +1063,7 @@ O elemento EventStream tem os seguintes atributos:
 
 O exemplo a seguir mostra um trecho EventStream do empacotador dinâmico dos serviços de mídia para um fluxo RTMP usando a sinalização de modo "simples" do Adobe.
 
-~~~ xml
+```xml
 <!-- Example EventStream element using "urn:com:adobe:dpi:simple:2015" Adobe simple signaling per [Adobe-Primetime] -->
     <EventStream schemeIdUri="urn:com:adobe:dpi:simple:2015" value="simplesignal" timescale="10000000">
         <Event presentationTime="1583497601000000" duration="300000000" id="1085900"/>
@@ -1080,7 +1078,7 @@ O exemplo a seguir mostra um trecho EventStream do empacotador dinâmico dos ser
         <Event presentationTime="1583527306666666" duration="300000000" id="4056466"/>
         <Event presentationTime="1583530607333333" duration="300000000" id="4386533"/>
     </EventStream>
-~~~
+```
 
 
 #### <a name="3322-example-mpeg-dash-mpd-manifest-signaling-of-an-rtmp-stream-using-adobe-scte-35-mode"></a>exemplo de 3.3.2.2 do manifesto MPEG DASH. MPD de um fluxo RTMP usando o modo Adobe SCTE-35
@@ -1089,7 +1087,7 @@ O exemplo a seguir mostra um trecho EventStream do empacotador dinâmico dos ser
 
 Elemento EventStream de exemplo usando a sinalização de estilo XML + bin por [SCTE-214-1]
 
-~~~ xml
+```xml
 
       <EventStream schemeIdUri="urn:scte:scte35:2014:xml+bin" value="scte35" timescale="10000000">
         <Event presentationTime="2595092444" duration="11011000" id="1002">
@@ -1103,7 +1101,7 @@ Elemento EventStream de exemplo usando a sinalização de estilo XML + bin por [
             </Signal>
         </Event>
       </EventStream>
-~~~
+```
 
 
 
@@ -1119,7 +1117,7 @@ Elemento EventStream de exemplo usando a sinalização de estilo XML + bin por [
 O exemplo a seguir mostra a saída do empacotador dinâmico dos serviços de mídia para um fluxo RTMP de origem usando o método de sinal de anúncio do modo "simples" do Adobe. A saída é um manifesto de período único que mostra um EventStream usando o URI de schemeid definido como "urn: com: Adobe: dpi: simple: 2015" e a propriedade Value definida como "simplesignal".
 Cada sinal simples é fornecido em um elemento de evento com @presentationTime as @duration Propriedades, e @id populadas com base nos sinais simples de entrada.
 
-~~~ xml
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <MPD xmlns="urn:mpeg:dash:schema:mpd:2011" 
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" profiles="urn:mpeg:dash:profile:isoff-live:2011" type="static" mediaPresentationDuration="PT28M1.680S" minBufferTime="PT3S">
@@ -1168,7 +1166,7 @@ Cada sinal simples é fornecido em um elemento de evento com @presentationTime a
     </Period>
 </MPD>
 
-~~~
+```
 
 <!---
 #### 3.3.3.2 Example MPEG DASH manifest (MPD) with multi-period, EventStream, using Adobe SCTE35 mode signaling
@@ -1322,10 +1320,10 @@ Os detalhes a seguir descrevem os valores específicos que o cliente deve espera
 
 
 #### <a name="example-inbandevenstream-entity-for-adobe-simple-mode"></a>Exemplo de entidade InBandEvenStream para o modo simples da Adobe
-~~~ xml
+```xml
 
       <InbandEventStream schemeIdUri="urn:com:adobe:dpi:simple:2015" value="amssignal"/>
-~~~
+```
 
 ### <a name="335-dash-message-handling"></a>Manipulação de mensagens do 3.3.5 DASH
 

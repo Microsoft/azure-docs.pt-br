@@ -1,18 +1,18 @@
 ---
 title: Benefício Híbrido do Azure para Windows Server
-description: Saiba como maximizar os benefícios do Windows Software Assurance para colocar as licenças locais no Azure
+description: Saiba como maximizar seus benefícios do Windows Software Assurance para trazer licenças locais para o Azure.
 author: xujing-ms
 ms.service: virtual-machines-windows
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 4/22/2018
 ms.author: xujing
-ms.openlocfilehash: 1c87c517a0013fa31ba63ef1f78677fe85f5d287
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c13203c076378e1ff8f213971466eb5f63dfc4f4
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87074261"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539177"
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Benefício Híbrido do Azure para Windows Server
 Para clientes com o Software Assurance, o Benefício Híbrido do Azure para Windows Server permite usar as licenças locais do Windows Server e executar máquinas virtuais do Windows no Azure por um custo reduzido. Você pode usa o Benefício Híbrido do Azure para Windows Server para implantar novas máquinas virtuais com Windows OS. Este artigo percorre as etapas sobre como implantar novas VMs com o Benefício Híbrido do Azure para Windows Server e como você pode atualizar VMs existentes e em execução. Para saber mais sobre licenciamento e economia de custo do Benefício Híbrido do Azure para Windows Server, consulte a [página de licenciamento do Benefício Híbrido do Azure para Windows Server](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
@@ -42,10 +42,9 @@ Há algumas maneiras de usar as máquinas virtuais do Windows com o Benefício H
 Todas as imagens baseadas em Windows Server OS têm suporte para Benefício Híbrido do Azure para Windows Server. Você pode usar imagens de suporte da plataforma do Azure ou carregar as suas próprias imagens personalizadas do Windows Server. 
 
 ### <a name="portal"></a>Portal
-Para criar uma VM com Benefício Híbrido do Azure para Windows Server, use a alternância na seção “Salvar dinheiro”.
+Para criar uma VM com o Benefício Híbrido do Azure para Windows Server, role até a parte inferior da guia **noções básicas** durante o processo de criação e, em **Licenciamento** , marque a caixa para usar uma licença existente do Windows Server. 
 
 ### <a name="powershell"></a>PowerShell
-
 
 ```powershell
 New-AzVm `

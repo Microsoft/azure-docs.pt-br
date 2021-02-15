@@ -9,22 +9,22 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: 490d3305abcbcd906a0f727d736db8cab7e4287e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bf35d08128aa8a3e8f545ed7184866694219f2cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79456014"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "90905210"
 ---
 # <a name="remove-duplicate-rows-module"></a>Remover o módulo de linhas duplicadas
 
-Este artigo descreve um módulo no designer do Azure Machine Learning (versão prévia).
+Este artigo descreve um módulo no designer de Azure Machine Learning.
 
 Use este módulo para remover duplicatas potenciais de um conjunto de uma.
 
 Por exemplo, suponha que seus dados sejam semelhantes ao seguinte e representem vários registros para pacientes. 
 
-| PatientID | Iniciais| Gênero|Idade|Verdade|
+| PatientID | Iniciais| Sexo|Idade|Verdade|
 |----|----|----|----|----|
 |1|F.M.| M| 53| Jan|
 |2| F.A.M.| M| 53| Jan|

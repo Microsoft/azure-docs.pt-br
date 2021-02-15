@@ -8,15 +8,15 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 08/10/2020
+ms.date: 01/25/2021
 ms.author: juliako
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 5f418384d4ec1272600df2488dc71d2102d6a24d
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.custom: devx-track-js
+ms.openlocfilehash: b13086e11e1181bba91a3255e68e9f8a32e78450
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89011796"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797780"
 ---
 # <a name="embed-video-indexer-widgets-in-your-apps"></a>Inserir Video Indexer widgets em seus aplicativos
 
@@ -79,8 +79,8 @@ O `location` parâmetro deve ser incluído nos links inseridos, consulte [como o
 
 1. Entre no site do [Video indexer](https://www.videoindexer.ai/) .
 1. Selecione o vídeo com o qual você deseja trabalhar e pressione **reproduzir**.
-1. Selecione o tipo de widget que você deseja (**ideias cognitivas**, **Player**ou **Editor**).
-1. Clique em ** &lt; / &gt; Inserir**.
+1. Selecione o tipo de widget que você deseja (**ideias cognitivas**, **Player** ou **Editor**).
+1. Clique em **&lt; / &gt; Inserir**.
 5. Copie o código de inserção (aparece em **copiar o código inserido** na caixa de diálogo **compartilhar & inserir** ).
 6. Adicione o código ao seu aplicativo.
 
@@ -303,6 +303,10 @@ Consulte o repositório de [exemplos de código](https://github.com/Azure-Sample
 | `embed-both-widgets`              | Insira o VI Player e as informações e comunique-se entre eles.                      |
 | `url-generator`                   | Gera a URL de inserção personalizada de widgets com base nas opções especificadas pelo usuário.             |
 | `html5-player`                    | Inserir ideias do VI com um player de vídeo HTML5 padrão.                           |
+
+## <a name="supported-browsers"></a>Navegadores com suporte
+
+Para obter mais informações, consulte [navegadores com suporte](video-indexer-overview.md#supported-browsers).
 
 ## <a name="next-steps"></a>Próximas etapas
 

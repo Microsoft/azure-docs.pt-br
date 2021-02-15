@@ -13,12 +13,13 @@ metadata:
   ms.topic: landing-page
   ms.date: 10/14/2019
   ms.author: erhopf
-  ms.openlocfilehash: 26fc174ef0993339487a2edcc32cbb4fd864f96e
-  ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+  ms.custom: contperf-fy21q2
+  ms.openlocfilehash: f0f2e009220292d298848cf93c479639b2318062
+  ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 05/19/2020
-  ms.locfileid: "83592739"
+  ms.lasthandoff: 12/16/2020
+  ms.locfileid: "97588481"
 landingContent:
 - title: Tradutor
   linkLists:
@@ -33,25 +34,15 @@ landingContent:
     - text: Conformidade
       url: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
     - text: Criar uma assinatura
-      url: translator-text-how-to-signup.md
+      url: ./translator-how-to-signup.md
     - text: Perguntas frequentes
       url: https://www.microsoft.com/translator/faq.aspx
 - title: Introdução
   linkLists:
   - linkListType: quickstart
     links:
-    - text: Traduzir o texto
-      url: quickstart-translate.md
-    - text: Transcrição de texto
-      url: quickstart-transliterate.md
-    - text: Detecção de idioma
-      url: quickstart-detect.md
-    - text: Pesquisa no dicionário
-      url: quickstart-dictionary.md
-    - text: Determinar comprimento da frase
-      url: quickstart-sentences.md
-    - text: Listar as linguagens com suporte
-      url: quickstart-languages.md
+    - text: Início Rápido
+      url: quickstart-translator.md
   - linkListType: tutorial
     links:
     - text: Criar um aplicativo de tradução do WPF, C#
@@ -106,3 +97,9 @@ landingContent:
       url: https://aka.ms/TranslatorGitHub
     - text: Stack Overflow
       url: https://stackoverflow.com/questions/tagged/microsoft-translator
+- title: Ajuda e comentários
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Opções de Ajuda e suporte
+      url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/translator/context/context

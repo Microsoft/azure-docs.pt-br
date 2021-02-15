@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 3/18/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 4223e3bc572a689472dce136b60599034566b274
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 995ae176a8eec58f8dc9522e6fac6fd78170014d
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654252"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628910"
 ---
 # <a name="migrate-to-azure-file-shares"></a>Migrar para compartilhamentos de Arquivos do Azure
 
@@ -34,8 +34,8 @@ A chave em qualquer migração é capturar toda a fidelidade do arquivo aplicáv
 
 Estes são os dois componentes básicos de um arquivo:
 
-- **Fluxo de dados**: o fluxo de dados de um arquivo armazena o conteúdo do arquivo.
-- **Metadados de arquivo**: os metadados de arquivo têm estes subcomponentes:
+- **Fluxo de dados** : o fluxo de dados de um arquivo armazena o conteúdo do arquivo.
+- **Metadados de arquivo** : os metadados de arquivo têm estes subcomponentes:
    * Atributos de arquivo como somente leitura
    * Permissões de arquivo, que podem ser referenciadas como *permissões NTFS* ou *ACLs de arquivo e pasta*
    * Carimbos de data/hora, principalmente os carimbos de data/hora da criação e da última modificação
@@ -111,17 +111,17 @@ Há várias ferramentas de cópia de arquivos disponíveis da Microsoft e de out
 
     Na primeira vez que você executar a ferramenta, ela copiará a massa dos dados. Essa execução inicial pode durar um pouco. Ele geralmente dura mais do que você deseja colocar a fonte de dados offline para seus processos de negócios.
 
-    Ao espelhar uma origem para um destino (como com o **Robocopy/Mir**), você pode executar a ferramenta novamente na mesma origem e no mesmo destino. A execução é muito mais rápida porque precisa transportar somente as alterações de origem que ocorrem após a execução anterior. Executar novamente uma ferramenta de cópia dessa maneira pode reduzir significativamente o tempo de inatividade.
+    Ao espelhar uma origem para um destino (como com o **Robocopy/Mir** ), você pode executar a ferramenta novamente na mesma origem e no mesmo destino. A execução é muito mais rápida porque precisa transportar somente as alterações de origem que ocorrem após a execução anterior. Executar novamente uma ferramenta de cópia dessa maneira pode reduzir significativamente o tempo de inatividade.
 
 A tabela a seguir classifica as ferramentas da Microsoft e sua adequação atual para compartilhamentos de arquivos do Azure:
 
-| Recomendadas | Ferramenta | Suporte para compartilhamentos de arquivos do Azure | Preservação da fidelidade do arquivo |
+| Recomendado | Ferramenta | Suporte para compartilhamentos de arquivos do Azure | Preservação da fidelidade do arquivo |
 | :-: | :-- | :---- | :---- |
 |![Sim, recomendado](media/storage-files-migration-overview/circle-green-checkmark.png)| RoboCopy | Com suporte. Os compartilhamentos de arquivos do Azure podem ser montados como unidades de rede. | Fidelidade total. * |
 |![Sim, recomendado](media/storage-files-migration-overview/circle-green-checkmark.png)| Sincronização de Arquivos do Azure | Integrado nativamente aos compartilhamentos de arquivos do Azure. | Fidelidade total. * |
 |![Sim, recomendado](media/storage-files-migration-overview/circle-green-checkmark.png)| Serviço de Migração de Armazenamento | Com suporte indiretamente. Os compartilhamentos de arquivos do Azure podem ser montados como unidades de rede em servidores de destino do SMS. | Fidelidade total. * |
 |![Sim, recomendado](media/storage-files-migration-overview/circle-green-checkmark.png)| AzCopy, versão 10,4 ou posterior| Com suporte. | Fidelidade total. * |
-|![Não recomendado totalmente](media/storage-files-migration-overview/triangle-yellow-exclamation.png)| Data Box | Com suporte. | Não copia metadados. [Data box pode ser usado com sincronização de arquivos do Azure](storage-sync-offline-data-transfer.md). |
+|![Sim, recomendado](media/storage-files-migration-overview/circle-green-checkmark.png)| Data Box | Com suporte. | O data Box agora dá suporte total aos metadados. [Data Box também pode ser usado em combinação com sincronização de arquivos do Azure](storage-sync-offline-data-transfer.md). |
 |![Não recomendado totalmente](media/storage-files-migration-overview/triangle-yellow-exclamation.png)| Gerenciador de Armazenamento do Azure, versão 1,14 | Com suporte. | Não copia ACLs. Dá suporte a carimbos de data/hora.  |
 |![Não recomendado](media/storage-files-migration-overview/circle-red-x.png)| Fábrica de dados do Azure | Com suporte. | Não copia metadados. |
 |||||
@@ -134,7 +134,7 @@ Esta seção descreve as ferramentas que ajudam a planejar e executar migraçõe
 
 #### <a name="robocopy-from-microsoft-corporation"></a>RoboCopy da Microsoft Corporation
 
-O RoboCopy é uma das ferramentas mais aplicáveis às migrações de arquivos. Ele é fornecido como parte do Windows. A principal [documentação do Robocopy](https://docs.microsoft.com/windows-server/administration/windows-commands/robocopy) é um recurso útil para as várias opções dessa ferramenta.
+O RoboCopy é uma das ferramentas mais aplicáveis às migrações de arquivos. Ele é fornecido como parte do Windows. A principal [documentação do Robocopy](/windows-server/administration/windows-commands/robocopy) é um recurso útil para as várias opções dessa ferramenta.
 
 #### <a name="treesize-from-jam-software-gmbh"></a>Árvores de EMPERRAmento da Software GmbH
 
@@ -152,5 +152,5 @@ A versão testada da ferramenta é a versão 4.4.1. Ele é compatível com arqui
 Aqui estão mais informações sobre as tecnologias de arquivos do Azure mencionadas neste artigo:
 
 * [Visão geral do compartilhamento de arquivos do Azure](storage-files-introduction.md)
-* [Planejar uma implantação da Sincronização de Arquivos do Azure](storage-sync-files-planning.md)
+* [Planejando uma implantação da Sincronização de Arquivos do Azure](storage-sync-files-planning.md)
 * [Sincronização de Arquivos do Azure: camadas de nuvem](storage-sync-cloud-tiering.md)

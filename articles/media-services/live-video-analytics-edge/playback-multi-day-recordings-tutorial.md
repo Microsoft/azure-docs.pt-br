@@ -3,12 +3,12 @@ title: Reproduzir gravações de vários dias – Azure
 description: Neste tutorial, você aprenderá a usar as APIs do Serviço de Mídia do Azure para reproduzir uma gravação de vídeo contínua de vários dias.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: 19a42c61ef250fecce4503d3aed70b36d71ee3cf
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 81a778b40649c1318b3738a289f0db37fd35376a
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88649084"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99492782"
 ---
 # <a name="tutorial-playback-of-multi-day-recordings"></a>Tutorial: Reproduzir gravações de vários dias  
 
@@ -57,7 +57,7 @@ Como parte do tutorial do [CVR](continuous-video-recording-tutorial.md), você t
 }
 ```
 
-Em seguida, no Visual Studio Code, abra src/ams-asset-player. Esta pasta contém os arquivos necessários para este tutorial. Abra o arquivo appsettings.json e copie o conteúdo dele em um novo arquivo, appsettings.development.json. Faça as seguintes edições nesse segundo arquivo:
+Em seguida, no Visual Studio Code, abra src/ams-asset-player. Esta pasta contém os arquivos necessários para este tutorial. Abra o arquivo appsettings.json e copie o conteúdo dele em um novo arquivo, appsettings.development.json. Faça as seguintes edições no appsettings.development.json criado recentemente:
 
 ```
   "AMS" : {
@@ -70,13 +70,21 @@ Em seguida, no Visual Studio Code, abra src/ams-asset-player. Esta pasta contém
 } 
 ```
 
-No Visual Studio Code, você pode clicar no ícone de execução à esquerda (ou Ctrl + Shift + D) para abrir os aplicativos disponíveis a serem executados:
+1. No Visual Studio Code, abra a guia **Extensões** (ou pressione Ctrl+Shift+X) e pesquise pelo Hub IoT do Azure.
+1. Clique com o botão direito do mouse e selecione **Configurações da Extensão**.
 
-![Executar](./media/playback-multi-day-recordings-tutorial/run.png)
- 
-Selecione o aplicativo Player de Ativos do AMS na caixa suspensa conforme mostrado abaixo e pressione F5 para iniciar a depuração.
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Configurações da Extensão":::
+1. Pesquise e habilite “Mostrar Mensagem Detalhada”.
 
-![Depurar](./media/playback-multi-day-recordings-tutorial/debug.png)
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Mostrar Mensagem Detalhada":::
+1. <!--In Visual Studio Code, you can click-->Clique no ícone Executar à esquerda (ou Ctrl+Shift+D) para abrir os aplicativos disponíveis a serem executados:
+
+    ![A captura de tela mostra um menu no Visual Studio Code com o item Executar selecionado.](./media/playback-multi-day-recordings-tutorial/run.png)
+1. Selecione o aplicativo Player de Ativos do AMS na caixa suspensa conforme mostrado abaixo e pressione F5 para iniciar a depuração.
+
+    ![A captura de tela mostra um menu no Visual Studio Code com o Player de Ativos do AMS selecionado.](./media/playback-multi-day-recordings-tutorial/debug.png)
 
 O aplicativo de exemplo criará e iniciará seu aplicativo de navegador padrão e abrirá a página do Player de Ativos do AMS.
 

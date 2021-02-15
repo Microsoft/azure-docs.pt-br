@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: fc317345155a6807a20d342e2cefd0701b20f180
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86257046"
 ---
 # <a name="sfctl"></a>sfctl
@@ -26,7 +26,7 @@ Os comandos seguem o padrão de substantivo-verbo. Confira subgrupos para saber 
 | [Compose](service-fabric-sfctl-compose.md) | Criar, excluir e gerenciar aplicativos do Docker Compose. |
 | [contêiner](service-fabric-sfctl-container.md) | Execute comandos relacionados ao contêiner em um nó de cluster. |
 | [events](service-fabric-sfctl-events.md) | Recupere eventos do repositório de eventos (se o serviço EventStore já estiver instalado). |
-| [for](service-fabric-sfctl-is.md) | Consultar e enviar comandos para o serviço de infraestrutura. |
+| [é](service-fabric-sfctl-is.md) | Consultar e enviar comandos para o serviço de infraestrutura. |
 | [malha](service-fabric-sfctl-mesh.md) | Excluir e gerenciar aplicativos de Malha do Service Fabric. |
 | [nó](service-fabric-sfctl-node.md) | Gerenciar os nós que formam um cluster. |
 | [particion](service-fabric-sfctl-partition.md) | Consultar e gerenciar partições para qualquer serviço. |

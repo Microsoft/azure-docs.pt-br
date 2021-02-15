@@ -7,14 +7,16 @@ ms.topic: how-to
 ms.date: 11/04/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: ef202bb3ba82b48aca75c7f934aecb3f5fbe0a0b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
-ms.translationtype: HT
+ms.openlocfilehash: 5ca8f2b003b7f2142da329a07f929ecf31fee627
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87070757"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "90908267"
 ---
 # <a name="bind-an-azure-database-for-mysql-instance-to-your-azure-spring-cloud-application"></a>Associar uma instância do Banco de Dados do Azure para MySQL ao seu aplicativo Azure Spring Cloud 
+
+**Este artigo aplica-se a:** ✔️ Java
 
 Com o Azure Spring Cloud, é possível associar serviços do Azure selecionados aos seus aplicativos automaticamente, em vez de precisar configurar manualmente seu aplicativo Spring Boot. Este artigo mostra como associar seu aplicativo à instância do Banco de Dados do Azure para MySQL.
 
@@ -24,7 +26,7 @@ Com o Azure Spring Cloud, é possível associar serviços do Azure selecionados 
 * Uma conta do Banco de Dados do Azure para MySQL
 * CLI do Azure
 
-Se você não tiver uma instância do Azure Spring Cloud implantada, siga as instruções em [Início Rápido: Iniciar um aplicativo do Azure Spring Cloud usando o portal do Azure](spring-cloud-quickstart-launch-app-portal.md) para implantar seu primeiro aplicativo Spring Cloud.
+Se você não tiver uma instância do Azure Spring Cloud implantada, siga as instruções em [Início Rápido: Iniciar um aplicativo do Azure Spring Cloud usando o portal do Azure](spring-cloud-quickstart.md) para implantar seu primeiro aplicativo Spring Cloud.
 
 ## <a name="bind-your-app-to-your-azure-database-for-mysql-instance"></a>Associar seu aplicativo à instância do Banco de Dados do Azure para MySQL
 

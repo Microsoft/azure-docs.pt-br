@@ -12,13 +12,13 @@ ms.date: 06/16/2017
 ms.custom:
 - amqp
 - mqtt
-- devx-track-javascript
-ms.openlocfilehash: 2d5baf0f1c4298d597b620f02f3e463a05203f5a
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+- devx-track-js
+ms.openlocfilehash: e398138f12c38e5235a0004679d9574dbde607db
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87424027"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91446885"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-nodejs"></a>Enviar mensagens de nuvem para dispositivo com o Hub IoT (Node.js)
 
@@ -77,11 +77,20 @@ Nesta seção, você modificará o aplicativo de dispositivo simulado criado em 
     });
     ```
 
-    Neste exemplo, o dispositivo invoca a função **complete** para notificar o Hub IoT de que ele processou a mensagem. A chamada à função **complete** não será necessária se você estiver usando o transporte MQTT e puder ser omitida. Ela é necessária para HTTPS e AMQP.
+Neste exemplo, o dispositivo chama a função **Complete** para notificar o Hub IOT de que ele processou a mensagem e que pode ser removido com segurança da fila do dispositivo. A chamada à função **complete** não será necessária se você estiver usando o transporte MQTT e puder ser omitida. Ele é necessário para AMQP e HTTPS.
+
+Com AMQP e HTTPS, mas não MQTT, o dispositivo também pode:
+
+* Abandone uma mensagem, que resulta no Hub IoT reter a mensagem na fila do dispositivo para consumo futuro.
+* Rejeite uma mensagem, que remove permanentemente a mensagem da fila do dispositivo.
+
+Se algo acontecer que impede que o dispositivo conclua, abandone ou rejeite a mensagem, o Hub IoT irá, após um período de tempo limite fixo, enfileirar a mensagem para entrega novamente. Por esse motivo, a lógica de processamento de mensagens no aplicativo do dispositivo deve ser *idempotente*, de modo que o recebimento da mesma mensagem várias vezes produz o mesmo resultado.
+
+Para obter informações mais detalhadas sobre como o Hub IoT processa mensagens da nuvem para o dispositivo, incluindo detalhes do ciclo de vida da mensagem da nuvem para o dispositivo, consulte [enviar mensagens da nuvem para o dispositivo de um hub IOT](iot-hub-devguide-messages-c2d.md).
   
-   > [!NOTE]
-   > Se você usar HTTPS em vez de MQTT ou AMQP como transporte, a instância **DeviceClient** verificará se há mensagens do Hub IoT com pouca frequência (menos de cada 25 minutos). Para obter mais informações sobre as diferenças entre o suporte do MQTT, AMQP e HTTPS e a limitação do Hub IoT, consulte o [guia do desenvolvedor do Hub IoT](iot-hub-devguide-messaging.md).
-   >
+> [!NOTE]
+> Se você usar HTTPS em vez de MQTT ou AMQP como o transporte, a instância **DeviceClient** verificará mensagens do Hub IOT com pouca frequência (no mínimo a cada 25 minutos). Para obter mais informações sobre as diferenças entre o suporte a MQTT, AMQP e HTTPS, consulte [diretrizes de comunicação da nuvem para o dispositivo](iot-hub-devguide-c2d-guidance.md) e [escolha um protocolo de comunicação](iot-hub-devguide-protocols.md).
+>
 
 ## <a name="get-the-iot-hub-connection-string"></a>Obter a cadeia de conexão do hub IoT
 

@@ -1,26 +1,21 @@
 ---
 title: Data Factory o assistente de cópia do Azure
 description: Saiba mais sobre como usar o Assistente de Cópia do Azure Data Factory para copiar dados de fontes de dados com suporte para coletores.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: ''
-editor: ''
-ms.assetid: 0974eb40-db98-4149-a50d-48db46817076
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
-ms.date: 01/22/2018
+ms.date: 10/26/2020
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: fa9786f31e1cf9ee15afdc03d289a04198836133
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 0f95b0d62bc81a8dddc72239491a05ca78945490
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086833"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100393370"
 ---
 # <a name="azure-data-factory-copy-wizard"></a>Assistente de Cópia do Azure Data Factory
+
 > [!NOTE]
 > Este artigo aplica-se à versão 1 do Data Factory. 
 
@@ -31,12 +26,10 @@ O Assistente de Cópia do Azure Data Factory facilita o processo de ingerir dado
 ## <a name="designed-for-big-data"></a>Projetado para Big Data
 Esse assistente permite mover dados facilmente de uma ampla variedade de fontes para destinos em minutos. Depois de concluir o assistente, um pipeline com uma atividade de cópia é criado automaticamente para você com entidades de Data Factory dependentes (serviços vinculados e conjuntos de dados). Não há etapas adicionais necessárias para criar o pipeline.   
 
-![Selecione uma fonte de dados](./media/data-factory-copy-wizard/select-data-source-page.png)
+![Selecionar fonte de dados](./media/data-factory-copy-wizard/select-data-source-page.png)
 
 > [!NOTE]
 > Para obter as instruções passo a passo de como criar um pipeline de exemplo para copiar dados de um blob do Azure em uma tabela de Banco de Dados SQL do Azure, veja o [tutorial do Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md).
->
->
 
 O assistente foi projetado com o Big Data em mente desde o começo, com suporte para diversos tipos de dados e objeto. Você pode criar pipelines do Data Factory que movem centenas de pastas, arquivos ou tabelas. O assistente permite a visualização automática de dados, a captura e o mapeamento de esquemas, e a filtragem de dados.
 
@@ -49,8 +42,7 @@ O assistente foi projetado com o Big Data em mente desde o começo, com suporte 
 O esquema de dados de entrada pode não coincidir com o esquema dos dados de saída em alguns casos. Nesse cenário, você precisa mapear as colunas do esquema de origem para colunas do esquema de destino.
 
 > [!TIP]
-> Ao copiar dados do Banco de Dados SQL do Azure ou do SQL Server no Azure SQL Data Warehouse, se a tabela não existir no repositório de destino, o suporte do Data Factory criará a tabela automaticamente usando o esquema da origem. Saiba mais sobre [Mover dados para e do SQL Data Warehouse do Azure usando o Azure Data Factory](./data-factory-azure-sql-data-warehouse-connector.md).
->
+> Ao copiar dados do SQL Server ou do banco de dados SQL do Azure para o Azure Synapse Analytics, se a tabela não existir no repositório de destino, Data Factory suporte à criação de tabela automática usando o esquema de origem. Saiba mais em [mover dados de e para a análise de Synapse do Azure usando Azure data Factory](./data-factory-azure-sql-data-warehouse-connector.md).
 
 Use uma lista suspensa para selecionar uma coluna do esquema de origem a ser mapeada para uma coluna no esquema de destino. O Assistente de Cópia tenta entender seu padrão para mapeamento de coluna. Ele aplica o mesmo padrão ao restante das colunas, de modo que você não precisa selecionar cada uma das colunas individualmente para concluir o mapeamento do esquema. Se preferir, você pode substituir esses mapeamentos usando as listas suspensas para mapear as colunas individualmente. O padrão se torna mais preciso à medida que você mapeia mais colunas. O Assistente de Cópia atualiza constantemente o padrão e, por fim, atinge o padrão certo para o mapeamento de coluna que você deseja atingir.     
 
@@ -80,7 +72,7 @@ Clique no botão **Procurar** de **Arquivo ou pasta**, navegue até uma dessas p
 
 ![Usando variáveis de sistema](./media/data-factory-copy-wizard/blob-standard-variables-in-folder-path.png)   
 
-Conforme mostrado na captura de tela abaixo, você também pode usar uma variável **personalizada** , além de usar qualquer [cadeia de caracteres com formato compatível](https://msdn.microsoft.com/library/8kb3ddd4.aspx). Para selecionar uma pasta com essa estrutura, use primeiro o botão **Procurar** . Em seguida, substitua um valor por **{personalizado}** e pressione a tecla **Tab** para ver a caixa de texto em que você poderá digitar a cadeia de caracteres de formato.     
+Conforme mostrado na captura de tela abaixo, você também pode usar uma variável **personalizada** , além de usar qualquer [cadeia de caracteres com formato compatível](/dotnet/standard/base-types/custom-date-and-time-format-strings). Para selecionar uma pasta com essa estrutura, use primeiro o botão **Procurar** . Em seguida, substitua um valor por **{personalizado}** e pressione a tecla **Tab** para ver a caixa de texto em que você poderá digitar a cadeia de caracteres de formato.     
 
 ![Usando variáveis personalizadas](./media/data-factory-copy-wizard/blob-custom-variables-in-folder-path.png)
 
@@ -90,6 +82,49 @@ Você pode executar a operação de cópia uma vez ou segundo um agendamento (po
 Uma operação de cópia única permite, uma única vez, a movimentação de dados de uma origem para um destino. Ela se aplica aos dados de qualquer tamanho e em qualquer formato com suporte. A cópia programada permite copiar dados com uma recorrência prescrita. Você pode aproveitar as configurações avançadas (como repetição, tempo limite, alertas etc.) para configurar a cópia agendada.
 
 ![Propriedades de agendamento](./media/data-factory-copy-wizard/scheduling-properties.png)
+
+## <a name="troubleshooting"></a>Solução de problemas
+
+Esta seção explora métodos comuns de solução de problemas do assistente de cópia no Azure Data Factory.
+
+> [!NOTE] 
+> Essas dicas de solução de problemas se aplicam ao assistente de cópia na versão 1 do Data Factory. Para Data Factory v2, consulte o guia de solução de problemas em [Azure data Factory de solução de problemas](../data-factory-ux-troubleshoot-guide.md).
+
+### <a name="error-code-unable-to-validate-in-copy-wizard"></a>Código de erro: não é possível validar no assistente de cópia
+
+- **Sintomas**: na primeira etapa do assistente de cópia, você encontra a mensagem de aviso "não é possível validar".
+- **Causas**: isso pode acontecer quando todos os cookies de terceiros estiverem desabilitados.
+- **Resolução**: 
+    - Use o Internet Explorer ou o navegador Microsoft Edge.
+    - Se você estiver usando o navegador Chrome, siga as instruções abaixo para adicionar a exceção de cookies para *microsoftonline.com* e *Windows.net*.
+        1.  Abra o navegador Chrome.
+        2.  Clique na chave inglesa ou em três linhas à direita (personalizar e controlar o Google Chrome).
+        3.  Clique em **Configurações**.
+        4.  Pesquise **cookies** ou vá para **privacidade** em configurações avançadas.
+        5.  Selecione **configurações de conteúdo**.    
+        6.  Os cookies devem ser definidos para **permitir que os dados locais sejam definidos (recomendado)**.
+        7.  Clique em **gerenciar exceções**. Em **padrão de nome de host** , insira o seguinte e certifique-se de **que permitir** é o conjunto de comportamento.
+            - login.microsoftonline.com
+            - login.windows.net
+        8.  Feche o navegador e reinicie.
+    - Se você estiver usando o navegador Firefox, siga as instruções abaixo para adicionar a exceção de cookies.
+        1. No menu Firefox, vá para **ferramentas**  >  **Opções**.
+        2. Em   >  **histórico** de privacidade, seu pode ver que a configuração atual é **usar configurações personalizadas para o histórico**.
+        3. Em **aceitar cookies de terceiros**, sua configuração atual pode **nunca** ser, em seguida, clique em **exceções** à direita para adicionar os sites a seguir.
+            - https://login.microsoftonline.com
+            - https://login.windows.net
+        4.  Feche o navegador e reinicie. 
+
+
+### <a name="error-code-unable-to-open-login-page-and-enter-password"></a>Código de erro: não é possível abrir a página de logon e digitar a senha
+
+- **Sintomas**: o assistente de cópia redireciona você para a página de logon, mas a página de logon não é mostrada com êxito.
+- **Causas**: esse problema pode ocorrer se você alterou o ambiente de rede da rede do Office para a rede doméstica. Há alguns caches em navegadores. 
+- **Resolução**: 
+    1.  Feche o navegador e tente novamente. Vá para a próxima etapa se o problema ainda existir.   
+    2.  Se você estiver usando o navegador Internet Explorer, tente abri-lo no modo particular (pressione "CTRL" + "Shift" + "P"). Se você estiver usando o navegador Chrome, tente abri-lo no modo Incognito (pressione "CTRL" + "Shift" + "N"). Vá para a próxima etapa se o problema ainda existir. 
+    3.  Tente usar outro navegador. 
+
 
 ## <a name="next-steps"></a>Próximas etapas
 Para ver um passo a passo rápido sobre como usar o Assistente de Cópia do Data Factory para criar um pipeline com uma Atividade de Cópia, confira [Tutorial: Criar um pipeline usando o Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md).

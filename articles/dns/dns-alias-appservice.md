@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: how-to
 ms.date: 08/10/2019
 ms.author: rohink
-ms.openlocfilehash: e7c4db7a2fc3ba931415e3b167f7fe72ee2b3980
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 72adb2732eb0832589cbc25fb7e4288eb1899214
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84710534"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94954504"
 ---
 # <a name="host-load-balanced-azure-web-apps-at-the-zone-apex"></a>Hospedar aplicativos da web do Azure com carga balanceada no apex da zona
 
@@ -60,8 +60,8 @@ Crie dois aplicativos da web, um em cada plano do Serviço de Aplicativo.
 
    |Nome<br>(deve ser exclusivo dentro do. azurewebsites.net)|Grupo de recursos |Pilha de runtime|Região|Plano do serviço de aplicativo/localização
    |---------|---------|-|-|-------|
-   |App-01|Uso existente<br>Selecione o grupo de recursos|.NET Core 2.2|Leste dos EUA|ASP-01 (D1)|
-   |App-02|Uso existente<br>Selecione o grupo de recursos|.NET Core 2.2|Centro dos EUA|ASP-02 (D1)|
+   |App-01|Usar existente<br>Selecione o grupo de recursos|.NET Core 2.2|Leste dos EUA|ASP-01 (D1)|
+   |App-02|Usar existente<br>Selecione o grupo de recursos|.NET Core 2.2|Centro dos EUA|ASP-02 (D1)|
 
 ### <a name="gather-some-details"></a>Reúna alguns detalhes
 
@@ -87,7 +87,7 @@ Agora você pode criar os pontos de extremidade para os dois aplicativos web.
 3. Selecione **Adicionar**.
 4. Use a tabela a seguir para configurar os terminais:
 
-   |Type  |Nome  |Destino  |Location  |Configurações personalizadas de cabeçalho|
+   |Tipo  |Nome  |Destino  |Location  |Configurações personalizadas de cabeçalho|
    |---------|---------|---------|---------|---------|
    |Ponto de extremidade externo     |Final-01|Endereço IP que você registrou para o App-01|Leste dos EUA|hospedeira\<the URL you recorded for App-01\><br>Exemplo: **: o aplicativo host-01.azurewebsites.net**|
    |Ponto de extremidade externo     |Final-02|Endereço IP que você registrou para o aplicativo-02|Centro dos EUA|hospedeira\<the URL you recorded for App-02\><br>Exemplo: **: o aplicativo host-02.azurewebsites.net**
@@ -134,7 +134,7 @@ Agora, adicione um registro de alias para o Apex da zona.
 
    |Nome  |Tipo  |Conjunto de registros de alias  |Tipo de alias  |Recursos do Azure|
    |---------|---------|---------|---------|-----|
-   |@     |Um|Sim|Recursos do Azure|Gerenciador de tráfego - seu perfil|
+   |@     |Um|Yes|Recursos do Azure|Gerenciador de tráfego - seu perfil|
 
 
 ## <a name="test-your-web-apps"></a>Teste seus aplicativos web
@@ -158,6 +158,6 @@ Para saber mais sobre registros de alias, consulte os seguintes artigos:
 
 - [Tutorial: Configurar um registro de alias para se referir a um endereço IP público do Azure](tutorial-alias-pip.md)
 - [Tutorial: Configurar um registro de alias para dar suporte a nomes de domínio com o Gerenciador de tráfego do apex](tutorial-alias-tm.md)
-- [PERGUNTAS FREQUENTES SOBRE O DNS](https://docs.microsoft.com/azure/dns/dns-faq#alias-records)
+- [PERGUNTAS FREQUENTES SOBRE O DNS](./dns-faq.md#alias-records)
 
 Para saber como migrar um nome DNS ativo, consulte [migrar um nome DNS ativo para Azure app serviço](../app-service/manage-custom-dns-migrate-domain.md).

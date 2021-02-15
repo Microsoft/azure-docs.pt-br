@@ -3,27 +3,27 @@ title: Ações do mecanismo de regras do Azure Front Door
 description: Este artigo fornece uma lista das várias ações que você pode executar com o mecanismo de regras do Azure Front Door.
 services: frontdoor
 documentationcenter: ''
-author: megan-beatty
+author: duongau
 editor: ''
 ms.service: frontdoor
 ms.devlang: na
-ms.topic: overview
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 4/30/2020
-ms.author: mebeatty
-ms.openlocfilehash: 74c0a2617a01e8c24cd93a015b667081250657ad
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 09/29/2020
+ms.author: duau
+ms.openlocfilehash: ff61af192471bcfc9bdb9f1ce3970d5c22f39579
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86521489"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91569775"
 ---
 # <a name="azure-front-door-rules-engine-actions"></a>Ações do mecanismo de regras do Azure Front Door
 
-No [Mecanismo de regras do AFD](front-door-rules-engine.md) uma regra consiste em zero ou mais condições de correspondência e ações. Este artigo fornece descrições detalhadas das ações que você pode usar no mecanismo de regras do AFD.
+No [Mecanismo de Regras do AFD](front-door-rules-engine.md), uma regra consiste em zero ou mais ações e condições de correspondência. Este artigo fornece descrições detalhadas das ações que você pode usar no mecanismo de regras do AFD.
 
-Uma ação define o comportamento que é aplicado ao tipo de solicitação que uma condição de correspondência ou conjunto de condições de correspondência identifica. No mecanismo de regras do AFD, uma regra pode conter até cinco ações, apenas uma das quais pode ser uma ação de substituição de configuração de rota (encaminhar ou redirecionar).
+Uma ação define o comportamento que é aplicado ao tipo de solicitação que uma condição de correspondência ou conjunto de condições de correspondência identifica. No Mecanismo de Regras do AFD, uma regra pode conter até cinco ações. Somente uma delas poderá ser uma ação de substituição de configuração de rota (encaminhar ou redirecionar).
 
 As ações a seguir estão disponíveis para uso no mecanismo de regras do Azure Front Door.  
 
@@ -35,9 +35,9 @@ Use esta ação para modificar os cabeçalhos que estão presentes nas solicita�
 
 Ação | Nome do cabeçalho HTTP | Valor
 -------|------------------|------
-Acrescentar | Quando essa opção é selecionada e a regra corresponde, o cabeçalho especificado em **Nome do cabeçalho** é adicionado à solicitação com o valor especificado. Se o cabeçalho já estiver presente, o valor será anexado ao valor existente. | String
-Overwrite | Quando essa opção é selecionada e a regra corresponde, o cabeçalho especificado em **Nome do cabeçalho** é adicionado à solicitação com o valor especificado. Se o cabeçalho já estiver presente, o valor especificado substituirá o valor existente. | String
-Excluir | Quando essa opção é selecionada, a regra corresponde e o cabeçalho especificado na regra está presente, o cabeçalho é excluído da solicitação. | String
+Acrescentar | Quando essa opção for selecionada e houver uma correspondência de regra, o cabeçalho especificado em **Nome do cabeçalho** será adicionado à solicitação com o valor especificado. Se o cabeçalho já estiver presente, o valor será anexado ao valor existente. | String
+Overwrite | Quando essa opção for selecionada e houver uma correspondência de regra, o cabeçalho especificado em **Nome do cabeçalho** será adicionado à solicitação com o valor especificado. Se o cabeçalho já estiver presente, o valor especificado substituirá o valor existente. | String
+Excluir | Quando essa opção for selecionada com regras de correspondência e o cabeçalho especificado na regra estiver presente, o cabeçalho será excluído da solicitação. | String
 
 ## <a name="modify-response-header"></a>Modificar o cabeçalho de resposta
 
@@ -47,9 +47,9 @@ Use essa ação para modificar os cabeçalhos que estão presentes nas respostas
 
 Ação | Nome do cabeçalho HTTP | Valor
 -------|------------------|------
-Acrescentar | Quando essa opção é selecionada e a regra corresponde, o cabeçalho especificado em **Nome do cabeçalho** é adicionado à resposta usando o **Valor** especificado. Se o cabeçalho já estiver presente, **Valor** será anexado ao valor existente. | String
+Acrescentar | Quando essa opção for selecionada e houver uma correspondência de regra, o cabeçalho especificado em **Nome do cabeçalho** será adicionado à resposta usando o **Valor** especificado. Se o cabeçalho já estiver presente, **Valor** será anexado ao valor existente. | String
 Overwrite | Quando essa opção é selecionada e a regra corresponde, o cabeçalho especificado em **Nome do cabeçalho** é adicionado à resposta usando o **Valor** especificado. Se o cabeçalho já estiver presente, **Valor** substituirá o valor existente. | String
-Excluir | Quando essa opção é selecionada, a regra corresponde e o cabeçalho especificado na regra está presente, o cabeçalho é excluído da resposta. | String
+Excluir | Quando essa opção for selecionada e houver correspondência entre a regra e o cabeçalho especificado, o cabeçalho será excluído da resposta. | String
 
 ## <a name="route-configuration-overrides"></a>Substituições de configuração de rota 
 
@@ -75,10 +75,10 @@ Use esta ação para encaminhar clientes para uma nova URL. Essa ação também 
 
 Campo | Descrição 
 ------|------------
-Pool de back-end | Selecione o pool de back-end do qual substituir e atender as solicitações. Isso mostrará todos os pools de back-end pré-configurados atualmente em seu perfil do Front Door. 
+Pool de back-end | Selecione um pool de back-end para substituir as solicitações e atendê-las. Isso também mostrará todos os pools de back-end pré-configurados atualmente em seu perfil do Front Door. 
 Protocolo de encaminhamento | Solicitação de correspondência, HTTP, HTTPS.
-Reconfiguração de URL | Use essa ação para reescrever o caminho de uma solicitação que é roteada para sua origem. Se habilitada, confira abaixo os campos adicionais necessários
-Cache | Habilitado, Desabilitado. Confira abaixo os campos adicionais necessários, se habilitada. 
+Reconfiguração de URL | Use essa ação para reescrever o caminho de uma solicitação que é roteada para sua origem. Caso esteja habilitada, confira a seguir quais são os campos adicionais necessários
+Cache | Habilitado, Desabilitado. Confira a seguir quais são os campos adicionais necessários, caso esse campo esteja habilitado. 
 
 #### <a name="url-rewrite"></a>Reconfiguração de URL
 
@@ -90,11 +90,11 @@ Caminho de encaminhamento personalizado | Defina o caminho para o qual encaminha
 
 #### <a name="caching"></a>Cache
 
-Use essas configurações para controlar como os arquivos são armazenados em cache para solicitações que contêm cadeias de consulta e se deseja armazenar em cache o conteúdo com base em todos os parâmetros ou nos parâmetros selecionados. Você pode usar configurações adicionais para substituir o valor TTL (vida útil) para controlar por quanto tempo o conteúdo permanece no cache para solicitações que as regras correspondem às condições especificar. Para forçar o armazenamento em cache como uma ação, defina o campo de cache como "Habilitado". Quando você fizer isso, as seguintes opções serão exibidas: 
+Use estas configurações para controlar como os arquivos serão armazenados em cache para obter solicitações que contêm cadeias de caracteres de consulta. Além de saber se o conteúdo deve ser armazenado em cache com base em todos os parâmetros ou nos parâmetros selecionados. Será possível usar configurações adicionais para substituir o valor de TTL (vida útil) para controlar por quanto tempo o conteúdo permanecerá no cache. Para forçar o armazenamento em cache como uma ação, defina o campo de cache como "Habilitado". Ao forçar o armazenamento em cache, as seguintes opções aparecerão: 
 
 Comportamento do cache |  Descrição              
 ---------------|----------------
-Ignorar as cadeias de caracteres de consulta | Depois que o ativo é armazenado em cache, todas as solicitações subsequentes ignoram as cadeias de consulta até que o ativo em cache expire.
+Ignorar as cadeias de caracteres de consulta | Depois que o ativo for armazenado em cache, todas as solicitações subsequentes ignorarão as cadeias de caracteres de consulta até que o ativo em cache expire.
 Armazenar em cache todas as URLs exclusivas | Cada solicitação com um URL exclusiva, incluindo a cadeia de caracteres de consulta, é tratada como um ativo exclusivo com um cache próprio.
 Ignorar as cadeias de caracteres de consulta especificadas | As cadeias de consulta da URL de solicitação listadas na configuração "parâmetros de consulta" são ignoradas para cache.
 Incluir as cadeias de caracteres de consulta especificadas | As cadeias de consulta da URL de solicitação listadas na configuração "parâmetros de consulta" são usadas para cache.
@@ -102,11 +102,11 @@ Incluir as cadeias de caracteres de consulta especificadas | As cadeias de consu
 Campos adicionais |  Descrição 
 ------------------|---------------
 Compactação dinâmica | O Front Door pode compactar dinamicamente conteúdo na borda, resultando em uma resposta menor e mais rápida.
-Parâmetros de consulta | Uma lista separada por vírgula de parâmetros permitidos (ou não permitidos) a serem usados como base para cache.
+Parâmetros de consulta | Uma lista separada por vírgula de parâmetros permitidos (ou não permitidos) a serem usados como base para o armazenamento em cache.
 Duração do cache | Duração do término do cache em dias, horas, minutos, segundos. Todos os valores devem ser Int. 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba como definir sua primeira [Configuração do mecanismo de regras](front-door-tutorial-rules-engine.md). 
+- Saiba como configurar seu primeiro [Mecanismo de Regras](front-door-tutorial-rules-engine.md). 
 - Saiba mais sobre as [condições de correspondência do Mecanismo de regras](front-door-rules-engine-match-conditions.md)
 - Saiba mais sobre o [Mecanismo de regras do Azure Front Door](front-door-rules-engine.md)

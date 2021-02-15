@@ -3,7 +3,7 @@ title: Ações do menu MMC do StorSimple Snapshot Manager | Microsoft Docs
 description: Descreve como usar as ações de menu padrão do Console de Gerenciamento Microsoft (MMC) no StorSimple Snapshot Manager.
 services: storsimple
 documentationcenter: NA
-author: twooley
+author: alkohli
 manager: timlt
 editor: ''
 ms.assetid: 78ef81af-0d3a-4802-be54-ad192f9ac8a6
@@ -13,20 +13,20 @@ ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
-ms.author: twooley
-ms.openlocfilehash: c177adaa6fe0808d6719a8e87669d7f2fa4fb9cf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: alkohli
+ms.openlocfilehash: 01064c3668b673baea7aedd9a65c92b03c48dc10
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85508819"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "90055996"
 ---
 # <a name="use-the-mmc-menu-actions-in-storsimple-snapshot-manager"></a>Usar as ações de menu do MMC no StorSimple Snapshot Manager
 
 ## <a name="overview"></a>Visão geral
 No StorSimple Snapshot Manager, você verá as seguintes ações listadas em todos os menus de ação e todas as variações do painel de **Ações** .
 
-* Exibir
+* Visualizar
 * Nova Janela a Partir Daqui 
 * Atualizar 
 * Exportar Lista 
@@ -34,7 +34,7 @@ No StorSimple Snapshot Manager, você verá as seguintes ações listadas em tod
 
 Essas ações fazem parte do MMC (Console de Gerenciamento Microsoft) e não são específicas ao StorSimple Snapshot Manager. Este tutorial descreve essas ações e explica como usar cada uma delas no StorSimple Snapshot Manager.
 
-## <a name="view"></a>Exibir
+## <a name="view"></a>Visualizar
 Você pode usar a opção **Visualizar** para alterar a visualização do painel **Resultados** e alterar a visualização da janela do console. 
 
 #### <a name="to-change-the-results-pane-view"></a>Para alterar o modo de exibição de painel de Resultados
@@ -65,7 +65,7 @@ Você pode usar a opção **Nova janela a partir daqui** para abrir uma nova jan
 1. Clique no ícone da área de trabalho para iniciar o StorSimple Snapshot Manager.
 2. No painel **Escopo**, clique com o botão direito do mouse em qualquer nó e, em seguida, clique em **Nova Janela a partir Daqui**. 
    
-    Uma nova janela aparece, mostrando apenas o escopo que você selecionou. Por exemplo, se você clicar com o botão direito do mouse no nó **Políticas de Backup**, a nova janela será mostrada apenas no nó **Políticas de Backup** no painel **Escopo** e uma lista de políticas de backup definidas no painel **Resultados**. Veja os exemplos a seguir.
+    Uma nova janela aparece, mostrando apenas o escopo que você selecionou. Por exemplo, se você clicar com o botão direito do mouse no nó **Políticas de Backup**, a nova janela será mostrada apenas no nó **Políticas de Backup** no painel **Escopo** e uma lista de políticas de backup definidas no painel **Resultados**. Veja o exemplo a seguir.
    
     ![Nova Janela a Partir Daqui](./media/storsimple-snapshot-manager-mmc-menu/HCS_SSM_NewWindow.png) 
 
@@ -87,7 +87,7 @@ Você pode usar a ação **Exportar lista** para salvar a lista em um arquivo de
    1. Na caixa **Nome do arquivo**, digite um nome para o arquivo CSV ou clique na seta para selecionar a partir da lista suspensa.
    2. Na caixa **Salvar como tipo**, clique na seta e selecione um tipo de arquivo na lista suspensa.
    3. Para salvar apenas os itens selecionados, selecione as linhas e depois clique na caixa de seleção **Salvar apenas linhas selecionadas**. Para salvar todas as listas exportadas, desmarque a caixa de seleção **Salvar apenas linhas selecionadas** .
-   4. Clique em **Save** (Salvar).
+   4. Clique em **Salvar**.
       
       ![Exportar lista como um arquivo de valores separados por vírgula](./media/storsimple-snapshot-manager-mmc-menu/HCS_SSM_Export_List.png) 
 

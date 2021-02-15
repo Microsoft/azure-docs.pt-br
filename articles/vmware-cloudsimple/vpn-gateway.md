@@ -1,19 +1,19 @@
 ---
 title: Solução do Azure VMware por CloudSimple-configurar um gateway de VPN
 description: Descreve como configurar o gateway de VPN ponto a site e o gateway de VPN site a site e criar conexões entre sua rede local e sua nuvem privada do CloudSimple
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/14/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: a8b7e238333196381524d189904871fe5933c906
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 78f78bfbf885cbae7708a75cb54ce2d41e7b526c
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79279488"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97899092"
 ---
 # <a name="set-up-vpn-gateways-on-cloudsimple-network"></a>Configurar gateways de VPN na rede CloudSimple
 
@@ -103,7 +103,7 @@ Um gateway de VPN ponto a site permite que você defina uma política de adiçã
 
     * As opções **adicionar automaticamente** definem a política global para o gateway. As configurações se aplicam ao gateway atual. As configurações podem ser substituídas na área de **seleção** .
     * Selecione **Adicionar VLANs de gerenciamento/sub-redes de nuvens privadas**. 
-    * Para adicionar todas as VLANs/sub-redes definidas pelo usuário, clique em **Adicionar VLANs/sub-redes definidas pelo usuário**.
+    * Para adicionar todas as VLANs/sub-redes definidas pelo usuário, clique em  **Adicionar VLANs/sub-redes definidas pelo usuário**.
     * As configurações de **selecionar** substituem as configurações globais em **adicionar automaticamente**.
 
 7. Clique em **Avançar** para revisar as configurações. Clique nos ícones de edição para fazer alterações.

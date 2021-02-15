@@ -4,15 +4,16 @@ description: Saiba como usar o SDK do Azure para fazer o download de grandes qua
 author: roygara
 ms.service: storage
 ms.topic: tutorial
-ms.date: 02/20/2018
+ms.date: 02/04/2021
 ms.author: rogarana
 ms.subservice: blobs
-ms.openlocfilehash: b3fe9c7481e79b8eeda9f18e9a036fa8c72e658d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 0c029abd87e1b819cc4d96e906be8824c019f433
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75372084"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584967"
 ---
 # <a name="download-large-amounts-of-random-data-from-azure-storage"></a>Fazer o download de grandes quantidades de dados aleatórios a partir do armazenamento do Microsoft Azure
 
@@ -33,7 +34,7 @@ Para concluir este tutorial, você deve ter concluído o tutorial anterior de Ar
 
  Para criar uma sessão de área de trabalho remota com a máquina virtual, utilize o comando a seguir no seu computador local. Substitua o endereço IP pelo publicIPAdress da sua máquina virtual. Quando solicitado, insira as credenciais usadas ao criar a máquina virtual.
 
-```
+```console
 mstsc /v:<publicIpAddress>
 ```
 
@@ -45,8 +46,10 @@ No tutorial anterior, você fez o upload de arquivos somente para a conta de arm
 public static void Main(string[] args)
 {
     Console.WriteLine("Azure Blob storage performance and scalability sample");
-    // Set threading and default connection limit to 100 to ensure multiple threads and connections can be opened.
-    // This is in addition to parallelism with the storage client library that is defined in the functions below.
+    // Set threading and default connection limit to 100 to 
+    // ensure multiple threads and connections can be opened.
+    // This is in addition to parallelism with the storage 
+    // client library that is defined in the functions below.
     ThreadPool.SetMinThreads(100, 4);
     ServicePointManager.DefaultConnectionLimit = 100; // (Or More)
 
@@ -54,11 +57,12 @@ public static void Main(string[] args)
     try
     {
         // Call the UploadFilesAsync function.
-        UploadFilesAsync().GetAwaiter().GetResult();
+        // await UploadFilesAsync();
 
-        // Uncomment the following line to enable downloading of files from the storage account.  This is commented out
-        // initially to support the tutorial at https://docs.microsoft.com/azure/storage/blobs/storage-blob-scalable-app-download-files.
-        // DownloadFilesAsync().GetAwaiter().GetResult();
+        // Uncomment the following line to enable downloading of files from the storage account.
+        // This is commented out initially to support the tutorial at 
+        // https://docs.microsoft.com/azure/storage/blobs/storage-blob-scalable-app-download-files
+        await DownloadFilesAsync();
     }
     catch (Exception ex)
     {
@@ -67,11 +71,13 @@ public static void Main(string[] args)
     }
     finally
     {
-        // The following function will delete the container and all files contained in them.  This is commented out initially
-        // As the tutorial at https://docs.microsoft.com/azure/storage/blobs/storage-blob-scalable-app-download-files has you upload only for one tutorial and download for the other. 
+        // The following function will delete the container and all files contained in them.
+        // This is commented out initially as the tutorial at 
+        // https://docs.microsoft.com/azure/storage/blobs/storage-blob-scalable-app-download-files
+        // has you upload only for one tutorial and download for the other.
         if (!exception)
         {
-            // DeleteExistingContainersAsync().GetAwaiter().GetResult();
+            // await DeleteExistingContainersAsync();
         }
         Console.WriteLine("Press any key to exit the application");
         Console.ReadKey();
@@ -81,7 +87,7 @@ public static void Main(string[] args)
 
 Depois que o aplicativo tiver sido atualizado, você precisa compilar o aplicativo novamente. Abra um `Command Prompt` e navegue até `D:\git\storage-dotnet-perf-scale-app`. Recompilar o aplicativo executando `dotnet build` como apresentado no exemplo a seguir:
 
-```
+```console
 dotnet build
 ```
 
@@ -91,11 +97,22 @@ Agora que o aplicativo foi recompilado, é hora de executá-lo com o código atu
 
 Digite `dotnet run` para executar o aplicativo.
 
-```
+```console
 dotnet run
 ```
 
-O aplicativo lê os contêineres localizados na conta de armazenamento especificada no **storageconnectionstring**. Ele itera pelos 10 blobs de uma vez, usando o método [ListBlobsSegmented](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer) nos contêineres e faz o download deles para o computador local usando o método [DownloadToFileAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.downloadtofileasync).
+A tarefa `DownloadFilesAsync` é mostrada no exemplo a seguir:
+
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+
+O aplicativo lê os contêineres localizados na conta de armazenamento especificada no **storageconnectionstring**. Ele itera os blobs usando o método [GetBlobs](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobs) e os baixa para o computador local usando o método [DownloadToAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.downloadtoasync).
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Scalable.cs" id="Snippet_DownloadFilesAsync":::
+
+# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+
+O aplicativo lê os contêineres localizados na conta de armazenamento especificada no **storageconnectionstring**. Ele itera 10 blobs por vez usando o método [ListBlobsSegmentedAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.listblobssegmentedasync) nos contêineres e os baixa para o computador local usando o método [DownloadToFileAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.downloadtofileasync).
+
 A tabela a seguir mostra o [BlobRequestOptions](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions) definido para cada blob conforme ele é baixado.
 
 |Propriedade|Valor|Descrição|
@@ -103,21 +120,21 @@ A tabela a seguir mostra o [BlobRequestOptions](/dotnet/api/microsoft.azure.stor
 |[DisableContentMD5Validation](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.disablecontentmd5validation)| true| Essa propriedade desabilita a verificação de hash MD5 do conteúdo carregado. Desabilitar a validação de MD5 produz uma transferência mais rápida. Mas não confirma a validade ou a integridade dos arquivos que estão sendo transferidos. |
 |[StoreBlobContentMD5](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.storeblobcontentmd5)| false| Essa propriedade determina se um hash MD5 é calculado e armazenado.   |
 
-A tarefa `DownloadFilesAsync` é mostrada no exemplo a seguir:
-
 ```csharp
 private static async Task DownloadFilesAsync()
 {
     CloudBlobClient blobClient = GetCloudBlobClient();
 
-    // Define the BlobRequestOptions on the download, including disabling MD5 hash validation for this example, this improves the download speed.
+    // Define the BlobRequestOptions on the download, including disabling MD5 
+    // hash validation for this example, this improves the download speed.
     BlobRequestOptions options = new BlobRequestOptions
     {
         DisableContentMD5Validation = true,
         StoreBlobContentMD5 = false
     };
 
-    // Retrieve the list of containers in the storage account.  Create a directory and configure variables for use later.
+    // Retrieve the list of containers in the storage account.
+    // Create a directory and configure variables for use later.
     BlobContinuationToken continuationToken = null;
     List<CloudBlobContainer> containers = new List<CloudBlobContainer>();
     do
@@ -139,7 +156,8 @@ private static async Task DownloadFilesAsync()
         int max_outstanding = 100;
         int completed_count = 0;
 
-        // Create a new instance of the SemaphoreSlim class to define the number of threads to use in the application.
+        // Create a new instance of the SemaphoreSlim class to
+        // define the number of threads to use in the application.
         SemaphoreSlim sem = new SemaphoreSlim(max_outstanding, max_outstanding);
 
         // Iterate through the containers
@@ -147,7 +165,7 @@ private static async Task DownloadFilesAsync()
         {
             do
             {
-                // Return the blobs from the container lazily 10 at a time.
+                // Return the blobs from the container, 10 at a time.
                 resultSegment = await container.ListBlobsSegmentedAsync(null, true, BlobListingDetails.All, 10, continuationToken, null, null);
                 continuationToken = resultSegment.ContinuationToken;
                 {
@@ -187,11 +205,13 @@ private static async Task DownloadFilesAsync()
 }
 ```
 
+---
+
 ### <a name="validate-the-connections"></a>Validar as conexões
 
-Enquanto os arquivos estão sendo baixados, você pode verificar o número de conexões simultâneas para a sua conta de armazenamento. Abra um `Command Prompt` e digite `netstat -a | find /c "blob:https"`. Este comando mostra o número de conexões atualmente abertas, usando `netstat`. O exemplo a seguir mostra uma saída semelhante para o que você vê ao executar o tutorial por conta própria. Como você pode ver no exemplo, mais de 280 conexões estavam abertas durante o download dos arquivos aleatórios da conta de armazenamento.
+Enquanto os arquivos estão sendo baixados, você pode verificar o número de conexões simultâneas para a sua conta de armazenamento. Abra uma janela do console e digite `netstat -a | find /c "blob:https"`. Este comando mostra o número de conexões atualmente abertas. Como você pode ver no exemplo, mais de 280 conexões estavam abertas durante o download dos arquivos aleatórios da conta de armazenamento.
 
-```
+```console
 C:\>netstat -a | find /c "blob:https"
 289
 
@@ -200,13 +220,13 @@ C:\>
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Na parte três da série, você aprendeu sobre como fazer o download de grandes quantidades de dados aleatórios de uma conta de armazenamento; por exemplo, como:
+Na parte três da série, você aprendeu a abaixar grandes volumes de dados de uma conta de armazenamento e aprendeu a:
 
 > [!div class="checklist"]
 > * Executar o aplicativo
 > * Validar o número de conexões
 
-Avançar para a parte quatro da série para verificar as taxas de transferência e as métricas de latência no portal.
+Vá para a parte quatro da série para verificar as taxas de transferência e as métricas de latência no portal.
 
 > [!div class="nextstepaction"]
 > [Verificar a taxa de transferência e as métricas de latência no portal](storage-blob-scalable-app-verify-metrics.md)

@@ -1,17 +1,17 @@
 ---
 title: Política de suporte do cluster do Red Hat OpenShift no Azure 4
-description: Entenda os requisitos da política de suporte para o Red Hat OpenShift 4.
+description: Entender os requisitos da política de suporte para o Red Hat OpenShift 4
 author: sakthi-vetrivel
 ms.author: suvetriv
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 04/24/2020
-ms.openlocfilehash: f496d0f38452fa7cf64bc9eef370bd0b2116cfa5
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.date: 11/23/2020
+ms.openlocfilehash: c58b267874f013a4660428e23abd41810a0fbf34
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89049954"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100093158"
 ---
 # <a name="azure-red-hat-openshift-support-policy"></a>Política de suporte do Red Hat OpenShift no Azure
 
@@ -23,13 +23,16 @@ Determinadas configurações dos clusters do Red Hat OpenShift no Azure 4 podem 
 ## <a name="cluster-configuration-requirements"></a>Requisitos de configuração do cluster
 
 * Todos os operadores do cluster do OpenShift devem permanecer em um estado gerenciado. A lista de operadores do cluster pode ser retornada executando `oc get clusteroperators`.
+* O cluster deve ter um mínimo de dois nós de trabalho. Não dimensione os trabalhadores do cluster para zero ou tente um desligamento normal do cluster.
 * Não remova nem modifique os serviços Prometheus e Alertmanager do cluster.
 * Não remova as regras de Alertmanager do serviço.
+* Não remova nem modifique grupos de segurança de rede.
 * Não remova nem modifique o registro em log do serviço do Red Hat OpenShift no Azure (pods mdsd).
 * Não remova nem modifique o segredo de pull do cluster “arosvc.azurecr.io”.
 * Todas as máquinas virtuais do cluster devem ter acesso direto à Internet de saída, pelo menos para os pontos de extremidade do Azure Resource Manager (ARM) e do registro em log do serviço (Geneva).  Não há suporte para nenhuma forma de proxy HTTPS.
 * Não modifique a configuração de DNS da rede virtual do cluster. Use o resolvedor DNS do Azure padrão.
 * Não substitua nenhum dos objetos MachineConfig do cluster (por exemplo, a configuração do kubelet) de forma alguma.
+* Não defina nenhuma opção de unsupportedConfigOverrides. Definir essas opções impede atualizações secundárias de versão.
 * O serviço do Red Hat OpenShift no Azure acessa seu cluster por meio do serviço de Link Privado.  Não remova nem modifique o acesso ao serviço.
 * Não há suporte para nós de computação não RHCOS. Por exemplo, você não pode usar um nó de computação RHEL.
 

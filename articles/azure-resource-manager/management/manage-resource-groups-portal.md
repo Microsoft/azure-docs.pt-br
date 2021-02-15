@@ -5,12 +5,12 @@ author: mumian
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: jgao
-ms.openlocfilehash: feee3a0d6de97ac6aaa1f9a92f20860f3f461ae3
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 6086dffaefba003461a6edd8177afab05377103d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87827224"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91371245"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-the-azure-portal"></a>Gerenciar Azure Resource Manager grupos de recursos usando o portal do Azure
 
@@ -39,7 +39,7 @@ O grupo de recursos armazena metadados sobre os recursos. Portanto, quando você
 3. Selecione **Adicionar**.
 4. Insira os valores a seguir:
 
-   - **Assinatura**: selecione sua assinatura do Azure. 
+   - **Assinatura**: Selecione sua assinatura do Azure. 
    - **Grupo de recursos**: insira um nome para o novo grupo de recursos. 
    - **Região**: selecione um local do Azure, como **EUA Central**.
 
@@ -105,7 +105,7 @@ Para obter informações sobre como exportar modelos, consulte [exportação ún
 
 ## <a name="manage-access-to-resource-groups"></a>Gerenciar o acesso a grupos de recursos
 
-O Azure [RBAC (controle de acesso baseado em função)](../../role-based-access-control/overview.md) do Azure é a maneira como você gerencia o acesso a recursos no Azure. Para obter mais informações, confira [gerenciar o acesso usando o portal do Azure e o RBAC](../../role-based-access-control/role-assignments-portal.md).
+O Azure [RBAC (controle de acesso baseado em função)](../../role-based-access-control/overview.md) do Azure é a maneira como você gerencia o acesso a recursos no Azure. Para obter mais informações, confira [Adicionar ou remover atribuições de função do Azure usando o portal do Azure](../../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

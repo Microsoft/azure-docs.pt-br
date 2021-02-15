@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/12/2018
-ms.openlocfilehash: 0173d324da4f6cf2a24b825fe44fc07b7fe50b84
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 1892afde42ccbcf1c28b7d6a757875772ee3ac5d
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87318123"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905597"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>Monitoramento contínuo com o Azure Monitor
 
@@ -28,7 +28,7 @@ Para ganhar capacidade de observação em todo o ambiente, você precisa ativar 
 - O [Azure DevOps Projects](../devops-project/overview.md) oferece uma experiência simplificada com seu código e repositório Git existentes ou escolhe um dos aplicativos de exemplo para criar um pipeline de CI (integração contínua) e CD (entrega contínua) para o Azure.
 - [O monitoramento contínuo do pipeline de lançamento do DevOps](./app/continuous-monitoring.md) permite que você bloqueie ou remova a implantação com base em dados de monitoramento.
 - O [Status Monitor](./app/monitor-performance-live-website-now.md) permite que você instrumentalize um aplicativo .NET ativo no Windows com o Azure Application Insights, sem precisar modificar ou reimplantar o código.
-- Se você tiver acesso ao código do aplicativo, ative o monitoramento completo com o [Application Insights](./app/app-insights-overview.md) instalando o SDK do Azure Monitor Application Insights para [.NET](./learn/quick-monitor-portal.md), [Java](./app/java-get-started.md), [Node.js](./learn/nodejs-quick-start.md) ou [outras linguagens de programação](./app/platforms.md). Isso permite que você especifique eventos personalizados, métricas ou exibições de página relevantes para o aplicativo e a empresa.
+- Se você tiver acesso ao código para seu aplicativo, habilite o monitoramento completo com [Application insights](./app/app-insights-overview.md) instalando o SDK do Application Insights do Azure monitor para [.net](./app/asp-net.md), [.net Core](./app/asp-net-core.md), [Java](./app/java-get-started.md), [Node.js](./learn/nodejs-quick-start.md)ou [qualquer outra linguagem de programação](./app/platforms.md). Isso permite que você especifique eventos personalizados, métricas ou exibições de página relevantes para o aplicativo e a empresa.
 
 
 
@@ -43,7 +43,7 @@ Os aplicativos só são confiáveis se a infraestrutura subjacente é confiável
 
 A [infraestrutura como código ](/azure/devops/learn/what-is-infrastructure-as-code) é o gerenciamento da infraestrutura em um modelo descritivo com o mesmo controle de versão que as equipes do DevOps usam para o código-fonte. Ela assegura mais confiabilidade e escalabilidade ao ambiente e permite que você aproveite processos semelhantes usados para gerenciar os aplicativos.
 
--  Use os [modelos do Gerenciador de Recursos](platform/template-workspace-configuration.md) para habilitar o monitoramento e configurar alertas em um grande conjunto de recursos.
+-  Use os [modelos do Gerenciador de Recursos](./samples/resource-manager-workspace.md) para habilitar o monitoramento e configurar alertas em um grande conjunto de recursos.
 - Use o [Azure Policy](../governance/policy/overview.md) para aplicar diferentes regras aos recursos. Isso garante que eles permaneçam compatíveis com seus padrões empresariais e contratos de nível de serviço. 
 
 
@@ -87,4 +87,3 @@ Garantir que o desenvolvimento e as operações tenham acesso à mesma telemetri
 
 - Saiba mais sobre os diferentes componentes do [Azure Monitor](overview.md).
 - [Adicione monitoramento contínuo](./app/continuous-monitoring.md) ao seu pipeline de lançamento.
-

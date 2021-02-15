@@ -2,11 +2,16 @@
   href: index.yml
   items:
     - name: Visão geral
+      expanded: true
       items:
         - name: Comparar soluções para Identidades Externas
           href: compare-with-b2c.md
         - name: O que é acesso do usuário convidado de B2B?
           href: what-is-b2b.md
+        - name: O que é o Azure AD B2C?
+          href: ../../active-directory-b2c/overview.md
+        - name: O que há de novo no Docs?
+          href: whats-new-docs.md
     - name: Inícios rápidos
       items:
         - name: Adicionar usuários convidados no portal
@@ -15,25 +20,25 @@
           href: b2b-quickstart-invite-powershell.md
     - name: Tutoriais
       items:
-        - name: Convite em massa por meio do PowerShell
+        - name: Convidar usuários convidados em massa por meio do PowerShell
           href: bulk-invite-powershell.md
-        - name: Convite em massa por meio do portal
+        - name: Convidar usuários convidados em massa por meio do portal
           href: tutorial-bulk-invite.md
-        - name: Impor autenticação multifator
+        - name: Impor a autenticação multifator para usuários convidados
           href: b2b-tutorial-require-mfa.md
     - name: Exemplos
       items:
-        - name: Exemplos da inscrição por autoatendimento
+        - name: Exemplos da inscrição por autoatendimento de usuários convidados
           href: code-samples-self-service-sign-up.md
         - name: Código e exemplos do Azure PowerShell
           href: code-samples.md
     - name: Conceitos
       expanded: false
       items:
+        - name: Preço de identidades externas
+          href: external-identities-pricing.md
         - name: Melhores práticas de B2B
           href: b2b-fundamentals.md
-        - name: Licenciamento B2B
-          href: licensing-guidance.md
         - name: B2B e compartilhamento externo do Office 365
           href: o365-external-user.md
         - name: Resgate do convite
@@ -63,9 +68,9 @@
     - name: Guias de instruções
       expanded: true
       items:
-        - name: Configurar compartilhamento externo
+        - name: Definir configurações de colaboração externa
           href: delegate-invitations.md
-        - name: Convidar usuários B2B
+        - name: Convidar usuários convidados
           items:
             - name: Administradores adicionando usuários de B2B
               href: add-users-administrator.md
@@ -91,7 +96,7 @@
               href: direct-federation-adfs.md
         - name: Autenticação de senha avulsa
           href: one-time-passcode.md
-        - name: Inscrição por autoatendimento (versão prévia)
+        - name: Inscrição para autoatendimento de usuários convidados (versão prévia)
           items:
             - name: Adicionar um fluxo dos usuários de inscrição por autoatendimento
               href: self-service-sign-up-user-flow.md
@@ -103,7 +108,7 @@
               href: self-service-sign-up-add-api-connector.md
             - name: Adicionar um sistema de aprovação personalizado
               href: self-service-sign-up-add-approvals.md
-        - name: Gerenciar contas de convidados
+        - name: Gerenciar contas de usuários convidados
           items:
             - name: Adicionar um usuário de B2B a uma função
               href: add-guest-to-role.md
@@ -111,9 +116,11 @@
               href: use-dynamic-groups.md
             - name: Entender o usuário de B2B
               href: user-properties.md
+            - name: Redefinir status do resgate
+              href: reset-redemption-status.md
             - name: B2B para aplicativos integrados do Azure AD
               href: configure-saas-apps.md
-        - name: Gerenciar acesso em uma organização híbrida
+        - name: Gerenciar acesso de convidados em uma organização híbrida
           items:
             - name: Conceder aos usuários locais acesso aos aplicativos de nuvem
               href: hybrid-on-premises-to-cloud.md
@@ -134,13 +141,13 @@
         - name: Perguntas frequentes
           href: faq.md
         - name: Obtendo suporte
-          href: 'https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-troubleshooting-support-howto'
+          href: ../fundamentals/active-directory-troubleshooting-support-howto.md
         - name: Fórum de comentários do Azure
           href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
         - name: Roteiro do Azure
           href: 'https://azure.microsoft.com/roadmap/?category=security-identity'
         - name: Página de perguntas de P e R da Microsoft
-          href: 'https://docs.microsoft.com/answers/topics/azure-active-directory.html'
+          href: /answers/topics/azure-active-directory.html
         - name: Preços
           href: 'https://azure.microsoft.com/pricing/details/active-directory/'
         - name: Calculadora de preço

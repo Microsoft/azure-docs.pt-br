@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 ms.subservice: iot-central-retail
 services: iot-central
-ms.openlocfilehash: c060b87b24d7467097d06adecb9f34acb4993779
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 43bf91c83f66b05c448e52286b34c51a9fd30a2b
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88032275"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92124955"
 ---
 # <a name="building-retail-solutions-with-azure-iot-central"></a>Como criar soluções de varejo com o Azure IoT Central
 
@@ -41,9 +41,9 @@ Os benefícios de uma solução de logística conectada incluem:
 
 As capturas de tela a seguir mostram o painel integrado no modelo de aplicativo. O painel é totalmente personalizável para atender aos seus requisitos de solução específicos:
 
-:::image type="content" source="media/overview-iot-central-retail/connected-logistics-dashboard1.png" alt-text="Painel de Logística Conectada":::
+:::image type="content" source="media/overview-iot-central-retail/connected-logistics-dashboard1.png" alt-text="Visão geral de varejo do Azure IoT":::
 
-:::image type="content" source="media/overview-iot-central-retail/connected-logistics-dashboard2.png" alt-text="Painel de Logística Conectada":::
+:::image type="content" source="media/overview-iot-central-retail/connected-logistics-dashboard2.png" alt-text="Visão geral de varejo do Azure IoT":::
 
 Para saber mais, confira o tutorial [Implantar e usar um modelo de aplicativo de logística conectado](./tutorial-iot-central-connected-logistics.md).
 
@@ -64,7 +64,7 @@ Os benefícios de um centro de distribuição digital incluem:
 
 A captura de tela a seguir mostra o painel integrado no modelo de aplicativo. O painel é totalmente personalizável para atender aos seus requisitos de solução específicos: 
 
-:::image type="content" source="media/overview-iot-central-retail/digital-distribution-center-dashboard.png" alt-text="Dashboard do Centro de Distribuição Digital":::
+:::image type="content" source="media/overview-iot-central-retail/digital-distribution-center-dashboard.png" alt-text="Visão geral de varejo do Azure IoT":::
 
 Para saber mais, confira o tutorial [Implantar e seguir passo a passo o modelo de aplicativo da central de distribuição digital](./tutorial-iot-central-digital-distribution-center.md).
 
@@ -86,7 +86,7 @@ O modelo de aplicativo é fornecido com um conjunto de modelos de dispositivo e 
 
 A captura de tela a seguir mostra o painel integrado no modelo de aplicativo. O painel é totalmente personalizável para atender aos seus requisitos de solução específicos: 
 
-:::image type="content" source="media/overview-iot-central-retail/in-store-analytics-condition-dashboard.png" alt-text="Monitoramento de condição de análise na loja":::
+:::image type="content" source="media/overview-iot-central-retail/in-store-analytics-condition-dashboard.png" alt-text="Visão geral de varejo do Azure IoT":::
 
 Para saber mais, confira o tutorial [Criar um aplicativo de análise na loja no Azure IoT Central](./tutorial-in-store-analytics-create-app.md).
 
@@ -108,7 +108,7 @@ O modelo de aplicativo é fornecido com um conjunto de modelos de dispositivo e 
 
 A captura de tela a seguir mostra o painel integrado no modelo de aplicativo. O painel é totalmente personalizável para atender aos seus requisitos de solução específicos: 
 
-:::image type="content" source="media/overview-iot-central-retail/In-Store-Analytics-Checkout-Dashboard.png" alt-text="Finalização de compra de análise na loja":::
+:::image type="content" source="media/overview-iot-central-retail/In-Store-Analytics-Checkout-Dashboard.png" alt-text="Visão geral de varejo do Azure IoT":::
 
 Para saber mais, confira o tutorial [Criar um aplicativo de análise na loja no Azure IoT Central](./tutorial-in-store-analytics-create-app.md).
 
@@ -128,7 +128,7 @@ Esse modelo de aplicativo se concentra na conectividade do dispositivo e na conf
 
 A captura de tela a seguir mostra o painel integrado no modelo de aplicativo. O painel é totalmente personalizável para atender aos seus requisitos de solução específicos:
 
-:::image type="content" source="media/overview-iot-central-retail/smart-inventory-management-dashboard.png" alt-text="Painel de Gerenciamento de Estoque Inteligente":::
+:::image type="content" source="media/overview-iot-central-retail/smart-inventory-management-dashboard.png" alt-text="Visão geral de varejo do Azure IoT":::
 
 Para saber mais, confira o tutorial [Implantar e usar um modelo de aplicativo de gerenciamento de estoque inteligente](./tutorial-iot-central-smart-inventory-management.md).
 
@@ -148,7 +148,7 @@ O modelo de aplicativo permite que você:
 
 A captura de tela a seguir mostra o painel integrado no modelo de aplicativo. O painel é totalmente personalizável para atender aos seus requisitos de solução específicos:
 
-:::image type="content" source="media/overview-iot-central-retail/MFC-Dashboard.png" alt-text="Microcentral de atendimento":::
+:::image type="content" source="media/overview-iot-central-retail/MFC-Dashboard.png" alt-text="Visão geral de varejo do Azure IoT":::
 
 Para saber mais, confira o tutorial [Implantar e seguir passo a passo o modelo de aplicativo da microcentral de atendimento](./tutorial-micro-fulfillment-center.md).
 
@@ -160,20 +160,20 @@ O aplicativo de análise de vídeo usa um módulo [LVA (análise dinâmica de v�
 
 O modelo de aplicativo inclui quatro painéis de aplicativo:
 
-* **Instalação** fornece informações sobre o design do aplicativo e permite adicionar e excluir câmeras.
-* **Gerenciar** permite que você gerencie suas câmeras. Por exemplo, você pode configurar as câmeras, exibir informações de status e iniciar câmeras em execução.
-* **Câmeras reais** permite que você exiba informações de suas câmeras reais, como contagens de detecção e eventos de câmera.
-* **Monitor** permite exibir informações detalhadas de todas as suas câmeras.
+* A seção **Introdução** fornece links para recursos a fim de ajudar você a começar a usar o modelo de aplicativo.
+* O **Painel de Demonstração** fornece uma ilustração dos tipos de informações que você pode ver nas câmeras conectadas.
+* O **(Exemplo) Gerenciamento de Câmeras Reais** usa câmeras simuladas para mostrar como você pode gerenciar suas câmeras no aplicativo.
+* O **(Exemplo) Monitor de Câmeras Reais** usa câmeras simuladas para mostrar como você pode monitorar suas câmeras no aplicativo.
 
-:::image type="content" source="media/overview-iot-central-retail/live-video-analytics.png" alt-text="Análise de vídeo – detecção de objetos e de movimento":::
+:::image type="content" source="media/overview-iot-central-retail/live-video-analytics.png" alt-text="Visão geral de varejo do Azure IoT":::
 
 Para saber mais sobre a arquitetura da solução, confira [Arquitetura de aplicativo de análise de vídeo](architecture-video-analytics.md).
 
-Para saber como implantar a solução, confira o tutorial [Criar um aplicativo de análise de vídeo no Azure IoT Central](tutorial-video-analytics-create-app.md).
+Para saber como implantar a solução, confira o tutorial [Criar um aplicativo de análise de vídeo no Azure IoT Central](tutorial-video-analytics-deploy.md).
 
 ### <a name="live-video-analytics"></a>Análise dinâmica de vídeo
 
-A análise dinâmica de vídeo fornece uma plataforma para criar aplicativos de vídeo inteligentes que abrangem a borda e a nuvem. A plataforma permite capturar, gravar, analisar vídeos ao vivo e publicar os resultados, que podem ser vídeos ou análises de vídeo, para os serviços do Azure. Os serviços do Azure podem estar em execução na nuvem ou na borda. Você pode usar a plataforma para aprimorar soluções de IoT com análise de vídeo.
+A [Análise Dinâmica de Vídeo](https://github.com/Azure/live-video-analytics) fornece uma plataforma para criar aplicativos de vídeo inteligentes que abrangem a borda e a nuvem. A plataforma permite capturar, gravar, analisar vídeos ao vivo e publicar os resultados, que podem ser vídeos ou análises de vídeo, para os serviços do Azure. Os serviços do Azure podem estar em execução na nuvem ou na borda. Você pode usar a plataforma para aprimorar soluções de IoT com análise de vídeo.
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -184,4 +184,5 @@ Para começar a criar uma solução de varejo:
 * [Implantar e usar um modelo de aplicativo do centro de distribuição digital](./tutorial-iot-central-digital-distribution-center.md).
 * [Implantar e usar um modelo de aplicativo de gerenciamento de estoque inteligente](./tutorial-iot-central-smart-inventory-management.md).
 * [Implantar e seguir passo a passo o modelo de aplicativo da microcentral de atendimento](./tutorial-micro-fulfillment-center.md).
-* Saiba mais sobre o IoT Central na [Visão geral do IoT Central](../preview/overview-iot-central.md).
+* [Implantar e seguir o passo a passo do modelo de aplicativo de análise de vídeo](./tutorial-video-analytics-deploy.md).
+* Saiba mais sobre o IoT Central na [Visão geral do IoT Central](../core/overview-iot-central.md).

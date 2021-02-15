@@ -5,14 +5,14 @@ author: KishorIoT
 ms.author: nandab
 ms.service: iot-central
 ms.subservice: iot-central-retail
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 10/20/2019
-ms.openlocfilehash: b73d065b43aff5f9793e642a102ff8bb2a7be036
-ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
+ms.openlocfilehash: f5f1a9a51c4aa68c11f1843424186a727be94621
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "81001135"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99834299"
 ---
 # <a name="architecture-of-iot-central-digital-distribution-center-application-template"></a>Arquitetura do modelo de aplicativo do centro de distribuição digital para IoT Central
 
@@ -26,7 +26,7 @@ Os parceiros e os clientes podem usar o modelo de aplicativo e as diretrizes a s
 1. Conjunto de sensores de IoT que enviam dados de telemetria para um dispositivo de gateway
 2. Dispositivos de gateway que enviam telemetria e informações agregadas para o IoT Central
 3. Os dados são roteados para o serviço do Azure desejado para fins de manipulação
-4. Os serviços do Azure, como ASA ou Azure Functions, podem ser usados para reformatar os fluxos de dados e enviá-los para as contas de armazenamento desejadas 
+4. Os serviços do Azure, como ASA ou Azure Functions, podem ser usados para reformatar os fluxos de dados e enviá-los para as contas de armazenamento desejadas
 5. Os dados processados são guardados no armazenamento frequente para ações quase em tempo real ou no armazenamento frio para melhorias de insights adicionais com base na análise de ML ou em lotes. 
 6. Os Aplicativos Lógicos podem ser usados para alimentar vários fluxos de trabalho de negócios em aplicativos de negócios do usuário final
 

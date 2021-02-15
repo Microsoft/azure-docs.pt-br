@@ -6,16 +6,16 @@ ms.date: 07/10/2019
 ms.author: yalavi
 author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: 52a74593fcfbdc2c1e464077e4ae460f6a5a9c39
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: e57b3dd31455db245103469874c517fe54479110
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852388"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526900"
 ---
 # <a name="understand-migration-options-to-newer-alerts"></a>Entender as opções de migração para alertas mais recentes
 
-Os alertas clássicos são [desativados](./monitoring-classic-retirement.md), embora ainda estejam em uso limitado para recursos que ainda não dão suporte aos novos alertas. Uma nova data será anunciada em breve para a migração de alertas restantes, a [nuvem do Azure governamental](../../azure-government/documentation-government-welcome.md)e o [Azure China 21vianet](https://docs.azure.cn/).
+Os alertas clássicos são [desativados](./monitoring-classic-retirement.md) para usuários de nuvem pública, embora ainda estejam em uso limitado para recursos que ainda não dão suporte aos novos alertas. Uma nova data será anunciada em breve para a migração de alertas restantes, a [nuvem do Azure governamental](../../azure-government/documentation-government-welcome.md)e o [Azure China 21vianet](https://docs.azure.cn/).
 
 Este artigo explica como a migração manual e a ferramenta de migração voluntária funcionam, que serão usadas para migrar as regras de alerta restantes. Ele também descreve as soluções para alguns problemas comuns.
 
@@ -150,11 +150,11 @@ Para serviços de conta de armazenamento como BLOB, tabela, arquivo e fila, as m
 | SASSuccess | Métrica de transações com dimensões "ResponseType" = "êxito" e "autenticação" = "SAS" | |
 | ServerOtherError | Métrica de transações com dimensões "ResponseType" = "ServerOtherError" | |
 | ServerTimeOutError | Métrica de transações com dimensões "ResponseType" = "ServerTimeOutError"  | |
-| Sucesso | Métrica de transações com dimensões "ResponseType" = "êxito" | |
-| TotalBillableRequests| Transações | |
+| Êxito | Métrica de transações com dimensões "ResponseType" = "êxito" | |
+| TotalBillableRequests| Transactions | |
 | TotalEgress | Saída | |
 | TotalIngress | Entrada | |
-| TotalRequests | Transações | |
+| TotalRequests | Transactions | |
 
 ### <a name="microsoftinsightscomponents"></a>Microsoft. insights/Components
 
@@ -171,16 +171,16 @@ Por Application Insights, as métricas equivalentes são mostradas abaixo:
 | clientPerformance. receiveRequest. Value | browserTimings/receiveDuration| Multiplique o limite original por 1000, pois as unidades para métrica clássica estão em segundos e para uma nova em milissegundos.  |
 | clientPerformance. sendRequest. Value | browserTimings/sendDuration| Multiplique o limite original por 1000, pois as unidades para métrica clássica estão em segundos e para uma nova em milissegundos.  |
 | clientPerformance. total. Value | browserTimings/totalDuration| Multiplique o limite original por 1000, pois as unidades para métrica clássica estão em segundos e para uma nova em milissegundos.  |
-| performanceCounter. available_bytes. Value | performanceCounters/memoryAvailableBytes|   |
-| performanceCounter. io_data_bytes_per_sec. Value | performanceCounters/processIOBytesPerSecond|   |
-| performanceCounter. number_of_exceps_thrown_per_sec. Value | performanceCounters/exceptionsPerSecond|   |
-| performanceCounter. percentage_processor_time_normalized. Value | performanceCounters/processCpuPercentage|   |
-| performanceCounter. percentage_processor_time. Value | performanceCounters/processCpuPercentage| O limite precisará ser modificado adequadamente, pois a métrica original foi feita em todos os núcleos e a nova métrica é normalizada para um núcleo. A ferramenta de migração não altera os limites.  |
-| performanceCounter. percentage_processor_total. Value | performanceCounters/processorCpuPercentage|   |
-| performanceCounter. process_private_bytes. Value | performanceCounters/processPrivateBytes|   |
-| performanceCounter. request_execution_time. Value | performanceCounters/requestExecutionTime|   |
-| performanceCounter. requests_in_application_queue. Value | performanceCounters/requestsInQueue|   |
-| performanceCounter. requests_per_sec. Value | performanceCounters/requestsPerSecond|   |
+| performanceCounter.available_bytes. Value | performanceCounters/memoryAvailableBytes|   |
+| performanceCounter.io_data_bytes_per_sec. Value | performanceCounters/processIOBytesPerSecond|   |
+| performanceCounter.number_of_exceps_thrown_per_sec. Value | performanceCounters/exceptionsPerSecond|   |
+| performanceCounter.percentage_processor_time_normalized. Value | performanceCounters/processCpuPercentage|   |
+| performanceCounter.percentage_processor_time. Value | performanceCounters/processCpuPercentage| O limite precisará ser modificado adequadamente, pois a métrica original foi feita em todos os núcleos e a nova métrica é normalizada para um núcleo. A ferramenta de migração não altera os limites.  |
+| performanceCounter.percentage_processor_total. Value | performanceCounters/processorCpuPercentage|   |
+| performanceCounter.process_private_bytes. Value | performanceCounters/processPrivateBytes|   |
+| performanceCounter.request_execution_time. Value | performanceCounters/requestExecutionTime|   |
+| performanceCounter.requests_in_application_queue. Value | performanceCounters/requestsInQueue|   |
+| performanceCounter.requests_per_sec. Value | performanceCounters/requestsPerSecond|   |
 | duração da solicitação | requests/duration| Multiplique o limite original por 1000, pois as unidades para métrica clássica estão em segundos e para uma nova em milissegundos.  |
 | solicitação. taxa | solicitações/taxa|   |
 | contagem de requestFailed. | requests/failed| Use `aggregationType` ' count ' em vez de ' Sum '.   |
@@ -254,12 +254,14 @@ Como parte da migração, novos alertas de métrica e novos grupos de ação ser
 
 ### <a name="policy-with-deny-effect-preventing-us-from-migrating-your-rules"></a>Política com o efeito ' negar ' nos impedindo de migrar suas regras
 
-Como parte da migração, novos alertas de métrica e novos grupos de ação serão criados e as regras de alerta clássicas serão excluídas. No entanto, uma política pode impedi-lo de criar recursos. Dependendo da política, algumas ou todas as regras não puderam ser migradas. As políticas que estão bloqueando o processo são listadas na [ferramenta de migração](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/MigrationBladeViewModel). Resolva esse problema:
+Como parte da migração, novos alertas de métrica e novos grupos de ação serão criados e as regras de alerta clássicas serão excluídas. No entanto, uma atribuição de [Azure Policy](../../governance/policy/index.yml) pode impedi-lo de criar recursos. Dependendo da atribuição de política, algumas ou todas as regras não puderam ser migradas. As atribuições de política que estão bloqueando o processo são listadas na [ferramenta de migração](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/MigrationBladeViewModel). Resolva esse problema:
 
-- Excluindo as assinaturas ou grupos de recursos para a duração do processo de migração da atribuição de política. [Saiba mais sobre como gerenciar políticas escopo de exclusão](../../governance/policy/tutorials/create-and-manage.md#exempt-a-non-compliant-or-denied-resource-using-exclusion).
-- Remover ou alterar o efeito para ' auditoria ' ou ' acrescentar ' (que, por exemplo, pode resolver problemas relacionados a marcas ausentes). [Saiba mais sobre o efeito de gerenciamento de políticas](../../governance/policy/concepts/definition-structure.md#policy-rule).
+- Excluindo as assinaturas, os grupos de recursos ou os recursos individuais durante o processo de migração da atribuição de política. [Saiba mais sobre como gerenciar escopos de exclusão de política](../../governance/policy/tutorials/create-and-manage.md#remove-a-non-compliant-or-denied-resource-from-the-scope-with-an-exclusion).
+- Defina o ' modo de imposição ' como **desabilitado** na atribuição de política. [Saiba mais sobre a propriedade imposiçãomode da atribuição de política](../../governance/policy/concepts/assignment-structure.md#enforcement-mode).
+- Defina uma isenção de Azure Policy (versão prévia) nas assinaturas, grupos de recursos ou recursos individuais para a atribuição de política. [Saiba mais sobre a estrutura de isenção de Azure Policy](../../governance/policy/concepts/exemption-structure.md).
+- A remoção ou alteração do efeito para ' desabilitado ', ' auditoria ', ' acrescentar ' ou ' Modificar ' (que, por exemplo, pode resolver problemas relacionados a marcas ausentes). [Saiba mais sobre o gerenciamento de efeitos de política](../../governance/policy/concepts/definition-structure.md#policy-rule).
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Como usar a ferramenta de migração](alerts-using-migration-tool.md)
-- [Preparar a migração](alerts-prepare-migration.md)
+- [Preparar para a migração](alerts-prepare-migration.md)

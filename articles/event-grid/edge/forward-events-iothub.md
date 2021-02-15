@@ -8,10 +8,10 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: 36dc7d098892fb2be7c2ba3d75de7c7adef1a4f1
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86171543"
 ---
 # <a name="tutorial-forward-events-to-iothub"></a>Tutorial: encaminhar eventos para IoTHub
@@ -133,7 +133,7 @@ Os assinantes podem se registrar para eventos publicados em um tópico. Para rec
 
 Atualize a rota do Hub do Edge para encaminhar eventos da assinatura de evento a serem encaminhados para IoTHub da seguinte maneira:
 
-1. Entre no [portal do Azure](https://ms.portal.azure.com)
+1. Entre no [Portal do Azure](https://ms.portal.azure.com)
 1. Navegue até o **Hub IOT**.
 1. Selecione **IOT Edge** no menu
 1. Selecione a ID do dispositivo de destino na lista de dispositivos.
@@ -194,7 +194,7 @@ Consulte o [tutorial de roteamento do Hub IOT](../../iot-hub/tutorial-routing.md
 
 Consulte o tutorial de [Roteamento](../../iot-hub/tutorial-routing.md) do Hub IOT para ver as etapas para exibir os eventos.
 
-## <a name="cleanup-resources"></a>Limpar os recursos
+## <a name="cleanup-resources"></a>Recursos de limpeza
 
 * Execute o seguinte comando para excluir o tópico e todas as suas assinaturas na borda:
 

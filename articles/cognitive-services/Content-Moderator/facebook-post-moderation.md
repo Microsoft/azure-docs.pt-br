@@ -8,18 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
-ms.date: 05/27/2020
+ms.date: 01/29/2021
 ms.author: pafarley
-ms.openlocfilehash: 9d8801037be55a262268afcd6e8f5751d158c76e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: f3b43ed6a86276b308599f9091d581423b0f363c
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548507"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99220983"
 ---
 # <a name="tutorial-moderate-facebook-posts-and-commands-with-azure-content-moderator"></a>Tutorial: Moderar comandos e postagens do Facebook com o Content Moderator do Azure
 
 Neste tutorial, você aprenderá a usar o Content Moderator do Azure para ajudar a moderar postagens e comentários em uma página do Facebook. O Facebook enviará o conteúdo publicado por visitantes ao serviço do Content Moderator. Em seguida, seus fluxos de trabalho do Content Moderator publicam o conteúdo ou criam análises dentro da ferramenta de Análise, dependendo das pontuações e dos limites do conteúdo. Assista ao [Vídeo de demonstração do Build 2017](https://channel9.msdn.com/Events/Build/2017/T6033) para obter um exemplo de funcionamento deste cenário.
+
+> [!IMPORTANT]
+> Em 2018, o Facebook implementou uma política de habilitação mais estrita para Aplicativos Facebook. Você não poderá concluir as etapas deste tutorial caso seu aplicativo não tenha sido examinado e aprovado pela equipe de análise do Facebook.
 
 Este tutorial mostra como:
 
@@ -34,12 +37,9 @@ Este diagrama ilustra cada componente desse cenário:
 
 ![Diagrama do Content Moderator recebendo informações do Facebook por meio de "FBListener" e enviando informações por meio de "CMListener"](images/tutorial-facebook-moderation.png)
 
-> [!IMPORTANT]
-> Em 2018, o Facebook implementou uma política de habilitação mais estrita para Aplicativos Facebook. Você não poderá concluir as etapas deste tutorial caso seu aplicativo não tenha sido examinado e aprovado pela equipe de análise do Facebook.
-
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Uma chave de assinatura do Content Moderator. Siga as instruções descritas em [Criar uma conta dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para assinar o serviço Content Moderator e obter sua chave.
+- Uma chave de assinatura do Content Moderator. Siga as instruções descritas em [Criar uma conta dos Serviços Cognitivos](../cognitive-services-apis-create-account.md) para assinar o serviço Content Moderator e obter sua chave.
 - Uma [conta do Facebook](https://www.facebook.com/).
 
 ## <a name="create-a-review-team"></a>Criar uma equipe de análise
@@ -64,14 +64,14 @@ Teste seu fluxo de trabalho usando o botão **Executar fluxo de trabalho**.
 
 Entre no [portal do Azure](https://portal.azure.com/) e siga estas etapas:
 
-1. Crie um Aplicativo de funções do Azure, conforme mostrado na página [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal).
+1. Crie um Aplicativo de funções do Azure, conforme mostrado na página [Azure Functions](../../azure-functions/functions-create-function-app-portal.md).
 1. Vá para o Aplicativo de funções recém-criado.
 1. No aplicativo, acesse a guia **Recursos da plataforma** e selecione **Configuração**. Na seção **Configurações de aplicativo** da página seguinte, selecione **Nova configuração de aplicativo** para adicionar os seguintes pares chave/valor:
     
     | Nome da configuração do aplicativo | value   | 
     | -------------------- |-------------|
     | `cm:TeamId`   | ID da sua equipe do Content Moderator  | 
-    | `cm:SubscriptionKey` | Sua chave de assinatura Content Moderator - Consulte [Credenciais](review-tool-user-guide/credentials.md) |
+    | `cm:SubscriptionKey` | Sua chave de assinatura Content Moderator - Consulte [Credenciais](./review-tool-user-guide/configure.md#credentials) |
     | `cm:Region` | O nome da região do Content Moderator, sem espaços. Encontre esse nome no campo **Localização** da guia **Visão geral** do recurso do Azure.|
     | `cm:ImageWorkflow` | Nome do fluxo de trabalho para executar em Imagens |
     | `cm:TextWorkflow` | Nome do fluxo de trabalho para executar em Texto |
@@ -105,14 +105,14 @@ Entre no [portal do Azure](https://portal.azure.com/) e siga estas etapas:
     ![Página de desenvolvedor do Facebook](images/facebook-developer-app.png)
 
     1. Navegue até o [site de desenvolvedor do Facebook](https://developers.facebook.com/)
-    1. Clique em **Meus Aplicativos**.
+    1. Acesse **Meus Aplicativos**.
     1. Adicionar um Novo Aplicativo.
-    1. Dê um nome a ele
+    1. Fornecer um nome
     1. Selecione **Webhooks -> Configurar**
     1. Selecione **Página** no menu suspenso e selecione **Assinar este objeto**
-    1. Forneça a **URL FBListener** como a URL de retorno de chamada e o **Verificar Token** configurado em**Configurações do Aplicativo de Funções**
+    1. Forneça a **URL FBListener** como a URL de retorno de chamada e o **Verificar Token** configurado em **Configurações do Aplicativo de Funções**
     1. Depois que se inscreveu, vá até o feed e selecione **assinar**.
-    1. Clique no botão **Testar** da linha do **feed** para enviar uma mensagem de teste para a Função do Azure FBListener e, em seguida, pressione o botão **Enviar para Meu Servidor**. Você deverá ver a solicitação que está sendo recebida no FBListener.
+    1. Selecione o botão **Testar** da linha **feed** para enviar uma mensagem de teste para a Função do Azure FBListener e, em seguida, pressione o botão **Enviar para Meu Servidor**. Você deverá ver a solicitação que está sendo recebida no FBListener.
 
 1. Crie uma página do Facebook.
 
@@ -124,7 +124,7 @@ Entre no [portal do Azure](https://portal.azure.com/) e siga estas etapas:
         1. Navegue até o [Explorer do API do Graph](https://developers.facebook.com/tools/explorer/).
         1. Selecione **Aplicativo**.
         1. Selecione o **Token de Acesso da Página**, envie uma solicitação **Obter**.
-        1. Clique em **ID de Página** na resposta.
+        1. Selecione a **ID de Página** na resposta.
         1. Agora acrescente **/subscribed_apps** à URL e Envie uma solicitação **Obter** (resposta vazia).
         1. Envie uma solicitação de **Postagem**. Obtenha a resposta como **sucesso: verdadeiro**.
 
@@ -159,7 +159,7 @@ A solução envia todas as imagens e texto publicados na sua página do Facebook
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você configurará um programa para analisar as imagens de produto com a finalidade de marcá-las por tipo de produto e permitir que uma equipe de revisão tome decisões informadas sobre a moderação de conteúdo. Em seguida, saiba mais sobre os detalhes da moderação de imagem.
+Neste tutorial, você configurará um programa para analisar imagens de produtos, marcará essas imagens por tipo de produto e permitirá que uma equipe de análise tome decisões informadas sobre a moderação de conteúdo. Em seguida, saiba mais sobre os detalhes da moderação de imagem.
 
 > [!div class="nextstepaction"]
 > [Moderação de imagem](./image-moderation-api.md)

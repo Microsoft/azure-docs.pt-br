@@ -4,28 +4,28 @@ description: Saiba como gerar e usar chaves SSH de um computador Windows para se
 author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure-services
-ms.date: 07/09/2020
+ms.date: 10/31/2020
 ms.topic: how-to
 ms.author: cynthn
-ms.openlocfilehash: 7e99c9191e93562211f6294cf671f431a5db455d
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 183b601a4521c3ff3e4578784f7adadd01045b0e
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87825558"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93147140"
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>Como usar chaves SSH com o Windows no Azure
 
 Este artigo é para usuários do Windows que desejam [criar](#create-an-ssh-key-pair) e usar chaves SSH ( *Secure Shell* ) para [se conectar](#connect-to-your-vm) a VMS (máquinas virtuais) do Linux no Azure. Você também pode [gerar e armazenar chaves SSH no portal do Azure](../ssh-keys-portal.md) para usar ao criar VMs no Portal.
 
 
-Para usar chaves SSH de um cliente Linux ou macOS, consulte a [rápida](mac-create-ssh-keys.md). Para obter uma visão geral mais detalhada do SSH, consulte [etapas detalhadas: criar e gerenciar chaves SSH para autenticação em uma VM do Linux no Azure](create-ssh-keys-detailed.md).
+Para usar chaves SSH de um cliente Linux ou macOS, consulte as [etapas rápidas](mac-create-ssh-keys.md). Para obter uma visão geral mais detalhada do SSH, consulte [etapas detalhadas: criar e gerenciar chaves SSH para autenticação em uma VM do Linux no Azure](create-ssh-keys-detailed.md).
 
 ## <a name="overview-of-ssh-and-keys"></a>Visão geral do SSH e das chaves
 
-O [SSH](https://www.ssh.com/ssh/) é um protocolo de conexão criptografado que permite entradas seguras em conexões não seguras. SSH é o protocolo de conexão padrão para as VMs Linux hospedadas no Azure. Embora o SSH em si forneça uma conexão criptografada, o uso de senhas com o SSH ainda deixa a VM vulnerável a ataques de força bruta. É recomendável conectar-se a uma VM por SSH usando um par de chaves pública-privada, também conhecido como *chaves SSH*. 
+O [SSH](https://www.ssh.com/ssh/) é um protocolo de conexão criptografado que permite entradas seguras em conexões não seguras. SSH é o protocolo de conexão padrão para as VMs Linux hospedadas no Azure. Embora o SSH em si forneça uma conexão criptografada, o uso de senhas com o SSH ainda deixa a VM vulnerável a ataques de força bruta. É recomendável conectar-se a uma VM por SSH usando um par de chaves pública-privada, também conhecido como *chaves SSH* . 
 
-O par de chaves pública-privada é como o bloqueio na sua porta de frente. O bloqueio é exposto ao **público**, qualquer pessoa com a chave correta pode abrir a porta. A chave é **privada**e só é fornecida às pessoas confiáveis, pois podem ser usadas para desbloquear a porta. 
+O par de chaves pública-privada é como o bloqueio na sua porta de frente. O bloqueio é exposto ao **público** , qualquer pessoa com a chave correta pode abrir a porta. A chave é **privada** e só é fornecida às pessoas confiáveis, pois podem ser usadas para desbloquear a porta. 
 
 - A *chave pública* é colocada em sua VM Linux quando você cria a VM. 
 

@@ -9,24 +9,33 @@ metadata:
   ms.topic: hub-page
   author: MGoedtel
   ms.author: magoedte
-  ms.date: 08/21/2020
-  ms.openlocfilehash: 059e3feb4f81d3cf93e1d9045b1eb4164fd72433
-  ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+  ms.date: 09/23/2020
+  ms.openlocfilehash: 8536c583350e15e63f36a1f8adc3e6c51a9f28ac
+  ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 08/27/2020
-  ms.locfileid: "89019701"
+  ms.lasthandoff: 12/18/2020
+  ms.locfileid: "97672518"
 highlightedContent:
   items:
-  - title: Servidores habilitados para Azure Arc (versão prévia)
+  - title: Sobre o Azure Arc
+    itemType: overview
+    url: overview.md
+  - title: Início rápido
+    itemType: sample
+    url: https://azurearcjumpstart.io/overview/
+  - title: Servidores habilitados para Azure Arc
     itemType: overview
     url: ./servers/overview.md
   - title: Kubernetes habilitado para Azure Arc (versão prévia)
     itemType: overview
     url: ./kubernetes/overview.md
-  - title: Sobre o Azure Arc
+  - title: Serviços de dados habilitados para Azure Arc (versão prévia)
     itemType: overview
-    url: arc-overview.md
+    url: ./data/overview.md
+  - title: SQL Server habilitado para Azure Arc (versão prévia)
+    itemType: overview
+    url: /sql/sql-server/azure-arc/overview
 productDirectory:
   title: Serviços habilitados para Azure Arc
   summary: Confira como executar serviços em qualquer lugar.
@@ -42,8 +51,8 @@ productDirectory:
       text: Conectar computadores ao Azure com o DSC do PowerShell
     - url: ./servers/index.yml
       text: Ver mais...
-  - title: Kubernetes habilitado para Azure Arc
-    imageSrc: ./media/containers-101-kubernetes-services.svg
+  - title: Kubernetes habilitado para Azure Arc (versão prévia)
+    imageSrc: ./media/01088-icon-arc-kubernetes-menu.svg
     links:
     - url: ./kubernetes/connect-cluster.md
       text: Conectar cluster
@@ -51,10 +60,28 @@ productDirectory:
       text: Implantar configurações usando GitOps
     - url: ./kubernetes/index.yml
       text: Ver mais...
+  - title: Serviços de dados habilitados para Azure Arc (versão prévia)
+    imageSrc: ./media/manage-756-azure-arc.svg
+    links:
+    - url: ./data/install-client-tools.md
+      text: Instalar ferramentas
+    - url: ./data/create-sql-managed-instance.md
+      text: Criar uma Instância Gerenciada do SQL
+    - url: ./data/create-postgresql-hyperscale-server-group.md
+      text: Criar Hiperescala do PostgreSQL
+    - url: ./data/index.yml
+      text: Ver mais...
+  - title: SQL Server habilitado para Azure Arc (versão prévia)
+    imageSrc: ./media/01850-icon-arc-sql-server-menu.svg
+    links:
+    - url: /sql/sql-server/azure-arc/assess
+      text: Acessar suas instâncias SQL
+    - url: /sql/sql-server/azure-arc/overview
+      text: Ver mais...
 conceptualContent:
   title: Introdução
   items:
-  - title: Servidores habilitados para Azure Arc (versão prévia)
+  - title: Servidores habilitados para Azure Arc
     links:
     - url: ./servers/learn/quick-enable-hybrid-vm.md
       itemType: get-started
@@ -62,7 +89,7 @@ conceptualContent:
     - url: ./servers/learn/tutorial-enable-vm-insights.md
       itemType: tutorial
       text: Monitorar um computador híbrido com o Azure Monitor para VMs
-    - url: ./servers/policy-samples.md
+    - url: ./servers/policy-reference.md
       itemType: learn
       text: Políticas de controle de admissão usando o Azure Policy
     - url: ./servers/manage-vm-extensions.md

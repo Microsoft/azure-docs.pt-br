@@ -4,12 +4,12 @@ description: Como configurar os nós de transação do serviço Blockchain do Az
 ms.date: 11/20/2019
 ms.topic: how-to
 ms.reviewer: janders
-ms.openlocfilehash: 90836ad94410dfec5caa32275362f1407c9f5b1a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 50f9b2aa0f5e1a1b1095b6c799ce0706b6e541de
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85212557"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150874"
 ---
 # <a name="configure-azure-blockchain-service-transaction-nodes"></a>Configurar nós de transação do serviço Blockchain do Azure
 
@@ -35,9 +35,9 @@ Para adicionar um nó de transação:
 
     ![Adicionar nó de transação](./media/configure-transaction-nodes/add-node.png)
 
-    | Setting | Descrição |
+    | Configuração | Descrição |
     |---------|-------------|
-    | Nome | Nome do nó de transação. O nome é usado para criar o endereço DNS para o ponto de extremidade do nó de transação. Por exemplo, `newnode-myblockchainmember.blockchain.azure.com`. O nome do nó não pode ser alterado depois de ser criado. |
+    | Name | Nome do nó de transação. O nome é usado para criar o endereço DNS para o ponto de extremidade do nó de transação. Por exemplo, `newnode-myblockchainmember.blockchain.azure.com`. O nome do nó não pode ser alterado depois de ser criado. |
     | Senha | Defina uma senha forte. Use a senha para acessar o ponto de extremidade do nó de transação com a autenticação básica.
 
 1. Selecione **Criar**.
@@ -52,7 +52,7 @@ Para exibir os detalhes do ponto de extremidade de um nó de transação:
 
 1. Na portal do Azure, navegue até um dos nós de transação de membro do serviço Blockchain do Azure e selecione **visão geral**.
 
-    ![Pontos de extremidade](./media/configure-transaction-nodes/endpoints.png)
+    ![Captura de tela mostra a visão geral de nós de transação para um membro blockchain.](./media/configure-transaction-nodes/endpoints.png)
 
 Os pontos de extremidade do nó de transação são seguros e exigem autenticação. Você pode se conectar a um ponto de extremidade de transação usando a autenticação do Azure AD, autenticação básica de HTTPS e usando uma chave de acesso sobre HTTPS ou WebSocket sobre TLS.
 
@@ -75,17 +75,17 @@ Para conceder o controle de acesso do AD do Azure ao seu ponto de extremidade:
 
 1. Selecione **salvar** para adicionar a atribuição de função.
 
-Para obter mais informações sobre o controle de acesso do AD do Azure, consulte [gerenciar o acesso aos recursos do Azure usando o RBAC e o portal do Azure](../../role-based-access-control/role-assignments-portal.md)
+Para obter mais informações sobre o controle de acesso do AD do Azure, consulte [Adicionar ou remover atribuições de função do Azure usando o portal do Azure](../../role-based-access-control/role-assignments-portal.md)
 
 Para obter detalhes sobre como se conectar usando a autenticação do Azure AD, consulte [conectar-se ao seu nó usando a autenticação do AAD](configure-aad.md).
 
-### <a name="basic-authentication"></a>Autenticação Básica
+### <a name="basic-authentication"></a>Autenticação básica
 
 Para autenticação básica HTTPS, as credenciais de nome de usuário e senha são passadas no cabeçalho HTTPS da solicitação para o ponto de extremidade.
 
 Você pode exibir os detalhes do ponto de extremidade de autenticação básica de um nó de transação no portal do Azure. Navegue até um dos nós de transação de membro do serviço Blockchain do Azure e selecione **autenticação básica** em configurações.
 
-![Autenticação Básica](./media/configure-transaction-nodes/basic.png)
+![Autenticação básica](./media/configure-transaction-nodes/basic.png)
 
 O nome de usuário é o nome do seu nó e não pode ser alterado.
 

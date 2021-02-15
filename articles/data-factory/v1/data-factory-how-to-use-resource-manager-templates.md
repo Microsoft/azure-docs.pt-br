@@ -1,22 +1,18 @@
 ---
 title: Usar modelos do Resource Manager no Data Factory
 description: Saiba como criar e usar modelos do Azure Resource Manager para criar entidades de Data Factory.
-services: data-factory
-documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
-manager: jroth
+author: dcstwh
+ms.author: weetok
 ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: e94445a6cb16eacb496daedbec21379928a4dafd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c17ef939b8d27035e5b28f4a651b9be2db8f2279
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84194452"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100382932"
 ---
 # <a name="use-templates-to-create-azure-data-factory-entities"></a>Usar modelos para criar entidades do Azure Data Factory
 > [!NOTE]
@@ -228,7 +224,7 @@ Consulte [definindo pipelines](data-factory-create-pipelines.md#pipeline-json) p
 }
 ```
 ## <a name="parameterizing-data-factory-template"></a>Parametrizando o modelo de Data Factory
-Para obter as práticas recomendadas sobre parametrização, consulte [Práticas recomendadas para criar modelos do Azure Resource Manager](../../azure-resource-manager/resource-manager-template-best-practices.md). Em geral, o uso do parâmetro deverá ser minimizado, especialmente se variáveis puderem ser usadas em vez disso. Apenas forneça parâmetros nos seguintes cenários:
+Para obter as práticas recomendadas sobre parametrização, consulte [Práticas recomendadas para criar modelos do Azure Resource Manager](../../azure-resource-manager/templates/template-best-practices.md). Em geral, o uso do parâmetro deverá ser minimizado, especialmente se variáveis puderem ser usadas em vez disso. Apenas forneça parâmetros nos seguintes cenários:
 
 * As configurações variam de acordo com ambiente (exemplo: desenvolvimento, teste e produção)
 * Segredos (por exemplo, senhas)

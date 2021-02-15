@@ -4,13 +4,24 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/11/2020
 ms.author: trbye
-ms.openlocfilehash: bee28c946242ecf227287fb36b5b03aa6defb1c2
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: b68025c1b33a94f03e2d84693a7d6407a18abd88
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88170106"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91332400"
 ---
+Neste início rápido, você aprende os padrões de design comuns para fazer uma síntese da conversão de texto em fala usando o SDK de Fala. Você começa fazendo a configuração e a sintetização básicas e passa para exemplos mais avançados de desenvolvimento de aplicativos personalizados, incluindo:
+
+* Obter respostas como fluxos na memória
+* Personalizar a taxa de bits e a taxa de amostragem de saída
+* Enviar solicitações de sintetização usando SSML (linguagem de marcação de sintetização de voz)
+* Usar vozes neurais
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+Este artigo pressupõe que você tem uma conta do Azure e uma assinatura do Serviço de Fala. Se você não tiver uma conta e uma assinatura, [experimente o serviço de Fala gratuitamente](../../../overview.md#try-the-speech-service-for-free).
+
 [!INCLUDE [SPX Setup](../../spx-setup.md)]
 
 ## <a name="synthesize-speech-to-a-speaker"></a>Sintetizar uma fala em um alto-falante

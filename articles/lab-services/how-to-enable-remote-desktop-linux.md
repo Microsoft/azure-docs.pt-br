@@ -3,12 +3,12 @@ title: Habilitar a área de trabalho remota g para Linux no Azure Lab Services |
 description: Saiba como usar a área de trabalho remota para máquinas virtuais do Linux em um laboratório no Azure Lab Services.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 4f50510adf978aeb63b2b5337d21e6f9dec76196
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 34c940fec388bb0e79ab5e1db9be6d52fb223873
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445756"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647946"
 ---
 # <a name="enable-graphical-remote-desktop-for-linux-virtual-machines-in-azure-lab-services"></a>Habilitar a área de trabalho remota gráfica para máquinas virtuais do Linux no Azure Lab Services
 Este artigo mostra como fazer as seguintes tarefas:
@@ -38,7 +38,7 @@ O X2Go usa a mesma porta que já está habilitada para SSH.  Como resultado, nã
 > Em alguns casos, como com o Ubuntu LTS 18.04, o X2Go oferece melhor desempenho.  Se você usar o RDP e perceber que há latência ao interagir com o ambiente de área de trabalho gráfica, experimente o X2Go, pois ele pode melhorar o desempenho.
 
 > [!IMPORTANT]
->  Algumas imagens do Marketplace já têm um ambiente de área de trabalho gráfica e um servidor de área de trabalho remota instalados.  Por exemplo, a [Máquina Virtual de Ciência de Dados para Linux (Ubuntu)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804) já tem [servidor XFCE e X2Go instalado e configurado para aceitar conexões do cliente](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro#x2go).
+>  Algumas imagens do Marketplace já têm um ambiente de área de trabalho gráfica e um servidor de área de trabalho remota instalados.  Por exemplo, a [Máquina Virtual de Ciência de Dados para Linux (Ubuntu)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804) já tem [servidor XFCE e X2Go instalado e configurado para aceitar conexões do cliente](../machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro.md#x2go).
 
 ## <a name="enable-remote-desktop-connection-for-rdp"></a>Habilitar a conexão de área de trabalho remota para RDP
 
@@ -46,7 +46,7 @@ Esta etapa só é necessária para se conectar com o RDP.  Se você planeja usar
 
 1.  Durante a criação do laboratório, o instrutor tem a opção de **Habilitar a conexão de área de trabalho remota**.  O instrutor deve **habilitar** essa opção para abrir a porta necessária na VM Linux para uma sessão de área de trabalho remota do RDP.  Caso contrário, se essa opção ficar **desabilitada**, somente a porta para o SSH será aberta.
   
-    ![Habilitar a conexão de área de trabalho remota para uma imagem do Linux](./media/how-to-enable-remote-desktop-linux/enable-rdp-option.png)
+    ![Captura de tela que mostra a janela "novo laboratório" com a opção "Habilitar Conexão de Área de Trabalho Remota".](./media/how-to-enable-remote-desktop-linux/enable-rdp-option.png)
 
 2. Na caixa de mensagem **Habilitar Conexão de Área de Trabalho Remota**, selecione **Continuar com Área de Trabalho Remota**. 
 
@@ -73,7 +73,7 @@ Siga as etapas abaixo para configurar a VM do modelo:
     ![Cadeia de conexão SSH](./media/how-to-enable-remote-desktop-linux/ssh-connection-string.png)
 
 4. Instale o RDP ou o X2Go juntamente com o ambiente de área de trabalho gráfica de sua escolha.  Consulte as instruções a seguir:
-    - [Instalar e configurar RDP](https://docs.microsoft.com/azure/virtual-machines/linux/use-remote-desktop)
+    - [Instalar e configurar RDP](../virtual-machines/linux/use-remote-desktop.md)
     - [Instalar e configurar X2Go](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Scripts/X2GoRemoteDesktop)
 
 ## <a name="connect-to-the-template-vm-via-the-gui"></a>Conectar-se à VM de modelo por meio da GUI
@@ -82,7 +82,7 @@ Depois de configurar a VM do modelo, o instrutor poderá se conectar por meio da
 
 ### <a name="microsoft-remote-desktop-rdp-client"></a>Cliente da Área de Trabalho Remota da Microsoft (RDP)
 
-O cliente da Área de Trabalho Remota da Microsoft (RDP) é usado para se conectar à VM de um modelo que configurada para RDP.  O cliente da Área de Trabalho Remota pode ser usado no Windows, em Chromebooks, em Macs e muito mais.  Consulte o artigo em [clientes da Área de Trabalho Remota](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients) para mais informações.
+O cliente da Área de Trabalho Remota da Microsoft (RDP) é usado para se conectar à VM de um modelo que configurada para RDP.  O cliente da Área de Trabalho Remota pode ser usado no Windows, em Chromebooks, em Macs e muito mais.  Consulte o artigo em [clientes da Área de Trabalho Remota](/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients) para mais informações.
 
 Siga as etapas abaixo com base no tipo de computador usado para se conectar à VM de modelo:
 

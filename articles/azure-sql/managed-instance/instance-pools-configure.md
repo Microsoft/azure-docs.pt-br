@@ -7,17 +7,17 @@ ms.service: sql-managed-instance
 ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: bonova
 ms.author: bonova
-ms.reviewer: sstein, carlrab
+ms.reviewer: sstein
 ms.date: 09/05/2019
-ms.openlocfilehash: 9bd98d69c9a941e8da08fc7ab798c37b1a22f0bc
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 732a9bab018103321a9a3a759b31495bd67a209e
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86498384"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793102"
 ---
 # <a name="deploy-azure-sql-managed-instance-to-an-instance-pool"></a>Implantar o Azure SQL Instância Gerenciada em um pool de instâncias
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -41,7 +41,7 @@ A tabela a seguir mostra as operações disponíveis relacionadas a pools de ins
 |Criar um banco de dados em instância dentro do pool|Sim|Sim|
 |Excluir um banco de dados do SQL Instância Gerenciada|Sim|Sim|
 
-[Comandos do PowerShell](https://docs.microsoft.com/powershell/module/az.sql/)disponíveis:
+[Comandos do PowerShell](/powershell/module/az.sql/)disponíveis:
 
 |Cmdlet |Descrição |
 |:---|:---|
@@ -52,7 +52,7 @@ A tabela a seguir mostra as operações disponíveis relacionadas a pools de ins
 |[Get-AzSqlInstancePoolUsage](/powershell/module/az.sql/get-azsqlinstancepoolusage/) | Retorna informações sobre o uso do pool de Instância Gerenciada do SQL. |
 
 
-Para usar o PowerShell, [instale a última versão do PowerShell Core](https://docs.microsoft.com/powershell/scripting/install/installing-powershell#powershell) e siga as instruções para [Instalar o módulo do Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+Para usar o PowerShell, [instale a última versão do PowerShell Core](/powershell/scripting/install/installing-powershell#powershell) e siga as instruções para [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps).
 
 Para operações relacionadas a instâncias dentro de pools e instâncias únicas, use os [comandos de instância gerenciada padrão](api-references-create-manage-instance.md#powershell-create-and-configure-managed-instances), mas o *nome do pool de instâncias* propriedade deve ser populada ao usar esses comandos para uma instância em um pool.
 
@@ -256,8 +256,8 @@ Se houver vários bancos de dados, repita o processo para cada um.
 ## <a name="next-steps"></a>Próximas etapas
 
 - Para obter uma lista de recursos e de comparação, consulte [Recursos comuns do SQL](../database/features-comparison.md).
-- Para obter mais informações sobre a configuração da VNet, consulte [configuração da vnet do SQL instância gerenciada](connectivity-architecture-overview.md).
-- Para obter um início rápido que cria uma instância gerenciada e restaura um banco de dados de um arquivo de backup, consulte [criar uma instância gerenciada](instance-create-quickstart.md).
-- Para obter um tutorial sobre como usar o serviço de migração de banco de dados do Azure para migração, consulte [migração de SQL instância gerenciada usando o serviço de migração de banco](../../dms/tutorial-sql-server-to-managed-instance.md)
-- Para o monitoramento avançado do desempenho do banco de dados do SQL Instância Gerenciada com inteligência de solução de problemas interna, consulte [monitorar o instância gerenciada SQL do Azure usando o análise de SQL do Azure](../../azure-monitor/insights/azure-sql.md).
+- Para obter mais informações sobre a configuração de VNet, confira [Configuração de VNet de Instância Gerenciada de SQL](connectivity-architecture-overview.md).
+- Para obter um início rápido que cria uma instância gerenciada e restaura um banco de dados de um arquivo de backup, confira [Criar uma instância gerenciada](instance-create-quickstart.md).
+- Para obter um tutorial sobre como usar o Serviço de Migração de Banco de Dados do Azure para migração, confira [Migração de Instância Gerenciada de SQL usando o Serviço de Migração de Banco de Dados](../../dms/tutorial-sql-server-to-managed-instance.md).
+- Para obter o monitoramento avançado do desempenho de banco de dados da Instância Gerenciada de SQL com inteligência de solução de problemas interna, confira [Monitorar a Instância Gerenciada de SQL do Azure usando a Análise de SQL do Azure](../../azure-monitor/insights/azure-sql.md).
 - Para obter informações sobre preços, consulte [preços do SQL instância gerenciada](https://azure.microsoft.com/pricing/details/sql-database/managed/).

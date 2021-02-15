@@ -10,12 +10,12 @@ ms.author: asrastog
 ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
-ms.openlocfilehash: 4ff61687f2fa045b51dfcb69488d1fbd87b65f75
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 83c290adea02915db1dc52bd359b4d3165611522
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87336490"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547700"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>Sintaxe de consulta do roteamento de mensagens do Hub IoT
 
@@ -23,7 +23,7 @@ O roteamento de mensagens permite aos usuários rotear diferentes tipos de dados
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-O roteamento de mensagens permite consultar as propriedades da mensagem e o corpo da mensagem, bem como as marcas do dispositivo gêmeo e as propriedades do dispositivo gêmeo. Se o corpo da mensagem não é um JSON, o roteamento de mensagens ainda pode rotear a mensagem, mas consultas não podem ser aplicadas ao corpo da mensagem.  Consultas são descritas como expressões boolianas onde um valor booliano true faz a consulta ser bem-sucedida, roteando todos os dados de entrada; e o valor booleano false faz a consulta falhar e nenhum dado será roteado. Se a expressão for avaliada como nula ou indefinida, ela será tratada como false e será gerado um erro nos logs de diagnóstico em caso de falha. A sintaxe de consulta deve estar correta para a rota ser salva e avaliada.  
+O roteamento de mensagens permite consultar as propriedades da mensagem e o corpo da mensagem, bem como as marcas do dispositivo gêmeo e as propriedades do dispositivo gêmeo. Se o corpo da mensagem não é um JSON, o roteamento de mensagens ainda pode rotear a mensagem, mas consultas não podem ser aplicadas ao corpo da mensagem.  Consultas são descritas como expressões boolianas onde um valor booliano true faz a consulta ser bem-sucedida, roteando todos os dados de entrada; e o valor booleano false faz a consulta falhar e nenhum dado será roteado. Se a expressão for avaliada como nula ou indefinida, ela será tratada como false e um erro será gerado no Hub IoT [direciona](monitor-iot-hub-reference.md#routes) os logs de logs de recursos em caso de falha. A sintaxe de consulta deve estar correta para a rota ser salva e avaliada.  
 
 ## <a name="message-routing-query-based-on-message-properties"></a>Consulta de roteamento de mensagens com base nas propriedades da mensagem 
 
@@ -56,13 +56,13 @@ As propriedades do sistema ajudam a identificar o conteúdo e a origem das mensa
 | Propriedade | Type | Descrição |
 | -------- | ---- | ----------- |
 | contentType | string | O usuário especifica o tipo de conteúdo da mensagem. Para permitir a consulta no corpo da mensagem, esse valor deve ser definido como application/JSON. |
-| contentEncoding | cadeia de caracteres | O usuário especifica o tipo de codificação da mensagem. Os valores permitidos são UTF-8, UTF-16, UTF-32 se o contentType for definido como application/JSON. |
-| iothub-connection-device-id | cadeia de caracteres | Esse valor é definido pelo Hub IoT e identifica a ID do dispositivo. Para consultar, use `$connectionDeviceId`. |
-| iothub-enqueuedtime | cadeia de caracteres | Esse valor é definido pelo Hub IoT e representa a hora real de enfileiramento da mensagem em UTC. Para consultar, use `enqueuedTime`. |
-| DT-DataSchema | cadeia de caracteres |  Esse valor é definido pelo Hub IoT em mensagens do dispositivo para a nuvem. Ele contém a ID do modelo do dispositivo definida na conexão do dispositivo. Esse recurso está disponível como parte da [Visualização pública do IoT plug and Play](../iot-pnp/overview-iot-plug-and-play.md). Para consultar, use `$dt-dataschema`. |
-| DT-assunto | cadeia de caracteres | O nome do componente que está enviando as mensagens do dispositivo para a nuvem. Esse recurso está disponível como parte da [Visualização pública do IoT plug and Play](../iot-pnp/overview-iot-plug-and-play.md). Para consultar, use `$dt-subject`. |
+| contentEncoding | string | O usuário especifica o tipo de codificação da mensagem. Os valores permitidos são UTF-8, UTF-16, UTF-32 se o contentType for definido como application/JSON. |
+| iothub-connection-device-id | string | Esse valor é definido pelo Hub IoT e identifica a ID do dispositivo. Para consultar, use `$connectionDeviceId`. |
+| iothub-enqueuedtime | string | Esse valor é definido pelo Hub IoT e representa a hora real de enfileiramento da mensagem em UTC. Para consultar, use `enqueuedTime`. |
+| DT-DataSchema | string |  Esse valor é definido pelo Hub IoT em mensagens do dispositivo para a nuvem. Ele contém a ID do modelo do dispositivo definida na conexão do dispositivo. Para consultar, use `$dt-dataschema`. |
+| DT-assunto | string | O nome do componente que está enviando as mensagens do dispositivo para a nuvem. Para consultar, use `$dt-subject`. |
 
-Conforme descrito nas [Mensagens do Hub IoT](iot-hub-devguide-messages-construct.md), há propriedades de sistema adicionais em uma mensagem. Além das propriedades acima na tabela anterior, você também pode consultar **connectionDeviceId**, **connectionModuleId**.
+Conforme descrito nas [Mensagens do Hub IoT](iot-hub-devguide-messages-construct.md), há propriedades de sistema adicionais em uma mensagem. Além das propriedades acima na tabela anterior, você também pode consultar **connectionDeviceId** , **connectionModuleId** .
 
 ### <a name="application-properties"></a>Propriedades do aplicativo
 
@@ -146,7 +146,7 @@ deviceClient.sendEvent(message, (err, res) => {
 ```
 
 > [!NOTE] 
-> Isso mostra como lidar com a codificação do corpo em JavaScript. Se você quiser ver um exemplo em C#, baixe os [exemplos de C# do Azure IOT](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Descompacte o arquivo master.zip. O arquivo Program.cs da solução do Visual Studio *SimulatedDevice*mostra como codificar e enviar mensagens para um hub IOT. Esse é o mesmo exemplo usado para testar o roteamento de mensagens, conforme explicado no [tutorial roteamento de mensagens](tutorial-routing.md). Na parte inferior do Program.cs, ele também tem um método para ler um dos arquivos codificados, decodificá-lo e escrevê-lo novamente como ASCII para que você possa lê-lo. 
+> Isso mostra como lidar com a codificação do corpo em JavaScript. Se você quiser ver um exemplo em C#, baixe os [exemplos de C# do Azure IOT](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Descompacte o arquivo master.zip. O arquivo Program.cs da solução do Visual Studio *SimulatedDevice* mostra como codificar e enviar mensagens para um hub IOT. Esse é o mesmo exemplo usado para testar o roteamento de mensagens, conforme explicado no [tutorial roteamento de mensagens](tutorial-routing.md). Na parte inferior do Program.cs, ele também tem um método para ler um dos arquivos codificados, decodificá-lo e escrevê-lo novamente como ASCII para que você possa lê-lo. 
 
 
 ### <a name="query-expressions"></a>Expressões de consulta

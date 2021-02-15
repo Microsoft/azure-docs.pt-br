@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 01/03/2020
 ms.author: twooley
 ms.openlocfilehash: c608f357eb1eff9fd36e583b98d26250a71cb923
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85515684"
 ---
 # <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-azure-data-lake-storage-gen1"></a>Use DistCp para copiar dados entre os blobs de armazenamento do Azure e Azure Data Lake Storage Gen1
@@ -115,7 +115,7 @@ Quando o tamanho do conjunto de um para ser movido for grande (por exemplo, > 1 
 
 * Se você estiver copiando de uma conta de armazenamento de BLOBs do Azure, seu trabalho de cópia poderá ser limitado no lado do armazenamento de BLOBs. Isso pode degradar o desempenho do seu trabalho de cópia. Para saber mais sobre os limites do armazenamento de BLOBs do Azure, confira limites de armazenamento do Azure em [assinatura do Azure e limites de serviço](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 * [Copiar dados de blobs de armazenamento do Azure para Data Lake Storage Gen1](data-lake-store-copy-data-azure-storage-blob.md)
 * [Proteger dados no Armazenamento do Data Lake Gen1](data-lake-store-secure-data.md)

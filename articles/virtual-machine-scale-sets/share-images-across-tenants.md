@@ -1,6 +1,6 @@
 ---
-title: Compartilhar imagens da Galeria entre locatários no Azure
-description: Saiba como compartilhar imagens de VM entre locatários do Azure usando galerias de imagens compartilhadas.
+title: Compartilhar imagens da Galeria entre locatários
+description: Saiba como criar conjuntos de dimensionamento usando imagens que são compartilhadas entre locatários do Azure usando galerias de imagens compartilhadas.
 author: cynthn
 ms.author: cynthn
 ms.topic: how-to
@@ -9,14 +9,14 @@ ms.subservice: imaging
 ms.date: 04/05/2019
 ms.reviewer: akjosh
 ms.custom: akjosh, devx-track-azurecli
-ms.openlocfilehash: 542dfbc28621e02cd2842fb174e986bfeb91e6ec
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: ea61b3bd76fc4ada48a8a2fb734a841b8a969272
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501671"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91323474"
 ---
-# <a name="share-gallery-vm-images-across-tenants-in-azure"></a>Compartilhar imagens de VM da Galeria entre locatários no Azure
+# <a name="share-images-across-tenants-with-shared-image-gallery"></a>Compartilhar imagens entre locatários com a Galeria de imagens compartilhadas
 
 [!INCLUDE [virtual-machines-share-images-across-tenants](../../includes/virtual-machines-share-images-across-tenants.md)]
 
@@ -51,4 +51,4 @@ az vmss create \
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se você tiver algum problema, você poderá [solucionar problemas de galerias de imagens compartilhadas](troubleshooting-shared-images.md).
+Se você tiver algum problema, você poderá [solucionar problemas de galerias de imagens compartilhadas](../virtual-machines/troubleshooting-shared-images.md).

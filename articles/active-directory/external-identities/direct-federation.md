@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 78ad8761d3a4ff3e3cdab9dee5f50b469ff840fd
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: c9afb5a078d5359ed236b44c0a6712985bf8c305
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87908001"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99257178"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>Federação direta com AD FS e provedores de terceiros para usuários convidados (versão prévia)
 
@@ -45,7 +45,7 @@ Com a federação direta, os usuários convidados usam as respectivas contas org
 ## <a name="limitations"></a>Limitações
 
 ### <a name="dns-verified-domains-in-azure-ad"></a>Domínios verificados por DNS no Azure AD
-O domínio com o qual você deseja federar ***não*** pode ser verificado por DNS no Azure AD. Você tem permissão para configurar a federação direta com locatários do Azure AD não gerenciados (com verificação por email ou "viral") porque eles não são verificados por DNS.
+O domínio com o qual você deseja federar deve ***não** _ ser verificado pelo DNS no Azure AD. Você tem permissão para configurar a federação direta com locatários do Azure AD não gerenciados (com verificação por email ou "viral") porque eles não são verificados por DNS.
 
 ### <a name="authentication-url"></a>URL de autenticação
 A federação direta só é permitida para políticas em que o domínio da URL de autenticação corresponde ao domínio de destino ou onde a URL de autenticação é um desses provedores de identidade permitidos (essa lista está sujeita a alterações):
@@ -60,25 +60,26 @@ A federação direta só é permitida para políticas em que o domínio da URL d
 -   federation.exostar.com
 -   federation.exostartest.com
 
-Por exemplo, ao configurar a federação direta para **fabrikam.com**, a URL de autenticação `https://fabrikam.com/adfs` passará na validação. Um host no mesmo domínio também passará, por exemplo `https://sts.fabrikam.com/adfs`. No entanto, a URL de autenticação `https://fabrikamconglomerate.com/adfs` ou `https://fabrikam.com.uk/adfs` para o mesmo domínio não passará.
+Por exemplo, ao configurar a Federação direta para _ * fabrikam. com * *, a URL de autenticação `https://fabrikam.com/adfs` passará a validação. Um host no mesmo domínio também passará, por exemplo `https://sts.fabrikam.com/adfs`. No entanto, a URL de autenticação `https://fabrikamconglomerate.com/adfs` ou `https://fabrikam.com.uk/adfs` para o mesmo domínio não passará.
 
 ### <a name="signing-certificate-renewal"></a>Renovação de certificado de autenticação
 Se você especificar a URL de metadados nas configurações do provedor de identidade, o Azure AD renovará automaticamente o certificado de autenticação quando ele expirar. No entanto, se a rotação do certificado for realizada por qualquer motivo antes da hora de expiração ou se você não fornecer uma URL de metadados, o Azure AD não poderá renová-lo. Nesse caso, você precisará atualizar o certificado de autenticação manualmente.
 
 ### <a name="limit-on-federation-relationships"></a>Limite em relações de federação
-Atualmente, o limite máximo de 1.000 relações de federação é compatível. Esse limite inclui [federações internas](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0) e federações diretas.
+Atualmente, o limite máximo de 1.000 relações de federação é compatível. Esse limite inclui [federações internas](/powershell/module/msonline/set-msoldomainfederationsettings) e federações diretas.
 
 ### <a name="limit-on-multiple-domains"></a>Limite em vários domínios
 Atualmente, a federação direta com vários domínios do mesmo locatário não é compatível.
 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
 ### <a name="can-i-set-up-direct-federation-with-a-domain-for-which-an-unmanaged-email-verified-tenant-exists"></a>Posso configurar a federação direta com um domínio para o qual existe um locatário não gerenciado (verificado por email)? 
-Sim. Se o domínio não tiver sido verificado e o locatário não tiver passado por uma [tomada de controle do administrador](../users-groups-roles/domains-admin-takeover.md), você poderá configurar a federação direta com esse domínio. Os locatários não gerenciados, ou verificados por email, são criados quando um usuário resgata um convite B2B ou executa uma inscrição por autoatendimento para o Azure AD usando um domínio que não existe atualmente. Você pode configurar a federação direta com esses domínios. Se você tentar configurar a federação direta com um domínio verificado por DNS, seja no portal do Azure ou por meio do PowerShell, você verá um erro.
+Sim. Se o domínio não tiver sido verificado e o locatário não tiver passado por uma [tomada de controle do administrador](../enterprise-users/domains-admin-takeover.md), você poderá configurar a federação direta com esse domínio. Os locatários não gerenciados, ou verificados por email, são criados quando um usuário resgata um convite B2B ou executa uma inscrição por autoatendimento para o Azure AD usando um domínio que não existe atualmente. Você pode configurar a federação direta com esses domínios. Se você tentar configurar a federação direta com um domínio verificado por DNS, seja no portal do Azure ou por meio do PowerShell, você verá um erro.
 ### <a name="if-direct-federation-and-email-one-time-passcode-authentication-are-both-enabled-which-method-takes-precedence"></a>Se a federação direta e a autenticação de senha de uso único por email estiverem habilitadas, qual método terá precedência?
 Quando a federação direta é estabelecida com uma organização parceira, ela tem precedência sobre a autenticação de senha de uso único por email para novos usuários convidados dessa organização. Se um usuário convidado resgatar um convite usando a autenticação de senha de uso único antes de configurar a federação direta, ele continuará a usar a autenticação de senha de uso único. 
 ### <a name="does-direct-federation-address-sign-in-issues-due-to-a-partially-synced-tenancy"></a>A federação direta resolve problemas de entrada devido a uma locação parcialmente sincronizada?
 Não, o recurso de [senha de uso único por email](one-time-passcode.md) deve ser usado neste cenário. Um "aluguel parcialmente sincronizado" refere-se a um locatário do Azure AD de parceiro no qual as identidades de usuário local não estão totalmente sincronizadas com a nuvem. Um convidado cuja identidade ainda não existir na nuvem, mas que tentar resgatar seu convite B2B, não conseguirá entrar. O recurso de senha de uso único permitiria que esse convidado entrasse. O recurso de federação direta aborda os cenários em que o convidado tem sua própria conta institucional gerenciada por IdP, mas não há nenhuma presença do Azure AD na organização.
-
+### <a name="once-direct-federation-is-configured-with-an-organization-does-each-guest-need-to-be-sent-and-redeem-an-individual-invitation"></a>Quando a Federação direta é configurada com uma organização, cada convidado precisa ser enviado e resgatar um convite individual?
+A configuração da Federação direta não altera o método de autenticação para usuários convidados que já resgataram um convite de você. Você pode atualizar o método de autenticação de um usuário convidado excluindo a conta de usuário convidado do seu diretório e convidando-as novamente.
 ## <a name="step-1-configure-the-partner-organizations-identity-provider"></a>Etapa 1: Configurar o provedor de identidade da organização parceira
 Primeiro, sua organização parceira precisa configurar o respectivo provedor de identidade com as declarações e relações de confiança de terceira parte confiável necessárias. 
 
@@ -87,7 +88,7 @@ Primeiro, sua organização parceira precisa configurar o respectivo provedor de
 
 ### <a name="saml-20-configuration"></a>Configuração do SAML 2.0
 
-O Azure AD B2B pode ser configurado para federar com provedores de identidade que usam o protocolo SAML com os requisitos específicos listados abaixo. Para obter mais informações sobre como configurar uma relação de confiança entre seu provedor de identidade SAML e o Azure AD, confira [Usar um provedor de identidade SAML 2.0 (IdP) para logon único](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-fed-saml-idp).  
+O Azure AD B2B pode ser configurado para federar com provedores de identidade que usam o protocolo SAML com os requisitos específicos listados abaixo. Para obter mais informações sobre como configurar uma relação de confiança entre seu provedor de identidade SAML e o Azure AD, confira [Usar um provedor de identidade SAML 2.0 (IdP) para logon único](../hybrid/how-to-connect-fed-saml-idp.md).  
 
 > [!NOTE]
 > O domínio de destino para a federação direta não pode ser verificado por DNS no Azure AD. O domínio da URL de autenticação precisa corresponder ao domínio de destino ou precisa ser o domínio de um provedor de identidade permitido. Confira a seção [Limitações](#limitations) para obter mais detalhes. 
@@ -146,7 +147,7 @@ Em seguida, você vai configurar a federação com o provedor de identidade conf
 
 1. Vá para o [Portal do Azure](https://portal.azure.com/). No painel esquerdo, selecione **Azure Active Directory**. 
 2. Confira **Identidades Externas** > **Todos os provedores de identidade**.
-3. Selecione e, em seguida, selecione **Novo IdP de SAML/WS-Fed**.
+3. Selecione e, em seguida, selecione **novo IDP SAML/WS-Enalimentado**.
 
     ![Captura de tela mostrando o botão para adicionar um novo IdP de SAML ou WS-Fed](media/direct-federation/new-saml-wsfed-idp.png)
 

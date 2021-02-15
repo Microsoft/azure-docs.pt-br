@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.date: 07/29/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: 4450b0bcc06b048fd9ad42d2a7bf1c588816eae7
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 0127c8d796126d1e99b1fa38a9506df477c7eb49
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88115604"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755728"
 ---
 # <a name="using-directory-schema-extension-attributes-in-claims"></a>Usando atributos de extensão de esquema de diretório em declarações
 
@@ -35,10 +35,10 @@ O identificador de um atributo de extensão de esquema de diretório está no fo
 Os atributos de extensão do esquema de diretório podem ser registrados e preenchidos de uma das duas maneiras:
 
 - Ao configurar o AD Connect para criá-los e sincronizar dados neles no AD local. Consulte [Azure ad Connect as extensões de diretório de sincronização](../hybrid/how-to-connect-sync-feature-directory-extensions.md).
-- Usando Microsoft Graph para registrar, definir os valores de e ler de atributos de extensão do esquema de diretório [extensões de esquema de diretório | Conceitos de API do Graph](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-directory-schema-extensions) e/ou PowerShell + [Gerenciando atributos de extensão com cmdlets do PowerShell do AzureAD](/powershell/azure/active-directory/using-extension-attributes-sample?view=azureadps-2.0).
+- Usando Microsoft Graph para registrar, definir os valores de e ler de extensões de [esquema](/graph/extensibility-overview). Os [cmdlets do PowerShell](/powershell/azure/active-directory/using-extension-attributes-sample) também estão disponíveis.
 
 ### <a name="emitting-claims-with-data-from-directory-schema-extension-attributes-created-with-ad-connect"></a>Emitindo declarações com dados de atributos de extensão de esquema de diretório criados com o AD Connect
-Os atributos de extensão de esquema de diretório criados e sincronizados usando o AD Connect sempre estão associados à ID do aplicativo usada pelo AD Connect. Eles podem ser usados como uma fonte para declarações Configurando-os como declarações na configuração de **aplicativos empresariais** na interface do usuário do portal para aplicativos SAML registrados usando a galeria ou a experiência de configuração de aplicativo não galeria em **aplicativos empresariais**e por meio de uma política de mapeamento de declarações para aplicativos registrados por meio da experiência de registro do aplicativo.  Depois que um atributo de extensão de diretório criado por meio do AD Connect estiver no diretório, ele será exibido na interface do usuário de configuração de declarações de SSO do SAML.
+Os atributos de extensão de esquema de diretório criados e sincronizados usando o AD Connect sempre estão associados à ID do aplicativo usada pelo AD Connect. Eles podem ser usados como uma fonte para declarações Configurando-os como declarações na configuração de **aplicativos empresariais** na interface do usuário do portal para aplicativos SAML registrados usando a galeria ou a experiência de configuração de aplicativo não galeria em **aplicativos empresariais** e por meio de uma política de mapeamento de declarações para aplicativos registrados por meio da experiência de registro do aplicativo.  Depois que um atributo de extensão de diretório criado por meio do AD Connect estiver no diretório, ele será exibido na interface do usuário de configuração de declarações de SSO do SAML.
 
 ### <a name="emitting-claims-with-data-from-directory-schema-extension-attributes-created-for-an-application-using-graph-or-powershell"></a>Emitindo declarações com dados de atributos de extensão de esquema de diretório criados para um aplicativo usando o Graph ou o PowerShell
 Se um atributo de extensão de esquema de diretório for registrado para um aplicativo usando Microsoft Graph ou PowerShell (por meio de uma configuração inicial de aplicativos ou etapa de provisionamento para a instância), o mesmo aplicativo poderá ser configurado no Azure Active Directory para receber dados nesse atributo de um objeto de usuário em uma declaração quando o usuário entrar.  O aplicativo pode ser configurado para receber dados em extensões de esquema de diretório registradas no mesmo aplicativo usando [declarações opcionais](active-directory-optional-claims.md#configuring-directory-extension-optional-claims).  Eles podem ser definidos no manifesto do aplicativo.  Isso permite que um aplicativo multilocatário Registre atributos de extensão de esquema de diretório para seu próprio uso. Quando o aplicativo é provisionado em um locatário, as extensões de esquema de diretório associadas ficam disponíveis para serem definidas nos usuários desse locatário e para serem consumidas.  Depois de configurado no locatário e no consentimento concedido, ele pode ser usado para armazenar e recuperar dados via grafo e mapear para declarações em tokens que a plataforma de identidade da Microsoft emite para aplicativos.
@@ -58,7 +58,7 @@ Por exemplo, aqui está uma política de mapeamento de declarações para emitir
                 "Source": "User",
                 "ExtensionID": "extension_xxxxxxx_test",
                 "JWTClaimType": "http://schemas.contoso.com/identity/claims/exampleclaim"
-            }, 
+            },
         ]
     }
 }
@@ -72,5 +72,5 @@ Em que *xxxxxxx* é a ID do aplicativo com a qual a extensão foi registrada.
 > O parâmetro "ID" no esquema de declarações usado para atributos de diretório internos é "ExtensionId" para atributos de extensão de diretório.
 
 ## <a name="next-steps"></a>Próximas etapas
-- Saiba como [adicionar declarações personalizadas ou adicionais aos tokens SAML 2,0 e JSON Web tokens (JWT)](active-directory-optional-claims.md). 
+- Saiba como [adicionar declarações personalizadas ou adicionais aos tokens SAML 2,0 e JSON Web tokens (JWT)](active-directory-optional-claims.md).
 - Saiba como [Personalizar declarações emitidas em tokens para um aplicativo específico](active-directory-claims-mapping.md).

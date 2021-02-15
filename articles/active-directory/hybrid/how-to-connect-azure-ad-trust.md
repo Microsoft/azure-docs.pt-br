@@ -19,10 +19,10 @@ author: billmath
 ms.custom: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 13d56ec321cd257412c2b0abbe0be655c6cb4dbf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85360088"
 ---
 # <a name="manage-ad-fs-trust-with-azure-ad-using-azure-ad-connect"></a>Gerenciar a confiança do AD FS com o Azure AD usando o Azure AD Connect
@@ -39,7 +39,7 @@ O Azure AD Connect pode gerenciar a federação entre o AD FS (Serviço de Feder
 
 O Azure AD Connect gerencia **somente** configurações relacionadas à confiança do AD do Azure. O Azure AD Connect não modifica nenhuma configuração em outras relações de confiança da terceira parte confiável no AD FS. A tabela a seguir indica as configurações controladas pelo Azure AD Connect.
 
-| Setting | Descrição |
+| Configuração | Descrição |
 | :--- | :--- |
 | Certificado de autenticação de token | O Azure AD Connect pode ser usado para redefinir e recriar a confiança com o Azure AD. O Azure AD Connect faz uma substituição imediata de certificados de assinatura de token para o AD FS e atualiza as configurações de federação de domínio do Azure AD.|
 | Algoritmo de assinatura de token | A Microsoft recomenda o uso do SHA-256 como o algoritmo de assinatura de token. O Azure AD Connect pode detectar se o algoritmo de assinatura de token está definido como um valor menos seguro que o SHA-256. Ele atualizará a configuração para SHA-256 na próxima operação de configuração possível. Outro objeto de confiança de terceira parte confiável precisa ser atualizado para usar o novo certificado de autenticação de tokens. |

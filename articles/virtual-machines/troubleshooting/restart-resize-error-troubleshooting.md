@@ -14,11 +14,11 @@ ms.date: 06/15/2018
 ms.author: delhan
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 85acd8e26ca10730638332047a37d281358d205f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86526531"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022880"
 ---
 # <a name="troubleshoot-deployment-issues-with-restarting-or-resizing-an-existing-windows-vm-in-azure"></a>Solucionar problemas de implantação ao reiniciar ou redimensionar uma VM Windows existente no Azure
 Ao tentar iniciar uma VM (Máquina Virtual) do Azure parada ou redimensionar uma VM do Azure existente, o erro comum encontrado é uma falha de alocação. Esse erro ocorre quando o cluster ou a região não tem recursos disponíveis ou quando não dá suporte ao tamanho de VM solicitado.
@@ -59,7 +59,7 @@ Deve-se tentar fazer a solicitação de redimensionamento da VM no cluster origi
      
      * Clique em **grupos**  >  *de recursos seu grupo de recursos*  >  **recursos**  >  *seu conjunto de disponibilidade*  >  **máquinas virtuais**  >  *sua máquina virtual*  >  **parar**.
   2. Depois de parar todas as VMs, redimensione a VM desejada para um tamanho maior.
-  3. Selecione a VM redimensionada, clique em **Iniciar**e inicie cada uma das VMs paradas.
+  3. Selecione a VM redimensionada, clique em **Iniciar** e inicie cada uma das VMs paradas.
 
 ## <a name="next-steps"></a>Próximas etapas
 Se você encontrar problemas ao criar uma nova VM do Windows no Azure, veja [Solucionar problemas de implantação com a criação de uma nova máquina virtual do Windows no Azure](./troubleshoot-deployment-new-vm-windows.md).

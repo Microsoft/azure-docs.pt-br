@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
 ms.openlocfilehash: 0e1f670f2ba5ad31f29d56b2de40acd6e2bf18a9
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88654371"
 ---
 # <a name="integrate-expressroute-with-disaster-recovery-for-azure-vms"></a>Integre o ExpressRoute com a recuperação de desastre para VMs do Azure
@@ -106,10 +106,10 @@ Geralmente, as implantações corporativas têm cargas de trabalho divididas em 
 
 **Direção** | **Configuração** | **State**
 --- | --- | ---
-Do spoke para o hub | Permitir que o endereço de rede virtual | habilitado
-Do spoke para o hub | Permitir tráfego encaminhado | habilitado
+Do spoke para o hub | Permitir que o endereço de rede virtual | Habilitada
+Do spoke para o hub | Permitir tráfego encaminhado | Habilitada
 Do spoke para o hub | Permitir trânsito de gateway | Desabilitado
-Do spoke para o hub | Use remover gateways | habilitado
+Do spoke para o hub | Use remover gateways | Habilitada
 
  ![Configuração do emparelhamento spoke-hub](./media/azure-vm-disaster-recovery-with-expressroute/spoke-to-hub-peering-configuration.png)
 
@@ -117,9 +117,9 @@ Do spoke para o hub | Use remover gateways | habilitado
 
 **Direção** | **Configuração** | **State**
 --- | --- | ---
-Do hub para o spoke | Permitir que o endereço de rede virtual | habilitado
-Do hub para o spoke | Permitir tráfego encaminhado | habilitado
-Do hub para o spoke | Permitir trânsito de gateway | habilitado
+Do hub para o spoke | Permitir que o endereço de rede virtual | Habilitada
+Do hub para o spoke | Permitir tráfego encaminhado | Habilitada
+Do hub para o spoke | Permitir trânsito de gateway | Habilitada
 Do hub para o spoke | Use remover gateways | Desabilitado
 
  ![Configuração do emparelhamento hub-spoke](./media/azure-vm-disaster-recovery-with-expressroute/hub-to-spoke-peering-configuration.png)

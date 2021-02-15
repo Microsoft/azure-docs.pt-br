@@ -4,16 +4,29 @@ description: Neste artigo, saiba mais sobre os recursos de monitoramento e notif
 ms.topic: conceptual
 ms.date: 03/05/2019
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: 0e1e50f27c6d0563ab51a74bbfa22d2a7f54ecd3
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 74669a1347fac9f61d028d9cb1f3da174bb71f96
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89000729"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550329"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Monitorando cargas de trabalho de backup do Azure
 
 O backup do Azure fornece várias soluções de backup com base no requisito de backup e na topologia de infraestrutura (local versus Azure). Qualquer usuário ou administrador de backup deve ver o que está acontecendo em todas as soluções e pode esperar ser notificado em cenários importantes. Este artigo detalha os recursos de monitoramento e notificação fornecidos pelo serviço de backup do Azure.
+
+[!INCLUDE [backup-center.md](../../includes/backup-center.md)]
+
+## <a name="backup-items-in-recovery-services-vault"></a>Itens de backup no cofre dos serviços de recuperação
+
+Você pode monitorar todos os seus itens de backup por meio de um cofre dos serviços de recuperação. Navegar até a seção **itens de backup** no cofre abre uma exibição que fornece o número de itens de backup de cada tipo de carga de trabalho associado ao cofre. Clicar em qualquer linha abre uma exibição detalhada listando todos os itens de backup do tipo de carga de trabalho fornecido, com informações sobre o último status de backup de cada item, o último ponto de restauração disponível e assim por diante.
+
+![Itens de backup do cofre RS](media/backup-azure-monitoring-laworkspace/backup-items-view.png)
+
+> [!NOTE]
+> Para itens submetidos a backup no Azure usando o DPM, a lista mostrará todas as fontes de dados protegidas (disco e online) usando o servidor DPM. Se a proteção for interrompida para o DataSource com os dados de backup retidos, o DataSource ainda estará listado no Portal. Você pode ir até os detalhes da fonte de dados para ver se os pontos de recuperação estão presentes no disco, online ou em ambos. Além disso, as fontes de dados para as quais a proteção online é interrompida, mas são retidos, a cobrança pelos pontos de recuperação online continua até que os dados sejam completamente excluídos.
+>
+> A versão do DPM deve ser o DPM 1807 (5.1.378.0) ou o DPM 2019 (versão 10.19.58.0 ou superior) para que os itens de backup fiquem visíveis no portal do cofre dos serviços de recuperação.
 
 ## <a name="backup-jobs-in-recovery-services-vault"></a>Trabalhos de backup no cofre dos serviços de recuperação
 
@@ -36,6 +49,9 @@ Os trabalhos do System Center Data Protection Manager (SC-DPM), Backup do Micros
 > As cargas de trabalho do Azure, como o SQL e os backups SAP HANA em VMs do Azure, têm um grande número de trabalhos de backup. Por exemplo, os backups de log podem ser executados a cada 15 minutos. Portanto, para cargas de trabalho de BD, somente as operações disparadas pelo usuário são exibidas. As operações de backup agendadas não são exibidas.
 
 ## <a name="backup-alerts-in-recovery-services-vault"></a>Alertas de backup no cofre dos serviços de recuperação
+
+> [!NOTE]
+> No momento, não há suporte para a exibição de alertas em cofres no centro de backup. Você precisa navegar até um cofre individual para exibir alertas para esse cofre.
 
 Os alertas são principalmente cenários em que os usuários são notificados para que possam executar uma ação relevante. A seção **alertas de backup** mostra alertas gerados pelo serviço de backup do Azure. Esses alertas são definidos pelo serviço e o usuário não pode criar alertas personalizados.
 
@@ -100,7 +116,7 @@ Se a frequência tiver sido definida como um resumo por hora e um alerta tiver s
 
 ## <a name="inactivating-alerts"></a>Inativando alertas
 
-Para desativar/resolver um alerta ativo, você pode selecionar o item de lista correspondente ao alerta que deseja desativar. Isso abre uma tela que exibe informações detalhadas sobre o alerta, com um botão de **inativação** na parte superior. Clicar nesse botão irá alterar o status do alerta para **inativo**. Você também pode desativar um alerta clicando com o botão direito do mouse no item de lista correspondente ao alerta e selecionando **inativo**.
+Para desativar/resolver um alerta ativo, você pode selecionar o item de lista correspondente ao alerta que deseja desativar. Isso abre uma tela que exibe informações detalhadas sobre o alerta, com um botão de **inativação** na parte superior. A seleção desse botão irá alterar o status do alerta para **inativo**. Você também pode desativar um alerta clicando com o botão direito do mouse no item de lista correspondente ao alerta e selecionando **inativo**.
 
 ![Inativação de alerta do cofre RS](media/backup-azure-monitoring-laworkspace/vault-alert-inactivation.png)
 

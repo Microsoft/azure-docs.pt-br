@@ -3,18 +3,21 @@ title: COMPRIMENTO na linguagem de consulta Azure Cosmos DB
 description: Saiba mais sobre o comprimento da função do sistema SQL no Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: e020555b0c706b5577bd20ac9bd537604d43ba3f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1d95a92cde25e7582c46c695a43559336466c5f2
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78303708"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93333674"
 ---
 # <a name="length-azure-cosmos-db"></a>COMPRIMENTO (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Retorna o número de caracteres da expressão de cadeia de caracteres especificada.  
   
 ## <a name="syntax"></a>Sintaxe

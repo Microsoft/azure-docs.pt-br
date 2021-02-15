@@ -2,17 +2,17 @@
 title: Usar uma imagem gerenciada para criar um pool de imagens personalizado
 description: Crie um pool de imagens personalizadas do lote de uma imagem gerenciada para provisionar nós de computação com o software e os dados do seu aplicativo.
 ms.topic: conceptual
-ms.date: 07/01/2020
-ms.openlocfilehash: 45bf0f8b3cb335b7025ff06189bf6bc4e0a896ad
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.date: 11/18/2020
+ms.openlocfilehash: 0a357a1d8a22341297f3bee73fb0867fb03f374f
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85851292"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94916569"
 ---
 # <a name="use-a-managed-image-to-create-a-custom-image-pool"></a>Usar uma imagem gerenciada para criar um pool de imagens personalizado
 
-Para criar um pool de imagens personalizado para as VMs (máquinas virtuais) do seu pool do lote, você pode usar uma imagem gerenciada para criar uma [imagem da Galeria de imagens compartilhada](batch-sig-images.md). Também há suporte para o uso de apenas uma imagem gerenciada, mas só para versões da API até o dia 01 de agosto de 2019. 
+Para criar um pool de imagens personalizado para as VMs (máquinas virtuais) do seu pool do lote, você pode usar uma imagem gerenciada para criar uma [imagem da Galeria de imagens compartilhada](batch-sig-images.md). Também há suporte para o uso de apenas uma imagem gerenciada, mas só para versões da API até o dia 01 de agosto de 2019.
 
 > [!IMPORTANT]
 > Na maioria dos casos, você deve criar imagens personalizadas usando a Galeria de Imagens Compartilhadas. Usando a Galeria de Imagens Compartilhadas, você pode provisionar pools mais rapidamente, dimensionar quantidades maiores de VMs e aumentar a confiabilidade ao provisionar VMs. Para saber mais, consulte [Usar a Galeria de Imagens Compartilhadas para criar um pool personalizado](batch-sig-images.md).
@@ -49,6 +49,7 @@ Se você estiver criando uma nova VM para a imagem, use uma imagem interna do Az
 - Não instale extensões do Azure, tais como a extensão de Script personalizado, na VM. Se a imagem contém uma extensão pré-instalada, o Azure pode ter problemas ao implantar a o pool do Lote.
 - Ao usar discos de dados anexados, você precisa montar e formatar os discos de dentro de uma VM para usá-los.
 - Verifique se a imagem do sistema operacional base que você forneceu usa unidade temporária padrão. O agente do nó de Lote no momento espera unidade temporária padrão.
+- Verifique se o disco do sistema operacional não está criptografado.
 - Quando a VM estiver em execução, conecte-se a ela via RDP (para Windows) ou SSH (para Linux). Instale o software necessário ou copie os dados desejados.  
 
 ### <a name="create-a-vm-snapshot"></a>Criar um instantâneo da VM

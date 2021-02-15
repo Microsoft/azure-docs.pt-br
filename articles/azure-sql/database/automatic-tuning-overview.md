@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, carlrab
+ms.reviewer: wiassaf, sstein
 ms.date: 03/30/2020
-ms.openlocfilehash: d2a00be4d08a7a2dfa8e11a22593d017d184a368
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 4204254754307f8310d5ccfda19400de57381075
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85982704"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500862"
 ---
 # <a name="automatic-tuning-in-azure-sql-database-and-azure-sql-managed-instance"></a>Ajuste automático no banco de dados SQL do Azure e no SQL Instância Gerenciada do Azure
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -46,7 +46,7 @@ Mecanismos de ajuste automático são desenvolvidos e foram aperfeiçoados em mi
 
 ![Como funciona o trabalho de ajuste automático](./media/automatic-tuning-overview/how-does-automatic-tuning-work.png)
 
-O ajuste automático do banco de dados SQL do Azure está compartilhando sua lógica principal com o SQL Server recurso de ajuste automático no mecanismo de banco de dados. Para obter informações técnicas adicionais sobre o mecanismo interno de inteligência, consulte [Ajuste automático do SQL Server](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning).
+O ajuste automático do banco de dados SQL do Azure está compartilhando sua lógica principal com o SQL Server recurso de ajuste automático no mecanismo de banco de dados. Para obter informações técnicas adicionais sobre o mecanismo interno de inteligência, consulte [Ajuste automático do SQL Server](/sql/relational-databases/automatic-tuning/automatic-tuning).
 
 Para uma visão geral de como o ajuste automático funciona em cenários de uso típicos, assista ao vídeo inserido:
 
@@ -54,8 +54,8 @@ Para uma visão geral de como o ajuste automático funciona em cenários de uso 
 
 ## <a name="enable-automatic-tuning"></a>Habilitar o ajuste automático
 
-- [Habilite o ajuste automático para o banco de dados SQL do Azure no portal do Azure](automatic-tuning-enable.md) ou usando a instrução T-SQL [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) .
-- Habilite o ajuste automático para o Azure SQL Instância Gerenciada usando a instrução T-SQL [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-mi-current) .
+- [Habilite o ajuste automático para o banco de dados SQL do Azure no portal do Azure](automatic-tuning-enable.md) ou usando a instrução T-SQL [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) .
+- Habilite o ajuste automático para o Azure SQL Instância Gerenciada usando a instrução T-SQL [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-mi-current) .
 
 ## <a name="automatic-tuning-options"></a>Opções de ajuste automático
 
@@ -69,7 +69,7 @@ As opções de ajuste automático disponíveis no banco de dados SQL do Azure e 
 
 ### <a name="automatic-tuning-for-sql-database"></a>Ajuste automático para o banco de dados SQL
 
-O ajuste automático para o banco de dados SQL do Azure usa as recomendações **criar índice**, **drop index**e **forçar último plano** do banco de dados para otimizar o desempenho do banco de dados. Para obter mais informações, consulte [recomendações do Database Advisor no portal do Azure](database-advisor-find-recommendations-portal.md), no [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaserecommendedaction)e na [API REST](https://docs.microsoft.com/rest/api/sql/serverautomatictuning).
+O ajuste automático para o banco de dados SQL do Azure usa as recomendações **criar índice**, **drop index** e **forçar último plano** do banco de dados para otimizar o desempenho do banco de dados. Para obter mais informações, consulte [recomendações do Database Advisor no portal do Azure](database-advisor-find-recommendations-portal.md), no [PowerShell](/powershell/module/az.sql/get-azsqldatabaserecommendedaction)e na [API REST](/rest/api/sql/serverautomatictuning).
 
 Você pode aplicar manualmente as recomendações de ajuste usando o portal do Azure ou pode permitir que o ajuste automático aplique recomendações de ajuste de forma autônoma para você. Os benefícios de permitir que o sistema aplique recomendações de ajuste autonomamente para você é que ele valida automaticamente que existe um ganho positivo no desempenho da carga de trabalho e, se não houver nenhuma melhoria de desempenho significativa detectada, ele reverterá automaticamente a recomendação de ajuste. Observe que, no caso de consultas afetadas por recomendações de ajuste que não são executadas com frequência, a fase de validação pode levar até 72 horas por design.
 
@@ -90,7 +90,7 @@ Para saber mais sobre como criar notificações por email para recomendações d
 
 ### <a name="automatic-tuning-for-azure-sql-managed-instance"></a>Ajuste automático para o Azure SQL Instância Gerenciada
 
-O ajuste automático para o SQL Instância Gerenciada dá suporte apenas ao **último plano de bom esforço**. Para obter mais informações sobre como configurar opções de ajuste automático por meio do T-SQL, consulte o [ajuste automático introduz a correção automática do plano](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/) e a [correção automática do plano](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning?view=sql-server-ver15#automatic-plan-correction).
+O ajuste automático para o SQL Instância Gerenciada dá suporte apenas ao **último plano de bom esforço**. Para obter mais informações sobre como configurar opções de ajuste automático por meio do T-SQL, consulte o [ajuste automático introduz a correção automática do plano](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/) e a [correção automática do plano](/sql/relational-databases/automatic-tuning/automatic-tuning?view=sql-server-ver15#automatic-plan-correction).
 
 ## <a name="next-steps"></a>Próximas etapas
 

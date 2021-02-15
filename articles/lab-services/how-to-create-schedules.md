@@ -1,16 +1,16 @@
 ---
-title: Criar agendamento para laboratórios de salas de aula no Azure Lab Services | Microsoft Docs
-description: Saiba como criar agendamentos para laboratórios de sala de aula no Azure Lab Services para que as VMs nos laboratórios inicializem e desliguem em um horário especificado.
+title: Criar agenda para laboratórios no Azure Lab Services | Microsoft Docs
+description: Saiba como criar agendas para laboratórios em Azure Lab Services para que as VMs nos laboratórios sejam iniciadas e desligadas em um horário especificado.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: d6dcdd8d09c2c71c2d41aebd358639883ccfb33d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2a827c3d9f3022cb7d27ee43c9c95227c44f97e7
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445773"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96434016"
 ---
-# <a name="create-and-manage-schedules-for-classroom-labs-in-azure-lab-services"></a>Criar e gerenciar agendamentos para laboratórios de sala de aula do Azure Lab Services 
+# <a name="create-and-manage-schedules-for-labs-in-azure-lab-services"></a>Criar e gerenciar agendas para laboratórios no Azure Lab Services 
 Agendamentos permitem que você configure um laboratório de sala de aula, de modo que as VMs no laboratório iniciam e desligam automaticamente em um horário especificado. Você pode definir um agendamento único ou recorrente. Os procedimentos a seguir fornecem as etapas para criar e gerenciar agendamentos para um laboratório de sala de aula: 
 
 > [!IMPORTANT]
@@ -27,7 +27,7 @@ Crie um evento agendado para o laboratório, de modo que as VMs no laboratório 
 
 1. Alterne para a página **Agendamentos** e selecione **Adicionar evento agendado** na barra de ferramentas. 
 
-    ![Botão Adicionar agendamento na página Agendamentos](./media/how-to-create-schedules/add-schedule-button.png)
+    ![Captura de tela que mostra a Azure Lab Services página "Agenda", com o botão Adicionar agenda selecionado.](./media/how-to-create-schedules/add-schedule-button.png)
 2. Confirme se **Padrão** está selecionado para o **Tipo de evento**. Selecione **Iniciar apenas** para especificar apenas a hora de início das VMs. Selecione **Parar apenas** para especificar apenas a hora de término das VMs. 
 7. Na seção **Repetir**, selecione a agenda atual. 
 
@@ -77,4 +77,4 @@ Veja os artigos a seguir:
 - [Como administrador, crie e gerencie contas de laboratório](how-to-manage-lab-accounts.md)
 - [Como um proprietário de laboratório, crie e gerencie laboratórios](how-to-manage-classroom-labs.md)
 - [Como um proprietário de laboratório, configure e controle o uso de um laboratório](how-to-configure-student-usage.md)
-- [Como um usuário de laboratório, acesse os laboratórios de sala de aula](how-to-use-classroom-lab.md)
+- [Como usuário do laboratório, laboratórios de acesso](how-to-use-classroom-lab.md)

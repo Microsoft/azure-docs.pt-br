@@ -1,28 +1,37 @@
 ---
 title: Criar um runtime de integração auto-hospedada compartilhado com o PowerShell
 description: Aprenda como criar um runtime de integração auto-hospedada compartilhado no Azure Data Factory, para que vários data factories possam acessar o runtime de integração.
-services: data-factory
-documentationcenter: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.author: abnarain
 author: nabhishek
-manager: anansub
 ms.custom: seo-lt-2019
 ms.date: 06/10/2020
-ms.openlocfilehash: 28836d0b1109952d8cf81c66b44b1f98d9b770bf
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: 16feeb124859fa6199303d9d590fa0a286033ef9
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88136024"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100389426"
 ---
 # <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory"></a>Criar um runtime de integração auto-hospedada compartilhado no Azure Data Factory
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Este guia mostra como criar um runtime de integração auto-hospedada compartilhado no Azure Data Factory. Em seguida, você pode usar o runtime de integração auto-hospedada compartilhado em outro data factory.
+
+## <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory"></a>Criar um runtime de integração auto-hospedada compartilhado no Azure Data Factory
+
+É possível reutilizar uma infraestrutura de runtime de integração auto-hospedada existente já configurada em um data factory. Essa reutilização permite que você crie um tempo de execução de integração autohospedado vinculado em um data factory diferente referenciando um IR hospedado por hospedagem interna existente.
+
+Para ver uma introdução e uma demonstração desse recurso, Assista ao vídeo de 12 minutos a seguir:
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Hybrid-data-movement-across-multiple-Azure-Data-Factories/player]
+
+### <a name="terminology"></a>Terminologia
+
+- **Ir compartilhado**: um ir original de hospedagem interna que é executado em uma infraestrutura física.  
+- **Ir vinculado**: um ir que faz referência a outro ir compartilhado. O IR vinculado é um IR lógico e usa a infraestrutura de outro IR de hospedagem interna compartilhada.
 
 ## <a name="create-a-shared-self-hosted-ir-using-azure-data-factory-ui"></a>Criar um IR auto-hospedado compartilhado usando a interface do usuário do Azure Data Factory
 
@@ -57,7 +66,7 @@ Para criar um IR auto-hospedado compartilhado usando o Azure PowerShell, siga es
 
 - **Assinatura do Azure**. Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar. 
 
-- **Azure PowerShell**. Siga as instruções em [Instalar o Azure PowerShell no Windows com o PowerShellGet](https://docs.microsoft.com/powershell/azure/install-az-ps). Você usa o PowerShell para executar um script para criar um runtime de integração auto-hospedada que pode ser compartilhado com outros data factories. 
+- **Azure PowerShell**. Siga as instruções em [Instalar o Azure PowerShell no Windows com o PowerShellGet](/powershell/azure/install-az-ps). Você usa o PowerShell para executar um script para criar um runtime de integração auto-hospedada que pode ser compartilhado com outros data factories. 
 
 > [!NOTE]  
 > Para obter uma lista de regiões do Azure nas quais o Data Factory está atualmente disponível, selecione as regiões que lhe interessam em [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory).
@@ -99,7 +108,7 @@ Para criar um IR auto-hospedado compartilhado usando o Azure PowerShell, siga es
     > [!NOTE]  
     > Esta etapa é opcional. Se você já tiver um data factory, ignore esta etapa. 
 
-    Crie um [grupo de recursos do Azure](../azure-resource-manager/management/overview.md) usando o comando [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). Um grupo de recursos é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados em grupo. O exemplo a seguir cria um grupo de recursos denominado `myResourceGroup` na localização WestEurope: 
+    Crie um [grupo de recursos do Azure](../azure-resource-manager/management/overview.md) usando o comando [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Um grupo de recursos é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados em grupo. O exemplo a seguir cria um grupo de recursos denominado `myResourceGroup` na localização WestEurope: 
 
     ```powershell
     New-AzResourceGroup -Location $DataFactoryLocation -Name $ResourceGroupName
@@ -155,7 +164,7 @@ A resposta contém a chave de autenticação para esse runtime de integração a
 #### <a name="create-another-data-factory"></a>Criar outro data factory
 
 > [!NOTE]  
-> Esta etapa é opcional. Se você já possui o data factory com o qual deseja compartilhar, pule esta etapa. Mas, para adicionar ou remover atribuições de função a outros data factory, você deve `Microsoft.Authorization/roleAssignments/write` ter `Microsoft.Authorization/roleAssignments/delete` permissões e, como [administrador de acesso do usuário](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#user-access-administrator) ou [proprietário](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner).
+> Esta etapa é opcional. Se você já possui o data factory com o qual deseja compartilhar, pule esta etapa. Mas, para adicionar ou remover atribuições de função a outros data factory, você deve `Microsoft.Authorization/roleAssignments/write` ter `Microsoft.Authorization/roleAssignments/delete` permissões e, como [administrador de acesso do usuário](../role-based-access-control/built-in-roles.md#user-access-administrator) ou [proprietário](../role-based-access-control/built-in-roles.md#owner).
 
 ```powershell
 $factory = Set-AzDataFactoryV2 -ResourceGroupName $ResourceGroupName `
@@ -214,8 +223,39 @@ Remove-AzDataFactoryV2IntegrationRuntime `
     -LinkedDataFactoryName $LinkedDataFactoryName
 ```
 
+### <a name="monitoring"></a>Monitoramento
+
+#### <a name="shared-ir"></a>IR compartilhado
+
+![Seleções para localizar um Integration Runtime compartilhado](media/create-self-hosted-integration-runtime/Contoso-shared-IR.png)
+
+![Monitorar um tempo de execução de integração compartilhado](media/create-self-hosted-integration-runtime/contoso-shared-ir-monitoring.png)
+
+#### <a name="linked-ir"></a>IR vinculado
+
+![Seleções para localizar um tempo de execução de integração vinculado](media/create-self-hosted-integration-runtime/Contoso-linked-ir.png)
+
+![Monitorar um tempo de execução de integração vinculado](media/create-self-hosted-integration-runtime/Contoso-linked-ir-monitoring.png)
+
+
+### <a name="known-limitations-of-self-hosted-ir-sharing"></a>Limitações conhecidas do compartilhamento de IR auto-hospedado
+
+* O data factory no qual um IR vinculado é criado deve ter uma [identidade gerenciada](../active-directory/managed-identities-azure-resources/overview.md). Por padrão, as fábricas de dados criadas no portal do Azure ou cmdlets do PowerShell têm uma identidade gerenciada implicitamente criada. Mas quando um data factory é criado por meio de um modelo de Azure Resource Manager ou SDK, você deve definir a propriedade **Identity** explicitamente. Essa configuração garante que o Gerenciador de recursos crie uma data factory que contenha uma identidade gerenciada.
+
+* O SDK do .NET Data Factory que dá suporte a esse recurso deve ser a versão 1.1.0 ou posterior.
+
+* Para conceder permissão, você precisa da função de proprietário ou da função de proprietário herdada na data factory em que existe o IR compartilhado.
+
+* O recurso de compartilhamento funciona apenas para fábricas de dados dentro do mesmo locatário do Azure AD.
+
+* Para [usuários convidados](../active-directory/governance/manage-guest-access-with-access-reviews.md)do Azure AD, a funcionalidade de pesquisa na interface do usuário, que lista todas as fábricas de dados usando uma palavra-chave de pesquisa, não funciona. Mas, desde que o usuário convidado seja o proprietário do data factory, você pode compartilhar o IR sem a funcionalidade de pesquisa. Para a identidade gerenciada do data factory que precisa compartilhar o IR, insira essa identidade gerenciada na caixa **atribuir permissão** e selecione **Adicionar** na interface do usuário do data Factory.
+
+  > [!NOTE]
+  > Este recurso está disponível somente no Data Factory v2.
+
+
 ### <a name="next-steps"></a>Próximas etapas
 
-- Revise os [conceitos de runtime de integração no Azure Data Factory](https://docs.microsoft.com/azure/data-factory/concepts-integration-runtime).
+- Revise os [conceitos de runtime de integração no Azure Data Factory](./concepts-integration-runtime.md).
 
-- Saiba como [criar um runtime de integração auto-hospedada no portal do Azure](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime).
+- Saiba como [criar um runtime de integração auto-hospedada no portal do Azure](./create-self-hosted-integration-runtime.md).

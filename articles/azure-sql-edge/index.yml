@@ -1,21 +1,21 @@
 ### YamlMime:Landing
-title: Documentação do SQL do Azure no Edge (versão prévia)
+title: Documentação do SQL do Azure no Edge
 summary: O SQL do Azure no Edge é um mecanismo otimizado de banco de dados relacional projetado para implantações de IoT e borda.
 metadata:
-  title: Documentação do SQL do Azure no Edge (versão prévia)
-  meta.description: Learn how to use Azure SQL Edge (Preview).
+  title: Documentação do SQL do Azure no Edge
+  meta.description: Learn how to use Azure SQL Edge.
   services: sql-edge
   ms.service: sql-edge
   ms.topic: landing-page
   author: stevestein
   ms.author: sstein
   ms.date: 05/19/2020
-  ms.openlocfilehash: 97595cd74fa5a584d5d1943ed88ac617fc742569
-  ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+  ms.openlocfilehash: 3a043b3e29352abd44d1b880f366d9fa8ccea4d2
+  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 05/31/2020
-  ms.locfileid: "84233189"
+  ms.lasthandoff: 10/09/2020
+  ms.locfileid: "90894466"
 landingContent:
 - title: SQL no Edge
   linkLists:
@@ -25,8 +25,14 @@ landingContent:
       url: overview.md
   - linkListType: deploy
     links:
-    - text: Implantar o SQL no Edge
+    - text: Implantar o SQL no Edge usando o portal
       url: deploy-portal.md
+    - text: Implantar o SQL no Edge usando o Docker
+      url: disconnected-deployment.md
+  - linkListType: tutorial
+    links:
+    - text: Implantar no Kubernetes
+      url: deploy-kubernetes.md
 - title: Sincronizar dados
   linkLists:
   - linkListType: tutorial
@@ -43,6 +49,8 @@ landingContent:
       url: stream-data.md
     - text: Exibições do catálogo de streaming
       url: streaming-catalog-views.md
+    - text: Criar e gerenciar trabalhos de streaming
+      url: create-stream-analytics-job.md
 - title: Aprendizado de máquina
   linkLists:
   - linkListType: concept
@@ -53,3 +61,21 @@ landingContent:
     links:
     - text: Implantar ONNX no SQL no Edge
       url: deploy-onnx.md
+- title: Processamento de dados de série temporal
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Como acrescentar valores ausentes
+      url: imputing-missing-values.md
+    - text: Política de retenção de dados
+      url: data-retention-overview.md
+    - text: Date_Bucket (T-SQL)
+      url: date-bucket-tsql.md
+- title: Configurar o SQL no Edge
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Configurar o SQL no Edge
+      url: configure.md
+    - text: Configurar replicação
+      url: configure-replication.md

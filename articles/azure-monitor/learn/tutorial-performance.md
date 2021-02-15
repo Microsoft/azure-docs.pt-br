@@ -3,16 +3,16 @@ title: Diagnosticar problemas de desempenho usando o Azure Application Insights 
 description: Tutorial para localizar e diagnosticar problemas de desempenho no seu aplicativo usando o Azure Application Insights.
 ms.subservice: application-insights
 ms.topic: tutorial
-author: mrbullwinkle
-ms.author: mbullwin
+author: lgayhardt
+ms.author: lagayhar
 ms.date: 06/15/2020
 ms.custom: mvc
-ms.openlocfilehash: 3c7185e07190895dfcc97555c6603049ed41c18c
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: df7cfff7d5bf1b89f88105f79c072d1d7e731b31
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322492"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005479"
 ---
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>Localizar e diagnosticar problemas de desempenho com o Azure Application Insights
 
@@ -102,11 +102,6 @@ Como os dados coletados para o desempenho do servidor, o Application Insights di
 2. Os logs são abertos com uma consulta para cada uma das exibições no painel. A primeira consulta mostra a duração para diferentes exibições de página ao longo do tempo.
 
     ![Consulta de logs](media/tutorial-performance/10-page-view-logs.png)
-
-3.  O diagnóstico inteligente é um recurso do Logs que identifica padrões exclusivos nos dados. Quando você clica em um ponto de Diagnóstico Inteligente no gráfico de linhas, a mesma consulta é executada sem os registros que causaram a anomalia. Detalhes desses registros são mostrados na seção de comentários da consulta para que você possa identificar as propriedades das exibições de página que estão causando a duração excessiva.
-
-    ![Logs com diagnóstico inteligente](media/tutorial-performance/11-page-view-logs-dsmart.png)
-
 
 ## <a name="next-steps"></a>Próximas etapas
 Agora que você aprendeu a identificar exceções de tempo de execução, avance para o próximo tutorial para aprender a criar alertas em resposta a falhas.

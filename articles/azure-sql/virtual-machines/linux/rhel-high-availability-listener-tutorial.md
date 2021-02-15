@@ -2,18 +2,17 @@
 title: Configurar um ouvinte do grupo de disponibilidade para SQL Server em máquinas virtuais RHEL no Azure – máquinas virtuais do Linux | Microsoft Docs
 description: Aprenda a configurar um ouvinte do grupo de disponibilidade no SQL Server em máquinas virtuais do RHEL no Azure
 ms.service: virtual-machines-linux
-ms.subservice: ''
 ms.topic: tutorial
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: jroth
 ms.date: 03/11/2020
-ms.openlocfilehash: f60cb3f28c57d6df4a309a7630d078c593d75410
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 83fde9e957cb2011ce585603e51d331be171bc08
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84343754"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97586203"
 ---
 # <a name="tutorial-configure-an-availability-group-listener-for-sql-server-on-rhel-virtual-machines-in-azure"></a>Tutorial: Configurar um ouvinte do grupo de disponibilidade para o SQL Server em máquinas virtuais do RHEL no Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -41,7 +40,7 @@ Este tutorial abordará etapas sobre como criar um ouvinte do grupo de disponibi
 
 ## <a name="create-the-load-balancer-in-the-azure-portal"></a>Criar o balanceador de carga no portal do Azure
 
-As instruções a seguir percorrem as etapas 1 a 4 da seção [Criar e configurar o balanceador de carga no portal do Azure](../windows/availability-group-load-balancer-portal-configure.md#create-and-configure-the-load-balancer-in-the-azure-portal) do artigo [Balanceador de carga – portal do Azure](../windows/availability-group-load-balancer-portal-configure.md).
+As instruções a seguir percorrem as etapas 1 a 4 da seção [Criar e configurar o balanceador de carga no portal do Azure](../windows/availability-group-load-balancer-portal-configure.md#create--configure-load-balancer) do artigo [Balanceador de carga – portal do Azure](../windows/availability-group-load-balancer-portal-configure.md).
 
 ### <a name="create-the-load-balancer"></a>Criar o balanceador de carga
 
@@ -263,6 +262,10 @@ Neste ponto, o grupo de recursos tem um balanceador de carga que se conecta em t
     ```
 
 1. Verifique os recursos de cluster usando o comando `sudo pcs resource`; você verá que a instância primária agora é `<VM2>`.
+
+    > [!NOTE]
+    > Este artigo contém referências ao termo "servidor subordinado", um termo que a Microsoft não usa mais. Quando o termo for removido do software, também o removeremos deste artigo.
+
 
     ```output
     [<username>@<VM1> ~]$ sudo pcs resource

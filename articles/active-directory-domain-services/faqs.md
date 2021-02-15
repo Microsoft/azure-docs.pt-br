@@ -2,21 +2,21 @@
 title: Perguntas frequentes sobre Azure AD Domain Services | Microsoft Docs
 description: Leia e entenda algumas das perguntas frequentes sobre configuração, administração e disponibilidade para Azure Active Directory Domain Services
 services: active-directory-ds
-author: iainfoulds
+author: justinha
 manager: daveba
 ms.assetid: 48731820-9e8c-4ec2-95e8-83dba1e58775
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/05/2020
-ms.author: iainfou
-ms.openlocfilehash: 6a18dbf5c00c3f3aba2b2d58f060856aba9fb080
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.date: 02/09/2021
+ms.author: justinha
+ms.openlocfilehash: 3d0f2b44f37cb318be2117b5dc5d8b42b418ff19
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88722886"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100090982"
 ---
 # <a name="frequently-asked-questions-faqs-about-azure-active-directory-ad-domain-services"></a>Perguntas frequentes (FAQs) sobre os serviços de domínio do Azure Active Directory (AD)
 
@@ -34,7 +34,7 @@ Esta página responde a perguntas frequentes sobre Azure Active Directory Domain
 * [Posso habilitar os Serviços de Domínio do AD do Azure usando o PowerShell?](#can-i-enable-azure-ad-domain-services-using-powershell)
 * [Posso habilitar os Azure AD Domain Services usando um modelo do Resource Manager?](#can-i-enable-azure-ad-domain-services-using-a-resource-manager-template)
 * [Posso adicionar controladores de domínio a um domínio gerenciado dos Serviços de Domínio do AD do Azure?](#can-i-add-domain-controllers-to-an-azure-ad-domain-services-managed-domain)
-* [Os usuários convidados para o meu diretório podem usar os Azure AD Domain Services?](#can-guest-users-invited-to-my-directory-use-azure-ad-domain-services)
+* [Os usuários convidados podem ser convidados para o meu diretório usar Azure AD Domain Services?](#can-guest-users-be-invited-to-my-directory-use-azure-ad-domain-services)
 * [Posso mover um domínio gerenciado Azure AD Domain Services existente para uma assinatura, um grupo de recursos, uma região ou uma rede virtual diferente?](#can-i-move-an-existing-azure-ad-domain-services-managed-domain-to-a-different-subscription-resource-group-region-or-virtual-network)
 * [Azure AD Domain Services inclui opções de alta disponibilidade?](#does-azure-ad-domain-services-include-high-availability-options)
 
@@ -67,12 +67,12 @@ O serviço em si não dá suporte direto a esse cenário. Seu domínio gerenciad
 Sim. Para obter mais informações, consulte [como habilitar o Azure AD Domain Services usando o PowerShell](powershell-create-instance.md).
 
 ### <a name="can-i-enable-azure-ad-domain-services-using-a-resource-manager-template"></a>Posso habilitar os Azure AD Domain Services usando um modelo do Resource Manager?
-Sim, você pode criar um Azure AD Domain Services domínio gerenciado usando um modelo do Resource Manager. Uma entidade de serviço e um grupo do Azure AD para administração devem ser criados usando o portal do Azure ou Azure PowerShell antes de o modelo ser implantado. Para obter mais informações, consulte [criar um domínio gerenciado do Azure AD DS usando um modelo de Azure Resource Manager](template-create-instance.md). Quando você cria um Azure AD Domain Services domínio gerenciado no portal do Azure, há uma opção também para exportar o modelo para uso com implantações adicionais.
+Sim, você pode criar um Azure AD Domain Services domínio gerenciado usando um modelo do Resource Manager. Uma entidade de serviço e um grupo do Azure AD para administração devem ser criados usando o portal do Azure ou Azure PowerShell antes de o modelo ser implantado. Para obter mais informações, consulte [criar um domínio gerenciado do Azure AD DS usando um modelo de Azure Resource Manager](template-create-instance.md). Quando você cria um Azure AD Domain Services domínio gerenciado no portal do Azure, há também uma opção para exportar o modelo para uso com implantações adicionais.
 
 ### <a name="can-i-add-domain-controllers-to-an-azure-ad-domain-services-managed-domain"></a>Posso adicionar controladores de domínio a um domínio gerenciado dos Serviços de Domínio do AD do Azure?
 Não. O domínio fornecido pelo Azure AD Domain Services é um domínio gerenciado. Você não precisa provisionar, configurar ou gerenciar controladores de domínio para esse domínio. Essas atividades de gerenciamento são fornecidas como um serviço pela Microsoft. Portanto, você não pode adicionar mais controladores de domínio (leitura/gravação ou somente leitura) para o domínio gerenciado.
 
-### <a name="can-guest-users-invited-to-my-directory-use-azure-ad-domain-services"></a>Os usuários convidados para o meu diretório podem usar os Azure AD Domain Services?
+### <a name="can-guest-users-be-invited-to-my-directory-use-azure-ad-domain-services"></a>Os usuários convidados podem ser convidados para o meu diretório usar Azure AD Domain Services?
 Não. Os usuários convidados para o seu diretório AD Azure usando o processo de convite [Azure AD B2B](../active-directory/external-identities/what-is-b2b.md) são sincronizados no seu domínio gerenciado dos Azure AD Domain Services. No entanto, as senhas para esses usuários não são armazenadas em seu diretório do Azure AD. Portanto, Azure AD Domain Services não tem como sincronizar os hashes NTLM e Kerberos para esses usuários em seu domínio gerenciado. Tais usuários não podem entrar ou ingressar computadores no domínio gerenciado.
 
 ### <a name="can-i-move-an-existing-azure-ad-domain-services-managed-domain-to-a-different-subscription-resource-group-region-or-virtual-network"></a>Posso mover um domínio gerenciado Azure AD Domain Services existente para uma assinatura, um grupo de recursos, uma região ou uma rede virtual diferente?
@@ -94,6 +94,7 @@ Sim. Cada domínio gerenciado Azure AD Domain Services inclui dois controladores
 * [Qual é a política de tempo de vida da senha em um domínio gerenciado?](#what-is-the-password-lifetime-policy-on-a-managed-domain)
 * [O Azure AD Domain Services fornece proteção de bloqueio de conta para o AD?](#does-azure-ad-domain-services-provide-ad-account-lockout-protection)
 * [Posso configurar o Sistema de Arquivos Distribuído (DFS) e a replicação no Azure AD Domain Services?](#can-i-configure-distributed-file-system-and-replication-within-azure-ad-domain-services)
+* [Como as atualizações do Windows são aplicadas no Azure AD Domain Services?](#how-are-windows-updates-applied-in-azure-ad-domain-services)
 
 ### <a name="can-i-connect-to-the-domain-controller-for-my-managed-domain-using-remote-desktop"></a>Posso conectar ao controlador de domínio para meu domínio gerenciado usando a Área de Trabalho Remota?
 Não. Você não tem permissões para se conectar a controladores de domínio para o domínio gerenciado usando o Área de Trabalho Remota. Os membros do grupo de *Administradores do AAD DC* podem administrar o domínio gerenciado usando ferramentas de administração do AD, como o ADAC (centro de administração do Active Directory) ou o AD PowerShell. Essas ferramentas são instaladas usando o recurso *ferramentas de administração de servidor remoto* em um Windows Server ingressado no domínio gerenciado. Para obter mais informações, consulte [criar uma VM de gerenciamento para configurar e administrar um Azure AD Domain Services domínio gerenciado](tutorial-create-management-vm.md).
@@ -105,7 +106,7 @@ Qualquer conta de usuário que faça parte do domínio gerenciado pode ingressar
 Não. Você não recebe privilégios administrativos no domínio gerenciado. Os privilégios de administrador de *domínio* e de *administrador corporativo* não estão disponíveis para uso no domínio. Os membros dos grupos de administrador de domínio ou de administrador corporativo na sua Active Directory local também não recebem privilégios de administrador de domínio/empresa no domínio gerenciado.
 
 ### <a name="can-i-modify-group-memberships-using-ldap-or-other-ad-administrative-tools-on-managed-domains"></a>Posso modificar associações de grupo usando o LDAP ou outras ferramentas administrativas do AD em domínios gerenciados?
-Os usuários e grupos que são sincronizados de Azure Active Directory para Azure AD Domain Services não podem ser modificados porque sua origem de origem é Azure Active Directory. Qualquer usuário ou grupo originado no domínio gerenciado pode ser modificado.
+Os usuários e grupos que são sincronizados de Azure Active Directory para Azure AD Domain Services não podem ser modificados porque sua origem de origem é Azure Active Directory. Isso inclui mover usuários ou grupos da unidade organizacional gerenciada usuários do AADDC para uma unidade organizacional personalizada. Qualquer usuário ou grupo originado no domínio gerenciado pode ser modificado.  
 
 ### <a name="how-long-does-it-take-for-changes-i-make-to-my-azure-ad-directory-to-be-visible-in-my-managed-domain"></a>Quanto tempo demora para que as alterações que eu fiz ao meu diretório do Azure AD fiquem visíveis em meu domínio gerenciado?
 As alterações feitas no diretório do Azure AD usando a interface do usuário do Azure AD ou o PowerShell são sincronizadas automaticamente com o domínio gerenciado. Esse processo de sincronização ocorre em segundo plano. Não há nenhum período de tempo definido para que essa sincronização conclua todas as alterações de objeto.
@@ -114,7 +115,7 @@ As alterações feitas no diretório do Azure AD usando a interface do usuário 
 Não. O esquema é administrado pela Microsoft para o domínio gerenciado. As extensões de esquema não têm suporte pelo Azure AD Domain Services.
 
 ### <a name="can-i-modify-or-add-dns-records-in-my-managed-domain"></a>Posso modificar ou adicionar registros DNS em meu domínio gerenciado?
-Sim. Os membros do grupo de *Administradores do AAD DC* recebem privilégios de *administrador de DNS* para modificar os registros DNS no domínio gerenciado. Esses usuários podem usar o console do Gerenciador DNS em um computador que executa o Windows Server ingressado no domínio gerenciado para gerenciar o DNS. Para usar o console do Gerenciador DNS, instale as *Ferramentas do servidor DNS*, que faz parte do *ferramentas de administração de servidor remoto* recurso opcional no servidor. Para obter mais informações, consulte [administrar o DNS em um domínio gerenciado Azure AD Domain Services](manage-dns.md).
+Sim. Os membros do grupo de *Administradores do AAD DC* recebem privilégios de *administrador de DNS* para modificar os registros DNS no domínio gerenciado. Esses usuários podem usar o console do Gerenciador DNS em um computador que executa o Windows Server ingressado no domínio gerenciado para gerenciar o DNS. Para usar o console do Gerenciador DNS, instale as *Ferramentas do servidor DNS*, que fazem parte do *ferramentas de administração de servidor remoto* recurso opcional no servidor. Para obter mais informações, consulte [administrar o DNS em um domínio gerenciado Azure AD Domain Services](manage-dns.md).
 
 ### <a name="what-is-the-password-lifetime-policy-on-a-managed-domain"></a>Qual é a política de tempo de vida da senha em um domínio gerenciado?
 O tempo de vida da senha padrão em um domínio gerenciado dos Azure AD Domain Services é de 90 dias. Esse tempo de vida de senha não está sincronizado com o tempo de vida de senha configurado no Azure AD. Portanto, você pode ter uma situação em que as senhas dos usuários expiram no seu domínio gerenciado, mas ainda são válidas no Azure AD. Em tais cenários, os usuários precisam alterar sua senha no Azure AD e a nova senha será sincronizada com seu domínio gerenciado. Se desejar alterar o tempo de vida da senha padrão em um domínio gerenciado, você poderá [criar e configurar políticas de senha personalizadas.](password-policy.md)
@@ -129,13 +130,16 @@ Sim. Cinco tentativas de senha inválida em dois minutos no domínio gerenciado 
 ### <a name="can-i-configure-distributed-file-system-and-replication-within-azure-ad-domain-services"></a>Posso configurar Sistema de Arquivos Distribuído e replicação no Azure AD Domain Services?
 Não. O Sistema de Arquivos Distribuído (DFS) e a replicação não estão disponíveis ao usar Azure AD Domain Services.
 
+### <a name="how-are-windows-updates-applied-in-azure-ad-domain-services"></a>Como as atualizações do Windows são aplicadas no Azure AD Domain Services?
+Os controladores de domínio em um domínio gerenciado aplicam automaticamente as atualizações do Windows necessárias. Não há nada para você configurar ou administrar aqui. Verifique se você não criou regras de grupo de segurança de rede que bloqueiem o tráfego de saída para atualizações do Windows. Para suas próprias VMs ingressadas no domínio gerenciado, você é responsável por configurar e aplicar todas as atualizações necessárias do sistema operacional e do aplicativo.
+
 ## <a name="billing-and-availability"></a>Disponibilidade e cobrança
 
 * [Os Azure AD Domain Services são um serviço pago?](#is-azure-ad-domain-services-a-paid-service)
 * [Há uma avaliação gratuita para o serviço?](#is-there-a-free-trial-for-the-service)
 * [Posso pausar um domínio gerenciado do Azure AD Domain Services?](#can-i-pause-an-azure-ad-domain-services-managed-domain)
-* [É possível fazer failover do Azure AD Domain Services para outra região para um evento de recuperação de desastre?](#can-i-pause-an-azure-ad-domain-services-managed-domain)
-* [Posso obter Azure AD Domain Services como parte do EMS (Enterprise Mobility Suite)? Preciso de Azure AD Premium para usar Azure AD Domain Services?](#can-i-failover-azure-ad-domain-services-to-another-region-for-a-dr-event)
+* [Posso fazer failover de Azure AD Domain Services para outra região para um evento de recuperação de desastre?](#can-i-pause-an-azure-ad-domain-services-managed-domain)
+* [Posso obter Azure AD Domain Services como parte do EMS (Enterprise Mobility Suite)? Preciso de Azure AD Premium para usar Azure AD Domain Services?](#can-i-fail-over-azure-ad-domain-services-to-another-region-for-a-dr-event)
 * [Em quais regiões do Azure o serviço está disponível?](#can-i-get-azure-ad-domain-services-as-part-of-enterprise-mobility-suite-ems-do-i-need-azure-ad-premium-to-use-azure-ad-domain-services)
 
 ### <a name="is-azure-ad-domain-services-a-paid-service"></a>Os Azure AD Domain Services são um serviço pago?
@@ -147,8 +151,8 @@ Azure AD Domain Services está incluído na avaliação gratuita do Azure. Você
 ### <a name="can-i-pause-an-azure-ad-domain-services-managed-domain"></a>Posso pausar um domínio gerenciado do Azure AD Domain Services?
 Não. Depois de habilitar um Azure AD Domain Services domínio gerenciado, o serviço estará disponível em sua rede virtual selecionada até que você exclua o domínio gerenciado. Não há como pausar o serviço. A cobrança continuará por hora até que você exclua o domínio gerenciado.
 
-### <a name="can-i-failover-azure-ad-domain-services-to-another-region-for-a-dr-event"></a>É possível fazer failover do Azure AD Domain Services para outra região para um evento de recuperação de desastre?
-Não. No momento, o Azure AD Domain Services não fornece um modelo de implantação com redundância geográfica. Ele é limitado a uma única rede virtual em uma região do Azure. Se quiser utilizar várias regiões do Azure, você precisará executar seus Controladores de Domínio do Active Directory em VMs IaaS do Azure. Para obter diretrizes de arquitetura, consulte [estender seu domínio de Active Directory local para o Azure](/azure/architecture/reference-architectures/identity/adds-extend-domain).
+### <a name="can-i-fail-over-azure-ad-domain-services-to-another-region-for-a-dr-event"></a>Posso fazer failover de Azure AD Domain Services para outra região para um evento de recuperação de desastre?
+Sim, para fornecer resiliência geográfica para um domínio gerenciado, você pode criar um conjunto de [réplicas](tutorial-create-replica-set.md) adicional para uma rede virtual emparelhada em qualquer região do Azure que dê suporte ao Azure AD DS. Os conjuntos de réplicas compartilham o mesmo namespace e configuração com o domínio gerenciado.
 
 ### <a name="can-i-get-azure-ad-domain-services-as-part-of-enterprise-mobility-suite-ems-do-i-need-azure-ad-premium-to-use-azure-ad-domain-services"></a>Posso obter os Serviços de Domínio do AD do Azure como parte do EMS (Enterprise Mobility Suite)? Preciso do Azure AD Premium para usar os Serviços de Domínio do Azure AD?
 Não. Azure AD Domain Services é um serviço pago conforme o uso do Azure e não faz parte do EMS. Azure AD Domain Services pode ser usado com todas as edições do Azure AD (gratuito e Premium). Você é cobrado por hora, dependendo do uso.

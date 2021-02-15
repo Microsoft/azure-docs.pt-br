@@ -6,12 +6,12 @@ ms.topic: reference
 author: bwren
 ms.author: bwren
 ms.date: 01/29/2020
-ms.openlocfilehash: 16fba1f036299a84db8301dbc09c7f4884d985f3
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 9fa0fbea9a6c0e95eb9bec2795ae12e5fae36bfb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87305084"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89568653"
 ---
 # <a name="windows-azure-diagnostics-extension-wad-configuration-schema-versions-and-history"></a>Histórico e versões do esquema de configuração do WAD (Windows Diagnóstico do Azure Extension)
 Este artigo fornece o histórico de versões das versões de esquema do [diagnóstico do Azure Extension for Windows (wad)](diagnostics-extension-overview.md) fornecidas como parte do SDK do Microsoft Azure.  
@@ -19,19 +19,19 @@ Este artigo fornece o histórico de versões das versões de esquema do [diagnó
 
 ## <a name="azure-sdk-and-diagnostics-versions-shipping-chart"></a>Gráfico de envio de versões do SDK e Diagnóstico do Azure  
 
-|Versão do SDK do Azure | Versão da extensão do Diagnóstico | Modelo|  
+|Versão do SDK do Azure | Versão da extensão do Diagnóstico | Modelar|  
 |------------------|-------------------------------|------|  
-|1.x               |1.0                            |plug-in|  
-|2.0 - 2.4         |1.0                            |plug-in|  
+|1.x               |1,0                            |plug-in|  
+|2.0 - 2.4         |1,0                            |plug-in|  
 |2.5               |1.2                            |extensão|  
-|2.6               |1.3                            |"|  
+|2.6               |1,3                            |"|  
 |2.7               |1.4                            |"|  
-|2,8               |1.5                            |"|  
-|2.9               |1.6                            |"|
+|2.8               |1.5                            |"|  
+|2,9               |1.6                            |"|
 |2.96              |1.7                            |"|
 |2.96              |1.8                            |"|
 |2.96              |1.8.1                          |"|
-|2.96              |1.9                            |"|
+|2.96              |1,9                            |"|
 |2.96              |1.11                           |"|
 
 
@@ -160,7 +160,7 @@ Adição do elemento de coleta e a capacidade de enviar dados de diagnósticos a
 ### <a name="azure-sdk-26-and-diagnostics-extension-13"></a>SDK 2.6 do Azure e esquema de extensão 1.3
 Para projetos do Serviço de Nuvem no Visual Studio, as seguintes alterações foram feitas. (Essas alterações também se aplicam a versões mais recentes do SDK do Azure).
 
-* O emulador local agora dá suporte a diagnósticos. Essa alteração significa que você pode coletar dados de diagnóstico e garantir que seu aplicativo está criando os rastreamentos corretos enquanto está desenvolvendo e testando no Visual Studio. A cadeia de conexão `UseDevelopmentStorage=true` habilita a coleta de dados de diagnóstico durante a execução do seu projeto de serviço de nuvem no Visual Studio usando o emulador de armazenamento do Azure. Todos os dados de diagnóstico são coletados na conta de armazenamento (armazenamento de desenvolvimento).
+* O emulador local agora dá suporte a diagnósticos. Essa alteração significa que você pode coletar dados de diagnóstico e garantir que seu aplicativo está criando os rastreamentos corretos enquanto está desenvolvendo e testando no Visual Studio. A cadeia de conexão `UseDevelopmentStorage=true` habilita a coleta de dados de diagnóstico enquanto você estiver executando seu projeto de serviço de nuvem no Visual Studio usando o emulador de armazenamento do Azure. Todos os dados de diagnóstico são coletados na conta de armazenamento (armazenamento de desenvolvimento).
 * A cadeia de conexão da conta de armazenamento de diagnóstico (Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString) é armazenada novamente no arquivo de configuração de serviço (.cscfg). No SDK do Azure 2.5, a conta de armazenamento de diagnóstico foi especificada no arquivo diagnostics.wadcfgx.
 
 Há algumas diferenças perceptíveis entre como a cadeia de conexão funcionava no SDK do Azure 2.4 e anteriores e como funciona no SDK do Azure 2.6 e posteriores.

@@ -1,20 +1,21 @@
 ---
 title: Gerenciar o acesso à cobrança do Azure
-description: Saiba como conceder acesso às informações de cobrança do Azure para membros da equipe.
+description: Saiba como permitir acesso às suas informações de cobrança do Azure aos membros da sua equipe.
 author: vikramdesai01
 ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
+ms.subservice: billing
 ms.topic: how-to
-ms.date: 07/24/2020
+ms.date: 01/26/2021
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: 74c00678ca901d163d951e02167c89896c43e7b3
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 23e3adad12a726b03f6efe309dde0ec4a93bcd5b
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281762"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897418"
 ---
 # <a name="manage-access-to-billing-information-for-azure"></a>Gerenciar acesso a informações de cobrança do Azure
 
@@ -37,9 +38,9 @@ O administrador da conta pode permitir acesso a outras pessoas às informações
 - Leitor
 - Leitor de cobrança
 
-Essas funções têm acesso às informações de cobrança no [portal do Azure](https://portal.azure.com/). As pessoas que recebem essas funções também podem usar as [APIs de Cobrança](usage-rate-card-overview.md) para obter os detalhes de uso e faturas de forma programática.
+Essas funções têm acesso às informações de cobrança no [portal do Azure](https://portal.azure.com/). As pessoas que recebem essas funções também podem usar as [APIs de Cobrança](consumption-api-overview.md#usage-details-api) para obter os detalhes de uso e faturas de forma programática.
 
-Para atribuir funções, confira [Gerenciar acesso usando o RBAC e o portal do Azure](../../role-based-access-control/role-assignments-portal.md).
+Para atribuir funções, confira [Adicionar ou remover atribuições de função do Azure usando o portal do Azure](../../role-based-access-control/role-assignments-portal.md).
 
 ** Se você é um cliente do EA, um proprietário da conta pode atribuir a função acima a outros usuários de sua equipe. No entanto, para que esses usuários exibam informações de cobrança, o administrador corporativo precisa habilitar a exibição de encargos pelo AO no Enterprise Portal.
 
@@ -52,7 +53,7 @@ Depois que um administrador da conta atribuir as funções apropriadas a outros 
 
 1. Pesquise **Gerenciamento de Custos do Azure + Cobrança**.
 
-    ![Captura de tela que mostra a pesquisa do portal do Azure](./media/manage-billing-access/billing-search-cost-management-billing.png)
+    ![Captura de tela que realça Gerenciamento de Custos e Cobrança na seção Serviços.](./media/manage-billing-access/billing-search-cost-management-billing.png)
 
 1. Selecione **Assinaturas** no painel à esquerda. Dependendo de seu acesso, talvez você precise selecionar um escopo do orçamento e, em seguida, selecionar **Assinaturas**.
 
@@ -93,7 +94,7 @@ O recurso Leitor de Cobrança está na visualização prévia e ainda não ofere
 1. Na caixa de texto **Selecionar**, digite o nome ou email para o usuário que você deseja adicionar.
 1. Selecione o usuário.
 1. Clique em **Salvar**.
-    ![Captura de tela que mostra o clique em Adicionar atribuição de função](./media/manage-billing-access/billing-save-role-assignment.png)
+    ![Captura de tela que realça o botão Salvar.](./media/manage-billing-access/billing-save-role-assignment.png)
 
 1. Após alguns instantes, o usuário é atribuído à função Leitor de Cobrança na assinatura.
 
@@ -104,7 +105,7 @@ O recurso Leitor de Cobrança está na visualização prévia e ainda não ofere
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Outras funções, como o Proprietário ou Colaborador, os usuários podem acessar as informações de cobrança não apenas, mas também os serviços do Azure. Para saber mais detalhes, confira [Gerenciar acesso usando o RBAC e o portal do Azure](../../role-based-access-control/role-assignments-portal.md).
+- Outras funções, como o Proprietário ou Colaborador, os usuários podem acessar as informações de cobrança não apenas, mas também os serviços do Azure. Para gerenciar essas funções, confira [Adicionar ou remover atribuições de função do Azure usando o portal do Azure](../../role-based-access-control/role-assignments-portal.md).
 - Para obter mais informações sobre funções, confira [Funções internas do Azure](../../role-based-access-control/built-in-roles.md).
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Entre em contato conosco.

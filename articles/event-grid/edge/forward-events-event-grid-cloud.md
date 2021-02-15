@@ -8,10 +8,10 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: bfe150a45c70bc5bed18f8e929c9567905cd38f5
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86171594"
 ---
 # <a name="tutorial-forward-events-to-event-grid-cloud"></a>Tutorial: encaminhar eventos para a nuvem da grade de eventos
@@ -36,8 +36,8 @@ Crie um tópico e uma assinatura da grade de eventos na nuvem seguindo [este tut
 
 Por exemplo, se você criou um tópico chamado `testegcloudtopic` no oeste dos EUA, os valores teriam uma aparência semelhante a:
 
-* **TopicUrl**:`https://testegcloudtopic.westus2-1.eventgrid.azure.net/api/events`
-* **Topicname**:`testegcloudtopic`
+* **TopicUrl**: `https://testegcloudtopic.westus2-1.eventgrid.azure.net/api/events`
+* **Topicname**: `testegcloudtopic`
 * **SasKey**: disponível em **accessKey** do seu tópico. Use **key1**.
 
 ## <a name="create-event-grid-topic-at-the-edge"></a>Criar tópico de grade de eventos na borda
@@ -173,7 +173,7 @@ Por exemplo, se você criou um tópico chamado `testegcloudtopic` no oeste dos E
         ]
     ```
 
-1. Execute o seguinte comando:
+1. Execute o comando a seguir:
 
     ```sh
     curl -k -H "Content-Type: application/json" -X POST -g -d @event3.json https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic3/events?api-version=2019-01-01-preview
@@ -183,7 +183,7 @@ Por exemplo, se você criou um tópico chamado `testegcloudtopic` no oeste dos E
 
 Para obter informações sobre como exibir eventos entregues pelo tópico de nuvem, consulte o [tutorial](../custom-event-quickstart-portal.md).
 
-## <a name="cleanup-resources"></a>Limpar os recursos
+## <a name="cleanup-resources"></a>Recursos de limpeza
 
 * Execute o seguinte comando para excluir o tópico e todas as suas assinaturas
 

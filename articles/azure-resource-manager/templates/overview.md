@@ -1,14 +1,14 @@
 ---
 title: Visão geral de modelos
-description: Descreve os benefícios que usam modelos de Azure Resource Manager para a implantação de recursos.
+description: Descreve os benefícios usando modelos de Azure Resource Manager (modelos ARM) para a implantação de recursos.
 ms.topic: conceptual
-ms.date: 06/22/2020
-ms.openlocfilehash: b1c61d5eac012f2b807c0121460804c46b12c8d0
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 01/20/2021
+ms.openlocfilehash: dd9207ca1d0397b7dce63eb826567f07b1d0b892
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119354"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98621832"
 ---
 # <a name="what-are-arm-templates"></a>O que são modelos ARM?
 
@@ -16,7 +16,7 @@ Com a mudança para a nuvem, muitas equipes adotaram métodos de desenvolvimento
 
 Para atender a esses desafios, você pode automatizar implantações e usar a prática da infraestrutura como código. No código, você define a infraestrutura que precisa ser implantada. O código de infraestrutura torna-se parte do seu projeto. Assim como o código do aplicativo, você armazena o código de infraestrutura em um repositório de origem e a versão. Qualquer um em sua equipe pode executar o código e implantar ambientes semelhantes.
 
-Para implementar a infraestrutura como código para suas soluções do Azure, use modelos de Azure Resource Manager (ARM). O modelo é um arquivo JavaScript Object Notation (JSON) que define a infraestrutura e a configuração do seu projeto. O modelo usa a sintaxe declarativa, que permite declarar o que você pretende implantar sem precisar gravar a sequência de comandos de programação para criá-lo. No modelo, você especifica os recursos a serem implantados e as propriedades desses recursos.
+Para implementar a infraestrutura como código para suas soluções do Azure, use modelos de Azure Resource Manager (modelos ARM). O modelo é um arquivo JavaScript Object Notation (JSON) que define a infraestrutura e a configuração do seu projeto. O modelo usa a sintaxe declarativa, que permite declarar o que você pretende implantar sem precisar gravar a sequência de comandos de programação para criá-lo. No modelo, você especifica os recursos a serem implantados e as propriedades desses recursos.
 
 ## <a name="why-choose-arm-templates"></a>Por que escolher modelos de ARM?
 
@@ -54,7 +54,7 @@ Se você estiver tentando decidir entre usar modelos ARM e uma das outras infrae
 
 * **Código exportável**: você pode obter um modelo para um grupo de recursos existente exportando o estado atual do grupo de recursos ou exibindo o modelo usado para uma implantação específica. A exibição do [modelo exportado](export-template-portal.md) é uma maneira útil de saber mais sobre a sintaxe do modelo.
 
-* **Ferramentas de criação**: você pode criar modelos com [Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md) e a extensão de ferramenta de modelo. Você Obtém o IntelliSense, o realce de sintaxe, a ajuda online e muitas outras funções de linguagem. Além do Visual Studio Code, você também pode usar o [Visual Studio](create-visual-studio-deployment-project.md).
+* **Ferramentas de criação**: você pode criar modelos com [Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md) e a extensão de ferramenta de modelo. Você Obtém o IntelliSense, o realce de sintaxe, a ajuda online e muitas outras funções de linguagem. Além de Visual Studio Code, você também pode usar o [Visual Studio](create-visual-studio-deployment-project.md).
 
 ## <a name="template-file"></a>Arquivo de modelo
 
@@ -80,13 +80,13 @@ Quando você implanta um modelo, o Resource Manager converte o modelo em operaç
 "resources": [
   {
     "type": "Microsoft.Storage/storageAccounts",
-    "apiVersion": "2016-01-01",
+    "apiVersion": "2019-04-01",
     "name": "mystorageaccount",
     "location": "westus",
     "sku": {
       "name": "Standard_LRS"
     },
-    "kind": "Storage",
+    "kind": "StorageV2",
     "properties": {}
   }
 ]
@@ -96,17 +96,19 @@ Converte a definição para a seguinte operação de API REST, que é enviada pa
 
 ```HTTP
 PUT
-https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/mystorageaccount?api-version=2016-01-01
+https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/mystorageaccount?api-version=2019-04-01
 REQUEST BODY
 {
   "location": "westus",
   "sku": {
     "name": "Standard_LRS"
   },
-  "kind": "Storage",
+  "kind": "StorageV2",
   "properties": {}
 }
 ```
+
+Observe que o **apiVersion** que você definiu no modelo para o recurso é usado como a versão de API para a operação REST. Você pode implantar o modelo repetidamente e ter confiança de que ele continuará a funcionar. Usando a mesma versão de API, você não precisa se preocupar com alterações significativas que podem ser introduzidas em versões posteriores.
 
 ## <a name="template-design"></a>Design de modelo
 
@@ -114,7 +116,7 @@ Como você define grupos de recursos e modelos é de sua responsabilidade e de c
 
 ![modelo de três camadas](./media/overview/3-tier-template.png)
 
-Mas, você não precisa definir toda a sua infraestrutura em um único modelo. Muitas vezes, faz sentido dividir seus requisitos de implantação em um conjunto de modelos com destinação e fins específicos. Você pode reutilizar esses modelos facilmente para soluções diferentes. Para implantar uma solução específica, você deve criar um modelo mestre que vincule todos os modelos necessários. A imagem a seguir mostra como implantar uma solução de três camadas com o modelo pai que inclui três modelos aninhados.
+Mas, você não precisa definir toda a sua infraestrutura em um único modelo. Muitas vezes, faz sentido dividir seus requisitos de implantação em um conjunto de modelos com destinação e fins específicos. Você pode reutilizar esses modelos facilmente para soluções diferentes. Para implantar uma solução específica, você cria um modelo principal que vincula todos os modelos necessários. A imagem a seguir mostra como implantar uma solução de três camadas com o modelo pai que inclui três modelos aninhados.
 
 ![modelo de camadas aninhadas](./media/overview/nested-tiers-template.png)
 
@@ -124,9 +126,16 @@ Ao prever suas camadas com ciclos de vida separados, você pode implantar os tr�
 
 Para obter informações sobre modelos aninhados, confira [Usando modelos vinculados com o Azure Resource Manager](linked-templates.md).
 
+## <a name="share-templates"></a>Compartilhar modelos
+
+Depois de criar seu modelo, talvez você queira compartilhá-lo com outros usuários em sua organização. As [especificações de modelo](template-specs.md) permitem que você armazene um modelo como um tipo de recurso. Você usa o controle de acesso baseado em função para gerenciar o acesso à especificação do modelo. Os usuários com acesso de leitura à especificação do modelo podem implantá-lo, mas não alterar o modelo.
+
+Essa abordagem significa que você pode compartilhar com segurança modelos que atendam aos padrões da sua organização.
+
 ## <a name="next-steps"></a>Próximas etapas
 
 * Para obter um tutorial passo a passo que orienta você durante o processo de criação de um modelo, confira [Tutorial: criar e implantar seu primeiro modelo do ARM](template-tutorial-create-first-template.md).
+* Para saber mais sobre os modelos do ARM por meio de um conjunto guiado de módulos no Microsoft Learn, confira [Implantar e gerenciar recursos no Azure usando modelos do ARM](/learn/paths/deploy-manage-resource-manager-templates/).
 * Para obter informações sobre as propriedades em arquivos de modelo, consulte [entender a estrutura e a sintaxe de modelos ARM](template-syntax.md).
 * Para saber mais sobre como exportar modelos, consulte [início rápido: criar e implantar modelos de ARM usando o portal do Azure](quickstart-create-templates-use-the-portal.md).
 * Para obter respostas a perguntas comuns, consulte perguntas frequentes [sobre modelos de ARM](frequently-asked-questions.md).

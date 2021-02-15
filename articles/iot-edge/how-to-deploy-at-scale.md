@@ -5,20 +5,20 @@ keywords: ''
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 4/21/2020
+ms.date: 10/13/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 0c1d83c2dac0163cd9b9cbc07969103381e85471
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 9d03b6f4a512c22564480405ec0f0e0c0e62a958
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855388"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048416"
 ---
 # <a name="deploy-iot-edge-modules-at-scale-using-the-azure-portal"></a>Implantar módulos IoT Edge em escala usando o portal do Azure
 
-Crie um **IOT Edge implantação automática** no portal do Azure para gerenciar implantações em andamento para vários dispositivos de uma vez. As implantações automáticas para IoT Edge fazem parte do recurso [Gerenciamento automático de dispositivo](/azure/iot-hub/iot-hub-automatic-device-management) do Hub IoT. Implantações são processos dinâmicos que permitem implantar vários módulos em vários dispositivos, acompanhar o status e a integridade dos módulos e fazer alterações, quando necessário.
+Crie um **IOT Edge implantação automática** no portal do Azure para gerenciar implantações em andamento para vários dispositivos de uma vez. As implantações automáticas para IoT Edge fazem parte do recurso [Gerenciamento automático de dispositivo](../iot-hub/iot-hub-automatic-device-management.md) do Hub IoT. Implantações são processos dinâmicos que permitem implantar vários módulos em vários dispositivos, acompanhar o status e a integridade dos módulos e fazer alterações, quando necessário.
 
 Para saber mais, veja [Noções básicas sobre implantações automáticas do IoT Edge para dispositivos únicos ou em escala](module-deployment-monitoring.md).
 
@@ -53,6 +53,11 @@ As etapas para criar uma implantação e uma implantação em camadas são muito
 
 Há cinco etapas para criar uma implantação. As seções a seguir explicam cada uma delas.
 
+>[!NOTE]
+>As etapas neste artigo refletem a versão de esquema mais recente do IoT Edge Agent e Hub. A versão do esquema 1,1 foi lançada junto com IoT Edge versão 1.0.10 e habilita os recursos de ordem de inicialização do módulo e priorização de rota.
+>
+>Se você estiver implantando em um dispositivo que executa a versão 1.0.9 ou anterior, edite as **configurações de tempo de execução** na etapa **módulos** do assistente para usar a versão de esquema 1,0.
+
 ### <a name="step-1-name-and-label"></a>Etapa 1: nome e rótulo
 
 1. Dê à sua implantação um nome exclusivo com até 128 letras minúsculas. Evite usar espaços e os seguintes caracteres inválidos: `& ^ [ ] { } \ | " < > /`.
@@ -65,55 +70,19 @@ Você pode adicionar até 50 módulos a uma implantação. Se você criar uma im
 
 Em implantações, você pode gerenciar as configurações para os módulos agente de IoT Edge e IoT Edge Hub. Selecione **configurações de tempo de execução** para configurar os dois módulos de tempo de execução. Em implantação em camadas, os módulos de tempo de execução não são incluídos, portanto não podem ser configurados.
 
-Você pode adicionar três tipos de módulos:
-
-* Módulo IoT Edge
-* Módulo do Marketplace
-* Módulo Azure Stream Analytics
-
-#### <a name="add-an-iot-edge-module"></a>Adicionar um módulo IoT Edge
-
 Para adicionar um código personalizado como um módulo ou para adicionar um módulo de serviço do Azure manualmente, siga estas etapas:
 
-1. Na seção **credenciais de registro de contêiner** da página, forneça os nomes e as credenciais para qualquer registro de contêiner privado que contenha as imagens de módulo para essa implantação. O agente de IoT Edge relatará o erro 500 se ele não conseguir encontrar a credencial do registro de contêiner para uma imagem do Docker.
-1. Na seção **Módulos do IoT Edge** da página, clique em **Adicionar**.
-1. Selecione **IOT Edge módulo** no menu suspenso.
-1. Dê ao seu módulo um **nome de módulo IOT Edge**.
-1. No campo **URI da Imagem**, insira a imagem de contêiner para o módulo.
-1. Use o menu suspenso para selecionar uma **Política de reinicialização**. Escolha dentre as seguintes opções:
-   * **sempre** -o módulo sempre reinicia se for desligado por qualquer motivo.
-   * **nunca** -o módulo nunca será reiniciado se for desligado por qualquer motivo.
-   * **em** caso de falha-o módulo será reiniciado se ele falhar, mas não se for desligado corretamente.
-   * Não **íntegro** – o módulo será reiniciado se ele falhar ou retornar um status não íntegro. Cabe a cada módulo implementar a função de status da integridade.
-1. Use o menu suspenso para selecionar o **Status** desejado do módulo. Escolha dentre as seguintes opções:
-   * **executando-em** execução é a opção padrão. O módulo será iniciado imediatamente depois de ser implantado.
-   * **parado** -depois de ser implantado, o módulo permanecerá ocioso até ser chamado para ser iniciado por você ou por outro módulo.
-1. Especifique qualquer **Opção de criação de contêiner** que deverá ser passada para o contêiner. Para obter mais informações, consulte [criar docker](https://docs.docker.com/engine/reference/commandline/create/).
-1. Selecione **configurações de módulo de configuração** se desejar adicionar marcas ou outras propriedades ao módulo.
-1. Insira as **variáveis de ambiente** para este módulo. As variáveis de ambiente fornecem informações de configuração para um módulo.
-1. Selecione **Adicionar** para adicionar o módulo à implantação.
+1. Na seção **configurações de registro de contêiner** da página, forneça as credenciais para acessar qualquer registro de contêiner privado que contenha suas imagens de módulo.
+1. Na seção **módulos IOT Edge** da página, selecione **Adicionar**.
+1. Escolha um dos três tipos de módulos no menu suspenso:
 
-#### <a name="add-a-module-from-the-marketplace"></a>Adicionar um módulo do Marketplace
+   * **Módulo IOT Edge** -você fornece o nome do módulo e o URI da imagem de contêiner. Por exemplo, o URI da imagem para o módulo SimulatedTemperatureSensor de exemplo é `mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0` . Se a imagem do módulo estiver armazenada em um registro de contêiner privado, adicione as credenciais nesta página para acessar a imagem.
+   * **Módulo do Marketplace** -módulos hospedados no Azure Marketplace. Alguns módulos do Marketplace exigem configuração adicional, portanto, examine os detalhes do módulo na lista de [módulos de IOT Edge do Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules) .
+   * **Módulo Azure Stream Analytics** -módulos gerados de uma carga de trabalho de Azure Stream Analytics.
 
-Para adicionar um módulo do Azure Marketplace, siga estas etapas:
+1. Se necessário, repita as etapas 2 e 3 para adicionar mais módulos à sua implantação.
 
-1. Na seção **Módulos do IoT Edge** da página, clique em **Adicionar**.
-1. Selecione o **módulo Marketplace** no menu suspenso.
-1. Escolha um módulo na página **IOT Edge do Marketplace do módulo** . O módulo selecionado é configurado automaticamente para sua assinatura, grupo de recursos e dispositivo. Em seguida, ele aparece na lista de módulos de IoT Edge. Alguns módulos podem exigir configuração adicional. Para obter mais informações, consulte [implantar módulos do Azure Marketplace](how-to-deploy-modules-portal.md#deploy-modules-from-azure-marketplace).
-
-#### <a name="add-a-stream-analytics-module"></a>Adicionar um módulo Stream Analytics
-
-Para adicionar um módulo do Azure Stream Analytics, siga estas etapas:
-
-1. Na seção **Módulos do IoT Edge** da página, clique em **Adicionar**.
-1. Selecione **Azure Stream Analytics módulo** no menu suspenso.
-1. No painel direito, escolha sua **assinatura**.
-1. Escolha seu trabalho do IoT **Edge**.
-1. Selecione **Salvar** para adicionar o módulo à implantação.
-
-#### <a name="configure-module-settings"></a>Definir configurações de módulo
-
-Depois de adicionar um módulo a uma implantação, você pode selecionar seu nome para abrir a página **atualizar IOT Edge módulo** . Nessa página, você pode editar as configurações do módulo, as variáveis de ambiente, as opções criar e o módulo. Se você adicionou um módulo do Marketplace, talvez ele já tenha alguns desses parâmetros preenchidos.
+Depois de adicionar um módulo a uma implantação, você pode selecionar seu nome para abrir a página **atualizar IOT Edge módulo** . Nessa página, você pode editar as configurações do módulo, variáveis de ambiente, criar opções, ordem de inicialização e módulo. Se você adicionou um módulo do Marketplace, talvez ele já tenha alguns desses parâmetros preenchidos. Para obter mais informações sobre as configurações de módulo disponíveis, consulte [configuração e gerenciamento de módulo](module-composition.md#module-configuration-and-management).
 
 Se você estiver criando uma implantação em camadas, poderá estar Configurando um módulo que existe em outras implantações direcionando os mesmos dispositivos. Para atualizar o módulo de texto sem substituir outras versões, abra a guia **configurações de configuração do módulo** . Crie uma nova **Propriedade MyModule** com um nome exclusivo para uma subseção dentro das propriedades desejadas do módulo r, por exemplo `properties.desired.settings` . Se você definir propriedades somente dentro do `properties.desired` campo, ele substituirá as propriedades desejadas para o módulo definido em qualquer implantação de prioridade mais baixa.
 
@@ -125,9 +94,13 @@ Depois de ter todos os módulos de uma implantação configurada, selecione **Av
 
 ### <a name="step-3-routes"></a>Etapa 3: rotas
 
-As rotas definem como os módulos se comunicam entre si em uma implantação. Por padrão, o assistente fornece uma rota chamada **upstream** e definido como **de/messages/ \* para $upstream**, o que significa que qualquer saída de mensagens por qualquer módulo é enviada para o Hub IOT.  
+Na guia **Rotas**, defina como as mensagens são transmitidas entre os módulos e o Hub IoT. As mensagens são construídas com pares nome/valor.
 
-Adicionar ou atualizar as rotas com informações de [declarar rotas](module-composition.md#declare-routes), em seguida, selecione **próximo** para continuar para a seção de revisão.
+Por exemplo, uma rota com uma **rota** de nome e um valor **de/messages/ \* para $upstream** levaria qualquer saída de mensagem por qualquer módulo e as enviaria para o Hub IOT.  
+
+Os parâmetros **Priority** e **time to Live** são parâmetros opcionais que você pode incluir em uma definição de rota. O parâmetro Priority permite que você escolha quais rotas devem ter suas mensagens processadas primeiro ou quais rotas devem ser processadas por último. A prioridade é determinada pela definição de um número 0-9, em que 0 é a prioridade mais alta. O parâmetro vida útil permite que você declare por quanto tempo as mensagens nessa rota devem ser mantidas até que sejam processadas ou removidas da fila.
+
+Para obter mais informações sobre como criar rotas, consulte [declarar rotas](module-composition.md#declare-routes).
 
 Selecione **Avançar: métricas**.
 
@@ -176,14 +149,14 @@ Quando você modifica uma implantação, as alterações são replicadas imediat
 * Condições de destino
 * Métricas personalizadas
 * Rótulos
-* Marcas
+* Marcações
 * Propriedades desejadas
 
 ### <a name="modify-target-conditions-custom-metrics-and-labels"></a>Modificar condições de destino, métricas personalizadas e rótulos
 
 1. No Hub IoT, selecione **IOT Edge** no menu do painel esquerdo.
 1. Selecione a guia **implantações IOT Edge** e, em seguida, selecione a implantação que deseja configurar.
-1. Selecione a guia **condição de destino** . Altere a condição de **destino** para direcionar os dispositivos pretendidos. Você também pode ajustar a **prioridade**.  Selecione **Salvar**.
+1. Selecione a guia **condição de destino** . Altere a **condição de destino** para direcionar os dispositivos pretendidos. Você também pode ajustar a **prioridade**.  Clique em **Salvar**.
 
     Se você atualizar a condição de destino, ocorrerão as seguintes atualizações:
 
@@ -191,7 +164,7 @@ Quando você modifica uma implantação, as alterações são replicadas imediat
     * Caso um dispositivo que executa essa implantação no momento não atenda mais à condição de destino, ele desinstalará essa implantação e usará a próxima implantação com a prioridade mais alta.
     * Caso um dispositivo que executa essa implantação no momento não atenda mais à condição de destino e não atenda à condição de destino de todas as outras implantações, nenhuma alteração ocorrerá no dispositivo. O dispositivo continua executando seus módulos atuais em seu estado atual, mas não é mais gerenciado como parte dessa implantação. Depois que ele atende à condição de destino de qualquer outra implantação, ele desinstala essa implantação e usa a nova.
 
-1. Selecione a guia **métricas** e clique no botão **Editar métricas** . Adicione ou modifique métricas personalizadas usando a sintaxe de exemplo como um guia. Selecione **Salvar**.
+1. Selecione a guia **métricas** e clique no botão **Editar métricas** . Adicione ou modifique métricas personalizadas usando a sintaxe de exemplo como um guia. Clique em **Salvar**.
 
     ![Editar métricas personalizadas em uma implantação](./media/how-to-deploy-monitor/metric-list.png)
 

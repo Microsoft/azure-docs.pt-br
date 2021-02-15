@@ -2,13 +2,13 @@
 title: Solucionar problemas de rede com o registro
 description: Sintomas, causas e resolução de problemas comuns ao acessar um registro de contêiner do Azure em uma rede virtual ou atrás de um firewall
 ms.topic: article
-ms.date: 08/11/2020
-ms.openlocfilehash: 227eeeadb2aef4b4d3feb7923a198b129a6267d3
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.date: 10/01/2020
+ms.openlocfilehash: cf2f308f782ac7d6011c98afd181b194f2b3e09f
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88227043"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99525069"
 ---
 # <a name="troubleshoot-network-issues-with-registry"></a>Solucionar problemas de rede com o registro
 
@@ -22,6 +22,7 @@ Pode incluir um ou mais dos seguintes:
 * Não é possível enviar por Push ou efetuar pull de imagens e você recebe CLI do Azure erro `Could not connect to the registry login server`
 * Não é possível efetuar pull de imagens do registro para o serviço kubernetes do Azure ou outro serviço do Azure
 * Não é possível acessar um registro por trás de um proxy HTTPS e você recebe um erro `Error response from daemon: login attempt failed with status: 403 Forbidden`
+* Não é possível definir as configurações de rede virtual e você recebe um erro `Failed to save firewall and virtual network settings for container registry`
 * Não é possível acessar ou exibir as configurações do registro no portal do Azure ou gerenciar o registro usando o CLI do Azure
 * Não é possível adicionar ou modificar as configurações de rede virtual ou as regras de acesso público
 * As tarefas ACR não podem enviar por Push ou efetuar pull de imagens
@@ -32,13 +33,15 @@ Pode incluir um ou mais dos seguintes:
 * Um firewall ou proxy cliente impede a [solução](#configure-client-firewall-access) de acesso
 * As regras de acesso de rede pública no registro impedem a [solução](#configure-public-access-to-registry) de acesso
 * A configuração de rede virtual impede a [solução](#configure-vnet-access) de acesso
-* Você tenta integrar a central de segurança do Azure a um registro que tem um ponto de extremidade de serviço ou Endpoint particular- [solução](#configure-image-scanning-solution)
+* Você tenta integrar a central de segurança do Azure ou alguns outros serviços do Azure com um registro que tem um ponto de extremidade privado, ponto de extremidade de serviço ou regras de acesso de IP público- [solução](#configure-service-access)
 
 ## <a name="further-diagnosis"></a>Diagnóstico adicional 
 
 Execute o comando [AZ ACR check-Health](/cli/azure/acr#az-acr-check-health) para obter mais informações sobre a integridade do ambiente do registro e, opcionalmente, o acesso a um registro de destino. Por exemplo, diagnostique certos problemas de conectividade de rede ou configuração. 
 
 Consulte [verificar a integridade de um registro de contêiner do Azure](container-registry-check-health.md) para obter exemplos de comando. Se forem relatados erros, examine a [referência de erro](container-registry-health-error-reference.md) e as seções a seguir para obter as soluções recomendadas.
+
+Se você estiver tendo problemas ao usar o serviço wih do Azure kubernetes, execute o comando [AZ AKs check-ACR](/cli/azure/aks#az_aks_check_acr) para validar se o registro está acessível no cluster AKs.
 
 > [!NOTE]
 > Alguns sintomas de conectividade de rede também podem ocorrer quando há problemas com a autenticação ou autorização do registro. Consulte [solucionar problemas de logon do registro](container-registry-troubleshoot-login.md).
@@ -47,7 +50,7 @@ Consulte [verificar a integridade de um registro de contêiner do Azure](contain
 
 ### <a name="configure-client-firewall-access"></a>Configurar o acesso do firewall do cliente
 
-Para acessar um registro por trás de um firewall de cliente ou servidor proxy, configure as regras de firewall para acessar os pontos de extremidade de dados e REST do registro. Se [os pontos de extremidade de dados dedicados](container-registry-firewall-access-rules.md#enable-dedicated-data-endpoints) estiverem habilitados, você precisará de regras para acessar:
+Para acessar um registro por trás de um firewall cliente ou servidor proxy, configure as regras de firewall para acessar os pontos de extremidade públicos de dados e REST do registro. Se [os pontos de extremidade de dados dedicados](container-registry-firewall-access-rules.md#enable-dedicated-data-endpoints) estiverem habilitados, você precisará de regras para acessar:
 
 * Ponto de extremidade REST: `<registryname>.azurecr.io`
 * Ponto (s) de dados: `<registry-name>.<region>.data.azurecr.io`
@@ -86,7 +89,11 @@ Examine as regras de NSG e as marcas de serviço usadas para limitar o tráfego 
 
 Se um ponto de extremidade de serviço para o registro estiver configurado, confirme se uma regra de rede foi adicionada ao registro que permite o acesso dessa sub-rede de rede. O ponto de extremidade de serviço só dá suporte ao acesso de máquinas virtuais e clusters AKS na rede.
 
+Se você quiser restringir o acesso ao registro usando uma rede virtual em uma assinatura do Azure diferente, certifique-se de registrar o `Microsoft.ContainerRegistry` provedor de recursos nessa assinatura. [Registre o provedor de recursos para o](../azure-resource-manager/management/resource-providers-and-types.md) registro de contêiner do Azure usando o portal do Azure, CLI do Azure ou outras ferramentas do Azure.
+
 Se o Firewall do Azure ou uma solução semelhante estiver configurada na rede, verifique se o tráfego de saída de outros recursos, como um cluster AKS, está habilitado para alcançar os pontos de extremidade do registro.
+
+Se um ponto de extremidade privado estiver configurado, confirme se o DNS resolve o FQDN público do registro, como *myregistry.azurecr.Io* , para o endereço IP privado do registro. Use um utilitário de rede como `dig` ou `nslookup` para pesquisa de DNS.
 
 Links relacionados:
 
@@ -96,17 +103,22 @@ Links relacionados:
 * [Kubernetes: Depurando resolução DNS](https://kubernetes.io/docs/tasks/administer-cluster/dns-debugging-resolution/)
 * [Marcas de serviço de rede virtual](../virtual-network/service-tags-overview.md)
 
-### <a name="configure-image-scanning-solution"></a>Configurar solução de verificação de imagem
+### <a name="configure-service-access"></a>Configurar o acesso ao serviço
 
-Se o registro estiver configurado com um ponto de extremidade particular ou ponto de extremidade de serviço, você não poderá se integrar atualmente à central de segurança do Azure para verificação de imagem. Opcionalmente, configure outras soluções de verificação de imagem disponíveis no Azure Marketplace, incluindo:
+Atualmente, o acesso a um registro de contêiner com restrições de rede não é permitido de vários serviços do Azure:
 
-* [Plataforma de segurança nativa na nuvem azul](https://azuremarketplace.microsoft.com/marketplace/apps/aqua-security.aqua-security)
-* [Twistlock Enterprise Edition](https://azuremarketplace.microsoft.com/marketplace/apps/twistlock.twistlock)
+* A central de segurança do Azure não pode executar a [verificação de vulnerabilidade de imagem](../security-center/defender-for-container-registries-introduction.md?bc=%2fazure%2fcontainer-registry%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fcontainer-registry%2ftoc.json) em um registro que restringe o acesso a pontos de extremidade privados, sub-redes selecionadas ou endereços IP. 
+* Os recursos de determinados serviços do Azure não podem acessar um registro de contêiner com restrições de rede, incluindo Azure App serviço e instâncias de contêiner do Azure.
+
+Se o acesso ou a integração desses serviços do Azure com o registro de contêiner for necessário, remova a restrição de rede. Por exemplo, remova os pontos de extremidade privados do registro ou remova ou modifique as regras de acesso público do registro.
+
+A partir de janeiro de 2021, você pode configurar um registro de rede restrita para [permitir o acesso](allow-access-trusted-services.md) de selecionar serviços confiáveis.
 
 Links relacionados:
 
-* [Verificação de imagem do registro de contêiner do Azure por central de segurança](../security-center/azure-container-registry-integration.md)
+* [Verificação de imagem do registro de contêiner do Azure por central de segurança](../security-center/defender-for-container-registries-introduction.md)
 * Fornecer [comentários](https://feedback.azure.com/forums/347535-azure-security-center/suggestions/41091577-enable-vulnerability-scanning-for-images-that-are)
+* [Permitir que os serviços confiáveis acessem com segurança um registro de contêiner restrito à rede](allow-access-trusted-services.md)
 
 
 ## <a name="advanced-troubleshooting"></a>Solução de problemas avançada
@@ -130,5 +142,3 @@ Se você não resolver o problema aqui, consulte as opções a seguir.
 * Opções de [suporte da Comunidade](https://azure.microsoft.com/support/community/)
 * [P e R da Microsoft](https://docs.microsoft.com/answers/products/)
 * [Abra um tíquete de suporte](https://azure.microsoft.com/support/create-ticket/)
-
-

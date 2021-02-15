@@ -6,12 +6,12 @@ ms.topic: reference
 ms.custom: devx-track-csharp
 ms.date: 02/20/2020
 ms.author: cshoe
-ms.openlocfilehash: 326115a2a6cf29fcf211cdbd918edd0994fe45ed
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 3f3a99c83d4a18f3085419b91be947dd67f8eec4
+ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212117"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97763312"
 ---
 # <a name="signalr-service-input-binding-for-azure-functions"></a>Associação de entrada do serviço signalr para Azure Functions
 
@@ -245,11 +245,11 @@ function.json de exemplo:
 Aqui está o código Python:
 
 ```python
-def main(req: func.HttpRequest, connectionInfoJson: str) -> func.HttpResponse:
+def main(req: func.HttpRequest, connectionInfo: str) -> func.HttpResponse:
     # connectionInfo contains an access key token with a name identifier
     # claim set to the authenticated user
     return func.HttpResponse(
-        connectionInfoJson,
+        connectionInfo,
         status_code=200,
         headers={
             'Content-type': 'application/json'
@@ -280,4 +280,5 @@ public SignalRConnectionInfo negotiate(
 
 ## <a name="next-steps"></a>Próximas etapas
 
+- [Manipular mensagens do serviço de sinalização (Associação de gatilho)](./functions-bindings-signalr-service-trigger.md)
 - [Enviar mensagens do serviço Signalr (Associação de saída)](./functions-bindings-signalr-service-output.md) 

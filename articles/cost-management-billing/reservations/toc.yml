@@ -16,7 +16,7 @@
     - name: Como o desconto é aplicado
       items:
         - name: Serviço de Aplicativo
-          href: reservation-discount-app-service-isolated-stamp.md?toc=/azure/cost-management-billing/reservations/toc.json
+          href: reservation-discount-app-service.md?toc=/azure/cost-management-billing/reservations/toc.json
         - name: Cache Redis do Azure
           href: understand-azure-cache-for-redis-reservation-charges.md?toc=/azure/cost-management-billing/reservations/toc.json
         - name: Cosmos DB
@@ -51,9 +51,10 @@
       href: reserved-instance-windows-software-costs.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Dados de uso para assinaturas individuais
       href: understand-reserved-instance-usage.md?toc=/azure/cost-management-billing/reservations/toc.json
-    - name: Dados de uso para clientes Enterprise
+    - name: Dados de uso do Contrato Enterprise e do Contrato de Cliente da Microsoft
       href: understand-reserved-instance-usage-ea.md?toc=/azure/cost-management-billing/reservations/toc.json
 - name: Guias de instruções
+  expanded: true
   items:
     - name: Determinar o que comprar
       items:
@@ -64,7 +65,7 @@
         - name: Comprar uma reserva do Azure
           href: prepare-buy-reservation.md?toc=/azure/cost-management-billing/reservations/toc.json
         - name: Serviço de Aplicativo
-          href: prepay-app-service-isolated-stamp.md?toc=/azure/cost-management-billing/reservations/toc.json
+          href: prepay-app-service.md?toc=/azure/cost-management-billing/reservations/toc.json
         - name: Reserva de Cache do Azure para Redis
           href: ../../azure-cache-for-redis/cache-reserved-pricing.md?toc=/azure/cost-management-billing/reservations/toc.json
         - name: Banco de Dados do Azure para MariaDB
@@ -92,9 +93,9 @@
         - name: Planos de software
           href: ../../virtual-machines/linux/prepay-suse-software-charges.md?toc=/azure/cost-management-billing/reservations/toc.json
         - name: Banco de Dados SQL
-          href: ../../sql-database/sql-database-reserved-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json
+          href: ../../azure-sql/database/reserved-capacity-overview.md?toc=%2fazure%2fcost-management-billing%2freservations%2ftoc.json
         - name: Máquinas virtuais
-          href: ../../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/cost-management-billing/reservations/toc.json
+          href: ../../virtual-machines/prepay-reserved-vm-instances.md?toc=%2fazure%2fcost-management-billing%2freservations%2ftoc.json
     - name: 'Exibir, gerenciar e otimizar após a compra'
       items:
         - name: Exibir reservas e utilização
@@ -117,6 +118,18 @@
       items:
         - name: Renovar uma reserva
           href: reservation-renew.md?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: Solucionar problemas
+      items:
+        - name: Nenhuma assinatura qualificada
+          href: troubleshoot-no-eligible-subscriptions.md?toc=/azure/cost-management-billing/reservations/toc.json
+        - name: Solucionar problemas de utilização de reserva
+          href: troubleshoot-reservation-utilization.md?toc=/azure/cost-management-billing/reservations/toc.json
+        - name: Solucionar problemas de recomendações de reserva
+          href: troubleshoot-reservation-recommendation.md?toc=/azure/cost-management-billing/reservations/toc.json
+        - name: Solucionar problemas de reserva desabilitada no SKU
+          href: troubleshoot-product-not-available.md?toc=/azure/cost-management-billing/reservations/toc.json
+        - name: Solucionar problemas para baixar detalhes de uso
+          href: troubleshoot-download-usage.md?toc=/azure/cost-management-billing/reservations/toc.json
 - name: Referência
   items:
     - name: API REST de reservas
@@ -129,3 +142,7 @@
       href: /rest/api/consumption/usagedetails
     - name: Gerenciamento de Custos – API REST detalhes de reservas de consumo
       href: /rest/api/consumption/reservationsdetails
+- name: Recursos
+  items:
+    - name: Economizar dinheiro com o módulo Learn de instâncias reservadas
+      href: /learn/modules/save-money-with-azure-reserved-instances

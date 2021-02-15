@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: e65fecb70b7e3adf009396c0daa00fc50b81b519
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: d921bddf90c415cb244e2cc9ad98354392a537ee
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88604525"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "90530141"
 ---
 # <a name="manage-the-mobility-agent"></a>Gerenciar o agente Mobilidade 
 
@@ -26,7 +26,7 @@ Você configura o agente de mobilidade no servidor quando usa Azure Site Recover
 ## <a name="update-mobility-service-from-azure-portal"></a>Atualizar o serviço de mobilidade de portal do Azure
 
 1. Antes de iniciar, certifique-se de que o servidor de configuração, os servidores de processo de expansão e quaisquer servidores de destino que não façam parte da sua implantação sejam atualizados antes de você atualizar o Serviço de Mobilidade nos computadores protegidos.
-    1. A partir da [versão 9,36](https://support.microsoft.com/help/4578241/) em diante, para o SuSE Linux Enterprise Server 11 SP4, verifique se o instalador mais recente está [disponível no servidor de configuração e no servidor de processo de expansão](vmware-physical-mobility-service-overview.md#download-latest-mobility-agent-installer-for-suse-11-sp3-server).
+    1. Da versão 9,36 em diante, para SUSE Linux Enterprise Server 11 SP3, RHEL 5, CentOS 5, Debian 7 Verifique se o instalador mais recente está [disponível no servidor de configuração e no servidor de processo de expansão](vmware-physical-mobility-service-overview.md#download-latest-mobility-agent-installer-for-suse-11-sp3-rhel-5-debian-7-server).
 1. No portal, abra o cofre > **Itens replicados**.
 1. Se o servidor de configuração estiver na versão mais recente, você verá uma notificação que mostra "Nova atualização do agente de replicação de recuperação do site está disponível. Clique para instalar."
 

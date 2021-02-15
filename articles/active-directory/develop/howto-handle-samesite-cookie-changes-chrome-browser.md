@@ -14,17 +14,17 @@ ms.author: jmprieur
 ms.reviewer: kkrishna
 ms.custom: aaddev
 ms.openlocfilehash: 5742ddf9553c3ac9187dbef93fc7927564cbc095
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88116964"
 ---
 # <a name="handle-samesite-cookie-changes-in-chrome-browser"></a>Manipular alterações de cookie SameSite no navegador Chrome
 
 ## <a name="what-is-samesite"></a>O que é o SameSite?
 
-`SameSite`é uma propriedade que pode ser definida em cookies HTTP para evitar ataques CSRF (falsificação de solicitação entre sites) em aplicativos Web:
+`SameSite` é uma propriedade que pode ser definida em cookies HTTP para evitar ataques CSRF (falsificação de solicitação entre sites) em aplicativos Web:
 
 - Quando `SameSite` é definido como **LAX**, o cookie é enviado em solicitações no mesmo site e em solicitações GET de outros sites. Ele não é enviado em solicitações GET que são entre domínios.
 - Um valor **estrito** garante que o cookie seja enviado em solicitações somente dentro do mesmo site.
@@ -88,4 +88,4 @@ Saiba mais sobre o SameSite e o cenário do aplicativo Web:
 > [Página Chromium SameSite](https://www.chromium.org/updates/same-site)
 
 > [!div class="nextstepaction"]
-> [Cenário: aplicativo Web que assina usuários](scenario-web-app-sign-user-overview.md)
+> [Cenário: Aplicativo Web que conecta usuários](scenario-web-app-sign-user-overview.md)

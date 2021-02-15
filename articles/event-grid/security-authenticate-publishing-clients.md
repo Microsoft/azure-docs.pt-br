@@ -4,12 +4,12 @@ description: Este artigo descreve diferentes maneiras de autenticar os eventos d
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e934ce0d8f5e31dc8dd7592a2e553cd278af2b10
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 2c415b7e1bb6bd7a2116da82c7d8f1de205009d0
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89019106"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886253"
 ---
 # <a name="authenticate-publishing-clients-azure-event-grid"></a>Autenticar clientes de publicação (grade de eventos do Azure)
 Este artigo fornece informações sobre como autenticar os clientes que publicam eventos em domínios ou tópicos da grade de eventos do Azure usando a **chave de acesso** ou o token **SAS (assinatura de acesso compartilhado)** . É recomendável usar o token SAS, mas a autenticação de chave fornece programação simples e é compatível com muitos Publicadores de webhook existentes.  
@@ -66,18 +66,33 @@ static string BuildSharedAccessSignature(string resource, DateTime expirationUtc
 }
 ```
 
+```python
+def generate_sas_token(uri, key, expiry=3600):
+    ttl = datetime.datetime.utcnow() + datetime.timedelta(seconds=expiry)
+    encoded_resource = urllib.parse.quote_plus(uri)
+    encoded_expiration_utc = urllib.parse.quote_plus(ttl.isoformat())
+
+    unsigned_sas = f'r={encoded_resource}&e={encoded_expiration_utc}'
+    signature = b64encode(HMAC(b64decode(key), unsigned_sas.encode('utf-8'), sha256).digest())
+    encoded_signature = urllib.parse.quote_plus(signature)
+    
+    token = f'r={encoded_resource}&e={encoded_expiration_utc}&s={encoded_signature}'
+
+    return token
+```
+
 ### <a name="using-aeg-sas-token-header"></a>Usando o cabeçalho AEG-SAS-token
-Aqui está um exemplo de como passar o token SAS como um valor para o `aeg-sas-toke` cabeçalho. 
+Aqui está um exemplo de como passar o token SAS como um valor para o `aeg-sas-token` cabeçalho. 
 
 ```http
-aeg-sas-token: r=https%3a%2f%2fmytopic.eventgrid.azure.net%2fapi%2fevent&e=6%2f15%2f2017+6%3a20%3a15+PM&s=XXXXXXXXXXXXX%2fBPjdDLOrc6THPy3tDcGHw1zP4OajQ%3d
+aeg-sas-token: r=https%3a%2f%2fmytopic.eventgrid.azure.net%2fapi%2fevents&e=6%2f15%2f2017+6%3a20%3a15+PM&s=XXXXXXXXXXXXX%2fBPjdDLOrc6THPy3tDcGHw1zP4OajQ%3d
 ```
 
 ### <a name="using-authorization-header"></a>Usando o cabeçalho de autorização
 Aqui está um exemplo de como passar o token SAS como um valor para o `Authorization` cabeçalho. 
 
 ```http
-Authorization: SharedAccessSignature r=https%3a%2f%2fmytopic.eventgrid.azure.net%2fapi%2fevent&e=6%2f15%2f2017+6%3a20%3a15+PM&s=XXXXXXXXXXXXX%2fBPjdDLOrc6THPy3tDcGHw1zP4OajQ%3d
+Authorization: SharedAccessSignature r=https%3a%2f%2fmytopic.eventgrid.azure.net%2fapi%2fevents&e=6%2f15%2f2017+6%3a20%3a15+PM&s=XXXXXXXXXXXXX%2fBPjdDLOrc6THPy3tDcGHw1zP4OajQ%3d
 ```
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: sasolank
-ms.openlocfilehash: eb2ce196687b2ca6a762a879570e4f8ebac788df
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3db1c8bfc3a11151342589af0873d88e3d90c6a1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87025108"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91825623"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>Como integrar o gerenciamento de API em uma VNET interna com o gateway de aplicativo
 
@@ -91,7 +91,7 @@ Neste guia, também irá expor o **portal do desenvolvedor** ao público externo
 > 
 > As regras de WAF do gateway de aplicativo, que podem interromper a funcionalidade do portal, incluem:
 > 
-> - `920330`,,,,,,, `931130` `942100` `942110` `942180` `942200` `942260` `942370` , `949110` , `980130` para o modo administrativo
+> - `920300`,,,,,,, `920330` `931130` `942100` `942110` `942180` `942200` `942260` , `942340` , `942370` para o modo administrativo
 > - `942200`,,,, `942260` `942370` `942430` `942440` para o portal publicado
 
 ## <a name="create-a-resource-group-for-resource-manager"></a>Criar um grupo de recursos para o Gerenciador de Recursos
@@ -293,7 +293,7 @@ Crie uma investigação personalizada para o ponto de extremidade de domínio do
 
 ```powershell
 $apimprobe = New-AzApplicationGatewayProbeConfig -Name "apimproxyprobe" -Protocol "Https" -HostName $gatewayHostname -Path "/status-0123456789abcdef" -Interval 30 -Timeout 120 -UnhealthyThreshold 8
-$apimPortalProbe = New-AzApplicationGatewayProbeConfig -Name "apimportalprobe" -Protocol "Https" -HostName $portalHostname -Path "/signin" -Interval 60 -Timeout 300 -UnhealthyThreshold 8
+$apimPortalProbe = New-AzApplicationGatewayProbeConfig -Name "apimportalprobe" -Protocol "Https" -HostName $portalHostname -Path "/internal-status-0123456789abcdef" -Interval 60 -Timeout 300 -UnhealthyThreshold 8
 ```
 
 ### <a name="step-7"></a>Etapa 7

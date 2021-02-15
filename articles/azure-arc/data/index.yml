@@ -1,0 +1,69 @@
+### YamlMime:Landing
+title: Serviços de Dados habilitados para Azure Arc
+summary: Execute serviços de dados do Azure no local, na borda e em ambientes multinuvem usando o Kubernetes na infraestrutura de sua escolha.
+metadata:
+  title: Serviços de dados habilitados para Azure Arc (versão prévia)
+  description: Execute serviços de dados do Azure no local, na borda e em ambientes multinuvem usando o Kubernetes na infraestrutura de sua escolha.
+  ms.service: azure-arc
+  ms.subservice: azure-arc-data
+  ms.topic: landing-page
+  author: MikeRayMSFT
+  ms.author: mikeray
+  ms.date: 12/16/2020
+  ms.openlocfilehash: a3f90834c3b4d68e96b02361643bf32786670e84
+  ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+  ms.translationtype: HT
+  ms.contentlocale: pt-BR
+  ms.lasthandoff: 12/18/2020
+  ms.locfileid: "97673904"
+landingContent:
+- title: Sobre
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que são os serviços de dados habilitados para Azure Arc?
+      url: overview.md
+  - linkListType: concept
+    links:
+    - text: Requisitos e modos de conectividade
+      url: connectivity.md
+    - text: Configuração de armazenamento
+      url: storage-configuration.md
+- title: Introdução
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Criar controlador de dados
+      url: create-data-controller.md
+    - text: Instalar ferramentas de cliente
+      url: install-client-tools.md
+- title: PostgreSQL de Hiperescala habilitado para Azure Arc (versão prévia)
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Criar
+      url: create-postgresql-hyperscale-server-group.md
+    - text: Conectar
+      url: get-connection-endpoints-and-connection-strings-postgres-hyperscale.md
+    - text: Migrações
+      url: migrate-postgresql-data-into-postgresql-hyperscale-server-group.md
+    - text: Restaurar
+      url: restore-adventureworks-sample-db-into-postgresql-hyperscale-server-group.md
+- title: Instância Gerenciada de SQL habilitada para Azure Arc (versão prévia)
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Criar
+      url: create-sql-managed-instance.md
+    - text: Conectar
+      url: connect-managed-instance.md
+    - text: Migrações
+      url: migrate-to-managed-instance.md
+    - text: Restaurar
+      url: restore-adventureworks-sample-db.md
+- title: Prova de conceito
+  linkLists:
+  - linkListType: sample
+    links:
+    - text: Início rápido
+      url: https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/

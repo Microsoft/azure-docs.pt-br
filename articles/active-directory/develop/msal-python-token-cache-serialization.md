@@ -14,10 +14,10 @@ ms.author: rayluo
 ms.reviewer: nacanuma
 ms.custom: aaddev, devx-track-python
 ms.openlocfilehash: 7aaf59377949101ba8dd5c9454b89229e925e859
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87846183"
 ---
 # <a name="custom-token-cache-serialization-in-msal-for-python"></a>Serialização de cache de token personalizada em MSAL para Python

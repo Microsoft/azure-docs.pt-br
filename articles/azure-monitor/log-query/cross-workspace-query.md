@@ -6,27 +6,30 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/01/2020
-ms.openlocfilehash: 7cfa3d5652e13ddc88db70674049069a5b391297
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 1a6b328bc076ffa619921a8698549e95e6f15c60
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322118"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400753"
 ---
-# <a name="perform-cross-resource-log-queries-in-azure-monitor"></a>Executar consultas entre logs de recursos no Azure Monitor  
+# <a name="perform-log-query-in-azure-monitor-that-span-across-workspaces-and-apps"></a>Executar consulta de log em Azure Monitor que abrangem espaços de trabalho e aplicativos
+
+Os logs de Azure Monitor dão suporte à consulta em vários espaços de trabalho Log Analytics e Application Insights aplicativo no mesmo grupo de recursos, outro grupo de recursos ou outra assinatura. Isso fornece uma exibição de seus dados de todo o sistema.
+
+Há dois métodos para consultar dados que são armazenados em vários espaços de trabalho e aplicativos:
+1. Explicitamente, especificando os detalhes do espaço de trabalho e do aplicativo. Essa técnica é detalhada neste artigo.
+2. Usando implicitamente [consultas de contexto de recurso](../platform/design-logs-deployment.md#access-mode). Quando você consulta no contexto de um recurso específico, um grupo de recursos ou uma assinatura, os dados relevantes serão buscados de todos os espaços de trabalho que contêm dados para esses recursos. Application Insights dados armazenados em aplicativos, não serão buscados.
 
 > [!IMPORTANT]
-> Se você estiver usando um [recurso do Application Insights baseado em workspace](../app/create-workspace-resource.md), a telemetria é armazenada no workspace do Log Analytics com todos os outros dados do log. Use a expressão log () para gravar uma consulta que inclui o aplicativo em vários espaços de trabalho. Para vários aplicativos no mesmo espaço de trabalho, você não precisa de uma consulta entre espaços de trabalho.
+> Se você estiver usando um [recurso do Application Insights baseado em workspace](../app/create-workspace-resource.md), a telemetria é armazenada no workspace do Log Analytics com todos os outros dados do log. Use a expressão Workspace () para gravar uma consulta que inclui o aplicativo em vários espaços de trabalho. Para vários aplicativos no mesmo espaço de trabalho, você não precisa de uma consulta entre espaços de trabalho.
 
-Anteriormente, com o Azure Monitor, você só podia analisar dados no workspace atual, e isso limitava sua capacidade de consultar vários workspaces definidos em sua assinatura.  Além disso, você pode pesquisar somente itens de telemetria coletados do seu aplicativo baseado na web com o Application Insights diretamente no Application Insights ou do Visual Studio. Isso também tornou um desafio para analisar nativamente dados de aplicativo e operacionais juntos.
-
-Agora você pode consultar não apenas em vários workspaces de Application Insights, mas também os dados de um aplicativo Application Insights específico no mesmo grupo de recursos, outro grupo de recursos ou outra assinatura. Isso fornece uma exibição de seus dados de todo o sistema. Esses tipos de consultas só podem ser realizados no [Log Analytics](./log-query-overview.md).
 
 ## <a name="cross-resource-query-limits"></a>Limites de consulta entre recursos 
 
 * O número de recursos de Application Insights e espaços de trabalho de Log Analytics que você pode incluir em uma única consulta é limitado a 100.
-* Não há suporte para a consulta entre recursos no designer de exibição. Você pode criar uma consulta em Log Analytics e fixá-la no painel do Azure para [Visualizar uma consulta de log](../learn/tutorial-logs-dashboards.md). 
-* A consulta de recursos cruzados nos alertas de log é compatível com a nova [API scheduledQueryRules](/rest/api/monitor/scheduledqueryrules). Por padrão, o Azure Monitor usa a [API herdada de alertas do Log Analytics](../platform/api-alerts.md) para a criação de novas regras de alertas de log do portal do Azure, mas você pode mudar para a [API herdada de alertas de log](../platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api). Após a mudança, a nova API torna-se o padrão para novas regras de alerta no portal do Azure e permite criar regras de alertas de log de consulta de recursos cruzados. Você pode criar regras de alerta de log de consulta de recurso cruzado sem fazer a alternância usando o [modelo de Azure Resource Manager para a API scheduledQueryRules](../platform/alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template) – mas essa regra de alerta é gerenciável, embora a [API scheduledQueryRules](/rest/api/monitor/scheduledqueryrules) e não de portal do Azure.
+* Não há suporte para a consulta entre recursos no Designer de Exibição. Você pode criar uma consulta em Log Analytics e fixá-la no painel do Azure para [Visualizar uma consulta de log](../learn/tutorial-logs-dashboards.md). 
+* As consultas entre recursos em alertas de log só têm suporte na [API scheduledQueryRules](/rest/api/monitor/scheduledqueryrules)atual. Se você estiver usando a API de alertas de Log Analytics herdados, será necessário [alternar para a API atual](../platform/alerts-log-api-switch.md).
 
 
 ## <a name="querying-across-log-analytics-workspaces-and-from-application-insights"></a>Consultar em workspaces do Log Analytics e do Application Insights
@@ -132,7 +135,7 @@ applicationsScoping
 ```
 
 >[!NOTE]
->Esse método não pode ser usado com alertas de log porque a validação de acesso dos recursos de regra de alerta, incluindo espaços de trabalho e aplicativos, é executada no momento da criação do alerta. Não há suporte para a adição de novos recursos à função após a criação do alerta. Se preferir usar a função para o escopo de recursos em alertas de log, você precisará editar a regra de alerta no portal ou com um modelo do Resource Manager para atualizar os recursos com escopo. Como alternativa, você pode incluir a lista de recursos na consulta de alerta de log.
+> Esse método não pode ser usado com alertas de log porque a validação de acesso dos recursos de regra de alerta, incluindo espaços de trabalho e aplicativos, é executada no momento da criação do alerta. Não há suporte para a adição de novos recursos à função após a criação do alerta. Se preferir usar a função para o escopo de recursos em alertas de log, você precisará editar a regra de alerta no portal ou com um modelo do Resource Manager para atualizar os recursos com escopo. Como alternativa, você pode incluir a lista de recursos na consulta de alerta de log.
 
 
 ![Gráfico de tempo](media/cross-workspace-query/chart.png)
@@ -140,5 +143,4 @@ applicationsScoping
 ## <a name="next-steps"></a>Próximas etapas
 
 - Para obter uma visão geral das consultas de log e de como os dados de log do Azure Monitor estão estruturados, examine [Analisar dados de log no Azure Monitor](log-query-overview.md).
-- Para exibir todos os recursos das consultas de log do Azure Monitor, examine [Consultas de log do Azure Monitor](query-language.md).
 

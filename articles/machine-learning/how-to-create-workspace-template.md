@@ -6,20 +6,20 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to, devx-track-azurecli
+ms.custom: how-to, devx-track-azurecli, devx-track-azurepowershell
 ms.author: larryfr
 author: Blackmist
-ms.date: 07/27/2020
-ms.openlocfilehash: 1d405aff5233f38aee2031220fd119693da64abb
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.date: 09/30/2020
+ms.openlocfilehash: 06614fc33910eda44bf6bf8369c4ad4b3c0b25fe
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892857"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986015"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Usar um modelo do Azure Resource Manager para criar um workspace para o Azure Machine Learning
 
-[!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 <br>
 
 Neste artigo, você aprenderá várias maneiras de criar um workspace do Azure Machine Learning usando modelos do Azure Resource Manager. Um modelo do Resource Manager facilita a criação de recursos como uma operação única e coordenada. Um modelo é um documento JSON que define os recursos necessários para uma implantação. Além disso, pode especificar os parâmetros de implantação. Os parâmetros são usados para fornecer valores de entrada ao usar o modelo.
@@ -30,7 +30,18 @@ Para saber mais, confira [Implantar um aplicativo com o modelo do Gerenciador de
 
 * Uma **assinatura do Azure**. Se você não tiver uma, experimente a [versão paga ou gratuita do Azure Machine Learning](https://aka.ms/AMLFree).
 
-* Para usar um modelo a partir de uma CLI, você precisará do [Azure PowerShell](https://docs.microsoft.com/powershell/azure/?view=azps-1.2.0) ou da [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+* Para usar um modelo a partir de uma CLI, você precisará do [Azure PowerShell](/powershell/azure/?view=azps-1.2.0) ou da [CLI do Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
+
+* Alguns cenários exigem que você abra um tíquete de suporte. Esses cenários são:
+
+    * __Workspace habilitado para link privado com uma chave gerenciada pelo cliente__
+    * __Registro de Contêiner do Azure para o workspace atrás da rede virtual__
+
+    Para obter mais informações, consulte [gerenciar e aumentar cotas](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
+
+## <a name="limitations"></a>Limitações
+
+[!INCLUDE [register-namespace](../../includes/machine-learning-register-namespace.md)]
 
 ## <a name="workspace-resource-manager-template"></a>Modelo do Resource Manager do espaço de trabalho
 
@@ -62,7 +73,7 @@ O modelo de exemplo tem dois parâmetros **obrigatórios** :
 > [!TIP]
 > Embora o modelo associado a este documento crie um Registro de Contêiner do Azure, você também pode criar um workspace sem criar nenhum registro de contêiner. Um registro de contêiner será criado quando você executar uma operação que exija um. Treinar ou implantar um modelo, por exemplo.
 >
-> Você também pode fazer referência a uma conta de armazenamento ou registro de contêiner existente no modelo do Azure Resource Manager, em vez de criar um. No entanto, o registro de contêiner que você usa deve ter a __conta de administrador__ habilitada. Para obter informações sobre como habilitar a conta de administrador, consulte [conta de administrador](/azure/container-registry/container-registry-authentication#admin-account).
+> Você também pode fazer referência a uma conta de armazenamento ou registro de contêiner existente no modelo do Azure Resource Manager, em vez de criar um. Ao fazer isso, você deve [usar uma identidade gerenciada](how-to-use-managed-identities.md) (versão prévia) ou [habilitar a conta de administrador](../container-registry/container-registry-authentication.md#admin-account) para o registro de contêiner.
 
 [!INCLUDE [machine-learning-delete-acr](../../includes/machine-learning-delete-acr.md)]
 
@@ -70,7 +81,7 @@ Para obter mais informações sobre modelos, consulte os artigos a seguir:
 
 * [Criar modelos do Gerenciador de Recursos do Azure](../azure-resource-manager/templates/template-syntax.md)
 * [Implantar um aplicativo com o modelo do Azure Resource Manager](../azure-resource-manager/templates/deploy-powershell.md)
-* [Tipos de recursos do Microsoft.MachineLearningServices](https://docs.microsoft.com/azure/templates/microsoft.machinelearningservices/allversions)
+* [Tipos de recursos do Microsoft.MachineLearningServices](/azure/templates/microsoft.machinelearningservices/allversions)
 
 ## <a name="deploy-template"></a>Implantar modelo
 
@@ -154,14 +165,16 @@ New-AzResourceGroupDeployment `
 
 O modelo de exemplo a seguir demonstra como criar um workspace com três configurações:
 
-* Habilitar configurações de alta confidencialidade para o workspace
-* Habilitar a criptografia para o workspace
-* Usa um Azure Key Vault existente para recuperar chaves gerenciadas pelo cliente
+* Habilite configurações de alta confidencialidade para o espaço de trabalho. Isso cria uma nova instância de Cosmos DB.
+* Habilite a criptografia para o espaço de trabalho.
+* Usa um Azure Key Vault existente para recuperar chaves gerenciadas pelo cliente. As chaves gerenciadas pelo cliente são usadas para criar uma nova instância de Cosmos DB para o espaço de trabalho.
+
+    [!INCLUDE [machine-learning-customer-managed-keys.md](../../includes/machine-learning-customer-managed-keys.md)]
 
 > [!IMPORTANT]
 > Depois que um workspace tiver sido criado, você não poderá alterar as configurações de dados confidenciais, criptografia, ID do cofre de chaves e identificadores de chave. Para alterar esses valores, você precisa criar um workspace usando os novos valores.
 
-Para obter mais informações, confira [Criptografia em repouso](concept-enterprise-security.md#encryption-at-rest).
+Para obter mais informações, confira [Criptografia em repouso](concept-data-encryption.md#encryption-at-rest).
 
 > [!IMPORTANT]
 > Há alguns requisitos específicos que sua assinatura precisa atender antes de usar este modelo:
@@ -243,7 +256,7 @@ New-AzResourceGroupDeployment `
 ```
 ---
 
-Ao usar uma chave gerenciada pelo cliente, Azure Machine Learning cria um grupo de recursos secundário que contém a instância de Cosmos DB. Para obter mais informações, consulte [criptografia em repouso-Cosmos DB](concept-enterprise-security.md#encryption-at-rest).
+Ao usar uma chave gerenciada pelo cliente, Azure Machine Learning cria um grupo de recursos secundário que contém a instância de Cosmos DB. Para obter mais informações, consulte [criptografia em repouso-Cosmos DB](concept-data-encryption.md#encryption-at-rest).
 
 Uma configuração adicional que você pode fornecer para seus dados é definir o parâmetro **confidential_data** como **true**. Fazendo isso, o faz o seguinte:
 
@@ -255,7 +268,7 @@ Uma configuração adicional que você pode fornecer para seus dados é definir 
     > [!IMPORTANT]
     > Depois que um workspace tiver sido criado, você não poderá alterar as configurações de dados confidenciais, criptografia, ID do cofre de chaves e identificadores de chave. Para alterar esses valores, você precisa criar um workspace usando os novos valores.
 
-  Para obter mais informações, consulte [criptografia em repouso](concept-enterprise-security.md#encryption-at-rest).
+  Para obter mais informações, consulte [criptografia em repouso](concept-data-encryption.md#encryption-at-rest).
 
 ## <a name="deploy-workspace-behind-a-virtual-network"></a>Implantar espaço de trabalho por trás de uma rede virtual
 
@@ -272,7 +285,7 @@ Ao definir o `vnetOption` valor do parâmetro como `new` ou `existing` , você p
 Se os recursos associados não estiverem atrás de uma rede virtual, você poderá definir o parâmetro **privateEndpointType** como `AutoAproval` ou `ManualApproval` para implantar o espaço de trabalho por trás de um ponto de extremidade privado. Isso pode ser feito para espaços de trabalho novos e existentes. Ao atualizar um espaço de trabalho existente, preencha os parâmetros do modelo com as informações do espaço de trabalho existente.
 
 > [!IMPORTANT]
-> Usar o link privado do Azure para criar um ponto de extremidade privado para Azure Machine Learning espaço de trabalho está atualmente em visualização pública. Essa funcionalidade só está disponível nas regiões **leste dos EUA** e **oeste dos EUA 2** . Essa visualização é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> O uso de um espaço de trabalho Azure Machine Learning com o link privado não está disponível nas regiões do Azure governamental ou na 21Vianet do Azure na China.
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azcli)
 
@@ -532,7 +545,7 @@ New-AzResourceGroupDeployment `
 
 ## <a name="use-the-azure-portal"></a>Use o Portal do Azure
 
-1. Siga as etapas em [Implantar recursos do modelo personalizado](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal#deploy-resources-from-custom-template). Quando chegar à tela __selecionar um modelo__ , escolha o modelo **201-Machine-Learning-Advanced** no menu suspenso.
+1. Siga as etapas em [Implantar recursos do modelo personalizado](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template). Quando chegar à tela __selecionar um modelo__ , escolha o modelo **201-Machine-Learning-Advanced** no menu suspenso.
 1. Selecione __selecionar modelo__ para usar o modelo. Forneça as seguintes informações necessárias e quaisquer outros parâmetros, dependendo do cenário de implantação.
 
    * Assinatura: Selecione a assinatura do Azure a ser usada para esses recursos.
@@ -567,7 +580,7 @@ Para evitar esse problema, recomendamos uma das seguintes abordagens:
     az keyvault show --name mykeyvault --resource-group myresourcegroup --query properties.accessPolicies
     ```
 
-    Para obter mais informações sobre como usar a seção `accessPolicies` do modelo, consulte a [referência de objeto AccessPolicyEntry](https://docs.microsoft.com/azure/templates/Microsoft.KeyVault/2018-02-14/vaults#AccessPolicyEntry).
+    Para obter mais informações sobre como usar a seção `accessPolicies` do modelo, consulte a [referência de objeto AccessPolicyEntry](/azure/templates/Microsoft.KeyVault/2018-02-14/vaults#AccessPolicyEntry).
 
 * Verifique se o recurso do Key Vault já existe. Se existir, não o recrie por meio do modelo. Por exemplo, para usar o Key Vault existente em vez de criar outro, faça as seguintes alterações no modelo:
 

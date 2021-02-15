@@ -4,12 +4,12 @@ description: Neste artigo, descubra respostas para perguntas comuns sobre o aler
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.openlocfilehash: 4ce1d65414011b1e307cc16fe886adeb007b262c
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 4e2585009b531512e54ffa889a05ec50038dd619
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89000712"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98805872"
 ---
 # <a name="azure-backup-monitoring-alert---faq"></a>Alerta de monitoramento do backup do Azure-perguntas frequentes
 
@@ -19,7 +19,7 @@ Este artigo responde a perguntas comuns sobre o monitoramento e o relatório de 
 
 ### <a name="how-do-i-check-if-reporting-data-has-started-flowing-into-a-log-analytics-la-workspace"></a>Como fazer verificar se os dados de relatório começaram a fluir para um espaço de trabalho de Log Analytics (LA)?
 
-Navegue até o espaço de trabalho de LA que você configurou, navegue até o item de menu **logs** e execute a consulta CoreAzureBackup | Leve um. Se você vir um registro que está sendo retornado, significa que os dados começaram a fluir para o espaço de trabalho. O push de dados inicial pode levar até 24 horas.
+Navegue até o espaço de trabalho de LA que você configurou. Navegue até o item de menu **logs** e execute a consulta `CoreAzureBackup | take 1` . Se você vir um registro que está sendo retornado, significa que os dados começaram a fluir para o espaço de trabalho. O push de dados inicial pode levar até 24 horas.
 
 ### <a name="what-is-the-frequency-of-data-push-to-an-la-workspace"></a>Qual é a frequência de envio de dados por push para um espaço de trabalho da LA?
 
@@ -70,5 +70,5 @@ Sim. Nas seguintes situações, as notificações não são enviadas:
 
 Leia as outras perguntas frequentes:
 
-* [Perguntas comuns](backup-azure-vm-backup-faq.md) sobre backups de VM do Azure.
+* [Perguntas comuns](backup-azure-vm-backup-faq.yml) sobre backups de VM do Azure.
 * [Perguntas comuns](backup-azure-file-folder-backup-faq.md) sobre o agente do Backup do Azure

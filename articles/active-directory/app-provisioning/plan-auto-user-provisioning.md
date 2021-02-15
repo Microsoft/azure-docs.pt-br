@@ -3,20 +3,20 @@ title: Planejar uma implantação de provisionamento de usuário automático par
 description: Diretrizes para planejar e executar o provisionamento automático de usuário
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/17/2019
+ms.date: 12/31/2020
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: 24de1b2cfc5e0804039923f23b6a5cd9f6c6fb80
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: d36bcbd64c1169c923c6a1decdf907a8a9d6697b
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88235684"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99255756"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>Planejar uma implantação de provisionamento do usuário automática
 
@@ -99,7 +99,7 @@ Neste exemplo, os usuários e grupos são criados em um banco de dados de RH con
 
 Neste exemplo, a criação de usuário ocorre no Azure AD e o serviço de provisionamento do Azure AD gerencia o provisionamento automático de usuário para os aplicativos de destino (SaaS).
 
-![Figura 2](./media/plan-auto-user-provisioning/cloudprovisioning.png)
+![Diagrama que mostra o processo de criação de usuário/grupo de um aplicativo H R local por meio do serviço de provisionamento do Azure a D para os aplicativos de destino a s.](./media/plan-auto-user-provisioning/cloudprovisioning.png)
 
 **Descrição do fluxo de trabalho:**
 
@@ -129,7 +129,7 @@ Considere suas necessidades organizacionais para determinar a estratégia para i
 
 ### <a name="engage-the-right-stakeholders"></a>Envolva os participantes certos
 
-Quando os projetos de tecnologia falham, normalmente é devido a expectativas incompatíveis com o impacto, os resultados e as responsabilidades. Para evitar essas armadilhas, [certifique-se de que você esteja participando dos participantes certos](https://aka.ms/deploymentplans) e que as funções de Stakeholder no projeto sejam bem compreendidas ao documentar os participantes e sua entrada e responsabilidades de projeto.
+Quando os projetos de tecnologia falham, normalmente é devido a expectativas incompatíveis com o impacto, os resultados e as responsabilidades. Para evitar essas armadilhas, [certifique-se de que você esteja participando dos participantes certos](../fundamentals/active-directory-deployment-plans.md) e que as funções de Stakeholder no projeto sejam bem compreendidas ao documentar os participantes e sua entrada e responsabilidades de projeto.
 
 ### <a name="plan-communications"></a>Planejar comunicações
 
@@ -139,13 +139,13 @@ A comunicação é fundamental para o sucesso de qualquer novo serviço. Comuniq
 
 Recomendamos que a configuração inicial do provisionamento de usuário automático esteja em um ambiente de teste com um pequeno subconjunto de usuários antes de dimensioná-lo para todos os usuários em produção. Consulte [práticas recomendadas](../fundamentals/active-directory-deployment-plans.md#best-practices-for-a-pilot) para executar um piloto.
 
-#### <a name="best-practices-for-a-pilot"></a>Práticas recomendadas para um piloto  
+#### <a name="best-practices-for-a-pilot"></a>Práticas recomendadas para um piloto  
 
 Um piloto permite que você teste com um pequeno grupo antes de implantar um recurso para todos. Certifique-se de que, como parte de seu teste, cada caso de uso em sua organização seja totalmente testado.
 
 Na sua primeira onda, destinada a ti, usabilidade e outros usuários apropriados que podem testar e fornecer comentários. Use esses comentários para desenvolver ainda mais as comunicações e as instruções que você envia para os usuários e para fornecer informações sobre os tipos de problemas que sua equipe de suporte pode ver.
 
-Amplie a distribuição para grupos maiores de usuários aumentando o escopo dos grupos de destino. Isso pode ser feito por meio de [Associação de grupo dinâmico](../users-groups-roles/groups-dynamic-membership.md)ou adicionando usuários manualmente aos grupos de destino.
+Amplie a distribuição para grupos maiores de usuários aumentando o escopo dos grupos de destino. Isso pode ser feito por meio de [Associação de grupo dinâmico](../enterprise-users/groups-dynamic-membership.md)ou adicionando usuários manualmente aos grupos de destino.
 
 ## <a name="plan-application-connections-and-administration"></a>Planejar conexões e administração de aplicativos
 
@@ -157,7 +157,7 @@ As etapas reais necessárias para habilitar e configurar o provisionamento autom
 
 Caso contrário, siga as etapas abaixo:
 
-1. [Crie uma solicitação](../azuread-dev/howto-app-gallery-listing.md) para um conector de provisionamento de usuário previamente integrado. Nossa equipe trabalhará com você e o desenvolvedor de aplicativos para integrar seu aplicativo à nossa plataforma se ele der suporte a SCIM.
+1. [Crie uma solicitação](../develop/v2-howto-app-gallery-listing.md) para um conector de provisionamento de usuário previamente integrado. Nossa equipe trabalhará com você e o desenvolvedor de aplicativos para integrar seu aplicativo à nossa plataforma se ele der suporte a SCIM.
 
 1. Use o suporte de provisionamento de usuário genérico [BYOA scim](../app-provisioning/use-scim-to-provision-users-and-groups.md) para o aplicativo. Esse é um requisito para o Azure AD provisionar usuários para o aplicativo sem um conector de provisionamento previamente integrado.
 
@@ -207,7 +207,7 @@ Para implementar o provisionamento automático de usuário, você precisa defini
 
 O Azure AD dá suporte ao mapeamento direto de atributo para atributo, fornecendo valores constantes ou [gravando expressões para mapeamentos de atributo](../app-provisioning/functions-for-customizing-application-data.md). Essa flexibilidade lhe dá um controle fino do que será populado no atributo do sistema de destino. Você pode usar [Microsoft Graph API](../app-provisioning/export-import-provisioning-configuration.md) e o explorador do Graph para exportar os mapeamentos e o esquema de atributo de provisionamento de usuário para um arquivo JSON e importá-los de volta para o Azure AD.
 
-Para obter mais informações, consulte [Personalizando o atributo de provisionamento de usuário-mapeamentos para aplicativos SaaS no Azure Active Directory](../app-provisioning/customize-application-attributes.md).
+Para obter mais informações, consulte [Personalizando o provisionamento de usuário Attribute-Mappings para aplicativos SaaS no Azure Active Directory](../app-provisioning/customize-application-attributes.md).
 
 ### <a name="special-considerations-for-user-provisioning"></a>Considerações especiais para provisionamento de usuário
 
@@ -264,7 +264,7 @@ O serviço de provisionamento armazena o estado de ambos os sistemas após o cic
 
 Use o [portal do Azure](https://portal.azure.com/) para gerenciar o provisionamento e desprovisionamento de conta de usuário automático para aplicativos que dão suporte a ele. Siga as etapas em [como fazer configurar o provisionamento automático para um aplicativo?](../app-provisioning/user-provisioning.md)
 
-O serviço de provisionamento de usuário do Azure AD também pode ser configurado e gerenciado usando-se a [API do Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview).
+O serviço de provisionamento de usuário do Azure AD também pode ser configurado e gerenciado usando-se a [API do Microsoft Graph](/graph/api/resources/synchronization-overview).
 
 ## <a name="manage-automatic-user-provisioning"></a>Gerenciar o provisionamento automático de usuário
 
@@ -274,7 +274,7 @@ Agora que você implantou o, precisa gerenciar a solução.
 
 Após um [ciclo inicial](../app-provisioning/user-provisioning.md)bem-sucedido, o serviço de provisionamento do Azure ad executará atualizações incrementais indefinidamente, em intervalos específicos de cada aplicativo, até que um dos seguintes eventos ocorra:
 
-* O serviço é interrompido manualmente e um novo ciclo inicial é disparado usando o [portal do Azure](https://portal.azure.com/)ou usando o comando da [API Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview) apropriado.
+* O serviço é interrompido manualmente e um novo ciclo inicial é disparado usando o [portal do Azure](https://portal.azure.com/)ou usando o comando da [API Microsoft Graph](/graph/api/resources/synchronization-overview) apropriado.
 
 * Um novo ciclo inicial é disparado por uma alteração nos mapeamentos de atributo ou em filtros de escopo.
 
@@ -300,17 +300,17 @@ Consulte os links a seguir para solucionar quaisquer problemas que possam ser re
 
 * [Sincronizar um atributo do seu Active Directory local com o Azure AD para provisionamento para um aplicativo](../app-provisioning/user-provisioning-sync-attributes-for-mapping.md)
 
-* [Problema para salvar as credenciais de administrador ao configurar o provisionamento do usuário para um aplicativo de galeria do Azure Active Directory](../app-provisioning/application-provisioning-config-problem-storage-limit.md)
+* [Problema para salvar as credenciais de administrador ao configurar o provisionamento do usuário para um aplicativo de galeria do Azure Active Directory](./user-provisioning.md)
 
 * [Nenhum usuário está sendo provisionado para um aplicativo de galeria do Azure AD](../app-provisioning/application-provisioning-config-problem-no-users-provisioned.md)
 
-* [O conjunto errado de usuários está sendo provisionado para um aplicativo da Galeria do Azure AD](../app-provisioning/application-provisioning-config-problem-wrong-users-provisioned.md)
+* [O conjunto errado de usuários está sendo provisionado para um aplicativo da Galeria do Azure AD](../manage-apps/add-application-portal-assign-users.md)
 
 ### <a name="helpful-documentation"></a>Documentação útil
 
 * [Escrevendo expressões para mapeamentos de atributo](../app-provisioning/functions-for-customizing-application-data.md)
 
-* [Visão geral da API de sincronização do Azure AD](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)
+* [Visão geral da API de sincronização do Azure AD](/graph/api/resources/synchronization-overview)
 
 * [Ignorar a exclusão de contas de usuário que saem do escopo](skip-out-of-scope-deletions.md)
 
@@ -322,7 +322,7 @@ Consulte os links a seguir para solucionar quaisquer problemas que possam ser re
 
 * [Mantenha-se atualizado sobre as novidades do Azure AD](https://azure.microsoft.com/updates/?product=active-directory)
 
-* [Fórum do Azure AD com estouro de pilha](https://stackoverflow.com/questions/tagged/azure-active-directory)
+* [Microsoft Q&um fórum do Azure AD](https://docs.microsoft.com/answers/topics/azure-active-directory.html)
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Configurar o provisionamento automático de usuário](../app-provisioning/configure-automatic-user-provisioning-portal.md)

@@ -8,12 +8,12 @@ ms.service: internet-peering
 ms.topic: how-to
 ms.date: 5/18/2020
 ms.author: derekol
-ms.openlocfilehash: 57c38d3b6eeb26a38a36fb67da25bcf960cee2dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 22cb179925f95fd0762371cc904fcbd02675339a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84710840"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91540261"
 ---
 # <a name="associate-peer-asn-to-azure-subscription-using-the-portal"></a>Associar o ASN do par à assinatura do Azure usando o portal
 
@@ -70,12 +70,12 @@ Como um provedor de serviços de Internet ou provedor de Internet, você pode cr
 1. Em seguida, clique em **Examinar + criar** e observe que o portal executa a validação básica das informações inseridas. Isso é exibido em uma faixa de opções na parte superior, como *Executando a validação final...* .
 
     > [!div class="mx-imgBorder"]
-    > ![Guia Análise do PeerAsn](./media/peerasn-review-tab-validation.png)
+    > ![Captura de tela mostra a guia "associar um par" Noções básicas de S N.](./media/peerasn-review-tab-validation.png)
 
 1. Depois que a mensagem na faixa de opções passa a ser *Validação Aprovada*, verifique suas informações e envie a solicitação clicando em **Criar**. Se a validação não for aprovada, clique em **Anterior** e repita as etapas acima para modificar sua solicitação e verificar se os valores inseridos não contêm erros.
 
     > [!div class="mx-imgBorder"]
-    > ![Guia Análise do PeerAsn](./media/peerasn-review-tab.png)
+    > ![A captura de tela mostra a guia "associar um par a S N básico" com validação aprovada.](./media/peerasn-review-tab.png)
 
 1. Depois de enviar a solicitação, aguarde até que ela conclua a implantação. Se a implantação falhar, entre em contato com [Emparelhamento da Microsoft](mailto:peering@microsoft.com). Uma implantação bem-sucedida será exibida como a seguir.
 

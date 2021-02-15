@@ -1,18 +1,15 @@
 ---
 title: Diretrizes de Apache Spark no Azure HDInsight
 description: Aprenda as diretrizes para usar Apache Spark no Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 01cdc121abded954c2443599c5d69689acd69b62
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f81435abbedec25cb8abe0b958065a493c15ce4c
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82562331"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98938809"
 ---
 # <a name="apache-spark-guidelines"></a>Diretrizes de Apache Spark
 
@@ -23,7 +20,7 @@ Este artigo fornece várias diretrizes para usar o Apache Spark no Azure HDInsig
 | Opção | Documentos |
 |---|---|
 | VSCode | [Usar Ferramentas Spark e Hive para Visual Studio Code](../hdinsight-for-vscode.md) |
-| Jupyter Notebooks | [Tutorial: Carregar dados e executar consultas em um cluster do Apache Spark no Azure HDInsight](./apache-spark-load-data-run-query.md) |
+| Jupyter Notebooks | [Tutorial: Carregar dados e executar consultas em um cluster Apache Spark no Azure HDInsight](./apache-spark-load-data-run-query.md) |
 | IntelliJ | [Tutorial: usar Azure Toolkit for IntelliJ para criar aplicativos Apache Spark para um cluster HDInsight](./apache-spark-intellij-tool-plugin.md) |
 | IntelliJ | [Tutorial: Criar um aplicativo Scala Maven para Apache Spark no HDInsight usando IntelliJ](./apache-spark-create-standalone-application.md) |
 | Blocos de anotações do Zeppelin | [Usar notebooks do Apache Zeppelin com o cluster do Apache Spark no Azure HDInsight](./apache-spark-zeppelin-notebook.md) |
@@ -37,7 +34,7 @@ Este artigo fornece várias diretrizes para usar o Apache Spark no Azure HDInsig
 
 | Opção | Documentos |
 |---|---|
-| Kit de Ferramentas do Azure para IntelliJ | [Falha na depuração do trabalho Spark com Azure Toolkit for IntelliJ (versão prévia)](apache-spark-intellij-tool-failure-debug.md) |
+| Azure Toolkit for IntelliJ | [Falha na depuração do trabalho Spark com Azure Toolkit for IntelliJ (versão prévia)](apache-spark-intellij-tool-failure-debug.md) |
 | Azure Toolkit for IntelliJ por meio de SSH | [Depurar aplicativos Apache Spark local ou remotamente em um cluster HDInsight com Azure Toolkit for IntelliJ por meio do SSH](apache-spark-intellij-tool-debug-remotely-through-ssh.md) |
 | Azure Toolkit for IntelliJ por meio de VPN | [Usar o Azure Toolkit for IntelliJ para depurar aplicativos Apache Spark remotamente no HDInsight por meio de VPN](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md) |
 | Grafo de trabalho no servidor de histórico de Apache Spark | [Use o Apache Spark History Server estendido para depurar e diagnosticar aplicativos do Apache Spark](./apache-azure-spark-history-server.md) |
@@ -55,15 +52,15 @@ Este artigo fornece várias diretrizes para usar o Apache Spark no Azure HDInsig
 |---|---|
 | Apache Hive no HDInsight | [Integrar o Apache Spark e Apache Hive ao Hive Warehouse Connector](../interactive-query/apache-hive-warehouse-connector.md) |
 | Apache HBase no HDInsight | [Usar o Apache Spark para ler e gravar dados do Apache HBase](../hdinsight-using-spark-query-hbase.md) |
-| Apache Kafka no HDInsight | [Tutorial: Use o fluxo estruturado do Apache Spark com Apache Kafka no Azure HDInsight](../hdinsight-apache-kafka-spark-structured-streaming.md) |
-| Azure Cosmos DB | [Azure Cosmos DB: implementar uma arquitetura lambda na plataforma Azure](../../cosmos-db/lambda-architecture.md) |
+| Apache Kafka no HDInsight | [Tutorial: Usar o fluxo estruturado do Apache Spark com o Apache Kafka no HDInsight](../hdinsight-apache-kafka-spark-structured-streaming.md) |
+| Azure Cosmos DB | [Link do Azure Synapse para Azure Cosmos DB](../../cosmos-db/synapse-link.md) |
 
 ## <a name="what-are-my-storage-options"></a>Quais são minhas opções de armazenamento?
 
 | Opção | Documentos |
 |---|---|
-| Data Lake Storage Gen2 | [Usar Gen2 de armazenamento do Azure Data Lake com clusters de HDInsight do Azure](../hdinsight-hadoop-use-data-lake-storage-gen2.md) |
-| Data Lake Storage Gen1 | [Usar Data Lake Storage Gen1 com clusters HDInsight do Azure](../hdinsight-hadoop-use-data-lake-store.md) |
+| Azure Data Lake Storage Gen2 | [Usar Gen2 de armazenamento do Azure Data Lake com clusters de HDInsight do Azure](../hdinsight-hadoop-use-data-lake-storage-gen2.md) |
+| Azure Data Lake Storage Gen1 | [Usar Azure Data Lake Storage Gen1 com clusters do Azure HDInsight](../hdinsight-hadoop-use-data-lake-storage-gen1.md) |
 | Armazenamento do Blobs do Azure | [Usar o Armazenamento do Azure com clusters do Azure HDInsight](../hdinsight-hadoop-use-blob-storage.md) |
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/31/2020
-ms.openlocfilehash: 1ea6d09609d1b7b3f7ba7297a040447d1fc24756
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: f9578fadfbe057b723af63e338bf8bda63cf6f21
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684386"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91330903"
 ---
 # <a name="how-to-chart-performance-with-azure-monitor-for-vms"></a>Como mapear o desempenho com o Monitor do Azure para VMs
 
@@ -21,7 +21,7 @@ O Monitor do Azure para VMs inclui um conjunto de gráficos de desempenho que se
 Veja a seguir as limitações na coleta de desempenho com o Azure Monitor para VMs.
 
 - **A memória disponível** não está disponível para máquinas virtuais que executam o Red Hat Linux (RHEL) 6. Essa métrica é calculada de **MemAvailable** que foi introduzido no [kernel versão 3.14](http://www.man7.org/linux/man-pages/man1/free.1.html).
-- As métricas só estão disponíveis para discos de dados em máquinas virtuais do Linux usando a família de sistemas de arquivos EXT (EXT2, EXT3, EXT4).
+- As métricas só estão disponíveis para discos de dados em máquinas virtuais do Linux usando o sistema de arquivos XFS ou a família de sistema de arquivos EXT (EXT2, EXT3, EXT4).
 
 ## <a name="multi-vm-perspective-from-azure-monitor"></a>Perspectiva de várias VMs do Azure Monitor
 

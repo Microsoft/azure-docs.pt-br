@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: e387d5f7ee0b1926457717b30b03bbfeb8d70a1c
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 8be878cf40967356d68e9be0765e898c81b5ba0a
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027419"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93314617"
 ---
 # <a name="process-data-in-sql-server-virtual-machine-on-azure"></a><a name="heading"></a>Processar dados na Máquina Virtual do SQL Server no Azure
 Este documento aborda como explorar dados e gerar recursos dados armazenados em uma VM do SQL Server no Azure. Essa meta pode ser concluída por data Wrangling usando SQL ou usando uma linguagem de programação como Python.
@@ -98,7 +98,7 @@ Apresentamos aqui uma breve cartilha sobre dados de localização de latitude/lo
 * A quinta casa decimal representa até 1,1 m: ela distingue as árvores umas das outras. Uma precisão desse nível com unidades GPS comerciais só pode ser obtida com a correção diferencial.
 * A sexta casa decimal representa até 0,11 m: você pode usá-la para dispor estruturas detalhadamente, projetar paisagens e criar estradas. Ela é mais do que suficiente para acompanhar os movimentos de geleiras e rios. Isso pode ser obtido coletando medidas arduamente com o GPS, tais como GPS com correção diferencial.
 
-As informações de local podem ser destacadas da maneira indicada a seguir, separando as informações de região, local e cidade. Você também pode chamar um ponto de extremidade REST, como a API do Bing Maps, disponível em [localizar um local por ponto](https://msdn.microsoft.com/library/ff701710.aspx) para obter as informações de região/distrito.
+As informações de local podem ser destacadas da maneira indicada a seguir, separando as informações de região, local e cidade. Você também pode chamar um ponto de extremidade REST, como a API do Bing Maps, disponível em [localizar um local por ponto](/bingmaps/rest-services/locations/find-a-location-by-point) para obter as informações de região/distrito.
 
 ```sql
 select 
@@ -116,7 +116,7 @@ from <tablename>
 Os recursos baseados em localização podem ser usados ainda para gerar recursos adicionais de contagem, como descrito anteriormente. 
 
 > [!TIP]
-> É possível inserir os registros com programação usando a linguagem de sua escolha. Talvez seja necessário inserir os dados em partes para melhorar a eficiência de gravação (para obter um exemplo de como fazer isso usando o pyodbc, veja [A HelloWorld sample to access SQLServer with python](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python)[Uma amostra do HelloWorld para acessar o SQL Server com o Python]). Outra alternativa é inserir dados no banco de dados usando o [utilitário BCP](https://msdn.microsoft.com/library/ms162802.aspx).
+> É possível inserir os registros com programação usando a linguagem de sua escolha. Talvez seja necessário inserir os dados em partes para melhorar a eficiência de gravação (para obter um exemplo de como fazer isso usando o pyodbc, veja [A HelloWorld sample to access SQLServer with python](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python)[Uma amostra do HelloWorld para acessar o SQL Server com o Python]). Outra alternativa é inserir dados no banco de dados usando o [utilitário BCP](/sql/tools/bcp-utility).
 > 
 > 
 
@@ -152,5 +152,4 @@ Para obter um exemplo passo a passo e ponta a ponta do Processo de Ciência de D
 
 
 <!-- Module References -->
-[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
-
+[import-data]: /azure/machine-learning/studio-module-reference/import-data

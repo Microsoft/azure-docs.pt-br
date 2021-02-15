@@ -7,17 +7,17 @@ ms.service: sql-managed-instance
 ms.subservice: operations
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: guide
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: sstein, carlr
+ms.reviewer: sstein
 ms.date: 04/16/2019
-ms.openlocfilehash: de8d1b7aba7763799228c831af61bf83a79937bb
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: b7f2f060f32cf3bf92660a2e8b75a45b7ec76b82
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167939"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92779757"
 ---
 # <a name="azure-sql-managed-instance-content-reference"></a>Referência de conteúdo do Azure SQL Instância Gerenciada
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -64,10 +64,10 @@ Neste artigo, você pode encontrar uma referência de conteúdo para vários gui
 
 - [Ajuste manual](../database/performance-guidance.md)
 - [Utilizar DMVs para monitorar o desempenho](../database/monitoring-with-dmvs.md)
-- [Usar Repositório de Consultas para monitorar o desempenho](https://docs.microsoft.com/sql/relational-databases/performance/best-practice-with-the-query-store#Insight)
+- [Usar Repositório de Consultas para monitorar o desempenho](/sql/relational-databases/performance/best-practice-with-the-query-store#Insight)
 - [Solucionar problemas de desempenho com o Intelligent Insights](../database/intelligent-insights-troubleshoot-performance.md)
 - [Usar o log de diagnóstico Intelligent Insights](../database/intelligent-insights-use-diagnostics-log.md)
-- [Monitorar o espaço OLTP na memória](../in-memory-oltp-monitor-space.md)
+- [Monitorar In-Memory espaço OLTP](../in-memory-oltp-monitor-space.md)
 
 ### <a name="extended-events"></a>Eventos estendidos
 

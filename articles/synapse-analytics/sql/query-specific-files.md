@@ -7,22 +7,22 @@ ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: sql
 ms.date: 05/20/2020
-ms.author: v-stazar
-ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 6beda409f03938f471f089bceebaa97c6d02ae7e
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.author: stefanazaric
+ms.reviewer: jrasnick
+ms.openlocfilehash: d24ae1f42c685589309506b2d5e0eab157b2bc42
+ms.sourcegitcommit: 5e2f5efba1957ba40bd951c3dcad42f4a00734ff
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496212"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96299608"
 ---
-# <a name="use-file-metadata-in-queries"></a>Usar metadados de arquivo em consultas
+# <a name="use-file-metadata-in-serverless-sql-pool-queries"></a>Usar metadados de arquivo em consultas de pool de SQL sem servidor
 
-O serviço de consulta do SQL sob demanda pode abordar vários arquivos e pastas conforme descrito no artigo [Consultar pastas e arquivos múltiplos](query-folders-multiple-csv-files.md). Neste artigo, você aprenderá a usar informações de metadados sobre nomes de arquivos e pastas nas consultas.
+O pool SQL sem servidor pode endereçar vários arquivos e pastas conforme descrito no artigo [pastas de consulta e vários arquivos](query-folders-multiple-csv-files.md) . Neste artigo, você aprenderá a usar informações de metadados sobre nomes de arquivos e pastas nas consultas.
 
 Em alguns casos, pode ser necessário saber qual fonte do arquivo ou pasta se correlaciona com uma linha específica no conjunto de resultados.
 
-Você pode usar as funções `filepath` e `filename` para retornar nomes de arquivo e/ou caminho no conjunto de resultados. Ou você pode usá-los para filtrar dados com base no nome do arquivo e/ou caminho da pasta. Essas funções são descritas na seção de sintaxe de [função filename](query-data-storage.md#filename-function) e [função filepath](query-data-storage.md#filepath-function). Abaixo, você encontrará descrições breves juntamente com alguns exemplos.
+Você pode usar as funções `filepath` e `filename` para retornar nomes de arquivo e/ou caminho no conjunto de resultados. Ou você pode usá-los para filtrar dados com base no nome do arquivo e/ou caminho da pasta. Essas funções são descritas na seção de sintaxe de [função filename](query-data-storage.md#filename-function) e [função filepath](query-data-storage.md#filepath-function). Nas seções a seguir, você encontrará descrições breves ao longo de exemplos.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -76,7 +76,7 @@ ORDER BY
 
 A função filepath retorna um caminho completo ou parcial:
 
-- Quando chamada sem um parâmetro, ela retorna o caminho completo do arquivo de onde a linha se origina.
+- Quando chamada sem um parâmetro, ela retorna o caminho completo do arquivo de onde a linha se origina. Quando DATA_SOURCE é usado em OPENROWSET, ele retorna o caminho relativo a DATA_SOURCE. 
 - Quando chamada com um parâmetro, ela retorna parte do caminho correspondente ao caractere curinga na posição especificada no parâmetro. Por exemplo, o valor de parâmetro 1 retornaria a parte do caminho correspondente ao primeiro caractere curinga.
 
 O exemplo a seguir lê arquivos de dados de Táxis amarelos em NYC relativos aos últimos três meses de 2017. Ele retorna o número de corridas por caminho de arquivo. A parte OPENROWSET da consulta especifica quais arquivos serão lidos.

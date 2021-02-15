@@ -3,14 +3,14 @@ title: Criptografar dados de implantação
 description: Saiba mais sobre a criptografia de dados persistidos para seus recursos de instância de contêiner e como criptografar os dados com uma chave gerenciada pelo cliente
 ms.topic: article
 ms.date: 01/17/2020
-author: dkkapur
-ms.author: dekapur
-ms.openlocfilehash: 3c7a84dad1f107d8709e3bcdeac696414cdf883d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+author: macolso
+ms.author: macolso
+ms.openlocfilehash: 1b73ce5c994231a1c7b2f26ad702f2ad5880ba44
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259708"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94686269"
 ---
 # <a name="encrypt-deployment-data"></a>Criptografar dados de implantação
 
@@ -33,7 +33,7 @@ Você pode contar com chaves gerenciadas pela Microsoft para a criptografia de s
 
 O restante do documento aborda as etapas necessárias para criptografar os dados de implantação do ACI com sua chave (chave gerenciada pelo cliente). 
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 ## <a name="encrypt-data-with-a-customer-managed-key"></a>Criptografar dados com uma chave gerenciada pelo cliente
 
@@ -59,7 +59,7 @@ Caso você não consiga criar a entidade de serviço com êxito:
 
 ### <a name="create-a-key-vault-resource"></a>Crie um recurso do Key Vault
 
-Crie um Azure Key Vault usando [portal do Azure](../key-vault/secrets/quick-create-portal.md#create-a-vault), [CLI](../key-vault/secrets/quick-create-cli.md)ou [PowerShell](../key-vault/secrets/quick-create-powershell.md). 
+Crie um Azure Key Vault usando [portal do Azure](../key-vault/general/quick-create-portal.md), [CLI do Azure](../key-vault/general/quick-create-cli.md)ou [Azure PowerShell](../key-vault/general/quick-create-powershell.md).
 
 Para as propriedades do cofre de chaves, use as seguintes diretrizes: 
 * Name: um nome exclusivo é necessário. 

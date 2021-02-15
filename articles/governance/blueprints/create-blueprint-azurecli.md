@@ -1,14 +1,14 @@
 ---
 title: 'Início Rápido: criar um blueprint com a CLI do Azure'
 description: Neste início rápido, você usa o Azure Blueprints para criar, definir e implantar artefatos usando a CLI do Azure.
-ms.date: 06/02/2020
+ms.date: 01/27/2021
 ms.topic: quickstart
-ms.openlocfilehash: 30a450fc7eab55424da7ce971ad234cbf2248b30
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 6ce3031c93f973c2efb251fad371a6f3750ae0fd
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85969631"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98920233"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-azure-cli"></a>Início Rápido: definir e atribuir um Blueprint do Azure com a CLI do Azure
 
@@ -16,16 +16,17 @@ Aprender a criar e atribuir blueprints permite definir padrões comuns para dese
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free) antes de começar.
+- Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free) antes de começar.
+- Se você ainda não usou o Azure Blueprints, registre o provedor de recursos por meio de CLI do Azure com `az provider register --namespace Microsoft.Blueprint`.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="add-the-blueprint-extension"></a>Adicionar a extensão de Blueprint
 
 Para permitir que a CLI do Azure gerencie definições e atribuições de blueprint, a extensão deve ser adicionada.
-Essa extensão funcionará sempre que a CLI do Azure puder ser usada, incluindo no [bash no Windows 10](/windows/wsl/install-win10), [Cloud Shell](https://shell.azure.com) (tanto autônomo quanto dentro do portal), na [imagem do Docker da CLI do Azure](https://hub.docker.com/r/microsoft/azure-cli/) ou instalada localmente.
+Essa extensão funcionará sempre que a CLI do Azure puder ser usada, incluindo no [bash no Windows 10](/windows/wsl/install-win10), [Cloud Shell](https://shell.azure.com) (tanto autônomo quanto dentro do portal), na [imagem do Docker da CLI do Azure](https://hub.docker.com/_/microsoft-azure-cli) ou instalada localmente.
 
-1. Verifique se a CLI do Azure mais recente está instalada (pelo menos a versão **2.0.76**). Se ainda não estiver instalado, siga [estas instruções](/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
+1. Verifique se a CLI do Azure mais recente está instalada (pelo menos a versão **2.0.76**). Se ainda não estiver instalado, siga [estas instruções](/cli/azure/install-azure-cli-windows).
 
 1. Em seu ambiente da CLI do Azure preferido, importe-a com o seguinte comando:
 
@@ -116,7 +117,7 @@ A primeira etapa na definição de um modelo padrão para conformidade é compor
 
      > [!NOTE]
      > Use o nome de arquivo _blueprint.json_ ao importar suas definições de blueprint.
-     > Esse nome de arquivo é usado ao chamar a [importação de blueprint az](/cli/azure/ext/blueprint/blueprint#ext-blueprint-az-blueprint-import).
+     > Esse nome de arquivo é usado ao chamar a [importação de blueprint az](/cli/azure/ext/blueprint/blueprint#ext_blueprint_az_blueprint_import).
 
      Por padrão, o objeto blueprint é criado na assinatura padrão. Para especificar o grupo de gerenciamento, use o parâmetro **managementgroup**. Para especificar a assinatura, use o parâmetro **subscription**.
 
@@ -166,6 +167,9 @@ A primeira etapa na definição de um modelo padrão para conformidade é compor
         --parameters artifacts\policyTags.json
      ```
 
+     > [!NOTE]
+     > Ao usar `az blueprint` em um Mac, substitua `\` por `/` para os valores de parâmetro que incluem o caminho. Nesse caso, o valor de **parameters** passa a ser `artifacts/policyTags.json`.
+
 1. Adicione outra atribuição de política para a marca Armazenamento (reutilizando o parâmetro _storageAccountType_) na assinatura. Este artefato de atribuição de política adicional demonstra que um parâmetro definido no blueprint pode ser usado por mais de um artefato. No exemplo, o **storageAccountType** é usado para definir uma marca no grupo de recursos. Esse valor fornece informações sobre a conta de armazenamento que será criada na próxima etapa. Este exemplo usa a política interna _Aplicar a marca e seu valor padrão a grupos de recursos_ com um GUID igual a `49c88fc8-6fd1-46fd-a676-f12d1d3a4c71`.
 
    - Arquivo JSON – artifacts\policyStorageTags.json
@@ -192,6 +196,9 @@ A primeira etapa na definição de um modelo padrão para conformidade é compor
         --description 'Apply storage tag and the parameter also used by the template to resource groups' \
         --parameters artifacts\policyStorageTags.json
      ```
+
+     > [!NOTE]
+     > Ao usar `az blueprint` em um Mac, substitua `\` por `/` para os valores de parâmetro que incluem o caminho. Nesse caso, o valor de **parameters** passa a ser `artifacts/policyStorageTags.json`.
 
 1. Adicione o modelo sob o grupo de recursos. O parâmetro **template** de um modelo do ARM inclui os componentes JSON normais do modelo. O modelo também reutiliza os parâmetros de blueprint **storageAccountType**, **tagName** e **tagValue** transmitindo-os para o modelo. Os parâmetros do blueprint são disponibilizados ao modelo usando o parâmetro **parameters** e, dentro do JSON do modelo, o par chave-valor é usado para injetar o valor. Os nomes dos parâmetros de blueprint e de modelo podem ser iguais.
 
@@ -275,6 +282,9 @@ A primeira etapa na definição de um modelo padrão para conformidade é compor
         --parameters artifacts\templateStorageParams.json \
         --resource-group-art 'storageRG'
      ```
+
+     > [!NOTE]
+     > Ao usar `az blueprint` em um Mac, substitua `\` por `/` para os valores de parâmetro que incluem o caminho. Nesse caso, o valor de **template** passa a ser `artifacts/templateStorage.json` e o valor de **parameters** passa a ser `artifacts/templateStorageParams.json`.
 
 1. Adicione atribuição de função sob o grupo de recursos. Semelhante à entrada de atribuição de função anterior, o exemplo abaixo usa o identificador da definição para a função **Proprietário** e fornece a ela um parâmetro diferente do blueprint. Este exemplo usa a função interna _Proprietário_ com um GUID igual a `8e3af657-a8ff-443c-a75c-2fe8c4bcb635`.
 

@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 890bf60ac794740716817094a60f2b4cb4ba5835
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.custom: devx-track-js
+ms.openlocfilehash: 75a7da41e4f0d5356ca135eb3cb4cbe5f29e8116
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282782"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92891441"
 ---
 # <a name="connect-to-a-wfs-service"></a>Conectar-se a um serviço WFS
 
@@ -22,7 +22,7 @@ Um serviço de recurso da Web (WFS) é um serviço Web para consultar dados espa
 
 Os recursos a seguir têm suporte na `WfsClient` classe:
 
-- Versões com suporte: `1.0.0` , `1.1.0` e`2.0.0`
+- Versões com suporte: `1.0.0` , `1.1.0` e `2.0.0`
 - Operadores de filtro com suporte: comparações binárias, lógica, matemática, valor e `bbox` .
 - As solicitações são feitas usando `HTTP GET` apenas.
 - Operações com suporte:
@@ -110,10 +110,10 @@ client = new atlas.io.ogc.WfsClient({
 Saiba mais sobre as classes e métodos usados neste artigo:
 
 > [!div class="nextstepaction"]
-> [WfsClient](https://docs.microsoft.com/JavaScript/api/azure-maps-spatial-io/atlas.io.ogc.wfsclient)
+> [WfsClient](/JavaScript/api/azure-maps-spatial-io/atlas.io.ogc.wfsclient)
 
 > [!div class="nextstepaction"]
-> [WfsServiceOptions](https://docs.microsoft.com/JavaScript/api/azure-maps-spatial-io/atlas.wfsserviceoptions)
+> [WfsServiceOptions](/JavaScript/api/azure-maps-spatial-io/atlas.wfsserviceoptions)
 
 Consulte os artigos a seguir para obter mais exemplos de código para adicionar aos seus mapas:
 

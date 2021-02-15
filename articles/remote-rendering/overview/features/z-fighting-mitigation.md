@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/06/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: dbe3af30963791891f0ceee4e18c34e078c0ac7a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: a399565d62b20f62b72257bcb9f3beb2c910ac98
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89013173"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594054"
 ---
 # <a name="z-fighting-mitigation"></a>Mitigação de Z-fighting
 
@@ -21,16 +21,16 @@ Quando duas superfícies se sobrepõem, não fica claro qual delas deve ser rend
 
 |Situação                        | Result                               |
 |---------------------------------|:-------------------------------------|
-|Z-fighting regular               |![Z-fighting](./media/zfighting-0.png)|
-|Mitigação de Z-fighting habilitada    |![Z-fighting](./media/zfighting-1.png)|
-|Realce de padrão quadriculado habilitado|![Z-fighting](./media/zfighting-2.png)|
+|Z-fighting regular               |![Nenhuma precedência determinística entre os quádruplos vermelho e verde](./media/zfighting-0.png)|
+|Mitigação de Z-fighting habilitada    |![Vermelho quad tem precedência](./media/zfighting-1.png)|
+|Realce de padrão quadriculado habilitado|![Preferência de alternância quádrupla vermelha e verde no padrão quadriculado](./media/zfighting-2.png)|
 
 O código a seguir habilita a mitigação do Z-fighting:
 
 ```cs
-void EnableZFightingMitigation(AzureSession session, bool highlight)
+void EnableZFightingMitigation(RenderingSession session, bool highlight)
 {
-    ZFightingMitigationSettings settings = session.Actions.ZFightingMitigationSettings;
+    ZFightingMitigationSettings settings = session.Connection.ZFightingMitigationSettings;
 
     // enabling z-fighting mitigation
     settings.Enabled = true;
@@ -41,9 +41,9 @@ void EnableZFightingMitigation(AzureSession session, bool highlight)
 ```
 
 ```cpp
-void EnableZFightingMitigation(ApiHandle<AzureSession> session, bool highlight)
+void EnableZFightingMitigation(ApiHandle<RenderingSession> session, bool highlight)
 {
-    ApiHandle<ZFightingMitigationSettings> settings = session->Actions()->GetZFightingMitigationSettings();
+    ApiHandle<ZFightingMitigationSettings> settings = session->Connection()->GetZFightingMitigationSettings();
 
     // enabling z-fighting mitigation
     settings->SetEnabled(true);
@@ -52,7 +52,6 @@ void EnableZFightingMitigation(ApiHandle<AzureSession> session, bool highlight)
     settings->SetHighlighting(highlight);
 }
 ```
-
 
 > [!NOTE]
 > A mitigação do Z-fighting é uma configuração global que afeta todas as malhas renderizadas.
@@ -76,6 +75,11 @@ A mitigação de Z-fighting apresentada é um melhor esforço. Não há nenhuma 
 
 * A habilitação da mitigação das sobreposições de texto gera pouca ou nenhuma sobrecarga de desempenho.
 * Além disso, a habilitação da sobreposição do Z-fighting provoca uma sobrecarga de desempenho não trivial, embora possa variar dependendo da cena.
+
+## <a name="api-documentation"></a>Documentação da API
+
+* [Propriedade C# RenderingConnection. ZFightingMitigationSettings](/dotnet/api/microsoft.azure.remoterendering.renderingconnection.zfightingmitigationsettings)
+* [C++ RenderingConnection:: ZFightingMitigationSettings ()](/cpp/api/remote-rendering/renderingconnection#zfightingmitigationsettings)
 
 ## <a name="next-steps"></a>Próximas etapas
 

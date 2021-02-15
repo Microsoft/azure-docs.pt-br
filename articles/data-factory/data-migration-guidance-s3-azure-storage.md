@@ -1,22 +1,18 @@
 ---
 title: Migrar dados do Amazon S3 para o Armazenamento do Azure
 description: Use o Azure Data Factory para migrar dados do Amazon S3 para o Armazenamento do Azure.
-services: data-factory
 ms.author: yexu
 author: dearandyxu
-ms.reviewer: ''
-manager: shwang
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 8/04/2019
-ms.openlocfilehash: 3f40ad7346219b48a38ade38b2a75ddf71940875
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2be8a9c7476bda6952ed1eaa15d29fe9c01b59a5
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81416410"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100371304"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-amazon-s3-to-azure-storage"></a>Use o Azure Data Factory para migrar dados do Amazon S3 para o Armazenamento do Azure 
 
@@ -37,13 +33,13 @@ O ADF oferece uma arquitetura sem servidor que permite o paralelismo em diferent
 
 Os clientes migraram petabytes de dados com êxito que consistiam em centenas de milhões de arquivos do Amazon S3 para o Armazenamento de Blobs do Azure, com uma taxa de transferência sustentada de 2 GBps e superior. 
 
-![desempenho](media/data-migration-guidance-s3-to-azure-storage/performance.png)
+![O diagrama mostra várias partições de arquivo em um armazenamento S3 S com as ações de cópia associadas ao armazenamento de BLOBs do Azure A D L S Gen2.](media/data-migration-guidance-s3-to-azure-storage/performance.png)
 
 A figura acima ilustra como obter grandes velocidades de movimentação de dados por meio de diferentes níveis de paralelismo:
  
-- Uma só atividade de cópia pode aproveitar os recursos de computação escalonáveis: ao usar o Azure Integration Runtime, você pode especificar [até 256 DIUs](https://docs.microsoft.com/azure/data-factory/copy-activity-performance#data-integration-units) para cada atividade de cópia por meio da computação sem servidor; ao usar o runtime de integração auto-hospedada, você pode escalar verticalmente o computador no modo manual ou escalá-lo horizontalmente para vários computadores ([até quatro nós](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime#high-availability-and-scalability)) e uma só atividade de cópia particionará o conjunto de arquivos em todos os nós. 
+- Uma só atividade de cópia pode aproveitar os recursos de computação escalonáveis: ao usar o Azure Integration Runtime, você pode especificar [até 256 DIUs](./copy-activity-performance.md#data-integration-units) para cada atividade de cópia por meio da computação sem servidor; ao usar o runtime de integração auto-hospedada, você pode escalar verticalmente o computador no modo manual ou escalá-lo horizontalmente para vários computadores ([até quatro nós](./create-self-hosted-integration-runtime.md#high-availability-and-scalability)) e uma só atividade de cópia particionará o conjunto de arquivos em todos os nós. 
 - Uma só atividade de cópia faz leituras e gravações no armazenamento de dados usando vários threads. 
-- O fluxo de controle do ADF pode iniciar várias atividades de cópia em paralelo, por exemplo, usando o [loop For Each](https://docs.microsoft.com/azure/data-factory/control-flow-for-each-activity). 
+- O fluxo de controle do ADF pode iniciar várias atividades de cópia em paralelo, por exemplo, usando o [loop For Each](./control-flow-for-each-activity.md). 
 
 ## <a name="resilience"></a>Resiliência
 
@@ -61,7 +57,7 @@ Como alternativa, se você não quiser que os dados sejam transferidos pela Inte
 
 Migrar dados pela Internet pública:
 
-![solution-architecture-public-network](media/data-migration-guidance-s3-to-azure-storage/solution-architecture-public-network.png)
+![O diagrama mostra a migração pela Internet por H T P a partir de um armazenamento S3 de uma W por meio de Azure Integration Runtime em um D F do Azure para o armazenamento do Azure. O tempo de execução tem um canal de controle com Data Factory.](media/data-migration-guidance-s3-to-azure-storage/solution-architecture-public-network.png)
 
 - Nessa arquitetura, os dados são transferidos com segurança via HTTPS pela Internet pública. 
 - O Amazon S3 de origem e o Armazenamento de Blobs do Azure ou o Azure Data Lake Storage Gen2 de destino estão configurados para permitir o tráfego de todos os endereços IP de rede.  Veja a segunda arquitetura abaixo e descubra como você pode restringir o acesso à rede para um intervalo de IP específico. 
@@ -70,21 +66,21 @@ Migrar dados pela Internet pública:
 
 Migrar dados por link privado: 
 
-![solution-architecture-private-network](media/data-migration-guidance-s3-to-azure-storage/solution-architecture-private-network.png)
+![O diagrama mostra a migração em uma conexão de emparelhamento privado de um armazenamento S3 de um W por meio do tempo de execução de integração auto-hospedado em máquinas virtuais do Azure para pontos de extremidade de serviço de rede V para o armazenamento do Azure. O tempo de execução tem um canal de controle com Data Factory.](media/data-migration-guidance-s3-to-azure-storage/solution-architecture-private-network.png)
 
 - Nessa arquitetura, a migração de dados é feita por meio de um link de emparelhamento privado entre o AWS Direct Connect e o Azure ExpressRoute, de modo que os dados nunca percorram a Internet pública.  Ele exige o uso da AWS VPC e da Rede Virtual do Azure. 
 - Você precisa instalar o runtime de integração auto-hospedada do ADF em uma VM do Windows na rede virtual do Azure para obter essa arquitetura.  Escale verticalmente suas VMs do IR auto-hospedado manualmente ou escale-as horizontalmente para várias VMs (até 4 nós) para utilizar totalmente a rede e a IOPS/a largura de banda de armazenamento. 
-- Se for aceitável transferir dados via HTTPS, mas você quiser bloquear o acesso à rede ao S3 de origem para um intervalo de IP específico, adote uma variação dessa arquitetura removendo a AWS VPC e substituindo o link privado por HTTPS.  O ideal é manter o IR auto-hospedado e a Rede Virtual do Azure na VM do Azure para ter um IP roteável publicamente estático para fins da lista de permissões. 
+- Se for aceitável transferir dados via HTTPS, mas você quiser bloquear o acesso à rede ao S3 de origem para um intervalo de IP específico, adote uma variação dessa arquitetura removendo a AWS VPC e substituindo o link privado por HTTPS.  Convém manter o IR do Azure virtual e auto-Hosted na VM do Azure para que você possa ter um IP roteável publicamente estático para fins de filtragem. 
 - A migração de dados de instantâneo inicial e a migração de dados delta podem ser obtidas por meio dessa arquitetura. 
 
 ## <a name="implementation-best-practices"></a>Melhores práticas de implementação 
 
 ### <a name="authentication-and-credential-management"></a>Autenticação e gerenciamento de credenciais 
 
-- Para se autenticar na conta do Amazon S3, você precisará usar a [chave de acesso para a conta do IAM](https://docs.microsoft.com/azure/data-factory/connector-amazon-simple-storage-service#linked-service-properties). 
-- Há suporte para vários tipos de autenticação para se conectar ao Armazenamento de Blobs do Azure.  O uso de [identidades gerenciadas para recursos do Azure](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#managed-identity) é altamente recomendável: criado com base em uma identificação do ADF gerenciada automaticamente no Azure AD, ele permite que você configure pipelines sem fornecer credenciais na definição de serviço vinculado.  Como alternativa, você pode se autenticar no Armazenamento de Blobs do Azure usando a [entidade de serviço](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#service-principal-authentication), a [Assinatura de Acesso Compartilhado](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#shared-access-signature-authentication) ou a [chave da conta de armazenamento](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#account-key-authentication). 
-- Também há suporte para vários tipos de autenticação para se conectar ao Azure Data Lake Storage Gen2.  O uso de [identidades gerenciadas para recursos do Azure](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#managed-identity) é altamente recomendável, embora a [entidade de serviço](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#service-principal-authentication) ou a [chave da conta de armazenamento](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#account-key-authentication) também possa ser usada. 
-- Quando você não estiver usando identidades gerenciadas para recursos do Azure, o [armazenamento das credenciais no Azure Key Vault](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault) é altamente recomendável para facilitar o gerenciamento centralizado e a rotação das chaves sem modificar os serviços vinculados do ADF.  Essa também é uma das [melhores práticas de CI/CD](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment#best-practices-for-cicd). 
+- Para se autenticar na conta do Amazon S3, você precisará usar a [chave de acesso para a conta do IAM](./connector-amazon-simple-storage-service.md#linked-service-properties). 
+- Há suporte para vários tipos de autenticação para se conectar ao Armazenamento de Blobs do Azure.  O uso de [identidades gerenciadas para recursos do Azure](./connector-azure-blob-storage.md#managed-identity) é altamente recomendável: criado com base em uma identificação do ADF gerenciada automaticamente no Azure AD, ele permite que você configure pipelines sem fornecer credenciais na definição de serviço vinculado.  Como alternativa, você pode se autenticar no Armazenamento de Blobs do Azure usando a [entidade de serviço](./connector-azure-blob-storage.md#service-principal-authentication), a [Assinatura de Acesso Compartilhado](./connector-azure-blob-storage.md#shared-access-signature-authentication) ou a [chave da conta de armazenamento](./connector-azure-blob-storage.md#account-key-authentication). 
+- Também há suporte para vários tipos de autenticação para se conectar ao Azure Data Lake Storage Gen2.  O uso de [identidades gerenciadas para recursos do Azure](./connector-azure-data-lake-storage.md#managed-identity) é altamente recomendável, embora a [entidade de serviço](./connector-azure-data-lake-storage.md#service-principal-authentication) ou a [chave da conta de armazenamento](./connector-azure-data-lake-storage.md#account-key-authentication) também possa ser usada. 
+- Quando você não estiver usando identidades gerenciadas para recursos do Azure, o [armazenamento das credenciais no Azure Key Vault](./store-credentials-in-key-vault.md) é altamente recomendável para facilitar o gerenciamento centralizado e a rotação das chaves sem modificar os serviços vinculados do ADF.  Essa também é uma das [melhores práticas de CI/CD](./continuous-integration-deployment.md#best-practices-for-cicd). 
 
 ### <a name="initial-snapshot-data-migration"></a>Migração de dados de instantâneo inicial 
 
@@ -122,7 +118,7 @@ Quando encontrar erros de limitação relatados pela atividade de cópia do ADF,
 
 Considere o seguinte pipeline construído para migrar dados do S3 para o Armazenamento de Blobs do Azure: 
 
-![pricing-pipeline](media/data-migration-guidance-s3-to-azure-storage/pricing-pipeline.png)
+![O diagrama mostra um pipeline para migrar dados, com gatilho manual fluindo para Lookup, fluindo para ForEach, fluindo para um subpipeline para cada partição que contém o fluxo de cópia para o procedimento armazenado. Fora do pipeline, o procedimento armazenado flui para o Azure SQL D B, que flui para a pesquisa e para os fluxos S3 S para copiar, que flui para o armazenamento de BLOBs.](media/data-migration-guidance-s3-to-azure-storage/pricing-pipeline.png)
 
 Vamos supor o seguinte: 
 
@@ -135,19 +131,19 @@ Vamos supor o seguinte:
 
 Este é o preço estimado com base nas suposições acima: 
 
-![pricing-table](media/data-migration-guidance-s3-to-azure-storage/pricing-table.png)
+![A captura de tela de uma tabela mostra um preço estimado.](media/data-migration-guidance-s3-to-azure-storage/pricing-table.png)
 
 ### <a name="additional-references"></a>Referências adicionais 
-- [Conector do Amazon Simple Storage Service](https://docs.microsoft.com/azure/data-factory/connector-amazon-simple-storage-service)
-- [Azure Blob Storage connector](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage) (Conector do Armazenamento de Blobs do Azure)
-- [Conector do Azure Data Lake Store Gen2](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)
-- [Guia de ajuste de desempenho da atividade de cópia](https://docs.microsoft.com/azure/data-factory/copy-activity-performance)
-- [Como criar e configurar o runtime de integração auto-hospedada](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime)
-- [HA e escalabilidade do runtime de integração auto-hospedada](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime#high-availability-and-scalability)
-- [Considerações sobre segurança da movimentação de dados](https://docs.microsoft.com/azure/data-factory/data-movement-security-considerations)
-- [Armazenar credenciais no Azure Key Vault](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault)
-- [Copiar arquivo de maneira incremental com base no nome do arquivo particionado por tempo](https://docs.microsoft.com/azure/data-factory/tutorial-incremental-copy-partitioned-file-name-copy-data-tool)
-- [Copiar arquivos novos e alterados com base na LastModifiedDate](https://docs.microsoft.com/azure/data-factory/tutorial-incremental-copy-lastmodified-copy-data-tool)
+- [Conector do Amazon Simple Storage Service](./connector-amazon-simple-storage-service.md)
+- [Azure Blob Storage connector](./connector-azure-blob-storage.md) (Conector do Armazenamento de Blobs do Azure)
+- [Conector do Azure Data Lake Store Gen2](./connector-azure-data-lake-storage.md)
+- [Guia de ajuste de desempenho da atividade de cópia](./copy-activity-performance.md)
+- [Como criar e configurar o runtime de integração auto-hospedada](./create-self-hosted-integration-runtime.md)
+- [HA e escalabilidade do runtime de integração auto-hospedada](./create-self-hosted-integration-runtime.md#high-availability-and-scalability)
+- [Considerações sobre segurança da movimentação de dados](./data-movement-security-considerations.md)
+- [Armazenar credenciais no Azure Key Vault](./store-credentials-in-key-vault.md)
+- [Copiar arquivo de maneira incremental com base no nome do arquivo particionado por tempo](./tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md)
+- [Copiar arquivos novos e alterados com base na LastModifiedDate](./tutorial-incremental-copy-lastmodified-copy-data-tool.md)
 - [Página de preços do ADF](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/)
 
 ## <a name="template"></a>Modelo

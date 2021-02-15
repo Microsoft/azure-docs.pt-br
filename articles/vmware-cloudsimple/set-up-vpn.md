@@ -1,19 +1,19 @@
 ---
 title: Solução do Azure VMware por CloudSimple-configure a VPN entre a nuvem local e privada
 description: Descreve como configurar uma conexão VPN site a site ou ponto a site entre sua rede local e sua nuvem privada do CloudSimple
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/14/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: d000d8390375466232c7daac2a4a056ef424be79
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b7a119b538ee07b961011bfa98d748f92cc76f0e
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77087132"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97899211"
 ---
 # <a name="configure-a-vpn-connection-to-your-cloudsimple-private-cloud"></a>Configurar uma conexão VPN para sua nuvem privada do CloudSimple
 
@@ -37,7 +37,7 @@ O cliente VPN é necessário para se conectar ao CloudSimple do seu computador. 
 1. Inicie o portal do CloudSimple e selecione **rede**.
 2. Selecione **Gateway de VPN**.
 3. Na lista de gateways de VPN, clique no gateway de VPN ponto a site.
-4. Selecione **usuários**.
+4. Selecione **Usuários**.
 5. Clique em **baixar minha configuração de VPN**
 
     ![Baixar configuração de VPN](media/download-p2s-vpn-configuration.png)
@@ -63,7 +63,7 @@ O exemplo abaixo mostra a importação de conexão usando o **cliente viscosity*
 
 4. Selecione o arquivo de configuração OpenVPN (. ovpn) para o protocolo que você deseja usar e clique em **abrir**.
 
-    ![VPN](media/import-p2s-vpn-config-choose-ovpn.png)
+    ![Captura de tela que realça os arquivos de configuração do OpenVPN que você pode selecionar.](media/import-p2s-vpn-config-choose-ovpn.png)
 
 A conexão agora aparece no menu viscosity.
 
@@ -71,7 +71,7 @@ A conexão agora aparece no menu viscosity.
 
 Para se conectar à VPN usando o cliente viscosity OpenVPN, selecione a conexão no menu. O ícone de menu é atualizado para indicar que a conexão foi estabelecida.
 
-![VPN](media/vis03.png)
+![Captura de tela que mostra o status de conectividade de VPN CloudSimple.](media/vis03.png)
 
 ### <a name="connecting-to-multiple-private-clouds"></a>Conectando-se a várias nuvens privadas
 

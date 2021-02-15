@@ -8,12 +8,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: 900221bd27fe4020a927b3155c91aa8e494ca890
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: cf0e423648db174433f0717f2e5971ac49697b42
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86203834"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98704616"
 ---
 # <a name="data-transfer-for-large-datasets-with-moderate-to-high-network-bandwidth"></a>Transferência de dados para grandes conjuntos de dados com largura de banda de rede moderada a alta
  
@@ -83,7 +83,7 @@ Se estiver usando a transferência de dados online, use a tabela na seção a se
 
 ### <a name="high-network-bandwidth"></a>Largura de banda da rede alta
 
-|                                     |    Tools AzCopy, <br>Azure PowerShell, <br>CLI do Azure             |    SDKs, APIs REST do Armazenamento do Azure                   |    Gateway do Data Box ou Data Box Edge          |    Azure Data Factory                                            |
+|                                     |    Tools AzCopy, <br>Azure PowerShell, <br>CLI do Azure             |    SDKs, APIs REST do Armazenamento do Azure                   |    Gateway do Data Box ou Data Box Edge          |    Fábrica de dados do Azure                                            |
 |-------------------------------------|------------------------------------|----------------------------------------------|----------------------------------|-----------------------------------------------------------------------|
 |    **Data type**              |    Blobs do Azure, Azure Files, Tabelas do Azure    |    Blobs do Azure, Azure Files, Tabelas do Azure    |    Blobs do Azure, Azure Files                           |   Dá suporte a mais de 70 conectores de dados para os formatos e armazenamentos de dados    |
 |    **Fator forma**            |    Ferramentas da linha de comando                        |    Interface programática                    |    A Microsoft fornece um dispositivo virtual <br>ou físico     |    Serviço no portal do Azure                                            |
@@ -95,17 +95,17 @@ Se estiver usando a transferência de dados online, use a tabela na seção a se
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Saiba como transferir dados com Importação/Exportação](/azure/storage/common/storage-import-export-data-to-blobs).
+- [Saiba como transferir dados com Importação/Exportação](../../import-export/storage-import-export-data-to-blobs.md).
 - Entenda como
 
-    - [Transferir dados com o Data Box Disk](https://docs.microsoft.com/azure/databox/data-box-disk-quickstart-portal).
-    - [Transferir dados com o Data Box](https://docs.microsoft.com/azure/databox/data-box-quickstart-portal).
-- [Transferir dados com AzCopy](/azure/storage/common/storage-use-azcopy-v10).
+    - [Transferir dados com disco do data Box](../../databox/data-box-disk-quickstart-portal.md).
+    - [Transferir dados com data Box](../../databox/data-box-quickstart-portal.md).
+- [Transferir dados com AzCopy](./storage-use-azcopy-v10.md).
 - Entenda como:
-    - [Transferir dados com o Data Box Gateway](https://docs.microsoft.com/azure/databox-online/data-box-gateway-deploy-add-shares).
-    - [Transformar dados com o Data Box Edge antes de enviar para o Azure](https://docs.microsoft.com/azure/databox-online/data-box-edge-deploy-configure-compute).
-- [Saiba como transferir dados com o Azure Data Factory](https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-portal).
+    - [Transferir dados com o Data Box Gateway](../../databox-gateway/data-box-gateway-deploy-add-shares.md).
+    - [Transforme dados com data Box Edge antes de enviar para o Azure](../../databox-online/azure-stack-edge-deploy-configure-compute.md).
+- [Saiba como transferir dados com o Azure Data Factory](../../data-factory/quickstart-create-data-factory-portal.md).
 - Use as APIs REST para transferir dados
 
-    - [In .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage)
-    - [No Java](https://docs.microsoft.com/java/api/overview/azure/storage)
+    - [In .NET](/dotnet/api/overview/azure/storage)
+    - [No Java](/java/api/overview/azure/storage)

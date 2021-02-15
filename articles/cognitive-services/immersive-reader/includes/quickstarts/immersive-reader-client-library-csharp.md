@@ -3,28 +3,28 @@ title: Início rápido da biblioteca de clientes do C# para Leitura Avançada
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você cria um aplicativo Web do zero e adiciona a funcionalidade da API de Leitura Avançada.
 services: cognitive-services
-author: pasta
+author: nitinme
 manager: nitinme
 ms.service: cognitive-services
+ms.subservice: immersive-reader
 ms.topic: include
-ms.date: 05/20/2020
-ms.author: pasta
-ms.custom: devx-track-javascript
-ms.openlocfilehash: fdcffeda1c57cdb043c51c8a3640006be8ae7418
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.date: 09/14/2020
+ms.author: nitinme
+ms.custom: devx-track-js, devx-track-csharp
+ms.openlocfilehash: 080b9dac8dad099f2901f2b820da58501310471b
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88602543"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98947402"
 ---
-A [Leitura Avançada](https://www.onenote.com/learningtools) é uma ferramenta projetada de forma inclusiva que implementa técnicas comprovadas para melhorar a compreensão da leitura.
+A [Leitura Avançada](https://www.onenote.com/learningtools) é uma ferramenta inclusivamente desenvolvida que implementa técnicas comprovadas para melhorar a compreensão de leitura para novos leitores, aprendizes da idioma e pessoas com diferenças de aprendizado, como dislexia. Você pode usar a Leitura Avançada em seus aplicativos para isolar texto e aprimorar o foco, exibir imagens para palavras usadas com frequência, realçar partes de fala, ler o texto selecionado em voz alta, traduzir palavras e frases em tempo real e muito mais.
 
-Neste Início Rápido, você cria um aplicativo Web do zero e integra a Leitura Avançada usando a biblioteca de clientes de Leitura Avançada. Um exemplo de funcionamento completo deste Início Rápido está disponível [aqui](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/quickstart-csharp).
-
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de começar.
+Neste guia de início rápido, você cria um aplicativo Web do zero e integra a Leitura Avançada usando a biblioteca de clientes de Leitura Avançada. Uma amostra funcional completa deste guia de início rápido está disponível [no GitHub](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/quickstart-csharp).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
+* Assinatura do Azure – [Criar uma gratuitamente](https://azure.microsoft.com/free/cognitive-services)
 * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads)
 * Um recurso de Leitura Avançada configurado para autenticação do Azure Active Directory. Siga [estas instruções](../../how-to-create-immersive-reader.md) para a configuração. Você precisará de alguns dos valores criados aqui ao configurar as propriedades do projeto de exemplo. Salve a saída da sessão em um arquivo de texto para referência futura.
 
@@ -32,17 +32,17 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 Crie um projeto no Visual Studio, usando o modelo de aplicativo Web ASP.NET Core com Model-View-Controller interno e o ASP.NET Core 2.1. Dê ao projeto o nome "QuickstartSampleWebApp".
 
-![Novo Projeto](../../media/quickstart-csharp/1-createproject.png)
+![Novo projeto – C#](../../media/quickstart-csharp/1-createproject.png)
 
-![Configurar novo projeto](../../media/quickstart-csharp/2-configureproject.png)
+![Configurar novo projeto – C#](../../media/quickstart-csharp/2-configureproject.png)
 
-![Novo aplicativo Web ASP.NET Core](../../media/quickstart-csharp/3-createmvc.png)
+![Novo aplicativo Web ASP.NET Core – C#](../../media/quickstart-csharp/3-createmvc.png)
 
 ## <a name="set-up-authentication"></a>Configurar a autenticação
 
 ### <a name="configure-authentication-values"></a>Configurar os valores de autenticação
 
-Clique com botão direito do mouse no projeto no _Gerenciador de Soluções_ e escolha **Gerenciar Segredos do Usuário**. Isso abrirá um arquivo chamado _secrets.json_. Não foi feito o check-in do arquivo no controle do código-fonte. Saiba mais [aqui](https://docs.microsoft.com/aspnet/core/security/app-secrets?view=aspnetcore-3.1&tabs=windows). Substitua o conteúdo de _secrets.json_ pelo seguinte, fornecendo os valores fornecidos quando você criou o recurso de Leitura Avançada.
+Clique com botão direito do mouse no projeto no _Gerenciador de Soluções_ e escolha **Gerenciar Segredos do Usuário**. Isso abrirá um arquivo chamado _secrets.json_. Não foi feito o check-in do arquivo no controle do código-fonte. Saiba mais [aqui](/aspnet/core/security/app-secrets?tabs=windows). Substitua o conteúdo de _secrets.json_ pelo seguinte, fornecendo os valores fornecidos quando você criou o recurso de Leitura Avançada.
 
 ```json
 {
@@ -53,7 +53,7 @@ Clique com botão direito do mouse no projeto no _Gerenciador de Soluções_ e e
 }
 ```
 
-### <a name="add-the-microsoftidentitymodelclientsactivedirectory-nuget-package"></a>Adicione o pacote NuGet Microsoft.IdentityModel.Clients.ActiveDirectory
+### <a name="install-active-directory-nuget-package"></a>Instalar o pacote NuGet do Active Directory
 
 O código a seguir usa objetos do pacote NuGet **Microsoft.IdentityModel.Clients.ActiveDirectory**; portanto, você precisará adicionar uma referência a esse pacote no projeto.
 
@@ -216,9 +216,9 @@ Agora, vamos adicionar conteúdo de exemplo a este aplicativo Web. Abra _Views\H
 
 Observe que todo o texto tem um atributo **lang**, que descreve os idiomas do texto. Esse atributo ajuda a Leitura Avançada a fornecer recursos relevantes de idioma e gramática.
 
-## <a name="add-javascript-to-handle-launching-the-immersive-reader"></a>Adicionar JavaScript para tratar da inicialização da Leitura Avançada
+## <a name="add-javascript-to-handle-launching-immersive-reader"></a>Adicionar JavaScript para tratar da inicialização da Leitura Avançada
 
-A biblioteca da Leitura Avançada fornece funcionalidades como iniciar a Leitura Avançada e renderizar botões da Leitura Avançada. Saiba mais [aqui](https://docs.microsoft.com/azure/cognitive-services/immersive-reader/reference).
+A biblioteca da Leitura Avançada fornece funcionalidades como iniciar a Leitura Avançada e renderizar botões da Leitura Avançada. Saiba mais [aqui](../../reference.md).
 
 Na parte inferior de _Views\Home\Index.cshtml_, adicione o seguinte código:
 
@@ -296,18 +296,14 @@ Na barra de menus, selecione **Depurar > Iniciar Depuração** ou pressione **F5
 
 Em seu navegador, você deverá ver:
 
-![Aplicativo de exemplo](../../media/quickstart-csharp/4-buildapp.png)
+![Aplicativo de exemplo – C#](../../media/quickstart-csharp/4-buildapp.png)
 
 ## <a name="launch-the-immersive-reader"></a>Iniciar a Leitura Avançada
 
 Ao clicar no botão "Leitura Avançada", você verá a Leitura Avançada iniciada com o conteúdo na página.
 
-![Leitura Avançada](../../media/quickstart-csharp/5-viewimmersivereader.png)
+![Leitura Avançada – C#](../../media/quickstart-csharp/5-viewimmersivereader.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Conferir o [Início rápido do Node.js](../../tutorial-nodejs.md) para ver o que mais você pode fazer com a biblioteca de clientes de Leitura Avançada usando o Node.js
-* Veja o [tutorial do Android](../../tutorial-android.md) para saber o que mais você pode fazer com o SDK de Leitura Avançada usando o Java ou o Kotlin para Android
-* Veja o [tutorial do iOS](../../tutorial-ios.md) para saber o que mais você pode fazer com o SDK de Leitura Avançada usando o Swift para iOS
-* Conferir o [tutorial do Python](../../tutorial-python.md) para ver o que mais você pode fazer com a biblioteca de clientes de Leitura Avançada usando Python
 * Explore o [SDK da Leitura Avançada](https://github.com/microsoft/immersive-reader-sdk) e a [Referência de SDK da Leitura Avançada](../../reference.md)

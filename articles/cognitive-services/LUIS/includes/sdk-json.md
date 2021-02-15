@@ -2,20 +2,18 @@
 title: incluir arquivo
 description: incluir arquivo
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.date: 08/12/2020
 ms.topic: include
-ms.custom: include file, devx-track-javascript
-ms.author: diberry
-ms.openlocfilehash: 7d1c9e396f088fb64c3a71a868cdefee803e4730
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.custom: include file, devx-track-js
+ms.openlocfilehash: 77a0f0151968a97f6ea5d682a031574bbf8bcdfc
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88237276"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91545680"
 ---
 A resposta de previsão é um objeto JSON, incluindo a intenção e todas as entidades encontradas.
 

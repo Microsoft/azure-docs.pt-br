@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/21/2020
+ms.date: 01/15/2021
 ms.author: jeedes
-ms.openlocfilehash: c14a519be112e61ed7055debe7a1a454e465bd9b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: eb583db5137eb4b138c52958d34e6da9a2a6e651
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549085"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624196"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-mimecast-personal-portal"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Mimecast Personal Portal
 
@@ -25,8 +25,6 @@ Neste tutorial, você aprenderá a integrar o Mimecast Personal Portal ao Azure 
 * Controlar, no Azure AD, quem tem acesso ao Mimecast Personal Portal.
 * Permitir que os usuários sejam conectados automaticamente ao Mimecast Personal Portal com as contas do Azure AD deles.
 * Gerenciar suas contas em um local central: o portal do Azure.
-
-Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -40,24 +38,23 @@ Para começar, você precisará dos seguintes itens:
 Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste.
 
 * O Mimecast Personal Portal é compatível com SSO iniciado por **SP e IDP**
-* Após configurar o Mimecast Personal Portal, você poderá impor o controle de sessão, que protege contra a exportação e a infiltração de dados confidenciais de sua organização em tempo real. O controle da sessão é estendido do Acesso Condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-## <a name="adding-mimecast-personal-portal-from-the-gallery"></a>Adicionando o Mimecast Personal Portal por meio da galeria
+ 
+## <a name="add-mimecast-personal-portal-from-the-gallery"></a>Adicionar o Mimecast Personal Portal por meio da galeria
 
 Para configurar a integração do Mimecast Personal Portal ao Azure AD, é necessário adicionar o Mimecast Personal Portal à lista de aplicativos SaaS gerenciados por meio da galeria.
 
-1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
+1. Entre no portal do Azure usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
 1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory**.
 1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos**.
 1. Para adicionar um novo aplicativo, escolha **Novo aplicativo**.
 1. Na seção **Adicionar da galeria**, digite **Mimecast Personal Portal** na caixa de pesquisa.
 1. Selecione **Mimecast Personal Portal** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-mimecast-personal-portal"></a>Configurar e testar o logon único do Azure AD para o Mimecast Personal Portal
+## <a name="configure-and-test-azure-ad-sso-for-mimecast-personal-portal"></a>Configurar e testar o SSO do Azure AD para o Mimecast Personal Portal
 
 Configure e teste o SSO do Azure AD com o Mimecast Personal Portal usando um usuário de teste com o nome **B.Fernandes**. Para que o SSO funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no Mimecast Personal Portal.
 
-Para configurar e testar o SSO do Azure AD com o Mimecast Personal Portal, conclua os seguintes blocos de construção:
+Para configurar e testar o SSO do Azure AD com o Mimecast Personal Portal, execute as seguintes etapas:
 
 1. **[Configurar o SSO do Azure AD](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
     1. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** para testar o logon único do Azure AD com B.Fernandes.
@@ -70,15 +67,15 @@ Para configurar e testar o SSO do Azure AD com o Mimecast Personal Portal, concl
 
 Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Mimecast Personal Portal**, localize a seção **Gerenciar** e selecione **logon único**.
+1. No portal do Azure, na página de integração de aplicativos do **Mimecast Personal Portal**, localize a seção **Gerenciar** e selecione **Logon único**.
 1. Na página **Selecionar um método de logon único**, escolha **SAML**.
-1. Na página **Configurar o logon único com o SAML**, clique no ícone de edição/caneta da **Configuração Básica do SAML** para editar as configurações.
+1. Na página **Configurar o logon único com o SAML**, clique no ícone de caneta da **Configuração Básica do SAML** para editar as configurações.
 
    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
 1. Na seção **Configuração Básica do SAML**, caso deseje configurar o aplicativo no modo iniciado por IDP, execute as seguintes etapas:
 
-    a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão:
+    a. Na caixa de texto **Identificador**, digite a URL no seguinte padrão: 
 
     | Região  |  Valor | 
     | --------------- | --------------- |
@@ -91,7 +88,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
     > [!NOTE]
     > Você encontrará o valor `accountcode` no Mimecast Personal Portal em **Conta** > **Configurações** > **Código de Conta**. Acrescente o `accountcode` ao identificador.
 
-    b. Na caixa de texto **URL de Resposta**, digite uma URL:
+    b. Na caixa de texto **URL de Resposta**, digite a URL: 
 
     | Região  |  Valor |
     | --------------- | --------------- |
@@ -103,7 +100,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. Se quiser configurar o aplicativo no modo iniciado em **SP**:
 
-    Na caixa de texto **URL de Logon**, digite uma URL:
+    Na caixa de texto **URL de Logon**, digite a URL: 
 
     | Região  |  Valor |
     | --------------- | --------------- |
@@ -133,20 +130,14 @@ Nesta seção, você criará um usuário de teste no portal do Azure chamado B.F
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
-Nesta seção, você permitirá que B.Fernandes use o logon único do Azure concedendo acesso ao Mimecast Personal Portal.
+Nesta seção, você permitirá que B.Fernandes use o logon único do Azure permitindo acesso ao Mimecast Personal Portal.
 
 1. No portal do Azure, selecione **Aplicativos empresariais** e, em seguida, selecione **Todos os aplicativos**.
 1. Na lista de aplicativos, selecione **Mimecast Personal Portal**.
 1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e escolha **Usuários e grupos**.
-
-   ![O link “Usuários e grupos”](common/users-groups-blade.png)
-
 1. Escolha **Adicionar usuário** e, em seguida, **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
-
-    ![O link Adicionar Usuário](common/add-assign-user.png)
-
 1. Na caixa de diálogo **Usuários e grupos**, selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
-1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função**, escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
+1. Se você estiver esperando que uma função seja atribuída aos usuários, escolha-a na lista suspensa **Selecionar uma função**. Se nenhuma função tiver sido configurada para esse aplicativo, você verá a função "Acesso Padrão" selecionada.
 1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
 ## <a name="configure-mimecast-personal-portal-sso"></a>Configurar o SSO do Mimecast Personal Portal
@@ -155,23 +146,23 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 
 1. Navegue até **Administração** > **Serviços** > **Aplicativos**.
 
-    ![Configuração do Mimecast Personal Portal](./media/mimecast-personal-portal-tutorial/services.png)
+    ![A captura de tela mostra a janela Mimecast com a opção Aplicativos selecionada.](./media/mimecast-personal-portal-tutorial/services.png)
 
 1. Clique na guia **Perfis de Autenticação**.
     
-    ![Configuração do Mimecast Personal Portal](./media/mimecast-personal-portal-tutorial/authentication-profiles.png)
+    ![A captura de tela mostra a guia Aplicativo com a opção Perfis de Autenticação selecionada.](./media/mimecast-personal-portal-tutorial/authentication-profiles.png)
 
 1. Clique na guia **Novo Perfil de Autenticação**.
 
-    ![Configuração do Mimecast Personal Portal](./media/mimecast-personal-portal-tutorial/new-authenticatio-profile.png)
+    ![A captura de tela mostra a opção Novo Perfil de Autenticação selecionada.](./media/mimecast-personal-portal-tutorial/new-authenticatio-profile.png)
 
 1. Forneça uma descrição válida na caixa de texto **Descrição** e marque a caixa de seleção **Impor Autenticação SAML para o Mimecast Personal Portal**.
 
-    ![Configuração do Mimecast Personal Portal](./media/mimecast-personal-portal-tutorial/selecting-personal-portal.png)
+    ![A captura de tela mostra a opção Novo Perfil de Autenticação selecionada.](./media/mimecast-personal-portal-tutorial/selecting-personal-portal.png)
 
 1. Na página **Configuração do SAML para o Mimecast Personal Portal**, realize as seguintes etapas:
 
-    ![Configuração do Mimecast Personal Portal](./media/mimecast-personal-portal-tutorial/sso-settings.png)
+    ![A captura de tela mostra onde selecionar Impor Autenticação SAML para o Console de Administração.](./media/mimecast-personal-portal-tutorial/sso-settings.png)
 
     a. Para **Provedor**, selecione **Azure Active Directory** na lista suspensa.
 
@@ -189,23 +180,23 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 
 1. Navegue até **Administração** > **Diretórios** > **Diretórios Internos**.
 
-    ![Configuração do Mimecast Personal Portal](./media/mimecast-personal-portal-tutorial/internal-directories.png)
+    ![A captura de tela mostra a Configuração do SAML para o portal Mimecast Personal em que você pode inserir os valores descritos.](./media/mimecast-personal-portal-tutorial/internal-directories.png)
 
 1. Selecione em seu domínio, se o domínio for mencionado abaixo, caso contrário, crie um domínio clicando em **Novo Domínio**.
 
-    ![Configuração do Mimecast Personal Portal](./media/mimecast-personal-portal-tutorial/domain-name.png)
+    ![A captura de tela mostra a janela Mimecast com a opção Diretórios Internos selecionada.](./media/mimecast-personal-portal-tutorial/domain-name.png)
 
 1. Clique na guia **Novo Endereço**.
 
-    ![Configuração do Mimecast Personal Portal](./media/mimecast-personal-portal-tutorial/new-address.png)
+    ![A captura de tela mostra o domínio selecionado.](./media/mimecast-personal-portal-tutorial/new-address.png)
 
 1. Forneça as informações de usuário necessárias na seguinte página:
 
-    ![Configuração do Mimecast Personal Portal](./media/mimecast-personal-portal-tutorial/user-information.png)
+    ![A captura de tela mostra a página em que você pode inserir os valores descritos.](./media/mimecast-personal-portal-tutorial/user-information.png)
 
     a. Na caixa de texto **Endereço de Email**, insira o endereço de email do usuário como `B.Simon@yourdomainname.com`.
 
-    b. Na caixa de texto **Nome Global**, insira o **nome completo** do usuário.
+    b. Na caixa de texto **Nome Global**, insira o **Nome completo** do usuário.
 
     c. Nas caixas de texto **Senha** e **Confirmar Senha**, digite a senha do usuário.
 
@@ -215,25 +206,24 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 
     f. Para atribuir funções ao usuário, clique em **Editar Função** e atribua a função necessária ao usuário de acordo com o requisito da sua organização.
 
-    ![Configuração do Mimecast Personal Portal](./media/mimecast-personal-portal-tutorial/assign-role.png)
+    ![A captura de tela mostra as Configurações de Endereço em que você pode selecionar Edição de Função.](./media/mimecast-personal-portal-tutorial/assign-role.png)
 
 
 ## <a name="test-sso"></a>Testar o SSO 
+Nesta seção, você testará a configuração de logon único do Azure AD com as opções a seguir. 
 
-Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
+#### <a name="sp-initiated"></a>Iniciado por SP:
 
-Ao clicar no bloco do Mimecast Personal Portal no Painel de Acesso, você deverá ser conectado automaticamente ao Mimecast Personal Portal para o qual configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Clique em **Testar este aplicativo** no portal do Azure. Isso redirecionará você para a URL de Logon do Mimecast Personal Portal, na qual poderá iniciar o fluxo de logon.  
 
-## <a name="additional-resources"></a>Recursos adicionais
+* Acesse diretamente a URL de Logon do Mimecast Personal Portal e inicie o fluxo de logon nela.
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+#### <a name="idp-initiated"></a>Iniciado por IdP:
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+* Clique em **Testar este aplicativo** no portal do Azure e você será conectado automaticamente ao Mimecast Personal Portal, para o qual configurou o SSO 
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+Use também os Meus Aplicativos da Microsoft para testar o aplicativo em qualquer modo. Ao clicar no bloco do Mimecast Personal Portal, em Meus Aplicativos, se ele estiver configurado no modo SP, você será redirecionado à página de logon do aplicativo para iniciar o fluxo de logon e, se ele estiver configurado no modo IdP, você será conectado automaticamente ao Mimecast Personal Portal, para o qual configurou o SSO. Para obter mais informações sobre os Meus Aplicativos, confira [Introdução aos Meus Aplicativos](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-- [Experimente o Mimecast Personal Portal com o Azure AD](https://aad.portal.azure.com/)
+## <a name="next-steps"></a>Próximas etapas
 
-- [O que é controle de sessão no Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-
-- [Como proteger o Mimecast Personal Portal com visibilidade e controles avançados](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+Depois de configurar o Mimecast Personal Portal, você poderá impor o controle de sessão, que fornece proteção contra exportação e infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app)

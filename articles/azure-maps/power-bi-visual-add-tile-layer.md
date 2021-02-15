@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 8a0d930d1c0fd30c48d97b0d1d4b94548077fbca
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 6ab99f32932f39d5ad140b7a16d16ceae30fff54
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261609"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896201"
 ---
 # <a name="add-a-tile-layer"></a>Adicionar uma camada de bloco
 
@@ -54,14 +54,14 @@ A URL do bloco uma URL https para um modelo de URL de bloco que usa os seguintes
 -   `{x}` - posição X do bloco. Também precisa `{y}` e `{z}`.
 -   `{y}` - posição Y do bloco. Também precisa `{x}` e `{z}`.
 -   `{z}` -Nível de zoom do bloco. Também precisa `{x}` e `{y}`.
--   `{quadkey}`-Identificador de bloco `quadkey` com base na Convenção de nomenclatura do sistema de blocos do Bing Maps.
--   `{bbox-epsg-3857}`-Uma cadeia de caracteres de caixa delimitadora com o formato `{west},{south},{east},{north}` no sistema de referência espacial do EPSG 3857.
+-   `{quadkey}` -Identificador de bloco `quadkey` com base na Convenção de nomenclatura do sistema de blocos do Bing Maps.
+-   `{bbox-epsg-3857}` -Uma cadeia de caracteres de caixa delimitadora com o formato `{west},{south},{east},{north}` no sistema de referência espacial do EPSG 3857.
 
-Por exemplo, a seguir está uma URL de bloco formatada para o [serviço de bloco de radar meteorológico](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview) no mapas do Azure. Observe que `[subscription-key]` é um espaço reservado para sua chave de assinatura do Azure Maps.
+Por exemplo, a seguir está uma URL de bloco formatada para o [serviço de bloco de radar meteorológico](/rest/api/maps/renderv2/getmaptilepreview) no mapas do Azure. Observe que `[subscription-key]` é um espaço reservado para sua chave de assinatura do Azure Maps.
 
 > `https://atlas.microsoft.com/map/tile?zoom={z}&x={x}&y={y}&tilesetId=microsoft.weather.radar.main&api-version=2.0&subscription-key=[subscription-key]`
 
-Para obter mais informações sobre o sistema de divisão de mapas do Azure, consulte [níveis de zoom e grade de blocos](zoom-levels-and-tile-grid.md).
+Para obter mais informações sobre o sistema de divisão de mapas do Azure, consulte [níveis de zoom e grade de blocos](zoom-levels-and-tile-grid.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

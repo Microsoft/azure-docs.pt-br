@@ -9,12 +9,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 08/30/2017
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: b1e044c6f61e51de1d8f2ba07f64918307109e46
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 9ce6e20e5e4866bc4daa3f331fa2a8612ac6c260
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87494716"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184154"
 ---
 # <a name="delete-an-azure-cache-for-redis"></a>Excluir um Azure Cache para Redis
 
@@ -34,11 +34,11 @@ Esse script usa os comandos a seguir para excluir uma instância do Azure Cache 
 
 | Comando | Observações |
 |---|---|
-| [exclusão de redis az](https://docs.microsoft.com/cli/azure/redis) | Exclua o Azure Cache para Redis para instância do Redis. |
+| [exclusão de redis az](/cli/azure/redis) | Exclua o Azure Cache para Redis para instância do Redis. |
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre a CLI do Azure, veja a [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
+Para saber mais sobre a CLI do Azure, veja a [documentação da CLI do Azure](/cli/azure).
 
 Exemplos adicionais de scripts da CLI do Cache Redis do Azure podem ser encontrados na [Documentação do Cache Redis do Azure](../cli-samples.md).

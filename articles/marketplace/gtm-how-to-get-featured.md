@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 04/16/2020
-ms.openlocfilehash: 09f5d61984d5802184d70867f94815fac8fe2b7d
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 465f00400c28de9642a95ebcb7bc6b2349d64bc5
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86103561"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878707"
 ---
 # <a name="how-to-get-featured-in-appsource-and-azure-marketplace"></a>Como obter destaque no AppSource e no Azure Marketplace
 
@@ -29,8 +29,8 @@ Você pode realizar as seguintes ações para melhorar sua pontuação:
 
 1. *Verifique se seu aplicativo ou serviço está categorizado adequadamente*: escolha três categorias que representam os recursos do aplicativo ou do serviço.
 2. *Aplicativos do Azure Marketplace: aumente o seu consumo do Azure mês a mês.* Se for capaz de alcançar 1.000 horas mensais de uso do Azure, você aumentará significativamente suas chances de ficar em destaque.
-3. *Aplicativos do AppSource: aumente as aquisições que vêm para sua oferta.* Se for capaz de alcançar 10 aquisições mensais, você aumentará significativamente suas chances de ficar em destaque. 
-4. *Conquiste o status de pronto de venda conjunta*: complete os requisitos para estar pronto para venda conjunta.
+3. *Aplicativos do AppSource: aumente as aquisições que vêm para sua oferta.* Se for capaz de alcançar 10 aquisições mensais, você aumentará significativamente suas chances de ficar em destaque.
+4. *Obter Co-Sell status pronto*: conclua os [requisitos para o co-revendedor pronto](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status).
 5. *Melhore a qualidade da sua oferta*: consulte [diretrizes para listagem de conteúdo](marketplace-criteria-content-validation.md) para obter informações sobre como modificar a oferta
 6. Publicar várias ofertas no Marketplace: todos os seus principais aplicativos e serviços estão listados? Você tem uma experiência de avaliação?
 7. Incentive seus clientes a escrever revisões.

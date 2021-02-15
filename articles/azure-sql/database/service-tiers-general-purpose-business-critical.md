@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: sashan, moslake, carlrab
-ms.date: 01/30/2020
-ms.openlocfilehash: 37dd6881876df010b548a8bb48ca88bb72dab764
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.reviewer: sashan, moslake
+ms.date: 12/14/2020
+ms.openlocfilehash: b5a30846a6e2aaf85ded2e55641aa5fba9507a29
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85986596"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165766"
 ---
 # <a name="azure-sql-database-and-azure-sql-managed-instance-service-tiers"></a>Banco de dados SQL do Azure e camadas de serviço do Azure SQL Instância Gerenciada
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -42,23 +42,23 @@ A tabela a seguir descreve as principais diferenças entre as camadas de serviç
 | **Mais adequado para** | |  Oferece opções equilibradas de computação e armazenamento orientadas ao orçamento. | A maioria das cargas de trabalho comerciais. Dimensionamento automático do tamanho de armazenamento de até 100 TB, dimensionamento vertical e horizontal de computação de fluxo, restauração rápida de banco de dados. | Aplicativos OLTP com alta taxa de transação e baixa latência de e/s. Oferece maior resiliência a falhas e failovers rápidos usando várias réplicas atualizadas de forma síncrona.|
 |  **Disponível no tipo de recurso:** ||Banco de dados SQL/SQL Instância Gerenciada | Banco de dados SQL do Azure individual | Banco de dados SQL/SQL Instância Gerenciada |
 | **Tamanho da computação**| Banco de Dados SQL | 1 a 80 vCores | 1 a 80 vCores | 1 a 80 vCores |
-| | Instância Gerenciada do SQL | 4, 8, 16, 24, 32, 40, 64, 80 vCores | N/D | 4, 8, 16, 24, 32, 40, 64, 80 vCores |
+| | Instância Gerenciada de SQL | 4, 8, 16, 24, 32, 40, 64, 80 vCores | N/D | 4, 8, 16, 24, 32, 40, 64, 80 vCores |
 | | Pools de Instância Gerenciada do SQL | 2, 4, 8, 16, 24, 32, 40, 64, 80 vCores | N/D | N/D |
 | **Tipo de armazenamento** | Tudo | Armazenamento remoto Premium (por instância) | Armazenamento desacoplado com cache SSD local (por instância) | Armazenamento SSD local super rápido (por instância) |
 | **Tamanho do banco de dados** | Banco de Dados SQL | 5 GB – 4 TB | Até 100 TB | 5 GB – 4 TB |
-| | Instância Gerenciada do SQL  | 32 GB A 8 TB | N/D | 32 GB – 4 TB |
+| | Instância Gerenciada de SQL  | 32 GB A 8 TB | N/D | 32 GB – 4 TB |
 | **Tamanho de armazenamento** | Banco de Dados SQL | 5 GB – 4 TB | Até 100 TB | 5 GB – 4 TB |
-| | Instância Gerenciada do SQL  | 32 GB A 8 TB | N/D | 32 GB – 4 TB |
+| | Instância Gerenciada de SQL  | 32 GB A 8 TB | N/D | 32 GB – 4 TB |
 | **Tamanho do TempDB** | Banco de Dados SQL | [32 GB por vCore](resource-limits-vcore-single-databases.md#general-purpose---provisioned-compute---gen4) | [32 GB por vCore](resource-limits-vcore-single-databases.md#hyperscale---provisioned-compute---gen5) | [32 GB por vCore](resource-limits-vcore-single-databases.md#business-critical---provisioned-compute---gen4) |
-| | Instância Gerenciada do SQL  | [24 GB por vCore](../managed-instance/resource-limits.md#service-tier-characteristics) | N/D | Até 4 TB- [limitado pelo tamanho do armazenamento](../managed-instance/resource-limits.md#service-tier-characteristics) |
+| | Instância Gerenciada de SQL  | [24 GB por vCore](../managed-instance/resource-limits.md#service-tier-characteristics) | N/D | Até 4 TB- [limitado pelo tamanho do armazenamento](../managed-instance/resource-limits.md#service-tier-characteristics) |
 | **Taxa de transferência de gravação de log** | Banco de Dados SQL | [1,875 MB/s por vCore (máximo de 30 MB/s)](resource-limits-vcore-single-databases.md#general-purpose---provisioned-compute---gen4) | 100 MB/s | [6 MB/s por vCore (máx. 96 MB/s)](resource-limits-vcore-single-databases.md#business-critical---provisioned-compute---gen4) |
-| | Instância Gerenciada do SQL | [3 MB/s por vCore (máximo de 22 MB/s)](../managed-instance/resource-limits.md#service-tier-characteristics) | N/D | [4 MB/s por VCORE (máx. 48 MB/s)](../managed-instance/resource-limits.md#service-tier-characteristics) |
+| | Instância Gerenciada de SQL | [3 MB/s por vCore (máximo de 22 MB/s)](../managed-instance/resource-limits.md#service-tier-characteristics) | N/D | [4 MB/s por VCORE (máx. 48 MB/s)](../managed-instance/resource-limits.md#service-tier-characteristics) |
 |**Disponibilidade**|Tudo| 99,99% |  [99,95% com uma réplica secundária, 99,99% com mais réplicas](service-tier-hyperscale-frequently-asked-questions-faq.md#what-slas-are-provided-for-a-hyperscale-database) | 99,99% <br/> [99,995% com Banco de dados individual com redundância de zona](https://azure.microsoft.com/blog/understanding-and-leveraging-azure-sql-database-sla/) |
-|**Backups**|Tudo|RA-GRS, 7-35 dias (7 dias por padrão)| RA-GRS, 7 dias, tempo constante de recuperação point-in-time (PITR) | RA-GRS, 7-35 dias (7 dias por padrão) |
+|**Backups**|Tudo|RA-GRS, 7-35 dias (7 dias por padrão). A retenção máxima para a camada básica é de 7 dias. | RA-GRS, 7 dias, tempo constante de recuperação point-in-time (PITR) | RA-GRS, 7-35 dias (7 dias por padrão) |
 |**OLTP na memória** | | N/D | N/D | Disponível |
 |**Réplicas somente leitura**| | 0 interno <br> 0-4 usando [a replicação geográfica](active-geo-replication-overview.md) | 0-4 interno | 1 interno, incluído no preço <br> 0-4 usando [a replicação geográfica](active-geo-replication-overview.md) |
 |**Preço/cobrança** | Banco de Dados SQL | [vCore, armazenamento reservado e armazenamento de backup](https://azure.microsoft.com/pricing/details/sql-database/single/) são cobrados. <br/>O IOPS não é cobrado. | [vCore para cada réplica e armazenamento usado](https://azure.microsoft.com/pricing/details/sql-database/single/) são cobrados. <br/>IOPS ainda não cobrado. | [vCore, armazenamento reservado e armazenamento de backup](https://azure.microsoft.com/pricing/details/sql-database/single/) são cobrados. <br/>O IOPS não é cobrado. |
-|| Instância Gerenciada do SQL | [vCore, armazenamento reservado e armazenamento de backup](https://azure.microsoft.com/pricing/details/sql-database/managed/) é cobrado. <br/>O IOPS não é cobrado| N/D | [vCore, armazenamento reservado e armazenamento de backup](https://azure.microsoft.com/pricing/details/sql-database/managed/) é cobrado. <br/>O IOPS não é cobrado.| 
+|| Instância Gerenciada de SQL | [vCore, armazenamento reservado e armazenamento de backup](https://azure.microsoft.com/pricing/details/sql-database/managed/) é cobrado. <br/>O IOPS não é cobrado| N/D | [vCore, armazenamento reservado e armazenamento de backup](https://azure.microsoft.com/pricing/details/sql-database/managed/) é cobrado. <br/>O IOPS não é cobrado.| 
 |**Modelos de desconto**| | [Instâncias reservadas](reserved-capacity-overview.md)<br/>[Benefício híbrido do Azure](../azure-hybrid-benefit.md) (não disponível em assinaturas de desenvolvimento/teste)<br/>Assinaturas de desenvolvimento/teste [Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) e [pago conforme o uso](https://azure.microsoft.com/offers/ms-azr-0023p/)| [Benefício híbrido do Azure](../azure-hybrid-benefit.md) (não disponível em assinaturas de desenvolvimento/teste)<br/>Assinaturas de desenvolvimento/teste [Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) e [pago conforme o uso](https://azure.microsoft.com/offers/ms-azr-0023p/)| [Instâncias reservadas](reserved-capacity-overview.md)<br/>[Benefício híbrido do Azure](../azure-hybrid-benefit.md) (não disponível em assinaturas de desenvolvimento/teste)<br/>Assinaturas de desenvolvimento/teste [Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) e [pago conforme o uso](https://azure.microsoft.com/offers/ms-azr-0023p/)|
 
 Para obter mais informações, consulte as diferenças detalhadas entre as camadas de serviço no [banco de dados SQL do Azure (vCore)](resource-limits-vcore-single-databases.md), [um único DTU (banco de dados SQL do Azure)](resource-limits-dtu-single-databases.md), [DTU (banco de dados SQL) do Azure em pool](resource-limits-dtu-single-databases.md)e páginas [do Azure SQL instância gerenciada](../managed-instance/resource-limits.md) .
@@ -78,13 +78,14 @@ Os seguintes fatores afetam a quantidade de armazenamento usada para arquivos de
   - Para armazenamento nas camadas de serviço Premium ou comercialmente crítico, aumente ou diminua o tamanho em incrementos de 250 GB.
 - Na camada de serviço de uso geral, o `tempdb` usa um SSD anexado e esse custo de armazenamento é incluído no preço vCore.
 - Na camada de serviço comercialmente crítico, `tempdb` o compartilha o SSD anexado com os arquivos MDF e ldf, e o `tempdb` custo de armazenamento é incluído no preço vCore.
+- Na camada de serviço do DTU Premium, `tempdb` o compartilha o SSD anexado com arquivos MDF e ldf.
 - O tamanho do armazenamento para um Instância Gerenciada SQL deve ser especificado em múltiplos de 32 GB.
 
 
 > [!IMPORTANT]
 > Você é cobrado pelo armazenamento total alocado para arquivos MDF e LDF.
 
-Para monitorar o tamanho total atual de seus arquivos MDF e LDF, use [sp_spaceused](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-spaceused-transact-sql). Para monitorar o tamanho atual dos arquivos MDF e LDF individuais, use [sys.database_files](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-database-files-transact-sql).
+Para monitorar o tamanho total atual de seus arquivos MDF e LDF, use [sp_spaceused](/sql/relational-databases/system-stored-procedures/sp-spaceused-transact-sql). Para monitorar o tamanho atual dos arquivos MDF e LDF individuais, use [sys.database_files](/sql/relational-databases/system-catalog-views/sys-database-files-transact-sql).
 
 > [!IMPORTANT]
 > Em algumas circunstâncias, talvez seja necessário reduzir um banco de dados para recuperar o espaço não utilizado. Para obter mais informações, consulte [gerenciar o espaço de arquivo no banco de dados SQL do Azure](file-space-manage.md).
@@ -102,5 +103,4 @@ Para obter detalhes sobre os tamanhos de computação e armazenamento específic
 
 - [limites de recursos baseados em vCore para o banco de dados SQL do Azure](resource-limits-vcore-single-databases.md).
 - [limites de recursos baseados em vCore para bancos de dados em pool no banco de dados SQL do Azure](resource-limits-vcore-elastic-pools.md).
-- [limites de recursos baseados em vCore para o Azure SQL instância gerenciada](../managed-instance/resource-limits.md). 
-
+- [limites de recursos baseados em vCore para o Azure SQL instância gerenciada](../managed-instance/resource-limits.md).

@@ -1,0 +1,174 @@
+- name: Documentação dos Serviços de Comunicação do Azure
+  href: index.yml
+- name: Visão geral
+  expanded: true
+  items:
+    - name: O que são os Serviços de Comunicação do Azure?
+      href: overview.md
+- name: Inícios rápidos
+  expanded: true
+  items:
+    - name: Criar um recurso dos Serviços de Comunicação
+      href: quickstarts/create-communication-resource.md
+    - name: Criar e gerenciar tokens de acesso
+      href: quickstarts/access-tokens.md
+    - name: Chat
+      items:
+        - name: Adicionar o chat ao aplicativo
+          href: quickstarts/chat/get-started.md
+        - name: Ingressar seu aplicativo de chat em uma reunião do Teams
+          href: quickstarts/chat/meeting-interop.md
+    - name: Telefonia e SMS
+      items:
+        - name: Obter um número de telefone
+          href: quickstarts/telephony-sms/get-phone-number.md
+        - name: Adicionar chamada telefônica ao aplicativo
+          href: quickstarts/voice-video-calling/pstn-call.md
+        - name: Enviar uma mensagem SMS
+          href: quickstarts/telephony-sms/send.md
+        - name: Manipular eventos de SMS
+          href: quickstarts/telephony-sms/handle-sms-events.md
+        - name: Enviar um SMS nos Aplicativos Lógicos do Azure
+          href: quickstarts/telephony-sms/logic-app.md
+    - name: Chamadas de voz e vídeo
+      items:
+        - name: Adicionar chamada de voz ao aplicativo
+          href: quickstarts/voice-video-calling/getting-started-with-calling.md
+        - name: Usar a biblioteca de clientes de chamada
+          href: quickstarts/voice-video-calling/calling-client-samples.md
+        - name: Ingressar seu aplicativo de chamada em uma reunião do Teams
+          href: quickstarts/voice-video-calling/get-started-teams-interop.md
+    - name: Estrutura da IU
+      items:
+        - name: Introdução a componentes compostos
+          href: quickstarts/ui-framework/get-started-with-composites.md
+        - name: Introdução a componentes básicos
+          href: quickstarts/ui-framework/get-started-with-components.md
+        - name: Criar seu próprio componente de Estrutura da IU
+          href: quickstarts/ui-framework/create-your-own-components.md
+- name: Tutoriais
+  expanded: false
+  items:
+    - name: Criar um serviço de autenticação confiável usando o Azure Functions
+      href: tutorials/trusted-service-tutorial.md
+    - name: Assinar uma solicitação HTTP com uma assinatura HMAC usando C#
+      href: tutorials/hmac-header-tutorial.md
+    - name: Preparar um aplicativo Web para Serviços de Comunicação (Node.js)
+      href: tutorials/building-app-start.md
+- name: Conceitos
+  expanded: false
+  items:
+    - name: Interoperabilidade do Teams
+      href: concepts/teams-interop.md
+    - name: Chat
+      items:
+        - name: Visão geral da biblioteca de clientes de chat
+          href: concepts/chat/sdk-features.md
+        - name: Conceitos de chat
+          href: concepts/chat/concepts.md
+    - name: Telefonia e SMS
+      items:
+        - name: Visão geral da biblioteca de clientes de SMS
+          href: concepts/telephony-sms/sdk-features.md
+        - name: Conceitos de SMS
+          href: concepts/telephony-sms/concepts.md
+        - name: Planejar sua solução de telefonia e SMS
+          href: concepts/telephony-sms/plan-solution.md
+    - name: Chamadas de voz e vídeo
+      items:
+        - name: Visão geral da biblioteca de clientes de chamada
+          href: concepts/voice-video-calling/calling-sdk-features.md
+        - name: Conceitos de voz e vídeo
+          href: concepts/voice-video-calling/about-call-types.md
+    - name: Estrutura da IU
+      items:
+        - name: Visão geral da Estrutura da IU
+          href: concepts/ui-framework/ui-sdk-overview.md
+        - name: Funcionalidades da Estrutura da IU
+          href: concepts/ui-framework/ui-sdk-features.md
+    - name: Arquitetura de cliente e servidor
+      href: concepts/client-and-server-architecture.md
+    - name: Fluxos de chamadas
+      href: concepts/call-flows.md
+    - name: Topologias de fluxo de chamadas
+      href: concepts/detailed-call-flows.md
+    - name: Bibliotecas de cliente e APIs REST
+      href: concepts/sdk-options.md
+    - name: Modelo de preços
+      href: concepts/pricing.md
+    - name: Privacidade
+      href: concepts/privacy.md
+    - name: Modelo de identidade
+      href: concepts/identity-model.md
+    - name: Autenticação
+      href: concepts/authentication.md
+    - name: Manipulação de eventos
+      href: concepts/event-handling.md
+    - name: Notificações
+      href: concepts/notifications.md
+    - name: Log e diagnóstico
+      href: concepts/logging-and-diagnostics.md
+    - name: Métricas
+      href: concepts/metrics.md
+    - name: Solução de problemas
+      href: concepts/troubleshooting-info.md
+    - name: Problemas conhecidos
+      href: concepts/known-issues.md
+- name: Exemplos
+  items:
+    - name: Exemplo de destaque de chamada de grupo
+      href: samples/calling-hero-sample.md
+    - name: Exemplo de destaque de chat de grupo
+      href: samples/chat-hero-sample.md
+    - name: Exemplo de chamada da Web
+      href: samples/web-calling-sample.md
+- name: Referências
+  items:
+    - name: Visão geral da documentação de referência
+      href: concepts/reference.md
+    - name: Documentação da API REST
+      href: /rest/api/communication/
+    - name: Bibliotecas de chamadas
+      items:
+        - name: Chamada (JavaScript)
+          href: /javascript/api/azure-communication-services/@azure/communication-calling/?view=azure-communication-services-js
+        - name: Chamada (Android/Java)
+          href: /java/api/com.azure.communication.calling?view=communication-services-java-android
+        - name: Chamada (iOS)
+          href: /objectivec/communication-services/calling/
+    - name: Bibliotecas de chat
+      items:
+        - name: Chat (JavaScript)
+          href: 'https://azure.github.io/azure-sdk-for-js/communication.html#azure-communication-chat'
+        - name: Chat (.NET)
+          href: 'https://azure.github.io/azure-sdk-for-net/communication.html#azurecommunicationchat'
+        - name: Chat (Android/Java)
+          href: 'https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-chat'
+    - name: Bibliotecas de SMS
+      items:
+        - name: SMS (JavaScript)
+          href: 'https://azure.github.io/azure-sdk-for-js/communication.html#azure-communication-sms'
+        - name: SMS (.NET)
+          href: 'https://azure.github.io/azure-sdk-for-net/communication.html#azurecommunicationsms'
+        - name: SMS (Android/Java)
+          href: 'https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-sms'
+    - name: Bibliotecas de administração
+      items:
+        - name: Administração (JavaScript)
+          href: 'https://azure.github.io/azure-sdk-for-js/communication.html#azure-communication-administration'
+        - name: Administração (.NET)
+          href: 'https://azure.github.io/azure-sdk-for-net/communication.html#azurecommunicationadministration'
+        - name: Administração (Android/Java)
+          href: 'https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-administration'
+    - name: Bibliotecas comuns
+      items:
+        - name: Comum (JavaScript)
+          href: 'https://azure.github.io/azure-sdk-for-js/communication.html#azure-communication-common'
+        - name: Comum (.NET)
+          href: 'https://azure.github.io/azure-sdk-for-net/communication.html#azurecommunicationcommon'
+        - name: Comum (Android/Java)
+          href: 'https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-common'
+- name: Recursos
+  items:
+    - name: Notas de versão
+      href: 'https://github.com/Azure/Communication/blob/master/releasenotes'

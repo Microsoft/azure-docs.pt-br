@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: f7f6de717f0ed9a2e27e15199b6f0ea566e0fdcd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 71e1c7787243713b29be9455fee966eff54f6d90
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87021623"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100097646"
 ---
 # <a name="connect-your-pulse-connect-secure-to-azure-sentinel"></a>Conectar seu Pulse Connect seguro ao Azure Sentinel
 

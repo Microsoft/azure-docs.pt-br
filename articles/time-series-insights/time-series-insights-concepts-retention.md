@@ -9,16 +9,19 @@ manager: diviso
 ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 09/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 005725acf7270ff87ac9418f27941bdb205ae986
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4f236679d0662df852581a6a8408ed6bc0d4e3fe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87059425"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91535682"
 ---
 # <a name="understand-data-retention-in-azure-time-series-insights-gen1"></a>Entender a retenção de dados no Azure Time Series Insights Gen1
+
+> [!CAUTION]
+> Esse é um artigo do Gen1.
 
 Este artigo descreve duas configurações principais que afetam a retenção de dados em seu ambiente de Azure Time Series Insights.
 
@@ -37,7 +40,8 @@ Além disso, seu ambiente de Azure Time Series Insights tem uma configuração d
 
 > [!NOTE]
 > Por padrão, ao criar um novo ambiente, a retenção está configurada para **Limpar dados antigos**. Essa configuração pode ser alternada conforme necessário após a hora de criação usando o portal do Azure, na página **Configurar** do ambiente de Azure Time Series insights.
-> * Para obter informações sobre como configurar políticas de retenção, leia [Configurando a retenção em Azure Time Series insights](time-series-insights-how-to-configure-retention.md).
+>
+> - Para obter informações sobre como configurar políticas de retenção, leia [Configurando a retenção em Azure Time Series insights](time-series-insights-how-to-configure-retention.md).
 
 Ambas as políticas de retenção de dados são descritas mais detalhadamente abaixo.
 
@@ -69,8 +73,8 @@ Sempre que a taxa diária de entrada do ambiente excede 0,166 GB por dia, os dad
 - Ele ajuda a proteger você contra perda de dados, mas pode criar uma oportunidade para a perda de seus dados mais recentes se a entrada estiver em pausa além do período de retenção da origem do evento.
 - No entanto, depois que a capacidade máxima de um ambiente é atingida, o ambiente pausa a entrada de dados até que as seguintes ações adicionais ocorram:
 
-   - Você aumenta a capacidade máxima do ambiente para adicionar mais unidades de escala, conforme descrito em [como dimensionar seu ambiente de Azure Time Series insights](time-series-insights-how-to-scale-your-environment.md).
-   - O período de retenção de dados é atingido e os dados são limpos, trazendo o ambiente abaixo de sua capacidade máxima.
+  - Você aumenta a capacidade máxima do ambiente para adicionar mais unidades de escala, conforme descrito em [como dimensionar seu ambiente de Azure Time Series insights](time-series-insights-how-to-scale-your-environment.md).
+  - O período de retenção de dados é atingido e os dados são limpos, trazendo o ambiente abaixo de sua capacidade máxima.
 
 ### <a name="example-three"></a>Exemplo três
 

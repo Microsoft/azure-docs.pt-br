@@ -1,21 +1,20 @@
 ---
-title: Como dimensionar o Cache Redis do Azure
-description: Saiba como dimensionar seu cache do Azure para instâncias Redis usando o portal do Azure e ferramentas como Azure PowerShell e CLI do Azure.
+title: Dimensionar um cache do Azure para a instância do Redis
+description: Saiba como dimensionar seu cache do Azure para instâncias Redis usando o portal do Azure e ferramentas como Azure PowerShell e CLI do Azure
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
-ms.custom: devx-track-csharp
-ms.date: 04/11/2017
-ms.openlocfilehash: e780ef0b82240ac6771059f8bd239b90395135d9
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.date: 02/08/2021
+ms.openlocfilehash: 2913869067ff138922ebb7ea1483a1132e360d29
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213338"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100382388"
 ---
-# <a name="how-to-scale-azure-cache-for-redis"></a>Como dimensionar o Cache Redis do Azure
-O Cache Redis do Azure tem diferentes ofertas de cache que fornecem flexibilidade na escolha do tamanho e dos recursos de cache. Se os requisitos de seu aplicativo se alterarem depois que um cache for criado, você poderá dimensionar o tamanho e o tipo de preço desse cache. Este artigo mostra como dimensionar seu cache no Portal do Azure usando ferramentas como o Azure PowerShell e a CLI do Azure.
+# <a name="scale-an-azure-cache-for-redis-instance"></a>Dimensionar um cache do Azure para a instância do Redis
+O Cache Redis do Azure tem diferentes ofertas de cache que fornecem flexibilidade na escolha do tamanho e dos recursos de cache. Para um cache básico, Standard ou Premium, você pode alterar seu tamanho e camada após sua criação para acompanhar suas necessidades de aplicativo. Este artigo mostra como dimensionar seu cache no Portal do Azure usando ferramentas como o Azure PowerShell e a CLI do Azure.
 
 ## <a name="when-to-scale"></a>Quando dimensionar
 Você pode usar os recursos de [monitoramento](cache-how-to-monitor.md) do Cache Redis do Azure para acompanhar a integridade e o desempenho do seu cache e para ajudar a determinar se é necessário dimensionar o cache. 
@@ -50,7 +49,7 @@ Você pode dimensionar para um tipo de preço diferente com as restrições a se
  
 Enquanto o cache é dimensionado para a nova camada de preços, é exibido um status **Dimensionando** na folha do **Cache Redis do Azure**.
 
-![Scaling][redis-cache-scaling]
+![Dimensionamento][redis-cache-scaling]
 
 Quando o dimensionamento for concluído, o status será alterado de **Dimensionando** para **Executando**.
 
@@ -65,7 +64,7 @@ Além de dimensionar as instâncias do cache no Portal do Azure, você pode dime
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Você pode dimensionar o cache do Azure para instâncias Redis com o PowerShell usando o cmdlet [set-AzRedisCache](https://docs.microsoft.com/powershell/module/az.rediscache/set-azrediscache) quando `Size` as `Sku` Propriedades,, ou `ShardCount` são modificadas. O exemplo a seguir mostra como dimensionar um cache denominado `myCache` para um cache de 2,5 GB. 
+Você pode dimensionar o cache do Azure para instâncias Redis com o PowerShell usando o cmdlet [set-AzRedisCache](/powershell/module/az.rediscache/set-azrediscache) quando `Size` as `Sku` Propriedades,, ou `ShardCount` são modificadas. O exemplo a seguir mostra como dimensionar um cache denominado `myCache` para um cache de 2,5 GB. 
 
 ```powershell
    Set-AzRedisCache -ResourceGroupName myGroup -Name myCache -Size 2.5GB

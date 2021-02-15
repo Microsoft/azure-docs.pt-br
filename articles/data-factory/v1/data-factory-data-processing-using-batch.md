@@ -1,23 +1,19 @@
 ---
 title: Processar conjuntos de dados em larga escala usando o Data Factory e o Lote
 description: Descreve como processar volumes grandes de dados em um pipeline do Azure Data Factory usando a capacidade de processamento paralelo do Lote do Azure.
-services: data-factory
-documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
-manager: jroth
+author: dcstwh
+ms.author: weetok
 ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3d0e608e1afae77afd44d7351b7c3f1f269bd8a8
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: c59e164d67a665a5e99cb5045b3b0cf38e33dc87
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88998060"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100364263"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Processar conjuntos de dados em larga escala usando o Data Factory e o Lote
 > [!NOTE]
@@ -42,7 +38,7 @@ Com o serviço em Lotes, você define os recursos de computação do Azure para 
 * [Conceitos básicos do Lote](../../azure-sql/database/sql-database-paas-overview.md)
 * [Visão geral do recurso de Lote](../../batch/batch-service-workflow-features.md)
 
-Opcionalmente, para saber mais sobre o Lote, consulte [Documentação do Lote](https://docs.microsoft.com/azure/batch/).
+Opcionalmente, para saber mais sobre o Lote, consulte [Documentação do Lote](../../batch/index.yml).
 
 ## <a name="why-azure-data-factory"></a>Por que usar o Azure Data Factory?
 O Data Factory é um serviço de integração de dados baseado em nuvem que automatiza a movimentação e a transformação dos dados. Use o Data Factory para criar pipelines de dados gerenciados que movem dados dos armazenamentos de dados locais e na nuvem para um armazenamento de dados centralizado. Um exemplo é o armazenamento de Blobs do Azure. Use o Data Factory para o processar/transformar dados usando serviços como o Azure HDInsight e Azure Machine Learning. Também agende pipelines de dados para serem executados de maneira agendada (por exemplo, por hora, diariamente e semanalmente). Monitore e gerencie rapidamente os pipelines de dados para identificar problemas e agir.
@@ -52,7 +48,7 @@ O Data Factory é um serviço de integração de dados baseado em nuvem que auto
 * [Introdução ao Data Factory](data-factory-introduction.md)
 * [Criar seu primeiro pipeline de dados](data-factory-build-your-first-pipeline.md)   
 
-Opcionalmente, para saber mais sobre o Data Factory, consulte a [Documentação do Data Factory](https://docs.microsoft.com/rest/api/datafactory/v1/data-factory-data-factory).
+Opcionalmente, para saber mais sobre o Data Factory, consulte a [Documentação do Data Factory](/rest/api/datafactory/v1/data-factory-data-factory).
 
 ## <a name="data-factory-and-batch-together"></a>Data Factory e Lote juntos
 O Data Factory inclui atividades internas. Por exemplo, a atividade de Cópia é usada para copiar/mover dados de um armazenamento de dados de origem para um armazenamento de dados de destino. A atividade do Hive é usada para processar dados usando clusters Hadoop (HDInsight) no Azure. Para obter uma lista de atividades de transformação compatíveis, consulte [Atividades de transformação de dados](data-factory-data-transformation-activities.md).
@@ -95,7 +91,7 @@ Se você não tem uma assinatura do Azure, crie uma conta de avaliação gratuit
 Use uma conta de armazenamento para armazenar os dados deste tutorial. Se você não tem uma conta de armazenamento, consulte [Criar uma conta de armazenamento](../../storage/common/storage-account-create.md). A solução de exemplo usa o armazenamento de blobs.
 
 #### <a name="azure-batch-account"></a>Conta do Lote do Azure
-Crie uma conta do Lote usando o [portal do Azure](https://portal.azure.com/). Para obter mais informações, consulte [Criar e gerenciar uma conta do Lote](../../batch/batch-account-create-portal.md). Anote a chave e o nome da conta do Lote. Também use o cmdlet [New-AzBatchAccount](https://docs.microsoft.com/powershell/module/az.batch/new-azbatchaccount) para criar uma conta do Lote. Para obter instruções sobre como usar esse cmdlet, consulte [Introdução aos cmdlets do PowerShell do Lote](../../batch/batch-powershell-cmdlets-get-started.md).
+Crie uma conta do Lote usando o [portal do Azure](https://portal.azure.com/). Para obter mais informações, consulte [Criar e gerenciar uma conta do Lote](../../batch/batch-account-create-portal.md). Anote a chave e o nome da conta do Lote. Também use o cmdlet [New-AzBatchAccount](/powershell/module/az.batch/new-azbatchaccount) para criar uma conta do Lote. Para obter instruções sobre como usar esse cmdlet, consulte [Introdução aos cmdlets do PowerShell do Lote](../../batch/batch-powershell-cmdlets-get-started.md).
 
 A solução de exemplo usa o Lote (indiretamente por meio de um pipeline do data factory) para processar dados de forma paralela em um pool de nós de computação (uma coleção gerenciada de VMs).
 
@@ -408,7 +404,7 @@ O método tem alguns componentes principais que você precisa entender:
 #### <a name="execute-method"></a>Método Execute
 Esta seção fornece mais detalhes sobre o código no método Execute.
 
-1. Os membros para iteração pela coleção de entrada são encontrados no namespace [Microsoft.WindowsAzure.Storage.Blob](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob) . Para iterar pela coleção de blobs, é necessário usar a classe **BlobContinuationToken**. Em essência, você deve usar um loop do-while com o token, como o mecanismo para saída do loop. Para obter mais informações, consulte [Usar o armazenamento de Blobs no .NET](../../storage/blobs/storage-dotnet-how-to-use-blobs.md). Um loop básico é mostrado aqui:
+1. Os membros para iteração pela coleção de entrada são encontrados no namespace [Microsoft.WindowsAzure.Storage.Blob](/java/api/com.microsoft.azure.storage.blob) . Para iterar pela coleção de blobs, é necessário usar a classe **BlobContinuationToken**. Em essência, você deve usar um loop do-while com o token, como o mecanismo para saída do loop. Para obter mais informações, consulte [Usar o armazenamento de Blobs no .NET](../../storage/blobs/storage-quickstart-blobs-dotnet.md). Um loop básico é mostrado aqui:
 
     ```csharp
     // Initialize the continuation token.
@@ -431,7 +427,7 @@ Esta seção fornece mais detalhes sobre o código no método Execute.
     } while (continuationToken != null);
 
     ```
-   Para obter mais informações, consulte a documentação do método [ListBlobsSegmented](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob.cloudblobcontainer.listblobssegmented).
+   Para obter mais informações, consulte a documentação do método [ListBlobsSegmented](/java/api/com.microsoft.azure.storage.blob.cloudblobcontainer.listblobssegmented).
 
 1. O código para trabalhar com o conjunto de blobs logicamente fica dentro do loop do-while. No método **Execute**, o loop do-while passa a lista de blobs para um método chamado **Calculate**. O método retorna uma variável de cadeia de caracteres chamada **output** , que é o resultado da iteração nos blobs do segmento.
 
@@ -668,21 +664,21 @@ Nesta etapa, você cria conjuntos de dados para representar a entrada e saída d
 
     | **Fatia** | **Hora de início**          |
     |-----------|-------------------------|
-    | 1         | 2015-11-16T**00**:00:00 |
-    | 2         | 2015-11-16T**01**:00:00 |
-    | 3         | 2015-11-16T**02**:00:00 |
-    | 4         | 2015-11-16T**03**:00:00 |
-    | 5         | 2015-11-16T**04**:00:00 |
+    | 1         | 2015-11-16T **00**:00:00 |
+    | 2         | 2015-11-16T **01**:00:00 |
+    | 3         | 2015-11-16T **02**:00:00 |
+    | 4         | 2015-11-16T **03**:00:00 |
+    | 5         | 2015-11-16T **04**:00:00 |
 
     O **folderPath** é calculado usando a parte de ano, mês, dia e hora da hora de início da fatia (**SliceStart**). É assim que uma pasta de entrada é mapeada para uma fatia.
 
     | **Fatia** | **Hora de início**          | **Pasta de entrada**  |
     |-----------|-------------------------|-------------------|
-    | 1         | 2015-11-16T**00**:00:00 | 2015-11-16-**00** |
-    | 2         | 2015-11-16T**01**:00:00 | 2015-11-16-**01** |
-    | 3         | 2015-11-16T**02**:00:00 | 2015-11-16-**02** |
-    | 4         | 2015-11-16T**03**:00:00 | 2015-11-16-**03** |
-    | 5         | 2015-11-16T**04**:00:00 | 2015-11-16-**04** |
+    | 1         | 2015-11-16T **00**:00:00 | 2015-11-16-**00** |
+    | 2         | 2015-11-16T **01**:00:00 | 2015-11-16-**01** |
+    | 3         | 2015-11-16T **02**:00:00 | 2015-11-16-**02** |
+    | 4         | 2015-11-16T **03**:00:00 | 2015-11-16-**03** |
+    | 5         | 2015-11-16T **04**:00:00 | 2015-11-16-**04** |
 
 1. Selecione **Implantar** na barra de ferramentas para criar e implantar a tabela **InputDataset**.
 
@@ -725,11 +721,11 @@ Nesta etapa, você cria outro conjunto de dados do tipo AzureBlob para represent
 
     | **Fatia** | **Hora de início**          | **Arquivo de saída**       |
     |-----------|-------------------------|-----------------------|
-    | 1         | 2015-11-16T**00**:00:00 | 2015-11-16-**00.txt** |
-    | 2         | 2015-11-16T**01**:00:00 | 2015-11-16-**01.txt** |
-    | 3         | 2015-11-16T**02**:00:00 | 2015-11-16-**02.txt** |
-    | 4         | 2015-11-16T**03**:00:00 | 2015-11-16-**03.txt** |
-    | 5         | 2015-11-16T**04**:00:00 | 2015-11-16-**04.txt** |
+    | 1         | 2015-11-16T **00**:00:00 | 2015-11-16-**00.txt** |
+    | 2         | 2015-11-16T **01**:00:00 | 2015-11-16-**01.txt** |
+    | 3         | 2015-11-16T **02**:00:00 | 2015-11-16-**02.txt** |
+    | 4         | 2015-11-16T **03**:00:00 | 2015-11-16-**03.txt** |
+    | 5         | 2015-11-16T **04**:00:00 | 2015-11-16-**04.txt** |
 
     Lembre-se de que todos os arquivos em uma pasta de entrada (por exemplo, 2015-11-16-00) fazem parte de uma fatia com a hora de início 2015-11-16-00. Quando essa fatia é processada, a atividade personalizada examina cada arquivo e produz uma linha no arquivo de saída com o número de ocorrências do termo de pesquisa “Microsoft”. Se houver três arquivos na pasta 2015-11-16-00, haverá três linhas no arquivo de saída 2015-11-16-00.txt.
 
@@ -935,7 +931,7 @@ Estenda esta amostra para saber mais sobre os recursos do Data Factory e do Lote
 
 1. Aumente ou diminua a configuração **concurrency** para entender como ela afeta o desempenho de sua solução, especialmente o processamento que ocorre no Lote. Para obter mais informações sobre a configuração de **simultaneidade**, confira a “Etapa 4: Criar e executar o pipeline com uma atividade personalizada.”
 
-1. Crie um pool com **Máximo de tarefas por VM**maior/menor. Para usar o novo pool criado, atualize o serviço vinculado do Lote na solução de data factory. Para obter mais informações sobre a configuração das **Tarefas máximas por VM**, confira a "Etapa 4: Criar e executar o pipeline com uma atividade personalizada.”
+1. Crie um pool com **Máximo de tarefas por VM** maior/menor. Para usar o novo pool criado, atualize o serviço vinculado do Lote na solução de data factory. Para obter mais informações sobre a configuração das **Tarefas máximas por VM**, confira a "Etapa 4: Criar e executar o pipeline com uma atividade personalizada.”
 
 1. Crie um pool do Lote com o recurso **autoscale**. O dimensionamento automático de nós de computação em um pool do Lote é o ajuste dinâmico da potência de processamento usada pelo aplicativo.
 
@@ -953,7 +949,7 @@ Estenda esta amostra para saber mais sobre os recursos do Data Factory e do Lote
 
    Para obter mais informações, consulte [Dimensionar automaticamente nós de computação em um pool do Lote](../../batch/batch-automatic-scaling.md).
 
-   Se o pool usar o [autoScaleEvaluationInterval](https://msdn.microsoft.com/library/azure/dn820173.aspx) padrão, o serviço Lote poderá levar de 15 a 30 minutos para preparar a VM antes de executar a atividade personalizada. Se o pool usar um autoScaleEvaluationInterval diferente, o serviço Lote poderá levar autoScaleEvaluationInterval, mais 10 minutos.
+   Se o pool usar o [autoScaleEvaluationInterval](/rest/api/batchservice/pool/enableautoscale) padrão, o serviço Lote poderá levar de 15 a 30 minutos para preparar a VM antes de executar a atividade personalizada. Se o pool usar um autoScaleEvaluationInterval diferente, o serviço Lote poderá levar autoScaleEvaluationInterval, mais 10 minutos.
 
 1. Na solução de exemplo, o método **Execute** invoca o método **Calculate**, que processa uma fatia de dados de entrada para produzir uma fatia de dados de saída. Escreva seu próprio método para processar dados de entrada e substitua a chamada do método **Calculate** no método **Execute** por uma chamada ao seu método.
 
@@ -961,7 +957,7 @@ Estenda esta amostra para saber mais sobre os recursos do Data Factory e do Lote
 Depois de processar dados, consuma-os com ferramentas online como o Power BI. Aqui estão links para ajudá-lo a entender o Power BI e como usá-lo no Azure:
 
 * [Explorar um conjunto de dados no Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-data/)
-* [Introdução ao Power BI Desktop](https://docs.microsoft.com/power-bi/fundamentals/desktop-getting-started)
+* [Introdução ao Power BI Desktop](/power-bi/fundamentals/desktop-getting-started)
 * [Atualizar dados no Power BI](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/)
 * [Azure e Power BI: visão geral básica](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)
 
@@ -979,4 +975,4 @@ Depois de processar dados, consuma-os com ferramentas online como o Power BI. Aq
   * [Introdução à biblioteca de clientes do Lote para .NET](../../batch/quick-run-dotnet.md)
 
 [batch-explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
-[batch-explorer-walkthrough]: https://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx
+[batch-explorer-walkthrough]: /archive/blogs/windowshpc/azure-batch-explorer-sample-walkthrough

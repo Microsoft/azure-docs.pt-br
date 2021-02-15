@@ -15,14 +15,16 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: anilmur
 ms.reviewer: juliako
-ms.openlocfilehash: 8d103e6a0f7a47aadce524325e58fbb7069a1e13
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 09d0e53840c2bf7a0d67c7c7fb0b224f9f77c587
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87042813"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89268298"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Transmissão ao vivo usando os Serviços de Mídia do Azure para criar fluxos de múltiplas taxas de bits
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
 > A partir de 12 de maio de 2018, os canais ao vivo não darão mais suporte ao protocolo de ingestão de fluxo de transporte RTP/MPEG-2. Faça a migração de RTP/MPEG-2 para protocolos de ingestão RTMP ou MP4 fragmentado (Smooth Streaming).
@@ -71,7 +73,7 @@ A tabela a seguir mostra como os estados de canal são mapeados para o modo de c
 | Estado de canal | Indicadores da interface do usuário do portal | Trata-se de cobrança? |
 | --- | --- | --- |
 | Iniciando |Iniciando |Nenhum (estado transitório) |
-| Em execução |Pronto (nenhum programa em execução)<br/>ou<br/>Streaming (há pelo menos um programa em execução) |YES |
+| Executando |Pronto (nenhum programa em execução)<br/>ou<br/>Streaming (há pelo menos um programa em execução) |YES |
 | Parando |Parando |Nenhum (estado transitório) |
 | Parado |Parado |Não |
 
@@ -219,12 +221,12 @@ Especifica a predefinição a ser usada pelo codificador ao vivo dentro deste ca
 
 | Taxa de bits | Largura | Altura | MáxFPS | Perfil | Nome do fluxo de saída |
 | --- | --- | --- | --- | --- | --- |
-| 3500 |1280 |720 |30 |Alto |Video_1280x720_3500kbps |
-| 2200 |960 |540 |30 |Alto |Video_960x540_2200kbps |
-| 1350 |704 |396 |30 |Alto |Video_704x396_1350kbps |
-| 850 |512 |288 |30 |Alto |Video_512x288_850kbps |
-| 550 |384 |216 |30 |Alto |Video_384x216_550kbps |
-| 200 |340 |192 |30 |Alto |Video_340x192_200kbps |
+| 3500 |1280 |720 |30 |Alta |Video_1280x720_3500kbps |
+| 2200 |960 |540 |30 |Alta |Video_960x540_2200kbps |
+| 1350 |704 |396 |30 |Alta |Video_704x396_1350kbps |
+| 850 |512 |288 |30 |Alta |Video_512x288_850kbps |
+| 550 |384 |216 |30 |Alta |Video_384x216_550kbps |
+| 200 |340 |192 |30 |Alta |Video_340x192_200kbps |
 
 #### <a name="output-audio-stream"></a>Fluxo de áudio de saída
 
@@ -260,7 +262,7 @@ O codificador ao vivo pode ser configurado para alternar para uma imagem slate e
 A duração do slate em segundos. Isso deve ser um valor positivo diferente de zero para iniciar o slate. Se houver um slate em andamento e uma duração de zero for especificada, esse slate será encerrado.
 
 ### <a name="insert-slate-on-ad-marker"></a>Inserir o slate no marcador de anúncio
-Quando definida como true, essa configuração configura o codificador ao vivo para inserir uma imagem slate durante um intervalo comercial. O valor padrão é verdadeiro. 
+Quando definida como true, essa configuração configura o codificador ao vivo para inserir uma imagem slate durante um intervalo comercial. O valor padrão é true. 
 
 ### <a name="default-slate-asset-id"></a><a id="default_slate"></a>ID de ativo de slate padrão
 
@@ -313,7 +315,7 @@ A tabela a seguir mostra como os estados de canal são mapeados para o modo de c
 | Estado de canal | Indicadores da interface do usuário do portal | Cobrado? |
 | --- | --- | --- |
 | Iniciando |Iniciando |Nenhum (estado transitório) |
-| Em execução |Pronto (nenhum programa em execução)<br/>ou<br/>Streaming (há pelo menos um programa em execução) |Sim |
+| Executando |Pronto (nenhum programa em execução)<br/>ou<br/>Streaming (há pelo menos um programa em execução) |Sim |
 | Parando |Parando |Nenhum (estado transitório) |
 | Parado |Parado |Não |
 
@@ -335,7 +337,7 @@ A tabela a seguir mostra como os estados de canal são mapeados para o modo de c
 * A predefinição de codificação usa a noção de "taxa de quadros máxima" de 30 fps. Portanto, se a entrada é 60fps/59,94i, os quadros de entrada são descartados/divididos para 30/29,97 fps. Se a entrada é 50fps/50i, os quadros de entrada são descartados/divididos para 25 fps. Se a entrada é 25 fps, a saída permanece em 25 fps.
 * Não se esqueça de PARAR SEUS CANAIS quando terminar. Caso contrário, a cobrança continuará.
 
-## <a name="known-issues"></a>Problemas Conhecidos
+## <a name="known-issues"></a>Problemas conhecidos
 * O tempo de inicialização do canal foi aprimorado para uma média de 2 minutos, mas em momentos de maior demanda pode ainda levar até 20 minutos ou mais.
 * As imagens fixas devem estar de acordo com as restrições descritas [aqui](media-services-manage-live-encoder-enabled-channels.md#default_slate). Se você tentar criar um Canal com uma imagem fixa padrão maior que 1920x1080, a solicitação eventualmente será um erro.
 * Mais uma vez... não se esqueça de PARAR SEUS CANAIS quando concluir o streaming. Caso contrário, a cobrança continuará.

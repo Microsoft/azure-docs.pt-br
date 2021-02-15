@@ -7,19 +7,19 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 06/23/2020
-ms.openlocfilehash: 0e6759837519feccf6069e805e3fe0f72562fb7b
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.date: 01/25/2021
+ms.openlocfilehash: a7a010e3c60d6b96947597878fcd870e9845b2b3
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85559010"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746130"
 ---
 # <a name="tutorial-index-json-blobs-from-azure-storage-using-rest"></a>Tutorial: Indexar blobs JSON do Armazenamento do Azure usando a REST
 
 A Pesquisa Cognitiva do Azure pode indexar matrizes e documentos JSON no armazenamento de blobs do Azure usando um [indexador](search-indexer-overview.md) que faz leitura de dados semiestruturados. Dados semi-estruturados contêm marcas ou marcações que separam o conteúdo dentro dos dados. Eles dividem a diferença entre dados não estruturados, que devem ser totalmente indexados, e dados estruturados formalmente que aderem a um modelo de dados, como um esquema de banco de dados relacional, que pode ser indexado por campo.
 
-Este tutorial usa o Postman e as [APIs REST de Pesquisa](https://docs.microsoft.com/rest/api/searchservice/) para executar as seguintes tarefas:
+Este tutorial usa o Postman e as [APIs REST de Pesquisa](/rest/api/searchservice/) para executar as seguintes tarefas:
 
 > [!div class="checklist"]
 > * Configurar uma fonte de dados da Pesquisa Cognitiva do Azure para um contêiner de blobs do Azure
@@ -31,7 +31,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-+ [Armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
++ [Armazenamento do Azure](../storage/common/storage-account-create.md)
 + [Aplicativo Postman para a área de trabalho](https://www.getpostman.com/)
 + [Criar](search-create-service-portal.md) ou [encontrar um serviço de pesquisa existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) 
 
@@ -54,7 +54,7 @@ Se possível, crie os dois na mesma região e no mesmo grupo de recursos para fa
 
 1. Pesquise *conta de armazenamento* e selecione a oferta Conta de Armazenamento da Microsoft.
 
-   ![Criar conta de armazenamento](media/cognitive-search-tutorial-blob/storage-account.png "Criar Conta de Armazenamento")
+   :::image type="content" source="media/cognitive-search-tutorial-blob/storage-account.png" alt-text="Criar conta de armazenamento" border="false":::
 
 1. Na guia Informações Básicas, os itens a seguir são obrigatórios. Aceite os padrões para todo o restante.
 
@@ -72,15 +72,15 @@ Se possível, crie os dois na mesma região e no mesmo grupo de recursos para fa
 
 1. Clique em serviço **Blobs**.
 
-1. [Crie um contêiner de Blob](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) para conter dados de exemplo. Você pode definir o Nível de Acesso Público para qualquer um de seus valores válidos.
+1. [Crie um contêiner de Blob](../storage/blobs/storage-quickstart-blobs-portal.md) para conter dados de exemplo. Você pode definir o Nível de Acesso Público para qualquer um de seus valores válidos.
 
 1. Depois que o contêiner for criado, abra-o e selecione **Carregar** na barra de comandos.
 
-   ![Carregar na barra de comandos](media/search-semi-structured-data/upload-command-bar.png "Carregar na barra de comandos")
+   :::image type="content" source="media/search-semi-structured-data/upload-command-bar.png" alt-text="Carregar na barra de comandos" border="false":::
 
 1. Navegue até a pasta que contém os arquivos de exemplo. Selecione todos eles e, em seguida, clique em **Carregar**.
 
-   ![Carregar arquivos](media/search-semi-structured-data/clinicalupload.png "Carregar arquivos")
+   :::image type="content" source="media/search-semi-structured-data/clinicalupload.png" alt-text="Carregar arquivos" border="false":::
 
 Após o upload ser concluído, os arquivos devem aparecer em sua própria subpasta dentro do contêiner de dados.
 
@@ -98,25 +98,25 @@ As chamadas REST exigem a URL do serviço e uma chave de acesso em cada solicita
 
 1. Em **Configurações** > **Chaves**, obtenha uma chave de administração para adquirir todos os direitos sobre o serviço. Há duas chaves de administração intercambiáveis, fornecidas para a continuidade dos negócios, caso seja necessário sobrepor uma. É possível usar a chave primária ou secundária em solicitações para adicionar, modificar e excluir objetos.
 
-![Obter um ponto de extremidade HTTP e uma chave de acesso](media/search-get-started-postman/get-url-key.png "Obter um ponto de extremidade HTTP e uma chave de acesso")
+   :::image type="content" source="media/search-get-started-rest/get-url-key.png" alt-text="Obter um ponto de extremidade HTTP e uma chave de acesso" border="false":::
 
 Todas as solicitações requerem uma chave de api em cada pedido enviado ao serviço. Ter uma chave válida estabelece a relação de confiança, para cada solicitação, entre o aplicativo que envia a solicitação e o serviço que lida com ela.
 
 ## <a name="2---set-up-postman"></a>2 – Configurar o Postman
 
-Inicie o Postman e configure uma solicitação HTTP. Se não estiver familiarizado com essa ferramenta, consulte [Explorar APIs REST da Pesquisa Cognitiva do Azure usando Postman](search-get-started-postman.md).
+Inicie o Postman e configure uma solicitação HTTP. Se você não estiver familiarizado com essa ferramenta, confira [Criar um índice de pesquisa usando APIs REST](search-get-started-rest.md).
 
 Os métodos de solicitação para cada chamada neste tutorial são **POST** e **GET**. Você fará três chamadas à API ao serviço de pesquisa para criar uma fonte de dados, um índice e um indexador. A fonte de dados inclui um ponteiro para sua conta de armazenamento e seus dados JSON. O serviço de pesquisa faz a conexão ao carregar os dados.
 
 Em Cabeçalhos, defina "Content-Type" como `application/json` e `api-key` como a chave de API de administração do serviço da Pesquisa Cognitiva do Azure. Depois de definir os cabeçalhos, você poderá usá-los para cada solicitação neste exercício.
 
-  ![URL e cabeçalho da solicitação do Postman](media/search-get-started-postman/postman-url.png "URL e cabeçalho da solicitação do Postman")
+  :::image type="content" source="media/search-get-started-rest/postman-url.png" alt-text="URL e cabeçalho da solicitação do Postman" border="false":::
 
 Os URIs precisam especificar uma api-version e cada chamada de consulta deve retornar uma mensagem **201 Criado**. A versão de API disponível em geral para o uso de matrizes JSON é `2020-06-30`.
 
 ## <a name="3---create-a-data-source"></a>3 – Criar uma fonte de dados
 
-A [API de Criação de Fonte de Dados](https://docs.microsoft.com/rest/api/searchservice/create-data-source) cria um objeto do Azure Cognitive Search que especifica quais dados serão indexados.
+A [API de Criação de Fonte de Dados](/rest/api/searchservice/create-data-source) cria um objeto do Azure Cognitive Search que especifica quais dados serão indexados.
 
 1. Defina o ponto de extremidade dessa chamada como `https://[service name].search.windows.net/datasources?api-version=2020-06-30`. Substitua `[service name]` pelo nome do serviço de pesquisa. 
 
@@ -158,8 +158,8 @@ A [API de Criação de Fonte de Dados](https://docs.microsoft.com/rest/api/searc
     ```
 
 ## <a name="4---create-an-index"></a>4 – Criar um índice
-    
-A segunda chamada é à [API de Criação de Índice](https://docs.microsoft.com/rest/api/searchservice/create-index), criando um índice da Pesquisa Cognitiva do Azure que armazena todos os dados pesquisáveis. Um índice especifica todos os parâmetros e seus atributos.
+
+A segunda chamada é à [API de Criação de Índice](/rest/api/searchservice/create-index), criando um índice da Pesquisa Cognitiva do Azure que armazena todos os dados pesquisáveis. Um índice especifica todos os parâmetros e seus atributos.
 
 1. Defina o ponto de extremidade dessa chamada como `https://[service name].search.windows.net/indexes?api-version=2020-06-30`. Substitua `[service name]` pelo nome do serviço de pesquisa.
 
@@ -234,7 +234,7 @@ A segunda chamada é à [API de Criação de Índice](https://docs.microsoft.com
 
 ## <a name="5---create-and-run-an-indexer"></a>5 – Criar e executar um indexador
 
-Um indexador se conecta à fonte de dados, importa dados para o índice de pesquisa de destino e, opcionalmente, fornece uma agenda para automatizar a atualização de dados. A API REST é [Criar Indexador](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
+Um indexador se conecta à fonte de dados, importa dados para o índice de pesquisa de destino e, opcionalmente, fornece uma agenda para automatizar a atualização de dados. A API REST é [Criar Indexador](/rest/api/searchservice/create-indexer).
 
 1. Defina o URI dessa chamada como `https://[service name].search.windows.net/indexers?api-version=2020-06-30`. Substitua `[service name]` pelo nome do serviço de pesquisa.
 
@@ -315,11 +315,11 @@ Você poderá iniciar a pesquisa assim que o primeiro documento for carregado.
 
 1. Adicione o parâmetro de consulta `$select` para limitar os resultados a menos campos: `https://[service name].search.windows.net/indexes/clinical-trials-json-index/docs?search=*&$select=Gender,metadata_storage_size&api-version=2020-06-30&$count=true`.  Nesta consulta, 100 documentos são correspondentes, mas por padrão, o Azure Cognitive Search retorna apenas 50 nos resultados.
 
-   ![Consulta parametrizada](media/search-semi-structured-data/lastquery.png "Consulta parametrizada")
+   :::image type="content" source="media/search-semi-structured-data/lastquery.png" alt-text="Consulta parametrizada" border="false":::
 
 1. Um exemplo de uma consulta mais complexa será `$filter=MinimumAge ge 30 and MaximumAge lt 75`, que apenas retorna resultados em que o parâmetro MinimumAge é superior ou igual a 30 e MaximumAge é inferior a 75. Substitua a expressão `$select` pela expressão `$filter`.
 
-   ![Pesquisa semi-estruturada](media/search-semi-structured-data/metadatashort.png)
+   :::image type="content" source="media/search-semi-structured-data/metadatashort.png" alt-text="Pesquisa semi-estruturada" border="false":::
 
 Use também operadores lógicos (and, or e not) e operadores de comparação (eq, ne, gt, lt, ge e le). Comparações de cadeia de caracteres diferenciam maiúsculas de minúsculas. Para obter mais informações e exemplos, confira [Criar uma consulta simples](search-query-simple-examples.md).
 

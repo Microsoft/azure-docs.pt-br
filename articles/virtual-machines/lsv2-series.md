@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 78d707c0b5afd745ae805c9513243f3791d47c60
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 2416c0b4002f560e272393c95a86c543cb5f1009
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654745"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99097835"
 ---
 # <a name="lsv2-series"></a>Série Lsv2
 
@@ -25,17 +25,16 @@ A série Lsv2 apresenta alta taxa de transferência, baixa latência, armazename
 >
 > Para saber mais, consulte otimizar o desempenho nas máquinas virtuais da série Lsv2 para [Windows](../virtual-machines/windows/storage-performance.md) ou [Linux](../virtual-machines/linux/storage-performance.md).  
 
-ACU: 150-175
-
-Intermitência: com suporte
-
-Armazenamento Premium: com suporte
-
-Armazenamento em cache Premium: sem suporte
-
-Migração ao Vivo: Sem suporte
-
-Atualizações de preservação de memória: Sem suporte
+[ACU](acu.md): 150-175<br>
+[Armazenamento Premium](premium-storage-performance.md): com suporte<br>
+[Armazenamento em cache Premium](premium-storage-performance.md): sem suporte<br>
+[Migração ao vivo](maintenance-and-updates.md): sem suporte<br>
+[Atualizações de preservação de memória](maintenance-and-updates.md): sem suporte<br>
+[Suporte à geração de VM](generation-2.md): geração 1 e 2<br>
+Intermitência: com suporte<br>
+[Rede acelerada](../virtual-network/create-vm-accelerated-networking-cli.md): com suporte<br>
+[Discos do sistema operacional efêmero](ephemeral-os-disks.md): sem suporte <br>
+<br>
 
 | Tamanho | vCPU | Memória (GiB) | Disco temporário<sup>1</sup> (GiB) | Discos NVMe<sup>2</sup> | Taxa de transferência de disco de NVMe<sup>3</sup> (IOPS de leitura/Mbps) | Taxa de transferência de disco de dados não armazenados em cache (IOPs/MBps)<sup>4</sup> | Taxa de transferência máxima de disco de dados não armazenados em cache (IOPs/MBps)<sup>5</sup>| Discos de dados máximos | Máximo de NICs | Largura de banda de rede esperada (Mbps) |
 |---|---|---|---|---|---|---|---|---|---|---|
@@ -54,7 +53,7 @@ Atualizações de preservação de memória: Sem suporte
 
 <sup>4</sup> VMs da série Lsv2 não fornecem o cache de host para o disco de dados uma vez que não beneficiam as cargas de trabalho Lsv2.
 
-<sup>5</sup> as VMs da série Lsv2 podem aumentar o [desempenho do disco](linux/disk-bursting.md) por até 30 minutos por vez. 
+<sup>5</sup> as VMs da série Lsv2 podem aumentar o [desempenho do disco](./disk-bursting.md) por até 30 minutos por vez. 
 
 <sup>6</sup> VMs com mais de 64 vCPUs exigem um destes sistemas operacionais convidados com suporte:
 

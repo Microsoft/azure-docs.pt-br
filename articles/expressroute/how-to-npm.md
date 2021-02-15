@@ -2,17 +2,17 @@
 title: 'Azure ExpressRoute: configurar NPM para circuitos'
 description: Configure o monitoramento de rede baseado em nuvem (NPM) para circuitos do Azure ExpressRoute. Isso abrange o monitoramento através do emparelhamento privado do ExpressRoute e emparelhamento da Microsoft.
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 01/25/2019
-ms.author: cherylmc
-ms.openlocfilehash: 05c21f4f3f0af0de524db75ce9e6feb38d98c24e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: 837d1f78a9fde72137383e6c22adb8870997dc9b
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84738372"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986032"
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>Configurar o Monitor de Desempenho de Rede para ExpressRoute
 
@@ -54,12 +54,12 @@ Criar um workspace na assinatura que tem o link das VNETs ao(s) circuito(s) do E
 1. No [Portal do Azure](https://portal.azure.com), selecione a Assinatura que tem as VNETs emparelhadas com o seu circuito do ExpressRoute. Em seguida, pesquise a lista de serviços no **Marketplace** para ' monitor de desempenho de rede '. Na volta, clique para abrir a página **Monitor de Desempenho de Rede**.
 
    >[!NOTE]
-   >Você pode criar um novo workspace ou usar um existente. Se você quiser usar um workspace existente, certifique-se de que o workspace tenha sido migrado para a nova linguagem de consulta. [Mais informações...](https://docs.microsoft.com/azure/log-analytics/log-analytics-log-search-upgrade)
+   >Você pode criar um novo workspace ou usar um existente. Se você quiser usar um workspace existente, certifique-se de que o workspace tenha sido migrado para a nova linguagem de consulta. [Mais informações...](../azure-monitor/log-query/log-query-overview.md)
    >
 
    ![portal](./media/how-to-npm/3.png)<br><br>
 2. Na parte inferior da página principal **Monitor de Desempenho de Rede**, clique em **Criar** para abrir a página **Monitor de Desempenho de Rede – Criar nova solução**. Clique em **Espaço de Trabalho do Log Analytics – selecionar um espaço de trabalho** para abrir a página Espaços de Trabalho. Clique em **+ Criar Novo Workspace** para abrir a página de Workspace.
-3. Na página **log Analytics espaço de trabalho** , selecione **criar novo**e defina as seguintes configurações:
+3. Na página **log Analytics espaço de trabalho** , selecione **criar novo** e defina as seguintes configurações:
 
    * Espaço de Trabalho do Log Analytics - digite um nome para o espaço de trabalho.
    * Assinatura: se você tiver várias assinaturas, selecione aquela que você deseja associar ao novo Workspace.
@@ -92,22 +92,22 @@ Criar um workspace na assinatura que tem o link das VNETs ao(s) circuito(s) do E
 É recomendável que você instale pelo menos dois agentes em cada lado da conexão de ExpressRoute para redundância (por exemplo, no local, VNETs do Azure). O agente deve ser instalado em um servidor Windows (2008 SP1 ou posterior). Não há suporte para o monitoramento de circuitos do ExpressRoute usando o sistema operacional de área de trabalho do Windows e o sistema operacional Linux. Use as etapas a seguir para instalar os agentes:
    
   >[!NOTE]
-  >Os agentes enviados pelo SCOM (incluindo [MMA](https://technet.microsoft.com/library/dn465154(v=sc.12).aspx)) podem não ser capazes de detectar consistentemente seu local se estiverem hospedados no Azure. É recomendável não utilizar esses agentes em VNETs do Azure para monitorar o ExpressRoute.
+  >Os agentes enviados pelo SCOM (incluindo [MMA](/previous-versions/system-center/system-center-2012-R2/dn465154(v=sc.12))) podem não ser capazes de detectar consistentemente seu local se estiverem hospedados no Azure. É recomendável não utilizar esses agentes em VNETs do Azure para monitorar o ExpressRoute.
   >
 
 1. Execute a **Instalação** para instalar o agente em cada servidor que deseja usar para o monitoramento de ExpressRoute. O servidor utilizado no monitoramento pode ser uma VM ou local e deve ter acesso à Internet. É necessário instalar pelo menos um agente local e um agente em cada segmento de rede que você deseja monitorar no Azure.
-2. Na página de **Boas-vindas**, clique em **Avançar**.
+2. Na página **Bem-vindo** , clique em **Avançar**.
 3. Na página **termos de licença** , leia a licença e clique em **concordo**.
 4. Na página **pasta de destino** , altere ou mantenha a pasta de instalação padrão e clique em **Avançar**.
 5. Na página **Opções de instalação do agente** , você pode optar por conectar o agente a Azure monitor logs ou Operations Manager. Ou, você poderá deixar as opções em branco se quiser configurar o agente mais tarde. Após fazer suas seleções, clique em **Avançar**.
 
-   * Se você optar por conectar-se ao **Azure Log Analytics**, cole a **ID do Workspace** e a **Chave do Workspace** (Chave Primária) que você copiou para o Bloco de Notas na seção anterior. Em seguida, clique em **Próximo**.
+   * Se você optar por conectar-se ao **Azure Log Analytics**, cole a **ID do Workspace** e a **Chave do Workspace** (Chave Primária) que você copiou para o Bloco de Notas na seção anterior. Em seguida, clique em **Avançar**.
 
      ![ID e a Chave](./media/how-to-npm/8.png)
-   * Se você optar por conectar-se ao **Operations Manager**, na página **Configuração de Grupo de Gerenciamento**, digite o **Nome do Grupo de Gerenciamento**, **Servidor de Gerenciamento** e **Porta do Servidor de Gerenciamento**. Em seguida, clique em **Próximo**.
+   * Se você optar por conectar-se ao **Operations Manager**, na página **Configuração de Grupo de Gerenciamento**, digite o **Nome do Grupo de Gerenciamento**, **Servidor de Gerenciamento** e **Porta do Servidor de Gerenciamento**. Em seguida, clique em **Avançar**.
 
      ![Operations Manager](./media/how-to-npm/9.png)
-   * Na página **Conta de Ação de Agente**, escolha a conta **Sistema Local** ou a **Conta de Computador Local ou Domínio**. Em seguida, clique em **Próximo**.
+   * Na página **Conta de Ação de Agente**, escolha a conta **Sistema Local** ou a **Conta de Computador Local ou Domínio**. Em seguida, clique em **Avançar**.
 
      ![Conta](./media/how-to-npm/10.png)
 6. Na página **pronto para instalar** , examine suas escolhas e clique em **instalar**.
@@ -118,7 +118,7 @@ Criar um workspace na assinatura que tem o link das VNETs ao(s) circuito(s) do E
 
 ### <a name="23-configure-proxy-settings-optional"></a><a name="proxy"></a>2.3: definir configurações de proxy (opcional)
 
-Caso esteja usando um proxy da Web para acessar a Internet, utilize as etapas a seguir para definir configurações de proxy para o Microsoft Monitoring Agent. Execute essas etapas para cada servidor. Se você tiver vários servidores que precisa configurar, talvez seja mais fácil usar um script para automatizar esse processo. Se tiver, consulte [Definir configurações de proxy para o Microsoft Monitoring Agent usando um script](../log-analytics/log-analytics-windows-agent.md).
+Caso esteja usando um proxy da Web para acessar a Internet, utilize as etapas a seguir para definir configurações de proxy para o Microsoft Monitoring Agent. Execute essas etapas para cada servidor. Se você tiver vários servidores que precisa configurar, talvez seja mais fácil usar um script para automatizar esse processo. Se tiver, consulte [Definir configurações de proxy para o Microsoft Monitoring Agent usando um script](../azure-monitor/platform/agent-windows.md).
 
 Para definir configurações de proxy para o Microsoft Monitoring Agent usando o Painel de Controle:
 
@@ -161,7 +161,7 @@ Nos servidores do agente, abra uma janela do PowerShell com privilégios adminis
 
 Para monitorar servidores do agente que estão no Azure, você deve configurar regras do NSG (grupo de segurança de rede) para permitir o tráfego TCP em uma porta usada pelo NPM para transações sintéticas. A porta padrão é 8084. Isso permite que um agente de monitoramento instalado na VM do Azure se comunique com um agente de monitoramento local.
 
-Para obter mais informações sobre os NSG, consulte [Grupos de Segurança de Rede](../virtual-network/virtual-networks-create-nsg-arm-portal.md).
+Para obter mais informações sobre os NSG, consulte [Grupos de Segurança de Rede](../virtual-network/tutorial-filter-network-traffic.md).
 
 >[!NOTE]
 >Certifique-se de que você instalou os agentes (o agente do servidor local e o agente do servidor do Azure) e executou o script do PowerShell antes de continuar com esta etapa.
@@ -169,7 +169,7 @@ Para obter mais informações sobre os NSG, consulte [Grupos de Segurança de Re
 
 ## <a name="step-4-discover-peering-connections"></a><a name="setupmonitor"></a>Etapa 4: Descobrir conexões de emparelhamento
 
-1. Navegue até o bloco de visão geral do Monitor de Desempenho de Rede ao acessar a página **Todos os Recursos**, então clique no Workspace de NPM na lista de permissões.
+1. Navegue até o bloco visão geral do Monitor de Desempenho de Rede acessando a página **todos os recursos** e, em seguida, clique no espaço de trabalho allowlisted NPM.
 
    ![workspace de NPM](./media/how-to-npm/npm.png)
 2. Clique no bloco de visão geral do **Monitor de Desempenho de Rede** para exibir o painel. O painel contém uma página do ExpressRoute, que mostra que o ExpressRoute está em um 'estado não configurado'. Clique em **Instalação de Recurso** para abrir a página de configuração do Monitor de Desempenho de Rede.
@@ -228,7 +228,7 @@ Depois de ver os blocos de monitoramentos, seus circuitos do ExpressRoute e os r
 
 A página NPM contém uma página para ExpressRoute que mostra uma visão geral da integridade de circuitos e emparelhamentos do ExpressRoute.
 
-![Dashboard](./media/how-to-npm/dashboard.png)
+![Captura de tela mostra um painel com uma visão geral da integridade dos circuitos e emparelhamentos do ExpressRoute.](./media/how-to-npm/dashboard.png)
 
 ### <a name="list-of-circuits"></a><a name="circuits"></a>Lista de circuitos
 

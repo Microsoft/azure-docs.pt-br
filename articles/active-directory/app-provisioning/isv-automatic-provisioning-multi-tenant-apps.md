@@ -3,7 +3,7 @@ title: Habilitar o provisionamento automático de usuário para aplicativos mult
 description: Um guia para fornecedores independentes de software para habilitar o provisionamento automatizado
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/23/2019
 ms.author: kenwith
 ms.reviewer: zhchia
-ms.openlocfilehash: 7ffdef43aa0fdcaab9e8ceae519cef9dfe5cdf6e
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 7bd0fc634109beb6cc674d89f56666e7035d33ef
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88235631"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99255688"
 ---
 # <a name="enable-automatic-user-provisioning-for-your-multi-tenant-application"></a>Habilitar o provisionamento automático de usuário para seu aplicativo multilocatário
 
@@ -64,7 +64,7 @@ Para ajudar a determinar qual opção de integração usar para seu aplicativo, 
 |---|---|---|---|
 | Gerenciamento de usuários e grupos no Azure AD| √| √| Somente usuário |
 | Gerenciar usuários e grupos sincronizados do Active Directory local| √*| √*| Somente usuário * |
-| Acessar dados além de usuários e grupos durante o provisionamento de acesso a dados do O365 (equipes, SharePoint, email, calendário, documentos etc.)| X+| √| X |
+| Acessar dados além de usuários e grupos durante o provisionamento de acesso a dados de Microsoft 365 (equipes, SharePoint, email, calendário, documentos etc.)| X+| √| X |
 | Criar, ler e atualizar usuários com base em regras de negócio| √| √| √ |
 | Excluir usuários com base em regras de negócio| √| √| X |
 | Gerenciar o provisionamento automático de usuário para todos os aplicativos do portal do Azure| √| X| √ |
@@ -89,9 +89,9 @@ Para obter mais informações sobre como os usuários do serviço de provisionam
 
 ## <a name="microsoft-graph-for-provisioning"></a>Microsoft Graph para provisionamento
 
-Ao usar Microsoft Graph para provisionamento, você tem acesso a todos os dados avançados do usuário disponíveis no Graph. Além dos detalhes de usuários e grupos, você também pode buscar informações adicionais, como funções do usuário, gerentes e relatórios diretos, dispositivos registrados e de propriedade e centenas de outras partes de dados disponíveis no [Microsoft Graph](/graph/api/overview?view=graph-rest-1.0). 
+Ao usar Microsoft Graph para provisionamento, você tem acesso a todos os dados avançados do usuário disponíveis no Graph. Além dos detalhes de usuários e grupos, você também pode buscar informações adicionais, como funções do usuário, gerentes e relatórios diretos, dispositivos registrados e de propriedade e centenas de outras partes de dados disponíveis no [Microsoft Graph](/graph/api/overview). 
 
-Mais de 15 milhões organizações e 90% das empresas da Fortune 500 usam o Azure AD ao assinar serviços em nuvem da Microsoft, como o Office 365, Microsoft Azure, Enterprise Mobility Suite ou Microsoft 365. Você pode usar Microsoft Graph para integrar seu aplicativo com fluxos de trabalho administrativos, como a integração de funcionários (e encerramento), a manutenção do perfil e muito mais. 
+Mais de 15 milhões organizações e 90% das empresas da Fortune 500 usam o Azure AD ao assinar serviços em nuvem da Microsoft, como Microsoft 365, Microsoft Azure ou Enterprise Mobility Suite. Você pode usar Microsoft Graph para integrar seu aplicativo com fluxos de trabalho administrativos, como a integração de funcionários (e encerramento), a manutenção do perfil e muito mais. 
 
 Saiba mais sobre como usar Microsoft Graph para provisionamento:
 
@@ -111,7 +111,7 @@ O SAML JIT usa as informações de declarações no token SAML para criar e atua
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Habilitar logon único para seu aplicativo](../manage-apps/isv-sso-content.md)
+* [Habilitar logon único para seu aplicativo](../develop/v2-howto-app-gallery-listing.md)
 
 * [Envie sua listagem de aplicativos](https://microsoft.sharepoint.com/teams/apponboarding/Apps/SitePages/Default.aspx) e parceiro com a Microsoft para criar a documentação no site da Microsoft.
 

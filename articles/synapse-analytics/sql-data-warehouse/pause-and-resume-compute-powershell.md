@@ -1,5 +1,5 @@
 ---
-title: Pausar e retomar a computação no pool de SQL do Synapse com o Azure PowerShell
+title: 'Início Rápido: Pausar e retomar a computação no pool de SQL do Synapse com o Azure PowerShell'
 description: Você pode usar o Azure PowerShell para pausar e retomar o pool de SQL do Synapse (data warehouse). recursos de computação.
 services: synapse-analytics
 author: kevinvngo
@@ -10,13 +10,13 @@ ms.subservice: sql-dw
 ms.date: 03/20/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: f502c93b4df6db83756f3fe9853ac598b40074ef
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.custom: seo-lt-2019, azure-synapse, devx-track-azurepowershell
+ms.openlocfilehash: 6022974b80a7f691edc9b9a11b972035b203187c
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85212693"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98121032"
 ---
 # <a name="quickstart-pause-and-resume-compute-in-synapse-sql-pool-with-azure-powershell"></a>Início Rápido: Pausar e retomar a computação no pool de SQL do Synapse com o Azure PowerShell
 
@@ -136,4 +136,4 @@ Siga estas etapas para limpar os recursos conforme desejado.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre o pool de SQL, prossiga para o artigo [Carregar dados para o pool de SQL](load-data-from-azure-blob-storage-using-polybase.md). Para obter informações adicionais sobre como gerenciar funcionalidades de computação, confira o artigo [Gerenciar visão geral de computação](sql-data-warehouse-manage-compute-overview.md).
+Para saber mais sobre o pool de SQL, prossiga para o artigo [Carregar dados para o pool de SQL](./load-data-from-azure-blob-storage-using-copy.md). Para obter informações adicionais sobre como gerenciar funcionalidades de computação, confira o artigo [Gerenciar visão geral de computação](sql-data-warehouse-manage-compute-overview.md).

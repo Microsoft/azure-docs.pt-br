@@ -1,14 +1,14 @@
 ---
 title: Regras de acesso de firewall
-description: Configure regras para acessar um registro de contêiner do Azure por trás de um firewall permitindo o acesso à API REST ("lista de permissões") e aos nomes de domínio do ponto de extremidade de dados ou a intervalos de endereços IP específicos do serviço.
+description: Configure regras para acessar um registro de contêiner do Azure por trás de um firewall, permitindo o acesso a API REST e nomes de domínio de ponto de extremidade de dados ou intervalos de endereços IP específicos do serviço.
 ms.topic: article
 ms.date: 05/18/2020
-ms.openlocfilehash: 679dbcaf30653b855d35825f94e93f87ac68c322
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 548d64632c1d726111770dfb49f705d31f5ca714
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86246972"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935981"
 ---
 # <a name="configure-rules-to-access-an-azure-container-registry-behind-a-firewall"></a>Configurar regras para acessar um registro de contêiner do Azure atrás de um firewall
 
@@ -113,7 +113,7 @@ Procure a região específica, como **Storage.AustraliaCentral**.
 
 ## <a name="allow-access-by-service-tag"></a>Permitir acesso por marca de serviço
 
-Em uma rede virtual do Azure, use as regras de segurança de rede para filtrar o tráfego de um recurso, como uma máquina virtual, para um registro de contêiner. Para simplificar a criação das regras de rede do Azure, use a [marca de serviço](../virtual-network/security-overview.md#service-tags) **AzureContainerRegistry**. Uma marca de serviço representa um grupo de prefixos de endereço IP para acessar um serviço do Azure globalmente ou por região do Azure. A marca é atualizada automaticamente quando os endereços são alterados. 
+Em uma rede virtual do Azure, use as regras de segurança de rede para filtrar o tráfego de um recurso, como uma máquina virtual, para um registro de contêiner. Para simplificar a criação das regras de rede do Azure, use a [marca de serviço](../virtual-network/network-security-groups-overview.md#service-tags) **AzureContainerRegistry**. Uma marca de serviço representa um grupo de prefixos de endereço IP para acessar um serviço do Azure globalmente ou por região do Azure. A marca é atualizada automaticamente quando os endereços são alterados. 
 
 Por exemplo, crie uma regra de grupo de segurança de rede de saída com destino **AzureContainerRegistry** para permitir o tráfego para um registro de contêiner do Azure. Para permitir o acesso à marca de serviço somente em uma região específica, especifique a região no seguinte formato: **AzureContainerRegistry**.[*nome da região*].
 
@@ -183,7 +183,7 @@ Se precisar acessar o MCR (Registro de Contêiner do Azure) por trás de um fire
 
 * Conheça as [melhores práticas do Azure de segurança de rede](../security/fundamentals/network-best-practices.md)
 
-* Saiba mais sobre [grupos de segurança](../virtual-network/security-overview.md) em uma rede virtual do Azure
+* Saiba mais sobre [grupos de segurança](../virtual-network/network-security-groups-overview.md) em uma rede virtual do Azure
 
 * Saiba mais sobre como configurar um [Link Privado](container-registry-private-link.md) para um registro de contêiner
 

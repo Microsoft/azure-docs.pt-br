@@ -1,23 +1,18 @@
 ---
 title: Mover dados do Amazon redshift usando Azure Data Factory
 description: Saiba como mover dados do Amazon Redshift usando a atividade de cópia do Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.assetid: 01d15078-58dc-455c-9d9d-98fbdf4ea51e
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c2e2394bbcee5294bfb752a0af2969457ffff0ee
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 025250f47bf0630be5ae988140a5feeecfd0eaf0
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84710143"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100377543"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Mover dados do Amazon Redshift usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -59,13 +54,13 @@ As seções que se seguem descrevem as propriedades de JSON que são usadas para
 
 A tabela a seguir fornece descrições dos elementos JSON específicos para o serviço vinculado Amazon Redshift.
 
-| Property | Descrição | Obrigatório |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | **tipo** |Essa propriedade deve ser definida como: **AmazonRedshift**. |Sim |
 | **server** |O endereço IP ou nome do host do servidor Amazon Redshift. |Sim |
 | **port** |O número da porta TCP usada pelo servidor Amazon Redshift para ouvir conexões de cliente. |Não (o padrão é 5439) |
 | **database** |O nome do banco de dados do Amazon Redshift. |Sim |
-| **Nome de Usuário** |O nome de usuário que tem acesso ao banco de dados. |Sim |
+| **username** |O nome de usuário que tem acesso ao banco de dados. |Sim |
 | **password** |A senha para a conta de usuário. |Sim |
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
@@ -74,7 +69,7 @@ Para obter uma lista das seções e propriedades disponíveis para definir os co
 
 A seção **typeProperties** é diferente para cada tipo de conjunto de dados e fornece informações sobre o local dos dados no repositório. **A seção typeProperties** de um conjunto de dados do tipo **RelationalTable**, que inclui o conjunto de dados do Amazon Redshift, tem as propriedades a seguir:
 
-| Property | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessária |
 | --- | --- | --- |
 | **tableName** |O nome da tabela no banco de dados do Amazon Redshift ao qual o serviço vinculado se refere. |Não (se a propriedade **query** de uma atividade de cópia do tipo **RelationalSource** for especificada) |
 
@@ -84,7 +79,7 @@ Para obter uma lista das seções e propriedades disponíveis para definir as at
 
 Para a atividade de cópia, quando a origem é do tipo **AmazonRedshiftSource**, as seguintes propriedades estão disponíveis na seção **typeProperties**:
 
-| Property | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessária |
 | --- | --- | --- |
 | **consulta** | Use a consulta personalizada para ler os dados. |Não (se a propriedade **tableName** de um conjunto de dados for especificada) |
 | **redshiftUnloadSettings** | Contém o grupo de propriedades ao usar o comando **UNLOAD** do Redshift. | Não |
@@ -93,7 +88,7 @@ Para a atividade de cópia, quando a origem é do tipo **AmazonRedshiftSource**,
 
 Como alternativa, você pode usar o tipo **RelationalSource**, que inclui o Amazon Redshift, com a propriedade a seguir na seção **typeProperties**. Observe que esse tipo de origem não dá suporte para o comando **UNLOAD** do Redshift.
 
-| Property | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessária |
 | --- | --- | --- |
 | **consulta** |Use a consulta personalizada para ler os dados. | Não (se a propriedade **tableName** de um conjunto de dados for especificada) |
 
@@ -101,13 +96,13 @@ Como alternativa, você pode usar o tipo **RelationalSource**, que inclui o Amaz
 
 O comando [**UNLOAD**](https://docs.aws.amazon.com/redshift/latest/dg/r_UNLOAD.html) do Amazon Redshift descarrega os resultados de uma consulta para um ou mais arquivos no Amazon S3. Esse comando é recomendado pela Amazon para copiar conjuntos de dados grandes do Redshift.
 
-**Exemplo: copiar dados do Amazon Redshift para o SQL Data Warehouse do Azure**
+**Exemplo: copiar dados do Amazon redshift para o Azure Synapse Analytics**
 
-Esse exemplo copia dados do Amazon Redshift para o SQL Data Warehouse do Azure. O exemplo usa o comando **UNLOAD** do Redshift, dados de cópia em etapas e o Microsoft PolyBase.
+Este exemplo copia dados do Amazon redshift para o Azure Synapse Analytics. O exemplo usa o comando **UNLOAD** do Redshift, dados de cópia em etapas e o Microsoft PolyBase.
 
-Para esse caso de uso de exemplo, a atividade de cópia primeiro descarrega os dados do Amazon Redshift para o Amazon S3 conforme configurado na opção **redshiftUnloadSettings**. Em seguida, os dados são copiados do Amazon S3 para o Armazenamento de Blobs do Azure conforme especificado na opção **stagingSettings**. Por fim, o PolyBase carrega os dados no SQL Data Warehouse do Azure. Todos os formatos provisórios são tratados pela atividade de cópia.
+Para esse caso de uso de exemplo, a atividade de cópia primeiro descarrega os dados do Amazon Redshift para o Amazon S3 conforme configurado na opção **redshiftUnloadSettings**. Em seguida, os dados são copiados do Amazon S3 para o Armazenamento de Blobs do Azure conforme especificado na opção **stagingSettings**. Por fim, o polybase carrega os dados no Azure Synapse Analytics. Todos os formatos provisórios são tratados pela atividade de cópia.
 
-![Copiar o fluxo de trabalho do Amazon Redshift para o SQL Data Warehouse](media/data-factory-amazon-redshift-connector/redshift-to-sql-dw-copy-workflow.png)
+![Copiar fluxo de trabalho do Amazon redshift para o Azure Synapse Analytics](media/data-factory-amazon-redshift-connector/redshift-to-sql-dw-copy-workflow.png)
 
 ```json
 {
@@ -333,7 +328,7 @@ Os seguintes mapeamentos são usados quando a Atividade de Cópia converte os da
 | INTEGER |Int32 |
 | bigint |Int64 |
 | DECIMAL |Decimal |
-| REAL |Single |
+| real |Único |
 | DOUBLE PRECISION |Double |
 | BOOLEAN |String |
 | CHAR |String |

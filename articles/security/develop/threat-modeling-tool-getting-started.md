@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: jegeib
-ms.openlocfilehash: 3b8467a5983ae9d8928d14987bcee9d2aef094aa
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 322f5f6a79bdce23706b2211ccc04ef2451675d0
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87539893"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94515720"
 ---
 # <a name="getting-started-with-the-threat-modeling-tool"></a>Introdução ao Threat Modeling Tool
 
 A Microsoft Threat Modeling Tool 2018 foi lançada em GA em setembro de 2018 como um componente gratuito do tipo **[clique para baixar](https://aka.ms/threatmodelingtool)**. A alteração no mecanismo de entrega nos permite efetuar push dos aprimoramentos mais recentes e correções de bug para os clientes toda vez que eles abrem a ferramenta, facilitando a manutenção e o uso da ferramenta.
 Este artigo explica o processo de como começar a usar a abordagem de modelagem de ameaça do Microsoft Security Development Lifecycle (SDL), além de mostrar como usar a ferramenta para desenvolver excelentes modelos de ameaça como um alicerce do seu processo de segurança.
 
-Este artigo se baseia no conhecimento existente da abordagem de modelagem de ameaça do SDL. Para fazer uma análise rápida, confira **[Aplicativos Web de modelagem de ameaça](https://msdn.microsoft.com/library/ms978516.aspx)** e uma versão arquivada do artigo do MSDN **[Descubra falhas de segurança usando a abordagem STRIDE](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxzZWN1cmVwcm9ncmFtbWluZ3xneDo0MTY1MmM0ZDI0ZjQ4ZDMy)**, publicado em 2006.
+Este artigo se baseia no conhecimento existente da abordagem de modelagem de ameaça do SDL. Para fazer uma análise rápida, confira **[Aplicativos Web de modelagem de ameaça](/previous-versions/msp-n-p/ff648006(v=pandp.10))** e uma versão arquivada do artigo do MSDN **[Descubra falhas de segurança usando a abordagem STRIDE](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxzZWN1cmVwcm9ncmFtbWluZ3xneDo0MTY1MmM0ZDI0ZjQ4ZDMy)** , publicado em 2006.
 
 Em poucas palavras, a abordagem envolve a criação de um diagrama, a identificação de ameaças, a mitigação delas e a validação de cada mitigação. Veja um diagrama que destaca esse processo:
 
@@ -45,7 +45,7 @@ Ao iniciar o Threat Modeling Tool, você perceberá alguns itens, como pode ser 
 | ------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Botão Comentários, Sugestões e Problemas** | Direciona você para o **[Fórum do MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=sdlprocess)** em relação a todos os assuntos sobre o SDL. Desse modo, você tem a oportunidade de saber o que os outros usuários estão fazendo, além de encontrar soluções alternativas e recomendações. Caso não encontre o que está procurando, envie um email para tmtextsupport@microsoft.com e nossa equipe de suporte ajudará você                                                                                                                            |
 | **Criar um modelo**                          | Abre uma tela em branco para desenhar seu diagrama. Não se esqueça de escolher o padrão que deseja usar no seu modelo                                                                                                                                                                                                                                                                                                                                                                       |
-| **Padrão para novos modelos**                 | Você deve escolher o padrão a ser usado antes de criar um modelo. Nosso modelo principal é Azure Threat Model Template, que contém estênceis, ameaças e mitigações específicos do Azure. Para modelos genéricos, escolha Base de Dados de Conhecimento de TM do SDL no menu suspenso. Deseja criar seu próprio modelo ou enviar um novo para todos os usuários? Confira nossa Página no GitHub, **[Repositório de Modelos](https://github.com/Microsoft/threat-modeling-templates)**, para saber mais                              |
+| **Padrão para novos modelos**                 | Você deve escolher o padrão a ser usado antes de criar um modelo. Nosso modelo principal é Azure Threat Model Template, que contém estênceis, ameaças e mitigações específicos do Azure. Para modelos genéricos, escolha Base de Dados de Conhecimento de TM do SDL no menu suspenso. Deseja criar seu próprio modelo ou enviar um novo para todos os usuários? Confira nossa Página no GitHub, **[Repositório de Modelos](https://github.com/Microsoft/threat-modeling-templates)** , para saber mais                              |
 | **Abrir um modelo**                            | <p>Abre modelos de ameaça salvos anteriormente. Caso você precise abrir os arquivos mais recentes, Modelos Abertos Recentemente é um excelente recurso. Ao passar o mouse sobre a seleção, você verá 2 maneiras de abrir modelos:</p><p><ul><li>Abrir deste Computador – modo clássico de abrir um arquivo usando o armazenamento local</li><li>Abrir do OneDrive – as equipes podem usar pastas no OneDrive para salvar e compartilhar seus modelos de ameaças em um único local, de modo a ajudar a aumentar a produtividade e a colaboração</li></ul></p> |
 | **Guia de Introdução**                   | Abre a página principal do **[Microsoft Threat Modeling Tool](threat-modeling-tool.md)**                                                                                                                                                                                                                                                                                                                                                                                            |
 
@@ -97,11 +97,11 @@ Ricardo começa escolhendo o primeiro item na lista. Veja o que acontece:
 
 Primeiro, a interação entre os dois estênceis é aprimorada
 
-![Interação](./media/threat-modeling-tool-getting-started/interaction.png)
+![Captura de tela mostra dois estênceis e a seta curva conectando-os em um peso mais pesado de linha.](./media/threat-modeling-tool-getting-started/interaction.png)
 
 Segundo, informações adicionais sobre a ameaça aparecem na janela Propriedades da Ameaça
 
-![Informações da Interação](./media/threat-modeling-tool-getting-started/interactioninfo.png)
+![Captura de tela mostra a janela Propriedades de ameaças, que contém título, categoria, descrição, interação e prioridade.](./media/threat-modeling-tool-getting-started/interactioninfo.png)
 
 A ameaça gerada ajuda ele a entender as possíveis falhas de design. A categorização STRIDE dá a ele uma ideia sobre os potenciais vetores de ataque, enquanto a descrição adicional diz exatamente o que está errado e as possíveis maneiras de mitigá-lo. Ele pode usar campos editáveis para fazer anotações nos detalhes da justificativa ou alterar as classificações de prioridade, dependendo da barra de bugs da organização.
 
@@ -118,7 +118,7 @@ As ameaças que não se aplicam ao design devido às mitigações existentes ou 
 
 Depois que Ricardo percorre a lista com Cristina e adiciona observações importantes, mitigações/justificativas, prioridade e alterações de status, ele seleciona Relatórios -> Criar Relatório Completo -> Salvar Relatório, o que imprime um relatório para que ele examine com os colegas a fim de garantir que a segurança correta seja implementada.
 
-![Informações da Interação](./media/threat-modeling-tool-feature-overview/report.png)
+![Captura de tela mostra um relatório de modelagem de risco representativo.](./media/threat-modeling-tool-feature-overview/report.png)
 
 Se Ricardo quiser compartilhar o arquivo, ele pode fazer isso facilmente salvando-o em sua conta do OneDrive na organização. Fazendo isso, ele pode copiar o link do documento e compartilhá-lo com seus colegas. 
 

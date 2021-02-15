@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: ec78ffd1fbc1f77a7b1e1467df1c2303e7d5daf1
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86156572"
 ---
 ## <a name="delete-anchors"></a>Excluir âncoras

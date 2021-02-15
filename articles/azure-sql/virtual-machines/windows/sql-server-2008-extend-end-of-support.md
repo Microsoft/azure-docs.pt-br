@@ -6,6 +6,7 @@ documentationcenter: ''
 author: MashaMSFT
 tags: azure-service-management
 ms.service: virtual-machines-sql
+ms.subservice: management
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
@@ -13,12 +14,12 @@ ms.date: 04/08/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 48288ed3765fa939fc56a4469f64070315c4c6aa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4c25adc16d14b4a5fb72ae0103ca05b193b40499
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84668739"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359159"
 ---
 # <a name="extend-support-for-sql-server-2008-and-sql-server-2008-r2-with-azure"></a>Estender o suporte para SQL Server 2008 e SQL Server 2008 R2 com o Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -45,33 +46,34 @@ As imagens implantadas por meio do Azure Marketplace têm a extensão IaaS do SQ
 ## <a name="licensing"></a>Licenciamento
 As implantações pagas conforme o uso do SQL Server 2008 R2 podem ser convertidas em [Benefício Híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
-Para converter uma licença baseada no SA (Software Assurance) em paga conforme o uso, os clientes devem se registrar com o [provedor de recursos](sql-vm-resource-provider-register.md) da VM do SQL. Após esse registro, o tipo de licença do SQL será intercambiável entre Benefício Híbrido do Azure e paga conforme o uso.
+Para converter uma licença baseada no Software Assurance (SA) para pré-paga, os clientes devem se registrar com a extensão do [SQL IaaS Agent](sql-agent-extension-manually-register-single-vm.md). Após esse registro, o tipo de licença do SQL será intercambiável entre Benefício Híbrido do Azure e paga conforme o uso.
 
-As instâncias autoinstaladas do SQL Server 2008 ou SQL Server 2008 R2 em uma VM do Azure podem se registrar no provedor de recursos da VM do SQL e converter o tipo de licença delas para pago conforme o uso.
+As instâncias autoinstaladas do SQL Server 2008 ou SQL Server 2008 R2 em uma VM do Azure podem ser registradas com a extensão do agente IaaS do SQL e converter seu tipo de licença para pré-pago.
 
 ## <a name="migration"></a>Migração
 Você pode migrar instâncias do SQL Server em EOS para uma VM do Azure com métodos manuais de backup/restauração. Esse é o método de migração mais comum do local para uma VM do Azure.
 
 ### <a name="azure-site-recovery"></a>Azure Site Recovery
 
-Para migrações em massa, recomendamos o serviço [Azure Site Recovery](/azure/site-recovery/site-recovery-overview). Com o Azure Site Recovery, os clientes podem replicar a VM inteira, incluindo SQL Server, do local para a VM do Azure.
+Para migrações em massa, recomendamos o serviço [Azure Site Recovery](../../../site-recovery/site-recovery-overview.md). Com o Azure Site Recovery, os clientes podem replicar a VM inteira, incluindo SQL Server, do local para a VM do Azure.
 
 O SQL Server requer instantâneos de Azure Site Recovery consistentes com o aplicativo para garantir a recuperação. O Azure Site Recovery dá suporte a instantâneos consistentes com o aplicativo com um intervalo mínimo de uma hora. O RPO (Objetivo de Ponto de Recuperação) mínimo possível para SQL Server com migrações do Azure Site Recovery é de uma hora. O RTO (Objetivo de Tempo de Recuperação) é de duas horas mais o tempo de recuperação do SQL Server.
 
 ### <a name="database-migration-service"></a>Serviço de Migração de Banco de Dados
 
-O [serviço de migração de banco de dados do Azure](/azure/dms/dms-overview) é uma opção para clientes se eles estiverem migrando do local para uma VM do Azure atualizando SQL Server para a versão 2012 ou posterior.
+O [serviço de migração de banco de dados do Azure](../../../dms/dms-overview.md) é uma opção para clientes se eles estiverem migrando do local para uma VM do Azure atualizando SQL Server para a versão 2012 ou posterior.
 
 ## <a name="disaster-recovery"></a>Recuperação de desastre
 
 As soluções de recuperação de desastre para SQL Server em EOS em uma VM do Azure são as seguintes:
 
-- **Backups do SQL Server**: use o Backup do Azure para ajudar a proteger seu SQL Server 2008 e 2008 R2 em EOS contra ransomware, exclusão acidental e corrupção com RPO de 15 minutos e recuperação pontual. Para obter mais detalhes, confira [este artigo](https://docs.microsoft.com/azure/backup/sql-support-matrix#scenario-support).
+- **Backups do SQL Server**: use o Backup do Azure para ajudar a proteger seu SQL Server 2008 e 2008 R2 em EOS contra ransomware, exclusão acidental e corrupção com RPO de 15 minutos e recuperação pontual. Para obter mais detalhes, confira [este artigo](../../../backup/sql-support-matrix.md#scenario-support).
 - **Envio de logs**: você pode criar uma réplica de envio de logs em outra zona ou região do Azure com restaurações contínuas para reduzir o RTO. Você precisará configurar manualmente o envio de logs.
 - **Azure Site Recovery**: você pode replicar sua VM entre zonas e regiões por meio da replicação do Azure Site Recovery. O SQL Server requer instantâneos de consistentes com o aplicativo para garantir a recuperação em caso de um desastre. O Azure Site Recovery oferece um RPO mínimo de uma hora e um RTO de duas horas (mais o tempo de recuperação do SQL Server) para a recuperação de desastre do SQL Server em EOS.
 
 ## <a name="security-patching"></a>Aplicação de patch de segurança
-As atualizações de segurança estendidas para VMs do SQL Server são entregues por meio dos canais do Microsoft Update após o SQL Server VM ter sido registrado com o [provedor de recursos](sql-vm-resource-provider-register.md) de VM do SQL. Os patches podem ser baixados manual ou automaticamente.
+
+As atualizações de segurança estendidas para VMs SQL Server são entregues por meio dos canais de Microsoft Update após a SQL Server VM ter sido registrada com a [extensão do SQL IaaS Agent](sql-agent-extension-manually-register-single-vm.md). Os patches podem ser baixados manual ou automaticamente.
 
 *Automated patching* está habilitada por padrão. A aplicação de patch automatizada permite que o Azure aplique patches automaticamente no SQL Server e no sistema operacional. Você poderá especificar um dia da semana, hora e duração para uma janela de manutenção se a extensão IaaS do SQL Server estiver instalada. O Azure realiza a aplicação de patch na janela de manutenção. O agendamento do período de manutenção usa a localidade da VM para a hora. Para saber mais, confira [Aplicação de patch automatizada para SQL Server nas Máquinas Virtuais do Azure](automated-patching.md).
 

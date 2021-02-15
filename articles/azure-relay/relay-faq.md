@@ -3,12 +3,12 @@ title: Perguntas frequentes de retransmissão do Azure | Microsoft Docs
 description: Este artigo fornece respostas para algumas das perguntas frequentes sobre o serviço de retransmissão do Azure.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 40e6f830e2314f7c8f36fcd25d24a41cc256bef2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 83cbc4b02bb8b63878abd046ed2314728546e87a
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85317018"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98250020"
 ---
 # <a name="azure-relay-faqs"></a>Perguntas frequentes sobre Retransmissão do Azure
 
@@ -18,7 +18,7 @@ Este artigo responde a algumas perguntas frequentes sobre a [Retransmissão do A
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="general-questions"></a>Perguntas gerais
-### <a name="what-is-azure-relay"></a>O que é Retransmissão do Azure?
+### <a name="what-is-azure-relay"></a>O que é a Retransmissão do Azure?
 O [serviço de Retransmissão do Azure](relay-what-is-it.md) facilita seus aplicativos híbridos ajudando você a exporta com mais segurança os serviços que residem em uma rede corporativa para a nuvem pública. Você pode expor os serviços sem abrir uma conexão de firewall e sem exigir alterações invasivas a uma infraestrutura de rede corporativa.
 
 ### <a name="what-is-a-relay-namespace"></a>O que é um namespace de Retransmissão?
@@ -50,7 +50,6 @@ Aqui estão três exemplos de cenários de cobrança para Conexões Híbridas:
     *   Você envia 6 GB de dados pela conexão B durante o mês.
     *   O encargo total é de US$ 10,50. São US$ 5 para conexão A + US$ 5 para a conexão B + US$ 0,50 (para o sexto gigabyte na conexão B).
 
-Observe que os preços usados nos exemplos são aplicáveis somente durante o período de versão prévia das Conexões Híbridas. Os preços estão sujeitos a alterações conforme a disponibilidade geral de Conexões Híbridas.
 
 ### <a name="how-are-hours-calculated-for-relay"></a>Como as horas são calculadas para Retransmissão?
 
@@ -71,7 +70,7 @@ As retransmissões abertas usando a associação do WCF **netTCPRelay** tratam a
 ## <a name="quotas"></a>Cotas
 | Nome da cota | Escopo |  Observações | Valor |
 | --- | --- | --- | --- |
-| Ouvintes simultâneos em uma retransmissão |Entidade |Solicitações subsequentes de conexões adicionais são rejeitadas e uma exceção é recebida pelo código de chamada. |25 |
+| Ouvintes simultâneos em uma retransmissão |Entidade (conexão híbrida ou retransmissão do WCF) |Solicitações subsequentes de conexões adicionais são rejeitadas e uma exceção é recebida pelo código de chamada. |25 |
 | Conexões de retransmissão simultâneas por todos os pontos de extremidade de retransmissão em um namespace de serviço |Namespace |- |5\.000 |
 | Pontos de extremidade de retransmissão por namespace de serviço |Namespace |- |10.000 |
 | Tamanho de mensagem para retransmissões [NetOnewayRelayBinding](/dotnet/api/microsoft.servicebus.netonewayrelaybinding) e [NetEventRelayBinding](/dotnet/api/microsoft.servicebus.neteventrelaybinding) |Namespace |As mensagens de entrada que excederem essas cotas serão rejeitadas e uma exceção será recebida pelo código de chamada. |64 KB |
@@ -119,8 +118,8 @@ Para obter uma descrição de exceções comuns e ações sugeridas que você ex
 ### <a name="what-is-a-shared-access-signature-and-which-languages-can-i-use-to-generate-a-signature"></a>O que é uma assinatura de acesso compartilhado e quais idiomas posso usar para gerar uma assinatura?
 As SAS (Assinaturas de Acesso Compartilhado) são um mecanismo de autenticação com base em hashes seguros SHA-256 ou URIs. Para obter informações sobre como gerar suas próprias assinaturas em Node.js, PHP, Python, Java, C e C#, consulte [autenticação do barramento de serviço com assinaturas de acesso compartilhado][Shared Access Signatures].
 
-### <a name="is-it-possible-to-whitelist-relay-endpoints"></a>É possível colocar pontos de extremidade de retransmissão em uma lista de permissões?
-Sim. O cliente de retransmissão faz conexões com o serviço de Retransmissão do Azure usando nomes de domínio totalmente qualificados. Os clientes podem adicionar uma entrada para `*.servicebus.windows.net` nos firewalls que dão suporte à lista de permissões de DNS.
+### <a name="is-it-possible-to-allow-only-some-relay-endpoints"></a>É possível permitir apenas alguns pontos de extremidade de retransmissão?
+Sim. O cliente de retransmissão faz conexões com o serviço de Retransmissão do Azure usando nomes de domínio totalmente qualificados. Os clientes podem adicionar uma entrada para `*.servicebus.windows.net` em firewalls que dão suporte à listagem de aprovação de DNS.
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Criar um namespace](relay-create-namespace-portal.md)

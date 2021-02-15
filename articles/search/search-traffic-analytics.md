@@ -7,20 +7,20 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/18/2020
-ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: 1e7f832faffc09cb7bbbcca73763b09f58cbb412
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.date: 1/29/2021
+ms.custom: devx-track-js, devx-track-csharp
+ms.openlocfilehash: 2ad6f5bf18d362f846e12720e00584b854729366
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89019786"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100515658"
 ---
 # <a name="collect-telemetry-data-for-search-traffic-analytics"></a>Coletar dados telemétricos para análise de tráfego de pesquisa
 
 A análise de tráfego de pesquisa é um padrão para coletar telemetria sobre interações do usuário com o aplicativo Azure Cognitive Search, como eventos de clique iniciado pelo usuário e entradas do teclado. Com essas informações você pode determinar a eficácia de sua solução de pesquisa, incluindo termos de pesquisa populares, taxa de cliques e quais entradas de consulta geram zero resultados.
 
-Esse padrão depende do [Application Insights](../azure-monitor/app/app-insights-overview.md) (um recurso do [Azure Monitor](../azure-monitor/index.yml)) para coletar dados do usuário. É necessário adicionar instrumentação ao código do seu cliente, conforme descrito neste artigo. Por fim, você precisará de um mecanismo de geração de relatórios para analisar os dados. Recomendamos o Power BI, mas você pode usar o painel de aplicativos ou qualquer ferramenta que se conecte ao Application Insights.
+Esse padrão depende do [Application Insights](../azure-monitor/app/app-insights-overview.md) (um recurso do [Azure Monitor](../azure-monitor/index.yml)) para coletar dados do usuário. É necessário adicionar instrumentação ao código do seu cliente, conforme descrito neste artigo. Por fim, você precisará de um mecanismo de geração de relatórios para analisar os dados. É recomendável Power BI, mas você pode usar o painel do aplicativo ou qualquer ferramenta que se conecte ao Application Insights.
 
 > [!NOTE]
 > O padrão descrito neste artigo é para cenários avançados e dados de fluxo de cliques gerados pelo código adicionado ao seu cliente. Por outro lado, os logs de serviço são fáceis de configurar, fornecem uma variedade de métricas e podem ser feitos no portal sem a necessidade de código. O registro em log é recomendado para todos os cenários. Para obter mais informações, consulte [Coletar e analisar dados de logs](search-monitor-logs.md).
@@ -29,7 +29,7 @@ Esse padrão depende do [Application Insights](../azure-monitor/app/app-insights
 
 Para ter métricas úteis para análise de tráfego de pesquisa, é necessário registrar alguns sinais dos usuários do aplicativo de pesquisa. Esses sinais indicam o conteúdo no qual os usuários estão interessados e o que eles consideraram relevantes. Para análise do tráfego de pesquisa, estão incluídos:
 
-+ Eventos de pesquisa gerados pelo usuário: Apenas consultas de pesquisa iniciadas por um usuário são interessantes. Solicitações de pesquisa usadas para preencher facetas, conteúdo adicional ou qualquer informação interna, não são importantes e distorcem e influenciam seus resultados.
++ Eventos de pesquisa gerados pelo usuário: Apenas consultas de pesquisa iniciadas por um usuário são interessantes. Outras solicitações de pesquisa, como as usadas para preencher facetas ou recuperar informações internas, não são importantes. Certifique-se de instrumentar apenas eventos iniciados pelo usuário para evitar a distorção ou tendência nos resultados.
 
 + Eventos de clique gerados pelo usuário: Em uma página de resultados de pesquisa, um clique geralmente significa que um documento é um resultado relevante para uma consulta de pesquisa específica.
 
@@ -37,7 +37,7 @@ Ao vincular os eventos de pesquisa e de clique com uma ID de correlação, você
 
 ## <a name="add-search-traffic-analytics"></a>Adicionar análise de tráfego de pesquisa
 
-Na página do [portal](https://portal.azure.com) do seu serviço Azure Cognitive Search, a página de Análise de Tráfego de Pesquisa contém uma folha de consulta para seguir este padrão de telemetria. Nesta página, você pode selecionar ou criar um recurso do Application Insights, obter a chave de instrumentação, copiar trechos de código que podem ser adaptados para sua solução e baixar um relatório de Power BI criado sobre o esquema refletido no padrão.
+Na página do [portal](https://portal.azure.com) do serviço de pesquisa cognitiva do Azure, abra a página Pesquisar análise de tráfego para acessar uma folha de consulta para seguir este padrão de telemetria. Nesta página, você pode selecionar ou criar um recurso do Application Insights, obter a chave de instrumentação, copiar trechos de código que podem ser adaptados para sua solução e baixar um relatório de Power BI criado sobre o esquema refletido no padrão.
 
 ![Pesquisar a página de Análise de Tráfego no portal](media/search-traffic-analytics/azuresearch-trafficanalytics.png "Pesquisar a página de Análise de Tráfego no portal")
 
@@ -71,7 +71,7 @@ No cliente, você pode ter um código adicional que manipula entradas de consult
 
 **Use o C#**
 
-Para C# , a **InstrumentationKey** é encontrada na configuração do aplicativo, como appsettings.json se o seu projeto for ASP.NET. Se não tiver certeza da localização da chave, consulte as instruções de registro.
+Para o C#, o **InstrumentationKey** deve ser definido em sua configuração de aplicativo, como appsettings.jsem se o seu projeto for ASP.net. Se não tiver certeza da localização da chave, consulte as instruções de registro.
 
 ```csharp
 private static TelemetryClient _telemetryClient;
@@ -98,14 +98,45 @@ window.appInsights=appInsights;
 
 Para correlacionar solicitações de pesquisa com cliques, é necessário ter uma ID de correlação que relacione esses dois eventos distintos. A Pesquisa do Azure Cognitive Search fornece uma ID de pesquisa quando você a solicita com um cabeçalho HTTP.
 
-A ID de pesquisa permite a correlação das métricas emitidas pela Pesquisa do Azure Cognitive Search para a solicitação em si, com as métricas personalizadas que você está registrando no Application Insights.  
+A ID de pesquisa permite a correlação das métricas emitidas pela Pesquisa do Azure Cognitive Search para a solicitação em si, com as métricas personalizadas que você está registrando no Application Insights.
 
-**Use o C#**
+**Usar C# (SDK do v11 mais recente)**
+
+O SDK mais recente requer o uso de um pipeline http para definir o cabeçalho, conforme detalhado neste [exemplo](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Azure.Core/samples/Pipeline.md#implementing-a-syncronous-policy).
+
+```csharp
+// Create a custom policy to add the correct headers
+public class SearchIdPipelinePolicy : HttpPipelineSynchronousPolicy
+{
+    public override void OnSendingRequest(HttpMessage message)
+    {
+        message.Request.Headers.SetValue("x-ms-azs-return-searchid", "true");
+    }
+}
+```
+
+```csharp
+// This sample uses the .NET SDK https://www.nuget.org/packages/Azure.Search.Documents
+
+SearchClientOptions clientOptions = new SearchClientOptions();
+clientOptions.AddPolicy(new SearchIdPipelinePolicy(), HttpPipelinePosition.PerCall);
+
+var client = new SearchClient("<SearchServiceName>", "<IndexName>", new AzureKeyCredential("<QueryKey>"), options: clientOptions);
+
+Response<SearchResults<SearchDocument>> response = await client.SearchAsync<SearchDocument>(searchText: searchText, searchOptions: options);
+string searchId = string.Empty;
+if (response.GetRawResponse().Headers.TryGetValues("x-ms-azs-searchid", out IEnumerable<string> headerValues))
+{
+    searchId = headerValues.FirstOrDefault();
+}
+```
+
+**Usar C# (SDK do V10 mais antigo)**
 
 ```csharp
 // This sample uses the .NET SDK https://www.nuget.org/packages/Microsoft.Azure.Search
 
-var client = new SearchIndexClient(<SearchServiceName>, <IndexName>, new SearchCredentials(<QueryKey>)
+var client = new SearchIndexClient(<SearchServiceName>, <IndexName>, new SearchCredentials(<QueryKey>));
 
 // Use HTTP headers so that you can get the search ID from the response
 var headers = new Dictionary<string, List<string>>() { { "x-ms-azs-return-searchid", new List<string>() { "true" } } };
@@ -137,7 +168,7 @@ Sempre que uma solicitação de pesquisa é emitida por um usuário, você deve 
 + **ScoringProfile**: (cadeia de caracteres) nome do perfil de pontuação usado, se houver
 
 > [!NOTE]
-> Solicite a contagem de consultas geradas pelo usuário adicionando $count=true à consulta de pesquisa. Para obter mais informações, consulte [Pesquisar documentos (REST)](/rest/api/searchservice/search-documents#counttrue--false).
+> Solicite a contagem de consultas geradas pelo usuário adicionando $count=true à consulta de pesquisa. Para obter mais informações, consulte [Pesquisar documentos (REST)](/rest/api/searchservice/search-documents#query-parameters).
 >
 
 **Use o C#**

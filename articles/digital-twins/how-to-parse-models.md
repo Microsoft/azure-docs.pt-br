@@ -7,12 +7,13 @@ ms.author: baanders
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 69b52be3a3eca2ab48ed09f6401780ea033f223c
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.custom: contperf-fy21q3
+ms.openlocfilehash: 44cee2b47ae8f96e2852dfdb5aefe73a7af67ed6
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88723972"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98731327"
 ---
 # <a name="parse-and-validate-models-with-the-dtdl-parser-library"></a>Analisar e validar modelos com a biblioteca do analisador DTDL
 
@@ -20,11 +21,11 @@ Os [modelos](concepts-models.md) no Azure digital gêmeos são definidos usando 
 
 Para ajudá-lo a fazer isso, uma biblioteca de análise de DTDL do lado do cliente .NET é fornecida no NuGet: [**Microsoft. Azure. DigitalTwins. Parser**](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/). 
 
-Você pode usar a biblioteca do analisador diretamente em seu código C# ou usar o projeto de exemplo de código independente de linguagem criado na biblioteca do analisador: [**exemplo de validador DTDL**](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator).
+Você pode usar a biblioteca do analisador diretamente em seu código C# ou usar o projeto de exemplo de código independente de linguagem criado na biblioteca do analisador: [**exemplo de validador DTDL**](/samples/azure-samples/dtdl-validator/dtdl-validator).
 
 ## <a name="use-the-dtdl-validator-sample"></a>Usar o exemplo de validador DTDL
 
-O [**validador DTDL**](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) é um projeto de exemplo que pode validar documentos de modelo para verificar se o DTDL é válido. Ele é criado na biblioteca do analisador do .NET e não é independente de linguagem. Você pode obtê-lo com o botão *baixar zip* no link de exemplo.
+O [**validador DTDL**](/samples/azure-samples/dtdl-validator/dtdl-validator) é um projeto de exemplo que pode validar documentos de modelo para verificar se o DTDL é válido. Ele é criado na biblioteca do analisador do .NET e não é independente de linguagem. Você pode obtê-lo com o botão *baixar zip* no link de exemplo.
 
 O código-fonte mostra exemplos de como usar a biblioteca do analisador. Você pode usar a amostra do validador como um utilitário de linha de comando para validar uma árvore de diretórios de arquivos DTDL. Ele também fornece um modo interativo.
 
@@ -77,100 +78,11 @@ Você pode usar a biblioteca do analisador diretamente, para coisas como valida�
 
 Para dar suporte ao exemplo de código do analisador abaixo, considere vários modelos definidos em uma instância do gêmeos digital do Azure:
 
-> [!TIP] 
-> O `dtmi:com:contoso:coffeeMaker` modelo está usando a sintaxe do *modelo de funcionalidade* , o que implica que ele foi instalado no serviço conectando um dispositivo PnP expondo esse modelo.
-
-```json
-{
-  "@id": " dtmi:com:contoso:coffeeMaker",
-  "@type": "CapabilityModel",
-  "implements": [
-        { "name": "coffeeMaker", "schema": " dtmi:com:contoso:coffeeMakerInterface" }
-  ]    
-}
-{
-  "@id": " dtmi:com:contoso:coffeeMakerInterface",
-  "@type": "Interface",
-  "contents": [
-      { "@type": "Property", "name": "waterTemp", "schema": "double" }  
-  ]
-}
-{
-  "@id": " dtmi:com:contoso:coffeeBar",
-  "@type": "Interface",
-  "contents": [
-        { "@type": "relationship", "contains": " dtmi:com:contoso:coffeeMaker" },
-        { "@type": "property", "name": "capacity", "schema": "integer" }
-  ]    
-}
-```
+:::code language="json" source="~/digital-twins-docs-samples/models/coffeeMaker-coffeeMakerInterface-coffeeBar.json":::
 
 O código a seguir mostra um exemplo de como usar a biblioteca do analisador para refletir sobre essas definições em C#:
 
-```csharp
-async void ParseDemo(DigitalTwinsClient client)
-{
-    try
-    {
-        AsyncPageable<ModelData> mdata = client.GetModelsAsync(null, true);
-        List<string> models = new List<string>();
-        await foreach (ModelData md in mdata)
-            models.Add(md.Model);
-        ModelParser parser = new ModelParser();
-        IReadOnlyDictionary<Dtmi, DTEntityInfo> dtdlOM = await parser.ParseAsync(models);
-
-        List<DTInterfaceInfo> interfaces = new List<DTInterfaceInfo>();
-        IEnumerable<DTInterfaceInfo> ifenum = 
-            from entity in dtdlOM.Values
-            where entity.EntityKind == DTEntityKind.Interface
-            select entity as DTInterfaceInfo;
-        interfaces.AddRange(ifenum);
-        foreach (DTInterfaceInfo dtif in interfaces)
-        {
-            PrintInterfaceContent(dtif, dtdlOM);
-        }
-
-    } catch (RequestFailedException rex)
-    {
-
-    }
-}
-
-void PrintInterfaceContent(DTInterfaceInfo dtif, IReadOnlyDictionary<Dtmi, DTEntityInfo> dtdlOM, int indent=0)
-{
-    StringBuilder sb = new StringBuilder();
-    for (int i = 0; i < indent; i++) sb.Append("  ");
-    Console.WriteLine($"{sb}Interface: {dtif.Id} | {dtif.DisplayName}");
-    SortedDictionary<string, DTContentInfo> contents = dtif.Contents;
-    foreach (DTContentInfo item in contents.Values)
-    {
-        switch (item.EntityKind)
-        {
-            case DTEntityKind.Property:
-                DTPropertyInfo pi = item as DTPropertyInfo;
-                Console.WriteLine($"{sb}--Property: {pi.Name} with schema {pi.Schema}");
-                break;
-            case DTEntityKind.Relationship:
-                DTRelationshipInfo ri = item as DTRelationshipInfo;
-                Console.WriteLine($"{sb}--Relationship: {ri.Name} with target {ri.Target}");
-                break;
-            case DTEntityKind.Telemetry:
-                DTTelemetryInfo ti = item as DTTelemetryInfo;
-                Console.WriteLine($"{sb}--Telemetry: {ti.Name} with schema {ti.Schema}");
-                break;
-            case DTEntityKind.Component:
-                DTComponentInfo ci = item as DTComponentInfo;
-                Console.WriteLine($"{sb}--Component: {ci.Id} | {ci.Name}");
-                dtdlOM.TryGetValue(ci.Id, out DTEntityInfo value);
-                DTInterfaceInfo component = value as DTInterfaceInfo;
-                PrintInterfaceContent(component, dtdlOM, indent + 1);
-                break;
-            default:
-                break;
-        }
-    }
-}
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/parseModels.cs":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

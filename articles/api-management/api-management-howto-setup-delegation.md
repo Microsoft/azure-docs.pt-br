@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 07/30/2020
+ms.date: 10/15/2020
 ms.author: apimpm
-ms.openlocfilehash: e7f2fb966aa323063220bc798706c8401745ba20
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 54193c9333c75fd8b973ebe33470fca3617e2f2d
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87460993"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341834"
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>Como delegar o registro de usuário e a assinatura do produto
 
@@ -52,32 +52,30 @@ Agora, você precisa criar o **ponto de extremidade de delegação**. Ele precis
    
     Parâmetros de consulta para a entrada/inscrição:
    
-   * **operation**: identifica o tipo de solicitação de delegação – neste caso, pode ser somente **SignIn**
-   * **returnUrl**: a URL da página em que o usuário clicou em um link de entrada ou de inscrição
-   * **salt**: uma cadeia de caracteres de salt especial usada para calcular um hash de segurança
-   * **sig**: um hash de segurança calculado para ser usado para comparação com seu próprio hash calculado
+   * **operation** : identifica o tipo de solicitação de delegação – neste caso, pode ser somente **SignIn**
+   * **returnUrl** : a URL da página em que o usuário clicou em um link de entrada ou de inscrição
+   * **salt** : uma cadeia de caracteres de salt especial usada para calcular um hash de segurança
+   * **sig** : um hash de segurança calculado para ser usado para comparação com seu próprio hash calculado
 2. Confirme que a solicitação está vindo do Gerenciamento de API do Azure (opcional, mas altamente recomendado por segurança)
    
-   * Calcule um hash HMAC-SHA512 de uma cadeia de caracteres baseada nos parâmetros de consulta **returnUrl** e **salt** ([código de exemplo fornecido abaixo]):
+   * Calcule um hash HMAC-SHA512 de uma cadeia de caracteres baseada nos parâmetros de consulta **returnUrl** e **salt** ( [código de exemplo fornecido abaixo]):
      
-     > HMAC(**salt**+ '\n' +**returnUrl**)
-     > 
-     > 
+     > HMAC( **salt** + '\n' + **returnUrl** )
+
    * Compare o hash calculado acima ao valor do parâmetro de consulta **sig**. Se os dois hashes forem correspondentes, prossiga para a próxima etapa. Caso contrário, recuse as solicitações.
-3. Verifique se que você está recebendo uma solicitação de entrada/inscrição: o parâmetro de consulta **operation** será definido como "**SignIn**".
+3. Verifique se que você está recebendo uma solicitação de entrada/inscrição: o parâmetro de consulta **operation** será definido como " **SignIn** ".
 4. Apresentar o usuário com interface do usuário para entrar ou inscrever-se
 5. Se o usuário estiver se inscrevendo, você precisará criar uma conta correspondente para ele no Gerenciamento de API. [Crie um usuário] com a API REST do Gerenciamento de API. Ao fazer isso, certifique-se de definir a ID de usuário com o mesmo valor que está em seu repositório de usuários ou com uma ID que você possa acompanhar.
 6. Quando o usuário for autenticado com sucesso:
    
-   * [solicite um token de logon único (SSO)] por meio da API REST do Gerenciamento de API
-   * anexe um parâmetro de consulta returnUrl ao URL SSO que você recebeu da chamada à API acima:
+   * [Solicitar um token de acesso compartilhado] por meio da API REST de gerenciamento de API
+   * Acrescente um parâmetro de consulta returnUrl à URL de SSO que você recebeu da chamada à API acima:
      
-     > por exemplo, `https://customer.portal.azure-api.net/signin-sso?token&returnUrl=/return/url` 
-     > 
-     > 
-   * redirecione o usuário à URL produzida acima
+     > por exemplo, `https://<developer portal domain, for example: contoso.developer.azure-api.net>/signin-sso?token=<URL-encoded token>&returnUrl=<URL-encoded URL, for example: %2Freturn%2Furl>` 
+     
+   * Redirecionar o usuário para a URL de produção acima
 
-Além da operação **SignIn**, você também pode executar o gerenciamento de conta seguindo as etapas anteriores e usando uma das seguintes operações:
+Além da operação **SignIn** , você também pode executar o gerenciamento de conta seguindo as etapas anteriores e usando uma das seguintes operações:
 
 * **ChangePassword**
 * **ChangeProfile**
@@ -86,10 +84,10 @@ Além da operação **SignIn**, você também pode executar o gerenciamento de c
 
 Você deve passar os seguintes parâmetros de consulta para operações de gerenciamento de conta.
 
-* **operation**: identifica o tipo de solicitação de delegação (ChangePassword, ChangeProfile ou CloseAccount)
-* **userId**: a ID de usuário da conta a ser gerenciada
-* **salt**: uma cadeia de caracteres de salt especial usada para calcular um hash de segurança
-* **sig**: um hash de segurança calculado para ser usado para comparação com seu próprio hash calculado
+* **operation** : identifica o tipo de solicitação de delegação (ChangePassword, ChangeProfile ou CloseAccount)
+* **userId** : a ID de usuário da conta a ser gerenciada
+* **salt** : uma cadeia de caracteres de salt especial usada para calcular um hash de segurança
+* **sig** : um hash de segurança calculado para ser usado para comparação com seu próprio hash calculado
 
 ## <a name="delegating-product-subscription"></a><a name="delegate-product-subscription"> </a>Delegação da assinatura de produtos
 
@@ -99,7 +97,7 @@ A delegação de uma assinatura de produto funciona de forma semelhante à deleg
 2. O navegador é redirecionado ao ponto de extremidade da delegação.
 3. O ponto de extremidade de delegação executa as etapas necessárias da assinatura do produto. Cabe a você criar as etapas. Pode incluir o redirecionamento para outra página para solicitar informações de cobrança, fazer perguntas adicionais ou simplesmente armazenar as informações sem precisar de ações do usuário.
 
-Para habilitar a funcionalidade, na página **Delegação**, clique em **Delegar assinatura do produto**.
+Para habilitar a funcionalidade, na página **Delegação** , clique em **Delegar assinatura do produto**.
 
 Em seguida, certifique-se de que o ponto de extremidade de delegação execute as ações a seguir:
 
@@ -110,21 +108,21 @@ Em seguida, certifique-se de que o ponto de extremidade de delegação execute a
    
     Parâmetros de consulta para a assinatura de produto:
    
-   * **operation**: identifica o tipo de solicitação de delegação. Para solicitações de assinatura do produto, as opções válidas são:
+   * **operation** : identifica o tipo de solicitação de delegação. Para solicitações de assinatura do produto, as opções válidas são:
      * “Subscribe”: uma solicitação para que o usuário assine determinado produto com uma ID fornecida (veja abaixo)
      * “Unsubscribe”: uma solicitação para cancelar a assinatura do usuário de um produto
      * “Renew”: uma solicitação para renovar uma assinatura (por exemplo, que pode estar expirando)
-   * **ProductID**: on *Subscribe* -a ID do produto do qual o usuário solicitou a assinatura
-   * **subscriptionId**: em *Cancelar assinatura* e *Renovar* – a ID da assinatura do produto
-   * **userid**: on *Subscribe* -a ID do usuário para o qual a solicitação é feita
-   * **salt**: uma cadeia de caracteres de salt especial usada para calcular um hash de segurança
-   * **sig**: um hash de segurança calculado para ser usado para comparação com seu próprio hash calculado
+   * **ProductID** : on *Subscribe* -a ID do produto do qual o usuário solicitou a assinatura
+   * **subscriptionId** : em *Cancelar assinatura* e *Renovar* – a ID da assinatura do produto
+   * **userid** : on *Subscribe* -a ID do usuário para o qual a solicitação é feita
+   * **salt** : uma cadeia de caracteres de salt especial usada para calcular um hash de segurança
+   * **sig** : um hash de segurança calculado para ser usado para comparação com seu próprio hash calculado
 
 2. Confirme que a solicitação está vindo do Gerenciamento de API do Azure (opcional, mas altamente recomendado por segurança)
    
-   * Compute um HMAC-SHA512 de uma cadeia de caracteres baseada nos parâmetros de consulta **productId**, **userId** e **salt**:
+   * Compute um HMAC-SHA512 de uma cadeia de caracteres baseada nos parâmetros de consulta **productId** , **userId** e **salt** :
      
-     > HMAC(**salt**+ '\n' +**productId**+ '\n' +**userId**)
+     > HMAC( **salt** + '\n' + **productId** + '\n' + **userId** )
      > 
      > 
    * Compare o hash calculado acima ao valor do parâmetro de consulta **sig**. Se os dois hashes forem correspondentes, prossiga para a próxima etapa. Caso contrário, recuse as solicitações.
@@ -135,7 +133,7 @@ Em seguida, certifique-se de que o ponto de extremidade de delegação execute a
 
 Estes exemplos de código mostram como:
 
-* Pegar a *chave de validação de delegação*, definida na tela Delegação do portal do editor
+* Pegar a *chave de validação de delegação* , definida na tela Delegação do portal do editor
 * Criar um HMAC, que é usado para validar a assinatura, comprovando a validade da returnUrl passada.
 
 O mesmo código funciona para productId e userId com pequenas modificações.
@@ -186,7 +184,7 @@ Para obter mais informações sobre delegação, consulte o vídeo a seguir:
 
 [Delegating developer sign in and sign up]: #delegate-signin-up
 [Delegating product subscription]: #delegate-product-subscription
-[solicite um token de logon único (SSO)]: /rest/api/apimanagement/2019-12-01/user/generatessourl
+[Solicitar um token de acesso compartilhado]: /rest/api/apimanagement/2019-12-01/user/getsharedaccesstoken
 [Crie um usuário]: /rest/api/apimanagement/2019-12-01/user/createorupdate
 [como chamar a API REST para assinaturas]: /rest/api/apimanagement/2019-12-01/subscription/createorupdate
 [Next steps]: #next-steps

@@ -5,16 +5,17 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/19/2020
+ms.date: 11/04/2020
 ms.reviewer: sngun
-ms.openlocfilehash: bf041163c6b2759b3d38e48ee98a0d528ec601db
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: b0d27cb2f941db374a144cbd5c026444730e24e8
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88606909"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247481"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Entendendo sua fatura do Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Como um serviço de banco de dados nativo de nuvem totalmente gerenciado, Azure Cosmos DB simplifica a cobrança carregando apenas as operações de banco de dados e o armazenamento consumido. Não existem valores de licença adicionais, hardware, custos de utilitários ou custos de instalação, comparados com alternativas locais ou hospedadas em IaaS. Quando você considera os recursos multirregiões do Azure Cosmos DB, o serviço de banco de dados reduz os custos substancialmente em comparação com soluções de IaaS ou locais existentes.
 
@@ -104,9 +105,9 @@ Se você aumentar a taxa de transferência provisionada para um contêiner ou um
 
 :::image type="content" source="./media/understand-your-bill/bill-example2.png" alt-text="Exemplo de cobrança da taxa de transferência compartilhada":::
 
-## <a name="billing-examples-with-geo-replication-and-multi-master"></a>Exemplos de cobrança com replicação geográfica e de vários mestres  
+## <a name="billing-examples-with-geo-replication"></a>Exemplos de cobrança com replicação geográfica  
 
-É possível adicionar/remover regiões do Azure em qualquer lugar do mundo da sua conta de banco de dados do Azure Cosmos a qualquer momento. A taxa de transferência que você configurou para vários bancos de dados e contêineres do Azure Cosmos estará reservada em cada região do Azure associada à sua conta de banco de dados do Azure Cosmos DB. Se a soma das taxas de transferência provisionadas (RU/s) configuradas em todos os bancos de dados e contêineres dentro da conta do banco de dados Azure Cosmos (provisionadas por hora) for T e o número de regiões do Azure associadas à conta do banco de dados for N, o total da taxa de transferência provisionada para qualquer hora, para sua conta de banco de dados, (a) configurada com uma única região de gravação será igual a T x N RU/s e (b) configurada com todas as regiões sendo capazes de processar gravações será igual a T x (N + 1) RU/s, respectivamente. A taxa de transferência provisionada (região de gravação única) custa US$ 0,008 por hora por 100 RU/s e a taxa de transferência provisionada com várias regiões graváveis (configuração de vários mestres) custa US$ 0,016 / por hora por 100 RU/s (consulte a [página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/)). Seja com região de gravação única ou várias regiões de gravação, o Azure Cosmos DB permite a leitura de dados de qualquer região.
+É possível adicionar/remover regiões do Azure em qualquer lugar do mundo da sua conta de banco de dados do Azure Cosmos a qualquer momento. A taxa de transferência que você configurou para vários bancos de dados e contêineres do Azure Cosmos estará reservada em cada região do Azure associada à sua conta de banco de dados do Azure Cosmos DB. Se a soma da taxa de transferência provisionada (RU/s) configurada em todos os bancos de dados e contêineres na sua conta do Azure Cosmos Database (provisionado por hora) for T e o número de regiões do Azure associado à sua conta de banco de dados for N, em seguida, a taxa de transferência total provisionada para uma determinada hora, para sua conta do banco de dados Cosmos do Azure é igual a T x N RU/seg. A taxa de transferência provisionada (região de gravação única) custa US $0.008/hora por 100 RU/s e taxa de transferência provisionada com várias regiões graváveis (configuração de gravações de várias regiões) custos de $0.016/por hora por 100 RU/s (consulte a [página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/)). Seja com região de gravação única ou várias regiões de gravação, o Azure Cosmos DB permite a leitura de dados de qualquer região.
 
 ### <a name="billing-example-multi-region-azure-cosmos-account-single-region-writes"></a>Exemplo de cobrança: conta do Azure Cosmos multirregiões, com gravação em uma única região
 
@@ -129,16 +130,16 @@ Vamos supor que você criou um contêiner do Azure Cosmos no Oeste dos EUA. O co
 |**Item** |**Uso (por mês)**|**Tarifa** |**Custo mensal** |
 |---------|---------|---------|-------|
 |Cobrança de taxa de transferência para o contêiner no Oeste dos EUA (todas as regiões são graváveis)       | 10 mil RU/s * 24 * 30    |US$ 0,016 por 100 RU/s por hora    |US$ 1.152 |
-|Cobrança da taxa de transferência para três regiões adicionais: Leste dos EUA, Norte da Europa e Leste da Ásia (todas as regiões são graváveis)        | (3 + 1) * 10 mil RU/s * 24 * 30    |US$ 0,016 por 100 RU/s por hora   |US$ 4.608 |
+|Cobrança da taxa de transferência para três regiões adicionais: Leste dos EUA, Norte da Europa e Leste da Ásia (todas as regiões são graváveis)        | 3 * 10 mil RU/s * 24 * 30    |US$ 0,016 por 100 RU/s por hora   |$3456 |
 |Cobrança de armazenamento para o contêiner no Oeste dos EUA      | 250 GB    |US$ 0,25/GB  |US$ 62,50|
 |Cobrança de armazenamento para três regiões adicionais – Leste dos EUA, Norte da Europa e Leste da Ásia      | 3 * 250 GB    |US$ 0,25/GB  |US$ 187,50|
 |**Total**     |     |  |**US$ 6.010**|
 
 *Suponha também que você use 100 GB de dados todos os meses do contêiner no Oeste dos EUA para replicar os dados no Leste dos EUA, no Norte da Europa e no Leste da Ásia. Você será cobrado pela saída conforme as taxas de transferência de dados.*
 
-### <a name="billing-example-azure-cosmos-account-with-multi-master-database-level-throughput-including-dedicated-throughput-mode-for-some-containers"></a>Exemplo de cobrança: conta de Azure Cosmos com taxa de transferência no nível do banco de dados, com vários mestres, incluindo modo de taxa de transferência dedicada para alguns contêineres
+### <a name="billing-example-azure-cosmos-account-with-multi-region-writes-database-level-throughput-including-dedicated-throughput-mode-for-some-containers"></a>Exemplo de cobrança: conta do Azure cosmos com gravações de várias regiões, taxa de transferência no nível do banco de dados, incluindo modo de taxa de transferência dedicada para alguns contêiner
 
-Vamos considerar o exemplo a seguir, onde temos uma conta do Azure Cosmos multirregiões em que todas as regiões são graváveis (configuração de vários mestres). Vamos supor que o tamanho de armazenamento permanece constante e não é alterado, e vamos omiti-lo aqui para simplificar a explicação. A taxa de transferência durante o mês variou da seguinte maneira (supondo-se 30 dias ou 720 horas): 
+Vamos considerar o exemplo a seguir, em que temos uma conta do Azure Cosmos de várias regiões, em que toda região é gravável (várias regiões de gravação são configuradas). Vamos supor que o tamanho de armazenamento permanece constante e não é alterado, e vamos omiti-lo aqui para simplificar a explicação. A taxa de transferência durante o mês variou da seguinte maneira (supondo-se 30 dias ou 720 horas): 
 
 [0 a 100 horas]:  
 
@@ -214,8 +215,12 @@ A fatura mensal total (supondo 30 dias/720 horas em um mês) será calculada da 
 | | |Cobrança de taxa de transferência para duas regiões adicionais: Leste dos EUA, Norte da Europa (todas as regiões são graváveis)  |`(1 + 1) * (70 K RU/sec /100 * $0.016) * 20 hours = $448`  |U$ 224  |
 || |**Custo mensal total**  | |**US$ 38.688**   |
 
-## <a name="billing-examples-with-free-tier-accounts"></a>Exemplos de cobrança com contas de camada gratuita
-Com a camada gratuita do Azure Cosmos DB, você obtém gratuitamente os primeiros 400 RU/s e 5 GB de armazenamento em sua conta, aplicados no nível da conta. Qualquer RU/s e armazenamento além de 400 RU/s e 5 GB será cobrado de acordo com o preço regular da página de preços. Na lista, você não verá uma cobrança ou item de linha para os 5 GB e 400 RU/s gratuitos, somente os RUs e o armazenamento além do que é coberto pela camada gratuita. As 400 RU/s se aplicam a qualquer tipo de RU/s - taxa de transferência provisionada, dimensionamento automático e vários mestres.  
+## <a name="billing-examples-with-azure-cosmos-db-free-tier-accounts"></a><a id="azure-free-tier"></a>Exemplos de cobrança com Azure Cosmos DB contas de camada gratuita
+
+Com a camada gratuita do Azure Cosmos DB, você obtém gratuitamente os primeiros 400 RU/s e 5 GB de armazenamento em sua conta, aplicados no nível da conta. Qualquer RU/s e armazenamento além de 400 RU/s e 5 GB será cobrado de acordo com o preço regular da página de preços. Na lista, você não verá uma cobrança ou item de linha para os 5 GB e 400 RU/s gratuitos, somente os RUs e o armazenamento além do que é coberto pela camada gratuita. O 400 RU/s se aplica a qualquer tipo de taxa de transferência, autoescala e gravações de várias regiões provisionadas por RU/s.  
+
+> [!NOTE]
+> Azure Cosmos DB camada gratuita é diferente da conta gratuita do Azure. A conta gratuita do Azure oferece créditos e recursos do Azure gratuitamente por um período limitado. Ao usar Azure Cosmos DB como parte desta conta gratuita, você obtém armazenamento de 25 GB e 400 RU/s de taxa de transferência provisionada por 12 meses.
 
 ### <a name="billing-example---container-or-database-with-provisioned-throughput"></a>Exemplo de cobrança - contêiner ou banco de dados com taxa de transferência provisionada
 - Vamos supor que criamos um banco de dados ou contêiner em uma conta de camada gratuita com 400 RU/s e 5 GB de armazenamento.
@@ -231,16 +236,16 @@ Com a camada gratuita do Azure Cosmos DB, você obtém gratuitamente os primeiro
 - Após os primeiros 5 GB, qualquer armazenamento será cobrado em taxas de armazenamento normais. 
 
 ### <a name="billing-example---multi-region-single-write-region-account"></a>Exemplo de cobrança – Várias regiões, única conta de região de gravação
-- Vamos supor que em uma conta de camada gratuita, criamos um banco de dados ou contêiner com 1200 RU/s e 10 GB de armazenamento. Replicamos a conta para 3 regiões e teremos uma única conta mestre (única região de gravação).
+- Vamos supor que em uma conta de camada gratuita, criamos um banco de dados ou contêiner com 1200 RU/s e 10 GB de armazenamento. Nós replicamos a conta para três regiões e temos uma única conta da região de gravação.
 - Sem a camada gratuita, você seria cobrado por 3 x 1.200 RU/s = 3.600 RU/s e 3 x 10 GB = 30 GB de armazenamento no total.
 - Após remover 400 RU/s e 5 GB de armazenamento, será cobrado um valor equivalente a 3.200 RU/s (32 unidades) de taxa de transferência provisionada na taxa de região de gravação única e 25 GB de armazenamento com o desconto por nível gratuito.
 - O custo mensal para RU/s seria: 32 unidades x US$ 0,008 x 24 horas x 31 dias = US$ 190,46. O custo mensal para armazenamento seria: 25 GB x 0,25/GB = US$ 6,25. O custo total seria de US$ 190,46 + US$ 6,25 = US$ 196,71.
 - Observação: se o preço unitário por RU/s ou por armazenamento for diferente nas regiões, a camada gratuita de 400 RU/s e 5 GB será refletida nas taxas da região onde a conta foi criada.
 
-### <a name="billing-example---multi-region-multi-master-multiple-write-region-account"></a>Exemplo de cobrança – Conta de várias regiões, vários mestres (várias regiões de gravação)
+### <a name="billing-example---multi-region-account-with-multiple-write-regions"></a>Exemplo de cobrança – multiregião, conta com várias regiões de gravação
 
-Este exemplo reflete o [preço de vários mestres](https://azure.microsoft.com/pricing/details/cosmos-db/) para contas criadas após 1º de dezembro de 2019. 
-- Vamos supor que em uma conta de camada gratuita, criamos um banco de dados ou contêiner com 1200 RU/s e 10 GB de armazenamento. Replicamos a conta para 3 regiões e temos uma única conta de vários mestres (várias regiões de gravação). 
+Este exemplo reflete os [preços para gravações de várias regiões](https://azure.microsoft.com/pricing/details/cosmos-db/) para contas criadas após 1º de dezembro de 2019. 
+- Vamos supor que em uma conta de camada gratuita, criamos um banco de dados ou contêiner com 1200 RU/s e 10 GB de armazenamento. Nós replicamos a conta para três regiões e temos uma conta de várias regiões de gravação. 
 - Sem a camada gratuita, você seria cobrado por 3 x 1.200 RU/s = 3.600 RU/s e 3 x 10 GB = 30 GB de armazenamento no total.
 - Com o desconto por nível gratuito, após a remoção de 400 RU/s e 5 GB de armazenamento, será cobrado um valor por 3.200 RU/s (32 unidades) de taxa de transferência provisionada na taxa de várias regiões de gravação e 25 GB de armazenamento.
 - O custo mensal para RU/s seria: 32 unidades x US$ 0,016 x 24 horas x 31 dias = US$ 380,93. O custo mensal para armazenamento seria: 25 GB x 0,25/GB = US$ 6,25. O custo total seria de US$ 380,93 + US$ 6,25 = US$ 387,18.
@@ -313,5 +318,5 @@ A seguir, você poderá saber mais sobre a otimização de custos no Azure Cosmo
 * Saiba mais sobre [Otimizando o custo da taxa de transferência](optimize-cost-throughput.md)
 * Saiba mais sobre [Otimizando o custo de armazenamento](optimize-cost-storage.md)
 * Saiba mais sobre [Otimizando o custo de leituras e gravações](optimize-cost-reads-writes.md)
-* Saiba mais sobre [Otimizando o custo de consultas](optimize-cost-queries.md)
+* Saiba mais sobre [Otimizando o custo de consultas](./optimize-cost-reads-writes.md)
 * Saiba mais sobre [Otimizando o custo de contas do Azure Cosmos em várias regiões](optimize-cost-regions.md)

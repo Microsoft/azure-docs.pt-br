@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: c3b6123c63bf530463379a175745ef86baf2c5a3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84689980"
 ---
 # <a name="azure-api-management-template-resources"></a>Recursos de modelo no Gerenciamento de API do Azure
@@ -181,9 +181,9 @@ Há suporte para as seguintes opções de localização:
 |PagerLabelPageSize|Tamanho da página|  
 |CurtainLabelLoading|Carregando...|  
 |TablePlaceholderNothingToDisplay|Não há dados para o período e escopo selecionados|  
-|ButtonLabelClose|Fechar|  
+|ButtonLabelClose|Feche|  
   
-###  <a name="documentation"></a><a name="Documentation"></a>Sobre  
+###  <a name="documentation"></a><a name="Documentation"></a> Sobre  
   
 |Nome|Texto|  
 |----------|----------|  
@@ -301,8 +301,8 @@ Há suporte para as seguintes opções de localização:
 |OAuth2UserName_ResourceOwnerPasswordCredentialsGrant_TokenRequest|OBRIGATÓRIO. O nome de usuário do proprietário do recurso.|  
 |OAuth2UnsupportedTokenType|Não há suporte para o tipo de token '{0}'.|  
 |OAuth2InvalidState|Resposta inválida do servidor de autorização|  
-|OAuth2GrantType_AuthorizationCode|Código de autorização|  
-|OAuth2GrantType_Implicit|Implícito|  
+|OAuth2GrantType_AuthorizationCode|Código de Autorização|  
+|OAuth2GrantType_Implicit|Implícita|  
 |OAuth2GrantType_ClientCredentials|Credenciais de cliente|  
 |OAuth2GrantType_ResourceOwnerPassword|Senha de proprietário do recurso|  
 |WebDocumentation302Code|302 Encontrado|  
@@ -324,10 +324,10 @@ Há suporte para as seguintes opções de localização:
 |ButtonLinkOpenConsole|Experimentar|  
 |SectionHeadingRequestBody|Corpo da solicitação|  
 |SectionHeadingRequestParameters|Parâmetros da solicitação|  
-|SectionHeadingRequestUrl|URL da solicitação|  
+|SectionHeadingRequestUrl|URL de Solicitação|  
 |SectionHeadingResponse|Resposta|  
 |SectionHeadingRequestHeaders|Cabeçalhos de solicitação|  
-|FormLabelSubtextOptional|opcionais|  
+|FormLabelSubtextOptional|opcional|  
 |SectionHeadingCodeSamples|Exemplos de código|  
 |TextblockOpenidConnectHeaderDescription|Token de ID do OpenID Connect obtido do <eu \> {0}</i \> . Tipos de concessão com suporte: < i\>{1}</i\>.|  
   
@@ -353,7 +353,7 @@ Há suporte para as seguintes opções de localização:
   
 |Nome|Texto|  
 |----------|----------|  
-|WebIssuesIndexTitle|Questões|  
+|WebIssuesIndexTitle|Problemas|  
 |WebIssuesNoActiveSubscriptions|Você não tem nenhuma assinatura ativa. Você precisa assinar um produto para relatar um problema.|  
 |WebIssuesNotSignin|Você não está conectado. Por favor {0} para relatar um problema ou postar um comentário.|  
 |WebIssuesReportIssueButton|Relatar Problema|  
@@ -381,7 +381,7 @@ Há suporte para as seguintes opções de localização:
 |----------|----------|  
 |WebProductsAgreement|Ao assinar o {0} Produto, concordo com o `<a data-toggle='modal' href='#legal-terms'\>Terms of Use</a\>`.|  
 |WebProductsLegalTermsLink|Termos de Uso|  
-|WebProductsSubscribeButton|Subscribe|  
+|WebProductsSubscribeButton|Assinar|  
 |WebProductsUsageLimitsHeader|Limites de uso|  
 |WebProductsYouAreNotSubscribed|Você assinou este produto.|  
 |WebProductsYouRequestedSubscription|Você solicitou a assinatura para este produto.|  
@@ -434,7 +434,7 @@ Há suporte para as seguintes opções de localização:
 |ValidationErrorEmailInvalid|Endereço de email inválido|  
 |TextboxLabelEmail|Email|  
 |ValidationErrorEmailRequired|O email é obrigatório.|  
-|WebAuthenticationErrorNoticeHeader|Erro|  
+|WebAuthenticationErrorNoticeHeader|Erro do|  
 |WebAuthenticationFieldLengthErrorMessage|{0} deve ser um comprimento máximo de {1}|  
 |TextboxLabelEmailFirstName|Nome|  
 |ValidationErrorFirstNameRequired|O nome é obrigatório.|  
@@ -459,7 +459,7 @@ Há suporte para as seguintes opções de localização:
 |WebAuthenticationPasswordConfirmLabel|Confirmar senha|  
 |ValidationErrorPasswordInvalidDetailed|A senha é muito fraca.|  
 |WebAuthenticationPasswordLabel|Senha|  
-|ValidationErrorPasswordRequired|A senha é obrigatória.|  
+|ValidationErrorPasswordRequired|A senha é necessária.|  
 |WebAuthenticationPasswordResetSendNotice|O e-mail de confirmação de alteração de senha está sendo enviado para {0}. Siga as instruções no email para continuar com o seu processo de alteração de senha.|  
 |WebAuthenticationPasswordResetSendNoticeHeader|Sua solicitação de redefinição de senha foi processada com êxito|  
 |WebAuthenticationPasswordResetSendNoticeTitle|Redefinição de senha solicitada|  

@@ -3,15 +3,15 @@ title: Configurar o balanceamento de carga de área de trabalho virtual do Windo
 description: Como configurar o método de balanceamento de carga para um ambiente de área de trabalho virtual do Windows.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 08/29/2019
+ms.date: 10/12/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 07eae73a36bf4051925547fa375f46963a162881
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 2c57ac10fbd318dd4bbb2dc86457e186dd824834
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88010099"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951648"
 ---
 # <a name="configure-the-windows-virtual-desktop-load-balancing-method"></a>Configurar o método de balanceamento de carga da Área de Trabalho Virtual do Windows
 
@@ -51,13 +51,19 @@ Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname>
 
 ## <a name="configure-depth-first-load-balancing"></a>Configurar o balanceamento de carga de profundidade inicial
 
-O balanceamento de carga em profundidade distribui novas sessões de usuário para um host de sessão disponível com o número mais alto de conexões, mas não atingiu seu limite máximo de limite de sessão. Ao configurar o balanceamento de carga de profundidade inicial, você deve definir um limite máximo de sessão por host de sessão no pool de hosts.
+O balanceamento de carga em profundidade distribui novas sessões de usuário para um host de sessão disponível com o número mais alto de conexões, mas não atingiu seu limite máximo de limite de sessão.
+
+>[!IMPORTANT]
+>Ao configurar o balanceamento de carga de profundidade inicial, você deve definir um limite máximo de sessão por host de sessão no pool de hosts.
 
 Para configurar um pool de hosts para executar o balanceamento de carga de profundidade primeiro, execute o seguinte cmdlet do PowerShell:
 
 ```powershell
 Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -LoadBalancerType 'DepthFirst' -MaxSessionLimit ###
 ```
+
+>[!NOTE]
+> O algoritmo de balanceamento de carga de profundidade primeiro distribui sessões para hosts de sessão com base no limite máximo de hosts de sessão ( `-MaxSessionLimit` ). O valor padrão desse parâmetro é `999999` , que também é o maior número possível para o qual você pode definir essa variável. Esse parâmetro é necessário quando você usa o algoritmo de balanceamento de carga de profundidade inicial. Para obter a melhor experiência possível para o usuário, certifique-se de alterar o parâmetro máximo de limite de host de sessão para um número que melhor se adapte ao seu ambiente.
 
 Para verificar se a configuração foi atualizada, execute este cmdlet:
 

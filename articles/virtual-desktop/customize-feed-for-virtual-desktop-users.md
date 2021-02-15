@@ -3,15 +3,15 @@ title: Personalizar feed para usuários da área de trabalho virtual do Windows-
 description: Como personalizar o feed para usuários da área de trabalho virtual do Windows com cmdlets do PowerShell.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 08/29/2019
+ms.date: 09/14/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 1f1779ac27c7e46aa3e608b33e3c006902df8c27
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: e47486f29537cb948aaae7cf17e97bae14b60700
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009113"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "90084287"
 ---
 # <a name="customize-the-feed-for-windows-virtual-desktop-users"></a>Personalizar o feed para usuários da área de trabalho virtual do Windows
 
@@ -107,7 +107,7 @@ Você pode alterar o nome de exibição de uma área de trabalho remota publicad
 
 3. Em serviços, selecione **área de trabalho virtual do Windows**.
 
-4. Na página área de trabalho virtual do Windows, selecione **grupos de aplicativos** no lado esquerdo da tela e selecione o nome do grupo de aplicativos que deseja editar.
+4. Na página área de trabalho virtual do Windows, selecione **grupos de aplicativos** no lado esquerdo da tela e selecione o nome do grupo de aplicativos que deseja editar. (Por exemplo, se você quiser editar o nome de exibição do grupo de aplicativos da área de trabalho, selecione o grupo de aplicativos chamado **área de trabalho**.)
 
 5. Selecione **aplicativos** no menu no lado esquerdo da tela.
 

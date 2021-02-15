@@ -7,12 +7,12 @@ ms.service: azure-cdn
 ms.topic: article
 ms.date: 08/04/2020
 ms.author: allensu
-ms.openlocfilehash: f729176d3f79c2a1f6fabb5631d49747219db48f
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: 1a0f4456f38939632026645500dd48acbf7dbc88
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87760083"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242201"
 ---
 # <a name="standard-rules-engine-reference-for-azure-cdn"></a>Referência do mecanismo de regras Standard para a CDN do Azure
 
@@ -20,7 +20,7 @@ No [mecanismo de regras padrão](cdn-standard-rules-engine.md) para a rede de di
 
 O mecanismo de regras foi projetado para ser a autoridade final sobre como tipos específicos de solicitações são processados pela CDN do Azure padrão.
 
-**Usos comuns para as regras**:
+**Usos comuns para as regras** :
 
 - Substituir ou definir uma política de cache personalizada.
 - Solicitações de redirecionamento.
@@ -34,16 +34,19 @@ Para definir uma regra no mecanismo de regras, defina [condições de correspond
 
 Cada regra pode ter até dez condições de correspondência e cinco ações. Cada ponto de extremidade da CDN do Azure pode ter até 25 regras. 
 
-O incluído nesse limite é uma *regra global*padrão. A regra global não tem condições de correspondência; as ações definidas em uma regra global sempre são disparadas.
+O incluído nesse limite é uma *regra global* padrão. A regra global não tem condições de correspondência; as ações definidas em uma regra global sempre são disparadas.
+
+   > [!IMPORTANT]
+   > A ordem na qual são listadas as várias regras afeta como elas são processadas. As ações especificadas em uma regra podem ser substituídas por uma regra seguinte.
 
 ## <a name="limits-and-pricing"></a>Limites e preços 
 
 Cada ponto de extremidade da CDN do Azure pode ter até 25 regras. Cada regra pode ter até dez condições de correspondência e cinco ações. O preço do mecanismo de regras segue as dimensões abaixo: 
 - Regras: $1 por regra por mês 
-- Solicitações processadas: $0.60 por milhão de requets
+- Solicitações processadas: $0.60 por milhão de solicitações
 - As primeiras 5 regras permanecerão livres
 
-## <a name="syntax"></a>Sintaxe
+## <a name="syntax"></a>Syntax
 
 A forma como os caracteres especiais são tratados em uma regra varia de acordo com a forma como as condições de correspondência e as ações diferentes manipulam valores de texto. Uma condição de correspondência ou ação pode interpretar o texto de uma das seguintes maneiras:
 
@@ -59,7 +62,7 @@ Um sinal de porcentagem é usado para indicar a codificação de URL (por exempl
 
 ### <a name="wildcard-values"></a>Valores de caractere curinga
 
-Atualmente, damos suporte ao caractere curinga na **condição de correspondência UrlPath** no mecanismo de regras padrão. O \* caractere é um asterisco que representa um ou mais caracteres. 
+Atualmente, damos suporte ao caractere curinga na **condição de correspondência UrlPath** no mecanismo de regras padrão. O \* caractere é um caractere curinga que representa um ou mais caracteres. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

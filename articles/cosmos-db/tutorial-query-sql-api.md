@@ -4,20 +4,22 @@ description: 'Tutorial: Saiba como consultar com consultas SQL no Azure Cosmos D
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.custom: tutorial-develop, mvc
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 2a6033ef1d2b7dda04b1510d42fa49141e0b79b4
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: c206b68495b09988e49f37433ccd5616acd29cb7
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88135990"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93337771"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-sql-api"></a>Tutorial: Consultar o Azure Cosmos DB usando a API do SQL
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-A [API do SQL](documentdb-introduction.md) do Azure Cosmos DB oferece suporte à consulta de documentos usando SQL. Este artigo fornece um exemplo de documento e dois exemplos de consultas SQL e resultados.
+A [API do SQL](./introduction.md) do Azure Cosmos DB oferece suporte à consulta de documentos usando SQL. Este artigo fornece um exemplo de documento e dois exemplos de consultas SQL e resultados.
 
 Este artigo aborda as seguintes tarefas: 
 
@@ -149,4 +151,3 @@ Agora você pode prosseguir para o próximo tutorial e aprender a distribuir seu
 
 > [!div class="nextstepaction"]
 > [Distribuir os dados globalmente](tutorial-global-distribution-sql-api.md)
-

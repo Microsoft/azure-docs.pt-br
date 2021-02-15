@@ -10,12 +10,12 @@ metadata:
   author: PatAltimore
   ms.author: patricka
   ms.date: 09/05/2019
-  ms.openlocfilehash: 2dda68b1f8fff25759ff250646747f1faf63beb4
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: d94f01abdf3b2853e892925d5a19ec5468fd26f0
+  ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "74324649"
+  ms.lasthandoff: 01/07/2021
+  ms.locfileid: "97964466"
 landingContent:
 - title: Sobre o Azure Blockchain Workbench
   linkLists:
@@ -33,6 +33,12 @@ landingContent:
       url: https://channel9.msdn.com/Shows/Blocktalk/Introduction-to-Azure-Blockchain-Workbench
 - title: Introdução
   linkLists:
+  - linkListType: learn
+    links:
+    - text: Siga o caminho do blockchain do Microsoft Learn
+      url: /learn/paths/ethereum-blockchain-development
+    - text: Assista à série para iniciantes sobre blockchain
+      url: https://channel9.msdn.com/Series/Beginners-Series-to-Blockchain
   - linkListType: deploy
     links:
     - text: Implantar o Azure Blockchain Workbench

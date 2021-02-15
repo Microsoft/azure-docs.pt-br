@@ -6,12 +6,12 @@ ms.service: virtual-machines-linux
 ms.topic: how-to
 ms.date: 06/06/2020
 ms.author: danis
-ms.openlocfilehash: 8b34e266214285f6483acca59050780810e62345
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: ca1aae3e819d58ea32453f2549d162bbfc9c91ae
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373344"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98203211"
 ---
 # <a name="prepare-an-ubuntu-virtual-machine-for-azure"></a>Preparar uma máquina virtual do Ubuntu para o Azure
 
@@ -28,7 +28,7 @@ Este artigo pressupõe que você já instalou um sistema operacional Ubuntu Linu
 
 * Veja também as [Notas de instalação gerais do Linux](create-upload-generic.md#general-linux-installation-notes) para obter mais dicas sobre como preparar o Linux para o Azure.
 * O formato VHDX não tem suporte no Azure, somente o **VHD fixo**.  Você pode converter o disco para o formato VHD usando o Gerenciador do Hyper-V ou o `Convert-VHD` cmdlet.
-* Ao instalar o sistema Linux, é recomendável que você use partições padrão em vez de LVM (geralmente o padrão para muitas instalações). Isso irá evitar conflitos de nome LVM com VMs clonadas, especialmente se um disco do sistema operacional precisar ser anexado a outra VM para solução de problemas. Se você preferir, é possível usar [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ou [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) em discos de dados.
+* Ao instalar o sistema Linux, é recomendável que você use partições padrão em vez de LVM (geralmente o padrão para muitas instalações). Isso irá evitar conflitos de nome LVM com VMs clonadas, especialmente se um disco do sistema operacional precisar ser anexado a outra VM para solução de problemas. Se você preferir, é possível usar [LVM](/previous-versions/azure/virtual-machines/linux/configure-lvm) ou [RAID](/previous-versions/azure/virtual-machines/linux/configure-raid) em discos de dados.
 * Não configure uma partição de permuta ou um Swapfile no disco do sistema operacional. O agente de provisionamento Cloud-init pode ser configurado para criar um arquivo de permuta ou uma partição de permuta no disco de recursos temporário. Verifique as etapas a seguir para obter mais informações a esse respeito.
 * Todos os VHDs no Azure devem ter um tamanho virtual alinhado a 1 MB. Ao converter de um disco não processado para VHD, certifique-se de que o tamanho do disco não processado seja um múltiplo de 1 MB antes da conversão. Consulte [Notas de Instalação do Linux](create-upload-generic.md#general-linux-installation-notes) para obter mais informações.
 
@@ -176,7 +176,7 @@ Este artigo pressupõe que você já instalou um sistema operacional Ubuntu Linu
 
 13. Clique em **Ação -> Desligar** no Gerenciador do Hyper-V.
 
-14. O Azure aceita somente VHDs de tamanho fixo. Se o disco do sistema operacional da VM não for um VHD de tamanho fixo, use o `Convert-VHD` cmdlet do PowerShell e especifique a `-VHDType Fixed` opção. Consulte os documentos `Convert-VHD` aqui: [Convert-VHD](/powershell/module/hyper-v/convert-vhd?view=win10-ps).
+14. O Azure aceita somente VHDs de tamanho fixo. Se o disco do sistema operacional da VM não for um VHD de tamanho fixo, use o `Convert-VHD` cmdlet do PowerShell e especifique a `-VHDType Fixed` opção. Consulte os documentos `Convert-VHD` aqui: [Convert-VHD](/powershell/module/hyper-v/convert-vhd).
 
 
 ## <a name="next-steps"></a>Próximas etapas

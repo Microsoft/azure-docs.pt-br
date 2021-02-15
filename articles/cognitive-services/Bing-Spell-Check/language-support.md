@@ -10,18 +10,23 @@ ms.subservice: bing-spell-check
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: 5ffd9f05bb429ba611a08d7985dbc9d509a9df0c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a97bd6bfc1cb7a0760894faaf3fd0617e6165f58
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "66390162"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351190"
 ---
 # <a name="language-and-region-support-for-bing-spell-check-api"></a>Idiomas e regiões compatíveis com a API de Verificação Ortográfica do Bing
 
+> [!WARNING]
+> As APIs de Pesquisa do Bing estão migrando dos Serviços Cognitivos para os Serviços de Pesquisa do Bing. A partir de **30 de outubro de 2020**, todas as novas instâncias da Pesquisa do Bing precisam ser provisionadas seguindo o processo documentado [aqui](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> As APIs de Pesquisa do Bing provisionadas por meio dos Serviços Cognitivos terão suporte nos próximos três anos ou até o final do seu Contrato Enterprise, o que ocorrer primeiro.
+> Para obter instruções sobre a migração, confira [Serviços de Pesquisa do Bing](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+
 Esses idiomas são suportados pela API do Bing Spell Check (somente no modo `spell`).
 
-Observe que para trabalhar com qualquer outro idioma diferente de `en-US`, o `mkt` deve ser definido e `Accept-Language` ou `setLang` deve ser definido como descrito na [referência da API Spell Check v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)
+Observe que para trabalhar com qualquer outro idioma diferente de `en-US`, o `mkt` deve ser definido e `Accept-Language` ou `setLang` deve ser definido como descrito na [referência da API Spell Check v7](/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)
 
 | Linguagem    | Código de idioma |
 |:----------- |:-------------:|
@@ -68,5 +73,5 @@ Observe que para trabalhar com qualquer outro idioma diferente de `en-US`, o `mk
 
 ## <a name="see-also"></a>Confira também
 
-- [Página Documentação dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/)
+- [Página Documentação dos Serviços Cognitivos](../index.yml)
 - [Página do Produto de Serviços Cognitivos](https://azure.microsoft.com/services/cognitive-services/)

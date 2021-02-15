@@ -7,13 +7,13 @@ ms.service: container-registry
 ms.topic: include
 ms.date: 07/12/2019
 ms.author: danlep
-ms.custom: include file
-ms.openlocfilehash: 012800806aeff81939baa2cee88e78191e4fb6c5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: include file, devx-track-azurecli
+ms.openlocfilehash: d81b6f5367efa92c9249956faa058441edf98561
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82195257"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92755306"
 ---
 ### <a name="create-a-user-assigned-identity"></a>Criar uma identidade atribuída pelo usuário
 

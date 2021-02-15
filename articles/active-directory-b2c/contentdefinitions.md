@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/20/2020
+ms.date: 10/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: bd5ae5c60530890f65f8cc9a98171c29820a7762
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 018d90db06948f3fd6a34b56c65088641a9ca874
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85202850"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97108970"
 ---
 # <a name="contentdefinitions"></a>ContentDefinitions
 
@@ -63,7 +63,7 @@ O elemento **ContentDefinition** contém o seguinte atributo:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| ID | Sim | Um identificador para uma definição de conteúdo. O valor é especificado na seção **ID de definição de conteúdo** mais adiante nesta página. |
+| Id | Sim | Um identificador para uma definição de conteúdo. O valor é especificado na seção **ID de definição de conteúdo** mais adiante nesta página. |
 
 O elemento **ContentDefinition** contém os seguintes elementos:
 
@@ -90,7 +90,7 @@ O elemento **DataUri** é usado para especificar o identificador de página. O A
 
 ### <a name="select-a-page-layout"></a>Selecionar um layout de página
 
-Você pode habilitar o [código do lado do cliente JavaScript](javascript-samples.md) inserindo `contract` entre `elements` e o tipo de página. Por exemplo, `urn:com:microsoft:aad:b2c:elements:contract:page-name:version`.
+Você pode habilitar o [código do lado do cliente JavaScript](javascript-and-page-layout.md) inserindo `contract` entre `elements` e o tipo de página. Por exemplo, `urn:com:microsoft:aad:b2c:elements:contract:page-name:version`.
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
@@ -111,7 +111,7 @@ O exemplo a seguir mostra o **DataUri** da `selfasserted` versão `1.2.0` :
 
 #### <a name="migrating-to-page-layout"></a>Migrando para o layout da página
 
-O formato do valor deve conter a palavra `contract` : _urn: com: Microsoft: AAD: B2C: elements:p**contract**age-Name: Version_. Para especificar um layout de página em suas políticas personalizadas que usam um valor antigo de **DataUri** , use a tabela a seguir para migrar para o novo formato.
+O formato do valor deve conter a palavra `contract` : _urn: com: Microsoft: AAD: B2C: elements:page-Name: Version_. Para especificar um layout de página em suas políticas personalizadas que usam um valor antigo de **DataUri** , use a tabela a seguir para migrar para o novo formato.
 
 | Valor antigo de DataUri | Novo valor de DataUri |
 | ----------------- | ----------------- |
@@ -126,6 +126,39 @@ O formato do valor deve conter a palavra `contract` : _urn: com: Microsoft: AAD:
 | `urn:com:microsoft:aad:b2c:elements:unifiedssp:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:1.2.0` |
 | `urn:com:microsoft:aad:b2c:elements:unifiedssp:1.1.0` | `urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:1.2.0` |
 
+O exemplo a seguir mostra os identificadores de definição de conteúdo e o **DataUri** correspondente com o contrato de página: 
+
+```xml
+<ContentDefinitions>
+  <ContentDefinition Id="api.error">
+    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:globalexception:1.2.0</DataUri>
+  </ContentDefinition>
+  <ContentDefinition Id="api.idpselections">
+    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:providerselection:1.2.0</DataUri>
+  </ContentDefinition>
+  <ContentDefinition Id="api.idpselections.signup">
+    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:providerselection:1.2.0</DataUri>
+  </ContentDefinition>
+  <ContentDefinition Id="api.signuporsignin">
+    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:1.2.0</DataUri>
+  </ContentDefinition>
+  <ContentDefinition Id="api.selfasserted">
+    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:1.2.0</DataUri>
+  </ContentDefinition>
+  <ContentDefinition Id="api.selfasserted.profileupdate">
+    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:1.2.0</DataUri>
+  </ContentDefinition>
+  <ContentDefinition Id="api.localaccountsignup">
+    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:1.2.0</DataUri>
+  </ContentDefinition>
+  <ContentDefinition Id="api.localaccountpasswordreset">
+    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:1.2.0</DataUri>
+  </ContentDefinition>
+  <ContentDefinition Id="api.phonefactor">
+    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:multifactor:1.2.0</DataUri>
+  </ContentDefinition>
+</ContentDefinitions>
+```
 
 ### <a name="metadata"></a>Metadados
 
@@ -161,7 +194,7 @@ O elemento **LocalizedResourcesReference** contém os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Linguagem | Sim | Uma cadeia de caracteres que contém uma linguagem com suporte para a política de acordo com a RFC 5646 – Marcas para identificar idiomas. |
+| Idioma | Sim | Uma cadeia de caracteres que contém uma linguagem com suporte para a política de acordo com a RFC 5646 – Marcas para identificar idiomas. |
 | LocalizedResourcesReferenceId | Sim | O identificador do elemento **LocalizedResources**. |
 
 O exemplo a seguir mostra uma definição de conteúdo de entrada ou inscrição com uma referência à localização para inglês, francês e espanhol:
@@ -205,4 +238,4 @@ O atributo de ID do elemento **ContentDefinition** especifica o tipo de página 
 
 Para obter um exemplo de personalização da interface do usuário usando definições de conteúdo, consulte:
 
-[Personalizar a interface do usuário do seu aplicativo usando uma política personalizada](custom-policy-ui-customization.md)
+[Personalizar a interface do usuário do seu aplicativo usando uma política personalizada](customize-ui-with-html.md)

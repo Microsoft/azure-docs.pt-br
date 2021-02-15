@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 729150188e918d4964f8abe729c66032d8e6c9c0
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: fc9b6c4edc5d08c30b1eadb5084155b10d0e55a3
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88689143"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98601507"
 ---
 # <a name="how-to-optimize-your-cloud-investment-with-azure-cost-management"></a>Como otimizar seu investimento na nuvem com o Gerenciamento de Custos do Azure
 
@@ -103,7 +103,7 @@ Para saber mais sobre as diversas opções, visite [Como comprar o Azure](https:
 
 #### <a name="enterprise-agreement"></a>[Contrato Enterprise](https://azure.microsoft.com/pricing/enterprise-agreement/)
 
-- Opções para compromissos monetários antecipados
+- Opções para antecipar o Pagamento antecipado do Azure (anteriormente conhecido como compromisso monetário)
 - Acesso a preços do Azure reduzidos
 
 #### <a name="azure-in-csp"></a>[Azure no CSP](https://azure.microsoft.com/offers/ms-azr-0145p/)
@@ -126,7 +126,7 @@ Para obter mais informações, confira a [Calculadora de preços do Azure](https
 
 As Migrações para Azure são um serviço que avalia as cargas de trabalho atuais da organização nos datacenters locais. Ele fornece insights sobre o que uma solução de substituição do Azure deverá lhe oferecer. Primeiro, as Migrações analisam os computadores locais para determinar se a migração é viável. Em seguida, ela recomenda o dimensionamento da VM no Azure para maximizar o desempenho. Por fim, ele também cria uma estimativa de custo de uma solução baseada no Azure.
 
-Para obter mais informações, confira [Migrações para Azure](https://docs.microsoft.com/azure/migrate/migrate-services-overview).
+Para obter mais informações, confira [Migrações para Azure](../../migrate/migrate-services-overview.md).
 
 ## <a name="analyze-and-manage-your-costs"></a>Analisar e gerenciar seus custos
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 794a952ba719faa16e3584afaf8f2f292deb6c03
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 753256adddf8b28518bac45011d582bc7a079629
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551805"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97670288"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clickup-productivity-platform"></a>Tutorial: Integração do Azure Active Directory com a ClickUp Productivity Platform
 
@@ -27,7 +27,7 @@ A integração da ClickUp Productivity Platform com o Azure AD oferece os seguin
 * Você pode permitir que os usuários sejam conectados automaticamente à ClickUp Productivity Platform (logon único) com suas contas do Azure AD.
 * Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](../manage-apps/what-is-single-sign-on.md).
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -63,7 +63,7 @@ Para configurar a integração da ClickUp Productivity Platform ao Azure AD, voc
 
 4. Na caixa de pesquisa, digite **ClickUp Productivity Platform**, selecione **ClickUp Productivity Platform** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
-     ![ClickUp Productivity Platform na lista de resultados](common/search-new-app.png)
+    ![ClickUp Productivity Platform na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
@@ -118,25 +118,25 @@ Para configurar o logon único do Azure AD com a ClickUp Productivity Platform, 
 
 2. Clique em **Perfil do usuário** e selecione **Configurações**.
 
-    ![Configuração de produtividade do ClickUp](./media/clickup-productivity-platform-tutorial/configure0.png)
+    ![Captura de tela que mostra o locatário de Produtividade ClickUp com o ícone Configurações selecionado.](./media/clickup-productivity-platform-tutorial/configure0.png)
 
-    ![Configuração de produtividade do ClickUp](./media/clickup-productivity-platform-tutorial/configure1.png)
+    ![Captura de tela que mostra Configurações.](./media/clickup-productivity-platform-tutorial/configure1.png)
 
 3. Selecione **Microsoft** em um único Provedor de SSO (Logon Único).
 
-    ![Configuração de produtividade do ClickUp](./media/clickup-productivity-platform-tutorial/configure2.png)
+    ![Captura de tela que mostra o painel Autenticação com Microsoft selecionado.](./media/clickup-productivity-platform-tutorial/configure2.png)
 
 4. Na página **Configurar Logon Único da Microsoft**, execute as seguintes etapas:
 
-    ![Configuração de produtividade do ClickUp](./media/clickup-productivity-platform-tutorial/configure3.png)
+    ![Captura de tela que mostra a página Configurar Logon Único da Microsoft, na qual você pode copiar a ID da Entidade e salvar o URL de Metadados de Federação do Azure.](./media/clickup-productivity-platform-tutorial/configure3.png)
 
     a. Clique em **Copiar** para copiar o valor de ID da entidade e cole-o na caixa de texto **Identificador (ID da Entidade)** na seção **Configuração Básica de SAML** no portal do Azure.
-    
+
     b. Na caixa de texto **URL de Metadados de Federação do Azure**, cole o valor de URL de Metadados de Federação de Aplicativos que você copiou do portal do Azure e clique em **Salvar**.
 
 5. Para concluir a instalação, clique em **Autenticar com a Microsoft para concluir a instalação** e autenticar com uma conta Microsoft.
 
-    ![Configuração de produtividade do ClickUp](./media/clickup-productivity-platform-tutorial/configure4.png)
+    ![Captura de tela que mostra o botão Autenticar com a Microsoft para concluir a instalação.](./media/clickup-productivity-platform-tutorial/configure4.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
@@ -155,7 +155,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
     a. No campo **Nome**, insira **BrendaFernandes**.
-  
+
     b. No campo **Nome de usuário**, digite **brendafernandes\@dominiodaempresa.extensao**  
     Por exemplo, BrittaSimon@contoso.com
 
@@ -194,14 +194,14 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure co
 1. Em uma janela de navegador da Web diferente, entre com seu locatário da Plataforma de Produtividade ClickUp como administrador.
 
 2. Clique em **Perfil do usuário** e selecione **Pessoas**.
-   
-    ![Configuração de produtividade do ClickUp](./media/clickup-productivity-platform-tutorial/configure0.png)
 
-    ![Configuração de produtividade do ClickUp](./media/clickup-productivity-platform-tutorial/user1.png)
+    ![Captura de tela que mostra o locatário de Produtividade do ClickUp.](./media/clickup-productivity-platform-tutorial/configure0.png)
+
+    ![Captura de tela que mostra o link Pessoas selecionado.](./media/clickup-productivity-platform-tutorial/user1.png)
 
 3. Insira o endereço de email do usuário na caixa de texto e clique em **Convidar**.
 
-    ![Configuração de produtividade do ClickUp](./media/clickup-productivity-platform-tutorial/user2.png)
+    ![Captura de tela que mostra Configurações dos Usuários da Equipe em que você pode convidar pessoas por email.](./media/clickup-productivity-platform-tutorial/user2.png)
 
     > [!NOTE]
     > O usuário receberá a notificação e precisará aceitar o convite para ativar a conta.
@@ -210,13 +210,12 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure co
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Quando você clica no bloco da ClickUp Productivity Platform no Painel de Acesso, você deverá ser conectado automaticamente à ClickUp Productivity Platform para a qual você configura o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando você clica no bloco da ClickUp Productivity Platform no Painel de Acesso, você deverá ser conectado automaticamente à ClickUp Productivity Platform para a qual você configura o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](./tutorial-list.md)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [O que é o Acesso Condicional no Azure Active Directory?](../conditional-access/overview.md)

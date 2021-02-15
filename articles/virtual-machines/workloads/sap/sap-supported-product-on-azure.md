@@ -10,18 +10,19 @@ tags: azure-resource-manager
 keywords: SAP
 ms.assetid: d7c59cc1-b2d0-4d90-9126-628f9c7a5538
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 04/21/2020
+ms.date: 12/12/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 217d5b060ca1b7d32cd334049db9b7c68b7949a0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 28d47b61bce7e154da6c6adb4b74e2b5cf1f3f3d
+ms.sourcegitcommit: 287c20509c4cf21d20eea4619bbef0746a5cd46e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87065086"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97371842"
 ---
 # <a name="what-sap-software-is-supported-for-azure-deployments"></a>Quais programas de software SAP são compatíveis com as implantações do Azure
 Este artigo descreve como você pode descobrir qual software SAP tem suporte para implantações do Azure e quais são as versões do sistema operacional ou as versões do DBMS necessárias.
@@ -82,6 +83,12 @@ O sistema operacional, as versões do Oracle DBMS e as funcionalidades do Oracle
 
 Sabendo as versões do DBMS com suporte com a infraestrutura de destino do Azure, você precisa verificar a matriz de disponibilidade do produto SAP se as versões do sistema operacional e o DBMS necessários tiverem suporte com suas versões de produto SAP que você pretende executar. 
 
+## <a name="oracle-linux"></a>Oracle Linux
+A maioria das perguntas importantes sobre Oracle Linux é se o SAP dá suporte ao kernel Red Hat que é parte integrante do Oracle Linux também. Para obter detalhes, leia [#1565179 de observação de suporte SAP](https://launchpad.support.sap.com/#/notes/1565179).
+
+## <a name="other-database-than-sap-hana"></a>Outro banco de dados do que SAP HANA
+O suporte a bancos de dados não HANA para carga de trabalho do SAP está documentado na [Observação de suporte do sap #1928533](https://launchpad.support.sap.com/#/notes/1928533).
+
 
 ## <a name="sap-hana-support"></a>Suporte a SAP HANA
 No Azure, há dois serviços, que podem ser usados para executar o banco de dados HANA:
@@ -117,7 +124,7 @@ Para VMs do Azure, esses números de produtividade de SAPS são documentados no 
 
 Olhando para a [Nota de suporte SAP #1928533](https://launchpad.support.sap.com/#/notes/1928533), os seguintes comentários se aplicam:
 
-- **Para VMs do Azure da série M e VMs do Azure da série Mv2, versões mínimas de so diferentes se aplicam do que para outros tipos de VM do Azure**. O requisito para versões mais recentes do sistema operacional é baseado em alterações que os diferentes fornecedores de sistemas operacionais tinham que fornecer em suas versões de sistema operacional para habilitar seus sistemas operacionais em execução nos tipos específicos de VM do Azure ou otimizar o desempenho e a taxa de transferência da carga de trabalho do SAP nesses tipos de VM
+- **Para VMs do Azure da série M e Mv2-Series VMs do Azure, versões mínimas do sistema operacional diferentes se aplicam em outros tipos de VM do Azure**. O requisito para versões mais recentes do sistema operacional é baseado em alterações que os diferentes fornecedores de sistemas operacionais tinham que fornecer em suas versões de sistema operacional para habilitar seus sistemas operacionais em execução nos tipos específicos de VM do Azure ou otimizar o desempenho e a taxa de transferência da carga de trabalho do SAP nesses tipos de VM
 - Há duas tabelas que especificam diferentes tipos de VM. A segunda tabela especifica a taxa de transferência de SAPS para tipos de VM do Azure que dão suporte apenas ao armazenamento standard do Azure. Não há suporte para a implantação de DBMS nas unidades especificadas na segunda tabela da observação
 
 

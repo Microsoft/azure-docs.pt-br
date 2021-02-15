@@ -4,15 +4,15 @@ description: Saiba como examinar as métricas no Azure Spring Cloud
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: conceptual
-ms.date: 12/06/2019
+ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 4a12658eada3d2660cde86b3eb80e332416ea7a3
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 119b00e67cf8337123028840ec6a7ecd29e97a05
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89046843"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99051593"
 ---
 # <a name="understand-metrics-for-azure-spring-cloud"></a>Entender as métricas para o Azure Spring Cloud
 
@@ -68,7 +68,7 @@ O intervalo de tempo também pode ser ajustado dos últimos 30 minutos para os �
 
 ![Modificação de métrica](media/metrics/metrics-6.png)
 
-A exibição padrão inclui todas as métricas de application's do serviço de nuvem do Spring do Azure juntas. As métricas de um aplicativo ou instância podem ser filtradas na exibição.  Clique em **Adicionar filtro**, defina a propriedade como **aplicativo**e selecione o aplicativo de destino que você deseja monitorar na caixa de texto **valores** . 
+A exibição padrão inclui todas as métricas de application's do serviço de nuvem do Spring do Azure juntas. As métricas de um aplicativo ou instância podem ser filtradas na exibição.  Clique em **Adicionar filtro**, defina a propriedade como **aplicativo** e selecione o aplicativo de destino que você deseja monitorar na caixa de texto **valores** . 
 
 Você pode usar dois tipos de filtros (Propriedades):
 * Aplicativo: filtrar por nome do aplicativo
@@ -89,16 +89,17 @@ As tabelas a seguir mostram as métricas e os detalhes disponíveis.
 
 ### <a name="error"></a>Erro
 >[!div class="mx-tdCol2BreakAll"]
->| Name | Nome da métrica do atuador Spring | Unidade | Detalhes |
+>| Nome | Nome da métrica do atuador Spring | Unidade | Detalhes |
 >|----|----|----|------------|
 >| Tomcat. global. Error | Tomcat. global. Error | Contagem | Número de erros que ocorreram em solicitações processadas |
 
 ### <a name="performance"></a>Desempenho
 >[!div class="mx-tdCol2BreakAll"]
->| Name | Nome da métrica do atuador Spring | Unidade | Detalhes |
+>| Nome | Nome da métrica do atuador Spring | Unidade | Detalhes |
 >|----|----|----|------------|
->| System. CPU. Usage | System. CPU. Usage | Porcentagem | Uso recente da CPU para todo o sistema. Esse valor é um duplo no intervalo [0,0, 1,0]. Um valor de 0,0 significa que todas as CPUs estavam ociosas durante o período de tempo recente observado, enquanto um valor de 1,0 significa que todas as CPUs estavam executando ativamente 100% do tempo durante o período recente observado.|
->| Process. CPU. Usage | Percentual de Uso de CPU do Aplicativo | Porcentagem | Uso recente da CPU para o processo de Máquina Virtual Java. Esse valor é um duplo no intervalo [0,0, 1,0]. Um valor de 0,0 significa que nenhuma das CPUs estavam executando threads do processo JVM durante o período de tempo recente observado, enquanto um valor de 1,0 significa que todas as CPUs estavam ativamente executando threads da JVM 100% do tempo durante o período recente observado. Os threads da JVM incluem os threads do aplicativo, bem como os threads internos da JVM.|
+>| System. CPU. Usage | System. CPU. Usage | Porcentagem | Uso recente da CPU para todo o sistema (obsoleto e não sugira usá-lo). Esse valor é um duplo no intervalo [0,0, 1,0]. Um valor de 0,0 significa que todas as CPUs estavam ociosas durante o período de tempo recente observado, enquanto um valor de 1,0 significa que todas as CPUs estavam executando ativamente 100% do tempo durante o período recente observado.|
+>| Process. CPU. Usage | Percentual de Uso de CPU do Aplicativo | Porcentagem | Uso recente da CPU para o processo de Máquina Virtual Java (obsoleto e não sugira usá-lo). Esse valor é um duplo no intervalo [0,0, 1,0]. Um valor de 0,0 significa que nenhuma das CPUs estavam executando threads do processo JVM durante o período de tempo recente observado, enquanto um valor de 1,0 significa que todas as CPUs estavam ativamente executando threads da JVM 100% do tempo durante o período recente observado. Os threads da JVM incluem os threads do aplicativo, bem como os threads internos da JVM.|
+>| AppCpuUsage | Uso de CPU do aplicativo (versão prévia) | Porcentagem | Uso recente de CPU do processo JVM em relação à CPU alocada para esse aplicativo, um valor de tipo duplo entre [0,0, 1,0]. Um valor de 0,0 significa que nenhuma das CPUs estavam executando threads do processo JVM durante o período de tempo recente observado, enquanto um valor de 1,0 significa que todas as CPUs estavam ativamente executando threads da JVM 100% do tempo durante o período recente observado. Os threads da JVM incluem os threads do aplicativo, bem como os threads internos da JVM.|
 >| JVM. Memory. Committed | JVM. Memory. Committed | Bytes | Representa a quantidade de memória que tem a garantia de estar disponível para uso pela JVM. A JVM pode liberar memória para o sistema e confirmada pode ser menor que init. Commit sempre será maior ou igual a usado. |
 >| JVM. Memory. Used | JVM. Memory. Used | Bytes | Representa a quantidade de memória usada atualmente em bytes. |
 >| JVM. Memory. Max | JVM. Memory. Max | Bytes | Representa a quantidade máxima de memória que pode ser usada para gerenciamento de memória. A quantidade de memória usada e confirmada sempre será menor ou igual ao máximo se a opção máximo for definida. Uma alocação de memória pode falhar se tentar aumentar a memória usada, de modo que usada > confirmada mesmo se usado <= Max ainda seria verdadeiro (por exemplo, quando o sistema está com pouca memória virtual). |
@@ -109,18 +110,57 @@ As tabelas a seguir mostram as métricas e os detalhes disponíveis.
 >| JVM. GC. PAUSE. total. Count | JVM. GC. PAUSE (total-contagem) | Contagem | Contagem total de GC após esse JMV iniciado, incluindo GC jovem e antigo. |
 >| JVM. GC. PAUSE. total. time | JVM. GC. PAUSE (tempo total) | Milissegundos | Tempo total de GC consumido após esse JMV iniciado, incluindo o GC jovem e antigo. |
 
+### <a name="performance-net"></a>Desempenho (.NET)
+
+>[!div class="mx-tdCol2BreakAll"]
+>| Nome | Nome da métrica do atuador Spring | Unidade | Detalhes |
+>|------|-----------------------------|------|---------|
+>| Uso da CPU       | uso da CPU      | Porcentagem      | A porcentagem do uso de CPU do processo em relação a todos os recursos de CPU do sistema [0-100]. |
+>| Conjunto de trabalho     | conjunto de trabalho    | Megabytes    | Quantidade de conjunto de trabalho usado pelo processo. |
+>| Tamanho do heap do GC    | GC-heap-tamanho   | Megabytes    | Tamanho total do heap relatado pelo coletor de lixo. |
+>| Contagem de GC de Gen 0  | Gen-0-GC-contagem | Contagem        | Número de coletas de lixo de geração 0 por segundo. |
+>| Contagem de GC de Gen 1  | Gen-1-GC-contagem | Contagem        | Número de coletas de lixo de geração 1 por segundo. |
+>| Contagem de GC de Gen 2  | Gen-2-GC-contagem | Contagem        | Número de coletas de lixo de geração 2 por segundo. |
+>| Hora em GC      | time-GC      | Porcentagem      | A porcentagem de tempo na coleta de lixo desde a última coleta de lixo. |
+>| Tamanho do heap de geração 0 | Ger-0-tamanho     | Bytes        | Tamanho da pilha de geração 0. |
+>| Tamanho do heap de geração 1 | Ger-1-tamanho     | Bytes        | Tamanho de heap de geração 1. |
+>| Tamanho do heap de geração 2 | Gen-2-tamanho     | Bytes        | Tamanho de heap de geração 2. |
+>| Tamanho do heap de LOH   | Loh-tamanho       | Bytes        | Tamanho do heap de heap de objeto grande. |
+>| Taxa de alocação | taxa de alocação     | Bytes        | Número de bytes alocados por segundo. |
+>| Contagem de assembly  | assembly-contagem | Contagem        | Número de assemblies carregados. |
+>| Contagem de exceção | contagem de exceção | Contagem       | Número de exceções por segundo. |
+>| Contagem de threads do pool de threads      | ThreadPool-contagem de threads              | Contagem | Número de threads do pool de threads. |
+>| Monitorar contagem de contenções de bloqueio | monitor-contagem de contenção de bloqueio        | Contagem | O número de vezes por segundo em que houve contenção ao tentar usar um bloqueio de monitor. |
+>| Comprimento da fila do pool de threads      | ThreadPool-comprimento da fila              | Contagem | Comprimento da fila de itens de trabalho do pool de threads. |
+>| Contagem de itens concluídos do pool de threads | ThreadPool-concluído-itens-contagem | Contagem | O pool de threads concluiu a contagem de itens de trabalho. |
+>| Contagem de temporizadores ativos               | active-timer-Count               | Contagem | O número de temporizadores que estão ativos no momento. Um temporizador ativo é aquele registrado para tique em algum momento no futuro e ainda não foi cancelado. |
+
+Para obter mais informações, consulte [dotnet Counters](/dotnet/core/diagnostics/dotnet-counters).
+
 ### <a name="request"></a>Solicitação
 >[!div class="mx-tdCol2BreakAll"]
->| Name | Nome da métrica do atuador Spring | Unidade | Detalhes |
+>| Nome | Nome da métrica do atuador Spring | Unidade | Detalhes |
 >|----|----|----|------------|
 >| Tomcat. global. sent | Tomcat. global. sent | Bytes | Quantidade de dados do servidor Web Tomcat enviados |
 >| Tomcat. global. Received | Tomcat. global. Received | Bytes | Quantidade de dados do servidor Web Tomcat recebidos |
 >| Tomcat. global. Request. total. Count | Tomcat. global. Request (total-contagem) | Contagem | Contagem total de solicitações processadas do servidor Web Tomcat |
 >| Tomcat. global. Request. Max | Tomcat. global. Request. Max | Milissegundos | Tempo máximo do servidor Web Tomcat para processar uma solicitação |
 
+### <a name="request-net"></a>Solicitação (.NET)
+
+>[!div class="mx-tdCol2BreakAll"]
+>| Nome | Nome da métrica do atuador Spring | Unidade | Detalhes |
+>|------|-----------------------------|------|---------|
+>| Solicitações por segundo | solicitações por segundo | Contagem | Taxa de solicitação. |
+>| Total de solicitações | total-solicitações | Contagem | Número total de solicitações. |
+>| Solicitações atuais | solicitações atuais | Contagem | Número de solicitações atuais. |
+>| Solicitações com falha | solicitações com falha | Contagem | Número de solicitações com falha. |
+
+Para obter mais informações, consulte [dotnet Counters](/dotnet/core/diagnostics/dotnet-counters).
+
 ### <a name="session"></a>Session
 >[!div class="mx-tdCol2BreakAll"]
->| Name | Nome da métrica do atuador Spring | Unidade | Detalhes |
+>| Nome | Nome da métrica do atuador Spring | Unidade | Detalhes |
 >|----|----|----|------------|
 >| Tomcat. Sessions. Active. Max | Tomcat. Sessions. Active. Max | Contagem | Número máximo de sessões que estão ativas ao mesmo tempo |
 >| Tomcat. Sessions. Alive. Max | Tomcat. Sessions. Alive. Max | Milissegundos | Tempo mais longo (em segundos) que uma sessão expirada esteve ativa |
@@ -130,14 +170,15 @@ As tabelas a seguir mostram as métricas e os detalhes disponíveis.
 >| Tomcat. Sessions. Active. Current | Tomcat. Sessions. Active. Current | Contagem | Contagem ativa da sessão Tomcat |
 
 ## <a name="see-also"></a>Confira também
-* [Início rápido: monitorando aplicativos de nuvem Spring do Azure com logs, métricas e rastreamento](spring-cloud-quickstart-logs-metrics-tracing.md)
 
-* [Introdução ao Azure Metrics Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started)
+* [Início Rápido: Monitoramento de aplicativos do Azure Spring Cloud com logs, métricas e rastreamento](spring-cloud-quickstart-logs-metrics-tracing.md)
 
-* [Analisar logs e métricas com configurações de diagnóstico](https://docs.microsoft.com/azure/spring-cloud/diagnostic-services)
+* [Introdução ao Azure Metrics Explorer](../azure-monitor/platform/metrics-getting-started.md)
+
+* [Analisar logs e métricas com configurações de diagnóstico](./diagnostic-services.md)
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Tutorial: monitorar recursos de nuvem Spring usando alertas e grupos de ações](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-alerts-action-groups)
 
-* [Cotas e planos de serviço para o Azure Spring Cloud](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quotas)
+* [Tutorial: monitorar recursos de nuvem Spring usando alertas e grupos de ações](./spring-cloud-tutorial-alerts-action-groups.md)
 
+* [Cotas e planos de serviço para o Azure Spring Cloud](./spring-cloud-quotas.md)

@@ -10,18 +10,22 @@ ms.date: 05/12/2020
 ms.author: santoshc
 ms.reviewer: tamram
 ms.subservice: common
-ms.openlocfilehash: 5b4a1b1f27dff059090d78e24a6a0eca0bbbf01f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: references_regions
+ms.openlocfilehash: 601c8dfb4b4e2f16da5c560f67e2d251a5d3072a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514206"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100362736"
 ---
 # <a name="configure-network-routing-preference-for-azure-storage-preview"></a>Configurar preferência de roteamento de rede para o Armazenamento do Microsoft Azure (versão prévia)
 
 Você pode configurar a [preferência de roteamento](../../virtual-network/routing-preference-overview.md) (versão prévia) para sua conta de armazenamento do Azure para especificar como o tráfego de rede é roteado para sua conta de clientes pela Internet. Por padrão, o tráfego da Internet é roteado para o ponto de extremidade público de sua conta de armazenamento sobre a [rede global da Microsoft](../../networking/microsoft-global-network.md). O Armazenamento do Microsoft Azure fornece opções adicionais para configurar como o tráfego é roteado para sua conta de armazenamento.
 
 Configurar a preferência de roteamento oferece a flexibilidade para otimizar o tráfego para um desempenho de rede Premium ou para otimizar custos. Ao configurar uma preferência de roteamento, você especifica como o tráfego será direcionado para o ponto de extremidade público para sua conta de armazenamento por padrão. Você também pode publicar pontos de extremidade específicos de rota para sua conta de armazenamento.
+
+> [!NOTE]
+> Não há suporte para esse recurso em contas de armazenamento configuradas para usar o nível de desempenho Premium ou o armazenamento com redundância de zona (ZRS).
 
 ## <a name="microsoft-global-network-versus-internet-routing"></a>Rede global da Microsoft versus roteamento da Internet
 
@@ -65,9 +69,36 @@ As cadeias de conexão para os pontos de extremidade específicos à rota public
 
 A preferência de roteamento para o Armazenamento do Microsoft Azure está disponível nas seguintes regiões:
 
-- Sul da França
-- Centro-Norte dos EUA
+- Centro dos EUA 
+- EUA Central EUAP
+- Leste dos EUA 
+- Leste dos EUA 2
+- Leste dos EUA 2 
+- Leste dos EUA 2 EUAP
+- Centro-Sul dos Estados Unidos
 - Centro-Oeste dos EUA
+- Oeste dos EUA 
+- Oeste dos EUA 2 
+- França Central 
+- Sul da França 
+- Norte da Alemanha 
+- Centro-Oeste da Alemanha 
+- Centro-Norte dos EUA
+- Norte da Europa 
+- Leste da Noruega 
+- Norte da Suíça
+- Oeste da Suíça
+- Sul do Reino Unido 
+- Oeste do Reino Unido 
+- Europa Ocidental 
+- EAU Central
+- Leste da Ásia 
+- Sudeste Asiático 
+- Japan East 
+- Oeste do Japão 
+- Oeste da Índia
+- Leste da Austrália 
+- Sudeste da Austrália 
 
 Os seguintes problemas conhecidos afetam a visualização de preferência do roteamento para o Armazenamento do Microsoft Azure:
 

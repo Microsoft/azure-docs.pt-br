@@ -3,14 +3,14 @@ title: Configurar relatórios de Backup do Azure
 description: Configurar e exibir relatórios para o Backup do Azure usando o Log Analytics e as pastas de trabalho do Azure
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 255f0b5f0066c0a437daba85121edb2f99ba590d
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 39d1aa17c5e92eccd34013738937e49890109561
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89022387"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897268"
 ---
-# <a name="configure-azure-backup-reports"></a>Configurar relatórios de Backup do Azure
+# <a name="configure-azure-backup-reports-preview"></a>Configurar relatórios de backup do Azure (visualização)
 
 Um requisito comum para administradores de backup é obter insights sobre backups com base em dados que abrangem um longo período. Os casos de uso para essa solução incluem:
 
@@ -18,17 +18,20 @@ Um requisito comum para administradores de backup é obter insights sobre backup
 - Auditoria de backups e restaurações.
 - Identificação das principais tendências em diferentes níveis de granularidade.
 
-Hoje, o Backup do Azure fornece uma solução de relatório que usa os [logs do Azure Monitor](../azure-monitor/log-query/get-started-portal.md) e as [pastas de trabalho do Azure](../azure-monitor/platform/workbooks-overview.md). Esses recursos ajudam você a obter informações detalhadas sobre os backups em toda a sua propriedade de backups. Este artigo explica como configurar e ver Relatórios de Backup do Azure.
+Hoje, o Backup do Azure fornece uma solução de relatório que usa os [logs do Azure Monitor](../azure-monitor/log-query/log-analytics-tutorial.md) e as [pastas de trabalho do Azure](../azure-monitor/platform/workbooks-overview.md). Esses recursos ajudam você a obter informações detalhadas sobre os backups em toda a sua propriedade de backups. Este artigo explica como configurar e ver Relatórios de Backup do Azure.
 
 ## <a name="supported-scenarios"></a>Cenários com suporte
 
 - Há suporte para Relatórios de Backup em VMs do Azure, no SQL em VMs do Azure, no SAP HANA em VMs do Azure, no agente do MARS (Serviços de Recuperação do Microsoft Azure), no MABS (Servidor de Backup do Microsoft Azure) e no System Center DPM (Data Protection Manager). Para o backup do compartilhamento de arquivos do Azure, os dados são exibidos para todos os registros criados em ou após 1º de junho de 2020.
+- Para o backup do compartilhamento de arquivos do Azure, os dados em instâncias protegidas não são exibidos no momento nos relatórios (o padrão é zero para todos os itens de backup).
 - Para cargas de trabalho do DPM, há suporte para Relatórios de Backup no DPM versão 5.1.363.0 e superior e no Agente versão 2.0.9127.0 e superior.
 - Para cargas de trabalho do MABS, há suporte para Relatórios de Backup no MABS versão 13.0.415.0 e superior e no Agente versão 2.0.9170.0 e superior.
 - Os Relatórios de Backup podem ser exibidos em todos os itens de backup, cofres, assinaturas e regiões, desde que os dados estejam sendo enviados para um workspace do Log Analytics ao qual o usuário tenha acesso. Para exibir os relatórios de um conjunto de cofres, você só precisa ter acesso de leitor ao workspace do Log Analytics ao qual os cofres estão enviando os dados. Você não precisa ter acesso aos cofres individuais.
 - Se você for um usuário do [Azure Lighthouse](../lighthouse/index.yml) com acesso delegado às assinaturas dos clientes, poderá usar esses relatórios com o Azure Lighthouse para ver os relatórios em todos os seus locatários.
 - Atualmente, os dados podem ser exibidos nos Relatórios de Backup em um máximo de 100 workspaces do Log Analytics (entre locatários).
 - Atualmente, os dados para trabalhos de backup de log não são exibidos nos relatórios.
+
+[!INCLUDE [backup-center.md](../../includes/backup-center.md)]
 
 ## <a name="get-started"></a>Introdução
 
@@ -113,7 +116,7 @@ Usando essa exibição, você pode identificar os itens de backup que não tiver
 
 Para exibir recursos inativos, navegue até a guia **otimizar** e selecione o bloco **recursos inativos** . Selecionar este bloco exibe uma grade que contém detalhes de todos os recursos inativos existentes no escopo selecionado. Por padrão, a grade mostra os itens que não têm um ponto de recuperação nos últimos sete dias. Para localizar recursos inativos para um intervalo de tempo diferente, você pode ajustar o filtro de **intervalo de tempo** na parte superior da guia.
 
-Depois de identificar um recurso inativo, você pode investigar o problema ainda mais navegando até o painel do item de backup ou o painel de recursos do Azure para esse recurso (sempre que aplicável). Dependendo do seu cenário, você pode optar por interromper o backup do computador (se ele não existir mais) e excluir backups desnecessários, o que economiza custos, ou você pode corrigir problemas no computador para garantir que os backups sejam feitos de forma confiável.
+Depois de identificar um recurso inativo, você pode investigar ainda mais o problema navegando até o painel do item de backup ou o painel de recursos do Azure para esse recurso (sempre que aplicável). Dependendo do seu cenário, você pode optar por interromper o backup do computador (se ele não existir mais) e excluir backups desnecessários, o que economiza custos, ou você pode corrigir problemas no computador para garantir que os backups sejam feitos de forma confiável.
 
 ![Otimizar recursos inativos de guia](./media/backup-azure-configure-backup-reports/optimize-inactive-resources.png)
 

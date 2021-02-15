@@ -3,14 +3,14 @@ title: Serviço de Kubernetes do Azure (AKS) com SLA de tempo de atividade
 description: Saiba mais sobre a oferta opcional de SLA de tempo de atividade para o servidor de API do Serviço de Kubernetes do Azure (AKS).
 services: container-service
 ms.topic: conceptual
-ms.date: 06/24/2020
-ms.custom: references_regions
-ms.openlocfilehash: 6523e16bfe3bf0592b78da544d7d52dc3d969af4
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.date: 01/08/2021
+ms.custom: references_regions, devx-track-azurecli
+ms.openlocfilehash: 9f8f697da7499d370c96b77e7e543dec9fbafa3e
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88749128"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664088"
 ---
 # <a name="azure-kubernetes-service-aks-uptime-sla"></a>SLA de tempo de atividade do Serviço de Kubernetes do Azure (AKS)
 
@@ -25,13 +25,8 @@ Os clientes ainda podem criar clusters grátis ilimitados com um objetivo de ní
 
 ## <a name="region-availability"></a>Disponibilidade de região
 
-O SLA de tempo de atividade está disponível em regiões públicas e regiões do Azure governamental em que há [suporte para AKs](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service).
-
-* Atualmente, não há suporte para o Azure China 21Vianet.
-
-## <a name="limitations"></a>Limitações
-
-* Atualmente, não há suporte para clusters particulares.
+* O SLA de tempo de atividade está disponível em regiões públicas e regiões do Azure governamental em que há [suporte para AKs](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service).
+* O SLA de tempo de atividade está disponível para [clusters AKs privados][private-clusters] em todas as regiões públicas em que há suporte para AKs.
 
 ## <a name="sla-terms-and-conditions"></a>Termos e condições do SLA
 
@@ -39,7 +34,7 @@ O SLA de tempo de atividade é um recurso pago e habilitado por cluster. O preç
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-* Instalar o [CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) versão 2.8.0 ou posterior
+* Instalar o [CLI do Azure](/cli/azure/install-azure-cli) versão 2.8.0 ou posterior
 
 ## <a name="creating-a-new-cluster-with-uptime-sla"></a>Criando um novo cluster com SLA de tempo de atividade
 
@@ -95,7 +90,7 @@ Crie um novo cluster e não use o SLA de tempo de atividade:
 az aks create --resource-group myResourceGroup --name myAKSCluster--node-count 1
 ```
 
-Use o [`az aks update`][az-aks-nodepool-update] comando para atualizar o cluster existente:
+Use o [`az aks update`][az-aks-update] comando para atualizar o cluster existente:
 
 ```azurecli-interactive
 # Update an existing cluster to use Uptime SLA
@@ -136,9 +131,10 @@ Configure o cluster para [limitar o tráfego de saída](limit-egress-traffic.md)
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [faq]: ./faq.md
 [availability-zones]: ./availability-zones.md
-[az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
+[az-aks-create]: /cli/azure/aks?#az-aks-create
 [limit-egress-traffic]: ./limit-egress-traffic.md
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
-[az-aks-nodepool-update]: /cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-update
+[az-aks-update]: /cli/azure/aks?view=azure-cli-latest&preserve-view=true#az_aks_update
 [az-group-delete]: /cli/azure/group#az-group-delete
+[private-clusters]: private-clusters.md

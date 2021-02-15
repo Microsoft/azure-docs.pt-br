@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: f872159e538dc85121a7a6d4d6503fd18a263628
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: b851e52141cf93aba4aab9b2768658f0aac4660f
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543037"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879908"
 ---
 # <a name="frequently-asked-questions"></a>Perguntas frequentes
 Tem dúvidas? Confira as perguntas frequentes a seguir para obter mais informações.
@@ -163,7 +163,7 @@ Os recursos a seguir ajudam você a gerenciar com segurança segredos e acessar 
  - [Identidade de Serviço Gerenciada do Azure AD (MSI)](https://azure.microsoft.com/blog/keep-credentials-out-of-code-introducing-azure-ad-managed-service-identity/)
  - [Identidades gerenciadas para os recursos do Azure](../../active-directory/managed-identities-azure-resources/overview.md)
  - [Identidades gerenciadas no serviço Azure App e Azure Functions](../../app-service/overview-managed-identity.md)
- - [Biblioteca AppAuthentication](../../key-vault/general/service-to-service-authentication.md)
+ - [Biblioteca AppAuthentication](/dotnet/api/overview/azure/service-to-service-authentication)
 
 
 Para obter mais informações, consulte a postagem de blog [Gerenciando segredos com segurança na nuvem](https://devblogs.microsoft.com/visualstudio/managing-secrets-securely-in-the-cloud/).

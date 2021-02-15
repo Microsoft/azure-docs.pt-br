@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/05/2019
-ms.openlocfilehash: 217be627f81406f671118d5290cd5f67f52c01d2
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 92603165ac399415ec4fb6daeea1641065671a83
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86112105"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302936"
 ---
 # <a name="computer-groups-in-azure-monitor-log-queries"></a>Grupos de computadores em consultas Azure Monitor log
 Os grupos de computadores no Azure Monitor permitem que você defina o escopo de [consultas de log](../log-query/log-query-overview.md) para um determinado conjunto de computadores.  Cada grupo é preenchido com computadores usando uma consulta que você define ou importando grupos de fontes diferentes.  Quando o grupo é incluído em uma consulta de log, os resultados são limitados aos registros que correspondem aos computadores no grupo.
@@ -97,13 +97,13 @@ Clique no **x** na coluna **Remover** para excluir o grupo de computadores.  Cli
 Você usa um grupo de computadores criado a partir de uma consulta de log em uma consulta, tratando o alias como uma função, geralmente com a seguinte sintaxe:
 
 ```kusto
-Table | where Computer in (ComputerGroup)`
+Table | where Computer in (ComputerGroup)
 ```
 
 Por exemplo, você pode usar o seguinte para retornar registros de UpdateSummary somente para os computadores em um grupo de computadores chamado mycomputergroup.
 
 ```kusto
-UpdateSummary | where Computer in (mycomputergroup)`
+UpdateSummary | where Computer in (mycomputergroup)
 ```
 
 Os grupos de computadores importados e seus computadores incluídos estão armazenados na tabela **ComputerGroup**.  Por exemplo, a seguinte consulta retornaria uma lista de computadores no grupo de Computadores do domínio do Active Directory. 

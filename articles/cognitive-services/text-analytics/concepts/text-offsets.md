@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/09/2020
 ms.author: aahi
 ms.reviewer: jdesousa
-ms.openlocfilehash: 14fd7c2b034077d818d1a1224d3c4c12a7fc07bc
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: f5b63503792b13e089568004ba67e5be8a3d0c7f
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855638"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98932364"
 ---
 # <a name="text-offsets-in-the-text-analytics-api-output"></a>Deslocamentos de texto na saída de API de Análise de Texto
 
@@ -34,9 +34,9 @@ Sempre que os deslocamentos forem retornados à resposta da API, como [reconheci
 
 ## <a name="extracting-substrings-from-text-with-offsets"></a>Extraindo subcadeias de texto com deslocamentos
 
-Os deslocamentos podem causar problemas ao usar métodos de subcadeias de caracteres baseados em caractere, por exemplo, o método de [subcadeias](https://docs.microsoft.com/dotnet/api/system.string.substring?view=netframework-4.8) de caracteres .net (). Um problema é que um deslocamento pode fazer com que um método de subcadeia de caracteres termine no meio de uma codificação grafemas de vários caracteres, em vez do final.
+Os deslocamentos podem causar problemas ao usar métodos de subcadeias de caracteres baseados em caractere, por exemplo, o método de [subcadeias](/dotnet/api/system.string.substring) de caracteres .net (). Um problema é que um deslocamento pode fazer com que um método de subcadeia de caracteres termine no meio de uma codificação grafemas de vários caracteres, em vez do final.
 
-No .NET, considere usar a classe [StringInfo](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo?view=netframework-4.8) , que permite que você trabalhe com uma cadeia de caracteres como uma série de elementos textuais, em vez de objetos de caractere individuais. Você também pode procurar por bibliotecas de divisores grafemas em seu ambiente de software preferido. 
+No .NET, considere usar a classe [StringInfo](/dotnet/api/system.globalization.stringinfo) , que permite que você trabalhe com uma cadeia de caracteres como uma série de elementos textuais, em vez de objetos de caractere individuais. Você também pode procurar por bibliotecas de divisores grafemas em seu ambiente de software preferido. 
 
 O API de Análise de Texto também retorna esses elementos textuais, por conveniência.
 

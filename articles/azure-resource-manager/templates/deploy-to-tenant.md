@@ -2,15 +2,15 @@
 title: Implantar recursos no locatário
 description: Descreve como implantar recursos no escopo do locatário em um modelo de Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 08/06/2020
-ms.openlocfilehash: 2f5249eb54a62e4df082a18b22625bb93a0f09f8
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.date: 01/13/2021
+ms.openlocfilehash: fd5a9ae60c578a3be7f70d82baae0a15e406b9db
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88002764"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99491479"
 ---
-# <a name="create-resources-at-the-tenant-level"></a>Criar recursos no nível do locatário
+# <a name="tenant-deployments-with-arm-templates"></a>Implantações de locatário com modelos ARM
 
 À medida que sua organização amadureceu, talvez seja necessário definir e atribuir [políticas](../../governance/policy/overview.md) ou o [controle de acesso baseado em função do Azure (RBAC do Azure)](../../role-based-access-control/overview.md) em seu locatário do Azure AD. Com os modelos de nível de locatário, você pode aplicar políticas declarativamente e atribuir funções em um nível global.
 
@@ -24,7 +24,7 @@ Para políticas do Azure, use:
 * [policyDefinitions](/azure/templates/microsoft.authorization/policydefinitions)
 * [policySetDefinitions](/azure/templates/microsoft.authorization/policysetdefinitions)
 
-Para o controle de acesso baseado em função, use:
+Para o controle de acesso baseado em função do Azure (RBAC do Azure), use:
 
 * [roleAssignments](/azure/templates/microsoft.authorization/roleassignments)
 
@@ -36,26 +36,40 @@ Para criar grupos de gerenciamento, use:
 
 * [managementGroups](/azure/templates/microsoft.management/managementgroups)
 
+Para criar assinaturas, use:
+
+* [aliases](/azure/templates/microsoft.subscription/aliases)
+
 Para gerenciar custos, use:
 
 * [billingProfiles](/azure/templates/microsoft.billing/billingaccounts/billingprofiles)
 * [sobre](/azure/templates/microsoft.billing/billingaccounts/billingprofiles/instructions)
 * [invoiceSections](/azure/templates/microsoft.billing/billingaccounts/billingprofiles/invoicesections)
 
-### <a name="schema"></a>Esquema
+Para configurar o portal, use:
+
+* [tenantConfigurations](/azure/templates/microsoft.portal/tenantconfigurations)
+
+## <a name="schema"></a>Esquema
 
 O esquema que você pode usar para implantações de locatário são diferentes dos esquemas para implantações do grupo de recursos.
 
 Para modelos, use:
 
 ```json
-https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#",
+    ...
+}
 ```
 
 O esquema para um arquivo de parâmetro é o mesmo para todos os escopos de implantação. Para arquivos de parâmetros, use:
 
 ```json
-https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    ...
+}
 ```
 
 ## <a name="required-access"></a>Acesso necessário
@@ -82,7 +96,9 @@ O principal agora tem as permissões necessárias para implantar o modelo.
 
 Os comandos para implantações de locatário são diferentes dos comandos para implantações do grupo de recursos.
 
-Para CLI do Azure, use [az deployment tenant create](/cli/azure/deployment/tenant?view=azure-cli-latest#az-deployment-tenant-create):
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
+Para CLI do Azure, use [az deployment tenant create](/cli/azure/deployment/tenant#az-deployment-tenant-create):
 
 ```azurecli-interactive
 az deployment tenant create \
@@ -90,6 +106,8 @@ az deployment tenant create \
   --location WestUS \
   --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/tenant-deployments/new-mg/azuredeploy.json"
 ```
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Para Azure PowerShell, use [New-AzTenantDeployment](/powershell/module/az.resources/new-aztenantdeployment).
 
@@ -100,154 +118,81 @@ New-AzTenantDeployment `
   -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/tenant-deployments/new-mg/azuredeploy.json"
 ```
 
-Para REST API, use [Implantações – Criar ou atualizar no escopo do locatário](/rest/api/resources/deployments/createorupdateattenantscope).
+---
+
+Para obter informações mais detalhadas sobre os comandos de implantação e opções para implantar modelos de ARM, consulte:
+
+* [Implantar recursos com modelos ARM e portal do Azure](deploy-portal.md)
+* [Implantar recursos com modelos do Resource Manager e a CLI do Azure](deploy-cli.md)
+* [Implantar recursos com modelos do Resource Manager e o Azure PowerShell](deploy-powershell.md)
+* [Implantar recursos com modelos ARM e Azure Resource Manager API REST](deploy-rest.md)
+* [Usar um botão de implantação para implantar modelos do repositório GitHub](deploy-to-azure-button.md)
+* [Implantar modelos de ARM de Cloud Shell](deploy-cloud-shell.md)
 
 ## <a name="deployment-location-and-name"></a>Nome e local da implantação
 
-Para implantações no nível do locatário, você deve fornecer um local para a implantação. O local da implantação é separado do local dos recursos que você implanta. O local de implantação especifica onde armazenar os dados de implantação.
+Para implantações no nível do locatário, você deve fornecer um local para a implantação. O local da implantação é separado do local dos recursos que você implanta. O local de implantação especifica onde armazenar os dados de implantação. As implantações de [assinatura](deploy-to-subscription.md) e [grupo de gerenciamento](deploy-to-management-group.md) também exigem um local. Para implantações de [grupo de recursos](deploy-to-resource-group.md) , o local do grupo de recursos é usado para armazenar os dados de implantação.
 
-Você pode fornecer um nome da implantação ou usar o nome da implantação padrão. O nome padrão é o nome do arquivo de modelo. Por exemplo, implantar um modelo chamado **azuredeploy.json** cria um nome de implantação padrão de **azuredeploy**.
+Você pode fornecer um nome da implantação ou usar o nome da implantação padrão. O nome padrão é o nome do arquivo de modelo. Por exemplo, implantar um modelo chamado _azuredeploy.json_ cria um nome de implantação padrão de **azuredeploy**.
 
-O local não pode ser alterado para cada nome de implantação. Você não pode criar uma implantação em um local quando há uma implantação existente com o mesmo nome em um local diferente. Se você receber o código de erro `InvalidDeploymentLocation`, use um nome diferente ou o mesmo local que a implantação anterior para esse nome.
+O local não pode ser alterado para cada nome de implantação. Você não pode criar uma implantação em um local quando há uma implantação existente com o mesmo nome em um local diferente. Por exemplo, se você criar uma implantação de locatário com o nome **deployment1** em **centralus**, não será possível criar outra implantação mais tarde com o nome **deployment1** , mas um local de **westus**. Se você receber o código de erro `InvalidDeploymentLocation`, use um nome diferente ou o mesmo local que a implantação anterior para esse nome.
 
 ## <a name="deployment-scopes"></a>Escopos de implantação
 
-Ao implantar em um locatário, você pode direcionar o locatário ou grupos de gerenciamento, assinaturas e grupos de recursos no locatário. O usuário que está implantando o modelo deve ter acesso ao escopo especificado.
+Ao implantar em um locatário, você pode implantar recursos em:
+
+* o locatário
+* grupos de gerenciamento dentro do locatário
+* subscriptions
+* grupos de recursos
+
+Um [recurso de extensão](scope-extension-resources.md) pode ser definido como escopo para um destino diferente do destino de implantação.
+
+O usuário que está implantando o modelo deve ter acesso ao escopo especificado.
+
+Esta seção mostra como especificar escopos diferentes. Você pode combinar esses escopos diferentes em um único modelo.
+
+### <a name="scope-to-tenant"></a>Escopo para o locatário
 
 Os recursos definidos na seção de recursos do modelo são aplicados ao locatário.
 
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [
-        tenant-level-resources
-    ],
-    "outputs": {}
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-tenant.json" highlight="5":::
+
+### <a name="scope-to-management-group"></a>Escopo do grupo de gerenciamento
 
 Para direcionar um grupo de gerenciamento dentro do locatário, adicione uma implantação aninhada e especifique a `scope` propriedade.
 
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "mgName": {
-            "type": "string"
-        }
-    },
-    "variables": {
-        "mgId": "[concat('Microsoft.Management/managementGroups/', parameters('mgName'))]"
-    },
-    "resources": [
-        {
-            "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2020-06-01",
-            "name": "nestedMG",
-            "scope": "[variables('mgId')]",
-            "location": "eastus",
-            "properties": {
-                "mode": "Incremental",
-                "template": {
-                    nested-template
-                }
-            }
-        }
-    ],
-    "outputs": {}
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/tenant-to-mg.json" highlight="10,17,18,22":::
 
-## <a name="use-template-functions"></a>Usar funções de modelo
+### <a name="scope-to-subscription"></a>Escopo da assinatura
 
-Para implantações de locatário, há algumas considerações importantes ao usar funções de modelo:
+Você também pode direcionar as assinaturas dentro do locatário. O usuário que está implantando o modelo deve ter acesso ao escopo especificado.
 
-* A função [resourceGroup()](template-functions-resource.md#resourcegroup)**não** é suportada.
-* A função [subscription()](template-functions-resource.md#subscription) **não** tem suporte.
-* A funções [reference()](template-functions-resource.md#reference) e [list()](template-functions-resource.md#list) são suportadas.
-* Use a função [tenantResourceId()](template-functions-resource.md#tenantresourceid) para obter a ID do recurso para os recursos que são implantados no nível do locatário.
+Para direcionar uma assinatura no locatário, use uma implantação aninhada e a `subscriptionId` propriedade.
 
-  Por exemplo, para obter a ID do recurso para uma definição de política, use:
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/tenant-to-subscription.json" highlight="9,10,18":::
 
-  ```json
-  tenantResourceId('Microsoft.Authorization/policyDefinitions/', parameters('policyDefinition'))
-  ```
+### <a name="scope-to-resource-group"></a>Escopo para o grupo de recursos
 
-  A ID do recurso retornada tem o seguinte formato:
+Você também pode direcionar grupos de recursos dentro do locatário. O usuário que está implantando o modelo deve ter acesso ao escopo especificado.
 
-  ```json
-  /providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-  ```
+Para direcionar um grupo de recursos dentro do locatário, use uma implantação aninhada. Definir as propriedades `subscriptionId` e `resourceGroup`. Não defina um local para a implantação aninhada porque ela é implantada no local do grupo de recursos.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/tenant-to-rg.json" highlight="9,10,18":::
 
 ## <a name="create-management-group"></a>Criar grupo de gerenciamento
 
-O [modelo a seguir](https://github.com/Azure/azure-quickstart-templates/tree/master/tenant-deployments/new-mg) cria um grupo de recursos vazio.
+O modelo a seguir cria um grupo de recursos vazio.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "mgName": {
-      "type": "string",
-      "defaultValue": "[concat('mg-', uniqueString(newGuid()))]"
-    }
-  },
-  "resources": [
-    {
-      "type": "Microsoft.Management/managementGroups",
-      "apiVersion": "2019-11-01",
-      "name": "[parameters('mgName')]",
-      "properties": {
-      }
-    }
-  ]
-}
-```
+:::code language="json" source="~/quickstart-templates/tenant-deployments/new-mg/azuredeploy.json":::
+
+Se sua conta não tiver permissão para implantar no locatário, você ainda poderá criar grupos de gerenciamento implantando em outro escopo. Para obter mais informações, consulte [grupo de gerenciamento](deploy-to-management-group.md#management-group).
 
 ## <a name="assign-role"></a>Atribuir função
 
-O [modelo a seguir](https://github.com/Azure/azure-quickstart-templates/tree/master/tenant-deployments/tenant-role-assignment) atribui uma função no escopo do locatário.
+O modelo a seguir atribui uma função no escopo do locatário.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "principalId": {
-      "type": "string",
-      "metadata": {
-        "description": "principalId if the user that will be given contributor access to the resourceGroup"
-      }
-    },
-    "roleDefinitionId": {
-      "type": "string",
-      "defaultValue": "8e3af657-a8ff-443c-a75c-2fe8c4bcb635",
-      "metadata": {
-        "description": "roleDefinition for the assignment - default is owner"
-      }
-    }
-  },
-  "variables": {
-    // This creates an idempotent guid for the role assignment
-    "roleAssignmentName": "[guid('/', parameters('principalId'), parameters('roleDefinitionId'))]"
-  },
-  "resources": [
-    {
-      "name": "[variables('roleAssignmentName')]",
-      "type": "Microsoft.Authorization/roleAssignments",
-      "apiVersion": "2019-04-01-preview",
-      "properties": {
-        "roleDefinitionId": "[tenantResourceId('Microsoft.Authorization/roleDefinitions', parameters('roleDefinitionId'))]",
-        "principalId": "[parameters('principalId')]",
-        "scope": "/"
-      }
-    }
-  ]
-}
-```
+:::code language="json" source="~/quickstart-templates/tenant-deployments/tenant-role-assignment/azuredeploy.json":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

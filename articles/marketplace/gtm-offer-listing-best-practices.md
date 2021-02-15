@@ -4,15 +4,15 @@ description: Conheça as melhores práticas de listagem de entrada no mercado pa
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 07/06/2020
-ms.openlocfilehash: 19e3e356765099b83f7248a024b55c491a61b110
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 3ea6a0035a9f9354be5c14699936c6a07dea1150
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816262"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94492082"
 ---
 # <a name="offer-listing-best-practices"></a>Práticas recomendadas de listagem de ofertas
 
@@ -20,7 +20,7 @@ Este artigo fornece sugestões para a criação e o envolvimento das ofertas do 
 
 ## <a name="online-store-offer-details"></a>Detalhes da oferta da loja online
 
-| Setting | Melhor prática |
+| Configuração | Melhor prática |
 |:--- |:--- |  
 | Nome da oferta | Para aplicativos, forneça um título claro que inclua palavras-chave de pesquisa para ajudar os clientes a descobrir sua oferta. <br> <br> Para serviços de consultoria, siga este formato: [nome da oferta: [duração] [tipo de oferta] (por exemplo, contoso: implementação de 2 semanas) |
 | Descrição da oferta | Forneça uma descrição clara que descreva a proposta de valor da sua oferta nas primeiras frases.  Tenha em mente que essas frases podem ser usadas nos resultados do mecanismo de pesquisa. Os componentes principais da sua proposta de valor devem incluir: <ul> <li>Descrição do produto ou da solução. </li> <li> O usuário persona que se beneficia do produto ou da solução. </li> <li> O cliente precisa ou dificuldade no produto ou nos endereços da solução. </li> </ul> <br> Use o vocabulário padrão do setor ou palavras com base no benefício quando possível.  Não dependa de recursos e em funcionalidades para vender seu produto.  Em vez disso, concentre-se no valor que você oferece. <br> <br> Para listagens de serviços de consultoria, declare claramente o serviço profissional que você fornece. |
@@ -48,11 +48,11 @@ As categorias e os setores de uma loja online diferente serão aplicáveis a dif
 
 ### <a name="categories"></a>Categorias
 
-O Microsoft AppSource e o Azure Marketplace são duas lojas online diferentes que atendem aos requisitos exclusivos do cliente. O Azure Marketplace tem como alvo profissionais de ti e desenvolvedores que criam soluções no Azure.  Microsoft AppSource destina-se a usuários empresariais que buscam aplicativos SaaS de negócios e/ou setor, suplementos do Dynamics 365, suplementos de Microsoft 365 e aplicativos de plataforma de energia.
+O Microsoft AppSource e o Azure Marketplace são lojas online que oferecem tipos de solução diferentes. O Azure Marketplace oferece soluções de ti criadas no ou para o Azure.  Microsoft AppSource oferecem soluções de negócios, como aplicativos SaaS do setor, suplementos do Dynamics 365, suplementos de Microsoft 365 e aplicativos de plataforma de energia.
 
-As categorias e subcategorias são mapeadas para cada loja online com base no público-alvo. Sua oferta será publicada no Microsoft AppSource ou no Azure Marketplace, dependendo do tipo de oferta, dos recursos de transação da seleção de oferta e categoria/subcategoria. 
+Categorias e subcategorias são mapeadas para cada loja online com base no tipo de solução. Sua oferta será publicada no Microsoft AppSource ou no Azure Marketplace, dependendo do tipo de oferta, dos recursos de transação da seleção de oferta e categoria/subcategoria. 
 
-Selecione categorias e subcategorias que melhor se alinhem com sua oferta e seu público-alvo. Você pode selecionar:
+Selecione categorias e subcategorias que melhor se alinham com o tipo de solução. Você pode selecionar:
 
 * Até duas categorias, incluindo uma categoria primária e uma secundária (opcional).
 * Até duas subcategorias para cada categoria primária e/ou secundária. Se nenhuma subcategoria for selecionada, sua oferta ainda poderá ser descoberta somente na categoria selecionada.
@@ -61,7 +61,8 @@ Selecione categorias e subcategorias que melhor se alinhem com sua oferta e seu 
 
 #### <a name="important-saas-offers-and-microsoft-365-add-ins"></a>IMPORTANTE: o SaaS oferece e Microsoft 365 suplementos
 
-Consulte o [guia por tipo de oferta](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-overview) para obter detalhes específicos sobre como os recursos de transação podem afetar como sua oferta pode ser exibida e adquirida por clientes do Marketplace. Para ofertas de SaaS, a capacidade de transação da oferta, bem como a seleção de categoria, determinará a loja online onde sua oferta será publicada:
+Consulte transformando [no Marketplace comercial](marketplace-commercial-transaction-capabilities-and-considerations.md) para obter detalhes específicos sobre como os recursos de transação podem afetar como sua oferta pode ser exibida e adquirida por clientes do Marketplace. Para ofertas de SaaS, a capacidade de transação da oferta, bem como a seleção de categoria, determinará a loja online onde sua oferta será publicada.
+
 
 | Oferta de SaaS    | Oferta de SaaS   | Oferta de SaaS  | Oferta de SaaS   | Oferta de SaaS   | Oferta de SaaS   | Oferta de SaaS    | Loja online aplicável| Loja online aplicável |
 |:-------------:|:---:|:--------:|:---------:|:--:|:--:|:---:|:---------------------:|:-------------:|
@@ -93,9 +94,9 @@ A seleção do setor só se aplica a ofertas publicadas no AppSource e serviços
 | **Automotivo** | |
 | **Distribuição** | Atacado <br> Envio de pacote de & de remessa |  
 | **Educação** | Ensino superior <br> Primário &do edu/K-12 <br> Bibliotecas & museus |
-| **Serviços Financeiros** | Mercados bancários & capital <br> Seguro | 
+| **Serviços financeiros** | Mercados bancários & capital <br> Seguro | 
 | **Governo** |  Inteligência de & de defesa <br> Governo civis <br> Segurança pública & justiça |
-| **Assistência médica** | Pagador de integridade <br> Provedor de integridade <br> Produtos farmacêuticos | 
+| **Serviços de saúde** | Pagador de integridade <br> Provedor de integridade <br> Produtos farmacêuticos | 
 | **Hospedagem & viagem** | Viagem e Transporte <br> Hotéis & lazer <br> Serviços de restaurantes & Food | 
 | **Recursos de produção &** | Agrochemical de química & <br> Fabricação discreta <br> Energia | 
 | **Comunicações de & de mídia** | Entretenimento de mídia & <br> Telecomunicações | 
@@ -118,7 +119,7 @@ Selecione os produtos aplicáveis com os quais seu aplicativo trabalha para que 
 Palavras-chave podem ajudar os clientes a encontrarem sua oferta ao pesquisarem algo. Identifique as principais palavras-chave de pesquisa para sua oferta, incorpore-as no resumo e na descrição da oferta, bem como na seção de palavras-chave da seção de detalhes da listagem de ofertas.
 
 ## <a name="online-store-marketing-details"></a>Detalhes de marketing da loja online
-| Setting | Melhor prática |
+| Configuração | Melhor prática |
 |:--- |:--- |  
 | Logotipo da oferta (formato PNG, de 216 × 216 a 350 x 350 px): página de detalhes do aplicativo | Projetar e otimizar seu logotipo para uma mídia digital:<br>Carregue o logotipo no formato PNG os detalhes do aplicativo listando a página de sua oferta. O Partner Center irá redimensioná-lo para os tamanhos de logotipo necessários. |
 | Logotipo da oferta (formato PNG, 48 × 48 pixels): página de pesquisa | O Partner Center gerará esse logotipo do logotipo grande que você carregou. Você pode, opcionalmente, substituir isso por uma imagem diferente mais tarde. |
@@ -129,8 +130,8 @@ Palavras-chave podem ajudar os clientes a encontrarem sua oferta ao pesquisarem 
 ## <a name="link-to-your-offer-page-from-your-website"></a>Vincular a sua página de oferta do seu site
 
 Ao vincular do AppSource ou do selo do Azure Marketplace em seu site à sua listagem no Marketplace comercial, você pode dar suporte à análise e aos relatórios de alta segurança, incluindo os seguintes parâmetros de consulta no final da URL:
-* **src**: Inclua a origem da qual o tráfego é roteado para o AppSource (por exemplo, site, LinkedIn ou Facebook).
-* **mktcmpid**: Sua ID de campanha de marketing, que pode conter até 16 caracteres em qualquer combinação de letras, números, sublinhados e hifens (por exemplo, *blogpost_12*).
+* **src** : Inclua a origem da qual o tráfego é roteado para o AppSource (por exemplo, site, LinkedIn ou Facebook).
+* **mktcmpid** : Sua ID de campanha de marketing, que pode conter até 16 caracteres em qualquer combinação de letras, números, sublinhados e hifens (por exemplo, *blogpost_12* ).
 
 O exemplo de URL a seguir contém os dois parâmetros de consulta anteriores: `https://appsource.microsoft.com/product/dynamics-365/mscrm.04931187-431c-415d-8777-f7f482ba8095?src=website&mktcmpid=blogpost_12`
 

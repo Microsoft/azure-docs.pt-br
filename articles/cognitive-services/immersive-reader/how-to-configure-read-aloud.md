@@ -1,5 +1,5 @@
 ---
-title: Configurar leitura em voz alta
+title: Configurar Ler em Voz Alta
 titleSuffix: Azure Cognitive Services
 description: Este artigo mostrará como configurar as várias opções para leitura em voz alta.
 author: metanMSFT
@@ -8,13 +8,13 @@ ms.service: cognitive-services
 ms.subservice: immersive-reader
 ms.topic: conceptual
 ms.date: 06/29/2020
-ms.author: metan
-ms.openlocfilehash: 0705977c04afe742718a96aebbac31e78dc5815f
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.author: metang
+ms.openlocfilehash: 648227521e5e4e8feecd864d3e572a4758e551ca
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85486895"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92633256"
 ---
 # <a name="how-to-configure-read-aloud"></a>Como configurar a leitura em voz alta
 

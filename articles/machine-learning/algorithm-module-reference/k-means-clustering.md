@@ -9,20 +9,20 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 08/04/2020
-ms.openlocfilehash: 94a2c9bf3f65897809edaf94fc01b442e02b46d9
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 7e0b61c1ca6ae30044e4c9d4705bdce01eac1942
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87552995"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323694"
 ---
 # <a name="module-k-means-clustering"></a>Módulo: clustering K-means
 
-Este artigo descreve como usar o módulo de *clustering k-* means no designer de Azure Machine Learning (versão prévia) para criar um modelo de clustering k-means não treinado. 
+Este artigo descreve como usar o módulo de *clustering k-* means no designer de Azure Machine Learning para criar um modelo de clustering k-means não treinado. 
  
 K-means é um dos mais simples e mais conhecidos algoritmos de aprendizado não *supervisionados* . Você pode usar o algoritmo para uma variedade de tarefas de aprendizado de máquina, como: 
 
-* [Detectando dados anormais](https://msdn.microsoft.com/magazine/jj891054.aspx).
+* [Detectando dados anormais](/archive/msdn-magazine/2013/february/data-clustering-detecting-abnormal-data-using-k-means-clustering).
 * Documentos de texto em cluster.
 * Analisar conjuntos de valores antes de usar outros métodos de classificação ou regressão. 
 
@@ -58,46 +58,46 @@ Quando ele processa os dados de treinamento, o algoritmo K-means começa com um 
   
 2.  Para especificar como você deseja que o modelo seja treinado, selecione a opção **criar modo de instrutor** .  
   
-    -   **Parâmetro único**: se você souber os parâmetros exatos que deseja usar no modelo de clustering, poderá fornecer um conjunto específico de valores como argumentos.  
+    -   **Parâmetro único** : se você souber os parâmetros exatos que deseja usar no modelo de clustering, poderá fornecer um conjunto específico de valores como argumentos.  
   
-3.  Para **número de centróides**, digite o número de clusters para o qual você deseja que o algoritmo comece.  
+3.  Para **número de centróides** , digite o número de clusters para o qual você deseja que o algoritmo comece.  
   
      Não há garantia de que o modelo produza exatamente esse número de clusters. O algoritmo começa com esse número de pontos de dados e itera para localizar a configuração ideal. Você pode consultar o [código-fonte de sklearn](https://github.com/scikit-learn/scikit-learn/blob/fd237278e/sklearn/cluster/_kmeans.py#L1069).
   
 4.  A **inicialização** de propriedades é usada para especificar o algoritmo que é usado para definir a configuração de cluster inicial.  
   
-    -   **Primeiro N**: alguns números iniciais de pontos de dados são escolhidos a partir do DataSet e usados como o meio inicial. 
+    -   **Primeiro N** : alguns números iniciais de pontos de dados são escolhidos a partir do DataSet e usados como o meio inicial. 
     
          Esse método também é chamado de *método forjado*.  
   
-    -   **Random**: o algoritmo coloca aleatoriamente um ponto de dados em um cluster e, em seguida, computa a média inicial para ser o centróide dos pontos atribuídos aleatoriamente do cluster. 
+    -   **Random** : o algoritmo coloca aleatoriamente um ponto de dados em um cluster e, em seguida, computa a média inicial para ser o centróide dos pontos atribuídos aleatoriamente do cluster. 
 
          Esse método também é chamado de método de *partição aleatória* .  
   
-    -   **K-means + +**: esse é o método padrão para inicializar clusters.  
+    -   **K-means + +** : esse é o método padrão para inicializar clusters.  
   
          O algoritmo **k-means + +** foi proposto em 2007 por David Arthur e Sergei Vassilvitskii para evitar clustering ruim pelo algoritmo K-means padrão. O **k-means + +** melhora na k-means padrão usando um método diferente para escolher os centros de cluster iniciais.  
   
     
-5.  Para **semente de número aleatório**, opcionalmente, digite um valor a ser usado como semente para a inicialização do cluster. Esse valor pode ter um efeito significativo na seleção de cluster.  
+5.  Para **semente de número aleatório** , opcionalmente, digite um valor a ser usado como semente para a inicialização do cluster. Esse valor pode ter um efeito significativo na seleção de cluster.  
   
-6.  Para **métrica**, escolha a função a ser usada para medir a distância entre os vetores de cluster ou entre os novos pontos de dados e os centróides escolhidos aleatoriamente. O Azure Machine Learning dá suporte às seguintes métricas de distância do cluster:  
+6.  Para **métrica** , escolha a função a ser usada para medir a distância entre os vetores de cluster ou entre os novos pontos de dados e os centróides escolhidos aleatoriamente. O Azure Machine Learning dá suporte às seguintes métricas de distância do cluster:  
   
-    -   **Euclidiana**: a distância de euclidiana é comumente usada como uma medida de dispersão de cluster para o clustering de K-means. Essa métrica é preferencial porque minimiza a distância média entre pontos e os centróides.
+    -   **Euclidiana** : a distância de euclidiana é comumente usada como uma medida de dispersão de cluster para o clustering de K-means. Essa métrica é preferencial porque minimiza a distância média entre pontos e os centróides.
   
-7.  Para **iterações**, digite o número de vezes que o algoritmo deve iterar sobre os dados de treinamento antes de finalizar a seleção de centróides.  
+7.  Para **iterações** , digite o número de vezes que o algoritmo deve iterar sobre os dados de treinamento antes de finalizar a seleção de centróides.  
   
      Você pode ajustar esse parâmetro para equilibrar a precisão em relação ao tempo de treinamento.  
   
-8.  Para o **modo atribuir rótulo**, escolha uma opção que especifique como uma coluna de rótulo, se estiver presente no conjunto de um, deve ser tratada.  
+8.  Para o **modo atribuir rótulo** , escolha uma opção que especifique como uma coluna de rótulo, se estiver presente no conjunto de um, deve ser tratada.  
   
      Como o clustering K-means é um método de aprendizado de máquina não supervisionado, os rótulos são opcionais. No entanto, se o conjunto de seus conjuntos de seus já tiver uma coluna de rótulo, você poderá usar esses valores para orientar a seleção dos clusters ou pode especificar que os valores sejam ignorados.  
   
-    -   **Ignorar coluna de rótulo**: os valores na coluna de rótulo são ignorados e não são usados na criação do modelo.
+    -   **Ignorar coluna de rótulo** : os valores na coluna de rótulo são ignorados e não são usados na criação do modelo.
   
-    -   **Preencher valores ausentes**: os valores de coluna de rótulo são usados como recursos para ajudar a criar os clusters. Se alguma linha estiver sem um rótulo, o valor será imputados usando outros recursos.  
+    -   **Preencher valores ausentes** : os valores de coluna de rótulo são usados como recursos para ajudar a criar os clusters. Se alguma linha estiver sem um rótulo, o valor será imputados usando outros recursos.  
   
-    -   **Substituir do mais próximo ao centro**: os valores de coluna de rótulo são substituídos por valores de rótulo previstos, usando o rótulo do ponto mais próximo do centróide atual.  
+    -   **Substituir do mais próximo ao centro** : os valores de coluna de rótulo são substituídos por valores de rótulo previstos, usando o rótulo do ponto mais próximo do centróide atual.  
 
 8.  Selecione a opção **normalizar recursos** se desejar normalizar os recursos antes do treinamento.
   
@@ -105,7 +105,7 @@ Quando ele processa os dados de treinamento, o algoritmo K-means começa com um 
 
 10. Treinar o modelo.  
   
-    -   Se você definir **criar modo de instrutor** como um **único parâmetro**, adicione um conjunto de um DataSet marcado e treine o modelo usando o módulo [treinar modelo de clustering](train-clustering-model.md) .  
+    -   Se você definir **criar modo de instrutor** como um **único parâmetro** , adicione um conjunto de um DataSet marcado e treine o modelo usando o módulo [treinar modelo de clustering](train-clustering-model.md) .  
   
 ## <a name="results"></a>Resultados
 
@@ -145,4 +145,4 @@ Em geral, com modelos de clustering, é possível que qualquer configuração es
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Confira o [conjunto de módulos disponíveis](module-reference.md) no Azure Machine Learning. 
+Confira o [conjunto de módulos disponíveis](module-reference.md) no Azure Machine Learning.

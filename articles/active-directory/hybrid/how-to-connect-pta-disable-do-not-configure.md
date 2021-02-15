@@ -11,16 +11,21 @@ ms.date: 04/20/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f5db99f5e8ed2ea5844acba5500bc94d8fb0db2b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 26112b1e799cbde3145e7137c686b4b336db4bab
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85358337"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919928"
 ---
-# <a name="disable-pta-when-using-azure-ad-connect-do-not-configure"></a>Desabilitar PTA ao usar Azure AD Connect "não configurar"
+# <a name="disable-pta-when-using-azure-ad-connect"></a>Desabilitar PTA ao usar Azure AD Connect
 
-Se você estiver usando a autenticação de passagem com Azure AD Connect e tiver definido como "não configurar", poderá desabilitá-lo. A desabilitação de PTA pode ser feita usando os cmdlets a seguir. 
+Se você estiver usando a autenticação de passagem com Azure AD Connect e tiver definido como **"não configurar"**, poderá desabilitá-lo. 
+
+>[!NOTE]
+>Se você já tiver o PHS habilitado, desabilitar o PTA resultará no fallback do locatário para PHS.
+
+A desabilitação de PTA pode ser feita usando os cmdlets a seguir. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Os seguintes pré-requisitos são necessários:
@@ -41,7 +46,7 @@ Os seguintes pré-requisitos são necessários:
 
 ## <a name="to-disable-pta"></a>Para desabilitar o PTA
 Em uma sessão do PowerShell, use o seguinte para desabilitar o PTA:
-1. PS C:\Arquivos de Programas\microsoft Azure AD Connect agente de autenticação>`Import-Module .\Modules\PassthroughAuthPSModule`
+1. PS C:\Arquivos de Programas\microsoft Azure AD Connect agente de autenticação> `Import-Module .\Modules\PassthroughAuthPSModule`
 2. `Get-PassthroughAuthenticationEnablementStatus -Feature PassthroughAuth` ou `Get-PassthroughAuthenticationEnablementStatus -Feature PassthroughAuth -EnvironmentName <identifier>`
 3. `Disable-PassthroughAuthentication  -Feature PassthroughAuth` ou `Disable-PassthroughAuthentication -Feature PassthroughAuth -EnvironmentName <identifier>`
 
@@ -50,7 +55,7 @@ Em uma sessão do PowerShell, use o seguinte para desabilitar o PTA:
 Se você não tiver um computador agente, poderá usar o comando a seguir para instalar um agente.
 
 1. Baixe o agente de autenticação mais recente de portal.azure.com.
-2. Instalar o recurso: `.\AADConnectAuthAgentSetup.exe` ou`.\AADConnectAuthAgentSetup.exe ENVIRONMENTNAME=<identifier>`
+2. Instalar o recurso: `.\AADConnectAuthAgentSetup.exe` ou `.\AADConnectAuthAgentSetup.exe ENVIRONMENTNAME=<identifier>`
 
 
 ## <a name="next-steps"></a>Próximas etapas

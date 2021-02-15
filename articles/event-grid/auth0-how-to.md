@@ -3,12 +3,12 @@ title: Como enviar eventos do Auth0 para o Azure usando a Grade de Eventos do Az
 description: Como enviar eventos do Auth0 para os serviços do Azure com a Grade de Eventos do Azure.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 6cd440075c6400b58c23f879b53da26abe4f9e75
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: a66a60cb926b933a6b0628a67506d0d52ab7a905
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86103272"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93077856"
 ---
 # <a name="integrate-azure-event-grid-with-auth0"></a>Integrar a Grade de Eventos do Azure com Auth0
 
@@ -67,7 +67,7 @@ Assinar seu Tópico de Parceiro do Auth0 permite que você informe a Grade de Ev
 1. Na folha do Tópico de Parceiro da sua integração do Auth0, escolha + Assinatura de Evento na parte superior.
 1. Na página Criar Assinatura de Evento:
     1. Insira um nome para a assinatura de evento.
-    1. Escolha o serviço do Azure ou o WebHook que você criou para o tipo de Ponto de Extremidade.
+    1. Selecione o serviço do Azure ou o webhook que você criou para o tipo de ponto de extremidade.
     1. Siga as instruções para o serviço específico.
     1. Clique em Criar.
 
@@ -90,5 +90,5 @@ Os eventos Auth0 são entregues ao Azure por meio de um mecanismo de streaming. 
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Tópico de parceiro do Auth0](auth0-overview.md)
-- [Visão geral dos tópicos de parceiros](partner-topics-overview.md)
+- [Visão geral dos tópicos de parceiros](partner-events-overview.md)
 - [Torne-se um Parceiro da Grade de Eventos](partner-onboarding-overview.md)

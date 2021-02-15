@@ -1,23 +1,23 @@
 ---
 title: Extensões-banco de dados do Azure para PostgreSQL-servidor único
 description: Saiba mais sobre as extensões postgres disponíveis no banco de dados do Azure para PostgreSQL-servidor único
-author: rachel-msft
-ms.author: raagyema
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 07/10/2020
-ms.openlocfilehash: b97b373936f9c485eaa96cdd34ed33c49e75ad9a
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.date: 09/14/2020
+ms.openlocfilehash: 78395873457f9fe53d45dfbfd94aa9ccdccd614d
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86242059"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92485453"
 ---
-# <a name="postgresql-extensions-in-azure-database-for-postgresql---single-server"></a>Extensões PostgreSQL no banco de dados do Azure para PostgreSQL-servidor único
-O PostgreSQL fornece a capacidade de estender a funcionalidade de seu banco de dados usando as extensões. As extensões agrupam vários objetos SQL relacionados em um único pacote que pode ser carregado ou removido do banco de dados com um único comando. Depois de ser carregado no banco de dados, as extensões funcionam como recursos internos.
+# <a name="postgresql-extensions-in-azure-database-for-postgresql---single-server"></a>Extensões PostgreSQL no Banco de Dados do Azure para PostgreSQL – Servidor único
+O PostgreSQL fornece a capacidade de estender a funcionalidade de seu banco de dados usando as extensões. As extensões agrupam vários objetos SQL em um pacote que pode ser carregado ou removido do seu banco de dados com um comando. Depois de carregadas no banco de dados, as extensões funcionam como recursos internos.
 
 ## <a name="how-to-use-postgresql-extensions"></a>Como usar as extensões PostgreSQL
-As extensões PostgreSQL devem ser instaladas no banco de dados para que você possa usá-las. Para instalar uma extensão específica, execute o comando [criar extensão](https://www.postgresql.org/docs/current/sql-createextension.html)   da ferramenta psql para carregar os objetos empacotados em seu banco de dados.
+As extensões PostgreSQL devem ser instaladas no banco de dados para que você possa usá-las. Para instalar uma extensão específica, execute o comando [CREATE EXTENSION](https://www.postgresql.org/docs/current/sql-createextension.html) na ferramenta psql para carregar os objetos empacotados em seu banco de dados.
 
 O banco de dados do Azure para PostgreSQL dá suporte a um subconjunto de extensões de chave, conforme listado abaixo. Essas informações também estão disponíveis por meio da execução de `SELECT * FROM pg_available_extensions;`. Não há suporte para extensões além daquelas listadas. Você não pode criar sua própria extensão no banco de dados do Azure para PostgreSQL.
 
@@ -30,7 +30,7 @@ As extensões a seguir estão disponíveis no banco de dados do Azure para servi
 > |---|---|---|
 > |[address_standardizer](http://postgis.net/docs/Address_Standardizer.html)         | 2.5.1           | Usado para analisar um endereço em elementos constituintes. |
 > |[address_standardizer_data_us](http://postgis.net/docs/Address_Standardizer.html) | 2.5.1           | Exemplo de conjunto de DataSet de endereço do padronizador dos EUA|
-> |[btree_gin](https://www.postgresql.org/docs/11/btree-gin.html)                    | 1.3             | suporte para indexação de tipos de texto comuns em iniciar|
+> |[btree_gin](https://www.postgresql.org/docs/11/btree-gin.html)                    | 1,3             | suporte para indexação de tipos de texto comuns em iniciar|
 > |[btree_gist](https://www.postgresql.org/docs/11/btree-gist.html)                   | 1.5             | suporte para indexação de tipos de texto comuns no|
 > |[citext](https://www.postgresql.org/docs/11/citext.html)                       | 1.5             | tipo de dados para cadeias de caracteres não diferenciando maiúsculas de minúsculas|
 > |[simples](https://www.postgresql.org/docs/11/cube.html)                         | 1.4             | tipo de dados para cubos multidimensionais|
@@ -45,11 +45,11 @@ As extensões a seguir estão disponíveis no banco de dados do Azure para servi
 > |[ltree](https://www.postgresql.org/docs/11/ltree.html)                        | 1,1             | tipo de dados para estruturas hierárquicas como de árvore|
 > |[orafce](https://github.com/orafce/orafce)                       | 3.7             | Funções e operadores que emulam um subconjunto de funções e pacotes do RDBMS comercial|
 > |[pgaudit](https://www.pgaudit.org/)                     | 1.3.1             | fornece funcionalidade de auditoria|
-> |[pgcrypto](https://www.postgresql.org/docs/11/pgcrypto.html)                     | 1.3             | funções criptográficas|
+> |[pgcrypto](https://www.postgresql.org/docs/11/pgcrypto.html)                     | 1,3             | funções criptográficas|
 > |[pgrouting](https://pgrouting.org/)                    | 2.6.2           | Extensão pgRouting|
 > |[pgrowlocks](https://www.postgresql.org/docs/11/pgrowlocks.html)                   | 1.2             | Mostrar informações de bloqueio em nível de linha|
 > |[pgstattuple](https://www.postgresql.org/docs/11/pgstattuple.html)                  | 1.5             | Mostrar estatísticas de nível de tupla|
-> |[pg_buffercache](https://www.postgresql.org/docs/11/pgbuffercache.html)               | 1.3             | examinar o cache de buffer compartilhado|
+> |[pg_buffercache](https://www.postgresql.org/docs/11/pgbuffercache.html)               | 1,3             | examinar o cache de buffer compartilhado|
 > |[pg_partman](https://github.com/pgpartman/pg_partman)                   | 4.0.0           | Extensão para gerenciar tabelas particionadas por hora ou ID|
 > |[pg_prewarm](https://www.postgresql.org/docs/11/pgprewarm.html)                   | 1.2             | dados de relações prequentes|
 > |[pg_stat_statements](https://www.postgresql.org/docs/11/pgstatstatements.html)           | 1.6             | acompanhar estatísticas de execução de todas as instruções SQL executadas|
@@ -75,7 +75,7 @@ As extensões a seguir estão disponíveis no banco de dados do Azure para servi
 > |---|---|---|
 > |[address_standardizer](http://postgis.net/docs/Address_Standardizer.html)         | 2.5.1           | Usado para analisar um endereço em elementos constituintes. |
 > |[address_standardizer_data_us](http://postgis.net/docs/Address_Standardizer.html) | 2.5.1           | Exemplo de conjunto de DataSet de endereço do padronizador dos EUA|
-> |[btree_gin](https://www.postgresql.org/docs/10/btree-gin.html)                    | 1.3             | suporte para indexação de tipos de texto comuns em iniciar|
+> |[btree_gin](https://www.postgresql.org/docs/10/btree-gin.html)                    | 1,3             | suporte para indexação de tipos de texto comuns em iniciar|
 > |[btree_gist](https://www.postgresql.org/docs/10/btree-gist.html)                   | 1.5             | suporte para indexação de tipos de texto comuns no|
 > |[chkpass](https://www.postgresql.org/docs/10/chkpass.html)                       | 1.0             | tipo de dados para senhas criptografadas automaticamente|
 > |[citext](https://www.postgresql.org/docs/10/citext.html)                       | 1.4             | tipo de dados para cadeias de caracteres não diferenciando maiúsculas de minúsculas|
@@ -91,15 +91,15 @@ As extensões a seguir estão disponíveis no banco de dados do Azure para servi
 > |[ltree](https://www.postgresql.org/docs/10/ltree.html)                        | 1,1             | tipo de dados para estruturas hierárquicas como de árvore|
 > |[orafce](https://github.com/orafce/orafce)                       | 3.7             | Funções e operadores que emulam um subconjunto de funções e pacotes do RDBMS comercial|
 > |[pgaudit](https://www.pgaudit.org/)                     | 1.2             | fornece funcionalidade de auditoria|
-> |[pgcrypto](https://www.postgresql.org/docs/10/pgcrypto.html)                     | 1.3             | funções criptográficas|
+> |[pgcrypto](https://www.postgresql.org/docs/10/pgcrypto.html)                     | 1,3             | funções criptográficas|
 > |[pgrouting](https://pgrouting.org/)                    | 2.5.2           | Extensão pgRouting|
 > |[pgrowlocks](https://www.postgresql.org/docs/10/pgrowlocks.html)                   | 1.2             | Mostrar informações de bloqueio em nível de linha|
 > |[pgstattuple](https://www.postgresql.org/docs/10/pgstattuple.html)                  | 1.5             | Mostrar estatísticas de nível de tupla|
-> |[pg_buffercache](https://www.postgresql.org/docs/10/pgbuffercache.html)               | 1.3             | examinar o cache de buffer compartilhado|
+> |[pg_buffercache](https://www.postgresql.org/docs/10/pgbuffercache.html)               | 1,3             | examinar o cache de buffer compartilhado|
 > |[pg_partman](https://github.com/pgpartman/pg_partman)                   | 2.6.3           | Extensão para gerenciar tabelas particionadas por hora ou ID|
 > |[pg_prewarm](https://www.postgresql.org/docs/10/pgprewarm.html)                   | 1,1             | dados de relações prequentes|
 > |[pg_stat_statements](https://www.postgresql.org/docs/10/pgstatstatements.html)           | 1.6             | acompanhar estatísticas de execução de todas as instruções SQL executadas|
-> |[pg_trgm](https://www.postgresql.org/docs/10/pgtrgm.html)                      | 1.3             | medição de similaridade de texto e pesquisa de índice com base em trigramas|
+> |[pg_trgm](https://www.postgresql.org/docs/10/pgtrgm.html)                      | 1,3             | medição de similaridade de texto e pesquisa de índice com base em trigramas|
 > |[plpgsql](https://www.postgresql.org/docs/10/plpgsql.html)                      | 1.0             | Linguagem de procedimento PL/pgSQL|
 > |[plv8](https://plv8.github.io/)                         | 2.1.0          | Linguagem de procedimento confiável PL/JavaScript (V8)|
 > |[PostGIS](https://www.postgis.net/)                      | 2.4.3           | Funções e tipos espaciais de PostGIS, geography e rasterização|
@@ -124,7 +124,7 @@ As seguintes extensões estão disponíveis no banco de dados do Azure para serv
 > |[btree_gin](https://www.postgresql.org/docs/9.6/btree-gin.html)                    | 1.0             | suporte para indexação de tipos de texto comuns em iniciar|
 > |[btree_gist](https://www.postgresql.org/docs/9.6/btree-gist.html)                   | 1.2             | suporte para indexação de tipos de texto comuns no|
 > |[chkpass](https://www.postgresql.org/docs/9.6/chkpass.html)                       | 1.0             | tipo de dados para senhas criptografadas automaticamente|
-> |[citext](https://www.postgresql.org/docs/9.6/citext.html)                       | 1.3             | tipo de dados para cadeias de caracteres não diferenciando maiúsculas de minúsculas|
+> |[citext](https://www.postgresql.org/docs/9.6/citext.html)                       | 1,3             | tipo de dados para cadeias de caracteres não diferenciando maiúsculas de minúsculas|
 > |[simples](https://www.postgresql.org/docs/9.6/cube.html)                         | 1.2             | tipo de dados para cubos multidimensionais|
 > |[dblink](https://www.postgresql.org/docs/9.6/dblink.html)                       | 1.2             | conectar-se a outros bancos de dados PostgreSQL de dentro de um Database|
 > |[dict_int](https://www.postgresql.org/docs/9.6/dict-int.html)                     | 1.0             | modelo de dicionário de pesquisa de texto para inteiros|
@@ -137,7 +137,7 @@ As seguintes extensões estão disponíveis no banco de dados do Azure para serv
 > |[ltree](https://www.postgresql.org/docs/9.6/ltree.html)                        | 1,1             | tipo de dados para estruturas hierárquicas como de árvore|
 > |[orafce](https://github.com/orafce/orafce)                       | 3.7             | Funções e operadores que emulam um subconjunto de funções e pacotes do RDBMS comercial|
 > |[pgaudit](https://www.pgaudit.org/)                     | 1.1.2             | fornece funcionalidade de auditoria|
-> |[pgcrypto](https://www.postgresql.org/docs/9.6/pgcrypto.html)                     | 1.3             | funções criptográficas|
+> |[pgcrypto](https://www.postgresql.org/docs/9.6/pgcrypto.html)                     | 1,3             | funções criptográficas|
 > |[pgrouting](https://pgrouting.org/)                    | 2.3.2           | Extensão pgRouting|
 > |[pgrowlocks](https://www.postgresql.org/docs/9.6/pgrowlocks.html)                   | 1.2             | Mostrar informações de bloqueio em nível de linha|
 > |[pgstattuple](https://www.postgresql.org/docs/9.6/pgstattuple.html)                  | 1.4             | Mostrar estatísticas de nível de tupla|
@@ -145,7 +145,7 @@ As seguintes extensões estão disponíveis no banco de dados do Azure para serv
 > |[pg_partman](https://github.com/pgpartman/pg_partman)                   | 2.6.3           | Extensão para gerenciar tabelas particionadas por hora ou ID|
 > |[pg_prewarm](https://www.postgresql.org/docs/9.6/pgprewarm.html)                   | 1,1             | dados de relações prequentes|
 > |[pg_stat_statements](https://www.postgresql.org/docs/9.6/pgstatstatements.html)           | 1.4             | acompanhar estatísticas de execução de todas as instruções SQL executadas|
-> |[pg_trgm](https://www.postgresql.org/docs/9.6/pgtrgm.html)                      | 1.3             | medição de similaridade de texto e pesquisa de índice com base em trigramas|
+> |[pg_trgm](https://www.postgresql.org/docs/9.6/pgtrgm.html)                      | 1,3             | medição de similaridade de texto e pesquisa de índice com base em trigramas|
 > |[plpgsql](https://www.postgresql.org/docs/9.6/plpgsql.html)                      | 1.0             | Linguagem de procedimento PL/pgSQL|
 > |[plv8](https://plv8.github.io/)                         | 2.1.0          | Linguagem de procedimento confiável PL/JavaScript (V8)|
 > |[PostGIS](https://www.postgis.net/)                      | 2.3.2           | Funções e tipos espaciais de PostGIS, geography e rasterização|
@@ -176,7 +176,7 @@ As seguintes extensões estão disponíveis no banco de dados do Azure para serv
 > |[dict_int](https://www.postgresql.org/docs/9.5/dict-int.html)                     | 1.0             | modelo de dicionário de pesquisa de texto para inteiros|
 > |[earthdistance](https://www.postgresql.org/docs/9.5/earthdistance.html)                | 1.0             | calcular grandes distâncias de círculo na superfície da terra|
 > |[fuzzystrmatch](https://www.postgresql.org/docs/9.5/fuzzystrmatch.html)                | 1.0             | determinar semelhanças e distância entre cadeias de caracteres|
-> |[hstore](https://www.postgresql.org/docs/9.5/hstore.html)                       | 1.3             | tipo de dados para armazenar conjuntos de pares (chave, valor)|
+> |[hstore](https://www.postgresql.org/docs/9.5/hstore.html)                       | 1,3             | tipo de dados para armazenar conjuntos de pares (chave, valor)|
 > |[hypopg](https://hypopg.readthedocs.io/en/latest/)                       | 1.1.1           | Índices hipotéticos para PostgreSQL|
 > |[intarray](https://www.postgresql.org/docs/9.5/intarray.html)                     | 1.0             | suporte a funções, operadores e índice para matrizes 1D de inteiros|
 > |[isn](https://www.postgresql.org/docs/9.5/isn.html)                          | 1.0             | tipos de dados para padrões de numeração de produtos internacionais|
@@ -186,11 +186,11 @@ As seguintes extensões estão disponíveis no banco de dados do Azure para serv
 > |[pgcrypto](https://www.postgresql.org/docs/9.5/pgcrypto.html)                     | 1.2             | funções criptográficas|
 > |[pgrouting](https://pgrouting.org/)                    | 2.3.0           | Extensão pgRouting|
 > |[pgrowlocks](https://www.postgresql.org/docs/9.5/pgrowlocks.html)                   | 1,1             | Mostrar informações de bloqueio em nível de linha|
-> |[pgstattuple](https://www.postgresql.org/docs/9.5/pgstattuple.html)                  | 1.3             | Mostrar estatísticas de nível de tupla|
+> |[pgstattuple](https://www.postgresql.org/docs/9.5/pgstattuple.html)                  | 1,3             | Mostrar estatísticas de nível de tupla|
 > |[pg_buffercache](https://www.postgresql.org/docs/9.5/pgbuffercache.html)               | 1,1             | examinar o cache de buffer compartilhado|
 > |[pg_partman](https://github.com/pgpartman/pg_partman)                   | 2.6.3           | Extensão para gerenciar tabelas particionadas por hora ou ID|
 > |[pg_prewarm](https://www.postgresql.org/docs/9.5/pgprewarm.html)                   | 1.0             | dados de relações prequentes|
-> |[pg_stat_statements](https://www.postgresql.org/docs/9.5/pgstatstatements.html)           | 1.3             | acompanhar estatísticas de execução de todas as instruções SQL executadas|
+> |[pg_stat_statements](https://www.postgresql.org/docs/9.5/pgstatstatements.html)           | 1,3             | acompanhar estatísticas de execução de todas as instruções SQL executadas|
 > |[pg_trgm](https://www.postgresql.org/docs/9.5/pgtrgm.html)                      | 1,1             | medição de similaridade de texto e pesquisa de índice com base em trigramas|
 > |[plpgsql](https://www.postgresql.org/docs/9.5/plpgsql.html)                      | 1.0             | Linguagem de procedimento PL/pgSQL|
 > |[PostGIS](https://www.postgis.net/)                      | 2.3.0           | Funções e tipos espaciais de PostGIS, geography e rasterização|
@@ -205,7 +205,7 @@ As seguintes extensões estão disponíveis no banco de dados do Azure para serv
 
 ## <a name="pg_stat_statements"></a>pg_stat_statements
 A [extensão de pg_stat_statements](https://www.postgresql.org/docs/current/pgstatstatements.html) é pré-carregado em cada servidor de banco de dados do Azure para PostgreSQL para fornecer a você um meio de controlar estatísticas de execução de instruções SQL.
-A configuração `pg_stat_statements.track`, que controla quais instruções são contadas por extensão, tem `top` como padrão, que significa que todas as instruções emitidas diretamente por clientes são rastreadas. Dois outros níveis de rastreamento são `none` e `all`. Essa definição é configurável como um parâmetro de servidor por meio de [portal do Azure](https://docs.microsoft.com/azure/postgresql/howto-configure-server-parameters-using-portal) ou da [CLI do Azure](https://docs.microsoft.com/azure/postgresql/howto-configure-server-parameters-using-cli).
+A configuração `pg_stat_statements.track`, que controla quais instruções são contadas por extensão, tem `top` como padrão, que significa que todas as instruções emitidas diretamente por clientes são rastreadas. Dois outros níveis de rastreamento são `none` e `all`. Essa definição é configurável como um parâmetro de servidor por meio de [portal do Azure](./howto-configure-server-parameters-using-portal.md) ou da [CLI do Azure](./howto-configure-server-parameters-using-cli.md).
 
 Há um equilíbrio entre as informações de execução de consulta fornecida por pg_stat_statements e o impacto no desempenho do servidor, que registra cada instrução SQL. Se você não está usando ativamente a extensão pg_stat_statements, recomendamos que você defina `pg_stat_statements.track` como `none`. Observe que alguns serviços de monitoramento de terceiros podem depender de pg_stat_statements para fornecer informações de desempenho de consulta, para confirmar se este é o caso para você ou não.
 
@@ -228,7 +228,7 @@ No postgres 11 e superior, você pode configurar o aquecimento para acontecer [a
 ## <a name="timescaledb"></a>TimescaleDB
 TimescaleDB é um banco de dados de série temporal que é empacotado como uma extensão para PostgreSQL. O TimescaleDB fornece funções analíticas orientadas a tempo, otimizações e escalas postgres para cargas de trabalho de série temporal.
 
-[Saiba mais sobre o TimescaleDB](https://docs.timescale.com/latest), uma marca registrada da [TIMESCALE, Inc.](https://www.timescale.com/) O banco de dados do Azure para PostgreSQL fornece a versão de código aberto do TIMESCALE. Para saber quais recursos de escala de informações estão disponíveis nesta versão, confira [a comparação de produtos de escala temporal](https://www.timescale.com/products/).
+[Saiba mais sobre o TimescaleDB](https://docs.timescale.com/latest), uma marca registrada da [TIMESCALE, Inc.](https://www.timescale.com/) O banco de dados do Azure para PostgreSQL fornece a [edição Apache-2](https://www.timescale.com/legal/licenses)do TimescaleDB.
 
 ### <a name="installing-timescaledb"></a>Instalando o TimescaleDB
 Para instalar o TimescaleDB, você precisa incluí-lo nas bibliotecas de pré-carregamento compartilhadas do servidor. Uma alteração no parâmetro de postgres `shared_preload_libraries` requer a **reinicialização do servidor** para entrar em vigor. Você pode alterar os parâmetros usando o [portal do Azure](howto-configure-server-parameters-using-portal.md) ou o [CLI do Azure](howto-configure-server-parameters-using-cli.md).

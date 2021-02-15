@@ -3,20 +3,24 @@ title: Configurar e gerenciar a vida útil no Azure Cosmos DB
 description: Saiba como configurar e gerenciar a vida útil em um contêiner e um item no Azure Cosmos DB
 author: anfeldma-ms
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 03/27/2020
+ms.date: 10/11/2020
 ms.author: anfeldma
-ms.custom: devx-track-javascript, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 75299ab83543b0f28f4cf8f02e41b692c32d19ed
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.custom: devx-track-js, devx-track-azurecli, devx-track-csharp
+ms.openlocfilehash: 2ddba95f9ccc25d536638dbc68c41027d26e71c7
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88997261"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341001"
 ---
 # <a name="configure-time-to-live-in-azure-cosmos-db"></a>Configurar a vida útil no Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 No Azure Cosmos DB, você pode optar por configurar a TTL (vida útil) no nível do contêiner ou substituí-la no nível de um item após a definição do contêiner. Você pode configurar a TTL para um contêiner usando o portal do Azure ou os SDKs específicos da linguagem. As substituições de TTL no nível do item podem ser configuradas usando os SDKs.
+
+> Este conteúdo está relacionado a Azure Cosmos DB TTL de repositório transacional. Se você estiver procurando por TTL da loja Analitycal, que habilita cenários NoETL HTAP por meio [do link Synapse do Azure](./synapse-link.md), clique [aqui](./analytical-store-introduction.md#analytical-ttl).
 
 ## <a name="enable-time-to-live-on-a-container-using-azure-portal"></a>Habilitar vida útil em um contêiner usando o portal do Azure
 
@@ -31,7 +35,7 @@ Use as etapas a seguir para habilitar a vida útil de um contêiner sem prazo de
 4. Selecione um contêiner existente, expanda-o e modifique os valores abaixo:
 
    * Abra a janela **Escala e Configurações**.
-   * Em **Configuração**, localize **Vida Útil**.
+   * Em **Configuração** , localize **Vida Útil**.
    * Selecione **Ativado (não há padrão)** ou selecione **Ativado** e defina um valor de TTL
    * Clique em **Salvar** para salvar as alterações.
 
@@ -114,7 +118,7 @@ container = database.createContainerIfNotExists(containerProperties, 400).block(
 
 ## <a name="set-time-to-live-on-a-container-using-sdk"></a>Definir a vida útil em um contêiner usando o SDK
 
-Para definir a vida útil de um contêiner, você precisará fornecer um número positivo diferente de zero que indica o período de tempo em segundos. Com base no valor de TTL configurado, todos os itens no contêiner após a última modificação do carimbo de hora do item `_ts` serão excluídos.
+Para definir a vida útil de um contêiner, você precisará fornecer um número positivo diferente de zero que indica o período de tempo em segundos. Com base no valor de TTL configurado, todos os itens no contêiner após a última modificação do carimbo de hora do item `_ts` serão excluídos. Opcionalmente, você pode definir `TimeToLivePropertyPath` , que usará uma propriedade diferente em vez da propriedade gerada pelo sistema `_ts` para determinar quais itens serão excluídos com base na TTL.
 
 ### <a name="net-sdk"></a><a id="dotnet-enable-withexpiry"></a> SDK DO .NET
 
@@ -215,7 +219,7 @@ Use as etapas a seguir para habilitar a vida útil de um item:
 4. Selecione um contêiner existente, expanda-o e modifique os valores abaixo:
 
    * Abra a janela **Escala e Configurações**.
-   * Em **Configuração**, localize **Vida Útil**.
+   * Em **Configuração** , localize **Vida Útil**.
    * Selecione **ativado (sem padrão)** ou selecione **ativado** e defina um valor TTL. 
    * Clique em **Salvar** para salvar as alterações.
 

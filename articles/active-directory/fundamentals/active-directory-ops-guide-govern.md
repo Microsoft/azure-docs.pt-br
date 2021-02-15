@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 4826bcdc85e0c6189c51aa262014fe154bb479b1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ba3ca140abe36a31ffa03422420ea537bbe4f39a
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74535451"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935743"
 ---
 # <a name="azure-active-directory-governance-operations-reference-guide"></a>Guia de referência de operações de governança de Azure Active Directory
 
@@ -49,8 +49,8 @@ Ao examinar sua lista, você pode achar necessário atribuir um proprietário pa
 
 #### <a name="owner-recommended-reading"></a>Leitura recomendada pelo proprietário
 
-- [Atribuindo funções de administrador no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal)
-- [Governança no Azure](https://docs.microsoft.com/azure/security/governance-in-azure)
+- [Atribuindo funções de administrador no Azure Active Directory](../roles/permissions-reference.md)
+- [Governança no Azure](../../governance/index.yml)
 
 ### <a name="configuration-changes-testing"></a>Testes de alterações de configuração
 
@@ -58,15 +58,15 @@ Há alterações que exigem considerações especiais durante o teste, desde té
 
 | Cenário| Recomendação |
 |-|-|
-|Alterando o tipo de autenticação de federado para PHS/PTA ou vice-versa| Use a [distribuição em etapas](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-staged-rollout) para testar o impacto da alteração do tipo de autenticação.|
-|Distribuir uma nova política de acesso condicional (AC) ou política de proteção de identidade|Crie uma nova política de autoridade de certificação e atribua para os usuários de teste.|
+|Alterando o tipo de autenticação de federado para PHS/PTA ou vice-versa| Use a [distribuição em etapas](../hybrid/how-to-connect-staged-rollout.md) para testar o impacto da alteração do tipo de autenticação.|
+|Distribuir uma nova política de acesso condicional (AC) ou política de proteção de identidade|Crie uma nova política de acesso condicional e atribua a usuários de teste.|
 |Integração de um ambiente de teste de um aplicativo|Adicione o aplicativo a um ambiente de produção, oculte-o no painel myapps e atribua-o aos usuários de teste durante a fase de controle de qualidade (QA).|
 |Alteração de regras de sincronização|Execute as alterações em um Azure AD Connect de teste com a mesma configuração que está atualmente em produção, também conhecida como modo de preparo, e analise os resultados de CSExport. Se for satisfeita, troque para produção quando estiver pronto.|
 |Alteração de identidade visual|Teste em um locatário de teste separado.|
 |Distribuindo um novo recurso|Se o recurso der suporte a distribuição para um conjunto de usuários de destino, identifique os usuários piloto e compile. Por exemplo, a redefinição de senha de autoatendimento e a autenticação multifator podem ter como destino usuários ou grupos específicos.|
 |Fazer a transferência de um aplicativo de um provedor de identidade local (IdP), por exemplo, Active Directory, para o Azure AD|Se o aplicativo oferecer suporte a várias configurações de IdP, por exemplo, Salesforce, configure e teste o Azure AD durante uma janela de alteração (caso o aplicativo apresente a página HRD). Se o aplicativo não oferecer suporte a vários IdPs, agende o teste durante uma janela de controle de alterações e o tempo de inatividade do programa.|
 |Atualizar regras de grupo dinâmico|Crie um grupo dinâmico paralelo com a nova regra. Compare com o resultado calculado, por exemplo, execute o PowerShell com a mesma condição.<br>Se o teste for aprovado, troque os locais em que o grupo antigo foi usado (se possível).|
-|Migrar licenças de produtos|Consulte [alterar a licença de um único usuário em um grupo licenciado no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/licensing-groups-change-licenses).|
+|Migrar licenças de produtos|Consulte [alterar a licença de um único usuário em um grupo licenciado no Azure Active Directory](../enterprise-users/licensing-groups-change-licenses.md).|
 |Alterar AD FS regras como autorização, emissão, MFA|Use a declaração de grupo para o subconjunto de usuários de destino.|
 |Alteração AD FS experiência de autenticação ou alterações semelhantes em todo o farm|Crie um farm paralelo com o mesmo nome de host, implemente alterações de configuração, teste de clientes usando arquivo de HOSTs, regras de roteamento de NLB ou roteamento semelhante.<br>Se a plataforma de destino não oferecer suporte a arquivos de HOSTs (por exemplo, dispositivos móveis), altere o controle.|
 
@@ -74,7 +74,7 @@ Há alterações que exigem considerações especiais durante o teste, desde té
 
 ### <a name="access-reviews-to-applications"></a>Revisões de acesso a aplicativos
 
-Ao longo do tempo, os usuários podem acumular o acesso aos recursos à medida que eles se movem em diferentes equipes e cargos. É importante que os proprietários de recursos revisem o acesso a aplicativos regularmente e removam os privilégios que não são mais necessários durante todo o ciclo de vida dos usuários. As [revisões de acesso](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview) do Azure ad permitem que as organizações gerenciem com eficiência as associações de grupo, o acesso aos aplicativos empresariais e as atribuições de função. Os proprietários de recursos devem revisar o acesso dos usuários regularmente para garantir que apenas as pessoas certas tenham acesso contínuo. Idealmente, você deve considerar o uso de revisões de acesso do Azure AD para essa tarefa.
+Ao longo do tempo, os usuários podem acumular o acesso aos recursos à medida que eles se movem em diferentes equipes e cargos. É importante que os proprietários de recursos revisem o acesso a aplicativos regularmente e removam os privilégios que não são mais necessários durante todo o ciclo de vida dos usuários. As [revisões de acesso](../governance/access-reviews-overview.md) do Azure ad permitem que as organizações gerenciem com eficiência as associações de grupo, o acesso aos aplicativos empresariais e as atribuições de função. Os proprietários de recursos devem revisar o acesso dos usuários regularmente para garantir que apenas as pessoas certas tenham acesso contínuo. Idealmente, você deve considerar o uso de revisões de acesso do Azure AD para essa tarefa.
 
 ![Página inicial das revisões de acesso](./media/active-directory-ops-guide/active-directory-ops-img15.png)
 
@@ -83,7 +83,7 @@ Ao longo do tempo, os usuários podem acumular o acesso aos recursos à medida q
 
 ### <a name="access-reviews-to-external-identities"></a>Revisões de acesso a identidades externas
 
-É crucial manter o acesso a identidades externas restritas apenas aos recursos que são necessários, durante o tempo necessário. Estabeleça um processo de revisão de acesso automatizado regular para todas as identidades externas e acesso ao aplicativo usando as [revisões de acesso](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)do Azure AD. Se um processo já existir no local, considere o uso das revisões de acesso do Azure AD. Depois que um aplicativo for desativado ou não mais usado, remova todas as identidades externas que tinham acesso ao aplicativo.
+É crucial manter o acesso a identidades externas restritas apenas aos recursos que são necessários, durante o tempo necessário. Estabeleça um processo de revisão de acesso automatizado regular para todas as identidades externas e acesso ao aplicativo usando as [revisões de acesso](../governance/access-reviews-overview.md)do Azure AD. Se um processo já existir no local, considere o uso das revisões de acesso do Azure AD. Depois que um aplicativo for desativado ou não mais usado, remova todas as identidades externas que tinham acesso ao aplicativo.
 
 > [!NOTE]
 > Cada usuário que interage com as revisões de acesso deve ter uma licença paga de Azure AD Premium P2.
@@ -92,24 +92,24 @@ Ao longo do tempo, os usuários podem acumular o acesso aos recursos à medida q
 
 ### <a name="privileged-account-usage"></a>Uso de conta privilegiada
 
-Os hackers geralmente visam contas de administrador e outros elementos de acesso privilegiado para obter acesso rápido a dados e sistemas confidenciais.Como os usuários com funções privilegiadas tendem a se acumular ao longo do tempo, é importante revisar e gerenciar o acesso de administrador regularmente e fornecer acesso privilegiado just-in-time ao Azure AD e aos recursos do Azure.
+Os hackers geralmente visam contas de administrador e outros elementos de acesso privilegiado para obter acesso rápido a dados e sistemas confidenciais. Como os usuários com funções privilegiadas tendem a se acumular ao longo do tempo, é importante revisar e gerenciar o acesso de administrador regularmente e fornecer acesso privilegiado just-in-time ao Azure AD e aos recursos do Azure.
 
-Se não houver nenhum processo em sua organização para gerenciar contas privilegiadas, ou se você tiver administradores que usam suas contas de usuário regulares para gerenciar serviços e recursos, você deverá começar imediatamente a usar contas separadas, por exemplo, uma para atividades normais do dia a dia; o outro para acesso privilegiado e configurado com MFA. Melhor ainda, se sua organização tiver uma assinatura Azure AD Premium P2, você deverá implantar imediatamente [Azure ad Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure#license-requirements) (PIM). No mesmo token, você também deve examinar essas contas com privilégios e [atribuir funções menos privilegiadas](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-admin-roles-secure) , se aplicável.
+Se não houver nenhum processo em sua organização para gerenciar contas privilegiadas, ou se você tiver administradores que usam suas contas de usuário regulares para gerenciar serviços e recursos, você deverá começar imediatamente a usar contas separadas, por exemplo, uma para atividades normais do dia a dia; o outro para acesso privilegiado e configurado com MFA. Melhor ainda, se sua organização tiver uma assinatura Azure AD Premium P2, você deverá implantar imediatamente [Azure ad Privileged Identity Management](../privileged-identity-management/pim-configure.md#license-requirements) (PIM). No mesmo token, você também deve examinar essas contas com privilégios e [atribuir funções menos privilegiadas](../roles/security-planning.md) , se aplicável.
 
-Outro aspecto do gerenciamento de contas privilegiadas que deve ser implementado é a definição de [revisões de acesso](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview) para essas contas, seja manual ou [automatizada por meio do PIM](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-how-to-perform-security-review).
+Outro aspecto do gerenciamento de contas privilegiadas que deve ser implementado é a definição de [revisões de acesso](../governance/access-reviews-overview.md) para essas contas, seja manual ou [automatizada por meio do PIM](../privileged-identity-management/pim-how-to-perform-security-review.md).
 
 #### <a name="privileged-account-management-recommended-reading"></a>Leitura recomendada de gerenciamento de contas privilegiadas
 
-- [Funções no Azure AD Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-roles)
+- [Funções no Azure AD Privileged Identity Management](../privileged-identity-management/pim-roles.md)
 
 ### <a name="emergency-access-accounts"></a>Contas de acesso de emergência
 
-As organizações devem criar [contas de emergência](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access) para se preparar para gerenciar o Azure ad para casos como interrupções de autenticação como:
+As organizações devem criar [contas de emergência](../roles/security-emergency-access.md) para se preparar para gerenciar o Azure ad para casos como interrupções de autenticação como:
 
 - Componentes de interrupção das infraestruturas de autenticação (AD FS, AD local, serviço de MFA)
 - Rotatividade de equipe administrativa
 
-Para evitar que seja bloqueado inadvertidamente do seu locatário porque você não pode entrar ou ativar uma conta de usuário individual existente como administrador, você deve criar duas ou mais contas de emergência e garantir que elas sejam implementadas e alinhadas com [as práticas recomendadas da Microsoft](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-admin-roles-secure) e os [procedimentos de ruptura](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-admin-roles-secure#break-glass-what-to-do-in-an-emergency).
+Para evitar que seja bloqueado inadvertidamente do seu locatário porque você não pode entrar ou ativar uma conta de usuário individual existente como administrador, você deve criar duas ou mais contas de emergência e garantir que elas sejam implementadas e alinhadas com [as práticas recomendadas da Microsoft](../roles/security-planning.md) e os [procedimentos de ruptura](../roles/security-planning.md#break-glass-what-to-do-in-an-emergency).
 
 ### <a name="privileged-access-to-azure-ea-portal"></a>Acesso privilegiado ao portal de EA do Azure
 
@@ -119,11 +119,11 @@ Para ser claro, se o nível de autorização do portal de EA estiver definido at
 
 #### <a name="privileged-access-recommended-reading"></a>Leitura recomendada de acesso privilegiado
 
-- [Permissões da função de administrador no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles)
+- [Permissões da função de administrador no Azure Active Directory](../roles/permissions-reference.md)
 
 ## <a name="entitlement-management"></a>Gerenciamento de direitos
 
-O [Gerenciamento de direitos (em)](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-overview) permite que os proprietários de aplicativos agrupem recursos e os atribua a pessoas específicas na organização (tanto interna quanto externa). O em permite a inscrição e a delegação de autoatendimento para proprietários de negócios, mantendo as políticas de governança para conceder acesso, definir durações de acesso e permitir fluxos de trabalho de aprovação. 
+O [Gerenciamento de direitos (em)](../governance/entitlement-management-overview.md) permite que os proprietários de aplicativos agrupem recursos e os atribua a pessoas específicas na organização (tanto interna quanto externa). O em permite a inscrição e a delegação de autoatendimento para proprietários de negócios, mantendo as políticas de governança para conceder acesso, definir durações de acesso e permitir fluxos de trabalho de aprovação. 
 
 > [!NOTE]
 > O gerenciamento de direitos do Azure AD requer licenças Azure AD Premium P2.

@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/18/2020
 ms.openlocfilehash: a5589a46a63437fb395db280222f8a9e84775df3
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88935068"
 ---
 # <a name="monitor-query-requests-in-azure-cognitive-search"></a>Monitorar solicitações de consulta no Azure Pesquisa Cognitiva
@@ -36,13 +36,13 @@ O volume é medido como **consultas de pesquisa por segundo** (QPS), uma métric
 
 É comum que as consultas sejam executadas em milissegundos, portanto, somente as consultas que medem como segundos aparecerão em métricas.
 
-| Tipo de agregação | DESCRIÇÃO |
+| Tipo de agregação | Descrição |
 |------------------|-------------|
 | Média | O número médio de segundos em um minuto durante o qual a execução da consulta ocorreu.|
 | Contagem | O número de métricas emitidas para o log dentro do intervalo de um minuto. |
 | Máximo | O número mais alto de consultas de pesquisa por segundo registradas durante um minuto. |
 | Mínimo | O número mais baixo de consultas de pesquisa por segundo registradas durante um minuto.  |
-| Soma | A soma de todas as consultas executadas dentro do minuto.  |
+| SUM | A soma de todas as consultas executadas dentro do minuto.  |
 
 Por exemplo, em um minuto, você pode ter um padrão como este: um segundo de alta carga que é o máximo para SearchQueriesPerSecond, seguido de 58 segundos de carga média e, finalmente, um segundo com apenas uma consulta, que é o mínimo.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 10/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4650df71acb088fafc1280d31d9abfb398e06741
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 27d962a2cf1a1c453d942d320d65b3e9b9a4b959
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284482"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357786"
 ---
 # <a name="azure-disk-encryption-for-windows-vms"></a>Azure Disk Encryption para VMs do Windows 
 
@@ -37,7 +37,9 @@ As VMs do Windows estão disponíveis em [vários tamanhos](../sizes-general.md)
 
 O Azure Disk Encryption também está disponível para VMs com armazenamento premium.
 
-Azure Disk Encryption não está disponível em VMs de [geração 2](generation-2.md#generation-1-vs-generation-2-capabilities) e em [VMs da série Lsv2](../lsv2-series.md). Para obter mais exceções, consulte [Azure Disk Encryption: Cenários sem suporte](disk-encryption-windows.md#unsupported-scenarios).
+Azure Disk Encryption não está disponível em [VMs de geração 2](../generation-2.md#generation-1-vs-generation-2-capabilities). Para obter mais exceções, consulte [Azure Disk Encryption: Cenários sem suporte](disk-encryption-windows.md#unsupported-scenarios).
+
+Azure Disk Encryption não está disponível em imagens de VM sem discos temporários (DV4, Dsv4, Ev4 e Esv4).  Confira [tamanhos de VM do Azure sem disco temporário local](../azure-vms-no-temp-disk.md).
 
 ### <a name="supported-operating-systems"></a>Sistemas operacionais compatíveis
 
@@ -86,7 +88,7 @@ A tabela a seguir define alguns dos termos comuns usados na documentação de cr
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Início rápido-criar e criptografar uma VM do Windows com CLI do Azure](disk-encryption-cli-quickstart.md)
+- [Início rápido-criar e criptografar uma VM do Windows com CLI do Azure ](disk-encryption-cli-quickstart.md)
 - [Início rápido-criar e criptografar uma VM do Windows com o Azure PowerShell](disk-encryption-powershell-quickstart.md)
 - [Cenários de Azure Disk Encryption em VMs Windows](disk-encryption-windows.md)
 - [Script da CLI dos pré-requisitos do Azure Disk Encryption](https://github.com/ejarvi/ade-cli-getting-started)

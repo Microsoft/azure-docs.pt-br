@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 08/14/2020
+ms.date: 12/23/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7eb39f1053abeb201c413db7c6bbd3e9f261bd95
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 4122e645b76751e8944704a6405cf5dee09129f1
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89011337"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97932428"
 ---
 # <a name="planning-azure-active-directory-access-reviews-deployment"></a>Planejamento Azure Active Directory implantação de revisões de acesso
 
@@ -37,7 +37,7 @@ As [revisões de acesso do Azure Active Directory (Azure AD)](access-reviews-ove
 
 * Automatizar resultados de revisão, como remover o acesso de usuários aos recursos
 
-  ![Planejando revisões de acesso](./media/deploy-access-review/1-planning-review.png)
+  ![Diagrama que mostra o fluxo de revisões de acesso.](./media/deploy-access-review/1-planning-review.png)
 
 As revisões de acesso são um recurso [Azure ad Identity Governance](identity-governance-overview.md) . Os outros recursos são [Gerenciamento de direitos](entitlement-management-overview.md), [Privileged Identity Management](../privileged-identity-management/pim-configure.md) e [termos de uso](../conditional-access/terms-of-use.md). Juntos, eles ajudam as organizações a resolver essas quatro perguntas:
 
@@ -87,13 +87,13 @@ Considere suas necessidades organizacionais para determinar a estratégia de imp
 
 ### <a name="engage-the-right-stakeholders"></a>Envolva os participantes certos
 
-Quando os projetos de tecnologia falham, eles normalmente fazem isso devido a expectativas incompatíveis com o impacto, os resultados e as responsabilidades. Para evitar essas armadilhas, [certifique-se de que você esteja envolvendo as partes interessadas certas](https://aka.ms/deploymentplans) e que as funções do projeto sejam claras.
+Quando os projetos de tecnologia falham, eles normalmente fazem isso devido a expectativas incompatíveis com o impacto, os resultados e as responsabilidades. Para evitar essas armadilhas, [certifique-se de que você esteja envolvendo as partes interessadas certas](../fundamentals/active-directory-deployment-plans.md) e que as funções do projeto sejam claras.
 
 Para as revisões de acesso, você provavelmente incluirá os representantes das seguintes equipes em sua organização:
 
 * A **Administração de ti** gerencia sua infraestrutura de ti e administra seus investimentos em nuvem e aplicativos SaaS (software como serviço). Essa equipe irá:
 
-   * Examine o acesso privilegiado a infraestrutura e aplicativos, incluindo o Office 365 e o Azure AD.
+   * Examine o acesso privilegiado a infraestrutura e aplicativos, incluindo o Microsoft 365 e o Azure AD.
 
    * Agende e execute revisões de acesso em grupos que são usados para manter listas de exceções ou projetos de piloto de ti, para manter listas de acesso atualizadas.
 
@@ -180,9 +180,9 @@ Os destinos típicos para análise incluem:
 
 * [Aplicativos integrados ao Azure ad para logon único](../manage-apps/what-is-application-management.md) (como SaaS, linha de negócios).
 
-* [Associação](../fundamentals/active-directory-manage-groups.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context) de grupo (sincronizada com o Azure ad ou criada no Azure ad ou no Office 365, incluindo o Microsoft Teams).
+* [Associação](../fundamentals/active-directory-manage-groups.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context) de grupo (sincronizada com o Azure ad ou criada no Azure ad ou Microsoft 365, incluindo Microsoft Teams).
 
-* O [pacote do Access](/azure/active-directory/governance/entitlement-management-overview) que agrupa recursos (grupos, aplicativos e sites) em um único pacote para gerenciar o acesso.
+* O [pacote do Access](./entitlement-management-overview.md) que agrupa recursos (grupos, aplicativos e sites) em um único pacote para gerenciar o acesso.
 
 * [Funções do Azure AD e funções de recurso do Azure](../privileged-identity-management/pim-resource-roles-assign-roles.md) , conforme definido em Privileged Identity Management.
 
@@ -198,7 +198,7 @@ A função administrativa necessária para criar, gerenciar ou ler uma revisão 
 | Pacote de acesso| Administrador global<p>Criador do pacote de acesso| Somente administrador global |
 
 
-Para obter mais informações, consulte [Permissões da função de administrador no Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).
+Para obter mais informações, consulte [Permissões da função de administrador no Azure Active Directory](../roles/permissions-reference.md).
 
 ### <a name="who-will-review-the-access-to-the-resource"></a>Quem vai revisar o acesso ao recurso?
 
@@ -246,7 +246,7 @@ Para criar uma política de revisão de acesso, você deve ter as seguintes info
 | **Recursos a serem examinados**| Acesso ao Microsoft Dynamics |
 | **Frequência de revisão**| Mensalmente |
 | **Quem executa a revisão**| Gerentes de programa do Dynamics Business Group |
-| **Notificação**| Email 24 horas antes da revisão para o alias Dynamics-PMS<p>Incluir a encorajação de mensagens personalizadas a revisores para proteger sua compra |
+| **Notification**| Email 24 horas antes da revisão para o alias Dynamics-Pms<p>Incluir a encorajação de mensagens personalizadas a revisores para proteger sua compra |
 | **Linha do tempo**| 48 horas da notificação |
 |**Ações automáticas**| Remova o acesso de qualquer conta que não tenha entrada interativa dentro de 90 dias, removendo o usuário do grupo de segurança Dynamics-Access. <p>*Execute ações se não forem revisadas na linha do tempo.* |
 | **Ações manuais**| Os revisores podem executar a aprovação de remoções antes da ação automatizada, se desejado. |
@@ -300,11 +300,11 @@ Ao [criar um pacote do Access](entitlement-management-access-package-create.md),
 
 Abra a guia ciclo de vida para rolar para baixo até revisões de acesso.
 
- ![Editar política](./media/deploy-access-review/5-plan-access-packages-admin-ui.png)
+ ![Captura de tela que mostra a "Editar política" na guia "ciclo de vida".](./media/deploy-access-review/5-plan-access-packages-admin-ui.png)
 
 ## <a name="plan-access-reviews-for-groups"></a>Planejar revisões de acesso para grupos
 
-Além de pacotes de acesso, a revisão da Associação de grupo é a maneira mais eficiente de controlar o acesso. É recomendável que o acesso aos recursos seja atribuído por [grupos de segurança ou grupos do Office 365](../fundamentals/active-directory-manage-groups.md)e que os usuários sejam adicionados a esses grupos para obter acesso.
+Além de pacotes de acesso, a revisão da Associação de grupo é a maneira mais eficiente de controlar o acesso. É recomendável que o acesso aos recursos seja atribuído por [grupos de segurança ou grupos de Microsoft 365](../fundamentals/active-directory-manage-groups.md)e que os usuários sejam adicionados a esses grupos para obter acesso.
 
 Um único grupo pode receber acesso a todos os recursos apropriados. Você pode atribuir o acesso de grupo a recursos individuais ou a um pacote de acesso que agrupa aplicativos e outros recursos. Com esse método, você pode examinar o acesso ao grupo em vez do acesso de um indivíduo a cada aplicativo. 
 
@@ -322,9 +322,9 @@ A associação de grupo pode ser revisada por:
 
 Recomendamos que os proprietários do grupo examinem a associação, pois eles estão mais bem situados para saber quem precisa de acesso. A propriedade de grupos difere com o tipo de Grupo:
 
-Os grupos criados no Office 365 e no Azure AD têm um ou mais proprietários bem definidos. Na maioria dos casos, esses proprietários fazem revisores perfeitos para seus próprios grupos, pois sabem quem deve ter acesso. 
+Os grupos criados no Microsoft 365 e no Azure AD têm um ou mais proprietários bem definidos. Na maioria dos casos, esses proprietários fazem revisores perfeitos para seus próprios grupos, pois sabem quem deve ter acesso. 
 
-Por exemplo, o Microsoft Teams usa grupos do Office 365 como o modelo de autorização subjacente para conceder aos usuários acesso a recursos que estão no SharePoint, Exchange, OneNote ou outros serviços do Office 365. O criador da equipe se torna automaticamente um proprietário e deve ser responsável por atestar a associação do grupo. 
+Por exemplo, o Microsoft Teams usa grupos de Microsoft 365 como o modelo de autorização subjacente para conceder aos usuários acesso a recursos que estão no SharePoint, Exchange, OneNote ou outros serviços Microsoft 365. O criador da equipe se torna automaticamente um proprietário e deve ser responsável por atestar a associação do grupo. 
 
 Os grupos criados manualmente no portal do Azure AD ou por meio de scripts por meio de Microsoft Graph podem não necessariamente ter proprietários definidos. Recomendamos que você os defina por meio do portal do AD do Azure na seção "proprietários" do grupo ou por meio do grafo.
 
@@ -333,9 +333,9 @@ Os grupos que são sincronizados do Active Directory local não podem ter um pro
 > [!NOTE]
 > É recomendável definir políticas de negócios que definem como os grupos são criados para garantir uma propriedade de grupo clara e responsabilidade para a revisão regular da associação. 
 
-### <a name="review-membership-of-exclusion-groups-in-ca-policies"></a>Examinar a associação de grupos de exclusão em políticas de CA 
+### <a name="review-membership-of-exclusion-groups-in-conditional-access-policies"></a>Examinar a associação de grupos de exclusão em políticas de acesso condicional 
 
-Há ocasiões em que as políticas de acesso condicional (CA) criadas para manter sua rede segura não devem ser aplicadas a todos os usuários. Por exemplo, uma política de autoridade de certificação que permite apenas que os usuários entrem enquanto estiver na rede corporativa pode não se aplicar à equipe de vendas, que viaja extensivamente. Nesse caso, os membros da equipe de vendas seriam colocados em um grupo e esse grupo seria excluído da política de autoridade de certificação. 
+Há ocasiões em que as políticas de acesso condicional projetadas para manter sua rede segura não devem ser aplicadas a todos os usuários. Por exemplo, uma política de acesso condicional que permite apenas que os usuários entrem enquanto na rede corporativa pode não se aplicar à equipe de vendas, que viaja extensivamente. Nesse caso, os membros da equipe de vendas seriam colocados em um grupo e esse grupo seria excluído da política de acesso condicional. 
 
 Examine essa associação de grupo regularmente, pois a exclusão representa um risco em potencial se os membros errados forem excluídos do requisito.
 
@@ -343,7 +343,7 @@ Você pode [usar as revisões de acesso do Azure ad para gerenciar usuários exc
 
 ### <a name="review-external-users-group-memberships"></a>Examinar as associações de grupo do usuário externo
 
-Para minimizar o trabalho manual e os possíveis erros associados, considere o uso de [grupos dinâmicos](../users-groups-roles/groups-create-rule.md) para atribuir a associação de grupo com base nos atributos de um usuário. Talvez você queira criar um ou mais grupos dinâmicos para usuários externos. O patrocinador interno pode agir como um revisor para associação no grupo. 
+Para minimizar o trabalho manual e os possíveis erros associados, considere o uso de [grupos dinâmicos](../enterprise-users/groups-create-rule.md) para atribuir a associação de grupo com base nos atributos de um usuário. Talvez você queira criar um ou mais grupos dinâmicos para usuários externos. O patrocinador interno pode agir como um revisor para associação no grupo. 
 
 Observação: usuários externos que são removidos de um grupo como o resultado de uma revisão de acesso não são excluídos do locatário. 
 
@@ -361,7 +361,7 @@ Você pode usar os resultados de uma revisão de acesso em grupos locais e proce
 
 * Usar Microsoft Graph para acessar programaticamente resultados e decisões em revisões de acesso concluídas.
 
-Por exemplo, para acessar os resultados de um grupo gerenciado pelo Windows AD, use este [script de exemplo do PowerShell](https://github.com/microsoft/access-reviews-samples/tree/master/AzureADAccessReviewsOnPremises). O script descreve as chamadas do grafo necessárias e exporta os comandos do Windows AD-PowerShell para realizar as alterações.
+Por exemplo, para acessar os resultados de um grupo gerenciado pelo Windows AD, use este [script de exemplo do PowerShell](https://github.com/microsoft/access-reviews-samples/tree/master/AzureADAccessReviewsOnPremises). O script descreve as chamadas de gráfico necessárias e exporta os comandos do Windows AD-PowerShell para realizar as alterações.
 
 ## <a name="plan-access-reviews-for-applications"></a>Planejar revisões de acesso para aplicativos 
 
@@ -389,7 +389,7 @@ As revisões de acesso podem ser de membros de um grupo ou usuários que foram a
 
 ## <a name="plan-review-of-azure-ad-and-azure-resource-roles"></a>Revisão do plano do Azure AD e das funções de recurso do Azure
 
-O [Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) simplifica o modo como as empresas gerenciam o acesso privilegiado aos recursos no Azure AD. Isso mantém a lista de funções privilegiadas, tanto no [Azure ad](../users-groups-roles/directory-assign-admin-roles.md) quanto em [recursos do Azure](../../role-based-access-control/built-in-roles.md) muito menores e aumenta a segurança geral do diretório.
+O [Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) simplifica o modo como as empresas gerenciam o acesso privilegiado aos recursos no Azure AD. Isso mantém a lista de funções privilegiadas, tanto no [Azure ad](../roles/permissions-reference.md) quanto em [recursos do Azure](../../role-based-access-control/built-in-roles.md) muito menores e aumenta a segurança geral do diretório.
 
 As revisões de acesso permitem que os revisores atestam se os usuários ainda precisam estar em uma função. Assim como as revisões de acesso para pacotes de acesso, as revisões para funções do Azure AD e recursos do Azure são integradas à experiência do usuário de administrador do PIM. Recomendamos que você revise as seguintes atribuições de função regularmente:
 
@@ -399,11 +399,11 @@ As revisões de acesso permitem que os revisores atestam se os usuários ainda p
 
 * Administrador de Autenticação Privilegiada
 
-* Administrador de acesso condicional
+* Administrador de Acesso Condicional
 
 * Administrador de Segurança
 
-* Todas as funções de administração de serviço do Office 365 e Dynamics
+* Todas as funções de administração de serviço Microsoft 365 e Dynamics
 
 As funções selecionadas aqui incluem função permanente e qualificada. 
 
@@ -446,7 +446,7 @@ As necessidades de acesso a grupos e aplicativos para funcionários e convidados
 
 Para reduzir o risco associado a atribuições de função obsoletas, você deve examinar regularmente o acesso de funções privilegiadas do Azure AD.
 
-![examinar as funções do Azure AD](./media/deploy-access-review/8-review-azure-ad-roles-picker.png)
+![Captura de tela que mostra a lista "revisar Associação" das funções do Azure A D.](./media/deploy-access-review/8-review-azure-ad-roles-picker.png)
 
 Siga as instruções nos links abaixo:
 
@@ -518,4 +518,3 @@ Saiba mais sobre as tecnologias relacionadas abaixo.
 * [O que é o gerenciamento de direitos do AD do Azure?](entitlement-management-overview.md)
 
 * [O que é o Azure AD Privileged Identity Management?](../privileged-identity-management/pim-configure.md)
-

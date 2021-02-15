@@ -10,15 +10,20 @@ ms.subservice: bing-entity-search
 ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
-ms.custom: devx-track-javascript
-ms.openlocfilehash: d14681e07518188deabd9f48a04b80a489d858b8
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.custom: devx-track-js
+ms.openlocfilehash: f725a4095103a7dcfc3dcdbdcefdc84d16501632
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87407924"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366526"
 ---
 # <a name="tutorial-single-page-web-app"></a>Tutorial: Aplicativo Web de página única
+
+> [!WARNING]
+> As APIs de Pesquisa do Bing estão migrando dos Serviços Cognitivos para os Serviços de Pesquisa do Bing. A partir de **30 de outubro de 2020** , todas as novas instâncias da Pesquisa do Bing precisaram ser provisionadas seguindo o processo documentado [aqui](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> As APIs de Pesquisa do Bing provisionadas por meio dos Serviços Cognitivos terão suporte nos próximos três anos ou até o final do seu Contrato Enterprise, o que ocorrer primeiro.
+> Para obter instruções sobre a migração, confira [Serviços de Pesquisa do Bing](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 A API de Pesquisa de Entidade do Bing permite pesquisar na Web informações sobre *entidades* e *locais.* É possível solicitar qualquer tipo de resultado, ou ambos, em uma determinada consulta. As definições de entidades e locais são fornecidas abaixo.
 
@@ -52,7 +57,7 @@ O aplicativo de tutorial ilustra como:
 
 A página do tutorial é completamente autossuficiente; ela não usa estruturas externas, folhas de estilo, nem mesmo arquivos de imagem. Ela usa apenas recursos de linguagem JavaScript amplamente compatíveis e funciona com as versões atuais de todos os principais navegadores da Web.
 
-Neste tutorial, abordaremos somente as partes selecionadas do código-fonte. O código-fonte completo está disponível [em uma página separada](tutorial-bing-entities-search-single-page-app-source.md). Copie e cole esse código em um editor de texto e salve-o como `bing.html`.
+Neste tutorial, abordaremos somente as partes selecionadas do código-fonte. O código-fonte completo está disponível [em uma página separada](). Copie e cole esse código em um editor de texto e salve-o como `bing.html`.
 
 > [!NOTE]
 > Este tutorial é muito semelhante ao [tutorial de aplicativo da Pesquisa na Web do Bing de página única](../Bing-Web-Search/tutorial-bing-web-search-single-page-app.md), mas lida apenas com os resultados da pesquisa de entidade.
@@ -400,7 +405,7 @@ Os erros são tratados com uma chamada a `renderErrorMessage()` com os detalhes 
 
 ## <a name="displaying-search-results"></a>Exibir os resultados da pesquisa
 
-A API de Pesquisa de Entidade do Bing [exige a exibição dos resultados em uma ordem especificada](use-display-requirements.md). Como a API pode retornar dois tipos diferentes de respostas, não é suficiente fazer uma iteração na coleção `Entities` ou `Places` de nível superior na resposta JSON e exibir esses resultados. (Se você quiser apenas um tipo de resultado, use o parâmetro de consulta `responseFilter`.)
+A API de Pesquisa de Entidade do Bing [exige a exibição dos resultados em uma ordem especificada](../bing-web-search/use-display-requirements.md). Como a API pode retornar dois tipos diferentes de respostas, não é suficiente fazer uma iteração na coleção `Entities` ou `Places` de nível superior na resposta JSON e exibir esses resultados. (Se você quiser apenas um tipo de resultado, use o parâmetro de consulta `responseFilter`.)
 
 Em vez disso, usamos a coleção `rankingResponse` nos resultados da pesquisa para ordenar os resultados para exibição. Esse objeto refere-se a itens nas coleções `Entitiess` e/ou `Places`.
 

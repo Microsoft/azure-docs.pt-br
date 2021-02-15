@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart
-ms.openlocfilehash: b5865f2fd76c1159f7f72633362a96335af8a059
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 525872ca3ad2558c327b7b856254319d3db2dc7f
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88509358"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99593986"
 ---
 # <a name="quickstart-render-a-model-with-unity"></a>Início Rápido: Renderizar um modelo com o Unity
 
@@ -33,7 +33,7 @@ O seguinte software deve ser instalado:
 
 * SDK do Windows 10.0.18362.0 [(baixar)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
 * A versão mais recente do Visual Studio 2019 [(baixar)](https://visualstudio.microsoft.com/vs/older-downloads/)
-* [Ferramentas do Visual Studio para Realidade Misturada](https://docs.microsoft.com/windows/mixed-reality/install-the-tools). Especificamente, as seguintes instalações de *carga de trabalho* são obrigatórias:
+* [Ferramentas do Visual Studio para Realidade Misturada](/windows/mixed-reality/install-the-tools). Especificamente, as seguintes instalações de *carga de trabalho* são obrigatórias:
   * **Desenvolvimento para desktop com C++**
   * **Desenvolvimento da UWP (Plataforma Universal do Windows)**
 * GIT [(baixar)](https://git-scm.com/downloads)
@@ -74,8 +74,8 @@ O modelo padrão que renderizamos é um [modelo de exemplo interno](../samples/s
 ![Informações de Conta do ARR](./media/arr-sample-account-info.png)
 
 > [!IMPORTANT]
-> O portal do Azure exibe o domínio da sua conta somente como *mixedreality.azure.com*. Isso é insuficiente para uma conexão bem-sucedida.
-> Defina **AccountDomain** como `<region>.mixedreality.azure.com`, em que `<region>` é [uma das regiões disponíveis perto de você](../reference/regions.md).
+> Defina **RemoteRenderingDomain** como `<region>.mixedreality.azure.com`, em que `<region>` é [uma das regiões disponíveis perto de você](../reference/regions.md).\
+> Defina **AccountDomain** como [domínio de contas](../how-tos/create-an-account.md#retrieve-the-account-information), conforme exibido no portal do Azure.
 
 Posteriormente, convém implantar esse projeto em um HoloLens e conectar-ao serviço do Remote Rendering nesse dispositivo. Como não temos uma forma fácil de inserir as credenciais no dispositivo, o exemplo de início rápido **salvará as credenciais na cena do Unity**.
 
@@ -92,9 +92,7 @@ Parabéns! Agora você está exibindo um modelo processado remotamente!
 
 ## <a name="inspecting-the-scene"></a>Inspecionar a cena
 
-Após a execução da conexão da renderização remota, o painel Inspetor será atualizado com informações de status adicionais:
-
-![Reprodução de exemplo do Unity](./media/arr-sample-configure-session-running.png)
+Após a execução da conexão da renderização remota, o painel Inspetor será atualizado com informações de status adicionais: ![Reprodução de exemplo do Unity](./media/arr-sample-configure-session-running.png)
 
 Agora você pode explorar o grafo de cena selecionando o novo nó e clicando em **Mostrar filhos** no Inspetor.
 

@@ -8,12 +8,12 @@ ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 08/17/2020
-ms.openlocfilehash: 977082b7f9055b90ee5c93913154934741d93772
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 03a6e927a074067e85f1a3adca38cae386d1af38
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547691"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026209"
 ---
 # <a name="quickstart-create-a-hyperscale-citus-server-group-in-the-azure-portal"></a>Guia de Início Rápido – Criar um grupo de servidores Hiperescala (Citus) no portal do Azure
 
@@ -25,7 +25,7 @@ O Banco de Dados do Azure para PostgreSQL é um serviço gerenciado usado para e
 
 Uma vez conectado ao nó coordenador em hiperescala usando o psql, você pode concluir algumas tarefas básicas.
 
-Dentro dos servidores Hyperscale, há três tipos de tabelas:
+Dentro dos servidores da Hiperescala (Citus), há três tipos de tabelas:
 
 - Tabelas fragmentadas ou distribuídas (espalhadas para auxiliar na escala de desempenho e paralelização)
 - Tabelas de referência (várias cópias mantidas)
@@ -71,7 +71,7 @@ CREATE INDEX event_type_index ON github_events (event_type);
 CREATE INDEX payload_index ON github_events USING GIN (payload jsonb_path_ops);
 ```
 
-Em seguida, vamos pegar as tabelas Postgres no nó coordenador e informar ao Hyperscale para fragmentá-las entre os trabalhadores. Para fazer isso, executaremos uma consulta para cada tabela especificando a chave para fragmentá-la. No exemplo atual, fragmentaremos a tabela de eventos e de usuários em `user_id`:
+Em seguida, vamos pegar as tabelas Postgres no nó coordenador e instruir a Hiperescala (Citus) a fragmentá-las entre os trabalhadores. Para fazer isso, executaremos uma consulta para cada tabela especificando a chave para fragmentá-la. No exemplo atual, fragmentaremos a tabela de eventos e de usuários em `user_id`:
 
 ```sql
 SELECT create_distributed_table('github_events', 'user_id');
@@ -117,7 +117,7 @@ ORDER BY hour;
 
 Até agora, as consultas envolveram os eventos github\_de modo exclusivo, mas podemos combinar essas informações com os usuários do github\_. Uma vez que criamos usuários fragmentados e eventos no mesmo identificador (`user_id`), as linhas de ambas as tabelas com IDs de usuário correspondentes serão [colocadas](concepts-hyperscale-colocation.md) nos mesmos nós de banco de dados e podem ser unidas facilmente.
 
-Se entrarmos em `user_id`, o Hyperscale pode efetuar push na execução de junção em fragmentos para execução em paralelo nos nós do trabalhador. Por exemplo, vamos encontrar os usuários que criaram o maior número de repositórios:
+Se ingressarmos em `user_id`, a Hiperescala (Citus) poderá efetuar push da execução da junção para os fragmentos para execução em paralelo nos nós de trabalho. Por exemplo, vamos encontrar os usuários que criaram o maior número de repositórios:
 
 ```sql
 SELECT gu.login, count(*)
@@ -138,6 +138,5 @@ Nas etapas anteriores, você criou recursos do Azure em um grupo de servidores. 
 
 Neste guia de início rápido, você aprendeu como provisionar um grupo de servidores Hyperscale (Citus). Você conectou ele com o psql, criou um esquema e distribuiu dados.
 
-Em seguida, siga um tutorial para compilar aplicativos escalonáveis de multilocatário.
-> [!div class="nextstepaction"]
-> [Criar um Banco de Dados Multilocatário](https://aka.ms/hyperscale-tutorial-multi-tenant)
+- Siga um tutorial para [compilar aplicativos escalonáveis de multilocatário](./tutorial-design-database-hyperscale-multi-tenant.md)
+- Determinar o melhor [tamanho inicial](howto-hyperscale-scale-initial.md) para seu grupo de servidores

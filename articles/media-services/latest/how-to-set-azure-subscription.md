@@ -11,23 +11,25 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 03/15/2020
+ms.date: 08/31/2020
 ms.author: inhenkel
-ms.custom: cli,portal
-ms.openlocfilehash: fadb290d1bd1126c3bfc0cd76d6e6b862d1396e3
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.custom: cli,portal, devx-track-azurecli
+ms.openlocfilehash: 07088ebfa5fde4c3c790bd554c1eba8d6844b7d1
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88556208"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92736066"
 ---
-# <a name="find-your-azure-subscription"></a>Encontre sua assinatura do Azure
+# <a name="find-your-azure-subscription"></a>Encontrar sua assinatura do Azure
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="portal"></a>[Portal](#tab/portal/)
 
-## <a name="use-the-azure-portal"></a>Use o Portal do Azure
+## <a name="use-the-azure-portal"></a>Usar o portal do Azure
 
 1. Entre no [portal do Azure](https://portal.azure.com).
 1. No título serviços do Azure, selecione assinaturas. (Se nenhuma assinatura estiver listada, talvez seja necessário alternar os locatários do Azure AD.) Suas IDs de assinatura estão listadas na segunda coluna.
@@ -43,7 +45,7 @@ ms.locfileid: "88556208"
 
 [!INCLUDE [List your Azure subscriptions with CLI](./includes/task-list-set-subscription-cli.md)]
 
-### <a name="see-also"></a>Confira também
+### <a name="see-also"></a>Veja também
 
 * [CLI do Azure](/cli/azure/ams?view=azure-cli-latest)
 

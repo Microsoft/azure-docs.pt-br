@@ -3,16 +3,16 @@ title: Trocar mensagens com o barramento de serviço do Azure
 description: Criar tarefas e fluxos de trabalho automatizados que enviam e recebem mensagens usando o barramento de serviço do Azure nos aplicativos lógicos do Azure
 services: logic-apps
 ms.suite: integration
-ms.reviewer: logicappspm
+ms.reviewer: logicappspm, azla
 ms.topic: conceptual
-ms.date: 07/31/2020
+ms.date: 02/10/2021
 tags: connectors
-ms.openlocfilehash: 13732c6d31f19dfb2548154feb8336a1dff3a529
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 98d2ee8a85d25065c0021841a9b99a6d616a35d8
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88853304"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100367411"
 ---
 # <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-and-azure-service-bus"></a>Trocar mensagens na nuvem usando os aplicativos lógicos do Azure e o barramento de serviço do Azure
 
@@ -60,7 +60,7 @@ Confirme se seu aplicativo lógico tem permissões para acessar o namespace do B
       ![Copiar a cadeia de conexão do namespace do Barramento de Serviço](./media/connectors-create-api-azure-service-bus/find-service-bus-connection-string.png)
 
    > [!TIP]
-   > Para confirmar se sua cadeia de conexão está associada ao namespace do Barramento de Serviços ou a uma entidade de sistema de mensagens, como uma fila, pesquise a cadeia de conexão para o parâmetro `EntityPath` . Se encontrar esse parâmetro, a cadeia de conexão servirá para uma entidade específica e não será a cadeia correta a ser usada com seu aplicativo lógico.
+   > Para confirmar se a cadeia de conexão está associada ao namespace do Barramento de Serviço ou a uma entidade de sistema de mensagens, como uma fila, pesquise a cadeia de conexão para o parâmetro `EntityPath`. Se encontrar esse parâmetro, a cadeia de conexão servirá para uma entidade específica e não será a cadeia correta a ser usada com seu aplicativo lógico.
 
 ## <a name="add-service-bus-trigger"></a>Adicionar gatilho do barramento de serviço
 
@@ -68,18 +68,22 @@ Confirme se seu aplicativo lógico tem permissões para acessar o namespace do B
 
 1. Entre no [portal do Azure](https://portal.azure.com)e abra seu aplicativo lógico em branco no designer do aplicativo lógico.
 
-1. Na caixa de pesquisa, insira "barramento de serviço do Azure" como seu filtro. Na lista de gatilhos, selecione o gatilho desejado.
+1. Na caixa de pesquisa do portal, digite `azure service bus` . Na lista de gatilhos que aparece, selecione o gatilho desejado.
 
    Por exemplo, para disparar seu aplicativo lógico quando um novo item é enviado para uma fila do barramento de serviço, selecione o gatilho **quando uma mensagem é recebida em uma fila (preenchimento automático)** .
 
    ![Selecionar um gatilho do Barramento de Serviço](./media/connectors-create-api-azure-service-bus/select-service-bus-trigger.png)
 
-   Todos os gatilhos do barramento de serviço são gatilhos *de sondagem longa* . Essa descrição significa que, quando o gatilho é acionado, o gatilho processa todas as mensagens e aguarda 30 segundos para que mais mensagens apareçam na fila ou na assinatura do tópico. Se nenhuma mensagem aparecer em 30 segundos, a execução do gatilho será ignorada. Caso contrário, o gatilho continuará lendo as mensagens até que a fila ou a assinatura do tópico esteja vazia. A próxima sondagem de gatilho é baseada no intervalo de recorrência especificado nas propriedades do gatilho.
+   Aqui estão algumas considerações sobre quando você usa um gatilho do barramento de serviço:
 
-   Alguns gatilhos, como **quando uma ou mais mensagens chegam em um gatilho de fila (conclusão automática)** , podem retornar uma ou mais mensagens. Quando esses gatilhos são acionados, eles retornam entre um e o número de mensagens que é especificado pela propriedade **contagem máxima de mensagens** do gatilho.
+   * Todos os gatilhos do barramento de serviço são gatilhos *de sondagem longa* . Essa descrição significa que, quando o gatilho é acionado, o gatilho processa todas as mensagens e aguarda 30 segundos para que mais mensagens apareçam na fila ou na assinatura do tópico. Se nenhuma mensagem aparecer em 30 segundos, a execução do gatilho será ignorada. Caso contrário, o gatilho continuará lendo as mensagens até que a fila ou a assinatura do tópico esteja vazia. A próxima sondagem de gatilho é baseada no intervalo de recorrência especificado nas propriedades do gatilho.
 
-    > [!NOTE]
-    > O gatilho de preenchimento automático conclui automaticamente uma mensagem, mas a conclusão ocorre apenas na próxima execução do gatilho. Esse comportamento pode afetar o design do seu aplicativo lógico. Por exemplo, se você definir o gatilho preenchimento automático para verificar mensagens a cada minuto, mas a duração do bloqueio for definida como 30 segundos no lado do barramento de serviço, o resultado será uma falha de "bloqueio expirado" que ocorre ao concluir a mensagem. Você precisa definir a duração do bloqueio para um valor maior que o intervalo de sondagem.
+   * Alguns gatilhos, como **quando uma ou mais mensagens chegam em um gatilho de fila (conclusão automática)** , podem retornar uma ou mais mensagens. Quando esses gatilhos são acionados, eles retornam entre um e o número de mensagens que é especificado pela propriedade **contagem máxima de mensagens** do gatilho.
+
+     > [!NOTE]
+     > O gatilho de preenchimento automático conclui automaticamente uma mensagem, mas a conclusão ocorre apenas na próxima chamada para o barramento de serviço. Esse comportamento pode afetar o design do seu aplicativo lógico. Por exemplo, evite alterar a simultaneidade no gatilho de preenchimento automático porque essa alteração pode resultar em mensagens duplicadas se o aplicativo lógico entrar em um estado limitado. A alteração do controle de simultaneidade cria estas condições: os gatilhos limitados são ignorados com o `WorkflowRunInProgress` código, a operação de conclusão não acontecerá e a próxima execução do gatilho ocorrerá após o intervalo de sondagem. Você precisa definir a duração do bloqueio do barramento de serviço para um valor maior que o intervalo de sondagem. No entanto, apesar dessa configuração, a mensagem ainda pode não ser concluída se seu aplicativo lógico permanecer em um estado limitado no próximo intervalo de sondagem.
+
+   * Se você [ativar a configuração de simultaneidade](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) para um gatilho do barramento de serviço, o valor padrão da `maximumWaitingRuns` propriedade será 10. Com base na configuração de duração de bloqueio da entidade do barramento de serviço e na duração da execução da instância do aplicativo lógico, esse valor padrão pode ser muito grande e pode causar uma exceção de "bloqueio perdido". Para encontrar o valor ideal para seu cenário, comece a testar com um valor de 1 ou 2 para a `maximumWaitingRuns` propriedade. Para alterar o valor máximo de execuções em espera, consulte [alterar limite de execuções em espera](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs).
 
 1. Se o seu gatilho estiver se conectando ao seu namespace do barramento de serviço pela primeira vez, siga estas etapas quando o designer do aplicativo lógico solicitar informações de conexão.
 
@@ -113,13 +117,13 @@ Confirme se seu aplicativo lógico tem permissões para acessar o namespace do B
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-1. Entre no [portal do Azure](https://portal.azure.com)e abra seu aplicativo lógico no designer do aplicativo lógico.
+1. No [portal do Azure](https://portal.azure.com), abra o aplicativo lógico no Designer do aplicativo lógico.
 
 1. Na etapa em que você deseja adicionar uma ação, selecione **nova etapa**.
 
    Ou, para adicionar uma ação entre etapas, mova o ponteiro sobre a seta entre essas etapas. Selecione o sinal de adição ( **+** ) que aparece e selecione **Adicionar uma ação**.
 
-1. Em **escolher uma ação**, na caixa de pesquisa, insira "barramento de serviço do Azure" como filtro. Na lista ações, selecione a ação desejada. 
+1. Em **Escolher uma ação**, na caixa de pesquisa, insira `azure service bus`. Na lista de ações exibida, selecione a ação desejada. 
 
    Para este exemplo, selecione a ação **Enviar mensagem** .
 
@@ -159,15 +163,19 @@ Confirme se seu aplicativo lógico tem permissões para acessar o namespace do B
 
 ## <a name="send-correlated-messages-in-order"></a>Enviar mensagens correlacionadas na ordem
 
-Quando você precisar enviar mensagens relacionadas em uma ordem específica, poderá usar o [padrão *comboio sequencial* ](/azure/architecture/patterns/sequential-convoy) usando o conector do [barramento de serviço do Azure](../connectors/connectors-create-api-servicebus.md). As mensagens correlacionadas têm uma propriedade que define a relação entre essas mensagens, como a ID da [sessão](../service-bus-messaging/message-sessions.md) no barramento de serviço.
+Quando você precisar enviar mensagens relacionadas em uma ordem específica, poderá usar o [padrão *comboio sequencial*](/azure/architecture/patterns/sequential-convoy) usando o conector do [barramento de serviço do Azure](../connectors/connectors-create-api-servicebus.md). As mensagens correlacionadas têm uma propriedade que define a relação entre essas mensagens, como a ID da [sessão](../service-bus-messaging/message-sessions.md) no barramento de serviço.
 
 Ao criar um aplicativo lógico, você pode selecionar o modelo **entrega em ordem correlacionada usando sessões do barramento de serviço** , que implementa o padrão comboio sequencial. Para obter mais informações, consulte [enviar mensagens relacionadas na ordem](../logic-apps/send-related-messages-sequential-convoy.md).
+
+## <a name="delays-in-updates-to-your-logic-app-taking-effect"></a>Atrasos em atualizações para seu aplicativo lógico entrar em vigor
+
+Se o intervalo de sondagem de um gatilho do barramento de serviço for pequeno, como 10 segundos, as atualizações para seu aplicativo lógico poderão não entrar em vigor por até 10 minutos. Para contornar esse problema, você pode desabilitar o aplicativo lógico, fazer as alterações e, em seguida, habilitar o aplicativo lógico novamente.
 
 <a name="connector-reference"></a>
 
 ## <a name="connector-reference"></a>Referência de conector
 
-O conector do barramento de serviço pode economizar até 1.500 sessões exclusivas por vez de um barramento de serviço para o cache do conector. Se a contagem de sessões exceder esse limite, as sessões antigas serão removidas do cache. Para obter mais informações, consulte [sessões de mensagens](../service-bus-messaging/message-sessions.md).
+De um barramento de serviço, o conector do barramento de serviço pode economizar até 1.500 sessões exclusivas de cada vez no cache do conector, por [entidade de mensagens do barramento de serviço, como uma assinatura ou um tópico](../service-bus-messaging/service-bus-queues-topics-subscriptions.md). Se a contagem de sessões exceder esse limite, as sessões antigas serão removidas do cache. Para obter mais informações, consulte [sessões de mensagens](../service-bus-messaging/message-sessions.md).
 
 Para obter outros detalhes técnicos sobre gatilhos, ações e limites, que são descritos pela descrição do Swagger do conector, examine a [página de referência do conector](/connectors/servicebus/). Para saber mais sobre as mensagens do barramento de serviço do Azure, consulte [o que é o barramento de serviço do Azure](../service-bus-messaging/service-bus-messaging-overview.md)?
 

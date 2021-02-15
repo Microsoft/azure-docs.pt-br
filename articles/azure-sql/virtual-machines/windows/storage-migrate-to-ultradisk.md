@@ -8,18 +8,19 @@ editor: ''
 tags: azure-service-management
 ms.assetid: ''
 ms.service: virtual-machines-sql
-ms.topic: article
+ms.subservice: management
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/09/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 42738ff71432284a156d0dfbb1f6cf160cbf4032
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 42d7760d25f6ab591c19889eb2159711d6de1b07
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88653233"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97356745"
 ---
 # <a name="migrate-log-disk-to-ultra-disk"></a>Migrar disco de log para ultra Disk
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -50,7 +51,7 @@ Para habilitar a compatibilidade, siga estas etapas:
 
 1. Selecione **Sim** para **habilitar a compatibilidade de ultra Disk**. 
 
-   :::image type="content" source="../../../virtual-machines/media/virtual-machines-disks-getting-started-ultra-ssd/ultra-options-yes-enable.png" alt-text="Selecione configurações adicionais para discos em configurações na portal do Azure":::
+   :::image type="content" source="../../../virtual-machines/media/virtual-machines-disks-getting-started-ultra-ssd/ultra-options-yes-enable.png" alt-text="Captura de tela que mostra a opção Sim.":::
 
 1. Clique em **Salvar**. 
 
@@ -58,7 +59,7 @@ Para habilitar a compatibilidade, siga estas etapas:
 
 ### <a name="attach-disk"></a>Anexar disco
 
-Use o portal do Azure para anexar um ultra Disk à sua máquina virtual. Para obter detalhes, consulte [anexar um disco ultra](../../../virtual-machines/disks-enable-ultra-ssd.md#attach-an-ultra-disk-using-the-azure-portal)
+Use o portal do Azure para anexar um ultra Disk à sua máquina virtual. Para obter detalhes, consulte [anexar um disco ultra](../../../virtual-machines/disks-enable-ultra-ssd.md#attach-an-ultra-disk).
 
 Depois que o disco for anexado, inicie sua VM mais uma vez usando o portal do Azure. 
 

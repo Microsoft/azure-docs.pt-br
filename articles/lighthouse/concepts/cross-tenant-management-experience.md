@@ -1,14 +1,14 @@
 ---
 title: Experiências de gerenciamento entre locatários
 description: O gerenciamento de recursos delegados do Azure permite uma experiência de gerenciamento entre locatários.
-ms.date: 08/12/2020
+ms.date: 02/08/2021
 ms.topic: conceptual
-ms.openlocfilehash: 0ad1c0944076f24363961da21ee347dbd7c0239c
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: b76723c9ea94581561f5bdb04ea1fd8335da77b7
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88163502"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99981078"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiências de gerenciamento entre locatários
 
@@ -35,10 +35,12 @@ Você pode executar tarefas de gerenciamento em recursos delegados diretamente n
 
 O [cmdlet Azure PowerShell Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription) mostra os `HomeTenantId` `ManagedByTenantIds` atributos e para cada assinatura, permitindo que você identifique se uma assinatura retornada pertence a um locatário gerenciado ou ao seu locatário de gerenciamento.
 
-Da mesma forma, CLI do Azure comandos como a [lista de contas AZ](/cli/azure/account?view=azure-cli-latest#az-account-list) mostram os `homeTenantId` `managedByTenants` atributos e.
+Da mesma forma, CLI do Azure comandos como a [lista de contas AZ](/cli/azure/account#az-account-list) mostram os `homeTenantId` `managedByTenants` atributos e. Se você não vir esses valores ao usar a CLI do Azure, tente limpar o cache executando `az account clear` seguido por `az login --identity`.
 
-> [!TIP]
-> Se você não vir esses valores ao usar a CLI do Azure, tente limpar o cache executando `az account clear` seguido por `az login --identity`.
+Na API REST do Azure, os comandos [Subscription-Get](/rest/api/resources/subscriptions/get) e [subscriptions-List](/rest/api/resources/subscriptions/list) incluem `ManagedByTenant` .
+
+> [!NOTE]
+> Além das informações de locatário relacionadas ao Lighthouse do Azure, os locatários mostrados por essas APIs também podem refletir locatários de parceiros para Azure Databricks ou aplicativos gerenciados do Azure.
 
 Também fornecemos APIs que são específicas para executar tarefas do Azure Lighthouse. Para saber mais, confira a seção **Referência**.
 
@@ -48,13 +50,13 @@ A maioria das tarefas e serviços pode ser realizada em recursos delegados em lo
 
 [Arco do Azure](../../azure-arc/index.yml):
 
-- Gerenciar servidores híbridos em escala – [arco do Azure para servidores (versão prévia)](../../azure-arc/servers/overview.md):
-  - [Conecte os computadores ao Windows Server ou ao Linux fora do Azure](../../azure-arc/servers/onboard-portal.md) para delegar assinaturas e/ou grupos de recursos no Azure
+- Gerenciar servidores híbridos em escala – [servidores habilitados para Arc do Azure](../../azure-arc/servers/overview.md):
+  - [Gerenciar computadores Windows Server ou Linux fora do Azure que estão conectados](../../azure-arc/servers/onboard-portal.md) a assinaturas delegadas e/ou grupos de recursos no Azure
   - Gerenciar computadores conectados usando constructos do Azure, como o Azure Policy e a marcação
   - Garantir que o mesmo conjunto de políticas seja aplicado nos ambientes híbridos dos clientes
   - Usar a central de segurança do Azure para monitorar a conformidade entre os ambientes híbridos dos clientes
 - Gerenciar clusters kubernetes híbridos em escala – [kubernetes habilitado para Arc do Azure (versão prévia)](../../azure-arc/kubernetes/overview.md):
-  - [Conectar um cluster kubernetes ao arco do Azure](../../azure-arc/kubernetes/connect-cluster.md) a assinaturas e/ou grupos de recursos delegados no Azure
+  - [Gerenciar clusters kubernetes que estão conectados](../../azure-arc/kubernetes/connect-cluster.md) a assinaturas delegadas e/ou grupos de recursos no Azure
   - [Usar o GitOps](../../azure-arc/kubernetes/use-gitops-connected-cluster.md) para clusters conectados
   - Impor políticas entre clusters conectados
 
@@ -64,24 +66,41 @@ A maioria das tarefas e serviços pode ser realizada em recursos delegados em lo
 
 [Backup do Azure](../../backup/index.yml):
 
-- Fazer backup e restaurar dados em locatários do cliente
+- Fazer backup e restaurar dados [do cliente de cargas de trabalho locais, VMS do Azure, compartilhamentos de arquivos do Azure e muito mais](../..//backup/backup-overview.md#what-can-i-back-up)
 - Use o [Backup Explorer](../../backup/monitor-azure-backup-with-backup-explorer.md) para ajudar a ver informações operacionais de itens de backup (incluindo recursos do Azure ainda não configurados para backup) e informações de monitoramento (trabalhos e alertas) para assinaturas delegadas. O Backup Explorer está disponível no momento apenas para dados de VM do Azure.
 - Use [Relatórios de Backup](../../backup/configure-reports.md) entre assinaturas delegadas para acompanhar tendências históricas, analisar o consumo de armazenamento de backup e auditar backups e restaurações.
+
+[Plantas do Azure](../../governance/blueprints/index.yml):
+
+- Use plantas do Azure para orquestrar a implantação de modelos de recursos e outros artefatos (requer [acesso adicional](https://www.wesleyhaakman.org/preparing-azure-lighthouse-customer-subscriptions-for-azure-blueprints/) para preparar a assinatura do cliente)
 
 [Gerenciamento de custos do Azure + cobrança](../../cost-management-billing/index.yml):
 
 - Do locatário de gerenciamento, os parceiros CSP podem exibir, gerenciar e analisar os custos de consumo de imposto prévio (não inclusivo de compras) para clientes que estão sob o plano do Azure. O custo será baseado em taxas de varejo e no acesso do Azure RBAC (controle de acesso baseado em função) que o parceiro tem para a assinatura do cliente.
 
+[Azure Key Vault](../../key-vault/general/index.yml):
+
+- Criar cofres de chaves em locatários do cliente
+- Usar uma identidade gerenciada para criar cofres de chaves em locatários do cliente
+
 [AKS (Serviço de Kubernetes do Azure)](../../aks/index.yml):
 
 - Gerencie ambientes Kubernetes hospedados e implante e gerencie aplicativos em contêineres dentro de locatários do cliente
+- Implantar e gerenciar clusters em locatários do cliente
+-   Usar Azure Monitor para contêineres para monitorar o desempenho entre locatários do cliente
+
+[Migrações para Azure](../../migrate/index.yml):
+
+- Criar projetos de migração no locatário do cliente e migrar VMs
 
 [Azure Monitor](../../azure-monitor/index.yml):
 
-- Exibir alertas para assinaturas delegadas, com a possibilidade de exibir alertas em todas as assinaturas
+- Exibir alertas para assinaturas delegadas, com a capacidade de exibir e atualizar alertas em todas as assinaturas
 - Exibir detalhes do log de atividades para assinaturas delegadas
-- Log Analytics: consultar dados de espaços de trabalho remotos em vários locatários
+- [Log Analytics](../../azure-monitor/platform/service-providers.md): consultar dados de espaços de trabalho remotos em vários locatários (Observe que as contas de automação usadas para acessar dados de espaços de trabalho em locatários do cliente devem ser criadas no mesmo locatário)
+- [Criar, exibir e gerenciar alertas do log de atividades](../../azure-monitor/platform/alerts-activity-log.md) em locatários do cliente
 - Criar alertas em locatários do cliente que disparam a automação, como runbooks de automação do Azure ou Azure Functions, no gerenciamento de locatário por meio de WebHooks
+- Criar [configurações de diagnóstico](../..//azure-monitor/platform/diagnostic-settings.md) em locatários do cliente para enviar logs de recursos para espaços de trabalho no locatário de gerenciamento
 - Para cargas de trabalho do SAP, [monitore as métricas de soluções SAP com uma exibição agregada entre locatários do cliente](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/using-azure-lighthouse-and-azure-monitor-for-sap-solutions-to/ba-p/1537293)
 
 [Rede do Azure](../../networking/networking-overview.md):
@@ -93,7 +112,6 @@ A maioria das tarefas e serviços pode ser realizada em recursos delegados em lo
 
 [Azure Policy](../../governance/policy/index.yml):
 
-- Instantâneos de conformidade mostram detalhes para políticas atribuídas dentro de assinaturas delegadas
 - Criar e Editar definições de política em assinaturas delegadas
 - Atribuir definições de política definidas pelo cliente em assinaturas delegadas
 - Os clientes veem políticas criadas pelo provedor de serviços junto com políticas que eles mesmos criaram
@@ -119,12 +137,13 @@ A maioria das tarefas e serviços pode ser realizada em recursos delegados em lo
   - Proteja configuração do grupo de segurança de rede com o Fortalecimento de Rede Adaptável
   - Verifique se os servidores estão executando apenas os aplicativos e processos que eles devem estar com controles de aplicativo adaptáveis
   - Monitore alterações em arquivos importantes e entradas do Registro com o FIM (Monitoramento de Integridade do Arquivo)
+- Observe que toda a assinatura deve ser delegada ao locatário de gerenciamento; Não há suporte para cenários da central de segurança do Azure com grupos de recursos delegados
 
 [Azure Sentinel](../../sentinel/multiple-tenants-service-providers.md):
 
 - Gerenciar recursos do Azure Sentinel [em locatários do cliente](../../sentinel/multiple-tenants-service-providers.md)
 - [Acompanhar ataques e exibir alertas de segurança em vários locatários](https://techcommunity.microsoft.com/t5/azure-sentinel/using-azure-lighthouse-and-azure-sentinel-to-monitor-across/ba-p/1043899)
-- [Exibir incidentes](../../sentinel/multiple-workspace-view.md) em vários espaços de trabalho do Sentinel distribuídos entre locatários
+- [Exibir incidentes](../../sentinel/multiple-workspace-view.md) em vários espaços de trabalho do Azure Sentinel distribuídos entre locatários
 
 [Integridade do Serviço do Azure](../../service-health/index.yml):
 
@@ -145,16 +164,18 @@ A maioria das tarefas e serviços pode ser realizada em recursos delegados em lo
 
 Solicitações de suporte:
 
-- [Abrir solicitações de suporte de **ajuda + suporte** ](../../azure-portal/supportability/how-to-create-azure-support-request.md#getting-started) no portal do Azure para recursos delegados (selecionando o plano de suporte disponível para o escopo delegado)
+- [Abrir solicitações de suporte de **ajuda + suporte**](../../azure-portal/supportability/how-to-create-azure-support-request.md#getting-started) no portal do Azure para recursos delegados (selecionando o plano de suporte disponível para o escopo delegado)
+- Usar a [API de cota do Azure](/rest/api/reserved-vm-instances/quotaapi) para exibir e gerenciar cotas de serviço do Azure para recursos de cliente delegados
 
 ## <a name="current-limitations"></a>Limitações atuais
 
 Com todos os cenários, esteja ciente das seguintes limitações atuais:
 
 - As solicitações manipuladas pelo Azure Resource Manager podem ser executadas usando o Azure Lighthouse. Os URIs de operação para essas solicitações começam com `https://management.azure.com`. No entanto, as solicitações que são manipuladas por uma instância de um tipo de recurso (como Key Vault acesso aos segredos ou acesso a dados de armazenamento) não têm suporte com o Azure Lighthouse. Os URIs de operação para essas solicitações normalmente começam com um endereço exclusivo de sua instância, como `https://myaccount.blob.core.windows.net` ou `https://mykeyvault.vault.azure.net/`. A última opção também são normalmente operações de dados em vez de operações de gerenciamento.
-- As atribuições de função devem usar funções internas de [RBAC](../../role-based-access-control/built-in-roles.md) (controle de acesso baseado em função). Atualmente, todas as funções internas têm suporte com o gerenciamento de recursos delegado do Azure, exceto o proprietário ou qualquer função interna com [`DataActions`](../../role-based-access-control/role-definitions.md#dataactions) permissão. A função de Administrador de Acesso do Usuário tem suporte apenas para uso limitado na [atribuição de funções a identidades gerenciadas](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant).  As funções personalizadas e as [funções de administrador de assinatura clássica](../../role-based-access-control/classic-administrators.md) não têm suporte.
+- As atribuições de função devem usar [funções internas do Azure](../../role-based-access-control/built-in-roles.md). Atualmente, todas as funções internas têm suporte com o gerenciamento de recursos delegado do Azure, exceto o proprietário ou qualquer função interna com [`DataActions`](../../role-based-access-control/role-definitions.md#dataactions) permissão. A função de Administrador de Acesso do Usuário tem suporte apenas para uso limitado na [atribuição de funções a identidades gerenciadas](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant).  As funções personalizadas e as [funções de administrador de assinatura clássica](../../role-based-access-control/classic-administrators.md) não têm suporte.
 - Embora você possa integrar assinaturas que usam o Azure Databricks, os usuários no locatário de gerenciamento não podem iniciar os workspaces do Azure Databricks em uma assinatura delegada no momento.
 - Embora você possa integrar assinaturas e grupos de recursos que têm bloqueios de recursos, esses bloqueios não impedirão que as ações sejam executadas por usuários no locatário de gerenciamento. As [atribuições de negação](../../role-based-access-control/deny-assignments.md) que protegem recursos gerenciados pelo sistema, como aqueles criados pelos Aplicativos Gerenciados do Azure ou pelo Azure Blueprints (atribuições de negação atribuídas ao sistema), impedem que os usuários do locatário de gerenciamento executem ações nesses recursos; no entanto, atualmente, os usuários do locatário do cliente não podem criar atribuições de negação próprias (atribuições de negação atribuídas ao usuário).
+- Não há suporte para a delegação de assinaturas em uma [nuvem nacional](../../active-directory/develop/authentication-national-cloud.md) e na nuvem pública do Azure ou em duas nuvens nacionais separadas.
 
 ## <a name="next-steps"></a>Próximas etapas
 

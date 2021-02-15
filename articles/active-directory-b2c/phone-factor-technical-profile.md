@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/31/2020
+ms.date: 10/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 10d5fda526c41704381bb544bdfd0589063c1d15
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 322e4b78fbfb38f1822fb7a7cdcdbfcc0738b303
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85203853"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91950387"
 ---
 # <a name="define-a-phone-factor-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definir um perfil técnico de fator de telefone em uma Azure Active Directory B2C política personalizada
 
@@ -32,7 +32,7 @@ O Azure Active Directory B2C (Azure AD B2C) fornece suporte para registro e veri
 
 ## <a name="protocol"></a>Protocolo
 
-O atributo **Name** do elemento **Protocol** precisa ser definido como `Proprietary`. O atributo do **manipulador** deve conter o nome totalmente qualificado do assembly do manipulador de protocolo que é usado pelo Azure ad B2C para o fator de telefone:`Web.TPEngine.Providers.PhoneFactorProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`
+O atributo **Name** do elemento **Protocol** precisa ser definido como `Proprietary`. O atributo do **manipulador** deve conter o nome totalmente qualificado do assembly do manipulador de protocolo que é usado pelo Azure ad B2C para o fator de telefone: `Web.TPEngine.Providers.PhoneFactorProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`
 
 O exemplo a seguir mostra um perfil técnico de fator de telefone para registro e validação:
 
@@ -57,10 +57,10 @@ O elemento InputClaimsTransformations pode conter uma coleção de transformaç�
 
 O elemento InputClaims deve conter as declarações a seguir. Você também pode mapear o nome da sua declaração para o nome definido no perfil técnico do fator de telefone. 
 
-|  Tipo de dados| Obrigatório | Descrição |
+|  Tipo de dados| Necessária | Descrição |
 | --------- | -------- | ----------- | 
 | string| Sim | Um identificador exclusivo do usuário. O nome da declaração ou PartnerClaimType deve ser definido como `UserId` . Essa declaração não deve conter informações de identificação pessoal.|
-| string| Sim | Lista de tipos de declaração. Cada declaração contém um número de telefone. Se qualquer uma das declarações de entrada não contiverem um número de telefone, o usuário será solicitado a registrar e verificar um novo número de telefone. O número de telefone validado é retornado como uma declaração de saída. Se uma das declarações de entrada contiver um número de telefone, o usuário será solicitado a verificá-lo. Se várias declarações de entrada contiverem um número de telefone, o usuário será solicitado a escolher e verificar um dos números de telefone. |
+| cadeia de caracteres| Sim | Lista de tipos de declaração. Cada declaração contém um número de telefone. Se qualquer uma das declarações de entrada não contiverem um número de telefone, o usuário será solicitado a registrar e verificar um novo número de telefone. O número de telefone validado é retornado como uma declaração de saída. Se uma das declarações de entrada contiver um número de telefone, o usuário será solicitado a verificá-lo. Se várias declarações de entrada contiverem um número de telefone, o usuário será solicitado a escolher e verificar um dos números de telefone. |
 
 O exemplo a seguir demonstra como usar vários números de telefone. Para obter mais informações, consulte [exemplo de política](https://github.com/azure-ad-b2c/samples/tree/master/policies/mfa-add-secondarymfa).
 
@@ -76,14 +76,14 @@ O exemplo a seguir demonstra como usar vários números de telefone. Para obter 
 
 O elemento OutputClaims contém uma lista de declarações retornadas pelo perfil técnico do fator de telefone.
 
-|  Tipo de dados| Obrigatório | Descrição |
+|  Tipo de dados| Necessária | Descrição |
 |  -------- | ----------- |----------- |
-| booleano | Sim | Indica se o novo número de telefone foi inserido pelo usuário. O nome da declaração ou PartnerClaimType deve ser definido como`newPhoneNumberEntered`|
-| string| Sim | O número de telefone verificado. O nome da declaração ou PartnerClaimType deve ser definido como `Verified.OfficePhone` .|
+| booleano | Sim | Indica se o novo número de telefone foi inserido pelo usuário. O nome da declaração ou PartnerClaimType deve ser definido como `newPhoneNumberEntered`|
+| cadeia de caracteres| Sim | O número de telefone verificado. O nome da declaração ou PartnerClaimType deve ser definido como `Verified.OfficePhone` .|
 
 O elemento OutputClaimsTransformations pode conter uma coleção de elementos OutputClaimsTransformation que são usados para modificar as declarações de saída ou gerar novas.
 
-## <a name="cryptographic-keys"></a>Chaves de criptografia
+## <a name="cryptographic-keys"></a>Chaves criptográficas
 
 O elemento **CryptographicKeys** não será usado.
 
@@ -99,7 +99,7 @@ O elemento **CryptographicKeys** não será usado.
 
 ### <a name="ui-elements"></a>Elementos da interface do usuário
 
-Os elementos da interface do usuário da página de autenticação do fator de telefone podem ser [localizados](localization-string-ids.md#azure-mfa-error-messages).
+Os elementos da interface do usuário da página de autenticação do fator de telefone podem ser [localizados](localization-string-ids.md#phone-factor-authentication-page-user-interface-elements).
 
 ## <a name="next-steps"></a>Próximas etapas
 

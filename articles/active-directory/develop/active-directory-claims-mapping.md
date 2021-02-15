@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: 1cd2b7550d47ecc92f8ca7f5531fab923e13930c
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 2d65889a841655fe27994d3855f30f7a7e20e1ed
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88853370"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647589"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Como fazer: personalizar declarações emitidas em tokens para um aplicativo específico em um locatário (versão prévia)
 
@@ -239,6 +239,9 @@ Há determinados conjuntos de declarações que definem como e quando elas são 
 
 Para controlar quais declarações são emitidas e o local em que os dados são originados, use as propriedades de uma política de mapeamento de declarações. Se uma política não for definida, o sistema emitirá tokens que incluam o conjunto de declarações principais, o conjunto de declarações básicas e quaisquer [declarações adicionais](active-directory-optional-claims.md) que o aplicativo optou por receber.
 
+> [!NOTE]
+> As declarações no conjunto de declarações de núcleo estão presentes em todos os tokens, independentemente de como essa propriedade estiver definida.
+
 ### <a name="include-basic-claim-set"></a>Incluir um conjunto de declarações básicas
 
 **Cadeia de caracteres:** IncludeBasicClaimSet
@@ -250,8 +253,7 @@ Para controlar quais declarações são emitidas e o local em que os dados são 
 - Se definido como True, todas as declarações no conjunto de declarações básicas serão emitidas nos tokens afetados pela política.
 - Se definido como False, as declarações no conjunto de declarações básicas não estarão nos tokens, a menos sejam adicionadas individualmente na propriedade de esquema de declarações da mesma política.
 
-> [!NOTE]
-> As declarações no conjunto de declarações de núcleo estão presentes em todos os tokens, independentemente de como essa propriedade estiver definida.
+
 
 ### <a name="claims-schema"></a>Esquema de declarações
 
@@ -260,7 +262,7 @@ Para controlar quais declarações são emitidas e o local em que os dados são 
 **Tipo de dados:** blob JSON com uma ou mais entradas de esquema de declaração
 
 **Resumo:** essa propriedade define quais declarações estão presentes nos tokens afetados pela política, além do conjunto de declarações básicas e do conjunto de declarações principais.
-Para cada entrada de esquema de declaração definida nesta propriedade, certas informações são necessárias. Especifique de onde os dados serão provenientes (**valor**, **par de origem/ID**ou par de **origem/extensão**) e quais declarações os dados são emitidos como (**tipo de declaração**).
+Para cada entrada de esquema de declaração definida nesta propriedade, certas informações são necessárias. Especifique de onde os dados serão provenientes (**valor**, **par de origem/ID** ou par de **origem/extensão**) e quais declarações os dados são emitidos como (**tipo de declaração**).
 
 ### <a name="claim-schema-entry-elements"></a>Elementos de entrada do esquema de declaração
 
@@ -301,8 +303,8 @@ O elemento ID identifica qual propriedade na origem fornece o valor da declaraç
 | Usuário | companyname| Nome da Organização |
 | Usuário | streetaddress | Endereço |
 | Usuário | postalcode | Código postal |
-| Usuário | preferredlanguange | Idioma preferencial |
-| Usuário | onpremisesuserprincipalname | UPN local |
+| Usuário | preferredlanguage | Idioma preferencial |
+| Usuário | onpremisesuserprincipalname | UPN local |*
 | Usuário | mailNickname | Apelido de email |
 | Usuário | extensionattribute1 | Atributo de extensão 1 |
 | Usuário | extensionattribute2 | Atributo de extensão 2 |
@@ -340,6 +342,8 @@ O elemento ID identifica qual propriedade na origem fornece o valor da declaraç
 
 - O JwtClaimType deve conter o nome da declaração a ser emitida em JWTs.
 - O SamlClaimType deve conter o URI da declaração a ser emitida em tokens SAML.
+
+* **atributo onPremisesUserPrincipalName:** Ao usar uma ID alternativa, o atributo local userPrincipalName é sincronizado com o atributo onPremisesUserPrincipalName do Azure AD. Esse atributo só estará disponível quando a ID alternativa estiver configurada, mas também estiver disponível por meio do MS Graph beta: https://graph.microsoft.com/beta/me/ .
 
 > [!NOTE]
 > Nomes e URIs de declarações no conjunto de declaração restritas não podem ser usados para os elementos de tipo de declaração. Para obter mais informações, consulte a seção "Restrições e exceções" mais adiante neste artigo.
@@ -417,7 +421,7 @@ Com base no método escolhido, um conjunto de entradas e saídas é esperado. De
 
 ### <a name="custom-signing-key"></a>Chave de assinatura personalizada
 
-Uma chave de assinatura personalizada deve ser atribuída ao objeto de entidade de serviço para que uma política de mapeamento de declarações entre em vigor. Isso garante a confirmação de que os tokens foram modificados pelo criador da política de mapeamento de declarações e protege os aplicativos contra as políticas de mapeamento de declarações criadas por atores mal-intencionados. Para adicionar uma chave de assinatura personalizada, você pode usar o cmdlet `new-azureadapplicationkeycredential` do Azure PowerShell para criar uma credencial de chave simétrica para seu objeto Application. Para saber mais sobre esse cmdlet do Azure PowerShell, confira [New-AzureADApplicationKeyCredential](/powerShell/module/Azuread/New-AzureADApplicationKeyCredential?view=azureadps-2.0).
+Uma chave de assinatura personalizada deve ser atribuída ao objeto de entidade de serviço para que uma política de mapeamento de declarações entre em vigor. Isso garante a confirmação de que os tokens foram modificados pelo criador da política de mapeamento de declarações e protege os aplicativos contra as políticas de mapeamento de declarações criadas por atores mal-intencionados. Para adicionar uma chave de assinatura personalizada, você pode usar o cmdlet Azure PowerShell [`New-AzureADApplicationKeyCredential`](/powerShell/module/Azuread/New-AzureADApplicationKeyCredential) para criar uma credencial de chave de certificado para seu objeto de aplicativo.
 
 Os aplicativos que têm o mapeamento de declarações habilitado devem validar suas chaves de assinatura de token acrescentando `appid={client_id}` às suas [solicitações de metadados do OpenID Connect](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document). Abaixo está o formato do documento de metadados do OpenID Connect que você deve usar:
 
@@ -437,8 +441,7 @@ Políticas de mapeamento de declarações podem ser atribuídas somente a objeto
 
 No Azure AD, muitos cenários são possíveis quando você pode personalizar as declarações emitidas em tokens para entidades de serviço específicas. Nesta seção, percorremos alguns cenários comuns que podem ajudá-lo a entender como usar o tipo de política de mapeamento de declarações.
 
-> [!NOTE]
-> Ao criar uma política de mapeamento de declarações, você também pode emitir uma declaração de um atributo de extensão de esquema de diretório em tokens. Use *ExtensionId* para o atributo de extensão em vez de *ID* no `ClaimsSchema` elemento.  Para obter mais informações sobre atributos de extensão, consulte [usando atributos de extensão de esquema de diretório](active-directory-schema-extensions.md).
+Ao criar uma política de mapeamento de declarações, você também pode emitir uma declaração de um atributo de extensão de esquema de diretório em tokens. Use *ExtensionId* para o atributo de extensão em vez de *ID* no `ClaimsSchema` elemento.  Para obter mais informações sobre atributos de extensão, consulte [usando atributos de extensão de esquema de diretório](active-directory-schema-extensions.md).
 
 #### <a name="prerequisites"></a>Pré-requisitos
 

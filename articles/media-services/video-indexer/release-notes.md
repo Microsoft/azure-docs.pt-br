@@ -10,14 +10,14 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 08/05/2020
+ms.date: 02/01/2021
 ms.author: juliako
-ms.openlocfilehash: 1b11dc0ee17fd0686776a7262c4bc99bd98bcc3e
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: c0d332c00635444ab4d694e46486a498b43137f2
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87837302"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99427644"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Notas de versão do Video Indexer de serviços de mídia do Azure
 
@@ -29,6 +29,56 @@ Para se manter atualizado com os desenvolvimentos mais recentes, este artigo for
 * Problemas conhecidos
 * Correções de bug
 * Funcionalidades preteridas
+
+## <a name="january-2021"></a>Janeiro de 2021
+
+### <a name="video-indexer-is-deployed-on-us-government-cloud"></a>Video Indexer é implantado na nuvem do governo dos EUA 
+
+Agora você pode criar uma conta paga Video Indexer na nuvem do governo dos EUA nas regiões Virgínia e Arizona. Video Indexer oferta de avaliação gratuita não está disponível na região mencionada. Para obter mais informações, acesse Video Indexer documentação. 
+
+### <a name="video-indexer-deployed-in-the-india-central-region"></a>Video Indexer implantados na região da Índia central 
+
+Agora você pode criar uma conta paga Video Indexer na região da Índia central. 
+
+### <a name="new-dark-mode-for-the-video-indexer-website-experience"></a>Novo modo escuro para a experiência de Video Indexer site
+
+O Video Indexer experiências do site agora está disponível no modo escuro. Para habilitar o modo escuro, abra o painel configurações e alterne a opção **modo escuro** . 
+
+:::image type="content" source="./media/release-notes/dark-mode.png" alt-text="Configuração de modo escuro":::
+
+## <a name="december-2020"></a>Dezembro de 2020
+
+### <a name="video-indexer-deployed-in-the-switzerland-west-and-switzerland-north"></a>Video Indexer implantados no Oeste da Suíça e Norte da Suíça
+
+Agora você pode criar uma conta paga Video Indexer nas regiões Oeste da Suíça e Norte da Suíça.
+
+## <a name="october-2020"></a>Outubro de 2020
+
+### <a name="animated-character-identification-improvements"></a>Aprimoramentos na identificação de caracteres animados  
+
+Video Indexer dá suporte à detecção, agrupamento e reconhecimento de caracteres em conteúdo animado por meio da integração com a visão personalizada dos serviços cognitivas. Adicionamos um aprimoramento importante a esse algoritmo de ia na detecção e no reconhecimento de caracteres, pois a precisão de insights e os caracteres identificados são significativamente melhorados.
+
+### <a name="planned-video-indexer-website-authenticatication-changes"></a>Alterações de authenticatication de site Video Indexer planejadas
+
+A partir de 1º de março de 2021, você não poderá mais se inscrever e entrar no [portal do desenvolvedor](video-indexer-use-apis.md) do [site video indexer](https://www.videoindexer.ai/) usando o Facebook ou o LinkedIn.
+
+Você poderá se inscrever e entrar usando um destes provedores: Azure AD, Microsoft e Google.
+
+> [!NOTE]
+> As contas de Video Indexer conectadas ao LinkedIn e ao Facebook não estarão acessíveis após 1º de março de 2021. 
+> 
+> Você deve [convidar](invite-users.md) um email do Azure AD, Microsoft ou Google para a conta de video indexer para que você ainda terá acesso.<br/>
+> Como alternativa, você pode criar uma conta paga e migrar os dados.
+
+## <a name="august-2020"></a>Agosto de 2020
+
+### <a name="mobile-design-for-the-video-indexer-website"></a>Design móvel para o site Video Indexer
+
+O Video Indexer experiência do site agora é compatível com dispositivos móveis. A experiência do usuário é responsiva para se adaptar ao seu tamanho de tela móvel (excluindo UIs de personalização). 
+
+### <a name="accessibility-improvements-and-bug-fixes"></a>Aprimoramentos de acessibilidade e correções de bugs 
+
+Como parte da WCAG (diretrizes de acessibilidade de conteúdo da Web), o Video Indexer experiências do site é alinhado com a série C, como parte dos padrões de acessibilidade da Microsoft. Vários bugs e aprimoramentos relacionados à navegação por teclado, acesso programático e leitor de tela foram resolvidos. 
 
 ## <a name="july-2020"></a>Julho de 2020
 
@@ -113,7 +163,7 @@ Nas próximas semanas, iremos alterá-la e retornar o Video Indexer URL do [site
     * Substituindo a URL por uma URL apontando para as APIs do widget de Video Indexer (por exemplo, o [widget insights](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Insights-Widget))
     * Usando o site Video Indexer para gerar uma nova URL inserida:
          
-         Pressione **reproduzir** para ir para a página do vídeo-> clique no botão ** &lt; / &gt; Inserir** – > copiar a URL para seu aplicativo:
+         Pressione **reproduzir** para ir para a página do vídeo-> clique no botão **&lt; / &gt; Inserir** – > copiar a URL para seu aplicativo:
    
     As URLs regionais não têm suporte e serão bloqueadas nas próximas semanas.
 
@@ -129,7 +179,7 @@ A ação Excluir conta agora exclui a conta em 90 dias, em vez de 48 horas.
  
 ### <a name="new-video-indexer-github-repository"></a>Novo repositório GitHub Video Indexer
 
-Um novo Video Indexer GitHub com projetos diferentes, guias de introdução e exemplos de código agora está disponível:https://github.com/Azure-Samples/media-services-video-indexer
+Um novo Video Indexer GitHub com projetos diferentes, guias de introdução e exemplos de código agora está disponível: https://github.com/Azure-Samples/media-services-video-indexer
  
 ### <a name="swagger-update"></a>Atualização do Swagger
 

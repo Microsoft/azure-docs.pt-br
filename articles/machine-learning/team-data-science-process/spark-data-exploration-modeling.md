@@ -10,19 +10,19 @@ ms.subservice: team-data-science-process
 ms.topic: sample
 ms.date: 06/03/2020
 ms.author: tdsp
-ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath, contperfq4
-ms.openlocfilehash: 406092466b7ab5ca729a08f7c703bcb30812901d
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath, contperf-fy20q4
+ms.openlocfilehash: 1ef6c678110037a4aed24ef40631b73a04ca6a9d
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86027504"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97028080"
 ---
 # <a name="data-exploration-and-modeling-with-spark"></a>Modelagem e exploração de dados com Spark
 
 Saiba como usar o HDInsight Spark para treinar modelos de machine learning para previsão de tarifa de táxi usando o Spark MLlib.
 
-Este exemplo demonstra as várias etapas no [Processo de Ciência de Dados de Equipe](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/). Um subconjunto do conjunto de dados da corrida de táxi de NYC e da tarifa 2013 é usado para carregar, explorar e preparar o dado. Em seguida, usando o Spark MLlib, os modelos de classificação binária e regressão são treinados para prever se será paga uma gorjeta pela viagem e estimar o valor da gorjeta.
+Este exemplo demonstra as várias etapas no [Processo de Ciência de Dados de Equipe](./index.yml). Um subconjunto do conjunto de dados da corrida de táxi de NYC e da tarifa 2013 é usado para carregar, explorar e preparar o dado. Em seguida, usando o Spark MLlib, os modelos de classificação binária e regressão são treinados para prever se será paga uma gorjeta pela viagem e estimar o valor da gorjeta.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

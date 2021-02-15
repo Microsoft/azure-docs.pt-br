@@ -8,10 +8,10 @@ ms.date: 01/10/2020
 ms.topic: conceptual
 ms.author: sutalasi
 ms.openlocfilehash: de25a3f9df04b09a7337dc889a688a171d98db28
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86129916"
 ---
 # <a name="set-up-disaster-recovery-of-vmware-vms-to-azure-with-powershell"></a>Configurar a recuperação de desastre de VMs VMware para o Azure usando o PowerShell
@@ -36,8 +36,8 @@ Você aprenderá como:
 Antes de começar:
 
 - Verifique se você entende os [componentes e a arquitetura do cenário](vmware-azure-architecture.md).
-- Examine os [requisitos de suporte](./vmware-physical-azure-support-matrix.md) para todos os componentes.
-- Você tem o `Az` módulo Azure PowerShell. Se precisar instalar ou atualizar o Azure PowerShell, siga este [Guia para instalar e configurar o Azure PowerShell](/powershell/azure/install-az-ps).
+- Examine os [requisitos de suporte](./vmware-physical-azure-support-matrix.md) de todos os componentes.
+- Você tem o `Az`  módulo Azure PowerShell. Se precisar instalar ou atualizar o Azure PowerShell, siga este [Guia para instalar e configurar o Azure PowerShell](/powershell/azure/install-az-ps).
 
 ## <a name="log-into-azure"></a>Fazer logon no Azure
 
@@ -118,7 +118,7 @@ No exemplo a seguir, os detalhes do cofre da variável $vault são usados para e
    VMwareDRToAzurePs VMwareDRToAzurePs Microsoft.RecoveryServices vaults
    ```
 
-Como alternativa ao cmdlet Set-ASRVaultContext, um também pode usar o cmdlet Import-AzRecoveryServicesAsrVaultSettingsFile para definir o contexto do cofre. Especifique o caminho no qual o arquivo de chave de registro do cofre está localizado como o parâmetro-Path para o cmdlet Import-AzRecoveryServicesAsrVaultSettingsFile. Por exemplo:
+Como alternativa ao cmdlet Set-ASRVaultContext, também é possível usar o cmdlet Import-AzRecoveryServicesAsrVaultSettingsFile para definir o contexto do cofre. Especifique o caminho no qual o arquivo de chave de registro do cofre está localizado como o parâmetro-Path para o cmdlet Import-AzRecoveryServicesAsrVaultSettingsFile. Por exemplo:
 
    ```azurepowershell
    Get-AzRecoveryServicesVaultSettingsFile -SiteRecovery -Vault $Vault -Path "C:\Work\"

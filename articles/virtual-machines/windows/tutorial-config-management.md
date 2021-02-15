@@ -8,16 +8,16 @@ ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 2b88c053e1f9029f916d9a180221a3bb58629608
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: b28d7ee5d2eeb1015695e32e5918bd94f9051050
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448865"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736661"
 ---
 # <a name="tutorial-monitor-changes-and-update-a-windows-virtual-machine-in-azure"></a>Tutorial: Monitorar alterações e atualizar uma máquina virtual do Windows no Azure
 
-Com o [Controle de Alterações](../../automation/change-tracking.md) e o [Gerenciamento de Atualizações](../../automation/update-management/update-mgmt-overview.md) do Azure, você pode identificar com facilidade as alterações em suas máquinas virtuais do Windows no Azure e gerenciar as atualizações do sistema operacional para essas VMs.
+Com o [Controle de Alterações](../../automation/change-tracking/overview.md) e o [Gerenciamento de Atualizações](../../automation/update-management/overview.md) do Azure, você pode identificar com facilidade as alterações em suas máquinas virtuais do Windows no Azure e gerenciar as atualizações do sistema operacional para essas VMs.
 
 Neste tutorial, você aprenderá como:
 
@@ -37,7 +37,7 @@ Você também pode abrir o Cloud Shell em uma guia separada do navegador indo at
 
 Para configurar o monitoramento do Azure e o gerenciamento de atualizações neste tutorial, você precisa de uma VM Windows no Azure.
 
-Primeiro, defina o nome de usuário e a senha de um administrador para a VM com [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-5.1):
+Primeiro, defina o nome de usuário e a senha de um administrador para a VM com [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential):
 
 ```azurepowershell-interactive
 $cred = Get-Credential
@@ -112,10 +112,10 @@ Para agendar uma nova implantação de atualizações para a VM, selecione **Age
 | --- | --- |
 | **Nome** |Insira um nome exclusivo para identificar a implantação de atualizações. |
 |**Sistema operacional**| Selecione **Linux** ou **Windows**.|
-| **Grupos para atualização** |Para as VMs hospedadas no Azure, defina uma consulta com base em uma combinação de assinatura, grupos de recursos, localizações e marcas. Essa consulta cria um grupo dinâmico de VMs hospedadas no Azure a serem incluídas em sua implantação. </br></br>Para as VMs não hospedadas no Azure, selecione uma pesquisa salva existente. Com essa pesquisa, você pode selecionar um grupo dessas VMs a ser incluído na implantação. </br></br> Para saber mais, confira [Grupos dinâmicos](../../automation/update-management/update-mgmt-groups.md).|
+| **Grupos para atualização** |Para as VMs hospedadas no Azure, defina uma consulta com base em uma combinação de assinatura, grupos de recursos, localizações e marcas. Essa consulta cria um grupo dinâmico de VMs hospedadas no Azure a serem incluídas em sua implantação. </br></br>Para as VMs não hospedadas no Azure, selecione uma pesquisa salva existente. Com essa pesquisa, você pode selecionar um grupo dessas VMs a ser incluído na implantação. </br></br> Para saber mais, confira [Grupos dinâmicos](../../automation/update-management/configure-groups.md).|
 | **Computadores para atualização** |Selecione **Pesquisa salva**, **Grupos importados** ou **Computadores**.<br/><br/>Se você selecionar **Computadores**, poderá escolher computadores individuais na lista suspensa. A preparação de cada computador é mostrada na coluna **PREPARAÇÃO DO AGENTE DE ATUALIZAÇÃO** da tabela.</br></br> Para saber mais sobre os diferentes métodos de criação de grupos de computadores nos logs do Azure Monitor, veja [Grupos de computadores nos logs do Azure Monitor](../../azure-monitor/platform/computer-groups.md) |
 |**Classificações de atualização**|Escolha todas as classificações de atualização necessárias.|
-|**Incluir/excluir atualizações**|Selecione essa opção para abrir o painel **Incluir/Excluir**. As atualizações a serem incluídas e aquelas a serem excluídas estão em guias separadas. Para obter mais informações sobre como a inclusão é tratada, confira [Agendar uma implantação de atualização](../../automation/update-management/update-mgmt-deploy-updates.md#schedule-an-update-deployment). |
+|**Incluir/excluir atualizações**|Selecione essa opção para abrir o painel **Incluir/Excluir**. As atualizações a serem incluídas e aquelas a serem excluídas estão em guias separadas. Para obter mais informações sobre como a inclusão é tratada, confira [Agendar uma implantação de atualização](../../automation/update-management/deploy-updates.md#schedule-an-update-deployment). |
 |**Configurações do agendamento**|Escolha a hora de início e selecione **Uma vez** ou **Recorrente**.|
 | **Pré-scripts + Pós-scripts**|Escolha os scripts a serem executados antes e depois da implantação.|
 | **Janela de manutenção** | Insira o número de minutos definido para atualizações. Os valores válidos vão de 30 a 360 minutos. |

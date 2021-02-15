@@ -13,23 +13,23 @@ ms.date: 05/18/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 24d50635efb4d7fe18db9836311cf0a85dfcc734
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: d0282e4f52db8557364cdabe197fa0da63204e42
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88118613"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98752639"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-resource-owner-password-credentials"></a>Plataforma de identidade da Microsoft e concessão de credenciais de senha de proprietário do recurso do OAuth 2.0
 
-A plataforma de identidade da Microsoft oferece suporte à concessão de [ROPC (credenciais de senha de proprietário do recurso) OAuth 2.0](https://tools.ietf.org/html/rfc6749#section-4.3), que permite que um aplicativo entre no usuário manipulando diretamente sua senha.  Este artigo descreve como programar diretamente no protocolo do seu aplicativo.  Quando possível, recomendamos que você use as MSAL (bibliotecas de autenticação da Microsoft) com suporte para [adquirir tokens e chamar APIs Web seguras](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Confira também os [aplicativos de exemplo que usam MSAL](sample-v2-code.md).
+A plataforma de identidade da Microsoft dá suporte à [concessão de ROPC (credenciais de senha de proprietário de recurso) do OAuth 2,0](https://tools.ietf.org/html/rfc6749#section-4.3), que permite que um aplicativo Conecte o usuário manipulando sua senha diretamente.  Este artigo descreve como programar diretamente no protocolo do seu aplicativo.  Quando possível, recomendamos que você use as MSAL (bibliotecas de autenticação da Microsoft) com suporte para [adquirir tokens e chamar APIs Web seguras](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Confira também os [aplicativos de exemplo que usam MSAL](sample-v2-code.md).
 
 > [!WARNING]
 > A Microsoft recomenda que você _não_ use o fluxo ROPC. Na maioria dos cenários, alternativas mais seguras estão disponíveis e são recomendadas. Esse fluxo requer um alto grau de confiança no aplicativo e carrega riscos que não estão presentes em outros fluxos. Você deve usar esse fluxo apenas quando outros fluxos mais seguros não puderem ser usados.
 
 > [!IMPORTANT]
 >
-> * O ponto de extremidade da plataforma de identidade da Microsoft oferece suporte apenas a locatários do ROPC para Azure AD, não a contas pessoais. Isso significa que você deve usar um terminal específico do locatário (`https://login.microsoftonline.com/{TenantId_or_Name}`) ou o terminal `organizations`.
+> * A plataforma Microsoft Identity só dá suporte a ROPC para locatários do Azure AD, não contas pessoais. Isso significa que você deve usar um terminal específico do locatário (`https://login.microsoftonline.com/{TenantId_or_Name}`) ou o terminal `organizations`.
 > * Contas pessoais são convidadas a um locatário Azure AD não é possível usar ROPC.
 > * Contas que não têm senhas não podem entrar por meio de ROPC. Para este cenário, recomendamos que você use um fluxo diferente para seu aplicativo em vez disso.
 > * Se os usuários precisarem usar a [MFA (autenticação multifator)](../authentication/concept-mfa-howitworks.md) para fazer logon no aplicativo, eles serão bloqueados em vez disso.
@@ -112,5 +112,4 @@ Se o usuário não tiver fornecido o nome de usuário ou a senha corretos, ou se
 
 ## <a name="learn-more"></a>Saiba mais
 
-* Experimente ROPC por conta própria usando o [aplicativo de console de exemplo](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2).
-* Para determinar se você deve usar o ponto de extremidade v2.0, leia sobre as [limitações da plataforma de identidade da Microsoft](../azuread-dev/azure-ad-endpoint-comparison.md).
+Para obter um exemplo de como usar o ROPC, consulte o exemplo de código do [aplicativo de console do .NET Core](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2) no github.

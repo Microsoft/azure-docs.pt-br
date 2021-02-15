@@ -9,10 +9,10 @@ ms.date: 11/11/2018
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: 6ffc91a6e01cfb479a4090bcf13f15a7bd20095c
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "71203958"
 ---
 ## <a name="copy-your-credentials-from-the-azure-portal"></a>Copiar suas credenciais no Portal do Azure

@@ -7,12 +7,12 @@ ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: Kinect, firmware, atualização, recuperação
-ms.openlocfilehash: eb60003a4233110cb33208bcb8e9784737bb2a8b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 71557798a584635356cc47fd7c4a0309df4d018a
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85276398"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94356210"
 ---
 # <a name="update-azure-kinect-dk-firmware"></a>Atualizar o firmware do Azure Kinect DK
 
@@ -57,15 +57,15 @@ O Azure Kinect DK não atualiza o firmware automaticamente. Você pode usar a [f
 
     ```console
        >AzureKinectFirmwareTool.exe -q
- == Azure Kinect DK Firmware Tool ==
-Device Serial Number: 000805192412
-Current Firmware Versions:
-  RGB camera firmware:      1.6.102
-  Depth camera firmware:    1.6.75
-  Depth config file:        6109.7
-  Audio firmware:           1.6.14
-  Build Config:             Production
-  Certificate Type:         Microsoft
+       == Azure Kinect DK Firmware Tool ==
+        Device Serial Number: 000805192412
+        Current Firmware Versions:
+        RGB camera firmware:      1.6.102
+        Depth camera firmware:    1.6.75
+        Depth config file:        6109.7
+        Audio firmware:           1.6.14
+        Build Config:             Production
+        Certificate Type:         Microsoft
     ```
 
 3. Se você vir a saída acima, o firmware será atualizado.
@@ -82,7 +82,7 @@ As atualizações de firmware podem falhar por vários motivos. Quando uma atual
 
 3. Se todos os outros falharem, siga as etapas de [recuperação](https://support.microsoft.com/help/4494277/reset-azure-kinect-dk) para reverter para o firmware de fábrica e tente novamente.
 
-Para problemas adicionais, consulte [páginas de suporte da Microsoft](https://aka.ms/kinectsupport)
+Para problemas adicionais, consulte [páginas de suporte da Microsoft](./index.yml)
 
 ## <a name="next-steps"></a>Próximas etapas
 

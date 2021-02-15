@@ -1,23 +1,23 @@
 ---
 title: Usar sys_schema – Banco de Dados do Azure para MySQL
 description: Saiba como usar sys_schema para encontrar problemas de desempenho e manter o banco de dados no Banco de Dados do Azure para MySQL.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: troubleshooting
 ms.date: 3/30/2020
-ms.openlocfilehash: d2ed06041e8ee0e2993289cdde5fe92f7664b476
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: a20510ee2800a54f9a51a2f498ee8ae8a3e51d55
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83829508"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94543142"
 ---
 # <a name="how-to-use-sys_schema-for-performance-tuning-and-database-maintenance-in-azure-database-for-mysql"></a>Como usar sys_schema para ajuste de desempenho e manutenção de banco de dados no Banco de Dados do Azure para MySQL
 
 O performance_schema do MySQL, disponível primeiramente no MySQL 5.5, fornece instrumentação para muitos recursos de servidor vitais, como alocação de memória, programas armazenados, bloqueio de metadados e etc. No entanto, o performance_schema contém mais de 80 tabelas e, obter as informações necessárias muitas vezes requer junção de tabelas dentro do performance_schema, assim como tabelas do information_schema. Ao compilar o performance_schema e o information_schema, o sys_schema fornece uma coleção avançada de [exibições amigáveis de usuário](https://dev.mysql.com/doc/refman/5.7/en/sys-schema-views.html) em um banco de dados somente leitura e é totalmente habilitado no Banco de Dados do Azure para MySQL versão 5.7.
 
-![Exibições do sys_schema](./media/howto-troubleshoot-sys-schema/sys-schema-views.png)
+:::image type="content" source="./media/howto-troubleshoot-sys-schema/sys-schema-views.png" alt-text="Exibições do sys_schema":::
 
 Há 52 exibições no sys_schema e cada uma tem um dos prefixos a seguir:
 
@@ -37,23 +37,23 @@ Agora, vejamos alguns padrões comuns de uso do sys_schema. Para começar, agrup
 
 E/S é a operação mais cara no banco de dados. É possível localizar a latência média de E/S, consultando a exibição *sys.user_summary_by_file_io*. Com o padrão de 125 GB de armazenamento provisionado, a latência de E/S é de aproximadamente 15 segundos.
 
-![Latência de E/S: 125 GB](./media/howto-troubleshoot-sys-schema/io-latency-125GB.png)
+:::image type="content" source="./media/howto-troubleshoot-sys-schema/io-latency-125GB.png" alt-text="Latência de E/S: 125 GB":::
 
 Como o Banco de Dados do Azure para MySQL escala a E/S em relação ao armazenamento, após aumentar o armazenamento provisionado para 1 TB, a latência de E/S reduz para 571 ms.
 
-![Latência de E/S: 1 TB](./media/howto-troubleshoot-sys-schema/io-latency-1TB.png)
+:::image type="content" source="./media/howto-troubleshoot-sys-schema/io-latency-1TB.png" alt-text="Latência de E/S: 1 TB":::
 
 ### <a name="sysschema_tables_with_full_table_scans"></a>*sys.schema_tables_with_full_table_scans*
 
 Apesar do planejamento cuidadoso, muitas consultas ainda podem resultar em verificações de tabela completas. Para saber mais sobre os tipos de índices e como otimizá-los, confira este artigo: [Como solucionar problemas com o desempenho da consulta](./howto-troubleshoot-query-performance.md). As verificações de tabela completas são tarefas com uso intensivo de recursos e prejudicam o desempenho do banco de dados. A maneira mais rápida de localizar tabelas com verificação de tabela completa é consultar a exibição *sys.schema_tables_with_full_table_scans*.
 
-![Verificações de tabela completas](./media/howto-troubleshoot-sys-schema/full-table-scans.png)
+:::image type="content" source="./media/howto-troubleshoot-sys-schema/full-table-scans.png" alt-text="Verificações de tabela completas":::
 
 ### <a name="sysuser_summary_by_statement_type"></a>*sys.user_summary_by_statement_type*
 
 Para solucionar problemas de desempenho do banco de dados, pode ser útil identificar os eventos que ocorrem dentro dele e usar a exibição *sys.user_summary_by_statement_type* pode ser o ideal.
 
-![Resumo por instrução](./media/howto-troubleshoot-sys-schema/summary-by-statement.png)
+:::image type="content" source="./media/howto-troubleshoot-sys-schema/summary-by-statement.png" alt-text="Resumo por instrução":::
 
 Neste exemplo, o Banco de Dados do Azure para MySQL gastou 53 minutos liberando o log de consultas do slog 44579 vezes. Isso é muito tempo e muitas E/Ss. É possível reduzir essa atividade, desabilitando o log de consultas lentas ou diminuindo a frequência do logon de consultas lentas do portal do Azure.
 
@@ -66,7 +66,7 @@ Neste exemplo, o Banco de Dados do Azure para MySQL gastou 53 minutos liberando 
 
 O pool de buffers InnoDB reside na memória e é o mecanismo de cache principal entre o SGBD e o armazenamento. O tamanho do pool de buffers InnoDB está vinculado ao nível de desempenho e não pode ser alterado, exceto se uma SKU do produto diferente for escolhida. Assim como acontece com a memória no sistema operacional, as páginas antigas são trocadas para criar espaço para dados mais atuais. Para localizar quais tabelas consomem a maior parte da memória do pool de buffers InnoDB, você pode consultar a exibição *sys.innodb_buffer_stats_by_table*.
 
-![Status do buffer InnoDB](./media/howto-troubleshoot-sys-schema/innodb-buffer-status.png)
+:::image type="content" source="./media/howto-troubleshoot-sys-schema/innodb-buffer-status.png" alt-text="Status do buffer InnoDB":::
 
 No gráfico acima, é evidente que, além das exibições e tabelas do sistema, cada tabela no banco de dados mysqldatabase033, que hospeda um dos sites WordPress, ocupa 16 KB, ou 1 página, de dados na memória.
 
@@ -74,13 +74,13 @@ No gráfico acima, é evidente que, além das exibições e tabelas do sistema, 
 
 Os índices são excelentes ferramentas para melhorar o desempenho de leitura, mas eles incorrem em custos adicionais para inserções e armazenamento. *Sys.schema_unused_indexes* e *sys.schema_redundant_indexes* fornecem informações sobre índices duplicados ou não utilizados.
 
-![Índices não utilizados](./media/howto-troubleshoot-sys-schema/unused-indexes.png)
+:::image type="content" source="./media/howto-troubleshoot-sys-schema/unused-indexes.png" alt-text="Índices não utilizados":::
 
-![Índices redundantes](./media/howto-troubleshoot-sys-schema/redundant-indexes.png)
+:::image type="content" source="./media/howto-troubleshoot-sys-schema/redundant-indexes.png" alt-text="Índices redundantes":::
 
 ## <a name="conclusion"></a>Conclusão
 
 Em resumo, o sys_schema é uma ótima ferramenta para ajuste de desempenho e manutenção de banco de dados. Aproveitar esse recurso no seu Banco de Dados do Azure para MySQL. 
 
 ## <a name="next-steps"></a>Próximas etapas
-- Para encontrar respostas de pares para suas perguntas mais preocupantes ou postar uma nova pergunta/resposta, visite a[página de perguntas frequentes da Microsoft](https://docs.microsoft.com/answers/topics/azure-database-mysql.html) ou [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mysql).
+- Para encontrar respostas de pares para suas perguntas mais preocupantes ou postar uma nova pergunta/resposta, visite a[página de perguntas frequentes da Microsoft](/answers/topics/azure-database-mysql.html) ou [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mysql).

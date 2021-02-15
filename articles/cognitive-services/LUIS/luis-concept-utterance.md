@@ -1,14 +1,16 @@
 ---
 title: Bom exemplo de declarações-LUIS
 description: Enunciados são entradas do usuário que seu aplicativo precisa interpretar. Colete frases que você acredita que os usuários vão inserir. Inclua enunciados que tenham o mesmo significado, mas sejam construídos de modo diferente em termos de comprimento e posicionamento de palavras.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: 6a17416183762893432841c27124ec6a0f8a289d
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 96b9754908f437ccf81e002e9e9dd17af0bab4e3
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83685279"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95019068"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>Reconheça quais são os enunciados ideais para o aplicativo LUIS
 
@@ -27,7 +29,7 @@ Colete enunciados que você acredita que os usuários irão inserir. Inclua enun
 
 ## <a name="how-to-choose-varied-utterances"></a>Como escolher enunciados variados
 
-Quando você começar a [adicionar adicionando enunciados de exemplo](luis-how-to-add-example-utterances.md) ao seu modelo LUIS, aqui estão alguns princípios a ter em mente.
+Quando você começar a [adicionar adicionando enunciados de exemplo](./luis-how-to-add-entities.md) ao seu modelo LUIS, aqui estão alguns princípios a ter em mente.
 
 ### <a name="utterances-arent-always-well-formed"></a>Os enunciados nem sempre são bem formados
 
@@ -145,5 +147,4 @@ Se você quiser que uma entidade de evento localize todos os dados do evento, ro
 
 
 ## <a name="next-steps"></a>Próximas etapas
-Consulte [Adicionar enunciados de exemplo](luis-how-to-add-example-utterances.md) para obter informações sobre o treinamento de um aplicativo de LUIS para entender enunciados do usuário.
-
+Consulte [Adicionar enunciados de exemplo](./luis-how-to-add-entities.md) para obter informações sobre o treinamento de um aplicativo de LUIS para entender enunciados do usuário.

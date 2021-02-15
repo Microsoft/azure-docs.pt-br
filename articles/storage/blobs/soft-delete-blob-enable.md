@@ -10,16 +10,16 @@ ms.date: 07/15/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: cba56e699afed8178f93bceddf6bf32a242ed124
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: a74860b7adf4dade5aedc71a4960595cbe55eaf0
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020840"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95995294"
 ---
 # <a name="enable-and-manage-soft-delete-for-blobs"></a>Habilitar e gerenciar exclusão reversível para blobs
 
-A exclusão reversível de blob protege seus dados de serem modificados ou excluídos acidentalmente ou erroneamente. Quando a exclusão reversível de blob está habilitada para uma conta de armazenamento, BLOBs, versões de BLOB (versão prévia) e instantâneos na conta de armazenamento podem ser recuperados depois de serem excluídos, dentro de um período de retenção que você especificar.
+A exclusão reversível de blob protege seus dados de serem modificados ou excluídos acidentalmente ou erroneamente. Quando a exclusão reversível de blob está habilitada para uma conta de armazenamento, BLOBs, versões de BLOB e instantâneos nessa conta de armazenamento podem ser recuperados depois de serem excluídos, dentro de um período de retenção especificado por você.
 
 Se houver uma possibilidade de que seus dados possam ser acidentalmente modificados ou excluídos por um aplicativo ou outro usuário da conta de armazenamento, a Microsoft recomenda ativar a exclusão reversível de BLOB. Este artigo mostra como habilitar a exclusão reversível para BLOBs. Para obter mais detalhes sobre a exclusão reversível de BLOB, consulte [exclusão reversível para BLOBs](soft-delete-blob-overview.md).
 
@@ -194,5 +194,5 @@ blockBlob.StartCopy(copySource);
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Exclusão reversível do armazenamento de blobs](soft-delete-overview.md)
-- [Controle de versão de blob (versão prévia)](versioning-overview.md)
+- [Exclusão reversível do armazenamento de blobs](./soft-delete-blob-overview.md)
+- [Controle de versão de BLOB](versioning-overview.md)

@@ -3,12 +3,12 @@ title: Criar um laboratório usando o Azure DevTest Labs | Microsoft Docs
 description: Neste tutorial, você criará um laboratório no Azure DevTest Labs usando o portal do Azure. Um administrador de laboratório configura um laboratório, cria VMs no laboratório e configura políticas.
 ms.topic: tutorial
 ms.date: 06/26/2020
-ms.openlocfilehash: 9d016b38beb2f338a97ac862a060dc5ec3a77780
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 4b59edd4ab1204d6683cf95a02070d10b1abe061
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85476556"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91324273"
 ---
 # <a name="tutorial-set-up-a-lab-by-using-azure-devtest-labs"></a>Tutorial: Configurar um laboratório usando o Azure DevTest Labs
 Neste tutorial, você criará um laboratório usando o Portal do Azure. Um administrador de laboratório define um laboratório em uma organização, cria máquinas virtuais no laboratório e configura políticas. Os usuários de laboratório (por exemplo: desenvolvedores e testadores) solicitam máquinas virtuais no laboratório, as conectam e as usam. 
@@ -56,7 +56,7 @@ As etapas a seguir ilustram como usar o portal do Azure para criar um laboratór
     2. Para **Nome de usuário**, insira um nome para o usuário que tem acesso à máquina virtual. 
     3. Para **Senha**, insira a senha do usuário. 
 
-        ![Escolher uma base](./media/tutorial-create-custom-lab/new-virtual-machine.png)
+        ![Captura de tela que mostra as configurações básicas da página "Criar recurso de laboratório".](./media/tutorial-create-custom-lab/new-virtual-machine.png)
 1. Selecione a guia **Configurações avançadas**.
     1. Para **Tornar essa máquina solicitável**, selecione **Sim**.
     2. Confirme se a **contagem de instâncias** está definida como **1**. Se você a definiu como **2**, são criadas 2 VMs com nomes: `<base image name>00' and <base image name>01`. Por exemplo: `win10vm00` e `win10vm01`.     

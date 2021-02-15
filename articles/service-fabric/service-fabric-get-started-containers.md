@@ -4,12 +4,12 @@ description: Crie seu primeiro aplicativo de contêiner do Windows no Azure Serv
 ms.topic: conceptual
 ms.date: 01/25/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: 6303e37eaa8fa7ad45677d551b89337d20b1b604
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 197423670ffe05f15fdc5bfd351efdfba33b53cd
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87844419"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533767"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Como criar seu primeiro aplicativo de contêiner do Service Fabric no Windows
 
@@ -36,20 +36,15 @@ Executar um aplicativo existente em um contêiner do Windows em um cluster do Se
 
   Neste artigo, a versão (build) do Windows Server com contêineres em execução em nós do cluster deve corresponder em seu computador de desenvolvimento. Isso ocorre porque você compila a imagem do docker em seu computador de desenvolvimento e há restrições de compatibilidade entre versões do sistema operacional do contêiner e o sistema operacional do host no qual ele foi implantado. Para obter mais informações, consulte [Compatibilidade do sistema operacional do contêiner e do sistema operacional do host do Windows Server](#windows-server-container-os-and-host-os-compatibility). 
   
-Para determinar a versão do Windows Server com contêineres que você precisa para seu cluster, execute o comando `ver` em um prompt de comando do Windows no computador de desenvolvimento:
-
-* Se a versão contém *x.x.14323.x*, selecione *WindowsServer 2016-Datacenter-with-Containers* para o sistema operacional ao [criar um cluster](service-fabric-cluster-creation-via-portal.md).
-  * Se a versão contém *x.x.16299.x*, selecione *WindowsServerSemiAnnual Datacenter-Core-1709-with-Containers* para o sistema operacional ao [criar um cluster](service-fabric-cluster-creation-via-portal.md).
+    Para determinar a versão do Windows Server com contêineres necessários para o cluster, execute o `ver` comando em um prompt de comando do Windows em seu computador de desenvolvimento. Consulte o [so do contêiner do Windows Server e a compatibilidade do sistema operacional do host](#windows-server-container-os-and-host-os-compatibility) antes [de criar um cluster](service-fabric-cluster-creation-via-portal.md).
 
 * Um registro no Registro de Contêiner do Azure - [Crie um registro de contêiner](../container-registry/container-registry-get-started-portal.md) em sua assinatura do Azure.
 
 > [!NOTE]
 > A implantação de contêineres em um cluster do Service Fabric em execução no Windows 10 tem suporte.  Consulte [este artigo](service-fabric-how-to-debug-windows-containers.md) para obter informações sobre como configurar o Windows 10 para executar contêineres do Windows.
->   
 
 > [!NOTE]
-> O Service Fabric versões 6.2 e posteriores dá suporte para implantação de contêineres em clusters em execução no Windows Server versão 1709.  
-> 
+> O Service Fabric versões 6.2 e posteriores dá suporte para implantação de contêineres em clusters em execução no Windows Server versão 1709.
 
 ## <a name="define-the-docker-container"></a>Defina o contêiner Docker
 
@@ -109,10 +104,18 @@ if __name__ == "__main__":
 ```
 
 <a id="Build-Containers"></a>
-## <a name="build-the-image"></a>Criar a imagem
-Execute o comando `docker build` para criar a imagem que executa o seu aplicativo web. Abra uma janela do PowerShell e acesse o diretório que contém o Dockerfile. Execute o seguinte comando:
+
+## <a name="login-to-docker-and-build-the-image"></a>Faça logon no Docker e crie a imagem
+
+Em seguida, criaremos a imagem que executa seu aplicativo Web. Ao obter imagens públicas do Docker (como `python:2.7-windowsservercore` em nosso Dockerfile), é uma prática recomendada autenticar com sua conta do Hub do Docker em vez de fazer uma solicitação de pull anônima.
+
+> [!NOTE]
+> Ao fazer solicitações de pull anônimas frequentes, você pode ver erros de Docker semelhantes `ERROR: toomanyrequests: Too Many Requests.` ou `You have reached your pull rate limit.` autenticados no Hub do Docker para evitar esses erros. Consulte [gerenciar conteúdo público com o registro de contêiner do Azure](../container-registry/buffer-gate-public-content.md) para obter mais informações.
+
+Abra uma janela do PowerShell e acesse o diretório que contém o Dockerfile. Em seguida, execute os comandos a seguir:
 
 ```
+docker login
 docker build -t helloworldapp .
 ```
 
@@ -130,7 +133,7 @@ helloworldapp                 latest              8ce25f5d6a79        2 minutes 
 ## <a name="run-the-application-locally"></a>Executar o aplicativo localmente
 Verifique a imagem localmente antes de enviá-la ao registro de contêiner. 
 
-Execute o aplicativo:
+Executar o aplicativo:
 
 ```
 docker run -d --name my-web-site helloworldapp
@@ -290,7 +293,7 @@ A partir da versão de atualização mais recente do v 6.4, você tem a opção 
 
 A instrução do **HEALTHCHECK** apontando para a verificação real que é executada para monitorar a integridade do contêiner deve estar presente no Dockerfile usado ao gerar a imagem de contêiner.
 
-![HealthCheckHealthy][3]
+![Captura de tela mostra detalhes do pacote de serviço implantado NodeServicePackage.][3]
 
 ![HealthCheckUnhealthyApp][4]
 
@@ -310,7 +313,7 @@ Você pode configurar o comportamento do **HEALTHCHECK** para cada contêiner es
     </Policies>
 </ServiceManifestImport>
 ```
-Por padrão, *IncludeDockerHealthStatusInSystemHealthReport* é definido como **true**, *RestartContainerOnUnhealthyDockerHealthStatus* é definido como **false**e *TreatContainerUnhealthyStatusAsError* é definido como **false**. 
+Por padrão, *IncludeDockerHealthStatusInSystemHealthReport* é definido como **true**, *RestartContainerOnUnhealthyDockerHealthStatus* é definido como **false** e *TreatContainerUnhealthyStatusAsError* é definido como **false**. 
 
 Se o *RestartContainerOnUnhealthyDockerHealthStatus* for definido como **true**, um contêiner relatando repetidamente um estado não íntegro será reiniciado (possivelmente em outros nós).
 
@@ -534,7 +537,7 @@ Você pode configurar o cluster do Service Fabric para remover as imagens de con
           },
           {
                 "name": "ContainerImagesToSkip",
-                "value": "microsoft/windowsservercore|microsoft/nanoserver|microsoft/dotnet-frameworku|..."
+                "value": "mcr.microsoft.com/windows/servercore|mcr.microsoft.com/windows/nanoserver|mcr.microsoft.com/dotnet/framework/aspnet|..."
           }
           ...
           }

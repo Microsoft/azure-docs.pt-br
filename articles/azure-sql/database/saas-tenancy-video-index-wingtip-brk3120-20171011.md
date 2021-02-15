@@ -10,12 +10,12 @@ ms.reviewer: ''
 ms.custom: sqldbrb=1
 ms.date: 12/18/2018
 ms.topic: conceptual
-ms.openlocfilehash: 0ba510d87764fde824b3fc7c594c230b880d05c9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8cceeef7e41e8fc5c48b4e67cdb1adf3aa4f02a1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84170317"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89483857"
 ---
 # <a name="video-indexed-and-annotated-for-multi-tenant-saas-app-using-azure-sql-database"></a>Vídeo indexado e anotado para aplicativo SaaS multilocatário usando o Banco de Dados SQL do Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -77,7 +77,7 @@ Os títulos a seguir são links para suas seções correspondentes anotadas que 
 - [32. consulta distribuída em bancos de dados de locatário, 1:12:21](#anchor-image-wtip-min11221)
 - [33. demonstração da geração de tíquete, 1:12:32](#anchor-image-wtip-min11232)
 - [34. análise adhoc do SSMS, 1:12:46](#anchor-image-wtip-min11246)
-- [35. extrair dados de locatário no SQL DW, 1:16:32](#anchor-image-wtip-min11632)
+- [35. extrair dados de locatário para a análise de Synapse do Azure, 1:16:32](#anchor-image-wtip-min11632)
 - [36. grafo de distribuição de venda diária, 1:16:48](#anchor-image-wtip-min11648)
 - [37. conclusão e plano de ação, 1:19:52](#anchor-image-wtip-min11952)
 - [38. recursos para obter mais informações, 1:20:42](#anchor-image-wtip-min12042)
@@ -273,8 +273,8 @@ Clicar em qualquer imagem de captura de tela leva você até a marcação de tem
 
 
 &nbsp; <a name="anchor-image-wtip-min11632"></a>
-#### <a name="35-extract-tenant-data-into-sql-dw-11546"></a>35. extrair dados de locatário no SQL DW, 1:15:46
-[![Extrair dados de locatário para o SQL DW][image-wtip-min11632-extract-tenant-data-sql-dw]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=4546)
+#### <a name="35-extract-tenant-data-into-azure-synapse-analytics-11546"></a>35. extrair dados de locatário para a análise de Synapse do Azure, 1:15:46
+[![Extrair dados de locatário para o Azure Synapse Analytics][image-wtip-min11632-extract-tenant-data-sql-dw]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=4546)
 
 
 &nbsp; <a name="anchor-image-wtip-min11648"></a>
@@ -383,7 +383,7 @@ Clicar em qualquer imagem de captura de tela leva você até a marcação de tem
 
 [image-wtip-min11246-ssms-adhoc-analytics]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min11246-tsql-adhoc-analystics-db-elastic-query.png "Análise ad hoc de SSMS"
 
-[image-wtip-min11632-extract-tenant-data-sql-dw]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min11632-extract-tenant-data-analytics-db-dw.png "Extrair dados de locatário no SQL DW"
+[image-wtip-min11632-extract-tenant-data-sql-dw]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min11632-extract-tenant-data-analytics-db-dw.png "Extrair dados de locatário para o Azure Synapse Analytics"
 
 [image-wtip-min11648-graph-daily-sale-distribution]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min11648-graph-daily-sale-contoso-concert-hall.png "Gráfico da distribuição de venda diária"
 

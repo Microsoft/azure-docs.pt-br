@@ -6,26 +6,26 @@ author: filippopovic
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 85b0137f8d89def2f38ffe82199950c9158888d0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d47b4847a12b63532e44a8a1a47101dd065f811b
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87070042"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446587"
 ---
 # <a name="design-decisions-and-coding-techniques-for-synapse-sql-features-in-azure-synapse-analytics"></a>Decisões de design e técnicas de codificação para recursos do Synapse SQL no Azure Synapse Analytics
-Neste artigo, você encontrará uma lista de recursos para o pool SQL e as funções SQL sob demanda (versão prévia) do SQL Synapse. Os artigos recomendados são divididos em duas seções: principais decisões de design e técnicas de desenvolvimento e codificação.
+Neste artigo, você encontrará uma lista de recursos para o pool de SQL dedicado e funções de pool de SQL sem servidor do Synapse SQL. Os artigos recomendados são divididos em duas seções: principais decisões de design e técnicas de desenvolvimento e codificação.
 
-O objetivo desses artigos é ajudá-lo a desenvolver a abordagem técnica ideal para os componentes do SQL Synapse no Synapse Analytics.
+O objetivo desses artigos é ajudá-lo a desenvolver a abordagem técnica ideal para os componentes do SQL Synapse na análise de Synapse do Azure.
 
 ## <a name="key-design-decisions"></a>Principais decisões de design
 Os artigos abaixo destacam os conceitos e as decisões de design para o desenvolvimento do Synapse SQL:
 
-| Artigo | Pool de SQL | SQL sob demanda |
+| Artigo | pool de SQL dedicado | Pool de SQL sem servidor |
 | ------- | -------- | ------------- |
 | [Conexões](connect-overview.md)                    | Sim | Sim |
 | [Simultaneidade e classes de recursos](../sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | Sim    | Não |
@@ -44,7 +44,7 @@ Os artigos abaixo destacam os conceitos e as decisões de design para o desenvol
 
 Abaixo você encontrará artigos essenciais que enfatizam técnicas de codificação específicas, dicas e recomendações para desenvolvimento:
 
-| Artigo | Pool de SQL | SQL sob demanda |
+| Artigo | pool de SQL dedicado | Pool de SQL sem servidor |
 | ------- | -------- | ------------- |
 | [Procedimentos armazenados](develop-stored-procedures.md)  | Sim                | Não                      |
 | [Rótulos](develop-label.md)                           | Sim                | Não                      |

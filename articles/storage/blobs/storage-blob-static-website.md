@@ -6,25 +6,28 @@ ms.service: storage
 ms.topic: how-to
 ms.author: normesta
 ms.reviewer: dineshm
-ms.date: 05/14/2020
+ms.date: 09/04/2020
 ms.subservice: blobs
-ms.custom: devx-track-javascript
-ms.openlocfilehash: b8864201fc5bf86a5451c790a51141cee46bffeb
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.custom: devx-track-js
+ms.openlocfilehash: b9eb65311951706863c3b18c5fc91bae8c41c7dc
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432518"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96007334"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Hospedagem de site estático no Armazenamento do Microsoft Azure
 
-Você pode fornecer conteúdo estático (HTML, CSS, JavaScript e arquivos de imagem) diretamente de um contêiner de armazenamento denominado *$web*. Hospedar seu conteúdo no Armazenamento do Azure permite que você use arquiteturas sem servidor que incluem [Azure Functions](/azure/azure-functions/functions-overview) e outros serviços de PaaS (plataforma como serviço).
+Você pode fornecer conteúdo estático (HTML, CSS, JavaScript e arquivos de imagem) diretamente de um contêiner de armazenamento denominado *$web*. Hospedar seu conteúdo no Armazenamento do Azure permite que você use arquiteturas sem servidor que incluem [Azure Functions](../../azure-functions/functions-overview.md) e outros serviços de PaaS (plataforma como serviço). A hospedagem de sites estáticos do armazenamento do Azure é uma ótima opção nos casos em que você não precisa de um servidor Web para renderizar o conteúdo.
+
+Os [aplicativos Web estáticos do serviço de aplicativo](https://azure.microsoft.com/services/app-service/static/) são uma ótima alternativa para hospedagem de sites estáticos do armazenamento do Azure e também são apropriados nos casos em que você não precisa de um servidor Web para renderizar o conteúdo. Os aplicativos Web estáticos do serviço de aplicativo fornecem um fluxo de trabalho de integração contínua e fornecimento contínuo (CI/CD) totalmente gerenciado da origem do GitHub para a implantação global.
+
+Se você precisar de um servidor Web para renderizar conteúdo, poderá usar [Azure app serviço](https://azure.microsoft.com/services/app-service/).
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 > [!NOTE]
-> Se o seu site depende do código do servidor, use [Azure App Service](/azure/app-service/overview).
-Certifique-se de criar uma conta de armazenamento padrão de uso geral v2. Os sites estáticos não estão disponíveis em nenhum outro tipo de conta de armazenamento.
+> Certifique-se de criar uma conta de armazenamento padrão de uso geral v2. Os sites estáticos não estão disponíveis em nenhum outro tipo de conta de armazenamento.
 
 ## <a name="setting-up-a-static-website"></a>Configuração de um site estático
 
@@ -57,7 +60,7 @@ Os usuários podem exibir o conteúdo do site de um navegador usando a URL públ
 Se o servidor retornar um erro 404 e você não tiver especificado um documento de erro ao habilitar o site, uma página 404 padrão será retornada ao usuário.
 
 > [!NOTE]
-> Não há suporte para [CORS](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) com site estático.
+> O [suporte ao compartilhamento de recursos entre origens (CORS) para o armazenamento do Azure](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) não tem suporte com o site estático.
 
 ### <a name="regional-codes"></a>Códigos regionais
 
@@ -100,9 +103,14 @@ Se a conta de armazenamento estiver configurada para [exigir transferência segu
 
 ## <a name="adding-http-headers"></a>Adição de cabeçalhos de HTTP
 
-Não há como configurar cabeçalhos como parte do recurso de site estático. No entanto, você pode usar a CDN do Azure para adicionar cabeçalhos e acrescentar (ou substituir) valores de cabeçalho. Confira [Referência do mecanismo de regras Standard para a CDN do Azure](https://docs.microsoft.com/azure/cdn/cdn-standard-rules-engine-reference).
+Não há como configurar cabeçalhos como parte do recurso de site estático. No entanto, você pode usar a CDN do Azure para adicionar cabeçalhos e acrescentar (ou substituir) valores de cabeçalho. Confira [Referência do mecanismo de regras Standard para a CDN do Azure](../../cdn/cdn-standard-rules-engine-reference.md).
 
-Se quiser usar cabeçalhos para controlar o armazenamento em cache, confira [Controlar o comportamento de cache da CDN do Azure com regras de cache](https://docs.microsoft.com/azure/cdn/cdn-caching-rules).
+Se quiser usar cabeçalhos para controlar o armazenamento em cache, confira [Controlar o comportamento de cache da CDN do Azure com regras de cache](../../cdn/cdn-caching-rules.md).
+
+## <a name="multi-region-website-hosting"></a>Hospedagem de site de várias regiões
+
+Se você planeja hospedar um site em várias regiões geográficas, recomendamos que você use uma [rede de distribuição de conteúdo](../../cdn/index.yml) para o cache regional. Use a [porta frontal do Azure](../../frontdoor/index.yml) se você quiser fornecer conteúdo diferente em cada região. Ele também fornece recursos de failover. O [Gerenciador de tráfego do Azure](../../traffic-manager/index.yml) não é recomendado se você planeja usar um domínio personalizado. Podem surgir problemas devido a como o armazenamento do Azure verifica nomes de domínio personalizados.
+
 
 ## <a name="pricing"></a>Preços
 
@@ -118,7 +126,7 @@ Para habilitar as métricas em suas páginas de sites estáticos, confira [Habil
 
 * [Hospedar site estático no Armazenamento do Azure](storage-blob-static-website-how-to.md)
 * [Mapear um domínio personalizado para um ponto de extremidade do Armazenamento de Blobs do Azure](storage-custom-domain-name.md)
-* [Azure Functions](/azure/azure-functions/functions-overview)
-* [Serviço de Aplicativo do Azure](/azure/app-service/overview)
-* [Compile seu primeiro aplicativo web sem servidor](https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database)
+* [Azure Functions](../../azure-functions/functions-overview.md)
+* [Serviço de Aplicativo do Azure](../../app-service/overview.md)
+* [Compile seu primeiro aplicativo web sem servidor](/azure/functions/tutorial-static-website-serverless-api-with-database)
 * [Tutorial: Hospede seu domínio no DNS do Azure](../../dns/dns-delegate-domain-azure-dns.md)

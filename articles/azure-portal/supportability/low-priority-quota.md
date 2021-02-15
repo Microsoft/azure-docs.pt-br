@@ -1,18 +1,17 @@
 ---
-title: Cota de máquina virtual de spot – Azure
+title: Identificar a cota da máquina virtual
 description: Aumente os limites de cota para VMs pontuais, que fornecem um modelo de uso do Azure que permite que você assuma custos menores no Exchange para permitir que o Azure remova VMs conforme necessário.
 author: sowmyavenkat86
 ms.author: svenkat
 ms.date: 01/27/2020
 ms.topic: how-to
-ms.service: azure
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: 513bde930f9c7c8892164c50c3866ff6e948ed4e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c8b9a2251d7923fe1919b7b934f6c97877cd5b37
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763866"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745478"
 ---
 # <a name="spot-quota-increase-limits-for-all-vm-series"></a>Cota de spot: aumentar os limites para todas as séries de VM
 
@@ -82,7 +81,7 @@ Para solicitar um aumento de limite de cota de spot para todas as séries de má
 
       ![Selecione uma nova cota para a VM Spot](./media/resource-manager-core-quotas-request/spot-set-new-quota.png)
 
-1. Para solicitar um aumento de cota para mais de um local, selecione um local adicional em **locais**e, em seguida, selecione um tipo de VM apropriado. Em seguida, você pode inserir um limite que se aplica ao local adicional.
+1. Para solicitar um aumento de cota para mais de um local, selecione um local adicional em **locais** e, em seguida, selecione um tipo de VM apropriado. Em seguida, você pode inserir um limite que se aplica ao local adicional.
 
    ![Especificar locais adicionais nos detalhes da cota](./media/resource-manager-core-quotas-request/quota-details-multiple-locations.png)
 
@@ -131,7 +130,7 @@ Para solicitar um aumento de limite de cota de spot para todas as séries de VM 
 
       ![Insira um novo valor para o limite de vCPU](./media/resource-manager-core-quotas-request/spot-set-new-quota.png)
 
-1. Para solicitar um aumento de cota para mais de um local, selecione um local adicional em **locais**e, em seguida, selecione um tipo de VM apropriado. Em seguida, você pode inserir um limite que se aplica ao local adicional.
+1. Para solicitar um aumento de cota para mais de um local, selecione um local adicional em **locais** e, em seguida, selecione um tipo de VM apropriado. Em seguida, você pode inserir um limite que se aplica ao local adicional.
 
    ![Selecionar locais adicionais nos detalhes da cota](./media/resource-manager-core-quotas-request/quota-details-multiple-locations.png)
 

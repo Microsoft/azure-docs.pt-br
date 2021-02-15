@@ -9,10 +9,10 @@ ms.subservice: blobs
 ms.topic: sample
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 79ff7b3d174407da929f201bdce691cecf9b9a89
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88035035"
 ---
 # <a name="azure-cli-samples-for-azure-blob-storage"></a>Exemplos de CLI do Azure para Armazenamento de Blobs do Azure

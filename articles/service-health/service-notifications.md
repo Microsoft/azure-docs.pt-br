@@ -1,14 +1,14 @@
 ---
 title: Exibir as notificações de integridade do serviço usando o Portal do Azure
-description: As notificações de integridade do serviço permitem exibir mensagens de integridade do serviço publicadas pelo Microsoft Azure.
+description: Exiba suas notificações de integridade do serviço no portal do Azure. As notificações de integridade do serviço são publicadas pela infraestrutura do Azure no log de atividades do Azure.
 ms.topic: conceptual
 ms.date: 6/27/2019
-ms.openlocfilehash: 9f8297ae708d3f4e7921221f2c4bacee12a7a2b1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 615d08b6a04aef9e8ef2033154da8ff8caeebe04
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089559"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "90967774"
 ---
 # <a name="view-service-health-notifications-by-using-the-azure-portal"></a>Exibir as notificações de integridade do serviço usando o Portal do Azure
 

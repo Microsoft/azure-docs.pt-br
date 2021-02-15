@@ -10,23 +10,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/14/2019
+ms.date: 01/25/2021
 ms.author: allensu
-ms.openlocfilehash: 97541a4f8d86b90bf6045fc2a9e5abbe86aee5cd
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 43d83d994c9a4ee3cf89b584f6c3835a62fa2cfe
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88717329"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98806006"
 ---
 # <a name="standard-load-balancer-diagnostics-with-metrics-alerts-and-resource-health"></a>Diagnóstico do Standard Load Balancer com métricas, alertas e integridade de recursos
 
 O Standard Load Balancer do Azure expõe os seguintes recursos de diagnóstico:
 
-* **Métricas e alertas multidimensionais**: fornece recursos de diagnóstico multidimensionais por meio de [Azure monitor](https://docs.microsoft.com/azure/azure-monitor/overview) para configurações padrão do Load Balancer. Você pode monitorar, gerenciar e solucionar problemas de seus recursos padrão do Load Balancer.
+* **Métricas e alertas multidimensionais**: fornece recursos de diagnóstico multidimensionais por meio de [Azure monitor](../azure-monitor/overview.md) para configurações padrão do Load Balancer. Você pode monitorar, gerenciar e solucionar problemas de seus recursos padrão do Load Balancer.
 
 * **Resource Health**: o status de Resource Health do seu Load Balancer está disponível na página Resource Health em monitor. Essa verificação automática informa sobre a disponibilidade atual do recurso de Load Balancer.
-
 Este artigo fornece um tour rápido dessas funcionalidades e oferece maneiras de usá-las para o Load Balancer Standard. 
 
 ## <a name="multi-dimensional-metrics"></a><a name = "MultiDimensionalMetrics"></a>Métricas multidimensionais
@@ -39,15 +38,18 @@ As várias configurações do Load Balancer Standard oferecem as seguintes métr
 | --- | --- | --- | --- |
 | Disponibilidade do caminho de dados | Balanceador de carga público e interno | O Load Balancer Standard usa continuamente o caminho de dados de dentro de uma região para o front-end do balanceador de carga e até a pilha do SDN compatível com a sua VM. Contanto que instâncias íntegras permaneçam, a medição seguirá o mesmo caminho que o tráfego com balanceamento de carga do seu aplicativo. O caminho de dados que seus clientes usam também é validado. A medição é invisível para seu aplicativo e não interfere com outras operações.| Média |
 | Status de investigação de integridade | Balanceador de carga público e interno | O Load Balancer Standard usa um serviço de investigação de integridade distribuído que monitora a integridade do ponto de extremidade do aplicativo de acordo com as definições de configuração. Essa métrica fornece uma exibição agregada ou por ponto de extremidade filtrado de cada ponto de extremidade de instância no pool do balanceador de carga. É possível ver como o Load Balancer exibe a integridade de seu aplicativo conforme indicado pela configuração de sua investigação de integridade. |  Média |
-| Pacotes SYN (sincronizar) | Balanceador de carga público e interno | O Load Balancer Standard não encerra conexões TCP nem interage com fluxos de pacote TCP ou UDP. Fluxos e seus handshakes estão sempre entre a origem e a instância VM. Para solucionar melhor os problemas dos cenários de protocolo TCP, é possível usar contadores de pacotes SYN para entender quantas tentativas de conexão TCP são feitas. A métrica informa o número de pacotes SYN do TCP que foram recebidos.| Média |
-| Conexões SNAT | Balanceador de carga público |O Load Balancer Standard relata o número de fluxos de saída mascarados para o front-end do endereço IP Público. As portas SNAT (conversão de endereços de rede) de origem são um recurso esgotável. Essa métrica pode dar uma indicação do grau de dependência que seu aplicativo tem do SNAT para fluxos com origem externa. Contadores para fluxos SNAT de saída bem-sucedidos e com falha são relatados e podem ser usados para solucionar problemas e entender a integridade dos fluxos de saída.| Média |
+| Contagem de SYN (sincronizar) | Balanceador de carga público e interno | O Load Balancer Standard não encerra conexões TCP nem interage com fluxos de pacote TCP ou UDP. Fluxos e seus handshakes estão sempre entre a origem e a instância VM. Para solucionar melhor os problemas dos cenários de protocolo TCP, é possível usar contadores de pacotes SYN para entender quantas tentativas de conexão TCP são feitas. A métrica informa o número de pacotes SYN do TCP que foram recebidos.| Somar |
+| Contagem de conexões SNAT | Balanceador de carga público |O Load Balancer Standard relata o número de fluxos de saída mascarados para o front-end do endereço IP Público. As portas SNAT (conversão de endereços de rede) de origem são um recurso esgotável. Essa métrica pode dar uma indicação do grau de dependência que seu aplicativo tem do SNAT para fluxos com origem externa. Contadores para fluxos SNAT de saída bem-sucedidos e com falha são relatados e podem ser usados para solucionar problemas e entender a integridade dos fluxos de saída.| Somar |
 | Portas SNAT alocadas | Balanceador de carga público | Standard Load Balancer relata o número de portas SNAT alocadas por instância de back-end | Cerca. |
 | Portas SNAT usadas | Balanceador de carga público | Standard Load Balancer relata o número de portas SNAT utilizadas por instância de back-end. | Média | 
-| Contadores de bytes |  Balanceador de carga público e interno | O Load Balancer Standard informa os dados processados por front-end. Você pode observar que os bytes não são distribuídos igualmente nas instâncias de back-end. Isso é esperado, pois o algoritmo de Load Balancer do Azure se baseia em fluxos | Média |
-| Contadores de pacotes |  Balanceador de carga público e interno | O Load Balancer Standard relata os pacotes processados por front-end.| Média |
+| Contagem de Bytes |  Balanceador de carga público e interno | O Load Balancer Standard informa os dados processados por front-end. Você pode observar que os bytes não são distribuídos igualmente nas instâncias de back-end. Isso é esperado, pois o algoritmo de Load Balancer do Azure se baseia em fluxos | Somar |
+| Contagem de pacotes |  Balanceador de carga público e interno | O Load Balancer Standard relata os pacotes processados por front-end.| Somar |
 
   >[!NOTE]
-  >Ao usar a distribuição de tráfego de um balanceador de carga interno por meio de um pacote SYN NVA ou firewall, o contador de bytes e as métricas de contador de pacotes não estarão disponíveis e serão mostrados como zero. 
+  >Ao usar a distribuição de tráfego de um balanceador de carga interno por meio de um pacote SYN NVA ou firewall, a contagem de bytes e as métricas de contagem de pacotes não estarão disponíveis e serão exibidas como zero. 
+  
+  >[!NOTE]
+  >As agregações Max e min não estão disponíveis para a contagem de SYN, a contagem de pacotes, a contagem de conexões SNAT e as métricas de contagem de bytes 
   
 ### <a name="view-your-load-balancer-metrics-in-the-azure-portal"></a>Exibir suas métricas do balanceador de carga no portal do Azure
 
@@ -70,7 +72,7 @@ Para exibir as métricas de seus recursos do Load Balancer Standard:
 
 ### <a name="retrieve-multi-dimensional-metrics-programmatically-via-apis"></a>Recuperar as métricas multidimensionais programaticamente por meio de APIs
 
-Para obter diretrizes sobre API para recuperar valores e definições de métricas multidimensionais, consulte o [passo a passo da API REST de Monitoramento do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-rest-api-walkthrough#retrieve-metric-definitions-multi-dimensional-api). Essas métricas só podem ser gravadas em uma conta de armazenamento por meio da opção ' todas as métricas '. 
+Para obter diretrizes sobre API para recuperar valores e definições de métricas multidimensionais, consulte o [passo a passo da API REST de Monitoramento do Azure](../azure-monitor/platform/rest-api-walkthrough.md#retrieve-metric-definitions-multi-dimensional-api). Essas métricas podem ser gravadas em uma conta de armazenamento adicionando uma [configuração de diagnóstico](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) para a categoria ' todas as métricas '. 
 
 ### <a name="configure-alerts-for-multi-dimensional-metrics"></a>Configurar alertas para métricas multidimensionais ###
 
@@ -82,9 +84,6 @@ Para configurar alertas:
     1.  Configurar condição de alerta
     1.  Adicional Adicionar grupo de ação para reparo automatizado
     1.  Atribuir severidade de alerta, nome e descrição que habilita a reação intuitiva
-
-  >[!NOTE]
-  >A janela de configuração da condição de alerta mostrará a série temporal para o histórico de sinais. Há uma opção para filtrar essa série de tempo por dimensões, como o IP de back-end. Isso filtrará o grafo de série temporal, mas **não** o alerta em si. Você não pode configurar alertas para endereços IP de back-end específicos.
 
 ### <a name="common-diagnostic-scenarios-and-recommended-views"></a><a name = "DiagnosticScenarios"></a>Cenários comuns de diagnósticos e modos de exibição recomendados
 
@@ -138,13 +137,13 @@ Use **Média** como a agregação para a maioria dos cenários.
 #### <a name="how-do-i-check-my-outbound-connection-statistics"></a>Como verificar as minhas estatísticas de conexão de saída? 
 <details>
   <summary>Expanda</summary>
-A métrica de conexões SNAT descreve o volume de conexões bem-sucedidas e com falha para [fluxos de saída](https://aka.ms/lboutbound).
+A métrica de conexões SNAT descreve o volume de conexões bem-sucedidas e com falha para [fluxos de saída](./load-balancer-outbound-connections.md).
 
-Um volume de conexões com falha maior que zero indica o esgotamento da porta SNAT. É necessário investigar mais para determinar o que pode estar causando essas falhas. O esgotamento de porta SNAT manifesta-se como uma falha para estabelecer um [fluxo de saída](https://aka.ms/lboutbound). Examine o artigo sobre conexões de saída para entender os cenários e mecanismos no trabalho e para saber como minimizar e criar para evitar o esgotamento da porta SNAT. 
+Um volume de conexões com falha maior que zero indica o esgotamento da porta SNAT. É necessário investigar mais para determinar o que pode estar causando essas falhas. O esgotamento de porta SNAT manifesta-se como uma falha para estabelecer um [fluxo de saída](./load-balancer-outbound-connections.md). Examine o artigo sobre conexões de saída para entender os cenários e mecanismos no trabalho e para saber como minimizar e criar para evitar o esgotamento da porta SNAT. 
 
 Para obter estatísticas de conexão SNAT:
 1. Selecione o tipo de métrica **Conexões SNAT** e **Soma** como agregação. 
-2. Agrupe por **Estado de Conexão** para contagens de conexão SNAT bem-sucedidas e com falha representadas por linhas diferentes. 
+2. Agrupar por **estado de conexão** para contagens de conexão SNAT bem-sucedidas e com falha para serem representadas por linhas diferentes. 
 
 ![Conexão SNAT](./media/load-balancer-standard-diagnostics/LBMetrics-SNATConnection.png)
 
@@ -157,14 +156,14 @@ Para obter estatísticas de conexão SNAT:
   <summary>Expanda</summary>
 A métrica portas de SNAT usadas rastreia quantas portas SNAT estão sendo consumidas para manter fluxos de saída. Isso indica quantos fluxos exclusivos são estabelecidos entre uma origem da Internet e uma VM de back-end ou um conjunto de dimensionamento de máquinas virtuais que está atrás de um balanceador de carga e não tem um endereço IP público. Ao comparar o número de portas SNAT que você está usando com a métrica portas de SNAT alocadas, você pode determinar se o serviço está experimentando ou em risco de esgotamento de SNAT e falha resultante do fluxo de saída. 
 
-Se suas métricas indicarem o risco de falha de [fluxo de saída](https://aka.ms/lboutbound) , referencie o artigo e execute as etapas para mitigar isso para garantir a integridade do serviço.
+Se suas métricas indicarem o risco de falha de [fluxo de saída](./load-balancer-outbound-connections.md) , referencie o artigo e execute as etapas para mitigar isso para garantir a integridade do serviço.
 
 Para exibir o uso e a alocação da porta SNAT:
 1. Defina a agregação de tempo do grafo como 1 minuto para garantir que os dados desejados sejam exibidos.
 1. Selecione **portas SNAT usadas** e/ou **portas SNAT alocadas** como o tipo de métrica e **média** como a agregação
     * Por padrão, essas métricas são o número médio de portas SNAT alocadas ou usadas por cada VM ou VMSS de back-end, correspondentes a todos os IPs públicos de front-end mapeados para a Load Balancer, agregadas sobre TCP e UDP.
     * Para exibir as portas SNAT totais usadas pelo ou alocadas para o balanceador de carga, use a **soma** de agregação de métrica
-1. Filtre para um **tipo de protocolo**específico, um conjunto de **IPS de back-end**e/ou IPS de front- **end**.
+1. Filtre para um **tipo de protocolo** específico, um conjunto de **IPS de back-end** e/ou IPS de front- **end**.
 1. Para monitorar a integridade por backend ou por meio de uma instância de front-end, aplique a divisão. 
     * A divisão de observação permite que apenas uma única métrica seja exibida de cada vez. 
 1. Por exemplo, para monitorar o uso de SNAT para fluxos TCP por máquina, agregar por **média**, dividir por **IPS de back-end** e filtrar por **tipo de protocolo**. 
@@ -181,9 +180,9 @@ Para exibir o uso e a alocação da porta SNAT:
 #### <a name="how-do-i-check-inboundoutbound-connection-attempts-for-my-service"></a>Como verificar as tentativas de conexão de entrada/saída para meu serviço?
 <details>
   <summary>Expanda</summary>
-Uma métrica de pacotes SYN descreve o volume de pacotes TCP SYN, que chegaram ou foram enviados (para [fluxos de saída](https://aka.ms/lboutbound)) associados a um front-end específico. É possível usar essa métrica para entender as tentativas de conexão TCP com seu serviço.
+Uma métrica de pacotes SYN descreve o volume de pacotes TCP SYN, que chegaram ou foram enviados (para [fluxos de saída](./load-balancer-outbound-connections.md)) associados a um front-end específico. É possível usar essa métrica para entender as tentativas de conexão TCP com seu serviço.
 
-Use **Total** como a agregação para a maioria dos cenários.
+Use **sum** como a agregação para a maioria dos cenários.
 
 ![Conexão SYN](./media/load-balancer-standard-diagnostics/LBMetrics-SYNCount.png)
 
@@ -196,11 +195,11 @@ Use **Total** como a agregação para a maioria dos cenários.
   <summary>Expanda</summary>
 A métrica de contadores de pacote e de bytes descreve o volume de bytes e de pacotes enviados ou recebidos pelo seu serviço por front-end.
 
-Use **Total** como a agregação para a maioria dos cenários.
+Use **sum** como a agregação para a maioria dos cenários.
 
 Para obter estatísticas de contagem de bytes ou de pacotes:
-1. Selecione o tipo de métrica **Contagem de Bytes** e/ou **Contagem de Pacotes** com **Méd** como a agregação. 
-2. Execute um destes procedimentos:
+1. Selecione a **contagem de bytes** e/ou o tipo de métrica de **contagem de pacotes** , com **sum** como a agregação. 
+2. Siga um destes procedimentos:
    * Aplique um filtro em um IP de front-end específico, em uma porta de front-end, em um IP de back-end ou em uma porta de back-end.
    * Obtenha estatísticas gerais para seu recurso de balanceador de carga sem nenhuma filtragem.
 
@@ -231,7 +230,14 @@ O gráfico permite que os clientes resolvam problemas da implantação sozinhos 
 
 ## <a name="resource-health-status"></a><a name = "ResourceHealth"></a>Status de integridade de recurso
 
-O status de integridade para os recursos do Load Balancer Standard é exposto por meio do **Recursos de integridade** existente em **Monitor > Integridade do Serviço**.
+O status de integridade para os recursos do Load Balancer Standard é exposto por meio do **Recursos de integridade** existente em **Monitor > Integridade do Serviço**. Ela é avaliada a cada **dois minutos** medindo a disponibilidade do caminho de dados que determina se os pontos de extremidade de balanceamento de carga de front-end estão disponíveis.
+
+| Status de integridade de recurso | Descrição |
+| --- | --- |
+| Disponível | O recurso padrão do Load Balancer está íntegro e disponível. |
+| Degradado | O balanceador de carga padrão tem eventos iniciados pela plataforma ou pelo usuário que afetam o desempenho. A métrica de disponibilidade do Datapath relatou menos de 90%, mas mais de 25% de integridade por pelo menos dois minutos. Você passará por um impacto de desempenho moderado a severo. [Siga o guia de solução de problemas do RHC](https://docs.microsoft.com/azure/load-balancer/troubleshoot-rhc) para determinar se há eventos iniciados pelo usuário causando impacto na disponibilidade.
+| Indisponível | O recurso padrão do Load Balancer não está íntegro. A métrica de disponibilidade do caminho de dado relatou menos a integridade de 25% por pelo menos dois minutos. Você terá um impacto significativo no desempenho ou falta de disponibilidade para a conectividade de entrada. Pode haver eventos de usuário ou plataforma causando indisponibilidade. [Siga o guia de solução de problemas do RHC](https://docs.microsoft.com/azure/load-balancer/troubleshoot-rhc) para determinar se há eventos iniciados pelo usuário que afetam sua disponibilidade. |
+| Unknown | O status de integridade do recurso para o recurso de Load Balancer padrão ainda não foi atualizado ou não recebeu informações de disponibilidade do caminho de dados dos últimos 10 minutos. Esse estado deve ser transitório e reflete o status correto assim que os dados são recebidos. |
 
 Para exibir a integridade dos seus recursos do Load Balancer Standard:
 1. Selecione **monitorar**  >  **integridade do serviço**.
@@ -252,18 +258,13 @@ Para exibir a integridade dos seus recursos do Load Balancer Standard:
 
    *Figura: modo de exibição de integridade de recurso do Load Balancer*
  
-A descrição do status de integridade do recurso genérico está disponível na [documentação do RHC](https://docs.microsoft.com/azure/service-health/resource-health-overview). Para obter status específicos para os Azure Load Balancer estão listados na tabela abaixo: 
+A descrição do status de integridade do recurso genérico está disponível na [documentação do RHC](../service-health/resource-health-overview.md). Para obter status específicos para os Azure Load Balancer estão listados na tabela abaixo: 
 
-| Status de integridade de recurso | Descrição |
-| --- | --- |
-| Disponível | O recurso padrão do Load Balancer está íntegro e disponível. |
-| Degradado | O balanceador de carga padrão tem eventos iniciados pela plataforma ou pelo usuário que afetam o desempenho. A métrica de disponibilidade do caminho de dado relatou menos de 90%, mas maior que 25% de integridade por pelo menos dois minutos. Você passará por um impacto de desempenho moderado a severo. [Siga o guia de disponibilidade do caminho de dados de solução de problemas] para determinar se há eventos iniciados pelo usuário causando impacto na disponibilidade.
-| Indisponível | O recurso padrão do Load Balancer não está íntegro. A métrica de disponibilidade do caminho de dado relatou menos a integridade de 25% por pelo menos dois minutos. Você terá um impacto significativo no desempenho ou falta de disponibilidade para a conectividade de entrada. Pode haver eventos de usuário ou plataforma causando indisponibilidade. [Siga o guia de disponibilidade do caminho de dados de solução de problemas] para determinar se há eventos iniciados pelo usuário que afetam sua disponibilidade. |
-| Unknown | O status de integridade do recurso para o recurso de Load Balancer padrão ainda não foi atualizado ou não recebeu informações de disponibilidade do caminho de dados dos últimos 10 minutos. Esse Estado deve ser transitório e refletirá o status correto assim que os dados forem recebidos. |
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre o [Load Balancer Standard](load-balancer-standard-overview.md).
-- Saiba mais sobre a [Conectividade de saída do balanceador de carga](https://aka.ms/lboutbound).
-- Saiba mais sobre [o Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview).
-- Saiba mais sobre o [API de REST do Azure Monitor](https://docs.microsoft.com/rest/api/monitor/) e [como recuperar as métricas por meio da API REST](/rest/api/monitor/metrics/list).
+- Saiba mais sobre o uso de [percepções](https://docs.microsoft.com/azure/load-balancer/load-balancer-insights) para exibir essas métricas pré-configuradas para seu Load Balancer
+- Saiba mais sobre o [Load Balancer Standard](./load-balancer-overview.md).
+- Saiba mais sobre a [Conectividade de saída do balanceador de carga](./load-balancer-outbound-connections.md).
+- Saiba mais sobre [o Azure Monitor](../azure-monitor/overview.md).
+- Saiba mais sobre o [API de REST do Azure Monitor](/rest/api/monitor/) e [como recuperar as métricas por meio da API REST](/rest/api/monitor/metrics/list).

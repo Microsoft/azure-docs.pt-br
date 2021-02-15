@@ -2,18 +2,18 @@
 title: Solucionar problemas de recuperação de desastres do Hyper-V com o Azure Site Recovery
 description: Descreve como solucionar problemas de recuperação de desastres com a replicação do Hyper-V para o Azure usando o Azure Site Recovery
 services: site-recovery
-author: rajani-janaki-ram
+author: Sharmistha-Rai
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 04/14/2019
-ms.author: rajanaki
-ms.openlocfilehash: 1b3fdd93902709541f4a22e652c34973158ad9c7
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.author: sharrai
+ms.openlocfilehash: c804e13029dcec42a43885cbf0d9b227b3d0338f
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86132440"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96750795"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Solucionar problemas de Hyper-V para replicação e failover do Azure
 
@@ -28,13 +28,27 @@ Se você enfrentar problemas ao habilitar a proteção para VMs do Hyper-V, veri
 3. Verifique se o serviço de gerenciamento de máquina Virtual do Hyper-V está em execução em hosts Hyper-V.
 4. Verifique se há problemas que aparecem na entrada Hyper-V-Hyper-v-vmms\admin na VM. Esse log está localizado em **logs de aplicativos e serviços**  >  **Microsoft**  >  **Windows**.
 5. Na VM convidada, verifique se o WMI está habilitado e acessível.
-   - [Saiba mais sobre](https://techcommunity.microsoft.com/t5/ask-the-performance-team/bg-p/AskPerf) teste básico de WMI.
-   - [Solucione problemas](https://aka.ms/WMiTshooting) de WMI.
+   - [Saiba mais sobre](https://techcommunity.microsoft.com/t5/ask-the-performance-team/bg-p/AskPerf) os testes básicos do WMI.
+   - [Solucionar problemas](/windows/win32/wmisdk/wmi-troubleshooting) Esses.
    - [Solucionar](/previous-versions/tn-archive/ff406382(v=msdn.10)#H22) problemas com scripts e serviços WMI.
 6. Na VM convidada, certifique-se de que a versão mais recente do Integration Services está em execução.
     - [Verifique](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services) se você tem a versão mais recente.
-    - [Mantenha](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#keep-integration-services-up-to-date) o Integration Services atualizado.
-    
+    - [Manter](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#keep-integration-services-up-to-date) Integration Services atualizado.
+
+### <a name="cannot-enable-protection-as-the-virtual-machine-is-not-highly-available-error-code-70094"></a>Não é possível habilitar a proteção, pois a máquina virtual não está altamente disponível (código de erro 70094)
+
+Quando você estiver habilitando a replicação para um computador e encontrar um erro informando que a replicação não pode ser habilitada, pois o computador não está altamente disponível, então, para corrigir esse problema, tente as etapas a seguir:
+
+- Reinicie o serviço VMM no servidor do VMM.
+- Remova a máquina virtual do cluster e adicione-a novamente.
+
+### <a name="the-vss-writer-ntds-failed-with-status-11-and-writer-specific-failure-code-0x800423f4"></a>Falha no NTDS do gravador VSS com o status 11 e o código de falha específico do gravador 0x800423F4
+
+Ao tentar habilitar a replicação, você pode encontrar um erro informando que a habilitação da falha da AST NTDS falhou. Uma das possíveis causas desse problema é que o sistema operacional da máquina virtual no Windows Server 2012 e não no Windows Server 2012 R2. Para corrigir esse problema, tente as etapas a seguir:
+
+- Atualize para o Windows Server R2 com 4072650 aplicado.
+- Verifique se o host Hyper-V também é o Windows 2016 ou superior.
+
 ## <a name="replication-issues"></a>Problemas de replicação
 
 Solucione problemas com a replicação inicial e contínua da seguinte maneira:
@@ -43,7 +57,7 @@ Solucione problemas com a replicação inicial e contínua da seguinte maneira:
 2. Verifique se a replicação está em pausa:
    - Verifique o status de integridade da VM no console do Gerenciador do Hyper-V.
    - Se for crítico, clique com o botão direito do mouse na VM > **replicação**  >  **Exibir integridade da replicação**.
-   - Se a replicação estiver em pausa, clique em **Retomar replicação**.
+   - Se a replicação estiver em pausa, clique em **retomar replicação**.
 3. Verifique se todos os serviços necessários estão em execução. Se não estiverem, reinicie-os.
     - Se você estiver replicando o Hyper-V sem o VMM, verifique se esses serviços estão em execução no host Hyper-V:
         - Serviço Gerenciamento de máquinas virtuais
@@ -53,7 +67,7 @@ Solucione problemas com a replicação inicial e contínua da seguinte maneira:
     - Se você estiver replicando com o VMM no ambiente, verifique se estes serviços estão em execução:
         - No host do Hyper-V, verifique se o serviço de Gerenciamento de máquina virtual, o agente de Serviços de Recuperação do Microsoft Azure e o serviço de Host do provedor de WMI estão em execução.
         - No servidor do VMM, certifique-se de que o serviço do System Center Virtual Machine Manager está em execução.
-4. Verifique a conectividade entre o servidor Hyper-V e o Azure. Para verificar a conectividade, abra o Gerenciador de Tarefas no host Hyper V. Na guia **Desempenho**, clique em **Abrir o Monitor de Recursos**. Na guia **Rede**> **Processar com Atividade de Rede**, verifique se o cbengine.exe está enviando ativamente grandes volumes (Mb) de dados.
+4. Verifique a conectividade entre o servidor Hyper-V e o Azure. Para verificar a conectividade, abra o Gerenciador de Tarefas no host Hyper V. Na guia **desempenho** , clique em **abrir monitor de recursos**. Na guia **Rede**> **Processar com Atividade de Rede**, verifique se o cbengine.exe está enviando ativamente grandes volumes (Mb) de dados.
 5. Verifique se os hosts Hyper-V podem se conectar à URL de blob de armazenamento do Azure. Para verificar se os hosts podem se conectar, selecione e marque **cbengine.exe**. Exiba **Conexões TCP** para verificar a conectividade do host para o blob de armazenamento do Azure.
 6. Verifique problemas de desempenho, conforme descrito abaixo.
     

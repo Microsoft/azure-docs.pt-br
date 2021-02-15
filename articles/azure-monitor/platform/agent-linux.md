@@ -1,19 +1,19 @@
 ---
-title: Instalar o agente de Log Analytics em computadores Linux
+title: Instalar o Agente do Log Analytics em computadores Linux
 description: Este artigo descreve como conectar computadores Linux hospedados em outras nuvens ou locais para Azure Monitor com o agente de Log Analytics para Linux.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/21/2020
-ms.openlocfilehash: eb68aa1dae69134cfdab057a95de8a2393f9a32c
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: e1dbf5e20aa206189397cab26e9b867f4942e1d5
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88998927"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886831"
 ---
-# <a name="install-log-analytics-agent-on-linux-computers"></a>Instalar o agente de Log Analytics em computadores Linux
+# <a name="install-log-analytics-agent-on-linux-computers"></a>Instalar o Agente do Log Analytics em computadores Linux
 Este artigo fornece detalhes sobre como instalar o agente de Log Analytics em computadores Linux usando os seguintes métodos:
 
 * [Instale o agente para Linux usando um script wrapper](#install-the-agent-using-wrapper-script) hospedado no github. Esse é o método recomendado para instalar e atualizar o agente quando o computador tem conectividade com a Internet, diretamente ou por meio de um servidor proxy.
@@ -30,32 +30,46 @@ Consulte [visão geral dos agentes de Azure monitor](agents-overview.md#supporte
 
 >[!NOTE]
 >OpenSSL 1.1.0 só tem suporte em plataformas de x86_x64 (64 bits) e OpenSSL mais cedo do que 1. x não tem suporte em qualquer plataforma.
->
+
+>[!NOTE]
+>Não há suporte para a execução do agente do Log Analytics Linux em contêineres. Se você precisar monitorar contêineres, aproveite a [solução de monitoramento de contêiner](../insights/containers.md) para hosts do Docker ou [Azure monitor para contêineres](../insights/container-insights-overview.md) para kubernetes.
+
 Começando com versões lançadas depois de agosto de 2018, estamos fazendo as seguintes alterações ao nosso modelo de suporte:  
 
 * Somente o servidor versões têm suporte, um não cliente.  
 * Concentre o suporte em uma das [Distribuições endossadas do Linux do Azure ](../../virtual-machines/linux/endorsed-distros.md). Observe que pode haver algum atraso entre uma nova distribuição/versão sendo endossada pelo Linux do Azure e seu suporte ao Agente do Log Analytics Linux.
 * Todas as versões secundárias têm suporte para cada versão principal listada.
-* As versões que passaram a data de fim de suporte do fabricante não são suportadas.  
+* As versões que passaram a data de fim de suporte do fabricante não são suportadas.
+* Suporte apenas a imagens de VM; os contêineres, mesmo aqueles derivados de imagens oficiais do distribuição Publishers, não têm suporte.
 * Não há suporte para novas versões do AMI.  
 * Apenas versões que executam o SSL 1.x por padrão são suportadas.
 
 >[!NOTE]
 >Se você estiver usando uma distribuição ou versão que não é suportada no momento e não se alinha ao nosso modelo de suporte, recomendamos que você distribua esse repositório, reconhecendo que o suporte da Microsoft não fornecerá assistência com as versões do agente bifurcado.
 
-### <a name="python-2-requirement"></a>Requisito do Python 2
+### <a name="python-requirement"></a>Requisito do Python
 
- O agente de Log Analytics requer o Python 2. Se sua máquina virtual estiver usando um distribuição que não inclua o Python 2 por padrão, você deverá instalá-lo. Os comandos de exemplo a seguir instalarão o Python 2 em distribuições diferentes.
+A partir do Agent versão 1.13.27, o agente do Linux dará suporte a Python 2 e 3. É sempre recomendável usar o agente mais recente. 
+
+Se você estiver usando uma versão mais antiga do agente, deverá ter a máquina virtual usar o Python 2 por padrão. Se sua máquina virtual estiver usando um distribuição que não inclua o Python 2 por padrão, você deverá instalá-lo. Os comandos de exemplo a seguir instalarão o Python 2 em distribuições diferentes.
 
  - Red Hat, CentOS, Oracle: `yum install -y python2`
  - Ubuntu, Debian: `apt-get install -y python2`
  - SUSE: `zypper install -y python2`
 
-O executável python2 deve ter um alias para "Python" usando o seguinte comando:
+O executável python2 deve ter um alias para *Python*. A seguir, um método que você pode usar para definir este alias:
 
-```
-alternatives --set python `which python2`
-```
+1. Execute o comando a seguir para remover todos os aliases existentes.
+ 
+    ```
+    sudo update-alternatives --remove-all python
+    ```
+
+2. Execute o comando a seguir para criar o alias.
+
+    ```
+    sudo update-alternatives --install /usr/bin/python python /usr/bin/python2 1
+    ```
 
 ## <a name="supported-linux-hardening"></a>Proteção do Linux com suporte
 O agente do OMS tem suporte limitado para personalização para Linux. 
@@ -63,8 +77,9 @@ O agente do OMS tem suporte limitado para personalização para Linux.
 No momento, há suporte para os seguintes: 
 - FIPs
 
-Os itens a seguir estão planejados, mas ainda não têm suporte:
-- CIS-SELINUX
+A seguir está em consideração, mas ainda não há suporte para isso:
+- ICS
+- SELINUX
 
 Outros métodos de proteção e personalização não são suportados nem planejados para o agente do OMS.  
 
@@ -93,10 +108,10 @@ O agente do Log Analytics para Linux é composto por vários pacotes. O arquivo 
 
 **Pacote** | **Versão** | **Descrição**
 ----------- | ----------- | --------------
-omsagent | 1.12.15 | O agente de Log Analytics para Linux
+omsagent | 1.13.9 | O agente de Log Analytics para Linux
 omsconfig | 1.1.1 | Agente de configuração para o agente de Log Analytics
-omi | 1.6.3 | OMI (infraestrutura de gerenciamento aberta) – um servidor CIM leve. *Observe que o OMI requer acesso de raiz para executar um trabalho cron necessário para o funcionamento do serviço*
-scx | 1.6.3 | Provedores de CIM OMI para métricas de desempenho do sistema operacional
+omi | 1.6.4 | OMI (infraestrutura de gerenciamento aberta) – um servidor CIM leve. *Observe que o OMI requer acesso de raiz para executar um trabalho cron necessário para o funcionamento do serviço*
+scx | 1.6.4 | Provedores de CIM OMI para métricas de desempenho do sistema operacional
 apache-cimprov | 1.0.1 | Provedor de monitoramento de desempenho do Servidor HTTP Apache para OMI. Instalado somente se o Servidor HTTP Apache for detectado.
 mysql-cimprov | 1.0.1 | Provedor de monitoramento de desempenho do Servidor MySQL para OMI. Instalado somente se o servidor MySQL/MariaDB for detectado.
 docker-cimprov | 1.0.0 | Provedor do Docker para OMI. Instalado somente se o Docker for detectado.
@@ -206,7 +221,7 @@ A atualização de uma versão anterior, começando com a versão 1.0.0-47, tem 
 ## <a name="cache-information"></a>Informações de cache
 Os dados do agente de Log Analytics para Linux são armazenados em cache no computador local em *% STATE_DIR_WS%/out_oms_common*. buffer * antes de ser enviado para Azure monitor. Os dados de log personalizados são armazenados em buffer em *% STATE_DIR_WS%/out_oms_blob*. buffer *. O caminho pode ser diferente para algumas [soluções e tipos de dados](https://github.com/microsoft/OMS-Agent-for-Linux/search?utf8=%E2%9C%93&q=+buffer_path&type=).
 
-O agente tenta carregar a cada 20 segundos. Se falhar, ele aguardará um período de tempo cada vez maior até que tenha êxito. Ele aguardará 30 segundos antes da segunda tentativa, 60 segundos antes da próxima, 120 segundos e assim por diante até um máximo de 9 minutos entre as repetições até que ele se conecte com êxito novamente. O agente tentará novamente 10 vezes para um determinado bloco de dados antes de descartar e passar para o próximo. Isso continuará até que o agente possa ser carregado com êxito novamente. O significa que os dados podem ser armazenados em buffer em até 8,5 horas antes de serem descartados.
+O agente tenta carregar a cada 20 segundos. Se falhar, ele aguardará um período de tempo cada vez maior até que tenha êxito: 30 segundos antes da segunda tentativa, 60 segundos antes da terceira, 120 segundos... e até um máximo de 16 minutos entre as repetições até que ele se conecte com êxito novamente. O agente tentará novamente até seis vezes para um determinado bloco de dados antes de descartar e passar para o próximo. Isso continuará até que o agente possa ser carregado com êxito novamente. Isso significa que os dados podem ser armazenados em buffer em até aproximadamente 30 minutos antes de serem descartados.
 
 O tamanho de cache padrão é 10 MB, mas pode ser modificado no [arquivo omsagent. conf](https://github.com/microsoft/OMS-Agent-for-Linux/blob/e2239a0714ae5ab5feddcc48aa7a4c4f971417d4/installer/conf/omsagent.conf).
 

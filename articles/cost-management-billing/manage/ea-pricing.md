@@ -7,15 +7,15 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 01/07/2021
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: b4905b1aba11a2f8c457d4785897cbe70dd31f76
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: d563907d3567607e537eebfc5c91be02e27fd758
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88687409"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98014750"
 ---
 # <a name="view-and-download-your-organizations-azure-pricing"></a>Exibir e baixar o preço do Azure de sua organização
 
@@ -26,19 +26,13 @@ Os clientes do Azure com um EA (Contrato Enterprise) do Azure, um MCA (Contrato 
 Dependendo das políticas definidas para sua organização pelo Enterprise Admin, somente determinadas funções administrativas fornecem acesso às informações de preços do EA da organização. Para obter mais informações, consulte [Entendendo as funções administrativas do Azure Enterprise Agreement no Azure](understand-ea-roles.md).
 
 1. Como admin corporativo, entre no [portal do Azure](https://portal.azure.com/).
-1. Pesquise *Gerenciamento de Custos + Cobrança*.
-
-   ![Captura de tela que mostra a pesquisa do portal do Azure](./media/ea-pricing/portal-cm-billing-search.png)
-
-1. Na conta de faturamento, selecione **Usage + charges**.
-
+1. Pesquise *Gerenciamento de Custos + Cobrança*.  
+   ![Captura de tela que mostra a pesquisa do portal do Azure.](./media/ea-pricing/portal-cm-billing-search.png)
+1. Na conta de faturamento, selecione **Usage + charges**.  
    ![Captura de tela que mostra o uso e as cobranças em Faturamento](./media/ea-pricing/ea-pricing-usage-charges-nav.png)
-
-1. Selecione ![Captura de tela que mostra a pesquisa no portal do Azure](./media/ea-pricing/download-icon.png) **Download** do mês.
-
-1. Sob **tabela de preços**, selecione **fazer o download do csv**.
-
-   ![Captura de tela que mostra o botão csv de download da planilha de preços](./media/ea-pricing/download-ea-price-sheet.png)
+1. Selecione o ![ícone de Download.](./media/ea-pricing/download-icon.png) **Baixar** para o mês.
+1. Sob **tabela de preços**, selecione **fazer o download do csv**.  
+    :::image type="content" source="./media/ea-pricing/download-enterprise-agreement-price-sheet-01.png" alt-text="A captura de tela mostra as opções Baixar Uso + Encargos." :::
 
 ## <a name="download-pricing-for-an-mca-or-mpa-account"></a>Baixar preços de uma conta do MCA ou do MPA
 
@@ -51,13 +45,11 @@ Caso tenha um MCA, você precisará ser o proprietário, o colaborador, o leitor
 1. Selecione um perfil de cobrança. Dependendo de seu acesso, talvez você precise selecionar uma conta de cobrança primeiro.
 1. Selecione **Faturas**.
 1. Na grade da fatura, encontre a linha da fatura correspondente à planilha de preços que deseja baixar.
-1. Clique nas reticências (`...`) no final da linha.
-![Captura de tela que mostra as reticências selecionadas](./media/ea-pricing/billingprofile-invoicegrid-new.png)
-
+1. Clique nas reticências (`...`) no final da linha.  
+    ![Captura de tela que mostra as reticências selecionadas](./media/ea-pricing/billingprofile-invoicegrid-new.png)
 1. Caso deseje ver os preços dos serviços na fatura selecionada, selecione **Planilha de preços da fatura**.
-1. Caso deseje ver os preços de todos os serviços do Azure para o período de cobrança especificado, selecione **Planilha de preços do Azure**.
-
-![Captura de tela que mostra o menu de contexto com planilhas de preços](./media/ea-pricing/contextmenu-pricesheet01.png)
+1. Caso deseje ver os preços de todos os serviços do Azure para o período de cobrança especificado, selecione **Planilha de preços do Azure**.  
+    ![Captura de tela que mostra o menu de contexto com planilhas de preços](./media/ea-pricing/contextmenu-pricesheet01.png)
 
 ### <a name="download-price-sheets-for-the-current-billing-period"></a>Baixar as planilhas de preços para o período de cobrança atual
 
@@ -67,8 +59,8 @@ Caso tenha um MCA, você poderá baixar os preços para o período de cobrança 
 1. Pesquise *Gerenciamento de Custos + Cobrança*.
 1. Selecione um perfil de cobrança. Dependendo de seu acesso, talvez você precise selecionar uma conta de cobrança primeiro.
 1. Na área **Visão Geral**, encontre os links de download abaixo dos encargos do mês atual.
-1. Selecione a **planilha de preços do Azure**.
-![Captura de tela que mostra o download em Visão Geral](./media/ea-pricing/open-pricing01.png)
+1. Selecione a **planilha de preços do Azure**.  
+    ![Captura de tela que mostra o download em Visão Geral](./media/ea-pricing/open-pricing01.png)
 
 ## <a name="estimate-costs-with-the-azure-pricing-calculator"></a>Estimar os custos com a Calculadora de Preços do Azure
 
@@ -77,10 +69,8 @@ Você também pode usar o preço de sua organização para estimar os custos usa
 1. Vá para a [Calculadora de preços do Azure](https://azure.microsoft.com/pricing/calculator).
 1. No canto superior direito, selecione **entrar**.
 1. Em **Programas e Oferta** > **Programa de Licenciamento**, selecione **Enterprise Agreement (EA)** .
-1. Em **Programas e Oferta** > **Contrato selecionado**, selecione **Nenhum selecionado**.
-
-    ![Captura de tela que mostra o botão csv de download da planilha de preços](./media/ea-pricing/ea-pricing-calculator-estimate.png)
-
+1. Em **Programas e Oferta** > **Contrato selecionado**, selecione **Nenhum selecionado**.  
+    ![A captura de tela mostra os Programas e as Ofertas disponíveis.](./media/ea-pricing/ea-pricing-calculator-estimate.png)
 1. Escolha a organização.
 1. Escolha **Aplicar**.
 1. Pesquise e, em seguida, adicione produtos à estimativa.

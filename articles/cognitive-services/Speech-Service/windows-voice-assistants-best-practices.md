@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/1/2020
 ms.author: adamwa
-ms.openlocfilehash: a9145c7c26f4d6caa1679052035b36f1ae88f878
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 76a29af80891142fcf7f56f93f5c7acc5c58ab04
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714773"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165138"
 ---
 # <a name="design-assistant-experiences-for-windows-10"></a>Experiências do assistente de design para Windows 10
 
@@ -70,7 +70,7 @@ Mesmo que os Estados mudem rapidamente, vale a pena considerar fornecer UX para 
 Quando o aplicativo assistente tem foco, a intenção do cliente é claramente interagir com o aplicativo, de modo que todas as experiências de ativação de voz devem ser tratadas pela exibição do aplicativo principal. Este modo de exibição pode ser redimensionado pelo cliente. Para ajudar a explicar as interações do shell do assistente, o restante deste documento usa o exemplo concreto de um assistente de serviço financeiro chamado contoso. Neste e em diagramas subsequentes, o que o cliente diz aparecerá em bolhas de fala à esquerda, com respostas de assistente em bolhas de desenho à direita.
 
 **Exibição no aplicativo. Estado inicial quando a ativação de voz começa:** 
- ![ captura de tela do assistente de voz no Windows antes da ativação](media/voice-assistants/windows_voice_assistant/initial_state.png)
+ ![ a captura de tela mostrando o aplicativo assistente de finanças da Contoso aberto para a tela padrão. Uma bolha de fala de desenho à direita diz "contoso".](media/voice-assistants/windows_voice_assistant/initial_state.png)
 
 **Exibição no aplicativo. Após a ativação de voz bem-sucedida, a experiência de escuta começa:** ![ captura de tela do assistente de voz no Windows enquanto o assistente de voz está ouvindo](media/voice-assistants/windows_voice_assistant/listening.png)
 
@@ -108,9 +108,9 @@ O assistente deve implementar as orientações descartadas nesta seção para fa
 - Se o aplicativo estiver &quot; em uso &quot; , ele poderá continuar acima do bloqueio. &quot;em uso &quot; constitui qualquer entrada ou saída. Por exemplo, ao transmitir música ou vídeo, o aplicativo pode continuar acima do bloqueio. &quot;O acompanhamento &quot; e outras etapas de caixa de diálogo de multiativação têm permissão para manter o aplicativo acima do bloqueio.
 - Os **detalhes de implementação sobre como ignorar o aplicativo** podem ser encontrados [no guia de implementação de bloqueio acima](windows-voice-assistants-implementation-guide.md#closing-the-application).
 
-![Captura de tela do assistente de voz no Windows antes da ativação](media/voice-assistants/windows_voice_assistant/above_lock_response.png)
+![Captura de tela mostrando a exibição de bloqueio acima do aplicativo assistente de finanças da contoso.](media/voice-assistants/windows_voice_assistant/above_lock_response.png)
 
-![Captura de tela do assistente de voz no Windows antes da ativação](media/voice-assistants/windows_voice_assistant/lock_screen2.png)
+![Captura de tela de uma área de trabalho mostrando o Windows Lock Screen.](media/voice-assistants/windows_voice_assistant/lock_screen2.png)
 
 ### <a name="privacy-amp-security-considerations-above-lock"></a>Considerações de segurança de privacidade &amp; acima do bloqueio
 
@@ -118,9 +118,9 @@ Muitos PCs são portáteis, mas nem sempre dentro do alcance do cliente. Elas po
 
 Portanto, os assistentes devem seguir as orientações desta seção para ajudar a manter a experiência segura. A interação acima do bloqueio ocorre quando o usuário do Windows não está autenticado. Isso significa que, em geral, a **entrada para o assistente também deve ser tratada como não autenticada**.
 
-- Os assistentes devem **implementar uma lista branca de habilidades para identificar as habilidades que são confirmadas de forma segura e** segura para serem acessadas acima do bloqueio.
+- Os assistentes devem **implementar uma lista de habilidades permitidas para identificar as habilidades que são confirmadas de forma segura e** segura para serem acessadas acima do bloqueio.
 - As tecnologias de ID do palestrante podem desempenhar uma função para aliviar alguns riscos, mas a ID do palestrante não é uma substituição adequada para a autenticação do Windows.
-- A lista de permissões de habilidades deve considerar três classes de ações ou habilidades:
+- A lista de habilidades permitidas deve considerar três classes de ações ou habilidades:
 
 | **Classe de ação** | **Descrição** | **Exemplos (não é uma lista completa)** |
 | --- | --- | --- |
@@ -130,7 +130,7 @@ Portanto, os assistentes devem seguir as orientações desta seção para ajudar
 
 Para o caso da Contoso, informações gerais sobre informações de ações públicas são seguras sem autenticação. Informações específicas do cliente, como o número de compartilhamentos de propriedade, provavelmente são seguras com a ID do palestrante. No entanto, comprar ou vender ações nunca deve ser permitido sem a autenticação do Windows.
 
-Para proteger ainda mais a experiência, os **weblinks ou outras inicializações de aplicativo para aplicativo sempre serão bloqueadas pelo Windows até que o cliente entre.** Como última mitigação de Resort, a Microsoft se reserva o direito de remover um aplicativo da lista de permissões de assistentes habilitados se um problema sério de segurança não for resolvido em tempo hábil.
+Para proteger ainda mais a experiência, os **weblinks ou outras inicializações de aplicativo para aplicativo sempre serão bloqueadas pelo Windows até que o cliente entre.** Como última mitigação de Resort, a Microsoft se reserva o direito de remover um aplicativo da lista permitida de assistentes habilitados se um problema sério de segurança não for resolvido em tempo hábil.
 
 ## <a name="design-guidance-for-voice-activation-preview"></a>Diretrizes de design para visualização de ativação de voz
 

@@ -9,14 +9,14 @@ ms.custom: sqldbrb=4
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: sashan, moslake, carlrab
+ms.reviewer: sashan, moslake
 ms.date: 11/13/2019
-ms.openlocfilehash: b4af9fce3c5ca779866055d2835ebfebe9fbb9cf
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 51cf4a4d3aa3cb4654b141a98064460a7152fcec
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85987001"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737448"
 ---
 # <a name="azure-hybrid-benefit---azure-sql-database--sql-managed-instance"></a>Benefício Híbrido do Azure-banco de dados SQL do Azure & SQL Instância Gerenciada
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -26,7 +26,7 @@ Na camada de computação provisionada do modelo de compra baseado em vCore, voc
 > [!NOTE]
 > Alterar para Benefício Híbrido do Azure não requer nenhum tempo de inatividade.
 
-![preços](./media/azure-hybrid-benefit/pricing.png)
+![estrutura de preços VCORE](./media/azure-hybrid-benefit/pricing.png)
 
 ## <a name="choose-a-license-model"></a>Escolher um modelo de licença
 
@@ -89,8 +89,8 @@ Os clientes do banco de dados SQL têm os seguintes direitos associados ao Benef
 
 |Superfície da licença|O que Benefício Híbrido do Azure para SQL Server você consegue?|
 |---|---|
-|Clientes principais do SQL Server Enterprise Edition com SA|<li>Pode pagar a taxa base em Uso Geral ou Comercialmente Crítico SKU</li><br><li>1 núcleo local = 4 núcleos na SKU de Uso Geral</li><br><li>1 núcleo local = 1 núcleo em SKU para Comercialmente Crítico</li>|
-|Clientes principais do SQL Server Standard Edition com SA|<li>Pode pagar a taxa base somente em Uso Geral SKU</li><br><li>1 núcleo local = 1 núcleo na SKU de Uso Geral</li>|
+|Clientes principais do SQL Server Enterprise Edition com SA|<li>Pode pagar a taxa base em um SKU de hiperescala, Uso Geral ou Comercialmente Crítico</li><br><li>1 núcleo local = 4 núcleos na SKU de hiperescala</li><br><li>1 núcleo local = 4 núcleos na SKU de Uso Geral</li><br><li>1 núcleo local = 1 núcleo em SKU para Comercialmente Crítico</li>|
+|Clientes principais do SQL Server Standard Edition com SA|<li>Pode pagar a taxa base somente em hiperescala e Uso Geral SKU apenas</li><br><li>1 núcleo local = 1 núcleo na SKU de hiperescala</li><br><li>1 núcleo local = 1 núcleo na SKU de Uso Geral</li>|
 |||
 
 

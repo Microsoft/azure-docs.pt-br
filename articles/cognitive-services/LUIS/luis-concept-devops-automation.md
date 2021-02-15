@@ -1,16 +1,18 @@
 ---
 title: Fluxos de trabalho contínuos para aplicativos LUIS
 description: Como implementar fluxos de trabalho de CI/CD para DevOps para o Reconhecimento vocal (LUIS).
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 06/5/2020
-ms.openlocfilehash: 4cedf0cbe3f9ab675c191f8e4639688bb7916ee0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 215399e4b131162097e54c15b84cb6fa7dac72e3
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87072984"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98932532"
 ---
-# <a name="continuous-integration-and-continuous-delivery-workflows-for-luis-devops"></a>Fluxos de trabalho de integração contínua e fornecimento contínuo para LUIS DevOps
+# <a name="continuous-integration-and-continuous-delivery-workflows-for-luis-devops"></a>Fluxos de trabalho de integração contínua e entrega contínua para DevOps do LUIS
 
 Os engenheiros de software que estão desenvolvendo um aplicativo de Reconhecimento vocal (LUIS) podem aplicar práticas DevOpss em relação ao [controle do código-fonte](luis-concept-devops-sourcecontrol.md), [compilações automatizadas](luis-concept-devops-automation.md), [testes](luis-concept-devops-testing.md)e [Gerenciamento de liberações](luis-concept-devops-automation.md#release-management). Este artigo descreve os conceitos para implementar compilações automatizadas para o LUIS.
 
@@ -20,16 +22,16 @@ Os engenheiros de software que estão desenvolvendo um aplicativo de Reconhecime
 
 No seu sistema SCM (gerenciamento de código-fonte), configure pipelines de Build automatizados para execução nos seguintes eventos:
 
-1. **PR fluxo de trabalho** disparado quando uma [solicitação pull](https://help.github.com/github/collaborating-with-issues-and-pull-requests/about-pull-requests) (PR) é gerada. Este fluxo de trabalho valida o conteúdo da PR *antes que* as atualizações sejam mescladas no Branch mestre.
-1. **Fluxo de trabalho de CI/CD** disparado quando as atualizações são enviadas para o Branch mestre, por exemplo, ao mesclar as alterações de uma pr. Esse fluxo de trabalho garante a qualidade de todas as atualizações para o Branch mestre.
+1. **PR fluxo de trabalho** disparado quando uma [solicitação pull](https://help.github.com/github/collaborating-with-issues-and-pull-requests/about-pull-requests) (PR) é gerada. Este fluxo de trabalho valida o conteúdo da PR *antes que* as atualizações sejam mescladas no Branch principal.
+1. **Fluxo de trabalho de CI/CD** disparado quando as atualizações são enviadas para a ramificação principal, por exemplo, ao mesclar as alterações de uma pr. Esse fluxo de trabalho garante a qualidade de todas as atualizações para a ramificação principal.
 
 O **fluxo de trabalho de CI/CD** combina dois processos de desenvolvimento complementares:
 
-* A CI ( [integração contínua](https://docs.microsoft.com/azure/devops/learn/what-is-continuous-integration) ) é a prática de engenharia do código com frequência de confirmação em um repositório compartilhado e a execução de uma compilação automatizada nele. Emparelhado com uma abordagem de [teste](luis-concept-devops-testing.md) automatizada, a integração contínua nos permite verificar se, para cada atualização, a origem do LUDown ainda é válida e pode ser importada para um aplicativo Luis, mas também que ele passa um grupo de testes que verificam se o aplicativo treinado pode reconhecer as intenções e as entidades necessárias para sua solução.
+* A CI ( [integração contínua](/azure/devops/learn/what-is-continuous-integration) ) é a prática de engenharia do código com frequência de confirmação em um repositório compartilhado e a execução de uma compilação automatizada nele. Emparelhado com uma abordagem de [teste](luis-concept-devops-testing.md) automatizada, a integração contínua nos permite verificar se, para cada atualização, a origem do LUDown ainda é válida e pode ser importada para um aplicativo Luis, mas também que ele passa um grupo de testes que verificam se o aplicativo treinado pode reconhecer as intenções e as entidades necessárias para sua solução.
 
-* A [entrega contínua](https://docs.microsoft.com/azure/devops/learn/what-is-continuous-delivery) (CD) leva o conceito de integração contínua para implantar automaticamente o aplicativo em um ambiente no qual você pode fazer testes mais detalhados. O CD nos permite aprender antecipadamente sobre quaisquer problemas imprevistos que surjam de nossas alterações o mais rápido possível e também para aprender sobre lacunas em nossa cobertura de teste.
+* A [entrega contínua](/azure/devops/learn/what-is-continuous-delivery) (CD) leva o conceito de integração contínua para implantar automaticamente o aplicativo em um ambiente no qual você pode fazer testes mais detalhados. O CD nos permite aprender antecipadamente sobre quaisquer problemas imprevistos que surjam de nossas alterações o mais rápido possível e também para aprender sobre lacunas em nossa cobertura de teste.
 
-O objetivo da integração contínua e da entrega contínua é garantir que "o mestre seja sempre freqüentemente". Para um aplicativo LUIS, isso significa que poderíamos, se precisávamos, pegar qualquer versão do aplicativo LUIS do Branch mestre e enviá-la para produção.
+O objetivo da integração contínua e da entrega contínua é garantir que "Main seja sempre freqüentemente". Para um aplicativo LUIS, isso significa que poderíamos, se precisávamos, pegar qualquer versão do aplicativo LUIS do Branch principal e enviá-la para produção.
 
 ### <a name="tools-for-building-automation-workflows-for-luis"></a>Ferramentas para criar fluxos de trabalho de automação para LUIS
 
@@ -39,13 +41,13 @@ Use as seguintes ferramentas para criar fluxos de trabalho de automação para o
 
 * O [bot Framework Tools Luis a CLI](https://github.com/microsoft/botbuilder-tools/tree/master/packages/LUIS) para trabalhar com aplicativos e versões do Luis, treinar, testar e publicá-los no serviço Luis.
 
-* [CLI do Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) para consultar as assinaturas do Azure, buscar as chaves de criação e previsão do Luis e criar uma entidade de [serviço](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) do Azure usada para autenticação de automação.
+* [CLI do Azure](/cli/azure/) para consultar as assinaturas do Azure, buscar as chaves de criação e previsão do Luis e criar uma entidade de [serviço](/cli/azure/ad/sp) do Azure usada para autenticação de automação.
 
 * [NLU. Ferramenta DevOps](https://github.com/microsoft/NLU.DevOps) para [testar um aplicativo Luis](luis-concept-devops-testing.md) e analisar os resultados do teste.
 
 ### <a name="the-pr-workflow"></a>O fluxo de trabalho de PR
 
-Conforme mencionado, você configura esse fluxo de trabalho para ser executado quando um desenvolvedor gera uma PR para propor alterações a serem mescladas de um Branch de recurso no Branch mestre. Sua finalidade é verificar a qualidade das alterações na PR antes que elas sejam mescladas ao Branch mestre.
+Conforme mencionado, você configura esse fluxo de trabalho para ser executado quando um desenvolvedor gera uma PR para propor alterações a serem mescladas de uma ramificação de recurso no Branch principal. Sua finalidade é verificar a qualidade das alterações na PR antes que elas sejam mescladas ao Branch principal.
 
 Esse fluxo de trabalho deve:
 
@@ -57,18 +59,18 @@ Esse fluxo de trabalho deve:
 
 Se houver suporte para o SCM, configure as regras de proteção de ramificação para que esse fluxo de trabalho deva ser concluído com êxito antes que a PR possa ser concluída.
 
-### <a name="the-master-branch-cicd-workflow"></a>O fluxo de trabalho de CI/CD da ramificação mestre
+### <a name="the-main-branch-cicd-workflow"></a>O fluxo de trabalho de CI/CD da ramificação principal
 
-Configure este fluxo de trabalho para ser executado depois que as atualizações na PR tiverem sido mescladas no Branch mestre. Sua finalidade é manter a barra de qualidade do seu Branch mestre alta testando as atualizações. Se as atualizações atenderem à barra de qualidade, esse fluxo de trabalho implantará a nova versão do aplicativo LUIS em um ambiente em que você possa fazer testes mais detalhados.
+Configure este fluxo de trabalho para ser executado depois que as atualizações na PR tiverem sido mescladas na ramificação principal. Sua finalidade é manter a barra de qualidade do seu Branch principal alto testando as atualizações. Se as atualizações atenderem à barra de qualidade, esse fluxo de trabalho implantará a nova versão do aplicativo LUIS em um ambiente em que você possa fazer testes mais detalhados.
 
 Esse fluxo de trabalho deve:
 
-* Crie uma nova versão em seu aplicativo LUIS primário (o aplicativo que você mantém para a ramificação mestre) usando o código-fonte atualizado.
+* Crie uma nova versão em seu aplicativo LUIS primário (o aplicativo que você mantém para a ramificação principal) usando o código-fonte atualizado.
 
 * Treine e publique a versão do aplicativo LUIS.
 
   > [!NOTE]
-  > Conforme explicado em [executando testes em um fluxo de trabalho de build automatizado](luis-concept-devops-testing.md#running-tests-in-an-automated-build-workflow) , você deve publicar a versão do aplicativo Luis em teste para que as ferramentas, como NLU. O DevOps pode acessá-lo. O LUIS dá suporte apenas a dois slots de publicação nomeados, de *preparo* e de *produção* para um aplicativo Luis, mas você também pode [publicar uma versão diretamente](https://github.com/microsoft/botframework-cli/blob/master/packages/luis/README.md#bf-luisapplicationpublish) e [consultar por versão](https://docs.microsoft.com/azure/cognitive-services/luis/luis-migration-api-v3#changes-by-slot-name-and-version-name). Use a publicação de versão direta em seus fluxos de trabalho de automação para evitar ser limitado a usar os slots de publicação nomeados.
+  > Conforme explicado em [executando testes em um fluxo de trabalho de build automatizado](luis-concept-devops-testing.md#running-tests-in-an-automated-build-workflow) , você deve publicar a versão do aplicativo Luis em teste para que as ferramentas, como NLU. O DevOps pode acessá-lo. O LUIS dá suporte apenas a dois slots de publicação nomeados, de *preparo* e de *produção* para um aplicativo Luis, mas você também pode [publicar uma versão diretamente](https://github.com/microsoft/botframework-cli/blob/master/packages/luis/README.md#bf-luisapplicationpublish) e [consultar por versão](./luis-migration-api-v3.md#changes-by-slot-name-and-version-name). Use a publicação de versão direta em seus fluxos de trabalho de automação para evitar ser limitado a usar os slots de publicação nomeados.
 
 * Execute todos os [testes de unidade](luis-concept-devops-testing.md).
 
@@ -78,17 +80,17 @@ Esse fluxo de trabalho deve:
   * Marque a origem no repositório.
   * Execute o trabalho de entrega contínua (CD) para implantar a versão do aplicativo LUIS em ambientes para testes adicionais.
 
-### <a name="continuous-delivery-cd"></a>Entrega contínua (CD)
+### <a name="continuous-delivery-cd"></a>CD (Entrega contínua)
 
 O trabalho de CD em um Workflow de CI/CD é executado condicionalmente no sucesso da compilação e dos testes de unidade automatizados. Seu trabalho é implantar automaticamente o aplicativo LUIS em um ambiente em que você possa fazer mais testes.
 
-Não há uma solução recomendada para a melhor implantação do aplicativo LUIS, e você deve implementar o processo apropriado para o seu projeto. O repositório de [modelos Luis DevOps](https://github.com/Azure-Samples/LUIS-DevOps-Template) implementa uma solução simples para isso, que é para [publicar a nova versão do aplicativo Luis](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-publish-app) no slot de publicação de *produção* . Isso é bom para uma configuração simples. No entanto, se você precisar dar suporte a vários ambientes de produção diferentes ao mesmo tempo, como *desenvolvimento*, *preparação* e *UAT*, o limite de dois slots de publicação nomeados por aplicativo ficará insuficiente.
+Não há uma solução recomendada para a melhor implantação do aplicativo LUIS, e você deve implementar o processo apropriado para o seu projeto. O repositório de [modelos Luis DevOps](https://github.com/Azure-Samples/LUIS-DevOps-Template) implementa uma solução simples para isso, que é para [publicar a nova versão do aplicativo Luis](./luis-how-to-publish-app.md) no slot de publicação de *produção* . Isso é bom para uma configuração simples. No entanto, se você precisar dar suporte a vários ambientes de produção diferentes ao mesmo tempo, como *desenvolvimento*, *preparação* e *UAT*, o limite de dois slots de publicação nomeados por aplicativo ficará insuficiente.
 
 Outras opções para implantar uma versão do aplicativo incluem:
 
 * Deixe a versão do aplicativo publicada no ponto de extremidade de versão direta e implemente um processo para configurar ambientes de produção downstream com o ponto de extremidade de versão direta, conforme necessário.
 * Mantenha diferentes aplicativos LUIS para cada ambiente de produção e grave as etapas de automação para importar o `.lu` para uma nova versão no aplicativo Luis para o ambiente de produção de destino, para treiná-lo e publicá-lo.
-* Exporte a versão do aplicativo LUIS testada para um [contêiner do Docker do Luis](https://docs.microsoft.com/azure/cognitive-services/luis/luis-container-howto?tabs=v3) e implante o contêiner Luis nas [instâncias de contêiner](https://docs.microsoft.com/azure/container-instances/)do Azure.
+* Exporte a versão do aplicativo LUIS testada para um [contêiner do Docker do Luis](./luis-container-howto.md?tabs=v3) e implante o contêiner Luis nas [instâncias de contêiner](../../container-instances/index.yml)do Azure.
 
 ## <a name="release-management"></a>Gerenciamento de liberações
 

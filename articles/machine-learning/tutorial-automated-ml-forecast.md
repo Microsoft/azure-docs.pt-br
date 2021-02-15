@@ -9,21 +9,19 @@ ms.topic: tutorial
 ms.author: sacartac
 ms.reviewer: nibaccam
 author: cartacioS
-ms.date: 07/10/2020
-ms.openlocfilehash: a244372168cb34f190bd584634bf108f2b5215a5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 12/21/2020
+ms.custom: automl
+ms.openlocfilehash: 2653161b5828d89858234a9ca98fe432e0eacb5c
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87092267"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879353"
 ---
 # <a name="tutorial-forecast-demand-with-automated-machine-learning"></a>Tutorial: Prever demanda com machine learning automatizado
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
+
 
 Neste tutorial, você usará machine learning automatizado, ou ML automatizado, no Azure Machine Learning Studio para criar um modelo de previsão de série temporal para prever a demanda de aluguel para um serviço de compartilhamento de bicicletas.
-
->[!IMPORTANT]
-> A experiência de ML automatizado no estúdio do Azure Machine Learning está em versão prévia. Alguns recursos podem não ter suporte ou ter funcionalidades limitadas.
 
 Para ver um exemplo de modelo de classificação, confira [Tutorial: Criar um modelo de classificação com o ML automatizado no Azure Machine Learning](tutorial-first-experiment-automated-ml.md).
 
@@ -38,8 +36,8 @@ Neste tutorial, você aprenderá a fazer as seguintes tarefas:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Um workspace do Azure Machine Learning da edição Enterprise. Caso não tenha um workspace, [crie um workspace da edição Enterprise](how-to-manage-workspace.md). 
-    * O machine learning automatizado no Azure Machine Learning Studio só está disponível para workspaces da edição Enterprise. 
+* Um Workspace do Azure Machine Learning. Confira [Criar um Workspace do Azure Machine Learning](how-to-manage-workspace.md). 
+
 * Baixe o arquivo de dados [bike-no.csv](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-bike-share/bike-no.csv)
 
 ## <a name="get-started-in-azure-machine-learning-studio"></a>Introdução ao Azure Machine Learning Studio
@@ -102,7 +100,7 @@ Antes de configurar seu experimento, carregue o arquivo de dados no workspace na
 
     1. Selecione **Avançar**.
 
-## <a name="configure-experiment-run"></a>Configurar a execução do experimento
+## <a name="configure-run"></a>Configurar a execução
 
 Depois de carregar e configurar seus dados, configure o destino de computação remota e selecione qual coluna nos dados você deseja prever.
 
@@ -113,14 +111,22 @@ Depois de carregar e configurar seus dados, configure o destino de computação 
 
     1. Selecione **Criar uma computação** e configure o destino de computação. O ML automatizado só dá suporte à Computação do Azure Machine Learning. 
 
-        Campo | Descrição | Valor para o tutorial
-        ----|---|---
-        Nome da computação |Um nome exclusivo que identifique o contexto de computação.|bike-compute
-        Tipo de&nbsp;máquina&nbsp;virtual|Selecione o tipo da máquina virtual da computação.|CPU (Unidade de Processamento Central)
-        Tamanho&nbsp;da&nbsp;máquina virtual| Selecione o tamanho da máquina virtual da computação.|Standard_DS12_V2
-        Mín./máx. de nós| Para analisar os dados, é necessário especificar um ou mais nós.|Número mín. de nós: 1<br>Número máx. de nós: 6
-        Segundos de espera antes de reduzir verticalmente | Tempo de espera antes de o cluster ser automaticamente reduzido verticalmente para a contagem do mínimo de nós.|120 (padrão)
-        Configurações avançadas | Definições para configurar e autorizar uma rede virtual para seu experimento.| Nenhum
+        1. Popule o formulário **Máquina Virtual** para configurar sua computação.
+
+            Campo | Descrição | Valor para o tutorial
+            ----|---|---
+            Prioridade da&nbsp;máquina&nbsp;virtual |Selecione a prioridade que o experimento deve ter| Dedicado
+            Tipo de&nbsp;máquina&nbsp;virtual| Selecione o tipo da máquina virtual da computação.|CPU (Unidade de Processamento Central)
+            Tamanho&nbsp;da&nbsp;máquina virtual| Selecione o tamanho da máquina virtual da computação. É fornecida uma lista de tamanhos recomendados com base em seus dados e no tipo de experimento. |Standard_DS12_V2
+        
+        1. Selecione **Avançar** para preencher o **Formulário Definir configurações**.
+        
+             Campo | Descrição | Valor para o tutorial
+            ----|---|---
+            Nome da computação |  Um nome exclusivo que identifique o contexto de computação. | bike-compute
+            Mín./máx. de nós| Para analisar os dados, é necessário especificar um ou mais nós.|Número mín. de nós: 1<br>Número máx. de nós: 6
+            Segundos de espera antes de reduzir verticalmente | Tempo de espera antes de o cluster ser automaticamente reduzido verticalmente para a contagem do mínimo de nós.|120 (padrão)
+            Configurações avançadas | Definições para configurar e autorizar uma rede virtual para seu experimento.| Nenhum 
   
         1. Selecione **Criar** para obter o destino de computação. 
 
@@ -147,7 +153,7 @@ Conclua a configuração do experimento de ML automatizado especificando o tipo 
     Métrica principal| Métrica de avaliação pela qual o algoritmo de aprendizado de máquina será medido.|Raiz do erro quadrático médio normalizado
     Explicar o melhor modelo| Mostra automaticamente a explicabilidade no melhor modelo criado pelo ML automatizado.| Habilitar
     Algoritmos bloqueados | Algoritmos que você deseja excluir do trabalho de treinamento| Árvores aleatórias extremas
-    Configurações adicionais de previsão| Essas configurações ajudam a aprimorar a precisão do modelo <br><br> _**Retardos de destino de previsão:**_ até que ponto no passado você deseja construir os retardos da variável de destino <br> _**Janela rolante de destino**_: especifica o tamanho da janela rolante na qual recursos, como *máx., mín.* e *soma*, serão gerados. | <br><br>Retardos&nbsp;de destino&nbsp;de previsão: Nenhum <br> Tamanho&nbsp;da janela&nbsp;rolante&nbsp;de destino: Nenhum
+    Configurações adicionais de previsão| Essas configurações ajudam a aprimorar a precisão do modelo. <br><br> _**Retardos de destino de previsão:**_ até que ponto no passado você deseja construir os retardos da variável de destino <br> _**Janela rolante de destino**_: especifica o tamanho da janela rolante na qual recursos, como *máx., mín.* e *soma*, serão gerados. | <br><br>Retardos&nbsp;de destino&nbsp;de previsão: Nenhum <br> Tamanho&nbsp;da janela&nbsp;rolante&nbsp;de destino: Nenhum
     Critério de saída| Se um critério for atendido, o trabalho de treinamento será interrompido. |Hora&nbsp;do&nbsp;trabalho de treinamento (horas): 3 <br> Limite de&nbsp;pontuação da&nbsp;métrica: Nenhum
     Validação | Escolha um tipo de validação cruzada e um número de testes.|Tipo de validação:<br>validação cruzada&nbsp;k-fold&nbsp; <br> <br> Número de validações: 5
     Simultaneidade| O número máximo de iterações paralelas executadas por iteração| Máximo de&nbsp;iterações&nbsp;simultâneas: 6
@@ -156,11 +162,11 @@ Conclua a configuração do experimento de ML automatizado especificando o tipo 
 
 ## <a name="run-experiment"></a>Executar o experimento
 
-Para executar o experimento, selecione **Concluir**. A tela **Detalhes da execução** será aberta com o **Status da execução** na parte superior ao lado do número da execução. Esse status é atualizado conforme o progresso do experimento.
+Para executar o experimento, selecione **Concluir**. A tela **Detalhes da execução** será aberta com o **Status da execução** na parte superior ao lado do número da execução. Esse status é atualizado conforme o progresso do experimento. Também aparecem notificações no canto superior direito do estúdio para informar você sobre o status do experimento.
 
 >[!IMPORTANT]
 > A preparação leva de **10 a 15 minutos** para preparar a execução do experimento.
-> Durante a execução, são necessários **mais 2 a 3 minutos para cada iteração**.  <br> <br>
+> Durante a execução, são necessários **mais 2 a 3 minutos para cada iteração**.<br> <br>
 > Em produção, provavelmente, você terá tempo para outras tarefas, pois esse processo é demorado. Enquanto você aguarda, sugerimos que você comece a explorar os algoritmos testados na guia **Modelos** conforme eles são concluídos. 
 
 ##  <a name="explore-models"></a>Explorar modelos
@@ -171,7 +177,7 @@ Enquanto você aguarda a conclusão de todos os modelos de experimento, selecion
 
 O exemplo a seguir navega pelas guias **Detalhes** e **Métricas** para exibir as propriedades, as métricas e os gráficos de desempenho do modelo selecionado. 
 
-![Detalhe da execução](./media/tutorial-automated-ml-forecast/explore-models-ui.gif)
+![Detalhe da execução](./media/tutorial-automated-ml-forecast/explore-models.gif)
 
 ## <a name="deploy-the-model"></a>Implantar o modelo
 
@@ -234,12 +240,12 @@ Neste tutorial, você usou o ML automatizado no Azure Machine Learning Studio pa
 Confira este artigo para obter as etapas de como criar um esquema compatível com o Power BI para facilitar o consumo de seu serviço Web recém-implantado:
 
 > [!div class="nextstepaction"]
-> [Consumir um serviço Web](how-to-consume-web-service.md#consume-the-service-from-power-bi)
+> [Consumir um serviço Web](/power-bi/connect-data/service-aml-integrate?context=azure%2fmachine-learning%2fcontext%2fml-context)
 
 + Saiba mais sobre o [aprendizado de máquina automatizado](concept-automated-ml.md).
-+ Para saber mais sobre métricas e gráficos de classificação, confira o artigo [Noções básicas sobre os resultados de machine learning automatizado](how-to-understand-automated-ml.md#classification).
++ Para saber mais sobre métricas e gráficos de classificação, confira o artigo [Noções básicas sobre os resultados de machine learning automatizado](how-to-understand-automated-ml.md).
 + Saiba mais sobre a [personalização](how-to-configure-auto-features.md#featurization).
-+ Saiba mais sobre a [criação de perfil de dados](how-to-use-automated-ml-for-ml-models.md#profile).
++ Saiba mais sobre a [criação de perfil de dados](how-to-connect-data-ui.md#profile).
 
 >[!NOTE]
 > Este conjunto de dados de compartilhamento de bicicletas foi modificado para este tutorial. Esse conjunto de dados foi disponibilizado como parte de uma [competição da Kaggle](https://www.kaggle.com/c/bike-sharing-demand/data) e estava originalmente disponível por meio da [Capital Bikeshare](https://www.capitalbikeshare.com/system-data). Também pode ser encontrado no [Banco de dados de machine learning do UCI](http://archive.ics.uci.edu/ml/datasets/Bike+Sharing+Dataset).<br><br>

@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 02/17/2020
 ms.custom: seodec18, devx-track-csharp
 ms.openlocfilehash: 5b1084cfdd5995b7983badcdce71460f7bdec3d5
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88919447"
 ---
 # <a name="run-job-preparation-and-job-release-tasks-on-batch-compute-nodes"></a>Executar tarefas de preparação e liberação do trabalho em nós de computação do Lote

@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: mathoma, carlrab
+ms.reviewer: mathoma, sstein
 ms.date: 08/27/2020
-ms.openlocfilehash: a269796c072a235e4ecd47731ca37a774750a3cf
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: c7a24dbe93bf0096e327804be07acc3f67d2f03b
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018358"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94985749"
 ---
 # <a name="creating-and-using-active-geo-replication---azure-sql-database"></a>Criando e usando a replicação geográfica ativa-banco de dados SQL do Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -29,7 +29,7 @@ A replicação geográfica ativa é um recurso de banco de dados SQL do Azure qu
 A replicação geográfica ativa foi projetada como uma solução de continuidade de negócios que permite que o aplicativo execute a recuperação de desastres rápida de bancos de dados individuais no caso de um desastre regional ou de uma interrupção em grande escala. Se a replicação geográfica estiver habilitada, o aplicativo poderá iniciar o failover para um banco de dados secundário em uma região do Azure diferente. Há suporte para até quatro secundários na mesma região ou em regiões diferentes, e os secundários também podem ser usados para consultas de acesso somente leitura. O failover deve ser iniciado manualmente pelo aplicativo ou pelo usuário. Após o failover, o novo banco de dados primário terá um ponto de extremidade de conexão diferente.
 
 > [!NOTE]
-> A replicação geográfica ativa Replica as alterações pelo log de transações do banco de dados de streaming. Ele não está relacionado à [replicação transacional](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication), que Replica as alterações executando comandos DML (INSERT, Update e Delete).
+> A replicação geográfica ativa Replica as alterações pelo log de transações do banco de dados de streaming. Ele não está relacionado à [replicação transacional](/sql/relational-databases/replication/transactional/transactional-replication), que Replica as alterações executando comandos DML (INSERT, Update e Delete).
 
 O diagrama a seguir ilustra uma configuração típica de um aplicativo de nuvem com redundância geográfica usando a replicação geográfica ativa.
 
@@ -46,15 +46,15 @@ Você pode gerenciar a replicação e o failover de um banco de dados individual
 - [PowerShell: banco de dados único](scripts/setup-geodr-and-failover-database-powershell.md)
 - [PowerShell: pool elástico](scripts/setup-geodr-and-failover-elastic-pool-powershell.md)
 - [Transact-SQL: banco de dados único ou pool elástico](/sql/t-sql/statements/alter-database-azure-sql-database)
-- [API REST: banco de dados único](https://docs.microsoft.com/rest/api/sql/replicationlinks)
+- [API REST: banco de dados único](/rest/api/sql/replicationlinks)
 
-A replicação geográfica ativa aproveita a tecnologia de [grupo de disponibilidade Always on](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server) do mecanismo de banco de dados para replicar de forma assíncrona transações confirmadas no banco de dados primário para um banco de dados secundário usando isolamento de instantâneo. Os grupos de failover automático fornecem a semântica de grupo além da replicação geográfica ativa, mas o mesmo mecanismo de replicação assíncrona é usado. Embora, a qualquer momento, o banco de dados secundário possa estar um pouco atrás do banco de dados primário, os dados secundários têm a garantia de nunca terem transações parciais. A redundância entre regiões permite que os aplicativos se recuperem rapidamente de uma perda permanente de um datacenter inteiro ou de partes de um datacenter, causada por desastres naturais, falhas humanas catastróficas ou crimes. Os dados específicos de RPO podem ser encontrados em [Visão geral da continuidade de negócios](business-continuity-high-availability-disaster-recover-hadr-overview.md).
+A replicação geográfica ativa aproveita a tecnologia de [grupo de disponibilidade Always on](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server) do mecanismo de banco de dados para replicar de forma assíncrona transações confirmadas no banco de dados primário para um banco de dados secundário usando isolamento de instantâneo. Os grupos de failover automático fornecem a semântica de grupo além da replicação geográfica ativa, mas o mesmo mecanismo de replicação assíncrona é usado. Embora, a qualquer momento, o banco de dados secundário possa estar um pouco atrás do banco de dados primário, os dados secundários têm a garantia de nunca terem transações parciais. A redundância entre regiões permite que os aplicativos se recuperem rapidamente de uma perda permanente de um datacenter inteiro ou de partes de um datacenter, causada por desastres naturais, falhas humanas catastróficas ou crimes. Os dados específicos de RPO podem ser encontrados em [Visão geral da continuidade de negócios](business-continuity-high-availability-disaster-recover-hadr-overview.md).
 
 > [!NOTE]
 > Se houver uma falha de rede entre as duas regiões, haverá uma repetição a cada 10 segundos para restabelecer as conexões.
 
 > [!IMPORTANT]
-> Para garantir que uma alteração crítica no banco de dados primário seja replicada para um secundário antes do failover, você pode forçar a sincronização para garantir a replicação das alterações críticas (por exemplo, atualizações de senha). A sincronização forçada afeta o desempenho, já que bloqueia o thread de chamada até que todas as transações confirmadas sejam replicadas. Para obter detalhes, veja [sp_wait_for_database_copy_sync](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync). Para monitorar o atraso de replicação entre o banco de dados primário e o geo-secundário, confira [sys.dm_geo_replication_link_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database).
+> Para garantir que uma alteração crítica no banco de dados primário seja replicada para um secundário antes do failover, você pode forçar a sincronização para garantir a replicação das alterações críticas (por exemplo, atualizações de senha). A sincronização forçada afeta o desempenho, já que bloqueia o thread de chamada até que todas as transações confirmadas sejam replicadas. Para obter detalhes, veja [sp_wait_for_database_copy_sync](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync). Para monitorar o atraso de replicação entre o banco de dados primário e o geo-secundário, confira [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database).
 
 A figura a seguir mostra que um exemplo de replicação geográfica ativa configurada com um banco de dados primário na região Centro-Norte dos EUA e um secundário na região Centro-Sul dos EUA.
 
@@ -83,7 +83,7 @@ Para garantir a continuidade de negócios real, a adição de redundância de ba
 > A repetição do log será atrasada no banco de dados secundário se houver atualizações de esquema no primário. Este último requer um bloqueio de esquema no banco de dados secundário.
 
 > [!IMPORTANT]
-> Você pode usar a replicação geográfica para criar um banco de dados secundário na mesma região que o primário. Você pode usar esse secundário para balancear a carga de cargas de trabalho somente leitura na mesma região. No entanto, um banco de dados secundário na mesma região não fornece resiliência de falha adicional e, portanto, não é um destino de failover adequado para recuperação de desastres. Ele também não garantirá o isolamento da zona de disponibilidade. Use a camada de serviço comercialmente crítica ou Premium com [configuração com redundância de zona](high-availability-sla.md#zone-redundant-configuration) para obter isolamento de zona de disponibilidade.
+> Você pode usar a replicação geográfica para criar um banco de dados secundário na mesma região que o primário. Você pode usar esse secundário para balancear a carga de cargas de trabalho somente leitura na mesma região. No entanto, um banco de dados secundário na mesma região não fornece resiliência de falha adicional e, portanto, não é um destino de failover adequado para recuperação de desastres. Ele também não garantirá o isolamento da zona de disponibilidade. Use a camada de serviço comercialmente crítica ou Premium com [configuração com redundância de zona](high-availability-sla.md#premium-and-business-critical-service-tier-zone-redundant-availability) ou uso geral configuração com redundância de [zona](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview) de camada de serviço para obter o isolamento de zona de disponibilidade.
 >
 
 - **Failover planejado**
@@ -118,16 +118,21 @@ Para garantir que seu aplicativo possa acessar imediatamente o novo primário ap
 
 ## <a name="configuring-secondary-database"></a>Configurando banco de dados secundário
 
-Os bancos de dados primário e secundário devem ter a mesma camada de serviço. Também é altamente recomendável que o banco de dados secundário seja criado com o mesmo tamanho de computação (DTUs ou vCores) que o primário. Se o banco de dados primário estiver com uma carga de trabalho de gravação pesada, um secundário com tamanho de computação inferior poderá não ser capaz de acompanhar o problema. Isso causará atraso de refazer no secundário e indisponibilidade potencial do secundário. Para atenuar esses riscos, a replicação geográfica ativa limitará a taxa do log de transações primária, se necessário, para permitir que seus secundários se acompanhem.
+Os bancos de dados primário e secundário devem ter a mesma camada de serviço. Também é altamente recomendável que o banco de dados secundário seja criado com a mesma redundância de armazenamento de backup e o mesmo tamanho de computação (DTUs ou vCores) que o primário. Se o banco de dados primário estiver com uma carga de trabalho de gravação pesada, um secundário com tamanho de computação inferior poderá não ser capaz de acompanhar o problema. Isso causará atraso de refazer no secundário e indisponibilidade potencial do secundário. Para atenuar esses riscos, a replicação geográfica ativa limitará a taxa do log de transações primária, se necessário, para permitir que seus secundários se acompanhem.
 
 Outra consequência de uma configuração secundária desbalanceada é que, após o failover, o desempenho do aplicativo pode ser afetado devido à capacidade de computação insuficiente do novo primário. Nesse caso, será necessário escalar verticalmente o objetivo do serviço de banco de dados para o nível necessário, o que pode levar tempo e recursos de computação significativos e exigirá um failover de [alta disponibilidade](high-availability-sla.md) no final do processo de escala vertical.
 
-Se você decidir criar o secundário com o tamanho de computação inferior, o gráfico de porcentagem de e/s de log no portal do Azure fornecerá uma boa maneira de estimar o tamanho mínimo de computação do secundário necessário para manter a carga de replicação. Por exemplo, se seu banco de dados primário for P6 (1000 DTU) e seu percentual de gravação de log for 50%, o secundário precisará ser pelo menos P4 (500 DTU). Para recuperar dados de e/s de log históricos, use a exibição [Sys. resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) . Para recuperar dados recentes de gravação de log com maior granularidade que reflete melhor os picos de curto prazo na taxa de log, use a exibição [Sys. dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) .
+Se você decidir criar o secundário com o tamanho de computação inferior, o gráfico de porcentagem de e/s de log no portal do Azure fornecerá uma boa maneira de estimar o tamanho mínimo de computação do secundário necessário para manter a carga de replicação. Por exemplo, se seu banco de dados primário for P6 (1000 DTU) e seu percentual de gravação de log for 50%, o secundário precisará ser pelo menos P4 (500 DTU). Para recuperar dados de e/s de log históricos, use a exibição [Sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) . Para recuperar dados recentes de gravação de log com maior granularidade que reflete melhor os picos de curto prazo na taxa de log, use [Sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) exibição.
 
-A limitação da taxa do log de transações no primário devido ao tamanho de computação inferior em um secundário é relatada usando o tipo de espera HADR_THROTTLE_LOG_RATE_MISMATCHED_SLO, visível nas exibições de banco de dados [Sys. dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) e [Sys. dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql) .
+A limitação da taxa do log de transações no primário devido ao tamanho de computação inferior em um secundário é relatada usando o tipo de espera HADR_THROTTLE_LOG_RATE_MISMATCHED_SLO, visível nas exibições de [Sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) e [Sys.dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql) banco de dados.
+
+Por padrão, a redundância de armazenamento de backup do secundário é a mesma do banco de dados primário. Você pode optar por configurar o secundário com uma redundância de armazenamento de backup diferente. Os backups sempre são feitos no banco de dados primário. Se o secundário estiver configurado com uma redundância de armazenamento de backup diferente, após o failover quando o secundário for promovido para o primário, os backups serão cobrados de acordo com a redundância de armazenamento selecionada no novo primário (secundário anterior). 
 
 > [!NOTE]
 > A taxa do log de transações no primário pode ser limitada por motivos não relacionados ao tamanho de computação inferior em um secundário. Esse tipo de limitação pode ocorrer mesmo se o secundário tiver o mesmo tamanho de computação ou maior do que o primário. Para obter detalhes, incluindo tipos de espera para diferentes tipos de limitação de taxa de log, consulte [governança de taxa de log de transações](resource-limits-logical-server.md#transaction-log-rate-governance).
+
+> [!NOTE]
+> A redundância de armazenamento de backup configurável do banco de dados SQL do Azure está disponível atualmente na visualização pública no sul do Brasil e geralmente disponível somente na região do sudeste asiático do Azure. Quando o banco de dados de origem é criado com redundância de armazenamento de backup com redundância local ou de zona, não há suporte para a criação de um banco de dados secundário em uma região diferente do Azure. 
 
 Para obter mais informações sobre os tamanhos da computação do Banco de Dados SQL, confira [Quais são as Camadas de Serviço do Banco de Dados SQL](purchasing-models.md).
 
@@ -230,7 +235,7 @@ Devido à alta latência das redes de longa distância, a cópia contínua usa u
 
 ## <a name="monitoring-geo-replication-lag"></a>Monitorando o retardo da replicação geográfica
 
-Para monitorar o atraso em relação ao RPO, use *replication_lag_sec* coluna de [Sys. dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) no banco de dados primário. Ele mostra o retardo em segundos entre as transações confirmadas no primário e persistido no secundário. Por ex.: Se o valor da latência for de 1 segundo, isso significará que, se o primário for afetado por uma interrupção neste momento e o failover for iniciado, 1 segundo das transições mais recentes não será salva.
+Para monitorar o atraso em relação ao RPO, use *replication_lag_sec* coluna de [Sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) no banco de dados primário. Ele mostra o retardo em segundos entre as transações confirmadas no primário e persistido no secundário. Por ex.: Se o valor da latência for de 1 segundo, isso significará que, se o primário for afetado por uma interrupção neste momento e o failover for iniciado, 1 segundo das transições mais recentes não será salva.
 
 Para medir o retardo em relação às alterações no banco de dados primário que foram aplicadas no secundário, ou seja, disponíveis para leitura do secundário, compare *last_commit* tempo no banco de dados secundário com o mesmo valor no banco de dados primário.
 
@@ -239,7 +244,7 @@ Para medir o retardo em relação às alterações no banco de dados primário q
 
 ## <a name="programmatically-managing-active-geo-replication"></a>Gerenciando a replicação geográfica ativa programaticamente
 
-Conforme discutido anteriormente, a replicação geográfica ativa pode ser gerenciada programaticamente usando o Azure PowerShell e a API REST. As tabelas a seguir descrevem o conjunto de comandos disponíveis. A replicação geográfica ativa inclui um conjunto de APIs do Azure Resource Manager para gerenciamento, incluindo a [API REST do Banco de Dados SQL do Azure](https://docs.microsoft.com/rest/api/sql/) e [cmdlets do Azure PowerShell](https://docs.microsoft.com/powershell/azure/). Essas APIs exigem o uso de grupos de recursos e dão suporte a RBAC (segurança baseada em funções). Para obter mais informações sobre como implementar funções de acesso, consulte [controle de acesso baseado em função do Azure (RBAC do Azure)](../../role-based-access-control/overview.md).
+Conforme discutido anteriormente, a replicação geográfica ativa pode ser gerenciada programaticamente usando o Azure PowerShell e a API REST. As tabelas a seguir descrevem o conjunto de comandos disponíveis. A replicação geográfica ativa inclui um conjunto de APIs do Azure Resource Manager para gerenciamento, incluindo a [API REST do Banco de Dados SQL do Azure](/rest/api/sql/) e [cmdlets do Azure PowerShell](/powershell/azure/). Essas APIs exigem o uso de grupos de recursos e dão suporte ao controle de acesso baseado em função do Azure (RBAC do Azure). Para obter mais informações sobre como implementar funções de acesso, consulte [controle de acesso baseado em função do Azure (RBAC do Azure)](../../role-based-access-control/overview.md).
 
 ### <a name="t-sql-manage-failover-of-single-and-pooled-databases"></a>T-SQL: gerenciar failover de bancos de dados individuais e em pool
 
@@ -248,9 +253,9 @@ Conforme discutido anteriormente, a replicação geográfica ativa pode ser gere
 
 | Comando | Descrição |
 | --- | --- |
-| [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Use o argumento ADD SECONDARY ON SERVER para criar um banco de dados secundário para um banco de dados existente e inicie a replicação de dados |
-| [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Usar o FAILOVER ou FORCE_FAILOVER_ALLOW_DATA_LOSS para alternar um banco de dados secundário para primário a fim de iniciar o failover |
-| [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Use REMOVE SECONDARY ON SERVER para encerrar uma replicação de dados entre um Banco de Dados SQL e o banco de dados secundário especificado. |
+| [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?preserve-view=true&view=azuresqldb-current) |Use o argumento ADD SECONDARY ON SERVER para criar um banco de dados secundário para um banco de dados existente e inicie a replicação de dados |
+| [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?preserve-view=true&view=azuresqldb-current) |Usar o FAILOVER ou FORCE_FAILOVER_ALLOW_DATA_LOSS para alternar um banco de dados secundário para primário a fim de iniciar o failover |
+| [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?preserve-view=true&view=azuresqldb-current) |Use REMOVE SECONDARY ON SERVER para encerrar uma replicação de dados entre um Banco de Dados SQL e o banco de dados secundário especificado. |
 | [sys.geo_replication_links](/sql/relational-databases/system-dynamic-management-views/sys-geo-replication-links-azure-sql-database) |Retorna informações sobre todos os links de replicação existentes para cada banco de dados em um servidor. |
 | [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) |Obtém a última hora de replicação, a última latência de replicação e outras informações sobre o link de replicação para um determinado banco de dados. |
 | [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) |Mostra o status de todas as operações de banco de dados, incluindo o status dos links de replicação. |
@@ -261,15 +266,15 @@ Conforme discutido anteriormente, a replicação geográfica ativa pode ser gere
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> O módulo Azure Resource Manager do PowerShell ainda tem suporte do Banco de Dados SQL do Azure, mas todo o desenvolvimento futuro é para o módulo Az.Sql. Para esses cmdlets, confira [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos.
+> O módulo Azure Resource Manager do PowerShell ainda tem suporte do Banco de Dados SQL do Azure, mas todo o desenvolvimento futuro é para o módulo Az.Sql. Para esses cmdlets, confira [AzureRM.Sql](/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos.
 
 | Cmdlet | Descrição |
 | --- | --- |
-| [Get-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabase) |Obtém um ou mais bancos de dados. |
-| [New-AzSqlDatabaseSecondary](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabasesecondary) |Cria um banco de dados secundário para um banco de dados existente e inicia a replicação de dados. |
-| [Set-AzSqlDatabaseSecondary](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabasesecondary) |Alterna um banco de dados secundário para primário a fim de iniciar o failover. |
-| [Remove-AzSqlDatabaseSecondary](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqldatabasesecondary) |Encerra uma replicação de dados entre um Banco de Dados SQL e o banco de dados secundário especificado. |
-| [Get-AzSqlDatabaseReplicationLink](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasereplicationlink) |Obtém os links de replicação geográfica entre um Banco de Dados SQL do Azure e um grupo de recursos ou servidor SQL lógico. |
+| [Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase) |Obtém um ou mais bancos de dados. |
+| [New-AzSqlDatabaseSecondary](/powershell/module/az.sql/new-azsqldatabasesecondary) |Cria um banco de dados secundário para um banco de dados existente e inicia a replicação de dados. |
+| [Set-AzSqlDatabaseSecondary](/powershell/module/az.sql/set-azsqldatabasesecondary) |Alterna um banco de dados secundário para primário a fim de iniciar o failover. |
+| [Remove-AzSqlDatabaseSecondary](/powershell/module/az.sql/remove-azsqldatabasesecondary) |Encerra uma replicação de dados entre um Banco de Dados SQL e o banco de dados secundário especificado. |
+| [Get-AzSqlDatabaseReplicationLink](/powershell/module/az.sql/get-azsqldatabasereplicationlink) |Obtém os links de replicação geográfica entre um Banco de Dados SQL do Azure e um grupo de recursos ou servidor SQL lógico. |
 |  | |
 
 > [!IMPORTANT]
@@ -279,13 +284,13 @@ Conforme discutido anteriormente, a replicação geográfica ativa pode ser gere
 
 | API | Descrição |
 | --- | --- |
-| [Criar ou atualizar banco de dados (createMode=Restore)](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) |Cria, atualiza ou restaura um banco de dados primário ou secundário. |
-| [Obter, Criar ou Atualizar o Status de um Banco de Dados](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) |Retorna o status durante uma operação de criação. |
-| [Definir o banco de dados secundário como primário (Failover planejado)](https://docs.microsoft.com/rest/api/sql/replicationlinks/failover) |Define qual banco de dados secundário é primário ao realizar failover do banco de dados primário atual. **Essa opção não tem suporte para o SQL Instância Gerenciada.**|
-| [Definir o banco de dados secundário como primário r (Failover não planejado)](https://docs.microsoft.com/rest/api/sql/replicationlinks/failoverallowdataloss) |Define qual banco de dados secundário é primário ao realizar failover do banco de dados primário atual. Esta operação pode resultar em perda de dados. **Essa opção não tem suporte para o SQL Instância Gerenciada.**|
-| [Obter link de replicação](https://docs.microsoft.com/rest/api/sql/replicationlinks/get) |Obtém um link de replicação específico para um determinado banco de dados em uma parceria de replicação geográfica. Recupera as informações visíveis no modo de exibição de catálogo sys.geo_replication_links. **Essa opção não tem suporte para o SQL Instância Gerenciada.**|
-| [Links de Replicação - Listar pelo Banco de Dados](https://docs.microsoft.com/rest/api/sql/replicationlinks/listbydatabase) | Obtém todos os links de replicação para um determinado banco de dados em uma parceria de replicação geográfica. Recupera as informações visíveis no modo de exibição de catálogo sys.geo_replication_links. |
-| [Excluir links de replicação](https://docs.microsoft.com/rest/api/sql/replicationlinks/delete) | Exclui um link de replicação do banco de dados. Não pode ser feito durante o failover. |
+| [Criar ou atualizar banco de dados (createMode=Restore)](/rest/api/sql/databases/createorupdate) |Cria, atualiza ou restaura um banco de dados primário ou secundário. |
+| [Obter, Criar ou Atualizar o Status de um Banco de Dados](/rest/api/sql/databases/createorupdate) |Retorna o status durante uma operação de criação. |
+| [Definir o banco de dados secundário como primário (Failover planejado)](/rest/api/sql/replicationlinks/failover) |Define qual banco de dados secundário é primário ao realizar failover do banco de dados primário atual. **Essa opção não tem suporte para o SQL Instância Gerenciada.**|
+| [Definir o banco de dados secundário como primário r (Failover não planejado)](/rest/api/sql/replicationlinks/failoverallowdataloss) |Define qual banco de dados secundário é primário ao realizar failover do banco de dados primário atual. Esta operação pode resultar em perda de dados. **Essa opção não tem suporte para o SQL Instância Gerenciada.**|
+| [Obter link de replicação](/rest/api/sql/replicationlinks/get) |Obtém um link de replicação específico para um determinado banco de dados em uma parceria de replicação geográfica. Recupera as informações visíveis no modo de exibição de catálogo sys.geo_replication_links. **Essa opção não tem suporte para o SQL Instância Gerenciada.**|
+| [Links de Replicação - Listar pelo Banco de Dados](/rest/api/sql/replicationlinks/listbydatabase) | Obtém todos os links de replicação para um determinado banco de dados em uma parceria de replicação geográfica. Recupera as informações visíveis no modo de exibição de catálogo sys.geo_replication_links. |
+| [Excluir links de replicação](/rest/api/sql/replicationlinks/delete) | Exclui um link de replicação do banco de dados. Não pode ser feito durante o failover. |
 |  | |
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -294,7 +299,7 @@ Conforme discutido anteriormente, a replicação geográfica ativa pode ser gere
   - [Configurar e fazer failover de um banco de dados individual usando replicação geográfica ativa](scripts/setup-geodr-and-failover-database-powershell.md)
   - [Configurar e fazer failover de um banco de dados em pool usando replicação geográfica ativa](scripts/setup-geodr-and-failover-elastic-pool-powershell.md)
 - O Banco de Dados SQL do Azure também é compatível com grupos de failover automático. Para obter mais informações, confira [Usando grupos de failover automático](auto-failover-group-overview.md).
-- Para obter uma visão geral e os cenários de continuidade dos negócios, confira [Visão geral da continuidade dos negócios](business-continuity-high-availability-disaster-recover-hadr-overview.md)
+- Para uma visão geral e cenários de continuidade de negócios, consulte [visão geral da continuidade de negócios](business-continuity-high-availability-disaster-recover-hadr-overview.md)
 - Para saber mais sobre backups automatizados do Banco de Dados SQL do Azure, confira [Backups automatizados do Banco de Dados SQL](automated-backups-overview.md).
 - Para saber mais sobre como usar backups automatizados para recuperação, consulte [restaurar um banco de dados dos backups iniciados pelo serviço](recovery-using-backups.md).
 - Para saber mais sobre requisitos de autenticação para um novo servidor primário e banco de dados, consulte [Segurança do Banco de Dados SQL após a recuperação de desastres](active-geo-replication-security-configure.md).

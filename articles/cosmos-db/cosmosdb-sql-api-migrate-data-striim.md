@@ -3,18 +3,20 @@ title: Migrar dados para Azure Cosmos DB conta da API do SQL usando Striim
 description: Saiba como usar o Striim para migrar os dados de um Oracle Database para uma conta Azure Cosmos DB API do SQL.
 author: SnehaGunda
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 07/22/2019
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: 5ce805fb302264a0c3907c006983f9d939a2908e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 136853182e353ad5cd71981db5935fc3babe162e
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85262065"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339582"
 ---
 # <a name="migrate-data-to-azure-cosmos-db-sql-api-account-using-striim"></a>Migrar dados para Azure Cosmos DB conta da API do SQL usando Striim
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
  
 A imagem Striim no Azure Marketplace oferece movimentação de dados contínua em tempo real de data warehouses e bancos de dados para o Azure. Ao mover os dados, você pode executar a desnormalização em linha, transformação de dados, Habilitar análise em tempo real e cenários de relatórios de dados. É fácil começar a usar o Striim para mover continuamente dados corporativos para Azure Cosmos DB API do SQL. O Azure fornece uma oferta do Marketplace que facilita a implantação de Striim e a migração de dados para Azure Cosmos DB. 
 
@@ -22,7 +24,7 @@ Este artigo mostra como usar o Striim para migrar dados de um **Oracle Database*
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Se você não tiver uma [assinatura do Azure](/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing), crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
+* Se você não tiver uma [assinatura do Azure](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing), crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
 
 * Um banco de dados Oracle em execução local com algum dado.
 
@@ -34,7 +36,7 @@ Este artigo mostra como usar o Striim para migrar dados de um **Oracle Database*
 
    :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/striim-azure-marketplace.png" alt-text="Localizar item do Marketplace do Striim":::
 
-1. Em seguida, insira as propriedades de configuração da instância Striim. O ambiente Striim é implantado em uma máquina virtual. No painel **básico** , insira o **nome de usuário da VM**, senha da **VM** (essa senha é usada para ssh na VM). Selecione a **assinatura**, o **grupo de recursos**e os detalhes do **local** onde você gostaria de implantar o Striim. Depois de concluído, selecione **OK**.
+1. Em seguida, insira as propriedades de configuração da instância Striim. O ambiente Striim é implantado em uma máquina virtual. No painel **básico** , insira o **nome de usuário da VM** , senha da **VM** (essa senha é usada para ssh na VM). Selecione a **assinatura** , o **grupo de recursos** e os detalhes do **local** onde você gostaria de implantar o Striim. Depois de concluído, selecione **OK**.
 
    :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/striim-configure-basic-settings.png" alt-text="Definir configurações básicas para Striim":::
 
@@ -48,7 +50,7 @@ Este artigo mostra como usar o Striim para migrar dados de um **Oracle Database*
 
    Depois de preencher o formulário, selecione **OK** para continuar.
 
-1. No painel **configurações de acesso do Striim** , configure o **endereço IP público** (escolha os valores padrão), **nome de domínio para Striim**, **senha de administrador** que você gostaria de usar para fazer logon na interface do usuário do Striim. Configure uma VNET e uma sub-rede (escolha os valores padrão). Depois de preencher os detalhes, selecione **OK** para continuar.
+1. No painel **configurações de acesso do Striim** , configure o **endereço IP público** (escolha os valores padrão), **nome de domínio para Striim** , **senha de administrador** que você gostaria de usar para fazer logon na interface do usuário do Striim. Configure uma VNET e uma sub-rede (escolha os valores padrão). Depois de preencher os detalhes, selecione **OK** para continuar.
 
    :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/striim-access-settings.png" alt-text="Configurações de acesso do Striim":::
 
@@ -128,7 +130,7 @@ Nesta seção, você configurará a Azure Cosmos DB conta da API do SQL como o d
 
    :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/striim-login-ui.png" alt-text="Entrar no Striim":::
 
-1. Agora você chegará às home page do Striim. Há três painéis diferentes – **dashboards**, **aplicativos**e **SourcePreview**. O painel painéis permite que você mova dados em tempo real e visualize-os. O painel aplicativos contém seus pipelines de dados de streaming ou fluxos de dados. No lado direito da página está SourcePreview onde você pode visualizar os dados antes de movê-los.
+1. Agora você chegará às home page do Striim. Há três painéis diferentes – **dashboards** , **aplicativos** e **SourcePreview**. O painel painéis permite que você mova dados em tempo real e visualize-os. O painel aplicativos contém seus pipelines de dados de streaming ou fluxos de dados. No lado direito da página está SourcePreview onde você pode visualizar os dados antes de movê-los.
 
 1. Selecione o painel **aplicativos** , vamos nos concentrar neste painel por enquanto. Há uma variedade de aplicativos de exemplo que você pode usar para aprender sobre o Striim, no entanto, neste artigo, você criará o nosso. Selecione o botão **Adicionar aplicativo** no canto superior direito.
 
@@ -144,7 +146,7 @@ Nesta seção, você configurará a Azure Cosmos DB conta da API do SQL como o d
 
 1. Na próxima página, nomeie seu aplicativo. Você pode fornecer um nome como **oraToCosmosDB** e, em seguida, selecionar **salvar**.
 
-1. Em seguida, insira a configuração de origem da instância do Oracle de origem. Insira um valor para o **nome de origem**. O nome de origem é apenas uma Convenção de nomenclatura para o aplicativo Striim, você pode usar algo como **src_onPremOracle**. Insira valores para o restante dos parâmetros de origem **URL**, **nome de usuário**, **senha**, escolha **LogMiner** como o leitor para ler dados do Oracle. Selecione **Avançar** para continuar.
+1. Em seguida, insira a configuração de origem da instância do Oracle de origem. Insira um valor para o **nome de origem**. O nome de origem é apenas uma Convenção de nomenclatura para o aplicativo Striim, você pode usar algo como **src_onPremOracle**. Insira valores para o restante dos parâmetros de origem **URL** , **nome de usuário** , **senha** , escolha **LogMiner** como o leitor para ler dados do Oracle. Selecione **Avançar** para continuar.
 
    :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/configure-source-parameters.png" alt-text="Configurar parâmetros de origem":::
 
@@ -162,7 +164,7 @@ Nesta seção, você configurará a Azure Cosmos DB conta da API do SQL como o d
 
    * **Nome de destino** – forneça um nome amigável para o destino. 
    * **Entrada de** -na lista suspensa, selecione o fluxo de entrada do que você criou na configuração do Oracle de origem. 
-   * **Coleções**– Insira as propriedades de configuração de Azure Cosmos DB de destino. A sintaxe de coleções é **SourceSchema. SourceTable, TargetDatabase. TargetContainer**. Neste exemplo, o valor seria "SYSTEM. ORDERs, StriimDemo. Orders ". 
+   * **Coleções** – Insira as propriedades de configuração de Azure Cosmos DB de destino. A sintaxe de coleções é **SourceSchema. SourceTable, TargetDatabase. TargetContainer**. Neste exemplo, o valor seria "SYSTEM. ORDERs, StriimDemo. Orders ". 
    * **AccessKey** -a PrimaryKey da sua conta do Azure Cosmos.
    * **ServiceEndpoint** – o URI de sua conta do Azure Cosmos, que pode ser encontrado na seção **chaves** do portal do Azure. 
 

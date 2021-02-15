@@ -1,7 +1,7 @@
 ---
 title: Controles de Acesso à Rede
 titleSuffix: Azure SQL Database & Azure Synapse Analytics
-description: Visão geral de como gerenciar e controlar o acesso à rede para o banco de dados SQL do Azure e o Azure Synapse Analytics (anteriormente SQL Data Warehouse do Azure).
+description: Visão geral de como gerenciar e controlar o acesso à rede para o banco de dados SQL do Azure e o Azure Synapse Analytics.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: 435a5fe6f5900ffe742d4459e8e402d2e698ca9f
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 90bc57af3aaf0d11cd354bfe7163014f836a72e8
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085456"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460013"
 ---
 # <a name="azure-sql-database-and-azure-synapse-analytics-network-access-controls"></a>Controles de acesso à rede do banco de dados SQL do Azure e do Azure Synapse Analytics
 
@@ -42,7 +42,7 @@ Consulte o vídeo abaixo para obter uma explicação de alto nível desses contr
 
 ## <a name="allow-azure-services"></a>Permitir serviços do Azure
 
-Durante a criação de um novo SQL Server lógico [do portal do Azure](single-database-create-quickstart.md), essa configuração é deixada desmarcada.
+Por padrão, durante a criação de um novo SQL Server lógico [a partir do portal do Azure](single-database-create-quickstart.md), essa configuração é definida como **off**. Essa configuração aparece quando a conectividade é permitida usando o ponto de extremidade de serviço público.
 
 Você também pode alterar essa configuração por meio do painel Firewall depois que o SQL Server lógico for criado da seguinte maneira.
   
@@ -56,7 +56,7 @@ No entanto, isso afeta os seguintes recursos que são executados em máquinas vi
 
 ### <a name="import-export-service"></a>Serviço de Importação/Exportação
 
-O serviço de exportação de importação não funciona quando **permitir acesso aos serviços do Azure** está definido como **desativado**. No entanto, você pode contornar o problema [executando manualmente sqlpackage.exe de uma VM do Azure ou executando a exportação](https://docs.microsoft.com/azure/sql-database/import-export-from-vm) diretamente em seu código usando a API DACFx.
+O serviço de exportação de importação não funciona quando **permitir acesso aos serviços do Azure** está definido como **desativado**. No entanto, você pode contornar o problema [executando manualmente sqlpackage.exe de uma VM do Azure ou executando a exportação](./database-import-export-azure-services-off.md) diretamente em seu código usando a API DACFx.
 
 ### <a name="data-sync"></a>Sincronização de Dados
 
@@ -82,7 +82,7 @@ PS C:\> $sql.Properties.AddressPrefixes
 > [!TIP]
 > Get-AzNetworkServiceTag retorna o intervalo global para a marca de serviço do SQL, apesar de especificar o parâmetro de local. Certifique-se de filtrá-lo para a região que hospeda o banco de dados de Hub usado pelo seu grupo de sincronização
 
-Observe que a saída do script do PowerShell está em notação CIDR (roteamento entre domínios sem classificação). Isso precisa ser convertido em um formato de endereço IP inicial e final usando [Get-IPrangeStartEnd.ps1](https://gallery.technet.microsoft.com/scriptcenter/Start-and-End-IP-addresses-bcccc3a9) como este:
+Observe que a saída do script do PowerShell está na notação CIDR (roteamento sem classe Inter-Domain). Isso precisa ser convertido em um formato de endereço IP inicial e final usando [Get-IPrangeStartEnd.ps1](https://gallery.technet.microsoft.com/scriptcenter/Start-and-End-IP-addresses-bcccc3a9) como este:
 
 ```powershell
 PS C:\> Get-IPrangeStartEnd -ip 52.229.17.93 -cidr 26
@@ -102,7 +102,7 @@ start          end
 13.86.216.192  13.86.216.223
 ```
 
-Agora você pode adicioná-las como regras de firewall distintas e, em seguida, definir **permitir que os serviços do Azure acessem o servidor** como desativado.
+Agora você pode adicioná-las como regras de firewall distintas e, em seguida, definir **permitir que os serviços do Azure acessem o servidor**  como desativado.
 
 ## <a name="ip-firewall-rules"></a>Regras de firewall de IP
 
@@ -148,7 +148,7 @@ O link privado permite que você se conecte a um servidor por meio de um **ponto
 
 - Para obter um início rápido sobre como criar uma regra de firewall de rede virtual no nível de servidor, consulte [pontos de extremidade de serviço de rede virtual e regras para o banco de dados SQL do Azure](vnet-service-endpoint-rule-overview.md).
 
-- Para obter ajuda com a conexão com um banco de dados no banco de dados SQL de software livre ou aplicativos de terceiros, consulte [exemplos de código de início rápido do cliente para banco de dados SQL](https://msdn.microsoft.com/library/azure/ee336282.aspx).
+- Para obter ajuda com a conexão com um banco de dados no banco de dados SQL de software livre ou aplicativos de terceiros, consulte [exemplos de código de início rápido do cliente para banco de dados SQL](/previous-versions/azure/ee336282(v=azure.100)).
 
 - Para obter mais informações sobre as portas adicionais que você pode precisar abrir, consulte a seção **Banco de Dados SQL: fora versus dentro** de [Portas além da 1433 para ADO.NET 4.5 e Banco de Dados SQL](adonet-v12-develop-direct-route-ports.md)
 
@@ -159,4 +159,3 @@ O link privado permite que você se conecte a um servidor por meio de um **ponto
 <!--Image references-->
 [1]: media/quickstart-create-single-database/new-server2.png
 [2]: media/quickstart-create-single-database/manage-server-firewall.png
- 

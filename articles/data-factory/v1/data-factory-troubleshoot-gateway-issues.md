@@ -1,22 +1,18 @@
 ---
 title: Solucionar problemas de Gerenciamento de Dados gateway
 description: Fornece dicas para solucionar problemas relacionados ao Gateway de Gerenciamento de Dados.
-services: data-factory
 author: nabhishek
-manager: anandsub
-ms.assetid: c6756c37-4e5a-4d1e-ab52-365f149b4128
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/01/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 5d83f05c16004edc3ad4842b7e4e9d4b9babe577
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 284486c5db248ced8ada6e7194c7bc5a9be5689f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85319060"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388338"
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>Solucionar problemas usando o Gateway de Gerenciamento de Dados
 Este artigo fornece informações sobre como solucionar problemas com o uso do Gateway de Gerenciamento de Dados.
@@ -86,7 +82,7 @@ A seguinte mensagem de erro poderá ser exibida ao registrar um gateway.
 
 `Error: The gateway key is invalid or empty. Specify a valid gateway key from the portal.`
 
-![A chave do gateway é inválida ou está vazia](media/data-factory-troubleshoot-gateway-issues/gateway-key-is-invalid-or-empty.png)
+![Captura de tela que realça a mensagem de erro que indica que a chave do gateway é inválida ou está vazia.](media/data-factory-troubleshoot-gateway-issues/gateway-key-is-invalid-or-empty.png)
 
 #### <a name="cause"></a>Causa
 A chave do gateway foi regenerada ou o gateway foi excluído do portal do Azure. Isso também pode ocorrer se a configuração do Gateway de Gerenciamento de Dados não for a mais recente.
@@ -99,7 +95,7 @@ Se a configuração for a atual/mais recente e o gateway ainda existir no Portal
 ### <a name="6-problem"></a>6. problema
 A seguinte mensagem de erro poderá ser exibida ao registrar um gateway.
 
-`Error: Gateway has been online for a while, then shows “Gateway is not registered” with the status “Gateway key is invalid”`
+`Error: Gateway has been online for a while, then shows "Gateway is not registered" with the status "Gateway key is invalid"`
 
 ![A chave do gateway é inválida ou está vazia](media/data-factory-troubleshoot-gateway-issues/gateway-not-registered-key-invalid.png)
 
@@ -109,12 +105,12 @@ Esse erro pode ocorrer porque o gateway foi excluído ou a chave do gateway asso
 #### <a name="resolution"></a>Resolução
 Se o gateway foi excluído, recrie o gateway no portal, clique em **Registrar**, copie a chave do portal, cole-a e tente registrar o gateway.
 
-Se o gateway ainda existir, mas a chave tiver sido regenerada, use a nova chave para registrar o gateway. Se você não tiver a chave, regenere-a novamente no portal.
+Se o gateway ainda existir, mas a chave tiver sido regenerada, use a nova chave para registrar o gateway. Se você não tiver a chave, regenere a chave novamente no Portal.
 
 ### <a name="7-problem"></a>7. problema
 Ao registrar um gateway, talvez seja necessário inserir o caminho e a senha de um certificado.
 
-![Especificar certificado](media/data-factory-troubleshoot-gateway-issues/specify-certificate.png)
+![Captura de tela que mostra onde você insere o caminho e a senha para o certificado.](media/data-factory-troubleshoot-gateway-issues/specify-certificate.png)
 
 #### <a name="cause"></a>Causa
 O gateway foi registrado antes em outros computadores. Durante o registro inicial de um gateway, um certificado de criptografia foi associado ao gateway. O certificado pode ser gerado automaticamente pelo gateway ou fornecido pelo usuário.  Esse certificado é usado para criptografar as credenciais do armazenamento de dados (serviço vinculado).  
@@ -252,11 +248,11 @@ Ao contatar o Suporte da Microsoft para obter ajuda com soluções de problemas 
 4. (opcional) Clique em **Privacidade** para examinar a declaração de privacidade dos serviços Web da Microsoft.
 5. Quando estiver satisfeito com o que está prestes a carregar, clique em **Enviar logs** para realmente enviar os logs dos últimos sete dias para a Microsoft a fim de solucionar problemas. Você deve ver o status da operação send-logs conforme mostrado na imagem a seguir.
 
-    ![Gateway de Gerenciamento de Dados – status de Enviar logs](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-send-logs-status.png)
+    ![Captura de tela que mostra onde exibir o status da operação Send-logs.](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-send-logs-status.png)
 6. Quando a operação for concluída, você verá uma caixa de diálogo como mostrado na imagem a seguir.
 
     ![Gateway de Gerenciamento de Dados – status de Enviar logs](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-send-logs-result.png)
-7. Anote a **ID do relatório** e compartilhe-a com o Suporte da Microsoft. A ID do relatório é usada para localizar os logs de gateway carregados para a solução de problemas.  A ID do relatório também será salva no visualizador de eventos.  Você pode encontrá-la ao observar a ID do evento "25" e verificar a data e a hora.
+7. Anote a **ID do relatório** e compartilhe-a com o Suporte da Microsoft. A ID do relatório é usada para localizar os logs de gateway carregados para a solução de problemas.  A ID do relatório também será salva no visualizador de eventos.  Você pode encontrá-lo examinando a ID do evento "25" e verificar a data e a hora.
 
     ![Gateway de Gerenciamento de Dados – ID de relatório de Enviar logs](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-send-logs-report-id.png)    
 

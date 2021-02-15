@@ -1,6 +1,6 @@
 ---
-title: Azure Stack o acesso, a energia e o modo de conectividade do dispositivo de borda | Microsoft Docs
-description: Descreve como gerenciar o acesso, a energia e o modo de conectividade para o dispositivo Azure Stack Edge que ajuda a transferir dados para o Azure
+title: Acesso ao dispositivo pro Edge Azure Stack, energia e modo de conectividade | Microsoft Docs
+description: Descreve como gerenciar o acesso, a energia e o modo de conectividade para o dispositivo Azure Stack Edge pro que ajuda a transferir dados para o Azure
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 06/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 6e46d1a923eec5244bf77c201ff0b3189699c9ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6455e4c9fa9460e47e3be7c860f89be540a514b0
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84339715"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96453065"
 ---
-# <a name="manage-access-power-and-connectivity-mode-for-your-azure-stack-edge"></a>Gerenciar o acesso, a energia e o modo de conectividade para seu Azure Stack Edge
+# <a name="manage-access-power-and-connectivity-mode-for-your-azure-stack-edge-pro"></a>Gerencie o modo de acesso, energia e conectividade para seu Azure Stack Edge pro
 
-Este artigo descreve como gerenciar o modo de acesso, energia e conectividade para seu Azure Stack Edge. Essas operações são executadas por meio da interface do usuário da web local ou o portal do Azure.
+Este artigo descreve como gerenciar o modo de acesso, energia e conectividade para seu Azure Stack Edge pro. Essas operações são executadas por meio da interface do usuário da web local ou o portal do Azure.
 
 Neste artigo, você aprenderá como:
 
@@ -29,7 +29,7 @@ Neste artigo, você aprenderá como:
 
 ## <a name="manage-device-access"></a>Gerenciar o acesso de dispositivo
 
-O acesso ao seu dispositivo do Azure Stack Edge é controlado pelo uso de uma senha do dispositivo. Você pode alterar a senha por meio da interface do usuário da Web local. Você também pode redefinir a senha do dispositivo no portal do Azure.
+O acesso ao seu dispositivo Azure Stack Edge pro é controlado pelo uso de uma senha de dispositivo. Você pode alterar a senha por meio da interface do usuário da Web local. Você também pode redefinir a senha do dispositivo no portal do Azure.
 
 ### <a name="change-device-password"></a>Alterar a senha de dispositivo
 
@@ -53,7 +53,7 @@ O fluxo de trabalho de redefinição não exige que o usuário recupere a senha 
 
 2. Digite a nova senha e confirme-a. A senha fornecida deve ter entre 8 e 16 caracteres. A senha deve ter 3 dos seguintes caracteres: maiúscula, minúscula, numérica e caracteres especiais. Selecione **Restaurar**.
 
-    ![Redefinir senha](media/azure-stack-edge-manage-access-power-connectivity-mode/reset-password-2.png)
+    ![Redefinir senha 2](media/azure-stack-edge-manage-access-power-connectivity-mode/reset-password-2.png)
 
 ## <a name="manage-resource-access"></a>Gerenciar o acesso de recursos
 
@@ -61,14 +61,14 @@ Para criar seu Azure Stack Edge/Gateway do Data Box, o Hub IoT e o recurso de ar
 
 ### <a name="manage-microsoft-graph-api-permissions"></a>Gerenciar permissões de API de Microsoft Graph
 
-Ao gerar a chave de ativação para o dispositivo Azure Stack Edge ou executar qualquer operação que exija credenciais, você precisa de permissões para Azure Active Directory API do Graph. As operações que precisam de credenciais podem ser:
+Ao gerar a chave de ativação para o Azure Stack dispositivo pro Edge ou executar qualquer operação que exija credenciais, você precisará de permissões para Azure Active Directory API do Graph. As operações que precisam de credenciais podem ser:
 
 -  Criando um compartilhamento com uma conta de armazenamento associada.
 -  Criar um usuário que pode acessar os compartilhamentos no dispositivo.
 
-Você deve ter `User` acesso ao Active Directory locatário, pois precisa ser capaz de fazer isso `Read all directory objects` . Você não pode ser um usuário convidado, pois não tem permissões para `Read all directory objects` . Se você for um convidado, as operações, como a geração de uma chave de ativação, a criação de um compartilhamento em seu Azure Stack dispositivo de borda, a criação de um usuário, a configuração da função de computação de borda, falharão ao redefinir a senha do dispositivo.
+Você deve ter `User` acesso ao Active Directory locatário, pois precisa ser capaz de fazer isso `Read all directory objects` . Você não pode ser um usuário convidado, pois não tem permissões para `Read all directory objects` . Se você for um convidado, as operações, como a geração de uma chave de ativação, a criação de um compartilhamento no dispositivo Azure Stack Edge pro, a criação de um usuário, a configuração da função de computação de borda, falharão ao redefinir a senha do dispositivo.
 
-Para obter mais informações sobre como fornecer acesso aos usuários para Microsoft Graph API, consulte [referência de permissões de Microsoft Graph](https://docs.microsoft.com/graph/permissions-reference).
+Para obter mais informações sobre como fornecer acesso aos usuários para Microsoft Graph API, consulte [referência de permissões de Microsoft Graph](/graph/permissions-reference).
 
 ### <a name="register-resource-providers"></a>Registrar provedores de recursos
 
@@ -89,13 +89,13 @@ Para obter uma lista de provedores de recursos registrados na assinatura atual, 
 Get-AzResourceProvider -ListAvailable |where {$_.Registrationstate -eq "Registered"}
 ```
 
-Para Azure Stack dispositivo de borda, `Microsoft.DataBoxEdge` deve ser registrado. Para se registrar `Microsoft.DataBoxEdge` , o administrador de assinatura deve executar o seguinte comando:
+Para Azure Stack dispositivo pro Edge, `Microsoft.DataBoxEdge` deve ser registrado. Para se registrar `Microsoft.DataBoxEdge` , o administrador de assinatura deve executar o seguinte comando:
 
 ```PowerShell
 Register-AzResourceProvider -ProviderNamespace Microsoft.DataBoxEdge
 ```
 
-Para obter mais informações sobre como registrar um provedor de recursos, consulte [resolver erros de registro do provedor de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-register-provider-errors).
+Para obter mais informações sobre como registrar um provedor de recursos, consulte [resolver erros de registro do provedor de recursos](../azure-resource-manager/templates/error-register-resource-provider.md).
 
 ## <a name="manage-connectivity-mode"></a>Gerenciar o modo de conectividade
 
@@ -114,13 +114,13 @@ Além do modo totalmente conectado padrão, o dispositivo também pode ser execu
 Para alterar o modo de dispositivo, siga estas etapas:
 
 1. Na interface do usuário da web local do seu dispositivo, acesse **Configuração> Configurações da nuvem**.
-2. Na lista suspensa, selecione o modo no qual você deseja operar o dispositivo. Você pode selecionar entre **totalmente**conectado, **parcialmente conectado**e **totalmente desconectado**. Para executar o dispositivo no modo desconectado parcialmente, habilite **gerenciamento do portal do Azure**.
+2. Na lista suspensa, selecione o modo no qual você deseja operar o dispositivo. Você pode selecionar entre **totalmente** conectado, **parcialmente conectado** e **totalmente desconectado**. Para executar o dispositivo no modo desconectado parcialmente, habilite **gerenciamento do portal do Azure**.
 
     ![Modo de conectividade](media/azure-stack-edge-manage-access-power-connectivity-mode/connectivity-mode.png)
  
 ## <a name="manage-power"></a>Gerenciar potência
 
-Você pode desligar ou reiniciar o dispositivo físico usando a interface do usuário da Web local. É recomendável que, antes de reiniciar, coloque os compartilhamentos offline no servidor de dados e, em seguida, no dispositivo. Essa ação minimiza a possibilidade de corrupção de dados.
+Você pode desligar ou reiniciar o dispositivo físico usando a IU da Web local. Nós recomendamos que antes de reiniciar, você coloque os compartilhamentos offline no servidor de dados e, em seguida, no dispositivo. Essa ação minimiza a possibilidade de corrupção de dados.
 
 1. Na interface do usuário de web local, vá para **manutenção > configurações de energia**.
 2. Selecione **desligar** ou **reiniciar** , dependendo do que você pretende fazer.

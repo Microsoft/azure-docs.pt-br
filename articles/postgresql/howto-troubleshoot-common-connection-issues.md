@@ -2,17 +2,17 @@
 title: Solucionar problemas de conexões-banco de dados do Azure para PostgreSQL-servidor único
 description: Saiba como solucionar problemas de conexão com o banco de dados do Azure para PostgreSQL-servidor único.
 keywords: conexão do postgresql, cadeia de conexão, problemas de conectividade, erro transitório, erro de conexão
-author: rachel-msft
-ms.author: raagyema
+author: niklarin
+ms.author: nlarin
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 5/6/2019
-ms.openlocfilehash: c97e8e0d55a99e0b022bdc6e97edc778d7b6588a
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: bff930153dc8941fbfe561edf963d5b1c1e7811f
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86107590"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014611"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-postgresql---single-server"></a>Solucionar problemas de conexão com o banco de dados do Azure para PostgreSQL-servidor único
 
@@ -48,7 +48,7 @@ Se o aplicativo falhar persistentemente em se conectar ao Banco de Dados do Azur
 
 * Configuração de firewall do servidor: Verifique se o Firewall do servidor do banco de dados do Azure para PostgreSQL está configurado para permitir conexões do cliente, incluindo servidores proxy e gateways.
 * Configuração de firewall do cliente: o firewall em seu cliente deve permitir conexões com o servidor de banco de dados. Endereços IP e portas do servidor devem ser permitidos, bem como nomes de aplicativo, como MySQL, em alguns firewalls.
-* Erro do usuário: você pode ter parâmetros de conexão digitados, como o nome do servidor na cadeia de conexão ou um sufixo * \@ ServerName* ausente no nome de usuário.
+* Erro do usuário: você pode ter parâmetros de conexão digitados, como o nome do servidor na cadeia de conexão ou um sufixo *\@ ServerName* ausente no nome de usuário.
 * Se você vir que o _servidor de erro não está configurado para permitir conexões IPv6_, observe que a camada básica não dá suporte a pontos de extremidade de serviço de VNet. Você precisa remover o ponto de extremidade Microsoft. SQL da sub-rede que está tentando se conectar ao servidor básico.
 * Se você vir o erro de conexão _sslmode valor "* * *" inválido quando o suporte a SSL não for compilado em_ erro, significa que o cliente PostgreSQL não oferece suporte a SSL. Provavelmente, a libpq do lado do cliente não foi compilada com o sinalizador "--com-OpenSSL". Tente se conectar com um cliente PostgreSQL que tenha suporte a SSL. 
 

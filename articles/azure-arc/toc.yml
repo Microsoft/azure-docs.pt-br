@@ -3,8 +3,12 @@
 - name: Visão geral
   items:
     - name: Sobre o Azure Arc
-      href: arc-overview.md
+      href: overview.md
 - name: Servidores habilitados para Arc >
   href: ./servers/overview.md
 - name: Kubernetes habilitado para Arc >
   href: ./kubernetes/overview.md
+- name: Serviços de dados habilitados para Arc (versão prévia) >
+  href: ./data/overview.md
+- name: SQL Server habilitado para Arc (versão prévia) >
+  href: 'https://docs.microsoft.com/sql/sql-server/azure-arc/overview'

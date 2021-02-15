@@ -6,16 +6,16 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/10/2019
-ms.openlocfilehash: 5b450254648cb253d6631397d703430401009f14
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 234ef58920a9f896d3e8ebcc561562ea7ceb2708
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87925627"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186415"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Gerenciar acesso a dados de log e workspaces no Azure Monitor
 
-Azure Monitor armazena dados de [log](data-platform-logs.md) em um espaço de trabalho log Analytics. Um espaço de trabalho é um contêiner que inclui informações de dados e de configuração. Para gerenciar o acesso aos dados de log, você executa várias tarefas administrativas relacionadas ao seu espaço de trabalho.
+Azure Monitor armazena dados de [log](data-platform-logs.md) em um espaço de trabalho log Analytics. Um workspace é um contêiner que inclui dados e informações de configuração. Para gerenciar o acesso aos dados de log, você executa várias tarefas administrativas relacionadas ao seu espaço de trabalho.
 
 Este artigo explica como gerenciar o acesso aos logs e administrar os espaços de trabalho que os contêm, incluindo como conceder acesso a: 
 
@@ -23,7 +23,7 @@ Este artigo explica como gerenciar o acesso aos logs e administrar os espaços d
 * Usuários que precisam de acesso a dados de log de recursos específicos usando o controle de acesso baseado em função do Azure (RBAC do Azure), também conhecido como [contexto de recurso](design-logs-deployment.md#access-mode)
 * Usuários que precisam de acesso a dados de log em uma tabela específica no espaço de trabalho usando o RBAC do Azure.
 
-Para entender os conceitos de logs sobre o RBAC e as estratégias de acesso, leia [criando sua implantação de logs de Azure monitor](design-logs-deployment.md)
+Para entender os conceitos de logs em relação às estratégias de acesso e RBAC do Azure, leia [criando sua implantação de logs de Azure monitor](design-logs-deployment.md)
 
 ## <a name="configure-access-control-mode"></a>Configurar o modo de controle de acesso
 
@@ -48,7 +48,7 @@ Você pode alterar essa configuração na página **Propriedades** do espaço de
 
 ![Alterar modo de acesso do espaço de trabalho](media/manage-access/change-access-control-mode.png)
 
-### <a name="using-powershell"></a>Usando o PowerShell
+### <a name="using-powershell"></a>Usar o PowerShell
 
 Use o seguinte comando para examinar o modo de controle de acesso para todos os espaços de trabalho na assinatura:
 
@@ -106,7 +106,7 @@ Cada workspace pode ter várias contas associadas e cada conta pode ter acesso a
 
 As atividades a seguir também exigem permissões do Azure:
 
-|Ação |Permissões do Azure necessárias |Observações |
+|Ação |Permissões do Azure necessárias |Anotações |
 |-------|-------------------------|------|
 | Adicionando e removendo soluções de monitoramento | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | Essas permissões precisam ser concedidas no nível de assinatura ou no grupo de recursos. |
 | Alterar o tipo de preço | `Microsoft.OperationalInsights/workspaces/*/write` | |
@@ -134,7 +134,7 @@ Os membros da função *Leitor do Log Analytics* podem:
 
 A função de leitor do Log Analytics inclui as seguintes ações do Azure:
 
-| Type    | Permissão | Descrição |
+| Tipo    | Permissão | Descrição |
 | ------- | ---------- | ----------- |
 | Ação | `*/read`   | Capacidade de exibir todos os recursos do Azure e a configuração do recurso. Inclui exibir: <br> Status de extensão da máquina virtual <br> Configuração do diagnóstico do Azure nos recursos <br> Todas as propriedades e configurações de todos os recursos. <br> Para espaços de trabalho, ele permite permissões totalmente irrestritas para ler as configurações do espaço de trabalho e executar a consulta nos dados. Veja as opções mais granulares acima. |
 | Ação | `Microsoft.OperationalInsights/workspaces/analytics/query/action` | Preterido, sem necessidade de atribuí-los aos usuários. |
@@ -194,9 +194,9 @@ Quando os usuários consultam logs de um espaço de trabalho usando acesso de co
 | `Microsoft.Insights/logs/<tableName>/read`<br><br>Exemplos:<br>`Microsoft.Insights/logs/*/read`<br>`Microsoft.Insights/logs/Heartbeat/read` | Capacidade de exibir todos os dados de log para o recurso.  |
 | `Microsoft.Insights/diagnosticSettings/write` | Capacidade de definir a configuração de diagnóstico para permitir a configuração de logs para este recurso. |
 
-`/read`Normalmente, a permissão é concedida de uma função que inclui _ \* /Read ou_ _\*_ permissões, como as funções de [leitor](../../role-based-access-control/built-in-roles.md#reader) e [colaborador](../../role-based-access-control/built-in-roles.md#contributor) internas. Funções personalizadas que incluem ações específicas ou funções internas dedicadas podem não incluir essa permissão.
+`/read`Normalmente, a permissão é concedida de uma função que inclui _\* /Read ou_ _\*_ permissões, como as funções de [leitor](../../role-based-access-control/built-in-roles.md#reader) e [colaborador](../../role-based-access-control/built-in-roles.md#contributor) internas. Funções personalizadas que incluem ações específicas ou funções internas dedicadas podem não incluir essa permissão.
 
-Consulte [definindo o controle de acesso por tabela](#table-level-rbac) abaixo se você quiser criar um controle de acesso diferente para tabelas diferentes.
+Consulte [definindo o controle de acesso por tabela](#table-level-azure-rbac) abaixo se você quiser criar um controle de acesso diferente para tabelas diferentes.
 
 ## <a name="custom-role-examples"></a>Exemplos de função personalizada
 
@@ -228,26 +228,26 @@ Consulte [definindo o controle de acesso por tabela](#table-level-rbac) abaixo s
 
     * Conceda aos usuários as seguintes permissões no espaço de trabalho: 
 
-        * `Microsoft.OperationalInsights/workspaces/read`– necessário para que o usuário possa enumerar o espaço de trabalho e abrir a folha do espaço de trabalho no portal do Azure
-        * `Microsoft.OperationalInsights/workspaces/query/read`– necessário para cada usuário que pode executar consultas
-        * `Microsoft.OperationalInsights/workspaces/query/SigninLogs/read`– para poder ler os logs de entrada do Azure AD
-        * `Microsoft.OperationalInsights/workspaces/query/Update/read`– para poder ler Gerenciamento de Atualizações logs da solução
-        * `Microsoft.OperationalInsights/workspaces/query/UpdateRunProgress/read`– para poder ler Gerenciamento de Atualizações logs da solução
-        * `Microsoft.OperationalInsights/workspaces/query/UpdateSummary/read`– para poder ler os logs de gerenciamento de atualizações
-        * `Microsoft.OperationalInsights/workspaces/query/Heartbeat/read`– necessário para poder usar a solução Gerenciamento de Atualizações
-        * `Microsoft.OperationalInsights/workspaces/query/ComputerGroup/read`– necessário para poder usar a solução Gerenciamento de Atualizações
+        * `Microsoft.OperationalInsights/workspaces/read` – necessário para que o usuário possa enumerar o espaço de trabalho e abrir a folha do espaço de trabalho no portal do Azure
+        * `Microsoft.OperationalInsights/workspaces/query/read` – necessário para cada usuário que pode executar consultas
+        * `Microsoft.OperationalInsights/workspaces/query/SigninLogs/read` – para poder ler os logs de entrada do Azure AD
+        * `Microsoft.OperationalInsights/workspaces/query/Update/read` – para poder ler Gerenciamento de Atualizações logs da solução
+        * `Microsoft.OperationalInsights/workspaces/query/UpdateRunProgress/read` – para poder ler Gerenciamento de Atualizações logs da solução
+        * `Microsoft.OperationalInsights/workspaces/query/UpdateSummary/read` – para poder ler os logs de gerenciamento de atualizações
+        * `Microsoft.OperationalInsights/workspaces/query/Heartbeat/read` – necessário para poder usar a solução Gerenciamento de Atualizações
+        * `Microsoft.OperationalInsights/workspaces/query/ComputerGroup/read` – necessário para poder usar a solução Gerenciamento de Atualizações
 
     * Conceda aos usuários as seguintes permissões para seus recursos: `*/read` , atribuído à função leitor ou `Microsoft.Insights/logs/*/read` . 
 
-## <a name="table-level-rbac"></a>RBAC de nível de tabela
+## <a name="table-level-azure-rbac"></a>RBAC do Azure no nível de tabela
 
-O **RBAC em nível de tabela** permite que você defina um controle mais granular para dados em um espaço de trabalho log Analytics além das outras permissões. Esse controle permite que você defina tipos de dados específicos que são acessíveis somente para um conjunto específico de usuários.
+O **Azure RBAC de nível de tabela** permite que você defina um controle mais granular para dados em um espaço de trabalho log Analytics além das outras permissões. Esse controle permite que você defina tipos de dados específicos que são acessíveis somente para um conjunto específico de usuários.
 
-Você implementa o controle de acesso de tabela com as [funções personalizadas do Azure](../../role-based-access-control/custom-roles.md) para conceder acesso a [tabelas](../log-query/logs-structure.md) específicas no espaço de trabalho. Essas funções são aplicadas a espaços de trabalho com o contexto do espaço de trabalho ou os [modos de controle de acesso](design-logs-deployment.md#access-control-mode) de contexto de recurso, independentemente do modo de [acesso](design-logs-deployment.md#access-mode)do usuário.
+Você implementa o controle de acesso de tabela com as [funções personalizadas do Azure](../../role-based-access-control/custom-roles.md) para conceder acesso a [tabelas](./data-platform-logs.md) específicas no espaço de trabalho. Essas funções são aplicadas a espaços de trabalho com o contexto do espaço de trabalho ou os [modos de controle de acesso](design-logs-deployment.md#access-control-mode) de contexto de recurso, independentemente do modo de [acesso](design-logs-deployment.md#access-mode)do usuário.
 
 Crie uma [função personalizada](../../role-based-access-control/custom-roles.md) com as ações a seguir para definir o acesso ao controle de acesso à tabela.
 
-* Para conceder acesso a uma tabela, inclua-a na seção **ações** da definição de função. Para subtrair o acesso das **ações**permitidas, inclua-o na seção não- **ações** .
+* Para conceder acesso a uma tabela, inclua-a na seção **ações** da definição de função. Para subtrair o acesso das **ações** permitidas, inclua-o na seção não- **ações** .
 * Use Microsoft. OperationalInsights/Workspaces/Query/* para especificar todas as tabelas.
 
 Por exemplo, para criar uma função com acesso às tabelas _Heartbeat_ e _AzureActivity_ , crie uma função personalizada usando as seguintes ações:
@@ -270,7 +270,7 @@ Para criar uma função com acesso apenas à tabela _SecurityBaseline_ , crie um
     "Microsoft.OperationalInsights/workspaces/query/SecurityBaseline/read"
 ],
 ```
-Os exemplos acima definem uma lista de permissões de tabelas que são permitidas. Este exemplo mostra a definição de lista negra quando um usuário pode acessar todas as tabelas, exceto a tabela _SecurityAlert_ :
+Os exemplos acima definem uma lista de tabelas que são permitidas. Este exemplo mostra a definição da lista bloqueada quando um usuário pode acessar todas as tabelas, exceto a tabela _SecurityAlert_ :
 
 ```
 "Actions":  [
@@ -285,7 +285,7 @@ Os exemplos acima definem uma lista de permissões de tabelas que são permitida
 
 ### <a name="custom-logs"></a>Logs personalizados
 
- Os logs personalizados são criados a partir de fontes de dados como logs personalizados e API do coletor de dados HTTP. A maneira mais fácil de identificar o tipo de log é verificando as tabelas listadas em [logs personalizados no esquema de log](../log-query/get-started-portal.md#understand-the-schema).
+ Os logs personalizados são criados a partir de fontes de dados como logs personalizados e API do coletor de dados HTTP. A maneira mais fácil de identificar o tipo de log é verificando as tabelas listadas em [logs personalizados no esquema de log](../log-query/log-analytics-tutorial.md#table-schema).
 
  Você não pode conceder acesso a logs personalizados individuais, mas pode conceder acesso a todos os logs personalizados. Para criar uma função com acesso a todos os logs personalizados, crie uma função personalizada usando as seguintes ações:
 
@@ -302,7 +302,7 @@ Uma abordagem alternativa para gerenciar o acesso a logs personalizados é atrib
 
 ### <a name="considerations"></a>Considerações
 
-* Se um usuário receber permissão de leitura global com as funções leitor padrão ou colaborador que incluem a ação _ \* /Read_ , ele substituirá o controle de acesso por tabela e dará acesso a todos os dados de log.
+* Se um usuário receber permissão de leitura global com as funções leitor padrão ou colaborador que incluem a ação _\* /Read_ , ele substituirá o controle de acesso por tabela e dará acesso a todos os dados de log.
 * Se um usuário receber acesso por tabela, mas nenhuma outra permissão, ele poderá acessar dados de log da API, mas não do portal do Azure. Para fornecer acesso do portal do Azure, use o leitor de Log Analytics como sua função base.
 * Os administradores e os proprietários da assinatura terão acesso a todos os tipos de dados, independentemente de quaisquer outras configurações de permissão.
 * Os proprietários do espaço de trabalho são tratados como qualquer outro usuário para o controle de acesso por tabela.

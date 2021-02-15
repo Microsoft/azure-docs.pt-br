@@ -1,23 +1,23 @@
 ---
-title: Receber alertas do log de atividades em notificações de serviço do Azure usando o modelo do Resource Manager
+title: Receber alertas do log de atividades nas notificações de serviço do Azure usando um modelo do Resource Manager
 description: Seja notificado por SMS, email ou webhook quando um serviço do Azure for executado.
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 06/29/2020
-ms.openlocfilehash: 84c888195ab7e2f3288691948706d31160393d25
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: 688314a2057964c66baeacbbc49736ea436f5ec5
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85918911"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91630212"
 ---
-# <a name="quickstart-create-activity-log-alerts-on-service-notifications-using-an-arm-template"></a>Início rápido: criar alertas do log de atividades em notificações de serviço usando um modelo do ARM
+# <a name="quickstart-create-activity-log-alerts-on-service-notifications-using-an-arm-template"></a>Início Rápido: Criar alertas do log de atividades nas notificações de serviço usando um modelo do ARM
 
-Este artigo mostra como configurar alertas do log de atividades para notificações de integridade do serviço usando um modelo de Azure Resource Manager (modelo ARM).
+Este artigo mostra como configurar alertas do log de atividades para notificações de integridade do serviço usando um modelo do ARM (modelo do Azure Resource Manager).
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-As notificações de integridade do serviço são armazenadas no [log de atividades do Azure](../azure-monitor/platform/platform-logs-overview.md). Considerando o volume possivelmente grande de informações armazenadas no log de atividades, há uma interface do usuário separada para facilitar a exibição e a configuração de alertas sobre notificações de integridade do serviço.
+As notificações de integridade do serviço são armazenadas no [log de atividades do Azure](../azure-monitor/platform/platform-logs-overview.md). Considerando o volume possivelmente grande de informações armazenadas no log de atividades, há uma interface do usuário separada para facilitar a exibição e a configuração de alertas nas notificações de integridade do serviço.
 
 Você pode receber um alerta quando o Azure envia notificações de integridade do serviço para sua assinatura do Azure. Você pode configurar o alerta de acordo com:
 
@@ -39,11 +39,11 @@ Para saber mais sobre grupos de ações, veja [Criar e gerenciar grupos de açõ
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
-- Para executar os comandos do computador local, instale CLI do Azure ou os módulos Azure PowerShell. Para obter mais informações, consulte [instalar o CLI do Azure](/cli/azure/install-azure-cli) e [instalar Azure PowerShell](/powershell/azure/install-az-ps).
+- Para executar os comandos do computador local, instale a CLI do Azure ou os módulos do Azure PowerShell. Para obter mais informações, confira [Instalar o CLI do Azure](/cli/azure/install-azure-cli) e [Instalar o Azure PowerShell](/powershell/azure/install-az-ps).
 
 ## <a name="review-the-template"></a>Examinar o modelo
 
-O modelo a seguir cria um grupo de ações com um destino de email e habilita todas as notificações de integridade do serviço para a assinatura de destino. Salve este modelo como *CreateServiceHealthAlert.jsem*.
+O modelo a seguir cria um grupo de ações com um destino de email e habilita todas as notificações de integridade de serviço para a assinatura de destino. Salve esse modelo como *CreateServiceHealthAlert.json*.
 
 ```json
 {
@@ -51,19 +51,19 @@ O modelo a seguir cria um grupo de ações com um destino de email e habilita to
   "contentVersion": "1.0.0.0",
   "parameters": {
     "actionGroups_name": {
-      "defaultValue": "SubHealth",
-      "type": "String"
+      "type": "String",
+      "defaultValue": "SubHealth"
     },
     "activityLogAlerts_name": {
-      "defaultValue": "ServiceHealthActivityLogAlert",
-      "type": "String"
+      "type": "String",
+      "defaultValue": "ServiceHealthActivityLogAlert"
     },
-    "emailAddress":{
-      "type":"string"
+    "emailAddress": {
+      "type": "string"
     }
   },
   "variables": {
-    "alertScope":"[concat('/','subscriptions','/',subscription().subscriptionId)]"
+    "alertScope": "[concat('/','subscriptions','/',subscription().subscriptionId)]"
   },
   "resources": [
     {
@@ -72,8 +72,9 @@ O modelo a seguir cria um grupo de ações com um destino de email e habilita to
       "apiVersion": "2019-06-01",
       "name": "[parameters('actionGroups_name')]",
       "location": "Global",
-      "tags": {},
       "scale": null,
+      "dependsOn": [],
+      "tags": {},
       "properties": {
         "groupShortName": "[parameters('actionGroups_name')]",
         "enabled": true,
@@ -85,8 +86,7 @@ O modelo a seguir cria um grupo de ações com um destino de email e habilita to
         ],
         "smsReceivers": [],
         "webhookReceivers": []
-      },
-      "dependsOn": []
+      }
     },
     {
       "comments": "Service Health Activity Log Alert",
@@ -94,8 +94,11 @@ O modelo a seguir cria um grupo de ações com um destino de email e habilita to
       "apiVersion": "2017-04-01",
       "name": "[parameters('activityLogAlerts_name')]",
       "location": "Global",
-      "tags": {},
       "scale": null,
+      "dependsOn": [
+        "[resourceId('microsoft.insights/actionGroups', parameters('actionGroups_name'))]"
+      ],
+      "tags": {},
       "properties": {
         "scopes": [
           "[variables('alertScope')]"
@@ -122,10 +125,7 @@ O modelo a seguir cria um grupo de ações com um destino de email e habilita to
         },
         "enabled": true,
         "description": ""
-      },
-      "dependsOn": [
-        "[resourceId('microsoft.insights/actionGroups', parameters('actionGroups_name'))]"
-      ]
+      }
     }
   ]
 }
@@ -133,12 +133,12 @@ O modelo a seguir cria um grupo de ações com um destino de email e habilita to
 
 O modelo define dois recursos:
 
-- [Microsoft. insights/actionGroups](/azure/templates/microsoft.insights/actiongroups)
-- [Microsoft. insights/activityLogAlerts](/azure/templates/microsoft.insights/activityLogAlerts)
+- [Microsoft.Insights/actionGroups](/azure/templates/microsoft.insights/actiongroups)
+- [Microsoft.Insights/activityLogAlerts](/azure/templates/microsoft.insights/activityLogAlerts)
 
 ## <a name="deploy-the-template"></a>Implantar o modelo
 
-Implante o modelo usando qualquer método padrão para [implantar um modelo ARM](../azure-resource-manager/templates/deploy-portal.md) , como os exemplos a seguir, usando a CLI e o PowerShell. Substitua os valores de exemplo para o **grupo de recursos** e o **EmailAddress** pelos valores apropriados para seu ambiente.
+Implante o modelo usando qualquer método padrão para [implantar um modelo do ARM](../azure-resource-manager/templates/deploy-portal.md) como os exemplos a seguir usando a CLI e o PowerShell. Substitua os valores de exemplo de **Grupo de Recursos** e **emailAddress** pelos valores apropriados para o seu ambiente.
 
 # <a name="cli"></a>[CLI](#tab/CLI)
 
@@ -159,7 +159,7 @@ New-AzResourceGroupDeployment -Name CreateServiceHealthAlert -ResourceGroupName 
 
 ## <a name="validate-the-deployment"></a>Validar a implantação
 
-Verifique se o espaço de trabalho foi criado usando um dos comandos a seguir. Substitua os valores de exemplo do **grupo de recursos** pelo valor usado acima.
+Verifique se o workspace foi criado usando um dos comandos a seguir. Substitua os valores do exemplo para **Grupo de Recursos** pelo valor que você usou acima.
 
 # <a name="cli"></a>[CLI](#tab/CLI)
 
@@ -177,7 +177,7 @@ Get-AzActivityLogAlert -ResourceGroupName my-resource-group -Name ServiceHealthA
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Se planejar continuar trabalhando com os tutoriais e inícios rápidos subsequentes, deixe esses recursos onde estão. Quando não for mais necessário, exclua o grupo de recursos, que exclui a regra de alerta e os recursos relacionados. Para excluir o grupo de recursos usando CLI do Azure ou Azure PowerShell
+Se planejar continuar trabalhando com os tutoriais e inícios rápidos subsequentes, deixe esses recursos onde estão. Quando não for mais necessário, exclua o grupo de recursos, o que excluirá a regra de alerta e os recursos relacionados. Para excluir o grupo de recursos usando a CLI do Azure ou o Azure PowerShell
 
 # <a name="cli"></a>[CLI](#tab/CLI)
 
@@ -195,11 +195,11 @@ Remove-AzResourceGroup -Name my-resource-group
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre [as práticas recomendadas para configurar alertas de integridade do serviço do Azure](https://www.microsoft.com/en-us/videoplayer/embed/RE2OtUa).
-- Saiba como [configurar notificações por push móvel para a integridade do serviço do Azure](https://www.microsoft.com/en-us/videoplayer/embed/RE2OtUw).
+- Saiba mais sobre as [melhores práticas para configurar os alertas da Integridade do Serviço do Azure](https://www.microsoft.com/en-us/videoplayer/embed/RE2OtUa).
+- Saiba como [configurar notificações por push móvel para a Integridade do Serviço do Azure](https://www.microsoft.com/en-us/videoplayer/embed/RE2OtUw).
 - Saiba como [configurar notificações de webhook para sistemas de gerenciamento de problemas existentes](service-health-alert-webhook-guide.md).
 - Saiba mais sobre as [notificações de integridade do serviço](service-notifications.md).
-- Saiba mais sobre a [limitação da taxa de notificação](../azure-monitor/platform/alerts-rate-limiting.md).
-- Examine o [esquema de webhook de alerta do log de atividades](../azure-monitor/platform/activity-log-alerts-webhook.md).
+- Saiba mais sobre [limitação de taxa de notificação](../azure-monitor/platform/alerts-rate-limiting.md).
+- Examine o [esquema do webhook de alertas de log de atividades](../azure-monitor/platform/activity-log-alerts-webhook.md).
 - Obtenha uma [visão geral dos alertas do log de atividades](../azure-monitor/platform/alerts-overview.md) e saiba como receber alertas.
 - Saiba mais sobre [grupos de ação](../azure-monitor/platform/action-groups.md).

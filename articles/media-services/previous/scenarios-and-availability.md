@@ -1,9 +1,9 @@
 ---
-title: Cenários dos Serviços de Mídia do Microsoft Azure e disponibilidade de recursos nos datacenters | Microsoft Docs
-description: Este tópico fornece uma visão geral dos cenários dos Serviços de Mídia do Microsoft Azure e a disponibilidade de recursos e serviços nos datacenters.
+title: Serviços de Mídia do Microsoft Azure cenários comuns | Microsoft Docs
+description: Este artigo fornece uma visão geral dos cenários de Serviços de Mídia do Microsoft Azure.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,31 +11,29 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/20/2019
-ms.author: juliako
-ms.openlocfilehash: 81d1c86bc5130d616712d022efd4b111b8b939dd
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.date: 11/3/2020
+ms.author: inhenkel
+ms.openlocfilehash: d195ad6715c47b9b4c14dc2e65ba1d07ebf79ce8
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542371"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98696254"
 ---
-# <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Cenários e disponibilidade de recursos dos Serviços de Mídia em datacenters
+# <a name="microsoft-azure-media-services-common-scenarios"></a>Serviços de Mídia do Microsoft Azure cenários comuns
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
-> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](../latest/index.yml). Além disso, consulte s [diretrizes de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
+> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. Confira a versão mais recente, [Serviços de Mídia v3](../latest/media-services-overview.md). Além disso, consulte s [diretrizes de migração da v2 para a v3](../latest/migrate-v-2-v-3-migration-introduction.md)
 
 Os Serviços de Mídia do Microsoft Azure (AMS) permitem que você carregue com segurança, armazene, codifique e empacote o conteúdo de áudio ou vídeo para a entrega de streaming sob demanda e ao vivo para vários clientes (por exemplo, TV, PCs e dispositivos móveis).
 
-O AMS opera em vários datacenters no mundo inteiro. Esses datacenters estão agrupados em regiões geográficas, oferecendo a você a flexibilidade de escolher onde compilar seus aplicativos. Você pode ver a [lista de regiões e suas localizações](https://azure.microsoft.com/regions/). 
-
-Este tópico mostra os cenários comuns de entrega de conteúdo [ao vivo](#live_scenarios) ou sob demanda. O tópico também fornece detalhes sobre a disponibilidade dos recursos de mídia e serviços nos datacenters.
+Este artigo mostra cenários comuns para entregar seu conteúdo ao vivo ou sob demanda.
 
 ## <a name="overview"></a>Visão geral
 
 ### <a name="prerequisites"></a>Pré-requisitos
-
-Para começar a usar o Azure Media Services, você deve possuir o seguinte:
 
 * Uma conta do Azure. Se não tiver uma conta, você poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com).
 * Uma conta de Serviços de Mídia do Azure. Para obter mais informações, veja [Criar conta](media-services-portal-create-account.md).
@@ -59,61 +57,46 @@ Você pode exibir todo o modelo [aqui](https://media.windows.net/API/$metadata?a
 
 1. Carregue um arquivo de mídia de alta qualidade em um ativo.
 
-    É recomendável aplicar a opção de criptografia de armazenamento a seu ativo para proteger o conteúdo durante o carregamento e enquanto ele estiver em repouso no armazenamento.
-2. Codifique para um conjunto de arquivos MP4 com taxa de bits adaptável.
+    Recomenda-se aplicar a opção de criptografia de armazenamento ao seu ativo para proteger o conteúdo durante o carregamento e, em repouso, no armazenamento.
 
-    É recomendável aplicar a opção de criptografia de armazenamento ao ativo de saída para proteger o conteúdo em repouso.
-3. Configure a política de entrega de ativos (usada pelo empacotamento dinâmico).
+1. Codifique para um conjunto de arquivos MP4 com taxa de bits adaptável.
+
+    É recomendável aplicar a opção de criptografia de armazenamento ao ativo de saída para proteger seu conteúdo em repouso.
+
+1. Configure a política de entrega de ativos (usada pelo empacotamento dinâmico).
 
     Se o ativo for armazenamento criptografado, você **deverá** configurar a política de entrega de ativos.
-4. Publicar o ativo criando um localizador OnDemand.
-5. Fluxo de conteúdo publicado.
-
-Para obter informações sobre a disponibilidade nos datacenters, consulte a seção [Disponibilidade](#availability).
+1. Publicar o ativo criando um localizador OnDemand.
+1. Fluxo de conteúdo publicado.
 
 ## <a name="protect-content-in-storage-deliver-dynamically-encrypted-streaming-media"></a>Proteger o conteúdo no armazenamento, fornecer mídia de streaming criptografada dinamicamente
 
 ![Proteger com o PlayReady](./media/media-services-content-protection-overview/media-services-content-protection-with-multi-drm.png)
 
 1. Carregue um arquivo de mídia de alta qualidade em um ativo. Aplique a opção de criptografia de armazenamento ao ativo.
-2. Codifique para um conjunto de arquivos MP4 com taxa de bits adaptável. Aplique a opção de criptografia de armazenamento ao ativo de saída.
-3. Crie uma chave de conteúdo de criptografia para o ativo que você quer que seja criptografado dinamicamente durante a reprodução.
-4. Configure a política de autorização de chave de conteúdo.
-5. Configure a política de entrega de ativos (usada pelo empacotamento dinâmico e criptografia dinâmica).
-6. Publicar o ativo criando um localizador OnDemand.
-7. Fluxo de conteúdo publicado.
-
-Para obter informações sobre a disponibilidade nos datacenters, consulte a seção [Disponibilidade](#availability).
-
-## <a name="use-media-analytics-to-derive-actionable-insights-from-your-videos"></a>Use a Análise de Mídia para obter informações acionáveis de seus vídeos
-
-A Análise de Mídia é uma coleção de componentes de fala e de visão que facilitam a obtenção de análises acionáveis dos arquivos de vídeo de organizações e de empresas. Para saber mais, confira [Visão geral a Análise dos Serviços de Mídia do Azure](media-services-analytics-overview.md).
-
-1. Carregue um arquivo de mídia de alta qualidade em um ativo.
-2. Processe seus vídeos com um dos serviços de Análise de Mídia descritos na seção [Visão geral da Análise de Mídia](media-services-analytics-overview.md).
-3. O processador de mídia da Análise de Mídia produz arquivos MP4 ou arquivos JSON. Se um processador de mídia produzir um arquivo MP4, você poderá baixar o arquivo progressivamente. Se um processador de mídia produzir um arquivo JSON, você poderá baixar o arquivo do Armazenamento de Blobs do Azure.
-
-Para obter informações sobre a disponibilidade nos datacenters, consulte a seção [Disponibilidade](#availability).
+1. Codifique para um conjunto de arquivos MP4 com taxa de bits adaptável. Aplique a opção de criptografia de armazenamento ao ativo de saída.
+1. Crie uma chave de conteúdo de criptografia para o ativo que você quer que seja criptografado dinamicamente durante a reprodução.
+1. Configure a política de autorização de chave de conteúdo.
+1. Configure a política de entrega de ativos (usada pelo empacotamento dinâmico e criptografia dinâmica).
+1. Publicar o ativo criando um localizador OnDemand.
+1. Fluxo de conteúdo publicado.
 
 ## <a name="deliver-progressive-download"></a>Entregar o download progressivo
 
 1. Carregue um arquivo de mídia de alta qualidade em um ativo.
-2. Codificar em um único arquivo MP4.
-3. Publicar o ativo criando um localizador OnDemand ou SAS.
+1. Codificar em um único arquivo MP4.
+1. Publicar o ativo criando um localizador OnDemand ou SAS. Se você estiver usando o localizador de SAS, o conteúdo será baixado do armazenamento de blobs do Azure. Você não precisa ter pontos de extremidade de streaming no estado iniciado.
+1. Download progressivo de conteúdo.
 
-    Se você estiver usando o localizador de SAS, o conteúdo será baixado do armazenamento de blobs do Azure. Nesse caso, não é necessário ter pontos de extremidade de streaming em estado iniciado.
-4. Download progressivo de conteúdo.
-
-## <a name="delivering-live-streaming-events"></a><a id="live_scenarios"></a>Entregando eventos de streaming ao vivo 
+## <a name="delivering-live-streaming-events"></a>Entregando eventos de streaming ao vivo
 
 1. Inclua o conteúdo ao vivo usando diversos protocolos de streaming ao vivo (por exemplo, RTMP ou Smooth Streaming).
-2. (opcionalmente) Codifique seu stream no fluxo de bits adaptável.
-3. Visualize seu stream ao vivo.
-4. Entregue o conteúdo por meio de protocolos de streaming comuns (por exemplo, MPEG DASH, Smooth, HLS) diretamente aos seus clientes ou a uma CDN (Rede de Distribuição de Conteúdo) para uma distribuição posterior.
-
-    -ou-
-
-    Registre e armazene o conteúdo incluído para uma transmissão posterior (Vídeo sob Demanda).
+1. (opcionalmente) Codifique seu stream no fluxo de bits adaptável.
+1. Visualize seu stream ao vivo.
+1. Entregar o conteúdo por meio de:
+    1. Protocolos de streaming comuns (por exemplo, MPEG DASH, Smooth, HLS) diretamente para seus clientes,
+    1. Para uma CDN (rede de distribuição de conteúdo) para distribuição adicional ou
+    1. Registre e armazene o conteúdo ingerido a ser transmitido posteriormente (vídeo sob demanda).
 
 Ao fazer o streaming ao vivo, você pode escolher uma das seguintes rotas:
 
@@ -121,33 +104,31 @@ Ao fazer o streaming ao vivo, você pode escolher uma das seguintes rotas:
 
 O diagrama a seguir mostra as partes principais da plataforma AMS que estão envolvidas no fluxo de trabalho de **passagem** .
 
-![Fluxo de trabalho ao vivo](./media/scenarios-and-availability/media-services-live-streaming-current.png)
+![Diagrama que mostra as partes principais da plataforma M de uma parte envolvida no fluxo de trabalho de "passagem".](./media/scenarios-and-availability/media-services-live-streaming-current.png)
 
 Para obter mais informações, consulte [Trabalhando com Canais que Recebem a Transmissão ao Vivo de Múltiplas Taxas de Bits de Codificadores Locais](media-services-live-streaming-with-onprem-encoders.md).
 
 ### <a name="working-with-channels-that-are-enabled-to-perform-live-encoding-with-azure-media-services"></a>Trabalhando com canais habilitados a executar codificação ao vivo com os Serviços de Mídia do Azure
 
-O diagrama a seguir mostra as partes principais da plataforma AMS envolvidas no fluxo de trabalho de transmissão ao vivo em que um canal está habilitado para executar a codificação ao vivo com os serviços de mídia.
+O diagrama a seguir mostra as principais partes da plataforma AMS envolvidas no fluxo de trabalho de transmissão ao vivo em que um canal está habilitado para realizar a codificação ativa com os serviços de mídia.
 
 ![Fluxo de trabalho ao vivo](./media/scenarios-and-availability/media-services-live-streaming-new.png)
 
 Para obter mais informações, consulte [trabalhando com canais habilitados a executar codificação ativa com os Serviços de Mídia do Azure](media-services-manage-live-encoder-enabled-channels.md).
 
-Para obter informações sobre a disponibilidade nos datacenters, consulte a seção [Disponibilidade](#availability).
-
 ## <a name="consuming-content"></a>Consumo de conteúdo
 
-Os Serviços de Mídia do Azure fornecem as ferramentas necessárias para criar aplicativos de player do cliente sofisticados e dinâmicos para a maioria das plataformas, incluindo: dispositivos iOS, dispositivos Android, Windows, Windows Phone, Xbox e decodificadores de sinais. 
+Os Serviços de Mídia do Azure fornecem as ferramentas necessárias para criar aplicativos de player do cliente sofisticados e dinâmicos para a maioria das plataformas, incluindo: dispositivos iOS, dispositivos Android, Windows, Windows Phone, Xbox e decodificadores de sinais.
 
 ## <a name="enabling-azure-cdn"></a>Habilitando o CDN do Azure
 
 Os Serviços de Mídia dão suporte à integração com o CDN do Azure. Para obter informações sobre como habilitar o CDN do Azure, consulte [Como gerenciar pontos de extremidade de Streaming em uma conta de Serviços de Mídia](media-services-portal-manage-streaming-endpoints.md).
 
-## <a name="scaling-a-media-services-account"></a><a id="scaling"></a>Dimensionamento de uma conta de serviços de mídia
+## <a name="scaling-a-media-services-account"></a>Dimensionamento de uma conta de serviços de mídia
 
 Os clientes AMS podem dimensionar os pontos de extremidade do streaming, processamento de mídia e armazenamento em suas contas AMS.
 
-* Os clientes dos Serviços de Mídia podem escolher um ponto de extremidade de streaming **Standard** ou do streaming **Premium**. Um ponto de extremidade de streaming **Standard** é adequado para a maior parte das cargas de trabalho do streaming. Isso inclui os mesmos recursos dos pontos de extremidade do streaming **Premium** e dimensiona a largura de banda de saída automaticamente. 
+* Os clientes dos Serviços de Mídia podem escolher um ponto de extremidade de streaming **Standard** ou do streaming **Premium**. Um ponto de extremidade de streaming **Standard** é adequado para a maior parte das cargas de trabalho do streaming. Isso inclui os mesmos recursos dos pontos de extremidade do streaming **Premium** e dimensiona a largura de banda de saída automaticamente.
 
     Os pontos de extremidade do streaming **Premium** são adequados para as cargas de trabalho avançadas, fornecendo uma capacidade de largura de banda dimensionável e dedicada. Os clientes que têm um ponto de extremidade de streaming **Premium**, por padrão, obtêm uma US (Unidade de Streaming). O ponto de extremidade de streaming pode ser dimensionado adicionando USs. Cada US fornece uma capacidade de largura de banda adicional para o aplicativo. Para obter mais informações sobre como dimensionar os pontos de extremidade do streaming **Premium**, consulte o tópico [Dimensionando os pontos de extremidade do streaming](media-services-portal-scale-streaming-endpoints.md).
 
@@ -155,115 +136,16 @@ Os clientes AMS podem dimensionar os pontos de extremidade do streaming, process
 
     Além de especificar o tipo de unidade reservada, você pode especificar para provisionar sua conta com **unidades reservadas** (RUs). O número de URs provisionadas determina o número de tarefas de mídia que podem ser processadas simultaneamente em determinada conta.
 
-    >[!NOTE]
-    >As URs trabalham para paralelizar todo o processamento de mídia, incluindo os trabalhos de indexação, usando o Azure Media Indexer. No entanto, ao contrário da codificação, a indexação de trabalhos não será processada mais rapidamente com unidades reservadas mais rápidas.
+    > [!NOTE]
+    > As URs trabalham para paralelizar todo o processamento de mídia, incluindo os trabalhos de indexação, usando o Azure Media Indexer. No entanto, ao contrário da codificação, a indexação de trabalhos não será processada mais rapidamente com unidades reservadas mais rápidas.
 
     Para obter mais informações, consulte [escala de processamento de mídia](media-services-portal-scale-media-processing.md).
-* Você também pode dimensionar sua conta dos Serviços de Mídia adicionando contas de armazenamento a ela. Cada conta de armazenamento é limitada a 500 TB. Para expandir o armazenamento além das limitações padrão, você pode optar por anexar diversas contas de armazenamento a uma única conta de serviços de mídia. Para saber mais, consulte [Gerenciar contas de armazenamento](./media-services-managing-multiple-storage-accounts.md).
 
-## <a name="availability-of-media-services-features-across-datacenters"></a><a id="availability"></a>Disponibilidade de recursos dos Serviços de Mídia nos datacenters
-
-Esta seção fornece detalhes sobre a disponibilidade de recursos dos Serviços de Mídia nos datacenters.
-
-### <a name="ams-accounts"></a>Contas AMS
-
-#### <a name="availability"></a>Disponibilidade
-
-Use os [produtos do Azure por região](https://azure.microsoft.com/global-infrastructure/services/?products=media-services&regions=all) para determinar se os serviços de mídia estão disponíveis em um datacenter específico.
-
-### <a name="streaming-endpoints"></a>Pontos de extremidade de streaming 
-
-Os clientes dos Serviços de Mídia podem escolher um ponto de extremidade de streaming **Standard** ou do streaming **Premium**. Para obter mais informações, consulte a seção sobre [dimensionamento](#scaling).
-
-#### <a name="availability"></a>Disponibilidade
-
-|Nome|Status|Datacenters
-|---|---|---|
-|Standard|GA|Tudo|
-|Premium|GA|Tudo|
-
-### <a name="live-encoding"></a>Codificação ativa
-
-#### <a name="availability"></a>Disponibilidade
-
-Disponível em todos os datacenters, exceto: Alemanha, sul do Brasil, Oeste da Índia, sul da Índia e Índia Central. 
-
-### <a name="encoding-media-processors"></a>Codificando processadores de mídia
-
-A AMS oferece dois codificadores de sob demanda **Media Encoder Standard** e **Fluxo de Trabalho do Media Encoder Premium**. Para obter mais informações, consulte [Visão geral e comparação dos codificadores de mídia sob demanda do Azure](media-services-encode-asset.md). 
-
-#### <a name="availability"></a>Disponibilidade
-
-|Nome do processador de mídia|Status|Datacenters
-|---|---|---|
-|Media Encoder Standard|GA|Tudo|
-|Fluxo de trabalho do Media Encoder Premium|GA|Todos, exceto China|
-
-### <a name="analytics-media-processors"></a>Processadores de mídia da Análise
-
-A Análise de Mídia é uma coleção de componentes de fala e pesquisa visual que facilitam a obtenção de análises acionáveis dos arquivos de vídeo de organizações e de empresas. Para saber mais, confira [Visão geral a Análise dos Serviços de Mídia do Azure](media-services-analytics-overview.md).
-
-> [!NOTE]
-> Alguns processadores de mídia de análise serão desativados. Para ver as datas de desativação, consulte o tópico [Componentes herdados](legacy-components.md).
-
-#### <a name="availability"></a>Disponibilidade
-
-|Nome do processador de mídia|Status|Datacenters
-|---|---|---|
-|Detector de Rostos em Mídias do Azure|Visualização|Todos|
-|Indexador de Mídia do Azure|GA|Tudo|
-|Detector de Movimento em Mídias do Azure|Visualização|Todos|
-|OCR de Mídia do Azure|Visualização|Todos|
-|Azure Media Redactor|GA|Tudo|
-|Miniaturas de Vídeo de Mídia do Azure|Visualização|Todos|
-
-### <a name="protection"></a>Proteção
-
-Os Serviços de Mídia do Microsoft Azure permitem proteger a mídia desde o momento em que ela deixa computador e durante o armazenamento, processamento e entrega. Para obter mais informações, consulte [Protegendo o conteúdo AMS](media-services-content-protection-overview.md).
-
-#### <a name="availability"></a>Disponibilidade
-
-|Criptografia|Status|Datacenters|
-|---|---|---| 
-|Armazenamento|GA|Tudo|
-|Chaves AES-128|GA|Tudo|
-|FairPlay|GA|Tudo|
-|PlayReady|GA|Tudo|
-|Widevine|GA|Todos, exceto Alemanha, Governo Federal e China.
-
-### <a name="reserved-units-rus"></a>Unidades Reservadas (URs)
-
-O número de unidades reservadas provisionadas determina o número de tarefas de mídia que podem ser processadas simultaneamente em uma determinada conta. 
-
-Para obter mais informações, consulte a seção sobre [dimensionamento](#scaling).
-
-#### <a name="availability"></a>Disponibilidade
-
-Disponível em todos os datacenters.
-
-### <a name="reserved-unit-ru-type"></a>Tipo de unidade reservada (UR)
-
-Uma conta dos Serviços de Mídia está associada a um tipo de Unidade reservada, que determina a velocidade com a qual suas tarefas de processamento de mídia são processadas. Você pode escolher entre os seguintes tipos de unidade reservada: S1, S2 ou S3.
-
-Para obter mais informações, consulte a seção sobre [dimensionamento](#scaling).
-
-#### <a name="availability"></a>Disponibilidade
-
-|Nome do tipo de UR|Status|Datacenters
-|---|---|---|
-|S1|GA|Tudo|
-|S2|GA|Todos, exceto sul do Brasil e Oeste da Índia|
-|S3|GA|Todos, exceto Oeste da Índia|
-
-## <a name="additional-notes"></a>Observações adicionais
-
-* O Widevine é um serviço fornecido pela Google Inc. e está sujeito aos termos de serviço e à política de privacidade da Google, Inc.
+* Você também pode dimensionar sua conta dos Serviços de Mídia adicionando contas de armazenamento a ela. Cada conta de armazenamento é limitada a 500 TB. Para saber mais, consulte [Gerenciar contas de armazenamento](./media-services-managing-multiple-storage-accounts.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Examine os roteiros de aprendizagem dos Serviços de Mídia.
-
-[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
+[Migrar para os Serviços de Mídia v3](../latest/media-services-overview.md)
 
 ## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

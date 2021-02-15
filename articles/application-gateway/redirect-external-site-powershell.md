@@ -6,14 +6,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 11/14/2019
+ms.date: 09/24/2020
 ms.author: victorh
-ms.openlocfilehash: f6480bdd5139d5bc7a5a1887b80f43c3903bf579
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5b2bb50fc2ad8084d79097fe7acb449821d0a4da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84804598"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91331050"
 ---
 # <a name="create-an-application-gateway-with-external-redirection-using-azure-powershell"></a>Criar um gateway de aplicativo com redirecionamento externo usando o Azure PowerShell
 
@@ -21,10 +21,9 @@ Você pode usar o Azure PowerShell para configurar o [redirecionamento do tráfe
 
 Neste artigo, você aprenderá como:
 
-> [!div class="checklist"]
-> * Configurar a rede
-> * Criar uma regra de redirecionamento e um ouvinte
-> * Criar um Gateway de Aplicativo
+* Configurar a rede
+* Criar uma regra de redirecionamento e um ouvinte
+* Criar um Gateway de Aplicativo
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -157,9 +156,4 @@ Você verá o *bing.com* aparecer no seu navegador.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste artigo, você aprendeu a:
-
-> [!div class="checklist"]
-> * Configurar a rede
-> * Criar uma regra de redirecionamento e um ouvinte
-> * Criar um Gateway de Aplicativo
+- [Criar um gateway de aplicativo com redirecionamento interno usando o Azure PowerShell](redirect-internal-site-powershell.md)

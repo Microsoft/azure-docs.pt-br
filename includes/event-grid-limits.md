@@ -5,28 +5,37 @@ services: event-grid
 author: spelluru
 ms.service: event-grid
 ms.topic: include
-ms.date: 05/18/2020
+ms.date: 10/18/2020
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 7e7a0424e4454639211c6494aab0700e75269361
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
-ms.translationtype: MT
+ms.openlocfilehash: b884bc72381c98af77f2f49336f3dd5762c68734
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83721731"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91859152"
 ---
-Os limites a seguir aplicam-se aos tópicos do sistema Grade de Eventos do Azure e aos tópicos personalizados, *não* aos domínios de eventos.
+Os limites a seguir aplicam-se aos **tópicos** da Grade de Eventos do Azure (tópicos sistema, personalizado e parceiro). 
 
 | Recurso | Limite |
 | --- | --- |
 | Tópicos personalizados por assinatura do Microsoft Azure | 100 |
 | Assinaturas de Evento por tópico | 500 |
-| Publicar a taxa de um tópico personalizado (entrada) | 5\.000 eventos por segundo, por tópico |
-| Tamanho do evento | 1 MB. No entanto, as operações são cobradas em incrementos de 64 KB. Assim, os eventos com mais de 64 KB incorrerão em encargos de operações como se fossem vários eventos. Por exemplo, um evento com 130 KB incorreria em operações como se fosse três eventos separados.  |
+| Publicar a taxa de um tópico personalizado ou parceiro (entrada) | 5\.000 eventos/s ou 1 MB/s (o que for atingido primeiro) |
+| Tamanho do evento | 1 MB  |
+| Conexões do ponto de extremidade privado por tópico  | 64 | 
+| Regras de firewall de IP por tópico | 16 | 
+
+Os limites a seguir aplicam-se aos **domínios** da Grade de Eventos do Azure. 
+
+| Recurso | Limite |
+| --- | --- |
 | Tópicos por domínio de eventos | 100.000 |
 | Assinaturas de eventos por tópico em um domínio | 500 |
 | Assinaturas de eventos no escopo do domínio | 50 |
-| Publicar taxa para um domínio de eventos (entrada) | 5\.000 eventos por segundo |
+| Publicar taxa para um domínio de eventos (entrada) | 5\.000 eventos/s ou 1 MB/s (o que for atingido primeiro) |
 | Domínios de Eventos por Assinatura do Azure | 100 |
-| Conexões do ponto de extremidade privado por tópico ou domínio | 64 | 
-| Regras de firewall de IP por tópico ou domínio | 16 | 
+| Conexões do ponto de extremidade privado por domínio | 64 | 
+| Regras de firewall de IP por domínio | 16 | 
+
+

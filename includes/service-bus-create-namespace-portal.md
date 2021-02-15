@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/20/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: dc80141d796b66dd7e610342166f7b88df58f530
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
-ms.translationtype: MT
+ms.openlocfilehash: d2c309340155bc626d4da94d74aee9be51bde510
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75928003"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "90606237"
 ---
 ## <a name="create-a-namespace-in-the-azure-portal"></a>Criar um namespace no Portal do Azure
 Para começar a usar as entidades de mensagens do Barramento de Serviço no Azure, primeiro é necessário criar um namespace com um nome exclusivo no Azure. Um namespace fornece um contêiner de escopo para endereçar recursos do barramento de serviço dentro de seu aplicativo.
@@ -53,10 +53,10 @@ A criação de um novo namespace gera automaticamente uma regra de SAS (assinatu
 2. Na janela namespace, clique em **Políticas de acesso compartilhado**.
 3. Na tela **Políticas de acesso compartilhado**, clique em **RootManageSharedAccessKey**.
    
-    ![informações de conexão](./media/service-bus-create-namespace-portal/connection-info.png)
+    ![A captura de tela mostra a janela Políticas de acesso compartilhado com uma política realçada.](./media/service-bus-create-namespace-portal/connection-info.png)
 4. Na janela **Política: RootManageSharedAccessKey**, clique no botão Copiar próximo à **Cadeia de Conexão Primária**, para copiar a cadeia de conexão na área de transferência para uso posterior. Cole esse valor no Bloco de notas ou em outro local temporário.
    
-    ![connection-string](./media/service-bus-create-namespace-portal/connection-string.png)
+    ![A captura de tela mostra uma política S A S chamada RootManageSharedAccessKey, que inclui chaves e cadeias de conexão.](./media/service-bus-create-namespace-portal/connection-string.png)
 5. Repita a etapa anterior, copiando e colando o valor de **chave primária** para um local temporário para uso posterior.
 
 <!--Image references-->

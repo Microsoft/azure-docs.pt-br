@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 704cb43a31ff1dfcaf287f9af467f7d6e7d6c50d
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.custom: devx-track-js
+ms.openlocfilehash: 90f3cb0ae44be176d3ae248988d098039c140c3e
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282799"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896150"
 ---
 # <a name="add-a-simple-data-layer"></a>Adicionar uma camada de dados simples
 
@@ -57,7 +57,7 @@ O código a seguir processa o recurso de ponto acima usando a camada de dados si
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Usar a camada de dados simples" src="//codepen.io/azuremaps/embed/zYGzpQV/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true"> Consulte a caneta <a href='https://codepen.io/azuremaps/pen/zYGzpQV/'>usar a camada de dados simples</a> pelo mapas do Azure ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) em <a href='https://codepen.io'>CodePen</a>.
+<iframe height="500" style="width: 100%;" scrolling="no" title="Usar a camada de dados simples" src="//codepen.io/azuremaps/embed/zYGzpQV/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true"> Consulte a caneta <a href='https://codepen.io/azuremaps/pen/zYGzpQV/'>usar a camada de dados simples</a> pelo mapas do Azure ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 A verdadeira potência da camada de dados simples é exibida quando:
@@ -70,7 +70,7 @@ Por exemplo, ao analisar feeds de dados XML, talvez você não conheça os estil
 
 <br/>
 
-<iframe height="700" style="width: 100%;" scrolling="no" title="Opções de camada de dados simples" src="//codepen.io/azuremaps/embed/gOpRXgy/?height=700&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true"> Consulte as <a href='https://codepen.io/azuremaps/pen/gOpRXgy/'>Opções da camada de dados simples</a> da caneta pelo Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) em <a href='https://codepen.io'>CodePen</a>.
+<iframe height="700" style="width: 100%;" scrolling="no" title="Opções de camada de dados simples" src="//codepen.io/azuremaps/embed/gOpRXgy/?height=700&theme-id=0&default-tab=result" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true"> Consulte as <a href='https://codepen.io/azuremaps/pen/gOpRXgy/'>Opções da camada de dados simples</a> da caneta pelo Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 
@@ -102,7 +102,7 @@ Se um recurso for um `Point` ou a `MultiPoint` , e o recurso não tiver uma `ima
 | `radius` | `size`<sup>1</sup>, `marker-size` <sup>2</sup>, `scale` <sup>1</sup> | `8` |
 | `strokeColor` | `strokeColor`, `stroke` | `'#FFFFFF'` |
 
-\[1 \] os `size` `scale` valores e são considerados valores escalares e serão multiplicados por`8`
+\[1 \] os `size` `scale` valores e são considerados valores escalares e serão multiplicados por `8`
 
 \[2 \] se a `marker-size` opção GitHub for especificada, os valores a seguir serão usados para o raio.
 
@@ -114,11 +114,11 @@ Se um recurso for um `Point` ou a `MultiPoint` , e o recurso não tiver uma `ima
 
 Os clusters também são renderizados usando a camada de bolha. Por padrão, o raio de um cluster é definido como `16` . A cor do cluster varia dependendo do número de pontos no cluster, conforme definido abaixo:
 
-| n º de pontos | Color    |
+| n º de pontos | Cor    |
 |-------------|----------|
 | &gt;= 100   | `red`    |
 | &gt;= 10    | `yellow` |
-| &lt;254     | `green`  |
+| &lt; 254     | `green`  |
 
 ### <a name="symbol-style-properties"></a>Propriedades de estilo de símbolo
 
@@ -176,10 +176,10 @@ Se o recurso for um `Polygon` ou a `MultiPolygon` e tiver uma `height` proprieda
 Saiba mais sobre as classes e métodos usados neste artigo:
 
 > [!div class="nextstepaction"]
-> [SimpleDataLayer](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.layer.simpledatalayer)
+> [SimpleDataLayer](/javascript/api/azure-maps-spatial-io/atlas.layer.simpledatalayer)
 
 > [!div class="nextstepaction"]
-> [SimpleDataLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.simpledatalayeroptions)
+> [SimpleDataLayerOptions](/javascript/api/azure-maps-spatial-io/atlas.simpledatalayeroptions)
 
 Consulte os artigos a seguir para obter mais exemplos de código para adicionar aos seus mapas:
 

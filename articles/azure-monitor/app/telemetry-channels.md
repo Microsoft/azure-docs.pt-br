@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 05/14/2019
 ms.custom: devx-track-csharp
 ms.reviewer: mbullwin
-ms.openlocfilehash: 41d2feefc5af1e795520d9b3d90809e625502fa6
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: a22a0d112671019d73eb4c9a3853462e4e9c8c75
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88918393"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98937351"
 ---
 # <a name="telemetry-channels-in-application-insights"></a>Canais de telemetria no Application Insights
 
@@ -18,7 +18,7 @@ Os canais de telemetria são parte integrante dos [SDKs do aplicativo Azure insi
 
 ## <a name="what-are-telemetry-channels"></a>O que são canais de telemetria?
 
-Os canais de telemetria são responsáveis por armazenar em buffer itens de telemetria e enviá-los para o serviço de Application Insights, onde são armazenados para consulta e análise. Um canal de telemetria é qualquer classe que implementa a [`Microsoft.ApplicationInsights.ITelemetryChannel`](/dotnet/api/microsoft.applicationinsights.channel.itelemetrychannel?view=azure-dotnet) interface.
+Os canais de telemetria são responsáveis por armazenar em buffer itens de telemetria e enviá-los para o serviço de Application Insights, onde são armazenados para consulta e análise. Um canal de telemetria é qualquer classe que implementa a [`Microsoft.ApplicationInsights.ITelemetryChannel`](/dotnet/api/microsoft.applicationinsights.channel.itelemetrychannel) interface.
 
 O `Send(ITelemetry item)` método de um canal de telemetria é chamado depois que todos os inicializadores de telemetria e os processadores de telemetria são chamados. Assim, todos os itens descartados por um processador de telemetria não alcançarão o canal. `Send()` Normalmente, o não envia os itens para o back-end instantaneamente. Normalmente, ele os armazena em buffers na memória e os envia em lotes para transmissão eficiente.
 
@@ -153,13 +153,25 @@ A resposta curta é que nenhum dos canais internos oferece uma garantia de tipo 
 
 Embora o nome de seu pacote e namespace inclua "WindowsServer", esse canal tem suporte em sistemas diferentes do Windows, com a seguinte exceção. Em sistemas diferentes do Windows, o canal não cria uma pasta de armazenamento local por padrão. Você deve criar uma pasta de armazenamento local e configurar o canal para usá-la. Depois que o armazenamento local tiver sido configurado, o canal funcionará da mesma maneira em todos os sistemas.
 
+> [!NOTE]
+> Com a versão 2.15.0-Beta3 e o armazenamento local superior agora são criados automaticamente para Linux, Mac e Windows. Para sistemas não Windows, o SDK criará automaticamente uma pasta de armazenamento local com base na seguinte lógica:
+> - `${TMPDIR}` -Se `${TMPDIR}` a variável de ambiente for definida, esse local será usado.
+> - `/var/tmp` -Se o local anterior não existir, tentaremos `/var/tmp` .
+> - `/tmp` -Se os dois locais anteriores não existirem, tentaremos `tmp` . 
+> - Se nenhum desses locais existir, o armazenamento local não será criado e a configuração manual ainda será necessária. [Para obter detalhes sobre a implementação completa](https://github.com/microsoft/ApplicationInsights-dotnet/pull/1860).
+
 ### <a name="does-the-sdk-create-temporary-local-storage-is-the-data-encrypted-at-storage"></a>O SDK cria armazenamento local temporário? Os dados são criptografados no armazenamento?
 
 O SDK armazena itens de telemetria no armazenamento local durante problemas de rede ou durante a limitação. Esses dados não são criptografados localmente.
 
 Para sistemas Windows, o SDK cria automaticamente uma pasta local temporária no diretório% TEMP% ou% LOCALAPPDATA% e restringe o acesso a administradores e somente ao usuário atual.
 
-Para sistemas diferentes do Windows, nenhum armazenamento local é criado automaticamente pelo SDK e, portanto, nenhum dado é armazenado localmente por padrão. Você pode criar um diretório de armazenamento por conta própria e configurar o canal para usá-lo. Nesse caso, você é responsável por garantir que o diretório esteja protegido.
+Para sistemas diferentes do Windows, nenhum armazenamento local é criado automaticamente pelo SDK e, portanto, nenhum dado é armazenado localmente por padrão.
+
+> [!NOTE]
+> Com a versão 2.15.0-Beta3 e o armazenamento local superior agora são criados automaticamente para Linux, Mac e Windows. 
+
+ Você pode criar um diretório de armazenamento por conta própria e configurar o canal para usá-lo. Nesse caso, você é responsável por garantir que o diretório esteja protegido.
 Leia mais sobre [proteção e privacidade de dados](data-retention-privacy.md#does-the-sdk-create-temporary-local-storage).
 
 ## <a name="open-source-sdk"></a>SDK do código-fonte aberto

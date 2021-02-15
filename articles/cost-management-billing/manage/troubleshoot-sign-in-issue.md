@@ -10,19 +10,19 @@ ms.subservice: billing
 ms.topic: troubleshooting
 ms.date: 08/20/2020
 ms.author: v-miegge
-ms.openlocfilehash: 3ee600cb72d06781f87c8f68640576afa50cea06
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 915b4fb289b6af6f4aac84d8bfa4d491a7f77efe
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686489"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99050463"
 ---
 # <a name="troubleshoot-azure-subscription-sign-in-issues"></a>Solucionar problemas de credenciais da assinatura do Azure
 
 Este guia ajuda a resolver os problemas em que você não consegue entrar no portal do Azure ou no Centro de Contas do Azure.
 
 > [!NOTE]
-> Se você estiver com problemas para se inscrever em uma nova conta do Azure, confira [Solucionar problemas de inscrição de assinatura do Azure](https://docs.microsoft.com/azure/cost-management-billing/manage/troubleshoot-azure-sign-up).
+> Se você estiver com problemas para se inscrever em uma nova conta do Azure, confira [Solucionar problemas de inscrição de assinatura do Azure](./troubleshoot-azure-sign-up.md).
 
 ## <a name="page-hangs-in-the-loading-status"></a>A página para de responder no status de carregamento
 
@@ -32,7 +32,7 @@ Se a página do navegador da Internet parar, experimente cada uma das etapas a s
 - Use um navegador de Internet diferente.
 - Use o modo de navegação privada do seu navegador:
 
-   - **Edge:** abra **Configurações** (os três pontos por sua imagem de perfil), selecione **Nova janela InPrivate** e navegue e entre no [portal do Azure](https://portal.azure.com/) ou no [Centro de contas do Azure](https://account.azure.com/Subscriptions). 
+   - **Edge:** Abra **Configurações** (os três pontos ao lado da imagem do seu perfil), selecione **Nova janela InPrivate** e navegue e entre no [portal do Azure](https://portal.azure.com/). 
    - **Chrome:** escolha o modo **Incognito**.
    - **Safari:** escolha **Arquivo** e então **Nova Janela Particular**.
 
@@ -53,7 +53,7 @@ Para resolver o problema, tente usar um dos seguintes métodos:
    - **Chrome:** escolha **Configurações** e selecione **Limpar dados de navegação** em **Privacidade e Segurança**.
 - Redefina as configurações do navegador para os padrões.
 - Use o modo de navegação privada do seu navegador. 
-   - **Edge:** abra **Configurações** (os três pontos por sua imagem de perfil), selecione **Nova janela InPrivate** e navegue e entre no [portal do Azure](https://portal.azure.com/) ou no [Centro de contas do Azure](https://account.azure.com/Subscriptions). 
+   - **Edge:** Abra **Configurações** (os três pontos ao lado da imagem do seu perfil), selecione **Nova janela InPrivate** e navegue e entre no [portal do Azure](https://portal.azure.com/). 
    - **Chrome:** escolha o modo **Incognito**.
    - **Safari:** escolha **Arquivo** e então **Nova Janela Particular**.
 
@@ -66,7 +66,7 @@ Esse problema ocorrerá se tiver selecionado no diretório errado ou se sua cont
 Para corrigir esse problema:
 
 - Verifique se o diretório correto do Azure está selecionado selecionando em sua conta no canto superior direito.
-- Se o diretório correto do Azure estiver selecionado, mas você continuar recebendo a mensagem de erro, solicite que a sua conta seja [adicionada como Proprietário](https://docs.microsoft.com/azure/cost-management-billing/manage/add-change-subscription-administrator).
+- Se o diretório correto do Azure estiver selecionado, mas você continuar recebendo a mensagem de erro, solicite que a sua conta seja [adicionada como Proprietário](./add-change-subscription-administrator.md).
 
 **Cenário 2:** Você recebe o erro ao entrar no [Centro de Contas do Azure](https://account.windowsazure.com/Subscriptions)
 
@@ -80,11 +80,11 @@ Verifique se a conta usada é o Administrador da Conta. Para verificar quem é o
 
 Outros artigos de solução de problemas para a Cobrança e as Assinaturas do Azure
 
-- [Cartão recusado](https://docs.microsoft.com/azure/cost-management-billing/manage/troubleshoot-declined-card)
-- [Problemas no cadastro da assinatura](https://docs.microsoft.com/azure/cost-management-billing/manage/troubleshoot-azure-sign-up)
-- [Nenhuma assinatura encontrada](https://docs.microsoft.com/azure/cost-management-billing/manage/no-subscriptions-found)
-- [Exibição do custo da empresa desabilitado](https://docs.microsoft.com/azure/cost-management-billing/manage/enterprise-mgmt-grp-troubleshoot-cost-view)
-- [Documentação de cobrança do Azure](https://docs.microsoft.com/azure/cost-management-billing/)
+- [Cartão recusado](./troubleshoot-declined-card.md)
+- [Problemas no cadastro da assinatura](./troubleshoot-azure-sign-up.md)
+- [Nenhuma assinatura encontrada](./no-subscriptions-found.md)
+- [Exibição do custo da empresa desabilitado](./enterprise-mgmt-grp-troubleshoot-cost-view.md)
+- [Documentação de cobrança do Azure](../index.yml)
 
 ## <a name="contact-us-for-help"></a>Entrar em contato conosco para obter ajuda
 

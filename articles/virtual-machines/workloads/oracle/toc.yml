@@ -4,8 +4,10 @@
       href: oracle-overview.md
     - name: Soluções em VMs do Azure
       href: oracle-vm-solutions.md
-    - name: O que é o Oracle WebLogic Server no Azure?
+    - name: Quais são as soluções para executar o Oracle WebLogic Server em Máquinas Virtuais do Azure?
       href: oracle-weblogic.md
+    - name: Quais são as soluções para executar o Oracle WebLogic Server no Serviço de Kubernetes do Azure?
+      href: weblogic-aks.md
     - name: Soluções com o OCI
       href: oracle-oci-overview.md
 - name: Inícios rápidos
@@ -28,8 +30,12 @@
       href: oracle-reference-architecture.md
     - name: Projetar um Oracle DB
       href: oracle-design.md
-    - name: Estratégia de backup para o Oracle DB
-      href: oracle-backup-recovery.md
+    - name: Estratégias de backup do Oracle Database
+      href: oracle-database-backup-strategies.md
+    - name: Backup do Oracle Database usando o Armazenamento do Azure
+      href: oracle-database-backup-azure-storage.md
+    - name: Backup do Oracle Database usando o Backup do Azure
+      href: oracle-database-backup-azure-backup.md
     - name: Opções de recuperação de desastre do Oracle
       href: oracle-disaster-recovery.md
 - name: Guias de instruções

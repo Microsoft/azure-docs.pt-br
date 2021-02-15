@@ -1,5 +1,5 @@
 ---
-title: API de áudio longo (visualização)-serviço de fala
+title: API de áudio longo-serviço de fala
 titleSuffix: Azure Cognitive Services
 description: Saiba como a API de áudio longa é projetada para a síntese assíncrona de texto em fala de longa forma.
 services: cognitive-services
@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/11/2020
 ms.author: trbye
-ms.openlocfilehash: be38d3e78108a15c9f7875a15156e0eeba5a6211
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: e28bd5b5caca259201758f0c633b2120a411f422
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167752"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100007441"
 ---
-# <a name="long-audio-api-preview"></a>API de áudio longo (visualização)
+# <a name="long-audio-api"></a>API de áudio longo
 
-A API de áudio de longa duração é projetada para síntese assíncrona de texto em fala de longa forma (por exemplo: livros de áudio, artigos de notícias e documentos). Essa API não retorna áudio sintetizado em tempo real, em vez disso, a expectativa é que você pesquise as respostas e consuma as saídas conforme elas são disponibilizadas pelo serviço. Ao contrário da API de texto para fala usada pelo SDK de fala, a API de áudio de longa duração pode criar áudio sintetizado por mais de 10 minutos, tornando-o ideal para Publicadores e plataformas de conteúdo de áudio.
+A API de áudio de longa duração é projetada para síntese assíncrona de texto em fala de longa forma (por exemplo: livros de áudio, artigos de notícias e documentos). Essa API não retorna áudio sintetizado em tempo real, em vez disso, a expectativa é que você pesquise as respostas e consuma as saídas conforme elas são disponibilizadas pelo serviço. Ao contrário da API de texto para fala usada pelo SDK de fala, a API de áudio de longa duração pode criar áudio sintetizado por mais de 10 minutos, tornando-o ideal para Publicadores e plataformas de conteúdo de áudio para criar conteúdo de áudio longo, como livros de áudio em um lote.
 
 Benefícios adicionais da API de áudio longa:
 
@@ -27,7 +27,7 @@ Benefícios adicionais da API de áudio longa:
 * Não é necessário implantar um ponto de extremidade de voz, pois ele sintetiza vozes em nenhum modo de lote em tempo real.
 
 > [!NOTE]
-> A API de áudio longa agora dá suporte a [vozes neurais públicas](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#neural-voices) e a [vozes neurais personalizadas](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-custom-voice#custom-neural-voices).
+> A API de áudio longa agora dá suporte a [vozes neurais públicas](./language-support.md#neural-voices) e a [vozes neurais personalizadas](./how-to-custom-voice.md#custom-neural-voices).
 
 ## <a name="workflow"></a>Fluxo de trabalho
 
@@ -44,56 +44,44 @@ Ao preparar seu arquivo de texto, verifique se:
 * É texto sem formatação (. txt) ou o texto SSML (. txt)
 * É codificado como [UTF-8 com marca de ordem de byte (bom)](https://www.w3.org/International/questions/qa-utf8-bom.en#bom)
 * É um arquivo único, não um zip
-* Contém mais de 400 caracteres para texto sem formatação ou 400 [caracteres cobráveis](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech#pricing-note) para texto de SSML e menos de 10.000 parágrafos
+* Contém mais de 400 caracteres para texto sem formatação ou 400 [caracteres cobráveis](./text-to-speech.md#pricing-note) para texto de SSML e menos de 10.000 parágrafos
   * Para texto sem formatação, cada parágrafo é separado ao pressionar o exemplo **Inserir/retornar** -exibir [entrada de texto sem formatação](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/en-US.txt)
   * Para o texto SSML, cada parte da SSML é considerada um parágrafo. As partes de SSML devem ser separadas por parágrafos diferentes – exibir [exemplo de entrada de texto de SSML](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/SSMLTextInputSample.txt)
-> [!NOTE]
-> Para chinês (continente), chinês (RAE de Hong Kong), chinês (Taiwan), japonês e coreano, uma palavra será contada como dois caracteres. 
 
 ## <a name="python-example"></a>Exemplo de Python
 
-Esta seção contém exemplos do Python que mostram o uso básico da API de áudio de longa duração. Crie um novo projeto Python usando seu IDE ou editor favorito. Em seguida, copie esse trecho de código em um arquivo chamado `voice_synthesis_client.py` .
+Esta seção contém exemplos do Python que mostram o uso básico da API de áudio de longa duração. Crie um novo projeto Python usando seu IDE ou editor favorito. Em seguida, copie esse trecho de código em um arquivo chamado `long_audio_synthesis_client.py` .
 
 ```python
-import argparse
 import json
 import ntpath
-import urllib3
 import requests
-import time
-from json import dumps, loads, JSONEncoder, JSONDecoder
-import pickle
-
-urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 ```
 
-Essas bibliotecas são usadas para analisar argumentos, construir a solicitação HTTP e chamar a API REST de áudio longo de conversão de texto em fala.
+Essas bibliotecas são usadas para construir a solicitação HTTP e chamar a API REST de síntese de conversão de áudio de texto em fala.
 
 ### <a name="get-a-list-of-supported-voices"></a>Obter uma lista de vozes com suporte
 
-Esse código permite obter uma lista completa de vozes para uma região/um ponto de extremidade específico que você pode usar. Adicione o código a `voice_synthesis_client.py` :
+Para obter uma lista de vozes com suporte, envie uma solicitação GET para `https://<endpoint>/api/texttospeech/v3.0/longaudiosynthesis/voices` .
 
+
+Esse código permite obter uma lista completa de vozes para uma região/um ponto de extremidade específico que você pode usar.
 ```python
-parser = argparse.ArgumentParser(description='Text-to-speech client tool to submit voice synthesis requests.')
-parser.add_argument('--voices', action="store_true", default=False, help='print voice list')
-parser.add_argument('-key', action="store", dest="key", required=True, help='the speech subscription key, like fg1f763i01d94768bda32u7a******** ')
-parser.add_argument('-region', action="store", dest="region", required=True, help='the region information, could be centralindia, canadacentral or uksouth')
-args = parser.parse_args()
-baseAddress = 'https://%s.customvoice.api.speech.microsoft.com/api/texttospeech/v3.0-beta1/' % args.region
+def get_voices():
+    region = '<region>'
+    key = '<your_key>'
+    url = 'https://{}.customvoice.api.speech.microsoft.com/api/texttospeech/v3.0/longaudiosynthesis/voices'.format(region)
+    header = {
+        'Ocp-Apim-Subscription-Key': key
+    }
 
-def getVoices():
-    response=requests.get(baseAddress+"voicesynthesis/voices", headers={"Ocp-Apim-Subscription-Key":args.key}, verify=False)
-    voices = json.loads(response.text)
-    return voices
+    response = requests.get(url, headers=header)
+    print(response.text)
 
-if args.voices:
-    voices = getVoices()
-    print("There are %d voices available:" % len(voices))
-    for voice in voices:
-        print ("Name: %s, Description: %s, Id: %s, Locale: %s, Gender: %s, PublicVoice: %s, Created: %s" % (voice['name'], voice['description'], voice['id'], voice['locale'], voice['gender'], voice['isPublicVoice'], voice['created']))
+get_voices()
 ```
 
-Execute o script usando o comando `python voice_synthesis_client.py --voices -key <your_key> -region <region>` e substitua os seguintes valores:
+Substitua os seguintes valores:
 
 * Substitua `<your_key>` por sua chave de assinatura do Serviço de Fala. Essas informações estão disponíveis na guia **visão geral** do recurso na [portal do Azure](https://aka.ms/azureportal).
 * Substituir `<region>` pela região em que o recurso de fala foi criado (por exemplo: `eastus` ou `westus` ). Essas informações estão disponíveis na guia **visão geral** do recurso na [portal do Azure](https://aka.ms/azureportal).
@@ -101,163 +89,321 @@ Execute o script usando o comando `python voice_synthesis_client.py --voices -ke
 Você verá uma saída parecida com esta:
 
 ```console
-There are xx voices available:
-
-Name: Microsoft Server Speech Text to Speech Voice (en-US, xxx), Description: xxx , Id: xxx, Locale: en-US, Gender: Male, PublicVoice: xxx, Created: 2019-07-22T09:38:14Z
-Name: Microsoft Server Speech Text to Speech Voice (zh-CN, xxx), Description: xxx , Id: xxx, Locale: zh-CN, Gender: Female, PublicVoice: xxx, Created: 2019-08-26T04:55:39Z
+{
+  "values": [
+    {
+      "locale": "en-US",
+      "voiceName": "en-US-AriaNeural",
+      "description": "",
+      "gender": "Female",
+      "createdDateTime": "2020-05-21T05:57:39.123Z",
+      "properties": {
+        "publicAvailable": true
+      }
+    },
+    {
+      "id": "8fafd8cd-5f95-4a27-a0ce-59260f873141"
+      "locale": "en-US",
+      "voiceName": "my custom neural voice",
+      "description": "",
+      "gender": "Male",
+      "createdDateTime": "2020-05-21T05:25:40.243Z",
+      "properties": {
+        "publicAvailable": false
+      }
+    }
+  ]
+}
 ```
 
-Se o parâmetro **PublicVoice** for **true**, a voz será uma voz neural pública. Caso contrário, será uma voz neural personalizada.
+Se **Properties. publicAvailable** for **true**, a voz será uma voz neural pública. Caso contrário, é uma voz neural personalizada.
 
 ### <a name="convert-text-to-speech"></a>Converter texto em fala
 
-Prepare um arquivo de texto de entrada, em texto sem formatação ou de SSML, e adicione o seguinte código a `voice_synthesis_client.py` :
+Prepare um arquivo de texto de entrada, em texto sem formatação ou de SSML, e adicione o seguinte código a `long_audio_synthesis_client.py` :
 
 > [!NOTE]
-> ' concatenateResult ' é um parâmetro opcional. Se esse parâmetro não estiver definido, as saídas de áudio serão geradas por parágrafo. Você também pode concatenar os áudios em 1 saída definindo o parâmetro. Por padrão, a saída de áudio é definida como riff-16kHz-16 bits-mono-PCM. Para obter mais informações sobre as saídas de áudio com suporte, consulte [formatos de saída de áudio](https://docs.microsoft.com/azure/cognitive-services/speech-service/long-audio-api#audio-output-formats).
+> `concatenateResult` é um parâmetro opcional. Se esse parâmetro não estiver definido, as saídas de áudio serão geradas por parágrafo. Você também pode concatenar os áudios em 1 saída definindo o parâmetro. 
+> `outputFormat` também é opcional. Por padrão, a saída de áudio é definida como riff-16kHz-16 bits-mono-PCM. Para obter mais informações sobre formatos de saída de áudio com suporte, consulte [formatos de saída de áudio](#audio-output-formats).
 
 ```python
-parser.add_argument('--submit', action="store_true", default=False, help='submit a synthesis request')
-parser.add_argument('--concatenateResult', action="store_true", default=False, help='If concatenate result in a single wave file')
-parser.add_argument('-file', action="store", dest="file", help='the input text script file path')
-parser.add_argument('-voiceId', action="store", nargs='+', dest="voiceId", help='the id of the voice which used to synthesis')
-parser.add_argument('-locale', action="store", dest="locale", help='the locale information like zh-CN/en-US')
-parser.add_argument('-format', action="store", dest="format", default='riff-16khz-16bit-mono-pcm', help='the output audio format')
+def submit_synthesis():
+    region = '<region>'
+    key = '<your_key>'
+    input_file_path = '<input_file_path>'
+    locale = '<locale>'
+    url = 'https://{}.customvoice.api.speech.microsoft.com/api/texttospeech/v3.0/longaudiosynthesis'.format(region)
+    header = {
+        'Ocp-Apim-Subscription-Key': key
+    }
 
-def submitSynthesis():
-    modelList = args.voiceId
-    data={'name': 'simple test', 'description': 'desc...', 'models': json.dumps(modelList), 'locale': args.locale, 'outputformat': args.format}
-    if args.concatenateResult:
-        properties={'ConcatenateResult': 'true'}
-        data['properties'] = json.dumps(properties)
-    if args.file is not None:
-        scriptfilename=ntpath.basename(args.file)
-        files = {'script': (scriptfilename, open(args.file, 'rb'), 'text/plain')}
-    response = requests.post(baseAddress+"voicesynthesis", data, headers={"Ocp-Apim-Subscription-Key":args.key}, files=files, verify=False)
-    if response.status_code == 202:
-        location = response.headers['Location']
-        id = location.split("/")[-1]
-        print("Submit synthesis request successful")
-        return id
-    else:
-        print("Submit synthesis request failed")
-        print("response.status_code: %d" % response.status_code)
-        print("response.text: %s" % response.text)
-        return 0
+    voice_identities = [
+        {
+            'voicename': '<voice_name>'
+        }
+    ]
 
-def getSubmittedSynthesis(id):
-    response=requests.get(baseAddress+"voicesynthesis/"+id, headers={"Ocp-Apim-Subscription-Key":args.key}, verify=False)
-    synthesis = json.loads(response.text)
-    return synthesis
+    payload = {
+        'displayname': 'long audio synthesis sample',
+        'description': 'sample description',
+        'locale': locale,
+        'voices': json.dumps(voice_identities),
+        'outputformat': 'riff-16khz-16bit-mono-pcm',
+        'concatenateresult': True,
+    }
 
-if args.submit:
-    id = submitSynthesis()
-    if (id == 0):
-        exit(1)
+    filename = ntpath.basename(input_file_path)
+    files = {
+        'script': (filename, open(input_file_path, 'rb'), 'text/plain')
+    }
 
-    while(1):
-        print("\r\nChecking status")
-        synthesis=getSubmittedSynthesis(id)
-        if synthesis['status'] == "Succeeded":
-            r = requests.get(synthesis['resultsUrl'])
-            filename=id + ".zip"
-            with open(filename, 'wb') as f:  
-                f.write(r.content)
-                print("Succeeded... Result file downloaded : " + filename)
-            break
-        elif synthesis['status'] == "Failed":
-            print("Failed...")
-            break
-        elif synthesis['status'] == "Running":
-            print("Running...")
-        elif synthesis['status'] == "NotStarted":
-            print("NotStarted...")
-        time.sleep(10)
+    response = requests.post(url, payload, headers=header, files=files)
+    print('response.status_code: %d' % response.status_code)
+    print(response.headers['Location'])
+
+submit_synthesis()
 ```
 
-Execute o script usando o comando `python voice_synthesis_client.py --submit -key <your_key> -region <region> -file <input> -locale <locale> -voiceId <voice_guid>` e substitua os seguintes valores:
+Substitua os seguintes valores:
 
 * Substitua `<your_key>` por sua chave de assinatura do Serviço de Fala. Essas informações estão disponíveis na guia **visão geral** do recurso na [portal do Azure](https://aka.ms/azureportal).
 * Substituir `<region>` pela região em que o recurso de fala foi criado (por exemplo: `eastus` ou `westus` ). Essas informações estão disponíveis na guia **visão geral** do recurso na [portal do Azure](https://aka.ms/azureportal).
-* Substitua `<input>` pelo caminho para o arquivo de texto que você preparou para conversão de texto em fala.
+* Substitua `<input_file_path>` pelo caminho para o arquivo de texto que você preparou para conversão de texto em fala.
 * Substituir `<locale>` pela localidade de saída desejada. Para obter mais informações, consulte [suporte a idiomas](language-support.md#neural-voices).
-* Substitua `<voice_guid>` pela voz de saída desejada. Use uma das vozes retornadas pela chamada anterior ao ponto de `/voicesynthesis/voices` extremidade.
+
+Use uma das vozes retornadas pela chamada anterior ao ponto de `/voices` extremidade.
+
+* Se você estiver usando uma voz neural pública, substitua `<voice_name>` pela voz de saída desejada.
+* Para usar uma voz neural personalizada, substitua `voice_identities` a variável pelo seguinte e substitua `<voice_id>` pelo `id` da sua voz neural personalizada.
+```Python
+voice_identities = [
+    {
+        'id': '<voice_id>'
+    }
+]
+```
 
 Você verá uma saída parecida com esta:
 
 ```console
-Submit synthesis request successful
-
-Checking status
-NotStarted...
-
-Checking status
-Running...
-
-Checking status
-Running...
-
-Checking status
-Succeeded... Result file downloaded : xxxx.zip
+response.status_code: 202
+https://<endpoint>/api/texttospeech/v3.0/longaudiosynthesis/<guid>
 ```
 
-O resultado contém o texto de entrada e os arquivos de saída de áudio gerados pelo serviço. Você pode baixar esses arquivos em um zip.
-
 > [!NOTE]
-> Se você tiver mais de 1 arquivo de entrada, será necessário enviar várias solicitações. Há algumas limitações que precisam estar cientes. 
-> * O cliente tem permissão para enviar até **5** solicitações ao servidor por segundo para cada conta de assinatura do Azure. Se ele exceder a limitação, o cliente receberá um código de erro 429 (muitas solicitações). Reduza o valor da solicitação por segundo
-> * O servidor tem permissão para executar e enfileirar até **120** solicitações para cada conta de assinatura do Azure. Se ele exceder a limitação, o servidor retornará um código de erro 429 (número excessivo de solicitações). Aguarde e evite enviar uma nova solicitação até que algumas solicitações sejam concluídas
+> Se você tiver mais de 1 arquivo de entrada, será necessário enviar várias solicitações. Há algumas limitações que precisam estar cientes.
+> * O cliente tem permissão para enviar até **5** solicitações ao servidor por segundo para cada conta de assinatura do Azure. Se ele exceder a limitação, o cliente receberá um código de erro 429 (muitas solicitações). Reduza o valor da solicitação por segundo.
+> * O servidor tem permissão para executar e enfileirar até **120** solicitações para cada conta de assinatura do Azure. Se ele exceder a limitação, o servidor retornará um código de erro 429 (número excessivo de solicitações). Aguarde e evite enviar uma nova solicitação até que algumas solicitações sejam concluídas.
+
+A URL na saída pode ser usada para obter o status da solicitação.
+
+### <a name="get-information-of-a-submitted-request"></a>Obter informações de uma solicitação enviada
+
+Para obter o status de uma solicitação de síntese enviada, basta enviar uma solicitação GET para a URL retornada pela etapa anterior.
+```Python
+
+def get_synthesis():
+    url = '<url>'
+    key = '<your_key>'
+    header = {
+        'Ocp-Apim-Subscription-Key': key
+    }
+    response = requests.get(url, headers=header)
+    print(response.text)
+
+get_synthesis()
+```
+A saída será assim:
+```console
+response.status_code: 200
+{
+  "models": [
+    {
+      "voiceName": "en-US-AriaNeural"
+    }
+  ],
+  "properties": {
+    "outputFormat": "riff-16khz-16bit-mono-pcm",
+    "concatenateResult": false,
+    "totalDuration": "PT5M57.252S",
+    "billableCharacterCount": 3048
+  },
+  "id": "eb3d7a81-ee3e-4e9a-b725-713383e71677",
+  "lastActionDateTime": "2021-01-14T11:12:27.240Z",
+  "status": "Succeeded",
+  "createdDateTime": "2021-01-14T11:11:02.557Z",
+  "locale": "en-US",
+  "displayName": "long audio synthesis sample",
+  "description": "sample description"
+}
+```
+
+Em `status` propriedade, você pode ler o status dessa solicitação. A solicitação será iniciada com `NotStarted` status, então altere para `Running` e, finalmente, se torna `Succeeded` ou `Failed` . Você pode usar um loop para sondar essa API até que o status se torne `Succeeded` .
+
+### <a name="download-audio-result"></a>Baixar resultado de áudio
+
+Depois que uma solicitação de síntese for realizada com sucesso, você poderá baixar o resultado de áudio chamando GET `/files` API.
+
+```python
+def get_files():
+    id = '<request_id>'
+    region = '<region>'
+    key = '<your_key>'
+    url = 'https://{}.customvoice.api.speech.microsoft.com/api/texttospeech/v3.0/longaudiosynthesis/{}/files'.format(region, id)
+    header = {
+        'Ocp-Apim-Subscription-Key': key
+    }
+
+    response = requests.get(url, headers=header)
+    print('response.status_code: %d' % response.status_code)
+    print(response.text)
+
+get_files()
+```
+Substituir `<request_id>` pela ID da solicitação que você deseja baixar o resultado. Ele pode ser encontrado na resposta da etapa anterior.
+
+A saída será assim:
+```console
+response.status_code: 200
+{
+  "values": [
+    {
+      "name": "2779f2aa-4e21-4d13-8afb-6b3104d6661a.txt",
+      "kind": "LongAudioSynthesisScript",
+      "properties": {
+        "size": 4200
+      },
+      "createdDateTime": "2021-01-14T11:11:02.410Z",
+      "links": {
+        "contentUrl": "https://customvoice-usw.blob.core.windows.net/artifacts/input.txt?st=2018-02-09T18%3A07%3A00Z&se=2018-02-10T18%3A07%3A00Z&sp=rl&sv=2017-04-17&sr=b&sig=e05d8d56-9675-448b-820c-4318ae64c8d5"
+      }
+    },
+    {
+      "name": "voicesynthesis_waves.zip",
+      "kind": "LongAudioSynthesisResult",
+      "properties": {
+        "size": 9290000
+      },
+      "createdDateTime": "2021-01-14T11:12:27.226Z",
+      "links": {
+        "contentUrl": "https://customvoice-usw.blob.core.windows.net/artifacts/voicesynthesis_waves.zip?st=2018-02-09T18%3A07%3A00Z&se=2018-02-10T18%3A07%3A00Z&sp=rl&sv=2017-04-17&sr=b&sig=e05d8d56-9675-448b-820c-4318ae64c8d5"
+      }
+    }
+  ]
+}
+```
+A saída contém informações de 2 arquivos. Aquela com `"kind": "LongAudioSynthesisScript"` é o script de entrada enviado. O outro com `"kind": "LongAudioSynthesisResult"` o resultado dessa solicitação.
+O resultado é zip que contém os arquivos de saída de áudio gerados, juntamente com uma cópia do texto de entrada.
+
+Ambos os arquivos podem ser baixados da URL em sua `links.contentUrl` propriedade.
+
+### <a name="get-all-synthesis-requests"></a>Obter todas as solicitações de síntese
+
+Você pode obter uma lista de todas as solicitações enviadas com o seguinte código:
+
+```python
+def get_synthesis():
+    region = '<region>'
+    key = '<your_key>'
+    url = 'https://{}.customvoice.api.speech.microsoft.com/api/texttospeech/v3.0/longaudiosynthesis/'.format(region)    
+    header = {
+        'Ocp-Apim-Subscription-Key': key
+    }
+
+    response = requests.get(url, headers=header)
+    print('response.status_code: %d' % response.status_code)
+    print(response.text)
+
+get_synthesis()
+```
+
+A saída será semelhante a:
+```console
+response.status_code: 200
+{
+  "values": [
+    {
+      "models": [
+        {
+          "id": "8fafd8cd-5f95-4a27-a0ce-59260f873141",
+          "voiceName": "my custom neural voice"
+        }
+      ],
+      "properties": {
+        "outputFormat": "riff-16khz-16bit-mono-pcm",
+        "concatenateResult": false,
+        "totalDuration": "PT1S",
+        "billableCharacterCount": 5
+      },
+      "id": "f9f0bb74-dfa5-423d-95e7-58a5e1479315",
+      "lastActionDateTime": "2021-01-05T07:25:42.433Z",
+      "status": "Succeeded",
+      "createdDateTime": "2021-01-05T07:25:13.600Z",
+      "locale": "en-US",
+      "displayName": "Long Audio Synthesis",
+      "description": "Long audio synthesis sample"
+    },
+    {
+      "models": [
+        {
+          "voiceName": "en-US-AriaNeural"
+        }
+      ],
+      "properties": {
+        "outputFormat": "riff-16khz-16bit-mono-pcm",
+        "concatenateResult": false,
+        "totalDuration": "PT5M57.252S",
+        "billableCharacterCount": 3048
+      },
+      "id": "eb3d7a81-ee3e-4e9a-b725-713383e71677",
+      "lastActionDateTime": "2021-01-14T11:12:27.240Z",
+      "status": "Succeeded",
+      "createdDateTime": "2021-01-14T11:11:02.557Z",
+      "locale": "en-US",
+      "displayName": "long audio synthesis sample",
+      "description": "sample description"
+    }
+  ]
+}
+```
+
+`values` a propriedade contém uma lista de solicitações de síntese. A lista é paginada, com um tamanho máximo de página de 100. Se houver mais de 100 solicitações, uma `"@nextLink"` propriedade será fornecida para obter a próxima página da lista paginada.
+
+```console
+  "@nextLink": "https://<endpoint>/api/texttospeech/v3.0/longaudiosynthesis/?top=100&skip=100"
+```
+
+Você também pode personalizar o tamanho da página e ignorar o número fornecendo `skip` e `top` no parâmetro de URL.
 
 ### <a name="remove-previous-requests"></a>Remover solicitações anteriores
 
 O serviço manterá até **20.000** solicitações para cada conta de assinatura do Azure. Se o valor da solicitação exceder essa limitação, remova as solicitações anteriores antes de fazer as novas. Se você não remover as solicitações existentes, receberá uma notificação de erro.
 
-Adicione o seguinte código a `voice_synthesis_client.py`:
-
+O código a seguir mostra como remover uma solicitação de síntese específica.
 ```python
-parser.add_argument('--syntheses', action="store_true", default=False, help='print synthesis list')
-parser.add_argument('--delete', action="store_true", default=False, help='delete a synthesis request')
-parser.add_argument('-synthesisId', action="store", nargs='+', dest="synthesisId", help='the id of the voice synthesis which need to be deleted')
+def delete_synthesis():
+    id = '<request_id>'
+    region = '<region>'
+    key = '<your_key>'
+    url = 'https://{}.customvoice.api.speech.microsoft.com/api/texttospeech/v3.0/longaudiosynthesis/{}/'.format(region, id)
+    header = {
+        'Ocp-Apim-Subscription-Key': key
+    }
 
-def getSubmittedSyntheses():
-    response=requests.get(baseAddress+"voicesynthesis", headers={"Ocp-Apim-Subscription-Key":args.key}, verify=False)
-    syntheses = json.loads(response.text)
-    return syntheses
-
-def deleteSynthesis(ids):
-    for id in ids:
-        print("delete voice synthesis %s " % id)
-        response = requests.delete(baseAddress+"voicesynthesis/"+id, headers={"Ocp-Apim-Subscription-Key":args.key}, verify=False)
-        if (response.status_code == 204):
-            print("delete successful")
-        else:
-            print("delete failed, response.status_code: %d, response.text: %s " % (response.status_code, response.text))
-
-if args.syntheses:
-    synthese = getSubmittedSyntheses()
-    print("There are %d synthesis requests submitted:" % len(synthese))
-    for synthesis in synthese:
-        print ("ID : %s , Name : %s, Status : %s " % (synthesis['id'], synthesis['name'], synthesis['status']))
-
-if args.delete:
-    deleteSynthesis(args.synthesisId)
+    response = requests.delete(url, headers=header)
+    print('response.status_code: %d' % response.status_code)
 ```
 
-Execute `python voice_synthesis_client.py --syntheses -key <your_key> -region <region>` para obter uma lista de solicitações de síntese que você fez. Você verá uma saída como esta:
+Se a solicitação for removida com êxito, o código de status de resposta será HTTP 204 (sem conteúdo).
 
 ```console
-There are <number> synthesis requests submitted:
-ID : xxx , Name : xxx, Status : Succeeded
-ID : xxx , Name : xxx, Status : Running
-ID : xxx , Name : xxx : Succeeded
+response.status_code: 204
 ```
 
-Para excluir uma solicitação, execute `python voice_synthesis_client.py --delete -key <your_key> -region <Region> -synthesisId <synthesis_id>` e substitua `<synthesis_id>` por um valor de ID de solicitação retornado da solicitação anterior.
-
 > [!NOTE]
-> As solicitações com o status ' running '/' Wait ' não podem ser removidas ou excluídas.
+> Solicitações com um status de `NotStarted` ou `Running` não podem ser removidas ou excluídas.
 
-O concluído `voice_synthesis_client.py` está disponível no [GitHub](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Python/voiceclient.py).
+O concluído `long_audio_synthesis_client.py` está disponível no [GitHub](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Python/voiceclient.py).
 
 ## <a name="http-status-codes"></a>Códigos de status HTTP
 
@@ -277,7 +423,7 @@ A tabela a seguir detalha os códigos de resposta HTTP e as mensagens da API RES
 |        | 400 | O arquivo de entrada deve ter mais de 400 caracteres. | Verifique se o arquivo de entrada excede 400 caracteres. |
 |        | 404 | O modelo declarado na definição de síntese de voz não pode ser encontrado: {ModelId}. | Verifique se {ModelId} está correto. |
 |        | 429 | Excede o limite de síntese de voz ativo. Aguarde até que algumas solicitações sejam concluídas. | O servidor tem permissão para executar e enfileirar até 120 solicitações para cada conta do Azure. Aguarde e evite enviar novas solicitações até que algumas solicitações sejam concluídas. |
-| Todos       | 429 | Há muitas solicitações. | O cliente tem permissão para enviar até 5 solicitações ao servidor por segundo para cada conta do Azure. Reduza o valor da solicitação por segundo. |
+| Tudo       | 429 | Há muitas solicitações. | O cliente tem permissão para enviar até 5 solicitações ao servidor por segundo para cada conta do Azure. Reduza o valor da solicitação por segundo. |
 | Excluir    | 400 | A tarefa de síntese de voz ainda está em uso. | Você só pode excluir solicitações **concluídas** ou **com falha**. |
 | GetByID   | 404 | A entidade especificada não pode ser encontrada. | Verifique se a ID de síntese está correta. |
 
@@ -287,15 +433,11 @@ A API de áudio longa está disponível em várias regiões com pontos de extrem
 
 | Região | Ponto de extremidade |
 |--------|----------|
-| Leste da Austrália | `https://australiaeast.customvoice.api.speech.microsoft.com` |
-| Canadá Central | `https://canadacentral.customvoice.api.speech.microsoft.com` |
 | Leste dos EUA | `https://eastus.customvoice.api.speech.microsoft.com` |
 | Centro da Índia | `https://centralindia.customvoice.api.speech.microsoft.com` |
-| Centro-Sul dos Estados Unidos | `https://southcentralus.customvoice.api.speech.microsoft.com` |
 | Sudeste Asiático | `https://southeastasia.customvoice.api.speech.microsoft.com` |
 | Sul do Reino Unido | `https://uksouth.customvoice.api.speech.microsoft.com` |
 | Europa Ocidental | `https://westeurope.customvoice.api.speech.microsoft.com` |
-| Oeste dos EUA 2 | `https://westus2.customvoice.api.speech.microsoft.com` |
 
 ## <a name="audio-output-formats"></a>Formatos de saída de áudio
 

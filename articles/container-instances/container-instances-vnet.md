@@ -3,14 +3,13 @@ title: Implantar grupo de contêineres na rede virtual do Azure
 description: Saiba como implantar um grupo de contêineres em uma rede virtual do Azure nova ou existente usando a interface de linha de comando do Azure.
 ms.topic: article
 ms.date: 07/02/2020
-ms.author: danlep
-ms.custom: devx-track-javascript
-ms.openlocfilehash: f1678dee9c43d2ce9652018f0d09fe1738659f54
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.custom: devx-track-js, devx-track-azurecli
+ms.openlocfilehash: b791d3f37809c2eca53f5a3cd34f7c44dd11ce40
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87407142"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028872"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Implantar instâncias de contêiner em uma rede virtual do Azure
 
@@ -21,7 +20,7 @@ Este artigo mostra como usar o comando [AZ container Create][az-container-create
 Para cenários de rede e limitações, consulte [cenários e recursos de rede virtual para instâncias de contêiner do Azure](container-instances-virtual-network-concepts.md).
 
 > [!IMPORTANT]
-> A implantação de grupo de contêineres em uma rede virtual está geralmente disponível para contêineres do Linux, na maioria das regiões em que as instâncias de contêiner do Azure estão disponíveis. Para obter detalhes, consulte [regiões e disponibilidade de recursos](container-instances-virtual-network-concepts.md#where-to-deploy). 
+> A implantação de grupo de contêineres em uma rede virtual está geralmente disponível para contêineres do Linux, na maioria das regiões em que as instâncias de contêiner do Azure estão disponíveis. Para obter detalhes, consulte [regiões e disponibilidade de recursos][container-regions]. 
 
 Os exemplos neste artigo são formatados para o shell bash. Se você preferir outro shell, como o PowerShell ou o Prompt de Comando, ajuste os caracteres de continuação de linha adequadamente.
 
@@ -41,7 +40,7 @@ Depois de implantar seu primeiro grupo de contêineres com esse método, você p
 
 ### <a name="example"></a>Exemplo
 
-O comando [AZ container Create][az-container-create] a seguir especifica as configurações para uma nova rede virtual e sub-rede. Forneça o nome de um grupo de recursos que foi criado em uma região em que as implantações de grupo de contêineres em uma rede virtual estão [disponíveis](container-instances-region-availability.md#availability---virtual-network-deployment). Esse comando implanta o contêiner público Microsoft [ACI-HelloWorld][aci-helloworld] que executa um pequeno servidor WebNode.js servindo uma página da Web estática. Na próxima seção, você implantará um segundo grupo de contêineres na mesma sub-rede e testará a comunicação entre as duas instâncias de contêiner.
+O comando [AZ container Create][az-container-create] a seguir especifica as configurações para uma nova rede virtual e sub-rede. Forneça o nome de um grupo de recursos que foi criado em uma região em que as implantações de grupo de contêineres em uma rede virtual estão [disponíveis](container-instances-region-availability.md). Esse comando implanta o contêiner público Microsoft [ACI-HelloWorld][aci-helloworld] que executa um pequeno servidor WebNode.js servindo uma página da Web estática. Na próxima seção, você implantará um segundo grupo de contêineres na mesma sub-rede e testará a comunicação entre as duas instâncias de contêiner.
 
 ```azurecli
 az container create \
@@ -239,3 +238,4 @@ Para implantar uma nova rede virtual, sub-rede, perfil de rede e grupo de contê
 [az-container-show]: /cli/azure/container#az-container-show
 [az-network-vnet-create]: /cli/azure/network/vnet#az-network-vnet-create
 [az-network-profile-list]: /cli/azure/network/profile#az-network-profile-list
+[container-regions]: container-instances-region-availability.md

@@ -11,15 +11,15 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.custom: mvc
-ms.topic: tutorial
+ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 664686511df8f310295a9f6ed6bc689b3a999544
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 0cdad245981ad02d3cdaefba447d131c775e242f
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75430728"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145762"
 ---
 # <a name="customize-the-style-of-the-developer-portal-pages"></a>Personalizar o estilo das páginas do portal do desenvolvedor
 
@@ -31,7 +31,7 @@ Há três maneiras mais comuns de personalizar o portal do desenvolvedor no Gere
 
 Neste artigo, você aprenderá a personalizar o estilo de elementos em páginas do portal do **desenvolvedor** herdado e exibir suas alterações.
 
-![personalizar estilo](./media/modify-developer-portal-style/developer_portal.png)
+![Captura de tela que mostra o local em que as configurações são alteradas no portal do desenvolvedor herdado.](./media/modify-developer-portal-style/developer_portal.png)
 
 [!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
@@ -45,11 +45,11 @@ Neste artigo, você aprenderá a personalizar o estilo de elementos em páginas 
 
 ## <a name="customize-the-developer-portal"></a>Personalizar o portal do desenvolvedor
 
-1. Selecione **Visão geral**.
-2. Clique no botão **Portal do desenvolvedor (herdado)** na parte superior da janela **Visão geral**.
+1. Selecione **Visão geral** .
+2. Clique no botão **Portal do desenvolvedor (herdado)** na parte superior da janela **Visão geral** .
 3. No canto superior esquerdo da tela, você verá um ícone composto de dois pincéis. Passe o mouse sobre esse ícone para abrir o menu de personalização do portal.
 
-    ![personalizar estilo](./media/modify-developer-portal-style/modify-developer-portal-style01.png)
+    ![Captura de tela que realça o ícone com dois pincéis.](./media/modify-developer-portal-style/modify-developer-portal-style01.png)
 4. Selecione **Estilos** no menu para abrir o painel de personalização de estilos.
 
     Todos os elementos que você pode personalizar usando **Estilos** aparecem na página
@@ -59,7 +59,7 @@ Neste artigo, você aprenderá a personalizar o estilo de elementos em páginas 
 
     ![personalizar estilo](./media/modify-developer-portal-style/modify-developer-portal-style02.png)
     
-6. Clique no campo da variável **\@cor do cabeçalho**. 
+6. Clique no campo da variável **\@cor do cabeçalho** . 
     
     A lista suspensa do seletor de cores é aberta.
 7. Selecione uma nova cor na lista suspensa do seletor de cores.

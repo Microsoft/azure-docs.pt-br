@@ -2,19 +2,19 @@
 title: Como implantar a ferramenta de rótulo de exemplo do reconhecedor de formulário
 titleSuffix: Azure Cognitive Services
 description: Aprenda as diferentes maneiras de implantar a ferramenta de rotulação de amostra do reconhecedor de formulário para ajudar com o aprendizado supervisionado.
-author: PatrickFarley
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 04/14/2020
-ms.author: pafarley
-ms.openlocfilehash: c7c4e1cc854fdd2fbf03d2274992bbc4a3bb93af
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.date: 02/11/2021
+ms.author: lajanuar
+ms.openlocfilehash: 9535c1aa044fdce529d83c2e46a1b585e8e5f056
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88717890"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100369995"
 ---
 # <a name="deploy-the-sample-labeling-tool"></a>Implantar a ferramenta de rotulagem de exemplos
 
@@ -32,7 +32,7 @@ A maneira mais rápida de começar a rotular dados é executar a ferramenta de r
 
 ## <a name="deploy-with-azure-container-instances-aci"></a>Implantar com ACI (instâncias de contêiner do Azure)
 
-Antes de começar, é importante observar que há duas maneiras de implantar a ferramenta de rotulamento de exemplo em uma instância de contêiner do Azure (ACI). Ambas as opções são usadas para executar a ferramenta de rotulagem de exemplo com ACI: 
+Antes de começar, é importante observar que há duas maneiras de implantar a ferramenta de rotulamento de exemplo em uma instância de contêiner do Azure (ACI). Ambas as opções são usadas para executar a ferramenta de rotulagem de exemplo com ACI:
 
 * [Usando o portal do Azure](#azure-portal)
 * [Usando a CLI do Azure](#azure-cli)
@@ -42,16 +42,16 @@ Antes de começar, é importante observar que há duas maneiras de implantar a f
 Siga estas etapas para criar um novo recurso usando o portal do Azure: 
 
 1. Entre no [portal do Azure](https://portal.azure.com/signin/index/).
-2. Selecione **Criar um recurso**. 
-3. Em seguida, selecione **aplicativo Web**. 
+2. Selecione **Criar um recurso**.
+3. Em seguida, selecione **aplicativo Web**.
 
    > [!div class="mx-imgBorder"]
-   > ![Selecionar aplicativo Web](./media/quickstarts/formre-create-web-app.png)
-   
-4. Primeiro, certifique-se de que a guia **noções básicas** esteja selecionada. Agora, você precisará fornecer algumas informações: 
+   > ![Selecionar aplicativo Web](./media/quickstarts/create-web-app.png)
+
+4. Primeiro, certifique-se de que a guia **noções básicas** esteja selecionada. Agora, você precisará fornecer algumas informações:
 
    > [!div class="mx-imgBorder"]
-   > ![Selecionar noções básicas](./media/quickstarts/formre-select-basics.png)
+   > ![Selecionar noções básicas](./media/quickstarts/select-basics.png)
    * Assinatura – selecione uma assinatura do Azure existente
    * Grupo de recursos – você pode reutilizar um grupo de recursos existente ou criar um novo para este projeto. É recomendável criar um novo grupo de recursos.
    * Nome – dê um nome ao seu aplicativo Web. 
@@ -61,48 +61,53 @@ Siga estas etapas para criar um novo recurso usando o portal do Azure:
    * Plano do Linux – selecione um tipo de preço/plano para seu serviço de aplicativo. 
 
    > [!div class="mx-imgBorder"]
-   > ![Configurar seu aplicativo Web](./media/quickstarts/formre-select-docker-linux.png)
+   > ![Configurar seu aplicativo Web](./media/quickstarts/select-docker.png)
 
-5. Em seguida, selecione a guia **Docker** . 
+5. Em seguida, selecione a guia **Docker** .
 
    > [!div class="mx-imgBorder"]
-   > ![Selecionar Docker](./media/quickstarts/formre-select-docker.png)
+   > ![Selecionar Docker](./media/quickstarts/select-docker.png)
 
 6. Agora, vamos configurar o contêiner do Docker. Todos os campos são necessários, a menos que indicado de outra forma:
 
-    # <a name="v20"></a>[v2.0](#tab/v2-0)  
-   * Opções-selecione **um único contêiner**
-   * Origem da imagem – selecionar **registro privado** 
-   * URL do servidor-defina como `https://mcr.microsoft.com`
-   * Nome de usuário (opcional)-criar um nome de usuário. 
-   * Senha (opcional) – crie uma senha segura que você vai lembrar.
-   * Imagem e marca-defina isso como `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest`
-   * Implantação contínua – defina como **ativado** se você quiser receber atualizações automáticas quando a equipe de desenvolvimento fizer alterações na ferramenta de rotulagem de exemplo.
-   * Comando de inicialização – defina como `./run.sh eula=accept`
+    # <a name="v20"></a>[v2.0](#tab/v2-0)
 
-    # <a name="v21-preview"></a>[versão prévia do v 2.1](#tab/v2-1) 
-   * Opções-selecione **um único contêiner**
-   * Origem da imagem – selecionar **registro privado** 
-   * URL do servidor-defina como `https://mcr.microsoft.com`
-   * Nome de usuário (opcional)-criar um nome de usuário. 
-   * Senha (opcional) – crie uma senha segura que você vai lembrar.
-   * Imagem e marca-defina isso como `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:2.1.012970002-amd64-preview`
-   * Implantação contínua – defina como **ativado** se você quiser receber atualizações automáticas quando a equipe de desenvolvimento fizer alterações na ferramenta de rotulagem de exemplo.
-   * Comando de inicialização – defina como `./run.sh eula=accept`
-    
+* Opções-selecione **um único contêiner**
+* Origem da imagem – selecionar **registro privado** 
+* URL do servidor-defina como `https://mcr.microsoft.com`
+* Nome de usuário (opcional)-criar um nome de usuário. 
+* Senha (opcional) – crie uma senha segura que você vai lembrar.
+* Imagem e marca-defina isso como `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest`
+* Implantação contínua – defina como **ativado** se você quiser receber atualizações automáticas quando a equipe de desenvolvimento fizer alterações na ferramenta de rotulagem de exemplo.
+* Comando de inicialização – defina como `./run.sh eula=accept`
+
+    # <a name="v21-preview"></a>[Versão prévia v2.1](#tab/v2-1) 
+
+* Opções-selecione **um único contêiner**
+* Origem da imagem – selecionar **registro privado** 
+* URL do servidor-defina como `https://mcr.microsoft.com`
+* Nome de usuário (opcional)-criar um nome de usuário. 
+* Senha (opcional) – crie uma senha segura que você vai lembrar.
+* Imagem e marca-defina isso como `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-preview`
+* Implantação contínua – defina como **ativado** se você quiser receber atualizações automáticas quando a equipe de desenvolvimento fizer alterações na ferramenta de rotulagem de exemplo.
+* Comando de inicialização – defina como `./run.sh eula=accept`
+
     ---
 
    > [!div class="mx-imgBorder"]
-   > ![Configurar o Docker](./media/quickstarts/formre-configure-docker.png)
+   > ![Configurar o Docker](./media/quickstarts/configure-docker.png)
 
-7. É isso. Em seguida, selecione **revisar + criar**e **criar** para implantar seu aplicativo Web. Ao concluir, você pode acessar seu aplicativo Web na URL fornecida na **visão geral** do seu recurso.
+7. Isso é tudo. Em seguida, selecione **revisar + criar** e **criar** para implantar seu aplicativo Web. Ao concluir, você pode acessar seu aplicativo Web na URL fornecida na **visão geral** do seu recurso.
 
 > [!NOTE]
-> Ao criar seu aplicativo Web, você também pode configurar a autorização/autenticação. Isso não é necessário para começar. 
+> Ao criar seu aplicativo Web, você também pode configurar a autorização/autenticação. Isso não é necessário para começar.
+
+> [!IMPORTANT]
+> Talvez seja necessário habilitar o TLS para seu aplicativo Web a fim de exibi-lo em seu `https` endereço. Siga as instruções em [habilitar um ponto de extremidade TLS](../../container-instances/container-instances-container-group-ssl.md) para configurar um contêiner sidecar do que permite o TLS/SSL para seu aplicativo Web.
 
 ### <a name="azure-cli"></a>CLI do Azure
 
-Como alternativa ao uso do portal do Azure, você pode criar um recurso usando o CLI do Azure. Antes de continuar, você precisará instalar o [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). Você pode ignorar esta etapa se já estiver trabalhando com o CLI do Azure. 
+Como alternativa ao uso do portal do Azure, você pode criar um recurso usando o CLI do Azure. Antes de continuar, você precisará instalar o [CLI do Azure](/cli/azure/install-azure-cli). Você pode ignorar esta etapa se já estiver trabalhando com o CLI do Azure. 
 
 Há algumas coisas que você precisa saber sobre este comando:
 
@@ -111,10 +116,10 @@ Há algumas coisas que você precisa saber sobre este comando:
 * Você precisará especificar onde deseja criar o recurso. Substitua `<region name>` pela região desejada para o aplicativo Web. 
 * Esse comando aceita automaticamente o EULA.
 
-No CLI do Azure, execute este comando para criar um recurso de aplicativo Web para a ferramenta de rotulagem de exemplo: 
+No CLI do Azure, execute este comando para criar um recurso de aplicativo Web para a ferramenta de rotulagem de exemplo:
 
+# <a name="v20"></a>[v2.0](#tab/v2-0)
 
-# <a name="v20"></a>[v2.0](#tab/v2-0)   
 ```azurecli
 DNS_NAME_LABEL=aci-demo-$RANDOM
 
@@ -128,15 +133,17 @@ az container create \
   --cpu 2 \
   --memory 8 \
   --command-line "./run.sh eula=accept"
-``` 
-# <a name="v21-preview"></a>[versão prévia do v 2.1](#tab/v2-1)    
+`
+
+# [v2.1 preview](#tab/v2-1) 
+   
 ```azurecli
 DNS_NAME_LABEL=aci-demo-$RANDOM
 
 az container create \
   --resource-group <resource_group_name> \
   --name <name> \
-  --image mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:2.1.012970002-amd64-preview \
+  --image mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-preview \
   --ports 3000 \
   --dns-name-label $DNS_NAME_LABEL \
   --location <region name> \
@@ -149,7 +156,7 @@ az container create \
 
 ### <a name="connect-to-azure-ad-for-authorization"></a>Conectar-se ao Azure AD para autorização
 
-É recomendável que você conecte seu aplicativo Web ao Azure Active Directory. Isso garante que somente os usuários com credenciais válidas possam entrar e usar seu aplicativo Web. Siga as instruções em [configurar seu aplicativo do serviço de aplicativo](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-aad) para se conectar ao Azure Active Directory.
+É recomendável que você conecte seu aplicativo Web ao Azure Active Directory. Isso garante que somente os usuários com credenciais válidas possam entrar e usar seu aplicativo Web. Siga as instruções em [configurar seu aplicativo do serviço de aplicativo](../../app-service/configure-authentication-provider-aad.md) para se conectar ao Azure Active Directory.
 
 ## <a name="open-source-on-github"></a>Código-fonte aberto no GitHub
 

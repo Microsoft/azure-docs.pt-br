@@ -7,12 +7,12 @@ ms.author: vkukke
 ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
-ms.openlocfilehash: b3babfe93012fae15e79362ba34f3f48856bc833
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 8314447e7d5d282eb428ec9316c4eef6844a7423
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86171730"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98682372"
 ---
 # <a name="event-grid-concepts"></a>Conceitos da Grade de Eventos
 
@@ -48,7 +48,7 @@ Consulte a [documentação da API REST](api.md) sobre como gerenciar assinaturas
 
 ## <a name="event-handlers"></a>Manipuladores de eventos
 
-Sob a perspectiva de uma Grade de Eventos, um manipulador de eventos é o local em que o evento é enviado. O manipulador executa uma ação adicional para processar o evento. Grade de eventos do Azure dá suporte a vários tipos de manipulador. Você pode usar um serviço do Azure com suporte ou seu próprio gancho da Web como o manipulador. Dependendo do tipo de manipulador, a Grade de Eventos segue diferentes mecanismos para assegurar a entrega do evento. Se o manipulador de eventos de destino for um gancho da Web HTTP, o evento será repetido quando o manipulador retornar um código de status `200 – OK` . Para o Hub do Edge, se o evento for entregue sem nenhuma exceção, ele será considerado com êxito.
+Sob a perspectiva de uma Grade de Eventos, um manipulador de eventos é o local em que o evento é enviado. O manipulador executa uma ação adicional para processar o evento. Grade de eventos do Azure dá suporte a vários tipos de manipulador. Você pode usar um serviço do Azure com suporte ou seu próprio gancho da Web como o manipulador. Dependendo do tipo de manipulador, a Grade de Eventos segue diferentes mecanismos para assegurar a entrega do evento. Se o manipulador de eventos de destino for um gancho da Web HTTP, o evento será repetido até que o manipulador retorne um código de status `200 – OK` . Para o Hub do Edge, se o evento for entregue sem nenhuma exceção, ele será considerado com êxito.
 
 ## <a name="security"></a>Segurança
 

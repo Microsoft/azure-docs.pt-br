@@ -3,12 +3,12 @@ title: Backup offline usando Azure Data Box
 description: Saiba como você pode usar Azure Data Box para propagar grandes dados de backup inicial offline do agente MARS para um cofre dos serviços de recuperação.
 ms.topic: conceptual
 ms.date: 1/27/2020
-ms.openlocfilehash: 6ad97ee60c3c7debea72357cf7fc8d483a3c1d46
-ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
+ms.openlocfilehash: e789b6c9f4ff2e8cd168e6b5c138d423911d4743
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88761552"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96752576"
 ---
 # <a name="azure-backup-offline-backup-by-using-azure-data-box"></a>Backup offline do Backup do Azure usando Azure Data Box
 
@@ -21,7 +21,7 @@ Você pode usar [Azure data Box](../databox/data-box-overview.md) para propagar 
 
 Este artigo explica como você pode usar Azure Data Box para propagar grandes dados de backup inicial offline do agente MARS para um cofre dos serviços de recuperação.
 
-## <a name="supported-platforms"></a>Plataformas compatíveis
+## <a name="supported-platforms"></a>Plataformas com suporte
 
 O processo para propagar dados do agente MARS usando Azure Data Box tem suporte nas seguintes SKUs do Windows.
 
@@ -124,7 +124,7 @@ O processo de backup offline usando MARS e Azure Data Box requer que os disposit
 
 1. Certifique-se de desinstalar todas as instalações anteriores do agente MARS.
 1. Baixe o agente MARS mais recente deste [site](https://aka.ms/azurebackup_agent).
-1. Execute *MARSAgentInstaller.exe*e execute *apenas* as etapas para [instalar e registrar o agente](./install-mars-agent.md#install-and-register-the-agent) no cofre dos serviços de recuperação em que você deseja que os backups sejam armazenados.
+1. Execute *MARSAgentInstaller.exe* e execute *apenas* as etapas para [instalar e registrar o agente](./install-mars-agent.md#install-and-register-the-agent) no cofre dos serviços de recuperação em que você deseja que os backups sejam armazenados.
 
    > [!NOTE]
    > O cofre dos serviços de recuperação deve estar na mesma assinatura que o trabalho de Azure Data Box.
@@ -216,7 +216,7 @@ Para garantir que você possa montar seu dispositivo de Data Box como um sistema
     >
     >Se você [configurar um dispositivo Azure Data Box 100-TB](#set-up-azure-data-box-devices), insira `\\<DeviceIPAddress>\<StorageAccountName>_PageBlob` como o caminho de rede para o dispositivo.
 
-1. Selecione **Avançar**e selecione **concluir** na página seguinte para salvar a política de backup e retenção com a configuração de backup offline usando Azure data box.
+1. Selecione **Avançar** e selecione **concluir** na página seguinte para salvar a política de backup e retenção com a configuração de backup offline usando Azure data box.
 
    A página a seguir confirma que a política foi salva com êxito.
 
@@ -277,7 +277,7 @@ Como solução alternativa para resolver esse problema, execute as etapas a segu
 
 #### <a name="step-1-of-workaround"></a>Etapa 1 da solução alternativa
 
-Entre no PowerShell que aparece na interface do usuário do amMAB usando uma conta diferente com acesso de administrador na assinatura que terá o trabalho de importação ou exportação criado.
+Entre no PowerShell que aparece na interface do usuário do amMAB usando uma conta diferente com acesso de administrador na assinatura que terá o trabalho de Data Box criado.
 
 #### <a name="step-2-of-workaround"></a>Etapa 2 da solução alternativa
 
@@ -294,7 +294,7 @@ No servidor que você está tentando configurar para o backup offline, execute a
 
 1. Vá para a guia **gerenciar aplicativo de certificado do computador**  >  **pessoal** e procure o certificado com o nome `CB_AzureADCertforOfflineSeeding_<ResourceId>` .
 
-2. Selecione o certificado, clique com o botão direito do mouse em **todas as tarefas**e selecione **Exportar** sem uma chave privada no formato. cer.
+2. Selecione o certificado, clique com o botão direito do mouse em **todas as tarefas** e selecione **Exportar** sem uma chave privada no formato. cer.
 
 3. Vá para o aplicativo de backup offline do Azure mencionado na etapa 2. Selecione **configurações**  >  **chaves**  >  **carregar chave pública**. Carregue o certificado que você exportou na etapa anterior.
 
@@ -302,7 +302,7 @@ No servidor que você está tentando configurar para o backup offline, execute a
 
 4. No servidor, abra o registro digitando **regedit** na janela Executar.
 
-5. Vá para o computador do registro *\ HKEY_LOCAL_MACHINE \Software\microsoft\windows Azure Backup\Config\CloudBackupProvider.* Clique com o botão direito do mouse em **CloudBackupProvider**e adicione um novo valor de cadeia de caracteres com o nome `AzureADAppCertThumbprint_<Azure User Id>` .
+5. Vá para oComputer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider do registro *.* Clique com o botão direito do mouse em **CloudBackupProvider** e adicione um novo valor de cadeia de caracteres com o nome `AzureADAppCertThumbprint_<Azure User Id>` .
 
     >[!NOTE]
     > Para obter a ID de usuário do Azure, execute uma destas ações:
@@ -312,7 +312,7 @@ No servidor que você está tentando configurar para o backup offline, execute a
 
 6. Clique com o botão direito do mouse na cadeia de caracteres adicionada na etapa anterior e selecione **Modificar**. No valor, forneça a impressão digital do certificado que você exportou na etapa 2. Selecione **OK**.
 
-7. Para obter o valor da impressão digital, clique duas vezes no certificado. Selecione a guia **detalhes** e role para baixo até ver o campo impressão digital. Selecione **impressão digital**e copie o valor.
+7. Para obter o valor da impressão digital, clique duas vezes no certificado. Selecione a guia **detalhes** e role para baixo até ver o campo impressão digital. Selecione **impressão digital** e copie o valor.
 
     ![Campo de impressão digital do certificado](./media/offline-backup-azure-data-box/thumbprint-field.png)
 

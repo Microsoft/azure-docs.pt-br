@@ -1,17 +1,17 @@
 ---
 title: 'Início Rápido: Implantar um aplicativo Web na Malha do Azure Service Fabric'
 description: Este início rápido mostra como criar um site do ASP.NET Core e publicá-lo na Malha do Azure Service Fabric usando o Visual Studio.
-author: dkkapur
+author: georgewallace
 ms.topic: quickstart
 ms.date: 07/17/2018
-ms.author: dekapur
+ms.author: gwallace
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 276f8860f407693a7ff08048399fa6edf16aaf0a
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 15e0c3bcbc19eae344ca3965b2b866ca9a15f28d
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75459075"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91840312"
 ---
 # <a name="quickstart-create-and-deploy-a-web-app-to-azure-service-fabric-mesh"></a>Início rápido: Criar e implantar um aplicativo Web na Malha do Microsoft Azure Service Fabric
 
@@ -33,7 +33,7 @@ Na caixa **Nome**, digite **ServiceFabricMesh1** e na caixa **Local** defina o c
 
 Verifique se a opção **Criar diretório para solução** está selecionado e clique em **OK** para criar o projeto de malha do Service Fabric.
 
-![Diálogo do novo projeto de malha do Service Fabric no Visual Studio](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-new-project.png)
+![Captura de tela que mostra como criar um projeto da Malha do Service Fabric.](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-new-project.png)
 
 ### <a name="create-a-service"></a>Criar um serviço
 
@@ -67,11 +67,11 @@ Você verá uma caixa de diálogo **Publicar Aplicativo do Service Fabric**.
 
 Escolha a conta e assinatura do Azure. Escolha um **Local**. Este artigo usa **Leste dos EUA**.
 
-Em **Grupo de recursos**, escolha **\<Criar Novo Grupo de Recursos...>** . A caixa de diálogo **Criar Grupo de Recursos** é exibida. Defina o **Nome do grupo de recursos** e o **Local**.  Este início rápido usa o local **Leste dos EUA** e nomeia o grupo **sfmeshTutorial1RG** (se sua organização tiver várias pessoas usando a mesma assinatura, escolha um nome de grupo de recursos exclusivo).  Clique em **Criar** para criar o grupo de recursos e retornar à caixa de diálogo de publicação.
+Em **Grupo de recursos**, selecione **\<Create New Resource Group...>** . A caixa de diálogo **Criar Grupo de Recursos** é exibida. Defina o **Nome do grupo de recursos** e o **Local**.  Este início rápido usa o local **Leste dos EUA** e nomeia o grupo **sfmeshTutorial1RG** (se sua organização tiver várias pessoas usando a mesma assinatura, escolha um nome de grupo de recursos exclusivo).  Clique em **Criar** para criar o grupo de recursos e retornar à caixa de diálogo de publicação.
 
-![Caixa de diálogo do novo grupo de recursos de Malha do Service Fabric do Visual Studio](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-publish-new-resource-group-dialog.png)
+![Captura de tela que mostra como criar um grupo de recursos.](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-publish-new-resource-group-dialog.png)
 
-De volta à caixa de diálogo **Publicar aplicativo do Service Fabric**, em **Registro de Contêiner do Azure**, escolha **\<Criar Novo Registro de Contêiner...>** . Na caixa de diálogo **Criar Registro de Contêiner**, use um nome exclusivo para o **Nome do registro de contêiner**. Especifique um **Local** (este início rápido usa **Leste dos EUA**). Escolha o **Grupo de recursos** que você criou na etapa anterior na lista suspensa, por exemplo, **sfmeshTutorial1RG**. Defina a **SKU** para **Básico** e, em seguida, clique em **Criar** para retornar à caixa de diálogo de publicação.
+De volta à caixa de diálogo **Publicar Aplicativo do Service Fabric**, em **Registro de Contêiner do Azure**, selecione **\<Create New Container Registry...>** . Na caixa de diálogo **Criar Registro de Contêiner**, use um nome exclusivo para o **Nome do registro de contêiner**. Especifique um **Local** (este início rápido usa **Leste dos EUA**). Escolha o **Grupo de recursos** que você criou na etapa anterior na lista suspensa, por exemplo, **sfmeshTutorial1RG**. Defina a **SKU** para **Básico** e, em seguida, clique em **Criar** para retornar à caixa de diálogo de publicação.
 
 ![Caixa de diálogo do novo grupo de recursos de Malha do Service Fabric do Visual Studio](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-publish-new-container-registry-dialog.png)
 

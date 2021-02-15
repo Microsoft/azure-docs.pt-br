@@ -8,17 +8,17 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 05/19/2020
-ms.openlocfilehash: d3a9f88325f03d0252adf51c5bf221b131d7d33b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 10/13/2020
+ms.openlocfilehash: 392cb9b4c2ded1b98b79ce8dcd780ac59e96b78a
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84751712"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91998503"
 ---
 # <a name="group-data-into-bins-module"></a>Agrupar dados em um módulo de compartimentos
 
-Este artigo descreve como usar o módulo Agrupar dados em compartimentos no designer do Azure Machine Learning (versão prévia), para agrupar números ou alterar a distribuição de dados contínuos.
+Este artigo descreve como usar os dados de grupo em um módulo de compartimentos no Azure Machine Learning designer, para agrupar números ou alterar a distribuição de dados contínuos.
 
 O módulo Agrupar dados em compartimentos dá suporte a várias opções para dados compartimentalização. Você pode personalizar como as bordas de compartimento são definidas e como os valores são particionados nos compartimentos. Por exemplo, você pode:  
 
@@ -44,13 +44,14 @@ O *compartimentalização* ou o agrupamento de dados (às vezes chamado de *quan
 
 O diagrama a seguir mostra a distribuição de valores numéricos antes e depois da compartimentalização com o método *quantis*. Observe que, em comparação com os dados brutos à esquerda, os dados foram compartimentalizados e transformados em uma escala normal de unidade.  
 
-Você pode encontrar um [exemplo do resultado dessa execução de pipeline](https://ml.azure.com/visualinterface/authoring/Normal/87270db9-4651-448e-bd28-8ef7428084dc?wsid=%2Fsubscriptions%2Fe9b2ec51-5c94-4fa8-809a-dc1e695e4896%2Fresourcegroups%2Fmodule-ws-rg%2Fworkspaces%2Fmodule-prerelease-119&flight=cm&tid=72f988bf-86f1-41af-91ab-2d7cd011db47&smtendpoint=https%3A%2F%2Fsmt-test1.azureml-test.net).
+> [!div class="mx-imgBorder"]
+> ![Visualização de resultado](media/module/group-data-into-bins-result-example.png)
 
 Como há muitas maneiras de agrupar dados, tudo personalizável, recomendamos que você teste com diferentes métodos e valores. 
 
 ## <a name="how-to-configure-group-data-into-bins"></a>Como configurar Agrupar dados em compartimentos
 
-1. Adicione os dados do grupo ao módulo de **compartimentos** ao seu pipeline no designer (versão prévia). Você pode encontrar esse módulo na categoria **Transformação de Dados**.
+1. Adicione os dados do grupo ao módulo de **compartimentos** ao seu pipeline no designer. Você pode encontrar esse módulo na categoria **Transformação de Dados**.
 
 2. Conecte o conjunto de dados que tem os valores numéricos ao compartimento. A quantificação só pode ser aplicada a colunas que contêm dados numéricos. 
 
@@ -65,6 +66,9 @@ Como há muitas maneiras de agrupar dados, tudo personalizável, recomendamos qu
     - **Bordas personalizadas**: Você pode especificar os valores que iniciam cada compartimento. O valor de borda sempre é o limite inferior do compartimento. 
     
       Por exemplo, suponha que você deseja agrupar valores em dois compartimentos. Um terá valores maiores que 0 e um terá valores menores ou iguais a 0. Nesse caso, para bordas de compartimento, você insere **0** na **lista separada por vírgulas de bordas de compartimento**. A saída do módulo será 1 e 2, indicando o índice de compartimento para cada valor de linha. Observe que a lista de valores separados por vírgulas deve estar em ordem crescente, como 1, 3, 5, 7.
+    
+    > [!Note]
+    > O modo de *MDL de entropia* é definido no estúdio (clássico) e não há nenhum pacote de código-fonte aberto correspondente que possa ser utilizado para dar suporte no designer ainda.        
 
 4. Se você estiver usando os modos de compartimentalização **quantis** e de **largura igual** , use a opção **número de compartimentos** para especificar quantos compartimentos ou *quantis*deseja criar.
 

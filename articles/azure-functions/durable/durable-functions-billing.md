@@ -5,18 +5,18 @@ author: cgillum
 ms.topic: overview
 ms.date: 08/31/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 504ef93a0002895bc5662d95ad269c8593170ee2
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 2ec1b080c195a47caafd0120240b5fb61ede062b
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74233004"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97932275"
 ---
 # <a name="durable-functions-billing"></a>Cobrança das Durable Functions
 
 As [Durable Functions](durable-functions-overview.md) são cobradas da mesma forma que o Azure Functions. Para saber mais, confira [Preços do Azure Functions](https://azure.microsoft.com/pricing/details/functions/).
 
-Ao executar funções de orquestrador no [plano de Consumo](../functions-scale.md#consumption-plan) do Azure Functions, é necessário ter conhecimento de alguns comportamentos de cobrança. As seções a seguir descrevem esses comportamentos e seu efeito mais detalhadamente.
+Ao executar funções de orquestrador no [plano de Consumo](../consumption-plan.md) do Azure Functions, é necessário ter conhecimento de alguns comportamentos de cobrança. As seções a seguir descrevem esses comportamentos e seu efeito mais detalhadamente.
 
 ## <a name="orchestrator-function-replay-billing"></a>Cobrança de reprodução da função funções de orquestrador
 
@@ -45,7 +45,7 @@ Vários fatores contribuem para os custos reais do Armazenamento do Azure incorr
 
 * Um único aplicativo de funções é associado a um único hub de tarefas, que compartilha um conjunto de recursos do Armazenamento do Azure. Esses recursos são usados por todas as Durable Functions em um aplicativo de funções. O número real de funções no aplicativo de funções não tem efeito sobre os custos de transação do Armazenamento do Azure.
 * Cada instância do aplicativo de funções sonda internamente várias filas na conta de armazenamento usando um algoritmo de sondagem de retirada exponencial. Uma instância de aplicativo ociosa sonda as filas com menos frequência do que um aplicativo ativo, o que resulta em menos custos de transação. Para obter mais informações sobre o comportamento de sondagem de fila das Durable Functions, confira a [seção de sondagem de fila do artigo Desempenho e Escala](durable-functions-perf-and-scale.md#queue-polling).
-* Ao executar nos planos Consumo ou Premium do Azure Functions, o [controlador de escala do Azure Functions](../functions-scale.md#how-the-consumption-and-premium-plans-work) sonda regularmente todas as filas do hub de tarefas em segundo plano. Se um aplicativo de funções estiver em escala leve a moderada, apenas uma instância do controlador de escala única sondará essas filas. Se o aplicativo de funções for expandido para um grande número de instâncias, mais instâncias de controlador de escala poderão ser adicionadas. Essas instâncias adicionais do controlador de escala podem aumentar os custos totais da transação de fila.
+* Ao executar nos planos Consumo ou Premium do Azure Functions, o [controlador de escala do Azure Functions](../event-driven-scaling.md) sonda regularmente todas as filas do hub de tarefas em segundo plano. Se um aplicativo de funções estiver em escala leve a moderada, apenas uma instância do controlador de escala única sondará essas filas. Se o aplicativo de funções for expandido para um grande número de instâncias, mais instâncias de controlador de escala poderão ser adicionadas. Essas instâncias adicionais do controlador de escala podem aumentar os custos totais da transação de fila.
 * Cada instância do aplicativo de funções compete para um conjunto de concessões de blob. Essas instâncias farão chamadas periodicamente para o serviço Blob do Azure para renovar as concessões mantidas ou tentar adquirir novas concessões. A contagem de partições configurada do hub de tarefas determina o número de concessões de blob. Expandir para um número maior de instâncias do aplicativo de funções provavelmente aumenta os custos de transação do Armazenamento do Azure associados a essas operações de concessão.
 
 Você pode encontrar mais informações sobre os preços do Armazenamento do Azure na documentação de [preços do Armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/). 

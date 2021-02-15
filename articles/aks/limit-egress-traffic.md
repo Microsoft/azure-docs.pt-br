@@ -4,15 +4,14 @@ description: Saiba quais portas e endereços são necessários para controlar o 
 services: container-service
 ms.topic: article
 ms.author: jpalma
-ms.date: 06/29/2020
-ms.custom: fasttrack-edit
+ms.date: 11/09/2020
 author: palma21
-ms.openlocfilehash: 51b457b99afc478631ce9b39a4a7d51ffd57401c
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: c6160d36240b59c60fafa955b916fb6167c2648e
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88003174"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685747"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Controlar o tráfego de saída dos nós de cluster no Serviço de Kubernetes do Azure (AKS)
 
@@ -29,13 +28,13 @@ As dependências de saída do AKS são quase totalmente definidas com FQDNs, que
 Por padrão, os clusters do AKS têm acesso irrestrito de internet de saída. Esse nível de acesso à rede permite que os nós e os serviços que você executa acessem recursos externos, conforme necessário. Se quiser restringir o tráfego de saída, um número limitado de portas e endereços precisar estar acessível para manter a integridade das tarefas de manutenção de cluster. A solução mais simples para proteger endereços de saída está em uso de um dispositivo de firewall que pode controlar o tráfego de saída com base em nomes de domínio. O Firewall do Azure, por exemplo, pode restringir o tráfego HTTP e HTTPS de saída com base no FQDN do destino. Você também pode configurar o firewall e as regras de segurança preferenciais para permitir essas portas e endereços necessários.
 
 > [!IMPORTANT]
-> Este documento aborda apenas como bloquear o tráfego de saída da sub-rede do AKS. O AKS não tem requisitos de entrada por padrão.  Não há suporte para o bloqueio de **tráfego de sub-rede interna** usando NSGs (grupos de segurança de rede) e firewalls. Para controlar e bloquear o tráfego no cluster, use [***as políticas de rede***][network-policy].
+> Este documento aborda apenas como bloquear o tráfego de saída da sub-rede do AKS. O AKS não tem requisitos de entrada por padrão.  Não há suporte para o bloqueio de **tráfego de sub-rede interna** usando NSGs (grupos de segurança de rede) e firewalls. Para controlar e bloquear o tráfego no cluster, use [ * *_diretivas de rede_* _][network-policy].
 
 ## <a name="required-outbound-network-rules-and-fqdns-for-aks-clusters"></a>Regras de rede de saída necessárias e FQDNs para clusters AKS
 
 As regras de rede e FQDN/aplicativo a seguir são necessárias para um cluster AKS, você poderá usá-las se desejar configurar uma solução diferente do firewall do Azure.
 
-* As dependências de Endereço IP são para o tráfego não HTTP/S (tráfego TCP e UDP)
+_ As dependências de endereço IP são para tráfego não HTTP/S (tráfego TCP e UDP)
 * Pontos de extremidade HTTP/HTTPS do FQDN podem ser colocados em seu dispositivo de firewall.
 * Os pontos de extremidade HTTP/HTTPS curinga são dependências que podem variar com o cluster AKS com base em vários qualificadores.
 * O AKS usa um controlador de admissão para injetar o FQDN como uma variável de ambiente para todas as implantações em Kube-System e gatekeeper-System, que garante que toda a comunicação do sistema entre nós e o servidor de API use o FQDN do servidor de API e não o IP do servidor de API. 
@@ -49,11 +48,11 @@ As regras de rede e as dependências de endereço IP necessárias são:
 
 | Ponto de extremidade de destino                                                             | Protocolo | Porta    | Use  |
 |----------------------------------------------------------------------------------|----------|---------|------|
-| **`*:1194`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:1194`** <br/> *Or* <br/> [CIDRs regionais](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:1194`** <br/> *Or* <br/> **`APIServerIP:1194`** `(only known after cluster creation)`  | UDP           | 1194      | Para uma comunicação segura em túnel entre os nós e o plano de controle. |
-| **`*:9000`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:9000`** <br/> *Or* <br/> [CIDRs regionais](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:9000`** <br/> *Or* <br/> **`APIServerIP:9000`** `(only known after cluster creation)`  | TCP           | 9000      | Para uma comunicação segura em túnel entre os nós e o plano de controle. |
+| **`*:1194`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:1194`** <br/> *Or* <br/> [CIDRs regionais](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:1194`** <br/> *Or* <br/> **`APIServerPublicIP:1194`** `(only known after cluster creation)`  | UDP           | 1194      | Para uma comunicação segura em túnel entre os nós e o plano de controle. Isso não é necessário para [clusters privados](private-clusters.md)|
+| **`*:9000`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:9000`** <br/> *Or* <br/> [CIDRs regionais](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:9000`** <br/> *Or* <br/> **`APIServerPublicIP:9000`** `(only known after cluster creation)`  | TCP           | 9000      | Para uma comunicação segura em túnel entre os nós e o plano de controle. Isso não é necessário para [clusters privados](private-clusters.md) |
 | **`*:123`** ou **`ntp.ubuntu.com:123`** (se estiver usando regras de rede do firewall do Azure)  | UDP      | 123     | Necessário para sincronização de tempo de protocolo NTP (NTP) em nós do Linux.                 |
 | **`CustomDNSIP:53`** `(if using custom DNS servers)`                             | UDP      | 53      | Se você estiver usando servidores DNS personalizados, deverá garantir que eles estejam acessíveis pelos nós do cluster. |
-| **`APIServerIP:443`** `(if running pods/deployments that access the API Server)` | TCP      | 443     | Necessário se estiver executando pods/implantações que acessam o servidor de API, esses pods/implantações usarão o IP da API.  |
+| **`APIServerPublicIP:443`** `(if running pods/deployments that access the API Server)` | TCP      | 443     | Necessário se estiver executando pods/implantações que acessam o servidor de API, esses pods/implantações usarão o IP da API. Isso não é necessário para [clusters privados](private-clusters.md)  |
 
 ### <a name="azure-global-required-fqdn--application-rules"></a>Regras de FQDN/aplicativo necessárias globais do Azure 
 
@@ -63,7 +62,6 @@ As seguintes regras de FQDN/aplicativo são obrigatórias:
 |----------------------------------|-----------------|----------|
 | **`*.hcp.<location>.azmk8s.io`** | **`HTTPS:443`** | Necessário para a comunicação de servidor de API de > de < de nó. Substitua *\<location\>* pela região em que o cluster AKs está implantado. |
 | **`mcr.microsoft.com`**          | **`HTTPS:443`** | Necessário para acessar imagens no registro de contêiner da Microsoft (MCR). Esse registro contém gráficos/imagens de terceiros (por exemplo, coreDNS, etc.). Essas imagens são necessárias para a criação e o funcionamento corretos do cluster, incluindo operações de escala e atualização.  |
-| **`*.cdn.mscr.io`**              | **`HTTPS:443`** | Necessário para o armazenamento MCR apoiado pela CDN (rede de distribuição de conteúdo) do Azure. |
 | **`*.data.mcr.microsoft.com`**   | **`HTTPS:443`** | Necessário para o armazenamento MCR apoiado pela CDN (rede de distribuição de conteúdo) do Azure. |
 | **`management.azure.com`**       | **`HTTPS:443`** | Necessário para operações de kubernetes na API do Azure. |
 | **`login.microsoftonline.com`**  | **`HTTPS:443`** | Necessário para autenticação de Azure Active Directory. |
@@ -76,12 +74,12 @@ As regras de rede e as dependências de endereço IP necessárias são:
 
 | Ponto de extremidade de destino                                                             | Protocolo | Porta    | Use  |
 |----------------------------------------------------------------------------------|----------|---------|------|
-| **`*:1194`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.Region:1194`** <br/> *Or* <br/> [CIDRs regionais](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:1194`** <br/> *Or* <br/> **`APIServerIP:1194`** `(only known after cluster creation)`  | UDP           | 1194      | Para uma comunicação segura em túnel entre os nós e o plano de controle. |
-| **`*:9000`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:9000`** <br/> *Or* <br/> [CIDRs regionais](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:9000`** <br/> *Or* <br/> **`APIServerIP:9000`** `(only known after cluster creation)`  | TCP           | 9000      | Para uma comunicação segura em túnel entre os nós e o plano de controle. |
-| **`*:22`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:22`** <br/> *Or* <br/> [CIDRs regionais](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:22`** <br/> *Or* <br/> **`APIServerIP:22`** `(only known after cluster creation)`  | TCP           | 22      | Para uma comunicação segura em túnel entre os nós e o plano de controle. |
+| **`*:1194`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.Region:1194`** <br/> *Or* <br/> [CIDRs regionais](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:1194`** <br/> *Or* <br/> **`APIServerPublicIP:1194`** `(only known after cluster creation)`  | UDP           | 1194      | Para uma comunicação segura em túnel entre os nós e o plano de controle. |
+| **`*:9000`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:9000`** <br/> *Or* <br/> [CIDRs regionais](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:9000`** <br/> *Or* <br/> **`APIServerPublicIP:9000`** `(only known after cluster creation)`  | TCP           | 9000      | Para uma comunicação segura em túnel entre os nós e o plano de controle. |
+| **`*:22`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:22`** <br/> *Or* <br/> [CIDRs regionais](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:22`** <br/> *Or* <br/> **`APIServerPublicIP:22`** `(only known after cluster creation)`  | TCP           | 22      | Para uma comunicação segura em túnel entre os nós e o plano de controle. |
 | **`*:123`** ou **`ntp.ubuntu.com:123`** (se estiver usando regras de rede do firewall do Azure)  | UDP      | 123     | Necessário para sincronização de tempo de protocolo NTP (NTP) em nós do Linux.                 |
 | **`CustomDNSIP:53`** `(if using custom DNS servers)`                             | UDP      | 53      | Se você estiver usando servidores DNS personalizados, deverá garantir que eles estejam acessíveis pelos nós do cluster. |
-| **`APIServerIP:443`** `(if running pods/deployments that access the API Server)` | TCP      | 443     | Necessário se estiver executando pods/implantações que acessam o servidor de API, esses Pod/implantações usarão o IP da API.  |
+| **`APIServerPublicIP:443`** `(if running pods/deployments that access the API Server)` | TCP      | 443     | Necessário se estiver executando pods/implantações que acessam o servidor de API, esses Pod/implantações usarão o IP da API.  |
 
 ### <a name="azure-china-21vianet-required-fqdn--application-rules"></a>Regras de FQDN/aplicativo necessárias do Azure China 21Vianet
 
@@ -92,7 +90,6 @@ As seguintes regras de FQDN/aplicativo são obrigatórias:
 | **`*.hcp.<location>.cx.prod.service.azk8s.cn`**| **`HTTPS:443`** | Necessário para a comunicação de servidor de API de > de < de nó. Substitua *\<location\>* pela região em que o cluster AKs está implantado. |
 | **`*.tun.<location>.cx.prod.service.azk8s.cn`**| **`HTTPS:443`** | Necessário para a comunicação de servidor de API de > de < de nó. Substitua *\<location\>* pela região em que o cluster AKs está implantado. |
 | **`mcr.microsoft.com`**                        | **`HTTPS:443`** | Necessário para acessar imagens no registro de contêiner da Microsoft (MCR). Esse registro contém gráficos/imagens de terceiros (por exemplo, coreDNS, etc.). Essas imagens são necessárias para a criação e o funcionamento corretos do cluster, incluindo operações de escala e atualização. |
-| **`*.cdn.mscr.io`**                            | **`HTTPS:443`** | Necessário para o armazenamento MCR apoiado pela CDN (rede de distribuição de conteúdo) do Azure. |
 | **`.data.mcr.microsoft.com`**                  | **`HTTPS:443`** | Necessário para o armazenamento MCR apoiado pela CDN (rede de distribuição de conteúdo) do Azure. |
 | **`management.chinacloudapi.cn`**              | **`HTTPS:443`** | Necessário para operações de kubernetes na API do Azure. |
 | **`login.chinacloudapi.cn`**                   | **`HTTPS:443`** | Necessário para autenticação de Azure Active Directory. |
@@ -105,11 +102,11 @@ As regras de rede e as dependências de endereço IP necessárias são:
 
 | Ponto de extremidade de destino                                                             | Protocolo | Porta    | Use  |
 |----------------------------------------------------------------------------------|----------|---------|------|
-| **`*:1194`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:1194`** <br/> *Or* <br/> [CIDRs regionais](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:1194`** <br/> *Or* <br/> **`APIServerIP:1194`** `(only known after cluster creation)`  | UDP           | 1194      | Para uma comunicação segura em túnel entre os nós e o plano de controle. |
-| **`*:9000`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:9000`** <br/> *Or* <br/> [CIDRs regionais](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:9000`** <br/> *Or* <br/> **`APIServerIP:9000`** `(only known after cluster creation)`  | TCP           | 9000      | Para uma comunicação segura em túnel entre os nós e o plano de controle. |
+| **`*:1194`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:1194`** <br/> *Or* <br/> [CIDRs regionais](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:1194`** <br/> *Or* <br/> **`APIServerPublicIP:1194`** `(only known after cluster creation)`  | UDP           | 1194      | Para uma comunicação segura em túnel entre os nós e o plano de controle. |
+| **`*:9000`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:9000`** <br/> *Or* <br/> [CIDRs regionais](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:9000`** <br/> *Or* <br/> **`APIServerPublicIP:9000`** `(only known after cluster creation)`  | TCP           | 9000      | Para uma comunicação segura em túnel entre os nós e o plano de controle. |
 | **`*:123`** ou **`ntp.ubuntu.com:123`** (se estiver usando regras de rede do firewall do Azure)  | UDP      | 123     | Necessário para sincronização de tempo de protocolo NTP (NTP) em nós do Linux.                 |
 | **`CustomDNSIP:53`** `(if using custom DNS servers)`                             | UDP      | 53      | Se você estiver usando servidores DNS personalizados, deverá garantir que eles estejam acessíveis pelos nós do cluster. |
-| **`APIServerIP:443`** `(if running pods/deployments that access the API Server)` | TCP      | 443     | Necessário se estiver executando pods/implantações que acessam o servidor de API, esses pods/implantações usarão o IP da API.  |
+| **`APIServerPublicIP:443`** `(if running pods/deployments that access the API Server)` | TCP      | 443     | Necessário se estiver executando pods/implantações que acessam o servidor de API, esses pods/implantações usarão o IP da API.  |
 
 ### <a name="azure-us-government-required-fqdn--application-rules"></a>Regras de FQDN/aplicativo necessárias do governo dos EUA do Azure 
 
@@ -119,7 +116,6 @@ As seguintes regras de FQDN/aplicativo são obrigatórias:
 |---------------------------------------------------------|-----------------|----------|
 | **`*.hcp.<location>.cx.aks.containerservice.azure.us`** | **`HTTPS:443`** | Necessário para a comunicação de servidor de API de > de < de nó. Substitua *\<location\>* pela região em que o cluster AKs está implantado.|
 | **`mcr.microsoft.com`**                                 | **`HTTPS:443`** | Necessário para acessar imagens no registro de contêiner da Microsoft (MCR). Esse registro contém gráficos/imagens de terceiros (por exemplo, coreDNS, etc.). Essas imagens são necessárias para a criação e o funcionamento corretos do cluster, incluindo operações de escala e atualização. |
-| **`*.cdn.mscr.io`**                                     | **`HTTPS:443`** | Necessário para o armazenamento MCR apoiado pela CDN (rede de distribuição de conteúdo) do Azure. |
 | **`*.data.mcr.microsoft.com`**                          | **`HTTPS:443`** | Necessário para o armazenamento MCR apoiado pela CDN (rede de distribuição de conteúdo) do Azure. |
 | **`management.usgovcloudapi.net`**                      | **`HTTPS:443`** | Necessário para operações de kubernetes na API do Azure. |
 | **`login.microsoftonline.us`**                          | **`HTTPS:443`** | Necessário para autenticação de Azure Active Directory. |
@@ -184,7 +180,7 @@ As seguintes regras de FQDN/aplicativo são necessárias para clusters do AKS qu
 | *.oms.opinsights.azure.com | **`HTTPS:443`** | Esse ponto de extremidade é usado pelo omsagent, que é usado para autenticar o serviço do log Analytics. |
 | *.monitoring.azure.com | **`HTTPS:443`** | Esse ponto de extremidade é usado para enviar dados de métricas para Azure Monitor. |
 
-### <a name="azure-dev-spaces"></a>Azure Dev Spaces
+### <a name="azure-dev-spaces"></a>Espaços de Desenvolvimento do Azure
 
 Atualize o firewall ou a configuração de segurança para permitir o tráfego de rede de e para todos os FQDNs e [serviços de infraestrutura de Azure dev Spaces][dev-spaces-service-tags]a seguir.
 
@@ -205,10 +201,7 @@ As seguintes regras de FQDN/aplicativo são necessárias para clusters do AKS qu
 | `storage.googleapis.com` | **`HTTPS:443`** | Esse endereço é usado para efetuar pull de imagens helm/tiller |
 
 
-### <a name="azure-policy-preview"></a>Azure Policy (versão prévia)
-
-> [!CAUTION]
-> Alguns dos recursos abaixo estão em versão prévia.  As sugestões neste artigo poderão sofrer alterações à medida que o recurso passar para visualização pública e fases de versão futuras.
+### <a name="azure-policy"></a>Azure Policy
 
 #### <a name="required-fqdn--application-rules"></a>Regras de FQDN/aplicativo necessárias 
 
@@ -216,10 +209,11 @@ As seguintes regras de FQDN/aplicativo são necessárias para clusters do AKS qu
 
 | FQDN                                          | Porta      | Use      |
 |-----------------------------------------------|-----------|----------|
-| **`gov-prod-policy-data.trafficmanager.net`** | **`HTTPS:443`** | Esse endereço é usado para que o Azure Policy funcione corretamente. (atualmente em versão prévia no AKS) |
-| **`raw.githubusercontent.com`**               | **`HTTPS:443`** | Esse endereço é usado para efetuar pull das políticas internas do GitHub para garantir que o Azure Policy funcione corretamente. (atualmente em versão prévia no AKS) |
+| **`data.policy.core.windows.net`** | **`HTTPS:443`** | Esse endereço é usado para efetuar pull das políticas kubernetes e relatar o status de conformidade do cluster ao serviço de política. |
+| **`store.policy.core.windows.net`** | **`HTTPS:443`** | Esse endereço é usado para extrair os artefatos do gatekeeper de políticas internas. |
+| **`gov-prod-policy-data.trafficmanager.net`** | **`HTTPS:443`** | Esse endereço é usado para que o Azure Policy funcione corretamente.  |
+| **`raw.githubusercontent.com`**               | **`HTTPS:443`** | Esse endereço é usado para efetuar pull das políticas internas do GitHub para garantir que o Azure Policy funcione corretamente. |
 | **`dc.services.visualstudio.com`**            | **`HTTPS:443`** | Complemento do Azure Policy que envia dados telemétricos para pontos de extremidade de insights de aplicativo. |
-
 
 ## <a name="restrict-egress-traffic-using-azure-firewall"></a>Restringir o tráfego de saída usando o Firewall do Azure
 
@@ -280,7 +274,7 @@ Provisione uma rede virtual com duas sub-redes separadas, uma para o cluster, um
 
 Crie um grupo de recursos para armazenar todos os recursos.
 
-```azure-cli
+```azurecli
 # Create Resource Group
 
 az group create --name $RG --location $LOC
@@ -294,6 +288,7 @@ Crie uma rede virtual com duas sub-redes para hospedar o cluster AKS e o Firewal
 az network vnet create \
     --resource-group $RG \
     --name $VNET_NAME \
+    --location $LOC \
     --address-prefixes 10.42.0.0/16 \
     --subnet-name $AKSSUBNET_NAME \
     --subnet-prefix 10.42.1.0/24
@@ -320,12 +315,12 @@ As regras de entrada e saída do Firewall do Azure devem ser configuradas. A pri
 
 Crie um recurso IP público de SKU padrão que será usado como o endereço de front-end do firewall do Azure.
 
-```azure-cli
+```azurecli
 az network public-ip create -g $RG -n $FWPUBLICIP_NAME -l $LOC --sku "Standard"
 ```
 
 Registre a extensão da CLI de versão prévia para criar um Firewall do Azure.
-```azure-cli
+```azurecli
 # Install Azure Firewall preview CLI extension
 
 az extension add --name azure-firewall
@@ -340,7 +335,7 @@ O endereço IP criado anteriormente agora pode ser atribuído ao front-end do fi
 > A configuração do endereço IP público para o Firewall do Azure pode levar alguns minutos.
 > Para aproveitar o FQDN nas regras de rede, precisamos do proxy de DNS habilitado, quando habilitado, o firewall escutará na porta 53 e encaminhará as solicitações de DNS para o servidor DNS especificado acima. Isso permitirá que o firewall converta esse FQDN automaticamente.
 
-```azure-cli
+```azurecli
 # Configure Firewall IP Config
 
 az network firewall ip-config create -g $RG -f $FWNAME -n $FWIPCONFIG_NAME --public-ip-address $FWPUBLICIP_NAME --vnet-name $VNET_NAME
@@ -364,10 +359,10 @@ O Azure roteia o tráfego automaticamente entre redes virtuais, redes locais e s
 
 Crie uma tabela de rotas vazia a ser associada a uma determinada sub-rede. A tabela de rotas definirá o próximo salto como o Firewall do Azure criado acima. Cada sub-rede pode ter zero ou uma tabela de rotas associada a ela.
 
-```azure-cli
+```azurecli
 # Create UDR and add a route for Azure Firewall
 
-az network route-table create -g $RG -$LOC --name $FWROUTE_TABLE_NAME
+az network route-table create -g $RG -l $LOC --name $FWROUTE_TABLE_NAME
 az network route-table route create -g $RG --name $FWROUTE_NAME --route-table-name $FWROUTE_TABLE_NAME --address-prefix 0.0.0.0/0 --next-hop-type VirtualAppliance --next-hop-ip-address $FWPRIVATE_IP --subscription $SUBID
 az network route-table route create -g $RG --name $FWROUTE_NAME_INTERNET --route-table-name $FWROUTE_TABLE_NAME --address-prefix $FWPUBLIC_IP/32 --next-hop-type Internet
 ```
@@ -398,7 +393,7 @@ Confira a [documentação do Firewall do Azure](../firewall/overview.md) para sa
 
 Para associar o cluster ao firewall, a sub-rede dedicada para a sub-rede do cluster deve fazer referência à tabela de rotas criada acima. A associação pode ser feita emitindo um comando para a rede virtual que mantém o cluster e o firewall para atualizar a tabela de rotas da sub-rede do cluster.
 
-```azure-cli
+```azurecli
 # Associate route table with next hop to Firewall to the AKS subnet
 
 az network vnet subnet update -g $RG --vnet-name $VNET_NAME --name $AKSSUBNET_NAME --route-table $FWROUTE_TABLE_NAME
@@ -414,7 +409,7 @@ Agora um cluster AKS pode ser implantado na rede virtual existente. Também usar
 
 Uma entidade de serviço é usada pelo AKS para criar recursos do cluster. A entidade de serviço que é passada no momento da criação é usada para criar recursos de AKS subjacentes, como recursos de armazenamento, IPs e balanceadores de carga usados pelo AKS (você também pode usar uma [identidade gerenciada](use-managed-identity.md) em vez disso). Se não tiver concedido as permissões apropriadas abaixo, você não poderá provisionar o cluster AKS.
 
-```azure-cli
+```azurecli
 # Create SP and Assign Permission to Virtual Network
 
 az ad sp create-for-rbac -n "${PREFIX}sp" --skip-assignment
@@ -422,7 +417,7 @@ az ad sp create-for-rbac -n "${PREFIX}sp" --skip-assignment
 
 Agora, substitua o `APPID` e `PASSWORD` abaixo pela AppID da entidade de serviço e pela senha da entidade de serviço gerada automaticamente pela saída do comando anterior. Vamos referenciar a ID do recurso VNET para conceder as permissões para a entidade de serviço para que AKS possa implantar recursos nela.
 
-```azure-cli
+```azurecli
 APPID="<SERVICE_PRINCIPAL_APPID_GOES_HERE>"
 PASSWORD="<SERVICEPRINCIPAL_PASSWORD_GOES_HERE>"
 VNETID=$(az network vnet show -g $RG --name $VNET_NAME --query id -o tsv)
@@ -460,7 +455,7 @@ Você definirá o tipo de saída para usar o UDR que já existe na sub-rede. Ess
 >
 > O recurso AKS para [**intervalos de IP autorizados do servidor de API**](api-server-authorized-ip-ranges.md) pode ser adicionado para limitar o acesso do servidor de API somente ao ponto de extremidade público do firewall. O recurso de intervalos de IP autorizado é indicado no diagrama como opcional. Ao habilitar o recurso de intervalo de IP autorizado para limitar o acesso do servidor de API, suas ferramentas de desenvolvedor deverão usar um Jumpbox da rede virtual do firewall ou você deverá adicionar todos os pontos de extremidade do desenvolvedor ao intervalo de IP autorizado.
 
-```azure-cli
+```azurecli
 az aks create -g $RG -n $AKSNAME -l $LOC \
   --node-count 3 --generate-ssh-keys \
   --network-plugin $PLUGIN \
@@ -491,7 +486,7 @@ az aks update -g $RG -n $AKSNAME --api-server-authorized-ip-ranges $CURRENT_IP/3
 
  Use o comando [AZ AKs Get-Credentials] [AZ-AKs-Get-Credentials] para configurar `kubectl` o para se conectar ao cluster kubernetes recém-criado. 
 
- ```azure-cli
+ ```azurecli
  az aks get-credentials -g $RG -n $AKSNAME
  ```
 
@@ -750,11 +745,11 @@ voting-storage     ClusterIP      10.41.221.201   <none>        3306/TCP       9
 
 Obtenha o IP do serviço executando:
 ```bash
-SERVICE_IP=$(k get svc voting-app -o jsonpath='{.status.loadBalancer.ingress[*].ip}')
+SERVICE_IP=$(kubectl get svc voting-app -o jsonpath='{.status.loadBalancer.ingress[*].ip}')
 ```
 
 Adicione a regra NAT executando:
-```azure-cli
+```azurecli
 az network firewall nat-rule create --collection-name exampleset --destination-addresses $FWPUBLIC_IP --destination-ports 80 --firewall-name $FWNAME --name inboundrule --protocols Any --resource-group $RG --source-addresses '*' --translated-port 80 --action Dnat --priority 100 --translated-address $SERVICE_IP
 ```
 
@@ -765,14 +760,14 @@ Navegue até o endereço IP de front-end do Firewall do Azure em um navegador pa
 Você deve ver o aplicativo de votação AKS. Neste exemplo, o IP público do firewall era `52.253.228.132` .
 
 
-![AKs-voto](media/limit-egress-traffic/aks-vote.png)
+![Captura de tela mostra o aplicativo de votação K S com botões para gatos, cachorros, redefinição e totais.](media/limit-egress-traffic/aks-vote.png)
 
 
-### <a name="clean-up-resources"></a>Limpar recursos
+### <a name="clean-up-resources"></a>Limpar os recursos
 
 Para limpar os recursos do Azure, exclua o grupo de recursos do AKS.
 
-```azure-cli
+```azurecli
 az group delete -g $RG
 ```
 
@@ -782,7 +777,7 @@ Neste artigo, você aprendeu quais portas e endereços permitir se deseja restri
 
 Se necessário, você pode generalizar as etapas acima para encaminhar o tráfego para sua solução de saída preferida, seguindo a [ `userDefinedRoute` documentação do tipo de saída](egress-outboundtype.md).
 
-Se você quiser restringir como os pods se comunicam entre si e restrições de tráfego leste-oeste no cluster, consulte [proteger o tráfego entre pods usando as políticas de rede no AKs][network-policy].
+Se você quiser restringir como os pods se comunicam entre si e East-West restrições de tráfego no cluster, consulte [proteger o tráfego entre pods usando as políticas de rede no AKs][network-policy].
 
 <!-- LINKS - internal -->
 [aks-quickstart-cli]: kubernetes-walkthrough.md

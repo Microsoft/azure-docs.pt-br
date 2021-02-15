@@ -1,23 +1,27 @@
 ---
 title: Use Azure Policy para implementar governança e controles para recursos de Azure Cosmos DB
 description: Saiba como usar Azure Policy para implementar governança e controles para recursos de Azure Cosmos DB.
-author: plzm
-ms.author: paelaz
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2020
-ms.openlocfilehash: a1b1c01f7cf720690decd9c7aac5fb14b92121ec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/23/2020
+ms.openlocfilehash: 1390f5db6e0f0370788bef60d5a2cafee1e8a96d
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84432007"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93080644"
 ---
 # <a name="use-azure-policy-to-implement-governance-and-controls-for-azure-cosmos-db-resources"></a>Use Azure Policy para implementar governança e controles para recursos de Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 O [Azure Policy](../governance/policy/overview.md) ajuda a reforçar os padrões de governança organizacional, a avaliar a conformidade dos recursos e a implementar a correção automática. Os casos de uso comuns incluem segurança, gerenciamento de custos e consistência de configuração.
 
 Definições de política interna do Azure Policy. Você pode criar definições de política personalizadas para cenários que não são abordados pelas definições de política internas. Para obter mais detalhes, confira a [documentação do Azure Policy](../governance/policy/overview.md).
+
+> [!IMPORTANT]
+> Azure Policy é imposta no nível do provedor de recursos para os serviços do Azure. Os SDKs do Cosmos DB podem executar a maioria das operações de gerenciamento em recursos de banco de dados, contêiner e taxa de transferência que ignoram o provedor de recursos Cosmos DB, ignorando assim qualquer política criada usando Azure Policy. Para garantir a imposição de políticas, consulte [impedindo alterações dos SDKs de Azure Cosmos DB](role-based-access-control.md#prevent-sdk-changes)
 
 ## <a name="assign-a-built-in-policy-definition"></a>Atribuir uma definição de política incorporada
 
@@ -105,7 +109,7 @@ As definições de política personalizadas podem ser usadas para criar atribui�
 
 ## <a name="policy-compliance"></a>Conformidade da política
 
-Depois que as atribuições de política são criadas, o Azure Policy avalia os recursos no escopo da atribuição. A_conformidade_de cada recurso com a política é avaliada. O _efeito_ especificado na política é então aplicado a recursos sem conformidade.
+Depois que as atribuições de política são criadas, o Azure Policy avalia os recursos no escopo da atribuição. A _conformidade_ de cada recurso com a política é avaliada. O _efeito_ especificado na política é então aplicado a recursos sem conformidade.
 
 Você pode examinar os resultados de conformidade e os detalhes de correção no [portal do Azure](../governance/policy/how-to/get-compliance-data.md#portal) ou por meio da [CLI do Azure](../governance/policy/how-to/get-compliance-data.md#command-line) ou dos logs do [Azure monitor](../governance/policy/how-to/get-compliance-data.md#azure-monitor-logs).
 
@@ -123,7 +127,7 @@ A captura de tela mostra os seguintes resultados de avaliação de conformidade 
 - Zero de duas contas são compatíveis com uma política que exige que a conta seja configurada para vários locais de gravação
 - Zero de duas contas são compatíveis com uma política que os recursos foram implantados para regiões do Azure permitidas.
 
-:::image type="content" source="./media/policy/compliance.png" alt-text="Resultados de conformidade para atribuições de Azure Policy listadas":::
+:::image type="content" source="./media/policy/compliance.png" alt-text="Pesquisar definições de políticas internas para o Azure Cosmos DB":::
 
 Para corrigir os recursos sem conformidade, consulte [como corrigir recursos com o Azure Policy](../governance/policy/how-to/remediate-resources.md).
 
@@ -131,4 +135,4 @@ Para corrigir os recursos sem conformidade, consulte [como corrigir recursos com
 
 - [Examine as definições de política personalizada de exemplo para Azure Cosmos DB](https://github.com/Azure/azure-policy/tree/master/samples/CosmosDB), incluindo as políticas de filtragem de VNet e de várias local de gravação mostradas acima.
 - [Criar uma atribuição de política no portal do Azure](../governance/policy/assign-policy-portal.md)
-- [Revisar as definições de políticas internas do Azure Policy para o Microsoft Azure Cosmos DB](./policy-samples.md)
+- [Revisar as definições de políticas internas do Azure Policy para o Microsoft Azure Cosmos DB](./policy-reference.md)

@@ -1,23 +1,18 @@
 ---
 title: Personalizar instalação para um Azure-SSIS Integration Runtime
 description: Este artigo descreve como usar a interface de configuração personalizada para um Azure-SSIS Integration Runtime para instalar componentes adicionais ou alterar as configurações
-services: data-factory
-documentationcenter: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 author: swinarko
 ms.author: sawinark
-manager: mflasko
-ms.reviewer: douglasl
 ms.custom: seo-lt-2019
-ms.date: 08/11/2020
-ms.openlocfilehash: 3bc8458aa009920f183b076d12185295ef294e07
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.date: 11/06/2020
+ms.openlocfilehash: b1b3a34ac495936ed92e29353a41efb8c462768f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88186073"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100387726"
 ---
 # <a name="customize-the-setup-for-an-azure-ssis-integration-runtime"></a>Personalizar instalação para um Azure-SSIS Integration Runtime
 
@@ -25,7 +20,7 @@ ms.locfileid: "88186073"
 
 Você pode personalizar o Integration Runtime do SSIS (Azure-SQL Server Integration Services) (IR) no Azure Data Factory (ADF) por meio de configurações personalizadas. Eles permitem que você adicione suas próprias etapas durante o provisionamento ou reconfiguração do seu Azure-SSIS IR. 
 
-Usando as configurações personalizadas, você pode alterar a configuração operacional padrão ou o ambiente do seu Azure-SSIS IR. Por exemplo, para iniciar serviços adicionais do Windows, persista as credenciais de acesso para compartilhamentos de arquivos ou use criptografia forte/protocolo 1,2 TLS (mais seguro). Ou você pode instalar mais componentes, como assemblies, drivers ou extensões, em cada nó do seu Azure-SSIS IR. Eles podem ser componentes personalizados, de código aberto ou de terceiros. Para obter mais informações sobre os componentes internos/pré-instalados, consulte [Componentes internos/pré-instalados no Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/built-in-preinstalled-components-ssis-integration-runtime).
+Usando as configurações personalizadas, você pode alterar a configuração operacional padrão ou o ambiente do seu Azure-SSIS IR. Por exemplo, para iniciar serviços adicionais do Windows, persista as credenciais de acesso para compartilhamentos de arquivos ou use criptografia forte/protocolo 1,2 TLS (mais seguro). Ou você pode instalar mais componentes, como assemblies, drivers ou extensões, em cada nó do seu Azure-SSIS IR. Eles podem ser componentes personalizados, de código aberto ou de terceiros. Para obter mais informações sobre os componentes internos/pré-instalados, consulte [Componentes internos/pré-instalados no Azure-SSIS IR](./built-in-preinstalled-components-ssis-integration-runtime.md).
 
 Você pode executar configurações personalizadas em seu Azure-SSIS IR de duas maneiras: 
 * **configuração personalizada padrão com um script**: prepare um script e os arquivos associados e carregue todos eles juntos para um contêiner de blobs em sua conta de armazenamento do Azure. Forneça um URI (Uniform Resource Identifier) de SAS (Assinatura de Acesso Compartilhado) para seu contêiner quando você configurar ou reconfigurar o Azure-SSIS IR. Cada nó do Azure-SSIS IR baixa o script e os arquivos associados do seu contêiner e executa sua configuração personalizada com permissões elevadas. Quando a configuração personalizada for concluída, cada nó carregará a saída de execução padrão e outros logs para seu contêiner.
@@ -40,7 +35,7 @@ Você pode instalar os componentes gratuitos (sem licença) e pagos (licenciado)
 
 As seguintes limitações se aplicam apenas a configurações personalizadas padrão:
 
-- Se desejar usar *gacutil.exe* em seu script para instalar assemblies no GAC (cache de assembly global), você precisará fornecer *gacutil.exe* como parte de sua configuração personalizada. Ou você poderá usar a cópia fornecida em nosso contêiner de *Versão Prévia Pública*, discutido posteriormente na seção “instruções”.
+- Se desejar usar *gacutil.exe* em seu script para instalar assemblies no GAC (cache de assembly global), você precisará fornecer *gacutil.exe* como parte de sua configuração personalizada. Ou você pode usar a cópia fornecida na pasta de *exemplo* do nosso contêiner de *Visualização pública* , consulte a seção **exemplos de instalação personalizada padrão** abaixo.
 
 - Se desejar fazer referência a uma subpasta no script, *msiexec.exe* não dará suporte à notação `.\` para fazer referência à pasta raiz. Use um comando como `msiexec /i "MySubfolder\MyInstallerx64.msi" ...` em vez de `msiexec /i ".\MySubfolder\MyInstallerx64.msi" ...`.
 
@@ -56,7 +51,7 @@ Para personalizar o Azure-SSIS IR, você precisa dos seguintes itens:
 
 - [Uma assinatura do Azure](https://azure.microsoft.com/)
 
-- [Provisionar o IR do Azure-SSIS](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure)
+- [Provisionar o IR do Azure-SSIS](./tutorial-deploy-ssis-packages-azure.md)
 
 - [Uma conta de armazenamento do Azure](https://azure.microsoft.com/services/storage/). Não é necessário para configurações personalizadas expressas. Para configurações personalizadas expressas, você carrega e armazena seu script de configuração personalizada e seus arquivos associados em um contêiner de blob. O processo de instalação personalizado também carrega seus logs de execução no mesmo contêiner de blob.
 
@@ -127,15 +122,15 @@ Para provisionar ou reconfigurar seu Azure-SSIS IR com as configurações person
 
 #### <a name="running-cmdkey-command"></a>Executando o comando cmdkey
 
-Se você selecionar o tipo de **comando ' executar cmdkey** ' para a instalação personalizada expressa, poderá executar o comando cmdkey do Windows em seu Azure-SSIS ir. Para fazer isso, insira o nome do computador ou nome de domínio definido como destino, nome de usuário ou de conta e chave de senha ou conta nas caixas de texto **/Add**, **/User**e **/Pass** , respectivamente. Isso permitirá que você persista as credenciais de acesso para servidores SQL, compartilhamentos de arquivos ou arquivos do Azure em seu Azure-SSIS IR. Por exemplo, para acessar os arquivos do Azure, você pode inserir `YourAzureStorageAccountName.file.core.windows.net` , `azure\YourAzureStorageAccountName` e `YourAzureStorageAccountKey` para **/Add**, **/User**e **/Pass**, respectivamente. Isso é semelhante a executar o comando [cmdkey](https://docs.microsoft.com/windows-server/administration/windows-commands/cmdkey) do Windows em seu computador local.
+Se você selecionar o tipo de **comando ' executar cmdkey** ' para a instalação personalizada expressa, poderá executar o comando cmdkey do Windows em seu Azure-SSIS ir. Para fazer isso, insira o nome do computador ou nome de domínio definido como destino, nome de usuário ou de conta e chave de senha ou conta nas caixas de texto **/Add**, **/User** e **/Pass** , respectivamente. Isso permitirá que você persista as credenciais de acesso para servidores SQL, compartilhamentos de arquivos ou arquivos do Azure em seu Azure-SSIS IR. Por exemplo, para acessar os arquivos do Azure, você pode inserir `YourAzureStorageAccountName.file.core.windows.net` , `azure\YourAzureStorageAccountName` e `YourAzureStorageAccountKey` para **/Add**, **/User** e **/Pass**, respectivamente. Isso é semelhante a executar o comando [cmdkey](/windows-server/administration/windows-commands/cmdkey) do Windows em seu computador local. Apenas uma instalação personalizada expressa para executar o comando cmdkey tem suporte por enquanto. Para executar vários comandos do cmdkey, use uma configuração personalizada padrão em vez disso.
 
 #### <a name="adding-environment-variables"></a>Adicionando variáveis de ambiente
 
-Se você selecionar o tipo de **variável de ambiente adicionar** para a instalação personalizada expressa, poderá adicionar uma variável de ambiente do Windows em seu Azure-SSIS ir. Para fazer isso, insira o nome e o valor da variável de ambiente nas caixas de texto **nome da variável** e **valor da variável** , respectivamente. Isso permitirá que você use a variável de ambiente em seus pacotes que são executados em Azure-SSIS IR, por exemplo, em componentes/tarefas de script. Isso é semelhante a executar o comando [set](https://docs.microsoft.com/windows-server/administration/windows-commands/set_1) do Windows em seu computador local.
+Se você selecionar o tipo de **variável de ambiente adicionar** para a instalação personalizada expressa, poderá adicionar uma variável de ambiente do Windows em seu Azure-SSIS ir. Para fazer isso, insira o nome e o valor da variável de ambiente nas caixas de texto **nome da variável** e **valor da variável** , respectivamente. Isso permitirá que você use a variável de ambiente em seus pacotes que são executados em Azure-SSIS IR, por exemplo, em componentes/tarefas de script. Isso é semelhante a executar o comando [set](/windows-server/administration/windows-commands/set_1) do Windows em seu computador local.
 
 #### <a name="installing-azure-powershell"></a>Instalando o Azure PowerShell
 
-Se você selecionar o tipo de **Azure PowerShell instalar** para a instalação personalizada expressa, poderá instalar o módulo AZ do PowerShell no seu Azure-SSIS ir. Para fazer isso, insira o número de versão do módulo AZ (x. y. z) desejado em uma [lista de itens com suporte](https://www.powershellgallery.com/stats/packages/Az?groupby=Version). Isso permitirá que você execute Azure PowerShell cmdlets/scripts em seus pacotes para gerenciar os recursos do Azure, por exemplo [Azure Analysis Services (AAS)](https://docs.microsoft.com/azure/analysis-services/analysis-services-powershell).
+Se você selecionar o tipo de **Azure PowerShell instalar** para a instalação personalizada expressa, poderá instalar o módulo AZ do PowerShell no seu Azure-SSIS ir. Para fazer isso, insira o número de versão do módulo AZ (x. y. z) desejado em uma [lista de itens com suporte](https://www.powershellgallery.com/packages/az). Isso permitirá que você execute Azure PowerShell cmdlets/scripts em seus pacotes para gerenciar os recursos do Azure, por exemplo [Azure Analysis Services (AAS)](../analysis-services/analysis-services-powershell.md).
 
 #### <a name="installing-licensed-components"></a>Instalando componentes licenciados
 
@@ -143,17 +138,21 @@ Se você selecionar o tipo de **componente de instalação licenciado** para a i
 
    * Se você selecionar o componente de **fábrica de tarefas do SentryOne** , poderá instalar o pacote de [tarefas da fábrica](https://www.sentryone.com/products/task-factory/high-performance-ssis-components) de componentes do SentryOne em seu Azure-SSIS ir. Para fazer isso, insira a chave de licença do produto que você comprou com antecedência na caixa de texto **chave de licença** . A versão integrada atual é **2020.1.3**.
 
-   * Se você selecionar o **OH22'S HEDDA. Componente de e/s** , você pode instalar o [HEDDA. ](https://hedda.io/ssis-component/)Componente de qualidade de dados de es/limpeza do oh22 no seu Azure-SSIS ir. Para fazer isso, você precisa comprar o serviço com antecedência. A versão integrada atual é **1.0.14**.
+   * Se você selecionar o **OH22'S HEDDA. Componente de e/s** , você pode instalar o [HEDDA.](https://github.com/oh22is/HEDDA.IO/tree/master/SSIS-IR) Componente de qualidade de dados de es/limpeza do oh22 no seu Azure-SSIS ir. Para fazer isso, você precisa comprar o serviço com antecedência. A versão integrada atual é **1.0.14**.
 
    * Se você selecionar o componente **oh22's SQLPhonetics.net** , poderá instalar o componente de correspondência/qualidade de dados do [SQLPhonetics.net](https://appsource.microsoft.com/product/web-apps/oh22.sqlphonetics-ssis) do oh22 no seu Azure-SSIS ir. Para fazer isso, insira a chave de licença do produto que você comprou com antecedência na caixa de texto **chave de licença** . A versão integrada atual é **1.0.45**.
 
-   * Se você selecionar o componente **do kit de ferramentas de integração SSIS do KingswaySoft** , poderá instalar o conjunto de conectores do [SSIS Integration Toolkit](https://www.kingswaysoft.com/products/ssis-integration-toolkit-for-microsoft-dynamics-365) para aplicativos CRM/ERP/marketing/colaboração, como Microsoft Dynamics/SharePoint/Project Server, Oracle/Salesforce marketing Cloud, etc. do KingswaySoft no seu Azure-SSIS ir. Para fazer isso, insira a chave de licença do produto que você comprou com antecedência na caixa de texto **chave de licença** . A versão integrada atual é **2019.2**.
+   * Se você selecionar o componente **do kit de ferramentas de integração SSIS do KingswaySoft** , poderá instalar o conjunto de conectores do [SSIS Integration Toolkit](https://www.kingswaysoft.com/products/ssis-integration-toolkit-for-microsoft-dynamics-365) para aplicativos CRM/ERP/marketing/colaboração, como Microsoft Dynamics/SharePoint/Project Server, Oracle/Salesforce marketing Cloud, etc. do KingswaySoft no seu Azure-SSIS ir. Para fazer isso, insira a chave de licença do produto que você comprou com antecedência na caixa de texto **chave de licença** . A versão integrada atual é **2020,1**.
 
-   * Se você selecionar o componente **do pacote de produtividade do SSIS do KingswaySoft** , poderá instalar o pacote de [produtividade do SSIS](https://www.kingswaysoft.com/products/ssis-productivity-pack) do pacote de componentes do KingswaySoft em seu Azure-SSIS ir. Para fazer isso, insira a chave de licença do produto que você comprou com antecedência na caixa de texto **chave de licença** . A versão integrada atual é **10.0**.
+   * Se você selecionar o componente **do pacote de produtividade do SSIS do KingswaySoft** , poderá instalar o pacote de [produtividade do SSIS](https://www.kingswaysoft.com/products/ssis-productivity-pack) do pacote de componentes do KingswaySoft em seu Azure-SSIS ir. Para fazer isso, insira a chave de licença do produto que você comprou com antecedência na caixa de texto **chave de licença** . A versão integrada atual é **20,1**.
 
    * Se você selecionar o componente **trair do Theobald software** , poderá instalar o [trair é](https://theobald-software.com/en/xtract-is/) um conjunto de conectores para sistemas SAP (ERP, s/4HANA, BW) de Theobald software no seu Azure-SSIS ir. Para fazer isso, arraste & soltar/carregar o arquivo de licença do produto que você comprou a partir deles com antecedência na caixa de entrada do **arquivo de licença** . A versão integrada atual é **6.1.1.3**.
 
    * Se você selecionar o componente **do serviço de integração do AecorSoft** , poderá instalar o pacote do [serviço de integração](https://www.aecorsoft.com/en/products/integrationservice) de conectores para sistemas SAP e Salesforce do AecorSoft no seu Azure-SSIS ir. Para fazer isso, insira a chave de licença do produto que você comprou com antecedência na caixa de texto **chave de licença** . A versão integrada atual é **3.0.00**.
+
+   * Se você selecionar o componente de **pacote padrão do SSIS do CDATA** , poderá instalar o pacote de [pacotes padrão do SSIS](https://www.cdata.com/kb/entries/ssis-adf-packages.rst#standard) de componentes mais populares do CDATA, como conectores do Microsoft SharePoint, no seu Azure-SSIS ir. Para fazer isso, insira a chave de licença do produto que você comprou com antecedência na caixa de texto **chave de licença** . A versão integrada atual é **19,7354**.
+
+   * Se você selecionar o componente de **pacote estendido do SSIS do CDATA** , poderá instalar o pacote de [pacotes estendidos do SSIS](https://www.cdata.com/kb/entries/ssis-adf-packages.rst#extended) de todos os componentes do CDATA, como os conectores do Microsoft Dynamics 365 Business central e outros componentes em seu **pacote padrão do SSIS**, no seu Azure-SSIS ir. Para fazer isso, insira a chave de licença do produto que você comprou com antecedência na caixa de texto **chave de licença** . A versão integrada atual é **19,7354**. Devido a seu grande tamanho, para evitar o tempo limite da instalação, verifique se sua Azure-SSIS IR tem pelo menos 4 núcleos de CPU por nó.
 
 Suas configurações personalizadas expressas adicionais serão exibidas na página de **Configuração avançada** . Para removê-los, marque suas caixas de seleção e, em seguida, selecione **Excluir**.
 
@@ -171,7 +170,7 @@ Para provisionar ou reconfigurar seu Azure-SSIS IR com as configurações person
    $AzureSSISName = "[your Azure-SSIS IR name]"
    # Custom setup info: Standard/express custom setups
    $SetupScriptContainerSasUri = "" # OPTIONAL to provide a SAS URI of blob container for standard custom setup where your script and its associated files are stored
-   $ExpressCustomSetup = "[RunCmdkey|SetEnvironmentVariable|InstallAzurePowerShell|SentryOne.TaskFactory|oh22is.SQLPhonetics.NET|oh22is.HEDDA.IO|KingswaySoft.IntegrationToolkit|KingswaySoft.ProductivityPack|Theobald.XtractIS|AecorSoft.IntegrationService or leave it empty]" # OPTIONAL to configure an express custom setup without script
+   $ExpressCustomSetup = "[RunCmdkey|SetEnvironmentVariable|InstallAzurePowerShell|SentryOne.TaskFactory|oh22is.SQLPhonetics.NET|oh22is.HEDDA.IO|KingswaySoft.IntegrationToolkit|KingswaySoft.ProductivityPack|Theobald.XtractIS|AecorSoft.IntegrationService|CData.Standard|CData.Extended or leave it empty]" # OPTIONAL to configure an express custom setup without script
 
    # Add custom setup parameters if you use standard/express custom setups
    if(![string]::IsNullOrEmpty($SetupScriptContainerSasUri))
@@ -238,6 +237,16 @@ Para provisionar ou reconfigurar seu Azure-SSIS IR com as configurações person
            $licenseKey = New-Object Microsoft.Azure.Management.DataFactory.Models.SecureString("YourLicenseKey")
            $setup = New-Object Microsoft.Azure.Management.DataFactory.Models.ComponentSetup($ExpressCustomSetup, $licenseKey)
        }
+       if($ExpressCustomSetup -eq "CData.Standard")
+       {
+           $licenseKey = New-Object Microsoft.Azure.Management.DataFactory.Models.SecureString("YourLicenseKey")
+           $setup = New-Object Microsoft.Azure.Management.DataFactory.Models.ComponentSetup($ExpressCustomSetup, $licenseKey)
+       }
+       if($ExpressCustomSetup -eq "CData.Extended")
+       {
+           $licenseKey = New-Object Microsoft.Azure.Management.DataFactory.Models.SecureString("YourLicenseKey")
+           $setup = New-Object Microsoft.Azure.Management.DataFactory.Models.ComponentSetup($ExpressCustomSetup, $licenseKey)
+       }    
        # Create an array of one or more express custom setups
        $setups = New-Object System.Collections.ArrayList
        $setups.Add($setup)
@@ -275,7 +284,7 @@ Para exibir e reutilizar alguns exemplos de configurações personalizadas padr�
 
       * Uma pasta *Sample*, que contém uma configuração personalizada para instalar uma tarefa básica em cada nó do seu Azure-SSIS IR. A tarefa apenas executará a suspensão por alguns segundos. A pasta também contém uma pasta *gacutil*, cujo conteúdo inteiro (*gacutil.exe*, *gacutil.exe.config* e *1033\gacutlrc.dll*) pode ser copiado no estado em que se encontra para seu contêiner.
 
-      * Uma pasta *UserScenarios*, que contém vários exemplos de configurações personalizadas de cenários de usuário real.
+      * Uma pasta *UserScenarios*, que contém vários exemplos de configurações personalizadas de cenários de usuário real. Se você quiser instalar vários exemplos em seu Azure-SSIS IR, poderá combinar seus arquivos de script de instalação personalizada (*Main. cmd*) em um único e carregá-los com todos os seus arquivos associados em seu contêiner.
 
         ![Conteúdo do contêiner de visualização pública](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image11.png)
 
@@ -283,7 +292,9 @@ Para exibir e reutilizar alguns exemplos de configurações personalizadas padr�
 
       * Uma pasta do *.net FRAMEWORK 3,5* , que contém um script de instalação personalizada (*Main. cmd*) para instalar uma versão anterior do .NET Framework em cada nó de sua Azure-SSIS ir. Essa versão pode ser exigida por alguns componentes personalizados.
 
-      * Uma pasta *bcp* , que contém um script de instalação personalizada (*Main. cmd*) para instalar SQL Server utilitários de linha de comando (*MsSqlCmdLnUtils.msi*) em cada nó do seu Azure-SSIS ir. Um desses utilitários é o*bcp*(programa de cópia em massa).
+      * Uma pasta *bcp* , que contém um script de instalação personalizada (*Main. cmd*) para instalar SQL Server utilitários de linha de comando (*MsSqlCmdLnUtils.msi*) em cada nó do seu Azure-SSIS ir. Um desses utilitários é o *bcp*(programa de cópia em massa).
+
+      * Uma pasta de *sufixo DNS* , que contém um script de instalação personalizada (*Main. cmd*) para acrescentar seu próprio sufixo DNS (por exemplo, *Test.com*) a qualquer nome de domínio de rótulo único não qualificado e transformá-lo em um FQDN (nome de domínio totalmente qualificado) antes de usá-lo em consultas DNS de seu Azure-SSIS ir.
 
       * Uma pasta do *Excel* , que contém um script de instalação personalizada (*Main. cmd*) para instalar alguns assemblies e bibliotecas C# em cada nó do seu Azure-SSIS ir. Você pode usá-los em tarefas de script para ler e gravar arquivos do Excel de forma dinâmica. 
       
@@ -295,7 +306,7 @@ Para exibir e reutilizar alguns exemplos de configurações personalizadas padr�
 
       * Uma pasta *ORACLE ENTERPRISE*, que contém um script de configuração personalizada (*main.cmd*) e o arquivo de configuração de instalação silenciosa (*client.rsp*) para instalar os conectores Oracle e o driver OCI em cada nó do seu Azure-SSIS IR Edição Enterprise. Essa configuração permite que você use o Gerenciador de conexões Oracle, a origem e o destino para se conectar ao servidor Oracle. 
       
-        Primeiro, baixe o Microsoft Connectors v 5.0 para Oracle (*AttunitySSISOraAdaptersSetup.msi* e *AttunitySSISOraAdaptersSetup64.msi*) do centro de [download da Microsoft](https://www.microsoft.com/en-us/download/details.aspx?id=55179) e o cliente Oracle mais recente (por exemplo, *winx64_12102_client.zip*) da [Oracle](https://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-win64-download-2297732.html). Em seguida, carregue-os juntos com *Main. cmd* e *Client. rsp* em seu contêiner. Se você usar TNS para se conectar ao Oracle, também precisará baixar *arquivo tnsnames. Ora*, editá-lo e carregá-lo em seu contêiner. Dessa forma, ele pode ser copiado para a pasta de instalação do Oracle durante a instalação.
+        Primeiro, baixe o Microsoft Connectors v 5.0 para Oracle (*AttunitySSISOraAdaptersSetup.msi* e *AttunitySSISOraAdaptersSetup64.msi*) do centro de [download da Microsoft](https://www.microsoft.com/en-us/download/details.aspx?id=55179) e o cliente Oracle mais recente (por exemplo, *winx64_12102_client.zip*) da [Oracle](https://www.oracle.com/database/technologies/oracle19c-windows-downloads.html). Em seguida, carregue-os juntos com *Main. cmd* e *Client. rsp* em seu contêiner. Se você usar TNS para se conectar ao Oracle, também precisará baixar *arquivo tnsnames. Ora*, editá-lo e carregá-lo em seu contêiner. Dessa forma, ele pode ser copiado para a pasta de instalação do Oracle durante a instalação.
 
       * Uma pasta *ORACLE STANDARD ADO.NET*, que contém um script de configuração personalizada (*main.cmd*) para instalar o driver do Oracle ODP.NET em cada nó do seu Azure-SSIS IR. Essa configuração permite que você use o Gerenciador de conexões do ADO.NET, a origem e o destino para se conectar ao servidor Oracle. 
       
@@ -319,9 +330,9 @@ Para exibir e reutilizar alguns exemplos de configurações personalizadas padr�
       
         Primeiro, carregue a versão 64 bits ou 32 bits de *librfc32.dll* da pasta de instalação do SAP juntamente com *main.cmd* para seu contêiner. O script copia o assembly do SAP para a pasta *%windir%\SysWow64* ou *%windir%\System32* durante a instalação.
 
-      * Uma pasta *STORAGE*, que contém um script de configuração personalizada (*main.cmd*) para instalar o Azure PowerShell em cada nó do Azure-SSIS IR. Essa configuração permite implantar e executar pacotes do SSIS que executam [Azure PowerShell cmdlets/scripts para gerenciar o armazenamento do Azure](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-use-blobs-powershell). 
+      * Uma pasta *STORAGE*, que contém um script de configuração personalizada (*main.cmd*) para instalar o Azure PowerShell em cada nó do Azure-SSIS IR. Essa configuração permite implantar e executar pacotes do SSIS que executam [Azure PowerShell cmdlets/scripts para gerenciar o armazenamento do Azure](../storage/blobs/storage-quickstart-blobs-powershell.md). 
       
-        Copie *main.cmd*, um *AzurePowerShell.msi* de exemplo (ou use a versão mais recente) e *storage.ps1* para seu contêiner. Use *PowerShell.dtsx* como um modelo para os seus pacotes. O modelo de pacote combina uma [tarefa de download de blob do Azure](https://docs.microsoft.com/sql/integration-services/control-flow/azure-blob-download-task), que baixa um script do PowerShell modificável (*storage.ps1*) e uma [tarefa Executar processo](https://blogs.msdn.microsoft.com/ssis/2017/01/26/run-powershell-scripts-in-ssis/), que executa o script em cada nó.
+        Copie *main.cmd*, um *AzurePowerShell.msi* de exemplo (ou use a versão mais recente) e *storage.ps1* para seu contêiner. Use *PowerShell.dtsx* como um modelo para os seus pacotes. O modelo de pacote combina uma [tarefa de download de blob do Azure](/sql/integration-services/control-flow/azure-blob-download-task), que baixa um script do PowerShell modificável (*storage.ps1*) e uma [tarefa Executar processo](https://blogs.msdn.microsoft.com/ssis/2017/01/26/run-powershell-scripts-in-ssis/), que executa o script em cada nó.
 
       * Uma pasta *TERADATA*, que contém um script de configuração personalizada (*main.cmd*), o arquivo associado (*install.cmd*) e os pacotes do instalador ( *.msi*). Esses arquivos instalam os conectores Teradata, a API TPT (Teradata Parallel Transporter) e o driver ODBC em cada nó do Azure-SSIS IR Edição Enterprise. Essa configuração permite que você use o Gerenciador de conexões Teradata, a origem e o destino para se conectar ao servidor Teradata. 
       
@@ -329,7 +340,7 @@ Para exibir e reutilizar alguns exemplos de configurações personalizadas padr�
 
       * Uma pasta *TLS 1,2* , que contém um script de instalação personalizado (*Main. cmd*) para usar criptografia forte e protocolo TLS 1,2 (mais seguro) em cada nó do seu Azure-SSIS ir. O script também desabilita as versões mais antigas de SSL/TLS.
 
-      * Uma pasta *ZULU OPENJDK*, que contém um script de configuração personalizada (*main.cmd*) e um arquivo do PowerShell (*install_openjdk.ps1*) para instalar o Zulu OpenJDK em cada nó do seu Azure-SSIS IR. Essa instalação permite que você use o Azure Data Lake Storage e conectores de Arquivo Flexíveis para processar arquivos ORC e Parquet. Para obter mais informações, confira [Feature Pack do Azure para o Integration Services](https://docs.microsoft.com/sql/integration-services/azure-feature-pack-for-integration-services-ssis?view=sql-server-ver15#dependency-on-java). 
+      * Uma pasta *ZULU OPENJDK*, que contém um script de configuração personalizada (*main.cmd*) e um arquivo do PowerShell (*install_openjdk.ps1*) para instalar o Zulu OpenJDK em cada nó do seu Azure-SSIS IR. Essa instalação permite que você use o Azure Data Lake Storage e conectores de Arquivo Flexíveis para processar arquivos ORC e Parquet. Para obter mais informações, confira [Feature Pack do Azure para o Integration Services](/sql/integration-services/azure-feature-pack-for-integration-services-ssis#dependency-on-java). 
       
         Primeiro, [baixe o Zulu OpenJDK mais recente](https://www.azul.com/downloads/zulu/zulu-windows/) (por exemplo, *zulu8.33.0.1-jdk8.0.192-win_x64.zip*) e carregue-o junto com *main.cmd* e *install_openjdk.ps1* para o seu contêiner.
 

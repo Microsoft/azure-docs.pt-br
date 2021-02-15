@@ -48,6 +48,22 @@
           href: tutorial-dr-drill-azure.md
         - name: Fazer failover para o Azure
           href: vmware-azure-tutorial-failover-failback.md
+    - name: Recuperação de desastre da Solução VMware no Azure para o Azure
+      items:
+        - name: Preparar o Azure
+          href: avs-tutorial-prepare-azure.md
+        - name: Preparar a Solução VMware no Azure
+          href: avs-tutorial-prepare-avs.md
+        - name: Configurar a replicação
+          href: avs-tutorial-replication.md
+        - name: Realizar uma simulação de recuperação de desastre
+          href: avs-tutorial-dr-drill-azure.md
+        - name: Fazer failover para o Azure
+          href: avs-tutorial-failover.md
+        - name: Proteger novamente as VMs
+          href: avs-tutorial-reprotect.md
+        - name: Failback do Azure
+          href: avs-tutorial-failback.md
     - name: Recuperação de desastre da VM do Hyper-V para o Azure
       items:
         - name: Preparar o Azure
@@ -160,6 +176,10 @@
           href: hyper-v-vmm-secondary-support-matrix.md
         - name: Arquitetura para VM do Hyper-V em um site secundário
           href: hyper-v-vmm-architecture.md
+    - name: Segurança
+      items:
+        - name: Linha de base de segurança
+          href: security-baseline.md
 - name: Guias de instruções
   items:
     - name: Recuperação de desastre do Azure para o Azure
@@ -458,6 +478,8 @@
       href: hyper-v-vmm-powershell-resource-manager.md
     - name: Adicionar runbooks de automação aos planos de recuperação
       href: site-recovery-runbook-automation.md
+    - name: Modelos do ARM
+      href: asr-arm-templates.md
 - name: Monitoramento
   items:
     - name: Perguntas comuns sobre monitoramento
@@ -466,6 +488,8 @@
       href: site-recovery-monitor-and-troubleshoot.md
     - name: Monitorar Site Recovery com os logs do Azure Monitor
       href: monitor-log-analytics.md
+    - name: Monitoramento de padrões de rotatividade em máquinas virtuais
+      href: monitoring-high-churn.md
     - name: Monitorar servidores de processo
       href: vmware-physical-azure-monitor-process-server.md
 - name: Solução de problemas

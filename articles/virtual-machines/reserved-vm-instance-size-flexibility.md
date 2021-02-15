@@ -1,25 +1,25 @@
 ---
 title: Flexibilidade de tamanho de máquina virtual-instâncias de VM reservadas do Azure
 description: Saiba quais série de tamanho são um desconto de reserva que aplica quando por uma instância VM reservada.
-author: manish-shukla01
+author: yashesvi
 ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 08/03/2018
-ms.author: manshuk
-ms.openlocfilehash: 381023a0650b078a74c01ff7b698aebacb256147
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.date: 02/02/2021
+ms.author: yashar
+ms.openlocfilehash: cf8f2f794be4340de4419457872ed5ff4bb4a686
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855500"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980432"
 ---
 # <a name="virtual-machine-size-flexibility-with-reserved-vm-instances"></a>Flexibilidade de tamanho de máquina virtual com Instâncias de VM Reservadas
 
 Ao comprar uma instância de VM reservada, você pode optar por otimizar a flexibilidade de tamanho da instância ou a prioridade da capacidade. Para obter mais informações sobre como configurar ou alterar a configuração de otimização para instâncias de VM reservadas, consulte [alterar a configuração de otimização para instâncias de VM reservadas](../cost-management-billing/reservations/manage-reserved-vm-instance.md#change-optimize-setting-for-reserved-vm-instances).
 
-Com uma instância de máquina virtual reservada que é otimizada para flexibilidade de tamanho de instância, a reserva que você compra pode se aplicar a tamanhos de máquinas virtuais (VMs) no mesmo grupo de flexibilidade de tamanho de instância. Por exemplo, se você comprar uma reserva para um tamanho de VM listado na série DSv2, como Standard_DS5_v2, o desconto de reserva poderá ser aplicado aos outros quatro tamanhos listados no mesmo grupo de flexibilidade de tamanho de instância:
+Com uma instância de máquina virtual reservada que é otimizada para flexibilidade de tamanho de instância, a reserva que você compra pode se aplicar a tamanhos de máquinas virtuais (VMs) no mesmo grupo de flexibilidade de tamanho de instância. Por exemplo, se você comprar uma reserva para um tamanho de VM listado na série DSv2, como Standard_DS3_v2, o desconto de reserva poderá ser aplicado aos outros tamanhos listados no mesmo grupo de flexibilidade de tamanho de instância:
 
 - Standard_DS1_v2
 - Standard_DS2_v2

@@ -3,18 +3,21 @@ title: RAND na linguagem de consulta Azure Cosmos DB
 description: Saiba mais sobre a função RAND do sistema SQL no Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: ff098da778221868b0eddc17c426d2bf36eec0fe
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: fb3e310970fcc2146ee0d4b790a9744dcd566bad
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88794333"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341647"
 ---
 # <a name="rand-azure-cosmos-db"></a>RAND (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Retorna um valor numérico gerado aleatoriamente de [0, 1).
  
 ## <a name="syntax"></a>Sintaxe

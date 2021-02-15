@@ -8,10 +8,10 @@ author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
 ms.openlocfilehash: 9f3ba6b2f13b9f2bb1d538db84723e3a9baaef12
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87271834"
 ---
 # <a name="retrieve-a-specific-offer"></a>Recuperar uma oferta específica
@@ -39,9 +39,9 @@ Também é possível recuperar uma versão específica da oferta, recuperar a of
 
 | **Nome**    | **Descrição**                                                                          | **Data type** |
 |-------------|------------------------------------------------------------------------------------------|---------------|
-| publisherId | publisherId. Po exemplo, Contoso                                                        | Cadeia de caracteres        |
-| offerId     | Guid que identifica exclusivamente a oferta.                                                 | Cadeia de caracteres        |
-| version     | Versão da oferta que está sendo recuperada. Por padrão, a versão mais recente da oferta é recuperada. | Inteiro       |
+| publisherId | publisherId. Po exemplo, Contoso                                                        | String        |
+| offerId     | Guid que identifica exclusivamente a oferta.                                                 | String        |
+| version     | Versão da oferta que está sendo recuperada. Por padrão, a versão mais recente da oferta é recuperada. | Integer       |
 | slotId      | O slot do qual a oferta deve ser recuperada pode ser um dos a seguir:      <br/>  - `Draft` (padrão) recupera a versão da oferta atualmente no rascunho.  <br/>  -  `Preview` recupera a versão da oferta atualmente na visualização.     <br/>  -  `Production` recupera a versão da oferta atualmente em produção.          |      enum |
 | api-version | Última versão da API                                                                    | Data          |
 |  |  |  |
@@ -200,7 +200,7 @@ Também é possível recuperar uma versão específica da oferta, recuperar a of
 |  NotStarted                 | A oferta é nova e não iniciada.              |
 |  WaitingForPublisherReview  | A oferta aguarda aprovação do editor.      |
 |  Executando                    | O envio da oferta está sendo processado.          |
-|  Com sucesso                  | O envio da oferta concluiu o processamento.    |
+|  Êxito                  | O envio da oferta concluiu o processamento.    |
 |  Canceled                   | O envio da oferta foi cancelado.                |
-|  Com falha                     | O envio da oferta falhou.                      |
+|  Failed (Falha)                     | O envio da oferta falhou.                      |
 |  |  |

@@ -8,13 +8,13 @@ ms.date: 05/05/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: b60cf34e8efed2ed63b6e35cfaf7445edb701610
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82838494"
 ---
-# <a name="frequently-asked-questions-about-analysis-services-network-connectivity"></a>Perguntas frequentes sobre Analysis Services conectividade de rede
+# <a name="frequently-asked-questions-about-analysis-services-network-connectivity"></a>Perguntas frequentes sobre a conectividade de rede do Analysis Services
 
 Este artigo fornece respostas a perguntas comuns sobre como se conectar a contas de armazenamento, fontes de dados, firewalls e endereços IP.
 

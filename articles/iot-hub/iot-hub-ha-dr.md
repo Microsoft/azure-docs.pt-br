@@ -7,16 +7,16 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/17/2020
 ms.author: philmea
-ms.openlocfilehash: d4a5ad36e9d6d71ad88d0b5c56b6079f34483347
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: c665e30ed9b284f7c93cf8588b710c9f22457a0a
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021402"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151666"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>Alta disponibilidade e recuperação de desastres do Hub IoT
 
-Como primeiro passo para implementar uma solução de IoT resiliente, os arquitetos, desenvolvedores e proprietários de negócios devem definir as metas de tempo de atividade das soluções que estão criando. Essas metas podem ser definidas principalmente com base em objetivos de negócios específicos para cada cenário. Neste contexto, o artigo [Orientação Técnica de Continuidade de Negócios do Azure](https://docs.microsoft.com/azure/architecture/resiliency/) descreve uma estrutura geral para ajudá-lo a pensar em continuidade de negócios e recuperação de desastres. O documento [Recuperação de desastre e alta disponibilidade para aplicativos do Azure](https://docs.microsoft.com/azure/architecture/reliability/disaster-recovery) fornece diretrizes de arquitetura sobre estratégias para que os aplicativos do Azure consigam alta disponibilidade (HA) e recuperação de desastres (DR).
+Como primeiro passo para implementar uma solução de IoT resiliente, os arquitetos, desenvolvedores e proprietários de negócios devem definir as metas de tempo de atividade das soluções que estão criando. Essas metas podem ser definidas principalmente com base em objetivos de negócios específicos para cada cenário. Neste contexto, o artigo [Orientação Técnica de Continuidade de Negócios do Azure](/azure/architecture/resiliency/) descreve uma estrutura geral para ajudá-lo a pensar em continuidade de negócios e recuperação de desastres. O documento [Recuperação de desastre e alta disponibilidade para aplicativos do Azure](/azure/architecture/reliability/disaster-recovery) fornece diretrizes de arquitetura sobre estratégias para que os aplicativos do Azure consigam alta disponibilidade (HA) e recuperação de desastres (DR).
 
 Este artigo descreve os recursos de HA e DR oferecidos especificamente pelo serviço IoT Hub. As grandes áreas discutidas neste artigo são:
 
@@ -64,7 +64,7 @@ Depois que a operação de failover do hub IoT for concluída, espera-se que tod
 >
 > - Se você usar Azure Functions ou Azure Stream Analytics para conectar o ponto de extremidade eventos internos, talvez seja necessário executar uma **reinicialização**. Isso ocorre porque, durante o failover, os deslocamentos anteriores não são mais válidos.
 >
-> - Ao rotear para o armazenamento, é recomendável listar os BLOBs ou arquivos e, em seguida, iterar sobre eles, para garantir que todos os BLOBs ou arquivos sejam lidos sem fazer nenhuma suposição de partição. O intervalo de partição pode ser alterado durante um failover iniciado pela Microsoft ou um failover manual. Você pode usar a [API listar BLOBs](https://docs.microsoft.com/rest/api/storageservices/list-blobs) para enumerar a lista de BLOBs ou [listar ADLS Gen2 API](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/list) para a lista de arquivos. Para saber mais, confira [armazenamento do Azure como um ponto de extremidade de roteamento](iot-hub-devguide-messages-d2c.md#azure-storage-as-a-routing-endpoint).
+> - Ao rotear para o armazenamento, é recomendável listar os BLOBs ou arquivos e, em seguida, iterar sobre eles, para garantir que todos os BLOBs ou arquivos sejam lidos sem fazer nenhuma suposição de partição. O intervalo de partição pode ser alterado durante um failover iniciado pela Microsoft ou um failover manual. Você pode usar a [API listar BLOBs](/rest/api/storageservices/list-blobs) para enumerar a lista de BLOBs ou [listar ADLS Gen2 API](/rest/api/storageservices/datalakestoragegen2/path/list) para a lista de arquivos. Para saber mais, confira [armazenamento do Azure como um ponto de extremidade de roteamento](iot-hub-devguide-messages-d2c.md#azure-storage-as-a-routing-endpoint).
 
 ## <a name="microsoft-initiated-failover"></a>Failover iniciado pelo Microsoft
 
@@ -135,8 +135,8 @@ Aqui está um resumo das opções de HA/DR apresentado neste artigo que pode ser
 | Opção de HA/DR | RTO | RPO | Requer intervenção manual? | Complexidade da implementação | Impacto do custo adicional|
 | --- | --- | --- | --- | --- | --- |
 | Failover iniciado pelo Microsoft |2 - 26 horas|Consulte a tabela RPO acima|Não|Nenhum|Nenhum|
-| Failover manual |10 min - 2 horas|Consulte a tabela RPO acima|Sim|Muito baixa. Você só precisará disparar essa operação no portal.|Nenhum|
-| Entre a alta disponibilidade de região |< 1 minuto|Depende da frequência de replicação de sua solução personalizada de alta disponibilidade|Não|Alto|> 1 vezes o custo do hub do IoT 1|
+| Failover manual |10 min - 2 horas|Consulte a tabela RPO acima|Yes|Muito baixa. Você só precisará disparar essa operação no portal.|Nenhum|
+| Entre a alta disponibilidade de região |< 1 minuto|Depende da frequência de replicação de sua solução personalizada de alta disponibilidade|No|Alto|> 1 vezes o custo do hub do IoT 1|
 
 ## <a name="next-steps"></a>Próximas etapas
 

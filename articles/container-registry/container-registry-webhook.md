@@ -3,12 +3,12 @@ title: Webhooks para responder a ações de registro
 description: Saiba como usar webhooks para disparar eventos quando ocorrerem ações de push ou pull em seus repositórios de registro.
 ms.topic: article
 ms.date: 05/24/2019
-ms.openlocfilehash: 3d0a12b6e742b0209cbb746a70686423f2fb5627
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 1db1098da81e6cf9ecb262c99f705b77af2efd26
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83685041"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004476"
 ---
 # <a name="using-azure-container-registry-webhooks"></a>Como usar webhooks do Registro de Contêiner do Azure
 
@@ -41,7 +41,7 @@ Para obter detalhes sobre solicitações de webhook, consulte [Azure Container R
 
 Formulário de webhook de exemplo:
 
-![Interface do usuário de criação de webhook ACR no portal do Azure](./media/container-registry-webhook/webhook.png)
+![Captura de tela que mostra a criação de webhook do ACR U I no portal do Azure.](./media/container-registry-webhook/webhook.png)
 
 ## <a name="create-webhook---azure-cli"></a>Criar webhook – CLI do Azure
 

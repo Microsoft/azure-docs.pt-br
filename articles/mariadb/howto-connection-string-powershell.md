@@ -1,18 +1,18 @@
 ---
 title: Gerar uma cadeia de conexão com o PowerShell – Banco de Dados do Azure para MariaDB
 description: Este artigo apresenta um exemplo do Azure PowerShell de como gerar uma cadeia de conexão para se conectar ao Banco de Dados do Azure para MariaDB.
-author: ajlam
-ms.author: andrela
-ms.service: mariadb
+author: savjani
+ms.author: pariks
+ms.service: jroth
 ms.custom: mvc, devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 8/5/2020
-ms.openlocfilehash: b08a1c60b1225b2786ea869f96ac40cc651c82f3
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 79109a7f39debfa14c8a11d9014685382151ab3b
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185597"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98663716"
 ---
 # <a name="how-to-generate-an-azure-database-for-mariadb-connection-string-with-powershell"></a>Como gerar uma cadeia de conexão do Banco de Dados do Azure para MariaDB com o PowerShell
 

@@ -6,12 +6,12 @@ ms.author: sread
 ms.date: 03/30/2020
 ms.topic: article
 ms.service: multiple
-ms.openlocfilehash: 7fb72b9a7d0d655f99d1e5cf194f7c6f26976a37
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 2d48c767b836771600b3491299e0bdb33aacb75b
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86508042"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98733142"
 ---
 # <a name="set-up-micro-focus-cics-bankdemo-for-micro-focus-enterprise-developer-40-on-azure"></a>Configurar o micro Focus CICS BankDemo para o micro Focus Enterprise Developer 4,0 no Azure
 
@@ -28,7 +28,7 @@ CICs significa sistema de controle de informações do cliente, a plataforma de 
 
 - [SQL Server 2017 Express Edition](https://www.microsoft.com/sql-server/sql-server-editions-express). Baixe e instale-o na VM do desenvolvedor empresarial. O servidor corporativo requer um banco de dados para o gerenciamento de regiões CICS e o aplicativo BankDemo também usa um banco de dados SQL Server chamado BANKDEMO. Esta demonstração pressupõe que você esteja usando SQL Server Express para ambos os bancos de dados. Ao instalar o, selecione a instalação básica.
 
-- [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017) (SSMS). O SSMS é usado para gerenciar os bancos de dados e executar um script T-SQL. Baixe e instale-o na VM do desenvolvedor empresarial.
+- [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS). O SSMS é usado para gerenciar os bancos de dados e executar um script T-SQL. Baixe e instale-o na VM do desenvolvedor empresarial.
 
 - O [visual studio 2019](https://azure.microsoft.com/downloads/) com a mais recente Service Pack ou a [comunidade do Visual Studio](https://visualstudio.microsoft.com/vs/community/), que você pode baixar gratuitamente.
 
@@ -50,7 +50,7 @@ Depois de instalar o Enterprise Developer 4,0 na VM, você deve configurar a ins
     - Scripts e Ferramentas de Gerenciamento do IIS
     - Serviço de gerenciamento do IIS
 
-4. Selecione **serviços de World Wide Web**e verifique as seguintes opções:
+4. Selecione **serviços de World Wide Web** e verifique as seguintes opções:
 
      Recursos de desenvolvimento de aplicativos:
     - Extensibilidade .NET
@@ -63,12 +63,12 @@ Depois de instalar o Enterprise Developer 4,0 na VM, você deve configurar a ins
 
 5. Selecione **serviço de ativação de processos do Windows** e todos os seus filhos.
 
-6. Para **recursos**, marque **Microsoft .NET Framework 3.5.1**e verifique as seguintes opções:
+6. Para **recursos**, marque **Microsoft .NET Framework 3.5.1** e verifique as seguintes opções:
 
     - Windows Communication Foundation ativação HTTP
     - Windows Communication Foundation ativação não HTTP
 
-7. Para **recursos**, verifique **Microsoft .NET Framework 4,6**e verifique as seguintes opções:
+7. Para **recursos**, verifique **Microsoft .NET Framework 4,6** e verifique as seguintes opções:
 
    - Ativação de pipe nomeado
    - Ativação TCP
@@ -78,7 +78,7 @@ Depois de instalar o Enterprise Developer 4,0 na VM, você deve configurar a ins
 
 8. Quando você tiver selecionado todas as opções, clique em **Avançar** para instalar.
 
-9. Após os recursos do Windows, vá até **sistema do painel \> de controle e \> Ferramentas administrativas de segurança**e selecione **Serviços**. Role para baixo e verifique se os seguintes serviços estão em execução e definidos como **automáticos**:
+9. Após os recursos do Windows, vá até **sistema do painel \> de controle e \> Ferramentas administrativas de segurança** e selecione **Serviços**. Role para baixo e verifique se os seguintes serviços estão em execução e definidos como **automáticos**:
 
     - **NetTcpPortSharing**
     - **Adaptador ouvinte do Net.Pipe**
@@ -98,7 +98,7 @@ Alguns processos do servidor corporativo precisam ser capazes de entrar SQL Serv
 
 2. À esquerda, expanda a pasta **segurança** e selecione **logons**.
 
-3. Selecione ** \\ sistema de Autoridade NT** e selecione **Propriedades**.
+3. Selecione **\\ sistema de Autoridade NT** e selecione **Propriedades**.
 
 4. Selecione **funções de servidor** e verifique **sysadmin**.
 
@@ -132,7 +132,7 @@ A consulta deve ser executada sem erros. Quando estiver concluído, você terá 
 
 1. Abra o Visual Studio e entre.
 
-2. Na opção de menu **arquivo** , selecione **projeto/solução aberta**, navegue até **C: \\ usuários \\ públicos \\ documentos \\ micro foco \\ Enterprise Developer \\ exemplos de \\ mainframe \\ CICS \\ dotnet \\ BankDemo**e selecione o arquivo **sln** .
+2. Na opção de menu **arquivo** , selecione **projeto/solução aberta**, navegue até **C: \\ usuários \\ públicos \\ documentos \\ micro foco \\ Enterprise Developer \\ exemplos de \\ mainframe \\ CICS \\ dotnet \\ BankDemo** e selecione o arquivo **sln** .
 
 3. Reserve algum tempo para examinar os objetos. Os programas COBOL são mostrados em Gerenciador de Soluções com a extensão CBL, juntamente com CopyBooks (CPY) e JCL.
 
@@ -177,7 +177,7 @@ A consulta deve ser executada sem erros. Quando estiver concluído, você terá 
 
 4. Selecione **definir região** para criar uma nova região CICS chamada **BANKDEMO**, hospedada no banco de dados (local).
 
-5. Forneça a instância do servidor de banco de dados, clique em **Avançar**e digite o nome da região **BANKDEMO**.
+5. Forneça a instância do servidor de banco de dados, clique em **Avançar** e digite o nome da região **BANKDEMO**.
 
      ![Caixa de diálogo Definir região](media/07-demo-cics.png)
 
@@ -189,7 +189,7 @@ A consulta deve ser executada sem erros. Quando estiver concluído, você terá 
 
 ## <a name="create-xa-resource-definitions"></a>Criar definições de recursos XA
 
-1. No painel esquerdo do **servidor corporativo para** a interface do usuário do .net Administration, expanda **sistema**e, em seguida, **definições de recurso XA**. Essa configuração define como a região interopera com o servidor corporativo e os bancos de dados de aplicativo.
+1. No painel esquerdo do **servidor corporativo para** a interface do usuário do .net Administration, expanda **sistema** e, em seguida, **definições de recurso XA**. Essa configuração define como a região interopera com o servidor corporativo e os bancos de dados de aplicativo.
 
 2. Clique com o botão direito do mouse em **definições de recursos XA** e selecione **Adicionar instância de servidor**.
 
@@ -212,7 +212,7 @@ A consulta deve ser executada sem erros. Quando estiver concluído, você terá 
 > [!NOTE]
 > A primeira etapa é importante: você deve definir a região para usar a definição de recurso XA que você acabou de criar.
 
-1. Navegue até a **região BANDEMO CICS** sob o **contêiner regiões**e, em seguida, selecione **Editar arquivo de inicialização de região** no painel **ações** . Role para baixo até as propriedades do SQL e insira **bankdemo** para o **nome do recurso XA**ou use as reticências para selecioná-lo.
+1. Navegue até a **região BANDEMO CICS** sob o **contêiner regiões** e, em seguida, selecione **Editar arquivo de inicialização de região** no painel **ações** . Role para baixo até as propriedades do SQL e insira **bankdemo** para o **nome do recurso XA** ou use as reticências para selecioná-lo.
 
 2. Clique no ícone **salvar** para salvar as alterações.
 
@@ -234,7 +234,7 @@ Crie um ouvinte para as sessões TN3270 que acessam o aplicativo BankDemo.
 
 3. Observe as duas regiões definidas anteriormente (ESDEMO e JCLDEMO).
 
-4. Para criar uma nova região para BANKDEMO, clique com o botão direito do mouse em **regiões**e selecione **Adicionar região**.
+4. Para criar uma nova região para BANKDEMO, clique com o botão direito do mouse em **regiões** e selecione **Adicionar região**.
 
 5. Selecione a **região BANKDEMO**.
 

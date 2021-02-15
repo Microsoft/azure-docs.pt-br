@@ -1,23 +1,18 @@
 ---
 title: Cópia repetida no Azure Data Factory
 description: Saiba como evitar duplicatas mesmo que uma fatia que copia dados seja executada mais de uma vez.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-editor: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 7188cb5774699fc6e31fc3b8c78068bb33c6f552
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c427cd90412121e896738ca43f4c66dd24b096dc
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84707286"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100387080"
 ---
 # <a name="repeatable-copy-in-azure-data-factory"></a>Cópia repetida no Azure Data Factory
 
@@ -59,7 +54,7 @@ ID    Product        Quantity    ModifiedDate
 7     Down Tube    2            2015-05-01 00:00:00
 ```
 
-Suponha que você encontrou erros no arquivo de origem e atualizou a quantidade de Down Tubes de dois para quatro. Se você executar novamente a fatia de dados para esse período manualmente, você encontrará dois novos registros anexados ao banco de dados SQL do Azure/banco de dados do SQL Server. Este exemplo pressupõe que nenhuma das colunas na tabela tem a restrição de chave primária.
+Suponha que você encontrou erros no arquivo de origem e atualizou a quantidade de Down Tubes de dois para quatro. Se você executar novamente a fatia de dados para esse período manualmente, encontrará dois novos registros anexados ao banco de dado SQL/SQL Server do Azure. Este exemplo pressupõe que nenhuma das colunas na tabela tem a restrição de chave primária.
 
 ```
 ID    Product        Quantity    ModifiedDate
@@ -104,13 +99,13 @@ A atividade de cópia executou o script de limpeza para excluir os dados corresp
 
 ### <a name="mechanism-2-using-sliceidentifiercolumnname"></a>Mecanismo 2: usando o sliceIdentifierColumnName
 > [!IMPORTANT]
-> No momento, não há suporte para sliceIdentifierColumnName no SQL Data Warehouse do Azure. 
+> Atualmente, o sliceIdentifierColumnName não tem suporte para o Azure Synapse Analytics. 
 
 O segundo mecanismo para atingir a capacidade de repetição é ter uma coluna dedicada (sliceIdentifierColumnName) na tabela de destino. Essa coluna pode ser usada pelo Azure Data Factory para garantir que a origem e destino permaneçam em sincronia. Essa abordagem funciona quando há flexibilidade para alteração ou definição do esquema de tabela SQL de destino. 
 
 Essa coluna é usada pelo Azure Data Factory para fins de capacidade de repetição e, no processo, o Azure Data Factory não faz nenhuma alteração de esquema na tabela. Modo de usar essa abordagem:
 
-1. Defina uma coluna do tipo **binário (32)** na tabela SQL de destino. Não deve haver nenhuma restrição nessa coluna. Vamos nomear esta coluna como AdfSliceIdentifier para este exemplo.
+1. Defina uma coluna do tipo **binary (32)** na tabela SQL de destino. Não deve haver nenhuma restrição nessa coluna. Vamos nomear esta coluna como AdfSliceIdentifier para este exemplo.
 
 
     Tabela de origem:
@@ -151,5 +146,5 @@ Semelhante ao mecanismo 1, os dados da fatia fornecida da tabela SQL de destino 
 Examine os artigos sobre conector a seguir para obter exemplos de JSON completos: 
 
 - [Banco de Dados SQL do Azure](data-factory-azure-sql-connector.md)
-- [SQL Data Warehouse do Azure](data-factory-azure-sql-data-warehouse-connector.md)
+- [Azure Synapse Analytics](data-factory-azure-sql-data-warehouse-connector.md)
 - [SQL Server](data-factory-sqlserver-connector.md)

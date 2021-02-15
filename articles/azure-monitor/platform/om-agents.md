@@ -6,18 +6,18 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/24/2020
-ms.openlocfilehash: 2a4f24da51b9e9e78c3df3e7d1437a380306e300
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 571dcd41da9be578e69d9a8ad40ed05784ae26a8
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87318344"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98941986"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Conectar Operations Manager ao Azure Monitor
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-Para manter seu investimento existente em [System Center Operations Manager](/system-center/scom/key-concepts?view=sc-om-1807) e usar recursos estendidos com o Azure monitor, você pode integrar Operations Manager ao seu espaço de trabalho do log Analytics. Isso permite que você aproveite as oportunidades de logs em Azure Monitor enquanto continua a usar Operations Manager para:
+Para manter seu investimento existente em [System Center Operations Manager](/system-center/scom/key-concepts) e usar recursos estendidos com o Azure monitor, você pode integrar Operations Manager ao seu espaço de trabalho do log Analytics. Isso permite que você aproveite as oportunidades de logs em Azure Monitor enquanto continua a usar Operations Manager para:
 
 * Monitorar a integridade dos seus serviços de TI com o Operations Manager
 * Manter a integração com suas soluções de ITSM com suporte ao gerenciamento de incidentes e problemas
@@ -47,7 +47,7 @@ Antes de começar, revise os seguintes requisitos.
     - Centro-Oeste dos EUA
     - Sudeste da Austrália
     - Europa Ocidental
-    - East US
+    - Leste dos EUA
     - Sudeste da Ásia
     - Leste do Japão
     - Sul do Reino Unido
@@ -136,7 +136,7 @@ Depois de configurar a integração com o seu espaço de trabalho do Log Analyti
 1. Abra o console do Operations Manager e selecione o workspace **Administração**.
 1. Expanda o nó do Operations Management Suite e clique em **Conexão**.
 1. Clique no link **Adicionar um Computador/Grupo** no cabeçalho Ações no lado direito do painel.
-1. Na caixa de diálogo **Pesquisa de Computador**, é possível pesquisar computadores ou grupos monitorados pelo Operations Manager. Selecione computadores ou grupos, incluindo o servidor de gerenciamento de Operations Manager para carregar Azure Monitor, clique em **Adicionar**e, em seguida, clique em **OK**.
+1. Na caixa de diálogo **Pesquisa de Computador**, é possível pesquisar computadores ou grupos monitorados pelo Operations Manager. Selecione computadores ou grupos, incluindo o servidor de gerenciamento de Operations Manager para carregar Azure Monitor, clique em **Adicionar** e, em seguida, clique em **OK**.
 
 Você pode exibir computadores e grupos configurados para coletar dados do nó Computadores Gerenciados no Operations Management Suite no workspace **Administração** do Console de operações. Aqui, é possível adicionar ou remover computadores e grupos conforme necessário.
 

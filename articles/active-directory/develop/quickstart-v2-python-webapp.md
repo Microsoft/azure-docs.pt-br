@@ -1,6 +1,7 @@
 ---
-title: Adicionar entrada com a conta da Microsoft a um aplicativo Web Python da plataforma de identidade da Microsoft | Azure
-description: Saiba como implementar a opção Entrar com a conta da Microsoft em um aplicativo Web do Python usando o OAuth2
+title: 'Início Rápido: Adicionar a opção Entrar com a conta Microsoft a um aplicativo Web do Python | Azure'
+titleSuffix: Microsoft identity platform
+description: Neste guia de início rápido, saiba como um aplicativo Web do Python pode conectar usuários, obter um token de acesso da plataforma de identidade da Microsoft e chamar a API do Microsoft Graph.
 services: active-directory
 author: abhidnya13
 manager: CelesteDG
@@ -11,23 +12,22 @@ ms.workload: identity
 ms.date: 09/25/2019
 ms.author: abpati
 ms.custom: aaddev, devx-track-python, scenarios:getting-started, languages:Python
-ms.openlocfilehash: 6b58e927952b2a51289c3017455cc7d66545fe86
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 3c3eaddf1767a3fa4a2ba73ae7a27f1f7df13990
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88120313"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98178188"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-python-web-app"></a>Início Rápido: Adicionar a opção Entrar com a conta da Microsoft a um aplicativo Web do Python
 
-Neste início rápido, você aprenderá a integrar um aplicativo Web do Python à plataforma de identidade da Microsoft. Seu aplicativo conectará um usuário, obterá um token de acesso para chamar a API do Microsoft Graph e fará uma solicitação para a API do Microsoft Graph.
+Neste guia de início rápido, você baixará e executará um exemplo de código que demonstra como um aplicativo Web Python pode conectar usuários e obter um token de acesso para chamar a API do Microsoft Graph. Os usuários com uma conta Microsoft pessoal ou uma conta em qualquer organização do Azure AD (Azure Active Directory) podem entrar no aplicativo.
 
-Após concluir este guia, seu aplicativo aceitará conexões de contas Microsoft pessoais (incluindo outlook.com, live.com e outras) e contas corporativas ou de estudante de qualquer empresa ou organização que utilize o Azure Active Directory. (Confira [Como o exemplo funciona](#how-the-sample-works) para ver uma ilustração.)
+Confira [Como o exemplo funciona](#how-the-sample-works) para ver uma ilustração.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para executar esta amostra, você precisará do seguinte:
-
+- Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Python 2.7 e posterior](https://www.python.org/downloads/release/python-2713) ou [Python 3 e posterior](https://www.python.org/downloads/release/python-364/)
 - [Flask](http://flask.pocoo.org/), [Flask-Session](https://pypi.org/project/Flask-Session/), [solicitações](https://requests.kennethreitz.org/en/master/)
 - [MSAL Python](https://github.com/AzureAD/microsoft-authentication-library-for-python)
@@ -40,7 +40,7 @@ Para executar esta amostra, você precisará do seguinte:
 >
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Opção 1: Registrar e configurar o aplicativo automaticamente e, em seguida, baixar seu exemplo de código
 >
-> 1. Acesse o [portal do Azure – Registros de aplicativo](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/PythonQuickstartPage/sourceType/docs).
+> 1. Acesse a experiência de início rápido do <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/PythonQuickstartPage/sourceType/docs" target="_blank">portal do Azure – Registros de aplicativo<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 > 1. Insira um nome para seu aplicativo e selecione **Registrar**.
 > 1. Siga as instruções para baixar e configurar automaticamente o novo aplicativo.
 >
@@ -50,31 +50,25 @@ Para executar esta amostra, você precisará do seguinte:
 >
 > Para registrar seu aplicativo e adicionar as informações de registro do aplicativo à solução manualmente, siga estas etapas:
 >
-> 1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
-> 1. Se sua conta fornecer acesso a mais de um locatário, selecione sua conta no canto superior direito e defina sua sessão do portal para o locatário desejado do Azure AD.
-> 1. Navegue até a página [Registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) da plataforma de identidade da Microsoft para desenvolvedores.
-> 1. Selecione **Novo registro**.
-> 1. Quando a página **Registrar um aplicativo** for exibida, insira as informações de registro do aplicativo:
->      - Na seção **Nome**, insira um nome de aplicativo relevante que será exibido aos usuários do aplicativo, por exemplo, `python-webapp`.
->      - Em **Tipos de conta com suporte**, selecione **Contas em qualquer diretório organizacional e contas pessoais da Microsoft**.
->      - Selecione **Registrar**.
->      - Na página **Visão geral** do aplicativo, anote o valor de **ID do aplicativo (cliente)** para uso posterior.
-> 1. Selecione **Autenticação** no menu e, em seguida, adicione as seguintes informações:
->    - Adicione a configuração **Web** da plataforma. Adicione `http://localhost:5000/getAToken` como **URIs de Redirecionamento**.
->    - Clique em **Salvar**.
-> 1. No menu à esquerda, escolha **Certificados e segredos** e clique em **Novo segredo do cliente** na seção **Segredos do Cliente**:
->
->      - Digite uma descrição de chave (do segredo do aplicativo da instância).
->      - Selecione uma duração de chave igual a **Em 1 ano**.
->      - Quando você clicar em **Adicionar**, o valor da chave será exibido.
->      - Copie o valor da chave. Você precisará dela mais tarde.
-> 1. Selecione a seção **Permissões da API**
->
->      - Clique no botão **Adicionar uma permissão** e, em seguida,
->      - Verifique se a guia **APIs da Microsoft** está selecionada
->      - Na seção *APIs da Microsoft frequentemente utilizadas*, clique em **Microsoft Graph**
->      - Na seção **Permissões delegadas**, certifique-se de que as permissões corretas estejam marcadas: **User.ReadBasic.All**. Use a caixa de pesquisa, se necessário.
->      - Selecione o botão **Adicionar permissões**
+> 1. Entre no <a href="https://portal.azure.com/" target="_blank">Portal do Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+> 1. Se você tem acesso a vários locatários, use o filtro **Diretório + assinatura** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o locatário no qual você deseja registrar um aplicativo.
+> 1. Em **Gerenciar**, selecione **Registros de aplicativo** > **Novo registro**.
+> 1. Insira um **Nome** para seu aplicativo, por exemplo, `python-webapp`. Os usuários do seu aplicativo podem ver esse nome e você pode alterá-lo mais tarde.
+> 1. Em **Tipos de conta com suporte**, selecione **Contas em qualquer diretório organizacional e contas pessoais da Microsoft**.
+> 1. Selecione **Registrar**.
+> 1. Na página **Visão geral** do aplicativo, anote o valor de **ID do aplicativo (cliente)** para uso posterior.
+> 1. Em **Gerenciar**, selecione **Autenticação**.
+> 1. Selecione **Adicionar uma plataforma** > **Web**.
+> 1. Adicione `http://localhost:5000/getAToken` como **URIs de Redirecionamento**.
+> 1. Selecione **Configurar**.
+> 1. Em **Gerenciar**, selecione os **Certificados e segredos** e, na seção **Segredos do cliente**, selecione **Novo segredo do cliente**.
+> 1. Digite uma descrição de chave (por exemplo, segredo do aplicativo); deixe a expiração padrão e selecione **Adicionar**.
+> 1. Observe o **Valor** do **Segredo do cliente** para uso posterior.
+> 1. Em **Gerenciar**, selecione **Permissões de API** > **Adicionar uma permissão**.
+>1.  Verifique se a guia **APIs da Microsoft** está selecionada.
+> 1. Na seção *APIs da Microsoft frequentemente utilizadas*, selecione **Microsoft Graph**.
+> 1. Na seção **Permissões delegadas**, verifique se as permissões corretas estão marcadas: **User.ReadBasic.All**. Use a caixa de pesquisa, se necessário.
+> 1. Selecione o botão **Adicionar permissões**.
 >
 > [!div class="sxs-lookup" renderon="portal"]
 >
@@ -97,7 +91,7 @@ Para executar esta amostra, você precisará do seguinte:
 
 > [!div class="sxs-lookup" renderon="portal"]
 > Baixe o projeto e extraia o arquivo zip para uma pasta local mais próxima da pasta raiz, por exemplo, **C:\Azure-Samples**
-> [!div renderon="portal" id="autoupdate" class="nextstepaction"]
+> [!div class="sxs-lookup" renderon="portal" id="autoupdate" class="nextstepaction"]
 > [Baixe o exemplo de código](https://github.com/Azure-Samples/ms-identity-python-webapp/archive/master.zip)
 
 > [!div class="sxs-lookup" renderon="portal"]
@@ -162,11 +156,11 @@ Adicione a referência à MSAL Python adicionando o seguinte código ao início 
 import msal
 ```
 
+[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre aplicativos Web que conectam usuários e, em seguida, chamam APIs Web:
+Saiba mais sobre os aplicativos Web que se conectam aos usuários em nossa série de cenários de várias partes.
 
 > [!div class="nextstepaction"]
-> [Cenário: aplicativos Web que conectam usuários](scenario-web-app-sign-user-overview.md)
-
-[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+> [Cenário: Aplicativo Web que conecta usuários](scenario-web-app-sign-user-overview.md)

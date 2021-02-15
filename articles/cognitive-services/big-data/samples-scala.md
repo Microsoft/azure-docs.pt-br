@@ -1,6 +1,6 @@
 ---
 title: Exemplos do Scala de Serviços Cognitivos para Big Data
-description: Experimente os exemplos de Serviços Cognitivos no Python para Azure Databricks executar seu pipeline do MMLSpark para Big Data.
+description: Use os Serviços Cognitivos para Azure Databricks com o objetivo de executar um pipeline do MMLSpark para Big Data.
 services: cognitive-services
 author: mhamilton723
 manager: nitinme
@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: sample
 ms.date: 07/06/2020
 ms.author: marhamil
-ms.openlocfilehash: 098b59b8de0d0d7e5c3929ce084276350c04810a
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: c47aa803774343b39efeabe3452f1b256cc64c0d
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86189295"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363265"
 ---
 # <a name="quick-examples"></a>Exemplos rápidos
 
@@ -49,7 +49,7 @@ val location = "eastus"
 
 ## <a name="text-analytics"></a>Análise de texto
 
-O serviço [Análise de Texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) fornece vários algoritmos para extrair Intelligent Insights do texto. Por exemplo, podemos encontrar a sentimentos do texto de entrada fornecido. O serviço retornará uma pontuação entre `0.0` e `1.0` em que as pontuações baixas indicam um sentimento negativo e pontuações altas indicam um sentimento positivo.  O exemplo a seguir usa três frases simples e retorna a pontuação de sentimentos para cada uma.
+O serviço [Análise de Texto](../text-analytics/index.yml) fornece vários algoritmos para extrair Intelligent Insights do texto. Por exemplo, podemos encontrar a sentimentos do texto de entrada fornecido. O serviço retornará uma pontuação entre `0.0` e `1.0` em que as pontuações baixas indicam um sentimento negativo e pontuações altas indicam um sentimento positivo.  O exemplo a seguir usa três frases simples e retorna a pontuação de sentimentos para cada uma.
 
 ```scala
 import org.apache.spark.sql.functions.col
@@ -81,7 +81,7 @@ display(sentiment.transform(df).select(col("text"), col("sentiment")(0).getItem(
 
 ## <a name="computer-vision"></a>Visual Computacional
 
-A [Pesquisa Visual Computacional](https://docs.microsoft.com/azure/cognitive-services/computer-vision/) analisa as imagens para identificar estruturas, como rostos, objetos e descrições de idioma natural.
+A [Pesquisa Visual Computacional](../computer-vision/index.yml) analisa as imagens para identificar estruturas, como rostos, objetos e descrições de idioma natural.
 Neste exemplo, marcamos uma lista de imagens. Marcas são descrições de uma palavra de coisas na imagem, como objetos reconhecíveis, pessoas, cenários e ações.
 
 ```scala
@@ -118,7 +118,7 @@ display(analysis.transform(df).select(col("image"), col("results").getItem("tags
 
 ## <a name="bing-image-search"></a>Pesquisa de Imagem do Bing
 
-A [Pesquisa de Imagem do Bing](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview) pesquisa na Web para recuperar imagens relacionadas à consulta de idioma natural de um usuário. Neste exemplo, usamos uma consulta de texto que procura imagens com citações. Ela retorna uma lista de URLs de imagem que contêm fotos relacionadas à nossa consulta.
+A [Pesquisa de Imagem do Bing](../bing-image-search/overview.md) pesquisa na Web para recuperar imagens relacionadas à consulta de idioma natural de um usuário. Neste exemplo, usamos uma consulta de texto que procura imagens com citações. Ela retorna uma lista de URLs de imagem que contêm fotos relacionadas à nossa consulta.
 
 
 ```scala
@@ -163,7 +163,7 @@ display(pipeline.fit(df).transform(df))
 
 ## <a name="speech-to-text"></a>Conversão de fala em texto
 
-O serviço de [Conversão de fala em texto](https://docs.microsoft.com/azure/cognitive-services/speech-service/index-speech-to-text) converte fluxos ou arquivos de áudio falado em texto. Neste exemplo, transcrevemos dois arquivos de áudio. O primeiro arquivo é fácil de entender e o segundo é mais desafiador.
+O serviço de [Conversão de fala em texto](../speech-service/index-speech-to-text.yml) converte fluxos ou arquivos de áudio falado em texto. Neste exemplo, transcrevemos dois arquivos de áudio. O primeiro arquivo é fácil de entender e o segundo é mais desafiador.
 
 ```scala
 import org.apache.spark.sql.functions.col
@@ -196,7 +196,7 @@ display(speechToText.transform(df).select(col("url"), col("text").getItem("Displ
 
 ## <a name="anomaly-detector"></a>Detector de Anomalias
 
-O [Detector de Anomalias](https://docs.microsoft.com/azure/cognitive-services/anomaly-detector/) é ótimo para detectar irregularidades em seus dados de série temporal. Neste exemplo, usamos o serviço para encontrar anomalias em toda a série temporal.
+O [Detector de Anomalias](../anomaly-detector/index.yml) é ótimo para detectar irregularidades em seus dados de série temporal. Neste exemplo, usamos o serviço para encontrar anomalias em toda a série temporal.
 
 ```scala
 import org.apache.spark.sql.functions.{col, lit}

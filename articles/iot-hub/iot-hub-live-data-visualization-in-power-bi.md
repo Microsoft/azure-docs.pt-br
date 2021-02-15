@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 6/08/2020
 ms.author: robinsh
-ms.openlocfilehash: ed429d2f584da20439b0cb0eedcf4742b9ae4599
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6d10d0202e9e4c813cffe6373acfb5200ebb3266
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84634338"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92146782"
 ---
 # <a name="visualize-real-time-sensor-data-from-azure-iot-hub-using-power-bi"></a>Visualizar dados de sensor em tempo real do Hub IoT usando o Power BI
 
@@ -70,7 +70,7 @@ Vamos começar criando um trabalho do Stream Analytics. Depois de criar o trabal
 
 1. Abra o trabalho do Stream Analytics.
 
-2. Em **topologia do trabalho**, selecione **entradas**.
+2. Em **Topologia do trabalho**, selecione **Entradas**.
 
 3. No painel **entradas** , selecione **Adicionar entrada de fluxo**e, em seguida, selecione **Hub IOT** na lista suspensa. No painel novo entrada, insira as seguintes informações:
 
@@ -78,7 +78,7 @@ Vamos começar criando um trabalho do Stream Analytics. Depois de criar o trabal
 
    **Selecione Hub IOT em sua assinatura**: Selecione este botão de opção.
 
-   **Assinatura**: selecione a assinatura do Azure que você está usando para este tutorial.
+   **Assinatura**: Selecione a assinatura do Azure que você está usando para este tutorial.
 
    **Hub IOT**: selecione o Hub IOT que você está usando para este tutorial.
 
@@ -94,11 +94,11 @@ Vamos começar criando um trabalho do Stream Analytics. Depois de criar o trabal
 
    ![Adicionar uma entrada a um trabalho do Stream Analytics no Azure](./media/iot-hub-live-data-visualization-in-power-bi/add-input-to-stream-analytics-job.png)
 
-4. Selecione **Salvar**.
+4. Clique em **Salvar**.
 
 ### <a name="add-an-output-to-the-stream-analytics-job"></a>Adicionar uma saída ao trabalho do Stream Analytics
 
-1. Em **topologia do trabalho**, selecione **saídas**.
+1. Em **Topologia do trabalho**, selecione **Saídas**.
 
 2. No painel **saídas** , selecione **Adicionar** e **Power bi**.
 
@@ -118,11 +118,11 @@ Vamos começar criando um trabalho do Stream Analytics. Depois de criar o trabal
 
    ![Adicionar uma saída a um trabalho do Stream Analytics no Azure](./media/iot-hub-live-data-visualization-in-power-bi/add-output-to-stream-analytics-job.png)
 
-5. Selecione **Salvar**.
+5. Clique em **Salvar**.
 
 ### <a name="configure-the-query-of-the-stream-analytics-job"></a>Configurar a consulta do trabalho do Stream Analytics
 
-1. Em **topologia do trabalho**, selecione **consulta**.
+1. Em **Topologia do trabalho**, selecione **Consulta**.
 
 2. Substitua `[YourInputAlias]` pelo alias de entrada do trabalho.
 
@@ -140,9 +140,9 @@ No trabalho Stream Analytics, selecione **visão geral**e, em seguida, selecione
 
 ## <a name="create-and-publish-a-power-bi-report-to-visualize-the-data"></a>Criar e publicar um relatório do Power BI para visualizar os dados
 
-As etapas a seguir mostram como criar e publicar um relatório usando o serviço do Power BI. Você pode seguir estas etapas, com algumas modificações, se quiser usar a "nova aparência" em Power BI. Para entender as diferenças e como navegar na "nova aparência", consulte [a ' nova aparência ' do serviço do Power bi](https://docs.microsoft.com/power-bi/consumer/service-new-look).
+As etapas a seguir mostram como criar e publicar um relatório usando o serviço do Power BI. Você pode seguir estas etapas, com algumas modificações, se quiser usar a "nova aparência" em Power BI. Para entender as diferenças e como navegar na "nova aparência", consulte [a ' nova aparência ' do serviço do Power bi](/power-bi/consumer/service-new-look).
 
-1. Verifique se o aplicativo de exemplo está em execução em seu dispositivo. Se não, você pode consultar os tutoriais em [Configure seu dispositivo](https://docs.microsoft.com/azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started).
+1. Verifique se o aplicativo de exemplo está em execução em seu dispositivo. Se não, você pode consultar os tutoriais em [Configure seu dispositivo](./iot-hub-raspberry-pi-kit-node-get-started.md).
 
 2. Entre na sua conta do [Power BI](https://powerbi.microsoft.com/en-us/).
 

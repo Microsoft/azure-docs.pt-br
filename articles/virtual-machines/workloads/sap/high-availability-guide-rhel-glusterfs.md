@@ -9,17 +9,18 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: radeltch
-ms.openlocfilehash: e6b8708edeeb4b3b69dab82265d13db2a4c22e08
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 41699625b7062daa005e6908ce9e4249dd86f1fa
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87051654"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010003"
 ---
 # <a name="glusterfs-on-azure-vms-on-red-hat-enterprise-linux-for-sap-netweaver"></a>GlusterFS em VMs do Azure no Red Hat Enterprise Linux para SAP NetWeaver
 
@@ -98,7 +99,7 @@ Você pode usar um dos modelos de início rápido no github para implantar todos
    4. Chave de Admin Username, a senha de administrador ou SSH  
       É criado um novo usuário que pode ser usado para fazer logon no computador.
    5. ID da Sub-rede  
-      Se você deseja implantar a VM em uma rede virtual existente em que você tem uma sub-rede definida para a qual a VM deve ser designada, nomeie a identificação dessa sub-rede específica. A ID geralmente se parece com a** &lt; ID &gt; da assinatura**/subscriptions//resourceGroups/** &lt; &gt; **** &lt; &gt; **nome do grupo de recursos,/Providers/Microsoft.Network/virtualNetworks/nome da rede virtual/Subnets/** &lt; nome &gt; da sub-rede**
+      Se você deseja implantar a VM em uma rede virtual existente em que você tem uma sub-rede definida para a qual a VM deve ser designada, nomeie a identificação dessa sub-rede específica. A ID geralmente se parece com a **&lt; ID &gt; da assinatura**/subscriptions//resourceGroups/**&lt; &gt;****&lt; &gt;** nome do grupo de recursos,/Providers/Microsoft.Network/virtualNetworks/nome da rede virtual/Subnets/**&lt; nome &gt; da sub-rede**
 
 ### <a name="deploy-linux-manually-via-azure-portal"></a>Implantar o Linux manualmente por meio do portal do Azure
 
@@ -153,7 +154,7 @@ Os seguintes itens são prefixados com **[A]** - aplicável a todos os nós, **[
    sudo subscription-manager repos --enable=rh-gluster-3-for-rhel-7-server-rpms
    </code></pre>
   
-1. **[A] ** GlusterFS instalar pacotes
+1. **[A]** GlusterFS instalar pacotes
 
    Instalar esses pacotes em todos os nós de GlusterFS
 
@@ -162,7 +163,7 @@ Os seguintes itens são prefixados com **[A]** - aplicável a todos os nós, **[
 
    Reinicialize os nós após a instalação.
 
-1. **[A] ** Modificar Firewall
+1. **[A]** Modificar Firewall
 
    Adicione regras de firewall para permitir o tráfego de cliente para os nós GlusterFS.
 
@@ -173,7 +174,7 @@ Os seguintes itens são prefixados com **[A]** - aplicável a todos os nós, **[
    sudo firewall-cmd --zone=public --add-service=glusterfs
    </code></pre>
 
-1. **[A] ** Habilitar e iniciar o serviço de GlusterFS
+1. **[A]** Habilitar e iniciar o serviço de GlusterFS
 
    Inicie o serviço de GlusterFS em todos os nós.
 
@@ -181,7 +182,7 @@ Os seguintes itens são prefixados com **[A]** - aplicável a todos os nós, **[
    sudo systemctl enable glusterd
    </code></pre>
 
-1. **[1] ** Criar GluserFS
+1. **[1]** Criar GluserFS
 
    Execute os seguintes comandos para criar o cluster do GlusterFS
 
@@ -234,7 +235,7 @@ Os seguintes itens são prefixados com **[A]** - aplicável a todos os nós, **[
    # State: Peer in Cluster (Connected)
    </code></pre>
 
-1. **[A] ** Criar LVM
+1. **[A]** Criar LVM
 
    Neste exemplo, o GlusterFS é usado para dois sistemas SAP, NW1 e NW2. Use os seguintes comandos para criar configurações de LVM para esses sistemas SAP.
 
@@ -316,7 +317,7 @@ Os seguintes itens são prefixados com **[A]** - aplicável a todos os nós, **[
    sudo mount -a
    </code></pre>
 
-1. **[1] ** Criar o volume distribuído
+1. **[1]** Criar o volume distribuído
 
    Use os comandos a seguir para criar o volume de GlusterFS para NW1 e iniciá-lo.
 

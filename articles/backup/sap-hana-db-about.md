@@ -3,12 +3,12 @@ title: Sobre o backup de banco de dados SAP HANA em VMs do Azure
 description: Neste artigo, saiba mais sobre como fazer backup de bancos de dados SAP HANA em execução em máquinas virtuais do Azure.
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: e30510817401fd8db23dc9f1d62fab495fac7ab2
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: efb9c3f786e429df404e261f053a9c9a9b032e11
+ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89022302"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96296447"
 ---
 # <a name="about-sap-hana-database-backup-in-azure-vms"></a>Sobre o backup de banco de dados SAP HANA em VMs do Azure
 
@@ -60,15 +60,12 @@ Além de usar o backup SAP HANA no Azure que fornece backup e recuperação no n
 
 A [solução de backup BACKINT certificada do Azure SAP Hana](#backup-architecture) pode ser usada para backup e recuperação de banco de dados.
 
-O [backup de VM do Azure](backup-azure-vms-introduction.md) pode ser usado para fazer backup do sistema operacional e de outros discos que não são de banco de dados. O backup da VM é feito uma vez por dia e faz backup de todos os discos (exceto **acelerador de gravação (WA) discos** e **ultra discos**). Como o backup do banco de dados está sendo feito usando a solução de backup SAP HANA do Azure, você pode fazer um backup consistente com o arquivo apenas do sistema operacional e dos discos que não são do banco de dados usando o recurso de [backup e restauração de disco seletivo para VMs do Azure](selective-disk-backup-restore.md) .
-
->[!NOTE]
-> O uso de scripts de pré-post com o backup de VM do Azure permitirá backups consistentes com o aplicativo dos volumes de dados do banco. No entanto, se a área de log residir em discos de WA, tirar um instantâneo desses discos pode não garantir uma consistência de área de log. O HANA tem uma maneira explícita de gerar backups de log para esse motivo exato. Habilite o mesmo em seu SAP HANA, e pode ser feito backup usando o backup do Azure SAP HANA.
+O [backup de VM do Azure](backup-azure-vms-introduction.md) pode ser usado para fazer backup do sistema operacional e de outros discos que não são de banco de dados. O backup da VM é feito uma vez por dia e faz backup de todos os discos (exceto **acelerador de gravação (WA) discos do sistema operacional** e **ultra disks**). Como o backup do banco de dados está sendo feito usando a solução de backup SAP HANA do Azure, você pode fazer um backup consistente com o arquivo apenas do sistema operacional e dos discos que não são do banco de dados usando o recurso de [backup e restauração de disco seletivo para VMs do Azure](selective-disk-backup-restore.md) .
 
 Para restaurar uma VM que executa o SAP HANA, siga estas etapas:
 
 * [Restaure uma nova VM do backup de VM do Azure](backup-azure-arm-restore-vms.md) do ponto de recuperação mais recente. Ou crie uma nova VM vazia e anexe os discos do ponto de recuperação mais recente.
-* Como os discos de WA não são armazenados em backup, eles não são restaurados. Crie discos e área de log de WA vazios.
+* Se os discos de WA forem excluídos, eles não serão restaurados. Nesse caso, Crie discos e a área de log do WA vazios.
 * Depois que todas as outras configurações (como IP, nome do sistema e assim por diante) são definidas, a VM é definida para receber dados de BD do backup do Azure.
 * Agora, restaure o BD na VM do [backup do Azure SAP Hana DB](sap-hana-db-restore.md#restore-to-a-point-in-time-or-to-a-recovery-point) para o ponto no tempo desejado.
 

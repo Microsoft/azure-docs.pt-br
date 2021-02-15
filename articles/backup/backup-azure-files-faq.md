@@ -3,12 +3,12 @@ title: Perguntas frequentes sobre fazer backup de Arquivos do Azure
 description: Neste artigo, descubra respostas para perguntas comuns sobre como proteger seus compartilhamentos de arquivo do Azure com o serviço de Backup do Azure.
 ms.date: 04/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0db30de655bfc0b98baa81a4ef20532e697fc1f8
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: e2b6afb25e189ee2848f25c0ba59d843baf37090
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88824722"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940828"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Perguntas sobre como fazer backup de Arquivos do Azure
 
@@ -30,7 +30,7 @@ Verifique se o compartilhamento de arquivos do Azure já está protegido no mesm
 
 Sim. A proteção dos Compartilhamentos de Arquivo do Azure conectados a Grupos de Sincronização está habilitada.
 
-### <a name="when-trying-to-back-up-file-shares-i-clicked-on-a-storage-account-for-discovering-the-file-shares-in-it-however-i-didnt-protect-them-how-do-i-protect-these-file-shares-with-any-other-vault"></a>Ao tentar fazer backup de compartilhamentos de arquivos, cliquei em uma Conta de Armazenamento para ver os compartilhamentos de arquivos que estão nela. No entanto, eu não os protegi. Como fazer para proteger esses compartilhamentos de arquivo com outro cofre?
+### <a name="when-trying-to-back-up-file-shares-i-selected-a-storage-account-to-discover-the-file-shares-in-it-however-i-didnt-protect-them-how-do-i-protect-these-file-shares-with-any-other-vault"></a>Ao tentar fazer backup de compartilhamentos de arquivos, selecionei uma conta de armazenamento para descobrir os compartilhamentos de arquivos nele. No entanto, eu não os protegi. Como fazer para proteger esses compartilhamentos de arquivo com outro cofre?
 
 Ao tentar fazer backup, a seleção de uma Conta de Armazenamento para ver os compartilhamentos de arquivo dentro dela gera o registro da Conta de Armazenamento no cofre em que isso foi feito. Se você optar por proteger os compartilhamentos de arquivos com um cofre diferente, [cancele o registro](manage-afs-backup.md#unregister-a-storage-account) da Conta de Armazenamento escolhida no cofre.
 
@@ -75,6 +75,23 @@ Sim. Veja a documentação detalhada [aqui](backup-azure-afs-automation.md).
 ### <a name="can-i-access-the-snapshots-taken-by-azure-backups-and-mount-them"></a>Posso acessar os instantâneos tirados por Backups do Azure e montá-los?
 
 Todos os instantâneos feitos pelo Backup do Azure podem ser acessados exibindo instantâneos no portal, no PowerShell ou na CLI. Para saber mais sobre instantâneos de compartilhamento de arquivo do Azure, confira [Visão geral dos instantâneos de compartilhamento dos Arquivos do Azure](../storage/files/storage-snapshots-files.md).
+
+### <a name="what-happens-after-i-move-a-backed-up-file-share-to-a-different-subscription"></a>O que acontece depois de mover um compartilhamento de arquivos de backup para uma assinatura diferente?
+
+Quando um compartilhamento de arquivos é movido para uma assinatura diferente, ele é considerado um novo compartilhamento de arquivos pelo backup do Azure. Estas são as etapas recomendadas:
+ 
+Cenário: digamos que você tenha um compartilhamento de arquivos *FS1* na assinatura *S1* e ele seja protegido usando o cofre *v1* . Agora você deseja mover o compartilhamento de arquivos para a assinatura *S2*.
+ 
+1.  Mova a conta de armazenamento e o compartilhamento de arquivos (FS1) desejados para a assinatura diferente (S2).
+2.  No cofre v1, dispare a operação parar proteção com excluir dados para o FS1.
+3.  Cancele o registro da conta de armazenamento que hospeda o FS1 do cofre v1.
+4.  Reconfigure o backup para o FS1, agora movido para S2, com um cofre (v2) na assinatura S2. 
+ 
+Observe que depois de reconfigurar o backup com o v2, os instantâneos que foram feitos com v1 não serão mais gerenciados pelo backup do Azure. Portanto, você precisará excluir esses instantâneos manualmente de acordo com suas necessidades.
+
+### <a name="can-i-move-my-backed-up-file-share-to-a-different-resource-group"></a>Posso mover meu compartilhamento de arquivos de backup para um grupo de recursos diferente?
+ 
+Sim, você pode mover o compartilhamento de arquivos de backup para um grupo de recursos diferente. No entanto, você precisará reconfigurar o backup para o compartilhamento de arquivos, pois ele será tratado como um novo recurso pelo backup do Azure. Além disso, os instantâneos criados antes da movimentação do grupo de recursos não serão mais gerenciados pelo backup do Azure. Portanto, você precisará excluir esses instantâneos manualmente de acordo com suas necessidades.
 
 ### <a name="what-is-the-maximum-retention-i-can-configure-for-backups"></a>Qual é a retenção máxima que posso configurar para backups?
 

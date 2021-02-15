@@ -1,16 +1,14 @@
 ---
 title: Visualizando seu cluster usando o Azure Service Fabric Explorer
 description: O Azure Service Fabric Explorer é um aplicativo para inspecionar e gerenciar aplicativos em nuvem e nós em um cluster do Microsoft Azure Service Fabric.
-author: mikkelhegn
 ms.topic: conceptual
 ms.date: 01/24/2019
-ms.author: mikhegn
-ms.openlocfilehash: 92f6f495f6aac23785dd2a21672747bffb07e2e3
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: a45aff305f97610cb2660c2e3f4b4427b905d7d4
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86256247"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96574048"
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Visualizando o cluster com o Service Fabric Explorer
 
@@ -106,7 +104,7 @@ Você também pode usar o Service Fabric Explorer para criar instâncias de apli
 ## <a name="event-store"></a>Armazenamento de Eventos
 O EventStore é um recurso oferecido pela plataforma que fornece eventos de plataforma do Service Fabric disponíveis no Service Fabric Explorer e por meio da API REST. Você pode ver uma exibição de instantâneo do que está acontecendo em seu cluster para cada entidade, por exemplo, nó, serviço, aplicativo e consulta com base na hora do evento. Você também pode ler mais sobre o EventStore na [Visão geral do EventStore](service-fabric-diagnostics-eventstore.md).   
 
-![EventStore][sfx-eventstore]
+![Captura de tela mostra o painel nós com eventos selecionados.][sfx-eventstore]
 
 >[!NOTE]
 >A partir do Service Fabric 6.4. O EventStore não está habilitado por padrão e deve ser habilitado no modelo do Resource Manager
@@ -117,7 +115,7 @@ O EventStore é um recurso oferecido pela plataforma que fornece eventos de plat
 ## <a name="image-store-viewer"></a>Visualizador de Repositório de Imagens
 O Visualizador de repositório de imagens é um recurso oferecido se o uso de Repositório de Imagens nativo permitir a exibição do conteúdo atual do repositório de imagens e a obtenção de informações de arquivos e pastas, juntamente com a remoção de arquivos/pastas.
 
-![Mapa de clusters do Explorador do Service Fabric][sfx-imagestore]
+![Captura de tela que mostra o Visualizador de Repositório de Imagens.][sfx-imagestore]
 
 ## <a name="backup-and-restore"></a>Backup e restauração
 O Service Fabric Explorer oferece a capacidade de fazer a interface com [backup e restauração](./service-fabric-reliable-services-backup-restore.md). Para ver os recursos de backup e restauração no SFX, o modo avançado deve ser habilitado.

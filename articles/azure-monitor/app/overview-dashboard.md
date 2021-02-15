@@ -3,12 +3,12 @@ title: Painel de Visão geral do Azure Application Insights | Microsfoft Docs
 description: Monitore aplicativos com a funcionalidade do Azure Application Insights e do Painel de Visão Geral.
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 8c8aa4460a545f032eaa60560de00efff27ae1ef
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 1b0708fa70d3a3ecb406f1d974bb1f2b47e55b40
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322526"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97504093"
 ---
 # <a name="application-insights-overview-dashboard"></a>Painel de visão geral do Application Insights
 
@@ -36,7 +36,7 @@ O painel do aplicativo utiliza a tecnologia de painel existente no Azure para fo
 
 Para acessar o painel padrão, selecione _Painel do aplicativo_ no canto superior esquerdo.
 
-![Exibição Painel](./media/overview-dashboard/app-insights-overview-dashboard-05.png)
+![Captura de tela mostra o botão painel do aplicativo realçado.](./media/overview-dashboard/app-insights-overview-dashboard-05.png)
 
 Se esta for a primeira vez que você acessa o painel, ele inicializará um modo de exibição padrão:
 
@@ -53,7 +53,7 @@ Para navegar de volta para a experiência de visão geral basta selecionar:
 
 ## <a name="troubleshooting"></a>Solução de problemas
 
-Se você selecionar **definir configurações de bloco** e definir um intervalo de tempo personalizado acima de 31 dias, seu painel não será exibido além de 31 dias de dados, mesmo com a retenção de dados padrão de 90 dias. Atualmente, não há nenhuma solução alternativa para esse comportamento.
+Atualmente, há um limite de 30 dias de dados para os dados exibidos em um painel. Se você selecionar um filtro de tempo além de 30 dias, ou se você selecionar **definir configurações de bloco** e definir um intervalo de tempo personalizado acima de 30 dias, seu painel não será exibido além de 30 dias de dados, mesmo com a retenção de dados padrão de 90 dias. Atualmente, não há nenhuma solução alternativa para esse comportamento.
 
 ## <a name="next-steps"></a>Próximas etapas
 

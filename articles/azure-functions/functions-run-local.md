@@ -1,16 +1,16 @@
 ---
 title: Trabalhar com o Azure Functions Core Tools
-description: Saiba como codificar e testar o Azure Functions do prompt de comando ou terminal no computador local antes de executá-las no Azure Functions.
+description: Saiba como codificar e testar Azure Functions no prompt de comando ou terminal no computador local antes de executá-los em Azure Functions.
 ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: devx-track-csharp, 80e4ff38-5174-43
-ms.openlocfilehash: 8dfc1471955a6d10199a078922151ff3aeda4294
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 3ddd84f2f73546b42a3925802b3357df16485488
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88929475"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100521434"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Trabalhar com o Azure Functions Core Tools
 
@@ -41,7 +41,7 @@ Você só pode instalar uma versão das ferramentas principais em um determinado
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-No momento, Azure Functions Core Tools depende do CLI do Azure para autenticação com sua conta do Azure. Isso significa que você deve [instalar o CLI do Azure localmente](/cli/azure/install-azure-cli) para poder publicar no [Azure](#publish) por meio de Azure Functions Core Tools. 
+Atualmente, Azure Functions Core Tools depende do [CLI do Azure](/cli/azure/install-azure-cli) ou [Azure PowerShell](/powershell/azure/install-az-ps) para autenticação com sua conta do Azure. Isso significa que você deve instalar uma dessas ferramentas para poder [publicar no Azure](#publish) de Azure Functions Core Tools. 
 
 ## <a name="install-the-azure-functions-core-tools"></a>Instalação das ferramentas básicas do Azure Functions
 
@@ -155,7 +155,7 @@ As etapas a seguir usma [APT](https://wiki.debian.org/Apt) para instalar as ferr
 
 ## <a name="create-a-local-functions-project"></a>Criar um projeto de funções local
 
-Um diretório de projeto de funções contém os arquivos [host. JSON](functions-host-json.md) e [local.settings.json](#local-settings-file), ao longo de subpastas que contêm o código para funções individuais. Esse diretório é o equivalente ao de um aplicativo de funções no Azure. Para saber mais sobre a estrutura de pastas do Functions, consulte o [guia de desenvolvedores do Azure Functions](functions-reference.md#folder-structure).
+Um diretório de projeto do Functions contém os arquivos [host.js](functions-host-json.md) e [local.settings.jsem](#local-settings-file), juntamente com as subpastas que contêm o código para funções individuais. Esse diretório é o equivalente ao de um aplicativo de funções no Azure. Para saber mais sobre a estrutura de pastas do Functions, consulte o [guia de desenvolvedores do Azure Functions](functions-reference.md#folder-structure).
 
 A versão 3. x/2. x exige que você selecione um idioma padrão para seu projeto quando ele for inicializado. Na versão 3. x/2. x, todas as funções adicionadas usam modelos de idioma padrão. Na versão 1.x, você especifica a linguagem cada vez que você criar uma função.
 
@@ -166,7 +166,7 @@ func init MyFunctionProj
 ```
 
 >[!IMPORTANT]
-> O Java usa um arquétipo Maven para criar o projeto de funções locais, juntamente com sua primeira função disparada por HTTP. Use o seguinte comando para criar seu projeto Java: `mvn archetype:generate -DarchetypeGroupId=com.microsoft.azure -DarchetypeArtifactId=azure-functions-archetype` . Para obter um exemplo usando o arquétipo do Maven, consulte o guia de [início rápido da linha de comando](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java).  
+> O Java usa um arquétipo Maven para criar o projeto de funções locais, juntamente com sua primeira função disparada por HTTP. Use o seguinte comando para criar seu projeto Java: `mvn archetype:generate -DarchetypeGroupId=com.microsoft.azure -DarchetypeArtifactId=azure-functions-archetype` . Para obter um exemplo usando o arquétipo do Maven, consulte o guia de [início rápido da linha de comando](./create-first-function-cli-java.md).  
 
 Quando você fornece um nome de projeto, uma nova pasta com esse nome é criada e inicializada. Caso contrário, a pasta atual é inicializada.  
 Na versão 3. x/2. x, ao executar o comando, você deve escolher um tempo de execução para seu projeto. 
@@ -179,7 +179,7 @@ python
 powershell
 </pre>
 
-Use cima/para baixo de teclas de direção para escolher um idioma, em seguida, pressione Enter. Se você planeja desenvolver funções JavaScript ou TypeScript, escolha **nó**e, em seguida, selecione o idioma. O TypeScript tem [alguns requisitos adicionais](functions-reference-node.md#typescript). 
+Use cima/para baixo de teclas de direção para escolher um idioma, em seguida, pressione Enter. Se você planeja desenvolver funções JavaScript ou TypeScript, escolha **nó** e, em seguida, selecione o idioma. O TypeScript tem [alguns requisitos adicionais](functions-reference-node.md#typescript). 
 
 A saída se parece com o seguinte exemplo para um projeto JavaScript:
 
@@ -194,7 +194,7 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 
 `func init` o oferece suporte às seguintes opções, que são a versão 3. x/2. x-only, salvo indicação em contrário:
 
-| Opção     | DESCRIÇÃO                            |
+| Opção     | Descrição                            |
 | ------------ | -------------------------------------- |
 | **`--csx`** | Cria funções do .NET como script C#, que é o comportamento da versão 1. x. Válido somente com `--worker-runtime dotnet` . |
 | **`--docker`** | Cria um Dockerfile para um contêiner usando uma imagem base com base no escolhido `--worker-runtime` . Use esta opção quando planejar publicar em um contêiner do Linux personalizado. |
@@ -250,7 +250,7 @@ Mesmo ao usar o Emulador de Armazenamento do Microsoft Azure para desenvolviment
 - No [portal do Azure], procure e selecione contas de **armazenamento**. 
   ![Selecionar contas de armazenamento de portal do Azure](./media/functions-run-local/select-storage-accounts.png)
   
-  Selecione sua conta de armazenamento, selecione **chaves de acesso** em **configurações**e, em seguida, copie um dos valores da cadeia de **conexão** .
+  Selecione sua conta de armazenamento, selecione **chaves de acesso** em **configurações** e, em seguida, copie um dos valores da cadeia de **conexão** .
   ![Copiar cadeia de conexão do portal do Azure](./media/functions-run-local/copy-storage-connection-portal.png)
 
 - Use o [Gerenciador de Armazenamento do Azure](https://storageexplorer.com/) para conectar-se à sua conta do Azure. No **Gerenciador**, expanda sua assinatura, expanda **contas de armazenamento**, selecione sua conta de armazenamento e copie a cadeia de conexão primária ou secundária.
@@ -357,7 +357,7 @@ func start
 ```
 func start
 ```
-Esse comando deve ser [executado em um ambiente virtual](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-python#create-venv).
+Esse comando deve ser [executado em um ambiente virtual](./create-first-function-cli-python.md).
 
 # <a name="typescript"></a>[TypeScript](#tab/ts)
 
@@ -377,7 +377,7 @@ npm start
 
 `func start` dá suporte para as seguintes opções:
 
-| Opção     | DESCRIÇÃO                            |
+| Opção     | Descrição                            |
 | ------------ | -------------------------------------- |
 | **`--no-build`** | Não compile o projeto atual antes da execução. Somente para projetos dotnet. O padrão é definido como false. Sem suporte para a versão 1. x. |
 | **`--cors-credentials`** | Permitir solicitações autenticadas entre origens (ou seja, cookies e o cabeçalho de autenticação) sem suporte para a versão 1. x. |
@@ -486,7 +486,7 @@ Na versão 1. x, você também pode invocar uma função diretamente usando `fun
 
 `func run` dá suporte para as seguintes opções:
 
-| Opção     | DESCRIÇÃO                            |
+| Opção     | Descrição                            |
 | ------------ | -------------------------------------- |
 | **`--content`**, **`-c`** | Conteúdo embutido. |
 | **`--debug`**, **`-d`** | Anexe um depurador ao processo de host antes de executar a função.|
@@ -505,7 +505,7 @@ func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 O Azure Functions Core Tools dá suporte a dois tipos de implantação: Implantando arquivos de projeto de função diretamente em seu aplicativo de funções por meio da [implantação de zip](functions-deployment-technologies.md#zip-deploy) e [implantando um contêiner do Docker personalizado](functions-deployment-technologies.md#docker-container). Você já deve ter [criado um aplicativo de funções em sua assinatura do Azure](functions-cli-samples.md#create), no qual você implantará seu código. Os projetos que exigem build devem ser compilados para que os binários possam ser implantados.
 
 >[!IMPORTANT]
->Você deve ter o [CLI do Azure](/cli/azure/install-azure-cli) instalado localmente para poder publicar no Azure por meio das ferramentas principais.  
+>Você deve ter o [CLI do Azure](/cli/azure/install-azure-cli) ou [Azure PowerShell](/powershell/azure/install-az-ps) instalado localmente para poder publicar no Azure por meio das ferramentas principais.  
 
 Uma pasta de projeto pode conter arquivos e diretórios específicos do idioma que não devem ser publicados. Itens excluídos são listados em um arquivo. funcignore na pasta raiz do projeto.     
 
@@ -520,7 +520,7 @@ func azure functionapp publish <FunctionAppName>
 >[!IMPORTANT]
 > O Java usa o Maven para publicar seu projeto local no Azure. Use o seguinte comando para publicar no Azure: `mvn azure-functions:deploy` . Os recursos do Azure são criados durante a implantação inicial.
 
-Esse comando publica a um aplicativo de funções existente no Azure. Você receberá um erro se tentar publicar em um `<FunctionAppName>` que não existe em sua assinatura. Para saber como criar um aplicativo de funções pelo prompt de comando ou pela janela do terminal usando a CLI do Azure, consulte [Criar um aplicativo de funções para execução sem servidor](./scripts/functions-cli-create-serverless.md). Por padrão, esse comando usa a [compilação remota](functions-deployment-technologies.md#remote-build) e implanta seu aplicativo para ser [executado a partir do pacote de implantação](run-functions-from-deployment-package.md). Para desabilitar esse modo de implantação recomendado, use a `--nozip` opção.
+Esse comando publica a um aplicativo de funções existente no Azure. Você receberá um erro se tentar publicar em um `<FunctionAppName>` que não existe em sua assinatura. Para saber como criar um aplicativo de funções no prompt de comando ou na janela do terminal usando o CLI do Azure ou Azure PowerShell, consulte [criar um aplicativo de funções para execução sem servidor](./scripts/functions-cli-create-serverless.md). Por padrão, esse comando usa a [compilação remota](functions-deployment-technologies.md#remote-build) e implanta seu aplicativo para ser [executado a partir do pacote de implantação](run-functions-from-deployment-package.md). Para desabilitar esse modo de implantação recomendado, use a `--nozip` opção.
 
 >[!IMPORTANT]
 > Quando você cria um aplicativo de funções no portal do Azure, ele usa a versão 3. x do tempo de execução da função por padrão. Para que o aplicativo de funções use a versão 1.x do runtime, siga as instruções em [Executar na versão 1.x](functions-versions.md#creating-1x-apps).
@@ -528,14 +528,14 @@ Esse comando publica a um aplicativo de funções existente no Azure. Você rece
 
 As seguintes opções de publicação se aplicam a todas as versões:
 
-| Opção     | DESCRIÇÃO                            |
+| Opção     | Descrição                            |
 | ------------ | -------------------------------------- |
 | **`--publish-local-settings -i`** |  Configurações de publicação em local.settings.json do Azure, a solicitação para substituir se a configuração já existe. Se você estiver usando a Emulador de Armazenamento do Microsoft Azure, primeiro altere a configuração do aplicativo para uma [conexão de armazenamento real](#get-your-storage-connection-strings). |
 | **`--overwrite-settings -y`** | Suprima o prompt para substituir as configurações do aplicativo quando `--publish-local-settings -i` for usado.|
 
 As opções de publicação a seguir têm suporte apenas para a versão 2. x e versões posteriores:
 
-| Opção     | DESCRIÇÃO                            |
+| Opção     | Descrição                            |
 | ------------ | -------------------------------------- |
 | **`--publish-settings-only`**, **`-o`** |  Somente publicar as configurações e ignorar o conteúdo. O padrão é solicitado. |
 |**`--list-ignored-files`** | Exibe uma lista de arquivos que são ignorados durante a publicação, que é baseada no arquivo .funcignore. |
@@ -559,7 +559,7 @@ func deploy
 
 As seguintes opções de implantação de contêiner personalizado estão disponíveis:
 
-| Opção     | DESCRIÇÃO                            |
+| Opção     | Descrição                            |
 | ------------ | -------------------------------------- |
 | **`--registry`** | O nome de um Registro do Docker ao qual o usuário atual está conectado. |
 | **`--platform`** | A plataforma de hospedagem do aplicativo de funções. As opções válidas são `kubernetes` |
@@ -574,15 +574,11 @@ A maneira recomendada para monitorar a execução de suas funções é integrar-
 
 ### <a name="application-insights-integration"></a>Integração do Application Insights
 
-Application Insights integração deve ser habilitada quando você cria seu aplicativo de funções no Azure. Se, por algum motivo, seu aplicativo de funções não estiver conectado a uma instância de Application Insights, será fácil fazer essa integração no portal do Azure. 
-
-[!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
+Application Insights integração deve ser habilitada quando você cria seu aplicativo de funções no Azure. Se, por algum motivo, seu aplicativo de funções não estiver conectado a uma instância de Application Insights, será fácil fazer essa integração no portal do Azure. Para saber mais, confira [habilitar a integração de Application insights](configure-monitoring.md#enable-application-insights-integration).
 
 ### <a name="enable-streaming-logs"></a>Habilitar logs de streaming
 
 Você pode exibir um fluxo de arquivos de log que estão sendo gerados por suas funções em uma sessão de linha de comando em seu computador local. 
-
-#### <a name="native-streaming-logs"></a>Logs de streaming nativos
 
 [!INCLUDE [functions-streaming-logs-core-tools](../../includes/functions-streaming-logs-core-tools.md)]
 
@@ -597,7 +593,7 @@ Para arquivar uma solicitação de bug ou recurso, [abra um problema do GitHub](
 <!-- LINKS -->
 
 [Azure Functions Core Tools]: https://www.npmjs.com/package/azure-functions-core-tools
-[Azure portal]: https://portal.azure.com 
+[Portal do Azure]: https://portal.azure.com 
 [Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows
 [`FUNCTIONS_WORKER_RUNTIME`]: functions-app-settings.md#functions_worker_runtime
 [`AzureWebJobsStorage`]: functions-app-settings.md#azurewebjobsstorage

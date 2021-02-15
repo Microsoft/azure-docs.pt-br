@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/11/2019
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: aecc64c5fa923bc29d34efd3969c2c12f30153c4
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: ede4e5dd781851c781407a8acea640e3e501f259
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320095"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436378"
 ---
 # <a name="handling-review-feedback-for-azure-application-offers"></a>Como lidar com comentários de análise para ofertas de aplicativos do Azure
 
@@ -43,7 +43,7 @@ Use o procedimento a seguir para revisar os problemas documentados na solicitaç
 
 1. No menu esquerdo da home page, selecione **Arquivos** para exibir os arquivos de lista que compõem os ativos técnicos dessa oferta. Os revisores da Microsoft deverão ter adicionado comentários, descrevendo os problemas críticos descobertos. No exemplo a seguir, dois problemas foram descobertos.
 
-    [![Home page de solicitação de pull](./media/pr-files-page-thumb.png)](./media/pr-files-page.png)
+    [![Captura de tela que realça os arquivos e os dois problemas descobertos.](./media/pr-files-page-thumb.png)](./media/pr-files-page.png)
     <br/> *Clique nessa imagem para expandir.*
 
 1. Selecione cada nó de comentário na árvore esquerda para navegar até o comentário no contexto do código ao redor. Corrija seu código-fonte no projeto da equipe para corrigir o problema descrito pelo comentário.
@@ -57,4 +57,4 @@ Use o procedimento a seguir para revisar os problemas documentados na solicitaç
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Após corrigir os problemas críticos documentados no(s) relatório(s) de revisão, será necessário [republicar a oferta de aplicativo Azure](./create-new-azure-apps-offer.md#publish).
+Após corrigir os problemas críticos documentados no(s) relatório(s) de revisão, será necessário [republicar a oferta de aplicativo Azure](../create-new-azure-apps-offer.md).

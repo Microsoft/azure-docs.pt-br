@@ -1,19 +1,16 @@
 ---
 title: Portas usadas pelos serviços do Hadoop em execução no Azure HDInsight
 description: Este artigo fornece uma lista de portas usadas por Apache Hadoop serviços em execução no Azure HDInsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/28/2020
-ms.openlocfilehash: a9f050bb25873e4b6ede234c800b00f2c34085d3
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: b5dadb886078f701bb01447efd606c862ee73073
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085269"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945534"
 ---
 # <a name="ports-used-by-apache-hadoop-services-on-hdinsight"></a>Portas usadas pelos serviços do Apache Hadoop em execução no HDInsight
 
@@ -36,12 +33,12 @@ Todos os nós em um cluster HDInsight estão localizados em uma rede virtual do 
 
 | Serviço | Porta | Protocolo | Descrição |
 | --- | --- | --- | --- |
-| sshd |22 |SSH |Conecta os clientes a sshd no nó de cabeçalho primário. Para obter mais informações, consulte [usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md). |
-| sshd |22 |SSH |Conecta clientes ao sshd no nó de borda. Para obter mais informações, consulte [usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md). |
-| sshd |23 |SSH |Conecta os clientes a sshd no nó de cabeçalho secundário. Para obter mais informações, consulte [usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md). |
+| sshd |22 |SSH |Conecta os clientes a sshd no nó de cabeçalho primário. Para obter mais informações, confira [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md). |
+| sshd |22 |SSH |Conecta clientes ao sshd no nó de borda. Para obter mais informações, confira [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md). |
+| sshd |23 |SSH |Conecta os clientes a sshd no nó de cabeçalho secundário. Para obter mais informações, confira [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md). |
 | Ambari |443 |HTTPS |Interface de usuário da Web do Ambari. Veja [Gerenciar HDInsight usando a interface do usuário da Web do Apache Ambari](hdinsight-hadoop-manage-ambari.md) |
 | Ambari |443 |HTTPS |API REST do Ambari. Veja [Gerenciar HDInsight usando a API REST do Apache Ambari](hdinsight-hadoop-manage-ambari-rest-api.md) |
-| WebHCat |443 |HTTPS |API REST do HCatalog. Consulte [usar o MapReduce com ondulação](hadoop/apache-hadoop-use-mapreduce-curl.md) |
+| WebHCat |443 |HTTPS |API REST do HCatalog. Consulte  [usar o MapReduce com ondulação](hadoop/apache-hadoop-use-mapreduce-curl.md) |
 | HiveServer2 |443 |ODBCODBC |Conecta-se ao Hive usando ODBC. Confira [Connect Excel to HDInsight with the Microsoft ODBC driver (Conectar o Excel ao HDInsight com o driver ODBC da Microsoft)](hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md). |
 | HiveServer2 |443 |JDBC |Conecta-se ao ApacheHive usando JDBC. Veja [Conectar-se ao Apache Hive no Azure HDInsight usando o driver JDBC do Hive](hadoop/apache-hadoop-connect-hive-jdbc-driver.md) |
 
@@ -158,7 +155,7 @@ Exemplos:
 | --- | --- | --- | --- | --- |
 | Agente |Nós de trabalho |9092 |Protocolo Kafka Wire |Usado para comunicação do cliente |
 | &nbsp; |Nós do Zookeeper |2181 |&nbsp; |A porta que os clientes usam para se conectar ao ZooKeeper |
-| Proxy REST | Nós de gerenciamento do Kafka |9400 |HTTPS |[Especificação REST do Kafka](https://docs.microsoft.com/rest/api/hdinsight-kafka-rest-proxy/) |
+| Proxy REST | Nós de gerenciamento do Kafka |9400 |HTTPS |[Especificação REST do Kafka](/rest/api/hdinsight-kafka-rest-proxy/) |
 
 ### <a name="spark-ports"></a>Portas do Spark
 
@@ -166,7 +163,7 @@ Exemplos:
 | --- | --- | --- | --- | --- | --- |
 | Servidores Thrift Spark |Nós de cabeçalho |10002 |Thrift | &nbsp; | Serviço para conexão ao Spark SQL (Thrift/JDBC) |
 | Servidor Livy | Nós de cabeçalho | 8998 | HTTP | &nbsp; | Serviço para executar instruções, trabalhos e aplicativos |
-| Notebook Jupyter | Nós de cabeçalho | 8001 | HTTP | &nbsp; | Site de Notebook Jupyter |
+| Jupyter Notebook | Nós de cabeçalho | 8001 | HTTP | &nbsp; | Jupyter Notebook site |
 
 Exemplos:
 

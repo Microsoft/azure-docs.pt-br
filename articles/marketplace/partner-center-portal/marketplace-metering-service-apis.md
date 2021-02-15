@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/26/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: ac48973653e89d43521979a5606a8a3a3c2e1346
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: b75964f8cfc41efc35858284dbffded3aa406eb6
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319976"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436055"
 ---
 # <a name="marketplace-metered-billing-apis"></a>APIs de cobrança limitada do Marketplace
 
@@ -20,7 +20,7 @@ As APIs de cobrança limitada devem ser usadas quando o Publicador cria dimensõ
 
 Para obter mais informações sobre como criar dimensões de medição personalizadas para SaaS, consulte [cobrança limitada de SaaS](saas-metered-billing.md).
 
-Para obter mais informações sobre como criar dimensões de medição personalizadas para uma oferta de Aplicativo Azure com um plano de aplicativo gerenciado, consulte a [seção configuração técnica de criar uma nova oferta de aplicativos do Azure](create-new-azure-apps-offer.md#technical-configuration)).
+Para obter mais informações sobre como criar dimensões de medição personalizadas para uma oferta de Aplicativo Azure com um plano de aplicativo gerenciado, consulte [configurar os detalhes da configuração da oferta de aplicativo do Azure](../create-new-azure-apps-offer.md#configure-your-azure-application-offer-setup-details).
 
 ## <a name="enforcing-tls-12-note"></a>Impondo a nota TLS 1,2
 
@@ -65,9 +65,9 @@ Somente um evento de uso pode ser emitido para cada hora de um dia de calendári
 ```
 
 >[!NOTE]
->`resourceId`tem significado diferente para o aplicativo SaaS e para o aplicativo gerenciado que emite o medidor personalizado. 
+>`resourceId` tem significado diferente para o aplicativo SaaS e para o aplicativo gerenciado que emite o medidor personalizado. 
 
-Para planos de Aplicativos Gerenciados do Aplicativo Azure, a `resourceId` é a `resourceUsageId` encontrada no `billingDetails` do objeto de metadados do Aplicativo Gerenciado. Um script de exemplo para buscá-los pode ser encontrado em [usando o token de identidades gerenciadas pelo Azure](./marketplace-metering-service-authentication.md#using-the-azure-managed-identities-token). 
+Para Aplicativo Azure planos de aplicativos gerenciados, o `resourceId` é o aplicativo gerenciado `resource group Id` . Um script de exemplo para buscá-los pode ser encontrado em [usando o token de identidades gerenciadas pelo Azure](./marketplace-metering-service-authentication.md#using-the-azure-managed-identities-token). 
 
 Para ofertas de SaaS, a `resourceId` é a ID de assinatura do SaaS. Para obter mais detalhes sobre assinaturas de SaaS, veja [listar assinaturas](./pc-saas-fulfillment-api-v2.md#get-list-of-all-subscriptions).
 
@@ -95,7 +95,7 @@ Código: 400 <br>
 Solicitação inválida.
 
 * Dados de solicitação ausentes ou inválidos fornecidos.
-* `effectiveStartTime`Há mais de 24 horas no passado. O evento expirou.
+* `effectiveStartTime` Há mais de 24 horas no passado. O evento expirou.
 * A assinatura SaaS não está no status assinado.
 
 Exemplo de carga de resposta: 
@@ -189,9 +189,9 @@ A API de evento de uso do lote permite que você emita eventos de uso para mais 
 ```
 
 >[!NOTE]
->`resourceId`tem significado diferente para o aplicativo SaaS e para o aplicativo gerenciado que emite o medidor personalizado. 
+>`resourceId` tem significado diferente para o aplicativo SaaS e para o aplicativo gerenciado que emite o medidor personalizado. 
 
-Para planos de Aplicativos Gerenciados do Aplicativo Azure, a `resourceId` é a `resourceUsageId` encontrada no `billingDetails` do objeto de metadados do Aplicativo Gerenciado. Um script de exemplo para buscá-los pode ser encontrado em [usando o token de identidades gerenciadas pelo Azure](./marketplace-metering-service-authentication.md#using-the-azure-managed-identities-token). 
+Para Aplicativo Azure planos de aplicativos gerenciados, o `resourceId` é o aplicativo gerenciado `resource group Id` . Um script de exemplo para buscá-los pode ser encontrado em [usando o token de identidades gerenciadas pelo Azure](./marketplace-metering-service-authentication.md#using-the-azure-managed-identities-token). 
 
 Para ofertas de SaaS, a `resourceId` é a ID de assinatura do SaaS. Para obter mais detalhes sobre assinaturas de SaaS, veja [listar assinaturas](./pc-saas-fulfillment-api-v2.md#get-list-of-all-subscriptions).
 
@@ -273,7 +273,7 @@ Você também pode usar o plano privado para uma oferta dinâmica existente para
 
 ## <a name="get-support"></a>Obter suporte
 
-Siga a instrução em [suporte para o programa do Marketplace comercial no Partner Center](./support.md) para entender as opções de suporte do Publicador e abrir um tíquete de suporte com a Microsoft.
+Siga a instrução em [suporte para o programa do Marketplace comercial no Partner Center](../support.md) para entender as opções de suporte do Publicador e abrir um tíquete de suporte com a Microsoft.
 
 ## <a name="next-steps"></a>Próximas etapas
 

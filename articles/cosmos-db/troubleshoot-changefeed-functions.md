@@ -3,18 +3,20 @@ title: Solucionar problemas ao usar o gatilho de Azure Functions para Cosmos DB
 description: Problemas comuns, soluções alternativas e etapas de diagnóstico, ao usar o gatilho de Azure Functions para Cosmos DB
 author: ealsur
 ms.service: cosmos-db
-ms.date: 03/13/2020
+ms.subservice: cosmosdb-sql
+ms.date: 12/29/2020
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 7bf7d418e3f2680b32f61e42cffc76c921068508
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1b7b82ea07b7e00d281739011c9c9f83ab4dff73
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79365501"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97825618"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-functions-trigger-for-cosmos-db"></a>Diagnosticar e solucionar problemas ao usar o gatilho de Azure Functions para Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Este artigo aborda problemas comuns, soluções alternativas e etapas de diagnóstico, quando você usa o [gatilho de Azure Functions para Cosmos DB](change-feed-functions.md).
 
@@ -83,16 +85,18 @@ O conceito de uma "alteração" é uma operação em um documento. Os cenários 
 
 ### <a name="some-changes-are-missing-in-my-trigger"></a>Algumas alterações estão ausentes no meu gatilho
 
-Se você descobrir que algumas das alterações que ocorreram em seu contêiner Cosmos do Azure não estão sendo coletadas pela função do Azure, há uma etapa de investigação inicial que precisa ocorrer.
+Se você descobrir que algumas das alterações que ocorreram em seu contêiner Cosmos do Azure não estão sendo coletadas pela função do Azure ou algumas alterações estão ausentes no destino quando você a estiver copiando, siga as etapas abaixo.
 
 Quando sua função do Azure recebe as alterações, ele geralmente as processa e, opcionalmente, envia o resultado para outro destino. Quando você estiver investigando alterações ausentes, certifique-se de **que você meça quais alterações estão sendo recebidas no ponto de ingestão** (quando a função do Azure é iniciada), não no destino.
 
 Se algumas alterações estiverem ausentes no destino, isso pode significar que o erro ocorre durante a execução da função do Azure depois que as alterações foram recebidas.
 
-Nesse cenário, o melhor curso de ação é adicionar `try/catch` blocos em seu código e dentro dos loops que podem estar processando as alterações, para detectar qualquer falha em um determinado subconjunto de itens e tratá-los de forma adequada (enviá-los para outro armazenamento para análise posterior ou repetição). 
+Nesse cenário, o melhor curso de ação é adicionar `try/catch` blocos em seu código e dentro dos loops que podem estar processando as alterações, para detectar qualquer falha em um determinado subconjunto de itens e tratá-los de forma adequada (enviá-los para outro armazenamento para análise posterior ou repetição).
 
 > [!NOTE]
 > Por padrão, o gatilho de Azure Functions para Cosmos DB não repetirá um lote de alterações se houver uma exceção sem tratamento durante a execução do código. Isso significa que o motivo pelo qual as alterações não chegaram no destino é porque você está falhando em processá-las.
+
+Se o destino for outro contêiner Cosmos e você estiver executando operações Upsert para copiar os itens, **Verifique se a definição de chave de partição no contêiner monitorado e de destino são iguais**. As operações Upsert podem estar salvando vários itens de origem como um no destino devido a essa diferença de configuração.
 
 Se você achar que algumas alterações não foram recebidas por seu gatilho, o cenário mais comum é que há **outra função do Azure em execução**. Pode ser outra função do Azure implantada no Azure ou uma função do Azure em execução localmente na máquina de um desenvolvedor que tenha **exatamente a mesma configuração** (mesmo contêineres monitorados e de concessão), e essa função do Azure está roubando um subconjunto das alterações que você esperaria que sua função do Azure processasse.
 

@@ -1,26 +1,28 @@
 ---
-title: Transmitir arquivos de vídeo com os Serviços de Mídia do Azure – Node.js | Microsoft Docs
+title: Transmitir arquivos de vídeo com os Serviços de Mídia do Azure – Node.js
 description: Execute as etapas deste tutorial para criar uma nova conta dos Serviços de Mídia do Azure, codificar um arquivo e transmiti-lo para o Player de Mídia do Azure.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 keywords: serviços de mídia do azure, stream
 ms.service: media-services
 ms.workload: media
 ms.topic: tutorial
-ms.custom: mvc, devx-track-javascript
-ms.date: 08/19/2019
-ms.author: juliako
-ms.openlocfilehash: 1c96c538826de696de531aff79ce601bc01a239d
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: mvc, devx-track-js
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: 711db5135345fd9b69da9aaea5bc4dbb929d27c9
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87414064"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895129"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---nodejs"></a>Tutorial: Codificar um arquivo remoto baseado em URL e transmitir o vídeo – Node.js
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Este tutorial mostra como é fácil codificar e iniciar a transmissão de vídeos por streaming em vários navegadores e dispositivos usando os Serviços de Mídia do Azure. Um conteúdo de entrada pode ser especificado usando URLs HTTPS, URLs SAS ou caminhos para arquivos localizados no Armazenamento de Blobs do Azure.
 
@@ -72,7 +74,7 @@ O exemplo executa as ações a seguir:
 
 Após a conclusão da execução, você deve ver saídas semelhantes:
 
-![Executar](./media/stream-files-nodejs-quickstart/run.png)
+![Captura de tela de uma janela Comando com saída do aplicativo de exemplo StreamFileSample mostrando as URLs de três arquivos baixados para o diretório local.](./media/stream-files-nodejs-quickstart/run.png)
 
 ## <a name="test-with-azure-media-player"></a>Testar com o Player de Mídia do Azure
 

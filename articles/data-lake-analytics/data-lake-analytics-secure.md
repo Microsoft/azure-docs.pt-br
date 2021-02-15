@@ -2,16 +2,15 @@
 title: Proteger o Azure Data Lake Analytics para vários usuários
 description: Saiba como configurar vários usuários para executar trabalhos no Azure Data Lake Analytics.
 ms.service: data-lake-analytics
-services: data-lake-analytics
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 05/30/2018
-ms.openlocfilehash: 9006a22c588a7f1456585d40da0b4345145c6d05
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 52bdd80dba1d5de150f403199fbd5c14d188a410
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132476"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92220135"
 ---
 # <a name="configure-user-access-to-job-information-to-job-information-in-azure-data-lake-analytics"></a>Configurar o acesso do usuário para informações de trabalho no Azure Data Lake Analytics 
 

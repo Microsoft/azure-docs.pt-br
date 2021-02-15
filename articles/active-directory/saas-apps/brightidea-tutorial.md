@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/23/2019
 ms.author: jeedes
-ms.openlocfilehash: 7909f793407956247a8378a86e20bbe7b1bcddb6
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 9967f349011b52a2218681956885c33456ba1d46
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88542795"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672751"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-brightidea"></a>Tutorial: Integração do Azure Active Directory ao Brightidea
 
@@ -27,7 +27,7 @@ A integração do Brightidea ao Azure AD oferece os seguintes benefícios:
 * Você pode permitir que os usuários sejam conectados automaticamente ao Brightidea (logon único) usando suas contas do Azure AD.
 * Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](../manage-apps/what-is-single-sign-on.md).
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -66,7 +66,7 @@ Para configurar a integração do Brightidea ao Azure AD, você precisará adici
 
 4. Na caixa de pesquisa, digite **Brightidea**, selecione **Brightidea** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
-     ![Brightidea na lista de resultados](common/search-new-app.png)
+    ![Brightidea na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
@@ -112,14 +112,14 @@ Para configurar o logon único do Azure AD com o Brightidea, execute as seguinte
 
     c. Depois que o arquivo de metadados for carregado com êxito, os valores de **Identificador** e **URL de Resposta** serão preenchidos automaticamente na caixa de texto da seção do Brightidea:
 
-    ![image](common/idp-intiated.png)
+    ![Captura de tela que mostra a Configuração Básica de SAML, em que você pode inserir o Identificador e a URL de Resposta e selecionar Salvar.](common/idp-intiated.png)
 
     > [!Note]
     > Se os valores de **Identificador** e **URL de Resposta** não forem preenchidos automaticamente, preencha-os manualmente de acordo com seus requisitos.
 
 5. Clique em **Definir URLs adicionais** e execute o passo seguinte se quiser configurar a aplicação no modo **SP** iniciado:
 
-    ![image](common/metadata-upload-additional-signon.png)
+    ![Captura de tela que mostra Definir URLs adicionais, em que você pode inserir uma URL de Logon.](common/metadata-upload-additional-signon.png)
 
     Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://<SUBDOMAIN>.brightidea.com`
 
@@ -143,33 +143,33 @@ Para configurar o logon único do Azure AD com o Brightidea, execute as seguinte
 
 2. Para acessar o recurso de SSO em seu sistema do Brightidea, navegue até **Instalação Empresarial** -> **Guia Autenticação**. Lá, você verá duas subguias: Seleção de Autenticação & Perfis SAML.
 
-    ![Configuração do Brightidea](./media/brightidea-tutorial/configure1.png)
+    ![Captura de tela que mostra o site do Brightidea com a guia Autenticação selecionada.](./media/brightidea-tutorial/configure1.png)
 
 3. Selecione **Seleção de Autenticação**. Por padrão, são exibidos apenas dois métodos padrão: Logon e registro no Brightidea. Quando um método de SSO for adicionado, ele aparecerá na lista.
 
-    ![Configuração do Brightidea](./media/brightidea-tutorial/configure2.png)
+    ![Captura de tela que mostra a guia de Autenticação do Brightidea com a Seleção de Autenticação selecionada.](./media/brightidea-tutorial/configure2.png)
 
 4. Selecione **Perfis SAML** e execute as seguintes etapas:
 
-    ![Configuração do Brightidea](./media/brightidea-tutorial/configure3.png)
+    ![Captura de tela mostra a guia de Autenticação do Brightidea com Perfis SAML selecionados, que fornece opções para Baixar Metadados e Adicionar Novo.](./media/brightidea-tutorial/configure3.png)
 
     a. Clique em **Baixar Metadados** e carregue a na seção de **Configuração Básica de SAML** no portal do Azure.
 
     b. Clique no botão **Adicionar Novo** na **Configuração do Provedor de Identidade** e execute as seguintes etapas:
-    
-    ![Configuração do Brightidea](./media/brightidea-tutorial/configure4.png)
-    
+
+    ![Captura de tela mostra a Configuração do Provedor de Identidade do Brightidea, em que insere informações.](./media/brightidea-tutorial/configure4.png)
+
    * Insira o **Nome do Perfil SAML**, por exemplo, `Azure Ad SSO`
-    
+
    * Para **Carregar Metadados**, clique para escolher o arquivo e carregue o arquivo de metadados baixado do portal do Azure.
 
      > [!NOTE]
      > Depois de carregar o arquivo de metadados, os campos restantes **Serviço de Logon Único, Emissor de Provedor de Identidade e Carregar Chave Pública** serão preenchidos automaticamente.
 
    * Na caixa de texto **Email**, insira os valores como `mail`.
-     
+
    * Na caixa de texto **Nome da Tela**, insira os valores como `givenName`.
-     
+
    * Clique em **Salvar Alterações**.  
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD 
@@ -189,7 +189,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
     a. No campo **Nome**, insira **BrendaFernandes**.
-  
+
     b. No campo **Nome de usuário**, digite **brendafernandes\@domíniodaempresa.extensão**  
     Por exemplo, BrittaSimon@contoso.com
 
@@ -231,13 +231,12 @@ Nesta seção, é criado um usuário chamado Brenda Fernandes no Brightidea. O B
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Ao clicar no bloco do Brightidea no Painel de Acesso, você deverá ser conectado automaticamente ao Brightidea, para o qual configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao clicar no bloco do Brightidea no Painel de Acesso, você deverá ser conectado automaticamente ao Brightidea, para o qual configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](./tutorial-list.md)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [O que é o Acesso Condicional no Azure Active Directory?](../conditional-access/overview.md)

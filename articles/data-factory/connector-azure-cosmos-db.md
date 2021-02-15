@@ -1,24 +1,20 @@
 ---
 title: Copiar e transformar dados no Azure Cosmos DB (API do SQL)
 description: Saiba como copiar dados de e para Azure Cosmos DB (API do SQL) e transformar dados em Azure Cosmos DB (API do SQL) usando Data Factory.
-services: data-factory, cosmosdb
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
-ms.service: multiple
-ms.workload: data-services
+ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/11/2019
-ms.openlocfilehash: be6dbb74883f12498c5c011e35fa955509ff627c
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.date: 01/29/2021
+ms.openlocfilehash: 2a084683d99117697657ba8900fcd6534b4a3e95
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88042761"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100379940"
 ---
-# <a name="copy-and-transform-data-in-azure-cosmos-db-sql-api-by-using-azure-data-factory"></a>Copiar e transformar dados em Azure Cosmos DB (API do SQL) usando Azure Data Factory
+# <a name="copy-and-transform-data-in-azure-cosmos-db-sql-api-by-using-azure-data-factory"></a>Copiar e transformar dados no Azure Cosmos DB (API do SQL) usando o Azure Data Factory
 
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
 > * [Versão 1](v1/data-factory-azure-documentdb-connector.md)
@@ -43,7 +39,7 @@ Esse conector de Azure Cosmos DB (API do SQL) tem suporte para as seguintes ativ
 
 Para a atividade de cópia, esse conector de Azure Cosmos DB (API do SQL) dá suporte a:
 
-- Copiar dados para e da [API SQL](https://docs.microsoft.com/azure/cosmos-db/documentdb-introduction) do Azure Cosmos DB.
+- Copiar dados para e da [API SQL](../cosmos-db/introduction.md) do Azure Cosmos DB.
 - Gravar no Azure Cosmos DB como **insert** ou **upsert**.
 - Importar e exportar documentos JSON no estado em que se encontram, ou copiar dados de ou para um conjunto de dados tabular. Exemplos incluem um Banco de Dados SQL e um arquivo CSV. Para copiar documentos como estão para ou de arquivos JSON ou de outra coleção de Azure Cosmos DB, consulte [importar e exportar documentos JSON](#import-and-export-json-documents).
 
@@ -95,13 +91,13 @@ As propriedades a seguir têm suporte no serviço vinculado do Azure Cosmos DB (
         "type": "CosmosDb",
         "typeProperties": {
             "connectionString": "AccountEndpoint=<EndpointUrl>;Database=<Database>",
-            "accountKey": { 
-                "type": "AzureKeyVaultSecret", 
-                "store": { 
-                    "referenceName": "<Azure Key Vault linked service name>", 
-                    "type": "LinkedServiceReference" 
-                }, 
-                "secretName": "<secretName>" 
+            "accountKey": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
             }
         },
         "connectVia": {
@@ -160,6 +156,7 @@ As seguintes propriedades são suportadas na seção **source** da atividade de 
 | Consulta |Especifique a consulta do Azure Cosmos DB para ler dados.<br/><br/>Exemplo:<br /> `SELECT c.BusinessEntityID, c.Name.First AS FirstName, c.Name.Middle AS MiddleName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |Não <br/><br/>Se não for especificada, esta instrução SQL será executada: `select <columns defined in structure> from mycollection` |
 | preferredRegions | A lista preferencial de regiões às quais se conectar ao recuperar dados de Cosmos DB. | Não |
 | pageSize | O número de documentos por página do resultado da consulta. O padrão é "-1", que significa usar o tamanho de página dinâmico do lado do serviço até 1000. | Não |
+| detectDatetime | Se é para detectar DateTime dos valores de cadeia de caracteres nos documentos. Os valores permitidos são: **true** (padrão), **false**. | Não |
 
 Se você usar a origem do tipo "DocumentDbCollectionSource", ainda terá suporte como está para compatibilidade com versões anteriores. É recomendável usar o novo modelo no futuro, que fornece recursos mais avançados para copiar dados de Cosmos DB.
 
@@ -295,13 +292,16 @@ As configurações específicas para Azure Cosmos DB estão disponíveis na guia
 * Nenhum: nenhuma ação será feita para a coleção.
 * Recriar: a coleção será descartada e recriada
 
-**Tamanho do lote**: controla quantas linhas estão sendo gravadas em cada bucket. Tamanhos de lote maiores aprimoram a compactação e a otimização de memória, mas geram risco de exceções de memória insuficiente ao armazenar dados em cache.
+**Tamanho do lote**: um número inteiro que representa quantos objetos estão sendo gravados para Cosmos DB coleção em cada lote. Normalmente, a partir do tamanho de lote padrão é suficiente. Para ajustar esse valor, observe:
+
+- O Cosmos DB limita o tamanho da solicitação única para 2MB. A fórmula é "tamanho da solicitação = tamanho de documento único * tamanho do lote". Se você clicar em erro dizendo "o tamanho da solicitação é muito grande", reduza o valor do tamanho do lote.
+- Quanto maior o tamanho do lote, o ADF de taxa de transferência melhor pode atingir, embora você aloque o RUs suficiente para capacitar sua carga de trabalho.
 
 **Chave de partição:** Insira uma cadeia de caracteres que represente a chave de partição para sua coleção. Exemplo: ```/movies/title```
 
 **Taxa de transferência:** Defina um valor opcional para o número de RUs que você gostaria de aplicar à sua coleção CosmosDB para cada execução desse fluxo de dados. O mínimo é 400.
 
-**Orçamento de taxa de transferência de gravação:** Um inteiro que representa o número de RUs que você deseja alocar para o trabalho de ingestão em massa do Spark. Esse número está fora da taxa de transferência total alocada para a coleção.
+**Orçamento de taxa de transferência de gravação:** Um inteiro que representa o RUs que você deseja alocar para essa operação de gravação de fluxo de dados, fora da taxa de transferência total alocada para a coleção.
 
 ## <a name="lookup-activity-properties"></a>Pesquisar propriedades de atividade
 

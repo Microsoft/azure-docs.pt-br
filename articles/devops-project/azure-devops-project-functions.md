@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/24/2020
 author: mlearned
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 79e2726e26ff7883d5022e57fff8fa8961af2c98
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 3277fefb5615fd492b2859b741ef8e6f991eaf23
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88163672"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91355467"
 ---
 # <a name="deploy-to-azure-functions-with-devops-starter"></a>Implantar no Azure Functions com o DevOps Starter
 
@@ -95,7 +95,7 @@ O DevOps Starter configura automaticamente um pipeline de CI/CD em sua organiza�
 
 1. Clique no hiperlink em **Build**. Uma guia do navegador exibe o pipeline de build do seu novo projeto.
 
-    ![Build](_img/azure-devops-project-functions/build.png)
+    ![A captura de tela mostra o DevOps Starter no portal do Azure com uma seta apontando para um link em Build no pipeline de CI/CD.](_img/azure-devops-project-functions/build.png)
 
 1. Selecione **Editar**. Nesse painel, é possível examinar as diversas tarefas do pipeline de build. O build realiza várias tarefas, como buscar código-fonte no repositório Git, compilar o aplicativo, executar testes de unidade e publicar as saídas usadas para implantações.
 

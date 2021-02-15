@@ -1,25 +1,27 @@
 ---
-title: Uma predefinição para codificação com reconhecimento de conteúdo-serviços de mídia do Azure
+title: Uma predefinição para codificação com reconhecimento de conteúdo
 description: Este artigo discute a codificação com reconhecimento de conteúdo no Serviços de Mídia do Microsoft Azure v3.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
-ms.topic: article
-ms.date: 04/29/2020
-ms.author: juliako
+ms.topic: conceptual
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c29909d70b0fd55e4b680c79928cdc5d05b494fa
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 8c63ada9621fc1485742a7683fd6742f0e896854
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89003721"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954422"
 ---
 # <a name="use-the-content-aware-encoding-preset-to-find-the-optimal-bitrate-value-for-a-given-resolution"></a>Usar a predefinição de codificação com reconhecimento de conteúdo para localizar o valor de taxa de bits ideal para uma determinada resolução
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Para preparar o conteúdo para entrega por [streaming de taxa de bits adaptável](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), o vídeo precisa ser codificado em taxas de bits múltiplas (alta para baixa). Isso garante uma degradação normal da qualidade, pois a taxa de bits é reduzida, portanto, é a resolução do vídeo. Essa codificação de taxa de bits múltipla usa uma chamada de escada de codificação – uma tabela de resoluções e taxas de bits, consulte as [predefinições de codificação interna](/rest/api/media/transforms/createorupdate#encodernamedpreset)dos serviços de mídia.
 
@@ -84,5 +86,5 @@ TransformOutput[] output = new TransformOutput[]
 * [Tutorial: carregar, codificar e transmitir vídeos com os serviços de mídia v3](stream-files-tutorial-with-api.md)
 * [Tutorial: Codificar um arquivo remoto baseado em URL e transmitir o vídeo – REST](stream-files-tutorial-with-rest.md)
 * [Tutorial: codificar um arquivo remoto com base na URL e transmitir a video-CLI](stream-files-cli-quickstart.md)
-* [Tutorial: codificar um arquivo remoto com base na URL e transmitir o vídeo-.NET](stream-files-dotnet-quickstart.md)
-* [Tutorial: codificar um arquivo remoto com base na URL e transmitir o vídeo-Node.js](stream-files-nodejs-quickstart.md)
+* [Tutorial: Codificar um arquivo remoto baseado em URL e transmitir o vídeo – .NET](stream-files-dotnet-quickstart.md)
+* [Tutorial: Codificar um arquivo remoto baseado em URL e transmitir o vídeo – Node.js](stream-files-nodejs-quickstart.md)

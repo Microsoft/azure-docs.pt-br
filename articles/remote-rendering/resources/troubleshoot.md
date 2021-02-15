@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 14184c09cc9d5eebab7f33323cd8ce587fdf9e88
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 4990f0d0a10709f2c1c5a17806020cd685f999fc
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89014584"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99593326"
 ---
 # <a name="troubleshoot"></a>Solucionar problemas
 
@@ -23,11 +23,7 @@ Esta página lista os problemas comuns que interferem no Azure Remote Rendering 
 
 ## <a name="client-cant-connect-to-server"></a>O cliente não pode se conectar ao servidor
 
-Verifique se os firewalls (no dispositivo, dentro de roteadores etc.) não bloqueiam as seguintes portas:
-
-* **50051 (TCP)** – necessária para a conexão inicial (handshake HTTP)
-* **8266 (TCP + UDP)** – necessária para transferência de dados
-* **5000 (TCP)** , **5433 (TCP)** , **8443 (TCP)** – necessárias para o [ArrInspector](tools/arr-inspector.md)
+Verifique se os firewalls (no dispositivo, dentro de roteadores, etc.) não bloqueiam as portas mencionadas nos [requisitos do sistema](../overview/system-requirements.md#network-firewall).
 
 ## <a name="error-disconnected-videoformatnotavailable"></a>Erro ' `Disconnected: VideoFormatNotAvailable` '
 
@@ -37,7 +33,7 @@ Se você estiver trabalhando em um laptop com duas GPUs, é possível que a GPU 
 
 ## <a name="retrieve-sessionconversion-status-fails"></a>Falha ao recuperar sessão/status de conversão
 
-O envio de comandos da API REST com muita frequência fará com que o servidor seja limitado e retorne a falha eventualmente. O código de status HTTP no caso de limitação é 429 ("muitas solicitações"). Como regra geral, deve haver um atraso de **5-10 segundos entre as chamadas subsequentes**.
+O envio de comandos da API REST com muita frequência fará com que o servidor seja limitado e retorne a falha eventualmente. O código de status HTTP no caso de limitação é 429 ("muitas solicitações"). Como regra geral, deve haver um atraso de **5 a 10 segundos entre as chamadas subsequentes**.
 
 Observe que esse limite não afeta apenas as chamadas da API REST quando chamado diretamente, mas também suas contrapartes do C#/C + +, como `Session.GetPropertiesAsync` , `Session.RenewAsync` ou `Frontend.GetAssetConversionStatusAsync` .
 
@@ -92,7 +88,7 @@ A qualidade do vídeo pode ser comprometida pela qualidade da rede ou pela ausê
 
 ## <a name="video-recorded-with-mrc-does-not-reflect-the-quality-of-the-live-experience"></a>O vídeo gravado com a MRC não reflete a qualidade da experiência ao vivo
 
-Um vídeo pode ser registrado no Hololens por meio da [MRC (Captura de Realidade Misturada)](https://docs.microsoft.com/windows/mixed-reality/mixed-reality-capture-for-developers). No entanto, o vídeo resultante tem uma qualidade pior do que a experiência ao vivo por dois motivos:
+Um vídeo pode ser registrado no HoloLens por meio da [MRC (captura de realidade misturada)](/windows/mixed-reality/mixed-reality-capture-for-developers). No entanto, o vídeo resultante tem uma qualidade pior do que a experiência ao vivo por dois motivos:
 * A taxa de quadros de vídeo é limitada a 30 Hz em vez de 60 Hz.
 * As imagens de vídeo não passam pela etapa de processamento de [reprojeção de fase tardia](../overview/features/late-stage-reprojection.md), portanto, o vídeo tem menos fluidez.
 
@@ -152,11 +148,12 @@ Pode haver dois problemas com essa caixa delimitadora que resultam em uma geomet
 
 O Azure Remote Rendering conecta-se ao pipeline de renderização do Unity para fazer a composição do quadro com o vídeo e para fazer a reprojeção. Para verificar se esses ganchos existem, abra o menu *:::no-loc text="Window > Analysis > Frame debugger":::* . Habilite-o e verifique se há duas entradas para o `HolographicRemotingCallbackPass` no pipeline:
 
-![Depurador de quadros do Unity](./media/troubleshoot-unity-pipeline.png)
+![Pipeline de renderização do Unity](./media/troubleshoot-unity-pipeline.png)
 
 ## <a name="checkerboard-pattern-is-rendered-after-model-loading"></a>O padrão quadriculado é renderizado após o carregamento do modelo
 
-Se a imagem renderizada tiver esta aparência: ![ quadriculado ](../reference/media/checkerboard.png) , o renderizador atingirá os [limites do polígono para o tamanho da configuração padrão](../reference/vm-sizes.md). Para mitigar, alterne para o tamanho da configuração **Premium** ou reduza o número de polígonos visíveis.
+Se a imagem renderizada for parecida com esta: a ![ captura de tela mostra uma grade de quadrados pretos e brancos com um menu ferramentas.](../reference/media/checkerboard.png)
+em seguida, o renderizador atinge os [limites do polígono para o tamanho da configuração padrão](../reference/vm-sizes.md). Para mitigar, alterne para o tamanho da configuração **Premium** ou reduza o número de polígonos visíveis.
 
 ## <a name="the-rendered-image-in-unity-is-upside-down"></a>A imagem renderizada no Unity está de cabeça para baixo
 
@@ -184,13 +181,19 @@ Vimos falhas falsas ao tentar compilar exemplos do Unity (início rápido, ShowC
 
 O `AudioPluginMsHRTF.dll` para Arm64 foi adicionado ao pacote do *Windows Mixed Reality* *(com. Unity. XR. windowsmr. metro)* na versão 3.0.1. Verifique se você tem a versão 3.0.1 ou posterior instalada por meio do Gerenciador de pacotes do Unity. Na barra de menus do Unity, navegue até *janela > Gerenciador de pacotes* e procure o pacote do *Windows Mixed Reality* .
 
+## <a name="native-c-based-application-does-not-compile"></a>O aplicativo nativo baseado em C++ não compila
+
+### <a name="library-not-found-error-for-uwp-application-or-dll"></a>Erro de ' biblioteca não encontrada ' para o aplicativo UWP ou dll
+
+Dentro do pacote NuGet do C++, há um `microsoft.azure.remoterendering.Cpp.targets` arquivo de arquivo que define qual é o tipo binário a ser usado. Para identificar `UWP` , as condições na verificação de arquivo para `ApplicationType == 'Windows Store'` . Portanto, é preciso garantir que esse tipo seja definido no projeto. Esse deve ser o caso ao criar um aplicativo UWP ou DLL por meio do assistente de projeto do Visual Studio.
+
 ## <a name="unstable-holograms"></a>Hologramas instáveis
 
 Caso os objetos renderizados pareçam estar se movendo em conjunto com os movimentos de cabeça, você talvez esteja enfrentando problemas com LSR (*reprojeção de fase tardia*). Veja a seção sobre [Reprojeção de fase tardia](../overview/features/late-stage-reprojection.md) para obter diretrizes sobre como abordar essa situação.
 
-Outro motivo para hologramas instáveis (com oscilações, distorções, tremulações ou saltos) pode ser uma conectividade de rede ruim, em particular uma largura de banda de rede insuficiente ou uma latência muito alta. Um bom indicador para a qualidade da sua conexão de rede é o valor `ARRServiceStats.VideoFramesReused` das [estatísticas de desempenho](../overview/features/performance-queries.md). Quadros reutilizados indicam situações em que um quadro de vídeo antigo precisou ser reutilizado no lado do cliente porque nenhum novo quadro de vídeo estava disponível, por exemplo, devido à perda de pacotes ou devido a variações na latência de rede. Se `ARRServiceStats.VideoFramesReused` é frequentemente maior que zero, isso indica um problema de rede.
+Outro motivo para hologramas instáveis (com oscilações, distorções, tremulações ou saltos) pode ser uma conectividade de rede ruim, em particular uma largura de banda de rede insuficiente ou uma latência muito alta. Um bom indicador para a qualidade da sua conexão de rede é o valor `ServiceStatistics.VideoFramesReused` das [estatísticas de desempenho](../overview/features/performance-queries.md). Quadros reutilizados indicam situações em que um quadro de vídeo antigo precisou ser reutilizado no lado do cliente porque nenhum novo quadro de vídeo estava disponível, por exemplo, devido à perda de pacotes ou devido a variações na latência de rede. Se `ServiceStatistics.VideoFramesReused` é frequentemente maior que zero, isso indica um problema de rede.
 
-Outro valor a ser examinado é `ARRServiceStats.LatencyPoseToReceiveAvg`. Ele deve estar consistentemente abaixo de 100 ms. Se você vir valores mais altos, isso indicará que você está conectado a um data center que está muito longe.
+Outro valor a ser examinado é `ServiceStatistics.LatencyPoseToReceiveAvg`. Ele deve estar consistentemente abaixo de 100 ms. Ver valores mais altos pode indicar que você está conectado a um data center que está muito longe.
 
 Para obter uma lista de possíveis mitigações, confira as [diretrizes para conectividade de rede](../reference/network-requirements.md#guidelines-for-network-connectivity).
 
@@ -216,7 +219,7 @@ Se as etapas acima tiverem sido esgotadas e o combate a z restante for inaceitá
 
 O ARR tem um recurso para determinar se as superfícies poderiam ser z-luta: [realce de xadrez](../overview/features/z-fighting-mitigation.md). Você também pode determinar visualmente o que causa o combate ao z. A primeira animação a seguir mostra um exemplo de perda de precisão de profundidade na distância e a segunda mostra um exemplo de superfícies de quase coplanar:
 
-![profundidade-precisão-z-combatendo](./media/depth-precision-z-fighting.gif)  ![coplanar-z-combatendo](./media/coplanar-z-fighting.gif)
+![Animação mostra um exemplo de perda de precisão de profundidade na distância.](./media/depth-precision-z-fighting.gif)  ![Animação mostra um exemplo de superfícies de quase coplanar.](./media/coplanar-z-fighting.gif)
 
 Compare esses exemplos com o combate ao z para determinar a causa ou, opcionalmente, seguir este fluxo de trabalho passo a passo:
 
@@ -242,7 +245,9 @@ As superfícies de coplanar podem ter várias causas diferentes:
 
 * As superfícies são intencionalmente criadas para toque, como decals ou texto em paredes.
 
+## <a name="graphics-artifacts-using-multi-pass-stereo-rendering-in-native-c-apps"></a>Artefatos gráficos usando a renderização de estéreo de várias passagens em aplicativos C++ nativos
 
+Em alguns casos, os aplicativos C++ nativos personalizados que usam um modo de renderização estéreo de várias passagens para conteúdo local (renderização para os olhos esquerdo e direito em passagens separadas) depois de chamar [**BlitRemoteFrame**](../concepts/graphics-bindings.md#render-remote-image) podem disparar um bug de driver. O bug resulta em falhas de rasterização não determinísticas, fazendo com que triângulos individuais ou partes de triângulos do conteúdo local desapareçam aleatoriamente. Por motivos de desempenho, é recomendável, de qualquer forma, renderizar o conteúdo local com uma técnica de renderização estéreo de passagem única mais moderna, por exemplo, usando **SV_RenderTargetArrayIndex**.
 
 ## <a name="next-steps"></a>Próximas etapas
 

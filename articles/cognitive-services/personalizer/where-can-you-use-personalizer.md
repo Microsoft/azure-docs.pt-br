@@ -1,14 +1,16 @@
 ---
 title: Onde e como usar-personalizar
 description: O Personalizador pode ser aplicado em qualquer situação em que seu aplicativo pode selecionar o item, a ação ou o produto correto a ser exibido – visando aprimorar a experiência, alcançar melhores resultados de negócios ou melhorar a produtividade.
+ms.service: cognitive-services
+ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 02/18/2020
-ms.openlocfilehash: c562d7a1853736204a7a03262547e083bd85fb75
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 87179950c33a6facb59ce499aa0ae393e53fb37f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81617686"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91777217"
 ---
 # <a name="where-and-how-to-use-personalizer"></a>Onde e como usar o personalizador
 

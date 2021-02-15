@@ -1,5 +1,5 @@
 ---
-title: Recomendações do SQL do Synapse
+title: Recomendações do Azure Advisor para o pool SQL dedicado
 description: Saiba mais sobre as recomendações do SQL do Synapse e como elas são geradas
 services: synapse-analytics
 author: kevinvngo
@@ -11,18 +11,18 @@ ms.date: 06/26/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: e4564005e3b9cc9673cc20596d4114d102174b9e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6510a7143e78c054130a1f1dddba78342a6785fe
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85482846"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685269"
 ---
-# <a name="synapse-sql-recommendations"></a>Recomendações do SQL do Synapse
+# <a name="azure-advisor-recommendations-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Recomendações do Azure Advisor para o pool SQL dedicado no Azure Synapse Analytics
 
-Este artigo descreve as recomendações do SQL do Synapse fornecidas por meio do Assistente do Azure.  
+Este artigo descreve as recomendações do pool do SQL dedicado disponíveis no Azure Advisor.  
 
-O SQL do Synapse fornece recomendações para garantir que a carga de trabalho do data warehouse seja consistentemente otimizada de acordo com o desempenho. As recomendações são totalmente integradas ao [Assistente do Azure](../../advisor/advisor-performance-recommendations.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) para fornecer as melhores práticas diretamente no [portal do Azure](https://aka.ms/Azureadvisor). O SQL do Synapse coleta recomendações de telemetria e de superfícies para a carga de trabalho ativa em um ritmo diário. Os cenários de recomendação compatíveis são descritos abaixo, juntamente com a forma de aplicar as ações recomendadas.
+O pool SQL dedicado fornece recomendações para garantir que sua carga de trabalho data warehouse seja consistentemente otimizada para o desempenho. As recomendações são totalmente integradas ao [Assistente do Azure](../../advisor/advisor-performance-recommendations.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) para fornecer as melhores práticas diretamente no [portal do Azure](https://aka.ms/Azureadvisor). O pool do SQL dedicado coleta recomendações de telemetria e de superfícies para sua carga de trabalho ativa em uma cadência diária. Os cenários de recomendação compatíveis são descritos abaixo, juntamente com a forma de aplicar as ações recomendadas.
 
 Você pode [verificar suas recomendações](https://aka.ms/Azureadvisor) hoje mesmo! 
 
@@ -65,12 +65,12 @@ Atualmente, o Assistente mostrará apenas no máximo quatro tabelas replicadas p
 
 
 ## <a name="adaptive-gen2-cache-utilization"></a>Utilização de cache adaptável (Gen2)
-Quando você tem um grande conjunto de trabalho, pode experimentar um percentual baixo de falha de cache e uma alta utilização de cache. Nesse cenário, você deve escalar verticalmente para aumentar a capacidade do cache e executar novamente a carga de trabalho. Visite a seguinte [documentação](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-how-to-monitor-cache) para saber mais. 
+Quando você tem um grande conjunto de trabalho, pode experimentar um percentual baixo de falha de cache e uma alta utilização de cache. Nesse cenário, você deve escalar verticalmente para aumentar a capacidade do cache e executar novamente a carga de trabalho. Visite a seguinte [documentação](./sql-data-warehouse-how-to-monitor-cache.md) para saber mais. 
 
 ## <a name="tempdb-contention"></a>Contenção de Tempdb
 
-O desempenho da consulta pode diminuir quando há uma contenção de tempdb alta.  A contenção de tempdb pode ocorrer por meio de tabelas temporárias definidas pelo usuário ou quando há uma grande quantidade de movimentação de dados. Neste cenário, você pode aumentar a alocação de tempdb e [configurar o gerenciamento de carga de trabalho e classes de recursos](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-workload-management) para fornecer mais memória às consultas. 
+O desempenho da consulta pode diminuir quando há uma contenção de tempdb alta.  A contenção de tempdb pode ocorrer por meio de tabelas temporárias definidas pelo usuário ou quando há uma grande quantidade de movimentação de dados. Neste cenário, você pode aumentar a alocação de tempdb e [configurar o gerenciamento de carga de trabalho e classes de recursos](./sql-data-warehouse-workload-management.md) para fornecer mais memória às consultas. 
 
 ## <a name="data-loading-misconfiguration"></a>Carregamento de dados de configuração incorreta
 
-Você sempre deve carregar dados de uma conta de armazenamento na mesma região que o pool SQL para minimizar a latência. Use a [instrução de cópia para a ingestão de dados de alta taxa de transferência](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) e divida os arquivos de preparo em sua conta de armazenamento para maximizar a taxa de transferência. Se você não puder usar a instrução de cópia, poderá usar a API SqlBulkCopy ou o bcp com um tamanho de lote alto para obter uma melhor taxa de transferência. Para obter diretrizes adicionais de carregamento de dados, visite a [documentação](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/guidance-for-loading-data)a seguir. 
+Você sempre deve carregar dados de uma conta de armazenamento na mesma região que o pool SQL dedicado para minimizar a latência. Use a [instrução de cópia para a ingestão de dados de alta taxa de transferência](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) e divida os arquivos de preparo em sua conta de armazenamento para maximizar a taxa de transferência. Se você não puder usar a instrução de cópia, poderá usar a API SqlBulkCopy ou o bcp com um tamanho de lote alto para obter uma melhor taxa de transferência. Para obter diretrizes adicionais de carregamento de dados, visite a [documentação](./guidance-for-loading-data.md)a seguir.

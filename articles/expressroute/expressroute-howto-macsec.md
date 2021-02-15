@@ -2,19 +2,19 @@
 title: 'Azure ExpressRoute: configurar o MACsec'
 description: Este artigo ajuda você a configurar o MACsec para proteger as conexões entre os roteadores de borda e os roteadores de borda da Microsoft.
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 10/22/2019
-ms.author: cherylmc
-ms.openlocfilehash: ce2e4ca2cad0fc080d6a750b3f1682210a5b9b20
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.author: duau
+ms.openlocfilehash: 8ee7f42a4b05def7c2239c7a1e5bcef54f6f7e50
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387652"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89395767"
 ---
-# <a name="configure-macsec-on-expressroute-direct-ports"></a>Configurar o MACsec em portas diretas do ExpressRoute
+# <a name="configure-macsec-on-expressroute-direct-ports"></a>Configurar o MACsec em portas do ExpressRoute Direct
 
 Este artigo ajuda você a configurar o MACsec para proteger as conexões entre os roteadores de borda e os roteadores de borda da Microsoft usando o PowerShell.
 

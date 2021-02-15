@@ -3,26 +3,26 @@ title: Azure front door-suporte do HTTP2 | Microsoft Docs
 description: Este artigo ajuda você a aprender sobre o suporte a HTTP/2 na porta frontal do Azure
 services: frontdoor
 documentationcenter: ''
-author: sharad4u
+author: duongau
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/10/2018
-ms.author: sharadag
-ms.openlocfilehash: 8a3ae8065553b34a72528cb0f2681e327dc90097
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/28/2020
+ms.author: duau
+ms.openlocfilehash: 20d45f5966aca3df89e17e03aa6120a4ddf5c5b9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80985177"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91448691"
 ---
 # <a name="http2-support-in-azure-front-door"></a>Suporte a HTTP/2 na porta frontal do Azure
 
 Atualmente, o suporte a HTTP/2 está ativo para todas as configurações de porta frontal do Azure. Nenhuma ação adicional dos clientes é necessária.
 
-O HTTP/2 é uma revisão principal do HTTP/1.1. Ela fornece desempenho na Web mais rápido, tempo de reposta reduzido e melhor experiência de usuário, mantendo os métodos HTTP, códigos de status e semântica familiares. Embora o HTTP/2 seja projetado para trabalhar com HTTP e HTTPS, muitos navegadores da Web clientes somente dão suporte a HTTP/2 pelo protocolo TLS.
+O HTTP/2 é uma revisão importante do HTTP/1.1 que fornece um desempenho na Web mais rápido, reduzindo o tempo de resposta. O HTTP/2 é feito mantendo os métodos de HTTP, códigos de status e semânticas conhecidos para melhorar a experiência do usuário. Embora o HTTP/2 seja projetado para funcionar com HTTP e HTTPS, muitos navegadores da Web do cliente dão suporte apenas a HTTP/2 pela TLS (segurança da camada de transporte).
 
 > [!NOTE]
 > O suporte ao protocolo HTTP/2 está disponível somente para solicitações de clientes à porta frontal. A comunicação da porta frontal com os back-ends no pool de back-end ocorre por HTTP/1.1. 
@@ -46,7 +46,7 @@ Os benefícios do HTTP/2 incluem:
 
 ## <a name="http2-browser-support"></a>Suporte do navegador a HTTP/2
 
-Todos os principais navegadores implementaram o suporte a HTTP/2 em suas versões atuais. O fallback de navegadores sem suporte para HTTP/1.1 ocorre automaticamente.
+Todos os principais navegadores implementaram o suporte a HTTP/2 em suas versões atuais. Os navegadores sem suporte automaticamente retornam para HTTP/1.1.
 
 |Navegador|Versão Mínima|
 |-------------|------------|

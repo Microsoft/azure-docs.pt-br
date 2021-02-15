@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9bc3175017e5b26251d1a12d0d1e2c51c4e5f9c9
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 345cbe2efb644fe2b84d4a6021ff962337e29285
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87908097"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98219905"
 ---
 # <a name="how-users-in-your-organization-can-invite-guest-users-to-an-app"></a>Como usuários na organização podem convidar usuários convidados para um aplicativo
 
@@ -28,8 +28,8 @@ Depois que um usuário convidado tiver sido adicionado ao diretório no Azure AD
  - Configurar o aplicativo para autoatendimento e atribuir o grupo ao aplicativo
 
 > [!NOTE]
-> Este artigo descreve como configurar o gerenciamento de autoatendimento para aplicativos baseados em SAML e galeria que você adicionou ao locatário do Azure AD. Você também pode [configurar grupos de autoatendimento Microsoft 365](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-self-service-management) para que os usuários possam gerenciar o acesso a seus próprios grupos de Microsoft 365. Para obter mais maneiras como os usuários podem compartilhar arquivos e aplicativos do Office com usuários convidados, consulte [acesso de convidado em grupos de Microsoft 365](https://support.office.com/article/guest-access-in-office-365-groups-bfc7a840-868f-4fd6-a390-f347bf51aff6) e [Compartilhe arquivos ou pastas do SharePoint](https://support.office.com/article/share-sharepoint-files-or-folders-1fe37332-0f9a-4719-970e-d2578da4941c).
-
+> * Este artigo descreve como configurar o gerenciamento de autoatendimento para aplicativos baseados em SAML e galeria que você adicionou ao locatário do Azure AD. Você também pode [configurar grupos de autoatendimento Microsoft 365](../enterprise-users/groups-self-service-management.md) para que os usuários possam gerenciar o acesso a seus próprios grupos de Microsoft 365. Para obter mais maneiras como os usuários podem compartilhar arquivos e aplicativos do Office com usuários convidados, consulte [acesso de convidado em grupos de Microsoft 365](https://support.office.com/article/guest-access-in-office-365-groups-bfc7a840-868f-4fd6-a390-f347bf51aff6) e [Compartilhe arquivos ou pastas do SharePoint](https://support.office.com/article/share-sharepoint-files-or-folders-1fe37332-0f9a-4719-970e-d2578da4941c).
+> * Os usuários só poderão convidar convidados se tiverem a função de **convite do convidado** .
 ## <a name="invite-a-guest-user-to-an-app-from-the-access-panel"></a>Convidar um usuário convidado a um aplicativo do Painel de Acesso
 
 Depois que um aplicativo é configurado para autoatendimento, os proprietários de aplicativos podem usar o próprio Painel de Acesso para convidar um usuário convidado para o aplicativo que deseja compartilhar. O usuário convidado não precisa necessariamente ser adicionado ao Azure AD com antecedência. 
@@ -75,7 +75,7 @@ Depois que um aplicativo é configurado para autoatendimento, os proprietários 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-O gerenciamento de aplicativos de autoatendimento exige alguma configuração inicial por um administrador global e um administrador do Azure AD. Como parte dessa configuração, você configurará o aplicativo para autoatendimento e atribuirá um grupo ao aplicativo que o proprietário do aplicativo poderá gerenciar. Também é possível configurar o grupo para permitir que alguém solicite a associação, mas isso exige a aprovação de um proprietário do grupo. (Saiba mais sobre [gerenciamento de grupos de autoatendimento](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-self-service-management).) 
+O gerenciamento de aplicativos de autoatendimento exige alguma configuração inicial por um administrador global e um administrador do Azure AD. Como parte dessa configuração, você configurará o aplicativo para autoatendimento e atribuirá um grupo ao aplicativo que o proprietário do aplicativo poderá gerenciar. Também é possível configurar o grupo para permitir que alguém solicite a associação, mas isso exige a aprovação de um proprietário do grupo. (Saiba mais sobre [gerenciamento de grupos de autoatendimento](../enterprise-users/groups-self-service-management.md).) 
 
 > [!NOTE]
 > Não é possível adicionar usuários convidados a um grupo dinâmico ou a um grupo que esteja sincronizado com o Active Directory local.
@@ -86,7 +86,7 @@ O gerenciamento de aplicativos de autoatendimento exige alguma configuração in
 3. Selecione **Grupos**.
 4. Em **Configurações**, selecione **Geral**.
 5. Em **Gerenciamento de Grupos de Autoatendimento**, próximo a **Proprietários podem gerenciar solicitações de associação ao grupo no Painel de Acesso**, selecione **Sim**.
-6. Selecione **Salvar**.
+6. Clique em **Salvar**.
 
 ### <a name="create-a-group-to-assign-to-the-app-and-make-the-user-an-owner"></a>Criar um grupo para atribuir ao aplicativo e tornar o usuário um proprietário
 1. Entre no [portal do Azure](https://portal.azure.com) como um administrador do Azure AD ou Administrador Global.
@@ -105,13 +105,13 @@ O gerenciamento de aplicativos de autoatendimento exige alguma configuração in
 2. No painel de navegação, selecione **Azure Active Directory**.
 3. Em **Gerenciar**, selecione **Aplicativos empresariais** > **Todos aplicativos**.
 4. Na lista de aplicativos, localize e abra o aplicativo.
-5. Em **Gerenciar**, selecione **Logon único**, e configure o aplicativo para logon único. (Para detalhes, consulte [como gerenciar logon único para aplicativos empresariais](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-single-sign-on-non-gallery-applications).)
-6. Em **Gerenciar**, selecione **Autoatendimento** e configure o acesso ao aplicativo de autoatendimento. (Para detalhes, consulte [como usar o acesso ao aplicativo de autoatendimento](https://docs.microsoft.com/azure/active-directory/application-access-panel-self-service-applications-how-to).) 
+5. Em **Gerenciar**, selecione **Logon único**, e configure o aplicativo para logon único. (Para detalhes, consulte [como gerenciar logon único para aplicativos empresariais](../manage-apps/add-application-portal-setup-sso.md).)
+6. Em **Gerenciar**, selecione **Autoatendimento** e configure o acesso ao aplicativo de autoatendimento. (Para detalhes, consulte [como usar o acesso ao aplicativo de autoatendimento](../manage-apps/access-panel-manage-self-service-access.md).) 
 
     > [!NOTE]
     > Para a configuração **Para qual grupo os usuários atribuídos devem ser adicionados?**, selecione o grupo criado na seção anterior.
 7. Em **Gerenciar**, selecione **Usuários e Grupos** e verifique se o grupo de autoatendimento que você criou aparece na lista.
-8. Para adicionar o aplicativo ao painel de acesso do proprietário do grupo, selecione **Adicionar**  >  **usuários e grupos**do usuário. Pesquise o proprietário do grupo e selecione o usuário, clique em **Selecionar** e, em seguida, clique em **Atribuir** para adicionar o usuário ao aplicativo.
+8. Para adicionar o aplicativo ao painel de acesso do proprietário do grupo, selecione **Adicionar**  >  **usuários e grupos** do usuário. Pesquise o proprietário do grupo e selecione o usuário, clique em **Selecionar** e, em seguida, clique em **Atribuir** para adicionar o usuário ao aplicativo.
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -120,4 +120,4 @@ Consulte os seguintes artigos na colaboração B2B do Azure AD:
 - [O que é a colaboração B2B do AD do Azure?](what-is-b2b.md)
 - [Como os administradores do Azure Active Directory adicionam usuários de colaboração B2B?](add-users-administrator.md)
 - [Resgate de convite de colaboração B2B](redemption-experience.md)
-- [Licenciamento da colaboração B2B do Azure AD](licensing-guidance.md)
+- [Preço de identidades externas](external-identities-pricing.md)

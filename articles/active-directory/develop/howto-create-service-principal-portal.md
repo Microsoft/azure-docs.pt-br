@@ -12,16 +12,16 @@ ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: c8f9bc283d88121ad4b6144b8ac9463510349212
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 8a4a4153261b93b3b17641e8561962c274570bd0
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88117219"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104205"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Como usar o portal para criar um aplicativo e uma entidade de serviço do Azure AD que possa acessar recursos
 
-Este artigo mostra como criar um novo aplicativo Azure Active Directory (Azure AD) e uma entidade de serviço que pode ser usada com o controle de acesso baseado em função. Quando você tem aplicativos, serviços hospedados ou ferramentas automatizadas que precisam acessar ou modificar recursos, você pode criar uma identidade para o aplicativo. Essa identidade é conhecida como uma entidade de serviço. O acesso aos recursos é restrito pelas funções atribuídas à entidade de serviço, dando a você controle sobre quais recursos podem ser acessados e em qual nível. Por motivos de segurança, é sempre recomendado usar entidades de serviço com ferramentas automatizadas em vez de permitir a entrada com uma identidade de usuário. 
+Este artigo mostra como criar um novo aplicativo Azure Active Directory (Azure AD) e uma entidade de serviço que pode ser usada com o controle de acesso baseado em função. Quando você tem aplicativos, serviços hospedados ou ferramentas automatizadas que precisam acessar ou modificar recursos, você pode criar uma identidade para o aplicativo. Essa identidade é conhecida como uma entidade de serviço. O acesso aos recursos é restrito pelas funções atribuídas à entidade de serviço, dando a você controle sobre quais recursos podem ser acessados e em qual nível. Por motivos de segurança, é sempre recomendado usar entidades de serviço com ferramentas automatizadas em vez de permitir a entrada com uma identidade de usuário.
 
 Este artigo mostra como usar o portal para criar a entidade de serviço no portal do Azure. Ele se concentra em um aplicativo de locatário único que se destina a ser executado dentro de uma única organização. Você normalmente usa os aplicativos com um único locatário para os aplicativos da linha de negócios executados em sua organização.  Você também pode [usar Azure PowerShell para criar uma entidade de serviço](howto-authenticate-service-principal-powershell.md).
 
@@ -45,7 +45,7 @@ Você deve ter permissões suficientes para registrar um aplicativo com seu loca
 1. No painel esquerdo, selecione **configurações de usuário**.
 1. Verifique a configuração **Registros do Aplicativo**. Esse valor só pode ser definido por um administrador. Se for definido como **Sim**, qualquer usuário no locatário do Azure AD poderá registrar um aplicativo.
 
-Se a configuração de registros de aplicativo está definida como **Não**, somente os usuários com uma função de administrador podem registrar esses tipos de aplicativos. Confira as [funções disponíveis](../users-groups-roles/directory-assign-admin-roles.md#available-roles) e as [permissões de função](../users-groups-roles/directory-assign-admin-roles.md#role-permissions) para saber mais sobre as funções de administrador disponíveis e as permissões específicas no Azure AD fornecidas para cada função. Se sua conta for atribuída à função de usuário, mas a configuração de registro do aplicativo for limitada a usuários administradores, peça ao administrador para atribuir a você uma das funções de administrador que podem criar e gerenciar todos os aspectos de registros do aplicativo ou para permitir que os usuários registrem aplicativos.
+Se a configuração de registros de aplicativo está definida como **Não**, somente os usuários com uma função de administrador podem registrar esses tipos de aplicativos. Confira as [funções disponíveis](../roles/permissions-reference.md#available-roles) e as [permissões de função](../roles/permissions-reference.md#role-permissions) para saber mais sobre as funções de administrador disponíveis e as permissões específicas no Azure AD fornecidas para cada função. Se sua conta for atribuída à função de usuário, mas a configuração de registro do aplicativo for limitada a usuários administradores, peça ao administrador para atribuir a você uma das funções de administrador que podem criar e gerenciar todos os aspectos de registros do aplicativo ou para permitir que os usuários registrem aplicativos.
 
 ### <a name="check-azure-subscription-permissions"></a>Verificar permissões de assinatura do Azure
 
@@ -55,7 +55,7 @@ Para verificar suas permissões de assinatura:
 
 1. Pesquise e selecione **assinaturas**, ou selecione **assinaturas** na **Home** Page do.
 
-   ![Pesquisar](./media/howto-create-service-principal-portal/select-subscription.png)
+   ![Search](./media/howto-create-service-principal-portal/select-subscription.png)
 
 1. Selecione a assinatura na qual você deseja criar a entidade de serviço.
 
@@ -75,7 +75,7 @@ Para verificar suas permissões de assinatura:
 
 Vamos diretamente para a criação da identidade. Se você encontrar um problema, verifique as [permissões necessárias](#permissions-required-for-registering-an-app) para garantir que sua conta possa criar a identidade.
 
-1. Entre sua conta do Azure através do [portal do Microsoft Azure](https://portal.azure.com).
+1. Entre sua conta do Azure através do <a href="https://portal.azure.com/" target="_blank">portal do Microsoft Azure</a>.
 1. Selecione **Azure Active Directory**.
 1. Selecione **Registros do Aplicativo**.
 1. Selecione **Novo registro**.
@@ -87,7 +87,7 @@ Você criou o aplicativo e a entidade de serviço do Azure AD.
 
 ## <a name="assign-a-role-to-the-application"></a>Atribuir uma função ao aplicativo
 
-Para acessar recursos em sua assinatura, você deve atribuir uma função ao aplicativo. Decida qual função oferece as permissões corretas para o aplicativo. Para saber mais sobre as funções disponíveis, consulte [RBAC: funções internas](../../role-based-access-control/built-in-roles.md).
+Para acessar recursos em sua assinatura, você deve atribuir uma função ao aplicativo. Decida qual função oferece as permissões corretas para o aplicativo. Para saber mais sobre as funções disponíveis, confira [funções internas do Azure](../../role-based-access-control/built-in-roles.md).
 
 Você pode definir o escopo no nível da assinatura, do grupo de recursos ou do recurso. As permissão são herdadas para níveis inferiores do escopo. Por exemplo, adicionar um aplicativo à função *leitor* para um grupo de recursos significa que ele pode ler o grupo de recursos e todos os recursos que ele contém.
 
@@ -115,7 +115,7 @@ A próxima seção mostra como obter valores necessários ao entrar de modo prog
 
 ## <a name="get-tenant-and-app-id-values-for-signing-in"></a>Obter valores de ID do aplicativo e locatário para entrar
 
-Ao entrar de forma programática, você precisa passar a ID de locatário com sua solicitação de autenticação e a ID do aplicativo.  Você também precisa de um certificado ou de uma chave de autenticação (descrita na seção a seguir). Para obter esses valores, use as seguintes etapas:
+Ao entrar de forma programática, passe a ID de locatário com sua solicitação de autenticação e a ID do aplicativo.  Você também precisa de um certificado ou de uma chave de autenticação (descrita na seção a seguir). Para obter esses valores, use as seguintes etapas:
 
 1. Selecione **Azure Active Directory**.
 1. Em **Registros de aplicativo** no Azure AD, selecione seu aplicativo.
@@ -129,12 +129,13 @@ Ao entrar de forma programática, você precisa passar a ID de locatário com su
 
    ![Copiar a ID (de cliente) do aplicativo](./media/howto-create-service-principal-portal/copy-app-id.png)
 
-## <a name="upload-a-certificate-or-create-a-secret-for-signing-in"></a>Carregar um certificado ou criar um segredo para entrar
-Há dois tipos de autenticação disponíveis para entidades de serviço: autenticação baseada em senha (segredo do aplicativo) e autenticação baseada em certificado.  É recomendável usar um certificado, mas você também pode criar um novo segredo do aplicativo.
+## <a name="authentication-two-options"></a>Autenticação: duas opções
 
-### <a name="upload-a-certificate"></a>Carregar um certificado
+Há dois tipos de autenticação disponíveis para entidades de serviço: autenticação baseada em senha (segredo do aplicativo) e autenticação baseada em certificado. *É recomendável usar um certificado*, mas você também pode criar um segredo do aplicativo.
 
-Você pode usar um certificado existente se tiver um.  Opcionalmente, você pode criar um certificado autoassinado somente para *fins de teste*. Para criar um certificado autoassinado, abra o PowerShell e execute [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) com os seguintes parâmetros para criar o certificado no repositório de certificados do usuário em seu computador: 
+### <a name="option-1-upload-a-certificate"></a>Opção 1: carregar um certificado
+
+Você pode usar um certificado existente se tiver um.  Opcionalmente, você pode criar um certificado autoassinado somente para *fins de teste*. Para criar um certificado autoassinado, abra o PowerShell e execute [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) com os seguintes parâmetros para criar o certificado no repositório de certificados do usuário em seu computador:
 
 ```powershell
 $cert=New-SelfSignedCertificate -Subject "CN=DaemonConsoleCert" -CertStoreLocation "Cert:\CurrentUser\My"  -KeyExportPolicy Exportable -KeySpec Signature
@@ -161,9 +162,9 @@ Para carregar o certificado:
 
 1. Selecione **Adicionar**.
 
-Depois de registrar o certificado com seu aplicativo no portal de registro de aplicativos, você precisa habilitar o código do aplicativo cliente para usar o certificado.
+Depois de registrar o certificado com seu aplicativo no portal de registro de aplicativos, habilite o código do aplicativo cliente para usar o certificado.
 
-### <a name="create-a-new-application-secret"></a>Criar um novo segredo do aplicativo
+### <a name="option-2-create-a-new-application-secret"></a>Opção 2: criar um novo segredo do aplicativo
 
 Se você optar por não usar um certificado, poderá criar um novo segredo do aplicativo.
 
@@ -178,14 +179,15 @@ Se você optar por não usar um certificado, poderá criar um novo segredo do ap
    ![Copiar o valor do segredo porque você não pode recuperá-lo mais tarde](./media/howto-create-service-principal-portal/copy-secret.png)
 
 ## <a name="configure-access-policies-on-resources"></a>Configurar políticas de acesso em recursos
-Tenha em mente que talvez seja necessário configurar permissões adicionais em recursos que seu aplicativo precisa acessar. Por exemplo, você também deve [atualizar as políticas de acesso de um cofre de chaves](../../key-vault/general/secure-your-key-vault.md#data-plane-and-access-policies) para dar ao aplicativo acesso a chaves, segredos ou certificados.  
+Tenha em mente que talvez seja necessário configurar permissões adicionais em recursos que seu aplicativo precisa acessar. Por exemplo, você também deve [atualizar as políticas de acesso de um cofre de chaves](../../key-vault/general/secure-your-key-vault.md#data-plane-and-access-policies) para dar ao aplicativo acesso a chaves, segredos ou certificados.
 
-1. No [portal do Azure](https://portal.azure.com), navegue até o cofre de chaves e selecione **políticas de acesso**.  
-1. Selecione **Adicionar política de acesso**e, em seguida, selecione as permissões de chave, segredo e certificado que você deseja conceder ao seu aplicativo.  Selecione a entidade de serviço que você criou anteriormente.
+1. No <a href="https://portal.azure.com/" target="_blank">portal do Azure</a>, navegue até o cofre de chaves e selecione **políticas de acesso**.
+1. Selecione **Adicionar política de acesso** e, em seguida, selecione as permissões de chave, segredo e certificado que você deseja conceder ao seu aplicativo.  Selecione a entidade de serviço que você criou anteriormente.
 1. Selecione **Adicionar** para adicionar a política de acesso e, em seguida, **salvar** para confirmar suas alterações.
     ![Adicionar política de acesso](./media/howto-create-service-principal-portal/add-access-policy.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba como [usar Azure PowerShell para criar uma entidade de serviço](howto-authenticate-service-principal-powershell.md).
-* Para saber mais sobre como especificar políticas de segurança, consulte [controle de acesso baseado em função do Azure (RBAC do Azure)](../../role-based-access-control/role-assignments-portal.md).  
+* Para saber mais sobre como especificar políticas de segurança, consulte [controle de acesso baseado em função do Azure (RBAC do Azure)](../../role-based-access-control/role-assignments-portal.md).
 * Para obter uma lista de ações disponíveis que podem ser concedidas ou negadas a usuários, consulte [Operações do Provedor de Recursos do Azure Resource Manager](../../role-based-access-control/resource-provider-operations.md).
+* Para obter informações sobre como trabalhar com registros de aplicativo usando **Microsoft Graph**, consulte a referência de API de [aplicativos](/graph/api/resources/application) .

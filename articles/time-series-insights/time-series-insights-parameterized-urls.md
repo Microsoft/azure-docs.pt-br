@@ -8,14 +8,14 @@ ms.author: dpalled
 manager: diviso
 ms.topic: conceptual
 ms.workload: big-data
-ms.date: 07/07/2020
+ms.date: 10/02/2020
 ms.custom: seodec18
-ms.openlocfilehash: 2673bb70582640cda97160eb31f16f7c7f1d60e6
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 9bf857a66643b1e95ea2559601761a7217babad4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421174"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91665320"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Compartilhar uma exibição personalizada usando uma URL parametrizada
 
@@ -24,6 +24,7 @@ Para compartilhar uma exibição personalizada no Azure Time Series Insights Exp
 O Azure Time Series Insights Explorer dá suporte a parâmetros de consulta de URL para especificar exibições na experiência diretamente da URL. Por exemplo, usando apenas a URL, você pode especificar um ambiente de destino, um predicado de pesquisa e um período de tempo desejado. Quando um usuário seleciona a URL personalizada, a interface fornece um link diretamente para esse ativo no portal de Azure Time Series Insights. Aplicam-se políticas de acesso a dados.
 
 > [!TIP]
+>
 > * Veja a [demonstração de Azure Time Series insights](https://insights.timeseries.azure.com/samples)gratuita.
 > * Leia a documentação do [Azure Time Series insights Explorer](./time-series-insights-explorer.md) que acompanha.
 
@@ -55,14 +56,14 @@ Por exemplo, `&relativeMillis=3600000` exibe os 60 minutos mais recentes dos dad
 
 Os valores aceitos correspondem ao menu de **tempo rápido** do Azure Time Series insights Explorer e incluem:
 
-* `1800000`(Últimos 30 minutos)
-* `3600000`(Último 60 min)
-* `10800000`(Últimas 3 horas)
-* `21600000`(Últimas 6 horas)
-* `43200000`(Últimas 12 horas)
-* `86400000`(Últimas 24 horas)
-* `604800000`(Últimos 7 dias)
-* `2592000000`(Últimas 30 horas)
+* `1800000` (Últimos 30 minutos)
+* `3600000` (Último 60 min)
+* `10800000` (Últimas 3 horas)
+* `21600000` (Últimas 6 horas)
+* `43200000` (Últimas 12 horas)
+* `86400000` (Últimas 24 horas)
+* `604800000` (Últimos 7 dias)
+* `2592000000` (Últimas 30 horas)
 
 ### <a name="optional-parameters"></a>Parâmetros opcionais
 
@@ -87,7 +88,7 @@ O `timeSeriesDefinitions=<collection of term objects>` parâmetro especifica os 
 
 | Par (es) | Descrição |
 | --- | --- |
-| `multiChartStack=false` | `true`é habilitado por padrão, portanto passe `false` para Stack. |
+| `multiChartStack=false` | `true` é habilitado por padrão, portanto passe `false` para Stack. |
 | `multiChartStack=false&multiChartSameScale=true` | O empilhamento deve estar habilitado para usar a mesma escala de eixo Y entre os termos.  `false`Por padrão, `true` a passagem habilita essa funcionalidade. |
 | `timeBucketUnit=<Unit>&timeBucketSize=<integer>` | Unidades = `days` , `hours` , `minutes` , `seconds` , `milliseconds` .  Sempre colocar em maiuscula a unidade. </br> Defina o número de unidades passando o inteiro desejado para **timeBucketSize**.  |
 | `timezoneOffset=-<integer>` | O inteiro é sempre em milissegundos. |
@@ -123,7 +124,7 @@ https://insights.timeseries.azure.com/classic/samples?environmentId=10000000-000
 > Consulte o Gerenciador ao vivo [usando o exemplo de URL](https://insights.timeseries.azure.com/classic/samples?environmentId=10000000-0000-0000-0000-100000000108&relativeMillis=3600000&timeSeriesDefinitions=[%7B%22name%22:%22F1PressureId%22,%22splitBy%22:%22Id%22,%22measureName%22:%22Pressure%22,%22predicate%22:%22%27Factory1%27%22%7D,%7B%22name%22:%22F2TempStation%22,%22splitBy%22:%22Station%22,%22measureName%22:%22Temperature%22,%22predicate%22:%22%27Factory2%27%22%7D,%7B%22name%22:%22F3VibrationPL%22,%22splitBy%22:%22ProductionLine%22,%22measureName%22:%22Vibration%22,%22predicate%22:%22%27Factory3%27%22%7D]
 ) acima.
 
-A URL acima descreve e exibe a exibição parametrizada do Azure Time Series Insights Explorer. 
+A URL acima descreve e exibe a exibição parametrizada do Azure Time Series Insights Explorer.
 
 * Os predicados com parâmetros.
 

@@ -10,11 +10,11 @@ ms.date: 02/28/2019
 ms.author: mayg
 ms.custom: include file
 ms.openlocfilehash: f699ffe6d5a91e8ce3ae90c7e12249bbad0fff3e
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500412"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001535"
 ---
 1. Execute o arquivo de instalação de Configuração Unificada.
 2. Em **Antes de começar**, selecione **Instalar o servidor de configuração e o servidor em processo**.

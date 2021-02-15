@@ -7,12 +7,12 @@ ms.author: dobett
 ms.date: 06/26/2020
 ms.topic: how-to
 ms.service: iot-central
-ms.openlocfilehash: 12ba8526be68d2cb15e37510e66f959ab65c6e99
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5118fa22a198ee6871a4cfb455e88d345d6a44e0
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85801948"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98760852"
 ---
 # <a name="about-your-application"></a>Sobre o seu aplicativo
 
@@ -40,3 +40,5 @@ Para obter informações sobre seu aplicativo IoT Central:
 ## <a name="next-steps"></a>Próximas etapas
 
 Agora que você sabe como encontrar a versão do seu aplicativo IoT Central, uma próxima etapa sugerida é continuar a explorar os artigos de instruções para administradores: [alterar IOT central configurações do aplicativo](howto-administer.md).
+
+Se você tiver um aplicativo v2, consulte [migrar seu aplicativo de IOT central v2 para v3](howto-migrate.md).

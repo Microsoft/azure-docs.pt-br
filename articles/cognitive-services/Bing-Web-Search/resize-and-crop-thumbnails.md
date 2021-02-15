@@ -11,14 +11,19 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 07/08/2019
 ms.author: aahi
-ms.openlocfilehash: 630b86f55a537d109c851cb585cfccc34d229f83
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a85c5b2333418367742678a529b69c95164eda53
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74110628"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350476"
 ---
 # <a name="resize-and-crop-thumbnail-images"></a>Redimensionar e recortar miniaturas de imagens
+
+> [!WARNING]
+> As APIs de Pesquisa do Bing estão migrando dos Serviços Cognitivos para os Serviços de Pesquisa do Bing. A partir de **30 de outubro de 2020**, todas as novas instâncias da Pesquisa do Bing precisam ser provisionadas seguindo o processo documentado [aqui](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> As APIs de Pesquisa do Bing provisionadas por meio dos Serviços Cognitivos terão suporte nos próximos três anos ou até o final do seu Contrato Enterprise, o que ocorrer primeiro.
+> Para obter instruções sobre a migração, confira [Serviços de Pesquisa do Bing](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Algumas respostas do APIs de Pesquisa do Bing incluem URLs para imagens em miniatura servidas pelo Bing, que você pode redimensionar e cortar e pode conter parâmetros de consulta. Por exemplo:
 
@@ -31,13 +36,13 @@ Se você exibir um subconjunto dessas miniaturas, forneça uma opção para exib
 
 ## <a name="resize-a-thumbnail"></a>Redimensionar uma miniatura 
 
-Para redimensionar uma miniatura, o Bing recomenda que você especifique apenas um `w` dos parâmetros de consulta `h` (largura) ou (altura) na URL da miniatura. Especificar apenas a altura ou a largura permite que o Bing Mantenha o aspecto original da imagem. Especifique a largura e altura em pixels. 
+Para redimensionar uma miniatura, o Bing recomenda que você especifique apenas um dos `w` parâmetros de consulta (largura) ou `h` (altura) na URL da miniatura. Especificar apenas a altura ou a largura permite que o Bing Mantenha o aspecto original da imagem. Especifique a largura e altura em pixels. 
 
 Por exemplo, se a miniatura original for 480x620:
 
 `https://<host>/th?id=JN.5l3yzwy%2f%2fHj59U6XhssIQ&pid=Api&w=480&h=620`
 
-E você quiser diminuir seu tamanho, defina o `w` parâmetro para um novo valor (por exemplo `336`,) e remova o `h` parâmetro:
+E você quiser diminuir seu tamanho, defina o `w` parâmetro para um novo valor (por exemplo `336` ,) e remova o `h`  parâmetro:
 
 `https://<host>/th?id=JN.5l3yzwy%2f%2fHj59U6XhssIQ&pid=Api&w=336`
 
@@ -57,7 +62,7 @@ Se você especificar dimensões que sejam maiores que a largura e a altura origi
 
 ## <a name="request-different-thumbnail-sizes"></a>Solicitar tamanhos de miniatura diferentes
 
-Para solicitar um tamanho de imagem em miniatura diferente, remova todos os parâmetros de consulta da URL da miniatura `id` , `pid` exceto os parâmetros e. Em seguida, adicione `&w` o parâmetro de consulta `&h` (largura) ou (altura) com o tamanho de imagem desejado em pixels, mas não ambos. O Bing manterá a taxa de proporção original da imagem. 
+Para solicitar um tamanho de imagem em miniatura diferente, remova todos os parâmetros de consulta da URL da miniatura, exceto os `id` `pid` parâmetros e. Em seguida, adicione o `&w` parâmetro de consulta (largura) ou `&h` (altura) com o tamanho de imagem desejado em pixels, mas não ambos. O Bing manterá a taxa de proporção original da imagem. 
 
 Para aumentar a largura da imagem especificada pela URL acima para 165 pixels, você usaria a seguinte URL:
 
@@ -65,22 +70,22 @@ Para aumentar a largura da imagem especificada pela URL acima para 165 pixels, v
 
 Se você solicitar uma imagem maior do que o tamanho original da imagem, o Bing adicionará o preenchimento branco em volta da imagem, conforme necessário. Por exemplo, se o tamanho original da imagem for 474x316 e você definir `&w` como 500, Bing retornará uma imagem 500x333. Essa imagem terá 8,5 pixels de preenchimento branco ao longo das bordas superior e inferior, e 13 pixels de preenchimento nas bordas esquerda e direita.
 
-Para impedir que o Bing adicione um preenchimento branco se o tamanho solicitado for maior que o tamanho original da imagem, `&p` defina o parâmetro de consulta como 0. Por exemplo, se você incluir o `&p=0` parâmetro na URL acima, o Bing retornará uma imagem 474x316 em vez de uma imagem 500x333:
+Para impedir que o Bing adicione um preenchimento branco se o tamanho solicitado for maior que o tamanho original da imagem, defina o `&p` parâmetro de consulta como 0. Por exemplo, se você incluir o `&p=0` parâmetro na URL acima, o Bing retornará uma imagem 474x316 em vez de uma imagem 500x333:
 
 `https://<host>/th?id=AMMS_92772df988...&w=500&p=0&pid=16.1`
 
-Se você especificar ambos `&w` os `&h` parâmetros de consulta e, o Bing manterá a taxa de proporção da imagem e adicionará o preenchimento branco conforme necessário. Por exemplo, se o tamanho original da imagem for 474x316 e você definir os parâmetros Width e Height como 200 x 200 (`&w=200&h=200`), o Bing retornará uma imagem que contenha 33 pixels de preenchimento branco na parte superior e inferior. Se você incluir o `&p` parâmetro de consulta, o Bing retornará uma imagem 200x134.
+Se você especificar ambos `&w` os `&h` parâmetros de consulta e, o Bing manterá a taxa de proporção da imagem e adicionará o preenchimento branco conforme necessário. Por exemplo, se o tamanho original da imagem for 474x316 e você definir os parâmetros Width e Height como 200 x 200 ( `&w=200&h=200` ), o Bing retornará uma imagem que contenha 33 pixels de preenchimento branco na parte superior e inferior. Se você incluir o `&p` parâmetro de consulta, o Bing retornará uma imagem 200x134.
 
 ## <a name="crop-a-thumbnail"></a>Cortar uma miniatura 
 
 Para cortar uma imagem, inclua o `c` parâmetro de consulta (cortar). Você pode usar os seguintes valores:
   
-- `4`&mdash; Proporção de cego  
-- `7`&mdash; Taxa inteligente  
+- `4`&mdash;Proporção de cego  
+- `7`&mdash;Taxa inteligente  
 
 ### <a name="smart-ratio-cropping"></a>Corte de taxa inteligente
 
-Se você solicitar um corte de taxa inteligente (definindo `c` o parâmetro `7`como), o Bing cortará uma imagem do centro de sua região de interesse para fora, mantendo a taxa de proporção da imagem. A região de interesse é a área da imagem que o Bing determina que contém a maioria das partes de importação. A seguir é mostrado um exemplo de região de interesse.  
+Se você solicitar um corte de taxa inteligente (definindo o `c` parâmetro como `7` ), o Bing cortará uma imagem do centro de sua região de interesse para fora, mantendo a taxa de proporção da imagem. A região de interesse é a área da imagem que o Bing determina que contém a maioria das partes de importação. A seguir é mostrado um exemplo de região de interesse.  
   
 ![Região de interesse](./media/resize-crop/bing-resize-crop-regionofinterest.png)
 
@@ -103,10 +108,10 @@ Se o Bing não puder determinar a região de interesse da imagem, o serviço usa
 
 ### <a name="blind-ratio-cropping"></a>Corte de proporção de branco
 
-Se você solicitar um corte de taxa oculta (definindo `c` o parâmetro `4`como), o Bing usará as regras a seguir para cortar a imagem.  
+Se você solicitar um corte de taxa oculta (definindo o `c` parâmetro como `4` ), o Bing usará as regras a seguir para cortar a imagem.  
   
-- Se `(Original Image Width / Original Image Height) < (Requested Image Width / Requested Image Height)`, a imagem é medida do canto superior esquerdo e cortada na parte inferior.  
-- Se `(Original Image Width / Original Image Height) > (Requested Image Width / Requested Image Height)`, a imagem é medida do centro e cortada para a esquerda e para a direita.  
+- Se `(Original Image Width / Original Image Height) < (Requested Image Width / Requested Image Height)` , a imagem é medida do canto superior esquerdo e cortada na parte inferior.  
+- Se `(Original Image Width / Original Image Height) > (Requested Image Width / Requested Image Height)` , a imagem é medida do centro e cortada para a esquerda e para a direita.  
 
 A seguir é exibida uma imagem retrato 225 x 300.  
   

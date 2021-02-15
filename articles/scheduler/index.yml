@@ -10,12 +10,12 @@ metadata:
   author: derek1ee
   ms.author: estfan
   ms.date: 03/30/2020
-  ms.openlocfilehash: 04be683d3bd3d874efb44685b0d40b8c2d5a9698
-  ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+  ms.openlocfilehash: 2595c05fe21d407ca75eea09867dd79ee20f0508
+  ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 03/31/2020
-  ms.locfileid: "80422971"
+  ms.lasthandoff: 10/22/2020
+  ms.locfileid: "92368189"
 landingContent:
 - title: Migrar
   linkLists:
@@ -32,6 +32,6 @@ landingContent:
   - linkListType: reference
     links:
     - text: API REST
-      url: https://docs.microsoft.com/rest/api/scheduler/
+      url: /rest/api/scheduler/
     - text: PowerShell
       url: scheduler-powershell-reference.md

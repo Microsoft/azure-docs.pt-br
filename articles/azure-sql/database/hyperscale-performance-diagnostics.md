@@ -10,12 +10,12 @@ author: denzilribeiro
 ms.author: denzilr
 ms.reviewer: sstein
 ms.date: 10/18/2019
-ms.openlocfilehash: 7bd2b404627e21a80fc41a4561300d7252d1519c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ed31ff5d77b258d141a77fc174c2d5452adf7d01
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84324378"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791708"
 ---
 # <a name="sql-hyperscale-performance-troubleshooting-diagnostics"></a>Diagnóstico de solução de problemas de desempenho de hiperescala do SQL
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -26,7 +26,7 @@ Para solucionar problemas de desempenho em um banco de dados de hiperescala, as 
 
 Cada nível de serviço do banco de dados SQL do Azure tem limites de taxa de geração de log impostos por meio da [governança de taxa de log](resource-limits-logical-server.md#transaction-log-rate-governance). Em hiperescala, o limite de geração de log está definido atualmente como 100 MB/s, independentemente do nível de serviço. No entanto, há ocasiões em que a taxa de geração de log na réplica de computação primária deve ser limitada para manter os SLAs de recuperação. Essa limitação ocorre quando um [servidor de página ou outra réplica de computação](service-tier-hyperscale.md#distributed-functions-architecture) é significativamente por trás da aplicação de novos registros de log do serviço de log.
 
-Os seguintes tipos de espera (em [Sys. dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql/)) descrevem os motivos pelos quais a taxa de log pode ser limitada na réplica de computação primária:
+Os seguintes tipos de espera (em [Sys.dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql/)) descrevem os motivos pelos quais a taxa de log pode ser limitada na réplica de computação primária:
 
 |Tipo de Espera    |Descrição                         |
 |-------------          |------------------------------------|
@@ -67,11 +67,11 @@ Várias DMVs (exibições gerenciadas dinâmicas) e eventos estendidos têm colu
 
 ## <a name="virtual-file-stats-and-io-accounting"></a>Estatísticas de arquivo virtual e estatísticas de e/s
 
-No banco de dados SQL do Azure, a Dmf [Sys. dm_io_virtual_file_stats ()](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql/) é a principal maneira de monitorar a e/s do banco de dados SQL. As características de e/s em hiperescala são diferentes devido à sua [arquitetura distribuída](service-tier-hyperscale.md#distributed-functions-architecture). Nesta seção, nos concentramos na e/s (leituras e gravações) nos arquivos de dados, como visto nessa DMF. Em hiperescala, cada arquivo de dados visível nessa DMF corresponde a um servidor de página remoto. O cache RBPEX mencionado aqui é um cache local baseado em SSD, que é um cache sem cobertura na réplica de computação.
+No banco de dados SQL do Azure, a Dmf de [Sys.dm_io_virtual_file_stats ()](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql/) é a principal maneira de monitorar a e/s do banco de dados SQL. As características de e/s em hiperescala são diferentes devido à sua [arquitetura distribuída](service-tier-hyperscale.md#distributed-functions-architecture). Nesta seção, nos concentramos na e/s (leituras e gravações) nos arquivos de dados, como visto nessa DMF. Em hiperescala, cada arquivo de dados visível nessa DMF corresponde a um servidor de página remoto. O cache RBPEX mencionado aqui é um cache local baseado em SSD, que é um cache sem cobertura na réplica de computação.
 
 ### <a name="local-rbpex-cache-usage"></a>Uso do cache RBPEX local
 
-O cache RBPEX local existe na réplica de computação, no armazenamento SSD local. Portanto, a e/s nesse cache é mais rápida do que a e/s em servidores de página remota. Atualmente, [Sys. dm_io_virtual_file_stats ()](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql/) em um banco de dados de hiperescala tem uma linha especial relatando a e/s em relação ao cache RBPEX local na réplica de computação. Essa linha tem o valor de 0 para ambas `database_id` as `file_id` colunas e. Por exemplo, a consulta abaixo retorna estatísticas de uso de RBPEX desde a inicialização do banco de dados.
+O cache RBPEX local existe na réplica de computação, no armazenamento SSD local. Portanto, a e/s nesse cache é mais rápida do que a e/s em servidores de página remota. Atualmente, [Sys.dm_io_virtual_file_stats ()](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql/) em um banco de dados de hiperescala tem uma linha especial relatando a e/s em relação ao cache RBPEX local na réplica de computação. Essa linha tem o valor de 0 para ambas `database_id` as `file_id` colunas e. Por exemplo, a consulta abaixo retorna estatísticas de uso de RBPEX desde a inicialização do banco de dados.
 
 `select * from sys.dm_io_virtual_file_stats(0,NULL);`
 
@@ -92,16 +92,16 @@ Uma taxa de leituras feitas em RBPEX para leituras agregadas feitas em todos os 
 
 ### <a name="log-writes"></a>Gravações de log
 
-- Na computação primária, uma gravação de log é contabilizada no file_id 2 de sys. dm_io_virtual_file_stats. Uma gravação de log na computação principal é uma gravação na zona de aterrissagem de log.
+- Na computação primária, uma gravação de log é contabilizada no file_id 2 de sys.dm_io_virtual_file_stats. Uma gravação de log na computação principal é uma gravação na zona de aterrissagem de log.
 - Os registros de log não são protegidos na réplica secundária em uma confirmação. Em hiperescala, o log é aplicado pelo serviço de log para as réplicas secundárias de forma assíncrona. Como as gravações de log não ocorrem na verdade em réplicas secundárias, todas as estatísticas de log IOs nas réplicas secundárias são apenas para fins de acompanhamento.
 
 ## <a name="data-io-in-resource-utilization-statistics"></a>E/s de dados nas estatísticas de utilização de recursos
 
-Em um banco de dados que não é de hiperescala, os IOPS de leitura e gravação combinados em relação aos arquivos de data, em relação ao limite de IOPS de dados de [governança de recursos](/azure/sql-database/sql-database-resource-limits-database-server#resource-governance) , são relatados nas exibições [Sys. dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) e [Sys. resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) , na `avg_data_io_percent` coluna. O mesmo valor é relatado no portal do Azure como _porcentagem de e/s de dados_.
+Em um banco de dados que não é de hiperescala, os IOPS de leitura e gravação combinados em relação aos arquivos de dado, em relação ao limite de IOPS de dados de [governança de recursos](./resource-limits-logical-server.md#resource-governance) , são relatados nas exibições [Sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) e [Sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) na `avg_data_io_percent` coluna. O mesmo valor é relatado no portal do Azure como _porcentagem de e/s de dados_ .
 
 Em um banco de dados de hiperescala, essa coluna relata a utilização de IOPS de dados em relação ao limite do armazenamento local somente na réplica de computação, especificamente a e/s em relação a RBPEX e `tempdb` . Um valor de 100% nessa coluna indica que a governança de recursos está limitando o IOPS de armazenamento local. Se isso estiver correlacionado a um problema de desempenho, ajuste a carga de trabalho para gerar menos e/s ou aumente o objetivo do serviço de banco de dados para aumentar o [limite](resource-limits-vcore-single-databases.md) _máximo de IOPS de data_ de governança de recursos. Para a governança de recursos de leituras e gravações de RBPEX, o sistema conta o IOs de 8 KB individual, em vez de um IOs maior que pode ser emitido pelo mecanismo de banco de dados SQL Server.
 
-A e/s de dados em servidores de página remota não é relatada nas exibições de utilização de recursos ou no portal, mas é relatada na Dmf [Sys. dm_io_virtual_file_stats ()](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql/) , conforme observado anteriormente.
+A e/s de dados em servidores de página remota não é relatada nas exibições de utilização de recursos ou no portal, mas é relatada na Dmf [Sys.dm_io_virtual_file_stats ()](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql/) , conforme observado anteriormente.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

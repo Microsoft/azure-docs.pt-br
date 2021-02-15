@@ -1,18 +1,16 @@
 ---
 title: Gerenciar o Azure Data Lake Analytics usando o portal do Azure
 description: Este artigo descreve como usar o portal do Azure para gerenciar contas, fontes de dados, usuários e trabalhos do Data Lake Analytics.
-services: data-lake-analytics
 ms.service: data-lake-analytics
 ms.reviewer: jasonh
-ms.assetid: a0e045f1-73d6-427f-868d-7b55c10f811b
 ms.topic: how-to
 ms.date: 12/05/2016
-ms.openlocfilehash: cbce903bc7463cd917d48e341614afbe18536262
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: c1057478d9ae7d63bef9477a0b1297fa2c507ffa
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87531201"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92218418"
 ---
 # <a name="manage-azure-data-lake-analytics-using-the-azure-portal"></a>Gerenciar o Azure Data Lake Analytics usando o portal do Azure
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -49,7 +47,7 @@ Antes de excluir uma conta do Data Lake Analytics, exclua sua conta padrão do D
 <!-- ################################ -->
 <!-- ################################ -->
 
-## <a name="manage-data-sources"></a>Gerenciar fontes de dados
+## <a name="manage-data-sources"></a>Gerenciar as fontes de dados
 
 O Data Lake Analytics dá suporte às seguintes fontes de dados:
 
@@ -91,9 +89,9 @@ Você pode usar o **Assistente para Adicionar Usuário** para provisionar facilm
 7. Examine todas as alterações selecionadas e, em seguida, clique em **Executar**.
 8. Quando o assistente for concluído, clique em **Concluído**.
 
-## <a name="manage-role-based-access-control"></a>Gerenciar o controle de acesso baseado em função
+## <a name="manage-azure-role-based-access-control"></a>Gerenciar o controle de acesso baseado em função do Azure
 
-Como outros serviços do Azure, você pode usar o RBAC (controle de acesso baseado em função) para controlar como os usuários interagem com o serviço.
+Assim como outros serviços do Azure, você pode usar o Azure RBAC (controle de acesso baseado em função) para controlar como os usuários interagem com o serviço.
 
 As funções padrão do Azure têm os seguintes recursos:
 * **Proprietário**: pode enviar, monitorar e cancelar trabalhos de qualquer usuário e configurar a conta.

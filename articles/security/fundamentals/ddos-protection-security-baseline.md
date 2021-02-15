@@ -6,13 +6,13 @@ ms.service: security
 ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
-ms.openlocfilehash: daff4d1e43f5cc27e52e8bf26f48f30147800ae8
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: b4b2a3bf8c9a3a2e2ec7f1b22785a037f8dedc60
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87839845"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98873953"
 ---
 # <a name="azure-security-baseline-for-azure-ddos-protection-standard"></a>Linha de base de segurança do Azure para a proteção contra DDoS do Azure Standard
 
@@ -20,13 +20,13 @@ Essa linha de base de segurança aplica diretrizes do [benchmark de segurança d
 
 ## <a name="logging-and-monitoring"></a>Log e monitoramento
 
-*Para saber mais, confira [Controle de segurança: Registro em log e monitoramento](/azure/security/benchmarks/security-control-logging-monitoring).*
+*Para saber mais, confira [Controle de segurança: Registro em log e monitoramento](../benchmarks/security-control-logging-monitoring.md).*
 
 ### <a name="22-configure-central-security-log-management"></a>2.2: configurar o gerenciamento central de log de segurança
 
 **Diretrizes**: Habilite as configurações de diagnóstico do Log de Atividades do Azure e envie os logs para um workspace do Log Analytics, um hub de eventos do Azure ou uma conta de armazenamento do Azure para arquivar. Os logs de atividade fornecem informações sobre as operações que foram executadas nos planos de proteção contra DDoS do Azure no nível do plano de controle. Usando os dados do log de atividades do Azure, você pode determinar "o que, quem e quando" para qualquer operação de gravação (PUT, POST, excluir) executada no nível do plano de controle para suas instâncias de proteção contra DDoS do Azure.
 
-- [Como habilitar as configurações de diagnóstico para o Log de Atividades do Azure](/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [Como habilitar as configurações de diagnóstico para o Log de Atividades do Azure](../../azure-monitor/platform/activity-log.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -38,9 +38,9 @@ Essa linha de base de segurança aplica diretrizes do [benchmark de segurança d
 
 Habilite as configurações de diagnóstico do log de atividades do Azure e envie os logs para um Log Analytics espaço de trabalho, Hub de eventos do Azure ou conta de armazenamento do Azure para arquivamento. Os logs de atividade fornecem informações sobre as operações que foram realizadas no cache do Azure para instâncias Redis no nível do plano de controle. Usando os dados do log de atividades do Azure, você pode determinar "o que, quem e quando" para qualquer operação de gravação (PUT, POST, excluir) executada no nível do plano de controle para suas instâncias de proteção contra DDoS do Azure.
 
-- [Como configurar alertas para métricas de proteção contra DDoS](../../virtual-network/manage-ddos-protection.md#configure-alerts-for-ddos-protection-metrics)
+- [Exibir e configurar o log de diagnóstico de DDoS](../../ddos-protection/diagnostic-logging.md)
 
-- [Como habilitar as configurações de diagnóstico para o Log de Atividades do Azure](/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [Como habilitar as configurações de diagnóstico para o Log de Atividades do Azure](../../azure-monitor/platform/activity-log.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -60,11 +60,11 @@ Habilite as configurações de diagnóstico do log de atividades do Azure e envi
 
 **Diretrizes**: habilitar as configurações de diagnóstico do log de atividades do Azure e enviar os logs para um espaço de trabalho log Analytics. Execute consultas em Log Analytics para pesquisar termos, identificar tendências, analisar padrões e fornecer muitas outras informações com base nos dados do log de atividades que podem ter sido coletados para cofres dos serviços de recuperação.
 
-- [Informações sobre como acessar telemetria, logs e análise de ataque para o serviço Standard de proteção contra DDoS](../../virtual-network/manage-ddos-protection.md#configure-alerts-for-ddos-protection-metrics)
+- [Informações sobre como acessar telemetria, logs e análise de ataque para o serviço Standard de proteção contra DDoS](../../ddos-protection/telemetry.md)
 
-- [Como habilitar as configurações de diagnóstico para o log de atividades do Azure](/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [Como habilitar as configurações de diagnóstico para o log de atividades do Azure](../../azure-monitor/platform/activity-log.md)
 
-- [Como coletar e analisar os logs de atividades do Azure no espaço de trabalho Log Analytics no Azure Monitor](/azure/azure-monitor/platform/activity-log-collect)
+- [Como coletar e analisar os logs de atividades do Azure no espaço de trabalho Log Analytics no Azure Monitor](../../azure-monitor/platform/activity-log.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -76,7 +76,7 @@ Habilite as configurações de diagnóstico do log de atividades do Azure e envi
 
 Integre um espaço de trabalho Log Analytics ao Azure Sentinel, pois ele fornece uma solução de disparar (resposta automatizada de orquestração de segurança). Assim os guias estratégicos (soluções automatizadas) podem ser criados e usados para corrigir problemas de segurança. Além disso, você pode criar alertas de log personalizados em seu espaço de trabalho do Log Analytics usando Azure Monitor.
 
-- [Como configurar alertas para métricas de DDoS](https://azure.microsoft.com/blog/holiday-season-is-ddos-season/)
+- [Como configurar alertas para métricas de DDoS](../../ddos-protection/alerts.md)
 
 - [Como integrar o Azure Sentinel](../../sentinel/quickstart-onboard.md)
 
@@ -88,7 +88,7 @@ Integre um espaço de trabalho Log Analytics ao Azure Sentinel, pois ele fornece
 
 ## <a name="identity-and-access-control"></a>Identidade e controle de acesso
 
-*Para saber mais, confira [Controle de segurança: Identidade e controle de acesso](/azure/security/benchmarks/security-control-identity-access-control).*
+*Para saber mais, confira [Controle de segurança: Identidade e controle de acesso](../benchmarks/security-control-identity-access-control.md).*
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: Manter um inventário de contas administrativas
 
@@ -96,11 +96,11 @@ Integre um espaço de trabalho Log Analytics ao Azure Sentinel, pois ele fornece
 
 Além disso, Azure Active Directory (AD) tem funções internas que devem ser explicitamente atribuídas e que podem ser consultadas. Use o módulo do PowerShell do Azure AD para executar consultas ad hoc para descobrir contas que são membros de grupos administrativos.
 
-- [Entender as permissões na proteção contra DDoS do Azure](../../virtual-network/manage-ddos-protection.md#permissions)
+- [Entender as permissões na proteção contra DDoS do Azure](../../ddos-protection/manage-permissions.md)
 
-- [Como obter uma função de diretório no Azure AD com o PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+- [Como obter uma função de diretório no Azure AD com o PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
-- [Como obter membros de uma função de diretório no Azure AD com o PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [Como obter membros de uma função de diretório no Azure AD com o PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -142,7 +142,7 @@ Além disso, para ajudá-lo a controlar as contas administrativas dedicadas, voc
 
 - [Como registrar seu aplicativo cliente (entidade de serviço) com o Azure AD](/rest/api/azure/#register-your-client-application-with-azure-ad)
 
-- [Informações da API de proteção contra DDos do Azure](/rest/api/virtual-network/)
+- [Informações da API de proteção contra DDoS do Azure](/rest/api/virtual-network/)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -162,11 +162,11 @@ Além disso, para ajudá-lo a controlar as contas administrativas dedicadas, voc
 
 ### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3.6: usar computadores dedicados (estações de trabalho com acesso privilegiado) para todas as tarefas administrativas 
 
-**Diretrizes**: Use uma estação de trabalho segura e gerenciada pelo Azure com a autenticação multifator do Azure (MFA) habilitada para fazer logon e configurar suas solicitações de sistema de proteção de dados do cliente do Azure.
+**Diretrizes**: Use uma estação de trabalho segura e gerenciada pelo Azure com a autenticação multifator (MFA) do Azure ad habilitada para fazer logon e configurar suas solicitações de sistema de proteção de dados do cliente do Azure.
 
-- [Implantar uma estação de trabalho segura e gerenciada pelo Azure](../../active-directory/devices/howto-azure-managed-workstation.md)
+- [Implantar uma estação de trabalho segura e gerenciada pelo Azure](/security/compass/privileged-access-deployment)
 
-- [Planejar uma implantação da Autenticação Multifator do Azure baseada em nuvem](../../active-directory/authentication/howto-mfa-getstarted.md)
+- [Planejar uma implantação da Autenticação Multifator do Azure AD baseada em nuvem](../../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -180,7 +180,7 @@ Além disso, use a detecção de riscos do Azure AD para exibir alertas e relat�
 
 - [Como implantar Privileged Identity Management](../../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
-- [Entender a detecção de riscos do Azure AD](/azure/active-directory/reports-monitoring/concept-risk-events)
+- [Entender a detecção de riscos do Azure AD](../../active-directory/identity-protection/overview-identity-protection.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -210,7 +210,7 @@ Além disso, use a detecção de riscos do Azure AD para exibir alertas e relat�
 
 **Diretrizes**: o Azure Active Directory (Azure AD) fornece logs para ajudá-lo a descobrir contas obsoletas. Além disso, use as revisões de acesso do Azure AD para gerenciar com eficiência as associações de grupo, o acesso aos aplicativos empresariais e as atribuições de função. O acesso do usuário deve ser revisado regularmente para garantir que apenas os usuários certos tenham acesso contínuo.
 
-- [Entender os relatórios do Azure AD](/azure/active-directory/reports-monitoring/)
+- [Entender os relatórios do Azure AD](../../active-directory/reports-monitoring/index.yml)
 
 - [Como usar as revisões de acesso do Azure AD](../../active-directory/governance/access-reviews-overview.md)
 
@@ -226,7 +226,7 @@ Você tem acesso à atividade de entrada do Azure AD, às fontes de log de event
 
 Você pode simplificar esse processo criando configurações de diagnóstico para contas de usuário do Azure AD e enviando logs de auditoria e logs de entrada para um espaço de trabalho Log Analytics. Você pode configurar os alertas de log desejados no Log Analytics.
 
-- [Como integrar os logs de atividades do Azure ao Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Como integrar os logs de atividades do Azure ao Azure Monitor](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 - [Como integrar o Azure Sentinel](../../sentinel/quickstart-onboard.md)
 
@@ -238,7 +238,7 @@ Você pode simplificar esse processo criando configurações de diagnóstico par
 
 **Diretrizes**: para o desvio do comportamento de entrada da conta no plano de controle (por exemplo, portal do Azure), use Azure ad Identity Protection e recursos de detecção de risco para configurar respostas automatizadas para detectar ações suspeitas relacionadas a identidades de usuário. Você também pode ingerir dados no Azure Sentinel para uma investigação mais aprofundada.
 
-- [Como exibir o logon arriscado do Azure AD](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [Como exibir o logon arriscado do Azure AD](../../active-directory/identity-protection/overview-identity-protection.md)
 
 - [Como configurar e habilitar políticas de risco de proteção de identidade](../../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
@@ -250,23 +250,23 @@ Você pode simplificar esse processo criando configurações de diagnóstico par
 
 ## <a name="data-protection"></a>Proteção de dados
 
-*Para saber mais, confira [Controle de segurança: Proteção de dados](/azure/security/benchmarks/security-control-data-protection).*
+*Para saber mais, confira [Controle de segurança: Proteção de dados](../benchmarks/security-control-data-protection.md).*
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1: Manter um inventário de informações confidenciais
 
 **Diretriz**: Use marcas para ajudar a controlar os recursos do Azure que armazenam ou processam informações confidenciais.
 
-- [Como criar e usar marcas](/azure/azure-resource-manager/resource-group-using-tags)
+- [Como criar e usar marcas](../../azure-resource-manager/management/tag-resources.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: usar o controle de acesso baseado em função para controlar o acesso aos recursos
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Usar o RBAC do Azure para controlar o acesso a recursos
 
 **Orientação**: para trabalhar com planos de proteção contra DDoS do Azure, sua conta deve ser atribuída à função de colaborador de rede ou a uma função personalizada que é atribuída a ações específicas.
 
-- [Gerenciar o controle de acesso baseado em função na proteção contra DDoS do Azure](../../virtual-network/manage-ddos-protection.md)
+- [Gerenciar o controle de acesso baseado em função do Azure (RBAC do Azure) na proteção contra DDoS do Azure](../../ddos-protection/manage-ddos-protection.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -284,7 +284,7 @@ Você pode simplificar esse processo criando configurações de diagnóstico par
 
 ## <a name="inventory-and-asset-management"></a>Inventário e gerenciamento de ativos
 
-*Para saber mais, confira [Controle de segurança: Inventário e gerenciamento de ativos](/azure/security/benchmarks/security-control-inventory-asset-management).*
+*Para saber mais, confira [Controle de segurança: Inventário e gerenciamento de ativos](../benchmarks/security-control-inventory-asset-management.md).*
 
 ### <a name="61-use-automated-asset-discovery-solution"></a>6,1: usar solução de descoberta de ativos automatizada
 
@@ -294,7 +294,7 @@ Embora os recursos clássicos do Azure possam ser descobertos por meio do grafo 
 
 - [Como criar consultas com o Azure Resource Graph](../../governance/resource-graph/first-query-portal.md)
 
-- [Como exibir suas assinaturas do Azure](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+- [Como exibir suas assinaturas do Azure](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -304,7 +304,7 @@ Embora os recursos clássicos do Azure possam ser descobertos por meio do grafo 
 
 **Diretrizes**: aplique marcas aos recursos do Azure, fornecendo metadados para organizá-los logicamente de acordo com uma taxonomia.
 
-- [Como criar e usar marcas](/azure/azure-resource-manager/resource-group-using-tags)
+- [Como criar e usar marcas](../../azure-resource-manager/management/tag-resources.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -320,11 +320,11 @@ Além disso, use Azure Policy para colocar restrições no tipo de recursos que 
 
 - Tipos de recursos permitidos
 
-- [Como criar assinaturas adicionais do Azure](/azure/billing/billing-create-subscription)
+- [Como criar assinaturas adicionais do Azure](../../cost-management-billing/manage/create-subscription.md)
 
-- [Como criar grupos de gerenciamento](../../governance/management-groups/create.md)
+- [Como criar grupos de gerenciamento](../../governance/management-groups/create-management-group-portal.md)
 
-- [Como criar e usar marcas](/azure/azure-resource-manager/resource-group-using-tags)
+- [Como criar e usar marcas](../../azure-resource-manager/management/tag-resources.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -342,7 +342,7 @@ Além disso, use Azure Policy para colocar restrições no tipo de recursos que 
 
 **Diretrizes**: Use Azure Policy para colocar restrições no tipo de recursos que podem ser criados em suas assinaturas.
 
-Use o grafo de recursos do Azure para consultar e descobrir recursos em suas assinaturas.  Verifique se todos os recursos do Azure presentes no ambiente foram aprovados.
+Use o Azure Resource Graph para consultar e descobrir recursos dentro das assinaturas deles.  Verifique se todos os recursos do Azure presentes no ambiente foram aprovados.
 
 - [Como configurar e gerenciar o Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
@@ -362,7 +362,7 @@ Use o grafo de recursos do Azure para consultar e descobrir recursos em suas ass
 
 - [Como configurar e gerenciar o Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
-- [Como negar um tipo de recurso específico com o Azure Policy](/azure/governance/policy/samples/not-allowed-resource-types)
+- [Como negar um tipo de recurso específico com o Azure Policy](../../governance/policy/samples/index.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -380,13 +380,13 @@ Use o grafo de recursos do Azure para consultar e descobrir recursos em suas ass
 
 ## <a name="secure-configuration"></a>Configuração segura
 
-*Para saber mais, confira [Controle de segurança: Configuração segura](/azure/security/benchmarks/security-control-secure-configuration).*
+*Para saber mais, confira [Controle de segurança: Configuração segura](../benchmarks/security-control-secure-configuration.md).*
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7.1: Estabelecer configurações seguras para todos os recursos do Azure
 
 **Diretrizes**: defina e implemente configurações de segurança padrão para a proteção contra DDoS do Azure com Azure Policy. Use Azure Policy aliases no namespace "Microsoft. Network" para criar políticas personalizadas para auditar ou impor a configuração de seus cofres dos serviços de recuperação.
 
-- [Como exibir os aliases de Azure Policy disponíveis](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [Como exibir os aliases de Azure Policy disponíveis](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
 - [Como configurar e gerenciar o Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
@@ -410,9 +410,9 @@ Use o grafo de recursos do Azure para consultar e descobrir recursos em suas ass
 
 **Orientação**: se estiver usando definições de Azure Policy personalizadas, use o Azure DevOps ou Azure Repos para armazenar e gerenciar seu código com segurança.
 
-- [Como armazenar código no Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [Como armazenar código no Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
-- [Documentação do Azure Repos](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)
+- [Documentação do Azure Repos](/azure/devops/repos/index?view=azure-devops)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -450,7 +450,7 @@ Use o grafo de recursos do Azure para consultar e descobrir recursos em suas ass
 
 ## <a name="malware-defense"></a>Defesa contra malware
 
-*Para saber mais, confira [Controle de segurança: Defesa contra malware](/azure/security/benchmarks/security-control-malware-defense).*
+*Para saber mais, confira [Controle de segurança: Defesa contra malware](../benchmarks/security-control-malware-defense.md).*
 
 ### <a name="82-pre-scan-files-to-be-uploaded-to-non-compute-azure-resources"></a>8.2: arquivos de pré-verificação a serem carregados para recursos não computados do Azure
 
@@ -464,7 +464,7 @@ Use o grafo de recursos do Azure para consultar e descobrir recursos em suas ass
 
 ## <a name="incident-response"></a>Resposta a incidentes
 
-*Para saber mais, confira [Controle de segurança: Resposta a incidentes](/azure/security/benchmarks/security-control-incident-response).*
+*Para saber mais, confira [Controle de segurança: Resposta a incidentes](../benchmarks/security-control-incident-response.md).*
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1: Criar um guia de resposta a incidentes
 
@@ -488,7 +488,7 @@ Além disso, marque claramente as assinaturas (por exemplo, produção, não pro
 
 - [Alertas na Central de Segurança do Azure](../../security-center/security-center-alerts-overview.md)
 
-- [Usar marcas para organizar seus recursos do Azure](/azure/azure-resource-manager/resource-group-using-tags)
+- [Usar marcas para organizar seus recursos do Azure](../../azure-resource-manager/management/tag-resources.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -512,7 +512,7 @@ Teste suas suposições sobre como seus serviços responderão a um ataque geran
 
 **Diretriz**: As informações de contato do incidente serão usadas pela Microsoft para contatá-lo se o MSRC (Microsoft Security Response Center) descobrir que seus dados foram acessados por uma pessoa não autorizada ou ilegal. Examine os incidentes após o fato para garantir que os problemas sejam resolvidos.
 
-- [Como definir o contato da segurança da central de segurança do Azure](../../security-center/security-center-provide-security-contact-details.md)
+- [Como definir o contato de segurança da Central de Segurança do Azure](../../security-center/security-center-provide-security-contact-details.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -524,7 +524,7 @@ Teste suas suposições sobre como seus serviços responderão a um ataque geran
 
 Selecione qualquer uma das métricas de proteção contra DDoS disponíveis para alertá-lo quando houver uma mitigação ativa durante um ataque, usando a configuração de alerta Azure Monitor. Quando as condições são atendidas, o endereço especificado recebe um email de alerta
 
-- [Configurar alertas para métricas de proteção contra DDoS](../../virtual-network/manage-ddos-protection.md#configure-alerts-for-ddos-protection-metrics)
+- [Configurar alertas para métricas de proteção contra DDoS](../../ddos-protection/alerts.md)
 
 - [Como configurar a exportação contínua](../../security-center/continuous-export.md)
 
@@ -546,15 +546,15 @@ Selecione qualquer uma das métricas de proteção contra DDoS disponíveis para
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>Testes de penetração e exercícios de Red Team
 
-*Para saber mais, confira [Controle de segurança: Testes de penetração e exercícios de Red Team](/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
+*Para saber mais, confira [Controle de segurança: Testes de penetração e exercícios de Red Team](../benchmarks/security-control-penetration-tests-red-team-exercises.md).*
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11,1: realize testes de penetração regulares de seus recursos do Azure e garanta a correção de todas as descobertas de segurança críticas
 
 **Diretrizes**: siga as regras de teste de penetração da Microsoft do Engagement para garantir que os testes de penetração não sejam violações das políticas da Microsoft. Use a estratégia da Microsoft e a execução de equipes vermelhas e testes de penetração de sites ativos em infraestrutura de nuvem, serviços e aplicativos gerenciados pela Microsoft.
 
-- [Regras de teste de penetração do Engagement](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
+- [Regras de participação para testes de penetração](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
-- [Microsoft Cloud o agrupamento vermelho](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+- [Equipes Vermelhas do Microsoft Cloud](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -562,5 +562,5 @@ Selecione qualquer uma das métricas de proteção contra DDoS disponíveis para
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Confira o [Azure Security Benchmark](/azure/security/benchmarks/overview)
-- Saiba mais sobre a [Linhas de base de segurança do Azure](/azure/security/benchmarks/security-baselines-overview)
+- Confira o [Azure Security Benchmark](../benchmarks/overview.md)
+- Saiba mais sobre a [Linhas de base de segurança do Azure](../benchmarks/security-baselines-overview.md)

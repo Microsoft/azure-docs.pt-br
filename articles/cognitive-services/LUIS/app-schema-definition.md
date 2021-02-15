@@ -1,14 +1,16 @@
 ---
 title: Definição de esquema de aplicativo
 description: O aplicativo LUIS é representado no `.json` ou `.lu` e inclui todas as intenções, entidades, exemplos de declarações, recursos e configurações.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 08/22/2020
-ms.openlocfilehash: 816a6c50129f37a55ab3dba72319358e832a6b8b
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: db4fd52dad82542f20e58ebb3b8526c5be7f2f88
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88756781"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91327316"
 ---
 # <a name="app-schema-definition"></a>Definição de esquema de aplicativo
 

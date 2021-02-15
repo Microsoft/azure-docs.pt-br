@@ -6,68 +6,79 @@ ms.subservice: core
 ms.topic: include
 ms.date: 07/31/2020
 ms.author: gopalv
-ms.openlocfilehash: 2b4f768b25917e712380ca4a7f8ac58cb6140777
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 95acb028867caf6f497dd99ad3082efcaab09c7b
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542751"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325273"
 ---
 O script de entrada recebe os dados enviados para um serviço Web implantado e os transmite ao modelo. Em seguida, ele envia de volta ao cliente a resposta retornada pelo modelo. *O script é específico para seu modelo*. Ele deve entender os dados esperados e retornados pelo modelo.
 
-O script contém duas funções que carregam e executam o modelo:
+As duas coisas que você precisa realizar em seu script de entrada são:
 
-* `init()`: Normalmente, essa função carrega o modelo em um objeto global. Essa função é executada apenas uma vez, quando o contêiner do Docker para o serviço Web é iniciado.
+1. Carregando seu modelo (usando uma função chamada `init()` )
+1. Executando o modelo em dados de entrada (usando uma função chamada `run()` )
 
-* `run(input_data)`: Essa função usa o modelo para prever um valor com base nos dados de entrada. As entradas e saídas da execução normalmente usam JSON para serialização e desserialização. Você também pode trabalhar com os dados binários brutos. Você pode transformar os dados antes de enviá-los ao modelo ou antes de retorná-los ao cliente.
+Vamos percorrer essas etapas detalhadamente.
 
-A API REST espera que o corpo da solicitação seja um documento JSON com a seguinte estrutura:
+### <a name="writing-init"></a>Gravando init () 
+
+#### <a name="loading-a-registered-model"></a>Carregando um modelo registrado
+
+Os modelos registrados são armazenados em um caminho apontado por uma variável de ambiente chamada `AZUREML_MODEL_DIR` . Para obter mais informações sobre a estrutura de diretório exata, consulte [Localizar arquivos de modelo em seu script de entrada](../articles/machine-learning/how-to-deploy-advanced-entry-script.md#load-registered-models)
+
+#### <a name="loading-a-local-model"></a>Carregando um modelo local
+
+Se você tiver optado por registrar seu modelo e passar seu modelo como parte do diretório de origem, poderá lê-lo como faria localmente, passando o caminho para o modelo relativo ao script de pontuação. Por exemplo, se você tivesse um diretório estruturado como:
+
+```bash
+
+- source_dir
+    - score.py
+    - models
+        - model1.onnx
+
+```
+
+Você pode carregar seus modelos com o seguinte código Python:
+
+```python
+import os
+
+model = open(os.path.join('.', 'models', 'model1.onnx'))
+```
+
+### <a name="writing-run"></a>Gravação de execução ()
+
+`run()` é executado toda vez que seu modelo recebe uma solicitação de Pontuação e espera que o corpo da solicitação seja um documento JSON com a seguinte estrutura:
 
 ```json
 {
-    "data":
-        [
-            <model-specific-data-structure>
-        ]
+    "data": <model-specific-data-structure>
 }
+
 ```
+
+A entrada para `run()` é uma cadeia de caracteres do Python que contém o que segue a chave "dados".
 
 O exemplo a seguir demonstra como carregar um modelo scikit-Learn registrado e pontua-lo com os dados do numpy:
 
 ```python
-#Example: scikit-learn and Swagger
 import json
 import numpy as np
 import os
 from sklearn.externals import joblib
-from sklearn.linear_model import Ridge
-
-from inference_schema.schema_decorators import input_schema, output_schema
-from inference_schema.parameter_types.numpy_parameter_type import NumpyParameterType
 
 
 def init():
     global model
-    # AZUREML_MODEL_DIR is an environment variable created during deployment. Join this path with the filename of the model file.
-    # It holds the path to the directory that contains the deployed model (./azureml-models/$MODEL_NAME/$VERSION).
-    # If there are multiple models, this value is the path to the directory containing all deployed models (./azureml-models).
     model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'sklearn_mnist_model.pkl')
-
-    # If your model were stored in the same directory as your score.py, you could also use the following:
-    # model_path = os.path.abspath(os.path.join(os.path.dirname(__file_), 'sklearn_mnist_model.pkl')
-
-    # Deserialize the model file back into a sklearn model
     model = joblib.load(model_path)
 
-
-input_sample = np.array([[10, 9, 8, 7, 6, 5, 4, 3, 2, 1]])
-output_sample = np.array([3726.995])
-
-
-@input_schema('data', NumpyParameterType(input_sample))
-@output_schema(NumpyParameterType(output_sample))
 def run(data):
     try:
+        data = np.array(json.loads(data))
         result = model.predict(data)
         # You can return any data type, as long as it is JSON serializable.
         return result.tolist()
@@ -76,11 +87,4 @@ def run(data):
         return error
 ```
 
-Para obter mais exemplos, consulte os seguintes scripts:
-
-* [PyTorch](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/pytorch)
-* [TensorFlow](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/tensorflow)
-* [Keras](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras)
-* [AutoML](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features)
-* [ONNX](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/onnx/)
-* [Dados binários](../articles/machine-learning/how-to-deploy-advanced-entry-script.md#binary-data)
+Para obter exemplos mais avançados, incluindo dados de geração de esquema Swagger automático e binário (ou seja, imagem), leia [o artigo sobre criação de script de entrada avançada](../articles/machine-learning/how-to-deploy-advanced-entry-script.md)

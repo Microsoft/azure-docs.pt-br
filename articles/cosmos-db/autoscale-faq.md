@@ -5,15 +5,16 @@ author: deborahc
 ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/10/2020
-ms.openlocfilehash: ca4e79977132586c619f323015f9d915e04707f1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 12/11/2020
+ms.openlocfilehash: 31b96f03a8519b068eaa816443be0a0f374a4a8c
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84449508"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247022"
 ---
 # <a name="frequently-asked-questions-about-autoscale-provisioned-throughput-in-azure-cosmos-db"></a>Perguntas frequentes sobre a taxa de transferência provisionada de dimensionamento automático no Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Com a taxa de transferência provisionada de dimensionamento automático, o Azure Cosmos DB automaticamente gerencia e dimensiona as RU/s do banco de dados ou contêiner com base no uso. Este artigo apresenta as respostas das perguntas frequentes sobre o dimensionamento automático.
 
@@ -27,7 +28,7 @@ Os recursos criados com o modelo de camada anterior são automaticamente compat�
 
 Por exemplo, se você selecionou anteriormente a camada dimensionada entre 400 a 4.000 RU/s, o banco de dados ou o contêiner agora será mostrado como se tivesse no máximo 4.000 RU/s, o que é dimensionado entre 400 e 4.000 RU/s. A partir deste ponto, você pode alterar o máximo de RU/s para um valor personalizado para adequar-se à carga de trabalho. 
 
-### <a name="how-quickly-will-autoscale-scale-up-and-down-based-on-spikes-in-traffic"></a>Com que rapidez o dimensionamento automático é escalado e reduzido verticalmente com base nos picos no tráfego?
+### <a name="how-quickly-will-autoscale-scale-up-based-on-spikes-in-traffic"></a>Com que rapidez o dimensionamento automático será dimensionado com base nos picos de tráfego?
 Com o dimensionamento automático, o sistema escala ou reduz verticalmente a taxa de transferência (RU/s) `T` dentro do intervalo de `0.1 * Tmax` e `Tmax`, com base no tráfego de entrada. Como o dimensionamento é automático e instantâneo, a qualquer momento, é possível consumir até o `Tmax` provisionado sem atraso. 
 
 ### <a name="how-do-i-determine-what-rus-the-system-is-currently-scaled-to"></a>Como posso determinar para quais RU/s o sistema está dimensionado no momento?
@@ -37,22 +38,22 @@ Use as [métricas do Azure Monitor](how-to-choose-offer.md#measure-and-monitor-y
 A cada hora, você será cobrado pela maior taxa de transferência `T` para a qual o sistema é dimensionado dentro da hora. Se seu recurso não recebeu solicitações durante a hora ou não foi dimensionado além de `0.1 * Tmax`, você será cobrado pelo mínimo de `0.1 * Tmax`. Veja a [página de preço](https://azure.microsoft.com/pricing/details/cosmos-db/) do Azure Cosmos DB para obter detalhes. 
 
 ### <a name="how-does-autoscale-show-up-on-my-bill"></a>Como o dimensionamento automático é mostrado na minha fatura?
-Nas contas de mestre único, a taxa de dimensionamento automático por 100 RU/s é 1,5x a taxa de transferência padrão (manual) provisionada. Na sua fatura, você verá o medidor da taxa de transferência provisionada padrão atual. A quantidade desse medidor será multiplicada por 1,5. Por exemplo, se as RU/s mais altas para as quais o sistema dimensionou dentro de uma hora foram 6.000 RU/s, você receberá uma cobrança de 60 * 1,5 = 90 unidades do medidor para essa hora.
+Em contas de região de gravação única, a taxa de dimensionamento automático por 100 RU/s é 1,5 x a taxa de taxa de transferência padrão (manual) provisionada. Na sua fatura, você verá o medidor da taxa de transferência provisionada padrão atual. A quantidade desse medidor será multiplicada por 1,5. Por exemplo, se as RU/s mais altas para as quais o sistema dimensionou dentro de uma hora foram 6.000 RU/s, você receberá uma cobrança de 60 * 1,5 = 90 unidades do medidor para essa hora.
 
-Nas contas de vários mestres, a taxa de dimensionamento automático por 100 RU/s é a mesma para a taxa de transferência padrão (manual) provisionada de vários mestres. Na sua fatura, você verá o medidor de vários mestres atual. Como as taxas são as mesmas, se você usar o dimensionamento automático, verá a mesma quantidade da taxa de transferência padrão.
+Em contas com várias regiões de gravação, a taxa de dimensionamento automático por 100 RU/s é a mesma que a taxa da taxa de transferência de região de gravação múltipla padrão (manual) provisionada. Em sua conta, você verá o medidor de várias regiões de gravação existentes. Como as taxas são as mesmas, se você usar o dimensionamento automático, verá a mesma quantidade da taxa de transferência padrão.
 
 ### <a name="does-autoscale-work-with-reserved-capacity"></a>O dimensionamento automático funciona com capacidade reservada?
-Sim. Quando você adquire a capacidade reservada de mestre único, o desconto de reserva para recursos de dimensionamento automático é aplicado ao uso do medidor a uma taxa de 1,5 * a [proporção da região específica](../cost-management-billing/reservations/understand-cosmosdb-reservation-charges.md#reservation-discount-per-region). 
+Sim. Quando você adquire capacidade reservada para contas com regiões de gravação única, o desconto de reserva para recursos de dimensionamento automático é aplicado ao seu uso de medidor a uma taxa de 1,5 * a [taxa da região específica](../cost-management-billing/reservations/understand-cosmosdb-reservation-charges.md#reservation-discount-per-region). 
 
-A capacidade reservada de vários mestres funciona da mesma para o dimensionamento automático e para a taxa de transferência padrão (manual) provisionada. Confira [Capacidade reservada do Azure Cosmos DB](cosmos-db-reserved-capacity.md)
+A capacidade reservada da região de várias gravações funciona da mesma para a taxa de transferência de dimensionamento automático e padrão (manual). Confira [Capacidade reservada do Azure Cosmos DB](cosmos-db-reserved-capacity.md)
 
 ### <a name="does-autoscale-work-with-free-tier"></a>O dimensionamento automático funciona com a camada gratuita?
-Sim. Na camada gratuita, você pode usar a taxa de transferência do dimensionamento automático em um contêiner. O suporte para bancos de dados de taxa de transferência compartilhada de dimensionamento automático com o máximo personalizado de RU/s ainda não está disponível. Confira como [a cobrança da camada gratuita funciona com o dimensionamento automático](understand-your-bill.md#billing-examples-with-free-tier-accounts).
+Sim. Na camada gratuita, você pode usar a taxa de transferência do dimensionamento automático em um contêiner. O suporte para bancos de dados de taxa de transferência compartilhada de dimensionamento automático com o máximo personalizado de RU/s ainda não está disponível. Confira como [a cobrança da camada gratuita funciona com o dimensionamento automático](understand-your-bill.md#azure-free-tier).
 
 ### <a name="is-autoscale-supported-for-all-apis"></a>O dimensionamento automático tem suporte para todas as APIs?
 Sim, o dimensionamento automático tem suporte para todas as APIs: Core (SQL), Gremlin, Table, Cassandra e API para MongoDB.
 
-### <a name="is-autoscale-supported-for-multi-master-accounts"></a>O dimensionamento automático tem suporte para contas de vários mestres?
+### <a name="is-autoscale-supported-for-multi-region-write-accounts"></a>O dimensionamento automático tem suporte para contas de gravação de várias regiões?
 Sim. O máximo de RU/s está disponível em cada região adicionada à conta do Azure Cosmos DB. 
 
 ### <a name="how-do-i-enable-autoscale-on-new-databases-or-containers"></a>Como posso habilitar o dimensionamento automático em novos bancos de dados ou contêineres?
@@ -125,7 +126,7 @@ Por exemplo, suponha que você tenha um contêiner de dimensionamento automátic
 - Hora 1: T=2: O contêiner começa a receber solicitações que consomem 1.000 RU/s em 1 segundo. Também existem 200 RUs que valem o TTL que precisam acontecer. As RU/s faturáveis ainda são 1.000 RU/s. Independentemente de quando ocorrem os TTLs, eles não afetam a lógica de dimensionamento automático.
 
 ### <a name="what-is-the-mapping-between-the-max-rus-and-physical-partitions"></a>Qual é o mapeamento entre o máximo de RU/s e as partições físicas?
-Quando você selecionar o máximo de RU/s pela primeira vez, o Azure Cosmos DB provisionará: Máximo de RU/s / 10.000 RU/s = nº de partições físicas. Cada [partição física](partition-data.md#physical-partitions) pode dar suporte a até 10.000 RU/s e 50 GB de armazenamento. À medida que o tamanho do armazenamento aumenta, o Azure Cosmos DB divide automaticamente as partições para adicionar mais partições físicas, a fim de lidar com o aumento de armazenamento, ou aumenta o máximo de RU/s, se o armazenamento [exceder o limite associado](#what-is-the-storage-limit-associated-with-each-max-rus-option). 
+Quando você selecionar o máximo de RU/s pela primeira vez, o Azure Cosmos DB provisionará: Máximo de RU/s / 10.000 RU/s = nº de partições físicas. Cada [partição física](partitioning-overview.md#physical-partitions) pode dar suporte a até 10.000 RU/s e 50 GB de armazenamento. À medida que o tamanho do armazenamento aumenta, o Azure Cosmos DB divide automaticamente as partições para adicionar mais partições físicas, a fim de lidar com o aumento de armazenamento, ou aumenta o máximo de RU/s, se o armazenamento [exceder o limite associado](#what-is-the-storage-limit-associated-with-each-max-rus-option). 
 
 O máximo de RU/s do banco de dados ou contêiner é dividido igualmente em todas as partições físicas. Portanto, a taxa de transferência total em que qualquer partição física única pode ser dimensionada é: Máximo de RU/s do banco de dados ou contêiner / nº de partições físicas. 
 
@@ -147,5 +148,5 @@ Por exemplo, se você selecionar a opção de taxa de transferência máxima de 
 
 * Saiba como [habilitar o dimensionamento automático em um banco de dados ou contêiner do Azure Cosmos DB](how-to-provision-autoscale-throughput.md).
 * Saiba mais sobre as [benefícios da taxa de transferência provisionada com o dimensionamento automático](provision-throughput-autoscale.md#benefits-of-autoscale).
-* Saiba mais sobre as [partições lógicas e físicas](partition-data.md).
+* Saiba mais sobre as [partições lógicas e físicas](partitioning-overview.md).
                         

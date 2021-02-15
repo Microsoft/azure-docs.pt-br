@@ -3,26 +3,24 @@ title: Adicionar tentativas-LUIS
 titleSuffix: Azure Cognitive Services
 description: Adicione intenções ao seu aplicativo do LUIS para identificar grupos de perguntas ou comandos que têm as mesmas intenções.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/17/2020
-ms.author: diberry
 ms.service: cognitive-services
-ms.openlocfilehash: fe1c157d6847366a59739cd5128987127d01da94
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: f2401c032f0fc90024e0049fad5f696b8a184544
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344417"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018932"
 ---
 # <a name="add-intents-to-determine-user-intention-of-utterances"></a>Adicionar intenções para determinar a intenção do usuário de expressões
 
 Adicione [intents](luis-concept-intent.md) ao seu aplicativo LUIS para identificar grupos de perguntas ou comandos que tenham a mesma intenção.
 
-No portal do LUIS, as intenções são gerenciadas na seção de **Build** da barra de navegação superior e, em seguida, das **tentativas**do painel esquerdo.
+No portal do LUIS, as intenções são gerenciadas na seção de **Build** da barra de navegação superior e, em seguida, das **tentativas** do painel esquerdo.
 
 ## <a name="add-an-intent-to-your-app"></a>Adicionar uma intenção ao seu aplicativo
 
@@ -83,4 +81,4 @@ Depois de adicionar, editar ou remover intenções, [train](luis-how-to-train.md
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre como adicionar [declarações de exemplo](luis-how-to-add-example-utterances.md) com entidades.
+Saiba mais sobre como adicionar [declarações de exemplo](./luis-how-to-add-entities.md) com entidades.

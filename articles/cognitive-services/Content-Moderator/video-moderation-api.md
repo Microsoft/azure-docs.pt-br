@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 05/18/2020
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9b389841bdba107ba27371387d4a6e5d1f009d41
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 4f98eac4305333ec7225c90da2777b7e02f050a0
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88919345"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96853525"
 ---
 # <a name="analyze-video-content-for-objectionable-material-in-c"></a>Analise o conteúdo de vídeo para material censurável em C#
 
@@ -24,7 +24,7 @@ Este artigo fornece informações e exemplos de código para ajudar você a come
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de começar. 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 - Qualquer edição do [Visual Studio 2015 ou 2017](https://www.visualstudio.com/downloads/)
 
 ## <a name="set-up-azure-resources"></a>Configurar recursos do Azure
@@ -33,7 +33,7 @@ O recurso de moderação de vídeo do Moderador de Conteúdo está disponível c
 
 ### <a name="create-an-azure-media-services-account"></a>Criar uma conta de Serviços de Mídia do Azure
 
-Siga as instruções em [Crie uma conta dos Serviços de Mídia do Azure](https://docs.microsoft.com/azure/media-services/media-services-portal-create-account) para assinar o AMS e criar uma conta de armazenamento do Azure associada. Nessa conta de armazenamento, crie um novo contêiner de armazenamento de Blob.
+Siga as instruções em [Crie uma conta dos Serviços de Mídia do Azure](../../media-services/previous/media-services-portal-create-account.md) para assinar o AMS e criar uma conta de armazenamento do Azure associada. Nessa conta de armazenamento, crie um novo contêiner de armazenamento de Blob.
 
 ### <a name="create-an-azure-active-directory-application"></a>Criar um aplicativo do Azure Active Directory
 
@@ -41,9 +41,9 @@ Navegue até sua nova assinatura do AMS no portal do Azure e selecione **Acesso 
 
 No **aplicativo do Azure AD** seção, selecione **criar novo** e nomeie o novo registro de aplicativo do Azure AD (por exemplo, "VideoModADApp"). Clique em **salvar** e aguarde alguns minutos enquanto o aplicativo está configurado. Em seguida, você deverá ver o novo registro do aplicativo sob o **aplicativo do Azure AD** seção da página.
 
-Selecione o registro do aplicativo e clique no botão **Gerenciar aplicativo** abaixo dele. Observe o valor de **ID do aplicativo** campo; você precisará dele mais tarde. Selecione **configurações**  >  **chaves**e insira uma descrição para uma nova chave (como "VideoModKey"). Clique em **salvar**e, em seguida, observe o novo valor de chave. Copie essa cadeia de caracteres e salvá-lo em algum lugar seguro.
+Selecione o registro do aplicativo e clique no botão **Gerenciar aplicativo** abaixo dele. Observe o valor de **ID do aplicativo** campo; você precisará dele mais tarde. Selecione **configurações**  >  **chaves** e insira uma descrição para uma nova chave (como "VideoModKey"). Clique em **salvar** e, em seguida, observe o novo valor de chave. Copie essa cadeia de caracteres e salvá-lo em algum lugar seguro.
 
-Para obter uma explicação mais completa do processo acima, consulte [Introdução à autenticação do Azure AD](https://docs.microsoft.com/azure/media-services/media-services-portal-get-started-with-aad).
+Para obter uma explicação mais completa do processo acima, consulte [Introdução à autenticação do Azure AD](../../media-services/previous/media-services-portal-get-started-with-aad.md).
 
 Depois de fazer isso, você pode usar o processador de mídia de moderação de vídeo de duas maneiras diferentes.
 
@@ -430,9 +430,5 @@ Depois que o trabalho de Moderação de Conteúdo estiver concluído, analise a 
 ## <a name="next-steps"></a>Próximas etapas
 
 Saiba como gerar [análises de vídeo](video-reviews-quickstart-dotnet.md) usando sua saída de moderação.
-
-Adicione [moderação de transcrição](video-transcript-moderation-review-tutorial-dotnet.md) às suas análise de vídeo.
-
-Confira o tutorial detalhado sobre como compilar uma [solução de moderação de vídeo e transcrição completa](video-transcript-moderation-review-tutorial-dotnet.md).
 
 [Baixe a solução do Visual Studio](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) para este e outros guias de início rápido do Content Moderator para .NET.

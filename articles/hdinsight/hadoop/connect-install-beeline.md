@@ -1,19 +1,16 @@
 ---
 title: Conectar-se ou instalar o Apache beeline-Azure HDInsight
 description: Saiba como se conectar ao cliente Apache beeline para executar consultas Hive com Hadoop no HDInsight. Beeline é um utilitário para trabalhar com HiveServer2 sobre JDBC.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: contperfq1
+ms.custom: contperf-fy21q1
 ms.date: 05/27/2020
-ms.openlocfilehash: 5495e6c6392ba2e824a0a70717bd19747db9b754
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: ab5dedf6718dad4f16fde59d905e2e59be5c495f
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88754949"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944463"
 ---
 # <a name="connect-to-apache-beeline-on-hdinsight-or-install-it-locally"></a>Conectar-se ao Apache beeline no HDInsight ou instalá-lo localmente
 
@@ -104,7 +101,7 @@ Ao conectar diretamente do nó principal do cluster ou de um recurso dentro da m
 
 ## <a name="install-beeline-client"></a>Instalar o cliente beeline
 
-Embora o beeline esteja incluído nos nós de cabeçalho, talvez você queira instalá-lo localmente.  As etapas de instalação para um computador local são baseadas em um [subsistema do Windows para Linux](https://docs.microsoft.com/windows/wsl/install-win10).
+Embora o beeline esteja incluído nos nós de cabeçalho, talvez você queira instalá-lo localmente.  As etapas de instalação para um computador local são baseadas em um [subsistema do Windows para Linux](/windows/wsl/install-win10).
 
 1. Atualizar listas de pacotes. Digite o seguinte comando em seu shell bash:
 
@@ -128,7 +125,7 @@ Embora o beeline esteja incluído nos nós de cabeçalho, talvez você queira in
         export JAVA_HOME=/usr/lib/jvm/java-1.11.0-openjdk-amd64
         ```
 
-        Em seguida, pressione **Ctrl + X**, em seguida, **Y**e, em seguida, Enter.
+        Em seguida, pressione **Ctrl + X**, em seguida, **Y** e, em seguida, Enter.
 
 1. Baixe os arquivos mortos Hadoop e beeline, insira os seguintes comandos:
 
@@ -144,7 +141,7 @@ Embora o beeline esteja incluído nos nós de cabeçalho, talvez você queira in
     tar -xvzf apache-hive-1.2.1-bin.tar.gz
     ```
 
-1. Modifique ainda mais o arquivo bashrc. Você precisará identificar o caminho para onde os arquivos mortos foram desempacotados. Se você estiver usando o [subsistema do Windows para Linux](https://docs.microsoft.com/windows/wsl/install-win10)e seguiu as etapas exatamente, o caminho será `/mnt/c/Users/user/` , onde `user` é seu nome de usuário.
+1. Modifique ainda mais o arquivo bashrc. Você precisará identificar o caminho para onde os arquivos mortos foram desempacotados. Se você estiver usando o [subsistema do Windows para Linux](/windows/wsl/install-win10)e seguiu as etapas exatamente, o caminho será `/mnt/c/Users/user/` , onde `user` é seu nome de usuário.
 
     1. Abra o arquivo: `nano ~/.bashrc`
 
@@ -156,7 +153,7 @@ Embora o beeline esteja incluído nos nós de cabeçalho, talvez você queira in
         PATH=$PATH:$HIVE_HOME/bin
         ```
 
-    1. Em seguida, pressione **Ctrl + X**, em seguida, **Y**e, em seguida, Enter.
+    1. Em seguida, pressione **Ctrl + X**, em seguida, **Y** e, em seguida, Enter.
 
 1. Feche e reabra a sessão de bash.
 

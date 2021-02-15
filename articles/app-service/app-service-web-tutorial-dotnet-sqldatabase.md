@@ -6,12 +6,12 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, seodec18
-ms.openlocfilehash: fd7f860eb6e18edeb2096c12102e74c7446d050f
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: a427fbc6fad1566ae10e11b61de981aded32e64a
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213768"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "92000313"
 ---
 # <a name="tutorial-deploy-an-aspnet-app-to-azure-with-azure-sql-database"></a>Tutorial: Implantar um aplicativo ASP.NET no Azure com o Banco de Dados SQL do Azure
 
@@ -65,20 +65,18 @@ No **Gerenciador de Soluções**, clique com botão direito no projeto **DotNetA
 
 ![Publicar no Gerenciador de Soluções](./media/app-service-web-tutorial-dotnet-sqldatabase/solution-explorer-publish.png)
 
-Verifique se o **Serviço de Aplicativo do Microsoft Azure** está selecionado e clique em **Publicar**.
+Selecione o **Azure** como seu destino e clique em avançar. Verifique se o **Serviço de Aplicativo do Azure (Windows)** está selecionado e clique em avançar novamente.
 
 ![Publicar na página de visão geral do projeto](./media/app-service-web-tutorial-dotnet-sqldatabase/publish-to-app-service.png)
 
-A publicação abre a caixa de diálogo **Criar Serviço de Aplicativo**, o que ajuda você a criar todos os recursos do Azure necessários para executar seu aplicativo ASP.NET no Azure.
-
 ### <a name="sign-in-to-azure"></a>Entrar no Azure
 
-Na caixa de diálogo **Criar Serviço de Aplicativo**, clique em **Adicionar uma conta**, depois, faça logon em sua assinatura do Azure. Se você já entrou em uma conta da Microsoft, verifique se a conta tem sua assinatura do Azure. Se a conta da Microsoft conectada não tiver sua assinatura do Azure, clique nela para adicionar a conta correta.
+Na caixa de diálogo **Publicar**, clique em **Adicionar uma conta** na lista suspensa do gerente de conta e entre em sua assinatura do Azure. Se você já entrou em uma conta da Microsoft, verifique se a conta tem sua assinatura do Azure. Se a conta da Microsoft conectada não tiver sua assinatura do Azure, clique nela para adicionar a conta correta.
+
+![Entrar no Azure](./media/app-service-web-tutorial-dotnet-sqldatabase/sign-in-azure.png)
 
 > [!NOTE]
 > Se você já estiver conectado, não selecione **Criar** ainda.
-
-![Entrar no Azure](./media/app-service-web-tutorial-dotnet-sqldatabase/sign-in-azure.png)
 
 ### <a name="configure-the-web-app-name"></a>Configurar o nome do aplicativo Web
 
@@ -112,15 +110,20 @@ Você pode manter o nome do aplicativo Web gerado ou alterá-lo para outro nome 
    |**Localidade**| Europa Ocidental | [Regiões do Azure](https://azure.microsoft.com/regions/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) |
    |**Tamanho**| Grátis | [Tipos de preço](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)|
 
+3. A caixa de diálogo **Publicar** mostrará os recursos que você configurou. Clique em **Concluir**.
+
+   ![os recursos que você criou](media/app-service-web-tutorial-dotnet-sqldatabase/app_svc_plan_done.png)
+
+
 ### <a name="create-a-server"></a>Criar um servidor
 
 Antes de criar um banco de dados, você precisará ter um [servidor SQL lógico](../azure-sql/database/logical-servers.md). Um servidor SQL lógico é um constructo lógico que contém um grupo de bancos de dados gerenciados como um grupo.
 
-1. Clique em **Criar um banco de dados SQL**.
+1. Clique em **Configurar** ao lado do Banco de Dados do SQL Server em **Serviços Conectados**.
 
    ![Criar um banco de dados SQL](media/app-service-web-tutorial-dotnet-sqldatabase/web-app-name.png)
 
-2. Na caixa de diálogo **Configurar Banco de Dados SQL**, clique em **Novo** próximo ao **SQL Server**.
+2. Na caixa de diálogo **Banco de Dados SQL do Azure**, clique em **Novo** ao lado de **Servidor de Banco de Dados**.
 
    Um nome do servidor único é gerado. Esse nome é usado como parte da URL padrão do servidor, `<server_name>.database.windows.net`. Ele precisa ser exclusivo em todos os servidores do SQL do Azure. Você pode alterar o nome do servidor, mas para este tutorial, mantenha o valor gerado.
 
@@ -128,28 +131,31 @@ Antes de criar um banco de dados, você precisará ter um [servidor SQL lógico]
 
    Lembre desse nome de usuário e senha. Você precisará deles para gerenciar o servidor mais tarde.
 
+   ![Criar servidor](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database-server.png)
+
    > [!IMPORTANT]
    > Mesmo que a senha nas cadeias de conexão esteja mascarada (no Visual Studio e também no Serviço de Aplicativo), o fato de que ela foi mantida em algum lugar aumenta a superfície de ataque do seu aplicativo. O Serviço de Aplicativo pode usar [identidades de serviço gerenciadas](overview-managed-identity.md) para eliminar esse risco removendo a necessidade de manter os segredos na configuração de aplicativo ou no código. Para saber mais, confira as [Próximas etapas](#next-steps).
-
-   ![Criar servidor](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database-server.png)
 
 4. Clique em **OK**. Não feche a caixa de diálogo **Configurar Banco de Dados SQL** ainda.
 
 ### <a name="create-a-database-in-azure-sql-database"></a>Criar um banco de dados no Banco de Dados SQL do Azure
 
-1. Na caixa de diálogo **Configurar Banco de Dados SQL**:
+1. Na caixa de diálogo **Banco de Dados SQL do Azure**:
 
    * Mantenha o **Nome do banco de dados** padrão gerado.
-   * Em **Nome da Cadeia de Conexão**, digite *MyDbConnection*. Esse nome deve corresponder à cadeia de conexão que está referenciada em *Models/MyDatabaseContext.cs*.
-   * Selecione **OK**.
+   * Selecione **Criar**.
 
     ![Configurar o banco de dados](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database.png)
 
-2. O diálogo **Criar Serviço de Aplicativo** mostra os recursos que você configurou. Clique em **Criar**.
+2. Em **Nome da Cadeia de Conexão de Banco de Dados**, digite _MyDbConnection_. Esse nome deve corresponder à cadeia de conexão que está referenciada em _Models/MyDatabaseContext.cs_.
 
-   ![os recursos que você criou](media/app-service-web-tutorial-dotnet-sqldatabase/app_svc_plan_done.png)
+3. Insira o nome de usuário e a senha de administrador, que você usou em [Criar um servidor](#create-a-server) na etapa 3, nos campos de nome de usuário e senha do Banco de Dados, respectivamente.
 
-Depois que o assistente terminar de criar os recursos do Azure, ele publica seu aplicativo ASP.NET no Azure. Seu navegador padrão é iniciado com a URL para o aplicativo implantado.
+    ![Configurar uma cadeia de conexão de banco de dados](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database-connection.png)
+
+4. Selecione **Concluir**.
+
+Depois que o assistente terminar de criar os recursos do Azure, clique em **Publicar** para implantar seu aplicativo ASP.NET no Azure. Seu navegador padrão é iniciado com a URL para o aplicativo implantado.
 
 Adicione alguns itens de tarefas.
 
@@ -199,7 +205,7 @@ Expanda sua conexão > **Bancos de dados** >  **&lt;seu banco de dados>**  > **T
 
 Use as ferramentas conhecidas no Visual Studio para atualizar o banco de dados e o aplicativo no Azure. Nesta etapa, você usará Migrações do Code First no Entity Framework para fazer uma alteração no seu esquema de banco de dados e publicá-lo no Azure.
 
-Para obter mais informações sobre como usar as Migrações do Entity Framework Code First, consulte [Introdução ao Entity Framework 6 Code First usando MVC 5](https://docs.microsoft.com/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application).
+Para obter mais informações sobre como usar as Migrações do Entity Framework Code First, consulte [Introdução ao Entity Framework 6 Code First usando MVC 5](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application).
 
 ### <a name="update-your-data-model"></a>Atualizar seu modelo de dados
 
@@ -311,7 +317,7 @@ Selecione **Executar o Migrations do Code First (executado na inicialização do
 
 Agora que você habilitou as Migrações do Code First no aplicativo do Azure, publique as alterações de código.
 
-Na página Publicar, clique em **Publicar**.
+Na página de publicação, clique em **Publicar**.
 
 Tente adicionar os itens pendentes outra vez, selecione **Concluído** e os itens deverão aparecer na sua página inicial como um item concluído.
 
@@ -353,7 +359,7 @@ Para alterar os níveis de rastreamento e exibir outras mensagens de rastreament
 
 Clique com o botão direito do mouse no aplicativo do Azure novamente e selecione **Exibir Configurações**.
 
-Na lista suspensa **Log de Aplicativo (Sistema de Arquivos)** , selecione **detalhado**. Clique em **Salvar**.
+Na lista suspensa **Log de Aplicativo (Sistema de Arquivos)** , selecione **detalhado**. Clique em **Save** (Salvar).
 
 ![Alterar nível de rastreamento para Detalhado](./media/app-service-web-tutorial-dotnet-sqldatabase/trace-level-verbose.png)
 
@@ -419,4 +425,4 @@ Mais recursos:
 Deseja otimizar e reduzir seus gastos com a nuvem?
 
 > [!div class="nextstepaction"]
-> [Comece a analisar os custos com o Gerenciamento de Custos](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+> [Comece a analisar os custos com o Gerenciamento de Custos](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

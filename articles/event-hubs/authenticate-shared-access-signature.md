@@ -3,13 +3,13 @@ title: Autenticar o acesso aos hubs de eventos do Azure com assinaturas de acess
 description: Este artigo mostra como autenticar o acesso a recursos de hubs de eventos usando assinaturas de acesso compartilhado.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: bf1f42020237c0907ec7656735adfa46a21370f9
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.custom: devx-track-js, devx-track-csharp
+ms.openlocfilehash: ff141fc1bb681e2356a4471dfdc808d622fd76b5
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89008311"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986481"
 ---
 # <a name="authenticate-access-to-event-hubs-resources-using-shared-access-signatures-sas"></a>Autenticar o acesso aos recursos de hubs de eventos usando SAS (assinaturas de acesso compartilhado)
 A SAS (assinatura de acesso compartilhado) oferece controle granular sobre o tipo de acesso que você concede aos clientes que têm a assinatura de acesso compartilhado. Aqui estão alguns dos controles que você pode definir em uma SAS: 
@@ -203,7 +203,7 @@ Por exemplo, para definir regras de autorização com escopo para enviar/publica
 
 
 > [!NOTE]
-> Embora não seja recomendado, é possível equipar dispositivos com tokens que concedem acesso a um hub de eventos ou a um namespace. Qualquer dispositivo que mantém esse token pode enviar mensagens diretamente para esse Hub de eventos. Além disso, o dispositivo não pode ser incluído na lista de bloqueados para ser impedido de enviar para esse hub de eventos.
+> Embora não seja recomendado, é possível equipar dispositivos com tokens que concedem acesso a um hub de eventos ou a um namespace. Qualquer dispositivo que mantém esse token pode enviar mensagens diretamente para esse Hub de eventos. Além disso, o dispositivo não pode ser incluídos de enviar para esse Hub de eventos.
 > 
 > É sempre recomendável fornecer escopos específicos e granulares.
 
@@ -212,7 +212,7 @@ Por exemplo, para definir regras de autorização com escopo para enviar/publica
 >
 > Quando o cliente envia dados para um hub de eventos, ele marca sua solicitação com o token. Para evitar que um invasor intercepte e roube o token, a comunicação entre o cliente e o hub de eventos deve ocorrer em um canal criptografado.
 > 
-> Se um token for roubado por um invasor, este poderá representar o cliente cujo token foi roubado. A lista de bloqueios de um Publicador torna o cliente inutilizável até receber um novo token que usa um Publicador diferente.
+> Se um token for roubado por um invasor, este poderá representar o cliente cujo token foi roubado. Inclusão na lista um Publicador, renderiza esse cliente inutilizável até receber um novo token que usa um Publicador diferente.
 
 
 ## <a name="authenticating-event-hubs-consumers-with-sas"></a>Autenticando consumidores de hubs de eventos com SAS 
@@ -222,7 +222,7 @@ Para autenticar aplicativos de back-end que consomem dos dados gerados por produ
 Veja os artigos a seguir:
 
 - [Autorizar usando SAS](authenticate-shared-access-signature.md)
-- [Autorizar usando o RBAC (controle de acesso de base de função)](authenticate-shared-access-signature.md)
+- [Autorizar usando o controle de acesso baseado em função do Azure (RBAC do Azure)](authenticate-shared-access-signature.md)
 - [Saiba mais sobre os hubs de eventos](event-hubs-about.md)
 
 Consulte os seguintes artigos relacionados:

@@ -1,20 +1,23 @@
 ---
-title: Coletar e analisar mensagens do Syslog no Azure Monitor | Microsoft Docs
+title: Coletar fontes de dados do syslog com Log Analytics Agent no Azure Monitor
 description: O Syslog é um protocolo de registro de eventos em log que é comum para o Linux. Este artigo descreve como configurar a coleta de mensagens do Syslog no Log Analytics e os detalhes dos registros criados.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/22/2019
-ms.openlocfilehash: d9efdb11ffd30c68a0ac8ea8e8156fe707f188de
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.date: 10/21/2020
+ms.openlocfilehash: 2d86983c8ed6c738e4b4e96d8d291dee4dc4d87d
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322305"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92440613"
 ---
-# <a name="syslog-data-sources-in-azure-monitor"></a>Fontes de dados de syslog no Azure Monitor
+# <a name="collect-syslog-data-sources-with-log-analytics-agent"></a>Coletar fontes de dados do syslog com o agente Log Analytics
 O Syslog é um protocolo de registro de eventos em log que é comum para o Linux. Os aplicativos enviarão mensagens que podem ser armazenadas no computador local ou entregues a um coletor de Syslog. Quando o agente do Log Analytics para Linux é instalado, ele configura o daemon do Syslog local para encaminhar mensagens para o agente. O agente envia a mensagem ao Azure Monitor, onde um registro correspondente é criado.  
+
+> [!IMPORTANT]
+> Este artigo aborda a coleta de eventos de syslog com o [agente de log Analytics](log-analytics-agent.md) , que é um dos agentes usados pelo Azure monitor. Outros agentes coletam dados diferentes e são configurados de forma diferente. Consulte [visão geral dos agentes de Azure monitor](agents-overview.md) para obter uma lista dos agentes disponíveis e os dados que eles podem coletar.
 
 > [!NOTE]
 > O Azure Monitor dá suporte à coleta de mensagens enviadas pelo rsyslog ou syslog-ng, em que o rsyslog é o daemon padrão. O daemon syslog padrão na versão 5 do Red Hat Enterprise Linux, CentOS e na versão Oracle Linux (sysklog) não tem suporte para a coleta de eventos de syslog. Para coletar dados de syslog desta versão dessas distribuições, o [daemon rsyslog](http://rsyslog.com) deve ser instalado e configurado para substituir o sysklog.
@@ -32,11 +35,11 @@ Os seguintes recursos têm suporte com o coletor de syslog:
 * auth
 * syslog
 * lpr
-* news
+* notícias
 * uucp
 * cron
 * authpriv
-* ftp
+* FTP
 * local0-local7
 
 Para qualquer outro recurso, [Configure uma fonte de dados de logs personalizados](data-sources-custom-logs.md) no Azure monitor.
@@ -45,7 +48,7 @@ Para qualquer outro recurso, [Configure uma fonte de dados de logs personalizado
 O agente do Log Analytics para Linux coletará apenas eventos com as instalações e as severidades especificadas na configuração. Você pode configurar o Syslog por meio do Portal do Azure ou gerenciando arquivos de configuração em seus agentes do Linux.
 
 ### <a name="configure-syslog-in-the-azure-portal"></a>Configurar o Syslog no Portal do Azure
-Configure o Syslog no menu [Menu de Dados nas Configurações Avançadas](agent-data-sources.md#configuring-data-sources). Essa configuração é entregue ao arquivo de configuração em cada agente do Linux.
+Configure o syslog no [menu dados em configurações avançadas](agent-data-sources.md#configuring-data-sources) para o espaço de trabalho log Analytics. Essa configuração é entregue ao arquivo de configuração em cada agente do Linux.
 
 Você pode adicionar um novo recurso selecionando primeiro a opção **aplicar abaixo a configuração em meus computadores** e, em seguida, digitando seu nome e clicando em **+** . Para cada recurso, somente mensagens com as severidades selecionadas serão coletados.  Marque as severidades para o recurso específico que você deseja coletar. Você não pode fornecer quaisquer critérios adicionais para filtrar mensagens.
 
@@ -205,7 +208,7 @@ Após concluir as alterações, será necessário reiniciar o Syslog e o serviç
 ## <a name="syslog-record-properties"></a>Propriedades de registro do syslog
 Os registros do syslog têm um tipo de **Syslog** e têm as propriedades na tabela a seguir.
 
-| Propriedade | DESCRIÇÃO |
+| Propriedade | Descrição |
 |:--- |:--- |
 | Computador |Computador do qual o evento foi coletado. |
 | Recurso |Define a parte do sistema que gerou a mensagem. |

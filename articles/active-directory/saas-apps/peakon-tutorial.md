@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-ms.openlocfilehash: a7e385b40911e1adf4e5142de4fb627334baee4a
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: a84d4d71e5190c455441d1e627381be86ef5e129
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88543730"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97608520"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-peakon"></a>Tutorial: Integração do Active Directory do Azure ao Peakon
 
@@ -27,7 +27,7 @@ A integração do Peakon ao Azure AD oferece os seguintes benefícios:
 * É possível permitir que os usuários entrem automaticamente no Peakon (Logon Único) com suas contas do Azure AD.
 * Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](../manage-apps/what-is-single-sign-on.md).
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Prerequisites
@@ -110,7 +110,7 @@ Para configurar o logon único do Azure AD com o Peakon, siga estas etapas:
 
 5. Clique em **Definir URLs adicionais** e execute o passo seguinte se quiser configurar a aplicação no modo **SP** iniciado:
 
-    ![Domínio do pico e informações de logon único de URLs](common/metadata-upload-additional-signon.png)
+    ![Uma captura de tela que mostra a opção "Definir URLs adicionais" selecionada com a caixa de texto "URL de Entrada" realçada.](common/metadata-upload-additional-signon.png)
 
     Na caixa de texto **URL de Logon**, digite uma URL: `https://app.peakon.com/login`
 
@@ -229,29 +229,28 @@ No caso do Peakon, o provisionamento é uma tarefa manual.
 
 3. No canto superior direito da página, clique em **Adicionar funcionário**.
 
-      ![Adicionar funcionário](./media/peakon-tutorial/tutorial_peakon_addemployee.png)
+    ![Adicionar funcionário](./media/peakon-tutorial/tutorial_peakon_addemployee.png)
 
 3. Na página de diálogo **Novo funcionário**, execute as seguintes etapas:
 
-     ![O novo funcionário](./media/peakon-tutorial/tutorial_peakon_create.png)
+    ![O novo funcionário](./media/peakon-tutorial/tutorial_peakon_create.png)
 
-    a. No **nome** caixa de texto, digite o nome como **Brenda** e o sobrenome como **simon**.
+    1. No **nome** caixa de texto, digite o nome como **Brenda** e o sobrenome como **simon**.
 
-    b. Na caixa de texto **Email**, digite o endereço de email como **Brendafernandes\@contoso.com**.
+    1. Na caixa de texto **Email**, digite o endereço de email como **Brendafernandes\@contoso.com**.
 
-    c. Clique em **criar funcionário**.
+    1. Clique em **criar funcionário**.
 
 ### <a name="test-single-sign-on"></a>Testar logon único 
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Ao clicar no bloco do Peakon no Painel de Acesso, você deverá entrar automaticamente no Zoho no qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao clicar no bloco do Peakon no Painel de Acesso, você deverá entrar automaticamente no Zoho no qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](./tutorial-list.md)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)

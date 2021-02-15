@@ -6,13 +6,13 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zhshang
-ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: da0c3284b42be6d9054b7386839004b57d8ca274
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.custom: devx-track-js, devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: cd5b709843ba2d98170aaa58eb5c3cc1ec8883af
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935731"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98734674"
 ---
 # <a name="azure-signalr-service-authentication"></a>autenticação do Serviço do Azure SignalR
 
@@ -45,11 +45,11 @@ Neste tutorial, você aprenderá como:
 
 Para concluir o tutorial, você deve ter os pré-requisitos a seguir:
 
-* Uma conta criada em [GitHub](https://github.com/)
-* [Git](https://git-scm.com/)
-* [SDK do .NET Core](https://www.microsoft.com/net/download/windows)
-* [Azure Cloud Shell configurado](https://docs.microsoft.com/azure/cloud-shell/quickstart)
-* Faça o download ou clone o repositório [AzureSignalR-sample](https://github.com/aspnet/AzureSignalR-samples) do GitHub.
+- Uma conta criada em [GitHub](https://github.com/)
+- [Git](https://git-scm.com/)
+- [SDK do .NET Core](https://www.microsoft.com/net/download/windows)
+- [Azure cloud Shell](../cloud-shell/quickstart.md) configurado para o ambiente bash.
+- Faça o download ou clone o repositório [AzureSignalR-sample](https://github.com/aspnet/AzureSignalR-samples) do GitHub.
 
 ## <a name="create-an-oauth-app"></a>Crie um aplicativo OAuth
 
@@ -85,7 +85,7 @@ Para concluir o tutorial, você deve ter os pré-requisitos a seguir:
     dotnet restore
     ```
 
-1. Abra *Startup.cs*e adicione `using` instruções para os namespaces a seguir:
+1. Abra *Startup.cs* e adicione `using` instruções para os namespaces a seguir:
 
     ```csharp
     using System.Net.Http;
@@ -384,17 +384,13 @@ Nesta seção, você ativará autenticação real, adicionando o `Authorize` atr
 
     Agora que o aplicativo de chat realiza a autenticação com o GitHub e armazena as informações de autenticação como cookies, você deve implantá-lo no Azure para que outros usuários possam autenticar com suas contas e comunicar-se a partir de outras estações de trabalho.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
 ## <a name="deploy-the-app-to-azure"></a>Implantar o aplicativo no Azure
 
-Nesta seção, você usará a CLI (interface de linha de comando) do Azure Cloud Shell para criar um aplicativo Web no [Serviço de Aplicativo do Azure](https://docs.microsoft.com/azure/app-service/) a fim de hospedar seu aplicativo ASP.NET no Azure. O aplicativo web será configurado para usar a implantação local do Git. O aplicativo web também será configurado com a cadeia de caracteres de conexão do SignalR, segredos do aplicativo GitHub OAuth e um usuário de implantação.
+Preparar o ambiente para a CLI do Azure:
 
-As etapas nesta seção usam a extensão *signalr* para a CLI do Azure. Execute o comando a seguir para instalar a extensão *signalr* para a CLI do Azure:
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-```azurecli-interactive
-az extension add -n signalr
-```
+Nesta seção, você usará a CLI (interface de linha de comando) do Azure para criar um novo aplicativo Web no [serviço Azure app](../app-service/index.yml) para hospedar seu aplicativo ASP.net no Azure. O aplicativo web será configurado para usar a implantação local do Git. O aplicativo web também será configurado com a cadeia de caracteres de conexão do SignalR, segredos do aplicativo GitHub OAuth e um usuário de implantação.
 
 Ao criar os recursos a seguir, certifique-se de usar o mesmo grupo de recursos que o recurso SignalR Service reside. Essa abordagem fará limpar muito mais tarde quando você desejar remover todos os recursos. Os exemplos fornecidos supõe que você usou o nome de grupo nos tutorais anteriores, *SignalRTestResources*.
 
@@ -541,7 +537,7 @@ Para implantar seu código, execute os seguintes comandos em um shell do Git.
 4. Implante seu código no novo aplicativo Web do Azure.
 
     ```bash
-    git push Azure master
+    git push Azure main
     ```
 
     Você deverá se autenticar para implantar o código no Azure. Insira o nome de usuário e a senha do usuário de implantação criado acima.

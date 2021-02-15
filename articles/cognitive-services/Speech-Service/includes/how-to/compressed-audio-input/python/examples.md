@@ -4,14 +4,14 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/09/2020
 ms.author: amishu
-ms.openlocfilehash: 3000709f19b53eb6e79b4dae0559040ca025c9e4
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 58d547995d39505da18a6bca1a6c3925b95252a6
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282715"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97978850"
 ---
-Para transmitir em um formato de áudio compactado para o serviço de fala, crie `PullAudioInputStream` ou `PushAudioInputStream` . Em seguida, crie um `AudioConfig` de uma instância de sua classe de fluxo, especificando o formato de compactação do fluxo.
+Para configurar o SDK de fala para aceitar a entrada de áudio compactado, crie `PullAudioInputStream` ou `PushAudioInputStream` . Em seguida, crie um `AudioConfig` de uma instância de sua classe de fluxo, especificando o formato de compactação do fluxo.
 
 Vamos supor que o caso de uso seja usado `PullStream` para um `MP3` arquivo. Seu código pode ter a seguinte aparência:
 

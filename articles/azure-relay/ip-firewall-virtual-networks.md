@@ -3,12 +3,12 @@ title: Configurar o firewall de IP para o namespace de retransmissão do Azure
 description: Este artigo descreve como usar regras de firewall para permitir conexões de endereços IP específicos para o namespace de Retransmissão do Azure.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: e47c5071a5fc7207d4eabc162fcb24ab6ad57d28
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: ad8feed5df49dcc4503226a5fae50195bb9d48aa
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88141849"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91999498"
 ---
 # <a name="configure-ip-firewall-for-an-azure-relay-namespace"></a>Configurar firewall de IP para um namespace de Retransmissão do Azure
 Por padrão, os namespaces de Retransmissão são acessíveis da Internet, desde que a solicitação acompanhe autenticação e autorização válidas. Com o firewall de IP, você pode restringir ainda mais a um conjunto de endereços IPv4 ou intervalos de endereços IPv4 na notação [CIDR (roteamento entre domínios sem classificação)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
@@ -29,7 +29,7 @@ Esta seção mostra como usar o portal do Azure para criar regras de firewall de
 1. Navegue até o **namespace de Retransmissão** no [portal do Azure](https://portal.azure.com).
 2. No menu à esquerda, selecione a opção **Rede**. Se você selecionar a opção **Todas as redes** na seção **Permitir acesso de**, o namespace de Retransmissão aceitará conexões de qualquer endereço IP. Essa configuração é equivalente a uma regra que aceita o intervalo de endereço IP 0.0.0.0/0. 
 
-    ![Firewall – opção "Todas as redes" selecionada](./media/ip-firewall/all-networks-selected.png)
+    ![Captura de tela mostra a página rede com a opção todas as redes selecionada.](./media/ip-firewall/all-networks-selected.png)
 1. Para restringir o acesso a redes e endereços IP específicos, selecione a opção **Redes selecionadas**. Na seção **Firewall**, siga estas etapas:
     1. Selecione a opção **Adicionar o endereço IP do cliente** para permitir ao IP do cliente atual acesso ao namespace. 
     2. Para **intervalo de endereços**, insira um endereço IPv4 específico ou um intervalo de endereços IPv4 na notação CIDR. 
@@ -76,7 +76,7 @@ O modelo usa um parâmetro: **ipMask**, que é um endereço IPv4 único ou um bl
       }
     },
     "variables": {
-      "namespaceNetworkRuleSetName": "[concat(parameters('relayNamespaceName'), concat('/', 'default'))]",
+      "namespaceNetworkRuleSetName": "[concat(parameters('relayNamespaceName'), concat('/', 'default'))]"
     },
     "resources": [
       {
@@ -93,7 +93,7 @@ O modelo usa um parâmetro: **ipMask**, que é um endereço IPv4 único ou um bl
       {
         "apiVersion": "2018-01-01-preview",
         "name": "[variables('namespaceNetworkRuleSetName')]",
-        "type": "Microsoft.Relay/namespaces/networkruleset",
+        "type": "Microsoft.Relay/namespaces/networkrulesets",
         "dependsOn": [
           "[concat('Microsoft.Relay/namespaces/', parameters('relayNamespaceName'))]"
         ],
@@ -109,6 +109,7 @@ O modelo usa um parâmetro: **ipMask**, que é um endereço IPv4 único ou um bl
                 "action":"Allow"
             }
           ],
+          "virtualNetworkRules": [],
           "trustedServiceAccessEnabled": false,
           "defaultAction": "Deny"
         }

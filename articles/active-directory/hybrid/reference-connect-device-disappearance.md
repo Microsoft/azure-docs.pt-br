@@ -11,10 +11,10 @@ ms.date: 09/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.openlocfilehash: bc159452c81a673ca4a7ed46aa7eff19fd9209eb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "73176032"
 ---
 # <a name="understanding-azure-ad-connect-14xxx-and-device-disappearance"></a>Entendendo Azure AD Connect 1.4. XX. x e desaparecem o dispositivo
@@ -22,22 +22,22 @@ Com a versão 1.4. XX. x de Azure AD Connect, alguns clientes podem ver que algu
 
 Se você vir a exclusão de objetos de dispositivo no Azure AD excedendo o limite de exclusão de exportação, é recomendável que o cliente permita que as exclusões passem. [Como: permitir que as exclusões fluam quando excederem o limite de exclusão](how-to-connect-sync-feature-prevent-accidental-deletes.md)
 
-## <a name="background"></a>Segundo plano
+## <a name="background"></a>Tela de fundo
 Os dispositivos Windows registrados como ingressados no Azure AD híbrido são representados no Azure AD como objetos de dispositivo. Esses objetos de dispositivo podem ser usados para acesso condicional. Os dispositivos Windows 10 são sincronizados com a nuvem por meio de Azure AD Connect, os dispositivos Windows de nível inferior são registrados diretamente usando AD FS ou logon único contínuo.
 
-## <a name="windows-10-devices"></a>Dispositivos Windows 10
+## <a name="windows-10-devices"></a>Dispositivos com Windows 10
 Somente dispositivos Windows 10 com um valor de atributo usercertificar específico configurado pelo ingresso híbrido do Azure AD devem ser sincronizados com a nuvem pelo Azure AD Connect. Em versões anteriores do Azure AD Connect esse requisito não era rigorosamente imposto, resultando em objetos de dispositivo desnecessários no Azure AD. Esses dispositivos no Azure AD sempre permaneceram no estado "pendente" porque esses dispositivos não se destinam a serem registrados com o Azure AD. 
 
 Esta versão do Azure AD Connect sincronizará somente dispositivos Windows 10 que estão configurados corretamente para serem ingressados no Azure AD híbrido. Os objetos de dispositivo do Windows 10 sem o ingresso do Azure AD específico de userCertificate serão removidos do Azure AD.
 
-## <a name="down-level-windows-devices"></a>Dispositivos Windows de nível inferior
+## <a name="down-level-windows-devices"></a>Down-Level dispositivos Windows
 Azure AD Connect nunca deve estar sincronizando [dispositivos Windows de nível inferior](../devices/hybrid-azuread-join-plan.md#windows-down-level-devices). Todos os dispositivos no Azure AD anteriormente sincronizados incorretamente agora serão excluídos do Azure AD. Se Azure AD Connect estiver tentando excluir [dispositivos Windows de nível inferior](../devices/hybrid-azuread-join-plan.md#windows-down-level-devices), o dispositivo não será aquele que foi criado pelo [Microsoft Workplace Join para MSI de computadores não Windows 10](https://www.microsoft.com/download/details.aspx?id=53554) e não poderá ser consumido por nenhum outro recurso do Azure AD.
 
 Alguns clientes talvez precisem revisitar [como: planejar sua implementação de junção de Azure Active Directory híbrida](../devices/hybrid-azuread-join-plan.md) para colocar seus dispositivos Windows registrados corretamente e garantir que esses dispositivos possam participar totalmente do acesso condicional com base no dispositivo. 
 
 ## <a name="how-can-i-verify-which-devices-are-deleted-with-this-update"></a>Como posso verificar quais dispositivos são excluídos com esta atualização?
 
-Para verificar quais dispositivos são excluídos, você pode usar este script do PowerShell:https://gallery.technet.microsoft.com/scriptcenter/Export-Hybrid-Azure-AD-f8e51436
+Para verificar quais dispositivos são excluídos, você pode usar este script do PowerShell: https://gallery.technet.microsoft.com/scriptcenter/Export-Hybrid-Azure-AD-f8e51436
 
 Esse script gera um relatório sobre certificados armazenados em Active Directory objetos de computador, especificamente, certificados emitidos pelo recurso de ingresso híbrido do Azure AD.
 Ele verifica os certificados presentes na propriedade userCertificate de um objeto Computer no AD e, para cada certificado não expirado presente, valida se o certificado foi emitido para o recurso de ingresso híbrido do Azure AD (ou seja, o nome da entidade corresponde a CN = {objectGUID}).

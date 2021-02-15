@@ -8,86 +8,88 @@ manager: rkarlin
 ms.assetid: 33f2c9f4-21aa-4f0c-9e5e-4cd1223e39d7
 ms.service: security-center
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/21/2020
+ms.date: 10/13/2020
 ms.author: memildin
-ms.openlocfilehash: 115a01fe0b1edc343ed9efd324c4be3b53251566
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
-ms.translationtype: MT
+ms.openlocfilehash: 49533947ff01aea07eaacd9d761b6414fb672a1c
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519500"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92339468"
 ---
-# <a name="azure-security-center-data-security"></a>Segurança dos Dados da Central de Segurança do Azure
+# <a name="azure-security-center-data-security"></a>Segurança de dados da Central de Segurança do Azure
+
 Para ajudar os clientes a evitarem, detectarem e responderem às ameaças, a Central de Segurança do Azure coleta e processa dados relacionados à segurança, incluindo informações da configuração, metadados, logs de eventos e mais. A Microsoft obedece às diretrizes rígidas de conformidade e segurança — da codificação à operação de um serviço.
 
-Este artigo explica como os dados são gerenciados e protegidos na Central de Segurança do Azure.
+Este artigo explica como os dados são gerenciados e protegidos na Central de Segurança.
 
 ## <a name="data-sources"></a>Fontes de dados
-A Central de Segurança do Azure analisa os dados das seguintes fontes para fornecer visibilidade sobre o estado da segurança, identificar as vulnerabilidades e recomendar atenuações, e detectar as ameaças ativas:
+A Central de Segurança analisa os dados das seguintes fontes para fornecer visibilidade sobre o estado da segurança, identificar as vulnerabilidades e recomendar atenuações e detectar as ameaças ativas:
 
-- Serviços do Azure: usa as informações sobre a configuração dos serviços do Azure que você implantou comunicando-se com o provedor de recursos do serviço.
-- Tráfego de rede: usa os metadados do tráfego da rede de exemplo na infraestrutura da Microsoft, como IP/porta de origem/detino, tamanho do pacote e protocolo da rede.
-- Soluções de Parceiros: usa alertas de segurança das soluções de parceiros integradas, como firewalls e soluções antimalware.
-- Suas Máquinas Virtuais e Servidores: usa as informações da configuração e informações sobre os eventos de segurança, como eventos do Windows e logs de auditoria, logs do IIS e mensagens do syslog de suas máquinas virtuais. Além disso, quando um alerta é criado, a Central de Segurança do Azure pode gerar um instantâneo do disco da VM afetado e extrair os artefatos da máquina relacionados ao alerta a partir do disco da VM, como um arquivo de registro, para fazer uma análise forense.
+- **Serviços do Azure**: usa as informações sobre a configuração dos serviços do Azure que você implantou comunicando-se com o provedor de recursos do serviço.
+- **Tráfego de rede**: usa os metadados do tráfego da rede de exemplo na infraestrutura da Microsoft, como IP/porta de origem/detino, tamanho do pacote e protocolo da rede.
+- **Soluções de parceiros**: usa alertas de segurança das soluções de parceiros integradas, como firewalls e soluções antimalware.
+- **Seus computadores**: usam as informações e detalhes da configuração sobre eventos de segurança, como o evento e logs de auditoria do Windows e mensagens do syslog de seus computadores.
 
 
 ## <a name="data-protection"></a>Proteção de dados
-**Segregação de dados**: os dados são mantidos separados logicamente em cada componente em todo o serviço. Todos os dados são marcados por organização. Essa marcação persiste em todo o ciclo de vida dos dados e é imposta em cada camada do serviço.
 
-**Acesso a dados**: Para fornecer recomendações de segurança e investigar as possíveis ameaças de segurança, os funcionários da Microsoft podem acessar as informações coletadas ou analisadas pelos serviços do Azure, incluindo eventos de criação do processo, instantâneos de disco da VM e artefatos, que podem incluir, involuntariamente, Dados do Cliente ou dados pessoais de suas máquinas virtuais. Seguimos os [Termos de Serviços e Política de Privacidade do Microsoft Online](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31), que determinam que a Microsoft não usará os Dados do Cliente nem obterá as informações para fins comerciais ou de propaganda semelhantes. Somente usamos os Dados do Cliente conforme o necessário para fornecer os serviços do Azure, inclusive para fins compatíveis com o fornecimento desses serviços. Você mantém todos os direitos dos Dados do Cliente.
+### <a name="data-segregation"></a>Segregação de dados
+os dados são mantidos separados logicamente em cada componente em todo o serviço. Todos os dados são marcados por organização. Essa marcação persiste em todo o ciclo de vida dos dados e é imposta em cada camada do serviço.
 
-**Uso de dados**: a Microsoft usa os padrões e a inteligência de ameaças vistos em vários locatários para aprimorar os recursos de detecção e prevenção. Fazemos isso de acordo com os compromissos de privacidade descritos em nossa [Política de Privacidade](https://www.microsoft.com/privacystatement/OnlineServices/Default.aspx).
+### <a name="data-access"></a>Acesso de dados
+Para fornecer recomendações de segurança e investigar as possíveis ameaças de segurança, os funcionários da Microsoft podem acessar as informações coletadas ou analisadas pelos serviços do Azure, incluindo eventos de criação do processo e outros artefatos, que podem incluir, involuntariamente, dados do cliente ou dados pessoais de seus computadores. 
 
-## <a name="data-location"></a>Local dos dados
+Seguimos o [Adendo de Proteção de Dados do Microsoft Online Services](https://www.microsoftvolumelicensing.com/Downloader.aspx?DocumentId=17880), que determina que a Microsoft não usará os dados do cliente nem obterá as informações para fins comerciais semelhantes ou de propaganda. Somente usamos os Dados do Cliente conforme o necessário para fornecer os serviços do Azure, inclusive para fins compatíveis com o fornecimento desses serviços. Você mantém todos os direitos dos Dados do Cliente.
 
-**Seus workspaces**: um workspace é especificado para as áreas geográficas a seguir e os dados coletados de suas máquinas virtuais do Azure, incluindo alguns tipos de dados de alerta, são armazenados no workspace mais próximo.
+### <a name="data-use"></a>Uso de dados
+a Microsoft usa os padrões e a inteligência de ameaças vistos em vários locatários para aprimorar os recursos de detecção e prevenção. Fazemos isso de acordo com os compromissos de privacidade descritos em nossa [Política de Privacidade](https://privacy.microsoft.com/privacystatement).
 
-| Replicação geográfica de VM                              | Replicação Geográfica do Workspace |
-|-------------------------------------|---------------|
-| Estados Unidos, Brasil, África do Sul | Estados Unidos |
-| Canada                              | Canada        |
-| Europa (exceto Reino Unido)   | Europa        |
-| United Kingdom                      | United Kingdom |
-| Ásia (exceto Índia, Japão, Coreia do Sul, China)   | Pacífico Asiático  |
-| Coreia do Sul                              | Pacífico Asiático  |
-| Índia                               | Índia         |
-| Japão                               | Japão         |
-| China                               | China         |
-| Austrália                           | Austrália     |
+## <a name="manage-data-collection-from-machines"></a>Gerenciar a coleta de dados dos computadores
+Quando você escolhe habilitar a Central de Segurança no Azure, a coleta de dados é ativada para cada uma de suas assinaturas do Azure. Você também pode habilitar a coleta de dados para suas assinaturas na Central de Segurança. Quando a coleta de dados é habilitada, a Central de Segurança provisiona o agente do Log Analytics em todas as máquinas virtuais do Azure existentes com suporte e nas que são criadas.
 
+O agente do Log Analytics examina várias configurações e eventos relacionados à segurança nos rastreamentos [ETW](/windows/win32/etw/event-tracing-portal) (Rastreamento de Eventos para Windows). Além disso, o sistema operacional irá gerar eventos do log de eventos no decorrer da execução da máquina. Exemplos desses dados são: tipo e versão do sistema operacional, logs do sistema operacional (logs de eventos do Windows), processos em execução, nome do computador, endereços IP, usuário registrado e ID do locatário. O agente di Log Analytics lê as entradas do registro de eventos e os vestígios de ETW e os copia para seus workspaces para análise. O agente do Log Analytics também permite eventos de criação de processos e auditoria de linha de comando.
 
-Os instantâneos de disco da VM são armazenados na mesma conta de armazenamento do disco da VM.
+Se você não estiver usando o Azure Defender, desabilite também a coleta de dados das máquinas virtuais na política de segurança. A coleta de dados é necessária para as assinaturas protegidas pelo Azure Defender. Os instantâneos de disco da VM e a coleção de artefatos ainda serão habilitados mesmo que a coleta de dados tenha sido desabilitada.
 
-Para as máquinas virtuais e os servidores executados em outros ambientes, por exemplo, no local, você pode especificar o workspace e a região onde os dados coletados serão armazenados.
+Você pode especificar o workspace e a região em que os dados coletados dos seus computadores são armazenados. O padrão é armazenar os dados coletados de seus computadores no workspace mais próximo, conforme mostrado na seguinte tabela:
 
-**Armazenamento da Central de Segurança do Azure**: informações sobre alertas de segurança, incluindo alertas de parceiro são armazenados regionalmente de acordo com a localização do recurso do Azure relacionado, enquanto as informações sobre o status de integridade de segurança e a recomendação são centralmente armazenadas nos Estados Unidos ou Europa de acordo com a localização do cliente. Os artefatos da máquina são armazenados de modo central na mesma região da VM.
-
-## <a name="managing-data-collection-from-virtual-machines"></a>Gerenciar a coleta de dados das máquinas virtuais
-
-Quando você escolhe habilitar a Central de Segurança no Azure, a coleta de dados é ativada para cada uma de suas assinaturas do Azure. Você também pode ativar a coleta de dados para suas assinaturas na seção Política de Segurança da Central de Segurança do Azure. Quando a Coleta de dados é ativada, a Central de Segurança do Azure provisiona o agente do Log Analytics em todas as máquinas virtuais do Azure existentes com suporte e as novas criadas.
-O agente do Log Analytics examina várias configurações e eventos relacionados à segurança nos rastreamentos [ETW](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (Rastreamento de Eventos para Windows). Além disso, o sistema operacional irá gerar eventos do log de eventos no decorrer da execução da máquina. Exemplos desses dados são: tipo e versão do sistema operacional, logs do sistema operacional (logs de eventos do Windows), processos em execução, nome do computador, endereços IP, usuário registrado e ID do locatário. O agente di Log Analytics lê as entradas do registro de eventos e os vestígios de ETW e os copia para seus workspaces para análise. O agente do Log Analytics também permite eventos de criação de processos e auditoria de linha de comando.
-
-Se você estiver usando a Central de Segurança do Azure Gratuita, também poderá desabilitar a coleta de dados de máquinas virtuais na Política de Segurança. A coleta de dados é necessária para assinaturas na camada Standard. Os instantâneos de disco da VM e a coleção de artefatos ainda serão habilitados mesmo que a coleta de dados tenha sido desabilitada.
-
-## <a name="data-consumption"></a>Consumo de Dados
-
-Os clientes podem consumir dados relacionados à Central de Segurança de diferentes fluxos de dados, conforme mostrado abaixo:
-
-* **Atividade do Azure**: todos os alertas de segurança, as solicitações [just-in-time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time) aprovadas da Central de Segurança e todos os alertas gerados por [controles de aplicativo adaptáveis](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application).
-* **Logs do Azure Monitor**: todos os alertas de segurança.
-
+| Replicação geográfica de VM                                      | Replicação Geográfica do Workspace  |
+|---------------------------------------------|----------------|
+| Estados Unidos, Brasil, África do Sul         | Estados Unidos  |
+| Canada                                      | Canada         |
+| Europa (exceto Reino Unido)           | Europa         |
+| United Kingdom                              | United Kingdom |
+| Ásia (exceto Índia, Japão, Coreia do Sul, China) | Pacífico Asiático   |
+| Coreia do Sul                                       | Pacífico Asiático   |
+| Índia                                       | Índia          |
+| Japão                                       | Japão          |
+| China                                       | China          |
+| Austrália                                   | Austrália      |
+|                                             |                |
 
 > [!NOTE]
-> Recomendações de segurança também podem ser consumidas por meio da API REST. Leia [Referência da API REST do provedor de recursos de segurança](https://msdn.microsoft.com/library/mt704034(Azure.100).aspx) para obter mais informações.
+> O **Azure Defender para Armazenamento** armazena artefatos regionalmente de acordo com a localização do recurso do Azure relacionado. Saiba mais em [Introdução ao Azure Defender para Armazenamento](defender-for-storage-introduction.md).
 
-## <a name="see-also"></a>Confira também
-Neste documento, você aprendeu como os dados são gerenciados e protegidos na Central de Segurança do Azure. Para saber mais sobre a Central de Segurança do Azure, consulte:
 
-* [Guia de Operações e Planejamento da Central de Segurança do Azure](security-center-planning-and-operations-guide.md) - saiba como planejar e entender as considerações de design para adotar a Central de Segurança do Azure.
-* [Monitoramento da integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md) – saiba como monitorar a integridade dos recursos do Azure
-* [Gerenciando e respondendo aos alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md) – aprenda a gerenciar e responder aos alertas de segurança
-* [Monitorando as soluções de parceiros com a Central de Segurança do Azure](security-center-partner-solutions.md) – saiba como monitorar o status de integridade de suas soluções de parceiros.
-* [Blog de Segurança do Azure](https://blogs.msdn.com/b/azuresecurity/) – encontre postagens no blog sobre conformidade e segurança do Azure
+## <a name="data-consumption"></a>Consumo de dados
+
+Os clientes podem acessar os dados relacionados à Central de Segurança dos seguintes fluxos de dados:
+
+
+| STREAM                                                                                | Tipos de dados                                                                                                                                                                                                          |
+|---------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [Log de Atividades do Azure](../azure-monitor/platform/activity-log.md)                       | Todos os alertas de segurança, as solicitações de acesso [just-in-time](security-center-just-in-time.md) da Central de Segurança aprovadas e todos os alertas gerados pelos [controles de aplicativos adaptáveis](security-center-adaptive-application.md).|
+| [Logs do Azure Monitor](../azure-monitor/platform/data-platform.md)                      | Todos os alertas de segurança.                                                                                                                                                                                                |
+| [Gráfico de Recursos do Azure](../governance/resource-graph/overview.md)                      | Alertas de segurança, recomendações de segurança, resultados da avaliação de vulnerabilidade, informações de classificação de segurança, status de verificações de conformidade e muito mais.                                                                       |
+| [API REST da Central de Segurança do Azure](/rest/api/securitycenter/) | Alertas de segurança, recomendações de segurança e muito mais.                                                                                                                                                                |
+|                                                                                       |                                                                                                                                                                                                                     |
+
+## <a name="next-steps"></a>Próximas etapas
+
+Neste documento, você aprendeu como os dados são gerenciados e protegidos na Central de Segurança do Azure. 
+
+Para saber mais sobre a Central de Segurança do Azure, confira [O que é a Central de Segurança do Azure?](security-center-introduction.md)

@@ -1,19 +1,16 @@
 ---
 title: Spark Streaming no Azure HDInsight
 description: Como usar Apache Spark aplicativos de streaming em clusters Spark do HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
-ms.openlocfilehash: a88d4893daa12ff2c35ee7cf8f4e5b7569f854f6
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: bde6c5b2bad12df8642dd3c9b4a49548f7bc9a6d
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086187"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98929512"
 ---
 # <a name="overview-of-apache-spark-streaming"></a>Visão geral de Streaming do Apache Spark
 
@@ -89,7 +86,7 @@ Envie os resultados da transformação por push para sistemas de destino aplican
 wordCounts.print()
 ```
 
-### <a name="run-the-application"></a>Execute o aplicativo
+### <a name="run-the-application"></a>Executar o aplicativo
 
 Inicie o aplicativo de streaming e execute-o até receber um sinal de encerramento.
 
@@ -239,7 +236,7 @@ Após o primeiro minuto, há 12 entradas – seis entradas de cada um dos dois l
 
 As funções de janela deslizante disponíveis na API Spark Streaming incluem window, countByWindow, reduceByWindow e countByValueAndWindow. Para obter detalhes sobre essas funções, consulte [Transformações em DStreams](https://people.apache.org/~pwendell/spark-releases/latest/streaming-programming-guide.html#transformations-on-dstreams).
 
-## <a name="checkpointing"></a>Ponto de verificação
+## <a name="checkpointing"></a>Definindo o ponto de verificação
 
 Para fornecer resiliência e tolerância a falhas, o Spark Streaming conta com um ponto de verificação para garantir que o processamento do fluxo continue sem interrupções, mesmo que ocorram falhas nos nós. O Spark cria pontos de verificação para o armazenamento durável (armazenamento do Azure ou Data Lake Storage). Esses pontos de verificação armazenam metadados do aplicativo de streaming, como a configuração e as operações definidas pelo aplicativo. Além disso, todos os lotes que foram enfileirados, mas ainda não foram processados. Às vezes, os pontos de verificação também incluirão salvar os dados no RDDs para reconstruir mais rapidamente o estado dos dados a partir do que está presente no RDDs gerenciado pelo Spark.
 

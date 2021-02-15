@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 51e1fd18b52d7e215ba43be540156199fb41778e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f08a6b3f7abfc79bff6baff2a339053905612535
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67171956"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96027633"
 ---
 #### <a name="to-attach-the-sas-cables"></a>Para conectar os cabos do SAS
 1. Identifique os compartimentos principal e EBOD. Os dois compartimentos podem ser identificados pelos respectivos backplanes. Consulte a imagem abaixo para se orientar. 
@@ -22,7 +22,7 @@ ms.locfileid: "67171956"
    |:--- |:--- |
    | 1 |Compartimento principal |
    | 2 |Compartimento EBOD |
-2. Localize os números de série nos compartimentos principal e EBOD. A etiqueta do número de série está fixada na orelha posterior de cada compartimento. Os números de série devem ser idênticos em ambos os compartimentos. [Contate o Suporte da Microsoft](../articles/storsimple/storsimple-contact-microsoft-support.md) imediatamente se os números de série não corresponderem. Consulte a ilustração a seguir para saber como localizar os números de série.
+2. Localize os números de série nos compartimentos principal e EBOD. A etiqueta do número de série está fixada na orelha posterior de cada compartimento. Os números de série devem ser idênticos em ambos os compartimentos. [Contate o Suporte da Microsoft](../articles/storsimple/storsimple-8000-contact-microsoft-support.md) imediatamente se os números de série não corresponderem. Consulte a ilustração a seguir para saber como localizar os números de série.
    
     ![Visão traseira do compartimento mostrando o local do número de série](./media/storsimple-sas-cable-8600/HCSRearviewofenclosureindicatinglocationofserialnumbersticker.png)
    
@@ -51,4 +51,3 @@ ms.locfileid: "67171956"
       | 4 |Controlador 1 do EBOD |
       | 5, 6 |Portas SAS no compartimento principal (rotuladas como EBOD) |
       | 7, 8 |Portas SAS no compartimento EBOD (Porta A) |
-

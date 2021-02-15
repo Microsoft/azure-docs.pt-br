@@ -5,14 +5,16 @@ ms.date: 03/24/2020
 ms.topic: conceptual
 description: Descreve os processos que o Power Azure Dev Spaces e como funciona o roteamento
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres
-ms.openlocfilehash: abdd8a573b7e120c5494b8878c2eb19813fc9507
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 2d2c6f336222b4ae0907d6579289a8cad8d73aa6
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213411"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977962"
 ---
 # <a name="how-routing-works-with-azure-dev-spaces"></a>Como funciona o roteamento com Azure Dev Spaces
+
+[!INCLUDE [Azure Dev Spaces deprecation](../../includes/dev-spaces-deprecation.md)]
 
 O Azure Dev Spaces fornece várias maneiras de iterar e depurar rapidamente aplicativos Kubernetes e colaborar com sua equipe em um cluster do AKS (Serviço de Kubernetes do Azure). Depois que o projeto estiver sendo executado em um espaço de desenvolvimento, Azure Dev Spaces fornecerá recursos adicionais de roteamento e rede para seu projeto.
 
@@ -64,11 +66,7 @@ Ao usar *azureuser*, todas as solicitações para *servicea* serão roteadas par
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para ver alguns exemplos de como o Azure Dev Spaces usa o roteamento para fornecer iteração e desenvolvimento rápidos, consulte [como o processo local com o kubernetes funciona][how-it-works-local-process-kubernetes], [como a depuração remota de seu código com o Azure dev Spaces funciona][how-it-works-remote-debugging]e [ações do GitHub & serviço kubernetes do Azure][pr-flow].
+Para ver um exemplo de como Azure Dev Spaces usa o roteamento para fornecer iteração e desenvolvimento rápidos, consulte [como a depuração remota de seu código com o Azure dev Spaces funciona][how-it-works-remote-debugging].
 
 
-[helm-upgrade]: https://helm.sh/docs/intro/using_helm/#helm-upgrade-and-helm-rollback-upgrading-a-release-and-recovering-on-failure
-[how-it-works-local-process-kubernetes]: /visualstudio/containers/overview-local-process-kubernetes
 [how-it-works-remote-debugging]: how-dev-spaces-works-remote-debugging.md
-[pr-flow]: how-to/github-actions.md
-[troubleshooting]: troubleshooting.md

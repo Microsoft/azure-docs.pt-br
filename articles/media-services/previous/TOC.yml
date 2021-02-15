@@ -3,8 +3,10 @@
 - name: Visão geral
   href: media-services-overview.md
   items:
-    - name: Cenários e disponibilidade
+    - name: Cenários comuns
       href: scenarios-and-availability.md
+    - name: Disponibilidade regional
+      href: availability-regions-v-2.md
     - name: Conceitos
       href: media-services-concepts.md
 - name: Introdução
@@ -115,8 +117,6 @@
     - name: Codificar conteúdo
       href: media-services-encode-asset.md
       items:
-        - name: Comparar os codificadores
-          href: media-services-compare-encoders.md
         - name: Gerenciar a velocidade e a simultaneidade de sua codificação
           href: media-services-manage-encoding-speed.md
         - name: MES (Media Encoder Standard)
@@ -205,20 +205,6 @@
                   href: media-services-mes-preset-H264-Single-Bitrate-High-Quality-SD-for-Android.md
                 - name: H264 Taxa de Bits Única de Baixa Qualidade SD para Android
                   href: media-services-mes-preset-H264-Single-Bitrate-Low-Quality-SD-for-Android.md
-        - name: Fluxo de trabalho do Media Encoder Premium
-          items:
-            - name: Codecs e formatos de fluxo de trabalho do Media Encoder Premium
-              href: media-services-premium-workflow-encoder-formats.md
-            - name: Codificar com o fluxo de trabalho do Media Encoder Premium
-              items:
-                - name: Fluxo de trabalho do Media Encoder Premium
-                  href: media-services-encode-with-premium-workflow.md
-                - name: Tutoriais do Fluxo de Trabalho Premium do Codificador de Mídia
-                  href: media-services-media-encoder-premium-workflow-tutorials.md
-                - name: Criar fluxos de trabalho de codificação avançada com o Designer de Fluxo de Trabalho
-                  href: media-services-workflow-designer.md
-                - name: Fluxo de Trabalho premium com várias entradas
-                  href: media-services-media-encoder-premium-workflow-multiplefilesinput.md
         - name: Criar uma tarefa capaz de gerar partes de fMP4
           href: media-services-generate-fmp4-chunks.md
         - name: Processadores de mídia
@@ -318,33 +304,16 @@
               href: hybrid-design-drm-sybsystem.md
             - name: Design de DRM múltiplos de referência
               href: media-services-cenc-with-multidrm-access-control.md
-    - name: Analisar
-      href: media-services-analytics-overview.md
+    - name: Analisar conteúdo
       items:
-        - name: Analisar mídia usando o portal do Azure
-          href: media-services-portal-analyze.md
-        - name: Processar com o Indexador 2
-          href: media-services-process-content-with-indexer2.md
         - name: Processar com o Indexador
           href: media-services-index-content.md
-          items:
-            - name: Predefinição de tarefa
-              href: indexer-task-preset.md
-        - name: Processar com o Face Detector
-          href: media-services-face-and-emotion-detection.md
-        - name: Processar com o Motion Detector
-          href: media-services-motion-detection.md
+        - name: Predefinição de tarefa
+          href: indexer-task-preset.md
         - name: Processar com o Editor Facial
           href: media-services-face-redaction.md
-          items:
-            - name: Passo a passo do Editor Facial
-              href: media-services-redactor-walkthrough.md
-        - name: Processar com miniaturas de vídeo
-          href: media-services-video-summarization.md
-        - name: Processar com OCR
-          href: media-services-video-optical-character-recognition.md
-        - name: Processar com o Content Moderator
-          href: media-services-content-moderation.md
+        - name: Passo a passo do Editor Facial
+          href: media-services-redactor-walkthrough.md
     - name: Configurar telemetria
       href: media-services-telemetry-overview.md
       items:

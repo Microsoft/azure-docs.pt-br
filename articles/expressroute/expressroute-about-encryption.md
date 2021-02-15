@@ -2,17 +2,17 @@
 title: 'Azure ExpressRoute: sobre criptografia'
 description: Saiba mais sobre a criptografia do ExpressRoute.
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 05/05/2020
-ms.author: cherylmc
-ms.openlocfilehash: 77755ab6bdbb3c1e6416475f5066b5dd463eb7f5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 10/12/2020
+ms.author: duau
+ms.openlocfilehash: 693d2304324bdfcac298b3e20ddd0d882a16533c
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82838749"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92899864"
 ---
 # <a name="expressroute-encryption"></a>Criptografia do ExpressRoute
  
@@ -31,16 +31,14 @@ Não. Se MACsec estiver configurado e ocorrer uma incompatibilidade de chave, vo
 ### <a name="will-enabling-macsec-on-expressroute-direct-degrade-network-performance"></a>Permitirá que o MACsec no ExpressRoute direcione o desempenho da rede?
 A criptografia e a descriptografia do MACsec ocorrem no hardware nos roteadores que usamos. Não há impacto no desempenho em nosso lado. No entanto, você deve verificar com o fornecedor de rede os dispositivos que você usa e ver se MACsec tem alguma implicação de desempenho.
 ### <a name="which-cipher-suites-are-supported-for-encryption"></a>Quais conjuntos de codificação têm suporte para criptografia?
-Damos suporte apenas à versão de [numeração de pacotes estendida](https://1.ieee802.org/security/802-1aebw/) de aes128 e aes256. Além disso, desabilite o [Sci (identificador de canal seguro)](https://en.wikipedia.org/wiki/IEEE_802.1AE) na configuração do MACsec em seu dispositivo. 
+Damos suporte apenas à versão de [numeração de pacotes estendida](https://1.ieee802.org/security/802-1aebw/) de aes-128 e aes-256. Além disso, você deve desabilitar o [Sci (identificador de canal seguro)](https://wikipedia.org/wiki/IEEE_802.1AE) na configuração do MACsec em seu dispositivo. 
 
 ## <a name="end-to-end-encryption-by-ipsec-faq"></a>Perguntas frequentes sobre criptografia de ponta a ponta por IPsec
 O IPsec é um [padrão IETF](https://tools.ietf.org/html/rfc6071). Ele criptografa dados no nível do protocolo IP ou na camada de rede 3. Você pode usar o IPsec para criptografar uma conexão de ponta a ponta entre sua rede local e sua rede virtual (VNET) no Azure. Veja outras perguntas frequentes abaixo.
 ### <a name="can-i-enable-ipsec-in-addition-to-macsec-on-my-expressroute-direct-ports"></a>Posso habilitar o IPsec além do MACsec em minhas portas diretas do ExpressRoute?
 Sim. O MACsec protege as conexões físicas entre você e a Microsoft. O IPsec protege a conexão de ponta a ponta entre você e suas redes virtuais no Azure. Você pode habilitá-los independentemente. 
-### <a name="can-i-use-azure-vpn-gateway-to-set-up-the-ipsec-tunnel-between-my-on-premises-network-and-my-azure-virtual-network"></a>Posso usar o gateway de VPN do Azure para configurar o túnel IPsec entre minha rede local e minha rede virtual do Azure?
-Sim. Você pode configurar esse túnel IPsec sobre o emparelhamento da Microsoft de seu circuito do ExpressRoute. Siga nosso [Guia de configuração](site-to-site-vpn-over-microsoft-peering.md).
 ### <a name="can-i-use-azure-vpn-gateway-to-set-up-the-ipsec-tunnel-over-azure-private-peering"></a>Posso usar o gateway de VPN do Azure para configurar o túnel IPsec sobre o emparelhamento privado do Azure?
-Se você adotar a WAN virtual do Azure, poderá seguir [estas etapas](../virtual-wan/vpn-over-expressroute.md) para criptografar a conexão de ponta a ponta. Se você tiver uma VNET do Azure regular, poderá implantar um gateway de VPN de terceiros em sua VNET e estabelecer um túnel IPsec entre ele e o gateway de VPN local.
+Sim. Se você adotar a WAN virtual do Azure, poderá seguir [estas etapas](../virtual-wan/vpn-over-expressroute.md) para criptografar a conexão de ponta a ponta. Se você tiver a VNET do Azure regular, poderá seguir [estas etapas](../vpn-gateway/site-to-site-vpn-private-peering.md) para estabelecer um túnel IPSec entre o gateway de VPN do Azure e o gateway de VPN local.
 ### <a name="what-is-the-throughput-i-will-get-after-enabling-ipsec-on-my-expressroute-connection"></a>Qual será a taxa de transferência que receberei depois de habilitar o IPsec em minha conexão do ExpressRoute?
 Se o gateway de VPN do Azure for usado, verifique os [números de desempenho aqui](../vpn-gateway/vpn-gateway-about-vpngateways.md). Se um gateway de VPN de terceiros for usado, verifique com o fornecedor os números de desempenho.
 

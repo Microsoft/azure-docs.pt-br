@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 06/21/2018
 ms.author: allensu
-ms.openlocfilehash: d716b026159311c12341c30a8c32d5a9ecc6fa3f
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: ff205069c31d50813a4fad71a3c9e2f8e2462844
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432755"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92778139"
 ---
 # <a name="using-azure-cdn-with-sas"></a>Usando a CDN do Azure com SAS
 
@@ -27,13 +27,13 @@ Ao configurar uma conta de armazenamento para a Rede de Distribuição de Conte�
 
 Se você deseja conceder acesso limitado aos contêineres de armazenamento privado, você pode usar o recurso de Assinatura de Acesso Compartilhado (SAS) de sua conta de armazenamento do Azure. Uma SAS é um URI que concede direitos de acesso restrito aos seus recursos do armazenamento do Azure sem expor sua chave de conta. Você pode fornecer uma SAS para clientes aos quais não confia sua chave de conta de armazenamento, mas para os quais deseja delegar acesso a determinados recursos da conta de armazenamento. Ao distribuir um URI de assinatura de acesso compartilhado para esses clientes, você concede a eles acesso a um recurso por um período especificado.
  
-Com uma SAS, você pode definir vários parâmetros de acesso para um blob, como horários de início e vencimento, permissões (leitura/gravação) e intervalos de IP. Este artigo descreve como usar a SAS em conjunto com a CDN do Azure. Para obter mais informações sobre a SAS, incluindo como criá-la e suas opções de parâmetro, consulte [Usando assinaturas de acesso compartilhado (SAS)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1).
+Com uma SAS, você pode definir vários parâmetros de acesso para um blob, como horários de início e vencimento, permissões (leitura/gravação) e intervalos de IP. Este artigo descreve como usar a SAS em conjunto com a CDN do Azure. Para obter mais informações sobre a SAS, incluindo como criá-la e suas opções de parâmetro, consulte [Usando assinaturas de acesso compartilhado (SAS)](../storage/common/storage-sas-overview.md).
 
 ## <a name="setting-up-azure-cdn-to-work-with-storage-sas"></a>Configurando a CDN do Azure para trabalhar com SAS no armazenamento
 As três opções a seguir são recomendadas para usar a SAS com a CDN do Azure. Todas as opções pressupõem que você já tenha criado uma SAS que está em funcionamento (consulte os pré-requisitos). 
  
 ### <a name="prerequisites"></a>Pré-requisitos
-Para começar, crie uma conta de armazenamento e gere uma SAS para seu ativo. Você pode gerar dois tipos de assinaturas de acesso compartilhado: uma SAS de serviço ou uma SAS de conta. Para obter mais informações, confira [Tipos de assinatura de acesso compartilhado](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1#types-of-shared-access-signatures).
+Para começar, crie uma conta de armazenamento e gere uma SAS para seu ativo. Você pode gerar dois tipos de assinaturas de acesso compartilhado: uma SAS de serviço ou uma SAS de conta. Para obter mais informações, confira [Tipos de assinatura de acesso compartilhado](../storage/common/storage-sas-overview.md#types-of-shared-access-signatures).
 
 Depois de gerar um token SAS, você pode acessar o arquivo de armazenamento de blob, acrescentando `?sv=<SAS token>` em sua URL. Esta URL tem o seguinte formato: 
 
@@ -44,7 +44,7 @@ Por exemplo:
 https://democdnstorage1.blob.core.windows.net/container1/demo.jpg?sv=2017-07-29&ss=b&srt=co&sp=r&se=2038-01-02T21:30:49Z&st=2018-01-02T13:30:49Z&spr=https&sig=QehoetQFWUEd1lhU5iOMGrHBmE727xYAbKJl5ohSiWI%3D
 ```
 
-Para obter mais informações sobre a configuração dos parâmetros, consulte [Considerações sobre parâmetros de SAS](#sas-parameter-considerations) e [Parâmetros de assinatura de acesso compartilhado](https://docs.microsoft.com/azure/storage/common/storage-sas-overview#how-a-shared-access-signature-works).
+Para obter mais informações sobre a configuração dos parâmetros, consulte [Considerações sobre parâmetros de SAS](#sas-parameter-considerations) e [Parâmetros de assinatura de acesso compartilhado](../storage/common/storage-sas-overview.md#how-a-shared-access-signature-works).
 
 ![Configurações de SAS da CDN](./media/cdn-sas-storage-support/cdn-sas-settings.png)
 
@@ -52,7 +52,7 @@ Para obter mais informações sobre a configuração dos parâmetros, consulte [
 
 Esta opção é a mais simples e usa apenas um token de SAS, que é passado da CDN do Azure para o servidor de origem.
  
-1. Selecione um ponto de extremidade, selecione em **Regras de cache** e, em seguida, selecione **Armazenar em cache todas as URLs exclusivas** na lista **Cache da cadeia de caracteres de consulta**.
+1. Selecione um ponto de extremidade, selecione em **Regras de cache** e, em seguida, selecione **Armazenar em cache todas as URLs exclusivas** na lista **Cache da cadeia de caracteres de consulta** .
 
     ![Regras de cache da CDN](./media/cdn-sas-storage-support/cdn-caching-rules.png)
 
@@ -69,15 +69,15 @@ Esta opção é a mais simples e usa apenas um token de SAS, que é passado da C
 
 ### <a name="option-2-hidden-cdn-sas-token-using-a-rewrite-rule"></a>Opção 2: token SAS da CDN oculto por meio de uma regra de reescrita
  
-Essa opção só está disponível para perfis da **CDN Premium do Azure da Verizon**. Com essa opção, você pode proteger o armazenamento de blob no servidor de origem. Talvez você queira usar esta opção se não precisar de restrições de acesso específicas para o arquivo, mas desejar impedir que usuários acessem a origem do armazenamento diretamente para melhorar o tempo de descarregamento da CDN do Azure. O token SAS, que é desconhecido para o usuário, é necessário para que qualquer pessoa que acesse os arquivos no contêiner especificado do servidor de origem. No entanto, devido à regra de Regravação de URL, o token SAS não é necessário no ponto de extremidade de CDN.
+Essa opção só está disponível para perfis da **CDN Premium do Azure da Verizon** . Com essa opção, você pode proteger o armazenamento de blob no servidor de origem. Talvez você queira usar esta opção se não precisar de restrições de acesso específicas para o arquivo, mas desejar impedir que usuários acessem a origem do armazenamento diretamente para melhorar o tempo de descarregamento da CDN do Azure. O token SAS, que é desconhecido para o usuário, é necessário para que qualquer pessoa que acesse os arquivos no contêiner especificado do servidor de origem. No entanto, devido à regra de Regravação de URL, o token SAS não é necessário no ponto de extremidade de CDN.
  
-1. Use o [mecanismo de regras](cdn-rules-engine.md) para criar uma regra de regravação de URL. A propagação das novas regras pode demorar até 4 horas.
+1. Use o [mecanismo de regras](./cdn-verizon-premium-rules-engine.md) para criar uma regra de regravação de URL. A propagação das novas regras pode demorar até 4 horas.
 
    ![Botão Gerenciar CDN](./media/cdn-sas-storage-support/cdn-manage-btn.png)
 
    ![Botão do mecanismo de regras da CDN](./media/cdn-sas-storage-support/cdn-rules-engine-btn.png)
 
-   A seguinte regra de Regravação de URL de exemplo usa um padrão de expressão regular com um grupo de captura e um ponto de extremidade chamado *sasstoragedemo*:
+   A seguinte regra de Regravação de URL de exemplo usa um padrão de expressão regular com um grupo de captura e um ponto de extremidade chamado *sasstoragedemo* :
    
    Origem:   
    `(container1\/.*)`
@@ -100,9 +100,9 @@ Essa opção só está disponível para perfis da **CDN Premium do Azure da Veri
 
 ### <a name="option-3-using-cdn-security-token-authentication-with-a-rewrite-rule"></a>Opção 3: usar a autenticação de token de segurança da CDN com uma regra de reescrita
 
-Para usar a autenticação de token de segurança da CDN do Azure, você precisa ter um perfil da **CDN Premium do Azure da Verizon**. Essa opção é a mais segura e personalizável. O acesso do cliente é baseado nos parâmetros de segurança que você define no token de segurança da CDN. Depois que você criar e configurar o token de segurança, ele será necessário em todas as URLs de ponto de extremidade de CDN. No entanto, devido à regra de Regravação de URL, o token SAS não é necessário no ponto de extremidade de CDN. No entanto, se o token de SAS depois se tornar inválida, a CDN do Azure não conseguirá mais revalidar o conteúdo do servidor de origem.
+Para usar a autenticação de token de segurança da CDN do Azure, você precisa ter um perfil da **CDN Premium do Azure da Verizon** . Essa opção é a mais segura e personalizável. O acesso do cliente é baseado nos parâmetros de segurança que você define no token de segurança da CDN. Depois que você criar e configurar o token de segurança, ele será necessário em todas as URLs de ponto de extremidade de CDN. No entanto, devido à regra de Regravação de URL, o token SAS não é necessário no ponto de extremidade de CDN. No entanto, se o token de SAS depois se tornar inválida, a CDN do Azure não conseguirá mais revalidar o conteúdo do servidor de origem.
 
-1. [Crie um token de segurança da CDN do Azure](https://docs.microsoft.com/azure/cdn/cdn-token-auth#setting-up-token-authentication) e ative-o usando o mecanismo de regras para o ponto de extremidade e o caminho da CDN na qual os usuários podem acessar o arquivo.
+1. [Crie um token de segurança da CDN do Azure](./cdn-token-auth.md#setting-up-token-authentication) e ative-o usando o mecanismo de regras para o ponto de extremidade e o caminho da CDN na qual os usuários podem acessar o arquivo.
 
    Uma URL de ponto de extremidade de token de segurança tem o seguinte formato:   
    `https://<endpoint hostname>.azureedge.net/<container>/<file>?<security_token>`
@@ -114,9 +114,9 @@ Para usar a autenticação de token de segurança da CDN do Azure, você precisa
        
    As opções de parâmetro para uma autenticação de token de segurança são diferentes das opções de parâmetro para um token da SAS. Se optar por usar uma hora de expiração quando criar um token de segurança, você deverá defini-la com o mesmo valor que a hora de expiração do token de SAS. Isso garante que a hora de expiração seja previsível. 
  
-2. Use o [mecanismo de regras](cdn-rules-engine.md) para criar uma regra de regravação de URL para permitir acesso com token SAS a todos os blobs no contêiner. A propagação das novas regras pode demorar até 4 horas.
+2. Use o [mecanismo de regras](./cdn-verizon-premium-rules-engine.md) para criar uma regra de regravação de URL para permitir acesso com token SAS a todos os blobs no contêiner. A propagação das novas regras pode demorar até 4 horas.
 
-   A seguinte regra de Regravação de URL de exemplo usa um padrão de expressão regular com um grupo de captura e um ponto de extremidade chamado *sasstoragedemo*:
+   A seguinte regra de Regravação de URL de exemplo usa um padrão de expressão regular com um grupo de captura e um ponto de extremidade chamado *sasstoragedemo* :
    
    Origem:   
    `(container1\/.*)`
@@ -138,13 +138,13 @@ Como parâmetros da SAS não são visíveis para a CDN do Azure, a CDN do Azure 
 | --- | --- |
 | Iniciar | A hora em que a CDN do Azure pode começar a acessar o arquivo de blob. Devido à distorção do relógio (quando um sinal de relógio chega em momentos diferentes para diferentes componentes), se quiser disponibilizar o ativo imediatamente, escolha um horário 15 minutos antes. |
 | End | A hora após a qual a CDN do Azure não poderá mais acessar o arquivo de blob. Arquivos armazenados em cache anteriormente na CDN do Azure ainda são acessíveis. Para controlar a hora de expiração do arquivo, defina a hora de expiração apropriada no token de segurança da CDN do Azure ou limpe o ativo. |
-| Endereços IP permitidos | Opcional. Se estiver usando a **CDN do Azure da Verizon**, você poderá definir esse parâmetro para os intervalos definidos em [Azure CDN from Verizon Edge Server IP Ranges](/azure/cdn/cdn-pop-list-api) (CDN do Azure de Intervalos de IP do Servidor de Borda Verizon). Se estiver usando a **CDN do Azure da Akamai**, você não poderá definir o parâmetro de intervalos de IP porque os endereços de IP não são estáticos.|
+| Endereços IP permitidos | Opcional. Se estiver usando a **CDN do Azure da Verizon** , você poderá definir esse parâmetro para os intervalos definidos em [Azure CDN from Verizon Edge Server IP Ranges](./cdn-pop-list-api.md) (CDN do Azure de Intervalos de IP do Servidor de Borda Verizon). Se estiver usando a **CDN do Azure da Akamai** , você não poderá definir o parâmetro de intervalos de IP porque os endereços de IP não são estáticos.|
 | Protocolos permitidos | Os protocolos permitidos para uma solicitação feita com a conta de SAS. A configuração HTTPS é recomendada.|
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre SAS, veja os seguintes artigos:
-- [Como usar SAS (assinaturas de acesso compartilhado)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1)
-- [Assinatura de Acesso Compartilhado, Parte 2: Criar e usar um SAS com o Armazenamento de Blobs](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2)
+- [Como usar SAS (assinaturas de acesso compartilhado)](../storage/common/storage-sas-overview.md)
+- [Assinatura de Acesso Compartilhado, Parte 2: Criar e usar um SAS com o Armazenamento de Blobs](../storage/common/storage-sas-overview.md)
 
-Para saber mais sobre como configurar a autenticação de token, confira [Protegendo ativos da Rede de Distribuição de Conteúdo do Azure com autenticação de token](https://docs.microsoft.com/azure/cdn/cdn-token-auth).
+Para saber mais sobre como configurar a autenticação de token, confira [Protegendo ativos da Rede de Distribuição de Conteúdo do Azure com autenticação de token](./cdn-token-auth.md).

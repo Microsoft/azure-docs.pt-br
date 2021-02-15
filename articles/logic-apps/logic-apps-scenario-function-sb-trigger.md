@@ -1,22 +1,22 @@
 ---
 title: Chamar aplicativos lógicos com o Azure Functions
-description: Criar funções do Azure que chamam ou disparam aplicativos lógicos ouvindo o barramento de serviço do Azure
+description: Chamar ou disparar aplicativos lógicos usando o Azure Functions e o barramento de serviço do Azure
 services: logic-apps
 ms.suite: integration
 ms.reviewer: jehollan, klam, logicappspm
 ms.topic: article
 ms.date: 11/08/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: fcf7f1a27633c978c10f541d0a341225fbcb126d
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: a7df9ba1318f40de8af392cfaedbe51d7a5df755
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89013768"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98784925"
 ---
 # <a name="call-or-trigger-logic-apps-by-using-azure-functions-and-azure-service-bus"></a>Chamar ou disparar aplicativos lógicos usando o Azure Functions e o barramento de serviço do Azure
 
-Você pode usar [Azure Functions](../azure-functions/functions-overview.md) para disparar um aplicativo lógico quando precisar implantar um ouvinte ou uma tarefa de execução longa. Por exemplo, você pode criar uma função do Azure que escuta em uma fila [do barramento de serviço do Azure](../service-bus-messaging/service-bus-messaging-overview.md) e imediatamente aciona um aplicativo lógico como um gatilho de envio por push.
+Você pode usar [Azure Functions](../azure-functions/functions-overview.md) para disparar um aplicativo lógico quando precisar implantar um ouvinte ou uma tarefa de execução longa. Por exemplo, você pode criar uma função que escuta em uma fila [do barramento de serviço do Azure](../service-bus-messaging/service-bus-messaging-overview.md) e imediatamente aciona um aplicativo lógico como um gatilho de envio por push.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -24,7 +24,7 @@ Você pode usar [Azure Functions](../azure-functions/functions-overview.md) para
 
 * Um namespace do barramento de serviço do Azure. Se você não tiver um namespace, [primeiro crie seu namespace](../service-bus-messaging/service-bus-create-namespace-portal.md).
 
-* Um aplicativo de funções do Azure, que é um contêiner do Azure functions. Se você não tiver um aplicativo de funções, [crie seu aplicativo de funções primeiro](../azure-functions/functions-create-first-azure-function.md)e certifique-se de selecionar .net como a pilha de tempo de execução.
+* Um aplicativo de funções, que é um contêiner para suas funções. Se você não tiver um aplicativo de funções, [crie seu aplicativo de funções primeiro](../azure-functions/functions-get-started.md)e certifique-se de selecionar .net como a pilha de tempo de execução.
 
 * Conhecimento básico sobre [como criar aplicativos lógicos](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
@@ -94,7 +94,7 @@ Para esse cenário, você tem uma função executando cada aplicativo lógico qu
 
    ![URL de retorno de chamada gerada para o gatilho](./media/logic-apps-scenario-function-sb-trigger/callback-URL-for-trigger.png)
 
-## <a name="create-azure-function"></a>Criar função do Azure
+## <a name="create-a-function"></a>Criar uma função
 
 Em seguida, crie a função que atuará como o gatilho e escutará a fila.
 

@@ -8,10 +8,10 @@ ms.date: 05/18/2020
 author: mingshen-ms
 ms.author: mingshen
 ms.openlocfilehash: 2e6381afb19018822f6f37171a5ca4b3d929b42e
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88037517"
 ---
 # <a name="saas-fulfillment-apis-in-the-microsoft-commercial-marketplace"></a>APIs de cumprimento de SaaS no Microsoft Commercial Marketplace

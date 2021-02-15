@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/29/2019
 ms.author: jeedes
-ms.openlocfilehash: 1925ef48ee08a7b4f3b3b4c1b1319463d4134f6c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 9b7e5626eeb65b5bc92c27dbb0a772e85a54d4ff
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551543"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92453961"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-envoy"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Envoy
 
@@ -26,7 +26,7 @@ Neste tutorial, você aprenderá a integrar o Envoy ao Azure AD (Azure Active Di
 * Permitir que os usuários sejam conectados automaticamente ao Envoy com suas contas do Azure AD.
 * Gerenciar suas contas em um local central: o portal do Azure.
 
-Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -51,15 +51,15 @@ Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente d
 Para configurar a integração do Envoy com o Azure AD, você precisará adicionar o Envoy à sua lista de aplicativos SaaS gerenciados por meio da galeria.
 
 1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
-1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory**.
-1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos**.
-1. Para adicionar um novo aplicativo, escolha **Novo aplicativo**.
-1. Na seção **Adicionar da galeria**, digite **Envoy** na caixa de pesquisa.
+1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory** .
+1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos** .
+1. Para adicionar um novo aplicativo, escolha **Novo aplicativo** .
+1. Na seção **Adicionar da galeria** , digite **Envoy** na caixa de pesquisa.
 1. Selecione **Envoy** no painel de resultados e adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-envoy"></a>Configurar e testar logon único do Azure AD para o Envoy
 
-Configure e teste o SSO do Azure AD com o Envoy usando um usuário de teste chamado **B.Fernandes**. Para que o SSO funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Envoy.
+Configure e teste o SSO do Azure AD com o Envoy usando um usuário de teste chamado **B.Fernandes** . Para que o SSO funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Envoy.
 
 Para configurar e testar o SSO do Azure AD com o Envoy, conclua os seguintes blocos de construção:
 
@@ -74,28 +74,28 @@ Para configurar e testar o SSO do Azure AD com o Envoy, conclua os seguintes blo
 
 Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Envoy**, localize a seção **Gerenciar** e selecione **Logon único**.
-1. Na página **Selecionar um método de logon único**, escolha **SAML**.
-1. Na página **Configurar o logon único com o SAML**, clique no ícone de edição/caneta da **Configuração Básica do SAML** para editar as configurações.
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Envoy** , localize a seção **Gerenciar** e selecione **Logon único** .
+1. Na página **Selecionar um método de logon único** , escolha **SAML** .
+1. Na página **Configurar o logon único com o SAML** , clique no ícone de edição/caneta da **Configuração Básica do SAML** para editar as configurações.
 
    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-1. Na seção **Configuração Básica do SAML**, insira os valores para os seguintes campos:
+1. Na seção **Configuração Básica do SAML** , insira os valores para os seguintes campos:
 
-    Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://app.envoy.com/a/saml/auth/<company-ID-from-Envoy>`
+    Na caixa de texto **URL de logon** , digite um URL usando o seguinte padrão: `https://app.envoy.com/a/saml/auth/<company-ID-from-Envoy>`
 
     > [!NOTE]
     > O valor não é real. Atualize o valor com a URL de Logon real. Contate a [equipe de suporte ao cliente do Envoy](https://envoy.com/contact/) para obter o valor. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
-1. Na seção **Certificado de Autenticação SAML**, clique no botão **Editar** para abrir a caixa de diálogo **Certificado de Autenticação SAML**.
+1. Na seção **Certificado de Autenticação SAML** , clique no botão **Editar** para abrir a caixa de diálogo **Certificado de Autenticação SAML** .
 
     ![Editar o Certificado de Autenticação SAML](common/edit-certificate.png)
 
-1. Na seção **Certificado de Autenticação SAML**, copie o **Valor da Impressão Digital** e salve-o em seu computador.
+1. Na seção **Certificado de Autenticação SAML** , copie o **Valor da Impressão Digital** e salve-o em seu computador.
 
     ![Copiar o valor da Impressão Digital](common/copy-thumbprint.png)
 
-1. Na seção **Configurar o Envoy**, copie as URLs apropriadas de acordo com suas necessidades.
+1. Na seção **Configurar o Envoy** , copie as URLs apropriadas de acordo com suas necessidades.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
@@ -103,53 +103,53 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 Nesta seção, você criará um usuário de teste no portal do Azure chamado B.Fernandes.
 
-1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory**, **Usuários** e, em seguida, **Todos os usuários**.
+1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory** , **Usuários** e, em seguida, **Todos os usuários** .
 1. Selecione **Novo usuário** na parte superior da tela.
-1. Nas propriedades do **Usuário**, siga estas etapas:
-   1. No campo **Nome**, insira `B.Simon`.  
-   1. No campo **Nome de usuário**, insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
-   1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha**.
-   1. Clique em **Criar**.
+1. Nas propriedades do **Usuário** , siga estas etapas:
+   1. No campo **Nome** , insira `B.Simon`.  
+   1. No campo **Nome de usuário** , insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
+   1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha** .
+   1. Clique em **Criar** .
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
 Nesta seção, você permitirá que B.Fernandes use o logon único do Azure concedendo a ela acesso ao Envoy.
 
-1. No portal do Azure, selecione **Aplicativos empresariais** e, em seguida, selecione **Todos os aplicativos**.
-1. Na lista de aplicativos, escolha **Envoy**.
-1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e escolha **Usuários e grupos**.
+1. No portal do Azure, selecione **Aplicativos empresariais** e, em seguida, selecione **Todos os aplicativos** .
+1. Na lista de aplicativos, escolha **Envoy** .
+1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e escolha **Usuários e grupos** .
 
    ![O link “Usuários e grupos”](common/users-groups-blade.png)
 
-1. Escolha **Adicionar usuário** e, em seguida, **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
+1. Escolha **Adicionar usuário** e, em seguida, **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição** .
 
     ![O link Adicionar Usuário](common/add-assign-user.png)
 
-1. Na caixa de diálogo **Usuários e grupos**, selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
-1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função**, escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
-1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
+1. Na caixa de diálogo **Usuários e grupos** , selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função** , escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
+1. Na caixa de diálogo **Adicionar atribuição** , clique no botão **Atribuir** .
 
 ## <a name="configure-envoy-sso"></a>Configurar o SSO do Envoy
 
-1. Para automatizar a configuração no Envoy, é necessário instalar a **Extensão do navegador de Entrada Segura dos Meus Aplicativos**, clicando em **Instalar a extensão**.
+1. Para automatizar a configuração no Envoy, é necessário instalar a **Extensão do navegador de Entrada Segura dos Meus Aplicativos** , clicando em **Instalar a extensão** .
 
     ![Extensão Meus Aplicativos](common/install-myappssecure-extension.png)
 
-2. Depois de adicionar a extensão ao navegador, clique em **Instalação do Envoy**. Você será direcionado ao aplicativo Envoy. De lá, forneça as credenciais de administrador para entrar no Envoy. A extensão do navegador configurará automaticamente o aplicativo e automatizará as etapas de 3 a 7.
+2. Depois de adicionar a extensão ao navegador, clique em **Instalação do Envoy** . Você será direcionado ao aplicativo Envoy. De lá, forneça as credenciais de administrador para entrar no Envoy. A extensão do navegador configurará automaticamente o aplicativo e automatizará as etapas de 3 a 7.
 
     ![Configuração da instalação](common/setup-sso.png)
 
 3. Se desejar configurar o Envoy manualmente, abra uma nova janela do navegador da Web, entre no site da empresa Envoy como administrador e execute as seguintes etapas:
 
-4. Na barra de ferramentas na parte superior, clique em **Configurações**.
+4. Na barra de ferramentas na parte superior, clique em **Configurações** .
 
     ![Envoy](./media/envoy-tutorial/ic776782.png "Envoy")
 
-5. Clique em **Empresa**.
+5. Clique em **Empresa** .
 
     ![Empresa](./media/envoy-tutorial/ic776783.png "Empresa")
 
-6. Clique em **SAML**.
+6. Clique em **SAML** .
 
     ![SAML](./media/envoy-tutorial/ic776784.png "SAML")
 
@@ -160,11 +160,11 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
     >[!NOTE]
     >O valor para a ID de Local de Matriz é automaticamente gerada pelo aplicativo.
     
-    a. Na caixa de texto **Impressão digital**, cole o valor da **Impressão Digital** do certificado copiado do Portal do Azure.
+    a. Na caixa de texto **Impressão digital** , cole o valor da **Impressão Digital** do certificado copiado do Portal do Azure.
     
-    b. Cole o valor da **URL do Logon** copiado do portal do Azure na caixa de texto **URL HTTP DO SAML DO PROVEDOR DE IDENTIDADE**.
+    b. Cole o valor da **URL do Logon** copiado do portal do Azure na caixa de texto **URL HTTP DO SAML DO PROVEDOR DE IDENTIDADE** .
     
-    c. Clique em **Salvar alterações**.
+    c. Clique em **Salvar alterações** .
 
 ### <a name="create-envoy-test-user"></a>Criar um usuário de teste do Envoy
 
@@ -174,15 +174,14 @@ Nesta seção, é criado um usuário chamado Brenda Fernandes no Envoy. O Envoy 
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Ao clicar no bloco do Envoy no Painel de Acesso, você deverá ser conectado automaticamente ao Envoy, para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao clicar no bloco do Envoy no Painel de Acesso, você deverá ser conectado automaticamente ao Envoy, para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](./tutorial-list.md)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)
 
 - [Experimente o Envoy com o Azure AD](https://aad.portal.azure.com/)
-

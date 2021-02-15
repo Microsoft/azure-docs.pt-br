@@ -3,12 +3,12 @@ title: O que é a Análise de Vídeo ao vivo no IoT Edge – Azure
 description: Este tópico fornece uma visão geral da Análise de Vídeo ao vivo no IoT Edge. A plataforma oferece a capacidade que você pode usar para aprimorar suas soluções de IoT. Por exemplo, capture, grave, analise o vídeo ao vivo e publique os resultados (a análise de vídeo e/ou o vídeo) nos serviços do Azure.
 ms.topic: overview
 ms.date: 05/27/2020
-ms.openlocfilehash: 81a67322d0a5e524d75b9bf3e481be7157e09e63
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: b9b8726c5e8ad6850e05aeee48fccabee703080e
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266790"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "90904345"
 ---
 # <a name="what-is-live-video-analytics-on-iot-edge-preview"></a>O que é a Análise de Vídeo ao vivo no IoT Edge? (versão prévia)
 
@@ -26,7 +26,10 @@ Com a Análise de Vídeo ao vivo no IoT Edge, você pode continuar a usar [câme
 
 ## <a name="supported-environments"></a>Ambientes compatíveis
 
-Os ambientes Linux AMD64 e x64 são compatíveis.
+Há suporte para ambientes Linux x86-64 e ARM64.
+> [!NOTE]
+> O suporte para dispositivos ARM64 está disponível em builds `1.0.4` e mais recentes.
+> O suporte para executar o runtime do Azure IoT Edge em dispositivos ARM64 está em [versão prévia pública](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="get-started"></a>Introdução
 

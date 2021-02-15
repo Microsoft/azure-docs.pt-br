@@ -14,16 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/15/2020
 ms.author: damaerte
-ms.openlocfilehash: 1cb5716e2f02a99e4d39a4041a2e54e87cf43568
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 58f6c7a3b5d68d2825cead545ba1b683d1faf1af
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88114652"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222795"
 ---
 # <a name="deploy-cloud-shell-into-an-azure-virtual-network"></a>Implantar Cloud Shell em uma rede virtual do Azure
-> [!NOTE]
-> Essa funcionalidade está em visualização pública.
 
 Uma sessão de Cloud Shell regular é executada em um contêiner em uma rede da Microsoft separada dos seus recursos. Isso significa que os comandos em execução dentro do contêiner não podem acessar recursos que só podem ser acessados de uma rede virtual específica. Por exemplo, você não pode usar o SSH para se conectar de Cloud Shell a uma máquina virtual que tem apenas um endereço IP privado ou usar kubectl para se conectar a um cluster kubernetes que bloqueou o acesso. 
 
@@ -52,7 +50,7 @@ Dentro da rede virtual selecionada, uma sub-rede dedicada deve ser usada para co
 Um perfil de rede é um modelo de configuração de rede para recursos do Azure que especifica determinadas propriedades de rede para o recurso.
 
 ### <a name="azure-relay"></a>Retransmissão do Azure
-Uma [retransmissão do Azure](https://docs.microsoft.com/azure/azure-relay/relay-what-is-it) permite que dois pontos de extremidade que não podem ser acessados diretamente se comuniquem. Nesse caso, ele é usado para permitir que o navegador do administrador se comunique com o contêiner na rede privada.
+Uma [retransmissão do Azure](../azure-relay/relay-what-is-it.md) permite que dois pontos de extremidade que não podem ser acessados diretamente se comuniquem. Nesse caso, ele é usado para permitir que o navegador do administrador se comunique com o contêiner na rede privada.
 
 A instância de retransmissão do Azure usada para Cloud Shell pode ser configurada para controlar quais redes podem acessar recursos de contêiner: 
 - Acessível pela Internet pública: nessa configuração, Cloud Shell fornece uma maneira de acessar recursos internos de outra forma de fora. 
@@ -64,9 +62,9 @@ Como no Cloud Shell padrão, uma conta de armazenamento é necessária ao usar C
 ## <a name="virtual-network-deployment-limitations"></a>Limitações da implantação na rede virtual
 * Devido aos recursos de rede adicionais envolvidos, a inicialização Cloud Shell em uma rede virtual normalmente é mais lenta do que uma sessão de Cloud Shell padrão.
 
-* Durante a visualização, há suporte para menos regiões para Cloud Shell em uma rede virtual. Atualmente, isso está limitado a: Westus e WestCentralUS.
+* No momento, há suporte para todas as regiões de Cloud Shell além da Índia central. 
 
-* A [retransmissão do Azure](https://docs.microsoft.com/azure/azure-relay/relay-what-is-it) não é um serviço gratuito, veja seus [preços](https://azure.microsoft.com/pricing/details/service-bus/). No cenário de Cloud Shell, uma conexão híbrida é usada para cada administrador enquanto estiver usando Cloud Shell. A conexão será desligada automaticamente após a conclusão da sessão de Cloud Shell.
+* A [retransmissão do Azure](../azure-relay/relay-what-is-it.md) não é um serviço gratuito, veja seus [preços](https://azure.microsoft.com/pricing/details/service-bus/). No cenário de Cloud Shell, uma conexão híbrida é usada para cada administrador enquanto estiver usando Cloud Shell. A conexão será desligada automaticamente após a conclusão da sessão de Cloud Shell.
 
 ## <a name="register-the-resource-provider"></a>Registre o provedor de recursos
 
@@ -90,9 +88,6 @@ Se você já tiver uma VNET desejada à qual deseja se conectar, pule esta seç�
 
 No portal do Azure ou usando CLI do Azure, Azure PowerShell, etc. criar um grupo de recursos e uma rede virtual no novo grupo de recursos, **o grupo de recursos e a rede virtual precisam estar na mesma região**.
 
-> [!NOTE]
-> Durante a visualização pública, o grupo de recursos e a rede virtual devem estar localizados em WestCentralUS ou Westus.
-
 ### <a name="arm-templates"></a>Modelos de ARM
 Utilize o [modelo de início rápido do Azure](https://aka.ms/cloudshell/docs/vnet/template) para criar Cloud Shell recursos em uma rede virtual e o [modelo de início rápido do Azure](https://aka.ms/cloudshell/docs/vnet/template/storage) para criar o armazenamento necessário. Anote os nomes dos recursos, principalmente o nome do compartilhamento de arquivos.
 
@@ -114,4 +109,4 @@ Conecte-se ao Cloud Shell, você será avisado com a primeira experiência de ex
 ![Ilustra as Cloud Shell configurações de primeira experiência da VNET isolada.](media/private-vnet/vnet-settings.png)
 
 ## <a name="next-steps"></a>Próximas etapas
-[Saiba mais sobre as redes virtuais do Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)
+[Saiba mais sobre as redes virtuais do Azure](../virtual-network/virtual-networks-overview.md)

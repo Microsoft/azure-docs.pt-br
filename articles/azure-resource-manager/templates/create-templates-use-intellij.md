@@ -1,20 +1,20 @@
 ---
 title: Implantar modelo – IntelliJ IDEA
-description: Saiba como criar seu primeiro modelo do Azure Resource Manager usando o IntelliJ IDEA e como implantá-lo.
+description: Saiba como criar seu primeiro modelo de Azure Resource Manager (modelo ARM) usando a ideia IntelliJ e como implantá-lo.
 ms.devlang: java
 ms.date: 08/01/2019
 ms.topic: conceptual
 ms.custom: devx-track-java
-ms.openlocfilehash: 4039a70bf90bc8f4b7932dbf40d8369e9773abf3
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: f0e007fe8930b30cee1c95159d7e964e3792449f
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321812"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905954"
 ---
 # <a name="create-and-deploy-arm-templates-by-using-the-intellij-idea"></a>Criar e implantar modelos de ARM usando a ideia IntelliJ
 
-Saiba como implantar um modelo de Azure Resource Manager (ARM) no Azure usando a ideia IntelliJ e o processo de edição e atualização do modelo diretamente do IDE. Os modelos do ARM são arquivos JSON que definem os recursos necessários para implantar sua solução. Para entender os conceitos associados à implantação e ao gerenciamento de soluções do Azure, confira a [visão geral da implantação de modelo](overview.md).
+Saiba como implantar um modelo de Azure Resource Manager (modelo ARM) no Azure usando a ideia IntelliJ e o processo de edição e atualização do modelo diretamente do IDE. Os modelos do ARM são arquivos JSON que definem os recursos necessários para implantar sua solução. Para entender os conceitos associados à implantação e ao gerenciamento de suas soluções do Azure, consulte [visão geral da implantação de modelo](overview.md).
 
 ![Diagrama do portal de modelos do Resource Manager](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-export-deploy-template-portal.png)
 
@@ -66,7 +66,7 @@ Em vez de criar um modelo do zero, você pode abrir um modelo de [Modelos de In�
 
 1. Você pode editar os dois arquivos nesta página e implantar as alterações no Azure. Aqui, modificamos o valor de **storageAccountType** em arquivos de parâmetro de `Standard_LRS` para `Standard_GRS`. Em seguida, clique em **Atualizar Implantação** na parte inferior e confirme a atualização.
 
-    ![Modelo do Resource Manager – editar implantação](./media/create-templates-use-intellij/resource-manager-edit-deployment-update.png)
+    ![Captura de tela mostra o modelo do Resource Manager com o prompt de implantação de atualização exibido.](./media/create-templates-use-intellij/resource-manager-edit-deployment-update.png)
 
 1. Após a conclusão da implantação da atualização, você pode verificar no portal que a conta de armazenamento criada foi alterada para `Standard_GRS`.
 

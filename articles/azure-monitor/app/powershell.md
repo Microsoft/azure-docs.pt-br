@@ -3,12 +3,12 @@ title: Automatizar o Azure Application Insights com o PowerShell | Microsoft Doc
 description: Automatize a criação e gerenciamento de recursos, alertas e testes de disponibilidade no PowerShell usando um modelo do Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 05/02/2020
-ms.openlocfilehash: 53cdf338db5cc4ea359f729297fe57e63853aa5c
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: c380880845c162a1e8fb38e699a439ac04fb3b5a
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322475"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186262"
 ---
 #  <a name="manage-application-insights-resources-using-powershell"></a>Gerenciar recursos do Application Insights usando o PowerShell
 
@@ -431,7 +431,6 @@ Para automatizar a criação de qualquer outro recurso de qualquer variante, cri
    
     Cada teste da web tem uma regra de alerta associada, então você precisa copiar ambos.
    
-    Você também pode incluir alertas sobre métricas. [Nomes de métrica](powershell-alerts.md#metric-names).
 5. Insira esta linha em cada recurso:
    
     `"apiVersion": "2015-05-01",`
@@ -470,8 +469,6 @@ O Azure deve configurar os recursos na ordem explícita. Para certificar-se de q
 Outros artigos sobre automação:
 
 * [Criar um recurso do Application Insights](./create-new-resource.md#creating-a-resource-automatically) -método rápido sem usar um modelo.
-* [Configurar alertas](powershell-alerts.md)
-* [Criar testes na Web](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/)
+* [Criar testes na Web](../samples/resource-manager-alerts-metric.md#availability-test-with-metric-alert)
 * [Enviar o Diagnóstico do Azure para o Application Insights](powershell-azure-diagnostics.md)
-* [Criar anotações de versão](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)
-
+* [Criar anotações de versão](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)

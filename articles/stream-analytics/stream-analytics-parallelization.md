@@ -3,16 +3,15 @@ title: Use a paralelização de consultas e dimensionamento no Azure Stream Anal
 description: Este artigo descreve como dimensionar trabalhos do Stream Analytics configurando partições de entrada, ajustando a definição da consulta e definindo unidades de streaming de trabalho.
 author: JSeb225
 ms.author: jeanb
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 8a86c1df5925097fa85d09590b59f8f30fde41d4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9149413d070bbb5eb8d0f8d0c99fe5ff705bcefb
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85296314"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98012318"
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Aproveitar a paralelização de consultas no Azure Stream Analytics
 Este artigo mostra como tirar proveito da paralelização no Azure Stream Analytics. Aprenda a dimensionar trabalhos do Stream Analytics configurando partições de entrada e ajustando a definição da consulta de análise.
@@ -22,7 +21,7 @@ Como pré-requisito, convém estar familiarizado com a noção de Unidade de Str
 Uma definição de trabalho do Stream Analytics inclui pelo menos uma entrada, uma consulta e uma saída de streaming. As entradas são de onde o trabalho lê o fluxo de dados. A consulta é usada para transformar o fluxo de entrada de dados e a saída é para onde são enviados os resultados do trabalho.
 
 ## <a name="partitions-in-inputs-and-outputs"></a>Partições em entradas e saídas
-Particionamento permite que você divida dados em subconjuntos com base em uma [chave de partição](https://docs.microsoft.com/azure/event-hubs/event-hubs-scalability#partitions). Se a entrada (por exemplo, Hubs de Eventos) for particionada por uma chave, recomendamos especificar essa chave de partição ao adicionar entrada ao seu trabalho do Stream Analytics. O dimensionamento de um trabalho do Stream Analytics utiliza partições na entrada e saída. Um trabalho do Stream Analytics pode consumir e gravar diferentes partições em paralelo, o que aumenta a taxa de transferência. 
+Particionamento permite que você divida dados em subconjuntos com base em uma [chave de partição](../event-hubs/event-hubs-scalability.md#partitions). Se a entrada (por exemplo, Hubs de Eventos) for particionada por uma chave, recomendamos especificar essa chave de partição ao adicionar entrada ao seu trabalho do Stream Analytics. O dimensionamento de um trabalho do Stream Analytics utiliza partições na entrada e saída. Um trabalho do Stream Analytics pode consumir e gravar diferentes partições em paralelo, o que aumenta a taxa de transferência. 
 
 ### <a name="inputs"></a>Entradas
 Todas as entradas do Azure Stream Analytics podem tirar proveito do particionamento:
@@ -41,14 +40,14 @@ Quando você trabalha com o Stream Analytics, você pode tirar proveito do parti
 -   Hubs de Eventos (é preciso definir a chave de partição explicitamente)
 -   Hub IoT (é preciso definir a chave de partição explicitamente)
 -   Barramento de Serviço
-- SQL e SQL Data Warehouse com o particionamento opcional: obter mais informações sobre a [Saída para a página do Banco de Dados SQL do Azure](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-sql-output-perf).
+- SQL e Azure Synapse Analytics com particionamento opcional: consulte mais informações na [página saída para o banco de dados SQL do Azure](./stream-analytics-sql-output-perf.md).
 
 O Power BI não dá suporte ao particionamento. No entanto, você ainda pode particionar a entrada, conforme descrito [nesta seção](#multi-step-query-with-different-partition-by-values) 
 
 Para obter mais informações sobre partições, consulte os seguintes artigos:
 
 * [Visão geral dos recursos de Hubs de Eventos](../event-hubs/event-hubs-features.md#partitions)
-* [Particionamento de dados](https://docs.microsoft.com/azure/architecture/best-practices/data-partitioning)
+* [Particionamento de dados](/azure/architecture/best-practices/data-partitioning)
 
 
 ## <a name="embarrassingly-parallel-jobs"></a>Trabalhos embaraçosamente paralelos
@@ -270,7 +269,7 @@ As observações a seguir usam um trabalho do Stream Analytics com consulta sem 
 | 5 mil     |    6    |  6 TU   |
 | 10 mil    |    12   |  10 TU  |
 
-A solução do [Hub de Eventos](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-eventhubs) é dimensionada linearmente em termos de SU (unidades de streaming) e taxa de transferência, fazendo dela a maneira mais eficiente e de alto desempenho de analisar e transmitir dados do Stream Analytics. Os trabalhos podem ser escalados verticalmente para até 192 SU, o que significa, aproximadamente, o processamento de até 200 MB/s ou 19 trilhões de eventos por dia.
+A solução do [Hub de Eventos](https://github.com/Azure-Samples/streaming-at-scale/tree/main/eventhubs-streamanalytics-eventhubs) é dimensionada linearmente em termos de SU (unidades de streaming) e taxa de transferência, fazendo dela a maneira mais eficiente e de alto desempenho de analisar e transmitir dados do Stream Analytics. Os trabalhos podem ser escalados verticalmente para até 192 SU, o que significa, aproximadamente, o processamento de até 200 MB/s ou 19 trilhões de eventos por dia.
 
 #### <a name="azure-sql"></a>SQL do Azure
 |Taxa de ingestão (eventos por segundo) | Unidades de streaming | Recursos de Saída  |
@@ -279,7 +278,7 @@ A solução do [Hub de Eventos](https://github.com/Azure-Samples/streaming-at-sc
 |    5 mil   |   18 |  P4   |
 |    10 mil  |   36 |  P6   |
 
-O [Azure SQL](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-azuresql) dá suporte à gravação em paralelo, chamada Herdar Particionamento, mas não é habilitado por padrão. No entanto, habilitar Herdar Particionamento, juntamente com uma consulta totalmente paralela, pode não ser suficiente para obter taxas de transferência maiores. As taxas de transferência de gravação do SQL dependem significativamente da configuração do banco de dados e do esquema da tabela. O artigo [Desempenho de Saída do SQL](./stream-analytics-sql-output-perf.md) tem mais detalhes sobre os parâmetros que podem maximizar a taxa de transferência de gravação. Conforme observado no artigo [Saída do Azure Stream Analytics para o Banco de Dados SQL do Azure](./stream-analytics-sql-output-perf.md#azure-stream-analytics), essa solução não é dimensionada linearmente como um pipeline totalmente paralelo além de 8 partições e pode precisar ser reparticionada antes da saída SQL (confira [INTO](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count)). Os SKUs Premium são necessários para sustentar altas taxas de E/S juntamente com a sobrecarga dos backups de log de transações ocorrendo a cada poucos minutos.
+O [Azure SQL](https://github.com/Azure-Samples/streaming-at-scale/tree/main/eventhubs-streamanalytics-azuresql) dá suporte à gravação em paralelo, chamada Herdar Particionamento, mas não é habilitado por padrão. No entanto, habilitar Herdar Particionamento, juntamente com uma consulta totalmente paralela, pode não ser suficiente para obter taxas de transferência maiores. As taxas de transferência de gravação do SQL dependem significativamente da configuração do banco de dados e do esquema da tabela. O artigo [Desempenho de Saída do SQL](./stream-analytics-sql-output-perf.md) tem mais detalhes sobre os parâmetros que podem maximizar a taxa de transferência de gravação. Conforme observado no artigo [Saída do Azure Stream Analytics para o Banco de Dados SQL do Azure](./stream-analytics-sql-output-perf.md#azure-stream-analytics), essa solução não é dimensionada linearmente como um pipeline totalmente paralelo além de 8 partições e pode precisar ser reparticionada antes da saída SQL (confira [INTO](/stream-analytics-query/into-azure-stream-analytics#into-shard-count)). Os SKUs Premium são necessários para sustentar altas taxas de E/S juntamente com a sobrecarga dos backups de log de transações ocorrendo a cada poucos minutos.
 
 #### <a name="cosmos-db"></a>Cosmos DB
 |Taxa de ingestão (eventos por segundo) | Unidades de streaming | Recursos de Saída  |
@@ -288,7 +287,7 @@ O [Azure SQL](https://github.com/Azure-Samples/streaming-at-scale/tree/master/ev
 |  5 mil   |  24   | 60 mil RU  |
 |  10 mil  |  48   | 120 mil RU |
 
-A saída do [Cosmos DB](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-cosmosdb) do Stream Analytics foi atualizada para usar a integração nativa no [nível de compatibilidade 1.2](./stream-analytics-documentdb-output.md#improved-throughput-with-compatibility-level-12). O nível de compatibilidade 1.2 permite uma taxa de transferência significativamente maior e reduz o consumo de RU em comparação com o 1.1, que é o nível de compatibilidade padrão para novos trabalhos. A solução usa contêineres do CosmosDB particionados em /deviceId e o restante da solução é configurado de maneira idêntica.
+A saída do [Cosmos DB](https://github.com/Azure-Samples/streaming-at-scale/tree/main/eventhubs-streamanalytics-cosmosdb) do Stream Analytics foi atualizada para usar a integração nativa no [nível de compatibilidade 1.2](./stream-analytics-documentdb-output.md#improved-throughput-with-compatibility-level-12). O nível de compatibilidade 1.2 permite uma taxa de transferência significativamente maior e reduz o consumo de RU em comparação com o 1.1, que é o nível de compatibilidade padrão para novos trabalhos. A solução usa contêineres do CosmosDB particionados em /deviceId e o restante da solução é configurado de maneira idêntica.
 
 Todos os [exemplos de streaming em escala do Azure](https://github.com/Azure-Samples/streaming-at-scale) usam um hub de eventos como entrada que é alimentada pelos clientes de teste de simulação de carga. Cada evento de entrada é um documento JSON de 1 KB, que converte as taxas de ingestão configuradas em taxas de transferência (1 MB/s, 5 MB/s e 10 MB/s) facilmente. Os eventos simulam um dispositivo IoT que envia os seguintes dados JSON (em uma forma reduzida) para dispositivos de até 1 mil:
 
@@ -315,13 +314,13 @@ Use o painel Métricas em seu trabalho do Azure Stream Analytics para identifica
 
 ## <a name="get-help"></a>Obter ajuda
 
-Para obter mais assistência, experimente a nossa [página de Perguntas e respostas da Microsoft do Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
+Para obter mais assistência, experimente a nossa [página de Perguntas e respostas da Microsoft do Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Introdução ao Stream Analytics do Azure](stream-analytics-introduction.md)
 * [Introdução ao uso do Stream Analytics do Azure](stream-analytics-real-time-fraud-detection.md)
-* [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Referência de Linguagem de Consulta do Stream Analytics do Azure](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Referência da API REST do Gerenciamento do Azure Stream Analytics](/rest/api/streamanalytics/)
 
 <!--Image references-->
 
@@ -334,10 +333,9 @@ Para obter mais assistência, experimente a nossa [página de Perguntas e respos
 <!--Link references-->
 
 [microsoft.support]: https://support.microsoft.com
-[azure.event.hubs.developer.guide]: https://msdn.microsoft.com/library/azure/dn789972.aspx
+[azure.event.hubs.developer.guide]: /previous-versions/azure/dn789972(v=azure.100)
 
 [stream.analytics.introduction]: stream-analytics-introduction.md
 [stream.analytics.get.started]: stream-analytics-real-time-fraud-detection.md
-[stream.analytics.query.language.reference]: https://go.microsoft.com/fwlink/?LinkID=513299
-[stream.analytics.rest.api.reference]: https://go.microsoft.com/fwlink/?LinkId=517301
-
+[stream.analytics.query.language.reference]: /stream-analytics-query/stream-analytics-query-language-reference
+[stream.analytics.rest.api.reference]: /rest/api/streamanalytics/

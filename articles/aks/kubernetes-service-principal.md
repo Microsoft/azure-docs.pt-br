@@ -4,12 +4,12 @@ description: Criar e gerenciar uma entidade de serviço do Azure Active Director
 services: container-service
 ms.topic: conceptual
 ms.date: 06/16/2020
-ms.openlocfilehash: 7f62c7dc7aacf9be4a59498aa5c556e9991ad578
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b7f8060666612049026f2602ab7c8511aea22757
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85298541"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99475430"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Entidades de serviço com o AKS (Serviço de Kubernetes do Azure)
 
@@ -23,7 +23,7 @@ Para criar uma entidade de serviço do Azure AD, você deve ter permissões para
 
 Se você estiver usando uma entidade de serviço de um locatário do Azure AD diferente, haverá considerações adicionais sobre as permissões disponíveis quando você implantar o cluster. Talvez você não tenha as permissões apropriadas para ler e gravar informações de diretório. Para obter mais informações, consulte [quais são as permissões de usuário padrão no Azure Active Directory?][azure-ad-permissions]
 
-A CLI do Azure versão 2.0.59 ou posterior também precisa estar instalada e configurada. Execute  `az --version` para encontrar a versão. Se você precisar instalar ou atualizar, confira  [Instalar a CLI do Azure][install-azure-cli].
+A CLI do Azure versão 2.0.59 ou posterior também precisa estar instalada e configurada. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure][install-azure-cli].
 
 ## <a name="automatically-create-and-use-a-service-principal"></a>Criar e usar uma entidade de serviço automaticamente
 
@@ -100,19 +100,7 @@ Se você usar o ACR (registro de contêiner do Azure) como seu repositório de i
 
 ### <a name="networking"></a>Rede
 
-Você pode usar os recursos de rede quando rede e a sub-rede virtuais, ou endereços IP públicos, estiverem em outro grupo de recursos. Atribua um dos seguintes conjuntos de permissões de função:
-
-- Crie uma [função personalizada][rbac-custom-role] e defina as permissões de função a seguir:
-  - *Microsoft.Network/virtualNetworks/subnets/join/action*
-  - *Microsoft.Network/virtualNetworks/subnets/read*
-  - *Microsoft.Network/virtualNetworks/subnets/write*
-  - *Microsoft.Network/publicIPAddresses/join/action*
-  - *Microsoft. Network/publicIPAddresses/Read*
-  - *Microsoft.Network/publicIPAddresses/write*
-  - Se estiver usando [tabelas de rotas personalizadas em clusters Kubenet](configure-kubenet.md#bring-your-own-subnet-and-route-table-with-kubenet) , adicione estas permissões adicionais:
-    - *Microsoft.Network/routeTables/write*
-    - *Microsoft. Network/routeTables/Read*
-- Ou, atribua a função interna [Colaborador de Rede][rbac-network-contributor] na sub-rede dentro da rede virtual
+Você pode usar os recursos de rede quando rede e a sub-rede virtuais, ou endereços IP públicos, estiverem em outro grupo de recursos. Atribua a função interna de [colaborador de rede][rbac-network-contributor] na sub-rede dentro da rede virtual. Como alternativa, você pode criar uma [função personalizada][rbac-custom-role] com permissões para acessar os recursos de rede nesse grupo de recursos. Consulte [permissões do serviço AKs][aks-permissions] para obter mais detalhes.
 
 ### <a name="storage"></a>Armazenamento
 
@@ -135,12 +123,12 @@ Ao usar o AKS e as entidades de serviço do Azure AD, tenha em mente as consider
 - Por padrão, as credenciais da entidade de serviço são válidas por um ano. Você pode [atualizar ou girar as credenciais da entidade de serviço][update-credentials] a qualquer momento.
 - Cada entidade de serviço é associada a um aplicativo Azure AD. A entidade de serviço para um cluster kubernetes pode ser associada a qualquer nome de aplicativo do Azure AD válido (por exemplo: *https://www.contoso.org/example* ). A URL para o aplicativo não precisa ser um ponto de extremidade real.
 - Ao especificar a **ID do cliente** da entidade de serviço, use o valor de `appId`.
-- Nas VMs do nó do agente no cluster kubernetes, as credenciais da entidade de serviço são armazenadas no arquivo`/etc/kubernetes/azure.json`
+- Nas VMs do nó do agente no cluster kubernetes, as credenciais da entidade de serviço são armazenadas no arquivo `/etc/kubernetes/azure.json`
 - Se você usar o comando [az aks create][az-aks-create] para gerar a entidade de serviço automaticamente, as credenciais da entidade de serviço serão gravadas no arquivo `~/.azure/aksServicePrincipal.json` no computador usado para executar o comando.
 - Se você não passar uma entidade de serviço especificamente em comandos adicionais da CLI do AKS, a entidade de serviço padrão localizada em `~/.azure/aksServicePrincipal.json` será usada.  
 - Opcionalmente, você também pode remover o aksServicePrincipal.jsno arquivo e o AKS criará uma nova entidade de serviço.
 - Ao excluir um cluster do AKS que foi criado por [az aks create][az-aks-create], a entidade de serviço que foi criada automaticamente não será excluída.
-    - Para excluir a entidade de serviço, consulte o cluster *servicePrincipalProfile.clientId* e, em seguida, exclua-a com [az ad app delete][az-ad-app-delete]. Substitua os seguintes nomes de cluster e de grupo de recursos por seus próprios valores:
+    - Para excluir a entidade de serviço, consulte o cluster *servicePrincipalProfile. clientId* e exclua com [AZ ad SP DELETE] [AZ-ad-SP-DELETE]. Substitua os seguintes nomes de cluster e de grupo de recursos por seus próprios valores:
 
         ```azurecli
         az ad sp delete --id $(az aks show -g myResourceGroup -n myAKSCluster --query servicePrincipalProfile.clientId -o tsv)
@@ -189,3 +177,4 @@ Para obter informações sobre como atualizar as credenciais, consulte [atualiza
 [aks-to-acr]: cluster-container-registry-integration.md
 [update-credentials]: update-credentials.md
 [azure-ad-permissions]: ../active-directory/fundamentals/users-default-permissions.md
+[aks-permissions]: concepts-identity.md#aks-service-permissions

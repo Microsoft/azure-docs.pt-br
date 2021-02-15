@@ -1,5 +1,6 @@
 ---
-title: Adquirir um token para chamar uma API Web (aplicativos de página única)-plataforma de identidade da Microsoft | Azure
+title: Adquirir um token para chamar uma API da Web (aplicativos de página única) | Azure
+titleSuffix: Microsoft identity platform
 description: Saiba como criar um aplicativo de página única (adquirir um token para chamar uma API)
 services: active-directory
 author: negoe
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 08/20/2019
 ms.author: negoe
 ms.custom: aaddev
-ms.openlocfilehash: eeba01a609a1a21ed564c0b9cb78a28a4ad5c95a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 83896b2599f03961b2dcaf34ea9b55fe16c13b9e
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80882311"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756442"
 ---
 # <a name="single-page-application-acquire-a-token-to-call-an-api"></a>Aplicativo de página única: adquirir um token para chamar uma API
 
@@ -24,8 +25,8 @@ O padrão para adquirir tokens para APIs com MSAL.js é primeiro tentar uma soli
 
 As solicitações de token silencioso para o Azure AD podem falhar por motivos como uma sessão expirada do Azure AD ou uma alteração de senha. Nesse caso, você pode invocar um dos métodos interativos (que solicitarão o usuário) para adquirir tokens:
 
-* [Janela pop-up](#acquire-a-token-with-a-pop-up-window), usando`acquireTokenPopup`
-* [Redirecionar](#acquire-a-token-with-a-redirect), usando`acquireTokenRedirect`
+* [Janela pop-up](#acquire-a-token-with-a-pop-up-window), usando `acquireTokenPopup`
+* [Redirecionar](#acquire-a-token-with-a-redirect), usando `acquireTokenRedirect`
 
 ## <a name="choose-between-a-pop-up-or-redirect-experience"></a>Escolha entre uma experiência de pop-up ou de redirecionamento
 
@@ -70,7 +71,7 @@ userAgentApplication.acquireTokenSilent(accessTokenRequest).then(function(access
 
 O wrapper angular MSAL fornece o interceptador HTTP, que automaticamente adquirirá tokens de acesso silenciosamente e os anexará às solicitações HTTP para APIs.
 
-Você pode especificar os escopos para APIs na `protectedResourceMap` opção de configuração. `MsalInterceptor`o solicitará esses escopos ao adquirir tokens automaticamente.
+Você pode especificar os escopos para APIs na `protectedResourceMap` opção de configuração. `MsalInterceptor` o solicitará esses escopos ao adquirir tokens automaticamente.
 
 ```javascript
 // app.module.ts
@@ -198,5 +199,4 @@ Esse código é o mesmo descrito anteriormente.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-> [!div class="nextstepaction"]
-> [Chamar uma API Web](scenario-spa-call-api.md)
+Vá para o próximo artigo neste cenário, [chamando uma API da Web](scenario-spa-call-api.md).

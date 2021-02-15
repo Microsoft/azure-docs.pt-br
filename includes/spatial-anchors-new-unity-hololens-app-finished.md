@@ -1,17 +1,17 @@
 ---
-author: craigktreasure
-manager: vriveras
+author: msftradford
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
-ms.date: 06/22/2020
+ms.date: 11/20/2020
 ms.topic: include
-ms.author: crtreasu
+ms.author: parkerra
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: aed5b18a1241aa914f49e7613bd8a6f4a03eff2b
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 1986764a44a98208ee79819fa200034ec34370bf
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "87375344"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95996247"
 ---
 ## <a name="putting-everything-together"></a>Juntando tudo
 
@@ -405,4 +405,4 @@ public class AzureSpatialAnchorsScript : MonoBehaviour
 Neste tutorial, você saberá mais sobre como usar Âncoras Espaciais do Azure em um novo aplicativo Unity HoloLens. Para saber mais sobre como usar Âncoras Espaciais do Azure em um novo aplicativo Android, passe para o próximo tutorial.
 
 > [!div class="nextstepaction"]
-> [Como iniciar um novo aplicativo Android](/azure/spatial-anchors/tutorials/tutorial-new-android-app)
+> [Como iniciar um novo aplicativo Android](../articles/spatial-anchors/tutorials/tutorial-new-android-app.md)

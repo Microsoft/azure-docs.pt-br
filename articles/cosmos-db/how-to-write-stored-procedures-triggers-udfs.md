@@ -3,18 +3,20 @@ title: Gravar procedimentos armazenados, gatilhos e UDFs no Azure Cosmos DB
 description: Saiba como definir procedimentos armazenados, gatilhos e funções definidas pelo usuário no Azure Cosmos DB
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 06/16/2020
 ms.author: tisande
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 17cde20d69fbf7d135fe48c9e285ccf348b4b58c
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-js
+ms.openlocfilehash: 7600d8aa2f78e06ea4046273635fdbba18042010
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420151"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028855"
 ---
 # <a name="how-to-write-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Como escrever procedimentos armazenados, gatilhos e funções definidas pelo usuário no Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 O Azure Cosmos DB oferece execução transacional e integrada de linguagem do JavaScript que permite escrever **procedimentos armazenados**, **gatilhos** e **UDFs (funções definidas pelo usuário)**. Ao usar a API do SQL no Azure Cosmos DB, é possível definir os procedimentos armazenados, gatilhos e UDFs na linguagem JavaScript. É possível escrever sua lógica em JavaScript e executá-la dentro do mecanismo de banco de dados. É possível criar e executar gatilhos, procedimentos armazenados e UDFs usando o [portal do Azure](https://portal.azure.com/), a [API de consulta integrada de linguagem JavaScript no Azure Cosmos DB](javascript-query-api.md) e os [SDKs de cliente da API do SQL do Cosmos DB](sql-api-dotnet-samples.md). 
 
@@ -23,7 +25,7 @@ Para chamar um procedimento armazenado, um gatilho e uma função definida pelo 
 > [!NOTE]
 > Para contêineres particionados, ao executar um procedimento armazenado, um valor de chave de partição deve ser fornecido nas opções de solicitação. O escopo dos procedimentos armazenados sempre é uma chave de partição. Itens que têm um valor de chave de partição diferente não estarão visíveis para o procedimento armazenado. Isso também aplica-se a gatilhos.
 > [!Tip]
-> O cosmos dá suporte à implantação de contêineres com procedimentos armazenados, gatilhos e funções definidas pelo usuário. Para obter mais informações, consulte [criar um contêiner de Azure Cosmos DB com a funcionalidade do lado do servidor.](manage-sql-with-resource-manager.md#create-sproc)
+> O cosmos dá suporte à implantação de contêineres com procedimentos armazenados, gatilhos e funções definidas pelo usuário. Para obter mais informações, consulte [criar um contêiner de Azure Cosmos DB com a funcionalidade do lado do servidor.](./manage-with-templates.md#create-sproc)
 
 ## <a name="how-to-write-stored-procedures"></a><a id="stored-procedures"></a>Como escrever procedimentos armazenados
 
@@ -282,7 +284,7 @@ function async_sample() {
 
 ## <a name="how-to-write-triggers"></a><a id="triggers"></a>Como escrever gatilhos
 
-O Azure Cosmos DB dá suporte a pré-gatilhos e pós-gatilhos. Os pré-gatilhos são executados antes de modificar um item de banco de dados e os pós-gatilhos são executados depois de modificar um item de banco de dados.
+O Azure Cosmos DB dá suporte a pré-gatilhos e pós-gatilhos. Os pré-gatilhos são executados antes de modificar um item de banco de dados e os pós-gatilhos são executados depois de modificar um item de banco de dados. Os gatilhos não são executados automaticamente, eles devem ser especificados para cada operação de banco de dados onde você deseja que eles sejam executados. Depois de definir um gatilho, você deve [registrar e chamar um pré-gatilho](how-to-use-stored-procedures-triggers-udfs.md#pre-triggers) usando os SDKs de Azure Cosmos DB.
 
 ### <a name="pre-triggers"></a><a id="pre-triggers"></a>Pré-gatilhos
 

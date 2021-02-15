@@ -1,31 +1,25 @@
 ---
 title: Integrar a Retransmissão do Azure ao Serviço de Link Privado do Azure
 description: Saiba como integrar a Retransmissão do Azure ao Serviço de Link Privado do Azure
-ms.date: 06/23/2020
+ms.date: 09/24/2020
 ms.topic: article
-ms.openlocfilehash: e5c35f9333378a5f0b87956e8a916491d51e3cb3
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 13644082160704ba9918e6bd6257fa314bb463a6
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88719420"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98134374"
 ---
-# <a name="integrate-azure-relay-with-azure-private-link-preview"></a>Integrar a Retransmissão do Azure com o Link Privado do Azure (versão prévia)
-O Serviço de Link Privado do Azure permite acessar os Serviços do Azure (por exemplo, Retransmissão do Azure, Barramento de Serviço do Azure, Hubs de Eventos do Azure, Armazenamento do Microsoft Azure e Azure Cosmos DB) e serviços de parceiros/clientes hospedados no Azure em um **ponto de extremidade privado** da sua rede virtual. Para obter mais informações, confira [O que é o Link Privado do Azure (versão prévia)?](../private-link/private-link-overview.md)
+# <a name="integrate-azure-relay-with-azure-private-link"></a>Integrar a retransmissão do Azure com o link privado do Azure 
+O Serviço de Link Privado do Azure permite acessar os Serviços do Azure (por exemplo, Retransmissão do Azure, Barramento de Serviço do Azure, Hubs de Eventos do Azure, Armazenamento do Microsoft Azure e Azure Cosmos DB) e serviços de parceiros/clientes hospedados no Azure em um **ponto de extremidade privado** da sua rede virtual. Para obter mais informações, confira [O que é o Link Privado do Azure?](../private-link/private-link-overview.md)
 
 Um **ponto de extremidade privado**  é uma interface de rede que permite que suas cargas de trabalho em execução em uma rede virtual se conectem de forma privada e segura a um serviço que tenha um **recurso de link privado** (por exemplo, um namespace de Retransmissão). O ponto de extremidade privado usa um endereço IP privado de sua VNet, colocando efetivamente em sua VNet. Todo o tráfego para o serviço pode ser roteado por meio do ponto de extremidade privado; assim, nenhum gateway, nenhum dispositivo NAT, nenhum ExpressRoute, nenhuma conexão VPN e nenhum endereço IP público é necessário. O tráfego entre a rede virtual e o serviço percorre a rede de backbone da Microsoft, eliminando a exposição da Internet pública. Você pode fornecer um nível de granularidade ao controle de acesso que permite conexões a namespaces específicos da Retransmissão do Azure. 
-
-
-> [!IMPORTANT]
-> Esse recurso está atualmente em **versão prévia**. 
->
-> Atualmente, damos suporte a conexões de link privado em clientes do remetente. 
 
 
 ## <a name="add-a-private-endpoint-using-azure-portal"></a>Inclusão de um ponto de extremidade privado através do portal do Azure
 
 ### <a name="prerequisites"></a>Pré-requisitos
-Para integrar um namespace da Retransmissão do Azure com o Link Privado do Azure (versão prévia), você precisará das seguintes entidades ou permissões:
+Para integrar um namespace de retransmissão do Azure com o link privado do Azure, você precisará das seguintes entidades ou permissões:
 
 - Um namespace da Retransmissão do Azure.
 - Uma rede virtual do Azure.
@@ -43,7 +37,7 @@ Para obter instruções detalhadas sobre como criar um novo namespace de Retrans
 2. Na barra de pesquisa, digite **Retransmissões**.
 3. Selecione o **namespace** na lista à qual você deseja adicionar um ponto de extremidade privado.
 4. Selecione a guia **Rede** em **Configurações**.
-5. Selecione a guia **Conexões de ponto de extremidade privado (versão prévia)** na parte superior da página
+5. Selecione a guia **Conexões de ponto de extremidade privado**, na parte superior da página.
 6. Selecione o botão **+ Ponto de Extremidade Privado**, na parte superior da página.
 
     ![Botão Adicionar ponto de extremidade privado](./media/private-link-service/add-private-endpoint-button.png)
@@ -87,7 +81,7 @@ Para obter instruções detalhadas sobre como criar um novo namespace de Retrans
 12. Na página **Ponto de extremidade privado**, você pode ver o status da conexão do ponto de extremidade particular. Se você for o proprietário ou tiver acesso de gerenciamento ao namespace de Retransmissão e tiver selecionado a opção **Conectar a um recurso do Azure no meu diretório** como **Método de conexão**, a conexão do ponto de extremidade deverá ser **aprovada automaticamente**. Se estado no estado **pendente**, consulte a seção [Gerenciar pontos de extremidade privados usando o portal do Azure](#manage-private-endpoints-using-azure-portal).
 
     ![Página do ponto de extremidade privado](./media/private-link-service/private-endpoint-page.png)
-13. Volte para a página **Rede** do **namespace** e mude para a guia **Conexões de ponto de extremidade privado (versão prévia)** . Você deve ver o ponto de extremidade privado que criou. 
+13. Navegue de volta para a página de **rede** do **namespace** e alterne para a guia conexões de **ponto de extremidade privado** . Você deve ver o ponto de extremidade privado que você criou. 
 
     ![Ponto de extremidade privado criado](./media/private-link-service/private-endpoint-created.png)
 
@@ -236,8 +230,7 @@ Aliases:  <namespace-name>.servicebus.windows.net
 ## <a name="limitations-and-design-considerations"></a>Limitações e considerações de design
 
 ### <a name="design-considerations"></a>Considerações sobre o design
-- O ponto de extremidade privado para a Retransmissão do Azure está em **visualização pública**. 
-- para obter informações sobre preço, confira [Preço do Link Privado do Azure (versão prévia)](https://azure.microsoft.com/pricing/details/private-link/).
+- Para obter informações sobre preços, consulte [preços do link privado do Azure](https://azure.microsoft.com/pricing/details/private-link/).
 
 ### <a name="limitations"></a>Limitações 
 - Número máximo de pontos de extremidade privados por namespace de Retransmissão do Azure: 64.
@@ -246,5 +239,5 @@ Aliases:  <namespace-name>.servicebus.windows.net
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre o [Link Privado do Azure (versão prévia)](../private-link/private-link-service-overview.md)
+- Saiba mais sobre o [Link Privado do Azure](../private-link/private-link-service-overview.md)
 - Saiba mais sobre [Retransmissão do Azure](relay-what-is-it.md)

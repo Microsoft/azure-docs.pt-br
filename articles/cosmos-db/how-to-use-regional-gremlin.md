@@ -1,22 +1,24 @@
 ---
 title: Pontos de extremidade regionais para o banco de dados de grafo do Azure Cosmos DB
 description: Saiba como se conectar ao ponto de extremidade do banco de dados de grafo mais próximo para seu aplicativo
-author: luisbosquez
-ms.author: lbosq
+author: christopheranderson
+ms.author: chrande
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 09/09/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8f9d46c2f5cce397c2aa6ebbcd38d7fbb5786412
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 3e30252d8f5e80538139f8100f1070385c1b6016
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88997244"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93361780"
 ---
 # <a name="regional-endpoints-for-azure-cosmos-db-graph-account"></a>Pontos de extremidade regionais para a conta de grafo do Azure Cosmos DB
-O banco de dados de grafo do Azure Cosmos DB é [distribuído globalmente](distribute-data-globally.md) para que os aplicativos possam usar vários pontos de extremidade de leitura. Aplicativos que precisam de acesso de gravação em vários locais devem habilitar a funcionalidade de [vários mestres](how-to-multi-master.md).
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
+
+O banco de dados de grafo do Azure Cosmos DB é [distribuído globalmente](distribute-data-globally.md) para que os aplicativos possam usar vários pontos de extremidade de leitura. Os aplicativos que precisam de acesso de gravação em vários locais devem habilitar a capacidade de [gravações de várias regiões](how-to-multi-master.md) .
 
 Motivos para escolher mais de uma região:
 1. **Escalabilidade de leitura horizontal** – conforme a carga do aplicativo aumenta, pode ser prudente rotear o tráfego de leitura para diferentes regiões do Azure.

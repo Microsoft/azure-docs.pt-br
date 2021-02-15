@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: 35e31e5ace53654e8aad794dd3e25fc04bd9a088
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3bff9a91f06649487560faef3ab554b2a3d56af3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79367509"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "90908068"
 ---
 # <a name="enter-data-manually-module"></a>Inserir dados manualmente no módulo
 
-Este artigo descreve um módulo no designer do Azure Machine Learning (versão prévia).
+Este artigo descreve um módulo no designer de Azure Machine Learning.
 
 Use o módulo **inserir dados manualmente** para criar um pequeno DataSet digitando valores. O conjunto de linhas pode ter várias colunas.
   

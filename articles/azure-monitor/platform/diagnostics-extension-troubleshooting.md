@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 05/08/2019
 ms.openlocfilehash: de42a70cf2950aca3dbe151407671306c793ed10
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86515488"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Solução de problemas do Diagnóstico do Azure
@@ -26,7 +26,7 @@ Este artigo descreve informações de solução de problemas relevantes para o u
 ## <a name="logartifact-paths"></a>Caminhos do log/artefato
 A seguir, são apresentados os caminhos para alguns logs e artefatos importantes. Estas informações serão referidas ao longo de todo o documento.
 
-### <a name="azure-cloud-services"></a>Serviços de nuvem do Azure
+### <a name="azure-cloud-services"></a>Serviços de Nuvem do Azure
 | Artefato | Caminho |
 | --- | --- |
 | **Arquivo de configuração de Diagnóstico do Microsoft Azure** | \<version>\Config.txt%systemdrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics |
@@ -79,7 +79,7 @@ Se não houver dados para a métrica específica, verifique **configuração de 
 Se a configuração estiver configurada corretamente, mas você ainda não pode ver os dados de métrica, utilize as seguintes diretrizes para ajudá-lo a solucionar problemas.
 
 
-## <a name="azure-diagnostics-is-not-starting"></a>Diagnóstico do Azure não está iniciando
+## <a name="azure-diagnostics-is-not-starting"></a>O Diagnóstico do Microsoft Azure não está iniciando
 Para obter informações sobre o motivo do Diagnóstico do Azure falhar ao iniciar, consulte os arquivos **DiagnosticsPluginLauncher.log** e **DiagnosticsPlugin.log** no local dos arquivos de log fornecidos anteriormente.
 
 Se esses logs indicam `Monitoring Agent not reporting success after launch`, isso significa que houve uma falha ao iniciar MonAgentHost.exe. Examine os logs no local indicado para `MonAgentHost log file` na seção anterior.

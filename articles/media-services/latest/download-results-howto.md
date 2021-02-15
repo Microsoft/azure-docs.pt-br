@@ -8,18 +8,20 @@ manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
-ms.topic: article
-ms.date: 03/04/2020
+ms.topic: how-to
+ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b4aa523c6f2fe1e833fa7dfe99cc870bf6014eb7
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: b3decdd4a2855382b27cb426d7fb030b46a2458c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89009909"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89298021"
 ---
 # <a name="download-the-results-of-a-job"></a>Baixar os resultados de um trabalho
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Nos serviços de mídia do Azure, ao processar seus vídeos (por exemplo, codificação ou análise), você precisa criar um [ativo](assets-concept.md) de saída para armazenar o resultado de seu [trabalho](transforms-jobs-concept.md). Em seguida, você pode baixar esses resultados em uma pasta local usando o serviço de mídia e as APIs de armazenamento. 
 

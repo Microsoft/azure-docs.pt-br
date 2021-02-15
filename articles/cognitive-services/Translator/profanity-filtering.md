@@ -3,19 +3,19 @@ title: Filtragem de profanação-Tradutor
 titleSuffix: Azure Cognitive Services
 description: Use a filtragem de profanação para determinar o nível de profanação traduzido em seu texto no Tradutor de serviços cognitivas do Azure.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 05/26/2020
-ms.author: swmachan
-ms.openlocfilehash: 7ebfe766e6362a3f62e70db8bf2dcae370aceee3
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.author: lajanuar
+ms.openlocfilehash: 9f389d669e69dbfa6ec6d4d0b4716d2367443f17
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83996152"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896792"
 ---
 # <a name="add-profanity-filtering-with-the-translator"></a>Adicionar filtragem de profanação com o tradutor
 

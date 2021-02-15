@@ -1,21 +1,24 @@
 ---
-title: Coletar logs personalizados no Azure Monitor| Microsoft Docs
+title: Coletar logs personalizados com o agente de Log Analytics no Azure Monitor
 description: O Azure Monitor pode coletar eventos de arquivos de texto em computadores com Windows e Linux.  Este artigo descreve como definir um novo log personalizado e os detalhes dos registros que ele cria no Azure Monitor.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 09/26/2019
-ms.openlocfilehash: 155c8fc3e7f1e37fe455c8f21d36e090c4fffce3
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 10/21/2020
+ms.openlocfilehash: b2b27da096ed18170ca8c9d70f31dc955fb74950
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86111993"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352823"
 ---
-# <a name="custom-logs-in-azure-monitor"></a>Logs personalizados de atividades no Azure Monitor
+# <a name="collect-custom-logs-with-log-analytics-agent-in-azure-monitor"></a>Coletar logs personalizados com o agente de Log Analytics no Azure Monitor
 
-A fonte de dados de logs personalizados no Azure Monitor permite que você colete eventos de arquivos de texto em computadores com Windows e Linux. Muitos aplicativos registram informações em arquivos de texto em vez de serviços de registro standard, como o log de eventos do Windows ou Syslog. Depois de coletados, você pode analisar os dados em campos individuais em suas consultas ou extrair os dados durante a coleta de campos individuais.
+A fonte de dados de logs personalizados para o agente de Log Analytics no Azure Monitor permite que você colete eventos de arquivos de texto em computadores Windows e Linux. Muitos aplicativos registram informações em arquivos de texto em vez de serviços de registro standard, como o log de eventos do Windows ou Syslog. Depois de coletados, você pode analisar os dados em campos individuais em suas consultas ou extrair os dados durante a coleta de campos individuais.
+
+> [!IMPORTANT]
+> Este artigo aborda a coleta de logs personalizados com o [agente de log Analytics](log-analytics-agent.md) , que é um dos agentes usados pelo Azure monitor. Outros agentes coletam dados diferentes e são configurados de forma diferente. Consulte [visão geral dos agentes de Azure monitor](agents-overview.md) para obter uma lista dos agentes disponíveis e os dados que eles podem coletar.
 
 ![Coleta de log personalizado](media/data-sources-custom-logs/overview.png)
 
@@ -27,6 +30,7 @@ Os arquivos de log a serem coletados devem corresponder aos critérios a seguir.
 
 - O arquivo de log não deve permitir log circular ou rotação de log, em que o arquivo é substituído por novas entradas.
 - O arquivo de log deve usar a codificação ASCII ou UTF-8.  Não há suporte para outros formatos, como UTF-16.
+- Para o Linux, não há suporte para conversão de fuso horário em carimbos de data/hora nos logs.
 
 >[!NOTE]
 > Se houver entradas duplicadas no arquivo de log, o Azure Monitor irá coletá-los. No entanto, os resultados da consulta serão inconsistentes onde os resultados do filtro mostram mais eventos do que a contagem de resultados. É importante que você valide o log para determinar se o aplicativo que cria está causando o problema e resolvê-lo se possível, antes de criar a definição de coleção de log personalizado.  
@@ -88,8 +92,8 @@ A tabela a seguir fornece exemplos de padrões válidos para especificar diferen
 ### <a name="step-4-provide-a-name-and-description-for-the-log"></a>Etapa 4. Fornecer um nome e descrição para o log
 O nome especificado será usado para o tipo de log, conforme descrito acima.  Ele sempre terminará com _CL para distingui-lo como um log personalizado.
 
-1. Digite um nome para o log.  O sufixo ** \_ CL** é fornecido automaticamente.
-2. Adicione uma **Descrição**opcional.
+1. Digite um nome para o log.  O sufixo **\_ CL** é fornecido automaticamente.
+2. Adicione uma **Descrição** opcional.
 3. Clique em **Próximo** para salvar a definição do log personalizado.
 
 ### <a name="step-5-validate-that-the-custom-logs-are-being-collected"></a>Etapa 5. Validar que os logs personalizados estão sendo coletados
@@ -158,7 +162,7 @@ Usamos uma consulta simples de *MyApp_CL* para retornar todos os registros do lo
 
 
 ## <a name="alternatives-to-custom-logs"></a>Alternativas para logs personalizados
-Embora os logs personalizados sejam úteis se os dados atendem aos critérios listados, há casos como os seguintes em que você precisa de outra estratégia:
+Embora os logs personalizados sejam úteis se seus dados se ajustarem aos critérios listados acima, há casos como os seguintes, onde você precisa de outra estratégia:
 
 - Os dados não se ajustam à estrutura necessária, como ter o carimbo de data/hora em um formato diferente.
 - O arquivo de log não está de acordo com os requisitos como a codificação do arquivo ou uma estrutura de pastas sem suporte.

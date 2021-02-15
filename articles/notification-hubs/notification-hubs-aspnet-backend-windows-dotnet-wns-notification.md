@@ -4,25 +4,23 @@ description: Saiba como enviar notificações para usuários específicos usando
 documentationcenter: windows
 author: sethmanheim
 manager: femila
-editor: jwargo
 services: notification-hubs
-ms.assetid: 012529f2-fdbc-43c4-8634-2698164b5880
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 03/22/2019
+ms.date: 08/17/2020
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 03/22/2019
-ms.openlocfilehash: e13e7c1057d5a01867b561fc7ee7d1eed1a97ca3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 97a6a45ab01fc113b79a48ba7fcb246d528684be
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86530483"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019473"
 ---
 # <a name="tutorial-send-notifications-to-specific-users-by-using-azure-notification-hubs"></a>Tutorial: Enviar notificações para usuários específicos usando o Hubs de Notificação do Microsoft Azure
 
@@ -30,7 +28,7 @@ ms.locfileid: "86530483"
 
 ## <a name="overview"></a>Visão geral
 
-Este tutorial mostra como usar os Hubs de Notificação do Azure para enviar notificações por push a um usuário específico do aplicativo em um dispositivo específico. Um back-end de WebAPI do ASP.NET é usado para autenticar clientes. Quando o back-end autentica um usuário de aplicativo do cliente, ele adiciona automaticamente uma marca para o registro de notificação. O back-end usa essa marca para enviar notificações para o usuário específico.
+Este tutorial descreve como usar os Hubs de Notificação do Azure para enviar notificações por push a um usuário específico do aplicativo em um dispositivo específico. Um back-end de WebAPI do ASP.NET é usado para autenticar clientes. Quando o back-end autentica um usuário de aplicativo do cliente, ele adiciona automaticamente uma marca para o registro de notificação. O back-end usa essa marca para enviar notificações para o usuário específico.
 
 > [!NOTE]
 > O código completo deste tutorial pode ser encontrado no [GitHub](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/NotifyUsers).
@@ -63,10 +61,10 @@ Nesta seção, você atualizará o código no projeto concluído no [Tutorial: E
 2. No Gerenciador de Soluções, clique com o botão direito do mouse no projeto do UWP (Plataforma Universal do Windows) e, em seguida, clique em **Gerenciar Pacotes NuGet**.
 3. No lado esquerdo, selecione **Procurar**.
 4. Na caixa **Pesquisar**, digite **Http Client**.
-5. Na lista de resultados, clique em **System**e clique em **Instalar**. Conclua a instalação.
+5. Na lista de resultados, clique em **System** e clique em **Instalar**. Conclua a instalação.
 6. De volta à caixa **Pesquisar** do NuGet, digite **Json.net**. Instale o pacote **Newtonsoft.json** e feche a janela do Gerenciador de Pacotes NuGet.
 7. No Gerenciador de Soluções, no projeto **WindowsApp**, clique duas vezes em **MainPage.xaml** para abri-lo no editor do Visual Studio.
-8. No código XML `MainPage.xaml`, substitua a seção `<Grid>` pelo código a seguir: Esse código adiciona uma caixa de texto de nome de usuário e de senha com as quais o usuário se autenticará. Ele também adiciona caixas de texto para a mensagem de notificação e a marca de nome de usuário que deve receber a notificação:
+8. No arquivo `MainPage.xaml`, substitua a seção `<Grid>` pelo seguinte código: Esse código adiciona uma caixa de texto de nome de usuário e de senha com as quais o usuário se autenticará. Ele também adiciona caixas de texto para a mensagem de notificação e a marca de nome de usuário que deve receber a notificação:
 
     ```xml
     <Grid>
@@ -118,6 +116,7 @@ Nesta seção, você atualizará o código no projeto concluído no [Tutorial: E
         </StackPanel>
     </Grid>
     ```
+
 9. No Gerenciador de Soluções, abra o arquivo `MainPage.xaml.cs` para os projetos **(Windows 8.1)** e **(Windows Phone 8.1)** . Adicione as seguintes instruções `using` na parte superior dos dois arquivos:
 
     ```csharp
@@ -128,11 +127,13 @@ Nesta seção, você atualizará o código no projeto concluído no [Tutorial: E
     using Windows.UI.Popups;
     using System.Threading.Tasks;
     ```
+
 10. Em `MainPage.xaml.cs` para o projeto **WindowsApp**, adicione o membro a seguir à classe `MainPage`. Certifique-se de substituir `<Enter Your Backend Endpoint>` pelo ponto de extremidade de back-end real obtido anteriormente. Por exemplo, `http://mybackend.azurewebsites.net`.
 
     ```csharp
     private static string BACKEND_ENDPOINT = "<Enter Your Backend Endpoint>";
     ```
+
 11. Adicione o código a seguir à classe MainPage em `MainPage.xaml.cs` para os projetos **(Windows 8.1)** e **(Windows Phone 8.1)** .
 
     O método `PushClick` é o manipulador de cliques para o botão **Enviar por Push** . Ele chama o back-end para disparar uma notificação para todos os dispositivos com uma marca de nome de usuário que corresponde ao parâmetro `to_tag` . A mensagem de notificação é enviada como conteúdo JSON no corpo da solicitação.
@@ -215,13 +216,15 @@ Nesta seção, você atualizará o código no projeto concluído no [Tutorial: E
         ApplicationData.Current.LocalSettings.Values["AuthenticationToken"] = token;
     }
     ```
-12. Abra `App.xaml.cs` e localize a chamada à `InitNotificationsAsync()` no manipulador de eventos `OnLaunched()`. Comentar ou excluir a chamada para `InitNotificationsAsync()`. O manipulador do botão inicializa os registros de notificação.
+
+12. Abra `App.xaml.cs` e localize a chamada à `InitNotificationsAsync()` no manipulador de eventos `OnLaunched()`. Comentar ou excluir a chamada para `InitNotificationsAsync()`. O manipulador do botão inicializa os registros de notificação:
 
     ```csharp
     protected override void OnLaunched(LaunchActivatedEventArgs e)
     {
         //InitNotificationsAsync();
     ```
+
 13. Clique com o botão direito do mouse no projeto **WindowsApp**, clique em **Adicionar** e clique em **Classe**. Nomeie a classe como `RegisterClient.cs` e clique em **OK** para gerar a classe.
 
     Essa classe encapsula as chamadas do REST necessárias para entrar em contato com o back-end do aplicativo de modo a se registrar para as notificações por push. Ele também armazena localmente os *registrationIds* criados pelo Hub de Notificação, conforme detalhado em [Registrando-se por meio do back-end do aplicativo](/previous-versions/azure/azure-services/dn743807(v=azure.100)). Ele usa um token de autorização armazenado localmente quando você clica no botão **Fazer logon e registrar-se**.
@@ -236,7 +239,8 @@ Nesta seção, você atualizará o código no projeto concluído no [Tutorial: E
     using System.Threading.Tasks;
     using System.Linq;
     ```
-15. Adicione o código a seguir à definição de classe `RegisterClient` .
+
+15. Adicione o seguinte código dentro da definição de classe de `RegisterClient`:
 
     ```csharp
     private string POST_URL;
@@ -323,6 +327,7 @@ Nesta seção, você atualizará o código no projeto concluído no [Tutorial: E
 
     }
     ```
+
 16. Salve todas as alterações.
 
 ## <a name="test-the-application"></a>Testar o aplicativo
@@ -332,8 +337,8 @@ Nesta seção, você atualizará o código no projeto concluído no [Tutorial: E
 3. Clique em **Fazer logon e registrar** e verifique se um diálogo mostra que você fez logon. Esse código também habilita o botão **Enviar por Push**.
 
     ![Captura de tela do aplicativo de Hubs de Notificação mostrando o nome de usuário e a senha preenchidos.][14]
-5. Em seguida, no campo **Marca de Nome de Usuário do Destinatário**, insira o nome de usuário registrado. Digite uma mensagem de notificação e clique em **Enviar notificação por push**.
-6. Apenas os dispositivos que foram registrados com o nome de usuário correspondente recebem a mensagem de notificação.
+4. Em seguida, no campo **Marca de Nome de Usuário do Destinatário**, insira o nome de usuário registrado. Digite uma mensagem de notificação e clique em **Enviar notificação por push**.
+5. Apenas os dispositivos que foram registrados com o nome de usuário correspondente recebem a mensagem de notificação.
 
     ![Captura de tela do aplicativo Hubs de Notificação mostrando a ‘mensagem que foi enviada por push.][15]
 

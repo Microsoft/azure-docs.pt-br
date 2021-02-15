@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 06/26/2020
 ms.author: enewman
 ms.openlocfilehash: 137959f51b08dceee150962f77110ee2ac1dc193
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85444991"
 ---
 # <a name="setup-a-lab-to-teach-matlab"></a>Configurar um laboratório para ensinar o MATLAB
@@ -34,7 +34,7 @@ Para configurar este laboratório, você precisa de uma assinatura do Azure para
 
 Para criar um novo laboratório, siga [configurar um tutorial de laboratório de sala de aula](tutorial-setup-classroom-lab.md).  Aplique as seguintes configurações:
 
-| Tamanho da máquina virtual | Image |
+| Tamanho da máquina virtual | Imagem |
 | -------------------- | ----- |
 | Médio | Windows 10 |
 
@@ -74,7 +74,7 @@ Você deve ser um administrador de licenças para baixar os arquivos de instala�
 Você também pode baixar uma imagem ISO do site do MathWorks.
 
 1. Faça logon em sua conta do [https://www.mathworks.com](https://www.mathworks.com) .
-2. Vá para [https://www.mathworks.com/downloads](https://www.mathworks.com/downloads).
+2. Acesse [https://www.mathworks.com/downloads](https://www.mathworks.com/downloads).
 3. Selecione a versão do MATLAB que você deseja instalar.
 4. Clique no link "get {version}. ISO Image" abaixo dos links relacionados, em que {Version} é algo como R2020a.
 5. Clique no link de **liberação de download** azul para Windows.
@@ -88,7 +88,7 @@ Depois que os arquivos são baixados, a segunda etapa é executar o instalador. 
 3. Na página **entrar em sua conta do MathWorks** , insira sua conta do MathWorks.
 4. Na página **contrato de licença do MathWorks** , aceite o termo e clique no botão **Avançar** .
 5. Clique na lista suspensa **Opções avançadas** e escolha **uma chave de instalação de arquivo**.
-6. Na página **instalar usando a chave de instalação de arquivo** , insira a chave de instalação do arquivo para o servidor de licença.   Clique em **Próximo**.
+6. Na página **instalar usando a chave de instalação de arquivo** , insira a chave de instalação do arquivo para o servidor de licença.   Clique em **Avançar**.
 7. Na página **Selecionar arquivo de licença** , navegue até o arquivo de licença salvo ao baixar os arquivos de instalação anteriormente.
 8. Na página **Selecionar pasta de destino** , clique em **Avançar**.
 9. Na página **selecionar produtos** , clique em **Avançar**.
@@ -102,7 +102,7 @@ Vamos abordar uma possível estimativa de custo para essa classe.  Essa estimati
 
 Aqui está um exemplo de uma possível estimativa de custo para esta classe:
 
-25 alunos \* (20 horas agendadas + 10 horas de cota) \* 55 unidades de laboratório \* 0, 1 USD por hora = 412,50 USD
+25 alunos \* (20 horas agendadas + 10 horas de cota) \* 55 unidades de laboratório \*  0, 1 USD por hora = 412,50 USD
 
 >[!IMPORTANT]
 > A estimativa de custo é apenas para fins de exemplo.  Para obter detalhes atuais sobre preços, consulte [preços de Azure Lab Services](https://azure.microsoft.com/pricing/details/lab-services/).  

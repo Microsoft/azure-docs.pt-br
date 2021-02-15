@@ -9,10 +9,10 @@ ms.date: 06/26/2019
 ms.topic: quickstart
 keywords: kinect, azure, sensor, sdk, body, tracking, joint, application, first
 ms.openlocfilehash: bdf8ee7a14bf59a151dfa316b11159830b4f63b8
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "85277760"
 ---
 # <a name="quickstart-build-an-azure-kinect-body-tracking-application"></a>Início Rápido: Criar um aplicativo de acompanhamento do corpo do Azure Kinect

@@ -3,13 +3,12 @@ title: Modelo de recurso do aplicativo Service Fabric do Azure
 description: Este artigo fornece uma visão geral do gerenciamento de um aplicativo de Service Fabric do Azure usando Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 10/21/2019
-ms.custom: sfrev
-ms.openlocfilehash: 7ad0d4f6d92ba8d85383df281bd14681f43bb6d4
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 0019f154f301d2b688d4c16c9adb36ec386adef2
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258735"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790716"
 ---
 # <a name="service-fabric-application-resource-model"></a>Modelo de recurso de aplicativo Service Fabric
 
@@ -55,7 +54,7 @@ Depois que a conta de armazenamento é criada, você cria um contêiner de BLOBs
 Os recursos no cluster podem ser protegidos definindo o nível de acesso público como **privado**. Você pode conceder acesso de várias maneiras:
 
 * Autorize o acesso a BLOBs e filas usando [Azure Active Directory](../storage/common/storage-auth-aad-app.md).
-* Conceda acesso ao blob do Azure e aos dados [da fila usando o RBAC no portal do Azure](../storage/common/storage-auth-aad-rbac-portal.md).
+* Conceda acesso ao blob do Azure e aos dados [da fila usando o Azure RBAC no portal do Azure](../storage/common/storage-auth-aad-rbac-portal.md).
 * Delegar acesso usando uma [assinatura de acesso compartilhado](/rest/api/storageservices/delegate-access-with-shared-access-signature).
 
 O exemplo na captura de tela a seguir usa acesso de leitura anônimo para BLOBs.
@@ -76,7 +75,7 @@ Neste tutorial, usamos o aplicativo de [exemplo de votação](https://github.com
    ![Aplicativo zip][ZipApplication]  
 1. Renomeie o arquivo para alterar a extensão de. zip para *. sfpkg*.
 
-1. No portal do Azure, no contêiner **aplicativos** para sua conta de armazenamento, selecione **carregar**e, em seguida, carregar **votação. sfpkg**. 
+1. No portal do Azure, no contêiner **aplicativos** para sua conta de armazenamento, selecione **carregar** e, em seguida, carregar **votação. sfpkg**. 
 
    ![Carregar pacote do aplicativo][UploadAppPkg]
 
@@ -90,6 +89,7 @@ O aplicativo de exemplo contém [modelos de Azure Resource Manager](https://gith
 > O *UserApp.Parameters.jsno* arquivo deve ser atualizado com o nome do cluster.
 >
 >
+
 
 | Parâmetro              | Descrição                                 | Exemplo                                                      | Comentários                                                     |
 | ---------------------- | ------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -138,6 +138,11 @@ New-AzResourceGroupDeployment -ResourceGroupName "sf-cluster-rg" -TemplateParame
 
 ## <a name="upgrade-the-service-fabric-application-by-using-resource-manager"></a>Atualizar o aplicativo Service Fabric usando o Gerenciador de recursos
 
+
+> [!IMPORTANT]
+> Qualquer serviço que está sendo implantado por meio da definição de JSON do ARM deve ser removido da seção DefaultServices do arquivo de ApplicationManifest.xml correspondente.
+
+
 Você pode atualizar um aplicativo que já está implantado em um Cluster Service Fabric por um destes motivos:
 
 * Um novo serviço é adicionado ao aplicativo. Uma definição de serviço deve ser adicionada a arquivos *service-manifest.xml* e *application-manifest.xml* quando um serviço é adicionado ao aplicativo. Para refletir uma nova versão de um aplicativo, você também deve alterar a versão do tipo de aplicativo de 1.0.0 para 1.0.1 no [UserApp.Parameters.jsem](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/blob/master/ARM/UserApp.Parameters.json):
@@ -166,13 +171,13 @@ Você pode atualizar um aplicativo que já está implantado em um Cluster Servic
 
 Para excluir um aplicativo que foi implantado usando o modelo de recurso de aplicativo no Gerenciador de recursos:
 
-1. Use o cmdlet [Get-AzResource](/powershell/module/az.resources/get-azresource?view=azps-2.5.0) para obter a ID de recurso para o aplicativo:
+1. Use o cmdlet [Get-AzResource](/powershell/module/az.resources/get-azresource) para obter a ID de recurso para o aplicativo:
 
     ```powershell
     Get-AzResource  -Name <String> | f1
     ```
 
-1. Use o cmdlet [Remove-AzResource](/powershell/module/az.resources/remove-azresource?view=azps-2.5.0) para excluir os recursos do aplicativo:
+1. Use o cmdlet [Remove-AzResource](/powershell/module/az.resources/remove-azresource) para excluir os recursos do aplicativo:
 
     ```powershell
     Remove-AzResource  -ResourceId <String> [-Force] [-ApiVersion <String>]

@@ -13,6 +13,8 @@
       href: invite-users.md
 - name: Tutoriais
   items:
+    - name: Criar uma nova conta
+      href: connect-to-azure.md
     - name: Usar a API do Video Indexer
       href: video-indexer-use-apis.md
     - name: Conector dos Aplicativos Lógicos
@@ -23,6 +25,8 @@
       href: 'https://github.com/Azure-Samples/media-services-video-indexer'
 - name: Conceitos
   items:
+    - name: Visão geral
+      href: concepts-overview.md
     - name: Comparar as predefinições do Video Indexer e dos Serviços de Mídia
       href: compare-video-indexer-with-media-services-presets.md
     - name: Gerenciar vários locatários
@@ -45,8 +49,6 @@
           href: customize-person-model-overview.md
 - name: Guias de como fazer
   items:
-    - name: Conectar-se ao Azure
-      href: connect-to-azure.md
     - name: Gerenciar conta conectada ao Azure
       href: manage-account-connected-to-azure.md
     - name: Carregar e indexar vídeos
@@ -54,6 +56,7 @@
     - name: Examinar a saída do Video Indexer
       href: video-indexer-output-json-v2.md
     - name: Localizar os minutos exatos nos vídeos
+      displayName: search
       href: video-indexer-search.md
     - name: 'Detectar cenas, capturas, quadros-chave'
       href: scenes-shots-keyframes.md
@@ -65,12 +68,14 @@
       href: use-editor-create-project.md
     - name: Inserir widgets em seu aplicativo
       href: video-indexer-embed-widgets.md
+    - name: Considerações ao usar o Video Indexer em escala
+      href: considerations-when-use-at-scale.md
     - name: Recuperação de desastre
       href: video-indexer-disaster-recovery.md
     - name: Personalizar modelos de conteúdo
       items:
         - name: Caracteres animados
-          href: animated-characters-recognition.md
+          href: animated-characters-recognition-how-to.md
         - name: Person
           items:
             - name: usando o site do Video Indexer
@@ -102,6 +107,7 @@
     - name: Disponibilidade regional
       href: 'https://azure.microsoft.com/regions/services/'
     - name: Regiões
+      displayName: location
       href: regions.md
     - name: Perguntas frequentes
       href: faq.md
@@ -109,6 +115,8 @@
       href: 'https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942'
     - name: Notas de versão
       href: release-notes.md
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/search?q=video-indexer'
     - name: Voz do usuário
       href: 'https://cognitive.uservoice.com/forums/598144-video-indexer'
     - name: Blogs

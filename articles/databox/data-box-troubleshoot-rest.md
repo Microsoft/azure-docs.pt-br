@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: troubleshooting
-ms.date: 04/19/2019
+ms.date: 01/25/2021
 ms.author: alkohli
-ms.openlocfilehash: b950f80ba8c2bdbaf7a515dc1ce127b934723177
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 17b8d6de198746a79a50c4fbda805b364212e3c4
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85558555"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98796046"
 ---
 # <a name="troubleshoot-issues-related-to-azure-data-box-blob-storage"></a>Solucionar problemas relacionados ao armazenamento de BLOBs Azure Data Box
 
@@ -26,7 +26,7 @@ Esta seção detalha alguns dos problemas enfrentados ao usar Gerenciador de Arm
 |Mensagem de erro  |Ação recomendada |
 |---------|---------|
 |Não é possível recuperar recursos filho. O valor de um dos cabeçalhos HTTP não está no formato correto.|No menu **Editar** , selecione **Azure Stack APIs de destino**. <br>Reinicie Gerenciador de Armazenamento do Azure.|
-|`getaddrinfo ENOTFOUND <accountname>.blob.<serialnumber>.microsoftdatabox.com` |Verifique se o nome do ponto de extremidade `<accountname>.blob.<serialnumber>.microsoftdatabox.com` foi adicionado ao arquivo de hosts neste caminho: <li>`C:\Windows\System32\drivers\etc\hosts`no Windows ou </li><li> `/etc/hosts`no Linux.</li>|
+|`getaddrinfo ENOTFOUND <accountname>.blob.<serialnumber>.microsoftdatabox.com` |Verifique se o nome do ponto de extremidade `<accountname>.blob.<serialnumber>.microsoftdatabox.com` foi adicionado ao arquivo de hosts neste caminho: <li>`C:\Windows\System32\drivers\etc\hosts` no Windows ou </li><li> `/etc/hosts` no Linux.</li>|
 |Não é possível recuperar recursos filho. <br>Detalhes: certificado autoassinado |Importe o certificado TLS/SSL para o seu dispositivo no Gerenciador de Armazenamento do Azure: <li>Baixe o certificado do portal do Azure. Para obter mais informações, acesse [baixar o certificado](data-box-deploy-copy-data-via-rest.md#download-certificate).</li><li>No menu **Editar** , selecione **certificados SSL** e, em seguida, selecione **importar certificados**.</li>|
 
 ## <a name="errors-seen-in-azcopy-for-windows"></a>Erros vistos no AzCopy para Windows
@@ -35,7 +35,7 @@ Esta seção detalha alguns dos problemas enfrentados ao usar o AzCopy para Wind
 
 |Mensagem de erro  |Ação recomendada |
 |---------|---------|
-|O comando AzCopy parece parar de responder por um minuto antes de exibir este erro: <br>Falha ao enumerar o diretório https://... O nome remoto não pôde ser resolvido`<accountname>.blob.<serialnumber>.microsoftdatabox.com`|Verifique se o nome do ponto de extremidade `<accountname>.blob.<serialnumber>.microsoftdatabox.com` foi adicionado ao arquivo de hosts em: `C:\Windows\System32\drivers\etc\hosts` .|
+|O comando AzCopy parece parar de responder por um minuto antes de exibir este erro: <br>Falha ao enumerar o diretório https://... O nome remoto não pôde ser resolvido `<accountname>.blob.<serialnumber>.microsoftdatabox.com`|Verifique se o nome do ponto de extremidade `<accountname>.blob.<serialnumber>.microsoftdatabox.com` foi adicionado ao arquivo de hosts em: `C:\Windows\System32\drivers\etc\hosts` .|
 |O comando AzCopy parece parar de responder por um minuto antes de exibir este erro: <br>Erro ao analisar o local de origem. A conexão subjacente foi fechada: não foi possível estabelecer uma relação de confiança para o canal seguro de SSL/TLS.|Importe o certificado TLS/SSL para seu dispositivo no repositório de certificados do sistema. Para obter mais informações, acesse [baixar o certificado](data-box-deploy-copy-data-via-rest.md#download-certificate).|
 
 
@@ -65,6 +65,7 @@ Esses erros não são específicos de nenhum aplicativo.
 |Mensagem de erro  |Ação recomendada |
 |---------|---------|
 |A conexão atinge o tempo limite. |Entre no dispositivo de Data Box e verifique se ele está desbloqueado. Sempre que o dispositivo for reiniciado, ele permanecerá bloqueado até que alguém entre.|
+|A autenticação da API REST falha com o erro: o servidor falhou ao autenticar a solicitação. Verifique se o valor do cabeçalho de autorização está formado corretamente, incluindo a assinatura. ErrorCode: AuthenticationFailed. |Um dos motivos pelos quais isso pode acontecer é quando a hora do dispositivo não é sincronizada com a do Azure. Se houver uma grande distorção de tempo, a autenticação da API REST será interrompida quando você estiver tentando copiar dados para a Data Box por meio da API REST. Nessa situação, você pode abrir a porta UDP 123 de saída para permitir o acesso ao `time.windows.com` . Depois que a hora do dispositivo for sincronizada com a do Azure, a autenticação deverá ter sucesso. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

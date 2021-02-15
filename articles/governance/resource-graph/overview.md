@@ -1,14 +1,14 @@
 ---
 title: Visão geral do Azure Resource Graph
 description: Entenda como o serviço do Azure Resource Graph habilita a consulta complexa de recursos em grande escala entre assinaturas e locatários.
-ms.date: 07/25/2020
+ms.date: 01/27/2021
 ms.topic: overview
-ms.openlocfilehash: 5a2be5e65ecd5590d992e1883f432c173660e78d
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: b5df124d07b8ecfb20f5dec08830d8156e8df2cd
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87541780"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919134"
 ---
 # <a name="what-is-azure-resource-graph"></a>O que é o Azure Resource Graph?
 
@@ -23,7 +23,7 @@ Nesta documentação, você estudará cada recurso em detalhes.
 
 > [!NOTE]
 > O Azure Resource Graph alimenta a barra de pesquisa do portal do Azure, a nova experiência de navegação de "Todos os recursos" e a comparação visual do [Histórico de alterações](../policy/how-to/determine-non-compliance.md#change-history)
-> _ do Azure Policy_. É projetado para ajudar os clientes a gerenciar ambientes de grande escala.
+> _do Azure Policy_. É projetado para ajudar os clientes a gerenciar ambientes de grande escala.
 
 [!INCLUDE [azure-lighthouse-supported-service](../../../includes/azure-lighthouse-supported-service.md)]
 
@@ -37,6 +37,9 @@ Com o Azure Resource Graph, é possível:
 
 - Acessar as propriedades retornadas pelos provedores de recursos sem a necessidade de fazer chamadas individuais para cada um deles.
 - Exibir os últimos 14 dias do histórico de alterações feitas ao recurso para ver quais propriedades foram alteradas e quando. (versão prévia)
+
+> [!NOTE]
+> Como uma _versão prévia_ do recurso, alguns objetos `type` têm propriedades adicionais disponíveis que não são do Resource Manager. Para obter mais informações, confira [Propriedades estendidas (versão prévia)](./concepts/query-language.md#extended-properties).
 
 ## <a name="how-resource-graph-is-kept-current"></a>Como o Resource Graph é mantido atualizado
 
@@ -56,7 +59,7 @@ Primeiro, para obter detalhes sobre operações e funções que podem ser usadas
 
 ## <a name="permissions-in-azure-resource-graph"></a>Permissões no Azure Resource Graph
 
-Para usar o Resource Graph, você deve ter os direitos apropriados no RBAC ([controle de acesso baseado em função](../../role-based-access-control/overview.md)) com, no mínimo, acesso de leitura para os recursos que você deseja consultar. Sem pelo menos `read` permissões para o objeto ou o grupo de objetos do Azure, os resultados não serão retornados.
+Para usar o Resource Graph, será necessário obter direitos apropriados no [RBAC do Azure (controle de acesso baseado em função do Azure)](../../role-based-access-control/overview.md) com pelo menos um acesso de leitura aos recursos que você deseja consultar. Sem pelo menos `read` permissões para o objeto ou o grupo de objetos do Azure, os resultados não serão retornados.
 
 > [!NOTE]
 > O Resource Graph usa as assinaturas disponíveis para uma entidade de segurança durante o logon. Para ver os recursos de uma nova assinatura adicionada durante uma sessão ativa, a entidade de segurança deve atualizar o contexto. Essa ação ocorre automaticamente ao fazer logoff e logon.

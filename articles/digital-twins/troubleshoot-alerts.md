@@ -5,14 +5,14 @@ description: Consulte Como habilitar alertas em métricas de gêmeos digitais do
 author: baanders
 ms.author: baanders
 ms.date: 7/28/2020
-ms.topic: troubleshooting
+ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: ded2f54379e60e8e3fc26d9c2166930a6f953078
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 057a1b08095a71e2fca6119f5b63bfdc787eea88
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88854847"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616595"
 ---
 # <a name="troubleshooting-azure-digital-twins-alerts"></a>Solução de problemas do Azure digital gêmeos: alertas
 
@@ -31,16 +31,16 @@ Aqui está como habilitar alertas para sua instância do gêmeos digital do Azur
 3. Na página *criar regra de alerta* a seguir, você pode seguir os prompts para definir condições, ações a serem disparadas e detalhes do alerta.     
     * Os detalhes do **escopo** devem ser preenchidos automaticamente com os detalhes da sua instância
     * Você definirá os detalhes do **grupo de ações** e da **condição** para personalizar gatilhos e respostas de alerta
-    * Na seção **detalhes da regra de alerta** , insira o _nome da regra de alerta_, _Descrição (opcional)_. Você pode marcar a caixa de seleção _Habilitar Regra de alerta ao criar_ se desejar que o alerta se torne ativo assim que for criado.
-    * Com base em algumas condições e ações que você adicionar, você precisará selecionar _salvar regra de alerta para o grupo de recursos_ e a _severidade_ nas respectivas listas suspensas.
+    * Na seção **detalhes da regra de alerta** , insira um nome e uma descrição opcional para a regra. Você pode marcar a caixa de seleção _Habilitar Regra de alerta ao criar_ se desejar que o alerta se torne ativo assim que for criado.
+        - Isso também é onde você seleciona um _grupo de recursos_ e um nível de _severidade_ .
 
 4. Selecione o botão _criar regra de alerta_ para criar sua regra de alerta.
 
-:::image type="content" source="media/troubleshoot-alerts/create-alert-rule.png" alt-text="Captura de tela mostrando a página Criar regra de alerta com seções para escopo, condição e grupo de ações" lightbox="media/troubleshoot-alerts/create-alert-rule.png":::
-
-:::image type="content" source="media/troubleshoot-alerts/alert-rule-details.png" alt-text="Captura de tela mostrando a seção detalhes da regra de alerta de criação de uma regra de alerta" lightbox="media/troubleshoot-alerts/alert-rule-details.png":::
+:::image type="content" source="media/troubleshoot-alerts/create-alert-rule.png" alt-text="Captura de tela mostrando a página Criar regra de alerta com seções para escopo, condição, grupo de ações e detalhes da regra de alerta" lightbox="media/troubleshoot-alerts/create-alert-rule.png":::
 
 Para obter uma explicação orientada sobre como preencher esses campos, consulte [*visão geral de alertas no Microsoft Azure*](../azure-monitor/platform/alerts-overview.md). Veja abaixo alguns exemplos de como serão as etapas do Azure digital gêmeos.
+
+### <a name="select-conditions"></a>Selecionar condições
 
 Aqui está um trecho do processo de *seleção de condição* que ilustra quais tipos de sinais de alerta estão disponíveis para o gêmeos digital do Azure. Nessa página, você pode filtrar o tipo de sinal e selecionar o sinal desejado em uma lista.
 
@@ -49,11 +49,12 @@ Aqui está um trecho do processo de *seleção de condição* que ilustra quais 
 Depois de selecionar um sinal, você será solicitado a configurar a lógica do alerta. Você pode filtrar em uma dimensão, definir um valor de limite para o alerta e definir a frequência de verificações para a condição. Aqui está um exemplo de configuração de um alerta para quando a métrica de taxa média de falhas de roteamento é superior a 5%.
 
 :::image type="content" source="media/troubleshoot-alerts/configure-signal-logic-2.png" alt-text="Captura de tela mostrando a segunda página Configurar lógica de sinal. A página mostra o histórico de métricas, tem uma área para filtrar em uma dimensão, como operações de grade de eventos, e uma seção para definir a lógica de alerta como ' média é maior que 5 '":::
- 
-Após a configuração dos alertas, eles aparecerão de volta na página de *alertas* para sua instância.
+
+### <a name="verify-success"></a>Verificar êxito
+
+Depois de configurar os alertas, eles aparecerão de volta na página de *alertas* para sua instância.
  
 :::image type="content" source="media/troubleshoot-alerts/alerts-post.png" alt-text="Captura de tela mostrando a página alertas e o botão a ser adicionado. Há um alerta configurado" lightbox="media/troubleshoot-alerts/alerts-post.png":::
-
 
 ## <a name="next-steps"></a>Próximas etapas
 

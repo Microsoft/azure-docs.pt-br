@@ -1,19 +1,19 @@
 ---
 title: Início rápido-criar uma VM do Azure VMware em uma nuvem privada-solução do Azure VMware por CloudSimple
 description: Saiba como criar uma máquina virtual VMware na nuvem privada do CloudSimple. Acesse o portal do CloudSimple da portal do Azure.
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/16/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 32ac78c6bc613daf04fc98c03044699f387f290d
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: c741f01ccc3e34ec991aa77fc850fd9f60c4d8aa
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88140846"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97899279"
 ---
 # <a name="create-vmware-virtual-machines-on-your-private-cloud"></a>Crie máquinas virtuais VMware em sua nuvem privada
 
@@ -58,37 +58,37 @@ Para acessar o vCenter, inicie no portal do CloudSimple. Na Home Page, em **tare
 1. No vCenter, clique no ícone **hosts e clusters** .
 
 2. Clique com o botão direito do mouse em **carga de trabalho** e selecione **nova máquina virtual**.
-    ![Nova VM](media/vcvm01.png)
+    ![Captura de tela que realça a opção de menu nova máquina virtual.](media/vcvm01.png)
 
 3. Selecione **criar nova máquina virtual** e clique em **Avançar**.
-    ![Nova VM](media/vcvm02.png)
+    ![Captura de tela que realça a opção Criar nova máquina virtual.](media/vcvm02.png)
 
 4. Nomeie o computador, selecione o local **da VM de carga de trabalho** e clique em **Avançar**.
-    ![Nova VM](media/vcvm03.png)
+    ![Captura de tela que realça a opção de VMs de carga de trabalho.](media/vcvm03.png)
 
 5. Selecione o recurso de computação de **carga de trabalho** e clique em **Avançar**.
-    ![Nova VM](media/vcvm04.png)
+    ![Captura de tela que realça o recurso de computação de carga de trabalho.](media/vcvm04.png)
 
 6. Selecione **vsanDatastore** e clique em **Avançar**.
-    ![Nova VM](media/vcvm05.png)
+    ![Captura de tela que realça a opção vsanDatastore.](media/vcvm05.png)
 
 7. Mantenha a seleção de compatibilidade do ESXi 6,5 padrão e clique em **Avançar**.
-    ![Nova VM](media/vcvm06.png)
+    ![Captura de tela que mostra a opção de compatibilidade ESXi 6,5 selecionada.](media/vcvm06.png)
 
 8. Selecione o sistema operacional convidado do ISO para a VM que você está criando e clique em **Avançar**.
-    ![Nova VM](media/vcvm07.png)
+    ![Captura de tela que mostra como selecionar o sistema operacional guese do ISO para a VM.](media/vcvm07.png)
 
 9. Selecione opções de disco rígido e rede. Para nova unidade de CD/DVD, selecione o **arquivo ISO do repositório de armazenamento**.  Se você quiser permitir o tráfego do endereço IP público para essa VM, selecione a rede como **VM-1**.
-    ![Nova VM](media/vcvm08.png)
+    ![Captura de tela que realça onde você seleciona o arquivo ISO do repositório de armazenamento.](media/vcvm08.png)
 
 10. Uma janela de seleção é aberta. Selecione o arquivo que você carregou anteriormente para a pasta ISOs e modelos e clique em **OK**.
     ![Nova VM](media/vcvm10.png)
 
 11. Examine as configurações e clique em **OK** para criar a VM.
-    ![Nova VM](media/vcvm11.png)
+    ![Captura de tela que mostra onde você revisa as configurações.](media/vcvm11.png)
 
 A VM agora é adicionada aos recursos de computação de carga de trabalho e está pronta para uso. 
-![Nova VM](media/vcvm12.png)
+![Captura de tela que mostra a VM que foi adicionada aos recursos de computação de carga de trabalho.](media/vcvm12.png)
 
 A configuração básica agora está concluída. Você pode começar a usar sua nuvem privada semelhante a como você usaria sua infraestrutura de VM local.
 

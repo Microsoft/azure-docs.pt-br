@@ -8,16 +8,16 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: 56e3c1e48df51cd24d70517ee23d47ef27d378d7
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 8b6a7c3e05b26cbda80ebf1a3fc0d4fed8255e6b
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935323"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91950798"
 ---
 # <a name="ocr-cognitive-skill"></a>Habilidades cognitivas OCR
 
-A habilidade de **reconhecimento óptico de caracteres (OCR)** reconhece texto impresso e manuscrito em arquivos de imagem. Essa habilidade usa os modelos de aprendizado de máquina fornecidos pelo [Pesquisa Visual computacional](../cognitive-services/computer-vision/home.md) API [v 3.0](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) em serviços cognitivas. A habilidade **OCR** é mapeada para a seguinte funcionalidade:
+A habilidade de **reconhecimento óptico de caracteres (OCR)** reconhece texto impresso e manuscrito em arquivos de imagem. Essa habilidade usa os modelos de aprendizado de máquina fornecidos pelo [Pesquisa Visual computacional](../cognitive-services/computer-vision/overview.md) API [v 3.0](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) em serviços cognitivas. A habilidade **OCR** é mapeada para a seguinte funcionalidade:
 
 + Para inglês, espanhol, alemão, francês, italiano, Português e holandês, a nova API de ["leitura"](../cognitive-services/computer-vision/concept-recognizing-text.md#read-api) é usada.
 + Para todos os outros idiomas, a API ["OCR"](../cognitive-services/computer-vision/concept-recognizing-text.md#ocr-api) é usada.
@@ -51,13 +51,13 @@ Anteriormente, havia um parâmetro chamado "textExtractionAlgorithm" para especi
 
 ## <a name="skill-inputs"></a>Entradas de habilidades
 
-| Nome de entrada      | DESCRIÇÃO                                          |
+| Nome de entrada      | Descrição                                          |
 |---------------|------------------------------------------------------|
 | `image`         | Tipo complexo. Atualmente só funciona com o campo "/document/normalized_images" produzido pelo indexador de BLOBs do Microsoft Azure quando ```imageAction``` é definido como um valor diferente de ```none```. Para obter mais informações, confira [este exemplo](#sample-output).|
 
 
 ## <a name="skill-outputs"></a>Saídas de habilidades
-| Nome de saída     | DESCRIÇÃO                   |
+| Nome de saída     | Descrição                   |
 |---------------|-------------------------------|
 | `text`            | Texto sem formatação extraído da imagem.   |
 | `layoutText`    | Tipo complexo que descreve o texto extraído e o local em que o texto foi encontrado.|

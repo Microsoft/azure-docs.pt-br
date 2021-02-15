@@ -4,12 +4,12 @@ description: Saiba mais sobre o esquema JSON que é enviado para uma URL de webh
 ms.topic: conceptual
 ms.date: 03/31/2017
 ms.subservice: alerts
-ms.openlocfilehash: 018bf7ac9c24669df798e9ba05c667dcb72d94a6
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: b48f094b460a2871b502c72b39b849ed68b9c085
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321829"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97916619"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Webhook para alertas de log de atividades do Azure
 Como parte da definição de um grupo de ações, você pode configurar pontos de extremidade de webhook para receber notificações de alerta do log de atividades. Os webhooks permitem rotear uma notificação de alerta do Azure para outros sistemas para pós-processamento ou notificações personalizadas. Este artigo mostra a aparência do conteúdo para o HTTP POST para um webhook.
@@ -19,7 +19,7 @@ Para saber mais sobre alertas do log de atividades, veja como [Criar alertas do 
 Para saber mais sobre grupos de ações, veja como [criar grupos de ações](./action-groups.md).
 
 > [!NOTE]
-> Você também pode usar o [esquema de alerta comum](https://aka.ms/commonAlertSchemaDocs), que fornece a vantagem de ter uma única carga de alerta extensível e unificada em todos os serviços de alerta no Azure monitor, para suas integrações de webhook. [Saiba mais sobre as definições de esquema de alerta comuns.](https://aka.ms/commonAlertSchemaDefinitions)
+> Você também pode usar o [esquema de alerta comum](./alerts-common-schema.md), que fornece a vantagem de ter uma única carga de alerta extensível e unificada em todos os serviços de alerta no Azure monitor, para suas integrações de webhook. [Saiba mais sobre as definições de esquema de alerta comuns.](./alerts-common-schema-definitions.md)
 
 
 ## <a name="authenticate-the-webhook"></a>Autenticar o webhook
@@ -27,6 +27,20 @@ Opcionalmente, o webhook pode usar a autorização baseada em token para autenti
 
 ## <a name="payload-schema"></a>Esquema de conteúdo
 O conteúdo JSON contida na operação POST difere com base no campo de data.context.activityLog.eventSource do conteúdo.
+
+> [!NOTE]
+> Atualmente, a descrição que faz parte do evento do log de atividades é copiada para a propriedade **"Descrição do alerta"** disparada.
+>
+> Para alinhar a carga do log de atividades com outros tipos de alertas, a partir de 1º de abril de 2021, a propriedade de alerta disparada **"Descrição"** conterá a descrição da regra de alerta.
+>
+> Em preparação para essa alteração, criamos uma nova propriedade **"Descrição do evento do log de atividades"** para o alerta do log de atividades acionado. Essa nova propriedade será preenchida com a propriedade **"Description"** que já está disponível para uso. Isso significa que o novo campo **"Descrição do evento do log de atividades"** conterá a descrição que faz parte do evento do log de atividades.
+>
+> Examine suas regras de alerta, regras de ação, WebHooks, aplicativo lógico ou quaisquer outras configurações em que você possa estar usando a propriedade **"Descrição"** do alerta acionado e substitua-a pela propriedade **"Descrição do evento do log de atividades"** .
+>
+> Se sua condição (em suas regras de ação, WebHooks, aplicativo lógico ou qualquer outra configuração) for baseada na propriedade **"Descrição"** para alertas do log de atividades, talvez seja necessário modificá-la para que ela se baseie na propriedade **"Descrição do evento do log de atividades"** .
+>
+> Para preencher a nova propriedade **"Descrição"** , você pode adicionar uma descrição na definição de regra de alerta.
+> ![Alertas do log de atividades acionados](media/activity-log-alerts-webhook/activity-log-alert-fired.png)
 
 ### <a name="common"></a>Comum
 
@@ -269,7 +283,7 @@ Para obter detalhes de esquema específico sobre alertas de log de atividades de
 | resourceGroupName |Nome do grupo de recursos do recurso afetado. |
 | properties |Conjunto de pares `<Key, Value>` (ou seja, `Dictionary<String, String>`) que inclui detalhes sobre o evento. |
 | event |Elemento que contém metadados sobre o evento. |
-| autorização |As propriedades de Controle de Acesso Baseado em Função do evento. Essas propriedades geralmente incluem a ação, função e escopo. |
+| autorização |As propriedades do controle de acesso baseado em função do Azure do evento. Essas propriedades geralmente incluem a ação, função e escopo. |
 | category |Categoria do evento. Os valores com suporte são: Administrativo, Alerta, Segurança, ServiceHealth e Recomendação. |
 | chamador |Endereço de email do usuário que realizou a operação, declaração UPN ou declaração SPN com base na disponibilidade. Pode ser nulo para determinadas chamadas do sistema. |
 | correlationId |Geralmente um GUID no formato de cadeia de caracteres. Eventos com correlationId pertencem à mesma ação maior e geralmente compartilham uma correlationId. |
@@ -292,4 +306,3 @@ Para obter detalhes de esquema específico em todos os outros alertas do log de 
 * [Usar aplicativo lógico para enviar um SMS por meio do Twilio de um alerta do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app). Este exemplo serve para alertas de métrica, mas pode ser modificado para funcionar com um alerta do log de atividades.
 * [Usar aplicativo lógico para enviar uma mensagem do Slack de um alerta do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app). Este exemplo serve para alertas de métrica, mas pode ser modificado para funcionar com um alerta do log de atividades.
 * [Usar aplicativo lógico para enviar uma mensagem a uma fila do Azure de um alerta do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app). Este exemplo serve para alertas de métrica, mas pode ser modificado para funcionar com um alerta do log de atividades.
-

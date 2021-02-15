@@ -16,10 +16,10 @@ ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: d6dfc95820e911781ffa88e2207601703f165839
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87070593"
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-hyper-v"></a>Implantar o StorSimple Virtual Array - Provisionar no Hyper-V
@@ -97,7 +97,7 @@ Execute as etapas a seguir para provisionar um dispositivo no seu hipervisor.
 
    ![Captura de tela do Gerenciador do Hyper-V mostrando o menu de atalho de um nó do sistema, com os itens novos e da máquina virtual realçados.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image2.png)
 4. Na página **Antes de começar** do Assistente de Nova Máquina Virtual, clique em **Avançar**.
-5. Na página **Especificar nome e localização**, forneça um **Nome** para sua matriz virtual. Clique em **Próximo**.
+5. Na página **Especificar nome e localização**, forneça um **Nome** para sua matriz virtual. Clique em **Avançar**.
 
    ![Captura de tela da página Especificar nome e local mostrando a caixa nome preenchida e o botão Avançar realçado.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image4.png)
 6. Na página **Especificar geração**, escolha o tipo de imagem do dispositivo e clique em **Avançar**. Esta página não aparecerá se você estiver usando o Windows Server 2008 R2.
@@ -143,7 +143,7 @@ Execute as etapas a seguir para provisionar um dispositivo no seu hipervisor.
 18. Na página **Especificar Nome e Localização**, forneça um **nome** e também uma **localização** (é possível navegar até um) para o disco de dados. Clique em **Próximo**.
 
     ![Captura de tela da página Especificar nome e local mostrando valores nas caixas nome e local. O botão Avançar é realçado.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image17.png)
-19. Na página **Configurar Disco**, selecione a opção **Criar um novo disco de rígido virtual em branco** e especifique o tamanho como **500 GB** (ou mais). Embora 500 GB seja o requisito mínimo, você sempre poderá provisionar um disco maior. Observe que, depois de provisionado, você não poderá expandir ou reduzir o disco. Para obter mais informações sobre o tamanho do disco a ser provisionado, examine a seção de dimensionamento no [documento de práticas recomendadas](storsimple-ova-best-practices.md). Clique em **Próximo**.
+19. Na página **Configurar Disco**, selecione a opção **Criar um novo disco de rígido virtual em branco** e especifique o tamanho como **500 GB** (ou mais). Embora 500 GB seja o requisito mínimo, você sempre poderá provisionar um disco maior. Observe que, depois de provisionado, você não poderá expandir ou reduzir o disco. Para obter mais informações sobre o tamanho do disco a ser provisionado, examine a seção de dimensionamento no [documento de práticas recomendadas](storsimple-ova-best-practices.md). Clique em **Avançar**.
 
     ![Captura de tela da página Configurar disco com criar um novo disco rígido virtual em branco selecionado, o tamanho definido como 500 e o botão Avançar realçado.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image18.png)
 20. Na página **Resumo**, examine os detalhes do disco de dados virtual e, se estiver satisfeito, clique em **Concluir** para criar o disco. O assistente é fechado e um disco rígido virtual é adicionado à sua máquina.
@@ -168,11 +168,11 @@ Execute as etapas a seguir para iniciar a matriz virtual e conectar-se a ela.
    ![Captura de tela da guia do console do cliente vSphere mostrando caracteres indeterminados na caixa de entrada.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image23.png)
 4. Por motivos de segurança, a senha do administrador do dispositivo expira no primeiro logon. Você será solicitado a alterar a senha.
 
-   ![Captura de tela da guia do console do cliente do vSphere. o texto na página informa que a senha deve ser alterada.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image24.png)
+   ![Captura de tela da guia do console do cliente do vSphere. O texto na página informa que a senha deve ser alterada.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image24.png)
 
    Insira uma senha que contenha pelo menos oito caracteres. A senha deve cumprir pelo menos três dos quatro requisitos a seguir: caracteres maiúsculos, minúsculos, numéricos e especiais. Insira a senha novamente para confirmá-la. Você é notificado de que a senha foi alterada.
 
-   ![Captura de tela da guia do console do cliente do vSphere. o texto na página informa que a senha foi alterada.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image25.png)
+   ![Captura de tela da guia do console do cliente do vSphere. O texto na página informa que a senha foi alterada.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image25.png)
 5. Depois que a senha for alterada com êxito, a matriz virtual poderá ser reiniciada. Aguarde até o dispositivo iniciar.
 
    ![Captura de tela da página principal do StorSimpleAdmin. O texto na página solicita que o usuário aguarde o serviço de notificação de eventos do sistema.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image26.png)

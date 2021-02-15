@@ -4,15 +4,15 @@ description: Saiba como criar e usar conexões híbridas no serviço de Azure Ap
 author: ccompy
 ms.assetid: 66774bde-13f5-45d0-9a70-4e9536a4f619
 ms.topic: article
-ms.date: 06/08/2020
+ms.date: 02/05/2020
 ms.author: ccompy
 ms.custom: seodec18, fasttrack-edit
-ms.openlocfilehash: 8c8b71e4be11a886da3e0889add0a3cdc19a56c3
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 1b3fc4a254c1157f2c2336e6360ba7621f31364d
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962410"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594224"
 ---
 # <a name="azure-app-service-hybrid-connections"></a>Conexões Híbridas do Serviço de Aplicativo do Azure
 
@@ -42,7 +42,7 @@ Há inúmeros benefícios para a funcionalidade de Conexões Híbridas, incluind
 - Ele geralmente não exigem aberturas do firewall. As conexões são todas de saídas por meio de portas padrão da Web.
 - Como o recurso está no nível de rede, ele independente da linguagem usada pelo seu aplicativo e da tecnologia usada pelo ponto de extremidade.
 - Ele pode ser usado para fornecer acesso em várias redes de um único aplicativo. 
-- Há suporte em GA para aplicativos do Windows e está em versão prévia para aplicativos do Linux.
+- Há suporte no GA para aplicativos do Windows e aplicativos do Linux. Não há suporte para aplicativos de contêiner do Windows.
 
 ### <a name="things-you-cannot-do-with-hybrid-connections"></a>Coisas que você não pode fazer com as Conexões Híbridas ###
 
@@ -134,7 +134,7 @@ Para adicionar uma ou mais Conexões Híbridas a seu HCM:
 1. Selecione as Conexões Híbridas que você deseja que o HCM retransmita.
 ![Captura de tela de Conexões Híbridas][9]
 
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 Agora você pode ver as Conexões Híbridas adicionadas. Você também pode selecionar a Conexão híbrida configurada para ver os detalhes.
 
@@ -201,11 +201,18 @@ Qualquer pessoa com `Reader` acesso à retransmissão poderá _Ver_ a conexão h
 
 ## <a name="troubleshooting"></a>Solução de problemas ##
 
-O status “Conectado” significa que pelo menos um HCM está configurado com essa Conexão Híbrida e é capaz de alcançar o Azure. Se o status da sua Conexão Híbrida não indica **Conectado**, sua Conexão Híbrida não está configurada em nenhum HCM com acesso ao Azure.
+O status “Conectado” significa que pelo menos um HCM está configurado com essa Conexão Híbrida e é capaz de alcançar o Azure. Se o status da sua Conexão Híbrida não indica **Conectado**, sua Conexão Híbrida não está configurada em nenhum HCM com acesso ao Azure. Quando a HCM mostra **não conectado** , há algumas coisas a serem verificadas:
 
-O principal motivo pelo qual os clientes não podem se conectar ao ponto de extremidade é porque o ponto de extremidade foi especificado usando um endereço IP em vez de um nome DNS. Se seu aplicativo não puder acessar o ponto de extremidade desejado e você tiver usado um endereço IP, mude e passe a usar um nome DNS válido no host em que o HCM está em execução. Verifique também se o nome DNS resolve corretamente no host onde o HCM está em execução. Confirme se há conectividade entre o host onde a HCM está em execução no ponto de extremidade de Conexão Híbrida.  
+* O seu host tem acesso de saída ao Azure na porta 443? Você pode testar a partir do seu host HCM usando o comando do PowerShell *Test-NetConnection-P Port* 
+* Seu HCM pode estar em um estado inadequado? Tente reiniciar o serviço local "serviço de Gerenciador de Conexões Híbridas do Azure".
 
-No serviço de aplicativo, a ferramenta de linha de comando **tcpping** pode ser invocada no console de ferramentas avançadas (kudu). Essa ferramenta pode informar se você tem acesso a um ponto de extremidade TCP, mas ela não diz se você tem acesso a um ponto de extremidade de Conexão Híbrida. Quando você usar a ferramenta no console em relação a um ponto de extremidade de Conexão Híbrida, apenas confirmará que ele usa uma combinação host:porta.  
+Se seu status diz **conectado** , mas seu aplicativo não pode acessar o ponto de extremidade, então:
+
+* Verifique se você está usando um nome DNS em sua conexão híbrida. Se você usar um endereço IP, a pesquisa de DNS de cliente necessária pode não acontecer. Se o cliente em execução no seu aplicativo Web não fizer uma pesquisa de DNS, a conexão híbrida não funcionará
+* Verifique se o nome DNS usado em sua conexão híbrida pode ser resolvido a partir do host HCM. Verifique a resolução usando *nslookup EndpointDNSname* , em que EndpointDNSname é uma correspondência exata para o que é usado em sua definição de conexão híbrida.
+* teste o acesso de seu host HCM ao seu ponto de extremidade usando o comando do PowerShell *Test-NetConnection EndpointDNSname-P Port*  se você não conseguir acessar o ponto de extremidade do seu host HCM, verifique os firewalls entre os dois hosts, incluindo quaisquer firewalls baseados em host no host de destino.
+
+No serviço de aplicativo, a ferramenta de linha de comando **tcpping** pode ser chamada no console de ferramentas avançadas (kudu). Essa ferramenta pode informar se você tem acesso a um ponto de extremidade TCP, mas ela não diz se você tem acesso a um ponto de extremidade de Conexão Híbrida. Quando você usar a ferramenta no console em relação a um ponto de extremidade de Conexão Híbrida, apenas confirmará que ele usa uma combinação host:porta.  
 
 Se você tiver um cliente de linha de comando para seu ponto de extremidade, poderá testar a conectividade no console do aplicativo. Por exemplo, você pode testar o acesso a pontos de extremidade do servidor Web usando a ondulação.
 

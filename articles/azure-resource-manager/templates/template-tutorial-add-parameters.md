@@ -1,21 +1,21 @@
 ---
 title: Tutorial – adicionar parâmetros ao modelo
-description: Adicione parâmetros ao modelo do Azure Resource Manager para torná-lo reutilizável.
+description: Adicione parâmetros ao modelo do ARM (modelo do Azure Resource Manager) para torná-lo reutilizável.
 author: mumian
 ms.date: 03/31/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: b1454106c4498f4519972633df8a871585d254f1
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: e983f8499cbeaf400a8da6f48d7f6c8b75c4795a
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497538"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107055"
 ---
 # <a name="tutorial-add-parameters-to-your-arm-template"></a>Tutorial: Adicionar parâmetros ao modelo do ARM
 
-No [tutorial anterior](template-tutorial-add-resource.md), você aprendeu como adicionar uma conta de armazenamento ao modelo e implantá-lo. Neste tutorial, você aprenderá a aprimorar o modelo do ARM (Azure Resource Manager) adicionando parâmetros. Este tutorial demora cerca de **14 minutos** para ser concluído.
+No [tutorial anterior](template-tutorial-add-resource.md), você aprendeu como adicionar uma conta de armazenamento ao modelo e implantá-lo. Neste tutorial, você aprenderá a aprimorar o modelo do ARM (modelo do Azure Resource Manager) adicionando parâmetros. Este tutorial demora cerca de **14 minutos** para ser concluído.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -33,7 +33,7 @@ Talvez você tenha notado que há um problema com este modelo. O nome da conta d
 
 ## <a name="make-template-reusable"></a>Tornar o modelo reutilizável
 
-Para tornar seu modelo reutilizável, adicionaremos um parâmetro que você pode usar para passar um nome de conta de armazenamento. O JSON realçado no exemplo a seguir mostra o que mudou no modelo. O parâmetro **storageName** é identificado como uma cadeia de caracteres. O comprimento máximo é definido como 24 caracteres para evitar qualquer nome muito longo.
+Para tornar seu modelo reutilizável, adicionaremos um parâmetro que você pode usar para passar um nome de conta de armazenamento. O JSON realçado no exemplo a seguir mostra o que mudou no modelo. O parâmetro `storageName` é identificado como uma cadeia de caracteres. O comprimento máximo é definido como 24 caracteres para evitar qualquer nome muito longo.
 
 Copie o arquivo inteiro e substitua o modelo pelo conteúdo.
 
@@ -43,7 +43,7 @@ Copie o arquivo inteiro e substitua o modelo pelo conteúdo.
 
 Vamos implantar o modelo. O exemplo a seguir implanta o modelo com a CLI do Azure ou o PowerShell. Observe que você fornece o nome da conta de armazenamento como um dos valores no comando de implantação. Para o nome da conta de armazenamento, forneça o mesmo nome usado no tutorial anterior.
 
-Caso você não tenha criado o grupo de recursos, confira [Criar grupo de recursos](template-tutorial-create-first-template.md#create-resource-group). O exemplo pressupõe que você tenha definido a variável **templateFile** como o caminho para o arquivo de modelo, conforme mostrado no [primeiro tutorial](template-tutorial-create-first-template.md#deploy-template).
+Caso você não tenha criado o grupo de recursos, confira [Criar grupo de recursos](template-tutorial-create-first-template.md#create-resource-group). O exemplo pressupõe que você tenha definido a variável `templateFile` como o caminho para o arquivo de modelo, conforme mostrado no [primeiro tutorial](template-tutorial-create-first-template.md#deploy-template).
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -81,11 +81,11 @@ Essa maneira de lidar com atualizações significa que seu modelo pode incluir t
 
 Os parâmetros permitem que você personalize a implantação fornecendo valores que são personalizados para determinado ambiente. Por exemplo, você poderá passar valores diferentes dependendo de o ambiente no qual você está implantando ser de desenvolvimento, teste ou produção.
 
-O modelo anterior sempre implantava uma conta de armazenamento Standard_LRS. Talvez você queira a flexibilidade de implantar SKUs diferentes dependendo do ambiente. O exemplo a seguir realça as alterações para adicionar um parâmetro para o SKU. Copie todo o arquivo e cole-o em seu modelo.
+O modelo anterior sempre implantava uma conta de armazenamento **Standard_LRS**. Talvez você queira a flexibilidade de implantar SKUs diferentes dependendo do ambiente. O exemplo a seguir realça as alterações para adicionar um parâmetro para o SKU. Copie todo o arquivo e cole-o em seu modelo.
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-sku/azuredeploy.json" range="1-40" highlight="10-23,32":::
 
-O parâmetro **storageSKU** tem um valor padrão. Esse valor é usado quando um valor não é especificado durante a implantação. Ele também tem uma lista de valores permitidos. Esses valores correspondem aos valores necessários para criar uma conta de armazenamento. Você não quer que os usuários do seu modelo transmitam SKUs que não funcionam.
+O parâmetro `storageSKU` tem um valor padrão. Esse valor é usado quando um valor não é especificado durante a implantação. Ele também tem uma lista de valores permitidos. Esses valores correspondem aos valores necessários para criar uma conta de armazenamento. Você não quer que os usuários do seu modelo transmitam SKUs que não funcionam.
 
 ## <a name="redeploy-template"></a>Reimplantar o modelo
 
@@ -114,7 +114,7 @@ az deployment group create \
 ---
 
 > [!NOTE]
-> Se a implantação falhar, use a opção **debug** com o comando de implantação para mostrar os logs de depuração.  Use também a opção **verbose** para mostrar os logs de depuração completos.
+> Se a implantação falhar, use a opção `verbose` para obter informações sobre os recursos que estão sendo criados. Use a opção `debug` para obter mais informações de depuração.
 
 Para ver a flexibilidade do modelo, vamos implantá-lo novamente. Dessa vez, defina o parâmetro do SKU como **Standard_GRS**. Você pode passar um novo nome para criar uma conta de armazenamento diferente ou usar o mesmo nome para atualizar sua conta de armazenamento existente. As duas opções funcionam.
 

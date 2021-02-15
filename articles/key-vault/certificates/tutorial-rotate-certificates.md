@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/16/2020
 ms.author: sebansal
-ms.openlocfilehash: eeceb1279579055bfff33f0a4413f0798418faed
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 591d71e8cd6af2801540f5a1a41ad88b1f538e81
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83201520"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844481"
 ---
 # <a name="tutorial-configure-certificate-auto-rotation-in-key-vault"></a>Tutorial: Configurar a rotação automática do certificado no Key Vault
 
@@ -41,13 +41,13 @@ Entre no Portal do Azure em https://portal.azure.com.
 
 ## <a name="create-a-vault"></a>Criar um cofre
 
-Crie um cofre de chaves ou selecione seu cofre existente para executar operações (confira [Etapas para criar um cofre de chaves](../quick-create-portal.md)). No exemplo, o nome do cofre de chaves é **Example-Vault**.
+Crie um Azure Key Vault usando o [portal do Azure](../general/quick-create-portal.md), a [CLI do Azure](../general/quick-create-cli.md) ou o [Azure PowerShell](../general/quick-create-powershell.md). No exemplo, o nome do cofre de chaves é **Example-Vault**.
 
 ![Saída após a conclusão da criação do cofre de chaves](../media/certificates/tutorial-import-cert/vault-properties.png)
 
 ## <a name="create-a-certificate-in-key-vault"></a>Criar um certificado no Key Vault
 
-Crie um certificado ou importe um certificado para o cofre de chaves (confira [Etapas para criar um certificado no Key Vault](../quick-create-portal.md)). Nesse caso, você trabalhará no certificado chamado **ExampleCertificate**.
+Crie um certificado ou importe um certificado para o cofre de chaves (confira [Etapas para criar um certificado no Key Vault](../secrets/quick-create-portal.md)). Nesse caso, você trabalhará no certificado chamado **ExampleCertificate**.
 
 ## <a name="update-certificate-lifecycle-attributes"></a>Atualizar os atributos de ciclo de vida do certificado
 
@@ -95,7 +95,7 @@ O Key Vault faz a rotação automática de certificados por meio de parcerias es
 1. Selecione o certificado que você deseja atualizar. Nesse caso, você trabalhará no certificado chamado **ExampleCertificate**.
 1. Selecione **Política de Emissão** na barra de menus superior.
 
-   ![Propriedades do certificado](../media/certificates/tutorial-rotate-cert/cert-issuance-policy.png)
+   ![Captura de tela que realça o botão de Política de Emissão.](../media/certificates/tutorial-rotate-cert/cert-issuance-policy.png)
 
 1. Na tela **Política de Emissão**, atualize os seguintes valores:
 
@@ -134,7 +134,7 @@ Set-AzureKeyVaultCertificatePolicy -VaultName $vaultName
 > }
 >  ```
 > 
-Para saber mais sobre os parâmetros, confira [az keyvault certificate](https://docs.microsoft.com/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-set-attributes).
+Para saber mais sobre os parâmetros, confira [az keyvault certificate](/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-set-attributes).
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
@@ -152,5 +152,5 @@ Para excluir o grupo de recursos usando o portal:
 
 Neste tutorial, você atualizou os atributos de ciclo de vida de um certificado. Para saber mais sobre o Key Vault e como integrá-lo a seus aplicativos, confira os seguintes artigos:
 
-- Leia mais sobre [Gerenciar a criação de certificados no Azure Key Vault](https://docs.microsoft.com/azure/key-vault/certificates/create-certificate-scenarios).
+- Leia mais sobre [Gerenciar a criação de certificados no Azure Key Vault](./create-certificate-scenarios.md).
 - Examine a [Visão geral do Key Vault](../general/overview.md).

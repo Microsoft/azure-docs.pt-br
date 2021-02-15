@@ -4,11 +4,11 @@ description: Neste artigo, saiba como restaurar os arquivos do Azure usando o se
 ms.topic: conceptual
 ms.date: 1/27/2020
 ms.openlocfilehash: 60c9848e12de80bcafe4553a9e8f3e27e8876d41
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826490"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021377"
 ---
 # <a name="restore-azure-files-with-powershell"></a>Restaurar arquivos do Azure com o PowerShell
 

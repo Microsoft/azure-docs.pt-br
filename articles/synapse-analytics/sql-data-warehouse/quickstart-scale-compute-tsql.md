@@ -1,6 +1,6 @@
 ---
-title: Escalar a computação no Azure Synapse Analytics – T-SQL
-description: Escale a computação no Azure Synapse Analytics usando T-SQL e SSMS (SQL Server Management Studio). Escale horizontalmente a computação para melhorar o desempenho ou reduza a escala da computação para economizar custos.
+title: 'Início rápido: Escalar a computação no pool de SQL dedicado (antigo SQL DW) – T-SQL'
+description: Escale a computação no pool de SQL dedicado (antigo SQL DW) usando T-SQL e SSMS (SQL Server Management Studio). Escale horizontalmente a computação para melhorar o desempenho ou reduza a escala da computação para economizar custos.
 services: synapse-analytics
 author: Antvgski
 manager: craigg
@@ -11,30 +11,30 @@ ms.date: 04/17/2018
 ms.author: anvang
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: cb813c9a30b644459f3e586ed4313ca070b5a746
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: ffffeb38aeb9d1f01f376d58a52323bb7b84b306
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85212914"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98676316"
 ---
-# <a name="quickstart-scale-compute-in-azure-synapse-analytics-using-t-sql"></a>Início Rápido: Escalar a computação no Azure Synapse Analytics usando o T-SQL
+# <a name="quickstart-scale-compute-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics-using-t-sql"></a>Início rápido: Escalar a computação para o pool de SQL dedicado (antigo SQL DW) no Azure Synapse Analytics usando T-SQL
 
-Escale a computação no Azure Synapse Analytics (antigo SQL DW) usando T-SQL e SSMS (SQL Server Management Studio). [Escale horizontalmente a computação](sql-data-warehouse-manage-compute-overview.md) para melhorar o desempenho ou reduza a escala da computação para economizar custos.
+Escale a computação no pool de SQL dedicado (antigo SQL DW) usando T-SQL e SSMS (SQL Server Management Studio). [Escale horizontalmente a computação](sql-data-warehouse-manage-compute-overview.md) para melhorar o desempenho ou reduza a escala da computação para economizar custos.
 
 Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Baixe e instale a versão mais recente do [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS).
+Baixe e instale a versão mais recente do [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) (SSMS).
 
-## <a name="create-a-data-warehouse"></a>Criar um data warehouse
+## <a name="create-a-dedicated-sql-pool-formerly-sql-dw"></a>Criar um pool de SQL dedicado (antigo SQL DW)
 
-Use o [Início Rápido: Criar e conectar – portal](create-data-warehouse-portal.md) para criar um data warehouse com o nome **mySampleDataWarehouse**. Conclua o início rápido para garantir que você tenha uma regra de firewall e seja capaz de se conectar ao data warehouse através do SQL Server Management Studio.
+Use o [Início Rápido: Criar e conectar – portal](create-data-warehouse-portal.md) para criar um pool de SQL dedicado com o nome **mySampleDataWarehouse**. Conclua o início rápido para verificar se você tem uma regra de firewall e pode se conectar ao pool de SQL dedicado (antigo SQL DW) por meio do SQL Server Management Studio.
 
 ## <a name="connect-to-the-server-as-server-admin"></a>Conectar-se ao servidor como administrador do servidor
 
-Esta seção usa o [SSMS](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SQL Server Management Studio) para estabelecer uma conexão com o SQL Server do Azure.
+Esta seção usa o [SSMS](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) (SQL Server Management Studio) para estabelecer uma conexão com o SQL Server do Azure.
 
 1. Abra o SQL Server Management Studio.
 
@@ -58,9 +58,9 @@ Esta seção usa o [SSMS](/sql/ssms/download-sql-server-management-studio-ssms?t
 
 ## <a name="view-service-objective"></a>Exibir objetivo de serviço
 
-A configuração do objetivo de serviço contém o número de unidades de data warehouse para o data warehouse.
+A configuração do objetivo de serviço contém o número de unidades de data warehouse para o pool de SQL dedicado (antigo SQL DW).
 
-Para exibir as unidades de data warehouse atuais do seu data warehouse:
+Para ver as unidades de data warehouse atuais do seu pool de SQL dedicado (antigo SQL DW):
 
 1. Na conexão para **mySampleDataWarehouseservername.database.windows.net**, expanda **Bancos de Dados do Sistema**.
 2. Clique com o botão direito do mouse em **mestre** e selecione **Nova Consulta**. Uma janela de nova consulta é aberta.
@@ -85,12 +85,12 @@ Para exibir as unidades de data warehouse atuais do seu data warehouse:
 
 ## <a name="scale-compute"></a>Computação de escala
 
-No Azure Synapse, você pode aumentar ou diminuir os recursos de computação ao ajustar as unidades de data warehouse. O [Criar e conectar – portal](create-data-warehouse-portal.md) criou o **mySampleDataWarehouse** e o inicializou com 400 DWUs. As seguintes etapas ajustam as DWUs do **mySampleDataWarehouse**.
+No pool de SQL dedicado (antigo SQL DW), você pode aumentar ou diminuir recursos de computação ajustando as unidades de data warehouse. O [Criar e conectar – portal](create-data-warehouse-portal.md) criou o **mySampleDataWarehouse** e o inicializou com 400 DWUs. As seguintes etapas ajustam as DWUs do **mySampleDataWarehouse**.
 
 Para alterar unidades de data warehouse:
 
 1. Clique com o botão direito do mouse em **mestre** e selecione **Nova Consulta**.
-2. Use a instrução [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-database?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) do T-SQL para modificar o objetivo de serviço. Execute a consulta a seguir para alterar o objetivo de serviço para DW300.
+2. Use a instrução [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-database?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) do T-SQL para modificar o objetivo de serviço. Execute a consulta a seguir para alterar o objetivo de serviço para DW300.
 
     ```Sql
     ALTER DATABASE mySampleDataWarehouse
@@ -130,13 +130,13 @@ Para sondar o status de alteração do objeto de serviço:
 
     ![Status da operação](./media/quickstart-scale-compute-tsql/polling-output.png)
 
-## <a name="check-data-warehouse-state"></a>Verifique o estado do data warehouse
+## <a name="check-dedicated-sql-pool-formerly-sql-dw-state"></a>Verificar o estado do pool de SQL dedicado (antigo SQL DW)
 
-Quando um data warehouse é pausado, você não pode se conectar a ele com T-SQL. Para ver o estado atual do data warehouse, você pode usar um cmdlet do PowerShell. Para obter um exemplo, consulte [Verificar o estado do data warehouse - Powershell](quickstart-scale-compute-powershell.md#check-data-warehouse-state).
+Quando um pool de SQL dedicado (antigo SQL DW) estiver em pausa, você não poderá se conectar a ele com o T-SQL. Para ver o estado atual do pool de SQL dedicado (antigo SQL DW), você pode usar um cmdlet do PowerShell. Para obter um exemplo, confira [Verificar o estado do pool de SQL dedicado (antigo SQL DW) – PowerShell](quickstart-scale-compute-powershell.md#check-data-warehouse-state).
 
 ## <a name="check-operation-status"></a>Verificar o status da operação
 
-Para retornar informações sobre as diversas operações de gerenciamento em seu Azure Synapse, execute a consulta a seguir no DMV [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). Por exemplo, ela retornará a operação e o estado da operação, que será IN_PROGRESS ou COMPLETED.
+Para retornar informações sobre as diversas operações de gerenciamento em seu pool de SQL dedicado (antigo SQL DW), execute a consulta a seguir no DMV [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). Por exemplo, ela retornará a operação e o estado da operação, que será IN_PROGRESS ou COMPLETED.
 
 ```sql
 SELECT *
@@ -150,7 +150,7 @@ AND
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora você sabe como dimensionar a computação para seu data warehouse. Para saber mais sobre o Azure Synapse, prossiga para o tutorial de carregamento de dados.
+Agora você aprendeu a escalar a computação do seu pool de SQL dedicado (antigo SQL DW). Para saber mais sobre o Azure Synapse Analytics, passe para o tutorial para carregar dados.
 
 > [!div class="nextstepaction"]
->[Carregar dados em um Azure Synapse Analytics](load-data-from-azure-blob-storage-using-polybase.md)
+>[Carregar dados em um pool de SQL dedicado](./load-data-from-azure-blob-storage-using-copy.md)

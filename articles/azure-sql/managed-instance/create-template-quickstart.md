@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: quickstart
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
+ms.reviewer: ''
 ms.date: 06/22/2020
-ms.openlocfilehash: d405cfda3c72ce9c724a7d96925d3346428a3089
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: badeb850e8d0346347a994f053fb0f64fd01240a
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88660607"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91283318"
 ---
 # <a name="quickstart-create-an-azure-sql-managed-instance-using-an-arm-template"></a>Início Rápido: Criar uma Instância Gerenciada de SQL do Azure usando um modelo do ARM
 

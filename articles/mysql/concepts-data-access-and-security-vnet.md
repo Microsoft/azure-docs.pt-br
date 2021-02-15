@@ -1,17 +1,17 @@
 ---
 title: Pontos de extremidade de serviço de VNet-banco de dados do Azure para MySQL
 description: Descreve como os pontos de extremidade de serviço de VNet funcionam no servidor do Banco de Dados do Azure para MySQL.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 7/17/2020
-ms.openlocfilehash: 371099610da129025f6683630b1824b8466b5aff
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 364d9c20c0bfce1f31103ddf6df0c8d7b228eca2
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87833004"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461770"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mysql"></a>Usar regras e pontos de extremidade de serviço de Rede Virtual para Banco de Dados do Azure para MySQL
 
@@ -19,7 +19,7 @@ ms.locfileid: "87833004"
 
 Para criar uma regra da rede virtual, deve haver primeiro uma VNet ([rede virtual][vm-virtual-network-overview]) e um [ponto de extremidade de serviço de rede virtual][vm-virtual-network-service-endpoints-overview-649d] para a regra a ser referenciada. A figura a seguir ilustra como um ponto de extremidade de serviço de Rede Virtual funciona com o Banco de Dados do Azure para MySQL:
 
-![Exemplo de como funciona um ponto de extremidade de serviço de VNet](media/concepts-data-access-and-security-vnet/vnet-concept.png)
+:::image type="content" source="media/concepts-data-access-and-security-vnet/vnet-concept.png" alt-text="Exemplo de como funciona um ponto de extremidade de serviço de VNet":::
 
 > [!NOTE]
 > Esse recurso está disponível em todas as regiões do Azure nas quais o Banco de Dados do Azure para MySQL é implantado para servidores de Uso Geral e Otimizado por Memória.
@@ -88,7 +88,7 @@ Há uma separação de funções de segurança na administração de pontos de e
 - **Administrador de rede:** &nbsp; ativar o ponto de extremidade.
 - **Administrador de banco de dados:** &nbsp; atualize a ACL (lista de controle de acesso) para adicionar a sub-rede fornecida ao servidor do Banco de Dados do Azure para MySQL.
 
-*Alternativa de RBAC:*
+*Alternativa do RBAC do Azure:*
 
 As funções de Administrador de banco de dados e Administrador de rede têm mais recursos do que o necessário para gerenciar regras da rede virtual. É necessário apenas um subconjunto de seus recursos.
 
@@ -112,7 +112,7 @@ Para o Banco de Dados do Azure para MySQL, o recurso de regras da rede virtual t
 
 - As regras da rede virtual se aplicam somente a redes virtuais do Azure Resource Manager; e não a redes do [modelo de implantação clássico][arm-deployment-model-568f].
 
-- Ativar pontos de extremidade de serviço de rede virtual para o Banco de Dados do Azure para MySQL usando a marca de serviço **Microsoft.Sql** também habilita os pontos de extremidade para todos os serviços de Banco de Dados do Azure: Banco de Dados do Azure para MySQL, Banco de Dados do Azure para PostgreSQL, Banco de Dados SQL do Azure e SQL Data Warehouse do Azure.
+- Ativar pontos de extremidade de serviço de rede virtual para o banco de dados do Azure para MySQL usando a marca de serviço **Microsoft. SQL** também habilita os pontos de extremidade para todos os serviços de banco de dados do Azure: banco de dados do Azure para MySQL, banco de dados do Azure para PostgreSQL, banco de dados SQL do Azure e análise de Synapse
 
 - O suporte para ponto de extremidade de serviço de VNet é apenas para servidores de Uso Geral e Otimizados para Memória.
 
@@ -152,7 +152,7 @@ Para obter artigos sobre como criar regras de VNet, consulte:
 
 [vm-configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal-321w]: ../virtual-network/virtual-networks-static-private-ip-arm-pportal.md
 
-[rbac-what-is-813s]: ../active-directory/role-based-access-control-what-is.md
+[rbac-what-is-813s]: ../role-based-access-control/overview.md
 
 [vpn-gateway-indexmd-608y]: ../vpn-gateway/index.yml
 

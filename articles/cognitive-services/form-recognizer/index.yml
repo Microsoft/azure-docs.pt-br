@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 09/05/2019
-  ms.openlocfilehash: c653a8afa3d15278a03655f71dccade6171db837
-  ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+  ms.openlocfilehash: 022e3cb5a6ec9cc85bf445f438ef5c25bc2914df
+  ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 08/21/2020
-  ms.locfileid: "88723887"
+  ms.lasthandoff: 02/14/2021
+  ms.locfileid: "100516747"
 landingContent:
 - title: Sobre o Reconhecimento de Formulários
   linkLists:
@@ -45,7 +45,11 @@ landingContent:
     - text: Usando o SDK do JavaScript
       url: quickstarts/client-library.md?pivots=programming-language-javascript
     - text: Usar a API REST (cURL)
-      url: quickstarts/curl-train-extract.md
+      url: quickstarts/client-library.md?pivots=programming-language-rest-api
+  - linkListType: tutorial
+    links:
+    - text: Extrair dados de formulário em massa
+      url: tutorial-bulk-processing.md
 - title: Criar um conjunto de dados de treinamento
   linkLists:
   - linkListType: how-to-guide
@@ -62,8 +66,6 @@ landingContent:
     links:
     - text: Treinar usando a ferramenta de rotulagem de exemplo
       url: quickstarts/label-tool.md
-    - text: Treinar com rótulos usando a API REST e o Python
-      url: quickstarts/python-labeled-data.md
 - title: Extrair dados de destinatários
   linkLists:
   - linkListType: quickstart
@@ -77,24 +79,12 @@ landingContent:
     - text: Usando o SDK do JavaScript
       url: quickstarts/client-library.md?pivots=programming-language-javascript
     - text: Usar a API REST (cURL)
-      url: quickstarts/curl-train-extract.md
-    - text: Usar a API REST (cURL)
-      url: quickstarts/curl-receipts.md
+      url: quickstarts/client-library.md?pivots=programming-language-rest-api
   - linkListType: concept
     links:
     - text: Conceitos de recebimento
       url: concept-receipts.md?
 - title: Extrair dados de cartões de visita
-  linkLists:
-  - linkListType: quickstart
-    links:
-    - text: Usando a API REST
-      url: quickstarts/python-business-cards.md?
-  - linkListType: concept
-    links:
-    - text: Conceitos de cartão de visita
-      url: concept-business-cards.md?
-- title: Obter informações de layout de texto
   linkLists:
   - linkListType: quickstart
     links:
@@ -107,9 +97,29 @@ landingContent:
     - text: Usando o SDK do JavaScript
       url: quickstarts/client-library.md?pivots=programming-language-javascript
     - text: Usar a API REST (cURL)
-      url: quickstarts/curl-train-extract.md
-    - text: Usar a API REST (Python)
-      url: quickstarts/python-layout.md
+      url: quickstarts/client-library.md?pivots=programming-language-rest-api
+  - linkListType: concept
+    links:
+    - text: Conceitos de cartão de visita
+      url: concept-business-cards.md?
+- title: Obter informações de layout de texto
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Conceitos de layout
+      url: concept-layout.md?
+  - linkListType: quickstart
+    links:
+    - text: Usar o .NET SDK
+      url: quickstarts/client-library.md?pivots=programming-language-csharp
+    - text: Usar o SDK do Python
+      url: quickstarts/client-library.md?pivots=programming-language-python
+    - text: Usar o SDK do Java
+      url: quickstarts/client-library.md?pivots=programming-language-java
+    - text: Usando o SDK do JavaScript
+      url: quickstarts/client-library.md?pivots=programming-language-javascript
+    - text: Usar a API REST (cURL)
+      url: quickstarts/client-library.md?pivots=programming-language-rest-api
 - title: Usar contêineres
   linkLists:
   - linkListType: get-started
@@ -123,24 +133,28 @@ landingContent:
   - linkListType: deploy
     links:
     - text: Usar instâncias de contêiner
-      url: deploy-form-recognizer-on-container-instances.md
+      url: ../containers/azure-container-instance-recipe.md
 - title: Referência
   linkLists:
   - linkListType: reference
     links:
-    - text: API de Reconhecimento de Formulários v2.0
-      url: https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm
+    - text: API REST
+      url: https://docs.microsoft.com/rest/api/formrecognizer/
     - text: SDK .NET
-      url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/formrecognizer
+      url: /dotnet/api/overview/azure/ai.formrecognizer-readme
+    - text: SDK do Python
+      url: /python/api/azure-ai-formrecognizer/?view=azure-python
+    - text: Java SDK
+      url: /java/api/overview/azure/ai-formrecognizer-readme
+    - text: SDK do JavaScript
+      url: /javascript/api/overview/azure/ai-form-recognizer-readme
     - text: Azure PowerShell
-      url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services
+      url: /powershell/module/az.cognitiveservices/#cognitive_services
     - text: CLI (interface de linha de comando) do Azure
-      url: https://docs.microsoft.com/cli/azure/cognitiveservices#az-cognitiveservices-list
+      url: /cli/azure/cognitiveservices#az-cognitiveservices-list
 - title: Ajuda e comentários
   linkLists:
   - linkListType: reference
     links:
-    - text: UserVoice
-      url: https://go.microsoft.com/fwlink/?linkid=2090535
-    - text: Stack Overflow
-      url: https://go.microsoft.com/fwlink/?linkid=2087186
+    - text: Opções de Ajuda e suporte
+      url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/form-recognizer/context/context

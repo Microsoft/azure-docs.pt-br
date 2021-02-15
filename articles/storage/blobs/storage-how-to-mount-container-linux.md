@@ -1,19 +1,19 @@
 ---
 title: Como montar Armazenamento de Blobs do Azure como um sistema de arquivos no Linux | Microsoft Docs
 description: Saiba como montar um contêiner de armazenamento de BLOBs do Azure com o blobfuse, um driver de sistema de arquivos virtual no Linux.
-author: rishabpoh
+author: tamram
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
 ms.date: 2/1/2019
-ms.author: ripohane
-ms.reviewer: dineshm
-ms.openlocfilehash: 8dc7c16b83816d2b408cef7ade06767bfe2a4582
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.author: tamram
+ms.reviewer: twooley
+ms.openlocfilehash: 002e8650a5555b70caf09179e03ce1bad1acdef5
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87826541"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737533"
 ---
 # <a name="how-to-mount-blob-storage-as-a-file-system-with-blobfuse"></a>Como montar o Armazenamento de Blobs como um sistema de arquivos com blobfuse
 
@@ -23,31 +23,31 @@ O [Blobfuse](https://github.com/Azure/azure-storage-fuse) é um driver de sistem
 Este guia mostra como usar o blobfuse e montar um contêiner de Armazenamento de Blobs no Linux e acessar dados. Para saber mais sobre blobfuse, leia os detalhes no [repositório do blobfuse](https://github.com/Azure/azure-storage-fuse).
 
 > [!WARNING]
-> O blobfuse não garante 100% de conformidade com POSIX, pois simplesmente move solicitações em [APIs REST de Blob](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api). Por exemplo, as operações de renomeação são atômicas no POSIX, mas não em blobfuse.
+> O blobfuse não garante 100% de conformidade com POSIX, pois simplesmente move solicitações em [APIs REST de Blob](/rest/api/storageservices/blob-service-rest-api). Por exemplo, as operações de renomeação são atômicas no POSIX, mas não em blobfuse.
 > Para obter uma lista completa de diferenças entre um sistema de arquivos nativo e blobfuse, visite o [repositório de código-fonte do blobfuse](https://github.com/azure/azure-storage-fuse).
 > 
 
 ## <a name="install-blobfuse-on-linux"></a>Instalar o blobfuse no Linux
-Os binários do Blobfuse estão disponíveis em [repositórios de software da Microsoft para Linux](https://docs.microsoft.com/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software) para distribuições Ubuntu e RHEL. Para instalar o blobfuse nessas distribuições, configure um dos repositórios da lista. Você também pode criar os binários a partir do código-fonte seguindo as [etapas de instalação do Armazenamento do Microsoft Azure](https://github.com/Azure/azure-storage-fuse/wiki/1.-Installation#option-2---build-from-source), se não houver binários disponíveis para sua distribuição.
+Os binários do Blobfuse estão disponíveis nos [repositórios de software da Microsoft para](/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software) as distribuições do Linux para Ubuntu, Debian, Suse, CentoOS, Oracle Linux e RHEL. Para instalar o blobfuse nessas distribuições, configure um dos repositórios da lista. Você também pode criar os binários a partir do código-fonte seguindo as [etapas de instalação do Armazenamento do Microsoft Azure](https://github.com/Azure/azure-storage-fuse/wiki/1.-Installation#option-2---build-from-source), se não houver binários disponíveis para sua distribuição.
 
-O Blobfuse dá suporte à instalação no Ubuntu 14, 4, 16, 4 e 18, 4. Execute este comando para garantir que uma dessas versões seja implementada:
+O Blobfuse dá suporte à instalação em versões do Ubuntu: 16, 4, 18, 4 e 20, 4, RHELversions: 7,5, 7,8, 8,0, 8,1, 8,2, versões CentOS: 7,0, 8,0, Debian versões: 9,0, 10,0, versão SUSE: 15, OracleLinux 8,1. Execute este comando para garantir que uma dessas versões seja implementada:
 ```
 lsb_release -a
 ```
 
 ### <a name="configure-the-microsoft-package-repository"></a>Configurar o repositório de pacotes da Microsoft
-Configure o [Repositório de Pacotes do Linux para Produtos da Microsoft](https://docs.microsoft.com/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software).
+Configure o [Repositório de Pacotes do Linux para Produtos da Microsoft](/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software).
 
-Como exemplo, em uma distribuição Enterprise Linux 6:
+Por exemplo, em uma distribuição Enterprise Linux 8:
 ```bash
-sudo rpm -Uvh https://packages.microsoft.com/config/rhel/6/packages-microsoft-prod.rpm
+sudo rpm -Uvh https://packages.microsoft.com/config/rhel/8/packages-microsoft-prod.rpm
 ```
 
 Da forma similar, altere a URL para `.../rhel/7/...` a fim de apontar para uma distribuição Enterprise Linux 7.
 
-Outro exemplo em uma distribuição Ubuntu 14.04:
+Outro exemplo em uma distribuição do Ubuntu 20, 4:
 ```bash
-wget https://packages.microsoft.com/config/ubuntu/14.04/packages-microsoft-prod.deb
+wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb
 sudo dpkg -i packages-microsoft-prod.deb
 sudo apt-get update
 ```
@@ -76,6 +76,7 @@ O blobfuse fornece um desempenho nativo, exigindo um caminho temporário no sist
 ### <a name="optional-use-a-ramdisk-for-the-temporary-path"></a>(Opcional) Use um ramdisk para o caminho temporário
 O exemplo a seguir cria um ramdisk de 16 GB e um diretório para blobfuse. Escolha o tamanho com base nas suas necessidades. Esse ramdisk permite que o blobfuse abra arquivos com até 16 GB de tamanho. 
 ```bash
+sudo mkdir /mnt/ramdisk
 sudo mount -t tmpfs -o size=16g tmpfs /mnt/ramdisk
 sudo mkdir /mnt/ramdisk/blobfusetmp
 sudo chown <youruser> /mnt/ramdisk/blobfusetmp
@@ -143,5 +144,4 @@ echo "hello world" > test/blob.txt
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Home page do blobfuse](https://github.com/Azure/azure-storage-fuse#blobfuse)
-* [Relatório de problemas de blobfuse](https://github.com/Azure/azure-storage-fuse/issues) 
-
+* [Relatório de problemas de blobfuse](https://github.com/Azure/azure-storage-fuse/issues)

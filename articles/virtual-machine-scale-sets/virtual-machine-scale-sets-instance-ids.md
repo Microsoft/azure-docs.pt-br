@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: management
 ms.date: 02/22/2018
 ms.reviewer: jushiman
-ms.custom: mimckitt
-ms.openlocfilehash: 07f72d54c0d62748196302ed1b77ea750dede8ff
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: mimckitt, devx-track-azurecli
+ms.openlocfilehash: a32a5a04c5c71cc06d60f3d2f21946f5361a2afd
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080447"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843240"
 ---
 # <a name="understand-instance-ids-for-azure-vm-scale-set-vms"></a>Entender as IDs de instância para VMs do conjunto de dimensionamento de VMs do Azure
 Este artigo descreve as IDs de instância para conjuntos de dimensionamento e as suas várias formas de exibição.

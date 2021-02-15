@@ -6,12 +6,12 @@ ms.author: jumeder
 ms.date: 06/15/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9ee6945cec4c2441334e665947568743aaf29226
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: f6d79f41843069fe6cafe1fa1358ac6c1aab12e6
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89013581"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99591728"
 ---
 # <a name="debug-rendering"></a>Depurar renderização
 
@@ -28,9 +28,9 @@ A API de renderização de depuração oferece uma variedade de opções globais
 O seguinte código habilita esses efeitos de depuração:
 
 ```cs
-void EnableDebugRenderingEffects(AzureSession session, bool highlight)
+void EnableDebugRenderingEffects(RenderingSession session, bool highlight)
 {
-    DebugRenderingSettings settings = session.Actions.DebugRenderingSettings;
+    DebugRenderingSettings settings = session.Connection.DebugRenderingSettings;
 
     // Enable frame counter text overlay on the server side rendering
     settings.RenderFrameCount = true;
@@ -44,9 +44,9 @@ void EnableDebugRenderingEffects(AzureSession session, bool highlight)
 ```
 
 ```cpp
-void EnableDebugRenderingEffects(ApiHandle<AzureSession> session, bool highlight)
+void EnableDebugRenderingEffects(ApiHandle<RenderingSession> session, bool highlight)
 {
-    ApiHandle<DebugRenderingSettings> settings = session->Actions()->GetDebugRenderingSettings();
+    ApiHandle<DebugRenderingSettings> settings = session->Connection()->GetDebugRenderingSettings();
 
     // Enable frame counter text overlay on the server side rendering
     settings->SetRenderFrameCount(true);
@@ -74,6 +74,10 @@ No entanto, os efeitos fornecidos não dão informações detalhadas sobre a int
 
 * A habilitação das sobreposições de texto gera pouca ou nenhuma sobrecarga de desempenho.
 * A habilitação do modo Wireframe provoca uma sobrecarga de desempenho não trivial, embora possa variar dependendo da cena. Para cenas complexas, esse modo pode fazer com que a taxa de quadros seja descartada abaixo da meta de 60 Hz.
+
+## <a name="api-documentation"></a>Documentação da API
+
+* [C++ RenderingConnection::D ebugRenderingSettings ()](/cpp/api/remote-rendering/renderingconnection#debugrenderingsettings)
 
 ## <a name="next-steps"></a>Próximas etapas
 

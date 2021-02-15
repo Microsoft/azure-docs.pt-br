@@ -8,14 +8,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 09/24/2018
-ms.openlocfilehash: 5ad2cf5dee43f0345017930377a3ed9d2e4624bf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e65d526db2861bc0d30a40651bbf9cf46111eaf5
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85257475"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93073189"
 ---
 # <a name="upsert-data-into-azure-cosmos-db-cassandra-api-from-spark"></a>Upsert dados na API do Azure Cosmos DB Cassandra da Spark
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 Este artigo descreve como inserir dados no Azure Cosmos DB Cassandra API do Spark.
 
@@ -91,6 +92,6 @@ cdbConnector.withSessionDo(session => session.execute("update books_ks.books set
 
 Prossiga para os artigos a seguir para executar outras operações nos dados armazenados nas tabelas da API do Cassandra do Azure Cosmos DB:
  
-* [Excluir operações](cassandra-spark-delete-ops.md)
+* [Operações de exclusão](cassandra-spark-delete-ops.md)
 * [Operações de agregação](cassandra-spark-aggregation-ops.md)
 * [Operações de cópia de tabela](cassandra-spark-table-copy-ops.md)

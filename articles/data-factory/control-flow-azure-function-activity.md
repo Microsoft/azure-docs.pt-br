@@ -1,22 +1,18 @@
 ---
 title: Atividade do Azure Functions no Azure Data Factory
 description: Saiba como usar a atividade de função do Azure para executar uma função do Azure em um pipeline do Data Factory
-services: data-factory
-documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
-manager: jroth
+author: dcstwh
+ms.author: weetok
 ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/09/2019
-ms.openlocfilehash: ee2e59e794cf34a8fd5043a56867a81c2537f1ae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 51cf396fb6f1fcc86a0187e9f3be6b81487b86c2
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81415319"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100383392"
 ---
 # <a name="azure-function-activity-in-azure-data-factory"></a>Atividade de função do Azure no Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -47,14 +43,14 @@ O tipo de retorno da função do Azure deve ser um `JObject` válido. (Lembre-se
 | nome da função  | Nome da função no Aplicativo de funções do Azure que essa atividade chama | String | sim |
 | method  | Método da API REST para a chamada de função | Tipos de cadeia de caracteres com suporte: "GET", "POST", "PUT"   | sim |
 | header  | Cabeçalhos que são enviados para a solicitação. Por exemplo, para definir o idioma e o tipo em uma solicitação: "cabeçalhos": { "Accept-Language": "en-us", "Content-Type": "application/json" } | Cadeia de caracteres (ou expressão com um resultType de cadeia de caracteres) | Não |
-| body  | corpo que é enviado junto com a solicitação para o método de api de função  | Cadeia de caracteres (ou expressão com um resultType de cadeia de caracteres) ou objeto.   | Necessário para os métodos PUT/POST |
+| body  | corpo que é enviado junto com a solicitação para o método de api de função  | Cadeia de caracteres (ou expressão com um resultType de cadeia de caracteres) ou objeto.   | Necessário para os métodos PUT/POST |
 |   |   |   | |
 
-Consulte o esquema da carga de solicitação na seção [esquema de carga de solicitação](control-flow-web-activity.md#request-payload-schema)   .
+Consulte o esquema da carga de solicitação na seção [Esquema de carga de solicitação](control-flow-web-activity.md#request-payload-schema).
 
 ## <a name="routing-and-queries"></a>Roteamento e consultas
 
-A atividade do Azure Function dá suporte a **roteamento**. Por exemplo, se a função do Azure tiver o ponto de extremidade `https://functionAPP.azurewebsites.net/api/<functionName>/<value>?code=<secret>` , o `functionName` para usar na atividade de função do Azure é `<functionName>/<value>` . Você pode parametrizar essa função para fornecer as desejadas `functionName` em tempo de execução.
+A atividade do Azure Function dá suporte a **roteamento**. Por exemplo, se a função do Azure tiver o ponto de extremidade  `https://functionAPP.azurewebsites.net/api/<functionName>/<value>?code=<secret>` , o `functionName` para usar na atividade de função do Azure é `<functionName>/<value>` . Você pode parametrizar essa função para fornecer as desejadas `functionName` em tempo de execução.
 
 A atividade do Azure Function também dá suporte a **consultas**.  Uma consulta deve ser incluída como parte do `functionName` . Por exemplo, quando o nome da função é `HttpTriggerCSharp` e a consulta que você deseja incluir é `name=hello` , você pode construir o `functionName` na atividade de função do Azure como `HttpTriggerCSharp?name=hello` . Essa função pode ser parametrizada para que o valor possa ser determinado em tempo de execução.
 

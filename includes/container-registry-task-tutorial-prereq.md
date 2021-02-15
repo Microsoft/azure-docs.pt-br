@@ -4,12 +4,12 @@ ms.service: container-registry
 ms.topic: include
 ms.date: 05/02/2019
 ms.author: danlep
-ms.openlocfilehash: 40cc1856a5e943ca5596e7d11712febadd30e3ec
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 79e2ca71d6b8178be63c3429edba89cf3bb523e2
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67133787"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96029975"
 ---
 ## <a name="prerequisites"></a>Prerequisites
 
@@ -21,7 +21,7 @@ Este tutorial presume que você já tenha concluído as tarefas no [tutorial ant
 
 Você deve ter um registro de contêiner do Azure em sua assinatura do Azure para concluir este tutorial. Se você precisar de um registro, consulte o [tutorial anterior](../articles/container-registry/container-registry-tutorial-quick-task.md) ou [Início Rápido: criar um registro de contêiner usando a CLI do Azure](../articles/container-registry/container-registry-get-started-azure-cli.md).
 
-## <a name="create-a-github-personal-access-token"></a>Criar um token de acesso pessoal do GitHub
+### <a name="create-a-github-personal-access-token"></a>Criar um token de acesso pessoal do GitHub
 
 Para disparar uma tarefa em uma confirmação de um repositório Git, as Tarefas do ACR precisam de um PAT (token de acesso pessoal) para acessar o repositório. Se você ainda não tiver um PAT, siga estas etapas para gerar um no GitHub:
 

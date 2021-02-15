@@ -11,10 +11,10 @@ metadata:
   ms.author: tomfitz
   ms.date: 01/02/2020
   ms.openlocfilehash: 4a778d56aa3d7440715cdd792827b9c4a2837e65
-  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 03/24/2020
+  ms.lasthandoff: 10/09/2020
   ms.locfileid: "75648337"
 landingContent:
 - title: Sobre os Provedores Personalizados do Azure

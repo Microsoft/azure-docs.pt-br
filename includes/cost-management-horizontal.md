@@ -4,11 +4,11 @@ ms.author: banders
 ms.service: cost-management-billing
 ms.topic: include
 ms.date: 07/05/2020
-ms.openlocfilehash: a22e120e652d3eed7e457ceceb376a1e6652e35b
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
-ms.translationtype: MT
+ms.openlocfilehash: 823c7a631a5bbea979010d5e12d3438c17905789
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86043625"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96027490"
 ---
-Os serviços do Azure custam dinheiro. O gerenciamento de custos do Azure ajuda você a definir orçamentos e configurar alertas para manter os gastos sob controle. Analise, gerencie e Otimize seus custos do Azure com o gerenciamento de custos. Para saber mais, confira o guia de [início rápido sobre como analisar seus custos](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn). 
+Os serviços do Azure custam dinheiro. O Gerenciamento de Custos do Azure ajuda você a definir orçamentos e configurar alertas para manter os gastos sob controle. Analise, gerencie e otimize seus custos do Azure com o Gerenciamento de Custos. Para saber mais, confira o [guia de início rápido sobre como analisar seus custos](../articles/cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).

@@ -10,12 +10,13 @@ ms.subservice: face-api
 ms.topic: sample
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: d52f4ad7be6ce31fd2d01208536945c1f9ab2d7d
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 730946a0c581be4697c0f45c8bdeb1d38f0ca23d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "84986732"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91856381"
 ---
 # <a name="example-how-to-analyze-videos-in-real-time"></a>Exemplo: Como analisar vídeos em tempo real
 
@@ -78,13 +79,13 @@ Em nosso sistema final "produtor-consumidor", temos um thread produtor que se as
 ```csharp
 // Queue that will contain the API call tasks. 
 var taskQueue = new BlockingCollection<Task<ResultWrapper>>();
-     
+     
 // Producer thread. 
 while (true)
 {
     // Grab a frame. 
     Frame f = GrabFrame();
- 
+ 
     // Decide whether to analyze the frame. 
     if (ShouldAnalyze(f))
     {
@@ -118,10 +119,10 @@ while (true)
 {
     // Get the oldest task. 
     Task<ResultWrapper> analysisTask = taskQueue.Take();
- 
+ 
     // Await until the task is completed. 
     var output = await analysisTask;
-     
+     
     // Consume the exception or result. 
     if (output.Exception != null)
     {
@@ -144,52 +145,7 @@ A biblioteca contém a classe FrameGrabber, que implementa o sistema produtor-co
 
 Para ilustrar algumas das possibilidades, há dois aplicativos de exemplo que usam a biblioteca. O primeiro é um aplicativo de console simples e uma versão simplificada do que é reproduzido abaixo. Ele captura quadros da webcam padrão e envia-os para o serviço de Detecção Facial para a detecção facial.
 
-```csharp
-using System;
-using VideoFrameAnalyzer;
-using Microsoft.ProjectOxford.Face;
-using Microsoft.ProjectOxford.Face.Contract;
-     
-namespace VideoFrameConsoleApplication
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            // Create grabber, with analysis type Face[]. 
-            FrameGrabber<Face[]> grabber = new FrameGrabber<Face[]>();
-            
-            // Create Face Client. Insert your Face API key here.
-            private readonly IFaceClient faceClient = new FaceClient(
-            new ApiKeyServiceClientCredentials("<subscription key>"),
-            new System.Net.Http.DelegatingHandler[] { });
-
-            // Set up our Face API call.
-            grabber.AnalysisFunction = async frame => return await faceClient.DetectAsync(frame.Image.ToMemoryStream(".jpg"));
-
-            // Set up a listener for when we receive a new result from an API call. 
-            grabber.NewResultAvailable += (s, e) =>
-            {
-                if (e.Analysis != null)
-                    Console.WriteLine("New result received for frame acquired at {0}. {1} faces detected", e.Frame.Metadata.Timestamp, e.Analysis.Length);
-            };
-            
-            // Tell grabber to call the Face API every 3 seconds.
-            grabber.TriggerAnalysisOnInterval(TimeSpan.FromMilliseconds(3000));
-
-            // Start running.
-            grabber.StartProcessingCameraAsync().Wait();
-
-            // Wait for keypress to stop
-            Console.WriteLine("Press any key to stop...");
-            Console.ReadKey();
-            
-            // Stop, blocking until done.
-            grabber.StopProcessingAsync().Wait();
-        }
-    }
-}
-```
+:::code language="csharp" source="~/cognitive-services-quickstart-code/dotnet/Face/sdk/analyze.cs":::
 
 O segundo aplicativo de exemplo é um pouco mais interessante e permite que você escolha quais API serão chamadas nos quadros de vídeo. No lado esquerdo, o aplicativo mostra uma visualização do vídeo ao vivo e, no lado direito, mostra o resultado de API mais recente sobreposto no quadro correspondente.
 
@@ -207,7 +163,7 @@ Para começar a usar esse exemplo, siga estas etapas:
    - [Detecção Facial](https://portal.azure.com/#create/Microsoft.CognitiveServicesFace) Depois que os recursos forem implantados, clique em **Ir para o recurso** para coletar a chave e o ponto de extremidade de cada recurso. 
 3. Clone o repositório do GitHub [Cognitive-Samples-VideoFrameAnalysis](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/).
 4. Abra a amostra no Visual Studio e crie e execute os aplicativos de exemplo:
-    - Para BasicConsoleSample, a chave da Detecção Facial é embutida em código diretamente em  [BasicConsoleSample/Program.cs](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/blob/master/Windows/BasicConsoleSample/Program.cs).
+    - Para BasicConsoleSample, a chave da Detecção Facial é embutida em código diretamente em [BasicConsoleSample/Program.cs](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/blob/master/Windows/BasicConsoleSample/Program.cs).
     - Para LiveCameraSample, as chaves devem ser inseridas no painel Configurações do aplicativo. Elas serão persistentes entre as sessões como dados de usuário.
         
 
@@ -217,8 +173,7 @@ Quando estiver pronto para fazer a integração, **referencie a biblioteca Video
 
 Neste guia, você aprendeu a executar análises em tempo quase real em fluxos de vídeo ao vivo usando as APIs de Detecção Facial, de Pesquisa Visual Computacional e de Detecção de Emoções e a usar nosso código de exemplo para começar.
 
-Fique à vontade para fornecer comentários e sugestões no [repositório GitHub](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) ou comentários mais abrangentes sobre a API em nosso [site UserVoice](https://cognitive.uservoice.com/).
+Fique à vontade para fornecer comentários e sugestões no [repositório GitHub](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) ou comentários mais abrangentes sobre a API em nosso [site UserVoice](https://cognitive.uservoice.com/).
 
 ## <a name="related-topics"></a>Tópicos Relacionados
-- [Como identificar faces em imagem](HowtoIdentifyFacesinImage.md)
 - [Como detectar faces em imagem](HowtoDetectFacesinImage.md)

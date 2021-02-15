@@ -7,12 +7,42 @@
       href: ../azure-management.md
     - name: Grupos de gerenciamento
       href: ./overview.md
+- name: Início rápido
+  expanded: true
+  items:
+    - name: Criar um grupo de gerenciamento – Portal
+      displayName: hierarchy
+      href: ./create-management-group-portal.md
+    - name: Criar um grupo de gerenciamento – CLI do Azure
+      displayName: hierarchy
+      href: ./create-management-group-azure-cli.md
+    - name: Criar um grupo de gerenciamento – Azure PowerShell
+      displayName: hierarchy
+      href: ./create-management-group-powershell.md
+    - name: Criar um grupo de gerenciamento – .NET
+      displayName: hierarchy
+      href: ./create-management-group-dotnet.md
+    - name: Criar um grupo de gerenciamento – Go
+      displayName: hierarchy
+      href: ./create-management-group-go.md
+    - name: Criar um grupo de gerenciamento – JavaScript
+      displayName: hierarchy
+      href: ./create-management-group-javascript.md
+    - name: Criar um grupo de gerenciamento – Python
+      displayName: hierarchy
+      href: ./create-management-group-python.md
+    - name: Criar um grupo de gerenciamento – REST
+      displayName: hierarchy
+      href: ./create-management-group-rest-api.md
+- name: Tutoriais
+  items:
+    - name: 'Aprenda: Criar uma estratégia de governança de assinatura'
+      displayName: 'governance, module'
+      href: /learn/modules/build-cloud-governance-strategy-azure/3-create-subscription-governance-strategy
 - name: Guias de instruções
   expanded: true
   items:
-    - name: Criar grupos de gerenciamento
-      href: ./create.md
-    - name: Gerenciar os seus recursos
+    - name: Gerenciar sua hierarquia de recursos
       href: ./manage.md
     - name: Proteger sua hierarquia de recursos
       href: ./how-to/protect-resource-hierarchy.md
@@ -24,8 +54,12 @@
       href: /powershell/module/az.resources/#resources
     - name: SDK do Azure para .NET
       href: /dotnet/api/overview/azure/managementgroups
+    - name: SDK do Azure para linguagem Go
+      href: 'https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/services/preview/resources/mgmt/2018-03-01-preview/managementgroups'
     - name: SDK do Azure para JavaScript
       href: /javascript/api/@azure/arm-managementgroups/managementgroups
+    - name: SDK do Azure para Python
+      href: /python/api/azure-mgmt-managementgroups/azure.mgmt.managementgroups
     - name: REST
       href: /rest/api/resources/managementgroups
     - name: Modelos do Gerenciador de Recursos

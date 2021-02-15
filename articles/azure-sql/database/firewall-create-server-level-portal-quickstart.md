@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: quickstart
 author: sachinpMSFT
 ms.author: sachinp
-ms.reviewer: vanto, carlrab
+ms.reviewer: vanto, sstein
 ms.date: 02/11/2019
-ms.openlocfilehash: 6a449c078b18b5bc9e005a873c51d92ad29417f6
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: d62d568b4924a2bfa67740b3e5f0cc1377519d47
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86084980"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91335034"
 ---
 # <a name="quickstart-create-a-server-level-firewall-rule-using-the-azure-portal"></a>Início Rápido: Criar uma regra de firewall de nível de servidor usando o portal do Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]

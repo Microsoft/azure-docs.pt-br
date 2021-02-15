@@ -1,17 +1,17 @@
 ---
 title: Parâmetros do servidor-banco de dados do Azure para MySQL
 description: Este tópico fornece diretrizes para configurar parâmetros de servidor no banco de dados do Azure para MySQL.
-author: ajlam
-ms.author: andrela
+author: Bashar-MSFT
+ms.author: bahusse
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 6/25/2020
-ms.openlocfilehash: e7ca86d0146f05d5171d5eae18aac81d75122bcc
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.date: 1/26/2021
+ms.openlocfilehash: 1b0bcf528a16e2f75bf21235980424b5375f8824
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88258556"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99539477"
 ---
 # <a name="server-parameters-in-azure-database-for-mysql"></a>Parâmetros de servidor no banco de dados do Azure para MySQL
 
@@ -54,6 +54,12 @@ Para melhorar os problemas de desempenho de consultas curtas no pool de threads,
 
 > [!IMPORTANT]
 > Teste o pool de threads antes de ligá-lo na produção. 
+
+### <a name="log_bin_trust_function_creators"></a>log_bin_trust_function_creators
+
+No banco de dados do Azure para MySQL, os logs binários estão sempre habilitados (ou seja, `log_bin` é definido como ativado). Caso deseje usar gatilhos, você receberá um erro semelhante a *você não tem o privilégio de superprivilégios e o log binário habilitado (talvez você queira usar a variável menos segura `log_bin_trust_function_creators` )*. 
+
+O formato de log binário é sempre uma **linha** e todas as conexões com o servidor **sempre** usam o log binário baseado em linha. Com o log binário baseado em linha, os problemas de segurança não existem e o log binário não pode ser interrompido, portanto, você pode definir com segurança [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators) como **true**.
 
 ### <a name="innodb_buffer_pool_size"></a>innodb_buffer_pool_size
 
@@ -102,7 +108,7 @@ Consulte a [documentação do MySQL](https://dev.mysql.com/doc/refman/5.7/en/inn
 
 O MySQL armazena a tabela InnoDB em espaços de tabela diferentes com base na configuração fornecida durante a criação da tabela. O [espaço de tabela do sistema](https://dev.mysql.com/doc/refman/5.7/en/innodb-system-tablespace.html) é a área de armazenamento do dicionário de dados InnoDB. Um [espaço de tabela de arquivo por tabela](https://dev.mysql.com/doc/refman/5.7/en/innodb-file-per-table-tablespaces.html) contém dados e índices de uma única tabela InnoDB e é armazenado no sistema de arquivos em seu próprio arquivo de dados. Esse comportamento é controlado pelo parâmetro do servidor `innodb_file_per_table`. Definir `innodb_file_per_table` como `OFF` faz com que o InnoDB crie tabelas no espaço de tabela do sistema. Caso contrário, o InnoDB cria tabelas em espaços de tabela de arquivo por tabela.
 
-O Banco de Dados do Azure para MySQL oferece suporte abrangente, de **1 TB** em um único arquivo de dados. Se o banco de dados tiver mais que 1 TB, você deverá criar a tabela no espaço de tabela [innodb_file_per_table](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_file_per_table). Se você tiver um tamanho de tabela único maior que 1 TB, deverá usar a tabela de partição.
+O banco de dados do Azure para MySQL dá suporte a, no máximo, **4 TB**, em um único arquivo. Se o tamanho do seu banco de dados for maior do que 4 TB, você deverá criar a tabela no [innodb_file_per_table](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_file_per_table) tablespace. Se você tiver um tamanho de tabela único maior que 4 TB, deverá usar a tabela de partição.
 
 ### <a name="join_buffer_size"></a>join_buffer_size
 
@@ -211,10 +217,10 @@ Consulte a [documentação do MySQL](https://dev.mysql.com/doc/refman/5.7/en/ser
 
 Se você receber um erro semelhante a "tamanho de linha muito grande (> 8126)", talvez queira desativar o parâmetro **innodb_strict_mode**. O parâmetro do servidor **innodb_strict_mode** não pode ser modificado globalmente no nível do servidor porque se o tamanho dos dados da linha for maior que 8K, os dados serão truncados sem um erro que leva à perda potencial de dados. É recomendável modificar o esquema para se ajustar ao limite de tamanho de página. 
 
-Esse parâmetro pode ser definido em um nível de sessão usando `init_connect` . Para definir **innodb_strict_mode** no nível de sessão, consulte [parâmetro de configuração não listado](https://docs.microsoft.com/azure/mysql/howto-server-parameters#setting-parameters-not-listed).
+Esse parâmetro pode ser definido em um nível de sessão usando `init_connect` . Para definir **innodb_strict_mode** no nível de sessão, consulte [parâmetro de configuração não listado](./howto-server-parameters.md#setting-parameters-not-listed).
 
 > [!NOTE]
-> Se você tiver um servidor de réplica de leitura, definir **innodb_strict_mode** como desativado no nível de sessão em um servidor mestre interromperá a replicação. Sugerimos manter o parâmetro definido como OFF se você tiver réplicas de leitura.
+> Se você tiver um servidor de réplica de leitura, definir **innodb_strict_mode** como desativado no nível de sessão em um servidor de origem interromperá a replicação. Sugerimos manter o parâmetro definido como OFF se você tiver réplicas de leitura.
 
 ### <a name="sort_buffer_size"></a>sort_buffer_size
 
@@ -255,6 +261,18 @@ Consulte a [documentação do MySQL](https://dev.mysql.com/doc/refman/5.7/en/ser
 |Otimizado para memória|8|16777216|1024|536870912|
 |Otimizado para memória|16|16777216|1024|1073741824|
 |Otimizado para memória|32|16777216|1024|1073741824|
+
+### <a name="innodb-buffer-pool-warmup"></a>Pool de buffers InnoDB aquecimento
+Depois de reiniciar o banco de dados do Azure para o servidor MySQL, as páginas que residem no disco são carregadas conforme as tabelas são consultadas. Isso leva a uma maior latência e desempenho mais lento para a primeira execução das consultas. Isso pode não ser aceitável para cargas de trabalho sensíveis à latência. Usar o pool de buffers InnoDB aquecimento reduz o período de aquecimento recarregando páginas de disco que estavam no pool de buffers antes da reinicialização em vez de esperar que as operações DML ou SELECT acessem as linhas correspondentes.
+
+Você pode reduzir o período de aquecimento após reiniciar o banco de dados do Azure para o servidor MySQL, que representa uma vantagem de desempenho Configurando os [parâmetros do servidor do pool de buffers do InnoDB](https://dev.mysql.com/doc/refman/8.0/en/innodb-preload-buffer-pool.html). O InnoDB salva uma porcentagem das páginas usadas mais recentemente para cada pool de buffers no desligamento do servidor e restaura essas páginas na inicialização do servidor.
+
+Também é importante observar que o desempenho aprimorado é a despesa de tempo de inicialização mais longo para o servidor. Quando esse parâmetro é habilitado, espera-se que a inicialização do servidor e o tempo de reinicialização aumentem dependendo do IOPS provisionado no servidor. É recomendável testar e monitorar o tempo de reinicialização para garantir que o desempenho de inicialização/reinicialização seja aceitável, pois o servidor não está disponível durante esse tempo. Não é recomendável usar esse parâmetro quando o IOPS provisionado for menor que 1000 IOPS (ou em outras palavras, quando o armazenamento provisionado for menor que 335GB.
+
+Para salvar o estado do pool de buffers em desligar servidor, defina o parâmetro `innodb_buffer_pool_dump_at_shutdown` de servidor como `ON` . Da mesma forma, defina o parâmetro de servidor `innodb_buffer_pool_load_at_startup` como `ON` para restaurar o estado do pool de buffers na inicialização do servidor. Você pode controlar o impacto na inicialização/reinicialização ao reduzir e ajustar o valor do parâmetro de servidor `innodb_buffer_pool_dump_pct` , por padrão, esse parâmetro é definido como `25` .
+
+> [!Note]
+> Os parâmetros aquecimento do pool de buffers InnoDB têm suporte apenas em servidores de armazenamento de uso geral com até 16 TB de armazenamento. Saiba mais sobre [as opções de armazenamento do banco de dados do Azure para MySQL aqui](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage).
 
 ### <a name="time_zone"></a>time_zone
 

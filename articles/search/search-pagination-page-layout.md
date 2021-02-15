@@ -7,19 +7,22 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/01/2020
-ms.openlocfilehash: 08641814e2a4fdf6f174f94b1e38e4124cf531d0
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 12/09/2020
+ms.openlocfilehash: a7171d656ec9f839aea4ae73763ec6ebd20c2bb3
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88934915"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98209824"
 ---
 # <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Como trabalhar com os resultados da pesquisa no Azure Pesquisa Cognitiva
 
-Este artigo explica como obter uma resposta de consulta que é retornada com uma contagem total de documentos correspondentes, resultados paginados, resultados classificados e termos realçados de ocorrências.
+Este artigo explica como formular uma resposta de consulta no Azure Pesquisa Cognitiva. A estrutura de uma resposta é determinada pelos parâmetros na consulta: [documento de pesquisa](/rest/api/searchservice/Search-Documents) na API REST ou na [classe SearchResults](/dotnet/api/azure.search.documents.models.searchresults-1) no SDK do .net. Os parâmetros na consulta podem ser usados para estruturar o conjunto de resultados das seguintes maneiras:
 
-A estrutura de uma resposta é determinada pelos parâmetros na consulta: [documento de pesquisa](/rest/api/searchservice/Search-Documents) na API REST ou na [classe DocumentSearchResult](/dotnet/api/microsoft.azure.search.models.documentsearchresult-1) no SDK do .net.
++ Limite ou lote o número de documentos nos resultados (50 por padrão)
++ Selecione os campos a serem incluídos nos resultados
++ Resultados do pedido
++ Realçar um termo inteiro ou parcial correspondente no corpo dos resultados da pesquisa
 
 ## <a name="result-composition"></a>Composição de resultado
 
@@ -39,6 +42,14 @@ POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
 > [!NOTE]
 > Se desejar incluir arquivos de imagem em um resultado, como uma foto do produto ou logotipo, armazene-os fora do Azure Pesquisa Cognitiva, mas inclua um campo no índice para fazer referência à URL da imagem no documento de pesquisa. Os índices de exemplo que dão suporte a imagens nos resultados incluem a demonstração **realestate-Sample-US** , apresentada neste guia de [início rápido](search-create-app-portal.md)e o [aplicativo de demonstração de trabalhos da cidade de Nova York](https://aka.ms/azjobsdemo).
 
+### <a name="tips-for-unexpected-results"></a>Dicas para resultados inesperados
+
+Ocasionalmente, a substância e não a estrutura dos resultados são inesperadas. Quando os resultados da consulta são inesperados, você pode tentar essas modificações de consulta para ver se o resultado melhora:
+
++ Altere **`searchMode=any`** (padrão) para **`searchMode=all`** para exigir correspondências em todos os critérios em vez de qualquer um dos critérios. Isso é especialmente verdadeiro quando os operadores boolianos estão incluídos na consulta.
+
++ Experimente analisadores léxicos diferentes ou analisadores personalizados para ver se ele altera o resultado da consulta. O analisador padrão quebrará as palavras hifenizadas e reduzirá as palavras aos formulários raiz, o que geralmente melhora a robustez de uma resposta de consulta. No entanto, se você precisar preservar hifens ou se as cadeias de caracteres incluírem, talvez seja necessário configurar analisadores personalizados para garantir que o índice contenha tokens no formato correto. Para obter mais informações, consulte [pesquisa de termo parcial e padrões com caracteres especiais (hifens, curinga, Regex, padrões)](search-query-partial-matching.md).
+
 ## <a name="paging-results"></a>Resultados da paginação
 
 Por padrão, o mecanismo de pesquisa retorna até as primeiras 50 correspondências, conforme determinado pela pontuação de pesquisa se a consulta for de pesquisa de texto completo ou em uma ordem arbitrária para consultas de correspondência exata.
@@ -52,7 +63,7 @@ Para retornar um número diferente de documentos correspondentes, adicione `$top
 + Retorne o segundo conjunto, ignorando os primeiros 15 para obter os próximos 15: `$top=15&$skip=15` . Faça o mesmo para o terceiro conjunto de 15: `$top=15&$skip=30`
 
 Os resultados das consultas paginadas não terão garantia de serem estáveis se o índice subjacente estiver sendo alterado. A paginação altera o valor de `$skip` para cada página, mas cada consulta é independente e opera na exibição atual dos dados conforme eles existem no índice no momento da consulta (em outras palavras, não há nenhum cache ou instantâneo de resultados, como aqueles encontrados em um banco de dados de uso geral).
- 
+ 
 Veja a seguir um exemplo de como você pode obter duplicatas. Suponha um índice com quatro documentos:
 
 ```text
@@ -61,28 +72,28 @@ Veja a seguir um exemplo de como você pode obter duplicatas. Suponha um índice
 { "id": "3", "rating": 2 }
 { "id": "4", "rating": 1 }
 ```
- 
+ 
 Agora suponha que você deseja que os resultados retornassem dois de cada vez, ordenados por classificação. Você executaria essa consulta para obter a primeira página de resultados: `$top=2&$skip=0&$orderby=rating desc` , produzindo os seguintes resultados:
 
 ```text
 { "id": "1", "rating": 5 }
 { "id": "2", "rating": 3 }
 ```
- 
+ 
 No serviço, suponha que um quinto documento seja adicionado ao índice entre chamadas de consulta: `{ "id": "5", "rating": 4 }` .  Logo em seguida, você executa uma consulta para buscar a segunda página: `$top=2&$skip=2&$orderby=rating desc` e obter esses resultados:
 
 ```text
 { "id": "2", "rating": 3 }
 { "id": "3", "rating": 2 }
 ```
- 
+ 
 Observe que o documento 2 é buscado duas vezes. Isso ocorre porque o novo documento 5 tem um valor maior para classificação, então ele classifica antes do documento 2 e chega na primeira página. Embora esse comportamento possa ser inesperado, é comum que o mecanismo de pesquisa se comporta.
 
 ## <a name="ordering-results"></a>Ordenando resultados
 
-Para consultas de pesquisa de texto completo, os resultados são classificados automaticamente por uma pontuação de pesquisa, calculados com base na frequência do termo e na proximidade em um documento, com pontuações mais altas passando para documentos com correspondências mais ou mais fortes em um termo de pesquisa. 
+Para consultas de pesquisa de texto completo, os resultados são classificados automaticamente por uma pontuação de pesquisa, calculados com base na frequência do termo e na proximidade em um documento (derivado de [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf)), com pontuações mais altas, passando para documentos com correspondências mais ou mais fortes em um termo de pesquisa. 
 
-As pontuações de pesquisa transmitem o sentido geral de relevância, refletindo a força da correspondência em comparação com outros documentos no mesmo conjunto de resultados. As pontuações nem sempre são consistentes de uma consulta para a outra, assim, à medida que você trabalha com consultas, você pode notar pequenas discrepâncias em como os documentos de pesquisa são ordenados. Há várias explicações por que isso pode ocorrer.
+As pontuações de pesquisa transmitem o sentido geral de relevância, refletindo a força da correspondência em relação a outros documentos no mesmo conjunto de resultados. Mas as pontuações nem sempre são consistentes de uma consulta para a outra, assim, à medida que você trabalha com consultas, você pode notar pequenas discrepâncias em como os documentos de pesquisa são ordenados. Há várias explicações por que isso pode ocorrer.
 
 | Causa | Descrição |
 |-----------|-------------|
@@ -90,11 +101,11 @@ As pontuações de pesquisa transmitem o sentido geral de relevância, refletind
 | Várias réplicas | Para serviços que usam várias réplicas, as consultas são emitidas em cada réplica em paralelo. As estatísticas de índice usadas para calcular uma pontuação de pesquisa são calculadas por réplica, com os resultados mesclados e ordenados na resposta da consulta. As réplicas são, na maioria, espelhos umas das outras, mas as estatísticas podem ser diferentes devido a pequenas diferenças no estado. Por exemplo, uma réplica pode ter excluído documentos que contribuem para suas estatísticas, que foram mescladas de outras réplicas. Normalmente, as diferenças nas estatísticas por réplica são mais perceptíveis em índices menores. |
 | Pontuações idênticas | Se vários documentos tiverem a mesma pontuação, qualquer um deles poderá aparecer primeiro.  |
 
-### <a name="consistent-ordering"></a>Ordenação consistente
+### <a name="how-to-get-consistent-ordering"></a>Como obter uma ordem consistente
 
-Considerando o Flex na ordenação de resultados, talvez você queira explorar outras opções se a consistência for um requisito de aplicativo. A abordagem mais fácil é classificar por um valor de campo, como classificação ou data. Para cenários em que você deseja classificar por um campo específico, como uma classificação ou data, você pode definir explicitamente uma [ `$orderby` expressão](query-odata-filter-orderby-syntax.md), que pode ser aplicada a qualquer campo que seja indexado como **classificável**.
+Se a ordenação consistente for um requisito de aplicativo, você poderá definir explicitamente uma [ **`$orderby`** expressão](query-odata-filter-orderby-syntax.md) em um campo. Somente os campos que são indexados como **`sortable`** podem ser usados para ordenar os resultados. Campos geralmente usados em um **`$orderby`** campo de classificação, data e localização de inclusão se você especificar o valor do **`orderby`** parâmetro para incluir nomes de campos e chamadas para a [**`geo.distance()` função**](query-odata-filter-orderby-syntax.md) para valores geoespaciais.
 
-Outra opção é usar um [perfil de Pontuação personalizado](index-add-scoring-profiles.md). Os perfis de Pontuação oferecem mais controle sobre a classificação de itens nos resultados da pesquisa, com a capacidade de aumentar as correspondências encontradas em campos específicos. A lógica de Pontuação adicional pode ajudar a substituir pequenas diferenças entre as réplicas, pois as pontuações de pesquisa de cada documento estão mais distantes. Recomendamos o [algoritmo de classificação](index-ranking-similarity.md) para essa abordagem.
+Outra abordagem que promove a consistência é usar um [perfil de Pontuação personalizado](index-add-scoring-profiles.md). Os perfis de Pontuação oferecem mais controle sobre a classificação de itens nos resultados da pesquisa, com a capacidade de aumentar as correspondências encontradas em campos específicos. A lógica de Pontuação adicional pode ajudar a substituir pequenas diferenças entre as réplicas, pois as pontuações de pesquisa de cada documento estão mais distantes. Recomendamos o [algoritmo de classificação](index-ranking-similarity.md) para essa abordagem.
 
 ## <a name="hit-highlighting"></a>Realce de ocorrência
 

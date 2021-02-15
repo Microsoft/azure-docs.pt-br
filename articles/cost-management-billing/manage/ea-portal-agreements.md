@@ -3,17 +3,17 @@ title: Contratos e aditamentos de EA do Azure
 description: Este artigo explica como os contratos e aditamentos de EA do Azure afetam o uso do Portal do EA do Azure.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/20/2020
+ms.date: 01/19/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: 08cc6b7c6edb31d0a983943694ebb1dc55989bca
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: c2c3636e98d67616826b03cca9657b806c5bd653
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88689874"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98598006"
 ---
 # <a name="azure-ea-agreements-and-amendments"></a>Contratos e aditamentos de EA do Azure
 
@@ -21,7 +21,7 @@ O artigo explica como os contratos e aditamentos do Azure EA podem afetar seu ac
 
 ## <a name="enrollment-provisioning-status"></a>Status de provisionamento do registro
 
-A data de início de um novo pagamento antecipado do Azure é definida pela data em que o centro de operações regionais o processou. Como as ordens do pagamento antecipado do Azure realizadas por meio do portal do Azure EA são processadas no fuso horário UTC, poderá ocorrer algum atraso se a sua ordem de compra do pagamento antecipado do Azure tiver sido processada em outra região. A data de início da cobertura na ordem de compra mostra o início do pagamento antecipado do Azure. A data de início da cobertura é quando o pagamento antecipado do Azure é exibido no portal do Azure EA.
+A data de início de um novo Pagamento antecipado do Azure (anteriormente chamado de compromisso monetário) é definida pela data em que o centro de operações regionais o processou. Como as ordens do pagamento antecipado do Azure realizadas por meio do portal do Azure EA são processadas no fuso horário UTC, poderá ocorrer algum atraso se a sua ordem de compra do pagamento antecipado do Azure tiver sido processada em outra região. A data de início da cobertura na ordem de compra mostra o início do pagamento antecipado do Azure. A data de início da cobertura é quando o pagamento antecipado do Azure é exibido no portal do Azure EA.
 
 ## <a name="support-for-enterprise-customers"></a>Compatibilidade com clientes empresariais
 
@@ -60,7 +60,7 @@ A Microsoft não acessará nem utilizará a marcação e os preços associados f
 
 ### <a name="how-the-calculation-works"></a>Como funciona o cálculo
 
-O LSP fornece um número percentual único no portal de EA.  Todas as informações comerciais no portal serão elevadas pelo percentual fornecido pelo LSP. Exemplo:
+O LSP fornece um número percentual único no portal de EA.    Todas as informações comerciais no portal serão elevadas pelo percentual fornecido pelo LSP. Exemplo:
 
 - O cliente assina um EA com o pagamento antecipado do Azure de US$ 100.000.
 - A taxa de medição para o Serviço A é de US$ 10/hora.
@@ -101,13 +101,14 @@ Revise as informações comerciais, como informação do saldo monetário, lista
 Examine o preço de marcação em _Resumo do uso_ do termo do pagamento antecipado na exibição do cliente. O preço da Microsoft ainda estará disponível na exibição de parceiro. As exibições podem ser alternadas com a opção "pessoas" da marcação de parceiro no canto superior direito.
 
 1. Reveja os preços na tabela de preços.
-1. É possível fazer alterações antes da publicação selecionando **Editar** na guia _Exibir resumo de uso > Exibição de cliente_.  
-  Os preços de serviços e os saldos do pagamento antecipado serão marcados com os mesmos percentuais. Se você tem porcentagens diferentes para o saldo monetário e taxas de medição ou percentuais diferentes para serviços diferentes, não use esse recurso.
+1. É possível fazer alterações antes da publicação selecionando **Editar** na guia _Exibir resumo de uso > Exibição de cliente_. 
+   
+Os preços de serviços e os saldos do pagamento antecipado serão marcados com os mesmos percentuais. Se você tem porcentagens diferentes para o saldo monetário e taxas de medição ou percentuais diferentes para serviços diferentes, não use esse recurso.
 
 **Etapa 3: publicar**
 
 Após a revisão e validação do preço, clique em **Publicar**.
-  
+  
 Os preços com marcação ficarão disponíveis para os administradores corporativos imediatamente após a publicação. Não é possível fazer edições na marcação. Você deve desabilitar a marcação e começar da Etapa 1.
 
 ### <a name="which-enrollments-have-a-markup-enabled"></a>Quais registros têm uma marcação habilitada?

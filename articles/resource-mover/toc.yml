@@ -1,0 +1,52 @@
+- name: Documentação do Azure Resource Mover
+  href: index.yml
+- name: Visão geral
+  items:
+    - name: Sobre o Azure Resource Mover
+      href: overview.md
+    - name: Selecionar uma ferramenta para mover os recursos
+      href: select-move-tool.md
+    - name: Perguntas comuns
+      href: common-questions.md
+- name: Tutoriais
+  items:
+    - name: Mover VMs do Azure para outra região
+      href: tutorial-move-region-virtual-machines.md
+    - name: Mover as VMs criptografadas do Azure para outra região
+      href: tutorial-move-region-encrypted-virtual-machines.md
+    - name: Mover recursos do SQL para outra região
+      href: tutorial-move-region-sql.md
+- name: Conceitos
+  items:
+    - name: Mover visão geral
+      href: about-move-process.md
+    - name: Suporte – Mover VMs do Azure entre regiões
+      href: support-matrix-move-region-azure-vm.md
+    - name: Suporte – Mover o SQL do Azure entre regiões
+      href: support-matrix-move-region-sql.md
+- name: Guias de instruções
+  items:
+    - name: Mover entre regiões
+      items:
+        - name: Mover entre regiões com o PowerShell
+          href: move-region-powershell.md
+        - name: Mover as VMs do Azure para as zonas de disponibilidade
+          href: move-region-availability-zone.md
+        - name: Mover entre regiões (do grupo de recursos)
+          href: move-region-within-resource-group.md
+    - name: Gerenciar movimentações de região
+      items:
+        - name: Modificar configurações de destino
+          href: modify-target-settings.md
+        - name: Remover recursos de uma coleção de movimentação
+          href: remove-move-resources.md
+        - name: Gerenciar recursos criados durante a movimentação
+          href: manage-resources-created-move-process.md
+- name: Recursos
+  items:
+    - name: Migração no Cloud Adoption Framework
+      href: /azure/cloud-adoption-framework/migrate/
+    - name: Modelo do Resource Manager
+      href: /azure/templates/microsoft.migrate/allversions
+    - name: Roteiro do Azure
+      href: 'https://azure.microsoft.com/roadmap/'

@@ -1,27 +1,25 @@
 ---
-title: 'Início Rápido: Alterar modelo com as APIs REST – LUIS'
+title: Como alterar o modelo LUIS usando a API REST
 titleSuffix: Azure Cognitive Services
-description: Neste início rápido da API REST, use um aplicativo LUIS público disponível para determinar a intenção de um usuário com base no texto de conversa.
+description: Neste artigo, adicione enunciados de exemplo para alterar um modelo e treinar o aplicativo.
 services: cognitive-services
-author: diberry
 manager: nitinme
-ms.custom: seodec18, devx-track-python, devx-track-javascript
+ms.custom: seodec18, devx-track-python, devx-track-js, devx-track-csharp
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: quickstart
-ms.date: 06/03/2020
-ms.author: diberry
+ms.topic: conceptual
+ms.date: 11/30/2020
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: 516ea2e9b99b3abf21cbdd2920c3680c577a1a8e
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 7346037ad804da4f68a2bc6512494c461d7fc5bd
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87875125"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436174"
 ---
-# <a name="quickstart-change-model-with-rest-apis"></a>Início Rápido: Alterar modelo com APIs REST
+# <a name="how-to-change-the-luis-model-with-rest-apis"></a>Como alterar o modelo LUIS com APIs REST
 
-Neste início rápido, você adicionará enunciados de exemplo a um aplicativo Pizza e treinará o aplicativo. Exemplos de enunciados consistem em texto de conversa do usuário mapeado para uma intenção. Ao mostrar exemplos de enunciados para intenções, você ensina o LUIS quais tipos de textos fornecidos pelo usuário pertencem a qual intenção.
+Neste artigo, você adicionará enunciados de exemplo ao aplicativo Pizza e treinará o aplicativo. Exemplos de enunciados consistem em texto de conversa do usuário mapeado para uma intenção. Ao mostrar exemplos de enunciados para intenções, você ensina o LUIS quais tipos de textos fornecidos pelo usuário pertencem a qual intenção.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Get intent with C# and REST](./includes/get-started-get-model-rest-csharp.md)]

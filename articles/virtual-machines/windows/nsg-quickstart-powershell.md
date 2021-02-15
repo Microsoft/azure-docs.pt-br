@@ -1,20 +1,21 @@
 ---
 title: Abrir portas para uma VM usando o Azure PowerShell
-description: Saiba como abrir uma porta/criar um ponto de extremidade para sua VM do Windows usando o modelo de implantação do Azure Resource Manager e o Azure PowerShell
+description: Saiba como abrir uma porta/criar um ponto de extremidade para sua VM usando Azure PowerShell
 author: cynthn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: cynthn
-ms.openlocfilehash: bae6da2e299065bada3b4e8a9657f00ef07e138b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: a432ce978f6fa9e3a472cb15e9ef9241bc41004d
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075555"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92891747"
 ---
-# <a name="how-to-open-ports-and-endpoints-to-a-vm-in-azure-using-powershell"></a>Como abrir portas e pontos de extremidade para uma VM no Azure usando o PowerShell
+# <a name="how-to-open-ports-and-endpoints-to-a-vm-using-powershell"></a>Como abrir portas e pontos de extremidade para uma VM usando o PowerShell
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
 
 ## <a name="quick-commands"></a>Comandos rápidos
@@ -26,9 +27,9 @@ Faça logon na sua Conta do Azure:
 Connect-AzAccount
 ```
 
-Nos exemplos a seguir, substitua os nomes de parâmetro pelos seus próprios valores. Os nomes de parâmetro de exemplo incluem *myResourceGroup*, *myNetworkSecurityGroup* e *myVnet*.
+Nos exemplos a seguir, substitua os nomes de parâmetro pelos seus próprios valores. Os nomes de parâmetro de exemplo incluem *myResourceGroup* , *myNetworkSecurityGroup* e *myVnet* .
 
-Crie uma regra com [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig). O exemplo a seguir cria uma regra chamada *myNetworkSecurityGroupRule* para permitir o tráfego *tcp* na porta *80*:
+Crie uma regra com [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig). O exemplo a seguir cria uma regra chamada *myNetworkSecurityGroupRule* para permitir o tráfego *tcp* na porta *80* :
 
 ```powershell
 $httprule = New-AzNetworkSecurityRuleConfig `
@@ -44,7 +45,7 @@ $httprule = New-AzNetworkSecurityRuleConfig `
     -DestinationPortRange 80
 ```
 
-Em seguida, crie seu Grupo de Segurança de Rede com [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup) e atribua a regra de HTTP que você acabou de criar conforme descrito a seguir. O exemplo a seguir cria um Grupo de Segurança de Rede chamado *myNetworkSecurityGroup*:
+Em seguida, crie seu Grupo de Segurança de Rede com [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup) e atribua a regra de HTTP que você acabou de criar conforme descrito a seguir. O exemplo a seguir cria um Grupo de Segurança de Rede chamado *myNetworkSecurityGroup* :
 
 ```powershell
 $nsg = New-AzNetworkSecurityGroup `
@@ -90,5 +91,5 @@ Para aplicativos Web altamente disponíveis, você deve colocar suas VMs atrás 
 Neste exemplo, você criou uma regra simples para permitir o tráfego HTTP. Você pode encontrar informações sobre a criação de ambientes mais detalhados nos seguintes artigos:
 
 * [Visão geral do Azure Resource Manager](../../azure-resource-manager/management/overview.md)
-* [O que é um grupo de segurança de rede?](../../virtual-network/security-overview.md)
+* [O que é um grupo de segurança de rede?](../../virtual-network/network-security-groups-overview.md)
 * [Visão geral do Azure Load Balancer](../../load-balancer/load-balancer-overview.md)

@@ -4,10 +4,10 @@ description: Este artigo fornece uma visão geral dos servidores de destino de c
 ms.topic: conceptual
 ms.date: 03/17/2020
 ms.openlocfilehash: cd5ded18d1a8f1f5fd96212d37725bb5db13002f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80062086"
 ---
 # <a name="about-site-recovery-components-configuration-process-master-target"></a>Sobre componentes de Site Recovery (configuração, processo, destino mestre)
@@ -25,7 +25,7 @@ Para a recuperação de desastre de VMs VMware locais e servidores físicos, imp
 **Requisitos da VMware** | Para a recuperação de desastre de VMs VMware locais, você deve instalar e executar o servidor de configuração como uma VM VMware de alta disponibilidade e local. | [Saiba mais sobre](vmware-azure-deploy-configuration-server.md#prerequisites) os pré-requisitos.
 **Implantação do VMware** | Recomendamos que você implante o servidor de configuração usando um modelo OVA baixado. Esse método fornece uma maneira simples de configurar um servidor de configuração que esteja de acordo com todos os requisitos e pré-requisitos.<br/><br/> Se, por alguma razão, você não conseguir implantar uma VM VMware usando um modelo OVA, poderá configurar manualmente os computadores do servidor de configuração, conforme descrito abaixo para recuperação de desastres do computador físico. | [Implante](vmware-azure-deploy-configuration-server.md#deploy-a-configuration-server-through-an-ova-template) com um modelo ova.
 **Requisitos de servidor físico** | Para a recuperação de desastres em servidores físicos locais, você implanta o servidor de configuração manualmente. | [Saiba mais sobre](physical-azure-set-up-source.md#prerequisites) os pré-requisitos.
-**Implantação de servidor físico** | Se ele não puder ser instalado como uma VM VMware, você poderá instalá-lo em um servidor físico. | [Implante](physical-azure-set-up-source.md#set-up-the-source-environment) o servidor de configuração manualmente.
+**Implantação do servidor físico** | Se ele não puder ser instalado como uma VM VMware, você poderá instalá-lo em um servidor físico. | [Implante](physical-azure-set-up-source.md#set-up-the-source-environment) o servidor de configuração manualmente.
 
 ## <a name="process-server"></a>Servidor de processo
 
@@ -36,7 +36,7 @@ Um servidor de processo manipula os dados de replicação durante o failover e o
 **Implantação**  | Por padrão, quando o servidor de configuração é implantado, o servidor de processo é instalado. <br/><br/> Um servidor de processo local é necessário para a recuperação de desastres e a replicação de VMs VMware locais e servidores físicos. | [Saiba mais](vmware-azure-architecture.md#architectural-components).
 **Função (local**) | Recebe dados de replicação de computadores habilitados para replicação. <br/><br/> Otimiza os dados de replicação com caching, compactação e criptografia e os envia para o armazenamento do Azure. <br/><br/> Executa uma instalação por push do serviço de mobilidade de Site Recovery em VMs VMware locais e servidores físicos que você deseja replicar. <br/><br/> Executa a descoberta automática de computadores locais. | [Saiba mais](vmware-azure-enable-replication.md).
 **Função (failback do Azure)** | Após o failover do site local, você configura um servidor de processo no Azure, como uma VM do Azure, para lidar com o failback para seu local.<br/><br/> O servidor de processo no Azure é temporário. A VM do Azure pode ser excluída após a conclusão do failback. | [Saiba mais](vmware-azure-set-up-process-server-azure.md).
-**Scaling** | Para implantações maiores, no local, você pode configurar servidores de processo adicionais e de expansão. Os servidores adicionais ampliam a capacidade, tratando de números maiores de máquinas de replicação e volumes maiores de tráfego de replicação.<br/><br/> Você pode mover máquinas entre dois servidores de processo para balancear a carga do tráfego de replicação. | [Saiba mais](vmware-azure-set-up-process-server-scale.md).
+**Dimensionamento** | Para implantações maiores, no local, você pode configurar servidores de processo adicionais e de expansão. Os servidores adicionais ampliam a capacidade, tratando de números maiores de máquinas de replicação e volumes maiores de tráfego de replicação.<br/><br/> Você pode mover máquinas entre dois servidores de processo para balancear a carga do tráfego de replicação. | [Saiba mais](vmware-azure-set-up-process-server-scale.md).
 
 ## <a name="master-target-server"></a>Servidor de destino mestre
 

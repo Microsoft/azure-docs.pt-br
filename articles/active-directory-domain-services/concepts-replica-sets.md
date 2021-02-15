@@ -2,35 +2,35 @@
 title: Os conceitos de conjuntos de réplicas para Azure AD Domain Services | Microsoft Docs
 description: Saiba quais conjuntos de réplicas estão em Azure Active Directory Domain Services e como eles fornecem redundância para aplicativos que exigem serviços de identidade.
 services: active-directory-ds
-author: iainfoulds
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/16/2020
-ms.author: iainfou
-ms.openlocfilehash: 698009ee8a57ed5d30e01376b4f2c63b0a27ead8
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.author: justinha
+ms.openlocfilehash: 5359a955ea97b559b7e3d244bfb6c4fb09e8681b
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87505725"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96620028"
 ---
 # <a name="replica-sets-concepts-and-features-for-azure-active-directory-domain-services-preview"></a>A réplica define conceitos e recursos para Azure Active Directory Domain Services (versão prévia)
 
-Ao criar um domínio gerenciado do Azure Active Directory Domain Services (AD DS do Azure), você define um namespace exclusivo. Esse namespace é o nome de domínio, como *aaddscontoso.com*, e dois controladores de domínio (DCS) são implantados em sua região do Azure selecionada. Essa implantação de DCs é conhecida como um conjunto de réplicas.
+Ao criar um domínio gerenciado do Azure Active Directory Domain Services (AD DS do Azure), você define um namespace exclusivo. Esse namespace é o nome de domínio, por exemplo, *aaddscontoso.com*, e dois DCs (controladores de domínio) são implantados na região do Azure selecionada. Essa implantação de DCs é conhecida como conjunto de réplicas.
 
-Você pode expandir um domínio gerenciado para ter mais de um conjunto de réplicas por locatário do Azure AD. Os conjuntos de réplicas podem ser adicionados a qualquer rede virtual emparelhada em qualquer região do Azure que dê suporte ao Azure AD DS. Conjuntos de réplicas adicionais em diferentes regiões do Azure fornecem recuperação de desastre geográfico para aplicativos herdados se uma região do Azure ficar offline.
+Você pode expandir um domínio gerenciado para ter mais de um conjunto de réplicas por locatário do Azure AD. Os conjuntos de réplicas podem ser adicionados a qualquer rede virtual emparelhada em qualquer região do Azure com suporte para o Azure AD DS. Conjuntos de réplicas adicionais em diferentes regiões do Azure fornecem recuperação de desastre geográfica para aplicativos herdados se uma região do Azure fica offline.
 
-Conjuntos de réplicas estão atualmente em visualização.
+Atualmente, os conjuntos de réplicas estão em versão prévia.
 
 > [!NOTE]
 > Os conjuntos de réplicas não permitem que você implante vários domínios gerenciados exclusivos em um único locatário do Azure. Cada conjunto de réplicas contém os mesmos dados.
 
 ## <a name="how-replica-sets-work"></a>Como funcionam os conjuntos de réplicas
 
-Quando você cria um domínio gerenciado, como *aaddscontoso.com*, um conjunto de réplicas inicial é criado. Os conjuntos de réplicas adicionais compartilham o mesmo namespace e configuração. As alterações na AD DS do Azure, incluindo configuração, identidade do usuário e credenciais, grupos, objetos de política de grupo, objetos de computador e outras alterações, são aplicadas a todos os conjuntos de réplicas no domínio gerenciado usando a replicação AD DS.
+Quando você cria um domínio gerenciado, como *aaddscontoso.com*, um conjunto de réplicas inicial é criado. Os conjuntos de réplicas adicionais compartilham os mesmos namespace e configuração. As alterações ao Azure AD DS, incluindo configuração, identidade do usuário e credenciais, grupos, objetos de política de grupo, objetos de computador e outras alterações, são aplicadas a todos os conjuntos de réplicas no domínio gerenciado usando a replicação do AD DS.
 
 Você cria cada conjunto de réplicas em uma rede virtual. Cada rede virtual deve ser emparelhada a todas as outras redes virtuais que hospedam um conjunto de réplicas de um domínio gerenciado. Essa configuração cria uma topologia de rede de malha que dá suporte à replicação de diretório. Uma rede virtual pode dar suporte a vários conjuntos de réplicas, desde que cada conjunto de réplicas esteja em uma sub-rede virtual diferente.
 
@@ -64,7 +64,7 @@ A cobrança de cada conjunto de réplicas baseia-se na SKU de configuração de 
 
 ### <a name="can-i-use-my-production-managed-domain-with-this-preview"></a>Posso usar meu domínio gerenciado de produção com esta visualização?
 
-Os conjuntos de réplicas são um recurso de visualização pública no Azure AD Domain Services. Você pode usar um domínio gerenciado de produção, mas esteja ciente das diferenças de suporte que existem para os recursos que ainda estão em visualização. Para obter mais informações sobre visualizações, [Azure Active Directory o SLA de visualização](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Os conjuntos de réplicas estão em uma versão prévia pública do recurso no Azure AD Domain Services. Você pode usar um domínio gerenciado de produção, mas esteja ciente das diferenças de suporte que existem para os recursos que ainda estão em visualização. Para obter mais informações sobre versões prévias, confira [SLA de Versão Prévia do Azure Active Directory](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ### <a name="can-i-create-a-replica-set-in-subscription-different-from-my-managed-domain"></a>Posso criar um conjunto de réplicas na assinatura diferente do meu domínio gerenciado?
 

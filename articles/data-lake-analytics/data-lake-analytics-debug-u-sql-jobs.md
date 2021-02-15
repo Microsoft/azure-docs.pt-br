@@ -1,22 +1,20 @@
 ---
 title: Depurar código C# para Azure Data Lake trabalhos U-SQL
 description: Este artigo descreve como depurar um vértice U-SQL com falha usando as Ferramentas do Azure Data Lake para Visual Studio.
-services: data-lake-analytics
 ms.service: data-lake-analytics
 ms.reviewer: jasonh
-ms.assetid: bcd0b01e-1755-4112-8e8a-a5cabdca4df2
 ms.topic: how-to
 ms.date: 11/30/2017
-ms.openlocfilehash: ca6fe4ad35e59472e8cf8f3b8476417e01c2668f
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: db1d57e3904087bc5cb3711b23cfe6bcf18c3455
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131864"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92218010"
 ---
 # <a name="debug-user-defined-c-code-for-failed-u-sql-jobs"></a>Depurar um código C# definido pelo usuário em trabalhos com falha do U-SQL
 
-O U-SQL oferece um modelo de extensibilidade usando C#. Em scripts do U-SQL, é fácil chamar funções de C# e executar funções analíticas não compatíveis com linguagens declarativas semelhantes ao SQL. Para saber mais sobre a extensibilidade do U-SQL, consulte [Guia de programação do U-SQL](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-u-sql-programmability-guide#use-user-defined-functions-udf). 
+O U-SQL oferece um modelo de extensibilidade usando C#. Em scripts do U-SQL, é fácil chamar funções de C# e executar funções analíticas não compatíveis com linguagens declarativas semelhantes ao SQL. Para saber mais sobre a extensibilidade do U-SQL, consulte [Guia de programação do U-SQL](./data-lake-analytics-u-sql-programmability-guide.md#use-user-defined-functions-udf). 
 
 Na prática, qualquer código pode precisar de depuração, mas é difícil depurar um trabalho distribuído com código personalizado na nuvem com arquivos de log limitados. As [Ferramentas do Azure Data Lake para Visual Studio](https://aka.ms/adltoolsvs) oferecem um recurso chamado **Falha na Depuração de Vértice**, que ajuda a depurar de forma mais fácil as falhas que ocorrem no código personalizado. Quando o trabalho do U-SQL falha, o serviço mantém o estado de falha e a ferramenta ajuda a baixar o ambiente de falha da nuvem para o computador local a fim de realizar a depuração. O download local captura todo o ambiente de nuvem, incluindo dados de entrada e código do usuário.
 

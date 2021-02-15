@@ -10,12 +10,12 @@ metadata:
   author: tfitzmac
   ms.author: tomfitz
   ms.date: 01/02/2020
-  ms.openlocfilehash: 15cd46ba2758fd1a56f7d19791713eae72bac1d2
-  ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+  ms.openlocfilehash: ba787d1ec1cd3283ab76d631c6ca79281b9cf599
+  ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 07/07/2020
-  ms.locfileid: "86057646"
+  ms.lasthandoff: 12/01/2020
+  ms.locfileid: "96433898"
 landingContent:
 - title: Sobre os Aplicativos Gerenciados
   linkLists:
@@ -44,7 +44,7 @@ landingContent:
     - text: Criar arquivos de definição
       url: publish-service-catalog-app.md
     - text: Publicar aplicativo do marketplace
-      url: publish-marketplace-app.md
+      url: ../../marketplace/create-new-azure-apps-offer.md
     - text: Criar aplicativo gerenciado com provedor personalizado
       url: tutorial-create-managed-app-with-custom-provider.md
   - linkListType: how-to-guide

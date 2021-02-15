@@ -5,40 +5,38 @@ services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/15/2020
+ms.date: 08/14/2020
 ms.author: jmprieur
-ms.custom: include file
-ms.openlocfilehash: a3acdbb93dd20f0b89e4f99d64f5f7a30ce40623
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 42102f38959911388cefcc141d949e59f24a2c31
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87102439"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995992"
 ---
-## <a name="register-secrets-or-certificates"></a>Registrar segredos ou certificados
+## <a name="add-a-client-secret-or-certificate"></a>Adicionar um certificado ou segredo do cliente
 
-Para qualquer aplicativo cliente confidencial, você precisa registrar um segredo ou certificado. Você pode registrar os segredos do aplicativo por meio da experiência interativa no [portal do Azure](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview) ou usando ferramentas de linha de comando (como o PowerShell).
+Assim como ocorre com qualquer aplicativo cliente confidencial, você precisa adicionar um segredo ou certificado para agir como *as credenciais* desse aplicativo, para que ele possa autenticar-se como ele mesmo, sem a interação do usuário.
 
-### <a name="register-client-secrets-by-using-the-application-registration-portal"></a>Registrar segredos do cliente usando o portal de registro de aplicativos
+Você pode adicionar credenciais ao registro do aplicativo cliente usando o [portal do Azure](#add-client-credentials-by-using-the-azure-portal) ou uma ferramenta de linha de comando como o [PowerShell](#add-client-credentials-by-using-powershell).
 
-O gerenciamento de credenciais do cliente ocorre na página **certificados & segredos** de um aplicativo:
+### <a name="add-client-credentials-by-using-the-azure-portal"></a>Adicionar credenciais de cliente usando o portal do Azure
 
-![Página de segredos de certificados &](../articles/active-directory/develop/media/quickstart-update-azure-ad-app-preview/credentials-certificates-secrets.png)
+Para adicionar credenciais ao registro de aplicativo do seu aplicativo cliente confidencial, siga as etapas em [início rápido: registrar um aplicativo com a plataforma de identidade da Microsoft](../articles/active-directory/develop/quickstart-register-app.md) para o tipo de credencial que você deseja adicionar:
 
-- Você cria um *segredo do cliente* selecionando **novo segredo do cliente** no registro do aplicativo no portal do Azure. Ao criar um segredo do cliente, você _deve_ registrar a cadeia de caracteres do segredo antes de navegar para fora do painel **certificados & segredos** . A cadeia de caracteres do segredo nunca é exibida novamente.
-- Durante o registro do aplicativo, você usa o botão **carregar certificado** para carregar o certificado. O Azure AD dá suporte apenas a certificados diretamente registrados no aplicativo e não seguem cadeias de certificados.
+* [Adicionar um segredo do cliente](../articles/active-directory/develop/quickstart-register-app.md#add-a-client-secret)
+* [Adicionar um certificado](../articles/active-directory/develop/quickstart-register-app.md#add-a-certificate)
 
-Para obter detalhes, consulte [início rápido: configurar um aplicativo cliente para acessar APIs Web | Adicione credenciais ao seu aplicativo](../articles/active-directory/develop/quickstart-configure-app-access-web-apis.md#add-credentials-to-your-web-application).
+### <a name="add-client-credentials-by-using-powershell"></a>Adicionar credenciais de cliente usando o PowerShell
 
-### <a name="register-client-secrets-by-using-powershell"></a>Registrar segredos do cliente usando o PowerShell
+Como alternativa, você pode adicionar credenciais ao registrar seu aplicativo com a plataforma de identidade da Microsoft usando o PowerShell.
 
-Como alternativa, você pode registrar seu aplicativo com o Azure AD usando ferramentas de linha de comando. O exemplo [Active-Directory-dotnetcore-daemon-v2](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) mostra como registrar um segredo do aplicativo ou um certificado com um aplicativo do Azure AD:
+O exemplo de código [Active-Directory-dotnetcore-daemon-v2](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) no GitHub mostra como adicionar um segredo de aplicativo ou certificado ao registrar um aplicativo:
 
-- Para obter detalhes sobre como registrar um segredo do aplicativo, consulte [AppCreationScripts/Configure.ps1](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/5199032b352a912e7cc0fce143f81664ba1a8c26/AppCreationScripts/Configure.ps1#L190).
-- Para obter detalhes sobre como registrar um certificado com um aplicativo, consulte [AppCreationScripts-withCert/Configure.ps1](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/5199032b352a912e7cc0fce143f81664ba1a8c26/AppCreationScripts-withCert/Configure.ps1#L162-L178).
+- Para obter detalhes sobre como adicionar um **segredo do cliente** com o PowerShell, consulte [AppCreationScripts/Configure.ps1](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/5199032b352a912e7cc0fce143f81664ba1a8c26/AppCreationScripts/Configure.ps1#L190).
+- Para obter detalhes sobre como adicionar um **certificado** com o PowerShell, consulte [AppCreationScripts-withCert/Configure.ps1](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/5199032b352a912e7cc0fce143f81664ba1a8c26/AppCreationScripts-withCert/Configure.ps1#L162-L178).

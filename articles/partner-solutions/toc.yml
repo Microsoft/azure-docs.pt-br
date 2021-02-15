@@ -1,0 +1,15 @@
+- name: Documentação das soluções de parceiros do Azure
+  href: overview.md
+- name: Soluções de parceiros
+  items:
+    - name: Apache Kafka na Confluent Cloud
+      items:
+        - name: Visão geral
+          displayName: 'Apache, Kafka, Confluent'
+          href: ./apache-kafka-confluent-cloud/overview.md
+        - name: Criar
+          href: ./apache-kafka-confluent-cloud/create.md
+        - name: Gerenciar
+          href: ./apache-kafka-confluent-cloud/manage.md
+        - name: Solucionar problemas
+          href: ./apache-kafka-confluent-cloud/troubleshoot.md

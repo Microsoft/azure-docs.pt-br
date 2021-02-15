@@ -8,10 +8,10 @@ author: keferna
 ms.author: keferna
 ms.date: 04/16/2020
 ms.openlocfilehash: dbe43bac3155290ea809b47f7c280cabc51fc73d
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86106874"
 ---
 # <a name="marketing-best-practices"></a>Práticas recomendadas de marketing

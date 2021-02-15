@@ -7,18 +7,18 @@ ms.service: dns
 ms.topic: troubleshooting
 ms.date: 09/20/2019
 ms.author: rohink
-ms.openlocfilehash: a63a0c1e0044f5dcd6babb4941e1f4409404cdd2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fae63c61949302e25c9dee2899577fa4f0d2a975
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84711180"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965571"
 ---
 # <a name="azure-dns-troubleshooting-guide"></a>Guia de solução de problemas do DNS do Azure
 
 Este artigo apresenta informações sobre a solução de problemas de DNS do Azure.
 
-Se essas etapas não resolverem o problema, também é possível procurar ou postar o problema na nossa [página de perguntas e respostas da Microsoft para suporte da comunidade](https://docs.microsoft.com/answers/topics/azure-virtual-network.html). Como alternativa, abra uma solicitação de Suporte do Azure.
+Se essas etapas não resolverem o problema, também é possível procurar ou postar o problema na nossa [página de perguntas e respostas da Microsoft para suporte da comunidade](/answers/topics/azure-virtual-network.html). Como alternativa, abra uma solicitação de Suporte do Azure.
 
 
 ## <a name="i-cant-create-a-dns-zone"></a>Não consigo criar uma zona DNS
@@ -34,7 +34,7 @@ Para resolver problemas comuns, tente uma ou mais das etapas a seguir:
 ### <a name="recommended-articles"></a>Artigos recomendados
 
 * [Registros e zonas DNS](dns-zones-records.md)
-* [Criar uma zona DNS](dns-getstarted-create-dnszone-portal.md)
+* [Criar uma zona DNS](./dns-getstarted-portal.md)
 
 ## <a name="i-cant-create-a-dns-record"></a>Não consigo criar um registro DNS
 
@@ -50,7 +50,7 @@ Para resolver problemas comuns, tente uma ou mais das etapas a seguir:
 ### <a name="recommended-articles"></a>Artigos recomendados
 
 * [Registros e zonas DNS](dns-zones-records.md)
-* [Criar uma zona DNS](dns-getstarted-create-dnszone-portal.md)
+* [Criar uma zona DNS](./dns-getstarted-portal.md)
 
 
 
@@ -85,13 +85,12 @@ Exemplo de nomes de registro SRV (nome de serviço 'sip', protocolo 'tcp'):
 ### <a name="recommended-articles"></a>Artigos recomendados
 
 * [Registros e zonas DNS](dns-zones-records.md)
-* [Criar registros e conjuntos de registros DNS usando o portal do Azure](dns-getstarted-create-recordset-portal.md)
+* [Criar registros e conjuntos de registros DNS usando o portal do Azure](./dns-getstarted-portal.md)
 * [Tipo de registro SRV (Wikipédia)](https://en.wikipedia.org/wiki/SRV_record)
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * Saiba mais sobre [registros e zonas DNS do Azure](dns-zones-records.md)
-* Para começar a usar o DNS do Azure, aprenda a [criar uma zona DNS](dns-getstarted-create-dnszone-portal.md) e a [criar registros DNS](dns-getstarted-create-recordset-portal.md).
+* Para começar a usar o DNS do Azure, aprenda a [criar uma zona DNS](./dns-getstarted-portal.md) e a [criar registros DNS](./dns-getstarted-portal.md).
 * Para migrar uma zona DNS existente, saiba como [importar e exportar um arquivo de zona DNS](dns-import-export.md).
-

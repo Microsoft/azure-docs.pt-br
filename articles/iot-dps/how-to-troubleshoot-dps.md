@@ -8,16 +8,16 @@ services: iot-dps
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: xujing
-ms.openlocfilehash: 3cbab09c6b50abb590cfe9f2720713a8fa547aa7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2d68314aab636180ff17e330c49c9859b8851b06
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75646465"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94950679"
 ---
 # <a name="troubleshooting-with-azure-iot-hub-device-provisioning-service"></a>Solução de problemas com o serviço de provisionamento de dispositivos no Hub IoT do Azure
 
-Problemas de conectividade para dispositivos IoT podem ser difíceis de solucionar porque há muitos pontos possíveis de falhas, como falhas de atestado, falhas de registro etc. Este artigo fornece orientação sobre como detectar e solucionar problemas de conectividade do dispositivo por meio de [Azure monitor](https://docs.microsoft.com/azure/azure-monitor/overview).
+Problemas de conectividade para dispositivos IoT podem ser difíceis de solucionar porque há muitos pontos possíveis de falhas, como falhas de atestado, falhas de registro etc. Este artigo fornece orientação sobre como detectar e solucionar problemas de conectividade do dispositivo por meio de [Azure monitor](../azure-monitor/overview.md).
 
 ## <a name="using-azure-monitor-to-view-metrics-and-set-up-alerts"></a>Usando Azure Monitor para exibir métricas e configurar alertas
 
@@ -27,7 +27,7 @@ O procedimento a seguir descreve como exibir e configurar o alerta na métrica d
 
 2. Navegue até o serviço de provisionamento de dispositivos do Hub IoT.
 
-3. Selecione **métricas**.
+3. Selecione **Métricas**.
 
 4. Selecione a métrica desejada. 
    <br />Atualmente, há três métricas para o DPS:
@@ -42,7 +42,7 @@ O procedimento a seguir descreve como exibir e configurar o alerta na métrica d
 
 6. Para configurar um alerta de uma métrica, selecione **novas regras de alerta** na parte superior direita da folha métrica, da mesma forma você pode ir para a folha **alerta** e selecionar **novas regras de alerta**.
 
-7. Selecione **Adicionar condição**e, em seguida, selecione a métrica e o limite desejados seguindo os prompts.
+7. Selecione **Adicionar condição** e, em seguida, selecione a métrica e o limite desejados seguindo os prompts.
 
 Para saber mais, confira [o que são alertas clássicos no Microsoft Azure?](../azure-monitor/platform/alerts-overview.md)
 
@@ -81,5 +81,5 @@ Use esta tabela para entender e resolver erros comuns.
 | 401 | O token de autorização não pode ser validado; por exemplo, ele está expirado ou não se aplica ao URI da solicitação. Esse código de erro também é retornado para dispositivos como parte do fluxo de atestado do TPM. | 401 Não Autorizado|
 | 404 | A instância do serviço de provisionamento de dispositivos ou um recurso (por exemplo, um registro) não existe. |404 Não Encontrado |
 | 412 | A ETag na solicitação não corresponde à ETag do recurso existente, de acordo com o RFC7232. | 412 falha na pré-condição |
-| 429 | As operações estão sendo limitadas pelo serviço. Para limites de serviço específicos, consulte [limites do serviço de provisionamento de dispositivos no Hub IOT](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#iot-hub-device-provisioning-service-limits). | 429 número excessivo de solicitações |
-| 500 | Ocorreu um erro interno. | 500 Erro Interno do Servidor|
+| 429 | As operações estão sendo limitadas pelo serviço. Para limites de serviço específicos, consulte [limites do serviço de provisionamento de dispositivos no Hub IOT](../azure-resource-manager/management/azure-subscription-service-limits.md#iot-hub-device-provisioning-service-limits). | 429 número excessivo de solicitações |
+| 500 | Ocorreu um erro interno. | Erro interno de servidor 500|

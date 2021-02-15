@@ -1,28 +1,24 @@
 ---
 title: Problemas de rede e de conectividade
-titleSuffix: Azure Cloud Services
 description: Este artigo lista as perguntas frequentes sobre conectividade e rede para Serviços de Nuvem do Microsoft Azure.
-services: cloud-services
-documentationcenter: ''
-author: genlin
-manager: dcscontentpm
-editor: ''
-tags: top-support-issue
-ms.assetid: 84985660-2cfd-483a-8378-50eef6a0151d
-ms.service: cloud-services
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 08/23/2018
-ms.author: genli
-ms.openlocfilehash: 7caeba0e88f63106eae80f7142b5d65463f8d7a7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.service: cloud-services
+ms.date: 10/14/2020
+ms.author: tagore
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: c7b83c615e4ac19e10b5c4f6cc1a102206b1a39a
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77019393"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98742413"
 ---
-# <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemas de rede e conectividade para Serviços de Nuvem do Azure: perguntas frequentes
+# <a name="connectivity-and-networking-issues-for-azure-cloud-services-classic-frequently-asked-questions-faqs"></a>Problemas de conectividade e rede para os serviços de nuvem do Azure (clássico): perguntas frequentes (FAQs)
+
+> [!IMPORTANT]
+> Os [serviços de nuvem do Azure (suporte estendido)](../cloud-services-extended-support/overview.md) são um novo modelo de implantação baseado em Azure Resource Manager para o produto de serviços de nuvem do Azure.Com essa alteração, os serviços de nuvem do Azure em execução no modelo de implantação baseado no Azure Service Manager foram renomeados como serviços de nuvem (clássicos) e todas as novas implantações devem usar os [serviços de nuvem (suporte estendido)](../cloud-services-extended-support/overview.md).
 
 Este artigo inclui perguntas frequentes sobre os problemas de conectividade e rede para [Serviços de Nuvem do Microsoft Azure](https://azure.microsoft.com/services/cloud-services). Para obter informações sobre tamanho, consulte a [página de tamanho de VM de Serviços de Nuvem](cloud-services-sizes-specs.md).
 
@@ -40,7 +36,7 @@ Não, não usando o protocolo ICMP/"ping" normal. O protocolo ICMP não é permi
 
 Para testar a conectividade, é recomendável fazer um ping de porta. Enquanto Ping.exe utiliza ICMP, você pode usar outras ferramentas, como PSPing, Nmap e telnet para testar a conectividade com uma porta TCP específica.
 
-Para obter mais informações, consulte [Usar pings de porta em vez de ICMP para testar a conectividade de VM do Azure](https://blogs.msdn.microsoft.com/mast/2014/06/22/use-port-pings-instead-of-icmp-to-test-azure-vm-connectivity/).
+Para obter mais informações, consulte [Usar pings de porta em vez de ICMP para testar a conectividade de VM do Azure](/archive/blogs/mast/use-port-pings-instead-of-icmp-to-test-azure-vm-connectivity).
 
 ## <a name="how-do-i-prevent-receiving-thousands-of-hits-from-unknown-ip-addresses-that-might-indicate-a-malicious-attack-to-the-cloud-service"></a>Como fazer para impedir o recebimento de milhares de visitas de endereços IP desconhecidos que indiquem um ataque mal-intencionado ao serviço de nuvem?
 O Azure implementa um segurança de rede de várias camadas para proteger seus serviços de plataforma contra ataques de DDoS (negação de serviço distribuída). O sistema de proteção contra DDoS do Azure faz parte do processo de monitoramento contínuo do Azure, que é aprimorado continuamente por meio de teste de penetração. Esse sistema de proteção DDoS foi projetado para resistir não só a ataques externos, como também a de outros locatários do Azure. Para obter mais informações, consulte [segurança de rede do Azure](https://download.microsoft.com/download/C/A/3/CA3FC5C0-ECE0-4F87-BF4B-D74064A00846/AzureNetworkSecurity_v3_Feb2015.pdf).
@@ -67,7 +63,7 @@ O algoritmo de distribuição usado é um hash de 5 tuplas (IP de origem, porta 
 
 O Módulo de Reescrita de URL do IIS pode ser usado para redirecionar o tráfego que chega na URL padrão do serviço de nuvem (por exemplo, \*.cloudapp.net) para alguma URL/Nome DNS personalizada. Como o módulo de reescrita de URL é habilitado em funções Web por padrão e suas regras são configuradas no web.config do aplicativo, ele está sempre disponível na VM, independentemente de reinicializações/reimagens. Para obter mais informações, consulte:
 
-- [Criar regras de reescrita para o Módulo de Reescrita de URL](https://docs.microsoft.com/iis/extensions/url-rewrite-module/creating-rewrite-rules-for-the-url-rewrite-module)
+- [Criar regras de reescrita para o Módulo de Reescrita de URL](/iis/extensions/url-rewrite-module/creating-rewrite-rules-for-the-url-rewrite-module)
 - [Remova o link padrão](https://stackoverflow.com/questions/32286487/azure-website-how-to-remove-default-link?answertab=votes#tab-top)
 
 ## <a name="how-can-i-blockdisable-incoming-traffic-to-the-default-url-of-my-cloud-service"></a>Como bloquear/desabilitar o tráfego de entrada para a URL padrão do meu serviço de nuvem?
@@ -99,7 +95,7 @@ Como essa associação de cabeçalho de host é imposta por meio do arquivo csde
 
 ## <a name="how-can-i-make-sure-the-public-facing-ip-address-of-a-cloud-service-never-changes"></a>Como posso ter certeza de que o endereço de IP público de um serviço de nuvem nunca muda?
 
-Para certificar-se de que o endereço IP público do seu serviço de nuvem (também conhecido como VIP) nunca será alterado para que ele possa estar normalmente na lista de permissões por alguns clientes específicos, é recomendável que você tem um IP reservado associado a ele. Caso contrário, o IP virtual fornecido pelo Azure é desalocado da sua assinatura, se você excluir a implantação. Para a operação de permuta de VIP bem-sucedida, você precisará de IPs reservados individuais para slots de preparo e produção. Sem eles, a operação de troca falhará. Para reservar um endereço IP e associá-lo aos seus Serviços de Nuvem, veja os artigos:
+Para garantir que o endereço IP voltado para o público do seu serviço de nuvem (também conhecido como VIP) nunca seja alterado para que possa ser normalmente aprovado por alguns clientes específicos, recomendamos que você tenha um IP reservado associado a ele. Caso contrário, o IP virtual fornecido pelo Azure é desalocado da sua assinatura, se você excluir a implantação. Para a operação de permuta de VIP bem-sucedida, você precisará de IPs reservados individuais para slots de preparo e produção. Sem eles, a operação de troca falhará. Para reservar um endereço IP e associá-lo aos seus Serviços de Nuvem, veja os artigos:
 
 - [Reservar o endereço IP de um serviço de nuvem existente](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip#reserve-the-ip-address-of-an-existing-cloud-service)
 - [Associar um IP reservado a um serviço de nuvem usando um arquivo de configuração de serviço](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip#associate-a-reserved-ip-to-a-cloud-service-by-using-a-service-configuration-file)

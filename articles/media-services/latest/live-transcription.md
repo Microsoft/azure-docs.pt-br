@@ -1,27 +1,12 @@
 ---
-title: Transcrição ao vivo
-titleSuffix: Azure Media Services
-description: Saiba mais sobre a transcrição ao vivo dos serviços de mídia do Azure.
-services: media-services
-documentationcenter: ''
-author: IngridAtMicrosoft
-manager: femila
-editor: ''
-ms.service: media-services
-ms.workload: media
-ms.tgt_pltfrm: na
-ms.devlang: ne
-ms.topic: article
-ms.date: 06/12/2019
-ms.author: inhenkel
-ms.openlocfilehash: da80dacadbef560bb597a235fee59924d3887e19
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84765005"
+Título: transcrição ao vivo: descrição dos serviços de mídia do Azure: Saiba mais sobre a transcrição ao vivo dos serviços de mídia do Azure.  
+serviços: Media-Services documentationcenter: ' ' autor: IngridAtMicrosoft gerente: femila editor: ' ' MS. Service: Media-Services MS. Workload: Media ms.tgt_pltfrm: na MS. DevLang: NE MS. Topic: como-to MS. Date: 08/31/2020 MS. Author: inhenkel
+
 ---
+
 # <a name="live-transcription-preview"></a>Transcrição ao vivo (versão prévia)
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 O serviço de mídia do Azure fornece vídeo, áudio e texto em diferentes protocolos. Quando você publica sua transmissão ao vivo usando MPEG-DASH ou HLS/CMAF, juntamente com vídeo e áudio, nosso serviço entrega o texto transcrevedo no TTML compatível com IMSC 1.1. A entrega é empacotada nos fragmentos de MPEG-4, parte 30 (ISO/IEC 14496-30). Se estiver usando a entrega via HLS/TS, o texto será entregue como um VTT em bloco.
 
@@ -40,7 +25,7 @@ A transcrição ao vivo está disponível nas seguintes regiões:
 - Centro dos EUA
 - Centro-Sul dos Estados Unidos
 - Oeste dos EUA 2
-- Sul do Brasil
+- Brazil South
 
 Esta é a lista de idiomas disponíveis que podem ser transcritas, use o código de idioma na API.
 
@@ -135,7 +120,7 @@ Para ativar as transcrições dinâmicas ou para atualizar a linguagem de transc
 
 Esta é a chamada de exemplo para ativar transcrições dinâmicas.
 
-DISTRIBUÍDO```https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/liveEvents/:liveEventName?api-version=2019-05-01-preview```
+DISTRIBUÍDO ```https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/liveEvents/:liveEventName?api-version=2019-05-01-preview```
 
 ```
 {

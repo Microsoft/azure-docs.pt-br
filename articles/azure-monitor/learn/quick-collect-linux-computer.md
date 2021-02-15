@@ -13,18 +13,18 @@ ms.topic: quickstart
 ms.date: 12/24/2019
 ms.author: bwren
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: a1adf167bb23b3d66f6dcbd07794145f7c817105
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 4527d871df3667f483efd529d93f044377f34651
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322152"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186177"
 ---
 # <a name="quickstart-collect-data-from-a-linux-computer-in-a-hybrid-environment-with-azure-monitor"></a>Início Rápido: Coletar dados de um computador Linux em um ambiente híbrido com o Azure Monitor
 
 O [Azure Monitor](../overview.md) pode coletar dados diretamente dos computadores Linux físicos ou virtuais em seu ambiente em um único workspace do Log Analytics para correlação e análise detalhadas. A instalação do [agente do Log Analytics](../platform/log-analytics-agent.md) permite que o Azure Monitor colete dados de um datacenter ou de outro ambiente de nuvem. Este guia de início rápido mostra como configurar e coletar dados do servidor Linux com algumas etapas simples. Para saber mais sobre VMs Linux do Azure, confira [Coletar dados sobre máquinas virtuais do Azure](./quick-collect-azurevm.md).  
 
-Para entender a configuração com suporte, confira os tópicos [Suporte para sistemas operacionais Windows](../platform/log-analytics-agent.md#supported-linux-operating-systems) e [Configuração de firewall de rede](../platform/log-analytics-agent.md#network-requirements).
+Para entender a configuração com suporte, confira [Sistemas operacionais com suporte](../platform/agents-overview.md#supported-operating-systems) e [Configuração de firewall de rede](../platform/log-analytics-agent.md#network-requirements).
  
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -62,13 +62,11 @@ Antes de instalar o agente do Log Analytics para Linux, você precisa da ID do e
 
 2. Na lista de espaços de trabalho do Log Analytics, selecione o espaço de trabalho criado anteriormente. Você deve ter atribuído a ele o nome de **DefaultLAWorkspace**.
 
-3. Selecione **Configurações avançadas**:
-
-    ![Menu Configurações Avançadas do Log Analytics no portal do Azure](media/quick-collect-azurevm/log-analytics-advanced-settings-azure-portal.png) 
+3. Selecione o **Gerenciamento de agentes**:
  
-4. Selecione **Fontes Conectadas** e, em seguida, selecione **Servidores Linux**.
+4. Em seguida, selecione **Servidores Linux**.
 
-5. O valor à direita da **ID do Workspace** e **Chave Primária**. Copie e cole os dois em seu editor favorito.
+5. O valor à direita da **ID do Workspace** e da **Chave primária**. Copie e cole os dois em seu editor favorito.
 
 ## <a name="install-the-agent-for-linux"></a>Instalar o agente para Linux
 
@@ -168,5 +166,4 @@ Agora que você está coletando dados operacionais e de desempenho do computador
 Para saber como exibir e analisar os dados, continue lendo o tutorial.
 
 > [!div class="nextstepaction"]
-> [Exibir ou analisar dados no Log Analytics](../log-query/get-started-portal.md)
-
+> [Exibir ou analisar dados no Log Analytics](../log-query/log-analytics-tutorial.md)

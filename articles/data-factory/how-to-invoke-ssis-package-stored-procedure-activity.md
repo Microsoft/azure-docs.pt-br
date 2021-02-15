@@ -1,24 +1,19 @@
 ---
 title: Executar pacote do SSIS com atividade de procedimento armazenado-Azure
 description: Este artigo descreve como executar um pacote SSIS (SQL Server Integration Services) em um pipeline do Azure Data Factory usando a Atividade de Procedimento Armazenado.
-services: data-factory
-documentationcenter: ''
 author: swinarko
-manager: anandsub
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 07/09/2020
 ms.author: sawinark
-ms.openlocfilehash: e7729318e6121b0072546b8e111a8b782e95906d
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 6260606fe56d4dfc6bac93e04e726b5fd3298777
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86183385"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100391500"
 ---
 # <a name="run-an-ssis-package-with-the-stored-procedure-activity-in-azure-data-factory"></a>Executar um pacote SSIS usando a atividade de Procedimento Armazenado no Azure Data Factory
 
@@ -32,7 +27,7 @@ Este artigo descreve como executar um pacote SSIS em um pipeline do Azure Data F
 As instruções neste artigo usam o banco de dados SQL do Azure para hospedar o catálogo do SSIS. Você também pode usar o Azure SQL Instância Gerenciada.
 
 ## <a name="create-an-azure-ssis-integration-runtime"></a>Criar um Integration Runtime do Azure-SSIS
-Crie um Integration Runtime do Azure-SSIS, caso você não tenha um, seguindo as instruções passo a passo no [Tutorial: Implantar pacotes do SSIS](tutorial-create-azure-ssis-runtime-portal.md).
+Crie um Integration Runtime do Azure-SSIS, caso você não tenha um, seguindo as instruções passo a passo no [Tutorial: Implantar pacotes do SSIS](./tutorial-deploy-ssis-packages-azure.md).
 
 ## <a name="data-factory-ui-azure-portal"></a>Interface do usuário do Data Factory no Portal do Azure
 Nesta seção, você usa a interface do usuário do Data Factory para criar um pipeline do Data Factory com uma atividade de procedimento armazenado que invoca um pacote do SSIS.
@@ -55,8 +50,8 @@ A primeira etapa é criar uma data factory usando o Portal do Azure.
 3. Selecione a **assinatura** do Azure na qual você deseja criar o data factory. 
 4. Para o **Grupo de Recursos**, execute uma das seguintes etapas:
      
-   - Selecione **Usar existente**e selecione um grupo de recursos existente na lista suspensa. 
-   - Selecione **Criar novo**e insira o nome de um grupo de recursos.   
+   - Selecione **Usar existente** e selecione um grupo de recursos existente na lista suspensa. 
+   - Selecione **Criar novo** e insira o nome de um grupo de recursos.   
          
      Para saber mais sobre grupos de recursos, consulte [Usando grupos de recursos para gerenciar recursos do Azure](../azure-resource-manager/management/overview.md).  
 4. Selecione **V2** para a **versão**.
@@ -94,7 +89,7 @@ Nesta etapa, você usa a interface do usuário do Data Factory para criar um pip
     7. Teste a conexão com o banco de dados, clicando no botão **Testar conexão**.
     8. Salve o serviço vinculado. clicando no botão **Salvar**. 
 
-        ![Serviço vinculado para o Banco de Dados SQL do Azure](./media/how-to-invoke-ssis-package-stored-procedure-activity/azure-sql-database-linked-service-settings.png)
+        ![Captura de tela que mostra o processo de adição de um novo serviço vinculado.](./media/how-to-invoke-ssis-package-stored-procedure-activity/azure-sql-database-linked-service-settings.png)
 5. Na janela Propriedades, alterne para a guia **procedimento armazenado** da guia **conta SQL** e execute as seguintes etapas: 
 
     1. Selecione **Editar**. 
@@ -116,7 +111,7 @@ Nesta etapa, você usa a interface do usuário do Data Factory para criar um pip
     ![Validar o pipeline](./media/how-to-invoke-ssis-package-stored-procedure-activity/validate-pipeline.png)
 7. Publique o pipeline para Data Factory, clicando no botão **Publicar Tudo**. 
 
-    ![Publicar](./media/how-to-invoke-ssis-package-stored-procedure-activity/publish-all-button.png)    
+    ![Publicação](./media/how-to-invoke-ssis-package-stored-procedure-activity/publish-all-button.png)    
 
 ### <a name="run-and-monitor-the-pipeline"></a>Executar e monitorar o pipeline
 Nesta seção, você dispara uma execução do pipeline e, em seguida, faz o monitoramento. 

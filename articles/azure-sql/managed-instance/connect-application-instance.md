@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: sstein, bonova, carlrab, vanto
+ms.reviewer: sstein, bonova, vanto
 ms.date: 11/09/2018
-ms.openlocfilehash: a04f4879bbd06c2fa6c1af921d7adafdef9417d6
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 965e765e22a4da8f2ac3b7151337cf62b65be4fe
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88871438"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98732604"
 ---
 # <a name="connect-your-application-to-azure-sql-managed-instance"></a>Conectar seu aplicativo à Instância Gerenciada de SQL do Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -45,10 +45,10 @@ Há duas opções para conectar redes virtuais:
 - [Emparelhamento VNet do Azure](../../virtual-network/virtual-network-peering-overview.md)
 - Gateway de VPN VNET a VNET ([portal do Azure](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md), [PowerShell](../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md), [CLI do Azure](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-cli.md))
 
-O emparelhamento é preferível porque usa a rede de backbone da Microsoft, portanto, da perspectiva da conectividade, não há nenhuma diferença perceptível na latência entre as máquinas virtuais em uma rede virtual emparelhada e na mesma rede virtual. O emparelhamento de rede virtual é limitado às redes na mesma região.  
+O emparelhamento é preferível porque usa a rede de backbone da Microsoft, portanto, da perspectiva da conectividade, não há nenhuma diferença perceptível na latência entre as máquinas virtuais em uma rede virtual emparelhada e na mesma rede virtual. O emparelhamento de rede virtual tem suporte entre as redes na mesma região. O emparelhamento de rede virtual global também tem suporte com a limitação descrita na observação abaixo.  
 
 > [!IMPORTANT]
-> O cenário de emparelhamento de rede virtual para SQL Instância Gerenciada é limitado às redes na mesma região devido às [restrições de emparelhamento de rede virtual global](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). Consulte também a seção relevante do artigo [perguntas frequentes sobre redes virtuais do Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) para obter mais detalhes. 
+> [Em 9/22/2020 anunciamos o emparelhamento de rede virtual global para clusters virtuais recém-criados](https://azure.microsoft.com/en-us/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/). Isso significa que o emparelhamento de rede virtual global tem suporte para instâncias gerenciadas do SQL criadas em sub-redes vazias após a data do anúncio, bem como para todas as instâncias gerenciadas subsequentes criadas nessas sub-redes. Para todas as outras instâncias gerenciadas do SQL, o suporte ao emparelhamento é limitado às redes na mesma região devido às [restrições do emparelhamento de rede virtual global](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). Consulte também a seção relevante do artigo [perguntas frequentes sobre redes virtuais do Azure](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) para obter mais detalhes. 
 
 ## <a name="connect-from-on-premises"></a>Conectar do local 
 
@@ -56,7 +56,7 @@ Você também pode conectar seu aplicativo local ao SQL Instância Gerenciada. O
 
 Há duas opções de como conectar-se localmente a uma rede virtual do Azure:
 
-- Conexão VPN site a site ([portal do Azure](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md), [PowerShell](../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md) [CLI do Azure](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md))
+- Conexão VPN site a site ([portal do Azure](../../vpn-gateway/tutorial-site-to-site-portal.md), [PowerShell](../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md) [CLI do Azure](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md))
 - Conexão [do Azure ExpressRoute](../../expressroute/expressroute-introduction.md)  
 
 Se você tiver estabelecido uma conexão local para o Azure com êxito e não puder estabelecer uma conexão com o SQL Instância Gerenciada, verifique se o firewall tem uma conexão de saída aberta na porta do SQL 1433, bem como o intervalo 11000-11999 de portas para redirecionamento.
@@ -151,8 +151,8 @@ As seguintes versões mínimas das ferramentas e dos drivers serão recomendadas
 |Driver JDBC| 6.4.0 |
 |Driver Node.js| 2.1.1 |
 |Driver OLE DB| 18.0.2.0 |
-|SSMS| 18,0 ou [superior](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) |
-|[SMO](https://docs.microsoft.com/sql/relational-databases/server-management-objects-smo/sql-server-management-objects-smo-programming-guide) | [150](https://www.nuget.org/packages/Microsoft.SqlServer.SqlManagementObjects) ou superior |
+|SSMS| 18,0 ou [superior](/sql/ssms/download-sql-server-management-studio-ssms) |
+|[SMO](/sql/relational-databases/server-management-objects-smo/sql-server-management-objects-smo-programming-guide) | [150](https://www.nuget.org/packages/Microsoft.SqlServer.SqlManagementObjects) ou superior |
 
 ## <a name="next-steps"></a>Próximas etapas
 

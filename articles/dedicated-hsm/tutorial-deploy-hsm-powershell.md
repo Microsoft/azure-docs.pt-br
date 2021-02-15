@@ -8,17 +8,17 @@ manager: rkarlin
 editor: ''
 ms.service: key-vault
 ms.topic: tutorial
-ms.custom: mvc, seodec18
+ms.custom: mvc, seodec18, devx-track-azurepowershell
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/14/2020
-ms.author: johndaw
-ms.openlocfilehash: 93333f2f0a2ef4aaf44884aa30afaa959459aaad
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.author: mbaldwin
+ms.openlocfilehash: 52b62e463edc51b3d93d7af69623a88abd9cc6be
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88257424"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108578"
 ---
 # <a name="tutorial--deploying-hsms-into-an-existing-virtual-network-using-powershell"></a>Tutorial – Implantando HSMs em uma rede virtual existente usando o PowerShell
 
@@ -233,7 +233,7 @@ Quando estiver conectado ao dispositivo HSM usando SSH, execute o comando a segu
 
 A saída deve se parecer com a imagem abaixo:
 
-![status do provisionamento](media/tutorial-deploy-hsm-powershell/output.png)
+![Captura de tela que mostra a saída do comando hsm show.](media/tutorial-deploy-hsm-powershell/output.png)
 
 A essa altura, você alocou todos os recursos para ter uma implantação de dois HSMs altamente disponíveis e validou o acesso e o estado operacional. Outras configurações ou testes envolvem mais trabalho com o próprio dispositivo HSM. Para inicializar o HSM e criar partições, siga as instruções no Capítulo 7 do Guia de administração do Gemalto Luna Network HSM 7. Toda a documentação e o software estão disponíveis para download diretamente na Gemalto depois que você tiver se registrado no Portal de suporte do cliente da Gemalto e tiver uma ID de cliente. Baixe o software cliente versão 7.2 para obter todos os componentes necessários.
 

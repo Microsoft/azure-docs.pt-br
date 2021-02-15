@@ -4,15 +4,15 @@ description: Saiba como o firewall do aplicativo Web do Azure na CDN do Azure pr
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.topic: overview
-ms.date: 03/18/2020
+ms.topic: conceptual
+ms.date: 08/31/2020
 ms.author: victorh
-ms.openlocfilehash: d56c57a12995e0ea94c10f371bf09a3b3f9733ba
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 6949c1e8f83ebf47878a3d449796ccc03920756a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87278617"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89225145"
 ---
 # <a name="azure-web-application-firewall-on-azure-content-delivery-network"></a>Firewall do aplicativo Web do Azure na Rede de Distribuição de Conteúdo do Azure
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: raynew
 ms.openlocfilehash: 71d230c9fea25edfbf0ca4ea40f15b69779ad060
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84711894"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>Configurar a recuperação de desastre de máquinas virtuais VMware locais ou de servidores físicos para um site secundário
@@ -50,7 +50,7 @@ o  Para máquinas físicas, siga este [tutorial](./physical-azure-disaster-recov
 --|--|--
 **Componentes necessários** |Serviço de mobilidade em máquinas replicadas. Servidor de configuração no local, servidor de processo, servidor de destino master. Servidor no processo temporário no Azure para failback.|Servidor de mobilidade, Servidor de Processo, Servidor de Configuração e Destino Master
 **Configuração e orquestração** |Cofre de Serviços de Recuperação no portal do Azure | Usando o vContinuum 
-**Replicada** |Disco (Windows e Linux) |Volume – Windows<br> Disco-Linux
+**Replicado** |Disco (Windows e Linux) |Volume – Windows<br> Disco-Linux
 **Cluster de disco compartilhado** |Sem suporte|Com suporte
 **Limites de variação de dados (em média)** |Dados de 10 MB/s por disco<br> Dados de 25MB/s por VM<br> [Saiba mais](./site-recovery-vmware-deployment-planner-analyze-report.md#azure-site-recovery-limits) | > Dados de 10 MB/s por disco  <br> > Dados de 25MB/s por VM
 **Monitoring** |Do portal do Azure|Do CX (Servidor de Configuração)
@@ -60,7 +60,7 @@ o  Para máquinas físicas, siga este [tutorial](./physical-azure-disaster-recov
 ## <a name="prerequisites"></a>Pré-requisitos
 Para concluir este tutorial:
 
-- [Examine](vmware-physical-secondary-support-matrix.md) os requisitos de suporte de todos os componentes.
+- [Examine](vmware-physical-secondary-support-matrix.md) os requisitos de suporte para todos os componentes.
 - Verifique se as máquinas que você deseja replicar estão em conformidade com o [suporte ao computador replicado](vmware-physical-secondary-support-matrix.md#replicated-vm-support).
 
 
@@ -118,14 +118,14 @@ Baixe o arquivo .zip de [atualização](https://aka.ms/asr-scout-update7) e os a
 - InMage_UA_8.0.7.0_SLES11-SP3-64_GA_03Dec2018_release.tar.gz
 - InMage_UA_8.0.7.0_SLES11-SP4-64_GA_03Dec2018_release.tar.gz
   1. Extraia os arquivos .zip.
-  2. **Servidor RX**: Copie **RX_8.0,7.0_GA_Update_7_2965621_28Dec18. tar. gz** para o servidor RX e extraia-o. Na pasta extraída, execute **/Install**.
+  2. **Servidor RX**: Copie **RX_8.0.7.0_GA_Update_7_2965621_28Dec18. tar. gz** para o servidor RX e extraia-o. Na pasta extraída, execute **/Install**.
   3. **Servidor de configuração e servidor de processo**: Copie **CX_Windows_8.0.7.0_GA_Update_7_2965621_28Dec18.exe** para o servidor de configuração e o servidor de processo. Clique duas vezes para executá-lo.<br>
   4. **Servidor de destino mestre do Windows**: para atualizar o agente unificado, copie **InMage_UA_8.0.7.0_Windows_GA_27Dec2018_release.exe** para o servidor. Clique duas vezes nele para executá-lo. O mesmo arquivo também pode ser usado para uma nova instalação. A mesma atualização de agente unificado também se aplica ao servidor de origem.
   A atualização não precisa ser aplicada ao destino Mestre preparado com **InMage_Scout_vContinuum_MT_8.0.7.0_Windows_GA_27Dec2018_release.exe**, pois esse é o novo instalador GA com todas as últimas alterações.
   5. **servidor vContinuum**: Copie **InMage_Scout_vContinuum_MT_8.0.7.0_Windows_GA_27Dec2018_release.exe** para o servidor.  Verifique se que você fechou o assistente vContinuum. Clique duas vezes no arquivo para executá-lo.
-  6. **Servidor de destino mestre do Linux**: para atualizar o agente unificado, copie **InMage_UA_8.0,7.0_RHEL6-64_GA_03Dec2018_release. tar. gz** para o servidor de destino mestre do Linux e extraia-o. Na pasta extraída, execute **/Install**.
+  6. **Servidor de destino mestre do Linux**: para atualizar o agente unificado, copie **InMage_UA_8.0.7.0_RHEL6-64_GA_03Dec2018_release. tar. gz** para o servidor de destino mestre do Linux e extraia-o. Na pasta extraída, execute **/Install**.
   7. **Servidor de origem do Windows**: para atualizar o agente unificado, copie **InMage_UA_8.0.7.0_Windows_GA_27Dec2018_release.exe** para o servidor de origem. Clique duas vezes no arquivo para executá-lo. 
-  8. **Servidor Linux de origem**: para atualizar o agente unificado, copie a versão correspondente do arquivo de agente unificado para o servidor Linux e extraia-o. Na pasta extraída, execute **/Install**.  Exemplo: para o servidor RHEL 6,7 64-bit, copie **InMage_UA_8.0,7.0_RHEL6-64_GA_03Dec2018_release. tar. gz** para o servidor e extraia-o. Na pasta extraída, execute **/Install**.
+  8. **Servidor Linux de origem**: para atualizar o agente unificado, copie a versão correspondente do arquivo de agente unificado para o servidor Linux e extraia-o. Na pasta extraída, execute **/Install**.  Exemplo: para o servidor RHEL 6,7 64-bit, copie **InMage_UA_8.0.7.0_RHEL6-64_GA_03Dec2018_release. tar. gz** para o servidor e extraia-o. Na pasta extraída, execute **/Install**.
   9. Depois de atualizar o Servidor de Configuração, o Servidor de Processo e o servidor RX com os instaladores mencionados acima, as bibliotecas PHP e MySQL precisarão ser atualizadas manualmente com as etapas mencionadas na seção 7.4 do [guia de instalação rápida](https://aka.ms/asr-scout-quick-install-guide).
 
 ## <a name="enable-replication"></a>Habilitar a replicação
@@ -133,7 +133,7 @@ Baixe o arquivo .zip de [atualização](https://aka.ms/asr-scout-update7) e os a
 1. Configure a replicação entre os sites do VMware de origem e de destino.
 2. Consulte os documentos a seguir para saber mais sobre a instalação, proteção e recuperação:
 
-   * [Notas de versão](https://aka.ms/asr-scout-release-notes)
+   * [Notas sobre a versão](https://aka.ms/asr-scout-release-notes)
    * [Matriz de compatibilidade](https://aka.ms/asr-scout-cm)
    * [Guia do usuário](https://aka.ms/asr-scout-user-guide)
    * [Guia do usuário do RX](https://aka.ms/asr-scout-rx-user-guide)

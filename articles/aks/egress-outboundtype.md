@@ -3,17 +3,15 @@ title: Personalizar UDRs (rotas definidas pelo usuário) no AKS (Serviço de Kub
 description: Saiba como definir uma rota de saída personalizada no AKS (Serviço de Kubernetes do Azure)
 services: container-service
 ms.topic: article
-ms.author: juluk
 ms.date: 06/29/2020
-author: jluk
-ms.openlocfilehash: 5095931e28438beebf3250155ede1a8af0bb5c64
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 103d7dc76dee56a336f08f2cc0c7c8489c0bc565
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88796962"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348127"
 ---
-# <a name="customize-cluster-egress-with-a-user-defined-route"></a>Personalizar a saída do cluster com uma rota definida pelo usuário
+# <a name="customize-cluster-egress-with-a-user-defined-route"></a>Personalizar a saída do cluster com uma rota de User-Defined
 
 A saída de um cluster AKS pode ser personalizada para se ajustar a cenários específicos. Por padrão, o AKS provisionará uma Load Balancer SKU padrão a ser configurada e usada para saída. No entanto, a configuração padrão poderá não cumprir os requisitos de todos os cenários se IPs públicos não forem permitidos ou saltos adicionais forem necessários para saída.
 
@@ -51,7 +49,7 @@ A configuração a seguir é feita pelo AKS.
 
 Abaixo está uma topologia de rede implantada em clusters do AKS por padrão, que usam um `outboundType` de `loadBalancer`.
 
-![outboundtype-lb](media/egress-outboundtype/outboundtype-lb.png)
+![O diagrama mostra a entrada I e saída I P, em que o p de entrada direciona o tráfego para um balanceador de carga, que direciona o tráfego para e de um cluster interno e outro tráfego para a saída I P, que direciona o tráfego para a Internet, M C R, serviços exigidos pelo Azure e o plano de controle K S.](media/egress-outboundtype/outboundtype-lb.png)
 
 ### <a name="outbound-type-of-userdefinedrouting"></a>Tipo de saída de userDefinedRouting
 

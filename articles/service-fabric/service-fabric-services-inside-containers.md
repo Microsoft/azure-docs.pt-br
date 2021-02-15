@@ -3,14 +3,13 @@ title: Colocar os microsserviços do Azure Service Fabric em contêineres no Win
 description: Como colocar em contêineres seus serviços de Reliable Services e Reliable Actors do Service Fabric no Windows.
 ms.topic: conceptual
 ms.date: 5/23/2018
-ms.author: anmola
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 16840eb397dad697d4f3b9f361225e98442ae39e
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: e0c5f3ecf0334ad2190d8542e54388a2a25d30fb
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89016199"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999800"
 ---
 # <a name="containerize-your-service-fabric-reliable-services-and-reliable-actors-on-windows"></a>Colocar em contêineres seus Reliable Services e Reliable Actors do Service Fabric no Windows
 

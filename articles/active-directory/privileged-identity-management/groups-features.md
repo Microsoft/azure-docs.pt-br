@@ -12,20 +12,23 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/27/2020
+ms.date: 12/01/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b6709d7589ebf4c82ec25c6b7a79fa31a305839
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 759781fd61cd42d05f2823d390e99d128dd2fcac
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87506436"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96512385"
 ---
 # <a name="management-capabilities-for-privileged-access-azure-ad-groups-preview"></a>Funcionalidades de gerenciamento para grupos do Azure AD com acesso privilegiado (versão prévia)
 
-No PIM (Privileged Identity Management), agora você pode atribuir qualificação para associação ou propriedade de grupos com acesso privilegiado. Começando com essa versão prévia, você pode atribuir funções internas do Azure AD (Azure Active Directory) a grupos de nuvem e usar o PIM para gerenciar a qualificação e a ativação de proprietários e membros do grupo. Para obter mais informações sobre grupos passíveis de atribuição de função no Azure AD, confira [Usar grupos de nuvem para gerenciar atribuições de função no Azure Active Directory (versão prévia)](../users-groups-roles/roles-groups-concept.md).
+No PIM (Privileged Identity Management), agora você pode atribuir qualificação para associação ou propriedade de grupos com acesso privilegiado. Começando com essa versão prévia, você pode atribuir funções internas do Azure AD (Azure Active Directory) a grupos de nuvem e usar o PIM para gerenciar a qualificação e a ativação de proprietários e membros do grupo. Para obter mais informações sobre grupos passíveis de atribuição de função no Azure AD, confira [Usar grupos de nuvem para gerenciar atribuições de função no Azure Active Directory (versão prévia)](../roles/groups-concept.md).
+
+>[!Important]
+> Para atribuir uma função de acesso administrativo a um grupo de acesso privilegiado no Exchange, no Centro de Conformidade e Segurança ou no SharePoint, use a experiência **Funções e Administradores** do portal do Azure AD, não a experiência Grupos de Acesso Privilegiado para tornar o usuário ou o grupo qualificado para ativação no grupo.
 
 ## <a name="require-different-policies-for-each-role-assignable-group"></a>Exigir políticas diferentes para cada grupo passível de atribuição de função
 

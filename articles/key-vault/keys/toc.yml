@@ -13,8 +13,17 @@
       href: quick-create-powershell.md
     - name: Portal
       href: quick-create-portal.md
+    - name: .NET
+      href: quick-create-net.md
+    - name: Node.js
+      href: quick-create-node.md
     - name: Python
       href: quick-create-python.md
+    - name: Java
+      href: quick-create-java.md
+    - name: Modelo de ARM
+      displayName: Resource Manager
+      href: quick-create-template.md
 - name: Tutoriais
   items:
     - name: Importar chaves protegidas por HSM (visão geral)
@@ -26,10 +35,11 @@
 - name: Exemplos
   items:
     - name: Exemplos de código do Key Vault
-      href: 'https://docs.microsoft.com/samples/browse/?expanded=azure&products=azure-key-vault'
-    - name: Itens internos do Azure Policy
-      displayName: 'samples, policies, definitions'
-      href: ../policy-samples.md?toc=/azure/key-vault/keys/toc.json&bc=/azure/key-vault/breadcrumb/toc.json
+      href: /samples/browse/?expanded=azure&products=azure-key-vault
+- name: Conceitos
+  items:
+    - name: 'Tipos de chave, algoritmos e operações'
+      href: about-keys-details.md
 - name: Referência
   items:
     - name: Azure PowerShell
@@ -41,7 +51,7 @@
     - name: Java
       href: /java/api/overview/azure/keyvault?view=azure-java-stable
     - name: Node.js
-      href: 'https://docs.microsoft.com/javascript/api/overview/azure/key-vault-index?view=azure-node-latest'
+      href: /javascript/api/overview/azure/key-vault-index?view=azure-node-latest
     - name: Python
       href: /python/api/overview/azure/keyvault-keys-readme?view=azure-python
     - name: REST
@@ -51,6 +61,9 @@
       displayName: ARM
     - name: Especificação de Bring Your Own Key
       href: byok-specification.md
+    - name: Itens internos do Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ../policy-reference.md?toc=/azure/key-vault/keys/toc.json&bc=/azure/key-vault/breadcrumb/toc.json
 - name: Recursos
   items:
     - name: Desenvolva suas habilidades com o Microsoft Learn
@@ -68,6 +81,6 @@
     - name: Atualizações de serviço
       href: 'https://azure.microsoft.com/updates/?product=key-vault'
     - name: Blog
-      href: 'https://blogs.technet.com/b/kv/'
+      href: /archive/blogs/kv/
     - name: Comentários sobre o Produto
       href: 'https://feedback.azure.com/forums/906355-azure-key-vault'

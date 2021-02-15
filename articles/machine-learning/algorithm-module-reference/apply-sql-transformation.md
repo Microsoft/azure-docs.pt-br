@@ -8,17 +8,17 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 09/09/2019
-ms.openlocfilehash: 2e44a4861e2522b766aab9c7151d76c471dd2d8c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 11/12/2020
+ms.openlocfilehash: c66fbe59fd5b2660d02bfca285f78666d64569fe
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76314531"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555593"
 ---
 # <a name="apply-sql-transformation"></a>Aplicar transformação de SQL
 
-Este artigo descreve um módulo do designer de Azure Machine Learning (versão prévia).
+Este artigo descreve um módulo do designer de Azure Machine Learning.
 
 Usando o módulo aplicar transformação SQL, você pode:
   
@@ -29,11 +29,26 @@ Usando o módulo aplicar transformação SQL, você pode:
 -   Executar instruções de consulta SQL para filtrar ou alterar dados e retornar os resultados da consulta como uma tabela de dados.  
 
 > [!IMPORTANT]
-> O mecanismo SQL usado neste módulo é **SQLite**. Para obter mais informações sobre a sintaxe do SQLite, consulte [SQL como compreendido pelo SQLite](https://www.sqlite.org/index.html) para obter mais informações.  
+> O mecanismo SQL usado neste módulo é **SQLite**. Para obter mais informações sobre a sintaxe do SQLite, consulte [SQL como compreendido pelo SQLite](https://www.sqlite.org/index.html).
+> Esse módulo irá repassar os dados para o SQLite, que está no banco de dados de memória, portanto, a execução do módulo requer muito mais memória e pode atingir um `Out of memory` erro. Verifique se o computador tem RAM suficiente.
 
 ## <a name="how-to-configure-apply-sql-transformation"></a>Como configurar aplicar transformação SQL  
 
 O módulo pode ter até três conjuntos de dados como entradas. Ao fazer referência aos conjuntos de dados conectados a cada porta de entrada, você deve usar os nomes `t1` , `t2` e `t3` . O número da tabela indica o índice da porta de entrada.  
+
+Veja a seguir o código de exemplo para mostrar como unir duas tabelas. T1 e T2 são dois conjuntos de dados conectados às portas de entrada esquerda e intermediária de **aplicar transformação SQL** :
+
+```sql
+SELECT t1.*
+    , t3.Average_Rating
+FROM t1 join
+    (SELECT placeID
+        , AVG(rating) AS Average_Rating
+    FROM t2
+    GROUP BY placeID
+    ) as t3
+on t1.placeID = t3.placeID
+```
   
 O parâmetro restante é uma consulta SQL, que usa a sintaxe do SQLite. Ao digitar várias linhas na caixa de texto **script SQL** , use um ponto-e-vírgula para encerrar cada instrução. Caso contrário, as quebras de linha serão convertidas em espaços.  
 
@@ -53,7 +68,7 @@ Embora SQLite suporte a maior parte do padrão ANSI SQL, ele não inclui muitos 
   
 - O SQLite usa digitação dinâmica para valores, em vez de atribuir um tipo a uma coluna como na maioria dos sistemas de banco de dados relacional. Ele é digitado sem rigidez e permite a conversão implícita de tipos.  
   
-- `LEFT OUTER JOIN`é implementado, mas não `RIGHT OUTER JOIN` ou `FULL OUTER JOIN` .  
+- `LEFT OUTER JOIN` é implementado, mas não `RIGHT OUTER JOIN` ou `FULL OUTER JOIN` .  
 
 - Você pode usar as instruções `RENAME TABLE` e `ADD COLUMN` com o comando `ALTER TABLE`, mas outras cláusulas não são suportadas, incluindo `DROP COLUMN`, `ALTER COLUMN` e `ADD CONSTRAINT`.  
   

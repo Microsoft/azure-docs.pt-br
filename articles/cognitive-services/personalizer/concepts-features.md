@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 10/14/2019
-ms.openlocfilehash: 590416f077fc1ff9430e42e27217548476c9032f
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: f49abd4ca1cc1ccdcb7ba2b0fab3bad953dede5d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132765"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100380535"
 ---
 # <a name="features-are-information-about-actions-and-context"></a>Recursos são informações sobre ações e contexto
 
@@ -37,12 +37,12 @@ O personalizador não prescreve, limita ou corrige quais recursos você pode env
 
 ## <a name="supported-feature-types"></a>Tipos de recursos compatíveis
 
-O Personalizador dá suporte a recursos de tipos de cadeia de caracteres, numéricos e boolianos.
+O Personalizador dá suporte a recursos de tipos de cadeia de caracteres, numéricos e boolianos. É muito provável que seu aplicativo use, principalmente, recursos de cadeia de caracteres, com algumas exceções.
 
 ### <a name="how-choice-of-feature-type-affects-machine-learning-in-personalizer"></a>Como a escolha do tipo de recurso afeta Machine Learning no Personalizador
 
-* **Strings**: para tipos de cadeia de caracteres, cada combinação de chave e valor cria novos pesos no modelo personalizado de aprendizado de máquina. 
-* **Numeric**: você deve usar valores numéricos quando o número deve afetar proporcionalmente o resultado da personalização. Isso depende muito do cenário. Em um exemplo simplificado, por exemplo, ao personalizar uma experiência de varejo, o NumberOfPetsOwned pode ser um recurso que é numérico, pois você pode querer que as pessoas com 2 ou 3 animais de estimação influenciem o resultado da personalização duas vezes ou três vezes por até um animal de estimação. Recursos que são baseados em unidades numéricas, mas em que o significado não é linear, como idade, temperatura ou altura da pessoa, são mais bem codificados como cadeias de caracteres, e a qualidade do recurso pode ser normalmente melhorada usando intervalos. Por exemplo, age pode ser codificada como "Age": "0-5", "Age": "6-10", etc.
+* **Strings**: para tipos de cadeia de caracteres, cada combinação de chave e valor é tratada como um recurso de One-Hot (por exemplo, Gênero: "ScienceFiction" e Gênero: "documentário" criaria dois novos recursos de entrada para o modelo de aprendizado de máquina.
+* **Numeric**: você deve usar valores numéricos quando o número for uma magnitude que deve afetar proporcionalmente o resultado da personalização. Isso depende muito do cenário. Em um exemplo simplificado, por exemplo, ao personalizar uma experiência de varejo, o NumberOfPetsOwned pode ser um recurso que é numérico, pois você pode querer que as pessoas com 2 ou 3 animais de estimação influenciem o resultado da personalização duas vezes ou três vezes por até um animal de estimação. Recursos que são baseados em unidades numéricas, mas onde o significado não é linear, como idade, temperatura ou altura da pessoa, são mais bem codificados como cadeias de caracteres. Por exemplo, DayOfMonth seria uma cadeia de caracteres com "1", "2"... "31". Se você tiver muitas categorias, a qualidade do recurso pode ser normalmente melhorada usando intervalos. Por exemplo, age pode ser codificada como "Age": "0-5", "Age": "6-10", etc.
 * Valores **boolianos** enviados com o valor "false" funcionam como se não tivessem sido enviados.
 
 Os recursos que não estão presentes devem ser omitidos da solicitação. Evite o envio de recursos com um valor nulo, pois ele será processado como existente e com um valor igual a "nulo" ao treinar o modelo.
@@ -80,12 +80,14 @@ Os objetos JSON podem incluir objetos JSON aninhados e propriedades/valores simp
         { 
             "user": {
                 "profileType":"AnonymousUser",
-                "latlong": [47.6, -122.1]
+                "latlong": ["47.6,-122.1"]
             }
         },
         {
-            "state": {
-                "timeOfDay": "noon",
+            "environment": {
+                "dayOfMonth": "28",
+                "monthOfYear": "8",
+                "timeOfDay": "13:00",
                 "weather": "sunny"
             }
         },
@@ -93,6 +95,13 @@ Os objetos JSON podem incluir objetos JSON aninhados e propriedades/valores simp
             "device": {
                 "mobile":true,
                 "Windows":true
+            }
+        },
+        {
+            "userActivity" : {
+                "itemsInCart": 3,
+                "cartValue": 250,
+                "appliedCoupon": true
             }
         }
     ]
@@ -113,6 +122,8 @@ Um bom conjunto de recursos ajuda o Personalizador a aprender a prever a ação 
 
 Considere o envio de recursos para a API de Classificação do Personalizador que sigam estas recomendações:
 
+* Use tipos categóricos e de cadeia de caracteres para recursos que não são uma magnitude. 
+
 * Há recursos suficientes para orientar a personalização. Quanto mais rigorosamente direcionado o conteúdo precisar ser, mais recursos serão necessários.
 
 * Há recursos suficientes de *densidades* diversificadas. Um recurso é *denso* se muitos itens são agrupados em alguns buckets. Por exemplo, milhares de vídeos podem ser classificados como "Longos" (mais de 5 minutos de duração) e "Curtos" (menos em 5 minutos de duração). Esse é um recurso *muito denso*. Por outro lado, os mesmos milhares de itens podem ter um atributo chamado "Title", que quase nunca terá o mesmo valor de um item para outro. Esse é um recurso não muito denso ou *esparso*.  
@@ -131,7 +142,7 @@ Estas seções a seguir são práticas comuns para melhorar os recursos enviados
 
 Por exemplo, um carimbo de data/hora que inclui os segundos é um recurso muito esparso. Ele pode se tornar mais denso (efetivo) com a classificação das horas em "manhã", "meio-dia", "tarde" etc.
 
-As informações de localização normalmente também se beneficiam da criação de classificações mais amplas. Por exemplo, uma coordenada de latitude-longitude como Lat: 47,67402 ° N, Long: 122,12154 ° W é muito precisa e força o modelo a aprender latitude e longitude como dimensões distintas. Quando você está tentando personalizar com base nas informações de localização, ele ajuda a agrupar informações de local em setores maiores. Uma maneira fácil de fazer isso é escolher uma precisão de arredondamento apropriada para os números de lat-long e combinar latitude e longitude em "areas", tornando-os em uma cadeia de caracteres. Por exemplo, uma boa maneira de representar 47,67402 ° N, Long: 122,12154 ° W em regiões com aproximadamente alguns quilômetros de largura seria "Location": "34.3, 12,1".
+As informações de localização normalmente também se beneficiam da criação de classificações mais amplas. Por exemplo, uma coordenada Latitude-Longitude como Lat: 47,67402 ° N, Long: 122,12154 ° W é muito preciso e força o modelo a aprender a latitude e a longitude como dimensões distintas. Quando você está tentando personalizar com base nas informações de localização, ele ajuda a agrupar informações de local em setores maiores. Uma maneira fácil de fazer isso é escolher uma precisão de arredondamento apropriada para os números de Lat-Long e combinar latitude e longitude em "áreas", tornando-os em uma cadeia de caracteres. Por exemplo, uma boa maneira de representar 47,67402 ° N, Long: 122,12154 ° W em regiões com aproximadamente alguns quilômetros de largura seria "Location": "34.3, 12,1".
 
 
 #### <a name="expand-feature-sets-with-extrapolated-information"></a>Expandir conjuntos de recursos com informações extrapoladas
@@ -152,10 +163,10 @@ Por exemplo:
 
 Você pode usar vários outros [Serviços Cognitivos do Azure](https://www.microsoft.com/cognitive-services), como
 
-* [Vinculação de Identidade](../entitylinking/home.md)
+* [Vinculação de Identidade](../text-analytics/index.yml)
 * [Análise de Texto](../text-analytics/overview.md)
-* [Emoção](../emotion/home.md)
-* [Pesquisa Visual Computacional](../computer-vision/home.md)
+* [Emoção](../face/overview.md)
+* [Pesquisa Visual Computacional](../computer-vision/overview.md)
 
 ## <a name="actions-represent-a-list-of-options"></a>As ações representam uma lista de opções
 
@@ -322,4 +333,4 @@ Os objetos JSON podem incluir objetos JSON aninhados e propriedades/valores simp
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Aprendizado de reforço](concepts-reinforcement-learning.md) 
+[Aprendizado de reforço](concepts-reinforcement-learning.md)

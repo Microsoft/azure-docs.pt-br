@@ -3,13 +3,13 @@ title: Obter logs de instância de contêiner & eventos
 description: Saiba como recuperar logs de contêiner e eventos em instâncias de contêiner do Azure para ajudar a solucionar problemas de contêiner
 ms.topic: article
 ms.date: 12/30/2019
-ms.custom: mvc
-ms.openlocfilehash: 0991b9cb1f99606910dbdf2c87b111f67da6da7b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 20b6e1cfe6bb8f6ac721a401c3d0831d4f447edb
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78249989"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746962"
 ---
 # <a name="retrieve-container-logs-and-events-in-azure-container-instances"></a>Recuperar logs e eventos de contêiner nas Instâncias de Contêiner do Azure
 

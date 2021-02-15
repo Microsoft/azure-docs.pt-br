@@ -7,11 +7,11 @@ ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: rohogue
 ms.openlocfilehash: c17d3c7cd2cf6fe5bca725cf94344b2d2cb50bf2
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88271134"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001517"
 ---
 # <a name="configure-storage"></a>Configurar o armazenamento
 
@@ -130,7 +130,7 @@ Para adicionar o Armazenamento de Blobs depois de criar o cluster, siga estas et
    | Nome da credencial | qualquer nome descritivo |
    | Tipo de serviço | (selecione a chave de acesso de armazenamento do Azure) |
    | Locatário | nome da conta de armazenamento |
-   | Assinatura | ID da assinatura |
+   | Subscription | ID da assinatura |
    | Chave de Acesso de Armazenamento | Chave de conta de Armazenamento do Azure (copiada na etapa anterior) |
 
    Clique em **Enviar**.
@@ -151,7 +151,7 @@ Para adicionar o Armazenamento de Blobs depois de criar o cluster, siga estas et
    * Definir **Conteúdos do Bucket** como **Vazio**
    * Mude **Verificação de certificado** para **Desabilitada**
    * Mude **Modo de compactação** para **Nenhum**
-   * Clique em **Avançar**.
+   * Clique em **Próximo**.
    * Na quarta página, digite o nome do contêiner em **Nome do Bucket** como *storage_account_name*/*container_name*.
    * Opcionalmente, defina **Tipo de Criptografia** como **Nenhum**.  O Armazenamento do Azure é criptografado por padrão.
    * Clique em **Adicionar Arquivista**.
@@ -172,11 +172,11 @@ Mais informações sobre junções podem ser encontradas na [seção de namespac
 
 Siga estas etapas na interface do painel de controle do avere:
 
-* Clique **VServer**em  >  **namespace** vserver no canto superior esquerdo.
+* Clique **VServer** em  >  **namespace** vserver no canto superior esquerdo.
 * Forneça um caminho de namespace que comece com / (barra), como ``/vfxt/data``.
 * Escolha seu arquivista central.
 * Escolha a exportação do arquivista central.
-* Clique em **Avançar**.
+* Clique em **Próximo**.
 
   ![Captura de tela da página "Adicionar nova junção" com os campos preenchidos para junção, arquivista central e exportação](media/avere-vfxt-add-junction.png)
 

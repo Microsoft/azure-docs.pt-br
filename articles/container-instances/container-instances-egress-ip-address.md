@@ -3,14 +3,12 @@ title: Configurar IP de saída estático
 description: Configurar o Firewall do Azure e as rotas definidas pelo usuário para as cargas de trabalho das instâncias de contêiner do Azure que usam o endereço IP público do firewall para entrada e saída
 ms.topic: article
 ms.date: 07/16/2020
-author: dlepow
-ms.author: danlep
-ms.openlocfilehash: d748e3e6239ba913afc5b8aadd7e85dcd1027c04
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 497645b9fe7f908cc9b8b4d7ed0ba5e201570160
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87023697"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89566561"
 ---
 # <a name="configure-a-single-public-ip-address-for-outbound-and-inbound-traffic-to-a-container-group"></a>Configurar um único endereço IP público para tráfego de entrada e de saída para um grupo de contêineres
 

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18, devx-track-python
-ms.openlocfilehash: 512776f2498a88f1fda9b5e7f0e2db0ddd32b955
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 36dfbf0fda060a8f273fee64098d6234b575088c
+ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962321"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97831832"
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>Perguntas frequentes sobre tecnologias de código aberto para Aplicativos Web do Azure
 
@@ -138,7 +138,7 @@ Para resolver o erro:
 
 1. Remova o arquivo sqljdbc*.jar da pasta do app/lib.
 2. Se você estiver usando o servidor web Tomcat personalizado ou o Azure Marketplace Tomcat, copie esse arquivo. jar para a pasta lib Tomcat.
-3. Se você estiver habilitando Java do portal do Azure (selecione **Java 1.8**  >  **servidor Tomcat**do Java 1,8), copie o arquivo JAR sqljdbc. * na pasta que é paralela ao seu aplicativo. Em seguida, adicione a seguinte configuração de classpath para o arquivo web.config:
+3. Se você estiver habilitando Java do portal do Azure (selecione   >  **servidor Tomcat** do Java 1,8), copie o arquivo JAR sqljdbc. * na pasta que é paralela ao seu aplicativo. Em seguida, adicione a seguinte configuração de classpath para o arquivo web.config:
 
     ```xml
     <httpPlatform>
@@ -169,9 +169,9 @@ Outra solução alternativa é gravar um WebJob que é executado em um agendamen
 
 ## <a name="where-do-i-find-the-log-files-for-jetty"></a>Onde encontrar os arquivos de log para Jetty?
 
-Para o Marketplace e implantações personalizadas, o arquivo de log está na pasta D:\home\site\wwwroot\bin\jetty-distribution-9.1.2.v20140210\logs. Observe que o local da pasta depende da versão do Jetty que você está usando. Por exemplo, o caminho fornecido aqui é para Jetty 9.1.2. Procure jetty_*YYYY_MM_DD*.stderrout.log.
+Para o Marketplace e implantações personalizadas, o arquivo de log está na pasta D:\home\site\wwwroot\bin\jetty-distribution-9.1.2.v20140210\logs. Observe que o local da pasta depende da versão do Jetty que você está usando. Por exemplo, o caminho fornecido aqui é para Jetty 9.1.2. Procure jetty_ *YYYY_MM_DD*.stderrout.log.
 
-Para implantações de Configuração do aplicativo do portal, o arquivo de log está em D:\home\LogFiles. Procure jetty_*YYYY_MM_DD*. stderrout. log
+Para implantações de Configuração do aplicativo do portal, o arquivo de log está em D:\home\LogFiles. Procure jetty_ *YYYY_MM_DD*. stderrout. log
 
 ## <a name="can-i-send-email-from-my-azure-web-app"></a>Posso enviar email de meu aplicativo web do Azure?
 
@@ -181,24 +181,24 @@ Serviço de Aplicativo não tem uma funcionalidade de email interno. Para alguma
 
 Se você ter migrado recentemente no Azure, WordPress pode redirecionar para a URL do domínio antigo. Isso é causado por uma configuração no banco de dados MySQL.
 
-WordPress Buddy + é uma extensão de Site do Azure que você pode usar para atualizar a URL de redirecionamento diretamente no banco de dados. Para obter mais informações sobre como usar o WordPress Buddy +, consulte [Ferramentas WordPress e migração do MySQL com WordPress Buddy +](https://sharepointforum.org/threads/wordpress-tools-and-mysql-migration-with-wordpress-buddy.82929/).
+WordPress Buddy + é uma extensão de Site do Azure que você pode usar para atualizar a URL de redirecionamento diretamente no banco de dados. Para obter mais informações sobre como usar o WordPress Buddy +, consulte [Ferramentas WordPress e migração do MySQL com WordPress Buddy +](https://www.electrongeek.com/blog/2016/12/21/wordpress-buddy-site-extension-for-app-service-on-windows).
 
 Como alternativa, se você preferir atualizar manualmente o redirecionamento de URL usando consultas SQL ou PHPMyAdmin, consulte [WordPress: Redirecionamento de URL errado](/archive/blogs/azureossds/wordpress-redirecting-to-wrong-url).
 
 ## <a name="how-do-i-change-my-wordpress-sign-in-password"></a>Como alterar minha senha de logon do WordPress?
 
-Se você esqueceu sua senha de logon do WordPress, você pode usar WordPress Buddy + para atualizá-la. Para redefinir sua senha, instale a extensão do Azure Site WordPress Buddy + e, em seguida, conclua as etapas descritas em [Ferramentas WordPress e migração do MySQL com WordPress Buddy +](https://sharepointforum.org/threads/wordpress-tools-and-mysql-migration-with-wordpress-buddy.82929/).
+Se você esqueceu sua senha de logon do WordPress, você pode usar WordPress Buddy + para atualizá-la. Para redefinir sua senha, instale a extensão do Azure Site WordPress Buddy + e, em seguida, conclua as etapas descritas em [Ferramentas WordPress e migração do MySQL com WordPress Buddy +](https://www.electrongeek.com/blog/2016/12/21/wordpress-buddy-site-extension-for-app-service-on-windows).
 
 ## <a name="i-cant-sign-in-to-wordpress-how-do-i-resolve-this"></a>Não consigo entrar WordPress. Como resolver isso?
 
-Se você estiver o WordPress bloqueado depois de instalar recentemente um plug-in, você pode ter um plug-in com defeito. WordPress Buddy + é uma extensão de Site do Azure que podem ajudá-lo desabilitar plug-ins no WordPress. Para obter mais informações, consulte [Ferramentas WordPress e migração do MySQL com WordPress Buddy +](https://sharepointforum.org/threads/wordpress-tools-and-mysql-migration-with-wordpress-buddy.82929/).
+Se você estiver o WordPress bloqueado depois de instalar recentemente um plug-in, você pode ter um plug-in com defeito. WordPress Buddy + é uma extensão de Site do Azure que podem ajudá-lo desabilitar plug-ins no WordPress. Para obter mais informações, consulte [Ferramentas WordPress e migração do MySQL com WordPress Buddy +](https://www.electrongeek.com/blog/2016/12/21/wordpress-buddy-site-extension-for-app-service-on-windows).
 
 ## <a name="how-do-i-migrate-my-wordpress-database"></a>Como migrar meu banco de dados do WordPress?
 
 Você tem várias opções para migrar o banco de dados MySQL que está conectado ao seu site de WordPress:
 
 * Desenvolvedores: Usar o [prompt de comando ou PHPMyAdmin](/archive/blogs/azureossds/migrating-data-between-mysql-databases-using-kudu-console-azure-app-service)
-* Não-desenvolvedores: Usar [WordPress Buddy +](https://sharepointforum.org/threads/wordpress-tools-and-mysql-migration-with-wordpress-buddy.82929/)
+* Não-desenvolvedores: Usar [WordPress Buddy +](https://www.electrongeek.com/blog/2016/12/21/wordpress-buddy-site-extension-for-app-service-on-windows)
 
 ## <a name="how-do-i-help-make-wordpress-more-secure"></a>Como ajudar a proteger melhor o WordPress?
 

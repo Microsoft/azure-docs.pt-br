@@ -3,18 +3,21 @@ title: Inverter na linguagem de consulta Azure Cosmos DB
 description: Saiba mais sobre a função do sistema SQL inverso na Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: a22e1c8a5f4350bd2f966ee48f96368c648a4a1e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7d70d65609211ea18f566dbae42aca5231ed2eb7
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78302161"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341563"
 ---
 # <a name="reverse-azure-cosmos-db"></a>REVERse (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Retorna a ordem inversa de um valor da cadeia de caracteres.  
   
 ## <a name="syntax"></a>Sintaxe

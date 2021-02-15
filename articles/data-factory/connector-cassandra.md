@@ -1,22 +1,17 @@
 ---
 title: Copiar dados do Cassandra usando o Azure Data Factory
 description: Saiba como copiar dados do Cassandra para armazenamentos de dados de coletor com suporte usando uma atividade de cópia em um pipeline do Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: 4b7fd2de0762de147ad3ceae0d562a1c78b33dc2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a3cd3c3ae28ae302e9469a71d00054152a9b5fb5
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81417464"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100383697"
 ---
 # <a name="copy-data-from-cassandra-using-azure-data-factory"></a>Copiar dados do Cassandra usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -65,7 +60,7 @@ As propriedades a seguir têm suporte para o serviço vinculado do Cassandra:
 | type |A propriedade type deve ser definida como: **Cassandra** |Sim |
 | host |Um ou mais endereços IP ou nomes de host dos servidores Cassandra.<br/>Especifique uma lista separada por vírgulas de endereços IP ou nomes de host para se conectar simultaneamente a todos os servidores. |Sim |
 | porta |A porta TCP usada pelo servidor Cassandra para ouvir conexões de cliente. |Não (o padrão é 9042) |
-| authenticationType | Tipo de autenticação usado para se conectar ao banco de dados Cassandra.<br/>Os valores permitidos são: **básico**e **anônimo**. |Sim |
+| authenticationType | Tipo de autenticação usado para se conectar ao banco de dados Cassandra.<br/>Os valores permitidos são: **básico** e **anônimo**. |Sim |
 | Nome de Usuário |Especifique o nome de usuário da conta de usuário. |Sim, se authenticationType for definida como Básica. |
 | password |Especifique a senha para a conta de usuário. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |Sim, se authenticationType for definida como Básica. |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Saiba mais na seção [Pré-requisitos](#prerequisites). Se não for especificado, ele usa o Integration Runtime padrão do Azure. |Não |
@@ -188,7 +183,7 @@ Ao copiar dados do Cassandra, os seguintes mapeamentos são usados de tipos de d
 | BOOLEAN |Boolean |
 | DECIMAL |Decimal |
 | DOUBLE |Double |
-| FLOAT |Single |
+| FLOAT |Único |
 | INET |String |
 | INT |Int32 |
 | TEXT |String |
@@ -219,7 +214,7 @@ As tabelas virtuais se referem aos dados na tabela real, permitindo que o driver
 
 Por exemplo, a "ExampleTable" a seguir é uma tabela de banco de dados Cassandra que contém uma coluna de chave primária de inteiro chamada "pk_int", uma coluna de texto chamada valor, uma coluna de lista, uma coluna de mapa e uma coluna de conjunto (chamada "StringSet").
 
-| pk_int | Valor | Lista | Mapeamento | StringSet |
+| pk_int | Valor | List | Mapeamento | StringSet |
 | --- | --- | --- | --- | --- |
 | 1 |"valor de exemplo 1" |["1", "2", "3"] |{"S1": "a", "S2": "b"} |{"A", "B", "C"} |
 | 3 |"valor de exemplo 3" |["100", "101", "102", "105"] |{"S1": "t"} |{"A", "E"} |
@@ -264,7 +259,7 @@ As tabelas a seguir mostram as tabelas virtuais que normalizam novamente os dado
 | 1 |Um |
 | 1 |B |
 | 1 |C |
-| 3 |Um |
+| 3 |A |
 | 3 |E |
 
 ## <a name="lookup-activity-properties"></a>Pesquisar propriedades de atividade

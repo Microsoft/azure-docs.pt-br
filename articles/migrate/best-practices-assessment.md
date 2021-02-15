@@ -1,17 +1,17 @@
 ---
 title: Práticas recomendadas de avaliação na avaliação do servidor de migrações para Azure
 description: Dicas para criar avaliações com a avaliação de servidor de migrações para Azure.
-author: rayne-wiselman
-ms.service: azure-migrate
+author: rashi-ms
+ms.author: rajosh
+ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 11/19/2019
-ms.author: raynew
-ms.openlocfilehash: 8694b766d98c6240d7745b814d13358debe714e8
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: c1fff5b5b7f6450ad8d1977e55a1f6b255f3d668
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387040"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96754310"
 ---
 # <a name="best-practices-for-creating-assessments"></a>Práticas recomendadas para a criação de avaliações
 
@@ -132,7 +132,7 @@ Uma avaliação pode não ter todos os pontos de dados por vários motivos:
 ### <a name="migration-tool-guidance-for-avs-assessments"></a>Diretrizes da ferramenta de migração para avaliações da AVS
 
 No relatório de Preparação para o Azure para a avaliação da Solução VMware no Azure (AVS), você pode ver as seguintes sugestões de ferramentas: 
-- **VMware HCX ou Enterprise**: para máquinas VMware, a solução de HCX (extensão de nuvem híbrida) do VMware é a ferramenta de migração sugerida para migrar sua carga de trabalho local para sua nuvem privada da AVS (solução VMware) do Azure. [Saiba mais](../azure-vmware/hybrid-cloud-extension-installation.md).
+- **VMware HCX ou Enterprise**: para máquinas VMware, a solução de HCX (extensão de nuvem híbrida) do VMware é a ferramenta de migração sugerida para migrar sua carga de trabalho local para sua nuvem privada da AVS (solução VMware) do Azure. [Saiba mais](../azure-vmware/tutorial-deploy-vmware-hcx.md).
 - **Desconhecido**: Para computadores importados por meio de um arquivo CSV, a ferramenta de migração padrão é desconhecida. No entanto, para máquinas VMware, é recomendável usar a solução de HCX (extensão de nuvem híbrida) do VMware.
 
 

@@ -16,15 +16,15 @@ ms.date: 02/26/2019
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f98109199f489839253965bef3033d27935cff13
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e0b76d2f943f254eb06208e2c190bae4d4088030
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85359341"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746063"
 ---
 # <a name="risky-ip-report-public-preview"></a>Relatório de IP arriscado (visualização pública)
-Os clientes do AD FS podem expor pontos de extremidade de autenticação de senha para a Internet a fim de fornecer serviços de autenticação para os usuários finais acessarem aplicativos SaaS como o Office 365. Nesse caso, é possível que um ator mal-intencionado tente fazer logons em seu sistema de AD FS adivinhando a senha do usuário final e obtendo acesso aos recursos do aplicativo. O AD FS fornece a funcionalidade de bloqueio de conta de extranet para evitar esses tipos de ataque desde a sua versão no Windows Server 2012 R2. Se você estiver usando uma versão inferior, recomendamos fortemente que atualize seu sistema do AD FS para o Windows Server 2016. <br />
+AD FS clientes podem expor pontos de extremidade de autenticação de senha à Internet para fornecer serviços de autenticação para que os usuários finais acessem aplicativos SaaS, como Microsoft 365. Nesse caso, é possível que um ator mal-intencionado tente fazer logons em seu sistema de AD FS adivinhando a senha do usuário final e obtendo acesso aos recursos do aplicativo. O AD FS fornece a funcionalidade de bloqueio de conta de extranet para evitar esses tipos de ataque desde a sua versão no Windows Server 2012 R2. Se você estiver usando uma versão inferior, recomendamos fortemente que atualize seu sistema do AD FS para o Windows Server 2016. <br />
 
 Além disso, é possível que um único endereço IP tente vários logons em relação a vários usuários. Nesses casos, o número de tentativas por usuário pode estar abaixo do limite para a proteção de bloqueio de conta no AD FS. O Azure AD Connect Health agora fornece o "Relatório IP arriscado", que detecta essa condição e notifica os administradores quando isso ocorre. Estes são os principais benefícios do relatório: 
 - Detecção de endereços IP que excedem um limite de logons com falha com base em senha
@@ -35,11 +35,11 @@ Além disso, é possível que um único endereço IP tente vários logons em rel
 
 > [!NOTE]
 > Para usar esse relatório, você deve habilitar a auditoria do AD FS. Para obter mais informações, consulte [Habilitar a auditoria do AD FS](how-to-connect-health-agent-install.md#enable-auditing-for-ad-fs). <br />
-> Para acessar a versão prévia, uma permissão de Administrador Global ou [Leitor de segurança](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#security-reader) é necessária.  
-> 
+> Para acessar a versão prévia, uma permissão de Administrador Global ou [Leitor de segurança](../../role-based-access-control/built-in-roles.md#security-reader) é necessária.  
+>
 
 ## <a name="what-is-in-the-report"></a>O que há no relatório?
-Os endereços IP do cliente de atividade de entrada com falha são agregados por meio de servidores proxy de aplicativo Web. Cada item no Relatório de IP arriscado mostra informações agregadas sobre atividades de entrada do AD FS com falha que excedem o limite designado. Ele fornece as seguintes informações: ![Portal do Azure AD Connect Health](./media/how-to-connect-health-adfs/report4a.png)
+Os endereços IP do cliente de atividade de entrada com falha são agregados por meio de servidores proxy de aplicativo Web. Cada item no Relatório de IP arriscado mostra informações agregadas sobre atividades de entrada do AD FS com falha que excedem o limite designado. Ele fornece as seguintes informações: ![ captura de tela que mostra um relatório IP arriscado com cabeçalhos de coluna realçado.](./media/how-to-connect-health-adfs/report4a.png)
 
 | Item do relatório | Descrição |
 | ------- | ----------- |
@@ -52,7 +52,7 @@ Os endereços IP do cliente de atividade de entrada com falha são agregados por
 
 Por exemplo, o item de relatório abaixo indica, da janela de 18h às 19h em 28/2/2018, que o endereço IP <i>104.2XX.2XX.9</i> não teve erros de senha incorreta e 284 erros de bloqueio de extranet. 14 usuários exclusivos foram afetados dentro dos critérios. O evento de atividade excedeu o limite horário definido para o relatório. 
 
-![Portal do Azure AD Connect Health](./media/how-to-connect-health-adfs/report4b.png)
+![Captura de tela que mostra um exemplo de uma entrada de relatório IP arriscada.](./media/how-to-connect-health-adfs/report4b.png)
 
 > [!NOTE]
 > - Apenas atividades ultrapassando o limite designado serão exibidas na lista de relatórios. 
@@ -60,7 +60,7 @@ Por exemplo, o item de relatório abaixo indica, da janela de 18h às 19h em 28/
 > - Esse relatório de alerta não mostra endereços IP privado ou endereços IP do Exchange. Eles ainda são incluídos na lista de exportação. 
 >
 
-![Portal do Azure AD Connect Health](./media/how-to-connect-health-adfs/report4c.png)
+![Captura de tela que mostra o relatório de IP arriscado com as opções "baixar", "configurações de notificação" e "configurações de limite" realçadas.](./media/how-to-connect-health-adfs/report4c.png)
 
 ## <a name="load-balancer-ip-addresses-in-the-list"></a>Endereços IP do balanceador de carga na lista
 Atividades de entrada com falha agregadas ao balanceador de carga e limite de alerta atingido. Se você está vendo endereços IP do balanceador de carga, é muito provável que o seu balanceador de carga externo não esteja enviando o endereço IP do cliente ao passar a solicitação para o servidor proxy do aplicativo Web. Configure o balanceador de carga corretamente para encaminhar o endereço IP do cliente. 
@@ -79,16 +79,16 @@ Usando a função **Baixar**, a lista de endereços IP arriscados inteira nos ú
 Os contatos de Admin do relatório podem ser atualizados por meio das **Configurações de Notificação**. Por padrão, a notificação de email de alerta de IP arriscado está desativada. Você pode habilitar a notificação alternando o botão em "Obter notificações por email para endereços IP que excederem o limite de atividades com falha do relatório" Como as configurações de notificação de alerta genérico no Connect Health, ele permite que você personalize a lista de destinatários designados para a notificação sobre o relatório de IPs arriscados aqui. Você também pode notificar todos os administradores globais ao fazer a alteração. 
 
 ## <a name="configure-threshold-settings"></a>Definir configurações de limite
-O limite de alerta pode ser atualizado com as Configurações de Limite. Para começar, o sistema tem um limite definido por padrão. Há quatro categorias nas configurações de limite do relatório de IP arriscado:
+O limite de alerta pode ser atualizado com as Configurações de Limite. Para começar, o sistema tem um limite definido por padrão. Os valores padrão são fornecidos abaixo. Há quatro categorias nas configurações de limite do relatório de IP arriscado:
 
 ![Portal do Azure AD Connect Health](./media/how-to-connect-health-adfs/report4d.png)
 
 | Item de limite | Descrição |
 | --- | --- |
-| (U/P má + Bloqueio de Extranet) / Dia  | Configuração de limite para relatar a atividade e disparar a notificação de alerta quando a contagem de senha incorreta mais a contagem de bloqueio de extranet o exceder, por **dia**. |
-| (U/P má + Bloqueio de Extranet) / Hora | Configuração de limite para relatar a atividade e disparar a notificação de alerta quando a contagem de senha incorreta mais a contagem de bloqueio de extranet o exceder, por **hora**. |
-| Bloqueio de Extranet / Dia | Configuração de limite para relatar a atividade e disparar a notificação de alerta quando a contagem de bloqueio de extranet o exceder, por **dia**. |
-| Bloqueio de Extranet / Hora| Configuração de limite para relatar a atividade e disparar a notificação de alerta quando a contagem de bloqueio de extranet o exceder, por **hora**. |
+| (U/P má + Bloqueio de Extranet) / Dia  | Configuração de limite para relatar a atividade e disparar a notificação de alerta quando a contagem de senha incorreta mais a contagem de bloqueio de extranet o exceder, por **dia**. O valor padrão é 100.|
+| (U/P má + Bloqueio de Extranet) / Hora | Configuração de limite para relatar a atividade e disparar a notificação de alerta quando a contagem de senha incorreta mais a contagem de bloqueio de extranet o exceder, por **hora**. O valor padrão é 50.|
+| Bloqueio de Extranet / Dia | Configuração de limite para relatar a atividade e disparar a notificação de alerta quando a contagem de bloqueio de extranet o exceder, por **dia**. O valor padrão é 50.|
+| Bloqueio de Extranet / Hora| Configuração de limite para relatar a atividade e disparar a notificação de alerta quando a contagem de bloqueio de extranet o exceder, por **hora**. O valor padrão é 25|
 
 > [!NOTE]
 > - A alteração do limite do relatório será aplicada após uma hora a contar da alteração da configuração. 
@@ -99,7 +99,7 @@ O limite de alerta pode ser atualizado com as Configurações de Limite. Para co
 
 ## <a name="faq"></a>Perguntas frequentes
 **Por que estou vendo intervalos de endereços IP privados no relatório?**  <br />
-Endereços IP privados (<i>10.x.x.x, 172.x.x.x & 192.168.x.x</i>) e endereços IP do Exchange são filtrados e marcados como Verdadeiros na lista de permissões IP. Se você está vendo intervalos de endereços IP privados, é muito provável que o balanceador de carga externo não esteja enviando o endereço IP do cliente ao passar a solicitação para o servidor proxy do aplicativo Web.
+Endereços IP privados (<i>10. x. x. x, 172. x. x & 192.168. x. x</i>) e endereços IP do Exchange são filtrados e marcados como true na lista de IP aprovado. Se você está vendo intervalos de endereços IP privados, é muito provável que o balanceador de carga externo não esteja enviando o endereço IP do cliente ao passar a solicitação para o servidor proxy do aplicativo Web.
 
 **Por que estou vendo endereços IP do balanceador de carga no relatório?**  <br />
 Se você está vendo endereços IP do balanceador de carga, é muito provável que o seu balanceador de carga externo não esteja enviando o endereço IP do cliente ao passar a solicitação para o servidor proxy do aplicativo Web. Configure o balanceador de carga corretamente para encaminhar o endereço IP do cliente. 
@@ -113,9 +113,9 @@ Você deve adicionar o endereço IP mal-intencionado ao firewall ou bloqueá-lo 
 - As auditorias não estão habilitadas em farms de servidores do AD FS.
 
 **Por que não estou vendo nenhum acesso ao relatório?**  <br />
-É necessária a permissão de Administrador Global ou [Leitor de segurança](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#security-reader). Entre em contato com o administrador global para obter acesso.
+É necessária a permissão de Administrador Global ou [Leitor de segurança](../../role-based-access-control/built-in-roles.md#security-reader). Entre em contato com o administrador global para obter acesso.
 
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Azure AD Connect Health](whatis-hybrid-identity-health.md)
+* [Azure AD Connect Health](./whatis-azure-ad-connect.md)
 * [Instalação do Agente do Azure AD Connect Health](how-to-connect-health-agent-install.md)

@@ -5,19 +5,21 @@ author: kanshiG
 ms.author: govindk
 ms.reviewer: sngun
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 07/22/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 24f321e3c3c0fe8e85633edb505879874e8c772f
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: b0760b86012504ea86e4a0cde36ae878e8ff3b26
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89019225"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685730"
 ---
 # <a name="monitor-and-debug-with-metrics-in-azure-cosmos-db"></a>Monitore e depure com métricas no Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-O Azure Cosmos DB fornece métricas de taxa de transferência, armazenamento, consistência, disponibilidade e latência. O portal do Microsoft Azure fornece uma visualização agregada dessas métricas. Você também pode exibir métricas do Azure Cosmos DB pela API do Azure Monitor. Os valores de dimensão para as métricas, como o nome do contêiner, não diferenciam maiúsculas de minúsculas. Portanto, você precisa usar a comparação de maiúsculas e minúsculas ao fazer comparações de cadeias de caracteres nesses valores de dimensão. Para saber mais sobre como exibir as métricas do Azure monitor, consulte o artigo [obter métricas de Azure monitor](cosmos-db-azure-monitor-metrics.md) .
+O Azure Cosmos DB fornece métricas de taxa de transferência, armazenamento, consistência, disponibilidade e latência. O portal do Microsoft Azure fornece uma visualização agregada dessas métricas. Você também pode exibir métricas do Azure Cosmos DB pela API do Azure Monitor. Os valores de dimensão para as métricas, como o nome do contêiner, não diferenciam maiúsculas de minúsculas. Portanto, você precisa usar a comparação de maiúsculas e minúsculas ao fazer comparações de cadeias de caracteres nesses valores de dimensão. Para saber mais sobre como exibir as métricas do Azure monitor, consulte o artigo [obter métricas de Azure monitor](./monitor-cosmos-db.md) .
 
 Este artigo explica como casos de uso comuns e como as métricas do Azure Cosmos DB podem ser usadas para analisar e depurar esses problemas. As métricas são coletadas a cada cinco minutos e são mantidas por sete dias.
 
@@ -41,7 +43,7 @@ As métricas a seguir estão disponíveis no painel de **métricas** :
 
 * **Métricas de consistência** – essa métrica mostra como a eventualidade é a consistência do modelo de consistência escolhido. Para contas de várias regiões, essa métrica também mostra a latência de replicação entre as regiões que você selecionou.
 
-* **Métricas do sistema** – essa métrica mostra quantas solicitações de metadados são atendidas pela partição mestre. Ele também ajuda a identificar as solicitações limitadas.
+* **Métricas do sistema** – essa métrica mostra quantas solicitações de metadados são atendidas pela partição primária. Ele também ajuda a identificar as solicitações limitadas.
 
 As seções a seguir explicam cenários comuns em que você pode usar Azure Cosmos DB métricas. 
 
@@ -59,7 +61,7 @@ Ter uma boa cardinalidade de suas chaves de partição é essencial para qualque
 
 :::image type="content" source="media/use-metrics/metrics-17.png" alt-text="Partição única vendo uso intenso":::
 
-Uma distribuição desigual de taxa de transferência pode causar partições *quentes*, que por sua vez podem resultar em solicitações limitadas e podem exigir reparticionamento. Para obter mais informações sobre o particionamento no Azure Cosmos DB, consulte [Partição e escala no Azure Cosmos DB](./partition-data.md).
+Uma distribuição desigual de taxa de transferência pode causar partições *quentes*, que por sua vez podem resultar em solicitações limitadas e podem exigir reparticionamento. Para obter mais informações sobre o particionamento no Azure Cosmos DB, consulte [Partição e escala no Azure Cosmos DB](./partitioning-overview.md).
 
 ## <a name="determine-the-storage-distribution-across-partitions"></a>Determinar a distribuição de armazenamento nas partições
 
@@ -71,11 +73,11 @@ Você pode determinar a causa raiz ao identificar qual chave de partição está
 
 :::image type="content" source="media/use-metrics/metrics-05.png" alt-text="A chave de partição está distorcendo a distribuição":::
 
-Depois de identificar qual chave de partição está causando a distorção na distribuição, você precisará reparticionar o contêiner com uma chave de partição mais distribuída. Para obter mais informações sobre o particionamento no Azure Cosmos DB, consulte [Partição e escala no Azure Cosmos DB](./partition-data.md).
+Depois de identificar qual chave de partição está causando a distorção na distribuição, você precisará reparticionar o contêiner com uma chave de partição mais distribuída. Para obter mais informações sobre o particionamento no Azure Cosmos DB, consulte [Partição e escala no Azure Cosmos DB](./partitioning-overview.md).
 
 ## <a name="compare-data-size-against-index-size"></a>Compare o tamanho de dados em relação ao tamanho do índice
 
-No Azure Cosmos DB, o armazenamento consumido total é a combinação do Tamanho dos dados e do Tamanho do índice. Normalmente, o tamanho do índice é uma fração do tamanho dos dados. Na folha Métricas no [Portal do Azure](https://portal.azure.com), a guia Armazenamento apresenta a divisão do consumo de armazenamento com base nos dados e no índice.
+No Azure Cosmos DB, o armazenamento consumido total é a combinação do Tamanho dos dados e do Tamanho do índice. Normalmente, o tamanho do índice é uma fração do tamanho dos dados. Para saber mais, confira o artigo [tamanho do índice](index-policy.md#index-size) . Na folha Métricas no [Portal do Azure](https://portal.azure.com), a guia Armazenamento apresenta a divisão do consumo de armazenamento com base nos dados e no índice.
 
 ```csharp
 // Measure the document size usage (which includes the index size)  
@@ -112,6 +114,6 @@ IReadOnlyDictionary<string, QueryMetrics> metrics = result.QueryMetrics;
 
 Agora você aprendeu como monitorar e depurar problemas usando as métricas fornecidas no portal do Azure. Você pode querer aprender mais sobre como melhorar o desempenho do banco de dados lendo os seguintes artigos:
 
-* Para saber mais sobre como exibir as métricas do Azure monitor, consulte o artigo [obter métricas de Azure monitor](cosmos-db-azure-monitor-metrics.md) . 
+* Para saber mais sobre como exibir as métricas do Azure monitor, consulte o artigo [obter métricas de Azure monitor](./monitor-cosmos-db.md) . 
 * [Teste de desempenho e escala com o Azure Cosmos DB](performance-testing.md)
 * [Dicas de desempenho para o Azure Cosmos DB](performance-tips.md)

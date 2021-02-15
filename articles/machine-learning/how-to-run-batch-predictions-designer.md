@@ -1,24 +1,24 @@
 ---
-title: Executar previsões em lote usando o designer do Azure Machine Learning (versão prévia)
+title: Executar previsões em lote usando o designer do Azure Machine Learning
 titleSuffix: Azure Machine Learning
-description: Saiba como treinar um modelo e configurar um pipeline de previsão em lote usando o designer. Implante o pipeline como um serviço Web com parâmetro, que pode ser disparado de qualquer biblioteca HTTP.
+description: Saiba como criar um pipeline de previsão do lote. Implante o pipeline como um serviço Web com parâmetros e dispare-o de qualquer biblioteca HTTP.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
-ms.author: peterlu
-author: peterclu
-ms.date: 02/24/2020
-ms.custom: Ignite2019, designer
-ms.openlocfilehash: a464ab001eec877ffc6dc0ab5e33e82493c226ff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: keli19
+author: likebupt
+ms.date: 09/09/2020
+ms.topic: conceptual
+ms.custom: how-to, designer
+ms.openlocfilehash: 2ef125f65e13f7a9fa756553b1de148d4849babc
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84429936"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94553939"
 ---
-# <a name="run-batch-predictions-using-azure-machine-learning-designer-preview"></a>Executar previsões em lote usando o designer do Azure Machine Learning (versão prévia)
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
+# <a name="run-batch-predictions-using-azure-machine-learning-designer"></a>Executar previsões em lote usando o designer do Azure Machine Learning
+
 
 Neste artigo, você aprenderá a usar o designer para criar um pipeline de previsão do lote. A previsão de lote permite pontuar continuamente conjuntos de dados de grandes volumes sob demanda usando um serviço Web que pode ser disparado de qualquer biblioteca HTTP.
 
@@ -29,11 +29,13 @@ Nestas instruções, você aprenderá a realizar as seguintes tarefas:
 > * Consumo de um ponto de extremidade de pipeline
 > * Gerenciamento de versões do ponto de extremidade
 
-Para saber como configurar serviços de pontuação de lote usando o SDK, veja as [instruções](how-to-run-batch-predictions.md) complementares.
+Para saber como configurar serviços de pontuação de lote usando o SDK, veja as [instruções](./tutorial-pipeline-batch-scoring-classification.md) complementares.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Estas instruções pressupõem que você já tem um pipeline de treinamento. Para obter uma introdução guiada ao designer, conclua a [primeira parte do tutorial do designer](tutorial-designer-automobile-price-train-score.md). 
+
+[!INCLUDE [machine-learning-missing-ui](../../includes/machine-learning-missing-ui.md)]
 
 ## <a name="create-a-batch-inference-pipeline"></a>Criar um pipeline de inferência em lote
 
@@ -49,7 +51,7 @@ O pipeline de treinamento deve ser executado pelo menos uma vez para poder criar
 
 Agora que o pipeline de treinamento foi executado, você pode criar um pipeline de inferência em lote.
 
-1. Ao lado de **Enviar**, selecione a nova lista suspensa **Criação de pipeline de inferência**.
+1. Ao lado de **Enviar** , selecione a nova lista suspensa **Criação de pipeline de inferência**.
 
 1. Selecione **Pipeline de inferência em lote**.
 
@@ -69,7 +71,10 @@ Nesta seção, você criará um parâmetro de conjunto de dados para especificar
    
     Insira um nome para o parâmetro ou aceite o valor padrão.
 
-## <a name="publish-your-batch-inferencing-pipeline"></a>Publicação do pipeline de inferência em lote
+    > [!div class="mx-imgBorder"]
+    > ![Definir conjunto de um como parâmetro de pipeline](./media/how-to-run-batch-predictions-designer/set-dataset-as-pipeline-parameter.png)
+
+## <a name="publish-your-batch-inference-pipeline"></a>Publicar o pipeline de inferência de lote
 
 Agora você está pronto para implantar o pipeline de inferência. Isso implantará o pipeline e o tornará disponível para outras pessoas usarem.
 
@@ -124,9 +129,7 @@ Encontre informações sobre como consumir pontos de extremidade de pipeline e o
 
 Encontre o ponto de extremidade de REST de um ponto de extremidade de pipeline no painel de visão geral de execução. Quando chama o ponto de extremidade, você consome seu pipeline publicado padrão.
 
-Você também pode consumir um pipeline publicado na página **Pipelines publicados**. Selecione um pipeline publicado e localize o seu respectivo ponto de extremidade de REST. 
-
-![Detalhes do ponto de extremidade de REST](./media/how-to-run-batch-predictions-designer/rest-endpoint-details.png)
+Você também pode consumir um pipeline publicado na página **Pipelines publicados**. Selecione um pipeline publicado e você poderá encontrar o ponto de extremidade REST dele no painel **visão geral do pipeline publicado** à direita do grafo. 
 
 Para realizar uma chamada REST, você precisará de um cabeçalho de autenticação do tipo portador do OAuth 2.0. Confira a [seção do tutorial](tutorial-pipeline-batch-scoring-classification.md#publish-and-run-from-a-rest-endpoint) a seguir para obter mais detalhes sobre como configurar a autenticação para seu workspace e realizar uma chamada REST.
 
@@ -140,7 +143,7 @@ Quando publica um pipeline, você pode optar por torná-lo o novo pipeline padr�
 
 Você também pode definir um novo pipeline padrão na guia **Pipelines publicados** do ponto de extremidade.
 
-![Definição do pipeline padrão](./media/how-to-run-batch-predictions-designer/set-new-default-pipeline.png)
+![Definir pipeline padrão na página de pipeline publicada](./media/how-to-run-batch-predictions-designer/set-new-default-pipeline.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

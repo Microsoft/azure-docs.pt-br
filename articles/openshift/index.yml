@@ -10,12 +10,12 @@ metadata:
   author: jimzim
   ms.author: jzim
   ms.date: 03/06/2020
-  ms.openlocfilehash: ec28a8734b48dadad5e7abdbd6e6cba689e41045
-  ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+  ms.openlocfilehash: 74ba5f8270e366621a0fd352bd76747077d9cc08
+  ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 05/21/2020
-  ms.locfileid: "83773467"
+  ms.lasthandoff: 11/10/2020
+  ms.locfileid: "94411313"
 landingContent:
 - title: Sobre o Red Hat OpenShift no Azure
   linkLists:
@@ -38,9 +38,13 @@ landingContent:
   - linkListType: how-to-guide
     links:
     - text: Criar um cluster privado do Red Hat OpenShift 4 no Azure
-      url: howto-create-private-cluster.md
+      url: ./howto-create-private-cluster-3x.md
     - text: Configurar o Encaminhamento de DNS para um cluster do Red Hat OpenShift 4 no Azure
       url: dns-forwarding.md
+    - text: Configurar registro de contêiner interno para o Red Hat OpenShift 4 no Azure
+      url: built-in-container-registry.md
+    - text: Implantar um aplicativo do Open Liberty/WebSphere Liberty em um cluster do Red Hat OpenShift 4 no Azure
+      url: howto-deploy-java-liberty-app.md
 - title: Referência
   linkLists:
   - linkListType: reference

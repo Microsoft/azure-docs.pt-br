@@ -1,33 +1,32 @@
 ---
-title: Integração como um parceiro de Grade de Eventos do Azure
-description: Integração como um tipo de tópico de parceiro de grade de eventos do Azure. Entenda o modelo de recurso e o fluxo de publicação para tópicos de parceiros.
+title: Visão geral da integração do parceiro (grade de eventos do Azure)
+description: Fornece uma visão geral de como você pode integrar o como um parceiro de grade de eventos.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: 36f2178b7c21af016f9074d6f973a01cedb873d7
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.date: 10/29/2020
+ms.openlocfilehash: 2a2e33395cabd368d5d5d870dd0461e4cbd37e0d
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87826782"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93081188"
 ---
-# <a name="onboard-as-an-azure-event-grid-partner"></a>Integração como um parceiro de Grade de Eventos do Azure
+# <a name="partner-onboarding-overview-azure-event-grid"></a>Visão geral da integração do parceiro (grade de eventos do Azure)
 
 Este artigo descreve como usar de forma privada os recursos do parceiro da grade de eventos do Azure e como se tornar um tipo de tópico de parceiro disponível publicamente.
 
 Você não precisa de permissão especial para começar a usar os tipos de recursos da Grade de Eventos associados à publicação de eventos como um parceiro de Grade de Eventos. Na verdade, você pode usá-las hoje para publicar eventos de forma privada em suas próprias assinaturas do Azure e testar o modelo de recursos se estiver considerando tornar-se um parceiro.
 
-## <a name="become-an-event-grid-partner"></a>Torne-se um parceiro de grade de eventos
+> [!NOTE]
+> Para obter instruções passo a passo sobre como integrar um parceiro de grade de eventos usando o portal do Azure, consulte [como integrar um parceiro de grade de eventos (Portal do Azure)](onboard-partner.md). 
 
-Se você estiver interessado em se tornar um parceiro de grade de eventos público, comece preenchendo [este formulário](https://aka.ms/gridpartnerform). Em seguida, entre em contato com a equipe da grade de eventos em [GridPartner@microsoft.com](mailto:gridpartner@microsoft.com) .
+## <a name="how-partner-events-work"></a>Como funcionam os eventos de parceiro
+O recurso de eventos de parceiro assume a arquitetura existente que a grade de eventos já usa para publicar eventos de recursos do Azure, como o armazenamento do Azure e o Hub IoT do Azure, e disponibiliza essas ferramentas publicamente para que qualquer pessoa use. O uso dessas ferramentas é privado por padrão somente para sua assinatura do Azure. Para disponibilizar seus eventos publicamente, preencha o formulário e [entre em contato com a equipe da grade de eventos](mailto:gridpartner@microsoft.com).
 
-## <a name="how-partner-topics-work"></a>Como os tópicos de parceiros funcionam
-Os tópicos de parceiros usam a arquitetura existente que a grade de eventos já usa para publicar eventos de recursos do Azure, como o armazenamento do Azure e o Hub IoT do Azure, e disponibiliza essas ferramentas publicamente para que qualquer pessoa use. O uso dessas ferramentas é privado por padrão somente para sua assinatura do Azure. Para disponibilizar seus eventos publicamente, preencha o formulário e [entre em contato com a equipe da grade de eventos](mailto:gridpartner@microsoft.com).
+O recurso de eventos de parceiro permite que você publique eventos na grade de eventos do Azure para consumo multilocatário.
 
-Os tópicos de parceiro permitem que você publique eventos na Grade de Eventos do Azure para consumo multilocatário.
+## <a name="onboarding-and-event-publishing-overview"></a>Visão geral da integração e publicação de eventos
 
-### <a name="onboarding-and-event-publishing-overview"></a>Visão geral da integração e publicação de eventos
-
-#### <a name="partner-flow"></a>Fluxo de parceiros
+### <a name="partner-flow"></a>Fluxo de parceiros
 
 1. Crie um locatário do Azure caso você ainda não tenha um.
 1. Use o CLI do Azure para criar uma nova grade de eventos `partnerRegistration` . Esse recurso inclui informações como nome de exibição, descrição, URI de instalação e assim por diante.
@@ -41,7 +40,7 @@ Os tópicos de parceiro permitem que você publique eventos na Grade de Eventos 
 1. Forneça uma maneira para os clientes se registrarem no seu sistema de que desejam um tópico de parceiro.
 1. Entre em contato com a equipe da grade de eventos para informar que você deseja que o tipo de tópico de parceiro se torne público.
 
-#### <a name="customer-flow"></a>Fluxo de cliente
+### <a name="customer-flow"></a>Fluxo de cliente
 
 1. O cliente visita a portal do Azure para observar a ID de assinatura do Azure e o grupo de recursos em que deseja que o tópico de parceiro seja criado.
 1. O cliente solicita um tópico de parceiro por meio do seu sistema. Em resposta, você cria um túnel de eventos para seu namespace de parceiro.
@@ -54,9 +53,7 @@ Os tópicos de parceiro permitem que você publique eventos na Grade de Eventos 
     ![Tópico ativar um parceiro](./media/partner-onboarding-how-to/activate-partner-topic.png)
 
 ## <a name="resource-model"></a>Modelo de recursos
-
-
-O modelo de recurso a seguir é para tópicos de parceiros.
+O modelo de recurso a seguir é para eventos de parceiro.
 
 ### <a name="partner-registrations"></a>Registros de parceiros
 * Recurso: `partnerRegistrations`
@@ -69,7 +66,7 @@ O modelo de recurso a seguir é para tópicos de parceiros.
 * Escopo: criado na assinatura do Azure do parceiro. Os metadados são visíveis para os clientes depois de serem públicos.
 
 ### <a name="partner-namespaces"></a>Namespaces de parceiro
-* Recurso: partnerNamespaces
+* Recurso: `partnerNamespaces`
 * Usado por: Parceiros
 * Descrição: Fornece um recurso regional para publicar eventos de cliente. Cada namespace de parceiro tem um ponto de extremidade de publicação e chaves de autenticação. O namespace também é como o parceiro solicita um tópico de parceiro para um determinado cliente e lista os clientes ativos.
 * Escopo: vive na assinatura do parceiro.
@@ -77,7 +74,7 @@ O modelo de recurso a seguir é para tópicos de parceiros.
 ### <a name="event-channel"></a>Canal de evento
 * Recurso: `partnerNamespaces/eventChannels`
 * Usado por: Parceiros
-* Descrição: os túneis de eventos são um espelho do tópico do parceiro do cliente. Ao criar um túnel de eventos e especificar a assinatura do Azure do cliente e o grupo de recursos nos metadados, você sinalizará a grade de eventos para criar um tópico de parceiro para o cliente. A grade de eventos emite uma chamada do ARM para criar um partnerTopic correspondente na assinatura do cliente. O tópico de parceiro é criado em um estado pendente. Há um link de um-para-um entre cada um dos nossos encapsulamentos de eventos e parceiros.
+* Descrição: os canais de eventos são um espelho do tópico do parceiro do cliente. Ao criar um canal de evento e especificar a assinatura do Azure do cliente e o grupo de recursos nos metadados, você sinalizará a grade de eventos para criar um tópico de parceiro para o cliente. A grade de eventos emite uma chamada Azure Resource Manager para criar um tópico de parceiro correspondente na assinatura do cliente. O tópico de parceiro é criado em um estado pendente. Há um link de um-para-um entre cada canal de evento e o tópico de parceiro.
 * Escopo: vive na assinatura do parceiro.
 
 ### <a name="partner-topics"></a>Tópicos de parceiros
@@ -85,17 +82,17 @@ O modelo de recurso a seguir é para tópicos de parceiros.
 * Usado por: Clientes
 * Descrição: os tópicos de parceiro são semelhantes aos tópicos personalizados e tópicos do sistema na grade de eventos. Cada tópico de parceiro é associado a uma fonte específica (por exemplo, `Contoso:myaccount` ) e a um tipo de tópico de parceiro específico (por exemplo, contoso). Os clientes criam assinaturas de evento no tópico do parceiro para rotear eventos para vários manipuladores de eventos.
 
-    Os clientes não podem criar esse recurso diretamente. A única maneira de criar um tópico de parceiro é por meio de uma operação de parceiro que cria um túnel de eventos.
+    Os clientes não podem criar esse recurso diretamente. A única maneira de criar um tópico de parceiro é por meio de uma operação de parceiro que cria um canal de evento.
 * Escopo: reside na assinatura do cliente.
 
 ### <a name="partner-topic-types"></a>Tipos de tópico de parceiro
 * Recurso: `partnerTopicTypes`
 * Usado por: Clientes
-* Descrição: os tipos de tópico de parceiro são tipos de recursos de locatários que permitem que os clientes descubram a lista de tipos de tópicos de parceiros aprovados. A URL é semelhante ahttps://management.azure.com/providers/Microsoft.EventGrid/partnerTopicTypes)
+* Descrição: os tipos de tópico de parceiro são tipos de recursos de locatários que permitem que os clientes descubram a lista de tipos de tópicos de parceiros aprovados. A URL é semelhante a https://management.azure.com/providers/Microsoft.EventGrid/partnerTopicTypes)
 * Escopo: Global
 
 ## <a name="publish-events-to-event-grid"></a>Publicar eventos na grade de eventos
-Ao criar um namespace de parceiro em uma região do Azure, você obtém um ponto de extremidade regional e as chaves de autenticação correspondentes. Publicar lotes de eventos nesse ponto de extremidade para todos os túneis de eventos do cliente nesse namespace. Com base no campo de origem no evento, a grade de eventos do Azure mapeia cada evento com os tópicos de parceiro correspondentes.
+Ao criar um namespace de parceiro em uma região do Azure, você obtém um ponto de extremidade regional e as chaves de autenticação correspondentes. Publique lotes de eventos nesse ponto de extremidade para todos os canais de evento do cliente nesse namespace. Com base no campo de origem no evento, a grade de eventos do Azure mapeia cada evento com os tópicos de parceiro correspondentes.
 
 ### <a name="event-schema-cloudevents-v10"></a>Esquema de evento: CloudEvents v 1.0
 Publique eventos na grade de eventos do Azure usando o esquema CloudEvents 1,0. A Grade de Eventos dá suporte ao modo estruturado e ao modo em lote. CloudEvents 1,0 é o único esquema de evento com suporte para namespaces de parceiro.
@@ -105,7 +102,7 @@ Publique eventos na grade de eventos do Azure usando o esquema CloudEvents 1,0. 
 1.  O serviço de publicação faz um HTTP POST para `https://contoso.westus2-1.eventgrid.azure.net/api/events?api-version=2018-01-01`.
 1.  Na solicitação, inclua um valor de cabeçalho chamado aeg-sas-key que contém uma chave para autenticação. Essa chave é provisionada durante a criação do namespace do parceiro. Por exemplo, um valor de cabeçalho válido é aeg-sas-key: VXbGWce53249Mt8wuotr0GPmyJ/nDT4hgdEj9DpBeRr38arnnm5OFg==.
 1.  Defina o cabeçalho Content-Type como "Application/cloudevents-batch + JSON; charset = UTF-8a ".
-1.  Execute um HTTP POST para a URL de publicação com um lote de eventos que correspondem a essa região. Por exemplo:
+1.  Execute uma consulta HTTP POST para a URL de publicação com um lote de eventos que correspondem a essa região. Por exemplo: 
 
 ``` json
 [
@@ -140,7 +137,7 @@ Publique eventos na grade de eventos do Azure usando o esquema CloudEvents 1,0. 
 ]
 ```
 
-Após o lançamento no ponto de extremidade partnerNamespace, você receberá uma resposta. A resposta é um código de resposta HTTP padrão. Algumas respostas comuns são:
+Após o lançamento no ponto de extremidade do namespace do parceiro, você receberá uma resposta. A resposta é um código de resposta HTTP padrão. Algumas respostas comuns são:
 
 | Result                             | Resposta              |
 |------------------------------------|-----------------------|
@@ -156,7 +153,7 @@ Após o lançamento no ponto de extremidade partnerNamespace, você receberá um
   * [Modelo de ARM](/azure/templates/microsoft.eventgrid/allversions)
   * [Esquema de modelo ARM](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2020-04-01-preview/Microsoft.EventGrid.json)
   * [APIs REST](/rest/api/eventgrid/version2020-04-01-preview/partnernamespaces)
-  * [Extensão da CLI](/cli/azure/ext/eventgrid/?view=azure-cli-latest)
+  * [Extensão da CLI](/cli/azure/ext/eventgrid/)
 
 ### <a name="sdks"></a>SDKs
   * [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.EventGrid/5.3.1-preview)
@@ -168,7 +165,7 @@ Após o lançamento no ponto de extremidade partnerNamespace, você receberá um
 
 
 ## <a name="next-steps"></a>Próximas etapas
-- [Visão geral dos tópicos de parceiros](partner-topics-overview.md)
+- [Visão geral dos tópicos de parceiros](partner-events-overview.md)
 - [Formulário de integração de tópicos de parceiros](https://aka.ms/gridpartnerform)
 - [Tópico de parceiro do Auth0](auth0-overview.md)
 - [Como usar o tópico de parceiro do Auth0](auth0-how-to.md)

@@ -10,16 +10,16 @@ ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
 ms.date: 05/18/2020
 ms.author: derekol
-ms.openlocfilehash: 548d4f90bd9632e4807547120ac1be589668e8fa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 198ba23920179e71e095e498ee2173d7f0111d42
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84871336"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026722"
 ---
 # <a name="azure-peering-service-overview"></a>Visão geral do serviço de emparelhamento do Azure
 
-O Serviço de Emparelhamento do Azure é um serviço de rede que aprimora a conectividade do cliente com os serviços em nuvem da Microsoft, como o Office 365, o Dynamics 365, os serviços de SaaS (software como serviço), o Azure ou qualquer serviço da Microsoft acessível por meio da Internet pública. A Microsoft estabeleceu um parceiro com provedores de serviços de Internet (ISPs), parceiros do Exchange da Internet (IXPs) e provedores de SDCI (interconexão de nuvem definido pelo software) em todo o mundo para fornecer conectividade pública confiável e de alto desempenho com o roteamento ideal do cliente para a rede da Microsoft.
+O Serviço de Emparelhamento do Azure é um serviço de rede que aprimora a conectividade do cliente com os serviços em nuvem da Microsoft, como o Microsoft 365, o Dynamics 365, os serviços de SaaS (software como serviço), o Azure ou qualquer serviço da Microsoft acessível por meio da Internet pública. A Microsoft estabeleceu um parceiro com provedores de serviços de Internet (ISPs), parceiros do Exchange da Internet (IXPs) e provedores de SDCI (interconexão de nuvem definido pelo software) em todo o mundo para fornecer conectividade pública confiável e de alto desempenho com o roteamento ideal do cliente para a rede da Microsoft.
 
 Com o serviço de emparelhamento, os clientes podem selecionar um provedor de serviços de parceiro bem conectado em uma determinada região. A conectividade pública é otimizada para alta confiabilidade e latência mínima dos serviços de nuvem para o local do usuário final.
 
@@ -45,19 +45,19 @@ O serviço de emparelhamento é:
 O serviço de emparelhamento não é um produto de conectividade privada como o Azure ExpressRoute ou um produto de VPN.
 
 > [!NOTE]
-> Para obter mais informações sobre o ExpressRoute, consulte a [documentação do expressroute](https://docs.microsoft.com/azure/expressroute/).
+> Para obter mais informações sobre o ExpressRoute, consulte a [documentação do expressroute](../expressroute/index.yml).
 >
 
 ## <a name="background"></a>Tela de fundo
 
-O Office 365, o Dynamics 365 e qualquer outro serviço SaaS da Microsoft são hospedados em vários data centers da Microsoft e podem ser acessados de qualquer local geográfico. A rede global da Microsoft tem locais de PoP (ponto de presença) do Microsoft Edge no mundo onde ele pode se conectar a um usuário final por meio de seus provedores de serviços. 
+Microsoft 365, o Dynamics 365 e qualquer outro serviço SaaS da Microsoft são hospedados em vários data centers da Microsoft e podem ser acessados de qualquer local geográfico. A rede global da Microsoft tem locais de PoP (ponto de presença) do Microsoft Edge no mundo onde ele pode se conectar a um usuário final por meio de seus provedores de serviços. 
 
 Os provedores de serviços de parceiros e da Microsoft garantem que o tráfego para os prefixos registrados com uma conexão de serviço de emparelhamento entre e saia dos locais PoP mais próximos do Microsoft Edge na rede global da Microsoft. A Microsoft garante que a saída do tráfego de rede dos prefixos registrados com conexões de serviço de emparelhamento leva os locais de PoP mais próximos do Microsoft Edge na rede global da Microsoft.
 
 ![Conectividade pública e de rede da Microsoft](./media/peering-service-about/peering-service-background-final.png)
 
 > [!NOTE]
-> Para obter mais informações sobre a rede global da Microsoft, consulte [Microsoft Global Network](https://docs.microsoft.com/azure/networking/microsoft-global-network).
+> Para obter mais informações sobre a rede global da Microsoft, consulte [Microsoft Global Network](../networking/microsoft-global-network.md).
 >
 
 ## <a name="why-use-peering-service"></a>Por que usar o serviço de emparelhamento?

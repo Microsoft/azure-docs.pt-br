@@ -14,16 +14,16 @@ ms.author: ajburnle
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ce0d543f11a1dcc61616d8a386176272ab44aee
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 0490334c759da6ef7ba7ff2535f5f561cdb7a9bf
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87797263"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369804"
 ---
 # <a name="what-is-group-based-licensing-in-azure-active-directory"></a>O que é o licenciamento baseado em grupo no Azure Active Directory?
 
-Os serviços de nuvem pagos da Microsoft, como Office 365, Enterprise Mobility + Security, Dynamics 365 e outros produtos similares, exigem licenças. Essas licenças são atribuídas a cada usuário que precisa acessar esses serviços. Para gerenciar licenças, os administradores usam um dos portais de gerenciamento (Office ou Azure) e cmdlets do PowerShell. O Azure AD (Azure Active Directory) é a infraestrutura subjacente que dá suporte ao gerenciamento de identidade para todos os serviços de nuvem da Microsoft. O Azure AD armazena informações sobre estados de atribuição de licença para usuários.
+Os serviços de nuvem pagos da Microsoft, como Microsoft 365, Enterprise Mobility + Security, Dynamics 365 e outros produtos semelhantes, exigem licenças. Essas licenças são atribuídas a cada usuário que precisa acessar esses serviços. Para gerenciar licenças, os administradores usam um dos portais de gerenciamento (Office ou Azure) e cmdlets do PowerShell. O Azure AD (Azure Active Directory) é a infraestrutura subjacente que dá suporte ao gerenciamento de identidade para todos os serviços de nuvem da Microsoft. O Azure AD armazena informações sobre estados de atribuição de licença para usuários.
 
 Até agora, as licenças podiam ser atribuídas apenas no nível de usuário individual, o que pode dificultar o gerenciamento em larga escala. Por exemplo, para adicionar ou remover licenças de usuário com base nas alterações organizacionais, como usuários ingressando na organização ou em um departamento ou saindo deles, com frequência um administrador deve escrever um script complexo do PowerShell. Esse script faz chamadas individuais para o serviço de nuvem.
 
@@ -45,9 +45,9 @@ Aqui estão os principais recursos do licenciamento baseado em grupo:
 
 - As licenças podem ser atribuídas a qualquer grupo de segurança no Azure AD. Os grupos de segurança podem ser sincronizados localmente usando o Azure AD Connect. Você também pode criar grupos de segurança diretamente no Azure AD (também chamados de grupos somente de nuvem) ou automaticamente por meio do recurso de grupo dinâmico do Azure AD.
 
-- Quando uma licença de produto é atribuída a um grupo, o administrador pode desabilitar um ou mais planos de serviço no produto. Normalmente, essa atribuição é feita quando a organização ainda não está pronta para começar a usar um serviço incluído em um produto. Por exemplo, o administrador pode atribuir o Office 365 a um departamento, mas desabilitar o serviço do Yammer temporariamente.
+- Quando uma licença de produto é atribuída a um grupo, o administrador pode desabilitar um ou mais planos de serviço no produto. Normalmente, essa atribuição é feita quando a organização ainda não está pronta para começar a usar um serviço incluído em um produto. Por exemplo, o administrador pode atribuir Microsoft 365 a um departamento, mas desabilitar temporariamente o serviço do Yammer.
 
-- Todos os serviços de nuvem da Microsoft que exigem licenciamento no nível do usuário têm suporte. Esse suporte inclui todos os produtos do Office 365, Enterprise Mobility + Security e Dynamics 365.
+- Todos os serviços de nuvem da Microsoft que exigem licenciamento no nível do usuário têm suporte. Esse suporte inclui todos os produtos Microsoft 365, Enterprise Mobility + Security e Dynamics 365.
 
 - Atualmente, o licenciamento baseado em grupo está disponível apenas por meio do [portal do Azure](https://portal.azure.com). Se você usa principalmente outros portais de gerenciamento para gerenciamento de usuários e grupos, como o [centro de administração Microsoft 365](https://admin.microsoft.com), você pode continuar a fazer isso. Mas você deve usar o portal do Azure para gerenciar licenças no nível do grupo.
 
@@ -65,9 +65,9 @@ Caso tenha comentários ou solicitações de recurso, compartilhe-os conosco usa
 
 Para saber mais sobre outros cenários de gerenciamento de licenças por meio de licenciamento baseado em grupo, confira:
 
-* [Atribuição de licenças a um grupo no Azure Active Directory](../users-groups-roles/licensing-groups-assign.md)
-* [Identificar e resolver problemas de licença para um grupo no Azure Active Directory](../users-groups-roles/licensing-groups-resolve-problems.md)
-* [Como migrar usuários individuais licenciados para licenciamento baseado em grupo no Azure Active Directory](../users-groups-roles/licensing-groups-migrate-users.md)
-* [Como migrar usuários entre licenças de produto usando o licenciamento baseado em grupo no Microsoft Azure Active Directory](../users-groups-roles/licensing-groups-change-licenses.md)
-* [Cenários adicionais de licenciamento baseado em grupo do Azure Active Directory](../users-groups-roles/licensing-group-advanced.md)
-* [Exemplos do PowerShell para licenciamento baseado em grupo no Azure Active Directory](../users-groups-roles/licensing-ps-examples.md)
+* [Atribuição de licenças a um grupo no Azure Active Directory](../enterprise-users/licensing-groups-assign.md)
+* [Identificar e resolver problemas de licença para um grupo no Azure Active Directory](../enterprise-users/licensing-groups-resolve-problems.md)
+* [Como migrar usuários individuais licenciados para licenciamento baseado em grupo no Azure Active Directory](../enterprise-users/licensing-groups-migrate-users.md)
+* [Como migrar usuários entre licenças de produto usando o licenciamento baseado em grupo no Microsoft Azure Active Directory](../enterprise-users/licensing-groups-change-licenses.md)
+* [Cenários adicionais de licenciamento baseado em grupo do Azure Active Directory](../enterprise-users/licensing-group-advanced.md)
+* [Exemplos do PowerShell para licenciamento baseado em grupo no Azure Active Directory](../enterprise-users/licensing-ps-examples.md)

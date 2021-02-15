@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Criar um aplicativo Python – Cache do Azure para Redis'
+title: 'Início Rápido: Usar o Cache do Azure para Redis no Python'
 description: Neste início rápido, você aprenderá como criar um aplicativo Python com o Cache do Azure para Redis.
 author: yegu-ms
 ms.author: yegu
@@ -11,14 +11,14 @@ ms.custom:
 - seo-python-october2019
 - devx-track-python
 ms.date: 11/05/2019
-ms.openlocfilehash: aed9be394076b4ef10b8354552d69771ae659eea
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 79add54478e9cd52ffd3041d5f85bf588929b44f
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87845317"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008864"
 ---
-# <a name="quickstart-create-a-python-app-that-uses-azure-cache-for-redis"></a>Início Rápido: crie um aplicativo Python que usa um Cache do Azure para Redis
+# <a name="quickstart-use-azure-cache-for-redis-in-python"></a>Início Rápido: Usar o Cache do Azure para Redis no Python
 
 Neste artigo, você incorporará o Cache do Azure para Redis a um aplicativo Python para ter acesso a um cache seguro e dedicado que pode ser acessado de qualquer aplicativo no Azure.
 

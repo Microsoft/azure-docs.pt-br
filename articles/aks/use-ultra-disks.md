@@ -4,12 +4,12 @@ description: Saiba como habilitar e configurar o ultra disks em um cluster do AK
 services: container-service
 ms.topic: article
 ms.date: 07/10/2020
-ms.openlocfilehash: 6ad739a128839eac4d664ffb6f9e3b2fcd07f2d9
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 049c2682a8f61bb658083b0418a4fcf99dc477a5
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88650172"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900031"
 ---
 # <a name="use-azure-ultra-disks-on-azure-kubernetes-service-preview"></a>Usar ultra discos do Azure no serviço kubernetes do Azure (versão prévia)
 
@@ -22,11 +22,6 @@ Esse recurso só pode ser definido na criação do cluster ou no momento da cria
 > [!IMPORTANT]
 > Os ultra discos do Azure exigem o nodepools implantado em zonas de disponibilidade e regiões que dão suporte a esses discos, bem como apenas a séries específicas da VM. Confira o [**escopo e as limitações do GA dos ultra discos**](../virtual-machines/disks-enable-ultra-ssd.md#ga-scope-and-limitations).
 
-### <a name="prerequisites"></a>Pré-requisitos
-
-- Verifique se o `EnableUltraSSD` sinalizador de recurso está habilitado.
-- Verifique se você tem a última `aks-preview` [extensão da CLI][az-extension-add] instalada.
-
 ### <a name="register-the-enableultrassd-preview-feature"></a>Registrar o `EnableUltraSSD` recurso de visualização
 
 Para criar um cluster AKS ou um pool de nós que possa aproveitar os ultra discos, você deve habilitar o `EnableUltraSSD` sinalizador de recurso em sua assinatura.
@@ -37,13 +32,13 @@ Registre o `EnableUltraSSD` sinalizador de recurso usando o comando [AZ Feature 
 az feature register --namespace "Microsoft.ContainerService" --name "EnableUltraSSD"
 ```
 
-Demora alguns minutos para o status exibir *Registrado*. Você pode verificar o status de registro usando o comando [az feature list][az-feature-list]:
+Demora alguns minutos para o status exibir *Registrado* . Você pode verificar o status de registro usando o comando [az feature list][az-feature-list]:
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableUltraSSD')].{Name:name,State:properties.state}"
 ```
 
-Quando estiver pronto, atualize o registro do provedor de recursos *Microsoft.ContainerService* usando o comando [az provider register][az-provider-register]:
+Quando estiver pronto, atualize o registro do provedor de recursos *Microsoft. ContainerService* usando o comando [AZ Provider Register][az-provider-register] :
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
@@ -78,7 +73,7 @@ Criar um grupo de recursos do Azure:
 az group create --name myResourceGroup --location westus2
 ```
 
-Crie o cluster AKS com a integração do Azure AD gerenciada e o RBAC do Azure para autorização do kubernetes.
+Crie o cluster AKS com suporte para ultra disks.
 
 ```azurecli-interactive
 # Create an AKS-managed Azure AD cluster
@@ -133,7 +128,7 @@ storageclass.storage.k8s.io/ultra-disk-sc created
 
 ## <a name="create-a-persistent-volume-claim"></a>Criar uma declaração de volume persistente
 
-Um PVC (declaração de volume persistente) é usado para provisionar automaticamente o armazenamento com base em uma classe de armazenamento. Nesse caso, um PVC pode usar uma das classes de armazenamento pré-criadas para criar um disco gerenciado standard ou premium do Azure.
+Um PVC (declaração de volume persistente) é usado para provisionar automaticamente o armazenamento com base em uma classe de armazenamento. Nesse caso, um PVC pode usar a classe de armazenamento criada anteriormente para criar um ultra Disk.
 
 Crie um arquivo chamado `azure-ultra-disk-pvc.yaml` e copie-o para o manifesto a seguir. A declaração solicita um disco chamado `ultra-disk` que tenha *1000 GB* de tamanho com acesso *ReadWriteOnce* . A classe de armazenamento *ultra-Disk-SC* é especificada como a classe de armazenamento.
 
@@ -173,7 +168,7 @@ metadata:
 spec:
   containers:
   - name: nginx-ultra
-    image: nginx
+    image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
     resources:
       requests:
         cpu: 100m

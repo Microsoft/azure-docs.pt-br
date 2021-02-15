@@ -8,10 +8,10 @@ ms.date: 03/18/2020
 ms.author: victorh
 ms.topic: overview
 ms.openlocfilehash: 49024c86d09f5cdd9e8b04d5a49f60021660b0c4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "79475780"
 ---
 # <a name="what-is-azure-web-application-firewall"></a>O que é o Firewall do Aplicativo Web do Azure?

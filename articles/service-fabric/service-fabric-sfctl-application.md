@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 880770345eb7d65850db322bd97d64c60b6681ee
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86260861"
 ---
 # <a name="sfctl-application"></a>aplicativo sfctl
@@ -31,7 +31,7 @@ Criar, excluir e gerenciar aplicativos e tipos de aplicativo.
 | manifest | Obtém o manifesto que descreve um tipo de aplicativo. |
 | provision | Provisiona ou registra um tipo de aplicativo Service Fabric com o cluster usando o pacote '. sfpkg ' no repositório externo ou usando o pacote de aplicativos no repositório de imagens. |
 | report-health | Envia um relatório de integridade sobre o aplicativo do Service Fabric. |
-| tipo | Obtém a lista de tipos de aplicativo criados no cluster do Service Fabric que correspondem exatamente ao nome especificado. |
+| type | Obtém a lista de tipos de aplicativo criados no cluster do Service Fabric que correspondem exatamente ao nome especificado. |
 | type-list | Obtém a lista de tipos de aplicativo criados no cluster do Service Fabric. |
 | unprovision | Remove ou cancela o registro de um tipo de aplicativo do Service Fabric do cluster. |
 | atualização | Começa a atualização de um aplicativo no cluster do Service Fabric. |

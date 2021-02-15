@@ -2,21 +2,19 @@
 title: Mapas do Azure como origem da grade de eventos
 description: Descreve as propriedades e o esquema fornecidos para eventos do Azure Mapas com a Grade de Eventos do Azure
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: 4203bdf5222278b698d656835afebd9769557303
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.date: 02/11/2021
+ms.openlocfilehash: 88cf0c8274d685a45862bc7b7884b5e4a686c22d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87461979"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100363671"
 ---
 # <a name="azure-maps-as-an-event-grid-source"></a>O Azure mapeia como uma fonte de grade de eventos
 
 Este artigo fornece as propriedades e o esquema dos eventos do Azure Mapas. Para obter uma introdução a esquemas de evento, consulte [esquema de grade de eventos do Azure](./event-schema.md). Ele também fornece uma lista de inícios rápidos e tutoriais para usar o Azure Maps como uma fonte de eventos.
 
-## <a name="event-grid-event-schema"></a>Esquema de eventos da Grade de Eventos
-
-### <a name="available-event-types"></a>Tipos de evento disponíveis
+## <a name="available-event-types"></a>Tipos de evento disponíveis
 
 Uma conta do Azure Mapas emite os seguintes tipos de eventos:
 
@@ -26,8 +24,9 @@ Uma conta do Azure Mapas emite os seguintes tipos de eventos:
 | Microsoft.Maps.GeofenceExited | Gerado quando as coordenadas recebidas são movidas de dentro de uma determinada cerca geográfica para fora |
 | Microsoft.Maps.GeofenceResult | Gerado sempre que uma consulta de delimitação geográfica retorna um resultado, independentemente do estado |
 
-### <a name="event-examples"></a>Exemplos de eventos
+## <a name="example-events"></a>Eventos de exemplo
 
+# <a name="event-grid-event-schema"></a>[Esquema de eventos da Grade de Eventos](#tab/event-grid-event-schema)
 O exemplo a seguir mostra o esquema de um evento **GeofenceEntered**
 
 ```JSON
@@ -96,70 +95,154 @@ O exemplo a seguir mostra o esquema para **GeofenceResult**
 }
 ```
 
-### <a name="event-properties"></a>Propriedades do evento
+# <a name="cloud-event-schema"></a>[Esquema de evento de nuvem](#tab/cloud-event-schema)
+O exemplo a seguir mostra o esquema de um evento **GeofenceEntered**
 
+```JSON
+{   
+   "id":"7f8446e2-1ac7-4234-8425-303726ea3981", 
+   "source":"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Maps/accounts/{accountName}", 
+   "subject":"/spatial/geofence/udid/{udid}/id/{eventId}", 
+   "data":{   
+      "geometries":[   
+         {   
+            "deviceId":"device_1", 
+            "udId":"1a13b444-4acf-32ab-ce4e-9ca4af20b169", 
+            "geometryId":"2", 
+            "distance":-999.0, 
+            "nearestLat":47.618786, 
+            "nearestLon":-122.132151 
+         } 
+      ], 
+      "expiredGeofenceGeometryId":[   
+      ], 
+      "invalidPeriodGeofenceGeometryId":[   
+      ] 
+   }, 
+   "type":"Microsoft.Maps.GeofenceEntered", 
+   "time":"2018-11-08T00:54:17.6408601Z", 
+   "specversion":"1.0" 
+}
+```
+
+O exemplo a seguir mostra o esquema para **GeofenceResult** 
+
+```JSON
+{   
+   "id":"451675de-a67d-4929-876c-5c2bf0b2c000", 
+   "source":"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Maps/accounts/{accountName}", 
+   "subject":"/spatial/geofence/udid/{udid}/id/{eventId}", 
+   "data":{   
+      "geometries":[   
+         {   
+            "deviceId":"device_1", 
+            "udId":"1a13b444-4acf-32ab-ce4e-9ca4af20b169", 
+            "geometryId":"1", 
+            "distance":999.0, 
+            "nearestLat":47.609833, 
+            "nearestLon":-122.148274 
+         }, 
+         {   
+            "deviceId":"device_1", 
+            "udId":"1a13b444-4acf-32ab-ce4e-9ca4af20b169", 
+            "geometryId":"2", 
+            "distance":999.0, 
+            "nearestLat":47.621954, 
+            "nearestLon":-122.131841 
+         } 
+      ], 
+      "expiredGeofenceGeometryId":[   
+      ], 
+      "invalidPeriodGeofenceGeometryId":[   
+      ] 
+   }, 
+   "type":"Microsoft.Maps.GeofenceResult", 
+   "time":"2018-11-08T00:52:08.0954283Z", 
+   "specversion":"1.0" 
+}
+```
+---
+
+## <a name="event-properties"></a>Propriedades do evento
+
+# <a name="event-grid-event-schema"></a>[Esquema de eventos da Grade de Eventos](#tab/event-grid-event-schema)
 Um evento tem os seguintes dados de nível superior:
 
-| Propriedade | Tipo | Description |
+| Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| topic | string | Caminho de recurso completo para a origem do evento. Esse campo não é gravável. Grade de Eventos fornece esse valor. |
-| subject | string | Caminho definido pelo publicador para o assunto do evento. |
-| eventType | string | Um dos tipos de evento registrados para a origem do evento. |
-| eventTime | string | A hora em que o evento é gerado com base na hora UTC do provedor. |
-| id | string | Identificador exclusivo do evento. |
-| data | objeto | Dados de evento de delimitação geográfica. |
-| dataVersion | string | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
-| metadataVersion | string | A versão do esquema dos metadados do evento. Grade de Eventos define o esquema de propriedades de nível superior. A Grade de Eventos fornece esse valor. |
+| `topic` | string | Caminho de recurso completo para a origem do evento. Este campo não é gravável. A Grade de Eventos fornece esse valor. |
+| `subject` | string | Caminho definido pelo publicador para o assunto do evento. |
+| `eventType` | string | Um dos tipos de evento registrados para a origem do evento. |
+| `eventTime` | string | A hora em que o evento é gerado com base na hora UTC do provedor. |
+| `id` | string | Identificador exclusivo do evento. |
+| `data` | object | Dados de evento de delimitação geográfica. |
+| `dataVersion` | string | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
+| `metadataVersion` | string | A versão do esquema dos metadados do evento. Grade de Eventos define o esquema de propriedades de nível superior. A Grade de Eventos fornece esse valor. |
+
+# <a name="cloud-event-schema"></a>[Esquema de evento de nuvem](#tab/cloud-event-schema)
+Um evento tem os seguintes dados de nível superior:
+
+| Propriedade | Tipo | Descrição |
+| -------- | ---- | ----------- |
+| `source` | string | Caminho de recurso completo para a origem do evento. Este campo não é gravável. A Grade de Eventos fornece esse valor. |
+| `subject` | string | Caminho definido pelo publicador para o assunto do evento. |
+| `type` | string | Um dos tipos de evento registrados para a origem do evento. |
+| `time` | string | A hora em que o evento é gerado com base na hora UTC do provedor. |
+| `id` | string | Identificador exclusivo do evento. |
+| `data` | object | Dados de evento de delimitação geográfica. |
+| `specversion` | string | Versão de especificação de esquema CloudEvents. |
+
+---
 
 O objeto de dados tem as seguintes propriedades:
 
-| Propriedade | Tipo | Description |
+| Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| apiCategory | string | Categoria da API do evento. |
-| apiName | string | Nome da API do evento. |
-| issues | object | Lista os problemas encontrados durante o processamento. Se algum problema for retornado, não haverá geometrias retornadas com a resposta. |
-| responseCode | número | Código de resposta HTTP |
-| geometries | object | Lista as geometrias de delimitação que contêm a posição da coordenada ou sobrepõem o searchBuffer em torno da posição. |
+| `apiCategory` | string | Categoria da API do evento. |
+| `apiName` | string | Nome da API do evento. |
+| `issues` | object | Lista problemas ocorridos durante o processamento. Se algum problema for retornado, não haverá geometrias retornadas com a resposta. |
+| `responseCode` | número | Código de resposta HTTP |
+| `geometries` | object | Lista as geometrias de delimitação que contêm a posição da coordenada ou sobrepõem o searchBuffer em torno da posição. |
 
 O objeto de erro é retornado quando ocorre um erro na API de Mapas. O objeto de erro tem as seguintes propriedades:
 
-| Propriedade | Tipo | Description |
+| Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| erro | ErrorDetails |Esse objeto é retornado quando ocorre um erro na API de Mapas  |
+| `error` | ErrorDetails |Esse objeto é retornado quando ocorre um erro na API de Mapas  |
 
 O objeto ErrorDetails é retornado quando ocorre um erro na API de Mapas. O ErrorDetails ou objeto tem as seguintes propriedades:
 
-| Propriedade | Tipo | Description |
+| Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| code | string | O código de status do HTTP. |
-| message | string | Se disponível, uma descrição do erro em formato legível por humanos. |
-| innererror | InnerError | Se disponível, um objeto contendo informações específicas do serviço sobre o erro. |
+| `code` | string | O código de status HTTP. |
+| `message` | string | Se disponível, uma descrição do erro em formato legível por humanos. |
+| `innererror` | InnerError | Se disponível, um objeto contendo informações específicas do serviço sobre o erro. |
 
 O InnerError é um objeto que contém informações específicas do serviço sobre o erro. O objeto InnerError tem as seguintes propriedades: 
 
-| Propriedade | Tipo | Description |
+| Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| code | string | A mensagem de erro. |
+| `code` | string | A mensagem de erro. |
 
 O objeto de geometrias lista as IDs de geometria das cercas geográficas que expiraram em relação ao tempo do usuário na solicitação. O objeto de geometrias contém itens de geometria com as seguintes propriedades: 
 
-| Propriedade | Tipo | Description |
+| Propriedade | Tipo | Descrição |
 |:-------- |:---- |:----------- |
-| deviceid | string | ID do dispositivo. |
-| distância | string | <p>Distância da coordenada até a borda mais próxima da cerca geográfica. Positivo significa que a coordenada está fora da cerca geográfica. Se a coordenada estiver fora da cerca geográfica, mas for maior que o valor de searchBuffer distante da borda da cerca geográfica mais próxima, o valor será 999. Negativo significa que a coordenada está dentro da cerca geográfica. Se a coordenada estiver dentro do polígono, mas for maior que o valor de searchBuffer distante da borda de delimitação geográfica mais próxima, o valor será -999. Um valor de 999 significa que há grande confiança de que a coordenada esteja bem fora da cerca geográfica. Um valor de -999 significa que há uma grande confiança de que a coordenada esteja bem dentro da cerca geográfica.<p> |
-| geometryid |string | A ID exclusiva identifica a geometria da cerca geográfica. |
-| nearestlat | número | Latitude do ponto mais próximo da geometria. |
-| nearestlon | número | Longitude do ponto mais próximo da geometria. |
-| udId | string | A ID exclusiva retornada do serviço de upload do usuário ao carregar uma cerca geográfica. Não será incluída na API de postagem de delimitação geográfica. |
+| `deviceid` | string | ID do dispositivo. |
+| `distance` | string | <p>Distância da coordenada até a borda mais próxima da cerca geográfica. Positivo significa que a coordenada está fora da cerca geográfica. Se a coordenada estiver fora da cerca geográfica, mas for maior que o valor de searchBuffer distante da borda da cerca geográfica mais próxima, o valor será 999. Negativo significa que a coordenada está dentro da cerca geográfica. Se a coordenada estiver dentro do polígono, mas for maior que o valor de searchBuffer distante da borda de delimitação geográfica mais próxima, o valor será -999. Um valor de 999 significa que há grande confiança de que a coordenada esteja bem fora da cerca geográfica. Um valor de -999 significa que há uma grande confiança de que a coordenada esteja bem dentro da cerca geográfica.<p> |
+| `geometryid` |string | A ID exclusiva identifica a geometria de cerca geográfica. |
+| `nearestlat` | número | Latitude do ponto mais próximo da geometria. |
+| `nearestlon` | número | Longitude do ponto mais próximo da geometria. |
+| `udId` | string | A ID exclusiva retornada do serviço de carregamento do usuário ao carregar uma cerca geográfica. Não será incluído na API pós de isolamento geográfico. |
 
 O objeto de dados tem as seguintes propriedades:
 
-| Propriedade | Tipo | Description |
+| Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| expiredGeofenceGeometryId | string[] | Listas da ID de geometria da cerca geográfica que é expirada em relação ao tempo do usuário na solicitação. |
-| geometries | geometries[] |Lista as geometrias de delimitação que contêm a posição da coordenada ou sobrepõem o searchBuffer em torno da posição. |
-| invalidPeriodGeofenceGeometryId | string[]  | Listas da ID de geometria da cerca geográfica que está em período inválido em relação ao tempo do usuário na solicitação. |
-| isEventPublished | boolean | True se pelo menos um evento for publicado no assinante de evento do Azure Mapas e false se nenhum evento for publicado no assinante de evento do Azure Mapas. |
+| `expiredGeofenceGeometryId` | string[] | Listas da ID de geometria da cerca geográfica que é expirada em relação ao tempo do usuário na solicitação. |
+| `geometries` | geometries[] |Lista as geometrias de delimitação que contêm a posição da coordenada ou sobrepõem o searchBuffer em torno da posição. |
+| `invalidPeriodGeofenceGeometryId` | string[]  | Listas da ID de geometria da cerca geográfica que está em período inválido em relação ao tempo do usuário na solicitação. |
+| `isEventPublished` | booleano | True se pelo menos um evento for publicado no assinante de evento do Azure Mapas e false se nenhum evento for publicado no assinante de evento do Azure Mapas. |
 
 ## <a name="tutorials-and-how-tos"></a>Tutoriais e instruções
 |Título  |Descrição  |

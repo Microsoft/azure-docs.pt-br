@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 07/18/2019
 ms.author: robinsh
-ms.openlocfilehash: 2720f9acfa308294b30f9203ba80e3f9b426e1e9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cd14ff0688f4230aeedac748ca4b32609bdd2938
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81680712"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490315"
 ---
 # <a name="iot-remote-monitoring-and-notifications-with-azure-logic-apps-connecting-your-iot-hub-and-mailbox"></a>Monitoramento remoto IoT e notificações com os Aplicativos Lógicos do Azure conectando o hub IoT e a caixa de correio
 
@@ -22,7 +22,7 @@ ms.locfileid: "81680712"
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
-Os [aplicativos lógicos do Azure](https://docs.microsoft.com/azure/logic-apps/) podem ajudá-lo a orquestrar fluxos de trabalho em serviços locais e de nuvem, em uma ou mais empresas e em vários protocolos. Um aplicativo lógico começa com um gatilho, que é seguido por uma ou mais ações que podem ser sequenciadas usando controles internos, como condições e iteradores. Essa flexibilidade torna os aplicativos lógicos uma solução de IoT ideal para cenários de monitoramento de IoT. Por exemplo, a chegada de dados de telemetria de um dispositivo em um ponto de extremidade de Hub IoT pode iniciar fluxos de trabalho de aplicativo lógico para o depósito dos dados em um blob de armazenamento do Azure, enviar alertas por email para avisar sobre anomalias de dados, agendar uma visita de técnico se um dispositivo relatar uma falha e assim por diante.
+Os [aplicativos lógicos do Azure](../logic-apps/index.yml) podem ajudá-lo a orquestrar fluxos de trabalho em serviços locais e de nuvem, em uma ou mais empresas e em vários protocolos. Um aplicativo lógico começa com um gatilho, que é seguido por uma ou mais ações que podem ser sequenciadas usando controles internos, como condições e iteradores. Essa flexibilidade torna os aplicativos lógicos uma solução de IoT ideal para cenários de monitoramento de IoT. Por exemplo, a chegada de dados de telemetria de um dispositivo em um ponto de extremidade de Hub IoT pode iniciar fluxos de trabalho de aplicativo lógico para o depósito dos dados em um blob de armazenamento do Azure, enviar alertas por email para avisar sobre anomalias de dados, agendar uma visita de técnico se um dispositivo relatar uma falha e assim por diante.
 
 ## <a name="what-you-learn"></a>O que você aprenderá
 
@@ -104,7 +104,7 @@ Criar um namespace do Barramento de Serviço e da fila. Posteriormente neste tó
 
 ## <a name="add-a-custom-endpoint-and-routing-rule-to-your-iot-hub"></a>Adicionar um ponto de extremidade personalizado e uma regra de roteamento ao Hub IoT
 
-Adicione um ponto de extremidade personalizado para a fila do barramento de serviço ao Hub IoT e crie uma regra de roteamento de mensagens para direcionar mensagens que contêm um alerta de temperatura para esse ponto de extremidade, onde elas serão selecionadas pelo seu aplicativo lógico. A regra de roteamento usa uma consulta de roteamento, `temperatureAlert = "true"` , para encaminhar mensagens com base no valor da `temperatureAlert` Propriedade do aplicativo definida pelo código do cliente em execução no dispositivo. Para saber mais, consulte [consulta de roteamento de mensagens com base nas propriedades da mensagem](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#message-routing-query-based-on-message-properties).
+Adicione um ponto de extremidade personalizado para a fila do barramento de serviço ao Hub IoT e crie uma regra de roteamento de mensagens para direcionar mensagens que contêm um alerta de temperatura para esse ponto de extremidade, onde elas serão selecionadas pelo seu aplicativo lógico. A regra de roteamento usa uma consulta de roteamento, `temperatureAlert = "true"` , para encaminhar mensagens com base no valor da `temperatureAlert` Propriedade do aplicativo definida pelo código do cliente em execução no dispositivo. Para saber mais, consulte [consulta de roteamento de mensagens com base nas propriedades da mensagem](./iot-hub-devguide-routing-query-syntax.md#message-routing-query-based-on-message-properties).
 
 ### <a name="add-a-custom-endpoint"></a>Adicionar um ponto de extremidade personalizado
 
@@ -112,7 +112,7 @@ Adicione um ponto de extremidade personalizado para a fila do barramento de serv
 
 1. Em **mensagens**, selecione **Roteamento de mensagens**. No painel **Roteamento de mensagens** , selecione a guia **pontos de extremidade personalizados** e, em seguida, selecione **+ Adicionar**. Na lista suspensa, selecione **fila do barramento de serviço**.
 
-   ![Adicionar um ponto de extremidade ao hub IoT no portal do Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/select-iot-hub-custom-endpoint.png)
+   ![Captura de tela que realça a opção de fila do barramento de serviço.](media/iot-hub-monitoring-notifications-with-azure-logic-apps/select-iot-hub-custom-endpoint.png)
 
 1. No painel **Adicionar um ponto de extremidade do barramento de serviço** , insira as seguintes informações:
 
@@ -183,9 +183,9 @@ Na seção anterior, você configura o Hub IoT para rotear mensagens contendo um
 1. Crie uma conexão do barramento de serviço.
    1. Insira um nome de conexão e selecione o namespace do barramento de serviço na lista. A próxima tela é aberta.
 
-      ![Criar uma conexão do barramento de serviço para o aplicativo lógico no portal do Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/create-service-bus-connection-1.png)
+      ![Captura de tela que realça o quando uma ou mais mensagens chegam em uma opção de fila (preenchimento automático).](media/iot-hub-monitoring-notifications-with-azure-logic-apps/create-service-bus-connection-1.png)
 
-   1. Selecione a política do barramento de serviço (RootManageSharedAccessKey). Em seguida, selecione **criar**.
+   1. Selecione a política do barramento de serviço (RootManageSharedAccessKey). Em seguida, selecione  **criar**.
 
       ![Criar uma conexão do barramento de serviço para o aplicativo lógico no portal do Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/7-create-service-bus-connection-in-logic-app-azure-portal.png)
 

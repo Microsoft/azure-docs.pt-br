@@ -6,16 +6,16 @@ author: TimothyMothra
 ms.author: tilee
 ms.date: 4/23/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 333bba2b1d3cd83457196e38b827daa78199f235
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b44279f31aea8fc02130f1c3d7520f42c648bd4c
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87033506"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97607942"
 ---
 # <a name="application-insights-for-azure-functions-supported-features"></a>Recursos suportados do Application Insights para o Azure Functions
 
-O Azure Functions oferece [integração interna](../../azure-functions/functions-monitoring.md) com o Application Insights, que está disponível por meio da Interface do ILogger. Abaixo está a lista de recursos atualmente suportados. Examine o guia do Azure Functions para [Introdução ao](../../azure-functions/functions-monitoring.md#enable-application-insights-integration).
+O Azure Functions oferece [integração interna](../../azure-functions/functions-monitoring.md) com o Application Insights, que está disponível por meio da Interface do ILogger. Abaixo está a lista de recursos atualmente suportados. Examine o guia do Azure Functions para [Introdução ao](../../azure-functions/configure-monitoring.md#enable-application-insights-integration).
 
 Para obter mais informações sobre as versões de tempo de execução do functions, consulte [aqui](../../azure-functions/functions-versions.md).
 
@@ -23,37 +23,35 @@ Para obter mais informações sobre versões compatíveis do Application Insight
 
 ## <a name="supported-features"></a>Recursos compatíveis
 
-| Funções do Azure                       | V1                | V2 & V3   | 
-|-----------------------------------    |---------------    |------------------ |
+| Funções do Azure                   | V1            | V2 & V3 | 
+|-----------------------------------|---------------|------------------|
 | | | | 
-| **Coleta automática de**        |                 |                   |               
-| &bull; Solicitações                     | Sim             | Sim               | 
-| &bull; Exceções                   | Sim             | Sim               | 
-| &bull; Contadores de desempenho         | Sim             | Sim               |
-| &bull; Dependências                   |                   |                   |               
-| &nbsp;&nbsp;&nbsp;&mdash; HTTP      |                 | Sim               | 
-| &nbsp;&nbsp;&nbsp;&mdash; Barramento de serviço|                 | Sim               | 
-| &nbsp;&nbsp;&nbsp;&mdash; hub de eventos  |                 | Sim               | 
-| &nbsp;&nbsp;&nbsp;&mdash; SQL       |                 | Sim               | 
+| **Coleta automática de**        |               |                  |
+| &bull; Solicitações                     | Sim           | Sim              |
+| &bull; Exceções                   | Sim           | Sim              |
+| &bull; Contadores de desempenho         | Sim           | Sim              |
+| &bull; Dependências                 |               |                  |
+| &nbsp;&nbsp;&nbsp;&mdash; HTTP      |               | Sim              |
+| &nbsp;&nbsp;&nbsp;&mdash; Barramento de serviço|               | Sim              |
+| &nbsp;&nbsp;&nbsp;&mdash; hub de eventos  |               | Sim              |
+| &nbsp;&nbsp;&nbsp;&mdash; SQL       |               | Sim              |
 | | | | 
-| **Recursos compatíveis**                |                   |                   |               
-| &bull; QuickPulse/LiveMetrics       | Sim             | Sim               | 
-| &nbsp;&nbsp;&nbsp;&mdash; Canal de controle seguro|                 | Sim               | 
-| &bull; Amostragem                     | Sim             | Sim               | 
-| &bull; Pulsações                   |                 | Sim               | 
+| **Recursos compatíveis**              |               |                  |
+| &bull; QuickPulse/LiveMetrics       | Sim           | Sim              | 
+| &nbsp;&nbsp;&nbsp;&mdash; Canal de controle seguro |               | Sim | 
+| &bull; Amostragem                     | Sim           | Sim              | 
+| &bull; Pulsações                   | | Sim              | 
+| | | |
+| **Correlação**                    |               |                  |
+| &bull; Barramento de serviço                  |               | Sim              |
+| &bull; hub de eventos                    |               | Sim              |
 | | | | 
-| **Correlação**                       |                   |                   |               
-| &bull; Barramento de serviço                     |                   | Sim               | 
-| &bull; hub de eventos                       |                   | Sim               | 
-| | | | 
-| **Configurável**                      |                   |                   |           
-| &bull;Totalmente configurável.<br/>Ver [Azure Functions](https://github.com/Microsoft/ApplicationInsights-aspnetcore/issues/759#issuecomment-426687852) para obter instruções.<br/>Ver [Asp.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Custom-Configuration) para todas as opções.               |                   | Sim                   | 
-
+| **Configurável**                  |               |                  |           
+| &bull;Totalmente configurável.<br/>Ver [Azure Functions](https://github.com/Microsoft/ApplicationInsights-aspnetcore/issues/759#issuecomment-426687852) para obter instruções.<br/>Consulte [ASP.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Custom-Configuration) para todas as opções.           |               | Sim                 | 
 
 ## <a name="performance-counters"></a>Contadores de desempenho
 
 A coleta automática de contadores de desempenho só funciona em máquinas Windows.
-
 
 ## <a name="live-metrics--secure-control-channel"></a>Live Metrics e canal de controle seguro
 
@@ -61,7 +59,7 @@ Os critérios de filtro personalizados especificados são enviados para o compon
 
 ## <a name="sampling"></a>amostragem
 
-As funções do Azure ativam a amostragem por padrão em suas configurações. Para obter mais informações, consulte [configurar amostragem](../../azure-functions/functions-monitoring.md#configure-sampling).
+As funções do Azure ativam a amostragem por padrão em suas configurações. Para obter mais informações, consulte [configurar amostragem](../../azure-functions/configure-monitoring.md#configure-sampling).
 
 Se o seu projeto usar uma dependência no SDK do Application Insights para fazer o acompanhamento manual de telemetria, você poderá enfrentar um comportamento estranho se a configuração de amostragem for diferente da configuração de amostragem das funções. 
 

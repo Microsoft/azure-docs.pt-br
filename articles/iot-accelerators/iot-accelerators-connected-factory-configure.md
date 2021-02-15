@@ -8,14 +8,17 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 5fa3d4d4fdfa0dd81cd8ab8772ffb3903dda289f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e015c6761b920ef37af2bbfd67ced5fc3218d532
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73820126"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002231"
 ---
 # <a name="configure-the-connected-factory-solution-accelerator"></a>Configurar o acelerador da solução Connected Factory
+
+> [!IMPORTANT]
+> Enquanto atualizamos este artigo, confira [IoT Industrial do Azure](https://azure.github.io/Industrial-IoT/) para obter o conteúdo mais atualizado.
 
 O acelerador de solução Connected Factory mostra um painel simulado para uma empresa fictícia chamada Contoso. Essa empresa tem fábricas localizadas em vários locais globalmente.
 
@@ -85,7 +88,7 @@ O snippet de código a seguir mostra a estrutura do arquivo de configuração de
 }
 ```
 
-As propriedades comuns de  `<global_configuration>`, `<factory_configuration>`, `<production_line_configuration>` e `<station_configuration>` são:
+As propriedades comuns de `<global_configuration>`, `<factory_configuration>`, `<production_line_configuration>` e `<station_configuration>` são:
 
 * **Name** (tipo cadeia de caracteres)
 
@@ -264,10 +267,10 @@ Todas as propriedades usadas no arquivo de configuração podem ser agrupadas em
 
 As propriedades nesta categoria definem a aparência do painel Connected Factory. Os exemplos incluem:
 
-* Nome
+* Name
 * Descrição
-* Image
-* Location
+* Imagem
+* Localização
 * Unidades
 * Visible
 

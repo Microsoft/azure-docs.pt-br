@@ -13,21 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 9d73c280e3f5639b11e0d07b9ef2f775f48cd3c3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a26359c46caa8085384313f1c385c5740abc0b32
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87038481"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98694525"
 ---
-# <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Acessar a API dos Serviços de Mídia do Azure com a autenticação do Azure AD  
+# <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Acessar a API dos Serviços de Mídia do Azure com a autenticação do Azure AD 
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)] 
 
 > [!NOTE]
-> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](../latest/index.yml). Além disso, consulte s [diretrizes de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
+> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](../latest/index.yml). Além disso, consulte s [diretrizes de migração da v2 para a v3](../latest/migrate-v-2-v-3-migration-introduction.md)
 
 A API dos Serviços de Mídia do Azure é uma API RESTful. Você pode usá-la para executar operações em recursos de mídia usando uma API REST ou os SDKs de cliente disponíveis. Os Serviços de Mídia do Azure oferecem um SDK de cliente dos Serviços de Mídia para o Microsoft .NET. Para estar autorizado a acessar os recursos e a API dos Serviços de Mídia, primeiro você deve ser autenticado. 
 
-Os serviços de mídia oferecem suporte à [autenticação baseada no Azure Active Directory (AD do Azure)](../../active-directory/fundamentals/active-directory-whatis.md). O serviço REST de Mídia do Azure exige que o usuário ou o aplicativo que faz as solicitações da API REST tenha a função **Colaborador** ou **Proprietário** para acessar os recursos. Para obter mais informações, consulte [Introdução ao Controle de Acesso Baseado em Função no portal do Azure](../../role-based-access-control/overview.md).  
+Os serviços de mídia oferecem suporte à [autenticação baseada no Azure Active Directory (AD do Azure)](../../active-directory/fundamentals/active-directory-whatis.md). O serviço REST de Mídia do Azure exige que o usuário ou o aplicativo que faz as solicitações da API REST tenha a função **Colaborador** ou **Proprietário** para acessar os recursos. Para obter mais informações, consulte [o que é o Azure RBAC (controle de acesso baseado em função)](../../role-based-access-control/overview.md).  
 
 Este documento fornece uma visão geral de como acessar a API dos Serviços de Mídia usando as APIs REST ou as APIs do .NET.
 
@@ -151,7 +153,7 @@ Os seguintes artigos são visões gerais dos conceitos de autenticação do Azur
 
 - [Cenários de autenticação abordados pelo Azure AD](../../active-directory/develop/authentication-vs-authorization.md)
 - [Adicionar, atualizar ou remover um aplicativo no Azure AD](../../active-directory/develop/quickstart-register-app.md)
-- [Configurar e gerenciar o Controle de Acesso Baseado em Função usando o PowerShell](../../role-based-access-control/role-assignments-powershell.md)
+- [Adicionar ou remover atribuições de função do Azure usando o Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 

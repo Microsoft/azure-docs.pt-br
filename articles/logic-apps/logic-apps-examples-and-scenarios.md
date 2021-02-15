@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/28/2020
-ms.openlocfilehash: 207b597bc865c8234d447759ab8b0f53dc35413c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5f7afe044ab4f782f2028598c2c56e75edf95860
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090273"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92317388"
 ---
 # <a name="common-scenarios-examples-tutorials-and-walkthroughs-for-azure-logic-apps"></a>Cenários comuns, exemplos, tutoriais e instruções passo a passo para os Aplicativos Lógicos do Azure
 
@@ -43,8 +43,8 @@ Aqui estão exemplos que descrevem os gatilhos comumente usados:
 
     Para saber mais, consulte esses tópicos:<p>
 
-    * [Tutorial: criar fluxos de trabalho baseados em aprovação automatizados usando aplicativos lógicos do Azure](../logic-apps/tutorial-process-mailing-list-subscriptions-workflow.md)
-    * [Tutorial: automatizar tarefas para processar emails usando aplicativos lógicos do Azure, Azure Functions e armazenamento do Azure](../logic-apps/tutorial-process-email-attachments-workflow.md)
+    * [Tutorial: Criar fluxos de trabalho automatizados baseados em aprovação usando os Aplicativos Lógicos do Azure](../logic-apps/tutorial-process-mailing-list-subscriptions-workflow.md)
+    * [Tutorial: Automatizar tarefas para processar emails usando os Aplicativos Lógicos do Azure, o Azure Functions e o Armazenamento do Azure](../logic-apps/tutorial-process-email-attachments-workflow.md)
 
   * O [gatilho **http** ](../connectors/connectors-native-http.md) pode chamar um ponto de extremidade de serviço por http ou HTTPS. Para obter mais informações, consulte [chamar, disparar ou aninhar fluxos de trabalho usando pontos de extremidade http](../logic-apps/logic-apps-http-endpoint.md).
 
@@ -126,9 +126,9 @@ Você pode desenvolver e implantar totalmente aplicativos lógicos com o Visual 
 
 ## <a name="handle-content-types-conversions-and-transformations"></a>Manipule tipos de conteúdo, conversões e transformações
 
-Você pode acessar, converter e transformar vários tipos de conteúdo usando diversas funções na [linguagem de definição de fluxo de trabalho](https://aka.ms/logicappsdocs) dos Aplicativos Lógicos do Azure. Por exemplo, você pode converter entre uma cadeia de caracteres, JSON e XML com as expressões de fluxo de trabalho `@json()` e `@xml()`. O mecanismo do Aplicativo Lógico preserva os tipos de conteúdo a fim de dar suporte à transferência de conteúdo entre serviços sem perdas.
+Você pode acessar, converter e transformar vários tipos de conteúdo usando diversas funções na [linguagem de definição de fluxo de trabalho](./logic-apps-workflow-definition-language.md) dos Aplicativos Lógicos do Azure. Por exemplo, você pode converter entre uma cadeia de caracteres, JSON e XML com as expressões de fluxo de trabalho `@json()` e `@xml()`. O mecanismo do Aplicativo Lógico preserva os tipos de conteúdo a fim de dar suporte à transferência de conteúdo entre serviços sem perdas.
 
-* [Manipule tipos de conteúdo em aplicativos lógicos do Azure](../logic-apps/logic-apps-content-type.md), como `application/` , `application/octet-stream` e`multipart/formdata`
+* [Manipule tipos de conteúdo em aplicativos lógicos do Azure](../logic-apps/logic-apps-content-type.md), como `application/` , `application/octet-stream` e `multipart/formdata`
 * [Guia de referência do uso de funções em expressões para os Aplicativos Lógicos do Azure e o Power Automate](../logic-apps/workflow-definition-language-functions-reference.md)
 * [Esquema de linguagem de definição de fluxo de trabalho para os Aplicativos Lógicos do Azure](../logic-apps/logic-apps-workflow-definition-language.md)
 

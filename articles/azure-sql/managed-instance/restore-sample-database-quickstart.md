@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: quickstart
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: sstein, carlrab, bonova
+ms.reviewer: sstein, bonova
 ms.date: 12/14/2018
-ms.openlocfilehash: 0d10105648f434eb1d02a821e972e789bd39d66f
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 9b2333e38415a2c0ad50ce36c213ead711c70ab4
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84708435"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928793"
 ---
 # <a name="quickstart-restore-a-database-to-azure-sql-managed-instance-with-ssms"></a>Início Rápido: restaurar um banco de dados em uma Instância Gerenciada de SQL do Azure com o SSMS
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -35,14 +35,14 @@ Neste início rápido, você usará o SSMS (SQL Server Management Studio) para r
 Este início rápido:
 
 - Usa os recursos do início rápido [Criar uma instância gerenciada](instance-create-quickstart.md).
-- Requer a instalação da versão mais recente do [SSMS](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms).
+- Requer a instalação da versão mais recente do [SSMS](/sql/ssms/sql-server-management-studio-ssms).
 - Requer o uso do SSMS para se conectar à Instância Gerenciada de SQL. Confira estes inícios rápidos sobre como se conectar:
   - [Habilitar o ponto de extremidade público](public-endpoint-configure.md) na Instância Gerenciada de SQL. Essa é a abordagem recomendada para este tutorial.
   - [Conectar-se a uma Instância Gerenciada de SQL por meio de uma VM do Azure](connect-vm-instance-configure.md).
   - [Configurar uma conexão ponto a site com a Instância Gerenciada de SQL do local](point-to-site-p2s-configure.md).
 
 > [!NOTE]
-> Para saber mais sobre como fazer backup e restaurar um banco de dados do SQL Server usando o Armazenamento de Blobs do Azure e uma [chave de SAS (Assinatura de Acesso Compartilhado)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1), confira [Backup do SQL Server para URL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url?view=sql-server-2017).
+> Para saber mais sobre como fazer backup e restaurar um banco de dados do SQL Server usando o Armazenamento de Blobs do Azure e uma [chave de SAS (Assinatura de Acesso Compartilhado)](../../storage/common/storage-sas-overview.md), confira [Backup do SQL Server para URL](/sql/relational-databases/backup-restore/sql-server-backup-to-url?view=sql-server-2017).
 
 ## <a name="restore-from-a-backup-file"></a>Restaurar de um arquivo de backup
 
@@ -50,7 +50,10 @@ No SQL Server Management Studio, siga estas etapas para restaurar o banco de dad
 
 1. Abra o SSMS e conecte-se à instância gerenciada.
 2. No **Pesquisador de Objetos**, clique com o botão direito do mouse na instância gerenciada e selecione **Nova Consulta** para abrir uma nova janela de consulta.
-3. Execute o script SQL a seguir, que usa uma conta de armazenamento pré-configurada e uma chave SAS para [criar uma credencial](https://docs.microsoft.com/sql/t-sql/statements/create-credential-transact-sql) na instância gerenciada.
+3. Execute o script SQL a seguir, que usa uma conta de armazenamento pré-configurada e uma chave SAS para [criar uma credencial](/sql/t-sql/statements/create-credential-transact-sql) na instância gerenciada.
+ 
+   > [!IMPORTANT]
+   > `CREDENTIAL` precisa corresponder ao caminho do contêiner, começar com `https` e não pode conter uma barra "/" à direita. `IDENTITY` deve ser `SHARED ACCESS SIGNATURE`. `SECRET` precisa ser o token da Assinatura de Acesso Compartilhado e não pode conter um `?` à esquerda.
 
    ```sql
    CREATE CREDENTIAL [https://mitutorials.blob.core.windows.net/databases]
@@ -76,7 +79,7 @@ No SQL Server Management Studio, siga estas etapas para restaurar o banco de dad
      'https://mitutorials.blob.core.windows.net/databases/WideWorldImporters-Standard.bak'
    ```
 
-    ![restaurar](./media/restore-sample-database-quickstart/restore.png)
+    ![A captura de tela mostra o script em execução no Pesquisador de Objetos com uma mensagem de êxito.](./media/restore-sample-database-quickstart/restore.png)
 
 6. Execute o script a seguir para acompanhar o status da restauração.
 
@@ -88,15 +91,15 @@ No SQL Server Management Studio, siga estas etapas para restaurar o banco de dad
    WHERE r.command in ('BACKUP DATABASE','RESTORE DATABASE')
    ```
 
-7. Quando a restauração for concluída, exiba o banco de dados no Pesquisador de Objetos. Você pode verificar se a restauração do banco de dados foi concluída usando a exibição [sys.dm_operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database).
+7. Quando a restauração for concluída, exiba o banco de dados no Pesquisador de Objetos. Você pode verificar se a restauração do banco de dados foi concluída usando a exibição [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database).
 
 > [!NOTE]
-> Uma operação de restauração do banco de dados é assíncrona e repetível. Você poderá receber um erro no SQL Server Management Studio se a conexão for interrompida ou o tempo limite expirar. O Banco de Dados SQL do Azure continuará tentando restaurar o banco de dados em segundo plano e você poderá acompanhar o progresso da restauração usando as exibições [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) e [sys.dm_operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database).
-> Em algumas fases do processo de restauração, você verá o identificador exclusivo em vez do nome real do banco de dados nas exibições do sistema. Saiba mais sobre as diferenças de comportamento da instrução `RESTORE` [aqui](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-transact-sql-information#restore-statement).
+> Uma operação de restauração do banco de dados é assíncrona e repetível. Você poderá receber um erro no SQL Server Management Studio se a conexão for interrompida ou o tempo limite expirar. O Banco de Dados SQL do Azure continuará tentando restaurar o banco de dados em segundo plano e você poderá acompanhar o progresso da restauração usando as exibições [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) e [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database).
+> Em algumas fases do processo de restauração, você verá o identificador exclusivo em vez do nome real do banco de dados nas exibições do sistema. Saiba mais sobre as diferenças de comportamento da instrução `RESTORE` [aqui](./transact-sql-tsql-differences-sql-server.md#restore-statement).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Se, na etapa 5, uma restauração de banco de dados for encerrada com a ID da mensagem 22003, crie um arquivo de backup que contenha somas de verificação de backup e execute a restauração novamente. Confira [Habilitar ou desabilitar as somas de verificação de backup durante o backup ou a restauração](https://docs.microsoft.com/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server).
-- Para solução de problemas de um backup em uma URL, confira [Melhores práticas e solução de problemas de backup em uma URL do SQL Server](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url-best-practices-and-troubleshooting).
+- Se, na etapa 5, uma restauração de banco de dados for encerrada com a ID da mensagem 22003, crie um arquivo de backup que contenha somas de verificação de backup e execute a restauração novamente. Confira [Habilitar ou desabilitar as somas de verificação de backup durante o backup ou a restauração](/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server).
+- Para solução de problemas de um backup em uma URL, confira [Melhores práticas e solução de problemas de backup em uma URL do SQL Server](/sql/relational-databases/backup-restore/sql-server-backup-to-url-best-practices-and-troubleshooting).
 - Para obter uma visão geral das opções de conexão de aplicativos, confira [Conectar seu aplicativo à Instância Gerenciada de SQL](connect-application-instance.md).
 - Para consulta usando suas ferramentas ou linguagens favoritas, confira [Inícios Rápidos: conexão e consulta do Banco de Dados SQL do Azure](../database/connect-query-content-reference-guide.md).

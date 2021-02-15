@@ -3,23 +3,25 @@ title: Consultar contêineres no Azure Cosmos DB
 description: Saiba como consultar contêineres em Azure Cosmos DB usando consultas em partição e entre partições
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 3/18/2019
 ms.author: mjbrown
-ms.openlocfilehash: 08ac95fe2a6b3e01d6bbcf96b120426f12f4e21c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0f08ca84597b08b9a236b7bfb0fc9c849423a752
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85261249"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93335884"
 ---
 # <a name="query-an-azure-cosmos-container"></a>Consultar um contêiner do Azure Cosmos
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Este artigo explica como consultar um contêiner (coleção, grafo ou tabela) no Azure Cosmos DB. Em particular, ele aborda como as consultas em partição e entre partições funcionam em Azure Cosmos DB.
 
 ## <a name="in-partition-query"></a>Consulta na partição
 
-Quando você consulta dados de contêineres, se a consulta tiver um filtro de chave de partição especificado, Azure Cosmos DB otimizará automaticamente a consulta. Ele roteia a consulta para as [partições físicas](partition-data.md#physical-partitions) correspondentes aos valores de chave de partição especificados no filtro.
+Quando você consulta dados de contêineres, se a consulta tiver um filtro de chave de partição especificado, Azure Cosmos DB otimizará automaticamente a consulta. Ele roteia a consulta para as [partições físicas](partitioning-overview.md#physical-partitions) correspondentes aos valores de chave de partição especificados no filtro.
 
 Por exemplo, considere a consulta abaixo com um filtro de igualdade ativado `DeviceId` . Se executarmos essa consulta em um contêiner particionado `DeviceId` , essa consulta será filtrada para uma única partição física.
 
@@ -57,11 +59,11 @@ Os SDKs do Azure Cosmos DB 1.9.0 e versões superiores dão suporte a opções d
 
 Você pode gerenciar a execução de consulta paralela ajustando os seguintes parâmetros:
 
-- **MaxConcurrency**: define o número máximo de conexões de rede simultâneas com as partições do contêiner. Se você definir essa propriedade como `-1` , o SDK gerenciará o grau de paralelismo. Se  `MaxConcurrency` definido como `0` , há uma única conexão de rede para as partições do contêiner.
+- **MaxConcurrency** : define o número máximo de conexões de rede simultâneas com as partições do contêiner. Se você definir essa propriedade como `-1` , o SDK gerenciará o grau de paralelismo. Se  `MaxConcurrency` definido como `0` , há uma única conexão de rede para as partições do contêiner.
 
-- **MaxBufferedItemCount**: negocia a latência da consulta em comparação com a utilização de memória do lado do cliente. Se a opção for omitida ou definida como -1, o SDK gerenciará o número de itens no buffer durante a execução de consultas paralelas.
+- **MaxBufferedItemCount** : negocia a latência da consulta em comparação com a utilização de memória do lado do cliente. Se a opção for omitida ou definida como -1, o SDK gerenciará o número de itens no buffer durante a execução de consultas paralelas.
 
-Devido à capacidade do Azure Cosmos DB de paralelizar consultas entre partições, a latência da consulta geralmente será bem dimensionada à medida que o sistema adiciona [partições físicas](partition-data.md#physical-partitions). No entanto, a carga de RU aumentará significativamente, pois o número total de partições físicas aumenta.
+Devido à capacidade do Azure Cosmos DB de paralelizar consultas entre partições, a latência da consulta geralmente será bem dimensionada à medida que o sistema adiciona [partições físicas](partitioning-overview.md#physical-partitions). No entanto, a carga de RU aumentará significativamente, pois o número total de partições físicas aumenta.
 
 Ao executar uma consulta entre partições, você está essencialmente fazendo uma consulta separada por partição física individual. Embora as consultas entre partições usem o índice, se disponíveis, elas ainda não são tão eficientes quanto as consultas em partição.
 

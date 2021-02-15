@@ -8,14 +8,17 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: dobett
-ms.openlocfilehash: c868aa0f1c2449ccf163523c9ded25a31d1d84c4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e492ebf70f69c985691852a1c1f2351d1e09578e
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73820105"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425020"
 ---
 # <a name="what-is-connected-factory-iot-solution-accelerator"></a>O que é um acelerador da solução de IoT Fábrica Conectada?
+
+> [!IMPORTANT]
+> Enquanto atualizamos este artigo, confira [IoT Industrial do Azure](https://azure.github.io/Industrial-IoT/) para obter o conteúdo mais atualizado.
 
 Fábrica Conectada é uma implementação da arquitetura de referência de IoT Industrial do Microsoft Azure, empacotada como uma solução de software livre. É possível utilizá-la como ponto de partida para um produto comercial. Você pode implantar uma versão de pré-build da solução de Fábrica Conectada na sua assinatura do Azure por meio dos [aceleradores de solução do Azure IoT](https://www.azureiotsolutions.com/#solutions/types/CF).
 
@@ -55,7 +58,7 @@ A Fábrica Conectada inclui os recursos a seguir:
 
 ## <a name="end-to-end-security"></a>Segurança de ponta a ponta
 
-- Configurar permissões de segurança para usuários usando RBAC (Controle de Acesso Baseado em Função).
+- Configure permissões de segurança para usuários usando o RBAC (controle de acesso baseado em função).
 - A criptografia de ponta a ponta é implementada usando a autenticação OPC UA (usando certificados X.509), bem como tokens de segurança.
 
 ## <a name="customizability"></a>Personalização

@@ -4,20 +4,20 @@ description: Instale o runtime, o SDK e as ferramentas e crie um cluster de dese
 author: peterpogorski
 ms.topic: conceptual
 ms.date: 06/16/2020
-ms.custom: sfrev
-ms.openlocfilehash: 005a04833b95e893758fda768113801c5a4f6f66
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.custom: sfrev, devx-track-azurepowershell
+ms.openlocfilehash: 07482fe41cdf7700fddd516c1a71eca5beebb4c6
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88207465"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98920166"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Preparar seu ambiente de desenvolvimento no Windows
 
 > [!div class="op_single_selector"]
 > * [Windows](service-fabric-get-started.md) 
 > * [Linux](service-fabric-get-started-linux.md)
-> * [OSX](service-fabric-get-started-mac.md)
+> * [Mac OS X](service-fabric-get-started-mac.md)
 >
 >
 
@@ -54,12 +54,6 @@ Além disso, você precisa instalar o SDK e o runtime do Microsoft Azure Service
 
 * [Instalar o SDK do Microsoft Azure Service Fabric][core-sdk]
 
-### <a name="to-use-visual-studio-2015-requires-visual-studio-2015-update-2-or-later"></a>Para usar o Visual Studio 2015 (requer a atualização do Visual Studio 2015 2 ou posterior)
-
-Para Visual Studio 2015, as ferramentas do Service Fabric são instaladas junto com o SDK e o runtime, usando o Web Platform Installer:
-
-* [Instalar as ferramentas e o SDK do Microsoft Azure Service Fabric][full-bundle-vs2015]
-
 ### <a name="sdk-installation-only"></a>Somente instalação do SDK
 
 Se só precisar do SDK, você poderá instalar este pacote:
@@ -68,8 +62,8 @@ Se só precisar do SDK, você poderá instalar este pacote:
 
 As versões atuais são:
 
-* Service Fabric SDK e ferramentas 4.1.456
-* 7.1.456 tempo de execução de Service Fabric
+* Service Fabric SDK e ferramentas 4.2.452
+* 7.2.452 tempo de execução de Service Fabric
 
 Para obter uma lista das versões com suporte, consulte [versões do Service Fabric](service-fabric-versions.md)
 
@@ -94,8 +88,9 @@ Agora que você terminou de configurar seu ambiente de desenvolvimento, comece a
 
 * [Saiba como criar, implantar e gerenciar aplicativos](service-fabric-tutorial-create-dotnet-app.md)
 * [Saiba mais sobre os modelos de programação: Reliable Services e Reliable Actors](service-fabric-choose-framework.md)
-* [Confira os exemplos de código do Service Fabric no GitHub](https://aka.ms/servicefabricsamples)
+* [Confira os exemplos de código do Service Fabric no GitHub](/samples/browse/?products=azure)
 * [Visualizar o cluster usando o Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
+* [Preparar um ambiente de desenvolvimento do Linux no Windows](service-fabric-local-linux-cluster-windows.md)
 * Saiba mais sobre [as opções de suporte do Service Fabric](service-fabric-support.md)
 
 [1]: https://azure.microsoft.com/campaigns/service-fabric/ "Página da campanha do Service Fabric"

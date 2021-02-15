@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/17/2017
 ms.author: mazha
-ms.openlocfilehash: bded48b59d10e47a9bbf476583fed78b5b97431d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 21ef06f37e6840df08b1477f9c0ff24f6e15d1a3
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84887443"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95978023"
 ---
 # <a name="securing-azure-cdn-assets-with-token-authentication"></a>Proteger ativos da CDN do Azure com autenticação de token
 
@@ -170,7 +170,7 @@ O fluxograma a seguir descreve como a CDN do Azure valida a solicitação do cli
 
    9. Opcionalmente, personalize o tipo de código de resposta retornado quando uma solicitação é negada. Selecione **Habilitado**, em seguida, selecione o código de resposta da lista **Código de Resposta**. **Nome do Cabeçalho** é definido automaticamente como **Local**. Selecione **Salvar** para implementar o novo código de resposta. Para determinados códigos de resposta, você também deve inserir o URL da sua página de erro na caixa **Valor do Cabeçalho**. O código de resposta **403** (Proibido) é selecionado por padrão. 
 
-3. Em **HTTP Grande**, selecione **Mecanismo de Regras**. Você usa o mecanismo de regras para definir os caminhos para aplicar o recurso, habilitar o recurso de autenticação de token e habilitar funcionalidades adicionais relacionadas à autenticação de token. Para obter mais informações, consulte [Referência do mecanismo de regras](cdn-rules-engine-reference.md).
+3. Em **HTTP Grande**, selecione **Mecanismo de Regras**. Você usa o mecanismo de regras para definir os caminhos para aplicar o recurso, habilitar o recurso de autenticação de token e habilitar funcionalidades adicionais relacionadas à autenticação de token. Para obter mais informações, consulte [Referência do mecanismo de regras](./cdn-verizon-premium-rules-engine-reference.md).
 
    1. Selecione uma regra existente ou crie uma nova regra para definir o ativo ou o caminho ao qual você deseja aplicar a autenticação de token. 
    2. Para habilitar a autenticação de token em uma regra, selecione **[Autenticação de Token](https://docs.vdms.com/cdn/Content/HRE/F/Token-Auth.htm)** na lista **Recursos** e, em seguida, selecione **Habilitado**. Selecione **Atualizar**, se você estiver atualizando uma regra ou **Adicionar**, se você estiver criando uma regra.

@@ -4,13 +4,13 @@ description: Este artigo mostra como implantar Service Fabric aplicativo com uma
 ms.topic: article
 ms.date: 12/09/2019
 ms.openlocfilehash: 79d8654733b580be96d59e78f31105077929ac78
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86260088"
 ---
-# <a name="deploy-service-fabric-application-with-a-user-assigned-managed-identity"></a>Implantar Service Fabric aplicativo com uma identidade gerenciada atribuída pelo usuário
+# <a name="deploy-service-fabric-application-with-a-user-assigned-managed-identity"></a>Implantar Service Fabric aplicativo com uma identidade User-Assigned gerenciada
 
 Para implantar um aplicativo Service Fabric com identidade gerenciada, o aplicativo precisa ser implantado por meio de Azure Resource Manager, normalmente com um modelo de Azure Resource Manager. Para obter mais informações sobre como implantar Service Fabric aplicativo por meio de Azure Resource Manager, consulte [gerenciar aplicativos e serviços como Azure Resource Manager recursos](service-fabric-application-arm-resource.md).
 
@@ -21,9 +21,9 @@ Para implantar um aplicativo Service Fabric com identidade gerenciada, o aplicat
 > Service Fabric implantação de aplicativo com identidade gerenciada tem suporte com a versão de API `"2019-06-01-preview"` . Você também pode usar a mesma versão de API para tipo de aplicativo, versão de tipo de aplicativo e recursos de serviço.
 >
 
-## <a name="user-assigned-identity"></a>Identidade atribuída pelo usuário
+## <a name="user-assigned-identity"></a>Identidade de User-Assigned
 
-Para habilitar o aplicativo com identidade atribuída pelo usuário, primeiro adicione a propriedade **Identity** ao recurso do aplicativo com o tipo **userassigned** e as identidades atribuídas ao usuário referenciadas. Em seguida, adicione uma seção **managedIdentities** dentro da seção **Propriedades** para o recurso de **aplicativo** que contém uma lista de nomes amigáveis para o mapeamento de PrincipalId para cada uma das identidades atribuídas pelo usuário. Para obter mais informações sobre identidades atribuídas ao usuário [, consulte criar, listar ou excluir uma identidade gerenciada atribuída pelo usuário](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md).
+Para habilitar o aplicativo com a identidade User-Assigned, primeiro adicione a propriedade **Identity** ao recurso de aplicativo com o tipo **userassigned** e as identidades atribuídas ao usuário referenciadas. Em seguida, adicione uma seção **managedIdentities** dentro da seção **Propriedades** para o recurso de **aplicativo** que contém uma lista de nomes amigáveis para o mapeamento de PrincipalId para cada uma das identidades atribuídas pelo usuário. Para obter mais informações sobre identidades atribuídas ao usuário [, consulte criar, listar ou excluir uma identidade gerenciada atribuída pelo usuário](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md).
 
 ### <a name="application-template"></a>Modelo de aplicativo
 

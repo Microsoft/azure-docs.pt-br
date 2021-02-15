@@ -1,22 +1,31 @@
 ---
 title: Integrar-se com o Apache Kafka Connect – Hubs de Eventos do Azure | Microsoft Docs
-description: Este artigo fornece informações sobre como usar o Apache Spark com Hubs de Eventos do Azure para Kafka.
+description: Este artigo fornece informações sobre como usar o Kafka Connect com os hubs de eventos do Azure para Kafka.
 ms.topic: how-to
-ms.date: 06/23/2020
-ms.openlocfilehash: 4c63d27549df40120a90b2594ab54337c11168b6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 01/06/2021
+ms.openlocfilehash: f82dcdafa7921f4a994361371536b2f1ace7cbc5
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079097"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935148"
 ---
-# <a name="integrate-apache-kafka-connect-support-on-azure-event-hubs-preview"></a>Integrar o suporte do Apache Kafka Connect aos Hubs de Eventos do Azure (versão prévia)
-Conforme as necessidades de ingestão das empresas vai aumentando, também vai aumentando a necessidade de fazer a ingestão em vários coletores e fontes externas. O [Apache Kafka Connect](https://kafka.apache.org/documentation/#connect) fornece essa estrutura para conectar e importar/exportar dados de ou para qualquer sistema externo, como o MySQL, o HDFS e o sistema de arquivos, por meio de um cluster do Kafka. Este tutorial orienta você pelo uso da estrutura do Kafka Connect com hubs de eventos.
+# <a name="integrate-apache-kafka-connect-support-on-azure-event-hubs"></a>Integrar o suporte ao Apache Kafka Connect nos Hubs de Eventos do Azure
+O [Apache Kafka Connect](https://kafka.apache.org/documentation/#connect) é uma estrutura para se conectar e importar/exportar dados de/para qualquer sistema externo, como MySQL, HDFS e sistema de arquivos por meio de um cluster Kafka. Este tutorial orienta você pelo uso da estrutura do Kafka Connect com hubs de eventos.
+
+> [!WARNING]
+> O uso da estrutura do Apache Kafka Connect e seus conectores **não está qualificado para suporte ao produto por meio de Microsoft Azure**.
+>
+> O Apache Kafka Connect pressupõe que sua configuração dinâmica seja mantida em tópicos compactados com retenção ilimitada. Os hubs de eventos do Azure [não implementam a compactação como um recurso de agente](event-hubs-federation-overview.md#log-projections) e sempre impõe um limite de retenção com base no tempo em eventos retidos, raiz do princípio de que os hubs de eventos do Azure são um mecanismo de streaming de eventos em tempo real e não um repositório de dados ou de configuração de longo prazo.
+>
+> Embora o projeto de Apache Kafka possa se sentir confortável com a combinação dessas funções, o Azure acredita que essas informações são mais bem gerenciadas em um banco de dados ou repositório de configuração adequado.
+>
+> Muitos cenários do Apache Kafka Connect serão funcionais, mas essas diferenças conceituais entre os modelos de retenção dos Apache Kafka e dos hubs de eventos do Azure podem fazer com que determinadas configurações não funcionem conforme o esperado. 
 
 Este tutorial orienta você pela integração do Kafka Connect a um hub de eventos e à implantação de conectores do filestreamname e do FileStreamSink básicos. Esse recurso está atualmente na visualização. Embora esses conectores não sirvam para uso em produção, eles demonstram um cenário Kafka Connect de ponta a ponta em que os Hubs de Eventos do Azure atuam como um agente do Kafka.
 
 > [!NOTE]
-> Este exemplo está disponível em [GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/connect).
+> Este exemplo está disponível no [GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/connect).
 
 Neste tutorial, você deve executar as seguintes etapas:
 
@@ -27,7 +36,7 @@ Neste tutorial, você deve executar as seguintes etapas:
 > * Executar o Kafka Connect
 > * Criar conectores
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 Para concluir este passo a passo, é necessário atender aos seguintes pré-requisitos:
 
 - Assinatura do Azure. Se você não tiver uma, [crie uma conta gratuita](https://azure.microsoft.com/free/).
@@ -90,6 +99,10 @@ consumer.sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModul
 
 plugin.path={KAFKA.DIRECTORY}/libs # path to the libs directory within the Kafka release
 ```
+
+> [!IMPORTANT]
+> Substitua `{YOUR.EVENTHUBS.CONNECTION.STRING}` pela cadeia de conexão do seu namespace dos Hubs de Eventos. Para ver as instruções sobre como obter uma cadeia de conexão, confira [Obter cadeia de conexão para Hubs de Eventos](event-hubs-get-connection-string.md). Aqui está um exemplo de configuração: `sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://mynamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XXXXXXXXXXXXXXXX";`
+
 
 ## <a name="run-kafka-connect"></a>Executar o Kafka Connect
 
@@ -158,5 +171,5 @@ Para saber mais sobre os hubs de eventos para Kafka, consulte os seguintes artig
 - [Conectar o Apache Spark a um hub de eventos](event-hubs-kafka-spark-tutorial.md)
 - [Conectar o Apache Flink a um hub de eventos](event-hubs-kafka-flink-tutorial.md)
 - [Explorar exemplos em nosso GitHub](https://github.com/Azure/azure-event-hubs-for-kafka)
-- [Conectar fluxos do Akka a um hub de eventos](event-hubs-kafka-akka-streams-tutorial.md)
+- [Conectar o Akka Streams a um hub de eventos](event-hubs-kafka-akka-streams-tutorial.md)
 - [Guia do desenvolvedor de Apache Kafka para hubs de eventos do Azure](apache-kafka-developer-guide.md)

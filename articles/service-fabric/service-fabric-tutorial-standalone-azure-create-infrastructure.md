@@ -4,12 +4,12 @@ description: Neste tutorial, você aprenderá a configurar a infraestrutura da V
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: 93a7e2507ab3a467ef83924479872694cae2dd5b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e9f62f944fff331bcf2dad1b380161e563614219
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75614002"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "90561833"
 ---
 # <a name="tutorial-create-azure-vm-infrastructure-to-host-a-service-fabric-cluster"></a>Tutorial: Criar infraestrutura de VM do Azure para hospedar um cluster do Service Fabric
 
@@ -49,7 +49,7 @@ Para concluir este tutorial, você precisa de uma assinatura do Azure.  Caso ain
 
 8. Em seguida, defina o **Grupo de segurança de rede do adaptador de rede** como **Avançado**. Crie um novo grupo de segurança, anote seu nome e crie as seguintes regras para permitir tráfego TCP vindo de qualquer fonte:
 
-   ![sf-inbound][sf-inbound]
+   ![A captura de tela mostra a criação de regras para permitir o tráfego de entrada TCP.][sf-inbound]
 
    * Porta `3389`, para RDP e ICMP (conectividade básica).
    * Portas `19000-19003`, para o Service Fabric.
@@ -61,7 +61,7 @@ Para concluir este tutorial, você precisa de uma assinatura do Azure.  Caso ain
 
 9. Adicione outra regra. Defina a fonte como **Marca de Serviço** e defina a marca de serviço da fonte como **VirtualNetwork**. O Service Fabric requer que as seguintes portas estejam abertas para comunicação com o cluster: 135, 137 a 139, 445, 20001 a 20031, 20606 a 20861.
 
-   ![vnet-inbound][vnet-inbound]
+   ![A captura de tela mostra a criação de regras a fim de permitir o tráfego TCP para um cluster.][vnet-inbound]
 
 10. O restante das opções pode ficar no estado padrão. Examine-as, se quiser, e inicie sua máquina virtual.
 

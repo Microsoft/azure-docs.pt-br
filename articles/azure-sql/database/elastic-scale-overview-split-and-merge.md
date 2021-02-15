@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 9303d84b2862b556a9ccc286ffa118bf1e52b715
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5a646ffe1d306d7ea13da002715d5bd9b907107b
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84034647"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793459"
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>Mover dados entre bancos de dados na nuvem escalados horizontalmente
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -43,17 +43,17 @@ A ferramenta de divisão/mesclagem é executada como um serviço Web do Azure. U
 
 ## <a name="why-use-the-split-merge-tool"></a>Por que usar a ferramenta de divisão/mesclagem?
 
-- **Flexibilidade**
+- **Maior**
 
   Os aplicativos precisam ampliar de maneira flexível além dos limites de um banco de dados individual no banco de dados SQL do Azure. Use a ferramenta para mover os dados conforme necessário para novos bancos de dados, mantendo a integridade.
 
 - **Dividir para crescer**
 
-  Para aumentar a capacidade total para lidar com o crescimento explosivo, crie capacidade adicional fragmentando os dados e distribuindo-os de forma incremental e distribuindo-os em mais bancos de dados até que as necessidades de capacidade sejam atendidas. Isso é um excelente exemplo do recurso**Dividir**.
+  Para aumentar a capacidade total para lidar com o crescimento explosivo, crie capacidade adicional fragmentando os dados e distribuindo-os de forma incremental e distribuindo-os em mais bancos de dados até que as necessidades de capacidade sejam atendidas. Isso é um excelente exemplo do recurso **Dividir** .
 
 - **Mesclar para reduzir**
 
-  A capacidade precisa ser reduzida devido à natureza sazonal de um negócio. A ferramenta permite reduzir verticalmente para menos unidades quando o negócio desacelera. O recurso de ' mesclagem ' no serviço de divisão/mesclagem de escala elástica aborda esse requisito.
+  A capacidade precisa ser reduzida devido à natureza sazonal de um negócio. A ferramenta permite reduzir verticalmente para menos unidades quando o negócio desacelera. O recurso de "mesclagem" na escala elástica Split-Merge serviço abrange esse requisito.
 
 - **Gerenciar pontos de acesso movendo shardlets**
 
@@ -220,7 +220,7 @@ O serviço de divisão/mesclagem usa o diagnóstico do Azure com base no SDK do 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> O módulo Azure Resource Manager do PowerShell ainda tem suporte, mas todo o desenvolvimento futuro é para o módulo AZ. Sql. Para esses cmdlets, confira [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos.
+> O módulo Azure Resource Manager do PowerShell ainda tem suporte, mas todo o desenvolvimento futuro é para o módulo AZ. Sql. Para esses cmdlets, confira [AzureRM.Sql](/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos.
 
 Para habilitar o monitoramento e diagnóstico usando a configuração de diagnóstico para as funções Web e de trabalho fornecidas pelo pacote NuGet, execute os seguintes comandos usando o Azure PowerShell:
 
@@ -244,7 +244,7 @@ Você pode encontrar mais informações sobre como configurar e implantar config
 
 ## <a name="retrieve-diagnostics"></a>Recuperar diagnósticos
 
-Você pode acessar facilmente o diagnóstico do Gerenciador de Servidores do Visual Studio na parte do Azure da árvore do Gerenciador de Servidores. Abra uma instância do Visual Studio e, na barra de menus, clique em Modo de exibição e em Gerenciador de Servidores. Clique no ícone do Azure para conectar-se à sua assinatura do Azure. Em seguida, navegue para Azure -> Armazenamento -> `<your storage account>` -> Tabelas -> WADLogsTable. Para obter mais informações, consulte [Gerenciador de Servidores](https://msdn.microsoft.com/library/x603htbk.aspx).
+Você pode acessar facilmente o diagnóstico do Gerenciador de Servidores do Visual Studio na parte do Azure da árvore do Gerenciador de Servidores. Abra uma instância do Visual Studio e, na barra de menus, clique em Modo de exibição e em Gerenciador de Servidores. Clique no ícone do Azure para conectar-se à sua assinatura do Azure. Em seguida, navegue para Azure -> Armazenamento -> `<your storage account>` -> Tabelas -> WADLogsTable. Para obter mais informações, consulte [Gerenciador de Servidores](/previous-versions/x603htbk(v=vs.140)).
 
 ![WADLogsTable][2]
 

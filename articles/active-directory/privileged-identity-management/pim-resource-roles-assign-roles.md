@@ -11,16 +11,16 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 07/01/2020
+ms.date: 10/23/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 32b678058e2d24d277eaf56a1aadec3678e25a5b
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 011b50449f0a02b128bc000535f93e1809fd9777
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87128158"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92673882"
 ---
 # <a name="assign-azure-resource-roles-in-privileged-identity-management"></a>Atribuir funções de recurso do Azure no Privileged Identity Management
 
@@ -39,13 +39,13 @@ O Azure Active Directory (Azure AD) Privileged Identity Management (PIM) pode ge
 
 Siga estas etapas para tornar um usuário qualificado para uma função de recurso do Azure.
 
-1. Entre no [portal do Azure](https://portal.azure.com/) com um usuário que seja membro da função de [administrador de função com privilégios](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) .
+1. Entre no [portal do Azure](https://portal.azure.com/) com permissões de função de administrador de acesso do usuário ou proprietário.
 
     Para obter informações sobre como conceder a outro administrador acesso para gerenciar Privileged Identity Management, consulte [conceder acesso a outros administradores para gerenciar Privileged Identity Management](pim-how-to-give-access-to-pim.md).
 
-1. Abra **Azure ad Privileged Identity Management**.
+1. Abra **Azure ad Privileged Identity Management** .
 
-1. Selecione **recursos do Azure**.
+1. Selecione **recursos do Azure** .
 
 1. Use o filtro de recursos para localizar os recursos gerenciados que você está procurando.
 
@@ -53,7 +53,7 @@ Siga estas etapas para tornar um usuário qualificado para uma função de recur
 
 1. Selecione o recurso que você deseja gerenciar para abrir a página Visão geral do recurso.
 
-1. Em **gerenciar**, selecione **funções** para ver a lista de funções para recursos do Azure.
+1. Em **gerenciar** , selecione **funções** para ver a lista de funções para recursos do Azure.
 
     ![Funções dos recursos do Azure](./media/pim-resource-roles-assign-roles/resources-roles.png)
 
@@ -63,15 +63,15 @@ Siga estas etapas para tornar um usuário qualificado para uma função de recur
 
     ![Novo painel de atribuição](./media/pim-resource-roles-assign-roles/resources-select-role.png)
 
-1. Selecione uma função que você deseja atribuir e clique em **Selecionar**.
+1. Selecione uma função que você deseja atribuir e clique em **Selecionar** .
 
     O painel **selecionar um membro ou grupo** é aberto.
 
-1. Selecione um membro ou grupo que você deseja atribuir à função e, em seguida, clique em **selecionar**.
+1. Selecione um membro ou grupo que você deseja atribuir à função e, em seguida, clique em **selecionar** .
 
     ![Selecione um painel de membro ou grupo](./media/pim-resource-roles-assign-roles/resources-select-member-or-group.png)
 
-1. Na guia **configurações** , na lista **tipo de atribuição** , selecione **qualificado** ou **ativo**.
+1. Na guia **configurações** , na lista **tipo de atribuição** , selecione **qualificado** ou **ativo** .
 
     ![Painel de configurações das Associações](./media/pim-resource-roles-assign-roles/resources-membership-settings-type.png)
 
@@ -83,7 +83,7 @@ Siga estas etapas para tornar um usuário qualificado para uma função de recur
 
 1. Para especificar uma duração de atribuição específica, altere as datas e horários de início e término.
 
-1. Quando terminar, selecione **atribuir**.
+1. Quando terminar, selecione **atribuir** .
 
 1. Depois que a nova atribuição de função é criada, uma notificação de status é exibida.
 
@@ -93,19 +93,19 @@ Siga estas etapas para tornar um usuário qualificado para uma função de recur
 
 Siga estas etapas para atualizar ou remover uma atribuição de função existente.
 
-1. Abra **Azure ad Privileged Identity Management**.
+1. Abra **Azure ad Privileged Identity Management** .
 
-1. Selecione **recursos do Azure**.
+1. Selecione **recursos do Azure** .
 
 1. Selecione o recurso que você deseja gerenciar para abrir sua página de visão geral.
 
-1. Em **gerenciar**, selecione **funções** para ver a lista de funções para recursos do Azure.
+1. Em **gerenciar** , selecione **funções** para ver a lista de funções para recursos do Azure.
 
     ![Funções de recursos do Azure - Selecionar função](./media/pim-resource-roles-assign-roles/resources-update-select-role.png)
 
 1. Selecione a função que você deseja atualizar ou remover.
 
-1. Localize a atribuição de função nas guias **Funções qualificadas** ou **Funções ativas**.
+1. Localize a atribuição de função nas guias **Funções qualificadas** ou **Funções ativas** .
 
     ![Atualizar ou remover atribuição de função](./media/pim-resource-roles-assign-roles/resources-update-remove.png)
 

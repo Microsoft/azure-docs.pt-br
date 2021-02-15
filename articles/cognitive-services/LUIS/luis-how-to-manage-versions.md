@@ -3,30 +3,28 @@ title: Gerenciar versões-LUIS
 titleSuffix: Azure Cognitive Services
 description: As versões permitem que você crie e publique modelos diferentes. É uma boa prática clonar o modelo ativo atual para uma versão diferente do aplicativo antes de fazer alterações no modelo.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/17/2020
-ms.author: diberry
-ms.openlocfilehash: 3aa7958ea4edf6cf3e3c1b170e2351f49f719983
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
+ms.openlocfilehash: b93e9fd4047ee3731ef6fe4652bb92ce5145987d
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84782833"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018813"
 ---
 # <a name="use-versions-to-edit-and-test-without-impacting-staging-or-production-apps"></a>Usar versões para editar e testar sem afetar aplicativos de preparo ou produção
 
-As versões permitem que você crie e publique modelos diferentes. É uma boa prática clonar o modelo ativo atual para uma [versão](luis-concept-version.md) diferente do aplicativo antes de fazer alterações no modelo.
+As versões permitem que você crie e publique modelos diferentes. É uma boa prática clonar o modelo ativo atual para uma [versão](./luis-concept-app-iteration.md) diferente do aplicativo antes de fazer alterações no modelo.
 
 A versão ativa é a versão que você está editando na seção **Build** do portal do Luis com tentativas, entidades, recursos e padrões. Ao usar as APIs de criação, você não precisa definir a versão ativa porque as chamadas à API REST específica da versão incluem a versão na rota.
 
-Para trabalhar com versões, abra o aplicativo selecionando o nome dele na página **Meus Aplicativos** e, em seguida, selecione **Gerenciar** na barra superior e selecione **Versões**.
+Para trabalhar com versões, abra seu aplicativo selecionando seu nome na página **meus aplicativos** e, em seguida, selecione **gerenciar** na barra superior e, em seguida, selecione **versões** no painel de navegação à esquerda.
 
-A lista de versões mostra quais versões são publicadas, onde elas são publicadas e qual versão está ativa no momento.
+A lista de versões mostra quais versões estão publicadas, onde elas estão publicadas e qual versão está ativa no momento.
 
 ## <a name="clone-a-version"></a>Clonar uma versão
 
@@ -68,4 +66,3 @@ Você pode importar um `.json` ou uma `.lu` versão do seu aplicativo.
 * Para **excluir** uma versão, selecione-a na lista e selecione **Excluir** na barra de ferramentas. Selecione **OK**.
 * Para **renomear** uma versão, selecione-a na lista e selecione **Renomear** na barra de ferramentas. Insira o novo nome e selecione **Concluído**.
 * Para **exporta** uma versão, selecione-a na lista e selecione **Exportar aplicativo** na barra de ferramentas. Escolha JSON ou LU para exportar para um backup ou para salvar no controle do código-fonte, escolha **exportar para contêiner** para [usar esse aplicativo em um contêiner Luis](luis-container-howto.md).
-

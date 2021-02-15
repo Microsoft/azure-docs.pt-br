@@ -1,14 +1,16 @@
 ---
 title: Novidades - reconhecimento vocal (LUIS)
 description: Este artigo é atualizado regularmente com notícias sobre a API de reconhecimento vocal dos Serviços Cognitivos do Azure.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: overview
-ms.date: 06/15/2020
-ms.openlocfilehash: d178ee2f5db74949f4a8ad68df93bf3c4407c58a
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
-ms.translationtype: MT
+ms.date: 01/21/2021
+ms.openlocfilehash: 5fdde81d31eae4c50b86a5553742f9b599f32505
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84789201"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98693588"
 ---
 # <a name="whats-new-in-language-understanding"></a>Novidades sobre reconhecimento vocal
 
@@ -16,18 +18,28 @@ Conheça o que há de novo no serviço. Esses itens incluem notas sobre a versã
 
 ## <a name="release-notes"></a>Notas de versão
 
+### <a name="january-2021"></a>Janeiro de 2021
+
+* Agora, a API de previsão V3 dá suporte à [API de Verificação Ortográfica do Bing](luis-how-to-publish-app.md#spelling-correction).
+* Os portais regionais (au.luis.ai e eu.luis.ai) foram consolidados em um só portal e uma só URL. Se estiver usando um desses portais, você será automaticamente redirecionado para luis.ai.
+
+### <a name="december-2020"></a>Dezembro de 2020
+
+* Os usuários do LUIS deverão [migrar para um recurso de criação de LUIS](luis-migration-authoring.md)
+* Novos [pontos de extremidade de avaliação](luis-how-to-batch-test.md#batch-testing-using-the-rest-api) que permitem enviar testes em lotes usando a API REST e obter resultados precisos para suas intenções e entidades. Disponível do Ponto de Extremidade do LUIS v3.0-preview em diante.
+
 ### <a name="june-2020"></a>Junho de 2020
 
-* [Visualização de 3,0 criação](luis-migration-authoring-entities.md) SDK
-    * Versão 3.2.0-Preview. 3- [.net-NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/)
-    * Versão 4.0.0-Preview. 3- [js-NPM](https://www.npmjs.com/package/@azure/cognitiveservices-luis-authoring)
+* SDK [Preview 3.0 Authoring](luis-migration-authoring-entities.md) –
+    * Versão 3.2.0-preview.3 – [.NET – NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/)
+    * Versão 4.0.0-preview.3 – [JS – NPM](https://www.npmjs.com/package/@azure/cognitiveservices-luis-authoring)
 * Aplicar práticas de DevOps com LUIS
     * Conceitos
-        * [DevOps Practices for LUIS](luis-concept-devops-sourcecontrol.md)
-        * [Fluxos de trabalho de integração contínua e fornecimento contínuo para LUIS DevOps](luis-concept-devops-automation.md)
-        * [Testando o LUIS DevOps](luis-concept-devops-testing.md)
+        * [Práticas de DevOps para LUIS](luis-concept-devops-sourcecontrol.md)
+        * [Fluxos de trabalho de integração contínua e entrega contínua para DevOps do LUIS](luis-concept-devops-automation.md)
+        * [Teste para DevOps do LUIS](luis-concept-devops-testing.md)
     * Como fazer
-        * [Aplicar DevOps ao desenvolvimento de aplicativo do LUIS usando ações do GitHub](luis-how-to-devops-with-github.md)
+        * [Aplicar DevOps ao desenvolvimento de aplicativo do LUIS usando GitHub Actions](luis-how-to-devops-with-github.md)
     * [Repositório do GitHub de código completo](https://github.com/Azure-Samples/LUIS-DevOps-Template)
 
 ### <a name="may-2020---build"></a>Maio de 2020 - //Build

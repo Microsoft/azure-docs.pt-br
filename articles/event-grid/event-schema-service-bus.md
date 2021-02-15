@@ -2,100 +2,19 @@
 title: Barramento de serviço do Azure como origem da grade de eventos
 description: Descreve as propriedades que são fornecidas para eventos do Barramento de Serviço com a Grade de Eventos do Azure
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: 81293321b3a8fb989023a231c905996b4059bd81
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 02/12/2021
+ms.openlocfilehash: d3e14788d49697a1f86624bbe8d6d0ec2eb072c8
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121127"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100363229"
 ---
 # <a name="azure-service-bus-as-an-event-grid-source"></a>Barramento de serviço do Azure como uma fonte de grade de eventos
 
-Este artigo fornece as propriedades e o esquema para eventos do Barramento de Serviço.Para obter uma introdução a esquemas de evento, consulte [esquema de grade de eventos do Azure](event-schema.md).
+Este artigo fornece as propriedades e o esquema para eventos do Barramento de Serviço. Para obter uma introdução a esquemas de evento, consulte [esquema de grade de eventos do Azure](event-schema.md).
 
-## <a name="event-grid-event-schema"></a>Esquema de eventos da Grade de Eventos
-
-### <a name="available-event-types"></a>Tipos de evento disponíveis
-
-Barramento de Serviço emite os seguintes tipos de evento:
-
-| Tipo de evento | Descrição |
-| ---------- | ----------- |
-| Microsoft.ServiceBus.ActiveMessagesAvailableWithNoListeners | Gerado quando há mensagens ativas em uma fila ou assinatura e nenhum receptor escutando. |
-| Microsoft.ServiceBus.DeadletterMessagesAvailableWithNoListener | Gerado quando há mensagens ativas em uma fila de mensagens mortas e nenhum listener ativo. |
-
-### <a name="example-event"></a>Exemplo de evento
-
-O exemplo a seguir mostra o esquema de mensagens ativas sem eventos de ouvintes:
-
-```json
-[{
-  "topic": "/subscriptions/{subscription-id}/resourcegroups/{your-rg}/providers/Microsoft.ServiceBus/namespaces/{your-service-bus-namespace}",
-  "subject": "topics/{your-service-bus-topic}/subscriptions/{your-service-bus-subscription}",
-  "eventType": "Microsoft.ServiceBus.ActiveMessagesAvailableWithNoListeners",
-  "eventTime": "2018-02-14T05:12:53.4133526Z",
-  "id": "dede87b0-3656-419c-acaf-70c95ddc60f5",
-  "data": {
-    "namespaceName": "YOUR SERVICE BUS NAMESPACE WILL SHOW HERE",
-    "requestUri": "https://{your-service-bus-namespace}.servicebus.windows.net/{your-topic}/subscriptions/{your-service-bus-subscription}/messages/head",
-    "entityType": "subscriber",
-    "queueName": "QUEUE NAME IF QUEUE",
-    "topicName": "TOPIC NAME IF TOPIC",
-    "subscriptionName": "SUBSCRIPTION NAME"
-  },
-  "dataVersion": "1",
-  "metadataVersion": "1"
-}]
-```
-
-O esquema para um evento de fila de mensagens mortas é semelhante:
-
-```json
-[{
-  "topic": "/subscriptions/{subscription-id}/resourcegroups/{your-rg}/providers/Microsoft.ServiceBus/namespaces/{your-service-bus-namespace}",
-  "subject": "topics/{your-service-bus-topic}/subscriptions/{your-service-bus-subscription}",
-  "eventType": "Microsoft.ServiceBus.DeadletterMessagesAvailableWithNoListener",
-  "eventTime": "2018-02-14T05:12:53.4133526Z",
-  "id": "dede87b0-3656-419c-acaf-70c95ddc60f5",
-  "data": {
-    "namespaceName": "YOUR SERVICE BUS NAMESPACE WILL SHOW HERE",
-    "requestUri": "https://{your-service-bus-namespace}.servicebus.windows.net/{your-topic}/subscriptions/{your-service-bus-subscription}/$deadletterqueue/messages/head",
-    "entityType": "subscriber",
-    "queueName": "QUEUE NAME IF QUEUE",
-    "topicName": "TOPIC NAME IF TOPIC",
-    "subscriptionName": "SUBSCRIPTION NAME"
-  },
-  "dataVersion": "1",
-  "metadataVersion": "1"
-}]
-```
-
-### <a name="event-properties"></a>Propriedades do evento
-
-Um evento tem os seguintes dados de nível superior:
-
-| Propriedade | Type | Descrição |
-| -------- | ---- | ----------- |
-| topic | string | Caminho de recurso completo para a origem do evento. Esse campo não é gravável. Grade de Eventos fornece esse valor. |
-| subject | string | Caminho definido pelo fornecedor para o assunto do evento. |
-| eventType | string | Um dos tipos de evento registrados para a origem do evento. |
-| eventTime | string | A hora em que o evento é gerado com base na hora UTC do provedor. |
-| id | string | Identificador exclusivo do evento. |
-| data | objeto | Dados de eventos do armazenamento de blob. |
-| dataVersion | string | A versão do esquema do objeto de dados. O fornecedor define a versão do esquema. |
-| metadataVersion | string | A versão do esquema do metadados de evento. Grade de Eventos define o esquema de propriedades de nível superior. Grade de Eventos fornece esse valor. |
-
-O objeto de dados tem as seguintes propriedades:
-
-| Propriedade | Type | Description |
-| -------- | ---- | ----------- |
-| namespaceName | string | O namespace do Barramento de Serviço onde está o recurso existente. |
-| requestUri | string | O URI para a fila específica ou a assinatura que emite o evento. |
-| entityType | string | O tipo de entidade de Barramento de Serviço que emite eventos (fila ou assinatura). |
-| queueName | string | A fila de mensagens ativas se inscreve-se em uma fila. Valor nulo se usar tópicos / assinaturas. |
-| topicName | string | O tópico da assinatura do Barramento de Serviço ao qual as mensagens ativas pertencem. Valor nulo se usar uma fila. |
-| subscriptionName | string | A assinatura do Barramento de Serviço com as mensagens ativas. Valor nulo se usar uma fila. |
+[!INCLUDE [event-grid-service-bus.md](../../includes/event-grid-service-bus.md)]
 
 ## <a name="tutorials-and-how-tos"></a>Tutoriais e instruções
 |Título  |Descrição  |

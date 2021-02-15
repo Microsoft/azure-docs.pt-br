@@ -2,14 +2,14 @@
 author: erhopf
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/29/2019
+ms.date: 01/08/2021
 ms.author: erhopf
-ms.openlocfilehash: b5a3ec1d6e33c08b460088c9aeb4fd18f6bf29ff
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 22127f81d871fe333750020196540db17e7544f7
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88864894"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98033432"
 ---
 ## <a name="authentication"></a>Autenticação
 
@@ -17,7 +17,7 @@ Cada solicitação requer um cabeçalho de autorização. Esta tabela ilustra qu
 
 | Cabeçalhos de autorização suportados | Conversão de fala em texto | Conversão de texto em fala |
 |------------------------|----------------|----------------|
-| Ocp-Apim-Subscription-Key | Sim | Não |
+| Ocp-Apim-Subscription-Key | Sim | Sim |
 | Autorização: portador | Sim | Sim |
 
 Ao usar o cabeçalho `Ocp-Apim-Subscription-Key`, você só precisa fornecer sua chave de assinatura. Por exemplo:
@@ -151,7 +151,7 @@ def get_token(subscription_key):
 
 O token de acesso deve ser enviado para o serviço como o cabeçalho `Authorization: Bearer <TOKEN>`. Cada token de acesso é válido por 10 minutos. Você pode obter um novo token a qualquer momento, no entanto, para minimizar o tráfego de rede e a latência, recomendamos usar o mesmo token por nove minutos.
 
-Aqui está um exemplo de solicitação HTTP para a API REST de conversão de texto em fala:
+Aqui está um exemplo de solicitação HTTP para a API REST de conversão de fala em texto para áudio curto:
 
 ```http
 POST /cognitiveservices/v1 HTTP/1.1

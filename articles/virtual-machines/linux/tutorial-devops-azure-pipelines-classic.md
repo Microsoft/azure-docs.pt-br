@@ -12,16 +12,16 @@ ms.workload: infrastructure
 ms.date: 4/10/2020
 ms.author: moala
 ms.custom: devops
-ms.openlocfilehash: b8eec0d95144c012d3034e3f2c7c6e8adc921651
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f77cc85bd62deb2cb2cb74c42cf245a409904b3a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86510167"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978298"
 ---
 # <a name="tutorial---configure-the-rolling-deployment-strategy-for-azure-linux-virtual-machines"></a>Tutorial – Configurar estratégia de implantação sem interrupção para Máquinas Virtuais do Linux do Azure
 
-O Azure DevOps é um serviço interno do Azure que automatiza cada parte do processo de DevOps para qualquer recurso do Azure. Se seu aplicativo usa máquinas virtuais, aplicativos Web, Kubernetes ou qualquer outro recurso, você pode implementar IaaC (infraestrutura como código), integração contínua, teste contínuo, entrega contínua e monitoramento contínuo com o Azure e o Azure DevOps.
+O Azure DevOps é um serviço interno do Azure que automatiza cada parte do processo de DevOps para qualquer recurso do Azure. Quer o aplicativo use máquinas virtuais, aplicativos Web, Kubernetes ou qualquer outro recurso, você pode implementar IaC (infraestrutura como código), integração contínua, teste contínuo, entrega contínua e monitoramento contínuo com o Azure e o Azure DevOps.
 
 ![O portal do Azure com o Azure DevOps selecionado em serviços](media/tutorial-devops-azure-pipelines-classic/azdevops-view.png)
 
@@ -29,7 +29,7 @@ O Azure DevOps é um serviço interno do Azure que automatiza cada parte do proc
 
 O Azure Pipelines fornece um conjunto de ferramentas de automação de CI/CD para implantações em máquinas virtuais. Você pode configurar um pipeline de entrega contínua para uma VM do Azure do portal do Azure.
 
-Este artigo mostra como configurar um pipeline de CI/CD para a reversão de implantações de vários computadores do portal do Azure. O portal do Azure também dá suporte a outras estratégias, como [canário](https://aka.ms/AA7jdrz) e [azul-verde](https://aka.ms/AA83fwu).
+Este artigo mostra como configurar um pipeline de CI/CD para a reversão de implantações de vários computadores do portal do Azure. O portal do Azure também dá suporte a outras estratégias, como [canário](./tutorial-azure-devops-canary-strategy.md) e [azul-verde](./tutorial-azure-devops-blue-green-strategy.md).
 
 ### <a name="configure-cicd-on-virtual-machines"></a>Configurar CI/CD em máquinas virtuais
 
@@ -78,8 +78,8 @@ Usando a opção de entrega contínua, você pode configurar atualizações sem 
 
 ## <a name="other-deployment-strategies"></a>Outras estratégias de implantação
 
-- [Configurar a estratégia de implantação canário](https://aka.ms/AA7jdrz)
-- [Configurar a estratégia de implantação azul-verde](https://aka.ms/AA83fwu)
+- [Configurar a estratégia de implantação canário](./tutorial-azure-devops-canary-strategy.md)
+- [Configurar a estratégia de implantação azul-verde](./tutorial-azure-devops-blue-green-strategy.md)
 
 ## <a name="azure-devops-projects"></a>Azure DevOps Projects
 

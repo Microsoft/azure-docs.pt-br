@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 8936c2150c32a22877f9b56736ecc4b8f3424b32
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 6bf3eccec70619bf73397e315c6d851f753ec52f
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88533122"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92521825"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-uberflip"></a>Tutorial: integração do Azure Active Directory com o Uberflip
 
@@ -28,7 +28,7 @@ A integração do Uberflip com o Azure AD oferece os seguintes benefícios:
 * Você pode permitir que seus usuários entrem automaticamente no Uberflip (logon único) com suas contas do Azure AD.
 * Gerencie suas contas em um único local: o portal do Azure.
 
-Para obter detalhes sobre a integração de aplicativos de SaaS (software como serviço) ao Azure AD, consulte [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para obter detalhes sobre a integração de aplicativos de SaaS (software como serviço) ao Azure AD, consulte [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prerequisites
 
@@ -55,7 +55,7 @@ Para configurar a integração do Uberflip ao Azure AD, você precisa adicionar 
 
    ![A opção Azure Active Directory](common/select-azuread.png)
 
-1. Vá para **Aplicativos da empresa**, em seguida, selecione **Todos os Aplicativos**.
+1. Vá para **Aplicativos da empresa** , em seguida, selecione **Todos os Aplicativos**.
 
    ![O painel Aplicativos Empresariais](common/enterprise-applications.png)
 
@@ -86,19 +86,19 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure.
 
 Para configurar o logon único do Azure AD com o Uberflip, realize as seguintes etapas:
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Uberflip**, selecione **Logon único**.
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Uberflip** , selecione **Logon único**.
 
     ![Opção Configurar logon único](common/select-sso.png)
 
-1. No painel **Selecionar um método de logon único**, selecione o modo **SAML/WS-Fed** para habilitar o logon único.
+1. No painel **Selecionar um método de logon único** , selecione o modo **SAML/WS-Fed** para habilitar o logon único.
 
     ![Modo de seleção de logon único](common/select-saml-option.png)
 
-1. Na página **Configurar Logon Único com o SAML**, selecione **Editar** (o ícone de lápis) para abrir o painel **Configuração Básica do SAML**.
+1. Na página **Configurar Logon Único com o SAML** , selecione **Editar** (o ícone de lápis) para abrir o painel **Configuração Básica do SAML**.
 
-   ![Editar a Configuração Básica de SAML](common/edit-urls.png)
+   ![A captura de tela mostra a Configuração Básica do SAML, em que você pode inserir uma URL de Resposta.](common/edit-urls.png)
 
-1. No painel **Configuração básica do SAML**, siga uma das etapas a seguir, dependendo de qual modo de SSO você deseja configurar:
+1. No painel **Configuração básica do SAML** , siga uma das etapas a seguir, dependendo de qual modo de SSO você deseja configurar:
 
    * Para configurar o aplicativo no modo SSO iniciado por IDP, na caixa **URL de Resposta (URL do Serviço do Consumidor de Declaração)** , digite uma URL usando o seguinte padrão:
 
@@ -109,17 +109,17 @@ Para configurar o logon único do Azure AD com o Uberflip, realize as seguintes 
      > [!NOTE]
      > Esse valor não é real. Atualize esse valor com a URL de resposta real. Para obter o valor real, entre em contato com a [equipe de suporte do Uberflip](mailto:support@uberflip.com). Você também pode consultar os padrões exibidos no painel **Configuração Básica de SAML** no portal do Azure.
 
-   * Para configurar o aplicativo no modo de SSO iniciado por SP, selecione **Definir URLs adicionais** e, na caixa **URL de logon**, digite esta URL:
+   * Para configurar o aplicativo no modo de SSO iniciado por SP, selecione **Definir URLs adicionais** e, na caixa **URL de logon** , digite esta URL:
 
      `https://app.uberflip.com/users/login`
 
-     ![Informações de logon único de domínio e URLs do Uberflip](common/both-signonurl.png)
+     ![Captura de tela que mostra Definir URLs adicionais, em que você pode inserir uma URL de Logon.](common/both-signonurl.png)
 
-1. No painel **Configurar Logon Único com o SAML**, na seção **Certificado de Autenticação SAML**, selecione **Baixar** para baixar o **XML de Metadados de Federação** das opções fornecidas e salve-o em seu computador.
+1. No painel **Configurar Logon Único com o SAML** , na seção **Certificado de Autenticação SAML** , selecione **Baixar** para baixar o **XML de Metadados de Federação** das opções fornecidas e salve-o em seu computador.
 
    ![A opção de download do XML de Metadados de Federação](common/metadataxml.png)
 
-1. No painel **Configurar o Uberflip**, copie uma ou mais URLs de que você precise:
+1. No painel **Configurar o Uberflip** , copie uma ou mais URLs de que você precise:
 
    * **URL de logon**
    * **Identificador do Azure AD**
@@ -143,13 +143,13 @@ Nesta seção, você criará uma usuária de teste no portal do Azure chamada B.
 
     ![Opção Novo usuário](common/new-user.png)
 
-1. No painel **Usuário**, siga as etapas a seguir:
+1. No painel **Usuário** , siga as etapas a seguir:
 
     ![O painel Usuário](common/user-properties.png)
 
-    1. Na caixa **Nome**, insira **BFernandes**.
+    1. Na caixa **Nome** , insira **BFernandes**.
   
-    1. Na caixa **Nome de usuário**, insira **BFernandes\@\<yourcompanydomain>.\<extension>** . Por exemplo, **BFernandes\@contoso.com**.
+    1. Na caixa **Nome de usuário** , insira **BFernandes\@\<yourcompanydomain>.\<extension>** . Por exemplo, **BFernandes\@contoso.com**.
 
     1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha**.
 
@@ -167,7 +167,7 @@ Nesta seção, você permitirá que B. Fernandes use o logon único do Azure con
 
     ![Uberflip na lista de aplicativos](common/all-applications.png)
 
-1. No painel esquerdo, em **GERENCIAR**, selecione **Usuários e grupos**.
+1. No painel esquerdo, em **GERENCIAR** , selecione **Usuários e grupos**.
 
     ![A opção "Usuários e grupos"](common/users-groups-blade.png)
 
@@ -175,11 +175,11 @@ Nesta seção, você permitirá que B. Fernandes use o logon único do Azure con
 
     ![O painel Adicionar Atribuição](common/add-assign-user.png)
 
-1. No painel **Usuários e grupos**, selecione **B. Fernandes** na lista **Usuários** e, em seguida, escolha **Selecionar** na parte inferior do painel.
+1. No painel **Usuários e grupos** , selecione **B. Fernandes** na lista **Usuários** e, em seguida, escolha **Selecionar** na parte inferior do painel.
 
-1. Se você está esperando um valor de função na declaração SAML, no painel **Selecionar Função**, selecione na lista a função apropriada para o usuário. Escolha **Selecionar** na parte inferior do painel.
+1. Se você está esperando um valor de função na declaração SAML, no painel **Selecionar Função** , selecione na lista a função apropriada para o usuário. Escolha **Selecionar** na parte inferior do painel.
 
-1. No painel **Adicionar atribuição**, selecione **Atribuir**.
+1. No painel **Adicionar atribuição** , selecione **Atribuir**.
 
 ### <a name="create-an-uberflip-test-user"></a>Criar um usuário de teste do Uberflip
 
@@ -192,12 +192,12 @@ Um usuário chamado B. Fernandes agora é criado no Uberflip. Você não precisa
 
 Nesta seção, você testará a configuração de logon único do Azure AD usando o portal Meus Aplicativos.
 
-Quando você seleciona **Uberflip** no portal meus aplicativos, você deverá ser conectado automaticamente à assinatura do Uberflip para a qual você configura o logon único. Para obter mais informações sobre o portal Meus Aplicativos, veja [Acessar e usar aplicativos no portal Meus Aplicativos](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando você seleciona **Uberflip** no portal meus aplicativos, você deverá ser conectado automaticamente à assinatura do Uberflip para a qual você configura o logon único. Para obter mais informações sobre o portal Meus Aplicativos, veja [Acessar e usar aplicativos no portal Meus Aplicativos](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Lista de tutoriais para a integração de aplicativos SaaS ao Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+* [Lista de tutoriais para a integração de aplicativos SaaS ao Azure Active Directory](./tutorial-list.md)
 
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-* [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+* [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)

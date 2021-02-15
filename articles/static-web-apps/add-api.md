@@ -7,13 +7,13 @@ ms.service: static-web-apps
 ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: wachegha
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 4dd253aa5dc1b8b89b1b387a555dde416c601f9c
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.custom: devx-track-js
+ms.openlocfilehash: 53be2ee9b6b3ab46f081747aec58b9c99fc54f0d
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88691489"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349949"
 ---
 # <a name="add-an-api-to-azure-static-web-apps-preview-with-azure-functions"></a>Adicionar uma API a aplicativos Web Estáticos do Azure com o Azure Functions
 
@@ -32,7 +32,7 @@ Você pode adicionar APIs sem servidor a aplicativos Web Estáticos do Azure por
 
 As etapas a seguir demonstram como criar um novo repositório e clonar os arquivos para o computador.
 
-1. Verifique se você está conectado ao GitHub e, em seguida, navegue até https://github.com/staticwebdev/vanilla-basic/generate para criar um novo repositório.
+1. Verifique se você está conectado ao GitHub e, em seguida, navegue até [https://github.com/staticwebdev/vanilla-basic/generate](https://github.com/login?return_to=/staticwebdev/vanilla-basic/generate) para criar um novo repositório.
 1. Na caixa _Nome do repositório_, insira **my-vanilla-api**.
 1. Clique em **Criar repositório do modelo**.
 
@@ -59,7 +59,7 @@ Em seguida, você cria um projeto Azure Functions como a API do aplicativo.
 1. Selecione a pasta **API** como o diretório para o espaço de trabalho do projeto
 1. Escolha **Selecionar**
 
-   :::image type="content" source="media/add-api/create-azure-functions-vscode-1.png" alt-text="Criar um novo Azure Functions usando o Visual Studio Code":::
+   :::image type="content" source="media/add-api/create-azure-functions-vscode-1.png" alt-text="Captura de tela mostra a pasta P I e o botão Selecionar.":::
 
 1. Forneça as seguintes informações nos prompts:
 
@@ -145,13 +145,13 @@ O Visual Studio Code integra-se ao [Azure Functions Core Tools](../azure-functio
 
     As ferramentas principais mostram a saída do aplicativo em execução no painel do _terminal_ . Como parte da saída, você pode ver o ponto de extremidade da URL de sua função disparada por HTTP localmente.
 
-    :::image type="content" source="media/add-api/create-azure-functions-vscode-2.png" alt-text="Criar um novo Azure Functions usando o Visual Studio Code":::
+    :::image type="content" source="media/add-api/create-azure-functions-vscode-2.png" alt-text="Captura de tela mostra a guia TERMINAL em que você pode ver o U R L.":::
 
 1. Com as ferramentas principais em execução, navegue até a seguinte URL para verificar se a API está sendo executada corretamente: `http://localhost:7071/api/message` .
 
    A resposta no navegador deve ser semelhante ao exemplo a seguir:
 
-   :::image type="content" source="media/add-api/create-azure-functions-vscode-3.png" alt-text="Criar um novo Azure Functions usando o Visual Studio Code":::
+   :::image type="content" source="media/add-api/create-azure-functions-vscode-3.png" alt-text="Alt textscreenion mostra uma resposta de texto em um navegador.":::
 
 1. Pressione **Shift + F5** para interromper a sessão de depuração.
 
@@ -199,7 +199,7 @@ Quando implantado no Azure, as solicitações para a API são automaticamente ro
 
     Agora você deve ver a mensagem da API na página da Web.
 
-   :::image type="content" source="media/add-api/create-azure-functions-vscode-4.png" alt-text="Criar um novo Azure Functions usando o Visual Studio Code":::
+   :::image type="content" source="media/add-api/create-azure-functions-vscode-4.png" alt-text="Captura de tela mostra a mensagem P I em um navegador.":::
 
    > [!NOTE]
    > Você pode usar outros servidores HTTP ou proxies para atender ao arquivo `index.html`. O acesso ao `index.html` do `file:///` não funcionará.
@@ -219,7 +219,7 @@ Ao usar o Visual Studio Code, confirme e envie por push suas alterações para o
 ## <a name="create-a-static-web-app"></a>Criar um aplicativo Web estático
 
 1. Navegue até o [portal do Azure](https://portal.azure.com)
-1. Clique em **Criar um Recurso**
+1. Clique em **Criar um Recurso**.
 1. Pesquisar **aplicativo Web estático**
 1. Clique em **aplicativo Web estático (visualização)**
 1. Clique em **Criar**
@@ -235,9 +235,11 @@ Em seguida, adicione as configurações específicas do aplicativo.
 1. Selecione sua _Organização_ de preferência.
 1. Selecione **my-vanilla-api** do menu suspenso do _Repositório_
 1. Selecione **mestre** na lista suspensa _Branch_
-1. Clique em **Avançar: Build >** para editar a configuração do build
+1. Selecione a estrutura de sua escolha para a configuração de Build na lista suspensa _criar predefinições de compilação_
 
-Em seguida, adicione os seguintes detalhes de build.
+ > Esses campos refletirão a estrutura de projeto padrão do tipo de aplicativo. Altere os valores para se adequar ao seu aplicativo.
+
+Em seguida, adicione os seguintes detalhes de compilação.
 
 1. Insira **/** para o _local do aplicativo_.
 1. Insira a **API** na caixa da _localização de API_.

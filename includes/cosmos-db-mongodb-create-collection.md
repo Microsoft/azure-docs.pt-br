@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/15/2020
 ms.author: lbosq
 ms.custom: include file
-ms.openlocfilehash: 8d12645bd302a7ea808f13c07e2a72f66846bad7
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: 37cdb6b466417add8dae69464304ce2f32247c8d
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85121585"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95557918"
 ---
 Agora, você pode usar a ferramenta Data Explorer no portal do Azure para criar um banco de dados e um contêiner da API do Azure Cosmos DB para o MongoDB. 
 
@@ -28,9 +28,9 @@ Agora, você pode usar a ferramenta Data Explorer no portal do Azure para criar 
     |Configuração|Valor sugerido|Descrição
     |---|---|---|
     |**ID do banco de dados**|db|Digite *db* como o nome do novo banco de dados. Os nomes dos banco de dados devem conter de 1 a 255 caracteres e não podem conter `/, \\, #, ?` nem um espaço à direita. Marque a opção **Provisionar a produtividade do banco de dados**; ela permite que você compartilhe a produtividade provisionada para o banco de dados em todos os contêineres no banco de dados. Essa opção também ajuda na economia de custo. |
-    |**Taxa de transferência**|400|Deixe a taxa de transferência em 400 unidades de solicitação por segundo (RU/s). Se quiser reduzir a latência, você poderá escalar verticalmente a taxa de transferência mais tarde. Você também pode escolher o [Modo de dimensionamento automático](https://docs.microsoft.com/azure/cosmos-db/provision-throughput-autoscale), que fornecerá uma gama de RU/s que aumentarão e diminuirão dinamicamente conforme necessário.| 
+    |**Taxa de transferência**|400|Deixe a taxa de transferência em 400 unidades de solicitação por segundo (RU/s). Se quiser reduzir a latência, você poderá escalar verticalmente a taxa de transferência mais tarde. Você também pode escolher o [Modo de dimensionamento automático](../articles/cosmos-db/provision-throughput-autoscale.md), que fornecerá uma gama de RU/s que aumentarão e diminuirão dinamicamente conforme necessário.| 
     |**ID da coleção**|coll|Insira `coll` como o nome do novo contêiner. As IDs do contêiner têm os mesmos requisitos de caractere dos nomes de bancos de dados.|
     |**Capacidade de armazenamento**|Fixo (10 GB)|Insira *Fixo (10 GB)* para este aplicativo. Se selecionar *Ilimitado*, você precisará criar uma `Shard Key`, que todos os itens inseridos exigirão.|
-    |**Chave de fragmentação**| /_id| O exemplo descrito neste artigo não usa uma Chave de fragmentação, portanto, defini-la como */_id* usará o campo de ID gerado automaticamente como chave de fragmentação. Saiba mais sobre a fragmentação, também chamada de particionamento, em [Particionamento no Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/partitioning-overview)|
+    |**Chave de fragmentação**| /_id| O exemplo descrito neste artigo não usa uma Chave de fragmentação, portanto, defini-la como */_id* usará o campo de ID gerado automaticamente como chave de fragmentação. Saiba mais sobre a fragmentação, também chamada de particionamento, em [Particionamento no Azure Cosmos DB](../articles/cosmos-db/partitioning-overview.md)|
         
     Selecione **OK**. O Data Explorer exibe o novo banco de dados e o contêiner.

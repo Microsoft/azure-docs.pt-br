@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Solução de problemas comuns de clusters do Kubernetes habilitado para Arc.
 keywords: Kubernetes, Arc, Azure, contêineres
-ms.openlocfilehash: 404516778255409d56dd5c3a7d1fd96711cc981f
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.openlocfilehash: 0827386eb6ec089cf7951e8fa513a77fc78aef22
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88723666"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684082"
 ---
 # <a name="azure-arc-enabled-kubernetes-troubleshooting-preview"></a>Solução de problemas de Kubernetes habilitado para Azure Arc (versão prévia)
 
@@ -24,7 +24,7 @@ Este documento fornece alguns cenários comuns da solução de problemas de cone
 ### <a name="azure-cli-set-up"></a>Configuração da CLI do Azure
 Antes de usar os comandos da CLI az connectedk8s ou az k8sconfiguration, verifique se az está configurado para funcionar com a assinatura correta do Azure.
 
-```console
+```azurecli
 az account set --subscription 'subscriptionId'
 az account show
 ```
@@ -50,16 +50,16 @@ Se a versão do Helm estiver presente e `STATUS: deployed` determinar o status d
 
 ```console
 $ kubectl -n azure-arc get deployments,pods
-NAME                                        READY   UP-TO-DATE AVAILABLE AGE
-deployment.apps/cluster-metadata-operator   1/1     1           1        16h
-deployment.apps/clusteridentityoperator     1/1     1           1        16h
-deployment.apps/config-agent                1/1     1           1        16h
-deployment.apps/controller-manager          1/1     1           1        16h
-deployment.apps/flux-logs-agent             1/1     1           1        16h
-deployment.apps/metrics-agent               1/1     1           1        16h
-deployment.apps/resource-sync-agent         1/1     1           1        16h
+NAME                                       READY  UP-TO-DATE  AVAILABLE  AGE
+deployment.apps/clusteridentityoperator     1/1       1          1       16h
+deployment.apps/config-agent                1/1       1          1       16h
+deployment.apps/cluster-metadata-operator   1/1       1          1       16h
+deployment.apps/controller-manager          1/1       1          1       16h
+deployment.apps/flux-logs-agent             1/1       1          1       16h
+deployment.apps/metrics-agent               1/1       1          1       16h
+deployment.apps/resource-sync-agent         1/1       1          1       16h
 
-NAME                                            READY   STATUS   RESTART AGE
+NAME                                            READY   STATUS  RESTART  AGE
 pod/cluster-metadata-operator-7fb54d9986-g785b  2/2     Running  0       16h
 pod/clusteridentityoperator-6d6678ffd4-tx8hr    3/3     Running  0       16h
 pod/config-agent-544c4669f9-4th92               3/3     Running  0       16h
@@ -69,7 +69,7 @@ pod/metrics-agent-58b765c8db-n5l7k              2/2     Running  0       16h
 pod/resource-sync-agent-5cf85976c7-522p5        3/3     Running  0       16h
 ```
 
-Todos os Pods devem mostrar `STATUS` como `Running` e `READY` deve ser `3/3` ou `2/2`. Busque os logs e descreva os pods que estão retornando `Error` ou `CrashLoopBackOff`. Se qualquer um desses pods estiver preso no `Pending` estado, pode ser devido a recursos insuficientes em nós de cluster. [Escalar verticalmente o cluster](https://kubernetes.io/docs/tasks/administer-cluster/cluster-management/#resizing-a-cluster) fará com que esses pods façam a transição para o `Running` estado.
+Todos os Pods devem mostrar `STATUS` como `Running` e `READY` deve ser `3/3` ou `2/2`. Busque os logs e descreva os pods que estão retornando `Error` ou `CrashLoopBackOff`. Se qualquer um desses pods estiver preso no `Pending` estado, pode ser devido a recursos insuficientes em nós de cluster. [Escalar verticalmente o cluster](https://kubernetes.io/docs/tasks/administer-cluster/) fará com que esses pods façam a transição para o `Running` estado.
 
 ## <a name="connecting-kubernetes-clusters-to-azure-arc"></a>Conectando clusters kubernetes ao arco do Azure
 
@@ -79,7 +79,7 @@ A conexão de clusters ao Azure requer acesso a uma assinatura do Azure e `clust
 
 Se o arquivo kubeconfig fornecido não tiver permissões suficientes para instalar os agentes do Azure Arc, o comando da CLI do Azure retornará um erro ao tentar chamar a API do Kubernetes.
 
-```console
+```azurecli
 $ az connectedk8s connect --resource-group AzureArc --name AzureArcCluster
 Command group 'connectedk8s' is in preview. It may be changed/removed in a future release.
 Ensure that you have the latest helm version installed before proceeding to avoid unexpected errors.
@@ -94,12 +94,40 @@ O proprietário do cluster deve usar um usuário de Kubernetes com permissões d
 
 A instalação do agente do Azure Arc requer a execução de um conjunto de contêineres no cluster de destino. Se o cluster for executado em uma conexão lenta com a Internet, o pull da imagem de contêiner pode demorar mais do que o tempo limite da CLI do Azure.
 
-```console
+```azurecli
 $ az connectedk8s connect --resource-group AzureArc --name AzureArcCluster
 Command group 'connectedk8s' is in preview. It may be changed/removed in a future release.
 Ensure that you have the latest helm version installed before proceeding to avoid unexpected errors.
 This operation might take a while...
 ```
+
+### <a name="helm-issue"></a>Problema de Helm
+
+`v3.3.0-rc.1`A versão do Helm tem um [problema](https://github.com/helm/helm/pull/8527) em que a instalação/atualização do Helm (usada na extensão da CLI do connectedk8s) resulta na execução de todos os ganchos que levam ao seguinte erro:
+
+```console
+$ az connectedk8s connect -n shasbakstest -g shasbakstest
+Command group 'connectedk8s' is in preview. It may be changed/removed in a future release.
+Ensure that you have the latest helm version installed before proceeding.
+This operation might take a while...
+
+Please check if the azure-arc namespace was deployed and run 'kubectl get pods -n azure-arc' to check if all the pods are in running state. A possible cause for pods stuck in pending state could be insufficientresources on the kubernetes cluster to onboard to arc.
+ValidationError: Unable to install helm release: Error: customresourcedefinitions.apiextensions.k8s.io "connectedclusters.arc.azure.com" not found
+```
+
+Para se recuperar desse problema, siga estas etapas:
+
+1. Exclua o recurso kubernetes habilitado para o Azure Arc de preocupação no portal do Azure.
+2. Execute os seguintes comandos em seu computador:
+    
+    ```console
+    kubectl delete ns azure-arc
+    kubectl delete clusterrolebinding azure-arc-operator
+    kubectl delete secret sh.helm.release.v1.azure-arc.v1
+    ```
+
+3. [Instale uma versão estável](https://helm.sh/docs/intro/install/) do Helm 3 em seu computador em vez da versão Release Candidate.
+4. Execute o `az connectedk8s connect` comando com os valores apropriados para conectar o cluster ao arco do Azure.
 
 ## <a name="configuration-management"></a>Gerenciamento de configuração
 

@@ -2,18 +2,18 @@
 title: Atualização automática do serviço de mobilidade no Azure Site Recovery
 description: Visão geral da atualização automática do serviço de mobilidade ao replicar VMs do Azure usando Azure Site Recovery.
 services: site-recovery
-author: rajani-janaki-ram
+author: sideeksh
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 04/02/2020
-ms.author: rajanaki
-ms.openlocfilehash: 43b74db0059c003d64558f5b61f1c5cc2bf52759
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.author: sideeksh
+ms.openlocfilehash: 42d3c74229ab7eeec0ac716073a9e631775fd002
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87038042"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187333"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Atualização automática do serviço de mobilidade na replicação do Azure para o Azure
 
@@ -52,7 +52,7 @@ Há várias maneiras pelas quais Site Recovery pode gerenciar as atualizações 
 
 Ao habilitar a replicação para uma VM iniciada [na exibição da VM](azure-to-azure-quickstart.md) ou [no cofre dos serviços de recuperação](azure-to-azure-how-to-enable-replication.md), você pode permitir que site Recovery gerencie atualizações para a extensão site Recovery ou gerencie-as manualmente.
 
-:::image type="content" source="./media/azure-to-azure-autoupdate/enable-rep.png" alt-text="Configurações da extensão":::
+:::image type="content" source="./media/azure-to-azure-autoupdate/enable-rep.png" alt-text="Configurações de extensão":::
 
 ### <a name="toggle-the-extension-update-settings-inside-the-vault"></a>Ativar/desativar as configurações de atualização de dentro do cofre
 
@@ -61,7 +61,7 @@ Ao habilitar a replicação para uma VM iniciada [na exibição da VM](azure-to-
 
    Para gerenciar a extensão manualmente, selecione **desativado**.
 
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 :::image type="content" source="./media/azure-to-azure-autoupdate/vault-toggle.png" alt-text="Configurações de atualização de extensão":::
 
@@ -69,7 +69,7 @@ Ao habilitar a replicação para uma VM iniciada [na exibição da VM](azure-to-
 > Quando você escolhe **permitir site Recovery gerenciar**, a configuração é aplicada a todas as VMs no cofre.
 
 > [!NOTE]
-> Qualquer opção notifica você sobre a conta de automação usada para gerenciar atualizações. Se você estiver usando esse recurso em um cofre pela primeira vez, uma nova conta de automação será criada por padrão. Como alternativa, você pode personalizar a configuração e escolher uma conta de automação existente. Todos os subseqüentes são necessários para habilitar a replicação no mesmo cofre usará a conta de automação criada anteriormente. Atualmente, o menu suspenso listará apenas as contas de automação que estão no mesmo grupo de recursos que o cofre.
+> Qualquer opção notifica você sobre a conta de automação usada para gerenciar atualizações. Se você estiver usando esse recurso em um cofre pela primeira vez, uma nova conta de automação será criada por padrão. Como alternativa, você pode personalizar a configuração e escolher uma conta de automação existente. Uma vez definidas, todas as ações subsequentes para habilitar a replicação no mesmo cofre usarão essa conta de automação selecionada. Atualmente, o menu suspenso listará apenas as contas de automação que estão no mesmo grupo de recursos que o cofre.
 
 > [!IMPORTANT]
 > O script a seguir precisa ser executado no contexto de uma conta de automação.

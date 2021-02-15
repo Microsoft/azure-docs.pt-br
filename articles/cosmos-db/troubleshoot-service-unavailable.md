@@ -3,25 +3,28 @@ title: Solucionar problemas de exceções do serviço Azure Cosmos DB indisponí
 description: Saiba como diagnosticar e corrigir Azure Cosmos DB exceções de serviço indisponíveis.
 author: j82w
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.date: 08/06/2020
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 749592b778612c6903c9c15e336de3fb00978199
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: d19d30c03412ba7212211b30646acb50c3f55ece
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88870860"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340015"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-service-unavailable-exceptions"></a>Diagnosticar e solucionar problemas de exceções do serviço Azure Cosmos DB indisponíveis
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
 O SDK não foi capaz de se conectar ao Azure Cosmos DB.
 
 ## <a name="troubleshooting-steps"></a>Etapas para solucionar problemas
 A lista a seguir contém causas conhecidas e soluções para exceções de serviço indisponíveis.
 
 ### <a name="the-required-ports-are-being-blocked"></a>As portas necessárias estão sendo bloqueadas
-Verifique se todas as [portas necessárias](performance-tips-dotnet-sdk-v3-sql.md#networking) estão habilitadas.
+Verifique se todas as [portas necessárias](sql-sdk-connection-modes.md#service-port-ranges) estão habilitadas.
 
 ### <a name="client-side-transient-connectivity-issues"></a>Problemas de conectividade transitório do lado do cliente
 As exceções de serviço indisponíveis podem surgir quando há problemas de conectividade transitórios que estão causando tempos limite. Normalmente, o rastreamento de pilha relacionado a esse cenário conterá um `TransportException` erro. Por exemplo:

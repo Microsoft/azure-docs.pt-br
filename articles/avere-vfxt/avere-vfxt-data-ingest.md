@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 12/16/2019
 ms.author: rohogue
 ms.openlocfilehash: 76bbe60397ebb01aed5694d933b3067f778a4c21
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85505589"
 ---
 # <a name="moving-data-to-the-vfxt-cluster---parallel-data-ingest"></a>Mover dados para o cluster vFXT – ingestão de dados paralela
@@ -286,7 +286,7 @@ Testes preliminares usando uma VM de quatro núcleos mostraram a melhor eficiên
 
 Você também pode usar o ``--inplace`` argumento com ``msrsync`` comandos. Se você usar essa opção, considere a execução de um segundo comando (como com [rsync](#use-a-two-phase-rsync-process), descrito acima) para garantir a integridade dos dados.
 
-``msrsync``Só pode gravar de e para volumes locais. A origem e o destino devem ser acessíveis como montagens de locais na rede virtual do cluster.
+``msrsync`` Só pode gravar de e para volumes locais. A origem e o destino devem ser acessíveis como montagens de locais na rede virtual do cluster.
 
 Para usar ``msrsync`` o para popular um volume de nuvem do Azure com um cluster avere, siga estas instruções:
 

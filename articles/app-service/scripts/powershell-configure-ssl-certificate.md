@@ -6,13 +6,13 @@ tags: azure-service-management
 ms.assetid: 23e83b74-614a-49a0-bc08-7542120eeec5
 ms.topic: sample
 ms.date: 03/20/2017
-ms.custom: mvc, seodec18
-ms.openlocfilehash: c0e68627691732e6cbcd08b423199164a69193d4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: mvc, seodec18, devx-track-azurepowershell
+ms.openlocfilehash: 74bec2e8793331019a6eca986446880c10565aeb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083337"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89079941"
 ---
 # <a name="bind-a-custom-tlsssl-certificate-to-a-web-app-using-powershell"></a>Associar um certificado TLS/SSL personalizado a um aplicativo Web usando o PowerShell
 

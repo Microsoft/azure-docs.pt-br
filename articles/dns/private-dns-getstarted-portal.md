@@ -5,14 +5,14 @@ services: dns
 author: rohinkoul
 ms.service: dns
 ms.topic: quickstart
-ms.date: 10/11/2019
+ms.date: 10/20/2020
 ms.author: rohink
-ms.openlocfilehash: 52bf9e061eb57c7ce6ea698b7468b5ba5e11b4e8
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: d298dfd5f3ad0beb56a511c124bab056ca25fd27
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78244966"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92310059"
 ---
 # <a name="quickstart-create-an-azure-private-dns-zone-using-the-azure-portal"></a>Início Rápido: Criar uma zona DNS privada do Azure usando o portal do Azure
 
@@ -20,15 +20,7 @@ Este início rápido explica as etapas para criar sua primeira zona e registro D
 
 Uma zona DNS é usada para hospedar os registros DNS para um domínio específico. Para iniciar a hospedagem do seu domínio no DNS do Azure, você precisará criar uma zona DNS para esse nome de domínio. Cada registro DNS para seu domínio é criado dentro dessa zona DNS. Para publicar uma zona de DNS privado em sua rede virtual, você deve especificar a lista de redes virtuais que podem resolver registros na zona.  Elas são chamadas de redes virtuais *vinculadas*. Quando o registro automático estiver habilitado, o DNS do Azure também atualizará os registros de zona sempre que ocorrer a criação de uma máquina virtual, o endereço IP dela mudar ou ela for excluída.
 
-Neste guia de início rápido, você aprende a:
-
-> [!div class="checklist"]
-> * Criar uma zona DNS privada
-> * Criar uma rede virtual
-> * Vincular a rede virtual
-> * Criar máquinas virtuais de teste
-> * Criar um registro DNS adicional
-> * Testar a zona privada
+## <a name="prerequisites"></a>Pré-requisitos
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -76,7 +68,7 @@ Nesta seção, você precisará substituir os seguintes parâmetros nas etapas p
 
 ## <a name="link-the-virtual-network"></a>Vincular a rede virtual
 
-Para vincular a zona DNS privada a uma rede virtual, crie um link de rede virtual.
+Para vincular a zona DNS privado a uma rede virtual, você deverá criar um link de rede virtual.
 
 ![Adicionar link de rede virtual](media/private-dns-portal/dns-add-virtual-network-link.png)
 
@@ -143,7 +135,7 @@ Repita para myVM02.
    ```
    ping myVM01.private.contoso.com
    ```
-   Você deve ver uma saída semelhante a esta:
+   Você deverá ver uma saída semelhante a esta:
    ```
    PS C:\> ping myvm01.private.contoso.com
 
@@ -163,7 +155,7 @@ Repita para myVM02.
    ```
    ping db.private.contoso.com
    ```
-   Você deve ver uma saída semelhante a esta:
+   Você deverá ver uma saída semelhante a esta:
    ```
    PS C:\> ping db.private.contoso.com
 
@@ -180,7 +172,7 @@ Repita para myVM02.
    PS C:\>
    ```
 
-## <a name="delete-all-resources"></a>Excluir todos os recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando não for mais necessário, exclua o grupo de recursos **MyAzureResourceGroup** para excluir os recursos criados neste início rápido.
 

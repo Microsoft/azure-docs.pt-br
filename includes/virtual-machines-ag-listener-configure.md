@@ -4,16 +4,16 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 73ba78eca710f0b98b2a209494519cb8003e554b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.openlocfilehash: fd635d4c0563c35979f8d85c33dfbde35f05f9e6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75468860"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91400948"
 ---
 O ouvinte do grupo de disponibilidade é um nome de rede e endereço IP que o grupo de disponibilidade do SQL Server escuta. Para criar o ouvinte do grupo de disponibilidade, faça o seguinte:
 
-1. <a name="getnet"></a>Obtenha o nome do recurso de rede do cluster.
+1. <a name="getnet"></a>Obtenha o nome do recurso de rede de cluster.
 
     a. Use o RDP para se conectar à máquina virtual do Azure que hospeda a réplica primária. 
 
@@ -23,14 +23,14 @@ O ouvinte do grupo de disponibilidade é um nome de rede e endereço IP que o gr
 
    ![Nome da rede de clusters](./media/virtual-machines-ag-listener-configure/90-clusternetworkname.png)
 
-1. <a name="addcap"></a>Adicione o ponto de acesso para cliente.  
+1. <a name="addcap"></a>Adicionar o ponto de acesso para cliente.  
     O ponto de acesso do cliente é o nome da rede que os aplicativos usam para se conectar aos bancos de dados em um grupo de disponibilidade. Crie o ponto de acesso de cliente no Gerenciador de Cluster de Failover.
 
     a. Expanda o nome do cluster e clique em **Funções**.
 
     b. No painel **Funções**, clique com o botão direito do mouse no nome do grupo de disponibilidade e, em seguida, selecione **Adicionar recurso** > **Ponto de acesso para o cliente**.
 
-   ![Ponto de acesso para cliente](./media/virtual-machines-ag-listener-configure/92-addclientaccesspoint.png)
+   ![Captura de tela que mostra a opção de menu do Ponto de acesso para o cliente.](./media/virtual-machines-ag-listener-configure/92-addclientaccesspoint.png)
 
     c. Na caixa **Nome**, crie um nome para o novo ouvinte. 
    O nome para o novo ouvinte é o nome da rede que o aplicativo usará para se conectar aos bancos de dados no grupo de disponibilidade do SQL Server.
@@ -39,7 +39,7 @@ O ouvinte do grupo de disponibilidade é um nome de rede e endereço IP que o gr
 
 1. Coloque a função de cluster do grupo de disponibilidade offline. Na **Gerenciador de Cluster de Failover**, em **Funções**, clique com o botão direito do mouse na função e selecione **Parar função**.
 
-1. <a name="congroup"></a>Configure o recurso de IP para o grupo de disponibilidade.
+1. <a name="congroup"></a>Configurar o recurso de IP do grupo de disponibilidade.
 
     a. Clique na guia **Recursos**e expanda o ponto de acesso para cliente que você acabou de criar.  
     O ponto de acesso para cliente está offline.
@@ -50,13 +50,13 @@ O ouvinte do grupo de disponibilidade é um nome de rede e endereço IP que o gr
 
     c. Em **Endereço IP**, clique em **Endereço IP Estático**. Defina o endereço IP como o mesmo endereço que você usou quando definiu o endereço do balanceador de carga no portal do Azure.
 
-   ![Recurso de IP](./media/virtual-machines-ag-listener-configure/96-ipresource.png) 
+   ![Captura de tela que mostra onde definir o endereço IP.](./media/virtual-machines-ag-listener-configure/96-ipresource.png) 
 
     <!-----------------------I don't see this option on server 2016
     1. Disable NetBIOS for this address and click **OK**. Repeat this step for each IP resource if your solution spans multiple Azure VNets. 
     ------------------------->
 
-1. <a name = "dependencyGroup"></a>Torne o recurso de grupo de disponibilidade SQL Server dependente do ponto de acesso para cliente.
+1. <a name = "dependencyGroup"></a>Torne o recurso de grupo de disponibilidade do SQL Server dependente do ponto de acesso para cliente.
 
     a. No Gerenciador de Cluster de Failover, clique em **Funções** e em seu grupo de disponibilidade.
 
@@ -64,19 +64,19 @@ O ouvinte do grupo de disponibilidade é um nome de rede e endereço IP que o gr
 
     c. Na guia dependências, adicione o nome do recurso de ponto de acesso ao cliente (o ouvinte).
 
-   ![Recurso de IP](./media/virtual-machines-ag-listener-configure/97-propertiesdependencies.png) 
+   ![Captura de tela que mostra onde adicionar o nome na guia Dependências.](./media/virtual-machines-ag-listener-configure/97-propertiesdependencies.png) 
 
     d. Clique em **OK**.
 
-1. <a name="listname"></a>Torne o recurso de ponto de acesso para cliente dependente do endereço IP.
+1. <a name="listname"></a>Torne o recurso de ponto de acesso de cliente dependente do endereço IP.
 
     a. No Gerenciador de Cluster de Failover, clique em **Funções** e em seu grupo de disponibilidade. 
 
     b. Na guia **Recursos**, clique com o botão direito do mouse no recurso do ponto de acesso no **Nome do Servidor** e clique em **Propriedades**. 
 
-   ![Recurso de IP](./media/virtual-machines-ag-listener-configure/98-dependencies.png) 
+   ![Captura de tela que mostra a opção de menu Propriedades para o nome do servidor.](./media/virtual-machines-ag-listener-configure/98-dependencies.png) 
 
-    c. Clique na guia **dependências** . Verifique se o endereço IP é uma dependência. Se não for, defina uma dependência no endereço IP. Se houver vários recursos listados, verifique se os endereços IP têm dependências OR, e não AND. Clique em **OK**. 
+    c. Selecione a guia **Dependências** . Verifique se o endereço IP é uma dependência. Se não for, defina uma dependência no endereço IP. Se houver vários recursos listados, verifique se os endereços IP têm dependências OR, e não AND. Clique em **OK**. 
 
    ![Recurso de IP](./media/virtual-machines-ag-listener-configure/98-propertiesdependencies.png) 
 
@@ -84,7 +84,7 @@ O ouvinte do grupo de disponibilidade é um nome de rede e endereço IP que o gr
     >Você pode validar se as dependências estão configuradas corretamente. No Gerenciador de Cluster de Failover, vá para funções, clique no grupo de disponibilidade, clique em **Mais Ações**e clique em **Mostrar Relatório de Dependências**. Quando as dependências são configuradas corretamente, o grupo de disponibilidade é dependente do nome da rede e o nome da rede depende do endereço IP. 
 
 
-1. <a name="setparam"></a>Defina os parâmetros de cluster no PowerShell.
+1. <a name="setparam"></a>Definir os parâmetros do cluster no PowerShell.
 
    a. Copie o script do PowerShell a seguir em uma de suas instâncias do SQL Server. Atualize as variáveis para o seu ambiente.
 
@@ -112,13 +112,13 @@ O ouvinte do grupo de disponibilidade é um nome de rede e endereço IP que o gr
 
 Se necessário, repita as etapas acima para definir os parâmetros do cluster para o endereço de IP do cluster WSFC.
 
-1. Obtenha o nome do endereço IP do endereço IP do Cluster WSFC. Em **Gerenciador de cluster de failover** em **recursos principais do cluster**, localize **nome do servidor**.
+1. Obtenha o nome do endereço IP do endereço IP do Cluster WSFC. Em **Gerenciador de Cluster de Failover** em **Recursos Principais de Cluster**, localize **Nome do Servidor**.
 
 1. Clique com o botão direito do mouse em **Endereço de IP** e escolha **Propriedades**.
 
 1. Copie o **Nome** do endereço IP. Pode ser `Cluster IP Address`. 
 
-1. <a name="setwsfcparam"></a>Defina os parâmetros de cluster no PowerShell.
+1. <a name="setwsfcparam"></a>Definir os parâmetros do cluster no PowerShell.
   
    a. Copie o script do PowerShell a seguir em uma de suas instâncias do SQL Server. Atualize as variáveis para o seu ambiente.
 
@@ -140,4 +140,4 @@ Se necessário, repita as etapas acima para definir os parâmetros do cluster pa
    b. Defina os parâmetros de cluster executando o script do PowerShell em um dos nós do cluster.  
 
 >[!WARNING]
->A porta de investigação de integridade do ouvinte do grupo de disponibilidade deve ser diferente da porta de investigação de integridade do endereço IP principal do cluster. Nesses exemplos, a porta do ouvinte é 59999 e a porta de investigação de integridade do endereço IP do núcleo do cluster é 58888. Ambas as portas exigem uma regra de firewall de entrada de permissão.
+>A porta de investigação de integridade do ouvinte do grupo de disponibilidade deve ser diferente da porta de investigação de integridade do endereço IP principal do cluster. Nestes exemplos, a porta do ouvinte é 59999 e a porta de investigação de integridade do endereço IP principal do cluster é 58888. Ambas as portas exigem uma regra de firewall de entrada de permissão.

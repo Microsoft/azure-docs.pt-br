@@ -2,20 +2,20 @@
 title: incluir arquivo
 description: incluir arquivo
 services: cognitive-services
-author: diberry
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: include
 ms.custom: include file
-ms.date: 06/24/2019
-ms.author: diberry
-ms.openlocfilehash: f69502907e2dd3c5b3c64634b1b11e10af5397f5
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.date: 12/29/2020
+ms.author: mbullwin
+ms.openlocfilehash: 5b4438f80f8383049054cf105f2cafda9e4f34a3
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "67438434"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97820748"
 ---
 ## <a name="more-information-about-bots"></a>Mais informações sobre bots
 

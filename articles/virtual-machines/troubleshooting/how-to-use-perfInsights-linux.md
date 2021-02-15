@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 7/10/2019
 ms.author: genli
-ms.openlocfilehash: 1bf080ad4c4dc665e61d1075cf22c84d4cd66648
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 340164ef86d34f273b3d5a98b62300bc6cc50df7
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121384"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109412"
 ---
 # <a name="how-to-use-perfinsights"></a>Como usar o PerfInsights
 
@@ -130,12 +130,12 @@ Informações sobre a máquina virtual Linux, sistema operacional, dispositivos 
 
     | Distribuição               | Versão                                         |
     |----------------------------|-------------------------------------------------|
-    | Servidor de Oracle Linux        | 6,10 [ `*` ], 7,3, 7,6, 7,5 (imagem do Marketplace do Oracle-Database-13,8 EE)|
-    | CentOS                     | 6,5 [ `*` ], 7,6                                    |
-    | RHEL                       | 7,2, 7,5, 8,0 [ `*` ]                               |
-    | Ubuntu                     | 14.04, 16.04, 18.04                               |
+    | Servidor de Oracle Linux        | 6,10 [ `*` ], 7,3, 7,5, 7,6, 7,7, 7,8 |
+    | CentOS                     | 6,5 [ `*` ], 7,6, 7,7, 7,8                                    |
+    | RHEL                       | 7,2, 7,5, 8,0 [ `*` ], 8,1, 8,2                               |
+    | Ubuntu                     | 14, 4, 16, 4, 18, 4, 20, 4                               |
     | Debian                     | 8, 9, 10 [ `*` ]                                    |
-    | SLES                       | 12 SP4 [ `*` ]                                      |
+    | SLES                       | 12 SP4 [ `*` ], 12 SP5 [ `*` ], 15 [ `*` ], 15 SP1 [ `*` ], 15 SP2 [ `*` ]                                      |
     |                            |                                                   |
 
 >[!Note]
@@ -218,8 +218,8 @@ No arquivo **PerformanceDiagnostics \_ aaaa-mm-dd \_ FFF. tar. gz** , você pode
 
 A guia **visão geral** fornece detalhes de execução básica e informações de máquina virtual. A guia **conclusões** exibe um resumo das recomendações de todas as seções diferentes do relatório PerfInsights.
 
-![Captura de tela do relatório PerfInsights](media/how-to-use-perfinsights-linux/perfinsights-linux-overview.png)  
-![Captura de tela do relatório PerfInsights](media/how-to-use-perfinsights-linux/perfinsights-linux-findings-tab.png)
+![Captura de tela da guia Visão geral do relatório PerfInsights.](media/how-to-use-perfinsights-linux/perfinsights-linux-overview.png)  
+![Captura de tela da guia Linux do relatório PerfInsights.](media/how-to-use-perfinsights-linux/perfinsights-linux-findings-tab.png)
 
 > [!NOTE]
 > Constatações categorizadas como altas são problemas conhecidos que podem causar problemas de desempenho. Constatações categorizadas como médias representam configurações não adequadas que não necessariamente causam problemas de desempenho. Constatações categorizadas como lentas são declarações apenas informativas.
@@ -236,7 +236,7 @@ A guia **CPU** fornece informações sobre o consumo de CPU em todo o sistema du
 
 A seção **Conclusões** exibe várias conclusões e recomendações relacionadas ao armazenamento.
 
-Os **dispositivos de bloco** e outras seções relacionadas, **como partições**, **LVM**e **MDADM** guias descrevem como os dispositivos de bloco são configurados e relacionados entre si.
+Os **dispositivos de bloco** e outras seções relacionadas, **como partições**, **LVM** e **MDADM** guias descrevem como os dispositivos de bloco são configurados e relacionados entre si.
 
 ![Captura de tela da guia armazenamento](media/how-to-use-perfinsights-linux/perfinsights-linux-storage-tab.png)  
 ![Captura de tela da guia MDADM](media/how-to-use-perfinsights-linux/perfinsights-linux-mdadm-config.png)

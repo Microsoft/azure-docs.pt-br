@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/31/2020
 ms.author: robinsh
 ms.custom: mqtt, devx-track-python
-ms.openlocfilehash: 7ac634944c9df479617af4c9171faf0f99df4b1b
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 1112df382fb10051ac06c4461a9e4328e1663388
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87876641"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92139319"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-python"></a>Carregar arquivos do seu dispositivo para a nuvem com o Hub IoT (Python)
 
@@ -33,6 +33,8 @@ No final deste tutorial, você executará o aplicativo de console do Python:
 * **FileUpload.py**, que carrega um arquivo para o armazenamento usando o SDK do dispositivo Python.
 
 [!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-sdk-note.md)]
+
+[!INCLUDE [iot-hub-include-x509-ca-signed-file-upload-support-note](../../includes/iot-hub-include-x509-ca-signed-file-upload-support-note.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -107,7 +109,7 @@ Nesta seção, você criará o aplicativo de dispositivo para carregar um arquiv
             return (False, ex)
     ```
 
-    Essa função analisa a estrutura de *blob_info* passada para ela para criar uma URL que ela usa para inicializar um [Azure. Storage. blob. BlobClient](https://docs.microsoft.com/python/api/azure-storage-blob/azure.storage.blob.blobclient?view=azure-python). Em seguida, ele carrega o arquivo no armazenamento de BLOBs do Azure usando esse cliente.
+    Essa função analisa a estrutura de *blob_info* passada para ela para criar uma URL que ela usa para inicializar um [Azure. Storage. blob. BlobClient](/python/api/azure-storage-blob/azure.storage.blob.blobclient?view=azure-python). Em seguida, ele carrega o arquivo no armazenamento de BLOBs do Azure usando esse cliente.
 
 1. Adicione o seguinte código para conectar o cliente e carregar o arquivo:
 
@@ -177,7 +179,7 @@ Nesta seção, você criará o aplicativo de dispositivo para carregar um arquiv
 
 1. Salve e feche o arquivo **UploadFile.py**.
 
-## <a name="run-the-application"></a>Executar o aplicativo
+## <a name="run-the-application"></a>Execute o aplicativo
 
 Agora você está pronto para executar o aplicativo.
 
@@ -207,6 +209,6 @@ Neste tutorial, você aprendeu a usar os recursos de carregamento de arquivo do 
 
 Saiba mais sobre o armazenamento de BLOBs do Azure com os seguintes links:
 
-* [Documentação do armazenamento de BLOBs do Azure](https://docs.microsoft.com/azure/storage/blobs/)
+* [Documentação do armazenamento de BLOBs do Azure](../storage/blobs/index.yml)
 
-* [Documentação do armazenamento de BLOBs do Azure para API do Python](https://docs.microsoft.com/python/api/overview/azure/storage-blob-readme?view=azure-python)
+* [Documentação do armazenamento de BLOBs do Azure para API do Python](/python/api/overview/azure/storage-blob-readme?view=azure-python)

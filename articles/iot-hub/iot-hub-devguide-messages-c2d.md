@@ -8,13 +8,13 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.custom: mqtt
-ms.openlocfilehash: 307ab47c1f7498f71e61108a616d35ef1d4f61c9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: mqtt, devx-track-azurecli
+ms.openlocfilehash: ba58f7897827cf7ce7f6156df1434733d89d7f42
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81730007"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844447"
 ---
 # <a name="send-cloud-to-device-messages-from-an-iot-hub"></a>Enviar mensagens da nuvem para o dispositivo de um hub IoT
 
@@ -81,11 +81,11 @@ Quando você envia uma mensagem da nuvem para o dispositivo, o serviço pode sol
 | negativo | Se a mensagem da nuvem para o dispositivo atingir o estado *inativo* , o Hub IOT gerará uma mensagem de comentários. |
 | completa     | O Hub IoT gera uma mensagem de comentários em ambos os casos. |
 
-Se o valor de **ACK** estiver *cheio*e você não receber uma mensagem de comentários, isso significa que a mensagem de comentários expirou. O serviço não pode saber o que aconteceu com a mensagem original. Na prática, um serviço deve garantir que possa processar os comentários antes que eles expirem. O tempo de expiração máximo é de dois dias, o que deixa o tempo para que o serviço seja executado novamente se ocorrer uma falha.
+Se o valor de **ACK** estiver *cheio* e você não receber uma mensagem de comentários, isso significa que a mensagem de comentários expirou. O serviço não pode saber o que aconteceu com a mensagem original. Na prática, um serviço deve garantir que possa processar os comentários antes que eles expirem. O tempo de expiração máximo é de dois dias, o que deixa o tempo para que o serviço seja executado novamente se ocorrer uma falha.
 
 Conforme explicado em [pontos](iot-hub-devguide-endpoints.md)de extremidade, o Hub IOT entrega comentários por meio de um ponto de extremidades voltado para o serviço, */messages/servicebound/feedback*, como mensagens. A semântica de recebimento dos comentários é a mesma das mensagens da nuvem para o dispositivo. Sempre que possível, os comentários de mensagem são feitos em lotes em uma única mensagem, com o seguinte formato:
 
-| Property     | Descrição |
+| Propriedade     | Descrição |
 | ------------ | ----------- |
 | EnqueuedTime | Um carimbo de data/hora que indica quando a mensagem de comentário foi recebida pelo Hub |
 | UserId       | `{iot hub name}` |
@@ -93,7 +93,7 @@ Conforme explicado em [pontos](iot-hub-devguide-endpoints.md)de extremidade, o H
 
 O corpo é uma matriz de registros serializada em JSON, cada um com as seguintes propriedades:
 
-| Property           | Descrição |
+| Propriedade           | Descrição |
 | ------------------ | ----------- |
 | EnqueuedTimeUtc    | Um carimbo de data/hora que indica quando o resultado da mensagem ocorreu (por exemplo, o Hub recebeu a mensagem de comentário ou a mensagem original expirou) |
 | OriginalMessageId  | A *MessageId* da mensagem da nuvem para o dispositivo à qual essas informações de comentários se relacionam |
@@ -133,7 +133,7 @@ Você pode resolver esse comportamento aguardando um período de tempo para que 
 
 Cada Hub IoT expõe as seguintes opções de configuração para mensagens de nuvem para o dispositivo:
 
-| Property                  | Descrição | Intervalo e padrão |
+| Propriedade                  | Descrição | Intervalo e padrão |
 | ------------------------- | ----------- | ----------------- |
 | defaultTtlAsIso8601       | TTL padrão para mensagens da nuvem para o dispositivo | Intervalo de ISO_8601 de até 2 dias (mínimo de 1 minuto); padrão: 1 hora |
 | maxDeliveryCount          | Contagem máxima de entregas para filas de nuvem para dispositivo por dispositivo | 1 a 100; padrão: 10 |
@@ -147,7 +147,7 @@ Você pode definir as opções de configuração de uma das seguintes maneiras:
 
     ![Definir opções de configuração para mensagens da nuvem para o dispositivo no portal](./media/iot-hub-devguide-messages-c2d/c2d-configuration-portal.png)
 
-* **CLI do Azure**: Use o comando [AZ IOT Hub Update](https://docs.microsoft.com/cli/azure/iot/hub?view=azure-cli-latest#az-iot-hub-update) :
+* **CLI do Azure**: Use o comando [AZ IOT Hub Update](/cli/azure/iot/hub?view=azure-cli-latest#az-iot-hub-update) :
 
     ```azurecli
     az iot hub update --name {your IoT hub name} \

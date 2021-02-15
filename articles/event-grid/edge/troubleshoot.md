@@ -8,10 +8,10 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: 0196522618d4b61f615f7cc6faeacbe9a8c7c5b4
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86171339"
 ---
 # <a name="common-issues"></a>Problemas comuns
@@ -100,7 +100,7 @@ Os motivos típicos para isso são:
 
 * Faça logon na VM em que o módulo de grade de eventos é implantado e exiba seus logs.
 
-* Ative por log de entrega definindo **Broker: logDeliverySuccess = true** e reimplantando o módulo de grade de eventos e repetindo a solicitação. A ativação do registro em log por entrega pode afetar a taxa de transferência e a latência, assim, depois que a depuração for concluída, nossa recomendação será voltar para **Broker: logDeliverySuccess = false** e reimplantar o módulo de grade de eventos.
+* Ative por log de entrega definindo **Broker: logDeliverySuccess = true** e reimplantando o módulo de grade de eventos e repetindo a solicitação. A ativação do registro em log por entrega pode afetar a taxa de transferência e a latência, assim, depois que a depuração for concluída, nossa recomendação será voltar para **Broker: logDeliverySuccess = false**  e reimplantar o módulo de grade de eventos.
 
 * Ative as métricas definindo **métricas: reportType = console** e reimplante o módulo de grade de eventos. Qualquer operação depois disso fará com que as métricas sejam registradas no console do módulo de grade de eventos, que pode ser usado para depurar ainda mais. Nossa recomendação é ativar as métricas somente para depuração e, uma vez concluída, desativá-las definindo **métricas: reportType = None** e reimplantating Event grade Module.
 

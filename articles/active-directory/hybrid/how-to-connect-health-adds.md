@@ -3,7 +3,7 @@ title: Usando o Azure AD Connect Health com o AD DS | Microsoft Docs
 description: Esta é a página Azure AD Connect Health que discutirá como monitorar o AD DS.
 services: active-directory
 documentationcenter: ''
-author: zhiweiwangmsft
+author: billmath
 manager: daveba
 editor: curtand
 ms.assetid: 19e3cf15-f150-46a3-a10c-2990702cd700
@@ -16,12 +16,12 @@ ms.topic: how-to
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dc7e8e3219cc2b11ed123889973c375edd22664d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0686a4dafae17bafc65a03c985a65aecba70e60c
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85359391"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98017010"
 ---
 # <a name="using-azure-ad-connect-health-with-ad-ds"></a>Usar o Azure AD Connect Health com o AD DS
 A documentação a seguir é específica para o monitoramento dos Serviços de Domínio do Active Directory com o Azure AD Connect Health. As versões com suporte do AD DS são: Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 e Windows Server 2016.
@@ -57,11 +57,10 @@ Esse recurso fornece tendências gráficas de diferentes contadores de desempenh
 Por padrão, selecionamos previamente quatro contadores de desempenho. No entanto, você pode incluir outros clicando no comando de filtro e marcando ou desmarcando todos os contadores de desempenho desejados. Além disso, você pode clicar duas vezes em um grafo do contador de desempenho para abrir uma nova folha, que inclui pontos de dados para cada um dos controladores de domínio monitorados.
 
 ## <a name="related-links"></a>Links relacionados
-* [Azure AD Connect Health](whatis-hybrid-identity-health.md)
+* [Azure AD Connect Health](./whatis-azure-ad-connect.md)
 * [Instalação do Agente do Azure AD Connect Health](how-to-connect-health-agent-install.md)
 * [Operações de Azure AD Connect Health](how-to-connect-health-operations.md)
 * [Usando o Azure AD Connect Health com o AD FS](how-to-connect-health-adfs.md)
 * [Usando Azure AD Connect Health para sincronização](how-to-connect-health-sync.md)
 * [Perguntas frequentes do Azure AD Connect Health](reference-connect-health-faq.md)
 * [Histórico de versão do Azure AD Connect Health](reference-connect-health-version-history.md)
-

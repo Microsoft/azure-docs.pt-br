@@ -10,12 +10,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: andalmia
-ms.openlocfilehash: 70d03b4aeeaecee522552b381ce1309485719dc6
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 5267b333e66a0ae7b2ad05399406fecc32af74b0
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686676"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430119"
 ---
 # <a name="azure-subscription-states"></a>Estados de assinatura do Azure
 
@@ -28,4 +28,4 @@ Este artigo descreve os vários estados que uma assinatura do Azure pode ter. Vo
 | **Desabilitado** | Sua assinatura do Azure está desabilitada e não pode mais ser usada para criar ou gerenciar recursos do Azure. Enquanto estão nesse estado, suas máquinas virtuais são desalocadas, os endereços IP temporários são liberados, o armazenamento é somente leitura e outros serviços são desabilitados. Uma assinatura pode ser desabilitada devido aos seguintes motivos: Seu crédito pode ter expirado. Você pode ter atingido o limite de gastos. Você tem uma fatura vencida. O limite do seu cartão de crédito foi excedido. Ou então, ele foi explicitamente desabilitado ou cancelado. Dependendo do tipo de assinatura, uma assinatura pode permanecer desabilitada entre 1 e 90 dias. Após esse período, ela é excluída permanentemente. Para obter mais informações, confira [Reativar uma assinatura desabilitada do Azure](subscription-disabled.md).<br><br>As operações para criar ou atualizar recursos (PUT, PATCH) estão desabilitadas. As operações que realizam uma ação (POST) também estão desabilitadas. Você pode recuperar ou excluir recursos (GET, DELETE). Seus recursos ainda estão disponíveis. |
 | **Expirada** | Sua assinatura do Azure expirou porque foi cancelada. Você pode reativar uma assinatura expirada. Para obter mais informações, confira [Reativar uma assinatura desabilitada do Azure](subscription-disabled.md).<br><br>As operações para criar ou atualizar recursos (PUT, PATCH) estão desabilitadas. As operações que realizam uma ação (POST) também estão desabilitadas. Você pode recuperar ou excluir recursos (GET, DELETE).|
 | **Vencido** | Sua assinatura do Azure tem um pagamento pendente. Sua assinatura ainda está ativa, mas o não pagamento de dívidas pode resultar na desabilitação da assinatura. Para obter mais informações, confira [Resolver o saldo vencido da sua assinatura do Azure](resolve-past-due-balance.md).<br><br>Todas as operações estão disponíveis. |
-| **Avisado** | Sua assinatura do Azure está com o estado avisado e, embora possa ser usada normalmente, ela será desabilitada em breve se o motivo de aviso não for resolvido. Uma assinatura pode ficar com o estado avisado após passar do prazo, ser cancelada pelo usuário, expirar etc.<br><br>Todas as operações estão disponíveis. |
+| **Avisado** | Sua assinatura do Azure está com o estado avisado e será desabilitada em breve se o motivo de aviso não for resolvido. Uma assinatura pode ficar com o estado avisado após passar do prazo, ser cancelada pelo usuário, expirar etc.<br><br>Você poderá recuperar ou excluir recursos (GET/DELETE), mas não poderá criar nenhum recurso (PUT/PATCH/POST) |

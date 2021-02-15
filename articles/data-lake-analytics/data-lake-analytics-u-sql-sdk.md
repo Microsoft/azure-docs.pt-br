@@ -1,18 +1,17 @@
 ---
 title: Executar trabalhos do U-SQL localmente-Azure Data Lake o SDK U-SQL
 description: Saiba como executar e testar trabalhos de U-SQL localmente usando a linha de comando e as interfaces de programação na estação de trabalho local.
-services: data-lake-analytics
 ms.service: data-lake-analytics
 author: yanacai
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 03/01/2017
-ms.openlocfilehash: daf72fcf7baba289b4145d06d878c8a7232f1c6a
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 8fb60e62a63bfc4562f19d483dc84c99c37676b0
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132408"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92215528"
 ---
 # <a name="run-and-test-u-sql-with-azure-data-lake-u-sql-sdk"></a>Executar e testar U-SQL com o SDK do U-SQL do Azure Data Lake
 
@@ -35,7 +34,7 @@ O SDK para U-SQL do Data Lake exige as seguintes dependências:
 
     ![SDK para Windows 10 da execução local das Ferramentas do Data Lake para Visual Studio](./media/data-lake-analytics-data-lake-tools-local-run/data-lake-tools-for-visual-studio-local-run-windows-10-sdk.png)
 
-  - Instalar [Ferramentas do Data Lake para Visual Studio](https://aka.ms/adltoolsvs). Você pode encontrar os arquivos de Visual C++ e SDK do Windows predefinidos em`C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\ADL Tools\X.X.XXXX.X\CppSDK.`
+  - Instalar [Ferramentas do Data Lake para Visual Studio](https://aka.ms/adltoolsvs). Você pode encontrar os arquivos de Visual C++ e SDK do Windows predefinidos em `C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\ADL Tools\X.X.XXXX.X\CppSDK.`
 
     Nesse caso, o compilador local U-SQL não pode localizar as dependências automaticamente. Você precisa especificar o caminho CppSDK para ele. Você pode copiar os arquivos para outro local ou usá-los como estão.
 
@@ -157,7 +156,7 @@ Estes são os argumentos opcionais para **run**:
 |-ScopeCEPTempPath|temp|Caminho temporário a ser usado para transmissão de dados|
 |-OptFlags| |Lista separada por vírgula de sinalizadores do otimizador|
 
-Este é um exemplo:
+Aqui está um exemplo:
 
 `LocalRunHelper run -Script d:\test\test1.usql -WorkDir d:\test\bin -CodeBehind -References "d:\asm\ref1.dll;d:\asm\ref2.dll" -UseDatabase testDB –Parallel 5 -Verbose`
 
@@ -331,7 +330,7 @@ LocalRunHelper.exe fornece as interfaces de programação para compilação loca
 
 public LocalRunHelper([System.IO.TextWriter messageOutput = null])
 
-|Parâmetro|Type|Descrição|
+|Parâmetro|Tipo|Descrição|
 |---------|----|-----------|
 |messageOutput|System.IO.TextWriter|para mensagens de saída, definido como nulo para usar o Console|
 

@@ -1,18 +1,15 @@
 ---
 title: Criar um painel no portal do Azure com o PowerShell
 description: Saiba como criar um painel no portal do Azure usando o Azure PowerShell.
-author: mgblythe
-ms.service: azure-portal
 ms.topic: quickstart
 ms.custom: devx-track-azurepowershell
-ms.author: mblythe
 ms.date: 07/24/2020
-ms.openlocfilehash: 6b7a4f6d4ad7f5e94d19b9d531992f54ff13fec0
-ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
+ms.openlocfilehash: 02e243a7296555d73427f8e31c4abdf9c3e56735
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87440687"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745727"
 ---
 # <a name="quickstart-create-an-azure-portal-dashboard-with-powershell"></a>Início Rápido: Criar um painel no portal do Azure com o PowerShell
 
@@ -23,7 +20,7 @@ O painel mostra o desempenho de uma VM (máquina virtual), bem como algumas info
 
 Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-Se você optar por usar o PowerShell localmente, este artigo exigirá que você instale o módulo Az PowerShell e conecte-se à sua conta do Azure usando o cmdlet [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount). Para obter mais informações sobre como instalar o módulo Az PowerShell, confira [Instalar o Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+Se você optar por usar o PowerShell localmente, este artigo exigirá que você instale o módulo Az PowerShell e conecte-se à sua conta do Azure usando o cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount). Para obter mais informações sobre como instalar o módulo Az PowerShell, confira [Instalar o Azure PowerShell](/powershell/azure/install-az-ps).
 
 > [!IMPORTANT]
 > Enquanto o módulo **Az.Portal** do PowerShell está na versão prévia, você precisa instalá-lo separadamente do módulo Az PowerShell usando o cmdlet `Install-Module`. Quando esse módulo do PowerShell estiver em disponibilidade geral, ele passará a fazer parte das versões futuras do módulo Az PowerShell e estará disponível nativamente no Azure Cloud Shell.
@@ -36,7 +33,7 @@ Install-Module -Name Az.Portal
 
 ## <a name="choose-a-specific-azure-subscription"></a>Escolher uma assinatura específica do Azure
 
-Se tiver várias assinaturas do Azure, escolha a que for adequada para cobrança do recurso. Selecione uma assinatura específica usando o cmdlet [Set-AzContext](https://docs.microsoft.com/powershell/module/az.accounts/set-azcontext).
+Se tiver várias assinaturas do Azure, escolha a que for adequada para cobrança do recurso. Selecione uma assinatura específica usando o cmdlet [Set-AzContext](/powershell/module/az.accounts/set-azcontext).
 
 ```azurepowershell-interactive
 Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
@@ -68,7 +65,7 @@ $vmName = 'SimpleWinVM'
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Crie um [grupo de recursos do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) usando o cmdlet [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). Um grupo de recursos é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados como um grupo.
+Crie um [grupo de recursos do Azure](../azure-resource-manager/management/overview.md) usando o cmdlet [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Um grupo de recursos é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados como um grupo.
 
 O exemplo a seguir cria um grupo de recursos com base no nome na variável `$resourceGroupName` na região especificada na variável `$location`.
 
@@ -102,7 +99,7 @@ A implantação da VM agora é iniciada e normalmente leva alguns minutos para s
 
 ## <a name="download-the-dashboard-template"></a>Baixar o modelo de painel
 
-Como os painéis do Azure são recursos, eles podem ser representados como JSON. O código a seguir baixa uma representação JSON de um painel de exemplo. Para obter mais informações, confira [A estrutura de Painéis do Azure](/azure/azure-portal/azure-portal-dashboards-structure).
+Como os painéis do Azure são recursos, eles podem ser representados como JSON. O código a seguir baixa uma representação JSON de um painel de exemplo. Para obter mais informações, confira [A estrutura de Painéis do Azure](./azure-portal-dashboards-structure.md).
 
 ```azurepowershell-interactive
 $myPortalDashboardTemplateUrl = 'https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/azure-portal/portal-dashboard-template-testvm.json'
@@ -180,4 +177,4 @@ Remove-AzResourceGroup -Name $resourceGroupName
 Para obter mais informações sobre os cmdlets contidos no módulo Az.Portal do PowerShell, confira:
 
 > [!div class="nextstepaction"]
-> [Microsoft Azure PowerShell: cmdlets do Painel do Portal](https://docs.microsoft.com/powershell/module/Az.Portal/)
+> [Microsoft Azure PowerShell: cmdlets do Painel do Portal](/powershell/module/Az.Portal/)

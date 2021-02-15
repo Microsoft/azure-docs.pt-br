@@ -1,39 +1,36 @@
 ---
-title: Conecte-se ao Office 365 Outlook
+title: Integre-se ao Office 365 Outlook
 description: Automatizar tarefas e fluxos de trabalho que gerenciam email, contatos e calendários no Office 365 Outlook usando aplicativos lógicos do Azure
 services: logic-apps
 ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: article
-ms.date: 07/27/2020
+ms.date: 11/13/2020
 tags: connectors
-ms.openlocfilehash: e0e152b3c0e10c34bc6213ddf867b79c58d1d767
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 790879894c3b268fcd55aafc96507319b29fe1e5
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87832970"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99055069"
 ---
 # <a name="manage-email-contacts-and-calendars-in-office-365-outlook-by-using-azure-logic-apps"></a>Gerenciar emails, contatos e calendários no Outlook do Office 365 usando os Aplicativos Lógicos do Azure
 
-Com os [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md) e o [conector do Outlook para Office 365](/connectors/office365connector/), você pode criar tarefas automatizadas e fluxos de trabalho que gerenciam sua conta do Office 365 criando aplicativos lógicos. Por exemplo, você automatiza essas tarefas:
+Com os [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md) e o [conector do Outlook para Office 365](/connectors/office365connector/), você pode criar tarefas automatizadas e fluxos de trabalho que gerenciam sua conta corporativa ou de estudante criando aplicativos lógicos. Por exemplo, você pode automatizar estas tarefas:
 
-* Obter, enviar e responder a emails. 
+* Obter, enviar e responder a emails.
 * Agende reuniões no seu calendário.
-* Adicionar e editar contatos. 
+* Adicionar e editar contatos.
 
-Você pode usar qualquer gatilho para iniciar o fluxo de trabalho, por exemplo, quando um novo email chegar, quando um item de calendário for atualizado ou quando um evento ocorrer em um serviço de diferença, como o Salesforce. Você pode usar ações que respondem ao evento de gatilho, por exemplo, enviar um email ou criar um novo evento de calendário. 
-
-> [!NOTE]
-> Para automatizar tarefas para uma @outlook.com conta do ou @hotmail.com do, use o [conector do Outlook.com](../connectors/connectors-create-api-outlook.md).
+Você pode usar qualquer gatilho para iniciar o fluxo de trabalho, por exemplo, quando um novo email chegar, quando um item de calendário for atualizado ou quando um evento ocorrer em um serviço de diferença, como o Salesforce. Você pode usar ações que respondem ao evento de gatilho, por exemplo, enviar um email ou criar um novo evento de calendário.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
+* Uma conta do Outlook na qual você entra com uma [conta corporativa ou de estudante](https://www.office.com/). Se você tiver uma @outlook.com @hotmail.com conta do ou do, use o [conector do Outlook.com](../connectors/connectors-create-api-outlook.md) em vez disso. Para se conectar ao Outlook com uma conta de usuário diferente, como uma conta de serviço, consulte [conectar-se usando outras contas](#connect-using-other-accounts).
 
-* Uma [conta do Office 365](https://www.office.com/)
+* Uma conta e uma assinatura do Azure. Se você não tiver uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* O aplicativo lógico no qual você deseja acessar sua conta do Outlook do Office 365. Para iniciar o fluxo de trabalho com um gatilho do Outlook do Office 365, você precisa ter um [aplicativo lógico em branco](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para adicionar uma ação do Outlook do Office 365 ao seu fluxo de trabalho, seu aplicativo lógico precisa já ter um gatilho.
+* O aplicativo lógico no qual você deseja acessar sua conta do Outlook. Para iniciar o fluxo de trabalho com um gatilho do Outlook do Office 365, você precisa ter um [aplicativo lógico em branco](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para adicionar uma ação do Outlook do Office 365 ao seu fluxo de trabalho, seu aplicativo lógico precisa já ter um gatilho.
 
 ## <a name="add-a-trigger"></a>Adicionar um gatilho
 
@@ -45,7 +42,7 @@ Um [gatilho](../logic-apps/logic-apps-overview.md#logic-app-concepts) é um even
    
    ![Selecione o gatilho para iniciar seu aplicativo lógico](./media/connectors-create-api-office365-outlook/office365-trigger.png)
 
-1. Se você for solicitado a entrar, forneça suas credenciais do Office 365 para que seu aplicativo lógico possa se conectar à sua conta. Caso contrário, se a conexão já existir, forneça as informações para as propriedades do gatilho.
+1. Se você não tiver uma conexão ativa com sua conta do Outlook, você será solicitado a entrar e criar essa conexão. Para se conectar ao Outlook com uma conta de usuário diferente, como uma conta de serviço, consulte [conectar-se usando outras contas](#connect-using-other-accounts). Caso contrário, forneça as informações para as propriedades do gatilho.
 
    > [!NOTE]
    > Sua conexão não expirará até ser revogada, mesmo se você alterar suas credenciais de entrada. Para obter mais informações, consulte [Vida útil do token configurável no Azure Active Directory](../active-directory/develop/active-directory-configurable-token-lifetimes.md).
@@ -56,7 +53,7 @@ Um [gatilho](../logic-apps/logic-apps-overview.md#logic-app-concepts) é um even
 
 1. No gatilho, defina os valores de **frequência** e **intervalo** . Para adicionar outras propriedades de gatilho disponíveis, como **fuso horário**, selecione essas propriedades na lista **Adicionar novo parâmetro** .
 
-   Por exemplo, se você quiser que o gatilho Verifique o calendário a cada 15 minutos, defina a **frequência** como **minuto**e defina o **intervalo** como `15` . 
+   Por exemplo, se você quiser que o gatilho Verifique o calendário a cada 15 minutos, defina a **frequência** como **minuto** e defina o **intervalo** como `15` . 
 
    ![Definir a frequência e o intervalo para o gatilho](./media/connectors-create-api-office365-outlook/calendar-settings.png)
 
@@ -78,7 +75,7 @@ Uma [ação](../logic-apps/logic-apps-overview.md#logic-app-concepts) é uma ope
 
    ![Selecione a ação a ser executada em seu aplicativo lógico](./media/connectors-create-api-office365-outlook/office365-actions.png) 
 
-1. Se você for solicitado a entrar, forneça suas credenciais do Office 365 para que seu aplicativo lógico possa se conectar à sua conta. Caso contrário, se a conexão já existir, forneça as informações para as propriedades da ação.
+1. Se você não tiver uma conexão ativa com sua conta do Outlook, você será solicitado a entrar e criar essa conexão. Para se conectar ao Outlook com uma conta de usuário diferente, como uma conta de serviço, consulte [conectar-se usando outras contas](#connect-using-other-accounts). Caso contrário, forneça as informações para as propriedades da ação.
 
    > [!NOTE]
    > Sua conexão não expirará até ser revogada, mesmo se você alterar suas credenciais de entrada. Para obter mais informações, consulte [Vida útil do token configurável no Azure Active Directory](../active-directory/develop/active-directory-configurable-token-lifetimes.md).
@@ -90,6 +87,30 @@ Uma [ação](../logic-apps/logic-apps-overview.md#logic-app-concepts) é uma ope
    Para adicionar outras propriedades de ação disponíveis, selecione essas propriedades na lista **Adicionar novo parâmetro** .
 
 1. Selecione **Salvar** na barra de ferramentas do designer.
+
+<a name="connect-using-other-accounts"></a>
+
+## <a name="connect-using-other-accounts"></a>Conectar-se usando outras contas
+
+Se você tentar se conectar ao Outlook usando uma conta diferente daquela atualmente conectada ao Azure, você poderá obter erros de [SSO (logon único)](../active-directory/manage-apps/what-is-single-sign-on.md) . Esse problema ocorre quando você entra no portal do Azure com uma conta, mas usa uma conta diferente para criar a conexão. O designer espera que você use a conta que está conectada ao portal do Azure. Para resolver esse problema, você tem estas opções:
+
+* Configure a outra conta com a função **colaborador** no grupo de recursos do aplicativo lógico.
+
+  1. No menu do grupo de recursos do aplicativo lógico, selecione **controle de acesso (iam)**. Configure a outra conta com a função **colaborador** . 
+  
+     Para obter mais informações, confira [Adicionar ou remover atribuições de função do Azure usando o portal do Azure](../role-based-access-control/role-assignments-portal.md).
+
+  1. Depois de configurar essa função, entre no portal do Azure com a conta que agora tem permissões de colaborador. Agora você pode usar essa conta para criar a conexão com o Outlook.
+
+* Configure a outra conta para que sua conta corporativa ou de estudante tenha permissões "enviar como".
+
+   Se você tiver permissões de administrador, na caixa de correio da conta de serviço, configure sua conta corporativa ou de estudante com o **Enviar como** ou **enviar em nome de** permissões. Para obter mais informações, consulte [conceder permissões de caixa de correio para outra ajuda de administrador do usuário](/microsoft-365/admin/add-users/give-mailbox-permissions-to-another-user). Em seguida, você pode criar a conexão usando sua conta corporativa ou de estudante. Agora, em gatilhos ou ações em que você pode especificar o remetente, você pode usar o endereço de email da conta de serviço.
+
+   Por exemplo, a ação **enviar um email** tem um parâmetro opcional, **de (enviar como)**, que você pode adicionar à ação e usar o endereço de email da sua conta de serviço como o remetente. Para adicionar esse parâmetro, siga estas etapas:
+
+   1. Na ação **enviar um email** , abra a lista **Adicionar um parâmetro** e selecione o parâmetro **from (enviar como)** .
+
+   1. Depois que o parâmetro aparecer na ação, insira o endereço de email da conta de serviço.
 
 ## <a name="connector-reference"></a>Referência de conector
 

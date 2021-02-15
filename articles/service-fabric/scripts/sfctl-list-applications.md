@@ -15,10 +15,10 @@ ms.date: 04/13/2018
 ms.author: atsenthi
 ms.custom: ''
 ms.openlocfilehash: 41685e53eb0915f54bdc2d678191e5b767990dde
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75610260"
 ---
 # <a name="list-applications-running-in-a-service-fabric-cluster"></a>Listar aplicativos executando em um cluster do Service Fabric

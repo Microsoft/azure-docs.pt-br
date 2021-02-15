@@ -1,23 +1,23 @@
 ---
-title: Gerenciamento de computação do Edge Azure Stack | Microsoft Docs
-description: Descreve como gerenciar as configurações de computação de borda, como gatilho, módulos, exibir configuração de computação, remover a configuração por meio do portal do Azure em seu Azure Stack Edge.
+title: Gerenciamento de computação do Azure Stack Edge pro | Microsoft Docs
+description: Descreve como gerenciar as configurações de computação de borda, como gatilho, módulos, exibir configuração de computação, remover a configuração por meio do portal do Azure no Azure Stack Edge pro.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 05/20/2019
+ms.date: 01/06/2021
 ms.author: alkohli
-ms.openlocfilehash: 9d34bd1750b798407b493dcde01b04118d66a2d5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ebf967fe02ab6424b9952bb0315b70fadb547fe3
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84339817"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97967747"
 ---
-# <a name="manage-compute-on-your-azure-stack-edge"></a>Gerenciar a computação em seu Azure Stack Edge
+# <a name="manage-compute-on-your-azure-stack-edge-pro"></a>Gerenciar a computação em seu Azure Stack Edge pro
 
-Este artigo descreve como gerenciar a computação em seu Azure Stack Edge. É possível gerenciar a computação pelo portal do Azure ou pela IU da Web local. Use o portal do Azure para gerenciar módulos, gatilhos e configuração de computação e a IU da Web local para gerenciar configurações de computação.
+Este artigo descreve como gerenciar a computação em seu Azure Stack Edge pro. É possível gerenciar a computação pelo portal do Azure ou pela IU da Web local. Use o portal do Azure para gerenciar módulos, gatilhos e configuração de computação e a IU da Web local para gerenciar configurações de computação.
 
 Neste artigo, você aprenderá como:
 
@@ -28,7 +28,7 @@ Neste artigo, você aprenderá como:
 
 ## <a name="manage-triggers"></a>Gerenciar disparadores
 
-Os eventos são coisas que acontecem dentro de seu ambiente de nuvem ou em seu dispositivo no qual você pode executar uma ação. Por exemplo, quando um arquivo é criado em um compartilhamento, ele é um evento. Gatilhos acionam os eventos. Para seu Azure Stack Edge, os gatilhos podem estar em resposta a eventos de arquivo ou a um agendamento.
+Os eventos são coisas que acontecem dentro de seu ambiente de nuvem ou em seu dispositivo no qual você pode executar uma ação. Por exemplo, quando um arquivo é criado em um compartilhamento, ele é um evento. Gatilhos acionam os eventos. Para o Azure Stack Edge pro, os gatilhos podem estar em resposta a eventos de arquivo ou a um agendamento.
 
 - **Arquivo**: esses gatilhos estão em resposta a eventos de arquivo, como a criação de um arquivo, a modificação de um arquivo.
 - **Agendado**: esses gatilhos estão em resposta a uma agenda que você pode definir com uma data de início, uma hora de início e o intervalo de repetição.
@@ -38,7 +38,7 @@ Os eventos são coisas que acontecem dentro de seu ambiente de nuvem ou em seu d
 
 Siga estas etapas no portal do Azure para criar um gatilho.
 
-1. Na portal do Azure, vá para o recurso de borda do Azure Stack e, em seguida, vá para **borda de computação > gatilho**. Selecione **+ Adicionar gatilho** na barra de comandos.
+1. Na portal do Azure, vá para o recurso de borda do Azure Stack e, em seguida, vá para **IOT Edge gatilhos de >**. Selecione **+ Adicionar gatilho** na barra de comandos.
 
     ![Selecione adicionar gatilho](media/azure-stack-edge-manage-compute/add-trigger-1.png)
 
@@ -68,31 +68,31 @@ Siga estas etapas no portal do Azure para excluir um gatilho.
 
 1. Na lista de gatilhos, selecione o gatilho que você deseja excluir.
 
-    ![Selecionar gatilho](media/azure-stack-edge-manage-compute/add-trigger-1.png)
+    ![Selecionar gatilho](media/azure-stack-edge-manage-compute/delete-trigger-1.png)
 
 2. Clique com o botão direito do mouse e selecione **Excluir**.
 
-    ![Selecione excluir](media/azure-stack-edge-manage-compute/add-trigger-1.png)
+    ![Selecione excluir](media/azure-stack-edge-manage-compute/delete-trigger-2.png)
 
 3. Quando solicitada a confirmação, clique em **Sim**.
 
-    ![Confirmar exclusão](media/azure-stack-edge-manage-compute/add-trigger-1.png)
+    ![Confirmar exclusão](media/azure-stack-edge-manage-compute/delete-trigger-3.png)
 
 A lista de gatilhos também é atualizada para refletir a exclusão.
 
 ## <a name="manage-compute-configuration"></a>Gerenciar configuração da computação
 
-Use o portal do Azure para exibir a configuração de computação, remover uma configuração de computação existente ou para atualizar a configuração de computação para sincronizar as chaves de acesso para o dispositivo IoT e o dispositivo de IoT Edge para seu Azure Stack Edge.
+Use o portal do Azure para exibir a configuração de computação, remover uma configuração de computação existente ou para atualizar a configuração de computação para sincronizar as chaves de acesso para o dispositivo IoT e o dispositivo de IoT Edge para o Azure Stack Edge pro.
 
 ### <a name="view-compute-configuration"></a>Exibir configuração de computação
 
 Siga estas etapas no portal do Azure para exibir a configuração de computação para seu dispositivo.
 
-1. Na portal do Azure, vá para o recurso de borda do Azure Stack e, em seguida, vá para **borda computação > módulos**. Selecione **Exibir computação** na barra de comandos.
+1. Na portal do Azure, vá para o recurso de borda do Azure Stack e vá para **IoT Edge > visão geral**. 
 
     ![Selecione Exibir computação](media/azure-stack-edge-manage-compute/view-compute-1.png)
 
-2. Anote a configuração de computação em seu dispositivo. Quando você tiver configurado a computação, você terá criado um recurso de hub IoT. Nesse recurso de hub IoT, um dispositivo IoT e um dispositivo IoT Edge são configurados. Há suporte apenas para a execução dos módulos do Linux no dispositivo IoT Edge.
+2. Vá para a página de **Propriedades** . Anote a configuração de computação em seu dispositivo. Quando você tiver configurado a computação, você terá criado um recurso de hub IoT. Nesse recurso de hub IoT, um dispositivo IoT e um dispositivo IoT Edge são configurados. Há suporte apenas para a execução dos módulos do Linux no dispositivo IoT Edge.
 
     ![Exibir configuração](media/azure-stack-edge-manage-compute/view-compute-2.png)
 
@@ -101,25 +101,25 @@ Siga estas etapas no portal do Azure para exibir a configuração de computaçã
 
 Siga estas etapas no portal do Azure para remover a configuração de computação de borda existente para seu dispositivo.
 
-1. Na portal do Azure, vá para o recurso de borda do Azure Stack e vá para a **computação de borda > começar**. Selecione **Remover computação** na barra de comandos.
+1. Na portal do Azure, vá para o recurso de borda do Azure Stack e vá para **IoT Edge > visão geral**. Selecione **remover** na barra de comandos.
 
     ![Selecione Remover computação](media/azure-stack-edge-manage-compute/remove-compute-1.png)
 
 2. Se você remover a configuração de computação, será necessário reconfigurar o dispositivo caso seja necessário usar a computação novamente. Quando solicitado a confirmar, selecione **Sim**.
 
-    ![Selecione Remover computação](media/azure-stack-edge-manage-compute/remove-compute-2.png)
+    ![Selecione remover computação 2](media/azure-stack-edge-manage-compute/remove-compute-2.png)
 
 ### <a name="sync-up-iot-device-and-iot-edge-device-access-keys"></a>Sincronizar as chaves de acesso do dispositivo IoT e IoT Edge
 
-Quando você configura a computação em seu Azure Stack Edge, um dispositivo IoT e um dispositivo de IoT Edge são criados. Esses dispositivos recebem chaves de acesso simétricas automaticamente. Como uma melhor prática de segurança, essas chaves são trocadas regularmente por meio do serviço de Hub IoT.
+Quando você configura a computação no Azure Stack Edge pro, um dispositivo IoT e um dispositivo de IoT Edge são criados. Esses dispositivos recebem chaves de acesso simétricas automaticamente. Como uma melhor prática de segurança, essas chaves são trocadas regularmente por meio do serviço de Hub IoT.
 
 Para trocar essas chaves, é possível acessar o serviço de Hub IoT que você criou e selecione o dispositivo IoT ou IoT Edge. Cada dispositivo tem uma chave de acesso primária e uma secundária. Atribua a chave de acesso primária à chave de acesso secundária e gere novamente a chave de acesso primária.
 
-Se o dispositivo IoT e IoT Edge as chaves do dispositivo tiverem sido girados, você precisará atualizar a configuração em seu Azure Stack Edge para obter as últimas chaves de acesso. A sincronização ajuda o dispositivo obter as chaves mais recentes para seu dispositivo IoT e IoT Edge. O Azure Stack Edge usa apenas as chaves de acesso primárias.
+Se o dispositivo IoT e IoT Edge as chaves do dispositivo tiverem sido girados, você precisará atualizar a configuração em seu Azure Stack Edge pro para obter as últimas chaves de acesso. A sincronização ajuda o dispositivo obter as chaves mais recentes para seu dispositivo IoT e IoT Edge. Azure Stack o Edge pro usa apenas as chaves de acesso primárias.
 
 Siga estas etapas no portal do Azure para sincronizar as chaves de acesso para seu dispositivo.
 
-1. Na portal do Azure, vá para o recurso de borda do Azure Stack e vá para a **computação de borda > começar**. Selecione **Atualizar configuração** na barra de comandos.
+1. Na portal do Azure, vá para o recurso de borda do Azure Stack e vá para **IoT Edge > visão geral**. Selecione **Atualizar configuração** na barra de comandos.
 
     ![Selecione Atualizar configuração](media/azure-stack-edge-manage-compute/refresh-configuration-1.png)
 

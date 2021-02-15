@@ -10,20 +10,23 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 09/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: e78b5118a2525fbf10a3089712f75e44cb7deceb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 639f2ef12d190a56e04a9b48d96ea0a6537d243c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080685"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020105"
 ---
 # <a name="azure-time-series-insights-gen1-explorer"></a>Azure Time Series Insights Explorer do Gen1
 
+> [!CAUTION]
+> Esse é um artigo do Gen1.
+
 Este artigo descreve os recursos e as opções para o Azure Time Series Insights [aplicativo Web](https://insights.timeseries.azure.com/)do Gen1 Explorer. O Azure Time Series Insights Explorer demonstra os poderosos recursos de visualização de dados fornecidos pelo serviço e podem ser acessados em seu próprio ambiente.
 
-O Azure Time Series Insights é um serviço totalmente gerenciado de análise, armazenamento e visualização que facilita a exploração e análise de bilhões de eventos de IoT simultaneamente. Ele fornece uma exibição global dos dados, o que permite validar rapidamente sua solução de IoT e evitar um tempo de inatividade dispendioso de dispositivos críticos. Descubra tendências ocultas, detecte anomalias e realize análises de causa raiz quase em tempo real. 
+O Azure Time Series Insights é um serviço totalmente gerenciado de análise, armazenamento e visualização que facilita a exploração e análise de bilhões de eventos de IoT simultaneamente. Ele fornece uma exibição global dos dados, o que permite validar rapidamente sua solução de IoT e evitar um tempo de inatividade dispendioso de dispositivos críticos. Descubra tendências ocultas, detecte anomalias e realize análises de causa raiz quase em tempo real.
 
 > [!TIP]
 > Para obter um tour guiado por meio do ambiente de demonstração, leia o guia de [início rápido do Azure Time Series insights](time-series-quickstart.md).
@@ -41,9 +44,9 @@ O Azure Time Series Insights é um serviço totalmente gerenciado de análise, a
 
 Antes de poder usar o Azure Time Series Insights Explorer, você deve:
 
-- Crie um ambiente de Azure Time Series Insights. Para obter mais informações, leia como começar a [usar o Azure Time Series insights](./time-series-insights-get-started.md).
-- [Forneça acesso](time-series-insights-data-access.md) à sua conta no ambiente.
-- Adicione um [Hub IOT](time-series-insights-how-to-add-an-event-source-iothub.md) ou origem do evento do [Hub de eventos](time-series-insights-how-to-add-an-event-source-eventhub.md) a ele.
+- Criar um ambiente do Azure Time Series Insights. Para obter mais informações, leia como começar a [usar o Azure Time Series insights](./time-series-insights-get-started.md).
+- [Forneça acesso](./concepts-access-policies.md) à sua conta no ambiente.
+- Adicione um [Hub IOT](./how-to-ingest-data-iot-hub.md) ou origem do evento do [Hub de eventos](./how-to-ingest-data-event-hub.md) a ele.
 
 ## <a name="explore-and-query-data"></a>Explorar e consultar dados
 
@@ -74,8 +77,8 @@ Em minutos de conexão da origem do evento ao seu ambiente de Azure Time Series 
          |Operação  |Tipos com suporte  |Observações  |
          |---------|---------|---------|
          |**<**, **>**, **<=**, **>=**    |  **Double**, **DateTime**, **TimeSpan**       |         |
-         |**=**, **!=**,**<>**     | **Cadeia de caracteres**, **bool**, **Double**, **DateTime**, **TimeSpan**, **NULL**        |         |
-         |**NO**     | **Cadeia de caracteres**, **bool**, **Double**, **DateTime**, **TimeSpan**, **NULL**        |  Todos os operandos devem ser do mesmo tipo ou ser uma constante **nula** .        |
+         |**=**, **!=**, **<>**     | **Cadeia de caracteres**, **bool**, **Double**, **DateTime**, **TimeSpan**, **NULL**        |         |
+         |**IN**     | **Cadeia de caracteres**, **bool**, **Double**, **DateTime**, **TimeSpan**, **NULL**        |  Todos os operandos devem ser do mesmo tipo ou ser uma constante **nula** .        |
          |**HAS**     | **Cadeia de caracteres**        |  Somente literais de cadeia de caracteres constantes são permitidos no lado direito. Cadeia de caracteres vazia e **NULL** não são permitidos.       |
 
       - **Consultas de exemplo**
@@ -108,7 +111,7 @@ Em minutos de conexão da origem do evento ao seu ambiente de Azure Time Series 
 
 1. Use o **calor** para identificar rapidamente séries de dados exclusivas ou anormais em uma determinada consulta. Apenas um termo de pesquisa pode ser visualizado como um mapa de calor.
 
-    [![Gráfico de calor do Gen1 Explorer](media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png)](media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png#lightbox)
+    [Time Series insights calor Explorer](media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png) (Media/Time-Series-percepções-Explorer/tsi-ga-example-heatmap-charting.png # Lightbox)
 
 1. Quando você explora eventos selecionando ou clicando com o botão direito do mouse, o painel **eventos** é disponibilizado. Aqui, você pode examinar todos os seus eventos brutos e exportar seus eventos como arquivos JSON ou CSV. Azure Time Series Insights armazena todos os dados brutos.
 

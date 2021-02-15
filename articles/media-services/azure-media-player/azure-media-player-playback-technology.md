@@ -6,13 +6,13 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: overview
 ms.date: 04/20/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 56fd644e43b704eced4f5a97b82e4b07ab1b4db9
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-js
+ms.openlocfilehash: 24a38fde3d1b6bbe1efef9241458da846c186112
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87424078"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97916330"
 ---
 # <a name="playback-technology-tech"></a>Tecnologia de reprodução ("tech") #
 
@@ -44,8 +44,8 @@ Dada a ordem de tecnologia recomendada com conteúdo de streaming dos Serviços 
 
 | Navegador        | Sistema operacional                                                       | Tecnologia esperada (Clear)  | Tecnologia esperada (AES)  | Tecnologia esperada (DRM)          |
 |----------------|----------------------------------------------------------|------------------------|----------------------|------------------------------|
-| EdgeIE 11      | Windows 10, Windows 8.1, Windows Phone 101               | azureHtml5JS           | azureHtml5JS         | azureHtml5JS (PlayReady)     |
-| IE 11IE 9-101  | Windows 7, Windows Vista<sup>1</sup>                     | flashSS                | flashSS              | silverlightSS (PlayReady)    |
+| EdgeIE 11      | Windows 10, Windows 8.1, Windows Phone 10<sup>1</sup>               | azureHtml5JS           | azureHtml5JS         | azureHtml5JS (PlayReady)     |
+| IE 11          | Windows 7, Windows Vista<sup>1</sup>                     | flashSS                | flashSS              | silverlightSS (PlayReady)    |
 | IE 11          | Windows Phone 8,1                                        | azureHtml5JS           | azureHtml5JS         | sem suporte                |
 | Microsoft Edge           | Xbox One<sup>1</sup> (atualização de novembro de 2015)                   | azureHtml5JS           | azureHtml5JS         | sem suporte                |
 | Chrome 37 ou posterior     | Windows 10, Windows 8.1, macOS X Yosemite<sup>1</sup>   | azureHtml5JS           | azureHtml5JS         | azureHtml5JS (Widevine)      |
@@ -58,7 +58,7 @@ Dada a ordem de tecnologia recomendada com conteúdo de streaming dos Serviços 
 | Chrome 37 ou posterior     | Android 4.4.4+<sup>2</sup>                               | azureHtml5JS           | azureHtml5JS         | azureHtml5JS (Widevine)      |
 | Chrome 37 ou posterior     | Android 4.02                                             | html5                  | html5 (sem token)<sup>3</sup>    | sem suporte                |
 | Firefox 42 ou posterior    | Android 5.0+<sup>2</sup>                                 | azureHtml5JS           | azureHtml5JS         | sem suporte                |
-| IE 8           | Windows                                                  | sem suporte          | sem suporte        | sem suporte                |
+| IE 8, IE 9, IE 10  | Windows                                                  | sem suporte          | sem suporte        | sem suporte                |
 
 <sup>1</sup> Configuração não compatível ou não testada; listado como referência para conclusão.
 

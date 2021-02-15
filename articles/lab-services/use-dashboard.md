@@ -3,22 +3,22 @@ title: Use o painel para um laboratório de sala de aula no Azure Lab Services |
 description: Saiba como usar o painel para um laboratório de sala de aula no Azure Lab Services.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 4e59917aa385a344d79a62441e208df970f42285
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a91e1649d913956219ddcf192ab315a245b32eae
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85444311"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96434593"
 ---
-# <a name="dashboard-for-classroom-labs"></a>Painel para laboratórios de sala de aula
+# <a name="dashboard-for-labs"></a>Painel para laboratórios
 Este artigo descreve a exibição de painel de um laboratório de sala de aula no Azure Lab Services. 
 
-![Dashboard](./media/use-dashboard/dashboard.png)
+![Captura de tela mostra a exibição de painel de um laboratório de sala de aula no Azure Lab Services](./media/use-dashboard/dashboard.png)
 
 ## <a name="costs-and-billing-tile"></a>Bloco de custos e cobrança
 Este bloco fornece os seguintes detalhes de estimativa de custo:
 
-| Setting | Valor | 
+| Configuração | Valor | 
 | ------- | ----- | 
 | Horas de cota | O número máximo de horas que um usuário pode usar a VM fora das horas agendadas. |
 | Horas agendadas | Horas que serão cobradas com base no conjunto de agendamento do laboratório. Esse valor só estará disponível se houver uma data de início definida em todos os eventos de agendamento. |

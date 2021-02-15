@@ -9,14 +9,15 @@ ms.devlang: java
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.custom: devx-track-java
-ms.openlocfilehash: 67813aa36b0e0824db3ed89c7b7dbc06c3fd46d8
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: d6b23a831426a3308a0b47946d5a82679e937bbe
+ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321030"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97683128"
 ---
 # <a name="troubleshoot-issues-when-you-use-azure-cosmos-db-java-sdk-v4-with-sql-api-accounts"></a>Solução de problemas ao usar o SDK do Java v4 do Azure Cosmos DB com contas de API do SQL
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [SDK do Java v4](troubleshoot-java-sdk-v4-sql.md)
@@ -38,6 +39,13 @@ Comece com esta lista:
 * Consulte as [dicas de desempenho](performance-tips-java-sdk-v4-sql.md) do SDK do Java v4 do Azure Cosmos DB e siga as práticas sugeridas.
 * Se você não encontrar uma solução, leia o restante deste artigo. Em seguida, arquive um [problema do GitHub](https://github.com/Azure/azure-sdk-for-java/issues). Se houver uma opção para adicionar marcas ao problema do GitHub, adicione uma tag *cosmos:v4-item*.
 
+### <a name="retry-logic"></a>Lógica de repetição <a id="retry-logics"></a>
+Cosmos DB SDK em qualquer falha de e/s tentará repetir a operação com falha se tentar novamente no SDK for viável. Ter uma nova tentativa em vigor para qualquer falha é uma boa prática, mas o tratamento e a repetição de falhas de gravação é necessário. É recomendável usar o SDK mais recente, pois a lógica de repetição está sendo continuamente aprimorada.
+
+1. As falhas de leitura e consulta de e/s serão repetidas pelo SDK sem identificando-las ao usuário final.
+2. As gravações (criar, Upsert, substituir, excluir) são "não" idempotentes e, portanto, o SDK nem sempre pode repetir as operações de gravação com falha. É necessário que a lógica do aplicativo do usuário manipule a falha e tente novamente.
+3. A [disponibilidade do SDK de solução de problemas](troubleshoot-sdk-availability.md) explica as repetições para contas de Cosmos DB de várias regiões.
+
 ## <a name="common-issues-and-workarounds"></a><a name="common-issues-workarounds"></a>Problemas comuns e soluções alternativas
 
 ### <a name="network-issues-netty-read-timeout-failure-low-throughput-high-latency"></a>Problemas de rede, falha de tempo limite do Netty, baixa taxa de transferência, alta latência de leitura
@@ -46,7 +54,7 @@ Comece com esta lista:
 Para obter o melhor desempenho:
 * Verifique se o aplicativo está em execução na mesma região que sua conta do Azure Cosmos DB. 
 * Verifique o uso da CPU no host em que o aplicativo está sendo executado. Se o uso da CPU estiver em 50% ou mais, execute seu aplicativo em um host com uma configuração superior. Ou você pode distribuir a carga em mais computadores.
-    * Se você estiver executando o aplicativo no Serviço de Kubernetes do Azure, poderá [usar o Azure Monitor para monitorar a utilização da CPU](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-analyze).
+    * Se você estiver executando o aplicativo no Serviço de Kubernetes do Azure, poderá [usar o Azure Monitor para monitorar a utilização da CPU](../azure-monitor/insights/container-insights-analyze.md).
 
 #### <a name="connection-throttling"></a>Limitação de conexão
 A limitação de conexão pode ocorrer devido a um [limite de conexão no computador host] ou a [Esgotamento da porta SNAT (PAT) do Azure].
@@ -62,24 +70,24 @@ O número de arquivos abertos máximos permitos, que são identificados como "no
 
 ##### <a name="azure-snat-pat-port-exhaustion"></a><a name="snat"></a>Esgotamento da porta SNAT (PAT) do Azure
 
-Se o seu aplicativo for desenvolvido nas Máquinas Virtuais do Microsoft Azure sem um endereço IP público, por padrão as [portas do Azure SNAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports) estabelecem conexões a qualquer ponto de extremidade fora da sua VM. O número de conexões permitidas da VM para o ponto de extremidade do Azure Cosmos DB é limitado pela [configuração do Azure SNAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports).
+Se o seu aplicativo for desenvolvido nas Máquinas Virtuais do Microsoft Azure sem um endereço IP público, por padrão as [portas do Azure SNAT](../load-balancer/load-balancer-outbound-connections.md#preallocatedports) estabelecem conexões a qualquer ponto de extremidade fora da sua VM. O número de conexões permitidas da VM para o ponto de extremidade do Azure Cosmos DB é limitado pela [configuração do Azure SNAT](../load-balancer/load-balancer-outbound-connections.md#preallocatedports).
 
  As portas Azure SNAT são usadas somente quando sua VM do Azure tiver um endereço IP privado e um processo da VM tenta estabelecer uma conexão com um endereço IP público. Há duas soluções alternativas para evitar a limitação do Azure SNAT:
 
-* Adicione seu ponto de extremidade de serviço do Azure Cosmos DB para a sub-rede da sua rede virtual de Máquinas Virtuais do Azure. Para saber mais, consulte [pontos de extremidade de serviço de Rede Virtual do Microsoft Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview). 
+* Adicione seu ponto de extremidade de serviço do Azure Cosmos DB para a sub-rede da sua rede virtual de Máquinas Virtuais do Azure. Para saber mais, consulte [pontos de extremidade de serviço de Rede Virtual do Microsoft Azure](../virtual-network/virtual-network-service-endpoints-overview.md). 
 
-    Quando o ponto de extremidade for habilitado, as solicitações não são mais enviadas de um IP público para o Azure Cosmos DB. Em vez disso, a rede virtual e a identidade de sub-rede são enviadas. Essa alteração poderá resultar em quedas de firewall se apenas IPs públicos forem permitidos. Se você usar um firewall, quando você habilitar o ponto de extremidade de serviço, adicione uma sub-rede para o firewall usando as [ACLs de Rede Virtual](https://docs.microsoft.com/azure/virtual-network/virtual-networks-acl).
+    Quando o ponto de extremidade for habilitado, as solicitações não são mais enviadas de um IP público para o Azure Cosmos DB. Em vez disso, a rede virtual e a identidade de sub-rede são enviadas. Essa alteração poderá resultar em quedas de firewall se apenas IPs públicos forem permitidos. Se você usar um firewall, quando você habilitar o ponto de extremidade de serviço, adicione uma sub-rede para o firewall usando as [ACLs de Rede Virtual](/previous-versions/azure/virtual-network/virtual-networks-acl).
 * Atribua um IP público à sua VM do Azure.
 
-##### <a name="cant-reach-the-service---firewall"></a><a name="cant-connect"></a>Não é possível acessar o serviço - firewall
+##### <a name="cant-reach-the-service---firewall"></a><a name="cant-connect"></a>Não é possível acessar o Serviço – firewall
 ``ConnectTimeoutException`` indica que o SDK não pode acessar o serviço.
-Pode ocorrer uma falha semelhante à seguinte ao usar o modo direto:
+Você pode obter uma falha semelhante à seguinte ao usar o modo direto:
 ```
 GoneException{error=null, resourceAddress='https://cdb-ms-prod-westus-fd4.documents.azure.com:14940/apps/e41242a5-2d71-5acb-2e00-5e5f744b12de/services/d8aa21a5-340b-21d4-b1a2-4a5333e7ed8a/partitions/ed028254-b613-4c2a-bf3c-14bd5eb64500/replicas/131298754052060051p//', statusCode=410, message=Message: The requested resource is no longer available at the server., getCauseInfo=[class: class io.netty.channel.ConnectTimeoutException, message: connection timed out: cdb-ms-prod-westus-fd4.documents.azure.com/101.13.12.5:14940]
 ```
 
-Se você tiver um firewall em execução na máquina do aplicativo, abra o intervalo de portas 10.000 a 20.000 que são usadas pelo modo direto.
-Siga o [Limite de conexão no computador host](#connection-limit-on-host).
+Se você tiver um firewall em execução em seu computador do aplicativo, abra o intervalo de portas 10.000 a 20.000 que são usadas pelo modo direto.
+Além disso, siga o [Limite de conexão em um computador host](#connection-limit-on-host).
 
 #### <a name="http-proxy"></a>Proxy HTTP
 
@@ -119,9 +127,9 @@ Essa falha é uma falha no lado do servidor. Indica que você consumiu sua taxa 
 
     Durante o teste de desempenho, você deve aumentar a carga até que uma pequena taxa de solicitações seja restringida. Se restringida, o aplicativo cliente deve retirar a limitação para a nova tentativa do servidor especificado. Respeitar a retirada garante que você perca o mínimo de tempo de espera entre as tentativas.
 
-### <a name="failure-connecting-to-azure-cosmos-db-emulator"></a>Falha ao conectar-se ao emulador do Azure Cosmos DB
+### <a name="failure-connecting-to-azure-cosmos-db-emulator"></a>Falha ao conectar-se ao emulador de Azure Cosmos DB
 
-O certificado HTTPS do emulador do Azure Cosmos DB é autoassinado. Para o SDK funcionar com o emulador, importe o certificado do emulador para um Java TrustStore. Para obter mais informações, consulte [Exportar certificados do emulador do Azure Cosmos DB](local-emulator-export-ssl-certificates.md).
+O certificado HTTPS do emulador de Azure Cosmos DB é autoassinado. Para o SDK funcionar com o emulador, importe o certificado do emulador para um Java TrustStore. Para obter mais informações, consulte [Exportar certificados do emulador Azure Cosmos DB](local-emulator-export-ssl-certificates.md).
 
 ### <a name="dependency-conflict-issues"></a>Problemas de conflito de dependência
 
@@ -177,12 +185,12 @@ Adicione também uma configuração de log4j.
 ```
 # this is a sample log4j configuration
 
-# Set root logger level to DEBUG and its only appender to A1.
+# Set root logger level to INFO and its only appender to A1.
 log4j.rootLogger=INFO, A1
 
-log4j.category.com.microsoft.azure.cosmosdb=DEBUG
-#log4j.category.io.netty=INFO
-#log4j.category.io.reactivex=INFO
+log4j.category.com.azure.cosmos=INFO
+#log4j.category.io.netty=OFF
+#log4j.category.io.projectreactor=OFF
 # A1 is set to be a ConsoleAppender.
 log4j.appender.A1=org.apache.log4j.ConsoleAppender
 
@@ -217,5 +225,3 @@ Muitas conexões para o ponto de extremidade do Azure Cosmos DB podem estar no `
 [Enable client SDK logging]: #enable-client-sice-logging
 [Limite de conexão no computador host]: #connection-limit-on-host
 [Esgotamento da porta SNAT (PAT) do Azure]: #snat
-
-

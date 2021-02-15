@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: hasshah
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8c19650a8f36181e3e003414ff15add071e9a8ac
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: b2763372cc63637f73610e1936e3ea54a4524e7d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88918886"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91356597"
 ---
 # <a name="what-is-a-keyword"></a>O que é uma palavra-chave?
 
@@ -61,6 +61,6 @@ A criação de uma palavra-chave efetiva é vital para garantir que seu disposit
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Obter gratuitamente uma chave de assinatura dos Serviços de Fala](get-started.md)
+* [Obter gratuitamente uma chave de assinatura dos Serviços de Fala](overview.md#try-the-speech-service-for-free)
 * [Obter o SDK de Fala](speech-sdk.md)
 * [Saiba mais sobre assistentes de voz](voice-assistants.md)

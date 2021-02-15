@@ -6,25 +6,25 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/01/2020
+ms.date: 11/23/2020
 ms.author: aahi
-ms.openlocfilehash: c62044582cb488a5ef2d20b3f407c0865b3994ba
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4697be519eee96778eecdf37f7b358a88ad886c6
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80877960"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006893"
 ---
 > [!NOTE]
-> Os requisitos e as recomendações baseiam-se em benchmarks com uma única solicitação por segundo, usando uma imagem de 8 MB de uma carta de negócios digitalizada que contém 29 linhas e um total de 803 caracteres.
+> Os requisitos e as recomendações são baseados em parâmetros de comparação com uma solicitação por segundo, usando uma imagem de 8 MB de uma carta empresarial digitalizada que contém 29 linhas e 803 caracteres no total.
 
-A tabela a seguir descreve a alocação mínima e recomendada de recursos para cada contêiner de leitura.
+A tabela a seguir descreverá a alocação mínima e recomendada de recursos para cada contêiner de Leitura.
 
-| Contêiner | Mínimo | Recomendadas |TPS<br>(Mínimo, máximo)|
-|-----------|---------|-------------|--|
-| Ler | 1 núcleos, 8 GB de memória, 0,24 TPS | 8 núcleos, 16 GB de memória, 1,17 TPS | 0,24, 1,17 |
+| Contêiner | Mínimo | Recomendado |
+|-----------|---------|-------------|
+| Leia 2,0-visualização | 1 núcleo, 8 GB de memória |  8 núcleos, 16 GB de memória |
+| Leia 3,2-visualização | 8 núcleos, 16 GB de memória | 8 núcleos, 24 GB de memória |
 
 * Cada núcleo precisa ser de pelo menos 2,6 GHz (gigahertz) ou mais rápido.
-* TPS-transações por segundo.
 
 Memória e núcleo correspondem às configurações `--cpus` e `--memory`, que são usadas como parte do comando `docker run`.

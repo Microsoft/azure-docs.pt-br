@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/22/2019
 ms.author: jeedes
-ms.openlocfilehash: a1f052df9b233fd564ed7e16c04c32c0c7234e1a
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 6453983ad4547139ef43af019a0dbf5ff77452c7
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88555647"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92454471"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-dynatrace"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Dynatrace
 
@@ -26,7 +26,7 @@ Neste tutorial, você aprenderá a integrar o Dynatrace ao Azure AD (Azure Activ
 * Permitir que seus usuários entrem automaticamente no Dynatrace com suas contas do Azure AD.
 * Gerenciar suas contas em um local central: o portal do Azure.
 
-Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -50,15 +50,15 @@ Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente d
 Para configurar a integração do Dynatrace ao Azure AD, você precisará adicionar o Dynatrace da galeria à sua lista de aplicativos SaaS gerenciados.
 
 1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
-1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory**.
-1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos**.
-1. Para adicionar um novo aplicativo, escolha **Novo aplicativo**.
-1. Na seção **Adicionar por meio da galeria**, digite **Dynatrace** na caixa de pesquisa.
+1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory** .
+1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos** .
+1. Para adicionar um novo aplicativo, escolha **Novo aplicativo** .
+1. Na seção **Adicionar por meio da galeria** , digite **Dynatrace** na caixa de pesquisa.
 1. Selecione **Dynatrace** no painel de resultados e adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-dynatrace"></a>Configurar e testar o logon único do Azure AD para o Dynatrace
 
-Configure e teste o SSO do Azure AD com o Dynatrace usando um usuário de teste chamado **B.Fernandes**. Para que o SSO funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Dynatrace.
+Configure e teste o SSO do Azure AD com o Dynatrace usando um usuário de teste chamado **B.Fernandes** . Para que o SSO funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Dynatrace.
 
 Para configurar e testar o SSO do Azure AD com o Dynatrace, conclua os seguintes blocos de construção:
 
@@ -73,23 +73,23 @@ Para configurar e testar o SSO do Azure AD com o Dynatrace, conclua os seguintes
 
 Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Dynatrace**, localize a seção **Gerenciar** e selecione **logon único**.
-1. Na página **Selecionar um método de logon único**, escolha **SAML**.
-1. Na página **Configurar o logon único com o SAML**, clique no ícone de edição/caneta da **Configuração Básica do SAML** para editar as configurações.
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Dynatrace** , localize a seção **Gerenciar** e selecione **logon único** .
+1. Na página **Selecionar um método de logon único** , escolha **SAML** .
+1. Na página **Configurar o logon único com o SAML** , clique no ícone de edição/caneta da **Configuração Básica do SAML** para editar as configurações.
 
    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-1. Na seção **Configuração Básica de SAML**, o aplicativo é pré-configurado no modo iniciado do **IDP** e as URLs necessárias já são preenchidas previamente com o Azure. É necessário que o usuário salve a configuração, clicando no botão **Salvar**.
+1. Na seção **Configuração Básica de SAML** , o aplicativo é pré-configurado no modo iniciado do **IDP** e as URLs necessárias já são preenchidas previamente com o Azure. É necessário que o usuário salve a configuração, clicando no botão **Salvar** .
 
-1. Clique em **Definir URLs adicionais** e realize a seguinte etapa para configurar o aplicativo no modo iniciado por **SP**:
+1. Clique em **Definir URLs adicionais** e realize a seguinte etapa para configurar o aplicativo no modo iniciado por **SP** :
 
-    Na caixa de texto **URL de Logon**, digite uma URL: `https://sso.dynatrace.com/`
+    Na caixa de texto **URL de Logon** , digite uma URL: `https://sso.dynatrace.com/`
 
-1. Na página **Configurar logon único com SAML** na seção **Certificado de Autenticação SAML**, localize **XML de Metadados de Federação**. Selecione **Baixar** para baixar o certificado e salvá-lo em seu computador.
+1. Na página **Configurar logon único com SAML** na seção **Certificado de Autenticação SAML** , localize **XML de Metadados de Federação** . Selecione **Baixar** para baixar o certificado e salvá-lo em seu computador.
 
     ![O link de download do Certificado](common/metadataxml.png)
 
-1. Na seção **Certificado de Autenticação SAML**, selecione o botão **Editar** para abrir a caixa de diálogo **Certificado de Autenticação SAML**. Conclua as seguintes etapas:
+1. Na seção **Certificado de Autenticação SAML** , selecione o botão **Editar** para abrir a caixa de diálogo **Certificado de Autenticação SAML** . Conclua as seguintes etapas:
 
     ![Editar o Certificado de Autenticação SAML](common/edit-certificate.png)
 
@@ -99,7 +99,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
     ![Opção de Assinatura do Communifire](./media/dynatrace-tutorial/tutorial-dynatrace-signing-option.png)
 
-1. Na seção **Configurar o Dynatrace**, copie as URLs apropriadas de acordo com suas necessidades.
+1. Na seção **Configurar o Dynatrace** , copie as URLs apropriadas de acordo com suas necessidades.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
@@ -107,35 +107,35 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 Nesta seção, você criará um usuário de teste no portal do Azure chamado B.Fernandes.
 
-1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory**, **Usuários** e, em seguida, **Todos os usuários**.
+1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory** , **Usuários** e, em seguida, **Todos os usuários** .
 1. Selecione **Novo usuário** na parte superior da tela.
-1. Nas propriedades do **Usuário**, siga estas etapas:
-   1. No campo **Nome**, insira `B.Simon`.  
-   1. No campo **Nome de usuário**, insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
-   1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha**.
-   1. Clique em **Criar**.
+1. Nas propriedades do **Usuário** , siga estas etapas:
+   1. No campo **Nome** , insira `B.Simon`.  
+   1. No campo **Nome de usuário** , insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
+   1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha** .
+   1. Clique em **Criar** .
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
 Nesta seção, você permitirá que B.Fernandes use o logon único do Azure permitindo a ela acesso ao Dynatrace.
 
-1. No portal do Azure, selecione **Aplicativos empresariais** e, em seguida, selecione **Todos os aplicativos**.
-1. Na lista de aplicativos, selecione **Dynatrace**.
-1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e escolha **Usuários e grupos**.
+1. No portal do Azure, selecione **Aplicativos empresariais** e, em seguida, selecione **Todos os aplicativos** .
+1. Na lista de aplicativos, selecione **Dynatrace** .
+1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e escolha **Usuários e grupos** .
 
    ![O link “Usuários e grupos”](common/users-groups-blade.png)
 
-1. Selecione **Adicionar usuário** e, em seguida, selecione **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
+1. Selecione **Adicionar usuário** e, em seguida, selecione **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição** .
 
     ![O link Adicionar Usuário](common/add-assign-user.png)
 
-1. Na caixa de diálogo **Usuários e grupos**, selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
-1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função**, escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
-1. Na caixa de diálogo **Adicionar Atribuição**, clique no botão **Atribuir**.
+1. Na caixa de diálogo **Usuários e grupos** , selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função** , escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
+1. Na caixa de diálogo **Adicionar Atribuição** , clique no botão **Atribuir** .
 
 ## <a name="configure-dynatrace-sso"></a>Configurar o SSO do Dynatrace
 
-Para configurar o logon único no lado do **Dynatrace**, é necessário enviar o arquivo **XML de Metadados de Federação** baixado e as URLs apropriadas copiadas do portal do Azure para o [Dynatrace](https://www.dynatrace.com/support/help/shortlink/users-sso-hub). Você pode seguir as instruções no site do dynaTrace para configurar a conexão de SSO do SAML em ambos os lados.
+Para configurar o logon único no lado do **Dynatrace** , é necessário enviar o arquivo **XML de Metadados de Federação** baixado e as URLs apropriadas copiadas do portal do Azure para o [Dynatrace](https://www.dynatrace.com/support/help/shortlink/users-sso-hub). Você pode seguir as instruções no site do dynaTrace para configurar a conexão de SSO do SAML em ambos os lados.
 
 ### <a name="create-dynatrace-test-user"></a>Criar usuário de teste do Dynatrace
 
@@ -145,14 +145,14 @@ Nesta seção, uma usuária chamada B.Fernandes será criada no Dynatrace. O Dyn
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Ao clicar no bloco do Dynatrace no Painel de Acesso, você deverá ser conectado automaticamente ao Dynatrace no qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao clicar no bloco do Dynatrace no Painel de Acesso, você deverá ser conectado automaticamente ao Dynatrace no qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](./tutorial-list.md)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)
 
 - [Experimentar o Dynatrace com o Azure AD](https://aad.portal.azure.com/)

@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: oslake
 ms.author: moslake
-ms.reviewer: jrasnick, carlrab
-ms.date: 03/12/2019
-ms.openlocfilehash: ebaddbcacbc20097b2ec5606244650ea2916edfe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.reviewer: jrasnick, sstein
+ms.date: 12/22/2020
+ms.openlocfilehash: 7bb754b892715adffc6ead99f3d866f9f9d8af9b
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84324531"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99096484"
 ---
 # <a name="manage-file-space-for-databases-in-azure-sql-database"></a>Gerenciar o espaço de arquivo para bancos de dados no banco de dados SQL do Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -40,13 +40,13 @@ O monitoramento do uso do espaço no arquivo e a redução dos arquivos de dados
 
 A maioria das métricas de espaço de armazenamento exibido no portal do Azure e as seguintes APIs apenas medir o tamanho das páginas de dados usados:
 
-- APIs de métricas baseadas no Azure Resource Manager, incluindo [get-metrics](https://docs.microsoft.com/powershell/module/az.monitor/get-azmetric) do PowerShell
-- T-SQL: [sys.DM db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)
+- APIs de métricas baseadas no Azure Resource Manager, incluindo [get-metrics](/powershell/module/az.monitor/get-azmetric) do PowerShell
+- T-SQL: [sys.DM db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)
 
 No entanto, as seguintes APIs também medem o tamanho do espaço alocado para os bancos de dados Elástico e de pools:
 
-- T-SQL: [sys. resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)
-- T-SQL: [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)
+- T-SQL: [sys. resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)
+- T-SQL: [sys.elastic_pool_resource_stats](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)
 
 ### <a name="shrinking-data-files"></a>Redução de arquivos de dados
 
@@ -84,7 +84,7 @@ Modifique a consulta a seguir para retornar a quantidade de espaço para dados d
 SELECT TOP 1 storage_in_megabytes AS DatabaseDataSpaceUsedInMB
 FROM sys.resource_stats
 WHERE database_name = 'db1'
-ORDER BY end_time DESC
+ORDER BY end_time DESC;
 ```
 
 ### <a name="database-data-space-allocated-and-unused-allocated-space"></a>Espaço de dados de banco de dados alocado e espaço alocado não usado
@@ -98,7 +98,7 @@ SELECT SUM(size/128.0) AS DatabaseDataSpaceAllocatedInMB,
 SUM(size/128.0 - CAST(FILEPROPERTY(name, 'SpaceUsed') AS int)/128.0) AS DatabaseDataSpaceAllocatedUnusedInMB
 FROM sys.database_files
 GROUP BY type_desc
-HAVING type_desc = 'ROWS'
+HAVING type_desc = 'ROWS';
 ```
 
 ### <a name="database-data-max-size"></a>Tamanho máximo de dados de banco de dados
@@ -108,7 +108,7 @@ Modifique a consulta a seguir para retornar o tamanho máximo do banco de dados.
 ```sql
 -- Connect to database
 -- Database data max size in bytes
-SELECT DATABASEPROPERTYEX('db1', 'MaxSizeInBytes') AS DatabaseDataMaxSizeInBytes
+SELECT DATABASEPROPERTYEX('db1', 'MaxSizeInBytes') AS DatabaseDataMaxSizeInBytes;
 ```
 
 ## <a name="understanding-types-of-storage-space-for-an-elastic-pool"></a>Noções básicas sobre tipos de espaço de armazenamento para um pool elástico
@@ -121,6 +121,9 @@ Noções básicas sobre as quantidades de espaço de armazenamento a seguir são
 |**Espaço alocado de dados**|O resumo de espaço de dados alocado por todos os bancos de dados no pool elástico.||
 |**Espaço de dados alocados, mas não utilizado**|A diferença entre a quantidade de espaço de dados alocado e espaço de dados usado por todos os banco de dados no pool elástico.|Essa quantidade representa a quantidade máxima de espaço alocado para o pool elástico que pode ser recuperado pela redução de arquivo de dados do banco de dados.|
 |**Tamanho máximo dos dados**|A quantidade máxima de espaço para dados que pode ser usada pelo pool elástico de todos esses bancos de dados.|O espaço alocado não deve exceder o tamanho máximo do pool elástico.  Se essa condição ocorrer, o espaço alocado que não for utilizado poderá ser recuperado, encolhendo os arquivos de dados do banco de dados.|
+
+> [!NOTE]
+> A mensagem de erro "o pool elástico atingiu seu limite de armazenamento" indica que os objetos de banco de dados foram alocados espaço suficiente para atender ao limite de armazenamento do pool elástico, mas pode haver espaço não utilizado na alocação de espaço de dados. Considere aumentar o limite de armazenamento do pool elástico ou como uma solução de curto prazo, liberando espaço de dados usando a seção [**recuperar espaço alocado não utilizado**](#reclaim-unused-allocated-space) abaixo. Você também deve estar ciente do impacto potencial de desempenho negativo da redução de arquivos de banco de dados, consulte a seção [**Recompilar índices**](#rebuild-indexes) abaixo.
 
 ## <a name="query-an-elastic-pool-for-storage-space-information"></a>Consultar um pool elástico para informações de espaço de armazenamento
 
@@ -136,7 +139,7 @@ Modifique a consulta a seguir para retornar a quantidade de espaço para dados d
 SELECT TOP 1 avg_storage_percent / 100.0 * elastic_pool_storage_limit_mb AS ElasticPoolDataSpaceUsedInMB
 FROM sys.elastic_pool_resource_stats
 WHERE elastic_pool_name = 'ep1'
-ORDER BY end_time DESC
+ORDER BY end_time DESC;
 ```
 
 ### <a name="elastic-pool-data-space-allocated-and-unused-allocated-space"></a>Espaço de dados de pool elástico alocado e espaço alocado não usado
@@ -146,9 +149,9 @@ Modifique os exemplos a seguir para retornar uma tabela que lista o espaço aloc
 Os resultados da consulta para determinar o espaço alocado para cada banco de dados no pool podem ser incluídos juntos para determinar o espaço do pool elástico alocado. O espaço do pool elástico alocado não deve exceder o tamanho máximo do pool elástico.  
 
 > [!IMPORTANT]
-> O módulo Azure Resource Manager do PowerShell ainda tem suporte do Banco de Dados SQL do Azure, mas todo o desenvolvimento futuro é para o módulo Az.Sql. O módulo AzureRM continuará a receber correções de bugs até pelo menos dezembro de 2020. Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos. Para obter mais informações sobre sua compatibilidade, consulte [apresentando o novo módulo Azure PowerShell AZ](/powershell/azure/new-azureps-module-az).
+> O módulo Azure Resource Manager do PowerShell ainda tem suporte do Banco de Dados SQL do Azure, mas todo o desenvolvimento futuro é para o módulo Az.Sql. O módulo AzureRM continuará a receber as correções de bugs até pelo menos dezembro de 2020. Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos. Para saber mais sobre a compatibilidade entre eles, confira [Apresentação do novo módulo Az do Azure PowerShell](/powershell/azure/new-azureps-module-az).
 
-O script do PowerShell requer o módulo do SQL Server PowerShell - consulte [Download do módulo do PowerShell](https://docs.microsoft.com/sql/powershell/download-sql-server-ps-module) para instalar.
+O script do PowerShell requer o módulo do SQL Server PowerShell - consulte [Download do módulo do PowerShell](/sql/powershell/download-sql-server-ps-module) para instalar.
 
 ```powershell
 $resourceGroupName = "<resourceGroupName>"
@@ -187,7 +190,7 @@ A captura de tela a seguir é um exemplo da saída do script:
 
 ### <a name="elastic-pool-data-max-size"></a>Tamanho máximo dos dados do pool elástico
 
-Modifique a seguinte consulta T-SQL para retornar o tamanho máximo dos dados do pool elástico.  Unidades do resultado da consulta são em MB.
+Modifique a seguinte consulta T-SQL para retornar o tamanho máximo dos últimos dados do pool elástico gravados.  Unidades do resultado da consulta são em MB.
 
 ```sql
 -- Connect to master
@@ -195,13 +198,13 @@ Modifique a seguinte consulta T-SQL para retornar o tamanho máximo dos dados do
 SELECT TOP 1 elastic_pool_storage_limit_mb AS ElasticPoolMaxSizeInMB
 FROM sys.elastic_pool_resource_stats
 WHERE elastic_pool_name = 'ep1'
-ORDER BY end_time DESC
+ORDER BY end_time DESC;
 ```
 
 ## <a name="reclaim-unused-allocated-space"></a>Recuperar espaço alocado não utilizado
 
 > [!NOTE]
-> Esse comando pode afetar o desempenho do banco de dados enquanto está em execução e, se possível, deve ser executado durante períodos de baixa utilização.
+> Os comandos de redução afetam o desempenho do banco de dados durante a execução e, se possível, devem ser executados durante períodos de baixo uso.
 
 ### <a name="dbcc-shrink"></a>escolher DBCC
 
@@ -209,28 +212,32 @@ Depois que os bancos de dados foram identificados para recuperar o espaço aloca
 
 ```sql
 -- Shrink database data space allocated.
-DBCC SHRINKDATABASE (N'db1')
+DBCC SHRINKDATABASE (N'db1');
 ```
 
-Esse comando pode afetar o desempenho do banco de dados enquanto está em execução e, se possível, deve ser executado durante períodos de baixa utilização.  
+Os comandos de redução afetam o desempenho do banco de dados durante a execução e, se possível, devem ser executados durante períodos de baixo uso.  
 
-Para obter mais informações sobre este comando, consulte [SHRINKDATABASE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql).
+Você também deve estar ciente do impacto potencial de desempenho negativo da redução de arquivos de banco de dados, consulte a seção [**Recompilar índices**](#rebuild-indexes) abaixo.
+
+Para obter mais informações sobre este comando, consulte [SHRINKDATABASE](/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql).
 
 ### <a name="auto-shrink"></a>A redução automática
 
 Como alternativa, a redução automática pode ser ativada para um banco de dados.  A redução automática reduz a complexidade do gerenciamento de arquivos e é menos impactante para o desempenho do banco de dados do que o `SHRINKDATABASE` ou `SHRINKFILE`.  A redução automática pode ser particularmente útil para gerenciar pools elásticos com muitos bancos de dados.  No entanto, a redução automática pode ser menos eficaz na recuperação de espaço no arquivo do que `SHRINKDATABASE` e `SHRINKFILE`.
+Por padrão, o Redução Automática é desabilitado como recomendado para a maioria dos bancos de dados. Para obter mais informações, consulte [considerações para AUTO_SHRINK](/troubleshoot/sql/admin/considerations-autogrow-autoshrink#considerations-for-auto_shrink).
+
 Para ativar a redução automática, modifique o nome do banco de dados no comando a seguir.
 
 ```sql
 -- Enable auto-shrink for the database.
-ALTER DATABASE [db1] SET AUTO_SHRINK ON
+ALTER DATABASE [db1] SET AUTO_SHRINK ON;
 ```
 
-Para obter mais informações sobre esse comando, consulte [banco de dados definido](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) opções.
+Para obter mais informações sobre esse comando, consulte [banco de dados definido](/sql/t-sql/statements/alter-database-transact-sql-set-options) opções.
 
 ### <a name="rebuild-indexes"></a>Recriar índices
 
-Depois que os arquivos de dados do banco de dados são reduzidos, os índices podem se tornar fragmentados e perder sua eficácia de otimização do desempenho. Se a degradação do desempenho ocorrer, considere reconstruir os índices do banco de dados. Para obter mais informações sobre fragmentação e reconstrução de índices, consulte [Reorganizar e reconstruir índices](https://docs.microsoft.com/sql/relational-databases/indexes/reorganize-and-rebuild-indexes).
+Depois que os arquivos de dados do banco de dados são reduzidos, os índices podem se tornar fragmentados e perder sua eficácia de otimização do desempenho. Se a degradação do desempenho ocorrer, considere reconstruir os índices do banco de dados. Para obter mais informações sobre fragmentação e reconstrução de índices, consulte [Reorganizar e reconstruir índices](/sql/relational-databases/indexes/reorganize-and-rebuild-indexes).
 
 ## <a name="next-steps"></a>Próximas etapas
 

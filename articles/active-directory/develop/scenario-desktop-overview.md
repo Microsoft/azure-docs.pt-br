@@ -12,38 +12,28 @@ ms.workload: identity
 ms.date: 05/18/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 92f0909660427e414264442523dba3ed2abe0142
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: feedc0065419162237c4f4826fe275a6fd947e53
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83771852"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98753724"
 ---
 # <a name="scenario-desktop-app-that-calls-web-apis"></a>Cenário: Aplicativo da área de trabalho que chama APIs Web
 
 Saiba tudo o que você precisa para criar um aplicativo da área de trabalho que chama APIs Web.
 
-## <a name="prerequisites"></a>Pré-requisitos
-
-[!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
-
 ## <a name="get-started"></a>Introdução
 
-Se você ainda não fez isso, crie seu primeiro aplicativo seguindo o guia de início rápido da área de trabalho do .NET, o guia de início rápido da Plataforma Universal do Windows (UWP) ou o guia de início rápido do aplicativo nativo do macOS:
+Se você ainda não fez isso, crie seu primeiro aplicativo concluindo um início rápido:
 
-> [!div class="nextstepaction"]
-> [Início Rápido: Adquirir um token e chamar a API do Microsoft Graph de um aplicativo da área de trabalho do Windows](./quickstart-v2-windows-desktop.md)
-
-
-> [!div class="nextstepaction"]
-> [Início Rápido: Adquirir um token e chamar a API do Microsoft Graph de um aplicativo da UWP](./quickstart-v2-uwp.md)
-
-> [!div class="nextstepaction"]
-> [Início Rápido: Adquirir um token e chamar a API do Microsoft Graph de um aplicativo nativo do macOS](./quickstart-v2-ios.md)
+- [Início Rápido: Adquirir um token e chamar a API do Microsoft Graph de um aplicativo da área de trabalho do Windows](./quickstart-v2-windows-desktop.md)
+- [Início Rápido: Adquirir um token e chamar a API do Microsoft Graph de um aplicativo da UWP](./quickstart-v2-uwp.md)
+- [Início Rápido: Adquirir um token e chamar a API do Microsoft Graph de um aplicativo nativo do macOS](./quickstart-v2-ios.md)
 
 ## <a name="overview"></a>Visão geral
 
-Você escreve um aplicativo da área de trabalho e deseja conectar usuários ao seu aplicativo e chamar APIs Web, como Microsoft Graph, outras APIs da Microsoft ou sua própria API Web. Você tem várias alternativas:
+Você escreve um aplicativo da área de trabalho e deseja conectar usuários ao seu aplicativo e chamar APIs Web, como Microsoft Graph, outras APIs da Microsoft ou sua própria API Web. Você tem várias opções:
 
 - Usar a aquisição de token interativo:
 
@@ -65,7 +55,10 @@ Você escreve um aplicativo da área de trabalho e deseja conectar usuários ao 
 
 Os aplicativos da área de trabalho têm várias especificidades. Eles baseiam-se principalmente no uso ou não de autenticação interativa pelo seu aplicativo.
 
+## <a name="recommended-reading"></a>Leitura recomendada
+
+[!INCLUDE [recommended-topics](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
+
 ## <a name="next-steps"></a>Próximas etapas
 
-> [!div class="nextstepaction"]
-> [Aplicativo da área de trabalho: registro do aplicativo](scenario-desktop-app-registration.md)
+Vá para o próximo artigo neste cenário, registro de [aplicativo](scenario-desktop-app-registration.md).

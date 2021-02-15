@@ -1,7 +1,7 @@
 ---
 title: Atualizar a API de Sugestão Automática do Bing da v5 para v7
 titleSuffix: Azure Cognitive Services
-description: Identifica as partes do aplicativo que você precisa atualizar para usar a versão 7.
+description: Identifica as partes do seu aplicativo Sugestão Automática do Bing que você precisa atualizar para usar a versão 7.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
@@ -10,14 +10,19 @@ ms.subservice: bing-autosuggest
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: scottwhi
-ms.openlocfilehash: 5249a3a1f51eea2ecd0999d71c6b08fdacf37a34
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 531da145e699eecb76366cd73a151b7170a6ed2f
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68405407"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353418"
 ---
 # <a name="autosuggest-api-upgrade-guide"></a>Guia de atualização da API de Sugestão Automática
+
+> [!WARNING]
+> As APIs de Pesquisa do Bing estão migrando dos Serviços Cognitivos para os Serviços de Pesquisa do Bing. A partir de **30 de outubro de 2020**, todas as novas instâncias da Pesquisa do Bing precisam ser provisionadas seguindo o processo documentado [aqui](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> As APIs de Pesquisa do Bing provisionadas por meio dos Serviços Cognitivos terão suporte nos próximos três anos ou até o final do seu Contrato Enterprise, o que ocorrer primeiro.
+> Para obter instruções sobre a migração, confira [Serviços de Pesquisa do Bing](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Este guia de atualização identifica as alterações entre a versão 5 e a versão 7 da API de Sugestão Automática do Bing. Use este guia para ajudar a atualizar seu aplicativo para usar a versão 7.
 
@@ -25,7 +30,7 @@ Este guia de atualização identifica as alterações entre a versão 5 e a vers
 
 ### <a name="endpoints"></a>Pontos de extremidade
 
-- O número de versão do ponto de extremidade foi alterado de v5 para v7. Por exemplo, https:\//API.cognitive.Microsoft.com/Bing/\*\*v 7.0 * */suggestions.
+- O número de versão do ponto de extremidade foi alterado de v5 para v7. Por exemplo, https: \/ /API.cognitive.Microsoft.com/Bing/ \* \* v 7.0 * */suggestions.
 
 ### <a name="error-response-objects-and-error-codes"></a>Objetos de resposta de erro e códigos de erro
 
@@ -71,4 +76,4 @@ Bloqueado|InvalidRequest.Blocked
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Requisitos de uso e exibição](./UseAndDisplayRequirements.md)
+> [Requisitos de uso e exibição](../bing-web-search/use-display-requirements.md)

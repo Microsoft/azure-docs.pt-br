@@ -1,21 +1,17 @@
 ---
 title: Provisionar Enterprise Edition para o Integration Runtime do Azure-SSIS
 description: Este artigo descreve os recursos do Enterprise Edition para o Integration Runtime do Azure-SSIS e como provisioná-lo
-services: data-factory
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/09/2020
 author: swinarko
 ms.author: sawinark
-ms.reviewer: douglasl
-manager: anandsub
-ms.openlocfilehash: 55a49ac13cdfd3f6157ae7495403f76056e734ce
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: f700729c2d059648b1c3a7e451526aefcb436818
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86184086"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100387539"
 ---
 # <a name="provision-enterprise-edition-for-the-azure-ssis-integration-runtime"></a>Provisionar Enterprise Edition para o Integration Runtime do Azure-SSIS
 
@@ -38,7 +34,7 @@ Alguns desses recursos exigem a instalação de componentes adicionais para pers
 | Conectores Oracle | O Gerenciador de Conexões da Oracle, a fonte e o destino são pré-instalados no Tempo de Execução de Integração do Azure-SSIS Enterprise Edition. Você também precisa instalar o driver Oracle Call Interface (OCI) e, se necessário, configurar o Oracle Transport Network Substrate (TNS), no Tempo de Execução de Integração do Azure-SSIS Enterprise Edition. Para obter mais informações, consulte [Instalação personalizada para o runtime de integração do Azure-SSIS](how-to-configure-azure-ssis-ir-custom-setup.md). |
 | Conectores de teradata | Você precisa instalar o Gerenciador de Conexões Teradata, a fonte e o destino, bem como a API Teradata Parallel Transporter (TPT) e o driver Teradata ODBC, no Tempo de Execução de Integração do Azure-SSIS Enterprise Edition. Para obter mais informações, consulte [Instalação personalizada para o runtime de integração do Azure-SSIS](how-to-configure-azure-ssis-ir-custom-setup.md). |
 | Conectores SAP BW | O Gerenciador de Conexões do SAP BW, a fonte e o destino são pré-instalados no Tempo de Execução de Integração do Azure-SSIS Enterprise Edition. Você também precisa instalar o driver do SAP BW no Tempo de Execução de Integração do Azure-SSIS. Esses conectores oferecem suporte a SAP BW 7.0 ou versões anteriores. Para se conectar a versões posteriores do SAP BW ou outros produtos SAP, você pode comprar e instalar conectores do SAP de ISVs de terceiros no Tempo de Execução de Integração do Azure-SSIS. Para obter mais informações sobre como instalar componentes adicionais, consulte [Instalação personalizada para o runtime de integração do Azure-SSIS](how-to-configure-azure-ssis-ir-custom-setup.md). |
-| Componentes do Analysis Services               | O destino de treinamento do modelo de mineração de dados, o destino do processamento de dimensão e o destino de processamento de partições, além da transformação de consulta de mineração de dados, são pré-instalados no Tempo de Execução de Integração do Azure-SSIS Enterprise Edition. Todos esses componentes oferecem suporte a SQL Server Analysis Services (SSAS), mas apenas o destino de processamento de partições oferece suporte ao Azure Analysis Services (AAS). Para se conectar ao SSAS, você também precisa [configurar as credenciais de autenticação do Windows no SSISDB](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-with-windows-auth). Além desses componentes, a tarefa do Analysis Services Execute DDL, a tarefa de processamento do Analysis Services e a tarefa de consulta de mineração de dados também são pré-instalados no Tempo de Execução de Integração do Azure-SSIS Standard/Enterprise Edition. |
+| Componentes do Analysis Services               | O destino de treinamento do modelo de mineração de dados, o destino do processamento de dimensão e o destino de processamento de partições, além da transformação de consulta de mineração de dados, são pré-instalados no Tempo de Execução de Integração do Azure-SSIS Enterprise Edition. Todos esses componentes oferecem suporte a SQL Server Analysis Services (SSAS), mas apenas o destino de processamento de partições oferece suporte ao Azure Analysis Services (AAS). Para se conectar ao SSAS, você também precisa [configurar as credenciais de autenticação do Windows no SSISDB](/sql/integration-services/lift-shift/ssis-azure-connect-with-windows-auth). Além desses componentes, a tarefa do Analysis Services Execute DDL, a tarefa de processamento do Analysis Services e a tarefa de consulta de mineração de dados também são pré-instalados no Tempo de Execução de Integração do Azure-SSIS Standard/Enterprise Edition. |
 | Transformações agrupamento difuso e pesquisa difusa  | As transformações de agrupamento difuso e pesquisa difusa são pré-instaladas no Tempo de Execução de Integração do Azure-SSIS Enterprise Edition. Esses componentes oferecem suporte a SQL Server e banco de dados SQL do Azure para armazenar dados de referência. |
 | Transformações de pesquisa de extração e de termos | As transformações de extração de termos e pesquisa de termos são pré-instaladas no Tempo de Execução de Integração do Azure-SSIS Enterprise Edition. Esses componentes oferecem suporte a SQL Server e banco de dados SQL do Azure para armazenar dados de referência. |
 

@@ -3,12 +3,12 @@ title: Fazer backup e restaurar VMs do Azure criptografadas
 description: Descreve como fazer backup e restaurar VMs do Azure criptografadas com o serviço de backup do Azure.
 ms.topic: conceptual
 ms.date: 08/18/2020
-ms.openlocfilehash: 6ce0068203c91d9d2031ce2f8735cccf94172dd8
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: db06b64fba203fb3d2ed54d34235504ac6aa4e2d
+ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89014907"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99223450"
 ---
 # <a name="back-up-and-restore-encrypted-azure-virtual-machines"></a>Fazer backup e restaurar máquinas virtuais do Azure criptografadas
 
@@ -16,13 +16,17 @@ Este artigo descreve como fazer backup e restaurar VMs (máquinas virtuais) do A
 
 ## <a name="encryption-using-platform-managed-keys"></a>Criptografia usando chaves gerenciadas pela plataforma
 
-Por padrão, todos os discos em suas VMs são automaticamente criptografados em repouso usando chaves gerenciadas por plataforma (PMK) que usam a [criptografia do serviço de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-service-encryption). Você pode fazer backup dessas VMs usando o backup do Azure sem nenhuma ação específica necessária para dar suporte à criptografia no seu fim. Para obter mais informações sobre criptografia com chaves gerenciadas por plataforma, [consulte este artigo](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#platform-managed-keys).
+Por padrão, todos os discos em suas VMs são automaticamente criptografados em repouso usando chaves gerenciadas por plataforma (PMK) que usam a [criptografia do serviço de armazenamento](../storage/common/storage-service-encryption.md). Você pode fazer backup dessas VMs usando o backup do Azure sem nenhuma ação específica necessária para dar suporte à criptografia no seu fim. Para obter mais informações sobre criptografia com chaves gerenciadas por plataforma, [consulte este artigo](../virtual-machines/disk-encryption.md#platform-managed-keys).
 
 ![Discos criptografados](./media/backup-encryption/encrypted-disks.png)
 
 ## <a name="encryption-using-customer-managed-keys"></a>Criptografia usando chaves gerenciadas pelo cliente
 
-Quando você criptografa discos com chaves gerenciadas personalizadas (CMK), a chave usada para criptografar os discos é armazenada no Azure Key Vault e é gerenciada por você. Criptografia do Serviço de Armazenamento (SSE) usando CMK difere da criptografia Azure Disk Encryption (ADE). O ADE usa as ferramentas de criptografia do sistema operacional. A SSE criptografa os dados no serviço de armazenamento, permitindo que você use qualquer sistema operacional ou imagens para suas VMs. Para obter mais informações sobre criptografia de discos gerenciados com chaves gerenciadas pelo cliente, consulte [Este artigo](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#customer-managed-keys).
+Quando você criptografa discos com chaves gerenciadas pelo cliente (CMK), a chave usada para criptografar os discos é armazenada no Azure Key Vault e é gerenciada por você. Criptografia do Serviço de Armazenamento (SSE) usando CMK difere da criptografia Azure Disk Encryption (ADE). O ADE usa as ferramentas de criptografia do sistema operacional. A SSE criptografa os dados no serviço de armazenamento, permitindo que você use qualquer sistema operacional ou imagens para suas VMs.
+
+Você não precisa executar ações explícitas para backup ou restauração de VMs que usam chaves gerenciadas pelo cliente para criptografar seus discos. Os dados de backup para essas VMs armazenados no cofre serão criptografados com os mesmos métodos que a [criptografia usada no cofre](encryption-at-rest-with-cmk.md).
+
+Para obter mais informações sobre criptografia de discos gerenciados com chaves gerenciadas pelo cliente, consulte [Este artigo](../virtual-machines/disk-encryption.md#customer-managed-keys).
 
 ## <a name="encryption-support-using-ade"></a>Suporte à criptografia usando ADE
 
@@ -33,18 +37,18 @@ O backup do Azure pode fazer backup e restaurar VMs do Azure usando ADE com e se
 **Tipo de disco da VM** | **ADE (BEK/DM-cript.)** | **ADE e KEK**
 --- | --- | ---
 **Não gerenciado** | Sim | Sim
-**Gerenciado**  | Sim | Sim
+**Gerenciada**  | Sim | Sim
 
 - Saiba mais sobre [Ade](../security/fundamentals/azure-disk-encryption-vms-vmss.md), [Key Vault](../key-vault/general/overview.md)e [KEKs](../virtual-machine-scale-sets/disk-encryption-key-vault.md#set-up-a-key-encryption-key-kek).
 - Leia as [perguntas frequentes](../security/fundamentals/azure-disk-encryption-vms-vmss.md) sobre a criptografia de disco de VM do Azure.
 
 ### <a name="limitations"></a>Limitações
 
-- Você pode fazer backup e restaurar VMs criptografadas dentro da mesma assinatura e região.
+- Você pode fazer backup e restaurar VMs criptografadas do ADE dentro da mesma assinatura e região.
 - O backup do Azure dá suporte a VMs criptografadas usando chaves autônomas. Qualquer chave que faz parte de um certificado usado para criptografar uma VM não tem suporte no momento.
-- Você pode fazer backup e restaurar VMs criptografadas dentro da mesma assinatura e região que o cofre de backup dos serviços de recuperação.
-- As VMs criptografadas não podem ser recuperadas no nível de arquivo/pasta. Você precisa recuperar toda a VM para restaurar arquivos e pastas.
-- Ao restaurar uma VM, você não pode usar a opção [substituir VM existente](backup-azure-arm-restore-vms.md#restore-options) para VMs criptografadas. Essa opção só tem suporte para discos gerenciados não criptografados.
+- Você pode fazer backup e restaurar VMs criptografadas em ADE na mesma assinatura e região que o cofre de backup dos serviços de recuperação.
+- As VMs criptografadas em ADE não podem ser recuperadas no nível de arquivo/pasta. Você precisa recuperar toda a VM para restaurar arquivos e pastas.
+- Ao restaurar uma VM, você não pode usar a opção [substituir VM existente](backup-azure-arm-restore-vms.md#restore-options) para VMs criptografadas em Ade. Essa opção só tem suporte para discos gerenciados não criptografados.
 
 ## <a name="before-you-start"></a>Antes de começar
 
@@ -77,7 +81,7 @@ Além disso, há algumas ações que talvez você precise realizar em algumas ci
 
     ![Escolher política de backup](./media/backup-azure-vms-encryption/select-backup-goal-two.png)
 
-1. Se você não quiser usar a política padrão, selecione **criar nova**e [criar uma política personalizada](backup-azure-arm-vms-prepare.md#create-a-custom-policy).
+1. Se você não quiser usar a política padrão, selecione **criar nova** e [criar uma política personalizada](backup-azure-arm-vms-prepare.md#create-a-custom-policy).
 
 1. Em **Máquinas virtuais**, selecione **Adicionar**.
 
@@ -119,8 +123,19 @@ O backup do Azure precisa de acesso somente leitura para fazer backup das chaves
 
 Para definir permissões:
 
-1. Na portal do Azure, selecione **todos os serviços**e procure por **cofres de chaves**.
+1. Na portal do Azure, selecione **todos os serviços** e procure por **cofres de chaves**.
 1. Selecione o cofre de chaves associado à VM criptografada que você está fazendo backup.
+
+    >[!TIP]
+    >Para identificar o cofre de chaves associado de uma VM, use o comando do PowerShell a seguir. Substitua o nome do grupo de recursos e o nome da VM:
+    >
+    >`Get-AzVm -ResourceGroupName "MyResourceGroup001" -VMName "VM001" -Status`
+    >
+    > Procure o nome do cofre de chaves nesta linha:
+    >
+    >`SecretUrl            : https://<keyVaultName>.vault.azure.net`
+    >
+
 1. Selecione **políticas de acesso**  >  **Adicionar política de acesso**.
 
     ![Adicionar política de acesso](./media/backup-azure-vms-encryption/add-access-policy.png)
@@ -144,7 +159,7 @@ As VMs criptografadas só podem ser restauradas restaurando o disco da VM, confo
 Restaure as VMs criptografadas da seguinte maneira:
 
 1. [Restaure o disco da VM](backup-azure-arm-restore-vms.md#restore-disks).
-2. Recrie a instância de máquina virtual seguindo um destes procedimentos:
+2. Recrie a instância de máquina virtual executando uma das seguintes ações:
     1. Use o modelo gerado durante a operação de restauração para personalizar as configurações da VM e disparar a implantação da VM. [Saiba mais](backup-azure-arm-restore-vms.md#use-templates-to-customize-a-restored-vm).
     2. Crie uma nova VM com base nos discos restaurados usando o PowerShell. [Saiba mais](backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
 3. Para VMs do Linux, reinstale a extensão ADE para que os discos de dados sejam abertos e montados.

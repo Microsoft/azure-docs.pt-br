@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: fd35f297e88c37aec39938b0bfd60288e591a62c
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: ddfca965ea32ca726df39f894ba45f9580225d9d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88936071"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91542454"
 ---
 #    <a name="entity-recognition-cognitive-skill"></a>Habilidades cognitivas de reconhecimento de entidade
 
@@ -55,7 +55,7 @@ Os parâmetros diferenciam maiúsculas de minúsculas e são todos opcionais.
 > [!NOTE]
 > Não há suporte para todas as categorias de entidade em todos os idiomas. Os `"Person"` `"Location"` tipos de categoria de entidade,, e `"Organization"` têm suporte para a lista completa de idiomas acima. Somente _de_, _en_, _es_, _fr_e _zh-Hans_ dão suporte à extração de `"Quantity"` `"Datetime"` tipos,, `"URL"` e `"Email"` . Para obter mais informações, consulte [suporte a idiomas e regiões para o API de análise de texto](../cognitive-services/text-analytics/language-support.md).  
 
-| Nome de saída      | DESCRIÇÃO                   |
+| Nome de saída      | Descrição                   |
 |---------------|-------------------------------|
 | `persons`       | Uma matriz de cadeias de caracteres onde cada cadeia de caracteres representa o nome de uma pessoa. |
 | `locations`  | Uma matriz de cadeias de caracteres onde cada cadeia de caracteres representa um local. |
@@ -187,7 +187,7 @@ Os parâmetros diferenciam maiúsculas de minúsculas e são todos opcionais.
 }
 ```
 
-Observe que os deslocamentos retornados para entidades na saída dessa habilidade são retornados diretamente da [API de análise de texto](../cognitive-services/text-analytics/overview.md), o que significa que, se você estiver usando-os para indexar na cadeia de caracteres original, deverá usar a classe [StringInfo](/dotnet/api/system.globalization.stringinfo?view=netframework-4.8) no .net para extrair o conteúdo correto.  [Mais detalhes podem ser encontrados aqui.](../cognitive-services/text-analytics/concepts/text-offsets.md)
+Observe que os deslocamentos retornados para entidades na saída dessa habilidade são retornados diretamente da [API de análise de texto](../cognitive-services/text-analytics/overview.md), o que significa que, se você estiver usando-os para indexar na cadeia de caracteres original, deverá usar a classe [StringInfo](/dotnet/api/system.globalization.stringinfo) no .net para extrair o conteúdo correto.  [Mais detalhes podem ser encontrados aqui.](../cognitive-services/text-analytics/concepts/text-offsets.md)
 
 ## <a name="error-cases"></a>Casos de erro
 Se o código do idioma do documento não for suportado, um erro será retornado e nenhuma entidade será extraída.

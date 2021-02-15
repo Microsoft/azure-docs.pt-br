@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 9edbb499788b61135d761c5dfa69ce42c9275932
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 84b0a761b52baca4ae1ab81b3c67f18f6b14db92
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548719"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97608826"
 ---
 # <a name="tutorial-integrate-sap-analytics-cloud-with-azure-active-directory"></a>Tutorial: integração do SAP Analytics Cloud com o Azure Active Directory
 
@@ -26,7 +26,7 @@ Neste tutorial, você aprenderá como integrar o SAP Analytics Cloud ao Azure AD
 * Permitir que os usuários sejam conectados automaticamente ao SAP Analytics Cloud com suas contas do Azure AD.
 * Gerenciar suas contas em um local central: o portal do Azure.
 
-Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -183,33 +183,32 @@ Para provisionar uma conta de usuário:
 
     Em seguida, conclua as seguintes etapas:
 
-    a. Na caixa **ID DE USUÁRIO**, insira a ID do usuário, como **B**.
+    1. Na caixa **ID DE USUÁRIO**, insira a ID do usuário, como **B**.
 
-    b. Na caixa **NOME**, insira o nome do usuário, como **B**.
+    1. Na caixa **NOME**, insira o nome do usuário, como **B**.
 
-    c. Na caixa **SOBRENOME**, insira o sobrenome do usuário, como **Fernandes**.
+    1. Na caixa **SOBRENOME**, insira o sobrenome do usuário, como **Fernandes**.
 
-    d. Na caixa **NOME DE EXIBIÇÃO**, insira o nome completo do usuário, como **B.Fernandes**.
+    1. Na caixa **NOME DE EXIBIÇÃO**, insira o nome completo do usuário, como **B.Fernandes**.
 
-    e. Na caixa **EMAIL**, insira o endereço de email do usuário, como `b.simon@contoso.com`.
+    1. Na caixa **EMAIL**, insira o endereço de email do usuário, como `b.simon@contoso.com`.
 
-    f. Na página **Selecionar Funções**, selecione a função apropriada para o usuário e selecione **OK**.
+    1. Na página **Selecionar Funções**, selecione a função apropriada para o usuário e selecione **OK**.
 
-      ![Escolher função](./media/sapboc-tutorial/user3.png)
+        ![Selecione a função](./media/sapboc-tutorial/user3.png)
 
-    g. Selecione o ícone **Salvar**.
+    1. Selecione o ícone **Salvar**.
 
 ### <a name="test-sso"></a>Testar o SSO 
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Ao clicar no bloco do SAP Analytics Cloud, no Painel de Acesso, você deve ser conectado automaticamente ao SAP Analytics Cloud para o qual configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao clicar no bloco do SAP Analytics Cloud, no Painel de Acesso, você deve ser conectado automaticamente ao SAP Analytics Cloud para o qual configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](./tutorial-list.md)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)

@@ -10,14 +10,14 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 08/04/2020
+ms.date: 01/25/2021
 tags: azure-synpase
-ms.openlocfilehash: 14ae9103571d72b0a48ee8e1a9c9dc6bb008373b
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: b10b00e724324779eb753bfefccce77a5eb2a39d
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87552119"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98918070"
 ---
 # <a name="dynamic-data-masking"></a>Mascaramento de dados dinâmicos 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -26,15 +26,11 @@ O banco de dados SQL do Azure, o Azure SQL Instância Gerenciada e o Azure Synap
 
 A Máscara de dados dinâmica ajuda a impedir o acesso não autorizado a dados confidenciais, permitindo que os clientes especifiquem qual a quantidade de dados confidenciais revelar, com impacto mínimo sobre a camada de aplicativo. É um recurso de segurança baseado em políticas que oculta os dados confidenciais no conjunto de resultados de uma consulta em relação aos campos do banco de dados designados, sendo que os dados no banco de dados não são alterados.
 
-Por exemplo, um representante de serviço em um centro de chamada pode identificar os chamadores por vários dígitos do seu número de cartão de crédito, mas os itens de dados não devem ser totalmente expostos para o representante de serviço. Uma regra de mascaramento pode ser definida para mascarar tudo menos os quatro últimos dígitos de qualquer número de cartão de crédito no conjunto de resultados de qualquer consulta. Como outro exemplo, uma máscara de dados apropriada pode ser definida para proteger dados pessoais, para que um desenvolvedor possa consultar ambientes de produção para fins de solução de problemas sem violar os regulamentos de conformidade.
+Por exemplo, um representante de serviço em um Call Center pode identificar um chamador confirmando vários caracteres de seu endereço de email, mas o endereço de email completo não deve ser revelado para o representante de serviço. Uma regra de mascaramento pode ser definida para mascarar todo o endereço de email no conjunto de resultados de qualquer consulta. Como outro exemplo, uma máscara de dados apropriada pode ser definida para proteger dados pessoais, para que um desenvolvedor possa consultar ambientes de produção para fins de solução de problemas sem violar os regulamentos de conformidade.
 
 ## <a name="dynamic-data-masking-basics"></a>Aspectos básicos do mascaramento de dados dinâmicos
 
-Você configura uma política de mascaramento de dados dinâmicos na portal do Azure selecionando a folha **máscara de dados dinâmicos** em **segurança** no painel configuração do SQL Database. Este recurso não pode ser definido usando o portal para o Azure Synapse (use o PowerShell ou a API REST) ou o SQL Instância Gerenciada. Para obter mais informações, consulte [Dynamic Data Masking](/sql/relational-databases/security/dynamic-data-masking).
-
-### <a name="dynamic-data-masking-permissions"></a>Permissões de mascaramento de dados dinâmico
-
-A Máscara de Dados Dinâmicos pode ser configurada por meio do administrador do Banco de Dados SQL do Azure, do administrador do servidor ou de funções do [Gerenciador de Segurança do SQL](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-security-manager).
+Você configura uma política de mascaramento de dados dinâmicos na portal do Azure selecionando a folha **máscara de dados dinâmicos** em **segurança** no painel configuração do SQL Database. Este recurso não pode ser definido usando o portal para SQL Instância Gerenciada (use o PowerShell ou a API REST). Para obter mais informações, consulte [Dynamic Data Masking](/sql/relational-databases/security/dynamic-data-masking).
 
 ### <a name="dynamic-data-masking-policy"></a>Política de mascaramento de dados dinâmico
 
@@ -47,7 +43,7 @@ A Máscara de Dados Dinâmicos pode ser configurada por meio do administrador do
 | **Default** |**Mascaramento completo de acordo com os tipos de dados dos campos designados**<br/><br/>• Use XXXX ou menos Xs se o tamanho do campo tiver menos de quatro caracteres para os tipos de dados da cadeia de caracteres (nchar, ntext, nvarchar).<br/>• Use um valor zero para tipos de dados numéricos (bigint, bit, decimal, int, money, numérico, smallint, smallmoney, tinyint, float, real).<br/>• Use 01-01-1900 para os tipos de dados de data/hora (data, datetime2, datetime, datetimeoffset, smalldatetime, time).<br/>• Para SQL variant, o valor padrão do tipo atual é usado.<br/>• Para XML o documento \<masked/> é usado.<br/>• Use um valor vazio para tipos de dados especiais (timestamp table, hierarchyid, GUID, binary, image, varbinary spatial types). |
 | **Cartão de crédito** |**Método de mascaramento que expõe os últimos quatro dígitos dos campos designados** e adiciona uma cadeia de caracteres constante como um prefixo na forma de um cartão de crédito.<br/><br/>XXXX-XXXX-XXXX-1234 |
 | **Email** |**Método de mascaramento que expõe a primeira letra e substitui o domínio por XXX.com** usando um prefixo da cadeia de caracteres constante na forma de um endereço de email.<br/><br/>aXX@XXXX.com |
-| **Número aleatório** |**Método de mascaramento que gera um número aleatório** de acordo com os limites selecionados e os tipos de dados reais. Se os limites designados forem iguais, a função de mascaramento será um número constante.<br/><br/>![Painel de navegação](./media/dynamic-data-masking-overview/1_DDM_Random_number.png) |
+| **Número aleatório** |**Método de mascaramento que gera um número aleatório** de acordo com os limites selecionados e os tipos de dados reais. Se os limites designados forem iguais, a função de mascaramento será um número constante.<br/><br/>![Captura de tela que mostra o método de mascaramento para gerar um número aleatório.](./media/dynamic-data-masking-overview/1_DDM_Random_number.png) |
 | **Texto personalizado** |**Método de mascaramento que expõe os primeiros e os últimos caracteres** e adiciona uma cadeia de caracteres de preenchimento personalizado no meio. Se a cadeia de caracteres original for menor do que o prefixo e o sufixo expostos, somente a cadeia de caracteres de preenchimento será usada. <br/>prefixo[preenchimento]sufixo<br/><br/>![Painel de navegação](./media/dynamic-data-masking-overview/2_DDM_Custom_text.png) |
 
 <a name="Anchor1"></a>
@@ -60,15 +56,15 @@ O mecanismo de recomendações DDM sinaliza determinados campos do banco de dado
 
 ### <a name="data-masking-policies"></a>Políticas de mascaramento de dados
 
-- [Get-AzSqlDatabaseDataMaskingPolicy](https://docs.microsoft.com/powershell/module/az.sql/Get-AzSqlDatabaseDataMaskingPolicy)
-- [Set-AzSqlDatabaseDataMaskingPolicy](https://docs.microsoft.com/powershell/module/az.sql/Set-AzSqlDatabaseDataMaskingPolicy)
+- [Get-AzSqlDatabaseDataMaskingPolicy](/powershell/module/az.sql/Get-AzSqlDatabaseDataMaskingPolicy)
+- [Set-AzSqlDatabaseDataMaskingPolicy](/powershell/module/az.sql/Set-AzSqlDatabaseDataMaskingPolicy)
 
 ### <a name="data-masking-rules"></a>Regras de mascaramento de dados
 
-- [Get-AzSqlDatabaseDataMaskingRule](https://docs.microsoft.com/powershell/module/az.sql/Get-AzSqlDatabaseDataMaskingRule)
-- [New-AzSqlDatabaseDataMaskingRule](https://docs.microsoft.com/powershell/module/az.sql/New-AzSqlDatabaseDataMaskingRule)
-- [Remove-AzSqlDatabaseDataMaskingRule](https://docs.microsoft.com/powershell/module/az.sql/Remove-AzSqlDatabaseDataMaskingRule)
-- [Set-AzSqlDatabaseDataMaskingRule](https://docs.microsoft.com/powershell/module/az.sql/Set-AzSqlDatabaseDataMaskingRule)
+- [Get-AzSqlDatabaseDataMaskingRule](/powershell/module/az.sql/Get-AzSqlDatabaseDataMaskingRule)
+- [New-AzSqlDatabaseDataMaskingRule](/powershell/module/az.sql/New-AzSqlDatabaseDataMaskingRule)
+- [Remove-AzSqlDatabaseDataMaskingRule](/powershell/module/az.sql/Remove-AzSqlDatabaseDataMaskingRule)
+- [Set-AzSqlDatabaseDataMaskingRule](/powershell/module/az.sql/Set-AzSqlDatabaseDataMaskingRule)
 
 ## <a name="set-up-dynamic-data-masking-for-your-database-using-the-rest-api"></a>Configurar o mascaramento de dados dinâmicos para seu banco usando a API REST
 
@@ -76,10 +72,18 @@ Você pode usar a API REST para gerenciar programaticamente a política e as reg
 
 ### <a name="data-masking-policies"></a>Políticas de mascaramento de dados
 
-- [Criar ou atualizar](https://docs.microsoft.com/rest/api/sql/datamaskingpolicies/createorupdate): cria ou atualiza uma política de mascaramento de dados de banco de dado.
-- [Obter](https://docs.microsoft.com/rest/api/sql/datamaskingpolicies/get): Obtém uma política de mascaramento de dados de banco de dados. 
+- [Criar ou atualizar](/rest/api/sql/datamaskingpolicies/createorupdate): cria ou atualiza uma política de mascaramento de dados de banco de dado.
+- [Obter](/rest/api/sql/datamaskingpolicies/get): Obtém uma política de mascaramento de dados de banco de dados. 
 
 ### <a name="data-masking-rules"></a>Regras de mascaramento de dados
 
-- [Criar ou Atualizar](https://docs.microsoft.com/rest/api/sql/datamaskingrules/createorupdate): Cria ou atualiza uma regra de mascaramento de dados de banco de dados.
-- [Listar por banco de dados](https://docs.microsoft.com/rest/api/sql/datamaskingrules/listbydatabase): Obtém uma lista de regras de mascaramento de dados do banco de dados.
+- [Criar ou Atualizar](/rest/api/sql/datamaskingrules/createorupdate): Cria ou atualiza uma regra de mascaramento de dados de banco de dados.
+- [Listar por banco de dados](/rest/api/sql/datamaskingrules/listbydatabase): Obtém uma lista de regras de mascaramento de dados do banco de dados.
+
+## <a name="permissions"></a>Permissões
+
+A máscara de dados dinâmicos pode ser configurada pela função de administrador, administrador do servidor ou controle de acesso baseado em função (RBAC) do [SQL Security Manager](../../role-based-access-control/built-in-roles.md#sql-security-manager) .
+
+## <a name="next-steps"></a>Próximas etapas
+
+[Mascaramento de dados dinâmicos](/sql/relational-databases/security/dynamic-data-masking)

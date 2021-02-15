@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/25/2020
+ms.date: 01/22/2021
 ms.custom: seodec18
-ms.openlocfilehash: 18212bf92304e75c702c51ff12628cd670755bb0
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 7b37934ff3b867b83c2c958d52bea2dd4db01354
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855200"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736794"
 ---
 # <a name="time-series-model-in-azure-time-series-insights-gen2"></a>Modelo de série temporal no Azure Time Series Insights Gen2
 
@@ -24,7 +24,7 @@ Este artigo descreve o modelo de série temporal, os recursos e como começar a 
 > [!TIP]
 >
 > * Vá para o ambiente de [demonstração do farm de vento da Contoso](https://insights.timeseries.azure.com/preview/samples) para obter um exemplo de modelo de série temporal em tempo real.
-> * Saiba [como trabalhar com o modelo de série temporal](/azure/time-series-insights/how-to-edit-your-model) usando o Azure Time Series insights Explorer TSI.
+> * Saiba [como trabalhar com o modelo de série temporal](./how-to-edit-your-model.md) usando o Azure Time Series insights Explorer.
 
 ## <a name="summary"></a>Resumo
 
@@ -65,17 +65,17 @@ Com o objetivo de tornar simples e fácil gerenciar a congestão de séries temp
 
 ### <a name="components"></a>Componentes
 
-O modelo de série temporal tem três componentes principais:
+O Modelo de Série Temporal tem três componentes principais:
 
-* [Instâncias do modelo do Time Series](#time-series-model-instances)
-* [Hierarquias do modelo do Time Series](#time-series-model-hierarchies)
-* [Tipos do modelo do Time Series](#time-series-model-types)
+* [Instâncias de modelo de série temporal](#time-series-model-instances)
+* [Hierarquias de modelo de série temporal](#time-series-model-hierarchies)
+* [Tipos de modelo de série temporal](#time-series-model-types)
 
 Esses componentes são combinados para especificar um modelo de série temporal e para organizar seus dados.
 
 [![Gráfico de visão geral do modelo de série temporal](media/v2-update-tsm/time-series-model-overview.png)](media/v2-update-tsm/time-series-model-overview.png#lightbox)
 
-Um modelo de série temporal pode ser criado e gerenciado por meio do [Azure Time Series insights Explorer TSI](/azure/time-series-insights/concepts-model-overview). As configurações do modelo de série temporal podem ser gerenciadas por meio da [API de configurações do modelo](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis).
+Um modelo de série temporal pode ser criado e gerenciado por meio do [Azure Time Series insights Explorer](https://docs.microsoft.com/azure/time-series-insights/concepts-ux-panels). As configurações do modelo de série temporal podem ser gerenciadas por meio da [API de configurações do modelo](/rest/api/time-series-insights/reference-model-apis).
 
 ## <a name="time-series-model-instances"></a>Instâncias do modelo do Time Series
 
@@ -87,7 +87,7 @@ As instâncias têm informações descritivas associadas a elas chamadas *Propri
 
 Os *campos de instância* são uma coleção de informações descritivas que podem incluir valores para níveis de hierarquia, bem como fabricante, operador e assim por diante.
 
-Depois que uma fonte de evento é configurada para o ambiente de Azure Time Series Insights Gen2, as instâncias são descobertas automaticamente e criadas em um modelo de série temporal. As instâncias podem ser criadas ou atualizadas por meio do Azure Time Series Insights Explorer TSI usando consultas de modelo de série temporal.
+Depois que uma fonte de evento é configurada para o ambiente de Azure Time Series Insights Gen2, as instâncias são descobertas automaticamente e criadas em um modelo de série temporal. As instâncias podem ser criadas ou atualizadas por meio do Azure Time Series Insights Explorer usando consultas de modelo de série temporal.
 
 A [demonstração do farm de vento da Contoso](https://insights.timeseries.azure.com/preview/samples) fornece vários exemplos de instância ao vivo.
 
@@ -95,13 +95,13 @@ A [demonstração do farm de vento da Contoso](https://insights.timeseries.azure
 
 ### <a name="instance-properties"></a>Propriedades da instância
 
-As instâncias são definidas por **Timeseriesid**, **typeId**, **Name**, **Description**, **hierarchyIds**e **instanceFields**. Cada instância é mapeada para apenas um *tipo*e uma ou mais *hierarquias*.
+As instâncias são definidas por **Timeseriesid**, **typeId**, **Name**, **Description**, **hierarchyIds** e **instanceFields**. Cada instância é mapeada para apenas um *tipo* e uma ou mais *hierarquias*.
 
 | Propriedade | Descrição |
 | --- | ---|
 | Série temporal | A ID exclusiva da série temporal à qual a instância está associada. Na maioria dos casos, as instâncias são identificadas exclusivamente por uma propriedade como DeviceID ou AssetID. Em alguns casos, uma ID de composição mais específica que combina até três propriedades pode ser usada. |
 | Identificação | A ID de cadeia de caracteres exclusiva que diferencia maiúsculas de minúsculas do tipo de modelo de série temporal ao qual a instância está associada. Por padrão, todas as novas instâncias descobertas são associadas a um tipo padrão.
-| name | A propriedade **Name** é opcional e diferencia maiúsculas de minúsculas. Se o **nome** não estiver disponível, o padrão será **timeseriesid**. Se um nome for fornecido, **Timeseriesid** ainda estará disponível no [bem](time-series-insights-update-explorer.md#4-time-series-well). |
+| name | A propriedade **Name** é opcional e diferencia maiúsculas de minúsculas. Se o **nome** não estiver disponível, o padrão será **timeseriesid**. Se um nome for fornecido, **Timeseriesid** ainda estará disponível no [bem](./concepts-ux-panels.md#4-time-series-well). |
 | descrição | Uma descrição de texto da instância. |
 | hierarchyIds | Define a quais hierarquias a instância pertence. |
 | instanceFields | As propriedades de uma instância e quaisquer dados estáticos que definem uma instância. Elas definem os valores das propriedades hierárquicas e não hierárquicas e também dão suporte à indexação para executar operações de pesquisa. |
@@ -129,7 +129,7 @@ As instâncias têm a seguinte representação JSON:
 ```
 
 > [!TIP]
-> Por exemplo, suporte para criação, leitura, atualização e exclusão (CRUD) de API de instância, leia o artigo [consulta de dados](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis) e a [documentação REST da API de instância](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis#instances-api).
+> Por exemplo, suporte para criação, leitura, atualização e exclusão (CRUD) de API de instância, leia o artigo [consulta de dados](./concepts-query-overview.md#time-series-model-query-tsm-q-apis) e a [documentação REST da API de instância](/rest/api/time-series-insights/reference-model-apis#instances-api).
 
 ## <a name="time-series-model-hierarchies"></a>Hierarquias do modelo do Time Series
 
@@ -143,7 +143,7 @@ A [demonstração do farm de vento da Contoso](https://insights.timeseries.azure
 
 ### <a name="hierarchy-definition"></a>Definição de hierarquia
 
-As hierarquias são definidas por **ID**de hierarquia, **nome**e **origem**.
+As hierarquias são definidas por **ID** de hierarquia, **nome** e **origem**.
 
 | Propriedade | Descrição |
 | ---| ---|
@@ -186,7 +186,7 @@ No exemplo de JSON anterior:
 * `ManufactureDate` define uma hierarquia com pai `year` e filho `month` . Cada um `ManufactureDate` pode ter vários `years` , que, por sua vez, podem ter vários `months` .
 
 > [!TIP]
-> Para o suporte CRUD (criação, leitura, atualização e exclusão) da API de hierarquia, leia o artigo [consulta de dados](concepts-query-overview.md#time-series-model-query-tsm-q-apis) e a [documentação REST da API de hierarquia](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis#hierarchies-api).
+> Para o suporte CRUD (criação, leitura, atualização e exclusão) da API de hierarquia, leia o artigo [consulta de dados](concepts-query-overview.md#time-series-model-query-tsm-q-apis) e a [documentação REST da API de hierarquia](/rest/api/time-series-insights/reference-model-apis#hierarchies-api).
 
 ### <a name="hierarchy-example"></a>Exemplo de hierarquia
 
@@ -216,7 +216,7 @@ Considerando os campos de instância usados na definição anterior e várias s�
 | ID4 | "criando" = "1000", "Floor" = "10"  |
 | ID5 | Nenhum de "prédio", "andar" ou "sala" é definido. |
 
-A série **temporal ID1** e **ID4** são exibidos como parte da **hierarquia H1** no [Azure Time Series insights Explorer do TSI](time-series-insights-update-explorer.md) , pois eles possuem parâmetros de *compilação*, *piso*e *sala* totalmente definidos e corretamente ordenados.
+A série **temporal ID1** e **ID4** são exibidos como parte da **hierarquia H1** no [Gerenciador de Azure Time Series insights](./concepts-ux-panels.md) porque eles possuem parâmetros de *compilação*, *piso* e *sala* totalmente definidos e corretamente ordenados.
 
 Os outros são classificados em *instâncias sem pai* porque não estão em conformidade com a hierarquia de dados especificada.
 
@@ -224,18 +224,18 @@ Os outros são classificados em *instâncias sem pai* porque não estão em conf
 
 Os *tipos* do modelo do Time Series ajudam a definir variáveis ou fórmulas para fazer cálculos. Os tipos são associados a uma instância específica.
 
-Um tipo pode ter uma ou mais variáveis. Por exemplo, uma instância de modelo de série temporal pode ser do tipo *sensor de temperatura*, que consiste nas variáveis de *temperatura média*, *mínima*e temperatura *máxima*.
+Um tipo pode ter uma ou mais variáveis. Por exemplo, uma instância de modelo de série temporal pode ser do tipo *sensor de temperatura*, que consiste nas variáveis de *temperatura média*, *mínima* e temperatura *máxima*.
 
 A [demonstração do farm de vento da Contoso](https://insights.timeseries.azure.com/preview/samples) visualiza vários tipos de modelo de série temporal associados a suas respectivas instâncias.
 
 [![Exemplo de tipo de modelo de série temporal](media/v2-update-tsm/time-series-model-types.png)](media/v2-update-tsm/time-series-model-types.png#lightbox)
 
 > [!TIP]
-> Para tipos de suporte CRUD (criação, leitura, atualização e exclusão) da API, leia o artigo [consulta de dados](concepts-query-overview.md#time-series-model-query-tsm-q-apis) e a [documentação do tipo API REST](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis#types-api).
+> Para tipos de suporte CRUD (criação, leitura, atualização e exclusão) da API, leia o artigo [consulta de dados](concepts-query-overview.md#time-series-model-query-tsm-q-apis) e a [documentação do tipo API REST](/rest/api/time-series-insights/reference-model-apis#types-api).
 
 ### <a name="type-properties"></a>Propriedades de tipo
 
-Os tipos de modelo de série temporal são definidos por **ID**, **nome**, **Descrição**e **variáveis**.
+Os tipos de modelo de série temporal são definidos por **ID**, **nome**, **Descrição** e **variáveis**.
 
 | Propriedade | Descrição |
 | ---| ---|
@@ -288,7 +288,7 @@ Os tipos de modelo de série temporal podem ter muitas variáveis que especifica
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Leia a documentação de referência do [modelo de série temporal](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis) para obter mais informações sobre como editar o modelo por meio de APIs.
+* Leia a documentação de referência do [modelo de série temporal](/rest/api/time-series-insights/reference-model-apis) para obter mais informações sobre como editar o modelo por meio de APIs.
 
 * Explore as fórmulas e computações que você pode criar com [variáveis de modelo de série temporal](./concepts-variables.md)
 

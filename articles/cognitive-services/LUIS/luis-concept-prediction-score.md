@@ -1,14 +1,16 @@
 ---
 title: Pontuações de previsão-LUIS
 description: Uma pontuação de previsão indica o grau de confiança que o serviço de API LUIS tem para os resultados de previsão, com base em um usuário expressão.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/14/2020
-ms.openlocfilehash: 709a34f0a278d8a17267c7544583798d54167dad
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d836273e61752ff208133466016ce7c6ff9c28fa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81382370"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91316453"
 ---
 # <a name="prediction-scores-indicate-prediction-accuracy-for-intent-and-entities"></a>Pontuações de previsão indicam a precisão da previsão de intenções e entidades
 
@@ -19,7 +21,7 @@ Uma pontuação de previsão é entre zero (0) e um (1). Um exemplo de uma pontu
 |Valor da pontuação|Confiança|
 |--|--|
 |1|correspondência definida|
-|0.99|alta confiança|
+|0,99|alta confiança|
 |0,01|baixa confiança|
 |0|falha definida na correspondência|
 
@@ -46,7 +48,7 @@ Examinar a pontuação de todas as intenções é uma boa maneira de verificar s
 
 Se várias intenções tiverem pontuações de previsão próximas, com base no contexto de uma declaração, o LUIS poderá alternar entre as intenções. Para corrigir essa situação, continue a adicionar o declarações a cada tentativa com uma variedade maior de diferenças contextuais ou você pode ter o aplicativo cliente, como um bot de bate-papo, fazer escolhas programáticas sobre como lidar com as duas principais intenções.
 
-As duas tentativas, que são pontuadas com muita pontuação, podem ser invertidas devido a **treinamento não determinístico**. A pontuação superior poderia se tornar a parte superior da segunda e a segunda pontuação superior poderia se tornar a primeira pontuação superior. Para evitar essa situação, adicione um exemplo de declarações a cada uma das duas primeiras intenções para esse expressão com a escolha do Word e o contexto que diferencia as duas intenções. As duas intenções devem ter aproximadamente o mesmo número de declarações de exemplo. Um princípio de separação para evitar a inversão devido ao treinamento, é uma diferença de 15% em pontuações.
+As 2 intenções, com pontuações muito parecidas, podem ser invertidas devido ao **treinamento não determinístico**. A pontuação superior poderia se tornar a parte superior da segunda e a segunda pontuação superior poderia se tornar a primeira pontuação superior. Para evitar essa situação, adicione um exemplo de declarações a cada uma das duas primeiras intenções para esse expressão com a escolha do Word e o contexto que diferencia as duas intenções. As duas intenções devem ter aproximadamente o mesmo número de declarações de exemplo. Um princípio de separação para evitar a inversão devido ao treinamento, é uma diferença de 15% em pontuações.
 
 Você pode desativar o **treinamento não determinístico** ao [treinar todos os dados](luis-how-to-train.md#train-with-all-data).
 

@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 06/18/2020
+ms.date: 12/23/2020
 ms.author: barclayn
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 086623378b64aecb91c4e70e6e69bb13453f7681
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b484b19282c8ad42890f6e04f03563c29baa49dd
+ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85078649"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97745990"
 ---
 # <a name="view-requests-for-an-access-package-in-azure-ad-entitlement-management"></a>Exibir solicitações para um pacote de acesso no gerenciamento de direitos do Azure AD
 
@@ -29,7 +29,7 @@ No gerenciamento de direitos do Azure AD, você pode ver quem solicitou pacotes 
 
 ## <a name="view-requests"></a>Exibir solicitações
 
-**Função de pré-requisito:** Administrador global, Administrador de usuário, Proprietário do catálogo ou Gerenciador de pacote de acesso
+**Função de pré-requisito:** Administrador global, administrador de usuário, proprietário do catálogo, Gerenciador de pacotes de acesso ou Gerenciador de atribuição de pacotes de acesso
 
 1. No portal do Azure, clique em **Azure Active Directory** e, em seguida, em **Governança de Identidade**.
 

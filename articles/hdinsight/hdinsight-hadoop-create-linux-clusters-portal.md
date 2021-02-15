@@ -1,19 +1,16 @@
 ---
 title: Criar clusters Apache Hadoop usando o navegador da Web, Azure HDInsight
 description: Aprenda a criar clusters Apache Hadoop, Apache HBase, Apache Storm ou Apache Spark no HDInsight. Use o navegador da Web e o portal do Azure.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 08/06/2020
-ms.openlocfilehash: 1ba2f5e4b88ae6ae0ed15dbfbbc4fa5c55c45a77
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: c68d342cf21d69fa97ba3d5171ba596662fd845f
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87874020"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945810"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-by-using-the-azure-portal"></a>Criar clusters baseados em Linux no HDInsight usando o portal do Azure
 
@@ -25,7 +22,7 @@ O portal do Azure é uma ferramenta de gerenciamento baseada na Web para serviç
 
 O portal do Azure expõe a maioria das propriedades do cluster. Usando modelos do Azure Resource Manager, é possível ocultar muitos detalhes. Para obter mais informações, consulte [Criar clusters Apache Hadoop no HDInsight usando modelos do Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 
-Caso não tenha uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="create-clusters"></a>Criar clusters
 
@@ -39,7 +36,7 @@ Caso não tenha uma assinatura do Azure, crie uma [conta gratuita](https://azure
 
 1. Selecione **Análise** > **Azure HDInsight** para acessar a página **Criar cluster HDInsight**.
 
-## <a name="basics"></a>Básico
+## <a name="basics"></a>Noções básicas
 
 ![Conceitos básicos de criação de cluster do HDInsight](./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-basics.png "Criando um novo cluster no portal do Azure")
 
@@ -64,7 +61,7 @@ Selecione **Avançar: >>de armazenamento** para avançar para a próxima guia.
 ## <a name="storage"></a>Armazenamento
 
 > [!WARNING] 
-> A partir de 15 de junho, 2020 clientes não poderão criar uma nova entidade de serviço usando o HDInsight. Consulte [criar entidade de serviço e certificados](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) usando Azure Active Directory.
+> A partir de 15 de junho, 2020 clientes não poderão criar uma nova entidade de serviço usando o HDInsight. Consulte [criar entidade de serviço e certificados](../active-directory/develop/howto-create-service-principal-portal.md) usando Azure Active Directory.
 
 ![HDInsight criar armazenamento de cluster](./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-storage.png "Criando um novo cluster no portal do Azure-Storage")
 
@@ -72,7 +69,7 @@ Selecione **Avançar: >>de armazenamento** para avançar para a próxima guia.
 
 Na lista suspensa para **tipo de armazenamento primário**, selecione o tipo de armazenamento padrão. Os campos posteriores a serem concluídos variarão com base na sua seleção. Para o **armazenamento do Azure**:
 
-1. Para o **método de seleção**, escolha **selecionar na lista**ou **usar a tecla de acesso**.
+1. Para o **método de seleção**, escolha **selecionar na lista** ou **usar a tecla de acesso**.
     * Para **selecionar na lista**, selecione sua **conta de armazenamento principal** na lista suspensa ou selecione **criar nova**.
     * Para **usar chave de acesso**, insira o **nome da conta de armazenamento**. Em seguida, forneça a **chave de acesso**.
 

@@ -4,12 +4,12 @@ description: Use o serviço DNS do Service Fabric para descobrir microsserviços
 ms.topic: conceptual
 ms.date: 7/20/2018
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a05669bbd6de44447d7eb11a0b9941d18e8048d1
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: f7f06920820cdc73f8d3101ab24ee46625931ee4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021265"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91268036"
 ---
 # <a name="dns-service-in-azure-service-fabric"></a>Serviço DNS no Azure Service Fabric
 O Serviço DNS é um serviço do sistema opcional que pode ser habilitado no cluster para descobrir outros serviços usando o protocolo DNS. 
@@ -18,7 +18,7 @@ Muitos serviços, especialmente serviços em contêiner, são endereçáveis por
 
 O serviço DNS mapeia nomes DNS para nomes de serviço, que por sua vez, são resolvidos pelo serviço de nomenclatura para retornar o ponto de extremidade de serviço. O nome DNS do serviço é fornecido no momento da criação. O diagrama a seguir mostra como o serviço DNS funciona para serviços sem estado.
 
-![pontos de extremidade de serviço](./media/service-fabric-dnsservice/stateless-dns.png)
+![Diagrama mostrando como os nomes DNS são mapeados para nomes de serviço pelo serviço DNS para serviços sem estado.](./media/service-fabric-dnsservice/stateless-dns.png)
 
 A partir do Service Fabric versão 6.3, o protocolo de DNS do Service Fabric foi estendido para incluir um esquema de endereçamento de serviços com estado particionados. Essas extensões possibilitam resolver endereços IP de partição específica usando uma combinação de nome do serviço DNS com estado e nome da partição. Há suporte para todos os três esquemas de particionamento:
 
@@ -28,7 +28,7 @@ A partir do Service Fabric versão 6.3, o protocolo de DNS do Service Fabric foi
 
 O diagrama a seguir mostra como o serviço DNS funciona para serviços com estado particionados.
 
-![pontos de extremidade de serviço com estado](./media/service-fabric-dnsservice/stateful-dns.png)
+![Diagrama mostrando como os nomes DNS são mapeados para nomes de serviço pelo serviço DNS para serviços sem estado particionados.](./media/service-fabric-dnsservice/stateful-dns.png)
 
 As portas dinâmicas não são compatível com o serviço DNS. Para resolver serviços expostos em portas dinâmicas, use o [serviço de proxy reverter](./service-fabric-reverseproxy.md).
 

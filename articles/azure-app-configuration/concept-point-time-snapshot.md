@@ -3,17 +3,17 @@ title: Recuperar pares de chave-valor de um ponto no tempo
 titleSuffix: Azure App Configuration
 description: Recuperar pares de chave-valor antigos usando instantâneos de ponto no tempo na configuração do Azure App, que mantém um registro das alterações nos valores de chave.
 services: azure-app-configuration
-author: lisaguthrie
-ms.author: lcozzens
+author: AlexandraKemperMS
+ms.author: alkemper
 ms.service: azure-app-configuration
 ms.topic: conceptual
-ms.date: 02/20/2020
-ms.openlocfilehash: b1d559d82cb22d8a787785c6d8c6a5101d89793a
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.date: 08/05/2020
+ms.openlocfilehash: fa2dbb11b3b8b9afd90c7f6fe3ffe77e2e57c4e6
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88586555"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96929890"
 ---
 # <a name="point-in-time-snapshot"></a>Instantâneo pontual
 
@@ -23,31 +23,29 @@ Azure App configuração mantém um registro das alterações feitas nos valores
 
 Você pode usar portal do Azure ou CLI para recuperar valores de chave antigos. Em CLI do Azure, use `az appconfig revision list` , adicionando os parâmetros apropriados para recuperar os valores necessários.  Especifique a instância de configuração de Azure App fornecendo o nome do repositório ( `--name <app-config-store-name>` ) ou usando uma cadeia de conexão ( `--connection-string <your-connection-string>` ). Restrinja a saída especificando um ponto no tempo específico ( `--datetime` ) e especificando o número máximo de itens a serem retornados ( `--top` ).
 
-Se você não tiver CLI do Azure instalado localmente, você pode, opcionalmente, usar Azure Cloud Shell.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+Se você não tiver CLI do Azure instalado localmente, você pode, opcionalmente, usar [Azure cloud Shell](../cloud-shell/overview.md).
 
 Recupere todas as alterações gravadas para seus valores de chave.
 
-```azurecli-interactive
+```azurecli
 az appconfig revision list --name <your-app-config-store-name>.
 ```
 
 Recupere todas as alterações gravadas para a chave `environment` e os rótulos `test` e `prod` .
 
-```azurecli-interactive
+```azurecli
 az appconfig revision list --name <your-app-config-store-name> --key environment --label test,prod
 ```
 
 Recupere todas as alterações gravadas no espaço de chave hierárquica `environment:prod` .
 
-```azurecli-interactive
+```azurecli
 az appconfig revision list --name <your-app-config-store-name> --key environment:prod:* 
 ```
 
 Recupere todas as alterações gravadas para a chave `color` em um momento específico.
 
-```azurecli-interactive
+```azurecli
 az appconfig revision list --connection-string <your-app-config-connection-string> --key color --datetime "2019-05-01T11:24:12Z" 
 ```
 
@@ -60,4 +58,4 @@ az appconfig revision list --name <your-app-config-store-name> --top 10 --fields
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Criar um aplicativo Web ASP.NET Core](./quickstart-aspnet-core-app.md)  
+> [Criar um aplicativo Web ASP.NET Core](./quickstart-aspnet-core-app.md)

@@ -1,27 +1,29 @@
 ---
-title: Monitorar logs de diagnóstico dos serviços de mídia via Azure Monitor | Microsoft Docs
+title: Monitorar logs de diagnóstico por meio de Azure Monitor
 description: Este artigo demonstra como rotear e exibir logs de diagnóstico por meio de Azure Monitor.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 07/08/2019
-ms.author: juliako
+ms.topic: how-to
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 15c8cd3eff7b0eb64e1a512282de129f606a33ce
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 1d9252a5fdf7b1c68c1bb64bd22ede8640184a0c
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501228"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98953947"
 ---
 # <a name="monitor-media-services-diagnostic-logs"></a>Monitorar logs de diagnóstico dos serviços de mídia
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 [Azure monitor](../../azure-monitor/overview.md) permite que você monitore as métricas e os logs de diagnóstico que ajudam a entender como seus aplicativos estão sendo executados. Para obter uma descrição detalhada desse recurso e ver por que você desejaria usar os logs de diagnóstico e as métricas dos serviços de mídia do Azure, consulte [monitorar as métricas dos serviços de mídia e os logs de diagnóstico](media-services-metrics-diagnostic-logs.md).
 
@@ -30,14 +32,14 @@ Este artigo mostra como rotear dados para a conta de armazenamento e exibir os d
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - [Crie uma conta de Serviços de Mídia](./create-account-howto.md).
-- Revise [monitorar métricas de serviços de mídia e logs de diagnóstico](media-services-metrics-diagnostic-logs.md).
+- Revise  [monitorar métricas de serviços de mídia e logs de diagnóstico](media-services-metrics-diagnostic-logs.md).
 
 ## <a name="route-data-to-the-storage-account-using-the-portal"></a>Rotear dados para a conta de armazenamento usando o portal
 
 1. Faça logon no Portal do Azure em https://portal.azure.com.
 1. Navegue até sua conta dos serviços de mídia no e clique em **configurações de diagnóstico** em **Monitor**. Veja aqui uma lista de todos os recursos em sua assinatura que produzem dados de monitoramento por meio do Azure Monitor.
 
-    ![Seção Configurações de diagnóstico](media/media-services-diagnostic-logs/logs01.png)
+    ![Captura de tela que realça as configurações de diagnóstico na seção monitoramento.](media/media-services-diagnostic-logs/logs01.png)
 
 1. Clique em **Adicionar configuração de diagnóstico**.
 
@@ -92,7 +94,7 @@ Talvez seja necessário aguardar até cinco minutos antes que o evento seja exib
 
 1. No portal, navegue para a seção **Contas de Armazenamento** localizando-a na barra de navegação à esquerda.
 1. Identifique a conta de armazenamento criada na seção anterior e clique nela.
-1. Clique em **BLOBs**e, em seguida, no contêiner rotulado como **insights-logs-keydeliveryrequests**. Esse é o contêiner que tem seus logs. Os dados de monitoramento são divididos em contêineres por ID de recurso e, em seguida, por data e hora.
+1. Clique em **BLOBs** e, em seguida, no contêiner rotulado como **insights-logs-keydeliveryrequests**. Esse é o contêiner que tem seus logs. Os dados de monitoramento são divididos em contêineres por ID de recurso e, em seguida, por data e hora.
 1. Navegue para o arquivo PT1H.json clicando nos contêineres, em ID de recurso, data e hora. Clique no arquivo PT1H.json e clique em **Baixar**.
 
  Agora você pode exibir o evento do JSON armazenado na conta de armazenamento.

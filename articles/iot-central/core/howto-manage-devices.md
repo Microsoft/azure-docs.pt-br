@@ -1,30 +1,32 @@
 ---
 title: Gerenciar os dispositivos no aplicativo Azure IoT Central | Microsoft Docs
-description: Como um operador, saiba como gerenciar dispositivos no aplicativo Azure IoT Central.
-author: sarahhubbard
-ms.author: sahubbar
-ms.date: 12/06/2019
+description: Como um operador, saiba como gerenciar dispositivos no aplicativo Azure IoT Central. Saiba como gerenciar dispositivos individuais e fazer importações em massa e exportações dos dispositivos em seu aplicativo.
+author: dominicbetts
+ms.author: dobett
+ms.date: 10/08/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 8725a822c575ce80b9810d56bfd072241ded4c86
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: 2f0b6feea5e586c87191b22f42e3ab86e85ba7b3
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80157935"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97032517"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>Gerenciar dispositivos no aplicativo Azure IoT Central
 
-
-
-Este artigo descreve como, como operador, gerenciar dispositivos no seu Microsoft IoT Central. Como um operador, você pode:
+Este artigo descreve como, como um operador, você gerencia dispositivos em seu aplicativo IoT Central do Azure. Como um operador, você pode:
 
 - Use a página **dispositivos** para exibir, adicionar e excluir dispositivos conectados ao seu aplicativo IOT central do Azure.
+- Importe e exporte dispositivos em massa.
 - Mantenha um inventário atualizado dos seus dispositivos.
-- Mantenha os metadados do dispositivo atualizados alterando os valores armazenados nas propriedades do dispositivo de suas exibições.
+- Mantenha os metadados do dispositivo atualizados, alterando os valores armazenados nas propriedades do dispositivo de suas exibições.
 - Controle o comportamento de seus dispositivos atualizando uma configuração em um dispositivo específico de suas exibições.
+
+Para saber como gerenciar grupos personalizados de dispositivos, consulte [tutorial: usar grupos de dispositivos para analisar a telemetria do dispositivo](tutorial-use-device-groups.md).
 
 ## <a name="view-your-devices"></a>Exibir dispositivos
 
@@ -38,7 +40,6 @@ Para exibir um dispositivo individual:
 
     ![Página Detalhes do Dispositivo](./media/howto-manage-devices/devicelist.png)
 
-
 ## <a name="add-a-device"></a>Adicionar um dispositivo
 
 Para adicionar um dispositivo ao aplicativo Azure IoT Central:
@@ -51,7 +52,7 @@ Para adicionar um dispositivo ao aplicativo Azure IoT Central:
 
 1. Ativar ou **desativar** **a alternância** **simulada** . Um dispositivo real é para um dispositivo físico que você conecta ao aplicativo Azure IoT Central. Um dispositivo simulado tem dados de exemplo gerados a você pelo Azure IoT Central.
 
-1. Clique em **Criar**.
+1. Selecione **Criar**.
 
 1. Este dispositivo agora aparece na sua lista de dispositivos para este modelo. Selecione o dispositivo para ver a página de detalhes do dispositivo que contém todas as exibições do dispositivo.
 
@@ -59,7 +60,7 @@ Para adicionar um dispositivo ao aplicativo Azure IoT Central:
 
 Para conectar um grande número de dispositivos ao seu aplicativo, você pode importar em massa os dispositivos de um arquivo CSV. O arquivo CSV deve ter as seguintes colunas e cabeçalhos:
 
-* **IOTC_DeviceID** – a ID do dispositivo deve estar toda em letras maiúsculas ou toda em letras minúsculas.
+* **IOTC_DeviceID** -a ID do dispositivo pode conter letras, números e o `-` caractere.
 * **IOTC_DeviceName** – essa coluna é opcional.
 
 Para dispositivos de registro em massa no aplicativo:
@@ -84,10 +85,9 @@ Para dispositivos de registro em massa no aplicativo:
 
     ![Importação com êxito](./media/howto-manage-devices/bulkimport3a.png)
 
-
 Se a operação de importação de dispositivo falhar, você verá uma mensagem de erro no painel de operações do dispositivo. É gerado um arquivo de log captura todos os erros que você pode baixar.
 
-**Migrando dispositivos para um modelo**
+## <a name="migrate-devices-to-a-template"></a>Migrar dispositivos para um modelo
 
 Se você registrar dispositivos iniciando a importação em **todos os dispositivos**, os dispositivos serão criados sem nenhuma associação de modelo de dispositivo. Os dispositivos devem estar associados a um modelo para explorar os dados e outros detalhes sobre o dispositivo. Siga estas etapas para associar dispositivos a um modelo:
 
@@ -97,8 +97,7 @@ Se você registrar dispositivos iniciando a importação em **todos os dispositi
 
     ![Dispositivos não associados](./media/howto-manage-devices/unassociateddevices1a.png)
 
-
-1. Use o filtro na grade para determinar se o valor na coluna de **modelo de dispositivo** é "não associado" para qualquer um de seus dispositivos.
+1. Use o filtro na grade para determinar se o valor na coluna **modelo de dispositivo** não está **associado** a nenhum de seus dispositivos.
 
 1. Selecione os dispositivos que você deseja associar a um modelo:
 
@@ -106,11 +105,9 @@ Se você registrar dispositivos iniciando a importação em **todos os dispositi
 
     ![Associar Dispositivos](./media/howto-manage-devices/unassociateddevices2a.png)
 
-
 1. Escolha o modelo na lista de modelos disponíveis e selecione **migrar**.
 
 1. Os dispositivos selecionados estão associados ao modelo de dispositivo que você escolheu.
-
 
 ## <a name="export-devices"></a>Exportar dispositivos
 
@@ -124,8 +121,7 @@ Para exportar em massa os dispositivos do seu aplicativo:
 
 1. Selecione os dispositivos que você deseja exportar e, em seguida, selecione a ação **Exportar** .
 
-    ![Exportar](./media/howto-manage-devices/export1a.png)
-
+    ![Exportação](./media/howto-manage-devices/export1a.png)
 
 1. O processo de exportação tem início. Você pode acompanhar o status usando o painel de operações do dispositivo.
 
@@ -134,7 +130,6 @@ Para exportar em massa os dispositivos do seu aplicativo:
 1. Selecione o link **baixar arquivo** para baixar o arquivo em uma pasta local no disco.
 
     ![Exportação bem-sucedida](./media/howto-manage-devices/export2a.png)
-
 
 1. O arquivo CSV exportado contém as seguintes colunas: ID do dispositivo, nome do dispositivo, chaves de dispositivo e impressões digitais de certificado X509:
 
@@ -147,7 +142,7 @@ Para exportar em massa os dispositivos do seu aplicativo:
 
 Para obter mais informações sobre cadeias de conexão e conectar dispositivos reais ao seu aplicativo IoT Central, consulte [conectividade de dispositivo no IOT central do Azure](concepts-get-connected.md).
 
-## <a name="delete-a-device"></a>Excluir um dispositivo
+## <a name="delete-a-device"></a>excluir um dispositivo e
 
 Para excluir um dispositivo real ou simulado do aplicativo Azure IoT Central:
 
@@ -161,7 +156,7 @@ Para excluir um dispositivo real ou simulado do aplicativo Azure IoT Central:
 
 ## <a name="change-a-property"></a>Alterar uma propriedade
 
-As propriedades de nuvem são os metadados de dispositivo associados ao dispositivo, como cidade e número de série. As propriedades graváveis controlam o comportamento de um dispositivo. Em outras palavras, elas permitem que você forneça entradas ao dispositivo.  As propriedades do dispositivo são definidas pelo dispositivo e são somente leitura no IoT Central. Você pode exibir e atualizar as propriedades nos modos de exibição de **detalhes** do dispositivo para seu dispositivo.
+As propriedades de nuvem são os metadados de dispositivo associados ao dispositivo, como cidade e número de série. As propriedades de nuvem existem somente no aplicativo IoT Central e não são sincronizadas com seus dispositivos. As propriedades graváveis controlam o comportamento de um dispositivo e permitem que você defina o estado de um dispositivo remotamente, por exemplo, definindo a temperatura de destino de um dispositivo termostato.  As propriedades do dispositivo são definidas pelo dispositivo e são somente leitura no IoT Central. Você pode exibir e atualizar as propriedades nos modos de exibição de **detalhes** do dispositivo para seu dispositivo.
 
 1. Escolha **dispositivos** no painel esquerdo.
 
@@ -173,12 +168,6 @@ As propriedades de nuvem são os metadados de dispositivo associados ao disposit
 
 1. Selecione **Salvar**. Se você salvou as propriedades graváveis, os valores serão enviados ao seu dispositivo. Quando o dispositivo confirma a alteração da propriedade Writeable, o status retorna de volta para **sincronizado**. Se você salvou uma propriedade de nuvem, o valor será atualizado.
 
-
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora que você aprendeu como gerenciar dispositivos no aplicativo Azure IoT Central, a próxima etapa sugerida é apresentada:
-
-> [!div class="nextstepaction"]
-> [Como usar grupos de dispositivos](tutorial-use-device-groups.md)
-
-<!-- Next how-tos in the sequence -->
+Agora que você aprendeu como gerenciar dispositivos em seu aplicativo IoT Central do Azure, a próxima etapa sugerida é aprender a[configurar regras](howto-configure-rules.md) para seus dispositivos.

@@ -3,17 +3,19 @@ title: Usar comandos e recursos de notebook integrado nos notebooks Python do Az
 description: Saiba como usar comandos e recursos internos para realizar operações comuns usando os notebooks do Python internos do Azure Cosmos DB.
 author: deborahc
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: dech
-ms.openlocfilehash: f4236b099915e737f9d489d89e5bf18b84736d75
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: b89fcf32ed033f359b4db601e36cc69bb899944d
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87761188"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165817"
 ---
 # <a name="use-built-in-notebook-commands-and-features-in-azure-cosmos-db-python-notebooks-preview"></a>Usar comandos e recursos de notebook integrado nos notebooks Python do Azure Cosmos DB (versão prévia)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Os notebooks Jupyter internos do Azure Cosmos DB permitem que você analise e visualize os dados do portal do Azure. Este artigo descreve como usar os recursos e comandos do notebook integrado para realizar operações comuns nos notebooks Python.
 
@@ -122,6 +124,8 @@ Total RUs consumed : 25022.58
 ```
 Com as estatísticas de saída, você pode calcular a RU/s efetiva usado para carregar os itens. Por exemplo, se 25.000 RUs foram consumidos em 38 segundos, a RU/s efetiva é 25.000 RUs/38 segundos = 658 RU/s.
 
+Você pode salvar arquivos (como arquivos CSV ou JSON) no espaço de trabalho local do bloco de anotações. Recomendamos que você adicione uma célula em seu bloco de anotações para salvar arquivos. Você pode exibir esses arquivos do terminal integrado no ambiente do bloco de anotações. Você pode usar o comando "ls" para exibir os arquivos salvos. No entanto, esses arquivos serão removidos se você redefinir o espaço de trabalho. Portanto, é melhor usar o armazenamento persistente, como o GitHub ou uma conta de armazenamento, em vez do espaço de trabalho local.
+
 ## <a name="run-another-notebook-in-current-notebook"></a>Executar outro notebook no notebook atual 
 Você pode usar o comando mágico ``%%run`` para executar outro notebook no espaço de trabalho do notebook atual. Use a sintaxe:
 
@@ -167,7 +171,7 @@ Consulte [Exemplos de SDK do Python](https://github.com/Azure/azure-sdk-for-pyth
 ## <a name="create-a-custom-instance-of-cosmos_client"></a>Criar uma instância do ``cosmos_client``
 Para obter mais flexibilidade, você pode criar uma instância personalizada do ``cosmos_client`` para:
 
-- Personalizar a [política de conexão](https://docs.microsoft.com/python/api/azure-cosmos/azure.cosmos.documents.connectionpolicy?view=azure-python-preview).
+- Personalizar a [política de conexão](/python/api/azure-cosmos/azure.cosmos.documents.connectionpolicy?preserve-view=true&view=azure-python-preview).
 - Executar operações em uma conta do Azure Cosmos diferente daquela em que você está.
 
 Você pode acessar a cadeia de conexão e a chave primária da conta atual por meio das [variáveis de ambiente](#access-the-account-endpoint-and-primary-key-env-variables). 

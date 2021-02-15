@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 8ebfbeeb4533f21bc0fa10a5fee7b88ef069c262
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 8eca6297a704e1ef478c09baf227cf622d6890bb
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84298833"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953144"
 ---
 # <a name="tutorial-grant-access-to-a-nodejs-web-api-from-a-desktop-app-using-azure-active-directory-b2c"></a>Tutorial: Permitir acesso a uma API Web do Node.js de um aplicativo da área de trabalho usando o Azure Active Directory B2C
 
@@ -51,7 +51,7 @@ Para chamar uma API Web de um aplicativo cliente nativo, você precisa conceder 
 
 No tutorial de pré-requisito, você registrou um aplicativo cliente nativo chamado *nativeapp1*. As etapas a seguir configuram esse registro de aplicativo nativo com os escopos de API expostos para *webapi1* na seção anterior. Isso permite que o aplicativo de área de trabalho obtenha um token de acesso do Azure AD B2C que a API Web pode usar para verificar e fornecer acesso com escopo para seus recursos. Você configurará e executará os exemplos de código do aplicativo de área de trabalho e da API Web posteriormente neste tutorial.
 
-Para registrar um aplicativo no locatário do Azure AD B2C, você pode usar a nossa nova experiência unificada de **Registros de aplicativos** ou a nossa experiência herdada **Aplicativos (Herdado)** . [Saiba mais sobre a nova experiência](https://aka.ms/b2cappregtraining).
+Para registrar um aplicativo no locatário do Azure AD B2C, você pode usar a nossa nova experiência unificada de **Registros de aplicativos** ou a nossa experiência herdada **Aplicativos (Herdado)** . [Saiba mais sobre a nova experiência](./app-registrations-training-guide.md).
 
 #### <a name="app-registrations"></a>[Registros de aplicativo](#tab/app-reg-ga/)
 

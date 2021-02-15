@@ -1,25 +1,27 @@
 ---
-title: Início Rápido – Criar um detector de objeto – Serviço de Visão Personalizada
+title: 'Início Rápido: criar um detector de objeto com o site da Visão Personalizada'
 titleSuffix: Azure Cognitive Services
-description: Neste início rápido, você aprenderá a usar o site Visão Personalizada para criar um modelo de classificação de imagem.
+description: Neste início rápido, você aprenderá a usar o site da Visão Personalizada para criar, treinar e testar um modelo de detector de objetos.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 08/05/2020
+ms.date: 01/29/2021
 ms.author: pafarley
-ms.openlocfilehash: 57fb91e9ead98f6c52fd3f659f4aa12692816297
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.custom: cog-serv-seo-aug-2020
+keywords: reconhecimento de imagem, aplicativo de reconhecimento de imagem, visão personalizada
+ms.openlocfilehash: 5ecd5fee565a8d31e0ff05f3b234771446242d02
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549540"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99221288"
 ---
-# <a name="quickstart-how-to-build-an-object-detector-with-custom-vision"></a>Início Rápido: Como criar um detector de objeto com a Visão Personalizada
+# <a name="quickstart-build-an-object-detector-with-the-custom-vision-website"></a>Início Rápido: criar um detector de objeto com o site da Visão Personalizada
 
-Neste início rápido, você aprenderá a criar um detector de objeto por meio do site da Visão Personalizada. Depois de criar um modelo de detector, você poderá usar o serviço de Visão Personalizada para a detecção de objetos.
+Neste guia início rápido, você aprenderá a usar o site da Visão Personalizada para criar um modelo de detector de objetos. Depois de criar um modelo, você poderá testá-lo com novas imagens e, eventualmente, integrá-lo ao próprio aplicativo de reconhecimento de imagem.
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de começar.
 
@@ -27,7 +29,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 - Um conjunto de imagens com o qual o modelo de detector será treinado. Você pode usar o conjunto de [imagens de exemplo](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/tree/master/samples/vision/images) no GitHub. Ou pode escolher suas próprias imagens usando as dicas abaixo.
 
-## <a name="create-custom-vision-resources-in-the-azure-portal"></a>Criar recursos de Visão Personalizada no portal do Azure
+## <a name="create-custom-vision-resources"></a>Criar recursos de Visão Personalizada
 
 [!INCLUDE [create-resources](includes/create-resources.md)]
 
@@ -45,7 +47,7 @@ No navegador da Web, navegue até o [site Visão Personalizada](https://customvi
 1. Insira um nome e uma descrição para o projeto. Selecione um Grupo de Recursos. Se a sua conta conectada estiver associada a uma conta do Azure, a lista suspensa Grupo de Recursos exibirá todos os seus Grupos de Recursos do Azure que contêm um Recurso do Serviço de Visão Personalizada. 
 
    > [!NOTE]
-   > Se nenhum grupo de recursos estiver disponível, confirme se você fez logon em [customvision.ai](https://customvision.ai) com a mesma conta que foi usada para fazer logon no [portal do Azure](https://portal.azure.com/). Além disso, confirme se você selecionou o mesmo "Diretório" no portal da Visão Personalizada do diretório no portal do Azure em que os recursos da Visão Personalizada estão localizados. Em ambos os sites, é possível selecionar seu diretório no menu suspenso de conta no canto superior direito da tela. 
+   > Se nenhum grupo de recursos estiver disponível, confirme se você fez logon em [customvision.ai](https://customvision.ai) com a mesma conta que foi usada para fazer logon no [portal do Azure](https://portal.azure.com/). Além disso, confirme se você selecionou o mesmo "Diretório" no site da Visão Personalizada como o diretório no portal do Azure em que os recursos da Visão Personalizada estão localizados. Em ambos os sites, é possível selecionar seu diretório no menu suspenso de conta no canto superior direito da tela. 
 
 1. Selecione __Detecção de Objetos__ em __Tipos de Projeto__.
 
@@ -68,7 +70,7 @@ No navegador da Web, navegue até o [site Visão Personalizada](https://customvi
 
 Nesta seção, você carregará e marcará manualmente imagens para ajudar a treinar o detector. 
 
-1. Para adicionar imagens, clique no botão __Adicionar imagens__ e selecione __Procurar arquivos locais__. Selecione __Abrir__ para carregar as imagens.
+1. Para adicionar imagens, selecione __Adicionar imagens__ e selecione __Procurar arquivos locais__. Selecione __Abrir__ para carregar as imagens.
 
     ![O controle de adição de imagens é mostrado no canto superior esquerdo e como um botão na parte inferior central.](./media/get-started-build-detector/add-images.png)
 
@@ -76,7 +78,7 @@ Nesta seção, você carregará e marcará manualmente imagens para ajudar a tre
 
     ![Imagens carregadas, na seção Sem marcas](./media/get-started-build-detector/images-untagged.png)
 
-1. Clique e arraste um retângulo em torno do objeto na imagem. Em seguida, insira um novo nome de marca com o botão **+** ou selecione uma marca existente na lista suspensa. É muito importante marcar todas as instâncias dos objetos que você deseja detectar, pois o detector usa a área da tela de fundo sem marcas como um exemplo negativo no treinamento. Quando concluir a marcação, clique na seta à direita para salvar as marcas e passar para a próxima imagem.
+1. Clique e arraste um retângulo em torno do objeto na imagem. Em seguida, insira um novo nome de marca com o botão **+** ou selecione uma marca existente na lista suspensa. É importante marcar todas as instâncias dos objetos que você deseja detectar, pois o detector usa a área da tela de fundo sem marcas como um exemplo negativo no treinamento. Quando concluir a marcação, clique na seta à direita para salvar as marcas e passar para a próxima imagem.
 
     ![Como marcar um objeto com uma seleção retangular](./media/get-started-build-detector/image-tagging.png)
 
@@ -98,12 +100,17 @@ Depois que o treinamento for concluído, o desempenho do modelo será calculado 
 
 - A **precisão** indica a fração de classificações identificadas que estão corretas. Por exemplo, se o modelo identificou 100 imagens como cachorros e 99 delas são realmente de cachorros, a precisão é de 99%.
 - A **recuperação** indica a fração de classificações reais que foram corretamente identificadas. Por exemplo, se há de fato 100 imagens de maçãs e o modelo identifica 80 como maçãs, a recuperação é de 80%.
+- **A média da precisão média** é o valor médio da AP (precisão média). AP é a área sob a curva de precisão/recall (a precisão é plotada em relação à recuperação para cada previsão feita).
 
 ![Os resultados do treinamento mostram a precisão e o recall gerais, bem como a precisão média.](./media/get-started-build-detector/trained-performance.png)
 
 ### <a name="probability-threshold"></a>Limite de probabilidade
 
 [!INCLUDE [probability threshold](includes/probability-threshold.md)]
+
+### <a name="overlap-threshold"></a>Limite de sobreposição
+
+O controle deslizante do **Limite de Sobreposição** aborda o quão correta deve ser uma previsão de objeto para que seja considerada "correta" no treinamento. Ele define a sobreposição mínima permitida entre a caixa delimitadora do objeto previsto e a caixa delimitadora real inserida pelo usuário. Se as caixas delimitadoras não se sobrepuserem a esse grau, a previsão não será considerada correta.
 
 ## <a name="manage-training-iterations"></a>Gerenciar iterações de treinamento
 
@@ -118,3 +125,4 @@ Neste início rápido, você aprendeu a criar e treinar um modelo de detector de
 > [!div class="nextstepaction"]
 > [Testar e readaptar um modelo](test-your-model.md)
 
+* [O que é Visão Personalizada?](./overview.md)

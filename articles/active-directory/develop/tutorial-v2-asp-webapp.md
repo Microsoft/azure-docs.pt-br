@@ -1,7 +1,7 @@
 ---
-title: Adicionar a conexão à plataforma de identidade da Microsoft a um aplicativo Web ASP.NET
+title: 'Tutorial: Criar um aplicativo Web ASP.NET que usa a plataforma de identidade da Microsoft para autenticação | Azure'
 titleSuffix: Microsoft identity platform
-description: Como implementar a opção Entrar com a conta da Microsoft em uma solução ASP.NET usando um aplicativo tradicional baseado em navegador da Web e o padrão OpenID Connect
+description: Neste tutorial, você criará um aplicativo Web ASP.NET que usa a plataforma de identidade da Microsoft e o middleware OWIN para habilitar o logon do usuário.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -12,23 +12,31 @@ ms.workload: identity
 ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: 740d62136393cf0c9cf31d367735bffed1c05276
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 03ffea7688207b56a683d3afcbe49bf95ea00708
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88165576"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100103117"
 ---
-# <a name="add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Adicionar a entrada com a conta da Microsoft a um aplicativo Web ASP.NET
+# <a name="tutorial-add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Tutorial: Adicionar a entrada com a conta da Microsoft a um aplicativo Web ASP.NET
 
-Este guia demonstra como implementar a opção Entrar com a conta da Microsoft por meio de uma solução ASP.NET MVC usando um aplicativo tradicional baseado em navegador da Web e o OpenID Connect.
+Neste tutorial, você criará um aplicativo Web ASP.NET MVC que conecta usuários usando o middleware OWIN (Open Web Interface para .NET) e a plataforma de identidade da Microsoft.
 
 Quando você concluir este guia, seu aplicativo poderá aceitar entradas de contas pessoais de sites como outlook.com e live.com. Além disso, as contas corporativas e de estudante de qualquer empresa ou organização integradas à plataforma de identidade da Microsoft poderão entrar no aplicativo.
 
-> Este guia exige o Microsoft Visual Studio 2019.  Ainda não tem?  [Baixe gratuitamente o Visual Studio 2019](https://www.visualstudio.com/downloads/).
+Neste tutorial:
 
->[!NOTE]
-> Se você é novo na plataforma de identidade da Microsoft, recomendamos que comece com [Adicionar credenciais da plataforma de identidade da Microsoft a um aplicativo Web ASP.NET](quickstart-v2-aspnet-webapp.md).
+> [!div class="checklist"]
+> * Criar um projeto de *aplicativo Web ASP.NET* no Visual Studio
+> * Adicionar os componentes do middleware OWIN (Interface da Web Aberta para .NET)
+> * Adicionar código para entrada e saída do usuário
+> * Registrar o aplicativo no portal do Azure
+> * Testar o aplicativo
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) com a carga de trabalho do **ASP.NET e desenvolvimento da Web** instalada
 
 ## <a name="how-the-sample-app-generated-by-this-guide-works"></a>Como o aplicativo de exemplo gerado por este guia funciona
 
@@ -111,7 +119,7 @@ As etapas a seguir são usadas para criar uma classe de Inicialização do middl
         // Tenant is the tenant ID (e.g. contoso.onmicrosoft.com, or 'common' for multi-tenant)
         static string tenant = System.Configuration.ConfigurationManager.AppSettings["Tenant"];
 
-        // Authority is the URL for authority, composed by Microsoft identity platform endpoint and the tenant name (e.g. https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0)
+        // Authority is the URL for authority, composed of the Microsoft identity platform and the tenant name (e.g. https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0)
         string authority = String.Format(System.Globalization.CultureInfo.InvariantCulture, System.Configuration.ConfigurationManager.AppSettings["Authority"], tenant);
 
         /// <summary>
@@ -264,7 +272,7 @@ No Visual Studio, crie uma exibição para adicionar o botão Entrar e para exib
     ```
 
 ### <a name="more-information"></a>Mais informações
-Esta página adiciona um botão de conexão no formato SVG com uma tela de fundo preta:<br/>![Entrar com a Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-use/aspnetsigninbuttonsample.png)<br/> Para obter mais botões de entrada, acesse [Diretrizes de identidade visual](./howto-add-branding-in-azure-ad-apps.md "Diretrizes de identidade Visual").
+Esta página adiciona um botão de conexão no formato SVG com uma tela de fundo preta:<br/>![Botão Entrar com a conta da Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-use/aspnetsigninbuttonsample.png)<br/> Para obter mais botões de entrada, acesse [Diretrizes de identidade visual](./howto-add-branding-in-azure-ad-apps.md "Diretrizes de identidade Visual").
 
 ## <a name="add-a-controller-to-display-users-claims"></a>Adicionar um controlador para exibir as declarações do usuário
 Esse controlador demonstra os usos do atributo `[Authorize]` para proteger um controlador. Esse atributo restringe o acesso ao controlador permitindo apenas usuários autenticados. O seguinte código usa o atributo para exibir as declarações de usuário que foram recuperadas como parte da entrada:
@@ -287,7 +295,7 @@ Esse controlador demonstra os usos do atributo `[Authorize]` para proteger um co
         {
             var userClaims = User.Identity as System.Security.Claims.ClaimsIdentity;
 
-            //You get the user’s first and last name below:
+            //You get the user's first and last name below:
             ViewBag.Name = userClaims?.FindFirst("name")?.Value;
 
             // The 'preferred_username' claim can be used for showing the username
@@ -305,7 +313,7 @@ Esse controlador demonstra os usos do atributo `[Authorize]` para proteger um co
     ```
 
 ### <a name="more-information"></a>Mais informações
-Devido ao uso do atributo `[Authorize]`, todos os métodos desse controlador podem ser executados apenas se o usuário está autenticado. Se o usuário não estiver autenticado e tentar acessar o controlador, o OWIN iniciará um desafio de autenticação e forçará o usuário a se autenticar. O código anterior examina a lista de declarações em busca de atributos de usuário específicos incluídos no token de ID do usuário. Esses atributos incluem o nome completo do usuário e o nome de usuário, bem como a entidade de identificador de usuário global. Também contém a *ID de Locatário*, que representa a ID da organização do usuário.
+Devido ao uso do atributo `[Authorize]`, todos os métodos desse controlador podem ser executados apenas se o usuário está autenticado. Se o usuário não estiver autenticado e tentar acessar o controlador, o OWIN iniciará um desafio de autenticação e forçará o usuário a se autenticar. O código anterior examina a lista de declarações em busca de atributos de usuário específicos incluídos no token de ID do usuário. Esses atributos incluem o nome completo do usuário e o nome de usuário, bem como a entidade de identificador de usuário global. Ele também contém a *ID de Locatário*, que representa a ID da organização do usuário.
 
 ## <a name="create-a-view-to-display-the-users-claims"></a>Criar uma exibição para exibir as declarações do usuário
 
@@ -353,7 +361,7 @@ Para registrar seu aplicativo e adicionar suas informações de registro de apli
 
 Para registrar seu aplicativo rapidamente, siga estas etapas:
 
-1. Acesse o novo painel do [portal do Azure – Registros de aplicativo](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetWebAppQuickstartPage/sourceType/docs).
+1. Acesse a experiência de início rápido do <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetWebAppQuickstartPage/sourceType/docs" target="_blank">portal do Azure – Registros de aplicativo</a>.  
 1. Insira um nome para seu aplicativo e selecione **Registrar**.
 1. Siga as instruções para baixar e configurar automaticamente o novo aplicativo com um único clique.
 
@@ -362,18 +370,20 @@ Para registrar seu aplicativo rapidamente, siga estas etapas:
 Para registrar seu aplicativo e adicionar as informações de registro do aplicativo à solução manualmente, siga estas etapas:
 
 1. Abra o Visual Studio e, em seguida:
-   1. no Gerenciador de Soluções, selecione o projeto e exiba a janela Propriedades (se uma janela Propriedades não for exibida, pressione F4).
+   1. no Gerenciador de Soluções, selecione o projeto para exibir a janela Propriedades (se uma janela Propriedades não for exibida, pressione F4).
    1. Altere habilitado para SSL `True`.
    1. Clique com o botão direito do mouse no projeto no Visual Studio, selecione **Propriedades** e, em seguida, selecione a guia **Web**. Na seção **Servidores**, altere a configuração de **URL do projeto** para **URL do SSL**.
-   1. Copie a URL do SSL. Você adicionará essa URL à lista de URLs de Redirecionamento na lista de URLs de Redirecionamento do portal de Registro na próxima etapa.<br/><br/>![Propriedades do projeto](media/active-directory-develop-guidedsetup-aspnetwebapp-configure/vsprojectproperties.png)<br />
-1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta corporativa ou de estudante ou uma conta pessoal Microsoft.
-1. Se a conta fornecer acesso a mais de um locatário, selecione a conta no canto superior direito e defina a sessão do portal com o locatário desejado do Azure AD.
-1. Vá até a página [Registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) da plataforma de identidade da Microsoft para desenvolvedores.
-1. Selecione **Novo registro**.
-1. Quando a página **Registrar um aplicativo** for exibida, insira as informações de registro do aplicativo:
-   1. Na seção **Nome**, insira um nome de aplicativo relevante que será exibido aos usuários do aplicativo, por exemplo, **ASPNET-Tutorial**.
-   1. Adicione a URL do SSL copiada do Visual Studio na etapa 1 (por exemplo, `https://localhost:44368/`) à **URL de Resposta** e selecione **Registrar**.
-1. Selecione o menu **Autenticação**, **Tokens de ID** em **Concessão Implícita** e, em seguida, **Salvar**.
+   1. Copie a URL do SSL. Você adicionará essa URL à lista de URIs de Redirecionamento na lista de URIs de Redirecionamento do portal de Registro na próxima etapa.<br/><br/>![Propriedades do projeto](media/active-directory-develop-guidedsetup-aspnetwebapp-configure/vsprojectproperties.png)<br />
+   
+1. Entre no <a href="https://portal.azure.com/" target="_blank">portal do Azure</a>.
+1. Se você tem acesso a vários locatários, use o filtro **Diretório + assinatura** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o locatário no qual você deseja registrar um aplicativo.
+1. Pesquise **Azure Active Directory** e selecione-o.
+1. Em **Gerenciar**, selecione **Registros de aplicativo** > **Novo registro**.
+1. Insira um **Nome** para seu aplicativo, por exemplo, `ASPNET-Tutorial`. Os usuários do seu aplicativo podem ver esse nome e você pode alterá-lo mais tarde.
+1. Adicione a URL do SSL copiada do Visual Studio na etapa 1 (por exemplo, `https://localhost:44368/`) no **URI de Redirecionamento**.
+1. Selecione **Registrar**.
+1. Em **Gerenciar**, selecione **Autenticação**.
+1. Na seção **Concessão Implícita e fluxos híbridos**, selecione **Tokens de ID** e, em seguida, **Salvar**.
 1. Adicione o seguinte ao arquivo web.config, localizado na pasta raiz, na seção `configuration\appSettings`:
 
     ```xml
@@ -392,18 +402,17 @@ Para testar o aplicativo no Visual Studio, pressione F5 para executar o projeto.
 
 Quando estiver pronto para executar o teste, use uma conta do Azure AD (conta corporativa ou de estudante) ou uma conta pessoal Microsoft (<span>live.</span>com ou <span>outlook.</span>com) para entrar.
 
-![Entrar com a Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-test/aspnetbrowsersignin.png)
+![Botão Entrar com a conta da Microsoft mostrado na página de logon no navegador](media/active-directory-develop-guidedsetup-aspnetwebapp-test/aspnetbrowsersignin.png)
 <br/><br/>
 ![Entre na sua conta da Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-test/aspnetbrowsersignin2.png)
 
-#### <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Permissões e consentimento no ponto de extremidade da plataforma de identidade da Microsoft
-
-Os aplicativos que se integram à plataforma de identidade da Microsoft seguem um modelo de autorização que dá aos usuários e administradores controle sobre como os dados podem ser acessados. Depois que um usuário se autenticar na plataforma de identidade da Microsoft para acessar esse aplicativo, ele deverá fornecer seu consentimento às permissões solicitadas pelo aplicativo ("Exibir seu perfil básico" e "Manter o acesso aos dados aos quais você permitiu acesso"). Depois de aceitar essas permissões, o usuário será direcionado aos resultados do aplicativo. No entanto, o usuário poderá receber uma página **Consentimento do administrador necessário** se ocorrer uma das seguintes ações:
+#### <a name="permissions-and-consent-in-the-microsoft-identity-platform"></a>Permissões e consentimento na plataforma de identidade da Microsoft
+Os aplicativos que se integram à plataforma de identidade da Microsoft seguem um modelo de autorização que dá aos usuários e administradores controle sobre como os dados podem ser acessados. Depois que um usuário se autenticar na plataforma de identidade da Microsoft para acessar esse aplicativo, ele deverá fornecer o consentimento às permissões solicitadas pelo aplicativo ("Exibir o seu perfil básico" e "Manter o acesso aos dados aos quais você permitiu acesso"). Depois de aceitar essas permissões, o usuário será direcionado aos resultados do aplicativo. No entanto, o usuário poderá receber uma página **Consentimento do administrador necessário** se ocorrer uma das seguintes ações:
 
 - O desenvolvedor de aplicativos adiciona permissões extras que exigem o **consentimento do administrador**.
 - Ou o locatário está configurado (em **Aplicativos Empresariais – > Configurações de Usuário**), em que os usuários não podem fornecer consentimento aos aplicativos que acessam os dados da empresa em seu nome.
 
-Para obter mais informações, veja [Permissões e consentimento no ponto de extremidade da plataforma de identidade da Microsoft](./v2-permissions-and-consent.md).
+Para obter mais informações, veja [Permissões e consentimento na plataforma de identidade da Microsoft](./v2-permissions-and-consent.md).
 
 ### <a name="view-application-results"></a>Veja os resultados de aplicativo
 
@@ -419,7 +428,7 @@ Depois de navegar para a exibição do controlador, você deverá visualizar uma
 
 |Propriedade |Valor |Descrição |
 |---|---|---|
-|**Nome** |Nome completo do usuário | Nome e sobrenome do usuário
+|**Nome** |Nome completo do usuário | O nome e o sobrenome do usuário
 |**Nome de usuário** |usuário<span>@domain.com</span> | O nome de usuário que é usado para identificar o usuário|
 |**Assunto** |Assunto |Uma cadeia de caracteres que identifica de maneira exclusiva o usuário na Web|
 |**ID do locatário** |Guid | Um **GUID** que representa de maneira exclusiva a organização do Azure AD do usuário|
@@ -470,20 +479,11 @@ Essa opção é frequentemente usada para *aplicativos de linha de negócios*: S
 
 É possível implementar um método personalizado para validar emissores usando o parâmetro **IssuerValidator**. Para obter mais informações sobre como usar esse parâmetro, confira [classe TokenValidationParameters](/dotnet/api/microsoft.identitymodel.tokens.tokenvalidationparameters).
 
+[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre como os aplicativos Web podem chamar APIs Web.
-
-### <a name="learn-how-to-create-the-application-used-in-this-quickstart"></a>Saiba como criar o aplicativo usado neste início rápido
-
-Saiba mais sobre os aplicativos Web chamando APIs Web com a plataforma de identidade da Microsoft:
+Saiba como chamar APIs Web protegidas em aplicativos Web com a plataforma de identidade da Microsoft:
 
 > [!div class="nextstepaction"]
 > [Aplicativos Web chamando APIs Web](scenario-web-app-sign-user-overview.md)
-
-Saiba como criar aplicativos Web chamando o Microsoft Graph:
-
-> [!div class="nextstepaction"]
-> [Tutorial do Microsoft Graph ASP.NET](/graph/tutorials/aspnet)
-
-[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

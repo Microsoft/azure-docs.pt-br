@@ -6,12 +6,12 @@ ms.service: virtual-machines-linux
 ms.topic: how-to
 ms.date: 12/14/2017
 ms.author: cynthn
-ms.openlocfilehash: 4348d3d71259b5bdf63b1c52af53bff59c650086
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 5992fb20fc8b86d4a0094a8fe5ed6cb6eb03754d
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87829009"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97704462"
 ---
 # <a name="create-a-complete-linux-virtual-machine-with-the-azure-cli"></a>Criar uma máquina virtual Linux completa com a CLI do Azure
 Para criar rapidamente uma VM (máquina virtual) no Azure, você pode usar um único comando da CLI do Azure que usa valores padrão para criar quaisquer recursos de suporte necessários. Recursos como uma rede virtual, um endereço IP público e regras de grupo de segurança de rede são criados automaticamente. Para obter mais controle de seu ambiente no uso em produção, você pode criar esses recursos antecipadamente e depois adicionar suas VMs a eles. Este artigo orienta você sobre como criar uma VM e cada um dos recursos de suporte, um por um.
@@ -434,7 +434,7 @@ Os domínios de falha definem um agrupamento de máquinas virtuais que compartil
 
 Os domínios de atualização indicam grupos de máquinas virtuais e hardware físico subjacente que podem ser reinicializados ao mesmo tempo. A ordem de reinicialização dos domínios de atualização pode não ser sequencial durante a manutenção planejada, mas apenas um domínio de atualização é reinicializado por vez.
 
-O Azure distribui automaticamente as VMs entre os domínios de falha e de atualização ao colocá-las em um conjunto de disponibilidade. Para obter mais informações, consulte [Gerenciamento da disponibilidade de VMs](manage-availability.md).
+O Azure distribui automaticamente as VMs entre os domínios de falha e de atualização ao colocá-las em um conjunto de disponibilidade. Para obter mais informações, consulte [Gerenciamento da disponibilidade de VMs](../manage-availability.md).
 
 Crie um conjunto de disponibilidade para sua VM com [az vm availability-set create](/cli/azure/vm/availability-set). O exemplo a seguir cria um conjunto de disponibilidade chamado *myAvailabilitySet*:
 
@@ -558,10 +558,10 @@ az group export --name myResourceGroup > myResourceGroup.json
 
 Esse comando cria o arquivo `myResourceGroup.json` no diretório de trabalho atual. Quando você cria um ambiente com base neste modelo, será solicitado que você informe todos os nomes de recursos. Você pode popular esses nomes em seu arquivo de modelo adicionando o parâmetro `--include-parameter-default-value` ao comando `az group export`. Edite o modelo JSON para especificar os nomes dos recursos ou [crie um parameters.jsno arquivo](../../azure-resource-manager/templates/template-syntax.md?toc=/azure/virtual-machines/linux/toc.json) que especifique os nomes dos recursos.
 
-Para criar um ambiente usando seu modelo, use [az group deployment create](/cli/azure/group/deployment) da seguinte maneira:
+Para criar um ambiente a partir de seu modelo, use [AZ Deployment Group Create](/cli/azure/deployment/group) da seguinte maneira:
 
 ```azurecli
-az group deployment create \
+az deployment group create \
     --resource-group myNewResourceGroup \
     --template-file myResourceGroup.json
 ```

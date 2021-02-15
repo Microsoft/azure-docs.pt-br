@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 01/14/2020
-ms.author: metan
-ms.custom: devx-track-javascript
-ms.openlocfilehash: a8cd8bacc749ef44ee23e98709f04f75757f5919
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.author: metang
+ms.custom: devx-track-js
+ms.openlocfilehash: ac7bca305b0c23cceb00f97f426b3f68fbea91b3
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88516326"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636435"
 ---
 # <a name="tutorial-launch-the-immersive-reader-nodejs"></a>Tutorial: Iniciar a Leitura Avançada (Node.js)
 
@@ -211,13 +211,13 @@ A Leitura Avançada oferece suporte para vários idiomas diferentes. Você pode 
     });
     ```
 
-3. Navegue até _http://localhost:3000_ novamente. Você verá o texto em espanhol na página e, ao clicar na **Leitura Avançada**, ele também será exibido na Leitura Avançada.
+3. Navegue até _http://localhost:3000_ novamente. Você verá o texto em espanhol na página e, ao clicar na **Leitura Avançada** , ele também será exibido na Leitura Avançada.
 
 ## <a name="specify-the-language-of-the-immersive-reader-interface"></a>Especifique o idioma da interface de Leitura Avançada
 
 Por padrão, o idioma da interface da Leitura Avançada corresponde à configurações de idioma do navegador. Você também pode especificar o idioma da interface da Leitura Avançada com o código a seguir.
 
-1. Em _views\index.pug_, substitua a chamada para `ImmersiveReader.launchAsync(token, subdomain, content)` pelo código abaixo.
+1. Em _views\index.pug_ , substitua a chamada para `ImmersiveReader.launchAsync(token, subdomain, content)` pelo código abaixo.
 
     ```javascript
     const options = {

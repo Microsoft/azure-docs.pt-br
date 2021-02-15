@@ -4,18 +4,17 @@ titleSuffix: Azure Data Science Virtual Machine
 description: Saiba mais sobre as ferramentas e as estruturas de aprendizado de máquina que são pré-instalados no Máquina Virtual de Ciência de Dados.
 keywords: ferramentas de ciência de dados, máquina virtual de ciência de dados, ferramentas para ciência de dados, ciência de dados do linux
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: data-science-vm
+ms.service: data-science-vm
 author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: 15c3f3994b9d519a4144fa2c2e1418e92cdbd6ae
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ac71d8d7830f1d740d0156886a364b1d53ab247f
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87012399"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100519551"
 ---
 # <a name="machine-learning-and-data-science-tools-on-azure-data-science-virtual-machines"></a>Ferramentas de ciência de dados e aprendizado de máquina em máquinas virtuais de ciência de dados do Azure
 As DSVMs (máquinas virtuais de ciência de dados) do Azure têm um conjunto avançado de ferramentas e bibliotecas para o aprendizado de máquina disponível em linguagens populares, como Python, R e Julia.
@@ -24,12 +23,12 @@ Aqui estão algumas das ferramentas e bibliotecas de aprendizado de máquina no 
 
 ## <a name="azure-machine-learning-sdk-for-python"></a>SDK do Azure Machine Learning para Python
 
-Consulte a referência completa para o [SDK do Azure Machine Learning para Python](https://docs.microsoft.com/azure/machine-learning/overview-what-is-azure-ml).
+Consulte a referência completa para o [SDK do Azure Machine Learning para Python](../overview-what-is-azure-ml.md).
 
 | Categoria | Valor |
 | ------------- | ------------- |
 | O que é?   |   Azure Machine Learning é um serviço de nuvem que você pode usar para desenvolver e implantar modelos de aprendizado de máquina. É possível acompanhar os modelos na medida em que você cria, treina, dimensiona e gerencia usando o SDK do Python. Implante modelos como contêineres e execute-os na nuvem, no local ou no Azure IoT Edge.   |
-| Edições com suporte     | Windows (ambiente do conda: AzureML), Linux (ambiente do conda: py36)    |
+| Edições compatíveis     | Windows (ambiente do conda: AzureML), Linux (ambiente do conda: py36)    |
 | Usos típicos      | Plataforma de aprendizado de máquina geral      |
 | Como é configurado ou instalado?      |  Instalada com o suporte a GPU   |
 | Como usá-lo ou executá-lo      | Como um SDK do Python e no CLI do Azure. Ative para o ambiente conda `AzureML` na edição do Windows *ou* para `py36` na edição do Linux.      |
@@ -65,7 +64,7 @@ Há várias outras bibliotecas de aprendizado de máquina em DSVMs, como o pacot
 | Categoria | Valor |
 | ------------- | ------------- |
 | O que é?   |   Uma interface gráfica do usuário para Data Mining usando o R.   |
-| Edições com suporte     | Windows, Linux     |
+| Edições compatíveis     | Windows, Linux     |
 | Usos típicos      | Ferramenta de mineração de dados de interface do usuário geral para R    |
 | Como usá-lo ou executá-lo      | Como uma ferramenta de interface do usuário. No Windows, inicie um prompt de comando, execute R e, em seguida, dentro do R, execute `rattle()` . No Linux, conecte-se com o X2Go, inicie um terminal, execute R e, em R, execute `rattle()` . |
 | Link para exemplos      | [Rattle](https://togaware.com/onepager/) |
@@ -75,7 +74,7 @@ Há várias outras bibliotecas de aprendizado de máquina em DSVMs, como o pacot
 | Categoria | Valor |
 | ------------- | ------------- |
 | O que é?   |   Uma biblioteca de sistema de aprendizado rápida, de código aberto e fora do núcleo    |
-| Edições com suporte     | Windows, Linux     |
+| Edições compatíveis     | Windows, Linux     |
 | Usos típicos      | Biblioteca geral de aprendizado de máquina      |
 | Como é configurado ou instalado?      |  Windows: instalador MSI<br/>Linux: apt-get |
 | Como usá-lo ou executá-lo      | Como uma ferramenta de linha de comando no caminho (`C:\Program Files\VowpalWabbit\vw.exe` no Windows, `/usr/bin/vw` no Linux)    |
@@ -87,7 +86,7 @@ Há várias outras bibliotecas de aprendizado de máquina em DSVMs, como o pacot
 | Categoria | Valor |
 | ------------- | ------------- |
 | O que é?   |  Uma coleção de algoritmos de aprendizado de máquina para tarefas de mineração de dados. Os algoritmos podem ser aplicados diretamente a um conjunto de dados ou chamados do seu próprio código Java. Weka contém ferramentas para o pré-processamento, classificação, regressão, clustering, regras de associação e visualização de dados. |
-| Edições com suporte     | Windows, Linux     |
+| Edições compatíveis     | Windows, Linux     |
 | Usos típicos      | Ferramenta de aprendizado de máquina geral     |
 | Como usá-lo ou executá-lo      | No Windows, procure weka no menu **Iniciar** . No Linux, entre com X2Go e, em seguida, vá para **aplicativos**  >  **desenvolvimento**  >  **weka**. |
 | Link para exemplos      | [Exemplos de Weka](https://www.cs.waikato.ac.nz/ml/weka/documentation.html) |
@@ -97,7 +96,7 @@ Há várias outras bibliotecas de aprendizado de máquina em DSVMs, como o pacot
 | Categoria | Valor |
 | ------------- | ------------- |
 | O que é?   |   Uma biblioteca de aumento de gradiente rápida, portátil e distribuída (GBDT, GBRT ou GBM) para Python, R, Java, escala, C++ e muito mais. Ele é executado em um único computador e no Apache Hadoop e no Spark.    |
-| Edições com suporte     | Windows, Linux     |
+| Edições compatíveis     | Windows, Linux     |
 | Usos típicos      | Biblioteca geral de aprendizado de máquina      |
 | Como é configurado ou instalado?      |  Instalada com o suporte a GPU   |
 | Como usá-lo ou executá-lo      | Como uma biblioteca do Python (2,7 e 3,5), pacote R e ferramenta de linha de comando no caminho ( `C:\dsvm\tools\xgboost\bin\xgboost.exe` para Windows e `/dsvm/tools/xgboost/xgboost` para Linux)    |
@@ -113,5 +112,3 @@ Há várias outras bibliotecas de aprendizado de máquina em DSVMs, como o pacot
 | Usos típicos      |  Para a exploração de dados in-loco sem a necessidade de extração, transformação, carregamento (ETL). Consulte diferentes fontes de dados e formatos, incluindo CSV, JSON, tabelas relacionais e Hadoop.     |
 | Como usá-lo e executá-lo      | Atalho da área de trabalho  <br/> [Introdução a Análise em 10 minutos](https://drill.apache.org/docs/drill-in-10-minutes/)  |
 | Ferramentas relacionadas no DSVM      |   Rattle, Weka, SQL Server Management Studio      |
-
-

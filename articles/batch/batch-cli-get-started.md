@@ -4,12 +4,12 @@ description: Obtenha uma introdução rápida dos comandos do Lote na CLI do Azu
 ms.topic: how-to
 ms.date: 07/24/2018
 ms.custom: H1Hack27Feb2017, devx-track-azurecli
-ms.openlocfilehash: 048dbad89893354ae78c03fc522f8ebeeb6a80f4
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: bee25d9b8985f1627a5cfc05bfb336b83be60f74
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87531670"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92144760"
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Gerenciar recursos do Lote com a CLI do Azure
 
@@ -79,7 +79,7 @@ Você tem duas opções para autenticação na sua conta do Lote:
     
     Quando você entra no Azure interativamente, conforme descrito na seção anterior, as credenciais são armazenadas em cache para que a CLI do Azure possa entrar na conta do Lote usando as mesmas credenciais. Se você entrar no Azure usando uma entidade de serviço, essas credenciais também serão usadas para entrar na sua conta do Lote.
 
-    Uma vantagem do Azure AD é que ele oferece RBAC (controle de acesso baseado em função). Com o RBAC, acesso de um usuário depende de suas funções atribuídas em vez da posse ou não de chaves da conta. Em vez de gerenciar chaves de conta, você pode gerenciar funções do Azure e permitir que o Azure AD lide com o acesso e a autenticação.  
+    Uma vantagem do Azure AD é que ele oferece o Azure RBAC (controle de acesso baseado em função). Com o RBAC do Azure, o acesso de um usuário depende de sua função atribuída, em vez de ter ou não as chaves de conta. Em vez de gerenciar chaves de conta, você pode gerenciar funções do Azure e permitir que o Azure AD lide com o acesso e a autenticação.  
 
      Para entrar na sua conta do Lote usando o Azure AD, chame o comando [az batch account login](/cli/azure/batch/account#az-batch-account-login): 
 
@@ -107,7 +107,7 @@ Instalando a extensão de CLI do Lote do Azure, você pode usar a CLI do Azure p
 
 ## <a name="script-examples"></a>Exemplos de script
 
-Consulte os [exemplos de script da CLI](cli-samples.md) para o Lote a fim de realizar tarefas comuns. Estes exemplos abordam muitos dos comandos disponíveis na CLI do Azure para o Lote para criar e gerenciar contas, pools, trabalhos e tarefas. 
+Consulte os [exemplos de script da CLI](./scripts/batch-cli-sample-create-account.md) para o Lote a fim de realizar tarefas comuns. Estes exemplos abordam muitos dos comandos disponíveis na CLI do Azure para o Lote para criar e gerenciar contas, pools, trabalhos e tarefas.
 
 ## <a name="json-files-for-resource-creation"></a>Arquivos JSON para a criação de recursos
 

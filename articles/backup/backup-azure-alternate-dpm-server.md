@@ -3,12 +3,12 @@ title: Recuperar dados de um Servidor de Backup do Azure
 description: Recupere os dados que você protegeu em um cofre dos Serviços de Recuperação de qualquer Servidor de Backup do Azure registrado nesse cofre.
 ms.topic: conceptual
 ms.date: 07/09/2019
-ms.openlocfilehash: 531de9226be05bf50f887cfd0410842dadb68178
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: ed8c937f97ec7a74662a8b46a354b0a6db39a2b0
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89012000"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98806014"
 ---
 # <a name="recover-data-from-azure-backup-server"></a>Recuperar dados do Servidor de Backup do Azure
 
@@ -21,7 +21,7 @@ Você pode usar o Servidor de Backup do Azure para recuperar os dados de que fez
 
 Para recuperar dados de um Servidor de Backup do Azure:
 
-1. Na guia **Recuperação** do console de gerenciamento do Servidor de Backup do Azure, clique em **“Adicionar DPM Externo”** (no canto superior esquerdo da tela).
+1. Na guia **recuperação** do console de gerenciamento do servidor de backup do Azure, selecione **' Adicionar DPM externo '** (na parte superior esquerda da tela).
 
     ![Adicionar DPM externo](./media/backup-azure-alternate-dpm-server/add-external-dpm.png)
 2. Baixe as novas **credenciais do cofre** no cofre associado ao **Servidor de Backup do Azure** cujos dados serão recuperados, escolha o Servidor de Backup do Azure na lista de Servidores de Backup do Azure registrados no cofre dos Serviços de Recuperação e forneça a **senha de criptografia** associada ao servidor cujos dados serão recuperados.
@@ -42,10 +42,10 @@ Para recuperar dados de um Servidor de Backup do Azure:
     Uma lista de arquivos e pastas será exibida no painel inferior, que pode ser pesquisado e recuperado em qualquer local.
 
     ![Pontos de recuperação de servidor DPM externo](./media/backup-azure-alternate-dpm-server/external-dpm-recoverypoint.png)
-5. Clique com o botão direito do mouse no item apropriado e clique em **recuperar**.
+5. Clique com o botão direito do mouse no item apropriado e selecione **recuperar**.
 
     ![Recuperação do DPM externo](./media/backup-azure-alternate-dpm-server/recover.png)
-6. Examine **Recuperar seleção**. Verifique a data e a hora da cópia de backup que está sendo recuperada, bem como a fonte da qual a cópia de backup foi criada. Se a seleção estiver incorreta, clique em **Cancelar** para voltar à guia de recuperação e selecionar o ponto de recuperação apropriado. Se a seleção estiver correta, clique em **Avançar**.
+6. Examine **Recuperar seleção**. Verifique a data e a hora da cópia de backup que está sendo recuperada, bem como a fonte da qual a cópia de backup foi criada. Se a seleção estiver incorreta, selecione **Cancelar** para navegar de volta para a guia recuperação para selecionar um ponto de recuperação apropriado. Se a seleção estiver correta, selecione **Avançar**.
 
     ![Resumo de recuperação do DPM externo](./media/backup-azure-alternate-dpm-server/external-dpm-recovery-summary.png)
 7. Selecione **Recuperar em um local alternativo**. **Navegue** até o local correto para a recuperação.
@@ -62,7 +62,7 @@ Para recuperar dados de um Servidor de Backup do Azure:
      Identifique se uma **Notificação** será enviada quando a recuperação for concluída com êxito.
 
      ![Notificações de recuperação do DPM externo](./media/backup-azure-alternate-dpm-server/external-dpm-recovery-notifications.png)
-9. A tela **Resumo** lista as opções escolhidas até agora. Após você clicar em **“Recuperar”**, os dados serão recuperados para o local adequado.
+9. A tela **Resumo** lista as opções escolhidas até agora. Depois de selecionar **recuperar**, os dados são recuperados para o local apropriado.
 
     ![Resumo de opções de recuperação do DPM externo](./media/backup-azure-alternate-dpm-server/external-dpm-recovery-options-summary.png)
 
@@ -72,7 +72,7 @@ Para recuperar dados de um Servidor de Backup do Azure:
    >
 
     ![Recuperação de monitoramento](./media/backup-azure-alternate-dpm-server/monitoring-recovery.png)
-10. Você pode clicar em **Limpar DPM Externo** na guia **Recuperação** do servidor DPM para remover o modo de exibição do servidor DPM externo.
+10. Você pode selecionar **limpar DPM externo** na guia **recuperação** do servidor DPM para remover a exibição do servidor DPM externo.
 
     ![Limpar o DPM externo](./media/backup-azure-alternate-dpm-server/clear-external-dpm.png)
 
@@ -89,5 +89,5 @@ Para recuperar dados de um Servidor de Backup do Azure:
 
 Leia as outras perguntas frequentes:
 
-* [Perguntas comuns](backup-azure-vm-backup-faq.md) sobre backups de VM do Azure
+* [Perguntas comuns](backup-azure-vm-backup-faq.yml) sobre backups de VM do Azure
 * [Perguntas comuns](backup-azure-file-folder-backup-faq.md) sobre o agente do Backup do Azure

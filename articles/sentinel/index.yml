@@ -12,12 +12,12 @@ metadata:
   author: yelevin
   ms.author: yelevin
   ms.date: 06/25/2020
-  ms.openlocfilehash: d4e86295020ab68c6769ac34d6259bd78cf9934e
-  ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
+  ms.openlocfilehash: da184f668a669fcd29639e557a8108214bad0302
+  ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 06/25/2020
-  ms.locfileid: "85374552"
+  ms.lasthandoff: 02/03/2021
+  ms.locfileid: "99491898"
 landingContent:
 - title: Sobre o Azure Sentinel
   linkLists:
@@ -25,6 +25,8 @@ landingContent:
     links:
     - text: O que é o Azure Sentinel?
       url: overview.md
+    - text: Novidades no Azure Sentinel
+      url: whats-new.md
 - title: Introdução
   linkLists:
   - linkListType: quickstart

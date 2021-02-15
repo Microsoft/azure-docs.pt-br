@@ -3,13 +3,13 @@ title: Cadência da aplicação de patch do sistema operacional e tempo de execu
 description: Saiba como Azure App serviço atualiza o sistema operacional e os tempos de execução, os tempos de execução e o nível de patch que seus aplicativos têm e como você pode obter comunicados de atualização.
 ms.topic: article
 ms.date: 02/02/2018
-ms.custom: seodec18
-ms.openlocfilehash: 831ba5f055b70e2f46cb8c6a941c0401df347dd5
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: 8b52223aea0f0bdfecf58906ac192e893da3b47d
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88961509"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558480"
 ---
 # <a name="os-and-runtime-patching-in-azure-app-service"></a>Aplicação de patch do sistema operacional e do runtime no Serviço de Aplicativo do Azure
 
@@ -51,7 +51,7 @@ As substituições e atualizações de runtime são anunciadas aqui:
 
 ### <a name="new-patch-updates"></a>Novas atualizações de patch
 
-As atualizações de patch para .NET, PHP, SDK do Java ou para a versão Tomcat/Jetty são aplicadas automaticamente, substituindo a instalação existente pela nova versão. As atualizações de patch do Node.js são instaladas lado a lado com as versões existentes (de modo semelhante às versões principais e secundárias na próxima seção). As novas versões de patch do Python podem ser instaladas manualmente por meio de [extensões do site](https://azure.microsoft.com/blog/azure-web-sites-extensions/), lado a lado com as instalações internas do Python.
+Atualizações de patch para .NET, PHP, SDK do Java ou versão do Tomcat são aplicadas automaticamente, substituindo a instalação existente pela versão mais recente. As atualizações de patch do Node.js são instaladas lado a lado com as versões existentes (de modo semelhante às versões principais e secundárias na próxima seção). As novas versões de patch do Python podem ser instaladas manualmente por meio de [extensões do site](https://azure.microsoft.com/blog/azure-web-sites-extensions/), lado a lado com as instalações internas do Python.
 
 ### <a name="new-major-and-minor-versions"></a>Novas versões principais e secundárias
 
@@ -75,7 +75,7 @@ Embora as informações críticas do sistema operacional tenham acesso bloqueado
 
 A tabela a seguir mostra como encontrar informações sobre as versões do Windows e do runtime da linguagem que está executando seus aplicativos:
 
-| Informações do | Onde encontrá-las | 
+| Informações | Onde encontrá-las | 
 |-|-|
 | Versão do Windows | Consulte `https://<appname>.scm.azurewebsites.net/Env.cshtml` (em Informações do Sistema) |
 | Versão do .NET | Em `https://<appname>.scm.azurewebsites.net/DebugConsole`, execute o seguinte comando no prompt de comando: <br>`reg query "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full"` |

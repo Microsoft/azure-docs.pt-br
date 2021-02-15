@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 2/28/2018
 ms.author: gwallace
 ms.openlocfilehash: f691eb6433907ed10737329de3edd78547f130f1
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258862"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008269"
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Introdução ao monitoramento da integridade do Service Fabric
 O Service Fabric do Azure introduz um modelo de integridade que fornece avaliação e relatório de integridade avançados, flexíveis e extensíveis. O modelo permite o monitoramento do estado quase em tempo real do cluster e dos serviços que são executados nele. Você pode obter as informações sobre integridade facilmente e corrigir possíveis problemas antes que eles se espalhem e causem interrupções massivas. No modelo comum, os serviços enviam relatórios com base na respectiva exibição local e as informações são agregadas para fornecer uma exibição geral no nível de cluster.
@@ -187,7 +187,7 @@ Os [relatórios de integridade](/dotnet/api/system.fabric.health.healthreport) d
 * **SourceID**. Uma cadeia de caracteres que identifica exclusivamente o relator do evento de integridade.
 * **Identificador de entidade**. Identifica a entidade na qual o relatório é aplicado. Varia de acordo com o [tipo de entidade](service-fabric-health-introduction.md#health-entities-and-hierarchy):
   
-  * Cluster. Nenhum.
+  * Cluster. nenhuma.
   * Nó. Nome do nó (cadeia de caracteres).
   * Console. Nome do aplicativo (URI). Representa o nome da instância do aplicativo implantado no cluster.
   * Serviço. Nome do serviço (URI). Representa o nome da instância do serviço implantado no cluster.
@@ -211,7 +211,7 @@ Os metadados adicionados contêm:
 
 * **SourceUtcTimestamp**. A hora que o relatório foi fornecido ao cliente de integridade (Coordinated Universal Time)
 * **LastModifiedUtcTimestamp**. A hora em que o relatório foi modificado pela última vez no lado do servidor (Coordinated Universal Time).
-* **IsExpired**. Um sinalizador para indicar se o relatório estava expirado no momento que a consulta foi executada pelo Repositório de Integridade. Um evento pode ter expirado somente se RemoveWhenExpired for false. Caso contrário, o evento não é retornado pela consulta e é removido do armazenamento.
+* **Isvenceu**. Um sinalizador para indicar se o relatório estava expirado no momento que a consulta foi executada pelo Repositório de Integridade. Um evento pode ter expirado somente se RemoveWhenExpired for false. Caso contrário, o evento não é retornado pela consulta e é removido do armazenamento.
 * **LastOkTransitionAt**, **LastWarningTransitionAt**, **LastErrorTransitionAt**. A última hora para transições OK/aviso/erro. Esses campos fornecem o histórico das transições de estado de integridade para o evento.
 
 Os campos de transição de estado podem ser usados para gerar alertas mais inteligentes ou informações “históricas” de evento de integridade. Eles permitem cenários como:

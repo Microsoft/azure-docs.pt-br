@@ -1,7 +1,7 @@
 ---
 title: Criar e gerenciar a política de grupo no Azure AD Domain Services | Microsoft Docs
 description: Saiba como editar os GPOs (objetos de diretiva de grupo) internos e criar suas próprias políticas personalizadas em um Azure Active Directory Domain Services domínio gerenciado.
-author: iainfoulds
+author: justinha
 manager: daveba
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
 ms.service: active-directory
@@ -9,13 +9,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
-ms.author: iainfou
-ms.openlocfilehash: d9738d3abfdf30e133ae241c497823be349d25da
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.author: justinha
+ms.openlocfilehash: f1f2499c49c4adf16b632bc75c246a28330ad27b
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86040071"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96619378"
 ---
 # <a name="administer-group-policy-in-an-azure-active-directory-domain-services-managed-domain"></a>Administrar Política de Grupo em um domínio Azure Active Directory Domain Services gerenciado
 
@@ -56,7 +56,7 @@ Para criar e configurar o objeto de Política de Grupo (GPOs), você precisa ins
 1. Na página **Antes de Você Começar** do *Assistente de Adição de Funções e Recursos*, selecione **Avançar**.
 1. Para o *Tipo de Instalação*, deixe a opção **Instalação baseada em função ou recurso** marcada e selecione **Avançar**.
 1. Na página **Seleção de Servidor**, escolha a VM atual no pool de servidores, como *myvm.aaddscontoso.com* e, em seguida, selecione **Avançar**.
-1. Na página **Funções do Servidor**, clique em **Próximo**.
+1. Na página **Funções do Servidor**, clique em **Avançar**.
 1. Na página **Recursos**, selecione o recurso **Gerenciamento de Política de Grupo**.
 
     ![Instalar o ' Gerenciamento de Política de Grupo ' na página de recursos](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-gp-management.png)
@@ -90,7 +90,7 @@ Há dois objetos de Política de Grupo internos (GPOs) em um domínio gerenciado
 
 1. A ferramenta Editor de Gerenciamento de Política de Grupo é aberta para permitir que você personalize o GPO, como *políticas de conta*:
 
-    ![Personalizar o GPO para definir as configurações conforme necessário](./media/active-directory-domain-services-admin-guide/gp-editor.png)
+    ![Captura de tela da Editor de Gerenciamento de Política de Grupo.](./media/active-directory-domain-services-admin-guide/gp-editor.png)
 
     Quando terminar, escolha **arquivo > salvar** para salvar a política. Os computadores atualizam Política de Grupo por padrão a cada 90 minutos e aplicam as alterações feitas.
 
@@ -102,7 +102,7 @@ Para agrupar configurações de política semelhantes, você geralmente cria GPO
 
     ![Criar um GPO personalizado no console de gerenciamento de Política de Grupo](./media/active-directory-domain-services-admin-guide/gp-create-gpo.png)
 
-1. Especifique um nome para o novo GPO, como *meu GPO personalizado*e, em seguida, selecione **OK**. Opcionalmente, você pode basear esse GPO personalizado em um GPO existente e no conjunto de opções de política.
+1. Especifique um nome para o novo GPO, como *meu GPO personalizado* e, em seguida, selecione **OK**. Opcionalmente, você pode basear esse GPO personalizado em um GPO existente e no conjunto de opções de política.
 
     ![Especifique um nome para o novo GPO personalizado](./media/active-directory-domain-services-admin-guide/gp-specify-gpo-name.png)
 

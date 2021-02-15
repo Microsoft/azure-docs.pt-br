@@ -1,19 +1,16 @@
 ---
 title: Apache Hadoop & armazenamento de transferência segura-Azure HDInsight
 description: Saiba como criar clusters HDInsight com contas de armazenamento do Azure com transferência segura habilitada.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 02/18/2020
-ms.openlocfilehash: 43abe6a827af668f2b756e5f00497fbfe1698413
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: a02da7237252811d89e2c19a29f49f0bf9bb3804
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86083229"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945726"
 ---
 # <a name="apache-hadoop-clusters-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>Apache Hadoop clusters com contas de armazenamento de transferência segura no Azure HDInsight
 
@@ -32,13 +29,13 @@ Para atualizar uma conta de armazenamento existente com portal do Azure, consult
 
 ### <a name="powershell"></a>PowerShell
 
-Para o cmdlet [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount)do PowerShell, verifique se o parâmetro `-EnableHttpsTrafficOnly` está definido como `1` .
+Para o cmdlet [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount)do PowerShell, verifique se o parâmetro `-EnableHttpsTrafficOnly` está definido como `1` .
 
 Para atualizar uma conta de armazenamento existente com o PowerShell, consulte [exigir transferência segura com o PowerShell](../storage/common/storage-require-secure-transfer.md#require-secure-transfer-with-powershell).
 
 ### <a name="azure-cli"></a>CLI do Azure
 
-Para o comando CLI do Azure [AZ Storage Account Create](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create), verifique se o parâmetro `--https-only` está definido como `true` .
+Para o comando CLI do Azure [AZ Storage Account Create](/cli/azure/storage/account#az-storage-account-create), verifique se o parâmetro `--https-only` está definido como `true` .
 
 Para atualizar uma conta de armazenamento existente com CLI do Azure, consulte [exigir transferência segura com CLI do Azure](../storage/common/storage-require-secure-transfer.md#require-secure-transfer-with-azure-cli).
 

@@ -8,26 +8,26 @@ ms.service: sql-database
 ms.subservice: development
 ms.topic: quickstart
 ms.devlang: java
-ms.date: 08/05/2020
-ms.custom: devx-track-java
-ms.openlocfilehash: 4269ac63b7c1af219d8158953abbc0919a2256b7
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.date: 06/26/2020
+ms.custom: devx-track-java, devx-track-azurecli
+ms.openlocfilehash: badf6b8887c356c2a7fc7308f6aa15f551e4bb67
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87833582"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95972667"
 ---
 # <a name="use-java-and-jdbc-with--azure-sql-database"></a>Usar o Java e o JDBC com o Banco de Dados SQL do Azure
 
-Este tópico demonstra como criar um aplicativo de exemplo que usa o Java e o [JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity) para armazenar e recuperar informações no [Banco de Dados SQL do Azure](https://docs.microsoft.com/azure/sql-database/).
+Este tópico demonstra como criar um aplicativo de exemplo que usa o Java e o [JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity) para armazenar e recuperar informações no [Banco de Dados SQL do Azure](/azure/sql-database/).
 
 O JDBC é a API Java padrão para se conectar a bancos de dados relacionais tradicionais.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma conta do Azure. Se você não tiver uma, [obtenha uma avaliação gratuita](https://azure.microsoft.com/free/).
-- [Azure Cloud Shell](/azure/cloud-shell/quickstart) ou [CLI do Azure](/cli/azure/install-azure-cli). É recomendável usar o Azure Cloud Shell para que o logon seja feito automaticamente e você tenha acesso a todas as ferramentas necessárias.
-- Um [Java Development Kit](https://aka.ms/azure-jdks) compatível, versão 8 (incluído no Azure Cloud Shell).
+- [Azure Cloud Shell](../../cloud-shell/quickstart.md) ou [CLI do Azure](/cli/azure/install-azure-cli). É recomendável usar o Azure Cloud Shell para que o logon seja feito automaticamente e você tenha acesso a todas as ferramentas necessárias.
+- Um [Java Development Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support) compatível, versão 8 (incluído no Azure Cloud Shell).
 - A ferramenta de build [Apache Maven](https://maven.apache.org/).
 
 ## <a name="prepare-the-working-environment"></a>Preparar o ambiente de trabalho
@@ -69,7 +69,7 @@ az group create \
 A primeira coisa que criaremos é um servidor gerenciado do Banco de Dados SQL do Azure.
 
 > [!NOTE]
-> Você pode ler informações mais detalhadas sobre como criar servidores do Banco de Dados SQL do Azure no [Início Rápido: Criar um banco de dados individual do Banco de Dados SQL do Azure](/azure/sql-database/sql-database-single-database-get-started).
+> Você pode ler informações mais detalhadas sobre como criar servidores do Banco de Dados SQL do Azure no [Início Rápido: Criar um banco de dados individual do Banco de Dados SQL do Azure](./single-database-create-quickstart.md).
 
 No [Azure Cloud Shell](https://shell.azure.com/), execute o seguinte comando:
 
@@ -137,7 +137,7 @@ Usando o seu IDE favorito, crie um projeto Java e adicione um arquivo `pom.xml` 
         <dependency>
             <groupId>com.microsoft.sqlserver</groupId>
             <artifactId>mssql-jdbc</artifactId>
-            <version>8.2.2.jre8</version>
+            <version>7.4.1.jre8</version>
         </dependency>
     </dependencies>
 </project>
@@ -498,4 +498,4 @@ az group delete \
 
 - [Criar seu primeiro banco de dados no Banco de Dados SQL do Azure](design-first-database-tutorial.md)  
 - [Microsoft JDBC Driver para SQL Server](https://github.com/microsoft/mssql-jdbc)  
-- [Relatar problemas/fazer perguntas](https://github.com/microsoft/mssql-jdbc/issues)  
+- [Relatar problemas/fazer perguntas](https://github.com/microsoft/mssql-jdbc/issues)

@@ -9,10 +9,10 @@ ms.date: 05/11/2020
 ms.author: egeaney
 ms.custom: include
 ms.openlocfilehash: 409f8d602432f0ed0363e45790c47497450c5e6c
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84307787"
 ---
 ### <a name="regional-availability"></a>Disponibilidade regional

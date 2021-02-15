@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/24/2020
 ms.author: allensu
 ms.openlocfilehash: 5010dc08b695a0376ace5dde935c63caf0c39633
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84711401"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012061"
 ---
 # <a name="tutorial-create-a-nat-gateway-using-the-azure-portal"></a>Tutorial: Criar um gateway da NAT usando o portal do Azure
 

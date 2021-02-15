@@ -9,7 +9,7 @@
       href: rbac-and-directory-admin-roles.md
 - name: Inícios rápidos
   items:
-    - name: Ver o acesso de um usuário
+    - name: Verificar o acesso de um usuário
       href: check-access.md
     - name: Modelo de ARM
       displayName: Resource Manager
@@ -26,13 +26,12 @@
       href: tutorial-custom-role-powershell.md
     - name: Criar uma função personalizada - CLI
       href: tutorial-custom-role-cli.md
-- name: Exemplos
-  items:
-    - name: Itens internos do Azure Policy
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: Conceitos
   items:
+    - name: Definições de função
+      href: role-definitions.md
+    - name: Escopo
+      href: scope-overview.md
     - name: Práticas recomendadas
       href: best-practices.md
     - name: Acesso condicional para o gerenciamento do Azure
@@ -45,11 +44,7 @@
 - name: Guias de instruções
   items:
     - name: Lista de definições de função
-      items:
-        - name: Visão geral
-          href: role-definitions.md
-        - name: Lista de definições de função
-          href: role-definitions-list.md
+      href: role-definitions-list.md
     - name: Listar atribuições de função
       items:
         - name: Portal
@@ -62,10 +57,18 @@
           href: role-assignments-list-rest.md
     - name: Adicionar ou remover atribuições de função
       items:
+        - name: Etapas para adicionar uma atribuição de função
+          href: role-assignments-steps.md
         - name: Portal
-          href: role-assignments-portal.md
-        - name: Portal – usuários convidados
-          href: role-assignments-external-users.md
+          items:
+            - name: Adicionar ou remover atribuições de função
+              href: role-assignments-portal.md
+            - name: Administrador da assinatura
+              href: role-assignments-portal-subscription-admin.md
+            - name: Identidade gerenciada
+              href: role-assignments-portal-managed-identity.md
+            - name: Usuários convidados externos
+              href: role-assignments-external-users.md
         - name: PowerShell
           href: role-assignments-powershell.md
         - name: CLI do Azure
@@ -85,7 +88,7 @@
           href: deny-assignments-powershell.md
         - name: API REST
           href: deny-assignments-rest.md
-    - name: Criar ou atualizar funções personalizadas
+    - name: Criar funções personalizadas
       items:
         - name: Visão geral
           href: custom-roles.md
@@ -106,7 +109,7 @@
       href: elevate-access-global-admin.md
     - name: Administradores clássicos
       href: classic-administrators.md
-    - name: Transferir assinatura para um diretório diferente (versão prévia)
+    - name: Transferir assinatura para um diretório diferente
       href: transfer-subscription.md
     - name: Solucionar problemas
       href: troubleshooting.md
@@ -117,7 +120,7 @@
     - name: Operações de provedor de recursos
       href: resource-provider-operations.md
     - name: Limites do Azure RBAC
-      href: ../azure-resource-manager/management/azure-subscription-service-limits.md#role-based-access-control-limits
+      href: ../azure-resource-manager/management/azure-subscription-service-limits.md#azure-role-based-access-control-limits
     - name: Azure PowerShell
       href: /powershell/module/az.resources
     - name: CLI do Azure
@@ -131,6 +134,9 @@
           href: /azure/templates/microsoft.authorization/roleassignments
         - name: Definições de Funções
           href: /azure/templates/microsoft.authorization/roledefinitions
+    - name: Itens internos do Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Recursos
   items:
     - name: Desenvolva suas habilidades com o Microsoft Learn

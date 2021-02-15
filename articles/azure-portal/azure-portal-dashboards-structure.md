@@ -1,30 +1,21 @@
 ---
-title: A estrutura de Painéis do Azure | Microsoft Docs
+title: A estrutura de Painéis do Azure
 description: Percorra a estrutura JSON de um painel do Azure usando um painel de exemplo. Inclui referência a propriedades de recurso.
-services: azure-portal
-documentationcenter: ''
-author: adamabmsft
-manager: mtillman
-ms.service: azure-portal
-ms.devlang: NA
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: na
 ms.date: 12/20/2019
-ms.author: mblythe
-ms.openlocfilehash: ad0d3a1bf2c293039df3bba3aa18da7d6e7dd0a5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d37e2fd9c9f6ef6e7ddea6dea002f26f20cd66a7
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81459212"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745954"
 ---
 # <a name="the-structure-of-azure-dashboards"></a>A estrutura de Painéis do Azure
 Este documento explica a estrutura de um painel do Azure, usando o painel a seguir como exemplo:
 
 ![painel de amostra](./media/azure-portal-dashboards-structure/sample-dashboard.png)
 
-Como os [painéis compartilhados do Azure são recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), este painel pode ser representado como JSON.  O JSON a seguir representa o painel visualizado acima.
+Como os [painéis compartilhados do Azure são recursos](../azure-resource-manager/management/overview.md), este painel pode ser representado como JSON.  O JSON a seguir representa o painel visualizado acima.
 
 ```json
 
@@ -303,7 +294,7 @@ O nome é o segmento da ID do recurso que não inclui a assinatura, o tipo de re
 Todos os painéis são do tipo __Microsoft.Portal/dashboards__.
 
 ### <a name="the-location-property"></a>A propriedade location
-Ao contrário de outros recursos, os painéis não têm um componente de runtime.  Para os painéis, o local indica a localização geográfica principal que armazena a representação JSON do painel. O valor deve ser um dos códigos de local que podem ser buscados usando a [API de locais no recurso de assinaturas](https://docs.microsoft.com/rest/api/resources/subscriptions).
+Ao contrário de outros recursos, os painéis não têm um componente de runtime.  Para os painéis, o local indica a localização geográfica principal que armazena a representação JSON do painel. O valor deve ser um dos códigos de local que podem ser buscados usando a [API de locais no recurso de assinaturas](/rest/api/resources/subscriptions).
 
 ### <a name="the-tags-property"></a>A propriedade tags
 Marcas são um recurso comum de recursos do Azure que lhe permitem organizar seus recursos por pares de valor de nome arbitrário. Para os painéis, há uma marca especial chamada __título oculto__. Se seu painel tem essa propriedade preenchida, ele é usado como o nome de exibição para o painel no portal. As IDs de recurso do Azure não podem ser renomeadas, mas as marcas podem. Esta marca dá uma maneira de ter um nome de exibição renomeável para seu painel.
@@ -329,7 +320,7 @@ A propriedade __position__ contém as informações de tamanho e local para a pa
 
 `location: { x: 0, y: 0, rowSpan: 2, colSpan: 1 }`
 
-![unidades de grade](./media/azure-portal-dashboards-structure/grid-units.png)
+![Captura de tela mostra um fechamento da grade, com uma unidade de grade quadrada realçada.](./media/azure-portal-dashboards-structure/grid-units.png)
 
 ### <a name="the-metadata-object"></a>O objeto metadata
 Cada parte tem uma propriedade de metadados, um objeto tem apenas uma propriedade necessária chamada __type__. Essa cadeia de caracteres informa o portal qual bloco mostrar. Nosso painel de exemplo usa esses tipos de blocos:

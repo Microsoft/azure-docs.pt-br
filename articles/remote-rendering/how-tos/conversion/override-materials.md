@@ -5,25 +5,25 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/13/2020
 ms.topic: how-to
-ms.openlocfilehash: 2e9cb216c100f1732230a90572284bd3f8462584
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 11bd79a1bc88d2605a20744f5a6b6536d754c100
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87433140"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91576635"
 ---
 # <a name="override-materials-during-model-conversion"></a>Substituir materiais durante a conversão de modelo
 
 As configurações de material no modelo de origem são usadas para definir os [materiais de PBR](../../overview/features/pbr-materials.md) usados pelo renderizador.
 Às vezes, a [conversão padrão](../../reference/material-mapping.md) não fornece os resultados desejados e você precisa fazer alterações.
 Quando um modelo é convertido para uso na renderização remota do Azure, você pode fornecer um arquivo de substituição de material para personalizar como a conversão de material é feita em uma base por material.
-A seção sobre como [Configurar a conversão de modelo](configure-model-conversion.md) tem instruções para declarar o nome de arquivo de substituição de material.
+Se um arquivo chamado `<modelName>.MaterialOverrides.json` for encontrado no contêiner de entrada ao lado do modelo de entrada `<modelName>.<ext>` , ele será usado como o arquivo de substituição de material.
 
 ## <a name="the-override-file-used-during-conversion"></a>O arquivo de substituição usado durante a conversão
 
 Como um exemplo simples, digamos que um modelo de caixa tenha um único material, chamado "default".
 Além disso, digamos que sua cor de albedo precise ser ajustada para uso no ARR.
-Nesse caso, um `box_materials_override.json` arquivo pode ser criado da seguinte maneira:
+Nesse caso, um `box.MaterialOverrides.json` arquivo pode ser criado da seguinte maneira:
 
 ```json
 [
@@ -39,15 +39,7 @@ Nesse caso, um `box_materials_override.json` arquivo pode ser criado da seguinte
 ]
 ```
 
-O `box_materials_override.json` arquivo é colocado no contêiner de entrada e um `box.ConversionSettings.json` é adicionado ao lado `box.fbx` , que informa à conversão onde encontrar o arquivo de substituição (Confira [Configurando a conversão do modelo](configure-model-conversion.md)):
-
-```json
-{
-    "material-override" : "box_materials_override.json"
-}
-```
-
-Quando o modelo for convertido, as novas configurações serão aplicadas.
+O `box.MaterialOverrides.json` arquivo é colocado no contêiner de entrada ao lado `box.fbx` , que diz ao serviço de conversão para aplicar as novas configurações.
 
 ### <a name="color-materials"></a>Materiais de cores
 
@@ -84,6 +76,36 @@ O princípio é simples. Basta adicionar uma propriedade chamada `ignoreTextureM
 ```
 
 Para obter a lista completa de mapas de textura que você pode ignorar, consulte o esquema JSON abaixo.
+
+### <a name="applying-the-same-overrides-to-multiple-materials"></a>Aplicando as mesmas substituições a vários materiais
+
+Por padrão, uma entrada no arquivo de substituições de material se aplica quando seu nome corresponde exatamente ao nome do material.
+Como é muito comum que a mesma substituição deva ser aplicada a vários materiais, você pode, opcionalmente, fornecer uma expressão regular como o nome da entrada.
+O campo `nameMatching` tem um valor padrão `exact` , mas pode ser definido como `regex` para declarar que a entrada deve ser aplicada a cada material correspondente.
+A sintaxe usada é a mesma usada para JavaScript. O exemplo a seguir mostra uma substituição que se aplica a materiais com nomes como "Material2", "Material01" e "Material999".
+
+```json
+[
+    {
+        "name": "Material[0-9]+",
+        "nameMatching": "regex",
+        "albedoColor": {
+            "r": 0.0,
+            "g": 0.0,
+            "b": 1.0,
+            "a": 1.0
+        }
+    }
+]
+```
+
+No máximo uma entrada em um arquivo de substituição de material se aplica a um único material.
+Se houver uma correspondência exata (ou seja, `nameMatching` estiver ausente ou igual `exact` a) para o nome do material, essa entrada será escolhida.
+Caso contrário, a primeira entrada Regex no arquivo que corresponde ao nome do material será escolhida.
+
+### <a name="getting-information-about-which-entries-applied"></a>Obtendo informações sobre quais entradas são aplicadas
+
+O [arquivo de informações](get-information.md#information-about-a-converted-model-the-info-file) gravado no contêiner de saída contém informações sobre o número de substituições fornecidas e o número de materiais que foram substituídos.
 
 ## <a name="json-schema"></a>JSON schema
 
@@ -154,6 +176,7 @@ O esquema JSON completo para arquivos de materiais é fornecido aqui. Com exceç
         "properties":
         {
             "name": { "type" : "string"},
+            "nameMatching" : { "type" : "string", "enum" : ["exact", "regex"] },
             "unlit": { "type" : "boolean" },
             "albedoColor": { "$ref": "#/definitions/colorOrAlpha" },
             "roughness": { "type": "number" },

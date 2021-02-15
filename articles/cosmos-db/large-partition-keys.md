@@ -3,18 +3,20 @@ title: Criar contêineres Cosmos do Azure com chave de partição grande
 description: Saiba como criar um contêiner em Azure Cosmos DB com chave de partição grande usando portal do Azure e SDKs diferentes.
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 09/28/2019
 ms.author: mjbrown
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 59781f9b86764d0982e1612f9671e8f0919ed490
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 4ad26d63ca06f5a46a4a1f77d329d04896e96c52
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89009501"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339284"
 ---
 # <a name="create-containers-with-large-partition-key"></a>Criar contêineres com chave de partição grande
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Azure Cosmos DB usa o esquema de particionamento baseado em hash para atingir o dimensionamento horizontal dos dados. Todos os contêineres de Cosmos do Azure criados antes de maio de 3 2019 usam uma função de hash que computa o hash com base nos primeiros 100 bytes da chave de partição. Se houver várias chaves de partição que tenham os mesmos primeiros 100 bytes, essas partições lógicas serão consideradas como a mesma partição lógica pelo serviço. Isso pode levar a problemas, como a cota de tamanho da partição sendo incorreta e a aplicação de índices exclusivos nas chaves de partição. Chaves de partição grandes são introduzidas para resolver esse problema. O Azure Cosmos DB agora dá suporte a chaves de partição grandes com valores de até 2 KB.
 
@@ -83,4 +85,4 @@ No momento, você não pode usar contêineres com chave de partição grande den
 * [Particionamento no Azure Cosmos DB](partitioning-overview.md)
 * [Unidades de Solicitação no Azure Cosmos DB](request-units.md)
 * [Provisionar a taxa de transferência para contêineres e bancos de dados](set-throughput.md)
-* [Como trabalhar com a conta do Azure Cosmos](account-overview.md)
+* [Como trabalhar com a conta do Azure Cosmos](./account-databases-containers-items.md)

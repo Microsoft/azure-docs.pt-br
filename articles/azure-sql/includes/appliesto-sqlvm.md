@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 06fccd410f3edf5dbd63fa9959aad2d65a626a0d
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: e74b48ca526d977da33dcdccae84491213856079
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86503771"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "90533279"
 ---
-<Token>**APLICA-SE A:** ![sim](../media/applies-to/yes.png)SQL Server na VM do Azure </Token> 
+<Token>**APLICA-SE A:** :::image type="icon" source="../media/applies-to/yes.png" border="false":::SQL Server na VM do Azure </Token> 
 

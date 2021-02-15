@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: cceb0a98cc35a41d1d46b798c9caf08fae2e3748
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 8b49e3594754e8eed38e3b1ef44648bc065558b8
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88543084"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97608351"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skillport"></a>Tutorial: integração do Azure Active Directory com o Skillport
 
@@ -27,7 +27,7 @@ A integração do Skillport ao Azure AD oferece os seguintes benefícios:
 * Você pode permitir que seus usuários entrem automaticamente no Skillport (logon único) com suas contas do Azure AD.
 * Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](../manage-apps/what-is-single-sign-on.md).
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Prerequisites
@@ -101,23 +101,23 @@ Para configurar o logon único do Azure AD com o Skillport, execute as seguintes
 
     ![Informações de logon único de Domínio e URLs do Skillport](common/sp-identifier-reply.png)
 
-    a. Na caixa de texto **URL de Logon**, digite a URL:
+    1. Na caixa de texto **URL de Logon**, digite a URL: 
 
-    Datacenter da UE: `https://adfs.skillport.eu`
+        Datacenter da UE: `https://adfs.skillport.eu`
 
-    Datacenter dos EUA: `https://sso.skillport.com`
+        Datacenter dos EUA: `https://sso.skillport.com`
 
-    b. Na caixa **Identificador**, digite a URL:
+    1. Na caixa **Identificador**, digite a URL: 
 
-    Datacenter da UE: `http://adfs.skillport.eu/adfs/services/trust`
+        Datacenter da UE: `http://adfs.skillport.eu/adfs/services/trust`
 
-    Datacenter dos EUA: `https://sso.skillport.com`
+        Datacenter dos EUA: `https://sso.skillport.com`
 
-    c. Na caixa de texto **URL de Resposta**, digite a URL:
+    1. Na caixa de texto **URL de Resposta**, digite a URL: 
 
-    Datacenter da UE: `https://adfs.skillport.eu/adfs/ls/`
+        Datacenter da UE: `https://adfs.skillport.eu/adfs/ls/`
 
-      Datacenter dos EUA: `https://sso.skillport.com/sp/ACS.saml2`
+        Datacenter dos EUA: `https://sso.skillport.com/sp/ACS.saml2`
 
 5. Na página **Configurar Logon Único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Baixar** para baixar o **XML de Metadados de Federação** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
@@ -196,13 +196,12 @@ Para criar um usuário de teste do Skillport, você precisa entrar em contato co
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Ao clicar no bloco do Skillport no Painel de Acesso, você deverá ser conectado automaticamente ao Skillport no qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao clicar no bloco do Skillport no Painel de Acesso, você deverá ser conectado automaticamente ao Skillport no qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](./tutorial-list.md)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)

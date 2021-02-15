@@ -10,15 +10,20 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 857195e0befb95035572b5b52a01d151b332518e
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.custom: devx-track-js
+ms.openlocfilehash: ca3f9da681c60608b5b196b17191f0b4d549f305
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87406343"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96338360"
 ---
 # <a name="configure-your-hosted-ui-experience"></a>Configurar a experiência de interface do usuário hospedada
+
+> [!WARNING]
+> As APIs de Pesquisa do Bing estão migrando dos Serviços Cognitivos para os Serviços de Pesquisa do Bing. A partir de **30 de outubro de 2020**, todas as novas instâncias da Pesquisa do Bing precisam ser provisionadas seguindo o processo documentado [aqui](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> As APIs de Pesquisa do Bing provisionadas por meio dos Serviços Cognitivos terão suporte nos próximos três anos ou até o final do seu Contrato Enterprise, o que ocorrer primeiro.
+> Para obter instruções sobre a migração, confira [Serviços de Pesquisa do Bing](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 A Pesquisa Personalizada do Bing oferece uma interface de usuário hospedada que pode ser facilmente integrada aos seus aplicativos e páginas da Web como um snippet de código JavaScript. Usando o portal de Pesquisa Personalizada do Bing, configure o layout, a cor e as opções de pesquisa da interface do usuário.
 
@@ -49,7 +54,7 @@ Para configurar uma interface do usuário hospedada para os aplicativos Web, sig
 
 6. Em **Configurações adicionais**, forneça os valores conforme apropriado para o seu aplicativo. Essas configurações são opcionais. Para ver o efeito da aplicação ou remoção delas, veja o painel de visualização à direita. Há três opções de configuração disponíveis:  
 
-7. Insira a chave de assinatura da pesquisa ou escolha uma na lista suspensa. A lista suspensa é preenchida com chaves de assinaturas da sua conta do Azure. Confira [Conta da API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).  
+7. Insira a chave de assinatura da pesquisa ou escolha uma na lista suspensa. A lista suspensa é preenchida com chaves de assinaturas da sua conta do Azure. Confira [Conta da API dos Serviços Cognitivos](../cognitive-services-apis-create-account.md).  
 
 8. Se você habilitou a sugestão automática, insira a chave de assinatura de sugestão automática ou escolha uma na lista suspensa. A lista suspensa é preenchida com chaves de assinaturas da sua conta do Azure. A Sugestão Automática Personalizada exige um preço de assinatura específico, consulte o [preço](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/).
 
@@ -77,7 +82,7 @@ Para consumir a interface de usuário hospedada:
   `https://ui.customsearch.ai/hosted?customConfig=YOUR-CUSTOM-CONFIG-ID`  
   
   > [!NOTE]
-  > Adicione os seguintes parâmetros de consulta à URL conforme necessário. Para obter informações sobre esses parâmetros, consulte a referência [API de Pesquisa Personalizada](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters).
+  > Adicione os seguintes parâmetros de consulta à URL conforme necessário. Para obter informações sobre esses parâmetros, consulte a referência [API de Pesquisa Personalizada](/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters).
   >
   > - q
   > - mkt
@@ -91,7 +96,7 @@ Para obter informações adicionais, incluindo a ID de Configuração Personaliz
 
 ## <a name="configuration-options"></a>Opções de configuração
 
-Configure o comportamento de sua interface do usuário hospedada ao clicar em **Configurações adicionais**e fornecer os valores. Essas configurações são opcionais. Para ver o efeito da aplicação ou remoção delas, veja o painel de visualização à direita. 
+Configure o comportamento de sua interface do usuário hospedada ao clicar em **Configurações adicionais** e fornecer os valores. Essas configurações são opcionais. Para ver o efeito da aplicação ou remoção delas, veja o painel de visualização à direita. 
 
 ### <a name="web-search-configurations"></a>Configurações de pesquisa da Web
 
@@ -130,12 +135,12 @@ A configuração a seguir será mostrada se você clicar em **Mostrar configura�
 
 As configurações a seguir serão mostradas se você clicar em **Mostrar configurações avançadas**.  
 
-|Coluna1  |Coluna2  |
+|Column1  |Column2  |
 |---------|---------|
 |Espaço reservado para texto de caixa de pesquisa   | Texto exibido na caixa de pesquisa antes da entrada.        |
 |URL do link de título    |Destino para o link do título.         |
 |URL do logotipo     | Imagem exibida ao lado do título.         |
-|Ícone favorito    | Ícone exibido na barra de título do navegador.          |
+|Favicon    | Ícone exibido na barra de título do navegador.          |
 
 As configurações a seguir serão aplicáveis somente se você consumir a interface do usuário hospedada pelo ponto de extremidade HTML (não serão aplicáveis se você usar o snippet de JavaScript).
 
@@ -148,4 +153,4 @@ As configurações a seguir serão aplicáveis somente se você consumir a inter
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Usar marcadores de decoração para realçar texto](../bing-web-search/hit-highlighting.md)
-- [Paginar páginas da Web](./page-webpages.md)
+- [Paginar páginas da Web](../bing-web-search/paging-search-results.md)

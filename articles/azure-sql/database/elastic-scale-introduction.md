@@ -9,12 +9,12 @@ ms.custom: sqldbrb=1
 author: stevestein
 ms.author: sstein
 ms.date: 01/25/2019
-ms.openlocfilehash: 1ec9884dbb8c3d02caaa7d8621905a32e7b1e36a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3f00b2c1a8a8264267aa8ae68d80890adeb642ea
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84034677"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98059102"
 ---
 # <a name="scaling-out-with-azure-sql-database"></a>Escalando horizontalmente com o Banco de Dados SQL do Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -23,9 +23,9 @@ Você pode expandir facilmente os bancos de dados no banco de dados SQL do Azure
 
 * [Biblioteca de cliente do Banco de Dados Elástico](elastic-database-client-library.md): a biblioteca de cliente é um recurso que permite criar e manter bancos de dados fragmentados.  Consulte [Introdução às ferramentas do Banco de Dados Elástico](elastic-scale-get-started.md).
 * [Ferramenta de mesclagem/divisão do Banco de Dados Elástico](elastic-scale-overview-split-and-merge.md): move dados entre bancos de dados fragmentados. Essa ferramenta é útil para mover dados de um banco de dados multilocatário para um banco de dados de locatário único (ou vice-versa). Consulte [Tutorial de ferramenta da Divisão de Mesclagem do Banco de Dados Elástico](elastic-scale-configure-deploy-split-and-merge.md).
-* [Trabalhos de banco de dados elástico](elastic-jobs-overview.md): Use trabalhos para gerenciar um grande número de bancos de dados no banco de dados SQL do Azure. Execute operações administrativas facilmente, como alterações de esquema, gerenciamento de credenciais, atualizações de dados de referência, desempenho de coleta de dados ou coleção de telemetria do locatário (cliente), usando trabalhos.
+* [Trabalhos de banco de dados elástico](elastic-jobs-overview.md) (versão prévia): Use trabalhos para gerenciar um grande número de bancos de dados no Azure SQL Database. Execute operações administrativas facilmente, como alterações de esquema, gerenciamento de credenciais, atualizações de dados de referência, desempenho de coleta de dados ou coleção de telemetria do locatário (cliente), usando trabalhos.
 * [Consulta do Banco de Dados Elástico](elastic-query-overview.md) (visualização): permite executar uma consulta Transact-SQL que abranja vários bancos de dados. Isso permite a conexão com ferramentas de relatório, como Excel, Power BI, Tableau, etc.
-* [Transações elásticas](elastic-transactions-overview.md): esse recurso permite que você execute transações que abrangem vários bancos de dados. As transações de banco de dados elástico estão disponíveis para aplicativos .NET usando ADO .NET e se integram à experiência de programação conhecida usando as [classes System.Transaction](https://msdn.microsoft.com/library/system.transactions.aspx).
+* [Transações elásticas](elastic-transactions-overview.md): esse recurso permite que você execute transações que abrangem vários bancos de dados. As transações de banco de dados elástico estão disponíveis para aplicativos .NET usando ADO .NET e se integram à experiência de programação conhecida usando as [classes System.Transaction](/dotnet/api/system.transactions).
 
 O gráfico a seguir mostra uma arquitetura que inclui os **recursos do Banco de Dados Elástico** em relação a uma coleção de bancos de dados.
 
@@ -67,7 +67,7 @@ A maioria dos aplicativos de banco de dados de escala de nuvem usa uma combinaç
 
 ## <a name="sharding"></a>Fragmentação
 
-*Fragmentação* é uma técnica para distribuir grandes quantidades de dados estruturados de forma idêntica entre vários bancos de dados independentes. É especialmente popular com desenvolvedores de nuvem que estão criando ofertas de SaaS (software como serviço) para clientes finais ou empresas. Esses clientes finais costumam ser chamados de "locatários". Fragmentação pode ser necessária por vários motivos:  
+A *fragmentação* é uma técnica para distribuir grandes quantidades de dados estruturados de forma idêntica entre vários bancos de dado independentes. É especialmente popular com desenvolvedores de nuvem que estão criando ofertas de SaaS (software como serviço) para clientes finais ou empresas. Esses clientes finais costumam ser chamados de "locatários". Fragmentação pode ser necessária por vários motivos:  
 
 * A quantidade total de dados é muito grande para caber dentro das restrições de um banco de dados individual
 * A taxa de transferência de transação da carga de trabalho geral excede as capacidades de um banco de dados individual
@@ -104,4 +104,3 @@ Para ver os detalhes do pool elástico, confira [Considerações de preço e des
 [2]:./media/elastic-scale-introduction/h_versus_vert.png
 [3]:./media/elastic-scale-introduction/overview.png
 [4]:./media/elastic-scale-introduction/single_v_multi_tenant.png
-

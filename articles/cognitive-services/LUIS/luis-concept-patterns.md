@@ -3,20 +3,18 @@ title: Previsão de ajuda de padrões-LUIS
 titleSuffix: Azure Cognitive Services
 description: Um padrão permite que você alcance maior precisão para uma intenção sem fornecer muitos enunciados a mais.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/11/2019
-ms.author: diberry
-ms.openlocfilehash: 1ecdbaa28cad633817497f4af2091b9e38ba7db2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: cda71c6e825ff27ba9b03e1306ccb287663e8613
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538047"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025950"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Padrões aumentam a precisão da previsão
 Os padrões são definidos para aumentar a precisão quando várias expressões são muito similares.  Um padrão permite que você alcance maior precisão para uma intenção sem fornecer muitos enunciados a mais.
@@ -50,7 +48,7 @@ Um padrão destina-se principalmente a ajudar a previsão de intenções e funç
 Não espere ver melhorias na previsão de entidade se você recolher várias declarações em um único padrão. Para que as entidades simples sejam acionadas, você precisa adicionar declarações ou usar entidades de lista caso contrário, o padrão não será acionado.
 
 ## <a name="patterns-use-entity-roles"></a>Os padrões usam funções de entidades
-Se duas ou mais entidades em um padrão estiverem relacionadas contextualmente, os padrões usarão as [funções](luis-concept-roles.md) da entidade para extrair informações contextuais sobre as entidades.
+Se duas ou mais entidades em um padrão estiverem relacionadas contextualmente, os padrões usarão as [funções](./luis-concept-entity-types.md) da entidade para extrair informações contextuais sobre as entidades.
 
 ## <a name="prediction-scores-with-and-without-patterns"></a>Pontuação da previsão com e sem padrões
 Dadas expressões de exemplo suficientes, LUIS poderá aumentar a confiabilidade da previsão sem os padrões. Os padrões de aumentam a pontuação de confiabilidade sem ter que fornecer tantas expressões.

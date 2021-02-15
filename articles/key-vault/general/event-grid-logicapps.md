@@ -10,25 +10,25 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 11/11/2019
 ms.author: mbaldwin
-ms.openlocfilehash: c0121c42c5d498aa79109c874981b9de0f8f4b7c
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 9c522d870a25b3df34ab6a0cf1c1e944a6462685
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88588867"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013982"
 ---
 # <a name="use-logic-apps-to-receive-email-about-status-changes-of-key-vault-secrets"></a>Usar Aplicativos Lógicos para receber email sobre alterações de status de segredos do Key Vault
 
 Neste guia, você aprenderá a responder a eventos do Azure Key Vault que são recebidos por meio da [Grade de Eventos do Azure](../../event-grid/index.yml) usando os [Aplicativos Lógicos do Azure](../../logic-apps/index.yml). No final, você terá um Aplicativo Lógico do Azure configurado para enviar um email de notificação sempre que um segredo é criado no Azure Key Vault.
 
-Para obter uma visão geral da integração do Azure Key Vault/Grade de Eventos do Azure, confira [Monitoramento do Key Vault com a Grade de Eventos do Azure (versão prévia)](event-grid-overview.md).
+Para obter uma visão geral da integração entre o Azure Key Vault e a Grade de Eventos do Azure, confira [Monitoramento do Key Vault com a Grade de Eventos do Azure](event-grid-overview.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma conta de email de qualquer provedor de email com suporte pelos Aplicativos Lógicos do Azure Apps (como Office 365 Outlook). Essa conta de email é usada para enviar as notificações de eventos. Para obter uma lista completa de conectores de Aplicativos Lógicos com suporte, consulte a [Visão geral dos conectores](/connectors)
 - Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 - Um cofre de chaves na assinatura do Azure. Você pode criar rapidamente um novo cofre de chaves seguindo as etapas em [Definir e recuperar um segredo do Azure Key Vault usando a CLI do Azure](../secrets/quick-create-cli.md).
-- A Grade de Eventos registrada como um provedor de recursos, confira [Registros de provedores de recursos](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types)
+- A Grade de Eventos registrada como um provedor de recursos, confira [Registros de provedores de recursos](../../azure-resource-manager/management/resource-providers-and-types.md)
 
 ## <a name="create-a-logic-app-via-event-grid"></a>Criar um aplicativo lógico por meio da Grade de Eventos
 
@@ -56,7 +56,7 @@ Para criar uma assinatura da Grade de Eventos do Azure, siga as etapas a seguir:
 1. Pesquisar por **Email**. Com base no seu provedor de email, localize e selecione o conector correspondente. Este tutorial usa o **Office 365 Outlook**. As etapas para outros provedores de email são semelhantes.
 1. Selecione a ação **Enviar um email (V2)**.
 
-   ![Designer do Aplicativo Lógico - adicionar um email](../media/eventgrid-logicappdesigner3.png)
+   ![Designer de Aplicativo Lógico – enviar email](../media/eventgrid-logicappdesigner3.png)
 
 1. Compile seu modelo de email:
     - **Para:** insira o endereço de email para receber os emails de notificação. Para este tutorial, use uma conta de email que você possa acessar para testes.
@@ -64,18 +64,18 @@ Para criar uma assinatura da Grade de Eventos do Azure, siga as etapas a seguir:
 
     Seu modelo de email poderá ser semelhante a este exemplo.
 
-    ![Designer do Aplicativo Lógico - adicionar um email](../media/eventgrid-logicappdesigner4.png)
+    ![Designer de Aplicativo Lógico – corpo do email](../media/eventgrid-logicappdesigner4.png)
 
 8. Clique em **Salvar como**.
 9. Insira um **nome** para o novo aplicativo lógico e clique em **Criar**.
     
-    ![Designer do Aplicativo Lógico - adicionar um email](../media/eventgrid-logicappdesigner5.png)
+    ![Designer de Aplicativo Lógico – criar](../media/eventgrid-logicappdesigner5.png)
 
 ## <a name="test-and-verify"></a>Testar e verificar
 
 1.  Vá para o cofre de chaves no portal do Azure e selecione **Eventos > Assinaturas de Eventos**.  Verificar se a nova assinatura foi criada
     
-    ![Designer do Aplicativo Lógico - adicionar um email](../media/eventgrid-logicapps-kvnewsubs.png)
+    ![Designer de Aplicativo Lógico – testar e verificar](../media/eventgrid-logicapps-kvnewsubs.png)
 
 1.  Vá até o Key Vault, selecione **Segredos** e **+ Gerar/Importar**. Crie um novo segredo para fins de teste, nomeie a chave e mantenha os parâmetros restantes em suas configurações padrão.
 
@@ -87,8 +87,8 @@ Quando o segredo for criado, um email será recebido nos endereços configurados
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Visão geral: [Monitoramento do Key Vault com a Grade de Eventos do Azure (versão prévia)](event-grid-overview.md)
+- Visão geral: [Monitoramento do Key Vault com a Grade de Eventos do Azure](event-grid-overview.md)
 - Como fazer: [Rotear notificações de Key Vault para Automação do Azure](event-grid-tutorial.md).
-- [Esquema de eventos da Grade de Eventos do Azure para o Azure Key Vault (versão prévia)](../../event-grid/event-schema-key-vault.md)
+- [Esquema de eventos da Grade de Eventos do Azure para o Azure Key Vault](../../event-grid/event-schema-key-vault.md)
 - Saiba mais sobre a [Grade de Eventos do Azure](../../event-grid/index.yml).
 - Saiba mais sobre o [recurso de Aplicativos Lógicos do Serviço de Aplicativo do Azure](../../logic-apps/index.yml).

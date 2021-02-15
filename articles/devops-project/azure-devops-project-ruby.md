@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: criar um pipeline de CI/CD para Ruby on Rails usando o iniciador DevOps do Azure'
+title: 'Início Rápido: Criar um pipeline de CI/CD para o Ruby on Rails usando o Azure DevOps Starter'
 description: Com o Azure DevOps Starter, é mais fácil começar a usar o Azure. É possível lançar um aplicativo Web do Ruby em um serviço do Azure em algumas etapas rápidas.
 ms.prod: devops
 ms.technology: devops-cicd
@@ -13,22 +13,22 @@ ms.topic: quickstart
 ms.date: 03/24/2020
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: cde959d8e075b55cb6cbb37479ca49cdd8a8c0c1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9e2f7115560148a1d3b9d2671be54c1ba4d61946
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82233730"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97588906"
 ---
-# <a name="create-a-cicd-pipeline-for-ruby-on-rails-by-using-azure-devops-starter"></a>Criar um pipeline de CI/CD para Ruby on Rails usando o iniciador DevOps do Azure
+# <a name="create-a-cicd-pipeline-for-ruby-on-rails-by-using-azure-devops-starter"></a>Criar um pipeline de CI/CD para o Ruby on Rails usando o Azure DevOps Starter
 
-Configure a CI (integração contínua) e o CD (entrega contínua) para seu aplicativo Ruby on Rails usando o Azure DevOps Starter. O iniciante do DevOps simplifica a configuração inicial de um pipeline de versão e compilação DevOps do Azure.
+Configure a CI (integração contínua) e a CD (entrega contínua) para o seu aplicativo do Ruby on Rails usando o Azure DevOps Starter. O DevOps Starter simplifica a configuração inicial de um pipeline de build e lançamento do Azure DevOps.
 
 Caso não tenha uma assinatura do Azure, você pode obter uma gratuita via [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 
-O iniciador DevOps do Azure cria um pipeline de CI/CD no Azure Repos. É possível criar uma nova organização do Azure DevOps ou usar uma existente. O DevOps Starter também cria recursos do Azure na assinatura do Azure de sua escolha.
+O Azure DevOps Starter cria um pipeline de CI/CD no Azure Repos. É possível criar uma nova organização do Azure DevOps ou usar uma existente. O DevOps Starter também cria recursos do Azure na assinatura do Azure de sua escolha.
 
 1. Entre no [portal do Azure](https://portal.azure.com).
 
@@ -53,7 +53,7 @@ O iniciador DevOps do Azure cria um pipeline de CI/CD no Azure Repos. É possív
 1. Insira um nome para o projeto do Azure DevOps. 
 
 1. Selecione a assinatura e o local do Azure, insira um nome para o aplicativo e selecione **Concluído**.  
-    Após alguns minutos, o painel inicial do DevOps é exibido no portal do Azure. Um aplicativo de exemplo é configurado em um repositório em sua organização do Azure DevOps, é executado um build, e seu aplicativo é implantado no Azure. 
+    Após alguns minutos, o painel do DevOps Starter será exibido no portal do Azure. Um aplicativo de exemplo é configurado em um repositório em sua organização do Azure DevOps, é executado um build, e seu aplicativo é implantado no Azure. 
     
     O painel oferece visibilidade no seu repositório de código, pipeline de CI/CD e aplicativo no Azure. À direita, selecione **Procurar** para exibir o aplicativo em execução.
 
@@ -61,11 +61,11 @@ O iniciador DevOps do Azure cria um pipeline de CI/CD no Azure Repos. É possív
 
 ## <a name="commit-your-code-changes-and-execute-the-cicd"></a>Confirmar as alterações de código e executar a CI/CD
 
-O iniciador DevOps do Azure cria um repositório git no Azure Pipelines ou no GitHub. Para exibir o repositório e fazer alterações de código no seu aplicativo, faça o seguinte:
+O Azure DevOps Starter cria um repositório Git no Azure Pipelines ou no GitHub. Para exibir o repositório e fazer alterações de código no seu aplicativo, faça o seguinte:
 
-1. No painel inicial do DevOps, à esquerda, selecione o link para o Branch mestre. O link abre uma exibição do repositório de Git recém-criado.
+1. No painel do DevOps Starter, à esquerda, selecione o link para a ramificação principal. O link abre uma exibição do repositório de Git recém-criado.
 
-1. Para exibir a URL do clone do repositório, selecione **Clone** no canto superior direito. Você pode clonar seu repositório Git no seu IDE favorito. Nas próximas etapas, você pode usar o navegador da Web para criar e confirmar as alterações de código diretamente no branch mestre.
+1. Para exibir a URL do clone do repositório, selecione **Clone** no canto superior direito. Você pode clonar seu repositório Git no seu IDE favorito. Nas próximas etapas, você pode usar o navegador da Web para criar e confirmar as alterações de código diretamente na ramificação principal.
 
 1. À esquerda, vá até o arquivo *app/views/pages/home.html.erb*, depois selecione **Editar**.
 
@@ -77,7 +77,7 @@ O iniciador DevOps do Azure cria um repositório git no Azure Pipelines ou no Gi
 
 ## <a name="examine-the-azure-pipelines-cicd-pipeline"></a>Examinar o pipeline de CI/CD do Azure Pipelines
 
-O Azure DevOps Starter configura automaticamente um pipeline de CI/CD completo em sua organização do DevOps do Azure. Explore e personalize o pipeline conforme necessário. Para se familiarizar com os pipelines de build e de lançamento do Azure DevOps, faça o seguinte:
+O Azure DevOps Starter configura automaticamente um pipeline completo de CI/CD na sua organização do Azure DevOps. Explore e personalize o pipeline conforme necessário. Para se familiarizar com os pipelines de build e de lançamento do Azure DevOps, faça o seguinte:
 
 1. Vá até o painel do DevOps Starter.
 
@@ -126,4 +126,4 @@ Quando eles não forem mais necessários, é possível excluir a instância de S
 Para saber mais sobre como modificar os pipelines de build e de lançamento para atender às necessidades de sua equipe, confira:
 
 > [!div class="nextstepaction"]
-> [Definir seu pipeline de CD (implantação contínua) de vários estágios](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
+> [Definir seu pipeline de CD (implantação contínua) de vários estágios](/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)

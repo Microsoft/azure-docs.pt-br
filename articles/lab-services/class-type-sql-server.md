@@ -5,22 +5,22 @@ author: emaher
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: enewman
-ms.openlocfilehash: 9fc0a965869207ba8d1b4eb6f45e878ae4b93c3a
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 50f71ee1ce59f5809fe8905c58f0399cf484f11a
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88079015"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659702"
 ---
 # <a name="set-up-a-lab-to-manage-and-develop-with-sql-server"></a>Configurar um laboratório para gerenciar e desenvolver com SQL Server
 
 Este artigo descreve como configurar um laboratório para uma classe básica de desenvolvimento e gerenciamento de SQL Server no Azure Lab Services.  Os conceitos de banco de dados são um dos cursos introdutórios ensinados na maioria dos departamentos de ciência da computação na faculdade. O linguagem SQL (SQL) é um padrão internacional.  O SQL é a linguagem padrão para gerenciamento de banco de dados de relações, incluindo a adição, o acesso e o gerenciamento de conteúdo em um banco de dados.  Ele é mais observado para seu processamento rápido, confiabilidade comprovada, facilidade e flexibilidade de uso.
 
-Neste artigo, mostraremos como configurar um modelo de máquina virtual em um laboratório com o [Visual Studio 2019](https://visualstudio.microsoft.com/vs/), [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15)e [Azure Data Studio](https://github.com/microsoft/azuredatastudio).  Para este laboratório, usaremos um [banco de dados SQL Server](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview) compartilhado para todo o laboratório. O [banco de dados SQL do Azure](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview) é uma plataforma como serviço (PaaS) mecanismo de banco de dados oferta do Azure.
+Neste artigo, mostraremos como configurar um modelo de máquina virtual em um laboratório com o [Visual Studio 2019](https://visualstudio.microsoft.com/vs/), [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15)e [Azure Data Studio](https://github.com/microsoft/azuredatastudio).  Para este laboratório, usaremos um [banco de dados SQL Server](../azure-sql/database/sql-database-paas-overview.md) compartilhado para todo o laboratório. O [banco de dados SQL do Azure](../azure-sql/database/sql-database-paas-overview.md) é uma plataforma como serviço (PaaS) mecanismo de banco de dados oferta do Azure.
 
 ## <a name="lab-configuration"></a>Configuração do laboratório
 
-Para configurar este laboratório, você precisa de uma assinatura do Azure e uma conta de laboratório para começar. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar. Depois de obter uma assinatura do Azure, você poderá criar uma nova conta de laboratório no Azure Lab Services. Para obter mais informações sobre como criar uma nova conta de laboratório, consulte [tutorial para configurar uma conta de laboratório](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-lab-account). Você também pode usar uma conta de laboratório existente.
+Para configurar este laboratório, você precisa de uma assinatura do Azure e uma conta de laboratório para começar. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar. Depois de obter uma assinatura do Azure, você poderá criar uma nova conta de laboratório no Azure Lab Services. Para obter mais informações sobre como criar uma nova conta de laboratório, consulte [tutorial para configurar uma conta de laboratório](./tutorial-setup-lab-account.md). Você também pode usar uma conta de laboratório existente.
 
 ### <a name="lab-account-settings"></a>Configurações de conta do laboratório
 
@@ -37,7 +37,7 @@ Para usar um recurso compartilhado no Lab Services, primeiro você precisa criar
 >[!WARNING]
 >Os recursos compartilhados para um laboratório devem ser configurados antes que o laboratório seja criado.  Se a vnet não estiver [emparelhada com a conta de laboratório](how-to-connect-peer-virtual-network.md) *antes* da criação do laboratório, o laboratório não terá acesso ao recurso compartilhado.
 
-Agora que o lado da rede das coisas é tratado, vamos criar um banco de dados SQL Server.  Vamos criar um [banco de dados individual](https://docs.microsoft.com/azure/sql-database/sql-database-single-database-get-started?tabs=azure-portal) , pois é a opção de implantação mais rápida para o banco de dados SQL do Azure.  Para outras opções de implantação, crie um [pool elástico](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-pool#creating-a-new-sql-database-elastic-pool-using-the-azure-portal), uma [instância gerenciada](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started)ou uma [máquina virtual do SQL](https://docs.microsoft.com/azure/virtual-machines/windows/sql/quickstart-sql-vm-create-portal).
+Agora que o lado da rede das coisas é tratado, vamos criar um banco de dados SQL Server.  Vamos criar um [banco de dados individual](../azure-sql/database/single-database-create-quickstart.md?tabs=azure-portal) , pois é a opção de implantação mais rápida para o banco de dados SQL do Azure.  Para outras opções de implantação, crie um [pool elástico](../azure-sql/database/elastic-pool-overview.md#creating-a-new-sql-database-elastic-pool-using-the-azure-portal), uma [instância gerenciada](../azure-sql/managed-instance/instance-create-quickstart.md)ou uma [máquina virtual do SQL](../azure-sql/virtual-machines/windows/sql-vm-create-portal-quickstart.md).
 
 1. No menu portal do Azure, escolha **criar novo recurso**.
 2. Escolha **banco de dados SQL** e clique no botão **criar** .
@@ -75,28 +75,28 @@ Use as configurações na tabela abaixo ao configurar um laboratório de sala de
 
 | Configurações do laboratório | Valor/instruções |
 | ------------ | ------------------ |
-| Tamanho da Máquina Virtual | Média. Este tamanho é mais adequado a bancos de dados relacionais, cache na memória e análise. |
+| Tamanho da Máquina Virtual | Médio. Este tamanho é mais adequado a bancos de dados relacionais, cache na memória e análise. |
 | Imagem de máquina virtual | Comunidade do Visual Studio 2019 (versão mais recente) no Windows 10 Enterprise N (x64) |
 
 Agora que o nosso laboratório foi criado, vamos modificar o computador do modelo com o software de que precisamos.
 
 ## <a name="visual-studio"></a>Visual Studio
 
-A imagem escolhida acima inclui a [comunidade do Visual Studio 2019](https://visualstudio.microsoft.com/vs/community/).  Todas as cargas de trabalho e conjuntos de ferramentas já estão instalados na imagem.  Use o Instalador do Visual Studio para [instalar as ferramentas opcionais](https://docs.microsoft.com/visualstudio/install/modify-visual-studio?view=vs-2019) que você pode desejar.  [Entre no Visual Studio](https://docs.microsoft.com/visualstudio/ide/signing-in-to-visual-studio?view=vs-2019#how-to-sign-in-to-visual-studio) para desbloquear a Community Edition.
+A imagem escolhida acima inclui a [comunidade do Visual Studio 2019](https://visualstudio.microsoft.com/vs/community/).  Todas as cargas de trabalho e conjuntos de ferramentas já estão instalados na imagem.  Use o Instalador do Visual Studio para [instalar as ferramentas opcionais](/visualstudio/install/modify-visual-studio?view=vs-2019) que você pode desejar.  [Entre no Visual Studio](/visualstudio/ide/signing-in-to-visual-studio?view=vs-2019#how-to-sign-in-to-visual-studio) para desbloquear a Community Edition.
 
-O Visual Studio inclui o conjunto de ferramentas de **armazenamento e processamento de dados** , que inclui SQL Server Data Tools (SSDT).  Para obter mais informações sobre os recursos do SSDT, consulte [visão geral de SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/sql-server-data-tools?view=sql-server-ver15).  Para verificar se a conexão com o SQL Server compartilhado para a classe será bem-sucedida, consulte [conectar-se a um banco de dados e procurar objetos existentes](https://docs.microsoft.com/sql/ssdt/how-to-connect-to-a-database-and-browse-existing-objects?view=sql-server-ver15). Se solicitado, adicione o IP do computador de modelo à [lista de computadores permitidos](https://docs.microsoft.com/azure/azure-sql/database/firewall-configure) que podem se conectar à sua instância do SQL Server.
+O Visual Studio inclui o conjunto de ferramentas de **armazenamento e processamento de dados** , que inclui SQL Server Data Tools (SSDT).  Para obter mais informações sobre os recursos do SSDT, consulte [visão geral de SQL Server Data Tools](/sql/ssdt/sql-server-data-tools?view=sql-server-ver15).  Para verificar se a conexão com o SQL Server compartilhado para a classe será bem-sucedida, consulte [conectar-se a um banco de dados e procurar objetos existentes](/sql/ssdt/how-to-connect-to-a-database-and-browse-existing-objects?view=sql-server-ver15). Se solicitado, adicione o IP do computador de modelo à [lista de computadores permitidos](../azure-sql/database/firewall-configure.md) que podem se conectar à sua instância do SQL Server.
 
-O Visual Studio dá suporte a várias cargas de trabalho, incluindo cargas do & **Web & Cloud** e **desktops móveis** .  Ambas as cargas de trabalho oferecem suporte a SQL Server como uma fonte de dados. Para obter mais informações sobre como usar ASP.NET Core para SQL Server, consulte [compilar um ASP.NET Core e um aplicativo de banco de dados SQL no tutorial do serviço Azure app](https://docs.microsoft.com/azure/app-service/tutorial-dotnetcore-sqldb-app) .  Use a biblioteca [System. Data. SqlClient](https://docs.microsoft.com/dotnet/api/system.data.sqlclient) para se conectar a um banco de dados SQL de um aplicativo [Xamarin](https://docs.microsoft.com/xamarin) .
+O Visual Studio dá suporte a várias cargas de trabalho, incluindo cargas do & **Web & Cloud** e **desktops móveis** .  Ambas as cargas de trabalho oferecem suporte a SQL Server como uma fonte de dados. Para obter mais informações sobre como usar ASP.NET Core para SQL Server, consulte [compilar um ASP.NET Core e um aplicativo de banco de dados SQL no tutorial do serviço Azure app](../app-service/tutorial-dotnetcore-sqldb-app.md) .  Use a biblioteca [System. Data. SqlClient](/dotnet/api/system.data.sqlclient) para se conectar a um banco de dados SQL de um aplicativo [Xamarin](/xamarin) .
 
 ## <a name="install-azure-data-studio"></a>Instalar o Azure Data Studio
 
 O [Azure Data Studio](https://github.com/microsoft/azuredatastudio) é um ambiente de área de trabalho multiplataforma entre plataformas para profissionais de dados que usam a família de plataformas de dados locais e na nuvem no Windows, no MacOS e no Linux.
 
-1. Baixe o [instalador do *sistema* Azure Data Studio para Windows](https://go.microsoft.com/fwlink/?linkid=2127432). Para localizar instaladores para outros sistemas operacionais com suporte, vá para a página de download do [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download) .
-2. Na página **contrato de licença** , selecione **aceito o contrato**. Clique em **Próximo**.
+1. Baixe o [instalador do *sistema* Azure Data Studio para Windows](https://go.microsoft.com/fwlink/?linkid=2127432). Para localizar instaladores para outros sistemas operacionais com suporte, vá para a página de download do [Azure Data Studio](/sql/azure-data-studio/download) .
+2. Na página **contrato de licença** , selecione **aceito o contrato**. Clique em **Avançar**.
 3. Na página **Selecionar Local de Destino**, clique em **Avançar**.
 4. Na página **Selecionar Pasta do Menu Iniciar**, clique em **Avançar**.
-5. Na página **selecionar tarefas adicionais** , marque **criar um ícone de área de trabalho** se desejar um ícone de área de trabalho.  Clique em **Próximo**.
+5. Na página **selecionar tarefas adicionais** , marque **criar um ícone de área de trabalho** se desejar um ícone de área de trabalho.  Clique em **Avançar**.
 6. Em **pronto para instalar**, clique em **Avançar**.
 7. Aguarde a execução do instalador.  Clique em **Concluir**.
 
@@ -113,7 +113,7 @@ Agora que temos Azure Data Studio instalado, vamos configurar a conexão com o b
 
 ## <a name="install-sql-server-management-studio"></a>Instale o SQL Server Management Studio
 
-O [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15) é um ambiente integrado para gerenciar qualquer infraestrutura do SQL.  O SSMS é uma ferramenta usada por administradores de banco de dados para implantar, monitorar e atualizar a infraestrutura de dado.
+O [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15) é um ambiente integrado para gerenciar qualquer infraestrutura do SQL.  O SSMS é uma ferramenta usada por administradores de banco de dados para implantar, monitorar e atualizar a infraestrutura de dado.
 
 1. [Baixar o SQL Server Management Studio](https://aka.ms/ssmsfullsetup). Depois de baixado, inicie o instalador.
 2. Na página de **boas-vindas** , clique em **instalar**.
@@ -121,7 +121,7 @@ O [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/down
 4. Inicie o SQL Server Management Studio.  
 5. Na página **processo de configuração de dependência** , clique em **fechar**.
 
-Não que o SSMS esteja instalado, você pode [se conectar e consultar um SQL Server](https://docs.microsoft.com/sql/ssms/tutorials/connect-query-sql-server). Ao configurar a conexão, use os seguintes valores:
+Não que o SSMS esteja instalado, você pode [se conectar e consultar um SQL Server](/sql/ssms/tutorials/connect-query-sql-server). Ao configurar a conexão, use os seguintes valores:
 
 - Tipo de servidor: mecanismo de banco de dados
 - Nome do servidor: *classlabdbserver.Database.Windows.net*

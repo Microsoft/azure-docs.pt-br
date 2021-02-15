@@ -5,10 +5,10 @@ ms.date: 01/08/2020
 ms.topic: how-to
 ms.reviewer: v-umha
 ms.openlocfilehash: 7300a5dcfb0150e6182636dcb71bacfa68c787db
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87076925"
 ---
 # <a name="monitor-azure-blockchain-service-through-azure-monitor"></a>Monitorar o serviço Blockchain do Azure por meio do Azure Monitor  
@@ -28,7 +28,7 @@ O serviço Blockchain do Azure coleta o mesmo tipo de dados de monitoramento que
 
 A página de visão geral no portal do Azure para cada recurso de membro do serviço Blockchain do Azure inclui uma breve exibição das transações, incluindo as solicitações manipuladas e processadas blocos. Alguns desses dados são coletados automaticamente e disponíveis para análise depois que você cria o recurso de membro do serviço Blockchain do Azure, enquanto você pode habilitar a coleta de dados adicional com configuração adicional.
 
-## <a name="diagnostic-settings"></a>Configurações de diagnóstico  
+## <a name="diagnostic-settings"></a>Configurações de Diagnóstico  
 
 As métricas de plataforma e o log de atividades são coletados automaticamente, mas você precisa criar uma configuração de diagnóstico para coletar logs de recursos ou encaminhá-los para fora do Azure Monitor. Consulte [criar configuração de diagnóstico para coletar logs e métricas de plataforma no Azure](../../azure-monitor/platform/diagnostic-settings.md) para o processo detalhado para criar uma configuração de diagnóstico usando o portal do Azure, a CLI ou o PowerShell.
 
@@ -36,7 +36,7 @@ Ao criar uma configuração de diagnóstico, você especifica quais categorias d
 
 **Logs de proxy do Blockchain** – selecione a categoria se desejar monitorar os logs de proxy do NGNIX. Todos os detalhes da transação do cliente estão disponíveis para fins de auditoria e de depuração.  
 
-**Logs de aplicativo do Blockchain** – selecione a categoria para obter os logs do aplicativo Blockchain hospedado pelo serviço gerenciado. Por exemplo, para um membro de quorum de ABS, esses logs seriam os logs do quorum em si.  
+**Logs de aplicativo do Blockchain** – selecione a categoria para obter os logs do aplicativo Blockchain hospedado pelo serviço gerenciado. Por exemplo, para um membro ABS-Quorum, esses logs seriam os logs do quorum em si.  
 
 **Solicitações de métrica**: selecione a opção para coletar dados de métrica de Azure Cosmos DB para os destinos na configuração de diagnóstico, que é coletada automaticamente nas métricas do Azure. Coletar dados de métrica com logs de recursos para analisar os dois tipos de dados juntos e enviar dados de métricas fora do Azure Monitor.
 
@@ -131,11 +131,11 @@ Para obter uma lista de todas as Azure Monitor métricas com suporte (incluindo 
 A tabela a seguir especifica a lista de métricas Blockchain que são coletadas para o recurso de membro do serviço Blockchain do Azure.
 
 
-| Nome da métrica | Unidade  |  Tipo de agregação| Descrição   |
+| Nome da métrica | Unit  |  Tipo de agregação| Descrição   |
 |---|---|---|---|
 | Transações Pendentes   | Contagem  |  Média | O número de transações que estão aguardando para serem extraídas.   |
-| Blocos Processados   | Contagem  | Somar  |  O número de blocos processados em cada intervalo de tempo. Atualmente, o tamanho do bloco é de 5 segundos, portanto, em um minuto, cada nó processará 12 blocos e 60 blocos em 5 minutos.   |
-|Transações Processadas    | Contagem  | Somar  | O número de transações processadas em um bloco.    |
+| Blocos Processados   | Contagem  | SUM  |  O número de blocos processados em cada intervalo de tempo. Atualmente, o tamanho do bloco é de 5 segundos, portanto, em um minuto, cada nó processará 12 blocos e 60 blocos em 5 minutos.   |
+|Transações Processadas    | Contagem  | SUM  | O número de transações processadas em um bloco.    |
 |Transações em Fila    |  Contagem | Média  | O número de transações que não podem ser imediatamente extraídas. Pode ser porque eles chegaram fora de ordem e o futuro está aguardando a chegada da transação anterior. Ou, pode ser que duas transações tenham o mesmo número usado apenas uma vez (nonce) e o mesmo valor de gás, portanto, o segundo não pode ser minado.   |
 
 ### <a name="connection-metrics"></a>Métricas de conexão  
@@ -143,12 +143,12 @@ A tabela a seguir especifica a lista de métricas Blockchain que são coletadas 
 A tabela a seguir lista as diferentes métricas de conexão que são coletadas para o recurso de membro do serviço Blockchain do Azure. Essas são as métricas de proxy NGINX.
 
 
-| Nome da métrica | Unidade  |  Tipo de agregação| Descrição |
+| Nome da métrica | Unit  |  Tipo de agregação| Descrição |
 |---|---|---|---|
-| Conexões Aceitas   | Contagem  |  Somar | O número total de conexões de cliente aceitas.   |
+| Conexões Aceitas   | Contagem  |  SUM | O número total de conexões de cliente aceitas.   |
 | Conexões ativas  | Contagem  | Média  |  O número atual de conexões de cliente ativas, incluindo a espera de conexões.    |
-|Conexões Manipuladas    | Contagem  | Somar  | O número total de conexões manipuladas. Em geral, o valor do parâmetro é o mesmo que as conexões aceitas, a menos que alguns limites de recursos tenham sido atingidos.     |
-|Solicitações Manipuladas     |  Contagem | Somar  | O número total de solicitações do cliente.  |
+|Conexões Manipuladas    | Contagem  | SUM  | O número total de conexões manipuladas. Em geral, o valor do parâmetro é o mesmo que as conexões aceitas, a menos que alguns limites de recursos tenham sido atingidos.     |
+|Solicitações Manipuladas     |  Contagem | SUM  | O número total de solicitações do cliente.  |
 
 
 ### <a name="performance-metrics"></a>Métricas de desempenho
@@ -156,14 +156,14 @@ A tabela a seguir lista as diferentes métricas de conexão que são coletadas p
 A tabela a seguir lista as métricas de desempenho que são coletadas para cada um dos nós do recurso de membro do Azure Blockchain.  
 
 
-| Nome da métrica | Unidade  |  Tipo de agregação| Descrição   |
+| Nome da métrica | Unit  |  Tipo de agregação| Descrição   |
 |---|---|---|---|
-| Porcentagem de uso da CPU   | Porcentagem  |  Máx | A porcentagem do uso da CPU.     |
-| Bytes de Leitura de E/S   | Quilobytes   | Somar  |  A soma de bytes de leitura de e/s em todos os nós do recurso de membro blockchain.      |
-|Bytes de Gravação de E/S     | Quilobytes   | Somar  | A soma da e/s grava bytes em todos os nós do recurso de membro blockchain.     |
+| Porcentagem de uso da CPU   | Percentual  |  Max | A porcentagem do uso da CPU.     |
+| Bytes de Leitura de E/S   | Quilobytes   | SUM  |  A soma de bytes de leitura de e/s em todos os nós do recurso de membro blockchain.      |
+|Bytes de Gravação de E/S     | Quilobytes   | SUM  | A soma da e/s grava bytes em todos os nós do recurso de membro blockchain.     |
 |Limite de Memória       |  Gigabytes   | Média    | Memória máxima disponível para o processo blockchain por nó. |
 |Uso de Memória     | Gigabytes  |  Média | A quantidade de memória usada na média em todos os nós.  |
-| Percentual de Uso de Memória     | Porcentagem   | Média  |  A porcentagem da memória usada na média em todos os nós.       |
+| Percentual de Uso de Memória     | Percentual   | Média  |  A porcentagem da memória usada na média em todos os nós.       |
 |Uso de Armazenamento      | Gigabytes   | Média  | Os GB de armazenamento usados são medidos em média em todos os nós.       |
 
 

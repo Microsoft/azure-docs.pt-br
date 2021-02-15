@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.reviewer: danis
-ms.openlocfilehash: d4715bd8b7a13a5ab53d254ac853ac324440b403
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 4714d9e089094e8990ac71d94107a20e0b7be776
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502606"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98876302"
 ---
 # <a name="preview-create-a-linux-image-and-distribute-it-to-a-shared-image-gallery-by-using-azure-cli"></a>Versão prévia: criar uma imagem do Linux e distribuí-la para uma galeria de imagens compartilhadas usando CLI do Azure
 
-Este artigo mostra como usar o Construtor de Imagens do Azure e a CLI do Azure para criar uma versão de imagem em uma [Galeria de Imagens Compartilhadas](../windows/shared-image-galleries.md) e distribuir a imagem globalmente. Faça isso também com o [Azure PowerShell](../windows/image-builder-gallery.md).
+Este artigo mostra como usar o Construtor de Imagens do Azure e a CLI do Azure para criar uma versão de imagem em uma [Galeria de Imagens Compartilhadas](../shared-image-galleries.md) e distribuir a imagem globalmente. Faça isso também com o [Azure PowerShell](../windows/image-builder-gallery.md).
 
 
 Usaremos um modelo .json de exemplo para configurar a imagem. O arquivo .json que estamos usando está aqui: [helloImageTemplateforSIG.json](https://github.com/danielsollondon/azvmimagebuilder/blob/master/quickquickstarts/1_Creating_a_Custom_Linux_Shared_Image_Gallery_Image/helloImageTemplateforSIG.json). 
@@ -38,16 +38,16 @@ az feature register --namespace Microsoft.VirtualMachineImages --name VirtualMac
 Verifique o status do registro do recurso.
 
 ```azurecli-interactive
-az feature show --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview | grep state
+az feature show --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview -o json | grep state
 ```
 
 Verifique seu registro.
 
 ```azurecli-interactive
-az provider show -n Microsoft.VirtualMachineImages | grep registrationState
-az provider show -n Microsoft.KeyVault | grep registrationState
-az provider show -n Microsoft.Compute | grep registrationState
-az provider show -n Microsoft.Storage | grep registrationState
+az provider show -n Microsoft.VirtualMachineImages -o json | grep registrationState
+az provider show -n Microsoft.KeyVault -o json | grep registrationState
+az provider show -n Microsoft.Compute -o json | grep registrationState
+az provider show -n Microsoft.Storage -o json | grep registrationState
 ```
 
 Caso o status não seja mostrado como registrado, execute o seguinte:
@@ -80,7 +80,7 @@ imageDefName=myIbImageDef
 runOutputName=aibLinuxSIG
 ```
 
-Criar uma variável para a ID da assinatura. Obtenha isso usando `az account show | grep id`.
+Criar uma variável para a ID da assinatura. Obtenha isso usando `az account show -o json | grep id`.
 
 ```azurecli-interactive
 subscriptionID=<Subscription ID>
@@ -101,7 +101,7 @@ identityName=aibBuiUserId$(date +'%s')
 az identity create -g $sigResourceGroup -n $identityName
 
 # get identity id
-imgBuilderCliId=$(az identity show -g $sigResourceGroup -n $identityName | grep "clientId" | cut -c16- | tr -d '",')
+imgBuilderCliId=$(az identity show -g $sigResourceGroup -n $identityName -o json | grep "clientId" | cut -c16- | tr -d '",')
 
 # get the user identity URI, needed for the template
 imgBuilderId=/subscriptions/$subscriptionID/resourcegroups/$sigResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/$identityName
@@ -298,4 +298,4 @@ az group delete -n $sigResourceGroup -y
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre as [Galerias de Imagens Compartilhadas do no Azure](shared-image-galleries.md).
+Saiba mais sobre as [Galerias de Imagens Compartilhadas do no Azure](../shared-image-galleries.md).

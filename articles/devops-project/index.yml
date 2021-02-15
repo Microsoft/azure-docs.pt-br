@@ -1,60 +1,64 @@
 ### YamlMime:Landing
-title: Documentação do Azure DevOps Starter
-summary: O Azure DevOps Starter apresenta uma experiência simplificada em que você traz o seu código e repositório Git existentes ou escolhe um dos aplicativos de exemplo para criar um pipeline de CI (integração contínua) e CD (entrega contínua) para o Azure.
+title: Documentação DevOps Starter para implantação no Azure
+summary: O DevOps Starter apresenta uma experiência simplificada em que você traz o seu código e o seu repositório Git existentes ou escolhe um dos aplicativos de exemplo para criar um pipeline ou um fluxo de trabalho de CI (integração contínua) e CD (entrega contínua) no Azure. O DevOps Starter agora dá suporte à criação de fluxos de trabalho do GitHub Actions.
 metadata:
-  title: Documentação do Azure DevOps Starter
+  title: Documentação do DevOps Starter
   description: Traga seu código e repositório Git existentes ou escolha um aplicativo de exemplo para criar um pipeline de CI (integração contínua) e CD (entrega contínua) para o Azure.
   ms.service: devops-project
   ms.topic: landing-page
   author: 
   ms.author: 
   ms.date: 03/24/2020
-  ms.openlocfilehash: 461d088f85f6845dfb9204381209b477b384a0be
-  ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+  ms.openlocfilehash: 2b26d1e35aa99f2c804e74ae3e0da65659cf77a3
+  ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 04/28/2020
-  ms.locfileid: "82231452"
+  ms.lasthandoff: 11/30/2020
+  ms.locfileid: "96339890"
 landingContent:
-- title: Sobre o Azure DevOps Starter
+- title: Sobre o DevOps Starter
   linkLists:
   - linkListType: overview
     links:
-    - text: O que é o Azure DevOps Starter?
+    - text: O que é o DevOps Starter?
       url: overview.md
   - linkListType: video
     links:
-    - text: Criar CI/CD com o vídeo do DevOps Starter (8:53)
+    - text: Criar uma CI/CD com o DevOps Starter usando o Azure DevOps (8:53)
       url: https://channel9.msdn.com/Events/Connect/2017/T174/player/
-- title: Crie um pipeline CI/CD
+- title: Configurar CI/CD
   linkLists:
   - linkListType: quickstart
     links:
+    - text: Node.js com o GitHub Actions
+      url: ./devops-starter-gh-nodejs.md
     - text: .NET
-      url: /azure/devops-project/azure-devops-project-aspnet-core
+      url: ./azure-devops-project-aspnet-core.md
     - text: Node.js
-      url: /azure/devops-project/azure-devops-project-nodejs
+      url: ./azure-devops-project-nodejs.md
     - text: Java
-      url: /azure/devops-project/azure-devops-project-java
+      url: ./azure-devops-project-java.md
     - text: Python
-      url: /azure/devops-project/azure-devops-project-python
+      url: ./azure-devops-project-python.md
     - text: PHP
-      url: /azure/devops-project/azure-devops-project-php
+      url: ./azure-devops-project-php.md
     - text: Ruby
-      url: /azure/devops-project/azure-devops-project-ruby
+      url: ./azure-devops-project-ruby.md
     - text: Go
-      url: /azure/devops-project/azure-devops-project-go
-- title: Crie pipelines de lançamento
+      url: ./azure-devops-project-go.md
+- title: Implantar no Azure
   linkLists:
   - linkListType: tutorial
     links:
+    - text: Implantar seu aplicativo no Aplicativo Web do Azure usando o GitHub Actions
+      url: devops-starter-gh-web-app.md
     - text: Traga o seu próprio código com GitHub
       url: azure-devops-project-vms.md
-    - text: Implante seu aplicativo ASP.NET em Máquinas Virtuais do Azure
+    - text: Implante seu aplicativo ASP.NET em máquinas virtuais do Azure
       url: azure-devops-project-vms.md
-    - text: Implante seu aplicativo ASP.NET e o Banco de Dados SQL do Azure
+    - text: Implante seu aplicativo ASP.NET e o banco de dados SQL do Azure
       url: azure-devops-project-sql-database.md
     - text: Implante seu aplicativo no Serviço de Contêiner do Azure e no Kubernetes
       url: azure-devops-project-aks.md
-    - text: Implante seu aplicativo no Azure Service Fabric
+    - text: Implante seu aplicativo no Service Fabric do Azure
       url: azure-devops-project-service-fabric.md

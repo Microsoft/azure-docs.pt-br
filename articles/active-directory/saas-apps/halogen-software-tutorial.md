@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/20/2020
+ms.date: 01/22/2021
 ms.author: jeedes
-ms.openlocfilehash: 1743908652a70667a368dced18b2e808ce590a1b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 6da04bda9e9d1a00ff10cc94d3dcef557a3f2802
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549984"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99062932"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-saba-talentspace"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Saba TalentSpace
 
@@ -25,8 +25,6 @@ Neste tutorial, você aprenderá a integrar o Saba TalentSpace ao Azure AD (Azur
 * Controlar no Azure AD quem tem acesso ao Saba TalentSpace.
 * Permitir que os usuários sejam conectados automaticamente ao Saba TalentSpace com as respectivas contas do Azure AD.
 * Gerenciar suas contas em um local central: o portal do Azure.
-
-Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -40,24 +38,23 @@ Para começar, você precisará dos seguintes itens:
 Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste.
 
 * O Saba TalentSpace dá suporte ao SSO iniciado por **SP**
-* Depois de configurar o Saba TalentSpace, você poderá impor controles de sessão, que fornecem proteção contra exfiltração e infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do Acesso Condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
-## <a name="adding-saba-talentspace-from-the-gallery"></a>Adicionar o Saba TalentSpace por meio da galeria
+## <a name="add-saba-talentspace-from-the-gallery"></a>Adicionar Saba TalentSpace da galeria
 
 Para configurar a integração do Saba TalentSpace ao Azure AD, você precisará adicionar o Saba TalentSpace por meio da galeria à lista de aplicativos SaaS gerenciados.
 
-1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
+1. Entre no portal do Azure usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
 1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory**.
 1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos**.
 1. Para adicionar um novo aplicativo, escolha **Novo aplicativo**.
 1. Na seção **Adicionar por meio da galeria**, digite **Saba TalentSpace** na caixa de pesquisa.
 1. Selecione **Saba TalentSpace** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-saba-talentspace"></a>Configurar e testar o logon único do Azure AD para o Saba TalentSpace
+## <a name="configure-and-test-azure-ad-sso-for-saba-talentspace"></a>Configurar e testar o SSO do Azure AD para o Saba TalentSpace
 
 Configure e teste o SSO do Azure AD com o Saba TalentSpace usando um usuário de teste chamado **B.Fernandes**. Para que o SSO funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no Saba TalentSpace.
 
-Para configurar e testar o SSO do Azure AD com o Saba TalentSpace, conclua os seguintes blocos de construção:
+Para configurar e testar o SSO do Azure AD com o Saba TalentSpace, execute as seguintes etapas:
 
 1. **[Configurar o SSO do Azure AD](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
     * **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** para testar o logon único do Azure AD com B.Fernandes.
@@ -70,19 +67,19 @@ Para configurar e testar o SSO do Azure AD com o Saba TalentSpace, conclua os se
 
 Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Saba TalentSpace**, localize a seção **Gerenciar** e selecione **Logon único**.
+1. No portal do Azure, na página de integração de aplicativos do **Saba TalentSpace**, localize a seção **Gerenciar** e selecione **logon único**.
 1. Na página **Selecionar um método de logon único**, escolha **SAML**.
-1. Na página **Configurar o logon único com o SAML**, clique no ícone de edição/caneta da **Configuração Básica do SAML** para editar as configurações.
+1. Na página **Configurar o logon único com o SAML**, clique no ícone de caneta da **Configuração Básica do SAML** para editar as configurações.
 
    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
 1. Na seção **Configuração básica de SAML**, realize as seguintes etapas:
 
-    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://global.hgncloud.com/[companyname]/saml/login`
+    a. Na caixa de texto **URL de Logon**, digite a URL usando o seguinte padrão: `https://global.hgncloud.com/[companyname]/saml/login`
 
-    b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `https://global.hgncloud.com/[companyname]/saml/metadata`
+    b. Na caixa de texto **Identificador (ID da Entidade)** , digite a URL usando o seguinte padrão: `https://global.hgncloud.com/[companyname]/saml/metadata`
 
-    c. Na caixa de texto **URL de Resposta (URL do Serviço do Consumidor de Declaração)** digite uma URL usando o seguinte padrão: `https://global.hgncloud.com/[companyname]/saml/SSO`
+    c. Na caixa de texto **URL de Resposta (URL do Serviço do Consumidor de Declaração)** digite a URL usando o seguinte padrão: `https://global.hgncloud.com/[companyname]/saml/SSO`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte ao cliente do Saba TalentSpace](https://support.saba.com/) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
@@ -114,15 +111,9 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 1. No portal do Azure, selecione **Aplicativos empresariais** e, em seguida, selecione **Todos os aplicativos**.
 1. Na lista de aplicativos, selecione **Saba TalentSpace**.
 1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e escolha **Usuários e grupos**.
-
-   ![O link “Usuários e grupos”](common/users-groups-blade.png)
-
 1. Escolha **Adicionar usuário** e, em seguida, **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
-
-    ![O link Adicionar Usuário](common/add-assign-user.png)
-
 1. Na caixa de diálogo **Usuários e grupos**, selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
-1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função**, escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
+1. Se você estiver esperando que uma função seja atribuída aos usuários, escolha-a na lista suspensa **Selecionar uma função**. Se nenhuma função tiver sido configurada para esse aplicativo, você verá a função "Acesso Padrão" selecionada.
 1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
 ## <a name="configure-saba-talentspace-sso"></a>Configurar o SSO do Saba TalentSpace
@@ -131,15 +122,15 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
 2. Clique na guia **Opções** .
   
-    ![O que é o Azure AD Connect](./media/halogen-software-tutorial/tutorial-halogen-12.png)
+    ![Captura de tela que mostra a home page "saba TalentSpace" com a guia "Opções" selecionada.](./media/halogen-software-tutorial/tutorial-halogen-12.png)
 
 3. No painel de navegação esquerdo, clique em **Configuração do SAML**.
   
-    ![O que é o Azure AD Connect](./media/halogen-software-tutorial/tutorial-halogen-13.png)
+    ![Captura de tela que mostra o painel de navegação esquerdo "Interface do Usuário" com a opção "Configuração do SAML" selecionada.](./media/halogen-software-tutorial/tutorial-halogen-13.png)
 
 4. Na página **Configuração do SAML** , realize as seguintes etapas:
 
-    ![O que é o Azure AD Connect](./media/halogen-software-tutorial/tutorial-halogen-14.png)
+    ![Captura de tela que mostra a página "Configuração do SAML" com as opções "Configurações" realçadas.](./media/halogen-software-tutorial/tutorial-halogen-14.png)
 
     a. Como **Identificador exclusivo**, selecione **NameID**.
 
@@ -166,7 +157,7 @@ O objetivo desta seção é criar um usuário chamado Brenda Fernandes no Saba T
 
 2. Clique na guia **Central do Usuário** e clique em **Criar Usuário**.
 
-    ![O que é o Azure AD Connect](./media/halogen-software-tutorial/tutorial-halogen-300.png)  
+    ![Captura de tela que mostra a guia "Central do Usuário" e a opção "Criar Usuário" selecionada.](./media/halogen-software-tutorial/tutorial-halogen-300.png)  
 
 3. Na página do diálogo **Novo Usuário** , realize as seguintes etapas:
 
@@ -184,18 +175,14 @@ O objetivo desta seção é criar um usuário chamado Brenda Fernandes no Saba T
 
 ## <a name="test-sso"></a>Testar o SSO
 
-Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
+Nesta seção, você testará a configuração de logon único do Azure AD com as opções a seguir. 
 
-Ao clicar no bloco do Saba TalentSpace no Painel de Acesso, você deverá ser conectado automaticamente ao Saba TalentSpace, para o qual configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Clique em **Testar este aplicativo** no portal do Azure. Isso vai redirecionar você à URL de Logon do Saba TalentSpace na qual poderá iniciar o fluxo de logon. 
 
-## <a name="additional-resources"></a>Recursos adicionais
+* Acesse a URL de Logon do Saba TalentSpace diretamente e inicie o fluxo de logon nela.
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+* Você pode usar os Meus Aplicativos da Microsoft. Quando você clicar no bloco do Saba TalentSpace em Meus Aplicativos, você deverá ser conectado automaticamente ao Saba TalentSpace para o qual configurou o SSO. Para obter mais informações sobre os Meus Aplicativos, confira [Introdução aos Meus Aplicativos](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+## <a name="next-steps"></a>Próximas etapas
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
-- [Experimentar o Saba TalentSpace com o Azure AD](https://aad.portal.azure.com/)
-
-- [O que é controle de sessão no Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+ Depois de configurar o Saba TalentSpace, você poderá impor controles de sessão, que fornecem proteção contra exfiltração e infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

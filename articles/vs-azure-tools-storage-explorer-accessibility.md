@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/20/2018
 ms.author: marayerm
 ms.openlocfilehash: ca4a8d719277eaa1d853d53d282649f839256be9
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88035478"
 ---
 # <a name="storage-explorer-accessibility"></a>Acessibilidade do Gerenciador de Armazenamento
@@ -66,9 +66,9 @@ Encerrar          | **Control+Shift+W**
 Comando                | Atalho de teclado
 -----------------------|----------------------
 Foco próximo painel       | **F6**
-Foco painel anterior   | **Shift+F6**
+Foco painel anterior   | **Shift + F6**
 Explorer               | **Control+Shift+E**
-Gerenciamento de Conta     | **Control+Shift+A**
+Gerenciamento de Contas     | **Control+Shift+A**
 Alternar a barra lateral        | **Control+B**
 Log de Atividade           | **Control+Shift+L**
 Ações e Propriedades | **Control+Shift+P**
@@ -88,7 +88,7 @@ Reduzir | **Controle +-**
 Comando | Atalho de teclado
 --------|--------------------
 Voltar    | **Alt + seta para esquerda**
-Avançar | **Alt + seta para a direita**
+Encaminhar | **Alt + seta para a direita**
 Up      | **Alt+Up Arrow**
 
 ### <a name="editor-commands"></a>Comandos do editor

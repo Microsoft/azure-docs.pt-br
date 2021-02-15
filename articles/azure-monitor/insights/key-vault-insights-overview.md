@@ -1,23 +1,23 @@
 ---
-title: Monitorar Key Vault com Azure Monitor para Key Vault (versão prévia) | Microsoft Docs
+title: Monitorar Key Vault com Azure Monitor para Key Vault | Microsoft Docs
 description: Este artigo descreve o Azure Monitor para Key Vaults.
 services: azure-monitor
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
-ms.date: 04/13/2019
-ms.openlocfilehash: c669946ab76fcaeaaa6fd681f521408643c5a63c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+author: lgayhardt
+ms.author: lagayhar
+ms.date: 09/10/2020
+ms.openlocfilehash: 41b058cf41aa1a8fb1def68851457385c8187823
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88531252"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98209875"
 ---
-# <a name="monitoring-your-key-vault-service-with-azure-monitor-for-key-vault-preview"></a>Monitoramento do serviço do Key Vault com Azure Monitor para Key Vault (versão prévia)
-O Azure Monitor para Key Vault (versão prévia) fornece monitoramento abrangente de key vaults, fornecendo uma exibição unificada das solicitações, desempenho, falhas e latência do Key Vault.
-Este artigo ajudará a entender como integrar e personalizar a experiência do Azure Monitor para Key Vault (versão prévia).
+# <a name="monitoring-your-key-vault-service-with-azure-monitor-for-key-vault"></a>Monitorando o serviço de cofre de chaves com Azure Monitor para Key Vault
+Azure Monitor para Key Vault fornece monitoramento abrangente de seus cofres de chaves, fornecendo uma exibição unificada de suas solicitações de Key Vault, desempenho, falhas e latência.
+Este artigo o ajudará a entender como integrar e personalizar a experiência de Azure Monitor para Key Vault.
 
-## <a name="introduction-to-azure-monitor-for-key-vault-preview"></a>Introdução ao Azure Monitor para Key Vault (versão prévia)
+## <a name="introduction-to-azure-monitor-for-key-vault"></a>Introdução ao Azure Monitor para Key Vault
 
 Antes de saltar para a experiência, você deve entender como ela apresenta e visualiza informações.
 -    **Na perspectiva de escala**, mostrando uma exibição de instantâneo do desempenho com base nas solicitações, no detalhamento de falhas e em uma visão geral das operações e da latência.
@@ -25,21 +25,6 @@ Antes de saltar para a experiência, você deve entender como ela apresenta e vi
 -    **Personalizável**, onde você pode alterar quais métricas deseja ver, modificar ou definir limites que se alinham aos limites e salvar sua própria pasta de trabalho. Os gráficos na pasta de trabalho podem ser fixados a painéis do Azure.
 
 O Azure Monitor para Key Vault combina logs e métricas para fornecer uma solução de monitoramento global. Todos os usuários podem acessar os dados de monitoramento baseados em métricas, no entanto, a inclusão de visualizações baseadas em logs pode exigir que os usuários [habilitem o registro do Azure Key Vault](../../key-vault/general/logging.md).
-
-## <a name="configuring-your-key-vaults-for-monitoring"></a>Configuração dos key vaults para monitoramento
-
-> [!NOTE]
-> A habilitação de logs é um serviço pago que fornece recursos de monitoramento adicionais.
-
-1. A guia Operações e latência ajuda a determinar quantos e quais key vaults estão habilitados. Para começar a coletar, selecione o botão **Habilitar**, que abre uma pasta de trabalho separada que lista os key vaults que exigem a habilitação dos logs de diagnóstico.
-
-    ![Captura de tela da guia Operações e latência com o botão azul Habilitar exibido](./media/key-vaults-insights-overview/enable-logging.png)
-
-2. Para habilitar os logs de diagnóstico, clique no link **Habilitar** abaixo da coluna Ações e crie uma nova configuração de diagnóstico que envia logs para um workspace do Log Analytics. É recomendável enviar todos os logs para o mesmo espaço de trabalho.
-
-3. Depois que as configurações de diagnóstico forem salvas, você pode exibir todos os gráficos baseados em log e as visualizações abaixo do Key Vault Insights. Observe que pode levar de vários minutos a horas para começar o preenchimento dos logs.
-
-4. Para obter assistência adicional sobre como habilitar os logs de diagnóstico para o serviço de Key Vault, leia o [guia completo](../../key-vault/general/logging.md).
 
 ## <a name="view-from-azure-monitor"></a>Exibir no Azure Monitor
 
@@ -49,7 +34,7 @@ Para exibir a utilização e as operações de seus cofres de chaves em todas as
 
 1. Entre no [Portal do Azure](https://portal.azure.com/)
 
-2. Selecione **Monitor** no painel esquerdo do portal do Azure e, na seção Insights, selecione **Key Vaults (versão prévia)** .
+2. Selecione **Monitor** no painel esquerdo na portal do Azure e, na seção insights, selecione **cofres de chaves**.
 
 ![Captura de tela da experiência de visão geral com vários grafos](./media/key-vaults-insights-overview/overview.png)
 
@@ -77,23 +62,13 @@ A pasta de trabalho exibe Sucessos (códigos de status 2xx), Erros de autentica�
 
 Para entender melhor o que cada um dos códigos de status representa, recomendamos ler a documentação em [Status e códigos de resposta do Azure Key Vault](../../key-vault/general/authentication-requests-and-responses.md).
 
-## <a name="operations--latency-workbook"></a>Pasta de trabalho Operações e latência
-
-Selecione **Operações e latência** na parte superior da página e a guia **Operações e latência** será aberta. Esta guia permite integrar os key vaults para monitoramento. Para obter etapas mais detalhadas, confira a seção [Configuração dos key vaults para monitoramento](#configuring-your-key-vaults-for-monitoring).
-
-Você pode ver quantos dos key vaults estão habilitados para o registro. Se pelo menos um vault foi configurado corretamente, você pode ver as tabelas que exibem as operações e os códigos de status de cada um dos key vaults. Você pode clicar na seção de detalhes de uma linha para obter informações adicionais sobre cada operação.
-
-![Captura de tela dos gráficos de operações e latência](./media/key-vaults-insights-overview/logs.png)
-
-Se você não estiver visualizando os dados desta seção, veja a seção superior sobre como habilitar logs para Azure Key Vault ou consulte a seção Solução de problemas abaixo.
-
 ## <a name="view-from-a-key-vault-resource"></a>Exibição de um recurso do Key Vault
 
 Para acessar o Azure Monitor para Key Vault diretamente em um key vault:
 
 1. Na portal do Azure, selecione Key Vaults.
 
-2. Na lista, escolha um key vault. Na seção Monitoramento, escolha Insights (versão prévia).
+2. Na lista, escolha um key vault. Na seção monitoramento, escolha insights.
 
 Essas exibições também podem ser acessadas selecionando o nome do recurso de um key vault na pasta de trabalho do Azure Monitor.
 
@@ -115,7 +90,7 @@ A pasta de trabalho Falhas detalha os resultados de todas as solicitações do k
 
 A pasta de trabalho Operações permite aprofundar-se nos detalhes completos de todas as transações, que podem ser filtradas pelo status do resultado usando os blocos de nível superior.
 
-![Captura de tela da exibição de operações](./media/key-vaults-insights-overview/info.png)
+![Captura de tela que mostra a pasta de trabalho de operações que contém detalhes completos de todas as transações.](./media/key-vaults-insights-overview/info.png)
 
 Os usuários também podem explorar as exibições com base em tipos de transação específicos na tabela superior, que atualiza dinamicamente a tabela inferior, na qual os usuários podem exibir detalhes completos da operação em um painel de contexto pop-up.
 
@@ -150,7 +125,7 @@ As personalizações são salvas em uma pasta de trabalho personalizada para evi
 
 Você pode configurar as pastas de trabalho Visão geral ou Falhas de várias assinaturas e key vaults para definir o escopo para uma assinatura ou key vault específico em cada execução, seguindo as etapas abaixo:
 
-1. Selecione **Monitor** no portal e, em seguida, selecione **Key Vaults (versão prévia)** no painel esquerdo.
+1. Selecione **Monitor** no portal e, em seguida, selecione **cofres de chaves** no painel esquerdo.
 2. Na pasta de trabalho **Visão geral**, na barra de comandos, selecione **Editar**.
 3. Selecione na lista suspensa **Assinaturas** uma ou mais assinaturas que você deseja usar como o padrão. Lembre-se de que a pasta de trabalho permite selecionar até 10 assinaturas no total.
 4. Selecione na lista suspensa **Key Vaults** uma ou mais contas que você deseja usar como padrão. Lembre-se de que a pasta de trabalho permite selecionar até 200 contas de armazenamento no total.
@@ -160,11 +135,11 @@ Você pode configurar as pastas de trabalho Visão geral ou Falhas de várias as
 
 Para obter diretrizes gerais de solução de problemas, consulte o [artigo de solução de problemas](troubleshoot-workbooks.md)de informações baseadas na pasta de trabalho dedicada.
 
-Esta seção ajuda no diagnóstico e na solução de alguns dos problemas mais comuns que você pode encontrar ao usar o Azure Monitor para Key Vault (versão prévia). Use a lista abaixo para localizar as informações relevantes para o seu problema específico.
+Esta seção o ajudará com o diagnóstico e a solução de problemas de alguns dos problemas comuns que você pode encontrar ao usar o Azure Monitor para Key Vault. Use a lista abaixo para localizar as informações relevantes para o seu problema específico.
 
 ### <a name="resolving-performance-issues-or-failures"></a>Resolução de problemas ou falhas de desempenho
 
-Para ajudar a solucionar os problemas relacionados ao key vault identificados com o Azure Monitor para Key Vault (versão prévia), confira a documentação [Azure Key Vault](../../key-vault/index.yml).
+Para ajudar a solucionar problemas relacionados ao cofre de chaves que você identifica com Azure Monitor para Key Vault, consulte a [documentação do Azure Key Vault](../../key-vault/index.yml).
 
 ### <a name="why-can-i-only-see-200-key-vaults"></a>Por que só posso ver os cofres de chaves 200
 
@@ -175,10 +150,6 @@ Há um limite de 200 key vaults que podem ser selecionados e exibidos. Independe
 Mostramos apenas as assinaturas que contêm key vaults, escolhidas no filtro de assinatura selecionado, que são selecionadas no "Diretório + Assinatura" no cabeçalho do portal do Azure.
 
 ![Captura de tela do filtro de assinatura](./media/key-vaults-insights-overview/Subscriptions.png)
-
-### <a name="i-am-getting-an-error-message-that-the-query-exceeds-the-maximum-number-of-workspacesregions-allowed-what-to-do-now"></a>Estou recebendo uma mensagem de erro informando que a "consulta excede o número máximo de espaços de trabalho/regiões permitidos", o que fazer agora
-
-No momento, há um limite para 25 regiões e 200 espaços de trabalho para exibir os dados. Será necessário reduzir o número de assinaturas e/ou grupos de recursos.
 
 ### <a name="i-want-to-make-changes-or-add-additional-visualizations-to-key-vault-insights-how-do-i-do-so"></a>Quero fazer alterações ou adicionar visualizações adicionais a Key Vault insights, como fazer isso
 
@@ -191,16 +162,6 @@ Utilizamos o intervalo de agregação "Automático" e, portanto, depende do inte
 ### <a name="what-is-the-time-range-when-any-part-of-the-workbook-is-pinned"></a>Qual é o intervalo de tempo quando qualquer parte da pasta de trabalho é fixada
 
 O intervalo de tempo dependerá das configurações do painel.
-
-### <a name="why-do-i-not-see-any-data-for-my-key-vault-under-the-operations--latency-sections"></a>Por que não vejo nenhum dado para meu Key Vault nas seções de latência de & de operações
-
-Para exibir os dados baseados em logs, é necessário habilitar os logs de cada um dos key vaults que deseja monitorar. Isso pode ser feito nas configurações de diagnóstico para cada key vault. É necessário enviar os dados para um workspace do Log Analytics designado.
-
-### <a name="i-have-already-enabled-logs-for-my-key-vault-why-am-i-still-unable-to-see-my-data-under-operations--latency"></a>Já habilitei os logs para o meu Key Vault, por que ainda não consigo ver meus dados em operações & latência
-
-No momento, os logs de diagnóstico não funcionam retroativamente, portanto, os dados só começarão a aparecer depois que ações forem realizados nos seus key vaults. Portanto, pode levar algum tempo, variando de horas a um dia, dependendo do volume de atividade do key vault.
-
-Além disso, se você tiver um grande número de key vaults e assinaturas selecionados, talvez não seja possível exibir seus dados devido às limitações de consulta. Para exibir seus dados, talvez seja necessário reduzir o número de assinaturas ou key vaults selecionados. 
 
 ### <a name="what-if-i-want-to-see-other-data-or-make-my-own-visualizations-how-can-i-make-changes-to-the-key-vault-insights"></a>E se eu quiser ver outros dados ou fazer minhas próprias visualizações? Como fazer alterações no Key Vault insights
 

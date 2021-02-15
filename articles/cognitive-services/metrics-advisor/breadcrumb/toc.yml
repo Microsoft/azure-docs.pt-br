@@ -1,0 +1,11 @@
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+    - name: Serviços Cognitivos
+      tocHref: /azure/cognitive-services/
+      topicHref: /azure/cognitive-services/index
+      items:
+        - name: Assistente de Métricas
+          tocHref: /azure/cognitive-services/
+          topicHref: /azure/cognitive-services/metrics-advisor/index

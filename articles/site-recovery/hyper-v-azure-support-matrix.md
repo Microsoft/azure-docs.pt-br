@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 7/14/2020
 ms.author: raynew
-ms.openlocfilehash: 53967ab0bec9488691ff60cdabb8fedbb6b9730e
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 79558bd2c8e9bfec0aff47d254944977d271a762
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386700"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97587807"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Matriz de suporte para recuperação de desastre de VMs do Hyper-V locais para o Azure
 
@@ -30,7 +30,7 @@ Hyper-V sem Virtual Machine Manager | Você pode executar a recuperação de des
 
 ## <a name="on-premises-servers"></a>Servidores locais
 
-**Servidor** | **Requisitos** | **Detalhes**
+**Servidor** | **Requirements** | **Detalhes**
 --- | --- | ---
 Hyper-V (executando sem Virtual Machine Manager) |  Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 com as atualizações mais recentes <br/><br/> **Observação:** Também há suporte para a instalação do Server Core desses sistemas operacionais. | Se você já tiver configurado o Windows Server 2012 R2 com/ou o SCVMM 2012 R2 com o Azure Site Recovery e pretender atualizar o sistema operacional, siga as diretrizes na [documentação](upgrade-2012R2-to-2016.md).
 Hyper-V (executando sem Virtual Machine Manager) | Virtual Machine Manager 2019, Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 <br/><br/> **Observação:** Também há suporte para a instalação do Server Core desses sistemas operacionais.  | Se Virtual Machine Manager for usado, os hosts do Windows Server 2019 deverão ser gerenciados em Virtual Machine Manager 2019. Da mesma forma, os hosts do Windows Server 2016 devem ser gerenciados no Virtual Machine Manager 2016.
@@ -94,7 +94,7 @@ Rede Acelerada | Não | Não
 
 ## <a name="hyper-v-host-storage"></a>Armazenamento de host do Hyper-V
 
-**Storage** | **Hyper-V com Virtual Machine Manager** | **Hyper-V sem Virtual Machine Manager**
+**Armazenamento** | **Hyper-V com Virtual Machine Manager** | **Hyper-V sem Virtual Machine Manager**
 --- | --- | --- 
 NFS | NA | NA
 SMB 3.0 | Sim | Sim
@@ -103,7 +103,7 @@ Múltiplos caminhos (MPIO). Testado com:<br></br> Microsoft DSM, EMC PowerPath 5
 
 ## <a name="hyper-v-vm-guest-storage"></a>Armazenamento de convidado da VM do Hyper-V
 
-**Storage** | **Hyper-V com Virtual Machine Manager** | **Hyper-V sem Virtual Machine Manager**
+**Armazenamento** | **Hyper-V com Virtual Machine Manager** | **Hyper-V sem Virtual Machine Manager**
 --- | --- | ---
 VMDK | NA | NA
 VHD/VHDX | Sim | Sim
@@ -131,12 +131,13 @@ Múltiplos caminhos (MPIO) | Sim | Sim
 Armazenamento com redundância local | Sim | Sim
 Armazenamento com redundância geográfica | Sim | Sim
 Armazenamento com redundância geográfica com acesso de leitura | Sim | Sim
+Armazenamento com redundância de zona | Não | Não
 Armazenamento frio | Não | Não
 Armazenamento quente| Não | Não
 Blobs de bloco | Não | Não
 Criptografia em repouso (SSE)| Sim | Sim
 Criptografia em repouso (CMK) <br></br> (Somente para failover em discos gerenciados)| Sim (por meio do PowerShell AZ 3.3.0 Module em diante) | Sim (por meio do PowerShell AZ 3.3.0 Module em diante)
-Criptografia dupla em repouso <br></br> (Somente para failover em discos gerenciados) <br></br> Saiba mais sobre as regiões com suporte para [Windows](../virtual-machines/windows/disk-encryption.md) e [Linux](../virtual-machines/linux/disk-encryption.md) | Sim (por meio do PowerShell AZ 3.3.0 Module em diante) | Sim (por meio do PowerShell AZ 3.3.0 Module em diante)
+Criptografia dupla em repouso <br></br> (Somente para failover em discos gerenciados) <br></br> Saiba mais sobre as regiões com suporte para [Windows](../virtual-machines/disk-encryption.md) e [Linux](../virtual-machines/disk-encryption.md) | Sim (por meio do PowerShell AZ 3.3.0 Module em diante) | Sim (por meio do PowerShell AZ 3.3.0 Module em diante)
 Armazenamento Premium | Sim | Sim
 Armazenamento Standard | Sim | Sim
 Serviço de importação/exportação | Não | Não
@@ -157,7 +158,7 @@ Discos gerenciados | Sim, para failover.<br/><br/> O failback de discos gerencia
 
 VMs locais que são replicados para o Azure devem atender aos requisitos de VM do Azure resumidos nesta tabela.
 
-**Componente** | **Requisitos** | **Detalhes**
+**Componente** | **Requirements** | **Detalhes**
 --- | --- | ---
 Sistema operacional convidado | O Site Recovery é compatível com todos os sistemas operacionais que têm [suporte do Azure](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc794868(v=ws.10)).  | A verificação de pré-requisitos falha quando não há suporte para ela.
 Arquitetura do sistema operacional convidado | 32 bits (Windows Server 2008)/64-bit | A verificação de pré-requisitos falha quando não há suporte para ela.
@@ -181,7 +182,7 @@ Mover cofre entre grupos de recursos<br/><br/> Dentro e entre as assinaturas | N
 Mover armazenamento, rede, VMs do Azure entre grupos de recursos<br/><br/> Dentro e entre as assinaturas | Não | Não
 
 > [!NOTE]
-> Ao replicar Hyper-VMs do local para o Azure, você pode replicar para apenas um locatário do AD de um ambiente específico – site do Hyper-V ou Hyper-V com o VMM, conforme aplicável.
+> Ao replicar Hyper-VMs do local para o Azure, você pode replicar para apenas um locatário do AD de um ambiente específico – site Hyper-V ou Hyper-V com o VMM, conforme aplicável.
 
 
 ## <a name="provider-and-agent"></a>Provedor e agente

@@ -3,21 +3,21 @@ title: Usar ações do GitHub para fazer atualizações de código no Azure Func
 description: Saiba como usar ações do GitHub para definir um fluxo de trabalho para criar e implantar Azure Functions projetos no GitHub.
 author: craigshoemaker
 ms.topic: conceptual
-ms.date: 04/16/2020
+ms.date: 10/07/2020
 ms.author: cshoe
-ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 02f5399e89900a438fb94f973c497a54dc05cfee
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.custom: devx-track-csharp, devx-track-python, github-actions-azure
+ms.openlocfilehash: cc356b307a752b10ba6f1c1a7151381c5644ca1e
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88210165"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762726"
 ---
 # <a name="continuous-delivery-by-using-github-action"></a>Entrega contínua usando a ação do GitHub
 
-As [ações do GitHub](https://github.com/features/actions) permitem definir um fluxo de trabalho para criar e implantar automaticamente o código de funções no aplicativo de funções no Azure. 
+Use as [ações do GitHub](https://github.com/features/actions) para definir um fluxo de trabalho para compilar e implantar código automaticamente em seu aplicativo de funções no Azure functions. 
 
-Em ações do GitHub, um [fluxo de trabalho](https://help.github.com/articles/about-github-actions#workflow) é um processo automatizado que você define em seu repositório github. Esse processo informa ao GitHub como criar e implantar seu projeto de aplicativo do Functions no GitHub. 
+Em ações do GitHub, um [fluxo de trabalho](https://docs.github.com/en/actions/learn-github-actions/introduction-to-github-actions#the-components-of-github-actions) é um processo automatizado que você define em seu repositório github. Esse processo informa ao GitHub como criar e implantar seu projeto de aplicativo de funções no GitHub. 
 
 Um fluxo de trabalho é definido por um arquivo YAML (.yml) no caminho `/.github/workflows/` no repositório. Essa definição contém as várias etapas e os parâmetros que compõem o fluxo de trabalho. 
 
@@ -25,27 +25,24 @@ Para um fluxo de trabalho Azure Functions, o arquivo tem três seções:
 
 | Seção | Tarefas |
 | ------- | ----- |
-| **Autenticação** | <ol><li>Defina uma entidade de serviço.</li><li>Baixar o perfil de publicação.</li><li>Crie um segredo do GitHub.</li></ol>|
-| **Compilar** | <ol><li>Configure o ambiente.</li><li>Compile o aplicativo de funções.</li></ol> |
-| **Implantar** | <ol><li>Implante o aplicativo de funções.</li></ol>|
+| **Autenticação** | Baixar um perfil de publicação.<br/>Crie um segredo do GitHub.|
+| **Build** | Configure o ambiente.<br/>Compile o aplicativo de funções.|
+| **Implantar** | Implante o aplicativo de funções.|
 
-> [!NOTE]
-> Você não precisará criar uma entidade de serviço se decidir usar o perfil de publicação para autenticação.
+## <a name="prerequisites"></a>Pré-requisitos
 
-## <a name="create-a-service-principal"></a>Criar uma entidade de serviço
+- Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Uma conta do GitHub. Caso ainda não tenha uma, inscreva-se [gratuitamente](https://github.com/join).  
+- Um aplicativo de funções de trabalho hospedado no Azure com um repositório GitHub.   
+    - [Início Rápido: Criar uma função no Azure usando o Visual Studio Code](./create-first-function-vs-code-csharp.md)
 
-Crie uma [entidade de serviço](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) usando o comando [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) na [CLI do Azure](/cli/azure/). Execute esse comando com o [Azure Cloud Shell](https://shell.azure.com) no portal do Azure ou selecionando o botão **Experimentar**.
+## <a name="generate-deployment-credentials"></a>Gerar as credenciais de implantação
 
-```azurecli-interactive
-az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.Web/sites/<APP_NAME> --sdk-auth
-```
+A maneira recomendada para autenticar com Azure Functions para ações do GitHub é usando um perfil de publicação. Você também pode autenticar com uma entidade de serviço. Para saber mais, confira [este repositório de ações do GitHub](https://github.com/Azure/functions-action). 
 
-Neste exemplo, substitua os espaços reservados no recurso por sua ID de assinatura, grupo de recursos e nome do aplicativo de funções. A saída são as credenciais de atribuição de função que fornecem acesso ao seu aplicativo de funções. Copie esse objeto JSON, que você pode usar para se autenticar por meio do GitHub.
+Depois de salvar a credencial de perfil de publicação como um [segredo do GitHub](https://docs.github.com/en/actions/reference/encrypted-secrets), você usará esse segredo em seu fluxo de trabalho para autenticar com o Azure. 
 
-> [!IMPORTANT]
-> É sempre uma boa prática permitir acesso mínimo. É por isso que o escopo no exemplo anterior é limitado ao aplicativo de funções específico e não ao grupo de recursos inteiro.
-
-## <a name="download-the-publishing-profile"></a>Baixar o perfil de publicação
+#### <a name="download-your-publish-profile"></a>Baixar seu perfil de publicação
 
 Para baixar o perfil de publicação do seu aplicativo de funções:
 
@@ -53,85 +50,72 @@ Para baixar o perfil de publicação do seu aplicativo de funções:
 
    :::image type="content" source="media/functions-how-to-github-actions/get-publish-profile.png" alt-text="Baixar perfil de publicação":::
 
-1. Salve e copie o conteúdo do arquivo de configurações de publicação.
+1. Salve e copie o conteúdo do arquivo.
 
-## <a name="configure-the-github-secret"></a>Configurar o segredo do GitHub
+
+### <a name="add-the-github-secret"></a>Adicionar o segredo do GitHub
 
 1. No [GitHub](https://github.com), navegue até o repositório, selecione **configurações**  >  **segredos**  >  **Adicionar um novo segredo**.
 
    :::image type="content" source="media/functions-how-to-github-actions/add-secret.png" alt-text="Adicionar segredo":::
 
-1. Adicione um novo segredo.
-
-   * Se você estiver usando a entidade de serviço que você criou usando o CLI do Azure, use `AZURE_CREDENTIALS` para o **nome**. Em seguida, Cole a saída do objeto JSON copiado quanto a **valor**e selecione **Adicionar segredo**.
-   * Se você estiver usando um perfil de publicação, use `SCM_CREDENTIALS` para o **nome**. Em seguida, use o conteúdo do arquivo do perfil de publicação para **valor**e selecione **Adicionar segredo**.
+1. Adicione um novo segredo usando `AZURE_FUNCTIONAPP_PUBLISH_PROFILE` para **nome**, o conteúdo do arquivo de perfil de publicação para **valor** e, em seguida, selecione **Adicionar segredo**.
 
 O GitHub agora pode se autenticar no seu aplicativo de funções no Azure.
 
-## <a name="set-up-the-environment"></a>Configurar o ambiente 
+## <a name="create-the-environment"></a>Criar o ambiente 
 
 A configuração do ambiente é feita usando uma ação de instalação de publicação específica a um idioma.
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
+# <a name="net"></a>[.NET](#tab/dotnet)
 
-O exemplo a seguir mostra a parte do fluxo de trabalho que usa a `actions/setup-node` ação para configurar o ambiente:
-
-```yaml
-    - name: 'Login via Azure CLI'
-      uses: azure/login@v1
-      with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}
-    - name: Setup Node 10.x
-      uses: actions/setup-node@v1
-      with:
-        node-version: '10.x'
-```
-
-# <a name="python"></a>[Python](#tab/python)
-
-O exemplo a seguir mostra a parte do fluxo de trabalho que usa a `actions/setup-python` ação para configurar o ambiente:
+O .NET (incluindo ASP.NET) usa a `actions/setup-dotnet` ação.  
+O exemplo a seguir mostra a parte do fluxo de trabalho que configura o ambiente:
 
 ```yaml
-    - name: 'Login via Azure CLI'
-      uses: azure/login@v1
-      with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}
-    - name: Setup Python 3.6
-      uses: actions/setup-python@v1
-      with:
-        python-version: 3.6
-```
-
-# <a name="c"></a>[C#](#tab/csharp)
-
-O exemplo a seguir mostra a parte do fluxo de trabalho que usa a `actions/setup-dotnet` ação para configurar o ambiente:
-
-```yaml
-    - name: 'Login via Azure CLI'
-      uses: azure/login@v1
-      with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}
-    - name: Setup Dotnet 2.2.300
+    - name: Setup DotNet 2.2.402 Environment
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: '2.2.300'
+        dotnet-version: 2.2.402
 ```
 
 # <a name="java"></a>[Java](#tab/java)
 
-O exemplo a seguir mostra a parte do fluxo de trabalho que usa a  `actions/setup-java` ação para configurar o ambiente:
+O Java usa a  `actions/setup-java` ação.  
+O exemplo a seguir mostra a parte do fluxo de trabalho que configura o ambiente:
 
 ```yaml
-    - name: 'Login via Azure CLI'
-      uses: azure/login@v1
-      with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}
     - name: Setup Java 1.8.x
       uses: actions/setup-java@v1
       with:
         # If your pom.xml <maven.compiler.source> version is not in 1.8.x
         # Please change the Java version to match the version in pom.xml <maven.compiler.source>
         java-version: '1.8.x'
+```
+
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+O JavaScript (Node.js) usa a `actions/setup-node` ação.  
+O exemplo a seguir mostra a parte do fluxo de trabalho que configura o ambiente:
+
+```yaml
+
+    - name: Setup Node 12.x Environment
+      uses: actions/setup-node@v1
+      with:
+        node-version: 12.x
+```
+
+# <a name="python"></a>[Python](#tab/python)
+
+O Python usa a `actions/setup-python` ação.  
+O exemplo a seguir mostra a parte do fluxo de trabalho que configura o ambiente:
+
+```yaml
+    - name: Setup Python 3.7 Environment
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.7
 ```
 ---
 
@@ -141,15 +125,45 @@ Isso depende do idioma e dos idiomas com suporte pelo Azure Functions, esta seç
 
 O exemplo a seguir mostra a parte do fluxo de trabalho que cria o aplicativo de funções, que é específico do idioma:
 
+# <a name="net"></a>[.NET](#tab/dotnet)
+
+```yaml
+    env:
+      AZURE_FUNCTIONAPP_PACKAGE_PATH: '.' # set this to the path to your web app project, defaults to the repository root
+
+    - name: 'Resolve Project Dependencies Using Dotnet'
+      shell: bash
+      run: |
+        pushd './${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}'
+        dotnet build --configuration Release --output ./output
+        popd
+```
+
+# <a name="java"></a>[Java](#tab/java)
+
+```yaml
+    env:
+      POM_XML_DIRECTORY: '.'  # set this to the directory which contains pom.xml file
+
+    - name: 'Restore Project Dependencies Using Mvn'
+      shell: bash
+      run: |
+        pushd './${{ env.POM_XML_DIRECTORY }}'
+        mvn clean package
+        mvn azure-functions:package
+        popd
+```
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```yaml
-    - name: 'Run npm'
+    env:
+      AZURE_FUNCTIONAPP_PACKAGE_PATH: '.'  # set this to the path to your web app project, defaults to the repository root
+
+    - name: 'Resolve Project Dependencies Using Npm'
       shell: bash
       run: |
-        # If your function app project is not located in your repository's root
-        # Please change your directory for npm in pushd
-        pushd .
+        pushd './${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}'
         npm install
         npm run build --if-present
         npm run test --if-present
@@ -159,68 +173,330 @@ O exemplo a seguir mostra a parte do fluxo de trabalho que cria o aplicativo de 
 # <a name="python"></a>[Python](#tab/python)
 
 ```yaml
-    - name: 'Run pip'
+    env:
+      AZURE_FUNCTIONAPP_PACKAGE_PATH: '.' # set this to the path to your web app project, defaults to the repository root
+
+    - name: 'Resolve Project Dependencies Using Pip'
       shell: bash
       run: |
-        # If your function app project is not located in your repository's root
-        # Please change your directory for pip in pushd
-        pushd .
+        pushd './${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}'
         python -m pip install --upgrade pip
-        pip install -r requirements.txt --target=".python_packages/lib/python3.6/site-packages"
-        popd
-```
-
-# <a name="c"></a>[C#](#tab/csharp)
-
-```yaml
-    - name: 'Run dotnet build'
-      shell: bash
-      run: |
-        # If your function app project is not located in your repository's root
-        # Please consider using pushd to change your path
-        pushd .
-        dotnet build --configuration Release --output ./output
-        popd
-```
-
-# <a name="java"></a>[Java](#tab/java)
-
-```yaml
-    - name: 'Run mvn'
-      shell: bash
-      run: |
-        # If your function app project is not located in your repository's root
-        # Please change your directory for maven build in pushd
-        pushd . ./POM_ARTIFACT_ID
-        mvn clean package
-        mvn azure-functions:package
+        pip install -r requirements.txt --target=".python_packages/lib/site-packages"
         popd
 ```
 ---
 
 ## <a name="deploy-the-function-app"></a>Implantar o aplicativo de funções
 
-Para implantar seu código em um aplicativo de funções, será necessário usar a `Azure/functions-action` ação. Esta ação tem dois parâmetros:
+Use a `Azure/functions-action` ação para implantar seu código em um aplicativo de funções. Esta ação tem três parâmetros:
 
 |Parâmetro |Explicação  |
 |---------|---------|
-|**_nome do aplicativo_** | Obrigatório O nome do seu aplicativo de funções. |
+|_**nome do aplicativo**_ | Obrigatório O nome do seu aplicativo de funções. |
 |_**nome do slot**_ | Adicional O nome do [slot de implantação](functions-deployment-slots.md) no qual você deseja implantar. O slot já deve estar definido em seu aplicativo de funções. |
+|_**publish-profile**_ | Adicional O nome do segredo do GitHub para seu perfil de publicação. |
 
+O exemplo a seguir usa a versão 1 do `functions-action` e um `publish profile` para autenticação 
 
-O exemplo a seguir usa a versão 1 do `functions-action` :
+# <a name="net"></a>[.NET](#tab/dotnet)
+
+Configure um fluxo de trabalho do Linux .NET que usa um perfil de publicação.
 
 ```yaml
+name: Deploy DotNet project to function app with a Linux environment
+
+on:
+  [push]
+
+env:
+  AZURE_FUNCTIONAPP_NAME: your-app-name  # set this to your application's name
+  AZURE_FUNCTIONAPP_PACKAGE_PATH: '.'    # set this to the path to your web app project, defaults to the repository root
+  DOTNET_VERSION: '2.2.402'              # set this to the dotnet version to use
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: 'Checkout GitHub Action'
+      uses: actions/checkout@main
+
+    - name: Setup DotNet ${{ env.DOTNET_VERSION }} Environment
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: ${{ env.DOTNET_VERSION }}
+
+    - name: 'Resolve Project Dependencies Using Dotnet'
+      shell: bash
+      run: |
+        pushd './${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}'
+        dotnet build --configuration Release --output ./output
+        popd
     - name: 'Run Azure Functions Action'
       uses: Azure/functions-action@v1
       id: fa
       with:
-        app-name: PLEASE_REPLACE_THIS_WITH_YOUR_FUNCTION_APP_NAME
+        app-name: ${{ env.AZURE_FUNCTIONAPP_NAME }}
+        package: '${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}/output'
+        publish-profile: ${{ secrets.AZURE_FUNCTIONAPP_PUBLISH_PROFILE }}
 ```
+Configure um fluxo de trabalho do Windows .NET que usa um perfil de publicação.
+
+```yaml
+name: Deploy DotNet project to function app with a Windows environment
+
+on:
+  [push]
+
+env:
+  AZURE_FUNCTIONAPP_NAME: your-app-name  # set this to your application's name
+  AZURE_FUNCTIONAPP_PACKAGE_PATH: '.'    # set this to the path to your web app project, defaults to the repository root
+  DOTNET_VERSION: '2.2.402'              # set this to the dotnet version to use
+
+jobs:
+  build-and-deploy:
+    runs-on: windows-latest
+    steps:
+    - name: 'Checkout GitHub Action'
+      uses: actions/checkout@main
+
+    - name: Setup DotNet ${{ env.DOTNET_VERSION }} Environment
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: ${{ env.DOTNET_VERSION }}
+
+    - name: 'Resolve Project Dependencies Using Dotnet'
+      shell: pwsh
+      run: |
+        pushd './${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}'
+        dotnet build --configuration Release --output ./output
+        popd
+    - name: 'Run Azure Functions Action'
+      uses: Azure/functions-action@v1
+      id: fa
+      with:
+        app-name: ${{ env.AZURE_FUNCTIONAPP_NAME }}
+        package: '${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}/output'
+        publish-profile: ${{ secrets.AZURE_FUNCTIONAPP_PUBLISH_PROFILE }}
+```
+
+# <a name="java"></a>[Java](#tab/java)
+
+Configure um fluxo de trabalho do Java Linux que usa um perfil de publicação.
+
+```yaml
+name: Deploy Java project to function app
+
+on:
+  [push]
+
+env:
+  AZURE_FUNCTIONAPP_NAME: your-app-name      # set this to your function app name on Azure
+  POM_XML_DIRECTORY: '.'                     # set this to the directory which contains pom.xml file
+  POM_FUNCTIONAPP_NAME: your-app-name        # set this to the function app name in your local development environment
+  JAVA_VERSION: '1.8.x'                      # set this to the dotnet version to use
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: 'Checkout GitHub Action'
+      uses: actions/checkout@main
+
+    - name: Setup Java Sdk ${{ env.JAVA_VERSION }}
+      uses: actions/setup-java@v1
+      with:
+        java-version: ${{ env.JAVA_VERSION }}
+
+    - name: 'Restore Project Dependencies Using Mvn'
+      shell: bash
+      run: |
+        pushd './${{ env.POM_XML_DIRECTORY }}'
+        mvn clean package
+        mvn azure-functions:package
+        popd
+    - name: 'Run Azure Functions Action'
+      uses: Azure/functions-action@v1
+      id: fa
+      with:
+        app-name: ${{ env.AZURE_FUNCTIONAPP_NAME }}
+        package: './${{ env.POM_XML_DIRECTORY }}/target/azure-functions/${{ env.POM_FUNCTIONAPP_NAME }}'
+        publish-profile: ${{ secrets.AZURE_FUNCTIONAPP_PUBLISH_PROFILE }}
+```
+
+Configure um fluxo de trabalho do Windows Java que usa um perfil de publicação.
+
+```yaml
+name: Deploy Java project to function app
+
+on:
+  [push]
+
+env:
+  AZURE_FUNCTIONAPP_NAME: your-app-name      # set this to your function app name on Azure
+  POM_XML_DIRECTORY: '.'                     # set this to the directory which contains pom.xml file
+  POM_FUNCTIONAPP_NAME: your-app-name        # set this to the function app name in your local development environment
+  JAVA_VERSION: '1.8.x'                      # set this to the java version to use
+
+jobs:
+  build-and-deploy:
+    runs-on: windows-latest
+    steps:
+    - name: 'Checkout GitHub Action'
+      uses: actions/checkout@main
+
+    - name: Setup Java Sdk ${{ env.JAVA_VERSION }}
+      uses: actions/setup-java@v1
+      with:
+        java-version: ${{ env.JAVA_VERSION }}
+
+    - name: 'Restore Project Dependencies Using Mvn'
+      shell: pwsh
+      run: |
+        pushd './${{ env.POM_XML_DIRECTORY }}'
+        mvn clean package
+        mvn azure-functions:package
+        popd
+    - name: 'Run Azure Functions Action'
+      uses: Azure/functions-action@v1
+      id: fa
+      with:
+        app-name: ${{ env.AZURE_FUNCTIONAPP_NAME }}
+        package: './${{ env.POM_XML_DIRECTORY }}/target/azure-functions/${{ env.POM_FUNCTIONAPP_NAME }}'
+        publish-profile: ${{ secrets.AZURE_FUNCTIONAPP_PUBLISH_PROFILE }}
+```
+
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+Configure um Node.JS fluxo de trabalho do Linux que usa um perfil de publicação.
+
+```yaml
+name: Deploy Node.js project to function app
+
+on:
+  [push]
+
+env:
+  AZURE_FUNCTIONAPP_NAME: your-app-name    # set this to your application's name
+  AZURE_FUNCTIONAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
+  NODE_VERSION: '12.x'                     # set this to the node version to use (supports 8.x, 10.x, 12.x)
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: 'Checkout GitHub Action'
+      uses: actions/checkout@main
+
+    - name: Setup Node ${{ env.NODE_VERSION }} Environment
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ env.NODE_VERSION }}
+
+    - name: 'Resolve Project Dependencies Using Npm'
+      shell: bash
+      run: |
+        pushd './${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}'
+        npm install
+        npm run build --if-present
+        npm run test --if-present
+        popd
+    - name: 'Run Azure Functions Action'
+      uses: Azure/functions-action@v1
+      id: fa
+      with:
+        app-name: ${{ env.AZURE_FUNCTIONAPP_NAME }}
+        package: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
+        publish-profile: ${{ secrets.AZURE_FUNCTIONAPP_PUBLISH_PROFILE }}
+```
+
+Configure um Node.JS fluxo de trabalho do Windows que usa um perfil de publicação.
+
+```yaml
+name: Deploy Node.js project to function app
+
+on:
+  [push]
+
+env:
+  AZURE_FUNCTIONAPP_NAME: your-app-name    # set this to your application's name
+  AZURE_FUNCTIONAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
+  NODE_VERSION: '10.x'                     # set this to the node version to use (supports 8.x, 10.x, 12.x)
+
+jobs:
+  build-and-deploy:
+    runs-on: windows-latest
+    steps:
+    - name: 'Checkout GitHub Action'
+      uses: actions/checkout@main
+
+    - name: Setup Node ${{ env.NODE_VERSION }} Environment
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ env.NODE_VERSION }}
+
+    - name: 'Resolve Project Dependencies Using Npm'
+      shell: pwsh
+      run: |
+        pushd './${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}'
+        npm install
+        npm run build --if-present
+        npm run test --if-present
+        popd
+    - name: 'Run Azure Functions Action'
+      uses: Azure/functions-action@v1
+      id: fa
+      with:
+        app-name: ${{ env.AZURE_FUNCTIONAPP_NAME }}
+        package: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
+        publish-profile: ${{ secrets.AZURE_FUNCTIONAPP_PUBLISH_PROFILE }}
+
+```
+# <a name="python"></a>[Python](#tab/python)
+
+Configure um fluxo de trabalho do Python Linux que usa um perfil de publicação.
+
+```yaml
+name: Deploy Python project to function app
+
+on:
+  [push]
+
+env:
+  AZURE_FUNCTIONAPP_NAME: your-app-name # set this to your application's name
+  AZURE_FUNCTIONAPP_PACKAGE_PATH: '.'   # set this to the path to your web app project, defaults to the repository root
+  PYTHON_VERSION: '3.7'                 # set this to the python version to use (supports 3.6, 3.7, 3.8)
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: 'Checkout GitHub Action'
+      uses: actions/checkout@main
+
+    - name: Setup Python ${{ env.PYTHON_VERSION }} Environment
+      uses: actions/setup-python@v1
+      with:
+        python-version: ${{ env.PYTHON_VERSION }}
+
+    - name: 'Resolve Project Dependencies Using Pip'
+      shell: bash
+      run: |
+        pushd './${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}'
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt --target=".python_packages/lib/site-packages"
+        popd
+    - name: 'Run Azure Functions Action'
+      uses: Azure/functions-action@v1
+      id: fa
+      with:
+        app-name: ${{ env.AZURE_FUNCTIONAPP_NAME }}
+        package: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
+        publish-profile: ${{ secrets.AZURE_FUNCTIONAPP_PUBLISH_PROFILE }}
+```
+
+---
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para exibir um arquivo Workflow. YAML completo, consulte um dos arquivos no repositório de [exemplos de fluxo de trabalho de ações do Azure GitHub](https://aka.ms/functions-actions-samples) que têm `functionapp` no nome. Você pode usar esses exemplos em um ponto de partida para seu fluxo de trabalho.
-
 > [!div class="nextstepaction"]
-> [Saiba mais sobre as GitHub Actions](https://help.github.com/en/articles/about-github-actions)
+> [Saiba mais sobre a integração do Azure e do GitHub](/azure/developer/github/)

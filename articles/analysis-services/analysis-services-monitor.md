@@ -8,10 +8,10 @@ ms.date: 03/04/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: aaa3a6d128fe7dd466f6f60ab515f05fa38ba63b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84690369"
 ---
 # <a name="monitor-server-metrics"></a>Monitorar métricas do servidor
@@ -37,7 +37,7 @@ Para executar diagnóstico mais detalhado, rastrear o desempenho e identificar t
 
 Use essa tabela para determinar quais métricas são melhores para o seu cenário de monitoramento. Apenas as métricas da mesma unidade podem ser mostradas no mesmo gráfico.
 
-|Métrica|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|
+|Métrica|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|
 |---|---|---|---|---|
 |CommandPoolJobQueueLength|Comprimento da fila de trabalho do pool de comando|Contagem|Média|Número de trabalhos na fila do pool de threads de comando.|
 |CurrentConnections|Conexão: Conexões atuais|Contagem|Média|Número atual de conexões de cliente estabelecidas.|

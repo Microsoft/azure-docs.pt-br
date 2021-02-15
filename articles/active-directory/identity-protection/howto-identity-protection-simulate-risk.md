@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cbcc2351b7ead3714cfd21aa30b031cec75074a9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7eafeaf59757fcda978fa89b4bc2f9882b769e48
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84463749"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835893"
 ---
 # <a name="simulating-risk-detections-in-identity-protection"></a>Simulando detecções de riscos na proteção de identidades
 
@@ -40,7 +40,7 @@ Mais informações sobre cada detecção de risco podem ser encontradas no artig
 A conclusão do procedimento a seguir requer que você use:
 
 - O [Tor Browser](https://www.torproject.org/projects/torbrowser.html.en) para simular endereços IP anônimos. Talvez você precise usar uma máquina virtual, caso sua organização restrinja o uso do navegador Tor.
-- Uma conta de teste que ainda não está registrada para a autenticação multifator do Azure.
+- Uma conta de teste que ainda não está registrada para a autenticação multifator do Azure AD.
 
 **Para simular uma entrada de um IP anônimo, realize as seguintes etapas**:
 
@@ -61,7 +61,7 @@ O procedimento abaixo usa um criado recentemente:
 A conclusão do procedimento a seguir requer que você use uma conta de usuário que tenha:
 
 - Pelo menos um histórico entrada de 30 dias.
-- Autenticação multifator do Azure habilitada.
+- Autenticação multifator do Azure AD habilitada.
 
 **Para simular uma entrada de um local desconhecido, realize as seguintes etapas**:
 
@@ -93,7 +93,7 @@ Esta seção fornece etapas para testar o usuário e as políticas de risco de e
 Para testar uma política de segurança de risco de usuário, execute as seguintes etapas:
 
 1. Navegue até o [Portal do Azure](https://portal.azure.com).
-1. Navegue até **Azure Active Directory**  >  **Security**  >  **visão geral**de segurança.
+1. Navegue até **Azure Active Directory**  >  **Security**  >  **visão geral** de segurança.
 1. Selecione **Configurar política de risco do usuário**.
    1. Em **atribuições**
       1. **Usuários** – escolha **todos os usuários** ou **selecione indivíduos e grupos** se limitar a distribuição.
@@ -113,7 +113,7 @@ Para testar uma política de segurança de risco de usuário, execute as seguint
 Para testar uma política de segurança de entrada, execute as seguintes etapas:
 
 1. Navegue até o [Portal do Azure](https://portal.azure.com).
-1. Navegue até **Azure Active Directory**  >  **Security**  >  **visão geral**de segurança.
+1. Navegue até **Azure Active Directory**  >  **Security**  >  **visão geral** de segurança.
 1. Selecione **Configurar política de risco de entrada**.
    1. Em **atribuições**
       1. **Usuários** – escolha **todos os usuários** ou **selecione indivíduos e grupos** se limitar a distribuição.

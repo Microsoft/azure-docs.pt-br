@@ -13,6 +13,10 @@
         - name: Modelo de ARM
           displayName: Resource Manager
           href: advisor-alerts-arm.md
+- name: Conceitos
+  items:
+    - name: Linha de base de segurança
+      href: security-baseline.md
 - name: Tutoriais
   items:
     - name: Introdução ao Assistente
@@ -41,6 +45,8 @@
       href: advisor-quick-fix.md
     - name: Dados do Assistente no Azure Resource Graph
       href: advisor-azure-resource-graph.md
+    - name: Consumir a pontuação do Assistente
+      href: azure-advisor-score.md
 - name: Referência
   items:
     - name: Central de Segurança

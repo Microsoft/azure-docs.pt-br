@@ -8,17 +8,17 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/10/2019
-ms.openlocfilehash: c009a98931240e92527035e51fdce3f1c92f5212
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 10/10/2020
+ms.openlocfilehash: f4a7f5581703ae6932f3b40e62085fed76f5e6f2
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79477588"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945695"
 ---
 # <a name="filter-based-feature-selection"></a>Seleção de recursos baseada em filtro
 
-Este artigo descreve como usar o módulo seleção de recursos baseada em filtro no designer de Azure Machine Learning (versão prévia). Este módulo ajuda a identificar as colunas em seu conjunto de dados de entrada que têm a maior capacidade de previsão. 
+Este artigo descreve como usar o módulo seleção de recursos baseada em filtro no Azure Machine Learning designer. Este módulo ajuda a identificar as colunas em seu conjunto de dados de entrada que têm a maior capacidade de previsão. 
 
 Em geral, a *seleção de recursos* refere-se ao processo de aplicação de testes estatísticos a entradas, dado uma saída especificada. O objetivo é determinar quais colunas são mais previsíveis na saída. O módulo seleção de recursos baseada em filtro fornece vários algoritmos de seleção de recursos para escolher. O módulo inclui métodos de correlação, como os valores de correlação Pearson e qui-quadrado. 
 
@@ -36,7 +36,7 @@ Normalmente, você usa apenas as colunas com as melhores pontuações para criar
 
 ## <a name="how-to-choose-a-feature-selection-metric"></a>Como escolher uma métrica de seleção de recursos
 
-O módulo seleção de recursos baseada em filtro fornece uma variedade de métricas para avaliar o valor das informações em cada coluna. Esta seção fornece uma descrição geral de cada métrica e como ela é aplicada. Você pode encontrar requisitos adicionais para usar cada métrica nas [notas técnicas](#technical-notes) e nas [instruções](#how-to-configure-filter-based-feature-selection) para configurar cada módulo.
+O módulo seleção de recursos Filter-Based fornece uma variedade de métricas para avaliar o valor das informações em cada coluna. Esta seção fornece uma descrição geral de cada métrica e como ela é aplicada. Você pode encontrar requisitos adicionais para usar cada métrica nas [notas técnicas](#technical-notes) e nas [instruções](#how-to-configure-filter-based-feature-selection) para configurar cada módulo.
 
 -   **Correlação de Pearson**  
 
@@ -52,11 +52,11 @@ O módulo seleção de recursos baseada em filtro fornece uma variedade de métr
 > [!TIP]
 > Se você precisar de uma opção diferente para o método de seleção de recurso personalizado, use o módulo [Executar script R](execute-r-script.md) . 
 
-## <a name="how-to-configure-filter-based-feature-selection"></a>Como configurar a seleção de recursos com base em filtro
+## <a name="how-to-configure-filter-based-feature-selection"></a>Como configurar Filter-Based seleção de recursos
 
 Você escolhe uma métrica estatística padrão. O módulo computa a correlação entre um par de colunas: a coluna de rótulo e uma coluna de recurso.
 
-1.  Adicione o módulo seleção de recursos baseada em filtro ao seu pipeline. Você pode encontrá-lo na categoria **seleção de recursos** no designer.
+1.  Adicione o módulo seleção de recursos Filter-Based ao seu pipeline. Você pode encontrá-lo na categoria **seleção de recursos** no designer.
 
 2. Conecte um conjunto de dados de entrada que contenha pelo menos duas colunas que são recursos potenciais.  
 
@@ -90,8 +90,14 @@ Você escolhe uma métrica estatística padrão. O módulo computa a correlaçã
 
     - Se você especificar menos colunas de resultado do que as colunas de recurso, os recursos serão classificados por Pontuação decrescente. Somente os recursos principais são retornados. 
 
-7.  Envie o pipeline ou selecione o módulo seleção de recursos baseada em filtro e selecione **executar selecionado**.
+7.  Envie o pipeline.
 
+> [!IMPORTANT]
+> Se você pretende usar a **seleção de recursos baseada em filtro** na inferência, será necessário usar a [transformação selecionar colunas](./select-columns-transform.md) para armazenar o resultado selecionado e [aplicar a transformação](./apply-transformation.md) para aplicar a transformação de recurso selecionado ao conjunto de texto de pontuação.
+>
+> Consulte a captura de tela a seguir para criar seu pipeline, para garantir que as seleções de coluna sejam as mesmas para o processo de pontuação.
+> [!div class="mx-imgBorder"]
+> ![Amostra do pipeline](media/module/filter-based-feature-selection-score.png)
 
 ## <a name="results"></a>Resultados
 

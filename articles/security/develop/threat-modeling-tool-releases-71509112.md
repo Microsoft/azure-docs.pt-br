@@ -8,12 +8,12 @@ ms.service: security
 ms.subservice: security-develop
 ms.topic: article
 ms.date: 01/15/2019
-ms.openlocfilehash: 780ddc614feef492dafa54862abbea9552496274
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 7b0afdd90f2a1413c7f8364fc4518c4d1116454a
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87539808"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913578"
 ---
 # <a name="threat-modeling-tool-ga-release-71509112---9122018"></a>Versão 7.1.50911.2 da Threat Modeling Tool de disponibilidade geral – 12/09/2018
 
@@ -65,13 +65,13 @@ O usuário pode clicar no texto de mitigação e usar o controle de zoom padrão
 
 O recurso "Abrir do OneDrive" da versão prévia foi removido. Os usuários com "Modelos abertos recentemente" salvos no OneDrive receberão o erro a seguir.
 
-![Recurso do OneDrive removido](./media/threat-modeling-tool-releases-71509112/tmt_save_error-300x131.png)
+![Capturas de tela mostra um erro: erro ao abrir a referência de objeto de arquivo não definida como uma instância de um objeto.](./media/threat-modeling-tool-releases-71509112/tmt_save_error-300x131.png)
 
 #### <a name="workaround"></a>Solução alternativa
 
 Os usuários do OneDrive são incentivados a usar o cliente [OneDrive para Windows](https://onedrive.live.com/about/en-us/download/) da Microsoft para acessar seus arquivos armazenados no OneDrive por meio da caixa de diálogo padrão “Abrir um modelo”.
 
-![Recurso do OneDrive removido](./media/threat-modeling-tool-releases-71509112/tmt_save_onedrive-300x149.png)
+![Captura de tela mostra o OneDrive selecionado na caixa de diálogo abrir um modelo.](./media/threat-modeling-tool-releases-71509112/tmt_save_onedrive-300x149.png)
 
 ### <a name="my-organization-uses-the-2016-version-of-the-tool-can-i-use-the-azure-stencil-set"></a>Minha organização usa a versão de 2016 da ferramenta, posso usar o conjunto de estênceis do Azure?
 
@@ -79,7 +79,7 @@ Sim, você pode. O [conjunto de estênceis do Azure está disponível no GitHub]
 
 ![Atualizações de estêncil do Azure no cliente de 2016](./media/threat-modeling-tool-releases-71509112/tmt_azure_stencils-300x212.png)
 
-## <a name="system-requirements"></a>Requisitos do sistema
+## <a name="system-requirements"></a>Requisitos de sistema
 
 - Sistemas operacionais com suporte
   - Microsoft Windows 10

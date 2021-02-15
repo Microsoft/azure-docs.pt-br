@@ -3,15 +3,15 @@ title: Perguntas frequentes sobre área de trabalho virtual do Windows-Azure
 description: Perguntas frequentes e práticas recomendadas para a área de trabalho virtual do Windows.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 08/11/2020
+ms.date: 10/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 058c5778c116a9e8368049bf30046aa6b7634163
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: b915445b74e202f010c5505cc240b6f36e9da77c
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121112"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108500"
 ---
 # <a name="windows-virtual-desktop-faq"></a>Perguntas frequentes da Área de Trabalho Virtual do Windows
 
@@ -30,11 +30,9 @@ Para restringir um administrador a gerenciar apenas sessões de usuário, como e
 "Microsoft.Resources/deployments/operations/read",
 "Microsoft.Resources/tags/read",
 "Microsoft.Authorization/roleAssignments/read",
-"Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/read",
+"Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/*",
 "Microsoft.DesktopVirtualization/hostpools/sessionhosts/read",
-"Microsoft.DesktopVirtualization/hostpools/sessionhosts/write",
-"Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/write",
-"Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/delete"
+"Microsoft.DesktopVirtualization/hostpools/sessionhosts/write"
 ],
 "notActions": [],
 "dataActions": [],

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: c06af1cc7f068070954669fc4ec269c9e679f278
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e2ef1367cbbb1fb71159c4520c3d1481904c1769
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84886066"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92779315"
 ---
 # <a name="analyze-usage-statistics-with-azure-cdn-advanced-http-reports"></a>Analisar estatísticas de uso com os relatórios HTTP avançados da CDN do Azure
 ## <a name="overview"></a>Visão geral
@@ -33,7 +33,7 @@ Este documento explica os relatórios HTTP avançados na CDN do Microsoft Azure.
     ![botão gerenciar da folha Perfil CDN](./media/cdn-advanced-http-reports/cdn-manage-btn.png)
    
     O portal de gerenciamento da CDN é aberto.
-2. Passe o mouse sobre a guia **Análise**, em seguida, passe o mouse sobre o submenu **Relatórios HTTP Avançados**.  Clique em **Plataforma Grande HTTP**.
+2. Passe o mouse sobre a guia **Análise** , em seguida, passe o mouse sobre o submenu **Relatórios HTTP Avançados** .  Clique em **Plataforma Grande HTTP** .
    
     ![Portal de gerenciamento da CDN - menu Relatórios Avançados](./media/cdn-advanced-http-reports/cdn-advanced-reports.png)
    
@@ -199,9 +199,8 @@ O lado esquerdo do grafo (eixo y) indica o nome do arquivo para cada um dos dez 
 
 Diretamente abaixo do gráfico de barras, as informações a seguir serão listadas para os 250 ativos mais solicitados: caminho relativo (incluindo nome do arquivo), número de solicitações que resultaram em código de status 404 Não encontrado, número de vezes que o ativo foi solicitado e a porcentagem de solicitações que resultaram em código de status 404 Não encontrado.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 * [Visão geral da CDN do Azure](cdn-overview.md)
 * [Estatísticas em tempo real na CDN do Microsoft Azure](cdn-real-time-stats.md)
-* [Substituindo o comportamento HTTP padrão usando o mecanismo de regras](cdn-rules-engine.md)
+* [Substituindo o comportamento HTTP padrão usando o mecanismo de regras](./cdn-verizon-premium-rules-engine.md)
 * [Analisar o desempenho de borda](cdn-edge-performance.md)
-

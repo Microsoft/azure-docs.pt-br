@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: tomfitz
 ms.openlocfilehash: e4255f0d42e28a72ad55d9b7f81d0dc49b2950cb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87040997"
 ---
 # <a name="createuidefinition-functions"></a>Funções de CreateUiDefinition
@@ -42,11 +42,11 @@ Essas funções podem ser usadas com coleções, como cadeias de caracteres JSON
 
 * [contains](create-ui-definition-collection-functions.md#contains)
 * [empty](create-ui-definition-collection-functions.md#empty)
-* [sem](create-ui-definition-collection-functions.md#filter)
+* [filter](create-ui-definition-collection-functions.md#filter)
 * [first](create-ui-definition-collection-functions.md#first)
 * [last](create-ui-definition-collection-functions.md#last)
 * [length](create-ui-definition-collection-functions.md#length)
-* [mapeada](create-ui-definition-collection-functions.md#map)
+* [map](create-ui-definition-collection-functions.md#map)
 * [skip](create-ui-definition-collection-functions.md#skip)
 * [split](create-ui-definition-collection-functions.md#split)
 * [take](create-ui-definition-collection-functions.md#take)

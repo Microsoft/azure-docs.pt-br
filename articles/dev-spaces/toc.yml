@@ -5,12 +5,10 @@
       items:
         - name: O que é o Azure Dev Spaces?
           href: about.md
-    - name: Tutoriais
-      items:
-        - name: Introdução ao Visual Studio
-          href: get-started-netcore-visualstudio.md
     - name: Conceitos
       items:
+        - name: Migrar para o Bridge to Kubernetes
+          href: migrate-to-bridge-to-kubernetes.md
         - name: Como o Dev Spaces funciona
           items:
             - name: Visão geral
@@ -49,8 +47,6 @@
           href: how-to/setup-cicd.md
         - name: Usar Ações do GitHub com o Azure Dev Spaces (versão prévia)
           href: how-to/github-actions.md
-        - name: Usar o plug-in Azure Dev Spaces para Jenkins
-          href: /azure/developer/jenkins/azure-dev-spaces-and-aks
         - name: Continuidade dos negócios e recuperação de desastres para o Azure Dev Spaces
           href: how-to/dev-spaces-business-continuity.md
         - name: Interagir com contêineres do Windows

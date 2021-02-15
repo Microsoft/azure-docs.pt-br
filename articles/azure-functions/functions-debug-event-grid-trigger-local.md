@@ -1,16 +1,16 @@
 ---
 title: Depuração do Grade de Eventos do Azure Functions local
-description: Aprenda a depurar localmente as funções do Azure por meio de um evento de Grade de Eventos
+description: Saiba como depurar localmente Azure Functions disparado por um evento de grade de eventos
 author: craigshoemaker
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: cshoe
-ms.openlocfilehash: d57b230ceecc8e676eea6a1ab0855761e78f723b
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: be05d237d2799404c3fd8b5733464e23eeb49aa3
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86242739"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94833054"
 ---
 # <a name="azure-function-event-grid-trigger-local-debugging"></a>Depuração local do gatilho da Grade de Eventos do Azure Functions
 
@@ -52,7 +52,7 @@ ngrok http -host-header=localhost 7071
 ```
 Como o utilitário de configuração, a janela de comando deve ser semelhante à seguinte captura de tela:
 
-![Iniciar ngrok](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-ngrok.png)
+![Captura de tela que mostra o prompt de comando depois de iniciar o utilitário "ngrok".](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-ngrok.png)
 
 Cópia de **HTTPS** URL gerada quando *ngrok* é executado. Esse local é usado ao configurar o gatilho de Grade de Eventos.
 
@@ -81,7 +81,7 @@ Depois de inserir o valor apropriado, clique em **Confirmar seleção**.
 > [!IMPORTANT]
 > Sempre que você iniciar o *ngrok*, a URL HTTPS é gerada novamente e o valor é alterado. Portanto você deve criar uma nova assinatura de evento cada vez que expor sua função no Azure por meio do *ngrok*.
 
-## <a name="upload-a-file"></a>Fazer upload de um arquivo
+## <a name="upload-a-file"></a>Carregar um arquivo
 
 Agora você pode carregar um arquivo para sua conta de armazenamento para disparar um Evento de Grade de Eventos para sua função local para tratar. 
 
@@ -101,7 +101,7 @@ Depois que a Grade de Eventos reconhece que um novo arquivo for carregado para o
 
 ![Iniciar ngrok](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-breakpoint.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Para limpar os recursos criados neste artigo, exclua o contêiner **Testar** em sua conta de armazenamento.
 

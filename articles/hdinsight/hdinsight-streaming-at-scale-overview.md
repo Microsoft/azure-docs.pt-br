@@ -1,19 +1,16 @@
 ---
 title: Streaming em escala no Azure HDInsight
 description: Como usar o streaming de dados com clusters Apache escalonáveis no Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/17/2019
-ms.openlocfilehash: 006310f1a0efa69881bbe6d6ea4403b9c50402e6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2b2dfe9da55548f2648f847a9d7c2cb3478e6bad
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75435390"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98931705"
 ---
 # <a name="streaming-at-scale-in-hdinsight"></a>Streaming em escala no HDInsight
 
@@ -39,7 +36,7 @@ Para obter mais informações, consulte [O que é Apache Storm no Microsoft Azur
 
 Spark Streaming  é uma extensão para Spark, que permite reutilizar o mesmo código usado para o processamento em lotes. É possível combinar consultas em lotes e interativas na mesma aplicação. Ao contrário do Storm, o Spark streaming fornece estado exatamente após o processamento da semântica. Quando usado em combinação com a [API direta do Kafka](https://spark.apache.org/docs/latest/streaming-kafka-integration.html), que garante que todos os dados do Kafka sejam recebidos pelo Spark streaming exatamente uma vez, é possível atingir as garantias de ponta a ponta exatamente uma vez. Um dos pontos fortes do Spark Streaming é a capacidade de tolerância a falhas, recuperando os nós com falhas rapidamente quando vários nós estão sendo usados dentro do cluster.
 
-Para obter mais informações, consulte [O que é Apache Spark Streaming?](hdinsight-spark-streaming-overview.md).
+Para obter mais informações, consulte [O que é Apache Spark Streaming?](./spark/apache-spark-streaming-overview.md).
 
 ## <a name="scaling-a-cluster"></a>Dimensionamento de um cluster
 
@@ -49,7 +46,7 @@ Há vantagens para as tecnologias de dissociação. Por exemplo, Kafka é uma te
 
 ### <a name="scale-the-stream-buffering-layer"></a>Dimensionar a camada de buffer de fluxo
 
-As tecnologias de buffer de fluxo dos Hubs de Eventos e Kafka usam partições e os consumidores fazem as leituras a partir dessas partições. Dimensionar a taxa de transferência de entrada exige escalar o número de partições e adicionar partições fornece paralelismo crescente. Nos hubs de eventos, a contagem de partições não pode ser alterada após a implantação, portanto, é importante começar com a escala de destino em mente. Com o Kafka, é possível [Adicionar partições](https://kafka.apache.org/documentation.html#basic_ops_cluster_expansion), mesmo quando o Kafka está processando dados. O Kafka fornece uma ferramenta para reatribuir partições, `kafka-reassign-partitions.sh`. O HDInsight fornece uma [ferramenta de rebalanceamento de réplica de partição](https://github.com/hdinsight/hdinsight-kafka-tools), `rebalance_rackaware.py` . Essa ferramenta de rebalanceamento chama a ferramenta `kafka-reassign-partitions.sh` de forma que cada réplica esteja em um domínio de falha separado e o domínio de atualização, com reconhecimento de rack do Kafka e aumentando a tolerância a falhas.
+As tecnologias de buffer de fluxo dos Hubs de Eventos e Kafka usam partições e os consumidores fazem as leituras a partir dessas partições. Dimensionar a taxa de transferência de entrada exige escalar o número de partições e adicionar partições fornece paralelismo crescente. Nos hubs de eventos, a contagem de partições não pode ser alterada após a implantação, portanto, é importante começar com a escala de destino em mente. Com o Kafka, é possível [Adicionar partições](https://kafka.apache.org/documentation.html#basic_ops_cluster_expansion), mesmo quando o Kafka está processando dados. O Kafka fornece uma ferramenta para reatribuir partições, `kafka-reassign-partitions.sh`. O HDInsight fornece uma [ferramenta de rebalanceamento de réplica de partição](https://github.com/hdinsight/hdinsight-kafka-tools),  `rebalance_rackaware.py` . Essa ferramenta de rebalanceamento chama a ferramenta `kafka-reassign-partitions.sh` de forma que cada réplica esteja em um domínio de falha separado e o domínio de atualização, com reconhecimento de rack do Kafka e aumentando a tolerância a falhas.
 
 ### <a name="scale-the-stream-processing-layer"></a>Dimensionar a camada de processamento de fluxo
 

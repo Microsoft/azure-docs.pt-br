@@ -1,19 +1,16 @@
 ---
 title: 'Tutorial: Aplicativo Scala Maven para Spark & IntelliJ – Azure HDInsight'
 description: Tutorial – Criar um aplicativo do Spark escrito no Scala com o Apache Maven como o sistema de build. E um arquétipo do Maven existente para o Scala, fornecido pelo IntelliJ IDEA.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
-ms.custom: contperfq1
+ms.custom: contperf-fy21q1
 ms.date: 08/21/2020
-ms.openlocfilehash: cfdb02b0a5942536a608fbc957ed69d1efd97e8e
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: d2c7c4feca32544a0e15e876c7207c49dee39341
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88756887"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98940520"
 ---
 # <a name="tutorial-create-a-scala-maven-application-for-apache-spark-in-hdinsight-using-intellij"></a>Tutorial: Criar um aplicativo Scala Maven para Apache Spark no HDInsight usando IntelliJ
 
@@ -39,7 +36,7 @@ Neste tutorial, você aprenderá como:
 
 * Um Java IDE. Este artigo usa o [IntelliJ IDEA Community ver.  2018.3.4](https://www.jetbrains.com/idea/download/).
 
-* Azure Toolkit for IntelliJ.  Confira [Installing the Azure Toolkit for IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij-create-hello-world-web-app#installation-and-sign-in) (Instalação do Azure Toolkit for IntelliJ).
+* Azure Toolkit for IntelliJ.  Confira [Installing the Azure Toolkit for IntelliJ](/java/azure/intellij/azure-toolkit-for-intellij-create-hello-world-web-app#installation-and-sign-in) (Instalação do Azure Toolkit for IntelliJ).
 
 ## <a name="install-scala-plugin-for-intellij-idea"></a>Instalar o plug-in Scala para IntelliJ IDEA
 
@@ -98,7 +95,7 @@ Siga as seguintes etapas para instalar o plug-in Scala:
 
 5. Na lista de arquétipos, selecione **`org.scala-tools.archetypes:scala-archetype-simple`** . Esse arquétipo cria a estrutura de diretório certa e baixa as dependências padrão necessárias para gravar o programa Scala.
 
-    ![Criar projeto do Maven no IntelliJ IDEA](./media/apache-spark-create-standalone-application/intellij-project-create-maven.png)
+    ![A captura de tela mostra o arquétipo selecionado na janela Novo Projeto.](./media/apache-spark-create-standalone-application/intellij-project-create-maven.png)
 
 6. Selecione **Avançar**.
 
@@ -107,7 +104,7 @@ Siga as seguintes etapas para instalar o plug-in Scala:
     - **GroupId:** com.microsoft.spark.example
     - **ArtifactId:** SparkSimpleApp
 
-    ![Criar projeto do Maven no IntelliJ IDEA](./media/apache-spark-create-standalone-application/intellij-artifact-coordinates.png)
+    ![A captura de tela mostra a opção Coordenadas do Artefato na janela Novo Projeto.](./media/apache-spark-create-standalone-application/intellij-artifact-coordinates.png)
 
 8. Selecione **Avançar**.
 

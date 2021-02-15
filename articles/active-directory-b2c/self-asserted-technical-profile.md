@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/26/2020
+ms.date: 10/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 84e92cbac064106ca95277288eb773e311798930
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 08b08e3e799ff7b579889a62ecec70677a3cbce9
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85203445"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98059051"
 ---
 # <a name="define-a-self-asserted-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico autodeclarado em uma política personalizada do Azure Active Directory B2C
 
@@ -53,7 +53,7 @@ Em um perfil técnico autodeclarado, você pode usar os elementos **InputClaims*
 
 ## <a name="display-claims"></a>Exibir declarações
 
-O recurso Exibir declarações está em **Visualização**no momento.
+O recurso Exibir declarações está em **Visualização** no momento.
 
 O elemento **DisplayClaims** contém uma lista de declarações a serem apresentadas na tela para coletar dados do usuário. Para preencher previamente os valores de declarações de exibição, use as declarações de entrada que foram descritas anteriormente. O elemento também pode conter um valor padrão.
 
@@ -175,6 +175,14 @@ O exemplo a seguir demonstra o uso de um perfil técnico autodeclarado que usa d
 </TechnicalProfile>
 ```
 
+### <a name="output-claims-sign-up-or-sign-in-page"></a>Página de inscrição ou entrada de declarações de saída
+
+Em uma página de inscrição e entrada combinada, observe o seguinte ao usar um elemento [DataUri](contentdefinitions.md#datauri) de definição de conteúdo, que especifica um `unifiedssp` `unifiedssd` tipo de página ou:
+
+- Somente as declarações de nome de usuário e senha são renderizadas.
+- As duas primeiras declarações de saída devem ser o nome de usuário e a senha (nesta ordem). 
+- Quaisquer outras declarações não são renderizadas; para essas declarações, você precisará definir `defaultValue` ou invocar um perfil técnico de validação de formulário de declarações. 
+
 ## <a name="persist-claims"></a>Declarações de persistência
 
 O elemento PersistedClaims não é usado. O perfil técnico autodeclarado não mantém os dados para Azure AD B2C. Em vez disso, é feita uma chamada para um perfil técnico de validação responsável por persistir os dados. Por exemplo, a política de inscrição usa o perfil técnico autodeclarado `LocalAccountSignUpWithLogonEmail` para coletar o novo perfil do usuário. O perfil técnico `LocalAccountSignUpWithLogonEmail` chama o perfil técnico de validação para criar a conta no Azure AD B2C.
@@ -200,14 +208,16 @@ Também é possível chamar um perfil técnico da API REST com a lógica de neg�
 | setting.showCancelButton | Não | Mostra o botão cancelar. Valores possíveis: `true` (padrão) ou `false` |
 | setting.showContinueButton | Não | Mostra o botão continuar. Valores possíveis: `true` (padrão) ou `false` |
 | configuração. showSignupLink <sup>2</sup>| Não | Mostra o botão de inscrição. Valores possíveis: `true` (padrão) ou `false` |
-| configuração. forgotPasswordLinkLocation <sup>2</sup>| Não| Exibe o link esqueceu a senha. Valores possíveis: `AfterInput` (padrão) o link é exibido na parte inferior da página ou `None` Remove o link de senha esquecida.|
-| configuração. enableRememberMe <sup>2</sup>| Não| Exibe a caixa de seleção [manter-me conectado](custom-policy-keep-me-signed-in.md) . Valores possíveis: `true` ou `false` (padrão). |
-| IncludeClaimResolvingInClaimsHandling  | Não | Para declarações de entrada e saída, especifica se a [resolução de declarações](claim-resolver-overview.md) está incluída no perfil técnico. Valores possíveis: `true` ou `false`   (padrão). Se você quiser usar um resolvedor de declarações no perfil técnico, defina como `true` . |
+| configuração. forgotPasswordLinkLocation <sup>2</sup>| Não| Exibe o link esqueceu a senha. Valores possíveis: `AfterLabel` (padrão) exibe o link diretamente após o rótulo ou depois do campo de entrada de senha quando não há nenhum rótulo,  `AfterInput` exibe o link após o campo de entrada de senha, `AfterButtons` exibe o link na parte inferior do formulário após os botões ou `None` Remove o link de senha esquecida.|
+| configuração. enableRememberMe <sup>2</sup>| Não| Exibe a caixa de seleção [manter-me conectado](session-behavior.md?pivots=b2c-custom-policy#enable-keep-me-signed-in-kmsi) . Valores possíveis: `true` ou `false` (padrão). |
+| configuração. inputVerificationDelayTimeInMilliseconds <sup>3</sup>| Não| Melhora a experiência do usuário, aguardando que o usuário pare de digitar e, em seguida, valide o valor. Valor padrão de 2000 milissegundos. |
+| IncludeClaimResolvingInClaimsHandling  | Não | Para declarações de entrada e saída, especifica se a [resolução de declarações](claim-resolver-overview.md) está incluída no perfil técnico. Valores possíveis: `true` ou `false` (padrão). Se você quiser usar um resolvedor de declarações no perfil técnico, defina como `true` . |
 
 Observações:
 1. Disponível para a definição de conteúdo [DataUri](contentdefinitions.md#datauri) tipo de `unifiedssp` , ou `unifiedssd` .
 1. Disponível para a definição de conteúdo [DataUri](contentdefinitions.md#datauri) tipo de `unifiedssp` , ou `unifiedssd` . [Layout de página versão](page-layout.md) 1.1.0 e posterior.
+1. Disponível para o [layout de página versão](page-layout.md) 1.2.0 e superior.
 
-## <a name="cryptographic-keys"></a>Chaves de criptografia
+## <a name="cryptographic-keys"></a>Chaves criptográficas
 
 O elemento **CryptographicKeys** não será usado.

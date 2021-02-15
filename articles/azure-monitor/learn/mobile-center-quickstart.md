@@ -3,17 +3,17 @@ title: Monitorar aplicativos móveis com o Application Insights do Azure Monitor
 description: Fornece instruções para configurar rapidamente um aplicativo móvel para monitoramento com o Application Insights do Azure Monitor e o App Center
 ms.subservice: application-insights
 ms.topic: quickstart
-author: mrbullwinkle
-ms.author: mbullwin
+author: lgayhardt
+ms.author: lagayhar
 ms.date: 06/26/2019
 ms.reviewer: daviste
 ms.custom: mvc
-ms.openlocfilehash: 0539dcecbbbfe28817122e0f47e813182a9abd9d
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 34c35baf1bd958058bec6642434464711f5e79f6
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322135"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98210300"
 ---
 # <a name="start-analyzing-your-mobile-app-with-app-center-and-application-insights"></a>Começar a analisar seu aplicativo móvel com o App Center e o Application Insights
 
@@ -124,7 +124,7 @@ O Application Insights pode consultar, segmentar, filtrar e analisar a telemetri
    1. Selecione a consulta clicando em qualquer lugar na consulta no editor de texto.
    2. Em seguida, clique em **Ir** para executar a consulta. 
 
-   Saiba mais sobre a [Análise do Application Insights](../log-query/log-query-overview.md) e a [linguagem de consulta do Log Analytics](https://aka.ms/LogAnalyticsLanguageReference).
+   Saiba mais sobre a [Análise do Application Insights](../log-query/log-query-overview.md) e a [linguagem de consulta do Log Analytics](/azure/data-explorer/kusto/query/).
 
 
 2. **Segmentar e filtrar sua telemetria de evento personalizado.** Na página **Visão geral** do Application Insights, escolha **Usuários** no sumário.
@@ -168,4 +168,3 @@ Para excluir o recurso Application Insights:
 
 > [!div class="nextstepaction"]
 > [Entender como os clientes estão usando seu aplicativo](../app/usage-overview.md)
-

@@ -3,18 +3,18 @@ title: 'Início Rápido: Armazenamento de Blobs do Azure para JavaScript v10 no 
 description: Aprenda a fazer upload, listar e excluir blobs usando o SDK do JavaScript v10 em uma página HTML.
 services: storage
 author: mhopkins-msft
-ms.custom: mvc, devx-track-javascript
+ms.custom: mvc, devx-track-js
 ms.service: storage
 ms.author: mhopkins
 ms.date: 07/24/2020
 ms.topic: quickstart
 ms.subservice: blobs
-ms.openlocfilehash: 3982e54d06f2e84c4e8e8703e70e9a26773c389a
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: d212029936bcd257ef5a78eeedc98c2d6e1df514
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87429220"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96012775"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -35,7 +35,7 @@ Neste início rápido, você aprenderá a gerenciar blobs usando o código JavaS
 
 ## <a name="setting-up-storage-account-cors-rules"></a>Configurando regras de CORS para a conta de armazenamento
 
-Antes de seu aplicativo Web poder acessar um armazenamento de blobs do cliente, a conta precisará ser configurada para habilitar o [Compartilhamento de recursos entre origens](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services), ou CORS.
+Antes de seu aplicativo Web poder acessar um armazenamento de blobs do cliente, a conta precisará ser configurada para habilitar o [Compartilhamento de recursos entre origens](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services), ou CORS.
 
 Retorne ao portal do Azure e selecione a conta de armazenamento. Para definir uma nova regra de CORS, navegue até a seção **Configurações** e clique no link **CORS**. Em seguida, clique no botão **Adicionar** para abrir a janela **Adicionar regra de CORS**. Para este início rápido, crie uma regra de CORS aberta:
 
@@ -185,7 +185,7 @@ Cole o seguinte HTML em *index.html* após a marcação de fechamento `</body>` 
 
 Esse código adiciona uma referência ao arquivo de script e fornece um local para seu próprio código JavaScript. Para os fins deste início rápido, estamos usando o arquivo de script *azure-storage-blob.js* para que você possa abri-lo no VS Code, ler seu conteúdo e definir pontos de interrupção. Na produção, você deve usar o arquivo *azure-storage.blob.min.js* mais compacto que também é fornecido no arquivo zip.
 
-Leia mais sobre cada função de armazenamento de blobs na [documentação de referência](https://docs.microsoft.com/javascript/api/%40azure/storage-blob/index). Observe que algumas das funções no SDK só estão disponíveis no Node. js ou disponível apenas no navegador.
+Leia mais sobre cada função de armazenamento de blobs na [documentação de referência](/javascript/api/%40azure/storage-blob/index). Observe que algumas das funções no SDK só estão disponíveis no Node. js ou disponível apenas no navegador.
 
 O código em *azure-storage-blob.js* exporta uma variável global chamada `azblob`, que você usará em seu código JavaScript para acessar as APIs de armazenamento de blobs.
 
@@ -226,7 +226,7 @@ const containerURL = new azblob.ContainerURL(
     azblob.StorageURL.newPipeline(new azblob.AnonymousCredential));
 ```
 
-Esse código usa as informações de sua conta e a SAS para criar uma instância [ContainerURL](https://docs.microsoft.com/javascript/api/@azure/storage-blob/ContainerURL) que é útil para criar e manipular um contêiner de armazenamento.
+Esse código usa as informações de sua conta e a SAS para criar uma instância [ContainerURL](/javascript/api/@azure/storage-blob/ContainerURL) que é útil para criar e manipular um contêiner de armazenamento.
 
 ### <a name="create-and-delete-a-storage-container"></a>Criar e excluir um contêiner de armazenamento
 
@@ -257,7 +257,7 @@ createContainerButton.addEventListener("click", createContainer);
 deleteContainerButton.addEventListener("click", deleteContainer);
 ```
 
-Esse código chama as funções ContainerURL [create](https://docs.microsoft.com/javascript/api/@azure/storage-blob/containerclient#create-containercreateoptions-) e [delete](https://docs.microsoft.com/javascript/api/@azure/storage-blob/containerclient#delete-containerdeletemethodoptions-) sem usar uma instância [Aborter](https://docs.microsoft.com/javascript/api/@azure/storage-blob/aborter). Para manter as coisas simples nesse início rápido, esse código pressupõe que sua conta de armazenamento já tenha sido criada e está ativada. No código de produção, use uma instância Aborter para adicionar a funcionalidade de tempo limite.
+Esse código chama as funções ContainerURL [create](/javascript/api/@azure/storage-blob/containerclient#create-containercreateoptions-) e [delete](/javascript/api/@azure/storage-blob/containerclient#delete-containerdeletemethodoptions-) sem usar uma instância [Aborter](/javascript/api/@azure/storage-blob/aborter). Para manter as coisas simples nesse início rápido, esse código pressupõe que sua conta de armazenamento já tenha sido criada e está ativada. No código de produção, use uma instância Aborter para adicionar a funcionalidade de tempo limite.
 
 ### <a name="list-blobs"></a>Listar blobs
 
@@ -293,7 +293,7 @@ const listFiles = async () => {
 listButton.addEventListener("click", listFiles);
 ```
 
-Esse código chama a função [ContainerURL.listBlobFlatSegment](https://docs.microsoft.com/javascript/api/@azure/storage-blob/containerclient#listblobsflat-containerlistblobsoptions-) em um loop para garantir que todos os segmentos sejam recuperados. Para cada segmento, ele percorre a lista de itens de blobs que ele contém e atualiza a lista **Arquivos**.
+Esse código chama a função [ContainerURL.listBlobFlatSegment](/javascript/api/@azure/storage-blob/containerclient#listblobsflat-containerlistblobsoptions-) em um loop para garantir que todos os segmentos sejam recuperados. Para cada segmento, ele percorre a lista de itens de blobs que ele contém e atualiza a lista **Arquivos**.
 
 ### <a name="upload-blobs"></a>Carregar blobs
 
@@ -321,7 +321,7 @@ selectButton.addEventListener("click", () => fileInput.click());
 fileInput.addEventListener("change", uploadFiles);
 ```
 
-Este código conecta o botão **Escolher e carregar arquivos** ao elemento oculto `file-input`. Assim, o evento `click` do botão acionará o evento `click` da entrada do arquivo e exibirá o seletor de arquivos. Depois de escolher arquivos e fechar a caixa de diálogo, o evento `input` ocorrerá e a função `uploadFiles` será chamada. Essa função chama a função [uploadBrowserDataToBlockBlob](https://docs.microsoft.com/javascript/api/@azure/storage-blob/blockblobclient#uploadbrowserdata-blob---arraybuffer---arraybufferview--blockblobparalleluploadoptions-) somente para navegador para cada arquivo escolhido. Cada chamada retornará uma Promessa que será adicionada a uma lista para que todos os arquivos possam ser esperados de uma só vez. Dessa forma, os arquivos serão carregados em paralelo.
+Este código conecta o botão **Escolher e carregar arquivos** ao elemento oculto `file-input`. Assim, o evento `click` do botão acionará o evento `click` da entrada do arquivo e exibirá o seletor de arquivos. Depois de escolher arquivos e fechar a caixa de diálogo, o evento `input` ocorrerá e a função `uploadFiles` será chamada. Essa função chama a função [uploadBrowserDataToBlockBlob](/javascript/api/@azure/storage-blob/blockblobclient#uploadbrowserdata-blob---arraybuffer---arraybufferview--blockblobparalleluploadoptions-) somente para navegador para cada arquivo escolhido. Cada chamada retornará uma Promessa que será adicionada a uma lista para que todos os arquivos possam ser esperados de uma só vez. Dessa forma, os arquivos serão carregados em paralelo.
 
 ### <a name="delete-blobs"></a>Excluir blobs
 
@@ -349,7 +349,7 @@ const deleteFiles = async () => {
 deleteButton.addEventListener("click", deleteFiles);
 ```
 
-Esse código chama a função [BlobURL.delete](https://docs.microsoft.com/javascript/api/@azure/storage-blob/BlobURL#delete-aborter--iblobdeleteoptions-) para remover cada arquivo escolhido na lista. Ele chama a função `listFiles` mostrada anteriormente para atualizar o conteúdo da lista **Arquivos**.
+Esse código chama a função [BlobURL.delete](/javascript/api/@azure/storage-blob/BlobURL#delete-aborter--iblobdeleteoptions-) para remover cada arquivo escolhido na lista. Ele chama a função `listFiles` mostrada anteriormente para atualizar o conteúdo da lista **Arquivos**.
 
 ### <a name="run-and-test-the-web-application"></a>Executar e testar o aplicativo Web
 
@@ -364,4 +364,4 @@ Para limpar os recursos criados durante este início rápido, volte para o [port
 Neste início rápido, você criou um site simples que acessa o armazenamento de blobs do JavaScript baseado em navegador. Para saber como você pode hospedar um site no armazenamento de blobs, continue no tutorial a seguir:
 
 > [!div class="nextstepaction"]
-> [Hospedar um site estático no Armazenamento de Blobs](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website-host)
+> [Hospedar um site estático no Armazenamento de Blobs](./storage-blob-static-website-host.md)

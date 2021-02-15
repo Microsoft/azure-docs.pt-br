@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 07/09/2020
 ms.author: tomfitz
 ms.openlocfilehash: 9f40f223cca34df58d2af7373d8f60fd7f383162
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87095789"
 ---
 # <a name="microsoftcommoncheckbox-ui-element"></a>Elemento de interface do usuário Microsoft. Common. CheckBox

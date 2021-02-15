@@ -3,13 +3,13 @@ title: Tutorial – implantar grupo com vários contêineres – modelo
 description: Neste tutorial, saiba como implantar um grupo de contêineres com vários contêineres nas Instâncias de Contêiner do Azure usando um modelo do Azure Resource Manager com a CLI do Azure.
 ms.topic: article
 ms.date: 07/02/2020
-ms.custom: mvc
-ms.openlocfilehash: cb085112c6e6458d897f52f19988e6301d4ae6e8
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: bc956bed8324398c2d60f4641cd0bcb821fb51c2
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259582"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93091337"
 ---
 # <a name="tutorial-deploy-a-multi-container-group-using-a-resource-manager-template"></a>Tutorial: implantar um grupo com vários contêineres usando um modelo do Resource Manager
 
@@ -31,9 +31,9 @@ Um modelo do Resource Manager poderá ser adaptado prontamente para cenários qu
 > [!NOTE]
 > Grupos com vários contêineres são atualmente restritos a contêineres do Linux. 
 
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 ## <a name="configure-a-template"></a>Configurar um modelo
 
@@ -169,7 +169,7 @@ az container show --resource-group myResourceGroup --name myContainerGroup --out
 
 Se quiser exibir o aplicativo em execução, navegue até o endereço IP dele em seu navegador. Por exemplo, o IP é `52.168.26.124` nesta saída de exemplo:
 
-```bash
+```console
 Name              ResourceGroup    Status    Image                                                                                               IP:ports              Network    CPU/Memory       OsType    Location
 ----------------  ---------------  --------  --------------------------------------------------------------------------------------------------  --------------------  ---------  ---------------  --------  ----------
 myContainerGroup  danlep0318r      Running   mcr.microsoft.com/azuredocs/aci-tutorial-sidecar,mcr.microsoft.com/azuredocs/aci-helloworld:latest  20.42.26.114:80,8080  Public     1.0 core/1.5 gb  Linux     eastus
@@ -185,7 +185,7 @@ az container logs --resource-group myResourceGroup --name myContainerGroup --con
 
 Saída:
 
-```bash
+```console
 listening on port 80
 ::1 - - [02/Jul/2020:23:17:48 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
 ::1 - - [02/Jul/2020:23:17:51 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
@@ -200,7 +200,7 @@ az container logs --resource-group myResourceGroup --name myContainerGroup --con
 
 Saída:
 
-```bash
+```console
 Every 3s: curl -I http://localhost                          2020-07-02 20:36:41
 
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current

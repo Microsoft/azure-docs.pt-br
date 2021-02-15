@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/06/2020
 ms.author: glenga
 ms.openlocfilehash: b4b2409928b6a4196738c7cc6c7040e781d34686
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "80056561"
 ---
 1. Para executar sua função, pressione F5 no Visual Studio. Talvez seja necessário habilitar uma exceção de firewall para que as ferramentas possam manipular solicitações HTTP. Os níveis de autorização nunca são impostos quando você executa uma função localmente.

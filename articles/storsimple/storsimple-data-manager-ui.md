@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: 5d6273cbef1664984d466fb15c7f02ca505b18e2
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 802f732e8d62f5df861be525316b3c31ab4d0655
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88184526"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94957921"
 ---
 # <a name="manage-the-storsimple-data-manager-service-in-azure-portal"></a>Gerenciar o serviço do Gerenciador de Dados do StorSimple no portal do Azure
 
@@ -42,7 +42,7 @@ Execute as etapas a seguir para criar um serviço Gerenciador de Dados do StorSi
 
    2. Escolha uma **assinatura** na lista suspensa. A assinatura está vinculada à sua conta de cobrança. Este campo é preenchido automaticamente (e não é selecionável) se você tiver apenas uma assinatura.
 
-   3. Escolha um grupo de recursos existente ou crie um novo grupo. Para obter mais informações, veja [Grupos de recursos do Azure](/azure/azure-resource-manager/management/manage-resource-groups-portal).
+   3. Escolha um grupo de recursos existente ou crie um novo grupo. Para obter mais informações, veja [Grupos de recursos do Azure](../azure-resource-manager/management/manage-resource-groups-portal.md).
 
    4. Especifique o **Local** para o serviço que hospeda as contas de armazenamento e o seu serviço do Gerenciador de Dados do StorSimple. O seu serviço do Gerenciador de Dispositivos do StorSimple, serviço do Gerenciador de Dados, e a conta de armazenamento associada devem ficar nas regiões com suporte.
     

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 198b87d0a458108ce76934217c651d613ab5d75e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 18b34ff466f3935cb5cd18d46e6d26e36e756a9b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85512080"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91774453"
 ---
 # <a name="fail-over-to-your-storsimple-cloud-appliance"></a>Fazer failover para um Dispositivo de Nuvem StorSimple
 
@@ -46,15 +46,15 @@ Execute as etapas a seguir para restaurar o dispositivo para um Dispositivo de N
     ![Selecionar dispositivo](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev1.png)
 3. Selecione e clique no dispositivo de origem. O dispositivo de origem tem os contêineres de volume para os quais você deseja fazer failover. Acesse **Configurações > Contêineres de Volume**.
 
-    ![Selecionar dispositivo](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev2.png)
+    ![Selecionar o dispositivo 2](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev2.png)
     
 4. Selecione um contêiner de volume para o qual você gostaria de fazer failover para outro dispositivo. Clique no contêiner de volume para exibir a lista de volumes neste contêiner. Selecione um volume, clique com o botão direito em **Deixar Offline** para deixar o volume offline.
 
-    ![Selecionar dispositivo](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev5.png)
+    ![Selecionar o dispositivo 3](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev5.png)
 
 5. Repita esse processo para todos os volumes no contêiner de volume.
 
-     ![Selecionar dispositivo](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev7.png)
+     ![Selecionar o dispositivo 4](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev7.png)
 
 6. Repita a etapa anterior para todos os contêineres de volume para os quais você gostaria de fazer o failover para outro dispositivo.
 
@@ -63,7 +63,7 @@ Execute as etapas a seguir para restaurar o dispositivo para um Dispositivo de N
     ![Clique em Fazer failover](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev8.png)
 8. Na folha **Fazer failover**, execute as seguintes etapas:
    
-    1. Clique em **Fonte**. Selecione os contêineres de volume que passarão por failover. **São exibidos apenas os contêineres de volume com instantâneos de nuvem e volumes offline associados.**
+    1. Clique em **origem**. Selecione os contêineres de volume que passarão por failover. **São exibidos apenas os contêineres de volume com instantâneos de nuvem e volumes offline associados.**
         ![Selecionar fonte](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev11.png)
     2. Clique em **Destino**. Selecione um dispositivo de nuvem de destino na lista suspensa de dispositivos disponíveis. **Somente os dispositivos que têm capacidade suficiente para acomodar os contêineres de volume de origem são exibidos na lista.**
 
@@ -81,7 +81,7 @@ Execute as etapas a seguir para restaurar o dispositivo para um Dispositivo de N
 
     1. Selecione o dispositivo que foi usado como destino para o failover.
 
-       ![Selecionar dispositivo](./media/storsimple-8000-device-failover-disaster-recovery/failover-phy-dev14.png)
+       ![Selecionar dispositivo 5](./media/storsimple-8000-device-failover-disaster-recovery/failover-phy-dev14.png)
 
     2. Clique em **Contêineres de Volume**. Todos os contêineres de volume, juntamente com os volumes do antigo dispositivo devem ser listados.
 

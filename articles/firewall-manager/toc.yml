@@ -14,6 +14,8 @@
   items:
     - name: Proteger seu hub virtual – Portal
       href: secure-cloud-network.md
+    - name: Proteger seu hub virtual – PowerShell
+      href: secure-cloud-network-powershell.md
     - name: Proteja sua rede virtual de hub – portal
       href: secure-hybrid-network.md
 - name: Conceitos
@@ -26,6 +28,8 @@
       href: deployment-overview.md
     - name: Provedores de parceiro de segurança
       href: trusted-security-partners.md
+    - name: Proteger hubs usando o Check Point CloudGuard Connect
+      href: check-point-overview.md
     - name: Grupos de IP
       href: ip-groups.md
     - name: Lógica de processamento da regra
@@ -36,6 +40,10 @@
       href: threat-intelligence-settings.md
     - name: Regras do FQDN na rede
       href: fqdn-filtering-network-rules.md
+    - name: Segurança
+      items:
+        - name: Linha de base de segurança
+          href: security-baseline.md
 - name: Guias de instruções
   items:
     - name: Implantar provedores de parceiro de segurança

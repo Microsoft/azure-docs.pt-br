@@ -1,18 +1,18 @@
 ---
 title: Definir várias instâncias de uma variável
-description: Use a operação de cópia em um modelo de Azure Resource Manager para iterar várias vezes ao criar uma variável.
+description: Use a operação de cópia em um modelo de Azure Resource Manager (modelo ARM) para iterar várias vezes ao criar uma variável.
 ms.topic: conceptual
 ms.date: 02/13/2020
-ms.openlocfilehash: aca69dd858c7a940592e74123b97b8d364d9e11c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b8acd85659b843cb482e1ccc61e28da03431db1b
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84678436"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905886"
 ---
 # <a name="variable-iteration-in-arm-templates"></a>Iteração variável em modelos ARM
 
-Este artigo mostra como criar mais de um valor para uma variável em seu modelo de Azure Resource Manager (ARM). Ao adicionar o elemento **copiar** à seção variáveis do modelo, você pode definir dinamicamente o número de itens para uma variável durante a implantação. Você também evita a repetição da sintaxe do modelo.
+Este artigo mostra como criar mais de um valor para uma variável em seu modelo de Azure Resource Manager (modelo ARM). Ao adicionar o `copy` elemento à seção de variáveis do modelo, você pode definir dinamicamente o número de itens para uma variável durante a implantação. Você também evita a repetição da sintaxe do modelo.
 
 Você também pode usar copiar com [recursos](copy-resources.md), [Propriedades em um recurso](copy-properties.md)e [saídas](copy-outputs.md).
 
@@ -30,9 +30,9 @@ O elemento Copy tem o seguinte formato geral:
 ]
 ```
 
-A propriedade **Name** é qualquer valor que identifique o loop. A propriedade **Count** especifica o número de iterações que você deseja para a variável.
+A `name` propriedade é qualquer valor que identifique o loop. A `count` propriedade especifica o número de iterações que você deseja para a variável.
 
-A propriedade de **entrada** especifica as propriedades que você deseja repetir. Você cria uma matriz de elementos construídos com base no valor na propriedade de **entrada** . Pode ser uma única propriedade (como uma cadeia de caracteres) ou um objeto com várias propriedades.
+A `input` propriedade especifica as propriedades que você deseja repetir. Crie uma matriz de elementos construídos a partir do valor na propriedade `input`. Pode ser uma única propriedade (como uma cadeia de caracteres) ou um objeto com várias propriedades.
 
 ## <a name="copy-limits"></a>Limites de cópia
 
@@ -92,7 +92,7 @@ O modelo anterior retorna uma matriz com os seguintes valores:
 ]
 ```
 
-O exemplo a seguir mostra como criar uma matriz de objetos com três propriedades-Name, diskSizeGB e diskIndex.
+O exemplo a seguir mostra como criar uma matriz de objetos com três propriedades- `name` , `diskSizeGB` e `diskIndex` .
 
 ```json
 {
@@ -160,10 +160,10 @@ O exemplo anterior retorna uma matriz com os seguintes valores:
 ```
 
 > [!NOTE]
-> A iteração variável dá suporte a um argumento offset. O deslocamento deve vir após o nome da iteração, como copyIndex (' disknames ', 1). Se você não fornecer um valor de deslocamento, o padrão será 0 para a primeira instância.
+> A iteração variável dá suporte a um argumento offset. O deslocamento deve vir após o nome da iteração, como `copyIndex('diskNames', 1)` . Se você não fornecer um valor de deslocamento, o padrão será 0 para a primeira instância.
 >
 
-Você também pode usar o elemento Copy dentro de uma variável. O exemplo a seguir cria um objeto que tem uma matriz como um de seus valores.
+Você também pode usar o `copy` elemento dentro de uma variável. O exemplo a seguir cria um objeto que tem uma matriz como um de seus valores.
 
 ```json
 {
@@ -236,7 +236,7 @@ O exemplo anterior retorna um objeto com os seguintes valores:
 }
 ```
 
-O exemplo a seguir mostra as diferentes maneiras que você pode usar copiar com variáveis.
+O exemplo a seguir mostra as diferentes maneiras que você pode usar `copy` com variáveis.
 
 ```json
 {
@@ -321,11 +321,10 @@ Os exemplos a seguir mostram cenários comuns para a criação de mais de um val
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para percorrer um tutorial, consulte [tutorial: criar várias instâncias de recursos usando modelos ARM](template-tutorial-create-multiple-instances.md).
+* Para percorrer um tutorial, consulte [tutorial: criar várias instâncias de recurso com modelos ARM](template-tutorial-create-multiple-instances.md).
 * Para outros usos do elemento copiar, consulte:
   * [Iteração de recurso em modelos ARM](copy-resources.md)
   * [Iteração de propriedade em modelos ARM](copy-properties.md)
   * [Iteração de saída em modelos ARM](copy-outputs.md)
-* Se você quiser saber mais sobre as seções de um modelo, consulte [criação de modelos de ARM](template-syntax.md).
-* Para saber como implantar seu modelo, consulte [implantar um aplicativo com o modelo ARM](deploy-powershell.md).
-
+* Se você quiser saber mais sobre as seções de um modelo, consulte [entender a estrutura e a sintaxe de modelos ARM](template-syntax.md).
+* Para saber como implantar seu modelo, consulte [implantar recursos com modelos ARM e Azure PowerShell](deploy-powershell.md).

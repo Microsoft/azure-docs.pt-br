@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bbfbad53fd2361752824292e0ade82f3ac231916
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2bb8c6c64e0a68f5176c4eb0c0177c5220394695
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87095692"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89268750"
 ---
 # <a name="enforce-tls-12-for-the-azure-ad-registration-service"></a>Impor o TLS 1,2 para o serviço de registro do Azure AD
 
@@ -37,13 +37,13 @@ Para servidores Windows que usam o serviço Registro de Dispositivos do Azure AD
 
 Verifique se as seguintes cadeias de caracteres de registro estão configuradas conforme mostrado:
 
-- HKEY_LOCAL_MACHINE \SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2 \ cliente
+- HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2 \ cliente
   - "DisabledByDefault" = DWORD: 00000000
   - "Enabled" = DWORD: 00000001
-- HKEY_LOCAL_MACHINE \SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2 \ servidor
+- HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2 \ servidor
   - "DisabledByDefault" = DWORD: 00000000
   - "Enabled" = DWORD: 00000001
-- HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft \. NETFramework\v4.0.30319
+- HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\. NETFramework\v4.0.30319
   - "SchUseStrongCrypto"=dword:00000001
 
 ## <a name="update-non-windows-proxies"></a>Atualizar proxies não Windows
@@ -52,7 +52,7 @@ Qualquer computador que atue como proxies entre dispositivos e o serviço de Reg
 
 ## <a name="update-ad-fs-servers"></a>Atualizar servidores AD FS
 
-Qualquer servidor AD FS usado para se comunicar com o serviço Registro de Dispositivos do Azure AD deve garantir que o TLS 1,2 esteja habilitado. Consulte [Gerenciando protocolos SSL/TLS e conjuntos de codificação para AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs) para obter informações sobre como habilitar/verificar essa configuração.
+Qualquer servidor AD FS usado para se comunicar com o serviço Registro de Dispositivos do Azure AD deve garantir que o TLS 1,2 esteja habilitado. Consulte [Gerenciando protocolos SSL/TLS e conjuntos de codificação para AD FS](/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs) para obter informações sobre como habilitar/verificar essa configuração.
 
 ## <a name="client-updates"></a>Atualizações do cliente
 
@@ -68,4 +68,4 @@ Os clientes a seguir são conhecidos por não oferecer suporte a TLS 1,2. Atuali
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Visão geral de TLS/SSL (SSP do Schannel)](https://docs.microsoft.com/windows-server/security/tls/tls-ssl-schannel-ssp-overview)
+[Visão geral de TLS/SSL (SSP do Schannel)](/windows-server/security/tls/tls-ssl-schannel-ssp-overview)

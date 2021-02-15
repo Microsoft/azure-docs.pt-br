@@ -3,19 +3,19 @@ title: 'Tutorial: Visualizar anomalias usando a detecção em lotes e o Power BI
 titleSuffix: Azure Cognitive Services
 description: Saiba como usar a API do Detector de Anomalias e o Power BI para visualizar anomalias em seus dados de série temporal.
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: tutorial
-ms.date: 06/17/2020
-ms.author: aahi
-ms.openlocfilehash: 527ce1c7d434ae94c91c78c865c00aa0687a73cb
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.date: 09/10/2020
+ms.author: mbullwin
+ms.openlocfilehash: a17301e0807877662ae1bf34ade48e90a1d30c0c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88245495"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006193"
 ---
 # <a name="tutorial-visualize-anomalies-using-batch-detection-and-power-bi"></a>Tutorial: Visualizar anomalias usando a detecção em lotes e o Power BI
 
@@ -56,7 +56,7 @@ O Power BI converterá os carimbos de data/hora na primeira coluna em um tipo de
 
 Clique na faixa de opções **Transformar** no Editor do Power Query. No grupo **Qualquer Coluna**, abra o menu suspenso **Tipo de Dados:** e selecione **Texto**.
 
-![Uma imagem da tela "Navegador" da fonte de dados no Power BI](../media/tutorials/data-type-drop-down.png)
+![Uma imagem do menu suspenso de tipo de dados](../media/tutorials/data-type-drop-down.png)
 
 Quando você receber um aviso sobre a alteração do tipo de coluna, clique em **Substituir Atual**. Em seguida, clique em **Fechar e Aplicar** ou **Aplicar** na faixa de opções **Página Inicial**.
 
@@ -66,7 +66,7 @@ Para formatar e enviar o arquivo de dados para a API do Detector de Anomalias, i
 
 Verifique se a nova consulta está selecionada e, em seguida, clique em **Editor Avançado**.
 
-![Uma imagem do botão "Editor Avançado" no Power BI](../media/tutorials/advanced-editor-screen.png)
+![Uma imagem da tela "Editor Avançado"](../media/tutorials/advanced-editor-screen.png)
 
 No Editor Avançado, use o snippet do Power Query M a seguir para extrair as colunas da tabela e enviá-la à API. Depois disso, a consulta criará uma tabela com base na resposta JSON e a retornará. Substitua a variável `apiKey` pela chave de API válida do Detector de Anomalias e `endpoint` pelo ponto de extremidade. Depois de inserir a consulta no Editor Avançado, clique em **Concluído**.
 
@@ -80,7 +80,7 @@ No Editor Avançado, use o snippet do Power Query M a seguir para extrair as col
     jsonbody    = "{ ""Granularity"": ""daily"", ""Sensitivity"": 95, ""Series"": "& jsontext &" }",
     bytesbody   = Text.ToBinary(jsonbody),
     headers     = [#"Content-Type" = "application/json", #"Ocp-Apim-Subscription-Key" = apikey],
-    bytesresp   = Web.Contents(endpoint, [Headers=headers, Content=bytesbody]),
+    bytesresp   = Web.Contents(endpoint, [Headers=headers, Content=bytesbody, ManualStatusHandling={400}]),
     jsonresp    = Json.Document(bytesresp),
 
     respTable = Table.FromColumns({
@@ -114,12 +114,12 @@ No Editor Avançado, use o snippet do Power Query M a seguir para extrair as col
 
 Invoque a consulta na folha de dados selecionando `Sheet1` abaixo de **Inserir Parâmetro** e clique em **Invocar**.
 
-![Uma imagem do botão "Editor Avançado"](../media/tutorials/invoke-function-screenshot.png)
+![Uma imagem da função de invocação](../media/tutorials/invoke-function-screenshot.png)
 
 ## <a name="data-source-privacy-and-authentication"></a>Privacidade e autenticação da fonte de dados
 
 > [!NOTE]
-> Esteja ciente das políticas de sua organização referentes ao acesso a dados e à privacidade de dados. Confira [Níveis de privacidade do Power BI Desktop](https://docs.microsoft.com/power-bi/desktop-privacy-levels) para obter mais informações.
+> Esteja ciente das políticas de sua organização referentes ao acesso a dados e à privacidade de dados. Confira [Níveis de privacidade do Power BI Desktop](/power-bi/desktop-privacy-levels) para obter mais informações.
 
 Talvez você receba uma mensagem de aviso quando tentar executar a consulta, pois ela utiliza uma fonte de dados externa.
 
@@ -148,11 +148,11 @@ Adicione os campos a seguir da **Função Invocada** ao campo **Valores** do gr�
 * LowerMargins
 * ExpectedValues
 
-![Uma imagem da tela da nova medida rápida](../media/tutorials/chart-settings.png)
+![Uma imagem das configurações do gráfico](../media/tutorials/chart-settings.png)
 
 Depois de adicionar os campos, clique no gráfico e redimensione-o para mostrar todos os pontos de dados. O gráfico será semelhante à captura de tela abaixo:
 
-![Uma imagem da tela da nova medida rápida](../media/tutorials/chart-visualization.png)
+![Uma imagem da visualização do gráfico](../media/tutorials/chart-visualization.png)
 
 ### <a name="display-anomaly-data-points"></a>Exibir pontos de dados de anomalias
 
@@ -162,15 +162,15 @@ No lado direito da janela do Power BI, abaixo do painel **CAMPOS**, clique com o
 
 Na tela exibida, selecione **Valor filtrado** como o cálculo. Defina **Valor Base** como `Sum of Value`. Em seguida, arraste `IsAnomaly` dos campos **Função Invocada** para **Filtro**. Selecione `True` no menu suspenso **Filtro**.
 
-![Uma imagem da tela da nova medida rápida](../media/tutorials/new-quick-measure-2.png)
+![Uma segunda imagem da tela de nova medida rápida](../media/tutorials/new-quick-measure-2.png)
 
 Depois de clicar em **OK**, você terá um campo `Value for True` na parte inferior da lista de campos. Clique com o botão direito do mouse nele e renomeie-o para **Anomalias**. Adicione-o aos **Valores** do gráfico. Em seguida, selecione a ferramenta **Formato** e defina o tipo do eixo X como **Categórico**.
 
-![Uma imagem da tela da nova medida rápida](../media/tutorials/format-x-axis.png)
+![Uma imagem do eixo x do formato](../media/tutorials/format-x-axis.png)
 
 Aplique cores ao gráfico clicando na ferramenta **Formato** e **Cores de dados**. O gráfico deverá ter uma aparência semelhante à seguinte:
 
-![Uma imagem da tela da nova medida rápida](../media/tutorials/final-chart.png)
+![Uma imagem do gráfico final](../media/tutorials/final-chart.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

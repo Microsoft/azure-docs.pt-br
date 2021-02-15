@@ -8,12 +8,12 @@ ms.author: klam
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 05/13/2019
-ms.openlocfilehash: b71aae91f4a065b70537a300aa0bd7016edfd4b4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 711d753203aeaeba50cea692053a37fcab2e9c7b
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74790272"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027696"
 ---
 # <a name="test-logic-apps-with-mock-data-by-setting-up-static-results"></a>Testar aplicativos lógicos com dados fictícios Configurando resultados estáticos
 
@@ -37,15 +37,15 @@ Por exemplo, se você configurar resultados estáticos para a ação enviar emai
 
 1. Na ação em que você deseja configurar resultados estáticos, siga estas etapas: 
 
-   1. No canto superior direito da ação, escolha o botão de reticências (*...*) e selecione **resultado estático**, por exemplo:
+   1. No canto superior direito da ação, escolha o botão de reticências ( *...* ) e selecione **resultado estático** , por exemplo:
 
       ![Selecione "resultado estático" > "Habilitar resultado estático"](./media/test-logic-apps-mock-data-static-results/select-static-result.png)
 
-   1. Escolha **habilitar resultado estático**. Para as propriedades obrigatórias (*), especifique os valores de saída fictícios que você deseja retornar para a resposta da ação.
+   1. Escolha **habilitar resultado estático** . Para as propriedades obrigatórias (*), especifique os valores de saída fictícios que você deseja retornar para a resposta da ação.
 
       Por exemplo, aqui estão as propriedades necessárias para a ação HTTP:
 
-      | Property | Descrição |
+      | Propriedade | Descrição |
       |----------|-------------|
       | **Status** | O status da ação a ser retornado |
       | **Código de status** | O código de status específico a ser retornado |
@@ -60,7 +60,7 @@ Por exemplo, se você configurar resultados estáticos para a ação enviar emai
 
       ![Selecionar propriedades opcionais](./media/test-logic-apps-mock-data-static-results/optional-properties.png)
 
-1. Quando estiver pronto para salvar, escolha **concluído**.
+1. Quando estiver pronto para salvar, escolha **concluído** .
 
    No canto superior direito da ação, a barra de título agora mostra um ícone de Beaker de teste ( ![ ícone para resultados estáticos ](./media/test-logic-apps-mock-data-static-results/static-results-test-beaker-icon.png) ), que indica que você habilitou resultados estáticos.
 
@@ -76,7 +76,7 @@ Se seu aplicativo lógico tiver uma execução anterior com saídas, você poder
 
 1. Se você ainda não fez isso, na [portal do Azure](https://portal.azure.com), abra seu aplicativo lógico no designer de aplicativos lógicos.
 
-1. No menu principal do aplicativo lógico, selecione **visão geral**.
+1. No menu principal do aplicativo lógico, selecione **visão geral** .
 
 1. Na seção **histórico de execuções** , selecione a execução do aplicativo lógico que você deseja.
 
@@ -102,7 +102,7 @@ Se seu aplicativo lógico tiver uma execução anterior com saídas, você poder
 
    ![Modo JSON](./media/test-logic-apps-mock-data-static-results/json-editing-mode.png)
 
-1. Quando tiver terminado, escolha **Concluído**. Ou, para retornar ao designer, escolha **alternar modo do editor** ( ![ escolha "alternar modo do editor" ](./media/test-logic-apps-mock-data-static-results/switch-editor-mode-button.png) ).
+1. Quando tiver terminado, escolha **Concluído** . Ou, para retornar ao designer, escolha **alternar modo do editor** ( ![ escolha "alternar modo do editor" ](./media/test-logic-apps-mock-data-static-results/switch-editor-mode-button.png) ).
 
 <a name="find-runs-mock-data"></a>
 
@@ -110,15 +110,15 @@ Se seu aplicativo lógico tiver uma execução anterior com saídas, você poder
 
 O histórico de execuções do seu aplicativo lógico identifica as execuções em que as ações usam resultados estáticos. Para encontrar essas execuções, siga estas etapas:
 
-1. No menu principal do aplicativo lógico, selecione **visão geral**. 
+1. No menu principal do aplicativo lógico, selecione **visão geral** . 
 
-1. No painel direito, em **histórico de execuções**, localize a coluna **resultados estáticos** . 
+1. No painel direito, em **histórico de execuções** , localize a coluna **resultados estáticos** . 
 
-   Qualquer execução que inclua ações com resultados tem a coluna **resultados estáticos** definida como **habilitado**, por exemplo:
+   Qualquer execução que inclua ações com resultados tem a coluna **resultados estáticos** definida como **habilitado** , por exemplo:
 
    ![Histórico de execuções-coluna de resultados estáticos](./media/test-logic-apps-mock-data-static-results/run-history.png)
 
-1. Para exibir as ações que usam resultados estáticos, selecione a execução desejada onde a coluna de **resultados estáticos** está definida como **habilitada**.
+1. Para exibir as ações que usam resultados estáticos, selecione a execução desejada onde a coluna de **resultados estáticos** está definida como **habilitada** .
 
    As ações que usam resultados estáticos mostram o ícone testar Beaker ( ![ ícone para resultados estáticos ](./media/test-logic-apps-mock-data-static-results/static-results-test-beaker-icon.png) ), por exemplo:
 
@@ -130,11 +130,11 @@ Desativar os resultados estáticos não retira os valores de sua última configu
 
 1. Localize a ação na qual você deseja desabilitar as saídas estáticas. No canto superior direito da ação, escolha o ícone testar Beaker ( ![ ícone para resultados estáticos ](./media/test-logic-apps-mock-data-static-results/static-results-test-beaker-icon.png) ).
 
-   ![Desabilitar resultados estáticos](./media/test-logic-apps-mock-data-static-results/disable-static-results.png)
+   ![Captura de tela mostra uma ação H T P em que é possível selecionar o ícone testar Beaker.](./media/test-logic-apps-mock-data-static-results/disable-static-results.png)
 
-1. Escolha **desabilitar resultado estático**  >  **concluído**.
+1. Escolha **desabilitar resultado estático**  >  **concluído** .
 
-   ![Desabilitar resultados estáticos](./media/test-logic-apps-mock-data-static-results/disable-static-results-button.png)
+   ![Captura de tela mostra a opção Desabilitar resultado estático que você pode selecionar.](./media/test-logic-apps-mock-data-static-results/disable-static-results-button.png)
 
 ## <a name="reference"></a>Referência
 

@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 8cf1e5a4d97b882e7a8d0c81041bbcde709760d1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 78a543fabadcc0d4e1766af1bc5c65aac0dadebe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75864189"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91358918"
 ---
 # <a name="track-the-progress-of-data-science-projects"></a>Acompanhe o progresso de projetos de ciência de dados
 
@@ -46,7 +46,7 @@ Aqui está um painel de exemplo simples que controla as atividades do sprint de 
 
 - O **gráfico burnup** mostra o trabalho concluído em comparação com a quantidade total de trabalho no Sprint.
 
-![Dashboard](./media/track-progress/dashboard.png)
+![Captura de tela mostra um exemplo do painel DevOps do Azure.](./media/track-progress/dashboard.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -5,12 +5,13 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
-ms.openlocfilehash: ea951943c3f48443e4348d633c16ed61303f7aa8
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.custom: devx-track-csharp
+ms.openlocfilehash: cec97134173cfc7879baf1d914d8f224a0736430
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87449044"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99593037"
 ---
 # <a name="tutorial-manipulating-models"></a>Tutorial: Manipular modelos
 
@@ -36,7 +37,7 @@ Os limites de um modelo são definidos pela caixa que contém o modelo inteiro �
 1. Crie um script no mesmo diretório que **RemoteRenderedModel** e dê a ele o nome **RemoteBounds**.
 1. Substitua o conteúdo do script pelo seguinte código:
 
-    ```csharp
+    ```cs
     // Copyright (c) Microsoft Corporation. All rights reserved.
     // Licensed under the MIT License. See LICENSE in the project root for license information.
 
@@ -50,8 +51,6 @@ Os limites de um modelo são definidos pela caixa que contém o modelo inteiro �
     {
         //Remote bounds works with a specific remotely rendered model
         private BaseRemoteRenderedModel targetModel = null;
-
-        private BoundsQueryAsync remoteBoundsQuery = null;
 
         private RemoteBoundsState currentBoundsState = RemoteBoundsState.NotReady;
 
@@ -93,14 +92,8 @@ Os limites de um modelo são definidos pela caixa que contém o modelo inteiro �
             }
         }
 
-        // Create a query using the model entity
-        private void QueryBounds()
-        {
-            //Implement me
-        }
-
-        // Check the result and apply it to the local Unity bounding box if it was successful
-        private void ProcessQueryResult(BoundsQueryAsync remoteBounds)
+        // Create an async query using the model entity
+        async private void QueryBounds()
         {
             //Implement me
         }
@@ -112,31 +105,21 @@ Os limites de um modelo são definidos pela caixa que contém o modelo inteiro �
 
     Esse script deve ser adicionado ao mesmo GameObject que o script que implementa **BaseRemoteRenderedModel**. Nesse caso, isso significa **RemoteRenderedModel**. Semelhante aos scripts anteriores, esse código inicial manipulará todas as alterações de estado, eventos e dados relacionados a limites remotos.
 
-    Há dois métodos restantes para serem implementados: **QueryBounds** e **ProcessQueryResult**. **QueryBounds** busca os limites e **ProcessQueryResult** obtém o resultado da consulta e o aplica ao **BoxCollider** local.
+    Resta apenas um método para implementar: **QueryBounds**. O **QueryBounds** busca os limites de modo assíncrono, obtém o resultado da consulta e o aplica ao **BoxCollider** local.
 
-    O método **QueryBounds** é simples: envie uma consulta para a sessão de Remote Rendering e escute o evento `Completed`.
+    O método **QueryBounds** é simples: envie uma consulta para a sessão do Remote Rendering e aguarde o resultado.
 
 1. Substitua o método **QueryBounds** pelo seguinte método concluído:
 
-    ```csharp
+    ```cs
     // Create a query using the model entity
-    private void QueryBounds()
+    async private void QueryBounds()
     {
         remoteBoundsQuery = targetModel.ModelEntity.QueryLocalBoundsAsync();
         CurrentBoundsState = RemoteBoundsState.Updating;
-        remoteBoundsQuery.Completed += ProcessQueryResult;
-    }
-    ```
+        await remoteBounds;
 
-    **ProcessQueryResult** também é simples. Verificaremos o resultado para ver se ele foi bem-sucedido. Se sim, converta e aplique os limites retornados em um formato que o **BoxCollider** possa aceitar.    
-
-1. Substitua o método **ProcessQueryResult** pelo seguinte método concluído:
-
-    ```csharp
-    // Check the result and apply it to the local Unity bounding box if it was successful
-    private void ProcessQueryResult(BoundsQueryAsync remoteBounds)
-    {
-        if (remoteBounds.IsRanToCompletion)
+        if (remoteBounds.IsCompleted)
         {
             var newBounds = remoteBounds.Result.toUnity();
             BoundsBoxCollider.center = newBounds.center;
@@ -151,6 +134,8 @@ Os limites de um modelo são definidos pela caixa que contém o modelo inteiro �
     }
     ```
 
+    Verificaremos o resultado da consulta para ver se ela foi bem-sucedida. Se sim, converta e aplique os limites retornados em um formato que o **BoxCollider** possa aceitar.
+
 Agora, quando o script **RemoteBounds** é adicionado ao mesmo objeto de jogo que o **RemoteRenderedModel**, um **BoxCollider** será adicionado, se necessário; quando o modelo atingir o estado `Loaded`, os limites serão automaticamente consultados e aplicados ao **BoxCollider**.
 
 1. Usando o GameObject **TestModel** criado anteriormente, adicione o componente **RemoteBounds**.
@@ -160,7 +145,7 @@ Agora, quando o script **RemoteBounds** é adicionado ao mesmo objeto de jogo qu
 
 1. Execute o aplicativo novamente. Logo após o carregamento do modelo, você verá os limites do objeto remoto. Você verá algo semelhante aos valores abaixo:
 
-     ![Limites atualizados](./media/updated-bounds.png)
+     ![Captura de tela que mostra o exemplo de limites do objeto remoto.](./media/updated-bounds.png)
 
 Agora temos um **BoxCollider** local configurado com limites precisos no objeto Unity. Os limites permitem a visualização e a interação usando as mesmas estratégias que usaríamos para um objeto renderizado localmente. Por exemplo, scripts que alteram a transformação, a física e muito mais.
 
@@ -175,7 +160,7 @@ Este tutorial está usando o MRTK para a interação de objeto. A maioria da imp
 1. Pressione o botão Reproduzir do Unity para reproduzir a cena e abra o menu **Ferramentas do Modelo** dentro do **AppMenu**.
 ![Controlador de exibição](./media/model-with-view-controller.png)
 
-O **AppMenu** tem um submenu **Ferramentas do Modelo** que implementa um controlador de exibição para associação com o modelo. Quando o GameObject contiver um componente **RemoteBounds**, o controlador de exibição adicionará um componente [**BoundingBox**](https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/README_BoundingBox.html), que é um componente MRTK que renderiza uma caixa delimitadora em torno de um objeto com um **BoxCollider**. Um [**ObjectManipulator**](https://microsoft.github.io/MixedRealityToolkit-Unity/version/releases/2.3.0/api/Microsoft.MixedReality.Toolkit.Experimental.UI.ObjectManipulator.html?q=ObjectManipulator), que é responsável por interações de mão. Esses scripts combinados permitirão mover, girar e dimensionar o modelo renderizado remotamente.
+O **AppMenu** tem um submenu **Ferramentas do Modelo** que implementa um controlador de exibição para associação com o modelo. Quando o GameObject contiver um componente **RemoteBounds**, o controlador de exibição adicionará um componente [**BoundingBox**](https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/README_BoundingBox.html), que é um componente MRTK que renderiza uma caixa delimitadora em torno de um objeto com um **BoxCollider**. Um [**ObjectManipulator**](https://microsoft.github.io/MixedRealityToolkit-Unity/version/releases/2.5.1/api/Microsoft.MixedReality.Toolkit.UI.ObjectManipulator.html), que é responsável por interações de mão. Esses scripts combinados permitirão mover, girar e dimensionar o modelo renderizado remotamente.
 
 1. Mova seu mouse para o painel Jogo e clique dentro dele para focalizá-lo.
 1. Usando a [simulação de mão do MRTK](https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/InputSimulation/InputSimulationService.html#hand-simulation), pressione e mantenha pressionada a tecla Shift esquerda.
@@ -197,7 +182,7 @@ Primeiro, vamos criar um wrapper estático ao redor das consultas de conversão 
 
 1. Crie um script chamado **RemoteRayCaster** e substitua o conteúdo pelo seguinte código:
 
-    ```csharp
+    ```cs
     // Copyright (c) Microsoft Corporation. All rights reserved.
     // Licensed under the MIT License. See LICENSE in the project root for license information.
 
@@ -219,7 +204,8 @@ Primeiro, vamos criar um wrapper estático ao redor das consultas de conversão 
             if(RemoteRenderingCoordinator.instance.CurrentCoordinatorState == RemoteRenderingCoordinator.RemoteRenderingState.RuntimeConnected)
             {
                 var rayCast = new RayCast(origin.toRemotePos(), dir.toRemoteDir(), maxDistance, hitPolicy);
-                return await RemoteRenderingCoordinator.CurrentSession.Actions.RayCastQueryAsync(rayCast).AsTask();
+                var result = await RemoteRenderingCoordinator.CurrentSession.Connection.RayCastQueryAsync(rayCast);
+                return result.Hits;
             }
             else
             {
@@ -236,13 +222,13 @@ Primeiro, vamos criar um wrapper estático ao redor das consultas de conversão 
     ```
 
     > [!NOTE]
-    > O Unity tem uma classe chamada [**RaycastHit**](https://docs.unity3d.com/ScriptReference/RaycastHit.html) e o Azure Remote Rendering tem uma classe chamada [**RayCastHit**](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.raycasthit). A letra maiúscula **C** é uma diferença importante para evitar erros de compilação.
+    > O Unity tem uma classe chamada [**RaycastHit**](https://docs.unity3d.com/ScriptReference/RaycastHit.html) e o Azure Remote Rendering tem uma classe chamada [**RayCastHit**](/dotnet/api/microsoft.azure.remoterendering.raycasthit). A letra maiúscula **C** é uma diferença importante para evitar erros de compilação.
 
     **RemoteRayCaster** fornece um ponto de acesso comum para a conversão de raios remotos na sessão atual. Para ser mais específico, implementaremos um manipulador de ponteiro MRTK em seguida. O script implementará a interface `IMixedRealityPointerHandler`, que informará ao MRTK que queremos que esse script escute eventos de [Ponteiro de Realidade Misturada](https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/Input/Pointers.html).
 
 1. Crie um script chamado **RemoteRayCastPointerHandler** e substitua o código pelo seguinte código:
 
-    ```csharp
+    ```cs
     // Copyright (c) Microsoft Corporation. All rights reserved.
     // Licensed under the MIT License. See LICENSE in the project root for license information.
 
@@ -307,13 +293,13 @@ O método `OnPointerClicked` de **RemoteRayCastPointerHandler** é chamado pelo 
 
 O envio de solicitações para a conversão de raios em clique é uma estratégia eficiente para consultar objetos remotos. No entanto, não é uma experiência de usuário ideal porque o cursor colide com o colisor de caixa, não o próprio modelo.
 
-Você também pode criar um ponteiro MRTK que converte os raios dele na sessão remota com mais frequência. Embora essa seja uma abordagem mais complexa, a experiência do usuário seria melhor. Essa estratégia está fora do escopo deste tutorial, mas um exemplo dessa abordagem pode ser visto no Aplicativo de Demonstração, encontrado no [repositório de exemplos do ARR](https://github.com/Azure/azure-remote-rendering/tree/master/Unity/AzureRemoteRenderingShowcase).
+Você também pode criar um ponteiro MRTK que converte os raios dele na sessão remota com mais frequência. Embora essa seja uma abordagem mais complexa, a experiência do usuário seria melhor. Essa estratégia está fora do escopo deste tutorial, mas um exemplo dessa abordagem pode ser visto no Aplicativo de Demonstração, encontrado no [repositório de exemplos do ARR](https://github.com/Azure/azure-remote-rendering/tree/master/Unity/Showcase).
 
 Quando uma conversão de raios é concluída com êxito no **RemoteRayCastPointerHandler**, a `Entity` de impacto é emitida do evento Unity `OnRemoteEntityClicked`. Para responder a esse evento, criaremos um script auxiliar que aceita o `Entity` e executa uma ação sobre ele. Vamos começar obtendo o script para imprimir o nome do `Entity` para o log de depuração.
 
 1. Crie um script chamado **RemoteEntityHelper** e substitua o conteúdo pelo abaixo:
 
-    ```csharp
+    ```cs
     // Copyright (c) Microsoft Corporation. All rights reserved.
     // Licensed under the MIT License. See LICENSE in the project root for license information.
     
@@ -358,7 +344,7 @@ O mesmo processo pode ser feito programaticamente e é a primeira etapa na modif
 
 1. Modifique o script **RemoteEntityHelper** para também conter o seguinte método:
 
-    ```csharp
+    ```cs
     public void MakeSyncedGameObject(Entity entity)
     {
         var entityGameObject = entity.GetOrCreateGameObject(UnityCreationMode.DoNotCreateUnityComponents);

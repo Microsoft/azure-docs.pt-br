@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: configurar o SpaceIQ para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs'
-description: Saiba como configurar Azure Active Directory para provisionar e desprovisionar automaticamente contas de usuário para o SpaceIQ.
+title: 'Tutorial: Configurar SpaceIQ para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs'
+description: Saiba como configurar o Azure Active Directory para provisionar e desprovisionar automaticamente contas de usuário no SpaceIQ.
 services: active-directory
 author: zchia
 writer: zchia
@@ -8,19 +8,19 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/07/2019
 ms.author: Zhchia
-ms.openlocfilehash: 1e63dec14db795b2511f4069bb62a7ce1504a1ec
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
-ms.translationtype: MT
+ms.openlocfilehash: a5bd3c39c293880e31ebe63f85b3814725f6027a
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545039"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96347286"
 ---
-# <a name="tutorial-configure-spaceiq-for-automatic-user-provisioning"></a>Tutorial: configurar o SpaceIQ para o provisionamento automático de usuário
+# <a name="tutorial-configure-spaceiq-for-automatic-user-provisioning"></a>Tutorial: Configurar o SpaceIQ para o provisionamento automático de usuário
 
-O objetivo deste tutorial é demonstrar as etapas a serem executadas no SpaceIQ e no Azure Active Directory (Azure AD) para configurar o Azure AD para provisionar e desprovisionar automaticamente usuários e/ou grupos no SpaceIQ.
+O objetivo deste tutorial é demonstrar as etapas a serem executadas no SpaceIQ e no Azure AD (Azure Active Directory) a fim de configurar o Azure AD para provisionar e desprovisionar automaticamente usuários e/ou grupos no SpaceIQ.
 
 > [!NOTE]
 > Este tutorial descreve um conector compilado na parte superior do Serviço de Provisionamento de Usuário do Microsoft Azure AD. Para detalhes importantes sobre o que esse serviço faz, como funciona e as perguntas frequentes, consulte [Automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS com o Azure Active Directory](../app-provisioning/user-provisioning.md).
@@ -33,48 +33,48 @@ O cenário descrito neste tutorial pressupõe que você já tem os seguintes pr�
 
 * Um locatário do Azure AD
 * [Um locatário do SpaceIQ](https://spaceiq.com/)
-* Uma conta de usuário no SpaceIQ com permissões de administrador.
+* Uma conta de usuário no SpaceIQ com permissões de Administrador.
 
-## <a name="assigning-users-to-spaceiq"></a>Atribuindo usuários ao SpaceIQ
+## <a name="assigning-users-to-spaceiq"></a>Como atribuir usuários ao SpaceIQ
 
-O Azure Active Directory usa um conceito chamado *atribuições* para determinar quais usuários devem receber acesso aos aplicativos selecionados. No contexto do provisionamento automático de usuário, somente os usuários e/ou grupos que foram atribuídos a um aplicativo no Azure AD são sincronizados.
+O Azure Active Directory usa um conceito chamado *atribuições* para determinar quais usuários devem receber acesso aos aplicativos selecionados. No contexto do provisionamento automático de usuário, somente os usuários e/ou os grupos que foram atribuídos a um aplicativo no Azure AD são sincronizados.
 
-Antes de configurar e habilitar o provisionamento automático de usuário, você deve decidir quais usuários e/ou grupos no Azure AD precisam de acesso ao SpaceIQ. Depois de decidir, você pode atribuir esses usuários e/ou grupos ao SpaceIQ seguindo as instruções aqui:
+Antes de configurar e habilitar o provisionamento automático de usuário, decida quais usuários e/ou grupos no Azure AD precisam ter acesso ao SpaceIQ. Depois de decidir isso, você poderá atribuir esses usuários e/ou grupos ao SpaceIQ seguindo estas instruções:
 * [Atribuir um usuário ou um grupo a um aplicativo empresarial](../manage-apps/assign-user-or-group-access-portal.md)
 
 ## <a name="important-tips-for-assigning-users-to-spaceiq"></a>Dicas importantes para atribuir usuários ao SpaceIQ
 
-* É recomendável que um único usuário do Azure AD seja atribuído ao SpaceIQ para testar a configuração automática de provisionamento de usuário. Outros usuários e/ou grupos podem ser atribuídos mais tarde.
+* Recomendamos que somente um usuário do Azure AD seja atribuído ao SpaceIQ para testar a configuração de provisionamento automático de usuário. Outros usuários e/ou grupos podem ser atribuídos mais tarde.
 
-* Ao atribuir um usuário ao SpaceIQ, você deve selecionar qualquer função específica do aplicativo válida (se disponível) na caixa de diálogo de atribuição. Usuários com a função **Acesso padrão** são excluídos do provisionamento.
+* Ao atribuir um usuário ao SpaceIQ, você precisará selecionar qualquer função válida específica do aplicativo (se disponível) na caixa de diálogo de atribuição. Usuários com a função **Acesso padrão** são excluídos do provisionamento.
 
-## <a name="set-up-spaceiq-for-provisioning"></a>Configurar o SpaceIQ para provisionamento
+## <a name="set-up-spaceiq-for-provisioning"></a>Configurar o SpaceIQ para o provisionamento
 
-1. Entre no console do [administrador do SpaceIQ](https://main.spaceiq.com/login/). Navegue até **configurações** selecionando-a no menu suspenso no canto superior direito da tela.
+1. Entre no [Console de Administração do SpaceIQ](https://main.spaceiq.com/login/). Procure **Configurações** selecionando-a no menu suspenso, no canto superior direito da tela.
 
-    ![Console de administração do SpaceIQ](media/spaceiq-provisioning-tutorial/admin.png)
+    ![Console de Administração do SpaceIQ](media/spaceiq-provisioning-tutorial/admin.png)
 
-2.  Na página **configurações** , selecione **integrações**de terceiros.
+2.  Na página **Configurações**, selecione **Integrações de Terceiros**.
 
-    ![SpaceIQ adicionar SCIM](media/spaceiq-provisioning-tutorial/thirdparty.png)
+    ![Adicionar o SCIM no SpaceIQ](media/spaceiq-provisioning-tutorial/thirdparty.png)
 
-3.  Navegue até o **provisionamento e** a guia SSO. pesquise o bloco do **Azure** . Clique em **Ativar**.
+3.  Acesse a guia **Provisionamento e SSO**. Procure o bloco **Azure**. Clique em **Ativar**.
 
-    ![Provisionamento e SSO do SpaceIQ](media/spaceiq-provisioning-tutorial/provisioning.png)
+    ![Provisionamento e SSO no SpaceIQ](media/spaceiq-provisioning-tutorial/provisioning.png)
 
-    ![SpaceIQ ativar o Azure ](media/spaceiq-provisioning-tutorial/azure.png)
+    ![Ativar o Azure no SpaceIQ ](media/spaceiq-provisioning-tutorial/azure.png)
 
-3.  Copie o **token de portador scim**. Esse valor será inserido no campo token secreto na guia provisionamento do seu aplicativo SpaceIQ no portal do Azure. Clique em **Ativar**
+3.  Copie o **Token de Portador do SCIM**. Esse valor será inserido no campo Token Secreto na guia Provisionamento do aplicativo SpaceIQ no portal do Azure. Clique em **Ativar**
 
-    ![SpaceIQ criar token](media/spaceiq-provisioning-tutorial/token.png)
+    ![Criar Token no SpaceIQ](media/spaceiq-provisioning-tutorial/token.png)
 
-## <a name="add-spaceiq-from-the-gallery"></a>Adicionar o SpaceIQ da Galeria
+## <a name="add-spaceiq-from-the-gallery"></a>Adicionar o SpaceIQ por meio da galeria
 
-Antes de configurar o SpaceIQ para o provisionamento automático de usuário com o Azure AD, você precisará adicionar o SpaceIQ da Galeria de aplicativos do Azure AD à sua lista de aplicativos SaaS gerenciados.
+Antes de configurar o SpaceIQ para o provisionamento automático de usuário com o Azure AD, é necessário adicionar o SpaceIQ por meio da galeria de aplicativos do Azure AD à lista de aplicativos SaaS gerenciados.
 
-**Para adicionar o SpaceIQ da Galeria de aplicativos do Azure AD, execute as seguintes etapas:**
+**Para adicionar o SpaceIQ por meio da galeria de aplicativos do Azure AD, execute as seguintes etapas:**
 
-1. No **[portal do Azure](https://portal.azure.com)**, no painel de navegação à esquerda, selecione **Azure Active Directory**.
+1. No **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, selecione **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -82,22 +82,22 @@ Antes de configurar o SpaceIQ para o provisionamento automático de usuário com
 
     ![A folha Aplicativos empresariais](common/enterprise-applications.png)
 
-3. Para adicionar um novo aplicativo, selecione o botão **novo aplicativo** na parte superior do painel.
+3. Para adicionar um novo aplicativo, selecione o botão **Novo aplicativo** na parte superior do painel.
 
     ![O botão Novo aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, insira **SpaceIQ**, selecione **SpaceIQ** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa, insira **SpaceIQ**, selecione **SpaceIQ** no painel de resultados e clique no botão **Adicionar** para adicionar o aplicativo.
 
     ![SpaceIQ na lista de resultados](common/search-new-app.png)
 
-## <a name="configuring-automatic-user-provisioning-to-spaceiq"></a>Configurando o provisionamento automático de usuário para o SpaceIQ 
+## <a name="configuring-automatic-user-provisioning-to-spaceiq"></a>Como configurar o provisionamento automático de usuário no SpaceIQ 
 
-Esta seção orienta você pelas etapas para configurar o serviço de provisionamento do Azure AD para criar, atualizar e desabilitar usuários e/ou grupos no SpaceIQ com base em atribuições de usuário e/ou grupo no Azure AD.
+Esta seção descreve as etapas de configuração do serviço de provisionamento do Azure AD para criar, atualizar e desabilitar usuários e/ou grupos no SpaceIQ com base em atribuições de usuário e/ou grupo no Azure AD.
 
 > [!TIP]
-> Você também pode optar por habilitar o logon único baseado em SAML para o SpaceIQ, seguindo as instruções fornecidas no [tutorial de logon único do SpaceIQ](https://docs.microsoft.com/azure/active-directory/saas-apps/spaceiq-tutorial). O logon único pode ser configurado independentemente do provisionamento automático de usuário, embora esses dois recursos se complementem uns aos outros
+> Você também pode optar por habilitar o logon único com base em SAML para o SpaceIQ, seguindo as instruções fornecidas no [tutorial de logon único do SpaceIQ](./spaceiq-tutorial.md). O logon único pode ser configurado independentemente do provisionamento automático de usuário, embora esses dois recursos sejam complementares
 
-### <a name="to-configure-automatic-user-provisioning-for-spaceiq-in-azure-ad"></a>Para configurar o provisionamento automático de usuário para SpaceIQ no Azure AD:
+### <a name="to-configure-automatic-user-provisioning-for-spaceiq-in-azure-ad"></a>Para configurar o provisionamento automático de usuário para o SpaceIQ no Azure AD:
 
 1. Entre no [portal do Azure](https://portal.azure.com). Selecione **Aplicativos Empresariais** e **Todos os Aplicativos**.
 
@@ -109,13 +109,13 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
 3. Selecione a guia **Provisionamento**.
 
-    ![Guia Provisionamento](common/provisioning.png)
+    ![Captura de tela das opções Gerenciar com a opção Provisionamento destacada.](common/provisioning.png)
 
 4. Defina o **Modo de Provisionamento** como **Automático**.
 
-    ![Guia Provisionamento](common/provisioning-automatic.png)
+    ![Captura de tela da lista suspensa Modo de Provisionamento com a opção Automático destacada.](common/provisioning-automatic.png)
 
-5. Na seção **credenciais de administrador** , insira `https://api.spaceiq.com/scim` a **URL de locatário**. Insira o valor do **token de autenticação scim** recuperado anteriormente no **token secreto**. Clique em **testar conexão** para garantir que o Azure ad possa se conectar ao SpaceIQ. Se a conexão falhar, verifique se sua conta do SpaceIQ tem permissões de administrador e tente novamente.
+5. Na seção **Credenciais de Administrador**, insira `https://api.spaceiq.com/scim` em **URL do Locatário**. Insira o valor do **Token de Autenticação do SCIM** recuperado anteriormente em **Token Secreto**. Clique em **Testar Conectividade** para verificar se o Azure AD pode se conectar ao SpaceIQ. Se a conexão falhar, verifique se a sua conta do SpaceIQ tem permissões de Administrador e tente novamente.
 
     ![URL do locatário + token](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -125,21 +125,21 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
 7. Clique em **Save** (Salvar).
 
-8. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários para SpaceIQ**.
+8. Na seção **Mapeamentos**, selecione **Sincronizar Usuários do Azure Active Directory com o SpaceIQ**.
 
-    ![Mapeamentos de usuário SpaceIQ](media/spaceiq-provisioning-tutorial/usermapping.png)
+    ![Mapeamentos de Usuário no SpaceIQ](media/spaceiq-provisioning-tutorial/usermapping.png)
 
-9. Examine os atributos de usuário que são sincronizados do Azure AD para o SpaceIQ na seção **mapeamento de atributos** . Os atributos selecionados como propriedades **correspondentes** são usados para corresponder as contas de usuário no SpaceIQ para operações de atualização. Selecione o botão **Salvar** para confirmar as alterações.
+9. Examine os atributos de usuário que serão sincronizados do Azure AD para o SpaceIQ na seção **Mapeamento de Atributo**. Os atributos selecionados como propriedades **Correspondentes** são usados para fazer a correspondência entre as contas de usuário no SpaceIQ em operações de atualização. Selecione o botão **Salvar** para confirmar as alterações.
 
-    ![Atributos de usuário do SpaceIQ](media/spaceiq-provisioning-tutorial/userattributes.png)
+    ![Atributos de Usuário no SpaceIQ](media/spaceiq-provisioning-tutorial/userattributes.png)
 
 11. Para configurar filtros de escopo, consulte as seguintes instruções fornecidas no [tutorial do Filtro de Escopo](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-12. Para habilitar o serviço de provisionamento do Azure AD para o SpaceIQ, altere o **status de provisionamento** para **ativado** na seção **configurações** .
+12. Para habilitar o serviço de provisionamento do Azure AD no SpaceIQ, altere o **Status de Provisionamento** para **Ativado** na seção **Configurações**.
 
     ![Status do provisionamento ativado](common/provisioning-toggle-on.png)
 
-13. Defina os usuários e/ou grupos que você deseja provisionar para o SpaceIQ escolhendo os valores desejados no **escopo** na seção **configurações** .
+13. Defina os usuários e/ou os grupos que você quer provisionar no SpaceIQ escolhendo os valores desejados em **Escopo** na seção **Configurações**.
 
     ![Escopo de provisionamento](common/provisioning-scope.png)
 
@@ -147,7 +147,7 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
     ![Salvando a configuração de provisionamento](common/provisioning-configuration-save.png)
 
-Essa operação inicia a sincronização inicial de todos os usuários e/ou grupos definidos no **Escopo** na seção **Configurações**. Observe que a sincronização inicial levará mais tempo do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento do Microsoft Azure Active Directory esteja em execução. Você pode usar a seção **detalhes de sincronização** para monitorar o progresso e seguir os links para o relatório de atividade de provisionamento, que descreve todas as ações executadas pelo serviço de provisionamento do Azure AD no SpaceIQ.
+Essa operação inicia a sincronização inicial de todos os usuários e/ou grupos definidos no **Escopo** na seção **Configurações**. Observe que a sincronização inicial levará mais tempo do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento do Microsoft Azure Active Directory esteja em execução. Use a seção **Detalhes de Sincronização** para monitorar o progresso e siga os links para o relatório de atividades de provisionamento, que descreve todas as ações executadas pelo serviço de provisionamento do Azure AD no SpaceIQ.
 
 Para saber mais sobre como ler os logs de provisionamento do Azure AD, consulte [Relatórios sobre o provisionamento automático de contas de usuário](../app-provisioning/check-status-user-account-provisioning.md).
 

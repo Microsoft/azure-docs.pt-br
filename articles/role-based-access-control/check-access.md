@@ -1,57 +1,83 @@
 ---
-title: Início rápido – Ver o acesso que um usuário tem aos recursos do Azure – RBAC do Azure
-description: Neste Início rápido, você aprende a ver o acesso que um usuário ou outra entidade de segurança tem aos recursos do Azure usando o portal do Azure e o RBAC do Azure (controle de acesso baseado em função do Azure).
+title: Início rápido – Verificar o acesso que um usuário tem aos recursos do Azure – RBAC do Azure
+description: Neste início rápido, você aprenderá a verificar o acesso para si próprio ou outro usuário para recursos do Azure usando o portal do Azure e o Azure RBAC (controle de acesso baseado em função).
 services: role-based-access-control
-documentationCenter: ''
 author: rolyon
 manager: mtillman
-editor: ''
 ms.service: role-based-access-control
-ms.devlang: ''
 ms.topic: quickstart
-ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 11/30/2018
+ms.date: 12/09/2020
 ms.author: rolyon
-ms.reviewer: bagovind
-ms.openlocfilehash: 9be53aa964e75bab0b90495640537fe927a5af0e
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: 5e4f3314ba580dddbd995855bc0f0512b7597107
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82734154"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98115711"
 ---
-# <a name="quickstart-view-the-access-a-user-has-to-azure-resources"></a>Início Rápido: Exibir o acesso que um usuário tem aos recursos do Azure
+# <a name="quickstart-check-access-for-a-user-to-azure-resources"></a>Início Rápido: Verificar o acesso que um usuário tem aos recursos do Azure
 
-Use a folha **Controle de acesso (IAM)** no [RBAC do Azure (controle de acesso baseado em função do Azure)](overview.md) para ver o acesso que um usuário ou outra entidade de segurança tem aos recursos do Azure. No entanto, às vezes, você apenas precisa exibir rapidamente o acesso de um único usuário ou outra entidade de segurança. A maneira mais fácil de fazer isso é usar o recurso **Verificar acesso** no portal do Azure.
+Às vezes, você precisa verificar o acesso que um usuário tem a um conjunto de recursos do Azure. Você verifica o acesso dele listando as atribuições que ele tem. Uma forma rápida de verificar o acesso de um usuário é usar o recurso **Verificar acesso** na página **Controle de acesso (IAM)** .
 
-## <a name="view-role-assignments"></a>Exibir atribuições de função
+## <a name="step-1-open-the-azure-resources"></a>Etapa 1: Abrir os recursos do Azure
 
- A forma como o acesso de um usuário é exibido é uma lista de suas atribuições de funções. Siga essas etapas para exibir as atribuições de função para um único usuário, grupo, entidade de serviço ou identidade gerenciada no escopo de assinaturas.
+Para verificar o acesso de um usuário, primeiro você precisa abrir os recursos do Azure para os quais deseja verificar o acesso. Os recursos do Azure são organizados em níveis que normalmente são chamados de *escopo*. No Azure, você pode especificar um escopo em quatro níveis de amplo até restrito: grupo de gerenciamento, assinatura, grupo de recursos e recurso.
 
-1. No portal do Microsoft Azure, clique em **Todos os serviços** e, em seguida, em **Assinaturas**.
+![Níveis de escopo para o Azure RBAC](../../includes/role-based-access-control/media/scope-levels.png)
 
-1. Clique em sua assinatura.
+Siga estas etapas para abrir o conjunto de recursos do Azure para o qual você deseja verificar o acesso.
 
-1. Clique em **Controle de acesso (IAM)** .
+1. Abra o [Portal do Azure](https://portal.azure.com).
 
-1. Clique na guia **Verificar acesso**.
+1. Abra o conjunto de recursos do Azure, como **Grupos de gerenciamento**, **Assinaturas**, **Grupos de recursos** ou um recurso específico.
 
-    ![Controle de acesso - verificar a guia de acesso](./media/check-access/access-control-check-access.png)
+1. Clique no recurso específico nesse escopo.
 
-1. Na lista **Localizar**, selecione o tipo de entidade de segurança para a qual você deseja verificar o acesso.
+    A seguir é mostrado um exemplo de grupo de recursos.
+
+    ![Visão geral do grupo de recursos](./media/shared/rg-overview.png)
+
+## <a name="step-2-check-access-for-a-user"></a>Etapa 2: Verificar o acesso de um usuário
+
+Siga estas etapas para verificar o acesso de um usuário, um grupo, uma entidade de serviço ou uma identidade gerenciada aos recursos do Azure previamente selecionados.
+
+1. Clique em **IAM (Controle de Acesso)**.
+
+    O exemplo a seguir mostra a página Controle de acesso (IAM) para um grupo de recursos.
+
+    ![Controle de acesso do grupo de recursos – Guia Verificar acesso](./media/shared/rg-access-control.png)
+
+1. Na guia **Verificar acesso**, na lista **Localizar**, selecione o usuário, o grupo, a entidade de serviço ou a identidade gerenciada para o qual você deseja acesso.
 
 1. Na caixa de pesquisa, insira uma cadeia de caracteres para pesquisar no diretório nomes de exibição, endereços de e-mail ou identificadores de objetos.
 
-    ![Verifique a lista de seleção de acesso](./media/check-access/check-access-select.png)
+    ![Verifique a lista de seleção de acesso](./media/shared/rg-check-access-select.png)
 
 1. Clique na entidade de segurança para abrir o painel **atribuições**.
 
-    ![painel atribuições](./media/check-access/check-access-assignments.png)
+    Nesse painel, você pode ver o acesso para a entidade de segurança selecionada nesse escopo e herdada para esse escopo. As atribuições em escopos filho não estão listadas. Você verá as seguintes atribuições:
 
-    Nesse painel, você pode ver as funções atribuídas à entidade de segurança selecionada e o escopo. Se houver alguma atribuição de negação nesse escopo ou herdada para esse escopo, ela será listada.
+    - Atribuições de função adicionadas com o Azure RBAC.
+    - Atribuições de negação adicionadas usando o Azure Blueprints ou os aplicativos gerenciados do Azure.
+    - Atribuições de Administrador de serviços ou Coadministrador clássicas para implantações clássicas. 
+
+    ![Painel de atribuições de função e negação para um usuário](./media/shared/rg-check-access-assignments-user.png)
+
+## <a name="step-3-check-your-access"></a>Etapa 3: Verifique seu acesso
+
+Siga estas etapas para verificar seu acesso aos recursos do Azure selecionados anteriormente.
+
+1. Clique em **IAM (Controle de Acesso)**.
+
+1. Na guia **Verificar acesso**, clique no botão **Exibir meus acessos**.
+
+    Um painel atribuições é exibido para listar seu acesso nesse escopo e herdado para esse escopo. As atribuições em escopos filho não estão listadas.
+
+    ![Painel de atribuições de função e negação](./media/check-access/rg-check-access-assignments.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Tutorial: Conceder acesso aos recursos do Azure para um usuário usando o portal do Azure](quickstart-assign-role-user-portal.md)
+> [Listar atribuições de função do Azure usando o portal do Azure](role-assignments-list-portal.md)

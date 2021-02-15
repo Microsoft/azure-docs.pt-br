@@ -2,13 +2,13 @@
 title: Evento de início de tarefa no Lote do Azure
 description: Informações de referência para evento de início de tarefa no Lote. Esse evento é emitido quando uma tarefa é agendada para iniciar em um nó de computação pelo agendador.
 ms.topic: reference
-ms.date: 04/20/2017
-ms.openlocfilehash: ed7b3014279fc87fbaae6f1c270f056e95073aaf
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.date: 10/08/2020
+ms.openlocfilehash: 3a57ffbb1e1659cff54d101aa4b90ca1bd5d3a57
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965086"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91851009"
 ---
 # <a name="task-start-event"></a>Evento de início da tarefa
 
@@ -23,6 +23,7 @@ ms.locfileid: "85965086"
     "id": "myTask",
     "taskType": "User",
     "systemTaskVersion": 220192842,
+    "requiredSlots": 1,
     "nodeInfo": {
         "poolId": "pool-001",
         "nodeId": "tvm-257509324_1-20160908t162728z"
@@ -45,6 +46,7 @@ ms.locfileid: "85965086"
 |`id`|String|A ID da tarefa.|
 |`taskType`|String|O tipo de tarefa. Pode ser “JobManager” indicando que é uma tarefa do gerenciador de trabalhos ou “Usuário”, indicando que não é uma tarefa do gerenciador de trabalhos.|
 |`systemTaskVersion`|Int32|Esse é o contador interno de repetição de uma tarefa. Internamente, o serviço em lotes pode repetir uma tarefa para contabilizar problemas transitórios. Esses problemas podem incluir erros internos de agendamento ou tentativa de recuperar nós de computação em estado inválido.|
+|`requiredSlots`|Int32|Os slots necessários para executar a tarefa.|
 |[`nodeInfo`](#nodeInfo)|Tipo complexo|Contém informações sobre o nó de computação em que a tarefa é executada.|
 |[`multiInstanceSettings`](#multiInstanceSettings)|Tipo complexo|Especifica que a tarefa é uma tarefa com várias instâncias que precisa de vários nós de computação.  Consulte [multiInstanceSettings](/rest/api/batchservice/get-information-about-a-task) para obter detalhes.|
 |[`constraints`](#constraints)|Tipo complexo|As restrições de execução aplicáveis a essa tarefa.|

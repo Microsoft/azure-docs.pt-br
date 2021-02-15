@@ -7,12 +7,12 @@ ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: Azure, Kinect, sensor, visualizador, visualização, profundidade, RGB, cor, IMU, áudio, microfone, nuvem de ponto
-ms.openlocfilehash: 57cf7df831e97da4143a7f196b69a3a10609a017
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f411de5854d516586dc64701cca729c692ce40e0
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85276339"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92166098"
 ---
 # <a name="azure-kinect-viewer"></a>Visualizador de Kinect do Azure
 
@@ -36,7 +36,7 @@ O Visualizador pode operar em dois modos: com dados dinâmicos do sensor ou de d
 
 Inicie o aplicativo executando `k4aviewer.exe` .
 
-![Verificando a versão do firmware do dispositivo usando o visualizador](./media/how-to-guides/open-viewer.png)
+![Captura de tela que mostra o aplicativo de visualizador iniciado.](./media/how-to-guides/open-viewer.png)
 
 ### <a name="use-the-viewer-with-live-data"></a>Usar o visualizador com dados dinâmicos
 

@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, carlrab
+ms.reviewer: wiassaf, sstein
 ms.date: 06/12/2020
-ms.openlocfilehash: 96557a6049b316a69c32e96012206eab128e024a
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 0f3dce3ca79b12b05325a1d8284dd3304653d5fa
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85986497"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96488860"
 ---
 # <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance-preview"></a>Intelligent Insights usando o ia para monitorar e solucionar problemas de desempenho do banco de dados (visualização)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -49,7 +49,7 @@ A métrica usada para medir e detectar problemas de desempenho do banco de dados
 
 As degradações de desempenho do banco de dados identificadas são registradas no log do sqlsights com entradas inteligentes que consistem nas seguintes propriedades:
 
-| Property | Detalhes |
+| Propriedade | Detalhes |
 | :------------------- | ------------------- |
 | Informações de banco de dados | Metadados sobre um banco de dados no qual foi detectado um insight, como o URI do recurso. |
 | Intervalo de tempo observado | Hora de início e término do período do insight detectado. |
@@ -85,7 +85,7 @@ Intelligent Insights opções disponíveis são:
 
 A saída do Intelligent Insights pode ser transmitida para um dos vários destinos para análise:
 
-- A saída transmitida para um espaço de trabalho Log Analytics pode ser usada com [análise de SQL do Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql) para exibir informações por meio da interface do usuário do portal do Azure. Esta é a solução do Azure integrada e a maneira mais comum de exibir os insights.
+- A saída transmitida para um espaço de trabalho Log Analytics pode ser usada com [análise de SQL do Azure](../../azure-monitor/insights/azure-sql.md) para exibir informações por meio da interface do usuário do portal do Azure. Esta é a solução do Azure integrada e a maneira mais comum de exibir os insights.
 - A saída transmitida para os hubs de eventos do Azure pode ser usada para o desenvolvimento de cenários de monitoramento e alerta personalizados
 - A saída transmitida para o armazenamento do Azure pode ser usada para desenvolvimento de aplicativos personalizados, como, por exemplo, relatórios personalizados, arquivamento de dados de longo prazo e assim por diante.
 
@@ -107,7 +107,7 @@ O exemplo a seguir mostra um Intelligent Insights exibido por meio da Análise d
 
 ### <a name="set-up-with-event-hubs"></a>Configuração com os Hubs de Eventos
 
-Para usar Intelligent Insights com os hubs de eventos, configure Intelligent Insights dados de log a serem transmitidos para os hubs de eventos, consulte [log de métricas e diagnósticos](metrics-diagnostic-telemetry-logging-streaming-export-configure.md) e [transmita logs de diagnóstico do Azure para os hubs de eventos](../../azure-monitor/platform/resource-logs-stream-event-hubs.md).
+Para usar Intelligent Insights com os hubs de eventos, configure Intelligent Insights dados de log a serem transmitidos para os hubs de eventos, consulte [log de métricas e diagnósticos](metrics-diagnostic-telemetry-logging-streaming-export-configure.md) e [transmita logs de diagnóstico do Azure para os hubs de eventos](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs).
 
 Para usar os hubs de eventos para configurar o monitoramento e alertas personalizados, consulte [o que fazer com métricas e logs de diagnóstico em hubs de eventos](metrics-diagnostic-telemetry-logging-streaming-export-configure.md#what-to-do-with-metrics-and-resource-logs-in-event-hubs).
 
@@ -158,7 +158,7 @@ Os insights gerados contêm o número de solicitações que atingiram o tempo li
 
 ## <a name="excessive-wait-times"></a>Tempos excessivos de espera
 
-O modelo de tempo de espera excessivo monitora as consultas de banco de dados individuais. Ele detecta estatísticas de espera de consulta incomumente altas que cruzaram os limites absolutos gerenciado pelo sistema. As métricas de tempo de espera excessivas de consulta a seguir são observadas usando o, [repositório de consultas estatísticas de espera (sys. query_store_wait_stats)](/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql):
+O modelo de tempo de espera excessivo monitora as consultas de banco de dados individuais. Ele detecta estatísticas de espera de consulta incomumente altas que cruzaram os limites absolutos gerenciado pelo sistema. As métricas de tempo de espera excessivas de consulta a seguir são observadas usando o, [repositório de consultas estatísticas de espera (sys.query_store_wait_stats)](/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql):
 
 - Atingindo os limites do recurso
 - Atingindo os limites de recurso do pool elástico

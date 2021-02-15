@@ -9,16 +9,16 @@ ms.date: 07/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 07945926600163a3fca228ef6d848b50efc4318d
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: 564f19a1be5b3ce8a5267a07bd4f1f6de80fecf1
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88042795"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621273"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>Tutorial: Realizar a classificação de imagem na borda com o Serviço de Visão Personalizada
 
-O Azure IoT Edge pode tornar sua solução de IoT mais eficiente movendo cargas de trabalho da nuvem para a borda. Esse recurso funciona bem para serviços que processam muitos dados, como modelos visuais computacionais. O [Serviço de Visão Personalizada](../cognitive-services/custom-vision-service/home.md) permite criar classificadores de imagem personalizados e implantá-los em dispositivos como contêineres. Juntos, esses dois serviços permitem a você encontrar insights em imagens ou fluxos de vídeo sem a necessidade de primeiro transferir todos os dados do local. A Visão Personalizada fornece um classificador que compara uma imagem com um modelo treinado para gerar insights.
+O Azure IoT Edge pode tornar sua solução de IoT mais eficiente movendo cargas de trabalho da nuvem para a borda. Esse recurso funciona bem para serviços que processam muitos dados, como modelos visuais computacionais. O [Serviço de Visão Personalizada](../cognitive-services/custom-vision-service/overview.md) permite criar classificadores de imagem personalizados e implantá-los em dispositivos como contêineres. Juntos, esses dois serviços permitem a você encontrar insights em imagens ou fluxos de vídeo sem a necessidade de primeiro transferir todos os dados do local. A Visão Personalizada fornece um classificador que compara uma imagem com um modelo treinado para gerar insights.
 
 Por exemplo, a Visão Personalizada em um dispositivo do IoT Edge conseguiu determinar se uma estrada está com tráfego acima ou abaixo do normal, ou se uma garagem de estacionamento tem vagas disponíveis em sequência. Essas informações podem ser compartilhadas com outro serviço que atuará em relação a elas.
 
@@ -46,7 +46,7 @@ Antes de iniciar este tutorial, você deve ter passado pelo tutorial anterior pa
 
 * Um [Hub IoT](../iot-hub/iot-hub-create-through-portal.md) na camada padrão ou gratuito no Azure.
 * Um [dispositivo Linux que executa o Azure IoT Edge](quickstart-linux.md)
-* Um registro de contêiner, como o [Registro de Contêiner do Azure](https://docs.microsoft.com/azure/container-registry/).
+* Um registro de contêiner, como o [Registro de Contêiner do Azure](../container-registry/index.yml).
 * O [Visual Studio Code](https://code.visualstudio.com/) configurado com o [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 * O [Docker CE](https://docs.docker.com/install/) configurado para executar contêineres do Linux.
 
@@ -449,9 +449,7 @@ Caso contrário, é possível excluir as configurações locais e os recursos do
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você treinou um modelo da Visão Personalizada e o implantou como um módulo em um dispositivo do IoT Edge. Em seguida, você criou um módulo que pode consultar o serviço de classificação de imagem e relatar os resultados para o Hub IoT. 
-
-Se você quiser experimentar uma versão mais detalhada deste cenário com um feed de câmera em tempo real, consulte o projeto [Visão Personalizada e Azure IoT Edge em um Raspberry Pi 3](https://github.com/Azure-Samples/Custom-vision-service-iot-edge-raspberry-pi) do GitHub. 
+Neste tutorial, você treinou um modelo da Visão Personalizada e o implantou como um módulo em um dispositivo do IoT Edge. Em seguida, você criou um módulo que pode consultar o serviço de classificação de imagem e relatar os resultados para o Hub IoT.
 
 Siga para os próximos tutoriais para saber mais sobre outras formas pelas quais o Azure IoT Edge pode ajudá-lo a transformar dados em informações de negócios na borda.
 

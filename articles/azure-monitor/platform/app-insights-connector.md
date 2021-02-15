@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/13/2019
-ms.openlocfilehash: 80e87d6fdab6ecf15c241581f8c19d36b30d7e30
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e426962310417fdca56ea2f7d45a6ea820d41981
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327099"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335869"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Solução de gerenciamento do Conector do Application Insights (preterida)
 
@@ -47,7 +47,7 @@ Ao contrário da maioria das outras soluções do Log Analytics, os dados não s
 | [Agentes do Windows](./agent-windows.md) | Não | A solução não coleta informações de agentes do Windows. |
 | [Agentes do Linux](../learn/quick-collect-linux-computer.md) | Não | A solução não coleta informações de agentes do Linux. |
 | [Grupo de gerenciamento do SCOM](./om-agents.md) | Não | A solução não coleta informações de agentes em um grupo de gerenciamento de SCOM conectado. |
-| [Conta de armazenamento do Azure](./resource-logs.md#send-to-log-analytics-workspace) | Não | A solução não coleta informações do armazenamento do Azure. |
+| [Conta de Armazenamento do Azure](./resource-logs.md#send-to-log-analytics-workspace) | Não | A solução não coleta informações do armazenamento do Azure. |
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -57,9 +57,9 @@ Ao contrário da maioria das outras soluções do Log Analytics, os dados não s
 
 ## <a name="configuration"></a>Configuração
 
-1. Habilite a solução Análise de Aplicativos Web do Azure no [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AppInsights?tab=Overview) ou usando o processo descrito em [Adicionar soluções do Log Analytics por meio da Galeria de Soluções](../insights/solutions.md).
+1. Habilite a solução Análise de Aplicativos Web do Azure no [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps) ou usando o processo descrito em [Adicionar soluções do Log Analytics por meio da Galeria de Soluções](../insights/solutions.md).
 2. Navegue até o [Portal do Azure](https://portal.azure.com). Selecione **Todos os serviços** para abrir o Application Insights. Em seguida, procure Application Insights. 
-3. Em **Assinaturas**, selecione uma assinatura que tem os recursos do Application Insights e, em seguida, em **Nome**, selecione um ou mais aplicativos.
+3. Em **Assinaturas** , selecione uma assinatura que tem os recursos do Application Insights e, em seguida, em **Nome** , selecione um ou mais aplicativos.
 4. Clique em **Salvar**.
 
 Em aproximadamente 30 minutos, os dados ficarão disponíveis e o bloco do Application Insights será atualizado com os dados, como a seguinte imagem:
@@ -83,9 +83,9 @@ As próximas seções descrevem como você pode usar as folhas mostradas no pain
 
 Clique no bloco **Application Insights** para abrir o painel **Application Insights** para ver as folhas a seguir.
 
-![Painel do Application Insights](./media/app-insights-connector/app-insights-dash01.png)
+![Captura de tela do painel de Application Insights mostrando as folhas para aplicativos, volume de dados e disponibilidade.](./media/app-insights-connector/app-insights-dash01.png)
 
-![Painel do Application Insights](./media/app-insights-connector/app-insights-dash02.png)
+![Captura de tela do painel de Application Insights mostrando as folhas para solicitações de servidor, falhas e exceções.](./media/app-insights-connector/app-insights-dash02.png)
 
 O painel inclui as folhas mostradas na tabela. Cada folha lista os 10 principais itens que correspondem aos critérios da folha para o escopo e o intervalo de tempo especificados. É possível executar uma pesquisa de logs que retorna todos os registros ao clicar em **Ver todos** na parte inferior da folha ou ao clicar no cabeçalho da folha.
 
@@ -113,15 +113,15 @@ A folha **Disponibilidade** mostra uma exibição de perspectiva diferente na qu
 
 ![Perspectiva de Disponibilidade do Application Insights](./media/app-insights-connector/availability-blade-drill-search.png)
 
-Quando você clica em qualquer lugar nas folhas **Solicitações do Servidor** ou **Falhas**, os componentes da perspectiva mudam para dar a você uma visualização relacionada às solicitações.
+Quando você clica em qualquer lugar nas folhas **Solicitações do Servidor** ou **Falhas** , os componentes da perspectiva mudam para dar a você uma visualização relacionada às solicitações.
 
 ![Folha Falhas do Application Insights](./media/app-insights-connector/server-requests-failures-drill-search.png)
 
-Quando você clica em qualquer lugar na folha **Exceções**, você vê uma visualização adaptada às exceções.
+Quando você clica em qualquer lugar na folha **Exceções** , você vê uma visualização adaptada às exceções.
 
 ![Folha Exceções do Application Insights](./media/app-insights-connector/exceptions-blade-drill-search.png)
 
-Independentemente de você clicar em algo no painel **Conector do Application Insights**, na própria página **Pesquisa**, qualquer consulta que retorna dados do Application Insights mostra a perspectiva do Application Insights. Por exemplo, se você estiver exibindo dados do Application Insights, uma consulta **&#42;** também mostrará a guia de perspectiva como a seguinte imagem:
+Independentemente de você clicar em algo no painel **Conector do Application Insights** , na própria página **Pesquisa** , qualquer consulta que retorna dados do Application Insights mostra a perspectiva do Application Insights. Por exemplo, se você estiver exibindo dados do Application Insights, uma consulta **&#42;** também mostrará a guia de perspectiva como a seguinte imagem:
 
 ![Application Insights](./media/app-insights-connector/app-insights-search.png)
 
@@ -135,7 +135,7 @@ Os componentes da perspectiva são atualizados, dependendo da consulta de pesqui
 
 As folhas do Conector do Application Insights foram projetadas para permitir que você dinamiza para o aplicativo selecionado do Application Insights *quando usar o portal do Azure*. Use a solução como uma plataforma de monitoramento de alto nível que ajuda você a solucionar problemas de um aplicativo. Ao encontrar um possível problema em um de seus aplicativos conectados, você pode fazer uma busca detalhada na pesquisa do Log Analytics ou dinamizar diretamente até o aplicativo do Application Insights.
 
-Para dinamizar, clique nas reticências (**...**) exibidas ao final de cada linha e selecione **Abrir no Application Insights**.
+Para dinamizar, clique nas reticências ( **...** ) exibidas ao final de cada linha e selecione **Abrir no Application Insights**.
 
 >[!NOTE]
 >A opção **Abrir no Application Insights** não está disponível no portal do Azure.
@@ -144,7 +144,7 @@ Para dinamizar, clique nas reticências (**...**) exibidas ao final de cada linh
 
 ### <a name="sample-corrected-data"></a>Dados corrigido por amostra
 
-O Application Insights fornece a *[correção de amostragem](../app/sampling.md)* para ajudar a reduzir o tráfego de telemetria. Ao habilitar a amostragem no aplicativo do Application Insights, você obtém um número reduzido de entradas armazenadas no Application Insights e no Log Analytics. Embora a consistência dos dados seja preservada na página e nas perspectivas do **Conector do Application Insights**, você deverá corrigir manualmente os dados amostrados das consultas personalizadas.
+O Application Insights fornece a *[correção de amostragem](../app/sampling.md)* para ajudar a reduzir o tráfego de telemetria. Ao habilitar a amostragem no aplicativo do Application Insights, você obtém um número reduzido de entradas armazenadas no Application Insights e no Log Analytics. Embora a consistência dos dados seja preservada na página e nas perspectivas do **Conector do Application Insights** , você deverá corrigir manualmente os dados amostrados das consultas personalizadas.
 
 Este é um exemplo de correção de amostragem em uma consulta da pesquisa de logs:
 
@@ -154,7 +154,7 @@ ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by Telemetry
 
 O campo **Contagem Amostrada** está presente em todas as entradas e mostra o número de pontos de dados que a entrada representa. Se você ativar a amostragem no aplicativo do Application Insights, a **Contagem Amostrada** será maior que 1. Para contar o número real de entradas geradas pelo aplicativo, some os campos **Contagem Amostrada**.
 
-A amostragem afeta somente o número total de entradas geradas pelo aplicativo. Não é necessário corrigir a amostragem em campos de métrica como **RequestDuration** ou **AvailabilityDuration**, porque esses campos mostram a média das entradas representadas.
+A amostragem afeta somente o número total de entradas geradas pelo aplicativo. Não é necessário corrigir a amostragem em campos de métrica como **RequestDuration** ou **AvailabilityDuration** , porque esses campos mostram a média das entradas representadas.
 
 ## <a name="input-data"></a>Dados de entrada
 
@@ -247,7 +247,7 @@ Um registro com um *tipo* de *ApplicationInsights* é criado para cada tipo de d
 | Type | ApplicationInsights |
 | TelemetryType | Solicitação |
 | ResponseCode | Resposta HTTP enviada ao cliente |
-| RequestSuccess | Indica êxito ou falha. Verdadeiro ou falso. |
+| RequestSuccess | Indica êxito ou falha. True ou false. |
 | RequestID | ID para identificar exclusivamente a solicitação |
 | RequestName | GET/POST + URL base |
 | RequestDuration | Tempo, em segundos, da duração da solicitação |

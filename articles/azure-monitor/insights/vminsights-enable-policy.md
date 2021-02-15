@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: 9bc323e0fafc576c5e75f46b3c38fdf140b1b0f4
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 240c96016304c009c36485869ac15f5f38076fb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87799795"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "90088282"
 ---
 # <a name="enable-azure-monitor-for-vms-by-using-azure-policy"></a>Habilitar o Azure Monitor para VMs usando o Azure Policy
 Este artigo explica como habilitar Azure Monitor para VMs para máquinas virtuais do Azure ou máquina virtual híbrida conectada com o Arc do Azure (versão prévia) usando Azure Policy. Azure Policy permite atribuir definições de política que instalam os agentes necessários para Azure Monitor para VMs em seu ambiente do Azure e habilitam automaticamente o monitoramento de VMs à medida que cada máquina virtual é criada. O Azure Monitor para VMs fornece um recurso que permite descobrir e corrigir VMs não compatíveis em seu ambiente. Use esse recurso em vez de trabalhar diretamente com Azure Policy.
@@ -46,7 +46,7 @@ Essa é a mesma página para atribuir uma iniciativa no Azure Policy, exceto que
 Na página **parâmetros** , selecione um **espaço de trabalho log Analytics** a ser usado por todas as máquinas virtuais na atribuição. Se você quiser especificar espaços de trabalho diferentes para máquinas virtuais diferentes, deverá criar várias atribuições, cada uma com seu próprio escopo. 
 
    > [!NOTE]
-   > Se o workspace estiver fora do escopo da atribuição, conceda as permissões *Colaborador do Log Analytics* à ID de Entidade de Segurança da atribuição de política. Se você não fizer isso, poderá ver uma falha de implantação como`The client '343de0fe-e724-46b8-b1fb-97090f7054ed' with object id '343de0fe-e724-46b8-b1fb-97090f7054ed' does not have authorization to perform action 'microsoft.operationalinsights/workspaces/read' over scope ...`
+   > Se o workspace estiver fora do escopo da atribuição, conceda as permissões *Colaborador do Log Analytics* à ID de Entidade de Segurança da atribuição de política. Se você não fizer isso, poderá ver uma falha de implantação como `The client '343de0fe-e724-46b8-b1fb-97090f7054ed' with object id '343de0fe-e724-46b8-b1fb-97090f7054ed' does not have authorization to perform action 'microsoft.operationalinsights/workspaces/read' over scope ...`
 
 [![Workspace](media/vminsights-enable-at-scale-policy/assignment-workspace.png)](media/vminsights-enable-at-scale-policy/assignment-workspace.png#lightbox)
 
@@ -102,7 +102,7 @@ Para criar uma tarefa de correção para atenuar problemas de conformidade, cliq
 
 Clique em **corrigir** para criar a tarefa de correção e, em seguida, **corrigir** para iniciá-la. Provavelmente, será necessário criar várias tarefas de correção, uma para cada definição de política. Você não pode criar uma tarefa de correção para uma iniciativa.
 
-[![Remediação](media/vminsights-enable-at-scale-policy/remediation.png)](media/vminsights-enable-at-scale-policy/remediation.png#lightbox)
+[![Captura de tela mostra o painel de correção de política para o monitor | Máquinas virtuais.](media/vminsights-enable-at-scale-policy/remediation.png)](media/vminsights-enable-at-scale-policy/remediation.png#lightbox)
 
 
 Depois que as tarefas de correção forem concluídas, suas VMs deverão estar em conformidade com os agentes instalados e habilitados para Azure Monitor para VMs. 

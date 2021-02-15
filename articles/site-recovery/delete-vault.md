@@ -1,18 +1,18 @@
 ---
 title: Excluir um cofre de Azure Site Recovery
 description: Saiba como excluir um cofre dos Serviços de Recuperação configurado o Azure Site Recovery
-author: rajani-janaki-ram
+author: sideeksh
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 11/05/2019
-ms.author: rajanaki
-ms.openlocfilehash: 8237888d46e1f1ad48e678234cf1edce3558876a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.author: sideeksh
+ms.openlocfilehash: a33e04a24013d5450c98b91048fa418958d16886
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089576"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89426377"
 ---
 # <a name="delete-a-site-recovery-services-vault"></a>Excluir um cofre dos Serviços de Recuperação de Site
 

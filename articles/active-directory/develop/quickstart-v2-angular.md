@@ -1,27 +1,27 @@
 ---
-title: Conectar usuários em aplicativos de página única Angular – Azure
+title: 'Início Rápido: Conectar usuários em aplicativos de página única Angular – Azure'
 titleSuffix: Microsoft identity platform
-description: Saiba como um aplicativo Angular pode chamar uma API que exige tokens de acesso usando a plataforma de identidade da Microsoft.
+description: Neste guia de início rápido, você aprenderá como um aplicativo Angular pode chamar uma API que exige tokens de acesso emitidos pela plataforma de identidade da Microsoft.
 services: active-directory
 author: jasonnutter
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript, devx-track-javascript
+ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript, devx-track-js
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 03/18/2020
 ms.author: janutter
-ms.openlocfilehash: bf921ce4ce3ad65f0787ccab2f0a064da8973af1
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 56359ba07513ac648c682b8114001e251b0ee44c
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88115230"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99225792"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-an-angular-single-page-application"></a>Início Rápido: Conectar usuários e obter um token de acesso em um aplicativo de página única Angular
 
-Neste início rápido, você usará um exemplo de código para saber como um SPA (aplicativo de página única) Angular pode conectar usuários que têm contas pessoais, contas corporativas ou de estudante Microsoft. Um SPA Angular também pode obter um token de acesso para chamar a API do Microsoft Graph ou qualquer API Web.
+Neste guia de início rápido, você baixará e executará um exemplo de código que demonstra como um SPA (aplicativo de página única) Angular pode conectar usuários e chamar o Microsoft Graph. O exemplo de código demonstra como obter um token de acesso para chamar a API do Microsoft Graph ou qualquer API Web.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -35,7 +35,7 @@ Neste início rápido, você usará um exemplo de código para saber como um SPA
 >
 > ### <a name="option-1-express-register-and-automatically-configure-the-app-and-then-download-the-code-sample"></a>Opção 1 (expresso): registrar e configurar automaticamente o aplicativo e, em seguida, baixar o exemplo de código
 >
-> 1. Entre no [portal do Azure](https://portal.azure.com).
+> 1. Entre no <a href="https://portal.azure.com/" target="_blank">Portal do Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 > 1. Se a conta tiver acesso a mais de um locatário, selecione a conta na parte superior direita e defina sua sessão do portal para o locatário do Azure AD (Azure Active Directory) que deseja usar.
 > 1. Abra o novo painel de [Registros de aplicativo](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs) no portal do Azure.
 > 1. Insira um nome para o aplicativo e selecione **Registrar**.
@@ -45,15 +45,15 @@ Neste início rápido, você usará um exemplo de código para saber como um SPA
 >
 > #### <a name="step-1-register-the-application"></a>Etapa 1: Registrar o aplicativo
 >
-> 1. Entre no [portal do Azure](https://portal.azure.com).
+> 1. Entre no <a href="https://portal.azure.com/" target="_blank">Portal do Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 > 1. Se a conta tiver acesso a mais de um locatário, selecione sua conta na parte superior direita e defina sua sessão do portal para o locatário Azure AD que deseja usar.
 > 1. Siga as instruções para [registrar um aplicativo de página única](./scenario-spa-app-registration.md) no portal do Azure.
 > 1. Adicione uma nova plataforma no painel **Autenticação** do seu registro de aplicativo e registre o URI de redirecionamento: `http://localhost:4200/`.
-> 1. Este início rápido usa o [fluxo de concessão implícita](v2-oauth2-implicit-grant-flow.md). Selecione as configurações de **Concessão implícita** para **tokens de ID** e **Tokens de acesso**. Os tokens de ID e tokens de acesso são necessários porque esse aplicativo conecta usuários e chama uma API.
+> 1. Este início rápido usa o [fluxo de concessão implícita](v2-oauth2-implicit-grant-flow.md). Na seção **Concessão implícita e fluxos híbridos**, selecione **Tokens de ID** e **Tokens de acesso**. Os tokens de ID e tokens de acesso são necessários porque esse aplicativo conecta usuários e chama uma API.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-the-application-in-the-azure-portal"></a>Etapa 1: Configurar o aplicativo no portal do Azure
-> Para que o exemplo de código deste guia de início rápido funcione, é necessário ter um URI de redirecionamento como **http://localhost:4200/** e habilitar o recurso **Concessão implícita**.
+> Para que o exemplo de código deste guia de início rápido funcione, é necessário ter um URI de redirecionamento como **http://localhost:4200/** e habilitar a ****Concessão implícita**.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Fazer essas alterações para mim]()
 >

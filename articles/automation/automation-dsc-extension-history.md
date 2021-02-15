@@ -7,10 +7,10 @@ services: automation
 ms.subservice: dsc
 ms.topic: conceptual
 ms.openlocfilehash: b45512faf09cfe745023d29d32f89a4432cc3b2b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87079750"
 ---
 # <a name="work-with-azure-desired-state-configuration-extension-version-history"></a>Trabalhar com o histórico de versão da extensão Desired State Configuration do Azure

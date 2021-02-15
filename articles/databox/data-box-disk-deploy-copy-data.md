@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: d33f53ef3d6ea0ef6a3040a82ec17b3089075949
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 9186c742f34f1c060b57ffdfbf1bf688607b4c03
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87927106"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92125330"
 ---
 ::: zone target="docs"
 
@@ -68,7 +68,7 @@ Antes de copiar dados para os discos, analise as considerações a seguir:
 
 Execute as seguintes etapas para fazer a conexão e copiar dados do computador para o Data Box Disk.
 
-1. Exiba o conteúdo da unidade desbloqueada. A lista das pastas e subpastas pré-criadas na unidade é diferente, dependendo das opções selecionadas ao colocar o pedido do Data Box Disk.
+1. Exiba o conteúdo da unidade desbloqueada. A lista das pastas e subpastas pré-criadas na unidade é diferente, dependendo das opções selecionadas ao colocar o pedido do Data Box Disk. Se uma pasta criada já não existe, não a crie, pois o upload de copiar para uma pasta criada pelo usuário no Azure falhará.
 
     |Destino de armazenamento selecionado  |Tipo de conta de armazenamento|Tipo de conta de armazenamento de preparo |Pastas e subpastas  |
     |---------|---------|---------|------------------|
@@ -212,15 +212,15 @@ Este procedimento opcional pode ser usado quando você usar vários discos e tiv
 3. Identifique os dados de origem para copiar. Por exemplo, nesse caso:
     - Os dados do blob de blocos a seguir foram identificados.
 
-         ![Dividir e copiar dados](media/data-box-disk-deploy-copy-data/split-copy-2.png)    
+         ![Dividir e copiar dados 2](media/data-box-disk-deploy-copy-data/split-copy-2.png)    
 
     - Os dados do blob de páginas a seguir foram identificados.
 
-         ![Dividir e copiar dados](media/data-box-disk-deploy-copy-data/split-copy-3.png)
+         ![Dividir e copiar dados 3](media/data-box-disk-deploy-copy-data/split-copy-3.png)
  
 4. Vá para a pasta em que o software foi extraído. Localize o arquivo `SampleConfig.json` nessa pasta. Esse é um arquivo somente leitura que você pode modificar e salvar.
 
-   ![Dividir e copiar dados](media/data-box-disk-deploy-copy-data/split-copy-4.png)
+   ![Dividir e copiar dados 4](media/data-box-disk-deploy-copy-data/split-copy-4.png)
  
 5. Modifique o arquivo `SampleConfig.json`.
  
@@ -229,11 +229,11 @@ Este procedimento opcional pode ser usado quando você usar vários discos e tiv
    - Insira as letras das unidades correspondentes aos discos de destino. Os dados são tirados do caminho de origem e copiados para vários discos.
    - Forneça um caminho para os arquivos de log. Por padrão, ele é enviado ao diretório atual em que o `.exe` está localizado.
 
-     ![Dividir e copiar dados](media/data-box-disk-deploy-copy-data/split-copy-5.png)
+     ![Dividir e copiar dados 5](media/data-box-disk-deploy-copy-data/split-copy-5.png)
 
 6. Para validar o formato de arquivo, acesse `JSONlint`. Salve o arquivo como `ConfigFile.json`. 
 
-     ![Dividir e copiar dados](media/data-box-disk-deploy-copy-data/split-copy-6.png)
+     ![Dividir e copiar dados 6](media/data-box-disk-deploy-copy-data/split-copy-6.png)
  
 7. Abra uma janela de Prompt de Comando. 
 
@@ -241,24 +241,24 @@ Este procedimento opcional pode ser usado quando você usar vários discos e tiv
 
     `DataBoxDiskSplitCopy.exe PrepImport /config:<Your-config-file-name.json>`
 
-     ![Dividir e copiar dados](media/data-box-disk-deploy-copy-data/split-copy-7.png)
+     ![Dividir e copiar dados 7](media/data-box-disk-deploy-copy-data/split-copy-7.png)
  
 9. Pressione Enter para continuar o script.
 
-    ![Dividir e copiar dados](media/data-box-disk-deploy-copy-data/split-copy-8.png)
+    ![Dividir e copiar dados 8](media/data-box-disk-deploy-copy-data/split-copy-8.png)
   
 10. Quando o conjunto de dados for dividido e copiado, o resumo da ferramenta Split Copy para a sessão de cópia é apresentada. Um exemplo de saída é mostrado abaixo.
 
-    ![Dividir e copiar dados](media/data-box-disk-deploy-copy-data/split-copy-9.png)
+    ![Dividir e copiar dados 9](media/data-box-disk-deploy-copy-data/split-copy-9.png)
  
 11. Verifique se que os dados são divididos entre os discos de destino. 
  
-    ![Dividir dados de cópia](media/data-box-disk-deploy-copy-data/split-copy-10.png)
-    ![Dividir dados de cópia](media/data-box-disk-deploy-copy-data/split-copy-11.png)
+    ![Dividir e copiar dados 10](media/data-box-disk-deploy-copy-data/split-copy-10.png)
+    ![Dividir e copiar dados 11](media/data-box-disk-deploy-copy-data/split-copy-11.png)
      
     Se você examinar o conteúdo da unidade `n:` em mais detalhes, verá que as duas subpastas foram criadas correspondendo aos dados de formato do blob de blocos e do blob de páginas.
     
-     ![Dividir e copiar dados](media/data-box-disk-deploy-copy-data/split-copy-12.png)
+     ![Dividir e copiar dados 12](media/data-box-disk-deploy-copy-data/split-copy-12.png)
 
 12. Se a sessão de cópia falhar, use o seguinte comando para recuperá-la e retomá-la:
 
@@ -273,7 +273,7 @@ Depois que a cópia de dados for concluída, você poderá prosseguir para a val
 
 Se você não tiver usado a ferramenta Split Copy para copiar dados, será necessário validar seus dados. Para verificar os dados, execute as seguintes etapas.
 
-1. Execute `DataBoxDiskValidation.cmd` para validação de soma de verificação na pasta *DataBoxDiskImport* da unidade. Isso está disponível somente para o ambiente Windows. Os usuários do Linux precisam validar que os dados de origem que são copiados para o disco atendem aos [pré-requisitos](https://docs.microsoft.com/azure/databox/data-box-disk-limits).
+1. Execute `DataBoxDiskValidation.cmd` para validação de soma de verificação na pasta *DataBoxDiskImport* da unidade. Isso está disponível somente para o ambiente Windows. Os usuários do Linux precisam validar que os dados de origem que são copiados para o disco atendem aos [pré-requisitos](./data-box-disk-limits.md).
     
     ![Saída da ferramenta de validação do Data Box Disk](media/data-box-disk-deploy-copy-data/data-box-disk-validation-tool-output.png)
 
@@ -335,6 +335,6 @@ Execute as etapas a seguir para verificar os dados.
 1. Execute `DataBoxDiskValidation.cmd` para validação de soma de verificação na pasta *DataBoxDiskImport* da unidade.
 2. Use a opção 2 para validar os arquivos e gerar somas de verificação. Dependendo do tamanho dos dados, esta etapa pode demorar um pouco. Se houver erros durante a validação e a geração da soma de verificação, você será notificado e também será fornecido um link para os logs de erros.
 
-    Para obter mais informações sobre a validação de dados, confira [Validar dados](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-copy-data#validate-data). Caso encontre erros durante a validação, confira [Solução de problemas de erros de validação](data-box-disk-troubleshoot.md).
+    Para obter mais informações sobre a validação de dados, confira [Validar dados](#validate-data). Caso encontre erros durante a validação, confira [Solução de problemas de erros de validação](data-box-disk-troubleshoot.md).
 
 ::: zone-end

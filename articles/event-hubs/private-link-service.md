@@ -1,14 +1,14 @@
 ---
 title: Integração dos Hubs de Eventos do Azure com o Serviço de Link Privado do Azure
 description: Saiba como integrar os Hubs de Eventos do Azure com o Serviço de Link Privado do Azure
-ms.date: 07/29/2020
+ms.date: 08/22/2020
 ms.topic: article
-ms.openlocfilehash: 817ec7b9256829ace61a0d1dad98f1f34683c95e
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 996779e103dae2d2d950f447d2ac72667fc9e754
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88716784"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427744"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-via-private-endpoints"></a>Permitir acesso aos namespaces dos hubs de eventos do Azure por meio de pontos de extremidade privados 
 O Serviço de Link Privado do Azure permite acessar os Serviços do Azure (por exemplo, os Hubs de Eventos do Azure, o Armazenamento do Azure e o Azure Cosmos DB) e serviços de parceiros/clientes hospedados no Azure em um **ponto de extremidade privado** em sua rede virtual.
@@ -17,20 +17,11 @@ O ponto de extremidade privado é uma interface de rede que conecta você de for
 
 Para obter mais informações, confira [O que é o Link Privado do Azure?](../private-link/private-link-overview.md)
 
-> [!IMPORTANT]
+> [!WARNING]
+> Implementar pontos de extremidade privados pode impedir que outros serviços do Azure interajam com os Hubs de Eventos.  Solicitações que estão bloqueadas incluem as de outros serviços do Azure, do portal do Azure, de registro em log e serviços de métricas e assim por diante. Como exceção, você pode permitir o acesso a recursos de hubs de eventos de determinados serviços confiáveis, mesmo quando os pontos de extremidade privados estiverem habilitados. Para obter uma lista de serviços confiáveis, consulte [serviços confiáveis](#trusted-microsoft-services).
+
+>[!NOTE]
 > Esse recurso tem suporte para as camadas **Standard** e **dedicada** . Não há suporte na camada **básica** .
->
-> Implementar pontos de extremidade privados pode impedir que outros serviços do Azure interajam com os Hubs de Eventos.  Solicitações que estão bloqueadas incluem as de outros serviços do Azure, do portal do Azure, de registro em log e serviços de métricas e assim por diante. 
-> 
-> Aqui estão alguns dos serviços que não podem acessar os recursos dos hubs de eventos quando pontos de extremidade privados estão habilitados. Observe que a lista **não** é exaustiva.
->
-> - Stream Analytics do Azure
-> - Rotas do Hub IoT do Azure
-> - Device Explorer do Azure IoT
-> - Grade de Eventos do Azure
-> - Azure Monitor (configurações de diagnóstico)
->
-> Como exceção, você pode permitir o acesso a recursos de hubs de eventos de determinados serviços confiáveis, mesmo quando os pontos de extremidade privados estiverem habilitados. Para obter uma lista de serviços confiáveis, consulte [serviços confiáveis](#trusted-microsoft-services).
 
 ## <a name="add-a-private-endpoint-using-azure-portal"></a>Inclusão de um ponto de extremidade privado através do portal do Azure
 
@@ -63,10 +54,10 @@ Se você já tem um namespace do Hubs de Eventos, crie uma conexão de link priv
     > [!NOTE]
     > Por padrão, a opção **redes selecionadas** é selecionada. Se você não especificar uma regra de firewall IP ou adicionar uma rede virtual, o namespace poderá ser acessado via Internet pública. 
 1. Selecione a guia **Conexões de ponto de extremidade privado** na parte superior da página. 
-1. Selecione o botão **+ Ponto de Extremidade Privado**, na parte superior da página.
+1. Selecione o botão **+ Ponto de Extremidade Privado** , na parte superior da página.
 
     :::image type="content" source="./media/private-link-service/private-link-service-3.png" alt-text="Página rede – guia conexões de ponto de extremidade privado – adicionar link de ponto de extremidade privado":::
-7. Na página **Básico**, siga estas etapas: 
+7. Na página **Básico** , siga estas etapas: 
     1. Selecione a **Assinatura do Azure** na qual você quer criar o ponto de extremidade privado. 
     2. Selecione o **grupo de recursos** para o recurso de ponto de extremidade privado.
     3. Insira um **nome** para o ponto de extremidade privado. 
@@ -74,30 +65,30 @@ Se você já tem um namespace do Hubs de Eventos, crie uma conexão de link priv
     6. Selecione **Avançar: Botão Recurso >** na parte inferior da página.
 
         ![Criação de um Ponto de Extremidade Privado – Página Básico](./media/private-link-service/create-private-endpoint-basics-page.png)
-8. Na página **Recurso**, siga estas etapas:
-    1. Para o método de conexão, se selecionar **Conectar-se a um recurso do Azure em meu diretório**, siga estas etapas: 
+8. Na página **Recurso** , siga estas etapas:
+    1. Para o método de conexão, se selecionar **Conectar-se a um recurso do Azure em meu diretório** , siga estas etapas: 
         1. Selecione a **Assinatura do Azure** na qual existe o seu **namespace de Hubs de Eventos**. 
-        2. Em **Tipo de recurso**, selecione **Microsoft.EventHub/namespaces** para o **Tipo de recurso**.
-        3. Para **Recurso**, selecione um namespace de Hubs de Eventos na lista suspensa. 
+        2. Em **Tipo de recurso** , selecione **Microsoft.EventHub/namespaces** para o **Tipo de recurso**.
+        3. Para **Recurso** , selecione um namespace de Hubs de Eventos na lista suspensa. 
         4. Confirme se o **Sub-recurso de destino** está definido como **namespace**.
         5. Selecione **Avançar: Botão Configuração >** na parte inferior da página. 
         
             ![Criação de um Ponto de Extremidade Privado – Página Recurso](./media/private-link-service/create-private-endpoint-resource-page.png)    
-    2. Se selecionar **Conectar-se a um recurso do Azure com ID do recurso ou alias**, siga estas etapas:
+    2. Se selecionar **Conectar-se a um recurso do Azure com ID do recurso ou alias** , siga estas etapas:
         1. Insira a **ID do recurso** ou **alias**. Pode ser a ID do recurso ou o alias que alguém compartilhou com você. A maneira mais fácil de obter a ID do recurso é navegar até o namespace do Hubs de Eventos no portal do Azure e copiar a parte do URI a partir de `/subscriptions/`. Veja a imagem a seguir para obter um exemplo. 
-        2. Para **Sub-recurso de destino**, digite **namespace**. É o tipo de sub-recurso que seu ponto de extremidade privado pode acessar.
+        2. Para **Sub-recurso de destino** , digite **namespace**. É o tipo de sub-recurso que seu ponto de extremidade privado pode acessar.
         3. (opcional) Insira uma **mensagem de solicitação**. O proprietário do recurso vê essa mensagem enquanto gerencia a conexão de ponto de extremidade privado.
         4. Em seguida, selecione **Avançar: Botão Configuração >** na parte inferior da página.
 
             ![Criação de Ponto de Extremidade Privado – Conexão usando a ID do recurso](./media/private-link-service/connect-resource-id.png)
-9. Na página **Configuração**, selecione a sub-rede em uma rede virtual na qual você deseja implantar o ponto de extremidade privado. 
+9. Na página **Configuração** , selecione a sub-rede em uma rede virtual na qual você deseja implantar o ponto de extremidade privado. 
     1. Selecione uma **rede virtual**. São listadas somente as redes virtuais na assinatura e na localização selecionadas no momento na lista suspensa. 
     2. Selecione uma **sub-rede** na rede virtual selecionada. 
     3. Selecione **Avançar: Botão Marcas >** na parte inferior da página. 
 
         ![Criação de Ponto de Extremidade Privado – Página Configuração](./media/private-link-service/create-private-endpoint-configuration-page.png)
-10. Na página **Marcas**, crie quaisquer marcas (nomes e valores) que você deseja associar ao recurso de ponto de extremidade privado. Em seguida, selecione o botão **Revisar + criar** na parte inferior da página. 
-11. Em **Revisar + criar**, examine todas as configurações e selecione **Criar** para criar o ponto de extremidade privado.
+10. Na página **Marcas** , crie quaisquer marcas (nomes e valores) que você deseja associar ao recurso de ponto de extremidade privado. Em seguida, selecione o botão **Revisar + criar** na parte inferior da página. 
+11. Em **Revisar + criar** , examine todas as configurações e selecione **Criar** para criar o ponto de extremidade privado.
     
     ![Criação de Ponto de Extremidade Privado – Página Revisar e Criar](./media/private-link-service/create-private-endpoint-review-create-page.png)
 12. Verifique se a conexão de ponto de extremidade privado que você criou aparece na lista de pontos de extremidade. Neste exemplo, o ponto de extremidade privado é aprovado automaticamente porque você se conectou a um recurso do Azure em seu diretório e tem permissões suficientes. 
@@ -223,7 +214,7 @@ Há quatro estados de provisionamento:
 3. Selecione o botão **Aprovar**.
 
     ![Aprovar ponto de extremidade privado](./media/private-link-service/approve-private-endpoint.png)
-4. Na página **Aprovar conexão**, adicione um comentário (opcional) e selecione **Sim**. Se selecionar **Não**, nada acontecerá. 
+4. Na página **Aprovar conexão** , adicione um comentário (opcional) e selecione **Sim**. Se selecionar **Não** , nada acontecerá. 
 5. O status da conexão de ponto de extremidade privado exibido na lista muda para **Aprovado**. 
 
 ### <a name="reject-a-private-endpoint-connection"></a>Rejeição de uma conexão de ponto de extremidade privado
@@ -231,13 +222,13 @@ Há quatro estados de provisionamento:
 1. Se houver conexões de ponto de extremidade privado que você deseja rejeitar, seja uma solicitação pendente ou uma conexão existente, selecione a conexão e clique no botão **Rejeitar**.
 
     ![Rejeitar ponto de extremidade privado](./media/private-link-service/private-endpoint-reject-button.png)
-2. Na página **Rejeitar conexão**, adicione um comentário (opcional) e selecione **Sim**. Se selecionar **Não**, nada acontecerá. 
+2. Na página **Rejeitar conexão** , adicione um comentário (opcional) e selecione **Sim**. Se selecionar **Não** , nada acontecerá. 
 3. O status da conexão de ponto de extremidade privado exibido na lista muda para **Rejeitado**. 
 
 ### <a name="remove-a-private-endpoint-connection"></a>Remoção de uma conexão de ponto de extremidade privado
 
 1. Para remover uma conexão de ponto de extremidade privado, selecione-a na lista e selecione **Remover** na barra de ferramentas.
-2. Na página **Excluir conexão**, selecione **Sim** para confirmar a exclusão do ponto de extremidade privado. Se selecionar **Não**, nada acontecerá.
+2. Na página **Excluir conexão** , selecione **Sim** para confirmar a exclusão do ponto de extremidade privado. Se selecionar **Não** , nada acontecerá.
 3. O status muda para **Desconectado**. Em seguida, o ponto de extremidade desaparecerá da lista.
 
 ## <a name="validate-that-the-private-link-connection-works"></a>Validar se a conexão de link privado funciona
@@ -246,12 +237,12 @@ Você deve validar se os recursos dentro da rede virtual do ponto de extremidade
 
 Primeiro, crie uma máquina virtual seguindo as etapas em [Criar uma máquina virtual do Windows no portal do Azure](../virtual-machines/windows/quick-create-portal.md)
 
-Na guia **Rede**: 
+Na guia **Rede** : 
 
 1. Especifique a **Rede virtual** e a **Sub-rede**. Selecione a Rede Virtual na qual você implantou o ponto de extremidade privado.
 2. Especifique um recurso de **IP Público**.
-3. Para o **Grupo de segurança de rede da NIC**, selecione **Nenhum**.
-4. Para o **Balanceamento de carga**, selecione **Não**.
+3. Para o **Grupo de segurança de rede da NIC** , selecione **Nenhum**.
+4. Para o **Balanceamento de carga** , selecione **Não**.
 
 Conecte-se à VM, abra a linha de comando e execute o seguinte comando:
 
@@ -270,11 +261,11 @@ Aliases:  <event-hubs-namespace-name>.servicebus.windows.net
 
 ## <a name="limitations-and-design-considerations"></a>Limitações e considerações de design
 
-**Preço**: Para obter informações sobre preço, confira [Preço do Link Privado do Azure](https://azure.microsoft.com/pricing/details/private-link/).
+**Preço** : Para obter informações sobre preço, confira [Preço do Link Privado do Azure](https://azure.microsoft.com/pricing/details/private-link/).
 
-**Limitações**:  O recurso está disponível em todas as regiões públicas do Azure.
+**Limitações** :  O recurso está disponível em todas as regiões públicas do Azure.
 
-**Número máximo de pontos de extremidade privados por namespace do Hubs de Eventos**: 120.
+**Número máximo de pontos de extremidade privados por namespace do Hubs de Eventos** : 120.
 
 Para saber mais, confira [Serviço de Link Privado do Azure: Limitações](../private-link/private-link-service-overview.md#limitations)
 

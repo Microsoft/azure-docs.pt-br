@@ -2,23 +2,18 @@
 title: Visão Geral do Agente de Máquina Virtual do Azure
 description: Visão Geral do Agente de Máquina Virtual do Azure
 services: virtual-machines-windows
-documentationcenter: virtual-machines
+ms.subservice: extensions
 author: mimckitt
-manager: gwallace
-tags: azure-resource-manager
-ms.assetid: 0a1f212e-053e-4a39-9910-8d622959f594
 ms.service: virtual-machines-windows
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure-services
 ms.date: 07/20/2019
-ms.author: akjosh
-ms.openlocfilehash: 42470df5391a976e8023467758d2a3fd0890883e
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.author: mimckitt
+ms.openlocfilehash: 3724b8a2afb89594c73f7dae782658ec8978963a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88041469"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016464"
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Visão geral do Agente de Máquina Virtual do Azure
 O Agente de VM (Máquina Virtual) do Microsoft Azure é um processo seguro e leve que gerencia a interação da máquina virtual (VM) com o Controlador de Malha do Azure. O Agente de VM tem uma função fundamental na habilitação e execução de extensões de máquina virtual do Azure. Extensões de VM habilitam a configuração de VM pós-implantação, como instalação e configuração de software. Extensões de VM também habilitam os recursos de recuperação como redefinir a senha administrativa de uma VM. Sem o Agente de VM do Azure, não é possível executar extensões da VM.
@@ -70,11 +65,11 @@ $vm | Update-AzVM
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-- O agente de VM do Windows precisa de pelo menos o Windows Server 2008 (64 bits) para ser executado, com o .NET Framework 4,0. Consulte [suporte mínimo de versão para agentes de máquina virtual no Azure](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support)
+- O agente de VM do Windows precisa de pelo menos o Windows Server 2008 SP2 (64 bits) para ser executado, com o .NET Framework 4,0. Consulte [suporte mínimo de versão para agentes de máquina virtual no Azure](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).
 
 - Verifique se sua VM tem acesso ao endereço IP 168.63.129.16. Para obter mais informações, consulte [o que é o endereço IP 168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md).
 
-- Verifique se o DHCP está habilitado dentro da VM convidada. Isso é necessário para obter o endereço de host ou de malha do DHCP para que o agente de VM IaaS e as extensões funcionem. Se você precisar de um IP privado estático, deverá configurá-lo por meio do portal do Azure ou do PowerShell e certificar-se de que a opção DHCP dentro da VM esteja habilitada. [Saiba mais](https://docs.microsoft.com/azure/virtual-network/virtual-networks-static-private-ip-arm-ps#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface) sobre como configurar um endereço IP estático com o PowerShell.
+- Verifique se o DHCP está habilitado dentro da VM convidada. Isso é necessário para obter o endereço de host ou de malha do DHCP para que o agente de VM IaaS e as extensões funcionem. Se você precisar de um IP privado estático, deverá configurá-lo por meio do portal do Azure ou do PowerShell e certificar-se de que a opção DHCP dentro da VM esteja habilitada. [Saiba mais](../../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface) sobre como configurar um endereço IP estático com o PowerShell.
 
 
 ## <a name="detect-the-vm-agent"></a>Detectar o Agente de VM
@@ -87,7 +82,7 @@ O módulo do Azure Resource Manager PowerShell pode ser usado para recuperar inf
 Get-AzVM
 ```
 
-A saída de exemplo condensada a seguir mostra a propriedade *ProvisionVMAgent* aninhada dentro de *OSProfile*. Essa propriedade pode ser usada para determinar se o agente de VM foi implantado na VM:
+A saída de exemplo condensada a seguir mostra a propriedade *ProvisionVMAgent* aninhada dentro `OSProfile` . Essa propriedade pode ser usada para determinar se o agente de VM foi implantado na VM:
 
 ```powershell
 OSProfile                  :
@@ -119,6 +114,15 @@ O agente de VM do Azure para Windows é atualizado automaticamente em imagens im
 
 ## <a name="windows-guest-agent-automatic-logs-collection"></a>Coleção de logs automáticos do agente convidado do Windows
 O agente convidado do Windows tem um recurso para coletar automaticamente alguns logs. Esse recurso é o controlador pelo processo de CollectGuestLogs.exe. Ele existe para os serviços de nuvem PaaS e para máquinas virtuais IaaS e seu objetivo é & rapidamente coletar automaticamente alguns logs de diagnóstico de uma VM, para que eles possam ser usados para análise offline. Os logs coletados são logs de eventos, logs do sistema operacional, logs do Azure e algumas chaves do registro. Ele produz um arquivo ZIP que é transferido para o host da VM. Esse arquivo ZIP pode então ser examinado por equipes de engenharia e profissionais de suporte para investigar problemas na solicitação do cliente que possui a VM.
+
+## <a name="guest-agent-and-osprofile-certificates"></a>Agente convidado e certificados OSProfile
+O agente de VM do Azure é responsável por instalar os certificados referenciados no `OSProfile` de um conjunto de dimensionamento de máquinas virtuais ou VM. Se você remover manualmente esses certificados do console do MMC certificados dentro da VM convidada, espera-se que o agente convidado os adicione de volta.
+Para remover permanentemente um certificado, você precisará removê-lo do `OSProfile` e, em seguida, removê-lo de dentro do sistema operacional convidado.
+
+Para uma máquina virtual, use [Remove-AzVMSecret]() para remover certificados do `OSProfile` .
+
+Para obter mais informações sobre os certificados do conjunto de dimensionamento de máquinas virtuais, consulte [conjuntos de dimensionamento de máquinas virtuais-como fazer remover certificados preteridos?](../../virtual-machine-scale-sets/virtual-machine-scale-sets-faq.md#how-do-i-remove-deprecated-certificates)
+
 
 ## <a name="next-steps"></a>Próximas etapas
 Para obter mais informações sobre extensões de VM, consulte [Visão geral de recursos e extensões de máquina virtual do Azure](overview.md).

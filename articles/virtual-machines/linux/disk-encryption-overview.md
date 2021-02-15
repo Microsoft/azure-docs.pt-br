@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 405ebbbfa4a662dd9ee3c8d10dde8f28e5ce9c66
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 91ef5ca35cc96aa2028522d370ffbade45ecc2de
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87830437"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96779763"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>VMs do Azure Disk Encryption para Linux 
 
@@ -26,7 +26,7 @@ Se você usar a [Central de Segurança do Azure](../../security-center/index.yml
 > [!WARNING]
 > - Se você já tiver usado o Azure Disk Encryption com o Azure AD anteriormente para criptografar uma VM, deverá continuar usando essa opção para criptografar a VM. Confira [Azure Disk Encryption com o Azure AD (versão anterior)](disk-encryption-overview-aad.md) para detalhes. 
 > - Determinadas recomendações podem aumentar o uso de recursos de dados, rede ou computação, resultando em custos adicionais de licença ou inscrição. Você deve ter uma assinatura ativa válida do Azure para criar recursos no Azure nas regiões com suporte.
-> - Atualmente, as VMs de geração 2 não são compatíveis com o Azure Disk Encryption. Confira [Suporte para VMs de geração 2 no Azure](../windows/generation-2.md) para obter detalhes.
+> - Atualmente, as VMs de geração 2 não são compatíveis com o Azure Disk Encryption. Confira [Suporte para VMs de geração 2 no Azure](../generation-2.md) para obter detalhes.
 
 Você pode aprender os conceitos básicos do Azure Disk Encryption para Linux em apenas alguns minutos com o [Início rápido: criar e criptografar uma VM do Linux com CLI do Azure](disk-encryption-cli-quickstart.md) ou o [Início rápido: criar e criptografar uma VM do Linux com o Azure PowerShell](disk-encryption-powershell-quickstart.md).
 
@@ -46,7 +46,9 @@ Quando o processo de criptografia de disco do sistema operacional for concluído
 
 O Azure Disk Encryption também está disponível para VMs com armazenamento premium.
 
-O Azure Disk Encryption não está disponível em [VMs de Geração 2](generation-2.md#generation-1-vs-generation-2-capabilities)) e [VMs da série Lsv2](../lsv2-series.md)). Para obter mais exceções, consulte [Azure Disk Encryption: Cenários sem suporte](disk-encryption-linux.md#unsupported-scenarios).
+Azure Disk Encryption não está disponível em VMs de [geração 2](../generation-2.md#generation-1-vs-generation-2-capabilities) e em [VMs da série Lsv2](../lsv2-series.md). Para obter mais exceções, consulte [Azure Disk Encryption: Cenários sem suporte](disk-encryption-linux.md#unsupported-scenarios).
+
+Azure Disk Encryption não está disponível em imagens de VM sem discos temporários (DV4, Dsv4, Ev4 e Esv4).  Confira [tamanhos de VM do Azure sem disco temporário local](../azure-vms-no-temp-disk.md).
 
 ### <a name="supported-operating-systems"></a>Sistemas operacionais compatíveis
 
@@ -65,7 +67,7 @@ As distribuições do servidor Linux que não são endossadas pelo Azure não s�
 | Canônico | Ubuntu 14.04.5</br>[com kernel ajustado para Azure atualizado para 4.15 ou posterior](disk-encryption-troubleshooting.md) | 14.04.5-LTS-DIÁRIO | Canonical:UbuntuServer:14.04.5-DAILY-LTS:latest | SO e disco de dados |
 | RedHat | RHEL 7,8 | 7.8 | RedHat: RHEL: 7.8: mais recente | Sistema operacional e disco de dados (veja a observação abaixo) |
 | RedHat | RHEL 7.7 | 7.7 | RedHat:RHEL:7.7:latest | Sistema operacional e disco de dados (veja a observação abaixo) |
-| RedHat | RHEL 7.7 | 7-LVM | RedHat:RHEL:7-LVM:latest | Sistema operacional e disco de dados (veja a observação abaixo) |
+| RedHat | RHEL 7-LVM | 7-LVM | RedHat: RHEL: 7-LVM: 7.8.2020111201 | Sistema operacional e disco de dados (veja a observação abaixo) |
 | RedHat | RHEL 7.6 | 7.6 | RedHat:RHEL:7.6:latest | Sistema operacional e disco de dados (veja a observação abaixo) |
 | RedHat | RHEL 7.5 | 7.5 | RedHat:RHEL:7.5:latest | Sistema operacional e disco de dados (veja a observação abaixo) |
 | RedHat | RHEL 7.4 | 7.4 | RedHat:RHEL:7.4:latest | Sistema operacional e disco de dados (veja a observação abaixo) |
@@ -73,8 +75,9 @@ As distribuições do servidor Linux que não são endossadas pelo Azure não s�
 | RedHat | RHEL 7.2 | 7.2 | RedHat:RHEL:7.2:latest | Sistema operacional e disco de dados (veja a observação abaixo) |
 | RedHat | RHEL 6.8 | 6,8 | RedHat:RHEL:6.8:latest | Disco de dados (consulte a observação abaixo) |
 | RedHat | RHEL 6.7 | 6.7 | RedHat:RHEL:6.7:latest | Disco de dados (consulte a observação abaixo) |
+| OpenLogic | CentOS 7,8 | 7.8 | OpenLogic: CentOS: 7_8: mais recente | SO e disco de dados |
 | OpenLogic | CentOS 7.7 | 7.7 | OpenLogic:CentOS:7.7:latest | SO e disco de dados |
-| OpenLogic | CentOS 7.7 | 7-LVM | OpenLogic:CentOS:7-LVM:latest | SO e disco de dados |
+| OpenLogic | CentOS 7 – LVM | 7-LVM | OpenLogic: CentOS-LVM: 7-LVM: 7.8.2020111100 | SO e disco de dados |
 | OpenLogic | CentOS 7.6 | 7.6 | OpenLogic:CentOS:7.6:latest | SO e disco de dados |
 | OpenLogic | CentOS 7.5 | 7.5 | OpenLogic:CentOS:7.5:latest | SO e disco de dados |
 | OpenLogic | CentOS 7.4 | 7.4 | OpenLogic:CentOS:7.4:latest | SO e disco de dados |
@@ -108,8 +111,8 @@ Verifique se as configurações de /etc/fstab estão definidas corretamente para
 Aqui está um exemplo dos comandos usados para montar os discos de dados e criar as entradas /etc/fstab necessárias:
 
 ```bash
-UUID0="$(blkid -s UUID -o value /dev/disk/azure/scsi1/lun0)"
-UUID1="$(blkid -s UUID -o value /dev/disk/azure/scsi1/lun1)"
+UUID0="$(blkid -s UUID -o value /dev/sda1)"
+UUID1="$(blkid -s UUID -o value /dev/sda2)"
 mkdir /data0
 mkdir /data1
 echo "UUID=$UUID0 /data0 ext4 defaults,nofail 0 0" >>/etc/fstab

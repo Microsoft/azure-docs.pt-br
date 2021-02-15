@@ -2,17 +2,20 @@
 title: Especificando Service Fabric pontos de extremidade de serviço
 description: Como descrever os recursos de ponto de extremidade em um manifesto do serviço, incluindo como configurar pontos de extremidade HTTPS
 ms.topic: conceptual
-ms.date: 2/23/2018
-ms.openlocfilehash: 458a10ca118bbb14f22ad9b1ae127c2036573db9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/16/2020
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: 0ed5a4aa8993f52d42b97288cd143e6114ff36ff
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610737"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033299"
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Especificar recursos em um manifesto do serviço
 ## <a name="overview"></a>Visão geral
-O manifesto do serviço permite que os recursos usados pelo serviço sejam declarados ou alterados sem alterar o código compilado. Service Fabric dá suporte à configuração de recursos de ponto de extremidade para o serviço. O acesso aos recursos que são especificados no manifesto do serviço pode ser controlado por meio do SecurityGroup no manifesto do aplicativo. A declaração de recursos permite que esses recursos sejam alterados no momento da implantação, o que significa que o serviço não precisa apresentar um novo mecanismo de configuração. A definição de esquema para o arquivo ServiceManifest.xml é instalada com o SDK e as ferramentas do Service Fabric em *C:\Arquivos de Programas\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.
+Service Fabric aplicativos e serviços são definidos e com controle de versão usando arquivos de manifesto. Para obter uma visão geral de nível mais alto de ServiceManifest.xml e ApplicationManifest.xml, consulte [Service Fabric manifestos de aplicativo e serviço](service-fabric-application-and-service-manifests.md).
+
+O manifesto do serviço permite que os recursos usados pelo serviço sejam declarados ou alterados sem alterar o código compilado. Service Fabric dá suporte à configuração de recursos de ponto de extremidade para o serviço. O acesso aos recursos que são especificados no manifesto do serviço pode ser controlado por meio do SecurityGroup no manifesto do aplicativo. A declaração de recursos permite que esses recursos sejam alterados no momento da implantação, o que significa que o serviço não precisa apresentar um novo mecanismo de configuração. A definição de esquema para o arquivo de ServiceManifest.xml é instalada com o SDK do Service Fabric e ferramentas para *c:\Arquivos de Programas\microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd* e está documentada na [documentação do esquema ServiceFabricServiceModel. xsd](service-fabric-service-model-schema.md).
 
 ## <a name="endpoints"></a>Pontos de extremidade
 Quando um recurso de ponto de extremidade é definido no manifesto do serviço, o Service Fabric atribui portas do intervalo de portas reservadas do aplicativo quando uma porta não é explicitamente especificada. Por exemplo, examine o ponto de extremidade *ServiceEndpoint1* especificado no snippet de manifesto fornecido após este parágrafo. Além disso, os serviços também podem solicitar uma porta específica em um recurso. As réplicas do serviço em execução em nós diferentes do cluster podem receber números de porta diferentes, enquanto as réplicas do mesmo serviço em execução no mesmo nó compartilham a porta. As réplicas de serviço podem usar essas portas conforme a necessidade para replicação e escuta de solicitações de clientes.
@@ -155,14 +158,16 @@ Aqui está um exemplo de ApplicationManifest demonstrando a configuração neces
 
 Para clusters do Linux, o **MEU** armazenar padroniza para a pasta **/var/lib/sfcerts**.
 
+Para obter um exemplo de um aplicativo completo que utiliza um ponto de extremidade HTTPS, consulte [Adicionar um ponto de extremidade https a um serviço de front-end da API Web ASP.NET Core usando o Kestrel](./service-fabric-tutorial-dotnet-app-enable-https-endpoint.md#define-an-https-endpoint-in-the-service-manifest).
+
 ## <a name="port-acling-for-http-endpoints"></a>Porta atuação para pontos de extremidade HTTP
 Service Fabric automaticamente os pontos de extremidade de HTTP (S) de ACL especificados por padrão. Ele **não** executará atuação automática se um ponto de extremidade não tiver um [SecurityAccessPolicy](service-fabric-assign-policy-to-endpoint.md) associado a ele e Service Fabric estiver configurado para ser executado usando uma conta com privilégios de administrador.
 
 ## <a name="overriding-endpoints-in-servicemanifestxml"></a>Substituição dos pontos de extremidade em ServiceManifest.xml
 
-Na seção ApplicationManifest, inclua ResourceOverrides, que será um irmão da seção ConfigOverrides. Nessa seção, é possível especificar a substituição da seção Pontos de Extremidade na seção de recursos especificada no Manifesto do serviço. A substituição de pontos de extremidade é compatível com o runtime 5.7.217/SDK 2.7.217 e superior.
+No ApplicationManifest, adicione uma seção ResourceOverrides, que será um irmão à seção ConfigOverrides. Nessa seção, é possível especificar a substituição da seção Pontos de Extremidade na seção de recursos especificada no Manifesto do serviço. A substituição de pontos de extremidade é compatível com o runtime 5.7.217/SDK 2.7.217 e superior.
 
-Para substituir o Ponto de extremidade no ServiceManifest usando ApplicationParameters, altere o ApplicationManifest da seguinte forma:
+Para substituir o ponto de extremidade no inmanifest usando Applicationparameters, altere o ApplicationManifest da seguinte forma:
 
 Na seção ServiceManifestImport, adicione uma nova seção "ResourceOverrides".
 
@@ -194,13 +199,13 @@ Nos Parâmetros, adicione o seguinte:
   </Parameters>
 ```
 
-Ao implantar o aplicativo, você poderá transmitir esses valores como ApplicationParameters.  Por exemplo:
+Ao implantar o aplicativo, você pode passar esses valores como Applicationparameters.  Por exemplo:
 
 ```powershell
 PS C:\> New-ServiceFabricApplication -ApplicationName fabric:/myapp -ApplicationTypeName "AppType" -ApplicationTypeVersion "1.0.0" -ApplicationParameter @{Port='1001'; Protocol='https'; Type='Input'; Port1='2001'; Protocol='http'}
 ```
 
-Observação: se os valores fornecidos para o ApplicationParameters estiverem vazios, volte para o valor padrão fornecido no ServiceManifest para o EndPointName correspondente.
+Observação: se o valor fornecido para um determinado ApplicationParameter estiver vazio, voltaremos ao valor padrão fornecido no manifesto para o EndpointName correspondente.
 
 Por exemplo:
 
@@ -214,6 +219,18 @@ Se estiver no ServiceManifest especificado
   </Resources>
 ```
 
-E o valor de Port1 e Protocol1 para parâmetros do Aplicativo for nulo ou vazio. A porta ainda é decidida pelo ServiceFabric. E o protocolo será tcp.
+Suponha que o valor de Port1 e Protocol1 para parâmetros de aplicativo seja nulo ou vazio. A porta será decidida pelo ServicePortal e o protocolo será TCP.
 
-Vamos supor que você especifica um valor incorreto. Assim como para a porta, você especificou um valor de cadeia de caracteres "foo" em vez de um int.  O comando New-ServiceFabricApplication falhará com um erro: o parâmetro de substituição com o nome ' ServiceEndpoint1 ', atributo ' Port1 ' na seção ' ResourceOverrides ' é inválido. O valor especificado é 'Foo', e exige 'int'.
+Vamos supor que você especifica um valor incorreto. Digamos, para a porta, que você especificou um valor de cadeia de caracteres "foo" em vez de um int.  New-ServiceFabricApplication comando falhará com um erro: `The override parameter with name 'ServiceEndpoint1' attribute 'Port1' in section 'ResourceOverrides' is invalid. The value specified is 'Foo' and required is 'int'.`
+
+## <a name="next-steps"></a>Próximas etapas
+
+Este artigo explicou como definir pontos de extremidade no manifesto do serviço Service Fabric. Para obter exemplos mais detalhados, consulte:
+
+> [!div class="nextstepaction"]
+> [Exemplos de aplicativo e manifesto do serviço](service-fabric-manifest-examples.md)
+
+Para obter um passo a passo de empacotamento e implantação de um aplicativo existente em um Cluster Service Fabric, consulte:
+
+> [!div class="nextstepaction"]
+> [Empacotar e implantar um executável existente no Service Fabric](service-fabric-deploy-existing-app.md)

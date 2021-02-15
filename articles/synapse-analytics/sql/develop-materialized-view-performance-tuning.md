@@ -1,6 +1,6 @@
 ---
 title: Ajuste de desempenho com exibições materializadas
-description: Recomendações e considerações que você deve saber ao usar as exibições materializadas para melhorar o desempenho da consulta.
+description: Recomendações e considerações para exibições materializadas para melhorar o desempenho da consulta.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -10,16 +10,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: d476bef6faa19defad1d2e1ef1a90f7e5d83def5
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: d10b7084cfc49d60e9d14c3c857d1ade839398ac
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495685"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305110"
 ---
-# <a name="performance-tuning-with-materialized-views"></a>Ajuste de desempenho com exibições materializadas
+# <a name="performance-tuning-with-materialized-views-using-dedicated-sql-pool-in-azure-synapse-analytics"></a>Ajuste de desempenho com exibições materializadas usando o pool SQL dedicado no Azure Synapse Analytics
 
-No pool de SQL Synapse, as exibições materializadas fornecem um método de baixa manutenção para que as consultas analíticas complexas obtenham desempenho rápido sem nenhuma alteração na consulta. Este artigo discute as orientações gerais sobre o uso de exibições materializadas.
+No pool SQL dedicado, as exibições materializadas fornecem um método de manutenção baixo para consultas analíticas complexas para obter um desempenho rápido sem nenhuma alteração de consulta. Este artigo discute as orientações gerais sobre o uso de exibições materializadas.
 
 ## <a name="materialized-views-vs-standard-views"></a>Exibições materializadas vs. exibições padrão
 
@@ -27,9 +27,9 @@ O pool de SQL é compatível com exibições padrão e materializadas.  Ambas s�
 
 Uma exibição padrão calcula os dados sempre que a exibição é usada.  Não há dados armazenados no disco. Normalmente, as pessoas usam exibições padrão como uma ferramenta que ajuda a organizar os objetos lógicos e as consultas em um banco de dados.  Para usar a exibição padrão, uma consulta precisa fazer referência direta a ela.
 
-Uma exibição materializada pré-calcula, armazena e mantém seus dados no pool de SQL como uma tabela.  A recomputação não é necessária sempre que uma exibição materializada é usada.  É por isso que as consultas que usam todos ou um subconjunto dos dados em exibições materializadas podem obter desempenho mais rápido.  Melhor ainda, as consultas podem usar uma exibição materializada sem fazer referência direta a ela. Portanto, não há necessidade de alterar o código do aplicativo.  
+Uma exibição materializada computa previamente, armazena e mantém seus dados no pool SQL dedicado, assim como uma tabela.  A recomputação não é necessária sempre que uma exibição materializada é usada.  É por isso que as consultas que usam todos ou um subconjunto dos dados em exibições materializadas podem obter desempenho mais rápido.  Melhor ainda, as consultas podem usar uma exibição materializada sem fazer referência direta a ela. Portanto, não há necessidade de alterar o código do aplicativo.  
 
-A maioria dos requisitos de exibição padrão ainda se aplica a uma exibição materializada. Para obter detalhes sobre a sintaxe de exibição materializada e outros requisitos, consulte [CREATE MATERIALIZED VIEW AS SELECT](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
+A maioria dos requisitos de exibição padrão ainda se aplica a uma exibição materializada. Para obter detalhes sobre a sintaxe de exibição materializada e outros requisitos, consulte [CREATE MATERIALIZED VIEW AS SELECT](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 | Comparação                     | Visualizar                                         | Exibição Materializada
 |:-------------------------------|:---------------------------------------------|:--------------------------------------------------------------|
@@ -46,17 +46,17 @@ Uma exibição materializada projetada adequadamente fornece os seguintes benef�
 
 - Tempo de execução reduzido para consultas complexas com JOINs e funções de agregação. Quanto mais complexa a consulta, maior o potencial de economia no tempo de execução. O maior benefício é obtido quando o custo de computação de uma consulta é alto e o conjunto de dados resultante é pequeno.  
 
-- O otimizador no pool de SQL pode usar automaticamente as exibições materializadas implantadas para melhorar os planos de execução de consulta.  Esse processo é transparente para os usuários, oferecendo desempenho de consulta mais rápido e não requer consultas para fazer referência direta às exibições materializadas.
+- O otimizador de consulta no pool do SQL dedicado pode usar automaticamente exibições materializadas implantadas para melhorar os planos de execução de consulta.  Esse processo é transparente para os usuários, oferecendo desempenho de consulta mais rápido e não requer consultas para fazer referência direta às exibições materializadas.
 
 - Requer pouca manutenção nas exibições.  Uma exibição materializada armazena dados em dois locais, um índice columnstore clusterizado para os dados iniciais no momento da criação da exibição e um armazenamento delta para as alterações de dados incrementais.  Todas as alterações de dados das tabelas base são adicionadas automaticamente ao armazenamento delta de maneira síncrona.  Um processo em segundo plano (motor de tupla) move periodicamente os dados do armazenamento delta para o índice columnstore da exibição.  Esse design permite que a consulta de exibições materializadas retorne os mesmos dados que a consulta direta das tabelas base.
 - Os dados em uma exibição materializada podem ser distribuídos de maneira diferente das tabelas base.  
 - Os dados em exibições materializadas obtêm os mesmos benefícios de alta disponibilidade e resiliência que os dados em tabelas regulares.  
 
-Em comparação com outros provedores de data warehouse, as exibições materializadas implementadas no pool de SQL também fornecem os seguintes benefícios adicionais:
+Em comparação com outros provedores de data warehouse, as exibições materializadas implementadas no pool SQL dedicado também fornecem os seguintes benefícios adicionais:
 
 - Atualização automática e síncrona de dados com alterações de dados nas tabelas base. Não é necessária nenhuma ação do usuário.
-- Amplo suporte à função de agregação. Consulte [CREATE MATERIALIZED VIEW AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
-- O suporte para recomendação de exibição materializada específica de consulta.  Consulte [EXPLAIN (Transact-SQL)](/sql/t-sql/queries/explain-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
+- Amplo suporte à função de agregação. Consulte [CREATE MATERIALIZED VIEW AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
+- O suporte para recomendação de exibição materializada específica de consulta.  Consulte [EXPLAIN (Transact-SQL)](/sql/t-sql/queries/explain-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 ## <a name="common-scenarios"></a>Cenários comuns  
 
@@ -79,7 +79,9 @@ Em comparação com outras opções de ajuste, como gerenciamento de escala e di
 
 **Precisa de uma estratégia de distribuição de dados diferente para obter um desempenho de consulta mais rápido**
 
-O data warehouse do Azure é um sistema de processamento paralelo e massivamente distribuído (MPP).   Os dados em uma tabela do data warehouse são distribuídos entre 60 nós usando uma das três [estratégias de distribuição](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) (hash, round_robin ou replicado).  
+O data warehouse do Azure é um sistema de processamento paralelo e massivamente distribuído (MPP).  
+
+O Synapse SQL é um sistema de consulta distribuída que permite que as empresas implementem cenários de data warehouse e de virtualização de dados usando experiências padrão de T-SQL conhecidas para os engenheiros de dados. Ele também expande as funcionalidades do SQL para lidar com cenários de streaming e aprendizado de máquina. Os dados em uma tabela do data warehouse são distribuídos entre 60 nós usando uma das três [estratégias de distribuição](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) (hash, round_robin ou replicado).  
 
 A distribuição de dados é especificada na hora da criação da tabela e permanece inalterada até que a tabela seja descartada. A exibição materializada, sendo uma tabela virtual em disco, é compatível com as distribuições de dados de hash e round_robin.  Os usuários podem escolher uma distribuição de dados diferente das tabelas base, mas ideal para o desempenho de consultas que usam as exibições frequentemente.  
 
@@ -143,13 +145,17 @@ O otimizador de data warehouse pode usar automaticamente as exibições material
 
 **Monitorar exibições materializadas**
 
-Uma exibição materializada é armazenada no data warehouse assim como uma tabela com o CCI (índice columnstore clusterizado).  A leitura de dados de uma exibição materializada inclui a verificação do índice e a aplicação de alterações no armazenamento delta.  Quando o número de linhas no armazenamento delta é muito alto, resolver uma consulta de uma exibição materializada pode levar mais tempo do que consultar diretamente as tabelas base.  Para evitar a degradação do desempenho da consulta, recomenda-se executar [DBCC PDW_SHOWMATERIALIZEDVIEWOVERHEAD](/sql/t-sql/database-console-commands/dbcc-pdw-showmaterializedviewoverhead-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) para monitorar o overhead_ratio da exibição (total_rows/base_view_row).  Se a overhead_ratio for muito alta, considere recompilar a exibição materializada para que todas as linhas no armazenamento delta sejam movidas para o índice columnstore.  
+Uma exibição materializada é armazenada no data warehouse assim como uma tabela com o CCI (índice columnstore clusterizado).  A leitura de dados de uma exibição materializada inclui a verificação do índice e a aplicação de alterações no armazenamento delta.  Quando o número de linhas no armazenamento delta é muito alto, resolver uma consulta de uma exibição materializada pode levar mais tempo do que consultar diretamente as tabelas base.  
+
+Para evitar a degradação do desempenho da consulta, recomenda-se executar [DBCC PDW_SHOWMATERIALIZEDVIEWOVERHEAD](/sql/t-sql/database-console-commands/dbcc-pdw-showmaterializedviewoverhead-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) para monitorar o overhead_ratio da exibição (total_rows/base_view_row).  Se a overhead_ratio for muito alta, considere recompilar a exibição materializada para que todas as linhas no armazenamento delta sejam movidas para o índice columnstore.  
 
 **Cache de exibição materializada e conjunto de resultados**
 
-Esses dois recursos são introduzidos no pool de SQL ao mesmo tempo para o ajuste do desempenho da consulta. O cache do conjunto de resultados é usado para obter simultaneidade alta e tempos de resposta rápidos a partir de consultas repetitivas em dados estáticos.  
+Esses dois recursos são introduzidos no pool SQL dedicado ao mesmo tempo para o ajuste de desempenho de consulta. O cache do conjunto de resultados é usado para obter simultaneidade alta e tempos de resposta rápidos a partir de consultas repetitivas em dados estáticos.  
 
-Para usar o resultado em cache, a forma da consulta de solicitação de cache deve corresponder à consulta que o cache produziu.  Além disso, o resultado em cache deve se aplicar à toda a consulta.  Exibições materializadas permitem alterações de dados nas tabelas base.  Dados em exibições materializadas podem ser aplicados a uma parte de uma consulta.  Esse suporte permite que as mesmas exibições materializadas sejam usadas por diferentes consultas que compartilham alguma computação para um desempenho mais rápido.
+Para usar o resultado em cache, a forma da consulta de solicitação de cache deve corresponder à consulta que o cache produziu.  Além disso, o resultado em cache deve se aplicar à toda a consulta.  
+
+Exibições materializadas permitem alterações de dados nas tabelas base.  Dados em exibições materializadas podem ser aplicados a uma parte de uma consulta.  Esse suporte permite que as mesmas exibições materializadas sejam usadas por diferentes consultas que compartilham alguma computação para um desempenho mais rápido.
 
 ## <a name="example"></a>Exemplo
 
@@ -352,7 +358,7 @@ GROUP BY c_customer_id
 
 ```
 
-Verifique novamente o plano de execução da consulta original.  Agora o número de junções muda de 17 para 5 e não há mais ordem aleatória.  Clique no ícone de operação Filtro no plano. Sua lista de saída mostra que os dados são lidos nas exibições materializadas em vez de nas tabelas base.  
+Verifique novamente o plano de execução da consulta original.  Agora o número de junções muda de 17 para 5 e não há mais ordem aleatória.  Selecione o ícone de operação de filtro no plano. Sua lista de saída mostra que os dados são lidos nas exibições materializadas em vez de nas tabelas base.  
 
  ![Plan_Output_List_with_Materialized_Views](./media/develop-materialized-view-performance-tuning/output-list.png)
 

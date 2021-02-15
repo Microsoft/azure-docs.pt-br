@@ -7,12 +7,12 @@ author: bwren
 ms.author: bwren
 ms.date: 08/19/2019
 ms.custom: mvc, sec-javascript-october2019
-ms.openlocfilehash: 91a4e2f6a770282e9d031c31fdf1af15f0cd00bf
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6cc9c6af4592956b6498e826ef65b556e5780f34
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87067552"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186823"
 ---
 # <a name="collect-data-from-an-azure-virtual-machine-with-azure-monitor"></a>Coletar dados de uma máquina virtual do Azure com o Azure Monitor
 
@@ -87,7 +87,7 @@ O Azure Monitor pode coletar eventos dos logs de eventos do Windows ou do Syslog
 
 7. Quando você configura os contadores de desempenho do Windows para um novo espaço de trabalho do Log Analytics pela primeira vez, você tem a opção de criar rapidamente vários contadores comuns. Eles são listados com uma caixa de seleção ao lado de cada um.
 
-    ![Contadores de desempenho padrão do Windows selecionados](media/quick-collect-azurevm/windows-perfcounters-default.png)
+    ![Captura de tela do painel Contadores de Desempenho do Windows com uma lista de contadores selecionados e o botão Adicionar contadores de desempenho selecionado.](media/quick-collect-azurevm/windows-perfcounters-default.png)
 
     Selecione **Adicionar os contadores de desempenho selecionados**.  Eles são adicionados e predefinidos com um intervalo de amostragem de coleta de dez segundos.
   
@@ -107,7 +107,7 @@ O Azure Monitor pode coletar eventos dos logs de eventos do Windows ou do Syslog
 
 6. Quando você configura os contadores de desempenho do Linux para um novo espaço de trabalho do Log Analytics pela primeira vez, você tem a opção de criar rapidamente vários contadores comuns. Eles são listados com uma caixa de seleção ao lado de cada um.
 
-    ![Contadores de desempenho padrão do Windows selecionados](media/quick-collect-azurevm/linux-perfcounters-azure-monitor.png)
+    ![Captura de tela do painel Contadores de Desempenho do Linux com uma lista de contadores selecionados e o botão Adicionar contadores de desempenho selecionado.](media/quick-collect-azurevm/linux-perfcounters-azure-monitor.png)
 
     Selecione **Aplicar configuração abaixo aos meus computadores** e, em seguida, selecione **Adicionar os contadores de desempenho selecionados**.  Eles são adicionados e predefinidos com um intervalo de amostragem de coleta de dez segundos.  
 
@@ -141,4 +141,4 @@ Agora que você está coletando dados operacionais e de desempenho das máquinas
 Para saber como exibir e analisar os dados, continue lendo o tutorial.
 
 > [!div class="nextstepaction"]
-> [Exibir ou analisar dados no Log Analytics](../log-query/get-started-portal.md)
+> [Exibir ou analisar dados no Log Analytics](../log-query/log-analytics-tutorial.md)

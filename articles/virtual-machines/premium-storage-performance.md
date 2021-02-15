@@ -4,15 +4,15 @@ description: Crie aplicativos de alto desempenho usando os Managed Disks SSD Pre
 author: roygara
 ms.service: virtual-machines
 ms.topic: conceptual
-ms.date: 06/27/2017
+ms.date: 10/05/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: a13fa7c819dcccc101c23015214bac55d2ab26c9
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 7e93c659ad58db8d82e68380ab6a0855af27e1bf
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855544"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98882375"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Armazenamento Premium do Azure: projeto para alto desempenho
 
@@ -35,8 +35,8 @@ Fornecemos estas diretrizes especificamente para Armazenamento Premium porque as
 >
 > Se você pretende avaliar o benchmark de seu disco, consulte nossos artigos sobre benchmarking de um disco:
 >
-> * Para o Linux: [avaliar o aplicativo no armazenamento em disco do Azure](linux/disks-benchmarks.md)
-> * Para Windows: [benchmarking de um disco](windows/disks-benchmarks.md).
+> * Para o Linux: [avaliar o aplicativo no armazenamento em disco do Azure](./disks-benchmarks.md)
+> * Para Windows: [benchmarking de um disco](./disks-benchmarks.md).
 >
 > Se sua VM oferecer suporte a rede acelerada, verifique se ela está ativada. Se não estiver ativado, você poderá ativá-lo em VMs já implementadas nos [Windows](../virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms) e [Linux](../virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms).
 
@@ -130,7 +130,7 @@ Os contadores do PerfMon estão disponíveis para processador, memória e cada d
 | **IOPS Máxima** |Quantidade de memória exigida para execução perfeita do aplicativo |% de Bytes Confirmados em Uso |Usar o vmstat |
 | **IOPS Máxima** |Quantidade de CPU exigida para a execução perfeita do aplicativo |% do Tempo do Processador |%util |
 
-Saiba mais sobre o [iostat](https://linux.die.net/man/1/iostat) e [PerfMon](https://msdn.microsoft.com/library/aa645516.aspx).
+Saiba mais sobre o [iostat](https://linux.die.net/man/1/iostat) e [PerfMon](/windows/win32/perfctrs/performance-counters-portal).
 
 
 
@@ -230,7 +230,7 @@ A tabela abaixo resume o detalhamento do custo desse cenário para Armazenamento
 
 *Distribuições do Linux*  
 
-Com o Armazenamento Premium do Azure, você obtém o mesmo nível de Desempenho para VMs que executam Windows e Linux. Há suporte para vários tipos de distribuição Linux, e você pode ver a lista completa [aqui](linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). É importante observar que as diferentes distribuições são mais adequadas para tipos diferentes de carga de trabalho. Você verá diferentes níveis de desempenho dependendo da distribuição em que a carga de trabalho está sendo executada. Teste as distribuições Linux com seu aplicativo e escolha a mais adequada.
+Com o Armazenamento Premium do Azure, você obtém o mesmo nível de Desempenho para VMs que executam Windows e Linux. Há suporte para vários tipos de distribuição Linux, e você pode ver a lista completa [aqui](linux/endorsed-distros.md). É importante observar que as diferentes distribuições são mais adequadas para tipos diferentes de carga de trabalho. Você verá diferentes níveis de desempenho dependendo da distribuição em que a carga de trabalho está sendo executada. Teste as distribuições Linux com seu aplicativo e escolha a mais adequada.
 
 Ao executar Linux com Armazenamento Premium, verifique as últimas atualizações dos drivers necessários para garantir alto desempenho.
 
@@ -305,45 +305,11 @@ Por exemplo, você pode aplicar essas diretrizes ao SQL Server em execução no 
 
 ## <a name="optimize-performance-on-linux-vms"></a>Otimizar o desempenho em VMs Linux
 
-Para todos os SSDs Premium ou Discos Ultra com cache definido como **ReadOnly** ou **nenhum**, é necessário desabilitar "barreiras" ao montar o sistema de arquivos. Você não precisa de barreiras para esse cenário, pois as gravações em discos de Armazenamento Premium são duráveis para essas configurações de cache. Quando a solicitação de gravação for concluída, os dados terão sido gravados no armazenamento persistente. Para desabilitar "barreiras", use um dos seguintes métodos. Escolha o seguinte para o sistema de arquivos:
-  
-* Para **reiserFS**, para desabilitar as barreiras, use a opção de montagem `barrier=none`. (Para habilitar as barreiras, use `barrier=flush`.)
-* Para **ext3/ext4**, para desabilitar as barreiras, use a opção de montagem `barrier=0`. (Para habilitar as barreiras, use `barrier=1`.)
-* Para **XFS**, para desabilitar as barreiras, use a opção de montagem `nobarrier`. (Para habilitar as barreiras, use `barrier`.)
-* Para discos de armazenamento premium com cache definido como **ReadWrite**, habilite as barreiras para durabilidade de gravação.
-* Para que rótulos de volume persistam depois de reiniciar a máquina virtual, você deve atualizar /etc/fstab com as referências do identificador universalmente exclusivo (UUID) nos discos. Para obter mais informações, confira [Adicionar um disco gerenciado a uma VM Linux](./linux/add-disk.md).
+Para todos os SSDs ou ultra discos Premium, você poderá desabilitar "barreiras" para sistemas de arquivos no disco, a fim de melhorar o desempenho quando for conhecido que não haja caches que possam perder dados.  Se o cache de disco do Azure estiver definido como ReadOnly ou None, você poderá desabilitar as barreiras.  Mas se o Caching estiver definido como ReadWrite, as barreiras deverão permanecer habilitadas para garantir a durabilidade da gravação.  As barreiras são geralmente habilitadas por padrão, mas você pode desabilitar as barreiras usando um dos seguintes métodos, dependendo do tipo de sistema de arquivos:
 
-As seguintes distribuições Linux foram validadas para SSDs Premium. Para obter melhor desempenho e estabilidade com SSDs Premium, recomendamos que você atualize suas VMs para uma dessas versões ou versões mais recentes. 
-
-Algumas das versões exigem um LIS (Serviços de Integração do Linux) v4.0 para Azure mais recente. Para baixar e instalar uma distribuição, siga o link listado na tabela a seguir. Podemos adicionar imagens à lista à medida que concluímos a validação. Nossas validações mostram que o desempenho varia para cada imagem. O desempenho depende da carga de trabalho e das configurações de imagem. Imagens diferentes são ajustadas para tipos diferentes de carga de trabalho.
-
-| Distribuição | Versão | Kernel com suporte | Detalhes |
-| --- | --- | --- | --- |
-| Ubuntu | 12.04 ou mais recente| 3.2.0-75.110+ | &nbsp; |
-| Ubuntu | 14.04 ou mais recente| 3.13.0-44.73+  | &nbsp; |
-| Debian | 7.x, 8.x ou mais recente| 3.16.7-ckt4-1+ | &nbsp; |
-| SUSE | SLES 12 ou mais recente| 3.12.36-38.1+ | &nbsp; |
-| SUSE | SLES 11 SP4 ou mais recente| 3.0.101-0.63.1+ | &nbsp; |
-| CoreOS | 584.0.0+ ou mais recente| 3.18.4+ | &nbsp; |
-| CentOS | 6.5, 6.6, 6.7, 7.0 ou mais recente| &nbsp; | [LIS4 obrigatório](https://www.microsoft.com/download/details.aspx?id=55106) <br> *Confira a observação na próxima seção* |
-| CentOS | 7.1+ ou mais recente| 3.10.0-229.1.2.el7+ | [LIS4 recomendado](https://www.microsoft.com/download/details.aspx?id=55106) <br> *Confira a observação na próxima seção* |
-| Red Hat Enterprise Linux (RHEL) | 6.8+, 7.2+ ou mais recente | &nbsp; | &nbsp; |
-| Oracle | 6.0+, 7.2+ ou mais recente | &nbsp; | UEK4 ou RHCK |
-| Oracle | 7.0-7.1 ou mais recente | &nbsp; | UEK4 ou RHCK w/[LIS4](https://www.microsoft.com/download/details.aspx?id=55106) |
-| Oracle | 6.4-6.7 ou mais recente | &nbsp; | UEK4 ou RHCK w/[LIS4](https://www.microsoft.com/download/details.aspx?id=55106) |
-
-### <a name="lis-drivers-for-openlogic-centos"></a>Drivers LIS para Openlogic CentOS
-
-Se você estiver executando VMs com o OpenLogic CentOS, execute o comando a seguir para instalar os drivers mais recentes:
-
-```
-sudo yum remove hypervkvpd  ## (Might return an error if not installed. That's OK.)
-sudo yum install microsoft-hyper-v
-sudo reboot
-```
-
-Em alguns casos, o comando acima também atualizará o kernel. Se uma atualização de kernel for necessária, talvez seja preciso executar os comandos acima novamente após a reinicialização para instalar completamente o pacote microsoft-hyper-v.
-
+* Para **reiserFS**, use a opção de montagem barreira = nenhum para desabilitar as barreiras.  Para habilitar as barreiras explicitamente, use barreira = liberação.
+* Para **ext3/ext4**, use a opção de montagem barreira = 0 para desabilitar as barreiras.  Para habilitar as barreiras explicitamente, use a barreira = 1.
+* Para **xfs**, use a opção de montagem nobarreira para desabilitar as barreiras.  Para habilitar as barreiras explicitamente, use a barreira.  Observe que nas versões posteriores do kernel do Linux, o design do sistema de arquivos XFS sempre garante a durabilidade, e desabilitar as barreiras não tem nenhum efeito.  
 
 ## <a name="disk-striping"></a>Distribuição de discos
 
@@ -353,7 +319,7 @@ No Windows, você pode usar Espaços de Armazenamento para dividir discos em con
 
 Importante: Usando a interface de usuário do Gerenciador do Servidor UI, você pode definir o número total de colunas até 8 para um volume distribuído. Ao anexar mais de oito discos, use o PowerShell para criar o volume. Usando o PowerShell, é possível definir o número de colunas como igual ao número de discos. Por exemplo, se houver 16 discos em um único conjunto de distribuição; especifique 16 colunas no parâmetro *NumberOfColumns* do cmdlet *New-VirtualDisk* do PowerShell.
 
-No Linux, use o utilitário MDADM para distribuir os discos em conjunto. Para ver etapas detalhadas sobre como distribuir discos no Linux, consulte [Configurar o Software RAID no Linux](linux/configure-raid.md).
+No Linux, use o utilitário MDADM para distribuir os discos em conjunto. Para ver etapas detalhadas sobre como distribuir discos no Linux, consulte [Configurar o Software RAID no Linux](/previous-versions/azure/virtual-machines/linux/configure-raid).
 
 *Tamanho da distribuição*  
 Uma configuração importante na distribuição de disco é o tamanho dela. O tamanho da distribuição ou tamanho do bloco é a menor parte de dados que o aplicativo pode incluir em um volume distribuído. O tamanho da distribuição que você configura depende do tipo de aplicativo e de seu padrão de solicitação. Se você escolher o tamanho de distribuição errado, isso pode levar ao alinhamento incorreto de E/S, o que leva à degradação de desempenho do aplicativo.
@@ -377,7 +343,7 @@ Há definições de configuração que você pode alterar para influenciar esse 
 
 Por exemplo, digamos que seu aplicativo que usa SQL Server está executando uma consulta grande e uma operação de índice ao mesmo tempo. Vamos supor que você gostaria que a operação de índice tivesse um desempenho melhor do que a consulta grande. Nesse caso, você pode definir o valor MAXDOP da operação de índice para que seja maior que o valor MAXDOP da consulta. Dessa forma, o SQL Server tem maior número de processadores que pode aproveitar para a operação de índice em comparação ao número de processadores que pode dedicar à consulta grande. Lembre-se de que você não controla o número de threads que o SQL Server usará para cada operação. É possível controlar o número máximo de processadores que está sendo dedicado ao multithreading.
 
-Saiba mais sobre [Graus de Paralelismo](https://technet.microsoft.com/library/ms188611.aspx) no SQL Server. Descubra as configurações que influenciam o multithreading em seu aplicativo e as respectivas configurações para otimizar o desempenho.
+Saiba mais sobre [Graus de Paralelismo](/previous-versions/sql/sql-server-2008-r2/ms188611(v=sql.105)) no SQL Server. Descubra as configurações que influenciam o multithreading em seu aplicativo e as respectivas configurações para otimizar o desempenho.
 
 ## <a name="queue-depth"></a>Profundidade da fila
 
@@ -414,8 +380,8 @@ O Armazenamento Premium do Azure provisiona um número especificado de IOPS e Ta
 
 Se você pretende avaliar o benchmark de seu disco, consulte nossos artigos sobre benchmarking de um disco:
 
-* Para o Linux: [avaliar o aplicativo no armazenamento em disco do Azure](linux/disks-benchmarks.md)
-* Para Windows: [benchmarking de um disco](windows/disks-benchmarks.md).
+* Para o Linux: [avaliar o aplicativo no armazenamento em disco do Azure](./disks-benchmarks.md)
+* Para Windows: [benchmarking de um disco](./disks-benchmarks.md).
 
 Saiba mais sobre os tipos de disco disponíveis:
 

@@ -9,10 +9,10 @@ ms.date: 7/22/2020
 ms.author: mimckitt
 ms.custom: sttsinar
 ms.openlocfilehash: 13894e534dc8d6dd89baf75ea2bd3b6500b718f7
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88650954"
 ---
 # <a name="azure-virtual-machine-sizes-naming-conventions"></a>Convenções de nomenclatura de tamanhos de máquina virtual do Azure
@@ -25,7 +25,7 @@ Esta página descreve as convenções de nomenclatura usadas para VMs do Azure. 
 
 |Valor | Explicação|
 |---|---|
-| Família | Indica a série da família de VMs| 
+| Family | Indica a série da família de VMs| 
 | * Sub-família | Usado somente para diferenciações de VM especializadas|
 | n º de vCPUs| Denota o número de vCPUs da VM |
 | Recursos aditivos | Uma ou mais letras minúsculas denotam recursos aditivos, como: <br> a = processador baseado em AMD <br> d = disco (o disco temporário local está presente); Isso é para VMs do Azure mais novas, consulte [Ddv4 e Ddsv4-Series](./ddv4-ddsv4-series.md) <br> h = capacidade de hibernação <br> i = tamanho isolado <br> l = memória insuficiente; uma quantidade menor de memória do que o tamanho intensivo de memória <br> m = uso intensivo de memória; a maior quantidade de memória em um determinado tamanho <br> t = memória mínima; a menor quantidade de memória em um determinado tamanho <br> r = compatível com RDMA <br> s = capacidade de armazenamento Premium, incluindo o uso possível de [SSD ultra](./disks-types.md#ultra-disk) (Observação: alguns tamanhos mais recentes Sem o atributo de s ainda podem dar suporte ao armazenamento Premium, por exemplo, m128, m64, etc.)<br> |
@@ -40,7 +40,7 @@ Esta página descreve as convenções de nomenclatura usadas para VMs do Azure. 
 
 |Valor | Explicação|
 |---|---|
-| Família | M | 
+| Family | M | 
 | n º de vCPUs | 416 |
 | Recursos aditivos | m = uso intensivo de memória <br> s = capacidade de armazenamento Premium |
 | Versão | v2 |
@@ -49,7 +49,7 @@ Esta página descreve as convenções de nomenclatura usadas para VMs do Azure. 
 
 |Valor | Explicação|
 |---|---|
-| Família | N | 
+| Family | N | 
 | Sub-família | V |
 | n º de vCPUs | 16 |
 | Recursos aditivos | a = processador baseado em AMD <br> s = capacidade de armazenamento Premium |
@@ -59,7 +59,7 @@ Esta página descreve as convenções de nomenclatura usadas para VMs do Azure. 
 
 |Valor | Explicação|
 |---|---|
-| Família | N | 
+| Family | N | 
 | Sub-família | C |
 | n º de vCPUs | 4 |
 | Recursos aditivos | a = processador baseado em AMD <br> s = capacidade de armazenamento Premium |

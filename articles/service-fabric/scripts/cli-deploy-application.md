@@ -15,10 +15,10 @@ ms.date: 04/16/2018
 ms.author: atsenthi
 ms.custom: mvc
 ms.openlocfilehash: ff40dc62b4dcd622156a78518bbdcb6b9b430644
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75526593"
 ---
 # <a name="deploy-an-application-to-a-service-fabric-cluster-using-the-service-fabric-cli"></a>Implantar um aplicativo em um cluster do Service Fabric usando a CLI do Service Fabric

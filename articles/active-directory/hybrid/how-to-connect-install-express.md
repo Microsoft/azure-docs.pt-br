@@ -15,12 +15,12 @@ ms.date: 09/28/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 714fe5d1bdaddac2873194ab066f304e72bdde67
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0a655f355bb77d937f4daff2f8987769416ebd8c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85358864"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89279662"
 ---
 # <a name="getting-started-with-azure-ad-connect-using-express-settings"></a>Introdução ao Azure AD Connect usando configurações expressas
 As **Configurações Expressas** do Azure AD Connect são usadas quando você tem uma topologia de floresta única e a [sincronização de hash de senha](how-to-connect-password-hash-synchronization.md) para autenticação. **configurações expressas** são a opção padrão e são usadas para o cenário de implantação mais comum. São apenas alguns cliques curtos para estender seu diretório local para a nuvem.
@@ -37,23 +37,23 @@ Você pode ver essas etapas em ação na seção de [vídeos](#videos) .
 3. Na tela de boas-vindas, marque a caixa de concordar com os termos da licença e clique em **Continuar**.  
 4. Na tela de configurações expressas, clique em **Usar configurações expressas**.  
    ![Bem-vindo ao Azure AD Connect](./media/how-to-connect-install-express/express.png)
-5. Na tela Conectar AD do Azure, insira o nome de usuário e senha de um administrador global do seu AD do Azure. Clique em **Próximo**.  
+5. Na tela Conectar AD do Azure, insira o nome de usuário e senha de um administrador global do seu AD do Azure. Clique em **Avançar**.  
    ![Conecte-se ao AD do Azure](./media/how-to-connect-install-express/connectaad.png)  
    Se você encontrar um erro e tiver problemas de conectividade, confira [Solucionar problemas de conectividade](tshoot-connect-connectivity.md).
-6. Na tela Conectar AD DS, digite o nome de usuário e senha para uma conta de administrador corporativa. Você pode inserir a parte do domínio no formato NetBios ou FQDN, ou seja, FABRIKAM\administrador ou fabrikam.com\administrador. Clique em **Próximo**.  
+6. Na tela Conectar AD DS, digite o nome de usuário e senha para uma conta de administrador corporativa. Você pode inserir a parte do domínio no formato NetBios ou FQDN, ou seja, FABRIKAM\administrador ou fabrikam.com\administrador. Clique em **Avançar**.  
    ![Conectar-se ao AD DS](./media/how-to-connect-install-express/connectad.png)
-7. A página [**Configuração de entrada do Azure AD**](plan-connect-user-signin.md#azure-ad-sign-in-configuration) será mostrada somente se você não tiver concluído [verificar seus domínios](../active-directory-domains-add-azure-portal.md) nos [pré-requisitos](how-to-connect-install-prerequisites.md).
+7. A página [**Configuração de entrada do Azure AD**](plan-connect-user-signin.md#azure-ad-sign-in-configuration) será mostrada somente se você não tiver concluído [verificar seus domínios](../fundamentals/add-custom-domain.md) nos [pré-requisitos](how-to-connect-install-prerequisites.md).
    ![Domínios não verificados](./media/how-to-connect-install-express/unverifieddomain.png)  
    Se essa página for mostrada, examine todos os domínios marcados como **Não Adicionado** e **Não Verificado**. Confira se os domínios que você usa foram verificados no Azure AD. Clique no símbolo de Atualização quando tiver verificado os domínios.
 8. Na tela Pronto para configurar, clique em **Instalar**.
    * Opcionalmente, na página Pronto para configurar, você pode desmarcar a caixa de seleção **Iniciar o processo de sincronização assim que a configuração for concluída** . Você deverá desmarcar essa caixa de seleção se desejar fazer configurações adicionais, como a [filtragem](how-to-connect-sync-configure-filtering.md). Se você desmarcar essa opção, o assistente irá configurar a sincronização, mas deixará o agendador desabilitado. Ele não será executado até você habilitá-lo manualmente [executando o assistente de instalação de novo](how-to-connect-installation-wizard.md).
    * Ao deixar marcada a caixa de seleção **Iniciar o processo de sincronização assim que a configuração for concluída**, será disparara imediatamente uma sincronização completa do Azure Active Directory de todos os usuários, grupos e contatos.
-   * Se tiver o Exchange no Active Directory local, você também terá uma opção para habilitar a [**Implantação Híbrida do Exchange**](https://technet.microsoft.com/library/jj200581.aspx). Habilite essa opção se você planeja ter caixas de correio do Exchange na nuvem e no local ao mesmo tempo.
+   * Se tiver o Exchange no Active Directory local, você também terá uma opção para habilitar a [**Implantação Híbrida do Exchange**](/exchange/exchange-hybrid). Habilite essa opção se você planeja ter caixas de correio do Exchange na nuvem e no local ao mesmo tempo.
      ![Pronto para configurar o Azure AD Connect](./media/how-to-connect-install-express/readytoconfigure.png)
 9. Quando a instalação for concluída, clique em **Sair**.
 10. Após a conclusão da instalação, saia e entre novamente antes de usar o Gerenciador de Serviços de Sincronização ou o Editor de Regra de Sincronização.
 
-## <a name="videos"></a>Vídeos
+## <a name="videos"></a>vídeos
 Para ver um vídeo sobre como usar a instalação expressa, consulte:
 
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Azure-Active-Directory-Connect-Express-Settings/player]

@@ -1,16 +1,16 @@
 ---
-title: Executar uma carga de trabalho paralela usando a API do Python
+title: Tutorial – Executar uma carga de trabalho paralela usando a API do Python
 description: 'Tutorial: processar arquivos de mídia em paralelo com ffmpeg no Lote do Azure usando a biblioteca de cliente Python do Lote'
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 11/29/2018
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: 34cea5e0b60c0a7ee8c3d31dd02a6f7e975de738
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 7013ef1e9b6dda4554b665fa8199edb86a8a9adb
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87853323"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106505"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-python-api"></a>Tutorial: Executar uma carga de trabalho paralela com o Lote do Azure usando a API do Python
 

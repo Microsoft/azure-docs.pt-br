@@ -6,16 +6,16 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 02/05/2018
 ms.author: jejiang
-ms.openlocfilehash: a99196cfad7abad38408c847a8a0b64ffe95fff5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7f251e6ba2d94c0fcede3387ac12461951de40f1
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85508785"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108738"
 ---
 # <a name="manage-azure-data-lake-storage-gen1-resources-by-using-storage-explorer"></a>Gerenciar recursos do Armazenamento de Dados do Azure Data Lake Gen1 usando o Storage Explorer
 
-[Azure Data Lake armazenamento Gen1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview) é um serviço para armazenar grandes quantidades de dados não estruturados, como texto ou dados binários. É possível obter acesso aos dados de qualquer lugar via HTTP ou HTTPS. O Data Lake Storage Gen1 no Azure Storage Explorer permite acessar e gerenciar dados e recursos do Data Lake Storage Gen1, juntamente com outras entidades do Azure, como blobs e filas. Agora você pode usar a mesma ferramenta para gerenciar suas diferentes entidades do Azure em um único local.
+[Azure Data Lake armazenamento Gen1](./data-lake-store-overview.md) é um serviço para armazenar grandes quantidades de dados não estruturados, como texto ou dados binários. É possível obter acesso aos dados de qualquer lugar via HTTP ou HTTPS. O Data Lake Storage Gen1 no Azure Storage Explorer permite acessar e gerenciar dados e recursos do Data Lake Storage Gen1, juntamente com outras entidades do Azure, como blobs e filas. Agora você pode usar a mesma ferramenta para gerenciar suas diferentes entidades do Azure em um único local.
 
 Outra vantagem é que você não precisa ter permissão de assinatura para gerenciar dados do Data Lake Storage Gen1. No Storage Explorer, você pode anexar o caminho do Data Lake Storage Gen1 ao nó **Local e Anexado**, desde que alguém conceda a permissão.
 
@@ -24,7 +24,7 @@ Outra vantagem é que você não precisa ter permissão de assinatura para geren
 Para concluir as etapas neste artigo, você precisa dos seguintes pré-requisitos:
 
 * Uma assinatura do Azure. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial).
-* Uma conta do Data Lake Storage Gen1. Para obter instruções de como criar uma, confira [Introdução ao Azure Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal).
+* Uma conta do Data Lake Storage Gen1. Para obter instruções de como criar uma, confira [Introdução ao Azure Data Lake Storage Gen1](./data-lake-store-get-started-portal.md).
 
 ## <a name="install-storage-explorer"></a>Instalar o Gerenciador de Armazenamento
 
@@ -195,7 +195,7 @@ Se tiver uma URL, você pode inserir apenas ela no caminho de endereço do Explo
 ## <a name="next-steps"></a>Próximas etapas
 
 * Exibir as [notas de versão e os vídeos mais recentes do Gerenciador de Armazenamento](https://www.storageexplorer.com).
-* Saiba como [gerenciar Azure Cosmos DB em Gerenciador de armazenamento do Azure](https://docs.microsoft.com/azure/cosmos-db/storage-explorer).
-* [Introdução ao Gerenciador de armazenamento](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
-* [Introdução ao Azure Data Lake armazenamento Gen1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview).
+* Saiba como [gerenciar Azure Cosmos DB em Gerenciador de armazenamento do Azure](../cosmos-db/storage-explorer.md).
+* [Introdução ao Gerenciador de armazenamento](../vs-azure-tools-storage-manage-with-storage-explorer.md).
+* [Introdução ao Azure Data Lake armazenamento Gen1](./data-lake-store-overview.md).
 * Assista a um [vídeo do YouTube sobre como usar o Azure Cosmos DB no Gerenciador de Armazenamento do Azure](https://www.youtube.com/watch?v=iNIbg1DLgWo&feature=youtu.be).

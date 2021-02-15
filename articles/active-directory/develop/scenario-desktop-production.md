@@ -1,5 +1,6 @@
 ---
-title: Mover o aplicativo de desktop chamando APIs da Web para produção-plataforma de identidade da Microsoft | Azure
+title: Mover o aplicativo da área de trabalho chamando APIs da Web para produção | Azure
+titleSuffix: Microsoft identity platform
 description: Saiba como mover um aplicativo de área de trabalho que chama APIs da Web para produção
 services: active-directory
 author: jmprieur
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: ea564eb69f102d8e548bf8ae9a626598fa264cd4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 22e61ea767d781dc9da54d61143c1b2524e06e94
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80882872"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584407"
 ---
 # <a name="desktop-app-that-calls-web-apis-move-to-production"></a>Aplicativo de área de trabalho que chama APIs da Web: mover para produção
 
@@ -31,14 +32,14 @@ Nos fluxos diferentes, você aprendeu como lidar com os erros dos fluxos silenci
 > [!NOTE]
 > A obtenção de consentimento para vários recursos funciona para a plataforma de identidade da Microsoft, mas não para o Azure Active Directory (Azure AD) B2C. O Azure AD B2C dá suporte apenas ao consentimento do administrador, não ao consentimento do usuário.
 
-Você não pode obter um token para vários recursos de uma vez com o ponto de extremidade da plataforma Microsoft Identity (v 2.0). O `scopes` parâmetro pode conter escopos para um único recurso. Você pode garantir que o usuário tenha o mesmo consentimento para vários recursos usando o `extraScopesToConsent` parâmetro.
+Você não pode obter um token para vários recursos de uma vez com a plataforma de identidade da Microsoft. O `scopes` parâmetro pode conter escopos para um único recurso. Você pode garantir que o usuário tenha o mesmo consentimento para vários recursos usando o `extraScopesToConsent` parâmetro.
 
 Por exemplo, você pode ter dois recursos que têm dois escopos cada:
 
-- `https://mytenant.onmicrosoft.com/customerapi`com os escopos `customer.read` e`customer.write`
-- `https://mytenant.onmicrosoft.com/vendorapi`com os escopos `vendor.read` e`vendor.write`
+- `https://mytenant.onmicrosoft.com/customerapi` com os escopos `customer.read` e `customer.write`
+- `https://mytenant.onmicrosoft.com/vendorapi` com os escopos `vendor.read` e `vendor.write`
 
-Neste exemplo, use o `.WithAdditionalPromptToConsent` modificador que tem o `extraScopesToConsent` parâmetro.
+Neste exemplo, use o `.WithExtraScopesToConsent` modificador que tem o `extraScopesToConsent` parâmetro.
 
 Por exemplo:
 
@@ -59,7 +60,7 @@ string[] scopesForVendorApi = new string[]
 var accounts = await app.GetAccountsAsync();
 var result = await app.AcquireTokenInteractive(scopesForCustomerApi)
                      .WithAccount(accounts.FirstOrDefault())
-                     .WithExtraScopeToConsent(scopesForVendorApi)
+                     .WithExtraScopesToConsent(scopesForVendorApi)
                      .ExecuteAsync();
 ```
 
@@ -95,7 +96,7 @@ application.acquireToken(with: interactiveParameters, completionBlock: { (result
 
 Essa chamada Obtém um token de acesso para a primeira API Web.
 
-Quando você precisar chamar a segunda API da Web, chame a `AcquireTokenSilent` API.
+Ao chamar a segunda API Web, chame a `AcquireTokenSilent` API.
 
 ```csharp
 AcquireTokenSilent(scopesForVendorApi, accounts.FirstOrDefault()).ExecuteAsync();
@@ -105,6 +106,11 @@ AcquireTokenSilent(scopesForVendorApi, accounts.FirstOrDefault()).ExecuteAsync()
 
 Para usuários de contas pessoais da Microsoft, solicitar o consentimento de cada chamada de cliente nativo (desktop ou aplicativo móvel) para autorizar é o comportamento pretendido. A identidade nativa do cliente é inerentemente insegura, o que é contrário da identidade confidencial do aplicativo cliente. Os aplicativos cliente confidenciais trocam um segredo com a plataforma de identidade da Microsoft para provar sua identidade. A plataforma de identidade da Microsoft optou por mitigar essa insegurança para os serviços do consumidor solicitando o consentimento do usuário sempre que o aplicativo for autorizado.
 
+[!INCLUDE [Common steps to move to production](../../../includes/active-directory-develop-scenarios-production.md)]
+
 ## <a name="next-steps"></a>Próximas etapas
 
-[!INCLUDE [Move to production common steps](../../../includes/active-directory-develop-scenarios-production.md)]
+Para experimentar exemplos adicionais, consulte [aplicativos cliente públicos móveis e de desktop](sample-v2-code.md#desktop-and-mobile-public-client-apps).
+
+
+

@@ -13,12 +13,12 @@ ms.date: 07/23/2020
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, zachowd
 ms.custom: aaddev
-ms.openlocfilehash: d62328534157a1e2d9e53830be9d6b87e08c9e40
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 9b3840ffb39a204cfa24dcb0430f20ac16587582
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87129263"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104171"
 ---
 # <a name="how-to-configure-an-applications-publisher-domain"></a>Como configurar um domínio do Publicador de um aplicativo
 
@@ -48,18 +48,12 @@ Se seu aplicativo foi registrado antes de 21 de maio de 2019, o prompt de consen
 
 Para definir o domínio do Publicador do aplicativo, siga estas etapas.
 
-1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
-
-1. Se sua conta estiver presente em mais de um locatário do Azure AD:
-   1. Selecione seu perfil no menu no canto superior direito da página e, em seguida, escolha **Alternar diretório**.
-   1. Altere a sessão para o locatário do Azure AD no qual você deseja criar seu aplicativo.
-
+1. Entre no <a href="https://portal.azure.com/" target="_blank">portal do Azure</a>.
+1. Se você tiver acesso a vários locatários, use o filtro **diretório + assinatura** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o locatário no qual o aplicativo está registrado.
 1. Navegue até [Azure Active Directory > registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) para localizar e selecionar o aplicativo que você deseja configurar.
 
    Depois de selecionar o aplicativo, você verá a página **visão geral** do aplicativo.
-
-1. Na página **visão geral** do aplicativo, selecione a seção **identidade visual** .
-
+1. Em **gerenciar**, selecione a **identidade visual**.
 1. Localize o campo **domínio do Publicador** e selecione uma das seguintes opções:
 
    - Selecione **configurar um domínio** se ainda não tiver configurado um domínio.
@@ -97,7 +91,7 @@ Se seu aplicativo não estiver registrado em um locatário, você verá apenas a
 - Se o seu locatário tiver domínios verificados, selecione um dos domínios na lista suspensa **selecionar um domínio verificado** .
 
 >[!Note]
-> O cabeçalho ' Content-Type ' esperado que deve ser retornado é `application/json` . Você pode receber um erro, conforme mencionado abaixo, se você usar qualquer outra coisa como`application/json; charset=utf-8` 
+> O cabeçalho ' Content-Type ' esperado que deve ser retornado é `application/json` . Você pode receber um erro, conforme mencionado abaixo, se você usar qualquer outra coisa como `application/json; charset=utf-8` 
 > 
 >``` "Verification of publisher domain failed. Error getting JSON file from https:///.well-known/microsoft-identity-association. The server returned an unexpected content type header value. " ```
 >

@@ -3,19 +3,19 @@ title: Método de exemplos de dicionário do Tradutor
 titleSuffix: Azure Cognitive Services
 description: O método de exemplos de dicionário do tradutor fornece exemplos que mostram como os termos no dicionário são usados no contexto.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 01/21/2020
-ms.author: swmachan
-ms.openlocfilehash: a1d86ac354524cb4d7bf9f9776b8605f244d92f7
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.author: lajanuar
+ms.openlocfilehash: e7f0e106c1ca154dcd54990395430b3e0f6c536f
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592501"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895502"
 ---
 # <a name="translator-30-dictionary-examples"></a>Tradutor 3,0: exemplos de dicionário
 
@@ -37,13 +37,13 @@ Os parâmetros de solicitação passados na cadeia de caracteres de consulta sã
 | --------- | ----------- |
 | api-version <img width=200/> | **Parâmetro obrigatório**.<br/>Versão da API solicitada pelo cliente. O valor precisa ser `3.0`. |
 | de | **Parâmetro obrigatório**.<br/>Especifica o idioma do texto de entrada. O idioma de origem deve ser um dos [idiomas compatíveis](./v3-0-languages.md) incluídos no escopo de `dictionary`. |
-| para | **Parâmetro obrigatório**.<br/>Especifica o idioma do texto de saída. O idioma de destino deve ser um dos [idiomas com suporte](./v3-0-languages.md) incluídos no escopo `dictionary`.  | 
+| como | **Parâmetro obrigatório**.<br/>Especifica o idioma do texto de saída. O idioma de destino deve ser um dos [idiomas com suporte](./v3-0-languages.md) incluídos no escopo `dictionary`.  | 
 
 Os cabeçalhos de solicitação incluem:
 
 | Cabeçalhos  | Descrição |
 | ------ | ----------- |
-| Cabeçalho (s) de autenticação <img width=200/>  | **Cabeçalho de solicitação obrigatório**.<br/>Veja <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">Opções disponíveis para autenticação</a>. |
+| Cabeçalhos de autenticação <img width=200/>  | **Cabeçalho de solicitação obrigatório**.<br/>Veja <a href="/azure/cognitive-services/translator/reference/v3-0-reference#authentication">Opções disponíveis para autenticação</a>. |
 | Tipo de conteúdo | **Cabeçalho de solicitação obrigatório**.<br/>Especifica o tipo de conteúdo da carga. Os valores possíveis são: `application/json`. |
 | Content-Length   | **Cabeçalho de solicitação obrigatório**.<br/>O tamanho do corpo da solicitação. |
 | X-ClientTraceId   | **Opcional**.<br/>Um GUID gerado pelo cliente para identificar exclusivamente a solicitação. É possível omitir esse cabeçalho se incluir a ID de rastreamento na cadeia de caracteres de consulta usando um parâmetro de consulta nomeado `ClientTraceId`. |

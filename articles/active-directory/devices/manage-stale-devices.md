@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc8f599860b6095e1bab90e8e29818d8079e89a9
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: d12679e64d690614aaf788837a02af007448f83d
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88184934"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93393669"
 ---
 # <a name="how-to-manage-stale-devices-in-azure-ad"></a>Como gerenciar dispositivos obsoletos no Azure AD
 
@@ -55,11 +55,11 @@ Você tem duas opções para recuperar o valor do carimbo de data/hora da ativid
 
 - A coluna **Atividade** na [página de dispositivos](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices) no portal do Azure
 
-    ![Carimbo de data/hora da atividade](./media/manage-stale-devices/01.png)
+    :::image type="content" source="./media/manage-stale-devices/01.png" alt-text="Captura de tela de uma página no portal do Azure listando o nome, o proprietário e outras informações sobre os dispositivos. Uma coluna lista o carimbo de data/hora da atividade." border="false":::
 
 - O cmdlet [Get-AzureADDevice](/powershell/module/azuread/Get-AzureADDevice)
 
-    ![Carimbo de data/hora da atividade](./media/manage-stale-devices/02.png)
+    :::image type="content" source="./media/manage-stale-devices/02.png" alt-text="Captura de tela mostrando a saída da linha de comando. Uma linha é realçada e lista um carimbo de data/hora para o valor ApproximateLastLogonTimeStamp." border="false":::
 
 ## <a name="plan-the-cleanup-of-your-stale-devices"></a>Planejar a limpeza dos seus dispositivos obsoletos
 
@@ -147,7 +147,7 @@ Se você tiver um grande número de dispositivos em seu diretório, use o filtro
 
 ```PowerShell
 $dt = [datetime]’2017/01/01’
-Get-AzureADDevice | Where {$_.ApproximateLastLogonTimeStamp -le $dt} | select-object -Property Enabled, DeviceId, DisplayName, DeviceTrustType, ApproximateLastLogonTimestamp | export-csv devicelist-olderthan-Jan-1-2017-summary.csv
+Get-AzureADDevice -All:$true | Where {$_.ApproximateLastLogonTimeStamp -le $dt} | select-object -Property Enabled, DeviceId, DisplayName, DeviceTrustType, ApproximateLastLogonTimestamp | export-csv devicelist-olderthan-Jan-1-2017-summary.csv
 ```
 
 ## <a name="what-you-should-know"></a>O que você deve saber
@@ -163,9 +163,9 @@ Quando configuradas, as chaves do BitLocker para dispositivos Windows 10 são ar
 ### <a name="why-should-i-worry-about-windows-autopilot-devices"></a>Por que devo me preocupar com os dispositivos do Windows AutoPilot?
 
 Quando você exclui um dispositivo do Azure AD que estava associado a um objeto do Windows AutoPilot, os três cenários a seguir podem ocorrer se o dispositivo for realocado no futuro:
-- Com as implantações controladas pelo usuário do Windows AutoPilot sem usar o diferenciada branco, um novo dispositivo do Azure AD será criado, mas não será marcado com o ZTDID.
+- Com as implantações controladas pelo usuário do Windows AutoPilot sem usar o pré-provisionamento, um novo dispositivo do Azure AD será criado, mas não será marcado com o ZTDID.
 - Com as implantações do modo de implantação automática do Windows AutoPilot, elas falharão porque não é possível encontrar um dispositivo associado do Azure AD.  (Esse é um mecanismo de segurança para garantir que nenhum dispositivo "impostor" tente ingressar no Azure AD sem credenciais.) A falha indicará uma incompatibilidade de ZTDID.
-- Com as implantações de diferenciada do Windows AutoPilot, elas falharão porque um dispositivo Azure AD associado não pode ser encontrado. (Nos bastidores, as implantações do diferenciada branco usam o mesmo processo de modo de implantação automática, para que eles imponham os mesmos mecanismos de segurança.)
+- Com as implantações de pré-provisionamento do Windows AutoPilot, elas falharão porque um dispositivo do Azure AD associado não pode ser encontrado. (Nos bastidores, as implantações de pré-provisionamento usam o mesmo processo de modo de implantação automática, para que eles imponham os mesmos mecanismos de segurança.)
 
 ### <a name="how-do-i-know-all-the-type-of-devices-joined"></a>Como fazer para conhecer todos os tipos de dispositivos ingressados?
 
@@ -175,9 +175,9 @@ Para saber mais sobre os diferentes tipos, consulte a [visão geral do gerenciam
 
 Qualquer autenticação em que um dispositivo está sendo usado para autenticar-se no Azure AD é negada. Alguns exemplos comuns são:
 
-- **Dispositivo ingressado no Azure ad híbrido** -os usuários podem ser capazes de usar o dispositivo para entrar em seu domínio local. No entanto, eles não podem acessar os recursos do Azure AD como o Office 365.
+- **Dispositivo ingressado no Azure ad híbrido** -os usuários podem ser capazes de usar o dispositivo para entrar em seu domínio local. No entanto, eles não podem acessar recursos do Azure AD, como Microsoft 365.
 - **Dispositivo ingressado no Azure AD** – usuários não podem usar o dispositivo para entrar. 
-- **Dispositivos móveis** – o usuário não pode acessar os recursos do Azure AD como o Office 365. 
+- **Dispositivos móveis** – o usuário não pode acessar recursos do Azure AD, como Microsoft 365. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

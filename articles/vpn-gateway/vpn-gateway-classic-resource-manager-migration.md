@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/06/2020
 ms.author: amsriva
-ms.openlocfilehash: b9154b124f89a8b672c58d5e7bce28c0833e8a8c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c9d7fb8be1894ffa5f8c35e16e1ed3aa0949b3ff
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84988032"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96488197"
 ---
 # <a name="vpn-gateway-classic-to-resource-manager-migration"></a>Gateway de VPN clássico para migração do Gerenciador de Recursos
 Gateways de VPN agora podem ser migrados do modelo de implantação clássico para o Gerenciador de Recursos. É possível ler mais sobre os [Recursos e benefícios](../azure-resource-manager/management/overview.md) do Azure Resource Manager. Neste artigo, detalhamos como migrar de implantações clássicas para o modelo com base no Gerenciador de Recursos mais recente. 
 
-Gateways de VPN são migrados como parte da migração de VNet do clássico para o Gerenciador de Recursos. Essa migração é feita com uma VNet por vez. Não há nenhum requisito adicional em termos de ferramentas ou pré-requisitos para migração. As etapas de migração são idênticas à migração de VNet existente e são documentadas na [página de migração de recursos IaaS](../virtual-machines/windows/migration-classic-resource-manager-ps.md). Não há nenhum tempo de inatividade do roteiro de dados durante a migração e, portanto, cargas de trabalho existentes continuariam a funcionar sem perda de conectividade local durante a migração. O endereço IP público associado ao gateway de VPN não é alterado durante o processo de migração. Isso significa que você não precisará reconfigurar seu roteador local quando a migração for concluída.  
+Gateways de VPN são migrados como parte da migração de VNet do clássico para o Gerenciador de Recursos. Essa migração é feita com uma VNet por vez. Não há nenhum requisito adicional em termos de ferramentas ou pré-requisitos para migração. As etapas de migração são idênticas à migração de VNet existente e são documentadas na [página de migração de recursos IaaS](../virtual-machines/migration-classic-resource-manager-ps.md). Não há nenhum tempo de inatividade do roteiro de dados durante a migração e, portanto, cargas de trabalho existentes continuariam a funcionar sem perda de conectividade local durante a migração. O endereço IP público associado ao gateway de VPN não é alterado durante o processo de migração. Isso significa que você não precisará reconfigurar seu roteador local quando a migração for concluída.  
 
 O modelo no Gerenciador de Recursos é diferente do modelo clássico e é composto de gateways de rede virtual, gateways de rede local e recursos de conexão. Eles representam o gateway de VPN, o site local representando o espaço de endereço local e a conectividade entre os dois, respectivamente. Quando a migração for concluída, seus gateways não estarão disponíveis no modelo clássico e todas as operações de gerenciamento em gateways de rede virtual, gateways de rede local e objetos de conexão deverão ser executadas usando o modelo do Gerenciador de Recursos.
 
@@ -66,5 +66,4 @@ Como é possível transformar a conectividade VNet a VNet sem a necessidade de s
 * O estabelecimento de uma conexão explícita da VNet afetada ao gateway de rede local que representa a localização local. Isso também exigiria a alteração da configuração do roteador local para criar e configurar o túnel IPsec.
 
 ## <a name="next-steps"></a>Próximas etapas
-Depois de aprender sobre o suporte à migração de gateway de VPN, acesse [migração com suporte de plataforma de recursos de IaaS do clássico para o Gerenciador de Recursos](../virtual-machines/windows/migration-classic-resource-manager-ps.md) para começar.
-
+Depois de aprender sobre o suporte à migração de gateway de VPN, acesse [migração com suporte de plataforma de recursos de IaaS do clássico para o Gerenciador de Recursos](../virtual-machines/migration-classic-resource-manager-ps.md) para começar.

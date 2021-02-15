@@ -6,19 +6,19 @@ ms.author: aul
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 08/04/2020
-ms.openlocfilehash: 19fd1d064a3f106d7b770481d1e456c51cf1e166
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: 3179daec361aa287b79c5e9a468908d0ccdd2982
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87759420"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92143948"
 ---
 # <a name="azure-monitor-view-designer-to-workbooks-transition-guide"></a>Guia de transição do designer de Azure Monitor exibição para pastas de trabalho
 O [Designer de exibição](view-designer.md) é um recurso do Azure monitor que permite que você crie modos de exibição personalizados para ajudá-lo a Visualizar dados em seu espaço de trabalho do log Analytics, com gráficos, listas e linhas do tempo. Elas foram transferidas para pastas de trabalho para fornecer uma tela flexível para análise de dados e criação de relatórios visuais avançados dentro do portal do Azure. Este artigo ajuda você a fazer a transição do designer de exibição para pastas de trabalho. 
 
 
 ## <a name="workbooks-overview"></a>Visão geral das pastas de trabalho
-As [pastas de trabalho](../insights/vminsights-workbooks.md) combinam texto, consultas de [log](../log-query/query-language.md), métricas e parâmetros em relatórios interativos sofisticados. Os membros da equipe com o mesmo acesso aos recursos do Azure também podem editar pastas de trabalho.
+As [pastas de trabalho](../insights/vminsights-workbooks.md) combinam texto, consultas de [log](/azure/data-explorer/kusto/query/), métricas e parâmetros em relatórios interativos sofisticados. Os membros da equipe com o mesmo acesso aos recursos do Azure também podem editar pastas de trabalho.
 
 As pastas de trabalho são úteis para cenários como:
 

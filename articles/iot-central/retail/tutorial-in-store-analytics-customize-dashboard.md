@@ -11,17 +11,17 @@ ms.custom:
 ms.author: timlt
 author: timlt
 ms.date: 11/12/2019
-ms.openlocfilehash: 47edaec54a2470e9b657b2f214be923439e1e8a2
-ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
+ms.openlocfilehash: 74ce36652b1a00ac6813c62a17d44e2a5486645f
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80999586"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99831699"
 ---
 # <a name="tutorial--customize-the-operator-dashboard-and-manage-devices-in-azure-iot-central"></a>Tutorial:  Personalizar o painel do operador e gerenciar dispositivos no Azure IoT Central
 
 
-Neste tutorial, como construtor, saiba como personalizar o painel do operador no aplicativo de análise na loja do Azure IoT Central. Os operadores do aplicativo podem usar o painel personalizado para executar o aplicativo e gerenciar os dispositivos anexados.
+Neste tutorial, como construtor, você aprenderá a personalizar o painel do operador no aplicativo de análise na loja do Azure IoT Central. Os operadores do aplicativo podem usar o painel personalizado para executar o aplicativo e gerenciar os dispositivos anexados.
 
 Neste tutorial, você aprenderá como:
 > [!div class="checklist"]
@@ -80,7 +80,7 @@ Para personalizar o bloco de imagem que exibe uma imagem de marca no painel:
 
     ![Salvar imagem da marca – Azure IoT Central](./media/tutorial-in-store-analytics-customize-dashboard/brand-image-save.png)
 
-1. Como opção, escolha **Configurar** no bloco intitulado **Documentação**e especifique uma URL para o conteúdo de suporte. 
+1. Como opção, escolha **Configurar** no bloco intitulado **Documentação** e especifique uma URL para o conteúdo de suporte. 
 
 Para personalizar o bloco de imagem que exibe um mapa das zonas abrangidas pelo sensor na loja:
 
@@ -246,7 +246,12 @@ Para adicionar um bloco de comando para reinicializar o gateway:
 
 1. Opcionalmente, escolha o bloco **Reinicializar** para executar o comando de reinicialização no gateway.
 
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+[!INCLUDE [iot-central-clean-up-resources](../../../includes/iot-central-clean-up-resources.md)]
+
 ## <a name="next-steps"></a>Próximas etapas
+
 Neste tutorial, você aprendeu a:
 
 * Alterar o nome do painel

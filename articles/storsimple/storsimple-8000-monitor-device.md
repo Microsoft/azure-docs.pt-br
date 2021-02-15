@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 10/17/2017
 ms.author: alkohli
-ms.openlocfilehash: 1c2df017a9af47bfa330c8e0fa7561bf5b2d5bae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: de4cae90f2cc1223271672d9fc5ba5b42e4409e4
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514688"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94962426"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-monitor-your-storsimple-device"></a>Usar o serviço Gerenciador de Dispositivos do StorSimple para monitorar seu dispositivo StorSimple
 
@@ -77,7 +77,7 @@ Se você estiver executando a Atualização 3 ou superior, será possível divid
 
 Além disso, é possível clicar em cada um dos volumes na lista e ver o uso correspondente.
 
-![Utilização da capacidade principal para todos os volumes fixados localmente](./media/storsimple-8000-monitor-device/device-primary-storage-usage-by-volume.png)
+![Utilização da capacidade primária para todos os volumes localmente afixados 2](./media/storsimple-8000-monitor-device/device-primary-storage-usage-by-volume.png)
 
 ### <a name="cloud-storage-usage"></a>Uso do armazenamento em nuvem
 Esses gráficos mostram a quantidade de armazenamento em nuvem usado. Esses dados passam pela eliminação de duplicação e são compactados. O valor inclui instantâneos de nuvem que podem conter dados que não serão refletidos em nenhum volume primário e são mantidos para fins de retenção obrigatória ou herança. Você pode comparar os valores de consumo de armazenamento de nuvem e principal para obter uma ideia da taxa de redução dos dados, embora o número não vá ser exato.
@@ -139,6 +139,5 @@ A **Utilização da CPU** rastreia as métricas relacionadas à CPU utilizada em
 
 
 ## <a name="next-steps"></a>Próximas etapas
-* Saiba como [usar o painel de dispositivo do serviço Gerenciador de Dispositivos do StorSimple](storsimple-device-dashboard.md).
-* Saiba como [usar o serviço Gerenciador de Dispositivos do StorSimple para administrar o dispositivo StorSimple](storsimple-manager-service-administration.md).
-
+* Saiba como [usar o painel de dispositivo do serviço Gerenciador de Dispositivos do StorSimple](./storsimple-8000-device-dashboard.md).
+* Saiba como [usar o serviço Gerenciador de Dispositivos do StorSimple para administrar o dispositivo StorSimple](./storsimple-8000-manager-service-administration.md).

@@ -1,19 +1,19 @@
 ---
 title: Backup e restauração-Azure PowerShell-banco de dados do Azure para MySQL
 description: Saiba como fazer backup e restaurar um servidor no banco de dados do Azure para MySQL usando Azure PowerShell.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.devlang: azurepowershel
 ms.topic: how-to
 ms.date: 4/28/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 5571d5a937fc48030c38ebe78c86ef27d6727a67
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 43ce39a1fc05c8ffedd1ae8404cc20c1a498a73f
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87837265"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94538998"
 ---
 # <a name="how-to-back-up-and-restore-an-azure-database-for-mysql-server-using-powershell"></a>Como fazer backup e restaurar um banco de dados do Azure para o servidor MySQL usando o PowerShell
 
@@ -41,7 +41,7 @@ Na criação do servidor, você faz a escolha entre configurar o servidor para b
 > [!NOTE]
 > Depois que um servidor é criado, o tipo de redundância que ele tem, geograficamente redundante versus redundância local, não pode ser alterado.
 
-Ao criar um servidor por meio do `New-AzMySqlServer` comando, o parâmetro **GeoRedundantBackup** decide sua opção de redundância de backup. Se **habilitado**, os backups com redundância geográfica serão feitos. Ou, se estiverem **desabilitados**, os backups com redundância local serão feitos.
+Ao criar um servidor por meio do `New-AzMySqlServer` comando, o parâmetro **GeoRedundantBackup** decide sua opção de redundância de backup. Se **habilitado** , os backups com redundância geográfica serão feitos. Ou, se estiverem **desabilitados** , os backups com redundância local serão feitos.
 
 O período de retenção de backup é definido pelo parâmetro **BackupRetentionDay** .
 
@@ -75,10 +75,10 @@ Get-AzMySqlServer -Name mydemoserver -ResourceGroupName myresourcegroup |
 
 O conjunto de parâmetros **PointInTimeRestore** do `Restore-AzMySqlServer` cmdlet requer os seguintes parâmetros:
 
-| Configuração | Valor sugerido | Descrição  |
+| Configuração | Valor sugerido | Descrição  |
 | --- | --- | --- |
-| ResourceGroupName |  myresourcegroup |  O grupo de recursos em que o servidor de origem existe.  |
-| Nome | mydemoserver-restored | O nome do novo servidor que é criado pelo comando de restauração. |
+| ResourceGroupName |  myresourcegroup |  O grupo de recursos em que o servidor de origem existe.  |
+| Name | mydemoserver-restored | O nome do novo servidor que é criado pelo comando de restauração. |
 | RestorePointInTime | 2020-03-13T13:59:00Z | Selecione um ponto no tempo para restaurar. Essa data e hora devem estar dentro do período de retenção de backup do servidor de origem. Use o formato ISO8601 de data e hora. Por exemplo, você pode usar seu próprio fuso horário local, como **2020-03-13T05:59:00-08:00**. Você também pode usar o formato UTC Zulu, por exemplo, **2018-03-13T13:59:00Z**. |
 | UsePointInTimeRestore | `<SwitchParameter>` | Use o modo point-in-time para restaurar. |
 
@@ -106,7 +106,7 @@ Get-AzMySqlServer -Name mydemoserver -ResourceGroupName myresourcegroup |
   Restore-AzMySqlServer -Name mydemoserver-georestored -ResourceGroupName myresourcegroup -Location eastus -Sku GP_Gen5_8 -UseGeoRestore
 ```
 
-Este exemplo cria um novo servidor chamado **mydemoserver-georestore** na região leste dos EUA que pertence ao **MyResource**. É um Uso geral, servidor Gen 5 com 8 vCores. O servidor é criado a partir do backup com redundância geográfica de **mydemoserver**, também no grupo de recursos **MyResource**Group.
+Este exemplo cria um novo servidor chamado **mydemoserver-georestore** na região leste dos EUA que pertence ao **MyResource**. É um Uso geral, servidor Gen 5 com 8 vCores. O servidor é criado a partir do backup com redundância geográfica de **mydemoserver** , também no grupo de recursos **MyResource** Group.
 
 Para criar o novo servidor em um grupo de recursos diferente do servidor existente, especifique o novo nome do grupo de recursos usando o parâmetro **ResourceGroupName** , conforme mostrado no exemplo a seguir:
 
@@ -117,10 +117,10 @@ Get-AzMySqlServer -Name mydemoserver -ResourceGroupName myresourcegroup |
 
 O conjunto de parâmetros **Georestore** do `Restore-AzMySqlServer` cmdlet requer os seguintes parâmetros:
 
-| Configuração | Valor sugerido | Descrição  |
+| Configuração | Valor sugerido | Descrição  |
 | --- | --- | --- |
 |ResourceGroupName | myresourcegroup | O nome do grupo de recursos ao qual o novo servidor pertence.|
-|Nome | mydemoserver-georestored | O nome do novo servidor. |
+|Name | mydemoserver-georestored | O nome do novo servidor. |
 |Localização | eastus | A localização do novo servidor. |
 |UseGeoRestore | `<SwitchParameter>` | Use o modo geográfico para restaurar. |
 
@@ -133,4 +133,4 @@ O servidor criado durante uma restauração não tem o ponto de extremidade de s
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Como gerar uma cadeia de conexão do banco de dados do Azure para MySQL com o PowerShell](howto-connection-string-powershell.md)
+> [Como gerar uma cadeia de conexão do Banco de Dados do Azure para MySQL com o PowerShell](howto-connection-string-powershell.md)

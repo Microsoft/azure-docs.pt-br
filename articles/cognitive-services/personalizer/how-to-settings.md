@@ -1,14 +1,16 @@
 ---
 title: Configurar o Personalizador
 description: A configuração do serviço inclui como o serviço trata as recompensas, com que frequência o serviço faz explorações, com que frequência o modelo é treinado novamente e quantos dados são armazenados.
+ms.service: cognitive-services
+ms.subservice: personalizer
 ms.topic: how-to
 ms.date: 04/29/2020
-ms.openlocfilehash: 4c0cbf35a37f6b3eb134992b34b23fd9d7be47ed
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 9b7347cb98bcbf2e1d92f115d404197083acef4d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344332"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91292601"
 ---
 # <a name="configure-personalizer-learning-loop"></a>Configurar o loop de aprendizagem do personalizador
 

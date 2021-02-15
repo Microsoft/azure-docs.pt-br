@@ -10,10 +10,10 @@ ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
 ms.openlocfilehash: dfaeee6a6e2a9728d7e63fb5681c487fbbd6139e
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88958983"
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Perguntas frequentes do desempenho do aplicativo para Aplicativos Web no Azure
@@ -65,7 +65,7 @@ Para capturar um despejo de memória do modo de usuário do seu aplicativo web:
 
 Você tem duas opções para exibir as informações de nível de processo para seu aplicativo web:
 
-*   No portal do Azure:
+*   No Portal do Azure:
     1. Abra o **Process Explorer** para o aplicativo web.
     2. Para ver os detalhes, selecione o **w3wp.exe** processo.
 *   No console do Kudu:
@@ -103,7 +103,7 @@ Para ativar o rastreamento de solicitação com falha:
 1. No portal do Azure, vá para seu aplicativo web.
 3. Selecione **todas as configurações**  >  **logs de diagnóstico**.
 4. Para **Rastreamento de solicitação com falha**, selecione **On**.
-5. Clique em **Salvar**.
+5. Selecione **Salvar**.
 6. Na folha de aplicativo Web, selecione **Ferramentas**.
 7. Selecione **Visual Studio Online**.
 8. Se a configuração não estiver **On**, selecione **On**.

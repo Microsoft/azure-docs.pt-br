@@ -1,19 +1,19 @@
 ---
 title: Opções de suporte
 description: Informações sobre como abrir uma solicitação com a equipe de suporte de âncoras espaciais do Azure.
-author: ramonarguelles
-manager: vriveras
+author: msftradford
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
-ms.author: rgarcia
-ms.date: 02/24/2019
+ms.author: parkerra
+ms.date: 11/20/2020
 ms.topic: troubleshooting
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 371cb9ade54da42af1ed75c3e9857b6d1a7a0f4f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f47f07fee70d2fc0ee445c6788a8ccb522b7774e
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74276980"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95494702"
 ---
 # <a name="azure-spatial-anchors-support-options"></a>Opções de suporte de âncoras espaciais do Azure
 

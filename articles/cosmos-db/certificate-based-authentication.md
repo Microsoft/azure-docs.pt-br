@@ -3,18 +3,20 @@ title: Autenticação baseada em certificado com Azure Cosmos DB e Active Direct
 description: Saiba como configurar uma identidade do Azure AD para autenticação baseada em certificado para acessar chaves de Azure Cosmos DB.
 author: voellm
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 06/11/2019
 ms.author: tvoellm
 ms.reviewer: sngun
-ms.openlocfilehash: ea8d4180a6e820e72f5ca0ce7e7acaf13348ae67
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e0913351d40cd75da17d16cca119b4ad5ce20de0
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85262490"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93334694"
 ---
 # <a name="certificate-based-authentication-for-an-azure-ad-identity-to-access-keys-from-an-azure-cosmos-db-account"></a>Autenticação baseada em certificado para uma identidade do Azure AD para acessar chaves de uma conta de Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 A autenticação baseada em certificado permite que o aplicativo cliente seja autenticado usando Azure Active Directory (AAD) com um certificado de cliente. É possível executar a autenticação baseada em certificado em um computador em que seja necessária uma identidade, como um computador local ou uma máquina virtual no Azure. Em seguida, seu aplicativo pode ler Azure Cosmos DB chaves sem ter as chaves diretamente no aplicativo. Este artigo descreve como criar um aplicativo de exemplo do Azure AD, configurá-lo para autenticação baseada em certificado, entrar no Azure usando a nova identidade do aplicativo e, em seguida, recuperar as chaves de sua conta do Azure Cosmos. Este artigo usa Azure PowerShell para configurar as identidades e fornece um aplicativo de exemplo em C# que autentica e acessa chaves de sua conta do Azure Cosmos.  
 
@@ -22,7 +24,7 @@ A autenticação baseada em certificado permite que o aplicativo cliente seja au
 
 * Instale a [versão mais recente](/powershell/azure/install-az-ps) do Azure PowerShell.
 
-* Se você não tiver uma [assinatura do Azure](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing), crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
+* Se você não tiver uma [assinatura do Azure](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing), crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
 
 ## <a name="register-an-app-in-azure-ad"></a>Registrar um aplicativo no Azure AD
 
@@ -44,7 +46,7 @@ Nesta etapa, você registrará um aplicativo Web de exemplo em sua conta do Azur
 
 1. Selecione **registrar** depois de preencher o formulário.
 
-1. Depois que o aplicativo for registrado, anote a ID do **aplicativo (cliente)** e a **ID do objeto**, você usará esses detalhes nas próximas etapas. 
+1. Depois que o aplicativo for registrado, anote a ID do **aplicativo (cliente)** e a **ID do objeto** , você usará esses detalhes nas próximas etapas. 
 
    :::image type="content" source="./media/certificate-based-authentication/get-app-object-ids.png" alt-text="Obter o aplicativo e as IDs de objeto":::
 
@@ -63,7 +65,7 @@ Nesta etapa, você instalará o módulo do PowerShell do Azure AD. Esse módulo 
    Set-AzContext $context 
    ```
 
-1. Instalar e importar o módulo [AzureAD](/powershell/module/azuread/?view=azureadps-2.0)
+1. Instalar e importar o módulo [AzureAD](/powershell/module/azuread/?view=azureadps-2.0&preserve-view=true)
 
    ```powershell
    Install-Module AzureAD
@@ -78,7 +80,7 @@ Entre no Azure AD em que você registrou o aplicativo. Use o comando Connect-Azu
 Connect-AzureAD 
 ```
 
-## <a name="create-a-self-signed-certificate"></a>Crie um certificado autoassinado
+## <a name="create-a-self-signed-certificate"></a>Criará um certificado autoassinado
 
 Abra outra instância do ISE do Windows PowerShell e execute os seguintes comandos para criar um certificado autoassinado e ler a chave associada ao certificado:
 
@@ -148,7 +150,7 @@ Nesta etapa, você entrará no Azure usando o aplicativo e o certificado que voc
       -Type "Keys"
    ```
 
-O comando anterior exibirá as chaves mestras primárias e secundárias da sua conta do Azure Cosmos. Você pode exibir o log de atividades da sua conta do Azure Cosmos para validar que a solicitação obter chaves foi bem-sucedida e o evento é iniciado pelo aplicativo "sampleApp".
+O comando anterior exibirá as chaves primárias primárias e secundárias da sua conta do Azure Cosmos. Você pode exibir o log de atividades da sua conta do Azure Cosmos para validar que a solicitação obter chaves foi bem-sucedida e o evento é iniciado pelo aplicativo "sampleApp".
 
 :::image type="content" source="./media/certificate-based-authentication/activity-log-validate-results.png" alt-text="Validar a chamada obter chaves no Azure AD":::
 
@@ -236,7 +238,7 @@ namespace TodoListDaemonWithCert
 }
 ```
 
-Esse script gera as chaves mestras primárias e secundárias, conforme mostrado na seguinte captura de tela:
+Esse script gera as chaves primárias primárias e secundárias, conforme mostrado na seguinte captura de tela:
 
 :::image type="content" source="./media/certificate-based-authentication/csharp-application-output.png" alt-text="saída do aplicativo Csharp":::
 

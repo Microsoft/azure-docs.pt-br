@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/02/2020
-ms.openlocfilehash: 70e0a95a85920562af8bf9d3fffa6633709dccc5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2d8c4d1915e22ccabf193f1b34c5fc4797ead549
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84322083"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040233"
 ---
 # <a name="select-transformation-in-mapping-data-flow"></a>Selecionar transformação no fluxo de dados de mapeamento
 
@@ -44,13 +44,13 @@ Mapeamentos fixos podem ser usados para mapear uma subcoluna de uma coluna hier�
 
 Se você quiser mapear várias colunas de uma vez ou passar as colunas desfeitas, use o mapeamento baseado em regras para definir seus mapeamentos usando padrões de coluna. Corresponder com base nas `name` `type` colunas,, `stream` e `position` . Você pode ter qualquer combinação de mapeamentos fixos e baseados em regras. Por padrão, todas as projeções com mais de 50 colunas serão padronizadas para um mapeamento baseado em regra que corresponde a cada coluna e gera o nome inserido. 
 
-Para adicionar um mapeamento baseado em regras, clique em **Adicionar mapeamento** e selecione **mapeamento baseado em regra**.
+Para adicionar um mapeamento baseado em regras, clique em **Adicionar mapeamento** e selecione **mapeamento baseado em regra** .
 
-![mapeamento baseado em regras](media/data-flow/rule2.png "mapeamento baseado em regras")
+![Captura de tela mostra o mapeamento baseado em regras selecionado em Adicionar mapeamento.](media/data-flow/rule2.png "mapeamento baseado em regras")
 
 Cada mapeamento baseado em regras requer duas entradas: a condição na qual corresponder e o nome de cada coluna mapeada. Os dois valores são inseridos por meio do [Construtor de expressões](concepts-data-flow-expression-builder.md). Na caixa expressão à esquerda, insira sua condição de correspondência booliana. Na caixa expressão à direita, especifique a qual a coluna correspondente será mapeada.
 
-![mapeamento baseado em regras](media/data-flow/rule-based-mapping.png "mapeamento baseado em regras")
+![Captura de tela mostra um mapeamento.](media/data-flow/rule-based-mapping.png "mapeamento baseado em regras")
 
 Use a `$$` sintaxe para fazer referência ao nome de entrada de uma coluna correspondente. Usando a imagem acima como um exemplo, digamos que um usuário queira corresponder a todas as colunas de cadeia de caracteres cujos nomes tenham menos de seis caracteres. Se uma coluna de entrada tiver sido nomeada `test` , a expressão `$$ + '_short'` renomeará a coluna `test_short` . Se esse for o único mapeamento existente, todas as colunas que não atenderem à condição serão descartadas dos dados de saída.
 
@@ -60,7 +60,7 @@ Padrões correspondem a colunas descompassos e definidas. Para ver quais colunas
 
 Se você clicar no ícone de divisa inferior, poderá especificar uma condição de mapeamento de Regex. Uma condição de mapeamento Regex corresponde a todos os nomes de coluna que correspondem à condição Regex especificada. Isso pode ser usado em combinação com mapeamentos padrão baseados em regras.
 
-![mapeamento baseado em regras](media/data-flow/regex-matching.png "mapeamento baseado em regras")
+![Captura de tela mostra a condição de mapeamento Regex com correspondências de nível de hierarquia e nome.](media/data-flow/regex-matching.png "mapeamento baseado em regras")
 
 O exemplo acima corresponde ao padrão Regex `(r)` ou a qualquer nome de coluna que contenha um r com letras minúsculas. Semelhante ao mapeamento baseado em regra padrão, todas as colunas correspondentes são alteradas pela condição à direita usando a `$$` sintaxe.
 
@@ -70,9 +70,9 @@ Se você tiver várias correspondências de Regex em seu nome de coluna, poderá
 
 Se a projeção definida tiver uma hierarquia, você poderá usar o mapeamento baseado em regras para mapear as Subcolunas de hierarquias. Especifique uma condição de correspondência e a coluna complexa cujas Subcolunas você deseja mapear. Todas as Subcolunas correspondentes serão emitidas usando a regra ' nome como ' especificada à direita.
 
-![mapeamento baseado em regras](media/data-flow/rule-based-hierarchy.png "mapeamento baseado em regras")
+![Captura de tela mostra um mapeamento baseado em regra usando para uma hierarquia.](media/data-flow/rule-based-hierarchy.png "mapeamento baseado em regras")
 
-O exemplo acima corresponde a todas as Subcolunas de coluna complexa `a` . `a`contém duas Subcolunas `b` e `c` . O esquema de saída incluirá duas colunas `b` e `c` como a condição ' nome como ' é `$$` .
+O exemplo acima corresponde a todas as Subcolunas de coluna complexa `a` . `a` contém duas Subcolunas `b` e `c` . O esquema de saída incluirá duas colunas `b` e `c` como a condição ' nome como ' é `$$` .
 
 ### <a name="parameterization"></a>Parametrização
 

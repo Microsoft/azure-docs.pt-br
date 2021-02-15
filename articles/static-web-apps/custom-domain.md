@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: buhollan
-ms.openlocfilehash: 61ec96a35fac6a033fe6c8b65cff156ba63e5e58
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 578860883a108bba4b4bcd8cd04e8c08f484d474
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87563339"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173676"
 ---
 # <a name="setup-a-custom-domain-in-azure-static-web-apps-preview"></a>Configurar um domínio personalizado nos Aplicativos Web Estáticos do Azure – Visualização
 
@@ -29,11 +29,11 @@ Ao configurar nomes de domínio, os registros "A" são usados para mapear domín
 
 Há alguns tipos diferentes de configurações de DNS disponíveis para um aplicativo.
 
-| Se desejar                                 | Então                                                |
-| -----------------------------------------------| --------------------------------------------------- |
-| Suporte `www.example.com` ou`blog.example.net`| [Mapear um registro CNAME](#map-a-cname-record)           |
-| Dar suporte à `example.com`                          | [Configurar um domínio raiz](#configure-a-root-domain) |
-| Apontar todos os subdomínios para `www.example.com`      | [Mapear um caractere curinga](#map-a-wildcard-domain)            |
+| Se desejar | Então |
+|--|--|
+| Suporte `www.example.com` ou `blog.example.net` | [Mapear um registro CNAME](#map-a-cname-record) |
+| Dar suporte à `example.com` | [Configurar um domínio raiz](#configure-a-root-domain) |
+| Apontar todos os subdomínios para `www.example.com` | [Mapear um caractere curinga](#map-a-wildcard-domain) |
 
 ## <a name="map-a-cname-record"></a>Criar um registro CNAME
 
@@ -46,6 +46,8 @@ Um registro CNAME mapeia um domínio para outro. Você pode usar um registro CNA
 1. Na página _Aplicativos Web Estáticos_, selecione o nome do seu aplicativo.
 
 1. Clique em **Domínios personalizados** no menu.
+
+1. Clique no botão **Adicionar**
 
 1. Na janela _Domínios personalizados_, copie a URL no campo **Valor**.
 

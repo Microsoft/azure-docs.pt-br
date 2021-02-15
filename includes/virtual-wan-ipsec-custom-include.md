@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/07/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: e2a950037aed2a8ded4d4e55920721285cbfc05c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 83f0ce27172879a37de9488499e46de30b8e112c
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82204671"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98147416"
 ---
 Ao trabalhar com políticas IPsec personalizadas, tenha em mente os seguintes requisitos:
 
@@ -26,7 +26,7 @@ Ao trabalhar com políticas IPsec personalizadas, tenha em mente os seguintes re
 
 **Configurações e parâmetros disponíveis**
 
-| Setting | Parâmetros |
+| Configuração | Parâmetros |
 |--- |--- |
 | Criptografia IKE | GCMAES256, GCMAES128, AES256, AES128 |
 | Integridade do IKE | SHA384, SHA256 |
@@ -34,3 +34,4 @@ Ao trabalhar com políticas IPsec personalizadas, tenha em mente os seguintes re
 | Criptografia IPsec | GCMAES256, GCMAES128, AES256, AES128, nenhum |
 | Integridade do IPsec | GCMAES256, GCMAES128, SHA256 |
 | Grupo PFS | ECP384, ECP256, PFS24, PFS14, None |
+| Tempo de vida da SA |valores mínimo de 300/padrão 27000 segundos |

@@ -5,12 +5,12 @@ author: jjbfour
 ms.topic: tutorial
 ms.date: 06/19/2019
 ms.author: jobreen
-ms.openlocfilehash: b6984bfdf7ec078d02999bccf77f3592cfbcab27
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 55554678047faeedd16b78dea61a42d50fd59491
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75648673"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737313"
 ---
 # <a name="set-up-azure-functions-for-azure-custom-providers"></a>Configurar o Azure Functions para os Provedores Personalizados do Azure
 
@@ -21,7 +21,7 @@ Um provedor personalizado é um contrato entre o Azure e um ponto de extremidade
 > [!NOTE]
 > Neste tutorial, você criará um ponto de extremidade de serviço simples que usa um aplicativo de funções do Azure. No entanto, um provedor personalizado pode usar qualquer ponto de extremidade publicamente acessível. As alternativas incluem Aplicativos Lógicos do Azure, Gerenciamento de API do Azure e o recurso Aplicativos Web do Serviço de Aplicativo do Azure.
 
-Para iniciar este tutorial, primeiro você deve seguir o tutorial [Criar seu primeiro aplicativo de funções do Azure no portal do Azure](../../azure-functions/functions-create-first-azure-function.md). Esse tutorial cria uma função de webhook do .NET Core que pode ser modificada no portal do Azure. Também é a base para o tutorial atual.
+Para iniciar este tutorial, primeiro você deve seguir o tutorial [Criar seu primeiro aplicativo de funções do Azure no portal do Azure](../../azure-functions/functions-get-started.md). Esse tutorial cria uma função de webhook do .NET Core que pode ser modificada no portal do Azure. Também é a base para o tutorial atual.
 
 ## <a name="install-azure-table-storage-bindings"></a>Instalar as associações do Armazenamento de Tabelas do Azure
 
@@ -51,7 +51,7 @@ Para configurar a função do Azure para incluir os métodos de solicitação RE
 > [!NOTE]
 > Se o arquivo de projeto C# estiver ausente do diretório do projeto, adicione-o manualmente. Ou ele será exibido depois que a extensão Microsoft.Azure.WebJobs.Extensions.Storage for instalada no aplicativo de funções.
 
-Em seguida, atualize o arquivo de projeto C# para incluir bibliotecas úteis do NuGet. Essas bibliotecas facilitam a análise das solicitações de entrada de provedores personalizados. Siga as etapas para [adicionar extensões por meio do portal](../../azure-functions/install-update-binding-extensions-manual.md) e atualize o arquivo de projeto C# para incluir as seguintes referências de pacote:
+Em seguida, atualize o arquivo de projeto C# para incluir bibliotecas úteis do NuGet. Essas bibliotecas facilitam a análise das solicitações de entrada de provedores personalizados. Siga as etapas para [adicionar extensões por meio do portal](../../azure-functions/functions-bindings-register.md) e atualize o arquivo de projeto C# para incluir as seguintes referências de pacote:
 
 ```xml
 <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.Storage" Version="3.0.4" />
@@ -80,4 +80,3 @@ O seguinte elemento XML é um arquivo de projeto C# de exemplo:
 Neste tutorial, você configurou um aplicativo de funções do Azure para funcionar como um ponto de extremidade de provedor personalizado do Azure.
 
 Para saber como criar um ponto de extremidade de provedor personalizado RESTful, confira [Tutorial: Como criar um ponto de extremidade de provedor personalizado RESTful](./tutorial-custom-providers-function-authoring.md).
-

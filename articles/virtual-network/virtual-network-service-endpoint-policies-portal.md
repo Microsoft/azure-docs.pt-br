@@ -13,11 +13,11 @@ ms.workload: infrastructure
 ms.date: 02/21/2020
 ms.author: rdhillon
 ms.openlocfilehash: bdf0e87c92a55d0dbb5bbe34334a6de4580cb350
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708171"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004952"
 ---
 # <a name="create-change-or-delete-service-endpoint-policy-using-the-azure-portal"></a>Criar, alterar ou excluir a política de ponto de extremidade de serviço usando o portal do Azure
 
@@ -99,7 +99,7 @@ Entre no Portal do Azure em https://portal.azure.com.
 
 - Antes de poder associar uma política a uma sub-rede, você precisa criar uma rede virtual e uma sub-rede. Veja o artigo [criar uma rede virtual](./quick-create-portal.md) para obter ajuda com isso.
 
-- Depois que a rede virtual e a sub-rede forem configuradas, você precisará configurar pontos de extremidade de serviço de rede virtual para o armazenamento do Azure. Na folha rede virtual, selecione **pontos de extremidade de serviço**e, no próximo painel, selecione **Microsoft. Storage** e, em sub- **redes** , selecione a VNet ou sub-rede desejada
+- Depois que a rede virtual e a sub-rede forem configuradas, você precisará configurar pontos de extremidade de serviço de rede virtual para o armazenamento do Azure. Na folha rede virtual, selecione **pontos de extremidade de serviço** e, no próximo painel, selecione **Microsoft. Storage** e, em sub- **redes** , selecione a VNet ou sub-rede desejada
 
 - Agora, você pode optar por selecionar a política de ponto de extremidade de serviço na lista suspensa no painel acima se já tiver criado políticas de ponto de extremidade de serviço antes de configurar o ponto de extremidade de serviço para a sub-rede, conforme mostrado abaixo
 

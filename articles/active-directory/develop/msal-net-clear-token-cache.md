@@ -13,12 +13,12 @@ ms.date: 05/07/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 9a86a535bf429dcc81810c6c39ba415a158b20ec
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 3049a1213b8b92153fc0fce96b2dadace01a4ca8
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88166205"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98064752"
 ---
 # <a name="clear-the-token-cache-using-msalnet"></a>Limpar o cache de token usando MSAL.NET
 

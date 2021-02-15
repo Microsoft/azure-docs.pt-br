@@ -2,19 +2,15 @@
 title: Como solucionar problemas do Windows Update Agent na Automação do Azure
 description: Este artigo explica como solucionar problemas com o Windows Update Agent no Gerenciamento de Atualizações.
 services: automation
-author: mgoedtel
-ms.author: magoedte
-ms.date: 01/16/2020
-ms.topic: conceptual
-ms.service: automation
+ms.date: 01/25/2020
+ms.topic: troubleshooting
 ms.subservice: update-management
-manager: carmonm
-ms.openlocfilehash: 92020313fccf1b8be0add58a7bafab62b5daa4d5
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: d4fbc566cb82eb3b728b37aa1f1cc20ff92f4fca
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187125"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896233"
 ---
 # <a name="troubleshoot-windows-update-agent-issues"></a>Solucionar problemas do Windows Update Agent
 
@@ -27,10 +23,10 @@ Podem haver muitas razões pelas quais o computador não está aparecendo como p
 > [!NOTE]
 > Pode haver um pequeno atraso entre o que o portal do Azure mostra e o estado atual de um computador.
 
-Este artigo descreve como executar a solução de problemas em computadores do Azure no portal do Azure e em computadores não Azure no [cenário offline](#troubleshoot-offline). 
+Este artigo descreve como executar a solução de problemas em computadores do Azure no portal do Azure e em computadores não Azure no [cenário offline](#troubleshoot-offline).
 
 > [!NOTE]
-> O script de solução de problemas agora inclui verificações para o Windows Server Update Services (WSUS), para o download automático e para as chaves de instalação. 
+> O script de solução de problemas agora inclui verificações para o Windows Server Update Services (WSUS), para o download automático e para as chaves de instalação.
 
 ## <a name="start-the-troubleshooter"></a>Iniciar a solução de problemas
 
@@ -110,7 +106,7 @@ A verificação de acesso à pasta Crypto determina se a conta do sistema local 
 
 ## <a name="troubleshoot-offline"></a><a name="troubleshoot-offline"></a>Solucionar problemas offline
 
-Você pode usar o solucionador de problemas em um Hybrid Runbook Worker offline, executando o script localmente. Obtenha o seguinte script na Galeria do PowerShell: [Troubleshoot-WindowsUpdateAgentRegistration](https://www.powershellgallery.com/packages/Troubleshoot-WindowsUpdateAgentRegistration). Para executar o script, você deve ter o WMF 4.0 ou posterior instalado. Para baixar a versão mais recente do PowerShell, veja [Instalação de várias versões do PowerShell](/powershell/scripting/install/installing-powershell).
+Você pode usar o solucionador de problemas em um Hybrid Runbook Worker offline, executando o script localmente. Obtenha o seguinte script do GitHub: [UM_Windows_Troubleshooter_Offline.ps1](https://github.com/Azure/updatemanagement/blob/main/UM_Windows_Troubleshooter_Offline.ps1). Para executar o script, você deve ter o WMF 4.0 ou posterior instalado. Para baixar a versão mais recente do PowerShell, veja [Instalação de várias versões do PowerShell](/powershell/scripting/install/installing-powershell).
 
 A saída deste script se parece com o seguinte exemplo:
 

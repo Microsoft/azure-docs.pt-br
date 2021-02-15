@@ -1,6 +1,6 @@
 ---
 title: Ajuste de desempenho com exibições materializadas
-description: Recomendações e considerações que você deve saber ao usar as exibições materializadas para melhorar o desempenho da consulta.
+description: Saiba mais sobre as recomendações e considerações que você deve saber ao usar exibições materializadas para melhorar o desempenho da consulta.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -9,27 +9,27 @@ ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 09/05/2019
 ms.author: xiaoyul
-ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: e624cf343209af722bfd007bd66a5e48b56eaff2
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.reviewer: nibruno; jrasnick; azure-synapse
+ms.openlocfilehash: e137611809e2d2beefecfeaea11b4295bf6ba141
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85956382"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678484"
 ---
 # <a name="performance-tune-with-materialized-views"></a>Ajuste de desempenho com exibições materializadas
 
-As exibições materializadas no pool de SQL do Synapse fornecem um método de baixa manutenção para que as consultas analíticas complexas obtenham desempenho rápido sem nenhuma alteração na consulta. Este artigo discute as orientações gerais sobre o uso de exibições materializadas.
+Exibições materializadas no pool do SQL Synapse do Azure fornecem um método de baixa manutenção para consultas analíticas complexas para obter um desempenho rápido sem nenhuma alteração de consulta. Este artigo discute as orientações gerais sobre o uso de exibições materializadas.
 
 ## <a name="materialized-views-vs-standard-views"></a>Exibições materializadas vs. exibições padrão
 
-O pool de SQL é compatível com exibições padrão e materializadas.  Ambas são tabelas virtuais criadas com expressões SELECT e apresentadas às consultas como tabelas lógicas.  As exibições encapsulam a complexidade da computação de dados comum e adicionam uma camada de abstração às alterações de computação para que não seja necessário regravar consultas.  
+O pool do SQL no Azure Synapse dá suporte a exibições padrão e materializadas.  Ambas são tabelas virtuais criadas com expressões SELECT e apresentadas às consultas como tabelas lógicas.  As exibições encapsulam a complexidade da computação de dados comum e adicionam uma camada de abstração às alterações de computação para que não seja necessário regravar consultas.  
 
-Uma exibição padrão calcula os dados sempre que a exibição é usada.  Não há dados armazenados no disco. Normalmente, as pessoas usam exibições padrão como uma ferramenta que ajuda a organizar os objetos lógicos e as consultas em um banco de dados.  Para usar a exibição padrão, uma consulta precisa fazer referência direta a ela.
+Uma exibição padrão calcula os dados sempre que a exibição é usada.  Não há dados armazenados no disco. Normalmente, as pessoas usam modos de exibição padrão como uma ferramenta que ajuda a organizar os objetos lógicos e as consultas em um pool do SQL.  Para usar a exibição padrão, uma consulta precisa fazer referência direta a ela.
 
 Uma exibição materializada pré-calcula, armazena e mantém seus dados no pool de SQL como uma tabela.  Não é necessário recálculo sempre que uma exibição materializada é usada.  É por isso que as consultas que usam todos ou criam subconjuntos dos dados em exibições materializadas podem obter desempenho mais rápido.  Melhor ainda, as consultas podem usar uma exibição materializada sem fazer referência direta a ela. Portanto, não há necessidade de alterar o código do aplicativo.  
 
-A maioria dos requisitos em uma exibição padrão ainda se aplica a uma exibição materializada. Para obter detalhes sobre a sintaxe de exibição materializada e outros requisitos, confira [CREATE MATERIALIZED VIEW AS SELECT](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+A maioria dos requisitos em uma exibição padrão ainda se aplica a uma exibição materializada. Para obter detalhes sobre a sintaxe de exibição materializada e outros requisitos, confira [CREATE MATERIALIZED VIEW AS SELECT](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
 
 | Comparação                     | Visualizar                                         | Exibição Materializada
 |:-------------------------------|:---------------------------------------------|:--------------------------------------------------------------|
@@ -52,11 +52,11 @@ Uma exibição materializada projetada adequadamente fornece os seguintes benef�
 
 As exibições materializadas implementadas no pool de SQL também fornecem os seguintes benefícios adicionais:
 
-Em comparação com outros provedores de data warehouse, as exibições materializadas implementadas no Azure SQL Data Warehouse também fornecem os seguintes benefícios adicionais:
+Comparando com outros provedores de data warehouse, as exibições materializadas implementadas no Azure Synapse Analytics também fornecem os seguintes benefícios adicionais:
 
 - atualização automática e síncrona de dados com alterações de dados em tabelas base. Não é necessária nenhuma ação do usuário.
-- Amplo suporte à função de agregação. Confira [CREATE MATERIALIZED VIEW AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
-- O suporte para recomendação de exibição materializada específica de consulta.  Confira [EXPLAIN (Transact-SQL)](/sql/t-sql/queries/explain-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+- Amplo suporte à função de agregação. Confira [CREATE MATERIALIZED VIEW AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
+- O suporte para recomendação de exibição materializada específica de consulta.  Confira [EXPLAIN (Transact-SQL)](/sql/t-sql/queries/explain-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 ## <a name="common-scenarios"></a>Cenários comuns  
 
@@ -79,7 +79,7 @@ Em comparação com outras opções de ajuste, como gerenciamento de escala e es
 
 **Necessidade de uma estratégia de distribuição de dados diferente para um desempenho de consulta mais rápido**
 
-O pool de SQL é um sistema MPP (processamento paralelo maciço) distribuído.   Os dados em uma tabela de pool de SQL são distribuídos entre 60 nós usando uma das três [estratégias de distribuição](sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) (hash, round_robin ou replicada).  
+O Azure Synapse Analytics é um sistema de processamento de consulta distribuído.  Os dados em uma tabela SQL são distribuídos entre 60 nós usando uma das três [estratégias de distribuição](sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) (hash, round_robin ou replicado).   
 
 A distribuição de dados é especificada no momento da criação da tabela e permanece inalterada até que a tabela seja descartada. A exibição materializada, sendo uma tabela virtual em disco, é compatível com as distribuições de dados de hash e round_robin.  Os usuários podem escolher uma distribuição de dados diferente das tabelas base, mas ideal para o desempenho de consultas que usam mais as exibições.  
 
@@ -97,11 +97,11 @@ Avalie essas recomendações com as necessidades da carga de trabalho em mente. 
 
 **Esteja atento à compensação entre consultas mais rápidas e o custo**
 
-Para cada exibição materializada, há um custo de armazenamento de dados e um custo para manter a exibição.  À medida que os dados são alterados nas tabelas base, o tamanho da exibição materializada aumenta e sua estrutura física também muda.  Para evitar a degradação do desempenho da consulta, cada exibição materializada é mantida separadamente pelo mecanismo do pool de SQL.  
+Para cada exibição materializada, há um custo de armazenamento de dados e um custo para manter a exibição.  À medida que os dados são alterados nas tabelas base, o tamanho da exibição materializada aumenta e sua estrutura física também muda.  Para evitar a degradação do desempenho da consulta, cada exibição materializada é mantida separadamente pelo mecanismo de análise do SQL.  
 
 A carga de trabalho de manutenção aumenta mais quando o número de exibições materializadas e alterações na tabela base aumenta.   Os usuários devem verificar se o custo incorrido de todas as exibições materializadas pode ser compensado pelo ganho de desempenho da consulta.  
 
-Você pode executar essa consulta para a lista de exibições materializadas em um banco de dados:
+Você pode executar essa consulta para a lista de exibições materializadas em um pool do SQL:
 
 ```sql
 SELECT V.name as materialized_view, V.object_id
@@ -141,7 +141,7 @@ GROUP BY A, C
 
 **Nem todo ajuste de desempenho requer alteração de consulta**
 
-O otimizador do pool de SQL pode usar automaticamente as exibições materializadas implantadas para melhorar o desempenho da consulta.  Esse suporte é aplicado de forma transparente a consultas que não fazem referência a exibições e consultas que usam agregações sem suporte na criação de exibições materializadas.  Nenhuma alteração de consulta é necessária. Você pode verificar o plano de execução estimado de uma consulta para confirmar se uma exibição materializada é usada.  
+O otimizador de análise do SQL pode usar automaticamente exibições materializadas implantadas para melhorar o desempenho da consulta.  Esse suporte é aplicado de forma transparente a consultas que não fazem referência a exibições e consultas que usam agregações sem suporte na criação de exibições materializadas.  Nenhuma alteração de consulta é necessária. Você pode verificar o plano de execução estimado de uma consulta para confirmar se uma exibição materializada é usada.  
 
 **Monitorar exibições materializadas**
 
@@ -151,7 +151,7 @@ Para evitar a degradação do desempenho da consulta, recomenda-se executar [DBC
 
 **Cache de exibição materializada e conjunto de resultados**
 
-Esses dois recursos são introduzidos no pool de SQL ao mesmo tempo para o ajuste do desempenho da consulta.  O cache do conjunto de resultados é usado para obter alta simultaneidade e resposta rápida de consultas repetitivas em dados estáticos.  
+Esses dois recursos são introduzidos na análise de SQL ao mesmo tempo para o ajuste de desempenho de consulta.  O cache do conjunto de resultados é usado para obter alta simultaneidade e resposta rápida de consultas repetitivas em dados estáticos.  
 
 Para usar o resultado em cache, a forma da consulta de solicitação de cache deve corresponder à consulta que o cache produziu.  Além disso, o resultado em cache deve se aplicar à toda a consulta.  
 

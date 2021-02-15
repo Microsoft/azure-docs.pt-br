@@ -1,26 +1,19 @@
 ---
 title: Implantar SAP IDES EHP7 SP3 para SAP ERP 6.0 no Azure | Microsoft Docs
 description: Implantar SAP IDES EHP7 SP3 para SAP ERP 6.0 no Azure
-services: virtual-machines-windows
-documentationcenter: ''
 author: hermanndms
-manager: juergent
-editor: ''
-tags: azure-resource-manager
-keywords: ''
-ms.assetid: 626c1523-1026-478f-bd8a-22c83b869231
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.subservice: workloads
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure-services
 ms.date: 09/16/2016
 ms.author: hermannd
-ms.openlocfilehash: 3efd92226b7c69590f3960458ffec49b63b8364f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.reviewer: cynthn
+ms.openlocfilehash: dc0c1744c2943d33d516de4ed9d28893541773ad
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77616700"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94957870"
 ---
 # <a name="deploy-sap-ides-ehp7-sp3-for-sap-erp-60-on-azure"></a>Implantar SAP IDES EHP7 SP3 para SAP ERP 6.0 no Azure
 Este artigo descreve como implantar o sistema SAP IDES em execução com o SQL Server e o sistema operacional Windows no Azure via SAP Cloud Appliance Library (SAP CAL) 3.0. As capturas de tela mostram o processo passo a passo. Para implantar uma solução diferente, siga as mesmas etapas.
@@ -54,11 +47,11 @@ Depois de entrar na SAP CAL, a primeira página geralmente leva você para a pá
 
     b. **Microsoft Azure** é o novo modelo de implantação do Resource Manager.
 
-    ![Contas da SAP CAL](./media/cal-ides-erp6-ehp7-sp3-sql/s4h-pic-2a.PNG)
+    ![A captura de tela mostra as contas de P CAL com Microsoft Azure chamado.](./media/cal-ides-erp6-ehp7-sp3-sql/s4h-pic-2a.PNG)
 
     Para implantar no modelo do Resource Manager, selecione **Microsoft Azure**.
 
-    ![Contas da SAP CAL](./media/cal-ides-erp6-ehp7-sp3-sql/s4h-pic3c.PNG)
+    ![A captura de tela mostra S as contas P CAL.](./media/cal-ides-erp6-ehp7-sp3-sql/s4h-pic3c.PNG)
 
 1. Insira a **ID da assinatura** do Azure que pode ser encontrada no portal do Azure. 
 

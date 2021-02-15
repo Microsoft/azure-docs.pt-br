@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/23/2018
+ms.date: 09/25/2020
 ms.author: alkohli
-ms.openlocfilehash: 0fc18c6d67935889b0ba0c306dc326eca3b888f5
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 58b7b67842e9ba385b34ea4d8fdbcac190076218
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88184288"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99428159"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-8000-series-device"></a>Migrar dados do StorSimple série 5000-7000 para um dispositivo série 8000
 
@@ -55,7 +55,7 @@ Uma migração do host permite a configuração da série 8000 independentemente
 | A migração pode ser abordada em fases ou com base em cada volume.                                               | Os backups anteriores (obtidos na série 5000/7000) não estão disponíveis no dispositivo da série 8000.                                                                                                       |
 | Permite a consolidação de dados em uma conta de armazenamento do Azure.                                                       | O primeiro backup na nuvem na série 8000 levará mais tempo porque todos os dados na série 8000 precisam ter o backup feito no Azure.                                                                     |
 | Após a migração bem-sucedida, todos os dados ficam localmente no dispositivo. Não há nenhuma latência ao acessar os dados. | O consumo de armazenamento do Azure aumentará até que os dados sejam excluídos do dispositivo 5000/7000.                                                                                                        |
-|                                                                                                                           | Se o dispositivo da série 5000/7000 tem uma grande quantidade de dados, durante a migração os dados precisam ser baixados do Azure, o que vai gerar custos e latências relativos ao download de dados do Azure |
+|                                                                                                                           | Se o dispositivo da série 7000/5000 tiver uma grande quantidade de dados, durante a migração, esses dados precisarão ser baixados do Azure, o que incorrerá em custos e latências relacionados ao download de dados do Azure |
 
 Este artigo se concentra somente no recurso de migração do dispositivo da série 5000/7000 para a série 8000. Para saber mais sobre a migração do lado do host, acesse [Migração de outros dispositivos de armazenamento](https://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating%20Data%20to%20StorSimple%20Volumes_09-02-15.pdf).
 
@@ -80,8 +80,8 @@ Antes de começar a migração, verifique se:
 
     ![Verificar a versão do software no dispositivo herdado](media/storsimple-8000-migrate-from-5000-7000/check-version-legacy-device1.png)
 
-    * Se o seu dispositivo ligado não está executando a versão 2.1.1.518 ou posterior, atualize o sistema para a versão mínima necessária. Para obter instruções detalhadas, consulte [Atualizar seu sistema para v2.1.1.518](http://onlinehelp.storsimple.com/111_Appliance/6_System_Upgrade_Guides/Current_(v2.1.1)/000_Software_Patch_Upgrade_Guide_v2.1.1.518).
-    * Se você estiver executando a versão 2.1.1.518, acesse a interface da Web para ver se há notificações sobre falhas de restauração do registro. Se a restauração do registro falhou, execute a restauração do registro. Para saber mais, vá para [Como executar a restauração do registro](http://onlinehelp.storsimple.com/111_Appliance/2_User_Guides/1_Current_(v2.1.1)/1_Web_UI_User_Guide_WIP/2_Configuration/4_Cloud_Accounts/1_Cloud_Credentials#Restoring_Backup_Registry).
+    * Se o seu dispositivo ligado não está executando a versão 2.1.1.518 ou posterior, atualize o sistema para a versão mínima necessária. Talvez seja necessário trabalhar com Suporte da Microsoft para ajudá-lo a realizar a atualização.
+    * Se você estiver executando a versão 2.1.1.518, acesse a interface da Web para ver se há notificações sobre falhas de restauração do registro. Se a restauração do registro falhou, execute a restauração do registro. Talvez seja necessário trabalhar com Suporte da Microsoft para ajudá-lo a restaurar o registro.
     * Se você tiver um dispositivo desligado que não estava executando a versão 2.1.1.518, faça failover em um dispositivo de substituição que esteja executando a versão 2.1.1.518. Para obter instruções detalhadas, consulte a recuperação de desastre do seu dispositivo StorSimple série 5000/7000.
     * Faça backup dos dados para seu dispositivo usando um instantâneo de nuvem.
     * Verifique se há outros trabalhos de backup ativos em execução no dispositivo de origem. Isso inclui trabalhos no host do Console de Proteção de Dados do StorSimple. Aguarde até que os trabalhos atuais sejam concluídos.
@@ -150,4 +150,4 @@ Execute as etapas a seguir para instalar a ferramenta de migração do StorSimpl
   
 
 ## <a name="next-steps"></a>Próximas etapas
-Baixe as instruções passo a passo sobre como [migrar dados de um StorSimple série 5000-7000 para um dispositivo da série 8000](https://gallery.technet.microsoft.com/Azure-StorSimple-50007000-c1a0460b).
+Baixe as instruções passo a passo sobre como [migrar dados de um StorSimple série 5000-7000 para um dispositivo da série 8000](https://databoxbuilds.blob.core.windows.net/storsimpledocs/MicrosoftAzureStorSimple_Migration_Guide_20171115.pdf).

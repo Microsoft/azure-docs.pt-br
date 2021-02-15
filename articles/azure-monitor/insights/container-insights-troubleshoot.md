@@ -3,12 +3,12 @@ title: Como solucionar problemas do Azure Monitor para contêineres | Microsoft 
 description: Este artigo descreve como você pode solucionar e resolver problemas com o Azure Monitor para contêineres.
 ms.topic: conceptual
 ms.date: 07/21/2020
-ms.openlocfilehash: fcd799c63e4afb68d96f67d1c03016a4d3b10f34
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5727702ff973523ce7ab6400c1c7748e0584acbf
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87092823"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010581"
 ---
 # <a name="troubleshooting-azure-monitor-for-containers"></a>Solução de problemas do Azure Monitor para contêineres
 
@@ -23,7 +23,7 @@ Durante a integração ou o processo de atualização, é tentada a concessão d
 Você também pode conceder manualmente essa função da portal do Azure executando as seguintes etapas:
 
 1. Entre no [portal do Azure](https://portal.azure.com).
-2. No portal do Azure, clique em **Todos os serviços**, encontrado no canto superior esquerdo. Na lista de recursos, digite **kubernetes**. À medida que você começa a digitar, a lista filtra com base em sua entrada. Selecione **Azure kubernetes**.
+2. No portal do Azure, clique em **Todos os serviços**, encontrado no canto superior esquerdo. Na lista de recursos, digite **kubernetes**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Selecione **Azure kubernetes**.
 3. Na lista de clusters kubernetes, selecione um na lista.
 2. No menu à esquerda, clique em **controle de acesso (iam)**.
 3. Selecione **+ Adicionar** para adicionar uma atribuição de função e selecione a função de **Editor de métricas de monitoramento** e, na caixa **selecionar** , digite **AKs** para filtrar os resultados em apenas as entidades de serviço de clusters definidas na assinatura. Selecione aquele na lista específica para esse cluster.
@@ -92,7 +92,7 @@ A tabela abaixo resume os erros conhecidos que você pode encontrar ao usar o Mo
 | Mensagem de erro `Error retrieving data` | Enquanto o cluster do serviço kubernetes do Azure está configurando para monitoramento de integridade e desempenho, uma conexão é estabelecida entre o cluster e o espaço de trabalho do Azure Log Analytics. Um espaço de trabalho do Log Analytics é usado para armazenar todos os dados de monitoramento do cluster. Esse erro pode ocorrer quando seu espaço de trabalho Log Analytics foi excluído. Verifique se o espaço de trabalho foi excluído e, se ele foi, será necessário reabilitar o monitoramento do cluster com Azure Monitor para contêineres e especificar um novo espaço de trabalho ou criar um existente. Para reabilitar, você precisará [desabilitar](container-insights-optout.md) o monitoramento do cluster e [habilitar](container-insights-enable-new-cluster.md) Azure monitor para contêineres novamente. |
 | `Error retrieving data` Depois de adicionar o Azure Monitor para contêineres por meio da cli do az aks | Ao habilitar o monitoramento usando `az aks cli` , os Azure monitor para contêineres podem não ser implantados corretamente. Verifique se a solução está implantada. Para verificar, acesse o espaço de trabalho Log Analytics e veja se a solução está disponível selecionando **soluções** no painel à esquerda. Para resolver esse problema, você precisará reimplantar a solução seguindo as instruções em [como implantar o Monitor do Azure para contêineres](container-insights-onboard.md) |
 
-Para ajudar a diagnosticar o problema, fornecemos um script de solução de problemas disponível [aqui](https://raw.githubusercontent.com/microsoft/Docker-Provider/ci_dev/scripts/troubleshoot/TroubleshootError_nonAzureK8s.ps1).
+Para ajudar a diagnosticar o problema, fornecemos um [script de solução de problemas](https://aka.ms/troubleshooting-script).
 
 ## <a name="azure-monitor-for-containers-agent-replicaset-pods-are-not-scheduled-on-non-azure-kubernetes-cluster"></a>O Azure Monitor para os pods do agente de Réplicaset de contêineres não estão agendados no cluster kubernetes não Azure
 

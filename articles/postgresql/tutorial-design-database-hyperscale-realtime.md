@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Criar um painel em tempo real – Hiperescala (Citus) – Banco de Dados do Azure para PostgreSQL'
-description: Este tutorial mostra como criar, preencher e consultar tabelas distribuídas em Hiperescala (Citus) do Banco de Dados do Azure para PostgreSQL.
+description: Este tutorial mostra como paralelizar consultas de painel em tempo real com Hiperescala (Citus) do Banco de Dados do Azure para PostgreSQL.
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
@@ -8,12 +8,12 @@ ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 05/14/2019
-ms.openlocfilehash: db3cd95c5a833b299ee85c1e68b15644ae0e0226
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 480af87519f8e11c14f009058b0f518bdfc34a1b
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387567"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026260"
 ---
 # <a name="tutorial-design-a-real-time-analytics-dashboard-by-using-azure-database-for-postgresql--hyperscale-citus"></a>Tutorial: Criar um painel de análise em tempo real usando o Banco de Dados do Azure para PostgreSQL – Hiperescala (Citus)
 
@@ -226,6 +226,5 @@ Nas etapas anteriores, você criou recursos do Azure em um grupo de servidores. 
 
 Neste tutorial, você aprendeu a provisionar um grupo de servidores Hyperscale (Citus). Você conectou ele com o psql, criou um esquema e distribuiu dados. Você aprendeu a consultar os dados na forma bruta, agregar regularmente esses dados, consultar as tabelas agregadas e expirar os dados antigos.
 
-A seguir, saiba mais sobre os conceitos de hiperescala.
-> [!div class="nextstepaction"]
-> [Tipos de nó de hiperescala](https://aka.ms/hyperscale-concepts)
+- Saiba mais sobre os [tipos de nó](./concepts-hyperscale-nodes.md) do grupo de servidores
+- Determinar o melhor [tamanho inicial](howto-hyperscale-scale-initial.md) para seu grupo de servidores

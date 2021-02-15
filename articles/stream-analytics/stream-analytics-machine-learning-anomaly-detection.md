@@ -1,18 +1,17 @@
 ---
 title: Detecção de anomalias no Azure Stream Analytics
 description: Este artigo descreve como usar o Azure Stream Analytics e o Azure Machine Learning em conjunto para detectar anomalias.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: krishna0815
+ms.author: krishmam
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/21/2019
-ms.openlocfilehash: 69824df1b84f6cdfafa08a662816281442ad44fd
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: c7cb8e40bc9a8f6664d8286ad368e2613495878b
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044372"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020291"
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Detecção de anomalias no Azure Stream Analytics
 
@@ -42,7 +41,7 @@ Um gerador de anomalias disponível [aqui](https://aka.ms/asaanomalygenerator) p
 
 ## <a name="spike-and-dip"></a>Pico e queda
 
-As anomalias temporárias em um fluxo de eventos de série temporal são conhecidas como picos e quedas. Os picos e quedas podem ser monitorados usando o operador baseado em Machine Learning, [AnomalyDetection_SpikeAndDip](https://docs.microsoft.com/stream-analytics-query/anomalydetection-spikeanddip-azure-stream-analytics
+As anomalias temporárias em um fluxo de eventos de série temporal são conhecidas como picos e quedas. Os picos e quedas podem ser monitorados usando o operador baseado em Machine Learning, [AnomalyDetection_SpikeAndDip](/stream-analytics-query/anomalydetection-spikeanddip-azure-stream-analytics
 ).
 
 ![Exemplo de anomalia de pico e queda](./media/stream-analytics-machine-learning-anomaly-detection/anomaly-detection-spike-dip.png)
@@ -74,7 +73,7 @@ FROM AnomalyDetectionStep
 
 ## <a name="change-point"></a>Ponto de alteração
 
-As anomalias persistentes em um fluxo de eventos de série temporal são alterações na distribuição de valores no fluxo de eventos, como alterações e tendências no nível. No Stream Analytics, tais anomalias são detectadas usando o operador [AnomalyDetection_ChangePoint](https://docs.microsoft.com/stream-analytics-query/anomalydetection-changepoint-azure-stream-analytics) baseado em Machine Learning.
+As anomalias persistentes em um fluxo de eventos de série temporal são alterações na distribuição de valores no fluxo de eventos, como alterações e tendências no nível. No Stream Analytics, tais anomalias são detectadas usando o operador [AnomalyDetection_ChangePoint](/stream-analytics-query/anomalydetection-changepoint-azure-stream-analytics) baseado em Machine Learning.
 
 As alterações persistentes duram muito mais que picos e quedas e podem indicar eventos catastróficos. As alterações persistentes geralmente não são vistas a olho nu, mas podem ser detectadas com o operador **AnomalyDetection_ChangePoint**.
 
@@ -119,7 +118,7 @@ O desempenho desses modelos depende do tamanho do histórico, da duração da ja
 * **Carga de eventos** -quanto maior a **carga de eventos**, mais trabalho é executado pelos modelos, o que afeta o consumo da CPU. O trabalho pode ser escalado horizontalmente, tornando-o embaraçosamente paralelo, pressupondo que faça sentido para que a lógica comercial use mais partições de entrada.
 * Particionamento de nível de **função**  -  O **particionamento de nível de função** é feito usando ```PARTITION BY``` a chamada de função de detecção de anomalias. Esse tipo de particionamento adiciona uma sobrecarga, pois o estado precisa ser mantido para vários modelos ao mesmo tempo. O particionamento no nível de função é usado em cenários como o particionamento no nível do dispositivo.
 
-### <a name="relationship"></a>Relação
+### <a name="relationship"></a>Relationship
 O tamanho do histórico, a duração da janela e a carga total do evento são relacionados da seguinte maneira:
 
 windowDuration (em MS) = 1000 * historySize/(total de eventos de entrada por segundo/contagem de partições de entrada)
@@ -133,14 +132,14 @@ A tabela a seguir inclui as observações de taxa de transferência para um úni
 | --------------------- | -------------------- | -------------------------- |
 | 60 | 55 | 2.200 |
 | 600 | 728 | 1.650 |
-| 6\.000 | 10.910 | 1\.100 |
+| 6\.000 | 10.910 | 1.100 |
 
 A tabela a seguir inclui as observações de taxa de transferência para um único nó (6 SU) para o caso particionado:
 
 | Tamanho do histórico (eventos) | Duração da janela (MS) | Total de eventos de entrada por segundo | Contagem de dispositivos |
 | --------------------- | -------------------- | -------------------------- | ------------ |
-| 60 | 1.091 | 1\.100 | 10 |
-| 600 | 10.910 | 1\.100 | 10 |
+| 60 | 1.091 | 1.100 | 10 |
+| 600 | 10.910 | 1.100 | 10 |
 | 6\.000 | 218.182 | <550 | 10 |
 | 60 | 21.819 | 550 | 100 |
 | 600 | 218.182 | 550 | 100 |
@@ -159,6 +158,5 @@ Use o painel Métricas em seu trabalho do Azure Stream Analytics para identifica
 * [Introdução ao Stream Analytics do Azure](stream-analytics-introduction.md)
 * [Introdução ao uso do Stream Analytics do Azure](stream-analytics-real-time-fraud-detection.md)
 * [Dimensionar trabalhos do Stream Analytics do Azure](stream-analytics-scale-jobs.md)
-* [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-
+* [Referência de Linguagem de Consulta do Stream Analytics do Azure](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Referência da API REST do Gerenciamento do Azure Stream Analytics](/rest/api/streamanalytics/)

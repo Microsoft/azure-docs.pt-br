@@ -5,14 +5,14 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 02/26/2020
+ms.date: 09/02/2020
 ms.author: yushwang
-ms.openlocfilehash: 7fb344e16ed672dfc6c88fbe2c4888c52c9b717d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2a85204fef026940394a19934bef1c631a8e2d21
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081977"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89418867"
 ---
 # <a name="connect-azure-vpn-gateways-to-multiple-on-premises-policy-based-vpn-devices-using-powershell"></a>Conectar gateways VPN do Azure a vários dispositivos VPN com base em políticas locais usando o PowerShell
 
@@ -38,9 +38,9 @@ Atualmente, o Azure oferece suporte a ambos os modos de gateways VPN: gateways V
 
 | Categoria | Gateway de VPN PolicyBased | Gateway de VPN RouteBased | Gateway de VPN RouteBased |
 | -------- | ----------------------- | ---------------------- | ---------------------- |---                                                 |
-| **SKU de gateway do Azure**    | Básico                       | Básico                            | VpnGw1, VpnGw2, VpnGw3, VpnGw4, VpnGw5  |
+| **SKU de gateway do Azure**    | Basic                       | Basic                            | VpnGw1, VpnGw2, VpnGw3, VpnGw4, VpnGw5  |
 | **Versão do IKE**          | IKEv1                       | IKEv2                            | IKEv1 e IKEv2                         |
-| **Maximizar. Conexões S2S** | **1**                       | 10                               | 30                     |
+| **Máximo de conexões S2S** | **1**                       | 10                               | 30                     |
 |                          |                             |                                  |                                                    |
 
 Com a política de IPsec/IKE personalizada, agora você pode configurar gateways VPN com base em rota do Azure para usar os seletores de tráfego com base no prefixo com a opção "**PolicyBasedTrafficSelectors**", para se conectar a dispositivos VPN baseados em políticas locais. Esse recurso permite a conexão de uma rede virtual do Azure e o gateway de VPN para vários dispositivos VPN/firewall com base em políticas locais, removendo o limite de conexão única dos gateways VPN com base em políticas atuais do Azure.

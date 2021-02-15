@@ -1,24 +1,26 @@
 ---
-title: Criar uma entrada de trabalho dos Serviços de Mídia do Azure com base em uma URL HTTPS | Microsoft Docs
+title: Criar uma entrada de trabalho de uma URL HTTPS
 description: Este tópico demonstra como criar uma entrada de trabalho dos serviços de mídia do Azure de uma URL HTTPS.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
-ms.topic: article
-ms.date: 02/13/2019
-ms.author: juliako
-ms.openlocfilehash: 1ff2bc6d4bb4f7b983787b287fbb27e1c33cc179
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.topic: how-to
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: 1073a13f477894e1b35d732fd1cd6191747a62a2
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87022983"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955980"
 ---
 # <a name="create-a-job-input-from-an-https-url"></a>Criar uma entrada de trabalho de uma URL HTTPS
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Nos Serviços de Mídia v3, ao enviar Trabalhos para processar seus vídeos, você precisa informar os Serviços de Mídia onde encontrar o vídeo de entrada. Uma das opções é especificar uma URL HTTPS como um trabalho de entrada (conforme mostrado neste exemplo). Observe que, no momento, o AMS v3 não dá suporte à codificação de transferência em partes sobre URLs HTTPS. Para obter um exemplo completo, confira esta [amostra do GitHub](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/Program.cs).
 

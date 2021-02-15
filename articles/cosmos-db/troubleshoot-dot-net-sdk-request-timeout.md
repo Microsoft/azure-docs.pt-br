@@ -3,19 +3,22 @@ title: Solucionar problemas Azure Cosmos DB HTTP 408 ou solicitar problemas de t
 description: Saiba como diagnosticar e corrigir exceções de tempo limite de solicitação do SDK do .NET.
 author: j82w
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.date: 08/06/2020
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 0c760a3a2f6300108c1739f18ef9fa97a40dd833
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: c8d448cf335f328b5ae55579fd30127ef0e37e9d
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021928"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340491"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-net-sdk-request-timeout-exceptions"></a>Diagnosticar e solucionar problemas Azure Cosmos DB exceções de tempo limite de solicitação do SDK .NET
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
 O erro HTTP 408 ocorrerá se o SDK não puder concluir a solicitação antes da ocorrência do tempo limite.
 
 ## <a name="customize-the-timeout-on-the-azure-cosmos-db-net-sdk"></a>Personalizar o tempo limite no SDK do .NET Azure Cosmos DB
@@ -28,7 +31,7 @@ A `CosmosClientOptions.RequestTimeout` configuração (ou `ConnectionPolicy.Requ
 
 ### <a name="cancellationtoken"></a>CancellationToken
 
-Todas as operações assíncronas no SDK têm um parâmetro CancellationToken opcional. Esse parâmetro [CancellationToken](https://docs.microsoft.com/dotnet/standard/threading/how-to-listen-for-cancellation-requests-by-polling) é usado em toda a operação, em todas as solicitações de rede. Entre as solicitações de rede, o token de cancelamento pode estar marcado e uma operação cancelada se o token relacionado tiver expirado. O token de cancelamento deve ser usado para definir um tempo limite aproximado esperado no escopo da operação.
+Todas as operações assíncronas no SDK têm um parâmetro CancellationToken opcional. Esse parâmetro [CancellationToken](/dotnet/standard/threading/how-to-listen-for-cancellation-requests-by-polling) é usado em toda a operação, em todas as solicitações de rede. Entre as solicitações de rede, o token de cancelamento pode estar marcado e uma operação cancelada se o token relacionado tiver expirado. O token de cancelamento deve ser usado para definir um tempo limite aproximado esperado no escopo da operação.
 
 > [!NOTE]
 > O `CancellationToken` parâmetro é um mecanismo em que a biblioteca verificará o cancelamento quando [não causar um estado inválido](https://devblogs.microsoft.com/premier-developer/recommended-patterns-for-cancellationtoken/). A operação pode não ser cancelada exatamente quando o tempo definido no cancelamento estiver ativo. Em vez disso, depois que o tempo for ativado, ele cancelará quando for seguro fazê-lo.

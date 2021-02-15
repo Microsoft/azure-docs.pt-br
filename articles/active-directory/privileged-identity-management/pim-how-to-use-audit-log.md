@@ -14,12 +14,12 @@ ms.date: 01/07/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0a5a20498ccd0a133c6e02d366af690acf2665e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8481c562ecbab1f26e877e55a5a9454695ddf4c0
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84742259"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370824"
 ---
 # <a name="view-audit-history-for-azure-ad-roles-in-privileged-identity-management"></a>Exibir histórico de auditoria para funções do Azure AD no Privileged Identity Management
 
@@ -29,10 +29,10 @@ Você pode usar o histórico de auditoria de Privileged Identity Management (PIM
 
 A partir de novembro de 2019, a parte das funções do Azure AD da Privileged Identity Management está sendo atualizada para uma nova versão que corresponde às experiências de funções de recurso do Azure. Isso cria recursos adicionais, bem como [as alterações na API existente](azure-ad-roles-features.md#api-changes). Enquanto a nova versão está sendo distribuída, os procedimentos que você seguir neste artigo dependem da versão do Privileged Identity Management que você tem atualmente. Siga as etapas nesta seção para determinar qual versão do Privileged Identity Management você tem. Depois de saber sua versão do Privileged Identity Management, você pode selecionar os procedimentos neste artigo que correspondem a essa versão.
 
-1. Entre no [portal do Azure](https://portal.azure.com/) com um usuário que esteja na função de [administrador de função com privilégios](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) .
+1. Entre no [portal do Azure](https://portal.azure.com/) com um usuário que esteja na função de [administrador de função com privilégios](../roles/permissions-reference.md#privileged-role-administrator) .
 1. Abra **Azure ad Privileged Identity Management**. Se você tiver uma faixa na parte superior da página Visão geral, siga as instruções na **nova guia versão** deste artigo. Caso contrário, siga as instruções na guia **versão anterior** .
 
-    [![Nova versão das funções do Azure AD](media/pim-how-to-use-audit-log/directory-roles-audit-history.png "Selecione a guia para sua versão")](media/pim-how-to-use-audit-log/directory-roles-audit-history.png)
+    [![Captura de tela que mostra a página "funções do Azure AD – histórico de auditoria de funções de diretório".](media/pim-how-to-use-audit-log/directory-roles-audit-history.png "Selecione a guia para sua versão")](media/pim-how-to-use-audit-log/directory-roles-audit-history.png)
 
 # <a name="new-version"></a>[Nova versão](#tab/new)
 
@@ -74,7 +74,7 @@ A opção Minha auditoria permite que você exiba sua atividade de função pess
 
 Siga estas etapas para exibir o histórico de auditoria para funções do Azure AD.
 
-1. Entre no [portal do Azure](https://portal.azure.com/) com um usuário que seja membro da função [Administrador de Funções com Privilégios](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator).
+1. Entre no [portal do Azure](https://portal.azure.com/) com um usuário que seja membro da função [Administrador de Funções com Privilégios](../roles/permissions-reference.md#privileged-role-administrator).
 
 1. Abra **Azure ad Privileged Identity Management**.
 
@@ -123,11 +123,11 @@ Siga estas etapas para exibir o histórico de auditoria para funções do Azure 
     - Consulte o motivo de um evento de auditoria na coluna **razão do status** .
     - Consulte o aprovador na coluna **iniciado por (ator)** do evento "Adicionar membro à solicitação de função aprovada".
 
-    [![Nova versão das funções do Azure AD](media/pim-how-to-use-audit-log/filter-audit-logs.png "Filtrar o log de auditoria para o serviço PIM")](media/pim-how-to-use-audit-log/filter-audit-logs.png)
+    [![Captura de tela que mostra a página "logs de auditoria" com o menu "iniciado por (ator) aberto e" PIM "selecionados.](media/pim-how-to-use-audit-log/filter-audit-logs.png "Filtrar o log de auditoria para o serviço PIM")](media/pim-how-to-use-audit-log/filter-audit-logs.png)
 
 1. Selecione um evento de log de auditoria para ver o número do tíquete na guia **atividade** do painel de **detalhes** .
   
-    [![Nova versão das funções do Azure AD](media/pim-how-to-use-audit-log/audit-event-ticket-number.png "Verificar o número do tíquete do evento de auditoria")](media/pim-how-to-use-audit-log/audit-event-ticket-number.png)
+    [![Captura de tela que mostra a página "logs de auditoria" com o número do tíquete realçado no painel "detalhes".](media/pim-how-to-use-audit-log/audit-event-ticket-number.png "Verificar o número do tíquete do evento de auditoria")](media/pim-how-to-use-audit-log/audit-event-ticket-number.png)
 
 1. Você pode exibir o solicitante (pessoa ativando a função) na guia **destinos** do painel de **detalhes** para um evento de auditoria. Há dois tipos de destino para as funções do Azure AD:
 

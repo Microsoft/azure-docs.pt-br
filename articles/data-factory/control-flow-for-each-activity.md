@@ -1,22 +1,18 @@
 ---
 title: Atividade ForEach no Azure Data Factory
 description: A atividade For Each define um fluxo de controle repetitivo no seu pipeline. Ela é usada para iterar em uma coleção e executar atividades especificadas.
-services: data-factory
-documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
-manager: jroth
+author: dcstwh
+ms.author: weetok
 ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/23/2019
-ms.openlocfilehash: 35d61e896a395c3044a51780fef72d54c211a31f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c59108752677fc33e28578c3c679be24108806d5
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81417190"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100385601"
 ---
 # <a name="foreach-activity-in-azure-data-factory"></a>Atividade ForEach no Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -479,7 +475,7 @@ Para agregar saídas da atividade __foreach__ , utilize _variáveis_ e _acrescen
 
 Primeiro, declare uma `array` _variável_ no pipeline. Em seguida, invoque a atividade _Append Variable_ dentro de cada loop __foreach__. Posteriormente, você pode recuperar a agregação na sua matriz.
 
-## <a name="limitations-and-workarounds"></a>Limitações e Soluções Alternativas
+## <a name="limitations-and-workarounds"></a>Limitações e soluções alternativas
 
 Aqui estão algumas limitações da atividade ForEach e sugestões de soluções alternativas.
 

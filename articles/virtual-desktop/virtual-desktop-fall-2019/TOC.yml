@@ -22,6 +22,8 @@
       href: set-up-service-alerts-2019.md
 - name: Como fazer
   items:
+    - name: Migrar manualmente
+      href: ../manual-migration.md
     - name: Conectar-se a recursos de Área de Trabalho Virtual do Windows
       items:
         - name: Conectar-se ao Cliente de Área de Trabalho do Windows
@@ -70,7 +72,7 @@
           href: diagnostics-log-analytics-2019.md
     - name: Publicar aplicativos internos
       href: publish-apps-2019.md
-    - name: Configurar a Autenticação Multifator do Azure
+    - name: Configurar a Autenticação Multifator do Azure AD
       href: ../set-up-mfa.md
 - name: Conceitos
   items:

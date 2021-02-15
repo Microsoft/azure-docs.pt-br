@@ -10,10 +10,10 @@ metadata:
   ms.author: tesych
   ms.date: 03/11/2020
   ms.openlocfilehash: f1691507d75d6de630f3c5a48cd59c8cc22b5999
-  ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 03/31/2020
+  ms.lasthandoff: 10/09/2020
   ms.locfileid: "85277872"
 landingContent:
 - title: Sobre o Azure Kinect DK

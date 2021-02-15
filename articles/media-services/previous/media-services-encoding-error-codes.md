@@ -14,20 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: b40bc8521755fae08e851e5b324979d5798e3dcd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6e56dbe1d1236a567ed6f59acfcca325a6c9ee7e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87042865"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89269022"
 ---
 # <a name="encoding-error-codes"></a>Códigos de erro de codificação
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 A tabela a seguir lista os códigos de erro que podem ser retornados caso um erro tenha sido encontrado durante a execução de tarefas de codificação.  Para obter detalhes do erro em seu código do .NET, use a classe [ErrorDetails](/previous-versions/azure/jj126075(v=azure.100)) . Para obter detalhes do erro em seu código REST, use a API REST [ErrorDetail](/rest/api/media/operations/errordetail) .
 
 | ErrorDetail.Code | Causas possíveis para erro |
 | --- | --- |
-| Desconhecido |Erro desconhecido ao executar a tarefa |
+| Unknown |Erro desconhecido ao executar a tarefa |
 | ErrorDownloadingInputAssetMalformedContent |Categoria de erros que abrange erros ao baixar um ativo de entrada, como nomes de arquivo inválidos, arquivo com comprimento zero, formatos incorretos e assim por diante. |
 | ErrorDownloadingInputAssetServiceFailure |Categoria de erros que aborda problemas no lado do serviço - por exemplo, erros de rede ou armazenamento durante o download. |
 | ErrorParsingConfiguration |Categoria de erros em que a tarefa \<see cref="MediaTask.PrivateData"/> (configuração) não é válida, por exemplo, a configuração não é uma predefinição de sistema válida ou contém XML inválido. |

@@ -7,26 +7,33 @@ author: prtyag
 manager: hrushib
 editor: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/30/2020
 ms.author: prtyag
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6d723e95212e457a81eedf7726bf3c5bd2499643
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a799242ecaae7b7152d79b7d341a9cb5cc18d7fe
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84488878"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97654465"
 ---
-# <a name="enable-kdump-service"></a>Habilitar serviço kdump
+# <a name="kdump-for-sap-hana-on-azure-large-instances-hli"></a>Kdump para SAP HANA em Instâncias Grandes do Azure (HLI)
+
+Configurar e habilitar o kdump é uma etapa necessária para solucionar problemas de falhas do sistema que não têm uma causa clara.
+Há ocasiões em que um sistema falhará inesperadamente que não pode ser explicado por um problema de hardware ou infraestrutura.
+Nesses casos, ele pode ser um problema de sistema operacional ou aplicativo e o kdump permitirá que o SUSE determine por que um sistema falhou.
+
+## <a name="enable-kdump-service"></a>Habilitar serviço kdump
 
 Este documento descreve os detalhes sobre como habilitar o serviço kdump no Azure HANA em instâncias grandes (**tipo I e tipo II**)
 
 ## <a name="supported-skus"></a>SKUs com suporte
 
-|  Tipo de instância grande do Hana   |  Fornecedor do sistema operacional   |  Versão do pacote do so   |  SKU        |
+|  Tipo de instância grande do Hana   |  Fornecedor do sistema operacional   |  Versão do pacote do so   |  SKU |
 |-----------------------------|--------------|-----------------------|-------------|
 |   Tipo I                    |  SuSE        |   SLES 12 SP3         |  S224m      |
 |   Tipo I                    |  SuSE        |   SLES 12 SP4         |  S224m      |
@@ -62,6 +69,10 @@ Este documento descreve os detalhes sobre como habilitar o serviço kdump no Azu
 ## <a name="setup-details"></a>Detalhes de configuração
 
 - O script para habilitar kdump pode ser encontrado [aqui](https://github.com/Azure/sap-hana/blob/master/tools/enable-kdump.sh)
+> [!NOTE]
+> Esse script é feito com base em nossa configuração de laboratório e o cliente deve contatar o fornecedor do sistema operacional para qualquer ajuste adicional.
+> O LUN separado será provisionado para os servidores novos e existentes para salvar os despejos e o script cuidar da configuração do sistema de arquivos fora do LUN.
+> A Microsoft não será responsável por analisar o despejo. O cliente precisa abrir um tíquete com o fornecedor do sistema operacional para que ele seja analisado.
 
 - Execute este script no SAP HANA em instâncias grandes usando o comando abaixo
 
@@ -72,7 +83,7 @@ Este documento descreve os detalhes sobre como habilitar o serviço kdump no Azu
     sudo bash enable-kdump.sh
     ```
 
-- Se o comando gerar kdump for habilitado com êxito, reinicialize o sistema para aplicar a alteração, o kdump será habilitado com êxito. Reinicialize o sistema para aplicar as alterações.
+- Se o comando gerar kdump for habilitado com êxito, certifique-se de reinicializar o sistema para aplicar as alterações com êxito.
 
 - Se a saída do comando falhar ao executar determinada operação, saindo!!!!, o serviço kdump não estiver habilitado. Consulte a seção [problema de suporte](#support-issue).
 
@@ -104,3 +115,6 @@ Se o script falhar com um erro ou kdump não estiver habilitado, gere a solicita
 * Versão do SO
 
 * Versão do kernel
+
+## <a name="related-documents"></a>Documentos relacionados
+- Para saber mais sobre como [Configurar o kdump](https://www.suse.com/support/kb/doc/?id=3374462)

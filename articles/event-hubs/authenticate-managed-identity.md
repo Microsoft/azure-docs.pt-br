@@ -2,14 +2,14 @@
 title: Autenticação de uma identidade gerenciada com o Azure Active Directory
 description: Este artigo fornece informações sobre como autenticar uma identidade gerenciada com Azure Active Directory para acessar os recursos dos hubs de eventos do Azure
 ms.topic: conceptual
-ms.date: 06/23/2020
+ms.date: 01/25/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4d606e6cd035d4dae388d8559d100988a46e8203
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 2070cfd94b39a08afb86ffd3579f1116faac72d5
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89010011"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98805277"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-event-hubs-resources"></a>Autenticar uma identidade gerenciada com Azure Active Directory para acessar recursos de hubs de eventos
 Os hubs de eventos do Azure dão suporte à autenticação Azure Active Directory (Azure AD) com [identidades gerenciadas para recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md). Identidades gerenciadas para recursos do Azure podem autorizar o acesso a recursos de hubs de eventos usando as credenciais do Azure AD de aplicativos em execução em VMs (máquinas virtuais) do Azure, aplicativos de funções, conjuntos de dimensionamento de máquinas virtuais e outros serviços. Usando identidades gerenciadas para recursos do Azure junto com a autenticação do Azure AD, você pode evitar o armazenamento de credenciais com seus aplicativos que são executados na nuvem.
@@ -26,12 +26,12 @@ Antes de poder usar identidades gerenciadas para recursos do Azure para autoriza
 - [Bibliotecas de cliente Azure Resource Manager](../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
 
 ## <a name="grant-permissions-to-a-managed-identity-in-azure-ad"></a>Conceder permissões a uma identidade gerenciada no Azure AD
-Para autorizar uma solicitação ao serviço de hubs de eventos de uma identidade gerenciada em seu aplicativo, primeiro configure as configurações de RBAC (controle de acesso baseado em função) para essa identidade gerenciada. Os hubs de eventos do Azure definem funções do Azure que abrangem permissões para enviar e ler de hubs de eventos. Quando a função do Azure é atribuída a uma identidade gerenciada, a identidade gerenciada recebe acesso aos dados dos hubs de eventos no escopo apropriado.
+Para autorizar uma solicitação ao serviço de hubs de eventos de uma identidade gerenciada em seu aplicativo, primeiro configure as configurações do Azure RBAC (controle de acesso baseado em função) para essa identidade gerenciada. Os hubs de eventos do Azure definem funções do Azure que abrangem permissões para enviar e ler de hubs de eventos. Quando a função do Azure é atribuída a uma identidade gerenciada, a identidade gerenciada recebe acesso aos dados dos hubs de eventos no escopo apropriado.
 
 Para obter mais informações sobre como atribuir funções do Azure, consulte [autenticar com Azure Active Directory para acessar os recursos dos hubs de eventos](authorize-access-azure-active-directory.md).
 
 ## <a name="use-event-hubs-with-managed-identities"></a>Usar os Hubs de Eventos com identidades gerenciadas
-Para usar os hubs de eventos com identidades gerenciadas, você precisa atribuir a identidade a função e o escopo apropriado. O procedimento nesta seção usa um aplicativo simples que é executado sob uma identidade gerenciada e acessa recursos de hubs de eventos.
+Para usar os hubs de eventos com identidades gerenciadas, você precisa atribuir a função e o escopo apropriado à identidade. O procedimento nesta seção usa um aplicativo simples que é executado sob uma identidade gerenciada e acessa recursos de hubs de eventos.
 
 Aqui, estamos usando um aplicativo Web de exemplo hospedado no [serviço Azure app](https://azure.microsoft.com/services/app-service/). Para obter as instruções passo a passo para criar um aplicativo Web, consulte [criar um ASP.NET Core aplicativo Web no Azure](../app-service/quickstart-dotnetcore.md)
 
@@ -41,11 +41,12 @@ Depois que o aplicativo for criado, siga estas etapas:
 1. Selecione o **status** a ser **ativado**. 
 1. Clique em **Salvar** para salvar a configuração. 
 
-    ![Identidade gerenciada para um aplicativo Web](./media/authenticate-managed-identity/identity-web-app.png)
+    :::image type="content" source="./media/authenticate-managed-identity/identity-web-app.png" alt-text="Identidade gerenciada para um aplicativo Web":::
+4. Selecione **Sim** na mensagem de informações. 
 
-Depois de habilitar essa configuração, uma nova identidade de serviço será criada em seu Azure Active Directory (AD do Azure) e configurada no host do serviço de aplicativo.
+    Depois de habilitar essa configuração, uma nova identidade de serviço será criada em seu Azure Active Directory (AD do Azure) e configurada no host do serviço de aplicativo.
 
-Agora, atribua essa identidade de serviço a uma função no escopo necessário em seus recursos de hubs de eventos.
+    Agora, atribua essa identidade de serviço a uma função no escopo necessário em seus recursos de hubs de eventos.
 
 ### <a name="to-assign-azure-roles-using-the-azure-portal"></a>Para atribuir funções do Azure usando o portal do Azure
 Para atribuir uma função aos recursos dos hubs de eventos, navegue até esse recurso na portal do Azure. Exiba as configurações de controle de acesso (IAM) para o recurso e siga estas instruções para gerenciar as atribuições de função:
@@ -56,18 +57,23 @@ Para atribuir uma função aos recursos dos hubs de eventos, navegue até esse r
 1. Na portal do Azure, navegue até o namespace de seus hubs de eventos e exiba a **visão geral** do namespace. 
 1. Selecione **controle de acesso (iam)** no menu à esquerda para exibir as configurações de controle de acesso para o Hub de eventos.
 1.  Selecione a guia **Atribuições de função** para ver as atribuições de função atuais.
-3.  Selecione **Adicionar** para adicionar uma nova função.
-4.  Na página **Adicionar atribuição de função** , selecione as funções de hubs de eventos que você deseja atribuir. Em seguida, pesquise para localizar a identidade do serviço que você registrou para atribuir a função.
+3.  Selecione **Adicionar** e, em seguida, selecione **Adicionar atribuição de função** _.
+4.  Na página _ *Adicionar atribuição de função**, siga estas etapas:
+    1. Para **função**, selecione a função de hubs de eventos que você deseja atribuir. Neste exemplo, é o **proprietário dos dados dos hubs de eventos do Azure**.
+    1. Para o campo **atribuir acesso a** , selecione **serviço de aplicativo** em **identidade gerenciada atribuída pelo sistema**. 
+    1. Selecione a **assinatura** na qual a identidade gerenciada para o aplicativo Web foi criada.
+    1. Selecione a **identidade gerenciada** para o aplicativo Web que você criou. O nome padrão da identidade é o mesmo que o nome do aplicativo Web. 
+    1. Em seguida, selecione **Salvar**. 
     
-    ![Página Adicionar atribuição de função](./media/authenticate-managed-identity/add-role-assignment-page.png)
-5.  Clique em **Salvar**. A identidade à qual você atribuiu a função aparece listada sob essa função. Por exemplo, a imagem a seguir mostra que a identidade de serviço tem proprietário de dados de hubs de eventos.
-    
-    ![Identidade atribuída a uma função](./media/authenticate-managed-identity/role-assigned.png)
+        ![Página Adicionar atribuição de função](./media/authenticate-managed-identity/add-role-assignment-page.png)
 
-Depois de atribuir a função, o aplicativo Web terá acesso aos recursos dos hubs de eventos no escopo definido. 
+    Depois de atribuir a função, o aplicativo Web terá acesso aos recursos dos hubs de eventos no escopo definido. 
+
+    > [!NOTE]
+    > Para obter uma lista de serviços que dão suporte a identidades gerenciadas, consulte [serviços que dão suporte a identidades gerenciadas para recursos do Azure](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md).
 
 ### <a name="test-the-web-application"></a>Testar o aplicativo Web
-1. Crie um namespace de hubs de eventos e um hub de eventos. 
+1. Criar um namespace de Hubs de Eventos e um hub de eventos. 
 2. Implante o aplicativo Web no Azure. Consulte a seguinte seção com guias para obter links para o aplicativo Web no GitHub. 
 3. Verifique se o SendReceive. aspx está definido como o documento padrão para o aplicativo Web. 
 3. Habilite a **identidade** para o aplicativo Web. 

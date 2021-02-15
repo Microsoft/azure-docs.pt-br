@@ -12,22 +12,18 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 4e530f76c8301dc74f73b675befa6f0710aedab7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 434c255f0b9634e0d17bad1627ddd92af9498bfe
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87026621"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582427"
 ---
 # <a name="scenario-protected-web-api"></a>Cenário: API Web protegida
 
 Nesse cenário, você aprende a expor uma API da Web. Você também aprende a proteger a API Web para que somente usuários autenticados possam acessá-la.
 
-Para usar sua API Web, você precisa habilitar usuários autenticados com contas corporativas e de estudante ou habilitar contas pessoais da Microsoft.
-
-## <a name="prerequisites"></a>Pré-requisitos
-
-[!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
+Para usar sua API Web, habilite usuários autenticados com contas corporativas e de estudante ou habilite contas pessoais da Microsoft.
 
 ## <a name="specifics"></a>Especificações
 
@@ -40,7 +36,10 @@ Aqui estão informações específicas que você precisa saber para proteger as 
 - A configuração de código para a API Web deve validar o token usado quando a API Web é chamada.
 - O código nas ações do controlador deve validar as funções ou os escopos no token.
 
+## <a name="recommended-reading"></a>Leitura recomendada
+
+[!INCLUDE [recommended-topics](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
+
 ## <a name="next-steps"></a>Próximas etapas
 
-> [!div class="nextstepaction"]
-> [Registro do aplicativo](scenario-protected-web-api-app-registration.md)
+Vá para o próximo artigo neste cenário, registro de [aplicativo](scenario-protected-web-api-app-registration.md).

@@ -2,17 +2,17 @@
 title: Permissões para repositórios no Registro de Contêiner do Azure
 description: Crie um token com permissões com escopo para repositórios específicos em um registro Premium para efetuar pull ou enviar imagens por Push ou executar outras ações
 ms.topic: article
-ms.date: 05/27/2020
-ms.openlocfilehash: 8661ff2e320788d3899ae16dd3bee7d3ff662caa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 02/04/2021
+ms.openlocfilehash: ceec69d746f77ea7a23bc70d029c8b3736e7f292
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84509399"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988261"
 ---
 # <a name="create-a-token-with-repository-scoped-permissions"></a>Criar um token com permissões no escopo do repositório
 
-Este artigo descreve como criar tokens e mapas de escopo para gerenciar permissões no escopo do repositório no registro de contêiner. Com a criação de tokens, um proprietário do registro pode fornecer aos usuários ou serviços acesso aos repositórios, com escopo, limitado por tempo, para efetuar pull ou push de imagens ou executar outras ações. Um token fornece permissões mais refinadas do que outras [opções de autenticação](container-registry-authentication.md) de registro, que dão escopo de permissões para um registro inteiro. 
+Este artigo descreve como criar tokens e mapas de escopo para gerenciar o acesso a repositórios específicos no registro de contêiner. Com a criação de tokens, um proprietário do registro pode fornecer aos usuários ou serviços acesso aos repositórios, com escopo, limitado por tempo, para efetuar pull ou push de imagens ou executar outras ações. Um token fornece permissões mais refinadas do que outras [opções de autenticação](container-registry-authentication.md) de registro, que dão escopo de permissões para um registro inteiro. 
 
 Os cenários para criar um token incluem:
 
@@ -61,7 +61,7 @@ A imagem a seguir mostra a relação entre tokens e mapas de escopo.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **CLI do Azure** - Comandos do CLI do Azure para criar e gerenciar tokens estão disponíveis na CLI do Azure versão 2.0.76 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
+* Os exemplos de comando de comandos **CLI do Azure** CLI do Azure neste artigo exigem CLI do Azure versão 2.17.0 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 * **Docker** - Para autenticar com o registro para efetuar pull ou push de imagens, você precisa de uma instalação local do Docker. O Docker fornece instruções de instalação para sistemas [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms).
 * **Registro de contêiner** - Crie um registro de contêiner Premium, caso não tenha um, na sua assinatura do Azure ou atualize um registro existente. Por exemplo, use o [Portal do Azure](container-registry-get-started-portal.md) ou a [CLI do Azure](container-registry-get-started-azure-cli.md). 
 
@@ -79,7 +79,7 @@ az acr token create --name MyToken --registry myregistry \
   content/write content/read
 ```
 
-A saída mostra detalhes sobre o token. Por padrão, duas senhas são geradas. É recomendável salvar as senhas em um local seguro para usar posteriormente para autenticação. As senhas não podem ser recuperadas, mas novas podem ser geradas.
+A saída mostra detalhes sobre o token. Por padrão, são geradas duas senhas que não expiram, mas você pode opcionalmente definir uma data de expiração. É recomendável salvar as senhas em um local seguro para usar posteriormente para autenticação. As senhas não podem ser recuperadas, mas novas podem ser geradas.
 
 ```console
 {
@@ -113,7 +113,7 @@ A saída mostra detalhes sobre o token. Por padrão, duas senhas são geradas. �
 ```
 
 > [!NOTE]
-> Se você quiser regenerar senhas de token e definir períodos de expiração de senha, consulte [regenerar senhas de token](#regenerate-token-passwords) mais adiante neste artigo.
+> Para regenerar senhas de token e períodos de expiração, consulte [regenerar senhas de token](#regenerate-token-passwords) mais adiante neste artigo.
 
 A saída inclui detalhes sobre o mapa de escopo que o comando criou. Você pode usar o mapa de escopo, aqui chamado de `MyToken-scope-map`, para aplicar as mesmas ações de repositório a outros tokens. Ou atualize o mapa de escopo depois para alterar as permissões dos tokens associados.
 
@@ -141,7 +141,7 @@ az acr token create --name MyToken \
 A saída mostra detalhes sobre o token. Por padrão, duas senhas são geradas. É recomendável salvar as senhas em um local seguro para usar posteriormente para autenticação. As senhas não podem ser recuperadas, mas novas podem ser geradas.
 
 > [!NOTE]
-> Se você quiser regenerar senhas de token e definir períodos de expiração de senha, consulte [regenerar senhas de token](#regenerate-token-passwords) mais adiante neste artigo.
+> Para regenerar senhas de token e períodos de expiração, consulte [regenerar senhas de token](#regenerate-token-passwords) mais adiante neste artigo.
 
 ## <a name="create-token---portal"></a>Criar token - portal
 
@@ -198,13 +198,13 @@ Os exemplos a seguir usam o token criado anteriormente neste artigo para executa
 
 ### <a name="pull-and-tag-test-images"></a>Efetuar pull e marcar imagens de teste
 
-Para os exemplos a seguir, efetue pull das imagens `hello-world` e `alpine` do Docker Hub e marque-as para o registro e o repositório.
+Para os exemplos a seguir, receba Public `hello-world` e `nginx` imagens do registro de contêiner da Microsoft e marque-as para o registro e o repositório.
 
 ```bash
-docker pull hello-world
-docker pull alpine
-docker tag hello-world myregistry.azurecr.io/samples/hello-world:v1
-docker tag hello-world myregistry.azurecr.io/samples/alpine:v1
+docker pull mcr.microsoft.com/hello-world
+docker pull mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
+docker tag mcr.microsoft.com/hello-world myregistry.azurecr.io/samples/hello-world:v1
+docker tag mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine myregistry.azurecr.io/samples/nginx:v1
 ```
 
 ### <a name="authenticate-using-token"></a>Autenticar usando token
@@ -234,17 +234,17 @@ Após o logon bem-sucedido, tente efetuar push das imagens marcadas para o regis
 docker push myregistry.azurecr.io/samples/hello-world:v1
 ```
 
-O token não tem permissões para o repositório de `samples/alpine`, portanto, a seguinte tentativa de push falha com um erro semelhante a `requested access to the resource is denied`:
+O token não tem permissões para o repositório de `samples/nginx`, portanto, a seguinte tentativa de push falha com um erro semelhante a `requested access to the resource is denied`:
 
 ```bash
-docker push myregistry.azurecr.io/samples/alpine:v1
+docker push myregistry.azurecr.io/samples/nginx:v1
 ```
 
 ### <a name="update-token-permissions"></a>Atualizar permissões de token
 
 Para atualizar as permissões de um token, atualize as permissões no mapa de escopo associado. O mapa de escopo atualizado é aplicado imediatamente a todos os tokens associados. 
 
-Por exemplo, atualize `MyToken-scope-map` com ações `content/write` e `content/read` no repositório `samples/alpine` e remova a ação `content/write` no repositório `samples/hello-world`.  
+Por exemplo, atualize `MyToken-scope-map` com ações `content/write` e `content/read` no repositório `samples/ngnx` e remova a ação `content/write` no repositório `samples/hello-world`.  
 
 Para usar a CLI do Azure, execute [az acr scope-map update][az-acr-scope-map-update] para atualizar o mapa de escopo:
 
@@ -252,21 +252,21 @@ Para usar a CLI do Azure, execute [az acr scope-map update][az-acr-scope-map-upd
 az acr scope-map update \
   --name MyScopeMap \
   --registry myregistry \
-  --add samples/alpine content/write content/read \
-  --remove samples/hello-world content/write 
+  --add-repository samples/nginx content/write content/read \
+  --remove-repository samples/hello-world content/write 
 ```
 
 No Portal do Azure:
 
 1. Navegue até seu registro de contêiner.
 1. Em **permissões de repositório**, selecione **mapas de escopo (versão prévia)** e selecione o mapa de escopo a ser atualizado.
-1. Em **Repositórios**, insira `samples/alpine` e, em **Permissões**, selecione `content/read` e `content/write`. Em seguida, selecione **+Adicionar**.
+1. Em **Repositórios**, insira `samples/nginx` e, em **Permissões**, selecione `content/read` e `content/write`. Em seguida, selecione **+Adicionar**.
 1. Em **Repositórios**, selecione `samples/hello-world` e, em **Permissões**, desmarque `content/write`. Em seguida, selecione **Salvar**.
 
 Depois de atualizar o mapa de escopo, o push a seguir será efetuado:
 
 ```bash
-docker push myregistry.azurecr.io/samples/alpine:v1
+docker push myregistry.azurecr.io/samples/nginx:v1
 ```
 
 Como o mapa de escopo tem apenas a permissão `content/read` no repositório `samples/hello-world`, uma tentativa de efetuar push para o repositório `samples/hello-world` agora falhará:
@@ -278,12 +278,12 @@ docker push myregistry.azurecr.io/samples/hello-world:v1
 O pull de imagens de ambos os repositórios é efetuado com sucesso, porque o mapa de escopo fornece permissões `content/read` em ambos os repositórios:
 
 ```bash
-docker pull myregistry.azurecr.io/samples/alpine:v1
+docker pull myregistry.azurecr.io/samples/nginx:v1
 docker pull myregistry.azurecr.io/samples/hello-world:v1
 ```
 ### <a name="delete-images"></a>Excluir imagens
 
-Para atualizar o mapa de escopo, adicione a ação `content/delete` ao repositório `alpine`. Essa ação permite excluir imagens no repositório ou todo o repositório.
+Para atualizar o mapa de escopo, adicione a ação `content/delete` ao repositório `nginx`. Essa ação permite excluir imagens no repositório ou todo o repositório.
 
 Para resumir, mostraremos apenas o comando [az acr scope-map update][az-acr-scope-map-update] para atualizar o mapa do escopo:
 
@@ -291,16 +291,16 @@ Para resumir, mostraremos apenas o comando [az acr scope-map update][az-acr-scop
 az acr scope-map update \
   --name MyScopeMap \
   --registry myregistry \
-  --add samples/alpine content/delete
+  --add-repository samples/nginx content/delete
 ``` 
 
 Para atualizar o mapa de escopo usando o portal, consulte a [seção anterior](#update-token-permissions).
 
-Use o comando a seguir [az acr repository delete][az-acr-repository-delete] para excluir o repositório `samples/alpine`. Para excluir imagens ou repositórios, passe o nome e a senha do token para o comando. O exemplo a seguir usa as variáveis de ambiente criadas anteriormente neste artigo:
+Use o comando a seguir [az acr repository delete][az-acr-repository-delete] para excluir o repositório `samples/nginx`. Para excluir imagens ou repositórios, passe o nome e a senha do token para o comando. O exemplo a seguir usa as variáveis de ambiente criadas anteriormente neste artigo:
 
 ```azurecli
 az acr repository delete \
-  --name myregistry --repository samples/alpine \
+  --name myregistry --repository samples/nginx \
   --username $TOKEN_NAME --password $TOKEN_PWD
 ```
 
@@ -314,7 +314,7 @@ Para resumir, mostraremos apenas o comando [az acr scope-map update][az-acr-scop
 az acr scope-map update \
   --name MyScopeMap \
   --registry myregistry \
-  --add samples/hello-world metadata/read 
+  --add-repository samples/hello-world metadata/read 
 ```  
 
 Para atualizar o mapa de escopo usando o portal, consulte a [seção anterior](#update-token-permissions).
@@ -382,7 +382,7 @@ O exemplo a seguir gera um novo valor para password1 para o token *MyToken*, com
 
 ```azurecli
 TOKEN_PWD=$(az acr token credential generate \
-  --name MyToken --registry myregistry --days 30 \
+  --name MyToken --registry myregistry --expiration-in-days 30 \
   --password1 --query 'passwords[0].value' --output tsv)
 ```
 

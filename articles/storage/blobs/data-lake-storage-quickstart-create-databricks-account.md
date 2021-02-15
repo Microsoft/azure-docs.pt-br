@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 06/12/2020
 ms.reviewer: jeking
-ms.openlocfilehash: 482d703689ca6cfc34dd5d78574ae52e4def2b1f
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: e289bea6b1a23f1622ced62656164d9865303298
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86109766"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95912817"
 ---
 # <a name="quickstart-analyze-data-with-databricks"></a>Início Rápido: Analisar dados com o Databricks
 
@@ -23,7 +23,7 @@ Neste início rápido, execute um trabalho do Apache Spark usando o Azure Databr
 
 * Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-* O nome da sua conta de armazenamento do Azure Data Lake Gen2. [Crie uma conta de armazenamento do Azure Data Lake Storage Gen2](data-lake-storage-quickstart-create-account.md).
+* Uma conta de armazenamento que tenha o recurso de namespace hierárquico habilitado. Para criar uma, confira [Criar uma conta de armazenamento para usá-la com o Azure Data Lake Storage Gen2](create-data-lake-storage-account.md).
 
 * A ID do locatário, a ID do aplicativo e a senha de uma entidade de serviço do Azure com uma função atribuída de **Colaborador de Dados do Blob de Armazenamento**. [Crie uma entidade de serviço](../../active-directory/develop/howto-create-service-principal-portal.md).
 
@@ -86,7 +86,7 @@ Nesta seção, você cria um bloco de anotações no workspace do Azure Databric
 
 2. No painel esquerdo, escolha **Workspace**. Na lista suspensa **Workspace**, selecione **Criar** > **Notebook**.
 
-    ![Criar notebook no Databricks](./media/data-lake-storage-quickstart-create-databricks-account/databricks-create-notebook.png "Criar notebook no Databricks")
+    ![Captura de tela que mostra como criar um bloco de anotações no Databricks e realça a opção de menu Criar > Bloco de Anotações.](./media/data-lake-storage-quickstart-create-databricks-account/databricks-create-notebook.png "Criar notebook no Databricks")
 
 3. Na caixa de diálogo **Criar Bloco de Anotações**, digite um nome para o bloco de anotações. Selecione **Scala** como linguagem e selecione o cluster Spark criado anteriormente.
 
@@ -170,7 +170,7 @@ Execute as seguintes tarefas para executar um trabalho SQL do Spark nos dados.
 
 5. Em **Personalizar plotagem**, arraste e solte valores conforme mostrado na captura de tela.
 
-    ![Personalizar gráfico de barras](./media/data-lake-storage-quickstart-create-databricks-account/databricks-notebook-customize-plot.png "Personalizar gráfico de barras")
+    ![Captura de tela que mostra a tela Personalizar Gráfico e os valores que você pode arrastar e soltar.](./media/data-lake-storage-quickstart-create-databricks-account/databricks-notebook-customize-plot.png "Personalizar gráfico de barras")
 
     - Definir **Chaves** como **gênero**.
     - Definir **Agrupamentos de série** como **nível**.
@@ -198,7 +198,7 @@ Neste artigo, você criou um cluster Spark no Azure Databricks e executou um tra
 Siga até o próximo artigo para saber como executar uma operação de ETL (extração, transformação e carregamento de dados) usando o Azure Databricks.
 
 > [!div class="nextstepaction"]
->[Extrair, transformar e carregar dados usando o Azure Databricks](../../azure-databricks/databricks-extract-load-sql-data-warehouse.md).
+>[Extrair, transformar e carregar dados usando o Azure Databricks](/azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse).
 
 - Para saber como importar dados de outras fontes de dados para o Azure Databricks, confira [Fontes de dados do Spark](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html).
 

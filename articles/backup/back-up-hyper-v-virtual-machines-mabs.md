@@ -3,12 +3,12 @@ title: Fazer backup de máquinas virtuais do Hyper-V com MABS
 description: Este artigo contém os procedimentos para fazer backup e recuperação de máquinas virtuais usando o Backup do Microsoft Azure Server (MABS).
 ms.topic: conceptual
 ms.date: 07/18/2019
-ms.openlocfilehash: d3648bf6c980049a2e3ccfa90a777bddc1748dc9
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: fc4e34e11e2474521082b1c23f600e9a5ca7a9fe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89011932"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89377991"
 ---
 # <a name="back-up-hyper-v-virtual-machines-with-azure-backup-server"></a>Fazer backup de máquinas virtuais do Hyper-V com Servidor de Backup do Azure
 
@@ -78,13 +78,13 @@ Estes são os pré-requisitos para fazer backup de máquinas virtuais do Hyper-V
 
 2. Configure o agente de proteção do MABS no servidor Hyper-V ou nos nós do cluster Hyper-V. Se estiver fazendo um backup em nível de convidado, você instalará o agente nas VMs que deseja fazer backup no nível de convidado.
 
-3. No console do administrador do mAbs, clique em **proteção**  >  **Criar grupo de proteção** para abrir o assistente para **criar novo grupo de proteção** .
+3. No console do administrador do mAbs, selecione **proteção**  >  **Criar grupo de proteção** para abrir o assistente para **criar novo grupo de proteção** .
 
 4. Na página **Selecionar Membros do Grupo**, selecione as VMs que você deseja proteger dos servidores host Hyper-V em que estão localizadas. É recomendável que você coloque todas as VMs que terão a mesma política de proteção no mesmo grupo de proteção. Habilite a colocação para proporcionar um uso eficiente do espaço. A colocação permite que você localize dados de grupos de proteção diferentes no mesmo armazenamento em disco ou fita para que várias fontes de dados tenham uma única réplica e volume de pontos de recuperação.
 
 5. Na página **Selecionar Método de Proteção de Dados**, especifique um nome do grupo de proteção. Selecione **Desejo proteção de curto prazo usando disco** e selecione **Desejo proteção online** se você deseja fazer backup de dados no Azure usando o serviço de Backup do Azure.
 
-6. Em **especificar objetivos de curto prazo**  >  **período de retenção**, especifique quanto tempo deseja manter os dados do disco. Em **frequência de sincronização**, especifique com que frequência os backups incrementais dos dados devem ser executados. Como alternativa, em vez de selecionar um intervalo para backups incrementais, você pode habilitar **Logo antes de um ponto de recuperação**. Com essa configuração habilitada, o MABS executará um backup completo expresso antes de cada ponto de recuperação agendado.
+6. Em **especificar Short-Term metas**de  >  **período de retenção**, especifique por quanto tempo deseja manter os dados do disco. Em **frequência de sincronização**, especifique com que frequência os backups incrementais dos dados devem ser executados. Como alternativa, em vez de selecionar um intervalo para backups incrementais, você pode habilitar **Logo antes de um ponto de recuperação**. Com essa configuração habilitada, o MABS executará um backup completo expresso antes de cada ponto de recuperação agendado.
 
     > [!NOTE]
     >
@@ -110,7 +110,7 @@ Se o MABS estiver em execução no Windows Server 2012 R2 ou superior, você pod
 
 **Habilitar o backup de hoster** – Você pode usar um datacenter hospedado como um site de réplica, sem a necessidade de um datacenter secundário. Nesse caso, o SLA do hoster requer backup consistente de máquinas virtuais de réplica.
 
-Uma máquina virtual de réplica é desativada até que um failover seja iniciado e o VSS não possa assegurar um backup consistente com o aplicativo para uma máquina virtual de réplica. Portanto, o backup de uma máquina virtual de réplica será somente com controle de falhas. Se não for possível garantir a consistência de falha, o backup falhará e isso poderá ocorrer em algumas condições:
+Uma máquina virtual de réplica é desativada até que um failover seja iniciado e o VSS não possa assegurar um backup consistente com o aplicativo para uma máquina virtual de réplica. Portanto, o backup de uma máquina virtual de réplica será consistente somente com falhas. Se não for possível garantir a consistência de falha, o backup falhará e isso poderá ocorrer em algumas condições:
 
 - A máquina virtual de réplica não está íntegra e se apresenta em um estado crítico.
 
@@ -128,13 +128,13 @@ Quando for possível recuperar uma máquina virtual do backup, use o Assistente 
 
 1. No console do administrador do MABS, digite o nome da VM ou expanda a lista de itens protegidos e selecione a VM que você deseja recuperar.
 
-2. No painel **Pontos de recuperação para**, no calendário, clique em qualquer data para ver os pontos de recuperação disponíveis. No painel **Caminho**, selecione o ponto de recuperação que você deseja usar no Assistente de Recuperação.
+2. No painel **pontos de recuperação para** , no calendário, selecione qualquer data para ver os pontos de recuperação disponíveis. No painel **Caminho**, selecione o ponto de recuperação que você deseja usar no Assistente de Recuperação.
 
-3. No menu **Ações**, clique em **Recuperar** para abrir o Assistente de Recuperação.
+3. No menu **ações** , selecione **recuperar** para abrir o assistente de recuperação.
 
-    A VM e o ponto de recuperação selecionados aparecem na tela **Examinar Seleção de Recuperação**. Clique em **Avançar**.
+    A VM e o ponto de recuperação selecionados aparecem na tela **Examinar Seleção de Recuperação**. Selecione **Avançar**.
 
-4. Na tela **Selecionar Tipo de Recuperação**, selecione onde você deseja restaurar os dados e clique em **Avançar**.
+4. Na tela **Selecionar tipo de recuperação** , selecione onde você deseja restaurar os dados e, em seguida, selecione **Avançar**.
 
     - **Recuperar na instância original**: ao recuperar na instância original, o VHD original é excluído. MABS recupera o VHD e outros arquivos de configuração para o local original usando o gravador VSS do Hyper-V. Ao término do processo de recuperação, as máquinas virtuais ainda estarão altamente disponíveis.
         O grupo de recursos deve estar presente para recuperação. Se não estiver disponível, recupere em um local alternativo e crie a máquina virtual altamente disponível.
@@ -143,13 +143,13 @@ Quando for possível recuperar uma máquina virtual do backup, use o Assistente 
 
     - **Copiar para uma pasta de rede**: o mAbs dá suporte à ILR (recuperação em nível de item), que permite fazer a recuperação em nível de item de arquivos, pastas, volumes e VHDs (discos rígidos virtuais) de um backup em nível de host de máquinas virtuais do Hyper-V em um volume ou compartilhamento de rede em um servidor mAbs protegido. O agente de proteção do MABS não precisa ser instalado dentro do convidado para executar a recuperação em nível de item. Se você escolher essa opção, o Assistente de Recuperação apresentará uma tela adicional para identificar o destino e o caminho de destino.
 
-5. Em **Especificar as Opções de Recuperação**, configure as opções de recuperação e clique em **Avançar**:
+5. Em **especificar opções de recuperação** , configure as opções de recuperação e selecione **Avançar**:
 
-    - Se você estiver recuperando uma VM em baixa largura de banda, clique em **Modificar** para habilitar a **Limitação do uso da largura de banda da rede**. Depois de ativar a opção de limitação, você pode especificar a quantidade de largura de banda que você deseja disponibilizar e a hora em que ela estará disponível.
-    - Selecione **Habilitar a recuperação baseada em SAN usando instantâneos de hardware** se tiver configurado a rede.
+    - Se você estiver recuperando uma VM com pouca largura de banda, selecione **Modificar** para habilitar a **limitação do uso de largura de banda**. Depois de ativar a opção de limitação, você pode especificar a quantidade de largura de banda que você deseja disponibilizar e a hora em que ela estará disponível.
+    - Selecione **habilitar a recuperação baseada em San usando instantâneos de hardware** se você tiver configurado sua rede.
     - Selecione **Enviar um email ao concluir a recuperação** e forneça os endereços de email se desejar que notificações de email sejam enviadas quando o processo de recuperação for concluído.
 
-6. Na tela de Resumo, verifique se todos os detalhes estão corretos. Se os detalhes não estiverem corretos ou se desejar fazer uma alteração, clique em **Voltar**. Se estiver satisfeito com as configurações, clique em **recuperar** para iniciar o processo de recuperação.
+6. Na tela de Resumo, verifique se todos os detalhes estão corretos. Se os detalhes não estiverem corretos ou se você quiser fazer uma alteração, selecione **voltar**. Se estiver satisfeito com as configurações, selecione **recuperar** para iniciar o processo de recuperação.
 
 7. A tela **Status de Recuperação** fornece informações sobre o trabalho de recuperação.
 

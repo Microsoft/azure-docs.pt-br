@@ -3,20 +3,18 @@ title: Entidade predefinida do percentual – LUIS
 titleSuffix: Azure Cognitive Services
 description: Este artigo contém informações sobre a entidade predefinida de percentual de LUIS (Serviço Inteligente de Reconhecimento Vocal).
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 09/27/2019
-ms.author: diberry
-ms.openlocfilehash: 31ea1c36139abcb1e102161ad76a203073ba4dfd
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: bb64a32e2bdd3976fba3ce63433b13eb4891afc7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78270506"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91541689"
 ---
 # <a name="percentage-prebuilt-entity-for-a-luis-app"></a>Entidade de percentual predefinida para um aplicativo LUIS
 Números de percentual podem aparecer como frações, `3 1/2` ou como percentual, `2%`. Uma vez que essa entidade já está treinada, não é necessário adicionar enunciados de exemplo contendo percentual às intenções do aplicativo. A entidade de percentual é compatível com [muitas culturas](luis-reference-prebuilt-entities.md).
@@ -32,7 +30,7 @@ Os seguintes objetos de entidade são retornados para a consulta:
 
 #### <a name="v3-response"></a>[Resposta v3](#tab/V3)
 
-O JSON a seguir é com `verbose` o parâmetro definido `false`como:
+O JSON a seguir é com o `verbose` parâmetro definido como `false` :
 
 ```json
 "entities": {
@@ -42,7 +40,7 @@ O JSON a seguir é com `verbose` o parâmetro definido `false`como:
 }
 ```
 #### <a name="v3-verbose-response"></a>[V3, resposta detalhada](#tab/V3-verbose)
-O JSON a seguir é com `verbose` o parâmetro definido `true`como:
+O JSON a seguir é com o `verbose` parâmetro definido como `true` :
 
 ```json
 "entities": {

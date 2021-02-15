@@ -1,16 +1,14 @@
 ---
 title: Solucionar problemas de configuração do Cluster Service Fabric local do Azure
 description: Este artigo aborda um conjunto de sugestões para a solução de problemas do cluster de desenvolvimento local
-author: mikkelhegn
 ms.topic: conceptual
 ms.date: 02/23/2018
-ms.author: mikhegn
-ms.openlocfilehash: 76ca0bb7b81b3896538f08ff2ef52ed1ac6b363f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 20948cd1626c02d73fb6e9ef096b552bbab627fb
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091599"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575900"
 ---
 # <a name="troubleshoot-your-local-development-cluster-setup"></a>Solucionar problemas de configuração do cluster de desenvolvimento local
 Se você tiver um problema ao interagir com o cluster de desenvolvimento local do Service Fabric do Azure, examine as sugestões a seguir para ver as possíveis soluções.
@@ -72,5 +70,5 @@ Verifique se você não possui um projeto de serviço definido como projeto de i
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Entender e solucionar problemas de cluster com relatórios de integridade do sistema](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
-* [Visualizando o cluster com o Explorador do Service Fabric](service-fabric-visualizing-your-cluster.md)
+* [Visualizando o cluster com o Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
 

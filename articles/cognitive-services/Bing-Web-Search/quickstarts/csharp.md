@@ -8,17 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 05/22/2020
+ms.date: 10/19/2020
 ms.author: aahi
-ms.custom: seodec2018
-ms.openlocfilehash: 2c13931c7ab7c084b635abb7080f97de6d4bf4bb
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.custom: seodec2018, devx-track-csharp
+ms.openlocfilehash: 201fcf80e26aaaed78e1f6a78eb0dab5a345ba50
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873884"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350595"
 ---
 # <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-c"></a>Início Rápido: pesquisar na Web usando a API REST de Pesquisa na Web do Bing e C#
+
+> [!WARNING]
+> As APIs de Pesquisa do Bing estão migrando dos Serviços Cognitivos para os Serviços de Pesquisa do Bing. A partir de **30 de outubro de 2020**, todas as novas instâncias da Pesquisa do Bing precisam ser provisionadas seguindo o processo documentado [aqui](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> As APIs de Pesquisa do Bing provisionadas por meio dos Serviços Cognitivos terão suporte nos próximos três anos ou até o final do seu Contrato Enterprise, o que ocorrer primeiro.
+> Para obter instruções sobre a migração, confira [Serviços de Pesquisa do Bing](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Use este início rápido para fazer sua primeira chamada à API da Pesquisa na Web do Bing. Este aplicativo C# envia uma solicitação de pesquisa à API e exibe a resposta JSON. Embora esse aplicativo seja escrito em C#, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
 
@@ -29,14 +34,14 @@ Este programa de exemplo neste guia de início rápido usa apenas classes do .NE
 Aqui estão alguns itens de que você poderá precisar antes de executar este início rápido:
 
 * Windows: [Visual Studio 2017 ou posterior](https://www.visualstudio.com/downloads/)
-* Linux/macOS: [Mono](https://www.mono-project.com/)  
-* Uma chave de assinatura
+* Linux/macOS: [Visual Studio Code](https://code.visualstudio.com/) e [.NET Core](https://dotnet.microsoft.com/download)
+* [Uma assinatura gratuita do Azure](https://azure.microsoft.com/free/dotnet)
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
 
 ## <a name="create-a-project-and-declare-dependencies"></a>Criar um projeto e declarar dependências
 
-Crie um novo projeto no Visual Studio ou Mono. Use o seguinte código para importar os namespaces e tipos necessários:
+Crie um projeto de console no Visual Studio ou VS Code. Use o seguinte código para importar os namespaces e tipos necessários:
 
 ```csharp
 using System;

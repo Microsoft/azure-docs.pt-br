@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 10/11/2019
+ms.date: 10/15/2020
 ms.custom: devx-track-java
 ms.author: erhopf
-ms.openlocfilehash: 2a6516ad5f0fc8d9faefd7b7f89ddb1eaa3fd7d6
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 142d4504ab12e7df5cc1e009038554a5b90dff0c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87375606"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96188142"
 ---
 Este guia mostra como instalar o [SDK de Fala](~/articles/cognitive-services/speech-service/speech-sdk.md) para o JRE do Java 8 de 64 bits. Se você quiser apenas o nome do pacote para começar por conta própria, o SDK do Java não estará disponível no repositório central do Maven. Se você estiver usando o Gradle ou um arquivo de dependência `pom.xml`, será necessário adicionar um repositório personalizado apontando para `https://csspeechstorage.blob.core.windows.net/maven/` (veja abaixo o nome do pacote).
 
@@ -30,7 +30,7 @@ Este guia mostra como instalar o [SDK de Fala](~/articles/cognitive-services/spe
 - O pacote do SDK de Fala do Java está disponível para estes sistemas operacionais:
   - Windows: somente 64 bits
   - Mac: macOS X versão 10.13 ou mais recente
-  - Linux: 64 bits apenas no Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 7/8, CentOS 7/8
+  - Linux; confira a lista de [distribuições do Linux e arquiteturas de destino compatíveis](~/articles/cognitive-services/speech-service/speech-sdk.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -39,19 +39,14 @@ Este guia mostra como instalar o [SDK de Fala](~/articles/cognitive-services/spe
 - [Java IDE do Eclipse](https://www.eclipse.org/downloads/) (requer que o Java já esteja instalado)
 - As plataformas Linux com suporte deverão ter determinadas bibliotecas instaladas (`libssl` para suporte do protocolo SSL e `libasound2` para um suporte consistente). Consulte a distribuição abaixo para verificar os comandos necessários para instalar as versões corretas dessas bibliotecas.
 
-  - No Ubuntu, execute os seguintes comandos para instalar os pacotes necessários:
+  - No Ubuntu/Debian, execute os seguintes comandos para instalar os pacotes necessários:
 
     ```sh
     sudo apt-get update
     sudo apt-get install build-essential libssl1.0.0 libasound2
     ```
 
-  - No Debian 9, execute os seguintes comandos para instalar os pacotes necessários:
-
-    ```sh
-    sudo apt-get update
-    sudo apt-get install build-essential libssl1.0.2 libasound2
-    ```
+    Se o libssl 1.0.0 não estiver disponível, instale o libssl 1.0.x (em que x é maior que 0) ou o libssl 1.1.
 
   - No RHEL/CentOS, execute os seguintes comandos para instalar os pacotes necessários:
 

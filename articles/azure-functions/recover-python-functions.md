@@ -7,10 +7,10 @@ ms.date: 07/29/2020
 ms.author: hazeng
 ms.custom: devx-track-python
 ms.openlocfilehash: 9b9f5d389eda5d74e7e78cfcfa9a46fba7276cbd
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87846030"
 ---
 # <a name="troubleshoot-python-errors-in-azure-functions"></a>Solucionar problemas de erros do Python no Azure Functions
@@ -165,9 +165,9 @@ Se estiver executando em um sistema operacional x64, verifique se o intérprete 
 
 Você pode verificar o seu bit de interpretador do Python pelos seguintes comandos:
 
-No Windows no PowerShell:`py -c 'import platform; print(platform.architecture()[0])'`
+No Windows no PowerShell: `py -c 'import platform; print(platform.architecture()[0])'`
 
-No Shell do tipo UNIX:`python3 -c 'import platform; print(platform.architecture()[0])'`
+No Shell do tipo UNIX: `python3 -c 'import platform; print(platform.architecture()[0])'`
 
 Se houver uma incompatibilidade entre a arquitetura do sistema operacional e o meio de bit do intérprete do Python, baixe um intérprete do Python adequado do [Python Software Foundation](https://python.org/downloads/release).
 

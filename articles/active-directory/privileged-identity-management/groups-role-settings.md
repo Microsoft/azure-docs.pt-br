@@ -15,12 +15,12 @@ ms.date: 07/27/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c31897e5dc50815d692be83af5d03ffe58c216c1
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: abb7f93437cd45914d3824e9f557241ba0d71162
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87505933"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835383"
 ---
 # <a name="configure-privileged-access-group-settings-preview-in-privileged-identity-management"></a>Definir configurações de grupo de acesso privilegiado (versão prévia) no Privileged Identity Management
 
@@ -30,7 +30,7 @@ As configurações de função são as configurações padrão que são aplicada
 
 Siga estas etapas para abrir as configurações de uma função de grupo de acesso privilegiado do Azure.
 
-1. Entre no [portal do Azure](https://portal.azure.com/) com um usuário na função de [administrador de função com privilégios](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) .
+1. Entre no [portal do Azure](https://portal.azure.com/) com um usuário na função de [administrador de função com privilégios](../roles/permissions-reference.md#privileged-role-administrator) .
 
 1. Abra **Azure ad Privileged Identity Management**.
 
@@ -92,7 +92,7 @@ E, você pode escolher uma destas opções de duração da atribuição **ativa*
 
 ## <a name="require-multi-factor-authentication"></a>Exigir autenticação multifator
 
-O Privileged Identity Management fornece imposição opcional da Autenticação Multifator do Azure para dois cenários diferentes.
+Privileged Identity Management fornece imposição opcional da autenticação multifator do Azure AD para dois cenários distintos.
 
 ### <a name="require-multi-factor-authentication-on-active-assignment"></a>Exigir Autenticação Multifator na atribuição ativa
 
@@ -102,7 +102,7 @@ Para garantir que o administrador de recursos que está atendendo à atribuiçã
 
 ### <a name="require-multi-factor-authentication-on-activation"></a>Exigir a Autenticação Multifator na ativação
 
-Você pode exigir que os usuários qualificados para uma função comprovem quem estão usando a autenticação multifator do Azure antes que possam ser ativados. A autenticação multifator garante que o usuário seja quem dizem que eles estão com certeza razoável. A aplicação dessa opção protege recursos críticos em situações em que a conta do usuário pode ter sido comprometida.
+Você pode exigir que os usuários qualificados para uma função comprovem quem estão usando a autenticação multifator do Azure AD antes que possam ser ativados. A autenticação multifator garante que o usuário seja quem dizem que eles estão com certeza razoável. A aplicação dessa opção protege recursos críticos em situações em que a conta do usuário pode ter sido comprometida.
 
 Para exigir a autenticação multifator antes da ativação, marque a caixa de seleção **exigir autenticação multifator no modo de ativação** .
 
@@ -114,7 +114,7 @@ Use o controle deslizante **Duração máxima da ativação** para definir o tem
 
 ## <a name="require-justification"></a>Exigir justificativa
 
-Você pode exigir que os usuários insiram uma justificativa de negócios ao serem ativados. Para exigir justificativa, marque a caixa **Exigir justificativa na atribuição ativa ** ou a caixa **Exigir justificativa na ativação**.
+Você pode exigir que os usuários insiram uma justificativa de negócios ao serem ativados. Para exigir justificativa, marque a caixa **Exigir justificativa na atribuição ativa** ou a caixa **Exigir justificativa na ativação**.
 
 ## <a name="require-approval-to-activate"></a>Exigir aprovação para ativar
 

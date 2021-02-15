@@ -10,13 +10,13 @@ ms.date: 05/28/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 00f6085414e5a48647846830f93ba3fb98c382f2
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 242700c05053aa9d07e3a561a21986c8451a46c7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502504"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91612437"
 ---
 # <a name="check-the-last-sync-time-property-for-a-storage-account"></a>Verificação da propriedade Horário da Última Sincronização de uma conta de armazenamento
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
-ms.openlocfilehash: c9c4cef07bf1de64bcb14bc4487e0f56d2a40dfc
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 97294bdd088f50a46786c3568f4230706f750c4c
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88518522"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92520924"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mozy-enterprise"></a>Tutorial: Integração do Active Directory do Azure com o Mozy Enterprise
 
@@ -27,7 +27,7 @@ A integração do Mozy Enterprise ao Azure AD oferece os seguintes benefícios:
 * Você pode permitir que seus usuários entrem automaticamente no Mozy Enterprise (Logon Único) usando suas contas do Azure AD.
 * Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](../manage-apps/what-is-single-sign-on.md).
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Prerequisites
@@ -126,11 +126,11 @@ Para configurar o logon único do Azure AD com o Mozy Enterprise, realize as seg
 
 2. Na seção **Configuração**, clique em **Política de Autenticação**.
    
-    ![Política de autenticação](./media/mozy-enterprise-tutorial/ic777314.png "Política de Autenticação")
+    ![A captura de tela mostra a Política de Autenticação selecionada em Configuração.](./media/mozy-enterprise-tutorial/ic777314.png "Política de Autenticação")
 
 3. Na seção **Política de Autenticação** , realize as seguintes etapas:
    
-    ![Política de autenticação](./media/mozy-enterprise-tutorial/ic777315.png "Política de Autenticação")
+    ![A captura de tela mostra a seção Política de Autenticação em que você pode inserir os valores descritos.](./media/mozy-enterprise-tutorial/ic777315.png "Política de Autenticação")
    
     a. Selecione **Serviço de Diretório** como **Provedor**.
    
@@ -240,13 +240,12 @@ Para permitir que os usuários do AD do Azure façam logon no Mozy Enterprise, e
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Ao clicar no bloco do Mozy Enterprise no Painel de Acesso, você deverá ser conectado automaticamente ao Mozy Enterprise no qual configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao clicar no bloco do Mozy Enterprise no Painel de Acesso, você deverá ser conectado automaticamente ao Mozy Enterprise no qual configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](./tutorial-list.md)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)

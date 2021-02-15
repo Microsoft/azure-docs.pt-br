@@ -8,17 +8,17 @@ ms.topic: include
 ms.date: 11/04/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 105ab0c71d9e7e935842550ecdc4c8d2ff2a2d8c
-ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
+ms.openlocfilehash: 64470b42efeea49b7c778d6dffd88465b8445e36
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84977909"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "90606488"
 ---
 1. Localize o WAN Virtual que você criou. Na página WAN virtual, na seção **Conectividade**, selecione **Hubs**.
 2. Na página Hubs, selecione **+Novo Hub** para abrir a página **Criar Hub Virtual**.
 
-    ![Noções básicas](./media/virtual-wan-tutorial-hub-include/basics.png "Noções básicas")
+    ![A captura de tela mostra o painel Criar hub virtual com a guia Informações Básicas selecionada.](./media/virtual-wan-tutorial-hub-include/basics.png "Noções básicas")
 3. Na página **Criar Hub Virtual**, na guia **Básico**, preencha os seguintes campos:
 
     **Detalhes do projeto**
@@ -28,7 +28,7 @@ ms.locfileid: "84977909"
    * Espaço de endereço privado do hub. O espaço de endereço mínimo é /24 para criar um hub, o que significa que qualquer intervalo entre /25 e /32 produzirá um erro durante a criação. Como um serviço gerenciado pela Microsoft, a WAN Virtual do Azure cria as sub-redes apropriadas no hub virtual para os diferentes gateways/serviços (por exemplo, gateways de VPN, gateways do ExpressRoute, gateways de ponto a site/VPN de usuário, firewall, roteamento etc.). Não há necessidade de o usuário planejar explicitamente o espaço de endereço de sub-rede para os serviços no hub virtual, pois a Microsoft faz isso como parte do serviço.
 4. Selecione **Avançar: Site a site**.
 
-    ![Site a site](./media/virtual-wan-tutorial-hub-include/site-to-site.png "Site a site")
+    ![A captura de tela mostra o painel Criar hub virtual com Site a site selecionado.](./media/virtual-wan-tutorial-hub-include/site-to-site.png "Site a site")
 
 5. Na guia **Site a site**, preencha os seguintes campos:
 

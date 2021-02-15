@@ -1,25 +1,27 @@
 ---
-title: Criar um localizador de streaming e URLs de compilação-serviços de mídia do Azure
+title: Criar um localizador de streaming e criar URLs
 description: Este artigo demonstra como criar um localizador de streaming e URLs de compilação.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
-ms.topic: article
-ms.date: 03/04/2020
-ms.author: juliako
+ms.topic: how-to
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c9eae2b0d8b5bebc027dd46afd17a37b8a19b422
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: ecbc42237326cb895c47e96eda13bbddcdeb558f
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89012153"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98956116"
 ---
 # <a name="create-a-streaming-locator-and-build-urls"></a>Criar um localizador de streaming e criar URLs
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Nos serviços de mídia do Azure, para criar uma URL de streaming, primeiro você precisa criar um [localizador de streaming](streaming-locators-concept.md). Em seguida, você concatena o nome do host do [ponto de extremidade de streaming](/rest/api/media/streamingendpoints) e o caminho do **localizador de streaming** . Neste exemplo, o *padrão* do **Ponto de Extremidade de Streaming** é usado. Quando você cria uma conta de serviço de mídia pela primeira vez, esse **ponto de extremidade de streaming** *padrão* estará em um estado parado, portanto, você precisa chamar **Iniciar** para iniciar streaming.
 
@@ -161,7 +163,7 @@ private static async Task<IList<string>> GetStreamingUrlsAsync(
 
 Consulte o exemplo de código completo: [EncodingWithMESPredefinedPreset](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/master/VideoEncoding/EncodingWithMESPredefinedPreset/Program.cs)
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 * [Criar filtros com o .NET](filters-dynamic-manifest-dotnet-howto.md)
 * [Criar filtros com o REST](filters-dynamic-manifest-rest-howto.md)

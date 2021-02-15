@@ -7,19 +7,20 @@ author: MashaMSFT
 tags: azure-resource-manager
 ms.assetid: aa5bf144-37a3-4781-892d-e0e300913d03
 ms.service: virtual-machines-sql
-ms.topic: article
+ms.subservice: migration
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/30/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 37f098bc28ee89bdad9e5bde213e3c2a6847b0bf
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 789554121af1c83d9077e6153ca9db01477bde25
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85851808"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97360145"
 ---
 # <a name="move-a-sql-server-vm-to-another-region-within-azure-with-azure-site-recovery"></a>Mover uma VM SQL Server para outra região no Azure com Azure Site Recovery
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -64,7 +65,7 @@ Prepare a VM do SQL Server de origem e a região de destino para a movimentaçã
     - O Azure Site Recovery descobre e cria automaticamente uma rede virtual quando você habilita a replicação para a VM de origem. Você também pode pré-criar uma rede e atribuí-la à VM no fluxo do usuário para habilitar a replicação. Você precisa criar manualmente outros recursos na região de destino.
 - Para criar os recursos de rede mais utilizados e relevantes com base na configuração da VM de origem, consulte a documentação a seguir: 
     - [Grupos de segurança de rede](../../../virtual-network/tutorial-filter-network-traffic.md) 
-    - [Balanceador de carga](../../../load-balancer/tutorial-load-balancer-standard-internal-portal.md)
+    - [Balanceador de carga](../../../load-balancer/quickstart-load-balancer-standard-internal-portal.md)
     - [Endereço IP público](../../../virtual-network/virtual-network-public-ip-address.md)
     - Para quaisquer componentes de rede adicionais, confira a [documentação da rede](../../../virtual-network/virtual-networks-overview.md).
 - Crie manualmente uma rede de não produção na região de destino, caso você queira testar a configuração antes de executar a movimentação final para a região de destino. Essa etapa é recomendável porque garante interferência mínima na rede de produção. 
@@ -131,7 +132,7 @@ As etapas a seguir mostram como mover a VM do SQL Server da região de origem pa
 1. Você pode monitorar o processo de failover a partir da mesma página **Trabalhos do Site Recovery** que visualizou ao monitorar o teste de failover na seção anterior. 
 1. Após a conclusão da trabalho, verifique se a VM do SQL Server aparece na região de destino conforme o esperado. 
 1. Volte para o cofre, selecione **Itens Replicados**, selecione a VM do SQL Server e selecione **Confirmar** para concluir o processo de movimentação para a região de destino. Aguarde até que o trabalho de confirmação seja concluído. 
-1. Registre sua VM do SQL Server com o provedor de recursos da VM do SQL para habilitar o gerenciamento da **Máquina Virtual SQL** no portal do Azure e os recursos associados ao provedor de recursos. Para obter mais informações, consulte [registrar SQL Server VM com o provedor de recursos de VM do SQL](sql-vm-resource-provider-register.md). 
+1. Registre sua VM SQL Server com a extensão do agente IaaS do SQL para habilitar a gerenciabilidade da **máquina virtual do SQL** no portal do Azure e os recursos associados à extensão. Para obter mais informações, consulte [registrar SQL Server VM com a extensão do agente IaaS do SQL](sql-agent-extension-manually-register-single-vm.md). 
 
   > [!WARNING]
   > A consistência dos dados do SQL Server é garantida apenas com instantâneos consistentes com o aplicativo. O instantâneo **processado mais recente** não pode ser usado para failover do SQL Server, pois um instantâneo de recuperação de falha não pode garantir a consistência dos dados do SQL Server. 
@@ -156,5 +157,3 @@ Para obter mais informações, consulte os seguintes artigos:
 * [SQL Server em um FAQ de VM do Windows](frequently-asked-questions-faq.md)
 * [Orientações sobre preço do SQL Server em uma VM Windows](pricing-guidance.md)
 * [SQL Server em um notas de versão de VM do Windows](doc-changes-updates-release-notes.md)
-
-

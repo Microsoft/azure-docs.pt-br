@@ -1,14 +1,16 @@
 ---
 title: Como funciona o Personalizador – Personalizador
 description: O _loop_ personalizador usa o Machine Learning para criar o modelo que prevê a ação principal para seu conteúdo. O modelo é treinado exclusivamente em seus dados que você enviou a ele com as chamadas de classificação e recompensa.
+ms.service: cognitive-services
+ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 02/18/2020
-ms.openlocfilehash: 836c207213ac52a60e27da6fc957418187059023
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: cfbe5cf8c19bfafb38f6149391e09350785ebf9c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77623768"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91303600"
 ---
 # <a name="how-personalizer-works"></a>Como funciona o Personalizador
 

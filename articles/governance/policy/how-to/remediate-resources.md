@@ -1,14 +1,14 @@
 ---
 title: Corrigir recursos sem conformidade
 description: Este guia o orienta pela correção de recursos que não estão em conformidade com as políticas no Azure Policy.
-ms.date: 08/27/2020
+ms.date: 10/05/2020
 ms.topic: how-to
-ms.openlocfilehash: 1274b049d7ce19601968697b22da38f0eb2cb5ff
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 76d2e57c1b5df965c81c88506ff2c2f70b2cb1f8
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88958738"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91876321"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Corrigir recursos que não estão em conformidade com o Azure Policy
 
@@ -17,12 +17,16 @@ Recursos que não estão em conformidade com uma política de **deployIfNotExist
 ## <a name="how-remediation-security-works"></a>Como funciona a correção de segurança
 
 Quando o Azure Policy executa o modelo na definição de política **deployIfNotExists**, ele faz isso usando uma [identidade gerenciada](../../../active-directory/managed-identities-azure-resources/overview.md).
-O Azure Policy cria uma identidade gerenciada para cada atribuição, mas precisa ter detalhes sobre quais funções devem receber a identidade gerenciada. Se a identidade gerenciada não tiver funções, esse erro será exibido durante a atribuição da política ou uma iniciativa. Quando o portal é usado, o Azure Policy concederá automaticamente a identidade gerenciada às funções listadas quando a atribuição for iniciada. O _local_ da identidade gerenciada não afeta sua operação com Azure Policy.
+O Azure Policy cria uma identidade gerenciada para cada atribuição, mas precisa ter detalhes sobre quais funções devem receber a identidade gerenciada. Se a identidade gerenciada estiver sem funções, um erro será exibido durante a atribuição da política ou de uma iniciativa. Quando o portal é usado, o Azure Policy concederá automaticamente a identidade gerenciada às funções listadas quando a atribuição for iniciada. Ao usar o SDK, as funções devem ser concedidas manualmente à identidade gerenciada. O _local_ da identidade gerenciada não afeta sua operação com Azure Policy.
 
-:::image type="content" source="../media/remediate-resources/missing-role.png" alt-text="Identidade gerenciada – função ausente" border="false":::
+:::image type="content" source="../media/remediate-resources/missing-role.png" alt-text="Captura de tela de uma política deployIfNotExists que não tem uma permissão definida na identidade gerenciada." border="false":::
 
 > [!IMPORTANT]
-> Se um recurso modificado por **deployIfNotExists** ou **modify** está fora do escopo da atribuição de política ou o modelo acessar propriedades em recursos que estão fora do escopo da atribuição de política, deve ser [concedido acesso manualmente](#manually-configure-the-managed-identity) à identidade gerenciada da atribuição, ou a implantação de correção falha.
+> Nos cenários a seguir, a identidade gerenciada da atribuição deve ser [concedida ao acesso manualmente](#manually-configure-the-managed-identity) ou a implantação de correção falhará:
+>
+> - Se a atribuição for criada por meio do SDK
+> - Se um recurso modificado por **deployIfNotExists** ou **Modify** estiver fora do escopo da atribuição de política
+> - Se o modelo acessa Propriedades em recursos fora do escopo da atribuição de política
 
 ## <a name="configure-policy-definition"></a>Configurar a definição de política
 
@@ -90,15 +94,15 @@ if ($roleDefinitionIds.Count -gt 0)
 
 ### <a name="grant-defined-roles-through-portal"></a>Conceder funções definidas por meio do portal
 
-Há duas maneiras de conceder uma identidade gerenciada da atribuição às funções definidas usando o portal: usando **Controle de acesso (IAM)** ou editando a atribuição de política ou iniciativa e clicando em **Salvar**.
+Há duas maneiras de conceder à identidade gerenciada de uma atribuição as funções definidas usando o portal, usando o **controle de acesso (iam)** ou editando a atribuição de política ou iniciativa e selecionando **salvar**.
 
 Para adicionar uma função à identidade gerenciada da atribuição, siga estas etapas:
 
-1. Inicie o serviço de Azure Policy no portal do Azure clicando em**Todos os serviços**, em seguida pesquisando e selecionando **Política**.
+1. Inicie o serviço do Azure Policy no portal do Azure selecionando **Todos os serviços** e, em seguida, pesquisando e selecionando **Política**.
 
 1. Selecione **Atribuições** no lado esquerdo da página de Política do Azure.
 
-1. Localize a atribuição que tem uma identidade gerenciada e clique no nome.
+1. Localize a atribuição que tem uma identidade gerenciada e selecione o nome.
 
 1. Localize a propriedade **ID de Atribuição** na página de edição. A ID de atribuição será algo como:
 
@@ -110,10 +114,10 @@ Para adicionar uma função à identidade gerenciada da atribuição, siga estas
 
 1. Navegue até o recurso ou os recursos do contêiner pai (grupo de recursos, assinatura, grupo de gerenciamento) que precisa na definição de função adicionada manualmente.
 
-1. Clique no link **Controle de acesso (IAM)** na página de recursos e clique em **+ Adicionar atribuição de função** na parte superior da página do controle de acesso.
+1. Selecione o link **controle de acesso (iam)** na página recursos e, em seguida, selecione **+ Adicionar atribuição de função** na parte superior da página controle de acesso.
 
 1. Selecione a função apropriada que corresponde a **roleDefinitionIds** da definição de política.
-   Deixe **Atribuir acesso** definido como o padrão de 'Usuário, grupo ou aplicativo do Azure AD'. Na caixa **Selecionar**, cole ou digite a parte da ID do recurso de atribuição localizada anteriormente. Depois que a pesquisa for concluída, clique no objeto com o mesmo nome para selecionar a ID e clique em **Salvar**.
+   Deixe **Atribuir acesso** definido como o padrão de 'Usuário, grupo ou aplicativo do Azure AD'. Na caixa **Selecionar**, cole ou digite a parte da ID do recurso de atribuição localizada anteriormente. Quando a pesquisa for concluída, selecione o objeto com o mesmo nome para selecionar ID e selecione **salvar**.
 
 ## <a name="create-a-remediation-task"></a>Criar uma tarefa de correção
 
@@ -123,32 +127,32 @@ Durante a avaliação, a atribuição de política com os efeitos **deployIfNotE
 
 Para criar uma **tarefas de correção**, siga estas etapas:
 
-1. Inicie o serviço de Azure Policy no portal do Azure clicando em**Todos os serviços**, em seguida pesquisando e selecionando **Política**.
+1. Inicie o serviço do Azure Policy no portal do Azure selecionando **Todos os serviços** e, em seguida, pesquisando e selecionando **Política**.
 
-   :::image type="content" source="../media/remediate-resources/search-policy.png" alt-text="Pesquisar Política em Todos os Serviços" border="false":::
+   :::image type="content" source="../media/remediate-resources/search-policy.png" alt-text="Captura de tela de uma política deployIfNotExists que não tem uma permissão definida na identidade gerenciada." border="false":::
 
 1. Selecione **Correção** no lado esquerdo da página do Azure Policy.
 
-   :::image type="content" source="../media/remediate-resources/select-remediation.png" alt-text="Selecionar Correção na página Política" border="false":::
+   :::image type="content" source="../media/remediate-resources/select-remediation.png" alt-text="Captura de tela de uma política deployIfNotExists que não tem uma permissão definida na identidade gerenciada." border="false":::
 
-1. Todas as atribuições de política **deployIfNotExists** e **modify** com recursos sem conformidade estão incluídas na tabela de dados e na guia **Políticas a corrigir**. Clique em uma política com recursos sem conformidade. A página **Nova tarefa de correção** é aberta.
+1. Todas as atribuições de política **deployIfNotExists** e **modify** com recursos sem conformidade estão incluídas na tabela de dados e na guia **Políticas a corrigir**. Selecione em uma política com recursos que não estão em conformidade. A página **Nova tarefa de correção** é aberta.
 
    > [!NOTE]
-   > Uma maneira alternativa de abrir a página **tarefa de correção** é localizar e clicar na política na página **Conformidade** e, em seguida, clicar no botão **Criar tarefa de correção**.
+   > Uma maneira alternativa de abrir a página **tarefa de correção** é localizar e selecionar a política na página **conformidade** e, em seguida, selecionar o botão **criar tarefa de correção** .
 
 1. Na página **Nova tarefa de correção**, filtre os recursos a serem corrigidos usando as reticências de **Escopo** para escolher os recursos filho nos quais a política está atribuída (incluindo até os objetos do recurso individuais). Além disso, use a lista suspensa **Locais** para filtrar ainda mais os recursos. Somente os recursos listados na tabela serão corrigidos.
 
-   :::image type="content" source="../media/remediate-resources/select-resources.png" alt-text="Corrigir – selecione os recursos a serem corrigidos" border="false":::
+   :::image type="content" source="../media/remediate-resources/select-resources.png" alt-text="Captura de tela de uma política deployIfNotExists que não tem uma permissão definida na identidade gerenciada." border="false":::
 
-1. Inicie a tarefa de correção depois que os recursos forem filtrados clicando em **Corrigir**. A página de conformidade de política abre na guia **Tarefas de correção** para mostrar o estado do progresso das tarefas. As implantações criadas pela tarefa de correção são iniciadas imediatamente.
+1. Inicie a tarefa de correção depois que os recursos tiverem sido filtrados selecionando **corrigir**. A página de conformidade de política abre na guia **Tarefas de correção** para mostrar o estado do progresso das tarefas. As implantações criadas pela tarefa de correção são iniciadas imediatamente.
 
-   :::image type="content" source="../media/remediate-resources/task-progress.png" alt-text="Corrigir – progresso das tarefas de correção" border="false":::
+   :::image type="content" source="../media/remediate-resources/task-progress.png" alt-text="Captura de tela de uma política deployIfNotExists que não tem uma permissão definida na identidade gerenciada." border="false":::
 
-1. Clique na **tarefa de correção** na página de conformidade de política para obter detalhes sobre o progresso. A filtragem usada para a tarefa é mostrada junto com uma lista dos recursos que estão sendo corrigidos.
+1. Selecione na **tarefa de correção** da página de conformidade da política para obter detalhes sobre o progresso. A filtragem usada para a tarefa é mostrada junto com uma lista dos recursos que estão sendo corrigidos.
 
-1. Na página **Tarefa de correção**, clique com o botão direito do mouse em um recurso para exibir o recurso ou a implantação da tarefa de correção. No final da linha, clique em **Eventos relacionados** para ver detalhes como uma mensagem de erro.
+1. Na página **tarefa de correção** , clique com o botão direito do mouse em um recurso para exibir a implantação da tarefa de correção ou o recurso. No final da linha, selecione **eventos relacionados** para ver detalhes como uma mensagem de erro.
 
-   :::image type="content" source="../media/remediate-resources/resource-task-context-menu.png" alt-text="Corrigir – menu de contexto da tarefa do recurso" border="false":::
+   :::image type="content" source="../media/remediate-resources/resource-task-context-menu.png" alt-text="Captura de tela de uma política deployIfNotExists que não tem uma permissão definida na identidade gerenciada." border="false":::
 
 Os recursos implantados por meio de uma **tarefa de correção** são adicionados à guia **Recursos Implantados** na página de conformidade com a política.
 

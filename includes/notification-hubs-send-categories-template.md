@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/07/2019
 ms.author: sethm
 ms.custom: include file
-ms.openlocfilehash: 48907713082ebb1008ad963121671b36af7f2731
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: bfd5d42d83046c9c5b0bc3a78fabec08da5da646
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74228175"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96028196"
 ---
 Nesta seção, você envia as últimas notícias como notificações de modelo marcadas, de um aplicativo de console do .NET.
 
@@ -83,7 +83,7 @@ Nesta seção, você envia as últimas notícias como notificações de modelo m
 
 <!-- URLs. -->
 [Get started with Notification Hubs]: ../articles/notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
-[Notification Hubs REST interface]: https://msdn.microsoft.com/library/windowsazure/dn223264.aspx
-[Add push notifications for Mobile Apps]: ../articles/app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md
+[Notification Hubs REST interface]: /previous-versions/azure/reference/dn223264(v=azure.100)
+[Add push notifications for Mobile Apps]: /previous-versions/azure/app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push
 [How to use Notification Hubs from Java or PHP]: ../articles/notification-hubs/notification-hubs-java-push-notification-tutorial.md
 [Microsoft.Azure.NotificationHubs]: http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/

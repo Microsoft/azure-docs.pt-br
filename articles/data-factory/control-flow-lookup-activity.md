@@ -1,22 +1,17 @@
 ---
 title: Atividade de pesquisa no Azure Data Factory
 description: Saiba como usar a atividade Lookup para pesquisar um valor de uma fonte externa. Essa saída pode ser referenciada ainda mais pelas atividades com êxito.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
 ms.author: jingwang
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/24/2020
-ms.openlocfilehash: 7a0b4e52d729c3f13d5ac425627970d67b87979e
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.date: 10/14/2020
+ms.openlocfilehash: 5f46e2871aa0017f0a4b33df04a8ae9058c59e17
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88795874"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100385465"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Atividade de pesquisa no Azure Data Factory
 
@@ -29,7 +24,9 @@ A atividade Lookup lê e retorna o conteúdo de um arquivo de configuração ou 
 
 ## <a name="supported-capabilities"></a>Funcionalidades com suporte
 
-As seguintes fontes de dados são compatíveis com a atividade Lookup. O maior número de linhas que podem ser retornadas pela atividade Lookup é 5 mil, de até 2 MB em tamanho. No momento, a maior duração da atividade Lookup antes de atingir o tempo limite é uma hora.
+As seguintes fontes de dados são compatíveis com a atividade Lookup. 
+
+A atividade de pesquisa pode retornar até 5000 linhas; Se o conjunto de resultados contiver mais registros, as primeiras 5000 linhas serão retornadas. A saída da atividade de pesquisa dá suporte a até 4 MB de tamanho, a atividade falhará se o tamanho exceder o limite. Atualmente, a duração mais longa para a atividade de pesquisa antes do tempo limite é de 24 horas.
 
 [!INCLUDE [data-factory-v2-supported-data-stores](../../includes/data-factory-v2-supported-data-stores-for-lookup-activity.md)]
 
@@ -70,7 +67,7 @@ firstRowOnly | Indica se deve-se retornar apenas a primeira linha ou todas as li
 
 O resultado de pesquisa é retornado na seção `output` do resultado da execução de atividade.
 
-* **Quando `firstRowOnly` é definido como `true` (padrão)** , o formato de saída é como mostrado no código a seguir. O resultado da pesquisa fica sob um chave `firstRow` fixa. Para usar o resultado na atividade subsequente, use o padrão de  `@{activity('LookupActivity').output.firstRow.table` .
+* **Quando `firstRowOnly` é definido como `true` (padrão)** , o formato de saída é como mostrado no código a seguir. O resultado da pesquisa fica sob um chave `firstRow` fixa. Para usar o resultado na atividade subsequente, use o padrão de  `@{activity('LookupActivity').output.firstRow.table}` .
 
     ```json
     {

@@ -1,17 +1,17 @@
 ---
 title: Códigos de erro de disponibilidade externa - Azure Stream Analytics
 description: Solucionar problemas do Azure Stream Analytics com códigos de erro de disponibilidade externa.
-ms.author: mamccrea
-author: mamccrea
+ms.author: sidram
+author: sidramadoss
 ms.topic: troubleshooting
 ms.date: 05/07/2020
 ms.service: stream-analytics
-ms.openlocfilehash: c70a3a2d0630148a077f9c149ba40d48a6b7c0ae
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 71625c4b81fc0795c376a89397e98659f4c72ff0
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045273"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020546"
 ---
 # <a name="azure-stream-analytics-external-availability-error-codes"></a>Códigos de erro de disponibilidade externa do Azure Stream Analytics
 

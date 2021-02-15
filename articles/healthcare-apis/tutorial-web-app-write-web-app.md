@@ -10,11 +10,11 @@ ms.author: cavoeg
 author: caitlinv39
 ms.date: 01/03/2020
 ms.openlocfilehash: bb9c206a17a11f0cf710ac4ee3ac7ccae0fa9eb9
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87848019"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023288"
 ---
 # <a name="write-azure-web-application-to-read-fhir-data"></a>Escrever o aplicativo Web do Azure para ler dados do FHIR
 Agora que você é capaz de se conectar ao seu servidor do FHIR e postar dados, está pronto para escrever um aplicativo Web que lerá os dados do FHIR. Nesta etapa final do tutorial, veremos como escrever e acessar o aplicativo Web.

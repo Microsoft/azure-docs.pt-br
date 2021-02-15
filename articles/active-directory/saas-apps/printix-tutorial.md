@@ -7,15 +7,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 06/29/2017
 ms.author: jeedes
-ms.openlocfilehash: e9bc7969c5fee83944dab7cb35832f82b57c5595
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
-ms.translationtype: MT
+ms.openlocfilehash: dfde9bbbeb7f6b349ecbdc4c2da605d39a0708da
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88552336"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357871"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-printix"></a>Tutorial: integração do Azure Active Directory com o Printix
 
@@ -27,9 +27,9 @@ A integração do Printix com o Azure AD oferece os seguintes benefícios:
 - Você pode habilitar seus usuários a fazerem logon automaticamente no Printix (Logon Único) com suas contas do Azure AD
 - Você pode gerenciar suas contas em um única localização: o Portal do Azure
 
-Se você quiser saber mais detalhes sobre a integração de aplicativos SaaS com o Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD com o Printix, você precisa dos seguintes itens:
 
@@ -61,19 +61,19 @@ Para configurar a integração do Printix ao Azure AD, você precisa adicionar o
 
 1. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
-    ![Aplicativo][2]
+    ![Captura de tela mostra os Aplicativos Empresariais do portal do Azure selecionados em Gerenciar, com a opção Todos os aplicativos selecionada.][2]
     
 1. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
-    ![Aplicativo][3]
+    ![Captura de tela que mostra a opção Novo aplicativo selecionada.][3]
 
 1. Na caixa de pesquisa, digite **Printix**.
 
-    ![Criação de um usuário de teste do AD do Azure](./media/printix-tutorial/tutorial_printix_search.png)
+    ![A captura de tela mostra a pesquisa de Printix na caixa de diálogo Adicionar da galeria.](./media/printix-tutorial/tutorial_printix_search.png)
 
 1. No painel de resultados, selecione **Printix** e clique no botão **Adicionar** para adicionar o aplicativo.
 
-    ![Criação de um usuário de teste do AD do Azure](./media/printix-tutorial/tutorial_printix_addfromgallery.png)
+    ![A captura de tela mostra a opção Printix selecionada.](./media/printix-tutorial/tutorial_printix_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>configurar e testar o logon único do Azure AD
 Nesta seção, você configurará e testará o logon único do Azure AD com o Printix, com base em um usuário de teste chamado “Brenda Fernandes”.
@@ -84,11 +84,11 @@ No Printix, atribua o valor do **nome de usuário** no Azure AD como o valor do 
 
 Para configurar e testar o logon único do Azure AD com o Printix, você precisa concluir os seguintes blocos de construção:
 
-1. **[Configuração do logon único do Azure ad](#configuring-azure-ad-single-sign-on)** -para habilitar seus usuários a usar esse recurso.
-1. **[Criação de um usuário de teste do Azure ad](#creating-an-azure-ad-test-user)** – para testar o logon único do Azure AD com o Brenda Simon.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - para habilitar seus usuários a usar esse recurso.
+1. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** – para testar o logon único do AD do Azure com Brenda Fernandes.
 1. **[Criação de um usuário de teste do Printix](#creating-a-printix-test-user)** – para ter um equivalente de Brenda Fernandes no Printix que esteja vinculado à representação do usuário no Azure AD.
 1. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
-1. **[Testando o logon único](#testing-single-sign-on)** – para verificar se a configuração funciona.
+1. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
 
@@ -98,56 +98,56 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
 1. No Portal do Azure, na página de integração de aplicativos do **Printix**, clique em **Logon único**.
 
-    ![Configurar o logon único][4]
+    ![A captura de tela mostra a opção Logon único selecionada em Gerenciar no portal do Azure.][4]
 
-1. Na caixa de diálogo **logon único** , selecione **modo** como **logon baseado em SAML** para habilitar o logon único.
+1. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
  
-    ![Configurar o logon único](./media/printix-tutorial/tutorial_printix_samlbase.png)
+    ![A captura de tela mostra a opção Modo de Logon baseado em SAML selecionada.](./media/printix-tutorial/tutorial_printix_samlbase.png)
 
 1. Na seção **URLs e Domínio do Printix**, execute as seguintes etapas:
 
-    ![Configurar o logon único](./media/printix-tutorial/tutorial_printix_url.png)
+    ![A captura de tela mostra a seção Domínio e URLs do Printix, em que você pode especificar uma URL para logon.](./media/printix-tutorial/tutorial_printix_url.png)
 
-    Na caixa de texto **URL de logon** , digite uma URL usando o seguinte padrão: `https://<subdomain>.printix.net`
+    Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<subdomain>.printix.net`
 
     > [!NOTE] 
     > O valor não é real. Atualize o valor com a URL de Logon real. Entre em contato com a [equipe de suporte ao cliente do Printix](mailto:support@printix.net) para obter o valor. 
  
 1. Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo de metadados em seu computador.
 
-    ![Configurar o logon único](./media/printix-tutorial/tutorial_printix_certificate.png) 
+    ![A captura de tela mostra o painel Certificado de Autenticação SAML em que você pode baixar um certificado.](./media/printix-tutorial/tutorial_printix_certificate.png) 
 
 1. Clique no botão **Salvar** .
 
-    ![Configurar o logon único](./media/printix-tutorial/tutorial_general_400.png)
+    ![Captura de tela que mostra o botão Salvar.](./media/printix-tutorial/tutorial_general_400.png)
 
 1. Faça logon no seu locatário do Printix como administrador.
 
 1. No menu na parte superior, clique no ícone no canto superior direito e selecione "**Autenticação**".
    
-    ![Configurar o logon único](./media/printix-tutorial/tutorial_printix_06.png)
+    ![A captura de tela mostra a opção Autenticação selecionada no menu.](./media/printix-tutorial/tutorial_printix_06.png)
 
 1. Na guia **Instalação**, selecione **Habilitar autenticação do Azure/Office 365**
    
-    ![Configurar o logon único](./media/printix-tutorial/tutorial_printix_07.png)
+    ![A captura de tela mostra a página Printix.net, em que você pode selecionar Habilitar autenticação do Azure/Office 365.](./media/printix-tutorial/tutorial_printix_07.png)
 
 1. Na guia **Azure**, insira a URL de metadados de federação para a caixa de texto de “**Documento de metadados federados**”. 
 
     Anexe o arquivo XML de metadados baixado do Azure AD para a [equipe de suporte do Printix](mailto:support@printix.net). Em seguida, eles carregam o arquivo XML e fornecem uma URL de metadados de federação.
    
-    ![Configurar o logon único](./media/printix-tutorial/tutorial_printix_08.png)
+    ![A captura de tela mostra a página Printix.net, em que você pode especificar um Documento de metadados de federação.](./media/printix-tutorial/tutorial_printix_08.png)
    
 1. Clique no botão “**Testar**” e em “**OK**” se o teste foi bem-sucedido.
    
      A página do Azure Active Directory será exibida depois que o botão **Testar** receber um clique. Aqui, “Teste bem-sucedido” significa que, depois de inserir as credenciais de sua conta de teste do Azure, uma mensagem pop-up “Configurações testadas com êxito” será exibida. Em seguida, clique no botão **OK**.
    
-    ![Configurar o logon único](./media/printix-tutorial/tutorial_printix_09.png)
+    ![A captura de tela mostra os resultados do teste.](./media/printix-tutorial/tutorial_printix_09.png)
 
 1. Clique no botão **Salvar** na página “**Autenticação**”.
 
 
 > [!TIP]
-> Agora você pode ler uma versão concisa dessas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto você está configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
@@ -157,27 +157,27 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
 **Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
 
-1. No **portal do Azure**, no painel de navegação esquerdo, clique no ícone de **Azure Active Directory** .
+1. No **Portal do Azure**, no painel de navegação esquerdo, clique no ícone **Azure Active Directory**.
 
-    ![Criação de um usuário de teste do AD do Azure](./media/printix-tutorial/create_aaduser_01.png) 
+    ![A captura de tela mostra um nome e um nome de usuário a serem criados.](./media/printix-tutorial/create_aaduser_01.png) 
 
-1. Para exibir a lista de usuários, vá para **usuários e grupos** e clique em **todos os usuários**.
+1. Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
     
-    ![Criação de um usuário de teste do AD do Azure](./media/printix-tutorial/create_aaduser_02.png) 
+    ![A captura de tela mostra o ícone do Azure AD no portal do Azure.](./media/printix-tutorial/create_aaduser_02.png) 
 
 1. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.
  
-    ![Criação de um usuário de teste do AD do Azure](./media/printix-tutorial/create_aaduser_03.png) 
+    ![A captura de tela mostra a opção Usuários e grupos selecionada no menu Gerenciar, com a opção Todos os usuários selecionada.](./media/printix-tutorial/create_aaduser_03.png) 
 
 1. Na página do diálogo **Usuário**, execute as seguintes etapas:
  
-    ![Criação de um usuário de teste do AD do Azure](./media/printix-tutorial/create_aaduser_04.png) 
+    ![A captura de tela mostra a caixa de diálogo Usuário, em que você pode inserir os valores descritos.](./media/printix-tutorial/create_aaduser_04.png) 
 
     a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
 
     b. Na caixa de texto **Nome de usuário**, digite o **endereço de email** da conta de Brenda Fernandes.
 
-    c. Selecione **Mostrar senha** e anote o valor da **senha**.
+    c. Selecione **Mostrar senha** e anote o valor de **senha**.
 
     d. Clique em **Criar**.
  
@@ -195,25 +195,25 @@ Não há itens de ação para você nesta seção. Um novo usuário é criado du
 
 Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure concedendo acesso ao Printix.
 
-![Atribuir usuário][200] 
+![A captura de tela mostra um usuário com acesso padrão.][200] 
 
 **Para atribuir Brenda Fernandes ao Printix, execute as seguintes etapas:**
 
-1. Na portal do Azure, abra a exibição de aplicativos e, em seguida, navegue até a exibição de diretório e vá para **aplicativos empresariais** e clique em **todos os aplicativos**.
+1. No Portal do Azure, abra a exibição de aplicativos e, em seguida, navegue até a exibição de diretório e vá para **Aplicativos Empresariais** e clique em **Todos os aplicativos**.
 
-    ![Atribuir usuário][201] 
+    ![A captura de tela mostra os Aplicativos Empresariais selecionados em Gerenciar, com a opção Todos os aplicativos selecionada.][201] 
 
 1. Na lista de aplicativos, selecione **Printix**.
 
-    ![Configurar o logon único](./media/printix-tutorial/tutorial_printix_app.png) 
+    ![A captura de tela mostra a lista de aplicativos, em que você pode selecionar Printix.](./media/printix-tutorial/tutorial_printix_app.png) 
 
 1. No menu à esquerda, clique em **usuários e grupos**.
 
-    ![Atribuir usuário][202] 
+    ![A captura de tela mostra a opção Usuários e grupos selecionada no menu Gerenciar.][202] 
 
 1. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
 
-    ![Atribuir usuário][203]
+    ![A captura de tela mostra o botão Adicionar e a página Adicionar Atribuição, em que você pode selecionar Usuários e Grupos.][203]
 
 1. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
 

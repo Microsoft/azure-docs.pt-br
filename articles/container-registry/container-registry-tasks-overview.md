@@ -2,13 +2,13 @@
 title: Visão geral das Tarefas do ACR
 description: Uma introdução às tarefas do ACR, um conjunto de recursos no registro de contêiner do Azure que fornece criação de imagem de contêiner segura e automatizada, gerenciamento e aplicação de patches na nuvem.
 ms.topic: article
-ms.date: 01/22/2020
-ms.openlocfilehash: 4fda57c1d7c866f2e6f72b04d75e53f91e995baf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/12/2020
+ms.openlocfilehash: b6df415bd55979ef00f6921321dbc254ef7a7e59
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79087278"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97562847"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>Automatizar compilações de imagem de contêiner e manutenção com tarefas ACR
 
@@ -100,17 +100,18 @@ Saiba mais sobre as tarefas de várias etapas em [Run multi-step build, test, an
 
 ## <a name="context-locations"></a>Locais de contexto
 
-A tabela a seguir mostra alguns exemplos de locais de contexto com suporte para as Tarefas do ACR:
+A tabela a seguir mostra exemplos de locais de contexto com suporte para tarefas ACR:
 
 | Local do contexto | Descrição | Exemplo |
 | ---------------- | ----------- | ------- |
 | Sistema de arquivos local | Arquivos dentro de um diretório no sistema de arquivos local. | `/home/user/projects/myapp` |
-| Branch mestre do GitHub | Arquivos dentro da ramificação mestre (ou outro padrão) de um repositório GitHub público ou privado.  | `https://github.com/gituser/myapp-repo.git` |
+| Branch principal do GitHub | Arquivos dentro da ramificação principal (ou outro padrão) de um repositório GitHub público ou privado.  | `https://github.com/gituser/myapp-repo.git` |
 | Ramificação GitHub | Branch específico de um repositório GitHub público ou privado.| `https://github.com/gituser/myapp-repo.git#mybranch` |
 | Subpasta do GitHub | Arquivos dentro de uma subpasta em um repositório GitHub público ou privado. O exemplo mostra a combinação de uma especificação de ramificação e subpasta. | `https://github.com/gituser/myapp-repo.git#mybranch:myfolder` |
 | Confirmação do GitHub | Confirmação específica em um repositório GitHub público ou privado. O exemplo mostra a combinação de uma especificação de hash de confirmação (SHA) e de subpasta. | `https://github.com/gituser/myapp-repo.git#git-commit-hash:myfolder` |
 | Subpasta DevOps do Azure | Arquivos dentro de uma subpasta em um repositório público ou privado do Azure. O exemplo mostra a combinação de especificação de ramificação e subpasta. | `https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder` |
 | Tarball remoto | Arquivos em um arquivo compactado em um servidor remoto. | `http://remoteserver/myapp.tar.gz` |
+| Artefato no registro de contêiner | Arquivos de [artefato de OCI](container-registry-oci-artifacts.md) em um repositório de registro de contêiner. | `oci://myregistry.azurecr.io/myartifact:mytag` |
 
 > [!NOTE]
 > Ao usar um repositório git privado como um contexto para uma tarefa, você precisa fornecer um PAT (token de acesso pessoal).
@@ -137,10 +138,6 @@ Quando estiver pronto para automatizar as compilações e a manutenção da imag
 Opcionalmente, instale a [Extensão do Docker para Visual Studio Code](https://code.visualstudio.com/docs/azure/docker) e a extensão [Conta do Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) para trabalhar com seus registros de contêiner do Azure. Efetue pull e push de imagens para um registro de contêiner do Azure ou execute Tarefas do ACR, tudo isso no Visual Studio Code.
 
 <!-- LINKS - External -->
-[base-alpine]: https://hub.docker.com/_/alpine/
-[base-dotnet]: https://hub.docker.com/r/microsoft/dotnet/
-[base-node]: https://hub.docker.com/_/node/
-[base-windows]: https://hub.docker.com/r/microsoft/nanoserver/
 [sample-archive]: https://github.com/Azure-Samples/acr-build-helloworld-node/archive/master.zip
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 

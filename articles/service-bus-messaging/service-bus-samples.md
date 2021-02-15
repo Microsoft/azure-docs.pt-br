@@ -3,31 +3,46 @@ title: Visão geral dos exemplos de mensagens do barramento de serviço do Azure
 description: Os exemplos de mensagens do barramento de serviço demonstram os principais recursos nas mensagens do barramento de serviço do Azure. Fornece links para exemplos no GitHub.
 author: spelluru
 ms.topic: article
-ms.date: 06/23/2020
+ms.date: 10/14/2020
 ms.author: spelluru
-ms.openlocfilehash: 750ee2f05e81fe18560a20227aefb52ca343e07b
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: f8729d0a947ebf2fd918a478fb3354e6d84fe1e3
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067521"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95803095"
 ---
 # <a name="service-bus-messaging-samples"></a>Exemplos de mensagens do Barramento de Serviço
 Os exemplos de mensagens do Barramento de Serviço demonstram os principais recursos de [mensagens do Barramento de Serviço](https://azure.microsoft.com/services/service-bus/). No momento, você pode encontrar os exemplos nos seguintes locais:
 
-| Linguagem de programação | Local de exemplos ou SDK |
+## <a name="net-samples"></a>Amostras do .NET
+
+| Pacote | Local de exemplos | 
+| ------- | ---------------- | 
+| Azure. Messaging. ServiceBus (mais recente) | https://docs.microsoft.com/samples/azure/azure-sdk-for-net/azuremessagingservicebus-samples/ | 
+| Microsoft. Azure. ServiceBus (Herdado) |  https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus |
+
+## <a name="java-samples"></a>Exemplos do Java
+| Pacote | Local de exemplos | 
+| ------- | ---------------- | 
+| Azure-Messaging-ServiceBus (mais recente) | https://docs.microsoft.com/samples/azure/azure-sdk-for-java/servicebus-samples/ |
+| Azure-ServiceBus (Herdado) | https://github.com/Azure/azure-service-bus/tree/master/samples/Java |
+
+## <a name="python-samples"></a>Exemplos em Python
+| Pacote | Local de exemplos |
 | -------------------- | ----------------------- |
-| .NET, Java e gerenciamento | https://github.com/Azure/azure-service-bus/ |
-| Node.js | https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/servicebus/service-bus/samples |
-| Python | https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/servicebus/azure-servicebus |
+| Azure. ServiceBus | https://docs.microsoft.com/samples/azure/azure-sdk-for-python/servicebus-samples/ |
 
-## <a name="service-bus-explorer"></a>Service Bus Explorer
+## <a name="javascript-samples"></a>Exemplos de JavaScript
+| Pacote | Local de exemplos | 
+| ------- | ---------------- | 
+| Azure/Service-Bus | https://docs.microsoft.com/samples/azure/azure-sdk-for-js/service-bus-javascript/ | 
 
-Além disso, o [Explorer do Barramento de Serviço](https://github.com/paolosalvatori/ServiceBusExplorer) é um exemplo hospedado no GitHub que permite a conexão a um namespace de serviço do Barramento de Serviço e o fácil gerenciamento de entidades de mensagens. A ferramenta fornece recursos avançados, como a funcionalidade de importação/exportação, e a capacidade de testar entidades do sistema de mensagens e os serviços de retransmissão. Encontre toda a documentação e fonte do Explorer do Barramento de Serviço no [GitHub](https://github.com/paolosalvatori/ServiceBusExplorer).
+## <a name="go-samples"></a>Exemplos da linguagem Go
+| Pacote | Local de exemplos | 
+| ------- | ---------------- | 
+| Azure-serviço-barramento-go | https://github.com/Azure/azure-service-bus-go/ |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="management-samples"></a>Exemplos de gerenciamento
+Você pode encontrar exemplos de gerenciamento no GitHub em https://github.com/Azure/azure-service-bus/tree/master/samples/Management .
 
-Confira os tópicos a seguir para obter visões gerais conceituais do Barramento de Serviço.
-
-* [Visão geral de mensagens do Barramento de Serviço](service-bus-messaging-overview.md)
-* [Arquitetura do Barramento de Serviço](./service-bus-messaging-overview.md)

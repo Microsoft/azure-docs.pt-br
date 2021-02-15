@@ -9,10 +9,10 @@ ms.date: 11/04/2019
 ms.author: tamram
 ms.subservice: blobs
 ms.openlocfilehash: 8f9c1b1762c4e6028d935e03a630dfc0ca4ee4b9
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "73615755"
 ---
 # <a name="what-is-azure-blob-storage"></a>O que é o Armazenamento de Blobs do Azure? 

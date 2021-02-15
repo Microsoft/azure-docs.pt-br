@@ -4,6 +4,8 @@
   items:
     - name: Sobre o Cache Redis do Azure
       href: cache-overview.md
+    - name: Novidades
+      href: cache-whats-new.md
 - name: Inícios rápidos
   expanded: true
   items:
@@ -27,6 +29,10 @@
           href: cache-nodejs-get-started.md
         - name: Aplicativo Python
           href: cache-python-get-started.md
+        - name: Aplicativo Go
+          href: cache-go-get-started.md
+        - name: Aplicativo Rust
+          href: cache-rust-get-started.md
 - name: Tutoriais
   items:
     - name: ASP.NET
@@ -38,50 +44,68 @@
     - name: Java Spring
       items:
         - name: Usar o inicializador do Spring Boot
-          href: cache-java-spring-boot-initializer-with-redis-cache.md
+          href: /azure/developer/java/spring-framework/configure-spring-boot-initializer-java-app-with-redis-cache
+    - name: Grade de Eventos do Azure
+      items:
+        - name: Rotear eventos com o portal do Azure
+          href: cache-event-grid-quickstart-portal.md
+        - name: Rotear eventos com a CLI do Azure
+          href: cache-event-grid-quickstart-cli.md
+        - name: Rotear eventos com o PowerShell
+          href: cache-event-grid-quickstart-powershell.md
     - name: Criar placares de líderes
       href: cache-web-app-cache-aside-leaderboard.md
+    - name: Implantar um modelo de machine learning
+      href: cache-ml.md
     - name: Gerenciar com o Azure PowerShell
       href: cache-how-to-manage-redis-cache-powershell.md
     - name: Gerenciar com a CLI do Azure
       href: cli-samples.md
 - name: Conceitos
   items:
+    - name: Alta disponibilidade
+      href: cache-high-availability.md
     - name: Failover e aplicação de patch
       href: cache-failover.md
     - name: Práticas recomendadas
       href: cache-best-practices.md
     - name: Segurança
       items:
+        - name: Opções de isolamento de rede
+          href: cache-network-isolation.md
         - name: Controles de segurança do Azure Policy
           displayName: 'regulatory, compliance, standards, domains'
           href: ./security-controls-policy.md
         - name: Linha de base de segurança
           href: security-baseline.md
     - name: Arquitetura de cache
-      href: 'https://docs.microsoft.com/azure/architecture/best-practices/caching?toc=%2Fazure%2Fredis-cache%2Ftoc.json'
+      href: /azure/architecture/best-practices/caching?toc=%2fazure%2fredis-cache%2ftoc.json
 - name: Guias de instruções
   items:
     - name: Plano
       items:
         - name: Escolher uma camada de cache
           href: cache-overview.md#choosing-the-right-tier
+        - name: Definir a versão do Redis
+          href: cache-how-to-version.md
         - name: Distribuir seu cache com clustering
           href: cache-how-to-premium-clustering.md
         - name: Obter persistência do cache com a persistência de dados do Redis
           href: cache-how-to-premium-persistence.md
+        - name: Adicionar mais réplicas
+          href: cache-how-to-multi-replicas.md
         - name: Proteger seu cache com uma rede virtual
           href: cache-how-to-premium-vnet.md
         - name: Conectar-se de modo privado a um cache
           href: cache-private-link.md
+        - name: Habilitar a redundância de zona
+          href: cache-how-to-zone-redundancy.md
         - name: Configurar replicação geográfica
           href: cache-how-to-geo-replication.md
         - name: Economizar com a capacidade reservada
           href: cache-reserved-pricing.md
         - name: Migrar para o Cache do Azure para Redis
           href: cache-migration-guide.md
-        - name: Migrar do Serviço de Cache Gerenciado (preterido)
-          href: cache-migrate-to-redis.md
         - name: Perguntas frequentes sobre planejamento
           href: cache-planning-faq.md
     - name: Compilação
@@ -94,9 +118,11 @@
           href: cache-how-to-manage-redis-cache-powershell.md
         - name: Implantar e gerenciar usando a CLI do Azure
           href: cli-samples.md
-        - name: Provisionar um Cache Redis do Azure
+        - name: Criar um cache Redis – Modelo do ARM
+          displayName: Resource Manager
           href: cache-redis-cache-arm-provision.md
-        - name: Provisionar um Aplicativo Web com o Cache Redis do Azure
+        - name: Criar um aplicativo Web com o cache Redis – Modelo do ARM
+          displayName: Resource Manager
           href: cache-web-app-arm-with-redis-cache-provision.md
     - name: Gerenciar
       items:
@@ -110,6 +136,8 @@
           href: cache-administration.md#schedule-updates
         - name: Configurar o acesso do redis-cli.exe
           href: cache-how-to-redis-cli-tool.md
+        - name: Como publicar os eventos do Cache do Azure para Redis
+          href: cache-event-grid.md
         - name: Remover o TLS 1.0 e 1.1
           href: cache-remove-tls-10-11.md
         - name: Perguntas frequentes sobre gerenciamento
@@ -155,11 +183,12 @@
     - name: CLI do Azure
       href: /cli/azure/redis
     - name: REST
-      href: 'https://docs.microsoft.com/rest/api/redis/'
+      href: /rest/api/redis/
     - name: Modelo do Resource Manager
       href: /azure/templates/microsoft.cache/allversions
     - name: Itens internos do Azure Policy
-      href: ./policy-samples.md
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
     - name: Comandos do Redis
       href: 'https://redis.io/commands#'
 - name: Recursos
@@ -169,7 +198,7 @@
     - name: vídeos
       href: 'https://www.youtube.com/results?search_query=azure+redis+cache'
     - name: Página de perguntas de P e R da Microsoft
-      href: 'https://docs.microsoft.com/answers/topics/azure-cache-redis.html'
+      href: /answers/topics/azure-cache-redis.html
     - name: Preços
       href: 'https://azure.microsoft.com/pricing/details/cache/'
     - name: Desenvolva suas habilidades com o Microsoft Learn

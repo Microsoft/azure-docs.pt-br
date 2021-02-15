@@ -4,12 +4,16 @@
   items:
     - name: O que é Service Fabric?
       href: service-fabric-overview.md
+    - name: Clusters gerenciados do Service Fabric
+      href: overview-managed-cluster.md
 - name: Inícios rápidos
   expanded: true
   items:
     - name: Modelo de ARM
       displayName: Resource Manager
       href: quickstart-cluster-template.md
+    - name: Cluster gerenciado
+      href: quickstart-managed-cluster-template.md
     - name: Criar aplicativo .NET
       href: service-fabric-quickstart-dotnet.md
     - name: Implantar um aplicativo de contêiner do Linux
@@ -64,6 +68,16 @@
           href: service-fabric-tutorial-package-containers.md
         - name: 3 - Fazer failover e dimensionar
           href: service-fabric-tutorial-containers-failover.md
+    - name: Criar um cluster gerenciado do Service Fabric
+      items:
+        - name: 1 – Implantar um cluster gerenciado do Service Fabric
+          href: tutorial-managed-cluster-deploy.md
+        - name: 2 – Escalar horizontalmente um tipo de nó de cluster gerenciado
+          href: tutorial-managed-cluster-scale.md
+        - name: 3 – Adicionar e remover tipos de nó de cluster gerenciado
+          href: tutorial-managed-cluster-add-remove-node-type.md
+        - name: 4 – Conectar-se a um cluster gerenciado e implantar um aplicativo
+          href: tutorial-managed-cluster-deploy-app.md
     - name: Criar e gerenciar um cluster
       items:
         - name: 1 – Criar um cluster no Azure
@@ -116,9 +130,6 @@
       href: service-fabric-powershell-samples.md
     - name: CLI do Service Fabric
       href: samples-cli.md
-    - name: Itens internos do Azure Policy
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: Conceitos
   items:
     - name: Entender os microsserviços
@@ -137,8 +148,6 @@
           href: service-fabric-application-and-service-security.md
         - name: Segurança do cluster do Service Fabric
           href: service-fabric-cluster-security.md
-        - name: Controles de segurança interna
-          href: service-fabric-security-controls.md
         - name: Autenticação baseada em certificado no Service Fabric
           href: cluster-security-certificates.md
         - name: Gerenciamento de certificados no Service Fabric
@@ -158,7 +167,7 @@
           items:
             - name: Visão geral dos contêineres
               href: service-fabric-containers-overview.md
-            - name: Docker compose (visualização)
+            - name: Docker Compose
               href: service-fabric-docker-compose.md
             - name: Investigações
               href: probes-codepackage.md
@@ -433,7 +442,7 @@
               href: service-fabric-deploy-existing-app.md
         - name: Compilar um serviço de contêiner
           items:
-            - name: Docker compose (visualização)
+            - name: Docker Compose
               href: service-fabric-docker-compose.md
             - name: Volume e drivers de log
               href: service-fabric-containers-volume-logging-drivers.md
@@ -512,7 +521,7 @@
                   href: service-fabric-application-secret-management-windows.md
                 - name: Configurar um certificado de criptografia e criptografar segredos no Linux
                   href: service-fabric-application-secret-management-linux.md
-                - name: Armazene segredos com segurança com KeyVaultReference (versão prévia)
+                - name: Armazenar segredos com segurança com KeyVaultReference
                   href: service-fabric-keyvault-references.md
             - name: Configurar o proxy reverso para comunicação segura
               href: service-fabric-reverseproxy-configure-secure-communication.md
@@ -654,6 +663,8 @@
                   href: service-fabric-cluster-creation-via-portal.md
                 - name: Implantar um Cluster do Azure Service Fabric em zonas de disponibilidade
                   href: service-fabric-cross-availability-zones.md
+                - name: Implantar um Cluster do Azure Service Fabric com tipos de nós sem estado
+                  href: service-fabric-stateless-node-types.md
                 - name: Configurar autenticação do Azure Active Directory
                   href: service-fabric-cluster-creation-setup-aad.md
                 - name: Criar um modelo de cluster personalizado
@@ -678,6 +689,8 @@
                   href: service-fabric-how-to-remove-node-type.md
             - name: Atualizar
               items:
+                - name: Adicionar um conjunto de dimensionamento de máquinas virtuais a um tipo de nó de cluster gerenciado
+                  href: how-to-managed-cluster-vmss-extension.md
                 - name: Atualizar a versão do Service Fabric
                   href: service-fabric-cluster-upgrade-version-azure.md
                 - name: Atualizar a configuração do cluster
@@ -700,8 +713,6 @@
                   href: service-fabric-cluster-security-update-certs-azure.md
                 - name: Conexão remota para a VM do nó de cluster
                   href: service-fabric-cluster-remote-connect-to-azure-cluster-node.md
-                - name: Atualizar nós de cluster para usar discos gerenciados
-                  href: upgrade-managed-disks.md
         - name: Clusters independentes
           items:
             - name: Criar
@@ -786,6 +797,8 @@
               href: configure-existing-cluster-enable-managed-identity-token-service.md
             - name: Configurar um novo cluster do Azure Service Fabric com identidade gerenciada
               href: configure-new-azure-service-fabric-enable-managed-identity.md
+            - name: Configurar um cluster gerenciado do Service Fabric com identidade gerenciada
+              href: how-to-managed-identity-managed-cluster-virtual-machine-scale-sets.md
         - name: Instalação do aplicativo
           items:
             - name: Como implantar o aplicativo com identidade gerenciada
@@ -803,7 +816,7 @@
     - name: Azure PowerShell
       href: /powershell/module/az.servicefabric/
     - name: PowerShell
-      href: /powershell/module/servicefabric/?view=azureservicefabricps
+      href: /powershell/module/ServiceFabric/New-ServiceFabricService?view=azureservicefabricps
     - name: CLI do Azure (az sf)
       href: /cli/azure/sf
     - name: CLI do Service Fabric (sfctl)
@@ -895,12 +908,17 @@
           href: service-fabric-service-model-schema-element-groups.md
     - name: Variáveis de ambiente
       href: service-fabric-environment-variables-reference.md
+    - name: Itens internos do Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Recursos
   items:
     - name: Roteiro do Azure
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Perguntas comuns
       href: service-fabric-common-questions.md
+    - name: Perguntas comuns sobre clusters gerenciados do Service Fabric
+      href: faq-managed-cluster.md
     - name: Página de perguntas de P e R da Microsoft
       href: /answers/topics/azure-service-fabric.html
     - name: Proteção de Implantação do Azure Resource Manager
@@ -912,7 +930,7 @@
     - name: Notas de versão
       href: release-notes.md
     - name: Código de exemplo
-      href: 'https://aka.ms/servicefabricsamples'
+      href: /samples/browse/?products=azure
     - name: Opções de suporte
       href: service-fabric-support.md
     - name: Versões do Service Fabric

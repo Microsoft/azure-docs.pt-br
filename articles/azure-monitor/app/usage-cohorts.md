@@ -6,12 +6,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 04/10/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 0c552e8f3e732c49da02b2f5704fb9cf312fb3e8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f8edeb452f01af88f0305cd0a3e3a2332ec09e4e
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77671079"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186942"
 ---
 # <a name="application-insights-cohorts"></a>Coortes do Application Insights
 
@@ -43,7 +43,7 @@ Sua equipe define usuário envolvido como qualquer pessoa que usar seu aplicativ
     * **Período**, a definição de um mês.
     * **UsedAtLeastCustom**, o número de vezes que os usuários precisam usar algo dentro de um período para contar como envolvidos.
 
-4. Altere **UsedAtLeastCustom** para **5 dias**e deixe o **período** no padrão de 28 dias.
+4. Altere **UsedAtLeastCustom** para **5 dias** e deixe o **período** no padrão de 28 dias.
 
     ![Usuários envolvidos](./media/usage-cohorts/003.png)
 
@@ -131,7 +131,7 @@ Coortes e filtros são diferentes. Suponha que você tenha uma coorte de usuári
 
 ## <a name="learn-more"></a>Saiba mais
 
-* [Linguagem de consulta do Analytics](https://go.microsoft.com/fwlink/?linkid=856587)
+* [Linguagem de consulta do Analytics](../log-query/log-analytics-tutorial.md?toc=%2fazure%2fazure-monitor%2ftoc.json)
 * [Usuários, sessões, eventos](usage-segmentation.md)
 * [Fluxos de usuário](usage-flows.md)
 * [Visão geral do uso](usage-overview.md)

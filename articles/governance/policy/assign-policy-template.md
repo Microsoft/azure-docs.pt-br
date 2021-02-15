@@ -1,17 +1,17 @@
 ---
-title: 'Início Rápido: Nova atribuição de política com os modelos'
+title: Nova atribuição de política com os modelos
 description: Neste início rápido, você usa um modelo do ARM (modelo do Azure Resource Manager) para criar uma atribuição de política para identificar recursos que não estão em conformidade.
 ms.date: 08/17/2020
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.openlocfilehash: 2f012f9cc8f986f8f887096098961e44c4b7dffb
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: c32f833520a811d47129196ae4d67c92bad7e21f
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88689840"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651429"
 ---
-# <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-by-using-an-arm-template"></a>Início Rápido: Criar uma atribuição de política para identificar recursos sem conformidade usando um modelo ARM
+# <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-by-using-an-arm-template"></a>Criar uma atribuição de política para identificar recursos sem conformidade usando um modelo ARM
 
 A primeira etapa para compreender a conformidade no Azure é identificar o status de seus recursos.
 Este guia de início rápido orienta você no processo de uso de um modelo ARM (modelo do Azure Resource Manager) para criar uma atribuição de política a fim de identificar máquinas virtuais que não estão usando discos gerenciados. No final deste processo, você identificará com êxito quais máquinas virtuais não estão usando discos gerenciados. Eles _não estão em conformidade_ com a atribuição da política.
@@ -20,11 +20,11 @@ Este guia de início rápido orienta você no processo de uso de um modelo ARM (
 
 Se seu ambiente atender aos pré-requisitos e você estiver familiarizado com o uso de modelos ARM, selecione o botão **Implantar no Azure**. O modelo será aberto no portal do Azure.
 
-:::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Implantar o modelo do ARM para atribuir uma Azure Policy ao Azure" border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurepolicy-assign-builtinpolicy-resourcegroup%2Fazuredeploy.json":::
+:::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Botão para implantar o modelo do ARM para atribuir um Azure Policy ao Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurepolicy-assign-builtinpolicy-resourcegroup%2Fazuredeploy.json":::
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos:
 
-Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
+caso você não tenha uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="review-the-template"></a>Examinar o modelo
 
@@ -45,7 +45,7 @@ O recurso definido no modelo inclui:
 
 1. Selecione a imagem a seguir para entrar no portal do Azure e abrir o modelo:
 
-   :::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Implantar o modelo do ARM para atribuir uma Azure Policy ao Azure" border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurepolicy-assign-builtinpolicy-resourcegroup%2Fazuredeploy.json":::
+   :::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Botão para implantar o modelo do ARM para atribuir um Azure Policy ao Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurepolicy-assign-builtinpolicy-resourcegroup%2Fazuredeploy.json":::
 
 1. Selecione ou insira os valores a seguir:
 
@@ -55,7 +55,7 @@ O recurso definido no modelo inclui:
    | Resource group | Selecione **Criar**, especifique um nome e, em seguida, selecione **OK**. Na captura de tela, o nome do grupo de recursos é _mypolicyquickstart\<Date in MMDD\>rg_. |
    | Location | Selecione uma região. Por exemplo, **Centro dos EUA**. |
    | Nome de atribuição de política | Especifique um nome de atribuição de política. Será possível usar a exibição de definição de política se você desejar. Por exemplo, _Auditar VMs que não usam discos gerenciados_. |
-   | Nome do Rg | Especifique um nome de grupo de recursos ao qual você deseja atribuir a política. Neste início rápido, use o valor padrão **[resourceGroup().name]** . **[resourceGroup()](../../azure-resource-manager/templates/template-functions-resource.md#resourcegroup)** é uma função de modelo que recupera o grupo de recursos. |
+   | Nome do Rg | Especifique um nome de grupo de recursos ao qual você deseja atribuir a política. Neste início rápido, use o valor padrão **[resourceGroup().name]**. **[resourceGroup()](../../azure-resource-manager/templates/template-functions-resource.md#resourcegroup)** é uma função de modelo que recupera o grupo de recursos. |
    | ID de definição de política | Especifique **/providers/Microsoft.Authorization/policyDefinitions/0a914e76-4921-4c19-b460-a2d36003525a**. |
    | Concordo com os termos e condições acima | (Selecionar) |
 
@@ -72,7 +72,7 @@ Alguns recursos adicionais:
 
 Selecione **Conformidade** no lado esquerdo da página. Em seguida, localize as _VMs de auditoria que não usam a atribuição de política de discos gerenciados_ que você criou.
 
-:::image type="content" source="./media/assign-policy-template/policy-compliance.png" alt-text="Página de visão geral de conformidade de política" border="false":::
+:::image type="content" source="./media/assign-policy-template/policy-compliance.png" alt-text="Botão para implantar o modelo do ARM para atribuir um Azure Policy ao Azure." border="false":::
 
 Se houver recursos sem conformidade com essa nova atribuição, eles aparecerão em **Recursos sem conformidade**.
 
@@ -86,7 +86,7 @@ Para remover a atribuição criada, siga estas etapas:
 
 1. Clique com o botão direito do mouse na atribuição de política _Auditar VMs que não usam discos gerenciados_ e selecione **Excluir atribuição**.
 
-   :::image type="content" source="./media/assign-policy-template/delete-assignment.png" alt-text="Excluir uma atribuição da página de visão geral de conformidade" border="false":::
+   :::image type="content" source="./media/assign-policy-template/delete-assignment.png" alt-text="Botão para implantar o modelo do ARM para atribuir um Azure Policy ao Azure." border="false":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

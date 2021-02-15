@@ -10,12 +10,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 03/03/2020
   ms.author: wesmc
-  ms.openlocfilehash: 2d89b99005a4e430aca85c109f3d000c3b21674c
-  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+  ms.openlocfilehash: de21c27cd72802eea0a17d07b6abc5282f85561f
+  ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 03/24/2020
-  ms.locfileid: "80133268"
+  ms.lasthandoff: 11/20/2020
+  ms.locfileid: "94967186"
 landingContent:
 - title: Sobre o DPS (Serviço de Provisionamento de Dispositivos) no Hub IoT do Azure
   linkLists:
@@ -26,7 +26,7 @@ landingContent:
   - linkListType: concept
     links:
     - text: Conceitos de provisionamento automático para o Azure IoT
-      url: concepts-auto-provisioning.md
+      url: ./concepts-roles-operations.md
   - linkListType: video
     links:
     - text: Demonstração do DPS do Hub IoT

@@ -9,19 +9,19 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 03/26/2020
-ms.openlocfilehash: b4167f8958f7a1613c4d48625f7a79a02c7588d0
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 55221fa529688fbae1698a094ea31f6a3f765100
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543394"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97796237"
 ---
 # <a name="tutorial-train-and-deploy-a-model-from-the-cli"></a>Tutorial: Treinar e implantar um modelo da CLI
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Neste tutorial, você usa a extensão de machine learning para a CLI do Azure para treinar, registrar e implantar um modelo.
 
-Os scripts de treinamento do Python neste tutorial usam [scikit-learn](https://scikit-learn.org/) para treinar um modelo básico. O foco deste tutorial não está nos scripts nem no modelo, mas no processo de usar a CLI para trabalhar com o Azure Machine Learning.
+Os scripts de treinamento do Python neste tutorial usam [scikit-learn](https://scikit-learn.org/) para treinar um modelo simples. O foco deste tutorial não está nos scripts nem no modelo, mas no processo de usar a CLI para trabalhar com o Azure Machine Learning.
 
 Saiba como executar as seguintes ações:
 
@@ -39,7 +39,7 @@ Saiba como executar as seguintes ações:
 
 * Uma assinatura do Azure. Caso não tenha uma assinatura do Azure, crie uma conta gratuita antes de começar. Experimente hoje mesmo a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree).
 
-* Para usar os comandos da CLI deste documento em seu **ambiente local**, você precisará da [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+* Para usar os comandos da CLI deste documento em seu **ambiente local**, você precisará da [CLI do Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
 
     Se você usar o [Azure Cloud Shell](https://azure.microsoft.com//features/cloud-shell/), a CLI será acessada por meio do navegador e residirá na nuvem.
 
@@ -75,7 +75,7 @@ O repositório contém os seguintes arquivos, que são usados para implantar o m
 
 ## <a name="connect-to-your-azure-subscription"></a>Conecte-se à sua assinatura do Azure
 
-Há várias maneiras de se autenticar em sua assinatura do Azure por meio da CLI. O mais básico é autenticar-se interativamente usando um navegador. Para se autenticar interativamente, abra uma linha de comando ou terminal e use o seguinte comando:
+Há várias maneiras de se autenticar em sua assinatura do Azure por meio da CLI. O mais simples é autenticar-se interativamente usando um navegador. Para se autenticar interativamente, abra uma linha de comando ou terminal e use o seguinte comando:
 
 ```azurecli-interactive
 az login
@@ -101,7 +101,7 @@ az extension update -n azure-cli-ml
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Um grupo de recursos é um contêiner básico de recursos na plataforma do Azure. Ao trabalhar com o Azure Machine Learning, o grupo de recursos conterá seu workspace do Azure Machine Learning. Ele também conterá outros serviços do Azure usados pelo workspace. Por exemplo, se você treinar seu modelo usando um recurso de computação baseado em nuvem, esse recurso será criado no grupo de recursos.
+Um grupo de recursos é um contêiner de recursos na plataforma do Azure. Ao trabalhar com o Azure Machine Learning, o grupo de recursos conterá seu workspace do Azure Machine Learning. Ele também conterá outros serviços do Azure usados pelo workspace. Por exemplo, se você treinar seu modelo usando um recurso de computação baseado em nuvem, esse recurso será criado no grupo de recursos.
 
 Para __criar um grupo de recursos__, use o comando a seguir. Substitua `<resource-group-name>` pelo nome a ser usado para esse grupo de recursos. Substitua `<location>` pela região do Azure a ser usada para este grupo de recursos:
 
@@ -128,7 +128,7 @@ A resposta desse comando é semelhante ao JSON a seguir:
 }
 ```
 
-Para obter mais informações sobre como trabalhar com grupos de recursos, confira [az group](https://docs.microsoft.com//cli/azure/group?view=azure-cli-latest).
+Para obter mais informações sobre como trabalhar com grupos de recursos, confira [az group](/cli/azure/group?preserve-view=true&view=azure-cli-latest).
 
 ## <a name="create-a-workspace"></a>Criar um workspace
 
@@ -300,17 +300,17 @@ O arquivo runconfig também contém informações usadas para configurar o ambie
 > [!TIP]
 > Embora seja possível criar manualmente um arquivo runconfig, aquele neste exemplo foi criado usando o arquivo `generate-runconfig.py` incluído no repositório. Esse arquivo obtém uma referência ao conjunto de dados registrado, cria uma configuração de execução programaticamente e, em seguida, persiste no arquivo.
 
-Para obter mais informações sobre arquivos de configuração de execução, confira [Configurar e usar destinos de computação para treinamento de modelo](how-to-set-up-training-targets.md#create-run-configuration-and-submit-run-using-azure-machine-learning-cli). Para obter uma referência completa do JSON, confira [runconfigschema.json](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json).
+Para obter mais informações sobre arquivos de configuração de execução, confira [Usar destinos de computação para treinamento de modelo](how-to-set-up-training-targets.md#whats-a-run-configuration). Para obter uma referência completa do JSON, confira [runconfigschema.json](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json).
 
 ## <a name="submit-the-training-run"></a>Enviar a execução de treinamento
 
 Para iniciar uma execução de treinamento no destino de computação `cpu-cluster`, use o seguinte comando:
 
 ```azurecli-interactive
-az ml run submit-script -c mnist -e myexperiment --source-directory scripts -t runoutput.json
+az ml run submit-script -c mnist -e tutorial-cli --source-directory scripts -t runoutput.json
 ```
 
-Este comando especifica um nome para o experimento (`myexperiment`). O experimento armazena informações sobre essa execução no workspace.
+Este comando especifica um nome para o experimento (`tutorial-cli`). O experimento armazena informações sobre essa execução no workspace.
 
 O parâmetro `-c mnist` especifica o arquivo `.azureml/mnist.runconfig`.
 
@@ -327,7 +327,7 @@ Esse texto é registrado no script de treinamento e exibe a precisão do modelo.
 
 Se você inspecionar o script de treinamento, verá que ele também usa o valor alfa ao armazenar o modelo treinado para `outputs/sklearn_mnist_model.pkl`.
 
-O modelo foi salvo no diretório `./outputs` no destino de computação em que foi treinado. Nesse caso, a instância de Computação do Azure Machine Learning na nuvem do Azure. O processo de treinamento carrega automaticamente o conteúdo do diretório `./outputs` do destino de computação em que o treinamento ocorre em seu workspace do Azure Machine Learning. Ele é armazenado como parte do experimento (`myexperiment` neste exemplo).
+O modelo foi salvo no diretório `./outputs` no destino de computação em que foi treinado. Nesse caso, a instância de Computação do Azure Machine Learning na nuvem do Azure. O processo de treinamento carrega automaticamente o conteúdo do diretório `./outputs` do destino de computação em que o treinamento ocorre em seu workspace do Azure Machine Learning. Ele é armazenado como parte do experimento (`tutorial-cli` neste exemplo).
 
 ## <a name="register-the-model"></a>Registre o modelo
 
@@ -345,13 +345,13 @@ A saída desse comando é semelhante ao JSON a seguir:
 {
   "createdTime": "2019-09-19T15:25:32.411572+00:00",
   "description": "",
-  "experimentName": "myexperiment",
+  "experimentName": "tutorial-cli",
   "framework": "Custom",
   "frameworkVersion": null,
   "id": "mymodel:1",
   "name": "mymodel",
   "properties": "",
-  "runId": "myexperiment_1568906070_5874522d",
+  "runId": "tutorial-cli_1568906070_5874522d",
   "tags": "",
   "version": 1
 }

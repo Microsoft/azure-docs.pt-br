@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: management
 ms.date: 05/18/2018
 ms.reviewer: mimckitt
-ms.custom: mimckitt
-ms.openlocfilehash: a657f8a4fd7b92aeb858b919052ca732bf630ae9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: mimckitt, devx-track-azurepowershell
+ms.openlocfilehash: 1ab52c197ee57351a53919291f1c2e41108396ec
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091327"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89078513"
 ---
 # <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-azure-powershell"></a>Tutorial: Criar e gerenciar um conjunto de dimensionamento de máquinas virtuais usando o Azure PowerShell
 

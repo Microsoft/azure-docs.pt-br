@@ -3,12 +3,12 @@ title: O que há de novo no Servidor de Backup do Azure
 description: O Servidor de Backup do Azure oferece recursos avançados de backup para proteger VMs, arquivos e pastas, cargas de trabalho e muito mais.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: fb47d2f14ca686e04cd2d9e3dec27d3ca4a30f5c
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 39050d0f658e29b82f270f1fe53026e2fb80bfa1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88893180"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91332756"
 ---
 # <a name="whats-new-in-microsoft-azure-backup-server-mabs"></a>O que há de novo no Backup do Microsoft Azure Server (MABS)
 
@@ -23,7 +23,7 @@ O Backup do Microsoft Azure Server (MABS) versão 3 UR1 é a atualização mais 
 
 O MABS v2 apresentou [armazenamento de backup moderno](backup-mabs-add-storage.md) (MBS), melhorando o desempenho e a utilização do armazenamento. O Armazenamento de Backup moderno usa ReFS como sistema de arquivos subjacente e foi projetado para fazer uso de armazenamento híbrido, tal como o armazenamento em camadas.
 
-Para obter a escala e o desempenho por MBS, é recomendável usar uma porcentagem pequena (4% do armazenamento geral) do SSD (armazenamento de flash) com o MABS v3 UR1 como um volume em camadas em combinação com o armazenamento de HDD do DPM. O MABS v3 UR1 com armazenamento em camadas fornece backups de 50-70% mais rápidos. Consulte o artigo do DPM [Configurar MBS com armazenamento em camadas](/system-center/dpm/add-storage?view=sc-dpm-2019#set-up-mbs-with-tiered-storage) para obter as etapas para configurar o armazenamento em camadas.
+Para obter a escala e o desempenho por MBS, é recomendável usar uma porcentagem pequena (4% do armazenamento geral) do SSD (armazenamento de flash) com o MABS v3 UR1 como um volume em camadas em combinação com o armazenamento de HDD do DPM. O MABS v3 UR1 com armazenamento em camadas fornece backups de 50-70% mais rápidos. Consulte o artigo do DPM [Configurar MBS com armazenamento em camadas](/system-center/dpm/add-storage#set-up-mbs-with-tiered-storage) para obter as etapas para configurar o armazenamento em camadas.
 
 ### <a name="support-for-refs-volumes"></a>Suporte para volumes ReFS
 

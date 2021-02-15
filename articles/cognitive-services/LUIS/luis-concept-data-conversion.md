@@ -3,20 +3,18 @@ title: Conversão de dados-LUIS
 titleSuffix: Azure Cognitive Services
 description: Saiba como as expressões podem ser alteradas antes das previsões no Reconhecimento vocal (LUIS)
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.author: diberry
-ms.openlocfilehash: b2455df87c8eae1a48cb6c8b1381dad85d304bf4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 42a9caff0433808734ee853cbad90a2088bf4e1e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82099233"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95019238"
 ---
 # <a name="convert-data-format-of-utterances"></a>Converter o formato de dados de declarações
 O LUIS fornece as seguintes conversões de um usuário expressão antes da previsão "
@@ -28,7 +26,7 @@ O LUIS fornece as seguintes conversões de um usuário expressão antes da previ
 A fala em texto é fornecida como uma integração com o LUIS.
 
 ### <a name="intent-conversion-concepts"></a>Conceitos de conversão de intenção
-Conversão de fala em texto no LUIS permite que você envie expressões faladas a um ponto de extremidade e receba uma resposta de previsão LUIS. O processo é uma integração entre o serviço de [Fala](https://docs.microsoft.com/azure/cognitive-services/Speech) com LUIS. Saiba mais sobre a conversão de fala em intenção com um [tutorial](../speech-service/how-to-recognize-intents-from-speech-csharp.md).
+Conversão de fala em texto no LUIS permite que você envie expressões faladas a um ponto de extremidade e receba uma resposta de previsão LUIS. O processo é uma integração entre o serviço de [Fala](/azure/cognitive-services/Speech) com LUIS. Saiba mais sobre a conversão de fala em intenção com um [tutorial](../speech-service/how-to-recognize-intents-from-speech-csharp.md).
 
 ### <a name="key-requirements"></a>Requisitos de chave
 Você não precisa criar uma chave de **API de Fala do Bing** para esta integração. Uma chave de **Reconhecimento vocal** criada no portal do Azure funciona para este exercício. Não use a chave de inicialização do LUIS.
@@ -43,4 +41,3 @@ Consulte [limites de chave](luis-limits.md#key-limits) para obter informações.
 
 > [!div class="nextstepaction"]
 > [Extraindo dados](luis-concept-data-extraction.md)
-

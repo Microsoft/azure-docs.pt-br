@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: matjazl
-ms.openlocfilehash: df1e6159baafc11c4b73c33feaf936784c05469e
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: ff7bb6084839af56b5f6e874b39929021f23f8a1
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87853034"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93398072"
 ---
 # <a name="register-a-public-client-application-in-azure-active-directory"></a>Registrar um aplicativo cliente público no Azure Active Directory
 
@@ -21,11 +21,13 @@ Neste artigo, você aprenderá a registrar um aplicativo público em Azure Activ
 
 Os registros de aplicativo cliente são Azure Active Directory representações de aplicativos que podem autenticar e solicitar permissões de API em nome de um usuário. Clientes públicos são aplicativos como aplicativos móveis e aplicativos JavaScript de página única que não podem manter segredos confidenciais. O procedimento é semelhante ao [registro de um cliente confidencial](register-confidential-azure-ad-client-app.md), mas como os clientes públicos não podem ser confiáveis para manter um segredo do aplicativo, não há necessidade de adicionar um.
 
+O guia de início rápido fornece informações gerais sobre como [registrar um aplicativo com a plataforma de identidade da Microsoft](../active-directory/develop/quickstart-register-app.md).
+
 ## <a name="app-registrations-in-azure-portal"></a>Registros de aplicativo em portal do Azure
 
 1. No [portal do Azure](https://portal.azure.com), no painel navegação à esquerda, clique em **Azure Active Directory**.
 
-2. Na folha **Azure Active Directory** , clique em **registros de aplicativo**:
+2. Na folha **Azure Active Directory** , clique em **registros de aplicativo** :
 
     ![portal do Azure. Novo registro de aplicativo.](media/how-to-aad/portal-aad-new-app-registration.png)
 
@@ -39,15 +41,28 @@ Os registros de aplicativo cliente são Azure Active Directory representações 
 
     ![portal do Azure. Novo registro de aplicativo público.](media/how-to-aad/portal-aad-register-new-app-registration-PUB-CLIENT-NAME.png)
 
+
+Para configurar seu aplicativo de [área de trabalho](../active-directory/develop/scenario-desktop-app-registration.md), [móvel](../active-directory/develop/scenario-mobile-app-registration.md) ou [de página única](../active-directory/develop/scenario-spa-app-registration.md) como aplicativo público:
+
+1. Na [portal do Azure](https://portal.azure.com), em **registros de aplicativo** , selecione seu aplicativo e, em seguida, selecione **autenticação**.
+
+2. Selecione **Configurações avançadas**  >  **tipo de cliente padrão**. Para **tratar aplicativo como um cliente público** , selecione **Sim**.
+
+3. Para um aplicativo de página única, selecione **tokens de acesso** e **tokens de ID** para habilitar o fluxo implícito.
+
+   - Se o seu aplicativo conectar usuários, selecione **Tokens de ID**.
+   - Se o seu aplicativo também precisar chamar uma API Web protegida, selecione **Tokens de acesso**.
+
 ## <a name="api-permissions"></a>Permissões de API
 
 Da mesma forma que o [aplicativo cliente confidencial](register-confidential-azure-ad-client-app.md), você precisará selecionar quais permissões de API esse aplicativo deve ser capaz de solicitar em nome dos usuários:
 
 1. Abra as **permissões de API**.
 
-    Se estiver usando a API do Azure para FHIR, você adicionará uma permissão às APIs de assistência médica do Azure pesquisando as APIs de assistência médica do Azure em **APIs que minha organização usa** (imagem abaixo).
+    Se estiver usando a API do Azure para FHIR, você adicionará uma permissão às APIs de assistência médica do Azure pesquisando as APIs de assistência médica do Azure em **APIs que minha organização usa**. Você só poderá encontrá-lo se já tiver [implantado a API do Azure para FHIR](fhir-paas-powershell-quickstart.md).
+
     
-    Se você estiver fazendo referência a um aplicativo de recurso diferente, selecione o [registro de aplicativo do recurso de API do FHIR](register-resource-azure-ad-client-app.md) que você criou anteriormente em **minhas APIs**:
+    Se você estiver fazendo referência a um aplicativo de recurso diferente, selecione o [registro de aplicativo do recurso de API do FHIR](register-resource-azure-ad-client-app.md) que você criou anteriormente em **minhas APIs** :
 
     ![portal do Azure. Novas permissões de API pública-API do Azure para FHIR padrão](media/public-client-app/api-permissions.png)
 

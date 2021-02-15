@@ -6,13 +6,13 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 7/1/2020
-ms.openlocfilehash: 8dc70eaeb9e2c2f5d4cdfef37619e4b04217782e
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.date: 1/12/2021
+ms.openlocfilehash: 48537483501165d4a978afdbd05560613170d187
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964508"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165604"
 ---
 # <a name="azure-database-for-postgresql--hyperscale-citus-configuration-options"></a>Banco de dados do Azure para PostgreSQL – opções de configuração do Citus (hiperescala)
 
@@ -82,7 +82,7 @@ Os grupos de servidores de hiperescala (Citus) estão disponíveis nas seguintes
     * Oeste dos EUA 2
 * Pacífico Asiático:
     * Leste da Austrália
-    * Leste do Japão
+    * Japan East
     * Coreia Central
     * Sudeste Asiático
 * Européia
@@ -118,6 +118,10 @@ O armazenamento em nós de coordenador e de trabalho pode ser escalado verticalm
 ### <a name="storage-size"></a>Tamanho de armazenamento
 
 Há suporte para até 2 TiB de armazenamento em nós de coordenador e de trabalho. Consulte as opções de armazenamento disponíveis e o cálculo de IOPS [acima](#compute-and-storage) para tamanhos de nó e cluster.
+
+### <a name="database-creation"></a>Criação de banco de dados
+
+O portal do Azure fornece credenciais para se conectar a exatamente um grupo de servidores de banco de dados por Citus (hiperescala), o `citus` banco de dados. A criação de outro banco de dados não é permitida no momento e o comando CREATE DATABASE falhará com um erro.
 
 ## <a name="pricing"></a>Preços
 Para as informações mais recentes sobre preços, consulte a [página de preços](https://azure.microsoft.com/pricing/details/postgresql/) do serviço.

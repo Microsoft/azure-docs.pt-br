@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: pabouwer
 ms.openlocfilehash: eca49a3fac1ea0398ebe1d05bde20fbca3c81232
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77594304"
 ---
 # <a name="about-service-meshes"></a>Sobre malhas de serviço
@@ -38,7 +38,7 @@ O **plano de dados** normalmente consiste em um proxy que é injetado de forma t
 
 ![Arquitetura de malha de serviço típica](media/servicemesh/typical-architecture.png)
 
-## <a name="capabilities"></a>Capacidades
+## <a name="capabilities"></a>Funcionalidades
 
 Cada uma das malhas de serviço tem um ajuste natural e se concentra no suporte a cenários específicos, mas normalmente você descobrirá que a maioria irá implementar um número de, se não todos, dos seguintes recursos.
 
@@ -56,7 +56,7 @@ Cada uma das malhas de serviço tem um ajuste natural e se concentra no suporte 
 - **Identidade forte** – SPIFFE ou semelhante
 - **Auth** – autenticação, autorização
 
-### <a name="observability"></a>Observação
+### <a name="observability"></a>Observabilidade
 
 - **Métricas** – métricas de ouro, Prometheus, grafana
 - **Rastreamento** -rastreamentos entre cargas de trabalho

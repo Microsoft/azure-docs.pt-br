@@ -1,19 +1,19 @@
 ---
 title: Solução do Azure VMware por CloudSimple-Otimize sua nuvem privada do CloudSimple para Oracle RAC
 description: Descreve como implantar um novo cluster e otimizar uma VM para a instalação e a configuração do RAC (Oracle Real Application Clusters)
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/06/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 2cc2f954f4255c00b7c3549ab5d33d71b240fb70
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 3959aae5f490af10c6747cfa67d9960e0c4a203f
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86507659"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97899262"
 ---
 # <a name="optimize-your-cloudsimple-private-cloud-for-installing-oracle-rac"></a>Otimize sua nuvem privada do CloudSimple para instalar o Oracle RAC
 
@@ -79,7 +79,7 @@ Cada máquina virtual Oracle é configurada com vários discos para o sistema op
 * O compartilhamento está definido como **sem compartilhamento**.
 * A redundância é definida no armazenamento usando as políticas de vSAN.  
 
-![Configuração do grupo de discos de dados do Oracle RAC](media/oracle-vm-os-disks.png)
+![Diagrama que mostra a configuração física do disco do sistema operacional Oracle RAC.](media/oracle-vm-os-disks.png)
 
 ### <a name="data-disk-configuration"></a>Configuração de disco de dados
 
@@ -148,7 +148,7 @@ A FRA (área de recuperação rápida) é o sistema de arquivos gerenciado pelo 
 * Os discos devem ser configurados como um grupo de discos ASM.  
 * A redundância do ASM é definida como redundância **externa** .
 
-![Configuração do grupo de discos de votação do Oracle RAC](media/oracle-vm-fra-disks.png)
+![Diagrama que mostra a configuração do grupo de discos de votação do Oracle RAC.](media/oracle-vm-fra-disks.png)
 
 ## <a name="deploy-cloudsimple-private-cloud-vsphere-cluster"></a>Implantar o cluster vSphere de nuvem privada CloudSimple
 
@@ -174,7 +174,7 @@ as políticas vSAN definem as falhas a serem toleradas e a distribuição de dis
 3. No menu à esquerda, selecione **políticas de armazenamento de VM** e, em seguida, selecione **criar uma política de armazenamento de VM**.
 4. Insira um nome significativo para a política e clique em **Avançar**.
 5. Na seção **estrutura de política** , selecione **habilitar regras para o armazenamento vSAN** e clique em **Avançar**.
-6. Na seção **vSAN**  >  **disponibilidade** vSAN, selecione **nenhum** para tolerância a desastres do site. Para falhas a tolerar, selecione a opção de **espelhamento de RAID** para o FTT desejado.
+6. Na seção   >  **disponibilidade** vSAN, selecione **nenhum** para tolerância a desastres do site. Para falhas a tolerar, selecione a opção de **espelhamento de RAID** para o FTT desejado.
     ![configurações de vSAN ](media/oracle-rac-storage-wizard-vsan.png) .
 7. Na seção **avançado** , selecione o número de faixas de disco por objeto. Para reserva de espaço de objeto, selecione **espesso provisionado**. Selecione **desabilitar soma de verificação de objeto**. Clique em **Avançar**.
 8. Siga as instruções na tela para exibir a lista de repositórios de armazenamento vSAN compatíveis, examine as configurações e conclua a instalação.
@@ -220,7 +220,7 @@ O Oracle usa o disco compartilhado para armazenar os arquivos de log de dados, l
 9. Para compartilhamento, especifique **multi-Writer**.
 10. Para o nó do dispositivo virtual, selecione o novo controlador SCSI que foi criado na etapa 2.
 
-    ![Criar discos na primeira VM](media/oracle-rac-new-hard-disk.png)
+    ![Captura de tela que realça os campos necessários para criar discos na primeira VM.](media/oracle-rac-new-hard-disk.png)
 
 Repita as etapas 2 a 10 para todos os novos discos necessários para os dados, logs e arquivos de log de restauração do Oracle.
 

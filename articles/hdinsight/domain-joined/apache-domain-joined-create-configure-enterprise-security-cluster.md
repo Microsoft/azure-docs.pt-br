@@ -3,17 +3,14 @@ title: Criar, configurar clusters Enterprise Security Package – Azure
 description: Saiba como criar e configurar clusters Enterprise Security Package no Azure HDInsight
 services: hdinsight
 ms.service: hdinsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 12/10/2019
-ms.openlocfilehash: acd51fc54e0655af6bfc6c05d2e99be2f26f942b
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 914acfab3935bc81e7d8382163ca9283c7f71a53
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86080152"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98934045"
 ---
 # <a name="create-and-configure-enterprise-security-package-clusters-in-azure-hdinsight"></a>Criar e configurar clusters Enterprise Security Package no Azure HDInsight
 
@@ -46,8 +43,8 @@ Nesta seção, você usará um modelo de implantação de início rápido do Azu
     |Propriedade | Valor |
     |---|---|
     |Subscription|Selecione a assinatura na qual você deseja implantar os recursos.|
-    |Resource group|Selecione **criar novo**e insira o nome`OnPremADVRG`|
-    |Location|Selecione um local.|
+    |Resource group|Selecione **criar novo** e insira o nome `OnPremADVRG`|
+    |Location|Selecione uma localização.|
     |Nome de Usuário do Administrador|`HDIFabrikamAdmin`|
     |Senha do Administrador|Digite uma senha.|
     |Nome de domínio|`HDIFabrikam.com`|
@@ -57,8 +54,8 @@ Nesta seção, você usará um modelo de implantação de início rápido do Azu
 
     ![Modelo para criar uma VM do Azure com uma nova floresta do Azure AD](./media/apache-domain-joined-create-configure-enterprise-security-cluster/create-azure-vm-ad-forest.png)
 
-1. Examine os **termos e condições**e, em seguida, selecione **concordo com os termos e condições declarados acima**.
-1. Selecione **comprar**e monitore a implantação e aguarde sua conclusão. A implantação leva cerca de 30 minutos para ser concluída.
+1. Examine os **termos e condições** e, em seguida, selecione **concordo com os termos e condições declarados acima**.
+1. Selecione **comprar** e monitore a implantação e aguarde sua conclusão. A implantação leva cerca de 30 minutos para ser concluída.
 
 ## <a name="configure-users-and-groups-for-cluster-access"></a>Configurar usuários e grupos para acesso ao cluster
 
@@ -67,7 +64,7 @@ Nesta seção, você criará os usuários que terão acesso ao cluster HDInsight
 1. Conecte-se ao controlador de domínio usando Área de Trabalho Remota.
     1. No portal do Azure, navegue até **grupos de recursos**  >  **OnPremADVRG**  >  **adVM**  >  **conectar**.
     1. Na lista suspensa **endereço IP** , selecione o endereço IP público.
-    1. Selecione **baixar arquivo RDP**e, em seguida, abra o arquivo.
+    1. Selecione **baixar arquivo RDP** e, em seguida, abra o arquivo.
     1. Use `HDIFabrikam\HDIFabrikamAdmin` como o nome de usuário.
     1. Insira a senha que você escolheu para a conta de administrador.
     1. Selecione **OK**.
@@ -86,8 +83,8 @@ Nesta seção, você criará os usuários que terão acesso ao cluster HDInsight
 
         ![Criar o primeiro objeto de usuário administrador](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0020.png)
 
-    1. Na janela pop-up exibida, insira uma senha para a nova conta. Selecione a **senha nunca expira**e, em seguida, **OK** na mensagem pop-up.
-    1. Selecione **Avançar**e **concluir** para criar a nova conta.
+    1. Na janela pop-up exibida, insira uma senha para a nova conta. Selecione a **senha nunca expira** e, em seguida, **OK** na mensagem pop-up.
+    1. Selecione **Avançar** e **concluir** para criar a nova conta.
     1. Repita as etapas acima para criar o usuário `HDIAdmin` .
 
         ![Criar um segundo objeto de usuário administrador](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0024.png)
@@ -107,7 +104,7 @@ Nesta seção, você criará os usuários que terão acesso ao cluster HDInsight
 1. Adicione membros a **HDIUserGroup**.
 
     1. Clique com o botão direito do mouse em **HDIUser** e selecione **Adicionar a um grupo...**.
-    1. Na caixa de texto **digite os nomes de objeto a serem selecionados** , digite `HDIUserGroup` . Em seguida, selecione **OK**e **OK** novamente no pop-up.
+    1. Na caixa de texto **digite os nomes de objeto a serem selecionados** , digite `HDIUserGroup` . Em seguida, selecione **OK** e **OK** novamente no pop-up.
     1. Repita as etapas anteriores para a conta **HDIAdmin** .
 
         ![Adicione o membro HDIUser ao grupo HDIUserGroup](./media/apache-domain-joined-create-configure-enterprise-security-cluster/active-directory-add-users-to-group.png)
@@ -118,7 +115,7 @@ Os usuários serão sincronizados com o Azure AD.
 
 ### <a name="create-an-azure-ad-directory"></a>Criar um diretório do AD do Azure
 
-1. Entre no Portal do Azure.
+1. Entre no portal do Azure.
 1. Selecione **criar um recurso** e digite `directory` . Selecione **Azure Active Directory**  >  **criar**.
 1. Em **nome da organização**, insira `HDIFabrikam` .
 1. Em **nome de domínio inicial**, insira `HDIFabrikamoutlook` .
@@ -158,7 +155,7 @@ Crie um administrador de locatários Active Directory.
 
     |Propriedade |Descrição |
     |---|---|
-    |Nome de usuário|Insira `fabrikamazureadmin` na caixa de texto. Na lista suspensa nome de domínio, selecione`hdifabrikam.com`|
+    |Nome do usuário|Insira `fabrikamazureadmin` na caixa de texto. Na lista suspensa nome de domínio, selecione `hdifabrikam.com`|
     |Nome| Digite `fabrikamazureadmin`.|
 
     **Senha**
@@ -167,12 +164,12 @@ Crie um administrador de locatários Active Directory.
 
     **Grupos e funções**
     1. Selecione **0 grupos selecionados**.
-    1. Selecione **Administradores do AAD DC**e, em seguida, **selecione**.
+    1. Selecione **Administradores do AAD DC** e, em seguida, **selecione**.
 
     ![A caixa de diálogo grupos do Azure AD](./media/apache-domain-joined-create-configure-enterprise-security-cluster/azure-ad-add-group-member.png)
 
     1. Selecione **usuário**.
-    1. Selecione **administrador global**e, em seguida, **selecione**.
+    1. Selecione **administrador global** e, em seguida, **selecione**.
 
     ![A caixa de diálogo função do Azure AD](./media/apache-domain-joined-create-configure-enterprise-security-cluster/azure-ad-add-role-member.png)
 
@@ -192,11 +189,11 @@ Crie um administrador de locatários Active Directory.
 
 1. Na página **conectar ao Azure ad** , insira o nome de usuário e a senha do administrador global do Azure AD. Use o nome de usuário `fabrikamazureadmin@hdifabrikam.com` que você criou quando configurou seu locatário de Active Directory. Em seguida, selecione **Avançar**.
 
-    ![A página "conectar ao Azure AD"](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0058.png)
+    ![A página "conectar-se ao Azure A D".](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0058.png)
 
 1. Na página **conectar a Active Directory Domain Services** , insira o nome de usuário e a senha de uma conta de administrador corporativo. Use o nome de usuário `HDIFabrikam\HDIFabrikamAdmin` e sua senha que você criou anteriormente. Em seguida, selecione **Avançar**.
 
-   ![A página "conectar ao Azure AD"](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0060.png)
+   ![A página "conectar a uma D D S".](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0060.png)
 1. Na página de **configuração de entrada do Azure ad** , selecione **Avançar**.
    ![A página "configuração de entrada do Azure AD"](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0062.png)
 
@@ -204,19 +201,19 @@ Crie um administrador de locatários Active Directory.
 
    ![A página "pronto para configurar"](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0064.png)
 
-1. Na página **Configuração completa** selecione **Sair**.
+1. Na página **Configuração completa**, selecione **Sair**.
    ![A página "configuração concluída"](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0078.png)
 
 1. Após a conclusão da sincronização, confirme se os usuários que você criou no diretório IaaS estão sincronizados com o Azure AD.
-   1. Entre no Portal do Azure.
-   1. Selecione **Azure Active Directory**  >  **HDIFabrikam**  >  **usuários**do HDIFabrikam.
+   1. Entre no portal do Azure.
+   1. Selecione **Azure Active Directory**  >    >  **usuários** do HDIFabrikam.
 
 ### <a name="create-a-user-assigned-managed-identity"></a>Criar uma identidade gerenciada atribuída ao usuário
 
 Crie uma identidade gerenciada atribuída pelo usuário que você possa usar para configurar o Azure AD Domain Services (AD DS do Azure). Para obter mais informações, consulte [criar, listar, excluir ou atribuir uma função a uma identidade gerenciada atribuída pelo usuário usando o portal do Azure](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
 
-1. Entre no Portal do Azure.
-1. Selecione **criar um recurso** e digite `managed identity` . Selecione criação de **identidade gerenciada atribuída pelo usuário**  >  **Create**.
+1. Entre no portal do Azure.
+1. Selecione **criar um recurso** e digite `managed identity` . Selecione criação de **identidade gerenciada atribuída pelo usuário**  >  .
 1. Para o **nome do recurso**, digite `HDIFabrikamManagedIdentity` .
 1. Selecione sua assinatura.
 1. Em **grupo de recursos**, selecione **criar novo** e insira `HDIFabrikam-CentralUS` .
@@ -227,7 +224,7 @@ Crie uma identidade gerenciada atribuída pelo usuário que você possa usar par
 
 ### <a name="enable-azure-ad-ds"></a>Habilitar o Azure AD DS
 
-Siga estas etapas para habilitar o Azure AD DS. Para obter mais informações, consulte [habilitar o Azure AD DS usando o portal do Azure](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started).
+Siga estas etapas para habilitar o Azure AD DS. Para obter mais informações, consulte [habilitar o Azure AD DS usando o portal do Azure](../../active-directory-domain-services/tutorial-create-instance.md).
 
 1. Crie uma rede virtual para hospedar AD DS do Azure. Execute o código do PowerShell a seguir.
 
@@ -247,7 +244,7 @@ Siga estas etapas para habilitar o Azure AD DS. Para obter mais informações, c
     $virtualNetwork | Set-AzVirtualNetwork
     ```
 
-1. Entre no Portal do Azure.
+1. Entre no portal do Azure.
 1. Selecione **criar recurso**, insira `Domain services` e selecione **Azure AD Domain Services**  >  **criar**.
 1. Na página **noções básicas** :
     1. Em **nome do diretório**, selecione o diretório do Azure AD que você criou: **HDIFabrikam**.
@@ -281,7 +278,7 @@ Use as etapas a seguir para configurar sua rede virtual do Azure AD DS (**HDIFab
 
 1. Localize os endereços IP dos seus servidores DNS personalizados.
     1. Selecione o `HDIFabrikam.com` recurso de AD DS do Azure.
-    1. Em **gerenciar**, selecione **Propriedades**.
+    1. Em **Gerenciar**, selecione **Propriedades**.
     1. Localize os endereços IP em **endereço IP na rede virtual**.
 
     ![Localizar endereços IP de DNS personalizados para o Azure AD DS](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0096.png)
@@ -289,7 +286,7 @@ Use as etapas a seguir para configurar sua rede virtual do Azure AD DS (**HDIFab
 1. Configure **HDIFabrikam-AADDSVNET** para usar os endereços IP personalizados 10.0.0.4 e 10.0.0.5.
 
     1. Em **configurações**, selecione **servidores DNS**.
-    1. Selecione **personalizado**.
+    1. selecione **Personalizado**.
     1. Na caixa de texto, insira o primeiro endereço IP (*10.0.0.4*).
     1. Selecione **Salvar**.
     1. Repita as etapas para adicionar o outro endereço IP (*10.0.0.5*).
@@ -302,7 +299,7 @@ Em nosso cenário, configuramos o Azure AD DS para usar os endereços IP 10.0.0.
 
 O protocolo LDAP (Lightweight Directory Access Protocol) é usado para ler e gravar em Azure Active Directory. Você pode tornar o tráfego LDAP confidencial e seguro usando protocolo SSL (SSL) ou a tecnologia TLS (Transport Layer Security). Você pode habilitar LDAP sobre SSL (LDAPs) instalando um certificado formatado corretamente.
 
-Para obter mais informações sobre LDAP seguro, consulte [Configurar LDAPS para um domínio gerenciado do Azure AD DS](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap).
+Para obter mais informações sobre LDAP seguro, consulte [Configurar LDAPS para um domínio gerenciado do Azure AD DS](../../active-directory-domain-services/tutorial-configure-ldaps.md).
 
 Nesta seção, você criará um certificado autoassinado, baixará o certificado e configurará os LDAPs para o domínio gerenciado do **HDIFabrikam** Azure AD DS.
 
@@ -326,7 +323,7 @@ Verifique se o certificado está instalado no repositório **pessoal** do comput
 
     ![Verificar a criação do certificado local](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0102.png)
 
-1. No painel à direita, clique com o botão direito do mouse no certificado que você criou. Aponte para **todas as tarefas**e, em seguida, selecione **Exportar**.
+1. No painel à direita, clique com o botão direito do mouse no certificado que você criou. Aponte para **todas as tarefas** e, em seguida, selecione **Exportar**.
 
 1. Na página **Exportar chave privada** , selecione **Sim, exportar a chave privada**. O computador em que a chave será importada precisa da chave privada para ler as mensagens criptografadas.
 
@@ -387,7 +384,7 @@ Esta etapa requer os seguintes pré-requisitos:
     Add-AzVirtualNetworkPeering -Name 'AADDSVNet-HDIVNet' -RemoteVirtualNetworkId (Get-AzVirtualNetwork -ResourceGroupName 'HDIFabrikam-WestUS').Id -VirtualNetwork (Get-AzVirtualNetwork -ResourceGroupName 'HDIFabrikam-CentralUS')
     ```
 
-1. Crie uma nova conta de Azure Data Lake Storage Gen2 chamada **Hdigen2store**. Configure a conta com o **HDIFabrikamManagedIdentity**de identidade gerenciada pelo usuário. Para obter mais informações, consulte [usar Azure data Lake Storage Gen2 com clusters do Azure HDInsight](../hdinsight-hadoop-use-data-lake-storage-gen2.md).
+1. Crie uma nova conta de Azure Data Lake Storage Gen2 chamada **Hdigen2store**. Configure a conta com o **HDIFabrikamManagedIdentity** de identidade gerenciada pelo usuário. Para obter mais informações, consulte [usar Azure data Lake Storage Gen2 com clusters do Azure HDInsight](../hdinsight-hadoop-use-data-lake-storage-gen2.md).
 
 1. Configure o DNS personalizado na rede virtual **HDIFabrikam-AADDSVNET** .
     1. Vá para o portal do Azure > **grupos de recursos**  >  **OnPremADVRG**  >  **HDIFabrikam-AADDSVNET**  >  **servidores DNS**.

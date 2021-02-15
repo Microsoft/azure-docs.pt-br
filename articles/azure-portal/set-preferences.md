@@ -1,22 +1,17 @@
 ---
-title: Gerenciar configurações e preferências de portal do Azure | Microsoft Docs
+title: Gerenciar configurações e preferências do portal do Azure
 description: Você pode alterar portal do Azure configurações padrão para atender às suas próprias preferências. As configurações incluem tempo limite de sessão inativo, exibição padrão, modo de menu, contraste, tema, notificações e formatos regionais e de idioma
-services: azure-portal
 keywords: configurações, tempo limite, idioma, regional
-author: mgblythe
-ms.author: mblythe
 ms.date: 08/05/2020
 ms.topic: how-to
-ms.service: azure-portal
-manager: mtillman
-ms.openlocfilehash: 20ed84a87486f1095a90e012368b1f56d6426c8e
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 5a108f1cd3b5af6655b592e7283192d4d54498ac
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88205645"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99094103"
 ---
-# <a name="manage-azure-portal-settings-and-preferences"></a>Gerenciar configurações e preferências de portal do Azure
+# <a name="manage-azure-portal-settings-and-preferences"></a>Gerenciar configurações e preferências do portal do Azure
 
 Você pode alterar as configurações padrão do portal do Azure para atender às suas próprias preferências. A maioria das configurações está disponível no menu **configurações** no cabeçalho da página global.
 
@@ -50,7 +45,7 @@ Você pode alterar a página que é aberta por padrão ao entrar no portal do Az
 
 O modo padrão do menu do portal controla a quantidade de espaço que o menu do portal ocupa na página.
 
-![Captura de tela mostrando configurações de portal do Azure com temas realçados](./media/set-preferences/menu-mode.png)
+![Captura de tela que mostra como definir o modo padrão para o menu do Portal.](./media/set-preferences/menu-mode.png)
 
 - Quando o menu do portal estiver no modo de **submenu** , ele ficará oculto até que você precise dele. Selecione o ícone de menu para abrir ou fechar o menu.
 
@@ -90,13 +85,13 @@ Selecione a lista suspensa em **conectar-me quando inativo**. Escolha a duraçã
 
 A alteração é salva automaticamente. Se você estiver ocioso, sua sessão de portal do Azure será desconectada após a duração definida.
 
-Se o administrador tiver habilitado uma política de tempo limite de inatividade, você ainda poderá definir o seu próprio, desde que seja menor que a configuração no nível do diretório. Selecione **substituir a política de tempo limite de inatividade de diretório**e defina um intervalo de tempo.
+Se o administrador tiver habilitado uma política de tempo limite de inatividade, você ainda poderá definir o seu próprio, desde que seja menor que a configuração no nível do diretório. Selecione **substituir a política de tempo limite de inatividade de diretório** e defina um intervalo de tempo.
 
 ![Captura de tela mostrando as configurações do portal com substituir a configuração da política de tempo limite de inatividade do diretório](./media/set-preferences/inactive-signout-override.png)
 
 ### <a name="change-the-directory-timeout-setting-admin"></a>Alterar a configuração de tempo limite do diretório (admin)
 
-Os administradores na [função de administrador global](../active-directory/users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator) podem impor o tempo ocioso máximo antes que uma sessão seja desconectada. A configuração de tempo limite de inatividade se aplica ao nível do diretório. A configuração entra em vigor para novas sessões. Ele não será aplicado imediatamente a nenhum usuário que já esteja conectado. Para obter mais informações sobre diretórios, consulte [Active Directory Domain Services visão geral](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview).
+Os administradores na [função de administrador global](../active-directory/roles/permissions-reference.md#global-administrator) podem impor o tempo ocioso máximo antes que uma sessão seja desconectada. A configuração de tempo limite de inatividade se aplica ao nível do diretório. A configuração entra em vigor para novas sessões. Ele não será aplicado imediatamente a nenhum usuário que já esteja conectado. Para obter mais informações sobre diretórios, consulte [Active Directory Domain Services visão geral](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview).
 
 Se você for um administrador global e quiser impor uma configuração de tempo limite de ociosidade para todos os usuários da portal do Azure, siga estas etapas:
 
@@ -108,7 +103,7 @@ Se você for um administrador global e quiser impor uma configuração de tempo 
 
 1. Em seguida, insira as **horas** e os **minutos** para o tempo máximo que um usuário pode ficar ocioso antes de sua sessão ser desconectada automaticamente.
 
-1. Escolha **Aplicar**.
+1. Selecione **Aplicar**.
 
     ![Captura de tela mostrando a página para definir o tempo limite de inatividade no nível do diretório](./media/set-preferences/configure.png)
 

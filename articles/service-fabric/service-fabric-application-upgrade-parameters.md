@@ -4,11 +4,11 @@ description: Descreve os parâmetros relacionados à atualização de um aplicat
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.openlocfilehash: 6b6116bf1188fcf191b2d672e6c698bb3c050e6c
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86247958"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018470"
 ---
 # <a name="application-upgrade-parameters"></a>Parâmetros de atualização de aplicativo
 Este artigo descreve os vários parâmetros que se aplicam durante a atualização de um aplicativo do Service Fabric do Azure. Parâmetros de atualização de aplicativo controlam o tempo limite e as verificações de integridade que são aplicadas durante a atualização, e especificam as políticas que devem ser aplicadas quando uma atualização falha. Parâmetros de aplicativo aplicam-se a atualizações usando:
@@ -33,7 +33,7 @@ Parâmetros atualização de aplicativo do Visual Studio Service Fabric são def
 ### <a name="required-parameters"></a>Parâmetros obrigatórios
 (PS=PowerShell, VS=Visual Studio)
 
-| Parâmetro | Aplica-se A | Descrição |
+| Parâmetro | Aplica-se A | Description |
 | --- | --- | --- |
 ApplicationName |PS| Nome do aplicativo que está sendo atualizado. Exemplos: fabric:/VisualObjects, fabric:/ClusterMonitor. |
 ApplicationTypeVersion|PS|Versão do tipo de aplicativo visado pela atualização. |
@@ -48,11 +48,11 @@ UnmonitoredManual | PS | Indica que o modo de atualização e não monitorado ma
 Os parâmetros de avaliação de integridade são opcionais. Se os critérios de avaliação de integridade não forem especificados ao iniciar uma atualização, o Service Fabric usará as políticas de integridade do aplicativo especificadas no ApplicationManifest.xml da instância do aplicativo.
 
 > [!div class="mx-tdBreakAll"]
-> | Parâmetro | Aplica-se A | Descrição |
+> | Parâmetro | Aplica-se A | Description |
 > | --- | --- | --- |
 > | ApplicationParameter |PS, VS| Especifica as substituições para os parâmetros do aplicativo.<br>Parâmetros de aplicativo do PowerShell são especificados como pares de nome/valor da tabela de hash. Por exemplo, @{ "VotingData_MinReplicaSetSize" = "3"; "VotingData_PartitionCount" = "1" }.<br>Os parâmetros de aplicativo do Visual Studio podem ser especificados na caixa de diálogo Publicar Aplicativo do Service Fabric no campo **Arquivo de Parâmetros do Aplicativo**.
 > | Confirmar |PS| Os valores permitidos são **true** e **false**. Solicita sua confirmação antes de executar o cmdlet. |
-> | ConsiderWarningAsError |PS, VS |Os valores permitidos são **true** e **false**. O valor padrão é **false**. Trata os eventos de integridade de aviso do aplicativo como erros ao avaliar a integridade do aplicativo durante a atualização. Por padrão, o Service Fabric não avalia os eventos de integridade de aviso como falhas (erros); portanto, a atualização pode continuar mesmo se houver eventos de aviso. |
+> | ConsiderWarningAsError |PS, VS |Os valores permitidos são **true** e **false**. O valor padrão é **False**. Trata os eventos de integridade de aviso do aplicativo como erros ao avaliar a integridade do aplicativo durante a atualização. Por padrão, o Service Fabric não avalia os eventos de integridade de aviso como falhas (erros); portanto, a atualização pode continuar mesmo se houver eventos de aviso. |
 > | DefaultServiceTypeHealthPolicy | PS, VS |Especifica a política de integridade para o tipo de serviço padrão a ser usado para a atualização monitorada no formato MaxPercentUnhealthyPartitionsPerService, MaxPercentUnhealthyReplicasPerPartition, MaxPercentUnhealthyServices. Por exemplo, 5,10,15 indica os seguintes valores: MaxPercentUnhealthyPartitionsPerService = 5, MaxPercentUnhealthyReplicasPerPartition = 10, MaxPercentUnhealthyServices = 15. |
 > | Force | PS, VS | Os valores permitidos são **true** e **false**. Indica que o processo de atualização ignorará a mensagem de aviso e forçará a atualização mesmo quando o número de versão não tiver mudado. Isso é útil para teste local, mas não é recomendado para uso em um ambiente de produção, pois exige remover a implantação existente, provocando tempo de inatividade e possível perda de dados. |
 > | ForceRestart |PS, VS |Se você atualizar uma configuração ou um pacote de dados sem atualizar o código de serviço, o serviço será reiniciado somente se a propriedade ForceRestart estiver definida como **True**. Quando a atualização é concluída, a Malha do Serviço notifica o serviço de que um novo pacote de configuração ou pacote de dados está disponível. O serviço é responsável pela aplicação das alterações. Se necessário, o serviço pode se reiniciar. |
@@ -101,7 +101,7 @@ service-health-policy | Mapa codificado em JSON com a política de integridade d
 tempo limite | Especifica o período de tempo limite em segundos para a operação. Padrão: 60. |
 upgrade-domain-timeout | A quantidade de tempo que cada domínio de atualização precisa concluir antes que a *falha* seja executada. Primeiro, é interpretado como uma cadeia de caracteres representando uma duração ISO 8601. Se isso falhar, será interpretado como um número que representa o número total de milissegundos. O valor padrão nunca é (infinito) e deve ser personalizado adequadamente para o seu aplicativo. Padrão: P10675199DT02H48M05.4775807S. |
 upgrade-timeout | A quantidade de tempo que cada domínio de atualização precisa concluir antes que a *falha* seja executada. Primeiro, é interpretado como uma cadeia de caracteres representando uma duração ISO 8601. Se isso falhar, será interpretado como um número que representa o número total de milissegundos. O valor padrão nunca é (infinito) e deve ser personalizado adequadamente para o seu aplicativo. Padrão: P10675199DT02H48M05.4775807S.|
-warning-as-error | Os valores permitidos são **true** e **false**. O valor padrão é **false**. Pode ser passado como um sinalizador. Trata os eventos de integridade de aviso do aplicativo como erros ao avaliar a integridade do aplicativo durante a atualização. Por padrão, o Service Fabric não avalia os eventos de integridade de aviso como falhas (erros); portanto, a atualização pode continuar mesmo se houver eventos de aviso. |
+warning-as-error | Os valores permitidos são **true** e **false**. O valor padrão é **False**. Pode ser passado como um sinalizador. Trata os eventos de integridade de aviso do aplicativo como erros ao avaliar a integridade do aplicativo durante a atualização. Por padrão, o Service Fabric não avalia os eventos de integridade de aviso como falhas (erros); portanto, a atualização pode continuar mesmo se houver eventos de aviso. |
 
 ## <a name="next-steps"></a>Próximas etapas
 [Atualização do aplicativo usando o Visual Studio](service-fabric-application-upgrade-tutorial.md) orienta você durante a atualização de aplicativo usando o Visual Studio.

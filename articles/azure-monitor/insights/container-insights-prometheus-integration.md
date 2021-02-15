@@ -3,14 +3,14 @@ title: Configurar Azure Monitor para a integração de Prometheus de contêinere
 description: Este artigo descreve como você pode configurar o Azure Monitor para o agente de contêineres para recorte de métricas do Prometheus com o cluster kubernetes.
 ms.topic: conceptual
 ms.date: 04/22/2020
-ms.openlocfilehash: f7a43f00ce160829cc8e6ed3b6272ab14aaace66
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f5a9b364bc3e51307bd44d8338485f482bda6e1e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85800453"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "90971359"
 ---
-# <a name="configure-scraping-of-prometheus-metrics-with-azure-monitor-for-containers"></a>Configurar a recorte de métricas de Prometheus com Azure Monitor para contêineres
+# <a name="configure-scraping-of-prometheus-metrics-with-azure-monitor-for-containers"></a>Configurar o recorte de métricas do Prometheus com o Azure Monitor para contêineres
 
 [Prometheus](https://prometheus.io/) é uma popular solução de monitoramento de métrica de software livre e faz parte da [base de computação nativa na nuvem](https://www.cncf.io/). Azure Monitor para contêineres fornece uma experiência de integração direta para coletar métricas de Prometheus. Normalmente, para usar o Prometheus, você precisa configurar e gerenciar um servidor Prometheus com um repositório. Ao integrar com o Azure Monitor, um servidor Prometheus não é necessário. Você só precisa expor o ponto de extremidade de métricas Prometheus por meio de exportadores ou pods (aplicativo), e o agente em contêiner para Azure Monitor para contêineres pode recorrer às métricas para você. 
 
@@ -142,7 +142,7 @@ Execute as seguintes etapas para configurar o arquivo de configuração do Confi
 
            ```
            - prometheus.io/scrape:"true" #Enable scraping for this pod 
-           - prometheus.io/scheme:"http:" #If the metrics endpoint is secured then you will need to set this to `https`, if not default ‘http’
+           - prometheus.io/scheme:"http" #If the metrics endpoint is secured then you will need to set this to `https`, if not default ‘http’
            - prometheus.io/path:"/mymetrics" #If the metrics path is not /metrics, define it with this annotation. 
            - prometheus.io/port:"8000" #If port is not 9102 use this annotation
            ```
@@ -259,7 +259,7 @@ Execute as etapas a seguir para configurar o arquivo de configuração do Config
 
            ```
            - prometheus.io/scrape:"true" #Enable scraping for this pod 
-           - prometheus.io/scheme:"http:" #If the metrics endpoint is secured then you will need to set this to `https`, if not default ‘http’
+           - prometheus.io/scheme:"http" #If the metrics endpoint is secured then you will need to set this to `https`, if not default ‘http’
            - prometheus.io/path:"/mymetrics" #If the metrics path is not /metrics, define it with this annotation. 
            - prometheus.io/port:"8000" #If port is not 9102 use this annotation
            ```
@@ -347,7 +347,7 @@ InsightsMetrics
 
 A saída mostrará resultados semelhantes ao seguinte:
 
-![Resultados da consulta de log do volume de ingestão de dados](./media/container-insights-prometheus-integration/log-query-example-usage-03.png)
+![Captura de tela mostra os resultados da consulta de log do volume de ingestão de dados](./media/container-insights-prometheus-integration/log-query-example-usage-03.png)
 
 Para estimar o que cada métrica tamanho em GB é para um mês para entender se o volume de dados ingeridos recebidos no espaço de trabalho é alto, a consulta a seguir é fornecida.
 

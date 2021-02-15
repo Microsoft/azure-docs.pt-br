@@ -2,7 +2,7 @@
 title: Ingresse em uma VM CentOS para Azure AD Domain Services | Microsoft Docs
 description: Saiba como configurar e unir uma máquina virtual CentOS Linux a um Azure Active Directory Domain Services domínio gerenciado.
 services: active-directory-ds
-author: iainfoulds
+author: justinha
 manager: daveba
 ms.assetid: 16100caa-f209-4cb0-86d3-9e218aeb51c6
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/13/2020
-ms.author: iainfou
-ms.openlocfilehash: 9eb6a43557da43e8f792bcc3858e7123f2b6c607
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.author: justinha
+ms.openlocfilehash: 76fc11384b55337f581a74239d4a40b90b284f32
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87005150"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96619650"
 ---
 # <a name="join-a-centos-linux-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>Unir uma máquina virtual CentOS Linux a um Azure Active Directory Domain Services domínio gerenciado
 
@@ -44,7 +44,7 @@ Se você precisar criar uma VM CentOS Linux ou desejar criar uma VM de teste par
 
 * [Azure portal](../virtual-machines/linux/quick-create-portal.md)
 * [CLI do Azure](../virtual-machines/linux/quick-create-cli.md)
-* [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
+* [PowerShell do Azure](../virtual-machines/linux/quick-create-powershell.md)
 
 Ao criar a VM, preste atenção às configurações de rede virtual para garantir que a VM possa se comunicar com o domínio gerenciado:
 

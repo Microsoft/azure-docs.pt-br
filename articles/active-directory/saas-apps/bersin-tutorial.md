@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 6fb8117a3e834dec71b9dbc98b4a34512a43f646
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 7dc9bbe4b4f2d5de2a79dbdeabb4b61ecb02f2d7
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88540688"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673453"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bersin"></a>Tutorial: Integração do Azure Active Directory com Bersin
 
@@ -27,7 +27,7 @@ Integrar o Bersin ao Microsoft Azure AD oferece os benefícios a seguir:
 * Você pode permitir que os usuários sejam conectados automaticamente ao Bersin (logon único) com suas contas do Azure AD.
 * Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](../manage-apps/what-is-single-sign-on.md).
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Prerequisites
@@ -63,7 +63,7 @@ Para configurar a integração do Bersin ao Microsoft Azure AD, você precisará
 
 4. Na caixa de pesquisa, digite **Bersin**, selecione **Bersin** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
-     ![Bersin na lista de resultados](common/search-new-app.png)
+    ![Bersin na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
@@ -98,7 +98,7 @@ Para configurar o logon único do Azure AD com o Bersin, execute as seguintes et
 
 4. Na seção **Configuração Básica do SAML**, caso deseje configurar o aplicativo no modo iniciado por **IDP**, execute a seguinte etapa:
 
-    ![Informações de logon único de Domínio e URLs do Bersin](common/idp-identifier-relay.png)
+    ![Captura de tela que mostra a Configuração Básica de SAML, em que você pode inserir o Identificador e a URL de Resposta e selecionar Salvar.](common/idp-identifier-relay.png)
 
     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://www.bersin.com/shibboleth`
 
@@ -108,7 +108,7 @@ Para configurar o logon único do Azure AD com o Bersin, execute as seguintes et
 
 5. Clique em **Definir URLs adicionais** e execute as seguintes etapas caso deseje configurar o aplicativo no modo iniciado por **SP**:
 
-    ![Informações de logon único de Domínio e URLs do Bersin](common/metadata-upload-additional-signon.png)
+    ![Captura de tela que mostra Definir URLs adicionais, em que você pode inserir uma URL de Logon.](common/metadata-upload-additional-signon.png)
 
     Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://www.bersin.com/Login.aspx`
 
@@ -147,7 +147,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
     a. No campo **Nome**, insira **BrendaFernandes**.
-  
+
     b. No campo **Nome de usuário**, digite **brendafernandes\@domíniodaempresa.extensão**  
     Por exemplo, BrittaSimon@contoso.com
 
@@ -183,18 +183,18 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure, c
 
 ### <a name="create-bersin-test-user"></a>Criar um usuário de teste do Bersin
 
-Nesta seção, você criará um usuário chamado Brenda Fernandes no Bersin. Trabalhe com a  [equipe de suporte do Bersin](mailto:USBersinServiceClient@deloitte.com) para adicionar os usuários à plataforma Bersin ou o domínio que precisa estar na lista de permissões para a plataforma Bersin. Se o domínio for adicionado pela equipe, os usuários serão automaticamente provisionados à plataforma Bersin. Os usuários devem ser criados e ativados antes de usar o logon único.
+Nesta seção, você criará um usuário chamado Brenda Fernandes no Bersin. Trabalhe com a [equipe de suporte do Bersin](mailto:USBersinServiceClient@deloitte.com) para adicionar os usuários na plataforma Bersin ou o domínio que precisa estar na lista de permissões para a plataforma Bersin. Se o domínio for adicionado pela equipe, os usuários serão automaticamente provisionados à plataforma Bersin. Os usuários devem ser criados e ativados antes de usar o logon único.
 
 ### <a name="test-single-sign-on"></a>Testar logon único
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Ao clicar no bloco do Bersin no Painel de Acesso, você deverá ser conectado automaticamente ao Bersin, para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao clicar no bloco do Bersin no Painel de Acesso, você deverá ser conectado automaticamente ao Bersin, para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](./tutorial-list.md)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)

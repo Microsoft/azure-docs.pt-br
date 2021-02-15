@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 07/15/2020
 ms.author: allensu
-ms.openlocfilehash: 164560fff27adc2d4e63cc8471a26d1d710b89a5
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: fdb609a243656e2c75159cd2d4e70e2f965ae896
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88191281"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352109"
 ---
 # <a name="diagnostic-logs---azure-content-delivery-network"></a>Logs de diagnóstico-rede de distribuição de conteúdo do Azure
 
 Com os logs de diagnóstico do Azure, é possível exibir análises de núcleo e salvá-las em um ou mais destinos, incluindo:
 
 * Conta de Armazenamento do Azure
-* Workspace do Log Analytics
+* Espaço de trabalho do Log Analytics
 * Hubs de eventos do Azure
 
 Este recurso está disponível em pontos de extremidade CDN para todos os tipos de preço. 
@@ -59,7 +59,7 @@ Siga estas etapas habilitar o registro em log para o ponto de extremidade da CDN
 Para usar uma conta de armazenamento para armazenar os logs, siga estas etapas:
 
  >[!NOTE] 
- >Uma conta de armazenamento é necessária para concluir estas etapas. Consulte: **[criar uma conta de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-account-create?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=azure-portal)** para obter mais informações.
+ >Uma conta de armazenamento é necessária para concluir estas etapas. Consulte: **[criar uma conta de armazenamento do Azure](../storage/common/storage-account-create.md?tabs=azure-portal&toc=%2fazure%2fstorage%2fblobs%2ftoc.json)** para obter mais informações.
     
 1. Para **nome da configuração de diagnóstico**, insira um nome para as configurações de log de diagnóstico.
  
@@ -78,11 +78,11 @@ Para usar uma conta de armazenamento para armazenar os logs, siga estas etapas:
 Para usar Log Analytics para os logs, siga estas etapas:
 
 >[!NOTE] 
->Um espaço de trabalho do log Analytics é necessário para concluir estas etapas. Consulte: **[criar um log Analytics espaço de trabalho no portal do Azure](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)** para obter mais informações.
+>Um espaço de trabalho do log Analytics é necessário para concluir estas etapas. Consulte: **[criar um log Analytics espaço de trabalho no portal do Azure](../azure-monitor/learn/quick-create-workspace.md)** para obter mais informações.
     
 1. Para **nome da configuração de diagnóstico**, insira um nome para as configurações de log de diagnóstico.
 
-2. Selecione **Enviar para log Analytics**e, em seguida, selecione **CoreAnalytics**. 
+2. Selecione **Enviar para log Analytics** e, em seguida, selecione **CoreAnalytics**. 
 
 3. Selecione a assinatura e Log Analytics espaço de trabalho para os logs.
 
@@ -95,11 +95,11 @@ Para usar Log Analytics para os logs, siga estas etapas:
 Para usar um hub de eventos para os logs, siga estas etapas:
 
 >[!NOTE] 
->Um hub de eventos é necessário para concluir estas etapas. Consulte: **[início rápido: criar um hub de eventos usando portal do Azure](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)** para obter mais informações.
+>Um hub de eventos é necessário para concluir estas etapas. Consulte: **[início rápido: criar um hub de eventos usando portal do Azure](../event-hubs/event-hubs-create.md)** para obter mais informações.
     
 1. Para **nome da configuração de diagnóstico**, insira um nome para as configurações de log de diagnóstico.
 
-2. Selecione **fluxo para um hub de eventos**e, em seguida, selecione **CoreAnalytics**. 
+2. Selecione **fluxo para um hub de eventos** e, em seguida, selecione **CoreAnalytics**. 
 
 3. Selecione a assinatura e o namespace do hub de eventos para os logs.
 
@@ -189,10 +189,10 @@ Para baixar a ferramenta, consulte [Gerenciador de Armazenamento do Azure](https
 
 1.  Abrir **Gerenciador de armazenamento do Microsoft Azure**
 2.  Localize a conta de armazenamento
-3.  Expanda o nó ** Blob Containers ** sob esta conta de armazenamento.
-4.  Selecione o contêiner denominado * insights-logs-coreanalytics *.
-5.  Os resultados aparecem no painel direito, começando com o primeiro nível, como * resourceId = *. Continue selecionando cada nível até encontrar o arquivo *PT1H.json*. Para obter uma explicação do caminho, confira [Formato de caminho de blob](cdn-azure-diagnostic-logs.md#blob-path-format).
-6.  Cada arquivo blob * PT1H.json * representa os logs de análise por uma hora para um ponto de extremidade CDN específico ou seu domínio personalizado.
+3.  Expanda o nó **Blob Containers** sob esta conta de armazenamento.
+4.  Selecione o contêiner denominado *insights-logs-coreanalytics*.
+5.  Os resultados aparecem no painel direito, começando com o primeiro nível, como *resourceId =*. Continue selecionando cada nível até encontrar o arquivo *PT1H.json*. Para obter uma explicação do caminho, confira [Formato de caminho de blob](cdn-azure-diagnostic-logs.md#blob-path-format).
+6.  Cada arquivo blob *PT1H.json* representa os logs de análise por uma hora para um ponto de extremidade CDN específico ou seu domínio personalizado.
 7.  O esquema do conteúdo desse arquivo JSON é descrito na seção Esquema dos logs de análise de núcleo.
 
 
@@ -210,8 +210,8 @@ Os logs de análise de núcleo são gerados a cada hora e os dados são coletado
 |Nome do Grupo de Recursos |Nome do grupo de recursos ao qual os recursos da CDN pertencem.|
 |Nome do perfil |Nome do perfil CDN|
 |Nome do Ponto de Extremidade |Nome do ponto de extremidade da CDN|
-|Ano|  Representação de quatro dígitos do ano, por exemplo, 2017|
-|Month| Representação de dois dígitos do número do mês. 01 = Janeiro... 12 = dezembro|
+|Year|  Representação de quatro dígitos do ano, por exemplo, 2017|
+|Mês| Representação de dois dígitos do número do mês. 01 = Janeiro... 12 = dezembro|
 |Dia|   Representação de dois dígitos do dia do mês|
 |PT1H.json| Arquivo JSON real em que os dados da análise são armazenados|
 
@@ -242,14 +242,14 @@ Atualmente, a Microsoft oferece somente logs analíticos principais, que contêm
 ### <a name="core-analytics-metrics-details"></a>Detalhes das métricas da análise de núcleo
 A tabela a seguir mostra uma lista de métricas disponíveis nos logs de análise de núcleo para:
 
-* **CDN padrão do Azure da Microsoft**
-* **CDN standard do Azure da Akamai**
+* **CDN Standard do Azure da Microsoft**
+* **CDN Standard do Azure da Akamai**
 * **CDN Standard/Premium do Azure da Verizon**
 
 Nem todas as métricas estão disponíveis de todos os provedores, embora essas diferenças sejam mínimas. A tabela também mostra se uma determinada métrica está disponível de um provedor. As métricas estão disponíveis somente para os terminais CDN que possuem tráfego neles.
 
 
-|Métrica                     | Descrição | Microsoft | Verizon | Akamai |
+|Metric                     | Descrição | Microsoft | Verizon | Akamai |
 |---------------------------|-------------|-----------|---------|--------|
 | RequestCountTotal         | Número total de ocorrências de solicitação durante esse período. | Sim | Sim |Sim |
 | RequestCountHttpStatus2xx | Contagem de todas as solicitações que resultaram em um código HTTP 2xx (por exemplo, 200, 202). | Sim | Sim |Sim |
@@ -265,7 +265,7 @@ Nem todas as métricas estão disponíveis de todos os provedores, embora essas 
 | RequestCountCacheHit | Contagem de todas as solicitações que resultaram em um hit do Cache. O ativo foi servido diretamente do POP para o cliente. | Sim | Sim | Não  |
 | RequestCountCacheMiss | Contagem de todas as solicitações que resultaram em uma Perda do Cache. Um erro de cache significa que o ativo não foi encontrado no POP mais próximo ao cliente e foi recuperado da origem. | Sim | Sim | Não |
 | RequestCountCacheNoCache | Contagem de todas as solicitações para um ativo que são impedidas de serem armazenadas em cache devido a uma configuração de usuário na borda. | Sim | Sim | Não |
-| RequestCountCacheUncacheable | Contagem de todas as solicitações para ativos que são impedidas de serem armazenadas em cache pelos cabeçalhos cache-control e Expires do ativo. Essa contagem indica que ela não deve ser armazenada em cache em um POP ou pelo cliente HTTP. | Sim | Sim | Não |
+| RequestCountCacheUncacheable | Contagem de todas as solicitações para ativos que são impedidas de serem armazenadas em cache pelos cabeçalhos Cache-Control e Expires do ativo. Essa contagem indica que ela não deve ser armazenada em cache em um POP ou pelo cliente HTTP. | Sim | Sim | Não |
 | RequestCountCacheOthers | Contagem de todas as solicitações com o status de cache não cobertas pelos itens acima. | Não | Sim | Não  |
 | EgressTotal | Transferência de dados de saída em GB | Sim |Sim |Sim |
 | EgressHttpStatus2xx | Transferência de dados de saída* para respostas com códigos de status HTTP 2xx em GB. | Sim | Sim | Não  |
@@ -276,7 +276,7 @@ Nem todas as métricas estão disponíveis de todos os provedores, embora essas 
 | EgressCacheHit | Transferência de dados de saída para respostas que foram entregues diretamente do cache da CDN nos POPs/Bordas da CDN. | Sim | Sim | Não |
 | EgressCacheMiss. | Transferência de dados de saída para respostas que não foram encontradas no servidor POP mais próximo e recuperadas do servidor de origem. | Sim | Sim | Não |
 | EgressCacheNoCache | Transferência de dados de saída para ativos que são impedidos de serem armazenados em cache devido a uma configuração de usuário na borda. | Sim | Sim | Não |
-| EgressCacheUncacheable | Transferência de dados de saída para ativos que são impedidos de serem armazenados em cache pelos cabeçalhos cache-control e ou Expires do ativo. Indica que ele não deve ser armazenado em cache em um POP ou pelo cliente HTTP. | Sim | Sim | Não |
+| EgressCacheUncacheable | Transferência de dados de saída para ativos que são impedidos de serem armazenados em cache pelo Cache-Control do ativo e, ou expiram cabeçalhos. Indica que ele não deve ser armazenado em cache em um POP ou pelo cliente HTTP. | Sim | Sim | Não |
 | EgressCacheOthers | Transferências de dados de saída para outros cenários de cache. | Não | Sim | Não |
 
 * Transferência de dados de saída refere-se ao tráfego entregue de servidores POP da CDN para o cliente.
@@ -369,14 +369,7 @@ Propriedades de exemplo:
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Logs de diagnóstico do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
-* [Análise principal por meio do portal suplementar da CDN do Azure](https://docs.microsoft.com/azure/cdn/cdn-analyze-usage-patterns)
-* [Logs do Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
-* [API REST do Log Analytics do Azure](https://docs.microsoft.com/rest/api/loganalytics)
-
-
-
-
-
-
-
+* [Logs de diagnóstico do Azure](../azure-monitor/platform/platform-logs-overview.md)
+* [Análise principal por meio do portal suplementar da CDN do Azure](./cdn-analyze-usage-patterns.md)
+* [Logs do Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
+* [API REST do Log Analytics do Azure](/rest/api/loganalytics)

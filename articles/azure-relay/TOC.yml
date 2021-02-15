@@ -44,6 +44,8 @@
       href: relay-hybrid-connections-protocol.md
 - name: Instruções
   items:
+    - name: Mover entre regiões
+      href: move-across-regions.md
     - name: Migrar de APIs do Azure Service Manager (clássico) para APIs do Resource Manager
       href: ../service-bus-messaging/deprecate-service-bus-management.md?toc=%2fazure%2fservice-bus-relay%2ftoc.json
     - name: Planejar e projetar
@@ -63,9 +65,9 @@
               href: relay-hybrid-connections-node-ws-api-overview.md
     - name: Seguro
       items:
-        - name: Configurar firewall do IP (versão prévia)
+        - name: Configurar firewall do IP
           href: ip-firewall-virtual-networks.md
-        - name: Configurar pontos de extremidade privados (versão prévia)
+        - name: Configurar pontos de extremidade privados
           href: private-link-service.md
     - name: Gerenciar e monitorar
       items:

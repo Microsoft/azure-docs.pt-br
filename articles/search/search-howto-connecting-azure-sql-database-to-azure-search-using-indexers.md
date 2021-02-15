@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/12/2020
-ms.openlocfilehash: a1dd88e9007a878ffdf6e5d836391c30c952c35a
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 04e4801c26b0ac8ef91af0b028d9dc2bb9a3cd1c
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88923017"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358619"
 ---
 # <a name="connect-to-and-index-azure-sql-content-using-an-azure-cognitive-search-indexer"></a>Conectar e indexar conteúdo SQL do Azure usando um indexador Pesquisa Cognitiva do Azure
 
@@ -39,7 +39,7 @@ Um único indexador pode consumir apenas uma tabela ou exibição, mas você pod
 Você pode definir e configurar um indexador do SQL Azure usando:
 
 * Assistente para Importação de Dados no [portal do Azure](https://portal.azure.com)
-* SDK do [.net](/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet) pesquisa cognitiva do Azure
+* SDK do [.net](/dotnet/api/azure.search.documents.indexes.models.searchindexer) pesquisa cognitiva do Azure
 * [API REST](/rest/api/searchservice/indexer-operations) do Azure pesquisa cognitiva
 
 Neste artigo, usaremos a API REST para criar **indexadores** e **fontes de dados**.
@@ -74,7 +74,9 @@ O uso do indexador do SQL Azure pode ou não ser apropriado dependendo de vário
     }
    ```
 
-   Obtenha a cadeia de conexão no [portal do Azure](https://portal.azure.com); use a opção `ADO.NET connection string`.
+   A cadeia de conexão pode seguir qualquer um dos formatos abaixo:
+    1. Obtenha a cadeia de conexão no [portal do Azure](https://portal.azure.com); use a opção `ADO.NET connection string`.
+    1. Uma cadeia de conexão de identidade gerenciada que não inclui uma chave de conta com o seguinte formato: `Initial Catalog|Database=<your database name>;ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.Sql/servers/<your SQL Server name>/;Connection Timeout=connection timeout length;` . Para usar essa cadeia de conexão, siga as instruções para configurar [uma conexão de indexador com um banco de dados SQL do Azure usando uma identidade gerenciada](search-howto-managed-identities-sql.md).
 
 2. Crie o índice de Pesquisa Cognitiva de destino do Azure se você ainda não tiver um. Crie um índice usando o [portal](https://portal.azure.com) ou a [API de Criação de Índices](/rest/api/searchservice/Create-Index). Verifique se o esquema do índice de destino é compatível com o esquema da tabela de origem-consulte [mapeamento entre tipos de dados de pesquisa cognitiva do SQL e do Azure](#TypeMapping).
 
@@ -318,7 +320,7 @@ O **softDeleteMarkerValue** deve ser uma cadeia de caracteres – use a represen
 | --- | --- | --- |
 | bit |Edm.Boolean, Edm.String | |
 | int, smallint, tinyint |Edm.Int32, Edm.Int64, Edm.String | |
-| BIGINT |Edm.Int64, Edm.String | |
+| bigint |Edm.Int64, Edm.String | |
 | real, float |Edm.Double, Edm.String | |
 | smallmoney, numérico decimal dinheiro |Edm.String |O Azure Pesquisa Cognitiva não dá suporte à conversão de tipos decimais em EDM. Double porque isso perderia a precisão |
 | char, nchar, varchar, nvarchar |Edm.String<br/>Collection(Edm.String) |Uma cadeia de caracteres SQL poderá ser usada para preencher um campo Collection(Edm.String) se a cadeia de caracteres representar uma matriz JSON de cadeias de caracteres: `["red", "white", "blue"]` |

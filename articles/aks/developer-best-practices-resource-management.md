@@ -7,12 +7,12 @@ author: zr-msft
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zarhoads
-ms.openlocfilehash: 4882fadcc2f05e4047366d8d097a3918091035bb
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 693cabac616dca8e108a2029c173a5e1b71c2695
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88005305"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516728"
 ---
 # <a name="best-practices-for-application-developers-to-manage-resources-in-azure-kubernetes-service-aks"></a>Práticas recomendadas para os desenvolvedores de aplicativos gerenciarem os recursos no serviço de Kubernetes do Azure (AKS)
 
@@ -22,7 +22,7 @@ Este artigo sobre práticas recomendadas se concentra em como executar suas carg
 
 > [!div class="checklist"]
 > * O que são solicitações e limites do recurso de pod
-> * Maneiras de desenvolver e implantar aplicativos com espaços de desenvolvimento e o Visual Studio Code
+> * Maneiras de desenvolver e implantar aplicativos com ponte para kubernetes e Visual Studio Code
 > * Como usar a `kube-advisor` ferramenta para verificar se há problemas com implantações
 
 ## <a name="define-pod-resource-requests-and-limits"></a>Defina as solicitações e limites de recurso de pod
@@ -34,7 +34,7 @@ Um meio principal para gerenciar os recursos de computação dentro de um cluste
 * **As solicitações de CPU/memória Pod** definem uma quantidade definida de CPU e memória que o Pod precisa regularmente.
     * Quando o Agendador kubernetes tenta posicionar um pod em um nó, as solicitações de Pod são usadas para determinar qual nó tem recursos suficientes disponíveis para agendamento.
     * Não definir uma solicitação de Pod o aplicará como padrão ao limite definido.
-    * É muito importante monitorar o desempenho do seu aplicativo para ajustar essas solicitações. Se forem feitas solicitações insuficientes, seu aplicativo poderá receber um desempenho degradado devido ao longo do agendamento de um nó. Se as solicitações forem sobreestimadas, seu aplicativo poderá ter maior dificuldade de serem agendadas.
+    * É muito importante monitorar o desempenho do seu aplicativo para ajustar essas solicitações. Se forem feitas solicitações de recursos Pod insuficientes, seu aplicativo poderá receber um desempenho degradado devido ao longo do agendamento de um nó. Se as solicitações forem sobreestimadas, seu aplicativo poderá ter maior dificuldade de serem agendadas.
 * Os **limites de CPU/memória do pod** são a quantidade máxima de CPU e memória que um pod pode usar. Os limites de memória ajudam a definir qual pods deve ser eliminado no caso de instabilidade do nó devido a recursos insuficientes. Sem os limites adequados, Set pods será interrompido até que a pressão do recurso seja levantada. Um pod pode ou não ser capaz de exceder o limite de CPU por um período de tempo, mas o Pod não será interrompido para exceder o limite de CPU. 
     * Os limites de Pod ajudam a definir quando um pod perdeu o controle do consumo de recursos. Quando um limite é excedido, o pod é priorizado para a eliminação para manter a integridade do nó e minimizar o impacto para o pods compartilhar o nó.
     * Não definir um limite de Pod o padroniza para o valor mais alto disponível em um determinado nó.
@@ -60,7 +60,7 @@ metadata:
 spec:
   containers:
   - name: mypod
-    image: nginx:1.15.5
+    image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
     resources:
       requests:
         cpu: 100m
@@ -74,13 +74,13 @@ Para obter mais informações a respeito de medidas de recursos e atribuições,
 
 ## <a name="develop-and-debug-applications-against-an-aks-cluster"></a>Desenvolver e depurar aplicativos em relação a um cluster do AKS
 
-**Diretrizes de práticas recomendadas** - as equipes de desenvolvimento devem implantar e depurar em um cluster AKS usando espaços de desenvolvimento. Esse modelo de Desenvolvimento garante que o RBAC (controle de acesso baseado em função), a rede ou as necessidades de armazenamento sejam implementadas antes de o aplicativo ser implantado na produção.
+**Diretrizes de práticas recomendadas-as** equipes de desenvolvimento devem implantar e depurar em um cluster AKs usando a ponte para o kubernetes.
 
-Com Azure Dev Spaces, você desenvolve, depura e testa os aplicativos diretamente em relação ao cluster AKS. Os desenvolvedores dentro de uma equipe trabalham juntos para compilar e testar em todo o ciclo de vida do aplicativo. Você pode continuar a usar as ferramentas existentes, como o Visual Studio ou Visual Studio Code. Uma extensão é instalada para espaços de desenvolvimento que oferece uma opção para executar e depurar o aplicativo em um cluster AKS.
+Com o Bridge para kubernetes, você pode desenvolver, depurar e testar aplicativos diretamente em um cluster AKS. Os desenvolvedores dentro de uma equipe trabalham juntos para compilar e testar em todo o ciclo de vida do aplicativo. Você pode continuar a usar as ferramentas existentes, como o Visual Studio ou Visual Studio Code. Uma extensão é instalada para ponte para kubernetes que permite que você desenvolva diretamente em um cluster AKS.
 
-Esse processo de desenvolvimento e teste integrado com espaços de desenvolvimento reduz a necessidade de ambientes de teste local, como [minikube][minikube]. Em vez disso, você pode desenvolver e testar em relação a um cluster do AKS. Esse cluster pode ser protegido e isolado, conforme observado na seção anterior sobre o uso de namespaces para isolar logicamente um cluster. Quando seus aplicativos estão prontos para implantar em produção, você pode implantar com confiança conforme seu desenvolvimento foi feito em relação a um cluster AKS real.
+Esse processo integrado de desenvolvimento e teste com o Bridge para kubernetes reduz a necessidade de ambientes de teste locais, como [minikube][minikube]. Em vez disso, você pode desenvolver e testar em relação a um cluster do AKS. Esse cluster pode ser protegido e isolado, conforme observado na seção anterior sobre o uso de namespaces para isolar logicamente um cluster.
 
-O Azure Dev Spaces destina-se ao uso com aplicativos que são executados em pods e nós do Linux.
+A ponte para o kubernetes destina-se ao uso com aplicativos que são executados em pods e nós do Linux.
 
 ## <a name="use-the-visual-studio-code-extension-for-kubernetes"></a>Use a extensão Visual Studio Code para Kubernetes
 
@@ -106,7 +106,7 @@ Este artigo sobre práticas recomendadas se concentra em como executar suas carg
 
 Para implementar algumas dessas práticas recomendadas, consulte os seguintes artigos:
 
-* [Desenvolver com o Dev Spaces][dev-spaces]
+* [Desenvolver com ponte para kubernetes][btk]
 * [Verifique se há problemas com o kube-advisor][aks-kubeadvisor]
 
 <!-- EXTERNAL LINKS -->
@@ -117,7 +117,7 @@ Para implementar algumas dessas práticas recomendadas, consulte os seguintes ar
 
 <!-- INTERNAL LINKS -->
 [aks-kubeadvisor]: kube-advisor-tool.md
-[dev-spaces]: /visualstudio/containers/overview-local-process-kubernetes
+[btk]: /visualstudio/containers/overview-bridge-to-kubernetes
 [operator-best-practices-isolation]: operator-best-practices-cluster-isolation.md
 [resource-quotas]: operator-best-practices-scheduler.md#enforce-resource-quotas
 [k8s-node-selector]: concepts-clusters-workloads.md#node-selectors

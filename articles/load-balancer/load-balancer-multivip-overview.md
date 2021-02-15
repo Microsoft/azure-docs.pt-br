@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: 2192531aec7800314c6748740262f8746da0c4fc
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 5c2072d13cab9839a276c0437747d7075918e78a
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85956365"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696873"
 ---
 # <a name="multiple-frontends-for-azure-load-balancer"></a>Vários front-ends para Azure Load Balancer
 
 O Azure Load Balancer permite que você equilibre a carga de serviços em várias portas, vários endereços IP ou ambos. Você pode usar definições de balanceador de carga públicas e internas para fluxos de balanceamento de carga em um conjunto de VMs.
 
-Este artigo descreve os conceitos básicos dessa capacidade, conceitos importantes e restrições. Se você pretende expor serviços em um endereço IP, encontre instruções simplificadas para configurações do balanceador de carga [público](load-balancer-get-started-internet-portal.md) ou [interno](load-balancer-get-started-ilb-arm-portal.md). A adição de vários front-ends é um complemento a uma única configuração de front-end. Com os conceitos deste artigo, você pode expandir uma configuração simplificada quanto quiser.
+Este artigo descreve os conceitos básicos dessa capacidade, conceitos importantes e restrições. Se você pretende expor serviços em um endereço IP, encontre instruções simplificadas para configurações do balanceador de carga [público](./quickstart-load-balancer-standard-public-portal.md) ou [interno](./quickstart-load-balancer-standard-internal-portal.md). A adição de vários front-ends é um complemento a uma única configuração de front-end. Com os conceitos deste artigo, você pode expandir uma configuração simplificada quanto quiser.
 
 Quando você define um Azure Load Balancer, uma configuração de pool de front-end e back-end são conectadas às regras. A investigação de integridade referenciada pela regra é usada para determinar como os novos fluxos serão enviados para um nó no pool de back-end. O front-end (ou seja, VIP) é definido por uma tupla de 3 composta por um endereço IP (público ou interno), um protocolo de transporte (UDP ou TCP) e um número de porta da regra de balanceamento de carga. O pool de back-end é uma coleção de configurações de IP de Máquinas Virtuais (parte do recurso NIC) que referenciam o pool de back-end do Load Balancer.
 
@@ -64,12 +64,12 @@ Definimos duas regras:
 
 | Regra | Mapear front-end | Para pool de back-end |
 | --- | --- | --- |
-| 1 |![front-end verde](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 |![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP1:80, ![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-green.png)  DIP2:80 |
-| 2 |![VIP](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 |![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP1:81, ![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png)  DIP2:81 |
+| 1 |![front-end verde](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 |![back-end verde](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP1:80, ![back-end verde](./media/load-balancer-multivip-overview/load-balancer-rule-green.png)  DIP2:80 |
+| 2 |![VIP](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 |![back-end roxo](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP1:81, ![back-end roxo](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png)  DIP2:81 |
 
 O mapeamento completo no Azure Load Balancer agora é o seguinte:
 
-| Regra | Endereço IP de front-end | protocolo | porta | Destination | porta |
+| Regra | Endereço IP de front-end | protocolo | porta | Destino | porta |
 | --- | --- | --- | --- | --- | --- |
 | ![regra de verde](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1 |65.52.0.1 |TCP |80 |Endereço IP DIP |80 |
 | ![regra de roxo](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2 |65.52.0.2 |TCP |80 |Endereço IP DIP |81 |
@@ -143,12 +143,12 @@ Definimos duas regras:
 
 | Regra | Front-end | Mapa para pool de back-end |
 | --- | --- | --- |
-| 1 |![regra](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 |![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 (em VM1 e VM2) |
-| 2 |![regra](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 |![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 (em VM1 e VM2) |
+| 1 |![regra de verde](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 |![back-end verde](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 (em VM1 e VM2) |
+| 2 |![regra de roxo](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 |![back-end roxo](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 (em VM1 e VM2) |
 
 A tabela a seguir mostra o mapeamento completo no balanceador de carga:
 
-| Regra | Endereço IP de front-end | protocolo | porta | Destination | porta |
+| Regra | Endereço IP de front-end | protocolo | porta | Destino | porta |
 | --- | --- | --- | --- | --- | --- |
 | ![regra de verde](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1 |65.52.0.1 |TCP |80 |mesmo que front-end (65.52.0.1) |mesmo que front-end (80) |
 | ![regra de roxo](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2 |65.52.0.2 |TCP |80 |mesmo que front-end (65.52.0.2) |mesmo que front-end (80) |
@@ -163,6 +163,7 @@ O tipo de regra de IP Flutuante é a base de vários padrões de configuração 
 
 * Há suporte para várias configurações de front-ends apenas com VMs de IaaS.
 * Com a regra de IP flutuante, seu aplicativo deve usar a configuração de IP primário para fluxos SNAT de saída. Se seu aplicativo se associar ao endereço IP de front-end configurado na interface de loopback no SO convidado, o SNAT de saída do Azure não estará disponível para regravar o fluxo de saída e o fluxo falhará.  Examine os [cenários de saída](load-balancer-outbound-connections.md).
+* No momento, não há suporte para o IP flutuante em configurações de IP secundárias para cenários de balanceamento de carga interno.
 * Endereços IP públicos têm um efeito sobre a cobrança. Para saber mais, confira [Preços de endereço IP](https://azure.microsoft.com/pricing/details/ip-addresses/)
 * Limites de assinatura são aplicados. Para saber mais, confira [Limites de serviço](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits) .
 

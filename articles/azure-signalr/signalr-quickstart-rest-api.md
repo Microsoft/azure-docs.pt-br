@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: quickstart
 ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: 707547cb39487111e2e9353de7e82c2409638324
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2613f91e8c7f1ad3a05792a9a165f4560c09a637
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87045009"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874518"
 ---
 # <a name="quickstart-broadcast-real-time-messages-from-console-app"></a>Início Rápido: Difundir mensagens em tempo real do aplicativo de console
 
@@ -28,11 +28,17 @@ Este início rápido pode ser executado no macOS, Windows ou Linux.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
+Está com problemas? Experimente o [guia de solução de problemas](signalr-howto-troubleshoot-guide.md) ou [fale conosco](https://aka.ms/asrs/qsapi).
+
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
 Entre no portal do Azure em <https://portal.azure.com/> com sua conta do Azure.
 
+Está com problemas? Experimente o [guia de solução de problemas](signalr-howto-troubleshoot-guide.md) ou [fale conosco](https://aka.ms/asrs/qsapi).
+
 [!INCLUDE [Create instance](includes/signalr-quickstart-create-instance.md)]
+
+Está com problemas? Experimente o [guia de solução de problemas](signalr-howto-troubleshoot-guide.md) ou [fale conosco](https://aka.ms/asrs/qsapi).
 
 ## <a name="clone-the-sample-application"></a>Clonar o aplicativo de exemplo
 
@@ -45,6 +51,7 @@ Durante a implantação do serviço, vamos alternar para preparar o código. Clo
     ```bash
     git clone https://github.com/aspnet/AzureSignalR-samples.git
     ```
+Está com problemas? Experimente o [guia de solução de problemas](signalr-howto-troubleshoot-guide.md) ou [fale conosco](https://aka.ms/asrs/qsapi).
 
 ## <a name="build-and-run-the-sample"></a>Criar e executar a amostra
 
@@ -57,7 +64,7 @@ Também é possível encontrar como gerar um token de acesso para autenticar com
 
 ### <a name="build-the-executable-file"></a>Criar o arquivo executável
 
-Como exemplo, usamos macOS osx.10.13-x64. Você pode encontrar [referências](https://docs.microsoft.com/dotnet/core/rid-catalog) sobre como criar em outras plataformas.
+Como exemplo, usamos macOS osx.10.13-x64. Você pode encontrar [referências](/dotnet/core/rid-catalog) sobre como criar em outras plataformas.
 
 ```bash
 cd AzureSignalR-samples/samples/Serverless/
@@ -81,6 +88,8 @@ cd bin/Release/netcoreapp2.1/osx.10.13-x64/
 Serverless server -c "<ConnectionString>" -h <HubName>
 ```
 
+Está com problemas? Experimente o [guia de solução de problemas](signalr-howto-troubleshoot-guide.md) ou [fale conosco](https://aka.ms/asrs/qsapi).
+
 ## <a name="run-the-sample-without-publishing"></a>Executar o exemplo sem publicação
 
 Você também pode executar o comando a seguir para iniciar um servidor ou cliente
@@ -97,6 +106,8 @@ dotnet run -- client <ClientName> -c "<ConnectionString>" -h <HubName>
 
 Você pode executar `dotnet user-secrets set Azure:SignalR:ConnectionString "<ConnectionString>"` no diretório raiz do exemplo. Depois disso, você não precisa mais da opção `-c "<ConnectionString>"`.
 
+Está com problemas? Experimente o [guia de solução de problemas](signalr-howto-troubleshoot-guide.md) ou [fale conosco](https://aka.ms/asrs/qsapi).
+
 ## <a name="usage"></a>Uso
 
 Depois que o servidor for iniciado, use o comando para enviar a mensagem:
@@ -110,6 +121,8 @@ broadcast
 ```
 
 Você pode iniciar vários clientes com nomes de clientes diferentes.
+
+Está com problemas? Experimente o [guia de solução de problemas](signalr-howto-troubleshoot-guide.md) ou [fale conosco](https://aka.ms/asrs/qsapi).
 
 ## <a name="integration-with-third-party-services"></a><a name="usage"> </a> Integração com serviços de terceiros
 
@@ -244,7 +257,11 @@ Código de status de resposta | Descrição
 `200` | Serviço em execução
 `5xx` | Erro de Serviço
 
+Está com problemas? Experimente o [guia de solução de problemas](signalr-howto-troubleshoot-guide.md) ou [fale conosco](https://aka.ms/asrs/qsapi).
+
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
+
+Está com problemas? Experimente o [guia de solução de problemas](signalr-howto-troubleshoot-guide.md) ou [fale conosco](https://aka.ms/asrs/qsapi).
 
 ## <a name="next-steps"></a>Próximas etapas
 

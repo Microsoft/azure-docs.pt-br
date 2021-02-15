@@ -1,18 +1,18 @@
 ---
 title: Funções de modelo
-description: Descreve as funções a serem usadas no modelo do Gerenciador de Recursos do Azure para recuperar valores, trabalhar com cadeias de caracteres e numéricos e recuperar informações de implantação.
+description: Descreve as funções a serem usadas em um modelo de Azure Resource Manager (modelo ARM) para recuperar valores, trabalhar com cadeias de caracteres e numéricos e recuperar informações de implantação.
 ms.topic: conceptual
-ms.date: 04/27/2020
-ms.openlocfilehash: d237f5c42c1d1eaab7b2236b15a3122bcb55865b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 10/12/2020
+ms.openlocfilehash: 2d124893cbe1694671231fd206f8e44cc20f6204
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84331399"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96931700"
 ---
 # <a name="arm-template-functions"></a>Funções de modelo ARM
 
-Este artigo descreve todas as funções que você pode usar em um modelo de Azure Resource Manager (ARM). Para obter informações sobre como usar funções em seu modelo, consulte [sintaxe do modelo](template-expressions.md).
+Este artigo descreve todas as funções que você pode usar em um modelo de Azure Resource Manager (modelo ARM). Para obter informações sobre como usar funções em seu modelo, consulte [sintaxe do modelo](template-expressions.md).
 
 Para criar suas próprias funções, consulte [Funções definidas pelo usuário](template-syntax.md#functions).
 
@@ -104,9 +104,11 @@ O Gerenciador de Recursos fornece as seguintes funções para trabalhar com cond
 
 * [and](template-functions-logical.md#and)
 * [bool](template-functions-logical.md#bool)
+* [false](template-functions-logical.md#false)
 * [if](template-functions-logical.md#if)
 * [not](template-functions-logical.md#not)
 * [or](template-functions-logical.md#or)
+* [true](template-functions-logical.md#true)
 
 <a id="add" aria-hidden="true"></a>
 <a id="copyindex" aria-hidden="true"></a>
@@ -141,10 +143,12 @@ O Gerenciador de Recursos fornece as seguintes funções para trabalhar com núm
 O Gerenciador de recursos fornece várias funções para trabalhar com objetos.
 
 * [contains](template-functions-object.md#contains)
+* [createObject](template-functions-object.md#createobject)
 * [empty](template-functions-object.md#empty)
 * [intersection](template-functions-object.md#intersection)
 * [json](template-functions-object.md#json)
 * [length](template-functions-object.md#length)
+* [null](template-functions-object.md#null)
 * [union](template-functions-object.md#union)
 
 <a id="extensionResourceId" aria-hidden="true"></a>
@@ -167,6 +171,7 @@ O Gerenciador de Recursos fornece as seguintes funções para obter valores de r
 * [listKeys](template-functions-resource.md#listkeys)
 * [listSecrets](template-functions-resource.md#list)
 * [list*](template-functions-resource.md#list)
+* [pickZones](template-functions-resource.md#pickzones)
 * [providers](template-functions-resource.md#providers)
 * [reference](template-functions-resource.md#reference)
 * [resourcegroup](template-functions-resource.md#resourcegroup) -só pode ser usado em implantações em um grupo de recursos.
@@ -245,7 +250,7 @@ O Gerenciador de Recursos fornece as seguintes funções para trabalhar com cade
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para obter uma descrição das seções em um modelo do ARM, consulte [criação de modelos do ARM](template-syntax.md)
-* Para mesclar vários modelos, consulte [usando modelos vinculados com Azure Resource Manager](linked-templates.md)
-* Para iterar um número de vezes especificado ao criar um tipo de recurso, consulte [Criar várias instâncias de recursos no Gerenciador de Recursos do Azure](copy-resources.md).
-* Para ver como implantar o modelo que você criou, consulte [implantar um aplicativo com modelos do ARM](deploy-powershell.md)
+* Para obter uma descrição das seções em um modelo do ARM, consulte [entender a estrutura e a sintaxe de modelos do ARM](template-syntax.md).
+* Para mesclar vários modelos, consulte [usando modelos vinculados e aninhados ao implantar recursos do Azure](linked-templates.md).
+* Para iterar um número especificado de vezes ao criar um tipo de recurso, consulte [iteração de recurso em modelos ARM](copy-resources.md).
+* Para ver como implantar o modelo que você criou, consulte [implantar recursos com modelos ARM e Azure PowerShell](deploy-powershell.md).

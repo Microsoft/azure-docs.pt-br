@@ -5,13 +5,12 @@ author: masnider
 ms.topic: conceptual
 ms.date: 3/9/2018
 ms.author: masnider
-ms.custom: sfrev
-ms.openlocfilehash: 66fc58941de206d0bff086f44852d0f2a31587f1
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 50b8cae11cef5ee8670e2e0270fd8506b1dad4d4
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86253075"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576529"
 ---
 # <a name="reliable-services-overview"></a>Visão geral dos Reliable Services
 

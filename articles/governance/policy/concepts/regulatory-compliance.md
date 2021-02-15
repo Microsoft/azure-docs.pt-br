@@ -3,12 +3,12 @@ title: Conformidade regulatória em definições de iniciativa
 description: Descreve como usar uma definição de iniciativa para agrupar políticas por domínio normativo, como controle de acesso, gerenciamento de configuração e outros.
 ms.date: 08/17/2020
 ms.topic: conceptual
-ms.openlocfilehash: 296febc1aad62d06c8e9dfcf4f285b16cacf0a40
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 15b03b5a40cba1290859b02883df70e3df54c5cf
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544614"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89645521"
 ---
 # <a name="regulatory-compliance-in-azure-policy"></a>Conformidade regulatória no Azure Policy
 
@@ -33,18 +33,18 @@ Quando uma definição de iniciativa foi criada com [grupos](./initiative-defini
 
 Uma nova guia, os **controles** são adicionados à página. A filtragem está disponível pelo **domínio de conformidade** e as definições de política são agrupadas pelo `title` campo do objeto **policyMetadata** . Cada linha representa um **controle** que mostra seu estado de conformidade, o **domínio de conformidade** do qual faz parte, informações de responsabilidade e quantas definições de política em conformidade e sem conformidade compõem esse **controle**.
 
-:::image type="content" source="../media/regulatory-compliance/regulatory-compliance-overview.png" alt-text="Um exemplo da visão geral de conformidade regulatória para a definição interna do NIST SP 800-53 R4.":::
+:::image type="content" source="../media/regulatory-compliance/regulatory-compliance-overview.png" alt-text="Captura de tela da visão geral da conformidade regulatória para a definição interna do NIST SP 800-53 R4 mostrando controles em conformidade e sem conformidade.":::
 
 A seleção de um **controle** abre uma página de detalhes sobre esse controle. A **visão geral** contém as informações de `description` e `requirements` . Na guia **políticas** , há todas as definições de política individuais na iniciativa que contribuem com esse **controle**. A guia **conformidade de recursos** fornece uma exibição granular de cada recurso que é avaliado por uma política de membro do **controle**exibido no momento.
 
 > [!NOTE]
 > Um tipo de avaliação do **gerenciado pela Microsoft** é para uma definição de política [estática](./definition-structure.md#type) `type` .
 
-:::image type="content" source="../media/regulatory-compliance/regulatory-compliance-policies.png" alt-text="Um exemplo das definições de política de conformidade regulatória no controle de proteção de limite do domínio de proteção do sistema e de comunicações da definição interna do NIST SP 800-53 R4.":::
+:::image type="content" source="../media/regulatory-compliance/regulatory-compliance-policies.png" alt-text="Captura de tela da visão geral da conformidade regulatória para a definição interna do NIST SP 800-53 R4 mostrando controles em conformidade e sem conformidade.":::
 
 Na mesma página de **controle** , a alteração para a guia **conformidade de recursos** mostra todos os recursos que as definições de política do **controle**incluem. Os filtros estão disponíveis para nome ou ID, estado de conformidade, tipo de recurso e local.
 
-:::image type="content" source="../media/regulatory-compliance/regulatory-compliance-resources.png" alt-text="Um exemplo dos recursos de conformidade regulatória afetados pelas definições de política no controle de proteção de limite do domínio de proteção do sistema e de comunicações da definição interna do NIST SP 800-53 R4.":::
+:::image type="content" source="../media/regulatory-compliance/regulatory-compliance-resources.png" alt-text="Captura de tela da visão geral da conformidade regulatória para a definição interna do NIST SP 800-53 R4 mostrando controles em conformidade e sem conformidade.":::
 
 ## <a name="regulatory-compliance-in-sdk"></a>Conformidade regulatória no SDK
 

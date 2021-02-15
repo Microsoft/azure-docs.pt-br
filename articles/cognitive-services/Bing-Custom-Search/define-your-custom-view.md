@@ -10,16 +10,21 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
-ms.openlocfilehash: fa518900b05ba552cb066fbf55e4dbeaa6c681e2
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: b2d4eb75002474bbec57753bbf0255cc4c2b4a16
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86183198"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96338632"
 ---
 # <a name="configure-your-bing-custom-search-experience"></a>Configure sua experiência de Pesquisa Personalizada do Bing
 
-Uma instância de Pesquisa Personalizada permite adaptar a experiência de pesquisa para incluir conteúdo apenas de sites com os quais os usuários se importam. Em vez de realizar uma pesquisa em toda a Web, o Bing pesquisa apenas a parte da Web de interesse do usuário. Para criar a exibição personalizada da Web, use o [portal](https://customsearch.ai) da Pesquisa Personalizada do Bing.
+> [!WARNING]
+> As APIs de Pesquisa do Bing estão migrando dos Serviços Cognitivos para os Serviços de Pesquisa do Bing. A partir de **30 de outubro de 2020**, todas as novas instâncias da Pesquisa do Bing precisam ser provisionadas seguindo o processo documentado [aqui](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> As APIs de Pesquisa do Bing provisionadas por meio dos Serviços Cognitivos terão suporte nos próximos três anos ou até o final do seu Contrato Enterprise, o que ocorrer primeiro.
+> Para obter instruções sobre a migração, confira [Serviços de Pesquisa do Bing](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+
+Uma instância de Pesquisa Personalizada permite adaptar a experiência de pesquisa para incluir conteúdo apenas de sites com os quais os usuários se importam. Em vez de realizar uma pesquisa em toda a Web, o Bing pesquisa apenas a parte da Web de interesse do usuário. Para criar a exibição personalizada da Web, use o [portal](https://www.customsearch.ai) da Pesquisa Personalizada do Bing.
 
 O portal permite criar uma instância de pesquisa que especifica as fatias da Web: os domínios, as subpáginas e páginas da Web que você quer que o Bing pesquise, e aqueles que você não quer que ele pesquise. O portal também pode sugerir conteúdo que você talvez queira incluir.
 
@@ -27,7 +32,7 @@ Ao definir fatias da web, use o seguinte:
 
 | Nome da fatia | Descrição                                                                                                                                                                                                                                                                                                |
 |------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Domínio     | Uma fatia de domínio inclui todo o conteúdo localizado em um domínio da Internet. Por exemplo, `www.microsoft.com`. Omitir `www.` faz com que o Bing também pesquise os subdomínios do domínio. Por exemplo, se você especificar `microsoft.com` , o Bing também retorna resultados de `support.microsoft.com` ou `technet.microsoft.com` . |
+| Domain     | Uma fatia de domínio inclui todo o conteúdo localizado em um domínio da Internet. Por exemplo, `www.microsoft.com`. Omitir `www.` faz com que o Bing também pesquise os subdomínios do domínio. Por exemplo, se você especificar `microsoft.com` , o Bing também retorna resultados de `support.microsoft.com` ou `technet.microsoft.com` . |
 | Subpágina    | Uma fatia de subpágina inclui todo o conteúdo localizado na subpágina e nos caminhos abaixo. É possível especificar no máximo duas subpáginas no caminho. Por exemplo, `www.microsoft.com/en-us/windows/`                                                                                                                       |
 | Página da web    | Uma fatia da página da Web pode incluir apenas essa página da Web em uma pesquisa personalizada. Opcionalmente, é possível especificar se quer incluir subpáginas.                                                                                                                                                                                  |
 
@@ -74,16 +79,16 @@ Depois de adicionar Web Slices à lista **ativa** , o portal de pesquisa persona
 
 ## <a name="search-for-images-and-videos"></a>Pesquisar imagens e vídeos
 
-Você pode pesquisar imagens e vídeos da mesma forma que o conteúdo da web usando a [API de Pesquisa de Imagem Personalizada do Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-images-api-v7-reference) ou a [API de Pesquisa de Vídeo Personalizada do Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-videos-api-v7-reference). Você pode exibir esses resultados com a [interface do usuário hospedada](hosted-ui.md) ou as APIs. 
+Você pode pesquisar imagens e vídeos da mesma forma que o conteúdo da web usando a [API de Pesquisa de Imagem Personalizada do Bing](/rest/api/cognitiveservices-bingsearch/bing-custom-images-api-v7-reference) ou a [API de Pesquisa de Vídeo Personalizada do Bing](/rest/api/cognitiveservices-bingsearch/bing-custom-videos-api-v7-reference). Você pode exibir esses resultados com a [interface do usuário hospedada](hosted-ui.md) ou as APIs. 
 
-Essas APIs são semelhantes às APIs de [Pesquisa de Imagem do Bing](../Bing-Image-Search/overview.md) e [Pesquisa de Vídeo do Bing](../Bing-Video-Search/search-the-web.md) não personalizadas, mas pesquisam toda a web e não exigem o parâmetro de consulta `customConfig`. Consulte esses conjuntos de documentação para obter mais informações sobre como trabalhar com imagens e vídeos. 
+Essas APIs são semelhantes às APIs de [Pesquisa de Imagem do Bing](../Bing-Image-Search/overview.md) e [Pesquisa de Vídeo do Bing](../bing-video-search/overview.md) não personalizadas, mas pesquisam toda a web e não exigem o parâmetro de consulta `customConfig`. Consulte esses conjuntos de documentação para obter mais informações sobre como trabalhar com imagens e vídeos. 
 
 ## <a name="test-your-search-instance-with-the-preview-pane"></a>Testar sua instância de pesquisa com o painel de visualização
 
 É possível testar a instância de pesquisa usando o painel de visualização no lado direito do portal para enviar consultas de pesquisa e exibir os resultados. 
 
 1. Abaixo da caixa de pesquisa, selecione **Minha instância**. Você pode comparar os resultados de sua experiência de pesquisa com o Bing, selecionando **Bing**. 
-2. Selecione um filtro de pesquisa seguro e qual mercado pesquisar (consulte [Parâmetros de Consulta](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters)).
+2. Selecione um filtro de pesquisa seguro e qual mercado pesquisar (consulte [Parâmetros de Consulta](/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters)).
 3. Insira uma consulta e pressione Enter ou clique no ícone de pesquisa para exibir os resultados da configuração atual. Você pode alterar seu tipo de pesquisa que você executa clicando em **Web**, **Imagem**, ou **Vídeo** para obter resultados correspondentes. 
 
 <a name="adjustrank"></a>
@@ -160,4 +165,4 @@ Se você inscreveu-se na Pesquisa Personalizada no nível apropriado (consulte a
 - [Chamar sua pesquisa personalizada](./search-your-custom-view.md)
 - [Configurar a experiência de interface do usuário hospedada](./hosted-ui.md)
 - [Usar marcadores de decoração para realçar texto](../bing-web-search/hit-highlighting.md)
-- [Paginar páginas da Web](./page-webpages.md)
+- [Paginar páginas da Web](../bing-web-search/paging-search-results.md)

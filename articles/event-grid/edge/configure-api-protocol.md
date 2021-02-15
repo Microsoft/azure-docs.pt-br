@@ -1,18 +1,18 @@
 ---
 title: Configurar protocolos de API-IoT Edge de grade de eventos do Azure | Microsoft Docs
-description: Configure os protocolos de API expostos pela grade de eventos em IoT Edge.
+description: Saiba mais sobre as possíveis configurações de protocolo de um módulo de grade de eventos.
 author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
-ms.openlocfilehash: 801a320fbd66b4b8a46757ba90881da54b2721de
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: a9cf6088201ffeaed76d99a9b211e5bcd1ea139a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86171713"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91322573"
 ---
 # <a name="configure-event-grid-api-protocols"></a>Configurar protocolos de API da grade de eventos
 

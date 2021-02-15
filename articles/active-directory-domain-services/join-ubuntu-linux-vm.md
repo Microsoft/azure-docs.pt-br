@@ -2,7 +2,7 @@
 title: Ingresse em uma VM do Ubuntu para Azure AD Domain Services | Microsoft Docs
 description: Saiba como configurar e ingressar um Ubuntu Linux máquina virtual em um domínio Azure AD Domain Services gerenciado.
 services: active-directory-ds
-author: iainfoulds
+author: justinha
 manager: daveba
 ms.assetid: 804438c4-51a1-497d-8ccc-5be775980203
 ms.service: active-directory
@@ -10,14 +10,14 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/13/2020
-ms.author: iainfou
+ms.author: justinha
 ms.custom: fasttrack-edit
-ms.openlocfilehash: d01d961a5d5b86f74bb785c3fddfa09843aa060c
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 8b6d022b9a1f3be70f69943a53754c9dd909ca99
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283139"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96619480"
 ---
 # <a name="join-an-ubuntu-linux-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>Ingressar uma máquina virtual Ubuntu Linux em um domínio Azure Active Directory Domain Services gerenciado
 
@@ -45,7 +45,7 @@ Se você precisar criar uma VM Ubuntu Linux ou desejar criar uma VM de teste par
 
 * [Azure portal](../virtual-machines/linux/quick-create-portal.md)
 * [CLI do Azure](../virtual-machines/linux/quick-create-cli.md)
-* [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
+* [PowerShell do Azure](../virtual-machines/linux/quick-create-powershell.md)
 
 Ao criar a VM, preste atenção às configurações de rede virtual para garantir que a VM possa se comunicar com o domínio gerenciado:
 
@@ -77,7 +77,7 @@ Quando terminar, salve e saia do arquivo de *hosts* usando o `:wq` comando do ed
 
 ## <a name="install-required-packages"></a>Instalar os pacotes necessários
 
-A VM precisa de alguns pacotes adicionais para unir a VM ao domínio gerenciado. Para instalar e configurar esses pacotes, atualize e instale as ferramentas de ingresso no domínio usando o`apt-get`
+A VM precisa de alguns pacotes adicionais para unir a VM ao domínio gerenciado. Para instalar e configurar esses pacotes, atualize e instale as ferramentas de ingresso no domínio usando o `apt-get`
 
 Durante a instalação do Kerberos, o pacote *krb5-User* solicita o nome do realm em letras maiúsculas. Por exemplo, se o nome do seu domínio gerenciado for *aaddscontoso.com*, insira *AADDSCONTOSO.com* como o realm. A instalação grava as `[realm]` `[domain_realm]` seções e no arquivo de configuração */etc/krb5.conf* . Certifique-se de especificar o realm em letras MAIÚSCULAs:
 

@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: quickstart
 ms.date: 05/26/2020
-ms.openlocfilehash: e08527ae530b7b5ed5e5293a3af9e2d8dd3f795a
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: a7d575b92bff69c13ded70187005ce1db018ea4c
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88118783"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152004"
 ---
 # <a name="quickstart-create-an-azure-data-catalog"></a>Início Rápido: Criar um Catálogo de Dados do Azure
 
@@ -24,7 +24,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 ## <a name="prerequisites"></a>Pré-requisitos
 
 > [!Note]
-> Devido aos requisitos de segurança do Azure, o Catálogo de Dados do Azure gerou o protocolo TLS 1.2. O TLS 1.0 e o TLS 1.1 foram desabilitados. Você poderá encontrar erros ao executar a ferramenta de registro se o computador não estiver atualizado para o TLS 1.2. Confira [Habilitar o protocolo TLS (1.2)](https://docs.microsoft.com/mem/configmgr/core/plan-design/security/enable-tls-1-2) para atualizar seu computador para o TLS 1.2.
+> Devido aos requisitos de segurança do Azure, o Catálogo de Dados do Azure gerou o protocolo TLS 1.2. O TLS 1.0 e o TLS 1.1 foram desabilitados. Você poderá encontrar erros ao executar a ferramenta de registro se o computador não estiver atualizado para o TLS 1.2. Confira [Habilitar o protocolo TLS (1.2)](/mem/configmgr/core/plan-design/security/enable-tls-1-2) para atualizar seu computador para o TLS 1.2.
 
 Para começar, você precisa ter:
 

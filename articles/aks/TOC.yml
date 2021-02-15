@@ -4,10 +4,12 @@
   items:
     - name: Sobre o AKS
       href: intro-kubernetes.md
+    - name: Arquiteturas de solução
+      href: /azure/architecture/reference-architectures/containers/aks-start-here?bc=%2fazure%2faks%2fbreadcrumb%2ftoc.json&toc=%2fazure%2faks%2ftoc.json
 - name: Inícios rápidos
   expanded: true
   items:
-    - name: Criar um cluster AKS
+    - name: Implantar um cluster do AKS
       expanded: true
       items:
         - name: Usar a CLI do Azure
@@ -40,11 +42,6 @@
       href: tutorial-kubernetes-app-update.md
     - name: 7 - Fazer upgrade do cluster
       href: tutorial-kubernetes-upgrade-cluster.md
-- name: Exemplos
-  items:
-    - name: Itens internos do Azure Policy
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: Conceitos
   items:
     - name: Clusters e cargas de trabalho
@@ -53,6 +50,8 @@
       href: concepts-identity.md
     - name: Segurança
       items:
+        - name: Linha de base de segurança
+          href: security-baseline.md
         - name: Segurança para aplicativos e clusters
           href: concepts-security.md
         - name: Controles de segurança do Azure Policy
@@ -129,28 +128,38 @@
       href: security-hardened-vm-host-image.md
     - name: Visão geral de Diagnóstico do Serviço de Kubernetes do Azure
       href: concepts-diagnostics.md
+    - name: Engenharia de software sustentável
+      href: concepts-sustainable-software-engineering.md
 - name: Guias de instruções
   items:
     - name: Operações de cluster
       items:
         - name: Dimensionar um cluster AKS
           href: scale-cluster.md
+        - name: Parar um cluster do AKS (versão prévia)
+          href: start-stop-cluster.md
         - name: Atualizar um cluster AKS
           href: upgrade-cluster.md
         - name: Usar o SLA de Tempo de Atividade
           href: uptime-sla.md
-        - name: Usar grupos de posicionamento de proximidade (versão prévia)
+        - name: Usar grupos de posicionamento de proximidade
           href: reduce-latency-ppg.md
         - name: Atualizar a imagem do nó
           href: node-image-upgrade.md
+        - name: Atualizar a imagem do nó automaticamente com GitHub Actions
+          href: node-upgrade-github-actions.md
         - name: Atualizações do SO para nó do processo
           href: node-updates-kured.md
         - name: Configurar um cluster do AKS
           href: cluster-configuration.md
+        - name: Configuração do nó personalizada (versão prévia)
+          href: custom-node-configuration.md
         - name: Integrar um ACR a um cluster do AKS
           href: cluster-container-registry-integration.md
         - name: Criar nós virtuais
           items:
+            - name: Usar nós virtuais
+              href: virtual-nodes.md
             - name: Usar a CLI do Azure
               href: virtual-nodes-cli.md
             - name: Use o Portal do Azure
@@ -163,14 +172,14 @@
           items:
             - name: Usar vários pools de nós
               href: use-multiple-node-pools.md
-            - name: Usar pools de nós de ponto (versão prévia)
+            - name: Usar pools de nós spot
               href: spot-node-pool.md
             - name: Usar pools de nós do sistema
               href: use-system-pools.md
         - name: Implantar AKS com Terraform
-          href: ../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md
+          href: /azure/developer/terraform/create-k8s-cluster-with-tf-and-aks
           maintainContext: true
-        - name: Usar o visualizador de recursos do Kubernetes (versão prévia)
+        - name: Exibição de recursos do Kubernetes no portal do Azure
           href: kubernetes-portal.md
         - name: Usar o painel do Kubernetes
           href: kubernetes-dashboard.md
@@ -190,6 +199,14 @@
           href: azure-netapp-files.md
         - name: Usar os Discos Ultra do Azure (versão prévia)
           href: use-ultra-disks.md
+        - name: Drivers de armazenamento da CSI
+          items:
+            - name: Habilitar drivers de armazenamento da CSI (versão prévia)
+              href: csi-storage-drivers.md
+            - name: Drivers da CSI de Disco do Azure (versão prévia)
+              href: azure-disk-csi.md
+            - name: Drivers da CSI dos Arquivos do Azure (versão prévia)
+              href: azure-files-csi.md
     - name: Configurar a rede
       items:
         - name: Criar ou usar uma rede virtual existente
@@ -239,11 +256,13 @@
           href: kubernetes-service-principal.md
         - name: Usar identidades gerenciadas
           href: use-managed-identity.md
+        - name: Usar a identidade do pod do AAD (versão prévia)
+          href: use-azure-ad-pod-identity.md
         - name: Limitar o acesso ao arquivo de configuração de cluster
           href: control-kubeconfig-access.md
         - name: Proteger o tráfego de pod com políticas de rede
           href: use-network-policies.md
-        - name: Proteger pods com Azure Policy (versão prévia)
+        - name: Proteger pods com Azure Policy
           href: use-pod-security-on-azure-policy.md
         - name: Usar políticas de segurança de pod (versão prévia)
           href: use-pod-security-policies.md
@@ -255,9 +274,9 @@
           href: update-credentials.md
         - name: Habilitar integração do Azure Active Directory
           items:
-            - name: AAD gerenciado pelo AKS
+            - name: Azure AD gerenciado pelo AKS
               href: managed-aad.md
-            - name: Integração de AAD (herdado)
+            - name: Integração do Azure AD (herdado)
               href: azure-ad-integration-cli.md
         - name: Usar o Azure RBAC para Autorização do Kubernetes (versão prévia)
           href: manage-azure-rbac.md
@@ -277,8 +296,8 @@
         - name: Azure Monitor para contêineres
           href: ../azure-monitor/insights/container-insights-overview.md
           maintainContext: true
-        - name: Exibir os logs do componente mestre
-          href: view-master-logs.md
+        - name: Ver os logs de componente do painel de controle
+          href: view-control-plane-logs.md
         - name: Exibir os logs de kubelet
           href: kubelet-logs.md
         - name: Exibir dados de contêiner em tempo real
@@ -302,8 +321,10 @@
           href: /virtualization/windowscontainers/manage-docker/optimize-windows-dockerfile?context=/azure/aks/context/aks-context
     - name: Desenvolver e executar aplicativos
       items:
-        - name: Usar o Local Process with Kubernetes com o Visual Studio Code (versão prévia)
-          href: 'https://code.visualstudio.com/docs/containers/local-process-kubernetes'
+        - name: Usar o Bridge to Kubernetes com o Visual Studio Code
+          href: 'https://code.visualstudio.com/docs/containers/bridge-to-kubernetes'
+        - name: Usar o Bridge to Kubernetes com o Visual Studio
+          href: /visualstudio/containers/bridge-to-kubernetes
         - name: Instalar aplicativos existentes com o Helm
           href: kubernetes-helm.md
         - name: Usar o OpenFaaS
@@ -312,9 +333,13 @@
           href: spark-job.md
         - name: Usar GPUs
           href: gpu-cluster.md
-        - name: Usar o Banco de Dados do Azure para PostgreSQL
-          href: ../postgresql/concepts-aks.md
+        - name: Criar um aplicativo com PostgreSQL
+          href: ../postgresql/flexible-server/tutorial-django-aks-database.md
+        - name: Criar um aplicativo com MySQL
+          href: ../mysql/flexible-server/tutorial-deploy-wordpress-on-aks.md
           maintainContext: true
+        - name: Criar um aplicativo usando o Open Liberty ou o WebSphere Liberty
+          href: howto-deploy-java-liberty-app.md
         - name: Usar gerenciamento de API do Azure
           href: ../api-management/api-management-kubernetes.md
           maintainContext: true
@@ -345,10 +370,10 @@
     - name: DevOps
       items:
         - name: Usar Ansible para criar clusters do AKS
-          href: /azure/ansible/ansible-create-configure-aks
+          href: /azure/developer/ansible/aks-configure-clusters
           maintainContext: true
         - name: Implantação contínua do Jenkins
-          href: jenkins-continuous-deployment.md
+          href: /azure/developer/jenkins/deploy-from-github-to-aks
         - name: Projeto de DevOps do Azure
           href: ../devops-project/azure-devops-project-aks.md
           maintainContext: true
@@ -386,6 +411,9 @@
       href: /javascript/api/overview/azure/container-service
     - name: Modelo do Resource Manager
       href: /azure/templates/microsoft.containerservice/managedclusters
+    - name: Itens internos do Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Recursos
   items:
     - name: Desenvolver suas habilidades com o Microsoft Learn

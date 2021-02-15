@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Pesquisar localizações próximas em um mapa | Microsoft Azure Mapas'
-description: Saiba como pesquisar pontos de interesse em um mapa. Veja como usar o SDK da Web dos Azure Mapas para adicionar funcionalidades de pesquisa e caixas de pop-up interativas a um mapa.
+description: Tutorial sobre como pesquisar pontos de interesse em um mapa. Veja como usar o SDK da Web dos Azure Mapas para adicionar funcionalidades de pesquisa e caixas de pop-up interativas a um mapa.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 1/15/2020
@@ -8,13 +8,13 @@ ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.custom: mvc, devx-track-javascript
-ms.openlocfilehash: 8dc430febb25283ab5bd32496bb2f71ba19c895b
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.custom: mvc, devx-track-js
+ms.openlocfilehash: 31dd1c06b0f17b469454593131ccdc93b45b2446
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88035851"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624960"
 ---
 # <a name="tutorial-search-nearby-points-of-interest-using-azure-maps"></a>Tutorial: Pesquisar pontos de interesse próximos usando os Mapas do Azure
 
@@ -26,44 +26,14 @@ Este tutorial mostra como configurar uma conta dos Mapas do Azure e depois usar 
 > * Criar uma nova página da Web usando a API de controle de mapeamento
 > * Usar o serviço de pesquisa dos Mapas para localizar um ponto de interesse próximo
 
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
-
-## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
-
-Entre no [portal do Azure](https://portal.azure.com).
+## <a name="prerequisites"></a>Pré-requisitos
 
 <a id="createaccount"></a>
-
-## <a name="create-an-account-with-azure-maps"></a>Criar uma conta dos Mapas do Azure
-
-Crie uma nova conta dos Mapas seguindo as etapas abaixo:
-
-1. No canto superior esquerdo do [portal do Azure](https://portal.azure.com), clique em **Criar um recurso**.
-2. No campo *Pesquisar no Marketplace*, digite **Mapas**.
-3. Nos *Resultados*, selecione **Mapas**. Clique no botão **Criar** que aparece abaixo do mapa.
-4. Na página **Criar Conta dos Mapas**, insira os seguintes valores:
-    * A *Assinatura* que você deseja usar para a conta.
-    * O nome do *Grupo de recursos* para a conta. Você pode optar por *Criar novo* ou *Usar existente* em relação ao grupo de recursos.
-    * O *Nome* da sua nova conta.
-    * A *Camada de preços* para essa conta.
-    * Leia a *Política de Privacidade* e de *Licença* e marque a caixa de seleção para aceitar os termos.
-    * Selecione o botão **Criar**.
-
-![Criar uma conta do Azure Mapas no portal do Azure](./media/tutorial-search-location/create-account.png)
-
 <a id="getkey"></a>
 
-## <a name="get-the-primary-key-for-your-account"></a>Obter a chave primária de sua conta
-
-Depois de criar com êxito sua conta dos Mapas, recupere a chave que permite consultar as APIs dos Mapas. É recomendável usar a chave primária da sua conta como a chave de assinatura ao chamar os serviços do Azure Mapas.
-
-1. Abra a sua conta dos Mapas no portal.
-2. Na seção de configurações, selecione **Autenticação**.
-3. Copie a **Chave Primária** para sua área de transferência. Salve-a localmente para usar depois neste tutorial.
-
-![Obter a Chave Primária no portal do Azure](./media/tutorial-search-location/get-key.png)
-
-Para obter mais informações sobre a autenticação nos Azure Mapas, confira [Gerenciar a autenticação nos Azure Mapas](how-to-manage-authentication.md).
+1. Entre no [portal do Azure](https://portal.azure.com). Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+2. [Faça uma conta do Azure Mapas](quick-demo-map-app.md#create-an-azure-maps-account)
+3. [Obtenha uma chave de assinatura primária](quick-demo-map-app.md#get-the-primary-key-for-your-account), também conhecida como a chave primária ou a chave de assinatura. Para obter mais informações sobre a autenticação nos Azure Mapas, confira [Gerenciar a autenticação nos Azure Mapas](how-to-manage-authentication.md).
 
 <a id="createmap"></a>
 
@@ -169,7 +139,7 @@ A API de Controle de Mapeamento é uma biblioteca de clientes conveniente. Essa 
 
 ## <a name="add-search-capabilities"></a>Adicionar recursos de pesquisa
 
-Esta seção mostra como usar a [API de Pesquisa](https://docs.microsoft.com/rest/api/maps/search) dos Mapas do Azure para encontrar um ponto de interesse em seu mapa. Trata-se de uma API RESTful projetada para desenvolvedores para pesquisa de endereços, pontos de interesse e outras informações geográficas. O serviço de Pesquisa atribui informações de latitude e longitude a um endereço especificado. O **Módulo de Serviço** explicado a seguir pode ser usado para procurar um local usando a API de Pesquisa de Mapas.
+Esta seção mostra como usar a [API de Pesquisa](/rest/api/maps/search) dos Mapas do Azure para encontrar um ponto de interesse em seu mapa. Trata-se de uma API RESTful projetada para desenvolvedores para pesquisa de endereços, pontos de interesse e outras informações geográficas. O serviço de Pesquisa atribui informações de latitude e longitude a um endereço especificado. O **Módulo de Serviço** explicado a seguir pode ser usado para procurar um local usando a API de Pesquisa de Mapas.
 
 ### <a name="service-module"></a>Módulo de serviço
 
@@ -186,7 +156,7 @@ Esta seção mostra como usar a [API de Pesquisa](https://docs.microsoft.com/res
    var searchURL = new atlas.service.SearchURL(pipeline); 
    ```
 
-   O `SubscriptionKeyCredential` cria um `SubscriptionKeyCredentialPolicy` para autenticar solicitações HTTP para Azure Mapas com a chave de assinatura. O `atlas.service.MapsURL.newPipeline()` usa a `SubscriptionKeyCredential` política e cria uma instância de [Pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-maps-typescript-latest). O `searchURL` representa uma URL para as operações de [pesquisa](https://docs.microsoft.com/rest/api/maps/search) do Azure Mapas.
+   O `SubscriptionKeyCredential` cria um `SubscriptionKeyCredentialPolicy` para autenticar solicitações HTTP para Azure Mapas com a chave de assinatura. O `atlas.service.MapsURL.newPipeline()` usa a `SubscriptionKeyCredential` política e cria uma instância de [Pipeline](/javascript/api/azure-maps-rest/atlas.service.pipeline). O `searchURL` representa uma URL para as operações de [pesquisa](/rest/api/maps/search) do Azure Mapas.
 
 2. Adicione o bloco de script a seguir para criar a consulta de pesquisa. Ele usa o Serviço de Pesquisa Difusa, que é uma API de pesquisa básica do Serviço de Pesquisa. O Serviço de Pesquisa Difusa trata a maioria das entradas difusas, como endereços, locais e POI (pontos de interesse). Esse código pesquisa postos de gasolina próximos em um raio especificado das coordenadas de latitude e longitude fornecidas. A coleção do recurso GeoJSON da resposta é então extraída usando o método `geojson.getFeatures()` e adicionado à fonte de dados, que automaticamente faz com que os dados sejam renderizados no mapa através da camada do símbolo. A última parte do script define a exibição de câmera dos mapas usando a caixa delimitadora dos resultados com a propriedade [setCamera](/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) do mapa.
 
@@ -275,21 +245,13 @@ O mapa que fizemos até agora apenas analisa os dados de longitude/latitude para
 
     ![Controle de mapa do Azure e Serviço de Pesquisa](./media/tutorial-search-location/popup-map.png)
 
+Para ver o código completo deste tutorial, clique [aqui](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/search.html). Para ver a amostra ao vivo, clique [aqui](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20for%20points%20of%20interest)
+
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+Não há recursos que exijam limpeza.
+
 ## <a name="next-steps"></a>Próximas etapas
-
-Neste tutorial, você aprendeu a:
-
-> [!div class="checklist"]
-> * Criar uma conta dos Mapas do Azure
-> * Obter a chave primária de sua conta
-> * Criar nova página da Web usando a API de Controle de mapa
-> * Usar o Serviço de Pesquisa para localizar um ponto de interesse próximo
-
-> [!div class="nextstepaction"]
-> [Exibir código-fonte completo](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/search.html)
-
-> [!div class="nextstepaction"]
-> [Exibir amostra dinâmica](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20for%20points%20of%20interest)
 
 O seguinte tutorial demonstra como exibir uma rota entre dois locais.
 

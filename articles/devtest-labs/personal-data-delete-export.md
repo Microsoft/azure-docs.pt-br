@@ -4,10 +4,10 @@ description: Saiba como excluir e exportar dados pessoais do serviço Azure DevL
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 2c44b2f3aa6f2dfad18ed53804842a5dad8bd94a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85483509"
 ---
 # <a name="export-or-delete-personal-data-from-azure-devtest-labs"></a>Exportar ou excluir dados pessoais do Azure DevTest Labs
@@ -59,7 +59,7 @@ Como usuário de laboratório, você pode solicitar uma exportação nos dados p
     ![Página de dados pessoais](./media/personal-data-delete-export/personal-data-page.png)
 2. Selecione o **grupo de recursos** que contém o laboratório.
 
-    ![Selecionar grupo de recursos](./media/personal-data-delete-export/select-resource-group.png)
+    ![Escolha o grupo de recursos](./media/personal-data-delete-export/select-resource-group.png)
 3. Selecione a **conta de armazenamento** no grupo de recursos.
 4. Na página **Conta de armazenamento**, selecione **Blobs**.
 

@@ -1,6 +1,6 @@
 ---
 title: Azure AD Connect na Microsoft Cloud Alemanha
-description: O Azure AD Connect integrará seus diretórios locais com o Azure Active Directory. Isso permite que você forneça uma identidade comum para os aplicativos do Office 365, Azure e SaaS integrados ao AD do Azure.
+description: O Azure AD Connect integrará seus diretórios locais com o Azure Active Directory. Isso permite que você forneça uma identidade comum para aplicativos Microsoft 365, Azure e SaaS integrados ao Azure AD.
 keywords: introdução ao Azure AD Connect, visão geral do Azure AD Connect, o que é o Azure AD Connect, instalar o active directory, Alemanha, Floresta Negra
 services: active-directory
 documentationcenter: ''
@@ -17,12 +17,12 @@ ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 62f0d82a543c0ae4e629eda3bca18b0a06322f2c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 246f8326f7112825de98ee824cf4bab7952a7878
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "60381223"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "90014580"
 ---
 # <a name="azure-ad-connect-in-microsoft-cloud-germany---public-preview"></a>Azure AD Connect na Microsoft Cloud Alemanha - Visualização Pública
 ## <a name="introduction"></a>Introdução
@@ -54,7 +54,7 @@ Você verá esses detalhes:
 
 A tabela a seguir descreve os recursos mostrados na folha.
 
-| Title | Descrição |
+| Título | Descrição |
 | --- | --- |
 | STATUS DA SINCRONIZAÇÃO |Informa se a sincronização está habilitada ou desabilitada. |
 | ÚLTIMA SINCRONIZAÇÃO |A última vez que uma sincronização bem-sucedida foi concluída. |

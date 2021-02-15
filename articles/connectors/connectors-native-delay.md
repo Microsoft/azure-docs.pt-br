@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/25/2019
 tags: connectors
 ms.openlocfilehash: 5348ade1ba6eec6cbd360849411b4520cb3c2b19
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74787329"
 ---
 # <a name="delay-running-the-next-action-in-azure-logic-apps"></a>Atraso ao executar a próxima ação nos aplicativos lógicos do Azure
@@ -50,10 +50,10 @@ Aqui estão alguns exemplos de maneiras de usar essas ações:
 
    ![Definir a quantidade de tempo para o atraso](./media/connectors-native-delay/delay-time-intervals.png)
 
-   | Property | Nome JSON | Obrigatório | Type | Descrição |
+   | Propriedade | Nome JSON | Obrigatório | Type | Descrição |
    |----------|-----------|----------|------|-------------|
    | Contagem | count | Sim | Integer | O número de unidades de tempo a serem atrasadas |
-   | Unidade | unit | Sim | String | A unidade de tempo, por exemplo: `Second` , `Minute` , `Hour` , `Day` , `Week` ou`Month` |
+   | Unit | unit | Sim | String | A unidade de tempo, por exemplo: `Second` , `Minute` , `Hour` , `Day` , `Week` ou `Month` |
    ||||||
 
 1. Adicione outras ações que você deseja executar em seu fluxo de trabalho.
@@ -76,9 +76,9 @@ Aqui estão alguns exemplos de maneiras de usar essas ações:
 
    ![Especifique o carimbo de data/hora para quando terminar o atraso](./media/connectors-native-delay/delay-until-timestamp.png)
 
-   | Property | Nome JSON | Obrigatório | Type | Descrição |
+   | Propriedade | Nome JSON | Obrigatório | Type | Descrição |
    |----------|-----------|----------|------|-------------|
-   | Timestamp | timestamp | Sim | String | A data e a hora de término para retomar o fluxo de trabalho usando este formato: <p>AAAA-MM-DDThh: mm: ssZ <p>Por exemplo, se você quiser 18 de setembro de 2017 às 2:00 PM, especifique "2017-09-18T14:00:00Z". <p>**Observação:** Esse formato de hora deve seguir a especificação de data e hora [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) no [formato de data e hora UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), mas sem um [deslocamento UTC](https://en.wikipedia.org/wiki/UTC_offset). Sem um fuso horário, você deve adicionar a letra "Z" no final sem espaços. Essa letra "Z" refere-se ao equivalente em [hora náutica](https://en.wikipedia.org/wiki/Nautical_time). |
+   | Timestamp |  timestamp | Sim | String | A data e a hora de término para retomar o fluxo de trabalho usando este formato: <p>AAAA-MM-DDThh: mm: ssZ <p>Por exemplo, se você quiser 18 de setembro de 2017 às 2:00 PM, especifique "2017-09-18T14:00:00Z". <p>**Observação:** Esse formato de hora deve seguir a especificação de data e hora [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) no [formato de data e hora UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), mas sem um [deslocamento UTC](https://en.wikipedia.org/wiki/UTC_offset). Sem um fuso horário, você deve adicionar a letra "Z" no final sem espaços. Essa letra "Z" refere-se ao equivalente em [hora náutica](https://en.wikipedia.org/wiki/Nautical_time). |
    ||||||
 
 1. Adicione outras ações que você deseja executar em seu fluxo de trabalho.

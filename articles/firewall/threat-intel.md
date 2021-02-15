@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: article
 ms.date: 05/12/2020
 ms.author: victorh
-ms.openlocfilehash: e51cc8905a7b4a88bb7f7dabaf24bb30159ff86c
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 77e36d5ab98f1177b5a0b89ee10b3e6bd22560c2
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83655074"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791452"
 ---
 # <a name="azure-firewall-threat-intelligence-based-filtering"></a>Filtragem baseada em inteligência contra ameaças do Firewall do Azure
 
@@ -53,6 +53,6 @@ O trecho de log a seguir mostra uma regra disparada:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Veja [Exemplos do Log Analytics do Firewall do Azure](log-analytics-samples.md)
+- Veja [Exemplos do Log Analytics do Firewall do Azure](./firewall-workbook.md)
 - Saiba como [implantar e configurar um Firewall do Azure](tutorial-firewall-deploy-portal.md)
 - Revise o [relatório de inteligência de segurança da Microsoft](https://www.microsoft.com/en-us/security/operations/security-intelligence-report)

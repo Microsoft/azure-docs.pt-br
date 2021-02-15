@@ -4,10 +4,10 @@ description: Saiba como solucionar problemas de falhas de máquina virtual (VM) 
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: b7d3f3ad34d8a5bb48607816623c67121d21d78c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85476471"
 ---
 # <a name="troubleshoot-virtual-machine-vm-and-environment-creation-failures-in-azure-devtest-labs"></a>Solucionar problemas de falhas de máquina virtual (VM) e de criação de ambiente no Azure DevTest Labs
@@ -25,7 +25,7 @@ Se você vir o status de sua VM no laboratório como **corrompido**, a VM subjac
 
 
 
-## <a name="activity-logs"></a>Logs de atividade
+## <a name="activity-logs"></a>Logs de atividades
 Examine os logs de atividade se você estiver investigando uma falha em algum momento depois de tentar a criação de sua VM ou ambiente. Esta seção mostra como localizar logs para VMs e ambientes.
 
 ## <a name="activity-logs-for-virtual-machines"></a>Logs de atividade para máquinas virtuais

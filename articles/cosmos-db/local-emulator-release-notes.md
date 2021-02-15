@@ -1,43 +1,69 @@
 ---
-title: Download e notas de versão do emulador do Azure Cosmos
-description: Obtenha as notas sobre a versão do emulador do Cosmos do Azure para diferentes versões e informações de download.
+title: Download e notas sobre a versão do Emulador do Azure Cosmos DB
+description: Obtenha as notas sobre a versão do Emulador do Azure Cosmos DB para diferentes versões e informações de download.
 ms.service: cosmos-db
-ms.topic: tutorial
+ms.topic: conceptual
 author: milismsft
 ms.author: adrianmi
-ms.date: 06/20/2019
-ms.openlocfilehash: 12e1c79e610526dec11467cc08c753bf90daa095
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.date: 09/21/2020
+ms.openlocfilehash: 12983f43e5f778cdf46c2ea3e0177d43838e5b47
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86083450"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98051591"
 ---
-# <a name="azure-cosmos-emulator---release-notes-and-download-information"></a>Emulador do Azure Cosmos – Notas sobre a versão e informações de download
+# <a name="azure-cosmos-db-emulator---release-notes-and-download-information"></a>Emulador do Azure Cosmos DB – Notas sobre a versão e informações de download
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-Este artigo mostra as notas de versão do emulador do Azure Cosmos com uma lista de atualizações de recursos que foram feitas em cada versão. Também lista a versão mais recente do emulador para baixar e usar.
+Este artigo mostra as notas sobre a versão do Emulador do Azure Cosmos DB com uma lista de atualizações de recursos que foram feitas em cada versão. Também lista a versão mais recente do emulador para baixar e usar.
 
 ## <a name="download"></a>Baixar
 
 | | |
 |---------|---------|
 |**Download do MSI**|[Centro de Download da Microsoft](https://aka.ms/cosmosdb-emulator)|
-|**Introdução**|[Desenvolver localmente com o emulador do Azure Cosmos](local-emulator.md)|
+|**Introdução**|[Desenvolvimento local com o Emulador do Azure Cosmos DB](local-emulator.md)|
 
 ## <a name="release-notes"></a>Notas de versão
 
-### <a name="2112-07072020"></a>2.11.2 (07/07/2020)
+### <a name="21110-5-january-2021"></a>2.11.10 (5 de janeiro de 2021)
+
+ - Esta versão atualiza o conteúdo do Data Explorer local para a versão mais recente do portal do Azure e adiciona uma nova opção pública, "/ExportPemCert", que permite que o usuário do emulador exporte diretamente o certificado do emulador público como um arquivo .PEM.
+
+### <a name="2119-3-december-2020"></a>2.11.9 (3 de dezembro de 2020)
+
+ - Esta versão aborda dois problemas com a funcionalidade de Emulador do Azure Cosmos DB além da atualização de conteúdo geral que reflete os recursos e aprimoramentos mais recentes no Azure Cosmos DB:
+ * Correção de um problema em que as solicitações de conteúdo de documento grande falhavam quando o modo direto e aplicativos cliente Java eram usados.
+ * Correção de um problema de conectividade com o ponto de extremidade do MongoDB versão 3.6 quando era direcionado por aplicativos baseados em .NET.
+
+### <a name="2118-6-november-2020"></a>2.11.8 (6 de novembro de 2020)
+
+ - Esta versão inclui uma atualização para o Data Explorer do emulador do Cosmos e corrige um problema em que os clientes do TLS 1.3 tentavam abrir o Data Explorer.
+
+### <a name="2116-6-october-2020"></a>2.11.6 (6 de outubro de 2020)
+
+ - Esta versão trata de um problema relacionado à simultaneidade, quando vários contêineres podem ser criados ao mesmo tempo. Nesses casos, os dados do emulador ficam em um estado corrompido e as solicitações à API a seguir para o ponto de extremidade do emulador podem falhar com erros de "serviço indisponível", exigindo uma reinicialização e uma redefinição dos dados locais do emulador.
+
+### <a name="2115-23-august-2020"></a>2.11.5 (23 de agosto de 2020)
+
+Esta versão adiciona duas novas opções de inicialização do emulador Cosmos: 
+
+* "/EnablePreview" – habilita a versão prévia dos recursos para o emulador. A versão prévia dos recursos que ainda estão em desenvolvimento e podem ser acessados via CI e gravação de exemplos.
+* "/EnableAadAuthentication" – habilita o emulador para aceitar tokens personalizados do Azure Active Directory como uma alternativa às chaves primárias do Azure Cosmos. Este recurso ainda está em desenvolvimento. Atualmente, não há suporte para atribuições de função específicas e outras configurações relacionadas a permissões.
+
+### <a name="2112-07-july-2020"></a>2.11.2 (07 de julho de 2020)
 
 - Esta versão altera o modo de coleta dos rastreamentos ETL necessários na solução de problemas do emulador do Cosmos. As ferramentas do WPR (Runtime de Desempenho do Windows) agora são as ferramentas padrão para a captura de rastreamentos baseados em ETL, ao passo que a antiga captura baseada em LOGMAN foi preterida. Essa alteração é, em parte, necessária porque as últimas atualizações de segurança do Windows tiveram um impacto inesperado sobre o funcionamento do LOGMAN quando executado por meio do emulador do Cosmos.
 
-### <a name="2111-06102020"></a>2.11.1 (10/06/2020)
+### <a name="2111-10-june-2020"></a>2.11.1 (10 de junho de 2020)
 
-- Esta versão corrige alguns bugs relacionados ao Data Explorer do emulador. Em determinados casos, ao usar o Data Explorer do emulador por meio de um navegador da Web, não será possível a conexão com o ponto de extremidade do emulador do Cosmos, e todas as ações relacionadas, como a criação de um banco de dados ou um contêiner, terão erros. O segundo problema corrigido está relacionado à criação de um item usando um arquivo JSON com a ação de upload do Data Explorer.
+- Esta versão corrige alguns bugs relacionados ao Data Explorer do emulador. Em determinados casos, ao usar o Data Explorer do emulador por meio de um navegador da Web, não será possível a conexão com o ponto de extremidade do emulador do Cosmos e todas as ações relacionadas, como a criação de um banco de dados ou de um contêiner, resultarão em erro. O segundo problema corrigido está relacionado à criação de um item usando um arquivo JSON com a ação de upload do Data Explorer.
 
 ### <a name="2110"></a>2.11.0
 
 - Esta versão introduz o suporte para taxa de transferência provisionada com dimensionamento automático. Esses novos recursos incluem a capacidade de definir um nível máximo personalizado de taxa de transferência provisionada em unidades de solicitação (RU/s), habilitar o dimensionamento automático em bancos de dados e contêineres existentes e suporte programático por meio de SDKs do Azure Cosmos DB.
-- Correção de um problema ao consultar uma grande quantidade de documentos (mais de 1GB), em que o emulador falha com o código de status de erro interno 500.
+- Correção de um problema ao consultar um grande volume de documentos (mais de 1 GB), em que o emulador falha com o código de status de erro interno 500.
 
 ### <a name="292"></a>2.9.2
 
@@ -61,7 +87,7 @@ Este artigo mostra as notas de versão do emulador do Azure Cosmos com uma lista
 
 ### <a name="246"></a>2.4.6
 
-- Esta versão fornece paridade com os recursos do serviço Azure Cosmos a partir de julho de 2019, com as exceções indicadas em [Desenvolvimento local com o emulador do Azure Cosmos](local-emulator.md). Ela também corrige vários bugs relacionados ao desligamento do emulador quando invocada pela linha de comando e substituições de endereço IP interno para clientes do SDK que usam a conectividade de modo direto.
+- Esta versão fornece paridade com os recursos do serviço Azure Cosmos disponíveis desde julho de 2019, com as exceções indicadas em [Desenvolvimento local com o Emulador do Azure Cosmos DB](local-emulator.md). Ela também corrige vários bugs relacionados ao desligamento do emulador quando invocada pela linha de comando e substituições de endereço IP interno para clientes do SDK que usam a conectividade de modo direto.
 
 ### <a name="243"></a>2.4.3
 

@@ -1,16 +1,14 @@
 ---
 title: Parametrizar arquivos de configuração no Azure Service Fabric
 description: Saiba como parametrizar arquivos de configuração no Service Fabric, uma técnica útil ao gerenciar vários ambientes.
-author: mikkelhegn
 ms.topic: conceptual
 ms.date: 10/09/2018
-ms.author: mikhegn
-ms.openlocfilehash: 4e96a732cffd70b0a5c24e7ebafe214297a72720
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ca376230c427c47e839b2dee96e8daa83ccedf15
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75644606"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576750"
 ---
 # <a name="how-to-parameterize-configuration-files-in-service-fabric"></a>Como parametrizar os arquivos de configuração no Service Fabric
 
@@ -20,7 +18,7 @@ Este artigo mostra como parametrizar os arquivos de configuração no Service Fa
 
 Neste exemplo, você deve substituir um valor de configuração usando os parâmetros na implantação do aplicativo.
 
-1. Abra o arquivo * \<MyService>\PackageRoot\Config\Settings.xml* em seu projeto de serviço.
+1. Abra o arquivo *\<MyService>\PackageRoot\Config\Settings.xml* em seu projeto de serviço.
 1. Defina um nome de parâmetro de configuração e valor, por exemplo, tamanho do cache igual a 25, ao adicionar o seguinte XML:
 
    ```xml
@@ -30,7 +28,7 @@ Neste exemplo, você deve substituir um valor de configuração usando os parâm
    ```
 
 1. Salve e feche o arquivo.
-1. Abra o arquivo * \<MyApplication>\ApplicationPackageRoot\ApplicationManifest.xml* .
+1. Abra o arquivo *\<MyApplication>\ApplicationPackageRoot\ApplicationManifest.xml* .
 1. No arquivo ApplicationManifest.xml, declare um parâmetro e um valor padrão no elemento `Parameters`.  É recomendado que o nome do parâmetro contenha o nome do serviço (por exemplo, "MyService").
 
    ```xml

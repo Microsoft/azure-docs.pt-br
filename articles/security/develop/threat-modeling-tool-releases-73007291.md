@@ -1,17 +1,17 @@
 ---
 title: Versão Microsoft Threat Modeling Tool 07/29/2020 – Azure
-description: Documentando as notas sobre a versão da Threat Modeling Tool
+description: Documentando as notas de versão da versão 7.3.00729.1 da ferramenta de modelagem de ameaças.
 author: jegeib
 ms.author: jegeib
 ms.service: security
 ms.topic: article
 ms.date: 07/29/2020
-ms.openlocfilehash: 47ffe753d661bb8c9a181148ea235b2a0eb54400
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 3e6fcd52ad9cb6c127c14bac2f33223fb921519e
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87839843"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94516366"
 ---
 # <a name="threat-modeling-tool-update-release-73007291---07292020"></a>Versão de atualização do Threat Modeling Tool 7.3.00729.1-07/29/2020
 
@@ -37,7 +37,7 @@ Esse erro ocorre porque alguns navegadores não oferecem suporte nativo à insta
 
 Esse erro continuará aparecendo se o Threat Modeling Tool for iniciado clicando-se duas vezes no arquivo TMT7. Application. No entanto, depois de ignorar o erro, a ferramenta funcionará normalmente. Em vez de iniciar o Threat Modeling Tool clicando duas vezes no arquivo TMT7. Application, os usuários devem utilizar atalhos criados no menu do Windows durante a instalação para iniciar o Threat Modeling Tool.
 
-## <a name="system-requirements"></a>Requisitos do sistema
+## <a name="system-requirements"></a>Requisitos de sistema
 
 - Sistemas operacionais com suporte
   - [Atualização de aniversário do Microsoft Windows 10](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update/#HTkoK5Zdv0g2F2Zq.97) ou posterior
@@ -48,7 +48,7 @@ Esse erro continuará aparecendo se o Threat Modeling Tool for iniciado clicando
 
 ## <a name="documentation-and-feedback"></a>Documentação e comentários
 
-- A documentação da Threat Modeling Tool está localizada em [docs.microsoft.com](https://docs.microsoft.com/azure/security/azure-security-threat-modeling-tool) e inclui informações [sobre como usar a ferramenta](https://docs.microsoft.com/azure/security/azure-security-threat-modeling-tool-getting-started).
+- A documentação da Threat Modeling Tool está localizada em [docs.microsoft.com](./threat-modeling-tool.md) e inclui informações [sobre como usar a ferramenta](./threat-modeling-tool-getting-started.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -10,10 +10,10 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 07/08/2020
 ms.openlocfilehash: 8648347eb48081389cf360fa949b31bbd0b8c71e
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88936700"
 ---
 # <a name="upgrading-versions-of-the-azure-search-net-management-sdk"></a>Atualizando versões do SDK de gerenciamento do .NET Azure Search
@@ -26,7 +26,7 @@ Os SDKs de gerenciamento visam uma versão específica da API REST de gerenciame
 
 | Versão do SDK | Versão da API REST correspondente | Adição de recurso ou alteração de comportamento |
 |-------------|--------------------------------|-------------------------------------|
-| [3.0](https://www.nuget.org/packages/Microsoft.Azure.Management.Search/3.0.0) | API-Version = 2020-30-20 | Adiciona segurança de ponto de extremidade (firewalls de IP e integração com o [link privado do Azure](../private-link/private-endpoint-overview.md)) |
+| [3,0](https://www.nuget.org/packages/Microsoft.Azure.Management.Search/3.0.0) | API-Version = 2020-30-20 | Adiciona segurança de ponto de extremidade (firewalls de IP e integração com o [link privado do Azure](../private-link/private-endpoint-overview.md)) |
 | [2.0](https://www.nuget.org/packages/Microsoft.Azure.Management.Search/2.0.0) | API-Version = 2019-10-01 | Aperfeiçoamentos no uso. Alteração significativa em [chaves de consulta de lista](/rest/api/searchmanagement/querykeys/listbysearchservice) (Get é descontinuado). |
 | [1,0](https://www.nuget.org/packages/Microsoft.Azure.Management.Search/1.0.1) | API-Version = 2015-08-19  | Primeira versão |
 
@@ -54,7 +54,7 @@ A versão 3,0 adiciona proteção de ponto de extremidade privada restringindo o
 | [Recursos de link privado](/rest/api/searchmanagement/privatelinkresources/) | Link Privado | Para um serviço de pesquisa que tenha uma conexão de ponto de extremidade privada, obtenha uma lista de todos os serviços usados na mesma rede virtual. Se sua solução de pesquisa incluir indexadores que efetuam pull de fontes de dados do Azure (armazenamento do Azure, Cosmos DB, SQL do Azure) ou usar serviços cognitivas ou Key Vault, todos esses recursos deverão ter pontos de extremidade na rede virtual e essa API deverá retornar uma lista. |
 | [PublicNetworkAccess](/rest/api/searchmanagement/services/createorupdate#publicnetworkaccess)| Link Privado | Essa é uma propriedade em criar ou atualizar solicitações de serviço. Quando desabilitado, o link privado é a única modalidade de acesso. |
 
-### <a name="breaking-changes"></a>Alterações da falha
+### <a name="breaking-changes"></a>Alterações de quebra
 
 Você não pode mais usar GET em uma solicitação de [chaves de consulta de lista](/rest/api/searchmanagement/querykeys/listbysearchservice) . Nas versões anteriores, você poderia usar GET ou POST, nesta versão e em todas as versões avançando, apenas POST tem suporte. 
 

@@ -1,7 +1,7 @@
 ---
-title: Visão geral dos serviços de mídia do Azure v3 com Widevine
-description: Este tópico fornece uma visão geral de um modelo de licença do Widevine usado para configurar as licenças do Widevine.
-author: juliako
+title: Visão geral do modelo de licença Widevine dos serviços de mídia v3
+description: Saiba mais sobre os serviços de mídia do Azure com o modelo de licença do Widevine e como ele é usado para configurar licenças do Widevine.
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
@@ -10,25 +10,26 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/07/2020
-ms.author: juliako
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 173fa5a598a929ff77ce573cc429ed9488a5bd9b
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 39cccd270a4947820640940ae43fa0feb3e52028
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018766"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954472"
 ---
 # <a name="media-services-v3-with-widevine-license-template-overview"></a>Visão geral do modelo de licença do Media Services V3 com Widevine
 
 Os Serviços de Mídia do Azure permitem criptografar o conteúdo com **Google Widevine**. Os Serviços de Mídia também fornecem um serviço para fornecer licenças Widevine. É possível usar APIs dos Serviços de Mídia do Azure para configurar licenças Widevine. Quando um player tenta reproduzir o conteúdo protegido por Widevine, uma solicitação é enviada ao serviço de entrega de licenças para obter a licença. Se o serviço de licença aprovar a solicitação, o serviço emitirá a licença. Ela é enviada ao cliente e é usada para descriptografar e reproduzir o conteúdo especificado.
 
+[!INCLUDE [Widevine is not available in the GovCloud region.](./includes/widevine-not-available-govcloud.md)]
+
 A solicitação de licença do Widevine é formatada como uma mensagem JSON.  
 
->[!NOTE]
-> Você pode criar uma mensagem vazia sem valores, apenas "{}". Em seguida, é criado um modelo de licença com os padrões. O padrão funciona na maioria dos casos. Cenários de entrega de licença baseada na Microsoft sempre devem usar os padrões. Se você precisar definir os valores de "content_id" e "provedor", um provedor deverá corresponder às credenciais de Widevine.
+
 
 ```json
 {  
@@ -61,6 +62,9 @@ A solicitação de licença do Widevine é formatada como uma mensagem JSON.
 }
 ```
 
+>[!NOTE]
+> Você pode criar uma mensagem vazia sem valores, apenas "{}". Em seguida, é criado um modelo de licença com os padrões. O padrão funciona na maioria dos casos. Cenários de entrega de licença baseada na Microsoft sempre devem usar os padrões. Se você precisar definir os valores de "content_id" e "provedor", um provedor deverá corresponder às credenciais de Widevine.
+
 ## <a name="json-message"></a>Mensagem JSON
 
 | Nome | Valor | Descrição |
@@ -86,7 +90,7 @@ Cada valor content_key_specs deve ser especificado para todos os controles, inde
 | content_key_specs. track_type |string |Um nome de tipo de controle. Se content_key_specs for especificado na solicitação de licença, especifique de forma explícita todos os tipos de controle. Se você não fizer isso, haverá uma falha de reprodução após 10 segundos. |
 | content_key_specs  <br/> security_level |uint32 |Define os requisitos de robustez de reprodução do cliente. <br/> - É necessário aplicar a criptografia whitebox baseada em software. <br/> - É necessário aplicar a criptografia de software e um decodificador ofuscado. <br/> - As principais operações de criptografia e de materiais devem ser executadas em um ambiente de execução confiável com suporte de hardware. <br/> - A criptografia e decodificação do conteúdo devem ser executadas em um ambiente de execução confiável com suporte de hardware.  <br/> - A criptografia, decodificação e qualquer manipulação da mídia (compactada e descompactada) devem ser tratadas em um ambiente de execução confiável com suporte de hardware. |
 | content_key_specs <br/> required_output_protection.hdc |cadeia de caracteres, uma de HDCP_NONE, HDCP_V1, HDCP_V2 |Indica se HDCP é necessário. |
-| content_key_specs <br/>chave |Base64-<br/>Base64 |Chave de conteúdo a ser usada para esta faixa. Se especificado, o track_type ou key_id é necessário. O provedor de conteúdo pode usar essa opção para insirir a chave de conteúdo para este controle em vez de deixar o servidor de licença do Widevine gerar ou procurar uma chave. |
+| content_key_specs <br/>key |Base64-<br/>Base64 |Chave de conteúdo a ser usada para esta faixa. Se especificado, o track_type ou key_id é necessário. O provedor de conteúdo pode usar essa opção para insirir a chave de conteúdo para este controle em vez de deixar o servidor de licença do Widevine gerar ou procurar uma chave. |
 | content_key_specs.key_id |Binário de cadeia de caracteres codificada em Base64, 16 bytes |Identificador exclusivo para a chave. |
 
 ## <a name="policy-overrides"></a>Substituições de política

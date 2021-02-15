@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 08/03/2020
+ms.date: 01/19/2021
 ms.author: curtand
-ms.openlocfilehash: d9023579b6627e9dab9feac8dfaccd94dc9f5c12
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 1062c8dfe416af2d39063bf71f39d52e151e28d3
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798118"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100096065"
 ---
 # <a name="view-and-search-your-recent-sign-in-activity-from-the-my-sign-ins-page"></a>Exibir e pesquisar sua atividade de entrada recente na página minhas entradas
 
@@ -25,6 +25,12 @@ Você pode ver toda a atividade de entrada recente na sua conta corporativa ou d
 - Se alguém está tentando adivinhar sua senha.
 - Se um invasor conseguiu entrar em sua conta e a partir de que localização.
 - Quais aplicativos o invasor tentou acessar.
+
+>[!Note]
+> Se você vir um erro ao entrar com um conta Microsoft pessoal, ainda poderá entrar usando o nome de domínio da sua organização (como contoso.com) ou a **ID de locatário** da sua organização em uma das seguintes URLs:
+>
+>   - https://myaccount.microsoft.com?tenantId=*your_domain_name*
+>   - https://myaccount.microsoft.com?tenant=*your_tenant_ID*
 
 ## <a name="view-your-recent-sign-in-activity"></a>Exibir sua atividade de entrada recente
 
@@ -46,7 +52,7 @@ Antes de determinar que algo está errado, verifique se o que você está vendo 
 
 ### <a name="if-you-see-an-unsuccessful-sign-in"></a>Se você vir uma entrada malsucedida
 
-Se você vir uma entrada malsucedida, isso pode significar que você digitou indigitadamente suas credenciais. Também pode significar que um invasor estava tentando adivinhar sua senha. Para responder a esse risco, você não precisa alterar sua senha, mas recomendamos que você se registre na MFA (autenticação multifator) do Azure. Com a autenticação multifator, mesmo que o hacker Adivinhe sua senha, ele não será suficiente para acessar a conta.
+Se você vir uma entrada malsucedida, isso pode significar que você digitou indigitadamente suas credenciais. Também pode significar que um invasor estava tentando adivinhar sua senha. Para responder a esse risco, você não precisa alterar sua senha, mas recomendamos que você se registre na MFA (autenticação multifator) do Azure AD. Com a autenticação multifator, mesmo que o hacker Adivinhe sua senha, ele não será suficiente para acessar a conta.
 
 ![Bloco de entrada sem êxito](media/my-account-portal-sign-ins-page/unsuccessful.png)
 

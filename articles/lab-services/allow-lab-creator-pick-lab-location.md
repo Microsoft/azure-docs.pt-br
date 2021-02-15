@@ -4,10 +4,10 @@ description: Este artigo descreve como um administrador de conta de laboratório
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 3b6c2d83414b1abc763755fbf15402b122c2186b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85444192"
 ---
 # <a name="allow-lab-creator-to-pick-location-for-the-lab-in-azure-lab-services"></a>Permitir que o criador de laboratório escolha o local do laboratório em Azure Lab Services
@@ -57,7 +57,7 @@ Se um local for restrito, ele não será mostrado na lista por padrão. Expanda 
 
 ![Mostrar locais não disponíveis](./media/allow-lab-creator-pick-lab-location/show-unavailable-locations.png)
 
-## <a name="cost"></a>Custo
+## <a name="cost"></a>Cost
 Anteriormente, o preço era baseado no tamanho da VM que você escolhe para o laboratório. Agora, o preço é baseado na combinação de sistema operacional (SO), tamanho e local. 
 
 ## <a name="next-steps"></a>Próximas etapas

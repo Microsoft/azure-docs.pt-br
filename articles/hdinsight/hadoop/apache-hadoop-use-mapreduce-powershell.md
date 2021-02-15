@@ -1,19 +1,16 @@
 ---
 title: Use o MapReduce e o PowerShell com o Apache Hadoop - Azure HDInsight
 description: Aprenda a usar o PowerShell para executar trabalhos do MapReduce remotamente com o Apache Hadoop no HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/08/2020
-ms.openlocfilehash: ff0c7001184af58432a7915b3a7df29f900bedec
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 16c6c5e317591b70c3a1300453093fc715e213fb
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87006595"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98939679"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-powershell"></a>Executar tarefas do MapReduce com o Apache Hadoop no HDInsight usando o PowerShell
 
@@ -23,9 +20,9 @@ Esse documento fornece um exemplo de uso do PowerShell do Azure para executar um
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Um cluster do Apache Hadoop no HDInsight. Consulte [criar Apache Hadoop clusters usando o portal do Azure](../hdinsight-hadoop-create-linux-clusters-portal.md).
+* Um cluster do Apache Hadoop no HDInsight. Confira [Criar clusters Apache Hadoop usando o portal do Azure](../hdinsight-hadoop-create-linux-clusters-portal.md).
 
-* O [Módulo Az](https://docs.microsoft.com/powershell/azure/) do PowerShell instalado.
+* O [Módulo Az](/powershell/azure/) do PowerShell instalado.
 
 ## <a name="run-a-mapreduce-job"></a>Executar um trabalho MapReduce
 
@@ -36,7 +33,7 @@ Os cmdlets a seguir são usados ao executar trabalhos MapReduce em um cluster HD
 |Cmdlet | Descrição |
 |---|---|
 |Connect-AzAccount|Autentica o Azure PowerShell para a assinatura do Azure.|
-|New-AzHDInsightMapReduceJobDefinition|Cria uma nova*definição de trabalho*, usando as informações do MapReduce especificadas.|
+|New-AzHDInsightMapReduceJobDefinition|Cria uma nova *definição de trabalho*, usando as informações do MapReduce especificadas.|
 |Start-AzHDInsightJob|Envia a definição de trabalho para HDInsight e inicia o trabalho. Um objeto *job* é retornado.|
 |Wait-AzHDInsightJob|Usa o objeto de trabalho para verificar o status do trabalho. Ele aguarda até que o trabalho seja concluído ou o tempo de espera seja excedido.|
 |Get-AzHDInsightJobOutput|Usado para recuperar a saída do trabalho.|

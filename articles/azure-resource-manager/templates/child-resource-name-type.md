@@ -1,20 +1,22 @@
 ---
 title: Recursos filho em modelos
-description: Descreve como definir o nome e o tipo de recursos filho em um modelo de Azure Resource Manager.
+description: Descreve como definir o nome e o tipo de recursos filho em um modelo de Azure Resource Manager (modelo ARM).
 ms.topic: conceptual
-ms.date: 08/26/2019
-ms.openlocfilehash: 3a69829e674925982c618807f49433a033d8c5f9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 12/21/2020
+ms.openlocfilehash: a950d72751b829c0a2aa3ba5ca27316a0544d9cc
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80743839"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97963905"
 ---
 # <a name="set-name-and-type-for-child-resources"></a>Definir nome e tipo para recursos filho
 
-Recursos filho são recursos que existem somente dentro do contexto de outro recurso. Por exemplo, uma [extensão de máquina virtual](/azure/templates/microsoft.compute/2019-03-01/virtualmachines/extensions) não pode existir sem uma [máquina virtual](/azure/templates/microsoft.compute/2019-03-01/virtualmachines). O recurso de extensão é um filho da máquina virtual.
+Recursos filho são recursos que existem somente dentro do contexto de outro recurso. Por exemplo, uma [extensão de máquina virtual](/azure/templates/microsoft.compute/virtualmachines/extensions) não pode existir sem uma [máquina virtual](/azure/templates/microsoft.compute/virtualmachines). O recurso de extensão é um filho da máquina virtual.
 
-Em um modelo do Resource Manager, você pode especificar o recurso filho dentro do recurso pai ou fora do recurso pai. O exemplo a seguir mostra o recurso filho incluído na propriedade Resources do recurso pai.
+Cada recurso pai aceita somente determinados tipos de recurso como recursos filho. O tipo de recurso para o recurso filho inclui o tipo de recurso para o recurso pai. Por exemplo, `Microsoft.Web/sites/config` e `Microsoft.Web/sites/extensions` são recursos filho do `Microsoft.Web/sites` . Os tipos de recurso aceitos são especificados no [esquema do modelo](https://github.com/Azure/azure-resource-manager-schemas) do recurso pai.
+
+Em um modelo de Azure Resource Manager (modelo ARM), você pode especificar o recurso filho dentro do recurso pai ou fora do recurso pai. O exemplo a seguir mostra o recurso filho incluído na propriedade Resources do recurso pai.
 
 ```json
 "resources": [
@@ -26,6 +28,8 @@ Em um modelo do Resource Manager, você pode especificar o recurso filho dentro 
   }
 ]
 ```
+
+Os recursos filho só podem ser definidos em cinco níveis de profundidade.
 
 O exemplo a seguir mostra o recurso filho fora do recurso pai. Você pode usar essa abordagem se o recurso pai não estiver implantado no mesmo modelo ou se quiser usar [copiar](copy-resources.md) para criar mais de um recurso filho.
 
@@ -85,7 +89,7 @@ O exemplo a seguir mostra uma rede virtual e uma sub-rede. Observe que a sub-red
 ]
 ```
 
-O tipo de recurso completo ainda é **Microsoft. Network/virtualNetworks/sub-redes**. Você não fornece **Microsoft. Network/virtualNetworks/** porque ele é assumido do tipo de recurso pai.
+O tipo de recurso completo ainda é `Microsoft.Network/virtualNetworks/subnets` . `Microsoft.Network/virtualNetworks/` não é fornecido porque ele é presumido do tipo de recurso pai.
 
 O nome do recurso filho é definido como **Subnet1** , mas o nome completo inclui o nome do pai. Você não fornece **VNet1** porque ele é assumido do recurso pai.
 
@@ -98,7 +102,7 @@ Quando definido fora do recurso pai, você formata o tipo e com barras para incl
 "name": "{parent-resource-name}/{child-resource-name}",
 ```
 
-O exemplo a seguir mostra uma rede virtual e uma sub-rede que são definidas no nível raiz. Observe que a sub-rede não está incluída na matriz de recursos para a rede virtual. O nome é definido como **VNet1/Subnet1** e o tipo é definido como **Microsoft. Network/virtualNetworks/sub-redes**. O recurso filho é marcado como dependente do recurso pai porque o recurso pai deve existir antes que o recurso filho possa ser implantado.
+O exemplo a seguir mostra uma rede virtual e uma sub-rede que são definidas no nível raiz. Observe que a sub-rede não está incluída na matriz de recursos para a rede virtual. O nome é definido como **VNet1/Subnet1** e o tipo é definido como `Microsoft.Network/virtualNetworks/subnets` . O recurso filho é marcado como dependente do recurso pai porque o recurso pai deve existir antes que o recurso filho possa ser implantado.
 
 ```json
 "resources": [
@@ -132,6 +136,5 @@ O exemplo a seguir mostra uma rede virtual e uma sub-rede que são definidas no 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para saber mais sobre a criação de modelos do Gerenciador de Recursos do Azure, consulte [Criando modelos](template-syntax.md).
-
+* Para saber mais sobre a criação de modelos do ARM, consulte [entender a estrutura e a sintaxe de modelos ARM](template-syntax.md).
 * Para saber mais sobre o formato do nome do recurso ao referenciar o recurso, consulte a [função de referência](template-functions-resource.md#reference).

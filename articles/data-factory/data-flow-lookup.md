@@ -7,13 +7,13 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 05/28/2020
-ms.openlocfilehash: a4fcdad0efda1ab2a43be65865e3aac59f7ef3e3
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.date: 10/30/2020
+ms.openlocfilehash: 7ed1d9db09357b0702188c01a802600ff6350aff
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84187605"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93147259"
 ---
 # <a name="lookup-transformation-in-mapping-data-flow"></a>Transformação de pesquisa no fluxo de dados de mapeamento
 
@@ -27,7 +27,7 @@ Uma transformação de pesquisa é semelhante a uma união externa esquerda. Tod
 
 ## <a name="configuration"></a>Configuração
 
-![Transformação Pesquisa](media/data-flow/lookup1.png "Pesquisa")
+![Captura de tela mostra a guia Configurações de pesquisa com os rótulos descritos no texto a seguir.](media/data-flow/lookup1.png "Pesquisa")
 
 **Fluxo primário:** O fluxo de entrada de dados. Esse fluxo é equivalente ao lado esquerdo de uma união.
 
@@ -45,7 +45,7 @@ Todas as colunas de ambos os fluxos são incluídas nos dados de saída. Para re
 
 ### <a name="non-equi-joins"></a>Uniões não equivalentes
 
-Para usar um operador condicional como diferente de (!=) ou maior que (>) em suas condições de pesquisa, altere a lista suspensa do operador entre as duas colunas. Uniões não equivalentes exigem que pelo menos um dos dois fluxos sejam transmitidos usando a transmissão **Fixa** na guia **Otimizar**.
+Para usar um operador condicional como diferente de (!=) ou maior que (>) em suas condições de pesquisa, altere a lista suspensa do operador entre as duas colunas. Uniões não equivalentes exigem que pelo menos um dos dois fluxos sejam transmitidos usando a transmissão **Fixa** na guia **Otimizar** .
 
 ![Pesquisa sem equivalência](media/data-flow/non-equi-lookup.png "Pesquisa sem equivalência")
 
@@ -65,9 +65,13 @@ Ao testar a transformação de pesquisa com a visualização de dados no modo de
 
 ![União de transmissão](media/data-flow/broadcast.png "União de transmissão")
 
-Em transformação de junções, pesquisas e ocorrências, se um ou ambos os fluxos de dados se ajustarem à memória do nó de trabalho, você poderá otimizar o desempenho habilitando a **Difusão**. Por padrão, o mecanismo do Spark decidirá automaticamente se deseja ou não transmitir um lado. Para escolher manualmente o lado a ser transmitido, selecione **Fixo**.
+Em transformação de junções, pesquisas e ocorrências, se um ou ambos os fluxos de dados se ajustarem à memória do nó de trabalho, você poderá otimizar o desempenho habilitando a **Difusão** . Por padrão, o mecanismo do Spark decidirá automaticamente se deseja ou não transmitir um lado. Para escolher manualmente o lado a ser transmitido, selecione **Fixo** .
 
-Não é recomendável desabilitar a transmissão por meio da opção **Desativar**, a menos que suas uniões estejam tendo erros de tempo limite.
+Não é recomendável desabilitar a transmissão por meio da opção **Desativar** , a menos que suas uniões estejam tendo erros de tempo limite.
+
+## <a name="cached-lookup"></a>Pesquisa armazenada em cache
+
+Se você estiver fazendo várias pesquisas menores na mesma fonte, um coletor em cache e uma pesquisa talvez sejam um caso de uso melhor do que a transformação pesquisa. Exemplos comuns em que um coletor de cache pode ser melhor é Pesquisar um valor máximo em um armazenamento de dados e encontrar códigos de erro correspondentes a um banco de dado de mensagens de erro. Para obter mais informações, saiba mais sobre [coletores de cache](data-flow-sink.md#cache-sink) e [pesquisas em cache](concepts-data-flow-expression-builder.md#cached-lookup).
 
 ## <a name="data-flow-script"></a>Script de fluxo de dados
 
@@ -85,7 +89,7 @@ Não é recomendável desabilitar a transmissão por meio da opção **Desativar
 ```
 ### <a name="example"></a>Exemplo
 
-![Transformação Pesquisa](media/data-flow/lookup-dsl-example.png "Pesquisa")
+![Captura de tela mostra a guia Configurações de pesquisa do código a seguir.](media/data-flow/lookup-dsl-example.png "Pesquisa")
 
 O script de fluxo de dados para a configuração de pesquisa acima está no trecho de código abaixo.
 

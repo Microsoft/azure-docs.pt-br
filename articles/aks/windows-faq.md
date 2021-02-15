@@ -4,13 +4,13 @@ titleSuffix: Azure Kubernetes Service
 description: Consulte as perguntas frequentes ao executar pools de nós do Windows Server e cargas de trabalho de aplicativo no serviço kubernetes do Azure (AKS).
 services: container-service
 ms.topic: article
-ms.date: 07/29/2020
-ms.openlocfilehash: df9a4dd546ddc5944d9a282e74c2444a5161b862
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.date: 10/12/2020
+ms.openlocfilehash: 00e749a8b066f72518b38685dd7a7779e406cf74
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87927540"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92013960"
 ---
 # <a name="frequently-asked-questions-for-windows-server-node-pools-in-aks"></a>Perguntas frequentes sobre pools de nós do Windows Server no AKS
 
@@ -58,7 +58,7 @@ Clusters AKS com pools de nós do Windows devem usar o modelo de rede CNI do Azu
 
 Neste momento, não há suporte para a [preservação do IP de origem do cliente][client-source-ip] com nós do Windows.
 
-## <a name="can-i-change-the-max--of-pods-per-node"></a>Posso alterar o máximo. n º de pods por nó?
+## <a name="can-i-change-the-max--of-pods-per-node"></a>Posso alterar o Max. # de pods por nó?
 
 Sim. Para as implicações e opções disponíveis, consulte [número máximo de pods][maximum-number-of-pods].
 
@@ -113,6 +113,49 @@ Sim, você pode, no entanto, Azure Monitor está em visualização pública para
 
 Um cluster com nós do Windows pode ter aproximadamente 500 serviços antes de encontrar a exaustão da porta.
 
+## <a name="can-i-use-azure-hybrid-benefit-with-windows-nodes"></a>Posso usar Benefício Híbrido do Azure com nós do Windows?
+
+Sim. O Benefício Híbrido do Azure para Windows Server reduz os custos operacionais, permitindo que você traga sua licença do Windows Server local para os nós do Windows AKS.
+
+Benefício Híbrido do Azure pode ser usado em todo o cluster AKS ou em nós individuais. Para nós individuais, você precisa navegar até o [grupo de recursos do nó][resource-groups] e aplicar o benefício híbrido do Azure aos nós diretamente. Para obter mais informações sobre como aplicar Benefício Híbrido do Azure a nós individuais, consulte [benefício híbrido do Azure para Windows Server][hybrid-vms]. 
+
+Para usar Benefício Híbrido do Azure em um novo cluster AKS, use o `--enable-ahub` argumento.
+
+```azurecli
+az aks create \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --load-balancer-sku Standard \
+    --windows-admin-password 'Password1234$' \
+    --windows-admin-username azure \
+    --network-plugin azure
+    --enable-ahub
+```
+
+Para usar Benefício Híbrido do Azure em um cluster AKS existente, atualize o cluster usando o `--enable-ahub` argumento.
+
+```azurecli
+az aks update \
+    --resource-group myResourceGroup
+    --name myAKSCluster
+    --enable-ahub
+```
+
+Para verificar se Benefício Híbrido do Azure está definido no cluster, use o seguinte comando:
+
+```azurecli
+az vmss show --name myAKSCluster --resource-group MC_CLUSTERNAME
+```
+
+Se o cluster tiver Benefício Híbrido do Azure habilitado, a saída do `az vmss show` será semelhante ao seguinte:
+
+```console
+"platformFaultDomainCount": 1,
+  "provisioningState": "Succeeded",
+  "proximityPlacementGroup": null,
+  "resourceGroup": "MC_CLUSTERNAME"
+```
+
 ## <a name="can-i-use-the-kubernetes-web-dashboard-with-windows-containers"></a>Posso usar o painel da Web do kubernetes com contêineres do Windows?
 
 Sim, você pode usar o [painel da Web do kubernetes][kubernetes-dashboard] para acessar informações sobre contêineres do Windows, mas, neste momento, não é possível executar o *kubectl exec* em um contêiner do Windows em execução diretamente do painel da Web do kubernetes. Para obter mais detalhes sobre como se conectar ao seu contêiner do Windows em execução, consulte [conectar-se com o RDP para os nós do Windows Server do cluster do AKS (serviço kubernetes do Azure) para manutenção ou solução de problemas][windows-rdp].
@@ -152,3 +195,5 @@ Para começar a usar contêineres do Windows Server no AKS, [crie um pool de nó
 [windows-rdp]: rdp.md
 [upgrade-node-image]: node-image-upgrade.md
 [managed-identity]: use-managed-identity.md
+[hybrid-vms]: ../virtual-machines/windows/hybrid-use-benefit-licensing.md
+[resource-groups]: faq.md#why-are-two-resource-groups-created-with-aks

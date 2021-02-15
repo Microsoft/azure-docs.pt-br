@@ -2,20 +2,20 @@
 title: Apontar um domínio de Internet para o Gerenciador de tráfego-Gerenciador de tráfego do Azure
 description: Este artigo ajudará a indicar o nome de domínio de sua empresa para um nome de domínio do Gerenciador de Tráfego.
 services: traffic-manager
-author: rohinkoul
+author: duongau
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/11/2016
-ms.author: rohink
-ms.openlocfilehash: 69bdf9a0e04b4d9c2a55f1c0f346d601830ded09
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.author: duau
+ms.openlocfilehash: e0e2acfb0ec0068dcd08ae660e397f65e039a665
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88053058"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98183737"
 ---
 # <a name="point-a-company-internet-domain-to-an-azure-traffic-manager-domain"></a>Apontar um domínio de Internet da empresa para um domínio do Gerenciador de Tráfego do Azure
 
@@ -33,5 +33,5 @@ Todas as solicitações de tráfego para *www \. contoso.com* são direcionadas 
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Métodos de roteamento do Gerenciador de Tráfego](traffic-manager-routing-methods.md)
-* [Gerenciador de Tráfego - Desabilitar, habilitar ou excluir um perfil](disable-enable-or-delete-a-profile.md)
-* [Gerenciador de Tráfego - Desabilitar ou habilitar um ponto de extremidade](disable-or-enable-an-endpoint.md)
+* [Gerenciador de Tráfego - Desabilitar, habilitar ou excluir um perfil](./traffic-manager-manage-profiles.md)
+* [Gerenciador de Tráfego - Desabilitar ou habilitar um ponto de extremidade](./traffic-manager-manage-endpoints.md)

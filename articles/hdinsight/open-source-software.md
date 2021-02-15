@@ -1,19 +1,16 @@
 ---
 title: Suporte para software livre no Azure HDInsight
 description: O Microsoft Azure fornece um nível geral de suporte para tecnologias de software livre.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: f1e1518cce060374f14f1db7d5f4e594e3de8f85
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: fec4cff974031982c782c9265a7d3186d6bb0233
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086255"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98942553"
 ---
 # <a name="open-source-software-support-in-azure-hdinsight"></a>Suporte para software livre no Azure HDInsight
 
@@ -40,7 +37,7 @@ Como usuário do cluster, você pode instalar ou usar em sua carga de trabalho q
 > [!WARNING]  
 > Componentes fornecidos com o cluster HDInsight contam com suporte total. O Suporte da Microsoft ajuda a isolar e resolver problemas relacionados a esses componentes.
 >
-> Componentes personalizados recebem suporte comercial razoável para ajudar você a solucionar o problema. O Suporte da Microsoft pode conseguir resolver o problema. Ou eles podem solicitar que você busque nos canais disponíveis as tecnologias de código-fonte aberto, onde é possível encontrar conhecimento aprofundado sobre essa tecnologia. Muitos sites de comunidades podem ser usados. Os exemplos são a [Página de Perguntas e respostas da Microsoft para o HDInsight](https://docs.microsoft.com/answers/topics/azure-hdinsight.html) e [Stack Overflow](https://stackoverflow.com).
+> Componentes personalizados recebem suporte comercial razoável para ajudar você a solucionar o problema. O Suporte da Microsoft pode conseguir resolver o problema. Ou eles podem solicitar que você busque nos canais disponíveis as tecnologias de código-fonte aberto, onde é possível encontrar conhecimento aprofundado sobre essa tecnologia. Muitos sites de comunidades podem ser usados. Os exemplos são a [Página de Perguntas e respostas da Microsoft para o HDInsight](/answers/topics/azure-hdinsight.html) e [Stack Overflow](https://stackoverflow.com).
 >
 > Os projetos do Apache têm sites de projeto no [site do Apache](https://apache.org). Um exemplo é o [Hadoop](https://hadoop.apache.org/).
 

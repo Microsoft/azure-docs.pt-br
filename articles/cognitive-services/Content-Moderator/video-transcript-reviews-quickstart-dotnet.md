@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f2d0ddae8a9bd8054c740402b8beb3bb0bccfa9f
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 326fc2cc162a2ab54b40888250fbeef55ad8800a
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88919209"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96853451"
 ---
 # <a name="create-video-transcript-reviews-using-net"></a>Criar análises de transcrições de vídeo usando .NET
 
@@ -205,7 +205,7 @@ Adicione uma transcrição a uma análise de vídeo com **ContentModeratorClient
 A transcrição deve estar no formato WebVTT. Para mais informações, confira [WebVTT: o formato de faixas de texto de vídeo na Web](https://www.w3.org/TR/webvtt1/).
 
 > [!NOTE]
-> O programa usa uma transcrição de exemplo no formato VTT. Em uma solução real, você usaria o serviço Azure Media Indexer para [gerar uma transcrição](https://docs.microsoft.com/azure/media-services/media-services-index-content) a partir de um vídeo.
+> O programa usa uma transcrição de exemplo no formato VTT. Em uma solução real, você usaria o serviço Azure Media Indexer para [gerar uma transcrição](../../media-services/previous/media-services-index-content.md) a partir de um vídeo.
 
 Adicione a seguinte definição de método ao namespace VideotranscriptReviews, classe Program.
 
@@ -318,7 +318,7 @@ private static void PublishReview(ContentModeratorClient client, string review_i
 Adicione a definição de método **Main** ao namespace VideoTranscriptReviews, classe Program. Por fim, feche a classe Program e o namespace VideoTranscriptReviews.
 
 > [!NOTE]
-> O programa usa uma transcrição de exemplo no formato VTT. Em uma solução real, você usaria o serviço Azure Media Indexer para [gerar uma transcrição](https://docs.microsoft.com/azure/media-services/media-services-index-content) a partir de um vídeo.
+> O programa usa uma transcrição de exemplo no formato VTT. Em uma solução real, você usaria o serviço Azure Media Indexer para [gerar uma transcrição](../../media-services/previous/media-services-index-content.md) a partir de um vídeo.
 
 ```csharp
 static void Main(string[] args)
@@ -381,5 +381,3 @@ Você verá os seguintes recursos:
 Obtenha o [SDK do .NET do Content Moderator](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) e a [solução do Visual Studio](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) para este e outros inícios rápidos do Content Moderator para .NET.
 
 Saiba como gerar [análises de vídeo](video-reviews-quickstart-dotnet.md) na ferramenta de análise.
-
-Confira o tutorial detalhado sobre como desenvolver uma [solução completa de moderação de vídeo](video-transcript-moderation-review-tutorial-dotnet.md).

@@ -1,5 +1,6 @@
 ---
 title: Guia de migração do ADAL para MSAL para Android | Azure
+titleSuffix: Microsoft identity platform
 description: Saiba como migrar seu aplicativo Android da ADAL (biblioteca de autenticação do Azure Active Directory) para a biblioteca de autenticação da Microsoft (MSAL).
 services: active-directory
 author: mmacy
@@ -9,16 +10,16 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.tgt_pltfrm: Android
 ms.workload: identity
-ms.date: 09/6/2019
+ms.date: 10/14/2020
 ms.author: marsma
 ms.reviewer: shoatman
 ms.custom: aaddev
-ms.openlocfilehash: 21866bb7dab3d5a093ffc4655161b80853eadfc5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ba639bc023affc7c2e6b2b675cdedc1229636893
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77084063"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581033"
 ---
 # <a name="adal-to-msal-migration-guide-for-android"></a>Guia de migração do ADAL para MSAL para Android
 
@@ -31,7 +32,7 @@ A ADAL funciona com o ponto de extremidade do Azure Active Directory v 1.0. A MS
 Oferece suporte a:
   - Identidade organizacional (Azure Active Directory)
   - Identidades não organizacionais, como Outlook.com, Xbox Live e assim por diante
-  - (Somente B2C) Logon federado com Google, Facebook, Twitter e Amazon
+  - (Somente Azure AD B2C) Logon federado com Google, Facebook, Twitter e Amazon
 
 - Os padrões são compatíveis com:
   - OAuth v 2.0
@@ -46,8 +47,8 @@ A API pública do MSAL introduz alterações importantes, incluindo:
   - As autoridades não são mais validadas em tempo de execução. Em vez disso, o desenvolvedor declara uma lista de "autoridades conhecidas" durante o desenvolvimento.
 - Alterações de API de token:
   - No ADAL, `AcquireToken()` o primeiro faz uma solicitação silenciosa. Falhando, isso faz uma solicitação interativa. Esse comportamento resultou em alguns desenvolvedores que confiam apenas em `AcquireToken` , o que resultou na inesperação de credenciais do usuário em momentos. O MSAL exige que os desenvolvedores sejam intencionais sobre quando o usuário recebe um prompt de interface de usuário.
-    - `AcquireTokenSilent`sempre resulta em uma solicitação silenciosa que seja bem-sucedida ou falhe.
-    - `AcquireToken`sempre resulta em uma solicitação que solicita ao usuário por meio da IU.
+    - `AcquireTokenSilent` sempre resulta em uma solicitação silenciosa que seja bem-sucedida ou falhe.
+    - `AcquireToken` sempre resulta em uma solicitação que solicita ao usuário por meio da IU.
 - O MSAL dá suporte à entrada de um navegador padrão ou de uma exibição da Web inserida:
   - Por padrão, o navegador padrão no dispositivo é usado. Isso permite que o MSAL use o estado de autenticação (cookies) que pode já estar presente para uma ou mais contas conectadas. Se nenhum estado de autenticação estiver presente, a autenticação durante a autorização por meio de MSAL resultará na criação de um estado de autenticação (cookies) para o benefício de outros aplicativos Web que serão usados no mesmo navegador.
 - Novo modelo de exceção:
@@ -67,10 +68,10 @@ Em seu registro de aplicativo no portal, você verá uma guia **permissões de A
 
 ### <a name="user-consent"></a>Consentimento do usuário
 
-Com a ADAL e o ponto de extremidade do AAD v1, o consentimento do usuário para os recursos de sua propriedade foi concedido no primeiro uso. Com o MSAL e a plataforma de identidade da Microsoft, o consentimento pode ser solicitado de forma incremental. O consentimento incremental é útil para permissões que um usuário pode considerar alto privilégio ou, caso contrário, pergunta se não foi fornecida uma explicação clara de por que a permissão é necessária. No ADAL, essas permissões podem ter resultado no usuário abandonar a entrada em seu aplicativo.
+Com a ADAL e o ponto de extremidade do Azure AD v1, o consentimento do usuário para os recursos de sua propriedade foi concedido no primeiro uso. Com o MSAL e a plataforma de identidade da Microsoft, o consentimento pode ser solicitado de forma incremental. O consentimento incremental é útil para permissões que um usuário pode considerar alto privilégio ou, caso contrário, pergunta se não foi fornecida uma explicação clara de por que a permissão é necessária. No ADAL, essas permissões podem ter resultado no usuário abandonar a entrada em seu aplicativo.
 
 > [!TIP]
-> Recomendamos o uso de consentimento incremental em cenários em que você precisa fornecer contexto adicional para o usuário sobre por que seu aplicativo precisa de uma permissão.
+> Use o consentimento incremental para fornecer contexto adicional aos usuários sobre por que seu aplicativo precisa de uma permissão.
 
 ### <a name="admin-consent"></a>Consentimento do administrador
 
@@ -88,7 +89,7 @@ Se você estiver usando a ADAL e não precisar usar o consentimento incremental,
 > [!CAUTION]
 > Não é possível definir os escopos e uma ID de recurso. A tentativa de definir ambos resultará em um `IllegalArgumentException` .
 
- Isso resultará no mesmo comportamento v1 que você está acostumado. Todas as permissões solicitadas no registro do aplicativo são solicitadas pelo usuário durante sua primeira interação.
+Isso resultará no mesmo comportamento v1 que você está acostumado. Todas as permissões solicitadas no registro do aplicativo são solicitadas pelo usuário durante sua primeira interação.
 
 ### <a name="authenticate-and-request-permissions-only-as-needed"></a>Autenticar e solicitar permissões somente quando necessário
 
@@ -130,13 +131,13 @@ Se você tentar usar uma autoridade que não seja conhecida pela Microsoft e nã
 ### <a name="logging"></a>Registro em log
 Agora você pode configurar o log de forma declarativa como parte de sua configuração, como esta:
 
- ```
- "logging": {
-    "pii_enabled": false,
-    "log_level": "WARNING",
-    "logcat_enabled": true
-  }
-  ```
+```json
+"logging": {
+  "pii_enabled": false,
+  "log_level": "WARNING",
+  "logcat_enabled": true
+}
+```
 
 ## <a name="migrate-from-userinfo-to-account"></a>Migrar de UserInfo para conta
 
@@ -150,7 +151,7 @@ Onde a plataforma de identidade da Microsoft difere de uma instituição finance
 
 O Sam funciona para Contoso.com, mas gerencia as máquinas virtuais do Azure que pertencem ao Fabrikam.com. Para que o Sam gerencie as máquinas virtuais da Fabrikam, ele precisa estar autorizado a acessá-las. Esse acesso pode ser concedido adicionando a conta de Sam ao Fabrikam.com e concedendo a ela uma função que permita que ele trabalhe com as máquinas virtuais. Isso seria feito com o portal do Azure.
 
-Adicionar a conta Contoso.com do Sam como um membro de Fabrikam.com resultaria na criação de um novo registro na Azure Active Directory da Fabrikam. com para Sam. O registro de Sam no Azure Active Directory é conhecido como um objeto de usuário. Nesse caso, esse objeto de usuário apontaria de volta para o objeto de usuário do Sam em Contoso.com. O objeto de usuário da Fabrikam Sam é a representação local do Sam e seria usado para armazenar informações sobre a conta associada ao Sam no contexto de Fabrikam.com. No Contoso.com, o título de Sam é consultor sênior de DevOps. Na Fabrikam, o título do Sam é contratado-máquinas virtuais. No Contoso.com, Sam não é responsável, nem autorizado, a gerenciar máquinas virtuais. No Fabrikam.com, essa é sua única função de trabalho. No entanto, o Sam ainda tem apenas um conjunto de credenciais para controlar, que são as credenciais emitidas pelo Contoso.com.
+Adicionar a conta Contoso.com do Sam como um membro de Fabrikam.com resultaria na criação de um novo registro na Azure Active Directory da Fabrikam. com para Sam. O registro de Sam no Azure Active Directory é conhecido como um objeto de usuário. Nesse caso, esse objeto de usuário apontaria de volta para o objeto de usuário do Sam em Contoso.com. O objeto de usuário da Fabrikam Sam é a representação local do Sam e seria usado para armazenar informações sobre a conta associada ao Sam no contexto de Fabrikam.com. No Contoso.com, o título de Sam é consultor sênior de DevOps. Na Fabrikam, o título de Sam é Contractor-Virtual computadores. No Contoso.com, Sam não é responsável, nem autorizado, a gerenciar máquinas virtuais. No Fabrikam.com, essa é sua única função de trabalho. No entanto, o Sam ainda tem apenas um conjunto de credenciais para controlar, que são as credenciais emitidas pelo Contoso.com.
 
 Quando uma `acquireToken` chamada bem-sucedida for feita, você verá uma referência a um `IAccount` objeto que pode ser usado em solicitações posteriores `acquireTokenSilent` .
 
@@ -229,8 +230,6 @@ public interface SilentAuthenticationCallback {
      */
     void onError(final MsalException exception);
 }
-
-
 ```
 
 ## <a name="migrate-to-the-new-exceptions"></a>Migrar para as novas exceções
@@ -238,21 +237,29 @@ public interface SilentAuthenticationCallback {
 No ADAL, há um tipo de exceção, `AuthenticationException` , que inclui um método para recuperar o valor de `ADALError` enumeração.
 No MSAL, há uma hierarquia de exceções e cada uma tem seu próprio conjunto de códigos de erro específicos associados.
 
-Lista de exceções MSAL
+| Exceção                                        | Descrição                                                         |
+|--------------------------------------------------|---------------------------------------------------------------------|
+| `MsalArgumentException`                          | Gerado se um ou mais argumentos de entrada forem inválidos.                 |
+| `MsalClientException`                            | Gerado se o erro for do lado do cliente.                                 |
+| `MsalDeclinedScopeException`                     | Gerado se um ou mais escopos solicitados foram recusados pelo servidor. |
+| `MsalException`                                  | Exceção verificada padrão lançada por MSAL.                           |
+| `MsalIntuneAppProtectionPolicyRequiredException` | Gerado se o recurso tiver a política de proteção MAMCA habilitada.         |
+| `MsalServiceException`                           | Gerado se o erro for do lado do servidor.                                 |
+| `MsalUiRequiredException`                        | Gerado se o token não puder ser atualizado silenciosamente.                    |
+| `MsalUserCancelException`                        | Gerado se o usuário cancelou o fluxo de autenticação.                |
 
-|Exceção  | Descrição  |
-|---------|---------|
-| `MsalException`     | Exceção verificada padrão lançada por MSAL.  |
-| `MsalClientException`     | Gerado se o erro for do lado do cliente. |
-| `MsalArgumentException`     | Gerado se um ou mais argumentos de entrada forem inválidos. |
-| `MsalClientException`     | Gerado se o erro for do lado do cliente. |
-| `MsalServiceException`     | Gerado se o erro for do lado do servidor. |
-| `MsalUserCancelException`     | Gerado se o usuário cancelou o fluxo de autenticação.  |
-| `MsalUiRequiredException`     | Gerado se o token não puder ser atualizado silenciosamente.  |
-| `MsalDeclinedScopeException`     | Gerado se um ou mais escopos solicitados foram recusados pelo servidor.  |
-| `MsalIntuneAppProtectionPolicyRequiredException` | Gerado se o recurso tiver a política de proteção MAMCA habilitada. |
+### <a name="adalerror-to-msalexception-translation"></a>Tradução de ADALError para MsalException
 
-### <a name="adalerror-to-msalexception-errorcode"></a>ADALError MsalException ErrorCode
+| Se você estiver capturando esses erros no ADAL...  | ... Pegue estas exceções de MSAL:                                                         |
+|--------------------------------------------------|---------------------------------------------------------------------|
+| *Nenhum ADALError equivalente* | `MsalArgumentException`                          |
+| <ul><li>`ADALError.ANDROIDKEYSTORE_FAILED`<li>`ADALError.AUTH_FAILED_USER_MISMATCH`<li>`ADALError.DECRYPTION_FAILED`<li>`ADALError.DEVELOPER_AUTHORITY_CAN_NOT_BE_VALIDED`<li>`ADALError.EVELOPER_AUTHORITY_IS_NOT_VALID_INSTANCE`<li>`ADALError.DEVELOPER_AUTHORITY_IS_NOT_VALID_URL`<li>`ADALError.DEVICE_CONNECTION_IS_NOT_AVAILABLE`<li>`ADALError.DEVICE_NO_SUCH_ALGORITHM`<li>`ADALError.ENCODING_IS_NOT_SUPPORTED`<li>`ADALError.ENCRYPTION_ERROR`<li>`ADALError.IO_EXCEPTION`<li>`ADALError.JSON_PARSE_ERROR`<li>`ADALError.NO_NETWORK_CONNECTION_POWER_OPTIMIZATION`<li>`ADALError.SOCKET_TIMEOUT_EXCEPTION`</ul> | `MsalClientException`                            |
+| *Nenhum ADALError equivalente* | `MsalDeclinedScopeException`                     |
+| <ul><li>`ADALError.APP_PACKAGE_NAME_NOT_FOUND`<li>`ADALError.BROKER_APP_VERIFICATION_FAILED`<li>`ADALError.PACKAGE_NAME_NOT_FOUND`</ul> | `MsalException`                                  |
+| *Nenhum ADALError equivalente* | `MsalIntuneAppProtectionPolicyRequiredException` |
+| <ul><li>`ADALError.SERVER_ERROR`<li>`ADALError.SERVER_INVALID_REQUEST`</ul> | `MsalServiceException`                           |
+| <ul><li>`ADALError.AUTH_REFRESH_FAILED_PROMPT_NOT_ALLOWED` | `MsalUiRequiredException`</ul>                        |
+| *Nenhum ADALError equivalente* | `MsalUserCancelException`                        |
 
 ### <a name="adal-logging-to-msal-logging"></a>Log de ADAL no log de MSAL
 
@@ -271,30 +278,30 @@ Lista de exceções MSAL
 // New interface
   StringBuilder logs = new StringBuilder();
   Logger.getInstance().setExternalLogger(new ILoggerCallback() {
-            @Override
-            public void log(String tag, Logger.LogLevel logLevel, String message, boolean containsPII) {
-                logs.append(message).append('\n');
-            }
-        });
+      @Override
+      public void log(String tag, Logger.LogLevel logLevel, String message, boolean containsPII) {
+          logs.append(message).append('\n');
+      }
+  });
 
 // New Log Levels:
 public enum LogLevel
 {
-        /**
-         * Error level logging.
-         */
-        ERROR,
-        /**
-         * Warning level logging.
-         */
-        WARNING,
-        /**
-         * Info level logging.
-         */
-        INFO,
-        /**
-         * Verbose level logging.
-         */
-        VERBOSE
+    /**
+     * Error level logging.
+     */
+    ERROR,
+    /**
+     * Warning level logging.
+     */
+    WARNING,
+    /**
+     * Info level logging.
+     */
+    INFO,
+    /**
+     * Verbose level logging.
+     */
+    VERBOSE
 }
 ```

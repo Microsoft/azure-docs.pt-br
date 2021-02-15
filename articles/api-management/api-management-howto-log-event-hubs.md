@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: apimpm
-ms.openlocfilehash: 4909dde8efd7125a60509bb86b28f069bf6dbb24
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 5066169951409fa86aa75a64e8fc6d4189947f27
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87903384"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072400"
 ---
 # <a name="how-to-log-events-to-azure-event-hubs-in-azure-api-management"></a>Como registrar eventos em log para Hubs de Eventos do Azure no Gerenciamento de API do Azure
 Hub de Eventos do Azure é um serviço de entrada de dados altamente escalonável que pode incluir milhões de eventos por segundo, para que você possa processar e analisar grandes quantidades de dados produzidos por seus aplicativos e dispositivos conectados. Hub de Eventos age como a "porta de entrada” para um pipeline de eventos e depois que os dados são coletados em um hub de eventos, ele pode ser transformado e armazenado usando qualquer provedor de análise em tempo real ou adaptadores de envio em lote/armazenamento. Hub de Eventos separa a produção de um fluxo de eventos do consumo desses eventos, para que os consumidores de eventos possam acessar os eventos em seu próprio cronograma.
@@ -32,7 +32,7 @@ Para saber as etapas detalhadas sobre como criar um hub de eventos e obter cadei
 ## <a name="create-an-api-management-logger"></a>Criar um agente de Gerenciamento de API
 Agora que você tem um Hub de Eventos, a próxima etapa será configurar um [Agente](/rest/api/apimanagement/2019-12-01/logger) no seu serviço de Gerenciamento de API para que ele possa registrar eventos em log para o Hub de Eventos.
 
-Os agentes do Gerenciamento de API são configurados usando a [API REST do Gerenciamento de API](https://aka.ms/apimapi). Para obter exemplos de solicitação detalhados, consulte [como criar agentes](/rest/api/apimanagement/2019-12-01/logger/createorupdate).
+Os agentes do Gerenciamento de API são configurados usando a [API REST do Gerenciamento de API](/rest/api/apimanagement/ApiManagementREST/API-Management-REST). Para obter exemplos de solicitação detalhados, consulte [como criar agentes](/rest/api/apimanagement/2019-12-01/logger/createorupdate).
 
 ## <a name="configure-log-to-eventhub-policies"></a>Configurar políticas de log para eventhub
 

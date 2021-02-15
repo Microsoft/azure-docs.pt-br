@@ -1,19 +1,16 @@
 ---
 title: Analisar dados do Twitter com o Apache Hive – Azure HDInsight
 description: Aprenda como usar o Apache Hive e o Apache Hadoop no HDInsight para transformar dados brutos do TWitter em uma tabela Hive pesquisável.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ms.date: 12/16/2019
-ms.openlocfilehash: 8031e917d998b877e6c3a5830d69abf81c9bdebe
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 74a18be37608b2ac0c8a64655fa833753111706a
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086714"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98942778"
 ---
 # <a name="analyze-twitter-data-using-apache-hive-and-apache-hadoop-on-hdinsight"></a>Analisar dados do Twitter usando o Apache Hive e Apache Hadoop no HDInsight
 
@@ -38,9 +35,9 @@ O Twitter permite que você recupere os dados de cada tweet como um documento JS
    |--- |--- |
    | Nome |MyHDInsightApp |
    | Descrição |MyHDInsightApp |
-   | Site |`https://www.myhdinsightapp.com` |
+   | Site da Web |`https://www.myhdinsightapp.com` |
 
-4. Selecione **Sim, concordo**e, em seguida, selecione **criar seu aplicativo do Twitter**.
+4. Selecione **Sim, concordo** e, em seguida, selecione **criar seu aplicativo do Twitter**.
 
 5. Selecione a guia **permissões** . A permissão padrão é **somente leitura**.
 
@@ -313,4 +310,4 @@ Esses comandos armazenam os dados em um local que todos os nós no cluster podem
 Você aprendeu como transformar um conjunto de dados JSON não estruturado em uma tabela [Apache Hive](https://hive.apache.org/) estruturada. Para saber mais sobre o Hive no HDInsight, consulte os documentos a seguir:
 
 * [Introdução ao HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
-* [Analisar dados de atraso de voo usando o HDInsight](/azure/hdinsight/interactive-query/interactive-query-tutorial-analyze-flight-data)
+* [Analisar dados de atraso de voo usando o HDInsight](./interactive-query/interactive-query-tutorial-analyze-flight-data.md)

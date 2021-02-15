@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/13/2017
 ms.author: alkohli
-ms.openlocfilehash: 0c54b4e3015e255a6948202a6c3ea7a83362032f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e2d89718d953f05b3e5500db412ac8ac03bfa00b
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514909"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96301943"
 ---
 # <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>Solução de recuperação de desastre automatizada usando o Azure Site Recovery para compartilhamentos de arquivos hospedados no StorSimple
 
@@ -44,7 +44,7 @@ A implementação de uma solução de recuperação de desastre de um clique, qu
    - Dispositivo de armazenamento do StorSimple local registrado com o Azure StorSimple Manager
    - Dispositivo de Nuvem StorSimple criado no gerenciador do Azure StorSimple. O dispositivo pode ser mantido em um estado de desligamento.
    - Compartilhamentos de arquivos hospedados em volumes configurados no dispositivo de armazenamento do StorSimple
-   - [Cofre de serviços do Azure Site Recovery](../site-recovery/site-recovery-vmm-to-vmm.md) criado em uma assinatura do Microsoft Azure
+   - [Cofre de serviços do Azure Site Recovery](/azure/site-recovery/hyper-v-vmm-azure-tutorial) criado em uma assinatura do Microsoft Azure
 
 Além disso, se o Azure for seu site de recuperação, execute a [ferramenta de Avaliação de Prontidão de Máquina Virtual do Azure](https://azure.microsoft.com/downloads/vm-readiness-assessment/) nas VMs, a fim de garantir que elas sejam compatíveis com as VMs do Azure e com os serviços do Azure Site Recovery.
 
@@ -94,7 +94,7 @@ Esta etapa exige que você prepare o ambiente do servidor de arquivos local, cri
 1. Clique em **Próximo**.
 1. Aceite os **Termos do Contrato** e, em seguida, clique em **Avançar**.
 1. Clique em **Concluir**.
-1. Crie os compartilhamentos de arquivos usando volumes criados fora do armazenamento do StorSimple. Para obter mais informações, confira [Usar o serviço StorSimple Manager para gerenciar volumes](storsimple-manage-volumes.md).
+1. Crie os compartilhamentos de arquivos usando volumes criados fora do armazenamento do StorSimple. Para obter mais informações, confira [Usar o serviço StorSimple Manager para gerenciar volumes](./index.yml).
    
    1. Em suas VMs locais, pressione a tecla Windows +Q e pesquise por **iSCSI**.
    1. Selecione o **iniciador iSCSI**.
@@ -104,7 +104,7 @@ Esta etapa exige que você prepare o ambiente do servidor de arquivos local, cri
    1. Crie contêineres de volume e, em seguida, crie volumes. (Esses volumes são para os compartilhamentos de arquivos nas VMs do servidor de arquivos). Copie o nome do iniciador e dê um nome apropriado para os Registros de Controle de Acesso ao criar os volumes.
    1. Selecione a guia **Configurar** e anote o endereço IP do dispositivo.
    1. Em suas VMs locais, acesse o **iniciador iSCSI** novamente e digite o IP na seção Conexão Rápida. Clique em **Conexão Rápida** (o dispositivo agora deve estar conectado).
-   1. Abra a portal do Azure e selecione a guia **volumes e dispositivos** . clique em **Configurar automaticamente**. O volume que você criou deverá aparecer.
+   1. Abra a portal do Azure e selecione a guia **volumes e dispositivos** . Clique em **Configurar automaticamente**. O volume que você criou deverá aparecer.
    1. No portal, selecione a guia **Dispositivos** e, em seguida, selecione **Criar um Novo Dispositivo Virtual.**  (Este dispositivo virtual será usado se ocorrer um failover). Esse novo dispositivo virtual pode ser mantido em estado offline para evitar custos extras. Para colocar o dispositivo virtual offline, acesse a seção **Máquinas Virtuais** no Portal e desligue-o.
    1. Volte para as VMs locais e abra o Gerenciamento de Disco (pressione a tecla Windows + X e selecione **Gerenciamento de Disco**).
    1. Você notará alguns discos extras (dependendo do número de volumes que você criou). Clique com o botão direito do mouse no primeiro, selecione **Inicializar Disco** e selecione **OK**. Clique com o botão direito do mouse na seção **Não Alocado**, selecione **Novo Volume Simples**, atribua uma letra da unidade e conclua o assistente.
@@ -112,7 +112,7 @@ Esta etapa exige que você prepare o ambiente do servidor de arquivos local, cri
    1. Use a função Serviços de Arquivo e Armazenamento para criar compartilhamentos de arquivos nesses volumes.
 
 #### <a name="to-create-and-prepare-an-azure-site-recovery-vault"></a>Para criar e preparar um cofre do Azure Site Recovery
-Confira a [documentação do Azure Site Recovery](../site-recovery/site-recovery-hyper-v-site-to-azure.md) para começar a usá-lo antes de proteger a VM do servidor de arquivos.
+Confira a [documentação do Azure Site Recovery](/azure/site-recovery/) para começar a usá-lo antes de proteger a VM do servidor de arquivos.
 
 #### <a name="to-enable-protection"></a>Para habilitar a proteção
 1. Desconecte os destinos iSCSI das VMs locais que você deseja proteger por meio do Azure Site Recovery:
@@ -124,7 +124,7 @@ Confira a [documentação do Azure Site Recovery](../site-recovery/site-recovery
    > [!NOTE]
    > Isso fará com que os compartilhamentos de arquivos fiquem temporariamente indisponíveis.
    
-1. [Habilitar a proteção da máquina virtual](../site-recovery/site-recovery-hyper-v-site-to-azure.md) da VM do servidor de arquivos do portal do Azure Site Recovery.
+1. [Habilitar a proteção da máquina virtual](/azure/site-recovery/hyper-v-azure-tutorial) da VM do servidor de arquivos do portal do Azure Site Recovery.
 1. Quando a sincronização inicial começar, você poderá reconectar o destino novamente. Acesse o iniciador iSCSI, selecione o dispositivo StorSimple e clique em **Conectar**.
 1. Quando a sincronização for concluída e o status da VM estiver como **Protegida**, selecione a VM, depois a guia **Configurar** e atualize a rede da VM adequadamente (essa é a rede da qual as VMs submetidas ao failover farão parte). Se a rede não aparecer, isso significará que a sincronização ainda está em execução.
 
@@ -170,11 +170,11 @@ Você pode criar um plano de recuperação no ASR para automatizar o processo de
    
 1. Na conta de automação, clique em **Variáveis** &gt; **Adicionar uma variável** e adicione os seguintes variáveis. Você pode optar por criptografar esses ativos. Essas variáveis são específicas do plano de recuperação. Se o seu plano de recuperação, que você criará na próxima etapa, o nome será TestPlan, as variáveis deverão ser TestPlan-StorSimRegKey, TestPlan-AzureSubscriptionName e assim por diante.
 
-   - **BaseUrl**: A URL do Gerenciador de recursos de url para a nuvem do Azure. Obter usando **Get-AzEnvironment | SELECT – nome do objeto, cmdlet ResourceManagerUrl** .
+   - **BaseUrl**: A URL do Gerenciador de recursos de url para a nuvem do Azure. Obtenha usando **Get-AzEnvironment | Select-Object Name, ResourceManagerUrl** cmdlet.
    - _RecoveryPlanName_**-ResourceGroupName**: o grupo do Gerenciador de recursos que tem o recurso StorSimple.
    - _RecoveryPlanName_**-ManagerName**: o recurso storsimple que tem o dispositivo storsimple.
    - _RecoveryPlanName_**-DeviceName**: o dispositivo StorSimple que precisa ser reprovado.
-   - _RecoveryPlanName_**-DeviceIpAddress**: O endereço IP do dispositivo (isso pode ser encontrado na guia **Dispositivos** na seção do Gerenciador de Dispositivos do StorSimple &gt; **Configurações** &gt; **Rede grupo ** &gt; **Configurações de DNS**).
+   - _RecoveryPlanName_**-DeviceIpAddress**: O endereço IP do dispositivo (isso pode ser encontrado na guia **Dispositivos** na seção do Gerenciador de Dispositivos do StorSimple &gt; **Configurações** &gt; **Rede grupo** &gt; **Configurações de DNS**).
    - _RecoveryPlanName_**-VolumeContainers**: uma cadeia de caracteres separada por vírgulas de contêineres de volume presentes no dispositivo que precisa passar por failover; por exemplo: volcon1, volcon2, volcon3.
    - _RecoveryPlanName_**-TargetDeviceName**: o dispositivo de nuvem StorSimple no qual os contêineres devem passar por failover.
    - _RecoveryPlanName_**-TargetDeviceIpAddress**: o endereço IP do dispositivo de destino (isso pode ser encontrado na guia rede do grupo configurações da seção **máquina virtual** &gt; **Settings** &gt; **Networking** ).
@@ -294,7 +294,7 @@ Confira o guia complementar [Solução de DR do Active Directory](../site-recove
 1. No portal do Azure, selecione o cofre **Serviços de Recuperação**&gt; **Planos de Recuperação (Recuperação de Site)** &gt; **nome_planoderecuperação** criado para a VM do servidor de arquivos.
 1. Na folha do plano de Recuperação, Clique em **Mais** &gt;  **Failover Planejado**.
 
-   ![Plano de recuperação](./media/storsimple-disaster-recovery-using-azure-site-recovery/image9.png)
+   ![Captura de tela que realça as opções de failover e failover planejadas.](./media/storsimple-disaster-recovery-using-azure-site-recovery/image9.png)
 1. Na folha **Confirmar Failover Planejado**, escolha os locais de origem e destino, selecione a rede de destino e clique no ícone de seleção ✓ para iniciar o processo de failover.
 1. Depois que as máquinas virtuais de réplica são criadas, elas ficam em um estado de confirmação pendente. Clique em **Confirmar** para confirmar o failover.
 1. Depois que a replicação é concluída, as máquinas virtuais são iniciadas no local secundário.
@@ -305,7 +305,7 @@ Durante um failover não planejado, os volumes do StorSimple serão submetidos a
 #### <a name="to-perform-a-failover"></a>Executar um failover
 1. No portal do Azure, selecione o cofre **Serviços de Recuperação**&gt; **Planos de Recuperação (Recuperação de Site)** &gt; **nome_planoderecuperação** criado para a VM do servidor de arquivos.
 1. Na folha do plano de Recuperação, Clique em **Mais** &gt;  **Failover**.
-1. Na folha **Confirmar Failover **, escolha os locais de origem e de destino.
+1. Na folha **Confirmar Failover**, escolha os locais de origem e de destino.
 1. Selecione **Desligue as máquinas virtuais e sincronize os dados mais recentes** para especificar que a Recuperação de Site deve tentar desligar a máquina virtual protegida e sincronizar os dados para que ocorra o failover da versão mais recente dos dados.
 1. Após o failover, as máquinas virtuais entram em um estado de confirmação pendente. Clique em **Confirmar** para confirmar o failover.
 

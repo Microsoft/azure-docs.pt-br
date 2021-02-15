@@ -1,23 +1,23 @@
 ---
-title: Conectar e gerenciar Microsoft Azure Stack dispositivo de borda por meio da interface do Windows PowerShell | Microsoft Docs
-description: Descreve como se conectar ao e gerenciar o Azure Stack Edge por meio da interface do Windows PowerShell.
+title: Conectar e gerenciar Microsoft Azure Stack dispositivo pro Edge por meio da interface do Windows PowerShell | Microsoft Docs
+description: Descreve como se conectar ao e gerenciar o Azure Stack Edge pro por meio da interface do Windows PowerShell.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 06/25/2019
+ms.date: 09/30/2020
 ms.author: alkohli
-ms.openlocfilehash: 973c618b46d1b6be902d9629ca63ee120cae6855
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c9c6247f021b7af4cfdd899ffd4b6bd178f2256c
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85313211"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96345586"
 ---
-# <a name="manage-an-azure-stack-edge-device-via-windows-powershell"></a>Gerenciar um dispositivo de borda Azure Stack por meio do Windows PowerShell
+# <a name="manage-an-azure-stack-edge-pro-fpga-device-via-windows-powershell"></a>Gerenciar um dispositivo Azure Stack Edge pro FPGA por meio do Windows PowerShell
 
-Azure Stack solução Edge permite processar dados e enviá-los pela rede para o Azure. Este artigo descreve algumas das tarefas de configuração e gerenciamento para seu dispositivo Azure Stack Edge. Você pode usar o portal do Azure, a interface do usuário da Web local ou a interface do Windows PowerShell para gerenciar seu dispositivo.
+Azure Stack solução do Edge Pro permite processar dados e enviá-los pela rede para o Azure. Este artigo descreve algumas das tarefas de configuração e gerenciamento para seu dispositivo Azure Stack Edge pro. Você pode usar o portal do Azure, a interface do usuário da Web local ou a interface do Windows PowerShell para gerenciar seu dispositivo.
 
 Este artigo se concentra nas tarefas que você faz usando a interface do PowerShell. 
 
@@ -43,20 +43,20 @@ Este artigo inclui os seguintes procedimentos:
 
 [!INCLUDE [Upload certificate](../../includes/data-box-edge-gateway-upload-certificate.md)]
 
-Você também pode carregar IoT Edge certificados para habilitar uma conexão segura entre o dispositivo IoT Edge e os dispositivos downstream que podem se conectar a ele. Há três certificados de IoT Edge (formato *. pem* ) que você precisa instalar:
+Você também pode carregar certificados do IoT Edge para habilitar uma conexão segura entre o dispositivo do IoT Edge e os dispositivos downstream que podem se conectar a ele. Há três arquivos (formato *. pem* ) que você precisa instalar:
 
 - Certificado de autoridade de certificação raiz ou autoridade de certificação do proprietário
 - Certificado de autoridade de certificação de dispositivo
-- Certificado de chave do dispositivo
+- Chave privada do dispositivo 
 
 O exemplo a seguir mostra o uso desse cmdlet para instalar IoT Edge certificados:
 
 ```
-Set-HcsCertificate -Scope IotEdge -RootCACertificateFilePath "\\hcfs\root-ca-cert.pem" -DeviceCertificateFilePath "\\hcfs\device-ca-cert.pem\" -DeviceKeyFilePath "\\hcfs\device-key-cert.pem" -Credential "username"
+Set-HcsCertificate -Scope IotEdge -RootCACertificateFilePath "\\hcfs\root-ca-cert.pem" -DeviceCertificateFilePath "\\hcfs\device-ca-cert.pem\" -DeviceKeyFilePath "\\hcfs\device-private-key.pem" -Credential "username"
 ```
 Ao executar esse cmdlet, você será solicitado a fornecer a senha para o compartilhamento de rede.
 
-Para obter mais informações sobre certificados, acesse [Azure IOT Edge certificados](https://docs.microsoft.com/azure/iot-edge/iot-edge-certs) ou [instalar certificados em um gateway](https://docs.microsoft.com/azure/iot-edge/how-to-create-transparent-gateway).
+Para obter mais informações sobre certificados, acesse [Azure IOT Edge certificados](../iot-edge/iot-edge-certs.md) ou [instalar certificados em um gateway](../iot-edge/how-to-create-transparent-gateway.md).
 
 ## <a name="view-device-information"></a>Exibir informações do dispositivo
  
@@ -94,4 +94,4 @@ Para sair da sessão remota do PowerShell, feche a janela do PowerShell.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Implante [Azure Stack Edge](azure-stack-edge-deploy-prep.md) no portal do Azure.
+- Implantar o [Azure Stack Edge Pro](azure-stack-edge-deploy-prep.md) no portal do Azure.

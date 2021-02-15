@@ -1,27 +1,29 @@
 ---
 title: O que é a API do Detector de Anomalias?
 titleSuffix: Azure Cognitive Services
-description: Use algoritmos avançados da API do Detector de Anomalias para identificar anomalias em seus dados de série temporal.
+description: Use os algoritmos da API do Detector de Anomalias para aplicar a detecção de anomalias aos dados de série temporal.
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: overview
-ms.date: 12/18/2019
-ms.author: aahi
-ms.openlocfilehash: 9237e670dd8d43c4036f996c477948944718e3aa
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.date: 01/05/2021
+ms.author: mbullwin
+keywords: detecção de anomalias, machine learning, algoritmos
+ms.custom: cog-serv-seo-aug-2020
+ms.openlocfilehash: 425c6cab4a4a5e1329e2d38f49c5058ec8ffc5b9
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80053707"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97901361"
 ---
 # <a name="what-is-the-anomaly-detector-api"></a>O que é a API do Detector de Anomalias?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-A API do Detector de Anomalias permite monitorar e detectar anormalidades em seus dados de série temporal com aprendizado de máquina. A API do Detector de Anomalias adapta-se automaticamente identificando e aplicando os melhores modelos para seus dados, não importa o setor, o cenário nem o volume de dados. Usando seus dados de série temporal, a API determina os limites para detecção de anomalias, os valores esperados e quais pontos de dados são anomalias.
+A API do Detector de Anomalias permite monitorar e detectar anormalidades em seus dados de série temporal sem precisar entender sobre machine learning. Os algoritmos da API do Detector de Anomalias adaptam-se automaticamente identificando e aplicando os melhores modelos para seus dados, não importa o setor, o cenário nem o volume de dados. Usando seus dados de série temporal, a API determina os limites para detecção de anomalias, os valores esperados e quais pontos de dados são anomalias.
 
 ![Detectar alterações de padrão nas solicitações de serviço](./media/anomaly_detection2.png)
 
@@ -33,8 +35,9 @@ Com o Detector de Anomalias, você pode detectar anomalias automaticamente em to
 
 |Recurso  |Descrição  |
 |---------|---------|
-|Detecte anomalias conforme elas ocorrem em tempo real. | Detecte anomalias em seus dados de streaming usando pontos de vistos anteriormente para determinar se pelo menos um é uma anomalia. Essa operação gera um modelo usando os pontos de dados que você envia e determina se o ponto de destino é uma anomalia. Ao chamar a API com cada novo ponto de dados que você gera, você pode monitorar seus dados conforme eles são criados. |
+|Detecção de anomalias em tempo real. | Detecte anomalias em seus dados de streaming usando pontos de vistos anteriormente para determinar se pelo menos um é uma anomalia. Essa operação gera um modelo usando os pontos de dados que você envia e determina se o ponto de destino é uma anomalia. Ao chamar a API com cada novo ponto de dados que você gera, você pode monitorar seus dados conforme eles são criados. |
 |Detecte anomalias em todo o conjunto de dados como um lote. | Use sua série temporal para detectar todas as anomalias que podem existir em seus dados. Essa operação gera um modelo usando todos os seus dados de série temporal, analisando cada ponto com o mesmo modelo.         |
+|Detecte os pontos de alteração em todo o conjunto de dados como um lote. | Use a série temporal para detectar qualquer ponto de alteração de tendência existente nos dados. Essa operação gera um modelo usando todos os seus dados de série temporal, analisando cada ponto com o mesmo modelo.    |
 | Obtenha informações adicionais sobre seus dados. | Obtenha detalhes úteis sobre seus dados e todas as anomalias observadas, incluindo valores esperados, limites de anomalias e posições. |
 | Ajuste os limites de detecção de anomalias. | A API do Detector de Anomalias criará automaticamente limites para a detecção de anomalias. Ajuste esses limites para aumentar ou diminuir a sensibilidade da API a anomalias de dados e ajustar melhor seus dados. |
 
@@ -45,7 +48,7 @@ Para executar a demonstração, você precisa criar um recurso de Detector de An
 
 ## <a name="notebook"></a>Notebook
 
-Para saber como chamar a API do Detector de Anomalias, experimente este [Notebook do Azure](https://aka.ms/adNotebook). Este Jupyter Notebook hospedado na Web mostra como enviar uma solicitação à API e visualizar o resultado.
+Para saber como chamar a API do Detector de Anomalias, experimente este [Notebook](https://aka.ms/adNotebook). Este Jupyter Notebook mostra como enviar uma solicitação de API e visualizar o resultado.
 
 Para executar o Notebook, conclua as seguintes etapas:
 
@@ -80,8 +83,21 @@ Após a inscrição:
 
 Você pode ler o artigo [Serviço de detecção de anomalias da série temporal na Microsoft](https://arxiv.org/abs/1906.03821) (aceito por KDD 2019) para saber mais sobre os algoritmos SR-CNN desenvolvidos pela Microsoft.
 
-
 > [!VIDEO https://www.youtube.com/embed/ERTaAnwCarM]
+
+## <a name="service-availability-and-redundancy"></a>Disponibilidade e redundância do serviço
+
+### <a name="is-the-anomaly-detector-service-zone-resilient"></a>A zona de serviço do Detector de Anomalias é resiliente?
+
+Sim. O serviço do Detector de Anomalias tem uma zona resiliente por padrão.
+
+### <a name="how-do-i-configure-the-anomaly-detector-service-to-be-zone-resilient"></a>Como devo configurar o serviço do Detector de Anomalias para obter uma zona resiliente?
+
+Nenhuma configuração do cliente será necessária para habilitar a resiliência de zona. A resiliência de zona está disponível por padrão para recursos do Detector de Anomalias, além de ser gerenciada pelo serviço.
+
+## <a name="deploy-on-premises-using-docker-containers"></a>Implantação local usando contêineres do Docker
+
+[Use contêineres do Detector de Anomalias](anomaly-detector-container-howto.md) para implantar recursos de API no local. Os contêineres do Docker permitem que você aproxime o serviço dos seus dados para fins de conformidade, segurança ou outras razões operacionais.
 
 ## <a name="join-the-anomaly-detector-community"></a>Ingressar na comunidade do Detector de Anomalias
 
@@ -90,6 +106,6 @@ Você pode ler o artigo [Serviço de detecção de anomalias da série temporal 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Início Rápido: Detectar anomalias nos dados de série temporal usando a API REST do Detector de Anomalias](quickstarts/detect-data-anomalies-csharp.md)
+* [Início Rápido: Detectar anomalias nos dados de série temporal usando o Detector de Anomalias](quickstarts/client-libraries.md)
 * A [demonstração online](https://notebooks.azure.com/AzureAnomalyDetection/projects/anomalydetector) da API do Detector de Anomalias
-* A [referência da API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector/operations/post-timeseries-entire-detect) do Detector de Anomalias
+* A [referência da API REST](https://aka.ms/anomaly-detector-rest-api-ref) do Detector de Anomalias

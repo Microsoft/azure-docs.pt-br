@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/15/2020
-ms.openlocfilehash: f1d8715fcadeda5ccd1a98192a70939b0c359c88
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b5a893ee1923ba4b2bec53b20fb164337bd65902
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84976669"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558106"
 ---
 # <a name="skillset-concepts-in-azure-cognitive-search"></a>Conceitos do Skills no Azure Pesquisa Cognitiva
 
@@ -222,8 +222,6 @@ A abordagem de formatação é mais detalhada do que a formatação embutida, ma
 Para estender o exemplo, você pode optar por remover a formatação embutida e usar uma habilidade de formatação para criar um novo nó para as frases-chave. Para criar uma forma projetada em três tabelas, isto é, `hotelReviewsDocument`, `hotelReviewsPages` e `hotelReviewsKeyPhrases`, as duas opções são descritas nas seções a seguir.
 
 #### <a name="shaper-skill-and-projection"></a>Habilidade de formatação e projeção
-
-Esse 
 
 > [!Note]
 > Para sermos breves, algumas das colunas da tabela de documentos foram removidas deste exemplo.

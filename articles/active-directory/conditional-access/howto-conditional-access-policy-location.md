@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a531692264a768e4f6cb8e6475807789df049d03
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: e257ab39257b23c52aaadbe32f0325e8d71a8409
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89049139"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98597979"
 ---
 # <a name="conditional-access-block-access-by-location"></a>Acesso Condicional: Bloquear o acesso por local
 
@@ -43,13 +43,15 @@ Mais informações sobre a condição de localização no Acesso Condicional pod
 1. Dê um nome à sua política. Recomendamos que as organizações criem um padrão significativo para os nomes de suas políticas.
 1. Em **Atribuições**, selecione **Usuários e grupos**
    1. Em **Incluir**, selecione **Todos os usuários**.
-1. Em **aplicativos de nuvem ou ações**  >  ,**inclua**e selecione **todos os aplicativos de nuvem**.
+   1. Em **Excluir**, selecione **Usuários e grupos** e escolha o acesso de emergência ou as contas de interrupção da sua organização. 
+   1. Selecione **Concluído**.
+1. Em **aplicativos de nuvem ou ações**  >  ,**inclua** e selecione **todos os aplicativos de nuvem**.
 1. Em **Condições** > **Localização**.
    1. Defina **Configurar** como **Sim**
    1. Em **incluir**, selecione **locais selecionados**
    1. Selecione o local bloqueado que você criou para sua organização.
    1. Clique em **Selecionar**.
-1. Em **controles de acesso** > selecione **bloquear acesso**e selecione **selecionar**.
+1. Em **controles de acesso** > selecione **bloquear acesso** e selecione **selecionar**.
 1. Confirme suas configurações e defina **Habilitar política** como **Ativado**.
 1. Selecione **criar** para criar a política de acesso condicional.
 

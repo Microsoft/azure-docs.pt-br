@@ -1,24 +1,25 @@
 ---
-title: O que é o repositório analítico do Azure Cosmos DB (versão prévia)?
+title: O que é Azure Cosmos DB repositório analítico?
 description: Saiba mais sobre o repositório transacional (baseado em linha) e analítico (baseado em coluna) do Azure Cosmos DB. Benefícios do repositório analítico, impacto no desempenho para cargas de trabalho de larga escala e sincronização automática de dados do repositório transacional para o repositório analítico
 author: Rodrigossz
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 11/30/2020
 ms.author: rosouz
-ms.openlocfilehash: b3d1371f486a73b40d352007e3681fd451a8a8b7
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.custom: seo-nov-2020
+ms.openlocfilehash: 5dc233348188791404f826870b235d2bdfa4c202
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815820"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452843"
 ---
-# <a name="what-is-azure-cosmos-db-analytical-store-preview"></a>O que é o repositório analítico do Azure Cosmos DB (versão prévia)?
+# <a name="what-is-azure-cosmos-db-analytical-store"></a>O que é Azure Cosmos DB repositório analítico?
+[!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
-> [!IMPORTANT]
-> O repositório analítico do Azure Cosmos DB está atualmente em versão prévia. Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Para obter mais informações, consulte os [Termos de uso complementares de versões prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Azure Cosmos DB repositório analítico é um repositório de coluna totalmente isolado para habilitar a análise em larga escala contra dados operacionais em seu Azure Cosmos DB, sem nenhum impacto em suas cargas de trabalho transacionais. 
 
-O repositório analítico do Azure Cosmos DB é um repositório de coluna totalmente isolado para habilitar a análise em grande escala em relação a dados operacionais em seu Azure Cosmos DB, sem nenhum impacto sobre suas cargas de trabalho transacionais.  
+O repositório transacional do Azure Cosmos DB é independente de esquema e permite que você faça uma iteração nos seus aplicativos transacionais sem a necessidade de lidar com gerenciamento de índices ou de esquemas. De modo contrastante, o repositório analítico do Azure Cosmos DB é esquematizado para otimizar o desempenho de consultas analíticas. Este artigo descreve detalhadamente o armazenamento analítico.
 
 ## <a name="challenges-with-large-scale-analytics-on-operational-data"></a>Desafios com análise em larga escala sobre dados operacionais
 
@@ -30,11 +31,11 @@ Os pipelines de ETL também se tornam complexos ao lidar com atualizações dos 
 
 ## <a name="column-oriented-analytical-store"></a>Repositório analítico orientado por coluna
 
-O repositório analítico do Azure Cosmos DB aborda os desafios de complexidade e latência que ocorrem com os pipelines de ETL tradicionais. O repositório analítico do Azure Cosmos DB pode sincronizar automaticamente seus dados operacionais em um repositório de coluna separado. O formato de repositório de coluna é adequado para consultas analíticas de larga escala a serem executadas de maneira otimizada, resultando na melhoria da latência dessas consultas.
+O repositório analítico do Azure Cosmos DB aborda os desafios de complexidade e latência que ocorrem com os pipelines de ETL tradicionais. O repositório analítico do Azure Cosmos DB pode sincronizar automaticamente seus dados operacionais em um repositório de coluna separado. O formato de repositório de coluna é adequado para consultas analíticas em larga escala a serem executadas de maneira otimizada, resultando na melhoria da latência dessas consultas.
 
-Agora, ao usar o Link do Azure Synapse, você pode criar soluções de HTAP sem ETL ao vincular diretamente ao repositório analítico do Azure Cosmos DB a partir do Synapse Analytics. Isso permite que você execute análises de larga escala quase em tempo real em seus dados operacionais.
+Usando o link Synapse do Azure, agora você pode criar soluções de HTAP sem ETL vinculando diretamente a Azure Cosmos DB repositório analítico do Azure Synapse Analytics. Isso permite que você execute análises de larga escala quase em tempo real em seus dados operacionais.
 
-## <a name="analytical-store-details"></a>Detalhes do repositório analítico
+## <a name="features-of-analytical-store"></a>Recursos do repositório analítico 
 
 Quando você habilitar o repositório analítico em um contêiner do Azure Cosmos DB, um novo repositório de coluna será criado internamente com base nos dados operacionais em seu contêiner. Esse repositório de coluna é persistido separadamente do repositório transacional orientado por linha desse contêiner. As inserções, atualizações e exclusões dos seus dados operacionais são sincronizadas automaticamente ao repositório analítico. Você não precisa do feed de alterações ou da ETL para sincronizar os dados.
 
@@ -60,7 +61,7 @@ Não há nenhum impacto no desempenho de suas cargas de trabalho transacionais d
 
 ### <a name="auto-sync"></a>Sincronização automática
 
-A sincronização automática refere-se à capacidade totalmente gerenciada do Azure Cosmos DB em que as inserções, atualizações e exclusões em relação a dados operacionais são sincronizadas automaticamente do repositório transacional para o repositório analítico em tempo quase real dentro de 5 minutos.
+A sincronização automática refere-se ao recurso totalmente gerenciado de Azure Cosmos DB onde as inserções, atualizações, exclusões em dados operacionais são sincronizadas automaticamente do armazenamento transacional para o repositório analítico em tempo quase real. A latência de sincronização automática geralmente é de 2 minutos. Em casos de banco de dados de produtividade compartilhado com um grande número de contêineres, a latência de sincronização automática de contêineres individuais pode ser maior e levar até 5 minutos. Gostaríamos de saber mais sobre como essa latência se adapta a seus cenários. Para isso, entre em contato com a [equipe de Azure Cosmos DB](mailto:cosmosdbsynapselink@microsoft.com).
 
 O recurso de sincronização automática, junto com o repositório analítico, fornece os seguintes benefícios principais:
 
@@ -70,35 +71,94 @@ Ao usar o particionamento horizontal, o repositório transacional do Azure Cosmo
 
 #### <a name="automatically-handle-schema-updates"></a><a id="analytical-schema"></a>Lidar automaticamente com atualizações de esquema
 
-O repositório transacional do Azure Cosmos DB é independente de esquema e permite que você faça uma iteração nos seus aplicativos transacionais sem a necessidade de lidar com gerenciamento de índices ou de esquemas. De modo contrastante, o repositório analítico do Azure Cosmos DB é esquematizado para otimizar o desempenho de consultas analíticas. Com o recurso de sincronização automática, o Azure Cosmos DB gerencia a inferência de esquema sobre as atualizações mais recentes do repositório transacional.  Ele também gerencia a representação do esquema no repositório analítico pronto para uso, que inclui o tratamento de tipos de dados aninhados.
+O repositório transacional do Azure Cosmos DB é independente de esquema e permite que você faça uma iteração nos seus aplicativos transacionais sem a necessidade de lidar com gerenciamento de índices ou de esquemas. De modo contrastante, o repositório analítico do Azure Cosmos DB é esquematizado para otimizar o desempenho de consultas analíticas. Com o recurso de sincronização automática, o Azure Cosmos DB gerencia a inferência de esquema sobre as atualizações mais recentes do armazenamento transacional.  Ele também gerencia a representação do esquema no repositório analítico pronto para uso, que inclui o tratamento de tipos de dados aninhados.
 
-Nele, há uma evolução de esquema em que novas propriedades são adicionadas ao longo do tempo, e o repositório analítico apresenta automaticamente um esquema unido entre todos os esquemas históricos no repositório transacional.
+À medida que o esquema evolui e novas propriedades são adicionadas ao longo do tempo, o repositório analítico apresenta automaticamente um esquema Union em todos os esquemas históricos no armazenamento transacional.
 
-Se todos os dados operacionais no Azure Cosmos DB seguirem um esquema bem definido para análise, o esquema será automaticamente inferido e representado corretamente no repositório analítico. Se o esquema bem definido de análise, conforme definido abaixo, for violado por determinados itens, eles não serão incluídos no repositório analítico. Se você tiver cenários bloqueados pelo esquema bem definido de definição de análise, envie um email para a [equipe do Azure Cosmos DB](mailto:cosmosdbsynapselink@microsoft.com).
+##### <a name="schema-constraints"></a>Restrições de esquema
 
-Um esquema bem definido para a análise é definido com as seguintes considerações:
+As seguintes restrições são aplicáveis aos dados operacionais em Azure Cosmos DB quando você habilita o repositório analítico para inferir e representar automaticamente o esquema corretamente:
 
-* Uma propriedade sempre tem o mesmo tipo em vários itens
-
-  * Por exemplo, `{"a":123} {"a": "str"}` não tem um esquema bem definido porque, às vezes, `"a"` é uma cadeia de caracteres e, outras vezes, um número. 
+* Você pode ter um máximo de 200 propriedades em qualquer nível de aninhamento no esquema e uma profundidade de aninhamento máxima de 5.
   
-    Nesse caso, o repositório analítico registra o tipo de dados de `“a”` como o tipo de dados de `“a”` no primeiro item que ocorre no tempo de vida do contêiner. Os itens em que o tipo de dados de `“a”` diferirem não serão incluídos no repositório analítico.
+  * Um item com propriedades 201 no nível superior não atende a essa restrição e, portanto, não será representado no repositório analítico.
+  * Um item com mais de cinco níveis aninhados no esquema também não atende a essa restrição e, portanto, não será representado no repositório analítico. Por exemplo, o seguinte item não atende ao requisito:
+
+     `{"level1": {"level2":{"level3":{"level4":{"level5":{"too many":12}}}}}}`
+
+* Os nomes de propriedade devem ser exclusivos quando comparados sem distinção entre maiúsculas e minúsculas. Por exemplo, os itens a seguir não atendem a essa restrição e, portanto, não serão representados no repositório analítico:
+
+  `{"Name": "fred"} {"name": "john"}` – "Name" e "Name" são os mesmos quando comparados em uma maneira não sensível a maiúsculas e minúsculas.
+
+##### <a name="schema-representation"></a>Representação de esquema
+
+Há dois modos de representação de esquema no repositório analítico. Esses modos têm compensações entre a simplicidade de uma representação de coluna, a manipulação dos esquemas polimórficos e a simplicidade da experiência de consulta:
+
+* Representação de esquema bem definida
+* Representação de esquema de fidelidade total
+
+> [!NOTE]
+> Para contas de API do SQL (núcleo), quando o repositório analítico está habilitado, a representação de esquema padrão no repositório analítico é bem definida. Enquanto para as contas Azure Cosmos DB API para MongoDB, a representação de esquema padrão no repositório analítico é uma representação de esquema de fidelidade total. Se você tiver cenários que exigem uma representação de esquema diferente da oferta padrão para cada uma dessas APIs, entre em contato com a [equipe de Azure Cosmos DB](mailto:cosmosdbsynapselink@microsoft.com) para habilitá-la.
+
+**Representação de esquema bem definida**
+
+A representação de esquema bem definida cria uma representação de tabela simples dos dados independentes de esquema no armazenamento transacional. A representação de esquema bem definida tem as seguintes considerações:
+
+* Uma propriedade sempre tem o mesmo tipo em vários itens.
+
+  * Por exemplo, `{"a":123} {"a": "str"}` não tem um esquema bem definido porque, às vezes, `"a"` é uma cadeia de caracteres e, outras vezes, um número. Nesse caso, o armazenamento analítico registra o tipo de dados de `“a”` como o tipo de dados do `“a”` no primeiro item que ocorre no tempo de vida do contêiner. Os itens em que o tipo de dados de `“a”` diferirem não serão incluídos no repositório analítico.
   
-    Essa condição não se aplica a propriedades nulas. Por exemplo, `{"a":123} {"a":null}` ainda é bem definido.
+    Essa condição não se aplica a propriedades nulas. Por exemplo, `{"a":123} {"a":null}` ainda está bem definido.
 
-* Tipos de matriz devem conter um único tipo repetido
+* Os tipos de matriz devem conter um único tipo repetido.
 
-  * Por exemplo, `{"a": ["str",12]}` não é um esquema bem definido porque a matriz contém uma combinação de tipos inteiros e cadeias de caracteres
+  * Por exemplo, `{"a": ["str",12]}` não é um esquema bem definido porque a matriz contém uma mistura de tipos inteiros e de cadeia de caracteres.
 
-* Há um máximo de 200 propriedades em qualquer nível de aninhamento de um esquema, além de uma profundidade máxima de aninhamento de 5
+> [!NOTE]
+> Se o repositório analítico de Azure Cosmos DB seguir a representação de esquema bem definida e a especificação acima for violada por determinados itens, esses itens não serão incluídos no repositório analítico.
 
-  * Um item com 201 propriedades no nível superior não tem um esquema bem definido.
+**Representação de esquema de fidelidade total**
 
-  * Um item com mais de cinco níveis aninhados no esquema também não tem um esquema bem definido. Por exemplo, `{"level1": {"level2":{"level3":{"level4":{"level5":{"too many":12}}}}}}`
+A representação de esquema de fidelidade total foi projetada para lidar com toda a amplitude de esquemas polimórficos nos dados operacionais independentes de esquema. Nessa representação de esquema, nenhum item é removido do repositório analítico, mesmo que as restrições de esquema bem definidas (que não sejam campos de tipo de dados mistos nem matrizes de tipos de dados misturadas) sejam violadas.
 
-* Nomes de propriedade são exclusivos quando comparados em uma maneira que não diferencia maiúsculas de minúsculas
+Isso é obtido pela tradução das propriedades de folha dos dados operacionais para o repositório analítico com colunas distintas com base no tipo de dados dos valores na propriedade. Os nomes de propriedade de folha são estendidos com tipos de dados como um sufixo no esquema de armazenamento analítico, de forma que eles possam ser consultas sem ambigüidade.
 
-  * Por exemplo, os itens a seguir não têm um esquema bem definido: `{"Name": "fred"} {"name": "john"}` – `"Name"` e `"name"` são os mesmos quando comparados em uma maneira que não diferencia maiúsculas de minúsculas
+Por exemplo, vamos pegar o seguinte documento de exemplo no repositório transacional:
+
+```json
+{
+name: "John Doe",
+age: 32,
+profession: "Doctor",
+address: {
+  streetNo: 15850,
+  streetName: "NE 40th St.",
+  zip: 98052
+},
+salary: 1000000
+}
+```
+
+A propriedade folha `streetNo` dentro do objeto aninhado `address` será representada no esquema de repositório analítico como uma coluna `address.object.streetNo.int32` . O tipo de dados é adicionado como um sufixo à coluna. Dessa forma, se outro documento for adicionado ao armazenamento transacional onde o valor da propriedade folha `streetNo` for "123" (Observe que é uma cadeia de caracteres), o esquema do repositório analítico evoluirá automaticamente sem alterar o tipo de uma coluna gravada anteriormente. Uma nova coluna adicionada ao repositório analítico como `address.object.streetNo.string` onde esse valor de "123" é armazenado.
+
+**Tipo de dados para mapa de sufixo**
+
+Aqui está um mapa de todos os tipos de dados de propriedade e suas representações de sufixo no repositório analítico:
+
+|Tipo de dados original  |Sufixo  |Exemplo  |
+|---------|---------|---------|
+| Duplo |  ". float64" |    24,99|
+| Array | ". array" |    ["a", "b"]|
+|Binário | ". Binary" |0|
+|Boolean    | ". bool"   |Verdadeiro|
+|Int32  | ". Int32"  |123|
+|Int64  | ". Int64"  |255486129307|
+|Nulo   | ". NULL"   | null|
+|String|    ". String" | "ABC"|
+|Timestamp |    ". Timestamp" |  Carimbo de data/hora (0, 0)|
+|Datetime   |". Date"    | ISODate ("2020-08-21T07:43:07.375 Z")|
+|ObjectId   |". objectId"    | ObjectId ("5f3f7b59330ec25c132623a2")|
+|Documento   |". Object" |    {"a": "a"}|
 
 ### <a name="cost-effective-archival-of-historical-data"></a>Arquivamento econômico de dados históricos
 
@@ -112,16 +172,16 @@ Se você tiver uma conta do Azure Cosmos DB distribuída globalmente, depois de 
 
 ### <a name="security"></a>Segurança
 
-A autenticação com o repositório analítico é igual a de um repositório transacional para um determinado banco de dados. Você pode usar chaves mestras ou somente leitura para a autenticação. Você pode usar o serviço vinculado no Synapse Studio para evitar colar as chaves do Azure Cosmos DB nos notebooks do Spark. O acesso a esse serviço vinculado está disponível para todos que tenham acesso ao espaço de trabalho.
+A autenticação com o repositório analítico é igual a de um repositório transacional para um determinado banco de dados. Você pode usar chaves primárias ou somente leitura para autenticação. Você pode usar o serviço vinculado no Synapse Studio para evitar colar as chaves do Azure Cosmos DB nos notebooks do Spark. O acesso a esse serviço vinculado está disponível para todos que tenham acesso ao espaço de trabalho.
 
 ### <a name="support-for-multiple-azure-synapse-analytics-runtimes"></a>Suporte para vários runtimes do Azure Synapse Analytics
 
 O repositório analítico é otimizado para fornecer escalabilidade, elasticidade e desempenho para cargas de trabalho analíticas sem qualquer dependência dos tempos de execução de computação. A tecnologia de armazenamento é autogerenciada para otimizar suas cargas de trabalho de análise se esforços manuais.
 
-Ao desacoplar o sistema de repositório analítico do sistema de computação analítica, os dados no repositório analítico do Azure Cosmos DB podem ser consultados simultaneamente em diferentes runtimes de análise com suporte do Azure Synapse Analytics. A partir de hoje, o Synapse Analytics tem suporte para o Apache Spark e o SQL sem servidor com o repositório analítico do Azure Cosmos DB.
+Ao desacoplar o sistema de repositório analítico do sistema de computação analítica, os dados no repositório analítico do Azure Cosmos DB podem ser consultados simultaneamente em diferentes runtimes de análise com suporte do Azure Synapse Analytics. A partir de hoje, o Azure Synapse Analytics dá suporte a Apache Spark e a pool de SQL sem servidor com Azure Cosmos DB repositório analítico.
 
 > [!NOTE]
-> Você só pode ler o repositório analítico usando o tempo de execução do Synapse Analytics. Você pode gravar os dados de volta no seu repositório transacional como uma camada de serviço.
+> Você só pode ler do repositório analítico usando o tempo de execução da análise de Synapse do Azure. Você pode gravar os dados de volta no seu repositório transacional como uma camada de serviço.
 
 ## <a name="pricing"></a><a id="analytical-store-pricing"></a> Preços
 
@@ -131,10 +191,7 @@ O repositório analítico segue um modelo de preço baseado em consumo no qual v
 
 * Operações de gravação analítica: a sincronização totalmente gerenciada de atualizações de dados operacionais para o repositório analítico a partir do repositório transacional (sincronização automática).
 
-* Operações de leitura analítica: as operações de leitura executadas no repositório analítico do Synapse Analytics Spark e tempos de execução sem SQL Server.
-
-> [!NOTE]
-> Azure Cosmos DB repositório analítico está disponível atualmente na visualização pública gratuita de quaisquer encargos.
+* Operações de leitura analítica: as operações de leitura executadas no armazenamento analítico do pool Spark do Azure Synapse Analytics e tempos de execução do pool SQL sem servidor.
 
 O preço do repositório analítico é separado do modelo de preços do repositório transacional. Não há nenhum conceito de RUs provisionadas no repositório analítico. Consulte a [página de preços do Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/) para obter detalhes completos sobre o modelo de preços do repositório analítico.
 
@@ -155,10 +212,17 @@ A TTL Analítico em um contêiner é definida usando a propriedade `AnalyticalSt
 * Se presente e o valor for definido como algum número positivo “n”: os itens expirarão do repositório analítico “n” segundos após a hora da última modificação no repositório transacional. Essa configuração poderá ser utilizada se você quiser manter seus dados operacionais por um período de tempo limitado no repositório analítico, independentemente da retenção dos dados no armazenamento transacional
 
 Considere o seguinte:
+
 *   Depois que o repositório analítico for habilitado com um determinado valor de TTL analítico, é possível atualizá-lo posteriormente com um valor válido diferente. 
 *   Embora a TTL transacional possa ser definida no nível de contêiner ou de item, atualmente, a TTL analítica só pode ser definida no nível de contêiner.
 *   Você pode obter uma retenção mais longa de seus dados operacionais no repositório analítico ao definir a TTL analítica > = TTL transacional no nível de contêiner.
-*   O repositório analítico pode ser feito para espelhar o armazenamento transacional ao definir a TTL analítica = TTL transacional.
+*   O repositório analítico pode ser feito para espelhar o armazenamento transacional, definindo o TTL analítico = transacional TTL.
+
+Quando você habilita o repositório analítico em um contêiner:
+
+* No portal do Azure, a opção de TTL analítico é definida como o valor padrão de-1. Você pode alterar esse valor para ' n' segundos, navegando para configurações de contêiner em Data Explorer. 
+ 
+* No SDK do Azure ou no PowerShell ou na CLI, a opção de TTL analítico pode ser habilitada definindo-a como-1 ou ' n'. 
 
 Para saber mais, confira [Como configurar a TTL analítica em um contêiner](configure-synapse-link.md#create-analytical-ttl).
 

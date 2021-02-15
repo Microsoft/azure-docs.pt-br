@@ -1,6 +1,6 @@
 ---
-title: Otimizar o desempenho nas máquinas virtuais da série Lsv2 do Azure – armazenamento
-description: Saiba como otimizar o desempenho da sua solução nas máquinas virtuais da série Lsv2.
+title: Otimizar o desempenho nas máquinas virtuais da série Lsv2 do Azure
+description: Saiba como otimizar o desempenho da sua solução nas máquinas virtuais da série Lsv2 usando um exemplo do Windows.
 author: sasha-melamed
 ms.service: virtual-machines-windows
 ms.subservice: sizes
@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 04/17/2019
 ms.author: joelpell
-ms.openlocfilehash: 82554982cd55b6c5fb2b96b2752b00401cb896d8
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 8eab37c5bc23711e27986813a2012a1efc3206db
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88653623"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807811"
 ---
 # <a name="optimize-performance-on-the-lsv2-series-windows-virtual-machines"></a>Otimizar o desempenho nas máquinas virtuais do Windows da série Lsv2
 

@@ -1,17 +1,15 @@
 ---
 title: Conectar-se e comunicar-se com serviços no Azure Service Fabric
 description: Saiba como resolver, conectar-se e comunicar-se com serviços no Service Fabric.
-author: vturecek
 ms.topic: conceptual
 ms.date: 11/01/2017
-ms.author: vturecek
 ms.custom: devx-track-csharp
-ms.openlocfilehash: cf39fcbfbde8a81400cd93c7f99b066a99f643bd
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 11f525eba89dc963deee0ba9a86566361ef644de
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89005370"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576291"
 ---
 # <a name="connect-and-communicate-with-services-in-service-fabric"></a>Conectar e se comunicar com serviços no Service Fabric
 No Service Fabric, um serviço é executado em algum lugar em um cluster do Service Fabric, normalmente distribuído entre várias VMs. Ele pode ser movido de um local para outro, pelo proprietário do serviço ou automaticamente pelo Service Fabric. Os serviços não estão estaticamente vinculados a um determinado computador ou endereço.
@@ -30,7 +28,7 @@ Em um sistema distribuído, os serviços podem passar de um computador para outr
 
 O Service Fabric fornece um serviço de descoberta e resolução chamado Serviço de Nomenclatura. O Serviço de Nomenclatura mantém uma tabela que mapeia instâncias do serviço nomeadas para os endereços de ponto de extremidade que elas escutam. Todas as instâncias de serviço nomeadas do Service Fabric têm nomes exclusivos representados como URIs, como por exemplo, `"fabric:/MyApplication/MyService"`. O nome do serviço não é alterado com o tempo de vida do serviço, apenas os endereços de ponto de extremidade podem ser alterados quando ao mover os serviços. Isso é semelhante aos sites que têm URLs constantes, mas em que o endereço IP pode mudar. E assim como DNS na web, que resolve as URLs do site para endereços IP, o Service Fabric tem um registrador que mapeia nomes de serviço para seu endereço do ponto de extremidade.
 
-![pontos de extremidade de serviço][2]
+![Diagrama que mostra que Service Fabric tem um registrador que mapeia nomes de serviço para seu endereço de ponto de extremidade.][2]
 
 Resolver e conectar-se aos serviços envolve as seguintes etapas executadas em um loop:
 
@@ -47,14 +45,14 @@ Como muitos serviços, especialmente serviços em contêineres, podem ter um nom
 
 Conforme mostrado no diagrama a seguir, o serviço DNS, em execução no cluster do Service Fabric, mapeia nomes DNS para nomes de serviço que são então resolvidos pelo Serviço de Nomeação para retornar os endereços de ponto de extremidade aos quais se conectar. O nome DNS do serviço é fornecido no momento da criação. 
 
-![pontos de extremidade de serviço][9]
+![Diagrama que mostra como o serviço DNS, quando executado no Cluster Service Fabric, mapeia nomes DNS para nomes de serviço que são resolvidos pelo Serviço de Nomenclatura para retornar os endereços de ponto de extremidade aos quais se conectar.][9]
 
 Para obter mais detalhes sobre como usar o serviço DNS, consulte o artigo [Serviço DNS no Azure Service Fabric](service-fabric-dnsservice.md).
 
 ### <a name="reverse-proxy-service"></a>Serviço de proxy reverso
 O proxy reverso lida com os serviços no cluster que expõem pontos de extremidade HTTP, incluindo HTTPS. O proxy reverso simplifica grande parte da chamada a outros serviços e seus métodos tendo um formato de URI específico e manipula as etapas de resolução, conexão e repetição necessárias para que um serviço se comunique com outro usando o Serviço de Nomeação. Em outras palavras, ele oculta o Serviço de Nomeação de você ao chamar outros serviços, fazendo com que isso fique tão simples quanto chamar uma URL.
 
-![pontos de extremidade de serviço][10]
+![Diagrama que mostra como o proxy reverso lida com os serviços no cluster que expõe os pontos de extremidade HTTP, incluindo HTTPS.][10]
 
 Para obter mais detalhes sobre como usar o serviço de proxy reverso, consulte o artigo [Proxy reverso do Azure Service Fabric](service-fabric-reverseproxy.md).
 
@@ -153,7 +151,7 @@ Por exemplo, para aceitar o tráfego externo na porta **80**, configure os segui
     ![Abrir uma porta em um tipo de nó][4]
 3. Após o cluster ter sido criado, configure o Balanceador de Carga do Azure no Grupo de Recursos do cluster para encaminhar o tráfego na porta 80. Ao criar um cluster por meio do Portal do Azure, isso é configurado automaticamente para cada porta de ponto de extremidade personalizado que foi configurada.
 
-    ![Encaminhar o tráfego no Balanceador de Carga do Azure][5]
+    ![Captura de tela que realça o campo porta de back-end em regras de balanceamento de carga.][5]
 4. O Balanceador de Carga do Azure usa uma investigação para determinar deve enviar ou não o tráfego para um nó específico. A investigação verifica periodicamente um ponto de extremidade em cada nó para determinar se o nó está respondendo ou não. Se a investigação não receber uma resposta após um número de vezes configurado, o balanceador de carga interromperá o envio de tráfego para esse nó. Ao criar um cluster por meio do Portal do Azure, uma investigação é definida automaticamente para cada porta de ponto de extremidade personalizado que foi configurada.
 
     ![Encaminhar o tráfego no Balanceador de Carga do Azure][8]

@@ -3,14 +3,14 @@ title: Referência do desenvolvedor de JavaScript para Azure Functions
 description: Entenda como desenvolver funções usando JavaScript.
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
-ms.date: 07/17/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: ff3e5431481cba0d2d806d60ba5d7a291d1b2b69
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.date: 11/17/2020
+ms.custom: devx-track-js
+ms.openlocfilehash: 3e99b156d220b4c24a368886b1c0ca0813ffdc51
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87810109"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98674126"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guia do desenvolvedor de JavaScript do Azure Functions
 
@@ -20,7 +20,7 @@ Como um Express.js, Node.js ou desenvolvedor de JavaScript, se você for novo no
 
 | Introdução | Conceitos| Aprendizagem orientada |
 | -- | -- | -- | 
-| <ul><li>[Node.js função usando Visual Studio Code](./functions-create-first-function-vs-code.md?pivots=programming-language-javascript)</li><li>[FunçãoNode.js com terminal/prompt de comando](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-javascript)</li></ul> | <ul><li>[Guia do desenvolvedor](functions-reference.md)</li><li>[Opções de hospedagem](functions-scale.md)</li><li>[Funções do TypeScript](#typescript)</li><li>[&nbsp;Considerações sobre desempenho](functions-best-practices.md)</li></ul> | <ul><li>[Criar aplicativos sem servidor](/learn/paths/create-serverless-applications/)</li><li>[Refatorar Node.js e APIs expressas para APIs sem servidor](/learn/modules/shift-nodejs-express-apis-serverless/)</li></ul> |
+| <ul><li>[Node.js função usando Visual Studio Code](./create-first-function-vs-code-node.md)</li><li>[ FunçãoNode.js com terminal/prompt de comando](./create-first-function-cli-node.md)</li></ul> | <ul><li>[Guia do desenvolvedor](functions-reference.md)</li><li>[Opções de hospedagem](functions-scale.md)</li><li>[Funções do TypeScript](#typescript)</li><li>[&nbsp;Considerações sobre desempenho](functions-best-practices.md)</li></ul> | <ul><li>[Criar aplicativos sem servidor](/learn/paths/create-serverless-applications/)</li><li>[Refatorar Node.js e APIs expressas para APIs sem servidor](/learn/modules/shift-nodejs-express-apis-serverless/)</li></ul> |
 
 ## <a name="javascript-function-basics"></a>Noções básicas da função JavaScript
 
@@ -107,13 +107,13 @@ Em JavaScript, [ligações](functions-triggers-bindings.md) são configuradas e 
 
 ### <a name="inputs"></a>Entradas
 As entradas são divididas em duas categorias no Azure Functions: uma é a entrada de gatilho e a outra é a entrada adicional. Trigger e outras ligações de entrada (ligações de `direction === "in"`) podem ser lidas por uma função de três maneiras:
- - **_ [Recomendado] _ Como parâmetros passados para sua função.** Eles são passados para a função na mesma ordem em que são definidos *function.json*. A `name` propriedade definida no *function.jsem* não precisa corresponder ao nome do parâmetro, embora deva ser.
+ - **_[Recomendado]_ Como parâmetros passados para sua função.** Eles são passados para a função na mesma ordem em que são definidos *function.json*. A `name` propriedade definida no *function.jsem* não precisa corresponder ao nome do parâmetro, embora deva ser.
  
    ```javascript
    module.exports = async function(context, myTrigger, myInput, myOtherInput) { ... };
    ```
    
- - **Como os membros de [`context.bindings`](#contextbindings-property) objeto.** Observe que a propriedade `name` definida em * function.json * não precisa corresponder ao nome do seu parâmetro, embora deva....
+ - **Como os membros de [`context.bindings`](#contextbindings-property) objeto.** Observe que a propriedade `name` definida em *function.json* não precisa corresponder ao nome do seu parâmetro, embora deva....
  
    ```javascript
    module.exports = async function(context) { 
@@ -134,11 +134,11 @@ As entradas são divididas em duas categorias no Azure Functions: uma é a entra
    ```
 
 ### <a name="outputs"></a>Saídas
-As saídas (ligações de `direction === "out"`) podem ser gravadas por uma função de várias maneiras. Em todos os casos, a propriedade `name` da ligação, conforme definido em * function.json *, corresponde ao nome do membro do objeto gravado na sua função. 
+As saídas (ligações de `direction === "out"`) podem ser gravadas por uma função de várias maneiras. Em todos os casos, a propriedade `name` da ligação, conforme definido em *function.json*, corresponde ao nome do membro do objeto gravado na sua função. 
 
 Você pode atribuir dados a associações de saída de uma das seguintes maneiras (não Combine esses métodos):
 
-- **_ [Recomendado para várias saídas]_ Retornando um objeto.** Se você estiver usando uma função de retorno de Async/Promise, poderá retornar um objeto com os dados de saída atribuídos. No exemplo abaixo, as ligações de saída são nomeadas "httpResponse" e "queueOutput" em *function.json*.
+- **_[Recomendado para várias saídas]_ Retornando um objeto.** Se você estiver usando uma função de retorno de Async/Promise, poderá retornar um objeto com os dados de saída atribuídos. No exemplo abaixo, as ligações de saída são nomeadas "httpResponse" e "queueOutput" em *function.json*.
 
   ```javascript
   module.exports = async function(context) {
@@ -183,15 +183,38 @@ Para definir o tipo de dados para uma associação de entrada, use a propriedade
 As opções para `dataType` são: `binary`, `stream` e `string`.
 
 ## <a name="context-object"></a>objeto de contexto
-O runtime usa um objeto `context` para passar dados de/para sua função e permitir que você se comunique com o runtime. O objeto de contexto pode ser usado para ler e definir os dados de associações, gravar logs e usando o `context.done` retorno de chamada quando a função exportada é síncrona.
 
-O `context` objeto é sempre o primeiro parâmetro para uma função. Deve ser incluído porque tem métodos importantes, como `context.done` e `context.log`. Você pode nomear o objeto de acordo com a sua preferência (por exemplo, `ctx` ou `c`).
+O tempo de execução usa um `context` objeto para passar dados de e para sua função e o tempo de execução. Usado para ler e definir dados de associações e para gravar em logs, o `context` objeto é sempre o primeiro parâmetro passado para uma função.
+
+Para funções que apresentam código síncrono, o objeto de contexto inclui o retorno de chamada `done` que você chama quando a função é feita no processamento. Chamar explicitamente `done` é desnecessário ao escrever código assíncrono; o retorno de chamada `done` é chamado implicitamente.
 
 ```javascript
-// You must include a context, but other arguments are optional
-module.exports = function(ctx) {
-    // function logic goes here :)
-    ctx.done();
+module.exports = (context) => {
+
+    // function logic goes here
+
+    context.log("The function has executed.");
+
+    context.done();
+};
+```
+
+O contexto passado para sua função expõe uma `executionContext` propriedade, que é um objeto com as seguintes propriedades:
+
+| Nome da propriedade  | Type  | Descrição |
+|---------|---------|---------|
+| `invocationId` | String | Fornece um identificador exclusivo para a invocação de função específica. |
+| `functionName` | String | Fornece o nome da função em execução |
+| `functionDirectory` | String | Fornece o diretório de aplicativos do functions. |
+
+O exemplo a seguir mostra como retornar o `invocationId` .
+
+```javascript
+module.exports = (context, req) => {
+    context.res = {
+        body: context.executionContext.invocationId
+    };
+    context.done();
 };
 ```
 
@@ -201,7 +224,7 @@ module.exports = function(ctx) {
 context.bindings
 ```
 
-Retorna um objeto nomeado que é usado para ler ou atribuir dados de associação. Dados de associação de entrada e gatilho podem ser acessados lendo propriedades em `context.bindings` . Os dados de associação de saída podem ser atribuídos adicionando dados a`context.bindings`
+Retorna um objeto nomeado que é usado para ler ou atribuir dados de associação. Dados de associação de entrada e gatilho podem ser acessados lendo propriedades em `context.bindings` . Os dados de associação de saída podem ser atribuídos adicionando dados a `context.bindings`
 
 Por exemplo, as seguintes definições de ligação em sua função.json permitem acessar o conteúdo de uma fila de `context.bindings.myInput`e atribuir saídas a uma fila usando`context.bindings.myOutput`.
 
@@ -267,49 +290,17 @@ context.done(null, { myOutput: { text: 'hello there, world', noNumber: true }});
 context.log(message)
 ```
 
-Permite que você grave em logs de função de streaming no nível de rastreamento padrão. No `context.log`, há métodos de registro adicionais disponíveis para permitir que você grave logs de função em outros níveis de rastreamento:
+Permite que você grave nos logs da função de streaming no nível de rastreamento padrão, com outros níveis de log disponíveis. O log de rastreamento é descrito em detalhes na próxima seção. 
 
+## <a name="write-trace-output-to-logs"></a>Gravar saída de rastreamento em logs
 
-| Método                 | Descrição                                |
-| ---------------------- | ------------------------------------------ |
-| **erro (_mensagem_)**   | Grava no registro em log no nível do erro, ou em um nível inferior.   |
-| **warn(_message_)**    | Grava no registro em log no nível do aviso, ou em um nível inferior. |
-| **info(_message_)**    | Grava no registro em log no nível da informação, ou em um nível inferior.    |
-| **verbose(_message_)** | Grava no registro em log no nível detalhado.           |
+No functions, você usa os `context.log` métodos para gravar a saída do rastreamento nos logs e no console do. Quando você chama `context.log()` , sua mensagem é gravada nos logs no nível de rastreamento padrão, que é o nível de rastreamento de _informações_ . As funções integram-se com o Aplicativo Azure insights para capturar melhor os logs do aplicativo de funções. Application Insights, parte do Azure Monitor, fornece recursos para coleta, renderização visual e análise da telemetria do aplicativo e de suas saídas de rastreamento. Para saber mais, consulte [monitoramento Azure Functions](functions-monitoring.md).
 
-O exemplo a seguir grava um log no nível de rastreamento de aviso:
+O exemplo a seguir grava um log no nível de rastreamento de informações, incluindo a ID de invocação:
 
 ```javascript
-context.log.warn("Something has happened."); 
+context.log("Something has happened. " + context.invocationId); 
 ```
-
-Você pode [configurar o limite do nível de rastreamento para registro em log](#configure-the-trace-level-for-console-logging) no arquivo host.json. Para obter mais informações sobre como gravar logs, confira [Gravando saídas de rastreamento](#writing-trace-output-to-the-console) abaixo.
-
-Leia [Monitorado o Azure Functions](functions-monitoring.md) para saber mais sobre como exibir e consultar logs de função.
-
-## <a name="writing-trace-output-to-the-console"></a>Gravar a saída de rastreamento no console 
-
-No Functions, use os métodos `context.log` para gravar a saída de rastreamento no console. No Functions v2.x, as saídas de rastreio usando `console.log` são capturadas no nível do Aplicativo Function. Isso significa que as saídas de `console.log` não estão vinculadas a uma invocação de função específica e não são exibidas em logs de uma função específica. Eles, no entanto, se propagam para o Application Insights. No Functions v1.x, não é possível usar `console.log` para gravar no console.
-
-Quando você chama `context.log()`, sua mensagem é gravada no console no nível de rastreamento padrão, que é o nível de rastreamento de _informações_. O código a seguir grava no console no nível de rastreamento de informações:
-
-```javascript
-context.log({hello: 'world'});  
-```
-
-Esse código é equivalente ao código acima:
-
-```javascript
-context.log.info({hello: 'world'});  
-```
-
-Esse código grava no console no nível de erro:
-
-```javascript
-context.log.error("An error has occurred.");  
-```
-
-Como _erro_ é o nível de rastreamento mais alto, esse rastreamento é gravado na saída em todos os níveis de rastreamento enquanto o registro em log estiver habilitado.
 
 Todos os métodos `context.log` dão suporte ao mesmo formato de parâmetro que o [método util.format](https://nodejs.org/api/util.html#util_util_format_format) de Node.js. Considere o código a seguir, que grava logs de função usando o nível de rastreamento padrão:
 
@@ -325,9 +316,39 @@ context.log('Node.js HTTP trigger function processed a request. RequestUri=%s', 
 context.log('Request Headers = ', JSON.stringify(req.headers));
 ```
 
-### <a name="configure-the-trace-level-for-console-logging"></a>Configurar o nível de rastreamento para o registro em log no console
+> [!NOTE]  
+> Não use `console.log` para gravar saídas de rastreamento. Como a saída de `console.log` é capturada no nível do aplicativo de funções, ela não está vinculada a uma invocação de função específica e não é exibida em logs de uma função específica. Além disso, a versão 1. x do tempo de execução do Functions não dá suporte ao uso do `console.log` para gravar no console.
 
-O Functions 1.x permite a definição do nível de rastreamento de limite para gravar no console, o que facilita o controle do modo de gravação dos rastreamentos no console da sua função. Para definir o limite para todos os rastreamentos gravados no console, use a propriedade `tracing.consoleLevel` no arquivo host.json. Essa configuração se aplica a todas as funções em seu aplicativo de função. O exemplo a seguir define o limite de rastreamento para habilitar o registro em log detalhado:
+### <a name="trace-levels"></a>Níveis de rastreamento
+
+Além do nível padrão, os seguintes métodos de log estão disponíveis para permitir que você grave logs de função em níveis de rastreamento específicos.
+
+| Método                 | Descrição                                |
+| ---------------------- | ------------------------------------------ |
+| **erro (_mensagem_)**   | Grava um evento de nível de erro nos logs.   |
+| **warn(_message_)**    | Grava um evento no nível de aviso nos logs. |
+| **informações (_mensagem_)**    | Grava no registro em log no nível da informação, ou em um nível inferior.    |
+| **verbose(_message_)** | Grava no registro em log no nível detalhado.           |
+
+O exemplo a seguir grava o mesmo log no nível de rastreamento de aviso, em vez do nível de informações:
+
+```javascript
+context.log.warn("Something has happened. " + context.invocationId); 
+```
+
+Como _erro_ é o nível de rastreamento mais alto, esse rastreamento é gravado na saída em todos os níveis de rastreamento enquanto o registro em log estiver habilitado.
+
+### <a name="configure-the-trace-level-for-logging"></a>Configurar o nível de rastreamento para registro em log
+
+O Functions permite que você defina o nível de rastreamento de limite para gravação nos logs ou no console do. As configurações de limite específicas dependem da sua versão do tempo de execução do functions.
+
+# <a name="v2x"></a>[v2. x +](#tab/v2)
+
+Para definir o limite para rastreamentos gravados nos logs, use a `logging.logLevel` propriedade no host.jsno arquivo. Esse objeto JSON permite que você defina um limite padrão para todas as funções em seu aplicativo de funções, além de poder definir limites específicos para funções individuais. Para saber mais, consulte [como configurar o monitoramento para Azure Functions](configure-monitoring.md).
+
+# <a name="v1x"></a>[v1. x](#tab/v1)
+
+Para definir o limite para todos os rastreamentos gravados nos logs e o console, use a `tracing.consoleLevel` propriedade no host.jsno arquivo. Essa configuração se aplica a todas as funções em seu aplicativo de função. O exemplo a seguir define o limite de rastreamento para habilitar o registro em log detalhado:
 
 ```json
 {
@@ -337,7 +358,65 @@ O Functions 1.x permite a definição do nível de rastreamento de limite para g
 }  
 ```
 
-Os valores de **consoleLevel** correspondem aos nomes dos métodos `context.log`. Para desabilitar todo o registro em log do rastreamento no console, defina **consoleLevel** como _off_. Para obter mais informações, consulte a [referência para host.json](functions-host-json-v1.md).
+Os valores de **consoleLevel** correspondem aos nomes dos métodos `context.log`. Para desabilitar todo o registro em log do rastreamento no console, defina **consoleLevel** como _off_. Para obter mais informações, consulte [host.jsna referência v1. x](functions-host-json-v1.md).
+
+---
+
+### <a name="log-custom-telemetry"></a>Registrar telemetria personalizada
+
+Por padrão, o Functions grava saída como rastreamentos para Application Insights. Para obter mais controle, você pode usar o [Application Insights Node.js SDK](https://github.com/microsoft/applicationinsights-node.js) para enviar dados de telemetria personalizados para sua instância de Application insights. 
+
+# <a name="v2x"></a>[v2. x +](#tab/v2)
+
+```javascript
+const appInsights = require("applicationinsights");
+appInsights.setup();
+const client = appInsights.defaultClient;
+
+module.exports = function (context, req) {
+    context.log('JavaScript HTTP trigger function processed a request.');
+
+    // Use this with 'tagOverrides' to correlate custom telemetry to the parent function invocation.
+    var operationIdOverride = {"ai.operation.id":context.traceContext.traceparent};
+
+    client.trackEvent({name: "my custom event", tagOverrides:operationIdOverride, properties: {customProperty2: "custom property value"}});
+    client.trackException({exception: new Error("handled exceptions can be logged with this method"), tagOverrides:operationIdOverride});
+    client.trackMetric({name: "custom metric", value: 3, tagOverrides:operationIdOverride});
+    client.trackTrace({message: "trace message", tagOverrides:operationIdOverride});
+    client.trackDependency({target:"http://dbname", name:"select customers proc", data:"SELECT * FROM Customers", duration:231, resultCode:0, success: true, dependencyTypeName: "ZSQL", tagOverrides:operationIdOverride});
+    client.trackRequest({name:"GET /customers", url:"http://myserver/customers", duration:309, resultCode:200, success:true, tagOverrides:operationIdOverride});
+
+    context.done();
+};
+```
+
+# <a name="v1x"></a>[v1. x](#tab/v1)
+
+```javascript
+const appInsights = require("applicationinsights");
+appInsights.setup();
+const client = appInsights.defaultClient;
+
+module.exports = function (context, req) {
+    context.log('JavaScript HTTP trigger function processed a request.');
+
+    // Use this with 'tagOverrides' to correlate custom telemetry to the parent function invocation.
+    var operationIdOverride = {"ai.operation.id":context.operationId};
+
+    client.trackEvent({name: "my custom event", tagOverrides:operationIdOverride, properties: {customProperty2: "custom property value"}});
+    client.trackException({exception: new Error("handled exceptions can be logged with this method"), tagOverrides:operationIdOverride});
+    client.trackMetric({name: "custom metric", value: 3, tagOverrides:operationIdOverride});
+    client.trackTrace({message: "trace message", tagOverrides:operationIdOverride});
+    client.trackDependency({target:"http://dbname", name:"select customers proc", data:"SELECT * FROM Customers", duration:231, resultCode:0, success: true, dependencyTypeName: "ZSQL", tagOverrides:operationIdOverride});
+    client.trackRequest({name:"GET /customers", url:"http://myserver/customers", duration:309, resultCode:200, success:true, tagOverrides:operationIdOverride});
+
+    context.done();
+};
+```
+
+---
+
+O parâmetro `tagOverrides` define `operation_Id` para a ID de invocação de função. Essa configuração permite que você correlacione toda a telemetria gerada automaticamente e a telemetria personalizada para uma dada invocação de função.
 
 ## <a name="http-triggers-and-bindings"></a>Gatilhos e associações HTTP
 
@@ -414,7 +493,7 @@ Ao trabalhar com gatilhos HTTP, há várias maneiras de acessar os objetos de so
 
 ## <a name="scaling-and-concurrency"></a>Dimensionamento e simultaneidade
 
-Por padrão, o Azure Functions monitora automaticamente a carga em seu aplicativo e cria instâncias de host adicionais para Node.js conforme necessário. O Functions usa limites internos (não configuráveis pelo usuário) em tipos de gatilhos diferentes para decidir quando adicionar instâncias, por exemplo, a idade das mensagens e o tamanho da fila para QueueTrigger. Para obter mais informações, confira [Como funcionam os planos de consumo e Premium](functions-scale.md#how-the-consumption-and-premium-plans-work).
+Por padrão, o Azure Functions monitora automaticamente a carga em seu aplicativo e cria instâncias de host adicionais para Node.js conforme necessário. O Functions usa limites internos (não configuráveis pelo usuário) em tipos de gatilhos diferentes para decidir quando adicionar instâncias, por exemplo, a idade das mensagens e o tamanho da fila para QueueTrigger. Para obter mais informações, confira [Como funcionam os planos de consumo e Premium](event-driven-scaling.md).
 
 Esse comportamento de dimensionamento é suficiente para muitos aplicativos Node.js. Para aplicativos associados à CPU, você pode melhorar ainda mais o desempenho usando vários processos de trabalho de linguagem.
 
@@ -428,15 +507,23 @@ A tabela a seguir mostra as versões de Node.js com suporte atuais para cada ver
 
 | Versão do Functions | Versão do nó (Windows) | Versão do nó (Linux) |
 |---|---| --- |
-| 1.x | 6.11.2 (bloqueada pelo runtime) | N/D |
-| 2. x  | ~ 8<br/>~ 10 (recomendado)<br/>aproximadamente 12<sup>*</sup> | ~ 8 (recomendado)<br/>~ 10  |
-| 3.x | ~ 10<br/>~ 12 (recomendado)  | ~ 10<br/>~ 12 (recomendado) |
+| 1.x | 6.11.2 (bloqueada pelo runtime) | n/a |
+| 2. x  | `~8`<br/>`~10` aconselhável<br/>`~12` | `node|8`<br/>`node|10` aconselhável  |
+| 3.x | `~10`<br/>`~12` aconselhável<br/>`~14` (versão prévia)  | `node|10`<br/>`node|12` aconselhável<br/>`node|14` (versão prévia) |
 
-<sup>*</sup>No momento, o nó ~ 12 é permitido na versão 2. x do tempo de execução do functions. No entanto, para obter um melhor desempenho, é recomendável usar o Functions versão 3. x com o nó ~ 12. 
+Você pode ver a versão atual que o tempo de execução está usando registrando-se `process.version` em qualquer função.
 
-Veja versão atual que o runtime está usando verificando a configuração de aplicativo acima ou imprimindo `process.version` de qualquer função. Direcione a versão no Azure definindo a configuração do [aplicativo](functions-how-to-use-azure-function-app-settings.md#settings) WEBSITE_NODE_DEFAULT_VERSION como uma versão do LTS com suporte, como `~10` .
+### <a name="setting-the-node-version"></a>Configurando a versão do nó
 
-## <a name="dependency-management"></a>Gerenciamento de dependências
+Para aplicativos de funções do Windows, direcione a versão no Azure definindo a `WEBSITE_NODE_DEFAULT_VERSION` [configuração do aplicativo](functions-how-to-use-azure-function-app-settings.md#settings) como uma versão do LTS com suporte, como `~12` .
+
+Para aplicativos de funções do Linux, execute o seguinte comando CLI do Azure para atualizar a versão do nó.
+
+```bash
+az functionapp config set --linux-fx-version "node|12" --name "<MY_APP_NAME>" --resource-group "<MY_RESOURCE_GROUP_NAME>"
+```
+
+## <a name="dependency-management"></a>Gerenciamento de dependência
 Para usar as bibliotecas da comunidade no código JavaScript, como é mostrado no exemplo abaixo, você precisa garantir que todas as dependências sejam instaladas no aplicativo de funções no Azure.
 
 ```javascript
@@ -464,7 +551,7 @@ Há duas maneiras de instalar pacotes no aplicativo de funções:
 
 
 ### <a name="using-kudu"></a>Usando o Kudu
-1. Acesse `https://<function_app_name>.scm.azurewebsites.net`.
+1. Ir para `https://<function_app_name>.scm.azurewebsites.net`.
 
 2. Clique em **console de depuração**  >  **cmd**.
 
@@ -476,21 +563,42 @@ Há duas maneiras de instalar pacotes no aplicativo de funções:
 
 ## <a name="environment-variables"></a>Variáveis de ambiente
 
-Em funções, [configurações do aplicativo](functions-app-settings.md), como conexão de serviço cadeias de caracteres, são expostas como variáveis de ambiente durante a execução. Você pode acessar essas configurações usando `process.env` , conforme mostrado aqui na segunda e terceira chamadas para `context.log()` onde registramos as `AzureWebJobsStorage` variáveis de `WEBSITE_SITE_NAME` ambiente e:
+Adicione suas próprias variáveis de ambiente a um aplicativo de funções, em seus ambientes locais e de nuvem, como segredos operacionais (cadeias de conexão, chaves e pontos de extremidade) ou configurações ambientais (como variáveis de criação de perfil). Acesse essas configurações usando `process.env` o no seu código de função.
+
+### <a name="in-local-development-environment"></a>No ambiente de desenvolvimento local
+
+Ao executar localmente, seu projeto de funções inclui um [ `local.settings.json` arquivo](./functions-run-local.md), onde você armazena suas variáveis de ambiente no `Values` objeto. 
+
+```json
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "",
+    "FUNCTIONS_WORKER_RUNTIME": "node",
+    "translatorTextEndPoint": "https://api.cognitive.microsofttranslator.com/",
+    "translatorTextKey": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    "languageWorkers__node__arguments": "--prof"
+  }
+}
+```
+
+### <a name="in-azure-cloud-environment"></a>No ambiente de nuvem do Azure
+
+Ao executar no Azure, o aplicativo de funções permite que você defina o usa [configurações do aplicativo](functions-app-settings.md), como cadeias de conexão de serviço, e expõe essas configurações como variáveis de ambiente durante a execução. 
+
+[!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
+
+### <a name="access-environment-variables-in-code"></a>Acessar variáveis de ambiente no código
+
+Acesse as configurações do aplicativo como variáveis de ambiente usando `process.env` , conforme mostrado aqui na segunda e terceira chamadas para `context.log()` onde registramos as `AzureWebJobsStorage` variáveis de `WEBSITE_SITE_NAME` ambiente e:
 
 ```javascript
 module.exports = async function (context, myTimer) {
-    var timeStamp = new Date().toISOString();
 
-    context.log('Node.js timer trigger function ran!', timeStamp);
     context.log("AzureWebJobsStorage: " + process.env["AzureWebJobsStorage"]);
     context.log("WEBSITE_SITE_NAME: " + process.env["WEBSITE_SITE_NAME"]);
 };
 ```
-
-[!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
-
-Ao executar localmente, as configurações do aplicativo são lidos a partir de [Settings](functions-run-local.md#local-settings-file) arquivo de projeto.
 
 ## <a name="configure-function-entry-point"></a>Configurar o ponto de entrada de função
 
@@ -572,7 +680,7 @@ Na versão 1. x, a configuração `languageWorkers:node:arguments` não funciona
 
 ## <a name="typescript"></a>TypeScript
 
-Quando você visa a versão 2. x do tempo de execução do functions, ambos [Azure Functions para Visual Studio Code](functions-create-first-function-vs-code.md) e o [Azure Functions Core Tools](functions-run-local.md) permitem criar aplicativos de funções usando um modelo que ofereça suporte a projetos de aplicativo de função TypeScript. O modelo gera `package.json` e `tsconfig.json` arquivos de projeto que facilitam a transcompilação, execução e publicação de funções JavaScript do código TypeScript com essas ferramentas.
+Quando você visa a versão 2. x do tempo de execução do functions, ambos [Azure Functions para Visual Studio Code](./create-first-function-cli-typescript.md) e o [Azure Functions Core Tools](functions-run-local.md) permitem criar aplicativos de funções usando um modelo que ofereça suporte a projetos de aplicativo de função TypeScript. O modelo gera `package.json` e `tsconfig.json` arquivos de projeto que facilitam a transcompilação, execução e publicação de funções JavaScript do código TypeScript com essas ferramentas.
 
 Um `.funcignore` arquivo gerado é usado para indicar quais arquivos são excluídos quando um projeto é publicado no Azure.  
 
@@ -647,7 +755,7 @@ No desenvolvimento de Azure Functions no modelo de hospedagem sem servidor, as i
 
 Quando você usa um cliente específico do serviço em um aplicativo Azure Functions, não crie um novo cliente com cada invocação de função. Em vez disso, crie um único cliente estático no escopo global. Para obter mais informações, consulte [Managing Connections in Azure Functions](manage-connections.md).
 
-### <a name="use-async-and-await"></a>Usar `async` e`await`
+### <a name="use-async-and-await"></a>Usar `async` e `await`
 
 Ao escrever Azure Functions em JavaScript, você deve escrever código usando as `async` `await` palavras-chave e. Escrever código usando `async` e `await` em vez de retornos de chamada ou `.then` `.catch` com promessas ajuda a evitar dois problemas comuns:
  - Lançar exceções não capturadas que [falham no processo de Node.js](https://nodejs.org/api/process.html#process_warning_using_uncaughtexception_correctly), potencialmente afetando a execução de outras funções.

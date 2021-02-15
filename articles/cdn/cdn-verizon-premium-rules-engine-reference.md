@@ -7,12 +7,12 @@ ms.service: azure-cdn
 ms.topic: article
 ms.date: 05/26/2020
 ms.author: allensu
-ms.openlocfilehash: 75633521474ec3bcbc35cea49ea7a2da6a271e01
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 295bc0a20a547bf944f48af6711b18af34571b02
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83872532"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91362573"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-reference"></a>Referência do mecanismo de regras da CDN do Azure da Verizon Premium
 
@@ -41,7 +41,7 @@ Ele consiste em:
 - Um conjunto de recursos que definem como a CDN lidará com as solicitações acima.
 Esses elementos são identificados na ilustração a seguir.
 
-![Fluxo de trabalho de implantação da política](./media/cdn-verizon-premium-rules-engine-reference/verizon-rules-engine-reference.png)
+![Captura de tela com rótulos mostra a expressão condicional, a correspondência e os recursos de uma regra.](./media/cdn-verizon-premium-rules-engine-reference/verizon-rules-engine-reference.png)
 
 ### <a name="policy"></a>Política
 Uma política, que consiste em um conjunto de regras somente leitura, fornece os meios para:

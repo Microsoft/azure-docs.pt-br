@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 3/16/2020
-ms.openlocfilehash: 88425e2c875b3cce7c63cd66fd034e5a7af56ec7
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 73705434aef3ee438c02fbfd6502d30e7620b695
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86117025"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026447"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql---hyperscale-citus"></a>Usar o portal do Azure para configurar alertas em métricas para o banco de dados do Azure para PostgreSQL-Citus (hiperescala)
 
@@ -28,26 +28,26 @@ Você pode configurar um alerta para fazer as seguintes ações quando ele dispa
 Você pode configurar e obter informações sobre as regras de alerta usando:
 * [Azure portal](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
 * [CLI do Azure](../azure-monitor/platform/alerts-metric.md#with-azure-cli)
-* [API REST do Monitor do Azure](https://docs.microsoft.com/rest/api/monitor/metricalerts)
+* [API REST do Azure Monitor](/rest/api/monitor/metricalerts)
 
 ## <a name="create-an-alert-rule-on-a-metric-from-the-azure-portal"></a>Criar uma regra de alerta em uma métrica no Portal do Azure
 1. No [Portal do Azure](https://portal.azure.com/), selecione o servidor do Banco de Dados do Azure para PostgreSQL que você deseja monitorar.
 
 2. Na seção **Monitoramento** da barra lateral, selecione **Alertas** como mostrado abaixo:
 
-   ![Selecionar Regras de Alerta](./media/howto-hyperscale-alert-on-metric/2-alert-rules.png)
+   :::image type="content" source="./media/howto-hyperscale-alert-on-metric/2-alert-rules.png" alt-text="Selecionar regras de alerta":::
 
 3. Selecione **nova regra de alerta** (+ ícone).
 
 4. A página **Criar regra** é aberta, conforme mostrado abaixo. Preencha as informações obrigatórias:
 
-   ![Formulário Adicionar alerta de métrica](./media/howto-hyperscale-alert-on-metric/4-add-rule-form.png)
+   :::image type="content" source="./media/howto-hyperscale-alert-on-metric/4-add-rule-form.png" alt-text="Formulário Adicionar alerta de métrica":::
 
 5. Na seção **condição** , selecione **Adicionar**.
 
 6. Selecione uma métrica da lista de sinais sobre a qual deseja ser alertado. Neste exemplo, selecione "Porcentagem de armazenamento".
    
-   ![Selecionar métrica](./media/howto-hyperscale-alert-on-metric/6-configure-signal-logic.png)
+   :::image type="content" source="./media/howto-hyperscale-alert-on-metric/6-configure-signal-logic.png" alt-text="Captura de tela mostra a página Configurar lógica de sinal em que você pode exibir vários sinais.":::
 
 7. Configure a lógica de alerta:
 
@@ -58,13 +58,13 @@ Você pode configurar e obter informações sobre as regras de alerta usando:
    
    Selecione **Concluído** ao concluir.
 
-   ![Selecionar métrica](./media/howto-hyperscale-alert-on-metric/7-set-threshold-time.png)
+   :::image type="content" source="./media/howto-hyperscale-alert-on-metric/7-set-threshold-time.png" alt-text="Captura de tela mostra o painel em que você pode configurar a lógica de alerta.":::
 
 8. Dentro da seção **Grupos de Ações**, selecione **Criar Novo** para criar um novo grupo para receber notificações sobre o alerta.
 
 9. Preencha o formulário "Adicionar grupo de ações" com um nome, o nome curto, a assinatura e o grupo de recursos.
 
-    ![Grupo de ações](./media/howto-hyperscale-alert-on-metric/9-add-action-group.png)
+    :::image type="content" source="./media/howto-hyperscale-alert-on-metric/9-add-action-group.png" alt-text="Captura de tela mostra o formulário Adicionar grupo de ações, onde você pode inserir os valores descritos.":::
 
 10. Configure o tipo de ação **Email/SMS/Push/Voz**.
     
@@ -72,11 +72,11 @@ Você pode configurar e obter informações sobre as regras de alerta usando:
    
     Selecione **OK** ao concluir.
 
-    ![Grupo de ações](./media/howto-hyperscale-alert-on-metric/10-action-group-type.png)
+    :::image type="content" source="./media/howto-hyperscale-alert-on-metric/10-action-group-type.png" alt-text="Captura de tela mostra o painel email/S M/Push/Voice.":::
 
 11. Especifique um Nome da regra de alerta, uma Descrição e uma Gravidade.
 
-    ![Grupo de ações](./media/howto-hyperscale-alert-on-metric/11-name-description-severity.png) 
+    :::image type="content" source="./media/howto-hyperscale-alert-on-metric/11-name-description-severity.png" alt-text="Captura de tela mostra o painel detalhes do alerta."::: 
 
 12. Selecione **Criar regra de alerta** para criar o alerta.
 
@@ -101,8 +101,8 @@ O monitoramento e o alerta são importantes para cada grupo de servidores de Cit
 À medida que o disco se aproximar de seu limite de espaço, tente essas técnicas para obter mais espaço livre:
 
 * Examinar a política de retenção de dados. Mova os dados mais antigos para o armazenamento frio, se possível.
-* Considere [adicionar nós](howto-hyperscale-scaling.md#add-worker-nodes) ao grupo de servidores e rebalancear os fragmentos. O rebalanceamento distribui os dados em mais computadores.
-* Considere [aumentar a capacidade](howto-hyperscale-scaling.md#increase-or-decrease-vcores-on-nodes) dos nós de trabalho. Cada trabalho pode ter até 2 TiB de armazenamento. No entanto, é necessário tentar adicionar nós antes de redimensionar os nós porque a adição de nós é concluída mais rapidamente.
+* Considere [adicionar nós](howto-hyperscale-scale-grow.md#add-worker-nodes) ao grupo de servidores e rebalancear os fragmentos. O rebalanceamento distribui os dados em mais computadores.
+* Considere [aumentar a capacidade](howto-hyperscale-scale-grow.md#increase-or-decrease-vcores-on-nodes) dos nós de trabalho. Cada trabalho pode ter até 2 TiB de armazenamento. No entanto, é necessário tentar adicionar nós antes de redimensionar os nós porque a adição de nós é concluída mais rapidamente.
 
 ### <a name="cpu-usage"></a>Uso da CPU
 
@@ -110,4 +110,4 @@ O monitoramento do uso da CPU é útil para estabelecer uma linha de base para o
 
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre como [configurar webhooks em alertas](../azure-monitor/platform/alerts-webhooks.md).
-* Tenha uma [visão geral da coleção de métricas](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) para verificar se o serviço está disponível e responsivo.
+* Tenha uma [visão geral da coleção de métricas](../azure-monitor/platform/data-platform.md) para verificar se o serviço está disponível e responsivo.

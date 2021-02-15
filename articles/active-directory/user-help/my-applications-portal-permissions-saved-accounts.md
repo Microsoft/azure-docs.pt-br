@@ -12,31 +12,31 @@ ms.topic: end-user-help
 ms.date: 02/03/2020
 ms.author: curtand
 ms.custom: user-help
-ms.openlocfilehash: 8507a53959e7d28cbcec2dec6783b2470696d59b
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: cb162231c8cf2bf733c992de0c4aa56bf1fd1be2
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798101"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791079"
 ---
 # <a name="edit-or-revoke-application-permissions-in-the-my-apps-portal"></a>Editar ou revogar permissões de aplicativo no portal Meus Aplicativos
 
-Ao usar aplicativos organizacionais no portal **Meus Aplicativos**, você geralmente concede permissões e salva os dados da conta. Para manter seus dados seguros, talvez você queira examinar e revogar permissões ou limpar as credenciais da conta salva. A remoção de permissões ou contas pode interromper algumas funcionalidades do aplicativo. Se você tiver problemas depois de remover permissões ou contas, entre em contato com o suporte técnico da sua organização para obter assistência adicional.
+Ao usar aplicativos organizacionais no portal **Meus Aplicativos** , você geralmente concede permissões e salva os dados da conta. Para manter seus dados seguros, talvez você queira examinar e revogar permissões ou limpar as credenciais da conta salva. A remoção de permissões ou contas pode interromper algumas funcionalidades do aplicativo. Se você tiver problemas depois de remover permissões ou contas, entre em contato com o suporte técnico da sua organização para obter assistência adicional.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-and-workspaces.md)]
 
 >[!Important]
 >Este conteúdo destina-se aos usuários. Se você for administrador, poderá encontrar mais informações sobre como configurar e gerenciar seus aplicativos baseados em nuvem na [Documentação de Gerenciamento do Aplicativo](../manage-apps/access-panel-collections.md).
 
-## <a name="manage-app-permissions"></a>Gerenciar permissões do aplicativo
+## <a name="manage-app-accounts"></a>Gerenciar contas de aplicativo
 
-Para exibir as permissões consentidas por você ou seu administrador, selecione **...** ao passar o mouse sobre um aplicativo no portal **Meus Aplicativos** e, em seguida, selecione **Gerenciar seu aplicativo**:
+Para exibir os aplicativos consentidos por você ou seu administrador, selecione **...** ao passar o mouse sobre um aplicativo no portal **meus aplicativos** e, em seguida, selecione **gerenciar seu aplicativo** :
 
-![Gerenciar um aplicativo no portal Meus Aplicativos](media/my-applications-portal-permissions-saved-accounts/manage-your-application.png)
+![Gerenciar um aplicativo no portal Meus Aplicativos](media/my-applications-portal-permissions-saved-accounts/my-apps-home-woodgrove.png)
 
 A parte superior da janela de permissões mostra o que você consentiu pessoalmente. Os exemplos de permissões de aplicativos incluem a capacidade de acessar seu calendário, contatos ou câmera.
 
-Você pode revogar qualquer uma das permissões que você consentiu selecionando **Revogar Permissões**, no entanto, a remoção de uma permissão pode interromper algumas das funcionalidades dos aplicativos. Se você tiver problemas depois de remover permissões ou contas, entre em contato com o suporte técnico da sua organização para obter assistência adicional.
+Você pode revogar qualquer uma das permissões que você consentiu selecionando **Revogar Permissões** , no entanto, a remoção de uma permissão pode interromper algumas das funcionalidades dos aplicativos. Se você tiver problemas depois de remover permissões ou contas, entre em contato com o suporte técnico da sua organização para obter assistência adicional.
 
 ![Revogar permissões para um aplicativo no portal Meus Aplicativos](media/my-applications-portal-permissions-saved-accounts/revoke-permissions.png)
 
@@ -44,14 +44,14 @@ A parte inferior da janela de permissões mostra o que o administrador consentiu
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Depois de gerenciar as permissões do aplicativo e as contas salvas no portal **Meus Aplicativos**, você pode:
+Depois de gerenciar as permissões do aplicativo e as contas salvas no portal **Meus Aplicativos** , você pode:
 
 - Organize seus aplicativos em várias categorias criadas e fornecidas pela sua organização. Para obter mais informações, confira [Acessar e usar coleções no portal Meus Aplicativos](my-applications-portal-workspaces.md).
 
 ## <a name="related-articles"></a>Artigos relacionados
 
-- [Atualizar suas informações de perfil e conta](my-account-portal-overview.md). Instruções sobre como atualizar suas informações pessoais exibidas no portal **Meu Perfil**.
+- [Atualizar suas informações de perfil e conta](my-account-portal-overview.md). Instruções sobre como atualizar suas informações pessoais exibidas no portal **Meu Perfil** .
 
-- [Gerenciar suas organizações](my-account-portal-organizations-page.md). Instruções sobre como exibir e gerenciar suas informações relacionadas à organização na página **Organizações** do portal **Meu Perfil**.
+- [Gerenciar suas organizações](my-account-portal-organizations-page.md). Instruções sobre como exibir e gerenciar suas informações relacionadas à organização na página **Organizações** do portal **Meu Perfil** .
 
-- [Gerenciar seus dispositivos conectados](my-account-portal-devices-page.md). Instruções sobre como gerenciar os dispositivos aos quais você está conectado usando sua conta corporativa ou de estudante, na página **Dispositivos** do portal **Meu Perfil**.
+- [Gerenciar seus dispositivos conectados](my-account-portal-devices-page.md). Instruções sobre como gerenciar os dispositivos aos quais você está conectado usando sua conta corporativa ou de estudante, na página **Dispositivos** do portal **Meu Perfil** .

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/08/2018
 ms.author: genli
-ms.openlocfilehash: 8c3e76f1a7edffefc8773dfa548773ec0932fae6
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: a937528e3bfd8bea16912d614133988763748bab
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86129854"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632952"
 ---
 # <a name="windows-shows-critical-service-failed-on-blue-screen-when-booting-an-azure-vm"></a>O Windows mostra "SERVIÇO CRÍTICO COM FALHA" na tela azul durante a inicialização de uma VM do Azure
 Este artigo descreve o erro "SERVIÇO CRÍTICO COM FALHA" que pode ocorrer quando você inicializa uma VM (máquina virtual) do Windows no Microsoft Azure. Ele fornece etapas de solução de problemas que ajudam a resolvê-los. 
@@ -38,6 +38,9 @@ Há várias causas para erros de interrupção. As causas mais comuns são:
 - O aplicativo acessa um setor proibido da memória
 
 ## <a name="solution"></a>Solução 
+
+> [!TIP]
+> Se você tiver um backup recente da VM, poderá tentar [restaurar a VM do backup](../../backup/backup-azure-arm-restore-vms.md) para corrigir o problema de inicialização.
 
 Para resolver esse problema [entre em contato com o suporte e envie um arquivo de despejo](./troubleshoot-common-blue-screen-error.md#collect-memory-dump-file), que nos ajudará a diagnosticar o problema mais rapidamente, ou tente a seguinte solução de autoajuda.
 

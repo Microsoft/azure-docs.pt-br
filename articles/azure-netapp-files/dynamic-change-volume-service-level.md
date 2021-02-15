@@ -12,20 +12,23 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 08/26/2020
+ms.date: 01/14/2021
 ms.author: b-juche
-ms.openlocfilehash: fb83b30f0844b9bf0e362e6f1e3a3822ba0044d1
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 78cc68d2be600cec78c433ae3eae1de09d31ac94
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88949993"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251804"
 ---
 # <a name="dynamically-change-the-service-level-of-a-volume"></a>Alterar dinamicamente o nível de serviço de um volume
 
+> [!IMPORTANT] 
+> Atualmente, não há suporte para a alteração dinâmica do nível de serviço de um volume de destino de replicação.
+
 Você pode alterar o nível de serviço de um volume existente movendo o volume para outro pool de capacidade que usa o [nível de serviço](azure-netapp-files-service-levels.md) desejado para o volume. Essa alteração no nível de serviço in-loco para o volume não exige a migração de dados. Ele também não afeta o acesso ao volume.  
 
-Essa funcionalidade permite que você atenda às suas necessidades de carga de trabalho sob demanda.  Você pode alterar um volume existente para usar um nível de serviço mais alto para melhorar o desempenho ou para usar um nível de serviço inferior para a otimização de custos. Por exemplo, se o volume estiver atualmente em um pool de capacidade que usa o nível de serviço *Standard* e você quiser que o volume use o nível de serviço *Premium* , você poderá mover o volume dinamicamente para um pool de capacidade que usa o nível de serviço *Premium* .  
+Essa funcionalidade permite que você atenda às suas necessidades de carga de trabalho sob demanda.  É possível alterar um volume existente para usar um nível de serviço mais alto e melhorar o desempenho. Outra opção é usar um nível de serviço inferior para a otimizar os custos. Por exemplo, se o volume estiver atualmente em um pool de capacidade que usa o nível de serviço *Standard* e você quiser que o volume use o nível de serviço *Premium* , você poderá mover o volume dinamicamente para um pool de capacidade que usa o nível de serviço *Premium* .  
 
 O pool de capacidade para o qual você deseja mover o volume já deve existir. O pool de capacidade pode conter outros volumes.  Se desejar mover o volume para um pool de capacidade totalmente novo, você precisará [criar o pool de capacidade](azure-netapp-files-set-up-capacity-pool.md) antes de mover o volume.  
 
@@ -37,7 +40,7 @@ O pool de capacidade para o qual você deseja mover o volume já deve existir. O
 
 ## <a name="register-the-feature"></a>Registrar o recurso
 
-O recurso para mover um volume para outro pool de capacidade está atualmente em versão prévia. Se você estiver usando esse recurso pela primeira vez, precisará registrar o recurso primeiro.
+O recurso para mover um volume para outro pool de capacidade está atualmente em versão prévia. Se você estiver usando esse recurso pela primeira vez, é necessário registrar o recurso primeiro.
 
 1. Registre o recurso: 
 
@@ -53,8 +56,8 @@ O recurso para mover um volume para outro pool de capacidade está atualmente em
     ```azurepowershell-interactive
     Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFTierChange
     ```
-Você também pode usar comandos de CLI do Azure [`az feature register`](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest#az-feature-register) e [`az feature show`](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest#az-feature-show) para registrar o recurso e exibir o status do registro. 
-
+Você também pode usar [comandos de CLI do Azure](/cli/azure/feature?preserve-view=true&view=azure-cli-latest) `az feature register` e `az feature show` para registrar o recurso e exibir o status do registro. 
+ 
 ## <a name="move-a-volume-to-another-capacity-pool"></a>Mover um volume para outro pool de capacidade
 
 1.  Na página volumes, clique com o botão direito do mouse no volume cujo nível de serviço você deseja alterar. Selecione **alterar pool**.
@@ -72,3 +75,4 @@ Você também pode usar comandos de CLI do Azure [`az feature register`](https:/
 
 * [Níveis de serviço do Azure NetApp Files](azure-netapp-files-service-levels.md)
 * [Configurar um pool de capacidade](azure-netapp-files-set-up-capacity-pool.md)
+* [Solucionar problemas de alteração do pool de capacidade de um volume](troubleshoot-capacity-pools.md#issues-when-changing-the-capacity-pool-of-a-volume)

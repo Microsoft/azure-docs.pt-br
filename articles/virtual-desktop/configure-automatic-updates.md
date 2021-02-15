@@ -8,10 +8,10 @@ ms.author: helohr
 ms.reviewer: v-cawood; clemr
 manager: lizross
 ms.openlocfilehash: bfc797e0c11a1804d27c6c97fea8cb2ba62dca7a
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88010116"
 ---
 # <a name="configure-microsoft-endpoint-configuration-manager"></a>Configurar o Microsoft Endpoint Configuration Manager

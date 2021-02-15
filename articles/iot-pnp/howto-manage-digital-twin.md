@@ -1,32 +1,32 @@
 ---
 title: Como gerenciar gêmeos digitais de IoT Plug and Play
-description: Como gerenciar o dispositivo de visualização de Plug and Play IoT usando APIs de entrelaçamento digital
+description: Como gerenciar o dispositivo de Plug and Play de IoT usando APIs de entrelaçamento digital
 author: prashmo
 ms.author: prashmo
 ms.date: 07/20/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: f86bf17c34d88fa48df4933e979a590fbc89820b
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: ddb8027c145f6a38bfcd953be66dae2943a20c3a
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87352095"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97654601"
 ---
 # <a name="manage-iot-plug-and-play-digital-twins"></a>Gerenciar gêmeos digital de IoT Plug and Play
 
-O IoT Plug and Play dá suporte a **obter** operações digitais de atualização de e/ou **Atualizar** para gerenciar o digital gêmeos. Você pode usar as [APIs REST](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin) ou um dos SDKs de [serviço](libraries-sdks.md).
+O IoT Plug and Play dá suporte a **obter** operações digitais de atualização de e/ou **Atualizar** para gerenciar o digital gêmeos. Você pode usar as [APIs REST](/rest/api/iothub/service/digitaltwin) ou um dos SDKs de [serviço](libraries-sdks.md).
 
-No momento da elaboração do artigo, a versão da API do digital up para visualização pública é `2020-05-31-preview` .
+No momento da gravação, a versão da API do digital up é `2020-09-30` .
 
-## <a name="update-a-digital-twin"></a>Atualizar uma atualização digital
+## <a name="update-a-digital-twin"></a>Atualizar um gêmeo digital
 
 Um dispositivo de Plug and Play IoT implementa um modelo descrito pelo [DTDL (digital gêmeos Definition Language) V2](https://github.com/Azure/opendigitaltwins-dtdl). Os desenvolvedores de soluções podem usar a **API de atualização de atualizações digitais** para atualizar o estado do componente e as propriedades do digital.
 
 O dispositivo IoT Plug and Play usado como exemplo neste artigo implementa o modelo do [controlador de temperatura](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) com componentes [termostato](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json) .
 
-O trecho de código a seguir mostra a resposta a uma solicitação de " **obter digital** " formatada como um objeto JSON. Para saber mais sobre o formato de informações digitais, consulte [entender IoT plug and Play Digital gêmeos](./concepts-digital-twin.md#digital-twin-json-format):
+O trecho de código a seguir mostra a resposta a uma solicitação de " **obter digital** " formatada como um objeto JSON. Para saber mais sobre o formato de informações digitais, consulte [entender IoT plug and Play Digital gêmeos](./concepts-digital-twin.md#digital-twin-example):
 
 ```json
 {
@@ -72,7 +72,7 @@ Por exemplo, você pode atualizar a `targetTemperature` propriedade da seguinte 
 ]
 ```
 
-A atualização anterior define o valor desejado de uma propriedade no nível raiz ou nível de componente correspondente `$metadata` , conforme mostrado no trecho a seguir. O Hub IoT atualiza a versão desejada da propriedade:
+A atualização anterior define o valor desejado de uma propriedade no nível de componente correspondente `$metadata` , conforme mostrado no trecho a seguir. O Hub IoT atualiza a versão desejada da propriedade:
 
 ```json
 "thermostat1": {
@@ -130,7 +130,7 @@ O exemplo de patch JSON a seguir mostra como adicionar, substituir ou remover um
 
 Uma operação de adicionar ou substituir define o valor desejado de uma propriedade. O dispositivo pode sincronizar o estado e relatar uma atualização do valor junto com um `ack` código, uma versão e uma descrição.
 
-A remoção de uma propriedade desmarcará o valor desejado da propriedade se ela estiver definida. O dispositivo pode então parar de relatar essa propriedade e ela é removida do nível raiz ou do componente. Se essa propriedade for a última no componente, o componente também será removido.
+A remoção de uma propriedade desmarcará o valor desejado da propriedade se ela estiver definida. O dispositivo pode então parar de relatar essa propriedade e ela é removida do componente. Se essa propriedade for a última no componente, o componente também será removido.
 
 O exemplo de patch JSON a seguir mostra como adicionar, substituir ou remover uma propriedade dentro de um componente:
 
@@ -179,11 +179,11 @@ Todas as chaves de mapa devem ser nomes DTDL v2 válidos.
 
 ## <a name="troubleshoot-update-digital-twin-api-errors"></a>Solucionar problemas de erros de API de atualização digital
 
-Durante a visualização pública, a API de atualização de atualizações digitais gera a seguinte mensagem de erro genérica:
+A API de teledigital de digitais gera a seguinte mensagem de erro genérica:
 
 `ErrorCode:ArgumentInvalid;'{propertyName}' exists within the device twin and is not digital twin conformant property. Please refer to aka.ms/dtpatch to update this to be conformant.`
 
-Verifique se o patch de atualização segue as [regras para definir o valor desejado de uma propriedade de propriedades digitais](#rules-for-setting-the-desired-value-of-a-digital-twin-property)
+Se você vir esse erro, verifique se o patch de atualização segue as [regras para definir o valor desejado de uma propriedade de propriedades digitais](#rules-for-setting-the-desired-value-of-a-digital-twin-property)
 
 Ao atualizar um componente, verifique se o [objeto vazio $Metadata marcador](#add-replace-or-remove-a-component) está definido.
 
@@ -193,6 +193,6 @@ As atualizações podem falhar se os valores relatados de um dispositivo não es
 
 Agora que você aprendeu sobre o digital gêmeos, aqui estão alguns recursos adicionais:
 
-- [Interagir com um dispositivo de sua solução](quickstart-service-node.md)
-- [API REST de monodigital de IoT](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin)
-- [Gerenciador de IoT do Azure](howto-use-iot-explorer.md)
+- [Interagir com um dispositivo da sua solução](quickstart-service.md)
+- [API REST de monodigital de IoT](/rest/api/iothub/service/digitaltwin)
+- [Azure IoT Explorer](howto-use-iot-explorer.md)

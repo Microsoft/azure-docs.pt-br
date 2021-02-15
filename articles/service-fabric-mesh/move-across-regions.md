@@ -6,14 +6,19 @@ ms.author: edoyle
 ms.topic: how-to
 ms.date: 01/14/2020
 ms.custom: subject-moving-resources
-ms.openlocfilehash: c842a065f108a924c6bffd70d6c2edbbd31b6dff
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 1b59d482b8b88e37da2d61636ff3f254a46ba5c2
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86260160"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99626080"
 ---
 # <a name="move-a-service-fabric-mesh-application-to-another-azure-region"></a>Mover um aplicativo de malha Service Fabric para outra região do Azure
+
+> [!IMPORTANT]
+> A visualização da malha de Service Fabric do Azure foi desativada. Novas implantações não serão mais permitidas por meio da API de malha Service Fabric. O suporte para implantações existentes continuará até 28 de abril de 2021.
+> 
+> Para obter detalhes, consulte desativação da [Visualização da malha de Service Fabric do Azure](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
 
 Este artigo descreve como mover seu Service Fabric aplicativo de malha e seus recursos para uma região diferente do Azure. Você pode mover seus recursos para outra região por vários motivos. Por exemplo, em resposta a interrupções, para obter recursos ou serviços disponíveis somente em regiões específicas, para atender aos requisitos internos de políticas e governança, ou em resposta aos requisitos de planejamento de capacidade.
 
@@ -44,7 +49,7 @@ Este artigo descreve como mover seu Service Fabric aplicativo de malha e seus re
 
 1. Quando a implantação for concluída, teste os pontos de extremidade do aplicativo para verificar a funcionalidade do seu aplicativo.
 
-2. Você também pode verificar o status do seu aplicativo verificando o status do aplicativo ([AZ mesh App Show](/cli/azure/ext/mesh/mesh/app?view=azure-cli-latest#ext-mesh-az-mesh-app-show)) e revisando os comandos logs do aplicativo e ([AZ mesh código-Package-log](/cli/azure/ext/mesh/mesh/code-package-log?view=azure-cli-latest)) usando a [CLI da malha de Service Fabric do Azure](./service-fabric-mesh-quickstart-deploy-container.md#set-up-service-fabric-mesh-cli).
+2. Você também pode verificar o status do seu aplicativo verificando o status do aplicativo ([AZ mesh App Show](/cli/azure/ext/mesh/mesh/app#ext-mesh-az-mesh-app-show)) e revisando os comandos logs do aplicativo e ([AZ mesh código-Package-log](/cli/azure/ext/mesh/mesh/code-package-log)) usando a [CLI da malha de Service Fabric do Azure](./service-fabric-mesh-quickstart-deploy-container.md#set-up-service-fabric-mesh-cli).
 
 ## <a name="commit"></a>Commit
 

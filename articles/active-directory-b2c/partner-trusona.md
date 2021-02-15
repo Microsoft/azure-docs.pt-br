@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a0d5b369e1c143b3df4157329bcf7d3a3f7142d7
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 99368da8b4018e93ad537e4722ffefd476e61291
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87489462"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99573680"
 ---
 # <a name="integrating-trusona-with-azure-active-directory-b2c"></a>Integração do Trusona com o Azure Active Directory B2C
 
@@ -28,7 +28,7 @@ Para começar, você precisará de:
 
 * Uma assinatura do Azure AD. Caso você não tenha uma assinatura, obtenha uma [conta gratuita](https://azure.microsoft.com/free/).
 * [Um locatário Azure ad B2C](tutorial-create-tenant.md) que está vinculado à sua assinatura do Azure.
-* Uma [conta de avaliação](https://www.trusona.com/aadb2c) em Trusona
+* Uma [conta de avaliação](https://www.trusona.com/) em Trusona
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
@@ -53,7 +53,7 @@ Nesse cenário, Trusona atua como um provedor de identidade para Azure AD B2C ha
 
 ## <a name="onboard-with-trusona"></a>Integração com o Trusona
 
-1. Preencha o [formulário](https://www.trusona.com/aadb2c) para criar uma conta do Trusona e comece.
+1. Preencha o [formulário](https://www.trusona.com/) para criar uma conta do Trusona e comece.
 
 2. Baixe o aplicativo móvel Trusona da App Store. Instale o aplicativo e Registre seu email.
 
@@ -135,7 +135,7 @@ Agora você deve ver Trusona como um **novo provedor de identidade do OpenID Con
 
 1. Insira um **nome** para a política.
 
-1. Na seção **provedores de identidade** , selecione seu provedor de **identidade Trusona**recém-criado.
+1. Na seção **provedores de identidade** , selecione seu provedor de **identidade Trusona** recém-criado.
 
    > [!NOTE]
    > Como Trusona é inerentemente multifator, é melhor deixar a autenticação multifator desabilitada.

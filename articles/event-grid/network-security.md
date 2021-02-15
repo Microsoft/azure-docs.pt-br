@@ -1,29 +1,29 @@
 ---
 title: Segurança de rede para recursos da grade de eventos do Azure
-description: Este artigo descreve como configurar o acesso de pontos de extremidade privados
+description: Este artigo descreve como usar marcas de serviço para saída, regras de firewall de IP para entrada e pontos de extremidade privados para entrada com a grade de eventos do Azure.
 author: VidyaKukke
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: vkukke
-ms.openlocfilehash: 1887b6b5919a8b0f6e8f570b2471d74d9541df31
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 10c9b165041f0a4a1f09511f17bef3629353c3b2
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119235"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917521"
 ---
 # <a name="network-security-for-azure-event-grid-resources"></a>Segurança de rede para recursos da grade de eventos do Azure
 Este artigo descreve como usar os seguintes recursos de segurança com a grade de eventos do Azure: 
 
 - Marcas de serviço para saída
-- Regras de firewall IP para entrada (versão prévia)
+- Regras de firewall IP para entrada
 - Pontos de extremidade privados para entrada
 
 
 ## <a name="service-tags"></a>Marcas de serviço
 Uma marca de serviço representa um grupo de prefixos de endereço IP de um determinado serviço do Azure. A Microsoft gerencia os prefixos de endereço englobados pela marca de serviço e atualiza automaticamente a marca de serviço em caso de alteração de endereços, minimizando a complexidade de atualizações frequentes das regras de segurança de rede. Para obter mais informações sobre marcas de serviço, consulte [visão geral das marcas de serviço](../virtual-network/service-tags-overview.md).
 
-Você pode usar marcas de serviço para definir os controles de acesso à rede em [grupos de segurança de rede](../virtual-network/security-overview.md#security-rules) ou no  [Firewall do Azure](../firewall/service-tags.md). Use marcas de serviço em vez de endereços IP específicos ao criar regras de segurança. Ao especificar o nome da marca de serviço (por exemplo, **AzureEventGrid**) no *source*   campo de origem ou *destino*apropriado   de uma regra, você pode permitir ou negar o tráfego para o serviço correspondente.
+Você pode usar marcas de serviço para definir os controles de acesso à rede em [grupos de segurança de rede](../virtual-network/network-security-groups-overview.md#security-rules) ou no [Firewall do Azure](../firewall/service-tags.md). Use marcas de serviço em vez de endereços IP específicos ao criar regras de segurança. Ao especificar o nome da marca de serviço (por exemplo, **AzureEventGrid**) no campo de *origem* ou *destino* apropriado de uma regra, você pode permitir ou negar o tráfego para o serviço correspondente.
 
 | Marca de serviço | Finalidade | É possível usar entrada ou saída? | Pode ser regional? | É possível usar com o Firewall do Azure? |
 | --- | -------- |:---:|:---:|:---:|
@@ -33,7 +33,7 @@ Você pode usar marcas de serviço para definir os controles de acesso à rede e
 ## <a name="ip-firewall"></a>Firewall de IP 
 A grade de eventos do Azure dá suporte a controles de acesso baseados em IP para publicação em tópicos e domínios. Com controles baseados em IP, você pode limitar os editores a um tópico ou domínio a apenas um conjunto de computadores e serviços de nuvem aprovados. Esse recurso complementa os [mecanismos de autenticação](security-authentication.md) com suporte na grade de eventos.
 
-Por padrão, o tópico e o domínio podem ser acessados pela Internet, desde que a solicitação venha com autenticação e autorização válidas. Com o firewall de IP, você pode restringir ainda mais a um conjunto de endereços IP ou intervalos de endereços IP na notação [CIDR (roteamento entre domínios sem classificação)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) . Os Publicadores provenientes de qualquer outro endereço IP serão rejeitados e receberão uma resposta 403 (proibido).
+Por padrão, o tópico e o domínio podem ser acessados pela Internet, desde que a solicitação venha com autenticação e autorização válidas. Com o firewall de IP, você pode restringir ainda mais a um conjunto de endereços IP ou intervalos de endereços IP na notação [CIDR (roteamento Inter-Domain sem classe)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) . Os Publicadores provenientes de qualquer outro endereço IP serão rejeitados e receberão uma resposta 403 (proibido).
 
 Para obter instruções detalhadas sobre como configurar o firewall de IP para tópicos e domínios, consulte [Configurar o firewall de IP](configure-firewall.md).
 
@@ -45,7 +45,7 @@ Você pode usar [pontos de extremidade privados](../private-link/private-endpoin
 O uso de pontos de extremidade privados para o recurso da grade de eventos permite que você:
 
 - Proteja o acesso ao seu tópico ou domínio de uma VNet pela rede de backbone da Microsoft em oposição à Internet pública.
-- Conecte-se com segurança de redes locais que se conectam à VNet usando VPN ou Expressroute ao qual com emparelhamento privado.
+- Conecte-se com segurança de redes locais que se conectam à VNet usando VPN ou rotas expressas com emparelhamento privado.
 
 Quando você cria um ponto de extremidade privado para um tópico ou domínio em sua VNet, uma solicitação de consentimento é enviada para aprovação para o proprietário do recurso. Se o usuário que solicita a criação do ponto de extremidade privado também for um proprietário do recurso, essa solicitação de consentimento será aprovada automaticamente. Caso contrário, a conexão estará em estado **pendente** até ser aprovada. Os aplicativos na VNet podem se conectar ao serviço de grade de eventos por meio do ponto de extremidade privado diretamente, usando as mesmas cadeias de conexão e mecanismos de autorização que eles usariam de outra forma. Os proprietários de recursos podem gerenciar solicitações de consentimento e os pontos de extremidade privados, por meio da guia **pontos de extremidade particulares** para o recurso no portal do Azure.
 
@@ -57,7 +57,7 @@ Quando você cria um ponto de extremidade privado, o registro DNS CNAME do recur
 
 Quando você resolve o tópico ou a URL do ponto de extremidade do domínio de fora da VNet com o ponto de extremidade privado, ele é resolvido para o ponto de extremidade público do serviço. Os registros de recurso DNS para ' Topica ', quando resolvidos de **fora da VNet** que hospeda o ponto de extremidade privado, serão:
 
-| Nome                                          | Type      | Valor                                         |
+| Nome                                          | Tipo      | Valor                                         |
 | --------------------------------------------- | ----------| --------------------------------------------- |  
 | `topicA.westus.eventgrid.azure.net`             | CNAME     | `topicA.westus.privatelink.eventgrid.azure.net` |
 | `topicA.westus.privatelink.eventgrid.azure.net` | CNAME     | \<Azure traffic manager profile\>
@@ -66,7 +66,7 @@ Você pode negar ou controlar o acesso de um cliente fora da VNet por meio do po
 
 Quando resolvido da VNet que hospeda o ponto de extremidade privado, o tópico ou a URL do ponto de extremidade do domínio é resolvido para o endereço IP do ponto de extremidade privado. Os registros de recurso DNS para o tópico ' Topica ', quando resolvidos de **dentro da VNet** que hospeda o ponto de extremidade privado, serão:
 
-| Nome                                          | Type      | Valor                                         |
+| Nome                                          | Tipo      | Valor                                         |
 | --------------------------------------------- | ----------| --------------------------------------------- |  
 | `topicA.westus.eventgrid.azure.net`             | CNAME     | `topicA.westus.privatelink.eventgrid.azure.net` |
 | `topicA.westus.privatelink.eventgrid.azure.net` | Um         | 10.0.0.5
@@ -83,10 +83,10 @@ A tabela a seguir descreve os vários Estados da conexão de ponto de extremidad
 
 | Estado da Conexão   |  Publicação com êxito (Sim/não) |
 | ------------------ | -------------------------------|
-| Aprovado           | Sim                            |
-| Rejeitado           | Não                             |
-| Pendente            | Não                             |
-| Desconectado       | Não                             |
+| Aprovado           | Yes                            |
+| Rejeitado           | No                             |
+| Pendente            | No                             |
+| Desconectado       | No                             |
 
 Para que a publicação seja bem-sucedida, o estado de conexão do ponto de extremidade privado deve ser **aprovado**. Se uma conexão for rejeitada, ela não poderá ser aprovada usando o portal do Azure. A única possibilidade é excluir a conexão e criar uma nova, em vez disso.
 

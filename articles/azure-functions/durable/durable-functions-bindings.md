@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 899bc3fdc94b8232acd3edf3e0cbab3c481ff8f2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081841"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013711"
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>Associações para Funções Duráveis (Azure Functions)
 
@@ -32,7 +32,7 @@ Quando você escreve funções de orquestrador em linguagens de script (por exem
 }
 ```
 
-* `orchestration`é o nome da orquestração que os clientes devem usar quando desejarem iniciar novas instâncias dessa função de orquestrador. Essa propriedade é opcional. Se não for especificada, o nome da função será usado.
+* `orchestration` é o nome da orquestração que os clientes devem usar quando desejarem iniciar novas instâncias dessa função de orquestrador. Essa propriedade é opcional. Se não for especificada, o nome da função será usado.
 
 Internamente, essa associação de gatilho sonda uma série de filas na conta de armazenamento padrão do aplicativo de funções. Essas filas são detalhes da implementação interna da extensão e, por isso, elas não são configuradas explicitamente nas propriedades de associação.
 
@@ -533,7 +533,7 @@ Se você estiver usando linguagens de script (por exemplo, arquivos *. CSX* ou *
 
 Em funções do .NET, você normalmente se associa a `IDurableEntityClient` , que fornece acesso completo a todas as APIs de cliente com suporte de entidades duráveis. Você também pode associar à `IDurableOrchestrationClient` interface, que fornece acesso a APIs de cliente para entidades e orquestrações. APIs no objeto cliente incluem:
 
-* **ReadEntityStateAsync \<T> **: lê o estado de uma entidade. Ele retorna uma resposta que indica se a entidade de destino existe e, em caso afirmativo, qual é seu estado.
+* **ReadEntityStateAsync \<T>**: lê o estado de uma entidade. Ele retorna uma resposta que indica se a entidade de destino existe e, em caso afirmativo, qual é seu estado.
 * **SignalEntityAsync**: envia uma mensagem unidirecional para uma entidade e aguarda que ela seja enfileirada.
 * **ListEntitiesAsync**: consulta o estado de várias entidades. As entidades podem ser consultadas por *nome* e *pela última hora da operação*.
 

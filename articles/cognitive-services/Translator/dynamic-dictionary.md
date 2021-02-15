@@ -3,19 +3,19 @@ title: Dicionário dinâmico-Tradutor
 titleSuffix: Azure Cognitive Services
 description: Este artigo explica como usar o recurso de dicionário dinâmico do tradutor de serviços cognitivas do Azure.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 05/26/2020
-ms.author: swmachan
-ms.openlocfilehash: de45867e717f001ab54e16c4b21f04494affd326
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.author: lajanuar
+ms.openlocfilehash: ebfccb6fed46db65f6a70937516552f5280c8016
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83996974"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897757"
 ---
 # <a name="how-to-use-a-dynamic-dictionary"></a>Como usar um dicionário dinâmico
 
@@ -32,9 +32,9 @@ Se você já souber a tradução que deseja aplicar a uma palavra ou frase, pode
 
 **Exemplo: en-de:**
 
-Entrada de origem:`The word <mstrans:dictionary translation=\"wordomatic\">word or phrase</mstrans:dictionary> is a dictionary entry.`
+Entrada de origem: `The word <mstrans:dictionary translation=\"wordomatic\">word or phrase</mstrans:dictionary> is a dictionary entry.`
 
-Saída de destino:`Das Wort "wordomatic" ist ein Wörterbucheintrag.`
+Saída de destino: `Das Wort "wordomatic" ist ein Wörterbucheintrag.`
 
 Esse recurso funciona da mesma forma com e sem o modo HTML.
 

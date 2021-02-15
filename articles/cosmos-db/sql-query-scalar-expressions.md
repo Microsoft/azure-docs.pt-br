@@ -3,17 +3,19 @@ title: Expressões escalares em consultas do Azure Cosmos DB SQL
 description: Saiba mais sobre a sintaxe SQL de expressão escalar para Azure Cosmos DB. Este artigo também descreve como combinar expressões escalares em expressões complexas usando operadores.
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: mjbrown
-ms.openlocfilehash: f8c98915ad3b682af00492acc7bc51672ec874a8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 34df2d2f4a2209cca93c3f7ac12dcd203bf4a089
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74870727"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339624"
 ---
 # <a name="scalar-expressions-in-azure-cosmos-db-sql-queries"></a>Expressões escalares em consultas do Azure Cosmos DB SQL
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 A [cláusula SELECT](sql-query-select.md) oferece suporte a expressões escalares. Uma expressão escalar é uma combinação de símbolos e operadores que podem ser avaliados para se obter um único valor. Exemplos de expressões escalares incluem: constantes, referências de propriedade, referências de elemento de matriz, referências de alias ou chamadas de função. Expressões escalares podem ser combinadas em expressões complexas usando operadores.
 
@@ -55,7 +57,7 @@ A [cláusula SELECT](sql-query-select.md) oferece suporte a expressões escalare
 - `input_alias`  
   
    Representa um valor definido pelo `input_alias` introduzido na cláusula `FROM`.  
-  Esse valor é garantidamente diferente de **indefinido**; os valores **indefinidos** na entrada são ignorados.  
+  Esse valor é garantidamente diferente de **indefinido** ; os valores **indefinidos** na entrada são ignorados.  
   
 - `<scalar_expression>.property_name`  
   

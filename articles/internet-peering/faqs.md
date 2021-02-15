@@ -9,10 +9,10 @@ ms.topic: reference
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: 9b0b2b08e01c99fc918c4bc5649197c9caa4978a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75775492"
 ---
 # <a name="internet-peering---faqs"></a>Emparelhamento de Internet-perguntas frequentes
@@ -29,7 +29,7 @@ A conexão de emparelhamento configurada usando Azure PowerShell é gerenciada c
 
 **Quando New-AzPeeringDirectConnectionObject é chamado, quais endereços IP são fornecidos à Microsoft e aos dispositivos de mesmo nível?**
 
-Ao chamar o cmdlet New-AzPeeringDirectConnectionObject, um endereço/31 (a. b. c. d/31) ou um endereço/30 (a. b. c. d/30) é inserido. O primeiro endereço IP (a. b. c. d + 0) é fornecido ao dispositivo do par e o segundo endereço IP (a. b. c. d + 1) é fornecido ao dispositivo da Microsoft.
+Ao chamar New-AzPeeringDirectConnectionObject cmdlet, um endereço/31 (a. b. c. d/31) ou um endereço/30 (a. b. c. d/30) é inserido. O primeiro endereço IP (a. b. c. d + 0) é fornecido ao dispositivo do par e o segundo endereço IP (a. b. c. d + 1) é fornecido ao dispositivo da Microsoft.
 
 **O que são os parâmetros MaxPrefixesAdvertisedIPv4 e MaxPrefixesAdvertisedIPv6 no cmdlet New-AzPeeringDirectConnectionObject?**
 

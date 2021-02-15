@@ -3,18 +3,18 @@ title: Perguntas frequentes sobre o Azure DevTest Labs | Microsoft Docs
 description: Este artigo dá respostas para algumas das perguntas frequentes sobre o Azure DevTest Labs.
 ms.topic: article
 ms.date: 07/17/2020
-ms.openlocfilehash: 3f36b8238ccb69b3b1f14166b522e47d5debe54e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 9fcdc160754822d5c6f22b7349d0e72f0cf22633
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289364"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97590266"
 ---
 # <a name="azure-devtest-labs-faq"></a>Perguntas frequentes sobre o Azure DevTest Labs
 Obtenha respostas para algumas das perguntas mais comuns sobre o Azure DevTest Labs.
 
 ## <a name="blog-post"></a>Postagem no blog
-Nosso blog da equipe do DevTest Labs foi desativado em 20 de março de 2019. 
+Nosso blog da equipe do DevTest Labs foi desativado em 20 de março de 2019. 
 
 ### <a name="where-can-i-track-feature-updates-from-now-on"></a>Onde posso acompanhar atualizações de recursos de agora em diante?
 De agora em diante, lançaremos atualizações de recursos e postagens informativas no blog do Azure e nas atualizações do Azure. Essas postagens no blog também serão vinculadas à nossa documentação sempre que necessário.
@@ -22,7 +22,7 @@ De agora em diante, lançaremos atualizações de recursos e postagens informati
 Assine o [blog do Azure DevTest Labs](https://azure.microsoft.com/blog/tag/azure-devtest-labs/) e as [atualizações do Azure DevTest Labs](https://azure.microsoft.com/updates/?product=devtest-lab) para se manter informado sobre novos recursos no DevTest Labs.
 
 ### <a name="what-happens-to-the-existing-blog-posts"></a>O que acontece com as postagens no blog existentes?
-No momento, estamos trabalhando para migrar as postagens no blog existentes (excluindo atualizações de interrupção) para nossa [documentação do DevTest Labs](devtest-lab-overview.md). Quando o blog do MSDN for preterido, ele será redirecionado para a visão geral da documentação do DevTest Labs. Depois de redirecionado, você pode pesquisar o artigo que está procurando no título "Filtrar por". Ainda não migramos todas as postagens, mas isso deve ser feito até o final deste mês. 
+No momento, estamos trabalhando para migrar as postagens no blog existentes (excluindo atualizações de interrupção) para nossa [documentação do DevTest Labs](devtest-lab-overview.md). Quando o blog do MSDN for preterido, ele será redirecionado para a visão geral da documentação do DevTest Labs. Depois de redirecionado, você pode pesquisar o artigo que está procurando no título "Filtrar por". Ainda não migramos todas as postagens, mas isso deve ser feito até o final deste mês. 
 
 
 ### <a name="where-do-i-see-outage-updates"></a>Onde posso ver as atualizações de interrupção?
@@ -68,7 +68,7 @@ O DevTest Labs é um serviço gratuito. Criar e configurar políticas, modelos e
 ## <a name="security"></a>Segurança
 
 ### <a name="what-are-the-different-security-levels-in-devtest-labs"></a>Quais são os diferentes níveis de segurança no DevTest Labs?
-O acesso de segurança é determinado pelo RBAC (controle de acesso baseado em função). Para entender como o acesso funciona, é importante entender as diferenças entre um escopo, uma permissão e uma função, conforme definido pelo RBAC.
+O acesso de segurança é determinado pelo Azure RBAC (controle de acesso baseado em função). Para saber como funciona o Access, ele ajuda a aprender as diferenças entre uma permissão, uma função e um escopo, conforme definido pelo RBAC do Azure.
 
 - **Permissão**: uma permissão é um acesso definido para uma ação específica. Por exemplo, uma permissão pode ser de acesso de leitura a todas as VMs.
 - **Função**: uma função é um conjunto de permissões que podem ser agrupadas e atribuídas a um usuário. Por exemplo, um usuário com uma função de proprietário da assinatura tem acesso a todos os recursos dentro de uma assinatura.
@@ -83,7 +83,7 @@ Você também pode criar funções personalizadas no DevTest Labs. Para saber co
 
 Já que os escopos são hierárquicos, quando um usuário tem permissões em um determinado escopo, o usuário recebe essas permissões automaticamente em cada escopo de nível inferior que está no escopo. Por exemplo, se a função de proprietário da assinatura é atribuída a um usuário, ele tem acesso a todos os recursos em uma assinatura. Esses recursos incluem VMs, redes virtuais e laboratórios. Um proprietário de assinatura herda automaticamente a função de proprietário de laboratório. No entanto, o oposto não é verdadeiro. O proprietário de um laboratório tem acesso a um laboratório, que é um escopo menor que o nível de assinatura. Portanto, um proprietário de laboratório não pode ver VMs, redes virtuais ou quaisquer outros recursos que estejam fora do laboratório.
 
-### <a name="how-do-i-define-role-based-access-control-for-my-devtest-labs-environments-to-ensure-that-it-can-govern-while-developerstest-can-do-their-work"></a>Como faço para definir o controle de acesso baseado em função para meus ambientes de DevTest Labs e garantir que a TI possa ter controle enquanto os desenvolvedores/teste realizam seu trabalho?
+### <a name="how-do-i-define-azure-role-based-access-control-for-my-devtest-labs-environments-to-ensure-that-it-can-govern-while-developerstest-can-do-their-work"></a>Como fazer definir o controle de acesso baseado em função do Azure para meus ambientes do DevTest Labs para garantir que ele possa ser controlado, enquanto os desenvolvedores/testes podem fazer seu trabalho?
 Há um padrão amplo, no entanto, o detalhe depende de sua organização.
 
 A TI central deve ter apenas o que é preciso e permitir que as equipes de projeto e de aplicativo tenham o nível de controle necessário. Normalmente, isso significa que a TI central controla a assinatura e lida com as principais funções de TI, como configurações de rede. O conjunto de **proprietários** de uma assinatura deve ser pequeno. Esses proprietários podem indicar proprietários adicionais quando há uma necessidade ou aplicar políticas de nível de assinatura, por exemplo, "Nenhum IP público".
@@ -92,7 +92,7 @@ Pode haver um subconjunto de usuários que exija acesso por meio de uma assinatu
 
 O recurso DevTest Labs deve pertencer a proprietários próximos à equipe do projeto/aplicativo. Isso ocorre porque eles conhecem os requisitos em relação a máquinas e software necessários. Na maioria das organizações, o proprietário do recurso DevTest Labs geralmente é o líder do projeto/desenvolvimento. Esse proprietário pode gerenciar usuários e políticas no ambiente de laboratório e gerenciar todas as VMs no ambiente de DevTest Labs.
 
-Os membros da equipe do projeto/aplicativo devem ser adicionados à função **Usuários do DevTest Labs**. Esses usuários podem criar máquinas virtuais (alinhadas com políticas do laboratório e do nível da assinatura). Eles também podem gerenciar suas próprias máquinas virtuais. Eles não podem gerenciar máquinas virtuais que pertencem a outros usuários.
+Os membros da equipe do projeto/aplicativo devem ser adicionados à função de **usuário do DevTest Labs** . Esses usuários podem criar máquinas virtuais (alinhadas com políticas do laboratório e do nível da assinatura). Eles também podem gerenciar suas próprias máquinas virtuais. Eles não podem gerenciar máquinas virtuais que pertencem a outros usuários.
 
 Para saber mais, confira a documentação do [Scaffolding empresarial do Azure – governança de assinatura prescritiva](/azure/architecture/cloud-adoption/appendix/azure-scaffold).
 
@@ -145,7 +145,7 @@ Cenário de grupo de recursos separado:
 -   O DevTest Labs cria um grupo de recursos para máquinas IP compartilhadas que têm o mesmo tamanho.
 
 Cenário de grupo de recursos em comum:
--   Todas as máquinas virtuais são desenvolvidas no grupo de recursos em comum que você especifica. Saiba mais sobre [alocação de grupo de recursos para o laboratório](https://aka.ms/RGControl).
+-   Todas as máquinas virtuais são desenvolvidas no grupo de recursos em comum que você especifica. Saiba mais sobre [alocação de grupo de recursos para o laboratório](./resource-group-control.md).
 
 ### <a name="how-do-i-maintain-a-naming-convention-across-my-devtest-labs-environment"></a>Como manter a uma convenção de nomenclatura em meu ambiente do DevTest Labs?
 Talvez você queira estender as convenções de nomenclatura empresariais atuais para operações do Azure e torná-las consistentes em todo o ambiente do DevTest Labs. Ao implantar o DevTest Labs, é recomendável que você tenha políticas iniciais específicas. Você implanta essas políticas por um script central e modelos JSON para impor consistência. Políticas de nomenclatura podem ser implementadas por meio de políticas do Azure aplicadas no nível da assinatura. Para obter exemplos de JSON para o Azure Policy, confira [Exemplos do Azure Policy](../governance/policy/samples/index.md).
@@ -200,7 +200,7 @@ Para copiar suas VMs existentes para o DevTest Labs:
 Sim, você pode anexar vários discos a suas VMs.
 
 ### <a name="are-gen-2-images-supported-by-devtest-labs"></a>As imagens de Gen 2 são compatíveis com o DevTest Labs?
-Sim. O serviço DevTest Labs dá suporte a [imagens de Gen 2](../virtual-machines/windows/generation-2.md). No entanto, se as versões 1 e Gen 2 estiverem disponíveis para uma imagem, o DevTest Labs mostrará apenas a versão Gen 1 da imagem ao criar uma VM. Você verá a imagem se houver apenas a versão Gen 2 dela disponível. 
+Sim. O serviço DevTest Labs dá suporte a [imagens de Gen 2](../virtual-machines/generation-2.md). No entanto, se as versões 1 e Gen 2 estiverem disponíveis para uma imagem, o DevTest Labs mostrará apenas a versão Gen 1 da imagem ao criar uma VM. Você verá a imagem se houver apenas a versão Gen 2 dela disponível. 
 
 ### <a name="if-i-want-to-use-a-windows-os-image-for-my-testing-do-i-have-to-purchase-an-msdn-subscription"></a>Se eu quiser usar uma imagem do sistema operacional Windows para o meu teste, preciso comprar uma assinatura do MSDN?
 Para usar imagens do sistema operacional do cliente Windows (Windows 7 ou posterior) para desenvolvimento ou teste no Azure, realize uma das seguintes ações:
@@ -318,7 +318,7 @@ Como parte da estratégia de gerenciamento de configuração e de governança de
 - Associe o Azure Repos ao mesmo locatário do Azure Active Directory que a assinatura do Azure está usando para autenticação e autorização.
 - Crie um grupo chamado `All DevTest Labs Developers` no Azure Active Directory que seja gerenciado centralmente. Qualquer desenvolvedor que contribui para o desenvolvimento de artefatos deve ser colocado nesse grupo.
 - O mesmo grupo do Azure Active Directory pode ser usado para fornecer acesso ao repositório do Azure Repos e ao laboratório.
-- No Azure Repos, a ramificação ou bifurcação deve ser usada para um repositório em desenvolvimento separado do repositório de produção primário. O conteúdo só é adicionado ao branch mestre com uma solicitação de pull após uma revisão de código apropriada. Depois que o revisor de código aprova a alteração, um desenvolvedor-chefe, que é responsável pela manutenção do branch mestre, mescla o código atualizado.
+- No Azure Repos, a ramificação ou bifurcação deve ser usada para um repositório em desenvolvimento separado do repositório de produção primário. O conteúdo é adicionado somente ao Branch principal com uma solicitação pull após uma revisão de código adequada. Depois que o revisor de código aprovar a alteração, um desenvolvedor líder, responsável pela manutenção da ramificação principal, mesclará o código atualizado.
 
 ## <a name="cicd-integration"></a>Integração de CI/CD
 

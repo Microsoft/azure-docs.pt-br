@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 06/30/2020
 ms.author: victorh
 ms.openlocfilehash: bf189e4c9853d9f2ff6e8495423f4f36f14f41d4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85611791"
 ---
 # <a name="azure-firewall-policy-dns-settings-preview"></a>Configurações de DNS da política de firewall do Azure (versão prévia)
@@ -31,7 +31,7 @@ Um servidor DNS mantém e resolve nomes de domínio para endereços IP. Por padr
 1. Selecione sua política de firewall.
 2. Em **configurações**, selecione **configurações de DNS**.
 3. Em **servidores DNS**, você pode digitar ou adicionar servidores DNS existentes que foram especificados anteriormente em sua rede virtual.
-4. Selecione **Salvar**.
+4. Clique em **Salvar**.
 5. O firewall agora direciona o tráfego DNS para os servidores DNS especificados para a resolução de nomes.
 
 ## <a name="dns-proxy-preview"></a>Proxy DNS (visualização)
@@ -55,7 +55,7 @@ Para configurar o proxy DNS, você deve definir a configuração de servidores D
 2. Em **Configurações**, selecione **Servidores DNS**.
 3. Selecione **personalizado** em **servidores DNS**.
 4. Insira o endereço IP privado do firewall.
-5. Selecione **Salvar**.
+5. Clique em **Salvar**.
 
 #### <a name="enable-dns-proxy-preview"></a>Habilitar proxy DNS (visualização)
 

@@ -3,36 +3,48 @@
 - name: Visão geral
   items:
     - name: O que é o Lote do Azure?
+      displayName: overview
       href: batch-technical-overview.md
 - name: Inícios rápidos
   expanded: true
   items:
     - name: Executar um trabalho em lotes - CLI
+      displayName: 'quickstart, first, create'
       href: quick-create-cli.md
     - name: Executar um trabalho em lotes - Portal
+      displayName: 'quickstart, first, create'
       href: quick-create-portal.md
     - name: Executar um trabalho em lotes - .NET
+      displayName: 'quickstart, first, create, c#, csharp'
       href: quick-run-dotnet.md
     - name: Executar um trabalho em lotes - Python
+      displayName: 'quickstart, first, create'
       href: quick-run-python.md
     - name: Criar uma conta do Lote – modelo do ARM
       href: quick-create-template.md
-      displayName: Resource Manager
+      displayName: 'Resource Manager, quickstart, first, create'
 - name: Tutoriais
   items:
     - name: Processamento de arquivo paralelo - .NET
+      displayName: 'tutorial, hpc, high-performance, large, c#, csharp'
       href: tutorial-parallel-dotnet.md
     - name: Processamento de arquivo paralelo - Python
+      displayName: 'tutorial, hpc, high-performance, large'
       href: tutorial-parallel-python.md
     - name: Renderização de cena com Arnold
+      displayName: tutorial
       href: tutorial-rendering-cli.md
     - name: Renderizar usando o Batch Explorer
+      displayName: tutorial
       href: tutorial-rendering-batchexplorer-blender.md
     - name: Simulação R paralela
+      displayName: 'tutorial, doAzureParallel, rstudio'
       href: tutorial-r-doazureparallel.md
     - name: OCR com o Lote e o Functions
+      displayName: 'trigger, optical'
       href: tutorial-batch-functions.md
     - name: Scripts Python com o Data Factory
+      displayName: tutorial
       href: tutorial-run-python-batch-azure-data-factory.md
 - name: Exemplos
   items:
@@ -43,10 +55,19 @@
         - name: Repositório de exemplos de lote
           href: 'https://github.com/Azure/azure-batch-samples'
     - name: CLI do Azure
-      href: cli-samples.md
-    - name: Itens internos do Azure Policy
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
+      items:
+        - name: Criar uma conta do Lote no modo de serviço do Lote
+          href: ./scripts/batch-cli-sample-create-account.md
+        - name: Criar uma conta do Lote no modo de assinatura do usuário
+          href: ./scripts/batch-cli-sample-create-user-subscription-account.md
+        - name: Adicionar um aplicativo a uma conta de Lote do Azure
+          href: ./scripts/batch-cli-sample-add-application.md
+        - name: Criar e gerenciar um pool do Linux
+          href: ./scripts/batch-cli-sample-manage-linux-pool.md
+        - name: Criar e gerenciar um pool do Windows
+          href: ./scripts/batch-cli-sample-manage-windows-pool.md
+        - name: Executar um trabalho e tarefas
+          href: ./scripts/batch-cli-sample-run-job.md
 - name: Conceitos
   items:
     - name: Segurança
@@ -56,21 +77,23 @@
           href: ./security-controls-policy.md
         - name: Linha de base de segurança
           href: security-baseline.md
+        - name: Melhores práticas de segurança
+          href: security-best-practices.md
     - name: Fluxo de trabalho e recursos do serviço do Lote
-      displayName: developer features
+      displayName: 'developer features, core, component, overview'
       href: batch-service-workflow-features.md
       items:
         - name: Contas do Lote
           displayName: storage account
           href: accounts.md
         - name: Nós e pools
-          displayName: 'compute node, application package, scaling, schedule, os'
+          displayName: 'compute node, application package, scaling, schedule, os, configuration'
           href: nodes-and-pools.md
         - name: Trabalhos e tarefas
-          displayName: Batch job
+          displayName: 'Batch job, start task, environment'
           href: jobs-and-tasks.md
         - name: Arquivos e diretórios
-          displayName: Batch file
+          displayName: 'Batch file, working directory'
           href: files-and-directories.md
     - name: APIs e ferramentas
       href: batch-apis-tools.md
@@ -90,13 +113,11 @@
   items:
     - name: Gerenciar contas de Lote
       items:
-        - name: Gerenciar sua conta
-          href: batch-manage-account-basics.md
-        - name: Gerenciar contas de Lote com o portal
+        - name: Gerenciar contas do Lote no portal do Azure
           href: batch-account-create-portal.md
         - name: Gerenciar contas de Lote com o Batch Management .NET
           href: batch-management-dotnet.md
-        - name: Análise de custo e orçamentos
+        - name: Obter análise de custo e definir orçamentos
           href: budget.md
         - name: Usar pontos de extremidade privados com contas do Lote
           href: private-connectivity.md
@@ -109,11 +130,8 @@
         - name: Azure AD com o Gerenciamento de Lote
           href: batch-aad-auth-management.md
         - name: Acessar com segurança o Key Vault com o Lote
+          displayName: 'credential, certificate'
           href: credential-access-key-vault.md
-        - name: Usando certificados com o Lote
-          href: batch-certificates.md
-    - name: Como usar pacotes de aplicativos
-      href: batch-application-packages.md
     - name: Copiar arquivos e aplicativos para nós de pool
       items:
         - name: Copiar aplicativos e dados para nós de pool
@@ -125,22 +143,34 @@
     - name: Criar e gerenciar pools
       items:
         - name: Dimensionar nós de computação automaticamente
+          displayName: 'scaling, dynamic, formula'
           href: batch-automatic-scaling.md
         - name: Escolha um tamanho de VM para os nós de computação
           href: batch-pool-vm-sizes.md
+        - name: Mover do Serviço de Nuvem para os pools da Máquina Virtual
+          displayName: migrate
+          href: batch-pool-cloud-service-to-virtual-machine-configuration.md
         - name: Configurar o acesso a nós de computação
+          displayName: 'rdp, ssh, network, remote'
           href: pool-endpoint-configuration.md
         - name: Criar um pool com a Galeria de Imagens Compartilhadas
+          displayName: 'managed image, sig'
           href: batch-sig-images.md
         - name: Criar um pool com um recurso de imagem gerenciada
           href: batch-custom-images.md
+        - name: Criar um pool em Zonas de Disponibilidade
+          displayName: 'region, zonal policy'
+          href: create-pool-availability-zones.md
         - name: Criar um pool com a criptografia de disco habilitada
           href: disk-encryption.md
         - name: Criar um pool em uma rede virtual
+          displayName: vNet
           href: batch-virtual-network.md
         - name: Criar um pool com endereços IP públicos
+          displayName: static
           href: create-pool-public-ip.md
         - name: Criar um pool sem endereços IP públicos
+          displayName: private
           href: batch-pool-no-public-ip-address.md
         - name: Montar um sistema de arquivos virtual
           href: virtual-file-mount.md
@@ -151,16 +181,21 @@
         - name: Usar nós de computação do Linux
           href: batch-linux-nodes.md
         - name: Usar VMs de baixa prioridade
+          displayName: 'preempted, surplus, capacity'
           href: batch-low-pri-vms.md
         - name: Verificando erros no pool e no nó
+          displayName: 'troubleshoot, failure'
           href: batch-pool-node-error-checking.md
     - name: Criar um pipeline de CI/CD para o Lote
+      displayName: 'Azure DevOps, devops, continuous'
       href: batch-ci-cd.md
     - name: Gerenciar trabalhos e tarefas
       items:
         - name: Tarefas de preparação e conclusão de trabalho
+          displayName: 'release, job release'
           href: batch-job-prep-release.md
         - name: Tarefas de nó simultâneas
+          displayName: 'variable, maximize'
           href: batch-parallel-node-tasks.md
         - name: Dependências da tarefa
           href: batch-task-dependencies.md
@@ -171,6 +206,7 @@
         - name: Agendar trabalhos para eficiência
           href: batch-job-schedule.md
         - name: Verificar se há erros de trabalho e tarefa
+          displayName: 'failure, troubleshoot'
           href: batch-job-task-error-checking.md
     - name: Persistir saída de tarefa e de trabalho
       href: batch-task-output.md
@@ -183,45 +219,52 @@
       href: monitoring-overview.md
       items:
         - name: Usar métrica e logs de diagnóstico
+          displayName: 'alert, monitor'
           href: batch-diagnostics.md
         - name: Monitorar com Application Insights
+          displayName: debug
           href: monitor-application-insights.md
         - name: Recursos de contagem por estado
           href: batch-get-resource-counts.md
         - name: Consultar recursos com eficiência
+          displayName: 'monitor, queries'
           href: batch-efficient-list-queries.md
     - name: Usar ferramentas de script
       items:
         - name: Usar PowerShell do Azure
+          displayName: 'ps, scripting, cmdlet'
           href: batch-powershell-cmdlets-get-started.md
         - name: Usar a CLI do Azure
+          displayName: command line
           href: batch-cli-get-started.md
-          items:
-            - name: Usar modelos da CLI do Lote
-              href: batch-cli-templates.md
+        - name: Usar modelos da CLI do Lote
+          diplayName: extension
+          href: batch-cli-templates.md
     - name: Usar SDK do Node.js em Lotes
+      displayName: json
       href: batch-nodejs-get-started.md
     - name: Executar cargas de trabalho
       items:
-        - name: Trabalhos MPI
+        - name: MPI
+          displayName: 'multi-instance, message passing interface'
           href: batch-mpi.md
         - name: Cargas de trabalho de contêiner
+          displayName: docker
           href: batch-docker-container-workloads.md
         - name: Renderização
           items:
             - name: Renderizar usando o Azure
               href: batch-rendering-service.md
-            - name: Renderizando imagens da VM
+            - name: Como renderizar imagens da VM em lote
               href: batch-rendering-applications.md
             - name: Recursos de renderização em lote
               href: batch-rendering-functionality.md
             - name: Usando a renderização em lote
               href: batch-rendering-using.md
-            - name: Usando gerenciadores de renderização
-              href: batch-rendering-render-managers.md
             - name: Referência do aplicativo de renderização
               href: batch-rendering-application-reference.md
             - name: Armazenamento e movimentação de dados
+              displayName: 'rendering, assets'
               href: batch-rendering-storage-data-movement.md
             - name: Arquiteturas de renderização
               href: batch-rendering-architectures.md
@@ -262,28 +305,37 @@
           href: batch-pool-resize-start-event.md
         - name: Evento de conclusão de redimensionamento de pool
           href: batch-pool-resize-complete-event.md
+        - name: Evento de dimensionamento automático de pool
+          href: batch-pool-autoscale-event.md
         - name: Evento de início da tarefa
           href: batch-task-start-event.md
         - name: Evento de conclusão de tarefa
           href: batch-task-complete-event.md
         - name: Evento de falha da tarefa
           href: batch-task-fail-event.md
+        - name: Evento de falha do agendamento da tarefa
+          href: batch-task-schedule-fail-event.md
+    - name: Itens internos do Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Recursos
   items:
     - name: Atualizações do Azure
       href: 'https://azure.microsoft.com/updates/'
     - name: Comunidade do Lote
       href: 'https://github.com/Azure/Batch'
+    - name: Batch Explorer
+      href: 'https://azure.github.io/BatchExplorer/'
     - name: Comentários sobre o Lote
       href: 'https://feedback.azure.com/forums/269742-batch'
-    - name: Página de perguntas de P e R da Microsoft para Lote
-      href: /answers/topics/azure-batch.html
     - name: Shipyard de lote
       href: 'https://github.com/Azure/batch-shipyard'
     - name: Blog
       href: /archive/blogs/windowshpc/
     - name: HPC no Azure
       href: /azure/architecture/topics/high-performance-computing/
+    - name: Página de perguntas de P e R da Microsoft para Lote
+      href: /answers/topics/azure-batch.html
     - name: Preços
       href: 'https://azure.microsoft.com/pricing/details/batch/'
     - name: Calculadora de preço

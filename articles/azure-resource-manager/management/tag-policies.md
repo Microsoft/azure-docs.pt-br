@@ -3,12 +3,12 @@ title: Políticas para a marcação de recursos
 description: Descreve as políticas do Azure que você pode atribuir para garantir a conformidade da marca.
 ms.topic: conceptual
 ms.date: 03/20/2020
-ms.openlocfilehash: e3eeb28ea23b18c3492f68d2fac294fc014420c5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c6867bc01306ac3c08a9797ece0567a45e060af2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82147860"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89293721"
 ---
 # <a name="assign-policies-for-tag-compliance"></a>Atribuir políticas de conformidade de marca
 
@@ -16,7 +16,7 @@ Você usa [Azure Policy](../../governance/policy/overview.md) para impor regras 
 
 ## <a name="policies"></a>Políticas
 
-[!INCLUDE [Tag policies](../../../includes/policy/samples/bycat/policies-tags.md)]
+[!INCLUDE [Tag policies](../../../includes/policy/reference/bycat/policies-tags.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
 

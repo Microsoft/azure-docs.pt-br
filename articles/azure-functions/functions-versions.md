@@ -4,19 +4,19 @@ description: O Azure Functions é compatível com várias versões do runtime. A
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
 ms.date: 12/09/2019
-ms.openlocfilehash: 6641461e63d7c9452351f3b0b99a274d2714a92e
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 935291c461e275902cb6905c4440fe4d289f0c16
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88208115"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97653343"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Visão geral de versões do Azure Functions runtime
 
 O Azure Functions atualmente dá suporte a três versões do host de tempo de execução: 1. x, 2. x e 3. x. Todas as três versões têm suporte para cenários de produção.  
 
 > [!IMPORTANT]
-> A versão 1. x está no modo de manutenção e só dá suporte ao desenvolvimento no portal do Azure ou localmente em computadores com Windows. Os aprimoramentos são fornecidos somente em versões posteriores. 
+> A versão 1. x está no modo de manutenção e só dá suporte ao desenvolvimento no portal do Azure, no portal do Hub Azure Stack ou localmente em computadores com Windows. Os aprimoramentos são fornecidos somente em versões posteriores. 
 
 Este artigo detalha algumas das diferenças entre as várias versões, como você pode criar cada versão e como alterar versões.
 
@@ -27,8 +27,6 @@ A partir da versão 2. x, o tempo de execução usa um modelo de extensibilidade
 A tabela a seguir indica quais linguagens de programação são atualmente compatíveis com cada versão de runtime.
 
 [!INCLUDE [functions-supported-languages](../../includes/functions-supported-languages.md)]
-
-Para obter mais informações, consulte [Linguagens com suporte](supported-languages.md).
 
 ## <a name="run-on-a-specific-version"></a><a name="creating-1x-apps"></a>Executar em uma versão específica
 
@@ -118,7 +116,7 @@ No Visual Studio, você seleciona a versão de runtime quando cria um projeto. O
 ##### <a name="version-1x"></a>Versão 1.x
 
 ```xml
-<TargetFramework>net461</TargetFramework>
+<TargetFramework>net472</TargetFramework>
 <AzureFunctionsVersion>v1</AzureFunctionsVersion>
 ```
 
@@ -200,4 +198,4 @@ Para saber mais, consulte os recursos a seguir:
 
 * [Codificar e testar o Azure Functions localmente](functions-run-local.md)
 * [Como direcionar para versões do Azure Functions Runtime](set-runtime-version.md)
-* [Notas sobre a versão](https://github.com/Azure/azure-functions-host/releases)
+* [Notas de versão](https://github.com/Azure/azure-functions-host/releases)

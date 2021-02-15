@@ -8,13 +8,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 06/25/2019
 ms.author: wesmc
-ms.custom: mqtt
-ms.openlocfilehash: 63fa7481b96f8a606893b76b66f8c414a54cdb82
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.custom:
+- mqtt
+- 'Role: Cloud Development'
+- devx-track-azurecli
+ms.openlocfilehash: 3e5ab1667ee0cda459785efa624bd7f4fc6818b8
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714807"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97562949"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>Como conectar o IoT DevKit AZ3166 ao Hub IoT do Azure
 
@@ -31,15 +34,14 @@ Você pode usar o [Kit de Desenvolvimento da IoT MXChip](https://microsoft.githu
 
 Você ainda não tem um DevKit? Experimente o [simulador DevKit](https://azure-samples.github.io/iot-devkit-web-simulator/) ou [compre um kit de desenvolvimento](https://aka.ms/iot-devkit-purchase).
 
-Você pode encontrar o código-fonte de todos os tutoriais do Kit de Desenvolvimento na [galeria de exemplos de código](https://docs.microsoft.com/samples/browse/?term=mxchip).
+Você pode encontrar o código-fonte de todos os tutoriais do Kit de Desenvolvimento na [galeria de exemplos de código](/samples/browse/?term=mxchip).
 
 ## <a name="what-you-need"></a>O que você precisa
 
-* Uma placa do Kit de Desenvolvimento da IoT da MXChip com um cabo micro-USB. [Obtenha agora](https://aka.ms/iot-devkit-purchase).
-* Um computador executando o Windows 10, o macOS 10.10+ ou o Ubuntu 18.04+.
-* Uma assinatura ativa do Azure. [Ative uma conta de avaliação do Microsoft Azure por 30 dias](https://azureinfo.microsoft.com/us-freetrial.html).
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+- Uma placa do Kit de Desenvolvimento da IoT da MXChip com um cabo micro-USB. [Obtenha agora](https://aka.ms/iot-devkit-purchase).
+- Um computador executando o Windows 10, o macOS 10.10+ ou o Ubuntu 18.04+.
+- Uma assinatura ativa do Azure. [Ative uma conta de avaliação do Microsoft Azure por 30 dias](https://azureinfo.microsoft.com/us-freetrial.html).
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
   
 ## <a name="prepare-your-hardware"></a>Prepare seu hardware
 
@@ -96,7 +98,7 @@ Um dispositivo deve ser registrado no hub IoT antes de poder se conectar. Neste 
    **YourIoTHubName**: substitua o espaço reservado abaixo pelo nome escolhido para o hub IoT.
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyNodeDevice --output table
+    az iot hub device-identity connection-string show --hub-name YourIoTHubName --device-id MyNodeDevice --output table
     ```
 
     Tome nota da cadeia de conexão do dispositivo, que se parece com:
@@ -174,7 +176,7 @@ Siga estas etapas para preparar o ambiente de desenvolvimento do Kit de Desenvol
 
 4. Procure as [Ferramentas do Azure IoT](https://aka.ms/azure-iot-tools) no marketplace de extensões e instale-as.
 
-    ![Instalar as Ferramentas do Azure IoT](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/install-azure-iot-tools.png)
+    ![Captura de tela que mostra as ferramentas de IoT do Azure no Marketplace de extensão.](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/install-azure-iot-tools.png)
 
     Ou copie e cole esta URL em uma janela do navegador: `vscode:extension/vsciot-vscode.azure-iot-tools`
 
@@ -265,7 +267,7 @@ Em vez de provisionar o Hub IoT e o dispositivo a partir do portal do Azure, voc
 
     ![Selecionar sub](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/select-subscription.png)
 
-1. Depois, selecione ou crie um novo [grupo de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#terminology).
+1. Depois, selecione ou crie um novo [grupo de recursos](../azure-resource-manager/management/overview.md#terminology).
 
     ![Escolha o grupo de recursos](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/select-resource-group.png)
 
@@ -360,7 +362,7 @@ Você pode usar as [Ferramentas do Azure IoT](https://marketplace.visualstudio.c
 
 1. No painel **SAÍDA**, veja as mensagens D2C de entrada do Hub IoT.
 
-    ![Mensagem D2C](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/d2c-output.png)
+    ![Captura de tela que mostra as mensagens D2C de entrada para o Hub IoT.](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/d2c-output.png)
 
 ## <a name="review-the-code"></a>Examine o código
 

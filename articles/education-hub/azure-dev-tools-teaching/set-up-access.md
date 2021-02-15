@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.service: azure-education
 ms.subservice: education-hub
 ms.date: 06/30/2020
-ms.openlocfilehash: 83ae2fdea2ffe586a626f8a45cba74a22c07ae7b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3151da4375c440bec44523711448149f51440d5c
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87100614"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676531"
 ---
 # <a name="setting-up-access-for-azure-dev-tools"></a>Como configurar o acesso ao Azure Dev Tools
 
@@ -30,7 +30,7 @@ Para solicitar acesso à sua Assinatura do Visual Studio, use o [Portal de Geren
 ## <a name="for-students-faculty-and-administrators"></a>Para alunos, corpo docente e administradores
 Os alunos acessam o Azure Dev Tools por meio do [Hub de Educação](https://aka.ms/devtoolsforteaching).
 
-Os alunos e o corpo docente podem obter acesso a todos os benefícios de download de software por meio do Hub de Educação. O Hub de Educação é interno ao portal do Azure e fornece aos alunos fácil acesso a todo o catálogo de software, bem como o acesso a todo o catálogo do [Microsoft Learn](https://docs.microsoft.com/learn/).
+Os alunos e o corpo docente podem obter acesso a todos os benefícios de download de software por meio do Hub de Educação. O Hub de Educação é interno ao portal do Azure e fornece aos alunos fácil acesso a todo o catálogo de software, bem como o acesso a todo o catálogo do [Microsoft Learn](/learn/).
 
 ## <a name="next-steps"></a>Próximas etapas
 - [Gerenciar contas de alunos](manage-students.md)

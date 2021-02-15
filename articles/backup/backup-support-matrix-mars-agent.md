@@ -3,12 +3,12 @@ title: Matriz de suporte para o agente MARS
 description: Este artigo resume o suporte ao backup do Azure ao fazer backup de computadores que executam o agente de Serviços de Recuperação do Microsoft Azure (MARS).
 ms.date: 08/30/2019
 ms.topic: conceptual
-ms.openlocfilehash: 2b719bd36c27336b3fe24cdb904715bf8194ed70
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 2170440b7b47861b75801b8dbd334686b4cabc8b
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87872405"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98985607"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Matriz de suporte para backup com o agente MARS (Serviços de Recuperação do Microsoft Azure)
 
@@ -44,7 +44,7 @@ Quando você usa o agente MARS para fazer backup de dados, o agente tira um inst
 **Cache** | **Detalhes**
 --- | ---
 Tamanho |  O espaço livre na pasta de cache deve ter pelo menos 5 a 10% do tamanho geral dos dados de backup.
-Localização | A pasta de cache deve ser armazenada localmente no computador que está sendo submetido a backup e deve estar online. A pasta de cache não deve estar em um compartilhamento de rede, em mídia removível ou em um volume offline.
+Location | A pasta de cache deve ser armazenada localmente no computador que está sendo submetido a backup e deve estar online. A pasta de cache não deve estar em um compartilhamento de rede, em mídia removível ou em um volume offline.
 Pasta | A pasta de cache não deve ser criptografada em um volume com eliminação de duplicação ou em uma pasta compactada, que seja esparsa ou que tenha um ponto de nova análise.
 Alterações de local | Você pode alterar o local do cache interrompendo o mecanismo de backup ( `net stop bengine` ) e copiando a pasta de cache para uma nova unidade. (Verifique se a nova unidade tem espaço suficiente.) Em seguida, atualize duas entradas de registro em **HKLM\Software\Microsoft\Windows Azure backup** (**config/ScratchLocation** e **config/CloudBackupProvider/ScratchLocation**) para o novo local e reinicie o mecanismo.
 
@@ -59,6 +59,7 @@ O agente MARS precisa de acesso a estas URLs:
 - *.WindowsAzure.com
 - *. MicrosoftOnline.com
 - *. Windows.net
+- `www.msftconnecttest.com`
 
 E para estes endereços IP:
 
@@ -67,25 +68,39 @@ E para estes endereços IP:
 
 O acesso a todas as URLs e endereços IP listados acima usa o protocolo HTTPS na porta 443.
 
+Ao fazer backup de arquivos e pastas de VMs do Azure usando o agente MARS, a rede virtual do Azure também precisa ser configurada para permitir o acesso. Se você usar o NSG (grupo de segurança de rede), use a tag de serviço *AzureBackup* para permitir o acesso de saída ao Backup do Azure. Além da marca do Backup do Azure, você também precisará permitir a conectividade para autenticação e transferência de dados criando [regras de NSG](../virtual-network/network-security-groups-overview.md#service-tags) semelhantes para o Azure AD (*AzureActiveDirectory*) e o Armazenamento do Azure (*Armazenamento*). As seguintes etapas descrevem o processo para criar uma regra para a tag do Backup do Azure:
+
+1. Em **Todos os Serviços**, acesse **Grupos de segurança de rede** e selecione o grupo de segurança de rede.
+2. Selecione **Regras de segurança de saída** em **Configurações**.
+3. Selecione **Adicionar**. Insira todos os detalhes necessários para criar uma regra, conforme descrito em [Configurações da regra de segurança](../virtual-network/manage-network-security-group.md#security-rule-settings). Verifique se a opção **Destino** está definida como *Tag de Serviço* e se **Marca de serviço de destino** está definida como *AzureBackup*.
+4. Selecione **Adicionar** para salvar a regra de segurança de saída recém-criada.
+
+De maneira semelhante, é possível criar regras de segurança de saída de NSG para o Armazenamento do Azure e o Azure AD. Para obter mais informações sobre as marcas de serviço, confira este [artigo](../virtual-network/service-tags-overview.md).
+
 ### <a name="azure-expressroute-support"></a>Suporte do Azure ExpressRoute
 
 Você pode fazer backup dos dados por meio do Azure ExpressRoute com o emparelhamento público (disponível para circuitos antigos) e o emparelhamento da Microsoft. Não há suporte para backup em emparelhamento privado.
 
 Com o emparelhamento público: Verifique o acesso aos seguintes domínios/endereços:
 
-- `http://www.msftncsi.com/ncsi.txt`
-- `microsoft.com`
-- `.WindowsAzure.com`
-- `.microsoftonline.com`
-- `.windows.net`
+* URLs
+  * `www.msftncsi.com`
+  * `*.Microsoft.com`
+  * `*.WindowsAzure.com`
+  * `*.microsoftonline.com`
+  * `*.windows.net`
+  * `www.msftconnecttest.com`
+* Endereços IP
+  * 20.190.128.0/18
+  * 40.126.0.0/18
 
 Com o emparelhamento da Microsoft, selecione os seguintes serviços/regiões e os valores de comunidade relevantes:
 
+- Backup do Azure (de acordo com o local do cofre dos serviços de recuperação)
 - Azure Active Directory (12076:5060)
-- Região Microsoft Azure (de acordo com o local do cofre dos serviços de recuperação)
 - Armazenamento do Azure (de acordo com o local do cofre dos serviços de recuperação)
 
-Para obter mais informações, consulte os [requisitos de roteamento do ExpressRoute](../expressroute/expressroute-routing.md).
+Para obter mais informações, consulte os [requisitos de roteamento do ExpressRoute](../expressroute/expressroute-routing.md#bgp).
 
 >[!NOTE]
 >O emparelhamento público foi preterido para novos circuitos.
@@ -160,6 +175,17 @@ Windows Server 2008 SP2| 1\.700 GB
 Windows 8 ou superior| 54.400 GB
 Windows 7| 1\.700 GB
 
+### <a name="minimum-retention-limits"></a>Limites mínimos de retenção
+
+A seguir estão as durações mínimas de retenção que podem ser definidas para os diferentes pontos de recuperação:
+
+|Ponto de recuperação |Duração  |
+|---------|---------|
+|Ponto de recuperação diário    |   7 dias      |
+|Ponto de recuperação semanal     |    4 semanas     |
+|Ponto de recuperação mensal    |   3 meses      |
+|Ponto de recuperação anual  |      1 ano   |
+
 ### <a name="other-limitations"></a>Outras limitações
 
 - O MARS não dá suporte à proteção de vários computadores com o mesmo nome para um único cofre.
@@ -180,7 +206,7 @@ Fluxo esparso| Não há suporte. Ignorada.
 OneDrive (arquivos sincronizados são fluxos esparsos)| Não há suporte.
 Pastas com Replicação do DFS habilitado | Não há suporte.
 
-\*Verifique se o agente MARS tem acesso aos certificados necessários para acessar os arquivos criptografados. Arquivos inacessíveis serão ignorados.
+\* Verifique se o agente MARS tem acesso aos certificados necessários para acessar os arquivos criptografados. Arquivos inacessíveis serão ignorados.
 
 ## <a name="supported-drives-or-volumes-for-backup"></a>Unidades ou volumes com suporte para backup
 

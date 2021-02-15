@@ -15,10 +15,10 @@ ms.reviewer: saeeda, sureshja, hirsin
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 36b39f3706db615e40ebfadebf36be4d8b29c33e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80154722"
 ---
 # <a name="what-is-authentication"></a>O que é a autenticação?
@@ -132,7 +132,7 @@ Uma breve descrição de cada tipo de declaração emitida pelo Azure AD é forn
 | Emitido em | Registra o horário em que o token foi emitido, geralmente usado para atualização de token. |
 | Emissor | Identifica o STS que emitiu o token, bem como o locatário do Azure AD. |
 | Sobrenome | Apresenta o sobrenome fornecido do usuário conforme definido no Azure AD. |
-| Name | Fornece um valor legível que identifica a entidade do token. |
+| Nome | Fornece um valor legível que identifica a entidade do token. |
 | ID de objeto | Contém um identificador exclusivo e imutável da entidade no Azure AD. |
 | Funções | Contém os nomes amigáveis de funções de aplicativo do Azure AD que o usuário recebeu. |
 | Escopo | Indica as permissões concedidas ao aplicativo cliente. |

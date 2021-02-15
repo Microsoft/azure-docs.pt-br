@@ -3,13 +3,13 @@ title: Retransmissão do Azure Conexões Híbridas-WebSockets no nó
 description: Escreva um aplicativo de console Node.js para as Websockets de Conexões Híbridas de Retransmissão do Azure
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 8dc52c93d4b5cd6d50b66338350a41cf0e24daa0
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.custom: devx-track-js
+ms.openlocfilehash: b362caa6570d4a8e212ff7adf4310a0c63e8b755
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386292"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91263701"
 ---
 # <a name="get-started-with-relay-hybrid-connections-websockets-in-nodejs"></a>Introdução às WebSockets de Conexões Híbridas de Retransmissão no Node.js
 
@@ -52,7 +52,7 @@ Para enviar mensagens à Retransmissão, grave um aplicativo de console Node.js.
 2. Execute o aplicativo cliente: de um prompt de comando do Node.js, digite `node sender.js` e insira um texto.
 3. Certifique-se de que o console do aplicativo de servidor exiba o texto inserido no aplicativo de cliente.
 
-    ![running-applications](./media/relay-hybrid-connections-node-get-started/running-applications.png)
+    ![Janelas de console testando os aplicativos cliente e servidor.](./media/relay-hybrid-connections-node-get-started/running-applications.png)
 
 Parabéns, você criou um aplicativo de Conexões Híbridas de ponta a ponta usando o Node.js!
 

@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: damaerte
-ms.openlocfilehash: 3001e814a5f31725bfc78385d2435bbb0e971d40
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 91b7c58890518559c046023bd78c9248e9840f9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513012"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89468742"
 ---
 # <a name="quickstart-for-bash-in-azure-cloud-shell"></a>Guia de início rápido para o Back no Azure Cloud Shell
 
@@ -84,7 +84,7 @@ Seu nome de usuário nessa VM será o nome de usuário usado no Cloud Shell ($Us
 Após estabelecer a conexão SSH, você deverá ver o prompt de boas-vindas do Ubuntu. <br>
 ![Captura de tela mostrando a inicialização do Ubuntu e o prompt de boas-vindas depois de estabelecer uma conexão S S H.](media/quickstart/ubuntu-welcome.png)
 
-## <a name="cleaning-up"></a>Limpando 
+## <a name="cleaning-up"></a>Limpeza 
 1. Saia da sua sessão SSH.
    ```
    exit
@@ -97,5 +97,5 @@ Após estabelecer a conexão SSH, você deverá ver o prompt de boas-vindas do U
 
 ## <a name="next-steps"></a>Próximas etapas
 [Saiba mais sobre como manter arquivos para Bash no Cloud Shell](persisting-shell-storage.md) <br>
-[Saiba mais sobre a CLI do Azure](https://docs.microsoft.com/cli/azure/) <br>
+[Saiba mais sobre a CLI do Azure](/cli/azure/) <br>
 [Saiba mais sobre o armazenamento de Arquivos do Azure](../storage/files/storage-files-introduction.md) <br>

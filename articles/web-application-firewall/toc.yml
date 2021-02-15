@@ -9,7 +9,7 @@
         - name: Firewall do Aplicativo Web no Gateway de Aplicativo
           href: ./ag/ag-overview.md
         - name: Novidades
-          href: ./ag/whats-new.md
+          href: ./ag/ag-overview.md#whats-new
     - name: Front Door
       items:
         - name: Firewall do Aplicativo Web no Azure Front Door
@@ -67,6 +67,8 @@
           href: ./ag/application-gateway-waf-faq.md
     - name: Front Door
       items:
+        - name: Ajuste
+          href: ./afds/waf-front-door-tuning.md
         - name: Regras personalizadas
           href: ./afds/waf-front-door-custom-rules.md
         - name: Listas de exclusões
@@ -77,6 +79,10 @@
           href: ./afds/waf-front-door-geo-filtering.md
         - name: Perguntas frequentes
           href: ./afds/waf-faq.md
+    - name: Segurança
+      items:
+        - name: Linha de base de segurança
+          href: security-baseline.md
     - name: WAF e Azure Policy
       href: ./shared/waf-azure-policy.md
 - name: Guias de instruções
@@ -131,6 +137,8 @@
           href: ./afds/waf-front-door-tutorial-geo-filtering.md
         - name: Monitoramento e log
           href: ./afds/waf-front-door-monitor.md
+    - name: Usar o Azure Sentinel com firewall do aplicativo Web
+      href: waf-sentinel.md
     - name: Solucionar problemas
       items:
         - name: Gateway de Aplicativo
@@ -146,25 +154,25 @@
     - name: CLI do Azure
       items:
         - name: Front Door
-          href: 'https://docs.microsoft.com/cli/azure/ext/front-door/network?view=azure-cli-latest'
+          href: /cli/azure/ext/front-door/network?view=azure-cli-latest
         - name: Gateway de Aplicativo
-          href: 'https://docs.microsoft.com/cli/azure/network/application-gateway?view=azure-cli-latest'
+          href: /cli/azure/network/application-gateway?view=azure-cli-latest
         - name: CDN
-          href: 'https://docs.microsoft.com/cli/azure/cdn/waf?view=azure-cli-latest'
+          href: /cli/azure/cdn/waf?view=azure-cli-latest
     - name: Azure PowerShell
       items:
         - name: Front Door
-          href: 'https://docs.microsoft.com/powershell/module/az.frontdoor/?view=azps-3.3.0'
+          href: /powershell/module/az.frontdoor/?view=azps-3.3.0
         - name: Gateway de Aplicativo
-          href: 'https://docs.microsoft.com/powershell/module/az.network/?view=azps-3.3.0#application_gateway'
+          href: /powershell/module/az.network/?view=azps-3.3.0#application_gateway
         - name: CDN
           href: 'https://www.powershellgallery.com/packages/Az.Cdn/1.5.0-preview'
     - name: API REST
       items:
         - name: Front Door
-          href: 'https://docs.microsoft.com/rest/api/frontdoorservice/webapplicationfirewall/policies'
+          href: /rest/api/frontdoorservice/webapplicationfirewall/policies
         - name: Gateway de Aplicativo
-          href: 'https://docs.microsoft.com/azure/web-application-firewall/ag/ag-overview#waf-policy'
+          href: /rest/api/application-gateway
     - name: .NET
       href: /dotnet/api
     - name: Java

@@ -4,10 +4,10 @@ description: Exemplos do Azure PowerShell - Scripts para ajudar você a gerencia
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: ce7a4f77aa0ea309afb81a54fd2f8f0a8f373e58
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86187720"
 ---
 # <a name="azure-powershell-samples-for-azure-lab-services"></a>Exemplos do Azure PowerShell para o Azure Lab Services

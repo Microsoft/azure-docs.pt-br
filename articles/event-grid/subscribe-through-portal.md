@@ -3,12 +3,12 @@ title: Assinaturas da Grade de Eventos do Azure por meio do portal
 description: Este artigo descreve como criar assinaturas de grade de eventos para as fontes com suporte, como o armazenamento de BLOBs do Azure, usando o portal do Azure.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 2890f57e50e508f85579a2b1198de536fa9a9013
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: e80e2243c93ab38187646256f567d6ab73c40100
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119983"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995056"
 ---
 # <a name="subscribe-to-events-through-portal"></a>Assinar os eventos por meio do portal
 
@@ -24,7 +24,7 @@ Para criar uma assinatura da Grade de Eventos para qualquer uma das [origens do 
 
 1. Pesquise **Assinaturas da Grade de Eventos** e selecione-as nas opções disponíveis.
 
-   ![Search](./media/subscribe-through-portal/search.png)
+   ![A captura de tela mostra a pesquisa no portal do Azure com as assinaturas de grade de eventos selecionadas.](./media/subscribe-through-portal/search.png)
 
 1. Selecione **+ Assinatura de Evento**.
 
@@ -40,7 +40,7 @@ Para criar uma assinatura da Grade de Eventos para qualquer uma das [origens do 
 
 1. Forneça detalhes adicionais sobre a assinatura do evento como o ponto de extremidade para manipular eventos e um nome da assinatura.
 
-   ![Fornecer detalhes da assinatura](./media/subscribe-through-portal/provide-subscription-details.png)
+   ![Captura de tela que mostra as seções "detalhes do ponto de extremidade" e "detalhes da assinatura do evento" com um valor de nome de assinatura inserido.](./media/subscribe-through-portal/provide-subscription-details.png)
 
 1. Para ativar as letras inativas e personalizar as políticas de repetição, selecione **Recursos adicionais**.
 

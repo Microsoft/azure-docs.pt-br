@@ -10,17 +10,18 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/04/2020
+ms.date: 10/22/2020
 ms.author: radeltch
-ms.openlocfilehash: 01a450c045c996cdcb49b8fbfdf1ce572ee2d1df
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: ac70833d10c7cbcf5c4dc0fe709e2a6a58a30f26
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87760593"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484202"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>Alta disponibilidade do SAP NetWeaver em VMs do Azure no SUSE Linux Enterprise Server para aplicativos SAP
 
@@ -156,7 +157,7 @@ Você pode usar um dos modelos de início rápido no GitHub para implantar todos
    9. Nome de Usuário de Administrador e Senha do Administrador  
       É criado um novo usuário que pode ser usado para fazer logon no computador.
    10. ID da Sub-rede  
-   Se você deseja implantar a VM em uma rede virtual existente em que você tem uma sub-rede definida para a qual a VM deve ser designada, nomeie a identificação dessa sub-rede específica. A ID geralmente se parece com a** &lt; ID &gt; da assinatura**/subscriptions//resourceGroups/** &lt; &gt; **** &lt; &gt; **nome do grupo de recursos,/Providers/Microsoft.Network/virtualNetworks/nome da rede virtual/Subnets/** &lt; nome &gt; da sub-rede**
+   Se você deseja implantar a VM em uma rede virtual existente em que você tem uma sub-rede definida para a qual a VM deve ser designada, nomeie a identificação dessa sub-rede específica. A ID geralmente se parece com a **&lt; ID &gt; da assinatura**/subscriptions//resourceGroups/**&lt; &gt;****&lt; &gt;** nome do grupo de recursos,/Providers/Microsoft.Network/virtualNetworks/nome da rede virtual/Subnets/**&lt; nome &gt; da sub-rede**
 
 ### <a name="deploy-linux-manually-via-azure-portal"></a>Implantar o Linux manualmente por meio do portal do Azure
 
@@ -193,13 +194,13 @@ Primeiro, você precisa criar as máquinas virtuais para este cluster NFS. Poste
       1. Selecione as máquinas virtuais do cluster (A)SCS e os respectivos endereços IP.
       1. Clique em Adicionar
    1. Crie as investigações de integridade
-      1. Porta 620**00** para ASCS
+      1. Porta 620 **00** para ASCS
          1. Abra o balanceador de carga, selecione as investigações de integridade e clique em Adicionar
          1. Insira o nome da nova investigação de integridade (por exemplo, **nw1-ascs-hp**)
-         1. Selecione TCP como protocolo, porta 620**00**, mantenha o Intervalo 5 e o limite Não Íntegro 2
+         1. Selecione TCP como protocolo, porta 620 **00**, mantenha o Intervalo 5 e o limite Não Íntegro 2
          1. Clique em OK
-      1. Porta 621**02** para ASCS ERS
-         * Repita as etapas acima para criar uma investigação de integridade para ERS (por exemplo, 621**02** e **nw1-aers-hp**)
+      1. Porta 621 **02** para ASCS ERS
+         * Repita as etapas acima para criar uma investigação de integridade para ERS (por exemplo, 621 **02** e **nw1-aers-hp**)
    1. Regras de balanceamento de carga
       1. Regras de balanceamento de carga para ASCS
          1. Abra o balanceador de carga, selecione regras de balanceamento de carga e clique em Adicionar
@@ -227,15 +228,15 @@ Primeiro, você precisa criar as máquinas virtuais para este cluster NFS. Poste
       1. Selecione as máquinas virtuais do cluster (A)SCS
       1. Clique em OK
    1. Crie as investigações de integridade
-      1. Porta 620**00** para ASCS
+      1. Porta 620 **00** para ASCS
          1. Abra o balanceador de carga, selecione as investigações de integridade e clique em Adicionar
          1. Insira o nome da nova investigação de integridade (por exemplo, **nw1-ascs-hp**)
-         1. Selecione TCP como protocolo, porta 620**00**, mantenha o Intervalo 5 e o limite Não Íntegro 2
+         1. Selecione TCP como protocolo, porta 620 **00**, mantenha o Intervalo 5 e o limite Não Íntegro 2
          1. Clique em OK
-      1. Porta 621**02** para ASCS ERS
-         * Repita as etapas acima para criar uma investigação de integridade para ERS (por exemplo, 621**02** e **nw1-aers-hp**)
+      1. Porta 621 **02** para ASCS ERS
+         * Repita as etapas acima para criar uma investigação de integridade para ERS (por exemplo, 621 **02** e **nw1-aers-hp**)
    1. Regras de balanceamento de carga
-      1. 32**00** TCP para ASCS
+      1. 32 **00** TCP para ASCS
          1. Abra o balanceador de carga, selecione regras de balanceamento de carga e clique em Adicionar
          1. Insira o nome da nova regra do balanceador de carga (por exemplo, **nw1-lb-3200**)
          1. Selecione o endereço IP de front-end, o pool de back-end e a investigação de integridade criados anteriormente (por exemplo, **nw1-ascs-frontend**)
@@ -244,9 +245,12 @@ Primeiro, você precisa criar as máquinas virtuais para este cluster NFS. Poste
          1. **Habilite o IP Flutuante**
          1. Clique em OK
       1. Portas adicionais para ASCS
-         * Repita as etapas acima para as portas 36**00**, 39**00**, 81**00**, 5**00**13, 5**00**14, 5**00**16 e TCP para o ASCS
+         * Repita as etapas acima para as portas 36 **00**, 39 **00**, 81 **00**, 5 **00** 13, 5 **00** 14, 5 **00** 16 e TCP para o ASCS
       1. Portas adicionais para ERS do ASCS
-         * Repita as etapas acima para portas 33**02**, 5**02**13, 5**02**14, 5**02**16 e TCP para o ERS do ASCS
+         * Repita as etapas acima para portas 33 **02**, 5 **02** 13, 5 **02** 14, 5 **02** 16 e TCP para o ERS do ASCS
+
+> [!IMPORTANT]
+> Não há suporte para IP flutuante em uma configuração de IP secundário de NIC em cenários de balanceamento de carga. Para obter detalhes, consulte [limitações do Azure Load Balancer](../../../load-balancer/load-balancer-multivip-overview.md#limitations). Se você precisar de um endereço IP adicional para a VM, implante uma segunda NIC.  
 
 > [!Note]
 > Quando as VMs sem endereços IP públicos forem colocadas no pool de back-end do Standard Azure Load Balancer (sem endereço IP público), não haverá nenhuma conectividade de saída com a Internet se não houver configuração adicional a fim de permitir o roteamento para pontos de extremidade públicos. Para obter detalhes sobre como alcançar conectividade de saída, confira [Conectividade de ponto de extremidade público para Máquinas Virtuais usando o Azure Standard Load Balancer em cenários de alta disponibilidade do SAP](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
@@ -347,7 +351,7 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
    sudo chattr +i /usr/sap/<b>NW1</b>/ERS<b>02</b>
    </code></pre>
 
-1. **[A] ** Configurar o autofs
+1. **[A]** Configurar o autofs
 
    <pre><code>sudo vi /etc/auto.master
    
@@ -447,7 +451,7 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
    <pre><code>sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b>
    </code></pre>
 
-   Se a instalação não conseguir criar uma subpasta em /usr/sap/**NW1**/ASCS**00**, tente definir o proprietário e o grupo da pasta do ASCS**00** e tente novamente.
+   Se a instalação não conseguir criar uma subpasta em /usr/sap/**NW1**/ASCS **00**, tente definir o proprietário e o grupo da pasta do ASCS **00** e tente novamente.
 
    <pre><code>chown nw1adm /usr/sap/<b>NW1</b>/ASCS<b>00</b>
    chgrp sapsys /usr/sap/<b>NW1</b>/ASCS<b>00</b>
@@ -504,7 +508,7 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
    > [!NOTE]
    > Use SWPM SP 20 PL 05 ou superior. Versões anteriores não configurarão as permissões corretamente e a instalação falhará.
 
-   Se a instalação falhar ao criar uma subpasta em /usr/sap/**NW1**/ERS**02**, tente definir o proprietário e o grupo da pasta do ERS**02** e tente novamente.
+   Se a instalação falhar ao criar uma subpasta em /usr/sap/**NW1**/ERS **02**, tente definir o proprietário e o grupo da pasta do ERS **02** e tente novamente.
 
    <pre><code>chown nw1adm /usr/sap/<b>NW1</b>/ERS<b>02</b>
    chgrp sapsys /usr/sap/<b>NW1</b>/ERS<b>02</b>
@@ -549,10 +553,10 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
 
 1. **[A]** Configurar Keep Alive
 
-   A comunicação entre o servidor de aplicativos do SAP NetWeaver e o ASCS/SCS é roteada por meio de um balanceador de carga de software. O balanceador de carga desconecta conexões inativas após um tempo limite configurável. Para evitar isso, você precisa definir um parâmetro no perfil do SAP NetWeaver ASCS/SCS e alterar as configurações do sistema Linux. Leia a [Nota SAP 1410736][1410736] para obter mais informações.
+   A comunicação entre o servidor de aplicativos do SAP NetWeaver e o ASCS/SCS é roteada por meio de um balanceador de carga de software. O balanceador de carga desconecta conexões inativas após um tempo limite configurável. Para evitar isso, você precisa definir um parâmetro no perfil do SAP NetWeaver ASCS/SCS, se estiver usando ENSA1, e alterar as configurações do sistema Linux `keepalive` em todos os servidores SAP para ENSA1/ENSA2. Leia a [Nota SAP 1410736][1410736] para obter mais informações.
 
    <pre><code># Change the Linux system configuration
-   sudo sysctl net.ipv4.tcp_keepalive_time=120
+   sudo sysctl net.ipv4.tcp_keepalive_time=300
    </code></pre>
 
 1. **[A]** Configurar os usuários do SAP após a instalação

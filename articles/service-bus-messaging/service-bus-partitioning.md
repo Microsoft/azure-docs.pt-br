@@ -4,12 +4,12 @@ description: Descreve como particionar filas e tópicos do Barramento de Serviç
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 11cc76b0dd0125c7b54438d3f991069b7c44db59
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 9c500a69f853b11437a0dcaa48213fe3a84da53b
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89007954"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97796628"
 ---
 # <a name="partitioned-queues-and-topics"></a>Filas e tópicos particionados
 
@@ -29,6 +29,9 @@ Quando um cliente deseja receber uma mensagem de uma fila particionada ou de uma
 A operação de inspeção em uma entidade não particionada sempre retorna a mensagem mais antiga, mas não em uma entidade particionada. Em vez disso, ele retorna a mensagem mais antiga em uma das partições cujo agente de mensagem respondeu primeiro. Não há nenhuma garantia de que a mensagem retornada é a mais antiga em todas as partições. 
 
 Não há custo adicional ao enviar ou receber uma mensagem de uma fila ou um tópico particionado.
+
+> [!NOTE]
+> A operação Peek retorna a mensagem mais antiga da partição com base em seu número de sequência. Para entidades particionadas, o número da sequência é emitido com relação à partição. Para obter mais informações, consulte [sequenciamento de mensagens e carimbos de data/hora](../service-bus-messaging/message-sequencing.md).
 
 ## <a name="enable-partitioning"></a>Habilitar particionamento
 
@@ -92,8 +95,8 @@ using (TransactionScope ts = new TransactionScope(committableTransaction))
 {
     Message msg = new Message("This is a message");
     msg.PartitionKey = "myPartitionKey";
-    messageSender.SendAsync(msg); 
-    ts.CompleteAsync();
+    await messageSender.SendAsync(msg); 
+    await ts.CompleteAsync();
 }
 committableTransaction.Commit();
 ```
@@ -112,8 +115,8 @@ using (TransactionScope ts = new TransactionScope(committableTransaction))
 {
     Message msg = new Message("This is a message");
     msg.SessionId = "mySession";
-    messageSender.SendAsync(msg); 
-    ts.CompleteAsync();
+    await messageSender.SendAsync(msg); 
+    await ts.CompleteAsync();
 }
 committableTransaction.Commit();
 ```

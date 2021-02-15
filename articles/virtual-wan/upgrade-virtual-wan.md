@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 11/04/2019
 ms.author: cherylmc
-ms.openlocfilehash: 769aa6c0d546b7a9bcbe355136bad811fb4f47b3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6290d89ed0ee539b4df4c2c8bc9070097da98c81
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84753317"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91447362"
 ---
 # <a name="upgrade-a-virtual-wan-from-basic-to-standard"></a>Atualizar uma WAN virtual do básico para o Standard
 
@@ -26,13 +26,13 @@ A tabela a seguir mostra as configurações disponíveis para cada tipo de WAN:
 
 1. Na página de sua WAN virtual, selecione **configuração** para abrir a página de configuração.
 
-   ![Diagrama de WAN virtual](./media/upgrade-virtual-wan/1.png)
+   ![Captura de tela que mostra a página "configuração" com uma caixa de texto de informações sobre como atualizar para uma WAN virtual de tipo padrão realçada na parte inferior.](./media/upgrade-virtual-wan/1.png)
 2. Para o tipo de WAN virtual, selecione **Standard** na lista suspensa.
 
-   ![Diagrama de WAN virtual](./media/upgrade-virtual-wan/2.png)
+   ![Captura de tela que mostra o menu suspenso "tipo de WAN virtual".](./media/upgrade-virtual-wan/2.png)
 3. Entenda que, se você atualizar para uma WAN virtual padrão, não poderá reverter de volta para uma WAN virtual básica. Selecione **confirmar** se você deseja atualizar.
 
-   ![Diagrama de WAN virtual](./media/upgrade-virtual-wan/4.png)
+   ![Captura de tela que mostra a caixa de diálogo "confirmação de atualização".](./media/upgrade-virtual-wan/4.png)
 4. Depois que a alteração tiver sido salva, sua página WAN virtual será semelhante a este exemplo.
 
    ![Diagrama de WAN virtual](./media/upgrade-virtual-wan/5.png)

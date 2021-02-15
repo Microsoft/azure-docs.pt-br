@@ -5,14 +5,16 @@ ms.date: 03/24/2020
 ms.topic: conceptual
 description: Descreve como preparar seu projeto com o Azure Dev Spaces funciona
 keywords: azds. YAML, Azure Dev Spaces, espaços de desenvolvimento, Docker, kubernetes, Azure, AKS, serviço kubernetes do Azure, contêineres
-ms.openlocfilehash: 61351072494b51d02a1d6c31399208b9e9b54fce
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: d2da69dd8a8c2683ff584dfd0ffc61cb023f2ece
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213414"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91968150"
 ---
 # <a name="how-preparing-a-project-for-azure-dev-spaces-works"></a>Como a preparação de um projeto para Azure Dev Spaces funciona
+
+[!INCLUDE [Azure Dev Spaces deprecation](../../includes/dev-spaces-deprecation.md)]
 
 O Azure Dev Spaces fornece várias maneiras de iterar e depurar rapidamente aplicativos Kubernetes e colaborar com sua equipe em um cluster do AKS (Serviço de Kubernetes do Azure). Os espaços de desenvolvimento podem gerar gráficos Dockerfiles e Helm para seu projeto. Os espaços de desenvolvimento também criam e usam um arquivo de configuração para implantar, executar e depurar seus aplicativos kubernetes no AKS. Todos esses arquivos residem com o código do aplicativo e podem ser adicionados ao seu sistema de controle de versão.
 

@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: how-to
 ms.date: 01/21/2020
 ms.author: rohogue
-ms.openlocfilehash: be5c640ef069690c408460b7374aee82c35b3a67
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: d87f57873a4bb84b20df3da3880017d9ef2484a5
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88272409"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008405"
 ---
 # <a name="prepare-to-create-the-avere-vfxt"></a>Preparar para criar o Avere vFXT
 
@@ -42,7 +42,7 @@ Há algumas soluções alternativas para permitir que um não proprietário crie
 
 ## <a name="quota-for-the-vfxt-cluster"></a>Cota para o cluster vFXT
 
-Verifique se você tem cota suficiente para os seguintes componentes do Azure. Se necessário, [solicite um aumento de cota](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).
+Verifique se você tem cota suficiente para os seguintes componentes do Azure. Se necessário, [solicite um aumento de cota](../azure-portal/supportability/resource-manager-core-quotas-request.md).
 
 > [!NOTE]
 > As máquinas virtuais e componentes SSD aqui listados são para o próprio cluster vFXT. Lembre-se de que você também precisa de cota para as VMs e SSDs que serão usadas para seu farm de computação.

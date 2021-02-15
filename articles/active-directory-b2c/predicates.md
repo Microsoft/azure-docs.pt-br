@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 03/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b01f1edd4305c09a874b177e4bca373991c9162e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 46f04c55b40d4f1bdbbf5fd55eb648d1d3294056
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85203802"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97108409"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Predicados e PredicateValidations
 
@@ -44,7 +44,7 @@ O elemento **Predicado** contém os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| ID | Sim | Um identificador usado para o predicado. Outros elementos podem usar esse identificador na política. |
+| Id | Sim | Um identificador usado para o predicado. Outros elementos podem usar esse identificador na política. |
 | Método | Sim | O tipo de método a ser usado para validação. Os valores possíveis: [IsLengthRange](#islengthrange), [MatchesRegex](#matchesregex), [IncludesCharacters](#includescharacters) ou [IsDateRange](#isdaterange).  |
 | HelpText | Não | Uma mensagem de erro para os usuários se a verificação falhar. Essa cadeia de caracteres pode ser localizada usando a [personalização de idioma](localization.md) |
 
@@ -65,7 +65,7 @@ O elemento **Parâmetro** contém os seguintes atributos:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| ID | 1:1 | O identificador do parâmetro. |
+| Id | 1:1 | O identificador do parâmetro. |
 
 ### <a name="predicate-methods"></a>Métodos de predicado
 
@@ -114,7 +114,7 @@ O método IncludesCharacters verifica se um valor de declaração de cadeia de c
 
 | Parâmetro | Obrigatório | Descrição |
 | ------- | ----------- | ----------- |
-| CharacterSet | Sim | O conjunto de caracteres que pode ser inserido. Por exemplo, caracteres minúsculos `a-z` , caracteres maiúsculos `A-Z` , dígitos `0-9` ou uma lista de símbolos, como `@#$%^&amp;*\-_+=[]{}|\\:',?/~"();!` . |
+| CharacterSet | Sim | O conjunto de caracteres que pode ser inserido. Por exemplo, caracteres minúsculos  `a-z` , caracteres maiúsculos `A-Z` , dígitos `0-9` ou uma lista de símbolos, como `@#$%^&amp;*\-_+=[]{}|\\:',?/~"();!` . |
 
 O exemplo a seguir mostra um método `IncludesCharacters` com o parâmetro `CharacterSet` que especifica o conjunto de caracteres:
 
@@ -180,7 +180,7 @@ O elemento **PredicateValidation** contém o seguinte atributo:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| ID | Sim | Um identificador usado para a validação do predicado. O elemento **ClaimType** pode usar esse identificador na política. |
+| Id | Sim | Um identificador usado para a validação do predicado. O elemento **ClaimType** pode usar esse identificador na política. |
 
 O elemento **PredicateValidation** contém o seguinte elemento:
 
@@ -198,7 +198,7 @@ O elemento **PredicateGroup** contém o seguinte atributo:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| ID | Sim | Um identificador usado para o grupo de predicados.  |
+| Id | Sim | Um identificador usado para o grupo de predicados.  |
 
 O elemento **PredicateGroup** contém os seguintes elementos:
 
@@ -223,7 +223,7 @@ O elemento **PredicateReference** contém os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| ID | Sim | Um identificador usado para a validação do predicado.  |
+| Id | Sim | Um identificador usado para a validação do predicado.  |
 
 
 ## <a name="configure-password-complexity"></a>Configurar a complexidade de senha
@@ -428,4 +428,4 @@ No seu tipo de declaração, adicione o elemento **PredicateValidationReference*
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba como [Configurar a complexidade de senha usando políticas personalizadas no Azure Active Directory B2C](custom-policy-password-complexity.md) usando validações de predicado.
+- Saiba como [Configurar a complexidade de senha usando políticas personalizadas no Azure Active Directory B2C](password-complexity.md) usando validações de predicado.

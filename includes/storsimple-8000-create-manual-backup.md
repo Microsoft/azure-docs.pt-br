@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 4fc92931979aa367bdead435c3d6fd758d66a397
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 89f7be31514f0b78c3bfb3efd6e6aca14658d5cd
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67171997"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93376187"
 ---
 #### <a name="to-create-a-manual-backup"></a>Para criar um backup manual
 
@@ -19,15 +19,15 @@ ms.locfileid: "67171997"
 
     ![Criar o backup manual](./media/storsimple-8000-create-manual-backup/createmanualbu1.png)
 
-3. Na folha **Fazer backup agora**, execute as seguintes etapas:
+3. Na folha **Fazer backup agora** , execute as seguintes etapas:
 
     1. Escolha o **Tipo de instantâneo** apropriado na lista suspensa: instantâneo **Local** ou instantâneo de **Nuvem**. Selecione instantâneo local para backups ou restaurações rápidas, e instantâneo de nuvem para resiliência de dados.
 
-        ![Criar o backup manual](./media/storsimple-8000-create-manual-backup/createmanualbu2.png)
+        ![Criar o manual de backup 2](./media/storsimple-8000-create-manual-backup/createmanualbu2.png)
 
     2. Clique em **OK** para iniciar um trabalho a fim de criar um instantâneo. Você verá uma notificação na parte superior da página após a criação do trabalho.
 
-        ![Criar o backup manual](./media/storsimple-8000-create-manual-backup/createmanualbu4.png)
+        ![Criar backup manual 3](./media/storsimple-8000-create-manual-backup/createmanualbu4.png)
 
     3. Para monitorar o trabalho, clique na notificação. Isso levará você até a folha **Trabalhos** onde poderá exibir o andamento do trabalho.
 

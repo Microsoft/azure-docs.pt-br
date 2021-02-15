@@ -2,28 +2,32 @@
 title: Implantar a análise de vídeo ao vivo em um dispositivo IoT Edge – Azure
 description: Este artigo lista as etapas que ajudarão você a implantar a análise de vídeo ao vivo em seu dispositivo IoT Edge. Você faria isso, por exemplo, se tiver acesso a um computador Linux local e/ou tiver criado anteriormente uma conta dos serviços de mídia do Azure.
 ms.topic: how-to
-ms.date: 04/27/2020
-ms.openlocfilehash: 774fdb440307d0df92e9735a8bdf055687f450a2
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.date: 09/09/2020
+ms.openlocfilehash: ff5dbc8e643137008aa7819b455adcf97c05bfc9
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684092"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99491783"
 ---
 # <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>Implantar a análise de vídeo ao vivo em um dispositivo IoT Edge
 
 Este artigo lista as etapas que ajudarão você a implantar a análise de vídeo ao vivo em seu dispositivo IoT Edge. Você faria isso, por exemplo, se tiver acesso a um computador Linux local e/ou tiver criado anteriormente uma conta dos serviços de mídia do Azure.
 
+> [!NOTE]
+> O suporte para dispositivos ARM64 está disponível em análise de vídeo ao vivo em IoT Edge Builds `1.0.4` e mais recentes.
+> O suporte para executar o runtime do Azure IoT Edge em dispositivos ARM64 está em [versão prévia pública](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Um computador Linux que atenda às restrições de HW/SW para análise de vídeo ao vivo
+* Um dispositivo x86-64 ou ARM64 executando um dos [sistemas operacionais Linux com suporte](../../iot-edge/support.md#operating-systems)
 * Assinatura do Azure para a qual você tem [privilégios de proprietário](../../role-based-access-control/built-in-roles.md#owner)
 * [Criar e configurar o Hub IoT](../../iot-hub/iot-hub-create-through-portal.md)
-* [Registrar IoT Edge dispositivo](../../iot-edge/how-to-register-device.md)
-* [Instalar o runtime do Azure IoT Edge em sistemas Linux baseados em Debian](../../iot-edge/how-to-install-iot-edge-linux.md)
+* [Registrar IoT Edge dispositivo](../../iot-edge/how-to-manual-provision-symmetric-key.md)
+* [Instalar o tempo de execução de Azure IoT Edge em sistemas Linux baseados em Debian](../../iot-edge/how-to-install-iot-edge.md)
 * [Criar uma conta de Serviços de Mídia do Azure](../latest/create-account-howto.md)
 
-    * Use uma destas regiões: leste dos EUA 2, EUA Central, norte EUA Central, leste do Japão, oeste dos EUA 2, Oeste EUA Central, leste do Canadá, Sul do Reino Unido, França central, sul da França, Norte da Suíça, Oeste da Suíça e oeste do Japão.
+    * Use uma destas regiões: leste dos EUA 2, leste dos EUA, EUA Central, norte EUA Central, leste do Japão, oeste dos EUA, oeste dos EUA 2, Oeste EUA Central, leste do Canadá, Sul do Reino Unido, França central, sul da França, Norte da Suíça, Oeste da Suíça e oeste do Japão.
     * É recomendável que você use contas de armazenamento de uso geral v2 (GPv2)
 
 ## <a name="configuring-azure-resources-for-using-live-video-analytics"></a>Configurando recursos do Azure para usar a análise de vídeo ao vivo
@@ -38,7 +42,7 @@ Se você pretende usar a análise de vídeo ao vivo para gravar vídeo continuam
 
 Esta é uma etapa opcional. Você pode usar este CLI do Azure comando para fazer isso:
 
-```azure-cli
+```azurecli
 az ams streaming-endpoint scale --resource-group $RESOURCE_GROUP --account-name $AMS_ACCOUNT -n default --scale-units 1
 ```
 
@@ -47,7 +51,7 @@ Você pode usar este comando para iniciar o ponto de extremidade de streaming
 > [!IMPORTANT]
 > Sua assinatura começará a ser cobrada neste ponto.
 
-```azure-cli
+```azurecli
 az ams streaming-endpoint start --resource-group $RESOURCE_GROUP --account-name $AMS_ACCOUNT -n default --no-wait
 ```
 
@@ -81,7 +85,6 @@ sudo chown -R edgeuser /var/media
 
 ## <a name="deploy-live-video-analytics-edge-module"></a>Implantar módulo de borda de análise de vídeo ao vivo
 
-<!-- (To JuliaKo: this is similar to https://docs.microsoft.com/azure/iot-edge/how-to-deploy-blob)-->
 A análise de vídeo ao vivo em IoT Edge expõe as propriedades de módulo '/' que estão documentadas no [esquema de configuração do módulo](module-twin-configuration-schema.md)/. 
 
 ### <a name="deploy-using-the-azure-portal"></a>Implantar usando o portal do Azure
@@ -96,7 +99,7 @@ O portal do Azure orienta você durante a criação de um manifesto de implanta�
 
 #### <a name="configure-a-deployment-manifest"></a>Configurar um manifesto de implantação
 
-Um manifesto de implantação é um documento JSON que descreve quais módulos implantar, como os dados fluem entre os módulos e as propriedades desejadas dos módulos gêmeos. O portal do Azure tem um assistente que orienta você durante a criação de um manifesto de implantação. Ele tem três etapas organizadas em guias: **módulos**, **rotas**e **revisão + criar**.
+Um manifesto de implantação é um documento JSON que descreve quais módulos implantar, como os dados fluem entre os módulos e as propriedades desejadas dos módulos gêmeos. O portal do Azure tem um assistente que orienta você durante a criação de um manifesto de implantação. Ele tem três etapas organizadas em guias: **módulos**, **rotas** e **revisão + criar**.
 
 #### <a name="add-modules"></a>Adicionar módulos
 
@@ -105,12 +108,12 @@ Um manifesto de implantação é um documento JSON que descreve quais módulos i
     Exemplos:
     
     * **Nome do módulo de IOT Edge**: lvaEdge
-    * **URI da imagem**: MCR.Microsoft.com/Media/Live-Video-Analytics:1.0    
+    * **URI da imagem**: MCR.Microsoft.com/Media/Live-Video-Analytics:2.0    
     
-    ![Adicionar](./media/deploy-iot-edge-device/add.png)
+    ![Captura de tela mostra a guia Configurações do módulo.](./media/deploy-iot-edge-device/add.png)
     
     > [!TIP]
-    > Não selecione **Adicionar** até que você tenha especificado valores nas guias **configurações do módulo**, opções de criação do **contêiner**e configurações do **módulo de configuração** , conforme descrito neste procedimento.
+    > Não selecione **Adicionar** até que você tenha especificado valores nas guias **configurações do módulo**, opções de criação do **contêiner** e configurações do **módulo de configuração** , conforme descrito neste procedimento.
     
     > [!WARNING]
     > Azure IoT Edge diferencia maiúsculas de minúsculas quando você faz chamadas para módulos. Anote a cadeia de caracteres exata usada como o nome do módulo.
@@ -217,7 +220,7 @@ Depois de criar a implantação, você retorna para a página de IoT Edge do Hub
 Pode levar alguns instantes para que o módulo seja iniciado no dispositivo e, em seguida, seja relatado de volta para o Hub IoT. Atualize a página para ver o status atualizado.
 Código de status: 200 – OK significa que [o tempo de execução do IOT Edge](../../iot-edge/iot-edge-runtime.md) está íntegro e funcionando bem.
 
-![Status](./media/deploy-iot-edge-device/status.png)
+![Captura de tela mostra um valor de status para um tempo de execução IoT Edge.](./media/deploy-iot-edge-device/status.png)
 
 #### <a name="invoke-a-direct-method"></a>Invocar um método direto
 
@@ -225,7 +228,7 @@ Em seguida, vamos testar o exemplo invocando um método direto. Leia [métodos d
 
 1. Ao clicar no módulo de borda criado, você será levado para sua página de configuração.  
 
-    ![Módulos](./media/deploy-iot-edge-device/modules.png)
+    ![Captura de tela mostra a página de configuração de um módulo de borda.](./media/deploy-iot-edge-device/modules.png)
 1. Clique na opção de menu método direto.
 
     > [!NOTE] 
@@ -237,7 +240,7 @@ Em seguida, vamos testar o exemplo invocando um método direto. Leia [métodos d
     
     ```
     {
-        "@apiVersion" : "1.0"
+        "@apiVersion" : "2.0"
     }
     ```
 1. Clique na opção "invocar método" na parte superior da página
@@ -252,4 +255,4 @@ Em seguida, vamos testar o exemplo invocando um método direto. Leia [métodos d
 Experimente o [início rápido: introdução-análise de vídeo ao vivo em IOT Edge](get-started-detect-motion-emit-events-quickstart.md#deploy-modules-on-your-edge-device)
 
 > [!TIP]
-> No comando, você executará a seguir, usará seu `device-id` em vez do padrão `lva-sample-device` .
+> Se você continuar com o início rápido acima, ao invocar os métodos diretos usando Visual Studio Code, você usará o dispositivo que foi adicionado ao Hub IoT por este artigo, em vez do padrão `lva-sample-device` .

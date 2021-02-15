@@ -1,23 +1,18 @@
 ---
 title: Carregar dados no Azure Data Lake Store Gen2
 description: Usar o Azure Data Factory para copiar dados para o Azure Data Lake Storage Gen2
-services: data-factory
-documentationcenter: ''
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 06/08/2020
-ms.openlocfilehash: 8f8cfef5ed98682a1d03f7d36caa2008f4ff03b6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 11/09/2020
+ms.openlocfilehash: 61e34d41d9f7a60b6ad74e12331864e6ba08e4f5
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84660552"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100370794"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen2-with-azure-data-factory"></a>Carregar dados no Azure Data Lake Storage Gen2 com o Azure Data Factory
 
@@ -42,7 +37,7 @@ Este artigo descreve como usar a ferramenta Copiar Dados do Data Factory para ca
 
 ## <a name="create-a-data-factory"></a>Criar uma data factory
 
-1. No menu à esquerda, selecione **Criar um recurso** > **Dados + Análise** > **Data Factory**:
+1. No menu à esquerda, selecione **Criar um recurso** > **Integração** > **Data Factory**:
    
    ![Seleção de Data Factory no painel "Novo"](./media/doc-common-process/new-azure-data-factory-menu.png)
 
@@ -77,7 +72,7 @@ Este artigo descreve como usar a ferramenta Copiar Dados do Data Factory para ca
 
    1. Especifique o valor da **ID da chave de acesso**.
    2. Especifique o valor da **chave de acesso secreta**.
-   3. Clique em **testar conexão** para validar as configurações e, em seguida, selecione **criar**.
+   3. Clique em **Testar conectividade** para validar as configurações e selecione **Criar**.
 
       ![Especifique a conta do Amazon S3](./media/load-azure-data-lake-storage-gen2/specify-amazon-s3-account.png)
    4. Você verá que uma nova conexão AmazonS3 será criada. Selecione **Avançar**. 
@@ -88,9 +83,9 @@ Este artigo descreve como usar a ferramenta Copiar Dados do Data Factory para ca
 
 6. Especifique o comportamento de cópia verificando as opções de cópia **recursiva** e **binária** . Selecione **Avançar**.
 
-    ![Especifique a pasta de saída](./media/load-azure-data-lake-storage-gen2/specify-binary-copy.png)
+    ![Captura de tela mostra a escolha do arquivo ou da pasta de entrada onde você pode selecionar cópia binária e recursivamente.](./media/load-azure-data-lake-storage-gen2/specify-binary-copy.png)
     
-7. Na página **armazenamento de dados de destino** , clique em **+ criar nova conexão**e selecione **Azure data Lake Storage Gen2**e selecione **continuar**.
+7. Na página **armazenamento de dados de destino** , clique em **+ criar nova conexão** e selecione **Azure data Lake Storage Gen2** e selecione **continuar**.
 
     ![Página Armazenamento de dados de destino](./media/load-azure-data-lake-storage-gen2/destination-data-storage-page.png)
 
@@ -103,7 +98,7 @@ Este artigo descreve como usar a ferramenta Copiar Dados do Data Factory para ca
 
 9. Na página **escolher o arquivo de saída ou a pasta** , insira **copyfroms3** como o nome da pasta de saída e selecione **Avançar**. O ADF criará o sistema de arquivos ADLS Gen2 e as subpastas correspondentes durante a cópia, se ela não existir.
 
-    ![Especifique a pasta de saída](./media/load-azure-data-lake-storage-gen2/specify-adls-path.png)
+    ![Captura de tela mostra o caminho da pasta que você inseriu.](./media/load-azure-data-lake-storage-gen2/specify-adls-path.png)
 
 10. Na página **configurações** , selecione **Avançar** para usar as configurações padrão.
 

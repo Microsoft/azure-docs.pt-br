@@ -9,32 +9,40 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 09/15/2020
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 99d8ae8c5e3218959a483e78f70a6502bf7a5a47
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 7a8b013723707c4a3a087a90674227c3d41c5108
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87799087"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836930"
 ---
 # <a name="identity-data-storage-for-european-customers-in-azure-active-directory"></a>Armazenamento de dados de identidade para os clientes europeus no Azure Active Directory
-Os dados de identidade são armazenados pelo Azure AD em uma localização geográfica com base no endereço fornecido pela sua organização ao assinar um serviço online da Microsoft, como o Office 365 e o Azure. Para obter informações sobre onde os dados de identidade são armazenados, você pode usar a seção [onde os dados estão localizados?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) da central de confiabilidade da Microsoft.
+Os dados de identidade são armazenados pelo Azure AD em uma localização geográfica com base no endereço fornecido pela sua organização ao assinar um serviço online da Microsoft, como o Microsoft 365 e o Azure. Para obter informações sobre onde os dados de identidade são armazenados, você pode usar a seção [onde os dados estão localizados?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) da central de confiabilidade da Microsoft.
 
 Para clientes que forneceram um endereço na Europa, o Azure AD mantém a maioria dos dados de identidade em datacenters europeus. Este documento fornece informações sobre todos os dados armazenados fora da Europa pelos serviços do Azure AD.
 
-## <a name="microsoft-azure-multi-factor-authentication-mfa"></a>Microsoft Azure a autenticação multifator (MFA)
-    
-- Toda a autenticação de dois fatores que usa chamadas telefônicas ou o SMS origina-se de data centers dos EUA e também é roteada por provedores globais.
-- As notificações por push que usam o aplicativo Microsoft Authenticator são originadas de datacenters dos EUA. Além disso, os serviços específicos de fornecedores de dispositivos também podem entrar em jogo e esses serviços talvez fora da Europa.
-- Códigos OATH sempre são validados nos EUA. 
+## <a name="microsoft-azure-ad-multi-factor-authentication"></a>Microsoft Azure AD a autenticação multifator
 
-Para obter mais informações sobre quais informações do usuário são coletadas pelo Azure Servidor de Autenticação Multifator (servidor MFA) e pela MFA do Azure baseada em nuvem, consulte [coleta de dados do usuário da autenticação multifator do Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-reporting-datacollection).
+Para a autenticação multifator do Azure AD baseada em nuvem, a autenticação é concluída no datacenter mais próximo ao usuário. Os data centers da autenticação multifator do Azure AD existem no América do Norte, na Europa e no Pacífico Asiático.
+
+* A autenticação multifator usando chamadas telefônicas se originam de data centers dos EUA e são roteadas por provedores globais.
+* A autenticação multifator usando o SMS é roteada por provedores globais.
+* As solicitações de autenticação multifator usando o Microsoft Authenticator notificações por push de aplicativo originadas de datacenters da UE são processadas em datacenters da UE.
+    * Serviços específicos do fornecedor do dispositivo, como notificações por push da Apple, podem estar fora da Europa.
+* As solicitações de autenticação multifator que usam códigos OATH originados de data centers da UE são validadas na UE.
+
+Para obter mais informações sobre quais informações do usuário são coletadas pelo Azure Servidor de Autenticação Multifator (servidor MFA) e pela MFA do Azure AD baseada em nuvem, consulte [coleta de dados do usuário da autenticação multifator do Azure](../authentication/howto-mfa-reporting-datacollection.md).
+
+## <a name="password-based-single-sign-on-for-enterprise-applications"></a>Sign-On único com base em senha para aplicativos empresariais
+ 
+Se um cliente criar um novo aplicativo empresarial (seja por meio da galeria do Azure AD ou não da Galeria) e habilitar o SSO baseado em senha, a URL de entrada do aplicativo e os campos de entrada de captura personalizada serão armazenados no Estados Unidos. Para obter mais informações sobre esse recurso, consulte [Configurar logon único baseado em senha](../manage-apps/configure-password-single-sign-on-non-gallery-applications.md)
 
 ## <a name="microsoft-azure-active-directory-b2c-azure-ad-b2c"></a>Microsoft Azure Active Directory B2C (Azure AD B2C)
 
-Os dados de configuração da política de Azure AD B2C e os contêiners de chave são armazenados nos datacenters dos EUA. Eles não contêm nenhum dado pessoal do usuário. Para obter mais informações sobre as configurações de política, consulte o artigo [Azure Active Directory B2C: Políticas internas](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies).
+Os dados de configuração da política de Azure AD B2C e os contêiners de chave são armazenados nos datacenters dos EUA. Eles não contêm nenhum dado pessoal do usuário. Para obter mais informações sobre as configurações de política, consulte o artigo [Azure Active Directory B2C: Políticas internas](../../active-directory-b2c/user-flow-overview.md).
 
 ## <a name="microsoft-azure-active-directory-b2b-azure-ad-b2b"></a>Microsoft Azure Active Directory B2B (Azure AD B2B) 
     
@@ -50,7 +58,7 @@ O Microsoft Azure AD DS armazena dados de usuário no mesmo que a Rede Virtual d
 - Lista de domínios federados aprovados para o aplicativo
 - Chave pública de assinatura de token do aplicativo 
 
-Para obter mais informações sobre Federação no Microsoft Exchange Server, consulte o artigo de ajuda sobre a [Federação: Exchange 2013](https://docs.microsoft.com/exchange/federation-exchange-2013-help) .
+Para obter mais informações sobre Federação no Microsoft Exchange Server, consulte o artigo de ajuda sobre a [Federação: Exchange 2013](/exchange/federation-exchange-2013-help) .
 
 
 ## <a name="other-considerations"></a>Outras considerações
@@ -61,12 +69,12 @@ Para obter mais informações sobre a residência de dados de serviços da Micro
 
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre qualquer um dos recursos e funcionalidades descritos acima, consulte esses artigos:
-- [O que é a Autenticação Multifator?](https://docs.microsoft.com/azure/active-directory/authentication/multi-factor-authentication)
+- [O que é a Autenticação Multifator?](../authentication/concept-mfa-howitworks.md)
 
-- [Redefinição de senha de autoatendimento do Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/active-directory-passwords-overview)
+- [Redefinição de senha de autoatendimento do Azure AD](../authentication/concept-sspr-howitworks.md)
 
-- [O que é o Azure Active Directory B2C?](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview)
+- [O que é o Azure Active Directory B2C?](../../active-directory-b2c/overview.md)
 
-- [O que é a colaboração B2B do AD do Azure?](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)
+- [O que é a colaboração B2B do AD do Azure?](../external-identities/what-is-b2b.md)
 
-- [Azure Active Directory (AD) Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview)
+- [Azure Active Directory (AD) Domain Services](../../active-directory-domain-services/overview.md)

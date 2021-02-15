@@ -9,38 +9,39 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-python
-ms.openlocfilehash: e9f9daea2c0d570efb81603784ee730b11668426
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 27bcb220c67392661cc1b2875823abdca4593bd4
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88585977"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98220942"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>SDK do Python do Azure Cosmos DB para a API do SQL: Notas sobre a versão e recursos
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [SDK v3 do .NET](sql-api-sdk-dotnet-standard.md)
 > * [SDK do .NET v2](sql-api-sdk-dotnet.md)
 > * [SDK v2 do .NET Core](sql-api-sdk-dotnet-core.md)
-> * [SDK v2 do feed de alterações do .NET](sql-api-sdk-dotnet-changefeed.md)
+> * [SDK do Feed de Alterações do .NET v2](sql-api-sdk-dotnet-changefeed.md)
 > * [Node.js](sql-api-sdk-node.md)
 > * [SDK do Java v4](sql-api-sdk-java-v4.md)
 > * [SDK do Java Assíncrono v2](sql-api-sdk-async-java.md)
 > * [SDK do Java Síncrono v2](sql-api-sdk-java.md)
-> * [Spring data v2](sql-api-sdk-java-spring-v2.md)
-> * [Spring data v3](sql-api-sdk-java-spring-v3.md)
+> * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
+> * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
 > * [Conector do Spark](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api/cosmos-db/)
 > * [Provedor de recursos REST](/rest/api/cosmos-db-resource-provider/)
-> * [SQL](sql-api-query-reference.md)
+> * [SQL](./sql-query-getting-started.md)
 > * [Executor em massa-.NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Executor em massa – Java](sql-api-sdk-bulk-executor-java.md)
 
 | |  |
 |---|---|
 |**Baixar o SDK**|[PyPI](https://pypi.org/project/azure-cosmos)|
-|**Documentação da API**|[Documentação de referência da API do Python](https://docs.microsoft.com/python/api/azure-cosmos/?view=azure-python)|
+|**Documentação da API**|[Documentação de referência da API do Python](/python/api/azure-cosmos/?preserve-view=true&view=azure-python)|
 |**Instruções de instalação do SDK**|[Instruções de instalação do SDK do Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos)|
 |**Introdução**|[Introdução ao SDK do Python](create-sql-api-python.md)|
 |**Plataforma atual com suporte**|[Python 2.7](https://www.python.org/downloads/) e [Python 3.5.3+](https://www.python.org/downloads/)|
@@ -54,7 +55,7 @@ ms.locfileid: "88585977"
 **Novos recursos**
 - Adicionada a capacidade de definir o TTL de armazenamento analítico ao criar um novo contêiner.
 
-**Correções de bug**
+**Correções de bugs**
 - Corrigido o suporte para os dictfiles como entradas para get_client APIs.
 - Correção da compatibilidade do Python 2/3 nos iteradores de consulta.
 - Erro de dica de tipo fixo (problema #12570).
@@ -126,7 +127,7 @@ ms.locfileid: "88585977"
 
 * O construtor de `CosmosClient` foi atualizado:
 
-  * O parâmetro `auth` foi renomeado para `credential` e agora usará um tipo de autenticação diretamente. Isso significa que o valor da chave mestra, um dicionário de tokens de recurso ou uma lista de permissões pode ser passado. No entanto, o formato de dicionário antigo ainda é compatível.
+  * O parâmetro `auth` foi renomeado para `credential` e agora usará um tipo de autenticação diretamente. Isso significa que o valor de chave primária, um dicionário de tokens de recurso ou uma lista de permissões pode ser passado. No entanto, o formato de dicionário antigo ainda é compatível.
 
   * O parâmetro `connection_policy` tornou-se um parâmetro somente de palavra-chave e, embora ainda tenha suporte, cada um dos atributos individuais da política agora pode ser passado como argumentos de palavra-chave explícitas:
 
@@ -319,34 +320,34 @@ A versão 4.0.0 B1 é a primeira versão preliminar de nossos esforços para cri
 A Microsoft notifica pelo menos **12 meses** antes de desativar um SDK, a fim de realizar uma transição tranquila para uma versão mais recente/com suporte. Os novos recursos, funcionalidades e otimizações são adicionados apenas ao SDK atual. Portanto, recomendamos que você atualize sempre que possível para a versão do SDK mais recente.
 
 > [!WARNING]
-> Após 31 de agosto de 2022, a Azure Cosmos DB não fará mais correções de bug, adicionará novos recursos e dará suporte às versões 1. x ou 2. x do SDK do Azure Cosmos DB Python para a API do SQL. Se você preferir não atualizar, as solicitações enviadas da versão 1. x e 2. x do SDK continuarão a ser servidas pelo serviço de Azure Cosmos DB.
+> Após 31 de agosto de 2022, Azure Cosmos DB não fará mais correções de bug ou fornecerá suporte às versões 1. x e 2. x do SDK do Azure Cosmos DB Python para a API do SQL. Se você preferir não atualizar, as solicitações enviadas da versão 1. x e 2. x do SDK continuarão a ser servidas pelo serviço de Azure Cosmos DB.
 
 | Versão | Data de lançamento | Data de desativação |
 | --- | --- | --- |
 | [4.0.0](#400) |20 de maio de 2020 |--- |
 | [3.0.2](#302) |15 de novembro de 2018 |--- |
 | [3.0.1](#301) |4 de outubro de 2018 |--- |
-| [2.3.3](#233) |8 de setembro de 2018 |30 de agosto de 2020 |
-| [2.3.2](#232) |08 de maio de 2018 |30 de agosto de 2020 |
-| [2.3.1](#231) |21 de dezembro de 2017 |30 de agosto de 2020 |
-| [2.3.0](#230) |10 de novembro, 2017 |30 de agosto de 2020 |
-| [2.2.1](#221) |29 de setembro de 2017 |30 de agosto de 2020 |
-| [2.2.0](#220) |10 de maio de 2017 |30 de agosto de 2020 |
-| [2.1.0](#210) |1º de maio de 2017 |30 de agosto de 2020 |
-| [2.0.1](#201) |30 de outubro de 2016 |30 de agosto de 2020 |
-| [2.0.0](#200) |29 de setembro de 2016 |30 de agosto de 2020 |
-| [1.9.0](#190) |07 de julho de 2016 |30 de agosto de 2020 |
-| [1.8.0](#180) |14 de junho de 2016 |30 de agosto de 2020 |
-| [1.7.0](#170) |26 de abril de 2016 |30 de agosto de 2020 |
-| [1.6.1](#161) |08 de abril de 2016 |30 de agosto de 2020 |
-| [1.6.0](#160) |29 de março de 2016 |30 de agosto de 2020 |
-| [1.5.0](#150) |03 de janeiro de 2016 |30 de agosto de 2020 |
-| [1.4.2](#142) |06 de outubro de 2015 |30 de agosto de 2020 |
-| 1.4.1 |06 de outubro de 2015 |30 de agosto de 2020 |
-| [1.2.0](#120) |06 de agosto de 2015 |30 de agosto de 2020 |
-| [1.1.0](#110) |9 de julho de 2015 |30 de agosto de 2020 |
-| [1.0.1](#101) |25 de maio de 2015 |30 de agosto de 2020 |
-| 1.0.0 |7 de abril de 2015 |30 de agosto de 2020 |
+| [2.3.3](#233) |8 de setembro de 2018 |31 de agosto de 2022 |
+| [2.3.2](#232) |08 de maio de 2018 |31 de agosto de 2022 |
+| [2.3.1](#231) |21 de dezembro de 2017 |31 de agosto de 2022 |
+| [2.3.0](#230) |10 de novembro, 2017 |31 de agosto de 2022 |
+| [2.2.1](#221) |29 de setembro de 2017 |31 de agosto de 2022 |
+| [2.2.0](#220) |10 de maio de 2017 |31 de agosto de 2022 |
+| [2.1.0](#210) |1º de maio de 2017 |31 de agosto de 2022 |
+| [2.0.1](#201) |30 de outubro de 2016 |31 de agosto de 2022 |
+| [2.0.0](#200) |29 de setembro de 2016 |31 de agosto de 2022 |
+| [1.9.0](#190) |07 de julho de 2016 |31 de agosto de 2022 |
+| [1.8.0](#180) |14 de junho de 2016 |31 de agosto de 2022 |
+| [1.7.0](#170) |26 de abril de 2016 |31 de agosto de 2022 |
+| [1.6.1](#161) |08 de abril de 2016 |31 de agosto de 2022 |
+| [1.6.0](#160) |29 de março de 2016 |31 de agosto de 2022 |
+| [1.5.0](#150) |03 de janeiro de 2016 |31 de agosto de 2022 |
+| [1.4.2](#142) |06 de outubro de 2015 |31 de agosto de 2022 |
+| 1.4.1 |06 de outubro de 2015 |31 de agosto de 2022 |
+| [1.2.0](#120) |06 de agosto de 2015 |31 de agosto de 2022 |
+| [1.1.0](#110) |9 de julho de 2015 |31 de agosto de 2022 |
+| [1.0.1](#101) |25 de maio de 2015 |31 de agosto de 2022 |
+| 1.0.0 |7 de abril de 2015 |31 de agosto de 2022 |
 | 0.9.4-prelease |14 de janeiro de 2015 |29 de fevereiro de 2016 |
 | 0.9.4-prelease |09 de dezembro de 2014 |29 de fevereiro de 2016 |
 | 0.9.2-prelease |25 de novembro de 2014 |29 de fevereiro de 2016 |
@@ -359,4 +360,4 @@ A Microsoft notifica pelo menos **12 meses** antes de desativar um SDK, a fim de
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre o Cosmos DB, consulte a página de serviço do [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). 
+Para saber mais sobre o Cosmos DB, consulte a página de serviço do [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).

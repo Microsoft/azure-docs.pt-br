@@ -7,10 +7,10 @@ ms.date: 06/07/2017
 ms.author: bharatn
 ms.custom: devx-track-csharp
 ms.openlocfilehash: c5b5d413eee2528e2d5c7d04d06f1607949beaae
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89012697"
 ---
 # <a name="wcf-based-communication-stack-for-reliable-services"></a>Pilha de comunicação baseada no WCF para Reliable Services

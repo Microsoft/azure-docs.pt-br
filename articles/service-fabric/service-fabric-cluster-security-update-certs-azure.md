@@ -3,12 +3,12 @@ title: Gerenciar certificados em um cluster do Azure Service Fabric
 description: Descreve como adicionar novos certificados, sobrepor certificados e remover certificados de e para um cluster do Service Fabric.
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: b1ccf83e666f9106a31809ff41d55062826be78c
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 6dd4440d76bed9d110c13baab9f4e67b3a5c64c0
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88869738"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660892"
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Adicionar ou remover certificados para um cluster do Service Fabric no Azure
 É recomendável que você se familiarize com o modo como o Service Fabric usa certificados X.509 e com os [Cenários de segurança do cluster do cluster](service-fabric-cluster-security.md). Você deve entender o que é um certificado de cluster e qual sua finalidade, antes de continuar.
@@ -18,7 +18,7 @@ O comportamento de carregamento do certificado padrão do SDK do Azure Service F
 O Service Fabric permite especificar dois certificados de cluster, um primário e um secundário, quando você configura a segurança do certificado durante a criação do cluster, além de certificados de cliente. Veja a [criação de um cluster do Service Fabric por meio do portal](service-fabric-cluster-creation-via-portal.md) ou a [criação de um cluster do azure por meio do Azure Resource Manager](service-fabric-cluster-creation-via-arm.md) para obter detalhes sobre a configuração deles no tempo de criação. Se você especificar apenas um certificado de cluster no momento da criação, em seguida, que é usado como o certificado principal. Após a criação do cluster, é possível adicionar um novo certificado como um secundário.
 
 > [!NOTE]
-> Para um cluster seguro, você sempre precisará de, pelo menos, um certificado de cluster (primário ou secundário) válido (não revogado ou expirado) implantado; caso contrário, o cluster vai parar de funcionar. Em 90 dias antes que todos os certificados válidos alcancem a expiração, o sistema gera um rastreamento de avisos e também um evento de integridade de aviso no nó. Atualmente, não há nenhum email nem qualquer outra notificação enviada pelo Service Fabric sobre esse artigo. 
+> Para um cluster seguro, você sempre precisará de, pelo menos, um certificado de cluster (primário ou secundário) válido (não revogado ou expirado) implantado; caso contrário, o cluster vai parar de funcionar. 90 dias antes de todos os certificados válidos atingirem a expiração, o sistema gera um rastreamento de aviso e um evento de integridade de aviso no nó. Atualmente, essas são as únicas notificações Service Fabric enviadas com relação à expiração do certificado.
 > 
 > 
 
@@ -26,7 +26,7 @@ O Service Fabric permite especificar dois certificados de cluster, um primário 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="add-a-secondary-cluster-certificate-using-the-portal"></a>Adicionar um certificado de cluster secundário usando o portal
-Certificado de cluster secundário não pode ser adicionado por meio do portal do Azure, use o powershell do Azure. O processo será descrito posteriormente neste documento.
+O certificado de cluster secundário não pode ser adicionado por meio do portal do Azure; Use Azure PowerShell. O processo será descrito posteriormente neste documento.
 
 ## <a name="remove-a-cluster-certificate-using-the-portal"></a>Remover um certificado de cluster usando o portal
 Para um cluster seguro, sempre será necessário pelo menos um certificado (não revogado ou expirado) válido. O certificado implantado com a data mais distante na data de vencimento futura estará em uso e removê-lo fará o cluster parar de funcionar; certifique-se de remover somente o certificado que expirou ou um certificado não utilizado que expirará em breve.
@@ -208,7 +208,7 @@ Implante o modelo no grupo de recursos. Use o mesmo Grupo de Recursos no qual o 
 New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName <Resource Group that your cluster is currently deployed to> -TemplateFile <PathToTemplate>
 ```
 
-Veja um exemplo preenchido do mesmo comando powershell.
+Aqui está um exemplo de preenchimento do mesmo PowerShell.
 
 ```powershell
 $ResourceGroup2 = "chackosecure5"
@@ -277,7 +277,7 @@ Para remover um certificado secundário sejam usados para segurança de cluster,
 
 ## <a name="adding-application-certificates-to-a-virtual-machine-scale-set"></a>Adicionando certificados de aplicativo a um conjunto de dimensionamento de máquinas virtuais
 
-Para implantar um certificado para usar nos aplicativos de seu cluster, confira [este exemplo de script do Powershell](scripts/service-fabric-powershell-add-application-certificate.md).
+Para implantar um certificado que você usa para seus aplicativos em seu cluster, consulte [Este exemplo de script do PowerShell](scripts/service-fabric-powershell-add-application-certificate.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 Leia estes artigos para obter mais informações sobre gerenciamento de cluster:

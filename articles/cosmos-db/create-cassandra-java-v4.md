@@ -1,6 +1,6 @@
 ---
 title: Aplicativo Java com a API do Cassandra para Azure Cosmos DB usando o SDK do Java 4.0
-description: Este guia de início rápido mostra como usar a API Cassandra do Azure Cosmos DB para criar um aplicativo de perfil com portal e Java
+description: Este guia de início rápido mostra como usar a API do Cassandra do Azure Cosmos DB para criar um aplicativo de perfil com o portal do Azure e o Java 4.0 SDK.
 ms.service: cosmos-db
 author: TheovanKraay
 ms.author: thvankra
@@ -9,14 +9,15 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 05/18/2020
 ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 4411c2d3b540423c1086fe8b45bd343870a72f5b
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: ee30af3f07c8b350393822f01833feec6e3b52e2
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319194"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099803"
 ---
-# <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-cassandra-api-data-v4-driver"></a>Início Rápido: Criar um aplicativo Java para gerenciar os dados da API do Cassandra do Azure Cosmos DB (Driver v4)
+# <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-cassandra-api-data-v4-driver"></a>Criar um aplicativo Java para gerenciar os dados da API do Cassandra do Azure Cosmos DB (Driver v4)
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](create-cassandra-dotnet.md)

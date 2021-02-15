@@ -11,15 +11,14 @@ ms.custom:
 ms.author: dobett
 author: dominicbetts
 ms.date: 11/12/2019
-ms.openlocfilehash: 6062e8a74af4bb0a19d02ccf9a4c50da0cc4a7c5
-ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
+ms.openlocfilehash: 2695b34745ff02d55f18cebbe87a468f807ca77a
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80999566"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99831681"
 ---
 # <a name="tutorial-export-data-from-azure-iot-central-and-visualize-insights-in-power-bi"></a>Tutorial: Exportar dados do Azure IoT Central e visualizar informações no Power BI
-
 
 
 Nos dois tutoriais anteriores, você criou e personalizou um aplicativo IoT Central usando o modelo de aplicativo **análise no repositório - check-out**. Neste tutorial, você configura seu aplicativo IoT Central para exportar a telemetria coletada dos dispositivos. Em seguida, você usa Power BI para criar um painel personalizado para o gerenciador de loja para visualizar as informações derivadas da telemetria.
@@ -43,7 +42,7 @@ Para concluir este tutorial, você precisará:
 Antes de criar o hub de eventos e o aplicativo lógico, você precisa criar um grupo de recursos para gerenciá-los. O grupo de recursos deve estar no mesmo local que seu aplicativo **Análise do repositório - Fazer check-out** do IoT Central. Para criar um grupo de recursos:
 
 1. Entre no [portal do Azure](https://portal.azure.com).
-1. No painel de navegação esquerdo, selecione **Grupos de recursos**. Em seguida, selecione**Adicionar**.
+1. No painel de navegação esquerdo, selecione **Grupos de recursos**. Em seguida, selecione **Adicionar**.
 1. Para **Assinatura**, selecione o nome da assinatura do Azure na qual você deseja criar o aplicativo do IOT Central.
 1. Para o nome do **Grupo de recursos**, insira _de análise do repositório_*.
 1. Para a **Região**, selecione a mesma região que você escolheu para o aplicativo IoT Central.
@@ -380,7 +379,7 @@ Para adicionar a lógica ao design do aplicativo lógico, selecione **Modo de ex
     * Selecione **Análise do repositório - Fazer check-out** como o espaço de trabalho.
     * Insira **Sensor de Zona 1** como o conjunto de dados.
     * Selecione **RealTimeData** como a tabela.
-    * Selecione **Adicionar novo parâmetro** e, em seguida, selecione os campos **Carimbo de data/hora**, **Umidade**e **Temperatura**.
+    * Selecione **Adicionar novo parâmetro** e, em seguida, selecione os campos **Carimbo de data/hora**, **Umidade** e **Temperatura**.
     * Selecione o campo **Carimbo de data/hora** e, em seguida, selecione **x-opt-enqueuedtime** na lista de **Conteúdo dinâmico**.
     * Selecione o campo **Umidade** e, em seguida, selecione **Ver mais** ao lado de **Analisar telemetria**. Selecione **umidade**.
     * Selecione o campo de **Temperatura** e, em seguida, selecione **Ver mais** ao lado de **Analisar telemetria**. Em seguida, selecione **temperatura**.
@@ -392,7 +391,7 @@ Para adicionar a lógica ao design do aplicativo lógico, selecione **Modo de ex
     * Selecione **Análise do repositório - Fazer check-out** como o espaço de trabalho.
     * Selecione **Sensor de Zona 2** como o conjunto de dados.
     * Selecione **RealTimeData** como a tabela.
-    * Selecione **Adicionar novo parâmetro** e, em seguida, selecione os campos **Carimbo de data/hora**, **Umidade**e **Temperatura**.
+    * Selecione **Adicionar novo parâmetro** e, em seguida, selecione os campos **Carimbo de data/hora**, **Umidade** e **Temperatura**.
     * Selecione o campo **Carimbo de data/hora** e, em seguida, selecione **x-opt-enqueuedtime** na lista de **Conteúdo dinâmico**.
     * Selecione o campo **Umidade** e, em seguida, selecione **Ver mais** ao lado de **Analisar telemetria**. Selecione **umidade**.
     * Selecione o campo de **Temperatura** e, em seguida, selecione **Ver mais** ao lado de **Analisar telemetria**. Em seguida, selecione **temperatura**.
@@ -409,7 +408,7 @@ Para adicionar a lógica ao design do aplicativo lógico, selecione **Modo de ex
     * Selecione o campo **Carimbo de data/hora** e, em seguida, selecione **x-opt-enqueuedtime** na lista de **Conteúdo dinâmico**.
     * Selecione o campo **Tempo de espera 1** e, em seguida, selecione **Ver mais** ao lado de **Analisar telemetria**. Em seguida, selecione **Tempo de espera 1**.
     * Selecione o campo **Tempo de espera 2** e, em seguida, selecione **Ver mais** ao lado de **Analisar telemetria**. Em seguida, selecione **Tempo de espera 2**.
-    * Selecione **Salvar** para salvar as alterações. A ação **Interface de tempo de espera** é semelhante à captura de tela a seguir: ![Ação de ocupação](./media/tutorial-in-store-analytics-visualize-insights/occupancy-action-1.png)
+    * Selecione **Salvar** para salvar as alterações. A ação **Interface de tempo de espera** é semelhante à captura de tela a seguir: ![Captura de tela que mostra a ação "Interface de tempo de espera".](./media/tutorial-in-store-analytics-visualize-insights/occupancy-action-1.png)
 1. Selecione a ação **Interface de contagem de pessoas** e selecione **Adicionar uma ação**.
 1. Em **Pesquisar conectores e ações**, insira **Power BI** e pressione **Enter**.
 1. Selecione a ação **Adicionar linhas a uma ação de conjunto de dados (visualização)** .
@@ -484,7 +483,7 @@ Adicione quatro blocos de cartão para mostrar o comprimento da fila e o tempo d
 
 Redimensione e reorganize os blocos no painel para se parecer com a captura de tela a seguir:
 
-![Painel do Power BI](./media/tutorial-in-store-analytics-visualize-insights/pbi-dashboard.png)
+![Captura de tela que mostra o dashboard do Power BI com blocos redimensionados e reorganizados.](./media/tutorial-in-store-analytics-visualize-insights/pbi-dashboard.png)
 
 Você pode adicionar alguns recursos gráficos adicionais para personalizar ainda mais o painel:
 
@@ -505,6 +504,4 @@ Você pode excluir seus conjuntos de dados e painel de Power BI excluindo o espa
 Esses três tutoriais mostraram uma solução de ponta a ponta que usa o modelo de aplicativo **Análise de repositório - Fazer check-out** do IoT Central. Você conectou dispositivos ao aplicativo, usou IoT Central para monitorar os dispositivos e usou Power BI para criar um painel para exibir informações da telemetria do dispositivo. Uma próxima etapa recomendada é explorar um dos outros modelos de aplicativo IoT Central:
 
 > [!div class="nextstepaction"]
-> * [Criar soluções de energia com o IoT Central](../energy/overview-iot-central-energy.md)
-> * [Criar soluções governamentais com o IoT Central](../government/overview-iot-central-government.md)
-> * [Criar soluções de serviços de saúde com o IoT Central](../healthcare/overview-iot-central-healthcare.md)
+> [Criar soluções de energia com o IoT Central](../energy/overview-iot-central-energy.md)

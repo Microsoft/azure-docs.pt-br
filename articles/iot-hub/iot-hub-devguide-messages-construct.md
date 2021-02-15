@@ -11,12 +11,12 @@ ms.author: asrastog
 ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: dd2b88d923d0398dc42362242b94b978ccd24252
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 6d6b7122963b51619f26b8d02a8be4ad39261afb
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87336711"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147692"
 ---
 # <a name="create-and-read-iot-hub-messages"></a>Criar e ler mensagens do Hub IoT
 
@@ -24,7 +24,7 @@ Para suportar a interoperabilidade contínua entre protocolos, o Hub IoT define 
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-O Hub IoT implementa mensagens de dispositivo para nuvem usando um padrão de sistema de mensagens de streaming. As mensagens de dispositivo para nuvem do Hub IoT são mais semelhantes a *eventos* de [Hubs de Eventos](/azure/event-hubs/) do que *mensagens* do [Barramento de Serviço](/azure/service-bus-messaging/) por haver um alto volume de eventos passando pelo serviço que podem ser lidos por vários leitores.
+O Hub IoT implementa mensagens de dispositivo para nuvem usando um padrão de sistema de mensagens de streaming. As mensagens de dispositivo para nuvem do Hub IoT são mais semelhantes a *eventos* de [Hubs de Eventos](../event-hubs/index.yml) do que *mensagens* do [Barramento de Serviço](../service-bus-messaging/index.yml) por haver um alto volume de eventos passando pelo serviço que podem ser lidos por vários leitores.
 
 Uma mensagem do Hub IoT consiste em:
 
@@ -61,8 +61,8 @@ Para obter mais informações de como codificar e decodificar mensagens enviadas
 | iothub-connection-module-id |Uma ID definida pelo Hub IoT em mensagens do dispositivo para a nuvem. Contém a **moduleId** do dispositivo que enviou a mensagem. | Não | connectionModuleId |
 | iothub-connection-auth-generation-id |Uma ID definida pelo Hub IoT em mensagens do dispositivo para a nuvem. Contém a **connectionDeviceGenerationId** (de acordo com as [Propriedades de identidade de dispositivo](iot-hub-devguide-identity-registry.md#device-identity-properties)) do dispositivo que enviou a mensagem. | Não |connectionDeviceGenerationId |
 | iothub-connection-auth-method |Um método de autenticação definido pelo Hub IoT em mensagens do dispositivo para a nuvem. Essa propriedade contém informações sobre o método de autenticação usado para autenticar o dispositivo que envia a mensagem.| Não | connectionAuthMethod |
-| DT-DataSchema | Esse valor é definido pelo Hub IoT em mensagens do dispositivo para a nuvem. Ele contém a ID do modelo do dispositivo definida na conexão do dispositivo. Esse recurso está disponível como parte da [Visualização pública do IoT plug and Play](../iot-pnp/overview-iot-plug-and-play.md). | Não | N/D |
-| DT-assunto | O nome do componente que está enviando as mensagens do dispositivo para a nuvem. Esse recurso está disponível como parte da [Visualização pública do IoT plug and Play](../iot-pnp/overview-iot-plug-and-play.md). | Sim | N/D |
+| DT-DataSchema | Esse valor é definido pelo Hub IoT em mensagens do dispositivo para a nuvem. Ele contém a ID do modelo do dispositivo definida na conexão do dispositivo. | Não | N/D |
+| DT-assunto | O nome do componente que está enviando as mensagens do dispositivo para a nuvem. | Sim | N/D |
 
 ## <a name="system-properties-of-c2d-iot-hub-messages"></a>Propriedades de Sistema das mensagens **C2D** do Hub IoT
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/24/2019
-ms.openlocfilehash: e422b019dd17c8c56ba99b5826e9f6215459c382
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: f7268f698dcc26dbe99b517c9dd4584be67c3a82
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87825354"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91448460"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Usando a solução Mapa do Serviço no Azure
 
@@ -169,7 +169,7 @@ Alguns processos possuem funções específicas em computadores: servidores Web,
 
 As conexões com falha são mostradas nos mapas do Mapa do Serviço para processos e computadores, com uma linha vermelha tracejada indicando que um sistema cliente está falhando em alcançar um processo ou uma porta. Conexões com falha são reportadas de qualquer sistema com um agente do Mapa do Serviço implantado, se esse sistema estiver tentando a conexão com falha. O Mapa do Serviço mede esse processo, observando os soquetes TCP que falham ao estabelecer uma conexão. Isso pode ocorrer devido a um firewall, uma configuração incorreta no cliente ou servidor ou um serviço remoto não disponível.
 
-![Conexões com falha](media/service-map/failed-connections.png)
+![Captura de tela de uma parte de um Mapa do Serviço realçando uma linha vermelha tracejada que indica uma falha de conexão entre o processo backup.pl e a porta 4475.](media/service-map/failed-connections.png)
 
 Entender as conexões com falha pode ajudar com a solução de problemas, validação da migração, análise de segurança e noções básicas sobre arquitetura em geral. Às vezes, as conexões com falhas são inofensivas, mas frequentemente apontam diretamente para um problema, como um ambiente de failover tornando-se inacessível repentinamente ou, duas camadas de aplicativos sem comunicação após uma migração na nuvem.
 
@@ -193,7 +193,7 @@ Os Grupos de Portas do Servidor são caixas que representam portas de servidor e
 
 Ao clicar nas reticências (...), no canto superior direito de qualquer servidor, o menu de contexto desse servidor será exibido.
 
-![Conexões com falha](media/service-map/context-menu.png)
+![Captura de tela mostrando o menu de contexto aberto para um servidor em Mapa do Serviço. O menu tem as opções carregar mapa do servidor e mostrar Self-links.](media/service-map/context-menu.png)
 
 ### <a name="load-server-map"></a>Carregar mapa do servidor
 
@@ -258,7 +258,7 @@ A integração do Mapa do Serviço com o Controle de Alterações é automática
 
 O painel **Controle de Alterações do Computador** lista todas as alterações, as mais recentes primeiro, juntamente com um link para fazer busca detalhada da Pesquisa de Logs para obter detalhes adicionais.
 
-![Painel Controle de Alterações do Computador](media/service-map/change-tracking.png)
+![Captura de tela do painel de Controle de Alterações do computador no Mapa do Serviço.](media/service-map/change-tracking.png)
 
 A imagem a seguir é uma exibição detalhada de um evento ConfigurationChange que poderá ser exibido após selecionar **Mostrar no Log Analytics**.
 
@@ -300,7 +300,7 @@ A integração do Mapa do Serviço com o Gerenciamento de Atualizações é auto
 
 O painel **Atualizações do Computador** exibe dados da solução de Gerenciamento de Atualizações para o servidor selecionado. O painel lista um resumo de quaisquer atualizações ausentes para o servidor durante o intervalo de tempo selecionado.
 
-![Painel Controle de Alterações do Computador](media/service-map/machine-updates.png)
+![Captura de tela do painel atualizações do computador no Mapa do Serviço.](media/service-map/machine-updates.png)
 
 ## <a name="log-analytics-records"></a>Registros do Log Analytics
 

@@ -4,10 +4,10 @@ description: Uma lista de verificação de controles de segurança internos para
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.openlocfilehash: bb8742c38fae88dc1fd1fd1ec175b248f30df3a0
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86054450"
 ---
 # <a name="security-controls-for-azure-resource-manager"></a>Controles de segurança para Azure Resource Manager
@@ -21,7 +21,7 @@ Este artigo documenta os controles de segurança internos do Azure Resource Mana
 | Controle de segurança | Sim/Não | Observações |
 |---|---|--|
 | Criptografia no lado do servidor em repouso: chaves gerenciadas pela Microsoft | Sim |  |
-| Criptografia em trânsito (como criptografia de ExpressRoute, criptografia de vnet e criptografia vnet)| Sim | HTTPS/TLS. |
+| Criptografia em trânsito (como criptografia de ExpressRoute, criptografia de VNet e criptografia de VNet-VNet)| Sim | HTTPS/TLS. |
 | Criptografia no lado do servidor em repouso: chaves gerenciadas pelo cliente (BYOK) | N/D | O Azure Resource Manager não armazena nenhum conteúdo do cliente, só controla os dados. |
 | Criptografia em nível de coluna (serviços de dados do Azure)| Sim | |
 | Chamadas criptografadas à API| Sim | |

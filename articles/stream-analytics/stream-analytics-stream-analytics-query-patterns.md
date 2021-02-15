@@ -4,17 +4,16 @@ description: Este artigo descreve vários designs e padrões de consulta comuns 
 services: stream-analytics
 author: rodrigoaatmicrosoft
 ms.author: rodrigoa
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/18/2019
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 0eabe147563ee712e20e57aafc1029daf2a8610a
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.custom: devx-track-js
+ms.openlocfilehash: 8fcda77858b3feb78a04971a7ad1f20c0ea51fa1
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88641034"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019985"
 ---
 # <a name="common-query-patterns-in-azure-stream-analytics"></a>Padrões de consulta comuns no Azure Stream Analytics
 
@@ -283,7 +282,7 @@ FROM
 
 A primeira etapa na consulta localiza o carimbo de data/hora máximo em janelas de 10 minutos, o qual é o carimbo de data/hora do último evento dessa janela. A segunda etapa une os resultados da primeira consulta com fluxo original para localizar o evento que corresponda aos últimos carimbos de data/hora em cada janela. 
 
-**DATEDIFF** é uma função específica de datas que compara e retorna a diferença de tempo entre dois campos DateTime. Para obter mais informações, consulte [funções de data](https://docs.microsoft.com/stream-analytics-query/date-and-time-functions-azure-stream-analytics).
+**DATEDIFF** é uma função específica de datas que compara e retorna a diferença de tempo entre dois campos DateTime. Para obter mais informações, consulte [funções de data](/stream-analytics-query/date-and-time-functions-azure-stream-analytics).
 
 Para obter mais informações sobre a união de fluxos, consulte [**JOIN**](/stream-analytics-query/join-azure-stream-analytics).
 
@@ -837,7 +836,7 @@ From
 
 A UDF computará o valor *bigint* do HexValue em todos os eventos consumidos.
 
-Para obter mais informações, consulte [JavaScript](/azure/stream-analytics/stream-analytics-javascript-user-defined-functions) e [C#](/azure/stream-analytics/stream-analytics-edge-csharp-udf).
+Para obter mais informações, consulte [JavaScript](./stream-analytics-javascript-user-defined-functions.md) e [C#](./stream-analytics-edge-csharp-udf.md).
 
 ## <a name="advanced-pattern-matching-with-match_recognize"></a>Correspondência de padrões avançados com MATCH_RECOGNIZE
 
@@ -932,11 +931,11 @@ Para obter mais informações, consulte o artigo [Cenários de agregação de de
 
 ## <a name="get-help"></a>Obter ajuda
 
-Para obter mais assistência, experimente a nossa [página de Perguntas e respostas da Microsoft do Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
+Para obter mais assistência, experimente a nossa [página de Perguntas e respostas da Microsoft do Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Introdução ao Stream Analytics do Azure](stream-analytics-introduction.md)
 * [Introdução ao uso do Stream Analytics do Azure](stream-analytics-real-time-fraud-detection.md)
 * [Dimensionar trabalhos do Stream Analytics do Azure](stream-analytics-scale-jobs.md)
-* [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Referência de Linguagem de Consulta do Stream Analytics do Azure](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Referência da API REST do Gerenciamento do Azure Stream Analytics](/rest/api/streamanalytics/)

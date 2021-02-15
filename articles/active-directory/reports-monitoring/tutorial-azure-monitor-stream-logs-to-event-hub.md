@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eba44252672248b983d7f6e0c843f638e5f73447
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 0443dcb2bf3bd58f2474c507c9f9594fb6d8a7f0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74007649"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89469177"
 ---
 # <a name="tutorial-stream-azure-active-directory-logs-to-an-azure-event-hub"></a>Tutorial: Transmitir logs do Azure Active Directory para um hub de eventos do Azure
 
@@ -35,7 +35,7 @@ Para usar esse recurso, você precisa de:
 * Uma assinatura do Azure. Se não tiver uma assinatura do Azure, você poderá [inscrever-se em uma avaliação gratuita](https://azure.microsoft.com/free/).
 * Um locatário do Azure AD.
 * Um usuário que seja *administrador global* ou *administrador de segurança* do locatário do Azure AD.
-* Um namespace dos Hubs de Eventos e um hub de eventos em sua assinatura do Azure. Saiba como [criar um hub de eventos](https://docs.microsoft.com/azure/event-hubs/event-hubs-create).
+* Um namespace dos Hubs de Eventos e um hub de eventos em sua assinatura do Azure. Saiba como [criar um hub de eventos](../../event-hubs/event-hubs-create.md).
 
 ## <a name="stream-logs-to-an-event-hub"></a>Transmitir logs para um hub de eventos
 
@@ -60,8 +60,8 @@ Para usar esse recurso, você precisa de:
 7. Selecione **OK** para sair da configuração do hub de eventos.
 
 8. Siga um destes procedimentos, ou ambos:
-    * Para enviar os logs de auditoria para a conta de armazenamento, marque a caixa de seleção **AuditLogs**. 
-    * Para enviar os logs de entrada para a conta de armazenamento, marque a caixa de seleção **SignInLogs**.
+    * Para enviar os logs de auditoria para o hub de eventos, marque a caixa de seleção **AuditLogs**. 
+    * Para enviar os logs de entrada para o hub de eventos, marque a caixa de seleção **SignInLogs**.
 
 9. Clique em **Salvar** para salvar a configuração.
 
@@ -79,19 +79,19 @@ Depois que os dados são exibidos no hub de eventos, você pode acessar e ler os
     
     * **ArcSight**: para obter mais informações sobre como integrar os logs do Azure AD ao Splunk, consulte [Integrar logs do Azure Active Directory ao ArcSight usando o Azure Monitor](howto-integrate-activity-logs-with-arcsight.md).
     
-    * **Splunk**: para obter mais informações sobre como integrar os logs do Azure AD ao Splunk, consulte [Integrar logs do Azure AD com o Splunk usando o Azure Monitor](tutorial-integrate-activity-logs-with-splunk.md).
+    * **Splunk**: para obter mais informações sobre como integrar os logs do Azure AD ao Splunk, consulte [Integrar logs do Azure AD com o Splunk usando o Azure Monitor](./howto-integrate-activity-logs-with-splunk.md).
     
     * **IBM QRadar**: o DSM e o protocolo de Hub de Eventos do Azure estão disponíveis para download no [Suporte da IBM](https://www.ibm.com/support). Para obter mais informações sobre a integração com o Azure, vá para a [Plataforma de Inteligência de Segurança da IBM QRadar 7.3.0](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0) site.
     
     * **Sumo Logic**: para configurar o Sumo Logic a fim de consumir dados de um hub de eventos, confira [Instalar o aplicativo do Azure AD e exibir os painéis](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory/Install_the_Azure_Active_Directory_App_and_View_the_Dashboards). 
 
-* **Configurar ferramentas personalizadas**. Se o SIEM atual ainda não tem suporte pelo diagnóstico do Azure Monitor, você pode configurar ferramentas personalizadas usando a API dos Hubs de Eventos. Para obter mais informações, consulte a [Introdução ao recebimento de mensagens de um hub de eventos](https://docs.microsoft.com/azure/event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph).
+* **Configurar ferramentas personalizadas**. Se o SIEM atual ainda não tem suporte pelo diagnóstico do Azure Monitor, você pode configurar ferramentas personalizadas usando a API dos Hubs de Eventos. Para obter mais informações, consulte a [Introdução ao recebimento de mensagens de um hub de eventos](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md).
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Integrar logs do Azure Active Directory ao ArcSight usando o Azure Monitor](howto-integrate-activity-logs-with-arcsight.md)
-* [Integrar logs do Azure AD com o Splunk usando o Azure Monitor](tutorial-integrate-activity-logs-with-splunk.md)
+* [Integrar logs do Azure AD com o Splunk usando o Azure Monitor](./howto-integrate-activity-logs-with-splunk.md)
 * [Integrar logs do Azure AD ao SumoLogic usando o Azure Monitor](howto-integrate-activity-logs-with-sumologic.md)
 * [Interpretar o esquema de logs de auditoria no Azure Monitor](reference-azure-monitor-audit-log-schema.md)
 * [Interpretar o esquema de logs de entrada no Azure Monitor](reference-azure-monitor-sign-ins-log-schema.md)

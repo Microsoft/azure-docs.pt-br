@@ -2,13 +2,13 @@
 title: Configurar o cluster kubernetes habilitado para Arc do Azure com Azure Monitor para contêineres | Microsoft Docs
 description: Este artigo descreve como configurar o monitoramento com Azure Monitor para contêineres em clusters kubernetes habilitados para Arc do Azure.
 ms.topic: conceptual
-ms.date: 06/23/2020
-ms.openlocfilehash: f8002b20f37ca5149c58ca3e29402916ebbc1333
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 09/23/2020
+ms.openlocfilehash: 77b536141f0e7c6094964011719a0e536e8d33f1
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87092874"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91994460"
 ---
 # <a name="enable-monitoring-of-azure-arc-enabled-kubernetes-cluster"></a>Habilitar o monitoramento do cluster kubernetes habilitado para Arc do Azure
 
@@ -21,8 +21,6 @@ Azure Monitor para contêineres podem ser habilitados para uma ou mais implanta�
 Azure Monitor para contêineres dá suporte ao monitoramento do Azure Arc habilitado kubernetes (versão prévia), conforme descrito no artigo de [visão geral](container-insights-overview.md) , com exceção dos seguintes recursos:
 
 - Dados dinâmicos (visualização)
-
-- [Coletar métricas](container-insights-update-metrics.md) de nós de cluster e pods e armazená-los no banco de dados de métricas de Azure monitor
 
 O seguinte é oficialmente suportado com Azure Monitor para contêineres:
 
@@ -38,7 +36,7 @@ Antes de começar, verifique se você tem o seguinte:
 
 - Um workspace do Log Analytics.
 
-    Azure Monitor para contêineres dá suporte a um espaço de trabalho Log Analytics nas regiões listadas em produtos do Azure [por região](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor). Para criar seu próprio espaço de trabalho, ele pode ser criado por meio de [Azure Resource Manager](../platform/template-workspace-configuration.md), por meio do [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)ou no [portal do Azure](../learn/quick-create-workspace.md).
+    Azure Monitor para contêineres dá suporte a um espaço de trabalho Log Analytics nas regiões listadas em produtos do Azure [por região](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor). Para criar seu próprio espaço de trabalho, ele pode ser criado por meio de [Azure Resource Manager](../samples/resource-manager-workspace.md), por meio do [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)ou no [portal do Azure](../learn/quick-create-workspace.md).
 
 - Para habilitar e acessar os recursos no Azure Monitor para contêineres, no mínimo você precisa ser um membro da função *colaborador* do Azure na assinatura do Azure e um membro da [*log Analytics função colaborador*](../platform/manage-access.md#manage-access-using-azure-permissions) do espaço de trabalho log Analytics configurado com Azure monitor para contêineres.
 
@@ -63,7 +61,7 @@ Antes de começar, verifique se você tem o seguinte:
     >[!IMPORTANT]
     >A versão mínima do agente com suporte para monitorar clusters kubernetes habilitados para Arc é ciprod04162020 ou posterior.
 
-- O [PowerShell Core](/powershell/scripting/install/installing-powershell?view=powershell-6) é necessário se você habilitar o monitoramento usando o método com script do PowerShell.
+- O [PowerShell Core](/powershell/scripting/install/installing-powershell?view=powershell-6&preserve-view=true) é necessário se você habilitar o monitoramento usando o método com script do PowerShell.
 
 - A [versão 4 do bash](https://www.gnu.org/software/bash/) será necessária se você habilitar o monitoramento usando o método script bash.
 
@@ -106,7 +104,7 @@ Para habilitar o monitoramento do cluster usando o script do PowerShell ou bash 
 1. Baixe e salve o script em uma pasta local que configura o cluster com o complemento de monitoramento usando os seguintes comandos:
 
     ```powershell
-    wget https://aka.ms/enable-monitoring-powershell-script -outfile enable-monitoring.ps1
+    Invoke-WebRequest https://aka.ms/enable-monitoring-powershell-script -OutFile enable-monitoring.ps1
     ```
 
 2. Configure a `$azureArcClusterResourceId` variável definindo os valores correspondentes para `subscriptionId` `resourceGroupName` e `clusterName` representando a ID de recurso do seu recurso de cluster kubernetes habilitado para arco do Azure.
@@ -124,7 +122,7 @@ Para habilitar o monitoramento do cluster usando o script do PowerShell ou bash 
 4. Se você quiser usar o Azure Monitor Log Analytics espaço de trabalho existente, configure a variável `$logAnalyticsWorkspaceResourceId` com o valor correspondente que representa a ID do recurso do espaço de trabalho. Caso contrário, defina a variável como `""` e o script criará um espaço de trabalho padrão no grupo de recursos padrão da assinatura do cluster, caso ainda não exista uma na região. O espaço de trabalho padrão criado é semelhante ao formato de *defaultworkspace- \<SubscriptionID> - \<Region> *.
 
     ```powershell
-    $logAnalyticsWorkspaceResourceId = “/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/microsoft.operationalinsights/workspaces/<workspaceName>”
+    $logAnalyticsWorkspaceResourceId = "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/microsoft.operationalinsights/workspaces/<workspaceName>"
     ```
 
 5. Se o cluster kubernetes habilitado para Arc se comunicar por meio de um servidor proxy, configure a variável `$proxyEndpoint` com a URL do servidor proxy. Se o cluster não se comunicar por meio de um servidor proxy, você poderá definir o valor como `""` .  Para obter mais informações, consulte [Configurar ponto de extremidade de proxy](#configure-proxy-endpoint) posteriormente neste artigo.
@@ -136,6 +134,33 @@ Para habilitar o monitoramento do cluster usando o script do PowerShell ou bash 
     ```
 
 Depois de habilitar o monitoramento, poderão ser necessários cerca de 15 minutos antes de exibir as métricas de integridade para o cluster.
+
+### <a name="using-service-principal"></a>Usando a entidade de serviço
+O script *enable-monitoring.ps1* usa o logon de dispositivo interativo. Se preferir um logon não interativo, você poderá usar uma entidade de serviço existente ou criar uma nova que tenha as permissões necessárias, conforme descrito em [pré-requisitos](#prerequisites). Para usar a entidade de serviço, você terá que passar $servicePrincipalClientId, $servicePrincipalClientSecret e $tenantId parâmetros com valores de entidade de serviço que você pretende usar para *enable-monitoring.ps1* script.
+
+```powershell
+$subscriptionId = "<subscription Id of the Azure Arc connected cluster resource>"
+$servicePrincipal = New-AzADServicePrincipal -Role Contributor -Scope "/subscriptions/$subscriptionId"
+```
+
+A atribuição de função abaixo só será aplicável se você estiver usando o espaço de trabalho Log Analytics existente em uma assinatura diferente do Azure do que o recurso de cluster K8s conectado do Arc.
+
+```powershell
+$logAnalyticsWorkspaceResourceId = "<Azure Resource Id of the Log Analytics Workspace>" # format of the Azure Log Analytics workspace should be /subscriptions/<subId>/resourcegroups/<rgName>/providers/microsoft.operationalinsights/workspaces/<workspaceName>
+New-AzRoleAssignment -RoleDefinitionName 'Log Analytics Contributor'  -ObjectId $servicePrincipal.Id -Scope  $logAnalyticsWorkspaceResourceId
+
+$servicePrincipalClientId =  $servicePrincipal.ApplicationId.ToString()
+$servicePrincipalClientSecret = [System.Net.NetworkCredential]::new("", $servicePrincipal.Secret).Password
+$tenantId = (Get-AzSubscription -SubscriptionId $subscriptionId).TenantId
+```
+
+Por exemplo:
+
+```powershell
+.\enable-monitoring.ps1 -clusterResourceId $azureArcClusterResourceId -servicePrincipalClientId $servicePrincipalClientId -servicePrincipalClientSecret $servicePrincipalClientSecret -tenantId $tenantId -kubeContext $kubeContext -workspaceResourceId $logAnalyticsWorkspaceResourceId -proxyEndpoint $proxyEndpoint
+```
+
+
 
 ## <a name="enable-using-bash-script"></a>Habilitar o uso do script bash
 
@@ -162,7 +187,7 @@ Execute as etapas a seguir para habilitar o monitoramento usando o script bash f
 4. Se você quiser usar o Azure Monitor Log Analytics espaço de trabalho existente, configure a variável `logAnalyticsWorkspaceResourceId` com o valor correspondente que representa a ID do recurso do espaço de trabalho. Caso contrário, defina a variável como `""` e o script criará um espaço de trabalho padrão no grupo de recursos padrão da assinatura do cluster, caso ainda não exista uma na região. O espaço de trabalho padrão criado é semelhante ao formato de *defaultworkspace- \<SubscriptionID> - \<Region> *.
 
     ```bash
-    export logAnalyticsWorkspaceResourceId=“/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/microsoft.operationalinsights/workspaces/<workspaceName>”
+    export logAnalyticsWorkspaceResourceId="/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/microsoft.operationalinsights/workspaces/<workspaceName>"
     ```
 
 5. Se o cluster kubernetes habilitado para Arc se comunicar por meio de um servidor proxy, configure a variável `proxyEndpoint` com a URL do servidor proxy. Se o cluster não se comunicar por meio de um servidor proxy, você poderá definir o valor como `""` . Para obter mais informações, consulte [Configurar ponto de extremidade de proxy](#configure-proxy-endpoint) posteriormente neste artigo.
@@ -195,11 +220,36 @@ Execute as etapas a seguir para habilitar o monitoramento usando o script bash f
 
 Depois de habilitar o monitoramento, poderão ser necessários cerca de 15 minutos antes de exibir as métricas de integridade para o cluster.
 
+### <a name="using-service-principal"></a>Usando a entidade de serviço
+O script bash *Enable-Monitoring.sh* usa o logon de dispositivo interativo. Se preferir um logon não interativo, você poderá usar uma entidade de serviço existente ou criar uma nova que tenha as permissões necessárias, conforme descrito em [pré-requisitos](#prerequisites). Para usar a entidade de serviço, você terá que passar--Client-ID,--cliente-Secret e--Tenant-ID valores da entidade de serviço que você pretende usar para *Enable-Monitoring.sh* o script bash.
+
+```bash
+subscriptionId="<subscription Id of the Azure Arc connected cluster resource>"
+servicePrincipal=$(az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/${subscriptionId}")
+servicePrincipalClientId=$(echo $servicePrincipal | jq -r '.appId')
+```
+
+A atribuição de função abaixo só será aplicável se você estiver usando o espaço de trabalho Log Analytics existente em uma assinatura diferente do Azure do que o recurso de cluster K8s conectado do Arc.
+
+```bash
+logAnalyticsWorkspaceResourceId="<Azure Resource Id of the Log Analytics Workspace>" # format of the Azure Log Analytics workspace should be /subscriptions/<subId>/resourcegroups/<rgName>/providers/microsoft.operationalinsights/workspaces/<workspaceName>
+az role assignment create --role 'Log Analytics Contributor' --assignee $servicePrincipalClientId --scope $logAnalyticsWorkspaceResourceId
+
+servicePrincipalClientSecret=$(echo $servicePrincipal | jq -r '.password')
+tenantId=$(echo $servicePrincipal | jq -r '.tenant')
+```
+
+Por exemplo:
+
+```bash
+bash enable-monitoring.sh --resource-id $azureArcClusterResourceId --client-id $servicePrincipalClientId --client-secret $servicePrincipalClientSecret  --tenant-id $tenantId --kube-context $kubeContext  --workspace-id $logAnalyticsWorkspaceResourceId --proxy $proxyEndpoint
+```
+
 ## <a name="configure-proxy-endpoint"></a>Configurar ponto de extremidade proxy
 
 Com o agente em contêiner para Azure Monitor para contêineres, você pode configurar um ponto de extremidade de proxy para permitir que ele se comunique por meio do servidor proxy. A comunicação entre o agente em contêiner e o Azure Monitor pode ser um servidor proxy HTTP ou HTTPS e a autenticação anônima e básica (nome de usuário/senha) têm suporte.
 
-O valor de configuração de proxy tem a seguinte sintaxe:`[protocol://][user:password@]proxyhost[:port]`
+O valor de configuração de proxy tem a seguinte sintaxe: `[protocol://][user:password@]proxyhost[:port]`
 
 > [!NOTE]
 >Se o servidor proxy não exigir autenticação, você ainda precisará especificar um nome de usuário/senha do psuedo. Isso pode ser qualquer nome de usuário ou senha.

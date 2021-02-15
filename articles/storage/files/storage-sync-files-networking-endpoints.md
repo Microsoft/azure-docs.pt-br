@@ -1,18 +1,19 @@
 ---
 title: Configurar pontos de extremidade de rede de Sincronização de Arquivos do Azure | Microsoft Docs
-description: Uma visão geral das opções de rede para Sincronização de Arquivos do Azure.
+description: Saiba como configurar os pontos de extremidade de rede Sincronização de Arquivos do Azure.
 author: roygara
 ms.service: storage
 ms.topic: how-to
 ms.date: 5/11/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 68d2b864b0e825756fbcd8e43fee3d6289c77c36
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: HT
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 64d66e1b9eab225b38ee21306fea6f9534a708f3
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85512862"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98673834"
 ---
 # <a name="configuring-azure-file-sync-network-endpoints"></a>Configurar pontos de extremidade de rede da Sincronização de Arquivos do Azure
 Os Arquivos do Azure e a Sincronização de Arquivos do Azure fornecem dois tipos principais de pontos de extremidade para acessar compartilhamentos de arquivo do Azure: 
@@ -32,8 +33,8 @@ Este artigo supõe que:
 - Você já criou um Serviço de Sincronização de Armazenamento e registrou seu servidor de arquivos do Windows com ele. Para saber como implantar a Sincronização de Arquivos do Azure, confira [Implantar Sincronização de Arquivos do Azure](storage-sync-files-deployment-guide.md).
 
 Adicionalmente:
-- Se pretende usar o Azure PowerShell, [instale a versão mais recente](https://docs.microsoft.com/powershell/azure/install-az-ps).
-- Se pretende usar a CLI do Azure, [instale a versão mais recente](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+- Se pretende usar o Azure PowerShell, [instale a versão mais recente](/powershell/azure/install-az-ps).
+- Se pretende usar a CLI do Azure, [instale a versão mais recente](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
 
 ## <a name="create-the-private-endpoints"></a>Criar os pontos de extremidade privados
 Quando você cria um ponto de extremidade privado para um recurso do Azure, os seguintes recursos são implantados:
@@ -51,13 +52,13 @@ Quando você cria um ponto de extremidade privado para um recurso do Azure, os s
 
 Se tiver uma máquina virtual dentro de sua rede virtual ou se tiver configurado o encaminhamento de DNS conforme descrito em [Como configurar o encaminhamento DNS para Arquivos do Azure](storage-files-networking-dns.md), você poderá testar se o ponto de extremidade privado foi instalado corretamente executando os seguintes comandos do PowerShell, na linha de comando ou no terminal (funciona para Windows, Linux e macOS). Substitua `<storage-account-name>` pelo nome da conta de armazenamento apropriada:
 
-```
+```console
 nslookup <storage-account-name>.file.core.windows.net
 ```
 
 Se tudo tiver funcionado corretamente, você deverá ver a seguinte saída, em que `192.168.0.5` é o endereço IP privado do ponto de extremidade privado em sua rede virtual (saída mostrada para o Windows):
 
-```Output
+```output
 Server:  UnKnown
 Address:  10.2.4.4
 
@@ -72,7 +73,7 @@ Aliases:  storageaccount.file.core.windows.net
 
 Se tiver uma máquina virtual dentro de sua rede virtual ou se tiver configurado o encaminhamento de DNS conforme descrito em [Como configurar o encaminhamento de DNS para Arquivos do Azure](storage-files-networking-dns.md), você poderá testar se o ponto de extremidade privado foi instalado corretamente executando os seguintes comandos:
 
-```PowerShell
+```powershell
 $storageAccountHostName = [System.Uri]::new($storageAccount.PrimaryEndpoints.file) | `
     Select-Object -ExpandProperty Host
 
@@ -81,7 +82,7 @@ Resolve-DnsName -Name $storageAccountHostName
 
 Se tudo tiver funcionado corretamente, você deverá ver a seguinte saída, em que `192.168.0.5` é o endereço IP privado do ponto de extremidade privado em sua rede virtual:
 
-```Output
+```output
 Name                             Type   TTL   Section    NameHost
 ----                             ----   ---   -------    --------
 storageaccount.file.core.windows CNAME  60    Answer     storageaccount.privatelink.file.core.windows.net
@@ -112,7 +113,7 @@ nslookup $hostName
 
 Se tudo tiver funcionado corretamente, você deverá ver a seguinte saída, em que `192.168.0.5` é o endereço IP privado do ponto de extremidade privado em sua rede virtual:
 
-```Output
+```output
 Server:         127.0.0.53
 Address:        127.0.0.53#53
 
@@ -167,7 +168,7 @@ Get-AzPrivateEndpoint `
 
 Se tudo tiver funcionado corretamente, você deverá ver a saída a seguir, em que `192.168.1.4`, `192.168.1.5`, `192.168.1.6` e `192.168.1.7` são os endereços IP privados atribuídos ao ponto de extremidade privado:
 
-```Output
+```output
 Name     : mysssmanagement.westus2.afs.azure.net
 Type     : CNAME
 TTL      : 60
@@ -243,7 +244,7 @@ if ($null -eq $storageSyncService) {
 
 Para criar um ponto de extremidade privado, você precisa criar uma conexão de serviço de link privado com o Serviço de Sincronização de Armazenamento. A conexão do link privado é uma entrada para a criação do ponto de extremidade privado.
 
-```PowerShell 
+```powershell 
 # Disable private endpoint network policies
 $subnet.PrivateEndpointNetworkPolicies = "Disabled"
 $virtualNetwork = $virtualNetwork | `
@@ -324,7 +325,7 @@ if ($null -eq $dnsZone) {
 ```
 Agora que tem uma referência à zona DNS privado, você precisa criar um registro A para seu Serviço de Sincronização de Armazenamento.
 
-```PowerShell 
+```powershell 
 $privateEndpointIpFqdnMappings = $privateEndpoint | `
     Select-Object -ExpandProperty NetworkInterfaces | `
     Select-Object -ExpandProperty Id | `
@@ -587,7 +588,7 @@ Ao restringir a conta de armazenamento para redes virtuais específicas, você p
 A Sincronização de Arquivos do Azure permite restringir o acesso a redes virtuais específicas somente por meio de pontos de extremidade privados. A Sincronização de Arquivos do Azure não dá suporte a pontos de extremidade de serviço para restringir o acesso ao ponto de extremidades público para redes virtuais específicas. Isso significa que os dois estados do ponto de extremidade público do Serviço de Sincronização de Armazenamento são habilitado e desabilitado.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
-Isso não é possível por meio do portal do Azure. Selecione as instruções da guia Azure PowerShell ou CLI do Azure para obter instruções sobre como desabilitar o ponto de extremidade público do Serviço de Sincronização de Armazenamento. 
+Isso não é possível por meio do portal do Azure. Selecione a guia Azure PowerShell para obter instruções sobre como desabilitar o ponto de extremidade público do serviço de sincronização de armazenamento. 
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 Para desabilitar o acesso ao ponto de extremidade público do Serviço de Sincronização de Armazenamento, definiremos a propriedade `incomingTrafficPolicy` no Serviço de Sincronização de Armazenamento como `AllowVirtualNetworksOnly`. Se você quiser habilitar o acesso ao ponto de extremidade público do Serviço de Sincronização de Armazenamento, defina `incomingTrafficPolicy` como `AllowAllTraffic` em vez disso. Lembre-se de substituir `<storage-sync-service-resource-group>` e `<storage-sync-service>`.
@@ -602,23 +603,12 @@ $storageSyncService = Get-AzResource `
         -ResourceType "Microsoft.StorageSync/storageSyncServices"
 
 $storageSyncService.Properties.incomingTrafficPolicy = "AllowVirtualNetworksOnly"
-$storageSyncService = $storageSyncService | Set-AzResource -Confirm:$false -Force
+$storageSyncService = $storageSyncService | Set-AzResource -Confirm:$false -Force -UsePatchSemantics
 ```
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
-Para desabilitar o acesso ao ponto de extremidade público do Serviço de Sincronização de Armazenamento, definiremos a propriedade `incomingTrafficPolicy` no Serviço de Sincronização de Armazenamento como `AllowVirtualNetworksOnly`. Se você quiser habilitar o acesso ao ponto de extremidade público do Serviço de Sincronização de Armazenamento, defina `incomingTrafficPolicy` como `AllowAllTraffic` em vez disso. Lembre-se de substituir `<storage-sync-service-resource-group>` e `<storage-sync-service>`.
+CLI do Azure não dá suporte à definição da `incomingTrafficPolicy` propriedade no serviço de sincronização de armazenamento. Selecione a guia Azure PowerShell para obter instruções sobre como desabilitar o ponto de extremidade público do serviço de sincronização de armazenamento.
 
-```bash
-storageSyncServiceResourceGroupName="<storage-sync-service-resource-group>"
-storageSyncServiceName="<storage-sync-service>"
-
-az resource update \
-        --resource-group $storageSyncServiceResourceGroupName \
-        --name $storageSyncServiceName \
-        --resource-type "Microsoft.StorageSync/storageSyncServices" \
-        --set "properties.incomingTrafficPolicy=AllowVirtualNetworksOnly" \
-        --output none
-```
 ---
 
 ## <a name="see-also"></a>Confira também

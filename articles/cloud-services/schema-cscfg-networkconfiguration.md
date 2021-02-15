@@ -1,22 +1,25 @@
 ---
-title: Esquema de NetworkConfiguration dos Serviços de Nuvem do Azure | Microsoft Docs
+title: Esquema NetworkConfiguration dos serviços de nuvem do Azure (clássico) | Microsoft Docs
 description: Saiba mais sobre os elementos filho do elemento NetworkConfiguration do arquivo de configuração de serviço, que especifica os valores de rede virtual e DNS.
-ms.custom: ''
-ms.date: 12/07/2016
-services: cloud-services
+ms.topic: article
 ms.service: cloud-services
-ms.topic: reference
-caps.latest.revision: 28
-author: tgore03
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 695ba3acfd5af8797de6e6f7454e493d7863627c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+'---thor': tagore
+ms.openlocfilehash: acf4c050ade21a6e5fc51ee6ace512eff00360ab
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79529281"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743450"
 ---
-# <a name="azure-cloud-services-config-networkconfiguration-schema"></a>Esquema de NetworkConfiguration de configuração dos Serviços de Nuvem do Azure
+# <a name="azure-cloud-services-classic-config-networkconfiguration-schema"></a>Esquema NetworkConfiguration de configuração dos serviços de nuvem do Azure (clássico)
+
+> [!IMPORTANT]
+> Os [serviços de nuvem do Azure (suporte estendido)](../cloud-services-extended-support/overview.md) são um novo modelo de implantação baseado em Azure Resource Manager para o produto de serviços de nuvem do Azure.Com essa alteração, os serviços de nuvem do Azure em execução no modelo de implantação baseado no Azure Service Manager foram renomeados como serviços de nuvem (clássicos) e todas as novas implantações devem usar os [serviços de nuvem (suporte estendido)](../cloud-services-extended-support/overview.md).
 
 O elemento `NetworkConfiguration` do arquivo de configuração de serviço especifica os valores DNS e Rede Virtual. Essas configurações são opcionais para serviços de nuvem.
 
@@ -24,7 +27,7 @@ O elemento `NetworkConfiguration` do arquivo de configuração de serviço espec
 
 - [Esquema de configuração do Serviço de Nuvem (clássico)](schema-cscfg-file.md)
 - [Esquema de definição do Serviço de Nuvem (clássico)](schema-csdef-file.md)
-- [Criar uma Rede Virtual (clássico)](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)
+- [Criar uma Rede Virtual (clássico)](/previous-versions/azure/virtual-network/virtual-networks-create-vnet-classic-pportal)
 
 ## <a name="networkconfiguration-element"></a>Elemento NetworkConfiguration
 O exemplo a seguir mostra o elemento `NetworkConfiguration` e seus elementos filho.

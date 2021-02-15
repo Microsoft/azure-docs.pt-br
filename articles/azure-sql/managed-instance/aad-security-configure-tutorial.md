@@ -10,12 +10,12 @@ author: GitHubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 11/06/2019
-ms.openlocfilehash: 05103052308b6dbf1314348f7d45abc9cba79827
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 9161bf4f99ddfed479451d2091458ab309aa2c17
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "84706415"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92788614"
 ---
 # <a name="tutorial-security-in-azure-sql-managed-instance-using-azure-ad-server-principals-logins"></a>Tutorial: Segurança na Instância Gerenciada de SQL do Azure usando entidades de servidor (logons) do Azure AD
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -74,7 +74,7 @@ Leia os seguintes artigos para obter exemplos de como conectar-se à Instância 
 
 1. Faça logon na instância gerenciada usando uma conta de logon do SQL Server padrão (não Azure AD) que seja um `sysadmin` ou um administrador do Azure AD para a Instância Gerenciada de SQL usando o [SQL Server Management Studio](point-to-site-p2s-configure.md#connect-with-ssms).
 
-2. No **Pesquisador de Objetos**, clique com o botão direito do mouse no servidor e escolha **Nova Consulta**.
+2. No **Pesquisador de Objetos** , clique com o botão direito do mouse no servidor e escolha **Nova Consulta** .
 
 3. Na janela de consulta, use a sintaxe a seguir para criar um logon para uma conta do Azure AD local:
 
@@ -104,7 +104,7 @@ Leia os seguintes artigos para obter exemplos de como conectar-se à Instância 
     GO
     ```
 
-    ![native-login.png](./media/aad-security-configure-tutorial/native-login.png)
+    ![Captura de tela da guia Resultados no Pesquisador de Objetos do SSMS mostrando o nome, a principal_id, a sid, o tipo e o type_desc do logon recém-adicionado.](./media/aad-security-configure-tutorial/native-login.png)
 
 Para obter mais informações, confira [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).
 
@@ -120,14 +120,14 @@ Para criar outras entidades de servidor (logons) do Azure AD, permissões ou fun
 
 - Para dar à entidade de servidor (logon) do Azure AD que acaba de ser criado a capacidade de criar outros logons para outros usuários, grupos ou aplicativos do Azure AD, conceda ao logon função de servidor `sysadmin` ou `securityadmin`.
 - No mínimo, a permissão **ALTER ANY LOGIN** deve ser concedida para a entidade de servidor (logon) do Azure AD criar outras entidades de servidor (logons) do Azure AD.
-- Por padrão, as permissões padrão concedidas a entidades de servidor (logons) do Azure AD recém-criados no mestre são: **CONNECT SQL** e **VIEW ANY DATABASE**.
+- Por padrão, as permissões padrão concedidas a entidades de servidor (logons) do Azure AD recém-criados no mestre são: **CONNECT SQL** e **VIEW ANY DATABASE** .
 - A função de servidor `sysadmin` pode ser concedida a várias entidades de servidor (logons) do Azure AD dentro de uma instância gerenciada.
 
 Para adicionar o logon à função de servidor `sysadmin`:
 
 1. Faça logon novamente na instância gerenciada ou use a conexão existente com o administrador do Azure AD ou a entidade de segurança SQL que seja um `sysadmin`.
 
-1. No **Pesquisador de Objetos**, clique com o botão direito do mouse no servidor e escolha **Nova Consulta**.
+1. No **Pesquisador de Objetos** , clique com o botão direito do mouse no servidor e escolha **Nova Consulta** .
 
 1. Conceda a função de servidor `sysadmin` à entidade de servidor (logon) do Azure AD usando a sintaxe T-SQL a seguir:
 
@@ -145,7 +145,7 @@ Para adicionar o logon à função de servidor `sysadmin`:
 
 ## <a name="create-additional-azure-ad-server-principals-logins-using-ssms"></a>Criar outras entidades de servidor (logons) do Azure AD usando o SSMS
 
-Depois que a entidade de servidor (logon) do Azure AD tiver sido criado e recebido privilégios `sysadmin`, esse logon poderá criar logons adicionais usando a cláusula **FROM EXTERNAL PROVIDER** com **CREATE LOGIN**.
+Depois que a entidade de servidor (logon) do Azure AD tiver sido criado e recebido privilégios `sysadmin`, esse logon poderá criar logons adicionais usando a cláusula **FROM EXTERNAL PROVIDER** com **CREATE LOGIN** .
 
 1. Conecte-se à instância gerenciada com a entidade de servidor (logon) do Azure AD usando o SQL Server Management Studio. Insira o nome do host de sua Instância Gerenciada de SQL. Para a autenticação no SSMS, há três opções entre as quais escolher ao fazer logon com uma conta do Azure AD:
 
@@ -153,15 +153,15 @@ Depois que a entidade de servidor (logon) do Azure AD tiver sido criado e recebi
    - Active Directory – Senha
    - Active Directory – Integrado </br>
 
-     ![ssms-login-prompt.png](./media/aad-security-configure-tutorial/ssms-login-prompt.png)
+     ![Captura de tela da caixa de diálogo Conectar ao servidor no SSMS com o Active Directory – Universal com suporte para MFA selecionado na lista suspensa Autenticação.](./media/aad-security-configure-tutorial/ssms-login-prompt.png)
 
      Para obter mais informações, confira [Autenticação universal (suporte do SSMS para a Autenticação Multifator)](../database/authentication-mfa-ssms-overview.md).
 
-1. Selecione **Active Directory – Universal com suporte a MFA**. Isso abre uma janela de logon da Autenticação Multifator. Entre com sua senha do Azure AD.
+1. Selecione **Active Directory – Universal com suporte a MFA** . Isso abre uma janela de logon da Autenticação Multifator. Entre com sua senha do Azure AD.
 
-    ![mfa-login-prompt.png](./media/aad-security-configure-tutorial/mfa-login-prompt.png)
+    ![Captura de tela da janela de logon da Autenticação Multifator com o cursor no campo Inserir senha.](./media/aad-security-configure-tutorial/mfa-login-prompt.png)
 
-1. No **Pesquisador de Objetos** do SSMS, clique com o botão direito do mouse no servidor e escolha **Nova Consulta**.
+1. No **Pesquisador de Objetos** do SSMS, clique com o botão direito do mouse no servidor e escolha **Nova Consulta** .
 1. Na janela de consulta, use a sintaxe a seguir para criar um logon para outra conta do Azure AD:
 
     ```sql
@@ -183,8 +183,8 @@ Depois que a entidade de servidor (logon) do Azure AD tiver sido criado e recebi
     ```
 
 1. Crie um banco de dados na instância gerenciada usando a sintaxe [CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-mi-current). Esse banco de dados será usado para testar os logons de usuário na próxima seção.
-    1. No **Pesquisador de Objetos**, clique com o botão direito do mouse no servidor e escolha **Nova Consulta**.
-    1. Na janela de consulta, use a sintaxe a seguir para criar um banco de dados denominado **MyMITestDB**.
+    1. No **Pesquisador de Objetos** , clique com o botão direito do mouse no servidor e escolha **Nova Consulta** .
+    1. Na janela de consulta, use a sintaxe a seguir para criar um banco de dados denominado **MyMITestDB** .
 
         ```sql
         CREATE DATABASE MyMITestDB;
@@ -205,7 +205,7 @@ Depois que a entidade de servidor (logon) do Azure AD tiver sido criado e recebi
     ```
 
 1. Como teste, faça logon na instância gerenciada com o logon ou grupo recém-criado. Abra uma nova conexão à instância gerenciada e use o novo logon durante a autenticação.
-1. No **Pesquisador de Objetos**, clique com o botão direito do mouse no servidor e escolha **Nova Consulta** para a nova conexão.
+1. No **Pesquisador de Objetos** , clique com o botão direito do mouse no servidor e escolha **Nova Consulta** para a nova conexão.
 1. Verifique as permissões de servidor para a entidade de servidor (logon) do Azure AD criada recentemente executando o seguinte comando:
 
       ```sql
@@ -214,7 +214,7 @@ Depois que a entidade de servidor (logon) do Azure AD tiver sido criado e recebi
       ```
 
 > [!NOTE]
-> Há suporte para usuários convidados do Azure AD para logons da Instância Gerenciada de SQL somente quando adicionados como parte de um grupo do Azure AD. Um usuário convidado do Azure AD é uma conta convidada para a instância do Azure AD à qual a instância gerenciada pertence, de outra instância do Azure AD. Por exemplo, joe@contoso.com (conta do Azure AD) ou steve@outlook.com (conta Microsoft) pode ser adicionada a um grupo na instância aadsqlmi do Azure AD. Depois que os usuários são adicionados a um grupo, um logon pode ser criado no banco de dados **mestre** da Instância Gerenciada de SQL para o grupo usando a sintaxe **CREATE LOGIN**. Usuários convidados que são membros desse grupo podem se conectar à instância gerenciada usando seus logons atuais (por exemplo, joe@contoso.com ou steve@outlook.com).
+> Há suporte para usuários convidados do Azure AD para logons da Instância Gerenciada de SQL somente quando adicionados como parte de um grupo do Azure AD. Um usuário convidado do Azure AD é uma conta convidada para a instância do Azure AD à qual a instância gerenciada pertence, de outra instância do Azure AD. Por exemplo, joe@contoso.com (conta do Azure AD) ou steve@outlook.com (conta Microsoft) pode ser adicionada a um grupo na instância aadsqlmi do Azure AD. Depois que os usuários são adicionados a um grupo, um logon pode ser criado no banco de dados **mestre** da Instância Gerenciada de SQL para o grupo usando a sintaxe **CREATE LOGIN** . Usuários convidados que são membros desse grupo podem se conectar à instância gerenciada usando seus logons atuais (por exemplo, joe@contoso.com ou steve@outlook.com).
 
 ## <a name="create-an-azure-ad-user-from-the-azure-ad-server-principal-login"></a>Criar um usuário do Azure AD da entidade de servidor (logon) do Azure AD
 
@@ -222,14 +222,14 @@ A autorização para bancos de dados individuais funciona de maneira muito semel
 
 Agora que criamos um banco de dados chamado **MyMITestDB** e um logon que tem somente permissões padrão, a próxima etapa é criar um usuário com base nesse logon. No momento, o logon pode se conectar à instância gerenciada e ver todos os bancos de dados, mas não pode interagir com os bancos de dados. Se você entrar com a conta do Azure AD que tem permissões padrão e tentar expandir o banco de dados recém-criado, verá o seguinte erro:
 
-![ssms-db-not-accessible.png](./media/aad-security-configure-tutorial/ssms-db-not-accessible.png)
+![Captura de tela de uma mensagem de erro do Pesquisador de Objetos do SSMS que diz "O banco de dados MyMITestDB não está acessível. (ObjectExplorer)".](./media/aad-security-configure-tutorial/ssms-db-not-accessible.png)
 
 Para obter mais informações sobre como conceder permissões de banco de dados, confira [Introdução a Permissões de Mecanismo de Banco de Dados](/sql/relational-databases/security/authentication-access/getting-started-with-database-engine-permissions).
 
 ### <a name="create-an-azure-ad-user-and-create-a-sample-table"></a>Criar um usuário do Azure AD e criar uma tabela de exemplo
 
 1. Faça logon na sua instância gerenciada usando uma conta `sysadmin` usando o SQL Server Management Studio.
-1. No **Pesquisador de Objetos**, clique com o botão direito do mouse no servidor e escolha **Nova Consulta**.
+1. No **Pesquisador de Objetos** , clique com o botão direito do mouse no servidor e escolha **Nova Consulta** .
 1. Na janela de consulta, use a sintaxe a seguir para criar um usuário do Azure AD de uma entidade de servidor (logon) do Azure AD:
 
     ```sql
@@ -259,10 +259,10 @@ Para obter mais informações sobre como conceder permissões de banco de dados,
     GO
     ```
 
-    Todos os usuários que pertencem a *mygroup* podem acessar o banco de dados **MyMITestDB**.
+    Todos os usuários que pertencem a *mygroup* podem acessar o banco de dados **MyMITestDB** .
 
     > [!IMPORTANT]
-    > Ao criar um **USER** a partir de uma entidade de segurança do servidor (logon) do Azure AD, especifique o user_name como o mesmo login_name de **LOGON**.
+    > Ao criar um **USER** a partir de uma entidade de segurança do servidor (logon) do Azure AD, especifique o user_name como o mesmo login_name de **LOGON** .
 
     Para obter mais informações, confira [CREATE USER](/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current).
 
@@ -295,7 +295,7 @@ Para o usuário ver os dados no banco de dados, podemos fornecer [funções no n
 
 1. Faça logon na sua instância gerenciada usando uma conta `sysadmin` usando o SQL Server Management Studio.
 
-1. No **Pesquisador de Objetos**, clique com o botão direito do mouse no servidor e escolha **Nova Consulta**.
+1. No **Pesquisador de Objetos** , clique com o botão direito do mouse no servidor e escolha **Nova Consulta** .
 
 1. Conceda ao usuário do Azure AD a função `db_datareader` de banco de dados usando a sintaxe T-SQL a seguir:
 
@@ -305,7 +305,7 @@ Para o usuário ver os dados no banco de dados, podemos fornecer [funções no n
     GO
     ```
 
-    O exemplo a seguir fornece ao usuário bob@aadsqlmi.net e ao grupo _mygroup_ as permissões `db_datareader` no banco de dados **MyMITestDB**:
+    O exemplo a seguir fornece ao usuário bob@aadsqlmi.net e ao grupo _mygroup_ as permissões `db_datareader` no banco de dados **MyMITestDB** :
 
     ```sql
     USE MyMITestDB
@@ -326,7 +326,7 @@ Para o usuário ver os dados no banco de dados, podemos fornecer [funções no n
 1. Criar uma nova conexão à instância gerenciada com o usuário adicionado à função `db_datareader`.
 1. Expanda o banco de dados **Pesquisador de Objetos** para ver a tabela.
 
-    ![ssms-test-table.png](./media/aad-security-configure-tutorial/ssms-test-table.png)
+    ![Captura de tela do Pesquisador de Objetos no SSMS mostrando a estrutura de pastas das Tabelas em MyMITestDB. A pasta dbo.TestTable está realçada.](./media/aad-security-configure-tutorial/ssms-test-table.png)
 
 1. Abra uma nova janela de consulta e execute a seguinte instrução SELECT:
 
@@ -337,7 +337,7 @@ Para o usuário ver os dados no banco de dados, podemos fornecer [funções no n
 
     É possível ver os dados da tabela? Você deve ver as colunas que estão sendo retornadas.
 
-    ![ssms-test-table-query.png](./media/aad-security-configure-tutorial/ssms-test-table-query.png)
+    ![Captura de tela da guia Resultados no Pesquisador de Objetos do SSMS mostrando os cabeçalhos das colunas da tabela AccountNum, Cidade, Nome e Estado.](./media/aad-security-configure-tutorial/ssms-test-table-query.png)
 
 ## <a name="impersonate-azure-ad-server-level-principals-logins"></a>Representar entidades de segurança no nível de servidor do Azure AD (logons)
 
@@ -347,7 +347,7 @@ A Instância Gerenciada de SQL dá suporte à representação de entidades de se
 
 1. Faça logon na sua instância gerenciada usando uma conta `sysadmin` usando o SQL Server Management Studio.
 
-1. No **Pesquisador de Objetos**, clique com o botão direito do mouse no servidor e escolha **Nova Consulta**.
+1. No **Pesquisador de Objetos** , clique com o botão direito do mouse no servidor e escolha **Nova Consulta** .
 
 1. Na janela de consulta, use o comando a seguir para criar um novo procedimento armazenado:
 
@@ -361,7 +361,7 @@ A Instância Gerenciada de SQL dá suporte à representação de entidades de se
     GO
     ```
 
-1. Use o comando a seguir para ver o que o usuário você está representando ao executar o procedimento armazenado é **bob\@aadsqlmi.net**.
+1. Use o comando a seguir para ver o que o usuário você está representando ao executar o procedimento armazenado é **bob\@aadsqlmi.net** .
 
     ```sql
     Exec dbo.usp_Demo
@@ -388,8 +388,8 @@ A Instância Gerenciada de SQL dá suporte à representação de entidades de se
 Consultas entre bancos de dados são compatíveis com contas do Azure AD com entidades de servidor (logons) do Azure AD. Para testar uma consulta entre bancos de dados com um grupo do Azure AD, é necessário criar outro banco de dados e tabela. Você pode ignorar a criação de outro banco de dados e tabela caso eles já existam.
 
 1. Faça logon na sua instância gerenciada usando uma conta `sysadmin` usando o SQL Server Management Studio.
-1. No **Pesquisador de Objetos**, clique com o botão direito do mouse no servidor e escolha **Nova Consulta**.
-1. Na janela de consulta, use o seguinte comando para criar um banco de dados denominado **MyMITestDB2** e uma tabela denominada **TestTable2**:
+1. No **Pesquisador de Objetos** , clique com o botão direito do mouse no servidor e escolha **Nova Consulta** .
+1. Na janela de consulta, use o seguinte comando para criar um banco de dados denominado **MyMITestDB2** e uma tabela denominada **TestTable2** :
 
     ```sql
     CREATE DATABASE MyMITestDB2;
@@ -405,7 +405,7 @@ Consultas entre bancos de dados são compatíveis com contas do Azure AD com ent
     );
     ```
 
-1. Em uma nova janela de consulta, execute o seguinte comando para criar o usuário _mygroup_ no novo banco de dados **MyMITestDB2** e conceder permissões SELECT naquele banco de dados a _mygroup_:
+1. Em uma nova janela de consulta, execute o seguinte comando para criar o usuário _mygroup_ no novo banco de dados **MyMITestDB2** e conceder permissões SELECT naquele banco de dados a _mygroup_ :
 
     ```sql
     USE MyMITestDB2
@@ -416,7 +416,7 @@ Consultas entre bancos de dados são compatíveis com contas do Azure AD com ent
     GO
     ```
 
-1. Entre na instância gerenciada usando o SQL Server Management Studio como um membro do grupo do Azure AD _mygroup_. Abra uma nova janela de consulta e execute a instrução SELECT entre bancos de dados:
+1. Entre na instância gerenciada usando o SQL Server Management Studio como um membro do grupo do Azure AD _mygroup_ . Abra uma nova janela de consulta e execute a instrução SELECT entre bancos de dados:
 
     ```sql
     USE MyMITestDB
@@ -424,7 +424,7 @@ Consultas entre bancos de dados são compatíveis com contas do Azure AD com ent
     GO
     ```
 
-    Você deve ver os resultados da tabela de **TestTable2**.
+    Você deve ver os resultados da tabela de **TestTable2** .
 
 ## <a name="additional-supported-scenarios"></a>Cenários adicionais com suporte
 
@@ -447,7 +447,7 @@ Confira o artigo [Recursos de segurança da Instância Gerenciada de SQL](sql-ma
 - [Detecção de ameaças](threat-detection-configure.md)
 - [Mascaramento de dados dinâmicos](/sql/relational-databases/security/dynamic-data-masking)
 - [Segurança em nível de linha](/sql/relational-databases/security/row-level-security)
-- [Transparent data encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)
+- [Transparent data encryption (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)
 
 ### <a name="sql-managed-instance-capabilities"></a>Funcionalidades da Instância Gerenciada de SQL
 

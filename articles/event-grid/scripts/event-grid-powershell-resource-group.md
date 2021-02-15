@@ -5,10 +5,10 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 07/08/2020
 ms.openlocfilehash: c8e84fe12cf239e7dbb0e6a15088efda793ddec9
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87460738"
 ---
 # <a name="subscribe-to-events-for-a-resource-group-with-powershell"></a>Inscrever-se em eventos para um grupo de recursos com o Azure PowerShell

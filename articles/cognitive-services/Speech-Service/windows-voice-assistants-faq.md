@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: travisw
 ms.openlocfilehash: 3cb4dd16592f3af962b32fe3005d2ad4b241d831
-ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84456990"
 ---
 # <a name="samples-and-faqs"></a>Exemplos e perguntas frequentes

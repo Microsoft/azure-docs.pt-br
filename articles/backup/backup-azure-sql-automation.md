@@ -4,12 +4,12 @@ description: Faça backup e restaure bancos de dados SQL em VMs do Azure usando 
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1
-ms.openlocfilehash: b355aaa465132e86c636c68552f3d650b51b08f1
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 0a3467ffa3a67ac9ad593748948cea8da59e3e6b
+ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89004979"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97734531"
 ---
 # <a name="back-up-and-restore-sql-databases-in-azure-vms-with-powershell"></a>Fazer backup e restaurar bancos de dados SQL em VMs do Azure com o PowerShell
 
@@ -102,8 +102,8 @@ O cofre dos Serviços de Recuperação é um recurso do Resource Manager e, port
 
 3. Especifique o tipo de redundância a ser usado para o armazenamento do cofre.
 
-    * Você pode usar [armazenamento com redundância local](../storage/common/storage-redundancy.md) ou [armazenamento com redundância geográfica](../storage/common/storage-redundancy.md).
-    * O exemplo a seguir define a opção **-BackupStorageRedundancy** para o cmd[set-AzRecoveryServicesBackupProperty](/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty) para **testvault** definido como **georedundante**.
+    * Você pode usar o armazenamento com redundância [local](../storage/common/storage-redundancy.md#locally-redundant-storage), armazenamento com redundância [geográfica](../storage/common/storage-redundancy.md#geo-redundant-storage) ou [armazenamento com redundância de zona](../storage/common/storage-redundancy.md#zone-redundant-storage) .
+    * O exemplo a seguir define a opção **-BackupStorageRedundancy** para o cmd [set-AzRecoveryServicesBackupProperty](/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty) para **testvault** definido como **georedundante**.
 
     ```powershell
     $vault1 = Get-AzRecoveryServicesVault -Name "testvault"
@@ -268,7 +268,7 @@ O backup do Azure pode restaurar SQL Server bancos de dados que estão em execu�
 * Restaurar para uma data ou hora específica (para o segundo) usando backups de log de transações. O backup do Azure determina automaticamente o backup diferencial completo apropriado e a cadeia de backups de log que são necessários para restaurar com base na hora selecionada.
 * Restaure um backup completo ou diferencial específico para restaurar para um ponto de recuperação específico.
 
-Verifique os pré-requisitos mencionados [aqui](restore-sql-database-azure-vm.md#prerequisites) antes de restaurar bancos de SQL.
+Verifique os pré-requisitos mencionados [aqui](restore-sql-database-azure-vm.md#restore-prerequisites) antes de restaurar bancos de SQL.
 
 Primeiro, busque o banco de BD SQL do backup relevante usando o cmdlet [Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem) do PowerShell.
 
@@ -310,7 +310,7 @@ $FullRP = Get-AzRecoveryServicesBackupRecoveryPoint -Item $bkpItem -VaultId $tar
 Se você quiser restaurar o banco de dado para um determinado ponto no tempo, use o cmdlet do PowerShell [Get-AzRecoveryServicesBackupRecoveryLogChain](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackuprecoverylogchain) . O cmdlet retorna uma lista de datas que representam os horários de início e término de uma cadeia de logs contínua e não quebrada para esse item de backup do SQL. O ponto no tempo desejado deve estar dentro desse intervalo.
 
 ```powershell
-Get-AzRecoveryServicesBackupRecoveryLogChain -Item $bkpItem -Item -VaultId $targetVault.ID
+Get-AzRecoveryServicesBackupRecoveryLogChain -Item $bkpItem -VaultId $targetVault.ID
 ```
 
 A saída será semelhante ao exemplo a seguir.

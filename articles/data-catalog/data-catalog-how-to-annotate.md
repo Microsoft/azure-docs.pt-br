@@ -7,10 +7,10 @@ ms.service: data-catalog
 ms.topic: how-to
 ms.date: 08/01/2019
 ms.openlocfilehash: 61a91ca8a51886c28beee77853d1ae67911e00e7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87081229"
 ---
 # <a name="how-to-annotate-data-sources-in-azure-data-catalog"></a>Como anotar fontes de dados no Catálogo de Dados do Azure
@@ -34,12 +34,12 @@ Cada uma dessas perspectivas é valiosa, e o Catálogo de Dados usa uma abordage
 ## <a name="different-types-of-annotations"></a>Diferentes tipos de anotações
 O Catálogo de Dados dá suporte aos seguintes tipos de anotações:
 
-| Anotação | Observações |
+| Annotation | Observações |
 | --- | --- |
 | Nome amigável |Os nomes amigáveis podem ser fornecidos no nível do ativo de dado, para facilitar a compreensão dos ativos de dados. Os nomes amigáveis serão mais úteis quando o nome do objeto subjacente for confuso, abreviado ou não significativa para os usuários. |
 | Descrição |As descrições podem ser fornecidas nos níveis do atributo e do ativo de dados/coluna. As descrições são anotações de texto curto de forma livre que descrevem a perspectiva do usuário sobre o ativo de dados ou seu uso. |
 | Marcas (marcas de usuário) |As marcas podem ser fornecidas nos níveis do atributo e do ativo de dados/coluna As marcas de usuário são rótulos definidos pelo usuário que podem ser usados para categorizar os ativos de dados ou os atributos. |
-| Marcas (marcas de glossário) |As marcas podem ser fornecidas nos níveis do atributo e do ativo de dados/coluna Marcas de glossário são termos de glossário definidos centralmente que podem ser usados para categorizar os ativos de dados ou atributos usando uma taxonomia comum de negócios. Para obter mais informações, consulte [como configurar o Glossário de negócios para marcação governada](data-catalog-how-to-business-glossary.md) |
+| Marcas (marcas de glossário) |As marcas podem ser fornecidas nos níveis do atributo e do ativo de dados/coluna Marcas de glossário são termos de glossário definidos centralmente que podem ser usados para categorizar os ativos de dados ou atributos usando uma taxonomia comum de negócios. Para obter mais informações, consulte  [como configurar o Glossário de negócios para marcação governada](data-catalog-how-to-business-glossary.md) |
 | Especialistas |Os especialistas podem ser fornecidos no nível do ativo de dados. Os especialistas identificam usuários ou grupos com perspectivas de especialista sobre os dados e podem servir como pontos de contato para usuários que descobrirem as fontes de dados registradas e que tenham dúvidas não respondidas pelas anotações existentes. |
 | Solicitar acesso |As informações sobre a solicitação de acesso podem ser fornecidas no nível do ativo de dados. Essas informações destinam-se aos usuários que descobrirem uma fonte de dados que ainda não tenham permissões para acessar. Os usuários podem inserir o endereço de email do usuário ou grupo que concede acesso, a URL do processo ou a ferramenta que os usuários precisam acessar, ou podem inserir o próprio processo como texto. |
 | Documentação |Fornecemos documentação no nível do ativo de dados. A documentação de ativos é informação em rich text que pode incluir links e imagens e fornecer todas as informações que não são transmitidas por meio de marcações e descrições. |

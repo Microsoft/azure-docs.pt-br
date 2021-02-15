@@ -1,9 +1,9 @@
 ---
 title: Tutorial`:` Usar uma identidade gerenciada para acessar o Armazenamento do Azure por meio da chave de acesso – Linux – Azure AD
-description: Um tutorial que o conduz pelo processo de usar uma identidade gerenciada atribuída pelo sistema da VM do Linux para acessar o Armazenamento do Azure.
+description: Um tutorial que o conduz pelo processo de usar uma identidade gerenciada atribuída pelo sistema da VM do Linux para acessar o Armazenamento do Azure usando uma chave de acesso.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: daveba
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/04/2020
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 86f875fa80f8bb8dd33a369a23f49833162cd417
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e99a199fcc5f43f3710fe2e2fcfe55b7e624987b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78273811"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91317456"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-storage-via-access-key"></a>Tutorial: Usar uma identidade gerenciada atribuída pelo sistema da VM do Linux para acessar o Armazenamento do Azure por meio da chave de acesso
 
@@ -78,7 +78,7 @@ Nesta etapa, você concede à identidade gerenciada atribuída pelo sistema da V
 
 Para o restante do tutorial, trabalharemos na VM criada anteriormente.
 
-Para concluir essas etapas, você precisará de cliente SSH. Se você estiver usando o Windows, poderá usar o cliente SSH no [Subsistema do Windows para Linux](https://msdn.microsoft.com/commandline/wsl/install_guide). Se precisar de ajuda para configurar as chaves do cliente SSH, confira [Como usar chaves SSH com o Windows no Azure](../../virtual-machines/linux/ssh-from-windows.md), ou [Como criar e usar um par de chaves SSH pública e privada para VMs Linux no Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
+Para concluir essas etapas, você precisará de cliente SSH. Se você estiver usando o Windows, poderá usar o cliente SSH no [Subsistema do Windows para Linux](/windows/wsl/install-win10). Se precisar de ajuda para configurar as chaves do cliente SSH, confira [Como usar chaves SSH com o Windows no Azure](../../virtual-machines/linux/ssh-from-windows.md), ou [Como criar e usar um par de chaves SSH pública e privada para VMs Linux no Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
 
 1. No portal do Azure, navegue até **Máquinas Virtuais**, vá para a máquina virtual do Linux e na página **Visão geral**, clique em **Conectar** na parte superior. Copie a cadeia de caracteres para conectar-se à VM. 
 2. Conecte-se à VM usando um cliente SSH.  
@@ -127,10 +127,10 @@ Crie um arquivo de blob de exemplo para carregar o contêiner de armazenamento d
 echo "This is a test file." > test.txt
 ```
 
-Em seguida, autentique com o comando `az storage` da CLI usando a chave de acesso de armazenamento e carregue o arquivo para o contêiner de blob. Nesta etapa, você precisará [instalar a CLI do Azure mais recente](https://docs.microsoft.com/cli/azure/install-azure-cli) na sua VM, se ainda não o fez.
+Em seguida, autentique com o comando `az storage` da CLI usando a chave de acesso de armazenamento e carregue o arquivo para o contêiner de blob. Nesta etapa, você precisará [instalar a CLI do Azure mais recente](/cli/azure/install-azure-cli) na sua VM, se ainda não o fez.
  
 
-```azurecli-interactive
+```azurecli
 az storage blob upload -c <CONTAINER NAME> -n test.txt -f test.txt --account-name <STORAGE ACCOUNT NAME> --account-key <STORAGE ACCOUNT KEY>
 ```
 
@@ -148,7 +148,7 @@ Além disso, baixe o arquivo usando a CLI do Azure e autentique com a chave de a
 
 Solicitação: 
 
-```azurecli-interactive
+```azurecli
 az storage blob download -c <CONTAINER NAME> -n test.txt -f test-download.txt --account-name <STORAGE ACCOUNT NAME> --account-key <STORAGE ACCOUNT KEY>
 ```
 
@@ -199,4 +199,4 @@ Resposta:
 Neste tutorial, você aprendeu a usar a identidade gerenciada atribuída pelo sistema de uma VM do Linux para acessar o Armazenamento do Azure usando uma chave de acesso.  Para saber mais sobre as chaves de acesso de Armazenamento do Azure, confira:
 
 > [!div class="nextstepaction"]
->[Gerenciar suas chaves de acesso de armazenamento](/azure/storage/common/storage-create-storage-account)
+>[Gerenciar suas chaves de acesso de armazenamento](../../storage/common/storage-account-create.md)

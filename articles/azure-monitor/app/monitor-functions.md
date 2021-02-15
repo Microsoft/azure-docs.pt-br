@@ -6,10 +6,10 @@ author: MS-jgol
 ms.author: jgol
 ms.date: 06/26/2020
 ms.openlocfilehash: 6d790a6f02fdc07609e374639c6e452b9088262e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87024564"
 ---
 # <a name="monitoring-azure-functions-with-azure-monitor-application-insights"></a>Monitoramento do Azure Functions com o Azure Monitor Application Insights

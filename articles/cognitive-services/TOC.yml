@@ -4,15 +4,19 @@
   expanded: true
   items:
     - name: O que são Serviços Cognitivos?
-      href: Welcome.md
+      href: what-are-cognitive-services.md
     - name: Novidades nos documentos dos Serviços Cognitivos
       href: whats-new-docs.md
     - name: Serviços Cognitivos e aprendizado de máquina
       href: cognitive-services-and-machine-learning.md
+    - name: Opções de desenvolvimento dos Serviços Cognitivos
+      href: cognitive-services-development-options.md
     - name: Subdomínios personalizados para Serviços Cognitivos
       href: cognitive-services-custom-subdomains.md
     - name: Suporte ao idioma
       href: language-support.md
+    - name: Planejar e gerenciar custos
+      href: plan-manage-costs.md
 - name: Inícios rápidos
   items:
     - name: Criar um recurso usando o portal do Azure
@@ -23,13 +27,9 @@
       href: cognitive-services-apis-create-account-client-library.md
     - name: Criar um recurso usando um modelo ARM
       displayName: Resource Manager
-      href: resource-manager-template.md
+      href: create-account-resource-manager-template.md
     - name: Registro de diagnóstico
       href: diagnostic-logging.md
-- name: Exemplos
-  items:
-    - name: Itens internos do Azure Policy
-      href: ./policy-samples.md
 - name: Segurança
   items:
     - name: Segurança dos Serviços Cognitivos
@@ -42,14 +42,16 @@
       href: authentication.md
     - name: Linha de base de segurança
       href: security-baseline.md
+    - name: Controles de segurança do Azure Policy
+      href: ./security-controls-policy.md
 - name: Suporte a contêiner
   items:
     - name: Suporte a contêiner
       href: cognitive-services-container-support.md
-    - name: Marcas de imagem de contêiner
+    - name: Marcas de imagem de contêiner e notas de versões
       href: ./containers/container-image-tags.md
     - name: Perguntas frequentes sobre o contêiner
-      href: ./containers/container-faq.md
+      href: ./containers/container-faq.yml
     - name: Receitas de contêiner
       items:
         - name: Reutilização de contêiner
@@ -68,6 +70,8 @@
           href: ../container-registry/container-registry-get-started-azure-cli.md
         - name: AKS (Serviço de Kubernetes do Azure)
           href: ../aks/tutorial-kubernetes-prepare-app.md
+    - name: Documentação sobre contêineres de Serviços Cognitivos
+      href: containers/index.yml
 - name: Big Data
   items:
     - name: Serviços Cognitivos para Big data
@@ -86,8 +90,15 @@
           href: ./big-data/recipes/anomaly-detection.md
         - name: 'Receita: Gerenciador de arte'
           href: ./big-data/recipes/art-explorer.md
+- name: Referência
+  items:
+    - name: Itens internos do Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Recursos
   items:
+    - name: Opções de Ajuda e suporte
+      href: cognitive-services-support-options.md
     - name: Roteiro do Azure
       href: 'https://azure.microsoft.com/roadmap/?category=cognitive-services'
     - name: Preços
@@ -96,8 +107,6 @@
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Conformidade
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
-    - name: Opções de Ajuda e suporte
-      href: cognitive-services-support-options.md
     - name: Contrato de nível de serviço (SLA)
       href: 'https://azure.microsoft.com/support/legal/sla/cognitive-services/v1_1/'
     - name: vídeos

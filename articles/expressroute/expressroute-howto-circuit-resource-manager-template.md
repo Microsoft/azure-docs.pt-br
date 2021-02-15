@@ -2,17 +2,17 @@
 title: 'Modelo do Azure ExpressRoute: criar um circuito do ExpressRoute'
 description: Saiba como criar um circuito do Azure ExpressRoute implantando um modelo de Azure Resource Manager usando Azure PowerShell.
 services: expressroute
-author: charwen
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 11/13/2019
-ms.author: charwen
-ms.openlocfilehash: 78318726a658b6e0dc966288f386c65ee4c6f0e4
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.author: duau
+ms.openlocfilehash: 2e9b6ddc9da4467590946af12a47f1473a4ea494
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88190454"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92202048"
 ---
 # <a name="create-an-expressroute-circuit-by-using-azure-resource-manager-template"></a>Criar um circuito do ExpressRoute usando Azure Resource Manager modelo
 
@@ -25,7 +25,7 @@ ms.locfileid: "88190454"
 > * [PowerShell (clássico)](expressroute-howto-circuit-classic.md)
 >
 
-Saiba como criar um circuito do ExpressRoute implantando um modelo de Azure Resource Manager usando Azure PowerShell. Para obter mais informações sobre como desenvolver modelos do Resource Manager, confira [documentação do Resource Manager](/azure/azure-resource-manager/) e a [referência de modelo](/azure/templates/microsoft.network/expressroutecircuits).
+Saiba como criar um circuito do ExpressRoute implantando um modelo de Azure Resource Manager usando Azure PowerShell. Para obter mais informações sobre como desenvolver modelos do Resource Manager, confira [documentação do Resource Manager](../azure-resource-manager/index.yml) e a [referência de modelo](/azure/templates/microsoft.network/expressroutecircuits).
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -63,8 +63,8 @@ Para criar um circuito de ExpressRoute implantando um modelo:
     Write-Host "Press [ENTER] to continue ..."
     ```
 
-   * A **camada de SKU** determina se um circuito de ExpressRoute é [local](expressroute-faqs.md#expressroute-local), Standard ou [Premium](expressroute-faqs.md#expressroute-premium). Você pode especificar *local*, * Standard ou *Premium*.
-   * A **família de SKUs** determina o tipo de cobrança. Você pode especificar *Metereddata* para um plano de dados limitado e *Unlimiteddata* para um plano de dados ilimitado. É possível alterar o tipo de cobrança de *Metereddata* para *Unlimiteddata*, mas não é possível alterar o tipo de *Unlimiteddata* para *Metereddata*. Um circuito *local* é apenas *Unlimiteddata* .
+   * A **camada de SKU** determina se um circuito de ExpressRoute é [local](expressroute-faqs.md#expressroute-local), Standard ou [Premium](expressroute-faqs.md#expressroute-premium). Você poderá especificar *Local*, *Standard ou *Premium*. Não é possível alterar o SKU de *Standard/Premium* para *Local*.
+   * A **família de SKUs** determina o tipo de cobrança. Você pode especificar *Metereddata* para um plano de dados limitado e *Unlimiteddata* para um plano de dados ilimitado. Você pode alterar o tipo de cobrança de *Metereddata* para *Unlimiteddata*, mas não pode alterar o tipo de *Unlimiteddata* para *Metereddata*. Um circuito *local* é apenas *Unlimiteddata* .
    * **Local de Emparelhamento** é o local físico em que você está realizando o emparelhamento com a Microsoft.
 
      > [!IMPORTANT]
@@ -88,8 +88,8 @@ Azure PowerShell é usado para implantar o modelo neste tutorial. Para outros m�
 Você pode excluir o circuito do ExpressRoute selecionando o ícone **excluir** . Observe as seguintes informações:
 
 * Você deve desvincular todas as redes virtuais do circuito do ExpressRoute. Se essa operação falhar, verifique se há redes virtuais vinculadas ao circuito.
-* Se o estado de provisionamento do provedor de serviço de circuito do **ExpressRoute for Provisionando** ou **provisionado** , você deverá trabalhar com seu provedor de serviços para desprovisionar o circuito no lado deles. Continuaremos a reservar recursos e a cobrar de você até que o provedor de serviços complete o desprovisionamento do circuito e nos notifique.
-* Se o provedor de serviços tiver desprovisionado o circuito (o estado de provisionamento do provedor de serviços estiver definido como **não provisionado**), você poderá excluir o circuito. Isso interrompe a cobrança pelo circuito.
+* Se o estado de provisionamento do provedor de serviço de circuito de ExpressRoute for **Provisionando** ou **Provisionado**, você deverá trabalhar com seu provedor de serviços para que ele desprovisione o circuito. Continuaremos a reservar recursos e a cobrar de você até que o provedor de serviços complete o desprovisionamento do circuito e nos notifique.
+* Se o provedor de serviços tiver desprovisionado o circuito (o estado de provisionamento do provedor de serviços estiver definido como **Não provisionado**), exclua o circuito. Isso interrompe a cobrança pelo circuito.
 
 Você pode excluir o circuito do ExpressRoute executando o seguinte comando do PowerShell:
 

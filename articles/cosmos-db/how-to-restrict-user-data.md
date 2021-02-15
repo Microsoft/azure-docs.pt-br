@@ -6,18 +6,20 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 12/9/2019
 ms.author: tvoellm
-ms.openlocfilehash: 16452337eeda86a9b019897954179bfe6db6e1b2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 61e8ee2cbcd1252704b2d1e220fcfaaff17c2f28
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87031985"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93085982"
 ---
-# <a name="restrict-user-access-to-data-operations-only"></a>Restringir o acesso do usuário apenas às operações de dados
+# <a name="restrict-user-access-to-data-operations-in-azure-cosmos-db"></a>Restringir o acesso do usuário a operações de dados no Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 No Azure Cosmos DB, há duas maneiras de autenticar suas interações com o serviço de banco de dados:
+
 - usando sua identidade de Azure Active Directory ao interagir com o portal do Azure,
-- usar [chaves](secure-access-to-data.md#master-keys) de Azure Cosmos DB ou [tokens de recurso](secure-access-to-data.md#resource-tokens) ao emitir chamadas de APIs e SDKs.
+- usar [chaves](database-security.md#primary-keys) de Azure Cosmos DB ou [tokens de recurso](secure-access-to-data.md#resource-tokens) ao emitir chamadas de APIs e SDKs.
 
 Cada método de autenticação dá acesso a diferentes conjuntos de operações, com alguma sobreposição:
 
@@ -35,10 +37,10 @@ As próximas seções deste artigo mostram como executar essas etapas.
 > Para executar os comandos nas próximas seções, você precisa instalar Azure PowerShell módulo 3.0.0 ou posterior, bem como a [função de proprietário do Azure](../role-based-access-control/built-in-roles.md#owner) na assinatura que você está tentando modificar.
 
 Nos scripts do PowerShell nas próximas seções, substitua os seguintes espaços reservados por valores específicos do seu ambiente:
-- `$MySubscriptionId`-A ID da assinatura que contém a conta do Azure Cosmos em que você deseja limitar as permissões. Por exemplo: `e5c8766a-eeb0-40e8-af56-0eb142ebf78e`.
-- `$MyResourceGroupName`-O grupo de recursos que contém a conta do Azure Cosmos. Por exemplo: `myresourcegroup`.
-- `$MyAzureCosmosDBAccountName`-O nome da sua conta do Azure Cosmos. Por exemplo: `mycosmosdbsaccount`.
-- `$MyUserName`-O logon ( username@domain ) do usuário para o qual você deseja limitar o acesso. Por exemplo: `cosmosdbuser@contoso.com`.
+- `$MySubscriptionId` -A ID da assinatura que contém a conta do Azure Cosmos em que você deseja limitar as permissões. Por exemplo: `e5c8766a-eeb0-40e8-af56-0eb142ebf78e`.
+- `$MyResourceGroupName` -O grupo de recursos que contém a conta do Azure Cosmos. Por exemplo: `myresourcegroup`.
+- `$MyAzureCosmosDBAccountName` -O nome da sua conta do Azure Cosmos. Por exemplo: `mycosmosdbsaccount`.
+- `$MyUserName` -O logon ( username@domain ) do usuário para o qual você deseja limitar o acesso. Por exemplo: `cosmosdbuser@contoso.com`.
 
 ## <a name="select-your-azure-subscription"></a>Selecionar sua assinatura do Azure
 

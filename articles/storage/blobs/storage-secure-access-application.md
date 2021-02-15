@@ -10,13 +10,13 @@ ms.topic: tutorial
 ms.date: 06/10/2020
 ms.author: tamram
 ms.reviewer: ozgun
-ms.custom: mvc
-ms.openlocfilehash: b5ca24a68b271c08ea7cd4196d5b8659eb0262d2
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.custom: mvc, devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: f7c5dbaf30965fdd5f438f0351cfa2cd60e05b70
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85367369"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746555"
 ---
 # <a name="secure-access-to-application-data"></a>Proteger o acesso aos dados do aplicativo
 
@@ -160,7 +160,7 @@ As classes, propriedades e métodos a seguir são usados na tarefa anterior:
 
 A [Criptografia do Armazenamento do Azure](../common/storage-service-encryption.md) ajuda a proteger e resguardar seus dados criptografando-os em repouso e manipulando a criptografia e a descriptografia. Todos os dados são criptografados usando a [criptografia AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)de 256 bits, um dos codificadores de blocos mais potentes.
 
-Você pode optar por a Microsoft gerenciar as chaves de criptografia ou trazer suas próprias chaves com chaves gerenciadas pelo cliente com o Azure Key Vault. Para obter mais informações, confira [Usar chaves gerenciadas pelo cliente com o Azure Key Vault para gerenciar a criptografia do Armazenamento do Azure](../common/encryption-customer-managed-keys.md).
+A Microsoft pode gerenciar as chaves de criptografia ou você pode trazer suas próprias chaves com chaves gerenciadas pelo cliente armazenadas no Azure Key Vault ou no HSM (modelo de segurança de hardware) do Key Vault (versão prévia). Para obter mais informações, confira [Chaves gerenciadas pelo cliente para criptografia do Armazenamento do Azure](../common/customer-managed-keys-overview.md).
 
 A criptografia do Armazenamento do Azure criptografa automaticamente os dados em todos os níveis de desempenho (Standard e Premium), em todos os modelos de implantação (Azure Resource Manager e Clássico) e em todos os serviços do Armazenamento do Azure (Blobs, Filas, Tabelas e Arquivos).
 

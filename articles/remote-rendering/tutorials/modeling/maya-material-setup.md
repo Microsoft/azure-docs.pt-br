@@ -1,16 +1,16 @@
 ---
 title: Configurar materiais de renderização baseada fisicamente no Maya
 description: Explica como configurar materiais de renderização baseada fisicamente no Maya e exportá-los para o formato FBX.
-author: muxanickms
-ms.author: misams
+author: FlorianBorn71
+ms.author: flborn
 ms.date: 06/16/2020
 ms.topic: tutorial
-ms.openlocfilehash: 72742ff4f6aa19fda092b44d8d2237e7d49dd816
-ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
+ms.openlocfilehash: 56aa0d91372ac2d21a20f28b1044f0811c716b0c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85373227"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91358025"
 ---
 # <a name="tutorial-set-up-physically-based-rendering-materials-in-maya"></a>Tutorial: Configurar materiais de renderização baseada fisicamente no Maya
 
@@ -79,7 +79,7 @@ No Maya, o processo de criação de instância é simples.
 1. Na caixa de diálogo **Opções para Duplicar Especial**, para **Tipo de geometria** selecione a opção **Instância**. 
 1. Selecione **Duplicar Especial**.
 
-   ![Instanciação](media/instancing.jpg)
+   ![A captura de tela mostra uma janela do Maya com a caixa de diálogo Duplicar Opções Especiais aberta e a opção Duplicar Especial selecionada.](media/instancing.jpg)
 
 Essa ação cria uma instância de seu objeto. Você pode movê-lo, girá-lo ou dimensioná-lo de maneira independente do objeto pai e das outras instâncias desse pai. 
 

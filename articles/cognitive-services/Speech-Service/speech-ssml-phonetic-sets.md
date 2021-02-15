@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 03/04/2020
 ms.author: jiajzhan
 ms.openlocfilehash: 770e97ad126f66efb43bf8cf7eb12f7510858192
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "78675335"
 ---
 # <a name="speech-service-phonetic-sets"></a>Conjuntos fonéticos do serviço de fala
 
-O serviço de fala define alfabetos fonéticos ("conjuntos de telefone" para curto), consistindo em sete idiomas; `en-US` `fr-FR` `zh-TW`,, `de-DE`,,, e. `es-ES` `ja-JP` `zh-CN` Os conjuntos de telefone do serviço de fala normalmente são mapeados para o <a href="https://en.wikipedia.org/wiki/International_Phonetic_Alphabet" target="_blank">alfabeto <span class="docon docon-navigate-external x-hidden-focus"> </span>FONÉTICO internacional (IPA) </a>. Os conjuntos de telefone do serviço de fala são usados em conjunto com a [linguagem de marcação de síntese de fala (SSML)](speech-synthesis-markup.md), como parte da oferta de serviço de conversão de texto em fala. Neste artigo, você aprenderá como esses conjuntos de telefone são mapeados e quando usar o conjunto de telefone.
+O serviço de fala define alfabetos fonéticos ("conjuntos de telefone" para curto), consistindo em sete idiomas; ,,,,, `en-US` `fr-FR` `de-DE` `es-ES` `ja-JP` `zh-CN` e `zh-TW` . Os conjuntos de telefone do serviço de fala normalmente são mapeados para o <a href="https://en.wikipedia.org/wiki/International_Phonetic_Alphabet" target="_blank">alfabeto <span class="docon docon-navigate-external x-hidden-focus"></span> fonético internacional (IPA) </a>. Os conjuntos de telefone do serviço de fala são usados em conjunto com a [linguagem de marcação de síntese de fala (SSML)](speech-synthesis-markup.md), como parte da oferta de serviço de conversão de texto em fala. Neste artigo, você aprenderá como esses conjuntos de telefone são mapeados e quando usar o conjunto de telefone.
 
 # <a name="en-us"></a>[pt-BR](#tab/en-US)
 
@@ -70,7 +70,7 @@ O serviço de fala define alfabetos fonéticos ("conjuntos de telefone" para cur
 | `sapi` | `ipa` | Exemplo 1           | Exemplo 2  | Exemplo 3 |
 |--------|-------|---------------------|------------|-----------|
 | w      | `w`   | **w**i, s**UE**de | Al**w**ays |           |
-| y      | `j`   | **y**ARD, f**e**w   | em**eu**ligado  |           |
+| s      | `j`   | **y**ARD, f**e**w   | em**eu**ligado  |           |
 
 ### <a name="english-aspirated-oral-stops"></a>Interrupções verbais aspirateada em inglês
 
@@ -129,7 +129,7 @@ No entanto, o conjunto de telefone do serviço de fala coloca estresse após a v
 
 | `sapi` | `ipa` | Exemplo 1     | Exemplo 2       | Exemplo 3 |
 |--------|-------|---------------|-----------------|-----------|
-| a      | `a`   | **um**rbre     | p**a**TTE       | ir**a**   |
+| um      | `a`   | **um**rbre     | p**a**TTE       | ir**a**   |
 | aa     | `ɑ`   |               | p **.** te        | p**a**s   |
 | AA ~   | `ɑ̃`  | Fant de **en**    | Enf**en**t      | t**em**PS |
 | AX     | `ə`   |               | p**e**Tite      | l**e**    |
@@ -168,7 +168,7 @@ No entanto, o conjunto de telefone do serviço de fala coloca estresse após a v
 | t      | `t`   | **t**ête    | ô**t**er      | ne**t**                          |
 | v      | `v`   | **v**ent    | em**v**, digite  | Rê**v**e                         |
 | w      | `w`   | **ou**i     | f**ou**inha    |                                  |
-| y      | `j`   | **y**OD     | p**i**étiner  | **Ille** Marse                    |
+| s      | `j`   | **y**OD     | p**i**étiner  | **Ille** Marse                    |
 | z      | `z`   | * * z * * éro   | Rai**s**onner | ro**s**e                         |
 | zh     | `ʒ`   | Ardin **j**  | homem**g**er    | piè**g**e                        |
 |        | `n‿`  |             |               | Arbre u**n**                     |
@@ -179,7 +179,7 @@ No entanto, o conjunto de telefone do serviço de fala coloca estresse após a v
 **1** *somente para algumas palavras estrangeiras.*
 
 > [!TIP]
-> O `fr-FR` conjunto de telefone do serviço de fala não dá suporte às `n‿`seguintes `t‿`liasions francesas,, e `z‿`. Se forem necessários, você deve considerar o uso do IPA diretamente.
+> O `fr-FR` conjunto de telefone do serviço de fala não dá suporte às seguintes Liasions francesas, `n‿` , `t‿` e `z‿` . Se forem necessários, você deve considerar o uso do IPA diretamente.
 
 # <a name="de-de"></a>[de-DE](#tab/de-DE)
 
@@ -195,7 +195,7 @@ No entanto, o conjunto de telefone do serviço de fala coloca estresse após a v
 | `sapi` | `ipa`     | Exemplo 1                             | Exemplo 2     | Exemplo 3                          |
 |--------|-----------|---------------------------------------|---------------|------------------------------------|
 | um     | `aː`      | **Um**ber                              | Maßst**b**   | Esquema**a**                         |
-| a      | `a`       | **Um**Bfall                            | B**a**ch      | Agath**a**                         |
+| um      | `a`       | **Um**Bfall                            | B**a**ch      | Agath**a**                         |
 | nossa     | `ɔ`       | **O**Sten                             | Sten de PF**o**   |                                    |
 | Eh    | `ɛː`      | **Ä**hnlichkeit                       | B**ä**r       | [<sup>1</sup>](#de-v-1) **AE** fasci |
 | Eh     | `ɛ`       | **ä**ndern                            | ProZ**e**NT   | **AE** Amygdal                      |
@@ -241,7 +241,7 @@ No entanto, o conjunto de telefone do serviço de fala coloca estresse após a v
 | f | `f` | **F**ahrtdauer | Angri**FF**slustig | abbruchrei**f** |  |
 | g | `g` | **g**UT |  | [<sup>6</sup>](#de-c-6) **G** do GRE |  |
 | h | `h` | **H**ausanbau |  |  |  |
-| y | `j` | **J**OD | Reakt**i** | Hu**i** |  |
+| s | `j` | **J**OD | Reakt**i** | Hu**i** |  |
 | k | `k` | **K**OMA | Aspe**k**t | FLEC**k** |  |
 | l | `l` | **l**au | ähne**l**n | zuvie**l** |  |
 | m | `m` | **&** UT | Um**t** | Leh**m** |  |
@@ -256,7 +256,7 @@ No entanto, o conjunto de telefone do serviço de fala coloca estresse após a v
 | ts | `ts` | UG **Z** | Ar**z**t | Wit**z** |  |
 | ch | `tʃ` | **Tsch**echien | aufgepu**tsch**t | bundesdeu**tsch** |  |
 | v | `v` | **w**Inken | Q**u**Alle | [<sup>9</sup>](#de-c-9) GR**OO**ve |  |
-| x | [<sup>10</sup>](#de-c-10)`x`,[<sup>11</sup>](#de-c-11)`ç` | [<sup>12</sup>](#de-c-12) BA**ch**erach | Ma**ch**t mögli**ch**St | Schma**ch** ' i**ch** |
+| x | [<sup>10</sup>](#de-c-10) `x` ,[<sup>11</sup>](#de-c-11)`ç` | [<sup>12</sup>](#de-c-12) BA**ch**erach | Ma**ch**t mögli**ch**St | Schma**ch** ' i**ch** |
 | z | `z` | uper **s** |  |  |  |
 | zh | `ʒ` | **G**enre | B**re**ezinski | Edvi**g**e |
 
@@ -292,7 +292,7 @@ No entanto, o conjunto de telefone do serviço de fala coloca estresse após a v
 | ^      | `ʔ`   | beachtlich/b AX-^ a 1 x t-l IH c/ |
 
 > [!NOTE]
-> Precisamos adicionar um telefone [GS\] entre duas vogais distintas, exceto que as duas vogais são um diphthong genuíno. Essa consoante oral é uma parada glotal, para obter mais informações, consulte <a href="http://en.wikipedia.org/wiki/Glottal_stop" target="_blank">parada <span class="docon docon-navigate-external x-hidden-focus"> </a> </a>glotal.
+> Precisamos adicionar um telefone [GS \] entre duas vogais distintas, exceto que as duas vogais são um diphthong genuíno. Essa consoante oral é uma parada glotal, para obter mais informações, consulte <a href="http://en.wikipedia.org/wiki/Glottal_stop" target="_blank"> parada glotal <span class="docon docon-navigate-external x-hidden-focus"> </a> </a> .
 
 # <a name="es-es"></a>[es-ES](#tab/es-ES)
 
@@ -300,7 +300,7 @@ No entanto, o conjunto de telefone do serviço de fala coloca estresse após a v
 
 | `sapi` | `ipa` | Exemplo 1    | Exemplo 2     | Exemplo 3    |
 |--------|-------|--------------|---------------|--------------|
-| a      | `a`   | **um**LTO     | c**a**ntar    | CAS**a**     |
+| um      | `a`   | **um**LTO     | c**a**ntar    | CAS**a**     |
 | i      | `i`   | **eu**bérica  | Spa**do**AV    | imposto**i**     |
 | e      | `e`   | **e**Lefante | às **&** nPara    | Elefant**e** |
 | o      | `o`   | **o**caso    | ENC**o**ntrar | ocasenc**o** |
@@ -336,11 +336,11 @@ No entanto, o conjunto de telefone do serviço de fala coloca estresse após a v
 | x      | `x`        | **j**OTA   | um**j**o        | relo**j**      |
 
 > [!TIP]
-> O `es-ES` conjunto de telefone do serviço de fala não dá suporte às `β`seguintes `ð`IPA do `ɣ`espanhol,, e. Se forem necessários, você deve considerar o uso do IPA diretamente.
+> O `es-ES` conjunto de telefone do serviço de fala não dá suporte às seguintes IPA do espanhol, `β` , `ð` e `ɣ` . Se forem necessários, você deve considerar o uso do IPA diretamente.
 
 # <a name="zh-cn"></a>[zh-CN](#tab/zh-CN)
 
-O telefone do serviço de fala `zh-CN` definido para o é baseado no conjunto de <a href="https://en.wikipedia.org/wiki/Pinyin" target="_blank">pinyin <span class="docon docon-navigate-external x-hidden-focus"></span> </a> de telefone nativo definido.
+O telefone do serviço de fala definido para `zh-CN` o é baseado no conjunto de <a href="https://en.wikipedia.org/wiki/Pinyin" target="_blank">pinyin <span class="docon docon-navigate-external x-hidden-focus"></span> </a> de telefone nativo definido.
 
 ### <a name="tone"></a>Tom
 
@@ -362,7 +362,7 @@ O telefone do serviço de fala `zh-CN` definido para o é baseado no conjunto de
 
 # <a name="zh-tw"></a>[zh-TW](#tab/zh-TW)
 
-O telefone do serviço de fala `zh-TW` definido para o é baseado no <a href="https://en.wikipedia.org/wiki/Bopomofo" target="_blank">telefone <span class="docon docon-navigate-external x-hidden-focus"></span> bopomofo</a> nativo definido.
+O telefone do serviço de fala definido para `zh-TW` o é baseado no <a href="https://en.wikipedia.org/wiki/Bopomofo" target="_blank">telefone <span class="docon docon-navigate-external x-hidden-focus"></span> bopomofo</a> nativo definido.
 
 ### <a name="tone"></a>Tom
 
@@ -384,14 +384,14 @@ O telefone do serviço de fala `zh-TW` definido para o é baseado no <a href="ht
 
 # <a name="ja-jp"></a>[ja-JP](#tab/ja-JP)
 
-O telefone do serviço de fala `ja-JP` definido para o é baseado no <a href="https://en.wikipedia.org/wiki/Kana" target="_blank">conjunto <span class="docon docon-navigate-external x-hidden-focus"></span> kana</a> do telefone nativo.
+O telefone do serviço de fala definido para `ja-JP` o é baseado no <a href="https://en.wikipedia.org/wiki/Kana" target="_blank">conjunto <span class="docon docon-navigate-external x-hidden-focus"></span> kana</a> do telefone nativo.
 
 ### <a name="stress"></a>Stress
 
 | `sapi` | `ipa`          |
 |--------|----------------|
-| `ˈ`    | `ˈ`mainstress |
-| `+`    | `ˌ`subestresse  |
+| `ˈ`    | `ˈ` mainstress |
+| `+`    | `ˌ` subestresse  |
 
 #### <a name="example"></a>Exemplo
 

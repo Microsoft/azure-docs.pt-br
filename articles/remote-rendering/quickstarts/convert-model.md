@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart
-ms.openlocfilehash: d457e911dec481e2b1a8bdae1ca05f80452bb883
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: c9b5d525954e7f0742cd13fe4d64a73df64ea854
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85557175"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594460"
 ---
 # <a name="quickstart-convert-a-model-for-rendering"></a>Início Rápido: Converter um modelo para renderização
 
@@ -27,7 +27,7 @@ Você aprenderá a:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Concluir [Início Rápido: Renderizar um modelo com o Unity](render-model.md)
-* Instalar o Azure PowerShell [(documentação)](https://docs.microsoft.com/powershell/azure/)
+* Para a conversão usando o script do PowerShell: Instalar o Azure PowerShell [(documentação)](/powershell/azure/)
   * Abra um PowerShell com direitos de administrador
   * Execute: `Install-Module -Name Az -AllowClobber`
 
@@ -108,6 +108,15 @@ Agora você deve ter dois contêineres de Armazenamento de Blobs:
 
 ## <a name="run-the-conversion"></a>Executar a conversão
 
+Há três maneiras distintas de disparar uma conversão de modelo:
+
+### <a name="1-conversion-via-the-arrt-tool"></a>1. Conversão por meio da ferramenta ARRT
+
+Há uma [ferramenta baseada em interface do usuário chamada ARRT](./../samples/azure-remote-rendering-asset-tool.md) para iniciar conversões e interagir com o resultado renderizado.
+![ARRT](./../samples/media/azure-remote-rendering-asset-tool.png "Captura de tela do ARRT")
+
+### <a name="2-conversion-via-a-powershell-script"></a>2. Conversão por meio de um script do PowerShell
+
 Para facilitar a chamada do serviço de conversão de ativos, fornecemos um script de utilitário. Ele está localizado na pasta *Scripts* e é chamado de **Conversion.ps1**.
 
 Em particular, esse script
@@ -166,7 +175,7 @@ Connect-AzAccount
 ```
 
 > [!NOTE]
-> Caso sua organização tenha mais de uma assinatura, talvez seja necessário especificar os argumentos SubscriptionId e Tenant. Encontre detalhes na [Documentação sobre Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount).
+> Caso sua organização tenha mais de uma assinatura, talvez seja necessário especificar os argumentos SubscriptionId e Tenant. Encontre detalhes na [Documentação sobre Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount).
 
 Altere para o diretório `azure-remote-rendering\Scripts` e execute o script de conversão:
 
@@ -175,6 +184,13 @@ Altere para o diretório `azure-remote-rendering\Scripts` e execute o script de 
 ```
 
 Você deverá ver algo assim: ![Conversion.ps1](./media/successful-conversion.png)
+
+### <a name="3-conversion-via-api-calls"></a>3. Conversão por meio de chamadas à API
+
+Tanto a API do C# quanto a do C++ fornecem um ponto de entrada para interagir com o serviço:
+* [C# RemoteRenderingClient.StartAssetConversionAsync()](/dotnet/api/microsoft.azure.remoterendering.remoterenderingclient.startassetconversionasync)
+* [C++ RemoteRenderingClient::StartAssetConversionAsync()](/cpp/api/remote-rendering/remoterenderingclient#startassetconversionasync)
+
 
 ## <a name="insert-new-model-into-quickstart-sample-app"></a>Inserir um novo modelo no aplicativo de exemplo do guia de início rápido
 
@@ -189,9 +205,9 @@ O script de conversão gera um URI de *SAS (Assinatura de Acesso Compartilhado)*
 O URI de SAS criado pelo script de conversão só será válido por 24 horas. No entanto, depois de expirar, você não precisa converter seu modelo novamente. Em vez disso, você pode criar uma SAS no portal, conforme descrito nas próximas etapas:
 
 1. Vá para o [Portal do Azure](https://www.portal.azure.com)
-1. Clique no recurso de **Conta de armazenamento**: ![Acesso à assinatura](./media/portal-storage-accounts.png)
+1. Clique no recurso de **Conta de armazenamento**: ![Captura de tela que realça o recurso de conta de armazenamento selecionado.](./media/portal-storage-accounts.png)
 1. Na tela a seguir, clique em **Gerenciador de armazenamento** no painel esquerdo e localize o modelo de saída (arquivo *.arrAsset*) no contêiner de Armazenamento de Blobs *arroutput*. Clique com o botão direito do mouse no arquivo e selecione **Obter Assinatura de Acesso Compartilhado** no menu de contexto: ![Acesso à assinatura](./media/portal-storage-explorer.png)
-1. Uma nova tela é aberta, em que você pode selecionar uma data de expiração. Pressione **Criar**e copie o URI mostrado na próxima caixa de diálogo. Esse novo URI substitui o URI temporário que o script criou.
+1. Uma nova tela é aberta, em que você pode selecionar uma data de expiração. Pressione **Criar** e copie o URI mostrado na próxima caixa de diálogo. Esse novo URI substitui o URI temporário que o script criou.
 
 ## <a name="next-steps"></a>Próximas etapas
 

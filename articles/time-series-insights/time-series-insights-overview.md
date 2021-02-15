@@ -8,16 +8,19 @@ ms.author: dpalled
 manager: diviso
 ms.workload: big-data
 ms.topic: overview
-ms.date: 07/07/2020
+ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 1ab17e2c24d106e1aec0b546a6efd05ac4c3e32f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: cebe0e018b4483a9de1771fb3171effbbd5ca59c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87020518"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020054"
 ---
 # <a name="what-is-azure-time-series-insights-gen1"></a>O que é o Azure Time Series Insights Gen1?
+
+> [!CAUTION]
+> Esse é um artigo do Gen1.
 
 O Azure Time Series Insights é compilado para armazenar, visualizar e consultar grandes quantidades de dados de série temporal, como aqueles gerados por dispositivos IoT. Se você deseja armazenar, gerenciar, consultar ou visualizar os dados de série temporal na nuvem, Azure Time Series Insights é provavelmente certa para você.
 
@@ -30,7 +33,7 @@ O Azure Time Series Insights tem quatro trabalhos principais:
 - O Azure Time Series Insights fornece uma visualização pronta para uso por meio do Gerenciador do Azure Time Series Insights.
 - O Azure Time Series Insights fornece um serviço de consulta no Gerenciador do Azure Time Series Insights e pelas APIs que são fáceis de integrar para inserir dados de séries temporais em aplicativos personalizados.
 
-Se você estiver criando um aplicativo para consumo interno ou para a utilização de clientes externos, o Azure Time Series Insights poderá ser usado como um back-end. Você pode usá-lo para indexação, armazenamento e agregação de dados de série temporal. Para compilar uma visualização personalizada e uma experiência do usuário na parte superior usando o [SDK Cliente](https://github.com/microsoft/tsiclient/blob/master/docs/API.md). O Azure Time Series Insights também está equipado com várias [APIs de Consulta](how-to-shape-query-json.md) para habilitar esses cenários personalizados.
+Se você estiver criando um aplicativo para consumo interno ou para a utilização de clientes externos, o Azure Time Series Insights poderá ser usado como um back-end. Você pode usá-lo para indexação, armazenamento e agregação de dados de série temporal. Para compilar uma visualização personalizada e uma experiência do usuário na parte superior usando o [SDK Cliente](https://github.com/microsoft/tsiclient/blob/master/docs/API.md). O Azure Time Series Insights também está equipado com várias [APIs de Consulta](./concepts-json-flattening-escaping-rules.md) para habilitar esses cenários personalizados.
 
 Dados de série temporal representam como um processo ou um ativo é alterado ao longo do tempo. Os dados de série temporal são indexados por carimbos de data/hora e o tempo é o eixo mais significativo ao longo do qual esses dados são organizados. Normalmente, os dados de série temporal chegam em ordem sequencial e são tratados como uma inserção em vez de uma atualização do banco de dados.
 
@@ -59,7 +62,7 @@ O Time Series Insights captura e armazena todos os novos eventos como uma linha 
 
 - Tenha uma exibição global dos dados de série temporal que fazem streaming de dados de locais diferentes para comparação de vários ativos/sites.
 
-   Você pode se conectar a várias fontes de evento em um ambiente do Azure Time Series Insights. Dessa forma, você pode visualizar dados que chegam de vários locais distintos juntos quase em tempo real. Os usuários podem aproveitar essa visibilidade para compartilhar dados com líderes empresariais. Eles podem colaborar melhor com especialistas de domínio que podem aplicar seu conhecimento para ajudar a resolver problemas, aplicar práticas recomendadas e compartilhar conhecimentos.
+   Você pode conectar várias fontes de evento a um ambiente do Azure Time Series Insights. Dessa forma, você pode visualizar dados que chegam de vários locais distintos juntos quase em tempo real. Os usuários podem aproveitar essa visibilidade para compartilhar dados com líderes empresariais. Eles podem colaborar melhor com especialistas de domínio que podem aplicar seu conhecimento para ajudar a resolver problemas, aplicar práticas recomendadas e compartilhar conhecimentos.
 
 - Crie um aplicativo cliente sobre o Azure Time Series Insights.
 

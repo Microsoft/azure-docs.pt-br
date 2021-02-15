@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: 6b68b4c943ec96620427978c2309f27e1fb1f217
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74082568"
 ---
 # <a name="prepare-network-mapping-for-hyper-v-vm-disaster-recovery-to-azure"></a>Preparar o mapeamento da rede para recuperação de desastre da VM do Hyper-V no Azure
@@ -55,7 +55,7 @@ A seguir, um exemplo para ilustrar esse mecanismo. Vamos usar uma organização 
 
 **Localidade** | **Servidor VMM** | **Redes VM** | **Mapeado para**
 ---|---|---|---
-Nova Iorque | VMM-NewYork| VMNetwork1-NewYork | Mapeado para VMNetwork1-Chicago
+Nova York | VMM-NewYork| VMNetwork1-NewYork | Mapeado para VMNetwork1-Chicago
  |  | VMNetwork2-NewYork | Não mapeado
 Chicago | VMM-Chicago| VMNetwork1-Chicago | Mapeado para VMNetwork1-NewYork
  | | VMNetwork2-Chicago | Não mapeado
@@ -80,7 +80,7 @@ SilverCloud2 | <p>NA</p><p></p> | <p>LogicalNetwork1-NewYork</p><p>LogicalNetwor
 
 **Localidade** | **Rede lógica** | **Rede VM associada**
 ---|---|---
-Nova Iorque | LogicalNetwork1-NewYork | VMNetwork1-NewYork
+Nova York | LogicalNetwork1-NewYork | VMNetwork1-NewYork
 Chicago | LogicalNetwork1-Chicago | VMNetwork1-Chicago
  | LogicalNetwork2Chicago | VMNetwork2-Chicago
 

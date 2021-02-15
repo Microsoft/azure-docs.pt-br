@@ -7,17 +7,18 @@ author: vermagit
 editor: ''
 ms.assetid: ''
 ms.service: virtual-machines-windows
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 07/20/2020
+ms.date: 02/01/2021
 ms.author: amverma
-ms.openlocfilehash: ccc9df8078bb7fec8be7d72b0ae18ed416bb10ca
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 767d6da7701261836b367ccad121bf3569b43b72
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87095655"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99260156"
 ---
 # <a name="infiniband-driver-extension-for-windows"></a>Extensão de driver InfiniBand para Windows
 
@@ -29,15 +30,15 @@ Uma extensão também está disponível para instalar os drivers InfiniBand para
 
 ### <a name="operating-system"></a>Sistema operacional
 
-Esta extensão é compartível com as seguintes distribuições do sistema operacional, dependendo do suporte do driver para uma versão específica do sistema operacional.
+Esta extensão é compartível com as seguintes distribuições do sistema operacional, dependendo do suporte do driver para uma versão específica do sistema operacional. Observe a NIC InfiniBand apropriada para os tamanhos de VM da série H e N de interesse.
 
-| Distribuição | Versão |
+| Distribuição | Drivers de NIC InfiniBand |
 |---|---|
-| Windows 10 | Núcleo |
-| Windows Server 2019 | Núcleo |
-| Windows Server 2016 | Núcleo |
-| Windows Server 2012 R2 | Núcleo |
-| Windows Server 2012 | Núcleo |
+| Windows 10 | CX5, CX6 |
+| Windows Server 2019 | CX5, CX6 |
+| Windows Server 2016 | CX3-pro, CX5, CX6 |
+| Windows Server 2012 R2 | CX3-pro, CX5, CX6 |
+| Windows Server 2012 | CX3-pro, CX5, CX6 |
 
 ### <a name="internet-connectivity"></a>Conectividade com a Internet
 
@@ -137,7 +138,7 @@ az vm extension set \
 
 ### <a name="add-extension-to-a-virtual-machine-scale-set"></a>Adicionar extensão a um conjunto de dimensionamento de máquinas virtuais
 
-O exemplo a seguir instala a extensão mais recente da versão 1,2 do InfiniBandDriverWindows em todas as VMs compatíveis com RDMA em um conjunto de dimensionamento de máquinas virtuais existente chamado *myVMSS* implantado no grupo de recursos chamado *MyResource*Group:
+O exemplo a seguir instala a extensão mais recente da versão 1,2 do InfiniBandDriverWindows em todas as VMs compatíveis com RDMA em um conjunto de dimensionamento de máquinas virtuais existente chamado *myVMSS* implantado no grupo de recursos chamado *MyResource* Group:
 
   ```powershell
   $VMSS = Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myVMSS"

@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: blobs
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: ddfa12bd758ffc362c51e10f63800665109d54a6
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 536cd01fbcf2c5d18a8c12030b709427d9bb91b1
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534066"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98703599"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-the-azure-cli"></a>Criar uma SAS de delegação de usuário para um contêiner ou BLOB com o CLI do Azure
 
@@ -36,7 +36,7 @@ Para criar uma SAS de delegação de usuário usando o CLI do Azure, verifique s
 
 Entre no CLI do Azure com suas credenciais do Azure AD. Para obter mais informações, veja [Entrar com a CLI do Azure](/cli/azure/authenticate-azure-cli).
 
-## <a name="assign-permissions-with-rbac"></a>Atribuir permissões com o RBAC
+## <a name="assign-permissions-with-azure-rbac"></a>Atribuir permissões com o RBAC do Azure
 
 Para criar uma SAS de delegação de usuário do Azure PowerShell, a conta do Azure AD usada para entrar no CLI do Azure deve ser atribuída a uma função que inclua a ação **Microsoft. Storage/storageAccounts/blobservices/generateUserDelegationKey** . Essa permissão permite que a conta do Azure AD solicite a *chave de delegação do usuário*. A chave de delegação de usuário é usada para assinar a SAS de delegação de usuário. A função que fornece a ação **Microsoft. Storage/storageAccounts/blobservices/generateUserDelegationKey** deve ser atribuída no nível da conta de armazenamento, no grupo de recursos ou na assinatura.
 
@@ -103,7 +103,7 @@ az storage blob generate-sas \
     --permissions acdrw \
     --expiry <date-time> \
     --auth-mode login \
-    --as-user
+    --as-user \
     --full-uri
 ```
 

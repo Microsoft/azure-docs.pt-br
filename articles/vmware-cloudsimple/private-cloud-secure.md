@@ -1,30 +1,30 @@
 ---
 title: Soluções do Azure VMware por CloudSimple – nuvem privada segura
 description: Descreve como proteger as soluções do Azure VMware pela nuvem privada do CloudSimple
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/19/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: c31ebfedeee0fe208f68c190402796b98c73ea1b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5e70745cd6e2f6a2a13581052f65e014bd0d0481
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85829866"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97899160"
 ---
 # <a name="how-to-secure-your-private-cloud-environment"></a>Como proteger seu ambiente de nuvem privada
 
 Defina o RBAC (controle de acesso baseado em função) para o serviço CloudSimple, o portal do CloudSimple e a nuvem privada do Azure.  Usuários, grupos e funções para acessar o vCenter da nuvem privada são especificados usando o SSO do VMware.  
 
-## <a name="rbac-for-cloudsimple-service"></a>RBAC para serviço CloudSimple
+## <a name="azure-rbac-for-cloudsimple-service"></a>RBAC do Azure para serviço CloudSimple
 
 A criação do serviço CloudSimple requer a função de **proprietário** ou **colaborador** na assinatura do Azure.  Por padrão, todos os proprietários e colaboradores podem criar um serviço CloudSimple e acessar o portal CloudSimple para criar e gerenciar nuvens privadas.  Somente um serviço CloudSimple pode ser criado por região.  Para restringir o acesso a administradores específicos, siga o procedimento abaixo.
 
 1. Criar um serviço CloudSimple em um novo **grupo de recursos** no portal do Azure
-2. Especifique o RBAC para o grupo de recursos.
+2. Especifique o RBAC do Azure para o grupo de recursos.
 3. Comprar nós e usar o mesmo grupo de recursos que o serviço CloudSimple
 
 Somente os usuários que têm privilégios de **proprietário** ou **colaborador** no grupo de recursos verão o serviço CloudSimple e iniciarão o portal CloudSimple.
@@ -39,7 +39,7 @@ Um usuário padrão `CloudOwner@cloudsimple.local` é criado no domínio de SSO 
 
 1. [Escalonar privilégios](escalate-private-cloud-privileges.md) para o usuário **CloudOwner \@ Cloudsimple. local** na nuvem privada.
 2. Entre no vCenter usando **CloudOwner \@ cloudsimple. local**
-3. [Adicionar usuários de logon único do vCenter](https://docs.vmware.com/en/VMware-vSphere/5.5/com.vmware.vsphere.security.doc/GUID-72BFF98C-C530-4C50-BF31-B5779D2A4BBB.html).
+3. [Adicionar usuários de Sign-On único do vCenter](https://docs.vmware.com/en/VMware-vSphere/5.5/com.vmware.vsphere.security.doc/GUID-72BFF98C-C530-4C50-BF31-B5779D2A4BBB.html).
 4. Adicione usuários a [grupos de logon único do vCenter](https://docs.vmware.com/en/VMware-vSphere/5.5/com.vmware.vsphere.security.doc/GUID-CDEA6F32-7581-4615-8572-E0B44C11D80D.html).
 
 Para obter mais informações sobre funções e grupos predefinidos, consulte o artigo [modelo de permissão de nuvem privada CloudSimple do VMware vCenter](learn-private-cloud-permissions.md) .

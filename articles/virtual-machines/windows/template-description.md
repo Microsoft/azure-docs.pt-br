@@ -7,12 +7,12 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 01/03/2019
 ms.author: cynthn
-ms.openlocfilehash: e420fe81941352d1002ed2c25c04fc686115c7c2
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 2726ba3b337dc785de58b06fb5e8372058f71879
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87827445"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202089"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Máquinas virtuais em um modelo do Azure Resource Manager
 
@@ -282,7 +282,7 @@ Vários elementos de perfil são usados ao definir um recurso de máquina virtua
 
 ## <a name="disks-and-images"></a>Discos e imagens
    
-No Azure, arquivos VHD podem representar [discos ou imagens](managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Quando o sistema operacional em um arquivo VHD é especializado para ser uma VM específica, ele é conhecido como um disco. Quando o sistema operacional em um arquivo VHD é generalizado para ser usado para criar muitas VMs, ele é conhecido como uma imagem.   
+No Azure, arquivos VHD podem representar [discos ou imagens](../managed-disks-overview.md). Quando o sistema operacional em um arquivo VHD é especializado para ser uma VM específica, ele é conhecido como um disco. Quando o sistema operacional em um arquivo VHD é generalizado para ser usado para criar muitas VMs, ele é conhecido como uma imagem.   
     
 ### <a name="create-new-virtual-machines-and-new-disks-from-a-platform-image"></a>Criar novas máquinas virtuais e novos discos de uma imagem de plataforma
 
@@ -453,5 +453,5 @@ Não é um problema usar o mesmo modelo para criar recursos ou para atualizar re
 
 - Crie seu próprio modelo usando [Criação de modelos do Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md).
 - Implante o modelo criado usando [Create a Windows virtual machine with a Resource Manager template (Criar uma máquina virtual do Windows com um modelo do Resource Manager)](ps-template.md).
-- Saiba como gerenciar as VMs que você criou, revisando [Criar e gerenciar VMs do Windows com o módulo do Azure PowerShell](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+- Saiba como gerenciar as VMs que você criou, revisando [Criar e gerenciar VMs do Windows com o módulo do Azure PowerShell](tutorial-manage-vm.md).
 - Para informações sobre a sintaxe JSON e as propriedades de tipos de recursos em modelos, consulte [Referência de modelo do Azure Resource Manager](/azure/templates/).

@@ -13,16 +13,16 @@ ms.author: ajburnle
 ms.reviewer: elkuzmen
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8035744cd7ff7bb3d8347a7d26796531a666bbd
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 28847ece3c08e93d14d381b35fc93fb16dad95a1
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87796804"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95973891"
 ---
 # <a name="add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>Adicionar um nome de domínio personalizado usando o portal do Azure Active Directory
 
-Cada novo locatário do Azure AD vem com um nome de domínio inicial, * \<domainname> . onmicrosoft.com*. Você não pode alterar ou excluir o nome de domínio inicial, mas pode adicionar os nomes de sua organização. Adicionar nomes de domínio personalizados ajuda a criar nomes de usuário que são familiares para seus usuários, como *alain \@ contoso.com*.
+Cada novo locatário do Azure AD vem com um nome de domínio inicial, *\<domainname> . onmicrosoft.com*. Você não pode alterar ou excluir o nome de domínio inicial, mas pode adicionar os nomes de sua organização. Adicionar nomes de domínio personalizados ajuda a criar nomes de usuário que são familiares para seus usuários, como *alain \@ contoso.com*.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -59,7 +59,7 @@ Depois de criar seu diretório, você pode adicionar seu nome de domínio person
     ![Página nomes de domínio personalizados, com a página Adicionar domínio personalizado](media/add-custom-domain/add-custom-domain-blade.png)
 
     >[!IMPORTANT]
-    >Você deve incluir *. com*, *.net*ou qualquer outra extensão de nível superior para que isso funcione corretamente.
+    >Você deve incluir *. com*, *.net* ou qualquer outra extensão de nível superior para que isso funcione corretamente.
 
     O domínio não verificado é adicionado. A página **contoso.com** aparece mostrando as informações de DNS. Salve essas informações. Você precisará dela mais tarde para criar um registro TXT para configurar o DNS.
 
@@ -104,9 +104,9 @@ Se o Azure AD não puder verificar um nome de domínio personalizado, tente as s
 
   Se você não puder atualizar o registro no site do registrador, compartilhe a entrada com alguém que tenha permissões para adicionar a entrada e verifique se ela está correta.
 
-- **Verifique se o nome de domínio não está em uso em outro diretório.** Um nome de domínio só pode ser verificado em um diretório. Se o seu nome de domínio estiver atualmente verificado em outro diretório, ele também não poderá ser verificado no novo diretório. Para corrigir esse problema de duplicação, você deve excluir o nome de domínio do diretório antigo. Para obter mais informações sobre a exclusão de nomes de domínio, consulte [Gerenciar nomes de domínio personalizado](../users-groups-roles/domains-manage.md).
+- **Verifique se o nome de domínio não está em uso em outro diretório.** Um nome de domínio só pode ser verificado em um diretório. Se o seu nome de domínio estiver atualmente verificado em outro diretório, ele também não poderá ser verificado no novo diretório. Para corrigir esse problema de duplicação, você deve excluir o nome de domínio do diretório antigo. Para obter mais informações sobre a exclusão de nomes de domínio, consulte [Gerenciar nomes de domínio personalizado](../enterprise-users/domains-manage.md).
 
-- **Confira se você não tem nenhum locatário do Power BI não gerenciado.** Se os usuários tiverem ativado o Power BI por meio de inscrição de autoatendimento e criado um locatário não gerenciado para sua organização, você deverá assumir o gerenciamento como administrador interno ou externo, usando o PowerShell. Para obter mais informações, confira [Controlar um diretório não gerenciado como administrador no Azure Active Directory](../users-groups-roles/domains-admin-takeover.md).
+- **Confira se você não tem nenhum locatário do Power BI não gerenciado.** Se os usuários tiverem ativado o Power BI por meio de inscrição de autoatendimento e criado um locatário não gerenciado para sua organização, você deverá assumir o gerenciamento como administrador interno ou externo, usando o PowerShell. Para obter mais informações, confira [Controlar um diretório não gerenciado como administrador no Azure Active Directory](../enterprise-users/domains-admin-takeover.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -114,6 +114,6 @@ Se o Azure AD não puder verificar um nome de domínio personalizado, tente as s
 
 - Adicione usuários ao seu domínio. Para obter mais informações, consulte [como adicionar ou excluir usuários](add-users-azure-active-directory.md).
 
-- Gerencie suas informações de nome de domínio no Azure AD. Para obter mais informações, confira [Gerenciamento de nomes de domínio personalizado](../users-groups-roles/domains-manage.md).
+- Gerencie suas informações de nome de domínio no Azure AD. Para obter mais informações, confira [Gerenciamento de nomes de domínio personalizado](../enterprise-users/domains-manage.md).
 
-- Se você tiver versões locais do Windows Server que deseja usar junto com o Azure Active Directory, consulte [Integrar seus diretórios locais ao Azure Active Directory](../connect/active-directory-aadconnect.md).
+- Se você tiver versões locais do Windows Server que deseja usar junto com o Azure Active Directory, consulte [Integrar seus diretórios locais ao Azure Active Directory](../hybrid/whatis-hybrid-identity.md).

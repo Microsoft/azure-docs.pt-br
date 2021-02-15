@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/17/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
-ms.openlocfilehash: eba08211355b0f57dd9dd11ec4c18d5912208ec8
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 09dbe0fbefb8b90b4c4e1ddef57abf3b13856183
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962206"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148084"
 ---
 # <a name="security-recommendations-for-app-service"></a>Recomendações de segurança para o serviço de aplicativo
 
@@ -56,7 +56,7 @@ Este artigo contém recomendações de segurança para Azure App serviço. Imple
 
 | Recomendação | Comentários |
 |-|-|
-|Usar a camada Standard da central de segurança do Azure | A [central de segurança do Azure](../security-center/security-center-app-services.md) é integrada nativamente ao serviço de Azure app. Ele pode executar avaliações e fornecer recomendações de segurança. |
+|Usar a camada Standard da central de segurança do Azure | A [central de segurança do Azure](../security-center/defender-for-app-service-introduction.md) é integrada nativamente ao serviço de Azure app. Ele pode executar avaliações e fornecer recomendações de segurança. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

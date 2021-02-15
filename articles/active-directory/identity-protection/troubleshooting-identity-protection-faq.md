@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: troubleshooting
-ms.date: 12/13/2019
+ms.date: 01/07/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 140ad45d9c4f6b6f49a4ea4aefb9298e58a2cf10
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6117b1ac78faf84d73f5a78202709aec7a1f84d9
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75443565"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99492579"
 ---
 # <a name="frequently-asked-questions-identity-protection-in-azure-active-directory"></a>Perguntas frequentes sobre a proteção de identidade em Azure Active Directory
 
@@ -28,23 +28,18 @@ ms.locfileid: "75443565"
 
 Há um problema atual conhecido causando latência no fluxo de perda de risco do usuário. Se você tiver uma "política de risco do usuário", ela deixará de ser aplicada aos usuários descartados alguns minutos após clicar em "Ignorar o risco de usuário". No entanto, há atrasos conhecidos na experiência do usuário que atualizam o "Estado de risco" de usuários descartados. Como alternativa, atualize a página no nível do navegador para ver o "Estado de risco" mais recente do usuário.
 
-## <a name="risky-users-report-known-issues"></a>Os usuários arriscados relatam problemas conhecidos
-
-As consultas no campo **nome de usuário** diferenciam maiúsculas de minúsculas, enquanto consultas no campo **nome** não diferenciam.
-
-Ativar/desativar **Mostrar datas como** oculta a coluna **ÚLTIMA ATUALIZAÇÃO DO RISCO**. Para adicionar novamente o clique de coluna **Colunas** na parte superior da folha Usuários Arriscados.
-
-**Ignorar todos os eventos** em clássico identidade Protection define o status das detecções de risco para **fechado (resolvido)**.
-
-## <a name="risky-sign-ins-report-known-issues"></a>Problemas conhecidos do relatório de entradas arriscadas
-
-**Resolver** em uma detecção de risco define o status para **os usuários passaram pela MFA controlada pela política baseada em risco**.
 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
-### <a name="why-is-a-user-is-at-risk"></a>Por que um usuário está em risco?
+### <a name="why-is-a-user-at-risk"></a>Por que um usuário está em risco?
 
 Se você for um cliente Azure AD Identity Protection, vá para a exibição [usuários arriscados](howto-identity-protection-investigate-risk.md#risky-users) e clique em um usuário de risco. Na gaveta na parte inferior, a guia "histórico de risco" mostrará todos os eventos que levaram a uma alteração de risco do usuário. Para ver todas as entradas arriscadas do usuário, clique em ' entradas arriscadas ' do usuário. Para ver todas as detecções de risco para esse usuário, clique em "detecções de risco do usuário".
+
+### <a name="why-was-my-sign-in-blocked-but-identity-protection-didnt-generate-a-risk-detection"></a>Por que minha entrada foi bloqueada, mas a proteção de identidade não gerou uma detecção de risco?
+Entradas podem ser bloqueadas por vários motivos. É importante observar que a proteção de identidade gera apenas detecções de risco quando as credenciais corretas são usadas na solicitação de autenticação. Se um usuário usar credenciais incorretas, ele não será sinalizado pela proteção de identidade, pois não há risco de comprometimento de credenciais, a menos que um ator incorreto use as credenciais corretas. Alguns motivos pelos quais um usuário pode ser impedido de assinar que não geram uma detecção de proteção de identidade incluem:
+* O **IP pode ser bloqueado** devido a atividades mal-intencionadas do endereço IP. A mensagem bloqueada por IP não diferencia se as credenciais estavam corretas ou não. Se o IP estiver bloqueado e as credenciais corretas não forem usadas, ele não gerará uma detecção de proteção de identidade
+* O **[bloqueio inteligente](../authentication/howto-password-smart-lockout.md)** pode bloquear a conta de entrar após várias tentativas com falha
+* Uma **política de acesso condicional** pode ser imposta que usa condições diferentes de nível de risco para bloquear uma solicitação de autenticação
 
 ### <a name="how-can-i-get-a-report-of-detections-of-a-specific-type"></a>Como posso obter um relatório de detecções de um tipo específico?
 
@@ -87,9 +82,11 @@ Todas as detecções de riscos são documentadas no artigo [o que é risco](conc
 
 - Depois de receber esses comentários, movemos o estado de risco de entrada (não o de usuário) para **Confirmado como seguro** e o nível de risco para **-**.
 
-- Além disso, fornecemos as informações para nossos sistemas de aprendizado de máquina para futuras melhorias na avaliação de risco.
+- Além disso, fornecemos as informações para nossos sistemas de aprendizado de máquina para futuras melhorias na avaliação de risco. 
 
     > [!NOTE]
+    >Hoje, a seleção de confirmar segurança em uma entrada não impede que logons futuros com as mesmas propriedades sejam sinalizadas como arriscadas. A melhor maneira de treinar o sistema para aprender as propriedades de um usuário é usar a política de entrada arriscada com a MFA. Quando uma entrada arriscada é solicitada pela MFA e o usuário responde com êxito à solicitação, a entrada pode ter êxito e ajudar a treinar o sistema no comportamento do usuário legítimo.
+    >
     > Se você achar que o usuário não foi comprometido, use **Ignorar o risco de usuário** no nível do usuário em vez de usar **Confirmado como seguro** no nível de entrada. Um **risco de ignorar usuário** no nível do usuário fecha o risco do usuário e todos os logons e as detecções de risco anteriores.
 
 ### <a name="why-am-i-seeing-a-user-with-a-low-or-above-risk-score-even-if-no-risky-sign-ins-or-risk-detections-are-shown-in-identity-protection"></a>Por que estou vendo um usuário com uma pontuação de risco baixa (ou acima), mesmo que nenhuma entrada arriscada ou detecção de risco seja mostrada na proteção de identidade?
@@ -98,4 +95,8 @@ Considerando que o risco do usuário é cumulativo por natureza e não expira, u
 
 ### <a name="why-does-a-sign-in-have-a-sign-in-risk-aggregate-score-of-high-when-the-detections-associated-with-it-are-of-low-or-medium-risk"></a>Por que uma entrada tem uma pontuação de "risco de entrada (agregação)" alta quando as detecções associadas a ela são de risco baixo ou médio?
 
-A pontuação de risco de agregação alta pode ser baseada em outros recursos de entrada ou o fato de que mais de uma detecção foi acionada para essa entrada. E, por outro lado, uma entrada pode ter um risco de entrada (agregação) médio, mesmo se as detecções associadas com a entrada são de alto risco. 
+A pontuação de risco de agregação alta pode ser baseada em outros recursos de entrada ou o fato de que mais de uma detecção foi acionada para essa entrada. E, por outro lado, uma entrada pode ter um risco de entrada (agregação) médio, mesmo se as detecções associadas com a entrada são de alto risco.
+
+### <a name="what-is-the-difference-between-the-activity-from-anonymous-ip-address-and-anonymous-ip-address-detections"></a>Qual é a diferença entre as detecções "atividade de endereço IP anônimo" e "endereço IP anônimo"?
+
+A origem da detecção de "endereço IP anônimo" é Azure AD Identity Protection, enquanto a detecção de "atividade de endereço IP anônimo" é integrada de MCAS (Microsoft Cloud App Security). Embora eles tenham nomes muito semelhantes e é possível que você veja sobreposição nesses sinais, eles têm detecções de back-end distintas.

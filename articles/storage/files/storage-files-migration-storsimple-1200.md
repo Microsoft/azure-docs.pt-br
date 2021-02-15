@@ -1,5 +1,5 @@
 ---
-title: Migração do StorSimple 1200 para o Sincronização de Arquivos do Azure
+title: Migração do StorSimple 1200 para a Sincronização de Arquivos do Azure
 description: Saiba como migrar um dispositivo virtual da série StorSimple 1200 para Sincronização de Arquivos do Azure.
 author: fauhse
 ms.service: storage
@@ -7,14 +7,14 @@ ms.topic: how-to
 ms.date: 03/09/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: d9cf7b3cf996e41f90e3a40a6ee08d0fd51c8457
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8562d63bf227fff665c70674c7fe66922bce9992
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85510337"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98882273"
 ---
-# <a name="storsimple-1200-migration-to-azure-file-sync"></a>Migração do StorSimple 1200 para o Sincronização de Arquivos do Azure
+# <a name="storsimple-1200-migration-to-azure-file-sync"></a>Migração do StorSimple 1200 para a Sincronização de Arquivos do Azure
 
 O StorSimple 1200 Series é uma solução de virtualização que é executada em um data center local. É possível migrar os dados desse dispositivo para um ambiente Sincronização de Arquivos do Azure. Sincronização de Arquivos do Azure é o serviço do Azure de longo prazo padrão e estratégico para o qual os dispositivos StorSimple podem ser migrados.
 
@@ -32,7 +32,7 @@ Sincronização de Arquivos do Azure é um serviço de nuvem da Microsoft, com b
 
 Este artigo se concentra nas etapas de migração. Se antes de migrar você gostaria de saber mais sobre Sincronização de Arquivos do Azure, recomendamos os seguintes artigos:
 
-* [Sincronização de Arquivos do Azure-visão geral](https://aka.ms/AFS "Visão geral")
+* [Sincronização de Arquivos do Azure-visão geral](./storage-sync-files-planning.md "Visão geral")
 * [Sincronização de Arquivos do Azure-guia de implantação](storage-sync-files-deployment-guide.md)
 
 ## <a name="migration-goals"></a>Metas de migração
@@ -210,13 +210,13 @@ Você concluiu a migração de um compartilhamento/grupo de compartilhamentos em
 Você pode tentar executar algumas dessas cópias em paralelo. É recomendável processar o escopo de um compartilhamento de arquivos do Azure por vez.
 
 > [!WARNING]
-> Depois de mover todos os dados do seu StorSimple para o Windows Server e sua migração estiver concluída: retorne a ***todos os*** grupos de sincronização na portal do Azure e ajuste o valor de porcentagem de espaço livre do volume de camadas da nuvem para algo mais adequado para a utilização do cache, digamos 20%. 
+> Depois de mover todos os dados do seu StorSimple para o Windows Server e sua migração for concluída: retorne para ***todos os** grupos de sincronização no portal do Azure e ajuste o valor de porcentagem de espaço livre do volume de camadas da nuvem para algo mais adequado para a utilização do cache, por exemplo, 20%. 
 
 A política de espaço livre do volume de camadas de nuvem age em um nível de volume com potencialmente vários pontos de extremidade de servidor sincronizando a partir dele. Se você se esquecer de ajustar o espaço livre em um ponto de extremidade de servidor, a sincronização continuará a aplicar a regra mais restritiva e tentará manter 99% de espaço livre em disco, tornando o cache local não funcionando como você poderia esperar. A menos que seja o objetivo de ter apenas o namespace para um volume que contenha apenas dados de arquivamento raramente acessados.
 
 ## <a name="troubleshoot"></a>Solucionar problemas
 
-O problema mais provável que você pode encontrar é que o comando RoboCopy falha com *"volume cheio"* no lado do Windows Server. Se esse for o caso, a velocidade de download provavelmente será melhor do que a velocidade de carregamento. A camada de nuvem age uma vez a cada hora para evacuar o conteúdo do disco local do Windows Server, que foi sincronizado.
+O problema mais provável que você pode encontrar é que o comando RoboCopy falha com _ "volume cheio" * no lado do Windows Server. Se esse for o caso, a velocidade de download provavelmente será melhor do que a velocidade de carregamento. A camada de nuvem age uma vez a cada hora para evacuar o conteúdo do disco local do Windows Server, que foi sincronizado.
 
 Deixe o progresso da sincronização e a camada da nuvem liberar espaço em disco. Você pode observar isso no explorador de arquivos no seu Windows Server.
 
@@ -233,6 +233,6 @@ Conteúdo de migração:
 
 Sincronização de Arquivos do Azure conteúdo:
 
-* [Visão geral de AFS](https://aka.ms/AFS)
-* [Guia de implantação AFS](storage-files-deployment-guide.md)
+* [Visão geral de AFS](./storage-sync-files-planning.md)
+* [Guia de implantação AFS](./storage-how-to-create-file-share.md)
 * [Solução de problemas AFS](storage-sync-files-troubleshoot.md)

@@ -3,7 +3,7 @@ title: Instalar a atualização 5,1 no dispositivo StorSimple da série 8000 | M
 description: Explica como instalar a atualização 5,1 do StorSimple 8000 Series em seu dispositivo StorSimple da série 8000.
 services: storsimple
 documentationcenter: NA
-author: twooley
+author: alkohli
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
@@ -11,13 +11,13 @@ ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 03/05/2020
-ms.author: twooley
-ms.openlocfilehash: f9cc5181d6cc29ee4b3c2373dbbc91d6290fbe6e
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.author: alkohli
+ms.openlocfilehash: 5b9958f3dd497aa612a92947b8d968439ef9d0e4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88782763"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91575955"
 ---
 # <a name="install-update-51-on-your-storsimple-device"></a>Instalar a atualização 5,1 em seu dispositivo StorSimple
 
@@ -60,15 +60,15 @@ Execute as etapas a seguir para atualizar seu dispositivo para a [atualização 
 
 2. Navegue até **configurações do dispositivo**  >  **atualizações do dispositivo**.
 
-    ![Clique em Atualizações de dispositivo](./media/storsimple-8000-install-update-51/update2.png)
+    ![Captura de tela da folha configurações com a opção atualizações de dispositivo chamada out.](./media/storsimple-8000-install-update-51/update2.png)
 
 3. Uma notificação será exibida se houver novas atualizações disponíveis. Como alternativa, na folha **Atualizações de dispositivo**, clique em **Verificar Atualizações**. Um trabalho é criado para verificar se há atualizações disponíveis. Você será notificado quando o trabalho for concluído com êxito.
 
-    ![Clique em Atualizações de dispositivo](./media/storsimple-8000-install-update-51/update3.png)
+    ![Captura de tela da folha configurações com a opção atualizações de dispositivo chamada saída e a folha atualizações de dispositivo com as novas atualizações regulares são mensagens disponíveis, chamadas.](./media/storsimple-8000-install-update-51/update3.png)
 
 4. É recomendável examinar as notas de versão antes de aplicar uma atualização em seu dispositivo. Para aplicar atualizações, clique em **Instalar atualizações**. Na folha **Confirmar atualizações regulares**, examine os pré-requisitos a serem concluídos antes de aplicar as atualizações. Marque a caixa de seleção para indicar que você está pronto para atualizar o dispositivo e, em seguida, clique em **Instalar**.
 
-    ![Clique em Atualizações de dispositivo](./media/storsimple-8000-install-update-51/update4.png)
+    ![Captura de tela da folha atualizações do dispositivo com a opção instalar atualizações denominada e confirmar atualizações regulares com a opção de concordar e a opção instalar chamada out.](./media/storsimple-8000-install-update-51/update4.png)
 
 5. Um conjunto de verificações de pré-requisito é iniciado. Essas verificações incluem:
    
@@ -80,17 +80,17 @@ Execute as etapas a seguir para atualizar seu dispositivo para a [atualização 
 
 7. Depois que as pré-verificações tiverem sido concluídas com êxito, será criado um trabalho de atualização. Você será notificado quando o trabalho de atualização for criado com êxito.
    
-    ![Criação do trabalho de atualização](./media/storsimple-8000-install-update-51/update6.png)
+    ![Captura de tela da notificação que diz "Iniciando o trabalho de atualizações de software".](./media/storsimple-8000-install-update-51/update6.png)
    
     Em seguida, a atualização será aplicada ao seu dispositivo.
 
 9. A atualização demora algumas horas para ser concluída. Selecione o trabalho de atualização e clique em **Detalhes** para exibir os detalhes do trabalho a qualquer momento.
 
-    ![Criação do trabalho de atualização](./media/storsimple-8000-install-update-51/update8.png)
+    ![Captura de tela da folha atualizações do dispositivo com a opção baixar e instalar atualizações de software em andamento chamada e a folha instalar atualizações.](./media/storsimple-8000-install-update-51/update8.png)
 
      Você também pode monitorar o andamento do trabalho de atualização de **Configurações do dispositivo > Trabalhos**. Na folha **Trabalhos**, você pode ver o andamento da atualização.
 
-     ![Criação do trabalho de atualização](./media/storsimple-8000-install-update-51/update7.png)
+     ![Captura de tela da folha configurações com trabalhos chamados e a folha trabalhos que mostra o progresso da atualização.](./media/storsimple-8000-install-update-51/update7.png)
 
 10. Após a conclusão do trabalho, navegue até **Configurações do dispositivo > Atualizações do dispositivo**. A versão do software deve ser atualizada.
 

@@ -6,15 +6,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 06/29/2020
+ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: f29a7e48fc1872f83b5a6ce127f38c1a559b2691
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: 51480a49aab2c1277eeb846c593fcb2bc858d1f0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88762310"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "90983715"
 ---
 # <a name="about-virtual-hub-routing"></a>Sobre o roteamento de hub virtual
 
@@ -55,7 +55,7 @@ As conexões propagam dinamicamente as rotas para uma tabela de rotas. Com uma c
 
 Uma **tabela de rota None** também está disponível para cada Hub virtual. A propagação para a tabela de rotas None implica que nenhuma rota deve ser propagada da conexão. As conexões VPN, ExpressRoute e VPN de usuário propagam rotas para o mesmo conjunto de tabelas de rotas.
 
-:::image type="content" source="./media/about-virtual-hub-routing/concepts-propagation.png" alt-text="Propagação":::
+:::image type="content" source="./media/about-virtual-hub-routing/concepts-propagation.png" alt-text="Associação":::
 
 ### <a name="labels"></a><a name="static"></a>Rótulos
 Os rótulos fornecem um mecanismo para agrupar logicamente as tabelas de rotas. Isso é especialmente útil durante a propagação de rotas de conexões com várias tabelas de rotas. Por exemplo, a tabela de rotas padrão tem um rótulo interno chamado ' default '. Quando os usuários propagam rotas de conexão para o rótulo ' default ', ele se aplica automaticamente a todas as tabelas de rotas padrão em todos os hubs na WAN virtual. 
@@ -87,6 +87,7 @@ Considere o seguinte ao configurar o roteamento de WAN virtual:
 * Ao usar o Firewall do Azure em várias regiões, todas as redes virtuais spoke devem ser associadas à mesma tabela de rotas. Por exemplo, ter um subconjunto do VNets passando pelo firewall do Azure enquanto outros VNets ignoram o Firewall do Azure no mesmo Hub virtual não é possível.
 * Um único IP do próximo salto pode ser configurado por conexão VNet.
 * O Hub virtual não dá suporte à rota estática para 0.0.0.0/0 e conexão de rede virtual do próximo salto (ou um IP de um dispositivo na conexão VNet)
+* Todas as informações pertencentes à rota 0.0.0.0/0 são confinadas na tabela de rotas de um hub local. Essa rota não se propaga entre hubs.
 
 ## <a name="next-steps"></a>Próximas etapas
 

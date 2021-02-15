@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 06/09/2020
 ms.author: victorh
-ms.openlocfilehash: 308098bd1ac49510afccf0a7964face726906332
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fe6ea6f348d796962141bd39ff858d891a29a2f6
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84628683"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397681"
 ---
 # <a name="application-gateway-support-for-multi-tenant-back-ends-such-as-app-service"></a>Suporte do gateway de aplicativo para back-ends de vários locatários, como o serviço de aplicativo
 
@@ -28,11 +28,11 @@ O Gateway de Aplicativo fornece uma funcionalidade que permite aos usuários sub
 
 ## <a name="override-host-header-in-the-request"></a>Substituir o cabeçalho de host na solicitação
 
-A capacidade de especificar uma substituição de host é definida nas [configurações de http](https://docs.microsoft.com/azure/application-gateway/configuration-overview#http-settings) e pode ser aplicada a qualquer pool de back-end durante a criação da regra. Há suporte para as seguintes duas maneiras de substituir o cabeçalho de host e a extensão SNI para back-ends com vários locatários:
+A capacidade de especificar uma substituição de host é definida nas [configurações de http](./configuration-overview.md#http-settings) e pode ser aplicada a qualquer pool de back-end durante a criação da regra. Há suporte para as seguintes duas maneiras de substituir o cabeçalho de host e a extensão SNI para back-ends com vários locatários:
 
 - A capacidade de definir o nome do host para um valor fixo explicitamente inserido nas configurações de HTTP. Esse recurso garante que o cabeçalho de host seja substituído por esse valor para todo o tráfego para o pool de back-end em que as configurações de HTTP específicas são aplicadas. Ao usar TLS de ponta a ponta, esse nome de host substituído é usado na extensão SNI. Esse recurso habilita cenários onde um farm de pool de back-end espera um cabeçalho de host que seja diferente do cabeçalho de host de entrada do cliente.
 
-- A capacidade de derivar o nome do host do IP ou FQDN dos membros do pool de back-end. As configurações HTTP também fornecem uma opção para escolher dinamicamente o nome do host de um FQDN do membro do pool de back-end, se configurado com a opção de derivar o nome do host de um membro individual do pool de back-end. Ao usar o TLS de ponta a ponta, esse nome de host é derivado do FQDN e é usado na extensão SNI. Esse recurso habilita cenários em que um pool de back-end pode ter dois ou mais serviços PaaS com vários locatários, como aplicativos Web do Azure, e o cabeçalho de host da solicitação para cada membro pode conter o nome de host derivado do seu FQDN. Para implementar esse cenário, usamos uma opção nas configurações de HTTP chamada [escolher nome do host do endereço de back-end](https://docs.microsoft.com/azure/application-gateway/configuration-overview#pick-host-name-from-back-end-address) que substituirá dinamicamente o cabeçalho do host na solicitação original para aquele mencionado no pool de back-end.  Por exemplo, se o FQDN do pool de back-end contiver "contoso11.azurewebsites.net" e "contoso22.azurewebsites.net", o cabeçalho de host da solicitação original que for contoso.com será substituído para contoso11.azurewebsites.net ou contoso22.azurewebsites.net quando a solicitação for enviada para o servidor de back-end apropriado. 
+- A capacidade de derivar o nome do host do IP ou FQDN dos membros do pool de back-end. As configurações HTTP também fornecem uma opção para escolher dinamicamente o nome do host de um FQDN do membro do pool de back-end, se configurado com a opção de derivar o nome do host de um membro individual do pool de back-end. Ao usar o TLS de ponta a ponta, esse nome de host é derivado do FQDN e é usado na extensão SNI. Esse recurso habilita cenários em que um pool de back-end pode ter dois ou mais serviços PaaS com vários locatários, como aplicativos Web do Azure, e o cabeçalho de host da solicitação para cada membro pode conter o nome de host derivado do seu FQDN. Para implementar esse cenário, usamos uma opção nas configurações de HTTP chamada [escolher nome do host do endereço de back-end](./configuration-http-settings.md#pick-host-name-from-back-end-address) que substituirá dinamicamente o cabeçalho do host na solicitação original para aquele mencionado no pool de back-end.  Por exemplo, se o FQDN do pool de back-end contiver "contoso11.azurewebsites.net" e "contoso22.azurewebsites.net", o cabeçalho de host da solicitação original que for contoso.com será substituído para contoso11.azurewebsites.net ou contoso22.azurewebsites.net quando a solicitação for enviada para o servidor de back-end apropriado. 
 
   ![cenário de aplicativo Web](./media/application-gateway-web-app-overview/scenario.png)
 
@@ -59,8 +59,8 @@ Pode haver cenários em que o nome do host na resposta do serviço de aplicativo
 - Você tem o redirecionamento configurado em seu serviço de aplicativo. O redirecionamento pode ser tão simples quanto adicionar uma barra à direita à solicitação.
 - Você tem a autenticação do Azure AD que causa o redirecionamento.
 
-Para resolver esses casos, consulte [solucionar problemas de redirecionamento para o problema de URL do serviço de aplicativo](https://docs.microsoft.com/azure/application-gateway/troubleshoot-app-service-redirection-app-service-url).
+Para resolver esses casos, consulte [solucionar problemas de redirecionamento para o problema de URL do serviço de aplicativo](./troubleshoot-app-service-redirection-app-service-url.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba como configurar um gateway de aplicativo com um aplicativo multilocatário, como Azure App aplicativo Web do serviço como um membro do pool de back-end visitando [configurar aplicativos Web do serviço de aplicativo com o gateway de aplicativo](https://docs.microsoft.com/azure/application-gateway/configure-web-app-portal)
+Saiba como configurar um gateway de aplicativo com um aplicativo multilocatário, como Azure App aplicativo Web do serviço como um membro do pool de back-end visitando [configurar aplicativos Web do serviço de aplicativo com o gateway de aplicativo](./configure-web-app-portal.md)

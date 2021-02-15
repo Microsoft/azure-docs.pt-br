@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 06/15/2020
 ms.author: v-grpr
 ms.openlocfilehash: 6aaf57d9bcdfb1f350e1d54937e9c705dd32116e
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85392464"
 ---
 ### <a name="for-service"></a>Para o serviço

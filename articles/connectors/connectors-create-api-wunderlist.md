@@ -1,5 +1,5 @@
 ---
-title: Conectar-se com o Wunderlist
+title: Conectar-se ao Wunderlist (preterido)
 description: Automatize fluxos de trabalho e tarefas que monitoram e gerenciam listas, tarefas e lembretes, entre outros, em sua conta do Wunderlist usando os Aplicativos Lógicos do Azure
 services: logic-apps
 ms.suite: integration
@@ -7,16 +7,16 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 05/06/2020
 tags: connectors
-ms.openlocfilehash: 66971d754d5cd524750fccaa6f89a2cdca138f2a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 205684923db4528193a337b2b9b867e356e89017
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82925908"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96301672"
 ---
-# <a name="monitor-and-manage-wunderlist-by-using-azure-logic-apps"></a>Monitore e gerencie o Wunderlist usando os Aplicativos Lógicos do Azure
+# <a name="monitor-and-manage-wunderlist-in-azure-logic-apps"></a>Monitorar e gerenciar o Wunderlist nos aplicativos lógicos do Azure
 
-A partir de 6 de maio de 2020, o [serviço do Wunderlist foi desligado](https://www.wunderlist.com/) e solicitou que os clientes [migrassem seus dados e comecem a usar a Microsoft para fazer isso](https://www.wunderlist.com/blog/goodbye-from-wunderlist/). Você pode usar o [conector da Microsoft para fazer](https://docs.microsoft.com/connectors/todo/) para substituir o [conector do Wunderlist](https://docs.microsoft.com/connectors/wunderlist/)preterido.
+A partir de 6 de maio de 2020, o serviço do Wunderlist foi desligado e solicitou que os clientes migrassem seus dados e comecem a usar a Microsoft para fazer isso. Você pode usar o [conector da Microsoft para fazer](/connectors/todo/) para substituir o [conector do Wunderlist](https://preview.flow.microsoft.com/connectors/shared_wunderlist/wunderlist/)preterido.
 
 ## <a name="next-steps"></a>Próximas etapas
 

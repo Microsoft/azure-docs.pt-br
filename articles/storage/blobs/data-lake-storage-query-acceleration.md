@@ -1,26 +1,23 @@
 ---
-title: Aceleração de consulta de Azure Data Lake Storage (versão prévia)
-description: A aceleração de consulta (visualização) é um novo recurso para Azure Data Lake Storage que permite que os aplicativos e as estruturas de análise otimizem drasticamente o processamento de dados recuperando apenas os dados necessários para uma operação de processamento.
+title: Aceleração de consulta Azure Data Lake Storage
+description: A aceleração de consulta permite que aplicativos e estruturas de análise otimizem drasticamente o processamento de dados recuperando apenas os dados necessários para uma operação de processamento.
 author: normesta
 ms.topic: conceptual
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.date: 04/21/2020
+ms.date: 09/09/2020
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 42eec4a0796a7f07c7e7d1c35571d9d4ddcf69d7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dc1d217dba64c36aa219abbd4d2220a494347689
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82176695"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95912749"
 ---
-# <a name="azure-data-lake-storage-query-acceleration-preview"></a>Aceleração de consulta de Azure Data Lake Storage (versão prévia)
+# <a name="azure-data-lake-storage-query-acceleration"></a>Aceleração de consulta Azure Data Lake Storage
 
-A aceleração de consulta (versão prévia) é um novo recurso para Azure Data Lake Storage que permite que os aplicativos e as estruturas de análise otimizem drasticamente o processamento de dados recuperando apenas os dados necessários para executar uma determinada operação. Isso reduz o tempo e a capacidade de processamento necessários para obter informações críticas sobre os dados armazenados.
-
-> [!NOTE]
-> O recurso aceleração de consulta está em visualização pública e está disponível nas regiões central do Canadá e central da França. Para revisar as limitações, consulte o artigo [problemas conhecidos](data-lake-storage-known-issues.md) . Para se registrar na versão prévia, consulte [este formulário](https://aka.ms/adls/qa-preview-signup).  
+A aceleração de consulta permite que aplicativos e estruturas de análise otimizem drasticamente o processamento de dados recuperando apenas os dados necessários para executar uma determinada operação. Isso reduz o tempo e a capacidade de processamento necessários para obter informações críticas sobre os dados armazenados.
 
 ## <a name="overview"></a>Visão geral
 
@@ -53,11 +50,11 @@ O diagrama a seguir ilustra como um aplicativo típico usa a aceleração de con
 
 A aceleração de consulta otimiza o desempenho, reduzindo a quantidade de dados que são transferidos e processados pelo seu aplicativo.
 
-Para calcular um valor agregado, os aplicativos normalmente recuperam **todos** os dados de um arquivo e, em seguida, processam e filtram os dados localmente. Uma análise dos padrões de entrada/saída para cargas de trabalho de análise revela que os aplicativos normalmente exigem apenas 20% dos dados que eles lêem para executar qualquer cálculo específico. Essa estatística é verdadeira mesmo após a aplicação de técnicas, como a [remoção de partição](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-optimize-hive-query#hive-partitioning). Isso significa que 80% desses dados são desnecessariamente transferidos pela rede, analisados e filtrados por aplicativos. Esse padrão, essencialmente projetado para remover dados desnecessários, incorre em um custo de computação significativo.  
+Para calcular um valor agregado, os aplicativos normalmente recuperam **todos** os dados de um arquivo e, em seguida, processam e filtram os dados localmente. Uma análise dos padrões de entrada/saída para cargas de trabalho de análise revela que os aplicativos normalmente exigem apenas 20% dos dados que eles lêem para executar qualquer cálculo específico. Essa estatística é verdadeira mesmo após a aplicação de técnicas, como a [remoção de partição](../../hdinsight/hdinsight-hadoop-optimize-hive-query.md#hive-partitioning). Isso significa que 80% desses dados são desnecessariamente transferidos pela rede, analisados e filtrados por aplicativos. Esse padrão, essencialmente projetado para remover dados desnecessários, incorre em um custo de computação significativo.  
 
 Embora o Azure retenha uma rede líder do setor, em termos de taxa de transferência e latência, a transferência desnecessária de dados pela rede ainda é dispendiosa para o desempenho do aplicativo. Ao filtrar os dados indesejados durante a solicitação de armazenamento, a aceleração de consulta elimina esse custo.
 
-Além disso, a carga de CPU necessária para analisar e filtrar dados desnecessários exige que seu aplicativo provisione um número maior e VMs maiores para fazer isso funcionar. Ao transferir essa carga de computação para aceleração de consulta, os aplicativos podem obter uma economia de custo significativa.
+Além disso, a carga de CPU necessária para analisar e filtrar dados desnecessários exige que seu aplicativo provisione um número maior e VMs maiores para fazer seu trabalho. Ao transferir essa carga de computação para aceleração de consulta, os aplicativos podem obter uma economia de custo significativa.
 
 ## <a name="applications-that-can-benefit-from-query-acceleration"></a>Aplicativos que podem se beneficiar da aceleração de consulta
 
@@ -77,8 +74,5 @@ Apesar da alteração no modelo de cobrança, o modelo de preços da aceleraçã
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Formulário de registro de aceleração de consulta](https://aka.ms/adls/qa-preview-signup)    
-- [Filtrar dados usando a aceleração de consulta do Azure Data Lake Storage (versão prévia)](data-lake-storage-query-acceleration-how-to.md)
-- [Referência da linguagem SQL de aceleração de consulta (versão prévia)](query-acceleration-sql-reference.md)
-
-
+- [Filtrar dados usando a aceleração de consulta Azure Data Lake Storage](data-lake-storage-query-acceleration-how-to.md)
+- [Referência da linguagem SQL de aceleração de consulta](query-acceleration-sql-reference.md)

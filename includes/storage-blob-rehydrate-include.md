@@ -10,14 +10,14 @@ ms.subservice: blobs
 ms.topic: include
 ms.reviewer: hux
 ms.custom: include file
-ms.openlocfilehash: 53d2d47143c5a2cefbd50faca9a02af18ffae315
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a369eb7000fb8622a69f4205ffcc232ae9c9d242
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84754671"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95545917"
 ---
-Para ler dados no armazenamento de arquivo morto, primeiro você deve alterar a camada do blob para quente ou fria. Esse processo é conhecido como reidratação e pode levar horas para ser concluído. Recomendamos tamanhos de blob grandes para o desempenho ideal de reidratação. Reidratar vários blobs pequenos simultaneamente pode inserir um tempo adicional. Atualmente, há duas prioridades de reidratar, alta e padrão, que podem ser definidas por meio da propriedade *x-MS-reidratar-Priority* opcional em uma operação de [camada de blob](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) ou de [cópia](https://docs.microsoft.com/rest/api/storageservices/copy-blob) de conjunto.
+Para ler dados no armazenamento de arquivo morto, primeiro você deve alterar a camada do blob para quente ou fria. Esse processo é conhecido como reidratação e pode levar horas para ser concluído. Recomendamos tamanhos de blob grandes para o desempenho ideal de reidratação. Reidratar vários blobs pequenos simultaneamente pode inserir um tempo adicional. Atualmente, há duas prioridades de reidratar, alta e padrão, que podem ser definidas por meio da propriedade *x-MS-reidratar-Priority* opcional em uma operação de [camada de blob](/rest/api/storageservices/set-blob-tier) ou de [cópia](/rest/api/storageservices/copy-blob) de conjunto.
 
 * **Prioridade padrão**: a solicitação reidratação será processada na ordem em que foi recebida e pode levar até 15 horas.
 * **Prioridade alta**: a solicitação reidratação será priorizada em relação às solicitações padrão e poderá ser concluída em menos de uma hora para os objetos em tamanho de dez GB. 
@@ -27,4 +27,4 @@ Para ler dados no armazenamento de arquivo morto, primeiro você deve alterar a 
 >
 > A alta prioridade pode levar mais de 1 hora, dependendo do tamanho do blob e da demanda atual. As solicitações de alta prioridade têm garantia de serem priorizadas em relação às solicitações de prioridade padrão.
 
-Depois que uma solicitação reidratação é iniciada, ela não pode ser cancelada. Durante o processo de reidratação, a propriedade de blob *x-MS-Access-Tier* continuará a ser mostrada como arquivo morto até que reidratação seja concluído para uma camada online. Para confirmar o status e o progresso do reidratação, você pode chamar [obter propriedades de blob](https://docs.microsoft.com/rest/api/storageservices/get-blob-properties) para verificar as propriedades de blob *x-MS-Archive-status* e *x-MS-reidratar-Priority* . O status do arquivo pode ler "reidratar-Pending-to-Hot" ou "reidratar-Pending-to-cool", dependendo da camada de destino reidratar. A prioridade reidratar indicará a velocidade de "alta" ou "padrão". Após a conclusão, as propriedades status do arquivo morto e prioridade reidratar são removidas e a propriedade BLOB da camada de acesso será atualizada para refletir a camada quente ou fria selecionada.
+Depois que uma solicitação reidratação é iniciada, ela não pode ser cancelada. Durante o processo de reidratação, a propriedade de blob *x-MS-Access-Tier* continuará a ser mostrada como arquivo morto até que reidratação seja concluído para uma camada online. Para confirmar o status e o progresso do reidratação, você pode chamar [obter propriedades de blob](/rest/api/storageservices/get-blob-properties) para verificar as propriedades de blob *x-MS-Archive-status* e *x-MS-reidratar-Priority* . O status do arquivo pode ler "reidratar-Pending-to-Hot" ou "reidratar-Pending-to-cool", dependendo da camada de destino reidratar. A prioridade reidratar indicará a velocidade de "alta" ou "padrão". Após a conclusão, as propriedades status do arquivo morto e prioridade reidratar são removidas e a propriedade BLOB da camada de acesso será atualizada para refletir a camada quente ou fria selecionada.

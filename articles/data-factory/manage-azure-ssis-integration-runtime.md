@@ -1,22 +1,17 @@
 ---
 title: Reconfigurar o runtime de integração do Azure-SSIS
 description: Saiba como reconfigurar o runtime de integração do Azure-SSIS no Azure Data Factory depois de já tê-lo provisionado.
-services: data-factory
-documentationcenter: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/03/2020
 author: swinarko
 ms.author: sawinark
-ms.reviewer: douglasl
-manager: anandsub
-ms.openlocfilehash: f609cfb0945d79cfa8ae21b786a5761b92b9dabb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 724411dc12654aec1614230c943923062b334cd2
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84324616"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100370675"
 ---
 # <a name="reconfigure-the-azure-ssis-integration-runtime"></a>Reconfigurar o runtime de integração do Azure-SSIS
 
@@ -28,7 +23,7 @@ Este artigo descreve como reconfigurar um runtime de integração existente do A
 Use a interface do usuário do Data Factory para parar, editar/reconfigurar ou excluir um IR do Azure SSIS. 
 
 1. Abra Data Factory interface do usuário selecionando o bloco **criar & monitor** na home page do data Factory.
-2. Selecione o Hub **gerenciar** abaixo **de página inicial**, **Editar**e **monitorar** hubs para mostrar o painel **conexões** .
+2. Selecione o Hub **gerenciar** abaixo **de página inicial**, **Editar** e **monitorar** hubs para mostrar o painel **conexões** .
 
 ### <a name="to-reconfigure-an-azure-ssis-ir"></a>Para reconfigurar um IR do Azure SSIS
 No painel **Conexões** do hub **Gerenciar**, mude para a página **Runtimes de integração** e selecione **Atualizar**. 
@@ -92,7 +87,7 @@ Depois de provisionar e iniciar uma instância do runtime de integração do Azu
 Confira estes tópicos para obter mais informações sobre o runtime do Azure-SSIS: 
 
 - [Azure-SSIS Integration Runtime](concepts-integration-runtime.md#azure-ssis-integration-runtime). Este artigo fornece informações conceituais sobre runtimes de integração em geral, incluindo o IR do Azure-SSIS. 
-- [Tutorial: implantar pacotes do SSIS para o Azure](tutorial-create-azure-ssis-runtime-portal.md). Este artigo fornece instruções passo a passo para criar um Azure-SSIS IR e usa o banco de dados SQL do Azure para hospedar o catálogo do SSIS. 
+- [Tutorial: implantar pacotes do SSIS para o Azure](./tutorial-deploy-ssis-packages-azure.md). Este artigo fornece instruções passo a passo para criar um Azure-SSIS IR e usa o banco de dados SQL do Azure para hospedar o catálogo do SSIS. 
 - [Como: Criar um runtime de integração do Azure-SSIS](create-azure-ssis-integration-runtime.md). Este artigo expande o tutorial e fornece instruções sobre como usar o SQL Instância Gerenciada do Azure e ingressar o IR em uma rede virtual. 
 - [Unir um IR do Azure-SSIS a uma rede virtual](join-azure-ssis-integration-runtime-virtual-network.md). Este artigo fornece informações conceituais sobre como unir um IR do Azure-SSIS a uma rede virtual do Azure. Ele também apresenta as etapas para usar o portal do Azure para configurar a rede virtual para que o IR do Azure-SSIS possa unir-se à rede virtual. 
 - [Monitore um IR do Azure-SSIS](monitor-integration-runtime.md#azure-ssis-integration-runtime). Este artigo mostra como recuperar informações sobre um IR do Azure-SSIS e descrições de status nas informações retornadas.

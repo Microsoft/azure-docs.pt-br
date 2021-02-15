@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/24/2020
 ms.author: damaerte
-ms.openlocfilehash: 37005a722d4a1962b4f6e1ddb8bb1c7a1229d28a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f1846c126e81ca5851cfbb1d782e5315ae10a82a
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81273283"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152275"
 ---
 # <a name="persist-files-in-azure-cloud-shell"></a>Persistir arquivos no Azure Cloud Shell
 O Cloud Shell utiliza o armazenamento dos Arquivos do Azure para persistir os arquivos entre as sessões. No primeiro início, o Cloud Shell solicita a associação de um compartilhamento de arquivos novo ou existente para persistir arquivos entre as sessões.
@@ -55,7 +55,7 @@ Quando aparecer o prompt de instalação de armazenamento, selecione **Mostrar c
 ![A configuração do grupo de recursos](media/persisting-shell-storage/advanced-storage.png)
 
 ## <a name="securing-storage-access"></a>Protegendo o acesso de armazenamento
-Por questões de segurança, cada usuário deve provisionar a própria conta de armazenamento.  No caso do RBAC (controle de acesso baseado em função), os usuários devem ter acesso de colaborador ou superior, no nível da conta de armazenamento.
+Por questões de segurança, cada usuário deve provisionar a própria conta de armazenamento.  Para o controle de acesso baseado em função do Azure (RBAC do Azure), os usuários devem ter acesso de colaborador ou acima no nível da conta de armazenamento.
 
 Cloud Shell usa um compartilhamento de arquivos do Azure em uma conta de armazenamento, dentro de uma assinatura especificada. Devido a permissões herdadas, os usuários com direitos de acesso suficientes para a assinatura poderão acessar todas as contas de armazenamento e os compartilhamentos de arquivos contidos na assinatura.
 
@@ -83,7 +83,7 @@ Se uma região de armazenamento secundária for usada, a conta de armazenamento 
 Um usuário pode executar `(Get-CloudDrive | Get-AzStorageAccount).Location` no PowerShell para ver o local de seu compartilhamento de arquivos.
 
 ## <a name="restrict-resource-creation-with-an-azure-resource-policy"></a>Restringir a criação de recursos com uma política de recursos do Azure
-As contas de armazenamento criadas no Cloud Shell são marcadas com `ms-resource-usage:azure-cloud-shell`. Se você deseja impedir que os usuários criem contas de armazenamento no Cloud Shell, crie uma [Política de recursos do Azure para marcas](../azure-policy/json-samples.md) que seja disparada por essa marca específica.
+As contas de armazenamento criadas no Cloud Shell são marcadas com `ms-resource-usage:azure-cloud-shell`. Se você deseja impedir que os usuários criem contas de armazenamento no Cloud Shell, crie uma [Política de recursos do Azure para marcas](../governance/policy/samples/index.md) que seja disparada por essa marca específica.
 
 ## <a name="how-cloud-shell-storage-works"></a>Como funciona o armazenamento do Cloud Shell 
 O Cloud Shell persiste arquivos usando os seguintes métodos: 
@@ -170,4 +170,4 @@ Observação: se você precisar definir uma função em um arquivo e chamá-la d
 ## <a name="next-steps"></a>Próximas etapas
 [Início rápido do Cloud Shell](quickstart.md) <br>
 [Saiba mais sobre armazenamento de Arquivos do Microsoft Azure](../storage/files/storage-files-introduction.md) <br>
-[Saiba mais sobre marcas de armazenamento](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) <br>
+[Saiba mais sobre marcas de armazenamento](../azure-resource-manager/management/tag-resources.md) <br>

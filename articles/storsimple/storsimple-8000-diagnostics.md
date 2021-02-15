@@ -1,6 +1,6 @@
 ---
 title: Ferramenta de Diagnóstico para solucionar problemas de dispositivo do StorSimple 8000 | Microsoft Docs
-description: Descreve os modos de dispositivo StorSimple e explica como usar o Windows PowerShell para StorSimple para alterar o modo de dispositivo.
+description: Este artigo fornece uma visão geral da ferramenta de diagnóstico e descreve como a ferramenta pode ser usada com um dispositivo StorSimple.
 services: storsimple
 documentationcenter: ''
 author: alkohli
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: d3e9aff1a38bbabc4f878a4d2e2fb96dafe59c92
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bf0570cd62a2c329407cfb6dd087020f53cdc991
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85504450"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94954062"
 ---
 # <a name="use-the-storsimple-diagnostics-tool-to-troubleshoot-8000-series-device-issues"></a>Use a Ferramenta de Diagnóstico do StorSimple para solucionar problemas de dispositivo da série 8000
 
@@ -332,7 +332,7 @@ Aqui está um exemplo de saída do dispositivo 8100. Você pode ver na saída qu
 * As interfaces DATA 2 - 5 não estão habilitadas no portal.
 * A configuração do servidor DNS é válida e o dispositivo pode conectar-se por meio do servidor DNS.
 * A conectividade do servidor NTP também está boa.
-* As portas 80 e 443 estão abertas. No entanto, a porta 9354 está bloqueada. Conforme os [requisitos de rede do sistema](storsimple-system-requirements.md), você precisa abrir essa porta para a comunicação do barramento de serviço.
+* As portas 80 e 443 estão abertas. No entanto, a porta 9354 está bloqueada. Conforme os [requisitos de rede do sistema](./storsimple-8000-system-requirements.md), você precisa abrir essa porta para a comunicação do barramento de serviço.
 * A certificação TLS/SSL é válida.
 * O dispositivo pode conectar-se à conta de armazenamento: _myss8000storageacct_.
 * A conectividade com os servidores de atualização é válida.
@@ -388,7 +388,7 @@ Para usar essa ferramenta, siga as seguintes etapas:
 
     Se as latências de leitura/gravação relatadas pela ferramenta de diagnóstico forem altas:
 
-    1. Configure a Análise de Armazenamento para serviços de blob e analise a saída para entender as latências da conta de armazenamento do Azure. Para obter instruções detalhadas, vá para [habilitar e configurar a Análise de Armazenamento](../storage/common/storage-enable-and-view-metrics.md). Se as latências também forem altas e comparáveis aos números que você recebeu da ferramenta de diagnóstico do StorSimple você precisará fazer uma solicitação de serviço com o armazenamento do Azure.
+    1. Configure a Análise de Armazenamento para serviços de blob e analise a saída para entender as latências da conta de armazenamento do Azure. Para obter instruções detalhadas, vá para [habilitar e configurar a Análise de Armazenamento](../storage/blobs/monitor-blob-storage.md). Se as latências também forem altas e comparáveis aos números que você recebeu da ferramenta de diagnóstico do StorSimple você precisará fazer uma solicitação de serviço com o armazenamento do Azure.
 
     2. Se as latências da conta de armazenamento forem baixas, entre em contato com o administrador de rede para investigar problemas de latência na sua rede.
 
@@ -416,9 +416,9 @@ Aqui está uma tabela que descreve o mapeamento dos vários parâmetros do Windo
 
 | Parâmetro do PowerShell    | Descrição  |
 |-------------------------|------------------|
-| ID da instância             | Cada controlador tem um identificador exclusivo ou um GUID associado a ele.|
+| ID da Instância             | Cada controlador tem um identificador exclusivo ou um GUID associado a ele.|
 | Nome                    | O nome amigável do dispositivo conforme configurado por meio do portal do Azure durante a implantação do dispositivo. O nome amigável padrão é o número de série do dispositivo. |
-| Modelo                   | O modelo do seu dispositivo StorSimple série 8000. O modelo pode ser 8100 ou 8600.|
+| Modelar                   | O modelo do seu dispositivo StorSimple série 8000. O modelo pode ser 8100 ou 8600.|
 | SerialNumber            | O número de série do dispositivo vem configurado de fábrica e possui 15 caracteres. Por exemplo, 8600-SHX0991003G44HT indica:<br> 8600 – É o modelo do dispositivo.<br>SHX – É o local de produção.<br> 0991003 - É um produto específico. <br> G44HT- os últimos cinco dígitos são incrementados para criar números de série exclusivos. Pode ser um conjunto não sequencial de números.|
 | TimeZone                | O fuso horário do dispositivo conforme configurado no portal do Azure durante a implantação do dispositivo.|
 | CurrentController       | O controlador ao qual você está conectado por meio da interface do Windows PowerShell do seu dispositivo StorSimple.|
@@ -440,6 +440,6 @@ Aqui está uma tabela que descreve o mapeamento dos vários parâmetros do Windo
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Aprenda a [sintaxe do cmdlet Invoke-HcsDiagnostics](https://technet.microsoft.com/library/mt795371.aspx).
+* Aprenda a [sintaxe do cmdlet Invoke-HcsDiagnostics](/previous-versions/windows/powershell-scripting/mt795371(v=wps.630)).
 
-* Saiba mais sobre como [solucionar problemas de implantação](storsimple-troubleshoot-deployment.md) no seu dispositivo StorSimple.
+* Saiba mais sobre como [solucionar problemas de implantação](./storsimple-8000-troubleshoot-deployment.md) no seu dispositivo StorSimple.

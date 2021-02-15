@@ -9,14 +9,14 @@ ms.devlang: PowerShell
 ms.topic: sample
 author: DavidTrigano
 ms.author: datrigan
-ms.reviewer: carlrab, vanto
+ms.reviewer: sstein, vanto
 ms.date: 04/28/2020
-ms.openlocfilehash: d44370e17b0d38f1d19849e97b2a7f41b50a4119
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1dc4630e429641fad1ef9efa96bbfa920c6d8963
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87040576"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91321475"
 ---
 # <a name="use-powershell-to-configure-sql-database-auditing-and-advanced-threat-protection"></a>Usar o PowerShell para configurar a auditoria e a Proteção Avançada contra Ameaças do Banco de Dados SQL
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: fb5ae2408c15baee0f37acaacc780f4d198b1521
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3b6cb195f44bf6c868402481480d9b10802c4d59
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84738049"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965657"
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>Usar a captura de pacotes para fazer um monitoramento de rede proativo com alertas e o Azure Functions
 
@@ -30,7 +30,7 @@ Os recursos implantados no Azure estão em execução 24/7. Você e sua equipe n
 
 Usando o Observador de Rede, Alertas e Funções de dentro do ecossistema do Azure, você pode responder proativamente com dados e ferramentas para resolver problemas em sua rede.
 
-![Cenário][scenario]
+![O diagrama mostra a extensão do observador de rede em uma máquina virtual que flui para os segmentos T C P enviados > erro 100, que flui para Azure Functions, que flui para o observador de rede, que flui para a extensão do observador de rede.][scenario]
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -39,7 +39,7 @@ Usando o Observador de Rede, Alertas e Funções de dentro do ecossistema do Azu
 
 * A versão mais recente do [Azure PowerShell](/powershell/azure/install-Az-ps).
 * Uma instância existente do Observador de Rede. Se você ainda não tiver um, [crie uma instância do Observador de Rede](network-watcher-create.md).
-* Uma máquina virtual existente na mesma região que o Observador de Rede com a [extensão Windows](../virtual-machines/windows/extensions-nwa.md) ou [extensão de máquina virtual Linux](../virtual-machines/linux/extensions-nwa.md).
+* Uma máquina virtual existente na mesma região que o Observador de Rede com a [extensão Windows](../virtual-machines/extensions/network-watcher-windows.md) ou [extensão de máquina virtual Linux](../virtual-machines/extensions/network-watcher-linux.md).
 
 ## <a name="scenario"></a>Cenário
 
@@ -90,7 +90,7 @@ A primeira etapa é criar uma função do Azure para processar o alerta e criar 
     |**Configuração** | **Valor** | **Detalhes** |
     |---|---|---|
     |**Cenário**|Habilitação|Tipo de cenário|
-    |**Nomeie sua função**|AlertPacketCapturePowerShell|Nome da função|
+    |**Nomear sua função**|AlertPacketCapturePowerShell|Nome da função|
     |**Nível de autorização**|Função|Nível de autorização para a função|
 
 ![Exemplo de funções][functions1]
@@ -340,7 +340,7 @@ Os alertas podem ser configurados para notificar as pessoas quando uma métrica 
 
 ### <a name="create-the-alert-rule"></a>Criar a regra de alerta
 
-Vá até uma máquina virtual existente e adicione uma regra de alerta. Mais documentação detalhada sobre como configurar alertas pode ser encontrada em [Criar alertas do Monitor do Azure para serviços do Azure - Portal do Azure](../monitoring-and-diagnostics/insights-alerts-portal.md). Insira os seguintes valores na folha **Regra de alerta** e selecione **OK**.
+Vá até uma máquina virtual existente e adicione uma regra de alerta. Mais documentação detalhada sobre como configurar alertas pode ser encontrada em [Criar alertas do Monitor do Azure para serviços do Azure - Portal do Azure](../azure-monitor/platform/alerts-classic-portal.md). Insira os seguintes valores na folha **Regra de alerta** e selecione **OK**.
 
   |**Configuração** | **Valor** | **Detalhes** |
   |---|---|---|
@@ -350,10 +350,10 @@ Vá até uma máquina virtual existente e adicione uma regra de alerta. Mais doc
   |**Condição**|Maior que| A condição para usar ao avaliar a métrica.|
   |**Limite**|100| O valor da métrica que dispara o alerta. Esse valor deve ser definido como um valor válido para o seu ambiente.|
   |**Período**|Nos últimos cinco minutos| Determina o período no qual procurar o limite na métrica.|
-  |**webhook**|[URL do webhook do aplicativo de funções]| A URL de webhook do aplicativo de funções que foi criada nas etapas anteriores.|
+  |**Webhook**|[URL do webhook do aplicativo de funções]| A URL de webhook do aplicativo de funções que foi criada nas etapas anteriores.|
 
 > [!NOTE]
-> A métrica de segmentos TCP não está habilitada por padrão. Saiba mais sobre como habilitar outras métricas visitando [Habilitar o monitoramento e o diagnóstico](../monitoring-and-diagnostics/insights-how-to-use-diagnostics.md).
+> A métrica de segmentos TCP não está habilitada por padrão. Saiba mais sobre como habilitar outras métricas visitando [Habilitar o monitoramento e o diagnóstico](../azure-monitor/overview.md).
 
 ## <a name="review-the-results"></a>Revise os resultados
 
@@ -363,11 +363,11 @@ Após os critérios para os gatilhos de alerta, uma captura de pacote será cria
 
 Se o arquivo de captura for armazenado localmente, você poderá recuperá-lo entrando na máquina virtual.
 
-Para obter instruções sobre como baixar os arquivos das contas de armazenamento do Azure, veja [Introdução ao armazenamento de Blobs do Azure usando o .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Outra ferramenta que você pode usar é o [Gerenciador de armazenamento](https://storageexplorer.com/).
+Para obter instruções sobre como baixar os arquivos das contas de armazenamento do Azure, veja [Introdução ao armazenamento de Blobs do Azure usando o .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md). Outra ferramenta que você pode usar é o [Gerenciador de armazenamento](https://storageexplorer.com/).
 
 Depois que a captura for baixada, você poderá exibi-la usando qualquer ferramenta que possa ler um arquivo **.cap**. Os links para duas dessas ferramentas são:
 
-- [Analisador de mensagem da Microsoft](https://technet.microsoft.com/library/jj649776.aspx)
+- [Analisador de mensagem da Microsoft](/message-analyzer/microsoft-message-analyzer-operating-guide)
 - [WireShark](https://www.wireshark.org/)
 
 ## <a name="next-steps"></a>Próximas etapas

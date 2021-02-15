@@ -9,18 +9,18 @@ ms.subservice: cost-management
 ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 7bed8cc55e0880d88df22ca32bc5886e22022cbc
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: de0e9c631a97891e75c091c75a34b7dd94a52894
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690180"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131455"
 ---
 # <a name="manage-costs-with-azure-budgets"></a>Gerenciar os custos com os Orçamentos do Azure
 
-Controle de custo é um componente crítico para maximizar o valor de seu investimento na nuvem. Há vários cenários em que visibilidade de custo, relatórios e orquestração com base em custo são cruciais para a continuidade das operações de negócios. As [APIs de Gerenciamento de Custos do Azure](https://docs.microsoft.com/rest/api/consumption/) fornecem um conjunto de APIs para dar suporte a cada um desses cenários. As APIs fornecem detalhes de uso, permitindo que você exiba os custos granulares em nível de instância.
+Controle de custo é um componente crítico para maximizar o valor de seu investimento na nuvem. Há vários cenários em que visibilidade de custo, relatórios e orquestração com base em custo são cruciais para a continuidade das operações de negócios. As [APIs de Gerenciamento de Custos do Azure](/rest/api/consumption/) fornecem um conjunto de APIs para dar suporte a cada um desses cenários. As APIs fornecem detalhes de uso, permitindo que você exiba os custos granulares em nível de instância.
 
-Orçamentos normalmente são usados como parte do controle de custos. O escopo de orçamentos pode ser definido no Azure. Por exemplo, você pode restringir sua exibição de orçamento com base em assinatura, grupos de recursos ou coleção de recursos. Além de usar a API de orçamentos para receber uma notificação por email quando um limite de orçamento for atingido, você poderá usar [grupos de ações do Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups) para disparar um conjunto orquestrado de ações resultantes de um evento de orçamento.
+Orçamentos normalmente são usados como parte do controle de custos. O escopo de orçamentos pode ser definido no Azure. Por exemplo, você pode restringir sua exibição de orçamento com base em assinatura, grupos de recursos ou coleção de recursos. Além de usar a API de orçamentos para receber uma notificação por email quando um limite de orçamento for atingido, você poderá usar [grupos de ações do Azure Monitor](../../azure-monitor/platform/action-groups.md) para disparar um conjunto orquestrado de ações resultantes de um evento de orçamento.
 
 Um cenário comum de orçamentos de um cliente executando uma carga de trabalho não crítica pode ocorrer quando ele deseja gerenciar em elação a um orçamento e também obter um custo previsível ao examinar a fatura mensal. Esse cenário requer alguma orquestração baseada em custo dos recursos que fazem parte do ambiente do Azure. Nesse cenário, um orçamento mensal de US$ 1.000 para a assinatura é definido. Além disso, os limites de notificação são definidos para disparar algumas orquestrações. Este cenário começa com um limite de custo de 80%, que interromperá todas as VMs no grupo de recursos **Opcional**. Em seguida, em um limite de custo de 100%, todas as instâncias VM serão interrompidas.
 
@@ -35,7 +35,7 @@ Essas ações incluídas neste tutorial permitem que você:
 
 ## <a name="create-an-azure-automation-runbook"></a>Criar um Runbook de Automação do Azure
 
-A [Automação do Azure](https://docs.microsoft.com/azure/automation/automation-intro) é um serviço que permite criar o script da maioria das tarefas de gerenciamento de recursos e executar essas tarefas de modo agendado ou sob demanda. Como parte desse cenário, você criará um [runbook de Automação do Azure](https://docs.microsoft.com/azure/automation/automation-runbook-types) que será usado para interromper as VMs. Você usará o runbook gráfico [Interromper VMs do Azure V2](https://gallery.technet.microsoft.com/scriptcenter/Stop-Azure-ARM-VMs-1ba96d5b) da [galeria](https://docs.microsoft.com/azure/automation/automation-runbook-gallery) para criar esse cenário. Ao importar esse runbook para a sua conta do Azure e publicá-lo, você poderá interromper as VMs quando um limite de orçamento for atingido.
+A [Automação do Azure](../../automation/automation-intro.md) é um serviço que permite criar o script da maioria das tarefas de gerenciamento de recursos e executar essas tarefas de modo agendado ou sob demanda. Como parte desse cenário, você criará um [runbook de Automação do Azure](../../automation/automation-runbook-types.md) que será usado para interromper as VMs. Você usará o runbook gráfico [Interromper VMs do Azure V2](https://gallery.technet.microsoft.com/scriptcenter/Stop-Azure-ARM-VMs-1ba96d5b) da [galeria](../../automation/automation-runbook-gallery.md) para criar esse cenário. Ao importar esse runbook para a sua conta do Azure e publicá-lo, você poderá interromper as VMs quando um limite de orçamento for atingido.
 
 ### <a name="create-an-azure-automation-account"></a>Criar uma conta de Automação do Azure
 
@@ -49,7 +49,7 @@ A [Automação do Azure](https://docs.microsoft.com/azure/automation/automation-
 
 ### <a name="import-the-stop-azure-v2-vms-runbook"></a>Importar o runbook Interromper VMs do Azure V2
 
-Usando um [runbook de Automação do Azure](https://docs.microsoft.com/azure/automation/automation-runbook-types), importe o runbook gráfico [Interromper VMs do Azure V2](https://gallery.technet.microsoft.com/scriptcenter/Stop-Azure-ARM-VMs-1ba96d5b) da galeria.
+Usando um [runbook de Automação do Azure](../../automation/automation-runbook-types.md), importe o runbook gráfico [Interromper VMs do Azure V2](https://gallery.technet.microsoft.com/scriptcenter/Stop-Azure-ARM-VMs-1ba96d5b) da galeria.
 
 1. Entre no [portal do Azure](https://portal.azure.com/) com suas credenciais da conta do Azure.
 1. Abra sua conta de Automação selecionando **Todos os serviços** > **Contas de Automação**. Em seguida, selecione sua Conta de Automação.
@@ -60,7 +60,7 @@ Usando um [runbook de Automação do Azure](https://docs.microsoft.com/azure/aut
 1. Depois que o runbook tiver concluído o processo de importação, selecione **Editar** para exibir a opção de publicação e o editor de runbook gráfico.  
     ![Azure – Editar runbook gráfico](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-01.png)
 1. Selecione **Publicar** para publicar o runbook e, em seguida, **Sim** quando solicitado. Quando você publica um runbook, substitui a versão Publicada existente pela versão de rascunho. Nesse caso, você não tem nenhuma versão publicada porque você criou o runbook.
-    Para obter mais informações sobre como publicar um runbook, consulte [Criar um runbook gráfico](https://docs.microsoft.com/azure/automation/automation-first-runbook-graphical).
+    Para obter mais informações sobre como publicar um runbook, consulte [Criar um runbook gráfico](../../automation/learn/automation-tutorial-runbook-graphical.md).
 
 ## <a name="create-webhooks-for-the-runbook"></a>Criar webhooks para o runbook
 
@@ -91,7 +91,7 @@ Agora você concluiu a configuração da Automação do Azure. Você pode testar
 
 ## <a name="create-an-azure-logic-app-for-orchestration"></a>Criar um Aplicativo Lógico do Azure para orquestração
 
-Os Aplicativos Lógicos ajudam você a criar, agendar e automatizar processos como fluxos de trabalho, de modo que você possa integrar aplicativos, dados, sistemas e serviços entre empresas ou organizações. Nesse cenário, o [Aplicativo Lógico](https://docs.microsoft.com/azure/logic-apps/) que você criou fará um pouco mais do que apenas chamar o webhook de automação que você criou.
+Os Aplicativos Lógicos ajudam você a criar, agendar e automatizar processos como fluxos de trabalho, de modo que você possa integrar aplicativos, dados, sistemas e serviços entre empresas ou organizações. Nesse cenário, o [Aplicativo Lógico](../../logic-apps/index.yml) que você criou fará um pouco mais do que apenas chamar o webhook de automação que você criou.
 
 Orçamentos podem ser configurados para disparar uma notificação quando um limite especificado for atingido. Você pode fornecer vários limites nos quais ser notificado e o Aplicativo Lógico demonstrará a capacidade de executar ações diferentes com base no limite atingido. Neste exemplo, você vai configurar um cenário em que obterá duas notificações: a primeira ao atingir 80% do orçamento e a segunda ao atingir 100% do orçamento. O aplicativo lógico será usado para desligar todas as VMs no grupo de recursos. Primeiro, o limite **Opcional** será atingido em 80%, em seguida, o segundo limite será atingido, quando todas as VMs na assinatura serão desligadas.
 
@@ -122,11 +122,11 @@ Depois que o Azure implantar o aplicativo lógico, o **Designer de Aplicativos L
 Cada aplicativo lógico deve começar com um gatilho, que é disparado quando um evento específico ocorre ou quando uma condição específica é atendida. Cada vez que o disparador é acionado, o mecanismo de Aplicativos Lógicos cria uma instância de aplicativo lógico que inicia e executa o fluxo de trabalho. Ações são todas as etapas que ocorrem após o gatilho.
 
 1. Em **Modelos** da área **Designer de Aplicativos Lógicos**, escolha **Aplicativo Lógico em Branco**.
-1. Adicione um [gatilho](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview#logic-app-concepts) inserindo "solicitação http" na caixa de pesquisa **Designer de Aplicativos Lógicos** para localizar e selecionar o gatilho chamado **Solicitação – Quando uma solicitação HTTP é recebida**.  
+1. Adicione um [gatilho](../../logic-apps/logic-apps-overview.md#logic-app-concepts) inserindo "solicitação http" na caixa de pesquisa **Designer de Aplicativos Lógicos** para localizar e selecionar o gatilho chamado **Solicitação – Quando uma solicitação HTTP é recebida**.  
     ![Azure – Aplicativo lógico – Gatilho HTTP](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-04.png)
 1. Selecione **Nova etapa** > **Adicionar uma ação**.  
     ![Azure – Nova etapa – Adicionar uma ação](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-05.png)
-1. Pesquise "analisar JSON" na caixa de pesquisa **Designer de Aplicativos Lógicos** para localizar e selecionar a **ação** [Operações de Dados – Analisar JSON](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview#logic-app-concepts).  
+1. Pesquise "analisar JSON" na caixa de pesquisa **Designer de Aplicativos Lógicos** para localizar e selecionar a **ação** [Operações de Dados – Analisar JSON](../../logic-apps/logic-apps-overview.md#logic-app-concepts).  
     ![Azure – Aplicativo lógico – Adicionar ação de análise de JSON](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-06.png)
 1. Insira "Carga" como o nome do **Conteúdo** da carga de Analisar JSON ou use a marca "Body" do conteúdo dinâmico.
 1. Selecione a opção **Usar payload de amostra para gerar esquema** na caixa **Analisar JSON**.  
@@ -152,7 +152,7 @@ Use uma instrução condicional para verificar se o valor de limite atingiu 80% 
 1. Selecione **OK** para definir a expressão.
 1. Selecione **é maior ou igual a** na caixa suspensa da **Condição**.
 1. Na caixa **Escolher um valor** da condição, insira `.8`.  
-    ![Azure – Aplicativo lógico – Expressão float com um valor](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-12.png)
+    ![A captura de tela mostra a caixa de diálogo Condição com os valores selecionados.](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-12.png)
 1. Selecione **Adicionar** > **Adicionar linha** na caixa Condição para adicionar outra parte da condição.
 1. Na caixa **Condição**, selecione a caixa de texto que contém `Choose a value`.
 1. Selecione **Expressão** na parte superior da lista e insira a seguinte expressão no editor de expressão: `float()`
@@ -160,7 +160,7 @@ Use uma instrução condicional para verificar se o valor de limite atingiu 80% 
 1. Selecione **OK** para definir a expressão.
 1. Selecione **é menor que** na caixa suspensa da **Condição**.
 1. Na caixa **Escolher um valor** da condição, insira `1`.  
-    ![Azure – Aplicativo lógico – Expressão float com um valor](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-13.png)
+    ![A captura de tela mostra a caixa de diálogo Condição com duas condições.](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-13.png)
 1. Na caixa **Se true**, selecione **Adicionar uma ação**. Você adicionará uma ação HTTP POST que desligará as VMs opcionais.  
     ![Azure – Aplicativo lógico – Adicionar uma ação](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-14.png)
 1. Insira **HTTP** para pesquisar a ação HTTP e selecione a ação **HTTP – HTTP**.  
@@ -183,7 +183,7 @@ Use uma instrução condicional para verificar se o valor de limite atingiu 80% 
 Use uma instrução condicional para verificar se o valor de limite atingiu ou excedeu 100% do valor do orçamento. Se o valor de limite tiver sido atingido, envie um HTTP POST usando o webhook chamado **Concluir**. Essa ação desligará todas as VMs restantes.
 
 1. Selecione **Nova etapa** > **Adicionar uma Condição**.  
-    ![Azure – Aplicativo lógico – Adicionar ação](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-20.png)
+    ![A captura de tela mostra a caixa de diálogo Se verdadeiro com a opção Adicionar uma ação destacada.](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-20.png)
 1. Na caixa **Condição**, selecione a caixa de texto que contém `Choose a value` para exibir uma lista de valores disponíveis.
 1. Selecione **Expressão** na parte superior da lista e insira a seguinte expressão no editor de expressão: `float()`
 1. Selecione **Conteúdo dinâmico**, coloque o cursor dentro dos parênteses () e selecione **NotificationThresholdAmount** na lista para preencher a expressão completa.
@@ -194,11 +194,11 @@ Use uma instrução condicional para verificar se o valor de limite atingiu ou e
 1. Na caixa **Escolher um valor** para a condição, insira `1`.  
     ![Azure – Aplicativo lógico – Definir valor da condição](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-21.png)
 1. Na caixa **Se true**, selecione **Adicionar uma ação**. Você adicionará uma ação HTTP POST que desligará todas as VMs restantes.  
-    ![Azure – Aplicativo lógico – Adicionar uma ação](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-22.png)
+    ![A captura de tela mostra a caixa de diálogo Se verdadeiro com a qual você pode adicionar uma ação HTTP POST.](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-22.png)
 1. Insira **HTTP** para pesquisar a ação HTTP e selecione a ação **HTTP – HTTP**.
 1. Selecione **Post** como o valor do **Método**.
 1. Insira a URL para o webhook chamado **Completo** que você criou neste tutorial como o valor do **Uri**.  
-    ![Azure – Aplicativo lógico – Adicionar uma ação](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-23.png)
+    ![A captura de tela mostra a caixa de diálogo HTTP em que você pode inserir o valor da URL.](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-23.png)
 1. Selecione **Adicionar uma ação** na caixa **Se true**. Você adicionará uma ação de email que enviará um email notificando o destinatário de que as VMs restantes foram desligadas.
 1. Pesquise "enviar email" e selecione uma ação de *enviar email* de acordo com o serviço de email que você usa.
 1. Adicione o texto **Para**, **Assunto** e **Corpo** para o email que notifica o destinatário de que as VMs opcionais foram sido desligadas. Use o conteúdo dinâmico **BudgetName** e **NotificationThresholdAmount** para preencher os campos de assunto e corpo.  
@@ -311,7 +311,7 @@ Em seguida, você vai configurar o **Postman** para criar um orçamento chamando
     ```
 1. Pressione **Enviar** para enviar a solicitação.
 
-Agora você tem todas as partes de que precisa chamar a [API de orçamentos](https://docs.microsoft.com/rest/api/consumption/budgets). A referência de API de orçamentos traz detalhes adicionais sobre as solicitações específicas, incluindo:
+Agora você tem todas as partes de que precisa chamar a [API de orçamentos](/rest/api/consumption/budgets). A referência de API de orçamentos traz detalhes adicionais sobre as solicitações específicas, incluindo:
 
 - **budgetName** – há suporte para vários orçamentos.  Os nomes de orçamento devem ser exclusivos.
 - **categoria** – deve ser **Custo** ou **Uso**. A API dá suporte a orçamentos de uso e custo.

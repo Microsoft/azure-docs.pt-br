@@ -9,15 +9,15 @@ ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: 2647c604bebc2885f5c8516eb997792b65751e88
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80876059"
 ---
 ## <a name="create-an-computer-vision-resource"></a>Criar um recurso de Pesquisa Visual Computacional
 
-1. Entre no [portal do Azure](https://portal.azure.com).
+1. Faça logon no [Portal do Azure](https://portal.azure.com).
 1. Clique em [criar **Pesquisa Visual computacional** ](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision) recurso.
 1. Insira todas as configurações necessárias:
 
@@ -30,4 +30,4 @@ ms.locfileid: "80876059"
     |Grupo de recursos|Selecione um grupo de recursos disponível|
 
 1. Clique em **Criar** e aguarde até que o recurso seja criado. Após a criação dele, navegue até a página do recurso.
-1. Coletar configurado `{ENDPOINT_URI}` e `{API_KEY}`, consulte [coletando parâmetros necessários](../computer-vision-how-to-install-containers.md#gathering-required-parameters) para obter detalhes.
+1. Coletar configurado `{ENDPOINT_URI}` e `{API_KEY}` , consulte [coletando parâmetros necessários](../computer-vision-how-to-install-containers.md#gathering-required-parameters) para obter detalhes.

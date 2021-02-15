@@ -9,12 +9,13 @@ ms.subservice: blobs
 ms.topic: quickstart
 ms.date: 03/31/2020
 ms.author: tamram
-ms.openlocfilehash: 6ea03b1ff2e2a1e9b7d5256a0f1417c5ac113e0e
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: b051a4ffe4d24e1ef0e69ab7c18a8ed3388b57e5
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067317"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "89078275"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-with-powershell"></a>Início Rápido: Carregar, baixar e listar blobs com o PowerShell
 

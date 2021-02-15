@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: maquaran
-ms.openlocfilehash: d4fbadd03f443d28376a122c7ecb06c475c2247d
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 329c4b40f11b36de80581d4a1396813bc8de5c73
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85850691"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010309"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Expandindo o Azure Cosmos DB para as redes sociais
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Viver em uma sociedade amplamente interconectada significa que, em determinado momento da vida, você acaba se tornando parte de uma **rede social**. Você usa redes sociais para manter contato com amigos, colegas, família ou, às vezes, para compartilhar seu entusiasmo com pessoas que têm os mesmos interesses.
 
@@ -216,9 +217,9 @@ Como você está usando Azure Cosmos DB, é possível implementar facilmente um 
 
 Por que esse processo é tão fácil?
 
-O Azure Pesquisa Cognitiva implementa o que eles chamam de [indexadores](https://msdn.microsoft.com/library/azure/dn946891.aspx), processos em segundo plano que conectam seus repositórios de dados e adicionam, atualizam ou removem de forma automática os objetos nos índices. Eles dão suporte a [indexadores do Banco de Dados SQL do Azure](https://blogs.msdn.microsoft.com/kaevans/2015/03/06/indexing-azure-sql-database-with-azure-search/), [indexadores dos Blobs do Azure](../search/search-howto-indexing-azure-blob-storage.md) e, ainda bem, [indexadores do Azure Cosmos DB](../search/search-howto-index-documentdb.md). A transição de informações de Cosmos DB para Pesquisa Cognitiva do Azure é simples. Ambas as tecnologias armazenam informações no formato JSON, portanto, você precisa apenas [criar seu índice](../search/search-create-index-portal.md) e mapear os atributos de seus documentos que você deseja indexar. É isso! Dependendo do tamanho dos seus dados, todo o seu conteúdo será disponibilizado a ser pesquisado dentro de minutos, a melhor solução de pesquisa como serviço na infraestrutura de nuvem.
+O Azure Pesquisa Cognitiva implementa o que eles chamam de [indexadores](/rest/api/searchservice/Indexer-operations), processos em segundo plano que conectam seus repositórios de dados e adicionam, atualizam ou removem de forma automática os objetos nos índices. Eles dão suporte a [indexadores do Banco de Dados SQL do Azure](/archive/blogs/kaevans/indexing-azure-sql-database-with-azure-search), [indexadores dos Blobs do Azure](../search/search-howto-indexing-azure-blob-storage.md) e, ainda bem, [indexadores do Azure Cosmos DB](../search/search-howto-index-cosmosdb.md). A transição de informações de Cosmos DB para Pesquisa Cognitiva do Azure é simples. Ambas as tecnologias armazenam informações no formato JSON, portanto, você precisa apenas [criar seu índice](../search/search-what-is-an-index.md) e mapear os atributos de seus documentos que você deseja indexar. É isso! Dependendo do tamanho dos seus dados, todo o seu conteúdo será disponibilizado a ser pesquisado dentro de minutos, a melhor solução de pesquisa como serviço na infraestrutura de nuvem.
 
-Para obter mais informações sobre o Azure Pesquisa Cognitiva, você pode visitar o [Guia do Hitchhiker ' s para pesquisar](https://blogs.msdn.microsoft.com/mvpawardprogram/2016/02/02/a-hitchhikers-guide-to-search/).
+Para obter mais informações sobre o Azure Pesquisa Cognitiva, você pode visitar o [Guia do Hitchhiker ' s para pesquisar](/archive/blogs/mvpawardprogram/a-hitchhikers-guide-to-search).
 
 ## <a name="the-underlying-knowledge"></a>O conhecimento subjacente
 

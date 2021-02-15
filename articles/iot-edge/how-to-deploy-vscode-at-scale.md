@@ -9,16 +9,16 @@ ms.date: 1/8/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 92540c57179ae0198f78b588681167fe48097362
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9ae7009468b548cb9386fd405abfbe110d62f9a3
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82134358"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100377509"
 ---
 # <a name="deploy-iot-edge-modules-at-scale-using-visual-studio-code"></a>Implantar módulos IoT Edge em escala usando Visual Studio Code
 
-Você pode criar uma **IOT Edge implantação automática** usando Visual Studio Code para gerenciar implantações em andamento para vários dispositivos de uma vez. As implantações automáticas para IoT Edge fazem parte do recurso [Gerenciamento automático de dispositivo](/azure/iot-hub/iot-hub-automatic-device-management) do Hub IoT. As implantações são processos dinâmicos que permitem implantar vários módulos em vários dispositivos. Você também pode acompanhar o status e a integridade dos módulos e fazer alterações quando necessário.
+Você pode criar uma **IOT Edge implantação automática** usando Visual Studio Code para gerenciar implantações em andamento para vários dispositivos de uma vez. As implantações automáticas para IoT Edge fazem parte do recurso [Gerenciamento automático de dispositivo](../iot-hub/iot-hub-automatic-device-management.md) do Hub IoT. As implantações são processos dinâmicos que permitem implantar vários módulos em vários dispositivos. Você também pode acompanhar o status e a integridade dos módulos e fazer alterações quando necessário.
 
 Para saber mais, veja [Noções básicas sobre implantações automáticas do IoT Edge para dispositivos únicos ou em escala](module-deployment-monitoring.md).
 
@@ -27,7 +27,10 @@ Neste artigo, você configura Visual Studio Code e a extensão de IoT. Em seguid
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Um [Hub IoT](../iot-hub/iot-hub-create-through-portal.md) na assinatura do Azure.
-* Um [Dispositivo do IoT Edge](how-to-register-device.md#register-with-visual-studio-code) com o runtime do IoT Edge instalado.
+* Um ou mais dispositivos IoT Edge.
+
+  Se você não tiver um dispositivo IoT Edge configurado, poderá criar um em uma máquina virtual do Azure. Siga as etapas em um dos artigos de início rápido para [criar um dispositivo Linux Virtual](quickstart-linux.md) ou [criar um dispositivo virtual do Windows](quickstart.md).
+
 * [Visual Studio Code](https://code.visualstudio.com/).
 * [Ferramentas IoT do Azure](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools#overview) para Visual Studio Code.
 
@@ -57,13 +60,16 @@ Para implantar módulos usando o Visual Studio Code, salve o manifesto de implan
 
 A seguir, é apresentado um manifesto básico de implantação com um módulo como um exemplo:
 
+>[!NOTE]
+>Este manifesto de implantação de exemplo usa a versão de esquema 1,1 para o agente de IoT Edge e o Hub. A versão de esquema 1,1 foi lançada junto com IoT Edge versão 1.0.10 e habilita recursos como ordem de inicialização de módulo e priorização de rota.
+
 ```json
 {
   "content": {
     "modulesContent": {
       "$edgeAgent": {
         "properties.desired": {
-          "schemaVersion": "1.0",
+          "schemaVersion": "1.1",
           "runtime": {
             "type": "docker",
             "settings": {
@@ -76,7 +82,7 @@ A seguir, é apresentado um manifesto básico de implantação com um módulo co
             "edgeAgent": {
               "type": "docker",
               "settings": {
-                "image": "mcr.microsoft.com/azureiotedge-agent:1.0",
+                "image": "mcr.microsoft.com/azureiotedge-agent:1.1",
                 "createOptions": "{}"
               }
             },
@@ -85,14 +91,14 @@ A seguir, é apresentado um manifesto básico de implantação com um módulo co
               "status": "running",
               "restartPolicy": "always",
               "settings": {
-                "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
+                "image": "mcr.microsoft.com/azureiotedge-hub:1.1",
                 "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}]}}}"
               }
             }
           },
           "modules": {
             "SimulatedTemperatureSensor": {
-              "version": "1.0",
+              "version": "1.1",
               "type": "docker",
               "status": "running",
               "restartPolicy": "always",
@@ -223,7 +229,7 @@ Depois de configurar o manifesto de implantação e as marcas configuradas no di
   | Parâmetro | Descrição |
   | --- | --- |
   | ID de Implantação | O nome da implantação que será criada no Hub IoT. Dê à sua implantação um nome exclusivo com até 128 letras minúsculas. Evite usar espaços e os seguintes caracteres inválidos: `& ^ [ ] { } \ | " < > /`. |
-  | Condição de destino | Insira uma condição de destino para determinar quais dispositivos serão direcionados a essa implantação. A condição se baseia nas marcas do dispositivo gêmeo ou propriedades reportadas do dispositivo gêmeo e deve corresponder ao formato da expressão.Por exemplo, `tags.environment='test' and properties.reported.devicemodel='4000x'` . |
+  | Condição de destino | Insira uma condição de destino para determinar quais dispositivos serão direcionados a essa implantação.  A condição se baseia nas marcas do dispositivo gêmeo ou propriedades reportadas do dispositivo gêmeo e deve corresponder ao formato da expressão.  Por exemplo, `tags.environment='test' and properties.reported.devicemodel='4000x'`. |
   | Prioridade |  Um número inteiro positivo. Se duas ou mais implantações forem direcionadas ao mesmo dispositivo, a implantação com o maior valor numérico para prioridade será aplicada. |
 
   Depois de especificar a prioridade, o terminal deve exibir uma saída semelhante à seguinte descrição:

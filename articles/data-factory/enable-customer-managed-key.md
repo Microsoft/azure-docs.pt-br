@@ -9,18 +9,18 @@ ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: chez
 ms.reviewer: mariozi
-ms.openlocfilehash: 9caa4690fa6b9d6c473bb8863acdcbbe15a37fba
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: f1a7bffc05d83b30fe9e5bcd6e17bf6bc0192e1d
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85569325"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348935"
 ---
 # <a name="encrypt-azure-data-factory-with-customer-managed-keys"></a>Criptografar o Azure Data Factory com chaves gerenciadas pelo cliente
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-O Azure Data Factory criptografa dados em repouso, incluindo definições de entidade, quaisquer dados armazenados em cache enquanto as execuções estiverem em andamento e os dados armazenados em cache para visualização. Por padrão, os dados são criptografados com uma chave gerenciada pela Microsoft gerada aleatoriamente, atribuída exclusivamente ao seu data factory. Para maior garantia de segurança, agora você pode habilitar a BYOK (Bring Your Own Key) com o recurso de chaves gerenciadas pelo cliente no Azure Data Factory. Quando você especifica uma chave gerenciada pelo cliente, o Data Factory usa __ambas__, a chave de sistema e a CMK, para criptografar os dados do cliente. A ausência de qualquer uma delas resultaria na Negação de Acesso aos dados e ao alocador.
+O Azure Data Factory criptografa dados em repouso, incluindo definições de entidade e todos os dados armazenados em cache enquanto as execuções estão em andamento. Por padrão, os dados são criptografados com uma chave gerenciada pela Microsoft gerada aleatoriamente, atribuída exclusivamente ao seu data factory. Para maior garantia de segurança, agora você pode habilitar a BYOK (Bring Your Own Key) com o recurso de chaves gerenciadas pelo cliente no Azure Data Factory. Quando você especifica uma chave gerenciada pelo cliente, o Data Factory usa __ambas__, a chave de sistema e a CMK, para criptografar os dados do cliente. A ausência de qualquer uma delas resultaria na Negação de Acesso aos dados e ao alocador.
 
 O Azure Key Vault é obrigatório para armazenar as chaves gerenciadas pelo cliente. Você pode criar suas próprias chaves e armazená-las em um cofre de chaves ou pode usar as APIs do Azure Key Vault para gerar chaves. O cofre de chaves e o Data Factory devem estar no mesmo locatário do Azure AD (Azure Active Directory) e na mesma região, mas podem estar em assinaturas diferentes. Para obter mais informações sobre o Cofre da Chave do Azure, consulte [O que é o Cofre da Chave do Azure?](../key-vault/general/overview.md)
 
@@ -47,8 +47,8 @@ A seguinte lista explica as etapas enumeradas no diagrama:
 
 O uso de chaves gerenciadas pelo cliente com o Data Factory exige que duas propriedades sejam definidas no Key Vault: __Exclusão Temporária__ e __Não Limpar__. Essas propriedades podem ser habilitadas usando o PowerShell ou a CLI do Azure em um cofre de chaves novo ou existente. Para saber como habilitar essas propriedades em um cofre de chaves existente, confira as seções intituladas _Como habilitar a exclusão temporária_ e _Como habilitar a proteção contra a limpeza_ em um dos seguintes artigos:
 
-- [Como usar a exclusão reversível com o PowerShell](../key-vault/general/soft-delete-powershell.md)
-- [Como usar a exclusão temporária com a CLI](../key-vault/general/soft-delete-cli.md)
+- [Como usar a exclusão reversível com o PowerShell](../key-vault/general/key-vault-recovery.md)
+- [Como usar a exclusão temporária com a CLI](../key-vault/general/key-vault-recovery.md)
 
 Se você estiver criando um novo Azure Key Vault por meio do portal do Azure, as propriedades __Exclusão Temporária__ e __Não Limpar__ podem ser habilitadas da seguinte maneira:
 
@@ -76,7 +76,7 @@ Você pode criar suas próprias chaves e armazená-las em um cofre de chaves ou 
 
     ![Captura de tela – Obter o URI da chave do Key Vault](media/enable-customer-managed-key/04-get-key-identifier.png)
 
-1. Inicie o portal do Azure Data Factory e, usando a barra de navegação à esquerda, vá para a home page do Data Factory
+1. Inicie o portal do Azure Data Factory e, usando a barra de navegação à esquerda, vá para o Portal de Gerenciamento do Data Factory
 
 1. Clique no ícone __Chave gerenciada pelo cliente__
 

@@ -9,12 +9,12 @@ ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 8f0a8903f90b134c35d9adb35a493d989d414b56
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: b36ea25180c31fef199aaacb10e46b3caa20f807
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87293964"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878368"
 ---
 # <a name="azcopy-load-clfs"></a>azcopy load clfs
 
@@ -45,7 +45,7 @@ azcopy load clfs [local dir] [container URL] [flags]
 ## <a name="related-conceptual-articles"></a>Artigos conceituais relacionados
 
 - [Introdução ao AzCopy](storage-use-azcopy-v10.md)
-- [Transferir dados com o armazenamento de BLOBs e AzCopy](storage-use-azcopy-blobs.md)
+- [Transferir dados com o armazenamento de BLOBs e AzCopy](./storage-use-azcopy-v10.md#transfer-data)
 - [Transferir dados com o AzCopy e o Armazenamento de Arquivos](storage-use-azcopy-files.md)
 - [Configurar, otimizar e solucionar problemas do AzCopy](storage-use-azcopy-configure.md)
 
@@ -61,7 +61,7 @@ azcopy load clfs "/path/to/dir" "https://[account].blob.core.windows.net/[contai
 
 **--cadeia de caracteres de tipo de compactação** especifique o tipo de compactação a ser usado para as transferências. Os valores disponíveis são: `DISABLED` , `LZ4` . (padrão `LZ4` )
 
-**--** ajuda ajuda para o `azcopy load clfs` comando.
+**--**    ajuda ajuda para o `azcopy load clfs` comando.
 
 **--** cadeia de caracteres de nível de log defina o detalhamento de log para o arquivo de log, níveis disponíveis: `DEBUG` , `INFO` , `WARNING` , `ERROR` . (padrão `INFO` )
 

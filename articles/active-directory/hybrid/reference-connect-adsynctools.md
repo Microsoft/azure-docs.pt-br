@@ -5,17 +5,18 @@ author: billmath
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.date: 04/23/2020
+ms.date: 11/30/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.topic: reference
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11c9d66f891e8f5d53fc2a965e75f095417d20d4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 1652c52dcc6870e396d74a2f38fe63c304d37df5
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82184003"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672261"
 ---
 # <a name="azure-ad-connect--adsynctools-powershell-reference"></a>Azure AD Connect: Referência do PowerShell ADSyncTools
 A documentação a seguir fornece informações de referência para o módulo do PowerShell ADSyncTools.psm1 que é incluído com o Azure AD Connect.
@@ -26,7 +27,9 @@ Para instalar o módulo do PowerShell do ADSyncTools, faça o seguinte:
 1.  Abrir o Windows PowerShell com privilégios administrativos
 2.  Digite ou copie e cole o seguinte: 
     ``` powershell
-    Import-module -Name "C:\Program Files\Microsoft Azure Active Directory Connect\Tools\AdSyncTools"
+        [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+        Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
+        Import-module -Name "C:\Program Files\Microsoft Azure Active Directory Connect\Tools\AdSyncTools"
     ```
 3.  Pressione Enter.
 4.  Para verificar se o módulo foi instalado, insira ou copie e cole o seguinte "
@@ -554,7 +557,7 @@ As consultas de função o histórico de execuções do AAD Connect e exporta to
 ```
 
 $sourcePath = Read-Host-prompt "Insira o caminho do arquivo de log com o nome de arquivo" # " \<Source_Path\> " $outputPath = Read-Host-prompt "Insira o caminho do arquivo de saída com o nome de arquivo" # " \<Out_Path\> "
- 
+
  Get-ADSyncToolsUsersSourceAnchorChanged -sourcePath $sourcePath -outputPath $outputPath
 
 #### <a name="example-2"></a>EXEMPLO 2

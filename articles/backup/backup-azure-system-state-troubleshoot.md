@@ -4,12 +4,12 @@ description: Neste artigo, saiba como solucionar problemas no backup de estado d
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/22/2019
-ms.openlocfilehash: 7eb596853bfe17ec5bf14c8830c1b95bde5b7c98
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 7c8e68da1c5da7b25d1385a82bf7dcc2f876306d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89022353"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89376274"
 ---
 # <a name="troubleshoot-system-state-backup"></a>Solucionar problemas de backup do estado do sistema
 
@@ -66,20 +66,20 @@ Para instalar Backup do Windows Server usando o PowerShell, execute o seguinte c
 
 Para instalar Backup do Windows Server usando Gerenciador do Servidor, execute as seguintes etapas:
 
-1. Em **Gerenciador de servidores**, clique em **adicionar funções e recursos**. O **Assistente Adicionar funções e recursos** é exibido.
+1. Em **Gerenciador de servidores**, selecione **adicionar funções e recursos**. O **Assistente Adicionar funções e recursos** é exibido.
 
     ![Painel](./media/backup-azure-system-state-troubleshoot/server_management.jpg)
 
-2. Selecione o **tipo de instalação** e clique em **Avançar**.
+2. Selecione o **tipo de instalação** e selecione **Avançar**.
 
     ![Tipo de Instalação](./media/backup-azure-system-state-troubleshoot/install_type.jpg)
 
-3. Selecione um servidor no pool de servidores e clique em **Avançar**. Na função de servidor, deixe a seleção padrão e clique em **Avançar**.
-4. Selecione **backup do Windows Server** na guia **recursos** e clique em **Avançar**.
+3. Selecione um servidor no pool de servidores e selecione **Avançar**. Na função de servidor, deixe a seleção padrão e selecione **Avançar**.
+4. Selecione **backup do Windows Server** na guia **recursos** e selecione **Avançar**.
 
     ![Selecionar janela de recursos](./media/backup-azure-system-state-troubleshoot/features.png)
 
-5. Na guia **confirmação** , clique em **instalar** para iniciar o processo de instalação.
+5. Na guia **confirmação** , selecione **instalar** para iniciar o processo de instalação.
 6. Na guia **resultados** , ele exibirá a backup do Windows Server recurso foi instalado com êxito no Windows Server.
 
     ![Resultados da instalação](./media/backup-azure-system-state-troubleshoot/results.jpg)
@@ -94,9 +94,9 @@ Verifique se os serviços abaixo estão no estado executando:
 
 **Nome do Serviço** | **Tipo de inicialização**
 --- | ---
-RPC (chamada de procedimento remoto) | Automático
-Sistema de eventos COM+ (EventSystem) | Automático
-Serviço de notificação de eventos do sistema (SENS) | Automático
+RPC (chamada de procedimento remoto) | Automática
+Sistema de eventos COM+ (EventSystem) | Automática
+Serviço de notificação de eventos do sistema (SENS) | Automática
 VSS (cópia de sombra de volume) | Manual
 Provedor de cópia de sombra de software da Microsoft (SWPRV) | Manual
 

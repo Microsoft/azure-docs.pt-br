@@ -1,14 +1,14 @@
 ---
 author: paulbouwer
 ms.topic: include
-ms.date: 11/15/2019
+ms.date: 10/02/2020
 ms.author: pabouwer
-ms.openlocfilehash: e26a2c214a03243d6507296c1e981706be8c56db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a02c17013a205ccc0da85536b491d467ef72fa48
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81734102"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91666682"
 ---
 ## <a name="download-and-install-the-istio-istioctl-client-binary"></a>Baixar e instalar o binário do cliente İSTİO istioctl
 
@@ -16,21 +16,19 @@ Em um shell baseado no PowerShell no Windows, use `Invoke-WebRequest` para baixa
 
 ```powershell
 # Specify the Istio version that will be leveraged throughout these instructions
-$ISTIO_VERSION="1.4.0"
+$ISTIO_VERSION="1.7.3"
 
-# Enforce TLS 1.2
 [Net.ServicePointManager]::SecurityProtocol = "tls12"
-$ProgressPreference = 'SilentlyContinue'; Invoke-WebRequest -URI "https://github.com/istio/istio/releases/download/$ISTIO_VERSION/istio-$ISTIO_VERSION-win.zip" -OutFile "istio-$ISTIO_VERSION.zip"
-Expand-Archive -Path "istio-$ISTIO_VERSION.zip" -DestinationPath .
+$ProgressPreference = 'SilentlyContinue'; Invoke-WebRequest -URI "https://github.com/istio/istio/releases/download/$ISTIO_VERSION/istioctl-$ISTIO_VERSION-win.zip" -OutFile "istioctl-$ISTIO_VERSION.zip"
+Expand-Archive -Path "istioctl-$ISTIO_VERSION.zip" -DestinationPath .
 ```
 
-O `istioctl` binário do cliente é executado no computador cliente e permite que você interaja com a malha do serviço İSTİO. Use os comandos a seguir para instalar o `istioctl` binário do cliente İSTİO em um shell baseado no PowerShell no Windows. Esses comandos copiam o `istioctl` binário do cliente para uma pasta İSTİO e, em seguida, o disponibilizam imediatamente (no shell atual) e permanentemente (através de reinicializações do Shell) por meio de seu `PATH` . Você não precisa de privilégios elevados (administrador) para executar esses comandos e não precisa reiniciar o Shell.
+O `istioctl` binário do cliente é executado no computador cliente e permite que você instale e gerencie İSTİO em seu cluster do AKS. Use os comandos a seguir para instalar o `istioctl` binário do cliente İSTİO em um shell baseado no PowerShell no Windows. Esses comandos copiam o `istioctl` binário do cliente para uma pasta İSTİO e, em seguida, o disponibilizam imediatamente (no shell atual) e permanentemente (através de reinicializações do Shell) por meio de seu `PATH` . Você não precisa de privilégios elevados (administrador) para executar esses comandos e não precisa reiniciar o Shell.
 
 ```powershell
 # Copy istioctl.exe to C:\Istio
-cd istio-$ISTIO_VERSION
 New-Item -ItemType Directory -Force -Path "C:\Istio"
-Copy-Item -Path .\bin\istioctl.exe -Destination "C:\Istio\"
+Move-Item -Path .\istioctl.exe -Destination "C:\Istio\"
 
 # Add C:\Istio to PATH. 
 # Make the new PATH permanently available for the current User

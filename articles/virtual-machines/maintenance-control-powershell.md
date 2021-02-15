@@ -5,18 +5,18 @@ author: cynthn
 ms.service: virtual-machines
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 01/31/2020
+ms.date: 11/19/2020
 ms.author: cynthn
-ms.openlocfilehash: 3204de6ea497666108ce63b1a3cfa77c6faa6b59
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2cc935e81e867609159b5c150b6ee7c346bb9f8e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87028644"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026141"
 ---
 # <a name="control-updates-with-maintenance-control-and-azure-powershell"></a>Controlar atualizações com controle de manutenção e Azure PowerShell
 
-O controle de manutenção permite que você decida quando aplicar atualizações às VMs isoladas e aos hosts dedicados do Azure. Este tópico aborda as opções de Azure PowerShell para o controle de manutenção. Para obter mais informações sobre os benefícios de usar o controle de manutenção, suas limitações e outras opções de gerenciamento, consulte [gerenciando atualizações de plataforma com o controle de manutenção](maintenance-control.md).
+O controle de manutenção permite que você decida quando aplicar atualizações de plataforma à infraestrutura de host de suas VMs isoladas e hosts dedicados do Azure. Este tópico aborda as opções de Azure PowerShell para o controle de manutenção. Para obter mais informações sobre os benefícios de usar o controle de manutenção, suas limitações e outras opções de gerenciamento, consulte [gerenciando atualizações de plataforma com o controle de manutenção](maintenance-control.md).
  
 ## <a name="enable-the-powershell-module"></a>Habilitar o módulo do PowerShell
 
@@ -59,13 +59,37 @@ $config = New-AzMaintenanceConfiguration `
 
 O uso de `-MaintenanceScope host` garante que a configuração de manutenção seja usada para controlar atualizações no host.
 
-Se você tentar criar uma configuração com o mesmo nome, mas em um local diferente, receberá um erro. Os nomes de configuração devem ser exclusivos para sua assinatura.
+Se você tentar criar uma configuração com o mesmo nome, mas em um local diferente, receberá um erro. Os nomes de configuração devem ser exclusivos para seu grupo de recursos.
 
 Você pode consultar as configurações de manutenção disponíveis usando [Get-AzMaintenanceConfiguration](/powershell/module/az.maintenance/get-azmaintenanceconfiguration).
 
 ```azurepowershell-interactive
 Get-AzMaintenanceConfiguration | Format-Table -Property Name,Id
 ```
+
+### <a name="create-a-maintenance-configuration-with-scheduled-window"></a>Criar uma configuração de manutenção com a janela agendada
+
+Você também pode declarar uma janela agendada quando o Azure aplicará as atualizações em seus recursos. Este exemplo cria uma configuração de manutenção chamada myconfig com uma janela agendada de 5 horas na quarta segunda-feira de cada mês. Depois de criar uma janela agendada, você não precisa mais aplicar as atualizações manualmente.
+
+```azurepowershell-interactive
+$config = New-AzMaintenanceConfiguration `
+   -ResourceGroup $RGName `
+   -Name $MaintenanceConfig `
+   -MaintenanceScope Host `
+   -Location $location `
+   -StartDateTime "2020-10-01 00:00" `
+   -TimeZone "Pacific Standard Time" `
+   -Duration "05:00" `
+   -RecurEvery "Month Fourth Monday"
+```
+> [!IMPORTANT]
+> A **duração** da manutenção deve ser de *2 horas* ou mais. A **recorrência** de manutenção deve ser definida para pelo menos ocorrer uma vez em 35 dias.
+
+A **recorrência** da manutenção pode ser expressa como diária, semanal ou mensal. Alguns exemplos são:
+ - **Daily**-RecurEvery "Day" **ou** "3Days" 
+ - **Weekly**-RecurEvery "3Weeks" **ou** "Week sábado, domingo" 
+ - **mensal**-RecurEvery "mês day23, day24" **ou** "mês, último domingo" **ou** "mês quarta-feira"  
+      
 
 ## <a name="assign-the-configuration"></a>Atribuir a configuração
 

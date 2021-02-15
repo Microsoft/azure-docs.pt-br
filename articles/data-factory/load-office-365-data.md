@@ -1,22 +1,17 @@
 ---
 title: Carregar dados do Office 365 usando o Azure Data Factory
 description: Usar o Azure Data Factory para copiar dados do Office 365
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 3422176ed89b7f575c11cc40e5be8420da0018b0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8b98344dcb2321d5d91c9974dc833a735164d428
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81415806"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100370647"
 ---
 # <a name="load-data-from-office-365-by-using-azure-data-factory"></a>Carregar dados do Office 365 usando o Azure Data Factory
 
@@ -61,9 +56,9 @@ Este artigo mostra como usar o Data Factory para _carregar dados do Office 365 n
 
 1. Vá para o pipeline > **guia Origem**, clique em **+New** para criar um conjunto de dados de origem. 
 
-2. Na janela novo conjunto de novos DataSet, selecione **Office 365**e, em seguida, selecione **continuar**.
+2. Na janela novo conjunto de novos DataSet, selecione **Office 365** e, em seguida, selecione **continuar**.
  
-3. Agora você está na guia de configuração da atividade de cópia. Clique no botão **Editar** ao lado do conjunto de dados do Office 365 para continuar a configuração do dado.
+3. Agora você está na guia de configuração da atividade de cópia. Clique no botão **Editar** ao lado do conjunto de dados do Office 365 para continuar a configuração.
 
     ![Configurar o conjunto de dados do Office 365 – Guia Geral](./media/load-office-365-data/transition-to-edit-dataset.png)
  
@@ -79,7 +74,7 @@ Este artigo mostra como usar o Data Factory para _carregar dados do Office 365 n
 
     ![Configurar conjunto de dados do Office 365 – Tabela](./media/load-office-365-data/edit-dataset.png)
 
-8. Agora, volte para a **pipeline**  >  **guia origem** do pipeline para continuar Configurando propriedades adicionais para extração de dados do Office 365.  O escopo do usuário e o filtro de escopo do usuário são predicados opcionais que você pode definir para restringir os dados que deseja extrair do Office 365. Consulte a seção [Propriedades do conjunto de banco de 365 do Office](https://docs.microsoft.com/azure/data-factory/connector-office-365#dataset-properties) para saber como definir essas configurações.
+8. Agora, volte para a   >  **guia origem** do pipeline para continuar Configurando propriedades adicionais para extração de dados do Office 365.  O escopo do usuário e o filtro de escopo do usuário são predicados opcionais que você pode definir para restringir os dados que deseja extrair do Office 365. Consulte a seção [Propriedades do conjunto de banco de 365 do Office](./connector-office-365.md#dataset-properties) para saber como definir essas configurações.
 
 9. É necessário escolher um dos filtros de data e fornecer os valores de hora de início e hora de término.
 
@@ -130,7 +125,7 @@ Selecione o link **Exibir atividades em execução** na coluna Ações para ver 
 
 ![Monitorar a atividade](./media/load-office-365-data/activity-status.png) 
 
-Se esta for a primeira vez que você está solicitando dados para esse contexto (uma combinação de qual tabela de dados está sendo acessada, em que conta de destino os dados estão sendo carregados e qual identidade do usuário está fazendo a solicitação de acesso a dados), você verá o status da **atividade de cópia**como **em andamento**e somente quando clicar no link "detalhes" em ações, você verá o  Um membro do grupo de aprovadores de acesso a dados precisa aprovar a solicitação no Privileged Access Management antes que seja possível prosseguir com a extração de dados.
+Se esta for a primeira vez que você está solicitando dados para esse contexto (uma combinação de qual tabela de dados está sendo acessada, em que conta de destino os dados estão sendo carregados e qual identidade do usuário está fazendo a solicitação de acesso a dados), você verá o status da **atividade de cópia** como **em andamento** e somente quando clicar no link "detalhes" em ações, você verá o  Um membro do grupo de aprovadores de acesso a dados precisa aprovar a solicitação no Privileged Access Management antes que seja possível prosseguir com a extração de dados.
 
 _Status como solicitação de consentimento:_ 
  ![ Detalhes de execução da atividade-solicitação de consentimento](./media/load-office-365-data/activity-details-request-consent.png) 
@@ -147,7 +142,7 @@ Agora, acesse o armazenamento de BLOBs do Azure de destino e verifique se os dad
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Ir para o seguinte artigo para saber mais sobre o suporte do SQL Data Warehouse do Azure: 
+Vá para o seguinte artigo para saber mais sobre o suporte do Azure Synapse Analytics: 
 
 > [!div class="nextstepaction"]
 >[Conector do Office 365](connector-office-365.md)

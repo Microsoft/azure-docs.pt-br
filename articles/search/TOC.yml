@@ -3,9 +3,11 @@
 - name: Visão geral
   expanded: true
   items:
-    - name: O que é a Pesquisa Cognitiva do Azure?
+    - name: O que é Cognitive Search?
       href: search-what-is-azure-search.md
-    - name: Novidades
+    - name: Lista de recursos
+      href: search-features-list.md
+    - name: Novidades na pesquisa
       href: whats-new.md
 - name: Inícios rápidos
   items:
@@ -23,21 +25,23 @@
           href: knowledge-store-create-portal.md
         - name: Consultar com o Gerenciador de pesquisa
           href: search-explorer.md
-    - name: Modelo de ARM
-      displayName: Resource Manager
-      href: search-get-started-arm.md
+    - name: Visual Studio Code
+      href: search-get-started-vs-code.md
     - name: C#
       href: search-get-started-dotnet.md
     - name: Java
       href: search-get-started-java.md
-    - name: Node.js
-      href: search-get-started-nodejs.md
-    - name: postman
-      href: search-get-started-postman.md
+    - name: JavaScript
+      href: search-get-started-javascript.md
+    - name: REST
+      href: search-get-started-rest.md
     - name: PowerShell
       href: search-get-started-powershell.md
     - name: Python
       href: search-get-started-python.md
+    - name: Modelo de ARM
+      displayName: Resource Manager
+      href: search-get-started-arm.md
 - name: Tutoriais
   items:
     - name: Criar um aplicativo em C#
@@ -79,22 +83,21 @@
 - name: Exemplos
   items:
     - name: Exemplos do C#
-      href: /samples/browse/?languages=csharp&products=azure-cognitive-search
+      href: samples-dotnet.md
     - name: Exemplos do Java
-      href: /samples/browse/?languages=java&products=azure-cognitive-search
+      href: samples-java.md
     - name: Exemplos de JavaScript
-      href: /samples/browse/?languages=javascript&products=azure-cognitive-search
+      href: samples-javascript.md
     - name: Exemplos em Python
-      href: /samples/browse/?languages=python&products=azure-cognitive-search
+      href: samples-python.md
     - name: Exemplos de REST
-      href: /samples/browse/?expanded=azure&languages=http&products=azure-cognitive-search
-    - name: Itens internos do Azure Policy
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
+      href: samples-rest.md
 - name: Conceitos
   items:
     - name: Pesquisa de texto completo
       href: search-lucene-query-architecture.md
+    - name: Pontuação de relevância
+      href: index-similarity-and-scoring.md
     - name: Indexadores
       href: search-indexer-overview.md
     - name: Enriquecimento de IA
@@ -117,33 +120,83 @@
         - name: Controles de segurança do Azure Policy
           displayName: 'regulatory, compliance, standards, domains'
           href: ./security-controls-policy.md
+        - name: Acessar conteúdo protegido
+          href: search-indexer-securing-resources.md
+        - name: Linha de base de segurança
+          href: security-baseline.md
 - name: Guias de instruções
   items:
-    - name: Criar índices e constructos
+    - name: Planejamento
+      items:
+        - name: Escolha uma faixa
+          href: search-sku-tier.md
+        - name: Estimar e gerenciar a capacidade
+          href: search-capacity-planning.md
+        - name: Estimar custos
+          href: search-sku-manage-costs.md
+        - name: Limites de serviço
+          href: search-limits-quotas-capacity.md
+        - name: Dimensionamento em razão de desempenho
+          href: search-performance-optimization.md
+        - name: Arquitetura de multilocatários
+          href: search-modeling-multitenant-saas-applications.md
+    - name: Desenvolvimento
+      items:
+        - name: Versões de API
+          href: search-api-versions.md
+        - name: Versão prévia dos recursos
+          href: search-api-preview.md
+        - name: Desenvolver em .NET
+          items:
+            - name: Usar Azure.Search.Documents
+              href: search-howto-dotnet-sdk.md
+            - name: Usar Microsoft.Azure.Search
+              href: search-howto-dotnet-sdk-v10.md
+            - name: Início rápido herdado (Microsoft.Azure.Search)
+              href: search-get-started-dotnet-v10.md
+        - name: Atualizar o SDK
+          items:
+            - name: SDK do .NET 11.0
+              href: search-dotnet-sdk-migration-version-11.md
+            - name: SDK do .NET 10.0
+              href: search-dotnet-sdk-migration-version-10.md
+            - name: .NET SDK 9.0
+              href: search-dotnet-sdk-migration-version-9.md
+            - name: .NET SDK 5.0
+              href: search-dotnet-sdk-migration-version-5.md
+            - name: .NET SDK 3.0
+              href: search-dotnet-sdk-migration.md
+            - name: .NET SDK 1.1
+              href: search-dotnet-sdk-migration-version-1.md
+            - name: SDK do Gerenciamento do .NET
+              href: search-dotnet-mgmt-sdk-migration.md
+        - name: Atualizar a API REST
+          href: search-api-migration.md
+    - name: Índices
       items:
         - name: Crie um índice
           href: search-what-is-an-index.md
         - name: Criar um índice de vários idiomas
           href: search-language-support.md
-        - name: Analisadores
-          items:
-            - name: Adicionando analisadores
-              href: search-analyzers.md
-            - name: Adicionar um analisador de linguagem
-              href: index-add-language-analyzers.md
-            - name: Adicionar um analisador personalizado
-              href: index-add-custom-analyzers.md
         - name: Sinônimos
           items:
             - name: Adicionar sinônimos
               href: search-synonyms.md
-            - name: Exemplos de sinônimos
+            - name: Exemplo de C# de sinônimos
               href: search-synonyms-tutorial-sdk.md
         - name: Modelar tipos de dados complexos
           href: search-howto-complex-data-types.md
         - name: Modelar dados relacionais
           href: index-sql-relational-data.md
-    - name: Ingerir todos os dados
+    - name: Analisadores
+      items:
+        - name: Adicionando analisadores
+          href: search-analyzers.md
+        - name: Adicionar um analisador de linguagem
+          href: index-add-language-analyzers.md
+        - name: Adicionar um analisador personalizado
+          href: index-add-custom-analyzers.md
+    - name: Dados
       items:
         - name: Visão geral da importação de dados
           href: search-what-is-data-import.md
@@ -155,45 +208,15 @@
           href: search-howto-large-index.md
         - name: Suporte a atualizações simultâneas
           href: search-howto-concurrency.md
-    - name: Ingerir dados somente do Azure
+    - name: Indexadores
       items:
-        - name: Configurar indexadores
-          href: search-indexer-overview.md
-        - name: Monitorar indexadores
-          href: search-howto-monitor-indexers.md
-        - name: Indexadores do agendamento
+        - name: Criar um indexador
+          href: search-howto-create-indexers.md
+        - name: Agendar um indexador
           href: search-howto-schedule-indexers.md
-        - name: Mapear campos
+        - name: Definir mapeamentos de campo
           href: search-indexer-field-mappings.md
-        - name: Fontes de dados
-          items:
-            - name: Blobs do Azure
-              items:
-                - name: Pesquisar em blobs
-                  href: search-blob-storage-integration.md
-                - name: Entender blobs com IA
-                  href: search-blob-ai-integration.md
-                - name: Configurar um indexador de blobs
-                  href: search-howto-indexing-azure-blob-storage.md
-                - name: Indexar Blobs um-para-muitos
-                  href: search-howto-index-one-to-many-blobs.md
-                - name: Indexar blobs do CSV
-                  href: search-howto-index-csv-blobs.md
-                - name: Indexar blobs do JSON
-                  href: search-howto-index-json-blobs.md
-            - name: Tabelas do Azure
-              href: search-howto-indexing-azure-tables.md
-            - name: Azure Cosmos DB
-              href: search-howto-index-cosmosdb.md
-            - name: Azure Data Lake Storage Gen2
-              href: search-howto-index-azure-data-lake-storage.md
-            - name: Banco de Dados SQL
-              href: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
-            - name: Instâncias gerenciadas do SQL
-              href: search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md
-            - name: VMs do SQL Server
-              href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
-        - name: Conectar usando identidades gerenciadas
+        - name: Conectar-se a identidades gerenciadas
           items:
             - name: Visão geral de identidades gerenciadas
               href: search-howto-managed-identities-data-sources.md
@@ -203,7 +226,41 @@
               href: search-howto-managed-identities-cosmos-db.md
             - name: Banco de Dados SQL
               href: search-howto-managed-identities-sql.md
-    - name: Usar habilidades (IA)
+        - name: Blobs do Azure
+          items:
+            - name: Pesquisar em blobs
+              href: search-blob-storage-integration.md
+            - name: Enriquecimento de IA em blobs
+              href: search-blob-ai-integration.md
+            - name: Configurar um indexador de blobs
+              href: search-howto-indexing-azure-blob-storage.md
+            - name: Indexar blobs alterados e excluídos
+              href: search-howto-index-changed-deleted-blobs.md
+            - name: Indexar Blobs um-para-muitos
+              href: search-howto-index-one-to-many-blobs.md
+            - name: Indexar texto sem formatação
+              href: search-howto-index-plaintext-blobs.md
+            - name: Indexar blobs do CSV
+              href: search-howto-index-csv-blobs.md
+            - name: Indexar blobs do JSON
+              href: search-howto-index-json-blobs.md
+            - name: Indexar blobs criptografados
+              href: search-howto-index-encrypted-blobs.md
+            - name: Propriedades de metadados para o conteúdo de blob
+              href: search-blob-metadata-properties.md
+        - name: Tabelas do Azure
+          href: search-howto-indexing-azure-tables.md
+        - name: Azure Cosmos DB
+          href: search-howto-index-cosmosdb.md
+        - name: Azure Data Lake Storage Gen2
+          href: search-howto-index-azure-data-lake-storage.md
+        - name: Bancos de Dados SQL do Azure
+          href: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
+        - name: Instâncias Gerenciadas de SQL do Azure
+          href: search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md
+        - name: VMs do SQL Server do Azure
+          href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
+    - name: Conjuntos de habilidades
       items:
         - name: Anexar um recurso dos Serviços Cognitivos
           href: cognitive-search-attach-cognitive-services.md
@@ -243,13 +300,15 @@
               href: knowledge-store-connect-power-bi.md
             - name: Exemplos de projeção
               href: knowledge-store-projections-examples.md
-    - name: Consulta
+    - name: Consultas
       items:
+        - name: Criar uma consulta básica
+          href: search-query-create.md
         - name: Tipos de consulta e composição
           href: search-query-overview.md
-        - name: Criar uma consulta simples
+        - name: Usar sintaxe simples (exemplos)
           href: search-query-simple-examples.md
-        - name: Usar a sintaxe do Lucene completa
+        - name: Usar Lucene completa (exemplos)
           href: search-query-lucene-examples.md
         - name: Termos parciais e caracteres especiais
           href: search-query-partial-matching.md
@@ -269,7 +328,7 @@
               href: query-lucene-syntax.md
             - name: moreLikeThis (versão prévia)
               href: search-more-like-this.md
-    - name: Filtrar
+    - name: Filtros
       items:
         - name: Visão geral de filtro
           href: search-filters.md
@@ -287,54 +346,10 @@
       items:
         - name: Trabalhar com os resultados
           href: search-pagination-page-layout.md
-        - name: Pontuação de relevância
-          href: index-similarity-and-scoring.md
         - name: Perfis de pontuação
           href: index-add-scoring-profiles.md
         - name: Algoritmo de similaridade
           href: index-ranking-similarity.md
-    - name: Plano
-      items:
-        - name: Escolha uma faixa
-          href: search-sku-tier.md
-        - name: Limites de serviço
-          href: search-limits-quotas-capacity.md
-        - name: Ajustar a capacidade
-          href: search-capacity-planning.md
-        - name: Dimensionamento em razão de desempenho
-          href: search-performance-optimization.md
-        - name: Arquitetura de multilocatários
-          href: search-modeling-multitenant-saas-applications.md
-    - name: Desenvolver
-      items:
-        - name: Versões de API
-          href: search-api-versions.md
-        - name: Lista de versão prévia do recurso
-          href: search-api-preview.md
-        - name: Desenvolver em .NET
-          items:
-            - name: Usar o Microsoft.Azure.Search (v10)
-              href: search-howto-dotnet-sdk.md
-            - name: Introdução (v10)
-              href: search-get-started-dotnet-v10.md
-        - name: Atualizar o SDK
-          items:
-            - name: SDK do .NET 11.0
-              href: search-dotnet-sdk-migration-version-11.md
-            - name: SDK do .NET 10.0
-              href: search-dotnet-sdk-migration-version-10.md
-            - name: .NET SDK 9.0
-              href: search-dotnet-sdk-migration-version-9.md
-            - name: .NET SDK 5.0
-              href: search-dotnet-sdk-migration-version-5.md
-            - name: .NET SDK 3.0
-              href: search-dotnet-sdk-migration.md
-            - name: .NET SDK 1.1
-              href: search-dotnet-sdk-migration-version-1.md
-            - name: SDK do Gerenciamento do .NET
-              href: search-dotnet-mgmt-sdk-migration.md
-        - name: Atualizar a API REST
-          href: search-api-migration.md
     - name: Segurança
       items:
         - name: Criptografia de dados
@@ -351,7 +366,15 @@
               href: service-configure-firewall.md
             - name: Criar um ponto de extremidade privado
               href: service-create-private-endpoint.md
-        - name: Acesso baseado em identidade
+        - name: Segurança de saída (indexadores)
+          items:
+            - name: Acesso em um intervalo de IP
+              href: search-indexer-howto-access-ip-restricted.md
+            - name: Acesso por meio de exceção de serviço confiável
+              href: search-indexer-howto-access-trusted-service-exception.md
+            - name: Acesso por meio de pontos de extremidade privados
+              href: search-indexer-howto-access-private.md
+        - name: Segurança em nível de documento
           items:
             - name: Filtros de segurança
               href: search-security-trimming-for-azure-search.md
@@ -377,6 +400,8 @@
           href: search-monitor-logs-powerbi.md
         - name: Monitorar atividade de consulta
           href: search-monitor-queries.md
+        - name: Monitorar indexadores
+          href: search-howto-monitor-indexers.md
         - name: Análise do tráfego de pesquisa
           href: search-traffic-analytics.md
     - name: Solucionar problemas
@@ -388,43 +413,45 @@
 - name: Referência
   items:
     - name: CLI do Azure
-      href: /cli/azure/search?view=azure-cli-latest
+      href: /cli/azure/search
     - name: Azure PowerShell
       href: /powershell/module/az.search
     - name: Modelo do Resource Manager
       href: /azure/templates/microsoft.search/searchservices
     - name: REST
       items:
-        - name: Pesquisar 2020-06-30
+        - name: API de pesquisa (estável)
           href: /rest/api/searchservice
-        - name: Pesquisar 2020-06-30-Preview
+        - name: API de pesquisa (versão prévia)
           href: /rest/api/searchservice/index-preview
-        - name: Gerenciamento 2020-03-13
+        - name: API de gerenciamento (estável)
           href: /rest/api/searchmanagement
-        - name: Gerenciamento 2019-10-01-Preview
-          href: /rest/api/searchmanagement/index-2019-10-01-preview
+        - name: API de gerenciamento (versão prévia)
+          href: /rest/api/searchmanagement/index-preview
     - name: .NET
       items:
         - name: API de Pesquisa
-          href: /dotnet/api/overview/azure/search.documents-readme?view=azure-dotnet
+          href: /dotnet/api/overview/azure/search.documents-readme
         - name: API de gerenciamento
-          href: /dotnet/api/overview/azure/search/management?view=azure-dotnet
+          href: /dotnet/api/overview/azure/search/management
     - name: Java
       items:
+        - name: API de Pesquisa
+          href: /java/api/overview/azure/search-documents-readme
         - name: API de gerenciamento
-          href: /java/api/overview/azure/search/management?view=azure-java-stable
+          href: /java/api/overview/azure/search/management
     - name: JavaScript
       items:
         - name: API de Pesquisa
-          href: /javascript/api/overview/azure/search-documents-readme?view=azure-node-latest
+          href: /javascript/api/overview/azure/search-documents-readme
         - name: API de gerenciamento
-          href: /javascript/api/overview/azure/search/management?view=azure-node-latest
+          href: /javascript/api/overview/azure/search/management
     - name: Python
       items:
         - name: API de Pesquisa
-          href: /python/api/overview/azure/search-documents-readme?view=azure-python
+          href: /python/api/overview/azure/search-documents-readme
         - name: API de gerenciamento
-          href: /python/api/overview/azure/search/management?view=azure-python
+          href: /python/api/overview/azure/search/management
     - name: Referência de linguagem do OData
       items:
         - name: Visão geral
@@ -496,6 +523,9 @@
           items:
             - name: Reconhecimento de Entidade Nomeada
               href: cognitive-search-skill-named-entity-recognition.md
+    - name: Itens internos do Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Recursos
   items:
     - name: Suporte da Comunidade do Azure
@@ -514,6 +544,8 @@
           href: 'https://wolterskluwereap.azurewebsites.net/'
         - name: Demonstração de arquivos JFK
           href: 'https://www.microsoft.com/en-us/ai/ai-lab-jfk-files'
+        - name: Demonstração de empregos em NYC
+          href: 'https://azjobsdemo.azurewebsites.net/'
     - name: Treinamento
       items:
         - name: Introdução (Microsoft Learn)
@@ -522,6 +554,8 @@
           href: 'https://www.pluralsight.com/courses/azure-adding-search-abilities-apps'
         - name: Curso de desenvolvedor (Pluralsight)
           href: 'https://www.pluralsight.com/courses/microsoft-azure-textual-content-search-enabling'
+    - name: Soluções de parceiros
+      href: resource-partners-knowledge-mining.md
     - name: Perguntas frequentes
       href: search-faq-frequently-asked-questions.md
     - name: Preços

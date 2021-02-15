@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 07/02/2020
+ms.date: 11/24/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a59939fc7988e1a94bdfb9fac2d77011422e4983
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 5f0a84af0c7a4105327405cfb809f5101ab42931
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87274673"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98938391"
 ---
 # <a name="conditional-access-grant"></a>Acesso condicional: Grant
 
@@ -30,13 +30,13 @@ O bloco leva em conta quaisquer atribuições e impede o acesso com base na conf
 
 O bloco é um controle poderoso que deve ser atraente com o conhecimento apropriado. Políticas com instruções de bloco podem ter efeitos colaterais indesejados. Os testes e a validação adequados são vitais antes de habilitar em escala. Os administradores devem utilizar ferramentas como o [modo somente de relatório de acesso condicional](concept-conditional-access-report-only.md) e [a ferramenta de What If no acesso condicional](what-if-tool.md) ao fazer alterações.
 
-## <a name="grant-access"></a>Permitir acesso
+## <a name="grant-access"></a>Conceder acesso
 
 Os administradores podem optar por impor um ou mais controles ao conceder acesso. Esses controles incluem as seguintes opções: 
 
-- [Exigir autenticação multifator (autenticação multifator do Azure)](../authentication/concept-mfa-howitworks.md)
+- [Exigir autenticação multifator (autenticação multifator do Azure AD)](../authentication/concept-mfa-howitworks.md)
 - [Exigir que o dispositivo seja marcado como em conformidade (Microsoft Intune)](/intune/protect/device-compliance-get-started)
-- [Exigir dispositivo ingressado no Azure AD híbrido](../devices/concept-azure-ad-join-hybrid.md)
+- [Exigir um dispositivo ingressado no Azure AD híbrido](../devices/concept-azure-ad-join-hybrid.md)
 - [Exigir um aplicativo cliente aprovado](app-based-conditional-access.md)
 - [Requer política de proteção do aplicativo](app-protection-based-conditional-access.md)
 - [Exigir alteração de senha](#require-password-change)
@@ -50,7 +50,7 @@ Por padrão, o acesso condicional requer todos os controles selecionados.
 
 ### <a name="require-multi-factor-authentication"></a>Exigir autenticação multifator
 
-A seleção dessa caixa de seleção exigirá que os usuários executem a autenticação multifator do Azure. Mais informações sobre a implantação da autenticação multifator do Azure podem ser encontradas no artigo [planejando uma implantação da autenticação multifator do Azure baseada em nuvem](../authentication/howto-mfa-getstarted.md).
+A seleção dessa caixa de seleção exigirá que os usuários executem a autenticação multifator do Azure AD. Mais informações sobre como implantar a autenticação multifator do Azure AD podem ser encontradas no artigo [planejando uma implantação da autenticação multifator do Azure ad baseada em nuvem](../authentication/howto-mfa-getstarted.md).
 
 ### <a name="require-device-to-be-marked-as-compliant"></a>Exigir que o dispositivo seja marcado como em conformidade
 
@@ -70,7 +70,7 @@ Ao usar o [fluxo OAuth do código do dispositivo](../develop/v2-oauth2-device-co
 
 As organizações podem exigir que uma tentativa de acesso aos aplicativos de nuvem selecionados precise ser feita de um aplicativo cliente aprovado. Esses aplicativos cliente aprovados dão suporte a [políticas de proteção de aplicativo do Intune](/intune/app-protection-policy) independentemente de qualquer solução de MDM (gerenciamento de dispositivo móvel).
 
-Para aproveitar esse controle de concessão, o acesso condicional requer que o dispositivo seja registrado em Azure Active Directory, o que exige o uso de um aplicativo de agente. O aplicativo agente pode ser o Microsoft Authenticator para iOS ou o portal da Empresa da Microsoft para dispositivos Android. Se um aplicativo agente não estiver instalado no dispositivo quando o usuário tentar se autenticar, o usuário será redirecionado para a loja de aplicativos para instalar o aplicativo agente.
+Para aproveitar esse controle de concessão, o acesso condicional requer que o dispositivo seja registrado em Azure Active Directory, o que exige o uso de um aplicativo de agente. O aplicativo agente pode ser o Microsoft Authenticator para iOS ou o Microsoft Authenticator ou o portal da empresa da Microsoft para dispositivos Android. Se um aplicativo de agente não estiver instalado no dispositivo quando o usuário tentar se autenticar, o usuário será redirecionado para a loja de aplicativos apropriada para instalar o aplicativo agente necessário.
 
 Essa configuração se aplica aos seguintes aplicativos iOS e Android:
 
@@ -102,14 +102,16 @@ Essa configuração se aplica aos seguintes aplicativos iOS e Android:
 - Microsoft Word
 - Microsoft Yammer
 - Microsoft Whiteboard
+- Administrador do Microsoft 365
 
 **Comentários**
 
 - Os aplicativos cliente aprovados fornecem suporte ao recurso de gerenciamento de aplicativo móvel Intune.
 - O requisito **Exigir o aplicativo do cliente aprovado**:
    - Fornece suporte apenas para iOS e Android para condição de plataforma de dispositivo.
-   - Um aplicativo de agente é necessário para registrar o dispositivo. No iOS, o aplicativo agente é Microsoft Authenticator e no Android, é Portal da Empresa do Intune aplicativo.
+   - Um aplicativo de agente é necessário para registrar o dispositivo. O aplicativo agente pode ser o Microsoft Authenticator para iOS ou o Microsoft Authenticator ou o portal da empresa da Microsoft para dispositivos Android.
 - O acesso condicional não pode considerar o Microsoft Edge no modo InPrivate em um aplicativo cliente aprovado.
+- Usando o Azure Proxy de Aplicativo do AD para habilitar o Power BI aplicativo móvel para se conectar ao Servidor de Relatórios do Power BI local não tem suporte com políticas de acesso condicional que exigem o aplicativo Microsoft Power BI como um aplicativo cliente aprovado.
 
 Consulte o artigo [como: exigir aplicativos cliente aprovados para acesso de aplicativo de nuvem com acesso condicional](app-based-conditional-access.md) para exemplos de configuração.
 
@@ -119,7 +121,9 @@ Em sua política de acesso condicional, você pode exigir que uma [política de 
 
 Para aproveitar esse controle de concessão, o acesso condicional requer que o dispositivo seja registrado em Azure Active Directory, o que exige o uso de um aplicativo de agente. O aplicativo agente pode ser o Microsoft Authenticator para iOS ou o portal da Empresa da Microsoft para dispositivos Android. Se um aplicativo agente não estiver instalado no dispositivo quando o usuário tentar se autenticar, o usuário será redirecionado para a loja de aplicativos para instalar o aplicativo agente.
 
-Essa configuração se aplica aos seguintes aplicativos cliente:
+Os aplicativos precisam ter o **SDK do Intune** com a **garantia de política** implementada e atender a determinados requisitos para dar suporte a essa configuração. Os desenvolvedores que implementam aplicativos com o SDK do Intune podem encontrar mais informações na documentação do SDK sobre esses requisitos.
+
+Os seguintes aplicativos cliente foram confirmados para dar suporte a essa configuração:
 
 - Microsoft Cortana
 - Microsoft Edge
@@ -137,7 +141,7 @@ Essa configuração se aplica aos seguintes aplicativos cliente:
 - Nove emails calendário de & de email
 
 > [!NOTE]
-> Microsoft Kaizala, Microsoft Skype for Business e Microsoft Visio não dão suporte à concessão de **política de proteção de aplicativo necessária** . Se você precisar que esses aplicativos funcionem, use a concessão de **aplicativos aprovados** por exclusividade. O uso da cláusula or entre as duas concessões não funcionará para esses três aplicativos.
+> Microsoft Teams, Microsoft Kaizala, Microsoft Skype for Business e Microsoft Visio não dão suporte à concessão de **política de proteção de aplicativo necessária** . Se você precisar que esses aplicativos funcionem, use a concessão de **aplicativos aprovados** por exclusividade. O uso da cláusula or entre as duas concessões não funcionará para esses três aplicativos.
 
 **Comentários**
 

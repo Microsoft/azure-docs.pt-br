@@ -11,14 +11,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: mathoma, carlrab
+ms.reviewer: mathoma, sstein
 ms.date: 06/25/2019
-ms.openlocfilehash: 8ceef173e33c3603d9bc5d6ef217d54eef88609c
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 7bd991bd709bb4be69325afe967d7e5600a9e1a4
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85982465"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222557"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Visão geral da continuidade dos negócios com o Banco de Dados SQL do Azure
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -51,7 +51,7 @@ O banco de dados SQL e o SQL Instância Gerenciada também fornecem vários recu
 - Você pode [restaurar um banco de dados excluído](recovery-using-backups.md#deleted-database-restore) para o ponto em que ele foi excluído se o **servidor não tiver sido excluído**.
 - [Retenção de backup de longo prazo](long-term-retention-overview.md) permite manter os backups em até 10 anos. Isso está em visualização pública limitada para o SQL Instância Gerenciada
 - A [replicação geográfica ativa](active-geo-replication-overview.md) permite que você crie réplicas legíveis e faça failover manualmente para qualquer réplica no caso de uma interrupção do Datacenter ou da atualização do aplicativo.
-- O [grupo de failover automático](auto-failover-group-overview.md#terminology-and-capabilities) permite que o aplicativo seja automaticamente recuperado em caso de interrupção do datacenter.
+- O [grupo de failover automático](auto-failover-group-overview.md#terminology-and-capabilities) permite que o aplicativo se recupere automaticamente no caso de uma interrupção do datacenter.
 
 ## <a name="recover-a-database-within-the-same-azure-region"></a>Recuperar um banco de dados na mesma região do Azure
 
@@ -65,10 +65,10 @@ Os [grupos de failover automático](auto-failover-group-overview.md#terminology-
 
 |                                              | Replicação geográfica | Grupos de failover  |
 |:---------------------------------------------| :-------------- | :----------------|
-| **Failover automático**                          |     Não          |      Sim         |
+| **Automatic failover**                          |     Não          |      Sim         |
 | **Fazer failover de vários bancos de dados simultaneamente**  |     Não          |      Sim         |
-| **O usuário deve atualizar a cadeia de conexão após o failover**      |     Sim         |      Não          |
-| **Suporte ao SQL Instância Gerenciada**                   |     Não          |      Sim         |
+| **O usuário precisa atualizar a cadeia de conexão após o failover**      |     Sim         |      Não          |
+| **Suporte à Instância Gerenciada de SQL**                   |     Não          |      Sim         |
 | **Pode estar na mesma região que o primário**             |     Sim         |      Não          |
 | **Várias réplicas**                            |     Sim         |      Não          |
 | **Dá suporte à escala de leitura**                          |     Sim         |      Sim         |
@@ -141,7 +141,7 @@ Após recuperar de um dos mecanismos de recuperação, você deverá executar as
 
 - Redirecione clientes e aplicativos cliente para o novo servidor e o banco de dados restaurado.
 - Verificar se as regras de firewall de IP do nível de servidor apropriadas estão em vigor para que os usuários se conectem ou use os [firewalls de nível de banco de dados](firewall-configure.md#use-the-azure-portal-to-manage-server-level-ip-firewall-rules) para habilitar as regras apropriadas.
-- Verifique se os logons apropriados e as permissões no nível do banco de dados mestre estão em vigor (ou use [usuários independentes](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable)).
+- Verifique se os logons apropriados e as permissões no nível do banco de dados mestre estão em vigor (ou use [usuários independentes](/sql/relational-databases/security/contained-database-users-making-your-database-portable)).
 - Configure a auditoria, conforme apropriado.
 - Configure alertas, conforme apropriado.
 

@@ -5,28 +5,31 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: how-to
-ms.openlocfilehash: 8f3b144a7790c3122d59d27183b3037998ddadd1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 35fd78a9d55dc684045fdb4b83691c1613801421
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85565858"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724860"
 ---
 # <a name="configure-authentication"></a>Configurar autenticação
 
-A renderização remota do Azure usa o mesmo mecanismo de autenticação que o [asa (âncoras espaciais) do Azure](https://docs.microsoft.com/azure/spatial-anchors/concepts/authentication?tabs=csharp). Os clientes precisam definir *uma* das seguintes opções para chamar as APIs REST com êxito:
+A renderização remota do Azure usa o mesmo mecanismo de autenticação que o [asa (âncoras espaciais) do Azure](../../spatial-anchors/concepts/authentication.md?tabs=csharp). Os clientes precisam definir *uma* das seguintes opções para chamar as APIs REST com êxito:
 
 * **AccountKey**: pode ser obtido na guia "Keys" para a conta de renderização remota no portal do Azure. As chaves de conta são recomendadas apenas para desenvolvimento/protótipo.
     ![ID da Conta](./media/azure-account-primary-key.png)
 
-* **AuthenticationToken**: é um token do Azure AD, que pode ser obtido usando a [biblioteca MSAL](https://docs.microsoft.com/azure/active-directory/develop/msal-overview). Há vários fluxos diferentes disponíveis para aceitar credenciais de usuário e usar essas credenciais para obter um token de acesso.
+* **AccountDomain**: pode ser obtido na guia "visão geral" para a conta de renderização remota no portal do Azure.
+    ![Domínio da conta](./media/azure-account-domain.png)
 
-* **MRAccessToken**: é um token Mr, que pode ser obtido do serviço de token de segurança (STS) do Azure Mixed Reality. Recuperado do `https://sts.mixedreality.azure.com` ponto de extremidade usando uma chamada REST semelhante à chamada abaixo:
+* **AuthenticationToken**: é um token do Azure AD, que pode ser obtido usando a [biblioteca MSAL](../../active-directory/develop/msal-overview.md). Há vários fluxos diferentes disponíveis para aceitar credenciais de usuário e usar essas credenciais para obter um token de acesso.
+
+* **MRAccessToken**: é um token Mr, que pode ser obtido do serviço de token de segurança (STS) do Azure Mixed Reality. Recuperado do `https://sts.<accountDomain>` ponto de extremidade usando uma chamada REST semelhante à seguinte:
 
     ```rest
-    GET https://sts.mixedreality.azure.com/Accounts/35d830cb-f062-4062-9792-d6316039df56/token HTTP/1.1
+    GET https://sts.southcentralus.mixedreality.azure.com/Accounts/35d830cb-f062-4062-9792-d6316039df56/token HTTP/1.1
     Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1Ni<truncated>FL8Hq5aaOqZQnJr1koaQ
-    Host: sts.mixedreality.azure.com
+    Host: sts.southcentralus.mixedreality.azure.com
     Connection: Keep-Alive
 
     HTTP/1.1 200 OK
@@ -44,11 +47,11 @@ A renderização remota do Azure usa o mesmo mecanismo de autenticação que o [
 
 As chaves de conta são recomendadas para criação rápida de protótipos, somente durante o desenvolvimento. É recomendável não enviar seu aplicativo para produção usando uma chave de conta inserida nele. A abordagem recomendada é usar uma abordagem de autenticação do Azure AD baseada no usuário ou no serviço.
 
- A autenticação do Azure AD é descrita na seção de [autenticação de usuário do Azure ad](https://docs.microsoft.com/azure/spatial-anchors/concepts/authentication?tabs=csharp#azure-ad-user-authentication) do serviço do [asa (âncora espacial) do Azure](https://docs.microsoft.com/azure/spatial-anchors/) .
+ A autenticação do Azure AD é descrita na seção de [autenticação de usuário do Azure ad](../../spatial-anchors/concepts/authentication.md?tabs=csharp#azure-ad-user-authentication) do serviço do [asa (âncora espacial) do Azure](../../spatial-anchors/index.yml) .
 
  Para obter mais informações, consulte o [tutorial: protegendo a renderização remota do Azure e o armazenamento de modelos-autenticação de Azure Active Directory](../tutorials/unity/security/security.md#azure-active-directory-azure-ad-authentication)
 
-## <a name="role-based-access-control"></a>Controle de acesso baseado em função
+## <a name="azure-role-based-access-control"></a>Controle de acesso baseado em função do Azure
 
 Para ajudar a controlar o nível de acesso concedido ao seu serviço, use as seguintes funções ao conceder acesso baseado em função:
 

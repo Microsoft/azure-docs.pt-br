@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: ramkris
-ms.openlocfilehash: 3a522a5a5945fe7a4b63dc759077d744f951a76f
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 9855a53ebdf7501907b3e1e63d59823d3a0b0209
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88814409"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96463115"
 ---
 # <a name="azure-synapse-link-for-azure-cosmos-db-near-real-time-analytics-use-cases"></a>Link do Azure Synapse para Azure Cosmos DB: casos de uso de análise quase em tempo real
+[!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
 O [Link do Azure Synapse](synapse-link.md) para Azure Cosmos DB é uma funcionalidade de HTAP (processamento transacional híbrido e analítico) nativa de nuvem que permite executar análises quase em tempo real sobre dados operacionais. O Link do Synapse cria uma integração perfeita entre o Azure Cosmos DB e o Azure Synapse Analytics.
 
@@ -52,9 +53,9 @@ Com base na arquitetura anterior, você pode obter os seguintes casos de uso com
 
   O Link do Synapse para Azure Cosmos DB habilita a criação de cenários ricos de BI (business intelligence)/relatórios:
 
-  * Consultar dados operacionais de Azure Cosmos DB repositório analítico usando a integração nativa com o Synapse SQL Server sem servidor e a expressividade completa da linguagem T-SQL.
+  * Consultar dados operacionais de Azure Cosmos DB repositório analítico usando a integração nativa com o pool SQL sem servidor e a expressividade completa da linguagem T-SQL.
 
-  * Modele e publique os painéis de BI de atualização automática em Azure Cosmos DB por meio do suporte Synapse SQL Server para ferramentas de BI familiares. Por exemplo, Azure Analysis Services, Power BI Premium etc.
+  * Modele e publique os painéis de BI de atualização automática em Azure Cosmos DB por meio do suporte a pool do SQL sem servidor para ferramentas de BI familiares. Por exemplo, Azure Analysis Services, Power BI Premium etc.
 
 A seguir, há algumas diretrizes para a integração de dados do lote e de dados de streaming ao Azure Cosmos DB:
 
@@ -92,7 +93,7 @@ Casos de uso do Link do Synapse para Azure Cosmos DB:
 
 ## <a name="sample-scenario-htap-for-azure-cosmos-db"></a>Cenário de exemplo: HTAP do Azure Cosmos DB
 
-O Azure Cosmos DB tem sido por quase uma década por milhares de clientes em aplicativos de missão crítica que exigem escala elástica, distribuição global de turnkey, replicação de vários mestres para latência baixa e alta disponibilidade de leituras e gravações nas suas cargas de trabalho transacionais.
+Por quase uma década, Azure Cosmos DB foi usada por milhares de clientes para aplicativos de missão crítica que exigem escala elástica, distribuição global completa, replicação de gravação de várias regiões para baixa latência e alta disponibilidade de leituras & gravações em suas cargas de trabalho transacionais.
  
 A lista a seguir mostra uma visão geral dos diversos padrões de carga de trabalho suportados com dados operacionais que usam o Azure Cosmos DB:
 
@@ -110,15 +111,15 @@ Vamos pegar o exemplo de uma empresa de comércio eletrônico, a EmpresaXYZ, com
 
 * O principal negócio da EmpresaXYZ depende do sistema de gerenciamento de inventário, portanto, a disponibilidade e confiabilidade são os requisitos principais do pilar. Benefícios do uso do Azure Cosmos DB:
 
-  * Em virtude da integração profunda com a infraestrutura do Azure e da replicação global de vários mestres transparentes, o Azure Cosmos DB fornece uma taxa líder do setor de [99,999% de alta disponibilidade](high-availability.md) que contra interrupções regionais.
+  * Em virtude de uma integração profunda com a infraestrutura do Azure e gravações de várias regiões transparentes, a replicação global Azure Cosmos DB fornece a [alta disponibilidade de 99,999%](high-availability.md) líder do setor contra interrupções regionais.
 
 * Os parceiros da cadeia de fornecedores da EmpresaXYZ podem estar em locais geográficos separados, mas talvez precisem ver uma única exibição do inventário de produtos de todo o mundo para corroborar suas operações locais. Isso inclui a necessidade de ter acesso em tempo real às atualizações feitas por outros parceiros da cadeia de fornecedores. Além disso, também é preciso haver a possibilidade de fazer atualizações sem se preocupar com entradas conflitantes com outros parceiros sob alta taxa de transferência. Benefícios do uso do Azure Cosmos DB:
 
-  * Com seu protocolo de replicação de vários mestres exclusivo e um repositório transacional otimizado para gravação e sem trava, o Azure Cosmos DB garante a redução de latências de menos de 10 ms para leituras indexadas e gravações com 99º percentil globalmente.
+  * Com seu único protocolo de replicação de gravações de várias regiões e armazenamento transacional com otimização de gravação e sem trava, Azure Cosmos DB garante a redução de latências de menos de 10 ms para leituras indexadas e gravações no 99 º percentil globalmente.
 
   * A ingestão de alta taxa de transferência de feeds de dados de streaming e lote com [indexação em tempo real](index-policy.md) no repositório transacional.
 
-  * O repositório transacional do Azure Cosmos DB fornece três opções a mais do que os dois extremos de níveis de consistência forte e eventual para alcançar as [compensações entre disponibilidade e desempenho](consistency-levels-tradeoffs.md) mais próximas à necessidade de negócios.
+  * O repositório transacional do Azure Cosmos DB fornece três opções a mais do que os dois extremos de níveis de consistência forte e eventual para alcançar as [compensações entre disponibilidade e desempenho](./consistency-levels.md) mais próximas à necessidade de negócios.
 
 * Os parceiros da cadeia de fornecedores da EmpresaXYZ têm padrões de tráfego altamente flutuantes de centenas a milhões de solicitações por segundo e, portanto, a plataforma de gerenciamento de estoque precisa lidar com intermitências inesperadas de tráfego.  Benefícios do uso do Azure Cosmos DB:
 
@@ -142,4 +143,4 @@ Para saber mais, consulte a seguinte documentação:
 
 * [Apache Spark no Azure Synapse Analytics](../synapse-analytics/spark/apache-spark-concepts.md)
 
-* [SQL sem servidor/sob demanda no Azure Synapse Analytics](../synapse-analytics/sql/on-demand-workspace-overview.md)
+* [Suporte a tempo de execução do pool SQL sem servidor no Azure Synapse Analytics](../synapse-analytics/sql/on-demand-workspace-overview.md)

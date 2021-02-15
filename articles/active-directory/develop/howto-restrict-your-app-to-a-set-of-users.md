@@ -13,12 +13,12 @@ ms.date: 09/24/2018
 ms.author: kkrishna
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: a9b0090fa13a6d2f7a837a4f5ffee37d70893318
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: f3eff6f5660089472ef431bad9a4f05be1fffe24
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88116896"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104138"
 ---
 # <a name="how-to-restrict-your-azure-ad-app-to-a-set-of-users-in-an-azure-ad-tenant"></a>Como restringir seu aplicativo do Azure AD a um conjunto de usuários em um locatário do Azure AD
 
@@ -34,8 +34,8 @@ Administradores e desenvolvedores de locatários podem restringir um aplicativo 
 
 A opção de restringir um aplicativo a um conjunto específico de usuários ou grupos de segurança em um locatário funciona com os seguintes tipos de aplicativos:
 
-- Aplicativos configurados para logon único federado com autenticação baseada em SAML
-- Aplicativos de proxy de aplicativo que usam a pré-autenticação do Azure AD
+- Aplicativos configurados para logon único federado com autenticação baseada em SAML.
+- Aplicativos de proxy de aplicativo que usam pré-autenticação do Azure AD.
 - Aplicativos criados diretamente na plataforma de aplicativos do Azure AD que usam a autenticação OAuth 2.0/OpenID Connect depois que um usuário ou administrador autoriza o aplicativo.
 
      > [!NOTE]
@@ -47,50 +47,40 @@ Há duas maneiras de criar um aplicativo com atribuição de usuário habilitada
 
 ### <a name="enterprise-applications-requires-the-global-administrator-role"></a>Aplicativos empresariais (requer a função de administrador global)
 
-1. Vá para a [**portal do Azure**](https://portal.azure.com/) e entre como um **administrador global**.
-1. Na barra superior, selecione a conta conectada. 
-1. Em **Diretório**, escolha o locatário do Azure AD onde o aplicativo está registrado.
-1. Escolha **Azure Active Directory** no menu de navegação à esquerda. Se Azure Active Directory não estiver disponível no painel de navegação, siga estas etapas:
-
-    1. Na parte superior do menu principal à esquerda, marque **Todos os serviços**.
-    1. Digite **Azure Active Directory** na caixa de pesquisa de filtro e, em seguida, selecione o item de **Azure Active Directory** do resultado.
-
-1. No painel de **Azure Active Directory** , selecione **aplicativos empresariais** no **Azure Active Directory** menu de navegação à esquerda.
-1. Selecione **todos os aplicativos** para exibir uma lista de todos os seus aplicativos.
-
-     Se não vir o aplicativo desejado na lista, use os diferentes filtros na parte superior da lista **Todos os aplicativos** para restringir a lista ou percorra a lista para localizar o aplicativo.
-
-1. Na lista, escolha o aplicativo ao qual deseja atribuir um usuário ou grupo de segurança.
-1. Na página **visão geral** do aplicativo, selecione **Propriedades** no menu de navegação esquerdo do aplicativo.
+1. Entre no <a href="https://portal.azure.com/" target="_blank">portal do Azure</a> como um **Administrador Global**.
+1. Se você tem acesso a vários locatários, use o filtro **Diretório + assinatura** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o locatário no qual você deseja registrar um aplicativo.
+1. Pesquise **Azure Active Directory** e selecione-o.
+1. Em **gerenciar**, selecione **aplicativos empresariais**  >  **todos os aplicativos**.
+1. Selecione o aplicativo para o qual você deseja atribuir um usuário ou um grupo de segurança da lista. 
+    Use os filtros na parte superior da janela para procurar um aplicativo específico.
+1. Na página **visão geral** do aplicativo, em **gerenciar**, selecione **Propriedades**.
 1. Localize a configuração **Atribuição de usuário obrigatória?** e defina-a como **Sim**. Quando essa opção é definida como **Sim**, os usuários no locatário devem primeiro ser atribuídos a esse aplicativo ou não poderão entrar neste aplicativo.
-1. Escolha **Salvar** para salvar essa alteração da configuração.
+1. Clique em **Salvar**.
 
-### <a name="app-registration"></a>Registro do aplicativo
+### <a name="app-registration"></a>Registro de aplicativo
 
-1. Vá para a [**portal do Azure**](https://portal.azure.com/).
-1. Na barra superior, selecione a conta conectada. 
-1. Em **Diretório**, escolha o locatário do Azure AD onde o aplicativo está registrado.
-1. Escolha **Azure Active Directory** no menu de navegação à esquerda.
-1. No painel de **Azure Active Directory** , selecione **registros de aplicativo** no menu de navegação do **Azure Active Directory** esquerdo.
-1. Crie ou selecione o aplicativo que você deseja gerenciar. Você precisa ser **proprietário** deste registro de aplicativo.
-1. Na página **visão geral** do aplicativo, siga o link **aplicativo gerenciado no diretório local** sob o Essentials na parte superior da página. Isso levará você para o _aplicativo empresarial gerenciado_ do registro do aplicativo.
-1. Na folha de navegação à esquerda, selecione **Propriedades**.
+1. Entre no <a href="https://portal.azure.com/" target="_blank">portal do Azure</a>.
+1. Se você tem acesso a vários locatários, use o filtro **Diretório + assinatura** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o locatário no qual você deseja registrar um aplicativo.
+1. Pesquise **Azure Active Directory** e selecione-o.
+1. Em **Gerenciar**, selecione **Registros de aplicativo**.
+1. Crie ou selecione o aplicativo que você deseja gerenciar. Você precisa ser o **proprietário** deste aplicativo.
+1. Na página **visão geral** do aplicativo, selecione o link **aplicativo gerenciado no diretório local** na seção **Essentials** .
+1. Em **Gerenciar**, selecione **Propriedades**.
 1. Localize a configuração **Atribuição de usuário obrigatória?** e defina-a como **Sim**. Quando essa opção é definida como **Sim**, os usuários no locatário devem primeiro ser atribuídos a esse aplicativo ou não poderão entrar neste aplicativo.
-1. Escolha **Salvar** para salvar essa alteração da configuração.
+1. Clique em **Salvar**.
 
 ## <a name="assign-users-and-groups-to-the-app"></a>Atribuir usuários e grupos ao aplicativo
 
 Após configurar seu aplicativo para habilitar a atribuição de usuários, prossiga e atribua usuários e grupos ao aplicativo.
 
-1. Selecione o painel **usuários e grupos** no menu de navegação esquerdo do aplicativo.
-1. Na parte superior da lista **Usuários e grupos**, escolha o botão **Adicionar usuário** para abrir o painel **Adicionar Atribuição**.
-1. Clique no seletor **Usuários** do painel **Adicionar Atribuição**. 
+1. Em **gerenciar**, selecione os **usuários e grupos**  >  **Adicionar usuário/grupo** .
+1. Selecione o seletor **usuários** . 
 
      Uma lista de usuários e grupos de segurança será exibida em conjunto com uma caixa de texto para pesquisar e localizar um determinado usuário ou grupo. Esta tela permite que você escolha vários usuários e grupos de uma só vez.
 
-1. Após terminar de escolher os usuários e grupos, pressione o botão **Selecionar** na parte inferior para passar para a próxima parte.
+1. Quando terminar de selecionar os usuários e grupos, selecione **selecionar**.
 1. Adicional Se você tiver definido funções de aplicativo em seu aplicativo, poderá usar a opção **selecionar função** para atribuir os usuários e grupos selecionados a uma das funções do aplicativo. 
-1. Pressione o botão **Atribuir** na parte inferior para concluir as atribuições de usuários e grupos ao aplicativo. 
+1. Selecione **atribuir** para concluir as atribuições de usuários e grupos para o aplicativo. 
 1. Confirme que os usuários e grupos que você adicionou estão aparecendo na lista atualizada de **Usuários e grupos**.
 
 ## <a name="more-information"></a>Mais informações

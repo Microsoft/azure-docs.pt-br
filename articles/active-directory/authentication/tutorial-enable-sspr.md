@@ -6,16 +6,16 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
 ms.date: 07/13/2020
-ms.author: iainfou
-author: iainfoulds
+ms.author: justinha
+author: justinha
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4cdeff5e08813140c45d0a30877c3789d1bc21b
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 924ff6091e7eb6633d36f75fd6d53745139454d7
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88718842"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96741058"
 ---
 # <a name="tutorial-enable-users-to-unlock-their-account-or-reset-passwords-using-azure-active-directory-self-service-password-reset"></a>Tutorial: Permitir que os usuários desbloqueiem sua conta ou redefinam senhas usando a redefinição de senha por autoatendimento do Microsoft Azure Active Directory
 
@@ -37,7 +37,8 @@ Neste tutorial, você aprenderá a:
 
 Para concluir este tutorial, você precisará dos seguintes recursos e privilégios:
 
-* Um locatário do Azure AD em funcionamento com pelo menos uma licença de avaliação ou Premium P1 do Azure AD habilitada.
+* Um locatário do Azure AD em funcionamento com pelo menos uma licença de avaliação ou Gratuita do Azure AD habilitada. Na camada Gratuita, o SSPR funciona apenas para usuários de nuvem no Azure AD.
+    * Para os tutoriais posteriores desta série, uma licença Premium P1 ou de avaliação do Azure AD é necessária para o write-back de senha local.
     * Se necessário, [crie um gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Uma conta com privilégios de *Administrador Global*.
 * Um usuário que não seja administrador com uma senha que você conheça, como *testuser*. Você testa a experiência de SSPR do usuário final usando essa conta neste tutorial.
@@ -115,7 +116,7 @@ Se os usuários precisarem de ajuda adicional com o processo de SSPR, você pode
 Com a SSPR habilitada e configurada, teste o processo de SSPR com um usuário que faça parte do grupo selecionado na seção anterior, como *Test-SSPR-Group*. No exemplo a seguir, é usada a conta *testuser*. Forneça uma conta de usuário própria que faça parte do grupo que você habilitou para SSPR na primeira seção deste tutorial.
 
 > [!NOTE]
-> Ao testar a redefinição de senha por autoatendimento, use uma conta que não seja de administrador. Os administradores estão sempre habilitados para a redefinição de senha por autoatendimento e devem usar dois métodos de autenticação para redefinir a própria senha.
+> Ao testar a redefinição de senha por autoatendimento, use uma conta que não seja de administrador. Por padrão, os administradores estão habilitados para obter a redefinição de senha por autoatendimento e deverão usar dois métodos de autenticação para redefinir a senha. Para obter mais informações, confira [Diferenças da política de redefinição de senha de administrador](concept-sspr-policy.md#administrator-reset-policy-differences).
 
 1. Para ver o processo de registro manual, abra uma nova janela do navegador no modo InPrivate ou incógnito e navegue até [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup). Os usuários devem ser direcionados para esse portal de registro na próxima vez que entrarem.
 1. Entre com um usuário de teste que não seja administrador, como *testuser*, e registre as informações de contato dos seus métodos de autenticação.
@@ -148,4 +149,4 @@ Neste tutorial, você habilitou a redefinição de senha por autoatendimento do 
 > * Testar o processo SSPR como um usuário
 
 > [!div class="nextstepaction"]
-> [Habilitar a Autenticação Multifator do Microsoft Azure](./tutorial-enable-azure-mfa.md)
+> [Habilitar a Autenticação Multifator do Azure AD](./tutorial-enable-azure-mfa.md)

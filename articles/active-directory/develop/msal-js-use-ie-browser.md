@@ -13,12 +13,12 @@ ms.date: 05/16/2019
 ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 633166f3bb46212991920d6720737f8268b3f401
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 73dd7877b399d34a009c9fe479550eb1bf6dc0f1
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87026847"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583969"
 ---
 # <a name="known-issues-on-internet-explorer-browsers-msaljs"></a>Problemas conhecidos nos navegadores do Internet Explorer (MSAL.js)
 
@@ -39,7 +39,7 @@ Isso ocorre porque o Internet Explorer não dá suporte às promessas do JavaScr
 Implantar seu aplicativo para produção (por exemplo, em aplicativos Web do Azure) normalmente funciona bem, desde que o usuário final tenha aceitado os pop-ups. Testamos isso com o Internet Explorer 11.
 
 ### <a name="running-locally"></a>Executando localmente
-Se você quiser executar e depurar localmente seu aplicativo em execução no Internet Explorer, você precisa estar ciente das seguintes considerações (Suponha que você deseja executar o aplicativo como *http://localhost:1234* ):
+Se você quiser executar e depurar localmente seu aplicativo em execução no Internet Explorer, esteja ciente das seguintes considerações (Suponha que você deseja executar o aplicativo como *http://localhost:1234* ):
 
 - O Internet Explorer tem um mecanismo de segurança chamado "modo protegido", que impede que MSAL.js funcionem corretamente. Entre os sintomas, depois de entrar, a página pode ser redirecionada para http://localhost:1234/null .
 

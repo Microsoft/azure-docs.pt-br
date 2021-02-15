@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 05/20/2020
 ms.author: glenga
 ms.openlocfilehash: 574756aa9d9bac4aa42febf6a4fca4c62014db3f
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: MT
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84732457"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010428"
 ---
 1. No Visual Studio Code, pressione F1 para abrir a paleta de comandos. Na paleta de comandos, pesquise e selecione **Azure Functions: implantar para aplicativo de funções**.
 

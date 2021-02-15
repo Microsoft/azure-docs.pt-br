@@ -1,14 +1,14 @@
 ---
 title: Visão geral do Azure Resource Health
-description: Visão geral do Azure Resource Health
+description: Saiba como Azure Resource Health ajuda a diagnosticar e obter suporte para problemas de serviço que afetam os recursos do Azure.
 ms.topic: conceptual
 ms.date: 05/10/2019
-ms.openlocfilehash: f0d2fdb8e1c8b92dba526650405405db8ae8a776
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 25425eadfaf54ba56cde3b377a44cd85c2b68959
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86041567"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "90967883"
 ---
 # <a name="resource-health-overview"></a>Visão geral de Resource Health
  
@@ -50,7 +50,7 @@ Eventos que não são de plataforma são disparados por ações do usuário. Os 
 
 ![Status de "não disponível" para uma máquina virtual devido a um evento de não plataforma](./media/resource-health-overview/Unavailable_NonPlatform.png)
 
-### <a name="unknown"></a>Unknown (desconhecido)
+### <a name="unknown"></a>Unknown
 
 *Desconhecido* significa que Resource Health não recebeu informações sobre o recurso por mais de 10 minutos. Embora esse status não seja uma indicação definitiva do estado do recurso, ele é um ponto de dados importante para a solução de problemas.
 
@@ -84,7 +84,7 @@ Você pode acessar até 30 dias de histórico na seção **histórico de integri
 
 Abrir Resource Health para um recurso:
 
-1. Entre no Portal do Azure.
+1. Entre no portal do Azure.
 2. Procure o recurso.
 3. No menu de recursos no painel esquerdo, selecione **Resource Health**.
 

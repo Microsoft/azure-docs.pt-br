@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/03/2020
+ms.date: 01/18/2021
 ms.author: jeedes
-ms.openlocfilehash: 170997099f1194bbc75d6d61a7c29fc1d18b462a
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 07340cb66fe9ef2f22e1f3e9b201e46dd07254bb
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88552206"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98622304"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sap-qualtrics"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao SAP Qualtrics
 
@@ -25,8 +25,6 @@ Neste tutorial, você aprenderá a integrar o SAP Qualtrics ao Azure AD (Azure A
 * Controlar no Azure AD que tem acesso ao SAP Qualtrics.
 * Permitir que os usuários, com as respectivas contas do Azure AD, sejam conectados automaticamente ao SAP Qualtrics.
 * Gerenciar suas contas em um local central: o portal do Azure.
-
-Para saber mais sobre a integração de aplicativos de SaaS (software como serviço) ao Azure AD, confira [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -41,13 +39,12 @@ Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente d
 
 * O SAP Qualtrics é compatível com o SSO iniciado por **SP** e **IDP**.
 * O SAP Qualtrics é compatível com o provisionamento de usuário **Just-In-Time**.
-* Após configurar o SAP Qualtrics, você poderá impor o controle de sessão, que protege contra a exportação e infiltração de dados confidenciais de sua organização em tempo real. O controle da sessão é estendido do acesso condicional. Para obter mais informações, confira [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="add-sap-qualtrics-from-the-gallery"></a>Adicionar o SAP Qualtrics da galeria
 
 Para configurar a integração do SAP Qualtrics ao Azure AD, é necessário adicionar o SAP Qualtrics da galeria à sua lista de aplicativos SaaS gerenciados.
 
-1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta corporativa ou de estudante, ou uma conta pessoal da Microsoft.
+1. Entre no portal do Azure usando uma conta corporativa ou de estudante, ou uma conta pessoal da Microsoft.
 1. No painel esquerdo, selecione **Azure Active Directory**.
 1. Vá para **Aplicativos da empresa**, em seguida, selecione **Todos os Aplicativos**.
 1. Para adicionar um novo aplicativo, selecione **Novo aplicativo**.
@@ -71,11 +68,11 @@ Para configurar e testar o SSO do Azure AD com o SAP Qualtrics, conclua os segui
 
 Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **SAP Qualtrics**, localize a seção **Gerenciar**. Selecione **logon único**.
+1. No portal do Azure, na página de integração de aplicativos do **SAP Qualtrics**, localize a seção **Gerenciar**. Selecione **logon único**.
 1. Na página **Selecionar um método de logon único**, escolha **SAML**.
 1. Na página **Configurar o logon único com o SAML**, selecione o ícone de lápis da **Configuração Básica de SAML** para editar as configurações.
 
-   ![Captura de tela da página Configurar o Logon Único com SAML, com o ícone de lápis realçado](common/edit-urls.png)
+   ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
 1. Na página **Configurar logon único com SAML**, caso queira configurar o aplicativo no modo iniciado por **IDP**, insira os valores nos seguintes campos:
     
@@ -102,7 +99,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, selecione o ícone copiar para copiar a **URL de metadados de federação de aplicativos** e salve-a no computador.
 
-    ![Captura de tela do Certificado de Autenticação SAML, com o ícone de cópia realçado](common/copy-metadataurl.png)
+    ![O link de download do Certificado](common/copy-metadataurl.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
@@ -123,13 +120,7 @@ Nesta seção, você permitirá a B.Fernandes acesso ao SAP Qualtrics, que permi
 1. No portal do Azure, selecione **Aplicativos Empresariais** > **Todos os aplicativos**.
 1. Na lista de aplicativos, selecione **SAP Qualtrics**.
 1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e selecione **Usuários e grupos**.
-
-   ![Captura de tela da seção Gerenciar, com Usuários e grupos realçados](common/users-groups-blade.png)
-
 1. Selecione **Adicionar usuário**. Em seguida, na caixa de diálogo **Adicionar Atribuição**, selecione **Usuários e grupos**.
-
-    ![Captura de tela da página Usuários e grupos, com a função Adicionar usuário destacada](common/add-assign-user.png)
-
 1. Na caixa de diálogo **Usuários e grupos**, selecione **B.Fernandes** na lista de usuários. Em seguida, escolha **Selecionar** na parte inferior da tela.
 1. Se você esperar um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função**, selecione a função apropriada para o usuário na lista. Em seguida, escolha **Selecionar** na parte inferior da tela.
 1. Na caixa de diálogo **Adicionar Atribuição**, selecione **Atribuir**.
@@ -144,21 +135,20 @@ O SAP Qualtrics é compatível com o provisionamento de usuário Just-In-Time, q
 
 ## <a name="test-sso"></a>Testar o SSO 
 
-Nesta seção, você testará a configuração de logon único do Azure AD usando o Painel de Acesso.
+Nesta seção, você testará a configuração de logon único do Azure AD com as opções a seguir. 
 
-Ao selecionar o bloco do SAP Qualtrics no Painel de Acesso, você deverá ser conectado automaticamente ao SAP Qualtrics para o qual configurou o SSO. Para obter mais informações, confira [Entrar e iniciar aplicativos no portal Meus Aplicativos](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+#### <a name="sp-initiated"></a>Iniciado por SP:
 
-## <a name="additional-resources"></a>Recursos adicionais
+* Clique em **Testar este aplicativo** no portal do Azure. Isso redirecionará você para a URL de Logon do SAP Qualtrics, na qual poderá iniciar o fluxo de logon.  
 
-- [Tutoriais para a integração de aplicativos SaaS ao Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+* Acesse diretamente a URL de Logon do SAP Qualtrics e inicie o fluxo de logon nela.
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+#### <a name="idp-initiated"></a>Iniciado por IdP:
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+* Clique em **Testar este aplicativo** no portal do Azure e você será conectado automaticamente ao SAP Qualtrics, para o qual configurou o SSO.
 
-- [Experimente o SAP Qualtrics com o Azure AD](https://aad.portal.azure.com/)
+Use também os Meus Aplicativos da Microsoft para testar o aplicativo em qualquer modo. Ao clicar no bloco do SAP Qualtrics em Meus Aplicativos, se ele estiver configurado no modo SP, você será redirecionado à página de logon do aplicativo para iniciar o fluxo de logon e, se ele estiver configurado no modo IdP, você será conectado automaticamente ao SAP Qualtrics, para o qual configurou o SSO. Para obter mais informações sobre os Meus Aplicativos, confira [Introdução aos Meus Aplicativos](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-- [O que é controle de sessão no Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+## <a name="next-steps"></a>Próximas etapas
 
-- [Proteger o SAP Qualtrics com visibilidade e controles avançados](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-
+Após configurar o SAP Qualtrics, você poderá impor o controle de sessão, que protege contra a exportação e infiltração de dados confidenciais de sua organização em tempo real. O controle da sessão é estendido do acesso condicional. Para obter mais informações, confira [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

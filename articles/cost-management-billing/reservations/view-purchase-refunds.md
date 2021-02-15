@@ -7,12 +7,12 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: d9e5269468f7cd4571e7ae686af7f1ef159b4ef3
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: b986aa2bfce203be85adbcde8e2966c167bf7ca1
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88681695"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151782"
 ---
 # <a name="view-reservation-purchase-and-refund-transactions"></a>Exibir transações de reembolso e compra de reserva
 
@@ -39,11 +39,11 @@ Um registro Enterprise ou administrador de cobrança do Contrato de Cliente da M
 
 [![Exemplo mostrando transações de reserva](./media/view-purchase-refunds/power-bi-reservation-transactions.png)](./media/view-purchase-refunds/power-bi-reservation-transactions.png#lightbox)
 
-Para saber mais, confira [Aplicativo do Power BI de Gerenciamento de Custos do Azure para Contratos Enterprise](https://docs.microsoft.com/azure/cost-management-billing/costs/analyze-cost-data-azure-cost-management-power-bi-template-app).
+Para saber mais, confira [Aplicativo do Power BI de Gerenciamento de Custos do Azure para Contratos Enterprise](../costs/analyze-cost-data-azure-cost-management-power-bi-template-app.md).
 
 ## <a name="use-apis-to-get-reservation-transactions"></a>Usar APIs para obter transações de reserva
 
-Usuários do EA (Contrato Enterprise) e do Contrato de Cliente da Microsoft podem obter os dados de transações de reserva usando a [API de Transações de Reserva – Listar](https://docs.microsoft.com/rest/api/consumption/reservationtransactions/list).
+Usuários do EA (Contrato Enterprise) e do Contrato de Cliente da Microsoft podem obter os dados de transações de reserva usando a [API de Transações de Reserva – Listar](/rest/api/consumption/reservationtransactions/list).
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Entre em contato conosco.
 

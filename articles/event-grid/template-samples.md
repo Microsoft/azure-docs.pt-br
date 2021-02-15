@@ -4,10 +4,10 @@ description: Este artigo fornece uma lista de amostras de modelo do Azure Resour
 ms.topic: sample
 ms.date: 07/07/2020
 ms.openlocfilehash: 910012adf2dc930e6f1a26f1a7fc41f5ed0580c9
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86119048"
 ---
 # <a name="azure-resource-manager-templates-for-event-grid"></a>Modelos do Azure Resource Manager para Grade de Eventos

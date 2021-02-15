@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, carlrab
+ms.reviewer: wiassaf, sstein
 ms.date: 03/10/2020
-ms.openlocfilehash: 5a81ceea151b937b63544cbe51cc22de11d25230
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 79ccf0f8aae7e915601081f875cea294de52d787
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85254932"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500845"
 ---
 # <a name="database-advisor-performance-recommendations-for-azure-sql-database"></a>Recomendações de desempenho de Assistente do Banco de Dados para o banco de dados SQL do Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -57,7 +57,7 @@ O banco de dados SQL do Azure monitora continuamente as consultas que estão em 
 
 O Banco de Dados SQL do Azure aumenta a confiança estimando o ganho de desempenho que o índice trará ao longo do tempo. Dependendo do ganho de desempenho estimado, as recomendações são categorizadas como alta, média ou baixa.
 
-Índices criados usando recomendações sempre são sinalizados como índices criados automaticamente. Você pode ver quais índices são criados automaticamente examinando a [exibição sys. Indexes](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-indexes-transact-sql). Os índices criados automaticamente não bloqueiam os comandos ALTER/RENAME.
+Índices criados usando recomendações sempre são sinalizados como índices criados automaticamente. Você pode ver quais índices são criados automaticamente examinando a [exibição sys. Indexes](/sql/relational-databases/system-catalog-views/sys-indexes-transact-sql). Os índices criados automaticamente não bloqueiam os comandos ALTER/RENAME.
 
 Se você tentar descartar a coluna que tem um índice criado automaticamente por ela, o comando é passado. O índice criado automaticamente é descartado com o comando também. Índices regulares bloqueiam o comando ALTER/RENAME em colunas que são indexadas.
 
@@ -84,9 +84,9 @@ Recomendações para *Parametrizar consultas* aparecem quando o serviço de Banc
 
 Inicialmente, cada consulta precisa ser compilada para gerar um plano de execução. Cada plano gerado é adicionado ao cache de planos. As execuções subsequentes da mesma consulta poderão reutilizar esse plano pelo cache, o que elimina a necessidade de compilações adicionais.
 
-Consultas com valores não parametrizados podem gerar sobrecarga de desempenho porque o plano de execução é recompilado toda vez que os valores não parametrizados são diferentes. Em muitos casos, as mesmas consultas com valores de parâmetros diferentes geram os mesmos planos de execução. No entanto, esses planos ainda são adicionados separadamente ao cache de planos.
+Consultas com valores não parametrizados podem levar a sobrecarga de desempenho porque o plano de execução é recompilado cada vez que os valores não parametrizados são diferentes. Em muitos casos, as mesmas consultas com valores de parâmetros diferentes geram os mesmos planos de execução. No entanto, esses planos ainda são adicionados separadamente ao cache de planos.
 
-O processo de recompilação de planos de execução usa recursos do banco de dados, aumenta o tempo de duração da consulta e sobrecarrega o cache de planos. Esses eventos, por sua vez, fazem com que os planos sejam removido do cache. Esse comportamento pode ser alterado definindo a opção de parametrização forçada no banco de dados.
+O processo de recompilação dos planos de execução usa recursos do banco de dados, aumenta o tempo de duração da consulta e estoura o cache de planos. Esses eventos, por sua vez, fazem com que os planos sejam removidos do cache. Esse comportamento pode ser alterado definindo a opção de parametrização forçada no banco de dados.
 
 Para ajudá-lo a estimar o impacto dessa recomendação, você receberá uma comparação entre o uso real da CPU e o uso projetado da CPU (como se a recomendação tivesse sido aplicada). Essa recomendação pode ajudá-lo a obter uma economia de CPU. Ela também pode ajudar a reduzir a duração da consulta e a sobrecarga para o cache de planos, o que significa que mais dos planos podem permanecer no cache e ser reutilizados. Você pode aplicar essa recomendação com rapidez selecionando o comando **Aplicar**.
 
@@ -114,7 +114,7 @@ A recomendação "corrigir problema do esquema" aparece quando o banco de dados 
 
 ## <a name="custom-applications"></a>Aplicativos personalizados
 
-Os desenvolvedores podem considerar o desenvolvimento de aplicativos personalizados usando recomendações de desempenho para o banco de dados SQL do Azure. Todas as recomendações listadas no portal para um banco de dados podem ser acessadas por meio da API [Get-AzSqlDatabaseRecommendedAction](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaserecommendedaction) .
+Os desenvolvedores podem considerar o desenvolvimento de aplicativos personalizados usando recomendações de desempenho para o banco de dados SQL do Azure. Todas as recomendações listadas no portal para um banco de dados podem ser acessadas por meio da API [Get-AzSqlDatabaseRecommendedAction](/powershell/module/az.sql/get-azsqldatabaserecommendedaction) .
 
 ## <a name="next-steps"></a>Próximas etapas
 

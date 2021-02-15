@@ -1,14 +1,14 @@
 ---
 title: Visão geral de cofres de Serviços de Recuperação
-description: Uma visão geral e a comparação entre os cofres de Serviços de Recuperação e os cofres de Backup do Azure.
+description: Uma visão geral dos cofres dos serviços de recuperação.
 ms.topic: conceptual
 ms.date: 08/17/2020
-ms.openlocfilehash: 6b6550bc8c5221547d55ad1e81a985b8ecd303e0
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 0ed37446e1ccf0780f924143c8f063964adf0004
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88889610"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755115"
 ---
 # <a name="recovery-services-vaults-overview"></a>Visão geral dos cofres dos Serviços de Recuperação
 
@@ -18,11 +18,11 @@ Este artigo descreve os recursos de um cofre de Serviços de Recuperação. Um c
 
 - **Monitoramento central para seu ambiente de TI híbrida**: com os cofres de Serviços de Recuperação, você pode monitorar não apenas suas [VMs da IaaS do Azure](backup-azure-manage-vms.md), como também seus [ativos locais](backup-azure-manage-windows-server.md#manage-backup-items) de um portal central. [Saiba mais](backup-azure-monitoring-built-in-monitor.md)
 
-- **RBAC (Controle de Acesso Baseado em Função)**: o RBAC oferece controle de gerenciamento de acesso detalhado no Azure. [O Azure fornece várias funções internas](../role-based-access-control/built-in-roles.md), e o Backup do Azure tem três [funções internas para gerenciar pontos de recuperação](backup-rbac-rs-vault.md). Cofres de Serviços de Recuperação são compatíveis com RBAC, que restringe o acesso de backup e restauração ao conjunto definido de funções de usuário. [Saiba mais](backup-rbac-rs-vault.md)
+- **Controle de acesso baseado em função do Azure (RBAC do Azure)**: o RBAC do Azure fornece controle de gerenciamento de acesso refinado no Azure. [O Azure fornece várias funções internas](../role-based-access-control/built-in-roles.md), e o Backup do Azure tem três [funções internas para gerenciar pontos de recuperação](backup-rbac-rs-vault.md). Os cofres dos serviços de recuperação são compatíveis com o RBAC do Azure, que restringe o acesso de backup e restauração ao conjunto definido de funções de usuário. [Saiba mais](backup-rbac-rs-vault.md)
 
 - **Exclusão reversível**: com exclusão reversível, mesmo que um ator mal-intencionado exclua um backup (ou os dados de backup sejam excluídos acidentalmente), os dados de backup serão mantidos por 14 dias adicionais, permitindo a recuperação desse item de backup sem perda de dados. Os 14 dias adicionais de retenção para dados de backup no estado de "exclusão reversível" não incorrem em nenhum custo para você. [Saiba mais](backup-azure-security-feature-cloud.md).
 
-- **Restauração entre regiões**: a CRR (restauração entre regiões) permite que você restaure as VMs do Azure em uma região secundária, que é uma região emparelhada do Azure. Se o Azure declarar um desastre na região primária, os dados replicados na região secundária estarão disponíveis para restauração na região secundária para reduzir o desastre real de tempo de inatividade na região primária para seu ambiente. [Saiba mais](backup-azure-arm-restore-vms.md#cross-region-restore).
+- **Restauração entre regiões**: a CRR (restauração entre regiões) permite que você restaure as VMs do Azure em uma região secundária, que é uma região emparelhada do Azure. Ao habilitar esse recurso no [nível do cofre](backup-create-rs-vault.md#set-cross-region-restore), você pode restaurar os dados replicados na região secundária a qualquer momento, quando escolher. Isso permite que você restaure os dados da região secundária para auditoria-conformidade e, durante os cenários de interrupção, sem esperar que o Azure declare um desastre (diferentemente das configurações de GRS do cofre). [Saiba mais](backup-azure-arm-restore-vms.md#cross-region-restore).
 
 ## <a name="storage-settings-in-the-recovery-services-vault"></a>Configurações de armazenamento no cofre dos serviços de recuperação
 
@@ -30,7 +30,7 @@ Um cofre dos Serviços de Recuperação é uma entidade que armazena os backups 
 
 - O backup do Azure manipula automaticamente o armazenamento para o cofre. Veja como [as configurações de armazenamento podem ser alteradas](./backup-create-rs-vault.md#set-storage-redundancy).
 
-- Para saber mais sobre a redundância de armazenamento, consulte estes artigos sobre redundância [geográfica](../storage/common/storage-redundancy.md) e [local](../storage/common/storage-redundancy.md) .
+- Para saber mais sobre a redundância de armazenamento, consulte esses artigos sobre redundância [geográfica](../storage/common/storage-redundancy.md#geo-zone-redundant-storage), [local](../storage/common/storage-redundancy.md#locally-redundant-storage) e [zonal](../storage/common/storage-redundancy.md#zone-redundant-storage) .
 
 ## <a name="encryption-settings-in-the-recovery-services-vault"></a>Configurações de criptografia no cofre dos serviços de recuperação
 

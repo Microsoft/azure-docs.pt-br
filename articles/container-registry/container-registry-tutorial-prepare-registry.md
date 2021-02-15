@@ -4,16 +4,16 @@ description: Crie um Registro de contêiner do Azure, configure a replicação g
 ms.topic: tutorial
 ms.date: 06/30/2020
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 780a16d691e0d8afe62cd06f37a37fc3f6445ea6
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 6abf1b7a524bc7dd28f1704a362749ac84de2389
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259516"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97826074"
 ---
 # <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>Tutorial: Preparar um Registro de contêiner do Azure com replicação geográfica
 
-Um Registro de contêiner do Azure é um Registro do Docker privado implantado no Azure que você pode manter perto da rede para suas implantações. Nesse conjunto de três artigos tutoriais, você aprenderá a usar a replicação geográfica para implantar um aplicativo Web ASP.NET Core em execução em um contêiner do Linux em duas instâncias de [Aplicativos Web para Contêineres](../app-service/containers/index.yml). Você verá como o Azure implanta automaticamente a imagem em cada instância de aplicativo Web do repositório com replicação geográfica mais próximo.
+Um Registro de contêiner do Azure é um Registro do Docker privado implantado no Azure que você pode manter perto da rede para suas implantações. Nesse conjunto de três artigos tutoriais, você aprenderá a usar a replicação geográfica para implantar um aplicativo Web ASP.NET Core em execução em um contêiner do Linux em duas instâncias de [Aplicativos Web para Contêineres](../app-service/index.yml). Você verá como o Azure implanta automaticamente a imagem em cada instância de aplicativo Web do repositório com replicação geográfica mais próximo.
 
 Neste tutorial, parte um de uma série de três partes:
 
@@ -123,19 +123,19 @@ Caso `git` não esteja instalado, você poderá [baixar o arquivo morto ZIP][acr
 
 ## <a name="update-dockerfile"></a>Atualizar o Dockerfile
 
-O Dockerfile incluído no exemplo mostra como o contêiner é criado. Ele inicia em uma imagem [aspnetcore][dockerhub-aspnetcore] oficial, copia os arquivos de aplicativo para o contêiner, instala dependências, compila a saída usando a imagem [aspnetcore-build][dockerhub-aspnetcore-build] oficial e, finalmente, cria uma imagem aspnetcore otimizada.
+O Dockerfile incluído no exemplo mostra como o contêiner é criado. Ele inicia em uma imagem do runtime do ASP.NET Core oficial, copia os arquivos de aplicativo para o contêiner, instala dependências, compila a saída usando a imagem do SDK do .NET Core oficial e, finalmente, cria uma imagem aspnetcore otimizada.
 
 O [Dockerfile][dockerfile] está localizado em `./AcrHelloworld/Dockerfile` na fonte clonada.
 
 ```Dockerfile
-FROM microsoft/aspnetcore:2.0 AS base
+FROM mcr.microsoft.com/dotnet/core/aspnet:2.2 AS base
 # Update <acrName> with the name of your registry
 # Example: uniqueregistryname.azurecr.io
 ENV DOCKER_REGISTRY <acrName>.azurecr.io
 WORKDIR /app
 EXPOSE 80
 
-FROM microsoft/aspnetcore-build:2.0 AS build
+FROM mcr.microsoft.com/dotnet/core/sdk:2.2 AS build
 WORKDIR /src
 COPY *.sln ./
 COPY AcrHelloworld/AcrHelloworld.csproj AcrHelloworld/
@@ -187,8 +187,8 @@ Várias linhas de saída são exibidas à medida que a imagem do Docker é criad
 
 ```bash
 Sending build context to Docker daemon  523.8kB
-Step 1/18 : FROM microsoft/aspnetcore:2.0 AS base
-2.0: Pulling from microsoft/aspnetcore
+Step 1/18 : FROM mcr.microsoft.com/dotnet/core/aspnet:2.2 AS base
+2.2: Pulling from mcr.microsoft.com/dotnet/core/aspnet
 3e17c6eae66c: Pulling fs layer
 
 [...]
@@ -245,6 +245,4 @@ Passe para o próximo tutorial para implantar seu contêiner em várias instânc
 <!-- LINKS - External -->
 [acr-helloworld-zip]: https://github.com/Azure-Samples/acr-helloworld/archive/master.zip
 [aspnet-core]: https://dot.net
-[dockerhub-aspnetcore]: https://hub.docker.com/r/microsoft/aspnetcore/
-[dockerhub-aspnetcore-build]: https://store.docker.com/community/images/microsoft/aspnetcore-build
 [dockerfile]: https://github.com/Azure-Samples/acr-helloworld/blob/master/AcrHelloworld/Dockerfile

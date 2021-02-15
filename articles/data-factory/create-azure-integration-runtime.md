@@ -1,21 +1,17 @@
 ---
 title: Criar tempo de execução de integração do Azure no Azure Data Factory
 description: Saiba como criar o Integration Runtime do Azure no Azure Data Factory, que é usado para copiar dados e expedir atividades de transformação.
-services: data-factory
-documentationcenter: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/09/2020
 author: nabhishek
 ms.author: abnarain
-manager: anandsub
-ms.openlocfilehash: c7880fd7fb687483409ce591059e0f5b2d2e2991
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ecf2a74a16234084fbac4d1c26157d1703b56a13
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84659701"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100373055"
 ---
 # <a name="how-to-create-and-configure-azure-integration-runtime"></a>Como criar e configurar o Integration Runtime do Azure
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -48,15 +44,15 @@ Você pode configurar um Azure IR existente para alterar seu local usando o cmdl
 ### <a name="create-an-azure-ir-via-azure-data-factory-ui"></a>Criar um Azure IR por meio da interface do usuário do Azure Data Factory
 Use as etapas a seguir para criar um Azure IR usando a interface do usuário do Azure Data Factory.
 
-1. Na página **Vamos começar** da interface do usuário do Azure Data Factory, selecione a [guia Gerenciar](https://docs.microsoft.com/azure/data-factory/author-management-hub) no painel mais à esquerda.
+1. Na página **Vamos começar** da interface do usuário do Azure Data Factory, selecione a [guia Gerenciar](./author-management-hub.md) no painel mais à esquerda.
 
    ![O botão Gerenciar da home page](media/doc-common-process/get-started-page-manage-button.png)
 
 1. Selecione **Runtimes de integração** no painel esquerdo e, em seguida, selecione **+ Novo**.
 
-   ![Criar um Integration Runtime](media/doc-common-process/manage-new-integration-runtime.png)
+   ![Captura de tela que realça os tempos de execução de integração no painel esquerdo e no botão + novo.](media/doc-common-process/manage-new-integration-runtime.png)
 
-1. Na página **instalação do Integration Runtime** , selecione **Azure, auto-hospedado**e, em seguida, selecione **continuar**. 
+1. Na página **instalação do Integration Runtime** , selecione **Azure, auto-hospedado** e, em seguida, selecione **continuar**. 
 
 1. Na página a seguir, selecione **Azure** para criar um Azure ir e, em seguida, selecione **continuar**.
    ![Criar um Integration Runtime](media/create-azure-integration-runtime/new-azure-integration-runtime.png)
@@ -92,4 +88,3 @@ Consulte os artigos a seguir para criar outros tipos de runtimes de integração
 
 - [Criar um Integration Runtime auto-hospedado](create-self-hosted-integration-runtime.md)
 - [Criar o Integration Runtime do Azure-SSIS](create-azure-ssis-integration-runtime.md)
- 

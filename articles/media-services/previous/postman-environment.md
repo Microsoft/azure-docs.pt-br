@@ -13,14 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 8254d121c62a20de0a1593920b7793195f8eb50e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2ccc765a3fb0063d92382edcec260808183f27a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78926704"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89259244"
 ---
-# <a name="import-the-postman-environment"></a>Importar o ambiente Postman  
+# <a name="import-the-postman-environment"></a>Importar o ambiente Postman
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)] 
 
 Este artigo contém uma definição das variáveis de ambiente de **Postman** que são usadas na [coleção de Postman](postman-collection.md) que contêm as solicitações HTTP agrupadas que chamam as APIs REST dos Serviços de Mídia. Esses arquivos de ambiente e de coleção são usados pelo tutorial [Configurar o Postman para chamadas da API REST dos Serviços de Mídia](media-rest-apis-with-postman.md).
 

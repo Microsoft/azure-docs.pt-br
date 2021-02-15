@@ -4,13 +4,18 @@
   items:
     - name: O que é o Azure Front Door?
       href: front-door-overview.md
-    - name: Novidades do Azure Front Door
-      href: front-door-whats-new.md
 - name: Inícios rápidos
   expanded: true
   items:
-    - name: Criar um Front Door
+    - name: Criar um Front Door – Portal
       href: quickstart-create-front-door.md
+    - name: Criar um Front Door – PowerShell
+      href: quickstart-create-front-door-powershell.md
+    - name: Criar um Front Door – CLI
+      href: quickstart-create-front-door-cli.md
+    - name: Criar um Front Door – Modelo do ARM
+      displayName: Resource Manager
+      href: quickstart-create-front-door-template.md
 - name: Tutoriais
   items:
     - name: Adicionar um domínio personalizado ao seu Front Door
@@ -31,10 +36,16 @@
       href: front-door-quickstart-template-samples.md
 - name: Conceitos
   items:
+    - name: Segurança
+      items:
+        - name: Linha de base de segurança
+          href: security-baseline.md
     - name: Back-ends e pools de back-end
       href: front-door-backend-pool.md
     - name: Armazenando em cache com o Front Door
       href: front-door-caching.md
+    - name: Proteção contra DDoS
+      href: front-door-ddos.md
     - name: Perguntas frequentes sobre o Front Door
       href: front-door-faq.md
     - name: Filtragem geográfica

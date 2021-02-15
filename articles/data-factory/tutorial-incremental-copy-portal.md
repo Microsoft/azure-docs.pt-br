@@ -1,6 +1,6 @@
 ---
 title: Copiar uma tabela incrementalmente usando o portal do Azure
-description: Neste tutorial, você cria um pipeline do Azure Data Factory que copia dados incrementalmente de um banco de dados SQL do Azure para um Armazenamento de Blobs do Azure.
+description: Neste tutorial, você criará um Azure Data Factory com um pipeline que carrega dados delta de uma tabela no Banco de Dados SQL do Azure para um Armazenamento de Blobs do Azure.
 services: data-factory
 author: dearandyxu
 ms.author: yexu
@@ -10,19 +10,19 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-dt-2019
-ms.date: 06/10/2020
-ms.openlocfilehash: 10253b435461d62a4176164ea2a929843283f414
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.date: 11/09/2020
+ms.openlocfilehash: d1a7f47b1cdccb02952bd7d9d333855f5eec27d5
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86082651"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97508519"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-the-azure-portal"></a>Carregar incrementalmente os dados do Banco de Dados SQL do Azure para o Armazenamento de Blobs do Azure usando o portal do Azure
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Neste tutorial, você cria um Azure Data Factory com um pipeline que carrega dados delta de uma tabela no Banco de Dados SQL do Azure para um Armazenamento de Blobs do Azure.
+Neste tutorial, você criará um Azure Data Factory com um pipeline que carrega dados delta de uma tabela no Banco de Dados SQL do Azure para um Armazenamento de Blobs do Azure.
 
 Neste tutorial, você realizará os seguintes procedimentos:
 
@@ -143,8 +143,8 @@ AS
 
 BEGIN
 
-    UPDATE watermarktable
-    SET [WatermarkValue] = @LastModifiedtime
+UPDATE watermarktable
+SET [WatermarkValue] = @LastModifiedtime
 WHERE [TableName] = @TableName
 
 END
@@ -153,20 +153,20 @@ END
 ## <a name="create-a-data-factory"></a>Criar uma data factory
 
 1. Iniciar o navegador da Web **Microsoft Edge** ou **Google Chrome**. Atualmente, a interface do usuário do Data Factory tem suporte apenas nos navegadores da Web Microsoft Edge e Google Chrome.
-2. No menu à esquerda, selecione **Criar um recurso** > **Analytics** > **Data Factory**:
+2. No menu à esquerda, selecione **Criar um recurso** > **Integração** > **Data Factory**:
 
    ![Seleção de Data Factory no painel "Novo"](./media/doc-common-process/new-azure-data-factory-menu.png)
 
 3. Na página **Novo data factory**, insira **ADFIncCopyTutorialDF** como o **nome**.
 
-   O nome do Azure Data Factory deve ser **globalmente exclusivo**. Se for exibido um ponto de exclamação vermelho com um erro, altere o nome de data factory (por exemplo, seunomeADFIncCopyTutorialDF) e tente criá-lo novamente. Confira o artigo [Data Factory - regras de nomenclatura](naming-rules.md) para ver as regras de nomenclatura para artefatos do Data Factory.
+   O nome do Azure Data Factory precisa ser **globalmente exclusivo**. Se for exibido um ponto de exclamação vermelho com um erro, altere o nome de data factory (por exemplo, seunomeADFIncCopyTutorialDF) e tente criá-lo novamente. Confira o artigo [Data Factory - regras de nomenclatura](naming-rules.md) para ver as regras de nomenclatura para artefatos do Data Factory.
 
     *O nome do data factory "ADFIncCopyTutorialDF" não está disponível*
 4. Selecione a **assinatura** do Azure na qual você deseja criar o data factory.
 5. Para o **Grupo de Recursos**, execute uma das seguintes etapas:
 
-      - Selecione **Usar existente**e selecione um grupo de recursos existente na lista suspensa.
-      - Selecione **Criar novo**e insira o nome de um grupo de recursos.   
+      - Selecione **Usar existente** e selecione um grupo de recursos existente na lista suspensa.
+      - Selecione **Criar novo** e insira o nome de um grupo de recursos.   
          
         Para saber mais sobre grupos de recursos, consulte [Usando grupos de recursos para gerenciar recursos do Azure](../azure-resource-manager/management/overview.md).  
 6. Selecione **V2** para a **versão**.

@@ -8,12 +8,12 @@ ms.author: pafarley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/21/2020
-ms.openlocfilehash: 58f1c2621165a7074c04752832c6560b2fd3e423
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: a3b073cdb90e0c427bfbca15c1440b9122672610
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935425"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880128"
 ---
 # <a name="example-create-a-form-recognizer-custom-skill"></a>Exemplo: criar uma habilidade personalizada do reconhecedor de formulário
 
@@ -30,7 +30,7 @@ Neste exemplo do Azure Pesquisa Cognitiva tipo de habilidade, você aprenderá a
 
 ## <a name="train-your-model"></a>Treinar seu modelo
 
-Você precisará treinar um modelo de reconhecimento de formulário com seus formulários de entrada antes de usar essa habilidade. Siga o guia de [início rápido da ondulação](../cognitive-services/form-recognizer/quickstarts/curl-train-extract.md) para aprender a treinar um modelo. Você pode usar os formulários de exemplo fornecidos nesse guia de início rápido ou pode usar seus próprios dados. Depois que o modelo for treinado, copie seu valor de ID para um local seguro.
+Você precisará treinar um modelo de reconhecimento de formulário com seus formulários de entrada antes de usar essa habilidade. Siga o guia de [início rápido da ondulação](../cognitive-services/form-recognizer/quickstarts/client-library.md?pivots=programming-language-rest-api) para aprender a treinar um modelo. Você pode usar os formulários de exemplo fornecidos nesse guia de início rápido ou pode usar seus próprios dados. Depois que o modelo for treinado, copie seu valor de ID para um local seguro.
 
 ## <a name="set-up-the-custom-skill"></a>Configurar a habilidade personalizada
 

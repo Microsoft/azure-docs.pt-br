@@ -4,23 +4,23 @@ description: Saiba como montar um sistema de arquivos virtual em um pool do Lote
 ms.topic: how-to
 ms.custom: devx-track-csharp
 ms.date: 08/13/2019
-ms.openlocfilehash: 6b42d73954bf7ccaedfec15371cc73115c51198a
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: df03275fdeea88df1a2f2b6e2cda55021497cdf7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88921623"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89145477"
 ---
 # <a name="mount-a-virtual-file-system-on-a-batch-pool"></a>Montar um sistema de arquivos virtual em um pool do Lote
 
 Agora o Lote do Azure dá suporte à montagem de armazenamento em nuvem ou um sistema de arquivos externo nos nós de computação do Windows ou Linux nos pools do Lote. Quando um nó de computação entra em um pool, o sistema de arquivos virtual é montado e tratado como uma unidade local nesse nó. Você pode montar sistemas de arquivos, como Arquivos do Azure, armazenamento de Blobs do Azure, NFS (sistema de arquivos de rede), incluindo um [cache Avere vFXT](../avere-vfxt/avere-vfxt-overview.md) ou CIFS (sistema de arquivos de Internet comum).
 
-Neste artigo, você saberá como montar um sistema de arquivos virtual em um pool de nós de computação, usando a [Biblioteca de gerenciamento de lotes para .NET](/dotnet/api/overview/azure/batch?view=azure-dotnet).
+Neste artigo, você saberá como montar um sistema de arquivos virtual em um pool de nós de computação, usando a [Biblioteca de gerenciamento de lotes para .NET](/dotnet/api/overview/azure/batch).
 
 > [!NOTE]
 > A montagem de um sistema de arquivos virtual é compatível com os pools do Lote criados na versão 2019-08-19 ou posterior. Os pools do Lote criados antes da versão 2019-08-19 não são compatíveis com esse recurso.
 > 
-> As APIs de montagem dos sistemas de arquivos em um nó de computação fazem parte da [Biblioteca do Lote para .NET](/dotnet/api/microsoft.azure.batch?view=azure-dotnet).
+> As APIs de montagem dos sistemas de arquivos em um nó de computação fazem parte da [Biblioteca do Lote para .NET](/dotnet/api/microsoft.azure.batch).
 
 ## <a name="benefits-of-mounting-on-a-pool"></a>Benefícios da montagem em um pool
 

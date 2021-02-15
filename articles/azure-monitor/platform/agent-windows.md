@@ -1,5 +1,5 @@
 ---
-title: Instalar Log Analytics agente em computadores Windows
+title: Instalar o Agente do Log Analytics em computadores Windows
 description: Este artigo descreve como conectar computadores Windows hospedados em outras nuvens ou locais no Azure Monitor com o agente do Log Analytics para Windows.
 ms.subservice: logs
 ms.topic: conceptual
@@ -7,13 +7,13 @@ author: bwren
 ms.author: bwren
 ms.date: 08/03/2020
 ms.openlocfilehash: d283c2b2cdbbeb3ef4bc4e25f4288dfd95158552
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89003364"
 ---
-# <a name="install-log-analytics-agent-on-windows-computers"></a>Instalar Log Analytics agente em computadores Windows
+# <a name="install-log-analytics-agent-on-windows-computers"></a>Instalar o Agente do Log Analytics em computadores Windows
 Este artigo fornece detalhes sobre como instalar o agente de Log Analytics em computadores Windows usando os seguintes métodos:
 
 * Instalação manual usando o [Assistente de instalação](#install-agent-using-setup-wizard) ou a [linha de comando](#install-agent-using-command-line).
@@ -202,7 +202,7 @@ Nos resultados de pesquisa retornados, você deverá ver os registros de pulsaç
 
 Os dados do agente de Log Analytics são armazenados em cache no computador local em *C:\Program Files\Microsoft Monitoring Agent\Agent\Health Service State* antes de serem enviados para Azure monitor. O agente tenta carregar a cada 20 segundos. Se falhar, ele aguardará um período de tempo cada vez maior até que tenha êxito. Ele aguardará 30 segundos antes da segunda tentativa, 60 segundos antes da próxima, 120 segundos e assim por diante até um máximo de 8,5 horas entre as repetições até que ela se conecte com êxito novamente. Esse tempo de espera é ligeiramente aleatório para evitar que todos os agentes tentem a conexão simultaneamente. Os dados mais antigos são descartados quando o buffer máximo é atingido.
 
-O tamanho de cache padrão é 50 MB, mas pode ser configurado entre um mínimo de 5 MB e o máximo de 1,5 GB. Ele é armazenado na chave do registro *HKEY_LOCAL_MACHINE cache \System\currentcontrolset\services\healthservice\parameters\persistence máximo*. O valor representa o número de páginas, com 8 KB por página.
+O tamanho de cache padrão é 50 MB, mas pode ser configurado entre um mínimo de 5 MB e o máximo de 1,5 GB. Ele é armazenado na chave do registro *HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Persistence Cache Maximum*. O valor representa o número de páginas, com 8 KB por página.
 
 
 ## <a name="next-steps"></a>Próximas etapas

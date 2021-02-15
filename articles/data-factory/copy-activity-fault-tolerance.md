@@ -1,22 +1,17 @@
 ---
 title: Tolerância a falhas da atividade de cópia no Azure Data Factory
 description: Saiba como adicionar a tolerância a falhas da atividade de cópia no Azure Data Factory ignorando dados incompatíveis.
-services: data-factory
-documentationcenter: ''
 author: dearandyxu
-manager: ''
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: yexu
-ms.openlocfilehash: 6b172a6e15cbb22c3a0a16cb1e238ddfe45048bf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0fe1470661c006399ea176af1112d271524b2a1f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85130765"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100390956"
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Tolerância a falhas da atividade de cópia no Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -27,7 +22,7 @@ ms.locfileid: "85130765"
 
 Quando você copia dados do repositório de origem para o de destino, a atividade de cópia do Azure Data Factory fornece um determinado nível de tolerância a falhas para impedir a interrupção por causa de falhas no meio da movimentação de dados. Por exemplo, você está copiando milhões de linhas do repositório de origem para o de destino, em que uma chave primária foi criada no banco de dados de destino, mas o banco de dados de origem não tem nenhuma chave primária definida. Quando você for copiar linhas duplicadas da origem para o destino, ocorrerá a falha de violação de CP no banco de dados de destino. Neste momento, a atividade de cópia oferece duas maneiras de lidar com esses erros: 
 - Você pode anular a atividade de cópia quando qualquer falha for encontrada. 
-- Você pode continuar a copiar o restante habilitando a tolerância a falhas para ignorar os dados incompatíveis. Por exemplo, ignorar a linha duplicada neste caso. Além disso, você pode registrar os dados ignorados habilitando o log de sessão na atividade de cópia. 
+- Você pode continuar a copiar o restante habilitando a tolerância a falhas para ignorar os dados incompatíveis. Por exemplo, ignorar a linha duplicada neste caso. Além disso, você pode registrar os dados ignorados habilitando o log de sessão na atividade de cópia. Você pode consultar o [log de sessão na atividade de cópia](copy-activity-log.md) para obter mais detalhes.
 
 ## <a name="copying-binary-files"></a>Copiar arquivos binários 
 
@@ -58,16 +53,24 @@ Ao copiar arquivos binários entre repositórios de armazenamento, você pode ha
     "skipErrorFile": { 
         "fileMissing": true, 
         "fileForbidden": true, 
-        "dataInconsistency": true 
+        "dataInconsistency": true,
+        "invalidFileName": true        
     }, 
     "validateDataConsistency": true, 
-    "logStorageSettings": { 
-        "linkedServiceName": { 
-            "referenceName": "ADLSGen2", 
-            "type": "LinkedServiceReference" 
-            }, 
-        "path": "sessionlog/" 
-     } 
+    "logSettings": {
+        "enableCopyActivityLog": true,
+        "copyActivityLogSettings": {            
+            "logLevel": "Warning",
+            "enableReliableLogging": false
+        },
+        "logLocationSettings": {
+            "linkedServiceName": {
+               "referenceName": "ADLSGen2",
+               "type": "LinkedServiceReference"
+            },
+            "path": "sessionlog/"
+        }
+    }
 } 
 ```
 Propriedade | Descrição | Valores permitidos | Obrigatório
@@ -76,7 +79,8 @@ skipErrorFile | Um grupo de propriedades para especificar os tipos de falhas que
 fileMissing | Um dos pares chave-valor dentro do conjunto de propriedades skipErrorFile para determinar se você deseja ignorar arquivos, que estão sendo excluídos por outros aplicativos enquanto o Azure Data Factory está copiando. <br/> -True: você deseja copiar o restante ignorando os arquivos que estão sendo excluídos por outros aplicativos. <br/> -False: você deseja anular a atividade de cópia depois que todos os arquivos forem excluídos do repositório de origem no meio da movimentação de dados. <br/>Lembre-se de que essa propriedade é definida como true como padrão. | True (padrão) <br/>Falso | Não
 fileForbidden | Um dos pares chave-valor dentro do conjunto de propriedades skipErrorFile para determinar se você deseja ignorar os arquivos específicos, quando as ACLs desses arquivos ou pastas exigem um nível de permissão maior do que a conexão configurada no Azure Data Factory. <br/> -True: você deseja copiar o restante ignorando os arquivos. <br/> -False: você deseja anular a atividade de cópia depois de encontrar o problema de permissão em pastas ou arquivos. | True <br/>False (padrão) | Não
 dataInconsistency | Um dos pares chave-valor dentro do conjunto de propriedades skipErrorFile para determinar se você deseja ignorar os dados inconsistentes entre o repositório de origem e de destino. <br/> -True: você deseja copiar o restante ignorando arquivos inconsistentes. <br/> - Falso: você deseja anular a atividade de cópia quando dados inconsistentes forem encontrados. <br/>Lembre-se de que essa propriedade só é válida quando você define validateDataConsistency como True. | True <br/>False (padrão) | Não
-logStorageSettings  | Um grupo de propriedades que poderá ser especificado quando você desejar registrar os nomes dos objetos ignorados. | &nbsp; | Não
+invalidFileName | Um dos pares chave-valor dentro do recipiente de propriedades skipErrorFile para determinar se você deseja ignorar os arquivos específicos, quando os nomes de arquivo são inválidos para o repositório de destino. <br/> -True: você deseja copiar o restante, ignorando os arquivos com nomes de arquivo inválidos. <br/> -False: você deseja anular a atividade de cópia depois que os arquivos tiverem nomes de arquivo inválidos. <br/>Lembre-se de que essa propriedade funciona ao copiar arquivos binários de qualquer armazenamento de armazenamento para ADLS Gen2 ou copiar arquivos binários do AWS S3 para qualquer armazenamento de armazenamento somente. | True <br/>False (padrão) | Não
+logSettings  | Um grupo de propriedades que poderá ser especificado quando você desejar registrar os nomes dos objetos ignorados. | &nbsp; | Não
 linkedServiceName | O serviço vinculado do [Armazenamento de Blobs do Azure](connector-azure-blob-storage.md#linked-service-properties) ou [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) para armazenar os arquivos de log da sessão. | O nome de um serviço vinculado `AzureBlobStorage` ou `AzureBlobFS`, que se refere à instância de armazenamento que você usa para armazenar o arquivo de log. | Não
 caminho | O caminho dos arquivos de log. | Especifique o caminho que você usa para armazenar os arquivos de log. Se você não fornecer um caminho, o serviço criará um contêiner para você. | Não
 
@@ -93,7 +97,7 @@ caminho | O caminho dos arquivos de log. | Especifique o caminho que você usa p
 > - Somente se você especificar vários arquivos no conjunto de dado de origem, que pode ser uma pasta, curinga ou uma lista de arquivos, a atividade de cópia poderá ignorar os arquivos de erro específicos. Se um único arquivo for especificado no conjunto de fonte de origem a ser copiado para o destino, a atividade de cópia falhará se ocorrer algum erro.
 >
 > Para ignorar arquivos específicos quando eles são verificados como inconsistentes entre o repositório de origem e de destino:
-> - Você pode obter mais detalhes do documento de consistência de dados [aqui](https://docs.microsoft.com/azure/data-factory/copy-activity-data-consistency).
+> - Você pode obter mais detalhes do documento de consistência de dados [aqui](./copy-activity-data-consistency.md).
 
 ### <a name="monitoring"></a>Monitoramento 
 
@@ -108,7 +112,7 @@ Você pode obter o número de arquivos que estão sendo lidos, gravados e ignora
             "filesWritten": 1, 
             "filesSkipped": 2, 
             "throughput": 297,
-            "logPath": "https://myblobstorage.blob.core.windows.net//myfolder/a84bf8d4-233f-4216-8cb5-45962831cd1b/",
+            "logFilePath": "myfolder/a84bf8d4-233f-4216-8cb5-45962831cd1b/",
             "dataConsistencyVerification": 
            { 
                 "VerificationResult": "Verified", 
@@ -159,9 +163,9 @@ A atividade de cópia oferece suporte a três cenários para detectar, ignorar e
     Por exemplo:  Copiar dados de um servidor SQL para um banco de dados SQL. Uma chave primária é definida no banco de dados SQL do coletor, mas nenhuma chave primária é definida no SQL Server de origem. As linhas duplicadas que existem na origem não podem ser copiadas no coletor. A atividade de cópia copia apenas a primeira linha dos dados de origem no coletor. As linhas da origem subsequentes que contêm o valor de chave primária duplicado são detectadas como incompatíveis e ignoradas.
 
 >[!NOTE]
->- Para carregar dados no SQL Data Warehouse usando PolyBase, configure as configurações de tolerância a falhas nativas do PolyBase especificando políticas de rejeição por meio de "[polyBaseSettings](connector-azure-sql-data-warehouse.md#azure-sql-data-warehouse-as-sink)" na atividade de cópia. Você ainda pode habilitar o redirecionamento de linhas incompatíveis com o PolyBase para o Blob ou ADLS como mostrado abaixo.
+>- Para carregar dados no Azure Synapse Analytics usando o polybase, defina as configurações nativas de tolerância a falhas do polybase especificando políticas de rejeição por meio de "[polyBaseSettings](connector-azure-sql-data-warehouse.md#azure-sql-data-warehouse-as-sink)" na atividade de cópia. Você ainda pode habilitar o redirecionamento de linhas incompatíveis com o PolyBase para o Blob ou ADLS como mostrado abaixo.
 >- Esse recurso não se aplica quando a atividade de cópia é configurada para chamar [Amazon Redshift Unload](connector-amazon-redshift.md#use-unload-to-copy-data-from-amazon-redshift).
->- Esse recurso não se aplica quando a atividade de cópia é configurada para chamar um [procedimento armazenado de um coletor SQL](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database#invoke-a-stored-procedure-from-a-sql-sink).
+>- Esse recurso não se aplica quando a atividade de cópia é configurada para chamar um [procedimento armazenado de um coletor SQL](./connector-azure-sql-database.md#invoke-a-stored-procedure-from-a-sql-sink).
 
 ### <a name="configuration"></a>Configuração
 O seguinte exemplo fornece uma definição de JSON que configura a omissão de linhas incompatíveis na atividade de cópia:
@@ -175,12 +179,19 @@ O seguinte exemplo fornece uma definição de JSON que configura a omissão de l
         "type": "AzureSqlSink" 
     }, 
     "enableSkipIncompatibleRow": true, 
-    "logStorageSettings": { 
-    "linkedServiceName": { 
-        "referenceName": "ADLSGen2", 
-        "type": "LinkedServiceReference" 
-        }, 
-    "path": "sessionlog/" 
+    "logSettings": {
+        "enableCopyActivityLog": true,
+        "copyActivityLogSettings": {            
+            "logLevel": "Warning",
+            "enableReliableLogging": false
+        },
+        "logLocationSettings": {
+            "linkedServiceName": {
+               "referenceName": "ADLSGen2",
+               "type": "LinkedServiceReference"
+            },
+            "path": "sessionlog/"
+        }
     } 
 }, 
 ```
@@ -188,7 +199,7 @@ O seguinte exemplo fornece uma definição de JSON que configura a omissão de l
 Propriedade | Descrição | Valores permitidos | Obrigatório
 -------- | ----------- | -------------- | -------- 
 enableSkipIncompatibleRow | Especifica se deve ignorar linhas incompatíveis durante a cópia ou não. | True<br/>False (padrão) | Não
-logStorageSettings | Um grupo de propriedades que poderá ser especificado quando você desejar registrar as linhas incompatíveis. | &nbsp; | Não
+logSettings | Um grupo de propriedades que poderá ser especificado quando você desejar registrar as linhas incompatíveis. | &nbsp; | Não
 linkedServiceName | O serviço vinculado do [Armazenamento de Blobs do Azure](connector-azure-blob-storage.md#linked-service-properties) ou [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) para armazenar o log que contém as linhas ignoradas. | O nome de um serviço vinculado `AzureBlobStorage` ou `AzureBlobFS`, que se refere à instância de armazenamento que você usa para armazenar o arquivo de log. | Não
 caminho | O caminho dos arquivos de log que contém as linhas ignoradas. | Especifique o caminho que você deseja usar para registrar em log os dados incompatíveis. Se você não fornecer um caminho, o serviço criará um contêiner para você. | Não
 
@@ -203,7 +214,7 @@ Depois que a execução da atividade de cópia for concluída, você verá o nú
             "rowsSkipped": 2,
             "copyDuration": 16,
             "throughput": 0.01,
-            "logPath": "https://myblobstorage.blob.core.windows.net//myfolder/a84bf8d4-233f-4216-8cb5-45962831cd1b/",
+            "logFilePath": "myfolder/a84bf8d4-233f-4216-8cb5-45962831cd1b/",
             "errors": []
         },
 
@@ -298,5 +309,3 @@ Confira os outros artigos sobre atividade de cópia:
 
 - [Visão geral da atividade de cópia](copy-activity-overview.md)
 - [Desempenho da atividade de cópia](copy-activity-performance.md)
-
-

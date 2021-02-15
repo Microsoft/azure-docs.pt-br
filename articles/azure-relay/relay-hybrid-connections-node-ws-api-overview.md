@@ -3,13 +3,13 @@ title: Visão geral das APIs de Node de Retransmissão do Azure | Microsoft Docs
 description: Este artigo fornece uma visão geral da API de Node.js para o serviço de retransmissão do Azure. Ele também mostra como usar o pacote de nó hyco-WS.
 ms.topic: article
 ms.date: 06/23/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 67d818a95d63b3097f81f799a287fb4c48a1cfb7
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.custom: devx-track-js
+ms.openlocfilehash: 558f49c09203192ff4cbb1af392eaeef8d705c94
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386241"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91263480"
 ---
 # <a name="relay-hybrid-connections-node-api-overview"></a>Visão geral da API de Node de Conexões Híbridas de Retransmissão
 
@@ -133,7 +133,7 @@ function(headers)
 
 O evento `headers` é gerado antes de uma conexão de entrada ser aceita, permitindo a modificação dos cabeçalhos a enviar ao cliente. 
 
-##### <a name="connection"></a>conexão
+##### <a name="connection"></a>connection
 
 ```JavaScript
 function(socket)
@@ -142,7 +142,7 @@ function(socket)
 Emitido quando uma nova conexão WebSocket é aceita. O objeto é do tipo `ws.WebSocket`, igual ao do pacote básico.
 
 
-##### <a name="error"></a>erro
+##### <a name="error"></a>error
 
 ```JavaScript
 function(error)

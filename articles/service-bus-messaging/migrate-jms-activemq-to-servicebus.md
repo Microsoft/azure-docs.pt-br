@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 07/07/2020
 ms.author: aschhab
 ms.custom: devx-track-java
-ms.openlocfilehash: 1b07faa5b2540aafafc27a51192d824d4445ce35
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: b8408dde86d1902cf5b4899c4783c9dd185449ee
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067147"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92515739"
 ---
 # <a name="migrate-existing-java-message-service-jms-20-applications-from-apache-activemq-to-azure-service-bus"></a>Migrar aplicativos Java Message Service (JMS) 2,0 do Apache ActiveMQ para o barramento de serviço do Azure
 
@@ -62,7 +62,7 @@ Como parte da migração e modificação de seus aplicativos cliente para intera
 
 #### <a name="authentication-and-authorization"></a>Autenticação e autorização
 
-O RBAC (controle de acesso baseado em função), apoiado por Azure Active Directory, é o mecanismo de autenticação preferencial para o barramento de serviço. Como o RBAC, ou a autenticação baseada em declarações, não tem suporte atualmente pelo Apache QPID JMS, no entanto, você deve usar chaves SAS para autenticação.
+O controle de acesso baseado em função do Azure (RBAC do Azure), apoiado por Azure Active Directory, é o mecanismo de autenticação preferencial para o barramento de serviço. Como o RBAC do Azure, ou a autenticação baseada em declarações, atualmente não é suportado pelo Apache QPID JMS, no entanto, você deve usar chaves SAS para autenticação.
 
 ## <a name="pre-migration"></a>Pré-migração
 
@@ -116,7 +116,7 @@ Você pode correlacionar quais métricas do ActiveMQ MAP para quais métricas no
 |Agente|`CurrentConnectionsCount`|`activeConnections`|
 |Agente|`EstablishedConnectionsCount`|`activeConnections` + `connectionsClosed`|
 |Agente|`InactiveDurableTopicSubscribersCount`|Usar métricas de assinatura|
-|Agente|`TotalMessageCount`|Usar nível de fila/tópico/assinatura`activeMessages`|
+|Agente|`TotalMessageCount`|Usar nível de fila/tópico/assinatura `activeMessages`|
 |Fila/tópico|`EnqueueCount`|`incomingMessages`|
 |Fila/tópico|`DequeueCount`|`outgoingMessages`|
 |Fila|`QueueSize`|`sizeBytes`|
@@ -266,7 +266,7 @@ connection.start();
 
 ```
 
-## <a name="post-migration"></a>Pós-migração
+## <a name="post-migration"></a>Após a migração
 
 Agora que você modificou o aplicativo para começar a enviar e receber mensagens do barramento de serviço, você deve verificar se ele funciona conforme o esperado. Quando isso for feito, você poderá continuar refinando e modernizando sua pilha de aplicativos.
 

@@ -3,18 +3,20 @@ title: Funções matemáticas na linguagem de consulta Azure Cosmos DB
 description: Saiba mais sobre as funções matemáticas no Azure Cosmos DB para executar um cálculo, com base nos valores de entrada fornecidos como argumentos, e retornar um valor numérico.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: bd53feb175c5be77f559a4d2e724a55e41df48eb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 63d349c8cfff52932d51ce7143aba33521c43890
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85562832"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96549175"
 ---
 # <a name="mathematical-functions-azure-cosmos-db"></a>Funções matemáticas (Azure Cosmos DB)  
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 As funções matemáticas executam um cálculo, com base em valores de entrada fornecidos como argumentos e retornam um valor numérico.
 
@@ -39,20 +41,20 @@ As seguintes funções matemáticas internas com suporte executam um cálculo, g
 * [ASIN](sql-query-asin.md)
 * [ATAN](sql-query-atan.md)
 * [ATN2](sql-query-atn2.md)
-* [LIMITE](sql-query-ceiling.md)
-* [EXIBI](sql-query-cos.md)
+* [CEILING](sql-query-ceiling.md)
+* [COS](sql-query-cos.md)
 * [COT](sql-query-cot.md)
-* [GRAUS](sql-query-degrees.md)
+* [DEGREES](sql-query-degrees.md)
 * [EXP](sql-query-exp.md)
 * [FLOOR](sql-query-floor.md)
-* [Façam](sql-query-log.md)
+* [LOG](sql-query-log.md)
 * [LOG10](sql-query-log10.md)
-* [13,PI](sql-query-pi.md)
+* [PI](sql-query-pi.md)
 * [POWER](sql-query-power.md)
-* [RADIANOS](sql-query-radians.md)
+* [RADIANS](sql-query-radians.md)
 * [RAND](sql-query-rand.md)
-* [IDAS](sql-query-round.md)
-* [Assine](sql-query-sign.md)
+* [ROUND](sql-query-round.md)
+* [SIGN](sql-query-sign.md)
 * [SIN](sql-query-sin.md)
 * [SQRT](sql-query-sqrt.md)
 * [SQUARE](sql-query-square.md)
@@ -67,4 +69,4 @@ Todas as funções matemáticas, com exceção de RAND, são funções determini
 - [Funções de sistema do Azure Cosmos DB](sql-query-system-functions.md)
 - [Introdução ao Azure Cosmos DB](introduction.md)
 - [Funções definidas pelo usuário](sql-query-udfs.md)
-- [Agregações](sql-query-aggregates.md)
+- [Agregações](sql-query-aggregate-functions.md)

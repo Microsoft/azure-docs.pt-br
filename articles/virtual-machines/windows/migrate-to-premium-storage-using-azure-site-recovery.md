@@ -1,22 +1,22 @@
 ---
 title: Migrar suas VMs Windows para o Armazenamento Premium do Azure com o Azure Site Recovery
-description: Migre máquinas virtuais existentes para o Armazenamento Premium do Azure usando o Site Recovery. O Armazenamento Premium dá suporte ao disco de alto desempenho e baixa latência para cargas de trabalho que usam muita E/S em execução em máquinas virtuais do Azure.
+description: Saiba como migrar seus discos de VM de uma conta de armazenamento Standard para uma conta de armazenamento Premium usando Azure Site Recovery.
 author: luywang
 ms.service: virtual-machines-windows
 ms.topic: how-to
 ms.date: 08/15/2017
 ms.author: luywang
 ms.subservice: disks
-ms.openlocfilehash: 51fa0c063de106f627fc097910514e7c5416ee51
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 58d4459e1869a9d1f7ccb8234c0356ac486a950c
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525952"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91975545"
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migrar para o Armazenamento Premium usando o Azure Site Recovery
 
-Os [SSDs premium do Azure](disks-types.md) oferecem suporte de disco de alto desempenho e baixa latência para máquinas virtuais (VMs) que estão executando cargas de trabalho intensivas para entradas e saídas. Este guia ajuda você a migrar os discos de VM de uma conta de armazenamento Standard para uma conta de armazenamento Premium usando o [Azure Site Recovery](../../site-recovery/site-recovery-overview.md).
+Os [SSDs premium do Azure](../disks-types.md) oferecem suporte de disco de alto desempenho e baixa latência para máquinas virtuais (VMs) que estão executando cargas de trabalho intensivas para entradas e saídas. Este guia ajuda você a migrar os discos de VM de uma conta de armazenamento Standard para uma conta de armazenamento Premium usando o [Azure Site Recovery](../../site-recovery/site-recovery-overview.md).
 
 O Site Recovery é um serviço do Azure que colabora com sua estratégia de continuidade dos negócios e de recuperação de desastre por meio da coordenação da replicação de servidores físicos locais e VMs na nuvem (Azure) ou em um datacenter secundário. Quando ocorrem paralisações em seu local primário, você realiza o failover em um local secundário a fim de manter aplicativos e cargas de trabalho disponíveis. Quando o local primário retoma as operações normais, você realiza o failback. 
 
@@ -167,7 +167,7 @@ Para verificar se o seu servidor de configuração está corretamente associado 
 
    ![Habilitar o painel de replicação com a Origem selecionada][13]
 
-Ao criar seu ambiente de Armazenamento do Azure, é recomendável usar contas de armazenamento separadas para cada VM em um conjunto de disponibilidade. É recomendável que você siga a melhor prática na camada de armazenamento para [usar várias contas de armazenamento para cada conjunto de disponibilidade](../linux/manage-availability.md). A distribuição de discos VM para várias contas de armazenamento ajuda a melhorar a disponibilidade de armazenamento e distribui a E/S em toda a infraestrutura de armazenamento do Azure.
+Ao criar seu ambiente de Armazenamento do Azure, é recomendável usar contas de armazenamento separadas para cada VM em um conjunto de disponibilidade. É recomendável que você siga a melhor prática na camada de armazenamento para [usar várias contas de armazenamento para cada conjunto de disponibilidade](../manage-availability.md). A distribuição de discos VM para várias contas de armazenamento ajuda a melhorar a disponibilidade de armazenamento e distribui a E/S em toda a infraestrutura de armazenamento do Azure.
 
 Se suas VMs estiverem em um conjunto de disponibilidade, em vez de replicar os discos de todas elas em uma conta de armazenamento, é altamente recomendável migrar várias VMs várias vezes. Desse modo, as VMs em um mesmo conjunto de disponibilidade não compartilham uma única conta de armazenamento. Use o painel **Habilitar Replicação** para configurar uma conta de armazenamento de destino para cada VM, uma de cada vez.
  

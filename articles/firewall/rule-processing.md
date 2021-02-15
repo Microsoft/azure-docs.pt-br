@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 04/10/2020
+ms.date: 11/18/2020
 ms.author: victorh
-ms.openlocfilehash: 84110e749dac9267e994385aa5f6d05e3ba224a6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 01f7aa61d3bfb3c712320bbf138160a7ff8197c7
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087536"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95502185"
 ---
 # <a name="configure-azure-firewall-rules"></a>Configurar regras de firewall do Azure
 Você pode configurar regras de NAT, regras de rede e regras de aplicativos no firewall do Azure. As coleções de regras são processadas de acordo com o tipo de regra em ordem de prioridade, números menores para números mais altos de 100 a 65.000. Um nome de coleção de regras pode ter apenas letras, números, sublinhados, pontos ou hifens. Ele deve começar com uma letra ou número e terminar com uma letra, número ou sublinhado. O comprimento máximo do nome é de 80 caracteres.
@@ -26,7 +26,13 @@ Você pode configurar regras de NAT, regras de rede e regras de aplicativos no f
 
 ### <a name="network-rules-and-applications-rules"></a>Regras de rede e regras de aplicativos
 
-Se você configurar regras de rede e regras de aplicativo, as regras de rede serão aplicadas em ordem de prioridade antes das regras de aplicativo. As regras estão sendo encerradas. Portanto, se uma correspondência for encontrada em uma regra de rede, não serão processadas outras regras.  Se não houver nenhuma correspondência de regra de rede, e se o protocolo for HTTP, HTTPS ou MSSQL, o pacote será então avaliado pelas regras de aplicativo em ordem de prioridade. Se ainda não for encontrada nenhuma correspondência, o pacote será avaliado em relação à [coleção de regras de infraestrutura](infrastructure-fqdns.md). Se ainda não houver nenhuma correspondência, o pacote será negado por padrão.
+Se você configurar regras de rede e regras de aplicativo, as regras de rede serão aplicadas em ordem de prioridade antes das regras de aplicativo. As regras estão sendo encerradas. Portanto, se uma correspondência for encontrada em uma regra de rede, não serão processadas outras regras.  Se não houver nenhuma correspondência de regra de rede, e se o protocolo for HTTP, HTTPS ou MSSQL, o pacote será então avaliado pelas regras de aplicativo em ordem de prioridade. Se ainda não for encontrada nenhuma correspondência, o pacote será avaliado em relação à [coleção de regras de infraestrutura](infrastructure-fqdns.md). Se ainda não houver correspondência, o pacote será negado por padrão.
+
+#### <a name="network-rule-protocol"></a>Protocolo de regra de rede
+
+As regras de rede podem ser configuradas para **TCP**, **UDP**, **ICMP** ou **qualquer** protocolo IP. Qualquer protocolo IP inclui todos os protocolos IP, conforme definido no documento [números de protocolo da autoridade de números de Internet atribuídos (IANA)](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) . Se uma porta de destino estiver configurada explicitamente, a regra será convertida em uma regra TCP + UDP.
+
+Antes de 9 de novembro de 2020, **qualquer** significava **TCP**, **UDP** ou **ICMP**. Portanto, você pode ter configurado uma regra antes dessa data com protocolo = qualquer e portas de destino = ' * '. Se você não pretende realmente permitir qualquer protocolo IP como definido atualmente, modifique a regra para configurar explicitamente os protocolos desejados (TCP, UDP ou ICMP).
 
 ## <a name="inbound-connectivity"></a>Conectividade de entrada
 
@@ -57,7 +63,7 @@ A conexão com o google.com é permitida devido a uma regra de rede corresponden
 
 - Ação: Negar
 
-|name  |Tipo de origem  |Fonte  |Protocolo: porta|FQDNs de destino|
+|name  |Tipo de origem  |Fonte  |Protocolo:Porta|FQDNs de destino|
 |---------|---------|---------|---------|----------|----------|
 |Negar-Google     |Endereço IP|*|http: 80, https: 443|google.com
 

@@ -2,18 +2,18 @@
 title: Análise de Sentimento do Twitter em tempo real com o Azure Stream Analytics
 description: Este artigo descreve como usar o Stream Analytics para análise de sentimento do Twitter em tempo real. Orientações passo a passo de geração de eventos aos dados em um painel em tempo real.
 services: stream-analytics
-author: mamccrea
-ms.author: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 02/10/2020
-ms.openlocfilehash: 5569e7e3a33c4f1bbbd3214e742b0cb889c65e31
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 6a461ad906f7611c8a13e2ee495f4d2f62fedd53
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86040768"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98734824"
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Análise de sentimento do Twitter em tempo real no Stream Analytics do Azure
 
@@ -39,11 +39,15 @@ Neste guia de instruções, você deve usar um aplicativo cliente que se conecta
 
 * O aplicativo TwitterClientCore, que lê o feed do Twitter. Para obter esse aplicativo, baixe o [TwitterClientCore](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TwitterClientCore).
 
-* Instale a versão 2.1.0 da [CLI do .NET Core](https://docs.microsoft.com/dotnet/core/tools/?tabs=netcore2x).
+* Instale a versão 2.1.0 da [CLI do .NET Core](/dotnet/core/tools/?tabs=netcore2x).
+
+Abaixo está a arquitetura da solução que você vai implementar.
+
+   ![Um diagrama que mostra diferentes partes de serviços e aplicativos usados para criar a solução.](./media/stream-analytics-twitter-sentiment-analysis-trends/solution-diagram.png "Diagrama de solução")
 
 ## <a name="create-an-event-hub-for-streaming-input"></a>Criação de um hub de eventos para entrada do streaming
 
-O aplicativo de exemplo gera eventos e empurra eles para um hub de eventos do Azure. O Hubs de Eventos do Azure é o método preferencial de ingestão de eventos para Stream Analytics. Para obter mais informações, consulte a [documentação dos Hubs de Evento do Azure](../event-hubs/event-hubs-what-is-event-hubs.md).
+O aplicativo de exemplo gera eventos e empurra eles para um hub de eventos do Azure. O Hubs de Eventos do Azure é o método preferencial de ingestão de eventos para Stream Analytics. Para obter mais informações, consulte a [documentação dos Hubs de Evento do Azure](../event-hubs/event-hubs-about.md).
 
 ### <a name="create-an-event-hub-namespace-and-event-hub"></a>Criar um namespace de hub de eventos e um hub de eventos
 Nesta seção, você cria um namespace de hub de eventos e adiciona um hub de eventos para esse namespace. Namespaces do hub de evento são usados para agrupar logicamente instâncias de barramento de evento relacionadas. 
@@ -106,11 +110,11 @@ Se ainda não tiver um aplicativo do Twitter que você possa usar para este tuto
 
 1. Em um navegador da Web, acesse [Twitter para Desenvolvedores](https://developer.twitter.com/en/apps), crie uma conta de desenvolvedor e selecione **Criar um aplicativo**. Você poderá ver uma mensagem indicando que precisa solicitar uma conta de desenvolvedor do Twitter. Fique à vontade para fazer isso e, depois que seu aplicativo tiver sido aprovado, você verá um email de confirmação. Podem ser necessários vários dias para ser aprovado para uma conta de desenvolvedor.
 
-   ![Detalhes do aplicativo do Twitter](./media/stream-analytics-twitter-sentiment-analysis-trends/provide-twitter-app-details.png "Detalhes do aplicativo do Twitter")
+   ![Captura de tela mostra o botão criar um aplicativo.](./media/stream-analytics-twitter-sentiment-analysis-trends/provide-twitter-app-details.png "Detalhes do aplicativo do Twitter")
 
 2. Na página **Criar um aplicativo**, forneça os detalhes para o novo aplicativo e selecione **Criar seu aplicativo do Twitter**.
 
-   ![Detalhes do aplicativo do Twitter](./media/stream-analytics-twitter-sentiment-analysis-trends/provide-twitter-app-details-create.png "Detalhes do aplicativo do Twitter")
+   ![Captura de tela mostra o painel detalhes do aplicativo, no qual você pode inserir valores para seu aplicativo.](./media/stream-analytics-twitter-sentiment-analysis-trends/provide-twitter-app-details-create.png "Detalhes do aplicativo do Twitter")
 
 3. Na página do aplicativo, selecione a guia **Chaves e Tokens** e copie os valores de **Chave de API do Consumidor** e **Chave Secreta de API do Consumidor**. Além disso, selecione **Criar** em **Token de Acesso e Segredo do Token de Acesso** para gerar os tokens de acesso. Copie os valores do **Token de Acesso** e do **Segredo do Token de Acesso**.
 
@@ -168,9 +172,9 @@ Agora que os eventos de Tweets estão sendo transmitidos em tempo real do Twitte
 
 ## <a name="specify-the-job-query"></a>Especificar a consulta de trabalho
 
-O Stream Analytics dá suporte a um modelo de consulta simples e declarativo que descreve as transformações. Para saber mais sobre a linguagem, consulte a [Referência de linguagem de consulta do Stream Analytics do Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference). Este guia de instruções ajuda você a criar e testar várias consultas sobre dados do Twitter.
+O Stream Analytics dá suporte a um modelo de consulta simples e declarativo que descreve as transformações. Para saber mais sobre a linguagem, consulte a [Referência de linguagem de consulta do Stream Analytics do Azure](/stream-analytics-query/stream-analytics-query-language-reference). Este guia de instruções ajuda você a criar e testar várias consultas sobre dados do Twitter.
 
-Para comparar o número de menções entre tópicos, você pode usar uma [Janela em Cascata](https://docs.microsoft.com/stream-analytics-query/tumbling-window-azure-stream-analytics) para obter a contagem de menções por tópico a cada cinco segundos.
+Para comparar o número de menções entre tópicos, você pode usar uma [Janela em Cascata](/stream-analytics-query/tumbling-window-azure-stream-analytics) para obter a contagem de menções por tópico a cada cinco segundos.
 
 1. Na **Visão geral** do trabalho, selecione **Editar consulta** perto da parte superior direita da caixa de Consulta. O Azure lista as entradas e saídas que são configuradas para o trabalho e permite que você crie uma consulta que permite transformar o fluxo de entrada conforme ele é enviado para a saída.
 
@@ -225,11 +229,11 @@ Uma entrada de trabalho, uma consulta e uma saída são especificadas. Você est
 3. Na página **Iniciar trabalho**, para **Hora de início de trabalho**, selecione **Agora** e, em seguida, selecione **Iniciar**.
 
 ## <a name="get-support"></a>Obtenha suporte
-Para obter mais assistência, veja nossa [página de perguntas e respostas da Microsoft do Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
+Para obter mais assistência, veja nossa [página de perguntas e respostas da Microsoft do Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Introdução ao Stream Analytics do Azure](stream-analytics-introduction.md)
 * [Introdução ao uso do Stream Analytics do Azure](stream-analytics-real-time-fraud-detection.md)
 * [Dimensionar trabalhos do Stream Analytics do Azure](stream-analytics-scale-jobs.md)
-* [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Referência de Linguagem de Consulta do Stream Analytics do Azure](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Referência da API REST do Gerenciamento do Azure Stream Analytics](/rest/api/streamanalytics/)

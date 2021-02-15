@@ -3,13 +3,13 @@ title: Guia de Início Rápido – Executar seu primeiro trabalho do Lote do Azu
 description: Neste guia de início rápido, você executará um trabalho e tarefas de exemplo do Lote do Azure em um aplicativo C# com a biblioteca de clientes .NET do Lote.
 ms.topic: quickstart
 ms.date: 08/17/2020
-ms.custom: mvc
-ms.openlocfilehash: f17fc2103e4b8512e050d79f5a639b38d90a2a95
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.custom: mvc, devx-track-csharp
+ms.openlocfilehash: 9087261865b07d32afab65012e04ea478cb60611
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88511024"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "88921640"
 ---
 # <a name="quickstart-run-your-first-azure-batch-job-with-the-net-api"></a>Início Rápido: Executar o primeiro trabalho em Lote do Azure com a API do .NET
 

@@ -3,12 +3,12 @@ title: Restaurar arquivos no Windows Server com o agente MARS
 description: Neste artigo, aprenda a restaurar os dados armazenados no Azure em um computador ou servidor Windows com o agente MARS (Serviços de Recuperação do Microsoft Azure).
 ms.topic: conceptual
 ms.date: 09/07/2018
-ms.openlocfilehash: 59e212b31d79c0d9a75369e542fee5e86f29653a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 79a4d32d6dbca5ca5be5d46c6b44a07ef42de061
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018902"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91813246"
 ---
 # <a name="restore-files-to-windows-server-using-the-mars-agent"></a>Restaurar arquivos no Windows Server com o agente MARS
 
@@ -23,7 +23,7 @@ Use o recurso de Restauração Instantânea para montar um instantâneo de ponto
 > A [atualização do Backup do Azure de janeiro de 2017](https://support.microsoft.com/help/3216528/azure-backup-update-for-microsoft-azure-recovery-services-agent-januar) será necessária se você desejar usar a Restauração Instantânea para restaurar dados. Além disso, os dados de backup devem ser protegidos em cofres nas localidades listadas no artigo de suporte. Consulte a [atualização do Backup do Azure de janeiro de 2017](https://support.microsoft.com/help/3216528/azure-backup-update-for-microsoft-azure-recovery-services-agent-januar) para obter a lista mais recente de localidades que oferecem suporte à Restauração Instantânea.
 >
 
-Usar a Restauração Instantânea com os cofres dos Serviços de Recuperação no Portal do Azure. Se você tiver armazenado os dados em cofres de Backup, eles terão sido convertidos em cofres dos Serviços de Recuperação. Se desejar usar a Restauração Instantânea, baixe a atualização do MARS e siga os procedimentos que mencionam a Restauração Instantânea.
+Usar a Restauração Instantânea com os cofres dos Serviços de Recuperação no Portal do Azure. Se você armazenou dados em cofres de backup, eles foram convertidos em cofres dos serviços de recuperação. Se desejar usar a Restauração Instantânea, baixe a atualização do MARS e siga os procedimentos que mencionam a Restauração Instantânea.
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 
@@ -107,7 +107,7 @@ Essas etapas incluem a seguinte terminologia:
 
 5. Forneça o arquivo de credencial de cofre que corresponde ao cofre de exemplo e selecione **Próximo**.
 
-    Se o arquivo de credencial de cofre for inválido (ou tiver expirado), baixe um novo arquivo de credencial de cofre do cofre de exemplo no portal do Azure. Depois de fornecer uma credencial de cofre válida, o nome do cofre de backup correspondente aparecerá.
+    Se o arquivo de credencial do cofre for inválido (ou expirado), [Baixe um novo arquivo de credencial do cofre do cofre de exemplo](backup-azure-file-folder-backup-faq.md#where-can-i-download-the-vault-credentials-file) no portal do Azure. Depois de fornecer uma credencial de cofre válida, o nome do cofre de backup correspondente aparecerá.
 
 6. Na página **Selecionar Servidor de Backup**, selecione o computador de origem na lista de computadores exibidos e forneça a senha. Em seguida, selecione **Avançar**.
 

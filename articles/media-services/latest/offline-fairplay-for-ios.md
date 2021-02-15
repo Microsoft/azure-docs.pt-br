@@ -1,6 +1,6 @@
 ---
-title: Streaming FairPlay offline para iOS com os serviços de mídia do Azure v3
-description: Este tópico fornece uma visão geral e mostra como usar os Serviços de Mídia do Azure para criptografar de forma dinâmica o seu conteúdo de HLS (HTTP Live Streaming) com o FairPlay da Apple no modo offline.
+title: Streaming de FairPlay offline dos serviços de mídia V3 para iOS
+description: Este tópico fornece uma visão geral e mostra como usar os serviços de mídia do Azure V3 para criptografar dinamicamente seu conteúdo de HTTP Live Streaming (HLS) com o Apple FairPlay no modo offline.
 services: media-services
 keywords: HBS, gerenciamento de direitos digitais, Streaming de FairPlay (FPS), Offline, iOS 10
 documentationcenter: ''
@@ -12,18 +12,20 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/08/2019
+ms.topic: how-to
+ms.date: 08/31/2020
 ms.author: willzhan
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 43c003d69ff64ea85581b2d4e22c545376acd525
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 399f9b0184217db8180fcec38e4f78917d5c9bc8
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89010147"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955220"
 ---
 # <a name="offline-fairplay-streaming-for-ios-with-media-services-v3"></a>Streaming FairPlay offline para iOS com os serviços de mídia v3
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
  Os Serviços de Mídia do Azure fornecem um conjunto de [serviços de proteção de conteúdo](https://azure.microsoft.com/services/media-services/content-protection/) bem projetados, que abrangem:
 

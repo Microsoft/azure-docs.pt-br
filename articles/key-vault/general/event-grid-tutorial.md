@@ -10,16 +10,16 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/25/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 283c66eb3b49b60b87283c5d94cc4f110adceffe
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: d7bb697879f40b45c886cd90bbb1e34906d35f66
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88588740"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187367"
 ---
-# <a name="receive-and-respond-to-key-vault-notifications-with-azure-event-grid-preview"></a>Receber notificações do cofre de chaves e responder a elas com a Grade de Eventos do Azure (versão prévia)
+# <a name="receive-and-respond-to-key-vault-notifications-with-azure-event-grid"></a>Receber notificações do cofre de chaves e responder a elas com a Grade de Eventos do Azure
 
-A integração do Azure Key Vault com a Grade de Eventos do Azure (atualmente em versão prévia) permite que o usuário seja notificado quando o status de um segredo armazenado no cofre de chaves é alterado. Para obter uma visão geral deste recurso, confira [Monitoramento do Key Vault com a Grade de Eventos](event-grid-overview.md).
+A integração do Azure Key Vault com a Grade de Eventos do Azure permite que o usuário seja notificado quando o status de um segredo armazenado em um cofre de chaves é alterado. Para obter uma visão geral deste recurso, confira [Monitoramento do Key Vault com a Grade de Eventos](event-grid-overview.md).
 
 Esse guia descreve como receber notificações de Key Vault por meio da Grade de Eventos do Azure e como responder a alterações de status pela Automação do Azure.
 
@@ -32,7 +32,7 @@ Esse guia descreve como receber notificações de Key Vault por meio da Grade de
 
 A Grade de Eventos é um serviço de eventos para a nuvem. Ao seguir as etapas neste guia, você assinará eventos para o cofre de chaves e roteará eventos para a Automação. Quando um dos segredos no cofre de chaves está prestes a expirar, a Grade de Eventos é notificada sobre a alteração de status e faz um HTTP POST para o ponto de extremidade. Um web hook dispara então uma execução do script de um PowerShell da Automação.
 
-![Fluxograma HTTP POST](../media/image1.png)
+![Fluxograma HTTP POST](../media/event-grid-tutorial-1.png)
 
 ## <a name="create-an-automation-account"></a>Criar uma conta de Automação
 
@@ -46,7 +46,7 @@ Crie uma conta da Automação por meio do [portal do Azure](https://portal.azure
 
 1.  Selecione **Adicionar**.
 
-    ![Painel de Contas de Automação](../media/image2.png)
+    ![Painel de Contas de Automação](../media/event-grid-tutorial-2.png)
 
 1.  Insira as informações necessárias na folha **Adicionar Conta de Automação** e selecione **Criar**.
 
@@ -54,7 +54,7 @@ Crie uma conta da Automação por meio do [portal do Azure](https://portal.azure
 
 Depois que sua conta da Automação estiver pronta, crie um runbook.
 
-![Criar uma interface do usuário de runbook](../media/image3.png)
+![Criar uma interface do usuário de runbook](../media/event-grid-tutorial-3.png)
 
 1.  Selecione a conta de Automação que você acabou de criar.
 
@@ -92,7 +92,7 @@ write-Error "No input data found."
 }
 ```
 
-![Publicar interface do usuário do runbook](../media/image4.png)
+![Publicar interface do usuário do runbook](../media/event-grid-tutorial-4.png)
 
 ## <a name="create-a-webhook"></a>Criar um webhook
 
@@ -102,7 +102,7 @@ Crie um webhook para disparar o runbook recém-criado.
 
 1.  Selecione **Adicionar webhook**.
 
-    ![Botão Adicionar webhook](../media/image5.png)
+    ![Botão Adicionar webhook](../media/event-grid-tutorial-5.png)
 
 1.  Selecione **Criar novo Webhook**.
 
@@ -115,15 +115,15 @@ Crie um webhook para disparar o runbook recém-criado.
 
 1. Selecione **OK** e, então, selecione **Criar**.
 
-    ![Interface do usuário de Criar novo Webhook](../media/image6.png)
+    ![Interface do usuário de Criar novo Webhook](../media/event-grid-tutorial-6.png)
 
 ## <a name="create-an-event-grid-subscription"></a>Criar uma assinatura na Grade de Eventos
 
 Crie uma assinatura de Grade de Eventos por meio do [portal do Azure](https://portal.azure.com).
 
-1.  Vá para o cofre de chaves e selecione a guia **Eventos**. Se você não conseguir vê-la, verifique se está usando a [versão de visualização do portal](https://ms.portal.azure.com/?Microsoft_Azure_KeyVault_ShowEvents=true&Microsoft_Azure_EventGrid_publisherPreview=true).
+1.  Vá para o cofre de chaves e selecione a guia **Eventos**.
 
-    ![Guia Eventos no portal do Azure](../media/image7.png)
+    ![Guia Eventos no portal do Azure](../media/event-grid-tutorial-7.png)
 
 1.  Clique no botão **Assinatura de evento**.
 
@@ -143,15 +143,15 @@ Crie uma assinatura de Grade de Eventos por meio do [portal do Azure](https://po
 
 1.  Selecione **Criar**.
 
-    ![Criar assinatura de evento](../media/image8.png)
+    ![Criar assinatura de evento](../media/event-grid-tutorial-8.png)
 
 ## <a name="test-and-verify"></a>Testar e verificar
 
 Verifique se a sua assinatura da Grade de Eventos está definida adequadamente. Esse teste pressupõe que você assinou a notificação "Nova Versão Secreta Criada" em [Criar uma assinatura de Grade de Eventos](#create-an-event-grid-subscription) e que você tem as permissões necessárias para criar uma nova versão de um segredo em um cofre de chaves.
 
-![Testar a configuração da assinatura de Grade de Eventos](../media/image9.png)
+![Testar a configuração da assinatura de Grade de Eventos](../media/event-grid-tutorial-9.png)
 
-![Painel de criar um segredo](../media/image10.png)
+![Painel de criar um segredo](../media/event-grid-tutorial-10.png)
 
 1.  Vá para o seu cofre de chaves no portal do Azure.
 
@@ -161,7 +161,7 @@ Verifique se a sua assinatura da Grade de Eventos está definida adequadamente. 
 
 1.  Em **Métricas**, confira se um evento foi capturado. Dois eventos são esperados: SecretNewVersion e SecretNearExpiry. Esses eventos validam que a Grade de Eventos capturou com êxito a alteração de status do segredo em seu cofre de chaves.
 
-    ![Painel de métricas: verificar eventos capturados](../media/image11.png)
+    ![Painel de métricas: verificar eventos capturados](../media/event-grid-tutorial-11.png)
 
 1.  Vá para sua conta de Automação.
 
@@ -169,13 +169,13 @@ Verifique se a sua assinatura da Grade de Eventos está definida adequadamente. 
 
 1.  Selecione a guia **Webhooks** e confirme se o carimbo de data/hora "disparado pela última vez" está dentro de 60 segundos de quando você criou o novo segredo. Esse resultado confirma que a Grade de Eventos fez um POST no webhook com os detalhes do evento da alteração de status no cofre de chaves e que o webhook foi disparado.
 
-    ![Guia WebHooks, carimbo de data/hora do último disparo](../media/image12.png)
+    ![Guia WebHooks, carimbo de data/hora do último disparo](../media/event-grid-tutorial-12.png)
 
 1. Retorne ao seu runbook e selecione a guia **Visão geral**.
 
 1. Examine a lista **Trabalhos Recentes**. Você deverá ver que um trabalho foi criado e que o status dele é concluído. Isso confirma que o webhook disparou o runbook para iniciar a execução do respectivo script.
 
-    ![Lista Trabalhos Recentes de Webhook](../media/image13.png)
+    ![Lista Trabalhos Recentes de Webhook](../media/event-grid-tutorial-13.png)
 
 1. Selecione o trabalho recente e examine a solicitação POST enviada da Grade de Eventos para o webhook. Examine o JSON e verifique se os parâmetros para o cofre de chaves e o tipo de evento estão corretos. Se o parâmetro "tipo de evento" no objeto JSON corresponder ao evento que ocorreu no Key Vault (neste exemplo, Microsoft.KeyVault.SecretNearExpiry), o teste foi bem-sucedido.
 
@@ -194,9 +194,9 @@ Você pode usar agora esse recurso de notificação caso você esteja usando um 
 Saiba mais:
 
 
-- Visão geral: [Monitoramento do Key Vault com a Grade de Eventos do Azure (versão prévia)](event-grid-overview.md)
+- Visão geral: [Monitoramento do Key Vault com a Grade de Eventos do Azure](event-grid-overview.md)
 - Como fazer: [Receber emails quando o status do cofre de chaves secreto é alterado](event-grid-logicapps.md)
-- [Esquema de eventos da Grade de Eventos do Azure para o Azure Key Vault (versão prévia)](../../event-grid/event-schema-key-vault.md)
+- [Esquema de eventos da Grade de Eventos do Azure para o Azure Key Vault](../../event-grid/event-schema-key-vault.md)
 - [Visão geral do Azure Key Vault](overview.md)
 - [Visão geral da Grade de Eventos do Azure](../../event-grid/overview.md)
 - [Visão geral da Automação do Azure](../../automation/index.yml)

@@ -11,11 +11,11 @@ ms.date: 03/20/2020
 ms.custom: devx-track-java
 ms.author: travisw
 ms.openlocfilehash: f2a4f7881eaaac5093200f130c360bfb6b8c64d7
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87375206"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187481"
 ---
 **Escolha o ambiente de destino**
 

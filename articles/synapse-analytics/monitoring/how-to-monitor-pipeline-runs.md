@@ -6,19 +6,19 @@ author: matt1883
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: monitoring
-ms.date: 04/15/2020
+ms.date: 11/30/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: 7676f4aeeb9485ce5e3a702027884bc54d79a863
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: dbd890117c78274392d5745e0563332371b404c5
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387312"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452580"
 ---
 # <a name="use-synapse-studio-to-monitor-your-workspace-pipeline-runs"></a>Usar o Synapse Studio para monitorar as execuções de pipeline de espaço de trabalho
 
-Com o Azure Synapse Analytics, você pode criar pipelines complexos que podem automatizar e orquestrar a movimentação de dados, a transformação de dados e as atividades de computação em sua solução. Você pode criar e monitorar esses pipelines usando o Synapse Studio (versão prévia).
+Com o Azure Synapse Analytics, você pode criar pipelines complexos que podem automatizar e integrar sua movimentação de dados, transformação de dados e atividades de computação em sua solução. Você pode criar e monitorar esses pipelines usando o Synapse Studio.
 
 Este artigo explica como monitorar as execuções de pipeline, o que permite que você fique atento ao status, aos problemas e ao progresso mais recentes de seus pipelines.
 
@@ -41,8 +41,6 @@ Selecione **pipeline executions** para exibir a lista de execuções de pipeline
 Você pode filtrar a lista de execuções de pipeline para aquelas nas quais você está interessado. Os filtros na parte superior da tela permitem especificar um campo no qual você deseja filtrar.
 
 Por exemplo, você pode filtrar a exibição para ver apenas as execuções de pipeline para o pipeline chamado "feriado":
-
-![Botão Filtrar](./media/common/filter-button.png)
 
 ![Filtro de exemplo](./media/how-to-monitor-pipeline-runs/filter-example.png)
 

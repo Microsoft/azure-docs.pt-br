@@ -11,14 +11,20 @@ ms.subservice: bing-web-search
 ms.topic: tutorial
 ms.date: 06/24/2020
 ms.author: aahi
-ms.openlocfilehash: 272a10e211e99e200b82807b188d828a9ece42d8
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 077c715616e377d8b296e53fdd5a861f944ab940
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85609428"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349496"
 ---
 # <a name="build-a-console-app-search-client-in-c"></a>Criar um cliente de pesquisa do aplicativo de console no C#
+
+> [!WARNING]
+> As APIs de Pesquisa do Bing estão migrando dos Serviços Cognitivos para os Serviços de Pesquisa do Bing. A partir de **30 de outubro de 2020**, todas as novas instâncias da Pesquisa do Bing precisam ser provisionadas seguindo o processo documentado [aqui](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> As APIs de Pesquisa do Bing provisionadas por meio dos Serviços Cognitivos terão suporte nos próximos três anos ou até o final do seu Contrato Enterprise, o que ocorrer primeiro.
+> Para obter instruções sobre a migração, confira [Serviços de Pesquisa do Bing](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Este tutorial mostra como criar um aplicativo de console .NET Core simples que permite aos usuários consultar a API de Pesquisa na Web do Bing e exibir resultados classificados.
 
@@ -222,7 +228,7 @@ Antes de mostrar como exibir os resultados em ordem de classificação, veja um 
 }
 ```
 
-O objeto JSON `rankingResponse` ([documentação](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankingresponse)) descreve a ordem de exibição apropriada para os resultados da pesquisa. Ele inclui um ou mais dos seguintes grupos priorizados:
+O objeto JSON `rankingResponse` ([documentação](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankingresponse)) descreve a ordem de exibição apropriada para os resultados da pesquisa. Ele inclui um ou mais dos seguintes grupos priorizados:
 
 - `pole`: Os resultados da pesquisa para obter o tratamento mais visível (por exemplo, exibidos acima da linha principal e da barra lateral).
 - `mainline`: Os resultados da pesquisa a serem exibidos na linha principal.

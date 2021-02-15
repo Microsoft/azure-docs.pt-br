@@ -3,19 +3,19 @@ title: 'Início Rápido: Configurar propriedades para um aplicativo em seu locat
 description: Este guia de início rápido usa o portal do Azure para configurar um aplicativo que foi registrado com seu locatário do Azure AD (Azure Active Directory).
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/29/2019
 ms.author: kenwith
-ms.openlocfilehash: beb5c7262a5475f5c1535e120fcebe4c70838c7e
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: e83caba2d2a5435c5cdac02c6f63094dc079c43c
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88135480"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258601"
 ---
 # <a name="quickstart-configure-properties-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>Início Rápido: Configurar propriedades para um aplicativo em seu locatário do Azure AD (Azure Active Directory)
 
@@ -31,7 +31,7 @@ Para configurar as propriedades de um aplicativo em seu locatário do Azure AD, 
 - Opcional: conclusão de [Adicionar um aplicativo](add-application-portal.md).
 
 >[!IMPORTANT]
->Use um ambiente de não produção para testar as etapas deste início rápido.
+>Use um ambiente de não produção para testar as etapas deste guia de início rápido.
 
 ## <a name="configure-app-properties"></a>Configurar propriedades do aplicativo
 
@@ -41,13 +41,10 @@ Para editar as propriedades do aplicativo:
 
 1. No portal do Azure AD, selecione **Aplicativos empresariais**. Em seguida, encontre e selecione o aplicativo que você deseja configurar.
 2. Na seção **Gerenciar**, selecione **Propriedades** para abrir o painel **Propriedades** para edição.
-
-    ![Captura de tela da tela Propriedades que mostra as propriedades editáveis do aplicativo.](media/add-application-portal/edit-properties.png)
-
-3. Reserve um tempo para entender as opções disponíveis para configurar:
+3. Reserve um tempo para entender as opções disponíveis. As opções disponíveis dependerão de como o aplicativo está integrado ao Azure AD. Por exemplo, um aplicativo que usa o logon único baseado em SAML terá campos como *URL de acesso do usuário*, enquanto um aplicativo que usa o logon único baseado em OIDC não terá isso. Observe também que os aplicativos adicionados por meio de **Azure Active Directory > Registros de aplicativo** são, por padrão, aplicativos baseados em OIDC. Já os aplicativos adicionados por meio de **Azure Active Directory > Aplicativos empresariais** podem usar qualquer um dos vários padrões de logon único. Todos os aplicativos terão campos para configuração quando um aplicativo for exibido e puder ser usado. Esses campos são:
     - **Habilitado para que os usuários entrem?** determina se os usuários atribuídos ao aplicativo podem entrar nele.
     - **Atribuição do usuário obrigatória?** determina se os usuários não atribuídos ao aplicativo podem entrar nele.
-    - **Visível para os usuários?** determina se os usuários atribuídos a um aplicativo podem vê-lo no [Painel de Acesso](https://myapps.microsoft.com) e no inicializador de aplicativos do Office 365. (Confira o menu do Waffle no canto superior esquerdo de um site do Office 365 ou Microsoft 365.)
+    - A opção **Visível para os usuários?** determina se os usuários atribuídos a um aplicativo podem vê-lo em [Meus Aplicativos](https://myapps.microsoft.com) e no inicializador de aplicativos do Microsoft 365. (Confira o menu do waffle no canto superior esquerdo de um site do Microsoft 365.)
     
     > [!TIP]
     > A atribuição de usuários ocorre na seção **Usuários e grupos** da navegação.
@@ -84,15 +81,25 @@ Para usar um logotipo personalizado:
 
 
 > [!TIP]
-> Para automatizar o gerenciamento de aplicativos usando a API do Graph, confira [Automatizar o gerenciamento de aplicativos com a API do Microsoft Graph](https://docs.microsoft.com/graph/application-saml-sso-configure-api).
+> Para automatizar o gerenciamento de aplicativos usando a API do Graph, confira [Automatizar o gerenciamento de aplicativos com a API do Microsoft Graph](/graph/application-saml-sso-configure-api).
 
+## <a name="add-notes"></a>Adicionar observações
 
+Você pode usar o campo de notas para adicionar informações relevantes para o gerenciamento do aplicativo no Azure AD. Notas é um campo de texto livre com um tamanho máximo de 1024 caracteres.
+
+1. No portal do Azure AD, selecione **Aplicativos empresariais**. Em seguida, encontre e selecione o aplicativo que você deseja configurar.
+2. Na seção **Gerenciar**, selecione **Propriedades** para abrir o painel **Propriedades** para edição.
+3. Atualize o campo Notas e selecione **Salvar**.
+
+    ![Captura de tela de Propriedades que mostra como alterar as notas](media/add-application-portal/notes-application.png)
+
+    
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se você não pretende continuar com a série de guias de início rápido, considere a possibilidade de excluir o aplicativo para limpar seu locatário de teste. A exclusão do aplicativo é abordada no último guia de início rápido desta série; confira [Excluir um aplicativo](delete-application-portal.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Prossiga para o próximo artigo para aprender a configurar o logon único para um aplicativo.
+Avance para o próximo artigo para saber como atribuir usuários ao aplicativo.
 > [!div class="nextstepaction"]
-> [Configurar logon único](add-application-portal-setup-sso.md)
+> [Atribuir usuários a um aplicativo](add-application-portal-assign-users.md)

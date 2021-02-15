@@ -1,6 +1,6 @@
 ---
-title: Tutorial para se conectar, configurar e ativar um dispositivo Azure Stack Edge no portal do Azure | Microsoft Docs
-description: O tutorial para implantar o Azure Stack Edge instrui como se conectar, configurar e ativar seu dispositivo físico.
+title: Tutorial para se conectar, configurar e ativar um dispositivo Azure Stack Edge Pro no portal do Azure | Microsoft Docs
+description: O tutorial para implantar o Azure Stack Edge Pro instrui como se conectar, configurar e ativar seu dispositivo físico.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,17 +8,17 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: e0a0d9415cc55c24bb4dc0690c73d9f79fc0ce0e
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure.
+ms.openlocfilehash: 8a143dadffb3f89ef67dc20a2038bb3c9bf5a0e4
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84608427"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743328"
 ---
-# <a name="tutorial-connect-set-up-and-activate-azure-stack-edge"></a>Tutorial: Conectar, configurar e ativar o Azure Stack Edge 
+# <a name="tutorial-connect-set-up-and-activate-azure-stack-edge-pro"></a>Tutorial: Conectar, configurar e ativar o Azure Stack Edge Pro 
 
-Este tutorial descreve como conectar-se, configurar e ativar seu dispositivo Azure Stack Edge usando a IU da Web local.
+Este tutorial descreve como conectar-se, configurar e ativar seu dispositivo Azure Stack Edge Pro usando a IU da Web local.
 
 O processo de configuração e ativação pode levar cerca de 20 minutos para ser concluído.
 
@@ -31,14 +31,14 @@ Neste tutorial, você aprenderá como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de configurar e configurar seu dispositivo Azure Stack Edge, verifique o seguinte:
+Antes de configurar e configurar seu dispositivo Azure Stack Edge Pro, verifique o seguinte:
 
-* Você instalou o dispositivo físico conforme detalhado em [Instalar o Azure Stack Edge](azure-stack-edge-deploy-install.md).
-* Você tem a chave de ativação do serviço Azure Stack Edge que você criou para gerenciar o dispositivo Azure Stack Edge. Para obter mais informações, vá para [Preparar para implantar o Azure Stack Edge](azure-stack-edge-deploy-prep.md).
+* Você instalou o dispositivo físico conforme detalhado em [Instalar o Azure Stack Edge Pro](azure-stack-edge-deploy-install.md).
+* Você tem a chave de ativação do serviço Azure Stack Edge que você criou para gerenciar o dispositivo Azure Stack Edge Pro. Para obter mais informações, vá para [Preparar para implantar o Azure Stack Edge Pro](azure-stack-edge-deploy-prep.md).
 
 ## <a name="connect-to-the-local-web-ui-setup"></a>Conectar-se para a configuração de interface do usuário da web local
 
-1. Configure o adaptador Ethernet no computador usado para conectar-se ao dispositivo Azure Stack Edge com um endereço IP estático de 192.168.100.5 e sub-rede 255.255.255.0.
+1. Configure o adaptador Ethernet no computador usado para conectar-se ao dispositivo Azure Stack Edge Pro com um endereço IP estático de 192.168.100.5 e sub-rede 255.255.255.0.
 
 2. Conecte o computador à porta 1 do seu dispositivo. Use a ilustração a seguir para identificar a PORTA 1 em seu dispositivo.
 
@@ -56,7 +56,7 @@ Antes de configurar e configurar seu dispositivo Azure Stack Edge, verifique o s
 
 5. Entrar para a web da interface do usuário do seu dispositivo. A senha padrão é *Senha1*. 
    
-    ![Página de entrada do dispositivo Azure Stack Edge](./media/azure-stack-edge-deploy-connect-setup-activate/image3.png)
+    ![Página de entrada do dispositivo Azure Stack Edge Pro](./media/azure-stack-edge-deploy-connect-setup-activate/image3.png)
 
 6. No prompt, altere a senha de administrador do dispositivo.  
     A nova senha deve conter entre 8 e 16 caracteres. Deve conter três dos seguintes caracteres: maiúscula, minúscula, numérica e caracteres especiais.
@@ -96,7 +96,7 @@ O painel exibe as várias configurações necessárias para configurar e registr
    
    a. Na **URL do proxy Web**, digite a URL neste formato: `http://host-IP address or FQDN:Port number`. Não há suporte para URLs HTTPS.
 
-   b. Em **Autenticação**, selecione **Nenhuma** ou **NTLM**. Se você habilitar a computação e usar o módulo do IoT Edge no seu dispositivo do Azure Stack Edge, recomendamos definir a autenticação de proxy Web como **Nenhum**. Não há suporte para o **NTLM**.
+   b. Em **Autenticação**, selecione **Nenhuma** ou **NTLM**. Se você habilitar a computação e usar o módulo do IoT Edge no seu dispositivo do Azure Stack Edge Pro, recomendamos definir a autenticação de proxy Web como **Nenhum**. Não há suporte para o **NTLM**.
 
    c. Se você estiver usando a autenticação, insira um nome de usuário e uma senha.
 
@@ -105,7 +105,7 @@ O painel exibe as várias configurações necessárias para configurar e registr
    > [!NOTE]
    > Não há suporte para arquivos PAC (configuração automática de proxy). Um arquivo PAC define como os navegadores da Web e outros agentes de usuário podem escolher automaticamente o servidor proxy apropriado (método de acesso) para buscar uma determinada URL.
    > Os proxies que tentam interceptar e ler todo o tráfego (e depois assinar novamente tudo com a própria certificação) não são compatíveis, pois o certificado do proxy não é confiável.
-   > Normalmente, os proxies transparentes funcionam bem com o Azure Stack Edge.
+   > Normalmente, os proxies transparentes funcionam bem com o Azure Stack Edge Pro.
 
 4. (Opcional) No painel esquerdo, selecione **Configurações de hora** e, em seguida, configure o fuso horário e os servidores NTP primários e secundários para seu dispositivo.  
     Os servidores NTP são necessários, pois seu dispositivo deve sincronizar a hora para que ele possa se autenticar com seus provedores de serviço de nuvem.
@@ -133,7 +133,7 @@ O painel exibe as várias configurações necessárias para configurar e registr
 
 6. No painel esquerdo, selecione **Configurações de nuvem** e, em seguida, ative seu dispositivo com o serviço do Azure Stack Edge no portal do Azure.
     
-    1. Na caixa **Chave de ativação**, digite a chave de ativação recebida em [Obter chave de ativação](azure-stack-edge-deploy-prep.md#get-the-activation-key) para o Azure Stack Edge.
+    1. Na caixa **Chave de ativação**, digite a chave de ativação recebida em [Obter chave de ativação](azure-stack-edge-deploy-prep.md#get-the-activation-key) para o Azure Stack Edge Pro.
     2. Escolha **Aplicar**.
        
         ![Página "Configurações de nuvem" da IU da Web local](./media/azure-stack-edge-deploy-connect-setup-activate/set-up-activate-6.png)
@@ -146,7 +146,7 @@ O painel exibe as várias configurações necessárias para configurar e registr
 
     4. Talvez você precise aguardar alguns minutos após a atualização ser concluída com êxito. A página será atualizada para indicar que o dispositivo foi ativado com êxito.
 
-        ![Página de "Configurações de nuvem" da IU da Web local atualizada](./media/azure-stack-edge-deploy-connect-setup-activate/set-up-activate-8.png)
+        ![Página de "Configurações de nuvem" da IU da Web local atualizada 2](./media/azure-stack-edge-deploy-connect-setup-activate/set-up-activate-8.png)
 
 A configuração do dispositivo foi concluída. Agora você pode adicionar compartilhamentos em seu dispositivo.
 
@@ -158,7 +158,7 @@ Neste tutorial, você aprendeu a:
 > * Conectar-se a um dispositivo físico
 > * Configurar e ativar o dispositivo físico
 
-Para saber como transferir dados com o seu dispositivo Azure Stack Edge, confira:
+Para saber como transferir dados com o seu dispositivo Azure Stack Edge Pro, confira:
 
 > [!div class="nextstepaction"]
-> [Transfira dados com o Azure Stack Edge](./azure-stack-edge-deploy-add-shares.md).
+> [Transferir dados com o Azure Stack Edge Pro](./azure-stack-edge-deploy-add-shares.md).

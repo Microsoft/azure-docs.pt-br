@@ -10,12 +10,12 @@ ms.date: 05/05/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: e9bd2db8bcc427118a76f87e49ade422a74a11c1
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 9a4453c29c52f8821643e93584666c3a6a8e6b4c
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87276900"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100379821"
 ---
 # <a name="disaster-recovery-and-storage-account-failover"></a>Recuperação de desastres e failover da conta de armazenamento
 
@@ -23,7 +23,7 @@ A Microsoft se empenha em garantir que os serviços do Azure estejam sempre disp
 
 O armazenamento do Azure dá suporte ao failover de conta para contas de armazenamento com redundância geográfica. Com o failover de conta, é possível iniciar o processo de failover da conta de armazenamento, se o ponto de extremidade primário ficar indisponível. O failover atualiza o ponto de extremidade secundário para torná-lo um ponto de extremidade primário de sua conta de armazenamento. Quando o failover estiver concluído, os clientes poderão começar a gravar no novo ponto de extremidade primário.
 
-O failover de conta está disponível para os tipos de conta de armazenamento de blob v1, de uso geral V2 e de finalidade com Azure Resource Manager implantações. O failover de conta tem suporte para todas as regiões públicas, mas não está disponível em nuvens soberanas ou nacionais no momento.
+O failover de conta está disponível para os tipos de conta de armazenamento de uso geral v1, de uso geral v2 e de blobs com as implantações do Azure Resource Manager. O failover de conta tem suporte para todas as regiões públicas, mas não está disponível em nuvens soberanas ou nacionais no momento.
 
 Este artigo descreve os conceitos e o processo envolvidos em um failover de conta e mostra como preparar sua conta de armazenamento para recuperação com o mínimo de impacto para o cliente. Para saber como iniciar um failover de conta no portal do Azure ou no PowerShell, consulte [Iniciar um failover de conta](storage-initiate-account-failover.md).
 
@@ -54,9 +54,9 @@ Para obter mais informações sobre redundância no armazenamento do Azure, cons
 Além disso, tenha em mente essas práticas recomendadas a fim de manter a alta disponibilidade de seus dados de armazenamento no Azure:
 
 - **Discos:** Use o [backup do Azure](https://azure.microsoft.com/services/backup/) para fazer backup dos discos de VM usados por suas máquinas virtuais do Azure. Considere também usar o [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) para proteger suas VMs em caso de desastre regional.
-- **Blobs de blocos:** Ative a [exclusão reversível](../blobs/storage-blob-soft-delete.md) para proteger contra exclusões em nível de objeto e substituições ou copie blobs de blocos para outra conta de armazenamento em uma região diferente usando [AzCopy](storage-use-azcopy.md), [Azure PowerShell](/powershell/module/az.storage/)ou a [biblioteca de movimentação de dados do Azure](storage-use-data-movement-library.md).
-- **Arquivos:** Use [AzCopy](storage-use-azcopy.md) ou [Azure PowerShell](/powershell/module/az.storage/) para copiar os arquivos para outra conta de armazenamento em uma região diferente.
-- **Tabelas:** use o [AzCopy](storage-use-azcopy.md) para exportar os dados de tabela para outra conta de armazenamento em uma região diferente.
+- **Blobs de blocos:** Ative a [exclusão reversível](../blobs/soft-delete-blob-overview.md) para proteger contra exclusões em nível de objeto e substituições ou copie blobs de blocos para outra conta de armazenamento em uma região diferente usando [AzCopy](./storage-use-azcopy-v10.md), [Azure PowerShell](/powershell/module/az.storage/)ou a [biblioteca de movimentação de dados do Azure](storage-use-data-movement-library.md).
+- **Arquivos:** Use o [backup do Azure](https://docs.microsoft.com/azure/backup/azure-file-share-backup-overview) para fazer backup de seus compartilhamentos de arquivos. Habilite também a [exclusão reversível](https://docs.microsoft.com/azure/storage/files/storage-files-prevent-file-share-deletion) para proteger contra exclusões de compartilhamento de arquivos acidentais. Para redundância geográfica quando GRS não estiver disponível, use [AzCopy](./storage-use-azcopy-v10.md) ou [Azure PowerShell](/powershell/module/az.storage/) para copiar os arquivos para outra conta de armazenamento em uma região diferente.
+- **Tabelas:** use o [AzCopy](./storage-use-azcopy-v10.md) para exportar os dados de tabela para outra conta de armazenamento em uma região diferente.
 
 ## <a name="track-outages"></a>Acompanhar interrupções
 
@@ -132,7 +132,7 @@ Como o provedor de recursos de armazenamento do Azure não faz failover, a propr
 
 ### <a name="azure-virtual-machines"></a>Máquinas virtuais do Azure
 
-As máquinas virtuais (VMs) do Azure não realizarão o failover como parte de um failover de conta. Se a região primária ficar indisponível, e você fizer o failover para a região secundária, será preciso recriar todas as VMs após o failover. Além disso, há uma possível perda de dados associada ao failover da conta. A Microsoft recomenda as seguintes diretrizes de [alta disponibilidade](../../virtual-machines/windows/manage-availability.md) e [recuperação de desastres](../../virtual-machines/windows/backup-recovery.md) específicas para máquinas virtuais no Azure.
+As máquinas virtuais (VMs) do Azure não realizarão o failover como parte de um failover de conta. Se a região primária ficar indisponível, e você fizer o failover para a região secundária, será preciso recriar todas as VMs após o failover. Além disso, há uma possível perda de dados associada ao failover da conta. A Microsoft recomenda as seguintes diretrizes de [alta disponibilidade](../../virtual-machines/manage-availability.md) e [recuperação de desastres](../../virtual-machines/backup-recovery.md) específicas para máquinas virtuais no Azure.
 
 ### <a name="azure-unmanaged-disks"></a>Discos não gerenciados do Azure
 
@@ -162,7 +162,7 @@ Os seguintes recursos e serviços não têm suporte para o failover de conta:
 
 ## <a name="copying-data-as-an-alternative-to-failover"></a>Copiando dados como uma alternativa ao failover
 
-Se sua conta de armazenamento estiver configurada para acesso de leitura para o secundário, você poderá projetar seu aplicativo para ler o ponto de extremidade secundário. Se você preferir não realizar o failover no caso de uma interrupção na região primária, será possível usar ferramentas como o [AzCopy](storage-use-azcopy.md), o [Azure PowerShell](/powershell/module/az.storage/) ou a [Biblioteca de movimentação de dados do Azure](../common/storage-use-data-movement-library.md) para copiar os dados de sua conta de armazenamento na região secundária para outra conta de armazenamento em uma região não afetada. Você poderá, então, direcionar os aplicativos para essa conta de armazenamento para a disponibilidade de leitura e de gravação.
+Se sua conta de armazenamento estiver configurada para acesso de leitura para o secundário, você poderá projetar seu aplicativo para ler o ponto de extremidade secundário. Se você preferir não realizar o failover no caso de uma interrupção na região primária, será possível usar ferramentas como o [AzCopy](./storage-use-azcopy-v10.md), o [Azure PowerShell](/powershell/module/az.storage/) ou a [Biblioteca de movimentação de dados do Azure](../common/storage-use-data-movement-library.md) para copiar os dados de sua conta de armazenamento na região secundária para outra conta de armazenamento em uma região não afetada. Você poderá, então, direcionar os aplicativos para essa conta de armazenamento para a disponibilidade de leitura e de gravação.
 
 > [!CAUTION]
 > Um failover de conta não deve ser usado como parte da sua estratégia de migração de dados.
@@ -171,7 +171,7 @@ Se sua conta de armazenamento estiver configurada para acesso de leitura para o 
 
 Em circunstâncias extremas em que uma região for perdida devido a um desastre significativo, a Microsoft poderá iniciar um failover regional. Nesse caso, nenhuma ação sua é necessária. Você não terá acesso para gravação na conta de armazenamento até que o failover gerenciado pela Microsoft seja concluído. Seus aplicativos poderão ler a partir da região secundária se sua conta de armazenamento estiver configurada para RA-GRS ou RA-GZRS.
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 
 - [Uso da redundância geográfica para criar aplicativos altamente disponíveis](geo-redundant-design.md)
 - [Iniciar um failover da conta](storage-initiate-account-failover.md)

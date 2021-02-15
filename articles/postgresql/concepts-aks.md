@@ -1,17 +1,17 @@
 ---
 title: Conectar-se ao serviço kubernetes do Azure-banco de dados do Azure para PostgreSQL-servidor único
 description: Saiba mais sobre como conectar o AKS (serviço kubernetes do Azure) com o banco de dados do Azure para PostgreSQL-servidor único
-author: rachel-msft
-ms.author: raagyema
+author: mksuni
+ms.author: sumuth
 ms.service: postgresql
 ms.date: 07/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 4214b01f3f3651f8785f8644cf12326bf182bce7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9b7da2fcc1310f03f894e048089658f25be3a149
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084170"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91708842"
 ---
 # <a name="connecting-azure-kubernetes-service-and-azure-database-for-postgresql---single-server"></a>Conectando o serviço kubernetes do Azure e o banco de dados do Azure para PostgreSQL-servidor único
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/23/2019
 ms.author: jeedes
-ms.openlocfilehash: 6773805fac9a23ca918a1bf6e4889d3e1a3bb336
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 70c77caebfd8f9bfd36c7384255cf7b66416a379
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550087"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012026"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-darwinbox"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory com o Darwinbox
 
@@ -25,7 +25,7 @@ Neste tutorial, você aprenderá a integrar o Darwinbox ao Azure AD (Azure Activ
 * Controlar no Azure AD quem tem acesso ao Darwinbox.
 * Permitir que os usuários sejam conectados automaticamente ao Darwinbox com suas contas do Azure AD.
 * Gerenciar suas contas em um local central: o portal do Azure.
-Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -131,31 +131,31 @@ Para configurar o logon único no lado do **Darwinbox**, é necessário enviar o
 
 ### <a name="create-darwinbox-test-user"></a>Criar usuário de teste do Darwinbox
 
-Nesta seção, você criará um usuário chamado B.Fernandes no Darwinbox. Trabalhe com a [equipe de suporte do Darwinbox](https://darwinbox.com/contact-us.php) para adicionar os usuários na plataforma do Darwinbox. Os usuários devem ser criados e ativados antes de usar o logon único.
+Nesta seção, você criará um usuário chamado B.Fernandes no Darwinbox. Trabalhe com a [equipe de suporte do Darwinbox](https://darwinbox.com/contact-us.php) para adicionar os usuários na plataforma do Darwinbox. Os usuários devem ser criados e ativados antes de usar o logon único.
 
 ## <a name="test-sso"></a>Testar o SSO 
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Ao clicar no bloco do Darwinbox no Painel de Acesso, você deverá ser conectado automaticamente ao Darwinbox no qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao clicar no bloco do Darwinbox no Painel de Acesso, você deverá ser conectado automaticamente ao Darwinbox no qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="test-sso-for-darwinbox-mobile"></a>Testar o SSO para o Darwinbox (Móvel)
 
 1. Abra o aplicativo móvel Darwinbox. Clique em **Inserir a URL da Organização** agora para inserir a URL da sua organização na caixa de texto e clique no botão de seta.
 
-    ![Aplicativo móvel Darwinbox](media/darwinbox-tutorial/DarwinboxMobile01.jpg)
+    ![Captura de tela que mostra o aplicativo móvel "Darwinbox" com "Inserir URL da Organização" selecionado e um exemplo de organização e botão de "Seta" realçados.](media/darwinbox-tutorial/DarwinboxMobile01.jpg)
 
 1. Caso você tenha vários domínios, clique no seu domínio.
 
-    ![Aplicativo móvel Darwinbox](media/darwinbox-tutorial/DarwinboxMobile02.jpg)
+    ![Captura de tela que mostra o botão "Escolher seu domínio" com um domínio de exemplo selecionado.](media/darwinbox-tutorial/DarwinboxMobile02.jpg)
 
 1. Insira seu email do Azure AD no aplicativo Darwinbox e clique em **Avançar**.
 
-    ![Aplicativo móvel Darwinbox](media/darwinbox-tutorial/DarwinboxMobile03.jpg)
+    ![Captura de tela que mostra a entrada "Entrar" com o botão "Avançar" realçado.](media/darwinbox-tutorial/DarwinboxMobile03.jpg)
 
 1. Insira sua senha do Azure AD no aplicativo Darwinbox e clique em **Entrar**.
 
-    ![Aplicativo móvel Darwinbox](media/darwinbox-tutorial/DarwinboxMobile04.jpg)
+    ![Captura de tela que mostra a tela "Inserir senha" com o botão "Avançar" realçado.](media/darwinbox-tutorial/DarwinboxMobile04.jpg)
 
 1. Por fim, após entrar com sucesso, a home page do aplicativo será exibida.
 
@@ -163,11 +163,10 @@ Ao clicar no bloco do Darwinbox no Painel de Acesso, você deverá ser conectado
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](./tutorial-list.md)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)
 
 - [Experimentar o Darwinbox com o Azure AD](https://aad.portal.azure.com/)
-

@@ -8,12 +8,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: yagupta
-ms.openlocfilehash: a187b31657ec2a67c306d817a75150d19a5cf9b6
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f924cb7462f7f8c9939ec261b7ef200ceb8ea70b
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86497175"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92109146"
 ---
 # <a name="encryption-of-data-in-azure-data-lake-storage-gen1"></a>Criptografia de dados no Azure Data Lake Storage Gen1
 
@@ -33,7 +33,7 @@ Os dados em trânsito (também conhecidos como dados em movimento) também são 
 
 A criptografia para Data Lake Storage Gen1 é configurada durante a criação da conta e é sempre ativada por padrão. Você pode gerenciar as chaves por conta própria ou permitir que o Data Lake Storage Gen1 as gerencie para você (esse é o padrão).
 
-Para saber mais, consulte o [Guia de Introdução](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal).
+Para saber mais, consulte o [Guia de Introdução](./data-lake-store-get-started-portal.md).
 
 ## <a name="how-encryption-works-in-data-lake-storage-gen1"></a>Como a criptografia funciona no Data Lake Storage Gen1
 
@@ -105,7 +105,7 @@ O diagrama a seguir ilustra esses conceitos:
 
 ## <a name="key-rotation"></a>Alteração de chaves
 
-Quando você estiver usando chaves gerenciados pelo cliente, você pode alterar a MEK. Para saber como configurar uma conta do Data Lake Storage Gen1 com chaves gerenciadas pelo cliente, consulte [Introdução](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal).
+Quando você estiver usando chaves gerenciados pelo cliente, você pode alterar a MEK. Para saber como configurar uma conta do Data Lake Storage Gen1 com chaves gerenciadas pelo cliente, consulte [Introdução](./data-lake-store-get-started-portal.md).
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
@@ -135,4 +135,4 @@ Observe que, se você usar as opções padrão para criptografia, seus dados ser
 Esta operação deve levar menos de dois minutos e não há nenhum tempo de inatividade esperado devido à alteração de chaves. Após a operação ser concluída, a nova versão da chave estará em uso.
 
 > [!IMPORTANT]
-> Após a conclusão da operação de rotação de chaves, a versão antiga da chave não é mais ativamente é usada para criptografar os dados.  No entanto, em casos raros de falha inesperada, em que até mesmo as cópias redundantes de seus dados são afetadas, os dados poderão ser restaurados de um backup que ainda está usando a chave antiga. Para garantir a acessibilidade de seus dados nessas circunstâncias raras, mantenha uma cópia da versão anterior da sua chave de criptografia. Consulte [Diretrizes para recuperação de desastre para dados no Data Lake Storage Gen1](data-lake-store-disaster-recovery-guidance.md) para obter melhores práticas do planejamento de recuperação de desastre. 
+> Após a conclusão da operação de rotação de chaves, a versão antiga da chave não é mais ativamente é usada para criptografar os dados.  No entanto, em casos raros de falha inesperada, em que até mesmo as cópias redundantes de seus dados são afetadas, os dados poderão ser restaurados de um backup que ainda está usando a chave antiga. Para garantir a acessibilidade de seus dados nessas circunstâncias raras, mantenha uma cópia da versão anterior da sua chave de criptografia. Consulte [Diretrizes para recuperação de desastre para dados no Data Lake Storage Gen1](data-lake-store-disaster-recovery-guidance.md) para obter melhores práticas do planejamento de recuperação de desastre.

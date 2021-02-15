@@ -13,13 +13,13 @@ metadata:
   author: TerryLanfear
   ms.author: terrylan
   manager: rkarlin
-  ms.date: 08/29/2019
-  ms.openlocfilehash: de2b3baae0ab999c0e3eb8ed76194632e7b066e6
-  ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+  ms.date: 02/05/2021
+  ms.openlocfilehash: 2e50e273841b93d2ecc742f26069c0e3017b3692
+  ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 08/03/2020
-  ms.locfileid: "87540845"
+  ms.lasthandoff: 02/07/2021
+  ms.locfileid: "99807777"
 highlightedContent:
   items:
   - title: Introdução à segurança do Azure
@@ -30,7 +30,7 @@ highlightedContent:
     url: ./fundamentals/best-practices-and-patterns.md
   - title: O que é a Central de Segurança do Azure?
     itemType: overview
-    url: ../security-center/security-center-intro.md
+    url: ../security-center/security-center-introduction.md
 conceptualContent:
   items:
   - title: Conceitos básicos
@@ -52,9 +52,9 @@ conceptualContent:
     - url: ./develop/secure-dev-overview.md
       itemType: overview
       text: Melhores práticas de desenvolvimento seguro
-    - url: ./develop/secure-web-app.md
+    - url: ./develop/secure-develop.md
       itemType: tutorial
-      text: Desenvolver um aplicativo Web seguro
+      text: Desenvolver aplicativos e segurança
     - url: ./develop/threat-modeling-tool.md
       itemType: concept
       text: Ferramenta de Modelagem de Ameaças da Microsoft
@@ -74,17 +74,17 @@ conceptualContent:
       text: Ver mais
   - title: Segredos e chaves
     links:
-    - url: ../key-vault/key-vault-overview.md
+    - url: ../key-vault/general/overview.md
       itemType: overview
       text: O que é o Azure Key Vault?
-    - url: ../key-vault/quick-create-cli.md
+    - url: ../key-vault/secrets/quick-create-cli.md
       itemType: quickstart
       text: Definir e recuperar um segredo
     - url: ../dedicated-hsm/overview.md
       itemType: overview
       text: O que é o HSM dedicado do Azure?
     footerLink:
-      url: /azure/key-vault/
+      url: ../key-vault/index.yml
       text: Ver mais
   - title: Proteção de dados
     links:
@@ -102,7 +102,7 @@ conceptualContent:
       text: Ver mais
   - title: Gerenciamento de identidades
     links:
-    - url: ./fundamentals/choose-ad-authn.md
+    - url: ../active-directory/hybrid/choose-ad-authn.md
       itemType: concept
       text: Escolher o método de autenticação correto
     - url: ./fundamentals/steps-secure-identity.md
@@ -126,17 +126,17 @@ conceptualContent:
       itemType: how-to-guide
       text: Trabalhando com políticas de segurança
     footerLink:
-      url: /azure/security-center/
+      url: ../security-center/index.yml
       text: Ver mais
   - title: Monitoramento de segurança da IoT
     links:
-    - url: ../asc-for-iot/overview.md
+    - url: ../defender-for-iot/overview.md
       itemType: overview
       text: Apresentação da Central de Segurança do Azure para IoT
-    - url: ../asc-for-iot/architecture.md
+    - url: ../defender-for-iot/architecture.md
       itemType: how-to-guide
       text: Arquitetura da Central de Segurança do Azure para IoT
-    - url: ../asc-for-iot/getting-started.md
+    - url: ../defender-for-iot/getting-started.md
       itemType: how-to-guide
       text: Introdução à Central de Segurança do Azure para IoT
     footerLink:
@@ -154,19 +154,19 @@ conceptualContent:
       itemType: quickstart
       text: Introdução à versão prévia do Azure Sentinel
     footerLink:
-      url: /azure/sentinel/
+      url: ../sentinel/index.yml
       text: Ver mais
   - title: Proteção contra ameaças
     links:
     - url: ../security-center/security-center-alerts-overview.md
       itemType: concept
       text: Alertas de segurança na Central de Segurança do Azure
-    - url: ../storage/common/storage-advanced-threat-protection.md
+    - url: ../storage/common/azure-defender-storage-configure.md
       itemType: concept
-      text: Proteção Avançada contra Ameaças do Armazenamento do Azure
-    - url: ../sql-database/sql-database-threat-detection-overview.md
+      text: Azure Defender para Armazenamento
+    - url: ../azure-sql/database/threat-detection-overview.md
       itemType: concept
-      text: Proteção Avançada contra Ameaças para o Banco de Dados SQL do Azure
+      text: Azure Defender para SQL
     footerLink:
       url: ./fundamentals/threat-detection.md
       text: Ver mais
@@ -179,7 +179,7 @@ conceptualContent:
       itemType: overview
       text: Visão geral de gerenciamento e monitoramento
     footerLink:
-      url: https://docs.microsoft.com/search/?search=security+audit+log&scope=azure&category=Documentation
+      url: /search/?category=Documentation&scope=azure&search=security%2baudit%2blog
       text: Pesquisar por mais
   - title: Segurança de rede
     links:
@@ -189,7 +189,7 @@ conceptualContent:
     - url: ./fundamentals/network-best-practices.md
       itemType: concept
       text: Melhores práticas de segurança
-    - url: ./fundamentals/ddos-best-practices.md
+    - url: ../ddos-protection/fundamental-best-practices.md
       itemType: concept
       text: Proteção contra DDoS
   - title: Segurança da infraestrutura
@@ -237,5 +237,5 @@ conceptualContent:
       itemType: overview
       text: Serviço do Azure Blueprints
     footerLink:
-      url: /azure/governance/
+      url: ../governance/index.yml
       text: Ver mais

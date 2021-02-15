@@ -11,18 +11,21 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 11/13/2020
 ms.author: apimpm
-ms.openlocfilehash: 0a3aa0c26ddb515b8096cce909ca074f6f24a333
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 732abed830afdb759ed52fd933673edd8e5cade6
+ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86250474"
+ms.lasthandoff: 11/16/2020
+ms.locfileid: "94638726"
 ---
 # <a name="add-caching-to-improve-performance-in-azure-api-management"></a>Adicionar caching para melhorar o desempenho no Gerenciamento de API do Azure
 
-É possível configurar as operações do Gerenciamento de API para cache das respostas. O cache das respostas pode reduzir significativamente a latência da API, o consumo da largura de banda e a carga de serviço Web para dados que não são alterados com frequência.
+As APIs e as operações no gerenciamento de API podem ser configuradas com o cache de resposta. O cache de resposta pode reduzir significativamente a latência de chamadores de API e carga de back-end para provedores de API.
+
+> [!IMPORTANT]
+> O cache interno é volátil e é compartilhado por todas as unidades na mesma região no mesmo serviço de gerenciamento de API.
 
 Para saber mais sobre o cache, veja [Políticas de armazenamento em cache do Gerenciamento de API](api-management-caching-policies.md) e [Armazenamento em cache personalizado no Gerenciamento de API do Azure](api-management-sample-cache-by-key.md).
 
@@ -43,7 +46,7 @@ O que você aprenderá:
 
 Para concluir este tutorial:
 
-+ [Criar uma instância de gerenciamento de API do Azure](get-started-create-service-instance.md)
++ [Criar uma instância do Gerenciamento de API do Azure](get-started-create-service-instance.md)
 + [Importar e publicar uma API](import-and-publish.md)
 
 ## <a name="add-the-caching-policies"></a><a name="caching-policies"> </a>Adicionar as políticas de cache
@@ -56,11 +59,11 @@ Com as políticas de armazenamento em cache mostradas neste exemplo, a primeira 
 4. Clique em **API de Conferência de Demonstração** na sua lista de APIs.
 5. Selecione **GetSpeakers**.
 6. Na parte superior da tela, selecione a guia **Design**.
-7. Na seção **Processamento de entrada**, clique no ícone **</>** .
+7. Na seção **Processamento de entrada** , clique no ícone **</>** .
 
     ![editor de códigos](media/api-management-howto-cache/code-editor.png)
 
-8. No elemento de **entrada**, adicione a seguinte política:
+8. No elemento de **entrada** , adicione a seguinte política:
 
    ```
    <cache-lookup vary-by-developer="false" vary-by-developer-groups="false">
@@ -70,7 +73,7 @@ Com as políticas de armazenamento em cache mostradas neste exemplo, a primeira 
    </cache-lookup>
    ```
 
-9. No elemento de **saída**, adicione a seguinte política:
+9. No elemento de **saída** , adicione a seguinte política:
 
    ```
    <cache-store duration="20" />

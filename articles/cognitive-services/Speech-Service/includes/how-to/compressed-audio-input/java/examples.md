@@ -4,14 +4,14 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/09/2020
 ms.author: trbye
-ms.openlocfilehash: caada98d3a2bcc4acb566cb02065c6451c233066
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e9b980dcbe42694137c7b29ee3bddaa7802db3da
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86544739"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97978780"
 ---
-Para transmitir em um formato de áudio compactado para o serviço de fala, crie um `PullAudioInputStream` ou `PushAudioInputStream` . Em seguida, crie um `AudioConfig` de uma instância de sua classe de fluxo, especificando o formato de compactação do fluxo.
+Para configurar o SDK de fala para aceitar a entrada de áudio compactado, crie um `PullAudioInputStream` ou `PushAudioInputStream` . Em seguida, crie um `AudioConfig` de uma instância de sua classe de fluxo, especificando o formato de compactação do fluxo.
 
 Vamos supor que você tenha uma classe de fluxo de entrada chamada `pullStream` e esteja usando Opus/OGG. Seu código pode ter a seguinte aparência:
 

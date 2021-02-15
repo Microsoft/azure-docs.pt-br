@@ -16,15 +16,15 @@ ms.date: 05/27/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c342eac5460d8d52422b0497b1283f367660eb3c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0c4d8b0a33763a967550453d8a205258f7583084
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "66298827"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "90015255"
 ---
 # <a name="azure-ad-connect-special-considerations-for-instances"></a>Azure AD Connect: considerações especiais para instâncias
-O Azure AD Connect é mais comumente usado com a instância mundial do Azure AD e o Office 365. Mas também existem outras instâncias que têm requisitos diferentes para URLs e outras considerações especiais.
+Azure AD Connect é mais comumente usado com a instância Mundial do Azure AD e Microsoft 365. Mas também existem outras instâncias que têm requisitos diferentes para URLs e outras considerações especiais.
 
 ## <a name="microsoft-cloud-germany"></a>Microsoft Cloud Alemanha
 O [Microsoft Cloud Alemanha](https://www.microsoft.de/cloud-deutschland) é uma nuvem soberana operada por uma administradora de dados alemã.

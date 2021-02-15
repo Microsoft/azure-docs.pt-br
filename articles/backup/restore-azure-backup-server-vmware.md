@@ -4,10 +4,10 @@ description: Use Servidor de Backup do Azure (MABS) para restaurar VMs VMware em
 ms.topic: conceptual
 ms.date: 08/18/2019
 ms.openlocfilehash: b3f61aa828db39aeb11b1ce46a850d9a5b868653
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88263513"
 ---
 # <a name="restore-vmware-virtual-machines"></a>Restaurar máquinas virtuais VMware

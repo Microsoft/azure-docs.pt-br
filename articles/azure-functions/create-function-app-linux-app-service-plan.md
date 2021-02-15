@@ -1,18 +1,18 @@
 ---
 title: Criar um aplicativo de funções do Portal do Azure no Linux
-description: Aprenda a criar sua primeira Função do Azure para a execução sem servidor usando o Portal do Azure.
+description: Saiba como criar sua primeira função do Azure no Linux usando o portal do Azure.
 ms.topic: how-to
 ms.date: 04/29/2020
-ms.openlocfilehash: 5aae60900a61c28f6c53f89b8e273daccb047eef
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 34a93795b5e041ccef8e9576f97092e16c429444
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83115935"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97937171"
 ---
 # <a name="create-a-function-app-on-linux-in-an-azure-app-service-plan"></a>Criar um aplicativo de funções em um Plano do Serviço de Aplicativo do Azure
 
-Azure Functions permite hospedar funções no Linux em um contêiner de Serviço de Aplicativo do Azure padrão. Este artigo explica como usar a CLI do Azure para criar o [portal do Azure](https://portal.azure.com) para criar um aplicativo de funções hospedado em Linux que é executado em um [Plano do Serviço de Aplicativo](functions-scale.md#app-service-plan). Você também pode [usar seu próprio contêiner](functions-create-function-linux-custom-image.md).
+Azure Functions permite hospedar funções no Linux em um contêiner de Serviço de Aplicativo do Azure padrão. Este artigo explica como usar a CLI do Azure para criar o [portal do Azure](https://portal.azure.com) para criar um aplicativo de funções hospedado em Linux que é executado em um [Plano do Serviço de Aplicativo](dedicated-plan.md). Você também pode [usar seu próprio contêiner](functions-create-function-linux-custom-image.md).
 
 ![Criar um aplicativo de funções no portal do Azure](./media/create-function-app-linux-app-service-plan/function-app-in-portal-editor.png)
 
@@ -50,7 +50,7 @@ Você deve ter um aplicativo de funções para hospedar a execução de suas fun
 
     | Configuração      | Valor sugerido  | Descrição |
     | ------------ | ---------------- | ----------- |
-    | **[Conta de armazenamento](../storage/common/storage-account-create.md)** |  Nome globalmente exclusivo |  Crie uma conta de armazenamento usada pelo seu aplicativo de funções. Os nomes da conta de armazenamento devem ter entre 3 e 24 caracteres e podem conter apenas números e letras minúsculas. Use também uma conta existente, que precisará atender aos [requisitos da conta de armazenamento](../azure-functions/functions-scale.md#storage-account-requirements). |
+    | **[Conta de armazenamento](../storage/common/storage-account-create.md)** |  Nome globalmente exclusivo |  Crie uma conta de armazenamento usada pelo seu aplicativo de funções. Os nomes da conta de armazenamento devem ter entre 3 e 24 caracteres e podem conter apenas números e letras minúsculas. Use também uma conta existente, que precisará atender aos [requisitos da conta de armazenamento](../azure-functions/storage-considerations.md#storage-account-requirements). |
     |**Sistema operacional**| **Linux** | Um sistema operacional é pré-selecionado para você com base na seleção da pilha de runtime, mas você pode alterar a configuração, se necessário. |
     | **[Plano](../azure-functions/functions-scale.md)** | **Consumo (Sem servidor)** | Plano de hospedagem que define como os recursos são alocados para seu aplicativo de funções. No plano **Consumo** padrão, os recursos são adicionados dinamicamente conforme exigido por suas funções. Nesta hospedagem [sem servidor](https://azure.microsoft.com/overview/serverless-computing/), você paga somente pelo tempo durante o qual suas funções são executadas. Quando você executa em um Plano do Serviço de Aplicativo, deve gerenciar o [dimensionamento do aplicativo de funções](../azure-functions/functions-scale.md).  |
 
@@ -83,7 +83,7 @@ Em seguida, crie uma nova função no novo aplicativo de funções.
 Esta seção mostra como criar uma função no novo aplicativo de funções no portal.
 
 > [!NOTE]
-> A experiência de desenvolvimento do portal pode ser útil para experimentar o Azure Functions. Na maioria dos cenários, considere desenvolver suas funções localmente e publicar o projeto de seu aplicativo de funções usando um [Visual Studio Code](functions-create-first-function-vs-code.md#create-an-azure-functions-project) ou [Azure Functions Core Tools](functions-run-local.md#create-a-local-functions-project).  
+> A experiência de desenvolvimento do portal pode ser útil para experimentar o Azure Functions. Na maioria dos cenários, considere desenvolver suas funções localmente e publicar o projeto de seu aplicativo de funções usando um [Visual Studio Code](./create-first-function-vs-code-csharp.md#create-an-azure-functions-project) ou [Azure Functions Core Tools](functions-run-local.md#create-a-local-functions-project).  
 
 1. No menu esquerdo da janela **Funções**, selecione **Funções** e depois selecione **Adicionar** no menu superior. 
  

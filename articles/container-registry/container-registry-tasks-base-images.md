@@ -3,12 +3,12 @@ title: Atualizações da imagem de base-tarefas
 description: Saiba mais sobre imagens base para imagens de contêiner de aplicativo e sobre como uma atualização de imagem de base pode disparar uma tarefa de registro de contêiner do Azure.
 ms.topic: article
 ms.date: 01/22/2019
-ms.openlocfilehash: 35933c4cdbbf2762f7a54bd945f8a8ffa55b9f21
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: df33096830cd7b34a288c38c105aff3610315337
+ms.sourcegitcommit: 17e9cb8d05edaac9addcd6e0f2c230f71573422c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85918509"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97707479"
 ---
 # <a name="about-base-image-updates-for-acr-tasks"></a>Sobre as atualizações de imagem base para tarefas ACR
 
@@ -22,9 +22,13 @@ Uma imagem de base geralmente é atualizada pelo mantenedor de imagem para inclu
 
 Em alguns casos, como uma equipe de desenvolvimento privada, uma imagem de base pode especificar mais do que o sistema operacional ou a estrutura. Por exemplo, uma imagem base pode ser uma imagem de componente de serviço compartilhado que precisa ser controlada. Os membros de uma equipe podem precisar controlar essa imagem base para teste ou atualizar regularmente a imagem ao desenvolver imagens de aplicativos.
 
+## <a name="maintain-copies-of-base-images"></a>Manter cópias de imagens base
+
+Para qualquer conteúdo em seus registros que dependa do conteúdo base mantido em um registro público, como o Hub do Docker, recomendamos que você copie o conteúdo para um registro de contêiner do Azure ou outro registro privado. Em seguida, certifique-se de criar suas imagens de aplicativo referenciando as imagens base privadas. O registro de contêiner do Azure fornece uma capacidade de [importação de imagem](container-registry-import-images.md) para copiar facilmente o conteúdo de registros públicos ou outros registros de contêiner do Azure. A próxima seção descreve o uso de tarefas ACR para rastrear atualizações de imagem de base ao criar atualizações de aplicativo. Você pode rastrear as atualizações da imagem base em seus próprios registros de contêiner do Azure e, opcionalmente, em registros públicos upstream.
+
 ## <a name="track-base-image-updates"></a>Rastrear atualizações de imagem de base
 
-As Tarefas do ACR incluem a capacidade de compilar imagens automaticamente para você quando a imagem base do contêiner for atualizada.
+As Tarefas do ACR incluem a capacidade de compilar imagens automaticamente para você quando a imagem base do contêiner for atualizada. Você pode usar essa capacidade para manter e atualizar cópias de imagens de base públicas em seus registros de contêiner do Azure e, em seguida, recriar imagens de aplicativo que dependem de imagens base.
 
 As tarefas ACR detectam dinamicamente as dependências da imagem base ao criar uma imagem de contêiner. Como resultado, ele pode detectar quando a imagem base de uma imagem de aplicativo é atualizada. Com uma tarefa de compilação pré-configurada, as tarefas de ACR podem recriar automaticamente cada imagem de aplicativo que faz referência à imagem base. Com essa detecção e recriação automáticas, as Tarefas do ACR poupam o tempo e o esforço normalmente necessários para acompanhar e atualizar manualmente cada imagem de aplicativo que faz referência à imagem base atualizada.
 
@@ -53,7 +57,7 @@ O tempo entre o momento em que uma imagem base é atualizada e quando a tarefa d
 * **Habilitado por padrão** – quando você cria uma tarefa ACR com o comando [AZ ACR Task Create][az-acr-task-create] , por padrão, a tarefa é *habilitada* para o gatilho por uma atualização de imagem de base. Isto é, a propriedade `base-image-trigger-enabled` é definida como True. Se desejar desabilitar esse comportamento da tarefa, atualize a propriedade para False. Por exemplo, execute o seguinte comando [az acr task update][az-acr-task-update]:
 
   ```azurecli
-  az acr task update --myregistry --name mytask --base-image-trigger-enabled False
+  az acr task update --registry myregistry --name mytask --base-image-trigger-enabled False
   ```
 
 * **Gatilho para rastrear dependências** – para habilitar uma tarefa ACR para determinar e controlar as dependências de uma imagem de contêiner – que incluem sua imagem base--você deve primeiro disparar a tarefa para criar a imagem **pelo menos uma vez**. Por exemplo, disparar a tarefa manualmente usando o comando [az acr task run][az-acr-task-run].

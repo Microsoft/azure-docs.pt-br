@@ -3,20 +3,18 @@ title: Entidades predefinidas preteridas-LUIS
 titleSuffix: Azure Cognitive Services
 description: Este artigo contém informações de entidade predefinidas preteridas em LUIS (Serviço Inteligente de Reconhecimento Vocal).
 services: cognitive-services
-author: diberry
 ms.custom: seodec18
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 07/29/2019
-ms.author: diberry
-ms.openlocfilehash: 46da828b7553fdf9cdded817febd3bb95cd4cbb9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6a050990c28b9137440ec05d918774d76f216be8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78270669"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91540839"
 ---
 # <a name="deprecated-prebuilt-entities-in-a-luis-app"></a>Entidades predefinidas preteridas em um aplicativo LUIS
 As entidades predefinidas a seguir foram preteridas e não podem ser adicionadas a novos aplicativos de LUIS.

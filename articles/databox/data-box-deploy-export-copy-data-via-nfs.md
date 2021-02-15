@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 07/10/2020
+ms.date: 12/18/2020
 ms.author: alkohli
-ms.openlocfilehash: 301c75df6bedf430af64bbeff63f2eb759691355
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 64bb5e94c4b18626d1f85d7e61252aae74202eb9
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86208746"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97680626"
 ---
-# <a name="tutorial-copy-data-from-azure-data-box-via-nfs-preview"></a>Tutorial: Copiar dados do Azure Data Box por meio de NFS (versão prévia)
+# <a name="tutorial-copy-data-from-azure-data-box-via-nfs"></a>Tutorial: Copiar dados do Azure Data Box por meio do NFS
 
 Este tutorial descreve como conectar-se e copiar dados da IU da Web local do Data Box para um servidor de dados local via NFS. Os dados no Data Box são exportados da conta de Armazenamento do Azure.
 
@@ -26,8 +26,6 @@ Neste tutorial, você aprenderá como:
 > * Pré-requisitos
 > * Conectar-se à caixa de dados
 > * Copiar dados do Data Box
-
-[!INCLUDE [Data Box feature is in preview](../../includes/data-box-feature-is-preview-info.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -45,15 +43,17 @@ Antes de começar, verifique se:
 
 [!INCLUDE [data-box-shares](../../includes/data-box-shares.md)]
 
-Se você estiver usando um computador host Linux, execute as seguintes etapas para configurar o Data Box para permitir o acesso aos clientes NFS.
+Se você estiver usando um computador host Linux, execute as seguintes etapas para configurar o Data Box para permitir o acesso aos clientes NFS. O Data Box pode conectar até cinco clientes NFS por vez.
 
-1. Forneça os endereços IP dos clientes permitidos que podem acessar o compartilhamento. Na interface do usuário da web local, acesse **Conectar e copiar** a página. Sob **as configurações de NFS**, clique em **acesso para cliente NFS**. 
+1. Forneça os endereços IP dos clientes permitidos que podem acessar o compartilhamento:
 
-    ![Configurar o acesso de cliente NFS 1](media/data-box-deploy-export-copy-data/nfs-client-access-1.png)
+    1.  Na IU da Web local, acesse a página **Conectar e copiar**. Sob **as configurações de NFS**, clique em **acesso para cliente NFS**. 
 
-2. Forneça o endereço IP do cliente NFS e clique em **Add**. Você pode configurar o acesso para vários clientes NFS repetindo essa etapa. Clique em **OK**.
+        ![Abrir o acesso ao cliente NFS](media/data-box-deploy-export-copy-data/nfs-client-access-1.png)
 
-    ![Configurar o acesso do cliente NFS 2](media/data-box-deploy-export-copy-data/nfs-client-access-2.png)
+    1. Para adicionar um cliente NFS, forneça o endereço IP do cliente e clique em **Adicionar**. O Data Box pode conectar até cinco clientes NFS por vez. Quando terminar, clique em **OK**.
+
+         ![Adicionar um cliente NFS](media/data-box-deploy-export-copy-data/nfs-client-access-2.png)
 
 2. Assegure-se de que o computador host Linux tenha uma [versão suportada](data-box-system-requirements.md) do cliente NFS instalado. Use a versão específica para sua distribuição do Linux. 
 
@@ -77,11 +77,11 @@ Quando você estiver conectado aos compartilhamentos do Data Box, a próxima eta
 
 [!INCLUDE [data-box-export-review-logs](../../includes/data-box-export-review-logs.md)]
 
- Agora você pode iniciar a cópia de dados. Se você estiver usando um computador host Linux, use um utilitário de cópia semelhante ao Robocopy. Algumas das alternativas disponíveis no Linux são [rsync](https://rsync.samba.org/), [FreeFileSync](https://www.freefilesync.org/), [Unison](https://www.cis.upenn.edu/~bcpierce/unison/) ou [Ultracopier](https://ultracopier.first-world.info/).  
+ Agora você pode iniciar a cópia de dados. Se você estiver usando um computador host Linux, use um utilitário de cópia semelhante ao Robocopy. Algumas das alternativas disponíveis no Linux são o [`rsync`](https://rsync.samba.org/), o [FreeFileSync](https://www.freefilesync.org/), o [Unison](https://www.cis.upenn.edu/~bcpierce/unison/) ou o [Ultracopier](https://ultracopier.first-world.info/).  
 
 O comando `cp` é uma das melhores opções para copiar um diretório. Para mais informações sobre o uso, vá para [cp man pages](http://man7.org/linux/man-pages/man1/cp.1.html).
 
-Se usar a opção de rsync para obter uma cópia com multithread, siga estas diretrizes:
+Se você usar a opção `rsync` para obter uma cópia com multithread, siga estas diretrizes:
 
 * Instale o pacote **CIFS Utils** ou **NFS Utils**, dependendo do sistema de arquivos usado pelo seu cliente Linux.
 
@@ -89,7 +89,7 @@ Se usar a opção de rsync para obter uma cópia com multithread, siga estas dir
 
     `sudo apt-get install nfs-utils`
 
-* Instale o **Rsync** e o **Parallel** (varia dependendo da versão distribuída do Linux).
+* Instale o `rsync` e o **Parallel** (varia dependendo da versão distribuída do Linux).
 
     `sudo apt-get install rsync`
    

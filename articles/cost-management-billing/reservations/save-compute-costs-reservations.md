@@ -1,23 +1,23 @@
 ---
 title: O que são Reservas do Azure?
-description: Saiba mais sobre as Reservas do Azure e sobre os preços para economizar nos custos de máquinas virtuais, de bancos de dados SQL, do Azure Cosmos DB e de outros recursos.
+description: Saiba mais sobre as Reservas do Azure e sobre os preços para economizar com instâncias reservadas de máquinas virtuais, de bancos de dados SQL, do Azure Cosmos DB e de outros recursos.
 author: yashesvi
 ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: overview
-ms.date: 08/04/2020
+ms.date: 12/15/2020
 ms.author: banders
-ms.openlocfilehash: a5ab489e995506deb806fe5f0cee4a147ae42ac2
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 0e45e9741e92bb9e1fe23af79695cae06e64e871
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88682579"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602049"
 ---
 # <a name="what-are-azure-reservations"></a>O que são Reservas do Azure?
 
-As Reservas do Azure ajudam você a economizar dinheiro se comprometendo com planos de um ou de três anos para vários produtos. O compromisso permite que você obtenha um desconto nos recursos que usar. As reservas podem reduzir significativamente os custos de recursos em até 72% nos preços pagos conforme o uso. As reservas fornecem um desconto de cobrança e não afetam o estado de runtime dos recursos. Após você comprar uma reserva, o desconto se aplica automaticamente aos recursos correspondentes.
+As Reservas do Azure ajudam você a economizar dinheiro se comprometendo com planos de um ou de três anos para vários produtos. O compromisso permite que você obtenha um desconto nos recursos que usar. As reservas podem reduzir significativamente seus custos com recursos, podendo chegar a 72% com relação aos preços pagos conforme o uso. As reservas fornecem um desconto de cobrança e não afetam o estado de runtime dos recursos. Após você comprar uma reserva, o desconto se aplica automaticamente aos recursos correspondentes.
 
 Você pode pagar por uma reserva de forma antecipada ou mensal. O custo total das reservas antecipadas e mensais é o mesmo e você não paga nenhuma taxa adicional quando opta por pagar mensalmente. O pagamento mensal está disponível para reservas do Azure, e não para produtos de terceiros.
 
@@ -50,21 +50,22 @@ Para obter mais informações, confira [Determinar qual reserva comprar](deter
 
 Você pode comprar reservas por meio do portal do Azure, das APIs, do PowerShell e da CLI. 
 
-Acesse portal do Azure para comprar (https://ms.portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/Docs) 
+Vá para o [portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/Docs) para fazer uma compra.
 
-Para obter mais informações, confira [Comprar uma reserva](prepare-buy-reservation.md) 
+Para obter mais informações, confira [Comprar uma reserva](prepare-buy-reservation.md).
 
 ## <a name="how-is-a-reservation-billed"></a>Como uma reserva é cobrada? 
 
-A reserva é cobrada no método de pagamento associado à assinatura. O custo de reserva é deduzido do saldo do seu compromisso monetário, se disponível. Quando o saldo do compromisso monetário não cobrir o custo da reserva, você será cobrado pelo excedente. Se você tiver uma assinatura de um plano individual com tarifas pagas conforme o uso, o cartão de crédito que você tem em sua conta será cobrado imediatamente para as compras antecipadas. Os pagamentos mensais aparecem em sua fatura e seu cartão de crédito é cobrado mensalmente. Quando for cobrado por fatura, você verá os encargos na sua próxima fatura. 
+A reserva é cobrada no método de pagamento associado à assinatura. O custo de reserva é deduzido do saldo do seu Pagamento antecipado do Azure (anteriormente conhecido como compromisso monetário), se disponível. Quando o saldo do Pagamento antecipado do Azure não cobrir o custo da reserva, você será cobrado pelo excedente. Se você tiver uma assinatura de um plano individual com tarifas pagas conforme o uso, o cartão de crédito que você tem em sua conta será cobrado imediatamente para as compras antecipadas. Os pagamentos mensais aparecem em sua fatura e seu cartão de crédito é cobrado mensalmente. Quando for cobrado por fatura, você verá os encargos na sua próxima fatura. 
 
-## <a name="permissions-to-view-and-manage-reservations"></a>Permissões para exibir e gerenciar reservas 
+## <a name="who-can-manage-a-reservation-by-default"></a>Quem pode gerenciar uma reserva por padrão
 
-O usuário que compra uma reserva e o administrador da conta ou da assinatura usado para cobrar a reserva obtêm a função Proprietário no pedido da reserva e na reserva.
+Por padrão, os seguintes usuários podem ver e gerenciar reservas:
 
-Você pode delegar o gerenciamento de uma reserva adicionando pessoas às funções na reserva. Atribua as funções no portal do Azure ou usando APIs e o PowerShell. 
+- A pessoa que compra uma reserva e o administrador da conta da assinatura para cobrança usada para comprar a reserva são adicionadas ao pedido de reserva.
+- Administradores de cobrança do Contrato Enterprise e do Contrato de Cliente da Microsoft.
 
-Para obter mais informações, confira [Adicionar ou alterar os usuários que podem gerenciar uma reserva](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation) 
+Para permitir que outras pessoas gerenciem reservas, confira [Gerenciar reservas para recursos do Azure](manage-reserved-vm-instance.md).
 
 ## <a name="get-reservation-details-and-utilization-after-purchase"></a>Obter detalhes e a utilização da reserva após a compra
 
@@ -90,7 +91,7 @@ Para obter mais informações, confira [Trocas e reembolsos via autoatendimento 
 - **Instância de Máquina Virtual Reservada** – uma reserva abrange apenas os custos de computação de máquina virtual e de serviços de nuvem. Não cobre encargos adicionais de software, Windows, rede nem armazenamento.
 - **Capacidade reservada de Armazenamento do Azure**: uma reserva abrange a capacidade de contas de armazenamento padrão para armazenamento de blobs ou do Azure Data Lake Storage Gen2. A reserva não abrange a largura de banda nem as taxas de transação.
 - **Capacidade reservada do Azure Cosmos DB** – cobre a taxa de transferência provisionada para seus recursos. Ela não cobre encargos de armazenamento e rede.
-- **vCore reservado do Banco de Dados SQL** – apenas os custos de computação são incluídos com uma reserva. A licença do SQL é cobrada separadamente.
+- **vCore reservado do Banco de Dados SQL** – abrange a Instância Gerenciada de SQL e o Pool Elástico de Banco de Dados SQL/banco de dados individual. Apenas os custos de computação são incluídos em uma reserva. A licença do SQL é cobrada separadamente. 
 - **Azure Synapse Analytics** – uma reserva abrange o uso da cDWU. Ela não abrange os encargos de armazenamento nem de rede associados ao uso do Azure Synapse Analytics.
 - **Azure Databricks** – uma reserva abrange apenas o uso de DBU. Outros encargos, como computação, armazenamento e rede, são aplicados separadamente.
 - **Imposto de selo do Serviço de Aplicativo** – uma reserva cobre o uso do imposto de selo. Ela não se aplica a funções de trabalho, de forma que todos os outros recursos associados ao selo são cobrados separadamente.
@@ -125,9 +126,9 @@ Caso tenha dúvidas ou precise de ajuda, [crie uma solicitação de suporte](htt
     - [Reservas do Azure no programa de CSP (Provedor de Soluções na Nuvem) do Partner Center](/partner-center/azure-reservations)
 
 - Saiba mais sobre reservas para planos de serviço:
-    - [Máquinas virtuais com Instâncias de VM Reservadas do Azure](../../virtual-machines/windows/prepay-reserved-vm-instances.md)
+    - [Máquinas virtuais com Instâncias de VM Reservadas do Azure](../../virtual-machines/prepay-reserved-vm-instances.md)
     - [Recursos do Azure Cosmos DB com capacidade reservada do Azure Cosmos DB](../../cosmos-db/cosmos-db-reserved-capacity.md)
     - [Recursos de computação do Banco de Dados SQL com capacidade reservada do Banco de Dados SQL do Azure](../../azure-sql/database/reserved-capacity-overview.md)
     - [Recursos do Cache do Azure para Redis com capacidade reservada do Cache do Azure para Redis](../../azure-cache-for-redis/cache-reserved-pricing.md) Saiba mais sobre as reservas para planos de software:
-    - [Planos de software Red Hat das Reservas do Azure](../../virtual-machines/linux/prepay-rhel-software-charges.md)
+    - [Planos de software Red Hat das Reservas do Azure](../../virtual-machines/linux/prepay-suse-software-charges.md)
     - [Planos de software SUSE das Reservas do Azure](../../virtual-machines/linux/prepay-suse-software-charges.md)

@@ -1,5 +1,7 @@
 - name: Documentação do Azure IoT Edge
   href: index.yml
+- name: Versões do Azure IoT Edge
+  href: version-history.md
 - name: Visão geral
   items:
     - name: Sobre o Azure IoT Edge
@@ -13,13 +15,13 @@
       href: quickstart.md
 - name: Tutoriais
   items:
-    - name: 1. Configure o ambiente de desenvolvimento
+    - name: Configure o ambiente de desenvolvimento
       items:
-        - name: Desenvolver para dispositivos Linux
+        - name: Desenvolver com contêineres do Linux
           href: tutorial-develop-for-linux.md
-        - name: Desenvolver para dispositivos Windows
+        - name: Desenvolver com contêineres do Windows
           href: tutorial-develop-for-windows.md
-    - name: 2. Desenvolver módulos de código personalizado
+    - name: Desenvolver módulos de código personalizado
       items:
         - name: C
           items:
@@ -39,7 +41,7 @@
           href: tutorial-node-module.md
         - name: Python
           href: tutorial-python-module.md
-    - name: 3. Implantar os serviços do Azure como módulos
+    - name: Implantar os serviços do Azure como módulos
       items:
         - name: Filtrar dados com o Azure Functions
           href: tutorial-deploy-function.md
@@ -51,7 +53,11 @@
           href: tutorial-deploy-custom-vision.md
         - name: Armazenar dados localmente com o SQL
           href: tutorial-store-data-sql-server.md
-    - name: 4. Exemplo de ponta a ponta do aprendizado de máquina na borda
+    - name: Usar o IoT Edge como um gateway
+      items:
+        - name: Criar hierarquias de dispositivos do IoT Edge
+          href: tutorial-nested-iot-edge.md
+    - name: Exemplo de ponta a ponta do aprendizado de máquina na borda
       items:
         - name: Introdução
           href: tutorial-machine-learning-edge-01-intro.md
@@ -71,6 +77,8 @@
   items:
     - name: runtime do IoT Edge
       href: iot-edge-runtime.md
+    - name: IoT Edge para Linux no Windows
+      href: iot-edge-for-linux-on-windows.md
     - name: Módulos do IoT Edge
       items:
         - name: Entenda os módulos do Azure IoT Edge
@@ -101,6 +109,8 @@
           href: iot-edge-security-manager.md
         - name: Certificados do IoT Edge
           href: iot-edge-certs.md
+        - name: Computação Confidencial
+          href: deploy-confidential-applications.md
     - name: Suporte a plataforma
       href: support.md
     - name: Lista de verificação de implantação de produção
@@ -109,28 +119,28 @@
       href: iot-edge-glossary.md
 - name: Guias de instruções
   items:
-    - name: Registrar um dispositivo IoT Edge
-      href: how-to-register-device.md
-    - name: Instalar e gerenciar o IoT Edge
+    - name: Criar um dispositivo do IoT Edge
       items:
-        - name: Linux
-          href: how-to-install-iot-edge-linux.md
-        - name: Windows
-          href: how-to-install-iot-edge-windows.md
-        - name: Contêineres do Linux no Windows
-          href: how-to-install-iot-edge-windows-with-linux.md
-        - name: VM do Windows Server
-          href: how-to-install-iot-edge-windows-server-vm.md
-        - name: VM do Ubuntu
-          href: how-to-install-iot-edge-ubuntuvm.md
-        - name: Kubernetes
-          href: how-to-install-iot-edge-kubernetes.md
+        - name: Registrar um dispositivo no Hub IoT
+          href: how-to-register-device.md
+        - name: Instalar e provisionar o IoT Edge
+          items:
+            - name: Instalar o IoT Edge para Linux
+              href: how-to-install-iot-edge.md
+            - name: Executar o IoT Edge para Linux no Windows
+              href: how-to-install-iot-edge-on-windows.md
+        - name: Atualizar o runtime
+          href: how-to-update-iot-edge.md
         - name: Gerenciar certificados do dispositivo
           href: how-to-manage-device-certificates.md
-        - name: Criar certificados de teste
-          href: how-to-create-test-certificates.md
-        - name: Atualizar versão de execução
-          href: how-to-update-iot-edge.md
+    - name: Cenários de dispositivo alternativos
+      items:
+        - name: Executar o IoT Edge com contêineres do Windows
+          href: how-to-install-iot-edge-windows-on-windows.md
+        - name: Executar o IoT Edge no Kubernetes
+          href: how-to-install-iot-edge-kubernetes.md
+        - name: Implantar uma VM do IoT Edge usando um modelo do ARM
+          href: how-to-install-iot-edge-ubuntuvm.md
     - name: Provisionamento automático com DPS
       items:
         - name: Atestado de TPM
@@ -181,18 +191,32 @@
           href: how-to-monitor-module-twins.md
         - name: Métodos diretos do EdgeAgent
           href: how-to-edgeagent-direct-method.md
+        - name: Recuperar logs do IoT Edge
+          href: how-to-retrieve-iot-edge-logs.md
+        - name: Acessar métricas internas
+          href: how-to-access-built-in-metrics.md
     - name: Usar dispositivos do IoT Edge como gateways
       items:
-        - name: Criar um gateway transparente
-          href: how-to-create-transparent-gateway.md
-        - name: Autenticar um dispositivo downstream
-          href: how-to-authenticate-downstream-device.md
-        - name: Configurar um dispositivo downstream
-          href: how-to-connect-downstream-device.md
-        - name: Gateway de protocolo Modbus
-          href: deploy-modbus-gateway.md
+        - name: Gateways para dispositivos IoT
+          items:
+            - name: Criar um gateway transparente
+              href: how-to-create-transparent-gateway.md
+            - name: Autenticar um dispositivo downstream
+              href: how-to-authenticate-downstream-device.md
+            - name: Configurar um dispositivo downstream
+              href: how-to-connect-downstream-device.md
+            - name: Gateway de protocolo Modbus
+              href: deploy-modbus-gateway.md
+        - name: Gateways para dispositivos do IoT Edge
+          items:
+            - name: Configurar gateways para dispositivos do IoT Edge
+              href: how-to-connect-downstream-iot-edge-device.md
+            - name: Configurar o módulo de proxy de API
+              href: how-to-configure-api-proxy-module.md
     - name: Configurar suporte para proxy
       href: how-to-configure-proxy-support.md
+    - name: Publicar e assinar com o IoT Edge
+      href: how-to-publish-subscribe.md
     - name: Armazenamento de Blobs do Azure no IoT Edge
       items:
         - name: Noções básicas do Armazenamento de Blobs na borda
@@ -207,10 +231,14 @@
           href: ../azure-sql-edge/deploy-portal.md?toc=/azure/iot-edge/toc.json&bc=/azure/iot-edge/breadcrumb/toc.json
     - name: Gerenciar com ferramentas DevOps
       items:
-        - name: Azure DevOps Projects
-          href: how-to-devops-project.md
+        - name: Iniciador do Azure DevOps
+          href: how-to-devops-starter.md
         - name: Azure DevOps
-          href: how-to-ci-cd.md
+          items:
+            - name: YAML
+              href: how-to-continuous-integration-continuous-deployment.md
+            - name: Editor clássico
+              href: how-to-continuous-integration-continuous-deployment-classic.md
     - name: Solucionar problemas
       items:
         - name: Etapas de diagnóstico padrão
@@ -219,36 +247,40 @@
           href: troubleshoot-common-errors.md
 - name: Referência
   items:
+    - name: Criar certificados de teste
+      href: how-to-create-test-certificates.md
+    - name: Scripts de gerenciamento de dispositivo do Windows
+      href: reference-windows-scripts.md
     - name: CLI do Azure
       href: /cli/azure/azure-cli-reference-for-IoT
 - name: Recursos
   items:
     - name: Opções de Ajuda e suporte
-      href: /azure/iot-fundamentals/iot-support-help
+      href: ../iot-fundamentals/iot-support-help.md
     - name: Serviços do Azure IoT
       items:
         - name: Hub IoT
-          href: /azure/iot-hub
+          href: ../iot-hub/index.yml
         - name: Provisionamento de Dispositivos no Hub IoT
-          href: /azure/iot-dps
+          href: ../iot-dps/index.yml
         - name: Central da IoT
-          href: 'https://docs.microsoft.com/microsoft-iot-central/'
+          href: /microsoft-iot-central/
         - name: IoT Edge
-          href: /azure/iot-edge
+          href: ./index.yml
         - name: Aceleradores de solução do IoT
-          href: /azure/iot-accelerators
+          href: ../iot-accelerators/index.yml
         - name: IoT Plug and Play
-          href: /azure/iot-pnp
+          href: ../iot-pnp/index.yml
         - name: Mapas do Azure
-          href: /azure/azure-maps
+          href: ../azure-maps/index.yml
         - name: Time Series Insights
-          href: /azure/time-series-insights
+          href: ../time-series-insights/index.yml
     - name: SDKs do Azure IoT
       items:
         - name: SDKs do Serviço de IoT
-          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
+          href: ../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks
         - name: SDKs do dispositivo IoT
-          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
+          href: ../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks
     - name: Exemplos de IoT do Azure
       items:
         - name: C# (.NET)

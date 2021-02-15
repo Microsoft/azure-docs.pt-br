@@ -8,20 +8,20 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 04/01/2018
+ms.date: 10/23/2020
 ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a1822e41c8cfb3646ab43fde1b9a86569ce2c399
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: bd4d42e1cafa58aaf6a47188c9e86c24ac175047
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87796753"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92514382"
 ---
 # <a name="restore-or-remove-a-recently-deleted-user-using-azure-active-directory"></a>Restaurar ou remover permanentemente um usuário excluído recentemente usando o Azure Active Directory
-Depois que você excluir um usuário, a conta permanecerá em um estado suspenso por 30 dias. Durante essa janela de 30 dias, a conta do usuário pode ser restaurada, juntamente com todas as suas propriedades. Depois que a janela de 30 dias passa, o usuário é excluído automaticamente e permanentemente.
+Depois que você excluir um usuário, a conta permanecerá em um estado suspenso por 30 dias. Durante essa janela de 30 dias, a conta do usuário pode ser restaurada, juntamente com todas as suas propriedades. Depois que a janela de 30 dias passa, o processo de exclusão permanente é iniciado automaticamente.
 
 Você pode visualizar seus usuários restauráveis, restaurar um usuário excluído ou excluir permanentemente um usuário usando o Azure AD (Azure Active Directory) no portal do Azure.
 
@@ -77,10 +77,10 @@ Você pode excluir permanentemente um usuário da sua organização sem aguardar
 
 2. Selecione **Excluir permanentemente**.
 
-    ![Usuários - página de usuários excluídos, com a opção de restauração de usuário realçada](media/active-directory-users-restore/users-deleted-users-permanent-delete-user.png)
+    ![Usuários – página usuários excluídos, com a opção Excluir usuário realçada](media/active-directory-users-restore/users-deleted-users-permanent-delete-user.png)
 
 ## <a name="next-steps"></a>Próximas etapas
-Depois de restaurar ou excluir seus usuários, você pode executar os seguintes processos básicos:
+Depois de ter restaurado ou excluído os usuários, você pode:
 
 - [Adicionar ou excluir usuários](add-users-azure-active-directory.md)
 
@@ -88,6 +88,6 @@ Depois de restaurar ou excluir seus usuários, você pode executar os seguintes 
 
 - [Adicionar ou alterar informações de perfil](active-directory-users-profile-azure-portal.md)
 
-- [Adicionar usuários convidados de outra organização](../b2b/what-is-b2b.md)
+- [Adicionar usuários convidados de outra organização](../external-identities/what-is-b2b.md)
 
-Para obter mais informações sobre outras tarefas de gerenciamento de usuário disponíveis, [documentação de gerenciamento de usuários do Azure ad](../users-groups-roles/index.yml).
+Para obter mais informações sobre outras tarefas de gerenciamento de usuário disponíveis, [documentação de gerenciamento de usuários do Azure ad](../enterprise-users/index.yml).

@@ -4,7 +4,7 @@ description: Saiba como usar aplicativos curinga no proxy do aplicativo do Azure
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b566081459b0bab0aae9831e128ffbee0efaf4e2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c2f3d1d47bd26167253296f06af5470818760850
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85367726"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99257973"
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Aplicativos curinga no proxy do aplicativo do Azure Active Directory
 
@@ -72,7 +72,7 @@ Ao usar domínios personalizados, você precisa criar uma entrada DNS com um reg
 
 > `<yourAADTenantId>.tenant.runtime.msappproxy.net`
 
-Para confirmar se configurou o CNAME corretamente, você pode usar [nslookup](https://docs.microsoft.com/windows-server/administration/windows-commands/nslookup) em um dos pontos de extremidade de destino, por exemplo, `expenses.adventure-works.com`.  A resposta deve incluir o alias já mencionado (`<yourAADTenantId>.tenant.runtime.msappproxy.net`).
+Para confirmar se configurou o CNAME corretamente, você pode usar [nslookup](/windows-server/administration/windows-commands/nslookup) em um dos pontos de extremidade de destino, por exemplo, `expenses.adventure-works.com`.  A resposta deve incluir o alias já mencionado (`<yourAADTenantId>.tenant.runtime.msappproxy.net`).
 
 ## <a name="considerations"></a>Considerações
 
@@ -156,7 +156,7 @@ A configuração implementa a seguinte estrutura:
 
 ![Mostra a estrutura implementada pela configuração de exemplo](./media/application-proxy-wildcard/05.png)
 
-| Cor | Descrição |
+| Color | DESCRIÇÃO |
 | ---   | ---         |
 | Azul  | Aplicativos publicados explicitamente e visíveis no portal do Azure. |
 | Cinza  | Os aplicativos que você pode acessar por meio do aplicativo pai. |

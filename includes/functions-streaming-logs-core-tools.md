@@ -4,24 +4,27 @@ ms.author: glenga
 ms.date: 7/24/2019
 ms.topic: include
 ms.service: azure-functions
-ms.openlocfilehash: 1928a8238cd73087e3c199675574dd1395f4d76d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.openlocfilehash: 0159ceb6e5d6d64a7a9bda383396607e4ce05b84
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "68881365"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020325"
 ---
 #### <a name="built-in-log-streaming"></a>Streaming de log interno
 
-Use a `logstream` opção para começar a receber logs de streaming de um aplicativo de funções específico em execução no Azure, como no exemplo a seguir:
+Use a opção `logstream` para começar a receber logs de streaming de um aplicativo de funções específico em execução no Azure, como no exemplo a seguir:
 
 ```bash
 func azure functionapp logstream <FunctionAppName>
 ```
 
+>[!NOTE]
+>O streaming de log interno ainda não está habilitado no Core Tools para aplicativos de funções em execução no Linux em um plano de Consumo. Em vez disso, nos planos de hospedagem, você precisa usar o Live Metrics Stream para exibir os logs quase em tempo real.
+
 #### <a name="live-metrics-stream"></a>Live Metrics Stream
 
-Você também pode exibir o [Live Metrics Stream](../articles/azure-monitor/app/live-stream.md) para seu aplicativo de funções em uma nova janela do navegador, incluindo a `--browser` opção, como no exemplo a seguir:
+Você pode exibir o [Live Metrics Stream](../articles/azure-monitor/app/live-stream.md) para o seu aplicativo de funções em uma nova janela do navegador, incluindo a opção `--browser`, como no seguinte exemplo:
 
 ```bash
 func azure functionapp logstream <FunctionAppName> --browser

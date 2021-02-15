@@ -14,16 +14,16 @@ ms.author: blazem
 ms.reviewer: jroth
 manager: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: d632d078db55696dad7bb05e72368b13610b5978
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b016987162cc8202b7ad28d4dd8e5ab2953469d1
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091412"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024238"
 ---
 # <a name="enable-transparent-data-encryption-tde-for-stretch-database-on-azure"></a>Habilitar TDE (Transparent Data Encryption) para Stretch Database no Azure
 > [!div class="op_single_selector"]
-> * [Portal do Azure](sql-server-stretch-database-encryption-tde.md)
+> * [Azure portal](sql-server-stretch-database-encryption-tde.md)
 > * [TSQL](sql-server-stretch-database-tde-tsql.md)
 >
 >
@@ -50,7 +50,7 @@ Para desabilitar a TDE para um banco de dados do Azure que armazena os dados mig
 4. Selecione a configuração **Desativar** e, em seguida, selecione **Salvar**
 
 <!--Anchors-->
-[TDE (Transparent Data Encryption)]: https://msdn.microsoft.com/library/bb934049.aspx
+[TDE (Transparent Data Encryption)]: /sql/relational-databases/security/encryption/transparent-data-encryption
 
 
 <!--Image references-->

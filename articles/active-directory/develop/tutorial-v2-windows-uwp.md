@@ -1,6 +1,7 @@
 ---
-title: Introdução à plataforma de identidade da Microsoft para UWP | Azure
-description: Como aplicativos da UWP (Plataforma Universal do Windows) podem chamar uma API que requer tokens de acesso do ponto de extremidade da plataforma de identidade da Microsoft.
+title: 'Tutorial: Criar um aplicativo UWP (Plataforma Universal do Windows) que usa a plataforma de identidade da Microsoft para autenticação | Azure'
+titleSuffix: Microsoft identity platform
+description: Neste tutorial, você criará um aplicativo UWP que usa a plataforma de identidade da Microsoft para conectar usuários e receberá um token de acesso para chamar a API do Microsoft Graph em nome deles.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -11,26 +12,31 @@ ms.workload: identity
 ms.date: 12/13/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: acdc23c664f84882916b91b8f8698ee36b1e6cd3
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: bbcebfd69789eb6ec03e565b347d05533043781c
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88165542"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98232328"
 ---
-# <a name="call-the-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>Chamar a API do Microsoft Graph de um aplicativo da Plataforma Universal do Windows (XAML)
+# <a name="tutorial-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Tutorial: Chamar a API do Microsoft Graph de um aplicativo da UWP (Plataforma Universal do Windows)
 
-> [!div renderon="docs"]
-
-Este guia explica como um aplicativo nativo da UWP (Plataforma Universal do Windows) pode solicitar um token de acesso. Em seguida, o aplicativo chama a API do Microsoft Graph. O guia também se aplica a outras APIs que requerem tokens de acesso do ponto de extremidade da plataforma de identidade da Microsoft.
+Neste tutorial, você criará um aplicativo UWP (Plataforma Universal do Windows) nativo que conecta usuários e obtém um token de acesso para chamar a API do Microsoft Graph. 
 
 No final deste guia, seu aplicativo chama uma API protegida usando contas pessoais. Os exemplos são outlook.com, live.com e outros. Seu aplicativo também chama contas corporativas e de estudante de qualquer empresa ou organização que tem um Azure AD (Azure Active Directory).
 
->[!NOTE]
-> Este guia requer o Visual Studio com o desenvolvimento da Plataforma Universal do Windows instalado. Para obter instruções de como baixar e configurar o Visual Studio para desenvolver aplicativos da Plataforma Universal do Windows, confira [Prepare-se para começar](/windows/uwp/get-started/get-set-up).
+Neste tutorial:
 
->[!NOTE]
-> Se você é novo na plataforma de identidade da Microsoft, recomendamos que comece com o [início rápido Chamar a API do Microsoft Graph de um aplicativo UWP (Plataforma Universal do Windows)](quickstart-v2-uwp.md).
+> [!div class="checklist"]
+> * Criar um projeto *UWP (Plataforma Universal do Windows)* no Visual Studio
+> * Registrar o aplicativo no portal do Azure
+> * Adicionar código para entrada e saída do usuário
+> * Adicionar código para chamar a API do Microsoft Graph
+> * Testar o aplicativo
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) com a carga de trabalho de [desenvolvimento da Plataforma Universal do Windows](/windows/uwp/get-started/get-set-up) instalada
 
 ## <a name="how-this-guide-works"></a>Como funciona este guia
 
@@ -44,7 +50,7 @@ Este guia usa o seguinte pacote NuGet:
 
 |Biblioteca|Descrição|
 |---|---|
-|[Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)|Biblioteca de Autenticação da Microsoft|
+|[Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)| Biblioteca de Autenticação da Microsoft|
 |[Microsoft.Graph](https://www.nuget.org/packages/Microsoft.Graph)|Biblioteca de Clientes do Microsoft Graph|
 
 ## <a name="set-up-your-project"></a>Configurar o seu projeto
@@ -53,8 +59,8 @@ Esta seção fornece instruções passo a passo para integrar um aplicativo .NET
 
 Este guia cria um aplicativo que exibe um botão que consulta a API do Microsoft Graph e um botão para sair. Ele também exibe caixas de texto que contêm os resultados das chamadas.
 
-> [!NOTE]
-> Prefere baixar este projeto de exemplo do Visual Studio em vez de criá-lo? [Baixe um projeto](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip) e vá para a etapa [registro de aplicativo](#register-your-application "etapa de registro de aplicativo") para configurar o exemplo de código antes de executá-lo.
+> [!Tip]
+> Para ver uma versão completa do projeto que você criará neste tutorial, [baixe-o do GitHub](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip).
 
 ### <a name="create-your-application"></a>Criar o aplicativo
 
@@ -65,7 +71,7 @@ Este guia cria um aplicativo que exibe um botão que consulta a API do Microsoft
 
    ![Versões mínima e de destino](./media/tutorial-v2-windows-uwp/select-uwp-target-minimum.png)
 
-### <a name="add-microsoft-authentication-library-to-your-project"></a>Adicionar a Biblioteca de Autenticação da Microsoft ao projeto
+### <a name="add-the-microsoft-authentication-library-to-your-project"></a>Adicionar a Biblioteca de Autenticação da Microsoft ao projeto
 
 1. No Visual Studio, selecione **Ferramentas** > **Gerenciador de Pacotes do NuGet** > **Console do Gerenciador de Pacotes**.
 1. Copie e cole os seguintes comandos na janela **Console do Gerenciador de Pacotes**:
@@ -97,7 +103,7 @@ O Visual Studio cria *MainPage.xaml* como parte de seu modelo de projeto. Abra e
 </Grid>
 ```
 
-### <a name="use-microsoft-authentication-library-to-get-a-token-for-the-microsoft-graph-api"></a>Usar a Biblioteca de Autenticação da Microsoft para obter um token para a API do Microsoft Graph
+### <a name="use-the-microsoft-authentication-library-to-get-a-token-for-the-microsoft-graph-api"></a>Usar a Biblioteca de Autenticação da Microsoft para obter um token para a API do Microsoft Graph
 
 Esta seção mostra como usar a Biblioteca de Autenticação da Microsoft para obter um token para a API do Microsoft Graph. Faça alterações no arquivo *MainPage.xaml.cs*.
 
@@ -115,7 +121,7 @@ Esta seção mostra como usar a Biblioteca de Autenticação da Microsoft para o
     ```csharp
     public sealed partial class MainPage : Page
     {
-       
+
         //Set the scope for API call to user.read
         private string[] scopes = new string[] { "user.read" };
 
@@ -286,8 +292,7 @@ private async void SignOutButton_Click(object sender, RoutedEventArgs e)
     }
 ```
 
-> [!NOTE]
-> MSAL.NET usa métodos assíncronos para adquirir tokens ou manipular contas. Você precisa dar suporte a ações da interface do usuário no thread da IU. Esse é o motivo para a chamada `Dispatcher.RunAsync` e as precauções para chamar `ConfigureAwait(false)`.
+MSAL.NET usa métodos assíncronos para adquirir tokens ou manipular contas. Você precisa dar suporte a ações da interface do usuário no thread da IU. Esse é o motivo para a chamada `Dispatcher.RunAsync` e as precauções para chamar `ConfigureAwait(false)`.
 
 #### <a name="more-information-about-signing-out"></a>Mais informações sobre sair<a name="more-information-on-sign-out"></a>
 
@@ -340,22 +345,24 @@ private async Task DisplayMessageAsync(string message)
 
 Agora, você precisa registrar seu aplicativo:
 
-1. Entre no [portal do Azure](https://portal.azure.com).
-1. Selecione **Azure Active Directory** > **Registros de aplicativo**.
-1. Selecione **Novo registro**. Insira um nome de aplicativo relevante que será exibido aos usuários do aplicativo, por exemplo, *Aplicativo-UWP-chamando-MSGraph*.
-1. Em **Tipos de conta compatíveis**, selecione **Contas em qualquer diretório organizacional e contas pessoais Microsoft (por exemplo, Skype, Xbox)** . Em seguida, selecione **Registrar** para continuar.
+1. Entre no <a href="https://portal.azure.com/" target="_blank">Portal do Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+1. Se você tem acesso a vários locatários, use o filtro **Diretório + assinatura** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o locatário no qual você deseja registrar um aplicativo.
+1. Pesquise **Azure Active Directory** e selecione-o.
+1. Em **Gerenciar**, selecione **Registros de aplicativo** > **Novo registro**.
+1. Insira um **Nome** para seu aplicativo, por exemplo, `UWP-App-calling-MSGraph`. Os usuários do seu aplicativo podem ver esse nome e você pode alterá-lo mais tarde.
+1. Em **Tipos de conta com suporte**, escolha **Contas em qualquer diretório organizacional (Qualquer diretório do Azure Active Directory – Multilocatário) e contas Microsoft pessoais (por exemplo, Skype, Xbox)** . 
+1. Selecione **Registrar**.
 1. Na página de visão geral, localize o valor da **ID do Aplicativo (cliente)** e copie-o. Volte para o Visual Studio, abra *MainPage.xaml.cs* e substitua o valor de `ClientId` por esse valor.
 
 Configurar a autenticação para o aplicativo:
 
-1. De volta ao [portal do Azure](https://portal.azure.com), em **Gerenciar**, selecione **Autenticação**.
-1. Na seção **URIs de Redirecionamento** | **URIs de redirecionamento sugeridos para clientes públicos (dispositivo móvel, desktop)** , marque https://login.microsoftonline.com/common/oauth2/nativeclient.
-1. Clique em **Salvar**.
+1. De volta ao <a href="https://portal.azure.com/" target="_blank">portal do Azure <span class="docon docon-navigate-external x-hidden-focus"></span></a>, em **Gerenciar**, selecione **Autenticação** > **Adicionar uma plataforma** e escolha **Aplicativos móveis e da área de trabalho**.
+1. Na seção **URIs de Redirecionamento**, verifique **https://login.microsoftonline.com/common/oauth2/nativeclient** .
+1. Selecione **Configurar**.
 
 Configurar permissões da API para seu aplicativo:
 
-1. Em **Gerenciar**, selecione **Permissões de API**.
-1. Selecione **Adicionar uma permissão** e verifique se você escolheu **APIs da Microsoft**.
+1. Em **Gerenciar**, selecione **Permissões de API** > **Adicionar uma permissão**.
 1. Selecione **Microsoft Graph**.
 1. Selecione **Permissões delegadas**, pesquise por *User.Read* e verifique se **User.Read** está selecionado.
 1. Se tiver feito alterações, selecione **Adicionar permissões** para salvá-las.
@@ -427,16 +434,15 @@ No exemplo atual, o método `WithRedirectUri("https://login.microsoftonline.com/
             }
            ...
     }
-  
+
     ```
 
-    Execute o aplicativo e copie separadamente o valor de `redirectUri` quando o ponto de interrupção for atingido. O valor deve ter uma aparência semelhante à do seguinte valor:  
-    `ms-app://s-1-15-2-1352796503-54529114-405753024-3540103335-3203256200-511895534-1429095407/`
+    Execute o aplicativo e copie separadamente o valor de `redirectUri` quando o ponto de interrupção for atingido. O valor deve ter uma aparência semelhante à do seguinte valor: `ms-app://s-1-15-2-1352796503-54529114-405753024-3540103335-3203256200-511895534-1429095407/`
 
-    É possível remover a linha de código posteriormente, porque ela é necessária apenas uma vez, para buscar o valor. 
+    É possível remover a linha de código posteriormente, porque ela é necessária apenas uma vez, para buscar o valor.
 
 3. No portal de registro de aplicativo, adicione o valor retornado em **RedirectUri** no painel **Autenticação**.
-   
+
 ## <a name="test-your-code"></a>Testar seu código
 
 Para testar o aplicativo, selecione a tecla **F5** para executar o projeto no Visual Studio. A janela principal será exibida:
@@ -470,8 +476,7 @@ A API do Microsoft Graph requer o escopo `user.read` para ler um perfil do usuá
 
 Para acessar os calendários do usuário no contexto de um aplicativo, adicione a permissão delegada `Calendars.Read` às informações de registro de aplicativo. Em seguida, adicione o escopo `Calendars.Read` à chamada `acquireTokenSilent`.
 
-> [!NOTE]
-> Talvez os usuários precisem fornecer autorizações adicionais à medida que o número de escopos aumenta.
+Talvez os usuários precisem fornecer autorizações adicionais à medida que o número de escopos aumenta.
 
 ## <a name="known-issues"></a>Problemas conhecidos
 
@@ -496,3 +501,10 @@ Você habilitar a [autenticação integrada em domínios federados](#enable-inte
 **Solução alternativa:** Selecione **Entrar com outras opções**. Depois selecione **Entrar com nome de usuário e senha**. Selecione **Forneça sua senha**. Depois passe pelo processo de autenticação de telefone.
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+
+## <a name="next-steps"></a>Próximas etapas
+
+Saiba mais sobre como usar a MSAL (Biblioteca de Autenticação da Microsoft) para autorização e autenticação em aplicativos .NET:
+
+> [!div class="nextstepaction"]
+> [Visão geral da MSAL (Biblioteca de Autenticação da Microsoft)](msal-overview.md)

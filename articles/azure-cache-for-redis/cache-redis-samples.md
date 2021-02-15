@@ -8,10 +8,10 @@ ms.custom: devx-track-dotnet
 ms.topic: sample
 ms.date: 01/23/2017
 ms.openlocfilehash: 553850173f463a05b13768eb3b9e17703bfa2886
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88212297"
 ---
 # <a name="azure-cache-for-redis-samples"></a>Exemplos do Cache Redis do Azure

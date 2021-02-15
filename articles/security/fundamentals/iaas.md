@@ -15,38 +15,38 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 03258bf204491afce4635828b3a33a06886aca2d
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 9b9a83cf71dfa7658c34c3c98f8d12a056adad0c
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448396"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94698777"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Práticas recomendadas de segurança para as cargas de trabalho IaaS no Azure
 Este artigo descreve as melhores práticas de segurança para VMs e sistemas operacionais.
 
 As recomendações baseiam-se um consenso de opinião, e trabalhar com recursos da plataforma Windows Azure atuais e conjuntos de recursos. Como as opiniões e tecnologias podem mudar com o tempo, este artigo será atualizado para refletir essas mudanças.
 
-Na maioria dos cenários de IaaS (Infraestrutura como Serviço), as [máquinas virtuais (VMs) do Azure](/azure/virtual-machines/) são a carga de trabalho principal para as organizações que usam a computação em nuvem. Esse fato é evidente em [cenários híbridos](https://social.technet.microsoft.com/wiki/contents/articles/18120.hybrid-cloud-infrastructure-design-considerations.aspx), nos quais as organizações desejam migrar cargas de trabalho para a nuvem de forma lenta. Nesses cenários, siga o [considerações gerais de segurança para IaaS](https://social.technet.microsoft.com/wiki/contents/articles/3808.security-considerations-for-infrastructure-as-a-service-iaas.aspx)e aplicar práticas recomendadas de segurança para todas as suas VMs.
+Na maioria dos cenários de IaaS (Infraestrutura como Serviço), as [máquinas virtuais (VMs) do Azure](../../virtual-machines/index.yml) são a carga de trabalho principal para as organizações que usam a computação em nuvem. Esse fato é evidente em [cenários híbridos](https://social.technet.microsoft.com/wiki/contents/articles/18120.hybrid-cloud-infrastructure-design-considerations.aspx), nos quais as organizações desejam migrar cargas de trabalho para a nuvem de forma lenta. Nesses cenários, siga o [considerações gerais de segurança para IaaS](https://social.technet.microsoft.com/wiki/contents/articles/3808.security-considerations-for-infrastructure-as-a-service-iaas.aspx)e aplicar práticas recomendadas de segurança para todas as suas VMs.
 
 ## <a name="protect-vms-by-using-authentication-and-access-control"></a>Proteger VMs usando autenticação e controle de acesso
 A primeira etapa na proteção de VMs é garantir que apenas usuários autorizados possam configurar novas VMs e acessar VMs.
 
 > [!NOTE]
-> Para melhorar a segurança das VMs do Linux no Azure, você pode integrar com a autenticação do Azure AD. Quando você usa [a autenticação do Azure ad para VMs do Linux](/azure/virtual-machines/linux/login-using-aad), controla e aplica centralmente políticas que permitem ou negam o acesso às VMs.
+> Para melhorar a segurança das VMs do Linux no Azure, você pode integrar com a autenticação do Azure AD. Quando você usa [a autenticação do Azure ad para VMs do Linux](../../virtual-machines/linux/login-using-aad.md), controla e aplica centralmente políticas que permitem ou negam o acesso às VMs.
 >
 >
 
 **Melhor prática**: controle o acesso à VM.   
-**Detalhe**: utilize as [políticas do Azure](/azure/azure-policy/azure-policy-introduction) para estabelecer convenções para recursos na organização e criar políticas personalizadas. Aplique essas políticas a recursos, como [grupos de recursos](/azure/azure-resource-manager/resource-group-overview). VMs que pertencem a um grupo de recursos herdam suas políticas.
+**Detalhe**: utilize as [políticas do Azure](../../governance/policy/overview.md) para estabelecer convenções para recursos na organização e criar políticas personalizadas. Aplique essas políticas a recursos, como [grupos de recursos](../../azure-resource-manager/management/overview.md). VMs que pertencem a um grupo de recursos herdam suas políticas.
 
-Se a organização tiver muitas assinaturas, talvez você precise de uma forma de gerenciar o acesso, as políticas e a conformidade com eficiência para essas assinaturas. Os [grupos de gerenciamento do Azure](/azure/azure-resource-manager/management-groups-overview) fornecem um nível de escopo acima das assinaturas. Você organiza assinaturas em grupos de gerenciamento (contêineres) e aplica as condições de governança a esses grupos. Todas as assinaturas dentro de um grupo de gerenciamento herdam automaticamente as condições aplicadas ao grupo. Os grupos de gerenciamento fornecem gerenciamento corporativo em larga escala, independentemente do tipo de assinaturas que você possa ter.
+Se a organização tiver muitas assinaturas, talvez você precise de uma forma de gerenciar o acesso, as políticas e a conformidade com eficiência para essas assinaturas. Os [grupos de gerenciamento do Azure](../../governance/management-groups/overview.md) fornecem um nível de escopo acima das assinaturas. Você organiza assinaturas em grupos de gerenciamento (contêineres) e aplica as condições de governança a esses grupos. Todas as assinaturas dentro de um grupo de gerenciamento herdam automaticamente as condições aplicadas ao grupo. Os grupos de gerenciamento fornecem gerenciamento de nível empresarial em larga escala, independentemente do tipo de assinaturas que você possa ter.
 
 **Melhor prática**: reduza a variabilidade na configuração e implantação de VMs.   
-**Detalhe**: utilize modelos do [Azure Resource Manager](/azure/azure-resource-manager/resource-group-authoring-templates) para fortalecer as opções de implantação e facilitar o reconhecimento e inventário das VMs no ambiente.
+**Detalhe**: utilize modelos do [Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) para fortalecer as opções de implantação e facilitar o reconhecimento e inventário das VMs no ambiente.
 
 **Melhor prática**: acesso privilegiado protegido.   
-**Detalhe**: utilize uma [abordagem de privilégios mínimos](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) e funções internas do Azure para permitir que os usuários acessem e configurem as VMs:
+**Detalhe**: utilize uma [abordagem de privilégios mínimos](/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) e funções internas do Azure para permitir que os usuários acessem e configurem as VMs:
 
 - [Colaborador de Máquina Virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor): pode gerenciar VMs, mas não a rede virtual nem a conta de armazenamento à qual ele está conectado.
 - [Colaborador de Máquina Virtual Clássica](../../role-based-access-control/built-in-roles.md#classic-virtual-machine-contributor): pode gerenciar VMs criadas usando o modelo de implantação clássica, mas não a rede ou armazenamento de conta virtual para o qual as VMs estão conectadas.
@@ -63,7 +63,7 @@ Os administradores de assinatura e coadministradores podem alterar essa configur
 As organizações que controlam o acesso e a configuração da VM melhoram sua segurança geral da VM.
 
 ## <a name="use-multiple-vms-for-better-availability"></a>Use várias VMs para melhor disponibilidade
-Se a VM executar aplicativos críticos que precisam ter alta disponibilidade, será altamente recomendável usar várias VMs. Para obter melhor disponibilidade, use um [conjunto de disponibilidade](../../virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) ou [zonas](../../availability-zones/az-overview.md)de disponibilidade.
+Se a VM executar aplicativos críticos que precisam ter alta disponibilidade, será altamente recomendável usar várias VMs. Para obter melhor disponibilidade, use um [conjunto de disponibilidade](../../virtual-machines/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) ou [zonas](../../availability-zones/az-overview.md)de disponibilidade.
 
 Um conjunto de disponibilidade é um agrupamento lógico que você pode usar no Azure para garantir que os recursos de VM inseridos nele sejam isolados uns dos outros quando forem implantados em um datacenter do Azure. O Azure garante que as VMs colocadas em um conjunto de disponibilidade sejam executadas em vários servidores físicos, racks de computação, unidades de armazenamento e comutadores de rede. Se ocorrer uma falha de hardware ou de software do Azure, somente um subconjunto das VMs será afetado e o aplicativo geral continuará disponível aos clientes. Os conjuntos de disponibilidade são uma funcionalidade essencial quando você quer compilar soluções de nuvem confiáveis.
 
@@ -75,7 +75,7 @@ O Antimalware da Microsoft inclui recursos como proteção em tempo real, verifi
 Você pode integrar o Antimalware da Microsoft e as soluções de parceiros com a [Central de Segurança do Azure](../../security-center/index.yml) para facilidade de implantação e detecções internas (alertas e incidentes).
 
 **Melhor prática**: instale uma solução antimalware para proteger contra malware.   
-**Detalhe**: [instale uma solução de parceiro da Microsoft ou Antimalware da Microsoft](../../security-center/security-center-install-endpoint-protection.md)
+**Detalhe**: [instale uma solução de parceiro da Microsoft ou Antimalware da Microsoft](../../security-center/security-center-services.md#supported-endpoint-protection-solutions-)
 
 **Melhor prática**: integre a solução antimalware à Central de Segurança para monitorar o status da proteção.   
 **Detalhe**: [gerencie problemas de proteção de ponto de extremidade com a Central de Segurança](../../security-center/security-center-partner-integration.md)
@@ -84,7 +84,7 @@ Você pode integrar o Antimalware da Microsoft e as soluções de parceiros com 
 As VMs do Azure, como todas as VMs locais, devem ser gerenciadas pelo usuário. O Azure não efetua push de atualizações do Windows para VMs. Você deve gerenciar as atualizações da VM.
 
 **Melhor prática**: mantenha as VMs atualizadas.   
-**Detalhe**: use a solução [Gerenciamento de Atualizações](../../automation/update-management/update-mgmt-overview.md) na Automação do Azure para gerenciar atualizações do sistema operacional nos computadores Windows e Linux implantados no Azure, em ambientes locais ou em outros provedores de nuvem. Você pode avaliar o status de atualizações disponíveis em todos os computadores de agente e gerenciar rapidamente o processo de instalação das atualizações necessárias para os servidores.
+**Detalhe**: use a solução [Gerenciamento de Atualizações](../../automation/update-management/overview.md) na Automação do Azure para gerenciar atualizações do sistema operacional nos computadores Windows e Linux implantados no Azure, em ambientes locais ou em outros provedores de nuvem. Você pode avaliar o status de atualizações disponíveis em todos os computadores de agente e gerenciar rapidamente o processo de instalação das atualizações necessárias para os servidores.
 
 Os computadores que são gerenciados pelo Gerenciamento de Atualizações usam as configurações a seguir para realizar implantações de atualização e avaliação:
 
@@ -102,7 +102,7 @@ Se você usa o Windows Update, deixe a configuração automática do Windows Upd
 **Detalhe**: defina a VM com um [modelo do Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) para que você possa reimplementá-la facilmente. Usar um modelo fornece uma VM corrigida e segura quando necessário.
 
 **Prática recomendada**: aplicar rapidamente atualizações de segurança às VMs.   
-**Detalhe**: habilitar a central de segurança do Azure (camada gratuita ou Standard) para [identificar atualizações de segurança ausentes e aplicá-las](../../security-center/security-center-apply-system-updates.md).
+**Detalhe**: habilitar a central de segurança do Azure (camada gratuita ou Standard) para [identificar atualizações de segurança ausentes e aplicá-las](../../security-center/asset-inventory.md).
 
 **Melhor prática**: instale as atualizações de segurança mais recentes.   
 **Detalhes**: algumas das primeiras cargas de trabalho que os clientes migram para o Azure são laboratórios e sistemas externos. Se as VMs do Azure hospedarem aplicativos ou serviços que precisam ser acessados pela Internet, esteja atento ao patches. Patch além do sistema operacional. As vulnerabilidades sem patch em aplicativos de parceiros também podem levar a problemas que podem ser evitados com um bom gerenciamento de patches.
@@ -119,7 +119,7 @@ As melhores práticas de atualização de software para um datacenter tradiciona
 ## <a name="manage-your-vm-security-posture"></a>Gerenciar sua postura de segurança de VM
 As ameaças cibernéticas estão evoluindo. A proteção das VMs exige um recurso de monitoramento que possa detectar ameaças rapidamente, impedir o acesso não autorizado aos recursos, acionar alertas e reduzir falsos positivos.
 
-Para monitorar a postura de segurança das suas [VMs Windows ](../../security-center/security-center-virtual-machine.md) e [Linux](../../security-center/security-center-linux-virtual-machine.md), use a [Central de Segurança do Azure](../../security-center/security-center-intro.md). Na Central de Segurança, proteja as VMs aproveitando os seguintes recursos:
+Para monitorar a postura de segurança das suas [VMs Windows ](../../security-center/security-center-introduction.md) e [Linux](../../security-center/security-center-introduction.md), use a [Central de Segurança do Azure](../../security-center/security-center-introduction.md). Na Central de Segurança, proteja as VMs aproveitando os seguintes recursos:
 
 - Aplicar configurações de segurança do sistema operacional com as regras de configuração recomendadas.
 - Identificar e baixar a segurança do sistema e as atualizações críticas que podem estar faltando.
@@ -130,24 +130,24 @@ Para monitorar a postura de segurança das suas [VMs Windows ](../../security-ce
 
 A Central de Segurança pode monitorar ativamente as ameaças e essas possíveis ameaças são expostas em alertas de segurança. As ameaças correlacionadas são agregadas em uma única exibição chamada incidente de segurança.
 
-A central de segurança armazena dados em [logs de Azure monitor](/azure/log-analytics/log-analytics-overview). Os logs de Azure Monitor fornecem uma linguagem de consulta e um mecanismo de análise que fornece informações sobre a operação de seus aplicativos e recursos. Os dados também são coletados do [Azure Monitor](../../batch/monitoring-overview.md), das soluções de gerenciamento e dos agentes instalados em máquinas virtuais na nuvem ou no local. Essa funcionalidade compartilhada ajuda a formar uma imagem completa do seu ambiente.
+A central de segurança armazena dados em [logs de Azure monitor](../../azure-monitor/log-query/log-query-overview.md). Os logs de Azure Monitor fornecem uma linguagem de consulta e um mecanismo de análise que fornece informações sobre a operação de seus aplicativos e recursos. Os dados também são coletados do [Azure Monitor](../../batch/monitoring-overview.md), das soluções de gerenciamento e dos agentes instalados em máquinas virtuais na nuvem ou no local. Essa funcionalidade compartilhada ajuda a formar uma imagem completa do seu ambiente.
 
 As organizações que não reforçam a segurança das VMs permaneçam sem conhecimento das possíveis tentativas de usuários não autorizados de contornar os controles de segurança.
 
 ## <a name="monitor-vm-performance"></a>Monitorar o desempenho de VM
 Abuso de recursos pode ser um problema quando os processos VM consomem mais recursos do que deveriam. Problemas de desempenho com uma máquina virtual podem levar a interrupção do serviço, o que viola o princípio de segurança de disponibilidade. Isso é particularmente importante para as VMs que hospedam IIS ou outros servidores Web, já que o alto uso de CPU ou de memória pode indicar um ataque de DoS (ataque de negação de serviço). É fundamental monitorar o acesso à VM não apenas de forma reativa durante a ocorrência de um problema, mas também de forma proativa em relação ao desempenho da linha de base, conforme medido durante a operação normal.
 
-É recomendável usar o [Azure Monitor](/azure/monitoring-and-diagnostics/monitoring-overview-metrics) para obter visibilidade da integridade do recurso. Recursos do Azure Monitor:
+É recomendável usar o [Azure Monitor](../../azure-monitor/platform/data-platform.md) para obter visibilidade da integridade do recurso. Recursos do Azure Monitor:
 
 - [Arquivos de log de diagnóstico de recurso](../../azure-monitor/platform/platform-logs-overview.md): monitora os recursos da VM e identifica possíveis problemas que podem comprometer o desempenho e a disponibilidade.
-- [Extensão de Diagnóstico do Azure](/azure/azure-monitor/platform/diagnostics-extension-overview): fornece recursos de monitoramento e diagnóstico em VMs do Windows. É possível habilitar essas funcionalidades ao incluir a extensão como parte do [modelo do Azure Resource Manager](/azure/virtual-machines/windows/extensions-diagnostics-template).
+- [Extensão de Diagnóstico do Azure](../../azure-monitor/platform/diagnostics-extension-overview.md): fornece recursos de monitoramento e diagnóstico em VMs do Windows. É possível habilitar essas funcionalidades ao incluir a extensão como parte do [modelo do Azure Resource Manager](../../virtual-machines/extensions/diagnostics-template.md).
 
 As organizações que não monitoram o desempenho da VM não podem estipular se determinadas alterações nos padrões de desempenho são normais ou anormais. Uma VM que consome mais recursos do que o normal pode indicar um ataque de um recurso externo ou um processo comprometido em execução na VM.
 
 ## <a name="encrypt-your-virtual-hard-disk-files"></a>Criptografar os arquivos de disco rígido virtual
 É recomendável criptografar os VHDs (discos rígidos virtuais) para ajudar a proteger o volume de inicialização e volumes de dados em repouso no armazenamento, juntamente com os segredos e chave de criptografia.
 
-[Azure Disk Encryption](../azure-security-disk-encryption-overview.md) ajuda a criptografar seus discos de máquina virtual IaaS Windows e Linux. O Azure Disk Encryption usa o recurso [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) do Windows padrão do setor e o recurso [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) do Linux para fornecer uma criptografia de volume para os discos do sistema operacional e de dados. A solução é integrada com [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/) para ajudá-lo a controlar e gerenciar as chaves de criptografia de disco e os segredos em sua assinatura do cofre de chaves. A solução também garante que todos os dados nos discos da máquina virtual sejam criptografados em repouso no Armazenamento do Microsoft Azure.
+[Azure Disk Encryption](./azure-disk-encryption-vms-vmss.md) ajuda a criptografar seus discos de máquina virtual IaaS Windows e Linux. O Azure Disk Encryption usa o recurso [BitLocker](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc732774(v=ws.11)) do Windows padrão do setor e o recurso [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) do Linux para fornecer uma criptografia de volume para os discos do sistema operacional e de dados. A solução é integrada com [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/) para ajudá-lo a controlar e gerenciar as chaves de criptografia de disco e os segredos em sua assinatura do cofre de chaves. A solução também garante que todos os dados nos discos da máquina virtual sejam criptografados em repouso no Armazenamento do Microsoft Azure.
 
 A seguir, são apresentadas as melhores práticas para usar o Azure Disk Encryption:
 
@@ -172,7 +172,7 @@ Quando você aplica o Azure Disk Encryption, é possível atender às seguintes 
 Monitore e restrinja a conectividade direta com a Internet da VM. Os invasores examinam constantemente intervalos de IP de nuvem pública para portas de gerenciamento aberto e tentam ataques "fáceis", como senhas comuns e vulnerabilidades conhecidas sem patches. A tabela a seguir lista as práticas recomendadas para ajudar a proteger contra esses ataques:
 
 **Prática recomendada**: evitar a exposição inadvertida ao roteamento de rede e à segurança.   
-**Detalhe**: Use o RBAC para garantir que apenas o grupo de rede central tenha permissão para recursos de rede.
+**Detalhe**: Use o RBAC do Azure para garantir que apenas o grupo de rede central tenha permissão para recursos de rede.
 
 **Prática recomendada**: identificar e corrigir VMs expostas que permitem o acesso de "qualquer" endereço IP de origem.   
 **Detalhe**: Use a central de segurança do Azure. A central de segurança recomendará que você restrinja o acesso por meio de pontos de extremidade voltados para a Internet se qualquer um dos grupos de segurança de rede tiver uma ou mais regras de entrada que permitam o acesso de "qualquer" endereço IP de origem. A central de segurança recomendará que você edite essas regras de entrada para [restringir o acesso](../../security-center/security-center-network-recommendations.md) a endereços IP de origem que realmente precisam de acesso.
@@ -184,5 +184,5 @@ Monitore e restrinja a conectividade direta com a Internet da VM. Os invasores e
 Veja [Melhores práticas e padrões de segurança do Azure](best-practices-and-patterns.md) para obter melhores práticas segurança complementares a serem usadas ao projetar, implantar e gerenciar as soluções de nuvem, usando o Azure.
 
 Os seguintes recursos estão disponíveis para fornecer mais informações gerais sobre a segurança do Azure e os serviços da Microsoft relacionados:
-* [Blog da equipe de segurança do Azure](https://blogs.msdn.microsoft.com/azuresecurity/) – para obter informações atualizadas sobre as últimas novidades de Segurança do Azure
-* [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx) – em que vulnerabilidades de segurança da Microsoft, incluindo problemas com o Azure, podem ser relatadas ou enviadas por email parasecure@microsoft.com
+* [Blog da equipe de segurança do Azure](/archive/blogs/azuresecurity/) – para obter informações atualizadas sobre as últimas novidades de Segurança do Azure
+* [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx) – em que vulnerabilidades de segurança da Microsoft, incluindo problemas com o Azure, podem ser relatadas ou enviadas por email para secure@microsoft.com

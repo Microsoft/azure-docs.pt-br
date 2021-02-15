@@ -2,13 +2,13 @@
 title: Evento de conclusão de tarefa do Lote do Azure
 description: Referência de evento de tarefa de lote concluída. Esse evento é emitido quando uma tarefa é concluída, independentemente do código de saída.
 ms.topic: reference
-ms.date: 04/20/2017
-ms.openlocfilehash: 42860836e294780649616b0843db6ba19718dd64
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.date: 10/08/2020
+ms.openlocfilehash: 11f727b07723f32cd08130b4af17e57ede3d264f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965171"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91850884"
 ---
 # <a name="task-complete-event"></a>Evento de conclusão de tarefa
 
@@ -23,6 +23,7 @@ ms.locfileid: "85965171"
     "id": "myTask",
     "taskType": "User",
     "systemTaskVersion": 0,
+    "requiredSlots": 1,
     "nodeInfo": {
         "poolId": "pool-001",
         "nodeId": "tvm-257509324_1-20160908t162728z"
@@ -49,6 +50,7 @@ ms.locfileid: "85965171"
 |`id`|String|A ID da tarefa.|
 |`taskType`|String|O tipo de tarefa. Pode ser “JobManager” indicando que é uma tarefa do gerenciador de trabalhos ou “Usuário”, indicando que não é uma tarefa do gerenciador de trabalhos. Esse evento não é emitido para tarefas de preparação, lançamento ou inicialização de trabalho.|
 |`systemTaskVersion`|Int32|Esse é o contador interno de repetição de uma tarefa. Internamente, o serviço em lotes pode repetir uma tarefa para contabilizar problemas transitórios. Esses problemas podem incluir erros internos de agendamento ou tentativa de recuperar nós de computação em estado inválido.|
+|`requiredSlots`|Int32|Os slots necessários para executar a tarefa.|
 |[`nodeInfo`](#nodeInfo)|Tipo complexo|Contém informações sobre o nó de computação em que a tarefa é executada.|
 |[`multiInstanceSettings`](#multiInstanceSettings)|Tipo complexo|Especifica que a tarefa é uma tarefa com várias instâncias que precisa de vários nós de computação.  Confira [`multiInstanceSettings`](/rest/api/batchservice/get-information-about-a-task) para obter detalhes.|
 |[`constraints`](#constraints)|Tipo complexo|As restrições de execução aplicáveis a essa tarefa.|

@@ -3,18 +3,21 @@ title: LTRIM na linguagem de consulta Azure Cosmos DB
 description: Saiba mais sobre a função de sistema SQL LTRIM no Azure Cosmos DB para retornar uma expressão de cadeia de caracteres depois de remover espaços em branco à esquerda
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 08c069de70684a8562e86963ddb2e84ee889e7cc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dec9bed0cae503825397920ef8e305c125f43154
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78302246"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93335578"
 ---
 # <a name="ltrim-azure-cosmos-db"></a>LTRIM (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Retorna uma expressão de cadeia de caracteres após remover os espaços em branco iniciais.  
   
 ## <a name="syntax"></a>Sintaxe

@@ -1,22 +1,19 @@
 ---
 title: Usar o SparkCruise no Azure HDInsight para acelerar Apache Spark consultas
 description: Saiba como usar a plataforma de otimização SparkCruise para melhorar a eficiência das consultas de Apache Spark.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 07/27/2020
-ms.openlocfilehash: 1a73b4707f83d6a23dffc20d95aa7b8a0fa465b3
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: f07ea3007d2e72c179abe38cca56178b564bc231
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88649050"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98928278"
 ---
 # <a name="sparkcruise-on-azure-hdinsight"></a>SparkCruise no Azure HDInsight
 
-Este documento discute o recurso *SparkCruise*do Azure HDInsight, que reutiliza automaticamente Apache Spark computações para aumentar a eficiência da consulta.
+Este documento discute o recurso *SparkCruise* do Azure HDInsight, que reutiliza automaticamente Apache Spark computações para aumentar a eficiência da consulta.
 
 ## <a name="overview"></a>Visão geral
 

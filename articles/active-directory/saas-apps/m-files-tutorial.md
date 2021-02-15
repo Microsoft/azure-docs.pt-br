@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 77c83e82577cb1d6d07c90a0260a5fa006fd8625
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 552e5c2411889ee7f07265eb1cc35d98aed4d7c1
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554814"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99574071"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-m-files"></a>Tutorial: integração do Azure Active Directory com o M-Files
 
@@ -27,7 +27,7 @@ A integração do M-Files ao Azure AD oferece os seguintes benefícios:
 * Você pode permitir que os usuários sejam conectados automaticamente ao M-Files (logon único) com suas contas do Azure AD.
 * Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](../manage-apps/what-is-single-sign-on.md).
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Prerequisites
@@ -129,15 +129,15 @@ Para configurar o logon único do Azure AD com o M-Files, execute as seguintes e
     >[!NOTE]
     >Siga as próximas etapas se quiser configurar o SSO para o aplicativo da área de trabalho do M-Files. Nenhuma etapa adicional é necessária se você quer apenas configurar o SSO para versão Web do M-Files.  
 
-1. Siga as próximas etapas para configurar o aplicativo da área de trabalho do M-Files a fim de habilitar o SSO com o Azure AD. Para baixar o M-Files, vá para a página [Baixar M-Files](https://www.m-files.com/en/download-latest-version).
+1. Siga as próximas etapas para configurar o aplicativo da área de trabalho do M-Files a fim de habilitar o SSO com o Azure AD. Para baixar o M-Files, vá para a página [Baixar M-Files](https://www.m-files.com/customers/product-downloads/download-update-links/).
 
 1. Abra a janela **Configurações da área de trabalho do M-Files**. Em seguida, clique em **Adicionar**.
    
-    ![Configurar o logon único](./media/m-files-tutorial/tutorial_m_files_10.png)
+    ![A captura de tela mostra as Configurações da Área de Trabalho do M-Files em que você pode selecionar Adicionar.](./media/m-files-tutorial/tutorial_m_files_10.png)
 
 1. Na janela **Propriedades de Conexão do Cofre de Documentos**, execute as seguintes etapas:
    
-    ![Configurar o logon único](./media/m-files-tutorial/tutorial_m_files_11.png)  
+    ![A captura de tela mostra as Propriedades de Conexão do Cofre de Documentos em que você pode inserir os valores descritos.](./media/m-files-tutorial/tutorial_m_files_11.png)  
 
     No tipo de seção Servidor, os valores são os seguintes:  
 
@@ -212,13 +212,12 @@ O objetivo desta seção é criar um usuário chamado Brenda Fernandes no M-File
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Ao clicar no bloco do M-Files no Painel de Acesso, você deverá ser conectado automaticamente ao M-Files, para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao clicar no bloco do M-Files no Painel de Acesso, você deverá ser conectado automaticamente ao M-Files, para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](./tutorial-list.md)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)

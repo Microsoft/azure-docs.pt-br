@@ -1,27 +1,20 @@
 ---
 title: Ação de script para pacotes do Python com o Jupyter no Azure HDInsight
-description: Instruções passo a passo sobre como usar ação de script para configurar os blocos de anotações do Jupyter disponíveis com clusters Spark no HDInsight para usar pacotes Python externos.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
+description: Instruções passo a passo sobre como usar a ação de script para configurar os blocos de anotações do Jupyter disponíveis com clusters do HDInsight Spark para usar pacotes python externos.
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, devx-track-python
 ms.date: 04/29/2020
-ms.openlocfilehash: 59de3eb2370029ab9edcb609298c7b1fdf5f8ff8
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 8fbbe137ece7aac2dd2196c5ebec435e118297ad
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87873748"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98929817"
 ---
 # <a name="safely-manage-python-environment-on-azure-hdinsight-using-script-action"></a>Gerenciar com segurança o ambiente do Python no Azure HDInsight usando a Ação de Script
 
-> [!div class="op_single_selector"]
-> * [Usando a mágica da célula](apache-spark-jupyter-notebook-use-external-packages.md)
-> * [Usando a ação de script](apache-spark-python-package-installation.md)
-
-O HDInsight tem duas instalações internas do Python no cluster do Spark, Anaconda Python 2.7 e Python 3.5. Talvez seja necessário que os clientes personalizem o ambiente do Python. Como instalar pacotes externos do Python ou outra versão do Python. Aqui, mostramos a melhor prática de gerenciamento seguro de ambientes do Python para clusters Apache Spark no HDInsight.
+O HDInsight tem duas instalações internas do Python no cluster do Spark, Anaconda Python 2.7 e Python 3.5. Os clientes podem precisar personalizar o ambiente do Python, como a instalação de pacotes python externos. Aqui, mostramos a melhor prática de gerenciamento seguro de ambientes do Python para clusters Apache Spark no HDInsight.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -41,17 +34,17 @@ Há dois tipos de componentes de software livre disponíveis no serviço HDInsig
 > [!IMPORTANT]
 > Componentes fornecidos com o cluster HDInsight contam com suporte total. O Suporte da Microsoft ajuda a isolar e resolver problemas relacionados a esses componentes.
 >
-> Componentes personalizados recebem suporte comercialmente razoável para ajudá-lo a solucionar o problema. O suporte da Microsoft pode estar apto a resolver o problema OU pode solicitar que você contate canais disponíveis para as tecnologias de software livre em que é encontrado conhecimento profundo sobre essa tecnologia. Por exemplo, há muitos sites da comunidade que podem ser usados, como: [Página de perguntas e respostas da Microsoft sobre o HDInsight](https://docs.microsoft.com/answers/topics/azure-hdinsight.html), `https://stackoverflow.com`. Além disso, os projetos Apache têm sites de projeto em `https://apache.org`.
+> Componentes personalizados recebem suporte comercialmente razoável para ajudá-lo a solucionar o problema. O suporte da Microsoft pode estar apto a resolver o problema OU pode solicitar que você contate canais disponíveis para as tecnologias de software livre em que é encontrado conhecimento profundo sobre essa tecnologia. Por exemplo, há muitos sites da comunidade que podem ser usados, como: [Página de perguntas e respostas da Microsoft sobre o HDInsight](/answers/topics/azure-hdinsight.html), `https://stackoverflow.com`. Além disso, os projetos Apache têm sites de projeto em `https://apache.org`.
 
 ## <a name="understand-default-python-installation"></a>Entender a instalação padrão do Python
 
 O cluster do HDInsight Spark é criado com a instalação do Anaconda. Há duas instalações do Python no cluster: Anaconda Python 2.7 e Python 3.5. A tabela a seguir mostra as configurações padrão do Python para Spark, Livy e Jupyter.
 
-|Setting |Python 2,7|Python 3.5|
+|Configuração |Python 2,7|Python 3.5|
 |----|----|----|
 |Caminho|/usr/bin/anaconda/bin|/usr/bin/anaconda/envs/py35/bin|
-|Versão do Spark|Padrão definido como 2.7|N/D|
-|Versão do Livy|Padrão definido como 2.7|N/D|
+|Versão do Spark|Padrão definido como 2.7|Pode alterar a configuração para 3,5|
+|Versão do Livy|Padrão definido como 2.7|Pode alterar a configuração para 3,5|
 |Jupyter|Kernel do PySpark|Kernel do PySpark3|
 
 ## <a name="safely-install-external-python-packages"></a>Instalar com segurança pacotes externos do Python
@@ -85,7 +78,7 @@ O cluster do HDInsight depende do ambiente interno do Python, tanto Python 2.7 q
 
     - Ou use o repositório PyPi e altere `seaborn` e `py35new` de forma correspondente:
         ```bash
-        sudo /usr/bin/anaconda/env/py35new/bin/pip install seaborn
+        sudo /usr/bin/anaconda/envs/py35new/bin/pip install seaborn
         ```
 
     Use o comando abaixo caso queira instalar uma biblioteca com uma versão específica:
@@ -102,7 +95,7 @@ O cluster do HDInsight depende do ambiente interno do Python, tanto Python 2.7 q
     - Ou use o repositório PyPi e altere `numpy==1.16.1` e `py35new` de forma correspondente:
 
         ```bash
-        sudo /usr/bin/anaconda/env/py35new/bin/pip install numpy==1.16.1
+        sudo /usr/bin/anaconda/envs/py35new/bin/pip install numpy==1.16.1
         ```
 
     se você não souber o nome do ambiente virtual, poderá usar SSH no nó principal do cluster e executar `/usr/bin/anaconda/bin/conda info -e` para mostrar todos os ambientes virtuais.
@@ -132,7 +125,25 @@ O cluster do HDInsight depende do ambiente interno do Python, tanto Python 2.7 q
 
     4. Salve as alterações e reinicie os serviços afetados. Essas alterações precisam de uma reinicialização do serviço Spark2. A interface do usuário do Ambari exibirá um lembrete de reinicialização necessária. Clique em Reiniciar para reiniciar todos os serviços afetados.
 
-        ![Alterar a configuração do Spark por meio do Ambari](./media/apache-spark-python-package-installation/ambari-restart-services.png)
+        ![Reiniciar serviços](./media/apache-spark-python-package-installation/ambari-restart-services.png)
+
+    5. Defina duas propriedades para a sessão do Spark para garantir que o trabalho aponte para a configuração do Spark atualizada: `spark.yarn.appMasterEnv.PYSPARK_PYTHON` e `spark.yarn.appMasterEnv.PYSPARK_DRIVER_PYTHON` . 
+
+        Usando o terminal ou um notebook, use a `spark.conf.set` função.
+
+        ```spark
+        spark.conf.set("spark.yarn.appMasterEnv.PYSPARK_PYTHON", "/usr/bin/anaconda/envs/py35/bin/python")
+        spark.conf.set("spark.yarn.appMasterEnv.PYSPARK_DRIVER_PYTHON", "/usr/bin/anaconda/envs/py35/bin/python")
+        ```
+
+        Se você estiver usando Livy, adicione as seguintes propriedades ao corpo da solicitação:
+
+        ```
+        “conf” : {
+        “spark.yarn.appMasterEnv.PYSPARK_PYTHON”:”/usr/bin/anaconda/envs/py35/bin/python”,
+        “spark.yarn.appMasterEnv.PYSPARK_DRIVER_PYTHON”:”/usr/bin/anaconda/envs/py35/bin/python”
+        }
+        ```
 
 4. Se você quiser usar o novo ambiente virtual criado no Jupyter. Altere as configurações do Jupyter e reinicie-o. Execute ações de script em todos os nós de cabeçalho com a instrução abaixo para apontar o Jupyter para o novo ambiente virtual criado. Não se esqueça de modificar o caminho para o prefixo que você especificou para o seu ambiente virtual. Depois de executar essa ação de script, reinicie o serviço Jupyter por meio da interface do usuário do Ambari para disponibilizar essa alteração.
 
@@ -153,5 +164,5 @@ Para verificar sua versão do Anaconda, você pode usar SSH no nó de cabeçalho
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Visão geral: Apache Spark no Azure HDInsight](apache-spark-overview.md)
-* [Usar pacotes externos com Jupyter Notebooks no Apache Spark](apache-spark-jupyter-notebook-use-external-packages.md)
+* [Pacotes externos com blocos de anotações do Jupyter no Apache Spark](apache-spark-jupyter-notebook-use-external-packages.md)
 * [Rastrear e depurar trabalhos em execução em um cluster do Apache Spark no HDInsight](apache-spark-job-debugging.md)

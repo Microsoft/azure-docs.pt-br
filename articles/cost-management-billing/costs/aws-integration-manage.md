@@ -3,18 +3,18 @@ title: Gerenciar custos e uso da AWS no Gerenciamento de Custos do Azure
 description: Este artigo ajuda você a entender como usar a análise de custos e os orçamentos no Gerenciamento de Custos para gerenciar os custos e o uso da AWS.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/24/2020
+ms.date: 10/16/2020
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: matrive
 ms.custom: ''
-ms.openlocfilehash: 4d6a961388c9794a7584e8529dac75d068f91ed4
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 5fed70ccdbebbd178412c416f37c2e9001a81f38
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88685010"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96188098"
 ---
 # <a name="manage-aws-costs-and-usage-in-azure"></a>Gerenciar o uso e os custos da AWS no Azure
 
@@ -36,17 +36,18 @@ As próximas seções descrevem como usar os escopos para que você veja dados d
 
 ### <a name="view-aws-linked-accounts-under-a-management-group"></a>Exibir as contas vinculadas da AWS em um grupo de gerenciamento
 
-A exibição de custos usando o escopo do grupo de gerenciamento é a única maneira de ver os custos agregados provenientes de assinaturas e contas vinculadas diferentes. O uso de um grupo de gerenciamento fornece uma exibição entre nuvens.
+A exibição de custos usando o escopo do grupo de gerenciamento é a única maneira de ver os custos agregados provenientes de assinaturas do Azure e contas vinculadas da AWS. O uso de um grupo de gerenciamento fornece uma exibição entre nuvens dos custos do Azure e da AWS juntos.
 
 Em análise de custo, abra o seletor de escopo e selecione o grupo de gerenciamento que contém suas contas vinculadas da AWS. Aqui está uma imagem de exemplo no portal do Azure:
 
-![Exemplo da exibição Selecionar escopo](./media/aws-integration-manage/select-scope01.png)
-
-
+:::image type="content" source="./media/aws-integration-manage/select-scope01.png" alt-text="Exemplo da exibição Selecionar escopo com contas vinculadas em um grupo de gerenciamento" :::
 
 Veja um exemplo que mostra o custo do grupo de gerenciamento na análise de custo, agrupado por Provedor (Azure e AWS).
 
-![Exemplo mostrando os custos do Azure e da AWS para um trimestre na análise de custo](./media/aws-integration-manage/cost-analysis-aws-azure.png)
+:::image type="content" source="./media/aws-integration-manage/cost-analysis-aws-azure.png" alt-text="Exemplo mostrando os custos do Azure e da AWS para um trimestre na análise de custo" lightbox="./media/aws-integration-manage/cost-analysis-aws-azure.png" :::
+
+> [!NOTE]
+> Atualmente, não há suporte para os grupos de gerenciamento nos clientes do MCA (Contrato de Cliente da Microsoft). Os clientes do MCA podem criar o conector e ver os respectivos dados da AWS. No entanto, os clientes do MCA não podem ver os custos do Azure e os custos da AWS juntos em um grupo de gerenciamento.
 
 ### <a name="view-aws-linked-account-costs"></a>Exibir os custos da conta vinculada da AWS
 
@@ -54,21 +55,17 @@ Para exibir os custos da conta vinculada da AWS, abra o seletor de escopo e sele
 
 Aqui está um exemplo que mostra a seleção de um escopo de conta vinculada da AWS.
 
-![Exemplo da exibição Selecionar escopo](./media/aws-integration-manage/select-scope02.png)
-
-
+:::image type="content" source="./media/aws-integration-manage/select-scope02.png" alt-text="Exemplo da exibição Selecionar escopo que mostra contas vinculadas da AWS" :::
 
 ### <a name="view-aws-consolidated-account-costs"></a>Exibir os custos da conta consolidada da AWS
 
 Para exibir os custos da conta consolidada da AWS, abra o seletor de escopo e selecione a conta consolidada da AWS. Aqui está um exemplo que mostra a seleção de um escopo de conta consolidada da AWS.
 
-![Exemplo da exibição Selecionar escopo](./media/aws-integration-manage/select-scope03.png)
-
-
+:::image type="content" source="./media/aws-integration-manage/select-scope03.png" alt-text="Exemplo da exibição Selecionar escopo com contas consolidadas" :::
 
 Esse escopo fornece uma exibição agregada de todas as contas vinculadas da AWS associadas à conta consolidada da AWS. Veja um exemplo que mostra os custos de uma conta consolidada da AWS, agrupada por nome de serviço.
 
-![Exemplo mostrando os custos consolidados da AWS na análise de custo](./media/aws-integration-manage/cost-analysis-aws-consolidated.png)
+:::image type="content" source="./media/aws-integration-manage/cost-analysis-aws-consolidated.png" alt-text="Exemplo mostrando os custos consolidados da AWS na análise de custo" lightbox="./media/aws-integration-manage/cost-analysis-aws-consolidated.png" :::
 
 ### <a name="dimensions-available-for-filtering-and-grouping"></a>Dimensões disponíveis para filtragem e agrupamento
 
@@ -77,19 +74,19 @@ A tabela a seguir descreve as dimensões disponíveis para uso como parâmetro d
 | Dimensão | Cabeçalho CUR da Amazon | Escopos | Comentários |
 | --- | --- | --- | --- |
 | Zona de disponibilidade | lineitem/AvailabilityZone | Todos |   |
-| Location | produto/Região | Todos |   |
+| Location | produto/Região | Tudo |   |
 | Medidor |   | Todos |   |
 | Categoria de medidor | lineItem/ProductCode | Todos |   |
 | Subcategoria de medidor | lineitem/UsageType | Todos |   |
 | Operação | lineItem/Operação | Todos |   |
 | Recurso | lineItem/ResourceId | Todos |   |
-| Tipo de recurso | produto/instanceType | Todos | Se produto/instanceType for nulo, lineItem/UsageType será usado. |
-| ResourceGuid | N/D | Todos | GUID do medidor do Azure. |
-| Nome do serviço | produto/ProductName | Todos | Se produto/ProductName for nulo, lineItem/ProductCode será usado. |
+| Tipo de recurso | produto/instanceType | Tudo | Se produto/instanceType for nulo, lineItem/UsageType será usado. |
+| ResourceGuid | N/D | Tudo | GUID do medidor do Azure. |
+| Nome do serviço | produto/ProductName | Tudo | Se produto/ProductName for nulo, lineItem/ProductCode será usado. |
 | Camada de serviço |   |   |   |
 | ID da assinatura | lineItem/UsageAccountId | Conta consolidada e grupo de gerenciamento |   |
 | Nome da assinatura | N/D | Conta consolidada e grupo de gerenciamento | Os nomes de conta são coletados usando a API da Organização da AWS. |
-| Marca | resourceTags/\* | Todos | O prefixo _user:_ é removido das marcas definidas pelo usuário para permitir marcas entre nuvens. O prefixo _aws:_ é mantido intacto. |
+| Marca | resourceTags | Tudo | O prefixo _user:_ é removido das marcas definidas pelo usuário para permitir marcas entre nuvens. O prefixo _aws:_ é mantido intacto. |
 | ID da conta de cobrança | fatura/PayerAccountId | Grupo de gerenciamento |   |
 | Nome da conta de cobrança | N/D | Grupo de gerenciamento | Os nomes de conta são coletados usando a API da Organização da AWS. |
 | Provedor | N/D | Grupo de gerenciamento | AWS ou Azure. |
@@ -98,7 +95,7 @@ A tabela a seguir descreve as dimensões disponíveis para uso como parâmetro d
 
 Use orçamentos para gerenciar os custos e gerar responsabilidade em sua organização de maneira proativa. Os orçamentos são definidos na conta consolidada da AWS e nos escopos de conta vinculada da AWS. Veja um exemplo de orçamentos para uma conta consolidada da AWS mostrada no Gerenciamento de Custos:
 
-![Exemplo mostrando orçamentos para uma conta consolidada da AWS](./media/aws-integration-manage/budgets-aws-consolidated-account01.png)
+:::image type="content" source="./media/aws-integration-manage/budgets-aws-consolidated-account01.png" alt-text="Exemplo mostrando orçamentos para uma conta consolidada da AWS" :::
 
 ## <a name="aws-data-collection-process"></a>Processo de coleta de dados da AWS
 
@@ -110,15 +107,15 @@ Depois de configurar o conector da AWS, a coleta de dados e os processos de desc
 
 ## <a name="aws-integration-pricing"></a>Preços de integração da AWS
 
-Para cada conector da AWS, você recebe 90 dias de avaliação gratuita. Durante a versão prévia pública, não há nenhum encargo.
+Para cada conector da AWS, você recebe 90 dias de avaliação gratuita.
 
 O preço de lista é de 1% dos seus custos mensais da AWS. A cada mês, você é cobrado com base nos custos faturados do mês anterior.
 
-O acesso às APIs da AWS pode incorrer em custos adicionais.
+O acesso às APIs da AWS pode incorrer em custos adicionais na AWS.
 
 ## <a name="aws-integration-limitations"></a>Limitações de integração da AWS
 
-- O Gerenciamento de Custos não dá suporte a relatórios de custo que contenham vários tipos de moeda. Se você selecionar um escopo que tenha várias moedas, uma mensagem de erro será exibida.
+- Os orçamentos no Gerenciamento de Custos não dão suporte a grupos de gerenciamento com várias moedas. Nenhuma avaliação de orçamento será mostrada nos grupos de gerenciamento com várias moedas. Uma mensagem de erro será exibida se você selecionar um grupo de gerenciamento que tenha várias moedas ao criar um orçamento.
 - Os conectores de nuvem não dão suporte a AWS GovCloud (US), AWS Gov ou AWS China.
 - O Gerenciamento de Custos mostra apenas os _custos de uso_ da AWS. O imposto, o suporte, os reembolsos, a RI, os créditos ou outros tipos de cobrança ainda não são compatíveis.
 
@@ -178,7 +175,13 @@ Esse erro significa que o Gerenciamento de Custos não pode localizar o relatór
 
 **Código de erro:** _ReportIsNotValid_
 
-Esse erro está relacionado à definição do relatório de uso e custo da AWS, para o qual exigimos configurações específicas. Veja os requisitos em [Criar um relatório de custo e uso na AWS](aws-integration-set-up-configure.md#create-a-cost-and-usage-report-in-aws)
+Esse erro está relacionado à definição do Relatório de Uso e Custo da AWS, para o qual exigimos configurações específicas. Confira os requisitos em [Criar um relatório de Custo e Uso na AWS](aws-integration-set-up-configure.md#create-a-cost-and-usage-report-in-aws).
+
+### <a name="internal-error-when-creating-connector"></a>Erro interno ao criar o conector
+
+**Código de erro:** _Criar conector – Falha ao criar conector &lt;ConnectorName&gt;. Motivo: Erro interno. Verifique se as propriedades corretas da AWS foram fornecidas._
+
+Esse erro pode ocorrer quando a assinatura e o conector da AWS estão em grupos de gerenciamento diferentes. A assinatura e o conector da AWS precisam estar no mesmo grupo de gerenciamento.
 
 ## <a name="next-steps"></a>Próximas etapas
 

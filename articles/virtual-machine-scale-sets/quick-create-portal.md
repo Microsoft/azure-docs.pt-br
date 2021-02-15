@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 06/30/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 33f7f407c1df45131b0ebb5b14e8fcad2626bffd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8243619bc7a32c5fa86b6e108d954674b54394e5
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077547"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97913712"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-in-the-azure-portal"></a>Início Rápido: Criar um conjunto de dimensionamento de máquinas virtuais no Portal do Azure
 
@@ -60,13 +60,12 @@ Você pode implantar um conjunto de dimensionamento com uma imagem do Windows Se
 1. Na guia **Básico**, em **Detalhes do projeto**, verifique se a assinatura correta está selecionada e, em seguida, escolha **Criar** grupo de recursos. Digite *myVMSSResourceGroup* para o nome e, em seguida, selecione **OK**. 
 1. Digite *myScaleSet* como o nome do conjunto de dimensionamento.
 1. Em **Região**, selecione uma região próxima à sua área.
-1. Deixe o valor padrão de **VMs ScaleSet** para o **Modo de orquestração**.
 1. Selecione uma imagem do marketplace para **Imagem**. Neste exemplo, escolhemos *Ubuntu Server 18.04 LTS*.
 1. Insira o nome de usuário desejado e selecione o tipo de autenticação que prefere.
    - Uma **Senha** deve ter pelo menos 12 caracteres e atender três dos quatro requisitos de complexidade a seguir: um caractere minúsculo, um caractere maiúsculo, um número e um caractere especial. Para obter mais informações, consulte [requisitos de senha e nome de usuário](../virtual-machines/windows/faq.md#what-are-the-username-requirements-when-creating-a-vm).
    - Se você selecionar uma imagem de disco do SO Linux, em vez disso, você poderá escolher **chave pública SSH**. Apenas forneça sua chave pública, tal como *~/.ssh/id_rsa.pub*. Você pode usar o Azure Cloud Shell por meio do portal para [criar e usar as chaves de SSH](../virtual-machines/linux/mac-create-ssh-keys.md).
    
-    ![Criar um conjunto de dimensionamento de máquinas virtuais](./media/virtual-machine-scale-sets-create-portal/quick-create-scaleset.png)
+    :::image type="content" source="./media/virtual-machine-scale-sets-create-portal/quick-create-scale-set.png" alt-text="A imagem mostra opções de criação para conjuntos de dimensionamento no portal do Azure.":::
 
 1. Selecione **Avançar** para acessar as outras páginas. 
 1. Deixe os padrões nas páginas **Instância** e **Discos**.

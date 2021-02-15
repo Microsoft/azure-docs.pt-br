@@ -4,11 +4,11 @@ description: Descreve como você pode usar as filas de armazenamento do Azure co
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: 502b44f276253be69362424c9de0fd516d20ad9a
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86105635"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "91270178"
 ---
 # <a name="storage-queue-as-an-event-handler-for-azure-event-grid-events"></a>Fila de armazenamento como um manipulador de eventos para os eventos da Grade de Eventos do Azure
 Um manipulador de eventos é o local para o qual o evento é enviado. O manipulador usa alguma ação adicional para processar o evento. Vários serviços do Azure são automaticamente configurados para lidar com os eventos e o **Armazenamento de Filas do Azure** é um deles. 

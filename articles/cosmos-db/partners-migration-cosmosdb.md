@@ -6,20 +6,21 @@ ms.author: sngun
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
-ms.openlocfilehash: 4507b3f3338dccbf51f7342081997549e62f13fe
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 7fe0817abfac3070f77303bb0d2d662d18010862
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290085"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090461"
 ---
 # <a name="azure-cosmos-db-nosql-migration-and-application-development-partners"></a>Parceiros de desenvolvimento de aplicativo e de migração do NoSQL do Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-Da migração do NoSQL ao desenvolvimento de aplicativo, é possível escolher entre uma variedade de ferramentas e parceiros experientes integradores de sistemas para dar suporte às soluções do Azure Cosmos DB. 
+Da migração do NoSQL ao desenvolvimento de aplicativo, é possível escolher entre uma variedade de ferramentas e parceiros experientes integradores de sistemas para dar suporte às soluções do Azure Cosmos DB. Este artigo lista os parceiros que têm soluções ou serviços que usam Azure Cosmos DB. Essa lista muda ao longo do tempo, a Microsoft não é responsável por nenhuma alteração ou atualização feita nas soluções desses parceiros.
 
-## <a name="systems-integrator-partners"></a>Parceiros de Integrador de Sistemas
+## <a name="systems-integrator-and-tooling-partners"></a>Integradores de sistemas e parceiros de ferramentas
 
-|**Parceiro**  |**Funcionalidades e experiência**  |**Países/regiões com suporte**  |
+|**Partner (parceiro)**  |**Funcionalidades e experiência**  |**Países/regiões com suporte**  |
 |---------|---------|---------|
 |[Striim](https://www.striim.com/)    |  Movimentação de dados contínua, em tempo real, migração de dados|   EUA   |
 | [10thMagnitude](https://www.10thmagnitude.com/) | IoT, varejo (inventário), análise operacional (Spark), arquitetura sem servidor, desenvolvimento de aplicativos | EUA |
@@ -30,11 +31,11 @@ Da migração do NoSQL ao desenvolvimento de aplicativo, é possível escolher e
 | [Capgemini](https://www.capgemini.com/) | Varejo (inventário), IoT, análise operacional (Spark), desenvolvimento de aplicativos | EUA, França, Reino Unido, Holanda, Finlândia  |
 | [Cognizant](https://www.cognizant.com/) | IoT, personalização, varejo (inventário), análise operacional (Spark), desenvolvimento de aplicativos |EUA, Canadá, Reino Unido, Dinamarca, Países Baixos, Suíça, Austrália, Japão |
 |[Infosys](https://www.infosys.com/)     | Desenvolvimento de aplicativos      |    EUA    |  
-| [Sistemas Lagash](https://www.lagash.com/) | IoT, arquitetura sem servidor, desenvolvimento de aplicativos | Argentina, Chile, Colômbia, México|
+| [Sistemas Lagash](https://www.devex.com/organizations/lagash-systems-131346) | IoT, arquitetura sem servidor, desenvolvimento de aplicativos | Argentina, Chile, Colômbia, México|
 | [Lambda3 Informatics](https://www.lambda3.com.br/) | Personalização em tempo real, inventário de varejo, desenvolvimento de aplicativos | Brasil|
 |[Neal Analytics](https://www.nealanalytics.com/)    |     Personalização, varejo (inventário), análise operacional (Spark), desenvolvimento de aplicativos  |    EUA     |  
 |[Pragmatic Works Software Inc](https://www.pragmaticworks.com/)    |   Migração do NoSQL      |   EUA      |
-| [Serviços de Ricoh digital](https://www.ricoh.com/) | IoT, personalização em tempo real, inventário de varejo, migração de NoSQL | REINO UNIDO  |
+| [Serviços de Ricoh digital](https://www.ricoh.com/) | IoT, personalização em tempo real, inventário de varejo, migração de NoSQL | Reino Unido  |
 |[SNP Technologies](https://www.snp.com/) | Migração do NoSQL| EUA |
 | [Solidsoft Reply](https://www.reply.com/solidsoft-reply/) | Migração do NoSQL | Croácia, Suécia, Dinamarca, Irlanda, Bulgária, Eslovênia, Chipre, Malta, Lituânia, República Tcheca, Islândia e Suíça e Liechtenstein|
 | [Spanish Point Technologies](https://www.spanishpoint.ie/) | Migração do NoSQL| Irlanda|

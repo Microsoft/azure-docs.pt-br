@@ -7,34 +7,32 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: absha
-ms.openlocfilehash: f8aec788e5370bd0c6f0e2f1b6ff032ca68cac87
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4a1a122eb7b5b0abcc47cd321c74267a1a4aecda
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84806432"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93396848"
 ---
 # <a name="create-an-application-gateway-and-rewrite-http-headers"></a>Criar um gateway de aplicativo e reescrever cabeçalhos HTTP
 
-É possível usar o Azure PowerShell para configurar [regras reescrever os cabeçalhos de solicitação e de resposta HTTP](rewrite-http-headers.md) quando você cria o novo [SKU de gateway de aplicativo com dimensionamento automático e redundância de zona](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
+É possível usar o Azure PowerShell para configurar [regras reescrever os cabeçalhos de solicitação e de resposta HTTP](rewrite-http-headers.md) quando você cria o novo [SKU de gateway de aplicativo com dimensionamento automático e redundância de zona](./application-gateway-autoscaling-zone-redundant.md)
 
 Neste artigo, você aprenderá como:
 
-> [!div class="checklist"]
->
-> * Criar uma rede virtual de dimensionamento automático
-> * Criar um IP público reservado
-> * Configurar a infraestrutura do gateway de aplicativo
-> * Especificar a configuração da regra de reescrita do cabeçalho HTTP
-> * Especificar o dimensionamento automático
-> * Criar o gateway de aplicativo
-> * Testar o gateway de aplicativo
+* Criar uma rede virtual de dimensionamento automático
+* Criar um IP público reservado
+* Configurar a infraestrutura do gateway de aplicativo
+* Especificar a configuração da regra de reescrita do cabeçalho HTTP
+* Especificar o dimensionamento automático
+* Criar o gateway de aplicativo
+* Testar o gateway de aplicativo
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este artigo requer que você execute Azure PowerShell localmente. É necessário ter instalado o módulo Az versão 1.0.0 ou posterior. Execute `Import-Module Az` e, em seguida, `Get-Module Az` para localizar a versão. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps). Depois de verificar a versão do PowerShell, execute `Login-AzAccount` para criar uma conexão com o Azure.
+Este artigo requer que você execute Azure PowerShell localmente. É necessário ter instalado o módulo Az versão 1.0.0 ou posterior. Execute `Import-Module Az` e, em seguida, `Get-Module Az` para localizar a versão. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps). Depois de verificar a versão do PowerShell, execute `Login-AzAccount` para criar uma conexão com o Azure.
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
@@ -109,11 +107,11 @@ $setting = New-AzApplicationGatewayBackendHttpSettings -Name "BackendHttpSetting
 
 Configure os novos objetos necessários para reescrever os cabeçalhos HTTP:
 
-- **RequestHeaderConfiguration**: este objeto é usado para especificar os campos de cabeçalho de solicitação que você pretende reescrever e o novo valor que deve ser reescrito nos cabeçalhos originais.
-- **ResponseHeaderConfiguration**: este objeto é usado para especificar os campos de cabeçalho de resposta que você pretende reescrever e o novo valor que deve ser reescrito nos cabeçalhos originais.
-- **ActionSet**: este objeto contém as configurações dos cabeçalhos de solicitação e de resposta especificados acima. 
-- **RewriteRule**: este objeto contém todos os *actionSets* especificados acima. 
-- **RewriteRuleSet**- este objeto contém todos os *rewriteRules* e deverá ser anexado a uma regra de roteamento de solicitação - básica ou com base no caminho.
+- **RequestHeaderConfiguration** : este objeto é usado para especificar os campos de cabeçalho de solicitação que você pretende reescrever e o novo valor que deve ser reescrito nos cabeçalhos originais.
+- **ResponseHeaderConfiguration** : este objeto é usado para especificar os campos de cabeçalho de resposta que você pretende reescrever e o novo valor que deve ser reescrito nos cabeçalhos originais.
+- **ActionSet** : este objeto contém as configurações dos cabeçalhos de solicitação e de resposta especificados acima. 
+- **RewriteRule** : este objeto contém todos os *actionSets* especificados acima. 
+- **RewriteRuleSet** - este objeto contém todos os *rewriteRules* e deverá ser anexado a uma regra de roteamento de solicitação - básica ou com base no caminho.
 
    ```azurepowershell
    $requestHeaderConfiguration = New-AzApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "X-isThroughProxy" -HeaderValue "True"
@@ -167,7 +165,7 @@ Get-AzPublicIPAddress -ResourceGroupName $rg -Name AppGwVIP
 
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Primeiro, explore os recursos criados com o gateway de aplicativo. Em seguida, quando não for mais necessário, você pode usar o comando `Remove-AzResourceGroup` para remover o grupo de recursos, o gateway de aplicativo e todos os recursos relacionados.
 

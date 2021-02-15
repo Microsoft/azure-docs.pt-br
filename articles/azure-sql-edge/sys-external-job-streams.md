@@ -1,6 +1,6 @@
 ---
-title: sys.external_job_streams (Transact-SQL) - SQL do Azure no Edge (Versão Prévia)
-description: Saiba mais sobre como usar o sys.external_job_streams no SQL do Azure no Edge (Versão Prévia)
+title: sys.external_job_streams (Transact-SQL)-Azure SQL Edge
+description: Saiba mais sobre como usar sys.external_job_streams no Azure SQL Edge
 keywords: sys.external_job_streams, SQL no Edge
 services: sql-edge
 ms.service: sql-edge
@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2019
-ms.openlocfilehash: 2634128f4d431e4283f59032c6474a71f2af364d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 35010d3aba7f6d5ee3185291c917ff7726ba8bd7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84233093"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "90900353"
 ---
 # <a name="sysexternal_job_streams-transact-sql"></a>sys.external_job_streams (Transact-SQL)
 

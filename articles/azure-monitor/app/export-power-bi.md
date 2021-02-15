@@ -3,12 +3,12 @@ title: Exportar para o Power BI do Azure Application Insights | Microsoft Docs
 description: As consultas do Analytics podem ser exibidas no Power BI.
 ms.topic: conceptual
 ms.date: 08/10/2018
-ms.openlocfilehash: 51a553452643fc979846ab4604762f11c5b7ff68
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 1e88d60cd9a9d0e6267998237b33a361b12ffd84
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324362"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186993"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Alimentar o Power BI do Application Insights
 O [Power BI](https://www.powerbi.com/) é um conjunto de ferramentas de negócios que ajudam a analisar dados e a compartilhar informações. Painéis avançados estão disponíveis em cada dispositivo. Você pode combinar dados de várias fontes, incluindo consultas do Analytics do [Azure Application Insights](./app-insights-overview.md).
@@ -31,7 +31,7 @@ Para importar sua consulta do Application Insights, você deve usar a versão da
 Instale o [Power bi desktop](https://powerbi.microsoft.com/en-us/desktop/).
 
 ### <a name="export-an-analytics-query"></a>Exportar uma consulta do Analytics
-1. [Abra o Analytics e escreva sua consulta](../log-query/get-started-portal.md).
+1. [Abra o Analytics e escreva sua consulta](../log-query/log-analytics-tutorial.md).
 2. Teste e ajuste a consulta até ficar satisfeito com os resultados. Certifique-se de que a consulta seja executada corretamente no Analytics antes de ser exportada.
 3. No menu **Exportar**, escolha **Power BI (M)**. Salve o arquivo de texto.
    
@@ -67,17 +67,17 @@ Instale o [Power bi desktop](https://powerbi.microsoft.com/en-us/desktop/).
 
    Cole o script M Language exportado no Editor Avançado. 
 
-   ![Captura de tela do Power BI Desktop, com o Editor Avançado realçado](./media/export-power-bi/advancedquery.png)
+   ![Captura de tela mostra a Power BI Desktop, com Editor Avançado realçado](./media/export-power-bi/advancedquery.png)
 
 4. Selecione os itens da consulta e escolha a visualização de Funil.
 
-   ![Captura de tela das opções de visualização do Power BI Desktop](./media/export-power-bi/selectsequence.png)
+   ![Captura de tela mostra as opções de visualização de Power BI Desktop funil](./media/export-power-bi/selectsequence.png)
 
 5. Altere o título para torná-lo significativo e publique seu relatório no seu workspace de nuvem do Power BI. 
 
    ![Captura de tela do Power BI Desktop, com a alteração de título realçada](./media/export-power-bi/changetitle.png)
 
-## <a name="troubleshooting"></a>Solução de problemas
+## <a name="troubleshooting"></a>Solução de Problemas
 
 Você pode encontrar erros relacionados às credenciais ou ao tamanho do conjunto de dados. Aqui estão algumas informações sobre o que fazer com esses erros.
 
@@ -86,7 +86,7 @@ Isso pode acontecer se o token de atualização não tiver sido atualizado. Repi
 
 1. Entre no portal do Azure e verifique se você pode acessar o recurso.
 2. Tente atualizar as credenciais para o painel.
-3. Tente limpar o cache de sua área de trabalho do PowerBI.
+3. Tente limpar o cache do seu Power BI Desktop.
 
 
    Se você tiver acesso e a atualização das credenciais não funcionar, abra um tíquete de suporte.
@@ -121,14 +121,14 @@ Esse método cria um painel completo de telemetria para você. O conjunto de dad
 1. Entre no [Power BI](https://app.powerbi.com/).
 2. Abra **Obter Dados** ![Captura de tela do ícone GetData no canto inferior esquerdo](./media/export-power-bi/001.png), **Serviços**.
 
-    ![Capturas de tela de Obter da fonte de dados do Application Insights](./media/export-power-bi/002.png)
+    ![Capturas de tela mostra o botão obter na janela serviços.](./media/export-power-bi/002.png)
 
 3. Selecione **Obter agora** no Application Insights.
 
    ![Capturas de tela de Obter da fonte de dados do Application Insights](./media/export-power-bi/003.png)
 4. Forneça os detalhes do recurso do Application Insights e, em seguida, **Entrar**.
 
-    ![Captura de tela de Obter da fonte de dados do Application Insights](./media/export-power-bi/005.png)
+    ![Captura de tela mostra conectar a Application Insights janela.](./media/export-power-bi/005.png)
 
      Essas informações podem ser encontradas no painel de Visão Geral do Application Insights:
 
@@ -146,5 +146,4 @@ Após a importação inicial, o painel e os relatórios continuarão a ser atual
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Power BI - Saiba mais](https://www.powerbi.com/learning/)
-* [Tutorial do Analytics](../log-query/get-started-portal.md)
-
+* [Tutorial do Analytics](../log-query/log-analytics-tutorial.md)

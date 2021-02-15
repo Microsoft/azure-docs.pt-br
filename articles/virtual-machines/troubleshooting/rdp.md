@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 12/13/2018
 ms.author: genli
-ms.openlocfilehash: 2fd2efa9de3deff1fcf983ac0fa45e412357d312
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 512130928c8e18aad90bce351e3be85d6fbe03f0
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "71057279"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878639"
 ---
 # <a name="troubleshoot-rdp-issues"></a>Solucionar problemas com RDP
 
@@ -36,7 +36,7 @@ Os seguintes problemas com a criação de um RDP para conexão a uma VM são abo
 - [Solucionar problemas de erro interno](Troubleshoot-rdp-internal-error.md)
 - [Solucionar problemas de desconexão frequente](troubleshoot-rdp-intermittent-connectivity.md)
 - [Solucionar problemas de erro geral](troubleshoot-rdp-general-error.md)
-- [Solucionar problemas dos erros de autenticação](troubleshoot-authentication-error-rdp-vm.md)
+- [Solucionar problemas dos erros de autenticação](/troubleshoot/azure/virtual-machines/cannot-connect-rdp-azure-vm)
 - [Solucionar problemas de conexão de RDP da VM do Azure por ID do Evento](event-id-troubleshoot-vm-rdp-connecton.md)
 - [Solucionar erros de RDP na VM por causa do IP estático](troubleshoot-rdp-static-ip.md)
 - [Solucionar erros de RDP na VM porque a NIC está desativada](troubleshoot-rdp-nic-disabled.md)
@@ -46,4 +46,3 @@ Os seguintes problemas com a criação de um RDP para conexão a uma VM são abo
 - [O firewall do sistema operacional convidado está bloqueando o tráfego de entrada](guest-os-firewall-blocking-inbound-traffic.md)
 - [O firewall do sistema operacional convidado está configurado incorretamente](guest-os-firewall-misconfigured.md) 
 - [Solucionar problemas de erro RDP causado pelo netvsc.sys](troubleshoot-rdp-driver-netvsc.md)
-

@@ -6,12 +6,12 @@ ms.author: ofmanor
 ms.topic: reference
 ms.date: 03/16/2020
 ms.subservice: alerts
-ms.openlocfilehash: c3eed095d87d1e1fa1f210b360822ceefdbe0521
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 856aeb4dabc64edc2ade2869fddc3d14cb21a81b
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87045244"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98942174"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-alerts"></a>Solucionando problemas em alertas de Azure Monitor
 
@@ -61,7 +61,7 @@ Se você puder ver um alerta acionado no portal do Azure, mas não tiver recebid
     Além disso, verifique:
 
    - as configurações de spam do seu cliente de email (como o Outlook, Gmail)
-      - as configurações limites de remetente/spam/quarentena do seu servidor de email (como Exchange, Office 365, G-Suite)
+      - as configurações limites de remetente/spam/quarentena do seu servidor de email (como Exchange, Microsoft 365, G-Suite)
       - as configurações de seu dispositivo de segurança de email, se houver (como Barracuda, Cisco).
 
 1. **Você cancelou acidentalmente a assinatura do grupo de ações?**
@@ -203,7 +203,7 @@ Se você puder ver um alerta acionado no portal, mas uma regra de ação relacio
 
     Os alertas de integridade do serviço (serviço de monitoramento = "Service Health") não são afetados pelas regras de ação. 
 
-1. **A regra de ação atua em seu alerta?** 
+1. **A regra de ação agiu após receber seu alerta?** 
 
     Verifique se a regra de ação processou o alerta clicando no alerta acionado no portal e examinando a guia de histórico.
 
@@ -245,7 +245,7 @@ Se você recebeu um erro ao tentar criar, atualizar ou excluir uma [regra de aç
 
 1. **Você verificou os parâmetros da regra de ação?**  
 
-    Verifique a [documentação da regra de ação](alerts-action-rules.md)ou o comando [set-AzActionRule do PowerShell da regra de ação](/powershell/module/az.alertsmanagement/set-azactionrule?view=azps-3.5.0) . 
+    Verifique a [documentação da regra de ação](alerts-action-rules.md)ou o comando [set-AzActionRule do PowerShell da regra de ação](/powershell/module/az.alertsmanagement/set-azactionrule) . 
 
 
 ## <a name="next-steps"></a>Próximas etapas

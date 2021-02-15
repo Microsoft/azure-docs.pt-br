@@ -3,12 +3,12 @@ title: Excluir discos da replicação com o Azure Site Recovery
 description: Como excluir discos da replicação para o Azure com o Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 12/17/2019
-ms.openlocfilehash: 778bb030d9768c5fbe1cb8aeba0becfc68c00629
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 15989fbfd65f758eb777c5170c217aba8707e0be
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86245391"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008252"
 ---
 # <a name="exclude-disks-from-disaster-recovery"></a>Excluir discos a partir da recuperação de desastre
 
@@ -56,13 +56,13 @@ Exemplos de dados produzidos que são ótimos candidatos para a exclusão inclue
 
 ## <a name="example-1-exclude-the-sql-server-tempdb-disk"></a>Exemplo 1: Excluir disco tempdb do SQL Server
 
-Vejamos como lidar com a exclusão do disco e o failover para uma VM do SQL Server Windows de origem - **SalesDB***, para a qual desejamos excluir o arquivo tempdb. 
+Vejamos como lidar com a exclusão de disco, failover e failover para uma fonte SQL Server Windows VM- **SalesDB** _, para a qual desejamos excluir tempdb. 
 
 ### <a name="exclude-disks-from-replication"></a>Excluir discos da replicação
 
 Temos esses discos na VM do Windows de origem SalesDB.
 
-**Nome do disco** | **Disco do SO convidado** | **Letra da unidade** | **Tipo de dados do disco**
+_ *Nome do disco** | **Disco do SO convidado** | **Letra da unidade** | **Tipo de dados do disco**
 --- | --- | --- | ---
 DB-Disk0-OS | Disk0 | C:\ | Disco do sistema operacional.
 DB-Disk1| Disk1 | D:\ | Banco de dados do sistema SQL e Banco de Dados de Usuário 1.
@@ -207,7 +207,7 @@ DB-Disk3 | Disk3 | F:\ | User data 2
 
 As configurações do arquivo de paginação na VM de origem são as seguintes:
 
-![Configurações do arquivo de paginação na máquina virtual de origem](./media/exclude-disks-replication/pagefile-d-drive-source-vm.png)
+![Captura de tela da caixa de diálogo memória virtual com a linha D: Drive [volume de paginação] realçada mostrando um tamanho de arquivo de paginação (MB) de 3000-7000.](./media/exclude-disks-replication/pagefile-d-drive-source-vm.png)
 
 1. Habilitamos a replicação para a VM.
 2. Excluímos DB-Disk1 da replicação.
@@ -260,7 +260,7 @@ DB-Disk3 | Disk3 | F:\ | User data 2
 
 As configurações do arquivo de paginação na VM do Azure são as seguintes:
 
-![Configurações do arquivo de paginação na máquina virtual do Azure](./media/exclude-disks-replication/pagefile-azure-vm-after-failover-2.png)
+![Captura de tela da caixa de diálogo memória virtual com a linha da unidade C: realçada mostrando uma configuração de tamanho do arquivo de paginação "gerenciado pelo sistema".](./media/exclude-disks-replication/pagefile-azure-vm-after-failover-2.png)
 
 
 ## <a name="next-steps"></a>Próximas etapas

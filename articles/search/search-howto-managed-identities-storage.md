@@ -1,25 +1,22 @@
 ---
-title: Configurar uma conexão com uma conta de armazenamento usando uma identidade gerenciada (versão prévia)
+title: Configurar uma conexão com uma conta de armazenamento usando uma identidade gerenciada
 titleSuffix: Azure Cognitive Search
-description: Saiba como configurar uma conexão de indexador com uma conta de armazenamento do Azure usando uma identidade gerenciada (versão prévia)
+description: Saiba como configurar uma conexão de indexador para uma conta de armazenamento do Azure usando uma identidade gerenciada
 manager: luisca
 author: markheff
 ms.author: maheff
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/18/2020
-ms.openlocfilehash: 30305607ea291587f7751b7e8048924f995251e9
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/22/2020
+ms.openlocfilehash: f26ca04955dfa854a8ee17b7aa255a6ed991b8df
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88917968"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358364"
 ---
-# <a name="set-up-a-connection-to-an-azure-storage-account-using-a-managed-identity-preview"></a>Configurar uma conexão com uma conta de armazenamento do Azure usando uma identidade gerenciada (versão prévia)
-
-> [!IMPORTANT] 
-> O suporte para configurar uma conexão com uma fonte de dados usando uma identidade gerenciada está atualmente em visualização pública. A funcionalidade de versão prévia é fornecida sem um Contrato de Nível de Serviço e, portanto, não é recomendada para cargas de trabalho de produção.
+# <a name="set-up-a-connection-to-an-azure-storage-account-using-a-managed-identity"></a>Configurar uma conexão com uma conta de armazenamento do Azure usando uma identidade gerenciada
 
 Esta página descreve como configurar uma conexão de indexador com uma conta de armazenamento do Azure usando uma identidade gerenciada, em vez de fornecer credenciais na cadeia de conexão do objeto da fonte de dados.
 
@@ -33,11 +30,11 @@ Antes de saber mais sobre esse recurso, é recomendável compreender o que é um
 
 ### <a name="1---turn-on-system-assigned-managed-identity"></a>1 - Habilitar a identidade gerenciada atribuída ao sistema
 
-Quando uma identidade gerenciada atribuída pelo sistema é habilitada, o Azure cria uma identidade para o serviço de pesquisa que pode ser usada para autenticar outros serviços do Azure no mesmo locatário e assinatura. Use essa identidade em atribuições de RBAC (controle de acesso baseado em função) que permitem o acesso aos dados durante a indexação.
+Quando uma identidade gerenciada atribuída pelo sistema é habilitada, o Azure cria uma identidade para o serviço de pesquisa que pode ser usada para autenticar outros serviços do Azure no mesmo locatário e assinatura. Você pode usar essa identidade em atribuições do Azure RBAC (controle de acesso baseado em função) que permitem o acesso aos dados durante a indexação.
 
 ![Habilitar a identidade gerenciada atribuída ao sistema](./media/search-managed-identities/turn-on-system-assigned-identity.png "Habilitar a identidade gerenciada atribuída ao sistema")
 
-Depois de selecionar **Salvar**, você verá uma ID do objeto que foi atribuída ao serviço de pesquisa.
+Depois de selecionar **Salvar** , você verá uma ID do objeto que foi atribuída ao serviço de pesquisa.
 
 ![ID do objeto](./media/search-managed-identities/system-assigned-identity-object-id.png "ID de objeto")
  
@@ -66,9 +63,9 @@ Nesta etapa, você dará permissão ao seu serviço do Azure Cognitive Search pa
 
     ![Adicionar a atribuição de função Acesso a Dados e Leitor](./media/search-managed-identities/add-role-assignment-reader-and-data-access.png "Adicionar a atribuição de função Acesso a Dados e Leitor")
 
-### <a name="3---create-the-data-source"></a>3 - Criar a fonte de dados
+### <a name="3---create-the-data-source"></a>3 – Criar a fonte de dados
 
-A [API REST](/rest/api/searchservice/create-data-source), portal do Azure e o [SDK do .net](/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet) oferecem suporte à cadeia de conexão de identidade gerenciada. Veja abaixo um exemplo de como criar uma fonte de dados para indexar dados de uma conta de armazenamento usando a [API REST](/rest/api/searchservice/create-data-source) e uma cadeia de conexão de identidade gerenciada. O formato da cadeia de conexão de identidade gerenciada é o mesmo para a API REST, o SDK do .NET e o portal do Azure.
+A [API REST](/rest/api/searchservice/create-data-source), portal do Azure e o [SDK do .net](/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourceconnection) oferecem suporte à cadeia de conexão de identidade gerenciada. Veja abaixo um exemplo de como criar uma fonte de dados para indexar dados de uma conta de armazenamento usando a [API REST](/rest/api/searchservice/create-data-source) e uma cadeia de conexão de identidade gerenciada. O formato da cadeia de conexão de identidade gerenciada é o mesmo para a API REST, o SDK do .NET e o portal do Azure.
 
 Ao indexar de uma conta de armazenamento, a fonte de dados deve ter as seguintes propriedades obrigatórias:
 
@@ -80,7 +77,7 @@ Ao indexar de uma conta de armazenamento, a fonte de dados deve ter as seguintes
 * **credentials**
     * Ao usar uma identidade gerenciada para autenticar, o formato **credentials** é diferente de quando não usa uma identidade gerenciada. Aqui, você fornecerá um ResourceId sem chave de conta ou senha. O ResourceId deve incluir a ID da assinatura da conta de armazenamento, o grupo de recursos da conta de armazenamento e o nome da conta de armazenamento.
     * Formato da identidade gerenciada: 
-        * *ResourceId=/subscriptions/**your subscription ID**/resourceGroups/**your resource group name**/providers/Microsoft.Storage/storageAccounts/**your storage account name**/;*
+        * *ResourceId=/subscriptions/ **your subscription ID** /resourceGroups/ **your resource group name** /providers/Microsoft.Storage/storageAccounts/ **your storage account name** /;*
 * **container** especifica um contêiner ou tabela na conta de armazenamento. Por padrão, todos os blobs no contêiner são recuperáveis. Se você quiser apenas blobs de índice em um diretório virtual específico, especifique o diretório usando o parâmetro opcional **query**.
 
 Exemplo de como criar um objeto de fonte de dados de blob usando a [API REST](/rest/api/searchservice/create-data-source):
@@ -147,9 +144,14 @@ Para saber mais sobre a API Criar Indexador, veja [Criar indexador](/rest/api/se
 
 Para obter mais informações sobre como definir as agendas do indexador, confira [Como agendar indexadores para o Azure Cognitive Search](search-howto-schedule-indexers.md).
 
+## <a name="accessing-secure-data-in-storage-accounts"></a>Acessando dados seguros em contas de armazenamento
+
+As contas de armazenamento do Azure podem ser protegidas ainda mais com firewalls e redes virtuais. Se você quiser indexar o conteúdo de uma conta de armazenamento de BLOBs ou Data Lake conta de armazenamento Gen2 que é protegida usando um firewall ou rede virtual, siga as instruções para [acessar dados em contas de armazenamento com segurança por meio de exceção de serviço confiável](search-indexer-howto-access-trusted-service-exception.md).
+
 ## <a name="see-also"></a>Confira também
 
 Saiba mais sobre os indexadores de armazenamento do Azure:
+
 * [Indexador de blobs do Azure](search-howto-indexing-azure-blob-storage.md)
 * [Indexador do Azure Data Lake Storage Gen2](search-howto-index-azure-data-lake-storage.md)
 * [Indexador de tabela do Azure](search-howto-indexing-azure-tables.md)

@@ -10,12 +10,12 @@ ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 05/29/2019
-ms.openlocfilehash: ad365c2d4c171105d8dec89d818ef481361d1ff8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 664c4289cbfa1f6ce2fce9f9f83b0240bd2d592c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81272586"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001993"
 ---
 # <a name="moderate-text-from-the-api-console"></a>Moderar texto no console da API
 
@@ -137,4 +137,4 @@ Para obter uma explicação detalhada de todas as seções na resposta JSON, con
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Use a API REST em seu código ou siga o [início rápido do SDK do .net](dotnet-sdk-quickstart.md) para integrar com seu aplicativo.
+Use a API REST em seu código ou siga o [início rápido do SDK do .net](./client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp) para integrar com seu aplicativo.

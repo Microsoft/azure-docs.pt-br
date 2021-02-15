@@ -13,38 +13,38 @@ author: blazem-msft
 ms.author: blazem
 ms.reviewer: jroth
 manager: jroth
-ms.openlocfilehash: f4dcec5e58cb10850e22d3006b0ecd41f6d013fd
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 15b4a90a4e082cbe8fc0f2da1a87b6860cfb66a4
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86202285"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024204"
 ---
 # <a name="all-topics-for-azure-sql-server-stretch-database-service"></a>Todos os tópicos do serviço SQL Server Stretch Database do Azure
-Este tópico lista todos os tópicos que se aplicam diretamente ao serviço **SQL Server Stretch Database** do Azure. Você pode pesquisar palavras-chave nesta página da Web usando **Ctrl + F**para encontrar os tópicos de seu interesse atual.
+Este tópico lista todos os tópicos que se aplicam diretamente ao serviço **SQL Server Stretch Database** do Azure. Você pode pesquisar palavras-chave nesta página da Web usando **Ctrl + F** para encontrar os tópicos de seu interesse atual.
 
 ## <a name="get-started"></a>Introdução
 | Título | Descrição |
 |:--- |:--- |
-|[Identificar bancos de dados e tabelas para o Stretch Database executando o supervisor do Stretch Database](sql-server-stretch-database-identify-databases.md) |Saiba como identificar os bancos de dados e tabelas que são candidatos ao Banco de Dados de Stretch. |
-|[Limitações do Stretch Database](sql-server-stretch-database-limitations.md) |Saiba mais sobre as limitações do Stretch Database. |
-|[Visão geral do Stretch Database](sql-server-stretch-database-overview.md) |Saiba como o Stretch Database migra seus dados passivos de forma transparente e segura para a nuvem do Microsoft Azure. |
-|[Comece executando o Assistente para Habilitar o Banco de Dados para Alongamento](sql-server-stretch-database-wizard.md) |Saiba como configurar um banco de dados para o Stretch Database executando assistente Habilitar Banco de Dados para Stretch. |
+|[Identificar bancos de dados e tabelas para o Stretch Database executando o supervisor do Stretch Database](/sql/sql-server/stretch-database/stretch-database-databases-and-tables-stretch-database-advisor) |Saiba como identificar os bancos de dados e tabelas que são candidatos ao Banco de Dados de Stretch. |
+|[Limitações do Stretch Database](/sql/sql-server/stretch-database/limitations-for-stretch-database) |Saiba mais sobre as limitações do Stretch Database. |
+|[Visão geral de Stretch Database](/sql/sql-server/stretch-database/stretch-database) |Saiba como o Stretch Database migra seus dados passivos de forma transparente e segura para a nuvem do Microsoft Azure. |
+|[Comece executando o Assistente para Habilitar o Banco de Dados para Alongamento](/sql/sql-server/stretch-database/get-started-by-running-the-enable-database-for-stretch-wizard) |Saiba como configurar um banco de dados para o Stretch Database executando assistente Habilitar Banco de Dados para Stretch. |
 
 ## <a name="enable"></a>Habilitar
 | Título | Descrição |
 |:--- |:--- |
-|[Enable Stretch Database for a database](sql-server-stretch-database-enable-database.md) |Saiba como configurar um banco de dados para o Banco de Dados de Stretch. |
-|[Habilitar o Stretch Database para uma tabela](sql-server-stretch-database-enable-table.md) |Saiba como configurar uma tabela para o Banco de Dados de Stretch. |
-|[Selecionar linhas para migrar usando uma função de filtro (Stretch Database)](sql-server-stretch-database-predicate-function.md) |Saiba como selecionar linhas para migrar pelo uso de uma função de filtro. |
+|[Habilitar o Stretch Database para um banco de dados](/sql/sql-server/stretch-database/enable-stretch-database-for-a-database) |Saiba como configurar um banco de dados para o Banco de Dados de Stretch. |
+|[Habilitar o Stretch Database para uma tabela](/sql/sql-server/stretch-database/enable-stretch-database-for-a-table) |Saiba como configurar uma tabela para o Banco de Dados de Stretch. |
+|[Selecionar linhas para migrar usando uma função de filtro (Stretch Database)](/sql/sql-server/stretch-database/select-rows-to-migrate-by-using-a-filter-function-stretch-database) |Saiba como selecionar linhas para migrar pelo uso de uma função de filtro. |
 
 ## <a name="manage"></a>Gerenciar
 | Título | Descrição |
 |:--- |:--- |
-|[Desabilitar o Stretch Database e trazer de volta os dados remotos](sql-server-stretch-database-disable.md) |Saiba como desabilitar o Banco de Dados de Stretch para uma tabela e opcionalmente retornar os dados remotos. |
-|[Gerenciar e solucionar problemas do Stretch Database](sql-server-stretch-database-manage.md) |Saiba como gerenciar e solucionar problemas do Stretch Database. |
-|[Monitorar e solucionar problemas de migração de dados (Stretch Database)](sql-server-stretch-database-monitor.md) |Saiba como monitorar o status de migração de dados. |
-|[Pausar e retomar a migração de dados (Stretch Database)](sql-server-stretch-database-pause.md) |Saiba como pausar ou retomar a migração de dados no Azure. |
+|[Desabilitar o Stretch Database e trazer de volta os dados remotos](/sql/sql-server/stretch-database/disable-stretch-database-and-bring-back-remote-data) |Saiba como desabilitar o Banco de Dados de Stretch para uma tabela e opcionalmente retornar os dados remotos. |
+|[Gerenciar e solucionar problemas do Stretch Database](/sql/sql-server/stretch-database/manage-and-troubleshoot-stretch-database) |Saiba como gerenciar e solucionar problemas do Stretch Database. |
+|[Monitorar e solucionar problemas de migração de dados (Stretch Database)](/sql/sql-server/stretch-database/monitor-and-troubleshoot-data-migration-stretch-database) |Saiba como monitorar o status de migração de dados. |
+|[Pausar e retomar a migração de dados (Stretch Database)](/sql/sql-server/stretch-database/pause-and-resume-data-migration-stretch-database) |Saiba como pausar ou retomar a migração de dados no Azure. |
 
 ## <a name="security"></a>Segurança
 | Título | Descrição |
@@ -55,6 +55,5 @@ Este tópico lista todos os tópicos que se aplicam diretamente ao serviço **SQ
 ## <a name="backup-and-recovery"></a>Backup e recuperação
 | Título | Descrição |
 |:--- |:--- |
-|[Fazer backup de bancos de dados habilitados para Stretch](sql-server-stretch-database-backup.md) |\-Saiba como fazer backup de bancos de dados habilitados para Stretch. |
-|[Restaurar bancos de dados habilitados para Stretch](sql-server-stretch-database-restore.md) |\-Saiba como restaurar bancos de dados habilitados para Stretch. |
-
+|[Fazer backup de bancos de dados habilitados para Stretch](/sql/sql-server/stretch-database/backup-stretch-enabled-databases-stretch-database) |\-Saiba como fazer backup de bancos de dados habilitados para Stretch. |
+|[Restaurar bancos de dados habilitados para Stretch](/sql/sql-server/stretch-database/restore-stretch-enabled-databases-stretch-database) |\-Saiba como restaurar bancos de dados habilitados para Stretch. |

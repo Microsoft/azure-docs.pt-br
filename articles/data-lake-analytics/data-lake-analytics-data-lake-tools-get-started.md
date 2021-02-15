@@ -1,18 +1,16 @@
 ---
 title: Consulta Azure Data Lake Analytics-Visual Studio
 description: Saiba como instalar ferramentas do Data Lake para o Visual Studio e como desenvolver e testar scripts U-SQL.
-services: data-lake-analytics
 ms.service: data-lake-analytics
 ms.reviewer: jasonh
-ms.assetid: ad8a6992-02c7-47d4-a108-62fc5a0777a3
 ms.topic: how-to
 ms.date: 08/30/2019
-ms.openlocfilehash: 2f02c16d73ca07c1909bf84bfb7e158b429d3096
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: d3812cb27d2d9ea7a49038f566f8b4cc5d779172
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87125965"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95241685"
 ---
 # <a name="develop-u-sql-scripts-by-using-data-lake-tools-for-visual-studio"></a>Desenvolvimento de scripts U-SQL usando as ferramentas do Data Lake para Visual Studio
 
@@ -53,9 +51,9 @@ Este tutorial requer que Ferramentas do Data Lake Tools para Visual Studio estej
 
 1. Abra o Visual Studio.
 
-1. Abra **Gerenciador de servidores** selecionando **Exibir**  >  **Gerenciador de servidores**.
+1. Abra o **Data Lake Analytics Explorer** selecionando **Exibir**  >  **Data Lake Analytics Explorer**.
 
-1. Clique com o botão direito do mouse em **Azure**e selecione **conectar-se a Microsoft Azure assinatura**. Em **entrar em sua conta**, siga as instruções.
+1. Clique com o botão direito do mouse em **Azure** e selecione **conectar-se a Microsoft Azure assinatura**. Em **entrar em sua conta**, siga as instruções.
 
 1. Em **Gerenciador de servidores**, selecione **Data Lake Analytics do Azure**  >  **Data Lake Analytics**. Você verá uma lista das suas contas do Data Lake Analytics.
 
@@ -88,7 +86,7 @@ OUTPUT @a
 
 1. Cole o script de [escrever seu primeiro script U-SQL](#write-your-first-u-sql-script) na janela **script. usql** .
 
-1. Em **Gerenciador de soluções**, clique com o botão direito do mouse em **script. Usql**e selecione **Enviar script**.
+1. Em **Gerenciador de soluções**, clique com o botão direito do mouse em **script. Usql** e selecione **Enviar script**.
 
 1. Em **Enviar trabalho**, escolha sua conta de data Lake Analytics e selecione **Enviar**.
 

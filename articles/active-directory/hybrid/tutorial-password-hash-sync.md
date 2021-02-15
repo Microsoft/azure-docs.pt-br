@@ -14,12 +14,12 @@ ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b17300fa69b61c7713c860e2a35e63fcb6584bc4
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b82dcc633f0f2bb13cb84f80873117f9eb94a24f
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "66474009"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96176113"
 ---
 # <a name="tutorial--integrate-a-single-ad-forest-using-password-hash-sync-phs"></a>Tutorial:  Integrar uma única floresta do AD usando a sincronização de hash da senha (PHS)
 
@@ -29,8 +29,8 @@ O tutorial a seguir guiará você pela criação de um ambiente de identidade h�
 
 ## <a name="prerequisites"></a>Pré-requisitos
 A seguir estão os pré-requisitos necessários para concluir este tutorial
-- Um computador com [Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/hyper-v-technology-overview) instalado.  É recomendável fazer isso em um computador [Windows 10](https://docs.microsoft.com/virtualization/hyper-v-on-windows/about/supported-guest-os) ou um computador [Windows Server 2016](https://docs.microsoft.com/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
-- Um [adaptador de rede externa](https://docs.microsoft.com/virtualization/hyper-v-on-windows/quick-start/connect-to-network) para permitir que a máquina virtual comunique-se com a Internet.
+- Um computador com [Hyper-V](/windows-server/virtualization/hyper-v/hyper-v-technology-overview) instalado.  É recomendável fazer isso em um computador [Windows 10](/virtualization/hyper-v-on-windows/about/supported-guest-os) ou um computador [Windows Server 2016](/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
+- Um [adaptador de rede externa](/virtualization/hyper-v-on-windows/quick-start/connect-to-network) para permitir que a máquina virtual comunique-se com a Internet.
 - Uma [assinatura do Azure](https://azure.microsoft.com/free)
 - Uma cópia do Windows Server 2016
 
@@ -184,7 +184,7 @@ Agora, é necessário criar um locatário do Azure AD para que seja possível si
 2. Selecione o **ícone adição (+)** e pesquise **Azure Active Directory**.
 3. Selecione **Azure Active Directory** nos resultados da pesquisa.
 4. Selecione **Criar**.</br>
-![Criar](media/tutorial-password-hash-sync/create1.png)</br>
+![Captura de tela que mostra como criar um locatário do Azure AD.](media/tutorial-password-hash-sync/create1.png)</br>
 5. Forneça um **nome para a organização** juntamente com o **nome de domínio inicial**. Em seguida, selecione **Criar**. Isso criará criar o diretório.
 6. Depois que for concluído, clique no link **aqui** para gerenciar o diretório.
 
@@ -192,10 +192,10 @@ Agora, é necessário criar um locatário do Azure AD para que seja possível si
 Agora que temos um locatário do Azure AD, criaremos uma conta de administrador global.  Essa conta é usada para criar a conta do Azure AD Connector durante a instalação do Azure AD Connect.  A conta do Azure AD Connector é usada para gravar informações no Azure AD.   Para criar a conta de administrador global, faça o seguinte.
 
 1.  Em **Gerenciar**, selecione **Usuários**.</br>
-![Criar](media/tutorial-password-hash-sync/gadmin1.png)</br>
+![Captura de tela que mostra a opção Usuário selecionada na seção Gerenciar, em que você cria um Administrador global no Azure AD.](media/tutorial-password-hash-sync/gadmin1.png)</br>
 2.  Selecione **Todos os usuários** e, em seguida, selecione **+ Novo usuário**.
 3.  Forneça um nome e um nome de usuário para esse usuário. Este será o Administrador Global para o locatário. Convém também alterar a **função do diretório** para **Administrador global.** Também é possível mostrar a senha temporária. Ao concluir, selecione **Criar**.</br>
-![Criar](media/tutorial-password-hash-sync/gadmin2.png)</br>
+![Captura de tela que mostra o botão Criar que você seleciona quando cria um Administrador global no Azure AD.](media/tutorial-password-hash-sync/gadmin2.png)</br>
 4. Depois que isso for concluído, abra um novo navegador da Web e entre em myapps.microsoft.com usando a nova conta de administrador global e a senha temporária.
 5. Altere a senha do administrador global para algo que você irá lembrar.
 
@@ -203,10 +203,10 @@ Agora que temos um locatário do Azure AD, criaremos uma conta de administrador 
 Agora é hora de baixar e instalar o Azure AD Connect.  Uma vez instalado, vamos executar a instalação expressa.  Faça o seguinte:
 
 1. Baixe o [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594)
-2. Navegue até **AzureADConnect.msi**e clique duas vezes nessa opção.
+2. Navegue até **AzureADConnect.msi** e clique duas vezes nessa opção.
 3. Na tela de boas-vindas, marque a caixa de concordar com os termos da licença e clique em **Continuar**.  
 4. Na tela de configurações expressas, clique em **Usar configurações expressas**.</br>  
-![Criar](media/tutorial-password-hash-sync/express1.png)</br>
+![Captura de tela que mostra as configurações do Expresso e o botão Usar configurações expressas.](media/tutorial-password-hash-sync/express1.png)</br>
 5. Na tela do Azure AD a conectar, digite o nome de usuário e a senha do administrador global do Azure AD. Clique em **Próximo**.  
 6. Na tela Conectar AD DS, digite o nome de usuário e senha para uma conta de administrador corporativa. Clique em **Próximo**.  
 7. Na tela Pronto para configurar, clique em **Instalar**.

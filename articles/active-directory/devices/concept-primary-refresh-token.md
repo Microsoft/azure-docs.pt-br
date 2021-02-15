@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9971eb554825a968f8cfa72d6a0cf78d7c0bcb76
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3f2b059bb6ae63d7f427ce970b2538da922e2dec
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87025873"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837256"
 ---
 # <a name="what-is-a-primary-refresh-token"></a>O que é um Token de atualização principal?
 
-Um PRT (Token de atualização principal) é um importante artefato da autenticação do Azure AD em dispositivos Windows 10, iOS e Android. Trata-se de um JWT (Token Web JSON) emitido especialmente para agentes de token de terceiros da Microsoft para habilitar o SSO (logon único) nos aplicativos usados nesses dispositivos. Neste artigo, serão fornecidos detalhes sobre a emissão, o uso e a proteção de um PRT em dispositivos Windows 10.
+Um PRT (token de atualização principal) é um artefato importante da autenticação do Azure AD no Windows 10, Windows Server 2016 e versões posteriores, iOS e dispositivos Android. Trata-se de um JWT (Token Web JSON) emitido especialmente para agentes de token de terceiros da Microsoft para habilitar o SSO (logon único) nos aplicativos usados nesses dispositivos. Neste artigo, serão fornecidos detalhes sobre a emissão, o uso e a proteção de um PRT em dispositivos Windows 10.
 
 Este artigo pressupõe que você já tenha entendido os diferentes estados de dispositivo disponíveis no Azure AD e como o SSO funciona no Windows 10. Para obter mais informações sobre dispositivos no Azure AD, consulte o artigo [O que é o gerenciamento de dispositivos no Azure Active Directory?](overview.md)
 
@@ -85,7 +85,11 @@ Um PRT é renovado por meio de dois métodos:
 * **Plug-in CloudAP do Azure AD a cada 4 horas**: o plug-in CloudAP renova o PRT a cada 4 horas durante a entrada no Windows. Caso o usuário esteja sem uma conexão com a Internet nesse momento, o plug-in CloudAP renovará o PRT depois que o dispositivo estiver conectado à Internet.
 * **Plug-in WAM do Azure AD durante solicitações de token de aplicativo**: o plug-in WAM habilita o SSO em dispositivos Windows 10 por meio da habilitação de solicitações de token silencioso para aplicativos. O plug-in WAM pode renovar o PRT durante essas solicitações de token de duas maneiras:
    * Um aplicativo solicita o WAM a um token de acesso silenciosamente, mas não há um token de atualização disponível para esse aplicativo. Nesse caso, o WAM usa o PRT para solicitar um token para o aplicativo e retorna um novo PRT na resposta.
-   * Um aplicativo solicita o WAM a um token de acesso, mas o PRT é inválido ou o Azure AD requer autorização adicional (por exemplo, Autenticação Multifator do Microsoft Azure). Nesse cenário, o WAM inicia um logon interativo que requer que o usuário seja reautenticado ou forneça uma verificação adicional, e um novo PRT é emitido na autenticação bem-sucedida.
+   * Um aplicativo solicita o WAM para um token de acesso, mas o PRT é inválido ou o Azure AD requer autorização adicional (por exemplo, autenticação multifator do Azure AD). Nesse cenário, o WAM inicia um logon interativo que requer que o usuário seja reautenticado ou forneça uma verificação adicional, e um novo PRT é emitido na autenticação bem-sucedida.
+
+Em um ambiente do ADFS, a linha de visão direta para o controlador de domínio não é necessária para renovar o PRT. A renovação de PRT requer apenas pontos de extremidade/ADFS/Services/Trust/2005/usernamemixed e/ADFS/Services/Trust/13/usernamemixed habilitados no proxy usando WS-Trust protocolo.
+
+Os pontos de extremidade de transporte do Windows são necessários para a autenticação de senha somente quando uma senha é alterada, não para a renovação de PRT.
 
 ### <a name="key-considerations"></a>Considerações-chave
 
@@ -195,6 +199,9 @@ Os diagramas a seguir ilustram os detalhes subjacentes na emissão, na renovaç�
 | D | O plug-in CloudAP criará o cookie do PRT, entrará com a chave da sessão associada ao TPM e a enviará de volta para o host do cliente nativo. Como o cookie é assinado pela chave da sessão, ele não pode ser adulterado. |
 | E | O host do cliente nativo retornará esse cookie do PRT ao navegador, o qual o incluirá como parte do cabeçalho de solicitação chamado x-ms-RefreshTokenCredential e solicitará tokens do Azure AD. |
 | F | O Azure AD valida a assinatura da chave da sessão no cookie do PRT, valida o nonce, verifica se o dispositivo é válido no locatário e emite um token de ID para a página da Web e um cookie de sessão criptografado para o navegador. |
+
+> [!NOTE]
+> O fluxo de SSO do navegador descrito nas etapas acima não se aplica a sessões em modos privados, como InPrivate no Microsoft Edge, ou Incognito no Google Chrome (ao usar a extensão de contas da Microsoft).
 
 ## <a name="next-steps"></a>Próximas etapas
 

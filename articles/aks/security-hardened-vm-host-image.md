@@ -8,10 +8,10 @@ ms.date: 09/11/2019
 ms.author: mlearned
 ms.custom: mvc
 ms.openlocfilehash: 84b826ce33b5395db5bd38e883b3a0fb3425725b
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86244031"
 ---
 # <a name="security-hardening-for-aks-agent-node-host-os"></a>Proteção de segurança para SO host do nó do AKS Agent
@@ -55,7 +55,7 @@ O objetivo do sistema operacional de host protegido por segurança é reduzir a 
 |3.2.3 |Verifique se os redirecionamentos ICMP seguros não são aceitos |
 |3.2.4 |Garantir que os pacotes suspeitos sejam registrados |
 |3.3.1 |Verifique se os anúncios do roteador IPv6 não são aceitos |
-|3.0 |Verifique se o DCCP está desabilitado |
+|3.5.1 |Verifique se o DCCP está desabilitado |
 |3.5.2 |Verifique se SCTP está desabilitado |
 |3.5.3 |Garantir que o RDS esteja desabilitado |
 |3.5.4 |Verifique se o TIPC está desabilitado |
@@ -87,6 +87,6 @@ Consulte os artigos a seguir para obter mais informações sobre a segurança do
 
 [AKS (Serviço de Kubernetes do Azure)](./intro-kubernetes.md)
 
-[Considerações de segurança do AKS](./concepts-security.md)
+[Considerações de segurança do AKS ](./concepts-security.md)
 
-[Práticas recomendadas do AKS](./best-practices.md)
+[Práticas recomendadas do AKS ](./best-practices.md)

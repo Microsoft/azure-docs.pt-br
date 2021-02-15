@@ -3,15 +3,15 @@ title: Criar pool de host da Área de Trabalho Virtual do Windows no PowerShell 
 description: Como criar um pool de host na Área de Trabalho Virtual do Windows com cmdlets do PowerShell.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 08/11/2020
+ms.date: 10/02/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 1275eab36e21ea6befdda13e14759a30ef5398a3
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 9ec900f0537030d3ed0d1c875e8125806159bd51
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121146"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251447"
 ---
 # <a name="create-a-windows-virtual-desktop-host-pool-with-powershell"></a>Criar um pool de hosts da área de trabalho virtual do Windows com o PowerShell
 
@@ -100,6 +100,9 @@ Para ingressar no domínio com êxito, execute as seguintes ações em cada máq
     >[!NOTE]
     > Se você estiver unindo suas VMs em um ambiente do Azure Active Directory Domain Services (Azure AD DS), verifique se o usuário de ingresso no domínio também é um membro do [grupo de Administradores do AAD DC](../active-directory-domain-services/tutorial-create-instance-advanced.md#configure-an-administrative-group).
 
+>[!IMPORTANT]
+>Recomendamos que você não habilite nenhuma política ou configuração que desabilite Windows Installer. Se você desabilitar Windows Installer, o serviço não poderá instalar atualizações de agente em seus hosts de sessão e os hosts de sessão não funcionarão corretamente.
+
 ## <a name="register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool"></a>Registrar as máquinas virtuais no pool de host da Área de Trabalho Virtual do Windows
 
 Registrar as máquinas virtuais em um pool de host da Área de Trabalho Virtual do Windows é tão simples quanto instalar os agentes de Área de Trabalho Virtual do Windows.
@@ -121,13 +124,13 @@ Para registrar os agentes de Área de Trabalho Virtual do Windows, faça o segui
 
 Você precisará atualizar o agente se estiver em uma das seguintes situações:
 
-- Você deseja migrar uma sessão previamente registrada para um novo pool de hosts
+- Você deseja migrar um host de sessão registrado anteriormente para um novo pool de hosts
 - O host de sessão não aparece no pool de hosts após uma atualização
 
 Para atualizar o agente:
 
 1. Entre na VM como um administrador.
-2. Vá para **Serviços**e, em seguida, pare os processos do **carregador do agente** **RDAgent** e área de trabalho remota.
+2. Vá para **Serviços** e, em seguida, pare os processos do **carregador do agente** **RDAgent** e área de trabalho remota.
 3. Em seguida, localize o agente e o carregador de MSIs. Eles estarão localizados na pasta **C:\DeployAgent** ou em qualquer local em que você o salvou ao instalá-lo.
 4. Localize os seguintes arquivos e desinstale-os:
      
@@ -137,8 +140,8 @@ Para atualizar o agente:
    Para desinstalar esses arquivos, clique com o botão direito do mouse em cada nome de arquivo e selecione **desinstalar**.
 5. Opcionalmente, você também pode remover as seguintes configurações do registro:
      
-     - Computador \ HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\RDInfraAgent
-     - Computador \ HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\RDAgentBootLoader
+     - Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\RDInfraAgent
+     - Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\RDAgentBootLoader
 
 6. Depois de desinstalar esses itens, isso deve remover todas as associações com o pool de hosts antigo. Se você quiser registrar novamente esse host no serviço, siga as instruções em [registrar as máquinas virtuais no pool de hosts da área de trabalho virtual do Windows](create-host-pools-powershell.md#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool).
 

@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/15/2020
-ms.openlocfilehash: f95f35fe0d17afdeec864674d3360fc3b172cad1
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: ac84ce17f53145ffd85ffa31b6633d8b4b184962
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683377"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042650"
 ---
 # <a name="join-transformation-in-mapping-data-flow"></a>Transformação de junção no fluxo de dados de mapeamento
 
@@ -57,15 +57,15 @@ Para produzir explicitamente um produto cartesiano completo, use a transformaç�
 
 ## <a name="configuration"></a>Configuração
 
-1. Escolha o fluxo de dados com o qual você está fazendo a junção, na lista suspensa **Fluxo à direita**.
+1. Escolha o fluxo de dados com o qual você está fazendo a junção, na lista suspensa **Fluxo à direita** .
 1. Selecione seu **Tipo de junção**
-1. Escolha as colunas de chave que serão correspondentes à sua condição de junção. Por padrão, o fluxo de dados procura igualdade entre uma coluna em cada fluxo. Para comparar por meio de um valor calculado, passe o mouse sobre a lista suspensa da coluna e selecione **Coluna computada**.
+1. Escolha as colunas de chave que serão correspondentes à sua condição de junção. Por padrão, o fluxo de dados procura igualdade entre uma coluna em cada fluxo. Para comparar por meio de um valor calculado, passe o mouse sobre a lista suspensa da coluna e selecione **Coluna computada** .
 
 ![Transformação de junção](media/data-flow/join.png "Join")
 
 ### <a name="non-equi-joins"></a>Uniões não equivalentes
 
-Para usar um operador condicional como diferente de (!=) ou maior que (>) em suas condições de junção, altere a lista suspensa do operador entre as duas colunas. Uniões não equivalentes exigem que pelo menos um dos dois fluxos sejam transmitidos usando a transmissão **Fixa** na guia **Otimizar**.
+Para usar um operador condicional como diferente de (!=) ou maior que (>) em suas condições de junção, altere a lista suspensa do operador entre as duas colunas. Uniões não equivalentes exigem que pelo menos um dos dois fluxos sejam transmitidos usando a transmissão **Fixa** na guia **Otimizar** .
 
 ![União não equivalente](media/data-flow/non-equi-join.png "União não equivalente")
 
@@ -75,13 +75,13 @@ Ao contrário da junção de mesclagem em ferramentas como o SSIS, a transforma�
 
 ![Otimização da transformação de junção](media/data-flow/joinoptimize.png "Otimização de junção")
 
-Em transformação de junções, pesquisas e ocorrências, se um ou ambos os fluxos de dados se ajustarem à memória do nó de trabalho, você poderá otimizar o desempenho habilitando a **Difusão**. Por padrão, o mecanismo do Spark decidirá automaticamente se deseja ou não transmitir um lado. Para escolher manualmente o lado a ser transmitido, selecione **Fixo**.
+Em transformação de junções, pesquisas e ocorrências, se um ou ambos os fluxos de dados se ajustarem à memória do nó de trabalho, você poderá otimizar o desempenho habilitando a **Difusão** . Por padrão, o mecanismo do Spark decidirá automaticamente se deseja ou não transmitir um lado. Para escolher manualmente o lado a ser transmitido, selecione **Fixo** .
 
-Não é recomendável desabilitar a transmissão por meio da opção **Desativar**, a menos que suas uniões estejam tendo erros de tempo limite.
+Não é recomendável desabilitar a transmissão por meio da opção **Desativar** , a menos que suas uniões estejam tendo erros de tempo limite.
 
 ## <a name="self-join"></a>Autojunção
 
-Para fazer a autojunção de um fluxo de dados, atribua um alias a um fluxo existente com uma transformação de seleção. Crie um novo branch clicando no ícone de adição ao lado de uma transformação e selecionando **Novo branch**. Adicione uma transformação de seleção para atribuir o alias ao fluxo original. Adicione uma transformação de junção e escolha o fluxo original como **Fluxo à esquerda** e a transformação de seleção como **Fluxo à direita**.
+Para fazer a autojunção de um fluxo de dados, atribua um alias a um fluxo existente com uma transformação de seleção. Crie um novo branch clicando no ícone de adição ao lado de uma transformação e selecionando **Novo branch** . Adicione uma transformação de seleção para atribuir o alias ao fluxo original. Adicione uma transformação de junção e escolha o fluxo original como **Fluxo à esquerda** e a transformação de seleção como **Fluxo à direita** .
 
 ![Autojunção](media/data-flow/selfjoin.png "Autojunção")
 
@@ -108,7 +108,7 @@ O exemplo abaixo é de uma transformação de junção chamada `JoinMatchedData`
 
 No UX do Data Factory, essa transformação é semelhante à imagem abaixo:
 
-![Exemplo de junção](media/data-flow/join-script1.png "Exemplo de junção")
+![Captura de tela mostra a transformação com a guia Configurações de junção selecionada e um tipo de junção interno.](media/data-flow/join-script1.png "Exemplo de junção")
 
 O script de fluxo de dados dessa transformação está no snippet abaixo:
 
@@ -130,7 +130,7 @@ O exemplo abaixo é de uma transformação de junção chamada `JoiningColumns`,
 
 No UX do Data Factory, essa transformação é semelhante à imagem abaixo:
 
-![Exemplo de junção](media/data-flow/join-script2.png "Exemplo de junção")
+![Captura de tela mostra a transformação com a guia Configurações de junção selecionada e um tipo de junção personalizado (Cruz).](media/data-flow/join-script2.png "Exemplo de junção")
 
 O script de fluxo de dados dessa transformação está no snippet abaixo:
 

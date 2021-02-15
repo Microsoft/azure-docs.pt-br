@@ -1,22 +1,18 @@
 ---
 title: runtime de integração
 description: Saiba mais sobre o Integration Runtime no Azure Data Factory.
-services: data-factory
 ms.author: abnarain
 author: nabhishek
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/14/2020
-ms.openlocfilehash: e8e900e410f1a41c8c98f5cec00631cfb5f275de
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 911674a80b531a50cfb429c5dc0ff41f1aaceb08
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87407686"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100389936"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Integration Runtime no Azure Data Factory 
 
@@ -56,7 +52,7 @@ Um tempo de execução de integração do Azure pode:
 
 - Executar fluxos de dados no Azure 
 - Executar atividade de cópia entre armazenamentos de dados de nuvem
-- Despache as seguintes atividades de transformação na rede pública: atividade do databricks Notebook/jar/Python, atividade de hive do hdinsight, atividade do HDInsight Pig, atividade de MapReduce do hdinsight, atividade do HDInsight Spark, atividade de streaming do hdinsight, atividade de Machine Learning execução de Machine Learning em lote, Data Lake Analytics atividades de recurso de atualização, atividade de pesquisa e obter atividade de metadados.
+- Despache as seguintes atividades de transformação na rede pública: atividade do databricks Notebook/jar/Python, atividade de hive do hdinsight, atividade do HDInsight Pig, atividade de MapReduce do HDInsight, atividade do HDInsight Spark, atividade de streaming do HDInsight, atividade de execução em lote do Azure Machine Learning Studio (clássica), atividade de atualização de Azure Machine Learning Studio (clássica), atividade de pesquisa data Lake Analytics e obtenção de metadados.
 
 ### <a name="azure-ir-network-environment"></a>Ambiente de rede do IR do Azure
 
@@ -69,7 +65,7 @@ O Integration Runtime do Azure fornece a computação nativa de para mover dados
 
 A expedição de atividade é uma operação leve para rotear a atividade para o serviço de computação de destino, portanto, não é necessário escalar verticalmente o tamanho da computação para esse cenário.
 
-Para obter informações sobre como criar e configurar um Azure IR, consulte como criar e configurar Azure IR em guias de instruções. 
+Para obter informações sobre como criar e configurar um Azure IR, consulte [How to Create and configure Azure Integration Runtime](create-azure-integration-runtime.md). 
 
 > [!NOTE] 
 > O tempo de execução de integração do Azure tem propriedades relacionadas ao tempo de execução de fluxo de dados, que definem a infraestrutura de computação subjacente que seria usada para executar os fluxos de dados no. 
@@ -79,7 +75,7 @@ Para obter informações sobre como criar e configurar um Azure IR, consulte com
 Um IR auto-hospedado é capaz de:
 
 - Executar a atividade de cópia entre um armazenamento de dados de nuvem e um armazenamento de dados na rede privada.
-- Expedindo as seguintes atividades de transformação em relação aos recursos de computação no local ou na rede virtual do Azure: atividade do hive do HDInsight (BYOC-traga seu próprio cluster), BYOC (Pig de atividades do HDInsight), atividade do HDInsight MapReduce (BYOC), atividade do HDInsight Spark (BYOC), atividade de streaming do HDInsight (BYOC), atividade de execução de Machine Learning em lote, atividades de recurso de atualização Machine Learning, atividade de procedimento armazenado, Data Lake Analytics atividade do U-SQL , Atividade de pesquisa e obter atividade de metadados.
+- Expedindo as seguintes atividades de transformação em relação aos recursos de computação no local ou na rede virtual do Azure: atividade do hive do HDInsight (BYOC-traga seu próprio cluster), BYOC (Pig de atividades do HDInsight), atividade do HDInsight MapReduce (BYOC), atividade do HDInsight Spark (BYOC), atividade de streaming do HDInsight (BYOC), atividade de execução em lote do Azure Machine Learning Studio (clássico), atividades de recurso de atualização de Azure Machine Learning Studio (clássico), atividade de procedimento armazenado Data Lake Analytics atividade U-SQL , Atividade personalizada (executado no lote do Azure), atividade de pesquisa e atividade obter metadados.
 
 > [!NOTE] 
 > Use o tempo de execução de integração auto-hospedado para dar suporte a armazenamentos de dados que exigem o seu próprio Driver, como SAP Hana, MySQL etc.  Para obter mais informações, consulte [armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).
@@ -113,7 +109,7 @@ Para saber mais, veja o artigo sobre como criar e configurar IR do Azure-SSIS, e
 
 Confira estes artigos para obter mais informações sobre o runtime do Azure-SSIS: 
 
-- [Tutorial: implantar pacotes do SSIS para o Azure](tutorial-create-azure-ssis-runtime-portal.md). Este artigo fornece instruções passo a passo para criar um Azure-SSIS IR e usa um banco de dados SQL do Azure para hospedar o catálogo do SSIS. 
+- [Tutorial: implantar pacotes do SSIS para o Azure](./tutorial-deploy-ssis-packages-azure.md). Este artigo fornece instruções passo a passo para criar um Azure-SSIS IR e usa um banco de dados SQL do Azure para hospedar o catálogo do SSIS. 
 - [Como: Criar um runtime de integração do Azure-SSIS](create-azure-ssis-integration-runtime.md). Este artigo expande o tutorial e fornece instruções sobre como usar o SQL Instância Gerenciada e ingressar o IR em uma rede virtual. 
 - [Monitore um IR do Azure-SSIS](monitor-integration-runtime.md#azure-ssis-integration-runtime). Este artigo mostra como recuperar informações sobre um IR do Azure-SSIS e descrições de status nas informações retornadas. 
 - [Gerencie um IR do Azure-SSIS](manage-azure-ssis-integration-runtime.md). Este artigo mostra como parar, iniciar ou remover um IR do Azure-SSIS. Ele também mostra como expandir o IR do Azure-SSIS adicionando mais nós ao IR. 
@@ -143,7 +139,7 @@ Se você optar por usar a resolução automática Azure IR na rede pública, que
   - Quando os dados são copiados para o Salesforce do qual a região não é detectável, a atividade de cópia é executada no IR no leste dos EUA.
 
   >[!TIP] 
-  >Se você tiver requisitos de conformidade de dados restritos e precisar garantir que os dados não saiam de uma determinada geografia, você pode criar explicitamente um IR do Azure em uma determinada região e apontar o Serviço Vinculado a esse IR usando a propriedade ConnectVia. Por exemplo, se você quiser copiar dados de Blob no Sul do Reino Unido para SQL DW no Sul do Reino Unido e quiser garantir que os dados não saiam do Reino Unido, crie um IR do Azure no Sul do Reino Unido e vincule os dois Serviços Vinculados a este IR.
+  >Se você tiver requisitos de conformidade de dados restritos e precisar garantir que os dados não saiam de uma determinada geografia, você pode criar explicitamente um IR do Azure em uma determinada região e apontar o Serviço Vinculado a esse IR usando a propriedade ConnectVia. Por exemplo, se você quiser copiar dados do blob em Sul do Reino Unido para o Azure Synapse Analytics no Sul do Reino Unido e desejar garantir que os dados não saiam do Reino Unido, crie um Azure IR no Sul do Reino Unido e vincule os dois serviços vinculados a esse IR.
 
 - Para pesquisa/GetMetadata/excluir execução de atividade (também conhecida como atividades de pipeline), expedição de atividade de transformação (também conhecida como atividades externas) e operações de criação (testar conexão, procurar lista de pastas e lista de tabelas, Visualizar dados), ADF usa o IR na região de data factory.
 
@@ -202,4 +198,4 @@ Veja os artigos a seguir:
 
 - [Criar tempo de execução de integração do Azure](create-azure-integration-runtime.md)
 - [Criar um Integration Runtime auto-hospedado](create-self-hosted-integration-runtime.md)
-- [Crie um tempo de execução de integração do Azure-SSIS](create-azure-ssis-integration-runtime.md). Este artigo expande o tutorial e fornece instruções sobre como usar o SQL Instância Gerenciada e ingressar o IR em uma rede virtual. 
+- [Crie um tempo de execução de integração do Azure-SSIS](create-azure-ssis-integration-runtime.md). Este artigo expande o tutorial e fornece instruções sobre como usar o SQL Instância Gerenciada e ingressar o IR em uma rede virtual.

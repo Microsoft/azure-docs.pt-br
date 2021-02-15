@@ -7,34 +7,34 @@ manager: craigg
 ms.service: synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
-ms.date: 09/06/2018
+ms.date: 11/20/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 4d66a1174b1b4adc94b24c6aecd55b2b8679f2f7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 041751b5b23dbb3153f1ae638303579a860c0e5b
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85211877"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020156"
 ---
-# <a name="how-to-monitor-the-gen2-cache"></a>Como monitorar o cache Gen2
+# <a name="how-to-monitor-the-adaptive-cache"></a>Como monitorar o cache adaptável
 
-Este artigo descreve como monitorar e solucionar problemas de desempenho de consultas lentas determinando se sua carga de trabalho está aproveitando da forma ideal o cache Gen2.
+Este artigo descreve como monitorar e solucionar problemas de desempenho de consulta lento, determinando se sua carga de trabalho está aproveitando o cache adaptável para pools de SQL dedicados.
 
-A arquitetura de armazenamento Gen2 divide automaticamente em camadas seus segmentos columnstore consultados com mais frequência em um cache que reside em SSDs baseados em NVMe projetado para data warehouses Gen2. O melhor desempenho é alcançado quando suas consultas recuperam segmentos que residem no cache.
+A arquitetura de armazenamento do pool do SQL dedicada coloca automaticamente em camadas os segmentos columnstore consultados com mais frequência em um cache que reside no SSDs baseado em NVMe. Você terá maior desempenho quando suas consultas recuperarem segmentos que residem no cache.
  
 ## <a name="troubleshoot-using-the-azure-portal"></a>Solucionar problemas usando o Portal do Azure
 
-Você pode usar o Azure Monitor para exibir métricas do cache Gen2 para solucionar problemas de desempenho de consulta. Primeiro, acesse a portal do Azure e clique em **Monitor**, **métricas** e **+ Selecione um escopo**:
+Você pode usar Azure Monitor para exibir as métricas de cache para solucionar problemas de desempenho de consulta. Primeiro, acesse a portal do Azure e clique em **Monitor**, **métricas** e **+ Selecione um escopo**:
 
-![Azure Monitor](./media/sql-data-warehouse-how-to-monitor-cache/cache-0.png)
+![Captura de tela mostra selecionar um escopo selecionado de métricas no portal do Azure.](./media/sql-data-warehouse-how-to-monitor-cache/cache-0.png)
 
-Use as barras de pesquisa e lista suspensa para localizar o data warehouse. Em seguida, selecione aplicar.
+Use as barras de pesquisa e suspensa para localizar seu pool SQL dedicado. Em seguida, selecione aplicar.
 
-![Azure Monitor](./media/sql-data-warehouse-how-to-monitor-cache/cache-1.png)
+![Captura de tela mostra o painel Selecionar um escopo onde você pode selecionar seu data warehouse.](./media/sql-data-warehouse-how-to-monitor-cache/cache-1.png)
 
-As principais métricas para solucionar problemas do cache Gen2 são **Percentual de ocorrência no cache** e **Percentual de uso do cache**. Selecione **porcentagem de acesso ao cache** e, em seguida, use o botão **Adicionar métrica** para adicionar o **percentual de cache usado**. 
+As principais métricas para solução de problemas de cache são **percentual de impacto de cache** e percentual de **cache usado**. Selecione **porcentagem de acesso ao cache** e, em seguida, use o botão **Adicionar métrica** para adicionar o **percentual de cache usado**. 
 
 ![Métricas de cache](./media/sql-data-warehouse-how-to-monitor-cache/cache-2.png)
 

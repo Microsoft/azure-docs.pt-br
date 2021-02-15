@@ -3,12 +3,12 @@ title: Fazer backup de SQL Server usando Servidor de Backup do Azure
 description: Neste artigo, aprenda a configuração para fazer backup de bancos de dados SQL Server usando Backup do Microsoft Azure Server (MABS).
 ms.topic: conceptual
 ms.date: 03/24/2017
-ms.openlocfilehash: caf3d49c9b921cab97054a97ece271e484a734bd
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 29813741e88ad5f2bc5109be87939abf7cc11502
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89005200"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91316912"
 ---
 # <a name="back-up-sql-server-to-azure-by-using-azure-backup-server"></a>Fazer backup de SQL Server no Azure usando Servidor de Backup do Azure
 
@@ -24,10 +24,10 @@ Para fazer backup de um banco de dados SQL Server e recuperá-lo do Azure:
 
 * Se você tiver um banco de dados com arquivos em um compartilhamento de arquivo remoto, a proteção falhará com a ID do Erro 104. O MABS não dá suporte à proteção para SQL Server dados em um compartilhamento de arquivos remoto.
 * O MABS não pode proteger bancos de dados armazenados em compartilhamentos SMB remotos.
-* Verifique se as [réplicas do grupo de disponibilidade estão configuradas como somente leitura](/sql/database-engine/availability-groups/windows/configure-read-only-access-on-an-availability-replica-sql-server?view=sql-server-ver15).
+* Verifique se as [réplicas do grupo de disponibilidade estão configuradas como somente leitura](/sql/database-engine/availability-groups/windows/configure-read-only-access-on-an-availability-replica-sql-server).
 * Você deve adicionar explicitamente a conta do sistema **NTAuthority\System** ao grupo Sysadmin em SQL Server.
-* Ao fazer a recuperação de um banco de dados parcialmente independente em um local alternativo, verifique se a instância SQL de destino tem o recurso [Banco de Dados Independentes](/sql/relational-databases/databases/migrate-to-a-partially-contained-database?view=sql-server-ver15#enable) habilitado.
-* Ao fazer a recuperação de um banco de dados de fluxo de arquivos em um local alternativo, verifique se a instância SQL de destino tem o recurso [Banco de dados de fluxo de arquivos](/sql/relational-databases/blob/enable-and-configure-filestream?view=sql-server-ver15) habilitado.
+* Ao fazer a recuperação de um banco de dados parcialmente independente em um local alternativo, verifique se a instância SQL de destino tem o recurso [Banco de Dados Independentes](/sql/relational-databases/databases/migrate-to-a-partially-contained-database#enable) habilitado.
+* Ao fazer a recuperação de um banco de dados de fluxo de arquivos em um local alternativo, verifique se a instância SQL de destino tem o recurso [Banco de dados de fluxo de arquivos](/sql/relational-databases/blob/enable-and-configure-filestream) habilitado.
 * Proteção para o SQL Server AlwaysOn:
   * O MABS detecta grupos de disponibilidade ao executar a consulta na criação do grupo de proteção.
   * O MABS detecta um failover e continua a proteção do banco de dados.
@@ -45,7 +45,7 @@ Para fazer backup de um banco de dados SQL Server e recuperá-lo do Azure:
     * Se o backup falhar no nó selecionado, a operação de backup falhará.
     * Não há suporte para a recuperação para o local original.
 * Problemas de backup do SQL Server 2014 ou superior:
-  * O SQL Server 2014 adicionou um novo recurso para a criação de um [banco de dados para o SQL Server local no Armazenamento de Blobs do Microsoft Azure](/sql/relational-databases/databases/sql-server-data-files-in-microsoft-azure?view=sql-server-ver15). MABS não pode ser usado para proteger essa configuração.
+  * O SQL Server 2014 adicionou um novo recurso para a criação de um [banco de dados para o SQL Server local no Armazenamento de Blobs do Microsoft Azure](/sql/relational-databases/databases/sql-server-data-files-in-microsoft-azure). MABS não pode ser usado para proteger essa configuração.
   * Há alguns problemas conhecidos com a preferência de backup "preferir secundário" para a opção AlwaysOn do SQL. O MABS sempre faz um backup do secundário. Se nenhum secundário puder ser encontrado, o backup falhará.
 
 ## <a name="before-you-start"></a>Antes de começar
@@ -70,7 +70,7 @@ Para proteger SQL Server bancos de dados no Azure, primeiro crie uma política d
 1. Nomeie o grupo de proteção e selecione **desejo proteção online**.
 
     ![Escolha um método de proteção de dados – proteção de disco de curto prazo ou proteção online do Azure](./media/backup-azure-backup-sql/pg-name.png)
-1. Na página **especificar objetivos de curto prazo** , inclua as entradas necessárias para criar pontos de backup para o disco.
+1. Na página **especificar metas de Short-Term** , inclua as entradas necessárias para criar pontos de backup para o disco.
 
     Neste exemplo, o **período de retenção** é definido como *5 dias*. A **frequência de sincronização** de backup é definida como uma vez a cada *15 minutos*. O **backup completo expresso** é definido como *8:00 PM*.
 

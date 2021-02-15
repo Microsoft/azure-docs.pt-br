@@ -10,12 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: dba0f22f1dfece7edd92a80ae1c3a91616a4236c
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 09a4dc8467b9b3c11c8daeb5ca8c62a0e26e79de
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815905"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96574999"
 ---
 # <a name="data-science-with-a-windows-data-science-virtual-machine"></a>Ciência de dados com um Máquina Virtual de Ciência de Dados do Windows
 
@@ -25,7 +25,7 @@ O DSVM trabalha junto com os serviços do Azure. Ele pode ler e processar dados 
 
 Neste artigo, você aprenderá a usar seu DSVM para executar tarefas de ciência de dados e interagir com outros serviços do Azure. Veja algumas tarefas que você pode realizar na DSVM:
 
-- Use um notebook Jupyter para experimentar seus dados em um navegador usando o Python 2, o Python 3 e o Microsoft R. (o Microsoft R é uma versão do R pronta para a empresa, projetada para o desempenho.)
+- Use um Jupyter Notebook para experimentar seus dados em um navegador usando o Python 2, o Python 3 e o Microsoft R. (o Microsoft R é uma versão do R pronta para a empresa, projetada para o desempenho.)
 - Explore dados e desenvolva modelos localmente no DSVM usando Microsoft Machine Learning Server e Python.
 - Administre seus recursos do Azure usando o portal do Azure ou o PowerShell.
 - Estenda seu espaço de armazenamento e compartilhe conjuntos de arquivos/código em grande escala em toda a sua equipe criando um compartilhamento de arquivo do Azure como uma unidade montável em seu DSVM.
@@ -49,8 +49,8 @@ Neste artigo, você aprenderá a usar seu DSVM para executar tarefas de ciência
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 
-## <a name="use-jupyter-notebooks"></a>Usar notebooks Jupyter
-O Jupyter Notebook fornece um IDE baseado em navegador para exploração e modelagem de dados. Você pode usar o Python 2, Python 3 ou R (software livre e Microsoft R Server) em um notebook Jupyter.
+## <a name="use-jupyter-notebooks"></a>Usar o Jupyter Notebooks
+O Jupyter Notebook fornece um IDE baseado em navegador para exploração e modelagem de dados. Você pode usar o Python 2, Python 3 ou R (tanto de software livre quanto de Microsoft R Server) em uma Jupyter Notebook.
 
 Para iniciar o Jupyter Notebook, selecione o ícone de **Jupyter Notebook** no menu **Iniciar** ou na área de trabalho. No prompt de comando do DSVM, você também pode executar o comando ```jupyter notebook``` do diretório em que você tem blocos de anotações existentes ou onde deseja criar novos blocos de anotações.  
 
@@ -75,13 +75,13 @@ Para o R, você pode usar um IDE como RStudio que pode ser encontrado no menu in
 
 Para Python, você pode usar um IDE como o Visual Studio Community Edition, que tem a extensão PTVS (Ferramentas Python para Visual Studio) pré-instalada. Por padrão, somente o Python 3,6, o ambiente de Conda raiz, é configurado em PTVS. Para habilitar o Anaconda Python 2,7, execute as seguintes etapas:
 
-1. Crie ambientes personalizados para cada versão acessando **ferramentas**  >  **python**  >  **ambientes Python**e, em seguida, selecionando **+ personalizado** no Visual Studio Community Edition.
+1. Crie ambientes personalizados para cada versão acessando **ferramentas**  >  **python**  >  **ambientes Python** e, em seguida, selecionando **+ personalizado** no Visual Studio Community Edition.
 1. Forneça uma descrição e defina o caminho do prefixo do ambiente como **c:\anaconda\envs\python2** para anaconda Python 2,7.
 1. Selecione **detecção automática**  >  **aplicar** para salvar o ambiente.
 
-Consulte a [documentação do PTVS](https://aka.ms/ptvsdocs) para obter mais detalhes sobre como criar ambientes do Python.
+Consulte a [documentação do PTVS](/visualstudio/python/) para obter mais detalhes sobre como criar ambientes do Python.
 
-Agora você está pronto para criar um novo projeto Python. Vá para **arquivo**  >  **novo**  >  **projeto**  >  **Python** e selecione o tipo de aplicativo Python que você está criando. Você pode definir o ambiente do Python para o projeto atual para a versão desejada (Python 2,7 ou 3,6) clicando com o botão direito do mouse em **ambientes do Python** e selecionando **Adicionar/remover ambientes Python**. Você pode encontrar mais informações sobre como trabalhar com o PTVS na [documentação do produto](https://aka.ms/ptvsdocs).
+Agora você está pronto para criar um novo projeto Python. Vá para **arquivo**  >  **novo**  >  **projeto**  >  **Python** e selecione o tipo de aplicativo Python que você está criando. Você pode definir o ambiente do Python para o projeto atual para a versão desejada (Python 2,7 ou 3,6) clicando com o botão direito do mouse em **ambientes do Python** e selecionando **Adicionar/remover ambientes Python**. Você pode encontrar mais informações sobre como trabalhar com o PTVS na [documentação do produto](/visualstudio/python/).
 
 
 
@@ -91,7 +91,7 @@ O DSVM não permite apenas que você crie sua solução de análise localmente n
 Para administrar seus recursos de nuvem e sua assinatura do Azure, você tem duas opções:
 + Use o navegador e vá para a [portal do Azure](https://portal.azure.com).
 
-+ Use scripts do PowerShell. Execute Azure PowerShell de um atalho na área de trabalho ou no menu **Iniciar** . Consulte a [documentação do Microsoft Azure PowerShell](../../powershell-azure-resource-manager.md) para obter detalhes completos. 
++ Use scripts do PowerShell. Execute Azure PowerShell de um atalho na área de trabalho ou no menu **Iniciar** . Consulte a [documentação do Microsoft Azure PowerShell](../../azure-resource-manager/management/manage-resources-powershell.md) para obter detalhes completos. 
 
 ## <a name="extend-storage-by-using-shared-file-systems"></a>Estender o armazenamento usando sistemas de arquivos compartilhados
 Os cientistas de dados podem compartilhar grandes conjuntos de dados, códigos ou outros recursos dentro da equipe. O DSVM tem cerca de 45 GB de espaço disponível. Para estender o armazenamento, você pode usar os arquivos do Azure e montá-lo em uma ou mais instâncias do DSVM ou acessá-lo por meio de uma API REST. Você também pode usar o [portal do Azure](../../virtual-machines/windows/attach-managed-disk-portal.md) ou usar [Azure PowerShell](../../virtual-machines/windows/attach-disk-ps.md) para adicionar discos de dados dedicados extras. 
@@ -162,7 +162,7 @@ O armazenamento de BLOBs do Azure é um serviço de armazenamento em nuvem confi
 
    ![Captura de tela do processo de criação da conta de armazenamento no portal do Azure](./media/vm-do-ten-things/create-azure-blob.png)
 
-* Confirme se a ferramenta de linha de comando AzCopy está pré-instalada: ```C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy.exe``` . O diretório que contém azcopy.exe já está em sua variável de ambiente PATH, portanto, você pode evitar digitar o caminho de comando completo ao executar essa ferramenta. Para obter mais informações sobre a ferramenta AzCopy, consulte a [documentação do AzCopy](../../storage/common/storage-use-azcopy.md).
+* Confirme se a ferramenta de linha de comando AzCopy está pré-instalada: ```C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy.exe``` . O diretório que contém azcopy.exe já está em sua variável de ambiente PATH, portanto, você pode evitar digitar o caminho de comando completo ao executar essa ferramenta. Para obter mais informações sobre a ferramenta AzCopy, consulte a [documentação do AzCopy](../../storage/common/storage-use-azcopy-v10.md).
 * Inicie o Gerenciador de Armazenamento do Azure. Você pode baixá-lo na  [página da web Gerenciador de armazenamento](https://storageexplorer.com/). 
 
    ![Captura de tela de Gerenciador de Armazenamento do Azure acessar uma conta de armazenamento](./media/vm-do-ten-things/AzureStorageExplorer_v4.png)
@@ -201,7 +201,7 @@ Você também pode carregar dados do arquivo local em sua VM usando Gerenciador 
 
 #### <a name="read-data-from-an-azure-blob-python-odbc"></a>Ler dados de um blob do Azure: ODBC do Python
 
-Você pode usar a biblioteca BlobService para ler dados diretamente de um blob em um notebook Jupyter ou em um programa Python.
+Você pode usar a biblioteca BlobService para ler dados diretamente de um blob em um Jupyter Notebook ou em um programa Python.
 
 Primeiro, importe os pacotes necessários:
 
@@ -252,10 +252,10 @@ Os dados são lidos como um quadro de dados:
 ![Captura de tela das primeiras 10 linhas de dados](./media/vm-do-ten-things/IPNB_data_readin.png)
 
 
-### <a name="azure-synapse-analytics-formerly-sql-dw-and-databases"></a>Azure Synapse Analytics (anteriormente conhecido como SQL DW) e bancos de dados
-O Azure Synapse Analytics (anteriormente conhecido como SQL DW) é um data warehouse elástico como um serviço com uma experiência de SQL Server de classe empresarial.
+### <a name="azure-synapse-analytics-and-databases"></a>Azure Synapse Analytics e bancos de dados
+O Azure Synapse Analytics é um data warehouse elástico como um serviço com uma experiência de SQL Server de classe empresarial.
 
-Você pode provisionar o Azure Synapse Analytics seguindo as instruções neste [artigo](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md). Depois de provisionar o SQL data warehouse, você pode usar [este passo a passos](../team-data-science-process/sqldw-walkthrough.md) para fazer upload, exploração e modelagem de dados usando dados dentro do data warehouse do SQL.
+Você pode provisionar o Azure Synapse Analytics seguindo as instruções neste [artigo](../../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md). Depois de provisionar o Azure Synapse Analytics, você pode usar [este passo a passos](../team-data-science-process/sqldw-walkthrough.md) para fazer upload, exploração e modelagem de dados usando dados dentro do Azure Synapse Analytics.
 
 #### <a name="azure-cosmos-db"></a>Azure Cosmos DB
 O Azure Cosmos DB é um banco de dados NoSQL na nuvem. Você pode usá-lo para trabalhar com documentos como JSON e para armazenar e consultar os documentos.
@@ -269,7 +269,7 @@ Use as seguintes etapas de pré-requisito para acessar Azure Cosmos DB do DSVM:
    
     `/s:JsonFile /s.Files:https://data.humdata.org/dataset/a60ac839-920d-435a-bf7d-25855602699d/resource/7234d067-2d74-449a-9c61-22ae6d98d928/download/volcano.json /t:DocumentDBBulk /t.ConnectionString:AccountEndpoint=https://[DocDBAccountName].documents.azure.com:443/;AccountKey=[[KEY];Database=volcano /t.Collection:volcano1`
 
-Depois de importar os dados, você pode ir para Jupyter e abrir o notebook intitulado *documentdbsample,*. Ele contém código Python para acessar Azure Cosmos DB e fazer algumas consultas básicas. Você pode saber mais sobre Azure Cosmos DB visitando a [página de documentação](https://docs.microsoft.com/azure/cosmos-db/)do serviço.
+Depois de importar os dados, você pode ir para Jupyter e abrir o notebook intitulado *documentdbsample,*. Ele contém código Python para acessar Azure Cosmos DB e fazer algumas consultas básicas. Você pode saber mais sobre Azure Cosmos DB visitando a [página de documentação](../../cosmos-db/index.yml)do serviço.
 
 ## <a name="use-power-bi-reports-and-dashboards"></a>Usar Power BI relatórios e painéis 
 Você pode visualizar o arquivo JSON vulcão do exemplo de Azure Cosmos DB anterior no Power BI Desktop para obter informações visuais sobre os dados. As etapas detalhadas estão disponíveis no [artigo sobre o Power BI](../../cosmos-db/powerbi-visualize.md). Aqui estão as etapas de alto nível:
@@ -326,10 +326,9 @@ Além dos exemplos baseados em estrutura, você pode obter um conjunto de orient
 
 - [Um guia de instruções para criar uma solução de ponta a ponta para detectar produtos em imagens](https://github.com/Azure/cortana-intelligence-product-detection-from-images): a detecção de imagem é uma técnica que pode localizar e classificar objetos em imagens. Essa tecnologia tem o potencial de trazer enormes recompensas em muitos domínios de negócios da vida real. Por exemplo, os varejistas podem usar essa técnica para determinar qual produto um cliente retirou da prateleira. Por sua vez, essas informações ajudam as lojas a gerenciar o estoque do produtos. 
 
-- [Aprendizado profundo de áudio](https://blogs.technet.microsoft.com/machinelearning/2018/01/30/hearing-ai-getting-started-with-deep-learning-for-audio-on-azure/): Este tutorial mostra como treinar um modelo de aprendizado profundo para detecção de eventos de áudio no conjunto de informações de [sons urbanas](https://serv.cusp.nyu.edu/projects/urbansounddataset/urbansound8k.html). Ele também fornece uma visão geral de como trabalhar com dados de áudio.
+- [Aprendizado profundo de áudio](/archive/blogs/machinelearning/hearing-ai-getting-started-with-deep-learning-for-audio-on-azure): Este tutorial mostra como treinar um modelo de aprendizado profundo para detecção de eventos de áudio no conjunto de informações de [sons urbanas](https://serv.cusp.nyu.edu/projects/urbansounddataset/urbansound8k.html). Ele também fornece uma visão geral de como trabalhar com dados de áudio.
 
 - [Classificação de documentos de texto](https://github.com/anargyri/lstm_han): Este tutorial demonstra como criar e treinar duas arquiteturas de rede neural: rede de atenção hierárquica e LSTM (memória de longa duração curta). Essas redes neurais usam a API Keras para aprendizagem profunda para classificar documentos de texto. 
 
 ## <a name="summary"></a>Resumo
 Este artigo descreveu algumas das coisas que você pode fazer no Microsoft Máquina Virtual de Ciência de Dados. Há muito mais coisas que você pode fazer para tornar o DSVM um ambiente de análise eficaz.
-

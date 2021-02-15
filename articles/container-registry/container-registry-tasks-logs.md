@@ -3,12 +3,12 @@ title: Exibir logs de execução de tarefa – tarefas
 description: Como exibir e gerenciar logs de execução gerados por tarefas ACR.
 ms.topic: article
 ms.date: 03/09/2020
-ms.openlocfilehash: f7098f470a3f8a0cdac019f4bf8eb8fe14330337
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b2a10d4a3a2746acf38445673af994c6317c77de
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79246962"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027169"
 ---
 # <a name="view-and-manage-task-run-logs"></a>Exibir e gerenciar logs de execução de tarefa
 
@@ -65,14 +65,14 @@ Se uma tarefa for disparada automaticamente, por exemplo, por uma atualização 
 Para exibir os logs de execução no Portal:
 
 1. Navegue até seu registro de contêiner.
-1. Em **Serviços**, selecione **tarefas**  >  **execuções**.
+1. Em **Serviços** , selecione **tarefas**  >  **execuções** .
 1. Selecione uma **ID de execução** para exibir o status de execução e os logs de execução. O log contém as mesmas informações que um log transmitido, se um for gerado.
 
 ![Exibir o portal de logon da execução de tarefa](./media/container-registry-tasks-logs/portal-task-run-logs.png)
 
 Para exibir um log usando o CLI do Azure, execute [AZ ACR Task logs](/cli/azure/acr/task#az-acr-task-logs) e ESPECIFIQUE uma ID de execução, um nome de tarefa ou uma imagem específica criar por uma tarefa de compilação. Se um nome de tarefa for especificado, o comando mostrará o log para a última execução criada.
 
-O exemplo a seguir gera o log para a execução com ID *cf4*:
+O exemplo a seguir gera o log para a execução com ID *cf4* :
 
 ```azurecli
 az acr task logs --registry mycontainerregistry1220 \
@@ -94,18 +94,10 @@ az acr task logs --registry mycontainerregistry1220 \
 
 Você também pode salvar arquivos de log locais no armazenamento do Azure. Por exemplo, use a [CLI do Azure](../storage/blobs/storage-quickstart-blobs-cli.md), a [portal do Azure](../storage/blobs/storage-quickstart-blobs-portal.md)ou outros métodos para carregar arquivos em uma conta de armazenamento.
 
-
 ## <a name="next-steps"></a>Próximas etapas
 
 * Saiba mais sobre [as tarefas do registro de contêiner do Azure](container-registry-tasks-overview.md)
 
-<!-- LINKS - External -->
-[base-alpine]: https://hub.docker.com/_/alpine/
-[base-dotnet]: https://hub.docker.com/r/microsoft/dotnet/
-[base-node]: https://hub.docker.com/_/node/
-[base-windows]: https://hub.docker.com/r/microsoft/nanoserver/
-[sample-archive]: https://github.com/Azure-Samples/acr-build-helloworld-node/archive/master.zip
-[terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 
 <!-- LINKS - Internal -->
 [azure-cli]: /cli/azure/install-azure-cli

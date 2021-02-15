@@ -6,14 +6,14 @@ ms.author: sacedarb
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 3/10/2020
-ms.openlocfilehash: 647ab275fb7f34ee9721e4f085df0d22048fc04d
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 6aea427848afd39b9b9ca166856470a2f9b88694
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044236"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97705091"
 ---
-# <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-power-bi"></a>Use a identidade gerenciada para autenticar seu trabalho de Azure Stream Analytics para Power BI
+# <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-power-bi-preview"></a>Usar identidade gerenciada para autenticar seu trabalho de Azure Stream Analytics para Power BI (versão prévia)
 
 A [autenticação de identidade gerenciada](../active-directory/managed-identities-azure-resources/overview.md) para saída para Power bi fornece aos trabalhos de Stream Analytics acesso direto a um espaço de trabalho dentro de sua conta de Power bi. Esse recurso permite que as implantações de Stream Analytics trabalhos sejam totalmente automatizadas, já que não é mais necessário que um usuário faça logon interativamente no Power BI por meio do portal do Azure. Além disso, trabalhos de longa execução que gravam em Power BI agora têm melhor suporte, já que você não precisará reautorizar o trabalho periodicamente.
 
@@ -23,7 +23,7 @@ Este artigo mostra como habilitar a identidade gerenciada para o Power BI saída
 
 Os itens a seguir são necessários para usar esse recurso:
 
-- Uma conta de Power BI com uma [licença pro](https://docs.microsoft.com/power-bi/service-admin-purchasing-power-bi-pro).
+- Uma conta de Power BI com uma [licença pro](/power-bi/service-admin-purchasing-power-bi-pro).
 
 - Um espaço de trabalho atualizado dentro de sua conta de Power BI. Consulte o [comunicado do Power bi](https://powerbi.microsoft.com/blog/announcing-new-workspace-experience-general-availability-ga/) sobre esse recurso para obter mais detalhes.
 
@@ -35,7 +35,7 @@ Os itens a seguir são necessários para usar esse recurso:
 
 2. Antes de configurar a saída, conceda ao trabalho de Stream Analytics acesso ao seu espaço de trabalho do Power BI seguindo as instruções na seção [fornecer ao trabalho de Stream Analytics acesso ao seu espaço de trabalho do Power bi](#give-the-stream-analytics-job-access-to-your-power-bi-workspace) deste artigo.
 
-3. Navegue até a seção de **saídas** do trabalho do seu fluxo analítico, selecione **+ Adicionar**e, em seguida, escolha **Power bi**. Em seguida, selecione o botão **autorizar** e faça logon com sua conta de Power bi.
+3. Navegue até a seção de **saídas** do trabalho do seu fluxo analítico, selecione **+ Adicionar** e, em seguida, escolha **Power bi**. Em seguida, selecione o botão **autorizar** e faça logon com sua conta de Power bi.
 
    ![Autorizar com Power BI conta](./media/stream-analytics-powerbi-output-managed-identity/stream-analytics-authorize-powerbi.png)
 
@@ -45,7 +45,7 @@ Os itens a seguir são necessários para usar esse recurso:
 
 ## <a name="azure-resource-manager-deployment"></a>Implantação do Azure Resource Manager
 
-Azure Resource Manager permite automatizar totalmente a implantação de seu trabalho de Stream Analytics. Você pode implantar modelos do Resource Manager usando Azure PowerShell ou o [CLI do Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest). Os exemplos a seguir usam o CLI do Azure.
+Azure Resource Manager permite automatizar totalmente a implantação de seu trabalho de Stream Analytics. Você pode implantar modelos do Resource Manager usando Azure PowerShell ou o [CLI do Azure](/cli/azure/). Os exemplos a seguir usam o CLI do Azure.
 
 
 1. Você pode criar um recurso **Microsoft. StreamAnalytics/streamingjobs** com uma identidade gerenciada, incluindo a seguinte propriedade na seção de recursos do seu modelo do Resource Manager:
@@ -100,7 +100,7 @@ Azure Resource Manager permite automatizar totalmente a implantação de seu tra
     Implante o trabalho acima para o grupo de recursos de **exemplo** usando o comando a seguir CLI do Azure:
 
     ```azurecli
-    az group deployment create --resource-group ExampleGroup -template-file StreamingJob.json
+    az deployment group create --resource-group ExampleGroup -template-file StreamingJob.json
     ```
 
 2. Depois que o trabalho for criado, use Azure Resource Manager para recuperar a definição completa do trabalho.
@@ -155,14 +155,14 @@ Azure Resource Manager permite automatizar totalmente a implantação de seu tra
 
 ## <a name="give-the-stream-analytics-job-access-to-your-power-bi-workspace"></a>Dê ao Stream Analytics o acesso ao seu espaço de trabalho Power BI
 
-Agora que o trabalho de Stream Analytics foi criado, ele pode receber acesso a um espaço de trabalho Power BI.
+Agora que o trabalho de Stream Analytics foi criado, ele pode receber acesso a um espaço de trabalho Power BI. Depois de ter dado o acesso ao trabalho, aguarde alguns minutos para que a identidade se propague.
 
 ### <a name="use-the-power-bi-ui"></a>Usar a interface do usuário do Power BI
 
    > [!Note]
-   > Para adicionar o trabalho de Stream Analytics ao seu espaço de trabalho do Power BI usando a interface do usuário, você também precisa habilitar o acesso à entidade de serviço nas **configurações do desenvolvedor** no portal de administração do Power bi. Consulte [introdução a uma entidade de serviço](https://docs.microsoft.com/power-bi/developer/embed-service-principal) para obter mais detalhes.
+   > Para adicionar o trabalho de Stream Analytics ao seu espaço de trabalho do Power BI usando a interface do usuário, você também precisa habilitar o acesso à entidade de serviço nas **configurações do desenvolvedor** no portal de administração do Power bi. Consulte [introdução a uma entidade de serviço](/power-bi/developer/embed-service-principal) para obter mais detalhes.
 
-1. Navegue até as configurações de acesso do espaço de trabalho. Consulte este artigo para obter mais detalhes: [conceder acesso ao seu espaço de trabalho](https://docs.microsoft.com/power-bi/service-create-the-new-workspaces#give-access-to-your-workspace).
+1. Navegue até as configurações de acesso do espaço de trabalho. Consulte este artigo para obter mais detalhes: [conceder acesso ao seu espaço de trabalho](/power-bi/service-create-the-new-workspaces#give-access-to-your-workspace).
 
 2. Digite o nome do seu trabalho de Stream Analytics na caixa de texto e selecione **colaborador** como o nível de acesso.
 
@@ -195,7 +195,7 @@ Add-PowerBIWorkspaceUser -WorkspaceId <group-id> -PrincipalId <principal-id> -Pr
 
 ### <a name="use-the-power-bi-rest-api"></a>Usar a API REST do Power BI
 
-O trabalho de Stream Analytics também pode ser adicionado como um colaborador ao espaço de trabalho usando a API REST "Adicionar usuário de grupo" diretamente. A documentação completa para essa API pode ser encontrada aqui: [grupos-Adicionar usuário do grupo](https://docs.microsoft.com/rest/api/power-bi/groups/addgroupuser).
+O trabalho de Stream Analytics também pode ser adicionado como um colaborador ao espaço de trabalho usando a API REST "Adicionar usuário de grupo" diretamente. A documentação completa para essa API pode ser encontrada aqui: [grupos-Adicionar usuário do grupo](/rest/api/power-bi/groups/addgroupuser).
 
 **Exemplo de solicitação**
 ```http
@@ -209,6 +209,10 @@ Corpo da solicitação
     "principalType": "App"
 }
 ```
+
+## <a name="remove-managed-identity"></a>Remover identidade gerenciada
+
+A identidade gerenciada criada para um trabalho de Stream Analytics é excluída somente quando o trabalho é excluído. Não é possível excluir a identidade gerenciada sem excluir o trabalho. Se você não quiser mais usar a identidade gerenciada, poderá alterar o método de autenticação para a saída. A identidade gerenciada continuará existindo até que o trabalho seja excluído e será usado se você decidir usar a autenticação de identidade gerenciada novamente.
 
 ## <a name="limitations"></a>Limitações
 Abaixo estão as limitações desse recurso:

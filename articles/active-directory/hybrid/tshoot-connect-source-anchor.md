@@ -10,12 +10,12 @@ ms.topic: troubleshooting
 ms.date: 04/19/2019
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: cb82eb2d8e23daec0ddb8856b713c1aa051f25c5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4e6460015430850c11fbf70a005d7440ce1b92fe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85355940"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91305997"
 ---
 # <a name="troubleshooting-source-anchor-issues-during-installation"></a>Solucionando problemas de âncora de origem durante a instalação
 Este artigo explica os diferentes problemas relacionados à âncora de origem que podem ocorrer durante a instalação e oferece maneiras de resolver esses problemas.
@@ -27,16 +27,16 @@ Este artigo explica os diferentes problemas relacionados à âncora de origem qu
 Durante a instalação personalizada, o Azure AD Connect lê a política de âncora de origem do Azure Active Directory. Se a política existir no Azure Active Directory, Azure AD Connect aplicará a mesma política, a menos que seja substituída pelo cliente. O Assistente informa qual atributo foi lido. Além disso, o assistente avisa se você tentar substituir a política de âncora de origem.
 
 Durante essa operação de leitura, é possível que a política de ancoragem de origem em Azure Active Directory seja inesperada. Nesse caso, Azure AD Connect não sabe o que a âncora de origem deve usar e precisa de substituição manual.</br>
-![unexpected](media/tshoot-connect-source-anchor/source1.png)
+![Captura de tela que mostra onde substituir manualmente a âncora de origem.](media/tshoot-connect-source-anchor/source1.png)
 
 Para resolver esse problema, você pode substituir manualmente a âncora de origem selecionando um atributo específico. Continue com esta opção se e somente se você tiver certeza de qual atributo deve ser selecionado. Se você não tiver certeza, entre em contato com [o suporte da Microsoft](https://support.microsoft.com/contactus/) para obter diretrizes. Se você alterar a política de âncora de origem, ela poderá interromper a associação entre os usuários locais e seus recursos do Azure associados.</br>
-![unexpected](media/tshoot-connect-source-anchor/source2.png)
+![Captura de tela que mostra o atributo especificado que substitui a âncora de origem.](media/tshoot-connect-source-anchor/source2.png)
 
 ### <a name="express-installation"></a>Instalação Expressa
 Durante a instalação expressa, o Azure AD Connect lê a política de âncora de origem do Azure Active Directory. Se a política existir no Azure Active Directory, Azure AD Connect aplicará a mesma política. Não há nenhuma opção para fazer a substituição manual.
 
 Durante essa operação de leitura, é possível que a política de ancoragem de origem em Azure Active Directory seja inesperada. Nesse caso, Azure AD Connect não sabe qual deve ser a âncora de origem.</br>
-![unexpected](media/tshoot-connect-source-anchor/source3.png)
+![Captura de tela que mostra o que acontece quando a âncora de origem na Azure Active Directory é inesperada.](media/tshoot-connect-source-anchor/source3.png)
 
 Para resolver esse problema, você precisa reinstalar o usando o modo personalizado e substituir manualmente a âncora de origem selecionando um atributo específico. Continue com esta opção se e somente se você tiver certeza de qual atributo deve ser selecionado. Se você não tiver certeza, entre em contato com [o suporte da Microsoft](https://support.microsoft.com/contactus/) para obter diretrizes. Se você alterar a política de âncora de origem, ela poderá interromper a associação entre os usuários locais e seus recursos do Azure associados.
 

@@ -7,25 +7,27 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/28/2020
 ms.author: sideeksh
-ms.openlocfilehash: a1952f6dccf12de4cb1571dacabecf78c65cd01b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d207a5629647ef3582f1e0490ef6ccc407f935f7
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87021640"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584831"
 ---
-# <a name="enable-zone-to-zone-disaster-recovery-for-azure-virtual-machines"></a>Habilitar a recuperação de desastre de zona para zona para máquinas virtuais do Azure
+# <a name="enable-azure-vm-disaster-recovery-between-availability-zones"></a>Habilitar a recuperação de desastre de VM do Azure entre zonas de disponibilidade
 
-Este artigo descreve como replicar, fazer failover e failback de máquinas virtuais do Azure de uma zona de disponibilidade para outra na mesma região do Azure.
+Este artigo descreve como replicar, fazer failover e failback de máquinas virtuais do Azure de uma zona de disponibilidade para outra, na mesma região do Azure.
 
 >[!NOTE]
 >
->- O suporte para a recuperação de desastre de zona para zona está limitado atualmente a duas regiões: Sudeste Asiático e Sul do Reino Unido.  
+>- O suporte para a recuperação de desastre de zona para zona está limitado atualmente a nove regiões: Sudeste Asiático, leste do Japão, leste da Austrália, Sul do Reino Unido, Europa Ocidental, Europa Setentrional, EUA Central, leste dos EUA e oeste dos EUA 2.  
 >- Site Recovery não move nem armazena os dados do cliente fora da região em que ele é implantado quando o cliente está usando a recuperação de desastre de zona para zona. Os clientes poderão selecionar um cofre dos serviços de recuperação em uma região diferente, se escolherem. O cofre dos serviços de recuperação contém metadados, mas não dados reais do cliente.
 
 Site Recovery serviço contribui para sua estratégia de recuperação de desastre e continuidade de negócios mantendo seus aplicativos de negócios em funcionamento, durante interrupções planejadas e não planejadas. É a opção de recuperação de desastre recomendada para manter seus aplicativos em funcionamento, se houver interrupções regionais.
 
 As Zonas de Disponibilidade são locais físicos exclusivos em uma região do Azure. Cada zona tem um ou mais datacenters. 
+
+Se você quiser mover VMs para uma zona de disponibilidade em uma região diferente, [examine este artigo](../resource-mover/move-region-availability-zone.md).
 
 ## <a name="using-availability-zones-for-disaster-recovery"></a>Usando Zonas de Disponibilidade para recuperação de desastres 
 
@@ -37,7 +39,7 @@ No entanto, em alguns cenários, Zonas de Disponibilidade pode ser aproveitada p
 
 - Muitos outros clientes têm uma infraestrutura de rede complicada e não querem recriá-la em uma região secundária devido ao custo e à complexidade associados. A recuperação de desastres de zona a zona reduz a complexidade, pois aproveita os conceitos de rede redundantes em Zonas de Disponibilidade tornando a configuração muito mais simples. Esses clientes preferem a simplicidade e também podem usar Zonas de Disponibilidade para recuperação de desastres.
 
-- Em algumas regiões que não têm uma região emparelhada na mesma jurisdição legal (por exemplo, Sudeste Asiático), a recuperação de desastres de zona para zona pode servir como a solução de recuperação de desastres de fato, pois ajuda a garantir a conformidade legal, já que seus aplicativos e dados não passam por limites nacionais. 
+- Em algumas regiões que não têm uma região emparelhada na mesma jurisdição legal (por exemplo, Sudeste Asiático), a recuperação de desastres de zona para zona pode servir como a solução de recuperação de desastres de fato, pois ajuda a garantir a conformidade legal, já que seus aplicativos e dados não se movem entre limites nacionais. 
 
 - A recuperação de desastres de zona para zona implica a replicação de dados entre distâncias menores quando comparada com a recuperação de desastre do Azure para o Azure e, portanto, você pode ver uma latência menor e, consequentemente, RPO inferior
 
@@ -68,13 +70,13 @@ Antes de implantar a recuperação de desastre de zona em zona para suas VMs, é
 |Recurso  | Declaração de suporte  |
 |---------|---------|
 |VMs clássicas   |     Sem suporte    |
-|VMs ARM    |    Suportado    |
-|Azure Disk Encryption V1 (passagem dupla, com AAD)     |     Suportado |
-|Azure Disk Encryption v2 (passagem única, sem AAD)    |    Suportado    |
+|VMs ARM    |    Com suporte    |
+|Azure Disk Encryption V1 (passagem dupla, com Azure Active Directory (Azure AD))     |     Com suporte   |
+|Azure Disk Encryption v2 (passagem única, sem o Azure AD)    |    Com suporte    |
 |Discos não gerenciados    |    Sem suporte    |
-|Discos gerenciados    |    Suportado    |
-|Chaves gerenciadas do cliente    |    Suportado    |
-|Grupos de posicionamento de proximidade    |    Suportado    |
+|Discos gerenciados    |    Com suporte    |
+|Chaves gerenciadas pelo cliente    |    Com suporte    |
+|Grupos de posicionamento de proximidade    |    Com suporte    |
 |Interoperabilidade de backup    |    Há suporte para backup e restauração em nível de arquivo. Backup e restauração de nível de VM e de disco e sem suporte.    |
 |Adicionar/remover quente    |    Os discos podem ser adicionados depois de habilitar a replicação de zona para zona. Não há suporte para a remoção de discos após habilitar a replicação de zona para zona.    | 
 
@@ -82,7 +84,7 @@ Antes de implantar a recuperação de desastre de zona em zona para suas VMs, é
 
 ### <a name="log-in"></a>Fazer logon
 
-Faça logon no portal do Azure.
+Faça logon no Portal do Azure.
 
 ### <a name="enable-replication-for-the-zonal-azure-virtual-machine"></a>Habilitar a replicação para a máquina virtual zonal do Azure
 
@@ -104,7 +106,7 @@ Faça logon no portal do Azure.
 
 7. Clique em ' Avançar: revisar + iniciar replicação ' e ' Iniciar replicação '.
 
-## <a name="faqs"></a>Perguntas Frequentes
+## <a name="faqs"></a>Perguntas frequentes
 
 **1. como o preço funciona para a recuperação de desastre de zona para zona?**
 Os preços da recuperação de desastre de zona para zona são idênticos aos preços da recuperação de desastre do Azure para o Azure. Você pode encontrar mais detalhes na página de preços [aqui](https://azure.microsoft.com/pricing/details/site-recovery/) e [aqui](https://azure.microsoft.com/blog/know-exactly-how-much-it-will-cost-for-enabling-dr-to-your-azure-vm/). Observe que os encargos de egresso que você veria na recuperação de desastre de zona para zona seriam menores do que a recuperação de desastre da região para a região.
@@ -119,7 +121,7 @@ A equipe do Site Recovery e equipe de gerenciamento de capacidade do Azure plane
 A recuperação de desastre de zona para zona dá suporte aos mesmos sistemas operacionais que a recuperação de desastre do Azure para o Azure. Consulte a matriz de suporte [aqui](./azure-to-azure-support-matrix.md).
 
 **5. os grupos de recursos de origem e de destino podem ser iguais?**
-Não, você deve fazer o failover para um grupo de recursos diferente.
+Não, você deve fazer failover para um grupo de recursos diferente.
 
 ## <a name="next-steps"></a>Próximas etapas
 

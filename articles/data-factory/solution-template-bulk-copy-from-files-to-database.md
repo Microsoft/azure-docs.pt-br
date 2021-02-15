@@ -1,19 +1,17 @@
 ---
 title: Cópia em massa de dados de arquivos para banco de dados
 description: Saiba como usar um modelo de solução para copiar dados em massa do Azure Data Lake Storage Gen2 para o Azure Synapse Analytics/Banco de Dados SQL do Azure.
-services: data-factory
 author: linda33wj
 ms.author: jingwang
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
-ms.date: 01/08/2020
-ms.openlocfilehash: 468bd838237e076aacb9dee0ccacfdcc1ea940af
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.date: 12/09/2020
+ms.openlocfilehash: 5f68c7b33a26bc8c01f3f413943351ff8d61b380
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82629109"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100376114"
 ---
 # <a name="bulk-copy-from-files-to-database"></a>Cópia em massa de dados de arquivos para banco de dados
 
@@ -55,7 +53,7 @@ O modelo define os dois seguintes parâmetros:
     ![Revisar o pipeline](media/solution-template-bulk-copy-from-files-to-database/new-pipeline.png)
 
     > [!NOTE]
-    > Se você escolheu o **Azure Synapse Analytics (conhecido anteriormente como SQL DW)** como destino de dados na **etapa 2** mencionada acima, insira uma conexão com o Armazenamento de Blobs do Azure para preparo, conforme exigido pelo SQL Data Warehouse Polybase. Como mostra a captura de tela a seguir, o modelo gera automaticamente um *Caminho de armazenamento* para o Armazenamento de Blobs. Verifique se o contêiner foi criado após a execução do pipeline.
+    > Se você escolheu o **Azure Synapse Analytics** como o destino de dados na **etapa 2** mencionado acima, você deve inserir uma conexão com o armazenamento de BLOBs do Azure para preparo, conforme exigido pelo polybase do Azure Synapse Analytics. Como mostra a captura de tela a seguir, o modelo gera automaticamente um *Caminho de armazenamento* para o Armazenamento de Blobs. Verifique se o contêiner foi criado após a execução do pipeline.
         
     ![Configuração do Polybase](media/solution-template-bulk-copy-from-files-to-database/staging-account.png)
 

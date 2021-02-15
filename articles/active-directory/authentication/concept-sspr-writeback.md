@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.author: iainfou
-author: iainfoulds
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3959fc7df78a5c1f255f7551a018eec6b7279eb1
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 53f416a23dbb47660097c41ada09c8c135434bcb
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88717431"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96743642"
 ---
 # <a name="how-does-self-service-password-reset-writeback-work-in-azure-active-directory"></a>Como funciona a redefinição de senha self-service no Azure Active Directory?
 
@@ -37,7 +37,7 @@ O write-back de senha fornece os seguintes recursos:
 
 * **Imposição de políticas de senha do Active Directory Domain Services (AD DS) local**: quando um usuário redefine a senha, é verificado se essa senha atende à política do AD DS local antes de confirmá-la nesse diretório. Essa revisão inclui a verificação do histórico, da complexidade, do tempo, dos filtros de senha e de qualquer outra restrição de senha que você tenha definido no AD DS.
 * **Comentários de atraso zero**:  O write-back de senha é uma operação síncrona. Os usuários serão notificados imediatamente se suas senhas não atenderem à política ou se não puderem ser redefinidas nem alteradas por qualquer motivo.
-* **Com suporte à alteração de senhas do painel de acesso e do Office 365**: quando usuários federados ou sincronizados com hash de senha alteram suas senhas expiradas ou não expiradas, o write-back dessas senhas é efetuado no ambiente do AD DS local.
+* **Dá suporte a alterações de senha do painel de acesso e Microsoft 365**: quando os usuários federados ou sincronizados com hash de senha são alterados para alterar suas senhas expiradas ou não expiradas, essas senhas são gravadas novamente no AD DS.
 * **Com suporte a write-back de senha quando um administrador as redefine no Portal do Azure**: sempre que um administrador redefine uma senha de usuário no [portal do Azure](https://portal.azure.com), se esse usuário for federado ou sincronizado com hash de senha, o write-back de senha é efetuado no local. Essa funcionalidade não é compatível atualmente com o Portal de Administração do Office.
 * **Não exige nenhuma regra de firewall de entrada**: o write-back de senha usa uma retransmissão do Barramento de Serviço do Azure como um canal de comunicação subjacente. Toda a comunicação é de saída pela porta 443.
 

@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: atsenthi
 ms.openlocfilehash: 126be55c63c625995ad52b84a51a8983e220652d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85610193"
 ---
 # <a name="scaling-azure-service-fabric-clusters"></a>Dimensionar clusters do Azure Service Fabric
@@ -28,7 +28,7 @@ Ao dimensionar um cluster do Azure, lembre-se das diretrizes a seguir:
 - os tipos de nós primários que executam cargas de trabalho de produção sempre devem ter cinco ou mais nós.
 - os tipos de nó não primário que executam cargas de trabalho de produção com estado sempre devem ter cinco ou mais nós.
 - os tipos de nó não primário que executam cargas de trabalho de produção sem estado sempre devem ter dois ou mais nós.
-- Todos os tipos de nó com [nível de durabilidade](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) de Ouro ou Prata sempre devem ter cinco ou mais nós.
+- Qualquer tipo de nó de [nível de durabilidade](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) Ouro ou Prata sempre deve ter cinco ou mais nós.
 - Não remova instâncias/nós de VM aleatórios de um tipo de nó, sempre use a escala do conjunto de dimensionamento de máquinas virtuais no recurso. A exclusão de instâncias de VM aleatórias pode afetar negativamente a capacidade do sistema para balancear carga adequadamente.
 - Se estiver usando regras de autoescala, defina as regras para que a redução horizontal (remoção de instâncias de VM) seja feito um nó por vez. Redução de mais de uma instância em um momento não é segura.
 

@@ -3,18 +3,20 @@ title: Usar o avaliador do feed de alterações – Azure Cosmos DB
 description: Saiba como usar o avaliador do feed de alterações para analisar o progresso do processador do feed de alterações
 author: ealsur
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 08/15/2019
 ms.author: maquaran
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 442e1c4facce076ce9eeacee772df9381fee6f71
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: a44557d15f437317c2b5fa659ab8d4ca3c208edf
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88997210"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339828"
 ---
 # <a name="use-the-change-feed-estimator"></a>Usar o avaliador do feed de alterações
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Este artigo descreve como você pode monitorar o progresso das instâncias do [processador do feed de alterações](./change-feed-processor.md) ao ler o feed de alterações.
 
@@ -64,4 +66,4 @@ Envie essa estimativa para sua solução de monitoramento e use-a para entender 
 Agora continue para saber mais sobre o processador do feed de alterações nos seguintes artigos:
 
 * [Visão geral do processador do feed de alterações](change-feed-processor.md)
-* [Hora de início do processador do feed de alterações](how-to-configure-change-feed-start-time.md)
+* [Hora de início do processador do feed de alterações](./change-feed-processor.md#starting-time)

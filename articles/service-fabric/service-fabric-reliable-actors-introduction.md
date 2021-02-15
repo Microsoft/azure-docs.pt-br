@@ -1,17 +1,15 @@
 ---
 title: Visão geral de Service Fabric Reliable Actors
 description: Introdução ao modelo de programação de Reliable Actors Service Fabric, com base no padrão de ator virtual.
-author: vturecek
 ms.topic: conceptual
 ms.date: 11/01/2017
-ms.author: vturecek
 ms.custom: devx-track-csharp
-ms.openlocfilehash: adb15d995cd2a9fd604aa6b91360adc88a2804e6
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 1a8a7003a69deaf6b74d6fbb8a3cf84b0a78eecf
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89007920"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576376"
 ---
 # <a name="introduction-to-service-fabric-reliable-actors"></a>Introdução aos Reliable Actors do Service Fabric
 Os Reliable Actors são uma estrutura do aplicativo do Service Fabric baseada no padrão de [Ator Virtual](https://research.microsoft.com/en-us/projects/orleans/). A API dos Reliable Actors fornece um modelo de programação single-threaded fundamentado nas garantias de escalabilidade e confiabilidade fornecidas pelo Service Fabric.
@@ -98,7 +96,7 @@ A classe `ActorProxy`(C#) / `ActorProxyBase`(Java) do lado do cliente executa a 
 * A entrega de mensagem é o melhor esforço.
 * Os atores podem receber mensagens duplicadas do mesmo cliente.
 
-## <a name="concurrency"></a>Simultaneidade
+## <a name="concurrency"></a>Concorrência
 O runtime dos Reliable Actors fornece um modelo de acesso baseado em turno simples para acessar os métodos de ator. Isso significa que não é permitido mais de um thread ativo no código do objeto de um ator a qualquer momento. O acesso baseado em turno simplifica consideravelmente os sistemas simultâneos, pois não há necessidade de mecanismos de sincronização para o acesso a dados. Isso também significa que os sistemas devem ser projetados com considerações especiais sobre a natureza do acesso single-threaded de cada instância de ator.
 
 * Uma única instância de ator não pode processar mais de uma solicitação por vez. Uma instância de ator poderá causar um gargalo da taxa de transferência se tiver de manipular solicitações simultâneas.

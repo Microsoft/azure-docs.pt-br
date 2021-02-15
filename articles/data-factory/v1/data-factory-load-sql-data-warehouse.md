@@ -1,44 +1,39 @@
 ---
-title: Carregar terabytes de dados em SQL Data Warehouse
-description: Demonstra como 1 TB de dados podem ser carregado no Azure SQL Data Warehouse em 15 minutos com o Azure Data Factory
-services: data-factory
-documentationcenter: ''
+title: Carregar terabytes de dados no Azure Synapse Analytics
+description: Demonstra como 1 TB de dados podem ser carregados no Azure Synapse Analytics em 15 minutos com Azure Data Factory
 author: linda33wj
-manager: shwang
-ms.assetid: a6c133c0-ced2-463c-86f0-a07b00c9e37f
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 3b5ce0cba68d4374d6a0403af28ec3f03920acf6
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5acae7c90efbf178fad199177fa6e0886e497fdf
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537591"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100371202"
 ---
-# <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>Carregar 1 TB no SQL Data Warehouse do Azure em menos de 15 minutos com o Data Factory
+# <a name="load-1-tb-into-azure-synapse-analytics-under-15-minutes-with-data-factory"></a>Carregue 1 TB no Azure Synapse Analytics em 15 minutos com Data Factory
 > [!NOTE]
-> Este artigo aplica-se à versão 1 do Data Factory. Se você estiver usando a versão atual do serviço Data Factory, consulte [Copiar dados para ou do SQL Data Warehouse do Azure usando o Data Factory](../connector-azure-sql-data-warehouse.md).
+> Este artigo aplica-se à versão 1 do Data Factory. Se você estiver usando a versão atual do serviço de Data Factory, consulte [copiar dados de ou para a análise de Synapse do Azure usando data Factory](../connector-azure-sql-data-warehouse.md).
 
 
-O [Azure SQL data warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) é um banco de dados baseado em nuvem, escalável e em expansão capaz de processar grandes volumes de data, relacionais e não relacionais.  Criado em arquitetura MPP (processamento paralelo maciço), o SQL Data Warehouse é otimizado para cargas de trabalho do data warehouse corporativas.  Ele oferece a elasticidade da nuvem com a flexibilidade de dimensionar o armazenamento e a computação de modo independente.
+O [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) é um banco de dados baseado em nuvem, escalável e escalonável capaz de processar grandes volumes de data, relacionais e não relacionais.  Baseado na arquitetura MPP (processamento paralelo maciço), o Azure Synapse Analytics é otimizado para cargas de trabalho de data warehouse empresarial.  Ele oferece a elasticidade da nuvem com a flexibilidade de dimensionar o armazenamento e a computação de modo independente.
 
-A introdução ao Azure SQL Data Warehouse agora é mais fácil do que nunca, usando o **Azure Data Factory**.  O Azure Data Factory é um serviço de integração de dados baseado em nuvem totalmente gerenciado, que pode ser usado para popular um SQL Data Warehouse com os dados de seu sistema existente e economizar tempo valioso ao avaliar o SQL Data Warehouse e criar suas soluções de análise. Aqui estão os principais benefícios de carregar dados no Azure SQL Data Warehouse usando o Azure Data Factory:
+A introdução ao Azure Synapse Analytics agora está mais fácil do que nunca usando **Azure data Factory**.  Azure Data Factory é um serviço de integração de dados baseado em nuvem totalmente gerenciado, que pode ser usado para preencher a análise de Synapse do Azure com os dados do seu sistema existente e economizar tempo valioso ao avaliar a análise de Synapse do Azure e criar soluções de análise. Aqui estão os principais benefícios do carregamento de dados no Azure Synapse Analytics usando Azure Data Factory:
 
 * **Fácil de configurar**: assistente intuitivo de 5 etapas sem nenhum script necessário.
 * **Suporte a armazenamento de dados avançado**: suporte interno para um conjunto avançado de armazenamentos de dados locais e baseados em nuvem.
 * **Seguro e compatível**: os dados são transferidos por HTTPS ou ExpressRoute e a presença global do serviço garante que os dados nunca saiam do limite geográfico
-* **Desempenho incomparável usando PolyBase** – usar o Polybase é a maneira mais eficiente para mover dados para o SQL Data Warehouse. Usando o recurso de blob de preparo, você pode obter velocidades de alta carga de todos os tipos de armazenamentos de dados além do Armazenamento de Blobs do Azure, ao qual o Polybase dá suporte por padrão.
+* O **desempenho inigualável usando o polybase** – usar o polybase é a maneira mais eficiente de mover dados para a análise de Synapse do Azure. Usando o recurso de blob de preparo, você pode obter velocidades de alta carga de todos os tipos de armazenamentos de dados além do Armazenamento de Blobs do Azure, ao qual o Polybase dá suporte por padrão.
 
-Este artigo mostra como usar o Assistente de Cópia do Data Factory para carregar 1 TB de dados do Armazenamento de Blobs do Azure no SQL Data Warehouse do Azure em menos de 15 minutos, com uma vazão de dados superior a 1,2 GBps.
+Este artigo mostra como usar Data Factory assistente de cópia para carregar dados de 1 TB do armazenamento de BLOBs do Azure para a análise de Synapse do Azure em menos de 15 minutos, com mais de 1,2 GBps de taxa de transferência.
 
-Este artigo fornece instruções passo a passo para mover dados no Azure SQL Data Warehouse usando o Assistente de Cópia.
+Este artigo fornece instruções passo a passo para mover dados para o Azure Synapse Analytics usando o assistente de cópia.
 
 > [!NOTE]
->  Para obter informações gerais sobre as funcionalidades do Data Factory para movimentação de dados bidirecionalmente no SQL Data Warehouse do Azure, consulte o artigo [Mover dados bidirecionalmente no SQL Data Warehouse do Azure usando o Azure Data Factory](data-factory-azure-sql-data-warehouse-connector.md).
+>  Para obter informações gerais sobre os recursos de Data Factory na movimentação de dados de/para o Azure Synapse Analytics, consulte [mover dados de e para a análise de Synapse do Azure usando](data-factory-azure-sql-data-warehouse-connector.md) o artigo Azure data Factory.
 >
 > Você também pode criar pipelines usando o Visual Studio, o PowerShell, etc. Consulte [tutorial: copiar dados do blob do Azure para o banco](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) de dados SQL do Azure para obter uma rápida explicação com instruções passo a passo para usar a atividade de cópia no Azure data Factory.  
 >
@@ -54,18 +49,18 @@ Este artigo fornece instruções passo a passo para mover dados no Azure SQL Dat
   * `Dbgen -s 1000 -S **10** -C 10 -T L -v`
 
     Agora, copie os arquivos gerados para o Blob do Azure.  Consulte [Mover dados de e para um sistema de arquivos local usando o Azure Data Factory](data-factory-onprem-file-system-connector.md) para saber como fazer isso usando a Cópia do ADF.    
-* Azure SQL Data Warehouse: este experimento carrega dados no Azure SQL Data Warehouse criado com 6.000 DWUs
+* Azure Synapse Analytics: esse experimento carrega dados no Azure Synapse Analytics criado com 6.000 DWUs
 
-    Consulte [Criar um Azure SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md) para obter instruções detalhadas sobre como criar um banco de dados do SQL Data Warehouse.  Para obter o melhor desempenho de carregamento possível no SQL Data Warehouse usando o Polybase, escolhemos o número máximo de DWUs (Unidades de Data Warehouse) permitido na configuração Desempenho, que é de 6.000 DWUs.
+    Consulte [criar uma análise de Synapse do Azure](../../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md) para obter instruções detalhadas sobre como criar um banco de dados de análise do Azure Synapse.  Para obter o melhor desempenho de carga possível na análise de Synapse do Azure usando o polybase, escolhemos o número máximo de unidades de data warehouse (DWUs) permitido na configuração de desempenho, que é 6.000 DWUs.
 
   > [!NOTE]
-  > Ao carregar do Blob do Azure, o desempenho de carregamento de dados será diretamente proporcional ao número de DWUs que você configurar no SQL Data Warehouse:
+  > Ao carregar do blob do Azure, o desempenho do carregamento de dados é diretamente proporcional ao número de DWUs que você configura para a análise Synapse do Azure:
   >
-  > Carregar 1 TB em um SQL Data Warehouse com 1.000 DWUs leva 87 minutos (vazão de dados de cerca de 200 MBps) Carregar 1 TB em um SQL Data Warehouse com 2.000 DWUs leva 46 minutos (vazão de dados de cerca de 380 MBps) Carregar 1 TB em um SQL Data Warehouse com 6.000 DWUs leva 14 minutos (vazão de dados de cerca de 1,2 GBps)
+  > Carregando 1 TB em 1.000 DWU o Azure Synapse Analytics leva 87 minutos (~ 200 MBps de taxa de transferência) carregando 1 TB em 2.000 DWU a análise de Synapse do Azure leva de 46 minutos (~ 380 de taxa de transferência) carregando 1 TB em 6.000 DWU o Azure Synapse Analytics leva 14 minutos (~ 1,2 de taxa de transferência)
   >
   >
 
-    Para criar um SQL Data Warehouse com 6.000 DWUs, mova o controle deslizante de desempenho para a direita, até o final:
+    Para criar um pool SQL dedicado com 6.000 DWUs, mova o controle deslizante de desempenho até o lado direito:
 
     ![Controle deslizante de Desempenho](media/data-factory-load-sql-data-warehouse/performance-slider.png)
 
@@ -77,10 +72,10 @@ Este artigo fornece instruções passo a passo para mover dados no Azure SQL Dat
 
     ![Caixa de diálogo Dimensionar](media/data-factory-load-sql-data-warehouse/scale-dialog.png)
 
-    Este experimento carrega dados no Azure SQL Data Warehouse usando a classe de recurso `xlargerc`.
+    Esse experimento carrega dados na análise de Synapse do Azure usando a `xlargerc` classe de recurso.
 
-    Para obter a melhor taxa de transferência possível, a cópia precisa ser executada usando um usuário do SQL Data Warehouse pertencente à classe de recurso `xlargerc`.  Saiba como fazer isso seguindo [Alterar um exemplo de classe de recurso de usuário](../../sql-data-warehouse/sql-data-warehouse-develop-concurrency.md).  
-* Crie um esquema de tabela de destino no banco de dados do Azure SQL Data Warehouse executando a instrução DDL a seguir:
+    Para obter a melhor taxa de transferência possível, a cópia precisa ser executada usando um usuário do Azure Synapse Analytics pertencente à `xlargerc` classe de recurso.  Saiba como fazer isso seguindo [Alterar um exemplo de classe de recurso de usuário](../../synapse-analytics/sql-data-warehouse/resource-classes-for-workload-management.md).  
+* Crie um esquema de tabela de destino no banco de dados do Azure Synapse Analytics, executando a seguinte instrução DDL:
 
     ```SQL  
     CREATE TABLE [dbo].[lineitem]
@@ -117,7 +112,7 @@ Este artigo fornece instruções passo a passo para mover dados no Azure SQL Dat
 
    1. Insira **LoadIntoSQLDWDataFactory** para o **nome**.
        O nome da data factory do Azure deve ser globalmente exclusivo. Se você receber o erro: o **nome do data Factory "LoadIntoSQLDWDataFactory" não está disponível**, altere o nome do data Factory (por exemplo, yournameLoadIntoSQLDWDataFactory) e tente criar novamente. Veja o tópico [Data Factory - regras de nomenclatura](data-factory-naming-rules.md) para ver as regras de nomenclatura para artefatos do Data Factory.  
-   2. Selecione sua **assinatura**do Azure.
+   2. Selecione sua **assinatura** do Azure.
    3. Em relação ao Grupo de Recursos, execute uma das seguintes etapas:
       1. Selecione **Usar existente** para selecionar um grupo de recursos existente.
       2. Selecione **Criar novo** e insira um nome para um grupo de recursos.
@@ -141,7 +136,7 @@ Na página **Propriedades** :
 
 1. Insira **CopyFromBlobToAzureSqlDataWarehouse** para o **Nome da tarefa**
 2. Selecione opção **Executar uma vez agora**.   
-3. Clique em **Avançar**.  
+3. Clique em **Próximo**.  
 
     ![Assistente de Cópia – página Propriedades](media/data-factory-load-sql-data-warehouse/copy-wizard-properties-page.png)
 
@@ -165,13 +160,13 @@ Esta seção mostra as etapas para configurar a origem: Blob do Azure contendo o
     ![Assistente de Cópia – configurações de formato de arquivo](media/data-factory-load-sql-data-warehouse/file-format-settings.png)
 
 ## <a name="step-3-configure-destination"></a>Etapa 3: Configurar o destino
-Esta seção mostra como configurar o destino: tabela `lineitem` no banco de dados do Azure SQL Data Warehouse.
+Esta seção mostra como configurar a tabela Destination: `lineitem` no banco de dados do Azure Synapse Analytics.
 
-1. Escolha **Azure SQL Data Warehouse** como o repositório de destino e clique em **Próximo**.
+1. Escolha **Azure Synapse Analytics** como o repositório de destino e clique em **Avançar**.
 
     ![Assistente de Cópia – selecionar o armazenamento de dados de destino](media/data-factory-load-sql-data-warehouse/select-destination-data-store.png)
 
-2. Preencha as informações de conexão do SQL Data Warehouse.  Certifique-se de especificar o usuário que é membro da função `xlargerc` (consulte a seção **pré-requisitos** para obter instruções detalhadas) e clique em **Próximo**.
+2. Preencha as informações de conexão do Azure Synapse Analytics.  Certifique-se de especificar o usuário que é membro da função `xlargerc` (consulte a seção **pré-requisitos** para obter instruções detalhadas) e clique em **Próximo**.
 
     ![Assistente de Cópia – informações de conexão de destino](media/data-factory-load-sql-data-warehouse/destination-connection-info.png)
 
@@ -183,34 +178,34 @@ Esta seção mostra como configurar o destino: tabela `lineitem` no banco de dad
 
 ## <a name="step-4-performance-settings"></a>Etapa 4: Configurações de desempenho
 
-A opção **Permitir polybase** é marcada por padrão.  Clique em **Avançar**.
+A opção **Permitir polybase** é marcada por padrão.  Clique em **Próximo**.
 
 ![Assistente de Cópia – página de mapeamento de esquema](media/data-factory-load-sql-data-warehouse/performance-settings-page.png)
 
 ## <a name="step-5-deploy-and-monitor-load-results"></a>Etapa 5: Implantar e monitorar os resultados de carga
 1. Clique no botão **Concluir** para implantar.
 
-    ![Assistente de Cópia – página de resumo](media/data-factory-load-sql-data-warehouse/summary-page.png)
+    ![Assistente de cópia – página Resumo 1](media/data-factory-load-sql-data-warehouse/summary-page.png)
 
 2. Depois que a implantação for concluída, clique em `Click here to monitor copy pipeline` para monitorar o andamento da execução da cópia. Selecione o pipeline de cópia criado na lista **Janelas de Atividade**.
 
-    ![Assistente de Cópia – página de resumo](media/data-factory-load-sql-data-warehouse/select-pipeline-monitor-manage-app.png)
+    ![Assistente de cópia – página de resumo 2](media/data-factory-load-sql-data-warehouse/select-pipeline-monitor-manage-app.png)
 
     Você pode exibir os detalhes de execução da cópia no **Gerenciador de Janelas de Atividade** no painel direito, incluindo o volume de dados lidos de origem e gravado no destino, a duração e a taxa de transferência média da execução.
 
-    Como você pode ver na captura de tela a seguir, a cópia de 1 TB do armazenamento de BLOBs do Azure em SQL Data Warehouse levou 14 minutos, atingindo efetivamente a taxa de transferência de 1,22 GBps!
+    Como você pode ver na captura de tela a seguir, a cópia de 1 TB do armazenamento de BLOBs do Azure para o Azure Synapse Analytics levou 14 minutos, atingindo efetivamente 1,22 GBps de taxa de transferência!
 
     ![Assistente de Cópia – caixa de diálogo de êxito](media/data-factory-load-sql-data-warehouse/succeeded-info.png)
 
 ## <a name="best-practices"></a>Práticas recomendadas
-Aqui estão algumas práticas recomendadas para a execução de seu banco de dados do Azure SQL Data Warehouse:
+Aqui estão algumas práticas recomendadas para executar seu banco de dados do Azure Synapse Analytics:
 
 * Use uma classe de recurso maior durante o carregamento em um ÍNDICE COLUMNSTORE CLUSTERIZADO.
 * Para junções mais eficientes, considere usar a distribuição de hash por uma coluna selecionada em vez da distribuição round robin padrão.
 * Para velocidades de carga, considere usar o heap para dados transitórios.
-* Crie estatísticas depois de terminar de carregar o Azure SQL Data Warehouse.
+* Crie estatísticas depois de concluir o carregamento para o Azure Synapse Analytics.
 
-Veja [Práticas Recomendadas para o SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-best-practices.md) para obter detalhes.
+Consulte [práticas recomendadas para o Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-best-practices.md) para obter detalhes.
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Assistente de Cópia do Data Factory](data-factory-copy-wizard.md) – este artigo fornece detalhes sobre o Assistente de Cópia.

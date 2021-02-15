@@ -7,18 +7,18 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: 4387a1aa5b22c9808f36364b71f89a71736958b8
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: aba6ea467788c51d179ef9377243efb6035b6f98
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88689466"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148354"
 ---
 # <a name="charge-back-azure-reservation-costs"></a>Estornar custos da Reserva do Azure
 
 Os leitores de cobrança com Contrato Enterprise e Contrato de Cliente da Microsoft podem exibir os dados de custos amortizados das reservas. Eles podem usar os dados de custo para estornar o valor monetário de uma assinatura, um grupo de recursos, um recurso ou uma marca para seus parceiros. Nos dados amortizados, o preço efetivo é o custo de reserva rateado por hora. O custo é o custo total de uso da reserva pelo recurso naquele dia.
 
-Os usuários com uma assinatura individual podem obter os dados de custo amortizados em seu arquivo de uso. Quando um recurso recebe um desconto de reserva, a seção *AdditionalInfo* do arquivo de uso contém os detalhes de reserva. Para obter mais informações, confira [Baixar uso no portal do Azure](https://docs.microsoft.com/azure/cost-management-billing/understand/download-azure-daily-usage#download-usage-from-the-azure-portal-csv).
+Os usuários com uma assinatura individual podem obter os dados de custo amortizados em seu arquivo de uso. Quando um recurso recebe um desconto de reserva, a seção *AdditionalInfo* do arquivo de uso contém os detalhes de reserva. Para obter mais informações, confira [Baixar uso no portal do Azure](../understand/download-azure-daily-usage.md#download-usage-from-the-azure-portal-csv).
 
 ## <a name="get-reservation-charge-back-data-for-chargeback"></a>Obter dados de estorno de reserva para um estorno
 

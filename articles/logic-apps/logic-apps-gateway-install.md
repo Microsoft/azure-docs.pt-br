@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: arthii, logicappspm
 ms.topic: article
 ms.date: 05/15/2020
-ms.openlocfilehash: 9e50cdb16ee6acbdb903681984dcfbd7bfe170fa
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 799e879b4d9fd54367d54c17b3d275acfc5f34c1
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386122"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054764"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Instalar o gateway de dados no local para os Aplicativos Lógicos do Azure
 
@@ -33,7 +33,7 @@ Este artigo mostra como baixar, instalar e configurar o gateway de dados local p
   * Sua conta do Azure precisa ser uma conta corporativa ou de estudante, que se parece com `username@contoso.com` . Você não pode usar contas do B2B (convidado) do Azure ou contas pessoais da Microsoft, como @hotmail.com ou @outlook.com.
 
     > [!NOTE]
-    > Se você se inscreveu para uma oferta do Office 365 e não informou seu email de trabalho, seu endereço deve se parecer com este: `username@domain.onmicrosoft.com`. Sua conta é armazenada em um locatário do Azure AD. Na maioria dos casos, o UPN (nome principal do usuário) da sua conta do Azure é o mesmo que seu endereço de email.
+    > Se você se inscreveu para uma oferta de Microsoft 365 e não forneceu seu endereço de email de trabalho, seu endereço pode ser semelhante a `username@domain.onmicrosoft.com` . Sua conta é armazenada em um locatário do Azure AD. Na maioria dos casos, o UPN (nome principal do usuário) da sua conta do Azure é o mesmo que seu endereço de email.
 
     Para usar uma [assinatura padrão do Visual Studio](https://visualstudio.microsoft.com/vs/pricing/) associada a um conta Microsoft, primeiro [crie um locatário do Azure ad](../active-directory/develop/quickstart-create-new-tenant.md) ou use o diretório padrão. Adicione um usuário com uma senha ao diretório e, em seguida, forneça o acesso a esse usuário à sua assinatura do Azure. Em seguida, você pode entrar durante a instalação do gateway com esse nome de usuário e senha.
 
@@ -114,7 +114,7 @@ Este artigo mostra como baixar, instalar e configurar o gateway de dados local p
 
    Observe a ação **Adicionar a um cluster existente do gateway** para instalar gateways adicionais para [cenários de alta disponibilidade](#high-availability).
 
-1. Verifique a região do serviço de nuvem do gateway e o [Barramento de Serviço do Azure](https://azure.microsoft.com/services/service-bus/) usado pela instalação do gateway. Por padrão, essa região é o mesmo local do locatário do Azure Active Directory da sua conta do Azure.
+1. Verifique a região do serviço de nuvem do gateway e a [instância de mensagens do barramento de serviço do Azure](../service-bus-messaging/service-bus-messaging-overview.md) que é usada pela instalação do seu gateway. Por padrão, essa região é o mesmo local do locatário do Azure Active Directory da sua conta do Azure.
 
    ![Confirmar região para serviço de gateway e barramento de serviço](./media/logic-apps-gateway-install/confirm-gateway-region.png)
 
@@ -138,9 +138,15 @@ Este artigo mostra como baixar, instalar e configurar o gateway de dados local p
 
 1. Agora [crie o recurso do Azure para a instalação do gateway](../logic-apps/logic-apps-gateway-connection.md).
 
+<a name="communication-settings"></a>
+
 ## <a name="check-or-adjust-communication-settings"></a>Verificar ou ajustar as configurações de comunicação
 
-O gateway de dados local depende do [Barramento de Serviço do Azure](../service-bus-messaging/service-bus-messaging-overview.md) para conectividade de nuvem e estabelece as conexões de saída correspondentes à região do Azure associada do gateway. Se o ambiente de trabalho exigir que o tráfego passe por um proxy ou firewall para acessar a Internet, essa restrição pode impedir que o gateway de dados local se conecte ao serviço de nuvem do gateway e o Barramento de Serviço do Azure. O gateway tem várias configurações de comunicação que você pode ajustar. Para saber mais, consulte esses tópicos:
+O gateway de dados local depende do [sistema de mensagens do barramento de serviço do Azure](../service-bus-messaging/service-bus-messaging-overview.md) para conectividade de nuvem e estabelece as conexões de saída correspondentes à região do Azure associada do gateway. Se o seu ambiente de trabalho exigir que o tráfego passe por um proxy ou firewall para acessar a Internet, essa restrição poderá impedir que o gateway de dados local se conecte ao serviço de nuvem do gateway e às mensagens do barramento de serviço do Azure. O gateway tem várias configurações de comunicação que você pode ajustar.
+
+Um cenário de exemplo é o local em que você usa conectores personalizados que acessam recursos locais usando o recurso de gateway de dados local no Azure. Se você também tiver um firewall que limita o tráfego para endereços IP específicos, precisará configurar a instalação do gateway para permitir o acesso aos *[endereços IP de saída](logic-apps-limits-and-config.md#outbound)dos conectores gerenciados* correspondentes. *Todos* os aplicativos lógicos na mesma região usam os mesmos intervalos de endereço IP.
+
+Para saber mais, consulte esses tópicos:
 
 * [Ajustar configurações de comunicação para gateway de dados local](/data-integration/gateway/service-gateway-communication)
 * [Definir configurações de proxy para o gateway de dados local](/data-integration/gateway/service-gateway-proxy)
@@ -206,7 +212,7 @@ Os usuários na sua organização podem acessar dados locais para os quais eles 
 
 O gateway ajuda a possibilitar uma comunicação em segundo plano mais rápida e mais segura. Essa comunicação flui entre um usuário na nuvem, no serviço de nuvem do gateway e na sua fonte de dados local. O serviço de nuvem do gateway criptografa e armazena suas credenciais da fonte de dados e os detalhes do gateway. O serviço também encaminha consultas e seus resultados entre o usuário, o gateway e sua fonte de dados local.
 
-O gateway funciona com firewalls e usa apenas conexões de saída. Todo o tráfego é originado como tráfego de saída seguro do agente de gateway. O gateway retransmite dados de fontes locais em canais criptografados por meio do [Barramento de Serviço do Azure](../service-bus-messaging/service-bus-messaging-overview.md). O barramento de serviço cria um canal entre o gateway e o serviço de chamada, mas não armazena nenhum dado. Todos os dados que trafegam através do gateway são criptografados.
+O gateway funciona com firewalls e usa apenas conexões de saída. Todo o tráfego é originado como tráfego de saída seguro do agente de gateway. O gateway envia os dados de fontes locais em canais criptografados por meio de [mensagens do barramento de serviço do Azure](../service-bus-messaging/service-bus-messaging-overview.md). O barramento de serviço cria um canal entre o gateway e o serviço de chamada, mas não armazena nenhum dado. Todos os dados que trafegam através do gateway são criptografados.
 
 ![Arquitetura do gateway de dados local](./media/logic-apps-gateway-install/how-on-premises-data-gateway-works-flow-diagram.png)
 
@@ -217,9 +223,9 @@ Estas etapas descrevem o que acontece quando você interage com um elemento que 
 
 1. O serviço de nuvem cria uma consulta com as credenciais criptografadas para a fonte de dados. Em seguida, o serviço envia a consulta e as credenciais para a fila do gateway para processamento.
 
-1. O serviço de nuvem do gateway analisa a consulta e envia a solicitação para o Barramento de Serviço do Azure.
+1. O serviço de nuvem do gateway analisa a consulta e envia a solicitação para o sistema de mensagens do barramento de serviço do Azure.
 
-1. O Barramento de Serviço do Azure envia as solicitações pendentes ao gateway.
+1. As mensagens do barramento de serviço do Azure enviam as solicitações pendentes para o gateway.
 
 1. O gateway obtém a consulta, descriptografa as credenciais e conecta-se a uma ou mais fontes de dados com essas credenciais.
 

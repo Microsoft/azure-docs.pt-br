@@ -1,46 +1,46 @@
 ---
-title: Considerações de implantação da Autenticação Multifator do Azure
-description: Saiba mais sobre as considerações e estratégias para uma implementação bem-sucedida da Autenticação Multifator do Azure
+title: Considerações de implantação para a autenticação multifator do Azure AD
+description: Saiba mais sobre as considerações e a estratégia de implantação para a implementação bem-sucedida da autenticação multifator do Azure AD
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 11/21/2019
-ms.author: iainfou
-author: iainfoulds
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4fc459e63dd48adb49ab916c368b68cc3a1ccbaf
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: c9ee81abd7cd0268a7cbd6b16aa6065ec7b54bef
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88717023"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861299"
 ---
-# <a name="plan-an-azure-multi-factor-authentication-deployment"></a>Planejar uma implantação da Autenticação Multifator do Azure
+# <a name="plan-an-azure-ad-multi-factor-authentication-deployment"></a>Planejar uma implantação da autenticação multifator do Azure AD
 
 As pessoas estão se conectando a recursos organizacionais em cenários cada vez mais complexos. Elas se conectam por dispositivos corporativos, pessoais e públicos dentro e fora da rede corporativa usando smartphones, tablets, PCs e laptops, geralmente em várias plataformas. Nesse mundo sempre conectado, de vários dispositivos e plataformas, a segurança das contas de usuário é mais importante do que nunca. As senhas usadas em dispositivos, redes e plataformas, não importa o quanto sejam complexas, são insuficientes para garantir a segurança das contas dos usuários, especialmente quando eles reutilizam senhas entre contas. Um phishing sofisticado e outros ataques de engenharia social podem resultar na publicação e venda de nomes de usuário e senhas na dark web.
 
-[A MFA (Autenticação Multifator do Microsoft Azure)](concept-mfa-howitworks.md) ajuda a proteger o acesso a dados e aplicativos. Ela fornece uma camada adicional de segurança usando uma segunda forma de autenticação. As organizações podem usar o [Acesso Condicional](../conditional-access/overview.md) para fazer com que a solução se adeque às suas necessidades específicas.
+A [MFA (autenticação multifator) do Azure ad](concept-mfa-howitworks.md) ajuda a proteger o acesso a dados e aplicativos. Ela fornece uma camada adicional de segurança usando uma segunda forma de autenticação. As organizações podem usar o [Acesso Condicional](../conditional-access/overview.md) para fazer com que a solução se adeque às suas necessidades específicas.
 
-Este guia de implantação mostra como planejar e testar a distribuição da Autenticação Multifator do Microsoft Azure.
+Este guia de implantação mostra como planejar e testar uma distribuição de autenticação multifator do Azure AD.
 
-Para ver rapidamente a Autenticação Multifator do Microsoft Azure em ação e, em seguida, entender as considerações de implantação adicionais:
+Para ver rapidamente a autenticação multifator do Azure AD em ação e, em seguida, voltar para entender as considerações de implantação adicionais:
 
 > [!div class="nextstepaction"]
-> [Habilitar a Autenticação Multifator do Microsoft Azure](tutorial-enable-azure-mfa.md)
+> [Habilitar a Autenticação Multifator do Azure AD](tutorial-enable-azure-mfa.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de iniciar uma implantação da Autenticação Multifator do Microsoft Azure, há pré-requisitos que devem ser considerados.
+Antes de iniciar uma implantação da autenticação multifator do Azure AD, há itens de pré-requisito que devem ser considerados.
 
 | Cenário | Pré-requisito |
 | --- | --- |
 | Ambiente de identidade **somente em nuvem** com autenticação moderna | **Nenhuma tarefa de pré-requisito adicional** |
 | Cenários de identidade **híbrida** | O [Azure AD Connect](../hybrid/whatis-hybrid-identity.md) é implantado e as identidades de usuário são sincronizadas ou federadas com o Active Directory Domain Services local e com o Azure Active Directory. |
 | Aplicativos herdados locais publicados para acesso à nuvem | O [Proxy de Aplicativo](../manage-apps/application-proxy.md) do Azure AD é implantado. |
-| Uso do Azure MFA com autenticação RADIUS | Um [NPS (Servidor de Políticas de Rede)](howto-mfa-nps-extension.md) é implantado. |
+| Usando o Azure AD MFA com autenticação RADIUS | Um [NPS (Servidor de Políticas de Rede)](howto-mfa-nps-extension.md) é implantado. |
 | Usuários do Microsoft Office 2010 ou anterior ou do Apple Mail para iOS 11 ou anterior | Atualizem para o [Microsoft Office 2013 ou posterior](https://support.microsoft.com/help/4041439/modern-authentication-configuration-requirements-for-transition-from-o) e Apple Mail para iOS 12 ou posterior. O Acesso Condicional não tem suporte dos protocolos de autenticação herdada. |
 
 ## <a name="plan-user-rollout"></a>Planejar a distribuição aos usuários
@@ -49,13 +49,13 @@ Seu plano de distribuição da MFA inclui uma implementação piloto seguida por
 
 ### <a name="user-communications"></a>Comunicações aos usuários
 
-É essencial informar os usuários, em comunicações planejadas, sobre alterações futuras, requisitos de registro do Azure MFA e quaisquer ações de usuário necessárias. Recomendamos que as comunicações sejam desenvolvidas em conjunto com os representantes de dentro de sua organização, como os departamentos de Comunicações, Gerenciamento de Alterações ou Recursos Humanos.
+É essencial informar os usuários, em comunicações planejadas, sobre as próximas alterações, requisitos de registro do Azure AD MFA e quaisquer ações de usuário necessárias. Recomendamos que as comunicações sejam desenvolvidas em conjunto com os representantes de dentro de sua organização, como os departamentos de Comunicações, Gerenciamento de Alterações ou Recursos Humanos.
 
 A Microsoft fornece [modelos de comunicação](https://aka.ms/mfatemplates) e [documentação do usuário final](../user-help/security-info-setup-signin.md) para ajudar na elaboração de suas comunicações. Você pode enviar usuários para [https://myprofile.microsoft.com](https://myprofile.microsoft.com) a fim de que se registrem diretamente, selecionando os links de **Informações de Segurança** nessa página.
 
 ## <a name="deployment-considerations"></a>Considerações de implantação
 
-A Autenticação Multifator do Azure é implantada pela imposição de políticas com o Acesso Condicional. Uma política de Acesso Condicional pode exigir que os usuários executem a Autenticação Multifator quando certos critérios são cumpridos, como:
+A autenticação multifator do Azure AD é implantada pela imposição de políticas com acesso condicional. Uma política de Acesso Condicional pode exigir que os usuários executem a Autenticação Multifator quando certos critérios são cumpridos, como:
 
 * Todos os usuários, um usuário específico, um membro de um grupo ou com função atribuída
 * Um aplicativo de nuvem específico está sendo acessado
@@ -74,7 +74,7 @@ Use cartazes personalizáveis e modelos de email em [materiais de distribuição
 
 As políticas de Acesso Condicional impõem o registro, exigindo que usuários não registrados concluam o registro no primeiro acesso, uma consideração de segurança importante.
 
-O [Azure AD Identity Protection](../identity-protection/howto-identity-protection-configure-risk-policies.md) contribui com a Autenticação Multifator do Azure com uma política de registro e com políticas de detecção de riscos e correção automatizadas. As políticas podem ser criadas para forçar alterações de senha quando há uma ameaça de identidade comprometida ou exigir a MFA quando um acesso é considerado arriscado pelos seguintes [eventos](../identity-protection/overview-identity-protection.md):
+[Azure ad Identity Protection](../identity-protection/howto-identity-protection-configure-risk-policies.md) contribui para uma política de registro e para detecção de riscos automatizada e políticas de correção para a história de autenticação multifator do Azure AD. As políticas podem ser criadas para forçar alterações de senha quando há uma ameaça de identidade comprometida ou exigir a MFA quando um acesso é considerado arriscado pelos seguintes [eventos](../identity-protection/overview-identity-protection.md):
 
 * Credenciais vazadas
 * Entradas de endereços IP anônimos
@@ -110,7 +110,7 @@ Recomendamos que as organizações usem o Acesso Condicional para definir sua re
 Os administradores podem escolher os [métodos de autenticação](../authentication/concept-authentication-methods.md) que desejam disponibilizar aos usuários. É importante permitir mais de um método de autenticação, para que os usuários tenham um modo de backup caso o principal não esteja disponível. Os seguintes métodos estão disponíveis para que os administradores habilitem:
 
 > [!TIP]
-> A Microsoft recomenda usar o aplicativo móvel como o principal método para a autenticação multifator do Azure para a melhor segurança e experiência do usuário.
+> A Microsoft recomenda usar o Microsoft Authenticator (aplicativo móvel) como o método principal para a autenticação multifator do Azure AD para uma experiência de usuário mais segura e aprimorada. O aplicativo Microsoft Authenticator também [atende](https://azure.microsoft.com/resources/microsoft-nist/) ao National Institute of Standards and Technology Authenticator Assurance Levels. 
 
 ### <a name="notification-through-mobile-app"></a>Notificação pelo aplicativo móvel
 
@@ -147,7 +147,7 @@ Uma mensagem de texto com um código de verificação é enviada ao usuário, e 
 
 ## <a name="plan-registration-policy"></a>Planejar política de registro
 
-Os administradores devem determinar como os usuários registrarão seus métodos. As organizações devem [habilitar a nova experiência de registro combinada](howto-registration-mfa-sspr-combined.md) para o Azure MFA e a SSPR (redefinição de senha self-service). A SSPR permite que os usuários redefinam a senha de maneira segura usando os mesmos métodos da Autenticação Multifator. Recomendamos esse registro combinado porque é uma ótima experiência para os usuários, que podem se registrar de uma só vez em ambos os serviços. Habilitar os mesmos métodos para SSPR e Azure MFA permitirá que os usuários sejam registrados para usar os dois recursos.
+Os administradores devem determinar como os usuários registrarão seus métodos. As organizações devem [habilitar a nova experiência de registro combinada](howto-registration-mfa-sspr-combined.md) para MFA do Azure AD e redefinição de senha de autoatendimento (SSPR). A SSPR permite que os usuários redefinam a senha de maneira segura usando os mesmos métodos da Autenticação Multifator. Recomendamos esse registro combinado porque é uma ótima experiência para os usuários, que podem se registrar de uma só vez em ambos os serviços. Habilitar os mesmos métodos para SSPR e MFA do Azure AD permitirá que os usuários sejam registrados para usar os dois recursos.
 
 ### <a name="registration-with-identity-protection"></a>Registro com o Identity Protection
 
@@ -165,7 +165,7 @@ Com o uso das etapas a seguir, uma política de Acesso Condicional pode obrigar 
 2. Com o Acesso Condicional, imponha a Autenticação Multifator a esse grupo para acesso a todos os recursos.
 3. Periodicamente, reavalie os membros do grupo e remova os usuários que se registraram.
 
-Você pode identificar usuários registrados e não registrados do Azure MFA com comandos do PowerShell que dependem do [módulo do MSOnline PowerShell](/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0).
+Você pode identificar usuários registrados e não registrados do Azure AD MFA com comandos do PowerShell que dependem do [módulo do PowerShell do MSOnline](/powershell/azure/active-directory/install-msonlinev1).
 
 #### <a name="identify-registered-users"></a>Identificar usuários registrados
 
@@ -181,7 +181,7 @@ Get-MsolUser -All | where {$_.StrongAuthenticationMethods.Count -eq 0} | Select-
 
 ### <a name="convert-users-from-per-user-mfa-to-conditional-access-based-mfa"></a>Converter usuários da MFA individual para a MFA baseada em Acesso Condicional
 
-Se os seus usuários estavam aptos a usar a Autenticação Multifator do Microsoft Azure habilitada e imposta individualmente, o PowerShell a seguir poderá ajudar você a fazer a conversão para a Autenticação Multifator do Azure baseada em Acesso Condicional.
+Se os usuários tiverem sido habilitados usando a autenticação multifator habilitada por usuário e impostas, o PowerShell a seguir poderá ajudá-lo a fazer a conversão para o acesso condicional com base na autenticação multifator do Azure AD.
 
 Execute este PowerShell em uma janela do ISE ou salve como um arquivo `.PS1` para ser executado localmente.
 
@@ -226,7 +226,7 @@ Get-MsolUser -All | Set-MfaState -State Disabled
 
 Para planejar sua estratégia de política de Acesso Condicional, que determinará quando a MFA e outros controles são necessários, confira [Políticas de Acesso Condicional comuns](../conditional-access/concept-conditional-access-policy-common.md).
 
-É importante que você impeça o bloqueio inadvertido do seu locatário do Azure Active Directory. Você pode reduzir o impacto da falta acidental de acesso administrativo ao [criar duas ou mais contas emergenciais de acesso para seu locatário](../users-groups-roles/directory-emergency-access.md) e excluí-las de sua política de Acesso Condicional.
+É importante que você impeça o bloqueio inadvertido do seu locatário do Azure Active Directory. Você pode reduzir o impacto da falta acidental de acesso administrativo ao [criar duas ou mais contas emergenciais de acesso para seu locatário](../roles/security-emergency-access.md) e excluí-las de sua política de Acesso Condicional.
 
 ### <a name="create-conditional-access-policy"></a>Criar uma política de Acesso Condicional
 
@@ -262,26 +262,26 @@ Alguns aplicativos herdados e locais que não são autenticados diretamente no A
 
 Aplicativos que se autenticam diretamente com o Azure AD e têm autenticação moderna (WS-Fed, SAML, OAuth, OpenID Connect) podem usar as políticas de Acesso Condicional diretamente.
 
-### <a name="use-azure-mfa-with-azure-ad-application-proxy"></a>Usar o Azure MFA com o Proxy de Aplicativo do Azure AD
+### <a name="use-azure-ad-mfa-with-azure-ad-application-proxy"></a>Usar o Azure AD MFA com o Azure Proxy de Aplicativo do AD
 
-Os aplicativos locais podem ser publicados em seu locatário do Azure AD por meio do [Proxy de Aplicativo do Azure Active Directory](../manage-apps/application-proxy.md) e podem aproveitar a Autenticação Multifator do Microsoft Azure caso estejam configurados para usar a pré-autenticação do Azure AD.
+Os aplicativos que residem localmente podem ser publicados em seu locatário do Azure AD por meio do [azure proxy de aplicativo do AD](../manage-apps/application-proxy.md) e podem aproveitar a autenticação multifator do Azure ad se estiverem configurados para usar a pré-autenticação do Azure AD.
 
-Esses aplicativos estão sujeitos a políticas de Acesso Condicional que exigem a Autenticação Multifator do Azure, bem como qualquer outro aplicativo integrado ao Azure AD.
+Esses aplicativos estão sujeitos a políticas de acesso condicional que impõem a autenticação multifator do Azure AD, assim como qualquer outro aplicativo integrado ao Azure AD.
 
-Da mesma forma, se a Autenticação Multifator do Azure for exigida para todas as entradas dos usuários, os aplicativos locais publicados com o Proxy de Aplicativo do Azure Active Directory serão protegidos.
+Da mesma forma, se a autenticação multifator do Azure AD for imposta para todas as entradas de usuário, os aplicativos locais publicados com o Azure Proxy de Aplicativo do AD serão protegidos.
 
-### <a name="integrating-azure-multi-factor-authentication-with-network-policy-server"></a>Integração da Autenticação Multifator do Azure com o Servidor de Políticas de Rede
+### <a name="integrating-azure-ad-multi-factor-authentication-with-network-policy-server"></a>Integrando a autenticação multifator do Azure AD com o servidor de políticas de rede
 
-A extensão do Servidor de Políticas de Rede (NPS) para o Azure MFA adiciona recursos MFA baseados em nuvem à sua infraestrutura de autenticação usando os seus servidores existentes. Com a extensão do NPS, você pode adicionar uma chamada telefônica, mensagem de texto ou verificação de aplicativo por telefone a seu fluxo de autenticação existente. Essa integração tem as seguintes limitações:
+A extensão do servidor de políticas de rede (NPS) para o Azure AD MFA adiciona recursos de MFA baseados em nuvem à sua infraestrutura de autenticação usando seus servidores existentes. Com a extensão do NPS, você pode adicionar uma chamada telefônica, mensagem de texto ou verificação de aplicativo por telefone a seu fluxo de autenticação existente. Essa integração tem as seguintes limitações:
 
 * Com o protocolo CHAPv2, somente as notificações por push do aplicativo autenticador e as chamadas de voz têm suporte.
 * As políticas de Acesso Condicional não podem ser aplicadas.
 
-A extensão do NPS atua como um adaptador entre o RADIUS e o Azure MFA baseado em nuvem para fornecer um segundo fator de autenticação a fim de proteger [VPN](howto-mfa-nps-extension-vpn.md), [conexões Remotas de Gateway da Área de Trabalho](howto-mfa-nps-extension-rdg.md) ou outros aplicativos compatíveis com RADIUS. Os usuários que se registrarem na Autenticação Multifator do Microsoft Azure nesse ambiente serão desafiados em todas as tentativas de autenticação. A falta de políticas de Acesso Condicional significa que a MFA será sempre necessária.
+A extensão NPS atua como um adaptador entre o RADIUS e o Azure AD MFA baseado em nuvem para fornecer um segundo fator de autenticação para proteger [VPN](howto-mfa-nps-extension-vpn.md), [área de trabalho remota conexões de gateway](howto-mfa-nps-extension-rdg.md)ou outros aplicativos compatíveis com RADIUS. Os usuários que se registram para o MFA do Azure AD nesse ambiente serão desafiados em todas as tentativas de autenticação, a falta de políticas de acesso condicional significa que a MFA é sempre necessária.
 
 #### <a name="implementing-your-nps-server"></a>Implementar o servidor NPS
 
-Se você já tiver uma instância do NPS implantada e em uso, acesse [Integrar sua Infraestrutura de NPS existente com a Autenticação Multifator do Azure](howto-mfa-nps-extension.md). Caso esteja configurando o NPS pela primeira vez, confira [NPS (Servidor de Políticas de Rede)](/windows-server/networking/technologies/nps/nps-top) para obter instruções. Um guia para a solução de problemas pode ser encontrado no artigo [Resolver mensagens de erro da extensão do NPS para a Autenticação Multifator do Azure](howto-mfa-nps-extension-errors.md).
+Se você já tiver uma instância do NPS implantada e em uso, [a referência integrará sua infraestrutura de NPS existente com a autenticação multifator do Azure ad](howto-mfa-nps-extension.md). Caso esteja configurando o NPS pela primeira vez, confira [NPS (Servidor de Políticas de Rede)](/windows-server/networking/technologies/nps/nps-top) para obter instruções. As diretrizes de solução de problemas podem ser encontradas no artigo [resolver mensagens de erro da extensão do NPS para a autenticação multifator do Azure ad](howto-mfa-nps-extension-errors.md).
 
 #### <a name="prepare-nps-for-users-that-arent-enrolled-for-mfa"></a>Preparar o NPS para usuários não registrados na Autenticação Multifator
 
@@ -302,19 +302,19 @@ A finalidade dessa configuração é determinar o que fazer quando um usuário n
 
 ### <a name="integrate-with-active-directory-federation-services"></a>Integração com os Serviços de Federação do Active Directory (AD FS)
 
-Se a sua organização for federada com o Azure AD, você poderá usar a [Autenticação Multifator do Azure para proteger os recursos de AD FS](multi-factor-authentication-get-started-adfs.md), tanto localmente quanto na nuvem. O Azure MFA permite que você reduza as senhas e forneça uma forma mais segura de autenticação. A partir do Windows Server 2016, agora você pode configurar o Azure MFA para autenticação primária.
+Se sua organização for federada com o Azure AD, você poderá usar a [autenticação multifator do Azure ad para proteger AD FS recursos](multi-factor-authentication-get-started-adfs.md), tanto localmente quanto na nuvem. O MFA do Azure AD permite que você reduza as senhas e forneça uma maneira mais segura de autenticar. A partir do Windows Server 2016, agora você pode configurar o Azure AD MFA para autenticação primária.
 
-Ao contrário dos AD FS no Windows Server 2012 R2, o adaptador do Azure MFA dos AD FS 2016 é integrado diretamente ao Azure AD e não requer um servidor do Azure MFA local. O adaptador do Azure MFA é integrado ao Windows Server 2016, e não há necessidade de uma instalação adicional.
+Ao contrário do AD FS no Windows Server 2012 R2, o adaptador de MFA do Azure AD AD FS 2016 integra-se diretamente ao Azure AD e não requer um servidor Azure MFA local. O adaptador de MFA do Azure AD é integrado ao Windows Server 2016 e não há necessidade de uma instalação adicional.
 
-Quando o Azure MFA com é usado com os AD FS 2016 e o aplicativo de destino está sujeito à política de Acesso Condicional, há considerações adicionais:
+Ao usar o Azure AD MFA com AD FS 2016 e o aplicativo de destino está sujeito à política de acesso condicional, há considerações adicionais:
 
 * O Acesso Condicional está disponível quando o aplicativo é uma terceira parte confiável do Azure AD, federado com os AD FS 2016 ou mais recente.
 * O Acesso Condicional não está disponível quando o aplicativo é uma terceira parte confiável para os AD FS 2016 ou AD FS 2019 e é gerenciado ou federado com os AD FS 2016 ou AD FS 2019.
-* O Acesso Condicional também não está disponível quando os AD FS 2016 ou AD FS 2019 está configurado para usar o Azure MFA como o método principal de autenticação.
+* O acesso condicional também não está disponível quando AD FS 2016 ou AD FS 2019 está configurado para usar o Azure AD MFA como o método de autenticação principal.
 
 #### <a name="ad-fs-logging"></a>Registro em log dos AD FS
 
-O log padrão dos AD FS 2016 e 2019 no Registro de Segurança do Windows e no log do Administrador dos AD FS contém informações sobre as solicitações de autenticação e seu sucesso ou falha. Os dados do log de evento dentro desses eventos indicarão se a Autenticação Multifator do Microsoft Azure foi usada. Por exemplo, um Evento de Auditoria ID 1200 dos AD FS pode conter:
+O log padrão dos AD FS 2016 e 2019 no Registro de Segurança do Windows e no log do Administrador dos AD FS contém informações sobre as solicitações de autenticação e seu sucesso ou falha. Os dados do log de eventos dentro desses eventos indicarão se o Azure AD MFA foi usado. Por exemplo, um Evento de Auditoria ID 1200 dos AD FS pode conter:
 
 ```
 <MfaPerformed>true</MfaPerformed>
@@ -323,11 +323,11 @@ O log padrão dos AD FS 2016 e 2019 no Registro de Segurança do Windows e no lo
 
 #### <a name="renew-and-manage-certificates"></a>Renovar e gerenciar certificados
 
-Em cada servidor AD FS, no Meu Repositório do computador local, haverá um certificado do Azure MFA autoassinado intitulado OU=Microsoft AD FS Azure MFA, que contém a data de validade do certificado. Verifique o período de validade desse certificado em cada servidor AD FS para determinar essa data.
+Em cada servidor de AD FS, no computador local meu repositório, haverá um certificado de MFA do Azure AD autoassinado intitulado OU = Microsoft AD FS Azure MFA, que contém a data de expiração do certificado. Verifique o período de validade desse certificado em cada servidor AD FS para determinar essa data.
 
 Se o período de validade de seus certificados estiver perto da expiração, [gere e verifique um novo certificado de MFA em cada servidor AD FS](/windows-server/identity/ad-fs/operations/configure-ad-fs-and-azure-mfa#configure-the-ad-fs-servers).
 
-As diretrizes a seguir detalham como gerenciar os certificados de Autenticação Multifator do Microsoft Azure em seus servidores AD FS. Quando você configura os AD FS com o Azure MFA, os certificados gerados por meio do cmdlet `New-AdfsAzureMfaTenantCertificate` do PowerShell são válidos por dois anos. Renove e instale os certificados renovados antes da expiração para evitar interrupções no serviço deMFA.
+As diretrizes a seguir detalham como gerenciar os certificados do Azure AD MFA em seus servidores de AD FS. Quando você configura AD FS com o Azure AD MFA, os certificados gerados por meio do `New-AdfsAzureMfaTenantCertificate` cmdlet do PowerShell são válidos por dois anos. Renove e instale os certificados renovados antes da expiração para evitar interrupções no serviço deMFA.
 
 ## <a name="implement-your-plan"></a>Implementar seu plano
 
@@ -353,9 +353,9 @@ Agora que você planejou sua solução, poderá implementá-la seguindo as etapa
 
 ## <a name="manage-your-solution"></a>Gerenciar sua solução
 
-Relatórios para o Azure MFA
+Relatórios para MFA do Azure AD
 
-A Autenticação Multifator do Azure fornece relatórios por meio do portal do Azure:
+A autenticação multifator do Azure AD fornece relatórios por meio do portal do Azure:
 
 | Relatório | Location | Descrição |
 | --- | --- | --- |
@@ -363,11 +363,11 @@ A Autenticação Multifator do Azure fornece relatórios por meio do portal do A
 
 ## <a name="troubleshoot-mfa-issues"></a>Solucionar problemas da MFA
 
-Encontre soluções para problemas comuns com o Azure MFA do Microsoft Azure no artigo [Solucionar problemas da Autenticação Multifator do Azure](https://support.microsoft.com/help/2937344/troubleshooting-azure-multi-factor-authentication-issues) na central de Suporte da Microsoft.
+Encontre soluções para problemas comuns com o Azure AD MFA no [artigo solução de problemas da autenticação multifator do Azure ad](https://support.microsoft.com/help/2937344/troubleshooting-azure-multi-factor-authentication-issues) no centro de suporte da Microsoft.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para ver a Autenticação Multifator do Azure em ação, conclua o seguinte tutorial:
+Para ver a autenticação multifator do Azure AD em ação, conclua o seguinte tutorial:
 
 > [!div class="nextstepaction"]
-> [Habilitar a Autenticação Multifator do Microsoft Azure](tutorial-enable-azure-mfa.md)
+> [Habilitar a Autenticação Multifator do Azure AD](tutorial-enable-azure-mfa.md)

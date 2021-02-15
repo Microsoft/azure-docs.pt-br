@@ -1,23 +1,14 @@
 ---
 title: Criar de maneira programática Painéis do Azure
 description: Use um Dashboard no portal do Azure como um modelo para criar programaticamente painéis do Azure. Inclui referência JSON.
-services: azure-portal
-documentationcenter: ''
-author: adamabmsft
-manager: mtillman
-ms.service: azure-portal
-ms.devlang: NA
 ms.topic: how-to
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 03/23/2020
-ms.author: mblythe
-ms.openlocfilehash: bdaf1261e9945aa862157f7e43a44387e14d3657
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 12/4/2020
+ms.openlocfilehash: e69d3f3cea0ff63f94e797047eb10b9583678b1b
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84764036"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745801"
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Criar de maneira programática Painéis do Azure
 
@@ -55,7 +46,7 @@ Depois de configurar o painel, a próxima etapa é publicar o painel usando o co
 
 ![compartilhando um painel](./media/azure-portal-dashboards-create-programmatically/share-command.png)
 
-Selecionar **compartilhar** solicita que você escolha em qual assinatura e grupo de recursos publicar. Você deve ter acesso de gravação à assinatura e ao grupo de recursos que escolher. Para obter mais informações, consulte [Adicionar ou remover atribuições de função usando o RBAC do Azure e o portal do Azure](../role-based-access-control/role-assignments-portal.md).
+Selecionar **compartilhar** solicita que você escolha em qual assinatura e grupo de recursos publicar. Você deve ter acesso de gravação à assinatura e ao grupo de recursos que escolher. Para obter mais informações, confira [Adicionar ou remover atribuições de função do Azure usando o portal do Azure](../role-based-access-control/role-assignments-portal.md).
 
 ![fazer alterações no compartilhamento e no acesso](./media/azure-portal-dashboards-create-programmatically/sharing-and-access.png)
 
@@ -78,13 +69,13 @@ Para publicar esse painel para qualquer máquina virtual no futuro, parametrizar
 Há duas abordagens para APIs que criam recursos no Azure:
 
 * APIs imperativas criam um recurso por vez. Para saber mais, confira [Recursos](/rest/api/resources/resources).
-* Um sistema de implantação baseado em modelo que cria vários recursos dependentes com uma única chamada à API. Para obter mais informações, consulte [implantar recursos com modelos e Azure PowerShell do Resource Manager](../azure-resource-manager/resource-group-template-deploy.md).
+* Um sistema de implantação baseado em modelo que cria vários recursos dependentes com uma única chamada à API. Para obter mais informações, consulte  [implantar recursos com modelos e Azure PowerShell do Resource Manager](../azure-resource-manager/templates/deploy-powershell.md).
 
 A implantação baseada em modelo dá suporte à parametrização e modelagem. Usamos essa abordagem neste artigo.
 
 ## <a name="programmatically-create-a-dashboard-from-your-template-using-a-template-deployment"></a>Criar programaticamente um painel de seu modelo usando uma implantação de modelo
 
-O Azure oferece a capacidade de coordenar a implantação de vários recursos. Você cria um modelo de implantação que expressa o conjunto de recursos a serem implantados e as relações entre eles.  O formato JSON de cada recurso é o mesmo como se você estivesse criando um de cada vez. A diferença é que a linguagem do modelo adiciona alguns conceitos como variáveis, parâmetros, funções básicas e muito mais. Essa sintaxe estendida só tem suporte no contexto de uma implantação de modelo. Ele não funcionará se for usado com as APIs imperativas discutidas anteriormente. Para obter mais informações, consulte [entender a estrutura e a sintaxe dos modelos de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
+O Azure oferece a capacidade de coordenar a implantação de vários recursos. Você cria um modelo de implantação que expressa o conjunto de recursos a serem implantados e as relações entre eles.  O formato JSON de cada recurso é o mesmo como se você estivesse criando um de cada vez. A diferença é que a linguagem do modelo adiciona alguns conceitos como variáveis, parâmetros, funções básicas e muito mais. Essa sintaxe estendida só tem suporte no contexto de uma implantação de modelo. Ele não funcionará se for usado com as APIs imperativas discutidas anteriormente. Para obter mais informações, consulte [entender a estrutura e a sintaxe dos modelos de Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md).
 
 A parametrização deve ser feita usando a sintaxe do parâmetro do modelo.  Você substitui todas as instâncias da ID de recurso que encontramos anteriormente, conforme mostrado aqui.
 
@@ -125,7 +116,7 @@ Declare os metadados de modelo necessários e os parâmetros na parte superior d
 Depois de configurar o modelo, implante-o usando qualquer um dos seguintes métodos:
 
 * [APIs REST](/rest/api/resources/deployments)
-* [PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
+* [PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
 * [CLI do Azure](/cli/azure/group/deployment#az-group-deployment-create)
 * [A página de implantação do modelo de portal do Azure](https://portal.azure.com/#create/Microsoft.Template)
 
@@ -658,3 +649,49 @@ Este exemplo implanta um painel por si só, mas a linguagem do modelo permite qu
 ```
 
 Agora que você viu um exemplo de como usar um modelo com parâmetros para implantar um painel, você pode tentar implantar o modelo usando as [APIs REST do Azure Resource Manager](/rest/api/), os comandos [CLI do Azure](/cli/azure)ou [Azure PowerShell](/powershell/azure/get-started-azureps).
+
+## <a name="programmatically-create-a-dashboard-by-using-azure-cli"></a>Criar programaticamente um painel usando CLI do Azure
+
+Prepare seu ambiente para a CLI do Azure.
+
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+- Esses exemplos usam o seguinte painel: [portal-dashboard-template-testvm.jsem](https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/azure-portal/portal-dashboard-template-testvm.json). Substitua o conteúdo por colchetes angulares pelos seus valores.
+
+Execute o comando [AZ portal Dashboard Create](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_create) para criar um painel:
+
+```azurecli
+az portal dashboard create --resource-group myResourceGroup --name 'Simple VM Dashboard' \
+   --input-path portal-dashboard-template-testvm.json --location centralus
+```
+
+Você pode atualizar um painel usando o comando [AZ portal Dashboard Update](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_update) :
+
+```azurecli
+az portal dashboard update --resource-group myResourceGroup --name 'Simple VM Dashboard' \
+--input-path portal-dashboard-template-testvm.json --location centralus
+```
+
+Consulte os detalhes de um painel executando o comando [AZ portal Dashboard show](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_show) :
+
+```azurecli
+az portal dashboard show --resource-group myResourceGroup --name 'Simple VM Dashboard'
+```
+
+Para ver todos os painéis para a assinatura atual, use a [lista AZ portal Dashboard](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_list):
+
+```azurecli
+az portal dashboard list
+```
+
+Você também pode ver todos os painéis de um grupo de recursos:
+
+```azurecli
+az portal dashboard list --resource-group myResourceGroup
+```
+
+## <a name="next-steps"></a>Próximas etapas
+
+Para obter mais informações sobre áreas de trabalho, consulte [Manage portal do Azure Settings and Preferences](set-preferences.md).
+
+Para obter mais informações sobre CLI do Azure suporte para painéis, consulte [AZ portal Dashboard](/cli/azure/ext/portal/portal/dashboard).

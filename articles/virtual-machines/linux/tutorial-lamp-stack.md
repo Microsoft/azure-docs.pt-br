@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 01/30/2019
 ms.author: cynthn
 ms.openlocfilehash: d0d86e1a9c40eb6860508cf136ab9d466cc28ecd
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88225896"
 ---
 # <a name="tutorial-install-a-lamp-web-server-on-a-linux-virtual-machine-in-azure"></a>Tutorial: Instalar um servidor Web do LAMP em uma máquina virtual do Linux no Azure

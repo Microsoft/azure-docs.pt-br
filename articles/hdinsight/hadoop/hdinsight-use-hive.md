@@ -1,19 +1,16 @@
 ---
 title: O que é o Apache Hive e HiveQL - Azure HDInsight?
 description: O Apache Hive é um sistema de data warehouse para Apache Hadoop. Você pode consultar dados armazenados no Hive usando o HiveQL, que é semelhante ao Transact-SQL. Neste documento, você aprenderá a usar o Hive e HiveQL com o Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 02/28/2020
-ms.openlocfilehash: 95af0cd4b59863ad0f591476441d9a7733765453
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 4e8c6b25055dfc38d56509e1744b8c7fcac40700
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86076021"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944293"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Saiba mais sobre o Apache Hive e o HiveQL no Azure HDInsight?
 
@@ -88,7 +85,7 @@ Há dois tipos de tabelas que você pode criar com o Hive:
     * Você precisa de um local personalizado, como uma conta de armazenamento não padrão.
     * Um programa que não seja o hive gerencia o formato de dados, o local e assim por diante.
 
-Para obter mais informações, confira a publicação do blog [Introdução às tabelas internas e externas do Hive](https://blogs.msdn.microsoft.com/cindygross/2013/02/05/hdinsight-hive-internal-and-external-tables-intro/).
+Para obter mais informações, confira a publicação do blog [Introdução às tabelas internas e externas do Hive](/archive/blogs/cindygross/hdinsight-hive-internal-and-external-tables-intro).
 
 ## <a name="user-defined-functions-udf"></a>UDF (Funções definidas pelo usuário)
 
@@ -100,7 +97,7 @@ O Hive também pode ser estendido por meio de **UDF (funções definidas pelo us
 
 * [Usar uma função definida C# pelo usuário do Java com o Apache Hive](../hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
 
-* [Como adicionar uma função definida pelo usuário personalizado de Apache Hive no HDInsight](https://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
+* [Como adicionar uma função definida pelo usuário personalizado de Apache Hive no HDInsight](/archive/blogs/bigdatasupport/how-to-add-custom-hive-udfs-to-hdinsight)
 
 * [Um exemplo de função definida pelo usuário do Apache Hive para converter formatos de data/hora para carimbo de data/hora do Hive](https://github.com/Azure-Samples/hdinsight-java-hive-udf)
 
@@ -131,7 +128,7 @@ SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs
 
 No exemplo anterior, as instruções HiveQL executam as seguintes ações:
 
-|de |Descrição |
+|Instrução |Descrição |
 |---|---|
 |DROP TABLE|Se a tabela já existir, exclua-a.|
 |CREATE EXTERNAL TABLE|Cria uma nova tabela **externa** no hive. Tabelas externas só armazenam a definição da tabela no Hive. Os dados são mantidos no local e no formato originais.|
@@ -164,7 +161,7 @@ SELECT t1, t2, t3, t4, t5, t6, t7
 
 Essas instruções executam as seguintes ações:
 
-|de |Descrição |
+|Instrução |Descrição |
 |---|---|
 |CREATE TABLE SE NÃO EXISTIR|Se a tabela não existir, crie-a. Como a palavra-chave **external** não é usada, essa instrução cria uma tabela interna. Uma tabela interna é armazenada no data warehouse do Hive e é totalmente gerenciada pelo Hive.|
 |ARMAZENADO COMO ORC|Armazena os dados no formato OCR (Optimized Row Columnar). Esse é um formato altamente otimizado e eficiente para o armazenamento de dados do Hive.|
@@ -197,11 +194,11 @@ O Azure Data Factory permite que você use o HDInsight como parte de um pipeline
 
 Também é possível usar o SSIS (SQL Server Integration Services) para executar um trabalho do Hive. O Feature Pack do Azure para SSIS fornece os seguintes componentes que funcionam com trabalhos do Hive no HDInsight.
 
-* [Tarefa do Hive do Azure HDInsight](https://docs.microsoft.com/sql/integration-services/control-flow/azure-hdinsight-hive-task)
+* [Tarefa do Hive do Azure HDInsight](/sql/integration-services/control-flow/azure-hdinsight-hive-task)
 
-* [Gerenciador de Conexões da Assinatura do Azure](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-subscription-connection-manager)
+* [Gerenciador de Conexões da Assinatura do Azure](/sql/integration-services/connection-manager/azure-subscription-connection-manager)
 
-Para obter mais informações, consulte a documentação [Pacote de Recursos do Azure](https://docs.microsoft.com/sql/integration-services/azure-feature-pack-for-integration-services-ssis).
+Para obter mais informações, consulte a documentação [Pacote de Recursos do Azure](/sql/integration-services/azure-feature-pack-for-integration-services-ssis).
 
 ### <a name="apache-oozie"></a>Apache Oozie
 

@@ -10,10 +10,10 @@ ms.date: 06/22/2020
 ms.author: danis
 ms.reviewer: cynthn
 ms.openlocfilehash: a7d9aa7de8bb75a22acc85c77924765eaa1b6b3b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87080141"
 ---
 # <a name="azure-linux-vm-provisioning"></a>Provisionamento de VM do Linux do Azure

@@ -2,8 +2,8 @@
 title: Ramificação no pipeline do Azure Data Factory
 description: Aprenda a controlar o fluxo de dados no Azure Data Factory por ramificação e encadeamento de atividades.
 services: data-factory
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: anandsub
 ms.reviewer: maghan
 ms.service: data-factory
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 9/27/2019
-ms.openlocfilehash: 0330e72ad74726f97bfdfd78ef8d5f9b24a5d172
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: ab7d17ee61d733483b6d3573e9bd69b1628c7940
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85513321"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96496935"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Ramificação e encadeamento de atividades em um pipeline de Data Factory
 
@@ -26,7 +26,7 @@ Neste tutorial, você deve criar um pipeline de Data Factory que apresente algun
 
 Este gráfico fornece uma visão geral do cenário:
 
-![Visão geral](media/tutorial-control-flow/overview.png)
+![O diagrama mostra o Armazenamento de Blobs do Azure, que é o destino de uma cópia. Em caso de êxito, ele envia um email com detalhes e, em caso de falha, ele envia um email com detalhes do erro.](media/tutorial-control-flow/overview.png)
 
 O tutorial mostra como executar as seguintes tarefas:
 
@@ -40,7 +40,7 @@ O tutorial mostra como executar as seguintes tarefas:
 > * Iniciar uma execução de pipeline
 > * Monitorar as execuções de pipeline e de atividade
 
-Este tutorial usa o .NET SDK. Você pode usar outros mecanismos para interagir com o Azure Data Factory. Para obter guias de início rápido do Data Factory, confira os [Guias de início rápido de cinco minutos](/azure/data-factory/quickstart-create-data-factory-portal).
+Este tutorial usa o .NET SDK. Você pode usar outros mecanismos para interagir com o Azure Data Factory. Para obter guias de início rápido do Data Factory, confira os [Guias de início rápido de cinco minutos](./quickstart-create-data-factory-portal.md).
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -610,7 +610,7 @@ Creating linked service AzureStorageLinkedService...
 {
   "type": "AzureStorage",
   "typeProperties": {
-    "connectionString": "DefaultEndpointsProtocol=https;AccountName=***;AccountKey=***"
+    "connectionString": "DefaultEndpointsProtocol=https;AccountName=***;AccountKey=**_"
   }
 }
 Creating dataset SourceStorageDataset...
@@ -753,7 +753,7 @@ Press any key to exit...
 Neste tutorial, você executou as seguintes tarefas:
 
 > [!div class="checklist"]
-> * Criar uma data factory
+> _ Criar um data factory
 > * Criar um serviço vinculado do Armazenamento do Azure
 > * Criar um conjunto de dados do Blob do Azure
 > * Criar um pipeline que contém uma atividade de cópia e uma atividade da Web

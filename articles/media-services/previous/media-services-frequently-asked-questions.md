@@ -13,14 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 73b24de0e66ca8fbe2097f7da39b64aaea8b1ac4
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: ff15206e2373ce6481cb65cbbeeb3c88cd2b7154
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057986"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89269413"
 ---
 # <a name="media-services-v2-frequently-asked-questions"></a>Perguntas frequentes sobre os Serviços de Mídia v2
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 Este artigo aborda perguntas frequentes geradas pela comunidade de usuários dos Serviços de Mídia do Azure (AMS).
 

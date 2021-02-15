@@ -1,19 +1,16 @@
 ---
 title: 'Tutorial: Criar um pipeline de ETL de ponta a ponta para obter insights de vendas no Azure HDInsight'
 description: Saiba como usar criar pipelines de ETL com o Azure HDInsight para obter insights de dados de vendas usando clusters sob demanda do Spark e o Power BI.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive, devx-track-azurecli
 ms.date: 04/15/2020
-ms.openlocfilehash: a0f081e0f8df00bbc99d2163fb54a2f15d92a159
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7d026d93ebe6f6a0bd9afbd277294d58d7a2a69b
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87006425"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98932052"
 ---
 # <a name="tutorial-create-an-end-to-end-data-pipeline-to-derive-sales-insights-in-azure-hdinsight"></a>Tutorial: Criar um pipeline de dados de ponta a ponta para obter insights de vendas no Azure HDInsight
 
@@ -27,13 +24,13 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* CLI do Azure – versão 2.2.0 ou posterior. Confira [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* CLI do Azure – versão 2.2.0 ou posterior. Confira [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
 * jq, um processador JSON de linha de comando.  Confira [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/).
 
 * Um membro da [Função interna do Azure – proprietário](../role-based-access-control/built-in-roles.md).
 
-* Se você estiver usando o PowerShell para disparar o pipeline do Data Factory, precisará do [módulo Az](https://docs.microsoft.com/powershell/azure/).
+* Se você estiver usando o PowerShell para disparar o pipeline do Data Factory, precisará do [módulo Az](/powershell/azure/).
 
 * [Power BI Desktop](https://aka.ms/pbiSingleInstaller) para visualizar insights empresariais no final deste tutorial.
 
@@ -93,7 +90,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
     ./scripts/resources.sh $resourceGroup LOCATION
     ```
 
-    Se você não tiver certeza de qual região especificar, poderá recuperar uma lista de regiões compatíveis com a assinatura com o comando [az account list-locations](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-list-locations).
+    Se você não tiver certeza de qual região especificar, poderá recuperar uma lista de regiões compatíveis com a assinatura com o comando [az account list-locations](/cli/azure/account#az-account-list-locations).
 
     O comando exibirá os seguintes recursos:
 

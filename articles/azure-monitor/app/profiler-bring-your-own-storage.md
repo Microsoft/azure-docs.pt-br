@@ -4,14 +4,14 @@ description: Configure o BYOS (Traga seu próprio armazenamento) para o profiler
 ms.topic: conceptual
 author: renatosalas
 ms.author: regutier
-ms.date: 04/14/2020
+ms.date: 01/14/2021
 ms.reviewer: mbullwin
-ms.openlocfilehash: 719f0cfa0a1f80568acf3231ce3ffab441e5f6b7
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: f82432c1dd8c66e8ce845831ff35d534a34e3e04
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87117384"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202531"
 ---
 # <a name="configure-bring-your-own-storage-byos-for-application-insights-profiler-and-snapshot-debugger"></a>Configure o BYOS (Traga seu próprio armazenamento) para Application Insights Profiler e Depurador de Instantâneos
 
@@ -23,7 +23,7 @@ Com o traga seu próprio armazenamento, esses artefatos são carregados em uma c
 > [!NOTE]
 > Se você estiver habilitando o link privado, traga seu próprio armazenamento é um requisito. Para obter mais informações sobre o link privado para Application Insights, [consulte a documentação.](../platform/private-link-security.md)
 >
-> Se você estiver habilitando chaves gerenciadas pelo cliente, traga seu próprio armazenamento é um requisito. Para obter mais informações sobre chaves gerenciadas pelo cliente para Application Insights, [consulte a documentação.](../platform/customer-managed-keys.md)
+> Se você estiver habilitando Customer-Managed chaves, traga seu próprio armazenamento é um requisito. Para obter mais informações sobre Customer-Managed chaves para Application Insights, [consulte a documentação.](../platform/customer-managed-keys.md)
 
 ## <a name="how-will-my-storage-account-be-accessed"></a>Como minha conta de armazenamento será acessada?
 1. Os agentes em execução em suas máquinas virtuais ou no serviço de aplicativo carregarão artefatos (perfis, instantâneos e símbolos) para contêineres de BLOB em sua conta. Esse processo envolve entrar em contato com o serviço de Application Insights Profiler ou Depurador de Instantâneos para obter um token SAS (assinatura de acesso compartilhado) para um novo BLOB em sua conta de armazenamento.
@@ -31,7 +31,7 @@ Com o traga seu próprio armazenamento, esses artefatos são carregados em uma c
 1. Quando você exibir os rastreamentos do criador de perfil ou a análise do depurador de instantâneo, o serviço buscará os resultados da análise do armazenamento de BLOBs.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* Certifique-se de criar sua conta de armazenamento no mesmo local que o recurso de Application Insights. Ex.: Se o recurso de Application Insights estiver no oeste dos EUA 2, sua conta de armazenamento também deverá estar no oeste dos EUA 2. 
+* Certifique-se de criar sua conta de armazenamento no mesmo local que o recurso de Application Insights. Exemplo: Se o recurso de Application Insights estiver no oeste dos EUA 2, sua conta de armazenamento também deverá estar no oeste dos EUA 2. 
 * Conceda a função "colaborador de dados de blob de armazenamento" ao aplicativo do AAD "acesso de armazenamento confiável dos serviços de diagnóstico" em sua conta de armazenamento por meio da interface de usuário do controle de acesso (IAM).
 * Se o link privado estiver habilitado, defina a configuração adicional para permitir a conexão com o nosso serviço confiável da Microsoft de sua rede virtual. 
 
@@ -53,11 +53,11 @@ Etapas:
 1. Pesquise & selecione o aplicativo "acesso ao armazenamento confiável dos serviços de diagnóstico" 
 1. Salvar alterações
 
-_ ![ Figura 1,0](media/profiler-bring-your-own-storage/figure-10.png)_ 
+_![ Figura 1,0](media/profiler-bring-your-own-storage/figure-10.png)_ 
  _Figura 1,0_ 
 
 Depois de adicionar a função, ela será exibida na seção "atribuições de função", como a figura abaixo 1,1. 
-_ ![ Figura 1,1](media/profiler-bring-your-own-storage/figure-11.png)_ 
+_![ Figura 1,1](media/profiler-bring-your-own-storage/figure-11.png)_ 
  _Figura 1,1_ 
 
 Se você também estiver usando o link privado, será necessária uma configuração adicional para permitir a conexão com o nosso serviço confiável da Microsoft de sua rede virtual. Consulte a [documentação de segurança de rede de armazenamento](../../storage/common/storage-network-security.md#trusted-microsoft-services).
@@ -91,7 +91,7 @@ Para configurar o BYOS para diagnósticos de nível de código (criador de perfi
 
     Padrão:
     ```powershell
-    $appInsights = Get-AzApplicationInsights -ResourceGroupName "{resource_group_name}" -Name "{storage_account_name}"
+    $appInsights = Get-AzApplicationInsights -ResourceGroupName "{resource_group_name}" -Name "{application_insights_name}"
     Remove-AzApplicationInsightsLinkedStorageAccount -ResourceId $appInsights.Id
     ```
 
@@ -226,12 +226,12 @@ Para configurar o BYOS para diagnósticos de nível de código (criador de perfi
     DeploymentDebugLogLevel :
     ```
 
-1. Habilite o diagnóstico de nível de código (criador de perfil/depurador) na carga de trabalho de interesse por meio do portal do Azure. (Application Insights de > do serviço de aplicativo) _ ![ Figura 2,0](media/profiler-bring-your-own-storage/figure-20.png)_ 
+1. Habilite o diagnóstico de nível de código (criador de perfil/depurador) na carga de trabalho de interesse por meio do portal do Azure. (Application Insights de > do serviço de aplicativo) _![ Figura 2,0](media/profiler-bring-your-own-storage/figure-20.png)_ 
  _Figura 2,0_
 
 ## <a name="troubleshooting"></a>Solução de problemas
 ### <a name="template-schema-schema_uri-isnt-supported"></a>Não há suporte para o esquema de modelo ' {schema_uri} '.
-* Verifique se a `$schema` Propriedade do modelo é válida. Ele deve seguir o seguinte padrão:`https://schema.management.azure.com/schemas/{schema_version}/deploymentTemplate.json#`
+* Verifique se a `$schema` Propriedade do modelo é válida. Ele deve seguir o seguinte padrão: `https://schema.management.azure.com/schemas/{schema_version}/deploymentTemplate.json#`
 * Verifique se o `schema_version` do modelo está dentro dos valores válidos: `2014-04-01-preview, 2015-01-01, 2018-05-01, 2019-04-01, 2019-08-01` .
     Mensagem de erro:
     ```powershell
@@ -276,17 +276,17 @@ Para solucionar problemas gerais do criador de perfil, consulte a [documentaçã
 
 Para obter uma solução de problemas de Depurador de Instantâneos geral, consulte a [documentação de solução de problemas do depurador de instantâneos](snapshot-debugger-troubleshoot.md). 
 
-## <a name="faqs"></a>Perguntas Frequentes
+## <a name="faqs"></a>Perguntas frequentes
 * Se eu tiver o criador de perfil ou o instantâneo habilitado e, em seguida, eu habilitar o BYOS, meus dados serão migrados para minha conta de armazenamento?
     _Não, não vai._
 
-* BYOS trabalhará com criptografia em repouso e chave gerenciada pelo cliente?
-    _Sim, para ser preciso, o BYOS é um requisito para ter o criador de perfil/depurador habilitado com as chaves do gerente do cliente._
+* O BYOS funcionará com a criptografia em repouso e a chave Customer-Managed?
+    _Sim, para ser preciso, BYOS é um requisito para ter o criador de perfil/depurador habilitado com chaves de Customer-Manager._
 
 * O BYOS funcionará em um ambiente isolado da Internet?
     _Ok. Na verdade, o BYOS é um requisito para cenários de rede isolada._
 
-* O BYOS funcionará quando as chaves gerenciadas pelo cliente e o link privado estiverem habilitados? 
+* O BYOS funcionará quando, Customer-Managed chaves e o link privado estiverem habilitados? 
     _Sim, pode ser possível._
 
 * Se eu tiver habilitado BYOS, posso voltar a usar as contas de armazenamento de serviços de diagnóstico para armazenar meus dados coletados? 

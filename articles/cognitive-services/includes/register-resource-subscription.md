@@ -4,10 +4,10 @@ description: incluir arquivo
 ms.topic: include
 ms.date: 07/27/2020
 ms.openlocfilehash: 159462ad310fbb9f7275c99488e24c7ea4852b34
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87316961"
 ---
 > [!Tip]

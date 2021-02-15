@@ -1,28 +1,24 @@
 ---
 title: Perguntas frequentes sobre problemas de configuração e gerenciamento
-titleSuffix: Azure Cloud Services
 description: Este artigo lista as perguntas frequentes sobre a configuração e o gerenciamento de Serviços de Nuvem do Microsoft Azure.
-services: cloud-services
-documentationcenter: ''
-author: genlin
-manager: dcscontentpm
-editor: ''
-tags: top-support-issue
-ms.assetid: 84985660-2cfd-483a-8378-50eef6a0151d
-ms.service: cloud-services
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 07/23/2018
-ms.author: genli
-ms.openlocfilehash: 477f38e18f1bee881e4a9df23dd37048f39549be
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.service: cloud-services
+ms.date: 10/14/2020
+ms.author: tagore
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: c5dd09292897d69f90606e8661b4e6cb28090612
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87092738"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98742583"
 ---
-# <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemas de configuração e gerenciamento para Serviços de Nuvem do Azure: perguntas frequentes
+# <a name="configuration-and-management-issues-for-azure-cloud-services-classic-frequently-asked-questions-faqs"></a>Problemas de configuração e gerenciamento dos serviços de nuvem do Azure (clássico): perguntas frequentes (FAQs)
+
+> [!IMPORTANT]
+> Os [serviços de nuvem do Azure (suporte estendido)](../cloud-services-extended-support/overview.md) são um novo modelo de implantação baseado em Azure Resource Manager para o produto de serviços de nuvem do Azure.Com essa alteração, os serviços de nuvem do Azure em execução no modelo de implantação baseado no Azure Service Manager foram renomeados como serviços de nuvem (clássicos) e todas as novas implantações devem usar os [serviços de nuvem (suporte estendido)](../cloud-services-extended-support/overview.md).
 
 Este artigo inclui perguntas frequentes sobre a configuração e o gerenciamento de [Serviços de Nuvem do Microsoft Azure](https://azure.microsoft.com/services/cloud-services). Você também pode consultar a [página de tamanho de VM de Serviços de Nuvem](cloud-services-sizes-specs.md) para obter informações de tamanho.
 
@@ -55,14 +51,14 @@ Este artigo inclui perguntas frequentes sobre a configuração e o gerenciamento
 - [Os engenheiros internos da Microsoft podem tornar o desktop remoto para instâncias de serviço de nuvem sem permissão?](#can-microsoft-internal-engineers-remote-desktop-to-cloud-service-instances-without-permission)
 - [Não consigo a área de trabalho remota para a VM do serviço de nuvem usando o arquivo RDP. Obtenho o seguinte erro: ocorreu um erro de autenticação (código: 0x80004005)](#i-cannot-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file-i-get-following-error-an-authentication-error-has-occurred-code-0x80004005)
 
-**Scaling**
+**Dimensionamento**
 
 - [Não consigo dimensionar além de X instâncias](#i-cannot-scale-beyond-x-instances)
 - [Como posso configurar o dimensionamento automático com base nas métricas de memória?](#how-can-i-configure-auto-scale-based-on-memory-metrics)
 
 **Genérico**
 
-- [Como fazer para adicionar "nosniff" ao meu site?](#how-do-i-add-nosniff-to-my-website)
+- [Como fazer adicionar `nosniff` ao meu site?](#how-do-i-add-nosniff-to-my-website)
 - [Como fazer para personalizar o IIS para uma função web?](#how-do-i-customize-iis-for-a-web-role)
 - [O que é o limite de cota para meu serviço de nuvem?](#what-is-the-quota-limit-for-my-cloud-service)
 - [Por que a unidade na VM do meu serviço de nuvem mostra muito pouco espaço livre em disco?](#why-does-the-drive-on-my-cloud-service-vm-show-very-little-free-disk-space)
@@ -77,7 +73,7 @@ Este artigo inclui perguntas frequentes sobre a configuração e o gerenciamento
 
 ### <a name="why-is-the-certificate-chain-of-my-cloud-service-tlsssl-certificate-incomplete"></a>Por que a cadeia de certificados do meu serviço de nuvem TLS/certificado SSL está incompleta?
     
-É recomendável que os clientes instalem uma cadeia de certificados completa (certificado de folha, certificados intermediários e certificado raiz), em vez de apenas o certificado de folha. Ao instalar apenas o certificado de folha, você confia no Windows para criar a cadeia de certificados percorrendo a CTL. Se ocorrerem problemas intermitentes de rede ou DNS no Azure ou no Windows Update quando o Windows estiver tentando validar o certificado, o certificado poderá ser considerado inválido. Ao instalar a cadeia de certificados completa, esse problema pode ser evitado. O blog em [Como instalar um certificado SSL encadeado](https://blogs.msdn.microsoft.com/azuredevsupport/2010/02/24/how-to-install-a-chained-ssl-certificate/) mostra como fazer isso.
+É recomendável que os clientes instalem uma cadeia de certificados completa (certificado de folha, certificados intermediários e certificado raiz), em vez de apenas o certificado de folha. Ao instalar apenas o certificado de folha, você confia no Windows para criar a cadeia de certificados percorrendo a CTL. Se ocorrerem problemas intermitentes de rede ou DNS no Azure ou no Windows Update quando o Windows estiver tentando validar o certificado, o certificado poderá ser considerado inválido. Ao instalar a cadeia de certificados completa, esse problema pode ser evitado. O blog em [Como instalar um certificado SSL encadeado](/archive/blogs/azuredevsupport/how-to-install-a-chained-ssl-certificate) mostra como fazer isso.
 
 ### <a name="what-is-the-purpose-of-the-windows-azure-tools-encryption-certificate-for-extensions"></a>Qual é a finalidade do "Certificado de Criptografia das Ferramentas do Microsoft Azure para Extensões"?
 
@@ -111,11 +107,11 @@ Você pode automatizar essa tarefa usando um script de inicialização (lote/cmd
 
 ### <a name="what-is-the-purpose-of-the-microsoft-azure-service-management-for-machinekey-certificate"></a>Qual é a finalidade do certificado de “Gerenciamento de Serviço do Microsoft Azure para MachineKey”?
 
-Este certificado é usado para encriptar chaves de máquina em Funções de Web do Azure. Para saber mais, confira [este comunicado](https://docs.microsoft.com/security-updates/securityadvisories/2018/4092731).
+Este certificado é usado para encriptar chaves de máquina em Funções de Web do Azure. Para saber mais, confira [este comunicado](/security-updates/securityadvisories/2018/4092731).
 
-Para obter mais informações, confira os seguintes artigos:
-- [Como configurar e executar tarefas de inicialização para um serviço de nuvem](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks)
-- [Tarefas de inicialização comuns do Serviço de Nuvem](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks-common)
+Para obter mais informações, consulte os seguintes artigos:
+- [Como configurar e executar tarefas de inicialização para um serviço de nuvem](./cloud-services-startup-tasks.md)
+- [Tarefas de inicialização comuns do Serviço de Nuvem](./cloud-services-startup-tasks-common.md)
 
 ## <a name="monitoring-and-logging"></a>Monitoramento e registro em log
 
@@ -128,7 +124,7 @@ $cert = New-SelfSignedCertificate -DnsName yourdomain.cloudapp.net -CertStoreLoc
 $password = ConvertTo-SecureString -String "your-password" -Force -AsPlainText
 Export-PfxCertificate -Cert $cert -FilePath ".\my-cert-file.pfx" -Password $password
 ```
-Capacidade de escolher o blob ou local para o seu csdef e de carregar localização de cscfg em breve. Usando [New-AzureDeployment](/powershell/module/servicemanagement/azure.service/new-azuredeployment?view=azuresmps-4.0.0), você pode definir o valor de cada local.
+Capacidade de escolher o blob ou local para o seu csdef e de carregar localização de cscfg em breve. Usando [New-AzureDeployment](/powershell/module/servicemanagement/azure.service/new-azuredeployment?view=azuresmps-4.0.0&preserve-view=true), você pode definir o valor de cada local.
 
 Capacidade de monitorar as métricas no nível de instância. Recursos de monitoramentos adicionais estão disponíveis em [como monitorar Serviços De Nuvem](cloud-services-how-to-monitor.md).
 
@@ -139,16 +135,16 @@ Você esgotou a cota de armazenamento local para gravar no diretório de log.Par
 * Aumentar os limite de cota para recursos locais.
 
 Para obter mais informações, consulte um dos seguintes documentos:
-* [Armazenar e exibir dados de diagnóstico no Armazenamento do Azure](/azure/storage/common/storage-introduction)
-* [Logs do IIS param de gravar no serviço de nuvem](https://blogs.msdn.microsoft.com/cie/2013/12/21/iis-logs-stops-writing-in-cloud-service/)
+* [Armazenar e exibir dados de diagnóstico no Armazenamento do Azure](../storage/common/storage-introduction.md)
+* [Logs do IIS param de gravar no serviço de nuvem](/archive/blogs/cie/iis-logs-stops-writing-in-cloud-service)
 
 ### <a name="how-do-i-enable-wad-logging-for-cloud-services"></a>Como habilitar o registro em log do WAD para serviços de nuvem?
 Você pode habilitar o log do Windows Azure Diagnostics (WAD) através das seguintes opções:
-1. [Ativar a partir do Visual Studio](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
-2. [Habilitar por meio de código .NET](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-diagnostics)
-3. [Ativar através do Powershell](https://docs.microsoft.com/azure/cloud-services/cloud-services-diagnostics-powershell)
+1. [Ativar a partir do Visual Studio](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
+2. [Habilitar por meio de código .NET](./cloud-services-dotnet-diagnostics.md)
+3. [Habilitar por meio do PowerShell](./cloud-services-diagnostics-powershell.md)
 
-Para obter as configurações atuais do WAD do seu Serviço em Nuvem, você pode usar [Get-AzureServiceDiagnosticsExtensions](https://docs.microsoft.com/azure/cloud-services/cloud-services-diagnostics-powershell#get-current-diagnostics-extension-configuration) pscmd ou pode visualizá-lo no portal a partir da folha "Serviços em Nuvem -> Extensões".
+Para obter as configurações de WAD atuais de seu serviço de nuvem, você pode usar o [Get-AzureServiceDiagnosticsExtensions](./cloud-services-diagnostics-powershell.md#get-current-diagnostics-extension-configuration) PowerShell cmd ou pode exibi-lo por meio do portal da folha "serviços de nuvem-> extensões".
 
 
 ## <a name="network-configuration"></a>Configuração de rede
@@ -217,7 +213,7 @@ Para obter mais informações, consulte [HTTP/2 on IIS](https://blogs.iis.net/da
 ## <a name="permissions"></a>Permissões
 
 ### <a name="how-can-i-implement-role-based-access-for-cloud-services"></a>Como implementar acesso baseado em função para Serviços de Nuvem?
-Serviços de Nuvem não dão suporte ao modelo RBAC (controle de acesso baseado em função), uma vez que ele não é um serviço do baseado no Azure Resource Manager.
+Os serviços de nuvem não dão suporte ao modelo do Azure RBAC (controle de acesso baseado em função), pois não é um serviço baseado em Azure Resource Manager.
 
 Consulte [Entender as diferentes funções no Azure](../role-based-access-control/rbac-and-directory-admin-roles.md).
 
@@ -233,7 +229,7 @@ Esse erro pode ocorrer se você usar o arquivo RDP a partir de um computador ass
 1. Clique com o botão direito no arquivo RDP que você fez download e, em seguida, selecione **Editar**.
 2. Adicione "&#92;" como prefixo antes do nome de usuário. Por exemplo, use **.\nome de usuário** em vez de **nome de usuário**.
 
-## <a name="scaling"></a>Scaling
+## <a name="scaling"></a>Dimensionamento
 
 ### <a name="i-cannot-scale-beyond-x-instances"></a>Não consigo dimensionar além de X instâncias
 Sua Assinatura do Azure tem um limite no número de núcleos que você pode usar. O dimensionamento não funcionará se você tiver usado todos os núcleos disponíveis. Por exemplo, se você tiver um limite de 100 núcleos, isso significa você poderia ter 100 instâncias de máquina virtual A1 dimensionadas para seu serviço de nuvem ou 50 instâncias de máquina virtual A2.
@@ -248,13 +244,13 @@ Para obter mais detalhes sobre como utilizar uma métrica personalizada por meio
 
 Para obter mais informações sobre como integrar o Diagnóstico do Microsoft Azure com o Application Insights para serviços de nuvem, consulte [Enviar serviço de nuvem, máquina virtual ou dados de diagnóstico do Service Fabric para o Application Insights](../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
 
-Para obter mais informações sobre como habilitar o Application Insights para serviços de nuvem, consulte [Application Insights para serviços de nuvem do Azure](https://docs.microsoft.com/azure/application-insights/app-insights-cloudservices)
+Para obter mais informações sobre como habilitar o Application Insights para serviços de nuvem, consulte [Application Insights para serviços de nuvem do Azure](../azure-monitor/app/cloudservices.md)
 
 Para obter mais informações sobre como habilitar o log de Diagnóstico do Microsoft Azure para serviços de nuvem, consulte [Configurar diagnósticos para serviços de nuvem do Azure e máquinas virtuais](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
 
 ## <a name="generic"></a>Genérico
 
-### <a name="how-do-i-add-nosniff-to-my-website"></a>Como fazer para adicionar "nosniff" ao meu site?
+### <a name="how-do-i-add-nosniff-to-my-website"></a>Como fazer adicionar `nosniff` ao meu site?
 Para evitar que clientes detectem os tipos MIME, adicione uma configuração ao arquivo *web.config*.
 
 ```xml
@@ -284,11 +280,11 @@ Consulte [Limites específicos do serviço](../azure-resource-manager/management
 ### <a name="why-does-the-drive-on-my-cloud-service-vm-show-very-little-free-disk-space"></a>Por que a unidade na VM do meu serviço de nuvem mostra muito pouco espaço livre em disco?
 Esse comportamento é esperado e não deve causar nenhum problema ao seu aplicativo. Registro em log está ativado para a unidade %approot% em VMs virtuais de PaaS do Azure, que consome basicamente o dobro da quantidade de espaço que os arquivos normalmente ocupam. No entanto, há vários elementos a serem considerados que essencialmente transformam isso em um não problema.
 
-O tamanho da unidade% approot% é calculado como \<size of .cspkg + max journal size + a margin of free space> , ou 1,5 GB, o que for maior. O tamanho da sua VM não tem influência sobre esse cálculo. (O tamanho da VM só afeta o tamanho da unidade C: temporária.) 
+O tamanho da unidade %approot% é calculado como <tamanho do .cspkg + tamanho máximo do diário + margem de espaço livre> ou 1,5 GB, o que for maior. O tamanho da sua VM não tem influência sobre esse cálculo. (O tamanho da VM só afeta o tamanho da unidade C: temporária.) 
 
 Não tem suporte para gravar na unidade %approot%. Se você estiver gravando na VM do Azure, deverá fazer isso em um recurso LocalStorage temporário (ou outra opção, como o armazenamento de Blobs, Arquivos do Azure etc.). Portanto, a quantidade de espaço livre na pasta %approot% não é significativa. Se você não tiver certeza de que seu aplicativo está gravando na unidade %approot%, poderá sempre permitir que o serviço seja executado por alguns dias e, em seguida, comparar os tamanhos "antes" e "depois". 
 
-O Azure não gravará nada na unidade %approot%. Quando o VHD tiver sido criado do seu .cspkg e montado na VM do Azure, você poderá gravar apenas seu aplicativo nessa unidade. 
+O Azure não gravará nada na unidade %approot%. Depois que o VHD é criado de seu `.cspkg` e montado na VM do Azure, a única coisa que pode gravar nessa unidade é seu aplicativo. 
 
 As definições do diário são não configuráveis, assim, não é possível desligá-las.
 
@@ -297,7 +293,7 @@ As definições do diário são não configuráveis, assim, não é possível de
 É possível habilitar a extensão Antimalware usando o script do PowerShell na Tarefa de Inicialização. Siga as etapas nestes artigos para implementá-la: 
  
 - [Criar uma tarefa de inicialização do PowerShell](cloud-services-startup-tasks-common.md#create-a-powershell-startup-task)
-- [Set-AzureServiceAntimalwareExtension](/powershell/module/servicemanagement/azure.service/Set-AzureServiceAntimalwareExtension?view=azuresmps-4.0.0 )
+- [Set-AzureServiceAntimalwareExtension](/powershell/module/servicemanagement/azure.service/Set-AzureServiceAntimalwareExtension?view=azuresmps-4.0.0&preserve-view=true)
 
 Para obter mais informações sobre cenários de implantação do Antimalware e como habilitá-lo no portal, consulte [Antimalware Deployment Scenarios](../security/fundamentals/antimalware.md#antimalware-deployment-scenarios) (Cenários de implantação de Antimalware).
 
@@ -313,7 +309,7 @@ A associação SNI pode ser configurada usando o cmdlet **New-webbind** do Power
 New-WebBinding -Name $WebsiteName -Protocol "https" -Port 443 -IPAddress $IPAddress -HostHeader $HostHeader -SslFlags $sslFlags
 ```
 
-Conforme descrito [aqui](https://technet.microsoft.com/library/ee790567.aspx), o $sslFlags poderia ser um dos valores como o seguinte:
+Conforme descrito [aqui](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee790567(v=technet.10)), o $sslFlags poderia ser um dos valores como o seguinte:
 
 |Valor|Significado|
 ------|------
@@ -324,7 +320,7 @@ Conforme descrito [aqui](https://technet.microsoft.com/library/ee790567.aspx), o
  
 **Método 2: código de uso**
 
-A associação de SNI também pode ser configurada por meio de código na inicialização da função conforme descrito nesta [postagem no blog](https://blogs.msdn.microsoft.com/jianwu/2014/12/17/expose-ssl-service-to-multi-domains-from-the-same-cloud-service/):
+A associação de SNI também pode ser configurada por meio de código na inicialização da função conforme descrito nesta [postagem no blog](/archive/blogs/jianwu/expose-ssl-service-to-multi-domains-from-the-same-cloud-service):
 
 ```csharp
 //<code snip> 
@@ -356,7 +352,6 @@ Um serviço de nuvem já implantado é cobrado pela computação e armazenamento
 
 Encontre a seguir o que você pode fazer para reduzir sua cobrança sem perder o endereço IP para seu serviço:
 
-1. [Reserve o endereço IP](../virtual-network/virtual-networks-reserved-public-ip.md) antes de excluir as implantações.  Você será cobrado somente para esse endereço IP. Para obter mais informações sobre cobrança de endereço IP, consulte [preços de endereços IP](https://azure.microsoft.com/pricing/details/ip-addresses/).
+1. [Reserve o endereço IP](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip) antes de excluir as implantações.  Você será cobrado somente para esse endereço IP. Para obter mais informações sobre cobrança de endereço IP, consulte [preços de endereços IP](https://azure.microsoft.com/pricing/details/ip-addresses/).
 2. Exclua as implantações. Não exclua xxx.cloudapp.net, para que você possa usá-lo no futuro.
 3. Se você desejar reimplantar o serviço de nuvem usando a mesma reserva de IP de sua assinatura, consulte [endereços IP reservados para serviços de nuvem e máquinas virtuais](https://azure.microsoft.com/blog/reserved-ip-addresses/).
-

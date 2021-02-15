@@ -3,7 +3,7 @@ title: Cenários comuns de gerenciamento de aplicativos para o Azure Active Dire
 description: Centralizar o gerenciamento de aplicativos com o Azure AD
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-provisioning
@@ -15,12 +15,12 @@ ms.date: 03/02/2019
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b81e792d3b3bf491b281e09c00f48a7ad56fa47
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: 6372407a5deebefab60e09a9d0c01d977157357b
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84763628"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99259563"
 ---
 # <a name="centralize-application-management-with-azure-ad"></a>Centralizar o gerenciamento de aplicativos com o Azure AD
 
@@ -42,8 +42,8 @@ Chega de gerenciar senhas. Acesse com segurança todos os recursos de que você 
 
 |Recurso  | Descrição | Recomendação |
 |---------|---------|---------|
-|SSO|SSO federado baseado em padrões usando padrões confiáveis do setor.|Sempre use [SAML/OIDC](https://docs.microsoft.com/azure/active-directory/manage-apps/isv-choose-multi-tenant-federation) para habilitar o SSO quando seu aplicativo for compatível.|
-|Painel de acesso|Oferece a seus usuários um hub simples para descobrir e acessar todos os seus aplicativos. Possibilite que eles sejam mais produtivos com os recursos de autoatendimento, como a solicitação de acesso a novos aplicativos e grupos ou o gerenciamento do acesso a recursos em nome de outras pessoas.| Implante o [painel de acesso](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-deployment-plan) em sua organização depois de ter integrado os aplicativos com o Azure AD para SSO.|
+|SSO|SSO federado baseado em padrões usando padrões confiáveis do setor.|Sempre use [SAML/OIDC](../develop/v2-howto-app-gallery-listing.md) para habilitar o SSO quando seu aplicativo for compatível.|
+|Meus aplicativos|Oferece a seus usuários um hub simples para descobrir e acessar todos os seus aplicativos. Possibilite que eles sejam mais produtivos com os recursos de autoatendimento, como a solicitação de acesso a novos aplicativos e grupos ou o gerenciamento do acesso a recursos em nome de outras pessoas.| Implante [Meus Aplicativos](my-apps-deployment-plan.md) na sua organização depois de integrar seus aplicativos ao Azure AD para SSO.|
 
 ## <a name="scenario-2-automate-provisioning-and-deprovisioning"></a>Cenário 2: Automatizar o provisionamento e o desprovisionamento 
 
@@ -53,7 +53,7 @@ A maioria dos aplicativos exige que o usuário seja provisionado no aplicativo a
 
 |Recurso  |Descrição|Recomendação |
 |---------|---------|---------|
-|Provisionamento de SCIM|O [SCIM](https://aka.ms/SCIMOverview) é uma melhor prática do setor para automatizar o provisionamento de usuários. Qualquer aplicativo compatível com SCIM pode ser integrado ao Azure AD. Crie, atualize e exclua contas de usuário automaticamente sem precisar manter arquivos CSV, scripts personalizados ou soluções locais.|Confira a lista crescente de aplicativos [pré-integrados](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list) na galeria de aplicativos do Azure AD|
+|Provisionamento de SCIM|O [SCIM](https://aka.ms/SCIMOverview) é uma melhor prática do setor para automatizar o provisionamento de usuários. Qualquer aplicativo compatível com SCIM pode ser integrado ao Azure AD. Crie, atualize e exclua contas de usuário automaticamente sem precisar manter arquivos CSV, scripts personalizados ou soluções locais.|Confira a lista crescente de aplicativos [pré-integrados](../saas-apps/tutorial-list.md) na galeria de aplicativos do Azure AD|
 |Microsoft Graph|Tire proveito da variedade e da profundidade dos dados de que o Azure AD dispõe para enriquecer seu aplicativo com os dados de que ele precisa.|Aproveite o [Microsoft Graph](https://developer.microsoft.com/graph/) para obter dados de todo o ecossistema da Microsoft. |
 
 
@@ -62,18 +62,18 @@ A identidade é o elemento central da segurança. Quando uma identidade é compr
 
 |Recurso  |Descrição| Recomendação |
 |---------|---------| ---------|
-|MFA do Azure|A Autenticação Multifator do Azure é uma solução de verificação em duas etapas da Microsoft. Usando métodos de autenticação aprovados pelo administrador, o MFA do Azure ajuda a proteger o acesso a seus dados e aplicativos, ao mesmo tempo em que atende à demanda por um processo de logon simples.| [Habilite a MFA](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/all-your-creds-are-belong-to-us/ba-p/855124) para seus usuários.  |
-|Acesso Condicional|Com o Acesso Condicional, você pode implementar decisões de controle de acesso automatizado sobre quem pode acessar os aplicativos de nuvem com base em condições.| Examine os [padrões de segurança](https://docs.microsoft.com/azure/active-directory/fundamentals/concept-fundamentals-security-defaults) e as [políticas comuns](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-policy-common) que os clientes estão usando. | 
-|Identity Protection|O Identity Protection usa os aprendizados que a Microsoft adquiriu com sua posição em organizações com o Azure AD, com o espaço do consumidor com as contas Microsoft e com os jogos do Xbox para proteger seus usuários. A Microsoft analisa 6,5 trilhões de sinais por dia para identificar e proteger os clientes contra ameaças.|Habilite as [políticas de proteção de identidade padrão](https://docs.microsoft.com/azure/active-directory/identity-protection/concept-identity-protection-policies) fornecidas pelo nosso serviço. | 
+|MFA do Azure AD|A MFA (Autenticação Multifator) do Azure AD é uma solução de verificação em duas etapas da Microsoft. Usando métodos de autenticação aprovados pelo administrador, a MFA do Azure AD ajuda a proteger o acesso a seus dados e aplicativos, ao mesmo tempo em que atende à demanda por um processo de logon simples.| [Habilite a MFA](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/all-your-creds-are-belong-to-us/ba-p/855124) para seus usuários.  |
+|Acesso Condicional|Com o Acesso Condicional, você pode implementar decisões de controle de acesso automatizado sobre quem pode acessar os aplicativos de nuvem com base em condições.| Examine os [padrões de segurança](../fundamentals/concept-fundamentals-security-defaults.md) e as [políticas comuns](../conditional-access/concept-conditional-access-policy-common.md) que os clientes estão usando. | 
+|Identity Protection|O Identity Protection usa os aprendizados que a Microsoft adquiriu com sua posição em organizações com o Azure AD, com o espaço do consumidor com as contas Microsoft e com os jogos do Xbox para proteger seus usuários. A Microsoft analisa 6,5 trilhões de sinais por dia para identificar e proteger os clientes contra ameaças.|Habilite as [políticas de proteção de identidade padrão](../identity-protection/concept-identity-protection-policies.md) fornecidas pelo nosso serviço. | 
 
 ## <a name="scenario-4-govern-access-to-your-applications"></a>Cenário 4: Administrar o acesso a seus aplicativos
 A Governança de Identidade ajuda as organizações a atingir um equilíbrio entre produtividade – Com que rapidez uma pessoa pode ter acesso aos aplicativos de que precisa, por exemplo, quando entra em minha organização? E segurança – Como o acesso deve mudar ao longo do tempo, como devido a alterações ao status de emprego da pessoa? 
 
 |Recurso  |Descrição|Recomendação |
 |---------|---------| ---------|
-|ELM|O gerenciamento de direitos do Azure AD pode ajudar usuários dentro e fora da organização a gerenciar o acesso a seus aplicativos de maneira mais eficiente.| Permita que usuários não administradores gerenciem o acesso a seus aplicativos com os [pacotes de acesso](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-access-package-first).|
-|Revisões de acesso|O acesso do usuário aos aplicativos pode ser examinado regularmente para garantir que somente as pessoas corretas tenham acesso contínuo.| [Examine o acesso](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview) a seus aplicativos mais confidenciais. |
-|Log Analytics|Gere relatórios sobre quem está acessando quais aplicativos e armazene-os na ferramenta de SIEM de sua escolha para correlacionar dados entre fontes de dados e ao longo do tempo.| Habilite a [análise de logs](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-analyze-activity-logs-log-analytics) e configure alertas para eventos críticos relacionados a seus aplicativos. |
+|ELM|O gerenciamento de direitos do Azure AD pode ajudar usuários dentro e fora da organização a gerenciar o acesso a seus aplicativos de maneira mais eficiente.| Permita que usuários não administradores gerenciem o acesso a seus aplicativos com os [pacotes de acesso](../governance/entitlement-management-access-package-first.md).|
+|Revisões de acesso|O acesso do usuário aos aplicativos pode ser examinado regularmente para garantir que somente as pessoas corretas tenham acesso contínuo.| [Examine o acesso](../governance/access-reviews-overview.md) a seus aplicativos mais confidenciais. |
+|Log Analytics|Gere relatórios sobre quem está acessando quais aplicativos e armazene-os na ferramenta de SIEM de sua escolha para correlacionar dados entre fontes de dados e ao longo do tempo.| Habilite a [análise de logs](../reports-monitoring/howto-analyze-activity-logs-log-analytics.md) e configure alertas para eventos críticos relacionados a seus aplicativos. |
 
 
 ## <a name="scenario-5-hybrid-secure-access"></a>Cenário 5: Acesso Seguro Híbrido
@@ -81,14 +81,14 @@ A identidade só poderá ser seu plano de controle se ela puder conectar tudo, e
 
 |Recurso  |Descrição|Recomendação |
 |---------|---------|---------|
-|Proxy do Aplicativo|Os funcionários de hoje querem ser produtivos em qualquer lugar, a qualquer momento e com qualquer dispositivo. Eles precisam acessar aplicativos SaaS na nuvem e aplicativos corporativos no local. O proxy de Aplicativo do Azure AD habilita esse acesso robusto sem VPNs (redes virtuais privadas) nem DMZs (redes de perímetro) dispendiosas e complexas.|Configure o [acesso remoto](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) para seus aplicativos locais. |
-|F5, Akamai, Zscaler|Usando o controlador de rede e entrega existente, você pode proteger facilmente aplicativos herdados que ainda são críticos para seus processos de negócios, mas que antes não podiam ser protegidos com o Azure AD. É provável que você já tenha tudo de que precisa para começar a proteger esses aplicativos.| Você usa o Akamai, o Citrix, o F5 ou o Zscaler? Confira nossas [soluções pré-criadas](https://docs.microsoft.com/azure/active-directory/manage-apps/secure-hybrid-access). | 
+|Proxy do Aplicativo|Os funcionários de hoje querem ser produtivos em qualquer lugar, a qualquer momento e com qualquer dispositivo. Eles precisam acessar aplicativos SaaS na nuvem e aplicativos corporativos no local. O proxy de Aplicativo do Azure AD habilita esse acesso robusto sem VPNs (redes virtuais privadas) nem DMZs (redes de perímetro) dispendiosas e complexas.|Configure o [acesso remoto](./application-proxy.md) para seus aplicativos locais. |
+|F5, Akamai, Zscaler|Usando o controlador de rede e entrega existente, você pode proteger facilmente aplicativos herdados que ainda são críticos para seus processos de negócios, mas que antes não podiam ser protegidos com o Azure AD. É provável que você já tenha tudo de que precisa para começar a proteger esses aplicativos.| Você usa o Akamai, o Citrix, o F5 ou o Zscaler? Confira nossas [soluções pré-criadas](./secure-hybrid-access.md). | 
 
 ## <a name="related-articles"></a>Artigos relacionados
 
-- [Gerenciamento de aplicativos](https://docs.microsoft.com/azure/active-directory/manage-apps/index)
-- [Provisionamento de aplicativo](https://docs.microsoft.com/azure/active-directory/app-provisioning/user-provisioning)
-- [Acesso seguro híbrido](https://docs.microsoft.com/azure/active-directory/manage-apps/secure-hybrid-access)
-- [Governança de identidade](https://docs.microsoft.com/azure/active-directory/governance/identity-governance-overview)
-- [Plataforma de identidade da Microsoft](https://docs.microsoft.com/azure/active-directory/develop/v2-overview)
-- [Segurança de identidade](https://docs.microsoft.com/azure/active-directory/conditional-access/index)
+- [Gerenciamento de aplicativos](./index.yml)
+- [Provisionamento de aplicativo](../app-provisioning/user-provisioning.md)
+- [Acesso seguro híbrido](./secure-hybrid-access.md)
+- [Governança de identidade](../governance/identity-governance-overview.md)
+- [Plataforma de identidade da Microsoft](../develop/v2-overview.md)
+- [Segurança de identidade](../conditional-access/index.yml)

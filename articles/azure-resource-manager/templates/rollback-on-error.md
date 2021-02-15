@@ -2,25 +2,34 @@
 title: Reverter em caso de erro para a implantação bem-sucedida
 description: Especifique que uma implantação com falha deve ser revertida para uma implantação bem-sucedida.
 ms.topic: conceptual
-ms.date: 10/04/2019
-ms.openlocfilehash: 206c794996f58a4c5b6982c551ae50128ed4f5eb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 02/02/2021
+ms.openlocfilehash: 742a8f16a2dce3204b48085759091540586a4522
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79460136"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99492205"
 ---
 # <a name="rollback-on-error-to-successful-deployment"></a>Reverter em caso de erro para implantação bem-sucedida
 
-Quando uma implantação falha, é possível reimplantar automaticamente uma implantação anterior bem-sucedida com base em seu histórico de implantações. Essa funcionalidade será útil se você tiver um estado válido conhecido para sua implantação de infraestrutura e quiser reverter para esse estado. Há várias limitações e restrições:
+Quando uma implantação falha, é possível reimplantar automaticamente uma implantação anterior bem-sucedida com base em seu histórico de implantações. Essa funcionalidade será útil se você tiver um estado válido conhecido para sua implantação de infraestrutura e quiser reverter para esse estado. Você pode especificar uma determinada implantação anterior ou a última implantação bem-sucedida.
 
+> [!IMPORTANT]
+> Esse recurso reverte uma implantação com falha reimplantando uma implantação anterior. Esse resultado pode ser diferente do que você esperaria de desfazer a implantação com falha. Certifique-se de entender como a implantação anterior é reimplantada.
+
+## <a name="considerations-for-redeploying"></a>Considerações para reimplantação
+
+Antes de usar esse recurso, considere estes detalhes sobre como a reimplantação é tratada:
+
+- A implantação anterior é executada usando o [modo completo](./deployment-modes.md#complete-mode), mesmo que você tenha usado o [modo incremental](./deployment-modes.md#incremental-mode) durante a implantação anterior. A reimplantação no modo completo pode produzir resultados inesperados quando a implantação anterior era incremental. O modo completo significa que todos os recursos não incluídos na implantação anterior serão excluídos. Especifique uma implantação anterior que represente todos os recursos e seus Estados que você deseja que existam no grupo de recursos. Para obter mais informações, consulte [modos de implantação](./deployment-modes.md).
 - A reimplantação é executada exatamente como foi executada anteriormente com os mesmos parâmetros. Você não pode alterar os parâmetros.
-- A implantação anterior é executada usando o [modo completo](./deployment-modes.md#complete-mode). Todos os recursos não incluídos na implantação anterior são excluídos e as configurações de recurso são definidas para o estado anterior. Certifique-se de compreender totalmente os [modos de implantação](./deployment-modes.md).
 - A reimplantação afeta apenas os recursos, as alterações de dados não são afetadas.
-- Você pode usar esse recurso somente com implantações de grupo de recursos, não assinaturas ou implantações no nível do grupo de gerenciamento. Para obter mais informações sobre a implantação em nível de assinatura, consulte [criar grupos de recursos e recursos no nível da assinatura](./deploy-to-subscription.md).
+- Você pode usar esse recurso somente com implantações de grupo de recursos. Ele não dá suporte a assinaturas, grupos de gerenciamento ou implantações em nível de locatário. Para obter mais informações sobre a implantação em nível de assinatura, consulte [criar grupos de recursos e recursos no nível da assinatura](./deploy-to-subscription.md).
 - Você só pode usar essa opção com implantações de nível raiz. Implantações de um modelo aninhado não estão disponíveis para reimplantação.
 
-Para usar essa opção, as implantações devem ter nomes exclusivos para que possam ser identificadas no histórico. Se você não tiver nomes exclusivos, a implantação atual com falha pode substituir a implantação bem-sucedida anteriormente no histórico.
+Para usar essa opção, suas implantações devem ter nomes exclusivos no histórico de implantação. É apenas com nomes exclusivos que uma implantação específica pode ser identificada. Se você não tiver nomes exclusivos, uma implantação com falha poderá substituir uma implantação bem-sucedida no histórico.
+
+Se você especificar uma implantação anterior que não existe no histórico de implantação, a reversão retornará um erro.
 
 ## <a name="powershell"></a>PowerShell
 
@@ -115,7 +124,5 @@ A implantação especificada deve ter êxito.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para distribuir com segurança seu serviço para mais de uma região, consulte [Azure Deployment Manager](deployment-manager-overview.md).
-- Para especificar como lidar com os recursos existentes no grupo de recursos, mas que não estão definidos no modelo, confira [Modos de implantação do Azure Resource Manager](deployment-modes.md).
+- Para entender os modos completo e incremental, consulte [Azure Resource Manager modos de implantação](deployment-modes.md).
 - Para entender como definir parâmetros em seu modelo, confira [Noções básicas de estrutura e sintaxe dos modelos do Azure Resource Manager](template-syntax.md).
-- Para saber mais sobre como implantar um modelo que exija um token SAS, veja [Implantar o modelo particular com o token SAS](secure-template-with-sas-token.md).

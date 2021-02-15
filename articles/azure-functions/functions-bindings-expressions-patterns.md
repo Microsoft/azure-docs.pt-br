@@ -6,12 +6,12 @@ ms.topic: reference
 ms.custom: devx-track-csharp
 ms.date: 02/18/2019
 ms.author: cshoe
-ms.openlocfilehash: b4e2b5afd7742791218394422d00ee8ee46cb23a
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 7245b0c0fb1e96959ef5dca4992cf52a38accb58
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212603"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98920283"
 ---
 # <a name="azure-functions-binding-expression-patterns"></a>Padrões de expressão de associação de Azure Functions
 
@@ -21,7 +21,7 @@ A maioria das expressões é identificada encapsulando-as entre chaves. Por exem
 
 Tipos de expressões de associação
 
-* [Configurações de aplicativo](#binding-expressions---app-settings)
+* [Configurações do aplicativo](#binding-expressions---app-settings)
 * [Nome do arquivo de gatilho](#trigger-file-name)
 * [Metadados do gatilho](#trigger-metadata)
 * [Conteúdos JSON](#json-payloads)
@@ -41,7 +41,7 @@ Quando uma função é executada localmente, os valores de configuração do apl
 > [!NOTE]
 > A `connection` propriedade de gatilhos e associações é um caso especial e resolve automaticamente os valores como configurações do aplicativo, sem sinais de porcentagem. 
 
-O exemplo a seguir é um gatilho do Armazenamento de Filas do Azure que usa uma configuração de aplicativo `%input-queue-name%` para definir a fila em que o gatilho é disparado.
+O exemplo a seguir é um gatilho do Armazenamento de Filas do Azure que usa uma configuração de aplicativo `%input_queue_name%` para definir a fila em que o gatilho é disparado.
 
 ```json
 {
@@ -50,7 +50,7 @@ O exemplo a seguir é um gatilho do Armazenamento de Filas do Azure que usa uma 
       "name": "order",
       "type": "queueTrigger",
       "direction": "in",
-      "queueName": "%input-queue-name%",
+      "queueName": "%input_queue_name%",
       "connection": "MY_STORAGE_ACCT_APP_SETTING"
     }
   ]
@@ -62,7 +62,7 @@ Você pode usar a mesma abordagem em bibliotecas de classes:
 ```csharp
 [FunctionName("QueueTrigger")]
 public static void Run(
-    [QueueTrigger("%input-queue-name%")]string myQueueItem, 
+    [QueueTrigger("%input_queue_name%")]string myQueueItem, 
     ILogger log)
 {
     log.LogInformation($"C# Queue trigger function processed: {myQueueItem}");
@@ -156,7 +156,7 @@ Por exemplo, um gatilho do Armazenamento de Filas do Azure é compatível com as
 * QueueTrigger – disparar o conteúdo da mensagem em caso de uma cadeia de caracteres válida
 * DequeueCount
 * ExpirationTime
-* ID
+* Id
 * InsertionTime
 * NextVisibleTime
 * PopReceipt
@@ -164,6 +164,7 @@ Por exemplo, um gatilho do Armazenamento de Filas do Azure é compatível com as
 Esses valores de metadados estão acessíveis nas propriedades do arquivo *function.json*. Por exemplo, suponha que você usa um gatilho de fila e que a mensagem da fila contém o nome de um blob que você deseja ler. No arquivo *function.json*, você pode usar a propriedade de metadados `queueTrigger` na propriedade `path` do blob, conforme mostrado no exemplo a seguir:
 
 ```json
+{
   "bindings": [
     {
       "name": "myQueueItem",
@@ -179,6 +180,7 @@ Esses valores de metadados estão acessíveis nas propriedades do arquivo *funct
       "connection": "MyStorageConnection"
     }
   ]
+}
 ```
 
 Detalhes de propriedades de metadados para cada gatilho são descritos no artigo de referência correspondente. Para obter um exemplo, consulte [metadados de gatilho de fila](functions-bindings-storage-queue-trigger.md#message-metadata). A documentação também está disponível na guia **Integrar** do portal, na seção **Documentação** abaixo da área de configuração de associação.  

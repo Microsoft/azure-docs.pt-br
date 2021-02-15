@@ -16,12 +16,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 543c1a6706f794b81c4f93fc6fff3a61ed3fb9e3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 59dc94e37dfa1ef8b0b079bf5d78d0504e0cb8c7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "60246254"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91313613"
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Sincronização do Azure AD Connect: noções básicas sobre expressões de provisionamento declarativo
 Este tópico explica o modelo de configuração no Azure AD Connect. O modelo é chamado de Provisionamento Declarativo e permite que você altere uma configuração com facilidade. Muitos itens descritos neste tópico são avançados e não são necessários para a maioria dos cenários do cliente.
@@ -29,11 +29,11 @@ Este tópico explica o modelo de configuração no Azure AD Connect. O modelo é
 ## <a name="overview"></a>Visão geral
 O provisionamento declarativo está processando objetos provenientes um diretório de origem conectado e determina como o objeto e os atributos devem ser transformados de uma origem para um destino. Um objeto é processado em um pipeline de sincronização, e o pipeline é o mesmo para regras de entrada e saída. Uma regra de entrada é de um espaço de conector para o metaverso, e uma regra de saída é do metaverso para um espaço do conector.
 
-![Pipeline de sincronização](./media/concept-azure-ad-connect-sync-declarative-provisioning/sync1.png)  
+![Diagrama que mostra um exemplo de pipeline de sincronização.](./media/concept-azure-ad-connect-sync-declarative-provisioning/sync1.png)  
 
 O pipeline tem vários módulos diferentes. Cada um é responsável por um conceito na sincronização de objeto.
 
-![Pipeline de sincronização](./media/concept-azure-ad-connect-sync-declarative-provisioning/pipeline.png)  
+![Diagrama que mostra os módulos no pipeline.](./media/concept-azure-ad-connect-sync-declarative-provisioning/pipeline.png)  
 
 * Origem, objeto de origem
 * [Escopo](#scope)localiza todas as regras de sincronização que estão no escopo
@@ -44,7 +44,7 @@ O pipeline tem vários módulos diferentes. Cada um é responsável por um conce
 
 ## <a name="scope"></a>Escopo
 O módulo de escopo está avaliando um objeto e determina as regras que estão no escopo e devem ser incluídas no processamento. Dependendo dos valores de atributos no objeto, regras de sincronização diferentes são avaliadas como estando no escopo. Por exemplo, um usuário desabilitado sem uma caixa de correio do Exchange tem regras diferentes das de um usuário habilitado com uma caixa de correio.  
-![Escopo](./media/concept-azure-ad-connect-sync-declarative-provisioning/scope1.png)  
+![Diagrama que mostra o módulo de escopo de um objeto.](./media/concept-azure-ad-connect-sync-declarative-provisioning/scope1.png)  
 
 O escopo é definido como grupos e cláusulas. As cláusulas estão dentro de um grupo. Um E lógico é usado entre todas as cláusulas em um grupo. Por exemplo, (department =TI E country = Dinamarca). Um OU lógico é usado entre grupos.
 
@@ -78,7 +78,7 @@ As junções são definidas como um ou mais grupos. Dentro de um grupo, há clá
  As junções nesta figura são processadas de cima para baixo. Primeiro, o pipeline de sincronização vê se há uma correspondência em employeeID. Caso contrário, a segunda regra vê se o nome da conta pode ser usado para unir os objetos. Se essa não for uma correspondência, a terceira e última regra será uma correspondência mais difusa usando o nome de usuário.
 
 Se todas as regras de junção forem avaliadas e não houver exatamente uma correspondência, o **Tipo de Link** na página **Descrição** será usado. Se essa opção for definida como **Provisionar**, será criado um novo objeto de destino.  
-![Provisionar ou ingressar](./media/concept-azure-ad-connect-sync-declarative-provisioning/join3.png)  
+![Captura de tela que mostra o menu suspenso "tipo de link" aberto.](./media/concept-azure-ad-connect-sync-declarative-provisioning/join3.png)  
 
 Um objeto deve ter apenas uma única regra de sincronização com as regras de associação em escopo. Se houver várias regras de sincronização em que a associação esteja definida, ocorrerá um erro. A precedência não é usada para resolver conflitos de junção. Um objeto deve ter uma regra de junção no escopo para que os atributos fluam com a mesma direção de entrada/saída. Se for preciso que os atributos fluam como entrada e saída para o mesmo objeto, você deverá ter uma entrada e uma regra de sincronização de saída com a junção.
 
@@ -101,7 +101,7 @@ A caixa de seleção **Aplicar uma vez** define que o atributo deve ser definido
 ### <a name="merging-attribute-values"></a>Mesclando valores de atributo
 Nos fluxos de atributo, há uma configuração para determinar se os atributos com vários valores devem ser mesclados de vários conectores diferentes. O valor padrão é **Update**, que indica que a regra de sincronização com precedência mais alta deve prevalecer.
 
-![Tipos de mesclagem](./media/concept-azure-ad-connect-sync-declarative-provisioning/mergetype.png)  
+![Captura de tela que mostra a seção "Adicionar transformações" com o menu suspenso "Mesclar tipos" aberto.](./media/concept-azure-ad-connect-sync-declarative-provisioning/mergetype.png)  
 
 Também há **Merge** e **MergeCaseInsensitive**. Essas opções permitem mesclar valores de diferentes origens. Por exemplo, esses valores podem ser usados para mesclar o membro ou o atributo proxyAddresses de várias florestas diferentes. Quando você usa essa opção, todas as regras de sincronização no escopo de um objeto devem usar o mesmo tipo de mesclagem. Não é possível definir **Update** de um conector e **Merge** de outro. Se tentar, você receberá um erro.
 
@@ -146,7 +146,7 @@ A precedência pode ser definida entre Conectores. Isso permite que os Conectore
 
 ### <a name="multiple-objects-from-the-same-connector-space"></a>Vários objetos do mesmo espaço do conector
 Se você tiver vários objetos no mesmo espaço do conector associados ao mesmo objeto de metaverso, a precedência deverá ser ajustada. Se vários objetos estiverem no escopo da mesma regra de sincronização, o mecanismo de sincronização não poderá determinar a precedência. É ambíguo qual objeto de origem deve contribuir com o valor para o metaverso. Essa configuração é relatada como ambígua, mesmo se os atributos na origem tiverem o mesmo valor.  
-![Vários objetos unidos ao mesmo objeto mv](./media/concept-azure-ad-connect-sync-declarative-provisioning/multiple1.png)  
+![Diagrama que mostra vários objetos Unidos ao mesmo objeto MV com uma sobreposição de X vermelho transparente. ](./media/concept-azure-ad-connect-sync-declarative-provisioning/multiple1.png)  
 
 Para esse cenário, você precisa alterar o escopo das regras de sincronização para que os objetos de origem tenham regras de sincronização diferentes no escopo. Isso permite que você defina uma precedência diferente.  
 ![Vários objetos unidos ao mesmo objeto mv](./media/concept-azure-ad-connect-sync-declarative-provisioning/multiple2.png)  

@@ -9,16 +9,16 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 6ff732888e416fcd51216070b3b30ed37b79e92c
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: dd82b8ac3a510d1b16b0d2f42d3e50803162a119
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "84687099"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94959791"
 ---
 # <a name="tutorial-set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>Tutorial: Configurar um dispositivo para provisionar usando o Serviço de Provisionamento de Dispositivos no Hub IoT do Azure
 
-No tutorial anterior, você aprendeu como configurar o Serviço de Provisionamento de Dispositivos no Hub IoT do Azure para provisionar automaticamente os dispositivos para o Hub IoT. Este tutorial mostra como configurar seu dispositivo durante o processo de fabricação, permitindo que ele seja provisionado automaticamente com o Hub IoT. Seu dispositivo é provisionado com base no [mecanismo de atestado](concepts-device.md#attestation-mechanism) após a primeira inicialização e conexão com o serviço de provisionamento. Este tutorial cobre as seguintes tarefas:
+No tutorial anterior, você aprendeu como configurar o Serviço de Provisionamento de Dispositivos no Hub IoT do Azure para provisionar automaticamente os dispositivos para o Hub IoT. Este tutorial mostra como configurar seu dispositivo durante o processo de fabricação, permitindo que ele seja provisionado automaticamente com o Hub IoT. Seu dispositivo é provisionado com base no [mecanismo de atestado](concepts-service.md#attestation-mechanism) após a primeira inicialização e conexão com o serviço de provisionamento. Este tutorial cobre as seguintes tarefas:
 
 > [!div class="checklist"]
 > * Criar o SDK de cliente dos Serviços de Provisionamento de Dispositivos específico da plataforma
@@ -29,7 +29,7 @@ Este tutorial espera que você já tenha criado sua instância do Serviço de Pr
 
 Este tutorial usa [SDKs do IoT do Azure e bibliotecas para repositório de C](https://github.com/Azure/azure-iot-sdk-c), que contêm o SDK do cliente do Serviço de Provisionamento de Dispositivo para C. O SDK atualmente oferece suporte a TPM e X.509 em dispositivos com implementações Windows ou Ubuntu. Este tutorial baseia-se no uso de um cliente de desenvolvimento do Windows, o que também assume o domínio básico do Visual Studio. 
 
-Se você não estiver familiarizado com o processo de provisionamento automático, analise os [Conceitos de provisionamento automático](concepts-auto-provisioning.md) antes de continuar. 
+Se você não estiver familiarizado com o processo de provisionamento automático, examine a visão geral de [provisionamento](about-iot-dps.md#provisioning-process) antes de continuar. 
 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -38,7 +38,7 @@ Se você não estiver familiarizado com o processo de provisionamento automátic
 
 Os pré-requisitos a seguir são para um ambiente de desenvolvimento do Windows. Para Linux ou macOS, confira a seção apropriada em [Preparar seu ambiente de desenvolvimento](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) na documentação do SDK.
 
-* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) com a carga de trabalho ["Desenvolvimento para desktop com C++"](https://docs.microsoft.com/cpp/?view=vs-2019#pivot=workloads) habilitada. Também há suporte para o Visual Studio 2015 e o Visual Studio 2017.
+* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) com a carga de trabalho ["Desenvolvimento para desktop com C++"](/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) habilitada. Também há suporte para o Visual Studio 2015 e o Visual Studio 2017.
 
 * Versão mais recente do [Git](https://git-scm.com/download/) instalada.
 
@@ -100,9 +100,9 @@ Dependendo se você criou o SDK para usar o atestado para um TPM/HSM físico ou 
 
 - Para um dispositivo X.509, você precisará obter os certificados emitidos para seus dispositivos. O serviço de provisionamento expõe dois tipos de entradas de registro que controlam o acesso de dispositivos que usam o mecanismo de atestado X.509. Os certificados necessários dependem dos tipos de registro que você usará.
 
-    - Registros individuais: Registro para um único dispositivo específico. Esse tipo de entrada de registro requer [entidade final, "folha", certificados](concepts-security.md#end-entity-leaf-certificate).
+    - Registros individuais: Registro para um único dispositivo específico. Esse tipo de entrada de registro requer [entidade final, "folha", certificados](concepts-x509-attestation.md#end-entity-leaf-certificate).
     
-    - Grupos de registro: Esse tipo de entrada de registro requer certificados raiz ou intermediários. Para obter mais informações, confira [Como controlar o acesso ao dispositivo para o serviço de provisionamento com certificados X.509](concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates).
+    - Grupos de registro: Esse tipo de entrada de registro requer certificados raiz ou intermediários. Para obter mais informações, confira [Como controlar o acesso ao dispositivo para o serviço de provisionamento com certificados X.509](concepts-x509-attestation.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates).
 
 ### <a name="simulated-devices"></a>Dispositivos simulados
 

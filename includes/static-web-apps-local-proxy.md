@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 05/08/2020
 ms.author: buhollan
 ms.openlocfilehash: 879d0c2e8c4cd66ce04c0298d00f7d6a1987acf5
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83594395"
 ---
 #### <a name="local-proxy"></a>Proxy local

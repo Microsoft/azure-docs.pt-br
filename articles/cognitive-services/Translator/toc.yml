@@ -2,26 +2,12 @@
   href: index.yml
 - name: Tradutor
   items:
-    - name: Visão geral
-      items:
-        - name: O que é o Tradutor?
-          href: translator-info-overview.md
-        - name: Suporte ao idioma
-          href: 'https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization'
-    - name: Inícios rápidos
-      items:
-        - name: Traduzir o texto
-          href: quickstart-translate.md
-        - name: Transcrição de texto
-          href: quickstart-transliterate.md
-        - name: Detectar o idioma
-          href: quickstart-detect.md
-        - name: Pesquisar traduções de palavras
-          href: quickstart-dictionary.md
-        - name: Obter idiomas com suporte
-          href: quickstart-languages.md
-        - name: Determinar comprimento da frase
-          href: quickstart-sentences.md
+    - name: O que é o Tradutor?
+      href: translator-info-overview.md
+    - name: Guia de Início Rápido
+      href: quickstart-translator.md
+    - name: Suporte ao idioma
+      href: language-support.md
     - name: Tutoriais
       items:
         - name: 'Criar um aplicativo WPF para Tradutor, C#'
@@ -37,7 +23,7 @@
     - name: Guias de instruções
       items:
         - name: Inscrever-se no Tradutor
-          href: translator-text-how-to-signup.md
+          href: ./translator-how-to-signup.md
         - name: Migrar para a API de texto V3
           href: migrate-to-v3.md
         - name: Adicionar filtragem de baixo calão
@@ -70,34 +56,26 @@
       items:
         - name: Referência do Tradutor v3
           href: reference/v3-0-reference.md
-          items:
-            - name: Languages
-              href: reference/v3-0-languages.md
-            - name: Translate
-              href: reference/v3-0-translate.md
-            - name: Transliterate
-              href: reference/v3-0-transliterate.md
-            - name: Detect
-              href: reference/v3-0-detect.md
-            - name: BreakSentence
-              href: reference/v3-0-break-sentence.md
-            - name: Pesquisa no dicionário
-              href: reference/v3-0-dictionary-lookup.md
-            - name: Exemplos de dicionário
-              href: reference/v3-0-dictionary-examples.md
-        - name: Referência do Tradutor v2 (preterida)
-          href: reference/v2-0-reference.md
-          items:
-            - name: Texto de transformação
-              href: transform-text.md
-            - name: Como usar o relatório do CTF (Collaborative Translation Framework)
-              href: ctf-reporting.md
-            - name: Retornar traduções de N-Best
-              href: return-n-best-translations.md
+        - name: Languages
+          href: reference/v3-0-languages.md
+        - name: Translate
+          href: reference/v3-0-translate.md
+        - name: Transliterate
+          href: reference/v3-0-transliterate.md
+        - name: Detect
+          href: reference/v3-0-detect.md
+        - name: BreakSentence
+          href: reference/v3-0-break-sentence.md
+        - name: Pesquisa no dicionário
+          href: reference/v3-0-dictionary-lookup.md
+        - name: Exemplos de dicionário
+          href: reference/v3-0-dictionary-examples.md
         - name: Limites de solicitações
           href: request-limits.md
     - name: Recursos
       items:
+        - name: Opções de Ajuda e suporte
+          href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/translator/context/context
         - name: Exemplo de código no GitHub
           href: 'https://aka.ms/TranslatorGitHub'
         - name: Perguntas frequentes
@@ -108,8 +86,6 @@
           href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
         - name: Conformidade
           href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
-        - name: Stack Overflow
-          href: 'https://stackoverflow.com/questions/tagged/microsoft-translator'
 - name: Tradutor personalizado
   items:
     - name: Visão geral
@@ -162,6 +138,8 @@
           href: custom-translator/unsupported-language-deployments.md
     - name: Recursos
       items:
+        - name: Opções de Ajuda e suporte
+          href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/translator/context/context
         - name: Glossário
           href: custom-translator/glossary.md
         - name: Perguntas frequentes
@@ -172,5 +150,3 @@
           href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
         - name: Criptografia
           href: translator-encryption-of-data-at-rest.md
-        - name: Stack Overflow
-          href: 'https://stackoverflow.com/questions/tagged/microsoft-translator'

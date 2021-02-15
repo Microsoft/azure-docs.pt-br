@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 03/25/2019
 ms.author: allensu
-ms.openlocfilehash: bae131c086e8fbf062015ee27c563bb988731cad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5387fdc224cd77ee5273767df5033a51dc27608c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84888535"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008354"
 ---
 # <a name="dynamic-site-acceleration-via-azure-cdn"></a>Aceleração de site dinâmico via CDN do Azure
 
@@ -27,7 +27,7 @@ Com a explosão de mídia social, comércio eletrônico e a Web extremamente per
 
 A funcionalidade da CDN (rede de distribuição de conteúdo) padrão inclui a capacidade de armazenar arquivos em cache mais próximos dos usuários finais para acelerar a entrega de arquivos estáticos. No entanto, com aplicativos Web dinâmicos, armazenar em cache esse conteúdo em localizações de borda não é possível porque o servidor gera o conteúdo em resposta ao comportamento do usuário. Acelerar a entrega desse tipo de conteúdo é mais complexo do que o cache de borda tradicional e exige uma solução de ponta a ponta que ajuste bem cada elemento ao longo de todo o caminho de dados, do início à entrega. Com a otimização de DSA (aceleração de site dinâmico) da CDN do Azure, o desempenho de páginas da Web com conteúdo dinâmico é melhorado de maneira significativa.
 
-A **CDN do Azure da Akamai** e **CDN do Azure CDN do Verizon** ambos oferecem otimização de DSA através do menu **Otimizado para** durante a criação do ponto de extremidade. A aceleração de site dinâmica da Microsoft é oferecida por meio do [serviço de porta frontal do Azure](https://docs.microsoft.com/azure/frontdoor/front-door-overview).
+A **CDN do Azure da Akamai** e **CDN do Azure CDN do Verizon** ambos oferecem otimização de DSA através do menu **Otimizado para** durante a criação do ponto de extremidade. A aceleração de site dinâmica da Microsoft é oferecida por meio do [serviço de porta frontal do Azure](../frontdoor/front-door-overview.md).
 
 > [!Important]
 > Para perfis **CDN do Azure da Akamai**, é possível alterar a otimização de um ponto de extremidade CDN após sua criação.
@@ -40,7 +40,7 @@ Para configurar um ponto de extremidade CDN para otimizar a entrega de arquivos 
 
 **Configurar um ponto de extremidade da CDN para otimização de DSA usando o Portal do Azure:**
 
-1. Na página**Perfil CDN**, selecione **Ponto de Extremidade**.
+1. Na página **Perfil CDN**, selecione **Ponto de Extremidade**.
 
    ![Adicionar um novo ponto de extremidade CDN](./media/cdn-dynamic-site-acceleration/cdn-endpoint-profile.png) 
 
@@ -61,7 +61,7 @@ Para configurar um ponto de extremidade CDN para otimizar a entrega de arquivos 
 
 **Configurar um ponto de extremidade existente para DSA (CDN do Azure somente nos perfis Akamai):**
 
-1. Na página**Perfil CDN**, selecione o ponto de extremidade que deseja modificar.
+1. Na página **Perfil CDN**, selecione o ponto de extremidade que deseja modificar.
 
 2. No painel esquerdo, selecione **Otimização**. 
 
@@ -109,9 +109,9 @@ O *início lento* de TCP é um algoritmo do protocolo TCP que evita o congestion
 
 1. O monitoramento de largura de banda e integridade é usado para medir a largura de banda das conexões entre servidores PoP de borda.
     
-2. Métricas são compartilhadas entre os servidores PoP de borda para que cada servidor esteja ciente das condições da rede e integridade do servidor de outros PoPs ao redor deles.  
+2. Métricas são compartilhadas entre os servidores PoP de borda para que cada servidor esteja ciente das condições da rede e integridade do servidor de outros PoPs ao redor deles.  
     
-3. Os servidores de borda da CDN fazem suposições sobre alguns parâmetros de transmissão, tais como qual deve ser o tamanho da janela ideal ao comunicar-se com outros servidores de borda da CDN nas proximidades. Essa etapa significa que o tamanho da janela de congestionamento inicial pode ser aumentado se a integridade de conexão entre os servidores de borda da CDN é capaz de realizar transferências de dados de pacotes maiores.  
+3. Os servidores de borda da CDN fazem suposições sobre alguns parâmetros de transmissão, tais como qual deve ser o tamanho da janela ideal ao comunicar-se com outros servidores de borda da CDN nas proximidades. Essa etapa significa que o tamanho da janela de congestionamento inicial pode ser aumentado se a integridade de conexão entre os servidores de borda da CDN é capaz de realizar transferências de dados de pacotes maiores.  
 
 #### <a name="leveraging-persistent-connections"></a>Aproveitar as conexões persistentes
 
@@ -157,7 +157,7 @@ Para perfis **CDN Standard do Azure do Verizon** e **CDN Standard do Azure da Ak
 
 Para acessar as regras de cache:
 
-1. Na página **Perfil CDN** em configurações, selecione **Regras de cache**.  
+1. Na página **Perfil CDN** em configurações, selecione **Regras de cache**.  
     
     ![Botão de regras de cache da CDN](./media/cdn-dynamic-site-acceleration/cdn-caching-rules-btn.png)
 
@@ -165,11 +165,11 @@ Para acessar as regras de cache:
 
 2. Crie uma regra de cache global ou customizada para ativar o cache do ponto de extremidade da DSA. 
 
-Para os perfis **CDN Premium do Azure do Verizon** somente, você ativa o cache para pontos de extremidade da DSA específicos usando o [mecanismo de regras](cdn-rules-engine.md). Quaisquer regras criadas afetam apenas os pontos de extremidade do perfil otimizado para DSA. 
+Para os perfis **CDN Premium do Azure do Verizon** somente, você ativa o cache para pontos de extremidade da DSA específicos usando o [mecanismo de regras](./cdn-verizon-premium-rules-engine.md). Quaisquer regras criadas afetam apenas os pontos de extremidade do perfil otimizado para DSA. 
 
 Para acessar o mecanismo de regras:
     
-1. Na página **Perfil CDN**, selecione **Gerenciar**.  
+1. Na página **Perfil CDN**, selecione **Gerenciar**.  
     
     ![Botão Gerenciar perfil da CDN](./media/cdn-dynamic-site-acceleration/cdn-manage-btn.png)
 
@@ -183,7 +183,4 @@ Para acessar o mecanismo de regras:
 
 Como alternativa, é possível utilizar dois pontos de extremidade CDN: um ponto de extremidade otimizado com DSA para fornecer ativos dinâmicos e outro ponto de extremidade otimizado com um tipo de otimização estática, como entrega Web geral, para entrega de ativos armazenáveis em cache. Modifique as URLs da página da Web para conectar-se diretamente ao ativo no ponto de extremidade CDN que você planeja usar. 
 
-Por exemplo: `mydynamic.azureedge.net/index.html` é uma página dinâmica e é carregado do ponto de extremidade DSA.A página HTML faz referência a vários ativos estáticos como bibliotecas JavaScript ou imagens que são carregadas do ponto de extremidade CDN estático, tais como `mystatic.azureedge.net/banner.jpg` e `mystatic.azureedge.net/scripts.js`. 
-
-
-
+Por exemplo: `mydynamic.azureedge.net/index.html` é uma página dinâmica e é carregado do ponto de extremidade DSA.  A página HTML faz referência a vários ativos estáticos como bibliotecas JavaScript ou imagens que são carregadas do ponto de extremidade CDN estático, tais como `mystatic.azureedge.net/banner.jpg` e `mystatic.azureedge.net/scripts.js`.

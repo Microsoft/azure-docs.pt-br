@@ -1,14 +1,14 @@
 ---
 title: Habilitar a virtualização aninhada em uma VM de modelo no Azure Lab Services (script) | Microsoft Docs
-description: Saiba como criar uma VM de modelo com várias VMs dentro.  Em outras palavras, habilite a virtualização aninhada em uma VM de modelo no Azure Lab Services.
+description: Saiba como criar uma VM de modelo com várias VMs no usando um script.  Em outras palavras, habilite a virtualização aninhada em uma VM de modelo no Azure Lab Services.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: a45257dffffc98c3f650c5b1753158edd9bfbede
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5ae50bd11ab9a8adb769920f6d473a2ff2ce9342
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445739"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91251488"
 ---
 # <a name="enable-nested-virtualization-on-a-template-virtual-machine-in-azure-lab-services-using-a-script"></a>Habilitar a virtualização aninhada em uma máquina virtual de modelo no Azure Lab Services usando um script
 
@@ -29,7 +29,7 @@ As etapas neste artigo se concentram na configuração da virtualização aninha
 
         ![Sites confiáveis](./media/how-to-enable-nested-virtualization-template-vm-using-script/trusted-sites-dialog.png)
 1. Baixe os arquivos do repositório git conforme descrito nas etapas a seguir.
-    1. Vá para [https://github.com/Azure/azure-devtestlab/](https://github.com/Azure/azure-devtestlab/) .
+    1. Vá para  [https://github.com/Azure/azure-devtestlab/](https://github.com/Azure/azure-devtestlab/) .
     1. Clique no botão **clonar ou baixar** .
     1. Clique em **baixar zip**.
     1. Extrair o arquivo ZIP

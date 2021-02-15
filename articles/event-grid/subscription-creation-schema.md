@@ -4,10 +4,10 @@ description: Este artigo descreve as propriedades de assinatura de um evento com
 ms.topic: reference
 ms.date: 07/07/2020
 ms.openlocfilehash: 21016627e545cc4935b4ac213df675e894c12d95
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86119065"
 ---
 # <a name="event-grid-subscription-schema"></a>Esquema de assinatura de Grade de Eventos
@@ -31,7 +31,7 @@ O nome da assinatura de evento deve ter 3 a 64 caracteres de comprimento e só p
 | Propriedade | Type | Descrição |
 | -------- | ---- | ----------- |
 | destino | objeto | O objeto que define o ponto de extremidade. |
-| filtro | objeto | Um campo opcional para filtrar os tipos de eventos. |
+| filter | objeto | Um campo opcional para filtrar os tipos de eventos. |
 
 ### <a name="destination-object"></a>objeto de destino
 

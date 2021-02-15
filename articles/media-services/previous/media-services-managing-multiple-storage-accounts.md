@@ -14,14 +14,16 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9c7addf4d30e81f449e9d9a7509dfe44c381e014
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: b5b0b383cba45646a1e5a8f980b3a097767f9979
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020075"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89262593"
 ---
 # <a name="managing-media-services-assets-across-multiple-storage-accounts"></a>Gerenciar ativos de Serviços de Mídia por meio de várias contas de armazenamento  
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 Você pode anexar várias contas de armazenamento para uma única conta de Serviços de Mídia. A capacidade de anexar diversas contas de armazenamento a uma conta dos Serviços de Mídia oferece os seguintes benefícios:
 

@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
+ms.reviewer: ''
 ms.date: 08/20/2019
-ms.openlocfilehash: 7f5ce25edfc4c3afd8a30528396f1f285b9af571
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 55fa106f0515405dcad969f05d28e0bc7b975b40
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080687"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922302"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>O que é o Sincronização de Dados SQL para o Azure?
 
@@ -44,7 +44,7 @@ A Sincronização de Dados usa uma topologia hub-spoke para sincronizar os dados
 Um grupo de sincronização tem as seguintes propriedades:
 
 - O **Esquema de Sincronização** descreve quais dados estão sendo sincronizados.
-- A **Direção da Sincronização** pode ser bidirecional ou pode fluir em uma única direção. Ou seja, a direção de sincronização pode ser *Hub para membro*ou *membro para Hub*, ou ambos.
+- A **Direção da Sincronização** pode ser bidirecional ou pode fluir em uma única direção. Ou seja, a direção de sincronização pode ser *Hub para membro* ou *membro para Hub*, ou ambos.
 - O **Intervalo de Sincronização** descreve a frequência com a qual ocorre a sincronização.
 - A **Política de Resolução de Conflito** é uma política em nível de grupo, que pode ser *Hub ganha* ou *Membro ganha*.
 
@@ -62,11 +62,9 @@ A sincronização de dados não é a solução preferida para os seguintes cená
 |----------|----------------------------|
 | Recuperação de desastre | [Backups com redundância geográfica do Azure](automated-backups-overview.md) |
 | Escala de Leitura | [Usar réplicas somente leitura para balancear a carga de cargas de trabalho de consulta somente leitura (visualização)](read-scale-out.md) |
-| ETL (OLTP para OLAP) | [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) ou [SQL Server Integration Services](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) |
-| Migração de SQL Server para o banco de dados SQL do Azure | [Serviço de Migração de Banco de Dados do Azure](https://azure.microsoft.com/services/database-migration/) |
+| ETL (OLTP para OLAP) | [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) ou [SQL Server Integration Services](/sql/integration-services/sql-server-integration-services) |
+| Migração de SQL Server para o banco de dados SQL do Azure. No entanto, Sincronização de Dados SQL pode ser usado após a conclusão da migração, para garantir que a origem e o destino sejam mantidos em sincronia.  | [Serviço de Migração de Banco de Dados do Azure](https://azure.microsoft.com/services/database-migration/) |
 |||
-
-
 
 ## <a name="how-it-works"></a>Como ele funciona
 
@@ -81,7 +79,15 @@ A sincronização de dados não é a solução preferida para os seguintes cená
 | | Sincronização de Dados | Replicação transacional |
 |---|---|---|
 | **Vantagens** | – Suporte ativo-ativo<br/>– Bidirecional entre o Banco de Dados SQL do Azure e o local | – Menor latência<br/>– Consistência transacional<br/>– Reutilização da topologia existente após a migração <br/>-Suporte do Azure SQL Instância Gerenciada |
-| **Desvantagens** | – Latência de 5 minutos ou mais<br/>– Não há consistência transacional<br/>– Maior impacto do desempenho | -Não é possível publicar do banco de dados SQL do Azure <br/>– Alto custo de manutenção |
+| **Desvantagens** | – Não há consistência transacional<br/>– Maior impacto do desempenho | -Não é possível publicar do banco de dados SQL do Azure <br/>– Alto custo de manutenção |
+
+## <a name="private-link-for-data-sync-preview"></a>Link privado para sincronização de dados (versão prévia)
+O novo recurso de link privado (versão prévia) permite que você escolha um ponto de extremidade privado gerenciado pelo serviço para estabelecer uma conexão segura entre o serviço de sincronização e seus bancos de dados de membro/Hub durante o processo de sincronização de dados. Um ponto de extremidade privado gerenciado pelo serviço é um endereço IP privado em uma rede virtual e sub-rede específica. Na sincronização de dados, o ponto de extremidade particular gerenciado pelo serviço é criado pela Microsoft e é usado exclusivamente pelo serviço de sincronização de dados para uma determinada operação de sincronização. Antes de configurar o link privado, leia os [requisitos gerais](sql-data-sync-data-sql-server-sql-database.md#general-requirements) para o recurso. 
+
+![Link privado para sincronização de dados](./media/sql-data-sync-data-sql-server-sql-database/sync-private-link-overview.png)
+
+> [!NOTE]
+> Você deve aprovar manualmente o ponto de extremidade privado gerenciado pelo serviço na página **conexões do ponto de extremidade privado** do portal do Azure durante a implantação do grupo de sincronização ou usando o PowerShell.
 
 ## <a name="get-started"></a>Introdução 
 
@@ -101,7 +107,7 @@ A sincronização de dados não é a solução preferida para os seguintes cená
 
 ### <a name="did-something-go-wrong"></a>Algo deu errado?
 
-- [Solucionar problemas com a Sincronização de Dados SQL do Azure](../../sql-database/sql-database-troubleshoot-data-sync.md)
+- [Solucionar problemas com a Sincronização de Dados SQL do Azure](./sql-data-sync-troubleshoot.md)
 
 ## <a name="consistency-and-performance"></a>Consistência e desempenho
 
@@ -126,7 +132,9 @@ Provisionamento e desprovisionamento durante a criação do grupo de sincroniza�
 > - Os dados entre o Hub e o membro podem ser perdidos, embora a sincronização não relate nenhum problema.
 > - A sincronização pode falhar porque a tabela de rastreamento tem uma linha não existente da origem devido à alteração da chave primária.
 
-- O isolamento de instantâneo deve estar habilitado. Para obter mais informações, consulte [Isolamento de instantâneo no SQL Server](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
+- O isolamento de instantâneo deve ser habilitado tanto para membros de sincronização quanto para o Hub. Para obter mais informações, consulte [Isolamento de instantâneo no SQL Server](/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
+
+- Para usar o link privado com a sincronização de dados, os bancos de dados de membro e de Hub devem ser hospedados no Azure (as mesmas ou em regiões diferentes) no mesmo tipo de nuvem (por exemplo, na nuvem pública ou na nuvem do governo). Além disso, para usar o link privado, os provedores de recursos Microsoft. Network devem ser registrados para as assinaturas que hospedam os servidores de Hub e membro. Por fim, você deve aprovar manualmente o link privado para sincronização de dados durante a configuração de sincronização, na seção "conexões de ponto de extremidade privado" no portal do Azure ou por meio do PowerShell. Para obter mais detalhes sobre como aprovar o link privado, consulte [configurar sincronização de dados SQL](./sql-data-sync-sql-server-configure.md). Depois de aprovar o ponto de extremidade privado gerenciado pelo serviço, toda a comunicação entre o serviço de sincronização e os bancos de dados de membro/Hub ocorrerá sobre o link privado. Os grupos de sincronização existentes podem ser atualizados para que esse recurso seja habilitado.
 
 ### <a name="general-limitations"></a>Limitações gerais
 
@@ -135,9 +143,10 @@ Provisionamento e desprovisionamento durante a criação do grupo de sincroniza�
 - Uma chave primária não pode ter os seguintes tipos de dados: sql_variant, binary, varbinary, Image, XML.
 - Tenha cuidado ao usar os seguintes tipos de dados como uma chave primária, porque a precisão com suporte é apenas para o segundo: time, datatime, datetime2 e datetimeoffset.
 - Os nomes de objetos (bancos de dados, tabelas e colunas) não podem conter o ponto de caracteres imprimíveis (.), colchete esquerdo ([) ou colchete direito (]).
+- Um nome de tabela não pode conter caracteres imprimíveis:! "# $% ' () * + espaço
 - Não há suporte para a autenticação Azure Active Directory.
-- Não há suporte para tabelas com o mesmo nome, mas com esquema diferente (por exemplo, dbo. Customers e Sales. Customers).
-- Não há suporte para colunas com tipos de dados definidos pelo usuário
+- Se houver tabelas com o mesmo nome, mas um esquema diferente (por exemplo, dbo. Customers e Sales. Customers), somente uma das tabelas poderá ser adicionada à sincronização.
+- Não há suporte para colunas com tipos de dados User-Defined
 - Não há suporte para a movimentação de servidores entre assinaturas diferentes. 
 
 #### <a name="unsupported-data-types"></a>Tipos de dados sem suporte
@@ -165,17 +174,19 @@ A Sincronização de Dados não pode sincronizar colunas somente leitura ou gera
 | Tabelas em um grupo de sincronização                                          | 500                    | Criar vários grupos de sincronização |
 | Colunas em uma tabela em um grupo de sincronização                              | 1000                   |                             |
 | Tamanho da linha de dados em uma tabela                                        | 24 Mb                  |                             |
-| Intervalo de sincronização mínima                                           | 5 Minutos              |                             |
 
 > [!NOTE]
 > Pode haver até 30 pontos de extremidade em um único grupo de sincronização, se houver apenas um grupo de sincronização. Se houver mais de um grupo de sincronização, o número total de pontos de extremidade em todos os grupos de sincronização não pode exceder 30. Se um banco de dados pertencer a vários grupos de sincronização, ele será contado como vários pontos de extremidade, não um.
 
 ### <a name="network-requirements"></a>Requisitos de rede
 
+> [!NOTE]
+> Se você usar o link privado, esses requisitos de rede não se aplicarão. 
+
 Quando o grupo de sincronização é estabelecido, o serviço de sincronização de dados precisa se conectar ao banco de dado Hub. No momento em que você estabelece o grupo de sincronização, o SQL Server do Azure deve ter a seguinte configuração em suas `Firewalls and virtual networks` configurações:
 
  * *Negar acesso à rede pública* deve ser definido como *desativado*.
- * *Permitir que os serviços e recursos do Azure acessem este servidor* deve ser definido como *Sim*ou você deve criar regras de IP para os [endereços IP usados pelo serviço de sincronização de dados](network-access-controls-overview.md#data-sync).
+ * *Permitir que os serviços e recursos do Azure acessem este servidor* deve ser definido como *Sim* ou você deve criar regras de IP para os [endereços IP usados pelo serviço de sincronização de dados](network-access-controls-overview.md#data-sync).
 
 Depois que o grupo de sincronização for criado e provisionado, você poderá desabilitar essas configurações. O agente de sincronização se conectará diretamente ao banco de dados de Hub e você poderá usar as [regras de IP de firewall](firewall-configure.md) do servidor ou os pontos de [extremidade privados](private-endpoint-overview.md) para permitir que o agente acesse o servidor de Hub.
 
@@ -247,20 +258,19 @@ O recurso traga seu próprio banco de dados do Dynamics 365 permite que os admin
 
 Você precisa atualizar o esquema de um banco de dados em um grupo de sincronização? As alterações de esquema não são replicadas automaticamente. Para algumas soluções, consulte os seguintes artigos:
 
-- [Automatizar a replicação de alterações de esquema com o Sincronização de Dados SQL no Azure](../../sql-database/sql-database-update-sync-schema.md)
+- [Automatizar a replicação de alterações de esquema com o Sincronização de Dados SQL no Azure](./sql-data-sync-update-sync-schema.md)
 - [Usar o PowerShell para atualizar o esquema de sincronização em um grupo de sincronização existente](scripts/update-sync-schema-in-sync-group.md)
 
 ### <a name="monitor-and-troubleshoot"></a>Monitorar e solucionar problemas
 
 O Sincronização de Dados SQL está sendo feito conforme o esperado? Para monitorar a atividade e solucionar problemas, consulte os seguintes artigos:
 
-- [Monitorar a Sincronização de Dados SQL com logs do Azure Monitor](../../sql-database/sql-database-sync-monitor-oms.md)
-- [Solucionar problemas com a Sincronização de Dados SQL do Azure](../../sql-database/sql-database-troubleshoot-data-sync.md)
+- [Monitorar a Sincronização de Dados SQL com logs do Azure Monitor](./monitor-tune-overview.md)
+- [Solucionar problemas com a Sincronização de Dados SQL do Azure](./sql-data-sync-troubleshoot.md)
 
 ### <a name="learn-more-about-azure-sql-database"></a>Saiba mais sobre o Banco de Dados SQL do Azure
 
 Para obter mais informações sobre o banco de dados SQL do Azure, consulte os seguintes artigos:
 
 - [Visão geral do Banco de Dados SQL](sql-database-paas-overview.md)
-- [Gerenciamento de ciclo de vida do banco de dados](https://msdn.microsoft.com/library/jj907294.aspx)
- 
+- [Gerenciamento de ciclo de vida do banco de dados](/previous-versions/sql/sql-server-guides/jj907294(v=sql.110))

@@ -1,241 +1,112 @@
 ---
-title: Contas de armazenamento de propriedade do cliente para ingestão de logs
-description: Use sua conta de armazenamento para a ingestão de dados de log em um workspace do Log Analytics no Azure Monitor.
+title: Como usar contas de armazenamento gerenciadas pelo cliente no Log Analytics do Azure Monitor
+description: Use sua própria conta de armazenamento para cenários de Log Analytics
 ms.subservice: logs
 ms.topic: conceptual
-author: bwren
-ms.author: bwren
-ms.date: 05/20/2020
-ms.openlocfilehash: 58d6f98c87e37254e77bcc8dda1cdca6e608cafc
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+author: noakup
+ms.author: noakuper
+ms.date: 09/03/2020
+ms.openlocfilehash: 706392d95e371fe303bb9f2c18f59e4a224d83c0
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962665"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201052"
 ---
-# <a name="customer-owned-storage-accounts-for-log-ingestion-in-azure-monitor"></a>Contas de armazenamento de propriedade do cliente para ingestão de logs no Azure Monitor
+# <a name="using-customer-managed-storage-accounts-in-azure-monitor-log-analytics"></a>Como usar contas de armazenamento gerenciadas pelo cliente no Log Analytics do Azure Monitor
 
-O Azure Monitor usa contas de armazenamento no processo de ingestão de alguns tipos de dados, como [logs personalizados](data-sources-custom-logs.md) e alguns [logs do Azure](./diagnostics-extension-logs.md). Durante o processo de ingestão, os logs são enviados primeiro a uma conta de armazenamento e, posteriormente, ingeridos no Log Analytics ou Application Insights. Se você quiser controlar seus dados durante a ingestão, poderá usar suas contas de armazenamento em vez do armazenamento gerenciado pelo serviço. Usar sua própria conta de armazenamento lhe dá controle sobre o acesso, o conteúdo, a criptografia e a retenção dos logs durante a ingestão. Nós nos referimos a isso como Traga seu armazenamento ou BYOS. 
+Log Analytics se baseia no armazenamento do Azure em vários cenários. Esse uso normalmente é gerenciado automaticamente. No entanto, alguns casos exigem que você forneça e gerencie sua própria conta de armazenamento, também conhecida como conta de armazenamento gerenciada pelo cliente. Este documento aborda o uso do armazenamento gerenciado pelo cliente para logs do WAD/LAD, o link privado e a criptografia CMK (chave gerenciada pelo cliente). 
 
-Um cenário que requer BYOS é o isolamento de rede por meio de Links Privados. Ao usar uma VNet, o isolamento de rede é geralmente um requisito, e o acesso à Internet pública é limitado. Nesses casos, o acesso ao armazenamento do serviço Azure Monitor para ingestão de logs é completamente bloqueado ou considerado uma prática inadequada. Em vez disso, os logs devem ser ingeridos por meio de uma conta de armazenamento de propriedade do cliente dentro da VNet ou facilmente acessados a partir dela.
+> [!NOTE]
+> É recomendável que você não faça uma dependência do conteúdo Log Analytics carregar no armazenamento gerenciado pelo cliente, Considerando que a formatação e o conteúdo podem ser alterados.
 
-Outro cenário é a criptografia de logs com CMK (chaves gerenciadas pelo cliente). Os clientes podem criptografar dados registrados usando CMK nos clusters que armazenam os logs. A mesma chave também pode ser usada para criptografar logs durante o processo de ingestão.
+## <a name="ingesting-azure-diagnostics-extension-logs-wadlad"></a>Ingerir Diagnóstico do Azure logs de extensão (WAD/LAD)
+Os agentes de extensão de Diagnóstico do Azure (também chamados de WAD e LAD para agentes do Windows e Linux, respectivamente) coletam vários logs do sistema operacional e os armazenam em uma conta de armazenamento gerenciada pelo cliente. Em seguida, você pode ingerir esses logs em Log Analytics para revisá-los e analisá-los.
+### <a name="how-to-collect-azure-diagnostics-extension-logs-from-your-storage-account"></a>Como coletar Diagnóstico do Azure logs de extensão de sua conta de armazenamento
+Conecte a conta de armazenamento ao seu espaço de trabalho do Log Analytics como uma fonte de dados de armazenamento usando [o portal do Azure](./diagnostics-extension-logs.md#collect-logs-from-azure-storage) ou chamando a [API do Storage insights](/rest/api/loganalytics/storage%20insights/createorupdate).
 
-## <a name="data-types-supported"></a>Tipos de dados compatíveis
+Tipos de dados com suporte:
+* syslog
+* Eventos do Windows
+* Service Fabric
+* Eventos ETW
+* Logs IIS
 
-Os tipos de dados que são ingeridos de uma conta de armazenamento incluem os apresentados a seguir. Confira [Coletar dados da extensão de diagnóstico do Azure para logs do Azure Monitor](./diagnostics-extension-logs.md) para obter mais informações sobre a ingestão desses tipos de dados.
+## <a name="using-private-links"></a>Usando links privados
+As contas de armazenamento gerenciadas pelo cliente são usadas para ingerir logs personalizados ou logs do IIS quando links privados são usados para se conectar a recursos do Azure Monitor. O processo de ingestão desses tipos de dados primeiro carrega os logs em uma conta intermediária do armazenamento do Azure e, em seguida, os ingeri em um espaço de trabalho. 
 
-| Type | Informações da tabela |
-|:-----|:------------------|
-| Logs IIS | Blob: wad-iis-logfiles|
-|Logs de eventos do Windows | Tabela: WADWindowsEventLogsTable |
-| syslog | Tabela: LinuxsyslogVer2v0 |
-| Logs do ETW do Windows | Tabela: WADETWEventTable|
-| Service fabric | Tabela: WADServiceFabricSystemEventTable <br/> WADServiceFabricReliableActorEventTable<br/> WADServiceFabricReliableServicEventTable |
-| Logs personalizados | n/d |
-| Arquivos de despejo do Watson da Central de Segurança do Azure | n/d|  
+### <a name="using-a-customer-managed-storage-account-over-a-private-link"></a>Usando uma conta de armazenamento gerenciada pelo cliente em um link privado
+#### <a name="workspace-requirements"></a>Requisitos do espaço de trabalho
+Ao se conectar a Azure Monitor por meio de um link privado, os agentes de Log Analytics só podem enviar logs para espaços de trabalho acessíveis em um link privado. Esse requisito significa que você deve:
+* Configurar Azure Monitor um objeto AMPLS (escopo de link privado)
+* Conecte-o aos seus espaços de trabalho
+* Conecte o AMPLS à sua rede por meio de um link privado. 
 
-## <a name="storage-account-requirements"></a>Requisitos da conta de armazenamento 
-A conta de armazenamento deve atender aos seguintes requisitos:
+Para obter mais informações sobre o procedimento de configuração AMPLS, consulte [usar o link privado do Azure para conectar redes com segurança a Azure monitor](./private-link-security.md). 
 
-- Ser acessível aos recursos em sua VNet que gravam logs no armazenamento.
-- Estar na mesma região que o workspace ao qual está vinculada.
-- Permitir acesso de Azure Monitor – se você optou por limitar o acesso à conta de armazenamento para selecionar redes, certifique-se de permitir esta exceção: *permitir que os serviços confiáveis da Microsoft acessem essa conta de armazenamento*.
+#### <a name="storage-account-requirements"></a>Requisitos da conta de armazenamento
+Para que a conta de armazenamento se conecte com êxito ao seu link privado, ela deve:
+* Estar localizado em sua VNet ou em uma rede emparelhada e conectado à sua VNet por meio de um link privado.
+* Estar localizado na mesma região que o espaço de trabalho ao qual ele está vinculado.
+* Permitir que Azure Monitor acesse a conta de armazenamento. Se você optar por permitir apenas selecionar redes para acessar sua conta de armazenamento, deverá selecionar a exceção: "permitir que os serviços confiáveis da Microsoft acessem esta conta de armazenamento".
+![Imagem de serviços de confiança da conta de armazenamento MS](./media/private-storage/storage-trust.png)
+* Se o seu espaço de trabalho tratar o tráfego de outras redes também, você deverá configurar a conta de armazenamento para permitir o tráfego de entrada proveniente das redes/Internet relevantes.
 
-## <a name="process-to-configure-customer-owned-storage"></a>Processo para configurar o armazenamento de propriedade do cliente
-O processo básico do uso de sua conta de armazenamento para ingestão é o seguinte:
+### <a name="using-a-customer-managed-storage-account-for-cmk-data-encryption"></a>Usando uma conta de armazenamento gerenciada pelo cliente para CMK Data Encryption
+O armazenamento do Azure criptografa todos os dados em repouso em uma conta de armazenamento. Por padrão, ele usa chaves gerenciadas pela Microsoft (MMK) para criptografar os dados; No entanto, o armazenamento do Azure também permite que você use o CMK do Azure Key Vault para criptografar seus dados de armazenamento. Você pode importar suas próprias chaves para Azure Key Vault ou pode usar as APIs de Azure Key Vault para gerar chaves.
+#### <a name="cmk-scenarios-that-require-a-customer-managed-storage-account"></a>Cenários CMK que exigem uma conta de armazenamento gerenciada pelo cliente
+* Criptografando consultas de alerta de log com CMK
+* Criptografando consultas salvas com CMK
 
-1. Crie uma conta de armazenamento ou selecione uma conta existente.
-2. Vincule a conta de armazenamento a um workspace do Log Analytics.
-3. Gerencie o armazenamento examinando sua carga e retenção para garantir que ele esteja funcionando conforme o esperado.
+#### <a name="how-to-apply-cmk-to-customer-managed-storage-accounts"></a>Como aplicar CMK a contas de armazenamento gerenciadas pelo cliente
+##### <a name="storage-account-requirements"></a>Requisitos da conta de armazenamento
+A conta de armazenamento e o cofre de chaves devem estar na mesma região, mas podem estar em assinaturas diferentes. Para obter mais informações sobre criptografia de armazenamento do Azure e gerenciamento de chaves, consulte [criptografia de armazenamento do Azure para dados em repouso](../../storage/common/storage-service-encryption.md).
 
-O único método disponível para criar e remover links é por meio da API REST. Detalhes sobre a solicitação de API específica necessária para cada processo são fornecidos nas seções a seguir.
+##### <a name="apply-cmk-to-your-storage-accounts"></a>Aplicar CMK às suas contas de armazenamento
+Para configurar sua conta de armazenamento do Azure para usar o CMK com Azure Key Vault, use o [portal do Azure](../../storage/common/customer-managed-keys-configure-key-vault.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json), o [PowerShell](../../storage/common/customer-managed-keys-configure-key-vault.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json)ou a [CLI](../../storage/common/customer-managed-keys-configure-key-vault.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json). 
 
-## <a name="command-line-and-rest-api"></a>Linha de comando e API REST
+## <a name="link-storage-accounts-to-your-log-analytics-workspace"></a>Vincular contas de armazenamento ao seu espaço de trabalho do Log Analytics
+### <a name="using-the-azure-portal"></a>Usando o portal do Azure
+Na portal do Azure, abra o menu do espaço de trabalho ' e selecione *contas de armazenamento vinculadas*. Uma folha será aberta, mostrando as contas de armazenamento vinculadas pelos casos de uso mencionados acima (ingestão sobre o link privado, aplicando CMK a consultas salvas ou alertas).
+![Imagem de folha de contas de armazenamento vinculadas ](./media/private-storage/all-linked-storage-accounts.png) selecionando um item na tabela, os detalhes da conta de armazenamento serão abertos, onde você poderá definir ou atualizar a conta de armazenamento vinculada para esse tipo. 
+![Vincular uma imagem de folha ](./media/private-storage/link-a-storage-account-blade.png) de conta de armazenamento você pode usar a mesma conta para diferentes casos de uso, se preferir.
 
-### <a name="command-line"></a>Linha de Comando
-Para criar e gerenciar contas de armazenamento vinculadas, use [AZ monitor log-Analytics espaço de trabalho vinculado-Storage](/cli/azure/monitor/log-analytics/workspace/linked-storage). Esse comando pode vincular e desvincular contas de armazenamento de um espaço de trabalho e listar as contas de armazenamento vinculadas.
+### <a name="using-the-azure-cli-or-rest-api"></a>Usando o CLI do Azure ou a API REST
+Você também pode vincular uma conta de armazenamento ao seu espaço de trabalho por meio do [CLI do Azure](/cli/azure/monitor/log-analytics/workspace/linked-storage) ou da [API REST](/rest/api/loganalytics/linkedstorageaccounts).
 
-### <a name="request-and-cli-values"></a>Valores de solicitação e CLI
-
-#### <a name="datasourcetype"></a>dataSourceType 
-
-- AzureWatson – Use esse valor para os arquivos de despejo do Azure Watson da Central de Segurança do Azure.
-- CustomLogs – Use esse valor para os seguintes tipos de dados:
-  - Logs personalizados
-  - Logs IIS
-  - Eventos (Windows)
-  - Syslog (Linux)
-  - Logs do ETW
-  - Eventos do Service Fabric
-  - Dados de avaliação  
-
-#### <a name="storage_account_resource_id"></a>storage_account_resource_id
-Esse valor usa a seguinte estrutura:
-
-```
-subscriptions/{subscriptionId}/resourcesGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName1}
-```
-
-
-## <a name="get-linked-storage-accounts"></a>Obter contas de armazenamento vinculadas
-
-### <a name="get-linked-storage-accounts-for-all-data-source-types"></a>Obter contas de armazenamento vinculadas para todos os tipos de fonte de dados
-
-#### <a name="api-request"></a>Solicitação de API
-
-```
-GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/linkedStorageAccounts?api-version=2019-08-01-preview  
-```
-
-#### <a name="response"></a>Resposta
-
-```json
-{
-    [
-        {
-            "properties":
-            {
-                "dataSourceType": "CustomLogs",
-                "storageAccountIds  ": 
-                [  
-                    "<storage_account_resource_id_1>",
-                    "<storage_account_resource_id_2>"
-                ],
-            },
-            "id":"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/microsoft. operationalinsights/workspaces/{resourceName}/linkedStorageAccounts/CustomLogs",
-            "name": "CustomLogs",
-            "type": "Microsoft.OperationalInsights/workspaces/linkedStorageAccounts"
-        },
-        {
-            "properties":
-            {
-                "dataSourceType": " AzureWatson "
-                "storageAccountIds  ": 
-                [  
-                    "<storage_account_resource_id_3>",
-                    "<storage_account_resource_id_4>"
-                ],
-            },
-            "id":"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/microsoft. operationalinsights/workspaces/{resourceName}/linkedStorageAccounts/AzureWatson",
-            "name": "AzureWatson",
-            "type": "Microsoft.OperationalInsights/workspaces/linkedStorageAccounts"
-        }
-    ]
-}
-```
+Os valores de DataSourceType aplicáveis são:
+* CustomLogs – para usar a conta de armazenamento para logs personalizados e ingestão de logs do IIS
+* Consulta-para usar a conta de armazenamento para armazenar consultas salvas (necessárias para criptografia CMK)
+* Alertas-para usar a conta de armazenamento para armazenar alertas baseados em log (necessários para a criptografia CMK)
 
 
-### <a name="get-linked-storage-accounts-for-a-specific-data-source-type"></a>Obter contas de armazenamento vinculadas para um tipo de fonte de dados específico
+## <a name="managing-linked-storage-accounts"></a>Gerenciando contas de armazenamento vinculadas
 
-#### <a name="api-request"></a>Solicitação de API
+### <a name="create-or-modify-a-link"></a>Criar ou modificar um link
+Quando você vincula uma conta de armazenamento a um espaço de trabalho, Log Analytics começará a usá-la em vez da conta de armazenamento de Propriedade do serviço. É possível 
+* Registrar várias contas de armazenamento para distribuir a carga de logs entre elas
+* Reutilizar a mesma conta de armazenamento para vários espaços de trabalho
 
-```
-GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/linkedStorageAccounts/{dataSourceType}?api-version=2019-08-01-preview  
-```
+### <a name="unlink-a-storage-account"></a>Desvincular uma conta de armazenamento
+Para parar de usar uma conta de armazenamento, desvincule o armazenamento do espaço de trabalho. Desvincular todas as contas de armazenamento de um espaço de trabalho significa Log Analytics tentará confiar em contas de armazenamento gerenciadas pelo serviço. Se sua rede tiver acesso limitado à Internet, esses armazenamentos poderão não estar disponíveis e qualquer cenário que dependa do armazenamento falhará.
 
-#### <a name="response"></a>Resposta 
+### <a name="replace-a-storage-account"></a>Substituir uma conta de armazenamento
+Para substituir uma conta de armazenamento usada para ingestão,
+1.  **Crie um link para uma nova conta de armazenamento.** Os agentes de registro em log receberão a configuração atualizada e começarão a enviar dados para o novo armazenamento também. O processo pode levar alguns minutos.
+2.  **Desvincule a conta de armazenamento antiga para que os agentes parem de gravar na conta removida.** O processo de ingestão continua lendo os dados dessa conta até que eles sejam todos ingeridos. Não exclua a conta de armazenamento até ver que todos os logs foram ingeridos.
 
-```json
-{
-    "properties":
-    {
-        "dataSourceType": "CustomLogs",
-        "storageAccountIds  ": 
-        [  
-            "<storage_account_resource_id_1>",
-            "<storage_account_resource_id_2>"
-        ],
-    },
-    "id":"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/microsoft. operationalinsights/workspaces/{resourceName}/linkedStorageAccounts/CustomLogs",
-    "name": "CustomLogs",
-    "type": "Microsoft.OperationalInsights/workspaces/linkedStorageAccounts"
-}
-```
+### <a name="maintaining-storage-accounts"></a>Mantendo contas de armazenamento
+#### <a name="manage-log-retention"></a>Gerenciar retenção de log
+Ao usar sua própria conta de armazenamento, a retenção cabe a você. Log Analytics não excluirá os logs armazenados no seu armazenamento privado. Em vez disso, você deve configurar uma política para lidar com a carga de acordo com suas preferências.
 
-## <a name="create-or-modify-a-link"></a>Criar ou modificar um link
-
-Depois que você vincular uma conta de armazenamento a um workspace, o Log Analytics começará a usá-la em vez da conta de armazenamento de propriedade do serviço. Você pode registrar uma lista de contas de armazenamento ao mesmo tempo e usar a mesma conta de armazenamento para vários workspaces.
-
-Caso seu workspace gerencie recursos de VNet e recursos de fora de uma VNet, você deve garantir ele não esteja rejeitando o tráfego proveniente da Internet. Seu armazenamento deve ter as mesmas configurações que seu workspace e ser disponibilizado para recursos fora de sua VNet. 
-
-### <a name="api-request"></a>Solicitação de API
-
-```
-PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/linkedStorageAccounts/{dataSourceType}?api-version=2019-08-01-preview  
-```
-
-### <a name="payload"></a>Carga útil
-
-```json
-{
-    "properties":
-    {
-        "storageAccountIds  " : 
-        [  
-            "<storage_account_resource_id_1>",
-            "<storage_account_resource_id_2>"
-        ],
-    }
-}
-```
-
-### <a name="response"></a>Resposta
-
-```json
-{
-    "properties":
-    {
-        "dataSourceType": "CustomLogs"
-        "storageAccountIds  ": 
-        [  
-            "<storage_account_resource_id_1>",
-            "<storage_account_resource_id_2>"
-        ],
-    },
-"id":"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/microsoft. operationalinsights/workspaces/{resourceName}/linkedStorageAccounts/CustomLogs",
-"name": "CustomLogs",
-"type": "Microsoft.OperationalInsights/workspaces/linkedStorageAccounts"
-}
-```
-
-
-## <a name="unlink-a-storage-account"></a>Desvincular uma conta de armazenamento
-Se você decidir parar de usar uma conta de armazenamento para ingestão ou substituir o workspace usado, desvincule o armazenamento do workspace.
-
-Desvincular todas as contas de armazenamento de um workspace significa que a ingestão tentará utilizar contas de armazenamento gerenciadas pelo serviço. Caso os agentes sejam executados em uma VNet com acesso limitado à Internet, espera-se que a ingestão falhe. O workspace deve ter uma conta de armazenamento vinculada que possa ser alcançada por meio dos seus recursos monitorados.
-
-Antes de excluir uma conta de armazenamento, verifique se todos os dados nela contidos foram inseridos no workspace. Como precaução, mantenha sua conta de armazenamento disponível depois de vincular um armazenamento alternativo. Exclua-a somente depois que todo o seu conteúdo tiver sido ingerido, e você poderá ver que novos dados são gravados na conta de armazenamento recém-conectada.
-
-
-### <a name="api-request"></a>Solicitação de API
-```
-DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/linkedStorageAccounts/{dataSourceType}?api-version=2019-08-01-preview  
-```
-
-## <a name="replace-a-storage-account"></a>Substituir uma conta de armazenamento
-
-Para substituir uma conta de armazenamento usada para ingestão, primeiro crie um link para uma nova conta de armazenamento. Os agentes de registro em log receberão a configuração atualizada e começarão a enviar dados para o novo armazenamento também.
-
-Em seguida, desvincule a antiga conta de armazenamento para que os agentes parem de gravar na conta removida. O processo de ingestão continua lendo os dados dessa conta até que eles sejam todos ingeridos. Não exclua a conta de armazenamento até ver que todos os logs foram ingeridos.
-
-A configuração do agente será atualizada após alguns minutos e mudará para o novo armazenamento.
-
-## <a name="manage-storage-account"></a>Gerenciar conta de armazenamento
-
-### <a name="load"></a>Carregar
-
-As contas de armazenamento podem lidar com determinada carga de solicitações de leitura e gravação antes de iniciarem as solicitações de limitação. A limitação afeta o tempo necessário para a ingestão de logs e pode resultar na perda de dados. Se o armazenamento estiver sobrecarregado, registre contas de armazenamento adicionais e distribua a carga entre elas. 
+#### <a name="consider-load"></a>Considerar a carga
+As contas de armazenamento podem lidar com uma determinada carga de solicitações de leitura e gravação antes de iniciarem as solicitações de limitação (para obter mais informações, consulte [escalabilidade e metas de desempenho para o armazenamento de BLOBs](../../storage/common/scalability-targets-standard-account.md)). A limitação afeta o tempo necessário para a ingestão de logs. Se sua conta de armazenamento estiver sobrecarregada, registre uma conta de armazenamento adicional para distribuir a carga entre elas. Para monitorar a capacidade e o desempenho da sua conta de armazenamento, veja suas [informações no portal do Azure]( https://docs.microsoft.com/azure/azure-monitor/insights/storage-insights-overview).
 
 ### <a name="related-charges"></a>Cobranças relacionadas
-
-As contas de armazenamento são cobradas pelo volume de dados armazenados, pelos tipos de armazenamento e pelo tipo de redundância. Para obter detalhes, confira [Preços de blobs de blocos](https://azure.microsoft.com/pricing/details/storage/blobs/) e [Preços do Armazenamento de Tabelas](https://azure.microsoft.com/pricing/details/storage/tables/).
-
-Se a conta de armazenamento registrada do seu workspace estiver em outra região, você será cobrado pela saída de acordo com estes [Detalhes de preços de largura de banda](https://azure.microsoft.com/pricing/details/bandwidth/).
-
+As contas de armazenamento são cobradas pelo volume de dados armazenados, o tipo de armazenamento e o tipo de redundância. Para obter detalhes, confira [Preços de blobs de blocos](https://azure.microsoft.com/pricing/details/storage/blobs) e [Preços do Armazenamento de Tabelas](https://azure.microsoft.com/pricing/details/storage/tables).
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para obter mais informações sobre como configurar um link privado, consulte [usar o link privado do Azure para conectar redes com segurança a Azure monitor](private-link-security.md)
-
+- Saiba como [usar o link privado do Azure para conectar redes com segurança a Azure monitor](private-link-security.md)
+- Saiba mais sobre [Azure monitor chaves gerenciadas pelo cliente](customer-managed-keys.md)

@@ -1,25 +1,22 @@
 ---
-title: Configurar uma conexão com o banco de dados SQL do Azure usando uma identidade gerenciada (versão prévia)
+title: Configurar uma conexão com o banco de dados SQL do Azure usando uma identidade gerenciada
 titleSuffix: Azure Cognitive Search
-description: Saiba como configurar uma conexão de indexador com o banco de dados SQL do Azure usando uma identidade gerenciada (versão prévia)
+description: Saiba como configurar uma conexão de indexador com o banco de dados SQL do Azure usando uma identidade gerenciada
 manager: luisca
 author: markheff
 ms.author: maheff
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/18/2020
-ms.openlocfilehash: 8dabf69af8628bb0b168bfea94af5333df341423
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/22/2020
+ms.openlocfilehash: b940da2cf754e7e1cac91df6b517ecebe55e8c40
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88924122"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358415"
 ---
-# <a name="set-up-an-indexer-connection-to-azure-sql-database-using-a-managed-identity-preview"></a>Configurar uma conexão do indexador com o banco de dados SQL do Azure usando uma identidade gerenciada (versão prévia)
-
-> [!IMPORTANT] 
-> O suporte para configurar uma conexão com uma fonte de dados usando uma identidade gerenciada está atualmente em visualização pública. A funcionalidade de versão prévia é fornecida sem um Contrato de Nível de Serviço e, portanto, não é recomendada para cargas de trabalho de produção.
+# <a name="set-up-an-indexer-connection-to-azure-sql-database-using-a-managed-identity"></a>Configurar uma conexão de indexador para o banco de dados SQL do Azure usando uma identidade gerenciada
 
 Esta página descreve como configurar uma conexão de indexador com o banco de dados SQL do Azure usando uma identidade gerenciada em vez de fornecer credenciais na cadeia de conexão do objeto de fonte de dado.
 
@@ -32,11 +29,11 @@ Antes de saber mais sobre esse recurso, é recomendável compreender o que é um
 
 ### <a name="1---turn-on-system-assigned-managed-identity"></a>1 – Habilitar a identidade gerenciada atribuída ao sistema
 
-Quando uma identidade gerenciada atribuída pelo sistema é habilitada, o Azure cria uma identidade para o serviço de pesquisa que pode ser usada para autenticar outros serviços do Azure no mesmo locatário e assinatura. Use essa identidade em atribuições de RBAC (controle de acesso baseado em função) que permitem o acesso aos dados durante a indexação.
+Quando uma identidade gerenciada atribuída pelo sistema é habilitada, o Azure cria uma identidade para o serviço de pesquisa que pode ser usada para autenticar outros serviços do Azure no mesmo locatário e assinatura. Você pode usar essa identidade em atribuições do Azure RBAC (controle de acesso baseado em função) que permitem o acesso aos dados durante a indexação.
 
 ![Habilitar a identidade gerenciada atribuída ao sistema](./media/search-managed-identities/turn-on-system-assigned-identity.png "Habilitar a identidade gerenciada atribuída ao sistema")
 
-Depois de selecionar **Salvar**, você verá uma ID do objeto que foi atribuída ao serviço de pesquisa.
+Depois de selecionar **Salvar** , você verá uma ID do objeto que foi atribuída ao serviço de pesquisa.
 
 ![ID do objeto](./media/search-managed-identities/system-assigned-identity-object-id.png "ID de objeto")
 
@@ -97,7 +94,7 @@ Nesta etapa, você dará permissão ao seu serviço Azure Cognitive Search para 
 
 ### <a name="5---create-the-data-source"></a>5 – Criar a fonte de dados
 
-A [API REST](/rest/api/searchservice/create-data-source), portal do Azure e o [SDK do .net](/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet) oferecem suporte à cadeia de conexão de identidade gerenciada. Veja abaixo um exemplo de como criar uma fonte de dados para indexar dados de um banco de dados SQL do Azure usando a [API REST](/rest/api/searchservice/create-data-source) e uma cadeia de conexão de identidade gerenciada. O formato da cadeia de conexão de identidade gerenciada é o mesmo para a API REST, o SDK do .NET e o portal do Azure.
+A [API REST](/rest/api/searchservice/create-data-source), portal do Azure e o [SDK do .net](/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourceconnection) oferecem suporte à cadeia de conexão de identidade gerenciada. Veja abaixo um exemplo de como criar uma fonte de dados para indexar dados de um banco de dados SQL do Azure usando a [API REST](/rest/api/searchservice/create-data-source) e uma cadeia de conexão de identidade gerenciada. O formato da cadeia de conexão de identidade gerenciada é o mesmo para a API REST, o SDK do .NET e o portal do Azure.
 
 Ao criar uma fonte de dados usando a [API REST](/rest/api/searchservice/create-data-source), a fonte de dados deve ter as seguintes propriedades necessárias:
 
@@ -106,7 +103,7 @@ Ao criar uma fonte de dados usando a [API REST](/rest/api/searchservice/create-d
 * **credentials**
     * Ao usar uma identidade gerenciada para autenticar, o formato **credentials** é diferente de quando não usa uma identidade gerenciada. Aqui, você fornecerá nome de Catálogo ou Banco de dados Inicial e um ResourceId sem chave de conta ou senha. O ResourceId deve incluir a ID da assinatura do banco de dados SQL do Azure, o grupo de recursos do banco de dados SQL e o nome do banco de dados SQL. 
     * Formato da cadeia de conexão de identidade gerenciada:
-        * *Initial Catalog|Database=**nome do banco de dados**;ResourceId=/subscriptions/**sua ID de assinatura**/resourceGroups/**nome do seu grupo de recursos**/providers/Microsoft.Sql/servers/**nome do seu SQL Server**/;Connection Timeout=**duração do tempo limite de conexão**;*
+        * *Initial Catalog|Database= **nome do banco de dados** ;ResourceId=/subscriptions/ **sua ID de assinatura** /resourceGroups/ **nome do seu grupo de recursos** /providers/Microsoft.Sql/servers/ **nome do seu SQL Server** /;Connection Timeout= **duração do tempo limite de conexão** ;*
 * **container** especifica o nome da tabela ou exibição que você deseja indexar.
 
 Exemplo de como criar um objeto de fonte de dados do SQL do Azure usando a [API REST](/rest/api/searchservice/create-data-source):
@@ -128,7 +125,7 @@ api-key: [admin key]
 
 O índice especifica os campos em um documento, atributos e outras construções que modelam a experiência de pesquisa.
 
-Veja como criar um índice com um campo `booktitle` pesquisável:   
+Confira como criar um índice com um campo `booktitle` pesquisável:   
 
 ```
 POST https://[service name].search.windows.net/indexes?api-version=2020-06-30

@@ -2,13 +2,14 @@
 title: Expor um serviço REST do WCF local para clientes usando a Retransmissão do Azure
 description: Este tutorial descreve como expor um serviço REST do WCF local para um cliente externo usando a Retransmissão do WCF do Azure.
 ms.topic: tutorial
+ms.custom: devx-track-dotnet
 ms.date: 06/23/2020
-ms.openlocfilehash: 50628073efd7114aaacfe37177d2f5beb3be3d47
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: bb2b9b5ed7c263762cc24b8eb2e6d66215147c4c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85322693"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "88935697"
 ---
 # <a name="tutorial-expose-an-on-premises-wcf-rest-service-to-external-client-by-using-azure-wcf-relay"></a>Tutorial: Expor um serviço de REST do WCF local ao cliente externo usando a Retransmissão do WCF do Azure
 

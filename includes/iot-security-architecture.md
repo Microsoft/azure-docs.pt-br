@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: a2eafd6bb34b897f3492ddcffd6841f0fabc4ca7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 28609ad27330ae4ea5ea7c0d02d5a61181fbe0df
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73034539"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95558582"
 ---
 Durante a criação de um sistema, é importante compreender as ameaças potenciais para esse sistema e adicionar as defesas apropriadas da mesma forma, conforme o sistema é projetado e desenvolvido. É importante projetar o produto desde o início com a segurança em mente porque a compreensão de como um invasor pode conseguir comprometer um sistema ajuda a garantir que as mitigações adequadas estão em vigor desde o início.
 
@@ -72,7 +72,7 @@ Os quatro principais elementos de um modelo de risco são:
 
 * Entidades externas (qualquer elemento que interage com o sistema, mas não está sob o controle do aplicativo, os exemplos incluem usuários e feeds de satélite)
 
-Todos os elementos no diagrama da arquitetura estão sujeitos a várias ameaças; neste artigo, usamos o mnemônico STRIDE. Leia [Threat Modeling Again, STRIDE](https://blogs.msdn.microsoft.com/larryosterman/2007/09/04/threat-modeling-again-stride/) (Modelagem de risco novamente, STRIDE) para saber mais sobre os elementos do STRIDE.
+Todos os elementos no diagrama da arquitetura estão sujeitos a várias ameaças; neste artigo, usamos o mnemônico STRIDE. Leia [Threat Modeling Again, STRIDE](/archive/blogs/larryosterman/threat-modeling-again-stride) (Modelagem de risco novamente, STRIDE) para saber mais sobre os elementos do STRIDE.
 
 Diferentes elementos do diagrama de aplicativo estão sujeitos a determinadas ameaças do STRIDE:
 
@@ -177,7 +177,7 @@ Em cada uma das categorias descritas na arquitetura de IoT do Azure, este exempl
 
 **E (Elevação de Privilégio)**: um dispositivo que realiza uma função específica pode ser forçado a fazer algo diferente. Por exemplo, uma válvula é programada para abrir a metade do caminho pode ser levada para abrir completamente.
 
-| **Componente** | **Ameaça** | **Atenuação** | **Risco** | **Implementação** |
+| **Componente** | **Ameaça** | **Mitigação** | **Risco** | **Implementação** |
 | --- | --- | --- | --- | --- |
 | Dispositivo |S |Atribuição de identidade para o dispositivo e autenticação do dispositivo |Substituir o dispositivo ou parte dele por outro dispositivo. Como saber se você está se comunicando com o dispositivo certo? |Autenticar o dispositivo, usando o protocolo TLS ou IPsec. A infraestrutura deve dar suporte ao uso da PSK (chave pré-compartilhada) nos dispositivos que não conseguem lidar com a criptografia assimétrica completa. Aproveite o Azure AD, [OAuth](https://www.rfc-editor.org/pdfrfc/rfc6755.txt.pdf) |
 || TRID |Aplicação de mecanismos à prova de violações no dispositivo, por exemplo, tornando difícil e até mesmo impossível extrair as chaves e outros materiais de criptografia do dispositivo. |O risco é se alguém está violando o dispositivo (interferência física). Como ter certeza de que o dispositivo não foi adulterado. |A mitigação mais eficaz é uma funcionalidade de TPM (trusted platform module) que permite armazenar chaves em circuitos on-chip especiais nos quais as chaves não podem ser lidas, mas apenas usadas para operações de criptografia que utilizam a chave, mas nunca a divulgam. Criptografia de memória do dispositivo. Gerenciamento de chaves para o dispositivo. Assinar o código. |
@@ -220,7 +220,7 @@ Aqui estão alguns exemplos de ameaças nesta categoria:
 
 Ameaças em torno do caminho de comunicação entre dispositivos, dispositivos e gateways de campo e dispositivos e gateway de nuvem. A tabela a seguir tem algumas diretrizes em torno de soquetes abertos no dispositivo/VPN:
 
-| **Componente** | **Ameaça** | **Atenuação** | **Risco** | **Implementação** |
+| **Componente** | **Ameaça** | **Mitigação** | **Risco** | **Implementação** |
 | --- | --- | --- | --- | --- |
 | Hub IoT de dispositivo |TID |(D)TLS (PSK/RSA) para criptografar o tráfego |Espionagem ou interferência na comunicação entre o dispositivo e o gateway |Segurança no nível do protocolo. Com os protocolos personalizados, você precisa descobrir como protegê-los. Na maioria dos casos, a comunicação ocorre do dispositivo para o Hub IoT (o dispositivo inicia a conexão). |
 | Dispositivo para dispositivo |TID |(D)TLS (PSK/RSA) para criptografar o tráfego. |Leitura de dados em trânsito entre os dispositivos. Violação de dados. Sobrecarga do dispositivo com novas conexões |Segurança no nível do protocolo (MQTT/AMQP/HTTP/CoAP. Com os protocolos personalizados, você precisa descobrir como protegê-los. A mitigação da ameaça de DoS é para os dispositivos pares por meio de um gateway de campo ou nuvem e fazê-los agir somente como clientes para a rede. O emparelhamento pode resultar em uma conexão direta entre os pares após ter sido agenciado pelo gateway |
@@ -244,7 +244,7 @@ Aqui estão alguns exemplos de ameaças nesta categoria:
 
 Cada dispositivo e gateway de campo têm alguma forma de armazenamento (temporário para enfileirar os dados, armazenamento de imagem de sistema operacional).
 
-| **Componente** | **Ameaça** | **Atenuação** | **Risco** | **Implementação** |
+| **Componente** | **Ameaça** | **Mitigação** | **Risco** | **Implementação** |
 | --- | --- | --- | --- | --- |
 | Armazenamento de dispositivo |TRID |Criptografia de armazenamento, assinar os logs |Leitura de dados do armazenamento (dados de PII), violação de dados de telemetria. Violação de dados de controle de comando em cache ou enfileirados. Violação de pacotes de atualização de firmware ou configuração enquanto os armazenados em cache ou enfileirados localmente podem levar os componentes de sistema operacional e/ou sistema a serem comprometidos |Criptografia, MAC (Message Authentication Code) ou assinatura digital. Onde for possível, controle de acesso forte por meio de permissões ou ACLs (listas de controle de acesso) de recurso. |
 | Imagem do sistema operacional do dispositivo |TRID | |Violação do sistema operacional/substituição de componentes do sistema operacional |Partição do sistema operacional somente leitura, imagem do sistema operacional assinada, criptografia |
@@ -265,7 +265,7 @@ As superfícies de controle físico intermediário são aquelas em que a lógica
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-Para obter mais informações, consulte os seguintes artigos:
+Para obter mais informações, confira os seguintes artigos:
 
 * [Ferramenta de modelagem de ameaças do SDL](https://www.microsoft.com/sdl/adopt/threatmodeling.aspx)
 * [Arquitetura de referência da IoT do Microsoft Azure](https://azure.microsoft.com/updates/microsoft-azure-iot-reference-architecture-available/)

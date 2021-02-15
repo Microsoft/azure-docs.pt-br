@@ -6,16 +6,16 @@ ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 01/30/2020
-ms.openlocfilehash: cb1af437fc663fcb95c768ec295862209a26064e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d1f575d9d588ccd99523c6b6d5d2ceba6369dc3d
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090392"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92309923"
 ---
 # <a name="view-and-create-queries-for-monitoring-and-tracking-in-azure-monitor-logs-for-azure-logic-apps"></a>Exibir e criar consultas para monitoramento e acompanhamento em logs de Azure Monitor para aplicativos lógicos do Azure
 
-Você pode exibir as consultas subjacentes que produzem os resultados de [logs de Azure monitor](../azure-monitor/log-query/log-query-overview.md) e criar consultas que filtram os resultados com base em seus critérios específicos. Por exemplo, você pode encontrar mensagens baseado em um número de controle de intercâmbio específico. As consultas usam a [linguagem de consulta Kusto](https://aka.ms/LogAnalyticsLanguageReference), que você pode editar se quiser exibir resultados diferentes. Para obter mais informações, consulte [Azure monitor log queries](../azure-monitor/log-query/query-language.md).
+Você pode exibir as consultas subjacentes que produzem os resultados de [logs de Azure monitor](../azure-monitor/log-query/log-query-overview.md) e criar consultas que filtram os resultados com base em seus critérios específicos. Por exemplo, você pode encontrar mensagens baseado em um número de controle de intercâmbio específico. As consultas usam a [linguagem de consulta Kusto](/azure/data-explorer/kusto/query/), que você pode editar se quiser exibir resultados diferentes. Para obter mais informações, consulte [Azure monitor log queries](/azure/data-explorer/kusto/query/).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -59,7 +59,7 @@ Para localizar ou filtrar resultados com base em Propriedades ou valores especí
 
      ![Comece com as consultas predefinidas da solução "Aplicativos Lógicos B2B"](./media/create-monitoring-tracking-queries/b2b-prebuilt-queries.png)
 
-   * Para iniciar de uma consulta vazia, no editor de consultas, comece a digitar a [linguagem de consulta Kusto](../azure-monitor/log-query/query-language.md) para sua consulta.
+   * Para iniciar de uma consulta vazia, no editor de consultas, comece a digitar a [linguagem de consulta Kusto](/azure/data-explorer/kusto/query/) para sua consulta.
 
      ![Iniciar com consulta vazia](./media/create-monitoring-tracking-queries/create-query-from-blank.png)
 

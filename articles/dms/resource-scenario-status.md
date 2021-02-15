@@ -10,14 +10,14 @@ ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 07/08/2020
-ms.openlocfilehash: 4e6f8a115e996ac6862f2fb04e5050b94f9f823b
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: cc3323a3ae2d604557d7e09b38252d63f17c5470
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86132745"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92319921"
 ---
 # <a name="status-of-migration-scenarios-supported-by-azure-database-migration-service"></a>Status dos cenários de migração com suporte pelo serviço de migração de banco de dados do Azure
 
@@ -45,7 +45,7 @@ As tabelas a seguir mostram quais cenários de migração têm suporte ao usar o
 
 A tabela a seguir mostra o suporte para o Serviço de Migração de Banco de Dados do Azure em migrações offline.
 
-| Destino  | Origem | Suporte | Status |
+| Destino  | Fonte | Suporte | Status |
 | ------------- | ------------- |:-------------:|:-------------:|
 | **BD SQL do Azure** | SQL Server | ✔ | GA |
 |   | SQL para RDS | X |  |
@@ -67,7 +67,7 @@ A tabela a seguir mostra o suporte para o Serviço de Migração de Banco de Dad
 
 A tabela a seguir mostra o suporte para o Serviço de Migração de Banco de Dados do Azure em migrações online.
 
-| Destino  | Origem | Suporte | Status |
+| Destino  | Fonte | Suporte | Status |
 | ------------- | ------------- |:-------------:|:-------------:|
 | **BD SQL do Azure** | SQL Server | ✔ | GA |
 |   | SQL para RDS | ✔ | GA |
@@ -81,13 +81,12 @@ A tabela a seguir mostra o suporte para o Serviço de Migração de Banco de Dad
 | **BD do Azure para MySQL** | MySQL | ✔ | GA |
 |   | MySQL para RDS | ✔ | GA |
 | **BD do Azure para PostgreSQL-servidor único** | PostgreSQL | ✔ | GA |
-|   | BD do Azure para PostgreSQL-servidor único * | ✔ | GA |
+|   | BD do Azure para PostgreSQL-servidor único | ✔ | GA |
 |   | PostgreSQL para RDS | ✔ | GA |
 |   | Oracle | ✔ | Versão prévia pública |
 | **BD do Azure para PostgreSQL-Citus (hiperescala)** | PostgreSQL | ✔ | GA |
 |   | PostgreSQL para RDS | ✔ | GA |
 
-* Com suporte para PostgreSQL versão 10 e posterior.
 
 ## <a name="next-steps"></a>Próximas etapas
 

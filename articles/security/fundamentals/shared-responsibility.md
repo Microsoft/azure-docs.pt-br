@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/16/2019
+ms.date: 02/03/2021
 ms.author: terrylan
-ms.openlocfilehash: 8f16105d6bda1798828bc423ec8a158d49e0cf2b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5d9d3878c34bd203b6c14b45e1196245ef8524f6
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "72518363"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99548942"
 ---
 # <a name="shared-responsibility-in-the-cloud"></a>Responsabilidade compartilhada na nuvem
 
@@ -31,7 +31,7 @@ Em um datacenter local, você possui a pilha inteira. À medida que você passa 
 
 ![Zonas de responsabilidade](./media/shared-responsibility/shared-responsibility.png)
 
-Para todos os tipos de implantação de nuvem, você possui seus dados e identidades. Você é responsável por proteger a segurança de seus dados e identidades, dos recursos locais e dos componentes da nuvem que você controla (que varia por tipo de serviço).
+Para todos os tipos de implantação de nuvem, você tem seus dados e suas identidades. Você é responsável por proteger a segurança de seus dados e identidades, dos recursos locais e dos componentes da nuvem que você controla (que varia por tipo de serviço).
 
 Independentemente do tipo de implantação, as responsabilidades a seguir são sempre retidas por você:
 
@@ -50,4 +50,4 @@ O diagrama a seguir mostra uma abordagem tradicional em que muitas responsabilid
 Na abordagem habilitada para nuvem, você também pode aproveitar os recursos de segurança baseados em nuvem para obter mais eficácia e usar a inteligência de nuvem para melhorar a detecção de ameaças e o tempo de resposta. Ao deslocar responsabilidades para o provedor de nuvem, as organizações podem obter mais cobertura de segurança, que permite que elas realocar recursos de segurança e orçamento para outras prioridades de negócios.
 
 ## <a name="next-steps"></a>Próximas etapas
-Para obter mais informações sobre a divisão de responsabilidade entre você e a Microsoft em uma implantação de SaaS, PaaS e IaaS, consulte [responsabilidades compartilhadas para computação em nuvem](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91).
+Para obter mais informações sobre a divisão de responsabilidade entre você e a Microsoft em uma implantação de SaaS, PaaS e IaaS, consulte [responsabilidades compartilhadas para computação em nuvem](https://azure.microsoft.com/resources/shared-responsibility-for-cloud-computing/).

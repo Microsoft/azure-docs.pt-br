@@ -3,21 +3,21 @@ title: Erros e avisos de conversão de desenho do Azure Mapas
 description: Saiba mais sobre os erros e avisos de conversão que você pode encontrar enquanto estiver usando o Serviço de conversão do Azure Mapas. Leia as recomendações sobre como resolver erros e avisos junto de alguns exemplos.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 05/18/2020
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philMea
-ms.openlocfilehash: d79c42f3bdf84efcdf2187741ac270087be05272
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cecc19f0984ce1801d50e5cbda73e98a01e2825b
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83681963"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906209"
 ---
 # <a name="drawing-conversion-errors-and-warnings"></a>Erros e avisos de conversão de desenho
 
-O [Serviço de conversão do Azure Mapas](https://docs.microsoft.com/rest/api/maps/conversion) permite converter pacotes de desenho carregados em dados de mapa. Os pacotes de desenho devem aderir aos [Requisitos do pacote de desenho](drawing-requirements.md). Caso um ou mais requisitos não sejam atendidos, o Serviço de conversão retornará erros ou avisos. Este artigo lista os códigos de erro e de aviso de conversão com recomendações sobre como resolvê-los. Ele também apresenta alguns exemplos de desenhos que podem fazer com que o Serviço de conversão retorne esses códigos.
+O [Serviço de conversão do Azure Mapas](/rest/api/maps/conversion) permite converter pacotes de desenho carregados em dados de mapa. Os pacotes de desenho devem aderir aos [Requisitos do pacote de desenho](drawing-requirements.md). Caso um ou mais requisitos não sejam atendidos, o Serviço de conversão retornará erros ou avisos. Este artigo lista os códigos de erro e de aviso de conversão com recomendações sobre como resolvê-los. Ele também apresenta alguns exemplos de desenhos que podem fazer com que o Serviço de conversão retorne esses códigos.
 
 O Serviço de conversão terá êxito se mesmo que haja avisos de conversão. No entanto, é recomendável que você analise e resolva todos os avisos. Um aviso indica que parte da conversão foi ignorada ou corrigida automaticamente. Não resolver os avisos pode resultar em erros em processos futuros.
 
@@ -35,9 +35,9 @@ O serviço de conversão não consegue criar um recurso de mapa a partir de uma 
 
 * As duas imagens abaixo mostram exemplos de polígonos com autointerseção.
 
-     ![Exemplo de um polígono com autointerseção](./media/drawing-conversion-error-codes/geometry-warning-1.png)
+     ![Exemplo de um polígono com interseção automática, exemplo um.](./media/drawing-conversion-error-codes/geometry-warning-1.png)
 
-     ![Exemplo de um polígono com autointerseção](./media/drawing-conversion-error-codes/geometry-warning-2.png)
+     ![Exemplo de um polígono de intersecção automática, exemplo dois.](./media/drawing-conversion-error-codes/geometry-warning-2.png)
 
 * Abaixo, há uma imagem que mostra uma polilinha não fechada. Suponha que a camada tenha suporte apenas a geometrias fechadas.
 
@@ -330,7 +330,7 @@ Você tentou carregar um pacote de desenho com um parâmetro `udid` incorreto.
 Para corrigir um erro **invalidUserData**, verifique se:
 
 * Você forneceu um `udid` correto para o pacote carregado.
-* O Criador do Azure Mapas foi habilitado para a conta do Azure Mapas usada para carregar o pacote de desenho.
+* O Azure Maps Creator (versão prévia) foi habilitado para a conta do Azure Maps que você usou para carregar o pacote de desenho.
 * A solicitação de API para o Serviço de conversão contém a chave de assinatura para a conta do Azure Mapas que você usou para carregar o pacote de desenho.
 
 ### <a name="dwgerror"></a>**dwgError**
@@ -506,4 +506,4 @@ Para corrigir um erro **verticalPenetrationError**, leia sobre como usar um recu
 > [Como usar o visualizador de erros de desenho do Azure Mapas](drawing-error-visualizer.md)
 
 > [!div class="nextstepaction"]
-> [Criador para mapas internos](creator-indoor-maps.md)
+> [Criador (visualização) para mapeamento interno](creator-indoor-maps.md)

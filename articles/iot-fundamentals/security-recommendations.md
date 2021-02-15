@@ -12,12 +12,12 @@ ms.custom:
 - security-recommendations
 - amqp
 - mqtt
-ms.openlocfilehash: 5dd09988d37982c41b761688492bd2dc3642b2db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a1de3a71253b1a82b4423bff279fbf3f7e378da4
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81728991"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96457617"
 ---
 # <a name="security-recommendations-for-azure-internet-of-things-iot-deployment"></a>Recomendações de segurança para a implantação do Internet das Coisas do Azure (IoT)
 
@@ -26,7 +26,7 @@ Este artigo contém recomendações de segurança para IoT. Implementar essas re
 Algumas das recomendações incluídas neste artigo podem ser monitoradas automaticamente pela Central de Segurança do Azure. A Central de Segurança do Azure é a primeira linha de defesa na proteção dos recursos no Azure. Ela analisa periodicamente o estado de segurança de seus recursos do Azure para identificar possíveis vulnerabilidades na segurança. Em seguida, ela fornece recomendações sobre como solucioná-las.
 
 - Para obter mais informações sobre as recomendações da Central de Segurança do Azure, confira [Recomendações de segurança na Central de Segurança do Azure](../security-center/security-center-recommendations.md).
-- Para obter informações sobre a Central de Segurança do Azure, confira [O que é a Central de Segurança do Azure?](../security-center/security-center-intro.md)
+- Para obter informações sobre a Central de Segurança do Azure, confira [O que é a Central de Segurança do Azure?](../security-center/security-center-introduction.md)
 
 ## <a name="general"></a>Geral
 
@@ -34,22 +34,22 @@ Algumas das recomendações incluídas neste artigo podem ser monitoradas automa
 |-|----|--|
 | Mantenha-se atualizado | Use as versões mais recentes das plataformas com suporte, linguagens de programação, protocolos e estruturas. | - |
 | Manter as chaves de autenticação seguras | Mantenha as IDs de dispositivo e suas chaves de autenticação fisicamente seguras após a implantação. Isso evitará que um dispositivo mal-intencionado seja disfarçado como um dispositivo registrado. | - |
-| Usar SDKs de dispositivo quando possível | Os SDKs de dispositivo implementam uma variedade de recursos de segurança, como criptografia, autenticação e assim por diante, para ajudá-lo a desenvolver um aplicativo de dispositivo robusto e seguro. Consulte [entender e usar SDKs do Hub IOT do Azure](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks) para obter mais informações. | - |
+| Usar SDKs de dispositivo quando possível | Os SDKs de dispositivo implementam uma variedade de recursos de segurança, como criptografia, autenticação e assim por diante, para ajudá-lo a desenvolver um aplicativo de dispositivo robusto e seguro. Consulte [entender e usar SDKs do Hub IOT do Azure](../iot-hub/iot-hub-devguide-sdks.md) para obter mais informações. | - |
 
 ## <a name="identity-and-access-management"></a>Gerenciamento de identidade e de acesso 
 
 | Recomendação | Comentários | Com suporte do ASC |
 |-|----|--|
-| Definir o controle de acesso para o Hub | [Entenda e defina o tipo de acesso](iot-security-deployment.md#securing-the-cloud) que cada componente terá em sua solução de Hub IOT, com base na funcionalidade. As permissões permitidas são *Registry Read*, *RegistryReadWrite*, *perconnect*e *DeviceConnect*. [As políticas de acesso compartilhado padrão no Hub IOT](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-security#access-control-and-permissions) também podem ajudar a definir as permissões para cada componente com base em sua função. | - |
-| Definir controle de acesso para serviços de back-end | Os dados ingeridos pela solução do Hub IoT podem ser consumidos por outros serviços do Azure, como [Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/), [Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/), [serviço de aplicativo](https://docs.microsoft.com/azure/app-service/), [aplicativos lógicos](https://docs.microsoft.com/azure/logic-apps/)e [armazenamento de BLOBs](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction). Certifique-se de entender e permitir as permissões de acesso apropriadas, conforme documentado para esses serviços. | - |
+| Definir o controle de acesso para o Hub | [Entenda e defina o tipo de acesso](iot-security-deployment.md#securing-the-cloud) que cada componente terá em sua solução de Hub IOT, com base na funcionalidade. As permissões permitidas são *Registry Read*, *RegistryReadWrite*, *perconnect* e *DeviceConnect*. [As políticas de acesso compartilhado padrão no Hub IOT](../iot-hub/iot-hub-devguide-security.md#access-control-and-permissions) também podem ajudar a definir as permissões para cada componente com base em sua função. | - |
+| Definir controle de acesso para serviços de back-end | Os dados ingeridos pela solução do Hub IoT podem ser consumidos por outros serviços do Azure, como [Cosmos DB](../cosmos-db/index.yml), [Stream Analytics](../stream-analytics/index.yml), [serviço de aplicativo](../app-service/index.yml), [aplicativos lógicos](../logic-apps/index.yml)e [armazenamento de BLOBs](../storage/blobs/storage-blobs-introduction.md). Certifique-se de entender e permitir as permissões de acesso apropriadas, conforme documentado para esses serviços. | - |
 
 ## <a name="data-protection"></a>Proteção de dados
 
 | Recomendação | Comentários | Com suporte do ASC |
 |-|----|--|
-| Autenticação segura do dispositivo | Garanta a comunicação segura entre os dispositivos e o Hub IoT usando [uma chave de identidade exclusiva ou um token de segurança](iot-security-deployment.md#iot-hub-security-tokens), ou [um certificado X. 509 no dispositivo](iot-security-deployment.md#x509-certificate-based-device-authentication) para cada dispositivo. Use o método apropriado para [usar tokens de segurança com base no protocolo escolhido (MQTT, AMQP ou HTTPS)](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-security). | - |
+| Autenticação segura do dispositivo | Garanta a comunicação segura entre os dispositivos e o Hub IoT usando [uma chave de identidade exclusiva ou um token de segurança](iot-security-deployment.md#iot-hub-security-tokens), ou [um certificado X. 509 no dispositivo](iot-security-deployment.md#x509-certificate-based-device-authentication) para cada dispositivo. Use o método apropriado para [usar tokens de segurança com base no protocolo escolhido (MQTT, AMQP ou HTTPS)](../iot-hub/iot-hub-devguide-security.md). | - |
 | Comunicação segura do dispositivo | O Hub IoT protege a conexão com os dispositivos usando o padrão TLS, com suporte às versões 1,2 e 1,0. Use o [TLS 1,2](https://tools.ietf.org/html/rfc5246) para garantir a segurança máxima. | - |
-| Proteger comunicações de serviço | O Hub IoT fornece pontos de extremidade para se conectar aos serviços de back-end, como o [armazenamento do Azure](/azure/storage/) ou [hubs de eventos](/azure/event-hubs) usando apenas o protocolo TLS, e nenhum ponto de extremidade é exposto em um canal não criptografado. Depois que esses dados atingirem esses serviços de back-end para armazenamento ou análise, certifique-se de empregar os métodos de segurança e criptografia apropriados para esse serviço e proteger as informações confidenciais no back-end. | - |
+| Proteger comunicações de serviço | O Hub IoT fornece pontos de extremidade para se conectar aos serviços de back-end, como o [armazenamento do Azure](../storage/index.yml) ou [hubs de eventos](../event-hubs/index.yml) usando apenas o protocolo TLS, e nenhum ponto de extremidade é exposto em um canal não criptografado. Depois que esses dados atingirem esses serviços de back-end para armazenamento ou análise, certifique-se de empregar os métodos de segurança e criptografia apropriados para esse serviço e proteger as informações confidenciais no back-end. | - |
 
 ## <a name="networking"></a>Rede
 
@@ -63,10 +63,9 @@ Algumas das recomendações incluídas neste artigo podem ser monitoradas automa
 | Recomendação | Comentários | Com suporte do ASC |
 |-|----|--|
 | Monitorar o acesso não autorizado aos seus dispositivos |  Use o recurso de log do sistema operacional do dispositivo para monitorar qualquer violação de segurança ou violação física do dispositivo ou de suas portas. | - |
-| Monitorar sua solução de IoT na nuvem | Monitore a integridade geral da sua solução de Hub IoT usando as [métricas em Azure monitor](https://docs.microsoft.com/azure/iot-hub/iot-hub-metrics). | - |
-| Configurar o diagnóstico | Observe de forma minuciosa suas operações registrando eventos em sua solução e, em seguida, enviando os logs de diagnóstico para Azure Monitor para obter visibilidade do desempenho. Leia [monitorar e diagnosticar problemas em seu hub IOT](https://docs.microsoft.com/azure/iot-hub/iot-hub-monitor-resource-health) para obter mais informações. | - |
+| Monitorar sua solução de IoT na nuvem | Monitore a integridade geral da sua solução de Hub IoT usando as [métricas em Azure monitor](../iot-hub/monitor-iot-hub.md). | - |
+| Configurar o diagnóstico | Observe de forma minuciosa suas operações registrando eventos em sua solução e, em seguida, enviando os logs de diagnóstico para Azure Monitor para obter visibilidade do desempenho. Leia [monitorar e diagnosticar problemas em seu hub IOT](../iot-hub/monitor-iot-hub.md) para obter mais informações. | - |
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Para cenários avançados que envolvem o IoT do Azure, talvez seja necessário considerar requisitos de segurança adicionais. Consulte [arquitetura de segurança de IOT](iot-security-architecture.md) para obter mais diretrizes.
-

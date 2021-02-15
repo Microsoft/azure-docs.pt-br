@@ -1,19 +1,16 @@
 ---
 title: Executar consultas do Apache base no Azure HDInsight com o Apache Phoenix
 description: Saiba como usar o Apache Zeppelin para executar consultas do Apache base com o Phoenix.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 10/14/2019
-ms.openlocfilehash: 2a6b324c4caf9619566ba335ab2e5a318ab68bb6
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 50a72d0400b23162e05b17b37bdad48783261072
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86079421"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944767"
 ---
 # <a name="use-apache-zeppelin-to-run-apache-phoenix-queries-over-apache-hbase-in-azure-hdinsight"></a>Usar o Apache Zeppelin para executar consultas de Apache Phoenix sobre o Apache HBase no Azure HDInsight
 
@@ -98,5 +95,5 @@ Um cluster do Apache HBase no HDInsight. Consulte [introdução ao Apache HBase]
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Apache Phoenix agora dá suporte a Zeppelin no Azure HDInsight](https://blogs.msdn.microsoft.com/ashish/2018/08/17/apache-phoenix-now-supports-zeppelin-in-azure-hdinsight/)
+- [Apache Phoenix agora dá suporte a Zeppelin no Azure HDInsight](/archive/blogs/ashish/apache-phoenix-now-supports-zeppelin-in-azure-hdinsight)
 - [Apache Phoenix gramática](https://phoenix.apache.org/language/index.html)

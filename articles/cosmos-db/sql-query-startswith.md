@@ -3,18 +3,20 @@ title: StartsWith na linguagem de consulta do Azure Cosmos DB
 description: Saiba mais sobre a função do sistema SQL STARTSWITH no Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: c64efb92de00291e6381e30af24e76df2b38aee0
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 7217a8416354de260f958bfb5b980a8fdc391618
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83847107"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93334915"
 ---
 # <a name="startswith-azure-cosmos-db"></a>STARTSWITH (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
  Retorna um valor booliano que indica se a primeira expressão de cadeia de caracteres começa com a segunda.  
   

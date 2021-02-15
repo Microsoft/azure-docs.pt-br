@@ -15,14 +15,16 @@ ms.date: 03/14/2019
 ms.author: willzhan
 ms.reviewer: kilroyh;yanmf;juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5a4f436f6f5542db289ed219a240a68db5c2065b
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: b98b66d8f0350c32e89d62d776ee1288d9271712
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021520"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010904"
 ---
-# <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>Criação de um sistema de proteção de conteúdo com controle de acesso usando os serviços de mídia do Azure 
+# <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>Criação de um sistema de proteção de conteúdo com controle de acesso usando os serviços de mídia do Azure
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 ## <a name="overview"></a>Visão geral
 
@@ -419,11 +421,11 @@ As capturas de tela a seguir mostram as diferentes páginas de entrada usadas po
 
 **Conta de domínio de locatário do Azure AD personalizado**: a página de entrada personalizada do domínio de locatário do Azure AD personalizado.
 
-![Conta de domínio do locatário do AD do Azure personalizada](./media/media-services-cenc-with-multidrm-access-control/media-services-ad-tenant-domain1.png)
+![Captura de tela que mostra a página de entrada personalizada do domínio personalizado do locatário do Azure A D.](./media/media-services-cenc-with-multidrm-access-control/media-services-ad-tenant-domain1.png)
 
 **Conta de domínio da Microsoft com cartão inteligente**: a página de entrada personalizada pela TI corporativa da Microsoft com autenticação de dois fatores.
 
-![Conta de domínio do locatário do AD do Azure personalizada](./media/media-services-cenc-with-multidrm-access-control/media-services-ad-tenant-domain2.png)
+![Captura de tela que mostra a página de entrada personalizada pela Microsoft Corporate I com autenticação de dois fatores.](./media/media-services-cenc-with-multidrm-access-control/media-services-ad-tenant-domain2.png)
 
 **Conta da Microsoft**: a página de entrada da conta da Microsoft para consumidores.
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/15/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 8b4d58163c28e00c30c5b0f9db3a6ff259fbf5ae
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 40e4a3d3a819280255ee931e5e12206f99ef28fe
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536911"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98051506"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Tutorial: Implantar e configurar o Firewall do Azure usando o portal do Azure
 
@@ -28,7 +28,7 @@ O tráfego de rede está sujeito às regras de firewall configuradas quando o tr
 
 Para este tutorial, você criará uma só VNet simplificada com duas sub-redes para facilitar a implantação.
 
-Para implantações de produção, é recomendado um [modelo de hub e spoke](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke), em que o firewall é, por si só, a VNet. Os servidores de carga de trabalho estão em VNets emparelhadas na mesma região que uma ou mais sub-redes.
+Para implantações de produção, é recomendado um [modelo de hub e spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke), em que o firewall é, por si só, a VNet. Os servidores de carga de trabalho estão em VNets emparelhadas na mesma região que uma ou mais sub-redes.
 
 * **AzureFirewallSubnet**: o firewall está nesta sub-rede.
 * **Workload-SN**: o servidor de carga de trabalho está nessa sub-rede. O tráfego de rede dessa sub-rede passa pelo firewall.
@@ -48,6 +48,8 @@ Neste tutorial, você aprenderá como:
 
 Se preferir, você pode concluir este tutorial usando o [Azure PowerShell](deploy-ps.md).
 
+## <a name="prerequisites"></a>Pré-requisitos
+
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="set-up-the-network"></a>Configurar a rede
@@ -59,7 +61,7 @@ Primeiro, crie um grupo de recursos para conter os recursos necessários à impl
 O grupo de recursos contém todos os recursos para o tutorial.
 
 1. Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
-2. No menu do portal do Azure, selecione **Grupos de recursos** ou pesquise e selecione *Grupos de recursos* em qualquer página. Em seguida, selecione**Adicionar**.
+2. No menu do portal do Azure, selecione **Grupos de recursos** ou pesquise e selecione *Grupos de recursos* em qualquer página. Em seguida, selecione **Adicionar**.
 3. Em **Nome do grupo de recursos**, insira *Test-FW-RG*.
 4. Em **Assinatura**, selecione sua assinatura.
 5. Em **Local do grupo de recursos**, selecione um local. Todos os demais recursos criados devem estar na mesma localização.
@@ -70,7 +72,7 @@ O grupo de recursos contém todos os recursos para o tutorial.
 Essa VNET conterá três sub-redes.
 
 > [!NOTE]
-> O tamanho da sub-rede AzureFirewallSubnet é /26. Para obter mais informações sobre o tamanho da sub-rede, confira [Perguntas frequentes sobre o Firewall do Azure](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size).
+> O tamanho da sub-rede AzureFirewallSubnet é /26. Para obter mais informações sobre o tamanho da sub-rede, confira [Perguntas frequentes sobre o Firewall do Azure](firewall-faq.yml#why-does-azure-firewall-need-a--26-subnet-size).
 
 1. No menu do portal do Azure ou na **Página Inicial**, selecione **Criar um recurso**.
 1. Selecione **Rede** > **Rede virtual**.
@@ -105,7 +107,7 @@ Agora crie a máquina virtual da carga de trabalho e coloque-a na sub-rede **Wor
 
    |Configuração  |Valor  |
    |---------|---------|
-   |Resource group     |**Test-FW-RG**|
+   |Grupo de recursos     |**Test-FW-RG**|
    |Nome da máquina virtual     |**Srv-Work**|
    |Região     |Igual ao anterior|
    |Imagem|Windows Server 2019 Datacenter|
@@ -224,8 +226,8 @@ Essa regra permite que você conecte uma Área de Trabalho Remota à máquina vi
 5. Em **Regras**, para **Nome**, digite **rdp-nat**.
 6. Em **Protocolo**, selecione **TCP**.
 7. Em **Tipo de origem**, selecione **Endereço IP**.
-8. Para **Origem**, digite **\*** .
-9. Em **Endereço de destino**, digite o endereço IP público do firewall.
+8. Em **Origem**, digite * *\** _.
+9. Em _*Endereço de destino**, digite o endereço IP público do firewall.
 10. Em **Portas de Destino**, digite **3389**.
 11. Em **Endereço convertido**, digite o endereço IP privado do **Srv-work**.
 12. Para **Porta traduzida**, digite **3389**.
@@ -270,4 +272,4 @@ Você pode manter seus recursos de firewall para o próximo tutorial ou, se não
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Tutorial: Monitorar os logs do Firewall do Azure](./tutorial-diagnostics.md)
+> [Tutorial: Monitorar os logs do Firewall do Azure](./firewall-diagnostics.md)

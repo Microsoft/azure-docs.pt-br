@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d570ddbcf974936bbaa78be5799e7bd42fa6d514
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7a2cbca8c02dcbfc0e59d31040d1fca7a790cd35
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85204074"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96936651"
 ---
 # <a name="define-an-oauth1-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definir um perfil técnico do OAuth1 em uma política personalizada Azure Active Directory B2C
 
@@ -78,7 +78,7 @@ O perfil técnico também retorna declarações que não são retornadas pelo pr
 | ClaimsEndpoint | Não | A URL do ponto de extremidade de informações do usuário. |
 | ClaimsResponseFormat | Não | O formato de resposta de declarações.|
 
-## <a name="cryptographic-keys"></a>Chaves de criptografia
+## <a name="cryptographic-keys"></a>Chaves criptográficas
 
 O elemento **CryptographicKeys** contém o seguinte atributo:
 
@@ -88,23 +88,8 @@ O elemento **CryptographicKeys** contém o seguinte atributo:
 
 ## <a name="redirect-uri"></a>URI de redirecionamento
 
-Ao configurar a URL de redirecionamento do seu provedor de identidade, insira `https://login.microsoftonline.com/te/tenant/policyId/oauth1/authresp`. Certifique-se de substituir **tenant** pelo nome do locatário (por exemplo, contosob2c.onmicrosoft.com) e **policyId** pelo identificador da sua política (por exemplo, b2c_1a_policy). O URI de redirecionamento deve ser todo em letras minúsculas. Adicione uma URL de redirecionamento para todas as políticas que usam o logon do provedor de identidade.
-
-Se você estiver usando o domínio **b2clogin.com** em vez de **login.microsoftonline.com**, use b2clogin.com, em vez de login.microsoftonline.com.
+Ao configurar o URI de redirecionamento do seu provedor de identidade, insira `https://{tenant-name}.b2clogin.com/{tenant-name}.onmicrosoft.com/{policy-id}/oauth1/authresp`. Certifique-se de substituir `{tenant-name}` pelo nome do locatário (por exemplo, contosob2c) e `{policy-id}` pelo identificador da política (por exemplo, b2c_1a_policy). O URI de redirecionamento deve ser todo em letras minúsculas. Adicione uma URL de redirecionamento para todas as políticas que usam o logon do provedor de identidade.
 
 Exemplos:
 
-- [Adicionar o Twitter como um provedor de identidade OAuth1 usando políticas personalizadas](identity-provider-twitter-custom.md)
-
-
-
-
-
-
-
-
-
-
-
-
-
+- [Adicionar o Twitter como um provedor de identidade OAuth1 usando políticas personalizadas](identity-provider-twitter.md)

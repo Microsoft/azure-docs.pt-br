@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/30/2020
+ms.date: 12/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 041b1766ae6a64f51d922de128ef316cc0ed8260
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: ca023af0666899ae94d5bf82fc6f0736d5a8efa5
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87922162"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97614261"
 ---
 # <a name="tutorial-create-user-flows-in-azure-active-directory-b2c"></a>Tutorial: Criar fluxos dos usuários no Azure Active Directory B2C
 
@@ -28,7 +28,7 @@ Neste artigo, você aprenderá como:
 > * Criar um fluxo de usuário de edição de perfil
 > * Criar um fluxo de usuário de redefinição de senha
 
-Este tutorial mostra como criar alguns fluxos dos usuários recomendados usando o portal do Azure. Se você estiver procurando informações sobre como configurar um fluxo de ROPC (credenciais de senha de proprietário do recurso) em seu aplicativo, confira [Configurar o fluxo de credenciais de senha de proprietário do recurso no Azure AD B2C](configure-ropc.md).
+Este tutorial mostra como criar alguns fluxos dos usuários recomendados usando o portal do Azure. Se você estiver procurando informações sobre como configurar um fluxo de ROPC (credenciais de senha de proprietário do recurso) em seu aplicativo, confira [Configurar o fluxo de credenciais de senha de proprietário do recurso no Azure AD B2C](add-ropc-policy.md).
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -73,7 +73,7 @@ O fluxo do usuário de inscrição e credenciais controla as experiências de in
 
 1. Selecione o fluxo de usuário que você criou para abrir a página de visão geral e, em seguida, selecione **Executar fluxo de usuário**.
 1. Para **Aplicativo**, selecione o aplicativo Web denominado *webapp1* que você registrou anteriormente. A **URL de resposta** deve mostrar `https://jwt.ms`.
-1. Clique em **Executar o fluxo do usuário**e, em seguida, selecione **Inscreva-se agora**.
+1. Clique em **Executar o fluxo do usuário** e, em seguida, selecione **Inscreva-se agora**.
 
     ![Página Executar fluxo de usuários no portal com o botão Executar fluxo de usuário realçado](./media/tutorial-create-user-flows/signup-signin-run-now.PNG)
 
@@ -81,6 +81,9 @@ O fluxo do usuário de inscrição e credenciais controla as experiências de in
 1. Insira uma nova senha e confirme-a.
 1. Selecione seu país e região, insira o nome que você deseja que seja exibido, insira um código postal e, em seguida, clique em **Criar**. O token é retornado para `https://jwt.ms` e deve ser exibido para você.
 1. Agora, você pode executar o fluxo do usuário novamente e poderá se conectar com a conta que você criou. O token retornado inclui as declarações que você selecionou de país/região, nome e código postal.
+
+> [!NOTE]
+> No momento, a experiência "Executar fluxo de usuário" não é compatível com o tipo de URL de resposta SPA que usa o fluxo de código de autorização. Para usar a experiência "Executar fluxo de usuário" com esses tipos de aplicativos, registre uma URL de resposta do tipo "Web" e habilite o fluxo implícito conforme descrito [aqui](tutorial-register-spa.md).
 
 ## <a name="create-a-profile-editing-user-flow"></a>Criar um fluxo de usuário de edição de perfil
 

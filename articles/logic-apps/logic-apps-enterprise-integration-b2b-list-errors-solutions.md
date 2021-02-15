@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 06/02/2017
 ms.openlocfilehash: 6400cfe7e524dcc16e08c2bba7dfba4a62d00b2e
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86232552"
 ---
 # <a name="b2b-errors-and-solutions-for-azure-logic-apps"></a>Erros e soluções B2B para os Aplicativos Lógicos do Azure
@@ -31,7 +31,7 @@ Este artigo ajuda você a solucionar problemas de erros que podem ocorrer em cen
 
 **Descrição do erro**: nenhum contrato encontrado com identidades: ' AS2Identity ':: ' Partner1 ' and'AS2Identity ':: ' Partner3 '
 
-**Ação do usuário**: As2-from ou As2-para configurado para o contrato. Corrigir os cabeçalhos "AS2-From" ou "AS2-To" da mensagem AS2 ou o contrato para corresponder as IDs do AS2 nos cabeçalhos de mensagem AS2 com as configurações de contrato.
+**Ação do usuário**: AS2-From ou AS2-To inválidos configurados para o contrato. Corrigir os cabeçalhos "AS2-From" ou "AS2-To" da mensagem AS2 ou o contrato para corresponder as IDs do AS2 nos cabeçalhos de mensagem AS2 com as configurações de contrato.
 
 ## <a name="as2"></a>AS2
 
@@ -39,7 +39,7 @@ Este artigo ajuda você a solucionar problemas de erros que podem ocorrer em cen
 
 **Descrição do erro**: cabeçalhos AS2 inválidos. Um dos cabeçalhos "AS2-To" ou "AS2-From" está vazio.
 
-**Ação do usuário**: foi recebida uma mensagem AS2 que não continha os cabeçalhos As2-from ou As2-to ou Both. Verifique os cabeçalhos AS2-From e AS2-To da mensagem AS2 e corrija-os com base na configuração do contrato.
+**Ação do usuário**: foi recebida uma mensagem AS2 que não continha o AS2-From ou AS2-To ou ambos os cabeçalhos. Verifique os cabeçalhos AS2-From e AS2-To da mensagem AS2 e corrija-os com base na configuração do contrato.
 
 ### <a name="missing-as2-message-body-and-headers"></a>Cabeçalhos e corpo da mensagem AS2 ausentes    
 

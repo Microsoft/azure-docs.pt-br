@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 527255653bf2779b36e0e463cd32a0b334c00f96
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 726507fa6ea0651b23d46424bda669a2d8ad41e0
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87798487"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996637"
 ---
 # <a name="request-access-to-an-access-package-in-azure-ad-entitlement-management"></a>Solicitar acesso a um pacote de acesso no gerenciamento de direitos do Azure AD
 
@@ -51,7 +51,7 @@ Depois de encontrar o pacote de acesso no portal meu acesso, você pode enviar u
 
 **Função de pré-requisito:** Solicitante
 
-1. Localize o pacote de acesso na lista.  Se necessário, você pode pesquisar digitando uma cadeia de caracteres de pesquisa e, em seguida, selecionando o **nome**, o **Catálogo**ou o filtro de **recursos** .
+1. Localize o pacote de acesso na lista.  Se necessário, você pode pesquisar digitando uma cadeia de caracteres de pesquisa e, em seguida, selecionando o **nome**, o **Catálogo** ou o filtro de **recursos** .
 
     ![Meu Portal de acesso – pesquisa de recursos](./media/entitlement-management-request-access/my-access-resource-search.png)
 
@@ -80,6 +80,12 @@ Depois de encontrar o pacote de acesso no portal meu acesso, você pode enviar u
 Se você solicitar acesso a um pacote do Access que tenha várias políticas aplicáveis, você poderá ser solicitado a selecionar uma política. Por exemplo, um Gerenciador de pacotes do Access pode configurar um pacote de acesso com duas políticas para dois grupos de funcionários internos. A primeira política pode permitir o acesso por 60 dias e exigir aprovação. A segunda política pode permitir o acesso por 2 dias e não requer aprovação. Se você encontrar esse cenário, deverá selecionar a política que deseja usar.
 
 ![Meu Portal de acesso-solicitar acesso-várias políticas](./media/entitlement-management-request-access/my-access-multiple-policies.png)
+
+### <a name="fill-out-requestor-information"></a>Preencher informações do solicitante
+
+Você pode solicitar acesso a um pacote de acesso que exija justificativa de negócios e informações adicionais do solicitante antes de conceder acesso ao pacote de acesso. Preencha todas as informações solicitadas necessárias para acessar o pacote de acesso.
+
+![Meu Portal de acesso – solicitar acesso-informações do solicitante de preenchimento](./media/entitlement-management-request-access/my-access-requestor-information.png)
 
 ## <a name="resubmit-a-request"></a>Reenviar uma solicitação
 

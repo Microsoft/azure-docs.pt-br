@@ -4,44 +4,44 @@ description: Saiba como identificar, diagnosticar e solucionar problemas de cons
 author: timsander1
 ms.service: cosmos-db
 ms.topic: troubleshooting
-ms.date: 04/22/2020
+ms.date: 02/02/2021
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: 80e966bf190dcbe4490269ef28a95babadda68d8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6875fc53a651b89fcfe88d3217ff86bd21204f6c
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85117906"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99524273"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Solucionar problemas de consulta ao usar o Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-Este artigo percorre uma abordagem geral recomendada para a solução de problemas de consultas no Azure Cosmos DB. Embora você não deva considerar as etapas descritas neste artigo uma defesa completa contra possíveis problemas de consulta, incluímos as dicas de desempenho mais comuns aqui. Você deve usar este artigo como um local de início para solucionar problemas de consultas lentas ou dispendiosas na API de núcleo do Azure Cosmos DB Core (SQL). Você também pode usar os [logs de diagnóstico](cosmosdb-monitor-resource-logs.md) para identificar consultas que são lentas ou que consomem quantidades significativas de taxa de transferência.
+Este artigo percorre uma abordagem geral recomendada para a solução de problemas de consultas no Azure Cosmos DB. Embora você não deva considerar as etapas descritas neste artigo uma defesa completa contra possíveis problemas de consulta, incluímos as dicas de desempenho mais comuns aqui. Você deve usar este artigo como um local de início para solucionar problemas de consultas lentas ou dispendiosas na API de núcleo do Azure Cosmos DB Core (SQL). Você também pode usar os [logs de diagnóstico](cosmosdb-monitor-resource-logs.md) para identificar consultas que são lentas ou que consomem quantidades significativas de taxa de transferência. Se você estiver usando a API do Azure Cosmos DB para MongoDB, deverá usar [a API do Azure Cosmos DB para o guia de solução de problemas de consulta do MongoDB](mongodb-troubleshoot-query.md)
 
-Você pode categorizar amplamente as otimizações de consulta no Azure Cosmos DB:
+As otimizações de consulta no Azure Cosmos DB são amplamente categorizadas da seguinte maneira:
 
 - Otimizações que reduzem o preço de RU (unidade de solicitação) da consulta
 - Otimizações que apenas reduzem a latência
 
-Se você reduzir o preço de RU de uma consulta, certamente diminuirá a latência também.
+Se você reduzir a carga de RU de uma consulta, normalmente diminuirá a latência também.
 
-Este artigo fornece exemplos que você pode recriar usando o conjunto de dados de [nutrição](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json).
+Este artigo fornece exemplos que você pode recriar usando o conjunto de [nutrição](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json).
 
 ## <a name="common-sdk-issues"></a>Problemas comuns do SDK
 
 Antes de ler este guia, é útil considerar problemas comuns do SDK que não estão relacionados ao mecanismo de consulta.
 
-- Para obter o melhor desempenho, siga estas [Dicas de desempenho](performance-tips.md).
-    > [!NOTE]
-    > Para aprimorar o desempenho, recomendamos o processamento de host do Windows de 64 bits. O SDK do SQL inclui um ServiceInterop.dll nativo para analisar e otimizar as consultas localmente. O ServiceInterop.dll tem suporte apenas na plataforma Windows x64. Para Linux e outras plataformas sem suporte em que o ServiceInterop.dll não está disponível, uma chamada de rede adicional será feita ao gateway para obter a consulta otimizada.
+- Siga estas [dicas de desempenho do SDK](performance-tips.md).
+    - [Guia de solução de problemas do SDK do .NET](troubleshoot-dot-net-sdk.md)
+    - [Guia de solução de problemas do SDK do Java](troubleshoot-java-sdk-v4-sql.md)
 - O SDK permite definir um `MaxItemCount` para suas consultas, mas você não pode especificar uma contagem mínima de itens.
     - O código deve lidar com qualquer tamanho de página, de zero a `MaxItemCount`.
-    - O número de itens em uma página sempre será inferior ou igual ao `MaxItemCount` especificado. No entanto, `MaxItemCount` é estritamente um máximo e pode haver menos resultados do que esse valor.
 - Às vezes, as consultas podem ter páginas vazias mesmo quando há resultados em uma página futura. Os motivos para isso podem ser:
     - O SDK pode estar fazendo várias chamadas de rede.
     - A consulta pode estar demorando um longo tempo para recuperar os documentos.
-- Todas as consultas têm um token de continuação que permitirá que a consulta continue. Certifique-se de esvaziar a consulta completamente. Examine as amostras do SDK e use um loop `while` em `FeedIterator.HasMoreResults` para esvaziar toda a consulta.
+- Todas as consultas têm um token de continuação que permitirá que a consulta continue. Certifique-se de esvaziar a consulta completamente. Saiba mais sobre como [lidar com várias páginas de resultados](sql-query-pagination.md#handling-multiple-pages-of-results)
 
 ## <a name="get-query-metrics"></a>Obter métricas de consulta
 
@@ -62,6 +62,8 @@ Veja as seções a seguir para entender as otimizações de consulta relevantes 
 - [Incluir os caminhos necessários na política de indexação.](#include-necessary-paths-in-the-indexing-policy)
 
 - [Entender quais funções do sistema usam o índice.](#understand-which-system-functions-use-the-index)
+
+- [Melhorar a execução da função do sistema de cadeia de caracteres.](#improve-string-system-function-execution)
 
 - [Entender quais consultas de agregação usam o índice.](#understand-which-aggregate-queries-use-the-index)
 
@@ -192,29 +194,79 @@ Política de indexação atualizada:
 
 **Preço da RU:** 2,98 RUs
 
-Você pode adicionar propriedades à política de indexação a qualquer momento, sem nenhum efeito na disponibilidade de gravação ou no desempenho. Se você adicionar uma nova propriedade ao índice, as consultas que usam a propriedade usarão imediatamente o novo índice disponível. A consulta usará o novo índice enquanto ele estiver sendo compilado. Portanto, os resultados da consulta podem ser inconsistentes enquanto a recompilação do índice está em andamento. Se uma nova propriedade for indexada, as consultas que usam apenas índices existentes não serão afetadas durante a recompilação do índice. Você pode [acompanhar o progresso da transformação do índice](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-net-sdk-v3).
+Você pode adicionar propriedades à política de indexação a qualquer momento, sem efeito na disponibilidade de gravação ou leitura. Você pode [acompanhar o progresso da transformação do índice](./how-to-manage-indexing-policy.md#dotnet-sdk).
 
 ### <a name="understand-which-system-functions-use-the-index"></a>Entender quais funções do sistema usam o índice
 
-Se uma expressão puder ser convertida em um intervalo de valores de cadeia de caracteres, ela poderá usar o índice. Caso contrário, não poderá.
+A maioria das funções do sistema usa índices. Aqui está uma lista de algumas funções de cadeia de caracteres comuns que usam índices:
 
-Aqui está a lista de algumas funções de cadeia de caracteres comuns que podem usar o índice:
+- StartsWith
+- Contém
+- RegexMatch
+- Esquerda
+- Substring-mas somente se a primeira num_expr for 0
 
-- STARTSWITH(str_expr1, str_expr2, bool_expr)  
-- CONTAINS(str_expr, str_expr, bool_expr)
-- LEFT(str_expr, num_expr) = str_expr
-- SUBSTRING(str_expr, num_expr, num_expr) = str_expr, mas somente se a primeira num_expr for 0
-
-Veja abaixo algumas funções comuns do sistema que não usam o índice e que devem carregar cada documento:
+Veja a seguir algumas funções comuns do sistema que não usam o índice e que devem carregar cada documento quando usadas em uma `WHERE` cláusula:
 
 | **Função do sistema**                     | **Ideias para otimização**             |
 | --------------------------------------- |------------------------------------------------------------ |
-| MAIÚSCULA/MINÚSCULA                             | Em vez de usar a função do sistema para normalizar dados para comparações, normalize o uso de maiúsculas e minúsculas após a inserção. Uma consulta como ```SELECT * FROM c WHERE UPPER(c.name) = 'BOB'``` se torna ```SELECT * FROM c WHERE c.name = 'BOB'```. |
+| Superior/inferior                         | Em vez de usar a função do sistema para normalizar dados para comparações, normalize o uso de maiúsculas e minúsculas após a inserção. Uma consulta como ```SELECT * FROM c WHERE UPPER(c.name) = 'BOB'``` se torna ```SELECT * FROM c WHERE c.name = 'BOB'```. |
+| GetCurrentDateTime/GetCurrentTimestamp/GetCurrentTicks | Calcule a hora atual antes da execução da consulta e use esse valor de cadeia de caracteres na `WHERE` cláusula. |
 | Funções matemáticas (não agregadas) | Se você precisar computar um valor frequentemente em sua consulta, considere armazenar o valor como uma propriedade em seu documento JSON. |
 
-------
+Quando usado na `SELECT` cláusula, funções ineficientes do sistema não afetarão como as consultas podem usar índices.
 
-Outras partes da consulta ainda podem usar o índice, mesmo que as funções do sistema não usem.
+### <a name="improve-string-system-function-execution"></a>Melhorar a execução da função do sistema de cadeia de caracteres
+
+Para algumas funções do sistema que usam índices, você pode melhorar a execução da consulta adicionando uma `ORDER BY` cláusula à consulta. 
+
+Mais especificamente, qualquer função do sistema cuja carga de RU aumenta à medida que a cardinalidade da propriedade aumenta pode se beneficiar da existência da `ORDER BY` consulta. Essas consultas fazem uma verificação de índice, portanto, ter os resultados da consulta classificados pode tornar a consulta mais eficiente.
+
+Essa otimização pode melhorar a execução para as seguintes funções do sistema:
+
+- StartsWith (em que não diferencia maiúsculas de minúsculas = verdadeiro)
+- StringEquals (em que não diferencia maiúsculas de minúsculas = verdadeiro)
+- Contém
+- RegexMatch
+- EndsWith
+
+Por exemplo, considere a consulta abaixo com `CONTAINS` . `CONTAINS` usará índices, mas às vezes, mesmo depois de adicionar o índice relevante, você ainda poderá observar uma cobrança de RU muito alta ao executar a consulta abaixo.
+
+Consulta original:
+
+```sql
+SELECT *
+FROM c
+WHERE CONTAINS(c.town, "Sea")
+```
+
+Você pode melhorar a execução da consulta adicionando `ORDER BY` :
+
+```sql
+SELECT *
+FROM c
+WHERE CONTAINS(c.town, "Sea")
+ORDER BY c.town
+```
+
+A mesma otimização pode ajudar nas consultas com filtros adicionais. Nesse caso, é melhor também adicionar propriedades com filtros de igualdade à `ORDER BY` cláusula.
+
+Consulta original:
+
+```sql
+SELECT *
+FROM c
+WHERE c.name = "Samer" AND CONTAINS(c.town, "Sea")
+```
+
+Você pode melhorar a execução da consulta adicionando `ORDER BY` e [um índice composto](index-policy.md#composite-indexes) para (c.Name, c. cidade):
+
+```sql
+SELECT *
+FROM c
+WHERE c.name = "Samer" AND CONTAINS(c.town, "Sea")
+ORDER BY c.name, c.town
+```
 
 ### <a name="understand-which-aggregate-queries-use-the-index"></a>Entender quais consultas de agregação usam o índice
 
@@ -470,7 +522,7 @@ Este é o índice composto relevante:
 
 ## <a name="optimizations-that-reduce-query-latency"></a>Otimizações que reduzem a latência da consulta
 
-Em muitos casos, o preço de RU pode ser aceitável quando a latência de consulta ainda é muito alta. As seções a seguir fornecem uma visão geral das dicas para reduzir a latência da consulta. Se você executar a mesma consulta várias vezes no mesmo conjunto de dados, ela sempre terá o mesmo preço de RU. Mas a latência de consulta pode variar entre as execuções de consulta.
+Em muitos casos, o preço de RU pode ser aceitável quando a latência de consulta ainda é muito alta. As seções a seguir fornecem uma visão geral das dicas para reduzir a latência da consulta. Se você executar a mesma consulta várias vezes no mesmo conjunto de mesmos, ele normalmente terá a mesma cobrança de RU a cada vez. Mas a latência de consulta pode variar entre as execuções de consulta.
 
 ### <a name="improve-proximity"></a>Aprimora a proximidade
 
@@ -492,5 +544,6 @@ As consultas destinam-se a buscar previamente resultados enquanto o lote atual d
 Confira os seguintes artigos para obter informações sobre como medir RUs por consulta, obter estatísticas de execução para ajustar suas consultas e muito mais:
 
 * [Obter métricas de execução de consulta SQL usando o SDK do .NET](profile-sql-api-query.md)
-* [Ajustando o desempenho da consulta com o Azure Cosmos DB](sql-api-sql-query-metrics.md)
+* [Ajustando o desempenho da consulta com o Azure Cosmos DB](./sql-api-query-metrics.md)
 * [Dicas de desempenho para o SDK do .NET](performance-tips.md)
+* [Dicas de desempenho para o SDK do Java v4](performance-tips-java-sdk-v4-sql.md)

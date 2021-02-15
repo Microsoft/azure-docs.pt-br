@@ -10,15 +10,20 @@ ms.subservice: bing-image-search
 ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
-ms.custom: devx-track-javascript
-ms.openlocfilehash: cc73dcf6376dc5a222b1b68d67e4f02090258807
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.custom: devx-track-js
+ms.openlocfilehash: bcb82ffcf4c4ad861c6523f507c816c666a71772
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87407856"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351377"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-image-search-api"></a>Tutorial: criar um aplicativo de página única usando a API de Pesquisa de Imagem do Bing
+
+> [!WARNING]
+> As APIs de Pesquisa do Bing estão migrando dos Serviços Cognitivos para os Serviços de Pesquisa do Bing. A partir de **30 de outubro de 2020**, todas as novas instâncias da Pesquisa do Bing precisaram ser provisionadas seguindo o processo documentado [aqui](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> As APIs de Pesquisa do Bing provisionadas por meio dos Serviços Cognitivos terão suporte nos próximos três anos ou até o final do seu Contrato Enterprise, o que ocorrer primeiro.
+> Para obter instruções sobre a migração, confira [Serviços de Pesquisa do Bing](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 A API de Pesquisa de Imagem do Bing permite que você pesquise na Web imagens de alta qualidade e relevantes. Use este tutorial para criar um aplicativo Web de página única que pode enviar consultas de pesquisa para a API e exibir os resultados na página da Web. Este tutorial é semelhante ao [tutorial correspondente](../Bing-Web-Search/tutorial-bing-web-search-single-page-app.md) para Pesquisa na Web do Bing.
 
@@ -117,7 +122,7 @@ Por padrão, o manipulador `onsubmit` retorna `false`, o que impede o envio do f
 
 ![[Formulário da Pesquisa de Imagem do Bing]](media/cognitive-services-bing-images-api/image-search-spa-form.png)
 
-A API de Pesquisa de Imagem do Bing oferece vários [parâmetros de consulta de filtro](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#filter-query-parameters) para restringir e filtrar os resultados da pesquisa. O formulário HTML neste aplicativo usa e exibe as seguintes opções de parâmetro:
+A API de Pesquisa de Imagem do Bing oferece vários [parâmetros de consulta de filtro](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#filter-query-parameters) para restringir e filtrar os resultados da pesquisa. O formulário HTML neste aplicativo usa e exibe as seguintes opções de parâmetro:
 
 | Opção | Descrição |
 |--------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

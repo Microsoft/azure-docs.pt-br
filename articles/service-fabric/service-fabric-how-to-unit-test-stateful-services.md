@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 09/04/2018
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 287c0544daa3c44d91fd336b502c496b9b4bb266
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89011388"
 ---
 # <a name="create-unit-tests-for-stateful-services"></a>Criar testes de unidade para serviços com estado

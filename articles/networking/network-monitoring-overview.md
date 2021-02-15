@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: agummadi
-ms.openlocfilehash: 2912488286745bf8d2e567d09e445b0a44dc7c39
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a92c6789723dc42ac8f3a9c471e494079dc19328
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67672176"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98233433"
 ---
 # <a name="network-monitoring-solutions"></a>Soluções de monitoramento de rede 
 
@@ -52,10 +52,10 @@ Monitor de Desempenho é parte do NPM e está monitorando a rede para ambientes 
 Para obter mais informações, consulte os seguintes artigos:
 
 * [Configurar uma solução de Monitor de Desempenho de Rede em logs de Azure Monitor](../azure-monitor/insights/network-performance-monitor.md) 
-* [Casos de uso](https://blogs.technet.microsoft.com/msoms/2016/08/30/monitor-on-premises-cloud-iaas-and-hybrid-networks-using-oms-network-performance-monitor/)
+* [Casos de uso](/archive/blogs/msoms/monitor-on-premises-cloud-iaas-and-hybrid-networks-using-oms-network-performance-monitor)
 * Atualizações do produto:
-  * [Fevereiro de 2017](https://blogs.technet.microsoft.com/msoms/2017/02/27/oms-network-performance-monitor-is-now-generally-available/)
-  * [Agosto de 2017](https://blogs.technet.microsoft.com/msoms/2017/08/14/improvements-to-oms-network-performance-monitor/)
+  * [Fevereiro de 2017](/archive/blogs/msoms/oms-network-performance-monitor-is-now-generally-available)
+  * [Agosto de 2017](/archive/blogs/msoms/improvements-to-oms-network-performance-monitor)
 
 ## <a name="expressroute-monitor"></a>ExpressRoute Monitor
 
@@ -65,7 +65,7 @@ NPM para o ExpressRoute oferece monitoramento abrangente do ExpressRoute para co
 * Detecção da topologia de rede do local para seus aplicativos de nuvem
 * Planejamento de capacidade, análise de utilização de largura de banda
 * Monitoramento e alertas em caminhos primários e secundários
-* Monitoramento de conectividade para serviços do Azure como Office 365, Dynamics 365,... via ExpressRoute
+* Monitorando a conectividade com os serviços do Azure, como Microsoft 365, Dynamics 365,... acima do ExpressRoute
 * Detectar degradação de conectividade para VNets
 
 ![Mapa geográfico mostrando o tráfego entre as regiões](./media/network-monitoring-overview/expressroute-topology-map.png) 
@@ -84,7 +84,7 @@ Com o monitoramento da Conectividade de Serviço, você pode testar a acessibili
 * Testar a acessibilidade de aplicativo de vários locais do usuário em todo o mundo
 * Determinar a rede latência e perda de pacotes para a linha de negócios e aplicativos SaaS
 * Determinar os pontos de acesso na rede, que podem estar causando o desempenho insatisfatório do aplicativo
-* Monitorar o alcance a aplicativos do Office 365, usando testes internos para o Microsoft Office 365, Dynamics 365, Skype for Business e outros serviços da Microsoft
+* Monitorar a acessibilidade para Microsoft 365 aplicativos, usando testes internos para Microsoft 365, o Dynamics 365, o Skype for Business e outros serviços da Microsoft
 
 Para obter mais informações, consulte os seguintes artigos:
 
@@ -103,10 +103,10 @@ A Análise de Tráfego é uma solução baseada em nuvem, que oferece visibilida
 
 A Análise de Tráfego fornece informações acionáveis que ajudam a auditar a atividade de rede de sua organização, proteger aplicativos e dados, otimizar o desempenho da carga de trabalho e permanecer em conformidade.
 
-![Mapa geográfico mostrando o tráfego entre as regiões](../network-watcher/media/traffic-analytics/geo-map-view-showcasing-traffic-distribution-to-countries-and-continents.png) 
+![Mapa geográfico mostrando o tráfego entre as regiões 2](../network-watcher/media/traffic-analytics/geo-map-view-showcasing-traffic-distribution-to-countries-and-continents.png) 
 
 Links relacionados:
-* [Postagem no blog](https://aka.ms/trafficanalytics), [Documentação](https://aka.ms/trafficanalyticsdocs), [Perguntas frequentes](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-faq)
+* [Postagem no blog](https://aka.ms/trafficanalytics), [Documentação](../network-watcher/traffic-analytics.md), [Perguntas frequentes](../network-watcher/traffic-analytics-faq.md)
 
 ## <a name="dns-analytics"></a>Análise de DNS
 Compilada para Administradores de DNS, essa solução coleta, analisa e correlaciona logs de DNS para fornecer insights relacionados à segurança, operações e ao desempenho.  Algumas das capacidades são:
@@ -120,8 +120,8 @@ Compilada para Administradores de DNS, essa solução coleta, analisa e correlac
 ![Painel de Análise de DNS](./media/network-monitoring-overview/dns-analytics-overview.png) 
 
 Links relacionados:
-* [Postagem no blog](https://blogs.technet.microsoft.com/msoms/2017/04/19/introducing-oms-dns-analytics/), [Documentação](https://docs.microsoft.com/azure/log-analytics/log-analytics-dns)
+* [Postagem no blog](/archive/blogs/msoms/introducing-oms-dns-analytics), [Documentação](../azure-monitor/insights/dns-analytics.md)
 
 ## <a name="miscellaneous"></a>Diversos
 
-* [Novos preços](https://docs.microsoft.com/azure/log-analytics/log-analytics-network-performance-monitor-pricing-faq)
+* [Novos preços](../azure-monitor/insights/network-performance-monitor-pricing-faq.md)

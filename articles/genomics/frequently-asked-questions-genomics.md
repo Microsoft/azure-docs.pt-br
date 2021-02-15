@@ -10,11 +10,11 @@ ms.service: genomics
 ms.topic: troubleshooting
 ms.date: 12/07/2017
 ms.openlocfilehash: e8806bc4f761214e6740a22093b7e18030fdf881
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76986029"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018317"
 ---
 # <a name="microsoft-genomics-common-questions"></a>Microsoft Genomics: Perguntas frequentes
 
@@ -25,7 +25,7 @@ Este artigo lista as principais dúvidas que você pode ter relacionadas ao Micr
 No arquivo de config.txt do serviço de Microsoft Genomics, especifique o process_name para `gatk4` . Observe que você será cobrado com tarifas de cobrança regulares.
 
 ## <a name="how-do-i-enable-output-compression"></a>Como fazer habilitar a compactação de saída?
-Você pode compactar a saída vcf ou gvcf usando um argumento opcional para compactação de saída. Isso é equivalente a executar `-bgzip` seguido por `-tabix` na saída vcf ou gvcf, para produzir `.gz` arquivos (saída de bgzip) e `.tbi` (saída de tabix). `bgzip`compacta o arquivo vcf ou gvcf e `tabix` cria um índice para o arquivo compactado. O argumento é um booliano, que é definido como `false` por padrão para a saída de vcf e, `true` por padrão, para a saída de gcvf. Para usar na linha de comando, especifique `-bz` ou `--bgzip-output` como `true` (execute bgzip e tabix) ou `false` . Para usar esse argumento no arquivo de config.txt, adicione `bgzip_output: true` ou `bgzip_output: false` ao arquivo.
+Você pode compactar a saída vcf ou gvcf usando um argumento opcional para compactação de saída. Isso é equivalente a executar `-bgzip` seguido por `-tabix` na saída vcf ou gvcf, para produzir `.gz` arquivos (saída de bgzip) e `.tbi` (saída de tabix). `bgzip` compacta o arquivo vcf ou gvcf e `tabix` cria um índice para o arquivo compactado. O argumento é um booliano, que é definido como `false` por padrão para a saída de vcf e, `true` por padrão, para a saída de gcvf. Para usar na linha de comando, especifique `-bz` ou `--bgzip-output` como `true` (execute o bgzip e o tabix) ou `false`. Para usar esse argumento no arquivo config.txt, adicione `bgzip_output: true` ou `bgzip_output: false` ao arquivo.
 
 ## <a name="what-is-the-sla-for-microsoft-genomics"></a>O que é o SLA para Microsoft Genomics?
 Garantimos que em 99,9% do tempo o serviço Microsoft Genomics estará disponível para receber solicitações de API de fluxo de trabalho. Para saber mais, veja [SLA](https://azure.microsoft.com/support/legal/sla/genomics/v1_0/).

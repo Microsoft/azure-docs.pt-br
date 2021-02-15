@@ -1,18 +1,15 @@
 ---
 title: Executar tarefas do Apache Sqoop com o Azure HDInsight (Apache Hadoop)
 description: Saiba como usar o Azure PowerShell em uma estação de trabalho para executar importação e exportação do Sqoop entre um cluster do Hadoop e um Banco de Dados SQL do Azure.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 12/06/2019
-ms.openlocfilehash: 165b7d00c3cf307e7996e84a35bb2a202f448cc0
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 1c34b673cd970a9e7577b7ff01d27eb0e4cc1ac1
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86076871"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946424"
 ---
 # <a name="use-apache-sqoop-with-hadoop-in-hdinsight"></a>Usar Apache Sqoop com o Hadoop no HDInsight
 
@@ -95,7 +92,7 @@ O cluster, o banco de dados SQL e outros objetos são criados por meio do portal
     |Nome do arquivo Bacpac |Use o valor padrão, a menos que você queira usar seu próprio arquivo bacpac.|
     |Location |Use o valor padrão.|
 
-    O nome [lógico do SQL Server](../../azure-sql/database/logical-servers.md) será `<ClusterName>dbserver` . O nome do banco de dados será `<ClusterName>db` . O nome da conta de armazenamento padrão será `e6qhezrh2pdqu` .
+    O nome [lógico do SQL Server](../../azure-sql/database/logical-servers.md) será  `<ClusterName>dbserver` . O nome do banco de dados será `<ClusterName>db` . O nome da conta de armazenamento padrão será `e6qhezrh2pdqu` .
 
 3. Selecione **Concordo com os termos e as condições declarados acima**.
 
@@ -109,7 +106,7 @@ O HDInsight pode executar trabalhos do Sqoop usando vários métodos. Use a tabe
 |:--- |:---:|:---:|:--- |:--- |
 | [SSH](apache-hadoop-use-sqoop-mac-linux.md) |? |? |Linux, Unix, Mac OS X ou Windows |
 | [SDK .NET para Hadoop](apache-hadoop-use-sqoop-dotnet-sdk.md) |&nbsp; |?  |Windows (por enquanto) |
-| [PowerShell do Azure](apache-hadoop-use-sqoop-powershell.md) |&nbsp; |? |Windows |
+| [Azure PowerShell](apache-hadoop-use-sqoop-powershell.md) |&nbsp; |? |Windows |
 
 ## <a name="limitations"></a>Limitações
 
@@ -120,6 +117,6 @@ O HDInsight pode executar trabalhos do Sqoop usando vários métodos. Use a tabe
 
 Você aprendeu como usar o Sqoop. Para obter mais informações, consulte:
 
-* [Usar o Apache Hive com o HDInsight](../hdinsight-use-hive.md)
+* [Usar o Apache Hive com o HDInsight](./hdinsight-use-hive.md)
 * [Carregar dados no HDInsight](../hdinsight-upload-data.md): localize outros métodos de carregamento de dados no HDInsight/Armazenamento de Blob do Azure.
 * [Usar o Apache Sqoop para importar e exportar dados entre o Apache Hadoop no HDInsight e o Banco de Dados SQL](./apache-hadoop-use-sqoop-mac-linux.md)

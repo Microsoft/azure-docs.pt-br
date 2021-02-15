@@ -5,12 +5,13 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: how-to
-ms.openlocfilehash: fd510f90887353d7486908ee076d5308db72c59d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 9721685fc3ccd2c1c80b55e9118d6d347cc97a9c
+ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81687075"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830693"
 ---
 # <a name="get-service-access-tokens"></a>Obter tokens de acesso de serviço
 
@@ -24,7 +25,7 @@ Este artigo descreve como criar esse token de acesso.
 
 ## <a name="token-service-rest-api"></a>API REST do serviço de token
 
-Para criar tokens de acesso, o *Secure token Service* fornece uma única API REST. A URL para o serviço STS ARR é https: \/ /STS.mixedreality.Azure.com.
+Para criar tokens de acesso, o *Secure token Service* fornece uma única API REST. A URL para o serviço STS depende do domínio de conta da conta de renderização remota. Ele está no formato https://sts . [ domínio de conta], por exemplo, `https://sts.southcentralus.mixedreality.azure.com`
 
 ### <a name="get-token-request"></a>Solicitação ' Get token '
 
@@ -44,7 +45,7 @@ Substitua *AccountId* e *accountKey* por seus respectivos dados.
 |-----------|:-----------|:-----------|
 | 200 | AccessToken: cadeia de caracteres | Êxito |
 
-| parâmetro | Finalidade |
+| Cabeçalho | Finalidade |
 |--------|:------|
 | MS-CV | Esse valor pode ser usado para rastrear a chamada dentro do serviço |
 
@@ -55,9 +56,10 @@ O código do PowerShell abaixo demonstra como enviar a solicitação REST necess
 ```PowerShell
 $accountId = "<account_id_from_portal>"
 $accountKey = "<account_key_from_portal>"
+$accountDomain = "<account_domain_from_portal>
 
 [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12;
-$webResponse = Invoke-WebRequest -Uri "https://sts.mixedreality.azure.com/accounts/$accountId/token" -Method Get -Headers @{ Authorization = "Bearer ${accountId}:$accountKey" }
+$webResponse = Invoke-WebRequest -Uri "https://sts.$accountDomain/accounts/$accountId/token" -Method Get -Headers @{ Authorization = "Bearer ${accountId}:$accountKey" }
 $response = ConvertFrom-Json -InputObject $webResponse.Content
 
 Write-Output "Token: $($response.AccessToken)"

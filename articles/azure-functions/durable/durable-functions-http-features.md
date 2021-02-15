@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: azfuncdf
-ms.openlocfilehash: 16a133205b13a3d0a4aa76f75c8ce316f6c09199
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 64d40de50f21811a56318971de1836abc8fbf8c9
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87014891"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027254"
 ---
 # <a name="http-features"></a>Recursos de HTTP
 
@@ -57,7 +57,7 @@ A [Associação de cliente de orquestração](durable-functions-bindings.md#orch
 
 # <a name="python"></a>[Python](#tab/python)
 
-**__init__. py**
+**__init__ . py**
 
 ```python
 import logging
@@ -140,7 +140,7 @@ Para obter uma descrição de todas as APIs HTTP internas, consulte a [referênc
 
 ### <a name="async-operation-tracking"></a>Acompanhamento de operação assíncrona
 
-A resposta HTTP mencionada anteriormente foi criada para ajudar a implementar APIs assíncronas HTTP de execução longa com as Durable Functions. Esse padrão é, às vezes, chamado de *padrão de consumidor de sondagem*. O fluxo de cliente/servidor funciona da seguinte maneira:
+A resposta HTTP mencionada anteriormente foi criada para ajudar a implementar APIs assíncronas HTTP de execução longa com as Durable Functions. Esse padrão é, às vezes, chamado de *padrão de consumidor de sondagem* . O fluxo de cliente/servidor funciona da seguinte maneira:
 
 1. O cliente emite uma solicitação HTTP para iniciar um processo de execução longa, como uma função de orquestrador.
 1. O gatilho HTTP de destino retorna uma resposta HTTP 202 com um cabeçalho Location que tem o valor "statusQueryGetUri".
@@ -251,12 +251,12 @@ public static async Task RunOrchestrator(
     string vmName = "myVM";
     string apiVersion = "2019-03-01";
     
-    // Automatically fetches an Azure AD token for resource = https://management.core.windows.net
+    // Automatically fetches an Azure AD token for resource = https://management.core.windows.net/.default
     // and attaches it to the outgoing Azure Resource Manager API call.
     var restartRequest = new DurableHttpRequest(
         HttpMethod.Post, 
         new Uri($"https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/virtualMachines/{vmName}/restart?api-version={apiVersion}"),
-        tokenSource: new ManagedIdentityTokenSource("https://management.core.windows.net"));
+        tokenSource: new ManagedIdentityTokenSource("https://management.core.windows.net/.default"));
     DurableHttpResponse restartResponse = await context.CallHttpAsync(restartRequest);
     if (restartResponse.StatusCode != HttpStatusCode.OK)
     {
@@ -275,7 +275,7 @@ module.exports = df.orchestrator(function*(context) {
     const resourceGroup = "myRG";
     const vmName = "myVM";
     const apiVersion = "2019-03-01";
-    const tokenSource = new df.ManagedIdentityTokenSource("https://management.core.windows.net");
+    const tokenSource = new df.ManagedIdentityTokenSource("https://management.core.windows.net/.default");
 
     // get a list of the Azure subscriptions that I have access to
     const restartResponse = yield context.df.callHttp(
@@ -300,11 +300,11 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
     resource_group = "myRg"
     vm_name = "myVM"
     api_version = "2019-03-01"
-    token_source = df.ManagedIdentityTokenSource("https://management.core.windows.net")
+    token_source = df.ManagedIdentityTokenSource("https://management.core.windows.net/.default")
 
     # get a list of the Azure subscriptions that I have access to
     restart_response = yield context.call_http("POST", 
-        f"https://management.azure.com/subscriptions/${subscription_id}/resourceGroups/${resource_group}/providers/Microsoft.Compute/virtualMachines/${vm_name}/restart?api-version=${api_version}",
+        f"https://management.azure.com/subscriptions/{subscription_id}/resourceGroups/{resource_group}/providers/Microsoft.Compute/virtualMachines/{vm_name}/restart?api-version={api_version}",
         None,
         None,
         token_source)
@@ -315,7 +315,7 @@ main = df.Orchestrator.create(orchestrator_function)
 
 ---
 
-No exemplo anterior, o `tokenSource` parâmetro é configurado para adquirir tokens do Azure ad para [Azure Resource Manager](../../azure-resource-manager/management/overview.md). Os tokens são identificados pelo URI do recurso `https://management.core.windows.net` . O exemplo supõe que o aplicativo de função atual seja executado localmente ou implantado como um aplicativo de funções com uma identidade gerenciada. Pressupõe-se que a identidade local ou a identidade gerenciada tenha permissão para gerenciar VMs no grupo de recursos especificado `myRG` .
+No exemplo anterior, o `tokenSource` parâmetro é configurado para adquirir tokens do Azure ad para [Azure Resource Manager](../../azure-resource-manager/management/overview.md). Os tokens são identificados pelo URI do recurso `https://management.core.windows.net/.default` . O exemplo supõe que o aplicativo de função atual seja executado localmente ou implantado como um aplicativo de funções com uma identidade gerenciada. Pressupõe-se que a identidade local ou a identidade gerenciada tenha permissão para gerenciar VMs no grupo de recursos especificado `myRG` .
 
 Em tempo de execução, a origem do token configurada retorna automaticamente um token de acesso OAuth 2,0. A origem, em seguida, adiciona o token como um token de portador ao cabeçalho de autorização da solicitação de saída. Esse modelo é uma melhoria em relação à adição manual de cabeçalhos de autorização a solicitações HTTP pelos seguintes motivos:
 

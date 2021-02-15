@@ -1,6 +1,6 @@
 ---
 title: Importar um aplicativo de API como uma API com o portal do Azure | Microsoft Docs
-description: Este tutorial mostra como usar o APIM (gerenciamento de API) para importar um aplicativo de API como uma API.
+description: Este artigo mostra como usar o APIM (Gerenciamento de API) para importar um aplicativo de API como uma API.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -9,15 +9,15 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.topic: tutorial
+ms.topic: article
 ms.date: 04/22/2020
 ms.author: apimpm
-ms.openlocfilehash: 28b055cb343b7f894a28eee5fbe452d037fd6b0e
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 41209233ec59f578db4ff7fd344bb96aefeb975e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86249483"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994733"
 ---
 # <a name="import-an-api-app-as-an-api"></a>Importar um aplicativo de API como uma API
 
@@ -56,7 +56,7 @@ Neste artigo, você aprenderá como:
 
     * **Inicial**
     * **Ilimitado**   
-7. Insira outras configurações de API. Você pode definir os valores durante a criação ou configurá-los mais tarde, acessando a guia **Configurações**. As configurações são explicadas no tutorial [Importar e publicar sua primeira API](import-and-publish.md#-import-and-publish-a-backend-api).
+7. Insira outras configurações de API. Você pode definir os valores durante a criação ou configurá-los mais tarde, acessando a guia **Configurações**. As configurações são explicadas no tutorial [Importar e publicar sua primeira API](import-and-publish.md#import-and-publish-a-backend-api).
 8. Selecione **Criar**.
 
 ## <a name="test-the-new-api-in-the-azure-portal"></a>Testar a nova API no portal do Azure

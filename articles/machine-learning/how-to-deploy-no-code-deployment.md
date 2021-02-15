@@ -1,7 +1,7 @@
 ---
 title: Nenhuma implantação de código (versão prévia)
 titleSuffix: Azure Machine Learning
-description: Aprenda a implantar um modelo sem um script de entrada.
+description: Nenhuma implantação de código permite implantar um modelo como um serviço Web sem a necessidade de criar manualmente um script de entrada.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,14 @@ ms.author: gopalv
 author: gvashishtha
 ms.date: 07/31/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9d6e234e1f4c8ac5199b92a09eb12bf7aa41b01b
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.custom: deploy
+ms.reviewer: larryfr
+ms.openlocfilehash: a17126695aa5138d1df7fd17cfaa2f5f75ad1004
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185478"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324920"
 ---
 # <a name="preview-no-code-model-deployment"></a>Apresentação Implantação de modelo sem código
 
@@ -61,7 +63,7 @@ service_name = 'onnx-mnist-service'
 service = Model.deploy(ws, service_name, [model])
 ```
 
-Para pontuar um modelo, consulte [consumir um modelo de Azure Machine Learning implantado como um serviço Web](https://docs.microsoft.com/azure/machine-learning/how-to-consume-web-service). Muitos projetos de ONNX usam arquivos protobuf para armazenar compactar dados de treinamento e validação, o que pode dificultar o conhecimento do formato de dados esperado pelo serviço. Como desenvolvedor de modelo, você deve documentar seus desenvolvedores:
+Para pontuar um modelo, consulte [consumir um modelo de Azure Machine Learning implantado como um serviço Web](./how-to-consume-web-service.md). Muitos projetos de ONNX usam arquivos protobuf para armazenar compactar dados de treinamento e validação, o que pode dificultar o conhecimento do formato de dados esperado pelo serviço. Como desenvolvedor de modelo, você deve documentar seus desenvolvedores:
 
 * Formato de entrada (JSON ou binário)
 * Tipo e forma de dados de entrada (por exemplo, uma matriz de floats de Shape [100,100, 3])

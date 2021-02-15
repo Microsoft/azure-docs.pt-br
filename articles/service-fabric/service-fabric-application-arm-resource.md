@@ -3,12 +3,12 @@ title: Implantar e atualizar com Azure Resource Manager
 description: Saiba como implantar aplicativos e serviços em um cluster do Service Fabric usando um modelo do Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 12/06/2017
-ms.openlocfilehash: a849bdff0d2719f02b6b5f2d7159b87ce664c13f
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: ed6bc7d96cb3ea0934929e6543c5e637a9f42c1f
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86256502"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97930830"
 ---
 # <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>Gerenciar aplicativos e serviços como recursos do Azure Resource Manager
 
@@ -18,7 +18,7 @@ Essa é a maneira recomendada para implantar qualquer configuração, governanç
 
 Quando aplicável, gerencie seus aplicativos, como recursos do Resource Manager para melhorar:
 * A trilha de auditoria: o Resource Manager audita toda operação e mantém um *Log de atividades* que pode ajudar a rastrear alterações feitas nesses aplicativos e no seu cluster.
-* O RBAC (Controle de Acesso Baseado em Função): gerenciar acesso aos clusters assim como aplicativos implantados no cluster pode ser feito por meio do mesmo modelo do Resource Manager.
+* Controle de acesso baseado em função do Azure (RBAC do Azure): gerenciar o acesso a clusters, bem como aplicativos implantados no cluster, pode ser feito por meio do mesmo modelo do Resource Manager.
 * O Azure Resource Manager (por meio do Portal do Azure) se torna uma loja única para gerenciar o cluster e as implantações de aplicativos críticos.
 
 O snippet a seguir mostra os diferentes tipos de recursos que podem ser gerenciados por meio de um modelo:
@@ -50,13 +50,12 @@ O snippet a seguir mostra os diferentes tipos de recursos que podem ser gerencia
 }
 ```
 
-
 ## <a name="add-a-new-application-to-your-resource-manager-template"></a>Adicione um novo aplicativo ao seu modelo do Resource Manager
 
 1. Prepare o modelo do Resource Manager do cluster para implantação. Consulte [Criar um cluster do Service Fabric usando o Azure Resource Manager](service-fabric-cluster-creation-via-arm.md) para obter mais informações sobre isso.
 2. Pense em alguns aplicativos que você planeja implantar no cluster. Há algum que estará sempre executando esses outros aplicativos nos quais ele pode assumir dependências? Você planeja implantar qualquer governança de cluster ou aplicativos de configuração? Esses tipos de aplicativos são mais bem gerenciados por meio de um modelo do Resource Manager, como discutido acima. 
-3. Depois que você descobriu quais aplicativos você deseja que sejam implantados dessa forma, os aplicativos precisam ser empacotados, compactados e colocados em um compartilhamento de arquivos. O compartilhamento precisa ser acessado por meio de um ponto de extremidade REST para que o Azure Resource Manager consuma durante a implantação.
-4. Em seu modelo do Resource Manager, embaixo da declaração do seu cluster, descreva as propriedades de cada aplicativo. Essas propriedades incluem a contagem de instâncias e de réplicas e quaisquer cadeias de dependência entre recursos (outros aplicativos ou serviços). Para obter uma lista de propriedades abrangentes, consulte a [especificação Swagger da API REST](https://aka.ms/sfrpswaggerspec). Observe que isso não substitui os manifestos do aplicativo ou do serviço, mas descreve alguns dos que estão neles como parte do modelo do Resource Manager do cluster. Veja um exemplo de modelo que inclui a implantação de um serviço sem estado *Service1* e um serviço com estado *Service2* como parte do *Application1*:
+3. Depois de descobrir quais aplicativos você deseja implantar dessa maneira, os aplicativos precisam ser empacotados, compactados e colocados em um compartilhamento de armazenamento. O compartilhamento precisa ser acessado por meio de um ponto de extremidade REST para que o Azure Resource Manager consuma durante a implantação. Consulte [criar uma conta de armazenamento](service-fabric-concept-resource-model.md#create-a-storage-account) para obter detalhes.
+4. Em seu modelo do Resource Manager, embaixo da declaração do seu cluster, descreva as propriedades de cada aplicativo. Essas propriedades incluem a contagem de instâncias e de réplicas e quaisquer cadeias de dependência entre recursos (outros aplicativos ou serviços). Observe que isso não substitui os manifestos do aplicativo nem do serviço, mas descreve algumas coisas que estão neles como parte do modelo do Resource Manager do cluster. Veja um exemplo de modelo que inclui a implantação de um serviço sem estado *Service1* e um serviço com estado *Service2* como parte do *Application1*:
 
    ```json
    {
@@ -244,7 +243,7 @@ O snippet a seguir mostra os diferentes tipos de recursos que podem ser gerencia
    ```
 
    > [!NOTE] 
-   > A *apiVersion* deve ser definida como `"2019-03-01"`. Esse modelo também pode ser implantado independentemente do cluster, desde que o cluster já tenha sido implantado.
+   > Consulte o Service Fabric [Azure Resource Manager referência](/azure/templates/microsoft.servicefabric/clusters/applicationtypes) para localizar o uso e detalhes sobre as propriedades de modelo individuais.
 
 5. Implante! 
 

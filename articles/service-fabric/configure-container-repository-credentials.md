@@ -3,13 +3,12 @@ title: Service Fabric do Azure – configurar credenciais do repositório de con
 description: Configurar credenciais de repositório para baixar imagens do registro de contêiner
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.custom: sfrev
-ms.openlocfilehash: 9bd6e6a0a22f7568760f014897fd28ff47e9450b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0c6421fed88a3909db717c13a6b3faf51c4491cd
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76934985"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96574812"
 ---
 # <a name="configure-repository-credentials-for-your-application-to-download-container-images"></a>Configurar credenciais de repositório para seu aplicativo para baixar imagens de contêiner
 
@@ -96,6 +95,9 @@ O Service Fabric dá suporte ao uso de tokens como credenciais para baixar image
 1. Verifique se a *identidade gerenciada atribuída pelo sistema* está habilitada para a VM.
 
     ![Portal do Azure: criar opção de identidade do conjunto de dimensionamento de máquinas virtuais](./media/configure-container-repository-credentials/configure-container-repository-credentials-acr-iam.png)
+
+> [!NOTE]
+> Para identidade gerenciada atribuída pelo usuário, ignore esta etapa. As etapas restantes a seguir funcionarão da mesma forma, desde que o conjunto de dimensionamento só esteja associado a uma única identidade gerenciada atribuída pelo usuário.
 
 2. Conceda permissões ao conjunto de dimensionamento de máquinas virtuais para extrair/ler imagens do registro. Na folha de controle de acesso (IAM) do seu registro de contêiner do Azure no portal do Azure, adicione uma *atribuição de função* para sua máquina virtual:
 

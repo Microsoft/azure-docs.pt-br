@@ -8,13 +8,13 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/04/2020
 ms.author: aahi
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 953648f5cf83d5ffd22683ba0ce02335a637f18a
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.custom: devx-track-js
+ms.openlocfilehash: 037137cf5a6e4ddd66fc15e8ad9775ea77177ef6
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87407210"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94625414"
 ---
 Use este início rápido para fazer sua primeira pesquisa de imagem usando a biblioteca de clientes da Pesquisa de Imagem do Bing, que é um wrapper para a API e contém os mesmos recursos. Esse aplicativo simples do JavaScript enviar uma consulta de pesquisa de imagem, analisa a resposta JSON e exibe a URL da primeira imagem devolvida.
 
@@ -22,10 +22,11 @@ O código-fonte para esse exemplo está disponível no [GitHub](https://github.c
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* O [SDK de Pesquisa de Imagem de Serviços Cognitivos para Node.js](https://www.npmjs.com/package/@azure/cognitiveservices-imagesearch)
-    * Instale usando `npm install @azure/cognitiveservices-imagesearch`
-* O módulo [Node.js Azure Rest](https://www.npmjs.com/package/ms-rest-azure)
-    * Instale usando `npm install ms-rest-azure`
+* A versão mais recente do [Node.js](https://nodejs.org/en/download/).
+* O [SDK a Pesquisa de Imagem do Bing para JavaScript](https://www.npmjs.com/package/@azure/cognitiveservices-imagesearch)
+     *  Para instalar, execute `npm install @azure/cognitiveservices-imagesearch`
+* A classe `CognitiveServicesCredentials` do pacote `@azure/ms-rest-azure-js` para autenticar o cliente.
+     * Para instalar, execute `npm install @azure/ms-rest-azure-js`
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](~/includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
@@ -36,7 +37,7 @@ O código-fonte para esse exemplo está disponível no [GitHub](https://github.c
     ```javascript
     'use strict';
     const ImageSearchAPIClient = require('@azure/cognitiveservices-imagesearch');
-    const CognitiveServicesCredentials = require('ms-rest-azure').CognitiveServicesCredentials;
+    const CognitiveServicesCredentials = require('@azure/ms-rest-azure-js').CognitiveServicesCredentials;
     ```
 
 2. No método principal do seu projeto, crie variáveis para sua chave de assinatura válida, os resultados da imagem que serão devolvidos pelo Bing e um termo de pesquisa. Em seguida, instancie o cliente de pesquisa de imagem usando a chave.
@@ -90,12 +91,12 @@ O código-fonte para esse exemplo está disponível no [GitHub](https://github.c
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Tutorial de aplicativo de página única da Pesquisa de Imagem do Bing](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/tutorial-bing-image-search-single-page-app)
+> [Tutorial de aplicativo de página única da Pesquisa de Imagem do Bing](../../tutorial-bing-image-search-single-page-app.md)
 
 ## <a name="see-also"></a>Confira também
 
-* [O que é a Pesquisa de Imagem do Bing?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)
+* [O que é a Pesquisa de Imagem do Bing?](../../overview.md)
 * [Experimente uma demonstração interativa online](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)
 * [Amostras do Node.js para o SDK de Serviços Cognitivos do Azure](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)
-* [Documentação dos Serviços Cognitivos do Azure](https://docs.microsoft.com/azure/cognitive-services)
-* [Referência da API de Pesquisa de Imagem do Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)
+* [Documentação dos Serviços Cognitivos do Azure](../../../index.yml)
+* [Referência da API de Pesquisa de Imagem do Bing](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)

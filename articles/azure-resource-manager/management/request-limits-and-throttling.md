@@ -2,14 +2,14 @@
 title: Limitação e limites de solicitação
 description: Descreve como usar a limitação com solicitações Azure Resource Manager quando os limites de assinatura tiverem sido atingidos.
 ms.topic: conceptual
-ms.date: 03/24/2020
+ms.date: 12/15/2020
 ms.custom: seodec18
-ms.openlocfilehash: 4d387749261747eb9ea1ea26629ade4fe8729856
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 181ed1a3059d86f78e40a9949448af77a551efbc
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80239355"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97563119"
 ---
 # <a name="throttling-resource-manager-requests"></a>Restrição de solicitações do Resource Manager
 
@@ -27,9 +27,9 @@ Os limites de limitação padrão por hora são mostrados na tabela a seguir.
 
 | Escopo | Operations | Limite |
 | ----- | ---------- | ------- |
-| Subscription | reads | 12000 |
-| Subscription | deletes | 15000 |
-| Subscription | writes | 1200 |
+| Assinatura | reads | 12000 |
+| Assinatura | deletes | 15000 |
+| Assinatura | writes | 1200 |
 | Locatário | reads | 12000 |
 | Locatário | writes | 1200 |
 
@@ -65,6 +65,13 @@ Para verificar as instâncias de máquina virtual em um conjunto de dimensioname
 ### <a name="azure-resource-graph-throttling"></a>Limitação do grafo de recursos do Azure
 
 O [grafo de recursos do Azure](../../governance/resource-graph/overview.md) limita o número de solicitações para suas operações. As etapas neste artigo para determinar as solicitações restantes e como responder quando o limite é atingido também se aplicam ao grafo de recursos. No entanto, o grafo de recursos define seu próprio limite e a taxa de redefinição. Para obter mais informações, consulte [cabeçalhos de limitação de grafo de recursos](../../governance/resource-graph/concepts/guidance-for-throttled-requests.md#understand-throttling-headers).
+
+### <a name="other-resource-providers"></a>Outros provedores de recursos
+
+Para obter informações sobre a limitação em outros provedores de recursos, consulte:
+
+* [Diretrizes de limitação do Azure Key Vault](../../key-vault/general/overview-throttling.md)
+* [Solução de problemas do AKS](../../aks/troubleshooting.md#im-receiving-429---too-many-requests-errors)
 
 ## <a name="error-code"></a>Código do erro
 

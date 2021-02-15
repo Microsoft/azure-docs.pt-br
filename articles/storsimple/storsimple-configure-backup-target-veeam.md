@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2016
 ms.author: matd
-ms.openlocfilehash: 71a5434d985aad4033e4392dd31e6b7d112692de
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: bf28265de2b297dade545695c9369b8074eeb72c
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88183969"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94962545"
 ---
 # <a name="storsimple-as-a-backup-target-with-veeam"></a>StorSimple como um destino de backup com o Veeam
 
@@ -81,7 +81,7 @@ O StorSimple oferece os seguintes benefícios:
 
 Embora o StorSimple apresente dois cenários de implantação principais (destinos de backup primário e secundário), basicamente, ele é um dispositivo de armazenamento em bloco simples. O StorSimple realiza toda a compactação e eliminação de duplicação. Ele envia e recupera perfeitamente os dados entre a nuvem e o sistema de aplicativos e arquivos.
 
-Para saber mais sobre o StorSimple, confira [StorSimple série 8000: solução de armazenamento de nuvem híbrida](storsimple-overview.md). Além disso, você pode examinar as [especificações técnicas do StorSimple série 8000](storsimple-technical-specifications-and-compliance.md).
+Para saber mais sobre o StorSimple, confira [StorSimple série 8000: solução de armazenamento de nuvem híbrida](storsimple-overview.md). Além disso, você pode examinar as [especificações técnicas do StorSimple série 8000](./storsimple-8000-technical-specifications-and-compliance.md).
 
 > [!IMPORTANT]
 > Há suporte para o uso do dispositivo StorSimple como destino de backup apenas para StorSimple 8000 Atualização 3 e versões posteriores.
@@ -172,7 +172,7 @@ Para que a solução tenha o desempenho ideal, sugerimos seguir as práticas rec
 
 ### <a name="deploy-storsimple"></a>Implantar o StorSimple
 
-Para ver diretrizes passo a passo de implantação do StorSimple, acesse [Implantar seu dispositivo StorSimple local](storsimple-deployment-walkthrough-u2.md).
+Para ver diretrizes passo a passo de implantação do StorSimple, acesse [Implantar seu dispositivo StorSimple local](./storsimple-8000-deployment-walkthrough-u2.md).
 
 ### <a name="deploy-veeam"></a>Implantar Veeam
 
@@ -187,7 +187,7 @@ Nesta seção, demonstraremos alguns exemplos de configuração. Os exemplos e r
 | Tarefas de implantação do StorSimple  | Comentários adicionais |
 |---|---|
 | Implantação do seu dispositivo StorSimple local. | Versões com suporte: atualização 3 e versões posteriores. |
-| Ative o destino de backup. | Use estes comandos para ativar ou desligar o modo de destino de backup e obter o status. Para obter mais informações, veja [Conectar remotamente a um dispositivo StorSimple](storsimple-remote-connect.md).</br> Para ativar o modo de backup: `Set-HCSBackupApplianceMode -enable`. </br> Para desligar o modo de backup: `Set-HCSBackupApplianceMode -disable`. </br> Para obter o estado atual das configurações de modo de backup: `Get-HCSBackupApplianceMode`. |
+| Ative o destino de backup. | Use estes comandos para ativar ou desligar o modo de destino de backup e obter o status. Para obter mais informações, veja [Conectar remotamente a um dispositivo StorSimple](./storsimple-8000-remote-connect.md).</br> Para ativar o modo de backup: `Set-HCSBackupApplianceMode -enable`. </br> Para desligar o modo de backup: `Set-HCSBackupApplianceMode -disable`. </br> Para obter o estado atual das configurações de modo de backup: `Get-HCSBackupApplianceMode`. |
 | Crie um contêiner de volume comum para o seu volume que armazena os dados de backup. Todos os dados de um contêiner de volume passam por eliminação de duplicação. | Contêineres de volume do StorSimple definem domínios de eliminação de duplicação.  |
 | Crie os volumes do StorSimple. | Crie volumes com tamanhos o mais próximo possível do uso antecipado, já que o tamanho do volume afeta a duração do instantâneo na nuvem. Para obter informações sobre como dimensionar um volume, leia sobre as [políticas de retenção](#retention-policies).</br> </br> Use os volumes em camadas do StorSimple e marque a caixa de seleção **Usar este volume para dados de arquivamento acessados com menos frequência**. </br> Não há suporte para usar volumes afixados localmente. |
 | Crie uma política de backup do StorSimple exclusiva para todos os volumes de destino de backup. | Uma política de backup do StorSimple define o grupo de consistência do volume. |
@@ -213,16 +213,16 @@ Configure sua solução de acordo com as diretrizes indicadas nas próximas seç
 - Desabilite a desfragmentação do Windows Server em volumes do StorSimple.
 - Desabilite a indexação do Windows Server em volumes do StorSimple.
 - Execute uma verificação antivírus no host de origem (não nos volumes do StorSimple).
-- Desligue a [Manutenção do Windows Server](https://msdn.microsoft.com/library/windows/desktop/hh848037.aspx) padrão no Gerenciador de Tarefas. Faça isso de uma das seguintes maneiras:
+- Desligue a [Manutenção do Windows Server](/windows/win32/w8cookbook/automatic-maintenance) padrão no Gerenciador de Tarefas. Faça isso de uma das seguintes maneiras:
   - Desligue o Configurador de Manutenção no Agendador de Tarefas do Windows.
-  - Baixe [PsExec](https://technet.microsoft.com/sysinternals/bb897553.aspx) do Windows Sysinternals. Depois de baixar o PsExec, execute o Windows PowerShell como administrador e digite:
+  - Baixe [PsExec](/sysinternals/downloads/psexec) do Windows Sysinternals. Depois de baixar o PsExec, execute o Windows PowerShell como administrador e digite:
     ```powershell
     psexec \\%computername% -s schtasks /change /tn “MicrosoftWindowsTaskSchedulerMaintenance Configurator" /disable
     ```
 
 ### <a name="storsimple-best-practices"></a>Práticas recomendadas do StorSimple
 
--   Verifique se o dispositivo do StorSimple está atualizado para a [Atualização 3 ou posterior](storsimple-install-update-3.md).
+-   Verifique se o dispositivo do StorSimple está atualizado para a [Atualização 3 ou posterior](./index.yml).
 -   Isolar tráfego de iSCSI e de nuvem. Use conexões iSCSI dedicadas para o tráfego entre o StorSimple e o servidor de backup.
 -   Verifique se o dispositivo do StorSimple é um destino de backup dedicado. Não há suporte para cargas de trabalho mistas porque elas afetam o RTO e RPO.
 
@@ -260,7 +260,7 @@ Com base nas premissas anteriores, crie um volume em camadas StorSimple de 26 Ti
 | Retenção de tipo de backup | Tamanho (TiB) | Multiplicador GFS\* | Capacidade total (TiB)  |
 |---|---|---|---|
 | Completo semanal | 1 | 4  | 4 |
-| Incremental diário | 0.5 | 20 (ciclos, igual ao número de semanas por mês) | 12 (2 para a cota adicional) |
+| Incremental diário | 0,5 | 20 (ciclos, igual ao número de semanas por mês) | 12 (2 para a cota adicional) |
 | Mensal completo | 1 | 12 | 12 |
 | Anual completo | 1  | 10 | 10 |
 | Requisito de GFS |   | 38 |   |
@@ -274,7 +274,7 @@ Com base nas premissas anteriores, crie um volume em camadas StorSimple de 26 Ti
 
 1.  No console de Backup e Replicação do Veeam, em **Ferramentas de Repositório**, acesse **Infraestrutura de Backup**. Clique com o botão direito do mouse em **Repositórios de Backup** e selecione **Adicionar Repositório de Backup**.
 
-    ![Console de gerenciamento do Veeam, página de repositório de backup](./media/storsimple-configure-backup-target-using-veeam/veeamimage1.png)
+    ![Captura de tela que mostra o console de gerenciamento do Veeam e realça a opção Adicionar repositório de backup.](./media/storsimple-configure-backup-target-using-veeam/veeamimage1.png)
 
 2.  Na caixa de diálogo **Novo Repositório de Backup**, digite um nome e uma descrição para o repositório. Selecione **Avançar**.
 
@@ -295,7 +295,7 @@ Com base nas premissas anteriores, crie um volume em camadas StorSimple de 26 Ti
 
 6.  Na caixa de diálogo **Novo Repositório de Backup**, marque a caixa de seleção **Habilitar o serviço vPower NFS no servidor de montagem (recomendado)**. Selecione **Avançar**.
 
-    ![Console de gerenciamento do Veeam, página de repositório de backup](./media/storsimple-configure-backup-target-using-veeam/veeamimage6.png)
+    ![Captura de tela que mostra o console de gerenciamento do Veeam, no qual você pode adicionar um novo repositório de backup.](./media/storsimple-configure-backup-target-using-veeam/veeamimage6.png)
 
 7.  Examine as configurações e selecione **Avançar**.
 
@@ -320,7 +320,7 @@ Veja esta exemplo de uma agenda de rotação GFS de quatro semanas, mensal e anu
 |---|---|---|
 | Semanal (1 a 4 semanas) | Sábado | Segunda a sexta-feira |
 | Mensal  | Sábado  |   |
-| Anualmente | Sábado  |   |
+| Anual | Sábado  |   |
 
 
 ### <a name="assign-storsimple-volumes-to-a-veeam-backup-job"></a>Atribuir volumes do StorSimple a um trabalho de backup do Veeam
@@ -335,11 +335,11 @@ Para o cenário de destino principal de backup, crie um trabalho diário com seu
 
 2.  Na caixa de diálogo **Novo Trabalho de Backup**, digite um nome e uma descrição para o trabalho de backup diário.
 
-    ![Console de gerenciamento do Veeam, página novo trabalho de backup](./media/storsimple-configure-backup-target-using-veeam/veeamimage9.png)
+    ![Captura de tela do console de gerenciamento do Veeam em que você adiciona o nome e a descrição.](./media/storsimple-configure-backup-target-using-veeam/veeamimage9.png)
 
 3.  Selecione uma máquina virtual para o backup.
 
-    ![Console de gerenciamento do Veeam, página novo trabalho de backup](./media/storsimple-configure-backup-target-using-veeam/veeamimage10.png)
+    ![Captura de tela que mostra o console de gerenciamento do Veeam onde você seleciona a máquina virtual.](./media/storsimple-configure-backup-target-using-veeam/veeamimage10.png)
 
 4.  Selecione os valores desejados para **Proxy de backup** e **Repositório de backup**. Selecione um valor para **Pontos de restauração para manter no disco** de acordo com as definições de RPO e RTO para seu ambiente no armazenamento anexado localmente. Selecione **Avançado**.
 
@@ -347,7 +347,7 @@ Para o cenário de destino principal de backup, crie um trabalho diário com seu
 
 5. Na caixa de diálogo **Configurações Avançadas**, na guia **Backup**, selecione **Incremental**. Verifique se a caixa de seleção **Criar backups totais sintéticos periodicamente** está desmarcada. Marque a caixa de seleção **Criar backups ativos completos periodicamente**. Em **Backup ativo completo**, marque a caixa de seleção **Semanalmente nos dias selecionados** no sábado.
 
-    ![Console de gerenciamento do Veeam, página de configurações avançadas de novo trabalho de backup](./media/storsimple-configure-backup-target-using-veeam/veeamimage12.png)
+    ![Captura de tela que mostra o console de gerenciamento do Veeam, especificamente a nova página de configurações avançadas do trabalho de backup](./media/storsimple-configure-backup-target-using-veeam/veeamimage12.png)
 
 6. Na guia **Armazenamento**, verifique se a caixa de seleção **Habilitar a eliminação de duplicação de dados embutidos** está desmarcada. Marque as caixas de seleção **Excluir os blocos do arquivo de permuta** e **Excluir os blocos de arquivos eliminados**. Defina **Nível de compactação** para **Nenhum**. Para um desempenho e eliminação de duplicação equilibrados, defina **Otimização de armazenamento** como **Destino de LAN**. Selecione **OK**.
 
@@ -400,7 +400,7 @@ Agenda semanal, mensal e anual da rotação do GFS
 | Semana 3 | StorSimple semanas 2 a 4 |   |   |   |   |   |
 | Semana 4 | StorSimple semanas 2 a 4 |   |   |   |   |   |
 | Mensal | StorSimple mensal |   |   |   |   |   |
-| Anualmente | StorSimple anual  |   |   |   |   |   |
+| Anual | StorSimple anual  |   |   |   |   |   |
 
 ### <a name="assign-storsimple-volumes-to-a-veeam-copy-job"></a>Atribuir volumes do StorSimple a um trabalho de cópia do Veeam
 
@@ -408,11 +408,11 @@ Agenda semanal, mensal e anual da rotação do GFS
 
 1.  No console de Backup e Replicação do Veeam, selecione **Backup e Replicação**. Clique com botão direito do mouse em **Backup** e selecione **VMware** ou **Hyper-V** de acordo com seu ambiente.
 
-    ![Console de gerenciamento Veeam, página de trabalho de nova cópia de backup](./media/storsimple-configure-backup-target-using-veeam/veeamimage16.png)
+    ![Captura de tela que mostra o console de gerenciamento do Veeam com as opções do VMware e do Hyper-V que você pode selecionar.](./media/storsimple-configure-backup-target-using-veeam/veeamimage16.png)
 
 2.  Na caixa de diálogo **Novo Trabalho de Cópia de Backup**, digite um nome e uma descrição para o trabalho.
 
-    ![Console de gerenciamento Veeam, página de trabalho de nova cópia de backup](./media/storsimple-configure-backup-target-using-veeam/veeamimage17.png)
+    ![Captura de tela que mostra o console de gerenciamento do Veeam onde você insere o nome e a descrição do trabalho.](./media/storsimple-configure-backup-target-using-veeam/veeamimage17.png)
 
 3.  Selecione as VMs que você deseja processar. Selecione nos backups e, em seguida, selecione o backup diário que você criou anteriormente.
 
@@ -422,13 +422,13 @@ Agenda semanal, mensal e anual da rotação do GFS
 
 5.  Selecione o repositório de backup e defina um valor para **Restaurar pontos a serem mantidos**. Verifique se a caixa de seleção **Manter os seguintes pontos de restauração para fins de arquivamento** está marcada. Defina a frequência de backup e selecione **Avançado**.
 
-    ![Console de gerenciamento Veeam, página de trabalho de nova cópia de backup](./media/storsimple-configure-backup-target-using-veeam/veeamimage19.png)
+    ![Captura de tela que mostra onde você define a frequência de backup.](./media/storsimple-configure-backup-target-using-veeam/veeamimage19.png)
 
 6.  Especifique as configurações avançadas a seguir:
 
     * Na guia **Manutenção**, desligue a proteção contra corrupção no nível do armazenamento.
 
-    ![Console de gerenciamento do Veeam, página de configurações avançadas de novo trabalho de cópia de backup](./media/storsimple-configure-backup-target-using-veeam/veeamimage20.png)
+    ![Captura de tela que mostra a guia manutenção no console de gerenciamento do Veeam.](./media/storsimple-configure-backup-target-using-veeam/veeamimage20.png)
 
     * Na guia **Armazenamento**, verifique se a compressão e a eliminação de duplicação estão desativadas.
 
@@ -484,7 +484,7 @@ Recomendamos que você execute a política de backup de instantâneo de nuvem do
 
 As restaurações de um dispositivo StorSimple funcionam como qualquer dispositivo de armazenamento em bloco. Restaurações de dados que estão em camadas na nuvem ocorrem em velocidades de nuvem. Para dados locais, as restaurações ocorrem na velocidade do disco local do dispositivo.
 
-Com o Veeam você obtém recuperação rápida e granular no nível do arquivo por meio do StorSimple usando as exibições de explorer no console do Veeam. Use os Veeam Explorers para recuperar itens individuais, como mensagens de e-mail, objetos do directory Active e itens do SharePoint a partir de backups. A recuperação pode ser feita sem interrupções de VMs locais. Você também pode realizar uma recuperação pontual para bancos de dados do Banco de Dados SQL do Azure e Oracle. O Veeam e o StorSimple tornam o processo de recuperação em nível de item do Azure rápido e fácil. Para obter informações sobre como executar uma restauração, consulte a documentação do Veeam:
+Com o Veeam você obtém recuperação rápida e granular no nível do arquivo por meio do StorSimple usando as exibições de explorer no console do Veeam. Use os Veeam Explorers para recuperar itens individuais como mensagens de email, objetos do Active Directory ou itens do SharePoint dos backups. A recuperação pode ser feita sem interrupções de VMs locais. Você também pode realizar uma recuperação pontual para bancos de dados do Banco de Dados SQL do Azure e Oracle. O Veeam e o StorSimple tornam o processo de recuperação em nível de item do Azure rápido e fácil. Para obter informações sobre como executar uma restauração, consulte a documentação do Veeam:
 
 - Para [Exchange Server](https://www.veeam.com/microsoft-exchange-recovery.html)
 - Para [Active Directory](https://www.veeam.com/microsoft-active-directory-explorer.html)
@@ -502,7 +502,7 @@ Um desastre pode ser causado por uma variedade de fatores. A tabela a seguir lis
 
 | Cenário | Impacto | Como recuperar | Observações |
 |---|---|---|---|
-| Falha do dispositivo StorSimple | As operações de backup e restauração foram interrompidas. | Substitua o dispositivo com falha e execute [Failover e recuperação de desastre do StorSimple](storsimple-device-failover-disaster-recovery.md). | Se você precisar realizar uma restauração após a recuperação do dispositivo, os conjuntos de dados de trabalho totais serão recuperados da nuvem para o novo dispositivo. Todas as operações ocorrem em velocidades de nuvem. O processo de nova verificação do índice e do catálogo pode fazer com que todos os conjuntos de backup sejam verificados e extraídos da camada da nuvem para a camada do dispositivo local, o que pode ser um processo demorado. |
+| Falha do dispositivo StorSimple | As operações de backup e restauração foram interrompidas. | Substitua o dispositivo com falha e execute [Failover e recuperação de desastre do StorSimple](./storsimple-8000-device-failover-disaster-recovery.md). | Se você precisar realizar uma restauração após a recuperação do dispositivo, os conjuntos de dados de trabalho totais serão recuperados da nuvem para o novo dispositivo. Todas as operações ocorrem em velocidades de nuvem. O processo de nova verificação do índice e do catálogo pode fazer com que todos os conjuntos de backup sejam verificados e extraídos da camada da nuvem para a camada do dispositivo local, o que pode ser um processo demorado. |
 | Falha do servidor Veeam | As operações de backup e restauração foram interrompidas. | Recompile o servidor de backup e execute a restauração do banco de dados conforme detalhado na [Central de Ajuda da Veeam (Documentação Técnica)](https://www.veeam.com/documentation-guides-datasheets.html).  | Você deve recompilar ou restaurar o servidor Veeam no local de recuperação de desastre. Restaure o banco de dados para o ponto mais recente. Se o banco de dados restaurado do Veeam não estiver sincronizado com os trabalhos de backup mais recentes, será necessário fazer a indexação e a catalogação. Esse processo de nova verificação do índice e do catálogo pode fazer com que todos os conjuntos de backup sejam verificados e extraídos da camada da nuvem para a camada do dispositivo local. Isso torna tudo ainda mais demorado. |
 | Falha do site que resulta na perda do servidor de Backup e do StorSimple | As operações de backup e restauração foram interrompidas. | Restaure o StorSimple primeiro e depois o Veeam. | Restaure o StorSimple primeiro e depois o Veeam. Se você precisar realizar uma restauração após a recuperação do dispositivo, os conjuntos de dados de trabalho completos serão recuperados da nuvem para o novo dispositivo. Todas as operações ocorrem em velocidades de nuvem. |
 
@@ -511,12 +511,12 @@ Um desastre pode ser causado por uma variedade de fatores. A tabela a seguir lis
 
 Os documentos a seguir foram mencionados neste artigo:
 
-- [Configuração de Multipath I/O de StorSimple](storsimple-configure-mpio-windows-server.md)
-- [Cenários de armazenamento: provisionamento dinâmico](https://msdn.microsoft.com/library/windows/hardware/dn265487.aspx)
-- [Usando unidades GPT](https://msdn.microsoft.com/windows/hardware/gg463524.aspx#EHD)
-- [Configurar cópias de sombra para pastas compartilhadas](https://technet.microsoft.com/library/cc771893.aspx)
+- [Configuração de Multipath I/O de StorSimple](./storsimple-8000-configure-mpio-windows-server.md)
+- [Cenários de armazenamento: provisionamento dinâmico](/windows-hardware/drivers/storage/thin-provisioning)
+- [Usando unidades GPT](/previous-versions/windows/hardware/design/dn653580(v=vs.85)#EHD)
+- [Configurar cópias de sombra para pastas compartilhadas](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771893(v=ws.11))
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre como [restaurar de um conjunto de backup](storsimple-restore-from-backup-set-u2.md).
-- Sobre mais sobre como executar [failover e recuperação de desastre no dispositivo](storsimple-device-failover-disaster-recovery.md).
+- Saiba mais sobre como [restaurar de um conjunto de backup](./storsimple-8000-restore-from-backup-set-u2.md).
+- Sobre mais sobre como executar [failover e recuperação de desastre no dispositivo](./storsimple-8000-device-failover-disaster-recovery.md).

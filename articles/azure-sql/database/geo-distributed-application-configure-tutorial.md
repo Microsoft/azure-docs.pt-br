@@ -4,19 +4,19 @@ description: Saiba como configurar seu banco de dados no banco de dados SQL do A
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
-ms.custom: sqldbrb=1, devx-track-azurecli
+ms.custom: sqldbrb=1, devx-track-azurecli, devx-track-azurepowershell
 ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: mathoma, carlrab
+ms.reviewer: mathoma, sstein
 ms.date: 03/12/2019
-ms.openlocfilehash: 90bfe3f6e8d5ed19380ab2b48aa38e598c3f109a
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 98e3eb4927b8eb9e52fd974c1ef7c417aff2ad54
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501603"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422783"
 ---
 # <a name="tutorial-implement-a-geo-distributed-database-azure-sql-database"></a>Tutorial: implementar um banco de dados distribuído geograficamente (banco de dados SQL do Azure)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -36,11 +36,11 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> O módulo Azure Resource Manager do PowerShell ainda tem suporte do Banco de Dados SQL do Azure, mas todo o desenvolvimento futuro é para o módulo Az.Sql. Para esses cmdlets, confira [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos.
+> O módulo Azure Resource Manager do PowerShell ainda tem suporte do Banco de Dados SQL do Azure, mas todo o desenvolvimento futuro é para o módulo Az.Sql. Para esses cmdlets, confira [AzureRM.Sql](/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos.
 
 Para concluir o tutorial, verifique se você instalou os seguintes itens:
 
-- [Azure PowerShell](/powershell/azure/)
+- [PowerShell do Azure](/powershell/azure/)
 - Um banco de dados individual no banco de dados SQL do Azure. Para criar um, use
   - [O portal do Azure](single-database-create-quickstart.md)
   - [A CLI do Azure](az-cli-script-samples-content-guide.md)
@@ -120,7 +120,7 @@ az sql failover-group create --name $failoverGroup --partner-server $drServer `
 
 * * *
 
-As configurações de replicação geográfica também podem ser alteradas no portal do Azure, selecionando seu banco de dados e, em seguida, **configurações**de  >  **replicação geográfica**.
+As configurações de replicação geográfica também podem ser alteradas no portal do Azure, selecionando seu banco de dados e, em seguida, **configurações** de  >  **replicação geográfica**.
 
 ![Configurações da replicação geográfica](./media/geo-distributed-application-configure-tutorial/geo-replication.png)
 
@@ -333,7 +333,7 @@ Para testar um failover:
 1. Inicie um failover manual do grupo de failover:
 
    ```powershell
-   Switch-AzSqlDatabaseFailoverGroup -ResourceGroupName $myresourcegroupname `
+   Switch-AzSqlDatabaseFailoverGroup -ResourceGroupName $resourceGroup `
     -ServerName $drServer -FailoverGroupName $failoverGroup
    ```
 

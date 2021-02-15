@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: 6466cea9fe04bb308a670cb03fd3de5314758142
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 99fb41542dff28997438881abad71da11e927a78
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79456600"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014883"
 ---
 # <a name="clip-values"></a>Recortar valores
 
-Este artigo descreve um módulo do designer de Azure Machine Learning (versão prévia).
+Este artigo descreve um módulo do designer de Azure Machine Learning.
 
 Use o módulo valores de clipe para identificar e, opcionalmente, substituir valores de dados que estão acima ou abaixo de um limite especificado com uma média, uma constante ou outro valor substituto.  
 
@@ -56,7 +56,7 @@ Se você precisar aplicar métodos de recorte ou diferentes critérios a algumas
   
 1. Se você escolher **percentil**, restringirá os valores de coluna a um intervalo percentual. 
 
-    Por exemplo, suponha que você deseja manter apenas os valores no intervalo de 10-80 percentil e substituir todos os outros. Você deve escolher **percentil**e, em seguida, digitar 10 para o **valor de percentil para o limite inferior**e digitar 80 para o **valor de percentil para o limite superior**. 
+    Por exemplo, suponha que você deseja manter apenas os valores no intervalo de 10-80 percentil e substituir todos os outros. Você deve escolher **percentil** e, em seguida, digitar 10 para o **valor de percentil para o limite inferior** e digitar 80 para o **valor de percentil para o limite superior**. 
 
     Consulte a seção sobre [percentuais](#examples-for-clipping-using-percentiles) para ver alguns exemplos de como usar intervalos de percentil.  
   
@@ -86,7 +86,7 @@ Se você precisar aplicar métodos de recorte ou diferentes critérios a algumas
   
 1.  Envie o pipeline.  
   
-    Clique com o botão direito do mouse no módulo **valores de clipe** e selecione **Visualizar** ou selecione o módulo e alterne para a guia **saídas** no painel direito, clique no ícone de histograma nas **saídas de porta**para examinar os valores e verificar se a operação de recorte atende às suas expectativas.  
+    Clique com o botão direito do mouse no módulo **valores de clipe** e selecione **Visualizar** ou selecione o módulo e alterne para a guia **saídas** no painel direito, clique no ícone de histograma nas **saídas de porta** para examinar os valores e verificar se a operação de recorte atende às suas expectativas.  
  
 ### <a name="examples-for-clipping-using-percentiles"></a>Exemplos de recorte usando percentils
 
@@ -116,7 +116,7 @@ Agora, experimente o mesmo pipeline usando 60 como o limite superior do percenti
   
 |Dados originais|Substituir por ausente|Substituir por limite|  
 |-------------------|--------------------------|----------------------------|  
-|1<br /><br /> 2<br /><br /> 3<br /><br /> 4<br /><br /> 5<br /><br /> 6<br /><br /> 7<br /><br /> 8<br /><br /> 9<br /><br /> 10|VERDADEIRO<br /><br /> TRUE<br /><br /> 3, FALSO<br /><br /> 4, FALSO<br /><br /> 5, FALSO<br /><br /> 6, FALSO<br /><br /> 7, FALSO<br /><br /> 8, FALSO<br /><br /> 9, FALSO<br /><br /> VERDADEIRO|4, VERDADEIRO<br /><br /> 4, VERDADEIRO<br /><br /> 4, VERDADEIRO<br /><br /> 4, VERDADEIRO<br /><br /> 5, FALSO<br /><br /> 6, FALSO<br /><br /> 7, VERDADEIRO<br /><br /> 7, VERDADEIRO<br /><br /> 7, VERDADEIRO<br /><br /> 7, VERDADEIRO| 
+|1<br /><br /> 2<br /><br /> 3<br /><br /> 4<br /><br /> 5<br /><br /> 6<br /><br /> 7<br /><br /> 8<br /><br /> 9<br /><br /> 10|TRUE<br /><br /> TRUE<br /><br /> 3, FALSO<br /><br /> 4, FALSO<br /><br /> 5, FALSO<br /><br /> 6, FALSO<br /><br /> 7, FALSO<br /><br /> 8, FALSO<br /><br /> 9, FALSO<br /><br /> TRUE|4, VERDADEIRO<br /><br /> 4, VERDADEIRO<br /><br /> 4, VERDADEIRO<br /><br /> 4, VERDADEIRO<br /><br /> 5, FALSO<br /><br /> 6, FALSO<br /><br /> 7, VERDADEIRO<br /><br /> 7, VERDADEIRO<br /><br /> 7, VERDADEIRO<br /><br /> 7, VERDADEIRO| 
  
 ## <a name="next-steps"></a>Próximas etapas
 

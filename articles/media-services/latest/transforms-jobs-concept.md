@@ -1,24 +1,11 @@
 ---
-title: Transformações e trabalhos nos serviços de mídia
-titleSuffix: Azure Media Services
-description: Saiba como criar transformações para descrever as regras para processar seus vídeos nos serviços de mídia do Azure.
-services: media-services
-documentationcenter: ''
-author: Juliako
-manager: femila
-editor: ''
-ms.service: media-services
-ms.workload: ''
-ms.topic: article
-ms.date: 08/19/2019
-ms.author: juliako
-ms.openlocfilehash: d45d802456345eab857f571d2d52793c8be691eb
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
-ms.translationtype: MT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543054"
+# <a name="mandatory-fields-see-more-on-akamsskyeyemeta"></a>Campos obrigatórios. Veja mais em aka.ms/skyeye/meta.
+Título: transformações e trabalhos nos serviços de mídia: descrição dos serviços de mídia do Azure: saiba como criar transformações para descrever as regras para processar seus vídeos nos serviços de mídia do Azure.
+serviços: Media-Services documentationcenter: ' ' autor: IngridAtMicrosoft gerente: femila editor: ' '
+
+MS. Service: Media-Services MS. Workload: MS. Topic: conceitual MS. Date: 08/19/2019 MS. Author: inhenkel
 ---
+
 # <a name="transforms-and-jobs-in-media-services"></a>Transformações e trabalhos nos serviços de mídia
 
 Este tópico fornece detalhes sobre [transformações](/rest/api/media/transforms) e [trabalhos](/rest/api/media/jobs) e explica a relação entre essas entidades.
@@ -62,7 +49,7 @@ Nos serviços de mídia v3, as predefinições são entidades fortemente tipadas
 
 ### <a name="creating-transforms"></a>Criando transformações
 
-Você pode criar transformações usando REST, CLI ou qualquer um dos SDKs publicados. A API é controlada pelo Azure Resource Manager v3, portanto, você também pode usar modelos do Azure Resource Manager para criar Transformações na sua conta dos Serviços de Mídia do Microsoft Azure. O controle de acesso baseado em função pode ser usado para bloquear o acesso a transformações.
+Você pode criar transformações usando REST, CLI ou qualquer um dos SDKs publicados. A API é controlada pelo Azure Resource Manager v3, portanto, você também pode usar modelos do Azure Resource Manager para criar Transformações na sua conta dos Serviços de Mídia do Microsoft Azure. O controle de acesso baseado em função do Azure pode ser usado para bloquear o acesso a transformações.
 
 ### <a name="updating-transforms"></a>Atualizando transformações
 

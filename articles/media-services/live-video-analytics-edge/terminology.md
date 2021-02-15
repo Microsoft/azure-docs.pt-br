@@ -4,10 +4,10 @@ description: Este artigo fornece uma visão geral de análise de vídeo ao vivo 
 ms.topic: conceptual
 ms.date: 05/30/2020
 ms.openlocfilehash: e3a77b69adf2241a4af2652db4edb6673a63b4f0
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88690605"
 ---
 # <a name="terminology"></a>Terminologia
@@ -38,7 +38,7 @@ No contexto de um sistema de gerenciamento de vídeo para câmeras de segurança
 
 ## <a name="rtsp"></a>RTSP
 
-[RTSP](https://tools.ietf.org/html/rfc2326) refere-se ao protocolo de streaming em tempo real. É um protocolo de nível de aplicativo para controle sobre a entrega de dados com propriedades em tempo real. O RTSP fornece uma estrutura extensível para permitir a entrega controlada sob demanda de dados em tempo real, como áudio e vídeo. 
+[RTSP](https://tools.ietf.org/html/rfc2326) refere-se a Real-Time protocolo de streaming. É um protocolo de nível de aplicativo para controle sobre a entrega de dados com propriedades em tempo real. O RTSP fornece uma estrutura extensível para permitir a entrega controlada sob demanda de dados em tempo real, como áudio e vídeo. 
 
 ## <a name="streaming"></a>Streaming
 

@@ -1,32 +1,31 @@
 ---
 title: Início Rápido para criar um dispositivo do Azure IoT Edge no Linux | Microsoft Docs
-description: Neste início rápido, aprenda a criar um dispositivo IoT Edge e então implantar o código pré-compilado remotamente do portal do Azure.
+description: Neste início rápido, aprenda a criar um dispositivo IoT Edge no Linux e implantar o código pré-compilado remotamente do portal do Azure.
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/30/2020
+ms.date: 12/02/2020
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
-ms.custom: mvc
-ms.openlocfilehash: 36bebe829ccf81ef5b1832b90b2f73d15d5499af
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: ff9ba73e71e4525fe56a3cbb54626030f57e990b
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87384796"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920794"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-linux-device"></a>Início Rápido: Implantar seu primeiro módulo do IoT Edge em um dispositivo virtual Linux
 
 Teste o Azure IoT Edge neste início rápido implantando um código em contêineres em um dispositivo virtual Linux do IoT Edge. O IoT Edge permite que você gerencie remotamente o código em seus dispositivos para que você possa enviar mais cargas de trabalho para a borda. Para este início rápido, recomendamos o uso de uma máquina virtual do Azure para o dispositivo do IoT Edge, o que permitirá criar rapidamente um computador de teste com o serviço IoT Edge instalado e excluí-lo quando você terminar.
 
 Neste guia de início rápido, você aprende a:
-> [!div class="checklist"]
->
-> * Crie um Hub IoT.
-> * Registrar um dispositivo IoT Edge em seu Hub IoT.
-> * Instale e inicie o runtime do IoT Edge no dispositivo virtual.
-> * Implantar um módulo em um dispositivo IoT Edge remotamente.
+
+* Crie um Hub IoT.
+* Registrar um dispositivo IoT Edge em seu Hub IoT.
+* Instale e inicie o runtime do IoT Edge no dispositivo virtual.
+* Implantar um módulo em um dispositivo IoT Edge remotamente.
 
 ![Diagrama – Início Rápido da arquitetura para dispositivo e nuvem](./media/quickstart-linux/install-edge-full.png)
 
@@ -34,23 +33,15 @@ Este Início Rápido orienta você pela criação de uma máquina virtual Linux 
 
 Se você não tiver uma assinatura do Azure ativa, crie uma [conta gratuita](https://azure.microsoft.com/free) antes de começar.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-Você usa a CLI do Azure para concluir muitas das etapas neste guia de início rápido e o Azure IoT possui uma extensão para habilitar funcionalidades adicionais.
-
-Adicione a extensão de IoT do Azure à instância do Cloud Shell.
-
-   ```azurecli-interactive
-   az extension add --name azure-iot
-   ```
-
-[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
-
 ## <a name="prerequisites"></a>Pré-requisitos
+
+Prepare seu ambiente para a CLI do Azure.
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 Recursos de nuvem:
 
-* Um grupo de recursos para gerenciar todos os recursos que você usará neste início rápido. Usamos o nome do grupo de recursos de exemplo **IoTEdgeResources** em todo este guia de início rápido e nos tutoriais a seguir.
+- Um grupo de recursos para gerenciar todos os recursos que você usará neste início rápido. Usamos o nome do grupo de recursos de exemplo **IoTEdgeResources** em todo este guia de início rápido e nos tutoriais a seguir.
 
    ```azurecli-interactive
    az group create --name IoTEdgeResources --location westus2
@@ -93,7 +84,7 @@ Como os dispositivos IoT Edge se comportam e podem ser gerenciados diferentement
 2. Veja a cadeia de conexão para o seu dispositivo, o que vincula o dispositivo físico à sua identidade no Hub IoT. Ele contém o nome do seu hub IoT, o nome do seu dispositivo e uma chave compartilhada que autentica as conexões entre os dois. Vamos nos referir a essa cadeia de conexão novamente na próxima seção quando você configurar seu dispositivo do IoT Edge.
 
    ```azurecli-interactive
-   az iot hub device-identity show-connection-string --device-id myEdgeDevice --hub-name {hub_name}
+   az iot hub device-identity connection-string show --device-id myEdgeDevice --hub-name {hub_name}
    ```
 
    ![Exibir a cadeia de conexão da saída da CLI](./media/quickstart/retrieve-connection-string.png)
@@ -110,14 +101,22 @@ Durante a configuração do runtime, você precisa fornecer uma cadeia de conex�
 
 ### <a name="deploy-the-iot-edge-device"></a>Implantar o dispositivo do IoT Edge
 
-Esta seção usa um modelo do Azure Resource Manager para criar uma máquina virtual e instalar o runtime do IoT Edge nela. Se você quiser usar seu dispositivo Linux, poderá seguir as etapas de instalação em [Instalar o runtime do IoT Edge do Azure no Linux](how-to-install-iot-edge-linux.md) e retornar a este início rápido.
+Esta seção usa um modelo do Azure Resource Manager para criar uma máquina virtual e instalar o runtime do IoT Edge nela. Se você quiser usar seu dispositivo Linux, poderá seguir as etapas de instalação em [Instalar o runtime do Azure IoT Edge](how-to-install-iot-edge.md) e retornar a este início rápido.
 
 Use o comando da CLI a seguir para criar seu dispositivo do IoT Edge com base no modelo predefinido [iotedge-vm-deploy](https://github.com/Azure/iotedge-vm-deploy).
 
 * Para os usuários do Bash ou do Cloud Shell, copie o seguinte comando em um editor de texto, substitua o texto do espaço reservado pelas suas informações e copie-as na janela do Bash ou do Cloud Shell:
 
    ```azurecli-interactive
-   az deployment group create --resource-group IoTEdgeResources --template-uri "https://aka.ms/iotedge-vm-deploy" --parameters dnsLabelPrefix='my-edge-vm' --parameters adminUsername='azureUser' --parameters deviceConnectionString=$(az iot hub device-identity show-connection-string --device-id myEdgeDevice --hub-name <REPLACE_WITH_HUB_NAME> -o tsv) --parameters authenticationType='password' --parameters adminPasswordOrKey="<REPLACE_WITH_PASSWORD>"
+   az deployment group create \
+   --resource-group IoTEdgeResources \
+   --template-uri "https://aka.ms/iotedge-vm-deploy" \
+   --parameters dnsLabelPrefix='<REPLACE_WITH_VM_NAME>' \
+   --parameters adminUsername='azureUser' \
+   --parameters deviceConnectionString=$(az iot hub device-identity connection-string show --device-id myEdgeDevice --hub-name
+   <REPLACE_WITH_HUB_NAME> -o tsv) \
+   --parameters authenticationType='password' \
+   --parameters adminPasswordOrKey="<REPLACE_WITH_PASSWORD>"
    ```
 
 * Para usuários do PowerShell, copie o seguinte comando para a janela do PowerShell e substitua o texto do espaço reservado pelas suas informações:
@@ -126,9 +125,9 @@ Use o comando da CLI a seguir para criar seu dispositivo do IoT Edge com base no
    az deployment group create `
    --resource-group IoTEdgeResources `
    --template-uri "https://aka.ms/iotedge-vm-deploy" `
-   --parameters dnsLabelPrefix='my-edge-vm1' `
+   --parameters dnsLabelPrefix='<REPLACE_WITH_VM_NAME>' `
    --parameters adminUsername='azureUser' `
-   --parameters deviceConnectionString=$(az iot hub device-identity show-connection-string --device-id myEdgeDevice --hub-name <REPLACE_WITH_HUB_NAME> -o tsv) `
+   --parameters deviceConnectionString=$(az iot hub device-identity connection-string show --device-id myEdgeDevice --hub-name <REPLACE_WITH_HUB_NAME> -o tsv) `
    --parameters authenticationType='password' `
    --parameters adminPasswordOrKey="<REPLACE_WITH_PASSWORD>"
    ```
@@ -139,7 +138,7 @@ Este modelo usa os seguintes parâmetros:
 | --------- | ----------- |
 | **resource-group** | O grupo de recursos no qual os recursos serão criados. Use o **IoTEdgeResources** padrão que usamos neste artigo ou forneça o nome de um grupo de recursos em sua assinatura. |
 | **template-uri** | Um ponteiro para o modelo do Resource Manager que estamos usando. |
-| **dnsLabelPrefix** | Uma cadeia de caracteres que será usada para criar o nome de host da máquina virtual. Use o exemplo **my-edge-vm** ou forneça uma nova cadeia de caracteres. |
+| **dnsLabelPrefix** | Uma cadeia de caracteres que será usada para criar o nome de host da máquina virtual. Substitua o texto do espaço reservado por um nome para a sua máquina virtual. |
 | **adminUsername** | Um nome de usuário para a conta do administrador da máquina virtual. Use o exemplo **azureUser** ou fornecer um novo nome de usuário. |
 | **deviceConnectionString** | A cadeia de conexão da identidade do dispositivo no Hub IoT, que é usada para configurar o runtime do IoT Edge na máquina virtual. O comando da CLI dentro desse parâmetro captura a cadeia de conexão para você. Substitua o texto do espaço reservado pelo nome do hub IoT. |
 | **authenticationType** | O método de autenticação para a conta do administrador. Este guia de início rápido usa autenticação por **senha**, mas você também pode definir esse parâmetro como **sshPublicKey**. |

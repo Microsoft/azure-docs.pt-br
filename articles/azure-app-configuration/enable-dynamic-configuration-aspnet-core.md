@@ -4,23 +4,22 @@ titleSuffix: Azure App Configuration
 description: Neste tutorial, você aprenderá a atualizar dinamicamente os dados de configuração de aplicativos ASP.NET Core
 services: azure-app-configuration
 documentationcenter: ''
-author: lisaguthrie
-manager: maiye
+author: AlexandraKemperMS
 editor: ''
 ms.assetid: ''
 ms.service: azure-app-configuration
 ms.workload: tbd
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 02/24/2019
-ms.author: lcozzens
+ms.date: 09/1/2020
+ms.author: alkemper
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 217c564a6bdb340ec15262c1eaf54a75bbffc833
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 083bd56b2b211d11206a277bf31eea797b37cdb9
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88585008"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979922"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-aspnet-core-app"></a>Tutorial: Usar a configuração dinâmica em um aplicativo ASP.NET Core
 
@@ -53,13 +52,11 @@ Antes de continuar, conclua [Criar um aplicativo ASP.NET Core com a Configuraç�
 Uma *chave sentinela* é uma chave especial usada para sinalizar quando a configuração foi alterada. Seu aplicativo monitora a chave sentinela em busca de alterações. Quando uma alteração é detectada, você atualiza todos os valores de configuração. Essa abordagem reduz o número total de solicitações feitas pelo aplicativo à Configuração de Aplicativos em comparação ao monitoramento de todas as chaves quanto a alterações.
 
 1. No portal do Azure, selecione **Explorador de Configuração > Criar > Valor de chave**.
-
 1. Para **Chave**, insira *TestApp:Settings:Sentinel*. Para **Valor**, insira "1". Deixe **Rótulo** e **Tipo de conteúdo** em branco.
-
 1. Escolha **Aplicar**.
 
-    > [!NOTE]
-    > Se você não estiver usando uma chave Sentinel, será necessário registrar manualmente todas as chaves que deseja inspecionar.
+> [!NOTE]
+> Se você não estiver usando uma chave Sentinel, será necessário registrar manualmente todas as chaves que quiser inspecionar.
 
 ## <a name="reload-data-from-app-configuration"></a>Recarregar os dados da Configuração de Aplicativo
 
@@ -71,28 +68,27 @@ Uma *chave sentinela* é uma chave especial usada para sinalizar quando a config
 
 1. Abra *Program.cs* e atualize o método `CreateWebHostBuilder` para adicionar o método `config.AddAzureAppConfiguration()`.
 
-    #### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
+   #### <a name="net-5x"></a>[.NET 5.x](#tab/core5x)
 
     ```csharp
-    public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-        WebHost.CreateDefaultBuilder(args)
-            .ConfigureAppConfiguration((hostingContext, config) =>
-            {
-                var settings = config.Build();
-
-                config.AddAzureAppConfiguration(options =>
+    public static IHostBuilder CreateHostBuilder(string[] args) =>
+        Host.CreateDefaultBuilder(args)
+            .ConfigureWebHostDefaults(webBuilder =>
+                webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
                 {
-                    options.Connect(settings["ConnectionStrings:AppConfig"])
-                           .ConfigureRefresh(refresh =>
-                                {
-                                    refresh.Register("TestApp:Settings:Sentinel", refreshAll: true)
-                                           .SetCacheExpiration(new TimeSpan(0, 5, 0));
-                                });
-                });
-            })
-            .UseStartup<Startup>();
-    ```
-
+                    var settings = config.Build();
+                    config.AddAzureAppConfiguration(options =>
+                    {
+                        options.Connect(settings["ConnectionStrings:AppConfig"])
+                               .ConfigureRefresh(refresh =>
+                                    {
+                                        refresh.Register("TestApp:Settings:Sentinel", refreshAll: true)
+                                               .SetCacheExpiration(new TimeSpan(0, 5, 0));
+                                    });
+                    });
+                })
+            .UseStartup<Startup>());
+    ```   
     #### <a name="net-core-3x"></a>[.NET Core 3.x](#tab/core3x)
 
     ```csharp
@@ -114,6 +110,27 @@ Uma *chave sentinela* é uma chave especial usada para sinalizar quando a config
                 })
             .UseStartup<Startup>());
     ```
+    #### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
+
+    ```csharp
+    public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+        WebHost.CreateDefaultBuilder(args)
+            .ConfigureAppConfiguration((hostingContext, config) =>
+            {
+                var settings = config.Build();
+
+                config.AddAzureAppConfiguration(options =>
+                {
+                    options.Connect(settings["ConnectionStrings:AppConfig"])
+                           .ConfigureRefresh(refresh =>
+                                {
+                                    refresh.Register("TestApp:Settings:Sentinel", refreshAll: true)
+                                           .SetCacheExpiration(new TimeSpan(0, 5, 0));
+                                });
+                });
+            })
+            .UseStartup<Startup>();
+    ```
     ---
 
     O método `ConfigureRefresh` é usado para especificar as configurações usadas para atualizar os dados de configuração com o repositório de Configuração de Aplicativos quando uma operação de atualização é disparada. O parâmetro `refreshAll` para o método `Register` indica que todos os valores de configuração deverão ser atualizados se a chave sentinela for alterada.
@@ -125,7 +142,7 @@ Uma *chave sentinela* é uma chave especial usada para sinalizar quando a config
 
     Para disparar de fato uma operação de atualização, configure um middleware de atualização para o aplicativo atualizar os dados de configuração quando ocorrer qualquer alteração. Você verá como fazer isso em uma etapa posterior.
 
-2. Adicione um arquivo *Settings.cs* que define e implementa uma nova classe `Settings`.
+2. Adicione um arquivo *Settings.cs* no diretório Controllers que define e implementa uma nova classe `Settings`. Substitua o namespace pelo nome do seu projeto. 
 
     ```csharp
     namespace TestAppConfig
@@ -142,16 +159,16 @@ Uma *chave sentinela* é uma chave especial usada para sinalizar quando a config
 
 3. Abra *Startup.cs* e use `IServiceCollection.Configure<T>` no método `ConfigureServices` para associar os dados de configuração à classe `Settings`.
 
-    #### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
+    #### <a name="net-5x"></a>[.NET 5.x](#tab/core5x)
 
     ```csharp
     public void ConfigureServices(IServiceCollection services)
     {
         services.Configure<Settings>(Configuration.GetSection("TestApp:Settings"));
-        services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+        services.AddControllersWithViews();
+        services.AddAzureAppConfiguration();
     }
     ```
-
     #### <a name="net-core-3x"></a>[.NET Core 3.x](#tab/core3x)
 
     ```csharp
@@ -159,33 +176,61 @@ Uma *chave sentinela* é uma chave especial usada para sinalizar quando a config
     {
         services.Configure<Settings>(Configuration.GetSection("TestApp:Settings"));
         services.AddControllersWithViews();
+        services.AddAzureAppConfiguration();
+    }
+    ```
+    #### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
+
+    ```csharp
+    public void ConfigureServices(IServiceCollection services)
+    {
+        services.Configure<Settings>(Configuration.GetSection("TestApp:Settings"));
+        services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+        services.AddAzureAppConfiguration();
     }
     ```
     ---
-
-    > [!TIP]
-    > Para saber mais sobre o padrão de opções ao ler valores de configuração, confira  [Padrões de opções no ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options?view=aspnetcore-3.1).
+    > [!Tip]
+    > Para saber mais sobre o padrão de opções ao ler valores de configuração, confira [Padrões de opções no ASP.NET Core](/aspnet/core/fundamentals/configuration/options).
 
 4. Atualize o método `Configure`, adicionando o middleware `UseAzureAppConfiguration` para permitir que as definições de configuração registradas para atualização sejam atualizadas enquanto o aplicativo Web ASP.NET Core continua a receber solicitações.
 
 
-    #### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
+    #### <a name="net-5x"></a>[.NET 5.x](#tab/core5x)
 
     ```csharp
-    public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     {
-        app.UseAzureAppConfiguration();
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
+            else
+            {
+                app.UseExceptionHandler("/Home/Error");
+                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+                app.UseHsts();
+            }
 
-        services.Configure<CookiePolicyOptions>(options =>
-        {
-            options.CheckConsentNeeded = context => true;
-            options.MinimumSameSitePolicy = SameSiteMode.None;
-        });
+            // Add the following line:
+            app.UseAzureAppConfiguration();
 
-        app.UseMvc();
+            app.UseHttpsRedirection();
+            
+            app.UseStaticFiles();
+
+            app.UseRouting();
+
+            app.UseAuthorization();
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
+            });
     }
     ```
-
     #### <a name="net-core-3x"></a>[.NET Core 3.x](#tab/core3x)
 
     ```csharp
@@ -221,9 +266,28 @@ Uma *chave sentinela* é uma chave especial usada para sinalizar quando a config
             });
     }
     ```
+    #### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
+
+    ```csharp
+    public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+    {
+        app.UseAzureAppConfiguration();
+
+        services.Configure<CookiePolicyOptions>(options =>
+        {
+            options.CheckConsentNeeded = context => true;
+            options.MinimumSameSitePolicy = SameSiteMode.None;
+        });
+
+        app.UseMvc();
+    }
+    ```
     ---
     
     O middleware usa a configuração de atualização especificada no método `AddAzureAppConfiguration` em `Program.cs` para disparar uma atualização para cada solicitação recebida pelo aplicativo Web ASP.NET Core. Para cada solicitação, uma operação de atualização é disparada e a biblioteca de clientes verifica se o valor armazenado em cache para a definição de configuração registrada expirou. Se tiver ele expirado, será atualizado.
+
+    > [!NOTE]
+    > A fim de garantir que a configuração seja atualizada, adicione o middleware assim que for apropriado ao pipeline de solicitação, de modo que ele não entre em curto-circuito devido a outro middleware no aplicativo.
 
 ## <a name="use-the-latest-configuration-data"></a>Usar os dados de configuração mais recentes
 
@@ -235,32 +299,9 @@ Uma *chave sentinela* é uma chave especial usada para sinalizar quando a config
 
 2. Atualize a classe `HomeController` para receber `Settings` por meio de injeção de dependência e faça uso de seus valores.
 
-    #### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
+ #### <a name="net-5x"></a>[.NET 5.x](#tab/core5x)
 
-    ```csharp
-    public class HomeController : Controller
-    {
-        private readonly Settings _settings;
-        public HomeController(IOptionsSnapshot<Settings> settings)
-        {
-            _settings = settings.Value;
-        }
-
-        public IActionResult Index()
-        {
-            ViewData["BackgroundColor"] = _settings.BackgroundColor;
-            ViewData["FontSize"] = _settings.FontSize;
-            ViewData["FontColor"] = _settings.FontColor;
-            ViewData["Message"] = _settings.Message;
-
-            return View();
-        }
-    }
-    ```
-
-    #### <a name="net-core-3x"></a>[.NET Core 3.x](#tab/core3x)
-
-    ```csharp
+```csharp
     public class HomeController : Controller
     {
         private readonly Settings _settings;
@@ -284,8 +325,57 @@ Uma *chave sentinela* é uma chave especial usada para sinalizar quando a config
 
         // ...
     }
-    ```
-    ---
+```
+#### <a name="net-core-3x"></a>[.NET Core 3.x](#tab/core3x)
+
+```csharp
+    public class HomeController : Controller
+    {
+        private readonly Settings _settings;
+        private readonly ILogger<HomeController> _logger;
+
+        public HomeController(ILogger<HomeController> logger, IOptionsSnapshot<Settings> settings)
+        {
+            _logger = logger;
+            _settings = settings.Value;
+        }
+
+        public IActionResult Index()
+        {
+            ViewData["BackgroundColor"] = _settings.BackgroundColor;
+            ViewData["FontSize"] = _settings.FontSize;
+            ViewData["FontColor"] = _settings.FontColor;
+            ViewData["Message"] = _settings.Message;
+
+            return View();
+        }
+
+        // ...
+    }
+```
+#### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
+
+```csharp
+    public class HomeController : Controller
+    {
+        private readonly Settings _settings;
+        public HomeController(IOptionsSnapshot<Settings> settings)
+        {
+            _settings = settings.Value;
+        }
+
+        public IActionResult Index()
+        {
+            ViewData["BackgroundColor"] = _settings.BackgroundColor;
+            ViewData["FontSize"] = _settings.FontSize;
+            ViewData["FontColor"] = _settings.FontColor;
+            ViewData["Message"] = _settings.Message;
+
+            return View();
+        }
+    }
+```
+---
 
 
 
@@ -316,15 +406,15 @@ Uma *chave sentinela* é uma chave especial usada para sinalizar quando a config
 
 1. Para criar o aplicativo usando a CLI do .NET Core, execute o seguinte comando no shell de comando:
 
-```console
+    ```console
         dotnet build
-```
+    ```
 
 1. Depois que a construção for concluída com êxito, execute o seguinte comando para executar o aplicativo Web localmente:
 
-```console
+    ```console
         dotnet run
-```
+    ```
 
 1. Abra uma janela do navegador e vá para a URL mostrada na saída `dotnet run`.
 
@@ -341,7 +431,7 @@ Uma *chave sentinela* é uma chave especial usada para sinalizar quando a config
     | TestApp:Settings:Message | Dados da Configuração de Aplicativo do Azure – agora com atualizações dinâmicas! |
     | TestApp:Settings:Sentinel | 2 |
 
-1. Atualize a página do navegador para ver as novas definições de configuração. Talvez seja necessário atualizar mais de uma vez para que as alterações sejam refletidas.
+1. Atualize a página do navegador para ver as novas definições de configuração. Talvez seja necessário atualizá-la mais de uma vez para que as alterações sejam refletidas ou alterar a taxa de atualização automática para menos de 5 minutos. 
 
     ![Como iniciar o aplicativo de início rápido atualizado localmente](./media/quickstarts/aspnet-core-app-launch-local-after.png)
 

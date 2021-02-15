@@ -1,20 +1,20 @@
 ---
 title: Configurar seu ambiente para o operador Blueprint
 description: Saiba como configurar seu ambiente do Azure para uso com a função interna do operador Blueprint do Azure.
-ms.date: 08/27/2020
+ms.date: 02/05/2021
 ms.topic: how-to
-ms.openlocfilehash: ef911553b4985a6497fb397a1ae405387c6539fb
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 0e0f6680ab39481a480919af10fadc0f7103a1fb
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89051450"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99591594"
 ---
 # <a name="configure-your-environment-for-a-blueprint-operator"></a>Configurar seu ambiente para um operador de Blueprint
 
 O gerenciamento de suas definições de plantas e atribuições de Blueprint pode ser atribuído a equipes diferentes. É comum que um arquiteto ou uma equipe de governança seja responsável pelo gerenciamento do ciclo de vida de suas definições de plantas, enquanto uma equipe de operações é responsável por gerenciar atribuições dessas definições de Blueprints controladas centralmente.
 
-O RBAC (controle de acesso baseado em função) interno do **operador Blueprint** é projetado especificamente para uso nesse tipo de cenário. A função permite que as equipes do tipo operações gerenciem a atribuição das definições do plano gráfico das organizações, mas não a capacidade de modificá-las. Isso requer algumas configurações em seu ambiente do Azure e este artigo explica as etapas necessárias.
+A função interna do **operador Blueprint** foi projetada especificamente para uso nesse tipo de cenário. A função permite que as equipes do tipo operações gerenciem a atribuição das definições do plano gráfico das organizações, mas não a capacidade de modificá-las. Isso requer algumas configurações em seu ambiente do Azure e este artigo explica as etapas necessárias.
 
 ## <a name="grant-permission-to-the-blueprint-operator"></a>Conceder permissão ao operador Blueprint
 
@@ -28,7 +28,9 @@ A primeira etapa é conceder a função **operador de Blueprint** para a conta o
 
 Uma definição de Blueprint pode usar identidades gerenciadas atribuídas pelo sistema ou pelo usuário. No entanto, ao usar a função de **operador Blueprint** , a definição de Blueprint precisa ser configurada para usar uma identidade gerenciada atribuída pelo usuário. Além disso, a conta ou grupo de segurança que recebeu a função **operador de Blueprint** precisa receber a função **operador de identidade gerenciada** na identidade gerenciada atribuída pelo usuário. Sem essa permissão, as atribuições do Blueprint falham devido à falta de permissões.
 
-1. [Criar uma identidade gerenciada atribuída pelo usuário](../../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity) para uso por um plano gráfico atribuído
+1. [Crie uma identidade gerenciada atribuída pelo usuário](../../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity) para uso por um plano gráfico atribuído.
+
+1. Conceda à identidade gerenciada atribuída pelo usuário qualquer função ou permissão exigida pela definição do Blueprint para o escopo pretendido.
 
 1. [Adicione uma atribuição de função](../../../role-based-access-control/role-assignments-portal.md#add-a-role-assignment) do **operador de identidade gerenciada** à conta ou ao grupo de segurança. Escopo a atribuição de função para a nova identidade gerenciada atribuída pelo usuário.
 

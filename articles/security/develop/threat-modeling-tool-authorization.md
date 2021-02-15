@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 77964eed6960a79920f359a03c65102ad949a210
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: b2ad38e518fa4b924992355990ea3eb06a338ebe
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89004656"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94693151"
 ---
 # <a name="security-frame-authorization--mitigations"></a>Estrutura de segurança: Autorização | Atenuações 
 | Produto/Serviço | Artigo |
@@ -32,11 +32,11 @@ ms.locfileid: "89004656"
 | **Gateway de Nuvem IoT** | <ul><li>[Conectar ao Gateway de Nuvem usando tokens com privilégios mínimos](#cloud-least-privileged)</li></ul> |
 | **Hub de Eventos do Azure** | <ul><li>[Usar uma chave SAS com a permissão somente envio para gerar tokens de dispositivo](#sendonly-sas)</li><li>[Não use tokens de acesso que forneçam acesso direto ao Hub de eventos](#access-tokens-hub)</li><li>[Conectar ao Hub de Eventos usando chaves SAS que tenham as permissões mínimas necessárias](#sas-minimum-permissions)</li></ul> |
 | **Azure DocumentDB** | <ul><li>[Usar tokens de recurso para se conectar ao Azure Cosmos DB sempre que possível](#resource-docdb)</li></ul> |
-| **Limite de Confiança do Azure** | <ul><li>[Habilitar o gerenciamento de acesso refinado à assinatura do Azure usando o RBAC](#grained-rbac)</li></ul> |
-| **Limite de confiança do Service Fabric** | <ul><li>[Restringir o acesso do cliente às operações de cluster usando o RBAC](#cluster-rbac)</li></ul> |
+| **Limite de Confiança do Azure** | <ul><li>[Habilitar o gerenciamento de acesso refinado à assinatura do Azure usando o RBAC do Azure](#grained-rbac)</li></ul> |
+| **Limite de confiança do Service Fabric** | <ul><li>[Restringir o acesso do cliente às operações de cluster usando o Azure RBAC](#cluster-rbac)</li></ul> |
 | **Dynamics CRM** | <ul><li>[Executar a modelagem de segurança e usar a segurança em nível de campo quando necessário](#modeling-field)</li></ul> |
 | **Portal do Dynamics CRM** | <ul><li>[Execute a modelagem de segurança das contas do portal tendo em mente que o modelo de segurança do portal é diferente do restante do CRM.](#portal-security)</li></ul> |
-| **Armazenamento do Azure** | <ul><li>[Conceder permissões refinadas em um intervalo de entidades no Armazenamento de Tabelas do Azure](#permission-entities)</li><li>[Habilitar o controle de acesso baseado em função (RBAC) na conta de armazenamento do Azure usando o Azure Resource Manager](#rbac-azure-manager)</li></ul> |
+| **Armazenamento do Azure** | <ul><li>[Conceder permissões refinadas em um intervalo de entidades no Armazenamento de Tabelas do Azure](#permission-entities)</li><li>[Habilitar o controle de acesso baseado em função do Azure (RBAC do Azure) para a conta de armazenamento do Azure usando Azure Resource Manager](#rbac-azure-manager)</li></ul> |
 | **Cliente móvel** | <ul><li>[Implementar detecção de modificação ou desbloqueio implícito](#rooting-detection)</li></ul> |
 | **WCF** | <ul><li>[Referência de classe fraca no WCF](#weak-class-wcf)</li><li>[Controle de autorização de implementação do WCF](#wcf-authz)</li></ul> |
 | **API da Web** | <ul><li>[Implementar o mecanismo de autorização adequado no ASP.NET Web API](#authz-aspnet)</li></ul> |
@@ -147,7 +147,7 @@ Isso impede que invasores adulterem e modifiquem a operação do aplicativo, por
 | **Fase do SDL**               | Build |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/D  |
-| **Referências**              | [Hierarquia de permissões do SQL](https://docs.microsoft.com/sql/relational-databases/security/permissions-hierarchy-database-engine), [protegíveis do SQL](https://docs.microsoft.com/sql/relational-databases/security/securables) |
+| **Referências**              | [Hierarquia de permissões do SQL](/sql/relational-databases/security/permissions-hierarchy-database-engine), [protegíveis do SQL](/sql/relational-databases/security/securables) |
 | **Etapas** | As contas com privilégios mínimos devem ser usadas para conexão com o banco de dados. O logon em aplicativos deve ser restrito no banco de dados, só deve executar os procedimentos armazenados selecionados e não deve conceder acesso direto à tabela. |
 
 ## <a name="implement-row-level-security-rls-to-prevent-tenants-from-accessing-each-others-data"></a><a id="rls-tenants"></a>Implementar a RLS (Segurança em Nível de Linha) para impedir que locatários acessem os dados uns dos outros
@@ -158,7 +158,7 @@ Isso impede que invasores adulterem e modifiquem a operação do aplicativo, por
 | **Fase do SDL**               | Build |  
 | **Tecnologias aplicáveis** | SQL Azure, OnPrem |
 | **Atributos**              | Versão do SQL - V12, Versão do SQL - MsSQL2016 |
-| **Referências**              | [Segurança em Nível de Linha (RLS) do SQL Server](https://msdn.microsoft.com/library/azure/dn765131.aspx) |
+| **Referências**              | [Segurança em Nível de Linha (RLS) do SQL Server](/sql/relational-databases/security/row-level-security) |
 | **Etapas** | <p>A Segurança em Nível de Linha permite aos clientes controlar o acesso às linhas em uma tabela de banco de dados com base nas características do usuário que executa uma consulta (por exemplo, uma associação de grupo ou um contexto de execução).</p><p>O RLS (nível de linha de segurança) simplifica o design e a codificação de segurança em seu aplicativo. Ela permite implementar restrições de acesso à linha de dados. Por exemplo, garantindo que os funcionários tenham acesso somente às linhas de dados relevantes aos seus respectivos departamento ou restringindo o acesso de um cliente apenas aos dados pertinentes à sua empresa.</p><p>A lógica de restrição de acesso é localizado na camada de banco de dados, em vez de longe dos dados em outra camada de aplicativo. O sistema de banco de dados aplica as restrições de acesso toda vez que há tentativa de acesso a dados a partir de qualquer camada. Isso torna o sistema de segurança mais robusto e confiável, reduzindo a área de superfície do sistema de segurança.</p><p>|
 
 Observe que a RLS como um recurso de banco de dados pronto para uso é aplicável somente a SQL Server iniciando 2016, banco de dados SQL do Azure e SQL Instância Gerenciada. Se o recurso RLS pronto para uso não for implementado, assegure que o acesso aos dados seja restringido com modos de exibição e procedimentos
@@ -171,7 +171,7 @@ Observe que a RLS como um recurso de banco de dados pronto para uso é aplicáve
 | **Fase do SDL**               | Build |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/D  |
-| **Referências**              | [Hierarquia de permissões do SQL](https://docs.microsoft.com/sql/relational-databases/security/permissions-hierarchy-database-engine), [protegíveis do SQL](https://docs.microsoft.com/sql/relational-databases/security/securables) |
+| **Referências**              | [Hierarquia de permissões do SQL](/sql/relational-databases/security/permissions-hierarchy-database-engine), [protegíveis do SQL](/sql/relational-databases/security/securables) |
 | **Etapas** | Os membros com a função de servidor fixa sysadmin devem ser muito limitados e não podem possuir contas usadas por aplicativos.  Revise a lista de usuários com essa função e remova todas as contas desnecessárias.|
 
 ## <a name="connect-to-cloud-gateway-using-least-privileged-tokens"></a><a id="cloud-least-privileged"></a>Conectar ao Gateway de Nuvem usando tokens com privilégios mínimos
@@ -182,7 +182,7 @@ Observe que a RLS como um recurso de banco de dados pronto para uso é aplicáve
 | **Fase do SDL**               | Implantação |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | Opção de gateway - Hub IoT do Azure |
-| **Referências**              | [Controle de acesso do Hub IOT](https://azure.microsoft.com/documentation/articles/iot-hub-devguide/#Security) |
+| **Referências**              | [Controle de acesso do Hub IOT](../../iot-hub/iot-hub-devguide.md) |
 | **Etapas** | Forneça permissões com privilégios mínimos para vários componentes que se conectam ao Gateway de Nuvem (Hub IoT). Um exemplo típico: o componente de gerenciamento/provisionamento de dispositivos usa os recursos de leitura/gravação do Registro, e o processador de eventos (ASA) usa o recurso de conexão de serviço. Dispositivos individuais se conectam usando as credenciais do dispositivo.|
 
 ## <a name="use-a-send-only-permissions-sas-key-for-generating-device-tokens"></a><a id="sendonly-sas"></a>Usar uma chave SAS com a permissão somente envio para gerar tokens de dispositivo
@@ -193,7 +193,7 @@ Observe que a RLS como um recurso de banco de dados pronto para uso é aplicáve
 | **Fase do SDL**               | Build |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/D  |
-| **Referências**              | [Visão geral do modelo de autenticação e segurança dos Hubs de Eventos](https://azure.microsoft.com/documentation/articles/event-hubs-authentication-and-security-model-overview/) |
+| **Referências**              | [Visão geral do modelo de autenticação e segurança dos Hubs de Eventos](../../event-hubs/authenticate-shared-access-signature.md) |
 | **Etapas** | Uma chave SAS é usada para gerar tokens para dispositivos individuais. Use uma chave SAS com a permissão somente envio ao gerar o token do dispositivo para um editor específico.|
 
 ## <a name="do-not-use-access-tokens-that-provide-direct-access-to-the-event-hub"></a><a id="access-tokens-hub"></a>Não usar tokens de acesso que fornecem acesso direto ao Hub de Eventos
@@ -204,8 +204,8 @@ Observe que a RLS como um recurso de banco de dados pronto para uso é aplicáve
 | **Fase do SDL**               | Build |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/D  |
-| **Referências**              | [Visão geral do modelo de autenticação e segurança dos Hubs de Eventos](https://azure.microsoft.com/documentation/articles/event-hubs-authentication-and-security-model-overview/) |
-| **Etapas** | Um token que concede acesso direto ao Hub de Eventos não deve ser fornecido para o dispositivo. Usar para o dispositivo um token com privilégios mínimos e que forneça acesso somente a um editor ajudaria a identificar o dispositivo e adicioná-lo à lista de bloqueios, caso ele seja um dispositivo invasor ou comprometido.|
+| **Referências**              | [Visão geral do modelo de autenticação e segurança dos Hubs de Eventos](../../event-hubs/authenticate-shared-access-signature.md) |
+| **Etapas** | Um token que concede acesso direto ao Hub de Eventos não deve ser fornecido para o dispositivo. Usar um token com privilégios mínimos para o dispositivo que fornece acesso somente a um Publicador ajudaria a identificar e não permitir, se for considerado um dispositivo não autorizado ou comprometido.|
 
 ## <a name="connect-to-event-hub-using-sas-keys-that-have-the-minimum-permissions-required"></a><a id="sas-minimum-permissions"></a>Conectar ao Hub de Eventos usando chaves SAS que tenham as permissões mínimas necessárias
 
@@ -215,7 +215,7 @@ Observe que a RLS como um recurso de banco de dados pronto para uso é aplicáve
 | **Fase do SDL**               | Build |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/D  |
-| **Referências**              | [Visão geral do modelo de autenticação e segurança dos Hubs de Eventos](https://azure.microsoft.com/documentation/articles/event-hubs-authentication-and-security-model-overview/) |
+| **Referências**              | [Visão geral do modelo de autenticação e segurança dos Hubs de Eventos](../../event-hubs/authenticate-shared-access-signature.md) |
 | **Etapas** | Forneça permissões de privilégio mínimo para vários aplicativos back-end que se conectam ao Hub de Eventos. Gere chaves SAS separadas para cada aplicativo de back-end e forneça apenas as permissões necessárias (Envio, Recebimento ou Gerenciamento) a eles.|
 
 ## <a name="use-resource-tokens-to-connect-to-cosmos-db-whenever-possible"></a><a id="resource-docdb"></a>Usar tokens de recurso para se conectar ao Cosmos DB sempre que possível
@@ -229,7 +229,7 @@ Observe que a RLS como um recurso de banco de dados pronto para uso é aplicáve
 | **Referências**              | N/D  |
 | **Etapas** | Um token de recurso é associado a um recurso de permissão do Azure Cosmos DB e captura a relação entre o usuário de um banco de dados e a permissão que ele tem para acessar um recurso de aplicativo específico do Azure Cosmos DB (por exemplo, uma coleção ou um documento). Use sempre um token de recurso para acessar o Azure Cosmos DB se o cliente não puder ser confiável para manipular a chave mestra ou chaves somente leitura, por exemplo, um aplicativo de usuário final, como cliente de dispositivo móvel ou de área de trabalho. Use a chave Mestra ou chaves somente leitura em aplicativos de back-end que podem armazenar essas chaves com segurança.|
 
-## <a name="enable-fine-grained-access-management-to-azure-subscription-using-rbac"></a><a id="grained-rbac"></a>Habilitar o gerenciamento de acesso refinado à assinatura do Azure usando o RBAC
+## <a name="enable-fine-grained-access-management-to-azure-subscription-using-azure-rbac"></a><a id="grained-rbac"></a>Habilitar o gerenciamento de acesso refinado à assinatura do Azure usando o RBAC do Azure
 
 | Title                   | Detalhes      |
 | ----------------------- | ------------ |
@@ -237,10 +237,10 @@ Observe que a RLS como um recurso de banco de dados pronto para uso é aplicáve
 | **Fase do SDL**               | Build |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/D  |
-| **Referências**              | [Usar as atribuições de função para gerenciar o acesso aos recursos de assinatura do Azure](https://azure.microsoft.com/documentation/articles/role-based-access-control-configure/)  |
-| **Etapas** | O Azure RBAC (controle de acesso baseado em função) permite o gerenciamento de acesso refinado para o Azure. Usando o RBAC, você pode conceder apenas a quantidade de acesso que os usuários precisam para realizar seus trabalhos.|
+| **Referências**              | [Adicionar ou remover atribuições de função do Azure para gerenciar o acesso aos recursos de sua assinatura do Azure](../../role-based-access-control/role-assignments-portal.md)  |
+| **Etapas** | O Azure RBAC (controle de acesso baseado em função) permite o gerenciamento de acesso refinado para o Azure. Usando o RBAC do Azure, você pode conceder apenas a quantidade de acesso que os usuários precisam para executar seus trabalhos.|
 
-## <a name="restrict-clients-access-to-cluster-operations-using-rbac"></a><a id="cluster-rbac"></a>Restringir o acesso do cliente ao cluster de operações usando o RBAC
+## <a name="restrict-clients-access-to-cluster-operations-using-service-fabric-rbac"></a><a id="cluster-rbac"></a>Restringir o acesso do cliente às operações de cluster usando o Service Fabric RBAC
 
 | Title                   | Detalhes      |
 | ----------------------- | ------------ |
@@ -248,7 +248,7 @@ Observe que a RLS como um recurso de banco de dados pronto para uso é aplicáve
 | **Fase do SDL**               | Implantação |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | Ambiente - Azure |
-| **Referências**              | [Controle de acesso baseado em função para clientes do Service Fabric](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security-roles/) |
+| **Referências**              | [Service Fabric o controle de acesso baseado em função para clientes Service Fabric](../../service-fabric/service-fabric-cluster-security-roles.md) |
 | **Etapas** | <p>O Service Fabric dá suporte a dois tipos de controle de acesso diferentes para clientes conectados a um cluster do Service Fabric: administrador e usuário. O controle de acesso permite que o administrador de cluster limite o acesso a determinadas operações de cluster para diferentes grupos de usuários, tornando o cluster mais seguro.</p><p>Os administradores têm acesso completo aos recursos de gerenciamento (incluindo recursos de leitura/gravação). Os usuários, por padrão, têm apenas acesso de leitura aos recursos de gerenciamento (por exemplo, recursos de consulta) e a capacidade de resolver serviços e aplicativos.</p><p>As duas funções de clientes (administrador ou cliente) são especificadas no momento da criação do cluster, com o fornecimento de certificados separados para cada um.</p>|
 
 ## <a name="perform-security-modeling-and-use-field-level-security-where-required"></a><a id="modeling-field"></a>Executar a modelagem de segurança e usar a segurança no nível do campo onde for necessário
@@ -281,10 +281,10 @@ Observe que a RLS como um recurso de banco de dados pronto para uso é aplicáve
 | **Fase do SDL**               | Build |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | Tipo de armazenamento - Tabela |
-| **Referências**              | [Como conceder acesso a objetos em sua conta de armazenamento do Azure usando SAS](https://azure.microsoft.com/documentation/articles/storage-security-guide/#_data-plane-security) |
+| **Referências**              | [Como conceder acesso a objetos em sua conta de armazenamento do Azure usando SAS](../../storage/blobs/security-recommendations.md#identity-and-access-management) |
 | **Etapas** | Em alguns cenários de negócios, o Armazenamento de Tabelas do Azure pode ser necessário para armazenar dados confidenciais que precisam ser acessados por várias pessoas diferentes. Por exemplo, dados confidenciais pertencentes a países/regiões diferentes. Nesses casos, as assinaturas SAS podem ser construídas especificando os intervalos de chaves de partição e de linha, de modo que um usuário pode acessar dados específicos para um país/região específico.| 
 
-## <a name="enable-role-based-access-control-rbac-to-azure-storage-account-using-azure-resource-manager"></a><a id="rbac-azure-manager"></a>Habilitar o controle de acesso baseado em função (RBAC) na conta de armazenamento do Azure usando o Azure Resource Manager
+## <a name="enable-azure-role-based-access-control-azure-rbac-to-azure-storage-account-using-azure-resource-manager"></a><a id="rbac-azure-manager"></a>Habilitar o controle de acesso baseado em função do Azure (RBAC do Azure) para a conta de armazenamento do Azure usando Azure Resource Manager
 
 | Title                   | Detalhes      |
 | ----------------------- | ------------ |
@@ -292,7 +292,7 @@ Observe que a RLS como um recurso de banco de dados pronto para uso é aplicáve
 | **Fase do SDL**               | Build |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/D  |
-| **Referências**              | [Como proteger a conta de armazenamento com o RBAC (Controle de Acesso Baseado em Função)](https://azure.microsoft.com/documentation/articles/storage-security-guide/#management-plane-security) |
+| **Referências**              | [Como proteger sua conta de armazenamento com o controle de acesso baseado em função do Azure (RBAC do Azure)](../../storage/blobs/security-recommendations.md) |
 | **Etapas** | <p>Ao criar uma nova conta de armazenamento, você seleciona o modelo de implantação Clássico ou o do Azure Resource Manager. O modelo Clássico de criação de recursos no Azure permite apenas acesso tudo ou nada à assinatura e, por sua vez, à conta de armazenamento.</p><p>Com o modelo do Azure Resource Manager, você coloca a conta de armazenamento em um grupo de recursos e controla o acesso ao plano de gerenciamento dessa conta de armazenamento específica usando o Azure Active Directory. Por exemplo, é possível permitir que usuários específicos acessem as chaves da conta de armazenamento, enquanto outros usuários podem exibir informações sobre a conta de armazenamento, mas não podem acessar suas chaves.</p>|
 
 ## <a name="implement-implicit-jailbreak-or-rooting-detection"></a><a id="rooting-detection"></a>Implementar detecção de modificação ou desbloqueio implícito
@@ -314,7 +314,7 @@ Observe que a RLS como um recurso de banco de dados pronto para uso é aplicáve
 | **Fase do SDL**               | Build |  
 | **Tecnologias aplicáveis** | Genérico, NET Framework 3 |
 | **Atributos**              | N/D  |
-| **Referências**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_class_reference) |
+| **Referências**              | [MSDN](/previous-versions/msp-n-p/ff648500(v=pandp.10)), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_class_reference) |
 | **Etapas** | <p>O sistema usa uma referência de classe fraca, permitindo que um invasor execute código não autorizado. O programa consulta uma classe definida pelo usuário que não é exclusivamente identificada. Quando .NET carrega essa classe de identificação fraca, o carregador do tipo CLR procura a classe nos seguintes locais e na ordem especificada:</p><ol><li>Se o assembly do tipo for conhecido, o carregador pesquisará os locais de redirecionamento do arquivo de configuração, GAC, o assembly atual que está usando as informações de configuração e o diretório base do aplicativo.</li><li>Se o assembly for desconhecido, o carregador pesquisará o assembly atual, mscorlib, e o local retornado pelo manipulador de eventos TypeResolve.</li><li>Essa ordem de pesquisa do CLR pode ser modificada com ganchos, como o mecanismo de encaminhamento de tipo e o evento AppDomain.TypeResolve.</li></ol><p>Se um invasor aproveitar a ordem de pesquisa do CLR para criar uma outra classe com o mesmo nome e colocá-la em um lugar que o CLR carregará primeiro, o CLR poderá acidentalmente executar o código fornecido pelo invasor.</p>|
 
 ### <a name="example"></a>Exemplo
@@ -351,7 +351,7 @@ O elemento `<behaviorExtensions/>` do arquivo de configuração do WCF abaixo so
 | **Fase do SDL**               | Build |  
 | **Tecnologias aplicáveis** | Genérico, NET Framework 3 |
 | **Atributos**              | N/D  |
-| **Referências**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_class_reference) |
+| **Referências**              | [MSDN](/previous-versions/msp-n-p/ff648500(v=pandp.10)), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_class_reference) |
 | **Etapas** | <p>Esse serviço não usa um controle de autorização. Quando um cliente chama um determinado serviço do WCF, o WCF fornece vários esquemas de autorização que verificar se o chamador tem permissão para executar o método de serviço no servidor. Se os controles de autorização não estiverem habilitados para os serviços do WCF, um usuário autenticado pode ter seus privilégios elevados.</p>|
 
 ### <a name="example"></a>Exemplo

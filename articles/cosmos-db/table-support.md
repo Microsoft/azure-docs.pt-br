@@ -4,20 +4,24 @@ description: Saiba como as Tabelas de Armazenamento do Azure e a API de Tabela d
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: how-to
-ms.date: 05/21/2020
+ms.date: 01/08/2021
 author: sakash279
 ms.author: akshanka
 ms.reviewer: sngun
-ms.openlocfilehash: 28c58251d9a30b3bae9d958c32c4d6a71f86aaae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: HT
+ms.openlocfilehash: c2b2a9a03a654e8ccba58e62a1d017cd11db5abc
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85263204"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98050742"
 ---
 # <a name="developing-with-azure-cosmos-db-table-api-and-azure-table-storage"></a>Desenvolver com a API de Tabela do Azure Cosmos DB e o Armazenamento de Tabelas do Azure
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 A API de Tabela do Azure Cosmos DB e o Armazenamento de Tabelas do Azure compartilham o mesmo modelo de dados de tabela e expõem as mesmas operações de criar, excluir, atualizar e consultar por meio de seus SDKs.
+
+> [!NOTE]
+> O [modo de capacidade sem servidor](serverless.md) já está disponível na API de Tabela do Azure Cosmos DB.
 
 [!INCLUDE [storage-table-cosmos-comparison](../../includes/storage-table-cosmos-comparison.md)]
 

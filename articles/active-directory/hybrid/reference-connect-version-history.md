@@ -1,6 +1,6 @@
 ---
 title: 'Azure AD Connect: Histórico de lançamento de versão | Microsoft Docs'
-description: Este artigo lista todas as versões do Azure AD Connect e do Azure AD Sync
+description: Este artigo lista todas as versões de Azure AD Connect e Azure AD Sync.
 services: active-directory
 author: billmath
 manager: daveba
@@ -12,12 +12,12 @@ ms.date: 08/07/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b0b0a98e80fb7f343411b49ff2ccd11046bcdc5
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 706f759243fd9edbd5f47633cb2638d6b06beec1
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88052922"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100376353"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Histórico de lançamento de versões
 A equipe do Azure AD (Azure Active Directory) atualiza regularmente o Azure AD Connect com novos recursos e funcionalidades. Nem todas as adições são aplicáveis a todos os públicos.
@@ -37,20 +37,25 @@ Baixar| [Baixar o Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=6157
 >[!NOTE]
 >O lançamento de uma nova versão do Azure AD Connect é um processo que requer várias etapas de controle de qualidade para garantir o bom funcionamento do serviço e, enquanto passamos por esse processo, o número de versão de uma nova versão, bem como o status da versão, é atualizado para refletir o estado mais recente.
 Enquanto passarmos por esse processo, o número de versão será mostrado com um "X" no lugar do número da versão secundária, como em "1.3.X.0"; isso indica que as notas sobre a versão deste documento são válidas para todas as versões que começam com "1.3.". Assim que finalizarmos o processo de versão, o número da versão será atualizado para a versão lançada mais recentemente e o status da versão será atualizado para "Liberado para download e atualização automática".
-Nem todas as versões do Azure AD Connect serão disponibilizadas para atualização automática. O status da versão indicará se uma versão foi disponibilizada para atualização automática ou apenas para baixar. Se a atualização automática foi habilitada no seu servidor do Azure AD Connect, então esse servidor atualizará automaticamente para a versão mais recente do Azure AD Connect que é liberado para atualização automática. Observe que nem todas as configurações do Azure AD Connect estão qualificadas para atualização automática. Siga este link para ler mais sobre [atualização automática](how-to-connect-install-automatic-upgrade.md)
+Nem todas as versões do Azure AD Connect serão disponibilizadas para atualização automática. O status da versão indicará se uma versão foi disponibilizada para atualização automática ou apenas para baixar. Se a atualização automática foi habilitada no seu servidor do Azure AD Connect, então esse servidor atualizará automaticamente para a versão mais recente do Azure AD Connect que é liberado para atualização automática. Observe que nem todas as configurações do Azure AD Connect estão qualificadas para atualização automática. 
+
+Para esclarecer o uso da atualização automática, é destinada a enviar por push todas as atualizações importantes e correções críticas para você. Isso não é necessariamente a versão mais recente, pois nem todas as versões exigirão/incluirão uma correção para um problema de segurança crítico (apenas um exemplo de muitos). Um problema como esse seria resolvido com uma nova versão fornecida por meio da atualização automática. Se não houver esses problemas, não haverá nenhuma atualização enviada usando a atualização automática e, em geral, se você estiver usando a versão de atualização automática mais recente, deverá ser bom.
+No entanto, se você quiser todos os recursos e atualizações mais recentes, a melhor maneira de ver se há algum é verificar essa página e instalá-las como desejar. 
+
+Siga este link para ler mais sobre [atualização automática](how-to-connect-install-automatic-upgrade.md)
 
 >[!IMPORTANT]
-> A partir de 1º de novembro de 2020, começaremos a implementar um processo de substituição pelo qual as versões do Azure AD Connect lançadas há mais de 18 meses serão preteridas. Vamos começar esse processo preterindo todas as versões do Azure AD Connect com a versão 1.3.20.0 (lançada em 24/4/2019) e anteriores, e continuaremos a avaliar a substituição de versões mais antigas do Azure AD Connect sempre que uma nova versão for lançada.
+> A partir de 1º de abril de 2024, desativaremos as versões de Azure AD Connect que foram lançadas antes de 1º de maio de 2018-versão 1.1.751.0 e mais antigas. 
 >
 > Você precisa verificar se está executando uma versão recente do Azure AD Connect para ter uma experiência de suporte ideal. 
 >
->Se você executar uma versão preterida do Azure AD Connect, talvez não tenha as correções de segurança, as melhorias de desempenho, a solução de problemas, as ferramentas de diagnóstico e aprimoramentos de serviço mais recentes e, se precisar de suporte, talvez não consiga receber o nível de serviço de que sua organização precisa.
+>Se você executar uma versão desativada do Azure AD Connect talvez você não tenha as mais recentes correções de segurança, melhorias de desempenho, solução de problemas e ferramentas de diagnóstico e aprimoramentos de serviço e, se precisar de suporte, talvez não seja possível fornecer o nível de serviço de que sua organização precisa.
 >
->Se você tiver habilitado Azure AD Connect para sincronização, começará automaticamente a receber notificações de Integridade que avisam sobre substituições futuras quando estiver executando uma das versões mais antigas.
+
 >
->Consulte [este artigo](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version) para saber mais sobre como atualizar o Azure AD Connect para a versão mais recente.
+>Consulte [este artigo](./how-to-upgrade-previous-version.md) para saber mais sobre como atualizar o Azure AD Connect para a versão mais recente.
 >
->Para obter informações de histórico de versão sobre versões preteridas, consulte [Azure ad Connect arquivo de histórico de lançamento de versão](reference-connect-version-history-archive.md)
+>Para obter informações de histórico de versão sobre versões desativadas, consulte [Azure ad Connect arquivo de histórico de lançamento de versão](reference-connect-version-history-archive.md)
 
 ## <a name="15450"></a>1.5.45.0
 
@@ -74,7 +79,7 @@ Este é um lançamento de correção de bug. Não há nenhuma alteração funcio
 ### <a name="functional-changes"></a>Alterações funcionais
 Esta versão inclui uma visualização pública da funcionalidade para exportar a configuração de um servidor de Azure AD Connect existente para um. Arquivo JSON que pode ser usado ao instalar um novo servidor de Azure AD Connect para criar uma cópia do servidor original.
 
-Uma descrição detalhada desse novo recurso pode ser encontrada neste [artigo](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-import-export-config)
+Uma descrição detalhada desse novo recurso pode ser encontrada neste [artigo](./how-to-connect-import-export-config.md)
 
 ### <a name="fixed-issues"></a>Problemas corrigidos
 - Corrigido um bug em que haveria um falso aviso sobre o tamanho do BD local nas compilações localizadas durante a atualização.
@@ -159,7 +164,7 @@ Esse build de hotfix corrigirá um problema no build 1.5.20.0 se você tiver clo
 ### <a name="release-status"></a>Status de liberação
 9/12/2019: Liberado para download. Não disponível pela atualização automática.
 ### <a name="new-features-and-improvements"></a>Novos recursos e aprimoramentos
-- Atualizamos a sincronização de hash de senha do Azure AD Domain Services para lidar adequadamente com preenchimento em hashes do Kerberos.  Isso fornecerá uma melhoria no desempenho durante a sincronização de senha do Azure AD para o Azure AD Domain Services.
+- Atualizamos a sincronização de hash de senha do Azure AD Domain Services para lidar adequadamente com preenchimento em hashes do Kerberos.  Isso fornecerá uma melhoria no desempenho durante a sincronização de senha do Azure AD para Azure AD Domain Services.
 - Adicionamos suporte a sessões confiáveis entre o agente de autenticação e o barramento de serviço.
 - Essa versão impõe o TLS 1.2 à comunicação entre o agente de autenticação e os serviços de nuvem.
 - Adicionamos um cache DNS para conexões WebSocket entre o agente de autenticação e os serviços de nuvem.
@@ -208,13 +213,13 @@ Corrigimos um bug no utilitário de compactação de erros de sincronização qu
 
 ### <a name="new-features-and-improvements"></a>Novos recursos e aprimoramentos
 - Novas ferramentas de solução de problemas ajudam a solucionar os cenários "usuário não está sincronizando", "grupo não está sincronizando" ou "membros do grupo não estão sincronizando".
-- Adicionar suporte para nuvens nacionais em Azure AD Connect script de solução de problemas 
+- Adicione suporte para nuvens nacionais em Azure AD Connect script de solução de problemas.
 - Os clientes devem ser informados de que os pontos de extremidade WMI preteridos de MIIS_Service foram removidos. Todas as operações de WMI agora devem ser feitas por meio de cmdlets do PS.
-- Segurança aprimorada com a redefinição da delegação restrita no objeto AZUREADSSOACC
+- Melhoria de segurança redefinindo a delegação restrita no objeto AZUREADSSOACC.
 - Quando você adiciona/edita uma regra de sincronização, se houver algum atributo usado na regra que esteja no esquema do conector, mas não tenha sido adicionado ao conector, os atributos serão adicionados automaticamente ao conector. O mesmo acontece para o tipo de objeto que a regra afeta. Se algo for adicionado ao conector, ele será marcado para importação completa no próximo ciclo de sincronização.
 - Não há mais suporte ao uso de Administrador Corporativo ou de Domínio como a conta do conector nas novas implantações do Azure AD Connect. As implantações Azure AD Connect atuais usando um administrador corporativo ou de domínio como a conta do conector não serão afetadas por esta versão.
 - No Gerenciador de Sincronização, uma sincronização completa é executada na criação/edição/exclusão de uma regra. Um pop-up será exibido quando houver alteração de regra e notificará o usuário em caso de importação completa ou sincronização completa.
-- Etapas de mitigação adicionadas à página 'Conectores > Propriedades > Conectividade' para lidar com erros de senha
+- Etapas de mitigação adicionadas para erros de senha à página ' conectores > Propriedades > conectividade '.
 - Foi adicionado um aviso de substituição do Synchronization Service Manager na página de propriedades do conector. Esse aviso notifica o usuário de que as alterações devem ser feitas por meio do assistente do Azure AD Connect.
 - Adição de novo erro em problemas com a política de senha de um usuário.
 - Impedimento de configuração incorreta da filtragem de grupo por filtros de domínio e UO. A filtragem de grupo mostrará um erro quando o domínio/a UO do grupo inserido já estiver filtrado e impedirá que o usuário avance até que o problema seja resolvido.
@@ -233,7 +238,7 @@ Corrigimos um bug no utilitário de compactação de erros de sincronização qu
 - Os pop-ups da ajuda agora aparecem no foco do teclado.
 - Para a atualização automática, se algum aplicativo conflitante estiver sendo executado há até 6 horas, ele é encerrado e o upgrade continua.
 - Limite o número de atributos que um cliente pode selecionar a 100 por objeto ao escolher extensões de diretório. Isso impedirá que o erro ocorra durante a exportação, pois o Azure tem o máximo de 100 atributos de extensão por objeto.
-- Corrigido um bug para tornar o script de conectividade do AD mais robusto
+- Correção de um bug para tornar o script de conectividade do AD mais robusto.
 - Correção de um bug para fazer Azure AD Connect instalar em um computador usando um serviço WCF de pipes nomeados existente mais robusto.
 - Diagnóstico aprimorado e solução de problemas em relação a políticas de grupo que não permitem que o serviço ADSync seja iniciado quando é instalado inicialmente.
 - Corrigido um bug em que o nome de exibição de um computador com Windows era gravado incorretamente.
@@ -244,11 +249,11 @@ Corrigimos um bug no utilitário de compactação de erros de sincronização qu
 
 ## <a name="13210"></a>1.3.21.0
 >[!IMPORTANT]
->Há um problema conhecido com a atualização do Azure AD Connect de uma versão anterior para 1.3.21.0 em que o portal do O365 não reflete a versão atualizada, mesmo que o Azure AD Connect tenha sido atualizado com êxito.
+>Há um problema conhecido com a atualização de Azure AD Connect de uma versão anterior para 1.3.21.0, em que o portal de Microsoft 365 não reflete a versão atualizada, mesmo que Azure AD Connect atualizada com êxito.
 >
-> Para resolver isso, você precisa importar o módulo **AdSync** e executar o cmdlet`Set-ADSyncDirSyncConfiguration` do PowerShell no servidor Azure AD Connect.  Use as seguintes etapas:
+> Para resolver isso, você precisa importar o módulo **AdSync** e, em seguida, executar o `Set-ADSyncDirSyncConfiguration` cmdlet do PowerShell no servidor de Azure ad Connect.  Use as seguintes etapas:
 >
->1. Abra o PowerShell no modo Administrador.
+>1. Abra o PowerShell no modo de administrador.
 >2. Execute `Import-Module "ADSync"`.
 >3. Execute `Set-ADSyncDirSyncConfiguration -AnchorAttribute ""`.
  

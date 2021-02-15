@@ -5,26 +5,30 @@ author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: overview
-ms.date: 07/26/2019
+ms.date: 01/08/2021
 ms.author: sngun
-ms.openlocfilehash: 91a6ae308faf31b3d3eb0c9f287dd5bd791f628e
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 1cf3bf30b37a09b5dfe94bf1e754a7f8e9dcd82c
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85557527"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98045658"
 ---
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Introdução ao Azure Cosmos DB: API de Tabela
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 O [Azure Cosmos DB](introduction.md) fornece a API de Tabela para aplicativos que são escritos para o Armazenamento de Tabelas do Azure e que precisam de recursos premium como:
 
 * [Distribuição global turnkey](distribute-data-globally.md).
-* [Taxa de transferência dedicada](partition-data.md) em todo o mundo.
+* [Taxa de transferência dedicada](partitioning-overview.md) em todo o mundo (ao usar a taxa de transferência provisionada).
 * Latências de dígito único em milissegundos no percentil 99.
 * Alta disponibilidade garantia.
 * Indexação automática secundária.
 
 Esses aplicativos escritos para o armazenamento de Tabelas do Azure podem migrar para o Azure Cosmos DB usando a API de Tabelas, sem alterações de código, e tirar proveito dos recursos premium. A API de Tabela tem SDKs de cliente disponíveis para .NET, Java, Python e Node.js.
+
+> [!NOTE]
+> O [modo de capacidade sem servidor](serverless.md) já está disponível na API de Tabela do Azure Cosmos DB.
 
 > [!IMPORTANT]
 > O SDK [Microsoft.Azure.CosmosDB.Table](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) do .NET Framework está no modo de manutenção e será preterido em breve. Atualize para [Microsoft.Azure.Cosmos.Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) da nova biblioteca do .NET Standard para continuar a obter os recursos mais recentes com suporte na API de Tabela.
@@ -36,11 +40,11 @@ Caso utilize o Armazenamento de Tabelas do Azure neste momento, você receberá 
 | --- | --- | --- |
 | Latency | Rápido, mas não há limites superiores de latência. | Latência de milissegundo de dígito único para leituras e gravações, com suporte latência de leituras e gravações de <10 ms no 99º percentil, em qualquer escala, em qualquer lugar do mundo. |
 | Produtividade | Modelo de taxa de transferência variável. As tabelas têm um limite de escalabilidade de 20.000 operações/s. | Altamente escalonável com [taxa de transferência reservada dedicada por tabela](request-units.md), que é respaldada por SLAs. As contas não têm nenhum limite superior na taxa de transferência e dão suporte para >10 milhões de operações/s por tabela. |
-| Distribuição global | Região única com uma região secundária legível opcional para alta disponibilidade. Você não pode iniciar o failover. | [Distribuição global turnkey](distribute-data-globally.md) de um a qualquer número de regiões. Suporte para [failovers automáticos e manuais](high-availability.md) a qualquer momento, em qualquer lugar no mundo. Funcionalidade de vários mestres para permitir que qualquer região aceite operações de gravação. |
+| Distribuição global | Região única com uma região secundária legível opcional para alta disponibilidade. | [Distribuição global turnkey](distribute-data-globally.md) de um a qualquer número de regiões. Suporte para [failovers automáticos e manuais](high-availability.md) a qualquer momento, em qualquer lugar no mundo. Várias regiões de gravação para permitir que todas as regiões aceitem operações de gravação. |
 | Indexação | Somente índice primário em PartitionKey e RowKey. Nenhum índice secundário. | Indexação automática e completa em todas as propriedades, por padrão, sem gerenciamento de índice. |
 | Consulta | A execução de consulta usa o índice para chave primária. Caso contrário, realiza a verificação. | As consultas podem aproveitar a indexação automática em propriedades para tempos rápidos de consulta. |
 | Consistência | Forte na região primária. Eventual na região secundária. | [Cinco níveis de consistência bem definidos](consistency-levels.md) para compensar a disponibilidade, latência, taxa de transferência e consistência com base nas necessidades do seu aplicativo. |
-| Preços | Otimização de armazenamento. | Otimização de taxa de transferência. |
+| Preços | Baseado em consumo. | Disponível nos modos [baseado em consumo](serverless.md) e [capacidade provisionada](set-throughput.md). |
 | SLAs | Disponibilidade de 99,9% a 99,99%, dependendo da estratégia de replicação. | Disponibilidade de leitura de 99,999%, disponibilidade de gravação de 99,99% em uma conta de região única e disponibilidade de gravação de 99,999% em contas de várias regiões. [SLAs abrangentes](https://azure.microsoft.com/support/legal/sla/cosmos-db/) que abrangem a disponibilidade, latência, taxa de transferência e consistência. |
 
 ## <a name="get-started"></a>Introdução

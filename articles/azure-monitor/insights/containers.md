@@ -3,15 +3,15 @@ title: Solução de monitoramento de contêiner no Azure Monitor | Microsoft Doc
 description: A solução de monitoramento de contêiner no Azure Monitor ajuda a exibir e gerenciar seus hosts de contêiner do Docker e do Windows em um único local.
 ms.subservice: logs
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 07/06/2020
-ms.openlocfilehash: b681e3fa4963a8fe899ccbad8dbf1bbdfbe452ce
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 483113fc508800eb126ee39f146c1fa34e5dba5e
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326895"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165698"
 ---
 # <a name="container-monitoring-solution-in-azure-monitor"></a>Solução de monitoramento de contêiner no Azure Monitor
 
@@ -45,13 +45,13 @@ Antes de começar, examine os detalhes a seguir para verificar se você atende a
 
 A tabela a seguir descreve a orquestração do Docker e o suporte ao monitoramento do sistema operacional de inventário de contêiner, desempenho e logs com Azure Monitor.   
 
-|Orquestração do Docker | ACS | Linux | Windows | Contêiner<br>Inventário | Imagem<br>Inventário | Nó<br>Inventário | Contêiner<br>Desempenho | Contêiner<br>Evento | Evento<br>Log | Contêiner<br>Log |
+|Orquestração do Docker | ACS | Linux | Windows | Contêiner<br>Inventário | Imagem<br>Inventário | Nó<br>Inventário | Contêiner<br>Desempenho | Contêiner<br>Evento | Evento<br>Registro | Contêiner<br>Registro |
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
 | Kubernetes | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
 | Mesosphere<br>DC/OS | &#8226; | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; |
 | Docker<br>Swarm | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
 | Serviço<br>Fabric | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
-| Red Hat Open<br>Turno | | &#8226; | | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; | | &#8226; |
+| Red Hat Open<br>Shift | | &#8226; | | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; | | &#8226; |
 | Windows Server<br>(autônomo) | | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
 | Linux Server<br>(autônomo) | | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
 
@@ -476,12 +476,12 @@ Para usar helm para implantar o agente do Log Analytics em seu ambiente Linux Ku
  
     RESOURCES:
     ==> v1/Secret
-    NAME            TYPE    DATA  AGE
-    omsagent-msoms  Opaque  3     17m
+    NAME            TYPE    DATA  AGE
+    omsagent-msoms  Opaque  3     17m
  
     ==> v1beta1/DaemonSet
-    NAME            DESIRED  CURRENT  READY  UP-TO-DATE  AVAILABLE  NODE-SELECTOR  AGE
-    omsagent-msoms  3        3        3      3           3          <none>         17m
+    NAME            DESIRED  CURRENT  READY  UP-TO-DATE  AVAILABLE  NODE-SELECTOR  AGE
+    omsagent-msoms  3        3        3      3           3          <none>         17m
     ```
    
     Para obter mais informações, visite [Gráfico Contêiner de Solução Helm](https://aka.ms/omscontainerhelm).
@@ -574,7 +574,7 @@ Clique no bloco **Contêineres**. A partir daí, você verá exibições organiz
 
 Cada área do painel é uma representação visual de uma pesquisa executada nos dados coletados.
 
-![Painel de Contêineres](./media/containers/containers-dash01.png)
+![Captura de tela que mostra um painel para exibir os dados coletados. ](./media/containers/containers-dash01.png)
 
 ![Painel de Contêineres](./media/containers/containers-dash02.png)
 
@@ -599,9 +599,9 @@ O Log Analytics marca um contêiner como **Com Falha** se ele tiver sido encerra
 2. Log Analytics abre e exibe o estado de seus contêineres, semelhante ao seguinte.  
    ![estado dos contêineres](./media/containers/containers-log-search.png)
 3. Expanda a linha com falha e clique em + para adicionar seus critérios à consulta. Em seguida, comente a linha de resumo na consulta.
-   ![contêineres com falha](./media/containers/containers-state-failed-select.png)  
+   ![Captura de tela que mostra a linha que deve ser comentada.](./media/containers/containers-state-failed-select.png)  
 1. Execute a consulta e, em seguida, expanda uma linha nos resultados para exibir a ID da imagem.  
-   ![contêineres com falha](./media/containers/containers-state-failed.png)  
+   ![Captura de tela que mostra como exibir a ID da imagem.](./media/containers/containers-state-failed.png)  
 1. Digite o seguinte na consulta de log. `ContainerImageInventory | where ImageID == <ImageID>` para ver detalhes sobre a imagem, como o tamanho da imagem e o número de imagens paradas e com falha.  
    ![contêineres com falha](./media/containers/containers-failed04.png)
 

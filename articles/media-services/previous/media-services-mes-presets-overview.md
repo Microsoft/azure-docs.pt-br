@@ -14,14 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 1d264b0ae0b06079a45cd1e862144a6920133901
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: aa0514834d1619bbbae4501fe6b1af16d7964ff7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87038433"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89261468"
 ---
 # <a name="sample-presets-for-media-encoder-standard-mes"></a>Predefinições de exemplo para MES (Media Encoder Standard)
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 O **Media Encoder Standard** define um conjunto de predefinições de codificação de sistema predefinido que pode ser usado ao criar trabalhos de codificação. Será recomendável usar a predefinição “Transmissão Adaptável” se você desejar codificar um vídeo para transmissão com os Serviços de Mídia. Ao especificar essa predefinição, o Media Encoder Standard [gerará uma escada de taxa de bits automaticamente](media-services-autogen-bitrate-ladder-with-mes.md). 
 

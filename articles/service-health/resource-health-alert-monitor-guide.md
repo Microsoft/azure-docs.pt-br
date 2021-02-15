@@ -3,21 +3,18 @@ title: Criar Resource Health alertas usando o portal do Azure
 description: Crie um alerta usando portal do Azure que o notifique quando os recursos do Azure ficarem indisponíveis.
 ms.topic: conceptual
 ms.date: 6/23/2020
-ms.openlocfilehash: 3a0f4704880d040106a2e4112d621b6d8ffbede6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 127aad1691f7bb6b6c64332eefde734a809ab75f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091565"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91540669"
 ---
 # <a name="configure-resource-health-alerts-using-azure-portal"></a>Configurar alertas do Resource Health usando o portal do Azure
 
 Este artigo mostra como configurar alertas do log de atividades para notificações do Resource Health usando o portal do Azure.
 
 O Azure Resource Health mantém você informado sobre o status de integridade atual e histórico de seus recursos do Azure. Os alertas do Azure Resource Health podem notificar você quase em tempo real quando esses recursos tiverem uma alteração no seu status de integridade. Criar alertas do Resource Health por meio de programação permite que usuários criem e personalizem alertas em massa.
-
-> [!NOTE]
-> Resource Health alertas estão atualmente em versão prévia.
 
 As notificações do Resource Health são armazenadas no [log de atividades do Azure](../azure-monitor/platform/platform-logs-overview.md) , considerando o volume possivelmente grande de informações armazenadas no log de atividades, há uma interface do usuário separada para facilitar a exibição e a configuração de alertas em notificações do Resource Health.
 Você pode receber um alerta quando o recurso do Azure envia notificações de integridade de recursos para sua assinatura do Azure. Você pode configurar o alerta de acordo com:

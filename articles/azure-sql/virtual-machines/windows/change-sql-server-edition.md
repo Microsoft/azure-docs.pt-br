@@ -6,19 +6,20 @@ documentationcenter: na
 author: MashaMSFT
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
-ms.topic: article
+ms.subservice: management
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/14/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 60020667126fe76d33264795ddb2e17e1241a7b2
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: b6ea6f947b2cd8d7d9c38a0e5e440ce5fd273bb7
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88236277"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97358819"
 ---
 # <a name="in-place-change-of-sql-server-edition-on-azure-vm"></a>Alteração no local da edição do SQL Server na VM do Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -34,7 +35,7 @@ Depois que a edição do SQL Server tiver sido alterada internamente para a VM d
 Para fazer uma alteração no local da edição do SQL Server, você precisará do seguinte: 
 
 - Uma [assinatura do Azure](https://azure.microsoft.com/free/).
-- Uma [VM do SQL Server no Windows](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) registrada no [provedor de recursos de VM do SQL](sql-vm-resource-provider-register.md).
+- Uma [VM SQL Server no Windows](./create-sql-vm-portal.md) registrada com a [extensão do SQL IaaS Agent](sql-agent-extension-manually-register-single-vm.md).
 - A mídia de instalação com a **edição desejada** do SQL Server. Os clientes que têm [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default) podem obter a mídia de instalação deles do [Centro de Licenciamento por Volume](https://www.microsoft.com/Licensing/servicecenter/default.aspx). Os clientes que não têm o Software Assurance podem usar a mídia de instalação de uma imagem da VM do SQL Server do Azure Marketplace que tenha a edição desejada por eles (normalmente localizada em `C:\SQLServerFull`). 
 
 
@@ -75,7 +76,7 @@ Depois que o downgrade da edição do SQL Server for feito, modifique a propried
 
 ## <a name="change-edition-in-portal"></a>Alterar edição no portal 
 
-Depois que você tiver alterado a edição do SQL Server usando a mídia de instalação e tiver registrado a VM do SQL Server com o [provedor de recursos da VM do SQL](sql-vm-resource-provider-register.md), poderá usar o portal do Azure para modificar a propriedade de edição da VM do SQL Server para fins de cobrança. Para fazer isso, siga estas etapas: 
+Depois de alterar a edição do SQL Server usando a mídia de instalação e tiver registrado sua VM do SQL Server com a [extensão do SQL IaaS Agent](sql-agent-extension-manually-register-single-vm.md), você poderá usar o portal do Azure para modificar a propriedade de edição da VM SQL Server para fins de cobrança. Para fazer isso, siga estas etapas: 
 
 1. Entre no [portal do Azure](https://portal.azure.com). 
 1. Vá para seu recurso de máquina virtual do SQL Server. 
@@ -91,7 +92,7 @@ Depois que você tiver alterado a edição do SQL Server usando a mídia de inst
 
 - A propriedade de edição para a VM do SQL Server precisa corresponder à edição da instância do SQL Server instalada para todas as máquinas virtuais do SQL Server, incluindo os tipos de licença pago conforme o uso e traga sua própria licença.
 - Se você remover o recurso de VM do SQL Server, voltará para a configuração de edição embutida em código da imagem.
-- A capacidade de alterar a edição é um recurso do provedor de recursos de VM do SQL. Implantar uma imagem do Azure Marketplace por meio do portal do Azure registra automaticamente uma VM do SQL Server no provedor de recursos. Mas os clientes que estão instalando automaticamente o SQL Server precisarão [registrar manualmente a respectiva VM do SQL Server](sql-vm-resource-provider-register.md).
+- A capacidade de alterar a edição é um recurso da extensão do agente IaaS do SQL. A implantação de uma imagem do Azure Marketplace por meio do portal do Azure registra automaticamente uma VM SQL Server com a extensão do agente IaaS do SQL. Mas os clientes que estão instalando automaticamente o SQL Server precisarão [registrar manualmente a respectiva VM do SQL Server](sql-agent-extension-manually-register-single-vm.md).
 - Para adicionar uma VM do SQL Server a um conjunto de disponibilidade, é preciso criar a VM novamente. Todas as VMs adicionadas a um conjunto de disponibilidade voltarão para a edição padrão e a edição precisará ser modificada novamente.
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -102,5 +103,3 @@ Para obter mais informações, consulte os seguintes artigos:
 * [Perguntas frequentes sobre o SQL Server em uma VM do Windows](frequently-asked-questions-faq.md)
 * [Diretrizes de preço para o SQL Server em uma VM do Windows](pricing-guidance.md)
 * [Notas sobre a versão do SQL Server em uma VM do Windows](doc-changes-updates-release-notes.md)
-
-

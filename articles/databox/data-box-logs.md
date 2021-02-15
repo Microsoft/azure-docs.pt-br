@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 07/10/2020
 ms.author: alkohli
-ms.openlocfilehash: 50dbbe3a6a1af1e73cdf1ee7f5bd3a63cf2f6a50
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: a9304936f746b82b59550d62e8b60a9e0035d188
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498796"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147931"
 ---
 # <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy-import-order"></a>Rastreamento e log de eventos para sua Azure Data Box e Azure Data Box Heavy ordem de importação
 
@@ -23,7 +23,7 @@ A tabela a seguir mostra um resumo das etapas de ordem de importação Data Box 
 
 | Estágio de ordem de importação de Data Box       | Ferramenta para acompanhar e auditar                                                                        |
 |----------------------------|------------------------------------------------------------------------------------------------|
-| Criar pedido               | [Configurar o controle de acesso na ordem por meio de RBAC](#set-up-access-control-on-the-order)                                                    |
+| Criar pedido               | [Configurar o controle de acesso na ordem por meio do RBAC do Azure](#set-up-access-control-on-the-order)                                                    |
 | Pedido processado            | [Acompanhar o pedido](#track-the-order) <ul><li> Portal do Azure </li><li> Site da transportadora </li><li>Notificações por email</ul> |
 | Configurar o dispositivo              | Acesso de credenciais de dispositivo [logs de atividade](#query-activity-logs-during-setup) registrados                                              |
 | Cópia de dados para o dispositivo        | [Exibir arquivos de *error.xml* ](#view-error-log-during-data-copy) para cópia de dados                                                             |
@@ -47,7 +47,7 @@ Para restringir o acesso a um pedido, você pode:
 - Atribua uma função em um nível de pedido. O usuário só tem essas permissões, conforme definido pelas funções para interagir com essa Data Box ordem específica apenas e nada mais.
 - Atribua uma função no nível do grupo de recursos, o usuário tem acesso a todos os Data Box pedidos em um grupo de recursos.
 
-Para obter mais informações sobre o uso do RBAC sugerido, consulte [práticas recomendadas para o RBAC do Azure](../role-based-access-control/best-practices.md).
+Para obter mais informações sobre o uso do RBAC do Azure sugerido, consulte [práticas recomendadas para o RBAC do Azure](../role-based-access-control/best-practices.md).
 
 ## <a name="track-the-order"></a>Acompanhar o pedido
 
@@ -297,7 +297,7 @@ Depois que os dados são apagados dos discos de Data Box de acordo com as diretr
 
 ### <a name="audit-logs"></a>Logs de auditoria
 
-Os logs de auditoria contêm informações sobre como ligar e acessar compartilhamentos no Data Box ou Data Box Heavy quando estiver fora do datacenter do Azure. Esses logs estão localizados em:`storage-account/azuredatabox-chainofcustodylogs`
+Os logs de auditoria contêm informações sobre como ligar e acessar compartilhamentos no Data Box ou Data Box Heavy quando estiver fora do datacenter do Azure. Esses logs estão localizados em: `storage-account/azuredatabox-chainofcustodylogs`
 
 Aqui está um exemplo do log de auditoria de um Data Box:
 

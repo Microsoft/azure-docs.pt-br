@@ -1,18 +1,17 @@
 ---
 title: Processar fluxos de dados IoT em tempo real com Azure Stream Analytics
 description: Marcas e dados de sensor de fluxos IoT com o processamento de dados em tempo real e Stream Analytics
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 11/26/2019
-ms.openlocfilehash: a40f92e88d2d8e5ca253446b9c67ad30df538a5b
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: a438401ff93c20d8759e6128936c3626bd3de484
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86043420"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98012675"
 ---
 # <a name="process-real-time-iot-data-streams-with-azure-stream-analytics"></a>Processar fluxos de dados IoT em tempo real com Azure Stream Analytics
 
@@ -125,7 +124,7 @@ HAVING Avg(temp)>100
 
 ![Consulta de filtro de 30 segundos](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-10.png)
 
-Você deve ver os resultados que contêm apenas 245 linhas e nomes de sensores em que a média de temperatura é maior que 100. Esta consulta agrupa o fluxo de eventos por **dspl**, que é o nome de sensor, sobre uma **Janela em Cascata** de 30 segundos. As consultas temporais devem indicar como você deseja o tempo de andamento. Usando a cláusula **timestamp by** , você especificou a coluna **OutputType** para associar tempos a todos os cálculos temporais. Para obter informações detalhadas, leia sobre o [Gerenciamento de tempo](https://docs.microsoft.com/stream-analytics-query/time-management-azure-stream-analytics) e as [funções de janela](https://docs.microsoft.com/stream-analytics-query/windowing-azure-stream-analytics).
+Você deve ver os resultados que contêm apenas 245 linhas e nomes de sensores em que a média de temperatura é maior que 100. Esta consulta agrupa o fluxo de eventos por **dspl**, que é o nome de sensor, sobre uma **Janela em Cascata** de 30 segundos. As consultas temporais devem indicar como você deseja o tempo de andamento. Usando a cláusula **timestamp by** , você especificou a coluna **OutputType** para associar tempos a todos os cálculos temporais. Para obter informações detalhadas, leia sobre o [Gerenciamento de tempo](/stream-analytics-query/time-management-azure-stream-analytics) e as [funções de janela](/stream-analytics-query/windowing-azure-stream-analytics).
 
 ### <a name="query-detect-absence-of-events"></a>Consulta: detectar ausência de eventos
 
@@ -148,9 +147,8 @@ WHERE t2.dspl IS NULL
 
 ![Detectar ausência de eventos](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-11.png)
 
-Aqui, usamos uma junção **EXTERNA ESQUERDA** no mesmo fluxo de dados (autojunção). Para uma junção **INTERNA**, um resultado retorna somente quando uma correspondência é encontrada.  Mas para uma junção **EXTERNA ESQUERDA**, se um evento do lado esquerdo da junção for incomparável, uma linha com NULL para todas as colunas do lado direito retornará. Essa técnica é muito útil para localizar a ausência de eventos. Para obter mais informações, consulte [Join](https://docs.microsoft.com/stream-analytics-query/join-azure-stream-analytics).
+Aqui, usamos uma junção **EXTERNA ESQUERDA** no mesmo fluxo de dados (autojunção). Para uma junção **INTERNA**, um resultado retorna somente quando uma correspondência é encontrada.  Mas para uma junção **EXTERNA ESQUERDA**, se um evento do lado esquerdo da junção for incomparável, uma linha com NULL para todas as colunas do lado direito retornará. Essa técnica é muito útil para localizar a ausência de eventos. Para obter mais informações, consulte [Join](/stream-analytics-query/join-azure-stream-analytics).
 
 ## <a name="conclusion"></a>Conclusão
 
 A finalidade deste artigo é demonstrar como escrever diferentes consultas de linguagem de consulta Stream Analytics e ver os resultados no navegador. No entanto, isso é apenas para começar. O Stream Analytics dá suporte a várias entradas e saídas e ainda pode usar as funções no Azure Machine Learning para torná-la uma ferramenta robusta de análise de fluxos de dados. Para saber mais sobre como escrever consultas, leia o artigo sobre [padrões comuns de consulta](stream-analytics-stream-analytics-query-patterns.md).
-

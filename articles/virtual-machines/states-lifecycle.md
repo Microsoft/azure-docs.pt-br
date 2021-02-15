@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 08/09/2018
 ms.author: vashan
-ms.openlocfilehash: cd104a31fdba932481889db198ae3cc4998a4466
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 8c9641e722cf3892450bbfbea54f169ac6dc764b
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88261881"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91963288"
 ---
 # <a name="virtual-machines-lifecycle-and-states"></a>Ciclo de vida e estados de máquinas virtuais
 
@@ -288,7 +288,7 @@ Aqui estão os estados operação de transição depois que a plataforma aceitou
 :::row:::
    :::column span="":::
 
-   **Excluindo**
+   **Excluir**
 
    :::column-end:::
    :::column span="2":::
@@ -418,13 +418,13 @@ Depois que a operação for concluída, a VM fará a transição para um dos seg
 
 ## <a name="vm-instance-view"></a>Exibição de instância da VM
 
-A API de exibição de instância fornece informações sobre o estado de execução da VM. Para obter mais informações, consulte a documentação da API [Máquinas virtuais – Exibição de instância](https://docs.microsoft.com/rest/api/compute/virtualmachines/instanceview).
+A API de exibição de instância fornece informações sobre o estado de execução da VM. Para obter mais informações, consulte a documentação da API [Máquinas virtuais – Exibição de instância](/rest/api/compute/virtualmachines/instanceview).
 
 O Gerenciador de recursos do Azure fornece uma interface do usuário simple para exibir o estado de execução de VM: [Resource Explorer](https://resources.azure.com/).
 
 Os estados de provisionamento são visíveis na exibição de instância e de propriedades da VM. Os estados de energia estão disponíveis na exibição de instância da VM.
 
-Para recuperar o estado de energia de todas as VMs em sua assinatura, use a [API máquinas virtuais-listar todas as APIs](https://docs.microsoft.com/rest/api/compute/virtualmachines/listall) com o parâmetro **statusOnly** definido como *true*.
+Para recuperar o estado de energia de todas as VMs na sua assinatura, use a [API Máquinas Virtuais – Listar Todas](/rest/api/compute/virtualmachines/listall) com o parâmetro **statusOnly** definido como *true*.
 
 ## <a name="next-steps"></a>Próximas etapas
 

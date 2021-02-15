@@ -1,24 +1,26 @@
 ---
 title: Definir chaves exclusivas para um contêiner do Azure Cosmos
-description: Saiba como definir chaves exclusivas para um contêiner Cosmos do Azure usando portal do Azure, PowerShell, .net, Java e vários outros SDKs.
+description: Saiba como definir chaves exclusivas para um contêiner Cosmos do Azure usando portal do Azure, PowerShell, .NET, Java e vários outros SDKs.
 author: ThomasWeiss
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 12/02/2019
 ms.author: thweiss
-ms.custom: devx-track-python, devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: 413664b790423fb5eafb58e2baaee46e10c6a929
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp
+ms.openlocfilehash: 55fc5222c1c245c56ba0a26caa816c5c845147c1
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89019956"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93336598"
 ---
 # <a name="define-unique-keys-for-an-azure-cosmos-container"></a>Definir chaves exclusivas para um contêiner do Azure Cosmos
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Este artigo apresenta as diferentes maneiras de definir [chaves exclusivas](unique-keys.md) durante a criação de um contêiner do Azure Cosmos. Atualmente é possível executar essa operação usando o portal do Azure ou por meio de um dos SDKs.
 
-## <a name="use-the-azure-portal"></a>Usar o portal do Azure
+## <a name="use-the-azure-portal"></a>Use o Portal do Azure
 
 1. Entre no [portal do Azure](https://portal.azure.com/).
 
@@ -28,7 +30,7 @@ Este artigo apresenta as diferentes maneiras de definir [chaves exclusivas](uniq
 
 1. Clique em **Novo Contêiner**.
 
-1. Na caixa de diálogo **Adicionar Contêiner**, clique em **+ Adicionar chave exclusiva** para adicionar uma entrada de chave exclusiva.
+1. Na caixa de diálogo **Adicionar Contêiner** , clique em **+ Adicionar chave exclusiva** para adicionar uma entrada de chave exclusiva.
 
 1. Insira o(s) caminho(s) de restrição de chave exclusiva
 
@@ -36,7 +38,7 @@ Este artigo apresenta as diferentes maneiras de definir [chaves exclusivas](uniq
 
     :::image type="content" source="./media/how-to-define-unique-keys/unique-keys-portal.png" alt-text="Captura de tela de entrada de restrição de chave exclusiva no portal do Azure":::
 
-## <a name="use-powershell"></a>Usar o Powershell
+## <a name="use-powershell"></a>Usar o PowerShell
 
 Para criar um contêiner com chaves exclusivas, consulte [criar um contêiner Cosmos do Azure com chave exclusiva e TTL](manage-with-powershell.md#create-container-unique-key-ttl)
 
@@ -151,5 +153,5 @@ client.CreateContainer('dbs/' + config['DATABASE'], {
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre o [particionamento](partition-data.md)
+- Saiba mais sobre o [particionamento](partitioning-overview.md)
 - Explore [como funciona a indexação](index-overview.md)

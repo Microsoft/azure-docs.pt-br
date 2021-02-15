@@ -9,34 +9,32 @@
     - name: Criar um balanceador de carga público – portal
       href: quickstart-load-balancer-standard-public-portal.md
     - name: Criar um balanceador de carga público – PowerShell
-      href: quickstart-create-standard-load-balancer-powershell.md
+      href: quickstart-load-balancer-standard-public-powershell.md
     - name: Criar um balanceador de carga público – CLI do Azure
       href: quickstart-load-balancer-standard-public-cli.md
     - name: Criar um balanceador de carga público – modelo ARM
+      displayName: Resource Manager
       href: quickstart-load-balancer-standard-public-template.md
     - name: Criar um balanceador de carga interno – portal
       href: quickstart-load-balancer-standard-internal-portal.md
+    - name: Criar balanceador de carga interno – PowerShell
+      href: quickstart-load-balancer-standard-internal-powershell.md
     - name: Criar um balanceador de carga interno – CLI do Azure
       href: quickstart-load-balancer-standard-internal-cli.md
+    - name: Criar balanceador de carga interno – modelo do ARM
+      displayName: Resource Manager
+      href: quickstart-load-balancer-standard-internal-template.md
   expanded: true
 - name: Tutoriais
   items:
-    - name: Balanceador de Carga Interno
-      items:
-        - name: Criar um Load Balancer interno – Portal
-          href: tutorial-load-balancer-standard-internal-portal.md
-        - name: Criar um Load Balancer interno – CLI do Azure
-          href: load-balancer-get-started-ilb-arm-cli.md
-        - name: Criar um Load Balancer interno – Azure PowerShell
-          href: load-balancer-get-started-ilb-arm-ps.md
-        - name: Criar um Load Balancer interno – Modelo do Resource Manager
-          href: load-balancer-get-started-ilb-arm-template.md
     - name: VMs com balanceamento de carga entre zonas de disponibilidade
       href: tutorial-load-balancer-standard-public-zone-redundant-portal.md
     - name: VM de balanceamento de carga dentro de uma zona específica de disponibilidade
       href: tutorial-load-balancer-standard-public-zonal-portal.md
     - name: Configurar porta de encaminhamento no Load Balancer
       href: tutorial-load-balancer-port-forwarding-portal.md
+    - name: Criar balanceador de carga entre regiões – Portal
+      href: tutorial-cross-region-portal.md
 - name: Exemplos
   items:
     - name: CLI do Azure
@@ -45,11 +43,13 @@
       href: powershell-samples.md
 - name: Conceitos
   items:
+    - name: Balanceador de carga entre regiões
+      href: cross-region-overview.md
     - name: Novidades
       href: whats-new.md
     - name: Componentes
       href: components.md
-    - name: Conceitos
+    - name: Algoritmo de balanceamento de carga
       href: concepts.md
     - name: SKUs
       href: skus.md
@@ -57,9 +57,11 @@
       items:
         - name: Investigações de integridade
           href: load-balancer-custom-probe-overview.md
+        - name: Insights do Azure Monitor para Load Balancer
+          href: load-balancer-insights.md
         - name: Diagnóstico e métricas do Load Balancer Standard
           href: load-balancer-standard-diagnostics.md
-        - name: Logs do Azure Monitor para o Balanceador de Carga Básico
+        - name: Logs do Azure Monitor para o Load Balancer
           href: load-balancer-monitor-log.md
         - name: Obter métricas do Load Balancer com REST
           href: load-balancer-query-metrics-rest-api.md
@@ -67,22 +69,34 @@
       href: load-balancer-ha-ports-overview.md
     - name: Vários front-ends
       href: load-balancer-multivip-overview.md
-    - name: Conexões de saída
+    - name: SNAT para conexões de saída com a Internet
       href: load-balancer-outbound-connections.md
+    - name: Configuração de regras de saída
+      href: outbound-rules.md
     - name: Reiniciar TCP após tempo limite de ociosidade
       href: load-balancer-tcp-reset.md
     - name: Load Balancer Standard e Zonas de Disponibilidade
       href: load-balancer-standard-availability-zones.md
-    - name: Controles de segurança interna
-      href: load-balancer-security-controls.md
+    - name: Configuração de IP flutuante
+      href: load-balancer-floating-ip.md
+    - name: Modos de distribuição
+      href: distribution-mode-concepts.md
+    - name: Segurança
+      items:
+        - name: Linha de base de segurança
+          href: security-baseline.md
     - name: Gerenciamento de pools de back-end
       href: backend-pool-management.md
     - name: Standard Load Balancer e Conjuntos de Dimensionamento de Máquinas Virtuais
       href: load-balancer-standard-virtual-machine-scale-sets.md
-- name: Como
+- name: Como fazer
   items:
+    - name: Configurações do portal
+      href: manage.md
     - name: conjuntos de escala de máquina virtual
       items:
+        - name: Atualizar ou excluir um Azure Load Balancer existente usado pelo Conjunto de Dimensionamento de Máquinas Virtuais
+          href: update-load-balancer-with-vm-scale-set.md
         - name: Usar com um Azure Load Balancer existente – Portal
           href: configure-vm-scale-set-portal.md
         - name: Usar com um Azure Load Balancer existente – PowerShell
@@ -100,13 +114,13 @@
     - name: Criar Load Balancer público com IPv6
       items:
         - name: CLI do Azure
-          href: 'https://docs.microsoft.com/azure/virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli'
+          href: ../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md
         - name: Azure PowerShell
-          href: 'https://docs.microsoft.com/azure/virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell'
+          href: ../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md
         - name: Modelo do Azure Resource Manager
-          href: 'https://docs.microsoft.com/azure/virtual-network/ipv6-configure-standard-load-balancer-template-json'
+          href: ../virtual-network/ipv6-configure-standard-load-balancer-template-json.md
           displayName: ARM
-    - name: Configurar tempo limite de ociosidade TCP para Balanceador de Carga
+    - name: Configurar a redefinição e o tempo limite de ociosidade de TCP
       href: load-balancer-tcp-idle-timeout.md
     - name: Configurar o modo de distribuição para o Load Balancer
       href: load-balancer-distribution-mode.md
@@ -134,11 +148,15 @@
       items:
         - name: Solucionar problemas do Azure Load Balancer
           href: load-balancer-troubleshoot.md
-        - name: Solucionar Problemas de erros comuns de implantação
+        - name: Status de investigação de integridade
+          href: load-balancer-troubleshoot-health-probe-status.md
+        - name: Tráfego de pool de back-end (VM)
+          href: load-balancer-troubleshoot-backend-traffic.md
+        - name: Erros de implantação comuns
           href: load-balancer-common-deployment-errors.md
-        - name: Solucionar problemas comuns de conexão de saída
+        - name: Problemas comuns de conexão de saída
           href: troubleshoot-outbound-connection.md
-        - name: Solucionar problemas de integridade do recurso e de disponibilidade de entrada
+        - name: Problemas de integridade do recurso e de disponibilidade de entrada
           href: troubleshoot-rhc.md
 - name: Referência
   items:
@@ -159,9 +177,9 @@
     - name: Python
       href: /python/api/azure-mgmt-network/azure.mgmt.network.v2019_02_01.operations.loadbalancersoperations
     - name: REST
-      href: 'https://msdn.microsoft.com/library/azure/mt163651.aspx'
+      href: /rest/api/load-balancer/loadbalancers
     - name: Modelo do Resource Manager
-      href: 'https://docs.microsoft.com/azure/templates/microsoft.network/loadbalancers'
+      href: /azure/templates/microsoft.network/loadbalancers
       displayName: ARM
 - name: Recursos
   items:

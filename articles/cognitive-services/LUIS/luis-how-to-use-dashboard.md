@@ -3,20 +3,18 @@ title: Painel-Reconhecimento vocal-LUIS
 titleSuffix: Azure Cognitive Services
 description: Corrija as intenções e entidades com o painel de seu aplicativo treinado. O painel exibe informações gerais do aplicativo, com destaques de tentativas que devem ser corrigidas.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 11/08/2019
-ms.author: diberry
-ms.openlocfilehash: 0ff59819c3bfda6e19d14cbe2deaea43e1694375
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 4867a065a85fab1e4abc7f19401239e5b76e1da4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84345233"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91541400"
 ---
 # <a name="how-to-use-the-dashboard-to-improve-your-app"></a>Como usar o painel para melhorar seu aplicativo
 
@@ -130,11 +128,11 @@ O gráfico a seguir mostra um aplicativo bem equilibrado com quase nenhum proble
 
 O gráfico a seguir mostra um aplicativo com baixo balanceamento com muitos problemas a serem corrigidos.
 
-![O gráfico a seguir mostra um aplicativo bem equilibrado com quase nenhum problema a ser corrigido.](./media/luis-how-to-use-dashboard/utterance-per-intent-shows-data-imbalance.png)
+![A captura de tela mostra previsões por intenção com vários resultados inclaros ou incorretos previstos.](./media/luis-how-to-use-dashboard/utterance-per-intent-shows-data-imbalance.png)
 
 Passe o mouse sobre a barra de cada uma das intenções para obter informações sobre a intenção.
 
-![O gráfico a seguir mostra um aplicativo bem equilibrado com quase nenhum problema a ser corrigido.](./media/luis-how-to-use-dashboard/utterances-per-intent-with-details-of-errors.png)
+![Captura de tela mostra previsões por tentativa com detalhes de resultados inclaros ou incorretamente previstos.](./media/luis-how-to-use-dashboard/utterances-per-intent-with-details-of-errors.png)
 
 Use o recurso **classificar por** para organizar as tentativas por tipo de problema para que você possa se concentrar nas tentativas mais problemáticas com esse problema.
 

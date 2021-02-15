@@ -1,19 +1,16 @@
 ---
 title: Use o SDK do .NET HBase - HDInsight do Azure
 description: Use o SDK do .NET HBase para criar e excluir tabelas e para ler e gravar dados.
-author: ashishthaps
-ms.author: ashishth
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 12/02/2019
-ms.openlocfilehash: 7c62f1875fe44aa001323af5d83a0007ee18f11d
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: d1979e43adc76f4125097fc809ef137baee05f53
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017338"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98939573"
 ---
 # <a name="use-the-net-sdk-for-apache-hbase"></a>Usar o SDK do .NET para o Apache HBase
 
@@ -190,4 +187,4 @@ finally
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Introdução com um exemplo do Apache HBase no HDInsight](apache-hbase-tutorial-get-started-linux.md)
-* Crie um aplicativo de ponta a ponta com [Analise o sentimento do Twitter em tempo real com o Apache HBase](../hdinsight-hbase-analyze-twitter-sentiment.md)
+* Crie um aplicativo de ponta a ponta com [Analise o sentimento do Twitter em tempo real com o Apache HBase](./apache-hbase-tutorial-get-started-linux.md)

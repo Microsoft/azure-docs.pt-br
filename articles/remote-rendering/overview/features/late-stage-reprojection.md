@@ -5,12 +5,12 @@ author: sebastianpick
 ms.author: sepick
 ms.date: 02/04/2020
 ms.topic: article
-ms.openlocfilehash: 8d42087008f1812bc3713456025ed3be351d0917
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f0951415bba22a226dadb7f2a115cede451399bc
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84022173"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92205635"
 ---
 # <a name="late-stage-reprojection"></a>Reprojeção de fase tardia
 
@@ -34,7 +34,9 @@ Se for, seu aplicativo usará LSR de profundidade, caso contrário, ele usará o
 
 Para que a LSR de profundidade funcione, o aplicativo cliente deve fornecer um buffer de profundidade válido que contenha toda a geometria relevante a ser considerada durante o LSR.
 
-Profundidade LSR tenta estabilizar o quadro de vídeo com base no conteúdo do buffer de profundidade fornecido. Como consequência, o conteúdo que não foi renderizado para ele, como objetos transparentes, não pode ser ajustado por LSR e pode mostrar artefatos de instabilidade e de Reprojeção.
+Profundidade LSR tenta estabilizar o quadro de vídeo com base no conteúdo do buffer de profundidade fornecido. Como consequência, o conteúdo que não foi renderizado para ele, como objetos transparentes, não pode ser ajustado por LSR e pode mostrar artefatos de instabilidade e de Reprojeção. 
+
+Para reduzir a instabilidade de Reprojeção para objetos transparentes, você pode forçar a gravação de buffer de profundidade. Consulte o sinalizador de material *TransparencyWritesDepth* para os materiais de [cor](color-materials.md) e [PBR](pbr-materials.md) . No entanto, observe que a qualidade visual da interação do objeto transparente/opaco pode ser prejudicada ao habilitar esse sinalizador.
 
 ## <a name="planar-lsr"></a>LSR planar
 
@@ -44,7 +46,7 @@ O planar LSR reprojeta esses objetos melhor que se aproximam do plano fornecido.
 
 ### <a name="configure-planar-lsr-in-unity"></a>Configurar o planar LSR no Unity
 
-Os parâmetros de plano são derivados de um, portanto, chamado de *ponto de foco*, que você precisa fornecer a cada quadro `UnityEngine.XR.WSA.HolographicSettings.SetFocusPointForFrame` . Consulte a [API do ponto de foco do Unity](https://docs.microsoft.com/windows/mixed-reality/focus-point-in-unity) para obter detalhes. Se você não definir um ponto de foco, um fallback será escolhido para você. No entanto, o fallback automático geralmente leva a resultados de qualidade inferior.
+Os parâmetros de plano são derivados de um, portanto, chamado de *ponto de foco*, que você precisa fornecer a cada quadro `UnityEngine.XR.WSA.HolographicSettings.SetFocusPointForFrame` . Consulte a [API do ponto de foco do Unity](/windows/mixed-reality/focus-point-in-unity) para obter detalhes. Se você não definir um ponto de foco, um fallback será escolhido para você. No entanto, o fallback automático geralmente leva a resultados de qualidade inferior.
 
 Você pode calcular o ponto de foco por conta própria, embora possa fazer sentido baseá-lo em um calculado pelo host de renderização remoto. Chame `RemoteManagerUnity.CurrentSession.GraphicsBinding.GetRemoteFocusPoint` para obtê-lo. Você será solicitado a fornecer um quadro de coordenadas no qual expressar o ponto de foco. Na maioria dos casos, você só desejará fornecer o resultado `UnityEngine.XR.WSA.WorldManager.GetNativeISpatialCoordinateSystemPtr` aqui.
 

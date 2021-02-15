@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 1/8/2019
-ms.openlocfilehash: 8a1b38b9f673669adb0b5fcf67d9d560c24d5c2a
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 3d23ee6119b625e11ce44bb9ad11ce4b3ee0280d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87825949"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91295729"
 ---
 # <a name="create-users-in-azure-database-for-postgresql---hyperscale-citus"></a>Criar usuários no banco de dados do Azure para PostgreSQL-Citus (hiperescala)
 
@@ -28,7 +28,7 @@ O mecanismo PostgreSQL usa [funções](https://www.postgresql.org/docs/current/s
 * `postgres`
 * `citus`
 
-Como o hiperscale é um serviço de PaaS gerenciado, somente a Microsoft pode entrar com a `postgres` função de superusuário. Para acesso administrativo limitado, o hiperscale fornece a `citus` função.
+Como o Citus (subscale) é um serviço de PaaS gerenciado, somente a Microsoft pode entrar com a `postgres` função de superusuário. Para acesso administrativo limitado, o Citus (hiperescala) fornece a `citus` função.
 
 Permissões para a `citus` função:
 
@@ -46,13 +46,13 @@ Notavelmente, a `citus` função tem algumas restrições:
 
 Conforme mencionado, a `citus` conta de administrador não tem permissão para criar usuários adicionais. Para adicionar um usuário, use a interface portal do Azure.
 
-1. Vá para a página **funções** do grupo de servidores de hiperescala e clique em **+ Adicionar**:
+1. Vá para a página **funções** do seu grupo de servidores Citus (hiperescala) e clique em **+ Adicionar**:
 
-   ![A página funções](media/howto-hyperscale-create-users/1-role-page.png)
+   :::image type="content" source="media/howto-hyperscale-create-users/1-role-page.png" alt-text="A página funções":::
 
 2. Insira o nome da função e a senha. Clique em **Salvar**.
 
-   ![Adicionar função](media/howto-hyperscale-create-users/2-add-user-fields.png)
+   :::image type="content" source="media/howto-hyperscale-create-users/2-add-user-fields.png" alt-text="A página funções":::
 
 O usuário será criado no nó de coordenador do grupo de servidores e propagado para todos os nós de trabalho. As funções criadas por meio do portal do Azure têm o `LOGIN` atributo, o que significa que são usuários verdadeiros que podem entrar no banco de dados.
 
@@ -75,9 +75,9 @@ GRANT SELECT ON ALL TABLES IN SCHEMA public TO db_user;
 
 ## <a name="how-to-delete-a-user-role-or-change-their-password"></a>Como excluir uma função de usuário ou alterar sua senha
 
-Para atualizar um usuário, visite a página **funções** para o grupo de servidores de hiperescala e clique nas reticências **...** ao lado do usuário. As reticências abrirão um menu para excluir o usuário ou redefinir sua senha.
+Para atualizar um usuário, visite a página **funções** para seu grupo de servidores Citus (hiperescala) e clique nas reticências **...** ao lado do usuário. As reticências abrirão um menu para excluir o usuário ou redefinir sua senha.
 
-   ![Editar uma função](media/howto-hyperscale-create-users/edit-role.png)
+   :::image type="content" source="media/howto-hyperscale-create-users/edit-role.png" alt-text="A página funções":::
 
 A `citus` função é privilegiada e não pode ser excluída.
 

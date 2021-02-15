@@ -1,64 +1,70 @@
 ---
-title: Use o Índice de Blob para gerenciar e localizar dados no Armazenamento de Blobs do Azure
-description: Confira exemplos de como usar marcas de Índice de Blob para categorizar, gerenciar e consultar para descobrir objetos de blob.
+title: Usar marcas de índice de BLOB para gerenciar e localizar dados no armazenamento de BLOBs do Azure
+description: Consulte exemplos de como usar marcas de índice de BLOB para categorizar, gerenciar e consultar objetos de BLOB.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 04/24/2020
+ms.date: 11/19/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.reviewer: hux
+ms.reviewer: klaasl
 ms.custom: devx-track-csharp
-ms.openlocfilehash: adc510ef89a912e6d76949794aacbf130a8f066d
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 411815ca2f947c47b8dfb0d2e5d61f8ea18f3545
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018868"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95541242"
 ---
-# <a name="utilize-blob-index-tags-preview-to-manage-and-find-data-on-azure-blob-storage"></a>Use a marca do Índice de Blob (versão prévia) para gerenciar e localizar dados no Armazenamento de Blobs do Azure
+# <a name="use-blob-index-tags-preview-to-manage-and-find-data-on-azure-blob-storage"></a>Usar marcas de índice de BLOB (versão prévia) para gerenciar e localizar dados no armazenamento de BLOBs do Azure
 
-As marcas do Índice de Blob categorizam os dados na sua conta de armazenamento utilizando atributos de marca de valor-chave. Essas marcas são indexadas automaticamente e expostas como um índice multidimensional consultável para localizar dados com facilidade. Este artigo mostra como definir, obter e localizar dados usando marcas de índice de blob.
-
-Para saber mais sobre o Índice de Blob, confira [Gerenciar e localizar dados no Armazenamento de Blobs do Azure com o Índice de Blob (versão prévia)](storage-manage-find-blobs.md).
+Marcas de índice de blob categorizam dados em sua conta de armazenamento usando atributos de marca de chave-valor. Essas marcas são indexadas e expostas automaticamente como um índice multidimensional pesquisável para localizar dados facilmente. Este artigo mostra como definir, obter e localizar dados usando marcas de índice de blob.
 
 > [!NOTE]
-> O índice de blob está em visualização pública e está disponível nas regiões do **Canadá central**, **leste do Canadá**, **França central** e **França sul** . Para saber mais sobre esse recurso juntamente com limitações e problemas conhecidos, confira [Gerenciar e localizar dados no Armazenamento de Blobs do Azure com o Índice de Blob (versão prévia)](storage-manage-find-blobs.md).
+> O índice de blob está em visualização pública e está disponível nas regiões do **Canadá central**, **leste do Canadá**, **França central** e **França sul** . Para saber mais sobre esse recurso juntamente com limitações e problemas conhecidos, consulte [gerenciar e localizar dados de blob do Azure com marcas de índice de BLOB (versão prévia)](storage-manage-find-blobs.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
 # <a name="portal"></a>[Portal](#tab/azure-portal)
-- Assinatura registrada e aprovada para acesso à versão prévia do Índice de Blob
+
+- Uma assinatura do Azure registrada e aprovada para acesso à visualização do índice de BLOB
 - Acesso ao [portal do Azure](https://portal.azure.com/)
 
 # <a name="net"></a>[.NET](#tab/net)
-Como o Índice de Blob está na versão prévia, o pacote de armazenamento do .NET é liberado no feed do NuGet de versão prévia. Esta biblioteca está sujeita a alterações entre agora e quando se tornar oficial. 
+
+Como o índice de blob está em versão prévia, o pacote de armazenamento do .NET é liberado no feed do NuGet de visualização. Esta biblioteca está sujeita a alterações durante o período de visualização.
 
 1. Configure seu projeto do Visual Studio para começar a usar a biblioteca de cliente do armazenamento de BLOBs do Azure V12 para .NET. Para saber mais, consulte [início rápido do .net](storage-quickstart-blobs-dotnet.md)
 
-2. No Gerenciador de pacotes NuGet, localize o pacote **Azure. Storage. BLOBs** e instale a versão **12.5.0-Preview. 6** ou mais recente em seu projeto. Você também pode executar o comando ```Install-Package Azure.Storage.Blobs -Version 12.5.0-preview.6```
+2. No Gerenciador de pacotes NuGet, localize o pacote **Azure. Storage. BLOBs** e instale a versão **12.7.0-Preview. 1** ou mais recente em seu projeto. Você também pode executar o comando do PowerShell: `Install-Package Azure.Storage.Blobs -Version 12.7.0-preview.1`
 
-   Para saber como, confira [Localizar e instalar um pacote](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-visual-studio#find-and-install-a-package).
+   Para saber como, confira [Localizar e instalar um pacote](/nuget/consume-packages/install-use-packages-visual-studio#find-and-install-a-package).
 
 3. Adicione o seguinte usando as instruções na parte superior do seu arquivo de código.
-```csharp
-using Azure;
-using Azure.Storage.Blobs;
-using Azure.Storage.Blobs.Models;
-using Azure.Storage.Blobs.Specialized;
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-```
+
+    ```csharp
+    using Azure;
+    using Azure.Storage.Blobs;
+    using Azure.Storage.Blobs.Models;
+    using Azure.Storage.Blobs.Specialized;
+    using System;
+    using System.Collections.Generic;
+    using System.Threading.Tasks;
+    ```
+
 ---
 
 ## <a name="upload-a-new-blob-with-index-tags"></a>Carregar um novo blob com marcas de índice
+
+Essa tarefa pode ser executada por um [proprietário de dados de blob de armazenamento](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) ou uma entidade de segurança que tenha recebido permissão para a `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` [operação do provedor de recursos do Azure](../../role-based-access-control/resource-provider-operations.md#microsoftstorage) por meio de uma função personalizada do Azure.
+
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. No [portal do Azure](https://portal.azure.com/), selecione a conta de armazenamento 
 
-2. Navegue até a opção **Contêineres** em **Serviço Blob** e selecione seu contêiner
+2. Navegue até a opção **contêineres** em **serviço blob**, selecione seu contêiner
 
-3. Selecione o botão **Carregar** para abrir a folha de mesmo nome e procure seu sistema de arquivos local para encontrar um arquivo a ser carregado como um blob de blocos.
+3. Selecione o botão **carregar** e procure o sistema de arquivos local para localizar um arquivo a ser carregado como um blob de blocos.
 
 4. Expanda o menu suspenso **Avançado** e vá para a seção **Marcas do Índice de Blob**
 
@@ -66,7 +72,7 @@ using System.Threading.Tasks;
 
 6. Selecione o botão **Carregar** para carregar o blob
 
-![Carregar dados com marcas de índice de blob](media/storage-blob-index-concepts/blob-index-upload-data-with-tags.png)
+:::image type="content" source="media/storage-blob-index-concepts/blob-index-upload-data-with-tags.png" alt-text="Captura de tela do portal do Azure mostrando como carregar um blob com marcas de índice.":::
 
 # <a name="net"></a>[.NET](#tab/net)
 
@@ -86,8 +92,8 @@ static async Task BlobIndexTagsOnCreate()
           // Create an append blob
           AppendBlobClient appendBlobWithTags = container.GetAppendBlobClient("myAppendBlob0.logs");
 
-          // Blob Index tags to upload
-          CreateAppendBlobOptions appendOptions = new CreateAppendBlobOptions();
+          // Blob index tags to upload
+          AppendBlobCreateOptions appendOptions = new AppendBlobCreateOptions();
           appendOptions.Tags = new Dictionary<string, string>
           {
               { "Sealed", "false" },
@@ -107,13 +113,18 @@ static async Task BlobIndexTagsOnCreate()
 ---
 
 ## <a name="get-set-and-update-blob-index-tags"></a>Obter, definir e atualizar marcas de índice de BLOB
+
+A obtenção de marcas de índice de blob pode ser executada por um [proprietário de dados de blob de armazenamento](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) ou uma entidade de segurança que tenha recebido permissão para a operação do provedor de `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read` [recursos do Azure](../../role-based-access-control/resource-provider-operations.md#microsoftstorage) por meio de uma função personalizada do Azure.
+
+A configuração e a atualização de marcas de índice de blob podem ser executadas por um [proprietário de dados de blob de armazenamento](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) ou uma entidade de segurança que tenha recebido permissão para a operação do provedor de `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` [recursos do Azure](../../role-based-access-control/resource-provider-operations.md#microsoftstorage) por meio de uma função personalizada do Azure.
+
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. No [portal do Azure](https://portal.azure.com/), selecione a conta de armazenamento 
 
 2. Navegue até a opção **Contêineres** em **Serviço Blob** e selecione seu contêiner
 
-3. Selecione o blob desejado na lista de blobs no contêiner selecionado
+3. Selecione o blob na lista de BLOBs dentro do contêiner selecionado
 
 4. A guia visão geral do blob exibirá as propriedades do blob, inclusive quaisquer **Marcas do Índice de Blob**
 
@@ -121,9 +132,10 @@ static async Task BlobIndexTagsOnCreate()
 
 6. Selecione o botão **Salvar** para confirmar as atualizações do seu blob
 
-![Obter, definir, atualizar e excluir marcas de índice de blob em objetos](media/storage-blob-index-concepts/blob-index-get-set-tags.png)
+:::image type="content" source="media/storage-blob-index-concepts/blob-index-get-set-tags.png" alt-text="Captura de tela do portal do Azure mostrando como obter, definir, atualizar e excluir marcas de índice em BLOBs.":::
 
 # <a name="net"></a>[.NET](#tab/net)
+
 ```csharp
 static async Task BlobIndexTagsExample()
    {
@@ -139,7 +151,7 @@ static async Task BlobIndexTagsExample()
           AppendBlobClient appendBlob = container.GetAppendBlobClient("myAppendBlob1.logs");
           await appendBlob.CreateAsync();
 
-          // Set or Update Blob Index tags on existing blob
+          // Set or update blob index tags on existing blob
           Dictionary<string, string> tags = new Dictionary<string, string>
           {
               { "Project", "Contoso" },
@@ -148,7 +160,7 @@ static async Task BlobIndexTagsExample()
           };
           await appendBlob.SetTagsAsync(tags);
 
-          // Get Blob Index tags
+          // Get blob index tags
           Response<IDictionary<string, string>> tagsResponse = await appendBlob.GetTagsAsync();
           Console.WriteLine(appendBlob.Name);
           foreach (KeyValuePair<string, string> tag in tagsResponse.Value)
@@ -156,7 +168,7 @@ static async Task BlobIndexTagsExample()
               Console.WriteLine($"{tag.Key}={tag.Value}");
           }
 
-          // List Blobs with all options returned including Blob Index tags
+          // List blobs with all options returned including blob index tags
           await foreach (BlobItem blobItem in container.GetBlobsAsync(BlobTraits.All))
           {
               Console.WriteLine(Environment.NewLine + blobItem.Name);
@@ -166,7 +178,7 @@ static async Task BlobIndexTagsExample()
               }
           }
 
-          // Delete existing Blob Index tags by replacing all tags
+          // Delete existing blob index tags by replacing all tags
           Dictionary<string, string> noTags = new Dictionary<string, string>();
           await appendBlob.SetTagsAsync(noTags);
 
@@ -179,25 +191,28 @@ static async Task BlobIndexTagsExample()
 
 ---
 
-## <a name="filter-and-find-data-with-blob-index-tags"></a>Filtre e localize dados com marcas de índice de BLOB
+## <a name="filter-and-find-data-with-blob-index-tags"></a>Filtrar e localizar dados com marcas de índice de BLOB
+
+Essa tarefa pode ser executada por um [proprietário de dados de blob de armazenamento](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) ou uma entidade de segurança que tenha recebido permissão para a `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action` [operação do provedor de recursos do Azure](../../role-based-access-control/resource-provider-operations.md#microsoftstorage) por meio de uma função personalizada do Azure.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-No portal do Azure, o filtro de marcas do Índice de Blob aplica automaticamente o parâmetro `@container` para criar o escopo do contêiner selecionado. Se você quiser filtrar e localizar dados marcados em toda a sua conta de armazenamento, use nossa API REST, nossos SDKs ou nossas ferramentas.
+Dentro do portal do Azure, o filtro de marcas de índice de blob aplica automaticamente o `@container` parâmetro ao escopo do contêiner selecionado. Se você quiser filtrar e localizar dados marcados em toda a conta de armazenamento, use nossa API REST, SDKs ou ferramentas.
 
 1. No [portal do Azure](https://portal.azure.com/), selecione a conta de armazenamento. 
 
-2. Navegue até a opção **Contêineres** em **Serviço Blob** e selecione seu contêiner
+2. Navegue até a opção **contêineres** em **serviço blob**, selecione seu contêiner
 
 3. Selecione o botão **Filtrar marcas do Índice de Blob** para filtrar dentro do contêiner selecionado
 
-4. Insira o valor da marca e a chave da marca do Índice de Blob
+4. Inserir uma chave de marca de índice de BLOB e um valor de marca
 
 5. Selecione o botão **Filtrar marcas do Índice de Blob** para adicionar filtros de marca adicionais (até 10)
 
-![Filtrar e localizar objetos marcados usando marcas de índice de blob](media/storage-blob-index-concepts/blob-index-tag-filter-within-container.png)
+:::image type="content" source="media/storage-blob-index-concepts/blob-index-tag-filter-within-container.png" alt-text="Captura de tela do portal do Azure mostrando como filtrar e localizar BLOBs marcados usando marcas de índice":::
 
 # <a name="net"></a>[.NET](#tab/net)
+
 ```csharp
 static async Task FindBlobsByTagsExample()
    {
@@ -205,7 +220,7 @@ static async Task FindBlobsByTagsExample()
       BlobContainerClient container1 = serviceClient.GetBlobContainerClient("mycontainer");
       BlobContainerClient container2 = serviceClient.GetBlobContainerClient("mycontainer2");
 
-      // Blob Index queries and selection
+      // Blob index queries and selection
       String singleEqualityQuery = @"""Archive"" = 'false'";
       String andQuery = @"""Archive"" = 'false' AND ""Priority"" = '01'";
       String rangeQuery = @"""Date"" >= '2020-04-20' AND ""Date"" <= '2020-04-30'";
@@ -227,7 +242,7 @@ static async Task FindBlobsByTagsExample()
           AppendBlobClient appendBlobWithTags4 = container2.GetAppendBlobClient("myAppendBlob04.logs");
           AppendBlobClient appendBlobWithTags5 = container2.GetAppendBlobClient("myAppendBlob05.logs");
            
-          // Blob Index tags to upload
+          // Blob index tags to upload
           CreateAppendBlobOptions appendOptions = new CreateAppendBlobOptions();
           appendOptions.Tags = new Dictionary<string, string>
           {
@@ -255,10 +270,10 @@ static async Task FindBlobsByTagsExample()
           // Find Blobs given a tags query
           Console.WriteLine("Find Blob by Tags query: " + queryToUse + Environment.NewLine);
 
-          List<FilterBlobItem> blobs = new List<FilterBlobItem>();
-          await foreach (FilterBlobItem filterBlobItem in serviceClient.FindBlobsByTagsAsync(queryToUse))
+          List<TaggedBlobItem> blobs = new List<TaggedBlobItem>();
+          await foreach (TaggedBlobItem taggedBlobItem in serviceClient.FindBlobsByTagsAsync(queryToUse))
           {
-              blobs.Add(filterBlobItem);
+              blobs.Add(taggedBlobItem);
           }
 
           foreach (var filteredBlob in blobs)
@@ -286,19 +301,23 @@ static async Task FindBlobsByTagsExample()
 
 3. Selecione *Adicionar regra* e preencha os campos de formulário do conjunto de Ações
 
-4. Selecione o Conjunto de filtros para adicionar um filtro opcional para correspondência de prefixo e correspondência de Índice de Blob ![Adicionar filtros de marca de índice de blob para o gerenciamento do ciclo de vida](media/storage-blob-index-concepts/blob-index-match-lifecycle-filter-set.png)
+4. Selecione conjunto de **filtros** para Adicionar filtro opcional para correspondência de prefixo e correspondência de índice de BLOB
 
-5. Selecione **Revisar + adicionar** para examinar as configurações da ![Regra de gerenciamento de ciclo de vida com exemplo de filtro de marcas de índice de blob](media/storage-blob-index-concepts/blob-index-lifecycle-management-example.png)
+  :::image type="content" source="media/storage-blob-index-concepts/blob-index-match-lifecycle-filter-set.png" alt-text="Captura de tela do portal do Azure mostrando como adicionar marcas de índice para o gerenciamento do ciclo de vida.":::
+
+5. Selecione **examinar + adicionar** para revisar as configurações de regra
+
+  :::image type="content" source="media/storage-blob-index-concepts/blob-index-lifecycle-management-example.png" alt-text="Captura de tela da portal do Azure mostrando uma regra de gerenciamento de ciclo de vida com marcas de índice de blob exemplo de filtro":::
 
 6. Selecione **Adicionar** para aplicar a nova regra à política de gerenciamento do ciclo de vida
 
 # <a name="net"></a>[.NET](#tab/net)
-As políticas de [Gerenciamento de ciclo de vida](storage-lifecycle-management-concepts.md) são aplicadas para cada conta de armazenamento no nível do plano de controle. Para instalar o .NET, instale a [Biblioteca de Armazenamento de Gerenciamento do Microsoft Azure versão 16.0.0](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/) ou posterior para aproveitar o filtro de correspondência do Índice do Blob em uma regra de gerenciamento de ciclo de vida.
+
+As políticas de [Gerenciamento de ciclo de vida](storage-lifecycle-management-concepts.md) são aplicadas para cada conta de armazenamento no nível do plano de controle. Para o .NET, instale o [Microsoft Azure biblioteca de armazenamento de gerenciamento](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/) versão 16.0.0 ou superior.
 
 ---
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre o Índice de Blobs. Confira [Gerenciar e localizar dados no Armazenamento de Blobs do Azure com o Índice de Blobs (versão prévia)](storage-manage-find-blobs.md )
-
-Saiba mais sobre o Gerenciamento de Ciclo de Vida. Confira [Gerenciar o ciclo de vida de armazenamento de blobs do Azure](storage-lifecycle-management-concepts.md)
+ - Saiba mais sobre marcas de índice de BLOB, consulte [gerenciar e localizar dados de blob do Azure com marcas de índice de BLOB (versão prévia)](storage-manage-find-blobs.md )
+ - Saiba mais sobre o gerenciamento do ciclo de vida, consulte [gerenciar o ciclo de vida do armazenamento de BLOBs](storage-lifecycle-management-concepts.md)

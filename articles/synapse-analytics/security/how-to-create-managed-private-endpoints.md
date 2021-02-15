@@ -8,25 +8,24 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: fae958542f1bc391f285104d80d1e19131470abe
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e0309b4c96b2ae25eb568e390717ba76cfd84fa5
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87065468"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461321"
 ---
-# <a name="create-a-managed-private-endpoint-to-your-data-source-preview"></a>Criar um ponto de extremidade privado gerenciado para sua fonte de dados (versão prévia)
+# <a name="create-a-managed-private-endpoint-to-your-data-source"></a>Criar um ponto de extremidade privado gerenciado para sua fonte de dados
 
 Este artigo ensinará como criar um ponto de extremidade privado gerenciado para sua fonte de dados no Azure. Consulte [pontos de extremidade privados gerenciados](./synapse-workspace-managed-private-endpoints.md) para saber mais.
 
 ## <a name="step-1-open-your-azure-synapse-workspace-in-azure-portal"></a>Etapa 1: abrir seu espaço de trabalho Synapse do Azure no portal do Azure
 
-Você pode criar um ponto de extremidade privado gerenciado para sua fonte de dados do Azure Synapse Studio. Selecione a guia **visão geral** em portal do Azure e selecione **iniciar o Synapse Studio**.
-![Iniciar o Azure Synapse Studio](./media/how-to-create-managed-private-endpoints/managed-private-endpoint-1.png)
+Você pode criar um ponto de extremidade privado gerenciado para sua fonte de dados do Azure Synapse Studio. Selecione a guia **visão geral** em portal do Azure e selecione **abrir** na placa abrir o Synapse Studio na seção Introdução.
 
 ## <a name="step-2-navigate-to-the-managed-virtual-networks-tab-in-synapse-studio"></a>Etapa 2: Navegue até a guia redes virtuais gerenciadas no Synapse Studio
 
-No Azure Synapse Studio, selecione a guia **gerenciar** na navegação à esquerda. Selecione **redes virtuais gerenciadas** e, em seguida, selecione **+ novo**.
+No Azure Synapse Studio, selecione a guia **gerenciar** na navegação à esquerda. Selecione **pontos de extremidade privados gerenciados** e, em seguida, selecione **+ novo**.
 ![Criar um novo ponto de extremidade privado gerenciado](./media/how-to-create-managed-private-endpoints/managed-private-endpoint-2.png)
 
 ## <a name="step-3-select-the-data-source-type"></a>Etapa 3: selecionar o tipo de fonte de dados

@@ -8,18 +8,24 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: cherylmc
-ms.openlocfilehash: 4ce5bc3b4e5ccd26ec3f6b35c995ebe2274042c5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 62979a2cbe2a5912476ca65327a06eef9c36c1cb
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84749718"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98127882"
 ---
 # <a name="azure-virtual-wan-logs-and-metrics"></a>Métricas e logs de WAN virtual do Azure
 
-Você pode monitorar a WAN virtual do Azure usando o Azure Monitor. A WAN virtual é um serviço de rede que reúne muitas funcionalidades de rede, segurança e roteamento para fornecer uma única interface operacional. Gateways de VPN de WAN virtual, gateways de ExpressRoute e firewall do Azure têm registro em log e métricas disponíveis por meio de Azure Monitor. Para obter informações sobre o Firewall do Azure, consulte [métricas e logs de firewall do Azure](../firewall/logs-and-metrics.md).
+Você pode monitorar a WAN virtual do Azure usando o Azure Monitor. A WAN virtual é um serviço de rede que reúne muitas funcionalidades de rede, segurança e roteamento para fornecer uma única interface operacional. Gateways de VPN de WAN virtual, gateways de ExpressRoute e firewall do Azure têm registro em log e métricas disponíveis por meio de Azure Monitor.
 
 Este artigo discute métricas e diagnósticos que estão disponíveis por meio do Portal. As métricas são leves e podem dar suporte a cenários quase em tempo real, tornando-as úteis para alertas e detecção rápida de problemas.
+
+## <a name="monitoring-secured-hub-azure-firewall"></a>Monitorando o Hub protegido (firewall do Azure) 
+
+Você pode monitorar o Hub protegido usando os logs de firewall do Azure. Você também pode usar os logs de atividades para auditar operações nos recursos do Firewall do Azure.
+
+Se você optou por proteger seu hub virtual usando o Firewall do Azure, os logs e as métricas relevantes estão disponíveis aqui: [logs e métricas de firewall do Azure](../firewall/logs-and-metrics.md).
 
 ## <a name="metrics"></a>Métricas
 
@@ -60,13 +66,13 @@ As etapas a seguir ajudam a localizar e exibir as métricas:
 
 2. Selecione **VPN (site a site)** para localizar um gateway site a site, **ExpressRoute** para localizar um gateway de ExpressRoute ou VPN de **usuário (ponto a site)** para localizar um gateway de ponto a site. Na página, você pode ver as informações do gateway. Copie essas informações. Você o usará posteriormente para exibir o diagnóstico usando Azure Monitor.
 
-3. Selecione **métricas**.
+3. Selecione **Métricas**.
 
-   :::image type="content" source="./media/logs-metrics/metrics.png" alt-text="métricas":::
+   :::image type="content" source="./media/logs-metrics/metrics.png" alt-text="Captura de tela mostra um painel V P N do site a site com o modo de exibição Azure Monitor selecionado.":::
 
 4. Na página **métricas** , você pode exibir as métricas nas quais está interessado.
 
-   :::image type="content" source="./media/logs-metrics/metrics-page.png" alt-text="página de métricas":::
+   :::image type="content" source="./media/logs-metrics/metrics-page.png" alt-text="Captura de tela que mostra a página ' métricas ' com as categorias realçadas.":::
 
 ## <a name="diagnostic-logs"></a><a name="diagnostic"></a>Logs de diagnóstico
 
@@ -93,13 +99,13 @@ As etapas a seguir ajudam a localizar e exibir o diagnóstico:
 
 1. No portal, navegue até o recurso de WAN virtual. Na seção **visão geral** da página Wan virtual no portal, selecione **Essentials** para expandir a exibição e obter informações do grupo de recursos. Copie as informações do grupo de recursos.
 
-   :::image type="content" source="./media/logs-metrics/3.png" alt-text="página de métricas":::
+   :::image type="content" source="./media/logs-metrics/3.png" alt-text="Captura de tela que mostra a seção ' visão geral ' com uma seta apontando para o botão ' copiar '.":::
 
-2. Na seção monitoramento, navegue até o grupo de recursos. Selecione **configurações de diagnóstico**e, em seguida, insira as informações do recurso. Essas são as informações de recurso que você copiou na etapa 2 da seção [Exibir métricas de gateway](#metrics-steps) , anteriormente neste artigo.
+2. Na seção monitoramento, navegue até o grupo de recursos. Selecione **configurações de diagnóstico** e, em seguida, insira as informações do recurso. Essas são as informações de recurso que você copiou na etapa 2 da seção [Exibir métricas de gateway](#metrics-steps) , anteriormente neste artigo.
 
-   :::image type="content" source="./media/logs-metrics/4.png" alt-text="página de métricas":::
+   :::image type="content" source="./media/logs-metrics/4.png" alt-text="Captura de tela que mostra a seção &quot;monitoramento&quot; com uma seta apontando para a lista suspensa &quot;recurso&quot;.":::
 
-3. Na página resultados, selecione **+ Adicionar configuração de diagnóstico**e, em seguida, selecione uma opção. Você pode optar por enviar para Log Analytics, transmitir para um hub de eventos ou simplesmente arquivar em uma conta de armazenamento.
+3. Na página resultados, selecione **+ Adicionar configuração de diagnóstico** e, em seguida, selecione uma opção. Você pode optar por enviar para Log Analytics, transmitir para um hub de eventos ou simplesmente arquivar em uma conta de armazenamento.
 
    :::image type="content" source="./media/logs-metrics/5.png" alt-text="página de métricas":::
 
@@ -123,5 +129,5 @@ As entradas do **log de atividades** são coletadas por padrão e podem ser exib
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para saber como monitorar as métricas e logs do Firewall do Azure, veja [Tutorial: Monitorar os logs de Firewall do Azure](../firewall/tutorial-diagnostics.md).
+* Para saber como monitorar as métricas e logs do Firewall do Azure, veja [Tutorial: Monitorar os logs de Firewall do Azure](../firewall/firewall-diagnostics.md).
 * Para saber mais sobre as métricas em Azure Monitor, consulte [métricas em Azure monitor](../azure-monitor/platform/data-platform-metrics.md).

@@ -1,6 +1,6 @@
 ---
 title: Gerenciar instantâneos por meio do Azure NetApp Files | Microsoft Docs
-description: Descreve como criar e gerenciar instantâneos usando o Azure NetApp Files.
+description: Descreve como criar, gerenciar e usar instantâneos usando o Azure NetApp Files.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -12,18 +12,21 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 08/26/2020
+ms.date: 02/10/2021
 ms.author: b-juche
-ms.openlocfilehash: d70558efb1ea54f069981062e5379d995dbeddd2
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 4d992bcc202dc8bdacdda6426371df1adb1ec3e6
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88950333"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100379107"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Gerenciar instantâneos por meio do Azure NetApp Files
 
-Azure NetApp Files dá suporte à criação de instantâneos sob demanda e ao uso de políticas de instantâneo para agendar a criação automática de instantâneos.  Você também pode restaurar um instantâneo para um novo volume.  
+Azure NetApp Files dá suporte à criação de instantâneos sob demanda e ao uso de políticas de instantâneo para agendar a criação automática de instantâneos. Você também pode restaurar um instantâneo para um novo volume, restaurar um único arquivo usando um cliente ou reverter um volume existente usando um instantâneo.
+
+> [!NOTE] 
+> Para obter considerações sobre o gerenciamento de instantâneos na replicação entre regiões, consulte [requisitos e considerações para usar a replicação entre regiões](cross-region-replication-requirements-considerations.md).
 
 ## <a name="create-an-on-demand-snapshot-for-a-volume"></a>Criar um instantâneo sob demanda para um volume
 
@@ -49,7 +52,7 @@ Você pode agendar para que os instantâneos de volume sejam feitos automaticame
 
 ### <a name="register-the-feature"></a>Registrar o recurso
 
-O recurso de **política de instantâneo** está atualmente em visualização. Se você estiver usando esse recurso pela primeira vez, precisará registrar o recurso primeiro. 
+O recurso de **política de instantâneo** está atualmente em visualização. Se você estiver usando esse recurso pela primeira vez, é necessário registrar o recurso primeiro. 
 
 1. Registre o recurso: 
 
@@ -65,7 +68,7 @@ O recurso de **política de instantâneo** está atualmente em visualização. S
     ```azurepowershell-interactive
     Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSnapshotPolicy
     ```
-Você também pode usar comandos de CLI do Azure [`az feature register`](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest#az-feature-register) e [`az feature show`](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest#az-feature-show) para registrar o recurso e exibir o status do registro. 
+Você também pode usar [comandos de CLI do Azure](/cli/azure/feature?preserve-view=true&view=azure-cli-latest) `az feature register` e `az feature show` para registrar o recurso e exibir o status do registro. 
 
 ### <a name="create-a-snapshot-policy"></a>Criar uma política de instantâneo 
 
@@ -77,7 +80,7 @@ Uma política de instantâneo permite que você especifique a frequência de cri
 
 2.  Na janela política de instantâneo, defina estado da política como **habilitado**. 
 
-3.  Clique na guia por **hora**, **dia**, **semana**ou **mês** para criar políticas de instantâneo por hora, diárias, semanais ou mensais. Especifique o **número de instantâneos a serem mantidos**.  
+3.  Clique na guia por **hora**, **dia**, **semana** ou **mês** para criar políticas de instantâneo por hora, diárias, semanais ou mensais. Especifique o **número de instantâneos a serem mantidos**.  
 
     Consulte [limites de recursos para Azure NetApp files](azure-netapp-files-resource-limits.md) sobre o número máximo de instantâneos permitidos para um volume. 
 
@@ -97,7 +100,7 @@ Uma política de instantâneo permite que você especifique a frequência de cri
 
     ![Política de instantâneo mensal](../media/azure-netapp-files/snapshot-policy-monthly.png) 
 
-4.  Clique em **Save** (Salvar).  
+4.  Clique em **Salvar**.  
 
 Se você precisar criar políticas de instantâneo adicionais, repita a etapa 3.
 As políticas que você criou aparecem na página política de instantâneo.
@@ -107,6 +110,8 @@ Se desejar que um volume use a política de instantâneo, você precisará [apli
 ### <a name="apply-a-snapshot-policy-to-a-volume"></a>Aplicar uma política de instantâneo a um volume
 
 Se desejar que um volume use uma política de instantâneo que você criou, você precisará aplicar a política ao volume. 
+
+Não é possível aplicar uma política de instantâneo a um volume de destino na replicação entre regiões.  
 
 1.  Vá para a página **volumes** , clique com o botão direito do mouse no volume ao qual você deseja aplicar uma política de instantâneo e selecione **Editar**.
 
@@ -142,6 +147,17 @@ Você pode excluir uma política de instantâneo que não deseja mais manter.
 
     ![Confirmação de exclusão de política de instantâneo](../media/azure-netapp-files/snapshot-policy-delete-confirm.png) 
 
+## <a name="edit-the-hide-snapshot-path-option"></a>Editar a opção ocultar caminho do instantâneo
+A opção ocultar caminho do instantâneo controla se o caminho do instantâneo de um volume está visível. Durante a criação de um volume de [NFS](azure-netapp-files-create-volumes.md#create-an-nfs-volume) ou [SMB](azure-netapp-files-create-volumes-smb.md#add-an-smb-volume) , você tem a opção de especificar se o caminho do instantâneo deve estar oculto. Posteriormente, você pode editar a opção ocultar caminho do instantâneo, conforme necessário.  
+
+> [!NOTE]
+> Para um [volume de destino](cross-region-replication-create-peering.md#create-the-data-replication-volume-the-destination-volume) na replicação entre regiões, a opção ocultar caminho do instantâneo é habilitada por padrão e a configuração não pode ser modificada. 
+
+1. Para exibir a configuração da opção ocultar caminho do instantâneo de um volume, selecione o volume. O campo **ocultar caminho do instantâneo** mostra se a opção está habilitada.   
+    ![Captura de tela que descreve o campo ocultar caminho do instantâneo.](../media/azure-netapp-files/hide-snapshot-path-field.png) 
+2. Para editar a opção ocultar caminho do instantâneo, clique em **Editar** na página volume e modifique a opção **ocultar caminho do instantâneo** , conforme necessário.   
+    ![Captura de tela que descreve a opção Editar instantâneo de volume.](../media/azure-netapp-files/volume-edit-snapshot-options.png) 
+
 ## <a name="restore-a-snapshot-to-a-new-volume"></a>Restaurar um instantâneo para um novo volume
 
 No momento, você pode restaurar um instantâneo somente para um novo volume. 
@@ -151,7 +167,7 @@ No momento, você pode restaurar um instantâneo somente para um novo volume.
     ![Restaurar instantâneo para o novo volume](../media/azure-netapp-files/azure-netapp-files-snapshot-restore-to-new-volume.png)
 
 3. Na janela criar um volume, forneça informações para o novo volume:  
-    * **Nome**   
+    * **Name**   
         Especifique o nome para o volume que você está criando.  
         
         O nome precisa ser exclusivo em um grupo de recursos. Ele precisa ter, pelo menos, três caracteres.  Deve usar qualquer caractere alfanumérico.
@@ -165,7 +181,94 @@ No momento, você pode restaurar um instantâneo somente para um novo volume.
     O novo volume usa o mesmo protocolo usado pelo instantâneo.   
     O novo volume para o qual o instantâneo é restaurado é exibido na folha Volumes.
 
+## <a name="restore-a-file-from-a-snapshot-using-a-client"></a>Restaurar um arquivo de um instantâneo usando um cliente
+
+Se você não quiser [restaurar o instantâneo inteiro para um volume](#restore-a-snapshot-to-a-new-volume), terá a opção de restaurar um arquivo de um instantâneo usando um cliente que tenha o volume montado.  
+
+O volume montado contém um diretório de instantâneos chamado  `.snapshot` (em clientes NFS) ou `~snapshot` (em clientes SMB) que é acessível ao cliente. O diretório de instantâneo contém subdiretórios correspondentes aos instantâneos do volume. Cada subdiretório contém os arquivos do instantâneo. Se você excluir ou substituir um arquivo acidentalmente, poderá restaurá-lo para o diretório de leitura-gravação pai copiando o arquivo de um subdiretório de instantâneo para o diretório de leitura/gravação. 
+
+Você pode controlar o acesso aos diretórios de instantâneos usando a [opção ocultar caminho do instantâneo](#edit-the-hide-snapshot-path-option). Esta opção controla se o diretório deve ser ocultado dos clientes. Portanto, ele também controla o acesso a arquivos e pastas nos instantâneos.  
+
+O NFSv 4.1 não mostra o `.snapshot` diretório ( `ls -la` ). No entanto, quando a opção ocultar caminho do instantâneo não está definida, você ainda pode acessar o `.snapshot` diretório por meio do nfsv 4.1 usando o `cd <snapshot-path>` comando da linha de comando do cliente. 
+
+### <a name="restore-a-file-by-using-a-linux-nfs-client"></a>Restaurar um arquivo usando um cliente NFS do Linux 
+
+1. Use o `ls` comando do Linux para listar o arquivo que você deseja restaurar do `.snapshot` diretório. 
+
+    Por exemplo:
+
+    `$ ls my.txt`   
+    `ls: my.txt: No such file or directory`   
+
+    `$ ls .snapshot`   
+    `daily.2020-05-14_0013/              hourly.2020-05-15_1106/`   
+    `daily.2020-05-15_0012/              hourly.2020-05-15_1206/`   
+    `hourly.2020-05-15_1006/             hourly.2020-05-15_1306/`   
+
+    `$ ls .snapshot/hourly.2020-05-15_1306/my.txt`   
+    `my.txt`
+
+2. Use o `cp` comando para copiar o arquivo para o diretório pai.  
+
+    Por exemplo: 
+
+    `$ cp .snapshot/hourly.2020-05-15_1306/my.txt .`   
+
+    `$ ls my.txt`   
+    `my.txt`   
+
+### <a name="restore-a-file-by-using-a-windows-client"></a>Restaurar um arquivo usando um cliente Windows 
+
+1. Se o `~snapshot` diretório do volume estiver oculto, [mostre itens ocultos](https://support.microsoft.com/help/4028316/windows-view-hidden-files-and-folders-in-windows-10) no diretório pai a serem exibidos `~snapshot` .
+
+    ![Exibir itens ocultos](../media/azure-netapp-files/snapshot-show-hidden.png) 
+
+2. Navegue até o subdiretório no `~snapshot` para localizar o arquivo que você deseja restaurar.  Clique com o botão direito do mouse no arquivo. Selecione **Copiar**.  
+
+    ![Copiar arquivo a ser restaurado](../media/azure-netapp-files/snapshot-copy-file-restore.png) 
+
+3. Retorne ao diretório pai. Clique com o botão direito do mouse no diretório pai e selecione `Paste` para colar o arquivo no diretório.
+
+    ![Colar arquivo a ser restaurado](../media/azure-netapp-files/snapshot-paste-file-restore.png) 
+
+4. Você também pode clicar com o botão direito do mouse no diretório pai, selecionar **Propriedades**, clicar na guia **versões anteriores** para ver a lista de instantâneos e selecionar **restaurar** para restaurar um arquivo.  
+
+    ![Propriedades versões anteriores](../media/azure-netapp-files/snapshot-properties-previous-version.png) 
+
+## <a name="revert-a-volume-using-snapshot-revert"></a>Reverter um volume usando a reversão de instantâneo
+
+A funcionalidade de reversão de instantâneo permite que você reverta rapidamente um volume para o estado em que ele estava quando um determinado instantâneo foi tomado. Na maioria dos casos, reverter um volume é muito mais rápido do que restaurar arquivos individuais de um instantâneo para o sistema de arquivos ativo. Também é mais eficiente em termos de espaço em comparação com a restauração de um instantâneo para um novo volume. 
+
+Você pode encontrar a opção reverter volume no menu instantâneos de um volume. Depois de selecionar um instantâneo para a reversão, Azure NetApp Files reverte o volume para os dados e os carimbos de data/hora que ele continha quando o instantâneo selecionado foi tirado. 
+
+> [!IMPORTANT]
+> Os instantâneos e os dados do sistema de arquivos ativos que foram feitos após o instantâneo selecionado serão perdidos. A operação de reversão de instantâneo substituirá *todos* os dados no volume de destino pelos dados no instantâneo selecionado. Você deve prestar atenção ao conteúdo do instantâneo e à data de criação ao selecionar um instantâneo. Não é possível desfazer a operação de reversão de instantâneo.
+
+1. Vá para o menu **instantâneos** de um volume.  Clique com o botão direito do mouse no instantâneo que você deseja usar para a operação de reversão. Selecione **reverter volume**. 
+
+    ![Captura de tela que descreve o menu de atalho de um instantâneo](../media/azure-netapp-files/snapshot-right-click-menu.png) 
+
+2. Na janela reverter volume para instantâneo, digite o nome do volume e clique em **reverter**.   
+
+    O volume agora é restaurado para o ponto no tempo do instantâneo selecionado.
+
+    ![Captura de tela que a janela reverter volume para instantâneo](../media/azure-netapp-files/snapshot-revert-volume.png) 
+
+## <a name="delete-snapshots"></a>Excluir instantâneos  
+
+Você pode excluir os instantâneos que você não precisa mais manter. 
+
+1. Vá para o menu **instantâneos** de um volume. Clique com o botão direito do mouse no instantâneo que você deseja excluir. Selecione **Excluir**.
+
+    ![Captura de tela que descreve o menu de atalho de um instantâneo](../media/azure-netapp-files/snapshot-right-click-menu.png) 
+
+2. Na janela excluir instantâneo, confirme que você deseja excluir o instantâneo clicando em **Sim**. 
+
+    ![Captura de tela que confirma a exclusão de instantâneo](../media/azure-netapp-files/snapshot-confirm-delete.png)  
+
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Compreender a hierarquia de armazenamento do Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)
+* [Solucionar problemas de políticas de instantâneo](troubleshoot-snapshot-policies.md)
 * [Limites de recursos do Azure NetApp Files](azure-netapp-files-resource-limits.md)
+* [Vídeo de instantâneos de Azure NetApp Files 101](https://www.youtube.com/watch?v=uxbTXhtXCkw&feature=youtu.be)
+* [O que é a Ferramenta Instantânea Consistente do Aplicativo Azure?](azacsnap-introduction.md)

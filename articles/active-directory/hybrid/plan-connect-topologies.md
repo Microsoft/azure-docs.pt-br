@@ -16,12 +16,12 @@ ms.date: 11/27/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47973a8444de64dc5c2bb75b5f0d65d1e6d35f6e
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 8d3f8e9441064a5d2d1372e3f177534b8dfefb93
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88509069"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92359825"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologias para o Azure AD Connect
 Este artigo descreve várias topologias locais e do Azure Active Directory (Azure AD) que usam a sincronização do Azure AD Connect como solução de integração principal. Este artigo inclui configurações com e sem suporte.
@@ -31,14 +31,14 @@ Aqui está a legenda para imagens neste artigo:
 
 | Descrição | Símbolo |
 | --- | --- |
-| Floresta do Active Directory local |![Floresta do Active Directory local](./media/plan-connect-topologies/LegendAD1.png) |
-| Active Directory local com importação filtrada |![Active Directory com importação filtrada](./media/plan-connect-topologies/LegendAD2.png) |
-| Servidor do Azure AD Connect Sync |![Servidor do Azure AD Connect Sync](./media/plan-connect-topologies/LegendSync1.png) |
-| “Modo de preparo” do servidor de sincronização do Azure AD Connect |![“Modo de preparo” do servidor de sincronização do Azure AD Connect](./media/plan-connect-topologies/LegendSync2.png) |
-| GALSync com o Forefront Identity Manager (FIM) 2010 ou o Microsoft Identity Manager (MIM) 2016 |![GALSync com o FIM 2010 ou MIM 2016](./media/plan-connect-topologies/LegendSync3.png) |
-| Servidor do Azure AD Connect Sync detalhado |![Servidor do Azure AD Connect Sync detalhado](./media/plan-connect-topologies/LegendSync4.png) |
-| AD do Azure |![Azure Active Directory](./media/plan-connect-topologies/LegendAAD.png) |
-| Cenário sem suporte |![Cenário sem suporte](./media/plan-connect-topologies/LegendUnsupported.png) |
+| Floresta do Active Directory local |![Floresta do Active Directory local](./media/plan-connect-topologies/legendad1.png) |
+| Active Directory local com importação filtrada |![Active Directory com importação filtrada](./media/plan-connect-topologies/legendad2.png) |
+| Servidor do Azure AD Connect Sync |![Servidor do Azure AD Connect Sync](./media/plan-connect-topologies/legendsync1.png) |
+| “Modo de preparo” do servidor de sincronização do Azure AD Connect |![“Modo de preparo” do servidor de sincronização do Azure AD Connect](./media/plan-connect-topologies/legendsync2.png) |
+| GALSync com o Forefront Identity Manager (FIM) 2010 ou o Microsoft Identity Manager (MIM) 2016 |![GALSync com o FIM 2010 ou MIM 2016](./media/plan-connect-topologies/legendsync3.png) |
+| Servidor do Azure AD Connect Sync detalhado |![Servidor do Azure AD Connect Sync detalhado](./media/plan-connect-topologies/legendsync4.png) |
+| AD do Azure |![Azure Active Directory](./media/plan-connect-topologies/legendaad.png) |
+| Cenário sem suporte |![Cenário sem suporte](./media/plan-connect-topologies/legendunsupported.png) |
 
 
 > [!IMPORTANT]
@@ -46,17 +46,17 @@ Aqui está a legenda para imagens neste artigo:
 
 
 ## <a name="single-forest-single-azure-ad-tenant"></a>Floresta única, locatário único do Azure AD
-![Topologia de uma única floresta e um único locatário](./media/plan-connect-topologies/SingleForestSingleDirectory.png)
+![Topologia de uma única floresta e um único locatário](./media/plan-connect-topologies/singleforestsingledirectory.png)
 
 A topologia mais comum é uma floresta única local, com um ou vários domínios e um único locatário do Azure AD. Para a autenticação do Azure AD, é usada a sincronização de hash de senha. A instalação expressa do Azure AD Connect dá suporte apenas a esta topologia.
 
 ### <a name="single-forest-multiple-sync-servers-to-one-azure-ad-tenant"></a>Uma única floresta, vários servidores de sincronização para um locatário do Azure AD
-![Topologia sem suporte, filtrada para uma floresta única](./media/plan-connect-topologies/SingleForestFilteredUnsupported.png)
+![Topologia sem suporte, filtrada para uma floresta única](./media/plan-connect-topologies/singleforestfilteredunsupported.png)
 
 Não há suporte para vários servidores de sincronização do Azure AD Connect conectados ao mesmo locatário do Azure AD, exceto para um [servidor de preparo](#staging-server). Não haverá suporte mesmo se os servidores estiverem configurados para sincronizar com um conjunto de objetos mutuamente exclusivo. Talvez você tenha considerado esta topologia caso não possa acessar todos os domínios na floresta de um único servidor, ou se quiser distribuir a carga entre vários servidores.
 
 ## <a name="multiple-forests-single-azure-ad-tenant"></a>Várias florestas, locatário único do Azure AD
-![Topologia de várias florestas e um único locatário](./media/plan-connect-topologies/MultiForestSingleDirectory.png)
+![Topologia de várias florestas e um único locatário](./media/plan-connect-topologies/multiforestsingledirectory.png)
 
 Muitas organizações têm ambientes com várias florestas do Active Directory local. Há vários motivos para ter mais de uma floresta do Active Directory local. Exemplos típicos são designs com florestas de conta-recurso e o resultado de uma fusão ou aquisição.
 
@@ -81,16 +81,16 @@ Se seu ambiente não corresponder a essas suposições, acontecerá o seguinte:
 Você pode encontrar mais detalhes em [Noções básicas sobre a configuração padrão](concept-azure-ad-connect-sync-default-configuration.md).
 
 ### <a name="multiple-forests-multiple-sync-servers-to-one-azure-ad-tenant"></a>Várias florestas, vários servidores de sincronização para um locatário do Azure AD
-![Topologia sem suporte para vários servidores de sincronização e de várias florestas](./media/plan-connect-topologies/MultiForestMultiSyncUnsupported.png)
+![Topologia sem suporte para vários servidores de sincronização e de várias florestas](./media/plan-connect-topologies/multiforestmultisyncunsupported.png)
 
 Não há suporte para a conexão de mais de um servidor de sincronização do Azure AD Connect a um único locatário do Azure AD. A exceção é o uso de um [servidor de preparo](#staging-server).
 
 Essa topologia difere da que está abaixo em que **vários servidores de sincronização** conectados a um único locatário do Azure Active Directory não são suportados.
 
 ### <a name="multiple-forests-single-sync-server-users-are-represented-in-only-one-directory"></a>Múltiplas florestas, servidor de sincronização única, os usuários são representados em apenas um diretório
-![Opção para representar os usuários apenas uma vez em todos os diretórios](./media/plan-connect-topologies/MultiForestUsersOnce.png)
+![Opção para representar os usuários apenas uma vez em todos os diretórios](./media/plan-connect-topologies/multiforestusersonce.png)
 
-![Representação de várias florestas e topologias separadas](./media/plan-connect-topologies/MultiForestSeparateTopologies.png)
+![Representação de várias florestas e topologias separadas](./media/plan-connect-topologies/multiforestseparatetopologies.png)
 
 Nesse ambiente, todas as florestas locais são tratadas como entidades separadas. Não há usuários presentes em outras florestas. Cada floresta tem sua própria organização do Exchange e não há nenhuma GALSync entre as florestas. Esta topologia deve ser a situação após uma fusão/aquisição ou em uma organização em que cada unidade de negócios opera de forma independente. Essas florestas serão da mesma empresa no Azure AD e aparecerão com uma GAL unificada. Na figura acima, cada objeto em cada floresta é representado uma vez no metaverso e agregado no locatário de destino do Azure AD.
 
@@ -98,9 +98,9 @@ Nesse ambiente, todas as florestas locais são tratadas como entidades separadas
 O que é comum a todos esses cenários é que esses grupos de distribuição e segurança podem conter uma mescla de usuários, contatos e FSPs (Entidades de Segurança Externas). As FSPs são usadas no AD DS (Active Directory Domain Services) para representar os membros de outras florestas em um grupo de segurança. Todas as FSPs serão resolvidas para o objeto real no Azure AD.
 
 ### <a name="multiple-forests-full-mesh-with-optional-galsync"></a>Várias florestas: malha completa com GALSync opcional
-![Opção para usar o atributo de email para correspondência quando existem identidades de usuários em vários diretórios](./media/plan-connect-topologies/MultiForestUsersMail.png)
+![Opção para usar o atributo de email para correspondência quando existem identidades de usuários em vários diretórios](./media/plan-connect-topologies/multiforestusersmail.png)
 
-![Topologia de malha completa para várias florestas](./media/plan-connect-topologies/MultiForestFullMesh.png)
+![Topologia de malha completa para várias florestas](./media/plan-connect-topologies/multiforestfullmesh.png)
 
 Uma topologia de malha completa permite que os usuários e recursos estejam localizados em qualquer floresta. Normalmente, há relações de confiança bidirecionais entre as florestas.
 
@@ -109,26 +109,26 @@ Se o Exchange estiver presente em mais de uma floresta, poderá haver uma soluç
 Nesse cenário, os objetos de identidade são ingressados usando o atributo de email. Um usuário com uma caixa de correio em uma floresta é ingressado aos contatos em outras florestas.
 
 ### <a name="multiple-forests-account-resource-forest"></a>Várias florestas: floresta de recursos de conta
-![Opção para usar os atributos ObjectSID e msExchMasterAccountSID para correspondência quando existem identidades em vários diretórios](./media/plan-connect-topologies/MultiForestUsersObjectSID.png)
+![Opção para usar os atributos ObjectSID e msExchMasterAccountSID para correspondência quando existem identidades em vários diretórios](./media/plan-connect-topologies/multiforestusersobjectsid.png)
 
-![Topologia de floresta de conta-recurso para várias florestas](./media/plan-connect-topologies/MultiForestAccountResource.png)
+![Topologia de floresta de conta-recurso para várias florestas](./media/plan-connect-topologies/multiforestaccountresource.png)
 
 Em uma topologia de floresta de recursos de conta, você tem uma ou mais florestas de *conta* com contas de usuário ativas. Você também tem uma ou mais florestas de *recursos* com contas desabilitadas.
 
 Nesse cenário, uma (ou mais) floresta de recursos confia em todas as florestas de conta. Essa floresta de recurso normalmente tem um esquema do Active Directory estendido com o Exchange e o Lync. Todos os serviços do Exchange e do Lync, bem como outros serviços compartilhados, estão localizados nessa floresta. Os usuários têm uma conta de usuário desabilitada nesta floresta e a caixa de correio está vinculada à floresta da conta.
 
-## <a name="office-365-and-topology-considerations"></a>Office 365 e considerações de topologia
-Algumas cargas de trabalho do Office 365 têm certas restrições em topologias com suporte:
+## <a name="microsoft-365-and-topology-considerations"></a>Considerações sobre Microsoft 365 e topologia
+Algumas cargas de trabalho Microsoft 365 têm determinadas restrições em topologias com suporte:
 
 | Carga de trabalho | Restrições |
 | --------- | --------- |
-| Exchange Online | Para obter mais informações sobre topologias híbridas com suporte pelo Exchange Online, consulte [Implantações híbridas com várias florestas do Active Directory](https://technet.microsoft.com/library/jj873754.aspx). |
-| Skype for Business | Ao usar várias florestas locais, somente a topologia de floresta conta-recurso terá suporte. Para obter mais informações, confira [Requisitos ambientais para Skype for Business Server 2015](https://technet.microsoft.com/library/dn933910.aspx). |
+| Exchange Online | Para obter mais informações sobre topologias híbridas com suporte pelo Exchange Online, consulte [Implantações híbridas com várias florestas do Active Directory](/Exchange/hybrid-deployment/hybrid-with-multiple-forests). |
+| Skype for Business | Ao usar várias florestas locais, somente a topologia de floresta conta-recurso terá suporte. Para obter mais informações, confira [Requisitos ambientais para Skype for Business Server 2015](/skypeforbusiness/plan-your-deployment/requirements-for-your-environment/environmental-requirements). |
 
-Se tiver uma organização maior, então considere usar o recurso [Localização Preferencia de Dados do Office 365](how-to-connect-sync-feature-preferreddatalocation.md). Ele permite que você defina em qual região do datacenter estão localizados os recursos do usuário.
+Se você for uma organização maior, considere usar o recurso de [Microsoft 365 PreferredDataLocation](how-to-connect-sync-feature-preferreddatalocation.md) . Ele permite que você defina em qual região do datacenter estão localizados os recursos do usuário.
 
 ## <a name="staging-server"></a>Servidor de preparo
-![Servidor de preparo em uma topologia](./media/plan-connect-topologies/MultiForestStaging.png)
+![Servidor de preparo em uma topologia](./media/plan-connect-topologies/multiforeststaging.png)
 
 O Azure AD Connect dá suporte à instalação de um segundo servidor no *modo de preparo*. Um servidor nesse modo lê dados de todos os diretórios conectados, mas não grava nada em diretórios conectados. Ele usa o ciclo de sincronização normal e, portanto, tem uma cópia atualizada dos dados de identidade.
 
@@ -142,14 +142,14 @@ Esse método também pode ser usado para substituir o servidor de sincronizaçã
 
 ## <a name="multiple-azure-ad-tenants"></a>Vários locatários do Azure AD
 Recomendamos ter um único locatário no Azure AD para uma organização.
-Antes de planejar usar vários locatários do AD do Azure, confira o artigo [Gerenciamento de unidades administrativas no Azure AD](../users-groups-roles/directory-administrative-units.md). Ele aborda cenários comuns em que você pode usar um único locatário.
+Antes de planejar usar vários locatários do AD do Azure, confira o artigo [Gerenciamento de unidades administrativas no Azure AD](../roles/administrative-units.md). Ele aborda cenários comuns em que você pode usar um único locatário.
 
-![Topologia de várias florestas e vários locatários](./media/plan-connect-topologies/MultiForestMultiDirectory.png)
+![Topologia de várias florestas e vários locatários](./media/plan-connect-topologies/multiforestmultidirectory.png)
 
 Há uma relação de 1:1 entre um servidor de sincronização do Azure AD Connect e um locatário do Azure AD. Para cada locatário do Azure AD, você precisará de uma instalação de servidor do Azure AD Connect Sync. As instâncias de locatário do Azure AD são isoladas por design. Ou seja, os usuários em um locatário não podem ver os usuários no outro locatário. Se você quiser que essa separação, essa é uma configuração com suporte. Caso contrário, você deve usar o único modelo de locatário do Azure AD.
 
 ### <a name="each-object-only-once-in-an-azure-ad-tenant"></a>Cada objeto uma única vez em um locatário do Azure AD
-![Topologia filtrada para uma floresta única](./media/plan-connect-topologies/SingleForestFiltered.png)
+![Topologia filtrada para uma floresta única](./media/plan-connect-topologies/singleforestfiltered.png)
 
 Nessa topologia, um servidor do Azure AD Connect sync está conectado a cada locatário do Azure AD. Os servidores de sincronização do Azure AD Connect devem ser configurados para filtragem para que cada um deles tenha um conjunto de objetos mutuamente exclusivos para operação. Você pode, por exemplo, definir o escopo de cada servidor para um determinado domínio ou unidade organizacional.
 
@@ -161,7 +161,10 @@ Um domínio DNS só pode ser registrado em um único locatário do Azure AD. Os 
 
 Essa topologia tem as seguintes restrições aos cenários que, caso contrário, têm suporte:
 
-* Apenas um dos locatários do Azure AD pode habilitar um Exchange híbrido com a instância local do Active Directory.
+* Um máximo de 5 Azure Active Directory locatários pode ter o Exchange híbrido com a instância de Active Directory local. Esse cenário é descrito em [atualização do assistente de configuração híbrida de setembro de 2020](https://techcommunity.microsoft.com/t5/exchange-team-blog/september-2020-hybrid-configuration-wizard-update/ba-p/1687698).
+* O assistente de configuração híbrida do Exchange Server em execução deve ser 2016 CU18 ou 2019 CU7 ou posterior.
+* Cada instância de Azure AD Connect deve estar em execução em um computador ingressado no domínio.
+* Azure AD Connect deve ser configurado usando a opção de filtragem de domínio/UO para filtrar usuários de seu diretório local. O uso dessa opção garante que os usuários apareçam apenas em um único locatário do Exchange Online.
 * Os dispositivos Windows 10 podem ser associados a um locatário do Azure AD.
 * A opção de SSO (logon único) para autenticação de passagem e sincronização de hash de senha só pode ser usada com um locatário do Azure AD.
 
@@ -171,7 +174,7 @@ O requisito para um conjunto de objetos mutuamente exclusivo também se aplica a
 * Write-back de dispositivo.
 
 ### <a name="each-object-multiple-times-in-an-azure-ad-tenant"></a>Cada objeto várias vezes em um locatário do Azure AD
-![Topologia sem suporte para uma única floresta e vários locatários](./media/plan-connect-topologies/SingleForestMultiDirectoryUnsupported.png) ![Topologia sem suporte para uma única floresta e vários conectores](./media/plan-connect-topologies/SingleForestMultiConnectorsUnsupported.png)
+![Topologia sem suporte para uma única floresta e vários locatários](./media/plan-connect-topologies/singleforestmultidirectoryunsupported.png) ![Topologia sem suporte para uma única floresta e vários conectores](./media/plan-connect-topologies/singleforestmulticonnectorsunsupported.png)
 
 Estas tarefas não têm suporte:
 
@@ -180,7 +183,7 @@ Estas tarefas não têm suporte:
 * Modifique a sincronização do Azure AD Connect para se conectar a vários locatários do Azure AD.
 
 ### <a name="galsync-by-using-writeback"></a>GALSync com o uso de write-back
-![Topologia sem suporte para várias florestas e vários diretórios com GALSync concentrando-se no Azure AD](./media/plan-connect-topologies/MultiForestMultiDirectoryGALSync1Unsupported.png) ![Topologia sem suporte para várias florestas e vários diretórios com GALSync concentrando-se no Active Directory local](./media/plan-connect-topologies/MultiForestMultiDirectoryGALSync2Unsupported.png)
+![Topologia sem suporte para várias florestas e vários diretórios com GALSync concentrando-se no Azure AD](./media/plan-connect-topologies/multiforestmultidirectorygalsync1unsupported.png) ![Topologia sem suporte para várias florestas e vários diretórios com GALSync concentrando-se no Active Directory local](./media/plan-connect-topologies/multiforestmultidirectorygalsync2unsupported.png)
 
 Os locatários do Azure AD são isolados por design. Estas tarefas não têm suporte:
 
@@ -188,7 +191,7 @@ Os locatários do Azure AD são isolados por design. Estas tarefas não têm sup
 * Exporte usuários como contatos para outra instância local do Active Directory usando a sincronização do Azure AD Connect.
 
 ### <a name="galsync-with-on-premises-sync-server"></a>GALSync com o servidor de sincronização local
-![GALSync em uma topologia para várias florestas e vários diretórios](./media/plan-connect-topologies/MultiForestMultiDirectoryGALSync.png)
+![GALSync em uma topologia para várias florestas e vários diretórios](./media/plan-connect-topologies/multiforestmultidirectorygalsync.png)
 
 Você pode usar o FIM 2010 ou MIM 2016 local para sincronizar usuários (via GALSync) entre duas organizações do Exchange. Os usuários em uma organização aparecem como usuários/contatos externos na outra organização. Essas instâncias locais diferentes do Active Directory poderão então ser sincronizadas para seus próprios locatários do Azure AD.
 

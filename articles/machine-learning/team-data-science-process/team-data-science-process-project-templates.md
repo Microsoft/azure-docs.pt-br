@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: c003145acd423fd96dd0ac6c054884024c2ce4a0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ac6055029b8fc7bbba11a8e3b789df3b6b1622e2
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75864223"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322758"
 ---
 # <a name="team-data-science-process-project-planning"></a>Planejamento de projetos do Processo de Ciência de Dados de Equipe
 
@@ -30,7 +30,7 @@ O ciclo de vida descreve os estágios principais que os projetos normalmente exe
 - Implantação
 - Aceitação do cliente
 
-Para obter descrições de cada um desses estágios, consulte [Ciclo de vida do Processo de Ciência de Dados de Equipe](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/lifecycle).
+Para obter descrições de cada um desses estágios, consulte [Ciclo de vida do Processo de Ciência de Dados de Equipe](./lifecycle.md).
 
  
 ## <a name="microsoft-project-template"></a>Modelo do Microsoft Project
@@ -60,5 +60,4 @@ Use este [repositório de modelos de projetos](https://github.com/Azure/Azure-TD
 
 [Desenvolvimento ágil de projetos de ciência de dados](agile-development.md) Este documento descreve um projeto de ciência de dados de forma sistemática, controlada por versão e colaborativa usando o processo de ciência de dados de equipe.
 
-Também são fornecidas instruções passo a passo que demonstram todas as etapas do processo para **cenários específicos**. Eles estão listados e vinculados a descrições em miniatura no artigo [Instruções passo a passo de exemplo](walkthroughs.md). Eles ilustram como combinar a nuvem, as ferramentas locais e os serviços em um fluxo de trabalho ou pipeline para criar um aplicativo inteligente. 
-
+Também são fornecidas instruções passo a passo que demonstram todas as etapas do processo para **cenários específicos**. Eles estão listados e vinculados a descrições em miniatura no artigo [Instruções passo a passo de exemplo](walkthroughs.md). Eles ilustram como combinar a nuvem, as ferramentas locais e os serviços em um fluxo de trabalho ou pipeline para criar um aplicativo inteligente.

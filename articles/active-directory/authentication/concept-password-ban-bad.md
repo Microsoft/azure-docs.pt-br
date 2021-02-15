@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/16/2020
-ms.author: iainfou
-author: iainfoulds
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 68419c33286457a770a9988f1f00cc0b5e1f91bc
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: b019c12103a0324e21ef7c06b0c7a5d7fe14e6ec
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88235291"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96743880"
 ---
 # <a name="eliminate-bad-passwords-using-azure-active-directory-password-protection"></a>Eliminar senhas ruins usando Azure Active Directory proteção por senha
 
@@ -24,7 +24,7 @@ Muitas diretrizes de segurança recomendam que você não use a mesma senha em v
 
 Com a proteção de senha do Azure AD, as listas de senhas globais banidas padrão são automaticamente aplicadas a todos os usuários em um locatário do Azure AD. Para dar suporte às suas próprias necessidades de negócios e de segurança, você pode definir entradas em uma lista personalizada de senhas banidas. Quando os usuários alteram ou redefinem suas senhas, essas listas de senhas banidas são verificadas para impor o uso de senhas fortes.
 
-Você deve usar recursos adicionais como [a autenticação multifator do Azure](concept-mfa-howitworks.md), não apenas depende de senhas fortes impostas pela proteção de senha do Azure AD. Para obter mais informações sobre como usar várias camadas de segurança para seus eventos de entrada, consulte [seu PA $ $Word não importa](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Your-Pa-word-doesn-t-matter/ba-p/731984).
+Você deve usar recursos adicionais como [a autenticação multifator do Azure ad](concept-mfa-howitworks.md), não apenas se basear em senhas fortes impostas pela proteção por senha do Azure AD. Para obter mais informações sobre como usar várias camadas de segurança para seus eventos de entrada, consulte [seu PA $ $Word não importa](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Your-Pa-word-doesn-t-matter/ba-p/731984).
 
 > [!IMPORTANT]
 > Este artigo conceitual explica a um administrador como funciona a proteção de senha do Azure AD. Se você for um usuário final já registrado para redefinição de senha de autoatendimento e precisar voltar à sua conta, vá para [https://aka.ms/sspr](https://aka.ms/sspr) .
@@ -125,7 +125,7 @@ A normalização tem as duas partes a seguir:
    | $               | s                  |
    | \@              | um                  |
 
-Considere o exemplo a seguir:
+Considere o seguinte exemplo:
 
 * A senha "blank" é banida.
 * Um usuário tenta alterar sua senha para " Bl@nK ".
@@ -140,7 +140,7 @@ Uma senha é examinada para outro comportamento de correspondência e uma pontua
 
 Correspondência difusa é usada na senha normalizada para identificar se ela contém uma senha encontrada na lista de senhas banidas global ou personalizada. O processo de correspondência baseia-se em uma distância de edição de comparação de um (1).
 
-Considere o exemplo a seguir:
+Considere o seguinte exemplo:
 
 * A senha "abcdef" é banida.
 * Um usuário tenta alterar sua senha para um dos seguintes:
@@ -161,7 +161,7 @@ A correspondência de subcadeia de caracteres é usada na senha normalizada para
 > [!IMPORTANT]
 > A correspondência de subcadeia de caracteres é imposta somente para nomes e outros termos, que têm pelo menos quatro caracteres de comprimento.
 
-Considere o exemplo a seguir:
+Considere o seguinte exemplo:
 
 * Um usuário chamado Poll que deseja redefinir sua senha para "p0LL23fb".
 * Após a normalização, essa senha se tornaria "poll23fb".
@@ -202,7 +202,7 @@ Vejamos um exemplo um pouco diferente para mostrar como a complexidade adicional
 > [!IMPORTANT]
 > O algoritmo de senha banido, junto com a lista de senhas globais banidas, pode e faz alterações a qualquer momento no Azure com base na análise e pesquisa de segurança contínuas.
 >
-> Para o serviço de agente DC local em cenários híbridos, os algoritmos atualizados só entram em vigor depois que o software do agente DC é reinstalado.
+> Para o serviço de agente DC local em cenários híbridos, os algoritmos atualizados só entram em vigor depois que o software do agente DC é atualizado.
 
 ## <a name="what-do-users-see"></a>O que os usuários veem
 

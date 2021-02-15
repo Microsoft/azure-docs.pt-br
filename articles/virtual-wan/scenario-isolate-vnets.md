@@ -6,15 +6,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 08/03/2020
+ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 763a13cf2ecbe845619101bc9e325cc51564260a
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: e5e2ce17be6d8a1fa82d8a92b9b788f0bd2a37b8
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87553386"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424748"
 ---
 # <a name="scenario-isolating-vnets"></a>Cenário: isolando VNets
 
@@ -26,10 +26,10 @@ Nesse cenário, a carga de trabalho em uma determinada VNet permanece isolada e 
 
 | De |   Para |  *VNets* | *Branches* |
 | -------------- | -------- | ---------- | ---|
-| VNets     | &#8594;|           |     X    |
-| Branches   | &#8594;|    X     |     X    |
+| VNets     | &#8594;| Direto |   Direto    |
+| Branches   | &#8594;|  Direto  |   Direto    |
 
-Cada uma das células na tabela anterior descreve se uma conexão de WAN virtual (o lado "de" do fluxo, os cabeçalhos de linha) aprende um prefixo de destino (o lado "para" do fluxo, os cabeçalhos de coluna em itálico) para um fluxo de tráfego específico.
+Cada uma das células na tabela anterior descreve se uma conexão de WAN virtual (o lado "de" do fluxo, os cabeçalhos de linha) se comunica com um prefixo de destino (o lado "para" do fluxo, os cabeçalhos de coluna em itálico). Nesse cenário, não há firewalls ou soluções de virtualização de rede, portanto, as comunicações fluem diretamente sobre a WAN virtual (portanto, a palavra "direta" na tabela).
 
 Essa matriz de conectividade nos oferece dois padrões de linha diferentes, que são convertidos em duas tabelas de rotas. A WAN virtual já tem uma tabela de rotas padrão, portanto, precisaremos de outra tabela de rotas. Para este exemplo, nomearemos a tabela de rotas **RT_VNET**.
 

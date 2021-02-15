@@ -17,12 +17,12 @@ ms.date: 01/24/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 86a0e0b3c64554e00a5ba7734af28dc136df643f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 56f9976faf2a803e747bce8b851a3555e6d746b0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80891502"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89231139"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Referência das atividades de auditoria do Azure AD
 
@@ -35,8 +35,8 @@ A arquitetura de relatório no Azure AD consiste nos seguintes componentes:
     - [Logs de auditoria](concept-audit-logs.md) – Permitem o rastreio de todas as alterações feitas por vários recursos no Azure AD por meio de logs. 
     
 - **Relatórios de segurança** 
-    - [Entradas arriscadas](concept-risky-sign-ins.md) - uma entrada arriscada é um indicador para uma tentativa de logon que pode ter sido realizada por alguém que não é o proprietário legítimo de uma conta de usuário. 
-    - [Usuários sinalizados para riscos](concept-user-at-risk.md) - um usuário arriscado é um indicador de uma conta de usuário que pode ter sido comprometida. 
+    - [Entradas arriscadas](../identity-protection/overview-identity-protection.md) - uma entrada arriscada é um indicador para uma tentativa de logon que pode ter sido realizada por alguém que não é o proprietário legítimo de uma conta de usuário. 
+    - [Usuários sinalizados para riscos](../identity-protection/overview-identity-protection.md) - um usuário arriscado é um indicador de uma conta de usuário que pode ter sido comprometida. 
 
 Este artigo lista as atividades de auditoria que podem ser registradas nos logs de auditoria.
 

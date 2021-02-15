@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 05/18/2020
 ms.author: pafarley
-ms.openlocfilehash: fa292f0441369ed13f3f85035a2ec8cc3f5c6723
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: ae49a8738ba711ac6c77f2e299852ad61f70be56
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85800084"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92912898"
 ---
 # <a name="learn-text-moderation-concepts"></a>Aprender os conceitos de moderação de texto
 
@@ -30,11 +30,11 @@ A resposta de serviço inclui as informações a seguir:
 - Dados pessoais
 - Texto corrigido automaticamente
 - Texto original
-- Linguagem
+- Idioma
 
 ## <a name="profanity"></a>Conteúdo ofensivo
 
-Se a API detectar termos ofensivos em qualquer um dos [idiomas com suporte](Text-Moderation-API-Languages.md), esses termos serão incluídos na resposta. A resposta também contém a localização (`Index`) no texto original. O `ListId` no JSON de exemplo a seguir refere-se aos termos encontrados nas [listas de termos personalizadas](try-terms-list-api.md), se disponíveis.
+Se a API detectar termos ofensivos em qualquer um dos [idiomas com suporte](./language-support.md), esses termos serão incluídos na resposta. A resposta também contém a localização (`Index`) no texto original. O `ListId` no JSON de exemplo a seguir refere-se aos termos encontrados nas [listas de termos personalizadas](try-terms-list-api.md), se disponíveis.
 
 ```json
 "Terms": [
@@ -47,13 +47,13 @@ Se a API detectar termos ofensivos em qualquer um dos [idiomas com suporte](Text
 ```
 
 > [!NOTE]
-> Para o parâmetro **language**, atribua `eng` ou deixe vazio para ver a resposta de **classificação** assistida por computador (recurso de visualização). **Esse recurso dá suporte ao inglês apenas**.
+> Para o parâmetro **language** , atribua `eng` ou deixe vazio para ver a resposta de **classificação** assistida por computador (recurso de visualização). **Esse recurso dá suporte ao inglês apenas** .
 >
-> Para a detecção de **termos obscenos**, use o [código ISO 639-3](http://www-01.sil.org/iso639-3/codes.asp) dos idiomas com suporte listados neste artigo ou deixe vazio.
+> Para a detecção de **termos obscenos** , use o [código ISO 639-3](http://www-01.sil.org/iso639-3/codes.asp) dos idiomas com suporte listados neste artigo ou deixe vazio.
 
 ## <a name="classification"></a>classificação
 
-O recurso de classificação de **texto** auxiliada por máquina do Content moderator dá suporte **apenas ao inglês**e ajuda a detectar conteúdo potencialmente indesejado. O conteúdo sinalizado pode ser avaliado como inadequado, dependendo do contexto. Ele transmite a probabilidade de cada categoria e pode recomendar uma análise humana. O recurso utiliza um modelo treinado para identificar uma possível linguagem abusiva, depreciativa ou discriminatória. Isso inclui gírias, palavras abreviadas, palavras ofensivas e intencionalmente incorretas para a análise. 
+O recurso de classificação de **texto** auxiliada por máquina do Content moderator dá suporte **apenas ao inglês** e ajuda a detectar conteúdo potencialmente indesejado. O conteúdo sinalizado pode ser avaliado como inadequado, dependendo do contexto. Ele transmite a probabilidade de cada categoria e pode recomendar uma análise humana. O recurso utiliza um modelo treinado para identificar uma possível linguagem abusiva, depreciativa ou discriminatória. Isso inclui gírias, palavras abreviadas, palavras ofensivas e intencionalmente incorretas para a análise. 
 
 A extração a seguir na extração JSON mostra uma saída de exemplo:
 
@@ -142,7 +142,7 @@ Se você solicitar correção automática, a resposta conterá a versão corrigi
 Embora a lista global de termos padrão funcione muito bem na maioria dos casos, convém filtrar os termos específicos das necessidades da sua empresa. Por exemplo, é possível querer filtrar qualquer marca competitiva das postagens dos usuários.
 
 > [!NOTE]
-> Há um limite máximo de **5 listas de termos** com cada lista para **não exceder 10.000 termos**.
+> Há um limite máximo de **5 listas de termos** com cada lista para **não exceder 10.000 termos** .
 >
 
 O exemplo a seguir mostra a ID da lista correspondente:

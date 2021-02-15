@@ -1,19 +1,19 @@
 ---
 title: Relocalização grosseira em C++/NDK
 description: Explicação detalhada de como criar e localizar âncoras usando relocalização de alta granularidade em C++/NDK.
-author: bucurb
-manager: dacoghl
+author: msftradford
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
-ms.author: bobuc
-ms.date: 09/19/2019
+ms.author: parkerra
+ms.date: 11/20/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: db7480b8aa2a78e40cf52d22cbaa7a15422602e8
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b8b59873526247c0406c85ea29cf61cd55c4725b
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76545408"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "96018028"
 ---
 # <a name="how-to-create-and-locate-anchors-using-coarse-relocalization-in-cndk"></a>Como criar e localizar âncoras usando relocalização de alta granularidade em C++/NDK
 

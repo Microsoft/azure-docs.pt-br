@@ -3,12 +3,12 @@ title: Referência de configurações de aplicativo para Azure Functions
 description: Documentação de referência para as configurações de aplicativo ou variáveis de ambiente do Azure Functions.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: b17db828aeb19c3347c0db4babf0eee2b9d5f280
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 8cb3e12c48adf1273c58f4914e34590e21b9d3cc
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88589293"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100378291"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referência de configurações de aplicativo para Azure Functions
 
@@ -19,11 +19,11 @@ As configurações de aplicativo em um aplicativo de funções contém opções 
 Há outras opções de configuração global no arquivo [host.json](functions-host-json.md) e no arquivo [local.settings.json](functions-run-local.md#local-settings-file).
 
 > [!NOTE]  
-> Você pode usar as configurações do aplicativo para substituir host.jsem valores de configuração sem precisar alterar o host.jsno próprio arquivo. Isso é útil para cenários em que você precisa configurar ou modificar host.jsespecíficas em configurações para um ambiente específico. Isso também permite que você altere host.jsem configurações sem precisar republicar o projeto. Para saber mais, consulte o [host.jsno artigo de referência](functions-host-json.md#override-hostjson-values).  
+> Você pode usar as configurações do aplicativo para substituir host.jsem valores de configuração sem precisar alterar o host.jsno próprio arquivo. Isso é útil para cenários em que você precisa configurar ou modificar host.jsespecíficas em configurações para um ambiente específico. Isso também permite que você altere host.jsem configurações sem precisar republicar o projeto. Para saber mais, consulte o [host.jsno artigo de referência](functions-host-json.md#override-hostjson-values). As alterações nas configurações do aplicativo de funções exigem que o seu aplicativo de funções seja reiniciado.
 
 ## <a name="appinsights_instrumentationkey"></a>APPINSIGHTS_INSTRUMENTATIONKEY
 
-A chave de instrumentação para Application Insights. Use apenas um `APPINSIGHTS_INSTRUMENTATIONKEY` ou `APPLICATIONINSIGHTS_CONNECTION_STRING` . Para saber mais, consulte [Monitorar Azure Functions](functions-monitoring.md). 
+A chave de instrumentação para Application Insights. Use apenas um `APPINSIGHTS_INSTRUMENTATIONKEY` ou `APPLICATIONINSIGHTS_CONNECTION_STRING` . Quando Application Insights é executado em uma nuvem soberanas, use `APPLICATIONINSIGHTS_CONNECTION_STRING` . Para obter mais informações, consulte [como configurar o monitoramento para Azure Functions](configure-monitoring.md). 
 
 |Chave|Valor de exemplo|
 |---|------------|
@@ -31,7 +31,12 @@ A chave de instrumentação para Application Insights. Use apenas um `APPINSIGHT
 
 ## <a name="applicationinsights_connection_string"></a>APPLICATIONINSIGHTS_CONNECTION_STRING
 
-A cadeia de conexão para Application Insights. Use `APPLICATIONINSIGHTS_CONNECTION_STRING` em vez de `APPINSIGHTS_INSTRUMENTATIONKEY` quando seu aplicativo de funções exigir as personalizações adicionadas com suporte usando a cadeia de conexão. Para obter mais informações, consulte [cadeias de conexão](../azure-monitor/app/sdk-connection-string.md). 
+A cadeia de conexão para Application Insights. Use em `APPLICATIONINSIGHTS_CONNECTION_STRING` vez de `APPINSIGHTS_INSTRUMENTATIONKEY` nos seguintes casos:
+
++ Quando seu aplicativo de funções requer as personalizações adicionadas com suporte usando a cadeia de conexão. 
++ Quando sua instância de Application Insights é executada em uma nuvem soberanas, que requer um ponto de extremidade personalizado.
+
+Para obter mais informações, consulte [cadeias de conexão](../azure-monitor/app/sdk-connection-string.md). 
 
 |Chave|Valor de exemplo|
 |---|------------|
@@ -44,7 +49,7 @@ Por padrão, os [proxies do Functions](functions-proxies.md) usam um atalho para
 |Chave|Valor|Descrição|
 |-|-|-|
 |AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|true|Chamadas com uma URL de back-end apontando para uma função no aplicativo de função local não serão enviadas diretamente para a função. Em vez disso, as solicitações são direcionadas de volta para o front-end HTTP para o aplicativo de funções.|
-|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|Chamadas com uma URL de back-end apontando para uma função no aplicativo de funções local são encaminhadas diretamente para a função. Este é o valor padrão. |
+|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|Chamadas com uma URL de back-end apontando para uma função no aplicativo de funções local são encaminhadas diretamente para a função. Esse é o valor padrão. |
 
 ## <a name="azure_function_proxy_backend_url_decode_slashes"></a>AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES
 
@@ -130,7 +135,7 @@ Especifica o repositório ou o provedor a ser usado para armazenar chaves. Atual
 
 ## <a name="azurewebjobsstorage"></a>AzureWebJobsStorage
 
-O Azure Functions runtime usa essa cadeia de conexão da conta armazenamento para todas as funções, exceto para as funções disparadas por HTTP. A conta de armazenamento deve ser de uso geral, com suporte para blobs, filas e tabelas. Consulte [Conta de armazenamento](functions-infrastructure-as-code.md#storage-account) e [Requisitos da conta de armazenamento](storage-considerations.md#storage-account-requirements).
+O tempo de execução de Azure Functions usa essa cadeia de conexão da conta de armazenamento para a operação normal. Alguns usos dessa conta de armazenamento incluem pontos de verificação de gerenciamento de chaves, gerenciamento de gatilho de temporizador e hubs de eventos. A conta de armazenamento deve ser de uso geral, com suporte para blobs, filas e tabelas. Consulte [Conta de armazenamento](functions-infrastructure-as-code.md#storage-account) e [Requisitos da conta de armazenamento](storage-considerations.md#storage-account-requirements).
 
 |Chave|Valor de exemplo|
 |---|------------|
@@ -181,6 +186,14 @@ Especifica o número máximo de processos de trabalho de idioma, com um valor pa
 |---|------------|
 |\_contagem de \_ processos de trabalho do Functions \_|2|
 
+## <a name="python_threadpool_thread_count"></a>\_contagem de \_ threads de THREADPOOL do Python \_
+
+Especifica o número máximo de threads que um trabalho do Python Language usaria para executar invocações de função, com um valor padrão de `1` para a versão do Python `3.8` e abaixo. Para a versão do Python `3.9` e superior, o valor é definido como `None` . Observe que essa configuração não garante o número de threads que seriam definidos durante as execuções. A configuração permite que o Python expanda o número de threads para o valor especificado. A configuração se aplica somente a aplicativos do Python functions. Além disso, a configuração se aplica à invocação de funções síncronas e não a corrotinas.
+
+|Chave|Valor de exemplo|Valor máximo|
+|---|------------|---------|
+|\_contagem de \_ threads de THREADPOOL do Python \_|2|32|
+
 
 ## <a name="functions_worker_runtime"></a>FUNÇÕES\_TRABALHADOR\_TEMPO DE EXECUÇÃO
 
@@ -200,15 +213,15 @@ O valor dessa configuração indica uma URL de índice de pacote personalizado p
 
 Para saber mais, confira [dependências personalizadas](functions-reference-python.md#remote-build-with-extra-index-url) na referência do desenvolvedor do Python.
 
-## <a name="scale_controller_logging_enable"></a>\_habilitar o \_ log do controlador de escala \_
+## <a name="scale_controller_logging_enabled"></a>registro em log do controlador de escala \_ \_ \_ habilitado
 
 _No momento, essa configuração está na versão prévia._  
 
-Essa configuração controla o registro em log do controlador de escala de Azure Functions. Para obter mais informações, consulte [dimensionar os logs do controlador](functions-monitoring.md#scale-controller-logs-preview).
+Essa configuração controla o registro em log do controlador de escala de Azure Functions. Para obter mais informações, consulte [dimensionar os logs do controlador](functions-monitoring.md#scale-controller-logs).
 
 |Chave|Valor de exemplo|
 |-|-|
-|SCALE_CONTROLLER_LOGGING_ENABLE|AppInsights: detalhado|
+|SCALE_CONTROLLER_LOGGING_ENABLED|AppInsights: detalhado|
 
 O valor dessa chave é fornecido no formato `<DESTINATION>:<VERBOSITY>` , que é definido da seguinte maneira:
 
@@ -216,26 +229,40 @@ O valor dessa chave é fornecido no formato `<DESTINATION>:<VERBOSITY>` , que é
 
 ## <a name="website_contentazurefileconnectionstring"></a>CONTENTAZUREFILECONNECTIONSTRING do site \_
 
-Para consumo & apenas planos Premium. Cadeia de conexão para a conta de armazenamento na qual o código do aplicativo de funções e a configuração são armazenados. Consulte [Criar um aplicativo de funções](functions-infrastructure-as-code.md#create-a-function-app).
+Cadeia de conexão para a conta de armazenamento em que o código e a configuração do aplicativo de funções são armazenados em planos de dimensionamento orientados a eventos em execução no Windows. Para obter mais informações, consulte [criar um aplicativo de funções](functions-infrastructure-as-code.md#windows).
 
 |Chave|Valor de exemplo|
 |---|------------|
 |WEBSITE_CONTENTAZUREFILECONNECTIONSTRING|DefaultEndpointsProtocol=https;AccountName=[name];AccountKey=[key]|
 
+Usado somente ao implantar em um plano Premium ou em um plano de consumo em execução no Windows. Sem suporte para planos de consumos que executam o Linux. Alterar ou remover essa configuração pode fazer com que seu aplicativo de funções não seja iniciado. Para saber mais, confira [Este artigo de solução de problemas](functions-recover-storage-account.md#storage-account-application-settings-were-deleted). 
+
+## <a name="website_contentovervnet"></a>CONTENTOVERVNET do site \_
+
+Somente para planos Premium. Um valor `1` permite que seu aplicativo de funções seja dimensionado quando você tiver sua conta de armazenamento restrita a uma rede virtual. Você deve habilitar essa configuração ao restringir sua conta de armazenamento a uma rede virtual. Para saber mais, confira [restringir sua conta de armazenamento a uma rede virtual](functions-networking-options.md#restrict-your-storage-account-to-a-virtual-network).
+
+|Chave|Valor de exemplo|
+|---|------------|
+|WEBSITE_CONTENTOVERVNET|1|
+
 ## <a name="website_contentshare"></a>WEBSITE\_CONTENTSHARE
 
-Para consumo & apenas planos Premium. O caminho do arquivo para o código do aplicativo de funções e a configuração. Usado com WEBSITE_CONTENTAZUREFILECONNECTIONSTRING. O padrão é uma cadeia única que começa com o nome do aplicativo de funções. Consulte [Criar um aplicativo de funções](functions-infrastructure-as-code.md#create-a-function-app).
+O caminho do arquivo para o código do aplicativo de funções e a configuração em um plano de dimensionamento controlado por eventos no Windows. Usado com WEBSITE_CONTENTAZUREFILECONNECTIONSTRING. O padrão é uma cadeia única que começa com o nome do aplicativo de funções. Consulte [Criar um aplicativo de funções](functions-infrastructure-as-code.md#windows).
 
 |Chave|Valor de exemplo|
 |---|------------|
 |WEBSITE_CONTENTSHARE|functionapp091999e2|
+
+Usado somente ao implantar em um plano Premium ou em um plano de consumo em execução no Windows. Sem suporte para planos de consumos que executam o Linux. Alterar ou remover essa configuração pode fazer com que seu aplicativo de funções não seja iniciado. Para saber mais, confira [Este artigo de solução de problemas](functions-recover-storage-account.md#storage-account-application-settings-were-deleted).
+
+Ao usar um Azure Resource Manager para criar um aplicativo de funções durante a implantação, não inclua WEBSITE_CONTENTSHARE no modelo. Essa configuração de aplicativo é gerada durante a implantação. Para saber mais, confira [automatizar a implantação de recursos para seu aplicativo de funções](functions-infrastructure-as-code.md#windows).   
 
 ## <a name="website_max_dynamic_application_scale_out"></a>WEBSITE\_MAX\_DYNAMIC\_APPLICATION\_SCALE\_OUT
 
 O número máximo de instâncias que o aplicativo de funções pode alcançar. O padrão é sem limites.
 
 > [!IMPORTANT]
-> Essa configuração está em versão prévia.  Uma [propriedade de aplicativo para a função de expansão máxima](./functions-scale.md#limit-scale-out) foi adicionada e é a maneira recomendada para limitar a escala horizontal.
+> Essa configuração está em versão prévia.  Uma [propriedade de aplicativo para a função de expansão máxima](./event-driven-scaling.md#limit-scale-out) foi adicionada e é a maneira recomendada para limitar a escala horizontal.
 
 |Chave|Valor de exemplo|
 |---|------------|

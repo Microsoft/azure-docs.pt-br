@@ -8,14 +8,15 @@ ms.date: 06/19/2020
 author: sakash279
 ms.author: akshanka
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 05a469dbeb093c41b45be278aec42cc930223c72
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 603c891e53e5712d489fcef8415e3db55328c9ad
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89002169"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988433"
 ---
 # <a name="azure-table-storage-table-design-guide-scalable-and-performant-tables"></a>Guia de design de tabela do armazenamento de Tabelas do Azure: Tabelas escalonáveis e de alto desempenho
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
@@ -24,7 +25,7 @@ Para projetar tabelas escalonáveis e de alto desempenho, é necessário conside
 O armazenamento de tabelas foi criado para dar suporte a aplicativos em escala de nuvem que podem conter bilhões de entidades ("linhas" na terminologia de banco de dados relacional) de dados ou de conjuntos de dados que devem permitir grandes volumes de transações. Portanto, é necessário pensar de modo diferente sobre como armazenar os dados e entender como funciona o armazenamento de tabelas. Um repositório de dados NoSQL bem projetado pode permitir que sua solução seja muito mais dimensionável (e a um custo menor) do que uma solução que usa um banco de dados relacional. Este guia ajuda você com esses tópicos.  
 
 ## <a name="about-azure-table-storage"></a>Sobre o armazenamento de Tabelas do Azure
-Esta seção destaca alguns dos principais recursos do armazenamento de Tabelas que são especialmente relevantes para o projeto de desempenho e escalabilidade. Se você não tiver experiência no Armazenamento do Azure e no armazenamento de Tabelas, confira [Introdução ao Armazenamento do Microsoft Azure](../storage/common/storage-introduction.md) e [Introdução ao armazenamento de Tabelas do Azure usando o .NET](table-storage-how-to-use-dotnet.md), antes de ler o restante deste artigo. Embora o foco deste guia esteja no armazenamento de Tabelas, ele inclui algumas discussões sobre o armazenamento de Filas do Azure e o armazenamento de Blob do Azure e como você pode usá-los junto com o armazenamento de Tabelas em uma solução.  
+Esta seção destaca alguns dos principais recursos do armazenamento de Tabelas que são especialmente relevantes para o projeto de desempenho e escalabilidade. Se você não tiver experiência no Armazenamento do Azure e no armazenamento de Tabelas, confira [Introdução ao Armazenamento do Microsoft Azure](../storage/common/storage-introduction.md) e [Introdução ao armazenamento de Tabelas do Azure usando o .NET](./tutorial-develop-table-dotnet.md), antes de ler o restante deste artigo. Embora o foco deste guia esteja no armazenamento de Tabelas, ele inclui algumas discussões sobre o armazenamento de Filas do Azure e o armazenamento de Blob do Azure e como você pode usá-los junto com o armazenamento de Tabelas em uma solução.  
 
 O armazenamento de Tabelas usa um formato tabular para armazenar dados. Na terminologia padrão, cada linha da tabela representa uma entidade e as colunas armazenam várias propriedades da entidade. Cada entidade tem um par de chaves para identificar exclusivamente e uma coluna de carimbo de data/hora que o armazenamento de Tabelas usa para controlar quando a entidade foi atualizada pela última vez. O carimbo de data/hora é adicionado automaticamente e não é possível substituir manualmente o carimbo de data/hora com um valor arbitrário. O armazenamento de Tabelas usa este carimbo de data/hora (LMT) da última modificação para gerenciar a simultaneidade otimista.  
 
@@ -123,7 +124,7 @@ O exemplo a seguir mostra uma estrutura de tabela simples para armazenar entidad
 </table>
 
 
-Até agora, esse design é semelhante a uma tabela em um banco de dados relacional. As principais diferenças são as colunas obrigatórias e a capacidade de armazenar vários tipos de entidade na mesma tabela. Além disso, cada uma das propriedades definidas pelo usuário, como **FirstName** ou **Age**, tem um tipo de dados, como número inteiro ou cadeia de caracteres, semelhante a uma coluna em um banco de dados relacional. Ao contrário de um banco de dados relacional, no entanto, a natureza sem esquema do armazenamento de Tabelas significa que uma propriedade não precisa ter o mesmo tipo de dados em cada entidade. Para armazenar tipos de dados complexos em uma única propriedade, você deve usar um formato serializado como JSON ou XML. Para obter informações, confira [Noções básicas sobre o modelo de dados do armazenamento de Tabelas](https://msdn.microsoft.com/library/azure/dd179338.aspx).
+Até agora, esse design é semelhante a uma tabela em um banco de dados relacional. As principais diferenças são as colunas obrigatórias e a capacidade de armazenar vários tipos de entidade na mesma tabela. Além disso, cada uma das propriedades definidas pelo usuário, como **FirstName** ou **Age**, tem um tipo de dados, como número inteiro ou cadeia de caracteres, semelhante a uma coluna em um banco de dados relacional. Ao contrário de um banco de dados relacional, no entanto, a natureza sem esquema do armazenamento de Tabelas significa que uma propriedade não precisa ter o mesmo tipo de dados em cada entidade. Para armazenar tipos de dados complexos em uma única propriedade, você deve usar um formato serializado como JSON ou XML. Para obter informações, confira [Noções básicas sobre o modelo de dados do armazenamento de Tabelas](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model).
 
 Sua escolha de `PartitionKey` e `RowKey` é fundamental para um bom design da tabela. Cada entidade armazenada em uma tabela deve ter uma combinação exclusiva de `PartitionKey` e `RowKey`. Assim como acontece com as chaves em uma tabela de banco de dados relacional, os valores `PartitionKey` e `RowKey` são indexados para criar um índice clusterizado que habilita pesquisas rápidas. O armazenamento de tabelas, no entanto, não cria índices secundários. Portanto, essas são as únicas duas propriedades indexadas (alguns dos padrões descritos posteriormente mostram como é possível contornar essa limitação visível).  
 
@@ -134,7 +135,7 @@ O nome da conta, o nome de tabela e `PartitionKey` juntas identificam a partiç�
 
 No armazenamento de Tabelas, um nó individual atende a uma ou mais partições completas e o serviço é dimensionado pelo balanceamento dinâmico de carga das partições nos nós. Se um nó estiver sob carga, o armazenamento de Tabelas pode dividir o intervalo de partições atendidas por esse nó em nós diferentes. Quando o tráfego diminui, o armazenamento de Tabelas pode mesclar os intervalos de partição dos nós silenciosos de volta para um único nó.  
 
-Para obter mais informações sobre os detalhes internos do armazenamento de Tabelas e, em particular, sobre como ele gerencia as partições, confira [Armazenamento do Microsoft Azure: Um serviço de armazenamento em nuvem altamente disponível com coerência forte](https://docs.microsoft.com/archive/blogs/windowsazurestorage/sosp-paper-windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency).  
+Para obter mais informações sobre os detalhes internos do armazenamento de Tabelas e, em particular, sobre como ele gerencia as partições, confira [Armazenamento do Microsoft Azure: Um serviço de armazenamento em nuvem altamente disponível com coerência forte](/archive/blogs/windowsazurestorage/sosp-paper-windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency).  
 
 ### <a name="entity-group-transactions"></a>Transações do grupo de entidades
 No armazenamento de Tabelas, EGTs (transações de grupo de entidades) são o único mecanismo interno para realizar atualizações atômicas entre várias entidades. EGTs também são conhecidas como *transações de lote*. EGTs só podem operar em entidades armazenadas na mesma partição (compartilhar a mesma chave de partição em uma tabela específica), portanto, portanto, sempre que você precisar de um comportamento transacional atômico em várias entidades, verifique se essas entidades estão na mesma partição. Isso geralmente é um motivo para manter vários tipos de entidade na mesma tabela (e partição) e não usar várias tabelas para tipos de entidade diferentes. Uma única EGT pode operar no máximo 100 entidades.  Se você enviar várias EGTs simultâneas para processamento, é importante garantir que essas EGTs não operem em entidades comuns entre as EGTs. Caso contrário, você correrá o risco de atrasar o processamento.
@@ -156,7 +157,7 @@ A tabela a seguir inclui alguns dos valores de chave, portanto, fique atento ao 
 | Tamanho da `RowKey` |Uma cadeia de caracteres até 1 KB. |
 | Tamanho de uma transação de grupo de entidades |Uma transação pode incluir no máximo 100 entidades e a carga deve ser menor que 4 MB. Uma EGT só pode atualizar uma entidade uma vez. |
 
-Para obter informações, consulte [Noções básicas sobre o modelo de dados do serviço Tabela](https://msdn.microsoft.com/library/azure/dd179338.aspx).  
+Para obter informações, consulte [Noções básicas sobre o modelo de dados do serviço Tabela](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model).  
 
 ### <a name="cost-considerations"></a>Considerações de custo
 Armazenamento de tabela é relativamente barato, mas você deve incluir estimativas de custo para a utilização da capacidade e a quantidade de transações como parte de sua avaliação de qualquer solução que usa o armazenamento de Tabelas. Em muitos cenários, no entanto, o armazenamento de dados duplicados ou desnormalizados para melhorar o desempenho ou a escalabilidade de sua solução é uma abordagem válida. Para obter mais informações sobre preços, confira [Preços de Armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/).  
@@ -202,7 +203,7 @@ Os exemplos a seguir pressupõem que o armazenamento de Tabelas é armazenar ent
 | `Age` |Integer |
 | `EmailAddress` |String |
 
-Estas são algumas diretrizes gerais para a criação de consultas de armazenamento de Tabelas. A sintaxe de filtro usada nos exemplos a seguir é da API REST de armazenamento de Tabelas. Para obter mais informações, confira [Entidades de consulta](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
+Estas são algumas diretrizes gerais para a criação de consultas de armazenamento de Tabelas. A sintaxe de filtro usada nos exemplos a seguir é da API REST de armazenamento de Tabelas. Para obter mais informações, confira [Entidades de consulta](/rest/api/storageservices/Query-Entities).  
 
 * Uma *consulta de ponto* é a pesquisa mais eficiente a ser usada e é recomendada para pesquisas de alto volume ou pesquisas que exigem a latência mais baixa. Tal consulta pode usar os índices para localizar uma entidade individual de modo eficiente, especificando os valores `PartitionKey` e `RowKey`. Por exemplo: `$filter=(PartitionKey eq 'Sales') and (RowKey eq '2')`.  
 * A segunda melhor é uma *consulta de intervalo*. Ela usa a `PartitionKey` e filtra em um intervalo de valores `RowKey` para retornar mais de uma entidade. O valor `PartitionKey` identifica uma partição específica e os valores `RowKey` identificam um subconjunto das entidades nessa partição. Por exemplo: `$filter=PartitionKey eq 'Sales' and RowKey ge 'S' and RowKey lt 'T'`.  
@@ -320,7 +321,7 @@ Este exemplo também mostra uma entidade de departamento e suas entidades de fun
 
 Uma abordagem alternativa é desnormalizar seus dados e armazenar apenas entidades de funcionário com dados desnormalizados de departamento, conforme mostrado no exemplo a seguir. Neste cenário específico, essa abordagem desnormalizada pode não ser a melhor se você precisar ser capaz de alterar os detalhes de um gerente de departamento. Para isso, você precisa atualizar todos os funcionários do departamento.  
 
-:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE02.png" alt-text="Gráfico da entidade de funcionário":::
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE02.png" alt-text="Gráfico da entidade Employee que mostra como desnormalizar seus dados e armazenar somente entidades de funcionário com dados de departamento desnormalizados.":::
 
 Para saber mais, confira [Padrão de desnormalização](#denormalization-pattern) mais adiante neste guia.  
 
@@ -410,7 +411,7 @@ Nas seções anteriores, você aprendeu a otimizar o design da tabela para recup
 
 :::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE05.png" alt-text="Diagrama dos padrões de design de tabela":::
 
-O mapa padrão destaca algumas relações entre padrões (azul) e antipadrões (laranja) documentados neste guia. Certamente há muitos outros padrões que vale a pena considerar. Por exemplo, um dos principais cenários para o armazenamento de Tabelas é utilizar o [padrão de exibição materializada](https://msdn.microsoft.com/library/azure/dn589782.aspx) do padrão de [segregação de responsabilidade da consulta de comando](https://msdn.microsoft.com/library/azure/jj554200.aspx).  
+O mapa padrão destaca algumas relações entre padrões (azul) e antipadrões (laranja) documentados neste guia. Certamente há muitos outros padrões que vale a pena considerar. Por exemplo, um dos principais cenários para o armazenamento de Tabelas é utilizar o [padrão de exibição materializada](/previous-versions/msp-n-p/dn589782(v=pandp.10)) do padrão de [segregação de responsabilidade da consulta de comando](/previous-versions/msp-n-p/jj554200(v=pandp.10)).  
 
 ### <a name="intra-partition-secondary-index-pattern"></a>Padrão de índice secundário intrapartição
 Armazene várias cópias de cada entidade usando valores `RowKey` diferentes (na mesma partição). Isso viabiliza pesquisas rápidas e eficientes e ordens de classificação alternativas usando valores `RowKey` diferentes. Atualizações entre as cópias podem ser mantidas consistentes usando EGTs.  
@@ -418,7 +419,7 @@ Armazene várias cópias de cada entidade usando valores `RowKey` diferentes (na
 #### <a name="context-and-problem"></a>Contexto e problema
 O armazenamento de Tabelas indexa as entidades automaticamente, usando os valores `PartitionKey` e `RowKey`. Isso habilita um aplicativo cliente a recuperar uma entidade com eficiência usando esses valores. Por exemplo, usando a estrutura de tabela a seguir, um aplicativo cliente pode usar uma consulta de ponto para recuperar uma entidade de funcionário individual usando o nome do departamento e a ID do funcionário (os valores `PartitionKey` e `RowKey`). Um cliente também pode recuperar entidades classificadas por ID de funcionário dentro de cada departamento.
 
-:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE06.png" alt-text="Gráfico da entidade de funcionário":::
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE06.png" alt-text="Gráfico da entidade Employee em que um aplicativo cliente pode usar uma consulta de ponto para recuperar uma entidade de funcionário individual usando o nome do departamento e a ID do funcionário (os valores PartitionKey e RowKey).":::
 
 Se você quiser encontrar uma entidade de funcionário com base no valor de outra propriedade, como o endereço de email, deve usar uma verificação de partição menos eficiente para localizar uma correspondência. Isso ocorre porque o armazenamento de Tabelas não fornece índices secundários. Além disso, não há opção para solicitar uma lista de funcionários classificados em uma ordem diferente da ordem `RowKey`.  
 
@@ -437,7 +438,7 @@ Se você consultar um intervalo de entidades de funcionário, pode especificar u
 * Para localizar todos os funcionários do departamento de vendas com uma ID de funcionário no intervalo 000100 a 000199, use: $filter=(PartitionKey eq 'Sales') e (RowKey ge 'empid_000100') e (RowKey le 'empid_000199')  
 * Para localizar todos os funcionários do departamento de Vendas com um endereço de email que começa com a letra "a", use: $filter=(PartitionKey eq 'Sales') e (RowKey ge 'email_a') e (RowKey lt 'email_b')  
   
-A sintaxe de filtro usada nos exemplos anteriores é da API REST de armazenamento de Tabelas. Para obter mais informações, confira [Entidades de consulta](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
+A sintaxe de filtro usada nos exemplos anteriores é da API REST de armazenamento de Tabelas. Para obter mais informações, confira [Entidades de consulta](/rest/api/storageservices/Query-Entities).  
 
 #### <a name="issues-and-considerations"></a>Problemas e considerações
 Considere os seguintes pontos ao decidir como implementar esse padrão:  
@@ -476,7 +477,7 @@ Armazene várias cópias de cada entidade usando valores `RowKey` diferentes em 
 #### <a name="context-and-problem"></a>Contexto e problema
 O armazenamento de Tabelas indexa as entidades automaticamente, usando os valores `PartitionKey` e `RowKey`. Isso habilita um aplicativo cliente a recuperar uma entidade com eficiência usando esses valores. Por exemplo, usando a estrutura de tabela a seguir, um aplicativo cliente pode usar uma consulta de ponto para recuperar uma entidade de funcionário individual usando o nome do departamento e a ID do funcionário (os valores `PartitionKey` e `RowKey`). Um cliente também pode recuperar entidades classificadas por ID de funcionário dentro de cada departamento.  
 
-:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE09.png" alt-text="Gráfico da entidade Employee":::[9]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE09.png" alt-text="Gráfico da estrutura de entidade do funcionário que, quando usada, um aplicativo cliente pode usar uma consulta de ponto para recuperar uma entidade de funcionário individual usando o nome do departamento e a ID do funcionário (os valores PartitionKey e RowKey)."::: 99
 
 Se você quiser ser capaz de encontrar uma entidade funcionário com base no valor de outra propriedade, como o endereço de email, deve usar uma verificação de partição menos eficiente para localizar uma correspondência. Isso ocorre porque o armazenamento de Tabelas não fornece índices secundários. Além disso, não há opção para solicitar uma lista de funcionários classificados em uma ordem diferente da ordem `RowKey`.  
 
@@ -497,7 +498,7 @@ Se você consultar um intervalo de entidades de funcionário, pode especificar u
 * Para localizar todos os funcionários do departamento de vendas com uma ID de funcionário no intervalo de **000100** a **000199**, classificados por ordem de ID de funcionário, use: $filter=(PartitionKey eq 'empid_Sales') e (RowKey ge '000100') e (RowKey le '000199')  
 * Para localizar todos os funcionários do departamento de vendas com um endereço de email que comece com "a", classificados por ordem de endereço de email, use: $filter=(PartitionKey eq 'email_Sales') e (RowKey ge 'a') e (RowKey lt 'b')  
 
-Observe que a sintaxe de filtro usada nos exemplos anteriores é da API REST de armazenamento de Tabelas. Para obter mais informações, confira [Entidades de consulta](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
+Observe que a sintaxe de filtro usada nos exemplos anteriores é da API REST de armazenamento de Tabelas. Para obter mais informações, confira [Entidades de consulta](/rest/api/storageservices/Query-Entities).  
 
 #### <a name="issues-and-considerations"></a>Problemas e considerações
 Considere os seguintes pontos ao decidir como implementar esse padrão:  
@@ -557,7 +558,7 @@ Neste exemplo, a etapa 4 no diagrama insere o funcionário na tabela **Arquivo**
 #### <a name="recover-from-failures"></a>Recuperar de falhas
 Caso a função de trabalho precise reiniciar a operação de arquivo, é importante que as operações nas etapas 4-5 do diagrama sejam *idempotentes*. Se estiver usando o armazenamento de Tabelas, na etapa 4, você deve usar uma operação "inserir ou substituir"; na etapa 5, você deve usar uma operação "excluir se existir" na biblioteca de clientes usada. Se você estiver usando outro sistema de armazenamento, deve usar uma operação idempotente apropriada.  
 
-Se a função de trabalho nunca concluir a etapa 6 do diagrama, após um tempo limite a mensagem reaparecerá na fila, pronta para ser reprocessada pela função de trabalho. A função de trabalho pode verificar quantas vezes uma mensagem na fila foi lida e, se necessário, sinalizá-la como uma mensagem "suspeita" para investigação, enviando-a para uma fila separada. Para saber mais sobre a leitura de mensagens da fila e verificar a contagem de remoção da fila, consulte [Obter mensagens](https://msdn.microsoft.com/library/azure/dd179474.aspx).  
+Se a função de trabalho nunca concluir a etapa 6 do diagrama, após um tempo limite a mensagem reaparecerá na fila, pronta para ser reprocessada pela função de trabalho. A função de trabalho pode verificar quantas vezes uma mensagem na fila foi lida e, se necessário, sinalizá-la como uma mensagem "suspeita" para investigação, enviando-a para uma fila separada. Para saber mais sobre a leitura de mensagens da fila e verificar a contagem de remoção da fila, consulte [Obter mensagens](/rest/api/storageservices/Get-Messages).  
 
 Alguns erros do armazenamento de Tabelas e no armazenamento de Filas são erros transitórios e o aplicativo cliente deve incluir uma lógica de repetição adequada para lidar com eles.  
 
@@ -588,7 +589,7 @@ Mantenha entidades de índice para habilitar pesquisas eficientes que retornam l
 #### <a name="context-and-problem"></a>Contexto e problema
 O armazenamento de Tabelas indexa as entidades automaticamente, usando os valores `PartitionKey` e `RowKey`. Isso habilita um aplicativo cliente a recuperar uma entidade com eficiência usando uma consulta de ponto. Por exemplo, usando a estrutura de tabela a seguir, um aplicativo cliente pode recuperar com eficiência uma entidade de funcionário individual, usando o nome do departamento e a ID do funcionário (`PartitionKey`e `RowKey`).  
 
-:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE13.png" alt-text="Gráfico da entidade de funcionário":::
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE13.png" alt-text="Gráfico da estrutura de entidade do funcionário em que um aplicativo cliente pode recuperar com eficiência uma entidade de funcionário individual usando o nome do departamento e a ID do funcionário (PartitionKey e RowKey).":::
 
 Se você quiser ser capaz de recuperar uma lista de entidades de funcionário com base no valor de outra propriedade não exclusiva, como seu sobrenome, deve usar uma verificação de partição menos eficiente. Essa verificação encontra as correspondências, em vez de usar um índice para procurá-las diretamente. Isso ocorre porque o armazenamento de Tabelas não fornece índices secundários.  
 
@@ -629,9 +630,9 @@ Opção 3: Criar entidades de índice em uma partição ou tabela separada
 
 Para essa opção, use as entidades de índice que armazenam os dados a seguir:  
 
-:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE15.png" alt-text="Gráfico mostrando a entidade de funcionário com a cadeia de caracteres que contém uma lista de IDs de funcionário com o mesmo sobrenome":::
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE15.png" alt-text="Captura de tela que mostra a entidade de índice de funcionário que contém uma lista de IDs de funcionários para funcionários com o último nome armazenado em RowKey e PartitionKey.":::
 
-A `EmployeeIDs` propriedade contém uma lista de IDs de funcionários para funcionários com o último nome armazenado no `RowKey` e no `PartitionKey` .  
+A `EmployeeDetails` propriedade contém uma lista de IDs de funcionários e pares de nome de departamento para funcionários com o último nome armazenado no `RowKey` .
 
 Você não pode usar EGTs para manter a consistência porque as entidades de índice estão em uma partição separada das entidades de funcionário. Certifique-se de que as entidades de índice sejam eventualmente consistentes com as entidades de funcionário.  
 
@@ -694,7 +695,7 @@ Em um banco de dados relacional, é neutro usar junções em consultas para reto
 
 Suponhamos que você esteja armazenando entidades de funcionário no armazenando de Tabelas, usando a seguinte estrutura:  
 
-:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE18.png" alt-text="Gráfico da entidade de funcionário":::
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE18.png" alt-text="Gráfico da estrutura de entidade do funcionário que você deve usar para armazenar entidades de funcionário no armazenamento de tabelas.":::
 
 Você também precisa armazenar dados históricos relacionados a revisões e desempenho de cada ano que o funcionário trabalhou para a sua organização e precisa ser capaz de acessar essas informações por ano. Uma opção é criar outra tabela que armazena entidades com a seguinte estrutura:  
 
@@ -895,7 +896,7 @@ Quando tiver um alto volume de inserções, aumente a escalabilidade distribuind
 #### <a name="context-and-problem"></a>Contexto e problema
 A prefixação ou o acréscimo de entidades às suas entidades armazenadas normalmente fazem com que o aplicativo adicione novas entidades à primeira ou última partição de uma sequência de partições. Nesse caso, todas as inserções em qualquer momento específico ocorrem na mesma partição, criando um ponto de acesso. Isso impede o armazenamento de Tabelas das inserções de balanceamento de carga em vários nós e, possivelmente, faz com que o aplicativo atinja as metas de escalabilidade para a partição. Por exemplo, considere o caso de um aplicativo que registra o acesso dos funcionários à rede e aos recursos. Uma estrutura de entidade como a seguinte pode fazer com que a partição da hora atual se torne um ponto de acesso, se o volume de transações atingir o destino de escalabilidade para uma partição individual:  
 
-:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE26.png" alt-text="Gráfico da entidade de funcionário":::
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE26.png" alt-text="Gráfico de uma estrutura de entidade que pode resultar na partição da hora atual se tornando um ponto de alcance, se o volume de transações atingir o destino de escalabilidade para uma partição individual.":::
 
 #### <a name="solution"></a>Solução
 A seguinte estrutura de entidade alternativa evita um ponto de acesso em qualquer partição específica quando o aplicativo registra eventos:  
@@ -926,7 +927,7 @@ Normalmente, você deveria usar o armazenamento de Blobs em vez do armazenamento
 #### <a name="context-and-problem"></a>Contexto e problema
 Um caso de uso comum para dados de log é recuperar uma seleção de entradas de log para um intervalo de data/hora específico. Por exemplo, você deseja encontrar todas as mensagens de erro e mensagens críticas que o aplicativo registrou entre 15:04 e 15:06, em uma data específica. Você não deseja usar a data e a hora da mensagem de log para determinar a partição em que você salvou as entidades de log. Isso resulta em uma partição ativa, pois a qualquer momento específico, todas as entidades de log compartilham o mesmo valor `PartitionKey` (confira o [Antipadrão prefixar/acrescentar](#prepend-append-anti-pattern)). Por exemplo, o seguinte esquema de entidade para uma mensagem de log resulta em uma partição ativa porque o aplicativo grava todas as mensagens de log na partição para a data e hora atual:  
 
-:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE28.png" alt-text="Gráfico da entidade de mensagem de log":::
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE28.png" alt-text="O gráfico que mostra um esquema de entidade para uma mensagem de log resulta em uma partição ativa.":::
 
 Neste exemplo, a `RowKey` inclui a data e a hora da mensagem de log para garantir que as mensagens de log sejam classificadas em ordem de data/hora. A `RowKey` também inclui uma ID de mensagem, caso várias mensagens de log compartilhem a mesma data e hora.  
 
@@ -1025,7 +1026,7 @@ Uma consulta no armazenamento de Tabelas pode retornar no máximo 1.000 entidade
 - A consulta não foi concluída em cinco segundos.
 - A consulta cruza o limite da partição. 
 
-Para saber mais sobre como funcionam os tokens de continuação, confira [Tempo limite e paginação de consulta](https://msdn.microsoft.com/library/azure/dd135718.aspx).  
+Para saber mais sobre como funcionam os tokens de continuação, confira [Tempo limite e paginação de consulta](/rest/api/storageservices/Query-Timeout-and-Pagination).  
 
 Se você estiver usando a Biblioteca de Clientes de Armazenamento, ela pode automaticamente controlar os tokens de continuação para você, à medida que retorna entidades do armazenamento de Tabelas. Por exemplo, o código de exemplo C# a seguir lida com os tokens de continuação automaticamente, caso o armazenamento de Tabelas os retorne em uma resposta:  
 
@@ -1108,7 +1109,7 @@ Exceções geradas quando a Biblioteca de Clientes de Armazenamento executa uma 
 Você também deve considerar como seu design afeta a forma de tratamento, por parte do cliente, das operações de simultaneidade e atualização.  
 
 #### <a name="managing-concurrency"></a>Gerenciando simultaneidade
-Por padrão, o armazenamento de Tabelas implementa verificações de simultaneidade otimista no nível de entidades individuais para as operações de inserção, mesclagem e exclusão, embora um cliente possa forçar o armazenamento de Tabelas a ignorar essas verificações. Para obter mais informações, confira [Gerenciação da simultaneidade no Armazenamento do Microsoft Azure](../storage/common/storage-concurrency.md).  
+Por padrão, o armazenamento de Tabelas implementa verificações de simultaneidade otimista no nível de entidades individuais para as operações de inserção, mesclagem e exclusão, embora um cliente possa forçar o armazenamento de Tabelas a ignorar essas verificações. Para obter mais informações, confira [Gerenciação da simultaneidade no Armazenamento do Microsoft Azure](../storage/blobs/concurrency-manage.md).  
 
 #### <a name="merge-or-replace"></a>Mesclar ou substituir
 O método `Replace` da classe `TableOperation` sempre substitui a entidade completa no armazenamento de Tabelas. Se você não incluir uma propriedade na solicitação quando essa propriedade existe na entidade armazenada, a solicitação removerá a propriedade da entidade armazenada. A menos que você queira remover uma propriedade explicitamente de uma entidade armazenada, você deve incluir todas as propriedades na solicitação.  
@@ -1431,7 +1432,7 @@ Você pode usar tokens de SAS (assinatura de acesso compartilhado) para habilita
 * Você pode descarregar parte do trabalho que as funções Web e de trabalho executam no gerenciamento das entidades. Você pode transferir para dispositivos clientes, como computadores de usuário final e dispositivos móveis.  
 * Você pode atribuir um conjunto de permissões restrito e de tempo limitado a um cliente (como acesso somente leitura a recursos específicos).  
 
-Para obter mais informações sobre como usar tokens SAS com o armazenamento de Tabelas, confira [Uso de SAS (assinaturas de acesso compartilhado)](../storage/common/storage-dotnet-shared-access-signature-part-1.md).  
+Para obter mais informações sobre como usar tokens SAS com o armazenamento de Tabelas, confira [Uso de SAS (assinaturas de acesso compartilhado)](../storage/common/storage-sas-overview.md).  
 
 No entanto, você ainda deve gerar os tokens SAS que concedem um aplicativo cliente às entidades no armazenamento de Tabelas. Faça isso em um ambiente que tenha acesso seguro às chaves de conta de armazenamento. Geralmente, você usa uma função de trabalho ou Web para gerar tokens SAS e enviá-los aos aplicativos clientes que precisam acessar suas entidades. Como ainda há uma sobrecarga envolvida na geração e fornecimento de tokens SAS aos clientes, você deve considerar a melhor maneira de reduzir essa sobrecarga, especialmente em cenários de alto volume.  
 
@@ -1528,5 +1529,4 @@ Neste exemplo assíncrono, você pode ver as seguintes alterações da versão s
 * A assinatura do método agora inclui o modificador `async` e retorna uma instância `Task`.  
 * Em vez de chamar o método `Execute` para atualizar a entidade, o método agora chama o método `ExecuteAsync`. O método usa o modificador `await` para recuperar os resultados de forma assíncrona.  
 
-O aplicativo cliente pode chamar vários métodos assíncronos como esse, e cada invocação de método é executada em um thread separado.  
-
+O aplicativo cliente pode chamar vários métodos assíncronos como esse, e cada invocação de método é executada em um thread separado.

@@ -1,29 +1,29 @@
 ---
-title: Projetar os fluxos de trabalho da Política como código
+title: Projetar os fluxos de trabalho do Azure Policy como código
 description: Aprenda a criar fluxos de trabalho para implantar suas definições do Azure Policy como código e validar automaticamente os recursos.
-ms.date: 08/27/2020
+ms.date: 10/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: d46680a9978cd4ec5cdc612a709f031841716749
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 74d2097e4db4442e6e65f30541864fb554f7379d
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89047319"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359673"
 ---
-# <a name="design-policy-as-code-workflows"></a>Projetar os fluxos de trabalho da Política como código
+# <a name="design-azure-policy-as-code-workflows"></a>Projetar os fluxos de trabalho do Azure Policy como código
 
 À media que você avança no percurso com Governança de Nuvem, convém mudar de gerenciar manualmente cada definição de política no portal do Azure ou por meio de vários SDKs para algo mais gerenciável e repetível em escala empresarial. Duas das abordagens predominantes para gerenciar sistemas em escala na nuvem são:
 
 - Infraestrutura como código: a prática de tratar o conteúdo que define seus ambientes, tudo, desde modelos de Azure Resource Manager (modelos ARM) a Azure Policy definições para plantas do Azure, como código-fonte.
 - DevOps: a união de pessoas, processos e produtos para permitir a entrega contínua de valor aos nossos usuários finais.
 
-A Política como Código é a combinação dessas ideias. Essencialmente, mantenha suas definições de política no controle do código-fonte e sempre que uma alteração for feita, teste e valide essa alteração. No entanto, isso não deve ser a extensão do envolvimento das políticas com a Infraestrutura como Código ou DevOps.
+Azure Policy como código é a combinação dessas ideias. Essencialmente, mantenha suas definições de política no controle do código-fonte e sempre que uma alteração for feita, teste e valide essa alteração. No entanto, isso não deve ser a extensão do envolvimento das políticas com a Infraestrutura como Código ou DevOps.
 
 A etapa de validação também deve ser um componente de outros fluxos de trabalho de integração contínua ou de implantação contínua. Os exemplos incluem a implantação de um ambiente de aplicativo ou de uma infraestrutura virtual. Ao fazer Azure Policy validação de um componente inicial do processo de compilação e implantação, as equipes de aplicativos e operações descobrirão se suas alterações não estiverem em conformidade, muito tempo antes que elas sejam muito atrasadas e estejam tentando implantar na produção.
 
 ## <a name="definitions-and-foundational-information"></a>Definições e informações básicas
 
-Antes de entrar nos detalhes da política como fluxo de trabalho de código, examine as seguintes definições e exemplos:
+Antes de entrar nos detalhes de Azure Policy como fluxo de trabalho de código, examine as seguintes definições e exemplos:
 
 - [Definição de política](./definition-structure.md)
 - [Definição de iniciativa](./initiative-definition-structure.md)
@@ -41,9 +41,11 @@ Exemplos desses formatos de arquivo estão disponíveis no [repositório GitHub 
 
 ## <a name="workflow-overview"></a>Visão geral do fluxo de trabalho
 
-O fluxo de trabalho geral recomendado da Política como Código é semelhante a este diagrama:
+O fluxo de trabalho geral recomendado de Azure Policy como código é semelhante a este diagrama:
 
-:::image type="content" source="../media/policy-as-code/policy-as-code-workflow.png" alt-text="Visão geral do fluxo de trabalho da Política como Código" border="false":::
+:::image type="complex" source="../media/policy-as-code/policy-as-code-workflow.png" alt-text="Diagrama mostrando Azure Policy caixas de fluxo de trabalho de código de criar para testar para implantar." border="false":::
+   O diagrama que mostra o Azure Policy como caixas de fluxo de trabalho de código. Criar abrange a criação das definições de política e iniciativa. O teste aborda a atribuição com o modo de imposição desabilitado. Uma verificação de gateway para o status de conformidade é seguida, concedendo as permissões M S I e remediando os recursos.  Implantar abrange a atualização da atribuição com o modo de imposição habilitado.
+:::image-end:::
 
 ### <a name="create-and-update-policy-definitions"></a>Criar e atualizar definições de política
 
@@ -52,26 +54,25 @@ As definições de política são criadas usando JSON e armazenadas no controle 
 ```text
 .
 |
-|- policies/  ________________________ # Root folder for policies
+|- policies/  ________________________ # Root folder for policy resources
 |  |- policy1/  ______________________ # Subfolder for a policy
 |     |- policy.json _________________ # Policy definition
 |     |- policy.parameters.json ______ # Policy definition of parameters
 |     |- policy.rules.json ___________ # Policy rule
-|     |- params.dev.json _____________ # Parameters for a Dev environment
-|     |- params.prd.json _____________ # Parameters for a Prod environment
-|     |- params.tst.json _____________ # Parameters for a Test environment
-|
+|     |- assign.<name1>.json _________ # Assignment 1 for this policy definition
+|     |- assign.<name2>.json _________ # Assignment 2 for this policy definition
 |  |- policy2/  ______________________ # Subfolder for a policy
 |     |- policy.json _________________ # Policy definition
 |     |- policy.parameters.json ______ # Policy definition of parameters
 |     |- policy.rules.json ___________ # Policy rule
-|     |- params.dev.json _____________ # Parameters for a Dev environment
-|     |- params.prd.json _____________ # Parameters for a Prod environment
-|     |- params.tst.json _____________ # Parameters for a Test environment
+|     |- assign.<name1>.json _________ # Assignment 1 for this policy definition
+|     |- assign.<name2>.json _________ # Assignment 2 for this policy definition
 |
 ```
 
 Quando uma nova política é adicionada ou uma já existente atualizada, o fluxo de trabalho deve atualizar automaticamente a definição de política no Azure. O teste da definição de política nova ou atualizada vem em uma etapa posterior.
+
+Além disso, examine [exportar recursos de Azure Policy](../how-to/export-resources.md) para obter suas definições e atribuições existentes no [GitHub](https://www.github.com)do ambiente de gerenciamento de código-fonte.
 
 ### <a name="create-and-update-initiative-definitions"></a>Criar e atualizar definições de iniciativa
 
@@ -85,17 +86,15 @@ Da mesma forma, as iniciativas têm seu próprio arquivo JSON e os arquivos rela
 |     |- policyset.json ______________ # Initiative definition
 |     |- policyset.definitions.json __ # Initiative list of policies
 |     |- policyset.parameters.json ___ # Initiative definition of parameters
-|     |- params.dev.json _____________ # Parameters for a Dev environment
-|     |- params.prd.json _____________ # Parameters for a Prod environment
-|     |- params.tst.json _____________ # Parameters for a Test environment
+|     |- assign.<name1>.json _________ # Assignment 1 for this policy initiative
+|     |- assign.<name2>.json _________ # Assignment 2 for this policy initiative
 |
 |  |- init2/ _________________________ # Subfolder for an initiative
 |     |- policyset.json ______________ # Initiative definition
 |     |- policyset.definitions.json __ # Initiative list of policies
 |     |- policyset.parameters.json ___ # Initiative definition of parameters
-|     |- params.dev.json _____________ # Parameters for a Dev environment
-|     |- params.prd.json _____________ # Parameters for a Prod environment
-|     |- params.tst.json _____________ # Parameters for a Test environment
+|     |- assign.<name1>.json _________ # Assignment 1 for this policy initiative
+|     |- assign.<name2>.json _________ # Assignment 2 for this policy initiative
 |
 ```
 
@@ -110,7 +109,7 @@ A atribuição deve usar [enforcementMode](./assignment-structure.md#enforcement
 > [!NOTE]
 > Embora o modo de imposição seja útil, não é uma substituição para um teste completo de uma definição de política sob várias condições. A definição de política deve ser testada com chamadas à API REST `PUT` e `PATCH`, recursos compatíveis e não compatíveis e casos de borda como uma propriedade ausente do recurso.
 
-Depois que a atribuição for implantada, use o SDK de política ou a [ação Azure Policy verificação de conformidade do GitHub](https://github.com/marketplace/actions/azure-policy-compliance-scan) para [obter dados de conformidade](../how-to/get-compliance-data.md) para a nova atribuição. O ambiente usado para testar as políticas e atribuições deve ter recursos compatíveis e não compatíveis.
+Depois que a atribuição for implantada, use o SDK do Azure Policy, a [ação Azure Policy verificação de conformidade do GitHub](https://github.com/marketplace/actions/azure-policy-compliance-scan)ou a [tarefa de avaliação de segurança do Azure pipelines](/azure/devops/pipelines/tasks/deploy/azure-policy) para [obter dados de conformidade](../how-to/get-compliance-data.md) para a nova atribuição. O ambiente usado para testar as políticas e atribuições deve ter recursos compatíveis e não compatíveis.
 Como um bom teste de unidade para o código, você deseja testar se os recursos estão conforme o esperado e se você também não tem falsos positivos ou falsos negativos. Se você testar e validar apenas o que espera, poderá haver um impacto inesperado e não identificado da política. Para obter mais informações, confira [Avaliar o impacto de uma nova definição de Azure Policy](./evaluate-impact.md).
 
 ### <a name="enable-remediation-tasks"></a>Habilitar tarefas de correção
@@ -134,13 +133,13 @@ Após a conclusão de todos os portões de validação, atualize a atribuição 
 
 ## <a name="process-integrated-evaluations"></a>Processar avaliações integradas
 
-O fluxo de trabalho geral da Política como Código serve para desenvolver e implantar políticas e iniciativas em um ambiente em escala. No entanto, a avaliação de política deve fazer parte do processo de implantação para qualquer fluxo de trabalho que implanta ou cria recursos no Azure, como a implantação de aplicativos ou a execução de modelos ARM para criar a infraestrutura.
+O fluxo de trabalho geral para Azure Policy como código é para desenvolver e implantar políticas e iniciativas em um ambiente em escala. No entanto, a avaliação de política deve fazer parte do processo de implantação para qualquer fluxo de trabalho que implanta ou cria recursos no Azure, como a implantação de aplicativos ou a execução de modelos ARM para criar a infraestrutura.
 
 Nesses casos, depois que a implantação do aplicativo ou da infraestrutura for realizada em um grupo de recursos ou em uma assinatura de teste, a avaliação da política deverá ser feita para esse escopo verificando a validação de todas as políticas e iniciativas existentes. Embora elas possam ser configuradas como **enforcementMode** _disabled_ nesse ambiente, é útil saber antecipadamente se uma implantação de aplicativo ou de infraestrutura está violando as definições de política no início. Essa avaliação de política deve, portanto, ser uma etapa nesses fluxos de trabalho e falha nas implantações que criam recursos sem conformidade.
 
 ## <a name="review"></a>Revisão
 
-Este artigo aborda o fluxo de trabalho geral da Política como Código e também onde a avaliação da política deve fazer parte de outros fluxos de trabalho de implantação. Esse fluxo de trabalho pode ser usado em qualquer ambiente que dê suporte a etapas e automação com script com base em gatilhos.
+Este artigo aborda o fluxo de trabalho geral para Azure Policy como código e também onde a avaliação da política deve fazer parte de outros fluxos de trabalho de implantação. Esse fluxo de trabalho pode ser usado em qualquer ambiente que dê suporte a etapas e automação com script com base em gatilhos. Para obter um tutorial sobre como usar esse fluxo de trabalho no GitHub, consulte [tutorial: implementar Azure Policy como código com o GitHub](../tutorials/policy-as-code-github.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

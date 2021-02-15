@@ -1,29 +1,40 @@
 ---
 title: Criar um novo recurso baseado em espaço de trabalho do Azure Monitor Application Insights | Microsoft Docs
 description: Saiba mais sobre as etapas necessárias para habilitar os novos recursos baseados em espaço de trabalho do Azure Monitor Application Insights.
-author: mrbullwinkle
-ms.author: mbullwin
 ms.topic: conceptual
-ms.date: 08/24/2020
-ms.openlocfilehash: d6d6731ae087604e0a53a6721bb76dfba5fbf40c
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.date: 10/06/2020
+ms.openlocfilehash: 23994190df89b47d9c7e90ed62a724545389b1fe
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783834"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99063359"
 ---
-# <a name="workspace-based-application-insights-resources-preview"></a>Recurso baseado em espaço de trabalho do Application Insights (versão prévia)
+# <a name="workspace-based-application-insights-resources"></a>Recursos baseados em workspace do Application Insights
 
 Os recursos baseados em espaço de trabalho dão suporte à integração completa entre Application Insights e Log Analytics. Agora você pode optar por enviar sua telemetria do Application Insights para um espaço de trabalho comum do Log Analytics, que permite acesso completo a todos os recursos do Log Analytics mantendo os logs de aplicativos, infraestrutura e plataforma em um único local consolidado.
 
-Isso também permite o RBAC (Controle de Acesso Baseado em Função) comum em seus recursos e elimina a necessidade de consultas entre aplicativos/espaço de trabalhos.
+Isso também permite o controle de acesso baseado em função (RBAC) comum do Azure em seus recursos e elimina a necessidade de consultas entre aplicativos/espaços de trabalho.
 
 > [!NOTE]
 > A ingestão de dados e a retenção de recursos do Application Insights baseados em espaço de trabalho são cobradas por meio do espaço de trabalho do Log Analytics onde ficam os dados. [Saiba mais]( ./pricing.md#workspace-based-application-insights) sobre a cobrança de recursos do Application Insights baseados em espaço de trabalho.
 
-Para testar a nova experiência, entre no [portal do Azure](https://portal.azure.com) e crie um recurso do Application Insights:
+## <a name="new-capabilities"></a>Novos recursos
 
-![Recurso baseado em espaço de trabalho do Application Insights](./media/create-workspace-resource/create-workspace-based.png)
+Os Application Insights baseados em espaço de trabalho permitem aproveitar os recursos mais recentes de Azure Monitor e Log Analytics, incluindo:
+
+* [As chaves gerenciadas pelo cliente (CMK)](../platform/customer-managed-keys.md) fornecem criptografia em repouso para seus dados com chaves de criptografia somente às quais você tem acesso.
+* O [Link Privado do Azure](../platform/private-link-security.md) permite vincular com segurança os serviços PaaS do Azure a sua rede virtual usando pontos de extremidade privados.
+* [Traga seu próprio armazenamento (BYOS) para o criador de perfil e depurador de instantâneos](./profiler-bring-your-own-storage.md) oferece controle total sobre a política de criptografia em repouso, a política de gerenciamento de tempo de vida e o acesso à rede para todos os dados associados a Application Insights Profiler e depurador de instantâneos. 
+* As [camadas de reserva de capacidade](../platform/manage-cost-storage.md#pricing-model) permitem que você economize até 25% em comparação com o preço pago conforme o uso. 
+* Ingestão de dados mais rápida por meio de Log Analytics ingestão de streaming.
+
+## <a name="create-workspace-based-resource"></a>Criar recurso baseado em espaço de trabalho
+
+Entre no [portal do Azure](https://portal.azure.com) e crie um recurso do Application Insights:
+
+> [!div class="mx-imgBorder"]
+> ![Recurso baseado em espaço de trabalho do Application Insights](./media/create-workspace-resource/create-workspace-based.png)
 
 Se você ainda não tiver um espaço de trabalho do Log Analytics, [confira a documentação de criação de espaço de trabalho do Log Analytics](../learn/quick-create-workspace.md).
 
@@ -36,7 +47,7 @@ Depois que o recurso for criado, você verá as informações de espaço de trab
 Clique no texto do link azul para ir para o espaço de trabalho do Log Analytics associado, onde você poderá aproveitar o novo ambiente unificado de consulta de espaço de trabalho.
 
 > [!NOTE]
-> Ainda fornecemos compatibilidade total com versões anteriores para as consultas de recursos clássicos, as pastas de trabalho e os alertas baseados em log do Application Insights na experiência do Application Insights. Para consultar/exibir em relação à [nova estrutura/esquema de tabela baseada em espaço de trabalho](apm-tables.md), você deverá primeiro navegar para seu espaço de trabalho do Log Analytics. Durante a visualização, selecione **Logs** de dentro dos painéis do Application Insights para ter acesso à experiência clássica de consulta do Application Insights.
+> Ainda fornecemos compatibilidade total com versões anteriores para as consultas de recursos clássicos, as pastas de trabalho e os alertas baseados em log do Application Insights na experiência do Application Insights. Para consultar/exibir em relação à [nova estrutura/esquema de tabela baseada em espaço de trabalho](apm-tables.md), você deverá primeiro navegar para seu espaço de trabalho do Log Analytics. A seleção de **logs (análise)** de dentro dos painéis de Application insights dará acesso à experiência de consulta de Application insights clássica.
 
 ## <a name="copy-the-connection-string"></a>Copiar a cadeia de conexão
 
@@ -102,7 +113,7 @@ az monitor app-insights component create --app
 az monitor app-insights component create --app demoApp --location eastus --kind web -g my_resource_group --workspace "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/test1234/providers/microsoft.operationalinsights/workspaces/test1234555"
 ```
 
-Para obter a documentação completa de CLI do Azure para este comando, confira a [documentação CLI do Azure](/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest#ext-application-insights-az-monitor-app-insights-component-create).
+Para obter a documentação completa de CLI do Azure para este comando, confira a [documentação CLI do Azure](/cli/azure/ext/application-insights/monitor/app-insights/component#ext-application-insights-az-monitor-app-insights-component-create).
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
@@ -185,14 +196,6 @@ No momento, o comando `New-AzApplicationInsights` do PowerShell não dá suporte
 
 ```
 
-## <a name="new-capabilities"></a>Novos recursos
-
-Os Application Insights baseados em espaço de trabalho permitem aproveitar todos os recursos mais recentes do Azure Monitor, incluindo:
-
-* [As chaves gerenciadas pelo cliente (CMK)](../platform/customer-managed-keys.md) fornecem criptografia em repouso para seus dados com chaves de criptografia somente às quais você tem acesso.
-* O [Link Privado do Azure](../platform/private-link-security.md) permite vincular com segurança os serviços PaaS do Azure a sua rede virtual usando pontos de extremidade privados.
-* [Traga seu próprio armazenamento (BYOS) para o criador de perfil e depurador de instantâneos](./profiler-bring-your-own-storage.md) oferece controle total sobre a política de criptografia em repouso, a política de gerenciamento de tempo de vida e o acesso à rede para todos os dados associados a Application Insights Profiler e depurador de instantâneos. 
-
 ## <a name="modifying-the-associated-workspace"></a>Modificação do espaço de trabalho associado
 
 Depois que um recurso do Application Insights baseado em espaço de trabalho tiver sido criado, você poderá modificar o espaço de trabalho associado do Log Analytics.
@@ -203,12 +206,11 @@ No painel de recursos do Application Insights, selecione **Propriedades** > **Al
 
 A funcionalidade de exportação contínua herdada não tem suporte para recursos baseados em espaço de trabalho. Em vez disso, selecione **Configurações de diagnóstico** > **Adicionar configurações de diagnóstico** de dentro de seu recurso do Application Insights. Você pode selecionar todas as tabelas ou um subconjunto de tabelas para arquivar em uma conta de armazenamento ou transmitir para um hub de eventos do Azure.
 
+> [!NOTE]
+> Não há encargos adicionais para a exportação de telemetria no momento. As informações de preço para esse recurso estarão disponíveis na [página de preços do Azure monitor](https://azure.microsoft.com/pricing/details/monitor/).  Antes do início da cobrança, as notificações serão enviadas. Se você optar por continuar usando <feature name> após o período de aviso, você será cobrado na taxa aplicável. 
+ 
+
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Explorar métricas](../platform/metrics-charts.md)
 * [Escrever consultas do Analytics](../log-query/log-query-overview.md)
-
-[api]: ./api-custom-events-metrics.md
-[diagnostic]: ./diagnostic-search.md
-[metrics]: ../platform/metrics-charts.md
-[start]: ./app-insights-overview.md

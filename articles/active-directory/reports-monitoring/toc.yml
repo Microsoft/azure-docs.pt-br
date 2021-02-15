@@ -6,6 +6,8 @@
       href: overview-reports.md
     - name: O que é monitoramento do Azure AD?
       href: overview-monitoring.md
+    - name: O que é o diagnóstico de entrada?
+      href: overview-sign-in-diagnostics.md
 - name: Inícios rápidos
   expanded: true
   items:
@@ -31,16 +33,18 @@
       href: plan-monitoring-and-reporting.md
     - name: Logs de auditoria
       href: concept-audit-logs.md
+    - name: Novos logs de entrada – versão prévia
+      href: concept-all-sign-ins.md
     - name: Logs de entrada
       href: concept-sign-ins.md
     - name: Relatório de uso e insights
       href: concept-usage-insights-report.md
     - name: Entradas de risco
-      href: concept-risky-sign-ins.md
+      href: ../identity-protection/overview-identity-protection.md
     - name: Detecções de risco
-      href: concept-risk-events.md
+      href: ../identity-protection/overview-identity-protection.md
     - name: Usuários em risco
-      href: concept-user-at-risk.md
+      href: ../identity-protection/overview-identity-protection.md
     - name: Provisionando logs
       href: concept-provisioning-logs.md
     - name: APIs dos relatórios
@@ -94,9 +98,9 @@
     - name: Cmdlets do PowerShell do Azure AD para relatórios
       href: reference-powershell-reporting.md
     - name: Referência da API de logs de auditoria
-      href: 'https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit'
+      href: /graph/api/resources/directoryaudit?view=graph-rest-1.0
     - name: Referência da API de logs de entrada
-      href: 'https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin'
+      href: /graph/api/resources/signin?view=graph-rest-1.0
     - name: Atividades de auditoria
       href: reference-audit-activities.md
     - name: Políticas de retenção de dados

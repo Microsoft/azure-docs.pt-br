@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 12/15/2019
-ms.openlocfilehash: f2c780ffb7705575bf1bb5cabb6a09d9dabc0690
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b68d4779d33d2f8a1f1c2bae35f438ad2ccccabb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505832"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "90090067"
 ---
 # <a name="tutorial-collect-and-analyze-resource-logs-from-an-azure-resource"></a>Tutorial: Coletar e analisar logs de recursos de um recurso do Azure
 
@@ -84,7 +84,7 @@ Os dados são recuperados de um workspace do Log Analytics usando uma consulta d
     > [!NOTE]
     > Se você tiver aberto os logs no menu Azure Monitor, o escopo será definido como o workspace do Log Analytics. Nesse caso, todas as consultas incluirão todos os registros no workspace.
    
-    ![Logs](media/tutorial-resource-logs/logs.png)
+    ![A captura de tela mostra os Logs de um aplicativo lógico exibindo uma nova consulta com o nome do aplicativo lógico realçado.](media/tutorial-resource-logs/logs.png)
 
 4. O serviço mostrado no exemplo grava logs de recursos na tabela **AzureDiagnostics**, mas outros serviços podem gravar em outras tabelas. Confira [Serviços, esquemas e categorias compatíveis com logs de recursos do Azure](../platform/resource-logs-schema.md) para tabelas usadas por diferentes serviços do Azure.
 

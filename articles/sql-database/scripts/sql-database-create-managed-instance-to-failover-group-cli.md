@@ -1,6 +1,6 @@
 ---
 title: 'CLI do Azure: Adicionar uma instância gerenciada a um grupo de failover'
-description: Script de exemplo da CLI do Azure para criar uma Instância Gerenciada de SQL do Azure, adicioná-la a um grupo de failover e testar o failover.
+description: Saiba como criar duas instâncias gerenciadas, adicioná-las a um grupo de failover e testar o failover.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 07/16/2019
-ms.openlocfilehash: b29fcd33c8181ba61f57d7105d08e7e4956d80bc
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: afefc556bcac096d67051f3014c31e449dbbca32
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497249"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91323559"
 ---
 # <a name="use-cli-to-create-an-azure-sql-managed-instance-to-a-failover-group"></a>Usar a CLI para criar uma Instância Gerenciada de SQL do Azure em um grupo de failover
 

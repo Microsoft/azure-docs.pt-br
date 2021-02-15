@@ -1,7 +1,7 @@
 ---
-title: 'Detecção de anomalias baseada em PCA: referência de módulo'
+title: 'Detecção de anomalias PCA-Based: referência de módulo'
 titleSuffix: Azure Machine Learning
-description: Saiba como usar o módulo detecção de anomalias com base em PCA para criar um modelo de detecção de anomalias baseado na análise de componente principal (PCA).
+description: Saiba como usar o módulo de detecção de anomalias PCA-Based para criar um modelo de detecção de anomalias com base na análise de componente principal (PCA).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,20 +9,20 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: 0498823e1b730db6425d255b6de4b826dd05a6a4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fa90fcb9ebc17be9a658b08873234eada98b0fba
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84749492"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "90898452"
 ---
-# <a name="pca-based-anomaly-detection-module"></a>Módulo de detecção de anomalias com base em PCA
+# <a name="pca-based-anomaly-detection-module"></a>Módulo de detecção de anomalias PCA-Based
 
-Este artigo descreve como usar o módulo detecção de anomalias com base em PCA no designer de Azure Machine Learning (versão prévia) para criar um modelo de detecção de anomalias com base na análise de componente principal (PCA).
+Este artigo descreve como usar o módulo de detecção de anomalias PCA-Based no designer de Azure Machine Learning, para criar um modelo de detecção de anomalias com base na análise de componente principal (PCA).
 
 Esse módulo ajuda você a criar um modelo em cenários em que é fácil obter dados de treinamento de uma classe, como transações válidas, mas difícil obter amostras suficientes das anomalias direcionadas. 
 
-Por exemplo, para detectar transações fraudulentas, geralmente você não tem exemplos de fraudes suficientes para treinar. Mas você pode ter muitos exemplos de transações boas. O módulo detecção de anomalias com base em PCA resolve o problema analisando os recursos disponíveis para determinar o que constitui uma classe "normal". Em seguida, o módulo aplica métricas de distância para identificar casos que representam anomalias. Essa abordagem permite treinar um modelo usando dados desequilibrados existentes.
+Por exemplo, para detectar transações fraudulentas, geralmente você não tem exemplos de fraudes suficientes para treinar. Mas você pode ter muitos exemplos de transações boas. O módulo de detecção de anomalias PCA-Based resolve o problema analisando os recursos disponíveis para determinar o que constitui uma classe "normal". Em seguida, o módulo aplica métricas de distância para identificar casos que representam anomalias. Essa abordagem permite treinar um modelo usando dados desequilibrados existentes.
 
 ## <a name="more-about-principal-component-analysis"></a>Mais sobre a análise de componente principal
 
@@ -38,7 +38,7 @@ Para obter mais informações sobre como o PCA funciona e sobre a implementaçã
 
 - [Localizando a estrutura com aleatoriedade: algoritmos probabilística para construir decomposiçãos de matriz aproximadas](http://users.cms.caltech.edu/~jtropp/papers/HMT11-Finding-Structure-SIREV.pdf) (download de PDF), por Halko, Martinsson e Tropp
 
-## <a name="how-to-configure-pca-based-anomaly-detection"></a>Como configurar a detecção de anomalias baseada em PCA
+## <a name="how-to-configure-pca-based-anomaly-detection"></a>Como configurar a detecção de anomalias PCA-Based
 
 1. Adicione o módulo **detecção de anomalias com base em PCA** ao seu pipeline no designer. Você pode encontrar esse módulo na categoria de **detecção de anomalias** .
 
@@ -109,4 +109,4 @@ Para cada nova entrada, o detector de anomalias primeiro computa sua projeção 
 
 Confira o [conjunto de módulos disponíveis](module-reference.md) no Azure Machine Learning. 
 
-Consulte [exceções e códigos de erro para o designer (versão prévia)](designer-error-codes.md) para obter uma lista de erros específicos para os módulos do designer.
+Consulte [exceções e códigos de erro para o designer](designer-error-codes.md) para obter uma lista de erros específicos para os módulos do designer.

@@ -1,18 +1,15 @@
 ---
 title: Desenvolver ações de script para personalizar os clusters do Azure HDInsight
 description: Saiba como usar scripts bash para personalizar os clusters HDInsight. As ações de script permitem executar scripts durante ou após a criação do cluster para alterar as definições de configuração de cluster ou instalar software adicional.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 11/28/2019
-ms.openlocfilehash: 08354e212b8ca3cae642b599f25ed318e79f581c
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: b6705728fddc9a5a3c9cb8eb2f1811412fb3a290
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86082243"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945484"
 ---
 # <a name="script-action-development-with-hdinsight"></a>Desenvolvimento de ação de script com o HDInsight
 
@@ -73,7 +70,7 @@ elif [[ $OS_VERSION == 16* ]]; then
 fi
 ```
 
-### <a name="target-the-operating-system-version"></a><a name="bps10"></a>Direcionar a versão do sistema operacional
+### <a name="target-the-operating-system-version"></a><a name="bps10"></a> Direcionar a versão do sistema operacional
 
 O HDInsight é baseado na distribuição de Ubuntu Linux. Versões diferentes do HDInsight contam com versões diferentes do Ubuntu, o que pode afetar o comportamento do seu script. Por exemplo, HDInsight 3.4 e versões mais recentes são baseados em versões do Ubuntu que usam o Upstart. As versões 3.5 e posteriores se baseiam no Ubuntu 16.04, que usa Systemd. O Systemd e Upstart contam com comandos diferentes, portanto seu script deve ser escrito para funcionar com ambos.
 
@@ -177,7 +174,7 @@ Isso redireciona as informações gravadas em STDOUT para STDERR (2) em vez diss
 
 Para obter mais informações sobre como exibir informações registradas em log por ações de script, consulte [solucionar problemas de ações de script](./troubleshoot-script-action.md).
 
-### <a name="save-files-as-ascii-with-lf-line-endings"></a><a name="bps8"></a>Salvar arquivos como ASCII com terminações de linha de LF
+### <a name="save-files-as-ascii-with-lf-line-endings"></a><a name="bps8"></a> Salvar arquivos como ASCII com terminações de linha de LF
 
 Scripts de Bash devem ser armazenados com formato ASCII, com linhas terminadas em LF. Os arquivos que são armazenados como UTF-8 ou usam CRLF como o terminação de linha podem falhar com o seguinte erro:
 
@@ -186,7 +183,7 @@ $'\r': command not found
 line 1: #!/usr/bin/env: No such file or directory
 ```
 
-### <a name="use-retry-logic-to-recover-from-transient-errors"></a><a name="bps9"></a>Use a lógica de repetição para se recuperar de erros transitórios
+### <a name="use-retry-logic-to-recover-from-transient-errors"></a><a name="bps9"></a> Use a lógica de repetição para se recuperar de erros transitórios
 
 Ao baixar arquivos, instalar pacotes usando apt-get ou outras ações que transmitem dados pela Internet, a ação pode falhar devido a erros transitórios de rede. Por exemplo, o recurso remoto com o qual você está se comunicando pode estar no processo de failover para um nó de backup.
 
@@ -239,7 +236,7 @@ Os auxiliares a seguir, disponíveis para uso em seu script:
 | --- | --- |
 | `download_file SOURCEURL DESTFILEPATH [OVERWRITE]` |Baixa um arquivo da URI de origem para o caminho de arquivo especificado. Por padrão, ele não substitui um arquivo existente. |
 | `untar_file TARFILE DESTDIR` |Extrai um arquivo tar (usando `-xf`) para o diretório de destino. |
-| `test_is_headnode` |Se executado em um nó de cabeçalho do cluster, retorna 1. Caso contrário, 0. |
+| `test_is_headnode` |Se o script for executado em um nó de cabeçalho do cluster, retornará 1; caso contrário, 0. |
 | `test_is_datanode` |Se o nó atual é um nó de dados (de trabalho), retorna 1; caso contrário, 0. |
 | `test_is_first_datanode` |Se o nó atual é o primeiro nó de dados (de trabalho, chamado workernode0), retorna 1; caso contrário, retorna 0. |
 | `get_headnodes` |Retorna o nome de domínio totalmente qualificado dos nós de cabeçalho no cluster. Os nomes são delimitados por vírgula. Uma cadeia de caracteres vazia retorna em caso de erro. |
@@ -268,7 +265,7 @@ Definir uma variável de ambiente é uma ação realizada pela seguinte instruç
 VARIABLENAME=value
 ```
 
-Em que VARIABLENAME é o nome da variável. Para acessar a variável, use `$VARIABLENAME`. Por exemplo, para atribuir um valor fornecido por um parâmetro posicional como uma variável de ambiente denominada PASSWORD, use a seguinte instrução:
+No exemplo anterior, `VARIABLENAME` é o nome da variável. Para acessar a variável, use `$VARIABLENAME`. Por exemplo, para atribuir um valor fornecido por um parâmetro posicional como uma variável de ambiente denominada PASSWORD, use a seguinte instrução:
 
 ```bash
 PASSWORD=$1
@@ -292,7 +289,7 @@ Scripts usados para personalizar um cluster devem ser armazenados em um dos segu
 
 * Um URI __que pode ser lido publicamente__. Por exemplo, uma URL para dados armazenados no OneDrive, Dropbox ou outro serviço de hospedagem de arquivos.
 
-* Uma __conta do Azure Data Lake Storage__ que está associada com o cluster do HDInsight. Para obter mais informações sobre como usar Azure Data Lake Storage com o HDInsight, consulte [início rápido: configurar clusters no hdinsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
+* Uma __conta do Azure Data Lake Storage__ que está associada com o cluster do HDInsight. Para obter mais informações sobre como usar Azure Data Lake Storage com o HDInsight, consulte [início rápido: configurar clusters no hdinsight](./hdinsight-hadoop-provision-linux-clusters.md).
 
     > [!NOTE]  
     > A entidade de serviço que HDInsight usa para acessar o Data Lake Storage deve ter acesso de leitura para o script.
@@ -365,5 +362,5 @@ Substitua `INFILE` com o arquivo que contém a BOM. `OUTFILE` deve ser um novo n
 ## <a name="next-steps"></a><a name="seeAlso"></a>Próximas etapas
 
 * Saiba como [Personalizar os clusters HDInsight usando a ação de script](hdinsight-hadoop-customize-cluster-linux.md)
-* Use a [referência do SDK do .NET do HDInsight](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight) para saber mais sobre a criação de aplicativos .NET que gerenciam o HDInsight
-* Use a [API REST do HDInsight](https://msdn.microsoft.com/library/azure/mt622197.aspx) para aprender a usar o REST para executar ações de gerenciamento em clusters HDInsight.
+* Use a [referência do SDK do .NET do HDInsight](/dotnet/api/overview/azure/hdinsight) para saber mais sobre a criação de aplicativos .NET que gerenciam o HDInsight
+* Use a [API REST do HDInsight](/rest/api/hdinsight/) para aprender a usar o REST para executar ações de gerenciamento em clusters HDInsight.

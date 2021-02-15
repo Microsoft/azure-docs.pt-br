@@ -6,10 +6,10 @@ author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
 ms.openlocfilehash: 2f814c54aeca8a337f786beb8da1b98accbeef7e
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87318990"
 ---
 # <a name="azure-monitor-application-insights-agent-api-reference"></a>Referência da API do agente do Application Insights Azure Monitor
@@ -26,7 +26,7 @@ Este artigo descreve um cmdlet que é membro do [módulo AZ. ApplicationMonitor 
 > - O mecanismo de instrumentação adiciona sobrecarga adicional e está desativado por padrão.
 
 
-## <a name="enable-instrumentationengine"></a>Habilitar-InstrumentationEngine
+## <a name="enable-instrumentationengine"></a>Enable-InstrumentationEngine
 
 Habilita o mecanismo de instrumentação definindo algumas chaves do registro.
 Reinicie o IIS para que as alterações entrem em vigor.
@@ -44,7 +44,7 @@ Habilite o mecanismo de instrumentação se:
 PS C:\> Enable-InstrumentationEngine
 ```
 
-### <a name="parameters"></a>parâmetros
+### <a name="parameters"></a>Parâmetros
 
 #### <a name="-acceptlicense"></a>-AcceptLicense
 **Adicional.** Use essa opção para aceitar a licença e a política de privacidade em instalações sem periféricos.
@@ -62,7 +62,7 @@ Configuring IIS Environment for instrumentation engine...
 Configuring registry for instrumentation engine...
 ```
 
-## <a name="enable-applicationinsightsmonitoring"></a>Habilitar-ApplicationInsightsMonitoring
+## <a name="enable-applicationinsightsmonitoring"></a>Enable-ApplicationInsightsMonitoring
 
 Habilita o monitoramento de anexação de código de aplicativos IIS em um computador de destino.
 
@@ -84,10 +84,10 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-x
 
 #### <a name="example-with-an-instrumentation-key-map"></a>Exemplo com um mapa de chave de instrumentação
 Neste exemplo:
-- `MachineFilter`corresponde ao computador atual usando o `'.*'` caractere curinga.
-- `AppFilter='WebAppExclude'`fornece uma `null` chave de instrumentação. O aplicativo especificado não será instrumentado.
-- `AppFilter='WebAppOne'`atribui ao aplicativo especificado uma chave de instrumentação exclusiva.
-- `AppFilter='WebAppTwo'`atribui ao aplicativo especificado uma chave de instrumentação exclusiva.
+- `MachineFilter` corresponde ao computador atual usando o `'.*'` caractere curinga.
+- `AppFilter='WebAppExclude'` fornece uma `null` chave de instrumentação. O aplicativo especificado não será instrumentado.
+- `AppFilter='WebAppOne'` atribui ao aplicativo especificado uma chave de instrumentação exclusiva.
+- `AppFilter='WebAppTwo'` atribui ao aplicativo especificado uma chave de instrumentação exclusiva.
 - Por fim, `AppFilter` o também usa o `'.*'` curinga para corresponder a todos os aplicativos Web que não são compatíveis com as regras anteriores e atribuir uma chave de instrumentação padrão.
 - Os espaços são adicionados para facilitar a leitura.
 
@@ -101,7 +101,7 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap
 ```
 
 
-### <a name="parameters"></a>parâmetros
+### <a name="parameters"></a>Parâmetros
 
 #### <a name="-instrumentationkey"></a>-InstrumentationKey
 **Necessário.** Use esse parâmetro para fornecer uma chave de instrumentação única para uso por todos os aplicativos no computador de destino.
@@ -181,7 +181,7 @@ Updating app pool permissions...
 Successfully enabled Application Insights Status Monitor
 ```
 
-## <a name="disable-instrumentationengine"></a>Desabilitar-InstrumentationEngine
+## <a name="disable-instrumentationengine"></a>Disable-InstrumentationEngine
 
 Desabilita o mecanismo de instrumentação removendo algumas chaves do registro.
 Reinicie o IIS para que as alterações entrem em vigor.
@@ -192,7 +192,7 @@ Reinicie o IIS para que as alterações entrem em vigor.
 PS C:\> Disable-InstrumentationEngine
 ```
 
-### <a name="parameters"></a>parâmetros 
+### <a name="parameters"></a>Parâmetros 
 
 #### <a name="-verbose"></a>-Verbose
 **Parâmetro comum.** Use essa opção para gerar logs detalhados.
@@ -210,7 +210,7 @@ Registry: removing 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WAS[Env
 Configuring registry for instrumentation engine...
 ```
 
-## <a name="disable-applicationinsightsmonitoring"></a>Desabilitar-ApplicationInsightsMonitoring
+## <a name="disable-applicationinsightsmonitoring"></a>Disable-ApplicationInsightsMonitoring
 
 Desabilita o monitoramento no computador de destino.
 Esse cmdlet removerá as edições do applicationHost.config do IIS e removerá as chaves do registro.
@@ -221,7 +221,7 @@ Esse cmdlet removerá as edições do applicationHost.config do IIS e removerá 
 PS C:\> Disable-ApplicationInsightsMonitoring
 ```
 
-### <a name="parameters"></a>parâmetros 
+### <a name="parameters"></a>Parâmetros 
 
 #### <a name="-verbose"></a>-Verbose
 **Parâmetro comum.** Use essa opção para exibir logs detalhados.
@@ -263,7 +263,7 @@ Obtém o arquivo de configuração e imprime os valores no console.
 PS C:\> Get-ApplicationInsightsMonitoringConfig
 ```
 
-### <a name="parameters"></a>parâmetros
+### <a name="parameters"></a>Parâmetros
 
 Nenhum parâmetro é necessário.
 
@@ -426,7 +426,7 @@ listdlls64.exe -accepteula w3wp
 0x000000000ad60000  0x108000  C:\Windows\TEMP\2.4.0.0.Microsoft.ApplicationInsights.Extensions.Intercept_x64.dll
 ```
 
-### <a name="parameters"></a>parâmetros
+### <a name="parameters"></a>Parâmetros
 
 #### <a name="no-parameters"></a>(Sem parâmetros)
 
@@ -476,10 +476,10 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-x
 
 #### <a name="example-with-an-instrumentation-key-map"></a>Exemplo com um mapa de chave de instrumentação
 Neste exemplo:
-- `MachineFilter`corresponde ao computador atual usando o `'.*'` caractere curinga.
-- `AppFilter='WebAppExclude'`fornece uma `null` chave de instrumentação. O aplicativo especificado não será instrumentado.
-- `AppFilter='WebAppOne'`atribui ao aplicativo especificado uma chave de instrumentação exclusiva.
-- `AppFilter='WebAppTwo'`atribui ao aplicativo especificado uma chave de instrumentação exclusiva.
+- `MachineFilter` corresponde ao computador atual usando o `'.*'` caractere curinga.
+- `AppFilter='WebAppExclude'` fornece uma `null` chave de instrumentação. O aplicativo especificado não será instrumentado.
+- `AppFilter='WebAppOne'` atribui ao aplicativo especificado uma chave de instrumentação exclusiva.
+- `AppFilter='WebAppTwo'` atribui ao aplicativo especificado uma chave de instrumentação exclusiva.
 - Por fim, `AppFilter` o também usa o `'.*'` curinga para corresponder a todos os aplicativos Web que não são compatíveis com as regras anteriores e atribuir uma chave de instrumentação padrão.
 - Os espaços são adicionados para facilitar a leitura.
 
@@ -491,7 +491,7 @@ Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap `
           @{MachineFilter='.*';AppFilter='.*';InstrumentationSettings=@{InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxdefault'}})
 ```
 
-### <a name="parameters"></a>parâmetros
+### <a name="parameters"></a>Parâmetros
 
 #### <a name="-instrumentationkey"></a>-InstrumentationKey
 **Necessário.** Use esse parâmetro para fornecer uma chave de instrumentação única para uso por todos os aplicativos no computador de destino.
@@ -582,7 +582,7 @@ Você tem três opções ao coletar eventos:
 4. Por padrão, se nenhuma opção for especificada, ambos os tipos de eventos serão coletados.
 
 
-### <a name="parameters"></a>parâmetros
+### <a name="parameters"></a>Parâmetros
 
 #### <a name="-maxdurationinminutes"></a>-MaxDurationInMinutes
 **Adicional.** Use esse parâmetro para definir por quanto tempo esse script deve coletar eventos. O padrão é de 5 minutos.

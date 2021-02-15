@@ -9,13 +9,13 @@ metadata:
   ms.topic: hub-page
   author: philmea
   ms.author: philmea
-  ms.date: 10/25/2019
-  ms.openlocfilehash: fee76e6782fb01c6d18fd19c8c97d9f2c310c7ab
-  ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+  ms.date: 06/30/2020
+  ms.openlocfilehash: 59d95b8ce13161999c06993cbbf9194a66e38ed3
+  ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 08/11/2020
-  ms.locfileid: "88080670"
+  ms.lasthandoff: 11/25/2020
+  ms.locfileid: "96122495"
 highlightedContent:
   items:
   - title: O que é o IoT Central?
@@ -24,9 +24,9 @@ highlightedContent:
   - title: O que são modelos de aplicativo?
     itemType: concept
     url: ./core/concepts-app-templates.md
-  - title: Arquitetura do Azure IoT Central
-    itemType: architecture
-    url: ./core/concepts-architecture.md
+  - title: Visão geral do desenvolvimento de dispositivos para o IoT Central
+    itemType: overview
+    url: ./core/overview-iot-central-developer.md
   - title: Crie um novo aplicativo
     itemType: quickstart
     url: ./core/quick-deploy-iot-central.md
@@ -38,11 +38,20 @@ highlightedContent:
     url: ./core/tutorial-create-telemetry-rules.md
 conceptualContent:
   items:
-  - title: Conectar-se
+  - title: Conectar e desenvolver dispositivos
     links:
-    - url: ./core/howto-set-up-template.md
+    - url: ./core/tutorial-connect-device.md
+      itemType: tutorial
+      text: Conectar dispositivo
+    - url: ./core/concepts-get-connected.md
+      itemType: concept
+      text: Conectividade do dispositivo
+    - url: ./core/concepts-device-templates.md
+      itemType: concept
+      text: Modelos de dispositivo
+    - url: ./core/troubleshoot-connection.md
       itemType: how-to-guide
-      text: Configurar um modelo de dispositivo
+      text: Solucionar problemas de conectividade de dispositivos
     footerLink:
       url: ./core/index.yml
       text: Ver mais
@@ -68,9 +77,9 @@ conceptualContent:
     - url: ./core/tutorial-create-telemetry-rules.md
       itemType: how-to-guide
       text: Criar uma regra de telemetria
-    - url: ./core/howto-use-data-export.md
+    - url: ./core/howto-export-data.md
       itemType: how-to-guide
-      text: Exportar dados para destinos de nuvem – versão prévia
+      text: Exportar dados para destinos de nuvem
     footerLink:
       url: ./core/index.yml
       text: Ver mais
@@ -92,7 +101,7 @@ productDirectory:
     - text: Criar um aplicativo de centro de distribuição digital
       url: ./retail/tutorial-iot-central-digital-distribution-center.md
     - text: Criar um aplicativo de análise de vídeo
-      url: ./retail/tutorial-video-analytics-create-app.md
+      url: ./retail/tutorial-video-analytics-create-app-yolo-v3.md
   - title: Criação para serviços de saúde
     imageSrc: ./healthcare/media/index/iot-central-healthcare.svg
     links:
@@ -125,10 +134,10 @@ additionalContent:
   - items:
     - title: APIs do IoT Central
       summary: Explore as APIs do IoT Central.
-      url: https://docs.microsoft.com/rest/api/iotcentral/
+      url: /rest/api/iotcentral/
     - title: IoT Central no Microsoft Learn
       summary: Explore o IoT Central no ambiente de área restrita gratuita.
-      url: https://docs.microsoft.com/learn/browse/?products=azure-iot-central
+      url: /learn/browse/?products=azure-iot-central
     - title: Atualizações recentes
       summary: Veja as novidades do IoT Central.
       url: https://azure.microsoft.com/updates/?status=nowavailable&updateType=features&category=iot&query=azure%20iot%20central

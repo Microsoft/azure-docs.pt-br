@@ -8,12 +8,12 @@ ms.date: 12/11/2017
 ms.author: ancav
 ms.custom: mvc
 ms.subservice: autoscale
-ms.openlocfilehash: 8a55ab9b6b87a379fbdebcead4467ec47507d67a
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 8853a153450a07105ed4bac13de0da6cea95ce2a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327507"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995838"
 ---
 # <a name="create-an-autoscale-setting-for--azure-resources-based-on-performance-data-or-a-schedule"></a>Criar uma Configuração de Dimensionamento Automático para os recursos do Azure com base em dados de desempenho ou em um agendamento
 
@@ -46,7 +46,7 @@ Em poucos minutos, os recursos devem ser provisionados. Use o Aplicativo Web e o
 1. No painel de navegação à esquerda, selecione a opção **Monitorar**. Depois que a página for carregada, selecione a guia **Dimensionamento Automático**.
 2. Uma lista dos recursos em sua assinatura que dão suporte ao dimensionamento automático são listados aqui. Identifique o Plano do Serviço de Aplicativo criado anteriormente no tutorial e clique nele.
 
-    ![Navegar para as configurações de dimensionamento automático](./media/tutorial-autoscale-performance-schedule/monitor-blade-autoscale.png)
+    ![A captura de tela mostra o portal do Azure com o Monitor e o Dimensionamento Automático selecionado.](./media/tutorial-autoscale-performance-schedule/monitor-blade-autoscale.png)
 
 3. Na configuração de dimensionamento automático, clique no botão **Habilitar Dimensionamento Automático**.
 
@@ -59,7 +59,7 @@ As próximas etapas ajudarão você a preencher a tela de dimensionamento autom�
 2. No perfil padrão, verifique se o **Modo de dimensionamento** está definido como “Dimensionar para uma contagem de instância específica”.
 3. Defina a contagem de instâncias como **1**. Essa configuração garante que, quando nenhum outro perfil está ativo ou em vigor, o perfil padrão retorna a contagem de instâncias como 1.
 
-   ![Navegar para as configurações de dimensionamento automático](./media/tutorial-autoscale-performance-schedule/autoscale-setting-profile.png)
+   ![A captura de tela mostra a página de configuração de Dimensionamento Automático com um nome inserido para a configuração.](./media/tutorial-autoscale-performance-schedule/autoscale-setting-profile.png)
 
 
 ## <a name="create-recurrence-profile"></a>Criar perfil de recorrência

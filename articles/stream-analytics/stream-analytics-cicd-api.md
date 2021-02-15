@@ -1,18 +1,17 @@
 ---
 title: Usar as APIs REST para fazer o CI/CD para Azure Stream Analytics no IoT Edge
 description: Saiba como implementar um pipeline de implantação e integração contínua para o Azure Stream Analytics usando as APIs REST.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: su-jie
+ms.author: sujie
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/04/2018
-ms.openlocfilehash: ed11488f397704be782a092d6cdc6463449cc71e
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 3c3f776ad0996fa0b7422f0fca2d899a35e853d1
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86039068"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98016126"
 ---
 # <a name="implement-cicd-for-stream-analytics-on-iot-edge-using-apis"></a>Implementar CI/CD para Stream Analytics no IoT Edge usando APIs
 
@@ -136,7 +135,7 @@ Exemplo de corpo da solicitação em JSON:
 } 
 ```
  
-Para obter mais informações, consulte a [Documentação da API](/rest/api/streamanalytics/stream-analytics-job).  
+Para obter mais informações, consulte a [Documentação da API](/rest/api/streamanalytics/).  
  
 ## <a name="publish-edge-package"></a>Publicar o pacote do Edge 
  
@@ -258,5 +257,5 @@ Após a configuração do manifesto de implantação, consulte [Implantar módul
 ## <a name="next-steps"></a>Próximas etapas 
  
 * [O Stream Analytics do Azure no IoT Edge](stream-analytics-edge.md)
-* [ASA no tutorial de IoT Edge](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics)
+* [ASA no tutorial de IoT Edge](../iot-edge/tutorial-deploy-stream-analytics.md)
 * [Desenvolver trabalhos de Borda do Stream Analytics utilizando ferramentas do Visual Studio](stream-analytics-tools-for-visual-studio-edge-jobs.md)

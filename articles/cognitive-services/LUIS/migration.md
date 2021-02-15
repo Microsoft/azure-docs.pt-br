@@ -1,14 +1,16 @@
 ---
 title: Visão geral da migração-LUIS
 description: Entender o que está em um caminho de migração
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/22/2020
-ms.openlocfilehash: 4080dd27414c2da551b60ad430278c18768337c9
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: d6ecacf9aa1a7e650de74a412ed4f161ed0e0790
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88587813"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91253795"
 ---
 # <a name="migration-in-luis"></a>Migração no LUIS
 

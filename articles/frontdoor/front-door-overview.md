@@ -1,86 +1,78 @@
 ---
 title: Azure Front Door | Microsoft Docs
-description: Este artigo fornece uma visão geral do Azure Front Door. Descubra se ele é a escolha certa para balancear a carga do tráfego de usuário para seu aplicativo.
+description: Este artigo fornece uma visão geral do Azure Front Door.
 services: frontdoor
 documentationcenter: ''
-author: sharad4u
+author: duongau
 editor: ''
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/23/2019
-ms.author: sharadag
-ms.openlocfilehash: 081305170020aa35511ad574bd8c5575c192d577
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.date: 09/27/2020
+ms.author: duau
+ms.openlocfilehash: ef7870363940a0db4ff09ae9ebd82eedb0e60495
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85322283"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282270"
 ---
 # <a name="what-is-azure-front-door"></a>O que é o Azure Front Door?
-O Azure Front Door permite que você defina, gerencie e monitore o roteamento global para seu tráfego da Web, otimizando-o para melhor desempenho e rápido failover global para alta disponibilidade. Com o Front Door, é possível transformar seus aplicativos consumidores e empresariais globais (de várias regiões) em modernos aplicativos robustos altamente personalizados e com alto desempenho, APIs e conteúdo que alcançam um público global com o Azure.
 
-O Front Door funciona na Camada 7 ou na Camada HTTP/HTTPS e usa o protocolo anycast com TCP de divisão e a rede global da Microsoft para melhorar a conectividade global. Portanto, de acordo com a seleção do método de roteamento na configuração, é possível garantir que o Front Door esteja roteando suas solicitações de cliente para o back-end de aplicativo mais rápido e disponível. Um back-end de aplicativo é qualquer serviço voltado para a Internet hospedado dentro ou fora do Azure. O Front Door oferece uma variedade de [métodos de roteamento de tráfego](front-door-routing-methods.md) e [opções de monitoramento de integridade de back-end](front-door-health-probes.md) para atender às diferentes necessidades dos aplicativos e modelos de failover automático. De maneira semelhante ao [Gerenciador de Tráfego](../traffic-manager/traffic-manager-overview.md), o Front Door é resiliente a falhas, incluindo a falha de uma região inteira do Azure.
+O Azure Front Door é um ponto de entrada global e escalonável que usa a rede de borda global da Microsoft para criar aplicativos Web rápidos, seguros e amplamente escalonáveis. Com o Front Door, é possível transformar os seus aplicativos consumidores e empresariais globais em modernos aplicativos robustos altamente personalizados e com alto desempenho, com conteúdo que alcança um público global por meio do Azure.
+
+<p align="center">
+  <img src="./media/front-door-overview/front-door-visual-diagram.png" alt="Front Door architecture" width="600" title="Porta da frente do Azure">
+</p>
+
+O Front Door funciona na Camada 7 (Camada HTTP/HTTPS) e usa o protocolo anycast com TCP de divisão e a rede global da Microsoft para aprimorar a conectividade global. Com base no método de roteamento, é possível garantir que o Front Door roteará as suas solicitações de cliente para o back-end de aplicativo mais rápido e disponível. Um back-end de aplicativo é qualquer serviço voltado para a Internet hospedado dentro ou fora do Azure. O Front Door oferece uma variedade de [métodos de roteamento de tráfego](front-door-routing-methods.md) e [opções de monitoramento de integridade de back-end](front-door-health-probes.md) para atender às diferentes necessidades dos aplicativos e cenários de failover automático. De maneira semelhante ao [Gerenciador de Tráfego](../traffic-manager/traffic-manager-overview.md), o Front Door é resiliente a falhas, incluindo falhas de uma região inteira do Azure.
 
 >[!NOTE]
-> O Azure fornece um conjunto de soluções de balanceamento de carga totalmente gerenciadas para seus cenários. Se você estiver procurando um roteamento global baseado em DNS e **não** tiver requisitos para encerramento de protocolo TLS ("descarregamento de SSL") ou para processamento de camada de aplicativo por solicitação HTTP/HTTPS, consulte [Gerenciador de Tráfego](../traffic-manager/traffic-manager-overview.md). Se você estiver em busca de balanceamento de carga entre os servidores em uma região, para a camada de aplicativo, consulte [Gateway de Aplicativo](../application-gateway/application-gateway-introduction.md) e, para o balanceamento de carga de camada de rede, consulte [Load Balancer](../load-balancer/load-balancer-overview.md). Cenários de ponta a ponta podem se beneficiar da combinação dessas soluções conforme for necessário.
->
-> Para obter uma comparação das opções de balanceamento de carga do Azure, confira [Visão geral das opções de balanceamento de carga no Azure](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview).
+> O Azure fornece um conjunto de soluções de balanceamento de carga totalmente gerenciadas para seus cenários. 
+> * Se você quiser realizar um roteamento global baseado em DNS e **não** tiver os requisitos para encerramento de protocolo TLS ("descarregamento de SSL") ou para processamento de camada de aplicativo por solicitação HTTP/HTTPS, examine [Gerenciador de Tráfego](../traffic-manager/traffic-manager-overview.md). 
+> * Se você quiser balancear a carga entre os servidores em uma região na camada de aplicativo, examine [Gateway de Aplicativo](../application-gateway/overview.md)
+> * Para fazer o balanceamento de carga de camada de rede, examine [Load Balancer](../load-balancer/load-balancer-overview.md). 
+> 
+> Os cenários de ponta a ponta podem se beneficiar da combinação dessas soluções, conforme necessário.
+> Para obter uma comparação das opções de balanceamento de carga do Azure, confira [Visão geral das opções de balanceamento de carga no Azure](/azure/architecture/guide/technology-choices/load-balancing-overview).
 
-Os recursos a seguir estão incluídos com o Front Door:
+## <a name="why-use-azure-front-door"></a>Por que usar o Azure Front Door?
 
-## <a name="accelerate-application-performance"></a>Acelerar o desempenho do aplicativo
-Usando o protocolo anycast baseado em TCP de divisão, o Front Door garante que seus usuários finais se conectem imediatamente ao POP (Ponto de Presença) do Front Door mais próximo. Usando a rede global da Microsoft para conectar-se aos back-ends de aplicativo de POPs do Front Door, garanta que haja maior disponibilidade e confiabilidade mantendo o desempenho. Essa conectividade com o back-end também se baseia na menor latência de rede. Saiba mais sobre técnicas de roteamento do Front Door como [TCP de divisão](front-door-routing-architecture.md#splittcp) e [Protocolo anycast](front-door-routing-architecture.md#anycast).
+Com o Front Door, você pode criar, operar e escalar horizontalmente os seus aplicativos Web dinâmicos e o conteúdo estático. O Front Door permite que você defina, gerencie e monitore o roteamento global do seu tráfego da Web, otimizando-o para melhor desempenho de usuário final e confiabilidade por meio de um rápido failover global.
 
-## <a name="increase-application-availability-with-smart-health-probes"></a>Aumentar a disponibilidade do aplicativo com investigações de integridade inteligentes
+Principais recursos incluídos no Front Door:
 
-O Front Door oferece alta disponibilidade para seus aplicativos críticos que usam as investigações de integridade inteligentes, monitorando a latência e a disponibilidade dos back-ends e fornecendo rápido failover automático quando um back-end fica inoperante. Portanto, é possível executar operações de manutenção planejada em seus aplicativos sem tempo de inatividade. O Front Door direciona o tráfego para back-ends alternativos enquanto a manutenção está em andamento.
+* Desempenho de aplicativo acelerado usando o **[protocolo anycast](front-door-routing-architecture.md#anycast)** baseado no **[TCP dividido](front-door-routing-architecture.md#splittcp)** .
 
-## <a name="url-based-routing"></a>Roteamento baseado em URL
-O Roteamento baseado em caminho de URL permite rotear o tráfego para pools de back-end com base nos caminhos de URL da solicitação. Um dos cenários possíveis é rotear as solicitações de tipos de conteúdo diferentes para pools de back-end diferentes.
+* Monitoramento da **[investigação de integridade](front-door-health-probes.md)** inteligente para recursos de back-end.
 
-Por exemplo, as solicitações para `http://www.contoso.com/users/*` são roteadas para UserProfilePool e para `http://www.contoso.com/products/*` são roteadas para ProductInventoryPool.  O Front Door permite cenários de correspondência de rotas mais complexos usando o melhor algoritmo de correspondência; portanto, se nenhum dos padrões de caminho for correspondente, então a regra de roteamento padrão para `http://www.contoso.com/*` será selecionada e o tráfego será direcionado à regra de roteamento padrão que captura tudo. Saiba mais em [Route Matching](front-door-route-matching.md) (Correspondência de rotas).
+*  Roteamento **[baseado no caminho da URL](front-door-route-matching.md)** para solicitações.
 
-## <a name="multiple-site-hosting"></a>Hospedagem de vários sites
-A hospedagem de vários sites permite configurar mais de um site na mesma configuração do Front Door. Esse recurso permite que você configure uma topologia mais eficiente para suas implantações adicionando diferentes sites a uma única configuração do Front Door. Com base na arquitetura do seu aplicativo, é possível configurar o Azure Front Door para direcionar cada site para o próprio pool de back-end ou fazer com que vários sites sejam direcionados para o mesmo pool de back-end. Por exemplo, o Front Door pode servir o tráfego para `images.contoso.com` e `videos.contoso.com` de dois pools de back-end chamados ImagePool e VideoPool. Ou é possível configurar os dois hosts de front-end para direcionar o tráfego para um único pool de back-end chamado MediaPool.
+* Habilita a hospedagem de vários sites para uma infraestrutura de aplicativo eficiente. 
 
-De maneira semelhante, é possível fazer com que dois domínios diferentes `www.contoso.com` e `www.fabrikam.com` sejam configurados no mesmo Front Door.
+* **[Afinidade de sessão](front-door-routing-methods.md#affinity)** baseada em cookie.
 
-## <a name="session-affinity"></a>Afinidade de sessão
-O recurso de afinidade de sessão baseada em cookies é útil quando você deseja manter uma sessão de usuário no mesmo back-end de aplicativo. Usando os cookies gerenciados pelo Front Door, o tráfego subsequente de uma sessão de usuário é direcionado para o back-end do mesmo aplicativo para processamento. Esse recurso é importante em casos em que o estado de sessão é salvo localmente no back-end para uma sessão de usuário.
+* **[Descarregamento de SSL](front-door-custom-domain-https.md)** e gerenciamento de certificado.
 
-## <a name="tls-termination"></a>Encerramento de TLS
-O Front Door é compatível com o encerramento do TLS na borda, ou seja, os usuários individuais podem configurar a conexão TLS com os ambientes do Front Door, em vez de estabelecê-la por meio de longas conexões com o back-end do aplicativo. Além disso, o Front Door é compatível com a conectividade HTTP e HTTPS entre os ambientes do Front Door e seus back-ends. Portanto, também é possível configurar a criptografia TLS de ponta a ponta. Por exemplo, se o Front Door da carga de trabalho do seu aplicativo receber mais de 5 mil solicitações por minuto, devido à reutilização de conexão quente, para serviços ativos, ele apenas estabelecerá cerca de 500 conexões com o back-end do seu aplicativo, reduzindo, assim, a carga significativa dos seus back-ends.
+* Definir o próprio **[domínio personalizado](front-door-custom-domain.md)** . 
 
-## <a name="custom-domains-and-certificate-management"></a>Gerenciamento de domínios e certificados personalizados
-Quando você usa o Front Door para distribuir conteúdo, será necessário um domínio personalizado se você desejar que seu próprio nome de domínio esteja visível na URL do Front Door. Ter um nome de domínio visível pode ser conveniente para os clientes e útil para fins de identidade visual.
-O Front Door também é compatível com HTTPS para nomes de domínio personalizados. Use esse recurso escolhendo certificados gerenciados pelo Front Door para seu tráfego ou carregando seu certificado TLS/SSL personalizado.
+* Segurança de aplicativo com o **[WAF (Firewall de Aplicativo Web)](../web-application-firewall/overview.md)** integrado.
 
-## <a name="application-layer-security"></a>Segurança da camada de aplicativo
-O Azure Front Door permite que você crie regras WAF (Firewall do Aplicativo Web) personalizadas para obter controle de acesso a fim de proteger sua carga de trabalho HTTP/HTTPS contra exploração com base em endereços IP do cliente, o código do país e parâmetros http. Além disso, o Front Door também permite que você crie regras de limitação de taxa para combater o tráfego de bot mal-intencionado. Para saber mais sobre o Firewall do Aplicativo Web, confira [O que é o Firewall do Aplicativo Web do Azure?](../web-application-firewall/overview.md)
+* Redirecione o tráfego de HTTP para HTTPS com o **[redirecionamento de URL](front-door-url-redirect.md)** .
 
-A plataforma do Front Door é protegida pela [Proteção contra DDoS do Azure](../virtual-network/ddos-protection-overview.md) Básica. Para aumentar a proteção, a Proteção contra DDoS do Azure Standard pode ser habilitada em suas VNETs e proteger recursos contra ataques de camada de rede (TCP/UDP) por meio do ajuste automático e atenuação. O Front Door é um proxy reverso de camada 7; ele apenas permite que o tráfego da Web seja passado para back-ends e bloqueie outros tipos de tráfego por padrão.
+* Caminho de encaminhamento personalizado com a **[Regravação de URL](front-door-url-rewrite.md)** .
 
-## <a name="url-redirection"></a>Redirecionamento de URL
-Com a pressão forte do setor para oferecer suporte à comunicação somente segura, os aplicativos Web devem redirecionar automaticamente todo o tráfego HTTP para HTTPS. Isso garante que todas as comunicações entre os usuários e o aplicativo ocorram em um caminho criptografado. 
-
-Tradicionalmente, os proprietários do aplicativo têm lidado com esse requisito criando um serviço dedicado, cujo único propósito era redirecionar as solicitações recebidas de HTTP para HTTPS. O Azure Front Door dá suporte à capacidade de redirecionar o tráfego de HTTP para HTTPS. Isso simplifica a configuração do aplicativo, otimiza o uso de recursos e dá suporte a novos cenários de redirecionamento, incluindo redirecionamento global e baseado no caminho. O redirecionamento de URL do Azure Front Door não é limitado apenas ao redirecionamento de HTTP para HTTPS, mas também redireciona de um nome de host diferente, redirecionando para um caminho diferente ou até mesmo redirecionando para uma nova cadeia de caracteres de consulta na URL.
-
-Para obter mais informações, confira [redirecionamento do tráfego](front-door-url-redirect.md) com o Azure Front Door.
-
-## <a name="url-rewrite"></a>Reconfiguração de URL
-O Front Door é compatível com a [regravação de URL](front-door-url-rewrite.md) ao permitir que você configure um Caminho de Encaminhamento Personalizado opcional para ser usado ao construir a solicitação a ser encaminhada para o back-end. O Front Door permite, além disso, que você configure o cabeçalho do host para ser enviado ao encaminhar a solicitação para seu back-end.
-
-## <a name="protocol-support---ipv6-and-http2-traffic"></a>Suporte ao protocolo – IPv6 e tráfego HTTP/2
-O Azure Front Door dá suporte nativo à conectividade IPv6 de ponta a ponta e ao protocolo HTTP/2 também. 
-
-O protocolo HTTP/2 permite uma comunicação full duplex entre back-ends de aplicativo e um cliente durante uma conexão TCP de longa execução. O HTTP/2 permite uma comunicação mais interativa entre o back-end e o cliente, que pode ser bidirecional, sem a necessidade de sondagem, necessária nas implementações baseadas em HTTP. O protocolo HTTP/2 tem baixa sobrecarga, ao contrário do HTTP e pode reutilizar a mesma conexão TCP para várias solicitações ou respostas, resultando em uma utilização mais eficiente de recursos. Saiba mais sobre [Suporte ao HTTP/2 no Azure Front Door](front-door-http2.md).
+* Suporte nativo de conectividade IPv6 de ponta a ponta e **[protocolo HTTP/2](front-door-http2.md)** .
 
 ## <a name="pricing"></a>Preços
 
-Para obter informações sobre preços, consulte [Preços do Front Door](https://azure.microsoft.com/pricing/details/frontdoor/).
+Para obter informações sobre preços, consulte [Preços do Front Door](https://azure.microsoft.com/pricing/details/frontdoor/). Confira [SLA para Azure Front Door](https://azure.microsoft.com/en-us/support/legal/sla/frontdoor/v1_0/).
+
+## <a name="whats-new"></a>Novidades
+
+Assine o RSS feed e veja as atualizações mais recentes dos recursos do Azure Front Door na página [Atualizações do Azure](https://azure.microsoft.com/updates/?category=networking&query=Azure%20Front%20Door).
 
 ## <a name="next-steps"></a>Próximas etapas
 

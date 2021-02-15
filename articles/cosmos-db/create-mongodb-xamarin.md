@@ -6,16 +6,18 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 03/16/2020
+ms.date: 10/09/2020
 ms.author: masoucou
-ms.openlocfilehash: db28455c47541b49b38ddbbc4d5e83ae20e2279d
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 339c6177de6e83f463efbc97e88a36ed4c52d97b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83659168"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349088"
 ---
 # <a name="quickstart-build-a-xamarinforms-app-with-net-sdk-and-azure-cosmos-dbs-api-for-mongodb"></a>Início Rápido: Compilar um aplicativo do Xamarin.Forms com o SDK do .NET e a API para MongoDB do Azure Cosmos DB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -88,12 +90,9 @@ Os snippets a seguir foram todos obtidos da classe `MongoService`, encontrada no
 
 * Inicialize o cliente Mongo.
     ```cs
-    MongoClientSettings settings = MongoClientSettings.FromUrl(
-        new MongoUrl(APIKeys.ConnectionString)
-    );
+    MongoClientSettings settings = MongoClientSettings.FromUrl(new MongoUrl(APIKeys.ConnectionString));
 
-    settings.SslSettings =
-        new SslSettings() { EnabledSslProtocols = SslProtocols.Tls12 };
+    settings.SslSettings = new SslSettings() { EnabledSslProtocols = SslProtocols.Tls12 };
 
     settings.RetryWrites = false;
 
@@ -107,7 +106,8 @@ Os snippets a seguir foram todos obtidos da classe `MongoService`, encontrada no
 
     var db = mongoClient.GetDatabase(dbName);
 
-    var collectionSettings = new MongoCollectionSettings {
+    var collectionSettings = new MongoCollectionSettings 
+    {
         ReadPreference = ReadPreference.Nearest
     };
 
@@ -185,7 +185,7 @@ Agora, você atualizou o aplicativo com todas as informações necessárias para
 2. Clique em **Restaurar todos os pacotes NuGet**.
 3. Clique com botão direito em **TaskList.Android** e selecione **Definir como projeto de inicialização**.
 4. Pressione F5 para iniciar a depuração do aplicativo.
-5. Se você quiser executar no iOS, primeiro seu computador está conectado a um Mac (confira estas [instruções](https://docs.microsoft.com/xamarin/ios/get-started/installation/windows/introduction-to-xamarin-ios-for-visual-studio) sobre como fazer isso).
+5. Se você quiser executar no iOS, primeiro seu computador está conectado a um Mac (confira estas [instruções](/xamarin/ios/get-started/installation/windows/introduction-to-xamarin-ios-for-visual-studio) sobre como fazer isso).
 6. Clique com botão direito no projeto **TaskList.Android** e selecione **Definir como projeto de inicialização**.
 7. Clique em F5 para começar a depuração do aplicativo.
 
@@ -207,4 +207,4 @@ Agora, você atualizou o aplicativo com todas as informações necessárias para
 Neste início rápido, você aprendeu como criar uma conta do Azure Cosmos DB e executar um aplicativo Xamarin.Forms usando a API para MongoDB. Agora, é possível importar outros dados para sua conta do Cosmos DB.
 
 > [!div class="nextstepaction"]
-> [Importar dados para o Azure Cosmos DB configurado com a API para MongoDB do Azure Cosmos DB](mongodb-migrate.md)
+> [Importar dados para o Azure Cosmos DB configurado com a API para MongoDB do Azure Cosmos DB](../dms/tutorial-mongodb-cosmos-db.md?toc=%2fazure%2fcosmos-db%2ftoc.json%253ftoc%253d%2fazure%2fcosmos-db%2ftoc.json)

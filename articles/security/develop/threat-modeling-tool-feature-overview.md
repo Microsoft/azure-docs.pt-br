@@ -7,12 +7,12 @@ ms.service: security
 ms.subservice: security-develop
 ms.topic: article
 ms.date: 08/17/2017
-ms.openlocfilehash: e405ea35dcaa33ac7c8227385e4aaff86d9244cb
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 65a88f309602462e77336181316c0d5bf19a8a1e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87539995"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "90980668"
 ---
 # <a name="threat-modeling-tool-feature-overview"></a>Visão geral do recurso Threat Modeling Tool
 
@@ -39,7 +39,7 @@ A experiência é semelhante a de outros produtos da Microsoft. Vamos analisar o
 
 ![Itens de menu](./media/threat-modeling-tool-feature-overview/menuitems.png)
 
-| Label                               | Detalhes      |
+| Rotular                               | Detalhes      |
 | --------------------------------------- | ------------ |
 | **Arquivo** | <ul><li>Abrir, salvar e fechar arquivos</li><li>Entrar e sair das contas do OneDrive.</li><li>Compartilhar links (exibir e editar).</li><li>Exibir informações do arquivo.</li><li>Aplicar um novo modelo aos modelos já existentes.</li></ul> |
 | **Editar** | Desfazer e refazer ações, bem como copiar, colar e excluir. |
@@ -54,7 +54,7 @@ Os símbolos são atalhos para os menus de nível superior:
 | --------------------------------------- | ------------ |
 | **Abrir** | Abre um novo arquivo. |
 | **Salvar** | Salva o arquivo atual. |
-| **Projetar** | Abre o modo de exibição de **Design**, no qual é possível criar modelos. |
+| **Design** | Abre o modo de exibição de **Design**, no qual é possível criar modelos. |
 | **Analisar** | Mostra ameaças geradas e suas propriedades. |
 | **Adicionar diagrama** | Adiciona um novo diagrama (semelhante às novas guias no Excel). |
 | **Excluir Diagrama** | Exclui o diagrama atual. |
@@ -122,7 +122,7 @@ Passar o mouse sobre **Abrir um Modelo** mostra duas opções: **Abrir deste com
 
 Quando você seleciona **Comentários, sugestões e problemas**, vá para o fórum do MSDN para as ferramentas do SDL. Você pode conferir o que as outras pessoas estão dizendo sobre a ferramenta, incluindo soluções alternativas e novas ideias.
 
-![Comentários](./media/threat-modeling-tool-feature-overview/feedback.png)
+![Captura de tela mostra um botão com os comentários de texto, sugestões e problemas.](./media/threat-modeling-tool-feature-overview/feedback.png)
 
 ## <a name="design-view"></a>Modo de exibição de Design
 
@@ -158,7 +158,7 @@ Você pode conectar elementos de duas maneiras:
 
 Se você criar um modelo de ameaça e se esquecer de conectar os fluxos de dados aos elementos, você receberá uma notificação. Você pode ignorar a mensagem ou seguir as instruções para corrigir o problema. 
 
-![Mensagens](./media/threat-modeling-tool-feature-overview/messages.png)
+![Captura de tela mostra um conector de modelo de ameaça não conectado a elementos, com a mensagem que esse problema causa.](./media/threat-modeling-tool-feature-overview/messages.png)
 
 ### <a name="notes"></a>Observações
 
@@ -174,7 +174,7 @@ Depois de criar seu diagrama, selecione o símbolo de **Análise** (lupa) na bar
 
 Quando você seleciona uma ameaça, você pode usar três funções diferentes:
 
-| Recurso                               | Informações do      |
+| Recurso                               | Informações      |
 | --------------------------------------- | ------------ |
 | **Indicador de leitura** | <p>A ameaça é marcada como leitura, o que ajuda a acompanhar os itens que você leu.</p><p>![Indicador de lido/não lido](./media/threat-modeling-tool-feature-overview/readmode.png)</p> |
 | **Foco de interação** | <p>A interação no diagrama que pertence a uma ameaça é realçada.</p><p>![Foco de interação](./media/threat-modeling-tool-feature-overview/interactionfocus.png)</p> |
@@ -196,7 +196,7 @@ Conforme mostrado na imagem anterior, você pode alterar as informações gerada
 
 Quando terminar de alterar as prioridades e atualizar o status de cada ameaça gerada, você poderá salvar o arquivo e/ou imprimir um relatório. Vá para **relatório**  >  **criar relatório completo**. Nomeie o relatório e você deverá ver algo semelhante à seguinte imagem:
 
-![Relatório](./media/threat-modeling-tool-feature-overview/report.png)
+![Captura de tela mostra um exemplo de relatório de modelagem de risco, incluindo um resumo, diagramas e outras informações.](./media/threat-modeling-tool-feature-overview/report.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

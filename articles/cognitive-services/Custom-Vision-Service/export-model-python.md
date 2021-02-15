@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 08/05/2020
+ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: devx-track-python
-ms.openlocfilehash: af0e9cd66cf64366a6f563148fa6b075161151f4
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: a47475ad55c5e6262dc8ba1a384d89b9721fd2e9
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87875431"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95736418"
 ---
 # <a name="tutorial-run-tensorflow-model-in-python"></a>Tutorial: executar um modelo TensorFlow em Python
 
-Depois de ter [exportado seu modelo TensorFlow](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-your-model) do Serviço de Visão Personalizada, este guia de início rápido mostrará como usar esse modelo localmente para classificar imagens.
+Depois de ter [exportado seu modelo TensorFlow](./export-your-model.md) do Serviço de Visão Personalizada, este guia de início rápido mostrará como usar esse modelo localmente para classificar imagens.
 
 > [!NOTE]
 > Este tutorial se aplica somente a modelos exportados de projetos de classificação de imagem.
@@ -34,7 +34,7 @@ Para usar o tutorial, você precisa do seguinte:
 
 Em seguida, será necessário instalar os pacotes a seguir:
 
-```
+```bash
 pip install tensorflow
 pip install pillow
 pip install numpy
@@ -43,7 +43,7 @@ pip install opencv-python
 
 ## <a name="load-your-model-and-tags"></a>Carregar seu modelo e suas marcas
 
-O arquivo zip baixado contém um model.pb e um labels.txt. Esses arquivos representam o modelo treinado e os rótulos de classificação. A primeira etapa é carregar o modelo para o seu projeto.
+O arquivo .zip baixado contém um arquivo _model.pb_ e _labels.txt_. Esses arquivos representam o modelo treinado e os rótulos de classificação. A primeira etapa é carregar o modelo para o seu projeto. Adicione o código a seguir a um novo script do Python.
 
 ```Python
 import tensorflow as tf
@@ -126,6 +126,8 @@ augmented_image = crop_center(augmented_image, network_input_size, network_input
 
 ```
 
+### <a name="add-helper-functions"></a>Adicionar funções auxiliares
+
 As etapas acima usam as funções auxiliares a seguir:
 
 ```Python
@@ -191,7 +193,7 @@ with tf.compat.v1.Session() as sess:
         exit(-1)
 ```
 
-## <a name="view-the-results"></a>Exibir os resultados
+## <a name="display-the-results"></a>Exibir os resultados
 
 Os resultados da execução do tensor de imagem por meio do modelo precisarão ser mapeados de volta para os rótulos.
 

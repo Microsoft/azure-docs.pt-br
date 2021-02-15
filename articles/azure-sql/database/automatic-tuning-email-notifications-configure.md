@@ -6,17 +6,17 @@ ms.service: sql-db-mi
 ms.subservice: performance
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, carlrab
+ms.reviewer: wiassaf, sstein
 ms.date: 06/03/2019
-ms.openlocfilehash: f6872ff362777f4357b2b4345d0535bc940eda66
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: a373a28a180b2a6c72f6a291b9d1437a2e88d9ff
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85982856"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500947"
 ---
 # <a name="email-notifications-for-automatic-tuning"></a>Notificações por email para ajuste automático
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -24,19 +24,19 @@ ms.locfileid: "85982856"
 
 As recomendações de ajuste do banco de dados SQL do Azure são geradas pelo [ajuste automático](automatic-tuning-overview.md)do banco de dados SQL. Essa solução monitora e analisa continuamente as cargas de trabalho de bancos de dados que fornecem recomendações de ajuste personalizadas para cada banco de dados individual relacionado à criação de índice, exclusão de índice e otimização de planos de execução de consulta.
 
-As recomendações de ajuste automático do banco de dados SQL do Azure podem ser exibidas na [portal do Azure](database-advisor-find-recommendations-portal.md), recuperadas com chamadas à [API REST](https://docs.microsoft.com/rest/api/sql/databaserecommendedactions/listbydatabaseadvisor) ou usando comandos [T-SQL](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/) e [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaserecommendedaction) . Este artigo se baseia no uso de um script de PowerShell para recuperar as recomendações de ajuste automático.
+As recomendações de ajuste automático do banco de dados SQL do Azure podem ser exibidas na [portal do Azure](database-advisor-find-recommendations-portal.md), recuperadas com chamadas à [API REST](/rest/api/sql/databaserecommendedactions/listbydatabaseadvisor) ou usando comandos [T-SQL](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/) e [PowerShell](/powershell/module/az.sql/get-azsqldatabaserecommendedaction) . Este artigo se baseia no uso de um script de PowerShell para recuperar as recomendações de ajuste automático.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> O módulo Azure Resource Manager do PowerShell ainda tem suporte do Banco de Dados SQL do Azure, mas todo o desenvolvimento futuro é para o módulo Az.Sql. Para esses cmdlets, confira [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos.
+> O módulo Azure Resource Manager do PowerShell ainda tem suporte do Banco de Dados SQL do Azure, mas todo o desenvolvimento futuro é para o módulo Az.Sql. Para esses cmdlets, confira [AzureRM.Sql](/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos.
 
 ## <a name="automate-email-notifications-for-automatic-tuning-recommendations"></a>Automatizar notificações por email para recomendações de ajuste automático
 
-A solução a seguir automatiza o envio de notificações por email que contêm recomendações de ajuste automático. A solução descrita consiste em automatizar a execução de um script de PowerShell para recuperar as recomendações de ajuste usando a [Automação do Azure](https://docs.microsoft.com/azure/automation/automation-intro) e automação de agendamento de trabalho de entrega de email usando o [Microsoft Flow](https://flow.microsoft.com).
+A solução a seguir automatiza o envio de notificações por email que contêm recomendações de ajuste automático. A solução descrita consiste em automatizar a execução de um script de PowerShell para recuperar as recomendações de ajuste usando a [Automação do Azure](../../automation/automation-intro.md) e automação de agendamento de trabalho de entrega de email usando o [Microsoft Flow](https://flow.microsoft.com).
 
 ## <a name="create-azure-automation-account"></a>Criar conta de Automação do Azure
 
-Para usar a Automação do Azure, a primeira etapa é criar uma conta de automação e configurá-la com os recursos do Azure a serem usados para a execução do script de PowerShell. Para saber mais sobre a Automação do Azure e seus recursos, consulte [Introdução à Automação do Azure](https://docs.microsoft.com/azure/automation/automation-offering-get-started).
+Para usar a Automação do Azure, a primeira etapa é criar uma conta de automação e configurá-la com os recursos do Azure a serem usados para a execução do script de PowerShell. Para saber mais sobre a Automação do Azure e seus recursos, consulte [Introdução à Automação do Azure](../../automation/index.yml).
 
 Siga estas etapas para criar uma conta de automação do Azure por meio do método de seleção e configuração de um aplicativo de automação do Azure Marketplace:
 
@@ -49,7 +49,7 @@ Siga estas etapas para criar uma conta de automação do Azure por meio do méto
 
 1. Uma vez dentro do painel "criar uma conta de automação", clique em "**criar**".
 1. Preencha as informações necessárias: Insira um nome para esta conta de automação, selecione sua ID de assinatura do Azure e os recursos do Azure a serem usados para a execução do script do PowerShell.
-1. Para a opção "**criar conta Executar como do Azure**", selecione **Sim** para configurar o tipo de conta sob o qual o script do PowerShell é executado com a ajuda da automação do Azure. Para saber mais sobre os tipos de conta, consulte [Executar como conta](https://docs.microsoft.com/azure/automation/automation-create-runas-account).
+1. Para a opção "**criar conta Executar como do Azure**", selecione **Sim** para configurar o tipo de conta sob o qual o script do PowerShell é executado com a ajuda da automação do Azure. Para saber mais sobre os tipos de conta, consulte [Executar como conta](../../automation/manage-runas-account.md).
 1. Conclua a criação da conta de automação clicando em **criar**.
 
 > [!TIP]
@@ -59,7 +59,7 @@ Se tiver várias assinaturas do Azure para as quais você deseja criar a mesma a
 
 ## <a name="update-azure-automation-modules"></a>Atualizar Módulos de Automação do Azure
 
-O script do PowerShell para recuperar a recomendação de ajuste automático usa os comandos [Get-AzResource](https://docs.microsoft.com/powershell/module/az.Resources/Get-azResource) e [Get-AzSqlDatabaseRecommendedAction](https://docs.microsoft.com/powershell/module/az.Sql/Get-azSqlDatabaseRecommendedAction) para os quais o módulo do Azure versão 4 e superior é necessário.
+O script do PowerShell para recuperar a recomendação de ajuste automático usa os comandos [Get-AzResource](/powershell/module/az.Resources/Get-azResource) e [Get-AzSqlDatabaseRecommendedAction](/powershell/module/az.Sql/Get-azSqlDatabaseRecommendedAction) para os quais o módulo do Azure versão 4 e superior é necessário.
 
 - Caso os módulos do Azure precisem de atualização, consulte [AZ module support in Azure Automation](../../automation/shared-resources/modules.md).
 
@@ -82,7 +82,7 @@ Siga estas etapas para carregar um script de PowerShell dentro do runbook criado
 1. Dentro do painel "**Editar runbook do PowerShell**", selecione "**RUNBOOKS**" na árvore de menu e expanda a exibição até ver o nome do runbook (neste exemplo, "**AutomaticTuningEmailAutomation**"). Selecione este runbook.
 1. Na primeira linha do "Editar runbook do PowerShell" (começando com o número 1), copie-cole o seguinte código de script do PowerShell. Este script do PowerShell é fornecido no estado em que se encontra para você começar. Modifique o script para que se adeque às suas necessidades.
 
-No cabeçalho do script do PowerShell fornecido, você precisa substituir `<SUBSCRIPTION_ID_WITH_DATABASES>` por sua ID de assinatura do Azure. Para saber como recuperar a ID de assinatura do Azure, consulte [Obter a GUID de assinatura do Azure](https://blogs.msdn.microsoft.com/mschray/20../../getting-your-azure-subscription-guid-new-portal/).
+No cabeçalho do script do PowerShell fornecido, você precisa substituir `<SUBSCRIPTION_ID_WITH_DATABASES>` por sua ID de assinatura do Azure. Para saber como recuperar a ID de assinatura do Azure, consulte [Obter a GUID de assinatura do Azure](/archive/blogs/mschray/getting-your-azure-subscription-guid-new-portal).
 
 No caso de várias assinaturas, você pode adicioná-las como delimitado por vírgula à propriedade "$subscriptions" no cabeçalho do script.
 
@@ -187,9 +187,9 @@ Para concluir a solução, como etapa final, crie um fluxo de automação no Mic
 
 - "**Automação do Azure-criar trabalho**" – usado para executar o script do PowerShell para recuperar as recomendações de ajuste automático dentro do runbook de automação do Azure.
 - "**Automação do Azure-obter saída do trabalho**" – usada para recuperar a saída do script do PowerShell executado.
-- "**Office 365 Outlook – enviar um email**" – usado para enviar emails. Emails são enviados usando a conta do Office 365 da pessoa que está criando o fluxo.
+- "**Office 365 Outlook – enviar um email**" – usado para enviar emails. Os emails são enviados usando a conta corporativa ou de estudante do indivíduo que cria o fluxo.
 
-Para saber mais sobre os recursos do Microsoft Flow, consulte [Introdução ao Microsoft Flow](https://docs.microsoft.com/flow/getting-started).
+Para saber mais sobre os recursos do Microsoft Flow, consulte [Introdução ao Microsoft Flow](/flow/getting-started).
 
 O pré-requisito para esta etapa é inscrever-se em uma conta de [Microsoft Flow](https://flow.microsoft.com) e fazer logon. Uma vez dentro da solução, siga estas etapas para configurar um **novo fluxo**:
 
@@ -205,15 +205,15 @@ A próxima etapa é adicionar três trabalhos (criar, obter saída e enviar emai
 
    - Selecione "**+ nova etapa**", seguida por "**Adicionar uma ação**" dentro do painel fluxo de recorrência.
    - No campo de pesquisa, digite "**automação**" e selecione "**automação do Azure – criar trabalho**" nos resultados da pesquisa.
-   - No painel de trabalho Criar, configure as propriedades do trabalho. Para essa configuração, você precisará de detalhes da sua ID de assinatura do Azure, grupo de recursos e conta de automação **registrada anteriormente** no **painel da conta de automação**. Para saber mais sobre as opções disponíveis nesta seção, consulte [Automação do Azure – criar trabalho](https://docs.microsoft.com/connectors/azureautomation/#create-job).
+   - No painel de trabalho Criar, configure as propriedades do trabalho. Para essa configuração, você precisará de detalhes da sua ID de assinatura do Azure, grupo de recursos e conta de automação **registrada anteriormente** no **painel da conta de automação**. Para saber mais sobre as opções disponíveis nesta seção, consulte [Automação do Azure – criar trabalho](/connectors/azureautomation/#create-job).
    - Conclua a criação dessa ação clicando em "**salvar fluxo**".
 
 2. Criar uma ação para recuperar a saída do script do PowerShell executado
 
    - Selecione "**+ nova etapa**", seguida por "**Adicionar uma ação**" dentro do painel fluxo de recorrência
-   - No campo de pesquisa, digite "**automação**" e selecione "**automação do Azure – obter saída do trabalho**" nos resultados da pesquisa. Para saber mais sobre as opções disponíveis nesta seção, consulte [Automação do Azure – obter saída do trabalho](https://docs.microsoft.com/connectors/azureautomation/#get-job-output).
+   - No campo de pesquisa, digite "**automação**" e selecione "**automação do Azure – obter saída do trabalho**" nos resultados da pesquisa. Para saber mais sobre as opções disponíveis nesta seção, consulte [Automação do Azure – obter saída do trabalho](/connectors/azureautomation/#get-job-output).
    - Preencher campos necessários (semelhante à criação do trabalho anterior) – preencha sua ID de assinatura do Azure, grupo de recursos e conta de automação (conforme inserido no painel da conta de automação).
-   - Clique dentro do campo "**ID do trabalho**" para que o menu "**conteúdo dinâmico**" apareça. No menu, selecione a opção "ID do**trabalho**".
+   - Clique dentro do campo "**ID do trabalho**" para que o menu "**conteúdo dinâmico**" apareça. No menu, selecione a opção "ID do **trabalho**".
    - Conclua a criação dessa ação clicando em "**salvar fluxo**".
 
 3. Criar uma ação para enviar email usando a integração do Office 365

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 11/16/2019
 ms.author: absha
-ms.openlocfilehash: d33ec829e490ae45d38d33f5784126a71ae2d0aa
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9166125fac28f43a93cbee2875b91bee986b1400
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86506546"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397460"
 ---
 # <a name="how-an-application-gateway-works"></a>Como funciona um gateway de aplicativo
 
@@ -32,7 +32,7 @@ Este artigo explica como um gateway de aplicativo aceita solicitações de entra
 
 Aplicativo Azure gateway pode ser usado como um balanceador de carga de aplicativo interno ou como um balanceador de carga de aplicativo voltado para a Internet. Um gateway de aplicativo voltado para a Internet usa endereços IP públicos. O nome DNS de um gateway de aplicativo voltado para a Internet é publicamente resolvível para seu endereço IP público. Como resultado, os gateways de aplicativo voltados para a Internet podem rotear solicitações de cliente para a Internet.
 
-Os gateways de aplicativo internos usam apenas endereços IP privados. Se você estiver usando uma zona personalizada ou [DNS privado](https://docs.microsoft.com/azure/dns/private-dns-overview), o nome de domínio deverá ser resolvido internamente para o endereço IP privado do gateway de aplicativo. Portanto, os balanceadores de carga internos só podem rotear solicitações de clientes com acesso a uma rede virtual para o gateway de aplicativo.
+Os gateways de aplicativo internos usam apenas endereços IP privados. Se você estiver usando uma zona personalizada ou [DNS privado](../dns/private-dns-overview.md), o nome de domínio deverá ser resolvido internamente para o endereço IP privado do gateway de aplicativo. Portanto, os balanceadores de carga internos só podem rotear solicitações de clientes com acesso a uma rede virtual para o gateway de aplicativo.
 
 ## <a name="how-an-application-gateway-routes-a-request"></a>Como um gateway de aplicativo roteia uma solicitação
 
@@ -52,9 +52,9 @@ Quando um gateway de aplicativo envia a solicitação original para o servidor d
 
  >[!NOTE]
 >Se o pool de back-end:
-> - **É um ponto de extremidade público**, o gateway de aplicativo usa seu IP público de front-end para acessar o servidor. Se não houver um endereço IP público de front-end, um será atribuído para a conectividade externa de saída.
-> - **Contém um FQDN que possa ser resolvido internamente ou um endereço IP privado**, o gateway de aplicativo roteia a solicitação para o servidor de back-end usando seus endereços IP privados de instância.
-> - **Contém um ponto de extremidade externo ou um FQDN que possa ser resolvido externamente**, o gateway de aplicativo roteia a solicitação para o servidor de back-end usando seu endereço IP público de front-end. A resolução DNS é baseada em uma zona DNS privada ou em um servidor DNS personalizado, se configurada, ou usa o DNS padrão fornecido pelo Azure. Se não houver um endereço IP público de front-end, um será atribuído para a conectividade externa de saída.
+> - **É um ponto de extremidade público** , o gateway de aplicativo usa seu IP público de front-end para acessar o servidor. Se não houver um endereço IP público de front-end, um será atribuído para a conectividade externa de saída.
+> - **Contém um FQDN que possa ser resolvido internamente ou um endereço IP privado** , o gateway de aplicativo roteia a solicitação para o servidor de back-end usando seus endereços IP privados de instância.
+> - **Contém um ponto de extremidade externo ou um FQDN que possa ser resolvido externamente** , o gateway de aplicativo roteia a solicitação para o servidor de back-end usando seu endereço IP público de front-end. A resolução DNS é baseada em uma zona DNS privada ou em um servidor DNS personalizado, se configurada, ou usa o DNS padrão fornecido pelo Azure. Se não houver um endereço IP público de front-end, um será atribuído para a conectividade externa de saída.
 
 ### <a name="modifications-to-the-request"></a>Modificações na solicitação
 

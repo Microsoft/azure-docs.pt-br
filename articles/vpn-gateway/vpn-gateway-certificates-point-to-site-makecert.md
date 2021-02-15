@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/05/2018
+ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: d7903dc7f614d16380626f27579363b1529665cc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 55e22ebec5853d6b4f10b53be8e24f4dbebe4e1f
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84988121"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659770"
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-connections-using-makecert"></a>Gerar e exportar certificados para conexões Ponto a Site usando o MakeCert
 
@@ -26,7 +26,7 @@ Enquanto é recomendável usar o [etapas do Windows 10 PowerShell](vpn-gateway-c
 
 As etapas a seguir mostram como criar um certificado autoassinado usando o MakeCert. Essas etapas não são específicas do modelo de implantação. Elas são válidas tanto para o Gerenciador de Recursos quanto para o clássico.
 
-1. Baixe e instale o [MakeCert](https://msdn.microsoft.com/library/windows/desktop/aa386968(v=vs.85).aspx).
+1. Baixe e instale o [MakeCert](/windows/win32/seccrypto/makecert).
 2. Após a instalação, você normalmente pode encontrar o utilitário makecert.exe neste caminho: ' C:\Program Files (x86) \Windows Kits\10\bin \<arch> '. Embora, é possível que ele tenha sido instalado em outro local. Abra um prompt de comando como administrador e navegue até o local do utilitário MakeCert. Você pode usar o exemplo a seguir, ajustando para o local apropriado:
 
    ```cmd
@@ -52,7 +52,7 @@ Convém exportar o certificado raiz autoassinado e armazená-lo com segurança. 
 
 Não instale o certificado autoassinado diretamente no computador cliente. Você precisa gerar um certificado de cliente do certificado autoassinado. Em seguida, você exporta e instala o certificado de cliente no computador cliente. Essas etapas não são específicas ao modelo de implantação. Elas são válidas tanto para o Gerenciador de Recursos quanto para o clássico.
 
-### <a name="generate-a-client-certificate"></a><a name="clientcert"></a>Gerar um certificado de cliente
+### <a name="generate-a-client-certificate"></a><a name="clientcert"></a>Gerar um certificado do cliente
 
 Cada computador cliente que se conecta a uma rede virtual usando ponto a site deve ter um certificado do cliente instalado. Você gera um certificado do cliente com base no certificado raiz autoassinado e, em seguida, a exporta e instala o certificado do cliente. Se o certificado do cliente não estiver instalado, a autenticação falhará. 
 

@@ -4,12 +4,6 @@
   items:
     - name: Sobre Kubernetes habilitado para o Azure Arc
       href: overview.md
-- name: Exemplos
-  items:
-    - name: Itens internos do Azure Policy
-      items:
-        - name: Kubernetes habilitado para Arc
-          href: policy-samples.md
 - name: Guias de instruções
   items:
     - name: Conecte-se ao Azure Arc
@@ -34,3 +28,14 @@
           href: deploy-azure-iot-edge-workloads.md
     - name: Solução de problemas
       href: Troubleshooting.md
+- name: Referência
+  items:
+    - name: Itens internos do Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: policy-reference.md
+    - name: Azure PowerShell
+      href: /powershell/module/Az.ConnectedKubernetes/
+- name: Recursos
+  items:
+    - name: Ponto de partida do Azure Arc
+      href: 'https://azurearcjumpstart.io'

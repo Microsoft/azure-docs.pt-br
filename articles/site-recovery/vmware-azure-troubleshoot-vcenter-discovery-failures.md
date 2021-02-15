@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/29/2019
 ms.author: mayg
-ms.openlocfilehash: d333972ea5f74d1676e5e4b4e1417c6bf5d87b79
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 1a8471305af93194ccae7b0928685e10d4d64726
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135349"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366642"
 ---
 # <a name="troubleshoot-vcenter-server-discovery-failures"></a>Solucionar problemas vCenter Server falhas de descoberta
 
@@ -20,7 +20,7 @@ Este artigo ajuda você a solucionar problemas que ocorrem devido a falhas de de
 
 ## <a name="non-numeric-values-in-the-maxsnapshots-property"></a>Valores não numéricos na propriedade maxSnapShots
 
-Nas versões anteriores à 9,20, o vCenter se desconecta quando recupera um valor não numérico para a `snapshot.maxSnapShots` Propriedade Property em uma VM.
+Nas versões anteriores à 9,20, o vCenter se desconecta quando recupera um valor não numérico para a  `snapshot.maxSnapShots` Propriedade Property em uma VM.
 
 Esse problema é identificado pela ID de erro 95126.
 
@@ -32,7 +32,7 @@ System.FormatException: Input string was not in a correct format.
     at VMware.VSphere.Management.InfraContracts.VirtualMachineInfo.get_MaxSnapshots()
 ```
 
-Como resolver o problema:
+Para resolver o problema:
 
 - Identifique a VM e defina o valor como um valor numérico (configurações de edição de VM no vCenter).
 
@@ -52,9 +52,9 @@ As seguintes situações ocorrem quando esse problema é encontrado:
 - O servidor do vCenter \<vCenter> não está acessível devido ao erro: o servidor remoto retornou um erro: não é possível conectar-se ao servidor remoto.
 - Não é possível conectar-se ao servidor vCenter/ESXi.
 
-Como resolver o problema:
+Para resolver o problema:
 
-Baixe a [ferramenta PsExec](https://aka.ms/PsExec). 
+Baixe a [ferramenta PsExec](/sysinternals/downloads/psexec). 
 
 Use a ferramenta PsExec para acessar o contexto de usuário do sistema e determinar se o endereço do proxy está configurado. Em seguida, você pode adicionar o vCenter à lista de bypass usando os procedimentos a seguir.
 
@@ -81,4 +81,4 @@ Para configuração de proxy DRA:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Gerenciar o servidor de configuração para recuperação de desastres de VM do VMware](./vmware-azure-manage-configuration-server.md#refresh-configuration-server) 
+[Gerenciar o servidor de configuração para recuperação de desastres de VM do VMware](./vmware-azure-manage-configuration-server.md#refresh-configuration-server)

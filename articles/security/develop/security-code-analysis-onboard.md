@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 5366da1048e7c6d9612ad8b6b1f1694068bb35fb
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 4fe13c418452a7a88dcd97939d6e853039f3fb64
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543020"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94517063"
 ---
 # <a name="onboarding-and-installing"></a>Integração e instalação
 
@@ -48,9 +48,9 @@ Se você atender às qualificações acima, entre em contato com um parceiro na 
 
 >**Parceiros**
 
-- Zonas – detalhes de contato:cloudsupport@zones.com
-- Wortell – detalhes de contato:info@wortell.nl
-- Logicalis – detalhes de contato:logicalisleads@us.logicalis.com
+- Zonas – detalhes de contato: cloudsupport@zones.com
+- Wortell – detalhes de contato: info@wortell.nl
+- Logicalis – detalhes de contato: logicalisleads@us.logicalis.com
 
 ### <a name="become-a-partner"></a>Torne-se um parceiro
 
@@ -90,7 +90,7 @@ Depois de instalar a extensão, as tarefas do Build de desenvolvimento seguro fi
 > - Sempre selecione **continuar** se houver erro para tarefas de compilação de desenvolvimento seguro. Mesmo que uma ferramenta falhe, as outras podem ser executadas. Não há interdependências entre as ferramentas.
 > - As tarefas de compilação da análise de código de segurança da Microsoft falharão somente se uma ferramenta não for executada com êxito. Mas eles têm sucesso mesmo se uma ferramenta identificar problemas no código. Usando a tarefa de compilação pós-análise, você pode configurar sua compilação para falhar quando uma ferramenta identificar problemas no código.
 > - Algumas tarefas de compilação DevOps do Azure não têm suporte quando executadas por meio de um pipeline de liberação. Mais especificamente, o Azure DevOps não dá suporte a tarefas que publicam artefatos de dentro de um pipeline de lançamento.
-> - Para obter uma lista de variáveis predefinidas no Azure DevOps Team Build que você pode especificar como parâmetros, consulte [variáveis de compilação do DevOps do Azure](https://docs.microsoft.com/azure/devops/pipelines/build/variables?tabs=batch&view=vsts).
+> - Para obter uma lista de variáveis predefinidas no Azure DevOps Team Build que você pode especificar como parâmetros, consulte [variáveis de compilação do DevOps do Azure](/azure/devops/pipelines/build/variables?tabs=batch&view=vsts).
 
 ## <a name="next-steps"></a>Próximas etapas
 

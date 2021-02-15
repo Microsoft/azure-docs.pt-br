@@ -1,5 +1,6 @@
 ---
-title: Logon do aplicativo de página única & logout-plataforma de identidade da Microsoft | Azure
+title: Entrada do aplicativo de página única & logout
+titleSuffix: Microsoft identity platform
 description: Saiba como criar um aplicativo de página única (entrada)
 services: active-directory
 author: navyasric
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 02/11/2020
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 53a84bd970d564411ec9a56b54159e5a96717a6e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bdfffbf8d2e416c87dd5abb8f6383c58ad270231
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84558758"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584356"
 ---
 # <a name="single-page-application-sign-in-and-sign-out"></a>Aplicativo de página única: entrar e sair
 
@@ -42,7 +43,8 @@ Você não pode usar os métodos pop-up e Redirect em seu aplicativo. A escolha 
 
 ## <a name="sign-in-with-a-pop-up-window"></a>Entrar com uma janela pop-up
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+# <a name="javascript-msaljs-2x"></a>[JavaScript (MSAL.js 2. x)](#tab/javascript2)
 
 ```javascript
 
@@ -58,12 +60,52 @@ const loginRequest = {
     scopes: ["User.ReadWrite"]
 }
 
-const myMsal = new userAgentApplication(config);
+let username = "";
+
+const myMsal = new PublicClientApplication(config);
 
 myMsal.loginPopup(loginRequest)
     .then(function (loginResponse) {
         //login success
-        let idToken = loginResponse.idToken;
+
+        // In case multiple accounts exist, you can select
+        const currentAccounts = myMsal.getAllAccounts();
+    
+        if (currentAccounts === null) {
+            // no accounts detected
+        } else if (currentAccounts.length > 1) {
+            // Add choose account code here
+        } else if (currentAccounts.length === 1) {
+            username = currentAccounts[0].username;
+        }
+    
+    }).catch(function (error) {
+        //login failure
+        console.log(error);
+    });
+```
+
+# <a name="javascript-msaljs-1x"></a>[JavaScript (MSAL.js 1. x)](#tab/javascript1)
+
+```javascript
+
+const config = {
+    auth: {
+        clientId: 'your_app_id',
+        redirectUri: "your_app_redirect_uri", //defaults to application start page
+        postLogoutRedirectUri: "your_app_logout_redirect_uri"
+    }
+}
+
+const loginRequest = {
+    scopes: ["User.ReadWrite"]
+}
+
+const myMsal = new UserAgentApplication(config);
+
+myMsal.loginPopup(loginRequest)
+    .then(function (loginResponse) {
+        //login success
     }).catch(function (error) {
         //login failure
         console.log(error);
@@ -124,9 +166,7 @@ Para uma experiência de janela pop-up, habilite a `popUp` opção de configura�
 
 ## <a name="sign-in-with-redirect"></a>Entrar com redirecionamento
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
-
-Os métodos de redirecionamento não retornam uma promessa devido à afastamento do aplicativo principal. Para processar e acessar os tokens retornados, você precisa registrar os retornos de chamada de êxito e erro antes de chamar os métodos de redirecionamento.
+# <a name="javascript-msaljs-2x"></a>[JavaScript (MSAL.js 2. x)](#tab/javascript2)
 
 ```javascript
 
@@ -142,7 +182,49 @@ const loginRequest = {
     scopes: ["User.ReadWrite"]
 }
 
-const myMsal = new userAgentApplication(config);
+let username = "";
+
+const myMsal = new PublicClientApplication(config);
+
+function handleResponse(response) {
+    //handle redirect response
+
+    // In case multiple accounts exist, you can select
+    const currentAccounts = myMsal.getAllAccounts();
+
+    if (currentAccounts === null) {
+        // no accounts detected
+    } else if (currentAccounts.length > 1) {
+        // Add choose account code here
+    } else if (currentAccounts.length === 1) {
+        username = currentAccounts[0].username;
+    }
+}
+
+myMsal.handleRedirectPromise(handleResponse);
+
+myMsal.loginRedirect(loginRequest);
+```
+
+# <a name="javascript-msaljs-1x"></a>[JavaScript (MSAL.js 1. x)](#tab/javascript1)
+
+Os métodos de redirecionamento não retornam uma promessa devido à afastamento do aplicativo principal. Para processar e acessar os tokens retornados, registre os retornos de chamada de êxito e erro antes de chamar os métodos de redirecionamento.
+
+```javascript
+
+const config = {
+    auth: {
+        clientId: 'your_app_id',
+        redirectUri: "your_app_redirect_uri", //defaults to application start page
+        postLogoutRedirectUri: "your_app_logout_redirect_uri"
+    }
+}
+
+const loginRequest = {
+    scopes: ["User.ReadWrite"]
+}
+
+const myMsal = new UserAgentApplication(config);
 
 function authCallback(error, response) {
     //handle redirect response
@@ -157,9 +239,6 @@ myMsal.loginRedirect(loginRequest);
 
 O código aqui é o mesmo descrito anteriormente na seção sobre como entrar com uma janela pop-up. O fluxo padrão é redirecionar.
 
-> [!NOTE]
-> O token de ID não contém os escopos consentido e representa apenas o usuário autenticado. Os escopos consentidod são retornados no token de acesso, que será adquirido na próxima etapa.
-
 ---
 
 ## <a name="sign-out"></a>Sair
@@ -168,7 +247,28 @@ A biblioteca MSAL fornece um `logout` método que limpa o cache no armazenamento
 
 Você pode configurar o URI para o qual ele deve ser redirecionado após a configuração `postLogoutRedirectUri` . Esse URI também deve ser registrado como o URI de logout no registro do aplicativo.
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript-msaljs-2x"></a>[JavaScript (MSAL.js 2. x)](#tab/javascript2)
+
+```javascript
+const config = {
+    auth: {
+        clientId: 'your_app_id',
+        redirectUri: "your_app_redirect_uri", //defaults to application start page
+        postLogoutRedirectUri: "your_app_logout_redirect_uri"
+    }
+}
+
+const myMsal = new PublicClientApplication(config);
+
+// you can select which account application should sign out
+const logoutRequest = {
+    account: myMsal.getAccountByUsername(username)
+}
+
+myMsal.logout(logoutRequest);
+```
+
+# <a name="javascript-msaljs-1x"></a>[JavaScript (MSAL.js 1. x)](#tab/javascript1)
 
 ```javascript
 const config = {
@@ -207,5 +307,4 @@ this.authService.logout();
 
 ## <a name="next-steps"></a>Próximas etapas
 
-> [!div class="nextstepaction"]
-> [Adquirir um token para o aplicativo](scenario-spa-acquire-token.md)
+Vá para o próximo artigo neste cenário, [adquirindo um token para o aplicativo](scenario-spa-acquire-token.md).

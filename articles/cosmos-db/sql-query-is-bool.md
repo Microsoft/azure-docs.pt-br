@@ -3,18 +3,21 @@ title: IS_BOOL na linguagem de consulta Azure Cosmos DB
 description: Saiba mais sobre a função do sistema SQL IS_BOOL no Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: b7f1cfb09121309e246b314d57a5e4e475bd0983
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f4f64a4f6cc738865a3663ddbbab26728b86a8b4
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78303861"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93338706"
 ---
 # <a name="is_bool-azure-cosmos-db"></a>IS_BOOL (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Retorna um valor booliano que indica se o tipo da expressão especificada é um booliano.  
   
 ## <a name="syntax"></a>Sintaxe

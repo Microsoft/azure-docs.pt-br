@@ -3,7 +3,7 @@ title: Os links na página não funcionam para um aplicativo de Proxy de Aplicat
 description: Como solucionar problemas com links desfeitos em aplicativos de Proxy de Aplicativo integrados com o Azure AD
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,12 +12,12 @@ ms.date: 09/10/2018
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 050874b301628348b513b8b5b0c2b878a1dcecaa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9a8ecb908063a40da32c1397fd4249811f9c2712
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84760194"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99254607"
 ---
 # <a name="links-on-the-page-dont-work-for-an-application-proxy-application"></a>Os links na página não funcionam para um aplicativo de Proxy de Aplicativo
 
@@ -37,7 +37,7 @@ Há três maneiras de resolver esse problema. As escolhas abaixo estão listadas
     Se você alterar a URL interna, mas não quiser alterar a página de aterrissagem para usuários, altere a URL da home page para a URL interna publicada anteriormente. Isso pode ser feito acessando "Azure Active Directory"- &gt; registros do aplicativo- &gt; Selecione a &gt; identidade visual do aplicativo. Na seção identidade visual, você vê o campo "URL da Home Page", que pode ser ajustado para ser a página de aterrissagem desejada. Se você ainda estiver usando a experiência de Registros de aplicativo herdada, a guia Propriedades mostrará os detalhes da "URL da Home Page". 
     
     > [!IMPORTANT]
-    > Para fazer as alterações acima, você precisa de direitos para modificar objetos de aplicativo no Azure AD. O usuário precisa ser atribuído à função de [administrador de aplicativos](../users-groups-roles/roles-delegate-app-roles.md#assign-built-in-application-admin-roles) que concede direitos de modificaion de aplicativo no Azure ad para o usuário.
+    > Para fazer as alterações acima, você precisa de direitos para modificar objetos de aplicativo no Azure AD. O usuário precisa ser atribuído à função de [administrador de aplicativos](../roles/delegate-app-roles.md#assign-built-in-application-admin-roles) que concede direitos de modificaion de aplicativo no Azure ad para o usuário.
     >
 
 2.  Se seus aplicativos usam nomes de domínio totalmente qualificados (FQDNs), use [domínios personalizados](application-proxy-configure-custom-domain.md) para publicar seus aplicativos. Esse recurso permite que a mesma URL seja usada internamente e externamente.

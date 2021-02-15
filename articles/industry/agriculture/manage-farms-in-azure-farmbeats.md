@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 09144c4c35ab911b60931849807123608f2c3cdd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dc06f7c75e27d831994b97b97f3d20bb34c3a6c5
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85847489"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167926"
 ---
 # <a name="manage-farms"></a>Gerenciar farms
 
@@ -18,14 +18,14 @@ Você pode gerenciar seus farms no Azure FarmBeats. Este artigo fornece informa�
 
 ## <a name="create-farms"></a>Criar farms
 
-Use as etapas a seguir:
+Use as seguintes etapas:
 
 1. Faça logon no acelerador de farm, a página **farms** é exibida.
     A página **farms** exibe a lista de farms caso eles já tenham sido criados na assinatura.
 
     Aqui está a imagem de exemplo:
 
-    ![Projeto do FarmBeats](./media/create-farms-in-azure-farmbeats/create-farm-main-page-1.png)
+    ![Captura de tela que mostra a página farms.](./media/create-farms-in-azure-farmbeats/create-farm-main-page-1.png)
 
 
 2. Selecione **criar farm** e forneça o **nome**, os **aparas** e o **endereço**.
@@ -33,14 +33,14 @@ Use as etapas a seguir:
 
 Aqui estão as duas maneiras de definir um limite de farm:
 
-1. **Marcar no mapa**: Use a ferramenta de controle de mapa para desenhar e marcar o limite do farm. Para marcar os limites, o ![ farm de projetos vence ](./media/create-farms-in-azure-farmbeats/pencil-icon-1.png) e marca os limites exatos.
+1. **Marcar no mapa**: Use a ferramenta de controle de mapa para desenhar e marcar o limite do farm. Para marcar os limites,  ![ captura de tela que mostra o ícone de lápis para desenhar limites no mapa ](./media/create-farms-in-azure-farmbeats/pencil-icon-1.png) e marcar os limites exatos.
 
-    ![Projeto do FarmBeats](./media/create-farms-in-azure-farmbeats/create-farm-mark-on-map-1.png)
+    ![Captura de tela que mostra os limites desenhados em um mapa.](./media/create-farms-in-azure-farmbeats/create-farm-mark-on-map-1.png)
 
 2. **Colar código geojson**: o geojson é um formato para codificar estruturas de dados geográficos, usando JavaScript Object Notation (JSON). Esta opção exibe uma caixa de texto em que uma cadeia de caracteres geojson pode ser inserida para marcar os limites do farm. Você também pode criar código geojson a partir de GeoJSON.io.
 Use as dicas de ferramenta para ajudar a preencher as informações.
 
-    ![Projeto do FarmBeats](./media/create-farms-in-azure-farmbeats/create-new-farm-1.png)
+    ![Captura de tela que realça a opção colar código geojson na tela criar farm.](./media/create-farms-in-azure-farmbeats/create-new-farm-1.png)
 
 3.  Selecione **Enviar** para criar um farm. Um novo farm é criado e exibido na página **farms** .
 
@@ -71,7 +71,7 @@ A página **farms** exibe uma lista de farms criados. Use as seguintes etapas pa
 1.  Selecione um farm na lista para excluir os detalhes do farm.
 2.  Selecione **excluir farm** para excluir o farm.
 
-    ![Projeto do FarmBeats](./media/create-farms-in-azure-farmbeats/delete-farm-1.png)
+    ![Captura de tela que mostra as telas excluir farm e realça o botão excluir.](./media/create-farms-in-azure-farmbeats/delete-farm-1.png)
 
     > [!NOTE]
     > Quando você exclui um farm, os dispositivos e mapas associados ao farm não são excluídos. Todas as informações de farm associadas ao dispositivo e aos mapas não serão relevantes. Você pode continuar a exibir dispositivos, telemetria e mapas do serviço FarmBeats.

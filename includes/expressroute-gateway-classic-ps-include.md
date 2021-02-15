@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/13/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 70ac106995324c758bde942d12191a01e3457e6e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c0c05eb88df27ba9e71c0f61bad75457d893a7ce
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67171656"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95558000"
 ---
 > [!NOTE]
 > Esses exemplos não se aplicam a configurações de coexistência de S2S/ExpressRoute.
@@ -25,7 +25,7 @@ Quando você adiciona um gateway para uma rede virtual usando o modelo de recurs
 
 ### <a name="download-the-network-configuration-file"></a>Faça o download do arquivo de configuração de rede
 
-1. Faça o download do arquivo de configuração de rede usando as etapas no artigo do [arquivo de configuração de rede](../articles/virtual-network/virtual-networks-using-network-configuration-file.md). Abra o arquivo usando um editor de texto.
+1. Faça o download do arquivo de configuração de rede usando as etapas no artigo do [arquivo de configuração de rede](/previous-versions/azure/virtual-network/virtual-networks-using-network-configuration-file). Abra o arquivo usando um editor de texto.
 2. Adicione um site de rede local para o arquivo. Você pode usar qualquer prefixo de endereço válido. Você pode adicionar qualquer endereço IP válido para o gateway de VPN. Os valores de endereço nesta seção não são usados para operações de ExpressRoute, mas são necessários para a validação do arquivo. No exemplo, "branch1" é o nome do site. Você pode usar um nome diferente, mas não se esqueça de usar o mesmo valor na seção de Gateway do arquivo.
 
    ```

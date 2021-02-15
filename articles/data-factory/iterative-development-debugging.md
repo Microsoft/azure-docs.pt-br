@@ -1,78 +1,92 @@
 ---
 title: Desenvolvimento iterativo e depuração no Azure Data Factory
-description: Saiba como desenvolver e depurar pipelines do Data Factory interativamente no Portal do Azure.
-ms.date: 09/26/2018
+description: Saiba como desenvolver e depurar Data Factory pipelines iterativamente na UX do ADF
+ms.date: 10/29/2020
 ms.topic: conceptual
 ms.service: data-factory
-services: data-factory
-documentationcenter: ''
-ms.workload: data-services
-author: djpmsft
-ms.author: daperlov
-manager: anandsub
-ms.openlocfilehash: 49e406f0730189439bb1c2529b23d8ad6d760a2f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+author: dcstwh
+ms.author: weetok
+ms.openlocfilehash: 90f3f57fa527c8aaeb32a7dcf41f461ff5f0bf77
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81411521"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100392520"
 ---
 # <a name="iterative-development-and-debugging-with-azure-data-factory"></a>Desenvolvimento iterativo e depuração com o Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-O Azure Data Factory permite desenvolver e depurar pipelines do Data Factory de forma iterativa.
+Azure Data Factory permite desenvolver e depurar de forma iterativa Data Factory pipelines à medida que você desenvolve suas soluções de integração de dados. Esses recursos permitem que você teste suas alterações antes de criar uma solicitação de pull ou publicá-las no serviço de data factory. 
 
 Para ver uma introdução de oito minutos e uma demonstração desse recurso, assista ao seguinte vídeo:
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Iterative-development-and-debugging-with-Azure-Data-Factory/player]
 
-## <a name="iterative-debugging-features"></a>Recursos de depuração iterativos
-Criar pipelines e faça execuções de teste usando o recurso **Depurar** na tela de pipeline sem escrever uma única linha de código.
+## <a name="debugging-a-pipeline"></a>Depuração de um pipeline
 
-![Recurso Depurar na tela de pipeline](media/iterative-development-debugging/iterative-development-image1.png)
+Como você cria usando a tela de pipeline, você pode testar suas atividades usando a capacidade de **depuração** . Quando faz execuções de teste, você não precisa publicar suas alterações para o data factory antes de selecionar **Depurar**. Esse recurso é útil nos cenários em que você deseja garantir que as alterações funcionem conforme o esperado antes de atualizar o fluxo de trabalho de data factory.
+
+![Recurso Depurar na tela de pipeline](media/iterative-development-debugging/iterative-development-1.png)
+
+À medida que o pipeline estiver em execução, você poderá ver os resultados de cada atividade na guia **saída** da tela do pipeline.
 
 Exiba os resultados das execuções de teste na janela **Saída** da tela de pipeline.
 
-![Janela de saída da tela de pipeline](media/iterative-development-debugging/iterative-development-image2.png)
+![Janela de saída da tela de pipeline](media/iterative-development-debugging/iterative-development-2.png)
 
 Depois que uma execução de teste for bem-sucedida, adicione mais atividades ao seu pipeline e continue a depuração de maneira iterativa. Você também pode **Cancelar** uma execução de teste enquanto ela está em andamento.
 
-![Cancelar uma execução de teste](media/iterative-development-debugging/iterative-development-image3.png)
-
-Quando faz execuções de teste, você não precisa publicar suas alterações para o data factory antes de selecionar **Depurar**. Esse recurso é útil nos cenários em que você deseja garantir que as alterações funcionem conforme o esperado antes de atualizar o fluxo de trabalho de data factory.
-
 > [!IMPORTANT]
-> Selecionar **Depurar** realmente executa o pipeline. Assim, por exemplo, se o pipeline contiver uma atividade de cópia, a execução de teste copiará dados da origem para o destino. Como resultado, é recomendável que você use pastas de teste em suas atividades de cópia e outras atividades durante a depuração. Depois que você tiver depurado pipeline, alterne para as pastas reais que você deseja usar em operações normais.
+> Selecionar **Depurar** realmente executa o pipeline. Por exemplo, se o pipeline contiver atividade de cópia, a execução de teste copiará dados da origem para o destino. Como resultado, é recomendável que você use pastas de teste em suas atividades de cópia e outras atividades durante a depuração. Depois que você tiver depurado pipeline, alterne para as pastas reais que você deseja usar em operações normais.
 
-## <a name="visualizing-debug-runs"></a>Visualizar execuções de depuração
+### <a name="setting-breakpoints"></a>Definindo pontos de interrupção
 
-Você pode visualizar todas as execuções de depuração que estão em andamento do seu data factory em um só lugar. Selecione **Exibir execuções de depuração** no canto superior direito da página. Esse recurso é útil em cenários nos quais você tem pipelines mestres iniciando execuções de depuração para os pipelines filhos, e você deseja uma única exibição para ver todas as execuções de depuração ativas.
+Azure Data Factory permite que você depure um pipeline até alcançar uma atividade específica na tela do pipeline. Coloque um ponto de interrupção na atividade até o qual você deseja testar e selecione **depurar**. O Data Factory garante que o teste seja executado somente até a atividade de ponto de interrupção na tela de pipeline. Esse recurso *Depurar Até* é útil quando você não quer testar o pipeline de inteiro, mas apenas um subconjunto das atividades dentro do pipeline.
 
-![Selecione o ícone Exibir execuções de depuração ativas](media/iterative-development-debugging/view-debug-runs-image1.png)
-
-![Lista de exemplo de execuções de depuração ativas](media/iterative-development-debugging/view-debug-runs-image2.png)
-
-Se você tiver sessões de depuração de fluxo de dados ativas, essas sessões serão exibidas na parte inferior da janela de depuração ativa. Você pode selecionar uma sessão de fluxo de dados ativa e parar o respectivo cluster.
-
-![Lista de exemplos de execuções de depuração de fluxo de dados ativas](media/data-flow/dfsessions.png)
-
-## <a name="monitoring-debug-runs"></a>Monitorar execuções de depuração
-
-As execuções de teste iniciadas com a capacidade de **depuração** não estão disponíveis na lista na guia **Monitor** . Você só pode ver execuções disparadas com gatilhos de **janela** de **gatilho agora**, **agendamento**ou em cascata na guia **monitorar** . Você pode ver a última execução de teste iniciada com a capacidade de **depuração** na janela **saída** da tela do pipeline.
-
-## <a name="setting-breakpoints-for-debugging"></a>Definir pontos de interrupção para depuração
-
-O Data Factory também lhe permite depurar até que você atinja uma determinada atividade na tela de pipeline. Apenas coloques um ponto de interrupção na atividade até a que você deseja testar e selecione **Depurar**. O Data Factory garante que o teste seja executado somente até a atividade de ponto de interrupção na tela de pipeline. Esse recurso *Depurar Até* é útil quando você não quer testar o pipeline de inteiro, mas apenas um subconjunto das atividades dentro do pipeline.
-
-![Pontos de interrupção na tela de pipeline](media/iterative-development-debugging/iterative-development-image4.png)
+![Pontos de interrupção na tela de pipeline](media/iterative-development-debugging/iterative-development-3.png)
 
 Para definir um ponto de interrupção, selecione um elemento na tela do pipeline. Uma opção *Depurar Até* aparece como um círculo vermelho vazio no canto superior direito do elemento.
 
-![Antes de configurar um ponto de interrupção no elemento selecionado](media/iterative-development-debugging/iterative-development-image5.png)
+![Antes de configurar um ponto de interrupção no elemento selecionado](media/iterative-development-debugging/iterative-development-4.png)
 
 Depois de selecionar a opção *Depurar Até*, ele é alterado para um círculo vermelho preenchido para indicar que o ponto de interrupção está habilitado.
 
-![Depois de configurar um ponto de interrupção no elemento selecionado](media/iterative-development-debugging/iterative-development-image6.png)
+![Depois de configurar um ponto de interrupção no elemento selecionado](media/iterative-development-debugging/iterative-development-5.png)
+
+## <a name="monitoring-debug-runs"></a>Monitorar execuções de depuração
+
+Quando você executa uma execução de depuração de pipeline, os resultados aparecerão na janela de **saída** da tela do pipeline. A guia saída conterá apenas a execução mais recente que ocorreu durante a sessão atual do navegador. 
+
+![Janela de saída da tela de pipeline](media/iterative-development-debugging/iterative-development-2.png)
+
+Para exibir uma exibição histórica das execuções de depuração ou ver uma lista de todas as execuções de depuração ativas, você pode entrar na experiência do **Monitor** . 
+
+![Selecione o ícone Exibir execuções de depuração ativas](media/iterative-development-debugging/view-debug-runs.png)
+
+> [!NOTE]
+> O serviço Azure Data Factory só persiste o histórico de execução de depuração por 15 dias. 
+
+## <a name="debugging-mapping-data-flows"></a>Depuração de mapeamento de fluxos de dados
+
+O mapeamento de fluxos de dados permite que você crie uma lógica de transformação de dados sem código que é executada em escala. Ao criar sua lógica, você pode ativar uma sessão de depuração para trabalhar interativamente com seus dados usando um cluster Spark ao vivo. Para saber mais, leia sobre [mapear o modo de depuração do fluxo de dados](concepts-data-flow-debug-mode.md).
+
+Você pode monitorar sessões de depuração de fluxo de dados ativos em uma fábrica na experiência do **Monitor** .
+
+![Exibir sessões de depuração do fluxo de dados](media/iterative-development-debugging/view-dataflow-debug-sessions.png)
+ 
+### <a name="debugging-a-pipeline-with-a-data-flow-activity"></a>Depurando um pipeline com uma atividade de fluxo de dados
+
+Ao executar um pipeline de depuração executado com um fluxo de dados, você tem duas opções em que computação usar. Você pode usar um cluster de depuração existente ou criar um novo cluster just-in-time para seus fluxos de dados.
+
+O uso de uma sessão de depuração existente reduzirá muito o tempo de inicialização do fluxo de dados, pois o cluster já está em execução, mas não é recomendado para cargas de trabalho complexas ou paralelas, uma vez que pode falhar quando vários trabalhos são executados ao mesmo tempo.
+
+Usar o tempo de execução de atividade criará um novo cluster usando as configurações especificadas em cada tempo de execução de integração da atividade de fluxo de dados. Isso permite que cada trabalho seja isolado e deve ser usado para cargas de trabalhos complexas ou testes de desempenho. Você também pode controlar a TTL no Azure IR para que os recursos de cluster usados para depuração ainda estejam disponíveis para esse período de tempo para atender a solicitações de trabalho adicionais.
+
+> [!NOTE]
+> Se você tiver um pipeline com fluxos de dados em execução em paralelo, escolha "usar tempo de execução de atividade" para que Data Factory possa usar o Integration Runtime que você selecionou em sua atividade de fluxo de dados. Isso permitirá que os fluxos de dados sejam executados em vários clusters e possam acomodar suas execuções de fluxo de dados paralelos.
+
+![Executando um pipeline com um Dataflow](media/iterative-development-debugging/iterative-development-dataflow.png)
 
 ## <a name="next-steps"></a>Próximas etapas
-[Integração e implementação contínuas no Azure Data Factory](continuous-integration-deployment.md)
+
+Depois de testar suas alterações, promova-as para ambientes mais altos usando a [integração e a implantação contínuas no Azure data Factory](continuous-integration-deployment.md).

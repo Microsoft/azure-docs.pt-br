@@ -2,14 +2,14 @@
 author: glecaros
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/30/2020
+ms.date: 10/15/2020
 ms.author: gelecaro
-ms.openlocfilehash: d9f49b2ca51174d22dde45f849749886ccffd393
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 785008633318ee6670170d66cba96bd5853f9ed9
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82980094"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96188148"
 ---
 ## <a name="install-speech-sdk"></a>Instalar SDK de Fala
 

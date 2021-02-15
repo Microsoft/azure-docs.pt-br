@@ -3,19 +3,19 @@ title: Gerenciando o acesso a aplicativos com o AD do Azure
 description: Descreve como o Active Directory do Azure permite que as organizações especifiquem os aplicativos aos quais cada usuário tem acesso.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/16/2017
 ms.author: kenwith
-ms.openlocfilehash: 7738bd2f2dc169ab52677928c6fecbc193ff2f35
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 5afc6aa8f52011eba6d7cfdfaa09b0ab995183e8
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88639912"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99257416"
 ---
 # <a name="managing-access-to-apps"></a>Gerenciando o acesso a aplicativos
 
@@ -54,11 +54,11 @@ Para alguns aplicativos, a opção de exigir a atribuição de usuário não est
 O Azure AD fornece [várias maneiras personalizáveis de implantar aplicativos](end-user-experiences.md) para usuários finais em sua organização:
 
 * Meus aplicativos do Azure AD
-* Iniciador de aplicativos do Office 365
+* Microsoft 365 iniciador de aplicativo
 * Logon direto a aplicativos federados (provedor de serviços)
 * Links profundos a aplicativos federados, baseado em senha, ou existentes
 
-Você pode determinar se os usuários atribuídos a um aplicativo empresarial podem vê-lo em meus aplicativos e no iniciador de aplicativos do Office 365.
+Você pode determinar se os usuários atribuídos a um aplicativo empresarial podem vê-lo em meus aplicativos e Microsoft 365 iniciador de aplicativo.
 
 ## <a name="example-complex-application-assignment-with-azure-ad"></a>Exemplo: Atribuição de aplicativo complexo com o AD do Azure
 Considere um aplicativo como o Salesforce. Em muitas organizações, o Salesforce é usado principalmente pelas equipes de marketing e vendas. Geralmente, membros da equipe de marketing têm acesso altamente privilegiado ao Salesforce, enquanto os membros da equipe de vendas têm acesso limitado. Em muitos casos, uma grande população de operadores de informações tem acesso restrito ao aplicativo. Exceções a essas regras complicam as coisas. Geralmente é privilégio das equipes de liderança de marketing ou vendas conceder acesso a um usuário ou alterar suas funções independentemente dessas regras genéricas.
@@ -78,20 +78,20 @@ Os administradores podem usar o [Acesso Condicional do Azure AD](../conditional-
 
 ## <a name="access-to-microsoft-applications"></a>Acesso a aplicativos Microsoft
 
-Os aplicativos Microsoft (como o Office 365 Exchange, SharePoint, Yammer, etc.) são atribuídos e gerenciados de forma um pouco diferente dos aplicativos SaaS de terceiros ou outros aplicativos que você integra com o Azure AD para o logon único.
+Os aplicativos da Microsoft (como Exchange, SharePoint, Yammer etc.) são atribuídos e gerenciados de maneira um pouco diferente dos aplicativos SaaS de terceiros ou outros aplicativos que você integra com o Azure AD para logon único.
 
 Há três principais maneiras que um usuário pode obter acesso a um aplicativo publicado Microsoft.
 
-- Para aplicativos no Office 365 ou em outros conjuntos de aplicativos pagos, os usuários têm acesso através de **atribuição de licença** diretamente à sua conta de usuário ou através de um grupo que usa nosso recurso de atribuição de licenças baseada em grupo.
+- Para aplicativos no Microsoft 365 ou em outros pacotes pagos, os usuários recebem acesso por meio da **atribuição de licença** diretamente para sua conta de usuário ou por meio de um grupo usando a funcionalidade de atribuição de licença baseada em grupo.
 - Para aplicativos que a Microsoft ou terceiros publicam livremente para uso de qualquer pessoa, os usuários podem ter o acesso concedido através do [consentimento do usuário](configure-user-consent.md). Isso significa que o usuário se conecta ao aplicativo usando a conta Corporativa ou de Estudante do Azure AD e permite acesso a um conjunto limitado de dados em sua conta.
 - Para aplicativos que a Microsoft ou terceiros publicam livremente para uso de qualquer pessoa, os usuários também podem ter o acesso concedido através do [consentimento do administrador](manage-consent-requests.md). Isso significa que um administrador determinou que o aplicativo pode ser usado por todos na organização, portanto, entram no aplicativo com uma conta de Administrador Global e concedem acesso a todos na organização.
 
-Alguns aplicativos combinam esses métodos. Por exemplo, alguns aplicativos Microsoft fazem parte de uma assinatura do Office 365, mas ainda exigem consentimento.
+Alguns aplicativos combinam esses métodos. Por exemplo, determinados aplicativos da Microsoft fazem parte de uma assinatura Microsoft 365, mas ainda exigem consentimento.
 
-Os usuários podem acessar aplicativos do Office 365 através de seus portais do Office 365. Você também pode mostrar ou ocultar aplicativos do Office 365 na pasta meus aplicativos com a [visibilidade de 365 do Office](hide-application-from-user-portal.md) nas configurações de **usuário**do seu diretório. 
+Os usuários podem acessar Microsoft 365 aplicativos por meio de seus portais do Office 365. Você também pode mostrar ou ocultar os aplicativos Microsoft 365 na opção meus aplicativos com a [visibilidade do Office 365](hide-application-from-user-portal.md) nas configurações de **usuário** do seu diretório. 
 
 Assim como é feito com os aplicativos empresariais, você pode [atribuir usuários](assign-user-or-group-access-portal.md) a determinados aplicativos Microsoft através do portal do Azure ou, se a opção do portal não estiver disponível, usando o PowerShell.
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Proteção de aplicativos com acesso condicional](../conditional-access/concept-conditional-access-cloud-apps.md)
-* [Gerenciamento de grupo de autoatendimento/SSAA](../users-groups-roles/groups-self-service-management.md)
+* [Gerenciamento de grupo de autoatendimento/SSAA](../enterprise-users/groups-self-service-management.md)

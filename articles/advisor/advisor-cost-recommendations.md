@@ -2,17 +2,17 @@
 title: Reduza os custos de serviço usando o Assistente do Azure
 description: Use o Azure Advisor para otimizar o custo de suas implantações do Azure.
 ms.topic: article
-ms.date: 01/29/2019
-ms.openlocfilehash: d234e89d0d042999805fae73d3df24c03d1027c9
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.date: 09/27/2020
+ms.openlocfilehash: 767c82c818535304552c1c98ff50a252acc0d08a
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654031"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96458518"
 ---
 # <a name="reduce-service-costs-by-using-azure-advisor"></a>Reduzir os custos de serviço usando o Azure Advisor
 
-O assistente do Azure ajuda você a otimizar e reduzir o gasto geral do Azure identificando recursos ociosos e subutilizados.Você pode obter recomendações de custo na guia **Custo** no painel do Assistente.
+O assistente do Azure ajuda você a otimizar e reduzir o gasto geral do Azure identificando recursos ociosos e subutilizados. Você pode obter recomendações de custo na guia **Custo** no painel do Assistente.
 
 ## <a name="optimize-virtual-machine-spend-by-resizing-or-shutting-down-underutilized-instances"></a>Otimizar o gasto da máquina virtual redimensionando ou desligando instâncias subutilizadas 
 
@@ -20,7 +20,7 @@ Embora alguns cenários de aplicativos possam resultar na baixa utilização por
 
 As ações recomendadas são desligadas ou redimensionadas, específicas ao recurso que está sendo avaliado.
 
-O modelo de avaliação avançada do Advisor considera o desligamento de máquinas virtuais quando ambas as instruções são verdadeiras: 
+O modelo de avaliação avançada do Advisor considera o desligamento de máquinas virtuais quando todas essas instruções são verdadeiras: 
 - P95th do máximo do valor máximo da utilização da CPU é inferior a 3%. 
 - A utilização da rede é inferior a 2% em um período de sete dias.
 - A pressão de memória é inferior aos valores de limite
@@ -59,8 +59,8 @@ O Advisor analisa os padrões de uso dos últimos 30 dias para os seguintes recu
 ### <a name="azure-cosmos-db-reserved-capacity"></a>Azure Cosmos DB capacidade reservada
 O Advisor analisa seus padrões de uso Azure Cosmos DB nos últimos 30 dias e recomenda as compras de capacidade reservada para otimizar os custos. Usando a capacidade reservada, você pode adquirir previamente Azure Cosmos DB uso por hora e economizar os custos pagos conforme o uso. A capacidade reservada é um benefício de cobrança e se aplica automaticamente a implantações novas e existentes. O Advisor calcula estimativas de economias para assinaturas individuais usando preços de reserva de 3 anos e extrapolando os padrões de uso observados nos últimos 30 dias. As recomendações de escopo compartilhado estão disponíveis para compras de capacidade reservada e podem aumentar a economia.
 
-### <a name="sql-paas-reserved-capacity"></a>Capacidade reservada de PaaS do SQL
-O Advisor analisa os pools de banco de dados elástico do SQL e os padrões de uso do SQL Instância Gerenciada nos últimos 30 dias. Em seguida, ele recomenda as compras de capacidade reservada que otimizam os custos. Usando a capacidade reservada, você pode pré-configurar o uso por hora do BD SQL e economizar os custos de computação do SQL. Sua licença do SQL é cobrada separadamente e não é descontada pela reserva. A capacidade reservada é um benefício de cobrança e se aplica automaticamente a implantações novas e existentes. O Advisor calcula estimativas de economias para assinaturas individuais usando preços de reserva de 3 anos e extrapolando os padrões de uso observados nos últimos 30 dias. As recomendações de escopo compartilhado estão disponíveis para compras de capacidade reservada e podem aumentar a economia.
+### <a name="sql-database-and-sql-managed-instance-reserved-capacity"></a>Capacidade reservada do banco de dados SQL e SQL Instância Gerenciada
+O Advisor analisa os padrões de uso do banco de dados SQL e do SQL Instância Gerenciada nos últimos 30 dias. Em seguida, ele recomenda as compras de capacidade reservada que otimizam os custos. Usando a capacidade reservada, você pode pré-configurar o uso por hora do BD SQL e economizar os custos de computação do SQL. Sua licença do SQL é cobrada separadamente e não é descontada pela reserva. A capacidade reservada é um benefício de cobrança e se aplica automaticamente a implantações novas e existentes. O Advisor calcula estimativas de economias para assinaturas individuais usando preços de reserva de 3 anos e extrapolando os padrões de uso observados nos últimos 30 dias. As recomendações de escopo compartilhado estão disponíveis para compras de capacidade reservada e podem aumentar a economia. Para obter detalhes, confira [banco de dados SQL do Azure & capacidade reservada do sql instância gerenciada](../azure-sql/database/reserved-capacity-overview.md).
 
 ### <a name="app-service-stamp-fee-reserved-capacity"></a>Capacidade reservada da taxa de selo do serviço de aplicativo
 O Advisor analisa o padrão de uso de taxas de selo para o ambiente isolado do serviço de Azure App nos últimos 30 dias e recomenda as compras de capacidade reservada que otimizam os custos. Usando a capacidade reservada, você pode adquirir previamente o uso por hora da taxa de carimbo de ambiente isolado e economizar os custos pagos conforme o uso. Observe que a capacidade reservada se aplica somente à taxa de carimbo e não às instâncias do serviço de aplicativo. A capacidade reservada é um benefício de cobrança e se aplica automaticamente a implantações novas e existentes. O Advisor calcula as estimativas de salvamento de assinaturas individuais usando preços de reserva de 3 anos com base nos padrões de uso nos últimos 30 dias.
@@ -71,7 +71,7 @@ O Advisor analisa o armazenamento de BLOBs do Azure e Azure Data Lake o uso do a
 ### <a name="mariadb-mysql-and-postgresql-reserved-capacity"></a>Capacidade reservada do MariaDB, MySQL e PostgreSQL
 O Advisor analisa seus padrões de uso para o banco de dados do Azure para MariaDB, o banco de dados do Azure para MySQL e o banco de dados do Azure para PostgreSQL nos últimos 30 dias. Em seguida, ele recomenda as compras de capacidade reservada que otimizam os custos. Usando a capacidade reservada, você pode pré-configurar o uso de MariaDB, MySQL e PostgreSQL por hora e economizar em seus custos atuais. A capacidade reservada é um benefício de cobrança e se aplica automaticamente a implantações novas e existentes. O Advisor calcula estimativas de economias para assinaturas individuais usando preços de reserva de 3 anos e os padrões de uso observados nos últimos 30 dias. As recomendações de escopo compartilhado estão disponíveis para compras de capacidade reservada e podem aumentar a economia.
 
-### <a name="azure-synapse-analytics-formerly-sql-data-warehouse-reserved-capacity"></a>Capacidade reservada do Azure Synapse Analytics (anteriormente SQL Data Warehouse)
+### <a name="azure-synapse-analytics-reserved-capacity"></a>Capacidade reservada do Azure Synapse Analytics
 O Advisor analisa os padrões de uso da análise de Synapse do Azure nos últimos 30 dias e recomenda as compras de capacidade reservada que otimizam os custos. Usando a capacidade reservada, você pode adquirir previamente a análise de Synapse de uso por hora e economizar seus custos sob demanda. A capacidade reservada é um benefício de cobrança e se aplica automaticamente a implantações novas e existentes. O Advisor calcula estimativas de economias para assinaturas individuais usando preços de reserva de 3 anos e os padrões de uso observados nos últimos 30 dias. As recomendações de escopo compartilhado estão disponíveis para compras de capacidade reservada e podem aumentar a economia.
 
 ## <a name="delete-unassociated-public-ip-addresses-to-save-money"></a>Exclua endereços IP públicos não associados para economizar dinheiro
@@ -111,6 +111,7 @@ O Advisor identifica os recursos em que a redução da política de cache de tab
 
 Para saber mais sobre as recomendações do Assistente, consulte:
 * [Introdução ao Advisor](advisor-overview.md)
+* [Pontuação do supervisor](azure-advisor-score.md)
 * [Introdução ao Assistente](advisor-get-started.md)
 * [Recomendações de desempenho do Advisor](advisor-performance-recommendations.md)
 * [Recomendações de alta disponibilidade do Advisor](advisor-high-availability-recommendations.md)

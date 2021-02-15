@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 6678f64802dc497de6cf0a70ba5ff0bbcaf44e1c
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: e5aafaa02f503582bd0050f8a6389d78b52eaa76
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88033114"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91939146"
 ---
 # <a name="cloud-tiering-overview"></a>Visão geral da Camada de Nuvem
 A camada de nuvem é um recurso opcional da Sincronização de Arquivos do Azure em que arquivos acessados frequentemente são armazenados em cache localmente no servidor, enquanto todos os outros arquivos são organizados em camadas para Arquivos do Azure com base nas configurações de política. Quando um arquivo está disposto em camadas, o filtro do sistema de arquivos da Sincronização de Arquivos do Azure (StorageSync.sys) substitui o arquivo localmente por um ponteiro ou ponto de nova análise. O ponto de nova análise representa uma URL para o arquivo nos Arquivos do Azure. Um arquivo em camadas tem o atributo "offline" e o atributo FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS definidos em NTFS, de modo que aplicativos de terceiros podem identificar com segurança os arquivos dispostos em camadas.
@@ -48,9 +48,9 @@ Para o Agent versões 9 e mais recentes, o tamanho mínimo do arquivo para um ar
 |8 KB (8192)                 | 16 KB   |
 |16 KB (16384)               | 32 KB   |
 |32 KB (32768)               | 64 KB   |
-|64 KB (65536)               | 128 KB  |
+|64 KB (65536)    | 128 KB  |
 
-Com o Windows Server 2019 e o agente Sincronização de Arquivos do Azure versão 12 e mais recente, tamanhos de cluster de até 2 MB também têm suporte e camadas nesses tamanhos de cluster maiores funciona da mesma maneira. Versões mais antigas do sistema operacional ou agente dão suporte a tamanhos de cluster de até 64 KB.
+Os tamanhos de cluster de até 64 KB têm suporte no momento, mas, para tamanhos maiores, a camada de nuvem não funciona.
 
 Todos os sistemas de arquivos usados pelo Windows, organizam o disco rígido com base no tamanho do cluster (também conhecido como tamanho da unidade de alocação). O tamanho do cluster representa a menor quantidade de espaço em disco que pode ser usada para manter um arquivo. Quando os tamanhos de arquivo não chegam a um múltiplo par do tamanho do cluster, o espaço adicional deve ser usado para manter o arquivo até o próximo múltiplo do tamanho do cluster.
 
@@ -85,11 +85,23 @@ Quando há mais de um ponto de extremidade do servidor em um volume, o limite de
 ### <a name="how-does-the-date-tiering-policy-work-in-conjunction-with-the-volume-free-space-tiering-policy"></a>Como a política de camada de data funciona em conjunto com a política de camada de espaço livre no volume? 
 Ao habilitar a camada de nuvem em um ponto de extremidade do servidor, você define uma política de espaço livre no volume. Ela sempre tem precedência sobre qualquer outra política, incluindo a política de datas. Opcionalmente, você pode habilitar uma política de data para cada ponto de extremidade do servidor nesse volume. Essa política gerencia que somente os arquivos acessados (ou seja, lidos ou gravados) dentro do intervalo de dias que essa política descreve será mantida local. Os arquivos não acessados com o número de dias especificado serão em camadas. 
 
-A camada de nuvem usa o último tempo de acesso para determinar quais arquivos devem ser em camadas. O driver de filtro de camadas de nuvem (storagesync.sys) acompanha o horário do último acesso e registra as informações no armazenamento de calor em camadas de nuvem. Você pode ver o armazenamento de calor usando um cmdlet do PowerShell local.
+A camada de nuvem usa o último tempo de acesso para determinar quais arquivos devem ser em camadas. O driver de filtro de camadas de nuvem (storagesync.sys) acompanha o horário do último acesso e registra as informações no armazenamento de calor em camadas de nuvem. Você pode recuperar o armazenamento de calor e salvá-lo em um arquivo CSV usando um cmdlet do PowerShell de servidor local.
 
 ```powershell
+# There is a single heat store for files on a volume / server endpoint / individual file.
+# The heat store can get very large. If you only need to retrieve the "coolest" number of items, use -Limit and a number
+
+# Import the PS module:
 Import-Module '<SyncAgentInstallPath>\StorageSync.Management.ServerCmdlets.dll'
-Get-StorageSyncHeatStoreInformation '<LocalServerEndpointPath>'
+
+# VOLUME FREE SPACE: To get the order in which files will be tiered using the volume free space policy:
+Get-StorageSyncHeatStoreInformation -VolumePath '<DriveLetter>:\' -ReportDirectoryPath '<FolderPathToStoreResultCSV>' -IndexName LastAccessTimeWithSyncAndTieringOrder
+
+# DATE POLICY: To get the order in which files will be tiered using the date policy:
+Get-StorageSyncHeatStoreInformation -VolumePath '<DriveLetter>:\' -ReportDirectoryPath '<FolderPathToStoreResultCSV>' -IndexName LastAccessTimeWithSyncAndTieringOrderV2
+
+# Find the heat store information for a particular file:
+Get-StorageSyncHeatStoreInformation -FilePath '<PathToSpecificFile>'
 ```
 
 > [!IMPORTANT]
@@ -158,10 +170,10 @@ Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.Se
 Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint>
 ```
 Parâmetros opcionais:
-* `-Order CloudTieringPolicy`o solicitará primeiro os arquivos modificados ou acessados mais recentemente e será permitido pela política de camadas atual. 
+* `-Order CloudTieringPolicy` o solicitará primeiro os arquivos modificados ou acessados mais recentemente e será permitido pela política de camadas atual. 
     * Se a política de espaço livre do volume estiver configurada, os arquivos serão recuperados até que a configuração de política de espaço livre do volume seja atingida. Por exemplo, se a configuração de política de volume livre for de 20%, o cancelamento será interrompido quando o espaço livre do volume atingir 20%.  
     * Se a política de espaço livre do volume e de data estiver configurada, os arquivos serão recuperados até que a configuração de política de data ou espaço livre do volume seja atingida. Por exemplo, se a configuração de política de volume livre for de 20% e a política de data for de 7 dias, a recuperação será interrompida quando o espaço livre do volume atingir 20% ou todos os arquivos acessados ou modificados dentro de 7 dias forem locais.
-* `-ThreadCount`Determina quantos arquivos podem ser rechamados em paralelo.
+* `-ThreadCount` Determina quantos arquivos podem ser rechamados em paralelo.
 * `-PerFileRetryCount`determina com que frequência uma recall será tentada de um arquivo bloqueado no momento.
 * `-PerFileRetryDelaySeconds`determina o tempo em segundos entre tentativas de recuperação e sempre deve ser usado em combinação com o parâmetro anterior.
 
@@ -196,7 +208,7 @@ Invoke-StorageSyncCloudTiering -Path <file-or-directory-to-be-tiered>
 ### <a name="why-are-my-tiered-files-not-showing-thumbnails-or-previews-in-windows-explorer"></a>Por que meus arquivos em camadas não estão mostrando miniaturas ou visualizações no Windows Explorer?
 Para arquivos em camadas, miniaturas e visualizações não estarão visíveis no ponto de extremidade do servidor. Esse comportamento é esperado, pois o recurso de cache em miniatura do Windows ignora intencionalmente a leitura de arquivos com o atributo offline. Com a camada de nuvem habilitada, a leitura por meio de arquivos em camadas fará com que eles fossem baixados (rechamados).
 
-Esse comportamento não é específico do Sincronização de Arquivos do Azure, o Windows Explorer exibe um "X cinza" para todos os arquivos que têm o atributo offline definido. Você verá o ícone X ao acessar arquivos por SMB. Para obter uma explicação detalhada desse comportamento, consulte[https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105](https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105)
+Esse comportamento não é específico do Sincronização de Arquivos do Azure, o Windows Explorer exibe um "X cinza" para todos os arquivos que têm o atributo offline definido. Você verá o ícone X ao acessar arquivos por SMB. Para obter uma explicação detalhada desse comportamento, consulte [https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105](https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105)
 
 <a id="afs-tiering-disabled"></a>
 ### <a name="i-have-cloud-tiering-disabled-why-are-there-tiered-files-in-the-server-endpoint-location"></a>Tenho a camada de nuvem desabilitada, por que existem arquivos em camadas no local do ponto de extremidade do servidor?

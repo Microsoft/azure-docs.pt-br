@@ -5,11 +5,11 @@ author: dbradish-microsoft
 ms.author: dbradish
 manager: barbkess
 ms.openlocfilehash: 40f243ce0044b8e1172fb03a1366f37314a0c550
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "85367794"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993441"
 ---
 ## <a name="use-azure-cloud-shell"></a>Usar o Azure Cloud Shell
 

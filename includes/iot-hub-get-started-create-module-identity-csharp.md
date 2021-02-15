@@ -1,6 +1,6 @@
 ---
-title: incluir arquivo
-description: incluir arquivo
+title: arquivo de inclusão
+description: arquivo de inclusão
 services: iot-hub
 author: chrissie926
 ms.service: iot-hub
@@ -9,10 +9,10 @@ ms.date: 08/07/2019
 ms.author: menchi
 ms.custom: include file
 ms.openlocfilehash: a5c1ddd085ae65b9920d73f50f993f4646785a69
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "68883793"
 ---
 ## <a name="create-a-module-identity"></a>Criar uma identidade de módulo
@@ -21,7 +21,7 @@ Nesta seção, você cria um aplicativo de console .NET que cria uma identidade 
 
 Quando você executa esse aplicativo de console, ele gera ID e chave exclusivas para o dispositivo e o módulo. Seu dispositivo e módulo usam esses valores para se identificar quando enviam mensagens do dispositivo para a nuvem para o Hub IoT. As IDs diferenciam minúsculas e maiúsculas.
 
-1. Abra o Visual Studio e selecione **criar um novo projeto**.
+1. Abra o Visual Studio e selecione **Criar um projeto**.
 
 1. Em **criar um novo projeto**, selecione **aplicativo de console (.NET Framework)**.
 

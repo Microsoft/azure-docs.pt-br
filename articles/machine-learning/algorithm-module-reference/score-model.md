@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/11/2020
-ms.openlocfilehash: 361199bd380b126ec41fb8a5587a2ebd78cd6f24
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 67d17af4f615907ca50b27ce8fa26973e5869608
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84447604"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93314257"
 ---
 # <a name="score-model"></a>Pontuar Modelo
 
-Este artigo descreve um módulo no designer do Azure Machine Learning (versão prévia).
+Este artigo descreve um módulo no designer de Azure Machine Learning.
 
 Use este módulo para gerar previsões usando um modelo de classificação ou regressão treinado.
 
@@ -48,8 +48,8 @@ A pontuação, ou o valor previsto, pode estar em vários formatos diferentes, d
 
 ## <a name="publish-scores-as-a-web-service"></a>Publicar pontuações como um serviço Web
 
-Um uso comum de pontuação é retornar a saída como parte de um serviço Web de previsão. Para obter mais informações, consulte [este tutorial](https://docs.microsoft.com/azure/machine-learning/tutorial-designer-automobile-price-deploy) sobre como implantar um ponto de extremidade em tempo real com base em um pipeline no designer de Azure Machine Learning.
+Um uso comum de pontuação é retornar a saída como parte de um serviço Web de previsão. Para obter mais informações, consulte [este tutorial](../tutorial-designer-automobile-price-deploy.md) sobre como implantar um ponto de extremidade em tempo real com base em um pipeline no designer de Azure Machine Learning.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Confira o [conjunto de módulos disponíveis](module-reference.md) no Azure Machine Learning. 
+Confira o [conjunto de módulos disponíveis](module-reference.md) no Azure Machine Learning.

@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: scale-out
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/04/2018
-ms.openlocfilehash: 1cd03814e1590abebb74db490a2692d492a9207d
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 71aad7699c5af6ce2a1b9d82a340138200cfb5e1
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88064937"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792065"
 ---
 # <a name="deploy-a-split-merge-service-to-move-data-between-sharded-databases"></a>Implantar um serviço de mesclagem dividida para mover dados entre bancos de dados compartilhados
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -35,13 +35,13 @@ A ferramenta de divisão e mesclagem permite mover dados entre bancos de dados f
    nuget install Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge
    ```  
 
-Os arquivos são colocados em um diretório chamado **Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge.x.x.xxx.x** onde *x.x.xxx.x* reflete o número de versão. Localize os arquivos do Serviço de divisão e mesclagem no subdiretório **content\splitmerge\service** e os scripts de divisão e mesclagem do PowerShell (e as dlls do cliente necessárias) no subdiretório **content\splitmerge\powershell**.
+Os arquivos são colocados em um diretório chamado **Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge.x.x.xxx.x** onde *x.x.xxx.x* reflete o número de versão. Localize os arquivos do Serviço de divisão e mesclagem no subdiretório **content\splitmerge\service** e os scripts de divisão e mesclagem do PowerShell (e as dlls do cliente necessárias) no subdiretório **content\splitmerge\powershell** .
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-1. Crie um banco de dados do banco de dados SQL do Azure que será usado como o banco de dados de status de divisão/mesclagem. Vá para o [portal do Azure](https://portal.azure.com). Crie um novo **banco de dados SQL**. Nomeie o banco de dados e crie um novo administrador e uma senha. Certifique-se de registrar o nome e a senha para uso posterior.
+1. Crie um banco de dados do banco de dados SQL do Azure que será usado como o banco de dados de status de divisão/mesclagem. Vá para o [Portal do Azure](https://portal.azure.com). Crie um novo **banco de dados SQL** . Nomeie o banco de dados e crie um novo administrador e uma senha. Certifique-se de registrar o nome e a senha para uso posterior.
 
-1. Verifique se o servidor permite que os serviços do Azure se conectem a ele. No portal, em **Configurações de Firewall**, verifique se a configuração **Permitir acesso aos Serviços do Azure** foi definida como **Ativada**. Clique no botão “Salvar”.
+1. Verifique se o servidor permite que os serviços do Azure se conectem a ele. No portal, em **Configurações de Firewall** , verifique se a configuração **Permitir acesso aos Serviços do Azure** foi definida como **Ativada** . Clique no botão “Salvar”.
 
 1. Crie uma conta de Armazenamento do Azure para saída de diagnóstico.
 
@@ -51,14 +51,14 @@ Os arquivos são colocados em um diretório chamado **Microsoft.Azure.SqlDatabas
 
 ### <a name="split-merge-service-configuration"></a>Configuração do serviço de Divisão-Mesclagem
 
-1. Na pasta para a qual você baixou os assemblies de Divisão e Mesclagem, crie uma cópia do arquivo *ServiceConfiguration.Template.cscfg* fornecido junto com *SplitMergeService.cspkg* e renomeie-o como *ServiceConfiguration.cscfg*.
+1. Na pasta para a qual você baixou os assemblies de Divisão e Mesclagem, crie uma cópia do arquivo *ServiceConfiguration.Template.cscfg* fornecido junto com *SplitMergeService.cspkg* e renomeie-o como *ServiceConfiguration.cscfg* .
 
 1. Abra *ServiceConfiguration.cscfg* em um editor de texto como o Visual Studio que valide as entradas como o formato de impressões digitais de certificado.
 
 1. Crie um novo banco de dados ou escolha um já existente para servir como o banco de dados de status para as operações de Divisão/Mesclagem e recupere a cadeia de conexão do banco de dados.
 
    > [!IMPORTANT]
-   > Neste momento, o banco de dados de status deve usar a ordenação latina (SQL\_Latin1\_General\_CP1\_CI\_AS). Para obter mais informações, confira [Nome de ordenação do Windows (Transact-SQL)](https://msdn.microsoft.com/library/ms188046.aspx).
+   > Neste momento, o banco de dados de status deve usar a ordenação latina (SQL\_Latin1\_General\_CP1\_CI\_AS). Para obter mais informações, confira [Nome de ordenação do Windows (Transact-SQL)](/sql/t-sql/statements/windows-collation-name-transact-sql).
 
    Com o banco de dados SQL do Azure, a cadeia de conexão normalmente está no formato:
 
@@ -66,7 +66,7 @@ Os arquivos são colocados em um diretório chamado **Microsoft.Azure.SqlDatabas
 
 1. Insira essa cadeia de conexão no arquivo *. cscfg* nas seções de função **SplitMergeWeb** e **SplitMergeWorker** na configuração ElasticScaleMetadata.
 
-1. Para a função **SplitMergeWorker**, digite uma cadeia de caracteres de conexão válida para o armazenamento do Azure para a configuração **WorkerRoleSynchronizationStorageAccountConnectionString**.
+1. Para a função **SplitMergeWorker** , digite uma cadeia de caracteres de conexão válida para o armazenamento do Azure para a configuração **WorkerRoleSynchronizationStorageAccountConnectionString** .
 
 ### <a name="configure-security"></a>Configurar a segurança
 
@@ -74,9 +74,9 @@ Para obter instruções detalhadas configurar a segurança do serviço, consulte
 
 Para fins de implantação de teste simples para este tutorial, um conjunto mínimo de etapas de configuração será executado para colocar o serviço em operação. Essas etapas permite que somente o computador/conta que as executa se comunique com o serviço.
 
-### <a name="create-a-self-signed-certificate"></a>Crie um certificado autoassinado
+### <a name="create-a-self-signed-certificate"></a>Criará um certificado autoassinado
 
-Crie um novo diretório e, nesse diretório, execute o seguinte comando usando uma janela de [Prompt de comando do desenvolvedor para o Visual Studio](https://msdn.microsoft.com/library/ms229859.aspx) :
+Crie um novo diretório e, nesse diretório, execute o seguinte comando usando uma janela de [Prompt de comando do desenvolvedor para o Visual Studio](/dotnet/framework/tools/developer-command-prompt-for-vs) :
 
    ```cmd
    makecert ^
@@ -99,17 +99,17 @@ Execute o seguinte comando na mesma janela onde o makecert foi executado; use a 
 
 ### <a name="import-the-client-certificate-into-the-personal-store"></a>Importe o certificado do cliente no repositório pessoal
 
-1. No Windows Explorer, clique duas vezes em *Mycert.pfx*.
-2. No **Assistente de importação de certificado**, selecione o **Usuário Atual** e clique em **Avançar**.
-3. Confirme o caminho do arquivo e clique em **Avançar**.
-4. Digite a senha, deixe **Incluir todas as propriedades estendidas** marcado e clique em **Avançar**.
-5. Deixe **Selecionar automaticamente o repositório de certificados[...]** marcado e clique em **Avançar**.
-6. Clique em **Concluir** e em **OK**.
+1. No Windows Explorer, clique duas vezes em *Mycert.pfx* .
+2. No **Assistente de importação de certificado** , selecione o **Usuário Atual** e clique em **Avançar** .
+3. Confirme o caminho do arquivo e clique em **Avançar** .
+4. Digite a senha, deixe **Incluir todas as propriedades estendidas** marcado e clique em **Avançar** .
+5. Deixe **Selecionar automaticamente o repositório de certificados[...]** marcado e clique em **Avançar** .
+6. Clique em **Concluir** e em **OK** .
 
 ### <a name="upload-the-pfx-file-to-the-cloud-service"></a>Carregue o arquivo PFX para o serviço de nuvem
 
-1. Vá para o [portal do Azure](https://portal.azure.com).
-2. Selecione **Serviços de Nuvem**.
+1. Vá para o [Portal do Azure](https://portal.azure.com).
+2. Selecione **Serviços de Nuvem** .
 3. Selecione o serviço de nuvem criado anteriormente para o serviço de Divisão/Mesclagem.
 4. Clique em **Certificados** no menu superior.
 5. Clique em **Carregar** na barra de ferramentas inferior.
@@ -143,8 +143,8 @@ Observe que para implantações de produção devem ser usados certificados sepa
 
 1. Vá para o [Portal do Azure](https://portal.azure.com)
 2. Selecione o serviço de nuvem que você já criou.
-3. Clique em **Visão Geral**.
-4. Escolha o ambiente de preparo e clique em **Carregar**.
+3. Clique em **Visão Geral** .
+4. Escolha o ambiente de preparo e clique em **Carregar** .
 5. Na caixa de diálogo, digite um rótulo de implantação. Para ' Package ' e ' Configuration ', clique em ' from local ' e escolha o arquivo *SplitMergeService. cspkg* e o arquivo cscfg que você configurou anteriormente.
 6. Certifique-se de que a caixa de seleção rotulada **Implantar mesmo se uma ou mais funções contiverem uma única instância** esteja marcada.
 7. Clique no botão de escala no canto inferior direito para iniciar a implantação. Isso poderá levar alguns minutos para ser concluído.
@@ -161,14 +161,14 @@ Se sua função de trabalho não fica online, mas sua função web tiver êxito,
 
    `Server=<serverName>.database.windows.net; Database=<databaseName>;User ID=<user>; Password=<password>; Encrypt=True; Connection Timeout=30`
 
-- Verifique se o nome do servidor não começa com **https://**.
+- Verifique se o nome do servidor não começa com **https://** .
 - Verifique se o servidor permite que os serviços do Azure se conectem a ele. Para fazer isso, abra o banco de dados no portal e verifique se a configuração **Permitir acesso aos serviços do Azure** está definida como **Habilitada** **.
 
 ## <a name="test-the-service-deployment"></a>Testar a implantação do serviço
 
 ### <a name="connect-with-a-web-browser"></a>Conectar-se com um navegador da Web
 
-Determine o ponto de extremidade da web do serviço de Divisão-Mesclagem. Encontre-o no portal acessando a **Visão geral** do serviço de nuvem e procurando em **URL do Site** no lado direito. Substitua **http://** por **https://**, uma vez que as configurações de segurança padrão desabilitam o ponto de extremidade HTTP. Carregue a página para este URL no seu navegador.
+Determine o ponto de extremidade da web do serviço de Divisão-Mesclagem. Encontre-o no portal acessando a **Visão geral** do serviço de nuvem e procurando em **URL do Site** no lado direito. Substitua **http://** por **https://** , uma vez que as configurações de segurança padrão desabilitam o ponto de extremidade HTTP. Carregue a página para este URL no seu navegador.
 
 ### <a name="test-with-powershell-scripts"></a>Testes com scripts do PowerShell
 
@@ -324,8 +324,8 @@ Para executar uma operação de Divisão-Mesclagem, você deve declarar as tabel
 1. Para cada tabela fragmentada, crie um objeto **ShardedTableInfo** que descreve o nome do esquema da tabela pai (opcional, o padrão é “dbo”), o nome da tabela e o nome da coluna na tabela que contém a chave de fragmentação.
 2. Para cada tabela de referência, crie um objeto de **ReferenceTableInfo** que descreve o nome do esquema da tabela pai (opcional, o padrão é “dbo”) e o nome da tabela.
 3. Adicione os objetos TableInfo acima para um novo objeto **SchemaInfo** .
-4. Obtenha uma referência para um objeto **ShardMapManager** e chame **GetSchemaInfoCollection**.
-5. Adicione o **SchemaInfo** ao **SchemaInfoCollection**, fornecendo o nome do mapa de fragmento.
+4. Obtenha uma referência para um objeto **ShardMapManager** e chame **GetSchemaInfoCollection** .
+5. Adicione o **SchemaInfo** ao **SchemaInfoCollection** , fornecendo o nome do mapa de fragmento.
 
 Um exemplo disso pode ser visto no script SetupSampleSplitMergeEnvironment.ps1.
 
@@ -343,7 +343,7 @@ Se não for possível enviar solicitações, você verá isso:
 
    `[Exception] System.Data.SqlClient.SqlException (0x80131904): Could not find stored procedure 'dbo.InsertRequest'.`
 
-Nesse caso, verifique seu arquivo de configuração, em particular a configuração para **WorkerRoleSynchronizationStorageAccountConnectionString**. Esse erro normalmente indica que a função de trabalho não pôde inicializar com êxito o banco de dados de metadados no primeiro uso.
+Nesse caso, verifique seu arquivo de configuração, em particular a configuração para **WorkerRoleSynchronizationStorageAccountConnectionString** . Esse erro normalmente indica que a função de trabalho não pôde inicializar com êxito o banco de dados de metadados no primeiro uso.
 
 [!INCLUDE [elastic-scale-include](../../../includes/elastic-scale-include.md)]
 

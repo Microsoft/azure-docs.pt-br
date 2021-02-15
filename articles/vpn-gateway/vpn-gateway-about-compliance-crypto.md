@@ -5,14 +5,14 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 12/02/2020
 ms.author: yushwang
-ms.openlocfilehash: 499d184d373b896ba7bffcf990693ef5e6ac466b
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 47d14c5ee7f6c4816bf15351e9cb28a2aaa72b4c
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88032417"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96546838"
 ---
 # <a name="about-cryptographic-requirements-and-azure-vpn-gateways"></a>Sobre os requisitos criptográficos e os gateways de VPN do Azure
 
@@ -20,7 +20,7 @@ Este artigo discute como é possível configurar os gateways de VPN do Azure par
 
 ## <a name="about-ikev1-and-ikev2-for-azure-vpn-connections"></a>Sobre IKEv1 e IKEv2 para conexões VPN do Azure
 
-Tradicionalmente, permitimos conexões IKEv1 somente para SKUs básicas e conexões IKEv2 permitidas para todas as SKUs de gateway de VPN diferentes de SKUs básicas. Os SKUs básicos permitem apenas uma conexão e, juntamente com outras limitações, como desempenho, os clientes que usam dispositivos herdados que dão suporte apenas a protocolos IKEv1 têm experiência limitada. Para aprimorar a experiência de clientes que usam protocolos IKEv1, agora estamos permitindo conexões IKEv1 para todas as SKUs de gateway de VPN, exceto SKU básico. Para obter mais informações, consulte [SKUs de gateway de VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings#gwsku).
+Tradicionalmente, permitimos conexões IKEv1 somente para SKUs básicas e conexões IKEv2 permitidas para todas as SKUs de gateway de VPN diferentes de SKUs básicas. Os SKUs básicos permitem apenas uma conexão e, juntamente com outras limitações, como desempenho, os clientes que usam dispositivos herdados que dão suporte apenas a protocolos IKEv1 têm experiência limitada. Para aprimorar a experiência de clientes que usam protocolos IKEv1, agora estamos permitindo conexões IKEv1 para todas as SKUs de gateway de VPN, exceto SKU básico. Para obter mais informações, consulte [SKUs de gateway de VPN](./vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 
 ![Conexões IKEv1 e IKEv2 do gateway de VPN do Azure](./media/vpn-gateway-about-compliance-crypto/ikev1-ikev2-connections.png)
 
@@ -30,13 +30,15 @@ Quando as conexões IKEv1 e IKEv2 são aplicadas ao mesmo gateway de VPN, o trâ
 
 O padrão de protocolo IKE e IPsec suporta uma ampla gama de algoritmos criptográficos em várias combinações. Se você não solicitar uma combinação específica de parâmetros e algoritmos de criptografia, os gateways de VPN do Azure usarão um conjunto de propostas padrão. Os conjuntos de políticas padrão foram escolhidos para maximizar a interoperabilidade com uma ampla gama de dispositivos de VPN de terceiros em configurações padrão. Como resultado, as políticas e o número de propostas não podem abranger todas as combinações possíveis de intensidades de chave e algoritmos criptográficos disponíveis.
 
+### <a name="default-policy"></a>Política padrão
+
 A política padrão definida para o gateway de VPN do Azure está listada no artigo: [sobre dispositivos VPN e parâmetros de IPSec/IKE para conexões de gateway de VPN site a site](vpn-gateway-about-vpn-devices.md).
 
 ## <a name="cryptographic-requirements"></a>Requisitos criptográficos
 
 Para comunicações que exigem algoritmos ou parâmetros criptográficos específicos, normalmente devido a requisitos de conformidade ou de segurança, agora você pode configurar seus gateways de VPN do Azure para usar uma política de IPsec/IKE personalizada com algoritmos de criptografia e forças de chave específicos, em vez dos conjuntos de políticas padrão do Azure.
 
-Por exemplo, as políticas de modo principal IKEv2 para gateways de VPN do Azure utilizam apenas o grupo Diffie-Hellman 2 (1024 bits), enquanto talvez seja necessário especificar grupos mais fortes a serem usados no IKE, como o grupo 14 (2048 bits), o grupo 24 (grupo de MODP bits de 2048 bits) ou ECP (grupos de curva elíptica) 256 ou 384 bit (grupo 19 e grupo 20 Requisitos semelhantes aplicam-se também às políticas de modo rápido do IPsec.
+Por exemplo, as políticas de modo principal IKEv2 para gateways de VPN do Azure utilizam apenas Diffie-Hellman grupo 2 (1024 bits), enquanto talvez seja necessário especificar grupos mais fortes a serem usados no IKE, como o grupo 14 (2048 bits), o grupo 24 (grupo de MODP bits de 2048 bits) ou ECP (grupos de curva elíptica) 256 ou 384 bit (grupo 19 e grupo 20 Requisitos semelhantes aplicam-se também às políticas de modo rápido do IPsec.
 
 ## <a name="custom-ipsecike-policy-with-azure-vpn-gateways"></a>Política de IPsec/IKE personalizada com gateways de VPN do Azure
 

@@ -1,6 +1,6 @@
 ---
-title: Verificar conectividade de dispositivo com Hub IoT
-description: Use ferramentas do Hub IoT para solucionar problemas de conectividade do dispositivo durante o desenvolvimento no Hub IoT.
+title: Tutorial – Verificar conectividade de dispositivo com o Hub IoT do Azure
+description: Tutorial – Use ferramentas do Hub IoT para solucionar problemas de conectividade do dispositivo durante o desenvolvimento no hub IoT.
 services: iot-hub
 author: wesmc7777
 manager: philmea
@@ -11,17 +11,17 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-- devx-track-javascript
+- devx-track-js
 - devx-track-azurecli
 ms.date: 02/22/2019
 ms.topic: tutorial
 ms.service: iot-hub
-ms.openlocfilehash: f6ac83a0fc32b426a914b76d27c2920ff8ce6731
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 253ec23a421415c11e4b47670dca870ebc463256
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500239"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99538656"
 ---
 # <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>Tutorial: Usar um dispositivo simulado para testar a conectividade com o hub IoT
 
@@ -36,15 +36,7 @@ Neste tutorial, você aprenderá como:
 > * Verificar conectividade de nuvem para dispositivo
 > * Verificar sincronização de dispositivo gêmeo
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-## <a name="prerequisites"></a>Pré-requisitos
-
-Os scripts da CLI executados neste tutorial usam a [Extensão do Microsoft Azure IoT para CLI do Azure](https://github.com/Azure/azure-iot-cli-extension/blob/master/README.md). Para instalar essa extensão, execute o comando da CLI a seguir:
-
-```azurecli-interactive
-az extension add --name azure-iot
-```
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
@@ -74,15 +66,15 @@ Um dispositivo deve autenticar-se com o hub antes que ele possa trocar dados com
 
 Entre no portal e navegue até o Hub IoT. Em seguida, navegue até a ferramenta de **Dispositivos IoT**:
 
-![Ferramenta de Dispositivos IoT](media/tutorial-connectivity/iot-devices-tool.png)
+:::image type="content" source="media/tutorial-connectivity/iot-devices-tool.png" alt-text="Ferramenta de Dispositivos IoT":::
 
-Para registrar um novo dispositivo, clique em **+ Adicionar**, defina **ID do Dispositivo** para **MyTestDevice** e clique em **Salvar**:
+Para registrar um novo dispositivo, clique em **+ Novo**, defina **ID do Dispositivo** como **MyTestDevice** e clique em **Salvar**.
 
-![Adicionar novo dispositivo](media/tutorial-connectivity/add-device.png)
+:::image type="content" source="media/tutorial-connectivity/add-device.png" alt-text="Adicionar novo dispositivo":::
 
-Para recuperar a cadeia de conexão para **MyTestDevice**, clique nela na lista de dispositivos e copie o valor da **chave primária da cadeia de conexão**. A cadeia de conexão inclui a *chave de acesso compartilhado* do dispositivo.
+Para recuperar a cadeia de conexão para **MyTestDevice**, clique nela na lista de dispositivos e copie o valor da **Cadeia de conexão primária**. A cadeia de conexão inclui a *chave de acesso compartilhado* do dispositivo.
 
-![Recuperar cadeia de conexão de dispositivo](media/tutorial-connectivity/copy-connection-string.png)
+:::image type="content" source="media/tutorial-connectivity/copy-connection-string.png" alt-text="Recuperar cadeia de conexão do dispositivo}":::
 
 Para simular **MyTestDevice** enviando telemetria para o Hub IoT, execute o aplicativo de dispositivo simulado Node.js que você baixou anteriormente.
 
@@ -184,7 +176,7 @@ Depois que um dispositivo conectar, normalmente ele tentará enviar a telemetria
 Primeiro, recupere a cadeia de conexão atual para o dispositivo simulado usando o comando a seguir:
 
 ```azurecli-interactive
-az iot hub device-identity show-connection-string --device-id MyTestDevice --output table --hub-name {YourIoTHubName}
+az iot hub device-identity connection-string show --device-id MyTestDevice --output table --hub-name {YourIoTHubName}
 ```
 
 Para executar um dispositivo simulado que envia mensagens, navegue até a pasta **iot-hub\Tutorials\ConnectivityTests** no código que você baixou.
@@ -273,4 +265,4 @@ Se você não precisar mais do hub IoT, exclua-o junto com o grupo de recursos n
 Neste tutorial, você aprendeu como verificar as chaves do dispositivo, verificar conectividade de dispositivo para nuvem, verificar conectividade de nuvem para dispositivo e verificar a sincronização de dispositivo gêmeo. Para saber mais sobre como monitorar o Hub IoT, visite o artigo sobre como fazer monitoramento do Hub IoT.
 
 > [!div class="nextstepaction"]
-> [Monitorar com o diagnóstico](iot-hub-monitor-resource-health.md)
+> [Monitorar o Hub IoT](monitor-iot-hub.md)

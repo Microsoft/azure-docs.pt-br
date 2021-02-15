@@ -1,19 +1,19 @@
 ---
-title: Tutorial – Criar conexões do ExpressRoute usando a WAN Virtual do Azure
+title: 'Tutorial: Criar conexões do ExpressRoute usando a WAN Virtual do Azure'
 description: Neste tutorial, saiba como usar a WAN Virtual do Azure para criar conexões do ExpressRoute com o Azure e com ambientes locais.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 02/13/2019
+ms.date: 10/07/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my corporate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
-ms.openlocfilehash: 35ca071cd8495611f0f350511ef9406f82c5be23
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 07053c096ce001b322e5f05556bd041519ca9d2e
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77209419"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102469"
 ---
 # <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan"></a>Tutorial: Criar uma associação do ExpressRoute usando a WAN Virtual do Azure
 
@@ -30,7 +30,7 @@ Neste tutorial, você aprenderá como:
 > * Alterar o tamanho do gateway
 > * Anunciar uma rota padrão
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="prerequisites"></a>Pré-requisitos
 
 Verifique se você atende aos seguintes critérios antes de iniciar a configuração:
 
@@ -40,7 +40,7 @@ Verifique se você atende aos seguintes critérios antes de iniciar a configura�
 
 * Obtenha um intervalo de endereços IP para sua região de hub. O hub é uma rede virtual criada e usada pela WAN Virtual. O intervalo de endereços especificado para o hub não pode se sobrepor a nenhuma das redes virtuais existentes às quais você se conecta. Ele também não pode se sobrepor aos intervalos de endereços aos quais você se conecta localmente. Se não estiver familiarizado com os intervalos de endereços IP da sua configuração de rede local, trabalhe com alguém que possa lhe fornecer esses detalhes.
 
-* O circuito do ExpressRoute precisa ser um circuito Premium para se conectar ao gateway do hub.
+* O circuito do ExpressRoute precisa ser um circuito Premium ou Standard para se conectar ao gateway do hub.
 
 * Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -48,18 +48,18 @@ Verifique se você atende aos seguintes critérios antes de iniciar a configura�
 
 Em um navegador, acesse o [Portal do Azure](https://portal.azure.com) e entre com sua conta do Azure.
 
-1. Navegue até a página da WAN virtual. No portal, clique em **+Criar um recurso**. Digite **WAN Virtual** na caixa de pesquisa e clique em Enter.
+1. Navegue até a página da WAN virtual. No portal, clique em **+Criar um recurso** . Digite **WAN Virtual** na caixa de pesquisa e clique em Enter.
 2. Selecione **WAN Virtual** nos resultados. Na página WAN Virtual, clique em **Criar** para abrir a página Criar WAN.
-3. Na página **Criar WAN**, na guia **Básico**, preencha os seguintes campos:
+3. Na página **Criar WAN** , na guia **Básico** , preencha os seguintes campos:
 
    ![Criar WAN](./media/virtual-wan-expressroute-portal/createwan.png)
 
-   * **Assinatura**: selecione a assinatura que você quer usar.
-   * **Grupo de Recursos**: crie um novo ou use um existente.
-   * **Localização do grupo de recursos**: escolha uma localização de recursos na lista suspensa. Uma WAN é um recurso global e não pode residir em uma região específica. No entanto, você deve selecionar uma região a fim de gerenciar e localizar o recurso de WAN criado mais facilmente.
-   * **Nome**: digite o nome que você quer dar à sua WAN.
-   * **Tipo** – selecione **Standard**. Você não pode criar um gateway do ExpressRoute usando o SKU Básico.
-4. Quando terminar de preencher os campos, selecione **Examinar + Criar**.
+   * **Assinatura** : selecione a assinatura que você quer usar.
+   * **Grupo de Recursos** : crie um novo ou use um existente.
+   * **Localização do grupo de recursos** : escolha uma localização de recursos na lista suspensa. Uma WAN é um recurso global e não pode residir em uma região específica. No entanto, você deve selecionar uma região a fim de gerenciar e localizar o recurso de WAN criado mais facilmente.
+   * **Nome** : digite o nome que você quer dar à sua WAN.
+   * **Tipo** – selecione **Standard** . Você não pode criar um gateway do ExpressRoute usando o SKU Básico.
+4. Quando terminar de preencher os campos, selecione **Examinar + Criar** .
 5. Depois que a validação for aprovada, selecione **Criar** para criar a WAN Virtual.
 
 ## <a name="create-a-virtual-hub-and-gateway"></a><a name="hub"></a>Criar um hub virtual e um gateway
@@ -79,7 +79,7 @@ Crie um novo hub virtual. Depois que o hub é criado, você será cobrado por el
 Você também pode criar um gateway em um hub existente editando-o.
 
 1. Navegue até o hub virtual que você deseja editar e selecione-o.
-2. Na página **Editar hub virtual**, marque a caixa de seleção **Incluir gateway do ExpressRoute**.
+2. Na página **Editar hub virtual** , marque a caixa de seleção **Incluir gateway do ExpressRoute** .
 3. Selecione **Confirmar** para confirmar as alterações. Leva cerca de 30 minutos para que o hub e os recursos do hub sejam totalmente criados.
 
    ![hub existente](./media/virtual-wan-expressroute-portal/edithub.png "editar um hub")
@@ -94,25 +94,25 @@ Depois de criar um gateway do ExpressRoute, você poderá exibir detalhes do gat
 
 Nesta seção, você pode criar a conexão de emparelhamento entre uma VNET e seu hub. Repita as etapas para cada VNET que você deseja se conectar.
 
-1. Na página da WAN virtual, clique em **Conexão de rede virtual**.
-2. Na página de conexão de rede virtual, clique em **+Adicionar conexão**.
-3. Na página **Adicionar conexão**, preencha os seguintes campos:
+1. Na página da WAN virtual, clique em **Conexão de rede virtual** .
+2. Na página de conexão de rede virtual, clique em **+Adicionar conexão** .
+3. Na página **Adicionar conexão** , preencha os seguintes campos:
 
-    * **Nome da Conexão**: nomeie sua conexão.
-    * **Hubs**: selecione o hub que você deseja associar a essa conexão.
-    * **Assinatura**: verifique a assinatura.
+    * **Nome da Conexão** : nomeie sua conexão.
+    * **Hubs** : selecione o hub que você deseja associar a essa conexão.
+    * **Assinatura** : verifique a assinatura.
     * **Rede virtual:** selecione a rede virtual que você deseja conectar a esse hub. A rede virtual não pode ter um gateway de rede virtual já existente (nem VPN, nem ExpressRoute).
 
 ## <a name="connect-your-circuit-to-the-hub-gateway"></a><a name="connectcircuit"></a>Conectar seu circuito ao gateway do hub
 
-Depois que o gateway é criado, você pode conectar um [circuito de ExpressRoute](../expressroute/expressroute-howto-circuit-portal-resource-manager.md) a ele. Os circuitos do ExpressRoute Premium que estão em localizações do ExpressRoute compatíveis com o Alcance Global podem se conectar a um gateway do ExpressRoute da WAN Virtual.
+Depois que o gateway é criado, você pode conectar um [circuito de ExpressRoute](../expressroute/expressroute-howto-circuit-portal-resource-manager.md) a ele. Circuitos Standard ou Premium do ExpressRoute que estão em locais compatíveis com o Alcance Global do ExpressRoute podem se conectar a um gateway do ExpressRoute de WAN Virtual e usar todas as funcionalidades de trânsito de WAN Virtual (VPN para VPN, VPN e ExpressRoute). Os circuitos Premium ou Standard do ExpressRoute que estão em locais sem Alcance Global podem se conectar aos recursos do Azure, mas não poderão usar os recursos de trânsito da WAN Virtual. Há suporte para o ExpressRoute Local nos hubs da WAN Virtual do Azure, desde que as VNETs spoke conectadas a um hub da WAN Virtual estejam na mesma região do Hub da WAN Virtual.
 
 ### <a name="to-connect-the-circuit-to-the-hub-gateway"></a>Para conectar o circuito ao gateway do hub
 
-No portal, vá para a página **Hub virtual -> Conectividade -> ExpressRoute**. Se tiver acesso em sua assinatura a um circuito do ExpressRoute, você verá o circuito que deseja usar na lista de circuitos. Se você não vir nenhum circuito, mas uma chave de autorização e um URI de circuito par tiverem sido fornecidos a você, será possível resgatar e conectar um circuito. Confira [Para conectar resgatando uma chave de autorização](#authkey).
+No portal, vá para a página **Hub virtual -> Conectividade -> ExpressRoute** . Se tiver acesso em sua assinatura a um circuito do ExpressRoute, você verá o circuito que deseja usar na lista de circuitos. Se você não vir nenhum circuito, mas uma chave de autorização e um URI de circuito par tiverem sido fornecidos a você, será possível resgatar e conectar um circuito. Confira [Para conectar resgatando uma chave de autorização](#authkey).
 
 1. Selecione o circuito.
-2. Selecione **Conectar circuitos**.
+2. Selecione **Conectar circuitos** .
 
    ![conectar circuitos](./media/virtual-wan-expressroute-portal/cktconnect.png "conectar circuitos")
 
@@ -122,7 +122,7 @@ Use a chave de autorização e o URI de circuito que você forneceu para se cone
 
 1. Na página do ExpressRoute, clique em **+Resgatar chave de autorização**
 
-   ![resgatar](./media/virtual-wan-expressroute-portal/redeem.png "resgatar")
+   ![A captura de tela mostra o ExpressRoute para um hub virtual com Resgatar chave de autorização selecionado.](./media/virtual-wan-expressroute-portal/redeem.png "resgatar")
 2. Na página Resgatar a chave de autorização, preencha os valores.
 
    ![resgatar valores de chave](./media/virtual-wan-expressroute-portal/redeemkey2.png "resgatar valores de chave")
@@ -145,7 +145,7 @@ Se você quiser alterar o tamanho do gateway do ExpressRoute, localize o gateway
 
 Se você quiser que o hub virtual do Azure anuncie a rota padrão 0.0.0.0/0 aos pontos de extremidade do ExpressRoute, será necessário habilitar "Propagar a rota padrão".
 
-1. Selecione seu **Circuito->...-> Editar conexão**.
+1. Selecione seu **Circuito->...-> Editar conexão** .
 
    ![Editar conexão](./media/virtual-wan-expressroute-portal/defaultroute1.png "Editar conexão")
 
@@ -153,6 +153,17 @@ Se você quiser que o hub virtual do Azure anuncie a rota padrão 0.0.0.0/0 aos 
 
    ![Propagar rota padrão](./media/virtual-wan-expressroute-portal/defaultroute2.png "Propagar rota padrão")
 
+## <a name="clean-up-resources"></a><a name="cleanup"></a>Limpar recursos
+
+Quando não precisar mais desses recursos, você poderá utilizar [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) para remover o grupo de recursos e todos os recursos que ele contém. Substitua "myResourceGroup" pelo nome do grupo de recursos e execute o seguinte comando do PowerShell:
+
+```azurepowershell-interactive
+Remove-AzResourceGroup -Name myResourceGroup -Force
+```
+
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre a WAN Virtual, consulte a página [Visão geral de WAN Virtual](virtual-wan-about.md).
+Em seguida, para saber mais sobre a WAN Virtual, confira:
+
+> [!div class="nextstepaction"]
+> * [Perguntas frequentes sobre a WAN Virtual](virtual-wan-faq.md)

@@ -6,12 +6,12 @@ author: lachie83
 ms.topic: article
 ms.date: 07/20/2020
 ms.author: laevenso
-ms.openlocfilehash: 08835bda959fb4fe261e86e4d519ab85bd2a4625
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: bbedb20d9e5c75fd49c08950bbf5d459130206ce
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495141"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93125862"
 ---
 # <a name="http-application-routing"></a>Roteamento de aplicativo HTTP
 
@@ -26,8 +26,8 @@ Quando o complemento é habilitado, ele cria uma zona DNS na assinatura. Para ob
 
 O complemento implanta dois componentes: um controlador de [entrada kubernetes][ingress] e um controlador [DNS externo][external-dns] .
 
-- **Controlador de entrada**: o controlador de Entrada é exposto à internet usando um serviço de Kubernetes do tipo LoadBalancer. O controlador de entrada observa e implementa [recursos de entrada do kubernetes][ingress-resource], que cria rotas para pontos de extremidade do aplicativo.
-- **Controlador de DNS externo**: inspeciona os recursos de Entrada do Kubernetes e cria registros DNS A na zona DNS específica do cluster.
+- **Controlador de entrada** : o controlador de Entrada é exposto à internet usando um serviço de Kubernetes do tipo LoadBalancer. O controlador de entrada observa e implementa [recursos de entrada do kubernetes][ingress-resource], que cria rotas para pontos de extremidade do aplicativo.
+- **Controlador de DNS externo** : inspeciona os recursos de Entrada do Kubernetes e cria registros DNS A na zona DNS específica do cluster.
 
 ## <a name="deploy-http-routing-cli"></a>Implantar o roteamento HTTP: CLI
 
@@ -78,7 +78,7 @@ Se você usa o Azure Cloud Shell, o `kubectl` já estará instalado. Se você qu
 az aks install-cli
 ```
 
-Para configurar o `kubectl` para se conectar ao cluster do Kubernetes, use o comando [az aks get-credentials][]. O exemplo a seguir obtém as credenciais para o cluster AKS chamado *MyAKSCluster* no grupo *MyResource*:
+Para configurar o `kubectl` para se conectar ao cluster do Kubernetes, use o comando [az aks get-credentials][]. O exemplo a seguir obtém as credenciais para o cluster AKS chamado *MyAKSCluster* no grupo *MyResource* :
 
 ```azurecli
 az aks get-credentials --resource-group MyResourceGroup --name MyAKSCluster
@@ -112,7 +112,7 @@ spec:
     spec:
       containers:
       - name: aks-helloworld
-        image: neilpeterson/aks-helloworld:v1
+        image: mcr.microsoft.com/azuredocs/aks-helloworld:v1
         ports:
         - containerPort: 80
         env:
@@ -163,7 +163,7 @@ service/aks-helloworld created
 ingress.networking.k8s.io/aks-helloworld created
 ```
 
-Abra um navegador da Web para *AKs-HelloWorld \<CLUSTER_SPECIFIC_DNS_ZONE\> .*, por exemplo, *AKs-HelloWorld.9f9c1fe7-21a1-416d-99cd-3543bb92e4c3.eastus.aksapp.Io* e verifique se você vê o aplicativo de demonstração. O aplicativo pode levar alguns minutos para aparecer.
+Abra um navegador da Web para *AKs-HelloWorld \<CLUSTER_SPECIFIC_DNS_ZONE\> .* , por exemplo, *AKs-HelloWorld.9f9c1fe7-21a1-416d-99cd-3543bb92e4c3.eastus.aksapp.Io* e verifique se você vê o aplicativo de demonstração. O aplicativo pode levar alguns minutos para aparecer.
 
 ## <a name="remove-http-routing"></a>Remover o roteamento de HTTP
 
@@ -173,7 +173,7 @@ A solução de roteamento HTTP pode ser removida usando a CLI do Azure. Para faz
 az aks disable-addons --addons http_application_routing --name myAKSCluster --resource-group myResourceGroup --no-wait
 ```
 
-Quando o complemento de roteamento de aplicativo HTTP está desativado, alguns recursos do Kubernetes podem permanecer no cluster. Esses recursos incluem *configMaps* e *segredos*e são criados no namespace *kube-system*. Para manter um cluster limpo, você talvez queira remover esses recursos.
+Quando o complemento de roteamento de aplicativo HTTP está desativado, alguns recursos do Kubernetes podem permanecer no cluster. Esses recursos incluem *configMaps* e *segredos* e são criados no namespace *kube-system* . Para manter um cluster limpo, você talvez queira remover esses recursos.
 
 Procure recursos *addon-http-application-routing* usando os seguintes comandos [kubectl get][kubectl-get]:
 

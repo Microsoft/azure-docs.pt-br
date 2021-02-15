@@ -3,12 +3,12 @@ title: Configurar clusters kubernetes híbridos com Azure Monitor para contêine
 description: Este artigo descreve como você pode configurar Azure Monitor para contêineres para monitorar clusters kubernetes hospedados em Azure Stack ou em outro ambiente.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: d2ca977f572ee9f60c1ca72fc472f3a6ee6c6362
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 12901b1d2d7edd85fbe1650600856d09105c15b2
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86498892"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98936411"
 ---
 # <a name="configure-hybrid-kubernetes-clusters-with-azure-monitor-for-containers"></a>Configurar clusters kubernetes híbridos com Azure Monitor para contêineres
 
@@ -16,14 +16,12 @@ Azure Monitor para contêineres fornece experiência de monitoramento avançada 
 
 ## <a name="supported-configurations"></a>Configurações com suporte
 
-As configurações a seguir são oficialmente suportadas com Azure Monitor para contêineres.
+As configurações a seguir são oficialmente suportadas com Azure Monitor para contêineres. Se você tiver uma versão diferente do kubernetes e das versões do sistema operacional, envie um email para askcoin@microsoft.com .
 
 - Sistemas
 
     - Kubernetes local
-    
-    - Mecanismo AKS no Azure e Azure Stack. Para obter mais informações, consulte [AKs Engine on Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908)
-    
+    - Mecanismo AKS no Azure e Azure Stack. Para obter mais informações, consulte [AKs Engine on Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview)
     - [OpenShift](https://docs.openshift.com/container-platform/4.3/welcome/index.html) versão 4 e superior, locais ou outros ambientes de nuvem.
 
 - As versões do kubernetes e da política de suporte são as mesmas que as versões do [AKs com suporte](../../aks/supported-kubernetes-versions.md).
@@ -40,7 +38,7 @@ Antes de começar, verifique se você tem o seguinte:
 
 - Um [workspace do Log Analytics](../platform/design-logs-deployment.md).
 
-    Azure Monitor para contêineres dá suporte a um espaço de trabalho Log Analytics nas regiões listadas em produtos do Azure [por região](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor). Para criar seu próprio espaço de trabalho, ele pode ser criado por meio de [Azure Resource Manager](../platform/template-workspace-configuration.md), por meio do [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)ou no [portal do Azure](../learn/quick-create-workspace.md).
+    Azure Monitor para contêineres dá suporte a um espaço de trabalho Log Analytics nas regiões listadas em produtos do Azure [por região](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor). Para criar seu próprio espaço de trabalho, ele pode ser criado por meio de [Azure Resource Manager](../samples/resource-manager-workspace.md), por meio do [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)ou no [portal do Azure](../learn/quick-create-workspace.md).
 
     >[!NOTE]
     >Não há suporte para a habilitação do monitoramento de vários clusters com o mesmo nome de cluster para o mesmo espaço de trabalho Log Analytics. Os nomes de cluster devem ser exclusivos.
@@ -71,9 +69,11 @@ Antes de começar, verifique se você tem o seguinte:
 
 A habilitação de Azure Monitor para contêineres para o cluster híbrido kubernetes consiste em executar as etapas a seguir na ordem.
 
-1. Configure seu espaço de trabalho Log Analytics com a solução de informações de contêiner.
+1. Configure seu espaço de trabalho Log Analytics com a solução de informações de contêiner.   
 
 2. Habilite a Azure Monitor para contêineres HELM gráfico com Log Analytics espaço de trabalho.
+
+Para obter mais informações sobre soluções de monitoramento no Azure Monitor consulte [aqui](../../azure-monitor/insights/solutions.md).
 
 ### <a name="how-to-add-the-azure-monitor-containers-solution"></a>Como adicionar a solução de contêineres de Azure Monitor
 
@@ -122,7 +122,7 @@ Para identificar primeiro a ID de recurso completo do seu espaço de trabalho Lo
     az resource list --resource-type Microsoft.OperationalInsights/workspaces -o json
     ```
 
-    Na saída, localize o nome do espaço de trabalho e copie a ID de recurso completo do espaço de trabalho Log Analytics sob a **ID**do campo.
+    Na saída, localize o nome do espaço de trabalho e copie a ID de recurso completo do espaço de trabalho Log Analytics sob a **ID** do campo.
 
 4. Copie e cole a seguinte sintaxe JSON em seu arquivo:
 
@@ -202,7 +202,7 @@ Para identificar primeiro a ID de recurso completo do seu espaço de trabalho Lo
     }
     ```
 
-7. Edite os valores de **workspaceResourceId** usando o valor que você copiou na etapa 3 e, para **workspaceRegion** , copie o valor da **região** depois de executar o comando de CLI do Azure [AZ monitor log-Analytics Workspace show](/cli/azure/monitor/log-analytics/workspace?view=azure-cli-latest#az-monitor-log-analytics-workspace-list).
+7. Edite os valores de **workspaceResourceId** usando o valor que você copiou na etapa 3 e, para **workspaceRegion** , copie o valor da **região** depois de executar o comando de CLI do Azure [AZ monitor log-Analytics Workspace show](/cli/azure/monitor/log-analytics/workspace#az-monitor-log-analytics-workspace-list&preserve-view=true).
 
 8. Salve esse arquivo como containerSolutionParams.jsem uma pasta local.
 
@@ -258,13 +258,13 @@ Nesta seção, você instalará o agente em contêineres para Azure Monitor para
 
     `az monitor log-analytics workspace list --resource-group <resourceGroupName>`
 
-    Na saída, localize o nome do espaço de trabalho sob o **nome**do campo e, em seguida, copie a ID do espaço de trabalho do log Analytics espaço de trabalho no campo **CustomerID**.
+    Na saída, localize o nome do espaço de trabalho sob o **nome** do campo e, em seguida, copie a ID do espaço de trabalho do log Analytics espaço de trabalho no campo **CustomerID**.
 
 2. Execute o seguinte comando para identificar a chave primária para o espaço de trabalho:
 
     `az monitor log-analytics workspace get-shared-keys --resource-group <resourceGroupName> --workspace-name <logAnalyticsWorkspaceName>`
 
-    Na saída, localize a chave primária no campo **primarySharedKey**e, em seguida, copie o valor.
+    Na saída, localize a chave primária no campo **primarySharedKey** e, em seguida, copie o valor.
 
 >[!NOTE]
 >Os comandos a seguir são aplicáveis somente para a versão 2 do Helm. O uso do `--name` parâmetro não é aplicável com a versão 3 do Helm. 
@@ -275,14 +275,14 @@ Nesta seção, você instalará o agente em contêineres para Azure Monitor para
 3. Adicione o repositório de gráficos do Azure à lista local executando o seguinte comando:
 
     ```
-    helm repo add incubator https://kubernetes-charts-incubator.storage.googleapis.com/
+    helm repo add microsoft https://microsoft.github.io/charts/repo
     ````
 
 4. Instale o gráfico executando o seguinte comando:
 
     ```
     $ helm install --name myrelease-1 \
-    --set omsagent.secret.wsid=<logAnalyticsWorkspaceId>,omsagent.secret.key=<logAnalyticsWorkspaceKey>,omsagent.env.clusterName=<my_prod_cluster> incubator/azuremonitor-containers
+    --set omsagent.secret.wsid=<logAnalyticsWorkspaceId>,omsagent.secret.key=<logAnalyticsWorkspaceKey>,omsagent.env.clusterName=<my_prod_cluster> microsoft/azuremonitor-containers
     ```
 
     Se o espaço de trabalho Log Analytics estiver na 21Vianet do Azure na China, execute o seguinte comando:
@@ -334,7 +334,7 @@ Depois de ter implantado com êxito o gráfico, você pode examinar os dados par
 
 Começando com a versão de gráfico 2.7.1, o gráfico dará suporte à especificação do ponto de extremidade de proxy com o `omsagent.proxy` parâmetro de gráfico. Isso permite que ele se comunique por meio do servidor proxy. A comunicação entre o Azure Monitor para agente de contêineres e Azure Monitor pode ser um servidor proxy HTTP ou HTTPS, e a autenticação anônima e básica (nome de usuário/senha) têm suporte.
 
-O valor de configuração de proxy tem a seguinte sintaxe:`[protocol://][user:password@]proxyhost[:port]`
+O valor de configuração de proxy tem a seguinte sintaxe: `[protocol://][user:password@]proxyhost[:port]`
 
 > [!NOTE]
 >Se o servidor proxy não exigir autenticação, você ainda precisará especificar um nome de usuário/senha do psuedo. Isso pode ser qualquer nome de usuário ou senha.
@@ -353,7 +353,7 @@ Se você especificar o protocolo como **http**, as solicitações HTTP serão cr
 
 ## <a name="troubleshooting"></a>Solução de problemas
 
-Se você encontrar um erro ao tentar habilitar o monitoramento para o cluster kubernetes híbrido, copie o [TroubleshootError_nonAzureK8s.ps1](https://raw.githubusercontent.com/microsoft/OMS-docker/ci_feature/Troubleshoot/TroubleshootError_nonAzureK8s.ps1) de script do PowerShell e salve-o em uma pasta no computador. Esse script é fornecido para ajudar a detectar e corrigir os problemas encontrados. Os problemas projetados para detectar e tentar a correção do são os seguintes:
+Se você encontrar um erro ao tentar habilitar o monitoramento para o cluster kubernetes híbrido, copie o [TroubleshootError_nonAzureK8s.ps1](https://aka.ms/troubleshoot-non-azure-k8s) de script do PowerShell e salve-o em uma pasta no computador. Esse script é fornecido para ajudar a detectar e corrigir os problemas encontrados. Os problemas projetados para detectar e tentar a correção do são os seguintes:
 
 - O espaço de trabalho de Log Analytics especificado é válido
 - O espaço de trabalho Log Analytics é configurado com a Azure Monitor para a solução de contêineres. Caso contrário, configure o espaço de trabalho.

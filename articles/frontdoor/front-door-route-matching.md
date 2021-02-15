@@ -3,24 +3,24 @@ title: Regra de roteamento de porta frontal do Azure que corresponde ao monitora
 description: Este artigo ajuda você a entender como a porta frontal do Azure corresponde à regra de roteamento a ser usada para uma solicitação de entrada
 services: front-door
 documentationcenter: ''
-author: sharad4u
+author: duongau
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/10/2018
-ms.author: sharadag
-ms.openlocfilehash: 420aa52293da14a0dfe8fbdfe681440ee4309e6b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/28/2020
+ms.author: duau
+ms.openlocfilehash: 67940db973f494cd4a12c2f16db528e0b113d656
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80878588"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91449214"
 ---
-# <a name="how-front-door-matches-requests-to-a-routing-rule"></a>Como o Front Door faz a correspondência com uma regra de roteamento
+# <a name="how-requests-are-matched-to-a-routing-rule"></a>Como as solicitações são correspondidas a uma regra de roteamento
 
-Depois de estabelecer uma conexão e fazer um handshake de TLS, quando uma solicitação chega em um ambiente de porta de front-end, uma das primeiras coisas que a porta da frente faz é determinar de todas as configurações, a regra de roteamento específica para corresponder à solicitação e, em seguida, pegar a ação definida. O documento a seguir explica como o Front Door determina qual configuração de Rota usar ao processar uma solicitação HTTP.
+Depois de estabelecer uma conexão e concluir um handshake de TLS, quando uma solicitação chega em um ambiente de porta de front-end, uma das primeiras coisas que a porta da frente faz é determinar a qual regra de roteamento específica corresponder à solicitação e, em seguida, executar a ação definida na configuração. O documento a seguir explica como o Front Door determina qual configuração de Rota usar ao processar uma solicitação HTTP.
 
 ## <a name="structure-of-a-front-door-route-configuration"></a>Estrutura de uma configuração de rota do Front Door
 Uma configuração de regra de roteamento do Front Door é composta por duas partes principais: um "lado esquerdo" e um "lado direito". Fazemos a correspondência da solicitação de entrada om o lado esquerdo da rota enquanto o lado direito define como podemos processar a solicitação.
@@ -41,7 +41,7 @@ A decisão de como processar a solicitação depende de se o cache está habilit
 Esta seção se concentrará na forma como fazemos a correspondência para uma dada regra de roteamento de Front Door. O conceito básico é que sempre fazemos a correspondência com a **correspondência mais específica primeiro** olhando apenas para o "lado esquerdo".  Primeiro fazemos a correspondência com base no protocolo HTTP, em seguida, o host de Front-end e então o caminho.
 
 ### <a name="frontend-host-matching"></a>Correspondência do host de front-end
-Ao fazer a correspondência de hosts de front-end, podemos usar a lógica conforme mostrado a seguir:
+Ao fazer correspondência de hosts de front-end, usamos a lógica definida abaixo:
 
 1. Procure por qualquer roteamento com uma correspondência exata no host.
 2. Se não houver correspondência exata de hosts de front-end, rejeite a solicitação e envie um erro 400 Solicitação inválida.

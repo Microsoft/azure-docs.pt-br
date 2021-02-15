@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: e9d638a7ed17d08b585c71b1dac4a0177f4a2939
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: b95d37e1725940799750dbd3c29174d9855390d6
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88030513"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95912919"
 ---
 # <a name="tune-performance-mapreduce-hdinsight--azure-data-lake-storage-gen2"></a>Ajustar o desempenho: MapReduce, & HDInsight Azure Data Lake Storage Gen2
 
@@ -22,9 +22,9 @@ Entenda os fatores que devem ser considerados ao ajustar o desempenho dos trabal
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Uma conta de Azure data Lake Storage Gen2**. Para obter instruções sobre como criar uma, consulte [início rápido: criar uma conta de armazenamento Azure data Lake Storage Gen2](data-lake-storage-quickstart-create-account.md).
-* **Cluster do Azure HDInsight** com acesso a uma conta do Azure Data Lake Storage Gen2. Confira [usar o Azure data Lake Storage Gen2 com clusters do Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2)
-* **Usando o MapReduce no HDInsight**.  Para obter mais informações, consulte [Usar o MapReduce no Hadoop no HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-use-mapreduce)
+* **Uma conta de Azure data Lake Storage Gen2**. Para obter instruções sobre como criar uma, consulte [início rápido: criar uma conta de armazenamento Azure data Lake Storage Gen2](../common/storage-account-create.md).
+* **Cluster do Azure HDInsight** com acesso a uma conta do Azure Data Lake Storage Gen2. Confira [usar o Azure data Lake Storage Gen2 com clusters do Azure HDInsight](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md)
+* **Usando o MapReduce no HDInsight**.  Para obter mais informações, consulte [Usar o MapReduce no Hadoop no HDInsight](../../hdinsight/hadoop/hdinsight-use-mapreduce.md)
 * **Diretrizes de ajuste de desempenho no Data Lake Storage Gen2**.  Para obter conceitos gerais de desempenho, consulte [diretrizes de ajuste de desempenho data Lake Storage Gen2](data-lake-storage-performance-tuning-guidance.md)
 
 ## <a name="parameters"></a>Parâmetros
@@ -40,7 +40,7 @@ Ao executar trabalhos do MapReduce, aqui estão os parâmetros que você pode co
 
 **Mapreduce.job.maps / Mapreduce.job.reduces** Isso determinará o número máximo de mapeadores ou redutores a serem criados.  O número de divisões determinará quantas mapeadores serão criados para o trabalho MapReduce.  Portanto, você poderá obter menos mapeadores que o solicitado se houver menos divisões do que o número de mapeadores solicitado.       
 
-## <a name="guidance"></a>Orientação
+## <a name="guidance"></a>Diretrizes
 
 > [!NOTE]
 > As diretrizes neste documento pressupõem que seu aplicativo é o único aplicativo em execução no cluster.
@@ -65,7 +65,7 @@ Se você estiver usando um cluster vazio, a memória poderá ser a memória YARN
 
 Contêineres YARN determinam a quantidade de simultaneidade disponível para o trabalho.  Pegar a memória YARN total e divida-a por mapreduce.map.memory.  
 
-\#de contêineres YARN = total de memória YARN/MapReduce. map. Memory
+\# de contêineres YARN = total de memória YARN/MapReduce. map. Memory
 
 **Etapa 5: definir mapreduce.job.maps/mapreduce.job.reduces**
 
@@ -93,7 +93,7 @@ A memória total do cluster é de 8 nós * 96 GB da memória YARN para um D14 = 
 
 **Etapa 4: calcular o número de contêineres YARN**
 
-\#de contêineres YARN = 768GB de memória disponível/3 GB de memória = 256
+\# de contêineres YARN = 768GB de memória disponível/3 GB de memória = 256
 
 **Etapa 5: definir mapreduce.job.maps/mapreduce.job.reduces**
 

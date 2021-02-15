@@ -1,20 +1,23 @@
 ---
-title: Tutorial – Configurar o dimensionamento automático para aplicativos de microsserviço
+title: Configurar o dimensionamento automático para aplicativos de microsserviço
 description: Este artigo descreve como configurar o Dimensionamento automático para seus aplicativos usando o portal do Microsoft Azure ou a CLI do Azure.
 author: MikeDodaro
 ms.author: brendm
 ms.service: spring-cloud
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 07/22/2020
-ms.custom: devx-track-java
-ms.openlocfilehash: 6e4494762c4652d3db66940dddebb13c3ab03af3
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.custom: devx-track-java, devx-track-azurecli
+ms.openlocfilehash: d59d5de0d98380be215747c7daa33721fcebf33c
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87449362"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533818"
 ---
-# <a name="tutorial-set-up-autoscale-for-microservice-applications"></a>Tutorial: Configurar o dimensionamento automático para aplicativos de microsserviço
+# <a name="set-up-autoscale-for-microservice-applications"></a>Configurar o dimensionamento automático para aplicativos de microsserviço
+
+**Este artigo aplica-se a:** ✔️ Java ✔️ C#
+
 O dimensionamento automático é um recurso interno do Azure Spring Cloud que ajuda os aplicativos de microsserviço a apresentarem seu melhor desempenho diante de alterações de demanda. Isso inclui modificar o número de CPUs virtuais, memória e instâncias de aplicativo. Este artigo descreve como configurar o Dimensionamento automático para seus aplicativos usando o portal do Microsoft Azure ou a CLI do Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -22,7 +25,7 @@ O dimensionamento automático é um recurso interno do Azure Spring Cloud que aj
 Para seguir estes procedimentos, você precisará:
 
 * Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
-* Uma instância de serviço do Azure Spring Cloud implantada. Seguir o [início rápido sobre como implantar um aplicativo por meio da CLI do Azure](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-cli) para obter uma introdução.
+* Uma instância de serviço do Azure Spring Cloud implantada. Seguir o [início rápido sobre como implantar um aplicativo por meio da CLI do Azure](./spring-cloud-quickstart.md) para obter uma introdução.
 * Pelo menos um aplicativo já criado na instância de serviço.
 
 ## <a name="navigate-to-the-autoscale-page-in-the-azure-portal"></a>Navegue até a página Dimensionamento automático no portal do Azure
@@ -67,5 +70,5 @@ Se você estiver na camada básica e restringido por um ou mais desses limites, 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Visão geral do dimensionamento automático no Microsoft Azure](https://docs.microsoft.com/azure/azure-monitor/platform/autoscale-overview)
-* [Monitoramento do dimensionamento automático na CLI do Azure](https://docs.microsoft.com/cli/azure/monitor/autoscale?view=azure-cli-latest)
+* [Visão geral do dimensionamento automático no Microsoft Azure](../azure-monitor/platform/autoscale-overview.md)
+* [Monitoramento do dimensionamento automático na CLI do Azure](/cli/azure/monitor/autoscale?preserve-view=true&view=azure-cli-latest)

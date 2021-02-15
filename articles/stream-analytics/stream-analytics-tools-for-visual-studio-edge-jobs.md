@@ -3,17 +3,16 @@ title: Azure Stream Analytics trabalhos do Edge no Visual Studio
 description: Este artigo descreve como criar e depurar o Stream Analytics em trabalhos IoT Edge usando as ferramentas do Stream Analytics para Visual Studio.
 author: su-jie
 ms.author: sujie
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 44b84c03dd9c070fd7ca3764a0dc50e8caa9e1fc
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 09151ea0fe3d419401d576149f6655b8cdc09f8e
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045154"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019951"
 ---
 # <a name="develop-stream-analytics-edge-jobs-using-visual-studio-tools"></a>Desenvolver trabalhos de Borda do Stream Analytics utilizando ferramentas do Visual Studio
 
@@ -48,7 +47,7 @@ Depois que o projeto for criado, navegue para o **Gerenciador de Soluções** pa
 
 1. No **Gerenciador de Soluções**, expanda o nó de **Entradas** e você deverá ver uma entrada nomeada **EdgeInput.json**. Clique duas vezes para exibir as configurações.  
 
-2. Definir o Tipo de Origem para **Transmissão de Dados**. Em seguida, defina a origem de **Hub Edge**, o formato de serialização de evento para **Json**e a codificação para **UTF8**. Opcionalmente, é possível renomear o **Alias de Entrada**, mas para este exemplo manteremos como está. Se for renomear o alias de entrada, utilize o nome especificado durante a definição da consulta. Clique em **Salvar** para salvar as configurações.  
+2. Definir o Tipo de Origem para **Transmissão de Dados**. Em seguida, defina a origem de **Hub Edge**, o formato de serialização de evento para **Json** e a codificação para **UTF8**. Opcionalmente, é possível renomear o **Alias de Entrada**, mas para este exemplo manteremos como está. Se for renomear o alias de entrada, utilize o nome especificado durante a definição da consulta. Clique em **Salvar** para salvar as configurações.  
    ![Configuração de entrada de trabalho do Stream Analytics](./media/stream-analytics-tools-for-visual-studio-edge-jobs/stream-analytics-input-configuration.png)
  
 
@@ -57,12 +56,12 @@ Depois que o projeto for criado, navegue para o **Gerenciador de Soluções** pa
 
 1. No **Gerenciador de Soluções**, expanda o nó de **Saídas** e você deverá ver uma saída nomeada **EdgeOutput.json**. Clique duas vezes para exibir as configurações.  
 
-2. Certifique-se de definir o coletor para selecionar o **Hub do Edge**, definir o formato de serialização de evento como **JSON**, definir codificação como **UTF8**e definir a **matriz**de formato. Opcionalmente, é possível renomear o **Alias de Saída**, mas para este exemplo manteremos como está. Se for renomear o alias de saída, utilize o nome especificado durante a definição da consulta. Clique em **Salvar** para salvar as configurações. 
+2. Certifique-se de definir o coletor para selecionar o **Hub do Edge**, definir o formato de serialização de evento como **JSON**, definir codificação como **UTF8** e definir a **matriz** de formato. Opcionalmente, é possível renomear o **Alias de Saída**, mas para este exemplo manteremos como está. Se for renomear o alias de saída, utilize o nome especificado durante a definição da consulta. Clique em **Salvar** para salvar as configurações. 
    ![Configuração de saída de trabalho do Stream Analytics](./media/stream-analytics-tools-for-visual-studio-edge-jobs/stream-analytics-output-configuration.png)
  
 ## <a name="define-the-transformation-query"></a>Definir a consulta de transformação
 
-Stream Analytics trabalhos implantados no Stream Analytics IoT Edge ambientes dão suporte à maioria das [Stream Analytics referência de linguagem de consulta](https://msdn.microsoft.com/azure/stream-analytics/reference/stream-analytics-query-language-reference?f=255&MSPPError=-2147217396). No entanto, as operações a seguir ainda não têm suporte para trabalhos do Stream Analytics Edge: 
+Stream Analytics trabalhos implantados no Stream Analytics IoT Edge ambientes dão suporte à maioria das [Stream Analytics referência de linguagem de consulta](/stream-analytics-query/stream-analytics-query-language-reference?f=255&MSPPError=-2147217396). No entanto, as operações a seguir ainda não têm suporte para trabalhos do Stream Analytics Edge: 
 
 
 |**Categoria**  | **Comando**  |
@@ -101,7 +100,7 @@ Para testar a consulta localmente, será necessário carregar os dados de exempl
 
 1. Antes de enviar o trabalho para o Azure, será necessário conectar-se à Assinatura do Azure. Abra **Gerenciador de Servidores** > clique com o botão direito em **Azure** > **Conectar-se à assinatura do Microsoft Azure** > entre na sua assinatura do Azure.  
 
-2. Para enviar o trabalho para o Azure, navegue até o editor de consultas > selecione ** Enviar para o Azure **.  
+2. Para enviar o trabalho para o Azure, navegue até o editor de consultas > selecione **Enviar para o Azure**.  
 
 3. Uma janela pop-up é aberta. Escolha atualizar um trabalho de borda Stream Analytics existente ou crie um novo. Quando você atualizar um trabalho existente, ele substituirá toda a configuração do trabalho, neste cenário, você publicará um novo trabalho. Selecione **Criar um novo trabalho do Azure Stream Analytics** > insira um nome para o trabalho, semelhante a **MyASAEdgeJob** > escolha a **Assinatura** exigida, **Grupo de Recursos** e o **Local** > Selecione **Enviar**.
 
@@ -123,4 +122,4 @@ A janela de exibição de trabalhos fornece operações como atualizar o trabalh
 
 * [Mais informações sobre o Azure IoT Edge](../iot-edge/about-iot-edge.md)
 * [ASA no tutorial de IoT Edge](../iot-edge/tutorial-deploy-stream-analytics.md)
-* [Enviar comentários para a equipe usando esta pesquisa](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2czagZ-i_9Cg6NhAZlH9ypUMjNEM0RDVU9CVTBQWDdYTlk0UDNTTFdUTC4u) 
+* [Enviar comentários para a equipe usando esta pesquisa](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2czagZ-i_9Cg6NhAZlH9ypUMjNEM0RDVU9CVTBQWDdYTlk0UDNTTFdUTC4u)

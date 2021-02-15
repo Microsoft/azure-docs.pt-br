@@ -7,16 +7,16 @@ ms.topic: conceptual
 author: vikrambmsft
 ms.author: vikramb
 ms.date: 04/16/2020
-ms.openlocfilehash: a1fcaced7783d09f1733fbee8744ba725b639a02
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 0a3188d5dc2c34c9959ae488ad5a5f962a99f02f
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119524"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880263"
 ---
 # <a name="publish-an-integrated-solution"></a>Publicar uma solução integrada
 
-Este artigo explica o processo geral e os requisitos para publicação de uma solução integrada no marketplace comercial. Em uma oferta única em pacote, uma solução integrada combina tecnologias de solução de ponto de fornecedores de software com a implantação e o suporte de um parceiro de serviços. O parceiro de serviços lista a oferta no Microsoft AppSource ou no Azure Marketplace como um [serviço de consultoria](./consulting-services.md).
+Este artigo explica o processo geral e os requisitos para publicação de uma solução integrada no marketplace comercial. Em uma oferta única em pacote, uma solução integrada combina tecnologias de solução de ponto de fornecedores de software com a implantação e o suporte de um parceiro de serviços. O parceiro de serviços lista a oferta no Microsoft AppSource ou no Azure Marketplace como um [serviço de consultoria](./plan-consulting-service-offer.md).
 
 Soluções integradas visam atender a uma necessidade ou cenário específico do cliente. Os provedores começam compreendendo o desafio ou os pontos problemáticos do setor. Em seguida, eles integram duas ou mais das melhores tecnologias para criar uma experiência de implantação unificada e reproduzível para os clientes. Os provedores colocam os clientes em funcionamento rapidamente. Eles oferecem um único ponto de contato para o cliente, fornecendo suporte relevante para personalização, consultoria e solução. O resultado é uma solução integrada, incluindo tecnologia e serviços.
 
@@ -32,18 +32,17 @@ Para obter uma visão geral do programa de soluções integradas, assista ao [v�
 ## <a name="eligibility-criteria"></a>Critérios de qualificação
 
 * Os parceiros participantes devem ter uma ID MPN.
-* Os provedores de serviços participantes devem estar prontos para fazer venda conjunta.
-* Os fornecedores de software participantes devem estar prontos para venda conjunta de IP.
+* Os provedores de serviços participantes devem estar [prontos para venda](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status).
+* Os fornecedores de software participantes devem ser [prontos para venda de IP](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status).
 * Pelo menos um parceiro participante deve ter Competência Gold em uma das seguintes áreas:
-
-    * Desenvolvimento de aplicativo
-    * Integração de Aplicativo
-    * Gerenciamento do Ciclo de Vida do Aplicativo
-    * Plataforma de Nuvem
-    * Análise de Dados
-    * Datacenter
-    * Plataforma de dados
-    * DevOps
+    - Desenvolvimento de aplicativo
+    - Integração de Aplicativo
+    - Gerenciamento do Ciclo de Vida do Aplicativo
+    - Plataforma de Nuvem
+    - Análise de Dados
+    - Datacenter
+    - Plataforma de dados
+    - DevOps
 
 * A solução deve incluir pelo menos duas organizações parceiras, reunindo IP e serviços para que o cliente obtenha solução e experiência completas.
 * O IP do parceiro deve ser criado no Azure, no Dynamics 365 ou no Power Platform.
@@ -52,7 +51,7 @@ Para obter uma visão geral do programa de soluções integradas, assista ao [v�
 
 ## <a name="submit-a-nomination"></a>Enviar uma nominação
 
-Os parceiros que desejam participar do programa devem identificar outros parceiros com os quais desejam trabalhar. Eles devem preencher o [formulário de nominação de soluções integradas](https://aka.ms/AA5qicu). A equipe do programa de soluções integradas revisa a indicação e responde em até 10 dias úteis. A equipe fornece a aprovação e as próximas etapas.
+Os parceiros que desejam participar do programa devem identificar outros parceiros com os quais desejam trabalhar. Eles devem concluir o [formulário de nominação de soluções integradas](https://aka.ms/AA5qicu). A equipe do programa de soluções integradas revisa a indicação e responde em até 10 dias úteis. A equipe fornece a aprovação e as próximas etapas.
 
 ## <a name="develop-an-integrated-solution"></a>Desenvolver uma solução integrada
 
@@ -104,7 +103,7 @@ Depois que sua nominação for aprovada, use os recursos de programa vinculado p
 
 ## <a name="publish-your-integrated-solution"></a>Publicar a solução integrada
 
-Depois de concluir a integração técnica e o material de marketing, consulte o guia do editor para saber mais sobre [Serviços de consultoria para Microsoft AppSource e Azure Marketplace](./consulting-services.md). Use esse recurso para determinar se a sua solução será publicada no Microsoft AppSource ou no Azure Marketplace. Use também o guia para preparar seus artefatos de publicação e concluir o processo de publicação.
+Depois de concluir a integração técnica e o material de marketing, consulte o guia do editor para saber mais sobre [Serviços de consultoria para Microsoft AppSource e Azure Marketplace](./plan-consulting-service-offer.md). Use esse recurso para determinar se a sua solução será publicada no Microsoft AppSource ou no Azure Marketplace. Use também o guia para preparar seus artefatos de publicação e concluir o processo de publicação.
 
 Embora cinco tipos de serviço estejam disponíveis para ofertas de serviço de consultoria, uma solução integrada deve ser uma prova de conceito ou uma implementação completa.
 
@@ -114,4 +113,4 @@ Quando sua solução estiver ativa no Microsoft AppSource ou no Azure Marketplac
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter informações sobre como comprar uma solução integrada no marketplace, consulte [Soluções integradas](./integrated-solutions.md).
+- [Formulário de nominação de soluções integradas](https://aka.ms/AA5qicu)

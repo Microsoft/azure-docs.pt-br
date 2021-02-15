@@ -3,18 +3,21 @@ title: QUADRADO em Azure Cosmos DB linguagem de consulta
 description: Saiba mais sobre a função do sistema SQL QUADRAda no Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 03/04/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: a22c4daaf9df889f2256bc78f2175c966d4841f7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dff3787936914c3d3dbb61bdc0053126853e52af
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78303436"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93335289"
 ---
 # <a name="square-azure-cosmos-db"></a>QUADRADO (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Retorna o quadrado do valor numérico especificado.  
   
 ## <a name="syntax"></a>Sintaxe

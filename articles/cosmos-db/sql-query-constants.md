@@ -3,17 +3,19 @@ title: Constantes do SQL no Azure Cosmos DB
 description: Saiba mais sobre como as constantes de consulta SQL no Azure Cosmos DB são usadas para representar um valor de dados específico
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: tisande
-ms.openlocfilehash: cca62c358037dbe99fd16746ee081b1540161df2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b0973dca980b65b85ac66cc1b3c9ed45f0f9c779
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74873413"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339189"
 ---
 # <a name="azure-cosmos-db-sql-query-constants"></a>Constantes de consulta do Azure Cosmos DB SQL  
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
  Uma constante, também conhecida como uma literal ou um valor escalar, é um símbolo que representa um valor de dados específico. O formato de uma constante depende do tipo de dados do valor que representa.  
   
@@ -23,13 +25,13 @@ ms.locfileid: "74873413"
 |-|-|  
 |**Indefinido**|Valor único: **indefinido**|  
 |**Nulo**|Valor único: **nulo**|  
-|**Boolean**|Valores: **falso**, **verdadeiro**.|  
+|**Booliano**|Valores: **falso** , **verdadeiro**.|  
 |**Número**|Um número de ponto flutuante de precisão dupla, padrão IEEE 754.|  
 |**Cadeia de caracteres**|Uma sequência de zero ou mais caracteres Unicode. As cadeias de caracteres devem ser colocadas entre aspas simples ou duplas.|  
-|**Variedade**|Uma sequência de zero ou mais elementos. Cada elemento pode ser um valor de qualquer tipo de dados escalar, exceto **indefinido**.|  
+|**Matriz**|Uma sequência de zero ou mais elementos. Cada elemento pode ser um valor de qualquer tipo de dados escalar, exceto **indefinido**.|  
 |**Objeto**|Um conjunto ordenado de zero ou mais pares de nome/valor. Nome é uma cadeia de caracteres Unicode; o valor pode ser de qualquer tipo de dados escalares, exceto **Indefinido**.|  
   
-## <a name="syntax"></a><a name="bk_syntax"></a>Syntax
+## <a name="syntax"></a><a name="bk_syntax"></a>Sintaxe
   
 ```sql  
 <constant> ::=  
@@ -59,7 +61,7 @@ ms.locfileid: "74873413"
   
 ```  
   
-##  <a name="arguments"></a><a name="bk_arguments"></a>Argumentos
+##  <a name="arguments"></a><a name="bk_arguments"></a> Argumentos
   
 * `<undefined_constant>; Undefined`  
   

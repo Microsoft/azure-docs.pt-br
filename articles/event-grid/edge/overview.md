@@ -4,10 +4,10 @@ description: Use a Grade de Eventos do Azure como um módulo no IoT Edge para en
 ms.topic: overview
 ms.date: 07/08/2020
 ms.openlocfilehash: 82a68f6ab32d8ad18c3af506c810b01d12cf794d
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "86171509"
 ---
 # <a name="what-is-azure-event-grid-on-azure-iot-edge"></a>O que é a Grade de Eventos do Azure no Azure IoT Edge?

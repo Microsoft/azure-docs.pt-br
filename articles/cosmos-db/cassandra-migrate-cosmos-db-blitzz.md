@@ -3,18 +3,20 @@ title: Migrar dados do Cassandra para o API do Cassandra de Azure Cosmos DB usan
 description: Saiba como migrar dados do Apache Cassandra para Azure Cosmos DB API do Cassandra usando o Blitzz.
 author: SnehaGunda
 ms.service: cosmos-db
+ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 08/21/2019
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: d3eda4694decb74912cc125ef0a33de04838be2c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c26d21e74e9808fe65890b7f4eba31ee742552a4
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85260620"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339976"
 ---
 # <a name="migrate-data-from-cassandra-to-azure-cosmos-db-cassandra-api-account-using-blitzz"></a>Migrar dados do Cassandra para a conta de API do Cassandra Azure Cosmos DB usando o Blitzz
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 API do Cassandra no Azure Cosmos DB se tornou uma ótima opção para cargas de trabalho corporativas em execução no Apache Cassandra por vários motivos, como: 
 
@@ -34,7 +36,7 @@ A solução de migração do Blitzz segue uma abordagem passo a passo para migra
 
 * O Blitzz oferece replicação de banco de dados paralela e de alto volume. Ele permite que as plataformas de origem e de destino estejam em sincronia durante a migração usando uma técnica chamada de captura de dados de alteração (CDC). Usando o CDC, o Blitzz Obtém continuamente um fluxo de alterações do banco de dados de origem (Apache Cassandra) e a aplica ao banco de dados de destino (Azure Cosmos DB).
 
-* Ele é tolerante a falhas e garante a entrega de dados exatamente uma vez, mesmo durante uma falha de hardware ou software no sistema.
+* Ele é tolerante a falhas e fornece uma entrega de dados exatamente uma vez, mesmo durante uma falha de hardware ou software no sistema.
 
 * Ele protege os dados durante o trânsito usando uma variedade de metodologias de segurança como TLS, criptografia.
 
@@ -96,7 +98,7 @@ Esta seção descreve as etapas necessárias para configurar o Blitzz e migrar d
 
    Diminua a taxa de transferência após a conclusão da migração. Com base na quantidade de dados armazenados e RUs necessários para cada operação, você pode estimar a taxa de transferência necessária após a migração de dados. Para saber mais sobre como estimar o RUs necessário, confira [provisionar taxa de transferência em contêineres e bancos de dados](set-throughput.md) e [estimar ru/s usando os artigos Azure Cosmos DB Capacity Planner](estimate-ru-with-capacity-planner.md) .
 
-1. Obtenha o **ponto de contato, a porta, o nome de usuário**e a **senha primária** da sua conta do Azure Cosmos no painel de **cadeia de conexão** . Você usará esses valores no arquivo de configuração.
+1. Obtenha o **ponto de contato, a porta, o nome de usuário** e a **senha primária** da sua conta do Azure Cosmos no painel de **cadeia de conexão** . Você usará esses valores no arquivo de configuração.
 
 1. No terminal da CLI, defina a configuração do banco de dados de destino. Abra o arquivo de configuração usando o **`vi conf/conn/cosmosdb.yml`** comando e adicione uma lista separada por vírgulas de URI de host, número da porta, nome de usuário, senha e outros parâmetros necessários. O exemplo a seguir mostra o conteúdo do arquivo de configuração:
 

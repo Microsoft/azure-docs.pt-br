@@ -1,21 +1,22 @@
 ---
 title: Operações de DDL na API do Cassandra do Azure Cosmos DB do Spark
 description: Este artigo fornece detalhes sobre as operações de DDL de tabela e de keyspace mediante a API do Cassandra do Azure Cosmos DB do Spark.
-author: kanshiG
-ms.author: govindk
+author: TheovanKraay
+ms.author: thvankra
 ms.reviewer: sngun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
-ms.date: 09/24/2018
-ms.openlocfilehash: 30cac5894998ca2bb9c37217820e1000ed97ba5d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 10/07/2020
+ms.openlocfilehash: 73d31fff362807937cbd87b8e1313cf601909802
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85260552"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93092170"
 ---
 # <a name="ddl-operations-in-azure-cosmos-db-cassandra-api-from-spark"></a>Operações de DDL na API do Cassandra do Azure Cosmos DB do Spark
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 Este artigo fornece detalhes sobre as operações de DDL de tabela e de keyspace mediante a API do Cassandra do Azure Cosmos DB do Spark.
 
@@ -82,7 +83,7 @@ DESCRIBE keyspaces;
 ```
 ## <a name="table-ddl-operations"></a>Operações de DDL de tabela
 
-**Considere**  
+**Considerações:**  
 
 - A taxa de transferência pode ser atribuída no nível de tabela usando a instrução create table.  
 - Uma chave de partição pode armazenar 20 GB de dados.  
@@ -92,8 +93,7 @@ DESCRIBE keyspaces;
 ### <a name="create-a-table"></a>Criar uma tabela
 
 ```scala
-val cdbConnector = CassandraConnector(sc)
-cdbConnector.withSessionDo(session => session.execute("CREATE TABLE IF NOT EXISTS books_ks.books(book_id TEXT PRIMARY KEY,book_author TEXT, book_name TEXT,book_pub_year INT,book_price FLOAT) WITH cosmosdb_provisioned_throughput=4000 , WITH default_time_to_live=630720000;"))
+cdbConnector.withSessionDo(session => session.execute("CREATE TABLE IF NOT EXISTS books_ks1.books(book_id TEXT,book_author TEXT, book_name TEXT,book_pub_year INT,book_price FLOAT, PRIMARY KEY(book_id,book_pub_year)) WITH cosmosdb_provisioned_throughput=4000 , WITH default_time_to_live=630720000;"))
 ```
 
 #### <a name="validate-in-cqlsh"></a>Validar no cqlsh
@@ -143,6 +143,6 @@ Depois de criar o keyspace e a tabela, prossiga para os artigos a seguir para op
 * [Operações de criação/inserção](cassandra-spark-create-ops.md)  
 * [Operações de leitura](cassandra-spark-read-ops.md)  
 * [Operações de Upsert](cassandra-spark-upsert-ops.md)  
-* [Excluir operações](cassandra-spark-delete-ops.md)  
+* [Operações de exclusão](cassandra-spark-delete-ops.md)  
 * [Operações de agregação](cassandra-spark-aggregation-ops.md)  
 * [Operações de cópia de tabela](cassandra-spark-table-copy-ops.md)  

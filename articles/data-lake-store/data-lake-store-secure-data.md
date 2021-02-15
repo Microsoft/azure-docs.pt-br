@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 03/26/2018
 ms.author: twooley
-ms.openlocfilehash: b1da644d8aca0b197e21ec03c7d0ac0b454f92a9
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: ac7666f4c4e68d24499f9c097dc9bd021d270355
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926290"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370688"
 ---
 # <a name="securing-data-stored-in-azure-data-lake-storage-gen1"></a>Protegendo Dados Armazenados no Armazenamento de Data Lake do Azure Gen1
-A proteção de dados no Azure Data Lake Storage Gen1 é uma abordagem em três etapas.  Controle de acesso baseado em regra (RBAC) e listas de controle de acesso (ACLs) devem ser definidas para possibilitar o acesso completo a dados para usuários e grupos de segurança.
+A proteção de dados no Azure Data Lake Storage Gen1 é uma abordagem em três etapas.  Tanto o controle de acesso baseado em função do Azure (RBAC do Azure) quanto as listas de controle de acesso (ACLs) devem ser definidos para habilitar totalmente o acesso aos dados para usuários e grupos de segurança.
 
-1. Comece criando grupos de segurança no Active Directory do Azure (AAD). Esses grupos de segurança são usados para implementar o controle de acesso baseado em função do Azure (RBAC do Azure) no portal do Azure. Para obter mais informações, consulte [RBAC do Azure](../role-based-access-control/role-assignments-portal.md).
-2. Atribua os grupos de segurança do AAD à conta do Data Lake Storage Gen1. Isso controla o acesso à conta do Data Lake Storage Gen1 do portal e das operações de gerenciamento do portal ou das APIs.
-3. Atribua os grupos de segurança AAD como listas de controle de acesso (ACLs) no sistema de arquivos Data Lake Storage Gen1.
+1. Comece criando grupos de segurança no Azure Active Directory (Azure AD). Esses grupos de segurança são usados para implementar o controle de acesso baseado em função do Azure (RBAC do Azure) no portal do Azure. Para obter mais informações, consulte [RBAC do Azure](../role-based-access-control/role-assignments-portal.md).
+2. Atribua os grupos de segurança do Azure AD à conta de Data Lake Storage Gen1. Isso controla o acesso à conta do Data Lake Storage Gen1 do portal e das operações de gerenciamento do portal ou das APIs.
+3. Atribua os grupos de segurança do Azure AD como listas de controle de acesso (ACLs) no sistema de arquivos Data Lake Storage Gen1.
 4. Além disso, você também pode definir um intervalo de endereços IP para clientes que possam acessar os dados no Data Lake Storage Gen1.
 
 Este artigo fornece instruções sobre como usar o Portal do Azure para realizar as tarefas acima. Para obter informações detalhadas sobre como o Data Lake Storage Gen1 implementa a segurança no nível da conta e dos dados, consulte [Segurança no armazenamento de dados do Lake Azure no Gen1](data-lake-store-security-overview.md). Para obter informações detalhadas sobre como as ACLs são implementadas no Data Lake Storage Gen1, consulte [Visão geral do controle de acesso no Data Lake Storage Gen1](data-lake-store-access-control.md).
@@ -36,10 +36,10 @@ Antes de começar este tutorial, você deve ter o seguinte:
 * **Uma conta do Data Lake Storage Gen1**. Para obter instruções sobre como criar uma, consulte Introdução [ao Azure data Lake Storage Gen1](data-lake-store-get-started-portal.md)
 
 ## <a name="create-security-groups-in-azure-active-directory"></a>Criar grupos de segurança no Active Directory do Azure
-Para obter instruções sobre como criar grupos de segurança do AAD e como adicionar usuários ao grupo, consulte [Gerenciar grupos de segurança no Active Directory do Azure](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
+Para obter instruções sobre como criar grupos de segurança do Azure AD e como adicionar usuários ao grupo, consulte [Managing Security Groups in Azure Active Directory](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
 > [!NOTE] 
-> Adicione usuários e outros grupos a um grupo no Azure AD usando o portal do Azure. No entanto, para adicionar uma entidade de serviço a um grupo, use um [módulo do PowerShell do Azure AD](../active-directory/users-groups-roles/groups-settings-v2-cmdlets.md).
+> Adicione usuários e outros grupos a um grupo no Azure AD usando o portal do Azure. No entanto, para adicionar uma entidade de serviço a um grupo, use um [módulo do PowerShell do Azure AD](../active-directory/enterprise-users/groups-settings-v2-cmdlets.md).
 > 
 > ```powershell
 > # Get the desired group and service principal and identify the correct object IDs
@@ -68,13 +68,13 @@ Quando você atribui usuários ou grupos de segurança a contas do Data Lake Sto
     Para as operações de dados, as permissões do sistema de arquivos individual definem o que os usuários podem fazer. Portanto, um usuário com uma função de Leitor pode exibir somente as configurações administrativas associadas à conta, mas possivelmente pode ler e gravar dados com base nas permissões de sistema de arquivo atribuídas a ele. As permissões do sistema de arquivos Data Lake Storage Gen1 são descritas em [Atribuir grupo de segurança como ACLs ao sistema de arquivos do Azure Data Lake Storage Gen1](#filepermissions).
 
     > [!IMPORTANT]
-    > Somente a função do **Proprietário** automaticamente habilita o acesso de sistema de arquivos. O **Colaborador**, **Leitor**, e todas as outras funções exigem ACLs para permitir qualquer nível de acesso a arquivos e pastas.  A função do **Proprietário** fornece arquivo de superusuário e permissões que não podem ser substituídas via ACLs. Para obter mais informações sobre como as políticas RBAC mapeiam o acesso a dados, consulte [RBAC para gerenciamento de conta](data-lake-store-security-overview.md#rbac-for-account-management).
+    > Somente a função do **Proprietário** automaticamente habilita o acesso de sistema de arquivos. O **Colaborador**, **Leitor**, e todas as outras funções exigem ACLs para permitir qualquer nível de acesso a arquivos e pastas.  A função do **Proprietário** fornece arquivo de superusuário e permissões que não podem ser substituídas via ACLs. Para obter mais informações sobre como as políticas RBAC do Azure são mapeadas para acesso a dados, consulte [RBAC do Azure para gerenciamento de conta](data-lake-store-security-overview.md#azure-rbac-for-account-management).
 
 4. Se você deseja adicionar um grupo/usuário não listado na folha **Adicionar permissões**, você pode convidá-los digitando seu endereço de email na caixa de texto **Selecionar**, e em seguida, selecione-os na lista.
    
     ![Adicionar um grupo de segurança](./media/data-lake-store-secure-data/adl.add.user.2.png "Adicionar um grupo de segurança")
    
-5. Clique em **Salvar**. O grupo de segurança deve ter sido adicionado, como exibido abaixo.
+5. Clique em **Save** (Salvar). O grupo de segurança deve ter sido adicionado, como exibido abaixo.
    
     ![Grupo de segurança adicionado](./media/data-lake-store-secure-data/adl.add.user.3.png "Grupo de segurança adicionado")
 
@@ -104,12 +104,12 @@ Ao atribuir grupos de usuários / segurança ao sistema de arquivos do Data Lake
     ![Adicionar um grupo](./media/data-lake-store-secure-data/adl.acl.3.png "Adicionar um grupo")
 5. Clique em **Selecionar Permissões**, selecione as permissões, todas as permissões devem ser aplicadas recursivamente, e sempre que você quiser atribuir as permissões como um ACL de acesso, ACL padrão ou ambos. Clique em **OK**.
    
-    ![Atribuir permissões ao grupo](./media/data-lake-store-secure-data/adl.acl.4.png "Atribuir permissões ao grupo")
+    ![Captura de tela da folha atribuir permissões com a opção Selecionar permissões chamada out e a folha selecionar permissões com a opção Ok chamada out.](./media/data-lake-store-secure-data/adl.acl.4.png "Atribuir permissões ao grupo")
    
     Para obter mais informações sobre permissões no Data Lake armazenamento Gen1 e ACLs de acesso/padrão, consulte [controle de acesso no Data Lake armazenamento Gen1](data-lake-store-access-control.md).
 6. Depois de clicar em **Ok** na folha **Selecionar permissões**, o grupo recém-adicionado e permissões associadas agora estarão listadas na folha **Acesso**.
    
-    ![Atribuir permissões ao grupo](./media/data-lake-store-secure-data/adl.acl.5.png "Atribuir permissões ao grupo")
+    ![Captura de tela da folha de acesso com a opção de engenharia de dados chamada out.](./media/data-lake-store-secure-data/adl.acl.5.png "Atribuir permissões ao grupo")
    
    > [!IMPORTANT]
    > Na versão atual, você pode ter até 28 entradas em **Permissões atribuídas**. Se você quiser adicionar mais de 28 usuários, deverá criar grupos de segurança, adicionar usuários a grupos de segurança, adicionar acesso a esses grupos de segurança para a conta do Data Lake Storage Gen1.
@@ -123,7 +123,7 @@ O Data Lake Storage Gen1 permite bloquear ainda mais o acesso ao seu armazenamen
 ![Configurações do firewall e acesso IP](./media/data-lake-store-secure-data/firewall-ip-access.png "Configurações de firewall e endereço IP")
 
 ## <a name="remove-security-groups-for-a-data-lake-storage-gen1-account"></a>Remover grupos de segurança para uma conta do Data Lake Storage Gen1
-Quando você remove grupos de segurança das contas do Data Lake Storage Gen1, só está alterando o acesso às operações de gerenciamento na conta usando as APIs do Portal do Azure e do Azure Resource Manager.  
+Quando você remove grupos de segurança de contas do Data Lake Storage Gen1, você está apenas alterando o acesso às operações de gerenciamento na conta usando as APIs portal do Azure e Azure Resource Manager.  
 
 O acesso a dados é alterado e ainda é gerenciado pelo acesso de ACLs.  A exceção a isso são os usuários/grupos na função Proprietários.  Usuários/grupos não são mais superusuários e seu acesso voltará para acessar configurações de ACL. 
 
@@ -145,13 +145,13 @@ Quando você remove as ACLs do grupo de segurança de um sistema de arquivos do 
     ![Definir ACLs no sistema de arquivos Data Lake Storage Gen1](./media/data-lake-store-secure-data/adl.acl.1.png "Definir ACLs no sistema de arquivos Data Lake Storage Gen1")
 3. Na folha **Acesso**, clique no grupo de segurança que você deseja remover. Na folha **Acessar detalhes**, clique em **Remover**.
    
-    ![Atribuir permissões ao grupo](./media/data-lake-store-secure-data/adl.remove.acl.png "Atribuir permissões ao grupo")
+    ![Captura de tela da folha de acesso com a opção de engenharia de dados chamada saída e a folha detalhes de acesso com a opção remover chamada out.](./media/data-lake-store-secure-data/adl.remove.acl.png "Atribuir permissões ao grupo")
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 * [Visão Geral do Azure Data Lake Storage Gen1](data-lake-store-overview.md)
 * [Copiar dados do Azure Storage Blobs para o Data Lake Storage Gen1](data-lake-store-copy-data-azure-storage-blob.md)
 * [Usar o Azure Data Lake Analytics com o Data Lake Storage Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Usar o Azure HDInsight com o Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)
 * [Introdução ao Armazenamento do Data Lake Gen1 usando o PowerShell](data-lake-store-get-started-powershell.md)
-* [Comece a usar o Data Lake Storage Gen1 usando o .NET SDK](data-lake-store-get-started-net-sdk.md)
+* [Introdução ao Data Lake Storage Gen1 usando o SDK do .NET](data-lake-store-get-started-net-sdk.md)
 * [Acesse os logs de diagnóstico do Data Lake Storage Gen1](data-lake-store-diagnostic-logs.md)

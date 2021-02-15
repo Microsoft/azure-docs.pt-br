@@ -17,16 +17,16 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a013af680ecc84a2a981341ba4bb95148adc799f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d215c2e200308664f24daa28a0054c8f1bcfc09c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85357249"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91319870"
 ---
 # <a name="using-connectors-with-the-azure-ad-connect-sync-service-manager"></a>Usando conectores com o Azure AD Connect Sync Service Manager
 
-![Synchronization Service Manager](./media/how-to-connect-sync-service-manager-ui-connectors/connectors.png)
+![Captura de tela que mostra o Service Manager de sincronização.](./media/how-to-connect-sync-service-manager-ui-connectors/connectors.png)
 
 A guia Conectores é usada para gerenciar todos os sistemas aos quais o mecanismo de sincronização está conectado.
 
@@ -35,10 +35,10 @@ A guia Conectores é usada para gerenciar todos os sistemas aos quais o mecanism
 | --- | --- |
 | Criar |Não use. Para se conectar a florestas adicionais do AD, use o assistente de instalação. |
 | Propriedades |Usado para filtragem de domínio e de UO. |
-| [Excluir](#delete) |Usado para excluir os dados no espaço do conector ou para excluir a conexão a uma floresta. |
+| [Delete (excluir)](#delete) |Usado para excluir os dados no espaço do conector ou para excluir a conexão a uma floresta. |
 | [Configurar perfis de execução](#configure-run-profiles) |Com exceção do domínio de filtragem, não há nada a ser configurado aqui. Você pode usar essa ação para ver os perfis de execução já configurados. |
 | Executar |Usado para iniciar uma execução única de um perfil. |
-| Stop |Interrompe um Conector que, atualmente, executa um perfil. |
+| Parar |Interrompe um Conector que, atualmente, executa um perfil. |
 | Exportar Conector |Não use. |
 | Importar Conector |Não use. |
 | Atualizar Conector |Não use. |
@@ -47,7 +47,7 @@ A guia Conectores é usada para gerenciar todos os sistemas aos quais o mecanism
 
 ### <a name="delete"></a>Excluir
 A ação de exclusão é usada com duas finalidades diferentes.  
-![Synchronization Service Manager](./media/how-to-connect-sync-service-manager-ui-connectors/connectordelete.png)
+![Captura de tela que mostra a janela "excluir conector" com "excluir somente espaço do conector" selecionado.](./media/how-to-connect-sync-service-manager-ui-connectors/connectordelete.png)
 
 A opção **Excluir apenas o espaço do conector** remove todos os dados, mas mantém a configuração.
 
@@ -58,17 +58,17 @@ Ambas as opções sincronizam todos os objetos e atualizam os objetos do metaver
 ### <a name="configure-run-profiles"></a>Configurar perfis de execução
 Esta opção permite que você veja os perfis de execução configurados para um Conector.
 
-![Synchronization Service Manager](./media/how-to-connect-sync-service-manager-ui-connectors/configurerunprofiles.png)
+![Captura de tela que mostra a janela "Configurar perfis de execução" com a "importação Delta" selecionada.](./media/how-to-connect-sync-service-manager-ui-connectors/configurerunprofiles.png)
 
 ### <a name="search-connector-space"></a>Pesquisar Espaço do Conector
 A ação de espaço do conector de pesquisa é útil para encontrar objetos e solucionar problemas de dados.
 
-![Synchronization Service Manager](./media/how-to-connect-sync-service-manager-ui-connectors/cssearch.png)
+![Captura de tela que mostra a janela "Pesquisar espaço do conector".](./media/how-to-connect-sync-service-manager-ui-connectors/cssearch.png)
 
 Comece selecionando um **escopo**. É possível pesquisar com base nos dados (RDN, DN, Âncora, Subárvore) ou no estado do objeto (todas as outras opções).  
-![Synchronization Service Manager](./media/how-to-connect-sync-service-manager-ui-connectors/cssearchscope.png)  
+![Captura de tela que mostra o menu suspenso "escopo".](./media/how-to-connect-sync-service-manager-ui-connectors/cssearchscope.png)  
  Por exemplo, se fizer uma pesquisa em Subárvore, você obterá todos os objetos em uma UO.  
-![Synchronization Service Manager](./media/how-to-connect-sync-service-manager-ui-connectors/cssearchsubtree.png)  
+![Captura de tela que mostra um exemplo de uma pesquisa "subárvore".](./media/how-to-connect-sync-service-manager-ui-connectors/cssearchsubtree.png)  
 Nessa grade, é possível selecionar um objeto, selecionar **propriedades** e [segui-lo](tshoot-connect-object-not-syncing.md) do espaço conector de origem, passando pelo metaverso, até o espaço conector de destino.
 
 ### <a name="changing-the-ad-ds-account-password"></a>Alterando a senha da conta do AD DS

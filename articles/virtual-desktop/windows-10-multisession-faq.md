@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 91c7c19fddab2a4372f183c90532b24e774277d1
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 24d27859aad7642392a5702ab7ddbb727b538d51
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88008042"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025003"
 ---
 # <a name="windows-10-enterprise-multi-session-faq"></a>Perguntas frequentes sobre o Windows 10 Enterprise de várias sessões
 
@@ -80,8 +80,8 @@ Isso acontece porque você está usando o Windows 10 Enterprise Multi-Session co
 A maioria dos ambientes virtualizados é configurada por padrão para impedir que os usuários instalem aplicativos adicionais em seus perfis. Se você quiser garantir que um aplicativo não desapareça quando o usuário sair da área de trabalho virtual do Windows, será necessário provisionar esse aplicativo para todos os perfis de usuário em seu ambiente. Para obter mais informações sobre como provisionar aplicativos, confira estes recursos:
 
 - [Publicar aplicativos internos na área de trabalho virtual do Windows](publish-apps.md)
-- [Opções de linha de comando de serviço do pacote de aplicativo do DISM](https://docs.microsoft.com/windows-hardware/manufacture/desktop/dism-app-package--appx-or-appxbundle--servicing-command-line-options)
-- [Add-AppxProvisionedPackage](https://docs.microsoft.com/powershell/module/dism/add-appxprovisionedpackage?view=win10-ps)
+- [Opções de linha de comando de serviço do pacote de aplicativo do DISM](/windows-hardware/manufacture/desktop/dism-app-package--appx-or-appxbundle--servicing-command-line-options)
+- [Add-AppxProvisionedPackage](/powershell/module/dism/add-appxprovisionedpackage?view=win10-ps)
 
 ## <a name="how-do-i-make-sure-users-dont-download-and-install-apps-from-the-microsoft-store"></a>Como fazer garantir que os usuários não baixem e instalem aplicativos do Microsoft Store?
 
@@ -93,7 +93,7 @@ Para desabilitar o aplicativo da loja:
 2. Selecione **configuração do computador**  >  **modelos administrativos**  >  **componentes do Windows**.
 3. Selecione **Repositório**.
 4. Selecione **armazenar aplicativo**.
-5. Selecione **desabilitado**e selecione **OK**.
+5. Selecione **desabilitado** e selecione **OK**.
 6. Escolha **Aplicar**.
 
 ## <a name="next-steps"></a>Próximas etapas

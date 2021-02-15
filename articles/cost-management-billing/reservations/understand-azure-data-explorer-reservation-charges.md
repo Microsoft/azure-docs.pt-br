@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/12/2020
-ms.openlocfilehash: a418841d91ab6b8fe5457f3fd64d91306fe08dfe
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: b222e4ff519fbe2fbb4fa58b39555ac9fead0917
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383121"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352908"
 ---
 # <a name="understand-how-the-reservation-discount-is-applied-to-azure-data-explorer"></a>Entender como o desconto de reserva é aplicado ao Azure Data Explorer
 
@@ -29,7 +29,7 @@ Quando você desliga um recurso, o desconto de reserva se aplica automaticamente
 Um desconto de reserva é aplicado ao consumo de marcação do Azure Data Explorer de hora em hora. Para recursos do Azure Data Explorer que não são executados durante toda a hora, o desconto de reserva é aplicado automaticamente a outros recursos do Data Explorer que correspondem aos atributos de reserva. O desconto pode se aplicar aos recursos do Azure Data Explorer que estão sendo executados simultaneamente. Se você não tiver recursos do Azure Data Explorer que sejam executados durante a hora inteira e que correspondam aos atributos da reserva, você não terá o benefício total do desconto da reserva para essa hora.
 
 > [!NOTE]
-> * É **altamente recomendado** comprar [capacidade de reserva](../../virtual-machines/windows/prepay-reserved-vm-instances.md) para as máquinas virtuais usadas para o cluster do Azure Data Explorer a fim de maximizar a economia de capacidade reservada.
+> * É **altamente recomendado** comprar [capacidade de reserva](../../virtual-machines/prepay-reserved-vm-instances.md) para as máquinas virtuais usadas para o cluster do Azure Data Explorer a fim de maximizar a economia de capacidade reservada.
 > * A compra da reserva aplicará descontos a todas as regiões.
 
 ## <a name="examples"></a>Exemplos
@@ -70,4 +70,4 @@ Para saber mais sobre as reservas do Azure, consulte os seguintes artigos:
 * [Gerenciar reservas do Azure](manage-reserved-vm-instance.md)  
 * [Entender o uso de reserva para a sua assinatura paga conforme o uso](understand-reserved-instance-usage.md)
 * [Entender o uso de reserva para seu registro de empresa](understand-reserved-instance-usage-ea.md)
-* [Entender o uso de reserva para assinaturas de CSP](https://docs.microsoft.com/partner-center/azure-reservations)
+* [Entender o uso de reserva para assinaturas de CSP](/partner-center/azure-reservations)

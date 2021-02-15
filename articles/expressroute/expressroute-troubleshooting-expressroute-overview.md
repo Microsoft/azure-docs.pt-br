@@ -2,18 +2,18 @@
 title: 'Azure ExpressRoute: verificar conectividade-guia de solução de problemas'
 description: Esta página fornece instruções sobre solução de problemas e validação de conectividade de ponta a ponta de um circuito ExpressRoute.
 services: expressroute
-author: rambk
+author: duongau
 ms.service: expressroute
 ms.topic: troubleshooting
 ms.date: 10/31/2019
-ms.author: rambala
+ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 4525ea6e23c4f1c2c96ab2beb21e8bfd5b66ca50
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: af4ef156cccded6afe2db09628446a6ffe1ad53a
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86204209"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "92204632"
 ---
 # <a name="verifying-expressroute-connectivity"></a>Verificando a conectividade do ExpressRoute
 Este artigo ajuda você a verificar e solucionar problemas de conectividade do ExpressRoute. O ExpressRoute estende uma rede local para a nuvem da Microsoft por meio de uma conexão privada que é normalmente facilitada por um provedor de conectividade. A conectividade do ExpressRoute tradicionalmente envolve três zonas de rede distintas, da seguinte maneira:
@@ -34,7 +34,7 @@ A finalidade deste documento é ajudar o usuário a identificar se e onde existe
 >
 >
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 O diagrama a seguir mostra a conectividade lógica de uma rede do cliente de rede da Microsoft usando o ExpressRoute.
 [![1]][1]
 
@@ -50,10 +50,10 @@ No diagrama acima, os números indicam os principais pontos de rede. Esses ponto
 
 Se os modelos de colocalização de troca de nuvem, Ethernet ponto a ponto ou de conectividade direta forem usados, CEs (2) estabelecerá o emparelhamento via protocolo BGP com MSEEs (5). 
 
-Se o modelo de conectividade de qualquer para qualquer (IPVPN) for usado, o PE-MSEEs (4) estabelecerá o emparelhamento via protocolo BGP com MSEEs (5). PE-MSEEs propagar as rotas recebidas da Microsoft de volta para a rede do cliente por meio da rede do provedor de serviços do IPVPN.
+Se o modelo de conectividade de qualquer para qualquer (IPVPN) for usado, PE-MSEEs (4) estabelecer o emparelhamento via protocolo BGP com MSEEs (5). PE-MSEEs propagar as rotas recebidas da Microsoft de volta para a rede do cliente por meio da rede do provedor de serviços do IPVPN.
 
 > [!NOTE]
->Para alta disponibilidade, a Microsoft estabelece uma conectividade paralela totalmente redundante entre pares de MSEEs (5) e PE-MSEEs (4). Um caminho de rede paralelo totalmente redundante também é incentivado entre A rede do cliente e o par PE-CEs. Para obter mais informações sobre a alta disponibilidade, consulte o artigo [projetando para alta disponibilidade com o ExpressRoute][HA]
+>Para alta disponibilidade, a Microsoft estabelece uma conectividade paralela totalmente redundante entre pares de MSEEs (5) e PE-MSEEs (4). Um caminho de rede paralelo totalmente redundante também é incentivado entre A rede do cliente e o par de PE-CEs. Para obter mais informações sobre a alta disponibilidade, consulte o artigo [projetando para alta disponibilidade com o ExpressRoute][HA]
 >
 >
 
@@ -165,7 +165,7 @@ No portal do Azure, o status de um emparelhamento de circuito do ExpressRoute po
 No exemplo anterior, conforme observado, o emparelhamento privado do Azure é provisionado, enquanto os emparelhamentos do Azure público e da Microsoft não são provisionados. Um contexto de emparelhamento provisionado com êxito também teria as sub-redes ponto a ponto primária e secundária listadas. As sub-redes/30 são usadas para o endereço IP da interface do MSEEs e CEs/PE-MSEEs. Para os emparelhamentos provisionados, a listagem também indica quem modificou a configuração pela última vez. 
 
 > [!NOTE]
-> Se a habilitação de um emparelhamento falhar, verifique se as sub-redes primárias e secundárias atribuídas correspondem à configuração no CE/PE-MSEE vinculado. Verifique também se o *vlanid*, o *AzureASN*e o *PeerASN* corretos são usados em MSEEs e se esses valores são mapeados para aqueles usados no CE/PE-MSEE vinculado. Se o hash MD5 for escolhido, a chave compartilhada deverá ser a mesma no par MSEE e PE-MSEE/CE. A chave compartilhada configurada anteriormente não seria exibida por motivos de segurança. Se você precisar alterar qualquer uma dessas configurações em um roteador MSEE, consulte [criar e modificar o roteamento para um circuito do ExpressRoute][CreatePeering].  
+> Se a habilitação de um emparelhamento falhar, verifique se as sub-redes primárias e secundárias atribuídas correspondem à configuração no CE/PE-MSEE vinculado. Verifique também se o *vlanid* , o *AzureASN* e o *PeerASN* corretos são usados em MSEEs e se esses valores são mapeados para aqueles usados no CE/PE-MSEE vinculado. Se o hash MD5 for escolhido, a chave compartilhada deverá ser a mesma no par MSEE e PE-MSEE/CE. A chave compartilhada configurada anteriormente não seria exibida por motivos de segurança. Se você precisar alterar qualquer uma dessas configurações em um roteador MSEE, consulte [criar e modificar o roteamento para um circuito do ExpressRoute][CreatePeering].  
 >
 
 > [!NOTE]
@@ -228,7 +228,7 @@ At line:1 char:1
 ```
 
 > [!NOTE]
-> Se a habilitação de um emparelhamento falhar, verifique se as sub-redes primárias e secundárias atribuídas correspondem à configuração no CE/PE-MSEE vinculado. Verifique também se o *vlanid*, o *AzureASN*e o *PeerASN* corretos são usados em MSEEs e se esses valores são mapeados para aqueles usados no CE/PE-MSEE vinculado. Se o hash MD5 for escolhido, a chave compartilhada deverá ser a mesma no par MSEE e PE-MSEE/CE. A chave compartilhada configurada anteriormente não seria exibida por motivos de segurança. Se você precisar alterar qualquer uma dessas configurações em um roteador MSEE, consulte [criar e modificar o roteamento para um circuito do ExpressRoute][CreatePeering].  
+> Se a habilitação de um emparelhamento falhar, verifique se as sub-redes primárias e secundárias atribuídas correspondem à configuração no CE/PE-MSEE vinculado. Verifique também se o *vlanid* , o *AzureASN* e o *PeerASN* corretos são usados em MSEEs e se esses valores são mapeados para aqueles usados no CE/PE-MSEE vinculado. Se o hash MD5 for escolhido, a chave compartilhada deverá ser a mesma no par MSEE e PE-MSEE/CE. A chave compartilhada configurada anteriormente não seria exibida por motivos de segurança. Se você precisar alterar qualquer uma dessas configurações em um roteador MSEE, consulte [criar e modificar o roteamento para um circuito do ExpressRoute][CreatePeering].  
 >
 >
 
@@ -278,7 +278,7 @@ Path    : 123##
 ```
 
 > [!NOTE]
-> Se o estado de um emparelhamento eBGP entre um MSEE e um CE/PE-MSEE estiver ativo ou ocioso, verifique se as sub-redes emparelhadas primárias e secundárias atribuídas correspondem à configuração no CE/PE-MSEE vinculado. Verifique também se o *vlanid*, o *AzureAsn*e o *PeerAsn* corretos são usados em MSEEs e se esses valores são mapeados para aqueles usados no PE-MSEE/CE vinculado. Se o hash MD5 for escolhido, a chave compartilhada deverá ser a mesma no par MSEE e CE/PE-MSEE. Se você precisar alterar qualquer uma dessas configurações em um roteador MSEE, consulte [criar e modificar o roteamento para um circuito do ExpressRoute][CreatePeering].
+> Se o estado de um emparelhamento eBGP entre um MSEE e um CE/PE-MSEE estiver ativo ou ocioso, verifique se as sub-redes emparelhadas primárias e secundárias atribuídas correspondem à configuração no CE/PE-MSEE vinculado. Verifique também se o *vlanid* , o *AzureAsn* e o *PeerAsn* corretos são usados em MSEEs e se esses valores são mapeados para aqueles usados no PE-MSEE/CE vinculado. Se o hash MD5 for escolhido, a chave compartilhada deverá ser a mesma no par MSEE e CE/PE-MSEE. Se você precisar alterar qualquer uma dessas configurações em um roteador MSEE, consulte [criar e modificar o roteamento para um circuito do ExpressRoute][CreatePeering].
 >
 
 
@@ -332,13 +332,8 @@ Para obter mais informações ou ajuda, confira os seguintes links:
 
 <!--Link References-->
 [Support]: https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade
-[CreateCircuit]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-circuit-portal-resource-manager 
-[CreatePeering]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-routing-portal-resource-manager
-[ARP]: https://docs.microsoft.com/azure/expressroute/expressroute-troubleshooting-arp-resource-manager
-[HA]: https://docs.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute
-[DR-Pvt]: https://docs.microsoft.com/azure/expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering
-
-
-
-
-
+[CreateCircuit]: ./expressroute-howto-circuit-portal-resource-manager.md
+[CreatePeering]: ./expressroute-howto-routing-portal-resource-manager.md
+[ARP]: ./expressroute-troubleshooting-arp-resource-manager.md
+[HA]: ./designing-for-high-availability-with-expressroute.md
+[DR-Pvt]: ./designing-for-disaster-recovery-with-expressroute-privatepeering.md

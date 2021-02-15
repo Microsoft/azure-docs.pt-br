@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 02/03/2019
-ms.openlocfilehash: 893ea607b322c2f9b2d8a4e8b5b087e21c476d98
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 439167f29bb53d4a6e90b95826faa56e3c3170da
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497164"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94563334"
 ---
 # <a name="azure-cli-samples-for-azure-sql-database-and-sql-managed-instance"></a>Exemplos da CLI do Azure para Banco de Dados SQL do Azure e Instância Gerenciada de SQL 
  
@@ -27,9 +27,9 @@ Você pode configurar o Banco de Dados SQL do Azure e a Instância Gerenciada de
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-Se você optar por instalar e usar a CLI localmente, este tópico exigirá que você esteja executando a CLI do Azure versão 2.0 ou posterior. Execute `az --version` para encontrar a versão. Se você precisar instalar ou atualizar, confira [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
+ - Este tutorial exige a versão 2.0 ou posterior da CLI do Azure. Se você está usando o Azure Cloud Shell, a versão mais recente já está instalada.
 
 # <a name="azure-sql-database"></a>[Banco de Dados SQL do Azure](#tab/single-database)
 
@@ -73,7 +73,7 @@ A tabela a seguir inclui links para exemplos de scripts da CLI do Azure para a I
 | [Configurar um grupo de failover para uma Instância Gerenciada de SQL](../../sql-database/scripts/sql-database-add-managed-instance-to-failover-group-cli.md) | Cria duas instâncias da Instância Gerenciada de SQL, adiciona-as a um grupo de failover e, em seguida, testa o failover da Instância Gerenciada de SQL primária para a Instância Gerenciada de SQL secundária. |
 |||
 
-Para obter exemplos adicionais da Instância Gerenciada de SQL, confira os scripts [criar](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../create-azure-sql-managed-instance-using-azure-cli/), [atualizar](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../modify-azure-sql-database-managed-instance-using-azure-cli/), [mover um banco de dados](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance/) e [trabalhar com](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44).
+Para obter exemplos adicionais da Instância Gerenciada de SQL, confira os scripts [criar](/archive/blogs/sqlserverstorageengine/create-azure-sql-managed-instance-using-azure-cli), [atualizar](/archive/blogs/sqlserverstorageengine/modify-azure-sql-database-managed-instance-using-azure-cli), [mover um banco de dados](/archive/blogs/sqlserverstorageengine/cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance) e [trabalhar com](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44).
 
 Saiba mais sobre a [API da CLI do Azure da Instância Gerenciada de SQL](../managed-instance/api-references-create-manage-instance.md#azure-cli-create-and-configure-managed-instances).
 

@@ -3,6 +3,7 @@ title: Configurar uma ADCD (distribuição controlada por desenvolvedores de apl
 description: Execute um ambiente de desenvolvimento e teste do IBM Z (zD&T) em VMs (máquinas virtuais) do Azure.
 services: virtual-machines-linux
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 documentationcenter: ''
 author: njray
 manager: edprice
@@ -12,12 +13,12 @@ ms.topic: conceptual
 ms.date: 02/22/2019
 tags: ''
 keywords: ''
-ms.openlocfilehash: b2509539551b3991690e6d0313e069ae015eb892
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c76768fa94b524763ac8ad94c9c3f5bb3a73dddb
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87052409"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99219431"
 ---
 # <a name="set-up-an-application-developers-controlled-distribution-adcd-in-ibm-zdt-v1"></a>Configurar uma ADCD (distribuição controlada por desenvolvedores de aplicativos) no IBM zD&T v1
 
@@ -52,17 +53,17 @@ O acesso à mídia ADCD é necessário. As etapas a seguir pressupõem que você
 
 2. Selecione **downloads de software** e **acesso à mídia**.
 
-3. Selecione **oferta do programa e número do contrato**e clique em **continuar**.
+3. Selecione **oferta do programa e número do contrato** e clique em **continuar**.
 
 4. Insira a descrição da parte ou o número da peça e clique em **Finder**.
 
 5. Opcionalmente, clique na lista ordem alfabética para exibir e exibir o produto por nome.
 
-6. Selecione **todos os sistemas operacionais** no **campo sistema operacional**e **todos os idiomas** no **campo idiomas**. Em seguida, clique em **ir**.
+6. Selecione **todos os sistemas operacionais** no **campo sistema operacional** e **todos os idiomas** no **campo idiomas**. Em seguida, clique em **ir**.
 
 7. Clique em **selecionar arquivos individuais** para expandir a lista e exibir a mídia individual a ser baixada.
 
-8. Verifique os pacotes que você deseja baixar, selecione **baixar**e, em seguida, baixe os arquivos para o diretório desejado.
+8. Verifique os pacotes que você deseja baixar, selecione **baixar** e, em seguida, baixe os arquivos para o diretório desejado.
 
 ## <a name="upload-the-adcd-packages"></a>Carregar os pacotes ADCD
 
@@ -189,7 +190,7 @@ Parabéns! Agora você está executando um ambiente de mainframe IBM no Azure.
 ## <a name="learn-more"></a>Saiba mais
 
 - [Migração de mainframe: mitos e fatos](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/myths-and-facts)
-- [IBM DB2 pureScale no Azure](../../../linux/ibm-db2-purescale-azure.md)
+- [IBM DB2 pureScale no Azure](ibm-db2-purescale-azure.md)
 - [Solução de problemas](../../../troubleshooting/index.yml)
 - [Desmistificando a migração do mainframe para o Azure](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/)
 

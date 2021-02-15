@@ -9,10 +9,10 @@ ms.topic: sample
 ms.date: 11/16/2019
 ms.author: victorh
 ms.openlocfilehash: ba5e122db0b287c611fb3689560a43c84eab0c1a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86499589"
 ---
 # <a name="azure-resource-manager-templates-for-azure-application-gateway"></a>Modelos do Azure Resource Manager para o Gateway de Aplicativo do Azure

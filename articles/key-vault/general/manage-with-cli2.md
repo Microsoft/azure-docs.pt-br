@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: dc60d2b6cef8ad19526c5ec243ae1c43529954a6
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: cb7e047d998342125a52af5ea3ae1e88fe88d313
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87504527"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289898"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>Gerenciar o Key Vault usando a CLI do Azure 
 
@@ -120,7 +120,7 @@ az provider register -n Microsoft.KeyVault
 
 Use o comando `az keyvault create` para criar um cofre de chave. Esse script tem três parâmetros obrigatórios: um nome do grupo de recursos, um nome do cofre da chave e a localização geográfica.
 
-Para criar um novo cofre de chaves com o nome **ContosoKeyVault**, no grupo de recursos **ContosoResourceGroup**, residindo no local **Leste da Ásia**, digite: 
+Para criar um novo cofre de chaves com o nome **ContosoKeyVault** , no grupo de recursos **ContosoResourceGroup** , residindo no local **Leste da Ásia** , digite: 
 
 ```azurecli
 az keyvault create --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --location "East Asia"
@@ -128,8 +128,8 @@ az keyvault create --name "ContosoKeyVault" --resource-group "ContosoResourceGro
 
 A saída do comando mostra as propriedades do cofre da chave que você criou. As duas propriedades mais importantes são:
 
-* **nome**: no exemplo, o nome é ContosoKeyVault. Você usará esse nome para outros comandos do Key Vault.
-* **vaultUri**: no exemplo, o URI é https://contosokeyvault.vault.azure.net. Aplicativos que usam seu cofre via API REST devem usar esse URI.
+* **nome** : no exemplo, o nome é ContosoKeyVault. Você usará esse nome para outros comandos do Key Vault.
+* **vaultUri** : no exemplo, o URI é https://contosokeyvault.vault.azure.net. Aplicativos que usam seu cofre via API REST devem usar esse URI.
 
 Sua conta do Azure agora está autorizada a executar qualquer operação neste cofre de chave. Até o momento, ninguém mais tem autorização.
 
@@ -194,7 +194,7 @@ Aplicativos que usam um cofre de chave devem ser autenticados usando um token do
 
 O aplicativo deve apresentar esses dois valores ao Active Directory do Azure para obter um token. O modo como um aplicativo é configurado para obter um token dependerá do aplicativo. No [aplicativo de exemplo do Key Vault](https://www.microsoft.com/download/details.aspx?id=45343), o proprietário do aplicativo define esses valores no arquivo app.config.
 
-Para obter etapas detalhadas sobre como registrar um aplicativo com o Azure Active Directory, você deve ler o artigo intitulado [Integrando aplicativos com o Azure Active Directory](../../active-directory/develop/active-directory-integrating-applications.md), [Usar o portal para criar um aplicativo do Azure Active Directory e uma entidade de serviço que possa acessar recursos](../../active-directory/develop/howto-create-service-principal-portal.md) e [Criar uma entidade de serviço do Azure com a CLI do Azure](/cli/azure/create-an-azure-service-principal-azure-cli).
+Para obter etapas detalhadas sobre como registrar um aplicativo com o Azure Active Directory, você deve ler o artigo intitulado [Integrando aplicativos com o Azure Active Directory](../../active-directory/develop/quickstart-register-app.md), [Usar o portal para criar um aplicativo do Azure Active Directory e uma entidade de serviço que possa acessar recursos](../../active-directory/develop/howto-create-service-principal-portal.md) e [Criar uma entidade de serviço do Azure com a CLI do Azure](/cli/azure/create-an-azure-service-principal-azure-cli).
 
 Para registrar um aplicativo no Azure Active Directory:
 

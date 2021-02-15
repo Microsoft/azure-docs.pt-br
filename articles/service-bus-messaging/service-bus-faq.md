@@ -2,19 +2,18 @@
 title: Perguntas frequentes (FAQ) sobre o Barramento de Serviço | Microsoft Docs
 description: Este artigo fornece respostas para algumas das perguntas frequentes sobre o barramento de serviço do Azure.
 ms.topic: article
-ms.date: 07/15/2020
-ms.openlocfilehash: e098b05dba25a51d5d6ef7c50a1b73730828357a
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.date: 01/20/2021
+ms.openlocfilehash: 3a96cf94ca4a7edd115f12b3e2eded11a5894e04
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080806"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98693386"
 ---
 # <a name="azure-service-bus---frequently-asked-questions-faq"></a>Barramento de serviço do Azure-perguntas frequentes (FAQ)
 
 Este artigo discute algumas perguntas frequentes sobre o Barramento de Serviço do Microsoft Azure. Você também pode visitar as [Perguntas frequentes de suporte do Azure](https://azure.microsoft.com/support/faq/) para obter informações gerais sobre preços e suporte do Azure.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="general-questions-about-azure-service-bus"></a>Perguntas gerais sobre o Barramento de Serviço do Azure
 ### <a name="what-is-azure-service-bus"></a>O que é o Barramento de Serviço do Azure?
@@ -36,20 +35,32 @@ A ordenação não é garantida ao usar entidades particionadas. Se uma partiç�
 
  As entidades particionadas não são mais compatíveis com a camada [SKU Premium](service-bus-premium-messaging.md). 
 
+### <a name="where-does-azure-service-bus-store-data"></a><a name="in-region-data-residency"></a>Onde o barramento de serviço do Azure armazena dados?
+Camada standard do barramento de serviço do Azure utiliza o banco de dados SQL do Azure para sua camada de armazenamento de back-end. Para todas as regiões, exceto sul do Brasil e sudeste asiático, o backup do banco de dados é hospedado em uma região diferente (geralmente a região emparelhada do Azure). Para as regiões do Sul do Brasil e do Sudeste Asiático, os backups de banco de dados são armazenados na mesma região para acomodar os requisitos de residências para essas regiões.
+
+A camada Premium do barramento de serviço do Azure armazena metadados e dados em regiões que você seleciona. Quando a recuperação de desastre geográfico é configurada para um namespace Premium do barramento de serviço do Azure, os metadados são copiados para a região secundária que você selecionar.
+
+
 ### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>Quais portas preciso abrir no firewall? 
 Você pode usar os seguintes protocolos com o Barramento de Serviço do Azure para enviar e receber mensagens:
 
-- Advanced Message Queuing Protocol (AMQP)
-- Protocolo do sistema de mensagens do Barramento de Serviço (SBMP)
-- HTTP
+- Advanced Message Queuing Protocol 1,0 (AMQP)
+- Protocolo de transferência de hipertexto 1,1 com TLS (HTTPS)
 
-Consulte a tabela a seguir para as portas de saída que você precisa abrir para usar esses protocolos para se comunicar com os Hubs de Eventos do Azure. 
+Consulte a tabela a seguir para as portas TCP de saída que você precisa abrir para usar esses protocolos para se comunicar com o barramento de serviço do Azure:
 
-| Protocolo | Portas | Detalhes | 
+| Protocolo | Porta | Detalhes | 
 | -------- | ----- | ------- | 
-| AMQP | 5671 e 5672 | Consulte [Guia do protocolo AMQP](service-bus-amqp-protocol-guide.md) | 
-| SBMP | 9350 a 9354 | Consulte [modo de conectividade](/dotnet/api/microsoft.servicebus.connectivitymode?view=azure-dotnet) |
-| HTTP, HTTPS | 80, 443 | 
+| AMQP | 5671 | AMQP com TLS. Consulte [Guia do protocolo AMQP](service-bus-amqp-protocol-guide.md) | 
+| HTTPS | 443 | Essa porta é usada para a API HTTP/REST e para AMQP-over-WebSockets |
+
+A porta HTTPS geralmente é necessária para a comunicação de saída também quando AMQP é usado pela porta 5671, porque várias operações de gerenciamento executadas pelos SDKs do cliente e a aquisição de tokens de Azure Active Directory (quando usado) são executadas por HTTPS. 
+
+Os SDKs oficiais do Azure geralmente usam o protocolo AMQP para enviar e receber mensagens do barramento de serviço. 
+
+[!INCLUDE [service-bus-websockets-options](../../includes/service-bus-websockets-options.md)]
+
+O pacote WindowsAzure. ServiceBus mais antigo para o .NET Framework tem a opção de usar o "protocolo de mensagens do barramento do serviço" (SBMP) herdado, também conhecido como "netmessaging". Esse protocolo usa as portas TCP 9350-9354. O modo padrão para esse pacote é detectar automaticamente se essas portas estão disponíveis para comunicação e mudará para WebSockets com TLS pela porta 443 se esse não for o caso. Você pode substituir essa configuração e forçar esse modo definindo o `Https` [connectivitymode](/dotnet/api/microsoft.servicebus.connectivitymode) na [`ServiceBusEnvironment.SystemConnectivity`](/dotnet/api/microsoft.servicebus.servicebusenvironment.systemconnectivity) configuração, que se aplica globalmente ao aplicativo.
 
 ### <a name="what-ip-addresses-do-i-need-to-add-to-allow-list"></a>Quais endereços IP preciso adicionar à lista de permissões?
 Para localizar os endereços IP corretos a serem adicionados à lista de permissões para suas conexões, siga estas etapas:
@@ -59,9 +70,9 @@ Para localizar os endereços IP corretos a serem adicionados à lista de permiss
     ```
     nslookup <YourNamespaceName>.servicebus.windows.net
     ```
-2. Anote o endereço IP retornado em `Non-authoritative answer`. Esse endereço IP é estático. Ele só mudaria se você restaurasse o namespace em um cluster diferente.
+2. Anote o endereço IP retornado em `Non-authoritative answer`. 
 
-Se você usar a redundância de zona para seu namespace, precisará executar algumas etapas adicionais: 
+Se você usar a **redundância de zona** para seu namespace, precisará executar algumas etapas adicionais: 
 
 1. Primeiro, execute nslookup no namespace.
 
@@ -77,8 +88,11 @@ Se você usar a redundância de zona para seu namespace, precisará executar alg
     ```
 3. Execute nslookup para cada um com sufixos s1, s2 e s3 para obter os endereços IP de todas as três instâncias em execução em três zonas de disponibilidade, 
 
+    > [!NOTE]
+    > O endereço IP retornado pelo `nslookup` comando não é um endereço IP estático. No entanto, ela permanece constante até que a implantação subjacente seja excluída ou movida para um cluster diferente.
+
 ### <a name="where-can-i-find-the-ip-address-of-the-client-sendingreceiving-messages-tofrom-a-namespace"></a>Onde posso encontrar o endereço IP do cliente que envia/recebe mensagens de/para um namespace? 
-Não registramos em log os endereços IP de clientes que enviam ou recebem mensagens de/para seu namespace. Regenerar chaves para que todos os clientes existentes não consigam autenticar e examinar as configurações de[RBAC](authenticate-application.md#azure-built-in-roles-for-azure-service-bus)(controle de acesso baseado em função) para garantir que somente os usuários ou aplicativos permitidos tenham acesso ao namespace. 
+Não registramos em log os endereços IP de clientes que enviam ou recebem mensagens de/para seu namespace. Regenerar chaves para que todos os clientes existentes não consigam autenticar e examinar as configurações [do controle de acesso baseado em função (RBAC do Azure) do Azure](authenticate-application.md#azure-built-in-roles-for-azure-service-bus)para garantir que somente usuários ou aplicativos permitidos tenham acesso ao namespace. 
 
 Se você estiver usando um namespace **Premium** , use [filtragem de IP](service-bus-ip-filtering.md), pontos de extremidade de serviço de [rede virtual](service-bus-service-endpoints.md)e [pontos de extremidade privados](private-link-service.md) para limitar o acesso ao namespace. 
 
@@ -157,6 +171,8 @@ Select-AzSubscription -SubscriptionId 'aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa'
 $res = Find-AzResource -ResourceNameContains mynamespace -ResourceType 'Microsoft.ServiceBus/namespaces'
 Move-AzResource -DestinationResourceGroupName 'targetRG' -DestinationSubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff' -ResourceId $res.ResourceId
 ```
+## <a name="is-it-possible-to-disable-tls-10-or-11-on-service-bus-namespaces"></a>É possível desabilitar o TLS 1,0 ou 1,1 nos namespaces do barramento de serviço?
+Não. Não é possível desabilitar o TLS 1,0 ou 1,1 nos namespaces do barramento de serviço. Nos aplicativos cliente que se conectam ao barramento de serviço, use o TLS 1,2 ou superior. Para obter mais informações, consulte [impondo o TLS 1,2 Use com o barramento de serviço do Azure-Microsoft Tech Community](https://techcommunity.microsoft.com/t5/messaging-on-azure/enforcing-tls-1-2-use-with-azure-service-bus/ba-p/370912).
 
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre o Barramento de Serviço, consulte os seguintes artigos:

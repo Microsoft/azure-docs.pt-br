@@ -1,18 +1,18 @@
 ---
 title: Remover os servidores e desabilitar a proteção | Microsoft Docs
 description: Este artigo descreve como cancelar o registro de servidores de um cofre de Recuperação de Site e desabilitar a proteção para máquinas virtuais e servidores físicos.
-author: rajani-janaki-ram
+author: Sharmistha-Rai
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 06/18/2019
-ms.author: rajanaki
-ms.openlocfilehash: 77dc21b4a04ec5de440b1a17da4747a3dcc711f9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.author: sharrai
+ms.openlocfilehash: a4f6c318a7521e1fbc03ff3a47e34e992cce44df
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083711"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89424779"
 ---
 # <a name="remove-servers-and-disable-protection"></a>Remover os servidores e desabilitar a proteção
 

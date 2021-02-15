@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 06/08/2020
+ms.date: 12/11/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 172824a2215e8a102ad4c284c847072960344549
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: 891991fa938ad3dcfacae6d02e40efd6d6e9689e
+ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88041520"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97386843"
 ---
 # <a name="define-a-restful-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico RESTful em uma política personalizada do Azure Active Directory B2C
 
@@ -60,7 +60,7 @@ Para enviar uma carga JSON complexa:
 1. Crie sua carga JSON com a transformação declarações [GenerateJson](json-transformations.md) .
 1. No perfil técnico da API REST:
     1. Adicione uma transformação de declarações de entrada com uma referência à `GenerateJson` transformação declarações.
-    1. Defina a `SendClaimsIn` opção de metadados como`body`
+    1. Defina a `SendClaimsIn` opção de metadados como `body`
     1. Defina a `ClaimUsedForRequestPayload` opção de metadados como o nome da declaração que contém a carga JSON.
     1. Na declaração de entrada, adicione uma referência à declaração de entrada que contém a carga JSON.
 
@@ -115,14 +115,14 @@ O perfil técnico também retorna declarações que não são retornadas pelo pr
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
 | ServiceUrl | Sim | A URL do ponto de extremidade da API REST. |
-| AuthenticationType | Sim | O tipo de autenticação que está sendo executada pelo provedor de declarações RESTful. Valores possíveis: `None`, `Basic`, `Bearer` ou `ClientCertificate`. O `None` valor indica que a API REST é anônima. O valor `Basic` indica que a API REST está protegida com a autenticação Básica HTTP. Somente usuários verificados, incluindo Azure AD B2C, podem acessar a API. O `ClientCertificate` valor (recomendado) indica que a API REST restringe o acesso usando a autenticação de certificado do cliente. Somente os serviços que têm os certificados apropriados, por exemplo Azure AD B2C, podem acessar sua API. O `Bearer` valor indica que a API REST restringe o acesso usando o token de portador OAuth2 do cliente. |
+| AuthenticationType | Sim | O tipo de autenticação que está sendo executada pelo provedor de declarações RESTful. Valores possíveis: `None` ,,, `Basic` `Bearer`  `ClientCertificate` ou `ApiKeyHeader` . <br /><ul><li>O `None` valor indica que a API REST é anônima. </li><li>O valor `Basic` indica que a API REST está protegida com a autenticação Básica HTTP. Somente usuários verificados, incluindo Azure AD B2C, podem acessar a API. </li><li>O `ClientCertificate` valor (recomendado) indica que a API REST restringe o acesso usando a autenticação de certificado do cliente. Somente os serviços que têm os certificados apropriados, por exemplo Azure AD B2C, podem acessar sua API. </li><li>O `Bearer` valor indica que a API REST restringe o acesso usando o token de portador OAuth2 do cliente. </li><li>O `ApiKeyHeader` valor indica que a API REST está protegida com o cabeçalho HTTP da chave de API, como *x-Functions-Key*. </li></ul> |
 | AllowInsecureAuthInProduction| Não| Indica se o `AuthenticationType` pode ser definido como `none` no ambiente de produção ( `DeploymentMode` de [TrustFrameworkPolicy](trustframeworkpolicy.md) é definido como `Production` , ou não especificado). Valores possíveis: true ou false (padrão). |
 | SendClaimsIn | Não | Especifica como as declarações de entrada são enviadas para o provedor de declarações RESTful. Valores possíveis: `Body` (padrão), `Form` , `Header` `Url` ou `QueryString` . O valor `Body` é a declaração de entrada enviada no corpo da solicitação no formato JSON. O valor `Form` é a declaração de entrada enviada no corpo da solicitação em um formato de valor de chave separado de e comercial '&'. O valor `Header` é a declaração de entrada enviada no cabeçalho da solicitação. O `Url` valor é a declaração de entrada que é enviada na URL, por exemplo, https://{claim1}. example. com/{claim2}/{claim3}? { claim4} = {claim5}. O valor `QueryString` é a declaração de entrada enviada na cadeia de caracteres de consulta da solicitação. Os verbos HTTP invocados por cada um são os seguintes:<br /><ul><li>`Body`: Postar</li><li>`Form`: Postar</li><li>`Header`: Obter</li><li>`Url`: Obter</li><li>`QueryString`: Obter</li></ul> |
 | ClaimsFormat | Não | Não usado no momento, pode ser ignorado. |
 | ClaimUsedForRequestPayload| Não | Nome de uma declaração de cadeia de caracteres que contém a carga a ser enviada para a API REST. |
 | DebugMode | Não | Executa o perfil técnico no modo de depuração. Valores possíveis: `true` ou `false` (padrão). No modo de depuração, a API REST pode retornar mais informações. Consulte a seção [retornando mensagem de erro](#returning-validation-error-message) . |
-| IncludeClaimResolvingInClaimsHandling  | Não | Para declarações de entrada e saída, especifica se a [resolução de declarações](claim-resolver-overview.md) está incluída no perfil técnico. Valores possíveis: `true` ou `false`   (padrão). Se você quiser usar um resolvedor de declarações no perfil técnico, defina como `true` . |
-| ResolveJsonPathsInJsonTokens  | Não | Indica se o perfil técnico resolve caminhos JSON. Valores possíveis: `true` ou `false` (padrão). Use esses metadados para ler dados de um elemento JSON aninhado. Em um [OutputClaim](technicalprofiles.md#outputclaims), defina o `PartnerClaimType` como o elemento de caminho JSON que você deseja gerar. Por exemplo: `firstName.localized` , ou `data.0.to.0.email` .|
+| IncludeClaimResolvingInClaimsHandling  | Não | Para declarações de entrada e saída, especifica se a [resolução de declarações](claim-resolver-overview.md) está incluída no perfil técnico. Valores possíveis: `true` ou `false` (padrão). Se você quiser usar um resolvedor de declarações no perfil técnico, defina como `true` . |
+| ResolveJsonPathsInJsonTokens  | Não | Indica se o perfil técnico resolve caminhos JSON. Valores possíveis: `true` ou `false` (padrão). Use esses metadados para ler dados de um elemento JSON aninhado. Em um [OutputClaim](technicalprofiles.md#output-claims), defina o `PartnerClaimType` como o elemento de caminho JSON que você deseja gerar. Por exemplo: `firstName.localized` , ou `data.0.to.0.email` .|
 | UseClaimAsBearerToken| Não| O nome da declaração que contém o token de portador.|
 
 ## <a name="error-handling"></a>Tratamento de erros
@@ -215,6 +215,27 @@ Se o tipo de autenticação for definido como `Bearer`, o elemento **Cryptograph
   </Metadata>
   <CryptographicKeys>
     <Key Id="BearerAuthenticationToken" StorageReferenceId="B2C_1A_B2cRestClientAccessToken" />
+  </CryptographicKeys>
+</TechnicalProfile>
+```
+
+Se o tipo de autenticação for definido como `ApiKeyHeader`, o elemento **CryptographicKeys** conterá o seguinte atributo:
+
+| Atributo | Obrigatório | Descrição |
+| --------- | -------- | ----------- |
+| O nome do cabeçalho HTTP, como `x-functions-key` , ou `x-api-key` . | Sim | A chave que é usada para autenticar. |
+
+```xml
+<TechnicalProfile Id="REST-API-SignUp">
+  <DisplayName>Validate user's input data and return loyaltyNumber claim</DisplayName>
+  <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+  <Metadata>
+    <Item Key="ServiceUrl">https://your-app-name.azurewebsites.NET/api/identity/signup</Item>
+    <Item Key="AuthenticationType">ApiKeyHeader</Item>
+    <Item Key="SendClaimsIn">Body</Item>
+  </Metadata>
+  <CryptographicKeys>
+    <Key Id="x-functions-key" StorageReferenceId="B2C_1A_RestApiKey" />
   </CryptographicKeys>
 </TechnicalProfile>
 ```

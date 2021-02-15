@@ -1,22 +1,18 @@
 ---
 title: Caso de uso - Criação de perfil de cliente
 description: Saiba como o Azure Data Factory é usado para criar um fluxo de trabalho orientado a dados (pipeline) para criar o perfil de clientes de jogos.
-services: data-factory
-documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
-manager: jroth
+author: dcstwh
+ms.author: weetok
 ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 5436e50a23b73e1a10cf42b3dd8790c5b0620ac3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bb7f0fb6184a813dd9fd3c193bc5e3bda5628f2d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84021884"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100376710"
 ---
 # <a name="use-case---customer-profiling"></a>Caso de uso - Criação de perfil de cliente
 O Azure Data Factory é um dos muitos serviços usados para implementar o Cortana Intelligence Suite de aceleradores de solução.  Para obter mais informações sobre o Cortana Intelligence, visite [Cortana Intelligence Suite](https://www.microsoft.com/cortanaanalytics). Neste documento, descrevemos um caso de uso simples para ajudá-lo a começar a entender como o Azure Data Factory pode resolver problemas comuns de análise.
@@ -29,7 +25,7 @@ O objetivo da Contoso é identificar oportunidades de venda/venda cruzada com ba
 Nesta solução, a Contoso deseja avaliar a eficiência de uma campanha de marketing lançada recentemente. Vamos começar com os logs de jogos brutos, processando e enriquecendo-os com os dados de localização geográfica, associando-os aos dados de referência de publicidade, por fim, copiando-os para um Banco de Dados SQL do Azure para analisar o impacto da campanha.
 
 ## <a name="deploy-solution"></a>Implantar Solução
-Tudo o que você precisa para acessar e testar este caso de uso simples é uma [assinatura do Azure](https://azure.microsoft.com/pricing/free-trial/), uma [Conta de Armazenamento de Blobs do Azure](../../storage/common/storage-account-create.md) e um [Banco de Dados SQL do Azure](../../sql-database/sql-database-get-started.md). Implante o pipeline de criação de perfil do cliente do bloco **Pipelines de exemplo** na página inicial de sua fábrica de dados.
+Tudo o que você precisa para acessar e testar este caso de uso simples é uma [assinatura do Azure](https://azure.microsoft.com/pricing/free-trial/), uma [Conta de Armazenamento de Blobs do Azure](../../storage/common/storage-account-create.md) e um [Banco de Dados SQL do Azure](../../azure-sql/database/single-database-create-quickstart.md). Implante o pipeline de criação de perfil do cliente do bloco **Pipelines de exemplo** na página inicial de sua fábrica de dados.
 
 1. Crie uma data factory ou abra uma existente. Consulte [Copiar dados do Armazenamento de Blobs para o Banco de Dados SQL usando o Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter as etapas para criar um data factory.
 2. Na folha **DATA FACTORY** para a data factory em questão, clique no bloco **Pipelines de exemplo**.
@@ -65,4 +61,3 @@ Neste exemplo, o Data Factory é usado para coordenar as atividades que copiam d
 
 ## <a name="benefits"></a>Benefícios
 Ao otimizar suas análises de perfil do usuário e o alinhamento com as metas de negócios, a empresa de jogos é capaz coletar rapidamente os padrões de uso e analisar a eficácia de suas campanhas de marketing.
-

@@ -7,12 +7,13 @@ ms.date: 07/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 4fa2d7f3884a30e60ce703dd45b295a85722fe67
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.custom: devx-track-csharp
+ms.openlocfilehash: effb193e54be7331c9dc2874a4a34ef55442ed30
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285281"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96021734"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v11-for-net"></a>Início Rápido: Biblioteca de clientes do Armazenamento do Blob v11 para .NET
 
@@ -32,7 +33,7 @@ Use a biblioteca de clientes do Armazenamento de Blobs do Azure para .NET para:
 
 Recursos adicionais:
 
-* [Documentação de referência da API](https://docs.microsoft.com/dotnet/api/overview/azure/storage?view=azure-dotnet)
+* [Documentação de referência da API](/dotnet/api/overview/azure/storage)
 * [Código-fonte da biblioteca](https://github.com/Azure/azure-storage-net/tree/master/Blob)
 * [Pacote (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/)
 * [Amostras](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=blob)
@@ -42,7 +43,7 @@ Recursos adicionais:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Assinatura do Azure - [criar uma gratuitamente](https://azure.microsoft.com/free/)
-* Conta de armazenamento do Azure - [criar uma conta de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
+* Conta de armazenamento do Azure - [criar uma conta de armazenamento](../common/storage-account-create.md)
 * O [SDK do .NET Core](https://dotnet.microsoft.com/download/dotnet-core) atual para o seu sistema operacional. Obtenha o SDK e não o runtime.
 
 ## <a name="setting-up"></a>Configurando
@@ -204,7 +205,7 @@ Esses snippets de código de exemplo mostram como executar o seguinte com a bibl
 
 ### <a name="authenticate-the-client"></a>Autenticar o cliente
 
-O código abaixo verifica se a variável de ambiente contém uma cadeia de conexão que pode ser analisada para criar um objeto [CloudStorageAccount](/dotnet/api/microsoft.azure.storage.cloudstorageaccount?view=azure-dotnet) apontando para a conta de armazenamento. Para verificar se a cadeia de conexão é válida, use o método [TryParse](/dotnet/api/microsoft.azure.storage.cloudstorageaccount.tryparse?view=azure-dotnet). Se `TryParse` for bem-sucedido, ele inicializará a variável `storageAccount` e retornará `true`.
+O código abaixo verifica se a variável de ambiente contém uma cadeia de conexão que pode ser analisada para criar um objeto [CloudStorageAccount](/dotnet/api/microsoft.azure.storage.cloudstorageaccount) apontando para a conta de armazenamento. Para verificar se a cadeia de conexão é válida, use o método [TryParse](/dotnet/api/microsoft.azure.storage.cloudstorageaccount.tryparse). Se `TryParse` for bem-sucedido, ele inicializará a variável `storageAccount` e retornará `true`.
 
 Adicione esse código dentro do método `ProcessAsync`:
 
@@ -247,7 +248,7 @@ Para criar o contêiner, primeiro crie uma instância do objeto [CloudBlobClient
 Nesse caso, o código chama o método [CreateAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.createasync) para criar o contêiner. Um valor de GUID é acrescentado ao nome do contêiner para garantir que ele seja exclusivo. Em um ambiente de produção, geralmente é preferível usar o método [CreateIfNotExistsAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.createifnotexistsasync) para criar um contêiner somente se ele ainda não existir.
 
 > [!IMPORTANT]
-> Os nomes de contêiner devem estar em minúsculas. Para saber mais sobre como nomear contêineres e blobs, veja [Nomenclatura e referência de contêineres, blobs e metadados](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
+> Os nomes de contêiner devem estar em minúsculas. Para saber mais sobre como nomear contêineres e blobs, veja [Nomenclatura e referência de contêineres, blobs e metadados](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 
 ```csharp
 // Create the CloudBlobClient that represents the 

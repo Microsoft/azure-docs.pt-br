@@ -1,19 +1,19 @@
 ---
 title: 'Início Rápido: Conectar-se com Go – Banco de Dados do Azure para PostgreSQL – Servidor único'
 description: Este início rápido fornece um exemplo de linguagem de programação Go que você pode usar para se conectar e consultar dados do Banco de Dados do Azure para PostgreSQL – Servidor único.
-author: rachel-msft
-ms.author: raagyema
+author: mksuni
+ms.author: sumuth
 ms.service: postgresql
 ms.custom: mvc
 ms.devlang: go
 ms.topic: quickstart
 ms.date: 5/6/2019
-ms.openlocfilehash: e8a44de5b6da4c9a125b5c035d0344115930cfe2
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: eb844790ac0ae97c281f6d2d7022bee559f545cd
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88182894"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93331923"
 ---
 # <a name="quickstart-use-go-language-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>Início Rápido: Usar a linguagem Go para se conectar e consultar dados no Banco de Dados do Azure para PostgreSQL – servidor único
 
@@ -80,10 +80,10 @@ Instale o [Go](https://golang.org/doc/install) e o [driver de Postgres Go puro(p
 Obtenha as informações de conexão necessárias para se conectar ao Banco de Dados do Azure para PostgreSQL. Você precisa das credenciais de logon e do nome do servidor totalmente qualificado.
 
 1. Faça logon no [Portal do Azure](https://portal.azure.com/).
-2. No menu à esquerda no portal do Azure, clique em **Todos os recursos** e pesquise o servidor que você criou (como **mydemoserver**).
+2. No menu à esquerda no portal do Azure, clique em **Todos os recursos** e pesquise o servidor que você criou (como **mydemoserver** ).
 3. Clique no nome do servidor.
 4. No painel **Visão Geral** do servidor, anote o **Nome do servidor** e **Nome de logon do administrador do servidor**. Se você esquecer sua senha, também poderá redefini-la nesse painel.
- ![Nome do servidor do Banco de Dados do Azure para PostgreSQL](./media/connect-go/1-connection-string.png)
+ :::image type="content" source="./media/connect-go/1-connection-string.png" alt-text="Nome do servidor do Banco de Dados do Azure para PostgreSQL":::
 
 ## <a name="build-and-run-go-code"></a>Compilar e executar o código Go 
 1. Para escrever código Golang, você pode usar um editor de texto sem formatação, como o Bloco de Notas no Microsoft Windows, [vi](https://manpages.ubuntu.com/manpages/xenial/man1/nvi.1.html#contenttoc5) ou [Nano](https://www.nano-editor.org/) no Ubuntu ou TextEdit no macOS. Se você preferir um IDE (Ambiente de Desenvolvimento Integrado) mais avançado, experimente o [GoLand](https://www.jetbrains.com/go/) da Jetbrains, o [Visual Studio Code](https://code.visualstudio.com/) da Microsoft ou o [Atom](https://atom.io/).
@@ -94,7 +94,7 @@ Obtenha as informações de conexão necessárias para se conectar ao Banco de D
 6. Como alternativa, para compilar o código em um aplicativo nativo, `go build createtable.go`, inicie `createtable.exe` para executar o aplicativo.
 
 ## <a name="connect-and-create-a-table"></a>Conectar-se e criar uma tabela
-Use o código a seguir para se conectar e criar uma tabela usando a instrução SQL **CREATE TABLE**, seguida por instruções SQL **INSERT INTO** para adicionar linhas à tabela.
+Use o código a seguir para se conectar e criar uma tabela usando a instrução SQL **CREATE TABLE** , seguida por instruções SQL **INSERT INTO** para adicionar linhas à tabela.
 
 O código importa três pacotes: o [pacote sql](https://golang.org/pkg/database/sql/), o [pacote pq](https://godoc.org/github.com/lib/pq) como um driver para se comunicar com o servidor PostgreSQL e o [pacote fmt](https://golang.org/pkg/fmt/) para entrada e saída impressa na linha de comando.
 
@@ -331,6 +331,16 @@ func main() {
     checkError(err)
     fmt.Println("Deleted 1 row of data")
 }
+```
+
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+Para limpar todos os recursos usados durante este guia de início rápido, exclua o grupo de recursos usando o seguinte comando:
+
+```azurecli
+az group delete \
+    --name $AZ_RESOURCE_GROUP \
+    --yes
 ```
 
 ## <a name="next-steps"></a>Próximas etapas

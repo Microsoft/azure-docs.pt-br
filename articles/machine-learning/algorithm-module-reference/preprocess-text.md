@@ -1,24 +1,24 @@
 ---
 title: 'Pré-processar texto: referência de módulo'
 titleSuffix: Azure Machine Learning
-description: Saiba como usar o módulo de texto de pré-processamento em Azure Machine Learning para limpar e simplificar o texto.
+description: Saiba como usar o módulo de texto de pré-processamento no designer de Azure Machine Learning para limpar e simplificar o texto.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 09/01/2019
-ms.openlocfilehash: 6e4d4c8f798418e090caeba091dec33c71f0458f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 11/16/2020
+ms.openlocfilehash: 366b30df677a5b74bc7d70e1aea60e05b4df0152
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79477486"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659264"
 ---
 # <a name="preprocess-text"></a>Pré-processar Texto
 
-Este artigo descreve um módulo no designer do Azure Machine Learning (versão prévia).
+Este artigo descreve um módulo no designer de Azure Machine Learning.
 
 Use o módulo de **texto pré-processar** para limpar e simplificar o texto. Ele dá suporte a essas operações comuns de processamento de texto:
 
@@ -53,7 +53,7 @@ O módulo de **texto de pré-processamento** atualmente só dá suporte ao ingl�
 
     Esse módulo usa uma série de três caracteres de pipe `|||` para representar o terminador de frase.
 
-1. Execute operações de localização e substituição opcionais usando expressões regulares.
+1. Execute operações de localização e substituição opcionais usando expressões regulares. A expressão regular será processada a princípio, antes de todas as outras opções internas.
 
     * **Expressão regular personalizada**: defina o texto que você está pesquisando.
     * **Cadeia de substituição personalizada**: defina um único valor de substituição.
@@ -64,14 +64,14 @@ O módulo de **texto de pré-processamento** atualmente só dá suporte ao ingl�
 
 1. Você também pode remover os seguintes tipos de caracteres ou sequências de caracteres do texto de saída processado:
 
-    * **Remover números**: Selecione esta opção para remover todos os caracteres numéricos do idioma especificado. Os números de identificação são dependentes de domínio e de idioma. Se os caracteres numéricos forem parte integrante de uma palavra conhecida, o número poderá não ser removido.
+    * **Remover números**: Selecione esta opção para remover todos os caracteres numéricos do idioma especificado. Os números de identificação são dependentes de domínio e de idioma. Se os caracteres numéricos forem parte integrante de uma palavra conhecida, o número poderá não ser removido. Saiba mais em [notas técnicas](#technical-notes).
     
     * **Remover caracteres especiais**: Use esta opção para remover quaisquer caracteres especiais não alfanuméricos.
     
     * **Remover caracteres duplicados**: Selecione esta opção para remover caracteres extras em qualquer sequência que se repita para mais de duas vezes. Por exemplo, uma sequência como "AAAAA" seria reduzida para "AA".
     
     * **Remover endereços de email**: Selecione esta opção para remover qualquer sequência do formato `<string>@<string>` .  
-    * **Remover URLs**: Selecione esta opção para remover qualquer sequência que inclua os seguintes prefixos de URL: `http` ,, `https` `ftp` ,`www`
+    * **Remover URLs**: Selecione esta opção para remover qualquer sequência que inclua os seguintes prefixos de URL: `http` ,, `https` `ftp` , `www`
     
 1. **Expandir contratações de verbo**: essa opção se aplica somente a idiomas que usam contratações de verbo; Atualmente, somente em inglês. 
 
@@ -84,6 +84,25 @@ O módulo de **texto de pré-processamento** atualmente só dá suporte ao ingl�
     Por exemplo, a cadeia de caracteres `MS---WORD` seria separada em três tokens, `MS` , `-` e `WORD` .
 
 1. Envie o pipeline.
+
+## <a name="technical-notes"></a>Observações técnicas
+
+O módulo de **texto de pré-processamento** no Studio (clássico) e o designer usam modelos de linguagem diferentes. O designer usa um modelo treinado CNN de várias tarefas do [spaCy](https://spacy.io/models/en). Modelos diferentes fornecem marcação de criador e de parte de fala diferentes, o que leva a resultados diferentes.
+
+A seguir estão alguns exemplos:
+
+| Configuração | Resultado da saída |
+| --- | --- |
+|Com todas as opções selecionadas </br> Explica </br> Para os casos como ' 3Test ' em ' WC-3 3Test 4Test ', o designer remove a palavra inteira ' 3Test ', já que, nesse contexto, o marcador de parte da fala especifica esse token ' 3Test ' como numeral e, de acordo com a parte da fala, o módulo o Remove.| :::image type="content" source="./media/module/preprocess-text-all-options-selected.png" alt-text="Com todas as opções selecionadas" border="True"::: |
+|Somente com `Removing number` selecionado </br> Explica </br> Para os casos como ' 3Test ', ' 4-EC ', o designer criador não dose dividir esses casos e os trata como os tokens inteiros. Portanto, ele não removerá os números dessas palavras.| :::image type="content" source="./media/module/preprocess-text-removing-numbers-selected.png" alt-text="Com apenas ' removendo número ' selecionado" border="True"::: |
+
+Você também pode usar a expressão regular para gerar resultados personalizados:
+
+| Configuração | Resultado da saída |
+| --- | --- |
+|Com todas as opções selecionadas </br> Expressão regular personalizada: `(\s+)*(-|\d+)(\s+)*` </br> Cadeia de substituição personalizada: `\1 \2 \3`| :::image type="content" source="./media/module/preprocess-text-regular-expression-all-options-selected.png" alt-text="Com todas as opções selecionadas e expressão regular" border="True"::: |
+|Somente com `Removing number` selecionado </br> Expressão regular personalizada: `(\s+)*(-|\d+)(\s+)*` </br> Cadeia de substituição personalizada: `\1 \2 \3`| :::image type="content" source="./media/module/preprocess-text-regular-expression-removing-numbers-selected.png" alt-text="Com a remoção de números selecionados e expressão regular" border="True"::: |
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

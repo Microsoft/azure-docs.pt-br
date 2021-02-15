@@ -1,19 +1,16 @@
 ---
 title: Identidades gerenciadas no Azure HDInsight
 description: Fornece uma visão geral da implementação de identidades gerenciadas no Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/15/2020
-ms.openlocfilehash: 07a8c26f7fc314680c51270ebafe03d4e3a84757
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: f2b7f6e8421a735db131bc05605936e8cb2d87eb
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88749849"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944118"
 ---
 # <a name="managed-identities-in-azure-hdinsight"></a>Identidades gerenciadas no Azure HDInsight
 
@@ -27,7 +24,7 @@ Há dois tipos de identidades gerenciadas: atribuído pelo usuário e atribuído
 
 No Azure HDInsight, as identidades gerenciadas só são utilizáveis pelo serviço HDInsight para componentes internos. Atualmente, não há um método com suporte para gerar tokens de acesso usando as identidades gerenciadas instaladas em nós de cluster HDInsight para acessar serviços externos. Para alguns serviços do Azure, como VMs de computação, as identidades gerenciadas são implementadas com um ponto de extremidade que você pode usar para adquirir tokens de acesso. Este ponto de extremidade não está disponível no momento em nós do HDInsight.
 
-Se você precisar inicializar seus aplicativos para evitar colocar segredos/senhas nos trabalhos de análise (por exemplo, trabalhos ESCALAres), poderá distrubte seus próprios certificados para os nós de cluster usando as ações de script e, em seguida, usar esse certificado para obtenção um token de acesso (por exemplo, para acessar o Azure keyvault).
+Se você precisar inicializar seus aplicativos para evitar colocar segredos/senhas nos trabalhos de análise (por exemplo, trabalhos ESCALAres), você pode distribuir seus próprios certificados para os nós de cluster usando ações de script e, em seguida, usar esse certificado para adquirir um token de acesso (por exemplo, para acessar o Azure keyvault).
 
 ## <a name="create-a-managed-identity"></a>Criar uma identidade gerenciada
 
@@ -44,9 +41,19 @@ As etapas restantes para configurar a identidade gerenciada dependem do cenário
 
 Identidades gerenciadas são usadas no Azure HDInsight em vários cenários. Consulte os documentos relacionados para obter instruções de instalação e configuração detalhadas:
 
-* [Azure Data Lake Storage Gen2](hdinsight-hadoop-use-data-lake-storage-gen2.md#create-a-user-assigned-managed-identity)
+* [Azure Data Lake Storage Gen2](hdinsight-hadoop-use-data-lake-storage-gen2-portal.md#create-a-user-assigned-managed-identity)
 * [Enterprise Security Package](domain-joined/apache-domain-joined-configure-using-azure-adds.md#create-and-authorize-a-managed-identity)
 * [Criptografia de disco de chave gerenciada pelo cliente](disk-encryption.md)
+
+O HDInsight renovará automaticamente os certificados para as identidades gerenciadas que você usa nesses cenários. No entanto, há uma limitação quando várias identidades diferentes gerenciadas são usadas para clusters de longa execução, a renovação do certificado pode não funcionar conforme o esperado para todas as identidades gerenciadas. Devido a essa limitação, se você estiver planejando usar clusters de longa execução (por exemplo, mais de 60 dias), recomendamos usar a mesma identidade gerenciada para todos os cenários acima. 
+
+Se você já tiver criado um cluster de execução longa com várias identidades gerenciadas diferentes e estiver executando um destes problemas:
+ * Em clusters ESP, os serviços de cluster começam a falhar ou escalar verticalmente e outras operações começam a falhar com erros de autenticação.
+ * Em clusters ESP, ao alterar o certificado de LDAPs do AAD-DS, o certificado LDAPs não é atualizado automaticamente e, portanto, a sincronização LDAP e a escala de UPS começam a falhar.
+ * O acesso de MSI ao ADLS Gen2 iniciar falha.
+ * As chaves de criptografia não podem ser giradas no cenário CMK.
+
+em seguida, você deve atribuir as funções e permissões necessárias para os cenários acima para todas as identidades gerenciadas usadas no cluster. Por exemplo, se você usou diferentes identidades gerenciadas para clusters ADLS Gen2 e ESP, então ambos devem ter as funções "proprietário do armazenamento de dados de blob" e "colaborador de serviços de domínio do HDInsight" atribuídas a eles para evitar a execução nesses problemas.
 
 ## <a name="faq"></a>Perguntas frequentes
 

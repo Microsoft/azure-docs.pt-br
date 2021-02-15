@@ -12,13 +12,13 @@ ms.date: 03/13/2020
 ms.author: wesmc
 ms.custom:
 - 'Role: Cloud Development'
-- devx-track-javascript
-ms.openlocfilehash: e1df4387b5617e9aebb4045bdf19c8df628b56ef
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+- devx-track-js
+ms.openlocfilehash: c96f674b64401250d45542d0f59f13654cf37caa
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423653"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97802517"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>Conectar o Raspberry Pi ao Hub IoT do Azure (Node.js)
 
@@ -97,7 +97,7 @@ Preparar o cartão microSD para instalação da imagem do Raspbian.
 
 1. Baixe o Raspbian.
 
-   a. [Raspbian Buster com desktop](https://www.raspberrypi.org/downloads/raspbian/) (o arquivo. zip).
+   a. [Raspbian Buster com desktop](https://www.raspberrypi.org/software/) (o arquivo. zip).
 
    b. Extraia a imagem do Raspbian em uma pasta no computador.
 

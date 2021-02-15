@@ -3,19 +3,17 @@ title: Mapeamentos de campo em indexadores
 titleSuffix: Azure Cognitive Search
 description: Configure mapeamentos de campo em um indexador para considerar as diferenças em nomes de campo e representações de dados.
 manager: nitinme
-author: mattmsft
-ms.author: magottei
-ms.devlang: rest-api
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/11/2020
-ms.custom: devx-track-csharp
-ms.openlocfilehash: fe4d42fd74b4efd67a01f32611bd170862ec84d0
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.date: 01/28/2021
+ms.openlocfilehash: fb3a77291d8b24d5774094533f8c214f1527d771
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89007121"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430438"
 ---
 # <a name="field-mappings-and-transformations-using-azure-cognitive-search-indexers"></a>Mapeamentos de campo e transformações usando indexadores do Azure Pesquisa Cognitiva
 
@@ -44,16 +42,15 @@ Um mapeamento de campo é composto por três partes:
 Os mapeamentos de campo são adicionados à `fieldMappings` matriz da definição do indexador.
 
 > [!NOTE]
-> Se nenhum mapeamento de campo for adicionado, os indexadores presumirão que os campos de fonte de dados devem ser mapeados para campos de índice com o mesmo nome. A adição de um mapeamento de campo remove esses mapeamentos de campo padrão para o campo de origem e destino. Alguns indexadores, como [o indexador de armazenamento de BLOBs](search-howto-indexing-azure-blob-storage.md), adicionam mapeamentos de campo padrão para o campo chave de índice.
+> Se nenhum mapeamento de campo for adicionado, os indexadores presumirão que os campos de fonte de dados devem ser mapeados para campos de índice com o mesmo nome. A adição de um mapeamento de campo remove esses mapeamentos de campo padrão para o campo de origem e destino. Alguns indexadores, como o [indexador de armazenamento de BLOBs](search-howto-indexing-azure-blob-storage.md), adicionam mapeamentos de campo padrão para o campo chave de índice.
 
-## <a name="map-fields-using-the-rest-api"></a>Mapear campos usando a API REST
+## <a name="map-fields-using-rest"></a>Mapear campos usando REST
 
 Você pode adicionar mapeamentos de campo ao criar um novo indexador usando a solicitação criar API do [indexador](/rest/api/searchservice/create-Indexer) . Você pode gerenciar os mapeamentos de campo de um indexador existente usando a solicitação atualizar API do [indexador](/rest/api/searchservice/update-indexer) .
 
 Por exemplo, veja como mapear um campo de origem para um campo de destino com um nome diferente:
 
 ```JSON
-
 PUT https://[service name].search.windows.net/indexers/myindexer?api-version=[api-version]
 Content-Type: application/json
 api-key: [admin key]
@@ -77,11 +74,10 @@ Um campo de origem pode ser referenciado em vários mapeamentos de campo. O exem
 > [!NOTE]
 > O Azure Pesquisa Cognitiva usa a comparação que não diferencia maiúsculas de minúsculas para resolver os nomes de campo e função em mapeamentos de campo. Isso é conveniente (você não precisa obter todas as maiúsculas e minúsculas corretas), mas isso significa que a fonte de dados ou o índice não pode ter campos que diferem somente maiúsculas e minúsculas.  
 >
->
 
-## <a name="map-fields-using-the-net-sdk"></a>Mapear campos usando o SDK do .NET
+## <a name="map-fields-using-net"></a>Mapear campos usando o .NET
 
-Você define mapeamentos de campo no SDK do .NET usando a classe [FieldMapping](/dotnet/api/microsoft.azure.search.models.fieldmapping) , que tem as propriedades `SourceFieldName` e e `TargetFieldName` uma `MappingFunction` referência opcional.
+Você define mapeamentos de campo no SDK do .NET usando a classe [FieldMapping](/dotnet/api/azure.search.documents.indexes.models.fieldmapping) , que tem as propriedades `SourceFieldName` e e `TargetFieldName` uma `MappingFunction` referência opcional.
 
 Você pode especificar mapeamentos de campo ao construir o indexador, ou mais tarde, definindo diretamente a `Indexer.FieldMappings` propriedade.
 
@@ -201,7 +197,7 @@ O Azure Pesquisa Cognitiva dá suporte a duas codificações Base64 diferentes. 
 
 O Azure Pesquisa Cognitiva dá suporte à codificação Base64 de URL segura e à codificação Base64 normal. Uma cadeia de caracteres codificada em base64 durante a indexação deve ser decodificada posteriormente com as mesmas opções de codificação, caso contrário, o resultado não corresponderá ao original.
 
-Se os `useHttpServerUtilityUrlTokenEncode` `useHttpServerUtilityUrlTokenDecode` parâmetros ou para codificação e decodificação respectivamente forem definidos como `true` e, em seguida, se `base64Encode` comparecerem com [HttpServerUtility. UrlTokenEncode](/dotnet/api/system.web.httpserverutility.urltokenencode?view=netframework-4.8) e `base64Decode` se comparecerem com [HttpServerUtility. UrlTokenDecode](/dotnet/api/system.web.httpserverutility.urltokendecode?view=netframework-4.8).
+Se os `useHttpServerUtilityUrlTokenEncode` `useHttpServerUtilityUrlTokenDecode` parâmetros ou para codificação e decodificação respectivamente forem definidos como `true` e, em seguida, se `base64Encode` comparecerem com [HttpServerUtility. UrlTokenEncode](/dotnet/api/system.web.httpserverutility.urltokenencode) e `base64Decode` se comparecerem com [HttpServerUtility. UrlTokenDecode](/dotnet/api/system.web.httpserverutility.urltokendecode).
 
 > [!WARNING]
 > Se `base64Encode` for usado para produzir valores de chave, `useHttpServerUtilityUrlTokenEncode` deverá ser definido como true. Somente a codificação Base64 segura para URL pode ser usada para valores de chave. Consulte [regras de nomenclatura &#40;pesquisa cognitiva do Azure&#41;](/rest/api/searchservice/naming-rules) para obter o conjunto completo de restrições em caracteres em valores de chave.

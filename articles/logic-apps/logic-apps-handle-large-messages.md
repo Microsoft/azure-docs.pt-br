@@ -3,16 +3,14 @@ title: Manipular mensagens grandes pelo uso de agrupamento
 description: Saiba como lidar com tamanhos grandes de mensagem usando o agrupamento em tarefas automatizadas e fluxos de trabalho que você cria com os Aplicativos Lógicos do Azure
 services: logic-apps
 ms.suite: integration
-author: DavidCBerry13
-ms.author: daberry
 ms.topic: article
-ms.date: 12/03/2019
-ms.openlocfilehash: 54828dded5196c86946d99a9cd8cec7a42533661
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.date: 12/18/2020
+ms.openlocfilehash: de4af34182fc1a95968e95d322a6ec35101a3dc9
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83117556"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97695875"
 ---
 # <a name="handle-large-messages-with-chunking-in-azure-logic-apps"></a>Tratar mensagens grandes com agrupamentos nos Aplicativos Lógicos do Azure
 
@@ -40,8 +38,57 @@ Os serviços que se comunicam com os Aplicativos Lógicos podem ter seus própri
 
 Para os conectores compatíveis com a divisão em partes, o protocolo de divisão em partes subjacente é invisível para os usuários finais. No entanto, nem todos os conectores são compatíveis com a divisão em partes, portanto, esses conectores geram erros de runtime ao receberem mensagens que excedem seus limites de tamanho.
 
-> [!NOTE]
-> Para ações que usam agrupamento, você não pode passar o corpo do gatilho nem usar expressões como `@triggerBody()?['Content']` nessas ações. Em vez disso, para texto ou conteúdo de um arquivo JSON, você pode tentar usar a [ação **Compose**](../logic-apps/logic-apps-perform-data-operations.md#compose-action) ou [criar uma variável](../logic-apps/logic-apps-create-variables-store-values.md) para lidar com esse conteúdo. Se o corpo do gatilho contiver outros tipos de conteúdo, como arquivos de mídia, você precisará executar outras etapas para lidar com esse conteúdo.
+
+Para ações que dão suporte e estão habilitadas para agrupamento, você não pode usar corpos, variáveis e expressões de gatilho como, por exemplo, `@triggerBody()?['Content']` o uso de qualquer uma dessas entradas impede que a operação de agrupamento ocorra. Em vez disso, use a [ação **compor**](../logic-apps/logic-apps-perform-data-operations.md#compose-action). Especificamente, você deve criar um `body` campo usando a ação **compor** para armazenar a saída de dados do corpo do gatilho, da variável, da expressão e assim por diante, por exemplo:
+
+```json
+"Compose": {
+    "inputs": {
+        "body": "@variables('myVar1')"
+    },
+    "runAfter": {
+        "Until": [
+            "Succeeded"
+        ]
+    },
+    "type": "Compose"
+},
+```
+Em seguida, para fazer referência aos dados, na ação de agrupamento, use `@body('Compose')` .
+
+```json
+"Create_file": {
+    "inputs": {
+        "body": "@body('Compose')",
+        "headers": {
+            "ReadFileMetadataFromServer": true
+        },
+        "host": {
+            "connection": {
+                "name": "@parameters('$connections')['sftpwithssh_1']['connectionId']"
+            }
+        },
+        "method": "post",
+        "path": "/datasets/default/files",
+        "queries": {
+            "folderPath": "/c:/test1/test1sub",
+            "name": "tt.txt",
+            "queryParametersSingleEncoded": true
+        }
+    },
+    "runAfter": {
+        "Compose": [
+            "Succeeded"
+        ]
+    },
+    "runtimeConfiguration": {
+        "contentTransfer": {
+            "transferMode": "Chunked"
+        }
+    },
+    "type": "ApiConnection"
+},
+```
 
 <a name="set-up-chunking"></a>
 
@@ -113,7 +160,7 @@ Estas etapas descrevem o processo detalhado que os Aplicativos Lógicos usam par
 
 1. Seu aplicativo lógico envia uma solicitação HTTP POST ou PUT inicial com o corpo da mensagem vazio. O cabeçalho de solicitação, inclui essas informações sobre o conteúdo que seu aplicativo lógico quer carregar em partes:
 
-   | Campo de cabeçalho de solicitação de Aplicativos Lógicos | Valor | Type | Descrição |
+   | Campo de cabeçalho de solicitação de Aplicativos Lógicos | Valor | Tipo | Descrição |
    |---------------------------------|-------|------|-------------|
    | **x-ms-transfer-mode** | em partes | String | Indica que o conteúdo é carregado em partes |
    | **x-ms-content-length** | <*content-length*> | Integer | O tamanho do conteúdo inteiro em bytes antes da divisão em partes |
@@ -121,7 +168,7 @@ Estas etapas descrevem o processo detalhado que os Aplicativos Lógicos usam par
 
 2. O ponto de extremidade responde com o código de status de êxito “200” e essas informações opcionais:
 
-   | Campo de cabeçalho de resposta do ponto de extremidade | Type | Obrigatório | Descrição |
+   | Campo de cabeçalho de resposta do ponto de extremidade | Type | Necessária | Descrição |
    |--------------------------------|------|----------|-------------|
    | **x-ms-chunk-size** | Integer | Não | O tamanho da parte sugerido em bytes |
    | **Localidade** | String | Sim | O local da URL para a qual enviar as mensagens HTTP PATCH |
@@ -133,7 +180,7 @@ Estas etapas descrevem o processo detalhado que os Aplicativos Lógicos usam par
 
    * Esses detalhes de cabeçalho sobre a parte do conteúdo enviados em cada mensagem PATCH:
 
-     | Campo de cabeçalho de solicitação de Aplicativos Lógicos | Valor | Type | Descrição |
+     | Campo de cabeçalho de solicitação de Aplicativos Lógicos | Valor | Tipo | Descrição |
      |---------------------------------|-------|------|-------------|
      | **Content-Range** | <*range*> | String | O intervalo de bytes da parte do conteúdo atual, incluindo o valor inicial, o valor final e o tamanho total do conteúdo, por exemplo, "bytes=0-1023/10100" |
      | **Content-Type** | <*content-type*> | String | O tipo de conteúdo em partes |
@@ -142,7 +189,7 @@ Estas etapas descrevem o processo detalhado que os Aplicativos Lógicos usam par
 
 4. Depois de cada solicitação PATCH, o ponto de extremidade confirma o recebimento para cada parte respondendo com o código de status "200" e os seguintes cabeçalhos de resposta:
 
-   | Campo de cabeçalho de resposta do ponto de extremidade | Type | Obrigatório | Descrição |
+   | Campo de cabeçalho de resposta do ponto de extremidade | Type | Necessária | Descrição |
    |--------------------------------|------|----------|-------------|
    | **Range** | String | Sim | O intervalo de bytes para o conteúdo recebido pelo ponto de extremidade, por exemplo: "bytes=0-1023" |   
    | **x-ms-chunk-size** | Integer | Não | O tamanho da parte sugerido em bytes |

@@ -3,12 +3,12 @@ title: Gerenciar e monitorar bancos de SQL Server em uma VM do Azure
 description: Este artigo descreve como gerenciar e monitorar SQL Server bancos de dados que estão em execução em uma VM do Azure.
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 26a1a6cf7bc011edce61a8bb60926dad2cb29a16
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: e37e6fc211b34b7e427b66db374a705faafd25f9
+ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826626"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97858715"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Gerenciar e monitorar backup de bancos de dados do SQL Server
 
@@ -20,7 +20,7 @@ Se você ainda não tiver configurado backups para seus bancos de dados SQL Serv
 
 O backup do Azure mostra todas as operações agendadas e sob demanda em **trabalhos de backup** no portal, exceto os backups de log agendados, pois eles podem ser muito frequentes. Os trabalhos que você vê neste portal incluem descoberta e registro de banco de dados, configurar backup e operações de backup e restauração.
 
-![O portal de trabalhos de backup](./media/backup-azure-sql-database/jobs-list.png)
+![O portal de trabalhos de backup](./media/backup-azure-sql-database/sql-backup-jobs-list.png)
 
 Para obter detalhes sobre cenários de monitoramento, acesse [monitoramento na portal do Azure](backup-azure-monitoring-built-in-monitor.md) e [monitoramento usando Azure monitor](backup-azure-monitoring-use-azuremonitor.md).  
 
@@ -36,13 +36,9 @@ Para monitorar alertas de backup de banco de dados:
 
 1. Entre no [portal do Azure](https://portal.azure.com).
 
-2. No painel de cofres, selecione **Alertas e Eventos**.
+2. No painel do cofre, selecione **Alertas de Backup**.
 
-   ![Selecionar Alertas e Eventos](./media/backup-azure-sql-database/vault-menu-alerts-events.png)
-
-3. Em **Alertas e Eventos**, selecione **Alertas de Backup**.
-
-   ![Selecionar Alertas de Backup](./media/backup-azure-sql-database/backup-alerts-dashboard.png)
+   ![Selecionar Alertas de Backup](./media/backup-azure-sql-database/sql-backup-alerts-list.png)
 
 ## <a name="stop-protection-for-a-sql-server-database"></a>Interromper a proteção para um banco de dados do SQL Server
 
@@ -53,9 +49,9 @@ Você pode interromper o backup de um banco de dados do SQL Server de duas manei
 
 Se você optar por deixar os pontos de recuperação, tenha em mente estes detalhes:
 
-- Todos os pontos de recuperação permanecerão intactos para sempre, e toda a remoção será interrompida em parar proteção com reter dados.
+- Todos os pontos de recuperação permanecerão intactos para sempre e toda a remoção será interrompida ao parar a proteção com os dados de retenção.
 - Você será cobrado pela instância protegida e pelo armazenamento consumido. Para saber mais, confira [Preços do Backup do Azure](https://azure.microsoft.com/pricing/details/backup/).
-- Se você excluir uma fonte de dados sem interromper os backups, os novos backups falharão. Os pontos de recuperação antigos expirarão de acordo com a política, mas um último ponto de recuperação será sempre mantido até que você interrompa os backups e exclua os dados.
+- Se você excluir uma fonte de dados sem interromper os backups, os novos backups falharão. Os pontos de recuperação antigos expirarão de acordo com a política, mas o ponto de recuperação mais recente sempre será mantido até que você interrompa os backups e exclua os dados.
 
 Para interromper a proteção para um banco de dados:
 
@@ -83,7 +79,7 @@ Para interromper a proteção para um banco de dados:
 >
 >Para obter mais informações sobre a opção excluir dados, consulte as perguntas frequentes abaixo:
 >
->- [Se eu excluir um banco de dados de uma instância autoprotegida, o que acontecerá com os backups?](faq-backup-sql-server.md#if-i-delete-a-database-from-an-autoprotected-instance-what-will-happen-to-the-backups)
+>- [Se eu excluir um banco de dados de uma instância protegida automaticamente, o que acontecerá com os backups?](faq-backup-sql-server.md#if-i-delete-a-database-from-an-autoprotected-instance-what-will-happen-to-the-backups)
 >- [Se eu parar a operação de backup de um banco de dados autoprotegido, qual será seu comportamento?](faq-backup-sql-server.md#if-i-change-the-name-of-the-database-after-it-has-been-protected-what-will-be-the-behavior)
 >
 >

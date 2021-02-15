@@ -1,19 +1,18 @@
 ---
 title: Compilar uma solução de IoT usando o Azure Stream Analytics
 description: Tutorial de introdução da solução de IoT Stream Analytics de um cenário de pedágio
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: e0e2244d8c70ca2e6d379e741d543d9cd260b7f8
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: ddec53b18cd6f374a5665298b43b46122bcfa143
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044576"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98016143"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Compilar uma solução de IoT usando o Stream Analytics
 
@@ -163,7 +162,7 @@ Há vários recursos que podem ser facilmente implantados em um grupo de recurso
 
    Para parafrasear a intenção da consulta, digamos que você precise contar a quantidade de veículos que entra no pedágio. Como um pedágio tem um fluxo contínuo de veículos entrando, esses são eventos de entrada análogos a um fluxo que nunca é interrompido. Para quantificar o fluxo, é necessário definir um "período de tempo" para medida suplementar. Vamos aprimorar ainda mais a questão: "Quantos veículos entram em um pedágio a cada três minutos?" Isso é conhecido como contagem em cascata.
 
-   Como você pode ver, o Stream Analytics do Azure usa uma linguagem de consulta parecida com SQL e adiciona algumas extensões para especificar aspectos da consulta relacionados ao tempo.  Para obter mais detalhes, leia sobre os constructos [Gerenciamento de Tempo](https://docs.microsoft.com/stream-analytics-query/time-management-azure-stream-analytics) e [Janelas](https://docs.microsoft.com/stream-analytics-query/windowing-azure-stream-analytics) usados na consulta.
+   Como você pode ver, o Stream Analytics do Azure usa uma linguagem de consulta parecida com SQL e adiciona algumas extensões para especificar aspectos da consulta relacionados ao tempo.  Para obter mais detalhes, leia sobre os constructos [Gerenciamento de Tempo](/stream-analytics-query/time-management-azure-stream-analytics) e [Janelas](/stream-analytics-query/windowing-azure-stream-analytics) usados na consulta.
 
 3. Examine as entradas do trabalho de exemplo do TollApp. Apenas a entrada EntryStream é usada na consulta atual.
    - A entrada **EntryStream** é uma conexão do Hub de Eventos que coloca os dados em fila, representando cada vez que um carro entra em um pedágio na rodovia. Um aplicativo Web que faz parte do exemplo está criando os eventos e esses dados são enfileirados nesse Hub de Eventos. Observe que essa entrada é consultada na cláusula FROM da consulta de streaming.
@@ -189,7 +188,7 @@ Siga estas etapas para iniciar o trabalho de streaming:
 
 3. Selecione o cabeçalho **Data Explorer** para abrir a página do Data Explorer.
 
-4. Expanda os documentos do **tollAppDatabase**  >  **tollAppCollection**  >  **Documents**.
+4. Expanda os documentos do **tollAppDatabase**  >  **tollAppCollection**  >  .
 
 5. Na lista de IDs, vários documentos serão mostrados quando a saída estiver disponível.
 

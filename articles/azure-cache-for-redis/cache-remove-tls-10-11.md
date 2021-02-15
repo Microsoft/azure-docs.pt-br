@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: yegu
-ms.openlocfilehash: 69df5a65df99a7497099e71e9f41701458370c87
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fd0e6f893d152259c46ff06e9ec20af54395c5e6
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84423914"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994376"
 ---
 # <a name="remove-tls-10-and-11-from-use-with-azure-cache-for-redis"></a>Remover o TLS 1.0 e 1.1 do uso com o Cache do Azure para Redis
 
@@ -19,10 +19,14 @@ Há uma tendência em todo o setor para o uso exclusivo do protocolo TLS versão
 
 Como parte desse esforço, faremos as seguintes alterações no Cache do Azure para Redis:
 
-* **Fase 1:** Configuraremos a versão padrão mínima do TLS como 1.2 para instâncias de cache recém-criadas (anteriormente era TLS 1.0).  As instâncias de cache existentes não serão atualizadas por enquanto. Você terá permissão para [alterar a versão mínima do TLS](cache-configure.md#access-ports) de volta para 1.0 ou 1.1 para compatibilidade com versões anteriores, se necessário. Essa alteração pode ser feita por meio do portal do Azure ou de outras APIs de gerenciamento.
-* **Fase 2:** Deixaremos de dar suporte às versões 1.0 e 1.1 do TLS. Após essa alteração, seu aplicativo precisará usar o TLS 1.2 ou posterior para se comunicar com o cache.
+* **Fase 1:** Configuraremos a versão padrão mínima do TLS como 1,2 para instâncias de cache recém-criadas (anteriormente, era TLS 1,0). As instâncias de cache existentes não serão atualizadas por enquanto. Você ainda pode usar o portal do Azure ou outras APIs de gerenciamento para [alterar a versão mínima do TLS](cache-configure.md#access-ports) para 1,0 ou 1,1 para compatibilidade com versões anteriores, se necessário.
+* **Fase 2:** Vamos parar de dar suporte a TLS 1,1 e a TLS 1,0. Após essa alteração, seu aplicativo deve usar o TLS 1,2 ou posterior para se comunicar com o cache. Espera-se que o serviço de cache do Azure para Redis esteja disponível enquanto os migramos para dar suporte apenas a TLS 1,2 ou posterior.
 
-Além disso, como parte dessa alteração, removeremos o suporte para pacotes de criptografia mais antigos e pouco seguros.  Nossos pacotes de criptografia compatíveis serão restritos aos listados a seguir quando o cache for configurado com uma versão de TLS mínima de 1.2.
+  > [!NOTE]
+  > A fase 2 está temporariamente planejada para começar não antes de 31 de dezembro de 2020. No entanto, é altamente recomendável que você comece a planejar essa alteração agora e atualize proativamente os clientes para dar suporte a TLS 1,2 ou posterior. 
+  >
+
+Como parte dessa alteração, também removeremos o suporte para conjuntos de criptografia mais antigos que não são seguros. Nossos pacotes criptografia com suporte serão restritos aos seguintes pacotes quando o cache for configurado com um mínimo de TLS 1,2:
 
 * TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384_P384
 * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256
@@ -33,12 +37,14 @@ As datas em que essas alterações entram em vigor são:
 
 | Nuvem                | Data de início da fase 1 | Data de início da fase 2         |
 |----------------------|--------------------|----------------------------|
-| Azure (global)       |  13 de janeiro de 2020  | Adiado devido a COVID 19  |
-| Azure Government     |  13 de março de 2020    | Adiado devido a COVID 19  |
-| Azure Alemanha        |  13 de março de 2020    | Adiado devido a COVID 19  |
-| Azure China 21Vianet |  13 de março de 2020    | Adiado devido a COVID 19  |
+| Azure (global)       |  13 de janeiro de 2020  | Adiado devido a COVID-19  |
+| Azure Government     |  13 de março de 2020    | Adiado devido a COVID-19  |
+| Azure Alemanha        |  13 de março de 2020    | Adiado devido a COVID-19  |
+| Azure China 21Vianet |  13 de março de 2020    | Adiado devido a COVID-19  |
 
-Observação: a nova data para a fase 2 ainda não foi determinada
+> [!NOTE]
+> A fase 2 está temporariamente planejada para começar não antes de 31 de dezembro de 2020. Este artigo será atualizado quando datas específicas forem definidas.
+>
 
 ## <a name="check-whether-your-application-is-already-compliant"></a>Verificar se o seu aplicativo já está em conformidade
 
@@ -59,7 +65,7 @@ Os clientes do .NET do Redis usam a versão mais antiga do TLS por padrão no .N
 
 Os clientes Redis .NET Core assumem como padrão a versão TLS padrão do sistema operacional que, obviamente, depende do sistema operacional propriamente dito. 
 
-Dependendo da versão do sistema operacional e de todos os patches que foram aplicados, a versão efetiva padrão do TLS pode variar. Embora haja uma fonte de informações sobre isso, [aqui](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12) está um artigo para o Windows. 
+Dependendo da versão do sistema operacional e de todos os patches que foram aplicados, a versão efetiva padrão do TLS pode variar. Embora haja uma fonte de informações sobre isso, [aqui](/dotnet/framework/network-programming/tls#support-for-tls-12) está um artigo para o Windows. 
 
 No entanto, se você estiver usando um sistema operacional antigo ou apenas quiser ter certeza, é recomendável configurar a versão de TLS preferencial manualmente por meio do cliente.
 

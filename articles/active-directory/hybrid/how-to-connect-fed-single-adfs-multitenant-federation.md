@@ -17,12 +17,12 @@ ms.date: 07/17/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8d0e8301fe5443e548dd35a6b6058e8c7a409d0
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 956428b6f197912e2ab7c3a94133ed9d59f37749
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85849895"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "89279917"
 ---
 # <a name="federate-multiple-instances-of-azure-ad-with-single-instance-of-ad-fs"></a>Federar várias instâncias do Azure AD com uma instância única do AD FS
 
@@ -42,7 +42,7 @@ Imagine um domínio contoso.com no contoso.onmicrosoft.com do Azure Active Direc
 
 ## <a name="step-1-establish-a-two-way-trust"></a>Etapa 1: estabelecer uma confiança mútua
  
-Para que o AD FS em contoso.com seja capaz de autenticar usuários no fabrikam.com, uma relação de confiança bidirecional é necessária entre contoso.com e fabrikam.com. Siga as diretrizes neste [artigo](https://technet.microsoft.com/library/cc816590.aspx) para criar a relação de confiança bidirecional.
+Para que o AD FS em contoso.com seja capaz de autenticar usuários no fabrikam.com, uma relação de confiança bidirecional é necessária entre contoso.com e fabrikam.com. Siga as diretrizes neste [artigo](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc816590(v=ws.10)) para criar a relação de confiança bidirecional.
  
 ## <a name="step-2-modify-contosocom-federation-settings"></a>Etapa 2: modificar configurações de federação de contoso.com 
  

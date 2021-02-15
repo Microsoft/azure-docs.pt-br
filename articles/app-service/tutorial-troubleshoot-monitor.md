@@ -5,12 +5,12 @@ author: msangapu-msft
 ms.author: msangapu
 ms.topic: tutorial
 ms.date: 06/20/2020
-ms.openlocfilehash: 106427a6b26386e6ff881862f836e9108a27aa96
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: af2711a3d219bb472334ad61bad0b87f6c691dab
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88081804"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98183193"
 ---
 # <a name="tutorial-troubleshoot-an-app-service-app-with-azure-monitor"></a>Tutorial: Solucionar problemas de um aplicativo do Serviço de Aplicativo com o Azure Monitor
 
@@ -18,9 +18,9 @@ ms.locfileid: "88081804"
 > A integração do Azure Monitor ao Serviço de Aplicativo está em [versão prévia](https://aka.ms/appsvcblog-azmon).
 >
 
-Este tutorial mostra como solucionar problemas de um aplicativo do [Serviço de Aplicativo](overview.md) usando o [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview). O aplicativo de exemplo inclui o código destinado a esgotar a memória e causar erros HTTP 500 para que você possa diagnosticar e corrigir o problema usando o Azure Monitor. Quando tiver terminado, você terá um aplicativo de exemplo em execução no Serviço de Aplicativo no Linux integrado ao [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview).
+Este tutorial mostra como solucionar problemas de um aplicativo do [Serviço de Aplicativo](overview.md) usando o [Azure Monitor](../azure-monitor/overview.md). O aplicativo de exemplo inclui o código destinado a esgotar a memória e causar erros HTTP 500 para que você possa diagnosticar e corrigir o problema usando o Azure Monitor. Quando tiver terminado, você terá um aplicativo de exemplo em execução no Serviço de Aplicativo no Linux integrado ao [Azure Monitor](../azure-monitor/overview.md).
 
-O [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) maximiza a disponibilidade e o desempenho de seus aplicativos e serviços fornecendo uma solução abrangente para coletar, analisar e agir em relação a dados telemétricos de seus ambientes locais e de nuvem.
+O [Azure Monitor](../azure-monitor/overview.md) maximiza a disponibilidade e o desempenho de seus aplicativos e serviços fornecendo uma solução abrangente para coletar, analisar e agir em relação a dados telemétricos de seus ambientes locais e de nuvem.
 
 Neste tutorial, você aprende a:
 
@@ -38,7 +38,7 @@ Você pode seguir as etapas deste tutorial no macOS, no Linux e no Windows.
 Para concluir este tutorial, você precisará de:
 
 - [Assinatura do Azure](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
-- [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli)
+- [CLI do Azure](/cli/azure/install-azure-cli)
 - [Git](https://git-scm.com/)
 
 ## <a name="create-azure-resources"></a>Criar recursos do Azure
@@ -52,7 +52,7 @@ az webapp deployment user set --user-name <username> --password <password>
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku B1 --is-linux
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --runtime "PHP|7.3" --deployment-local-git
 git remote add azure <url_from_previous_step>
-git push azure master
+git push azure main
 ```
 
 ## <a name="configure-azure-monitor-preview"></a>Configurar o Azure Monitor (versão prévia)
@@ -73,12 +73,12 @@ az monitor log-analytics workspace create --resource-group myResourceGroup --wor
 
 ### <a name="create-a-diagnostic-setting"></a>Criar uma configuração de diagnóstico
 
-As configurações de diagnóstico podem ser usadas para coletar métricas de determinados serviços do Azure em logs do Azure Monitor para análise com outros dados de monitoramento usando consultas de log. Neste tutorial, você habilitará o servidor Web e os logs de saída/erro padrão. Confira [tipos de log compatíveis](https://docs.microsoft.com/azure/app-service/troubleshoot-diagnostic-logs#supported-log-types) para obter uma lista completa de tipos de log e descrições.
+As configurações de diagnóstico podem ser usadas para coletar métricas de determinados serviços do Azure em logs do Azure Monitor para análise com outros dados de monitoramento usando consultas de log. Neste tutorial, você habilitará o servidor Web e os logs de saída/erro padrão. Confira [tipos de log compatíveis](./troubleshoot-diagnostic-logs.md#supported-log-types) para obter uma lista completa de tipos de log e descrições.
 
 Execute os seguintes comandos para criar configurações de diagnóstico para AppServiceConsoleLogs (saída/erro padrão) e AppServiceHTTPLogs (logs de servidor Web). Substitua _\<app-name>_ e _\<workspace-name>_ por seus valores. 
 
 > [!NOTE]
-> Os dois primeiros comandos, `resourceID` e `workspaceID`, são variáveis a serem usadas no comando `az monitor diagnostic-settings create`. Confira [Criar configurações de diagnóstico usando a CLI do Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings#create-diagnostic-settings-using-azure-cli) para obter mais informações sobre este comando.
+> Os dois primeiros comandos, `resourceID` e `workspaceID`, são variáveis a serem usadas no comando `az monitor diagnostic-settings create`. Confira [Criar configurações de diagnóstico usando a CLI do Azure](../azure-monitor/platform/diagnostic-settings.md#create-using-azure-cli) para obter mais informações sobre este comando.
 >
 
 ```bash
@@ -129,7 +129,7 @@ No Portal do Azure, selecione o espaço de trabalho do Log Analytics.
 
 ### <a name="log-queries"></a>Consultas de logs
 
-As consultas de log ajudam você a aproveitar tudo o que os dados coletados nos logs do Azure Monitor têm a oferecer. Use as consultas de log para identificar os logs em AppServiceHTTPLogs e AppServiceConsoleLogs. Confira a [visão geral da consulta de log](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview) para obter mais informações sobre consultas de log.
+As consultas de log ajudam você a aproveitar tudo o que os dados coletados nos logs do Azure Monitor têm a oferecer. Use as consultas de log para identificar os logs em AppServiceHTTPLogs e AppServiceConsoleLogs. Confira a [visão geral da consulta de log](../azure-monitor/log-query/log-query-overview.md) para obter mais informações sobre consultas de log.
 
 ### <a name="view-appservicehttplogs-with-log-query"></a>Exibir AppServiceHTTPLogs com a consulta de log
 
@@ -171,11 +171,11 @@ where ResultDescription  contains "error"
 
 Na coluna `ResultDescription`, você verá o seguinte erro:
 
-<pre>
+```output
 PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted 
 (tried to allocate 16384 bytes) in /home/site/wwwroot/process.php on line 20, 
 referer: http://<app-name>.azurewebsites.net/
-</pre>
+```
 
 ### <a name="join-appservicehttplogs-and-appserviceconsolelogs"></a>Unir AppServiceHTTPLogs e AppServiceConsoleLogs
 
@@ -201,11 +201,11 @@ myHttp | join myConsole on TimeGen | project TimeGen, CsUriStem, ScStatus, Resul
 
 Na coluna `ResultDescription`, você verá o seguinte erro ao mesmo tempo que erros do servidor Web:
 
-<pre>
+```output
 PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted 
 (tried to allocate 16384 bytes) in /home/site/wwwroot/process.php on line 20, 
 referer: http://<app-name>.azurewebsites.net/
-</pre>
+```
 
 A mensagem declara que a memória foi esgotada na linha 20 de `process.php`. Agora você confirmou que o aplicativo produziu um erro durante o erro HTTP 500. Vamos dar uma olhada no código para identificar o problema.
 
@@ -243,7 +243,7 @@ Confirme suas alterações no Git e, em seguida, envie as alterações de códig
 
 ```bash
 git commit -am "Load images on-demand in process.php"
-git push azure master
+git push azure main
 ```
 
 ### <a name="browse-to-the-azure-app"></a>Navegar até o aplicativo do Azure

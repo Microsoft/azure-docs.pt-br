@@ -2,19 +2,16 @@
 title: Corrigir um erro Hive sem memória no Azure HDInsight
 description: Corrija um erro Hive sem memória no HDInsight. O cenário de cliente é uma consulta em várias tabelas grandes.
 keywords: erro de memória insuficiente, OOM, configurações do Hive
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: hdinsightactive
 ms.date: 11/28/2019
-ms.openlocfilehash: 71f9bc75bc2b84708af54ba89918cd874099a2d4
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: c0810d33f3ac939b9382bf321448ed72b6d87474
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85961890"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945712"
 ---
 # <a name="fix-an-apache-hive-out-of-memory-error-in-azure-hdinsight"></a>Consertar um erro de memória insuficiente do Apache Hive no Azure HDInsight
 
@@ -105,7 +102,7 @@ O **hive.auto.convert.join.noconditionaltask** no arquivo hive-site.xml estava d
 </property>
 ```
 
-É provável que a junção de mapa tenha sido a causa do erro de memória insuficiente no espaço de heap do Java. Conforme explicado na postagem no blog [Configurações de memória Yarn do Hadoop no HDInsight](https://docs.microsoft.com/archive/blogs/shanyu/hadoop-yarn-memory-settings-in-hdinsight), quando o mecanismo de execução Tez é usado, o espaço heap usado realmente pertence ao contêiner Tez. Confira a imagem a seguir que descreve a memória do contêiner Tez.
+É provável que a junção de mapa tenha sido a causa do erro de memória insuficiente no espaço de heap do Java. Conforme explicado na postagem no blog [Configurações de memória Yarn do Hadoop no HDInsight](/archive/blogs/shanyu/hadoop-yarn-memory-settings-in-hdinsight), quando o mecanismo de execução Tez é usado, o espaço heap usado realmente pertence ao contêiner Tez. Confira a imagem a seguir que descreve a memória do contêiner Tez.
 
 ![Diagrama de memória de contêiner Tez: erro de falta de memória do Hive](./media/hdinsight-hadoop-hive-out-of-memory-error-oom/hive-out-of-memory-error-oom-tez-container-memory.png)
 

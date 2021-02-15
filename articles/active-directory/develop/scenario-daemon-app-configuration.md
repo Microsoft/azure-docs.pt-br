@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 08/08/2020
+ms.date: 09/19/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: ad5c2ad76f9ab98a6ad284a0bb50f3a611dc9a00
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 8a01ee4e2b0d4e72c1b17cf56953675e735ead79
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88206031"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582883"
 ---
 # <a name="daemon-app-that-calls-web-apis---code-configuration"></a>Aplicativo daemon que chama a configuração de código de APIs da Web
 
@@ -36,9 +36,9 @@ Essas bibliotecas da Microsoft oferecem suporte a aplicativos de daemon:
 
 Os aplicativos daemon usam permissões de aplicativo em vez de permissões delegadas. Portanto, o tipo de conta com suporte não pode ser uma conta em nenhum diretório organizacional ou qualquer conta Microsoft pessoal (por exemplo, Skype, Xbox, Outlook.com). Não há nenhum administrador de locatários para conceder consentimento a um aplicativo daemon para uma conta pessoal da Microsoft. Você precisará escolher *contas em minha organização* ou *contas em qualquer organização*.
 
-Portanto, a autoridade especificada na configuração do aplicativo deve ser locatário (especificando uma ID de locatário ou um nome de domínio associado à sua organização).
+A autoridade especificada na configuração do aplicativo deve ser locatário (especificando uma ID de locatário ou um nome de domínio associado à sua organização).
 
-Se você for um ISV e quiser fornecer uma ferramenta multilocatário, poderá usar o `organizations` . Mas tenha em mente que você também precisará explicar aos seus clientes como conceder o consentimento do administrador. Para obter detalhes, consulte [solicitando consentimento para um locatário inteiro](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant). Além disso, atualmente há uma limitação no MSAL: `organizations` é permitido somente quando as credenciais do cliente são um segredo do aplicativo (não um certificado).
+Mesmo que queira fornecer uma ferramenta multilocatário, você deve usar uma ID de locatário ou um nome de domínio, e **não** `common` ou `organizations` com esse fluxo, porque o serviço não pode inferir de maneira confiável qual locatário deve ser usado.
 
 ## <a name="configure-and-instantiate-the-application"></a>Configurar e instanciar o aplicativo
 
@@ -51,16 +51,13 @@ Em bibliotecas MSAL, as credenciais do cliente (segredo ou certificado) são pas
 
 O arquivo de configuração define:
 
-- A autoridade ou a ID de locatário e a instância de nuvem.
+- A instância de nuvem e a ID de locatário, que juntos compõem a *autoridade*.
 - A ID do cliente que você obteve do registro do aplicativo.
 - Um segredo do cliente ou um certificado.
 
-> [!NOTE]
-> Os trechos de código .net no restante do artigo [configuração](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/1-Call-MSGraph/daemon-console/AuthenticationConfig.cs) de referência do exemplo [Active-Directory-dotnetcore-daemon-v2](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) .
-
 # <a name="net"></a>[.NET](#tab/dotnet)
 
-[appsettings.jsno](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/1-Call-MSGraph/daemon-console/appsettings.json) exemplo de [daemon do console do .NET Core](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) .
+Aqui está um exemplo de como definir a configuração em um [*appsettings.jsno*](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/1-Call-MSGraph/daemon-console/appsettings.json) arquivo. Este exemplo é obtido do exemplo de código do [daemon do console do .NET Core](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) no github.
 
 ```json
 {
@@ -114,7 +111,7 @@ Quando você cria um cliente confidencial com certificados, o [parameters.jsno](
 
 ### <a name="instantiate-the-msal-application"></a>Instanciar o aplicativo MSAL
 
-Para instanciar o aplicativo MSAL, você precisa adicionar, referenciar ou importar o pacote MSAL (dependendo do idioma).
+Para criar uma instância do aplicativo MSAL, adicione, referencie ou importe o pacote MSAL (dependendo do idioma).
 
 A construção é diferente, dependendo se você estiver usando os segredos ou certificados do cliente (ou, como um cenário avançado, asserções assinadas).
 
@@ -124,9 +121,9 @@ Referencie o pacote MSAL no código do aplicativo.
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
-Adicione o pacote NuGet [Microsoft. IdentityClient](https://www.nuget.org/packages/Microsoft.Identity.Client) ao seu aplicativo.
+Adicione o pacote NuGet [Microsoft. Identity. Client](https://www.nuget.org/packages/Microsoft.Identity.Client) ao seu aplicativo e, em seguida, adicione uma `using` diretiva em seu código para fazer referência a ele.
+
 No MSAL.NET, o aplicativo cliente confidencial é representado pela `IConfidentialClientApplication` interface.
-Use o namespace MSAL.NET no código-fonte.
 
 ```csharp
 using Microsoft.Identity.Client;
@@ -167,6 +164,23 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
            .WithClientSecret(config.ClientSecret)
            .WithAuthority(new Uri(config.Authority))
            .Build();
+```
+
+O `Authority` é uma concatenação da instância de nuvem e da ID de locatário, por exemplo `https://login.microsoftonline.com/contoso.onmicrosoft.com` ou `https://login.microsoftonline.com/eb1ed152-0000-0000-0000-32401f3f9abd` . No *appsettings.jsno* arquivo mostrado na seção [arquivo de configuração](#configuration-file) , eles são representados pelos `Instance` valores e `Tenant` , respectivamente.
+
+No exemplo de código, o trecho anterior foi obtido de, `Authority` é uma propriedade na classe  [AuthenticationConfig](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/ffc4a9f5d9bdba5303e98a1af34232b434075ac7/1-Call-MSGraph/daemon-console/AuthenticationConfig.cs#L61-L70) e é definido como tal:
+
+```csharp
+/// <summary>
+/// URL of the authority
+/// </summary>
+public string Authority
+{
+    get
+    {
+        return String.Format(CultureInfo.InvariantCulture, Instance, Tenant);
+    }
+}
 ```
 
 # <a name="python"></a>[Python](#tab/python)
@@ -275,7 +289,7 @@ MSAL.NET tem dois métodos para fornecer asserções assinadas ao aplicativo cli
 - `.WithClientAssertion()`
 - `.WithClientClaims()`
 
-Ao usar `WithClientAssertion` o, você precisa fornecer um JWT assinado. Esse cenário avançado é detalhado em [declarações de cliente](msal-net-client-assertions.md).
+Quando você usa `WithClientAssertion` o, forneça um JWT assinado. Esse cenário avançado é detalhado em [declarações de cliente](msal-net-client-assertions.md).
 
 ```csharp
 string signedClientAssertion = ComputeAssertion();
@@ -338,17 +352,14 @@ ConfidentialClientApplication cca =
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
-> [!div class="nextstepaction"]
-> [Aplicativo de daemon-adquirindo tokens para o aplicativo](./scenario-daemon-acquire-token.md?tabs=dotnet)
+Vá para o próximo artigo neste cenário, [adquira um token para o aplicativo](./scenario-daemon-acquire-token.md?tabs=dotnet).
 
 # <a name="python"></a>[Python](#tab/python)
 
-> [!div class="nextstepaction"]
-> [Aplicativo de daemon-adquirindo tokens para o aplicativo](./scenario-daemon-acquire-token.md?tabs=python)
+Vá para o próximo artigo neste cenário, [adquira um token para o aplicativo](./scenario-daemon-acquire-token.md?tabs=python).
 
 # <a name="java"></a>[Java](#tab/java)
 
-> [!div class="nextstepaction"]
-> [Aplicativo de daemon-adquirindo tokens para o aplicativo](./scenario-daemon-acquire-token.md?tabs=java)
+Vá para o próximo artigo neste cenário, [adquira um token para o aplicativo](./scenario-daemon-acquire-token.md?tabs=java).
 
 ---

@@ -1,23 +1,23 @@
 ---
-title: Usar o portal do Azure para solucionar problemas de Azure Stack Edge | Microsoft Docs
-description: Saiba como solucionar problemas em seu Azure Stack Edge. Você pode executar o diagnóstico, coletar informações de suporte e usar logs para solucionar problemas.
+title: Use o portal do Azure para solucionar problemas do Azure Stack Edge pro | Microsoft Docs
+description: Saiba como solucionar problemas em seu Azure Stack Edge pro. Você pode executar o diagnóstico, coletar informações de suporte e usar logs para solucionar problemas.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 08/11/2020
+ms.date: 02/05/2021
 ms.author: alkohli
-ms.openlocfilehash: f9dabdfd9df77822f06c41fa4355a1657bceb76c
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: ff6d1f46299875354a72a6a93a828df7960169ad
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88134557"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99831528"
 ---
-# <a name="troubleshoot-your-azure-stack-edge-issues"></a>Solucionar problemas de Azure Stack Edge
+# <a name="troubleshoot-your-azure-stack-edge-pro-issues"></a>Solucionar problemas do Azure Stack Edge pro
 
-Este artigo descreve como solucionar problemas em seu Azure Stack Edge. 
+Este artigo descreve como solucionar problemas em seu Azure Stack Edge pro. 
 
 Neste artigo, você aprenderá como:
 
@@ -26,6 +26,7 @@ Neste artigo, você aprenderá como:
 > * Executar diagnóstico
 > * Coletar o pacote de Suporte
 > * Usar logs para solucionar problemas
+> * Solucionar erros IoT Edge
 
 ## <a name="run-diagnostics"></a>Executar diagnóstico
 
@@ -55,7 +56,7 @@ Execute as seguintes etapas para coletar um pacote de suporte.
 
 2. Depois que o pacote de suporte for criado, selecione **baixar pacote de suporte**. Um pacote compactado é baixado no caminho que você escolheu. Você pode descompactar o pacote e exibir os arquivos de log do sistema.
 
-    ![Clique em adicionar usuário](media/azure-stack-edge-troubleshoot/collect-logs-2.png)
+    ![Clique em Adicionar usuário 2](media/azure-stack-edge-troubleshoot/collect-logs-2.png)
 
 ## <a name="use-logs-to-troubleshoot"></a>Usar logs para solucionar problemas
 
@@ -65,7 +66,7 @@ Quaisquer erros ocorridos durante os processos de upload e de atualização são
 
       ![Conectar-se e exibir conteúdo do compartilhamento](media/azure-stack-edge-troubleshoot/troubleshoot-logs-1.png)
 
-2. Selecione a _pasta Microsoft Azure Stack Edge_. Esta pasta tem duas subpastas:
+2. Selecione a _pasta Microsoft Azure Stack Edge pro_. Esta pasta tem duas subpastas:
 
     * Faça upload da pasta que contém os arquivos de log para erros de upload.
     * Atualize a pasta para erros durante a atualização.
@@ -82,6 +83,10 @@ Quaisquer erros ocorridos durante os processos de upload e de atualização são
 
     [!INCLUDE [data-box-edge-edge-upload-error-reference](../../includes/data-box-edge-gateway-upload-error-reference.md)]
 
+## <a name="troubleshoot-iot-edge-errors"></a>Solucionar erros IoT Edge
+
+[!INCLUDE [Troubleshoot IoT Edge runtime](../../includes/azure-stack-edge-iot-troubleshoot-compute.md)]
+
 ## <a name="next-steps"></a>Próximas etapas
 
-* Saiba mais sobre os [problemas conhecidos nesta versão](data-box-gateway-release-notes.md).
+* Saiba mais sobre os [problemas conhecidos nesta versão](../databox-gateway/data-box-gateway-release-notes.md).

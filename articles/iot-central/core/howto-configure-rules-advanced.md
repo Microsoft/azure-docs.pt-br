@@ -7,12 +7,12 @@ ms.date: 05/12/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 07e5ce5cb6fee11e3f55ce808da51ccad59b9ff2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 257855b4f7b1fae56ed8d6a063acfb0588da9b6a
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85801352"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92123313"
 ---
 # <a name="use-workflows-to-integrate-your-azure-iot-central-application-with-other-cloud-services"></a>Usar fluxos de trabalho para integrar o aplicativo Azure IoT Central a outros serviços em nuvem
 
@@ -22,8 +22,8 @@ Você pode criar regras no IoT Central que acionam ações, como enviar um email
 
 O conector do Azure IoT Central V3 para a automação de energia e o aplicativo lógico do Azure permite que você crie regras mais avançadas para automatizar operações no IoT Central:
 
-- Quando uma regra é acionada no aplicativo Azure IoT Central, ela pode acionar um fluxo de trabalho no Power Automate ou nos Aplicativos Lógicos do Azure. Esses fluxos de trabalho podem executar ações em outros serviços em nuvem, como o Office 365 ou um serviço de terceiros.
-- Um evento em outro serviço em nuvem, como o Office 365, pode acionar um fluxo de trabalho no Power Automate ou nos Aplicativos Lógicos do Azure. Esses fluxos de trabalho podem executar ações ou recuperar dados do aplicativo IoT Central.
+- Quando uma regra é acionada no aplicativo Azure IoT Central, ela pode acionar um fluxo de trabalho no Power Automate ou nos Aplicativos Lógicos do Azure. Esses fluxos de trabalho podem executar ações em outros serviços de nuvem, como Microsoft 365 ou um serviço de terceiros.
+- Um evento em outro serviço de nuvem, como Microsoft 365, pode disparar um fluxo de trabalho no Power Automate ou no aplicativo lógico do Azure. Esses fluxos de trabalho podem executar ações ou recuperar dados do aplicativo IoT Central.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -32,7 +32,7 @@ Para concluir as etapas neste guia de instruções, é necessário ter uma assin
 A configuração da solução requer um aplicativo de IoT Central da versão 3. Para saber como verificar a versão do aplicativo, consulte [sobre seu aplicativo](./howto-get-app-info.md). Para saber como criar um aplicativo IoT Central, consulte [criar um aplicativo de IOT central do Azure](./quick-deploy-iot-central.md).
 
 > [!NOTE]
-> Se você estiver usando um aplicativo de IoT Central de versão 2, consulte [criar fluxos de trabalho com o conector de IOT central em aplicativos lógicos do Azure](https://docs.microsoft.com/previous-versions/azure/iot-central/core/howto-build-azure-logic-apps) no site de documentação de versões anteriores e usar o conector do Azure IOT central v2
+> Se você estiver usando um aplicativo de IoT Central de versão 2, consulte [criar fluxos de trabalho com o conector de IOT central em aplicativos lógicos do Azure](/previous-versions/azure/iot-central/core/howto-build-azure-logic-apps) no site de documentação de versões anteriores e usar o conector do Azure IOT central v2
 
 ## <a name="trigger-a-workflow-from-a-rule"></a>Acionar um fluxo de trabalho de uma regra
 
@@ -75,7 +75,7 @@ Para adicionar o conector **do Azure IOT central v3-Preview** como uma ação no
 1. Na lista de ações, escolha a ação IoT Central que você deseja usar.
 1. Na etapa de ação, conclua a configuração para a ação escolhida. Em seguida, selecione **Salvar**.
 
-:::image type="content" source="./media/howto-configure-rules-advanced/actions.png" alt-text="Localizar o conector do Azure IoT Central v3 e escolher uma ação":::
+:::image type="content" source="./media/howto-configure-rules-advanced/actions.png" alt-text="Encontre o conector do Azure IoT Central - versão prévia e escolha o gatilho de evento":::
 
 ## <a name="list-of-actions"></a>Lista de ações
 

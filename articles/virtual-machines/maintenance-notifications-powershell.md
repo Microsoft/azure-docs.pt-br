@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: shants
-ms.openlocfilehash: 4858a2e448955877107f6928b0aa01726e5db082
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9942ad359bf1e1e7a02f30979ba4a9325d90d484
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87028578"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91336047"
 ---
 # <a name="handling-planned-maintenance-using-powershell"></a>Manipulando a manutenção planejada usando o PowerShell
 
@@ -25,6 +25,18 @@ As informações de manutenção só serão retornadas se houver manutenção pl
 
 ```powershell
 Get-AzVM -ResourceGroupName myResourceGroup -Name myVM -Status
+```
+
+Saída
+
+```
+MaintenanceRedeployStatus               : 
+  IsCustomerInitiatedMaintenanceAllowed : True
+  PreMaintenanceWindowStartTime         : 5/14/2018 12:30:00 PM
+  PreMaintenanceWindowEndTime           : 5/19/2018 12:30:00 PM
+  MaintenanceWindowStartTime            : 5/21/2018 4:30:00 PM
+  MaintenanceWindowEndTime              : 6/4/2018 4:30
+  LastOperationResultCode               : None 
 ```
 
 As propriedades a seguir são retornadas em MaintenanceRedeployStatus: 

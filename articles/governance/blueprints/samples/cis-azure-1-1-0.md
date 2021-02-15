@@ -1,14 +1,14 @@
 ---
 title: Amostra de blueprint do CIS Microsoft Azure Foundations Benchmark
 description: Visão geral do exemplo de blueprint do CIS Microsoft Azure Foundations Benchmark. Este exemplo de blueprint ajuda os clientes a avaliar controles específicos.
-ms.date: 06/02/2020
+ms.date: 01/27/2021
 ms.topic: sample
-ms.openlocfilehash: 6cc985fe127eae795d9a8e37624c403dd6e6f96a
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: fc9e2443cd1e413588487646d6400ae1f2185208
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84739379"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98918409"
 ---
 # <a name="cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>Amostra de blueprint do CIS Microsoft Azure Foundations Benchmark
 
@@ -44,9 +44,9 @@ Primeiro, implemente a amostra de blueprint criando um blueprint no ambiente usa
    - **Nome do blueprint**: Forneça um nome para sua cópia da amostra de blueprint do CIS Microsoft Azure Foundations Benchmark.
    - **Localização da definição**: Use as reticências e selecione o grupo de gerenciamento em que deseja salvar a cópia da amostra.
 
-1. Selecione a guia _Artefatos_ na parte superior da página ou clique em **Próximo: Artefatos** na parte inferior da página.
+1. Selecione a guia _Artefatos_ na parte superior da página ou clique em **Avançar: Artefatos** na parte inferior da página.
 
-1. Examine a lista de artefatos que compõem o exemplo de blueprint. Muitos dos artefatos têm parâmetros que definiremos mais tarde. Selecione **Salvar Rascunho** quando terminar de examinar o exemplo de blueprint.
+1. Examine a lista de artefatos que estão incluídos no exemplo de blueprint. Muitos dos artefatos têm parâmetros que definiremos mais tarde. Selecione **Salvar Rascunho** quando terminar de examinar o exemplo de blueprint.
 
 ### <a name="publish-the-sample-copy"></a>Publicar a cópia do exemplo
 

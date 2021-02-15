@@ -1,5 +1,5 @@
 ---
-title: Criar modelos de ML com o designer (versão prévia)
+title: Criar modelos de ML com o designer
 titleSuffix: Azure Machine Learning
 description: Saiba mais sobre a terminologia, os conceitos e o fluxo de trabalho que compõem o designer para Azure Machine Learning.
 services: machine-learning
@@ -10,15 +10,15 @@ ms.author: peterlu
 author: peterclu
 ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: 181f0d62f160a6644e0423be052012521752525f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 059b521461969d8148ced90cb3ceffd14a00c4bb
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87012936"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322255"
 ---
-# <a name="what-is-azure-machine-learning-designer-preview"></a>O que é o designer do Azure Machine Learning (versão prévia)? 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
+# <a name="what-is-azure-machine-learning-designer"></a>O que é o designer de Azure Machine Learning? 
+
 
 O designer do Azure Machine Learning permite conectar visualmente [conjuntos de dados](#datasets) e [módulos](#module) em uma tela interativa para criar modelos de aprendizado de máquina. Para saber como começar a usar o designer, confira o [Tutorial: Prever preço de automóvel com o designer](tutorial-designer-automobile-price-train-score.md)
 
@@ -114,9 +114,9 @@ Os pipelines publicados são flexíveis, podem ser usados ​​para treinar ou 
 
 Um pipeline publicado é executado nos recursos de computação que você define no rascunho de pipeline para cada módulo.
 
-O designer cria o mesmo objeto [PublishedPipeline](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.publishedpipeline?view=azure-ml-py) que o SDK.
+O designer cria o mesmo objeto [PublishedPipeline](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.publishedpipeline?preserve-view=true&view=azure-ml-py) que o SDK.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Conheça os conceitos básicos da análise preditiva e do aprendizado de máquina com o [Tutorial: Prever preço de automóvel com o designer](tutorial-designer-automobile-price-train-score.md)
+* Conheça os conceitos fundamentais da análise preditiva e do machine learning com o [Tutorial: Prever preço de automóvel com o designer](tutorial-designer-automobile-price-train-score.md)
 * Saiba como modificar as [amostras existentes do designer](samples-designer.md) para adaptá-las às suas necessidades.

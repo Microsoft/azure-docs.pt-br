@@ -7,15 +7,15 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 07/10/2020
+ms.date: 08/28/2020
 ms.author: erhopf
-ms.custom: devx-track-python, devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: b6c7f6d8cd4638dd2b7a1f6cc23b192ed6803b41
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp
+ms.openlocfilehash: f14ac72443dedc8e33e607a82b2145c7ebf95ad2
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88921130"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368773"
 ---
 # <a name="azure-cognitive-services-security"></a>Segurança de serviços cognitivas do Azure
 
@@ -33,7 +33,7 @@ Para usuários do .NET, considere as <a href="https://docs.microsoft.com/dotnet/
 
 ## <a name="authentication"></a>Autenticação
 
-Ao discutir a autenticação, há várias concepções comuns. A autenticação e a autorização geralmente são confusas entre si. A identidade também é um componente importante na segurança. Uma identidade é uma coleção de informações sobre uma <a href="https://en.wikipedia.org/wiki/Principal_(computer_security)" target="_blank">entidade <span class="docon docon-navigate-external x-hidden-focus"></span> de segurança </a>. Os IdP (provedores de identidade) fornecem identidades aos serviços de autenticação. A autenticação é o ato de verificar a identidade de um usuário. Autorização é a especificação de direitos de acesso e privilégios para recursos para uma determinada identidade. Várias ofertas de serviços cognitivas incluem o RBAC (controle de acesso baseado em função). O RBAC poderia ser usado para simplificar parte da cerimônia envolvida com o gerenciamento manual de entidades. Para obter mais detalhes, consulte [controle de acesso baseado em função para recursos do Azure](../role-based-access-control/overview.md).
+Ao discutir a autenticação, há várias concepções comuns. A autenticação e a autorização geralmente são confusas entre si. A identidade também é um componente importante na segurança. Uma identidade é uma coleção de informações sobre uma <a href="https://en.wikipedia.org/wiki/Principal_(computer_security)" target="_blank">entidade <span class="docon docon-navigate-external x-hidden-focus"></span> de segurança </a>. Os IdP (provedores de identidade) fornecem identidades aos serviços de autenticação. A autenticação é o ato de verificar a identidade de um usuário. Autorização é a especificação de direitos de acesso e privilégios para recursos para uma determinada identidade. Várias ofertas de serviços cognitivas incluem o Azure RBAC (controle de acesso baseado em função do Azure). O RBAC do Azure poderia ser usado para simplificar parte da cerimônia envolvida com o gerenciamento manual de entidades. Para obter mais detalhes, consulte [controle de acesso baseado em função do Azure para recursos do Azure](../role-based-access-control/overview.md).
 
 Para obter mais informações sobre autenticação com chaves de assinatura, tokens de acesso e Azure Active Directory (AAD), consulte <a href="https://docs.microsoft.com/azure/cognitive-services/authentication" target="_blank">autenticar <span class="docon docon-navigate-external x-hidden-focus"></span> solicitações para serviços cognitivas do Azure</a>.
 
@@ -60,7 +60,7 @@ Crie e atribua a variável de ambiente persistente, dado o valor.
 setx ENVIRONMENT_VARIABLE_KEY="value"
 ```
 
-Em uma nova instância do **prompt de comando**, leia a variável de ambiente.
+Em uma nova instância do **prompt de comando** , leia a variável de ambiente.
 
 ```CMD
 :: Prints the env var value
@@ -76,7 +76,7 @@ Crie e atribua a variável de ambiente persistente, dado o valor.
 [System.Environment]::SetEnvironmentVariable('ENVIRONMENT_VARIABLE_KEY', 'value', 'User')
 ```
 
-Em uma nova instância do **Windows PowerShell**, leia a variável de ambiente.
+Em uma nova instância do **Windows PowerShell** , leia a variável de ambiente.
 
 ```powershell
 # Prints the env var value
@@ -92,7 +92,7 @@ Crie e atribua a variável de ambiente persistente, dado o valor.
 echo export ENVIRONMENT_VARIABLE_KEY="value" >> /etc/environment && source /etc/environment
 ```
 
-Em uma nova instância do **bash**, leia a variável de ambiente.
+Em uma nova instância do **bash** , leia a variável de ambiente.
 
 ```Bash
 # Prints the env var value
@@ -197,7 +197,7 @@ NSString* value =
 
 ## <a name="customer-lockbox"></a>Sistema de Proteção de Dados do Cliente
 
-[Sistema de proteção de dados do cliente para Microsoft Azure](../security/fundamentals/customer-lockbox-overview.md) fornece uma interface para os clientes revisarem e aprovarem ou rejeitarem solicitações de acesso a dados do cliente. Ele é usado nos casos em que um engenheiro da Microsoft precisa acessar os dados do cliente durante uma solicitação de suporte. Para obter informações sobre como Sistema de Proteção de Dados do Cliente solicitações são iniciadas, controladas e armazenadas para revisões e auditorias posteriores, consulte [sistema de proteção de dados do cliente](../security/fundamentals/customer-lockbox-overview.md). 
+[Sistema de proteção de dados do cliente para Microsoft Azure](../security/fundamentals/customer-lockbox-overview.md) fornece uma interface para os clientes revisarem e aprovarem ou rejeitarem solicitações de acesso a dados do cliente. Ele é usado quando um engenheiro da Microsoft precisa acessar os dados do cliente durante uma solicitação de suporte. Para obter informações sobre como Sistema de Proteção de Dados do Cliente solicitações são iniciadas, controladas e armazenadas para revisões e auditorias posteriores, consulte [sistema de proteção de dados do cliente](../security/fundamentals/customer-lockbox-overview.md). 
 
 Sistema de Proteção de Dados do Cliente está disponível para este serviço cognitiva:
 
@@ -211,7 +211,7 @@ Para os serviços a seguir, os engenheiros da Microsoft não acessarão nenhum d
 * Personalizador
 
 > [!IMPORTANT]
-> Para o **reconhecedor de formulário**, os engenheiros da Microsoft não acessarão dados de clientes em recursos criados após 10 de julho de 2020.
+> Para o **reconhecedor de formulário** , os engenheiros da Microsoft não acessarão dados de clientes em recursos criados após 10 de julho de 2020.
 
 Para solicitar a capacidade de usar o SKU E0, preencha e envie este [formulário de solicitação](https://aka.ms/cogsvc-cmk). Levará aproximadamente 3-5 dias úteis para que o status da solicitação seja reproduzido. Dependendo da demanda, você pode ser colocado em uma fila e aprovado, pois o espaço se torna disponível. Depois de aprovado para usar o SKU E0 com LUIS, você precisará criar um novo recurso do portal do Azure e selecionar E0 como o tipo de preço. Os usuários não poderão atualizar do F0 para o novo SKU E0.
 
@@ -222,5 +222,5 @@ No momento, o serviço de fala não oferece suporte a Sistema de Proteção de D
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Explore os vários [Serviços cognitivas](welcome.md)
+* Explore os vários [Serviços cognitivas](./what-are-cognitive-services.md)
 * Saiba mais sobre [redes virtuais de serviços cognitivas](cognitive-services-virtual-networks.md)

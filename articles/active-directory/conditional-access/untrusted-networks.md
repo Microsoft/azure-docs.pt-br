@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 11/21/2019
+ms.date: 10/16/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b2f9a6e13fdc39ab18a2056fab15982aa9fb0e4
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: e4c020a9be7683bf045dbcc747dad3cb45058dd7
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88948157"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93077669"
 ---
 # <a name="how-to-require-mfa-for-access-from-untrusted-networks-with-conditional-access"></a>Como: exigir MFA para acesso de redes não confiáveis com acesso condicional   
 
@@ -26,10 +26,7 @@ Este artigo fornece as informações necessárias para configurar uma política 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este artigo pressupõe que você esteja familiarizado com: 
-
-- Os [conceitos básicos](overview.md) de Acesso Condicional do Azure AD 
-- As [práticas recomendadas](best-practices.md) para configurar políticas de Acesso Condicional no portal do Azure
+Este artigo pressupõe que você esteja familiarizado com os [conceitos básicos](overview.md) do acesso condicional. 
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
@@ -57,15 +54,15 @@ Em vez de tentar definir quais são todos os locais confiáveis ou não confiáv
 
 - Incluir qualquer localização 
 
-   ![Acesso condicional](./media/untrusted-networks/02.png)
+   :::image type="content" source="./media/untrusted-networks/02.png" alt-text="Captura de tela do painel de locais de D do Azure, com configurar definido como Sim, a guia incluir visível e a opção qualquer local selecionada e realçada." border="false":::
 
 - Excluir todos os locais confiáveis 
 
-   ![Acesso condicional](./media/untrusted-networks/01.png)
+   :::image type="content" source="./media/untrusted-networks/01.png" alt-text="Captura de tela do painel de locais de D do Azure, com configurar definido como Sim, a guia incluir visível e a opção qualquer local selecionada e realçada." border="false":::
 
 ## <a name="policy-deployment"></a>Implantação de política
 
-Com a abordagem descrita neste artigo, agora você pode configurar uma política de acesso condicional para locais não confiáveis. Para garantir que sua política funcione conforme o esperado, a melhor prática é testá-la antes de distribuí-la em produção. O ideal é usar um locatário de teste para verificar se a nova política funciona conforme o esperado. Para obter mais informações, confira [Como implantar uma nova política](best-practices.md#how-should-you-deploy-a-new-policy). 
+Com a abordagem descrita neste artigo, agora você pode configurar uma política de acesso condicional para locais não confiáveis. Para garantir que sua política funcione conforme o esperado, a melhor prática é testá-la antes de distribuí-la em produção. O ideal é usar um locatário de teste para verificar se a nova política funciona conforme o esperado.
 
 ## <a name="next-steps"></a>Próximas etapas
 

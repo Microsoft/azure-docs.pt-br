@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: srrengar
 ms.openlocfilehash: fe31c6fdca3651bfe56e798b30d50c9f047c680b
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86258641"
 ---
 # <a name="service-fabric-linux-cluster-events-in-syslog"></a>Eventos de cluster no Service Fabric do Linux no Syslog
@@ -26,7 +26,7 @@ Cada evento de Syslog tem 4 componentes
 * Recurso
 * Identidade
 * Mensagem
-* Gravidade
+* Severity
 
 O SyslogConsumer grava todos os eventos de plataforma usando o Recurso `Local0`. Você pode atualizar para qualquer recurso válido alterando a configuração config. A identidade usada é `ServiceFabric` . O campo de Mensagem contém o evento inteiro serializado em JSON para que possa ser consultado e consumido por uma variedade de ferramentas. 
 

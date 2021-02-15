@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/16/2019
+ms.date: 08/27/2020
 ms.author: jeedes
-ms.openlocfilehash: 65c3e3df9fe62614eff15585373360ebcaa158cf
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 6c35ce5e4b420b7f203b33b640a3175ba4c2739b
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88543322"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96181493"
 ---
 # <a name="tutorial-integrate-sansan-with-azure-active-directory"></a>Tutorial: Integrar o Sansan ao Azure Active Directory
 
@@ -26,7 +26,7 @@ Neste tutorial, você aprenderá a integrar o Sansan ao Azure AD (Azure Active D
 * Permitir que os usuários sejam conectados automaticamente ao Sansan com suas contas do Azure AD.
 * Gerenciar suas contas em um local central: o portal do Azure.
 
-Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -37,7 +37,9 @@ Para começar, você precisará dos seguintes itens:
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste. O Sansan dá suporte ao SSO iniciado por **SP**.
+Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste.
+* O Sansan dá suporte ao SSO iniciado por **SP**.
+* Depois de configurar o Sansan, você poderá impor o controle de sessão, que fornece proteção contra exfiltração e infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-sansan-from-the-gallery"></a>Adicionando o Sansan por meio da galeria
 
@@ -50,20 +52,20 @@ Para configurar a integração do Sansan ao Azure AD, é necessário adicionar o
 1. Na seção **Adicionar da por meio da galeria**, digite **Sansan** na caixa de pesquisa.
 1. Selecione **Sansan** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
+## <a name="configure-and-test-azure-ad-sso"></a>Configurar e testar o SSO do Azure AD
 
 Configure e teste o SSO do Azure AD com o Sansan usando um usuário de teste chamado **Brenda Fernandes**. Para que o SSO funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Sansan.
 
 Para configurar e testar o SSO do Azure AD com o Sansan, conclua os seguintes blocos de construção:
 
 1. **[Configure o SSO do Azure AD](#configure-azure-ad-sso)** para permitir que os usuários usem esse recurso.
-2. **[Configurar o Sansan](#configure-sansan)** para definir as configurações de SSO no lado do aplicativo.
-3. **[Crie um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** para testar o logon único do Azure AD com Brenda Fernandes.
-4. **[Atribua o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** para permitir que Brenda Fernandes use o logon único do Azure AD.
-5. **[Criar um usuário de teste do Sansan](#create-sansan-test-user)** – para ter um equivalente de Brenda Fernandes no Sansan que esteja vinculado à representação de usuário do Azure AD.
-6. **[Teste o SSO](#test-sso)** para verificar se a configuração funciona.
+   * **[Crie um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** para testar o logon único do Azure AD com Brenda Fernandes.
+   * **[Atribua o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** para permitir que Brenda Fernandes use o logon único do Azure AD.
+1. **[Configurar o Sansan](#configure-sansan)** para definir as configurações de SSO no lado do aplicativo.
+   * **[Criar um usuário de teste do Sansan](#create-sansan-test-user)** – para ter um equivalente de Brenda Fernandes no Sansan que esteja vinculado à representação de usuário do Azure AD.
+1. **[Teste o SSO](#test-sso)** para verificar se a configuração funciona.
 
-### <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
+## <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
 Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
@@ -75,18 +77,22 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. Na página **Configuração Básica de SAML**, insira os valores nos seguintes campos:
 
-    1. Na caixa de texto **URL de Logon**, digite uma das URLs usando o seguinte padrão:
-    
-    | Ambiente | URL |
-    |:--- |:--- |
-    | PC Web |`https://ap.sansan.com/v/saml2/<company name>/acs` |
-    | Aplicativo móvel nativo |`https://internal.api.sansan.com/saml2/<company name>/acs` |
-    | Configurações de navegador móvel |`https://ap.sansan.com/s/saml2/<company name>/acs` |
+    1. Na caixa de texto **URL de Logon**, digite a URL: `https://ap.sansan.com/`
 
-    2. Na caixa de texto **Identificador (ID da Entidade)** , você pode configurar vários valores de identificador e selecionar qualquer um deles, de acordo com os ambientes.
+   1. Na caixa de texto **Identificador (ID da Entidade)**, digite a URL:   
+   `https://ap.sansan.com/saml2/<company name>`
+
+   1. Na caixa de texto **URL de Resposta**, digite qualquer das URLs usando o seguinte padrão:
+
+    
+       | Ambiente | URL |
+      |:--- |:--- |
+      | Computador |`https://ap.sansan.com/v/saml2/<company name>/acs` |
+      | Aplicativo de smartphone |`https://internal.api.sansan.com/<company name>/acs` |
+      | Web de smartphone |`https://ap.sansan.com/s/saml2/<company name>/acs` |
 
     > [!NOTE]
-    > O valor não é real. Atualize o valor com a URL de Logon real. Contate a [equipe de suporte ao Cliente do Sansan](https://www.sansan.com/form/contact) para obter o valor. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
+    > Esses valores não são reais. Verifique os valores reais nas **Configurações de administrador do Sansan**.
 
 1. Na página **Configurar o Logon Único com SAML**, na seção **Certificado de Autenticação SAML**, localize **Certificado (Base64)** e escolha **Baixar** para fazer o download do certificado e salvá-lo no computador.
 
@@ -95,10 +101,6 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 1. Na seção **Configurar o Sansan**, copie as URLs apropriadas de acordo com suas necessidades.
 
    ![Copiar URLs de configuração](common/copy-configuration-urls.png)
-
-### <a name="configure-sansan"></a>Configurar o Sansan
-
-Para configurar o logon único no lado do **Sansan**, é necessário enviar o **Certificado (Base64)** baixado e as URLs apropriadas copiadas do portal do Azure para a [equipe de suporte do Sansan](https://www.sansan.com/form/contact). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
@@ -130,21 +132,27 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função**, escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
 1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
+## <a name="configure-sansan"></a>Configurar o Sansan
+
+Para executar as **Configurações de logon único** no lado do **Sansan**, siga as etapas abaixo, de acordo com seus requisitos.
+
+   * Versão em [japonês](https://jp-help.sansan.com/hc/ja/articles/900001551383 ).
+
+   * Versão em [inglês](https://jp-help.sansan.com/hc/en-us/articles/900001551383 ).
+
+
 ### <a name="create-sansan-test-user"></a>Criar usuário de teste do SanSan
 
-Nesta seção, você criará uma usuária chamada Brenda Fernandes no SanSan. O aplicativo SanSan precisa que o usuário seja provisionado no aplicativo antes de fazer o SSO.
+Nesta seção, você criará uma usuária chamada Brenda Fernandes no SanSan. Para obter mais informações sobre como criar um usuário, veja [estas](https://jp-help.sansan.com/hc/en-us/articles/206508997-Adding-users) etapas.
 
-> [!NOTE]
-> Se você precisar criar um usuário ou um lote de usuários manualmente, contate a [equipe de suporte do Sansan](https://www.sansan.com/form/contact).
+## <a name="test-sso"></a>Testar o SSO
 
-### <a name="test-sso"></a>Testar o SSO
-
-Ao selecionar o bloco do Sansan no Painel de Acesso, você deverá ser conectado automaticamente ao Sansan, para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao selecionar o bloco do Sansan no Painel de Acesso, você deverá ser conectado automaticamente ao Sansan, para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](./tutorial-list.md)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](../conditional-access/overview.md)

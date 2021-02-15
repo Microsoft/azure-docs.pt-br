@@ -3,16 +3,25 @@ title: Como parar de monitorar o cluster do Azure Red Hat OpenShift v3 | Microso
 description: Este artigo descreve como você pode interromper o monitoramento do seu cluster do Azure Red Hat OpenShift com Azure Monitor para contêineres.
 ms.topic: conceptual
 ms.date: 04/24/2020
-ms.openlocfilehash: 6ed92cd4cda1f3b5d43cc605d7224236528b94bf
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 7e6ab46940ed29a98b3988c00c92d6c691d6e0f0
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815429"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97695618"
 ---
-# <a name="how-to-stop-monitoring-your-azure-red-hat-openshift-v3-cluster"></a>Como parar de monitorar o cluster do Azure Red Hat OpenShift v3 
+# <a name="how-to-stop-monitoring-your-azure-red-hat-openshift-v3-cluster"></a>Como parar de monitorar o cluster do Azure Red Hat OpenShift v3
 
-Depois de habilitar o monitoramento do cluster do Azure Red Hat OpenShift versão 3. x, você poderá parar de monitorar o cluster com Azure Monitor para contêineres se decidir que não deseja mais monitorá-lo. Este artigo mostra como fazer isso usando o modelo de Azure Resource Manager fornecido. 
+>[!IMPORTANT]
+> O Azure Red Hat OpenShift 3,11 será desativado em junho de 2022.
+>
+> A partir de outubro de 2020, você não poderá mais criar novos clusters 3,11.
+> Os clusters 3,11 existentes continuarão a operar até 2022 de junho, mas não haverá mais suporte após essa data.
+>
+> Siga este guia para [criar um cluster do Azure Red Hat OpenShift 4](../../openshift/tutorial-create-cluster.md).
+> Se você tiver dúvidas específicas, [entre em contato conosco](mailto:aro-feedback@microsoft.com).
+
+Depois de habilitar o monitoramento do cluster do Azure Red Hat OpenShift versão 3. x, você poderá parar de monitorar o cluster com Azure Monitor para contêineres se decidir que não deseja mais monitorá-lo. Este artigo mostra como fazer isso usando o modelo de Azure Resource Manager fornecido.  
 
 ## <a name="azure-resource-manager-template"></a>Modelo do Azure Resource Manager
 
@@ -99,7 +108,7 @@ Execute o comando a seguir com CLI do Azure no Linux para remover a solução e 
 ```azurecli
 az login   
 az account set --subscription "Subscription Name"
-az group deployment create --resource-group <ResourceGroupName> --template-file ./OptOutTemplate.json --parameters @./OptOutParam.json  
+az deployment group create --resource-group <ResourceGroupName> --template-file ./OptOutTemplate.json --parameters @./OptOutParam.json  
 ```
 
 A alteração da configuração pode levar alguns minutos para ser concluída. Quando estiver concluído, uma mensagem semelhante à seguinte, incluindo o resultado, será retornada:

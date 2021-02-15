@@ -1,21 +1,17 @@
 ---
 title: Usar segredos de Azure Key Vault em atividades de pipeline
 description: Saiba como buscar credenciais armazenadas do Azure Key Vault e usá-las durante data factory execuções de pipeline.
-services: data-factory
 author: ChrisLound
-manager: anandsub
-editor: ''
+ms.author: chlound
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/31/2019
-ms.author: chlound
-ms.openlocfilehash: f2531ebfd8b1eafc04fa6eda660b0eec3d1147f2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d7e1133b8f3880c4c1616ef5ca955ed014348935
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81417088"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100383952"
 ---
 # <a name="use-azure-key-vault-secrets-in-pipeline-activities"></a>Usar segredos de Azure Key Vault em atividades de pipeline
 
@@ -25,7 +21,7 @@ Você pode armazenar credenciais ou valores secretos em um Azure Key Vault e us�
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Esse recurso depende da identidade gerenciada data factory.  Saiba como ele funciona da [identidade gerenciada para data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) e certifique-se de que sua data Factory tenha uma associada.
+Esse recurso depende da identidade gerenciada data factory.  Saiba como ele funciona da [identidade gerenciada para data Factory](./data-factory-service-identity.md) e certifique-se de que sua data Factory tenha uma associada.
 
 ## <a name="steps"></a>Etapas
 
@@ -35,11 +31,11 @@ Esse recurso depende da identidade gerenciada data factory.  Saiba como ele func
 
 2. Abra as políticas de acesso do cofre de chaves e adicione as permissões de identidade gerenciadas para obter e listar segredos.
 
-    ![Políticas de acesso ao cofre de chaves](media/how-to-use-azure-key-vault-secrets-pipeline-activities/akvaccesspolicies.png)
+    ![Captura de tela que mostra a página "políticas de acesso" com a ação "Adicionar política de acesso" realçada.](media/how-to-use-azure-key-vault-secrets-pipeline-activities/akvaccesspolicies.png)
 
     ![Políticas de acesso ao cofre de chaves](media/how-to-use-azure-key-vault-secrets-pipeline-activities/akvaccesspolicies-2.png)
 
-    Clique em **Adicionar**e em **salvar**.
+    Clique em **Adicionar** e em **salvar**.
 
 3. Navegue até seu segredo de Key Vault e copie o identificador secreto.
 
@@ -51,7 +47,7 @@ Esse recurso depende da identidade gerenciada data factory.  Saiba como ele func
 
     |Propriedade  |Valor  |
     |---------|---------|
-    |Saída segura     |verdadeiro         |
+    |Saída segura     |Verdadeiro         |
     |URL     |[Seu valor de URI secreto]? API-Version = 7.0         |
     |Método     |GET         |
     |Autenticação     |MSI         |
@@ -65,10 +61,10 @@ Esse recurso depende da identidade gerenciada data factory.  Saiba como ele func
     > [!CAUTION]
     > Defina a opção de saída segura como true para impedir que o valor secreto seja registrado em texto sem formatação.  Qualquer outra atividade que consumir esse valor deve ter a opção de Entrada segura definida como verdadeira.
 
-5. Para usar o valor em outra atividade, use a seguinte expressão de código ** @activity (' web1 '). Output. Value**.
+5. Para usar o valor em outra atividade, use a seguinte expressão de código **@activity (' web1 '). Output. Value**.
 
     ![Expressão de código](media/how-to-use-azure-key-vault-secrets-pipeline-activities/usewebactivity.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber como usar Azure Key Vault para armazenar credenciais para armazenamentos de dados e computações, consulte [armazenar credenciais no Azure Key Vault](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault)
+Para saber como usar Azure Key Vault para armazenar credenciais para armazenamentos de dados e computações, consulte [armazenar credenciais no Azure Key Vault](./store-credentials-in-key-vault.md)

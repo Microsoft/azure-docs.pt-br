@@ -13,15 +13,15 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 7818ae36c785311466d2fb26ce45dcf50983145d
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 8e69803f4740a58adb4230bd82cc723221762cb4
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283479"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576609"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Desenvolver aplicativos seguros no Azure
-Neste artigo, apresentamos as atividades de segurança e os controles a serem considerados ao desenvolver aplicativos para a nuvem. Abordamos as perguntas e os conceitos de segurança a serem considerados durante as fases de implementação e verificação do ciclo de vida de desenvolvimento do [Microsoft SDL (Security Development Lifecycle)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx). O objetivo é ajudá-lo a definir atividades e serviços do Azure que você possa usar para desenvolver um aplicativo mais seguro.
+Neste artigo, apresentamos as atividades de segurança e os controles a serem considerados ao desenvolver aplicativos para a nuvem. Abordamos as perguntas e os conceitos de segurança a serem considerados durante as fases de implementação e verificação do ciclo de vida de desenvolvimento do [Microsoft SDL (Security Development Lifecycle)](/previous-versions/windows/desktop/cc307891(v=msdn.10)). O objetivo é ajudá-lo a definir atividades e serviços do Azure que você possa usar para desenvolver um aplicativo mais seguro.
 
 As seguintes fases do SDL são abordadas neste artigo:
 
@@ -34,7 +34,7 @@ Imagine que seu aplicativo venha a ser usado de maneiras que você não pretendi
 
 ### <a name="perform-code-reviews"></a>Executar revisões de código
 
-Antes de fazer verificar o código, faça [revisões de código](https://docs.microsoft.com/azure/devops/learn/devops-at-microsoft/code-reviews-not-primarily-finding-bugs) para aumentar sua qualidade geral e reduzir o risco de criar bugs. Você pode usar o [Visual Studio](https://docs.microsoft.com/azure/devops/repos/tfvc/get-code-reviewed-vs?view=vsts) para gerenciar o processo de revisão de código.
+Antes de fazer verificar o código, faça [revisões de código](/azure/devops/learn/devops-at-microsoft/code-reviews-not-primarily-finding-bugs) para aumentar sua qualidade geral e reduzir o risco de criar bugs. Você pode usar o [Visual Studio](/azure/devops/repos/tfvc/get-code-reviewed-vs?view=vsts) para gerenciar o processo de revisão de código.
 
 ### <a name="perform-static-code-analysis"></a>Executar análise de código estático
 
@@ -48,15 +48,15 @@ Trate todas as entradas como não confiáveis para proteger seu aplicativo das v
 
 Valide a entrada no início do fluxo de dados para ter certeza de que apenas os dados formados corretamente entrarão no fluxo de trabalho. Você não quer que dados malformados persistam em seu banco de dados ou criem um problema em um componente downstream.
 
-As listas de bloqueios e de permissões são duas abordagens gerais para executar a validação da sintaxe de entrada:
+Inclusão na lista e allowlisting são duas abordagens gerais para executar a validação da sintaxe de entrada:
 
-  - Tentativas da lista de bloqueio de verificar se determinada entrada do usuário não apresenta conteúdo "conhecido como mal-intencionado".
+  - Inclusão na lista tenta verificar se uma determinada entrada do usuário não contém conteúdo "conhecido como mal-intencionado".
 
-  - Tentativas da lista de permissões de verificar se determinada entrada do usuário corresponde a um conjunto de entradas "conhecidas como boas". A lista de permissões baseada em caracteres é uma forma de lista de permissões em que um aplicativo verifica se a entrada do usuário contém apenas caracteres "corretos" ou se corresponde a um formato conhecido.
+  - O Allowlisting tenta verificar se uma determinada entrada do usuário corresponde a um conjunto de entradas "boas conhecidas". A allowlisting baseada em caracteres é uma forma de allowlisting em que um aplicativo verifica se a entrada do usuário contém apenas caracteres "bons" ou se a entrada corresponde a um formato conhecido.
     Por exemplo, isso pode envolver a verificação de que um nome de usuário contém apenas caracteres alfanuméricos ou que contém exatamente dois números.
 
-A lista de permissões é a abordagem preferida para a criação de software seguro.
-A lista de bloqueios está propensa a erros, pois é impossível pensar em uma lista completa de entradas potencialmente inadequadas.
+Allowlisting é a abordagem preferida para a criação de software seguro.
+O inclusão na lista está propenso a erros porque é impossível considerar uma lista completa de entradas potencialmente inadequadas.
 
 Faça isso no servidor, não no lado do cliente (ou no servidor e no lado do cliente).
 
@@ -99,7 +99,7 @@ Se o aplicativo precisar gerar senhas automaticamente, verifique se as senhas ge
 
 Se seu aplicativo permitir [uploads de arquivos](https://owasp.org/www-community/vulnerabilities/Unrestricted_File_Upload), considere as precauções que você pode tomar nessa atividade arriscada. A primeira etapa em muitos ataques é inserir código mal-intencionado em um sistema que está sob ataque. O uso de um upload de arquivo ajuda o invasor a realizar a primeira etapa. O OWASP oferece soluções para validar um arquivo e garantir a segurança do que você está carregando.
 
-A proteção antimalware ajuda a identificar e remover vírus, spyware e outros softwares mal-intencionados. Você pode instalar o [ Microsoft Antimalware](../fundamentals/antimalware.md) ou uma solução de proteção de pontos de extremidade do parceiro da Microsoft ([Trend Micro](https://www.trendmicro.com/azure/), [Broadcom](https://www.broadcom.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10) e [Endpoint Protection](https://docs.microsoft.com/configmgr/protect/deploy-use/endpoint-protection)).
+A proteção antimalware ajuda a identificar e remover vírus, spyware e outros softwares mal-intencionados. Você pode instalar o [ Microsoft Antimalware](../fundamentals/antimalware.md) ou uma solução de proteção de pontos de extremidade do parceiro da Microsoft ([Trend Micro](https://www.trendmicro.com/azure/), [Broadcom](https://www.broadcom.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10) e [Endpoint Protection](/configmgr/protect/deploy-use/endpoint-protection)).
 
 O [Microsoft Antimalware](../fundamentals/antimalware.md) inclui recursos como proteção em tempo real, verificação agendada, correção de malware, atualizações de assinatura, atualizações de mecanismo, relatórios de exemplos e coleção de eventos de exclusão. Você pode integrar o Antimalware da Microsoft e as soluções de parceiros com a [Central de Segurança do Azure](../../security-center/security-center-partner-integration.md) para facilidade de implantação e detecções internas (alertas e incidentes).
 
@@ -140,7 +140,7 @@ A [Detecção de Riscos de Segurança](https://www.microsoft.com/en-us/security-
 
 O exame da superfície de ataque após a conclusão do código ajuda a garantir que todas as alterações no design ou na implementação em um aplicativo ou sistema tenham sido consideradas. Ele ajuda a garantir que todos os novos vetores de ataque criados como resultado das alterações, incluindo modelos de ameaça, tenham sido examinados e atenuados.
 
-Você pode criar uma imagem da superfície de ataque examinando o aplicativo. A Microsoft oferece uma ferramenta de análise da superfície de ataque chamada [Analisador de Superfície de Ataque](https://www.microsoft.com/download/details.aspx?id=24487). Você pode escolher entre vários serviços ou ferramentas de teste dinâmico e exame de vulnerabilidade, incluindo o [Projeto OWASP Zed Attack Proxy](https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project), o [Arachni](http://arachni-scanner.com/), o [Skipfish](https://code.google.com/p/skipfish/)e o [w3af](http://w3af.sourceforge.net/). Essas ferramentas de verificação rastreiam seu aplicativo e mapeiam as partes do aplicativo que podem ser acessadas pela Web. Você também pode pesquisar [ferramentas de desenvolvedor semelhantes](https://azuremarketplace.microsoft.com/marketplace/apps/category/developer-tools?page=1) no Azure Marketplace.
+Você pode criar uma imagem da superfície de ataque examinando o aplicativo. A Microsoft oferece uma ferramenta de análise da superfície de ataque chamada [Analisador de Superfície de Ataque](https://www.microsoft.com/download/details.aspx?id=58105). Você pode escolher entre vários serviços ou ferramentas de teste dinâmico e exame de vulnerabilidade, incluindo o [Projeto OWASP Zed Attack Proxy](https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project), o [Arachni](http://arachni-scanner.com/), o [Skipfish](https://code.google.com/p/skipfish/)e o [w3af](http://w3af.sourceforge.net/). Essas ferramentas de verificação rastreiam seu aplicativo e mapeiam as partes do aplicativo que podem ser acessadas pela Web. Você também pode pesquisar [ferramentas de desenvolvedor semelhantes](https://azuremarketplace.microsoft.com/marketplace/apps/category/developer-tools?page=1) no Azure Marketplace.
 
 ### <a name="perform-security-penetration-testing"></a>Executar teste de penetração de segurança
 

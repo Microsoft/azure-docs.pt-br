@@ -7,17 +7,18 @@ author: vermagit
 editor: ''
 ms.assetid: ''
 ms.service: virtual-machines-linux
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/20/2020
 ms.author: amverma
-ms.openlocfilehash: eb06f98d1a6e9b76c321e3d202043d656a2d94eb
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 2a5aa8983e6cbb0745e05ce275edeadeccb60736
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87829043"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966030"
 ---
 # <a name="infiniband-driver-extension-for-linux"></a>Extensão de driver InfiniBand para Linux
 
@@ -74,7 +75,7 @@ O JSON a seguir mostra o esquema para a extensão.
 | apiVersion | 2015-06-15 | date |
 | publicador | Microsoft.HpcCompute | string |
 | type | InfiniBandDriverLinux | string |
-| typeHandlerVersion | 1,1 | int |
+| typeHandlerVersion | 1,1 | INT |
 
 
 
@@ -137,7 +138,7 @@ az vm extension set \
 
 ### <a name="add-extension-to-a-virtual-machine-scale-set"></a>Adicionar extensão a um conjunto de dimensionamento de máquinas virtuais
 
-O exemplo a seguir instala a extensão mais recente da versão 1,1 do InfiniBandDriverLinux em todas as VMs compatíveis com RDMA em um conjunto de dimensionamento de máquinas virtuais existente chamado *myVMSS* implantado no grupo de recursos chamado *MyResource*Group:
+O exemplo a seguir instala a extensão mais recente da versão 1,1 do InfiniBandDriverLinux em todas as VMs compatíveis com RDMA em um conjunto de dimensionamento de máquinas virtuais existente chamado *myVMSS* implantado no grupo de recursos chamado *MyResource* Group:
 
   ```powershell
   $VMSS = Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myVMSS"

@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 02/01/2019
-ms.author: iainfou
-author: iainfoulds
+ms.author: justinha
+author: justinha
 manager: daveba
-ms.reviewer: sahenry
+ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c8557457e3a1dc7d0ed1e50da3070360b1fd76f
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 6a764538ebc73927b1d274b2538e123ec90ce60e
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88717720"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96741551"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Opções de relatórios para o gerenciamento de senhas do Azure AD
 
@@ -27,7 +27,7 @@ Após a implantação, muitas organizações desejam saber como ou se a SSPR (re
 As perguntas a seguir podem ser respondidas pelos relatórios existentes no [Portal do Azure](https://portal.azure.com/):
 
 > [!NOTE]
-> Você deve ser [administrador global](../users-groups-roles/directory-assign-admin-roles.md) e aceitar a coleta desses dados em nome de sua organização. Para aceitar, você deve visitar a guia **Relatórios** ou os logs de auditoria pelo menos uma vez. Até lá, os dados não serão coletados para a sua organização.
+> Você deve ser [administrador global](../roles/permissions-reference.md) e aceitar a coleta desses dados em nome de sua organização. Para aceitar, você deve visitar a guia **Relatórios** ou os logs de auditoria pelo menos uma vez. Até lá, os dados não serão coletados para a sua organização.
 >
 
 * Quantas pessoas foram registradas para a redefinição de senhas?
@@ -181,7 +181,7 @@ A seguinte lista explica essa atividade em detalhes:
 * [Quais são as opções de política com o SSPR?](concept-sspr-policy.md)
 * [O que é o write-back de senha e por que devo me importar com isso?](./tutorial-enable-sspr-writeback.md)
 * [Quais são todas as opções no SSPR e o que elas significam?](concept-sspr-howitworks.md)
-* [Acho que algo não está funcionando. Como faço para solucionar o problema no SSPR?](active-directory-passwords-troubleshoot.md)
+* [Acho que algo não está funcionando. Como faço para solucionar o problema no SSPR?](./troubleshoot-sspr.md)
 * [Tenho uma pergunta que não foi respondida em nenhum lugar](active-directory-passwords-faq.md)
 
 [Reporting]: ./media/howto-sspr-reporting/sspr-reporting.png "Exemplo de logs de auditoria da atividade de SSPR no Azure AD"

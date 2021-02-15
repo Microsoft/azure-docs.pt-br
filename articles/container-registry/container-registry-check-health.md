@@ -4,10 +4,10 @@ description: Saiba como executar um comando de diagnóstico rápido para identif
 ms.topic: article
 ms.date: 07/02/2019
 ms.openlocfilehash: f27a99818260553cbd7ba26158db0064c145a21f
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88245376"
 ---
 # <a name="check-the-health-of-an-azure-container-registry"></a>Verificar a integridade de um registro de contêiner do Azure
@@ -19,7 +19,7 @@ Como uma primeira etapa de diagnóstico, execute o comando [AZ ACR check-Health]
 Para obter diretrizes adicionais de solução de problemas de registro, consulte:
 * [Solucionar problemas de logon do registro](container-registry-troubleshoot-login.md)
 * [Solucionar problemas de rede com o registro](container-registry-troubleshoot-access.md)
-* [Solucionar problemas de desempenho do registro](container-registry-troubleshoot-performance.md)
+* [Solucionar problemas de desempenho de registro](container-registry-troubleshoot-performance.md)
 
 ## <a name="run-az-acr-check-health"></a>Executar AZ ACR check-Health
 

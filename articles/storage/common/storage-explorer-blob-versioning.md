@@ -7,22 +7,22 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: chuye
-ms.openlocfilehash: d318983cec1365b71d14731395e71528621659d6
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: e20733cb4b93fcfac7606895746645727f12d6c8
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89051890"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92783820"
 ---
 # <a name="azure-storage-explorer-blob-versioning-guide"></a>Guia de controle de versão do blob Gerenciador de Armazenamento do Azure
 
-Gerenciador de Armazenamento do Microsoft Azure fornece acesso fácil e gerenciamento de versões de BLOB. Este guia ajudará você a entender como o controle de versão do blob funciona no Gerenciador de Armazenamento. Antes de continuar, é recomendável que você leia mais sobre o [controle de versão de blob](https://docs.microsoft.com/azure/storage/blobs/versioning-overview).
+Gerenciador de Armazenamento do Microsoft Azure fornece acesso fácil e gerenciamento de versões de BLOB. Este guia ajudará você a entender como o controle de versão do blob funciona no Gerenciador de Armazenamento. Antes de continuar, é recomendável que você leia mais sobre o [controle de versão de blob](../blobs/versioning-overview.md).
 
 ## <a name="terminology"></a>Terminologia
 
 Esta seção fornece algumas definições para ajudar a entender seu uso neste artigo.
 
-- Exclusão reversível: um recurso de proteção de dados automática alternativo. Você pode aprender mais sobre a exclusão reversível [aqui](https://docs.microsoft.com/azure/storage/blobs/soft-delete-blob-overview).
+- Exclusão reversível: um recurso de proteção de dados automática alternativo. Você pode aprender mais sobre a exclusão reversível [aqui](../blobs/soft-delete-blob-overview.md).
 - Blob ativo: uma versão de BLOB ou BLOB é criada no estado ativo. Você só pode operar em BLOBs ou em versões de blob no estado ativo.
 - Blob excluído de forma reversível: uma versão de BLOB ou BLOB marcada como excluída de forma reversível. Os BLOBs com exclusão reversível são mantidos apenas por seu período de retenção.
 - Versão do blob: um blob criado com o controle de versão do blob habilitado. Cada versão de blob é associada a uma ID de versão.
@@ -117,5 +117,5 @@ Cada versão de blob tem sua própria camada de acesso. Para alterar a camada de
 
 ## <a name="see-also"></a>Consulte Também
 
-* [Controle de versão de BLOB](https://docs.microsoft.com/azure/storage/blobs/versioning-overview)
-* [Exclusão reversível para blobs](https://docs.microsoft.com/azure/storage/blobs/soft-delete-blob-overview)
+* [Controle de versão de BLOB](../blobs/versioning-overview.md)
+* [Exclusão reversível para blobs](../blobs/soft-delete-blob-overview.md)

@@ -1,6 +1,6 @@
 ---
-title: Criar um aplicativo de monitoramento contínuo de pacientes no Azure IoT Central | Microsoft Docs
-description: Saiba como criar um aplicativo de monitoramento contínuo de pacientes usando os modelos de aplicativo do Azure IoT Central.
+title: Tutorial – Criar um aplicativo de monitoramento contínuo de pacientes no Azure IoT Central | Microsoft Docs
+description: Neste tutorial, você aprenderá criar um aplicativo de monitoramento contínuo de pacientes usando os modelos de aplicativo do Azure IoT Central.
 author: philmea
 ms.author: philmea
 ms.date: 09/24/2019
@@ -8,18 +8,16 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: 704c56745ad89e9ed2f79e8a863f1d0bc9845bf9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f98482a43516683499e83bebafe4eeadc5b7a8b7
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87001818"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832497"
 ---
 # <a name="tutorial-deploy-and-walkthrough-a-continuous-patient-monitoring-app-template"></a>Tutorial: Implantar e explorar um modelo de aplicativo de monitoramento contínuo de pacientes
 
-
-
-Este tutorial mostra como você, como criador de soluções, pode começar com a implantação de um modelo de aplicativo de monitoramento contínuo de pacientes IoT Central. Você aprenderá a implantar o modelo, saberá o que está incluído como pronto para uso e o que você poderá fazer em seguida.
+Este tutorial mostra como você, como criador de soluções, pode começar com a implantação de um modelo de aplicativo de monitoramento contínuo de pacientes IoT Central. Você aprenderá a implantar e usar o modelo.
 
 Neste tutorial, você aprenderá como:
 
@@ -27,14 +25,17 @@ Neste tutorial, você aprenderá como:
 > * Criar um modelo de aplicativo
 > * Explorar o modelo de aplicativo
 
+## <a name="prerequisites"></a>Pré-requisitos
+
+Uma assinatura do Azure é recomendada. Como alternativa, você pode usar uma avaliação gratuita de sete dias. Se você não tiver uma assinatura do Azure, poderá criar uma na [página de entrada do Azure](https://aka.ms/createazuresubscription).
+
 ## <a name="create-an-application-template"></a>Criar um modelo de aplicativo
 
-Navegue até o [site do Gerenciador de Aplicativos do Azure IoT Central](https://apps.azureiotcentral.com/). Selecione **Build** na barra de navegação à esquerda e, em seguida, clique na guia **Assistência médica**. 
+Navegue até o [site do Gerenciador de Aplicativos do Azure IoT Central](https://apps.azureiotcentral.com/). Selecione **Criar** na barra de navegação à esquerda e selecione a guia **Assistência médica**.
 
->[!div class="mx-imgBorder"] 
->![Gerenciador de aplicativos de assistência médica](media/app-manager-health.png)
+:::image type="content" source="media/app-manager-health.png" alt-text="Modelo de aplicativo de assistência médica":::
 
-Clique no botão **Criar aplicativo** para começar a criar seu aplicativo e, em seguida, entre com uma conta pessoal, corporativa ou de estudante da Microsoft. Você será levado à página **Novo aplicativo**.
+Selecione o botão **Criar aplicativo** para começar a criar seu aplicativo e entre com uma conta pessoal, corporativa ou de estudante da Microsoft. Você será levado à página **Novo aplicativo**.
 
 ![Criar aplicativo de serviços de saúde](media/app-manager-health-create.png)
 
@@ -52,7 +53,7 @@ Para criar seu aplicativo:
 
 ### <a name="dashboards"></a>Painéis
 
-Depois de implantar o modelo de aplicativo, primeiro, você aterrissará no **painel de monitoramento interno de pacientes da Lamna**. A Lamna Healthcare é um sistema hospitalar fictício que contém dois hospitais: o Woodgrove Hospital e o Burkville Hospital. Neste painel do operador do Woodgrove Hospital, você verá informações e telemetria sobre os dispositivos neste modelo, junto com um conjunto de comandos, trabalhos e ações que você poderá executar. No painel, você pode:
+Depois de implantar o modelo de aplicativo, primeiro, você aterrissará no **painel de monitoramento interno de pacientes da Lamna**. A Lamna Healthcare é um sistema hospitalar fictício que contém dois hospitais: o Woodgrove Hospital e o Burkville Hospital. No painel do operador do Woodgrove Hospital, você pode:
 
 * Ver propriedades e dados de telemetria do dispositivo, como o **nível de bateria** ou o **status de conectividade**.
 
@@ -64,75 +65,69 @@ Depois de implantar o modelo de aplicativo, primeiro, você aterrissará no **pa
 
 * Alterar o **status do paciente** de seu dispositivo para indicar se ele está sendo usado para um cenário interno no paciente ou remoto.
 
->[!div class="mx-imgBorder"] 
->![Interno no paciente da Lamna](media/lamna-in-patient.png)
+:::image type="content" source="media/lamna-in-patient.png" alt-text="Status interno do paciente":::
 
-Você também pode clicar em **Ir para o painel do paciente remoto** para ver o segundo painel do operador usado pelo Burkville Hospital. Esse painel contém um conjunto semelhante de ações, telemetria e informações. Além disso, você pode ver vários dispositivos sendo usados e pode **atualizar o firmware** de cada um.
+Você também pode selecionar **Ir para o painel de paciente remoto** para ver o painel do operador do Burkville Hospital. Esse painel contém um conjunto semelhante de ações, telemetria e informações. Você também pode ver vários dispositivos em uso e escolher **atualizar o firmware** em cada um.
 
->[!div class="mx-imgBorder"] 
->![Lamna remoto](media/lamna-remote.png)
-
-Nos dois painéis, você sempre poderá voltar a esta documentação.
+:::image type="content" source="media/lamna-remote.png" alt-text="Painel do operador remoto":::
 
 ### <a name="device-templates"></a>Modelos de dispositivo
 
-Se clicar na guia **Modelos de dispositivo**, você verá que há dois tipos diferentes de dispositivos que fazem parte do modelo:
+Se você selecionar **Modelos de dispositivo**, verá os dois tipos de dispositivo no modelo:
 
-* **Smart Vitals Patch**: Este dispositivo representa um adesivo que mede diferentes tipos de sinais vitais. Ele pode ser usado para monitorar pacientes dentro e fora do hospital. Se clicar no modelo, você verá que, além de enviar dados do dispositivo, como o nível da bateria e a temperatura, o patch também envia dados sobre a saúde do paciente, como a taxa respiratória e a pressão arterial.
+* **Smart Vitals Patch**: esse dispositivo representa um adesivo que mede diversos sinais vitais. Ele é usado para monitorar pacientes dentro e fora do hospital. Se você selecionar o modelo, verá que o adesivo envia dados do dispositivo, como o nível da bateria e a temperatura, e dados sobre a saúde do paciente, como a taxa respiratória e a pressão arterial.
 
-* **Smart Knee Brace**: este dispositivo representa uma cinta de joelho que os pacientes podem usar ao se recuperar de um cirurgia de substituição do joelho. Se clicar nesse modelo, você verá funcionalidades como amplitude de movimento e aceleração, além dos dados do dispositivo.
+* **Smart Knee Brace**: esse dispositivo representa uma joelheira que os pacientes usam ao se recuperarem de uma cirurgia de substituição do joelho. Se você selecionar esse modelo, verá funcionalidades como dados do dispositivo, amplitude de movimento e aceleração.
 
->[!div class="mx-imgBorder"] 
->![Modelo do dispositivo Smart Vitals Patch](media/smart-vitals-device-template.png)
+:::image type="content" source="media/smart-vitals-device-template.png" alt-text="Modelo de adesivo inteligente":::
 
-### <a name="device-groups"></a>Grupos de dispositivos 
-Os grupos de dispositivos permitem que você agrupe logicamente um conjunto de dispositivos para executar consultas em massa ou operações neles. 
+### <a name="device-groups"></a>Grupos de dispositivos
 
-Se você clicar na guia de grupos de dispositivos, verá que criamos alguns grupos de dispositivos padrão para cada um dos modelos de dispositivo no aplicativo. Perceba que também criamos dois grupos de dispositivos de exemplo adicionais chamados "Provisionar dispositivos" e "Dispositivos com firmware desatualizado". Usaremos esses grupos de dispositivos de exemplo como entradas para executar alguns [Trabalhos](#jobs).
+Use os grupos de dispositivos para agrupar logicamente um conjunto de dispositivos e executar operações ou consultas em massa neles.
+
+Se você selecionar a guia grupos de dispositivos, verá um grupo padrão para cada modelo de dispositivo no aplicativo. Também criamos dois grupos de dispositivos de exemplo adicionais chamados **Provisionar dispositivos** e **Dispositivos com firmware desatualizado**. Você pode usar esses grupos de dispositivos de exemplo como entradas para executar alguns [Trabalhos](#jobs) no aplicativo.
 
 ### <a name="rules"></a>Regras
 
-Acessando a guia de regras, você verá três regras que existem no modelo de aplicativo:
+Se você selecionar **Regras**, verá as três regras no modelo:
 
-* **Temperatura alta da cinta**: esta regra é disparada quando a temperatura do Smart Knee Brace é maior que 95&deg;F por um período de 5 minutos. Você pode usar essa regra para alertar o paciente e a equipe de atendimento e resfriar o dispositivo remotamente.
+* **Temperatura alta da cinta**: essa regra é disparada quando a temperatura do Smart Knee Brace é maior que 95&deg;F por um período de cinco minutos. Use essa regra para alertar o paciente e a equipe de atendimento e resfriar o dispositivo remotamente.
 
-* **Detecção de queda**: esta regra será disparada se for detectada uma queda do paciente. Você pode usar essa regra para configurar uma ação para acionar uma equipe operacional para auxiliar o paciente que caiu.
+* **Detecção de queda**: essa regra será disparada se for detectada uma queda do paciente. Use essa regra para configurar uma ação de acionamento de uma equipe operacional para auxiliar o paciente que caiu.
 
-* **Patch com pouca bateria**: esta regra é disparada quando o nível da bateria do dispositivo é inferior a 10%. Você pode usá-la para disparar uma notificação ao paciente para que ele carregue seu dispositivo.
+* **Patch com pouca bateria**: essa regra é disparada quando o nível da bateria do dispositivo é inferior a 10%. Use essa regra para disparar uma notificação ao paciente para que ele carregue o dispositivo.
 
->[!div class="mx-imgBorder"] 
->![Regra de temperatura alta da cinta](media/brace-temp-rule.png)
+:::image type="content" source="media/brace-temp-rule.png" alt-text="Regras":::
 
 ### <a name="jobs"></a>Trabalhos
 
-Os trabalhos permitem que você execute operações em massa em um conjunto de dispositivos, usando [grupos de dispositivos](#device-groups) como a entrada. Propagamos o modelo de aplicativo com dois trabalhos de exemplo que um operador de solução pode precisar executar em algum ponto do ciclo de vida dos dispositivos:
-* **Atualizar firmware da cinta de joelho**: esse trabalho encontrará dispositivos no grupo de dispositivos "dispositivos com firmware desatualizado" e executará um comando para atualizar esses dispositivos para a versão de firmware mais recente da cinta de joelho. Este trabalho de exemplo pressupõe que os dispositivos tenham funcionalidades para receber um comando de "atualização" e buscar os arquivos de firmware diretamente da nuvem.  
+Os trabalhos permitem que você execute operações em massa em um conjunto de dispositivos, usando [grupos de dispositivos](#device-groups) como a entrada. O modelo de aplicativo tem dois trabalhos de exemplo que um operador pode executar:
 
-* **Provisionar novamente os dispositivos**: se você tiver um conjunto de dispositivos que foram retornados recentemente para o hospital e precisam ser provisionados novamente para o próximo conjunto de pacientes, poderá executar esse trabalho para atualizar em massa seus dispositivos de provisionamento. Nesse caso, estamos colocando todos os dispositivos de um grupo de dispositivos chamado "provisionar dispositivos" e estamos executando um comando para "provisioná-los novamente". 
+* **Atualizar firmware da cinta de joelho**: esse trabalho encontra dispositivos no grupo **Dispositivos com firmware desatualizado** e executa um comando para atualizar esses dispositivos para a versão de firmware mais recente. Esse trabalho de exemplo pressupõe que os dispositivos podem lidar com um comando de **atualização** e buscar os arquivos de firmware na nuvem.  
+
+* **Provisionar novamente os dispositivos**: você tem um conjunto de dispositivos que foram retornados recentemente para o hospital. Esse trabalho localiza dispositivos no grupo **Provisionar dispositivos** e executa um comando para provisioná-los novamente para o próximo conjunto de pacientes.
 
 ### <a name="devices"></a>Dispositivos
 
-Clique na guia **Dispositivos** e, em seguida, selecione uma instância do **Smart Knee Brace**. Você verá que há três exibições para explorar informações sobre o dispositivo específico que você selecionou. Essas exibições são criadas e publicadas ao criar o modelo de dispositivo para seu dispositivo, o que significa que elas serão consistentes em todos os dispositivos que você conectar ou simular.
+Selecione **Dispositivos** e selecione uma instância do **Smart Knee Brace**. Há três exibições para explorar informações sobre o dispositivo específico que você selecionou. Essas exibições são criadas e publicadas ao criar o modelo de dispositivo para seu dispositivo. Portanto, essas exibições serão consistentes em todos os dispositivos que você conectar ou simular.
 
-A exibição de **Painel** fornece uma visão geral da telemetria e das propriedades provenientes do dispositivo que são orientadas pelo operador.
+A exibição de **Painel** fornece uma visão geral da telemetria e das propriedades do dispositivo orientadas pelo operador.
 
-A guia **Propriedades** permite que você edite propriedades de nuvem e as propriedades de leitura/gravação do dispositivo.
+A guia **Propriedades** permite editar propriedades de nuvem e as propriedades de leitura/gravação do dispositivo.
 
-A guia **Comandos** permite que você execute comandos que foram modelados como parte de seu modelo de dispositivo.
+A guia **Comandos** permite executar comandos no dispositivo.
 
->[!div class="mx-imgBorder"] 
->![Exibições da cinta de joelho](media/knee-brace-dashboard.png)
+:::image type="content" source="media/knee-brace-dashboard.png" alt-text="Painel de cinta de joelho":::
 
 ### <a name="data-export"></a>Exportação de dados
 
-A exportação de dados permite que você exporte seus dados do dispositivo IoT Central continuamente para outros serviços do Azure, incluindo a [API do Azure para FHIR](concept-continuous-patient-monitoring-architecture.md#export-to-azure-api-for-fhir).
+A exportação de dados permite exportar seus dados do dispositivo continuamente para outros serviços do Azure, incluindo a [API do Azure para FHIR](concept-continuous-patient-monitoring-architecture.md#export-to-azure-api-for-fhir).
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
 Caso não pretenda continuar usando esse aplicativo, exclua-o acessando **Administração > Configurações do aplicativo** e clicando em **Excluir**.
 
->[!div class="mx-imgBorder"] 
->![Excluir aplicativo](media/admin-delete.png)
+:::image type="content" source="media/admin-delete.png" alt-text="Recursos organizados":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

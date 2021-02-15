@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/19/2020
+ms.date: 12/28/2020
 ms.author: jeedes
-ms.openlocfilehash: 0ebcb746e10ae910c695e52fb053fc5d0b316e70
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 2ab1f9ee6095dfc0f708ec33622aad6f70fcae65
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88543900"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98728501"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-opsgenie"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao OpsGenie
 
@@ -25,8 +25,6 @@ Neste tutorial, você aprenderá a integrar o OpsGenie ao Azure AD (Azure Active
 * Controlar no Azure AD quem tem acesso ao OpsGenie.
 * Permitir que os usuários sejam conectados automaticamente ao OpsGenie com as respectivas contas do Azure AD.
 * Gerenciar suas contas em um local central: o portal do Azure.
-
-Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -40,37 +38,36 @@ Para começar, você precisará dos seguintes itens:
 Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste.
 
 * O OpsGenie dá suporte ao SSO iniciado por **IdP**
-* Depois de configurar o OpsGenie, você poderá impor um controle de sessão, que fornece proteção contra exfiltração e infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-opsgenie-from-the-gallery"></a>Adição do OpsGenie da galeria
 
 Para configurar a integração do OpsGenie ao Azure AD, você precisa adicionar o OpsGenie a partir da galeria à sua lista de aplicativos SaaS gerenciados.
 
-1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
+1. Entre no portal do Azure usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
 1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory**.
 1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos**.
 1. Para adicionar um novo aplicativo, escolha **Novo aplicativo**.
 1. Na seção **Adicionar por meio da galeria**, digite **OpsGenie** na caixa de pesquisa.
 1. Escolha **OpsGenie** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-opsgenie"></a>Configurar e testar o logon único do Azure AD para o OpsGenie
+## <a name="configure-and-test-azure-ad-sso-for-opsgenie"></a>Configurar e testar o SSO do Azure AD para o OpsGenie
 
 Configure e teste o SSO do Azure AD com o OpsGenie usando um usuário de teste chamado **B.Fernandes**. Para que o SSO funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do OpsGenie.
 
-Para configurar e testar o SSO do Azure AD com o OpsGenie, conclua os seguintes blocos de construção:
+Para configurar e testar o SSO do Azure AD com o OpsGenie, execute as seguintes etapas:
 
 1. **[Configurar o SSO do Azure AD](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
-    * **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** para testar o logon único do Azure AD com B.Fernandes.
-    * **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que B.Fernandes use o logon único do Azure AD.
+    1. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** para testar o logon único do Azure AD com B.Fernandes.
+    1. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que B.Fernandes use o logon único do Azure AD.
 1. **[Configurar o SSO do OpsGenie](#configure-opsgenie-sso)** : para definir as configurações de logon único no lado do aplicativo.
-    * **[Criar um usuário de teste do OpsGenie](#create-opsgenie-test-user)** : para ter um equivalente de B.Fernandes no OpsGenie que esteja vinculado à representação de usuário do Azure AD.
+    1. **[Criar um usuário de teste do OpsGenie](#create-opsgenie-test-user)** : para ter um equivalente de B.Fernandes no OpsGenie que esteja vinculado à representação de usuário do Azure AD.
 1. **[Testar o SSO](#test-sso)** – para verificar se a configuração funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
 Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **OpsGenie**, localize a seção **Gerenciar** e escolha **Logon único**.
+1. No portal do Azure, na página de integração de aplicativos do **OpsGenie**, localize a seção **Gerenciar** e escolha **Logon único**.
 1. Na página **Selecionar um método de logon único**, escolha **SAML**.
 1. Na página **Configurar o logon único com o SAML**, clique no ícone de edição/caneta da **Configuração Básica do SAML** para editar as configurações.
 
@@ -113,19 +110,23 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 1. Na lista de aplicativos, selecione **OpsGenie**.
 1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e escolha **Usuários e grupos**.
 
-   ![O link “Usuários e grupos”](common/users-groups-blade.png)
-
 1. Escolha **Adicionar usuário** e, em seguida, **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
 
-    ![O link Adicionar Usuário](common/add-assign-user.png)
-
 1. Na caixa de diálogo **Usuários e grupos**, selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
-1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função**, escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
+1. Se você estiver esperando que uma função seja atribuída aos usuários, escolha-a na lista suspensa **Selecionar uma função**. Se nenhuma função tiver sido configurada para esse aplicativo, você verá a função "Acesso Padrão" selecionada.
 1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
 ## <a name="configure-opsgenie-sso"></a>Configurar o SSO do OpsGenie
 
-1. Abra outra instância do navegador e, em seguida, entre no OpsGenie como administrador.
+1. Para automatizar a configuração no OpsGenie, é necessário instalar a **Extensão do navegador de Entrada Segura dos Meus Aplicativos**, clicando em **Instalar a extensão**.
+
+    ![Extensão Meus Aplicativos](common/install-myappssecure-extension.png)
+
+2. Depois de adicionar a extensão ao navegador, clique em **Configurar o OpsGenie** e você será direcionado ao aplicativo OpsGenie. Nele, forneça as credenciais de administrador para entrar no OpsGenie. A extensão do navegador configurará automaticamente o aplicativo e automatizará as etapas de 3 a 7.
+
+    ![Configuração da instalação](common/setup-sso.png)
+
+3. Se desejar configurar o OpsGenie manualmente, em uma janela diferente do navegador da Web, entre no site da empresa do OpsGenie como administrador.
 
 2. Clique em **Configurações** e na guia **Logon único**.
    
@@ -133,21 +134,21 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
 3. Para habilitar o SSO, selecione **Habilitado**.
    
-    ![Configurações do OpsGenie](./media/opsgenie-tutorial/tutorial-opsgenie-07.png) 
+    ![Uma captura de tela que mostra a caixa de seleção "Habilitado" selecionada.](./media/opsgenie-tutorial/tutorial-opsgenie-07.png) 
 
 4. Na seção **Provedor**, clique na guia **Azure Active Directory**.
    
-    ![Configurações do OpsGenie](./media/opsgenie-tutorial/tutorial-opsgenie-08.png) 
+    ![Uma captura de tela que mostra a seção "Provedor" com a guia "Azure Active Directory" selecionada.](./media/opsgenie-tutorial/tutorial-opsgenie-08.png) 
 
 5. Na página de diálogo Azure Active Directory, execute as seguintes etapas:
    
-    ![Configurações do OpsGenie](./media/opsgenie-tutorial/tutorial-opsgenie-09.png)
+    ![Uma captura de tela que mostra a seção "Logon único" com a alternância "Habilitar logon único", além de "Ponto de extremidade do SAML 2.0" e "URL de metadados".](./media/opsgenie-tutorial/tutorial-opsgenie-09.png)
     
     a. Copie o valor do **URI da ID do Aplicativo** e cole-o na caixa de texto **Identificador (ID da Entidade)** da seção **Configuração Básica do SAML** no portal do Azure.
 
     a. Copie o valor da **URL de Reposta** e cole-o na caixa de texto **URL de Resposta** da seção **Configuração Básica do SAML** no portal do Azure.
 
-    a. Na caixa de texto **Ponto de Extremidade do SAML 2.0**, cole o valor da **URL de Logon**copiado do portal do Azure.
+    a. Na caixa de texto **Ponto de Extremidade do SAML 2.0**, cole o valor da **URL de Logon** copiado do portal do Azure.
     
     b. Na caixa de texto **URL de Metadados:** , cole o valor da **URL de metadados de federação do aplicativo** que você copiou do Portal do Azure.
     
@@ -169,7 +170,7 @@ O objetivo desta seção é criar um usuário chamado B.Fernandes no OpsGenie.
 
 4. No diálogo **Adicionar Usuário** , realize as seguintes etapas:
    
-    ![Configurações do OpsGenie](./media/opsgenie-tutorial/tutorial-opsgenie-11.png)
+    ![Uma captura de tela que mostra a caixa de diálogo "Adicionar Usuário" com as caixas de texto "Email" e "Nome completo" realçadas, bem como o botão "Salvar" selecionado.](./media/opsgenie-tutorial/tutorial-opsgenie-11.png)
    
     a. Na caixa de texto **Email**, digite o endereço de email de B.Fernandes endereçado no Azure Active Directory.
    
@@ -182,18 +183,12 @@ O objetivo desta seção é criar um usuário chamado B.Fernandes no OpsGenie.
 
 ## <a name="test-sso"></a>Testar o SSO 
 
-Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
+Nesta seção, você testará a configuração de logon único do Azure AD com as opções a seguir.
 
-Ao clicar no bloco do OpsGenie no Painel de Acesso, você deverá ser conectado automaticamente ao OpsGenie para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Clique em Testar este aplicativo no portal do Azure e você deverá ser conectado automaticamente ao OpsGenie para o qual configurou o SSO
 
-## <a name="additional-resources"></a>Recursos adicionais
+* Você pode usar os Meus Aplicativos da Microsoft. Ao clicar no bloco do OpsGenie nos Meus Aplicativos, você deverá ser conectado automaticamente ao OpsGenie para o qual configurou o SSO. Para obter mais informações sobre os Meus Aplicativos, confira [Introdução aos Meus Aplicativos](../user-help/my-apps-portal-end-user-access.md).
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+## <a name="next-steps"></a>Próximas etapas
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
-
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
-- [Experimentar o OpsGenie com o Azure AD](https://aad.portal.azure.com/)
-
-- [O que é controle de sessão no Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+* Depois de configurar o OpsGenie, você poderá impor um controle de sessão, que fornece proteção contra exfiltração e infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

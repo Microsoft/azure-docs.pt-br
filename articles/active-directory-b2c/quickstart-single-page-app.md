@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Configurar a entrada para um SPA (aplicativo de página única)'
+title: 'Início rápido: configurar a entrada para um SPA (aplicativo de página única)'
 titleSuffix: Azure AD B2C
 description: Neste Início Rápido, execute um aplicativo de página única de exemplo que usa o Azure Active Directory B2C para fornecer a entrada na conta.
 services: active-directory-b2c
@@ -11,14 +11,14 @@ ms.topic: quickstart
 ms.date: 04/04/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: db18c71b09cd9beb58799ad4fbcbc944061153fb
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 6471d1b5a5ad2b8ba34080ae1220872fa0e2e232
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87921751"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421049"
 ---
-# <a name="quickstart-set-up-sign-in-for-a-single-page-app-using-azure-active-directory-b2c"></a>Início Rápido: configurar a entrada para um aplicativo de página única usando o Azure Active Directory B2C
+# <a name="quickstart-set-up-sign-in-for-a-single-page-app-using-azure-active-directory-b2c"></a>Início rápido: configurar a entrada para um aplicativo de página única usando o Azure Active Directory B2C
 
 O Azure AD B2C (Azure Active Directory B2C) fornece gerenciamento de identidades de nuvem para manter seu aplicativo, sua empresa e seus clientes protegidos. O Azure AD B2C permite que seus aplicativos se autentiquem com contas sociais e corporativas usando protocolos padrão. Neste início rápido, você usa um aplicativo de página única para se conectar usando um provedor de identidade de redes sociais e chama uma API Web do Azure AD B2C protegida.
 
@@ -29,12 +29,12 @@ O Azure AD B2C (Azure Active Directory B2C) fornece gerenciamento de identidades
 - [Visual Studio Code](https://code.visualstudio.com/)
 - [Node.js](https://nodejs.org/en/download/)
 - Uma conta social do Facebook, do Google ou da Microsoft
-- Exemplo de código do GitHub: [active-directory-b2c-javascript-msal-singlepageapp](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp)
+- Exemplo de código do GitHub: [ms-identity-b2c-javascript-spa](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa)
 
-    É possível [baixar os arquivos .zip](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp/archive/master.zip) ou clonar o repositório:
+    É possível [baixar os arquivos .zip](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa/archive/main.zip) ou clonar o repositório:
 
     ```console
-    git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp.git
+    git clone https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa.git
     ```
 
 ## <a name="run-the-application"></a>Executar o aplicativo
@@ -42,7 +42,6 @@ O Azure AD B2C (Azure Active Directory B2C) fornece gerenciamento de identidades
 1. Inicie o servidor executando os seguintes comandos no prompt de comando do Node.js:
 
     ```console
-    cd active-directory-b2c-javascript-msal-singlepageapp
     npm install && npm update
     npm start
     ```
@@ -60,7 +59,7 @@ O Azure AD B2C (Azure Active Directory B2C) fornece gerenciamento de identidades
 ## <a name="sign-in-using-your-account"></a>Iniciar sessão usando sua conta
 
 1. Selecione **Entrar** para iniciar o percurso do usuário.
-1. O Azure AD B2C apresenta uma página de entrada para uma empresa fictícia chamada Fabrikam para o aplicativo Web de exemplo. Para inscrever-se usando um provedor de identidade social, selecione o botão do provedor de identidade que você deseja usar.
+1. O Azure AD B2C apresenta uma página de entrada para uma empresa fictícia chamada "Fabrikam" para o aplicativo Web de exemplo. Para inscrever-se usando um provedor de identidade social, selecione o botão do provedor de identidade que você deseja usar.
 
     ![Página de entrada ou inscrição mostrando os botões do provedor de identidade](./media/quickstart-single-page-app/sign-in-or-sign-up-spa.png)
 
@@ -76,7 +75,7 @@ Selecione **Chamar API** para que seu nome de exibição seja retornado da API W
 
 O aplicativo de página única inclui um token de acesso na solicitação para o recurso da API Web protegida.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Você pode usar o locatário do Azure AD B2C se planeja experimentar outros tutoriais ou inícios rápidos do Azure AD B2C. Quando não for mais necessário, você poderá [excluir o locatário do Azure AD B2C](faq.md#how-do-i-delete-my-azure-ad-b2c-tenant).
 

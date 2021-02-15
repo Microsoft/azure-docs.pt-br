@@ -3,17 +3,16 @@ title: Agregações do JavaScript definidas pelo usuário no Azure Stream Analyt
 description: Este artigo descreve como executar a mecânica de consulta avançada com agregações definidas pelo usuário do JavaScript no Azure Stream Analytics.
 author: rodrigoaatmicrosoft
 ms.author: rodrigoa
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2017
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 433b9ad0f86b84538163b142d762d4e2fb7e8159
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.custom: devx-track-js
+ms.openlocfilehash: e9695a268d1c6ec43a737afd36536e4ec2a41a41
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87430827"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98012471"
 ---
 # <a name="azure-stream-analytics-javascript-user-defined-aggregates"></a>Agregações definidas pelo usuário do JavaScript do Azure Stream Analytics
  
@@ -226,12 +225,12 @@ Crie um arquivo JSON local com o conteúdo abaixo, carregue o arquivo para o tra
 
 ## <a name="get-help"></a>Obter ajuda
 
-Para obter mais ajuda, experimente a nossa [página de Perguntas e Respostas da Microsoft do Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
+Para obter mais ajuda, experimente a nossa [página de Perguntas e Respostas da Microsoft do Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Introdução ao Stream Analytics do Azure](stream-analytics-introduction.md)
 * [Introdução ao uso do Stream Analytics do Azure](stream-analytics-real-time-fraud-detection.md)
 * [Dimensionar trabalhos do Stream Analytics do Azure](stream-analytics-scale-jobs.md)
-* [Referência de linguagem de consulta do Stream Analytics do Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Referência da API REST do gerenciamento do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Referência de linguagem de consulta do Stream Analytics do Azure](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Referência da API REST do gerenciamento do Stream Analytics do Azure](/rest/api/streamanalytics/)

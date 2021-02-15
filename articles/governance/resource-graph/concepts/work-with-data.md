@@ -1,15 +1,15 @@
 ---
 title: Trabalhar com grandes conjuntos de dados
 description: Entenda como obter, formatar, paginar e ignorar registros em grandes conjuntos de dados enquanto estiver trabalhando com o Azure Resource Graph.
-ms.date: 08/10/2020
+ms.date: 01/27/2021
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5f3073986e424c641d884e1c2427d3d519658d37
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 1eaabfdd78712966f3b21d869259a312db31b7bc
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89005931"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98917683"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>Trabalhando com grandes conjuntos de dados de recurso do Azure
 
@@ -48,7 +48,7 @@ Atualmente, **First** tem um valor máximo permitido de _5000_, obtido através 
 A próxima opção para trabalhar com grandes conjuntos de dados é o controle **Skip**. Esse controle permite que sua consulta pule ou ignore o número definido de registros antes de retornar os resultados. **Skip** é útil para consultas que classificam os resultados de uma maneira significativa, em que a intenção é chegar a registros em algum lugar no meio do conjunto de resultados. Se os resultados necessários estão no final do conjunto de dados retornado, é mais eficiente usar uma configuração de classificação diferente e, em vez disso, recuperar os resultados da parte superior do conjunto de dados.
 
 > [!NOTE]
-> É recomendável ordenar os resultados em pelo menos uma coluna com `asc` ou `desc` quando **Skip** for usado. Os resultados retornados são aleatórios e não podem ser repetidos quando não são classificados.
+> É recomendável ordenar os resultados em pelo menos uma coluna com `asc` ou `desc` quando **Skip** for usado. Os resultados retornados são aleatórios e não podem ser repetidos quando não são classificados. Se `limit` ou `take` forem usados na consulta, **Skip** será ignorado.
 
 Os exemplos a seguir mostram como ignorar os primeiros _10_ registros em que uma consulta resultaria, começando em vez disso o conjunto de resultados pelo 11º registro:
 
@@ -65,7 +65,7 @@ Na [API REST](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resources/r
 ## <a name="paging-results"></a>Resultados da paginação
 
 Quando é necessário dividir um conjunto de resultados em conjuntos de registros menores para processamento ou porque um conjunto de resultados excede o valor máximo permitido de _1000_ registros retornados, use paginação. O QueryResponse da [API REST](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resources/resources) 
- **QueryResponse** fornece valores para indicar que um conjunto de resultados foi dividido: **resultTruncated** e **$skipToken**. **resultTruncated** é um valor booliano que informa ao consumidor se existem registros adicionais não retornados na resposta. Essa condição também pode ser identificada quando a propriedade **count** é menor do que a propriedade **totalRecords**. **totalRecords** define quantos registros correspondem à consulta.
+  fornece valores para indicar que um conjunto de resultados foi dividido: **resultTruncated** e **$skipToken**. **resultTruncated** é um valor booliano que informa ao consumidor se há mais registros não retornados na resposta. Essa condição também pode ser identificada quando a propriedade **count** é menor do que a propriedade **totalRecords**. **totalRecords** define quantos registros correspondem à consulta.
 
  **resultTruncated** é **true** quando a paginação está desabilitada ou não é possível porque nenhuma `id` coluna ou quando há menos recursos disponíveis do que uma consulta está solicitando. Quando **resultTruncated** é **true**, a propriedade **$skipToken** não é definida.
 
@@ -94,7 +94,7 @@ Os resultados de CLI do Azure são fornecidos, por padrão, em JSON. Os resultad
 
 O formato padrão, _Table_, retorna resultados em um formato JSON projetado para realçar o design da coluna e os valores da linha das propriedades retornadas pela consulta. Esse formato se assemelha bastante aos dados apresentados em uma tabela ou planilha estruturada, com as colunas identificadas primeiro e, em seguida, cada linha representando os dados alinhados a essas colunas.
 
-A seguir está um exemplo de um resultado de consulta com a formatação _Table_:
+Aqui está um exemplo de um resultado de consulta com a formatação de _tabela_ :
 
 ```json
 {
@@ -136,7 +136,7 @@ A seguir está um exemplo de um resultado de consulta com a formatação _Table_
 
 O formato _ObjectArray_ também retorna resultados em um formato JSON. No entanto, esse design é semelhante ao relacionamento do par chave/valor comum em JSON, com a correspondência dos dados da coluna e da linha em grupos de matrizes.
 
-A seguir está um exemplo de um resultado de consulta com a formatação _ObjectArray_:
+Aqui está um exemplo de um resultado de consulta com a formatação _objectarray_ :
 
 ```json
 {

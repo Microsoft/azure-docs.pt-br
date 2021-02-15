@@ -1,19 +1,16 @@
 ---
 title: 'Tutorial: Usar o Apache HBase no Azure HDInsight'
 description: Siga este tutorial do Apache HBase para começar a usar o hadoop no HDInsight. Criar tabelas a partir do shell do HBase e consultá-las usando o Hive.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 04/14/2020
-ms.openlocfilehash: a19e2c6647f1ff072c61044e8e5777d5d3f8d2db
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.date: 01/22/2021
+ms.openlocfilehash: 05e40dd38fc7111521b600908cda38084249e4de
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85958354"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98936062"
 ---
 # <a name="tutorial-use-apache-hbase-in-azure-hdinsight"></a>Tutorial: Usar o Apache HBase no Azure HDInsight
 
@@ -32,7 +29,7 @@ Neste tutorial, você aprenderá como:
 
 * Um cliente SSH. Para saber mais, confira [Conectar-se ao HDInsight (Apache Hadoop) usando SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-* Bash. Os exemplos neste artigo usam o shell Bash no Windows 10 para os comandos de cURL. Confira o [Guia de instalação do subsistema do Windows para Linux para o Windows 10](https://docs.microsoft.com/windows/wsl/install-win10) para conhecer as etapas de instalação.  Outros [shells do Unix](https://www.gnu.org/software/bash/) também funcionarão.  Os exemplos de cURL, com algumas pequenas modificações, podem funcionar em um prompt de comando do Windows.  Ou é possível usar o cmdlet do Windows PowerShell [Invoke-RestMethod](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-restmethod).
+* Bash. Os exemplos neste artigo usam o shell Bash no Windows 10 para os comandos de cURL. Confira o [Guia de instalação do subsistema do Windows para Linux para o Windows 10](/windows/wsl/install-win10) para conhecer as etapas de instalação.  Outros [shells do Unix](https://www.gnu.org/software/bash/) também funcionarão.  Os exemplos de cURL, com algumas pequenas modificações, podem funcionar em um prompt de comando do Windows.  Ou é possível usar o cmdlet do Windows PowerShell [Invoke-RestMethod](/powershell/module/microsoft.powershell.utility/invoke-restmethod).
 
 ## <a name="create-apache-hbase-cluster"></a>Criar cluster do Apache HBase
 
@@ -207,9 +204,51 @@ Você pode consultar os dados nas tabelas do HBase usando [Apache Hive](https://
 
 1. Para sair da sua conexão ssh, use `exit`.
 
+### <a name="separate-hive-and-hbase-clusters"></a>Separar clusters do Hive e do HBase
+
+A consulta de Hive para acessar dados do HBase não precisa ser executada do cluster do HBase. Qualquer cluster fornecido com o Hive (incluindo Spark, Hadoop, HBase ou Interactive Query) pode ser usado para consultar dados do HBase, desde que as seguintes etapas sejam concluídas:
+
+1. Ambos os clusters devem ser anexados à mesma Rede Virtual e Sub-rede
+2. Copie `/usr/hdp/$(hdp-select --version)/hbase/conf/hbase-site.xml` dos nós de cabeçalho do cluster do HBase para os nós de cabeçalho do cluster do Hive
+
+### <a name="secure-clusters"></a>Clusters seguros
+
+Os dados do HBase também podem ser consultados no Hive usando o HBase habilitado para ESP: 
+
+1. Ao seguir um padrão com vários clusters, ambos os clusters devem ser habilitados para ESP. 
+2. Para permitir que o Hive consulte dados do HBase, verifique se o usuário `hive` recebeu permissões para acessar dados do HBase por meio do plug-in HBase Apache Ranger
+3. Ao usar clusters separados habilitados para ESP, o conteúdo de `/etc/hosts` do cluster dos nós de cabeçalho do HBase deve ser acrescentado a `/etc/hosts` dos nós de cabeçalho do cluster do Hive. 
+> [!NOTE]
+> Após o dimensionamento dos clusters, `/etc/hosts` deve ser acrescentado novamente
+
 ## <a name="use-hbase-rest-apis-using-curl"></a>Usar APIs de REST do HBase usando Curl
 
 A API REST é protegida por meio de [autenticação básica](https://en.wikipedia.org/wiki/Basic_access_authentication). Você deve sempre fazer solicitações usando HTTPS (HTTP seguro) para ajudar a garantir que suas credenciais sejam enviadas com segurança para o servidor.
+
+1. Para habilitar as APIs REST do HBase no cluster do HDInsight, adicione o script de inicialização personalizado a seguir à seção **Ação de Script**. Você pode adicionar o script de inicialização ao criar o cluster ou após ele ter sido criado. Para **Tipo de Nó**, selecione **Servidores de Região** para garantir que o script seja executado somente nos Servidores de Região do HBase.
+
+
+    ```bash
+    #! /bin/bash
+
+    THIS_MACHINE=`hostname`
+
+    if [[ $THIS_MACHINE != wn* ]]
+    then
+        printf 'Script to be executed only on worker nodes'
+        exit 0
+    fi
+
+    RESULT=`pgrep -f RESTServer`
+    if [[ -z $RESULT ]]
+    then
+        echo "Applying mitigation; starting REST Server"
+        sudo python /usr/lib/python2.7/dist-packages/hdinsight_hbrest/HbaseRestAgent.py
+    else
+        echo "Rest server already running"
+        exit 0
+    fi
+    ```
 
 1. Defina a variável de ambiente para facilitar o uso. Edite os comandos abaixo substituindo `MYPASSWORD` pela senha de logon do cluster. Substitua `MYCLUSTERNAME` pelo nome do cluster do HBase. Em seguida, insira os comandos.
 
@@ -302,9 +341,15 @@ O HBase em HDInsight é fornecido com uma interface do usuário da Web para moni
    - tarefas
    - atributos de software
 
+## <a name="cluster-recreation"></a>Recriação de clusters
+
+Depois que um cluster HBase for excluído, você pode criar outro cluster HBase usando o mesmo contêiner de blob padrão. O novo cluster seleciona as tabelas HBase criadas por você no cluster original. No entanto, é recomendável desabilitar as tabelas HBase antes de excluir o cluster para evitar inconsistências. 
+
+Use o comando `disable 'Contacts'` do HBase. 
+
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-É recomendável desabilitar as tabelas HBase antes de excluir o cluster para evitar inconsistências. Use o comando `disable 'Contacts'` do HBase. Se não for continuar usando este aplicativo, exclua o cluster do HBase que você criou seguindo estas etapas:
+Se não for continuar usando este aplicativo, exclua o cluster do HBase que você criou seguindo estas etapas:
 
 1. Entre no [portal do Azure](https://portal.azure.com/).
 1. Na caixa **Pesquisar** na parte superior, digite **HDInsight**.

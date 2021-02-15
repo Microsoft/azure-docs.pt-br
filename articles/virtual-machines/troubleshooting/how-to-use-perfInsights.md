@@ -1,7 +1,7 @@
 ---
 title: Como usar PerfInsights no Microsoft Azure | Microsoft Docs
 description: Aprenda a usar o PerfInsights para solucionar problemas de desempenho da VM do Windows.
-services: virtual-machines-windows'
+services: virtual-machines-windows
 documentationcenter: ''
 author: anandhms
 manager: dcscontentpm
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 7abff8c33ea276b8b8aaeffd010d5f5e09440d9b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9e298bf39446024f384b9af142fe3000e936bb6d
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86526632"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656845"
 ---
 # <a name="how-to-use-perfinsights-in-azure"></a>Como usar o PerfInsights no Azure
 
@@ -80,8 +80,8 @@ Este cenário executa uma captura de contador de desempenho especial junto com u
 |              | Média de leitura/s                 |
 |              | Média de gravação/s                |
 | Tamanho de E/S      | Média de bytes/solicitação de dados       |
-|              | Média de bytes/leitura               |
-|              | Média de bytes/gravação              |
+|              | Méd. de Bytes/leitura               |
+|              | Méd. de Bytes/gravação              |
 | Taxa de transferência   | Bytes de dados/s                |
 |              | Bytes de leitura/s                |
 |              | Bytes de gravação/s               |
@@ -118,15 +118,15 @@ São coletadas informações sobre a VM do Windows, a configuração de discos o
 | Configuração do SQL Server          | Sim                        | Sim                                | Sim                      | Sim                  | Sim                  |
 | Rastreamentos de diagnóstico de desempenho *  | Sim                        | Sim                                | Sim                      | Sim                  | Sim                  |
 | Rastreamento do contador de desempenho **      |                            |                                    | Sim                      |                      | Sim                  |
-| Rastreamento do contador SMB **              |                            |                                    |                          | Sim                  |                      |
+| Rastreamento do contador SMB **              |                            |                                    |                          | Yes                  |                      |
 | Rastreamento do contador do SQL Server **       |                            |                                    | Sim                      |                      | Sim                  |
-| Rastreamento de XPerf                       |                            |                                    |                          |                      | Sim                  |
-| Rastreamento de StorPort                    |                            |                                    |                          |                      | Sim                  |
+| Rastreamento de XPerf                       |                            |                                    |                          |                      | Yes                  |
+| Rastreamento de StorPort                    |                            |                                    |                          |                      | Yes                  |
 | Rastreamento de rede                     |                            |                                    |                          | Sim                  | Sim                  |
-| Rastreamento de parâmetro de comparação de Diskspd ***       |                            | Sim                                |                          |                      |                      |
+| Rastreamento de benchmark Diskspd * * _       |                            | Yes                                |                          |                      |                      |
 |       |                            |                         |                                                   |                      |                      |
 
-### <a name="performance-diagnostics-trace-"></a>Rastreamento de diagnóstico de desempenho (*)
+### <a name="performance-diagnostics-trace-_"></a>Rastreamento de diagnóstico de desempenho (_)
 
 Executa um mecanismo baseado em regras no segundo plano para coletar dados e diagnosticar problemas de desempenho em andamento. No momento, há suporte para regras a seguir:
 
@@ -154,7 +154,7 @@ Coleta os seguintes contadores de desempenho:
 #### <a name="for-azure-files"></a>Para Arquivos do Azure
 \SMB Client Shares
 
-### <a name="diskspd-benchmark-trace-"></a>Rastreamento de parâmetro de comparação de Diskspd (***)
+### <a name="diskspd-benchmark-trace-_"></a>Rastreamento de parâmetro de comparação Diskspd (* * _)
 Testes de carga de trabalho de E/S do Diskspd (disco do SO [gravação] e unidades de pool [leitura/gravação])
 
 ## <a name="run-the-perfinsights-tool-on-your-vm"></a>Executar a ferramenta PerfInsights em sua VM
@@ -165,7 +165,14 @@ Testes de carga de trabalho de E/S do Diskspd (disco do SO [gravação] e unidad
 
 -  Esta ferramenta deve ser executada na VM que tem o problema de desempenho. 
 
--  Há suporte para os seguintes sistemas operacionais: Windows Server 2008 R2, Windows Server 2012 e Windows Server 2012 R2, Windows Server 2016; Windows 8.1 e Windows 10.
+-  Há suporte para os seguintes sistemas operacionais: _ Windows Server 2019
+   * Windows Server 2016
+   * Windows Server 2012 R2
+   * Windows Server 2012
+   * Windows Server 2008 R2
+   * Windows 10
+   * Windows 8.1
+   * Windows 8
 
 #### <a name="possible-problems-when-you-run-the-tool-on-production-vms"></a>Possíveis problemas ao executar a ferramenta em VMs de produção
 
@@ -251,8 +258,8 @@ No arquivo **PerformanceDiagnostics\_yyyy-MM-dd\_hh-mm-ss-fff.zip**, é possíve
 
 Selecione a guia **Descobertas**.
 
-![Captura de tela do relatório PerfInsights](media/how-to-use-perfInsights/pi-finding-tab.png)
-![Captura de tela do relatório PerfInsights](media/how-to-use-perfInsights/pi-findings.png)
+![Captura de tela da guia Visão geral do relatório PerfInsights. ](media/how-to-use-perfInsights/pi-finding-tab.png)
+ ![ Captura de tela da guia armazenamento do relatório PerfInsights.](media/how-to-use-perfInsights/pi-findings.png)
 
 > [!NOTE] 
 > Constatações categorizadas como altas são problemas conhecidos que podem causar problemas de desempenho. Constatações categorizadas como médias representam configurações não adequadas que não necessariamente causam problemas de desempenho. Constatações categorizadas como lentas são declarações apenas informativas.
